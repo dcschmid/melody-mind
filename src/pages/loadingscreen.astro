@@ -7,8 +7,7 @@ import CoverShuffle from "../assets/cover-shuffle.png";
 <Layout title="Wilkommen zum Cover Shuffle">
   <div class="container">
     <Picture class="cover" src={CoverShuffle} formats={["avif", "webp"]} alt="" />
-    <div class="introText">Haben Sie das Zeug zum Plattensammler & Coverlover?</div>
-    <a class="button" href="/shuffle">Jetzt loslegen</a>
+    <a class="button" href="/gamehome">Jetzt loslegen</a>
   </div>
 </Layout>
 
@@ -20,16 +19,6 @@ import CoverShuffle from "../assets/cover-shuffle.png";
   .cover {
     width: 100%;
     height: auto;
-  }
-
-  .introText {
-    position: absolute;
-    top: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    right: 50%;
-    text-align: center;
-    width: 75%;
   }
 
   .button {

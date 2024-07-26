@@ -1,0 +1,47 @@
+---
+interface Props {
+  headline: string;
+  years: string;
+  image?: any;
+}
+
+const { headline = "", years = "", image } = Astro.props;
+
+import { Picture } from "astro:assets";
+---
+
+<div class="playlistItem">
+  <Picture class="cover" src={image} formats={["avif", "webp"]} alt="" />
+  <div class="headline">{headline}</div>
+  <div class="years">{years}</div>
+</div>
+
+<style>
+  .playlistItem {
+    width: 106px;
+  }
+
+  .cover {
+    border-radius: var(--radius-radius-rounded);
+  }
+
+  .headline {
+    color: var(--colour-text-primary);
+    leading-trim: both;
+    text-edge: cap;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
+  .years {
+    color: var(--colour-text-secondary);
+    leading-trim: both;
+    text-edge: cap;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+</style>
