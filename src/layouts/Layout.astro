@@ -1,5 +1,5 @@
 ---
-import Header from "../components/Header.astro";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   title: string;
@@ -19,7 +19,16 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <Header />
+    <header>
+      <slot name="left-headercol" />
+      <div>
+        <a href="/gamehome"><Icon name="cover-shuffle-logo" width={84} height={59.229} /></a>
+      </div>
+      <div class="iconGroup">
+        <Icon name="settings" width={24} height={22.24} />
+        <a href="/user"><Icon name="user" width={24} height={22.24} /></a>
+      </div>
+    </header>
 
     <main>
       <slot />
@@ -36,10 +45,18 @@ const { title } = Astro.props;
       --colour-text-secondary: #aeaeae;
       --radius-radius-rounded: 8px;
       --spacing-15: 12px;
+      --spacing-1: 8px;
+      --spacing-2: 16px;
       --spacing-3: 24px;
       --spacing-spacing-md: 24px;
       --spacing-spacing-s: 12px;
+      --spacing-spacing-xl: 40px;
       --spacing-spacing-xxs: 4px;
+      --spacing-spacing-xs: 8px;
+      --radius-radius-full: 128px;
+      --colour-BTN-verification: #2bdd6c;
+      --colour-text-BTN-primary: #1a0e38;
+      --colour-BTN-inverted: #1a0e38;
     }
 
     html {
@@ -53,6 +70,20 @@ const { title } = Astro.props;
       width: 480px;
       max-width: 100%;
       margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: top;
+      margin: var(--spacing-spacing-md) 0;
+    }
+
+    .iconGroup {
+      display: inline-flex;
+      align-items: top;
+      gap: var(--spacing-spacing-md);
     }
 
     main {

@@ -1,0 +1,30 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  buttonText?: string;
+  url?: string;
+  id?: string;
+}
+
+const { buttonText = "", url = "", id } = Astro.props;
+---
+
+<a id={id} class="button" href={url} class="button">
+  {buttonText}
+  <Icon name="next" width={24} height={24} />
+</a>
+
+<style>
+  .button {
+    border-radius: 128px;
+    background: #ffe500;
+    height: 24px;
+    padding: 12px 24px;
+    text-decoration: none;
+    color: #1a0e38;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

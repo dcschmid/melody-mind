@@ -1,0 +1,84 @@
+---
+interface Props {
+  band?: string;
+  album?: string;
+  year?: string;
+  image?: any;
+  order?: number;
+}
+
+const { band = "", year = "", album = "", order, image } = Astro.props;
+
+import { Picture } from "astro:assets";
+---
+
+<div class="resultItem">
+  <div class="place">{order}.</div>
+  <Picture class="cover" src={image} formats={["avif", "webp"]} alt="" />
+  <div class="band">{band}</div>
+  <div class="album">{album}</div>
+  <div class="year">{year}</div>
+</div>
+
+<style>
+  .resultItem {
+    position: relative;
+    width: 126px;
+    flex-direction: column;
+    display: flex;
+  }
+
+  .cover {
+    width: 126px;
+    height: 126px;
+  }
+
+  .band {
+    color: var(--colour-text-primary);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
+  .album {
+    color: var(--colour-text-secondary);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .place {
+    position: absolute;
+    right: -14px;
+    top: -14px;
+    border-radius: var(--radius-radius-full);
+    background: var(--colour-BTN-verification);
+    color: var(--colour-text-BTN-primary);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-spacing-xxs);
+    width: 31px;
+    height: 31px;
+  }
+
+  .year {
+    position: absolute;
+    top: 43px;
+    left: 20px;
+    padding: var(--spacing-spacing-xxs) var(--spacing-spacing-md);
+    border-radius: var(--radius-radius-full);
+    background: var(--colour-BTN-inverted);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 35.28px;
+  }
+</style>

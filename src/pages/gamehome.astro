@@ -3,6 +3,7 @@ import { Icon } from "astro-icon/components";
 
 import PlaylistItem from "../components/PlaylistItem.astro";
 import Layout from "../layouts/Layout.astro";
+import Help from "../components/HeaderItems/Help.astro";
 
 import KulturgutCover from "../assets/category/kulturgut.png";
 import PopRockCover from "../assets/category/poprock.png";
@@ -13,6 +14,7 @@ import HipHopCover from "../assets/category/hiphop.png";
 ---
 
 <Layout title="Spiel-Home">
+  <Help slot="left-headercol" />
   <div class="introText">
     <div class="headline">Willkommen <span class="name">Basti</span>!</div>
     <div class="subline">Wählen Sie eine <span class="whiteText">Playlist</span> zum spielen!</div>

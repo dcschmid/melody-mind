@@ -2,9 +2,13 @@
 import { Picture } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import PopRockCover from "../assets/category/poprock-big.png";
+import Button from "../components/Button.astro";
+import ThreeJoker from "../components/HeaderItems/ThreeJoker.astro";
 ---
 
 <Layout title="Spiel-Home">
+  <ThreeJoker slot="left-headercol" />
+
   <div class="introText">
     <div class="headline">PopRock gewählt!</div>
     <div class="subline">Lassen Sie die Energie fließen und rocken Sie mit!</div>
@@ -18,6 +22,10 @@ import PopRockCover from "../assets/category/poprock-big.png";
       Poprock vereint die eingängigen Melodien des Pop mit der Energie des Rock. Dieser Stil bringt emotionale Balladen
       und mitreißende Hits hervor, geprägt von vielseitigen Künstlern und Bands.
     </div>
+  </div>
+
+  <div class="centerButton">
+    <Button buttonText="weiter" url="/rounds/round-one" />
   </div>
 </Layout>
 
@@ -81,5 +89,11 @@ import PopRockCover from "../assets/category/poprock-big.png";
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
+  }
+
+  .centerButton {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-spacing-md);
   }
 </style>
