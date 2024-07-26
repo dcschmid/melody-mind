@@ -1,0 +1,85 @@
+---
+import { Picture } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import PopRockCover from "../assets/category/poprock-big.png";
+---
+
+<Layout title="Spiel-Home">
+  <div class="introText">
+    <div class="headline">PopRock gewählt!</div>
+    <div class="subline">Lassen Sie die Energie fließen und rocken Sie mit!</div>
+  </div>
+  <div class="category">
+    <div class="cover">
+      <Picture src={PopRockCover} formats={["avif", "webp"]} alt="" />
+    </div>
+    <div class="categoryHeadline">PopRock – 70er bis heute</div>
+    <div class="text">
+      Poprock vereint die eingängigen Melodien des Pop mit der Energie des Rock. Dieser Stil bringt emotionale Balladen
+      und mitreißende Hits hervor, geprägt von vielseitigen Künstlern und Bands.
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .introText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-15);
+    margin-bottom: var(--spacing-spacing-md);
+  }
+
+  .headline {
+    color: var(--colour-text-primary);
+    leading-trim: both;
+    text-edge: cap;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 120%; /* 28.8px */
+    letter-spacing: 0.36px;
+  }
+
+  .subline {
+    color: var(--colour-text-secondary, #aeaeae);
+    leading-trim: both;
+    text-edge: cap;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .category {
+    display: flex;
+    padding: var(--spacing-spacing-s) var(--spacing-spacing-s) var(--spacing-spacing-md) var(--spacing-spacing-s);
+    flex-direction: column;
+    gap: var(--spacing-spacing-md);
+    border-radius: var(--radius-radius-rounded);
+    background: var(--colour-BG-secondary);
+  }
+
+  .cover {
+    margin: 0 auto;
+  }
+
+  .categoryHeadline {
+    color: var(--colour-text-primary);
+    leading-trim: both;
+    text-edge: cap;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
+  .text {
+    color: var(--colour-text-primary);
+    leading-trim: both;
+    text-edge: cap;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+</style>
