@@ -1,13 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Picture } from "astro:assets";
-import InstaStory from "../assets/instastory.png";
+import ArdLogin from "../assets/ardlogin.png";
 ---
 
-<Layout title="Instastory">
+<Layout title="ARD Login">
   <div class="container">
-    <Picture class="cover" src={InstaStory} formats={["avif", "webp"]} alt="" />
-    <a class="button" href="/login"><span class="rainbowText">COVERSHUFFLE</span></a>
+    <Picture class="cover" src={ArdLogin} formats={["avif", "webp"]} alt="" />
+    <a class="button" href="/gamestart">Jetzt loslegen</a>
   </div>
 </Layout>
 
@@ -33,24 +33,19 @@ import InstaStory from "../assets/instastory.png";
 
   .button {
     position: absolute;
-    bottom: 4rem;
+    bottom: 10rem;
     left: 50%;
     transform: translateX(-50%);
-    background: #fff;
+    border-radius: 128px;
+    background: #96b0f5;
     height: 40px;
-    width; auto;
-    padding: 12px 24px;
+    width: 250px;
+    padding: 8px 24px;
     text-decoration: none;
     color: #1a0e38;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .rainbowText {
-    background: var(--Gradients-Rainbow, linear-gradient(90deg, #F1000F 0%, #FD8D32 18.97%, #F6CA5B 34.47%, #75C050 51.14%, #4498EB 65.72%, #3B47D7 82.39%, #921CBE 100%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-weight: 700;
   }
 </style>
