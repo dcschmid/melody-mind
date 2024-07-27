@@ -1,7 +1,73 @@
 ---
+import { Icon } from "astro-icon/components";
 import Layout from "../../layouts/Layout.astro";
+import { Picture } from "astro:assets";
+import FleetwoodMacCover from "../../assets/solutionscover/fleetwoodmac.png";
+import Button from "../../components/Button.astro";
 ---
 
 <Layout title="Spiel-Home">
   <div slot="left-headercol"></div>
+
+  <div class="solution">
+    <div class="cover">
+      <Picture src={FleetwoodMacCover} formats={["avif", "webp"]} alt="" />
+      <Icon class="share" name="share" width={48} height={48} />
+    </div>
+    <div class="headline">Fleetwood Mac – Rumours</div>
+    <div class="text">
+      Das Album „Rumours“ von Fleetwood Mac, das vom Rolling Stone als siebtbestes Album aller Zeiten ausgezeichnet
+      wurde, erlebte ein Revival durch ein virales TikTok-Video. In dem Video fährt ein Mann entspannt auf einem
+      Skateboard in den Sonnenuntergang, während er aus einer Saftpackung trinkt und der Song „Dreams“ im Hintergrund
+      spielt.
+    </div>
+  </div>
+
+  <div class="centerButton">
+    <Button buttonText="nächste Runde" url="" />
+  </div>
 </Layout>
+
+<style>
+  .solution {
+    display: flex;
+    padding: var(--spacing-spacing-s) var(--spacing-spacing-s) var(--spacing-spacing-md) var(--spacing-spacing-s);
+    flex-direction: column;
+    gap: var(--spacing-spacing-md);
+    border-radius: var(--radius-radius-rounded);
+    background: var(--colour-BG-secondary);
+  }
+
+  .cover {
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .share {
+    position: absolute;
+    bottom: -10px;
+    right: -25px;
+  }
+
+  .headline {
+    color: var(--colour-text-primary);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
+  .text {
+    color: var(--colour-text-primary);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .centerButton {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-spacing-md);
+  }
+</style>
