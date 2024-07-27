@@ -1,0 +1,142 @@
+---
+import { Icon } from "astro-icon/components";
+import Layout from "../../layouts/Layout.astro";
+import SnowPatrolCover from "../../assets/bandcover/snowPatrol.jpeg";
+import KellyClarksonCover from "../../assets/bandcover/kellyClarkson.jpeg";
+import NoDoubtCover from "../../assets/bandcover/noDoubt.jpg";
+import FleetWoodMacCover from "../../assets/bandcover/fleetwoodMac.jpg";
+import TriviaItem from "../../components/TriviaItem.astro";
+---
+
+<Layout title="Spiel-Home">
+  <div slot="left-headercol"></div>
+
+  <div class="introText">
+    <div class="headline">Runde 1 / 3 – Trivia Frage</div>
+    <div class="subline">Welches Album wurde vom Rolling Stone als siebtbestes aller Zeiten gewählt?</div>
+  </div>
+
+  <div class="trivia">
+    <a href="/trivia/trivia-one-lost">
+      <TriviaItem band="Snow Patrol" album="Eyes Open" image={SnowPatrolCover} />
+    </a>
+    <a href="/trivia/trivia-one-lost">
+      <TriviaItem band="Kelly Clarkson" album="Breakaway" image={KellyClarksonCover} />
+    </a>
+    <a href="/trivia/trivia-one-lost">
+      <TriviaItem band="No Doubt" album="Tragic Kingdom" image={NoDoubtCover} />
+    </a>
+    <a href="/trivia/trivia-one-won">
+      <TriviaItem band="Fleetwood Mac" album="Rumours" image={FleetWoodMacCover} />
+    </a>
+  </div>
+
+  <div class="timer">
+    <Icon name="clock" width={48} height={48} />
+    <span id="minutes">00</span>:<span id="seconds">30</span>
+  </div>
+</Layout>
+
+<style>
+  .overlay,
+  .overlay2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* ensures overlay is on top */
+    visibility: hidden;
+  }
+
+  .overlay-content,
+  .overlay2-content {
+    display: flex;
+    width: 366px;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-3);
+  }
+
+  .introText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-spacing-md);
+  }
+
+  .headline {
+    color: var(--colour-text-secondary);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
+  .subline {
+    width: 366px;
+    color: var(--colour-text-primary);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .trivia {
+    display: flex;
+    flex-wrap: wrap;
+    padding: var(--spacing-1) var(--spacing-spacing-xl) var(--spacing-15) var(--spacing-spacing-xl);
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-spacing-xl);
+  }
+
+  .timer {
+    padding: 24px 0 23px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 2px;
+    color: var(--colour-text-primary);
+  }
+</style>
+
+<script>
+  let timeRemaining = 30;
+  let timerInterval: number | null = null;
+
+  const minutesElement = document.getElementById("minutes")!;
+  const secondsElement = document.getElementById("seconds")!;
+
+  function updateTime() {
+    const minutes = Math.floor(timeRemaining / 60);
+    const seconds = timeRemaining % 60;
+
+    minutesElement.textContent = String(minutes).padStart(2, "0");
+    secondsElement.textContent = String(seconds).padStart(2, "0");
+
+    if (timeRemaining === 0) {
+      clearInterval(timerInterval!);
+    } else {
+      timeRemaining--;
+    }
+  }
+
+  function startTimer() {
+    timerInterval = window.setInterval(updateTime, 1000);
+  }
+
+  window.addEventListener("load", function (_event: Event): void {
+    startTimer();
+  });
+</script>

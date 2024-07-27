@@ -4,7 +4,7 @@ import { Picture } from "astro:assets";
 import InstaStory from "../assets/instastory.png";
 ---
 
-<Layout title="Instastory">
+<Layout title="Instastory" showHeader={false}>
   <div class="container">
     <Picture class="cover" src={InstaStory} formats={["avif", "webp"]} alt="" />
     <a class="button" href="/login"><span class="rainbowText">COVERSHUFFLE</span></a>

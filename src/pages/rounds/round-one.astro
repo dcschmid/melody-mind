@@ -126,36 +126,34 @@ import ThreeJoker from "../../components/HeaderItems/ThreeJoker.astro";
     line-height: normal;
     letter-spacing: 2px;
     color: var(--colour-text-primary);
-    leading-trim: both;
-    text-edge: cap;
   }
 </style>
 
 <script>
-  let timerInterval: any | undefined;
-  let minutes = 1;
-  let seconds = 59;
+  let timeRemaining = 120;
+  let timerInterval: number | null = null;
+
+  const minutesElement = document.getElementById("minutes")!;
+  const secondsElement = document.getElementById("seconds")!;
   const overlay2 = document.getElementById("overlay2");
 
-  function tick() {
-    if (seconds === 0) {
-      if (minutes === 0) {
-        clearInterval(timerInterval);
-        overlay2!.style.visibility = "visible";
-      } else {
-        minutes--;
-        seconds = 59;
-      }
-    } else {
-      seconds--;
-    }
+  function updateTime() {
+    const minutes = Math.floor(timeRemaining / 60);
+    const seconds = timeRemaining % 60;
 
-    document.getElementById("minutes")!.textContent = String(minutes).padStart(2, "0");
-    document.getElementById("seconds")!.textContent = String(seconds).padStart(2, "0");
+    minutesElement.textContent = String(minutes).padStart(2, "0");
+    secondsElement.textContent = String(seconds).padStart(2, "0");
+
+    if (timeRemaining === 0) {
+      clearInterval(timerInterval!);
+      overlay2!.style.visibility = "visible";
+    } else {
+      timeRemaining--;
+    }
   }
 
   function startTimer() {
-    timerInterval = setInterval(tick, 1000);
+    timerInterval = window.setInterval(updateTime, 1000);
   }
 
   window.addEventListener("load", function (_event: Event): void {

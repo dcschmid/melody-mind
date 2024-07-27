@@ -2,31 +2,48 @@
 interface Props {
   band?: string;
   album?: string;
-  year?: string;
   image?: any;
-  order?: number;
-  isError?: boolean;
 }
 
-const { band = "", year = "", album = "", order, image, isError = false } = Astro.props;
+const { band = "", album = "", image } = Astro.props;
 
 import { Picture } from "astro:assets";
+import { Icon } from "astro-icon/components";
 ---
 
-<div class="resultItem">
-  <div class:list={["place", isError ? "error" : ""]}>{order}.</div>
+<div class="triviaItem">
   <Picture class="cover" src={image} formats={["avif", "webp"]} alt="" />
   <div class="band">{band}</div>
   <div class="album">{album}</div>
-  <div class="year">{year}</div>
+  <Icon class="star" name="star" width={39} height={37} />
 </div>
 
 <style>
-  .resultItem {
+  .triviaItem {
     position: relative;
     width: 126px;
     flex-direction: column;
     display: flex;
+    color: var(--colour-text-primary);
+
+    &:hover,
+    &:focus-visible {
+      color: #b89826;
+      cursor: pointer;
+
+      .cover {
+        outline: 2px solid #b89826;
+      }
+
+      .band,
+      .album {
+        color: #b89826;
+      }
+
+      .star {
+        transform: scale(1.25);
+      }
+    }
   }
 
   .cover {
@@ -70,21 +87,12 @@ import { Picture } from "astro:assets";
     height: 31px;
   }
 
-  .error {
-    background: var(--colour-BTN-error);
-    color: var(--colour-text-BTN-inverted);
-  }
-
-  .year {
+  .star {
     position: absolute;
-    top: 43px;
-    left: 20px;
-    padding: var(--spacing-spacing-xxs) var(--spacing-spacing-md);
-    border-radius: var(--radius-radius-full);
-    background: var(--colour-BTN-inverted);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 35.28px;
+    top: 45px;
+    left: 45px;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-property: transform;
   }
 </style>

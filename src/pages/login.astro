@@ -4,7 +4,7 @@ import { Picture } from "astro:assets";
 import ArdLogin from "../assets/ardlogin.png";
 ---
 
-<Layout title="ARD Login">
+<Layout title="ARD Login" showHeader={false}>
   <div class="container">
     <Picture class="cover" src={ArdLogin} formats={["avif", "webp"]} alt="" />
     <a class="button" href="/loadingscreen">Jetzt loslegen</a>
