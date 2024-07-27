@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.8.3",
     "@astrojs/netlify": "^5.4.0",
     "@astropub/flow": "^0.4.0",
+    "@playform/compress": "^0.1.0",
     "astro": "^4.12.2",
     "astro-icon": "^1.1.0",
     "js-confetti": "^0.12.0",
