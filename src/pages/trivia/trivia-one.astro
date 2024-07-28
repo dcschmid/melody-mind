@@ -6,10 +6,22 @@ import KellyClarksonCover from "../../assets/bandcover/kellyClarkson.jpeg";
 import NoDoubtCover from "../../assets/bandcover/noDoubt.jpg";
 import FleetWoodMacCover from "../../assets/bandcover/fleetwoodMac.jpg";
 import TriviaItem from "../../components/TriviaItem.astro";
+import Button from "../../components/Button.astro";
 ---
 
 <Layout title="Spiel-Home">
   <div slot="left-headercol"></div>
+
+  <div id="overlay" class="overlay">
+    <div class="overlay-content">
+      <Icon name="clock" width={200} height={200} />
+      <div class="headline">00:00</div>
+      <div class="subline">Zeit ist abgelaufen!</div>
+      <div class="centerButton">
+        <Button buttonText="weiter" url="/trivia/trivia-one-solution" />
+      </div>
+    </div>
+  </div>
 
   <div class="introText">
     <div class="headline">Runde 1 / 3 – Trivia Frage</div>
@@ -38,8 +50,7 @@ import TriviaItem from "../../components/TriviaItem.astro";
 </Layout>
 
 <style>
-  .overlay,
-  .overlay2 {
+  .overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -54,13 +65,33 @@ import TriviaItem from "../../components/TriviaItem.astro";
     visibility: hidden;
   }
 
-  .overlay-content,
-  .overlay2-content {
+  .overlay-content {
     display: flex;
     width: 366px;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: var(--spacing-3);
+  }
+
+  .overlay-content .headline {
+    color: var(--colour-text-primary);
+
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: 0.36px;
+  }
+
+  .overlay-content .subline {
+    color: var(--colour-text-secondary);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    justify-content: center;
+    display: inline-flex;
   }
 
   .introText {
@@ -117,6 +148,7 @@ import TriviaItem from "../../components/TriviaItem.astro";
 
   const minutesElement = document.getElementById("minutes")!;
   const secondsElement = document.getElementById("seconds")!;
+  const overlay = document.getElementById("overlay");
 
   function updateTime() {
     const minutes = Math.floor(timeRemaining / 60);
@@ -127,6 +159,7 @@ import TriviaItem from "../../components/TriviaItem.astro";
 
     if (timeRemaining === 0) {
       clearInterval(timerInterval!);
+      overlay!.style.visibility = "visible";
     } else {
       timeRemaining--;
     }
@@ -137,6 +170,7 @@ import TriviaItem from "../../components/TriviaItem.astro";
   }
 
   window.addEventListener("load", function (_event: Event): void {
+    overlay!.style.visibility = "hidden";
     startTimer();
   });
 </script>
