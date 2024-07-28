@@ -218,6 +218,11 @@ import FleetWoodMacCover from "../../assets/bandcover/fleetwoodMac.jpg";
     cursor: pointer;
   }
 
+  .arrowButton.disabled {
+    background: var(--colour-BTN-disabled);
+    pointer-events: none;
+  }
+
   .hintText {
     position: absolute;
     bottom: -2rem;
@@ -300,5 +305,59 @@ import FleetWoodMacCover from "../../assets/bandcover/fleetwoodMac.jpg";
 
       startTimer();
     });
+
+    let selectedCover: any = null;
+    const covers = document.querySelectorAll(".cover");
+    const upButton = document.getElementById("up");
+    const downButton = document.getElementById("down");
+
+    const updateButtonState = () => {
+      if (!selectedCover) return;
+      const parent = selectedCover.parentElement;
+      const index = Array.from(parent.children).indexOf(selectedCover);
+
+      if (index === 0) {
+        upButton!.classList.add("disabled");
+      } else {
+        upButton!.classList.remove("disabled");
+      }
+
+      if (index === parent.children.length - 3) {
+        console.log(index, parent.children.length);
+        downButton!.classList.add("disabled");
+      } else {
+        downButton!.classList.remove("disabled");
+      }
+    };
+
+    covers.forEach((cover) => {
+      cover.addEventListener("click", () => {
+        if (selectedCover) {
+          selectedCover.classList.remove("selected");
+        }
+        selectedCover = cover;
+        selectedCover.classList.add("selected");
+        updateButtonState();
+      });
+    });
+
+    const moveSelection = (direction: any) => {
+      if (!selectedCover) return;
+      const parent = selectedCover.parentElement;
+      const index = Array.from(parent.children).indexOf(selectedCover);
+      const newIndex = index + direction;
+
+      if (newIndex >= 0 && newIndex < parent.children.length) {
+        if (direction === -1) {
+          parent.insertBefore(selectedCover, parent.children[newIndex]);
+        } else {
+          parent.insertBefore(selectedCover, parent.children[newIndex].nextSibling);
+        }
+        updateButtonState();
+      }
+    };
+
+    upButton!.addEventListener("click", () => moveSelection(-1));
+    downButton!.addEventListener("click", () => moveSelection(1));
   });
 </script>
