@@ -9,18 +9,14 @@ import SnowPatrolCover from "../../assets/bandcover/snowPatrol.jpeg";
 import KellyClarksonCover from "../../assets/bandcover/kellyClarkson.jpeg";
 import NoDoubtCover from "../../assets/bandcover/noDoubt.jpg";
 import FleetWoodMacCover from "../../assets/bandcover/fleetwoodMac.jpg";
-import SnowPatrolMP3 from "../../assets/mp3s/snowPatrol.mp3";
-import KellyClarksonMP3 from "../../assets/mp3s/kellyClarkson.mp3";
-import NoDoubtMP3 from "../../assets/mp3s/noDoubt.mp3";
-import FleetWoodMacMP3 from "../../assets/mp3s/fleetwoodMac.mp3";
 ---
 
-<Layout title="Spielrunde 1">
+<Layout title="Spielrunde 2">
   <ThreeJoker slot="left-headercol" />
 
   <div id="overlay" class="overlay">
     <div class="overlay-content">
-      <div class="headline">Runde 1 / 3</div>
+      <div class="headline">Runde 2 / 3</div>
       <div class="subline">
         Klicken Sie auf das Albumcover und sortieren Sie die Alben mithilfe der Pfeile in die richtige Reihen-folge nach
         <span class="whiteText">Erscheinungsjahr: vorne das neueste, hinten das älteste. </span>
@@ -37,13 +33,13 @@ import FleetWoodMacMP3 from "../../assets/mp3s/fleetwoodMac.mp3";
       <div class="headline">00:00</div>
       <div class="subline">Zeit ist abgelaufen!</div>
       <div class="centerButton">
-        <Button buttonText="weiter" url="/results/result-one-false" />
+        <Button buttonText="weiter" url="/results/result-two-false" />
       </div>
     </div>
   </div>
 
   <div class="introText">
-    <div class="headline">Runde 1 / 3</div>
+    <div class="headline">Runde 2 / 3</div>
     <div class="subline">Sortieren Sie nach dem <span class="whiteText">Erscheinungsjahr!</span></div>
   </div>
 
@@ -52,31 +48,15 @@ import FleetWoodMacMP3 from "../../assets/mp3s/fleetwoodMac.mp3";
   <div class="coverflow">
     <div class="cover">
       <Picture src={SnowPatrolCover} width={266} height={266} formats={["avif", "webp"]} alt="" />
-      <audio id="audio-SnowPatrol" src={SnowPatrolMP3} preload="none"></audio>
-      <div class="playButton" data-band="SnowPatrol">
-        <Icon name="play" width={20} height={20} />
-      </div>
     </div>
     <div class="cover">
       <Picture src={KellyClarksonCover} width={266} height={266} formats={["avif", "webp"]} alt="" />
-      <audio id="audio-KellyClarkson" src={KellyClarksonMP3} preload="none"></audio>
-      <div class="playButton" data-band="KellyClarkson">
-        <Icon name="play" width={20} height={20} />
-      </div>
     </div>
     <div class="cover">
       <Picture src={NoDoubtCover} width={266} height={266} formats={["avif", "webp"]} alt="" />
-      <audio id="audio-NoDoubt" src={NoDoubtMP3} preload="none"></audio>
-      <div class="playButton" data-band="NoDoubt">
-        <Icon name="play" width={20} height={20} />
-      </div>
     </div>
     <div class="cover">
       <Picture src={FleetWoodMacCover} width={266} height={266} formats={["avif", "webp"]} alt="" />
-      <audio id="audio-FleetWoodMac" src={FleetWoodMacMP3} preload="none"></audio>
-      <div class="playButton" data-band="FleetWoodMac">
-        <Icon name="play" width={20} height={20} />
-      </div>
     </div>
     <div class="buttons">
       <div class="arrowButton" id="up">
@@ -95,7 +75,7 @@ import FleetWoodMacMP3 from "../../assets/mp3s/fleetwoodMac.mp3";
     <span id="minutes">02</span>:<span id="seconds">00</span>
 
     <div class="finishButton">
-      <Button url="/results/result-one" />
+      <Button url="/results/result-two" />
     </div>
   </div>
 </Layout>
@@ -218,21 +198,6 @@ import FleetWoodMacMP3 from "../../assets/mp3s/fleetwoodMac.mp3";
     top: 7.5rem;
   }
 
-  .playButton {
-    border-radius: 100%;
-    background: var(--colour-BTN-primary);
-    cursor: pointer;
-    width: 25px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--colour-BTN-inverted);
-    padding: 0.25rem;
-    position: absolute;
-    bottom: -0.75rem;
-  }
-
   .buttons {
     display: inline-flex;
     align-items: center;
@@ -338,19 +303,6 @@ import FleetWoodMacMP3 from "../../assets/mp3s/fleetwoodMac.mp3";
       overlay!.style.visibility = "hidden";
 
       startTimer();
-    });
-
-    const playButtons = document.querySelectorAll<HTMLButtonElement>(".playButton");
-
-    playButtons.forEach((button) => {
-      button.addEventListener("click", (event: MouseEvent) => {
-        const band = (event.currentTarget as HTMLButtonElement).getAttribute("data-band");
-        const audioElement = document.getElementById(`audio-${band}`) as HTMLAudioElement | null;
-
-        if (audioElement) {
-          audioElement.play();
-        }
-      });
     });
 
     let selectedCover: any = null;
