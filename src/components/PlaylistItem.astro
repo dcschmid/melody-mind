@@ -11,7 +11,7 @@ import { Picture } from "astro:assets";
 ---
 
 <div class="playlistItem">
-  <Picture class="cover" src={image} formats={["avif", "webp"]} alt="" />
+  <Picture class="cover" src={image} width={106} height={106} formats={["avif", "webp"]} alt="" />
   <div class="headline">{headline}</div>
   <div class="years">{years}</div>
 </div>

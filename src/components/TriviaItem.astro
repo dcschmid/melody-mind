@@ -12,7 +12,7 @@ import { Icon } from "astro-icon/components";
 ---
 
 <div class="triviaItem">
-  <Picture class="cover" src={image} formats={["avif", "webp"]} alt="" />
+  <Picture class="cover" src={image} width={126} height={126} formats={["avif", "webp"]} alt="" />
   <div class="band">{band}</div>
   <div class="album">{album}</div>
   <Icon class="star" name="star" width={39} height={37} />

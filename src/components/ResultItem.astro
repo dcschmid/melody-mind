@@ -15,7 +15,7 @@ import { Picture } from "astro:assets";
 
 <div class="resultItem">
   <div class:list={["place", isError ? "error" : ""]}>{order}.</div>
-  <Picture class="cover" src={image} formats={["avif", "webp"]} alt="" />
+  <Picture class="cover" src={image} width={126} height={126} formats={["avif", "webp"]} alt="" />
   <div class="band">{band}</div>
   <div class="album">{album}</div>
   <div class="year">{year}</div>

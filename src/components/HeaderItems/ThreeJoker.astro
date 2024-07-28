@@ -37,6 +37,7 @@ import NoDoubtCover from "../../assets/bandcover/noDoubt.jpg";
       <div class="solutionRoot">
         <div class="solutionCover">
           <Picture src={NoDoubtCover} width={240} height={240} formats={["avif", "webp"]} alt="" />
+          <Icon class="share" name="share" width={48} height={48} />
         </div>
         <div class="solutionYear">1995</div>
         <div class="solutionText">
@@ -125,6 +126,13 @@ import NoDoubtCover from "../../assets/bandcover/noDoubt.jpg";
 
   .solutionCover {
     margin: 0 auto;
+    position: relative;
+  }
+
+  .share {
+    position: absolute;
+    bottom: -10px;
+    right: -25px;
   }
 
   .solutionYear {

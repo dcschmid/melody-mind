@@ -5,7 +5,9 @@ import Button from "../../components/Button.astro";
 import Layout from "../../layouts/Layout.astro";
 ---
 
-<Layout title="Spiel-Home" showHeader={false}>
+<Layout title="Spiel-Home">
+  <div slot="left-headercol"></div>
+
   <div class="content">
     <Icon name="golden-coins" width={80} height={80} />
     <div class="headline">Glückwunsch!</div>
