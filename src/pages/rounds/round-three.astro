@@ -4,26 +4,26 @@ import { Picture } from "astro:assets";
 
 import Layout from "../../layouts/Layout.astro";
 import Button from "../../components/Button.astro";
-import BlondieCover from "../../assets/bandcover/blondie.jpg";
-import KimCarnesCover from "../../assets/bandcover/kimCarnes.jpg";
-import ColdplayCover from "../../assets/bandcover/coldplay.jpg";
-import B52Cover from "../../assets/bandcover/b52.jpg";
-import BlondieMP3 from "../../assets/mp3s/blondie.mp3";
-import KimCarnesMP3 from "../../assets/mp3s/kimCarnes.mp3";
-import ColdplayMP3 from "../../assets/mp3s/colplay.mp3";
-import B52MP3 from "../../assets/mp3s/b52.mp3";
-import TwoJoker from "../../components/HeaderItems/TwoJoker.astro";
+import Blink182Cover from "../../assets/bandcover/blink182.jpeg";
+import DavidBowieCover from "../../assets/bandcover/davidBowie.jpg";
+import AvrilLavigneCover from "../../assets/bandcover/avrilLavigne.jpeg";
+import RedHotChiliPeppersCover from "../../assets/bandcover/redHotChiliPeppers.jpg";
+import Blink182MP3 from "../../assets/mp3s/blink182_cutted.mp3";
+import DavidBowieMP3 from "../../assets/mp3s/davidBowie.mp3";
+import AvrilLavigneMP3 from "../../assets/mp3s/avrilLavigne_cutted.mp3";
+import RedHotChiliPeppersMP3 from "../../assets/mp3s/redHotChiliPeppers.mp3";
+import OneJoker from "../../components/HeaderItems/OneJoker.astro";
 ---
 
-<Layout title="Spielrunde 2">
-  <TwoJoker slot="left-headercol" />
+<Layout title="Spielrunde 3">
+  <OneJoker slot="left-headercol" />
 
   <div id="overlay" class="overlay">
     <div class="overlay-content">
-      <div class="headline">Runde 2 / 3</div>
+      <div class="headline">Runde 3 / 3</div>
       <div class="subline">
         Klicken Sie auf das Albumcover und sortieren Sie die Alben mithilfe der Pfeile in die richtige Reihen-folge nach
-        <span class="whiteText">Verkaufszahlen: vorne das meiste, hinten das wenigste.</span>
+        <span class="whiteText">Gesamtlänge: vorne das längste, hinten das kürzeste.</span>
       </div>
       <div class="centerButton">
         <Button id="gameButton" buttonText="spielen" url="#" />
@@ -37,44 +37,44 @@ import TwoJoker from "../../components/HeaderItems/TwoJoker.astro";
       <div class="headline">00:00</div>
       <div class="subline">Zeit ist abgelaufen!</div>
       <div class="centerButton">
-        <Button buttonText="weiter" url="/results/result-two-false" />
+        <Button buttonText="weiter" url="/results/result-three-false" />
       </div>
     </div>
   </div>
 
   <div class="introText">
-    <div class="headline">Runde 2 / 3</div>
-    <div class="subline">Sortieren Sie nach <span class="whiteText">Verkaufszahlen!</span></div>
+    <div class="headline">Runde 3 / 3</div>
+    <div class="subline">Sortieren Sie nach <span class="whiteText">Gesamtlänge!</span></div>
   </div>
 
-  <div class="smallText">Wenigste</div>
+  <div class="smallText">Kürzeste</div>
 
   <div class="coverflow">
     <div class="cover">
-      <Picture src={BlondieCover} width={266} height={266} formats={["avif", "webp"]} alt="" />
-      <audio id="audio-Blondie" src={BlondieMP3} preload="none"></audio>
-      <div class="playButton" data-band="Blondie">
+      <Picture src={Blink182Cover} width={266} height={266} formats={["avif", "webp"]} alt="" />
+      <audio id="audio-Blink182" src={Blink182MP3} preload="none"></audio>
+      <div class="playButton" data-band="Blink182">
         <Icon name="play" width={20} height={20} />
       </div>
     </div>
     <div class="cover">
-      <Picture src={KimCarnesCover} width={266} height={266} formats={["avif", "webp"]} alt="" />
-      <audio id="audio-KimCarnes" src={KimCarnesMP3} preload="none"></audio>
-      <div class="playButton" data-band="KimCarnes">
+      <Picture src={DavidBowieCover} width={266} height={266} formats={["avif", "webp"]} alt="" />
+      <audio id="audio-DavidBowie" src={DavidBowieMP3} preload="none"></audio>
+      <div class="playButton" data-band="DavidBowie">
         <Icon name="play" width={20} height={20} />
       </div>
     </div>
     <div class="cover">
-      <Picture src={ColdplayCover} width={266} height={266} formats={["avif", "webp"]} alt="" />
-      <audio id="audio-Coldplay" src={ColdplayMP3} preload="none"></audio>
-      <div class="playButton" data-band="Coldplay">
+      <Picture src={AvrilLavigneCover} width={266} height={266} formats={["avif", "webp"]} alt="" />
+      <audio id="audio-AvrilLavigne" src={AvrilLavigneMP3} preload="none"></audio>
+      <div class="playButton" data-band="AvrilLavigne">
         <Icon name="play" width={20} height={20} />
       </div>
     </div>
     <div class="cover">
-      <Picture src={B52Cover} width={266} height={266} formats={["avif", "webp"]} alt="" />
-      <audio id="audio-B52" src={B52MP3} preload="none"></audio>
-      <div class="playButton" data-band="B52">
+      <Picture src={RedHotChiliPeppersCover} width={266} height={266} formats={["avif", "webp"]} alt="" />
+      <audio id="audio-RedHotChiliPeppers" src={RedHotChiliPeppersMP3} preload="none"></audio>
+      <div class="playButton" data-band="RedHotChiliPeppers">
         <Icon name="play" width={20} height={20} />
       </div>
     </div>
@@ -87,7 +87,7 @@ import TwoJoker from "../../components/HeaderItems/TwoJoker.astro";
       </div>
     </div>
 
-    <div class="hintText">Meiste</div>
+    <div class="hintText">Längste</div>
   </div>
 
   <div class="timer">
@@ -95,7 +95,7 @@ import TwoJoker from "../../components/HeaderItems/TwoJoker.astro";
     <span id="minutes">02</span>:<span id="seconds">00</span>
 
     <div class="finishButton">
-      <Button url="/results/result-two" />
+      <Button url="/results/result-three" />
     </div>
   </div>
 </Layout>

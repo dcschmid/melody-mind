@@ -1,0 +1,98 @@
+---
+import { Icon } from "astro-icon/components";
+import ResultItem from "../../components/ResultItem.astro";
+import Layout from "../../layouts/Layout.astro";
+import BlondieCover from "../../assets/bandcover/blondie.jpg";
+import B52Cover from "../../assets/bandcover/b52.jpg";
+import ColdplayCover from "../../assets/bandcover/coldplay.jpg";
+import KimCarnesCover from "../../assets/bandcover/kimCarnes.jpg";
+import Button from "../../components/Button.astro";
+---
+
+<Layout title="Result Runde 2">
+  <div slot="left-headercol"></div>
+
+  <div class="introText">
+    <div class="headline">Runde 2 / 3 – Ergebnisse</div>
+    <div class="subline">Sortieren Sie nach Verkaufszahlen!</div>
+  </div>
+
+  <div class="results">
+    <ResultItem order={1} band="Blondie" album="Parallel Lines" year="16 Mio." image={BlondieCover} />
+    <ResultItem order={2} band="The B-52's" album="Cosmic Thing" year="5 Mio." image={B52Cover} />
+    <ResultItem order={3} band="Coldplay" album="Ghost Stories" year="4 Mio." image={ColdplayCover} />
+    <ResultItem order={4} band="Kim Carnes" album="Mistaken Identity" year="1,5 Mio." image={KimCarnesCover} />
+  </div>
+
+  <div class="points">
+    <Icon name="coin" width={48} height={48} />
+    <span class="point">125</span>
+
+    <div class="finishButton">
+      <Button url="/trivia/trivia-two" />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .introText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-spacing-md);
+  }
+
+  .headline {
+    color: var(--colour-text-secondary);
+    leading-trim: both;
+    text-edge: cap;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
+  .subline {
+    color: var(--colour-text-primary);
+    leading-trim: both;
+    text-edge: cap;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .results {
+    display: flex;
+    flex-wrap: wrap;
+    padding: var(--spacing-1) var(--spacing-spacing-xl) var(--spacing-15) var(--spacing-spacing-xl);
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-spacing-xl);
+  }
+
+  .finishButton {
+    margin-left: var(--spacing-spacing-md);
+  }
+
+  .points {
+    padding: 24px 20px 23px 112px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 2px;
+    color: var(--colour-text-primary);
+    leading-trim: both;
+    text-edge: cap;
+  }
+
+  .point {
+    display: block;
+    margin-left: var(--spacing-spacing-s);
+  }
+</style>

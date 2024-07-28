@@ -1,0 +1,143 @@
+---
+import { Icon } from "astro-icon/components";
+import Layout from "../../layouts/Layout.astro";
+import { Picture } from "astro:assets";
+import DavidBowieCover from "../../assets/bandcover/davidBowie.jpg";
+import Button from "../../components/Button.astro";
+---
+
+<Layout title="Trivia Runde 3 – Solution">
+  <div slot="left-headercol"></div>
+
+  <div id="overlayFinish" class="overlayFinish">
+    <div class="overlayFinish-content">
+      <Icon name="golden-lp" width={80} height={80} />
+      <div class="headline">Glückwunsch! PopRock erfolgreich beendet!</div>
+      <div class="subline">Punktzahl verdoppelt</div>
+      <div class="headline">+200 Punkte</div>
+
+      <div class="centerButton">
+        <Button id="playVideo" buttonText="Video abspielen" url="/videos/nilzvideo" />
+      </div>
+    </div>
+  </div>
+
+  <div class="solution">
+    <div class="cover">
+      <Picture src={DavidBowieCover} width={240} height={240} formats={["avif", "webp"]} alt="" />
+      <Icon class="share" name="share" width={48} height={48} />
+    </div>
+    <div class="headline">Hunky Dory – David Bowie</div>
+    <div class="text">
+      David Bowie nannte seinen Sohn, den Regisseur Duncan Jones, „Zowie“, weshalb dieser auch als Zowie Bowie bekannt
+      ist. Duncan kam 1971, im Erscheinsungsjahr des Albums „Hunky Dory“, auf die Welt – Deshalb steht auf dem Rücken
+      der Platte die Widmung „for small Z.“.
+    </div>
+  </div>
+
+  <div class="centerButton">
+    <Button id="openOverlay" buttonText="Spiel beenden" url="#" />
+  </div>
+</Layout>
+
+<style>
+  .overlayFinish {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+  }
+
+  .overlayFinish-content {
+    display: flex;
+    width: 366px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-3);
+  }
+
+  .overlayFinish-content .headline {
+    color: var(--colour-text-primary);
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 120%;
+    text-align: center;
+  }
+
+  .overlayFinish-content .subline {
+    color: var(--colour-text-secondary);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: center;
+  }
+
+  .solution {
+    display: flex;
+    padding: var(--spacing-spacing-s) var(--spacing-spacing-s) var(--spacing-spacing-md) var(--spacing-spacing-s);
+    flex-direction: column;
+    gap: var(--spacing-spacing-md);
+    border-radius: var(--radius-radius-rounded);
+    background: var(--colour-BG-secondary);
+  }
+
+  .cover {
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .share {
+    position: absolute;
+    bottom: -10px;
+    right: -25px;
+  }
+
+  .headline {
+    color: var(--colour-text-primary);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
+  .text {
+    color: var(--colour-text-primary);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .centerButton {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-spacing-md);
+  }
+</style>
+
+<script>
+  import JSConfetti from "js-confetti";
+
+  const jsConfetti = new JSConfetti();
+
+  const overlayFinish = document.getElementById("overlayFinish") as HTMLElement;
+  const openOverlay = document.getElementById("openOverlay") as HTMLElement;
+
+  window.addEventListener("load", function (_event: Event): void {
+    openOverlay.addEventListener("click", function (_event: Event): void {
+      overlayFinish.style.visibility = "visible";
+      jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
+    });
+  });
+</script>

@@ -1,15 +1,15 @@
 ---
 import { Icon } from "astro-icon/components";
 import Layout from "../../layouts/Layout.astro";
-import SnowPatrolCover from "../../assets/bandcover/snowPatrol.jpeg";
-import KellyClarksonCover from "../../assets/bandcover/kellyClarkson.jpeg";
-import NoDoubtCover from "../../assets/bandcover/noDoubt.jpg";
-import FleetWoodMacCover from "../../assets/bandcover/fleetwoodMac.jpg";
+import BlondieCover from "../../assets/bandcover/blondie.jpg";
+import B52Cover from "../../assets/bandcover/b52.jpg";
+import ColdplayCover from "../../assets/bandcover/coldplay.jpg";
+import KimCarnesCover from "../../assets/bandcover/kimCarnes.jpg";
 import TriviaItem from "../../components/TriviaItem.astro";
 import Button from "../../components/Button.astro";
 ---
 
-<Layout title="Trivia Runde 1">
+<Layout title="Trivia Runde 2">
   <div slot="left-headercol"></div>
 
   <div id="overlayStart" class="overlayStart">
@@ -17,7 +17,9 @@ import Button from "../../components/Button.astro";
       <Icon name="star-golden" width={80} height={80} />
       <div class="headline">Trivia Frage</div>
       <div class="subline">verdoppeln Sie Ihren Punktestand!</div>
-      <div class="question">Welches Album wurde vom Rolling Stone zum siebtbesten Album aller Zeiten gekürt?</div>
+      <div class="question">
+        Das Design Studio welchen Plattencovers hat außerdem auch das Logo des Musiksenders MTV gestaltet?
+      </div>
       <div class="centerButton">
         <Button id="gameButton" buttonText="weiter" url="#" />
       </div>
@@ -30,28 +32,30 @@ import Button from "../../components/Button.astro";
       <div class="headline">00:00</div>
       <div class="subline">Zeit ist abgelaufen!</div>
       <div class="centerButton">
-        <Button buttonText="weiter" url="/trivia/trivia-one-solution" />
+        <Button buttonText="weiter" url="/trivia/trivia-two-solution" />
       </div>
     </div>
   </div>
 
   <div class="introText">
-    <div class="headline">Runde 1 / 3 – Trivia Frage</div>
-    <div class="subline">Welches Album wurde vom Rolling Stone als siebtbestes aller Zeiten gewählt?</div>
+    <div class="headline">Runde 2 / 3 – Trivia Frage</div>
+    <div class="subline">
+      Das Design Studio welchen Plattencovers hat außerdem auch das Logo des Musiksenders MTV gestaltet?
+    </div>
   </div>
 
   <div class="trivia">
-    <a href="/trivia/trivia-one-lost">
-      <TriviaItem band="Snow Patrol" album="Eyes Open" image={SnowPatrolCover} />
+    <a href="/trivia/trivia-two-won-gold">
+      <TriviaItem band="The B-52's" album="Cosmic Thing" image={B52Cover} />
     </a>
-    <a href="/trivia/trivia-one-lost">
-      <TriviaItem band="Kelly Clarkson" album="Breakaway" image={KellyClarksonCover} />
+    <a href="/trivia/trivia-two-lost">
+      <TriviaItem band="Coldplay" album="Ghost Stories" image={ColdplayCover} />
     </a>
-    <a href="/trivia/trivia-one-lost">
-      <TriviaItem band="No Doubt" album="Tragic Kingdom" image={NoDoubtCover} />
+    <a href="/trivia/trivia-two-lost">
+      <TriviaItem band="Blondie" album="Parallel Lines" image={BlondieCover} />
     </a>
-    <a href="/trivia/trivia-one-won">
-      <TriviaItem band="Fleetwood Mac" album="Rumours" image={FleetWoodMacCover} />
+    <a href="/trivia/trivia-two-lost">
+      <TriviaItem band="Kim Carnes" album="Mistaken Identity" image={KimCarnesCover} />
     </a>
   </div>
 

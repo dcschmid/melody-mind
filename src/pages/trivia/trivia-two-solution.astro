@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 import Layout from "../../layouts/Layout.astro";
 import { Picture } from "astro:assets";
-import FleetwoodMacCover from "../../assets/solutionscover/fleetwoodmac.png";
+import B52Cover from "../../assets/bandcover/b52.jpg";
 import Button from "../../components/Button.astro";
 ---
 
@@ -11,20 +11,19 @@ import Button from "../../components/Button.astro";
 
   <div class="solution">
     <div class="cover">
-      <Picture src={FleetwoodMacCover} width={240} height={240} formats={["avif", "webp"]} alt="" />
+      <Picture src={B52Cover} width={240} height={240} formats={["avif", "webp"]} alt="" />
       <Icon class="share" name="share" width={48} height={48} />
     </div>
-    <div class="headline">Fleetwood Mac – Rumours</div>
+    <div class="headline">B-52's – Cosmic Thing</div>
     <div class="text">
-      Das Album „Rumours“ von Fleetwood Mac, das vom Rolling Stone als siebtbestes Album aller Zeiten ausgezeichnet
-      wurde, erlebte ein Revival durch ein virales TikTok-Video. In dem Video fährt ein Mann entspannt auf einem
-      Skateboard in den Sonnenuntergang, während er aus einer Saftpackung trinkt und der Song „Dreams“ im Hintergrund
-      spielt.
+      Das Album „Cosmic Thing“ von B-52's markierte ihr Comeback nach dem Tod von Ricky Wilson an HIV und bot der Band
+      eine therapeutische Erfahrung. Das fröhliche Cover, das diese positive Stimmung widerspiegelt, wurde von
+      „Manhattan Design“ gestaltet, dem Studio, das auch das MTV-Logo entworfen hat.
     </div>
   </div>
 
   <div class="centerButton">
-    <Button buttonText="nächste Runde" url="/rounds/round-two" />
+    <Button buttonText="nächste Runde" url="/rounds/round-three" />
   </div>
 </Layout>
 

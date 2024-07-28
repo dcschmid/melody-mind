@@ -1,0 +1,93 @@
+---
+import { Icon } from "astro-icon/components";
+
+import Button from "../../components/Button.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Spiel-Home">
+  <div slot="left-headercol"></div>
+
+  <div class="content">
+    <Icon name="golden-lp" width={200} height={200} />
+    <div class="headline">Glückwunsch!</div>
+    <div class="text">
+      Sie haben die <span class="goldText">goldene Schallplatte</span> für Ihr <span class="whiteText"
+        >umfangreiches Wissen</span
+      > erspielt!
+    </div>
+    <div class="smallText">& Punktestand verdoppelt!</div>
+    <div class="point">+ 125 Pt</div>
+    <div class="centerButton">
+      <Button buttonText="Auflösung" url="/trivia/trivia-two-solution" />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .content {
+    display: flex;
+    width: 366px;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-3);
+  }
+
+  .headline {
+    color: var(--colour-text-primary);
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 120%;
+  }
+
+  .text {
+    color: var(--colour-text-secondary);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    text-align: center;
+  }
+
+  .goldText {
+    color: var(--colour-text-link);
+  }
+
+  .whiteText {
+    color: var(--colour-text-primary);
+  }
+
+  .smallText {
+    color: var(--colour-text-secondary);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .point {
+    color: var(--colour-text-primary);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 2px;
+  }
+
+  .centerButton {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-spacing-md);
+  }
+</style>
+
+<script>
+  import JSConfetti from "js-confetti";
+
+  const jsConfetti = new JSConfetti();
+
+  window.addEventListener("load", function (_event: Event): void {
+    jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
+  });
+</script>

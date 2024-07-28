@@ -1,15 +1,15 @@
 ---
 import { Icon } from "astro-icon/components";
 import Layout from "../../layouts/Layout.astro";
-import SnowPatrolCover from "../../assets/bandcover/snowPatrol.jpeg";
-import KellyClarksonCover from "../../assets/bandcover/kellyClarkson.jpeg";
-import NoDoubtCover from "../../assets/bandcover/noDoubt.jpg";
-import FleetWoodMacCover from "../../assets/bandcover/fleetwoodMac.jpg";
+import Blink182Cover from "../../assets/bandcover/blink182.jpeg";
+import DavidBowieCover from "../../assets/bandcover/davidBowie.jpg";
+import AvrilLavigneCover from "../../assets/bandcover/avrilLavigne.jpeg";
+import RedHotChiliPeppersCover from "../../assets/bandcover/redHotChiliPeppers.jpg";
 import TriviaItem from "../../components/TriviaItem.astro";
 import Button from "../../components/Button.astro";
 ---
 
-<Layout title="Trivia Runde 1">
+<Layout title="Trivia Runde 3">
   <div slot="left-headercol"></div>
 
   <div id="overlayStart" class="overlayStart">
@@ -17,7 +17,7 @@ import Button from "../../components/Button.astro";
       <Icon name="star-golden" width={80} height={80} />
       <div class="headline">Trivia Frage</div>
       <div class="subline">verdoppeln Sie Ihren Punktestand!</div>
-      <div class="question">Welches Album wurde vom Rolling Stone zum siebtbesten Album aller Zeiten gekürt?</div>
+      <div class="question">Welches Album wurde dem Sohn eines/einer der Musiker:innen gewidmet?</div>
       <div class="centerButton">
         <Button id="gameButton" buttonText="weiter" url="#" />
       </div>
@@ -30,28 +30,28 @@ import Button from "../../components/Button.astro";
       <div class="headline">00:00</div>
       <div class="subline">Zeit ist abgelaufen!</div>
       <div class="centerButton">
-        <Button buttonText="weiter" url="/trivia/trivia-one-solution" />
+        <Button buttonText="weiter" url="/trivia/trivia-three-solution" />
       </div>
     </div>
   </div>
 
   <div class="introText">
-    <div class="headline">Runde 1 / 3 – Trivia Frage</div>
-    <div class="subline">Welches Album wurde vom Rolling Stone als siebtbestes aller Zeiten gewählt?</div>
+    <div class="headline">Runde 3 / 3 – Trivia Frage</div>
+    <div class="subline">Welches Album wurde dem Sohn eines/einer der Musiker:innen gewidmet?</div>
   </div>
 
   <div class="trivia">
-    <a href="/trivia/trivia-one-lost">
-      <TriviaItem band="Snow Patrol" album="Eyes Open" image={SnowPatrolCover} />
+    <a href="/trivia/trivia-three-lost">
+      <TriviaItem band="Red Hot Chilli Peppers" album="Stadium Acradium" image={RedHotChiliPeppersCover} />
     </a>
-    <a href="/trivia/trivia-one-lost">
-      <TriviaItem band="Kelly Clarkson" album="Breakaway" image={KellyClarksonCover} />
+    <a href="/trivia/trivia-three-lost">
+      <TriviaItem band="Avril Lavigne" album="Let Go" image={AvrilLavigneCover} />
     </a>
-    <a href="/trivia/trivia-one-lost">
-      <TriviaItem band="No Doubt" album="Tragic Kingdom" image={NoDoubtCover} />
+    <a href="/trivia/trivia-three-won">
+      <TriviaItem band="David Bowie" album="Hunky Dory" image={DavidBowieCover} />
     </a>
-    <a href="/trivia/trivia-one-won">
-      <TriviaItem band="Fleetwood Mac" album="Rumours" image={FleetWoodMacCover} />
+    <a href="/trivia/trivia-three-lost">
+      <TriviaItem band="blink-182" album="Enemy of the State" image={Blink182Cover} />
     </a>
   </div>
 

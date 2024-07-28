@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import NilzVideo from "../../assets/video/9x16 Coverlover Fleetwood Mac.mp4";
+import Button from "../../components/Button.astro";
+---
+
+<Layout title="Video von Nils">
+  <div slot="left-headercol"></div>
+
+  <video autoplay controls>
+    <source src={NilzVideo} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="centerButton">
+    <Button buttonText="Neue Kategorie auswählen" url="/gamehome" />
+  </div>
+</Layout>
+
+<style>
+  video {
+    width: 100%;
+  }
+
+  .centerButton {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-spacing-md);
+  }
+</style>
