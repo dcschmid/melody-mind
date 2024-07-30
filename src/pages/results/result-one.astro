@@ -19,7 +19,7 @@ import Button from "../../components/Button.astro";
     <span class="point"></span>
 
     <div class="finishButton">
-      <Button url="/trivia/trivia-one" />
+      <Button id="finishedButton" url="#" />
     </div>
   </div>
 </Layout>
@@ -91,7 +91,33 @@ import Button from "../../components/Button.astro";
   document.addEventListener("DOMContentLoaded", () => {
     updateCurrentPoints();
     populateResults();
+    setupFinishButton();
   });
+
+  /**
+   * Sets up the event listener for the "Finished" button click event.
+   * When the button is clicked, it calls the `handleFinishedButtonClick` function.
+   */
+  function setupFinishButton() {
+    // Get the element with the ID "finishedButton"
+    const finishedButton = document.getElementById("finishedButton");
+
+    // Add a click event listener to the "Finished" button
+    // When the button is clicked, call the `handleFinishedButtonClick` function
+    finishedButton?.addEventListener("click", handleFinishedButtonClick);
+  }
+
+  /**
+   * Handles the click event of the "Finished" button.
+   * Removes the "ResultsRound1" item from localStorage and redirects the user to "/trivia/trivia-one".
+   */
+  function handleFinishedButtonClick() {
+    // Remove the "ResultsRound1" item from localStorage
+    localStorage.removeItem("ResultsRound1");
+
+    // Redirect the user to "/trivia/trivia-one"
+    window.location.href = "/trivia/trivia-one";
+  }
 
   /**
    * Updates the text content of the element with the class "point" to the

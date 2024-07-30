@@ -357,6 +357,9 @@ const coverflowData = [
     // Add 25 extra points if all results are correct
     if (allCorrect) {
       points += 25;
+      localStorage.setItem("allCorrectRound1", String(true));
+    } else {
+      localStorage.setItem("allCorrectRound1", String(false));
     }
 
     // Check if currentPoints exists in localStorage, if not, set it to 0
@@ -365,7 +368,7 @@ const coverflowData = [
     }
 
     // Save points to localStorage
-    localStorage.setItem("currentPoints", String(points));
+    localStorage.setItem("PointsRound1", String(points));
     console.log(`Points: ${points}`);
 
     // Save results to localStorage
