@@ -101,6 +101,72 @@ const { title, showHeader = true } = Astro.props;
         line-height: 1.6;
         color: #fff;
       }
+
+      .resultItem {
+        position: relative;
+        width: 126px;
+        flex-direction: column;
+        display: flex;
+      }
+
+      .resultCover {
+        width: 126px;
+        height: 126px;
+      }
+
+      .resultBand {
+        color: var(--colour-text-primary);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%;
+      }
+
+      .resultAlbum {
+        color: var(--colour-text-secondary);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+      }
+
+      .resultPlace {
+        position: absolute;
+        right: -14px;
+        top: -14px;
+        border-radius: var(--radius-radius-full);
+        background: var(--colour-BTN-verification);
+        color: var(--colour-text-BTN-primary);
+        text-align: center;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-spacing-xxs);
+        width: 31px;
+        height: 31px;
+      }
+
+      .resultError {
+        background: var(--colour-BTN-error);
+        color: var(--colour-text-BTN-inverted);
+      }
+
+      .resultData {
+        position: absolute;
+        top: 43px;
+        left: 20px;
+        padding: var(--spacing-spacing-xxs) var(--spacing-spacing-md);
+        border-radius: var(--radius-radius-full);
+        background: var(--colour-BTN-inverted);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 35.28px;
+      }
     </style>
   </body>
 </html>

@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Picture } from "astro:assets";
+import { For } from "@astropub/flow";
 
 import Layout from "../../layouts/Layout.astro";
 import Button from "../../components/Button.astro";
@@ -60,7 +61,7 @@ const coverflowData = [
       <div class="headline">00:00</div>
       <div class="subline">Zeit ist abgelaufen!</div>
       <div class="centerButton">
-        <Button buttonText="weiter" url="/results/result-one-false" />
+        <Button id="finishRoundButton" buttonText="weiter" url="#" />
       </div>
     </div>
   </div>
@@ -73,14 +74,22 @@ const coverflowData = [
   <div class="smallText">Älteste</div>
 
   <div class="coverflow">
-    {
-      coverflowData.map((item) => (
-        <div class="cover" data-band={item.band} data-album={item.album} data-data={item.data}>
-          <Picture src={item.coverSrc} width={266} height={266} formats={["avif", "webp"]} alt="" />
-          <audio id={`audio-${item.band}`} src={item.audioSrc} preload="none" />
-        </div>
-      ))
-    }
+    <For of={coverflowData}>
+      {
+        (item) => (
+          <div
+            class="cover"
+            data-band={item.band}
+            data-album={item.album}
+            data-data={item.data}
+            data-cover-source={item.coverSrc}
+          >
+            <Picture src={item.coverSrc} width={266} height={266} formats={["avif", "webp"]} alt="" />
+            <audio id={`audio-${item.band}`} src={item.audioSrc} preload="none" />
+          </div>
+        )
+      }
+    </For>
 
     <div class="buttons">
       <div class="arrowButton" id="up">
@@ -99,7 +108,7 @@ const coverflowData = [
     <span id="minutes">01</span>:<span id="seconds">00</span>
 
     <div class="finishButton">
-      <Button url="/results/result-one" />
+      <Button id="endRound" url="#" />
     </div>
   </div>
 </Layout>
@@ -117,7 +126,7 @@ const coverflowData = [
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* ensures overlay is on top */
+    z-index: 1000;
     visibility: hidden;
   }
 
@@ -295,6 +304,76 @@ const coverflowData = [
   const minutesElement = document.getElementById("minutes")!;
   const secondsElement = document.getElementById("seconds")!;
   const timupsOverlay = document.getElementById("timupsOverlay");
+  const endRoundButton = document.getElementById("endRound");
+  const finishRoundButton = document.getElementById("finishRoundButton");
+
+  const finalSolutionsArray = [
+    {
+      band: "SnowPatrol",
+    },
+    {
+      band: "KellyClarkson",
+    },
+    {
+      band: "NoDoubt",
+    },
+    {
+      band: "FleetWoodMac",
+    },
+  ];
+
+  /**
+   * Retrieves the sorted results from the DOM and compares them with the final solutions.
+   * Calculates the number of points earned and saves them to localStorage.
+   * Returns nothing.
+   */
+  const getSortedResults = () => {
+    // Get all the cover elements from the DOM and convert them to an array
+    const sortedCovers = Array.from(document.querySelectorAll(".cover"));
+
+    // Map over the cover elements and create an array of objects containing the data attributes
+    const results = sortedCovers.map((cover) => ({
+      band: cover.getAttribute("data-band"), // Get the band name
+      album: cover.getAttribute("data-album"), // Get the album name
+      date: cover.getAttribute("data-data"), // Get the release date
+      coverSrc: cover.getAttribute("data-cover-source"), // Get the cover image source
+      isWrong: false, // Initialize the 'isWrong' property to false
+    }));
+
+    let points = 0;
+    let allCorrect = true;
+
+    // Compare the results with the final solutions array
+    results.forEach((result, index) => {
+      // Check if the band name matches the band name in the final solutions array
+      if (result.band === finalSolutionsArray[index]?.band) {
+        points += 25; // Add 25 points for each correct match
+      } else {
+        result.isWrong = true; // Mark as true if not a match
+        allCorrect = false; // Set allCorrect to false if there's any incorrect match
+      }
+    });
+
+    // Add 25 extra points if all results are correct
+    if (allCorrect) {
+      points += 25;
+    }
+
+    // Check if currentPoints exists in localStorage, if not, set it to 0
+    if (localStorage.getItem("currentPoints") === null) {
+      localStorage.setItem("currentPoints", "0");
+    }
+
+    // Save points to localStorage
+    localStorage.setItem("currentPoints", String(points));
+    console.log(`Points: ${points}`);
+
+    // Save results to localStorage
+    localStorage.setItem("ResultsRound1", JSON.stringify(results));
+
+    console.log(`Points: ${points}`);
+    console.log(`Results: `, results);
+  };
 
   /**
    * Updates the timer display and checks if the timer has reached zero.
@@ -313,6 +392,7 @@ const coverflowData = [
     if (timeRemaining === 0) {
       clearInterval(timerInterval!);
       timupsOverlay!.style.visibility = "visible";
+      getSortedResults();
     } else {
       // Otherwise, decrement the remaining time by one second
       timeRemaining--;
@@ -444,6 +524,30 @@ const coverflowData = [
     upButton.addEventListener("click", () => moveSelection(-1));
     downButton.addEventListener("click", () => moveSelection(1));
   }
+
+  /**
+   * Adds a click event listener to the end round button.
+   * When the button is clicked, it gets the sorted results,
+   * navigates to the results page for round one.
+   */
+  endRoundButton?.addEventListener("click", () => {
+    // Get the sorted results
+    getSortedResults();
+    // Navigate to the results page for round one
+    window.location.href = "/results/result-one";
+  });
+
+  /**
+   * Adds a click event listener to the finsh round button.
+   * When the button is clicked, it gets the sorted results,
+   * navigates to the results page for round one.
+   */
+  finishRoundButton?.addEventListener("click", () => {
+    // Get the sorted results
+    getSortedResults();
+    // Navigate to the results page for round one
+    window.location.href = "/results/result-one";
+  });
 
   window.addEventListener("load", function () {
     initializeOverlay();

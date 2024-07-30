@@ -1,11 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import ResultItem from "../../components/ResultItem.astro";
 import Layout from "../../layouts/Layout.astro";
-import SnowPatrolCover from "../../assets/bandcover/snowPatrol.jpeg";
-import KellyClarksonCover from "../../assets/bandcover/kellyClarkson.jpeg";
-import NoDoubtCover from "../../assets/bandcover/noDoubt.jpg";
-import FleetWoodMacCover from "../../assets/bandcover/fleetwoodMac.jpg";
 import Button from "../../components/Button.astro";
 ---
 
@@ -17,16 +12,11 @@ import Button from "../../components/Button.astro";
     <div class="subline">Sortieren Sie nach dem Erscheinungsjahr!</div>
   </div>
 
-  <div class="results">
-    <ResultItem order={1} band="Snow Patrol" album="Eyes Open" year="2006" image={SnowPatrolCover} />
-    <ResultItem order={2} band="Kelly Clarkson" album="Breakaway" year="2004" image={KellyClarksonCover} />
-    <ResultItem order={3} band="No Doubt" album="Tragic Kingdom" year="1995" image={NoDoubtCover} />
-    <ResultItem order={4} band="Fleetwood Mac" album="Rumours" year="1977" image={FleetWoodMacCover} />
-  </div>
+  <div class="results" id="results-container"></div>
 
   <div class="points">
     <Icon name="coin" width={48} height={48} />
-    <span class="point">125</span>
+    <span class="point"></span>
 
     <div class="finishButton">
       <Button url="/trivia/trivia-one" />
@@ -96,3 +86,78 @@ import Button from "../../components/Button.astro";
     margin-left: var(--spacing-spacing-s);
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    updateCurrentPoints();
+    populateResults();
+  });
+
+  /**
+   * Updates the text content of the element with the class "point" to the
+   * current points stored in localStorage. If no points are stored, it
+   * defaults to "0".
+   */
+  function updateCurrentPoints() {
+    // Select the element with the class "point"
+    const pointSpan = document.querySelector(".point");
+
+    // Set the text content to the current points stored in localStorage, or "0" if no points are stored
+    pointSpan!.textContent = localStorage.getItem("currentPoints") || "0";
+  }
+
+  /**
+   * Populates the results container with the result items from round 1.
+   */
+  function populateResults() {
+    // Get the results container element
+    const resultsContainer = document.getElementById("results-container");
+
+    // If the results container element does not exist, exit the function
+    if (!resultsContainer) return;
+
+    // Get the results from round 1 from localStorage
+    const resultsRound1 = JSON.parse(localStorage.getItem("ResultsRound1") || "[]");
+
+    // Create a document fragment to improve performance when adding multiple elements to the DOM
+    const fragment = document.createDocumentFragment();
+
+    // Iterate over the results and create a result item for each one
+    resultsRound1.forEach((result: any, index: any) => {
+      const resultItem = createResultItem(result, index);
+      fragment.appendChild(resultItem);
+    });
+
+    // Append the result items to the results container
+    resultsContainer.appendChild(fragment);
+  }
+
+  /**
+   * Creates a result item element for the given result and index.
+   *
+   * @param {any} result - The result object.
+   * @param {any} index - The index of the result.
+   * @return {HTMLDivElement} The created result item element.
+   */
+  function createResultItem(result: any, index: any) {
+    // Create a new div element for the result item
+    const resultItem = document.createElement("div");
+
+    // Add the "result-item" class to the element
+    resultItem.classList.add("result-item");
+
+    // Set the innerHTML of the element to display the result details
+    resultItem.innerHTML = `
+      <div class="resultItem">
+        <div class="resultPlace ${result.isWrong ? "resultError" : ""}">${index + 1}.</div>
+        <img class="resultCover" src="${result.coverSrc}" alt="${result.band} - ${result.album}" width="126" height="126" />
+        <div class="resultBand">${result.band}</div>
+        <div class="resultAlbum">${result.album}</div>
+        <div class="resultData">${result.date}</div>
+      </div>
+    `;
+
+    // Return the created result item element
+    return resultItem;
+  }
+</script>
