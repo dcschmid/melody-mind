@@ -1,7 +1,7 @@
 ---
 import { Picture } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import PopRockCover from "../assets/category/poprock-big.png";
+import PopRockCover from "../assets/category/poprock.png";
 import Button from "../components/Button.astro";
 import ThreeJoker from "../components/HeaderItems/ThreeJoker.astro";
 ---
@@ -15,7 +15,7 @@ import ThreeJoker from "../components/HeaderItems/ThreeJoker.astro";
   </div>
   <div class="category">
     <div class="cover">
-      <Picture src={PopRockCover} width={240} height={240} formats={["avif", "webp"]} alt="" />
+      <Picture src="/category/poprock.png" width={240} height={240} formats={["avif", "webp"]} alt="" />
     </div>
     <div class="categoryHeadline">PopRock – 70er bis heute</div>
     <div class="text">

@@ -7,6 +7,14 @@ import Layout from "../../layouts/Layout.astro";
 import Button from "../../components/Button.astro";
 import ThreeJoker from "../../components/HeaderItems/ThreeJoker.astro";
 
+function shuffleArray(array: any) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
 const coverflowData = [
   {
     band: "SnowPatrol",
@@ -37,6 +45,8 @@ const coverflowData = [
     audioSrc: "/mp3s/fleetwoodMac.mp3",
   },
 ];
+
+const randomizedCoverflowData = shuffleArray(coverflowData);
 ---
 
 <Layout title="Spielrunde 1">
@@ -74,9 +84,9 @@ const coverflowData = [
   <div class="smallText">Älteste</div>
 
   <div class="coverflow">
-    <For of={coverflowData}>
+    <For of={randomizedCoverflowData}>
       {
-        (item) => (
+        (item: any) => (
           <div
             class="cover"
             data-band={item.band}
@@ -297,6 +307,7 @@ const coverflowData = [
     color: var(--colour-text-primary);
   }
 </style>
+
 <script>
   let timeRemaining = 60;
   let timerInterval: number | null = null;
@@ -329,7 +340,7 @@ const coverflowData = [
    */
   const getSortedResults = () => {
     // Get all the cover elements from the DOM and convert them to an array
-    const sortedCovers = Array.from(document.querySelectorAll(".cover"));
+    let sortedCovers = Array.from(document.querySelectorAll(".cover")).reverse();
 
     // Map over the cover elements and create an array of objects containing the data attributes
     const results = sortedCovers.map((cover) => ({
@@ -369,13 +380,9 @@ const coverflowData = [
 
     // Save points to localStorage
     localStorage.setItem("PointsRound1", String(points));
-    console.log(`Points: ${points}`);
 
     // Save results to localStorage
     localStorage.setItem("ResultsRound1", JSON.stringify(results));
-
-    console.log(`Points: ${points}`);
-    console.log(`Results: `, results);
   };
 
   /**
@@ -553,6 +560,17 @@ const coverflowData = [
   });
 
   window.addEventListener("load", function () {
+    // The 'PointsRound1' item stores the points earned in Round 1.
+    // If the item does not exist in localStorage, it means that the user has not played Round 1 yet,
+    // so we set it to 0.
+    if (localStorage.getItem("PointsRound1") === null) {
+      // Set the 'PointsRound1' item to 0 if it does not exist in localStorage
+      localStorage.setItem("PointsRound1", String(0));
+    } else {
+      // Set the 'PointsRound1' item to 0 if it exists in localStorage
+      localStorage.setItem("PointsRound1", String(0));
+    }
+
     initializeOverlay();
     initializeCovers();
   });

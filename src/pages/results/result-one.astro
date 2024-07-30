@@ -109,12 +109,8 @@ import Button from "../../components/Button.astro";
 
   /**
    * Handles the click event of the "Finished" button.
-   * Removes the "ResultsRound1" item from localStorage and redirects the user to "/trivia/trivia-one".
    */
   function handleFinishedButtonClick() {
-    // Remove the "ResultsRound1" item from localStorage
-    localStorage.removeItem("ResultsRound1");
-
     // Redirect the user to "/trivia/trivia-one"
     window.location.href = "/trivia/trivia-one";
   }
@@ -129,7 +125,7 @@ import Button from "../../components/Button.astro";
     const pointSpan = document.querySelector(".point");
 
     // Set the text content to the current points stored in localStorage, or "0" if no points are stored
-    pointSpan!.textContent = localStorage.getItem("currentPoints") || "0";
+    pointSpan!.textContent = localStorage.getItem("PointsRound1") || "0";
   }
 
   /**
