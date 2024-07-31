@@ -5,10 +5,9 @@ import { When } from "@astropub/flow";
 interface Props {
   title: string;
   showHeader?: boolean;
-  hasMargin?: boolean;
 }
 
-const { title, showHeader = true, hasMargin = true } = Astro.props;
+const { title, showHeader = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,24 +21,22 @@ const { title, showHeader = true, hasMargin = true } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <div class={hasMargin ? "hasMargin" : ""}>
-      <When test1={showHeader}>
-        <header>
-          <slot name="left-headercol" />
-          <div>
-            <a href="/gamehome"><Icon name="cover-shuffle-logo" width={84} height={59.229} /></a>
-          </div>
-          <div class="iconGroup">
-            <Icon name="settings" width={24} height={22.24} />
-            <a href="/user"><Icon name="user" width={24} height={22.24} /></a>
-          </div>
-        </header>
-      </When>
+    <When test1={showHeader}>
+      <header>
+        <slot name="left-headercol" />
+        <div>
+          <a href="/gamehome"><Icon name="cover-shuffle-logo" width={84} height={59.229} /></a>
+        </div>
+        <div class="iconGroup">
+          <Icon name="settings" width={24} height={22.24} />
+          <a href="/user"><Icon name="user" width={24} height={22.24} /></a>
+        </div>
+      </header>
+    </When>
 
-      <main>
-        <slot />
-      </main>
-    </div>
+    <main>
+      <slot />
+    </main>
 
     <style is:global>
       :root {
@@ -50,6 +47,7 @@ const { title, showHeader = true, hasMargin = true } = Astro.props;
         --colour-BTN-verification: #2bdd6c;
         --colour-BTN-primary: #ffe500;
         --colour-BTN-disabled: #686868;
+        --colour-BTN-gold: #b89826;
         --colour-border-disabled: #686868;
         --colour-border-secondary: #ffe500;
         --colour-text-BTN-primary: #1a0e38;
@@ -58,7 +56,6 @@ const { title, showHeader = true, hasMargin = true } = Astro.props;
         --colour-text-primary: #fff;
         --colour-text-secondary: #aeaeae;
         --radius-radius-full: 128px;
-        --radius-radius-rounded: 8px;
         --radius-radius-rounded: 8px;
         --spacing-15: 12px;
         --spacing-1: 8px;
@@ -69,6 +66,9 @@ const { title, showHeader = true, hasMargin = true } = Astro.props;
         --spacing-spacing-xl: 40px;
         --spacing-spacing-xs: 8px;
         --spacing-spacing-xxs: 4px;
+        --spacing-spacing-lg: 32px;
+        --colour-BG-secondary: #2b2b2b;
+        --colour-BTN-inverted-2: #fff;
       }
 
       html {

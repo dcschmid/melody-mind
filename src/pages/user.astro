@@ -1,24 +1,280 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Picture } from "astro:assets";
-import UserPic from "../assets/user.jpg";
+import { Icon } from "astro-icon/components";
 ---
 
-<Layout title="User Profile">
-  <div slot="left-headercol"></div>
+<Layout title="User Profile" showHeader={false}>
+  <div class="content">
+    <div class="headerRoot">
+      <a href="/gamehome"><Icon name="cover-shuffle-logo" width={84} height={59.229} /></a>
+      <Picture src="/user-profiles/mika.png" width={160} height={160} formats={["avif", "webp"]} alt="" />
+      <Icon name="trophy" width={48} height={48} />
+    </div>
+    <div class="nameRoot">
+      <div class="name">Hallo <span class="yellowName">Mika</span>!</div>
+      <div class="points">
+        <Icon class="coin" name="coin" width={24} height={24} />
+        1000 Pt
+      </div>
+    </div>
 
-  <div class="container">
-    <Picture class="cover" src={UserPic} formats={["avif", "webp"]} alt="" />
+    <div class="frame">
+      <div class="frameHeader">
+        <div class="headline">Rahmen</div>
+        <div class="frameButton">wechseln</div>
+      </div>
+      <div class="frames">
+        <div class="frameItem goldBackground">
+          <Icon class="newIcon2" name="new-button" width={48} height={48} />
+          <Icon name="rocket" width={48} height={48} />
+        </div>
+        <div class="frameItem goldBackground">
+          <Icon name="brain" width={48} height={48} />
+        </div>
+        <div class="frameItem whiteBackground">
+          <Icon name="microphone" width={48} height={48} />
+        </div>
+        <div class="frameItem"></div>
+      </div>
+    </div>
+
+    <div class="goldenlps">
+      <div class="goldenlpsHeader">
+        <div class="headline">Goldene Schallplatten</div>
+      </div>
+      <div class="lpsRoot">
+        <div class="goldenlpsItem">
+          <Icon name="silver-lp" width={80} height={80} />
+        </div>
+        <div class="goldenlpsItem">
+          <Icon name="silver-lp" width={80} height={80} />
+        </div>
+        <div class="goldenlpsItem">
+          <div class="lpGroup">
+            <Icon name="golden-lp" width={80} height={80} />
+            <Icon class="absIcon" name="brain" width={48} height={48} />
+          </div>
+          <div class="lpText">Brit Pop</div>
+          <div class="lpData">90er Jahre</div>
+        </div>
+        <div class="goldenlpsItem">
+          <Icon name="silver-lp" width={80} height={80} />
+        </div>
+        <div class="goldenlpsItem">
+          <Icon name="silver-lp" width={80} height={80} />
+        </div>
+        <div class="goldenlpsItem">
+          <div class="lpGroup">
+            <Icon class="newIcon" name="new-button" width={48} height={48} />
+            <Icon name="golden-lp" width={80} height={80} />
+            <Icon class="absIcon" name="rocket" width={48} height={48} />
+          </div>
+          <div class="lpText">PopRock</div>
+          <div class="lpData">70er - heute</div>
+        </div>
+        <div class="goldenlpsItem">
+          <Icon name="silver-lp" width={80} height={80} />
+        </div>
+        <div class="goldenlpsItem">
+          <Icon name="silver-lp" width={80} height={80} />
+        </div>
+        <div class="goldenlpsItem">
+          <Icon name="silver-lp" width={80} height={80} />
+        </div>
+        <div class="goldenlpsItem">
+          <Icon name="silver-lp" width={80} height={80} />
+        </div>
+        <div class="goldenlpsItem">
+          <Icon name="silver-lp" width={80} height={80} />
+        </div>
+        <div class="goldenlpsItem">
+          <Icon name="silver-lp" width={80} height={80} />
+        </div>
+        <div class="goldenlpsItem">
+          <Icon name="silver-lp" width={80} height={80} />
+        </div>
+        <div class="goldenlpsItem">
+          <Icon name="silver-lp" width={80} height={80} />
+        </div>
+        <div class="goldenlpsItem">
+          <Icon name="silver-lp" width={80} height={80} />
+        </div>
+        <div class="goldenlpsItem">
+          <div class="lpGroup">
+            <Icon name="golden-lp" width={80} height={80} />
+            <Icon class="absIcon" name="microphone-white" width={48} height={48} />
+          </div>
+          <div class="lpText">HipHop</div>
+          <div class="lpData">90er Jahre</div>
+        </div>
+      </div>
+    </div>
   </div>
 </Layout>
 
 <style>
-  .container {
+  .content {
+    margin: var(--spacing-spacing-xl) var(--spacing-spacing-s);
+  }
+
+  .headerRoot {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+
+  .nameRoot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-15);
+  }
+
+  .name {
+    color: var(--colour-text-primary);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: 0.36px;
+  }
+
+  .yellowName {
+    color: var(--colour-text-active);
+  }
+
+  .points {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
+  .points .coin {
+    margin-right: var(--spacing-spacing-xs);
+  }
+
+  .goldenlps,
+  .frame {
+    display: flex;
+    margin: var(--spacing-spacing-s) 0;
+    padding: var(--spacing-spacing-md) var(--spacing-spacing-s);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-spacing-lg);
+    align-self: stretch;
+    border-radius: var(--radius-radius-rounded);
+    background: var(--colour-BG-secondary);
+  }
+
+  .lpsRoot,
+  .frames {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--spacing-spacing-s);
+    flex-wrap: wrap;
+  }
+
+  .frameItem {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-radius-rounded);
+    border: 1px dotted var(--colour-border-disabled);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
   }
 
-  .cover {
+  .frameButton {
+    border-radius: var(--radius-radius-full);
+    background: var(--colour-BTN-primary);
+    padding: var(--spacing-spacing-xxs) var(--spacing-15);
+    color: var(--colour-text-BTN-primary);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 35.28px;
+  }
+
+  .frameHeader {
     width: 100%;
-    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .goldBackground {
+    background: var(--colour-BTN-gold, #b89826);
+  }
+
+  .whiteBackground {
+    background: var(--colour-BTN-inverted-2);
+  }
+
+  .headline {
+    color: var(--colour-text-primary);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
+  .goldenlpsItem {
+    display: flex;
+    flex-direction: column;
+    height: 132px;
+    align-items: flex-start;
+    gap: var(--spacing-spacing-xs, 8px);
+    align-self: stretch;
+  }
+
+  .lpGroup {
+    display: flex;
+    position: relative;
+  }
+
+  .absIcon {
+    position: absolute;
+    bottom: -0.5rem;
+    right: -0.5rem;
+  }
+
+  .lpText {
+    color: var(--colour-text-primary);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .lpData {
+    color: var(--colour-text-secondary);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .newIcon {
+    position: absolute;
+    top: -0.5rem;
+    left: -0.5rem;
+  }
+
+  .newIcon2 {
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
   }
 </style>

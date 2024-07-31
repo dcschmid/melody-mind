@@ -10,11 +10,15 @@ import Button from "../../components/Button.astro";
 
   <div id="overlayFinish" class="overlayFinish">
     <div class="overlayFinish-content">
-      <Icon name="golden-lp" width={80} height={80} />
-      <div class="headline">Glückwunsch! PopRock erfolgreich beendet!</div>
+      <div class="shareRoot">
+        <Icon name="share" width={48} height={48} />
+      </div>
+      <Icon name="diamond" width={150} height={150} />
+      <div class="bigHeadline">Glückwunsch!</div>
+      <div class="headline">PopRock erfolgreich durchgespielt!</div>
       <div class="subline">Punktzahl verdoppelt</div>
-      <div class="headline">+200 Punkte</div>
-
+      <div class="points">+200 Pt</div>
+      <div class="subline"></div>
       <div class="centerButton">
         <Button id="playVideo" buttonText="Video abspielen" url="/videos/nilzvideo" />
       </div>
@@ -62,14 +66,24 @@ import Button from "../../components/Button.astro";
     align-items: center;
     justify-content: center;
     gap: var(--spacing-3);
+    position: relative;
+  }
+
+  .overlayFinish-content .bigHeadline {
+    color: var(--colour-text-primary);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 120%;
+    text-align: center;
   }
 
   .overlayFinish-content .headline {
     color: var(--colour-text-primary);
-    font-size: 48px;
+    font-size: 16px;
     font-style: normal;
-    font-weight: 900;
-    line-height: 120%;
+    font-weight: 400;
+    line-height: 150%;
     text-align: center;
   }
 
@@ -80,6 +94,21 @@ import Button from "../../components/Button.astro";
     font-weight: 400;
     line-height: 150%;
     text-align: center;
+  }
+
+  .overlayFinish-content .points {
+    color: var(--colour-text-primary);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    text-align: center;
+  }
+
+  .overlayFinish-content .shareRoot {
+    position: absolute;
+    top: -2rem;
+    right: 1rem;
   }
 
   .solution {
