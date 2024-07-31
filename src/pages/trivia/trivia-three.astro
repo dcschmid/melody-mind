@@ -1,36 +1,115 @@
 ---
 import { Icon } from "astro-icon/components";
+import { For } from "@astropub/flow";
+
 import Layout from "../../layouts/Layout.astro";
-import Blink182Cover from "../../assets/bandcover/blink182.jpeg";
-import DavidBowieCover from "../../assets/bandcover/davidBowie.jpg";
-import AvrilLavigneCover from "../../assets/bandcover/avrilLavigne.jpeg";
-import RedHotChiliPeppersCover from "../../assets/bandcover/redHotChiliPeppers.jpg";
 import TriviaItem from "../../components/TriviaItem.astro";
 import Button from "../../components/Button.astro";
+
+function shuffleArray(array: any) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const triviaData = [
+  {
+    band: "Red Hot Chilli Peppers",
+    album: "Stadium Acradium",
+    coverSrc: "/bandcover/redHotChiliPeppers.jpg",
+    type: "lost",
+  },
+  {
+    band: "Avril Lavigne",
+    album: "Let Go",
+    coverSrc: "/bandcover/avrilLavigne.jpeg",
+    type: "lost",
+  },
+  {
+    band: "David Bowie",
+    album: "Hunky Dory",
+    coverSrc: "/bandcover/davidBowie.jpg",
+    type: "won",
+  },
+  {
+    band: "blink-182",
+    album: "Enemy of the State",
+    coverSrc: "/bandcover/blink182.jpeg",
+    type: "lost",
+  },
+];
+
+const randomizedTriviaData = shuffleArray(triviaData);
 ---
 
 <Layout title="Trivia Runde 3">
   <div slot="left-headercol"></div>
 
-  <div id="overlayStart" class="overlayStart">
+  <div id="overlayStart" class="overlay">
     <div class="overlayStart-content">
       <Icon name="star-golden" width={80} height={80} />
       <div class="headline">Trivia Frage</div>
       <div class="subline">verdoppeln Sie Ihren Punktestand!</div>
-      <div class="question">Welches Album wurde dem Sohn eines/einer der Musiker:innen gewidmet?</div>
+      <div class="question">Welches Album wurde vom Rolling Stone zum siebtbesten Album aller Zeiten gekürt?</div>
       <div class="centerButton">
         <Button id="gameButton" buttonText="weiter" url="#" />
       </div>
     </div>
   </div>
 
-  <div id="overlayTimeUp" class="overlayTimeUp">
+  <div id="overlayTimeUp" class="overlay">
     <div class="overlayTimeUp-content">
       <Icon name="clock" width={200} height={200} />
       <div class="headline">00:00</div>
       <div class="subline">Zeit ist abgelaufen!</div>
       <div class="centerButton">
-        <Button buttonText="weiter" url="/trivia/trivia-three-solution" />
+        <Button buttonText="weiter" url="/trivia/trivia-two-solution" />
+      </div>
+    </div>
+  </div>
+
+  <div id="overlayLost" class="overlay">
+    <div class="overlayLost-content">
+      <Icon name="lost" width={80} height={80} />
+      <div class="headline">Leider falsch</div>
+      <div class="subline">Punktestand bleibt</div>
+      <div class="point"></div>
+      <div class="centerButton">
+        <Button buttonText="Auflösung" url="/trivia/trivia-two-solution" />
+      </div>
+    </div>
+  </div>
+
+  <div id="overlayWon" class="overlay">
+    <div class="overlayWon-content">
+      <Icon name="golden-coins" width={80} height={80} />
+      <div class="headline">Glückwunsch!</div>
+      <div class="subline">Punktestand verdoppelt!</div>
+      <div class="point"></div>
+      <div class="centerButton">
+        <Button buttonText="Auflösung" url="/trivia/trivia-two-solution" />
+      </div>
+    </div>
+  </div>
+
+  <div id="overlayWonLP" class="overlay">
+    <div class="overlayWonLP-content">
+      <div class="goldenLPRoot">
+        <Icon name="golden-lp" width={200} height={200} />
+        <Icon class="brainIcon" name="brain" width={80} height={80} />
+      </div>
+      <div class="headline">Glückwunsch!</div>
+      <div class="centerText">
+        Sie haben die <span class="goldText">goldene Schallplatte</span> für Ihr <span class="whiteText"
+          >umfangreiches Wissen</span
+        > erspielt!
+      </div>
+      <div class="smallText">& Punktestand verdoppelt!</div>
+      <div class="point">+ 125 Pt</div>
+      <div class="centerButton">
+        <Button buttonText="Auflösung" url="/trivia/trivia-two-solution" />
       </div>
     </div>
   </div>
@@ -41,29 +120,25 @@ import Button from "../../components/Button.astro";
   </div>
 
   <div class="trivia">
-    <a href="/trivia/trivia-three-lost">
-      <TriviaItem band="Red Hot Chilli Peppers" album="Stadium Acradium" image={RedHotChiliPeppersCover} />
-    </a>
-    <a href="/trivia/trivia-three-lost">
-      <TriviaItem band="Avril Lavigne" album="Let Go" image={AvrilLavigneCover} />
-    </a>
-    <a href="/trivia/trivia-three-won">
-      <TriviaItem band="David Bowie" album="Hunky Dory" image={DavidBowieCover} />
-    </a>
-    <a href="/trivia/trivia-three-lost">
-      <TriviaItem band="blink-182" album="Enemy of the State" image={Blink182Cover} />
-    </a>
+    <For of={randomizedTriviaData}>
+      {
+        (item: any) => (
+          <div class={item.type}>
+            <TriviaItem band={item.band} album={item.album} image={item.coverSrc} />
+          </div>
+        )
+      }
+    </For>
   </div>
 
   <div class="timer">
     <Icon name="clock" width={48} height={48} />
-    <span id="minutes">00</span>:<span id="seconds">30</span>
+    <span id="minutes">00</span>:<span id="seconds">10</span>
   </div>
 </Layout>
 
 <style>
-  .overlayStart,
-  .overlayTimeUp {
+  .overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -79,7 +154,10 @@ import Button from "../../components/Button.astro";
   }
 
   .overlayStart-content,
-  .overlayTimeUp-content {
+  .overlayTimeUp-content,
+  .overlayLost-content,
+  .overlayWon-content,
+  .overlayWonLP-content {
     display: flex;
     width: 366px;
     flex-direction: column;
@@ -88,49 +166,86 @@ import Button from "../../components/Button.astro";
     gap: var(--spacing-3);
   }
 
-  .overlayStart-content .headline {
+  .headline {
     color: var(--colour-text-primary);
-    font-size: 48px;
     font-style: normal;
     font-weight: 900;
     line-height: 120%;
   }
 
-  .overlayStart-content .subline {
+  .subline {
     color: var(--colour-text-secondary);
-    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
     text-align: center;
   }
 
-  .overlayStart-content .question {
+  .point {
+    color: var(--colour-text-primary);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 2px;
+  }
+
+  .centerButton {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-spacing-md);
+  }
+
+  .overlayStart-content .headline,
+  .overlayLost-content .headline,
+  .overlayWon-content .headline,
+  .overlayWonLP-content .headline {
+    font-size: 48px;
+  }
+
+  .overlayStart-content .subline,
+  .overlayLost-content .subline,
+  .overlayWon-content .subline,
+  .overlayWonLP .smallText {
+    font-size: 14px;
+  }
+
+  .overlayStart-content .question,
+  .overlayWonLP .text {
     color: var(--colour-text-primary);
     font-size: 24px;
-    font-style: normal;
     font-weight: 400;
     line-height: 130%;
     text-align: center;
   }
 
   .overlayTimeUp-content .headline {
-    color: var(--colour-text-primary);
     font-size: 24px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: 120%;
     letter-spacing: 0.36px;
   }
 
   .overlayTimeUp-content .subline {
-    color: var(--colour-text-secondary);
     font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
     justify-content: center;
     display: inline-flex;
+  }
+
+  .overlayWonLP-content .goldText {
+    color: var(--colour-text-link);
+  }
+
+  .overlayWonLP-content .whiteText {
+    color: var(--colour-text-primary);
+  }
+
+  .goldenLPRoot {
+    position: relative;
+  }
+
+  .brainIcon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
 
   .introText {
@@ -141,21 +256,25 @@ import Button from "../../components/Button.astro";
     margin-bottom: var(--spacing-spacing-md);
   }
 
-  .headline {
+  .introText .headline {
     color: var(--colour-text-secondary);
     font-size: 14px;
-    font-style: normal;
     font-weight: 700;
-    line-height: 120%;
   }
 
-  .subline {
+  .introText .subline {
     width: 366px;
     color: var(--colour-text-primary);
     font-size: 16px;
+  }
+
+  .centerText {
+    color: var(--colour-text-secondary);
+    text-align: center;
+    font-size: 24px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%;
+    line-height: 130%;
   }
 
   .trivia {
@@ -173,48 +292,160 @@ import Button from "../../components/Button.astro";
     justify-content: center;
     align-items: center;
     font-size: 40px;
-    font-style: normal;
     font-weight: 900;
-    line-height: normal;
     letter-spacing: 2px;
     color: var(--colour-text-primary);
   }
 </style>
 
 <script>
+  import JSConfetti from "js-confetti";
+
+  const jsConfetti = new JSConfetti();
+
   const overlayTimeUp = document.getElementById("overlayTimeUp") as HTMLElement;
   const overlayStart = document.getElementById("overlayStart") as HTMLElement;
+  const overlayLost = document.getElementById("overlayLost") as HTMLElement;
+  const overlayWon = document.getElementById("overlayWon") as HTMLElement;
+  const overlayWonLP = document.getElementById("overlayWonLP") as HTMLElement;
   const gameButton = document.getElementById("gameButton") as HTMLElement;
   const minutesElement = document.getElementById("minutes") as HTMLElement;
   const secondsElement = document.getElementById("seconds") as HTMLElement;
 
-  let timeRemaining = 30;
+  let timeRemaining = 10;
   let timerInterval: number | null = null;
 
+  /**
+   * Updates the timer display and checks if the timer has reached zero.
+   * If the timer has reached zero, it hides the timer overlay.
+   */
   function updateTime() {
-    const minutes = Math.floor(timeRemaining / 60);
-    const seconds = timeRemaining % 60;
+    // Convert the time remaining to a string, padded with leading zeros to 4 digits
+    const timeStr = `${timeRemaining}`.padStart(4, "0");
 
-    minutesElement.textContent = minutes.toString().padStart(2, "0");
-    secondsElement.textContent = seconds.toString().padStart(2, "0");
+    // Extract the minutes and seconds from the time string
+    const minutes = timeStr.slice(0, 2);
+    const seconds = timeStr.slice(2);
 
-    if (timeRemaining === 0) {
+    // Update the display with the formatted minutes and seconds
+    minutesElement.textContent = minutes;
+    secondsElement.textContent = seconds;
+
+    // If the timer has reached zero, hide the timer overlay
+    if (--timeRemaining < 0) {
       clearInterval(timerInterval!);
       overlayTimeUp.style.visibility = "visible";
-    } else {
-      timeRemaining--;
     }
   }
 
+  /**
+   * Starts the timer by setting an interval to call the updateTime function every second.
+   * Hides the overlayStart element.
+   */
   function startTimer() {
+    // Set an interval to call the updateTime function every second
     timerInterval = window.setInterval(updateTime, 1000);
+
+    // Hide the overlayStart element
     overlayStart.style.visibility = "hidden";
+  }
+
+  /**
+   * Initializes the lost overlay by adding a click event listener to each element with the class 'lost'.
+   * When a lost item is clicked, it shows the overlayLost overlay, clears the timer interval,
+   * and updates the points displayed in the overlayLost.
+   */
+  function initLostOverlay() {
+    // Select all elements with the class 'lost'
+    const lostItems = document.querySelectorAll(".lost");
+
+    lostItems.forEach((item) => {
+      /**
+       * Event listener for when a lost item is clicked.
+       * Shows the overlayLost overlay, clears the timer interval,
+       * and updates the points displayed in the overlayLost.
+       *
+       * @param {Event} event - The click event
+       */
+      item.addEventListener("click", (_event) => {
+        // Show the overlayLost overlay
+        overlayLost!.style.visibility = "visible";
+
+        // Clear the timer interval
+        clearInterval(timerInterval!);
+
+        // Update the points in the overlayLost
+        const pointDiv = overlayLost!.querySelector(".point");
+
+        // Get the current points from localStorage, defaulting to 0 if not set
+        const currentPoints = localStorage.getItem("currentPoints") || "0";
+
+        // Set the text content of the pointDiv to the current points
+        pointDiv!.textContent = `${currentPoints} Pt`;
+      });
+    });
+  }
+
+  /**
+   * Handles the click event when the "Won" button is clicked.
+   * Opens the overlayWon overlay, retrieves the current points from localStorage,
+   * displays the current points in the div with the className 'points' in the overlay,
+   * and doubles the current points and updates localStorage.
+   */
+  function handleWonClick() {
+    clearInterval(timerInterval!);
+
+    // Open the overlayWon overlay
+    overlayTimeUp.style.visibility = "hidden";
+
+    // Check the value of allCorrectRound3 in localStorage
+    const allCorrectRound3 = localStorage.getItem("allCorrectRound3") === "true";
+
+    if (allCorrectRound3) {
+      // Open the overlayWonLP overlay
+      overlayWonLP!.style.visibility = "visible";
+      jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
+    } else {
+      // Open the overlayWon overlay
+      overlayWon!.style.visibility = "visible";
+      jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
+    }
+
+    // Get the currentPoints from localStorage
+    /**
+     * @type The current points stored in localStorage. Defaults to 0 if no points are stored.
+     */
+    const currentPoints = parseInt(localStorage.getItem("currentPoints") || "0", 10);
+
+    /**
+     * The points earned in Round 2, stored in localStorage.
+     * Defaults to 0 if not set.
+     */
+    const pointsRound3 = parseInt(localStorage.getItem("PointsRound3") || "0", 10);
+
+    // Show the currentPoints in the div with the className 'points' in the overlay
+    const pointsDiv = allCorrectRound3 ? overlayWonLP!.querySelector(".point") : overlayWon!.querySelector(".point");
+    pointsDiv!.textContent = `+ ${pointsRound3} Pt`;
+
+    // Double the currentPoints and update localStorage
+    /**
+     * @type The doubled current points.
+     */
+    const calculatedPoints = currentPoints + pointsRound3 * 2;
+    localStorage.setItem("currentPoints", String(calculatedPoints));
   }
 
   window.addEventListener("load", function (_event: Event): void {
     overlayTimeUp.style.visibility = "hidden";
+    overlayLost!.style.visibility = "hidden";
+    overlayWon!.style.visibility = "hidden";
+    overlayWonLP!.style.visibility = "hidden";
     overlayStart.style.visibility = "visible";
 
     gameButton.addEventListener("click", startTimer);
+
+    document.querySelector(".trivia .won")!.addEventListener("click", handleWonClick);
+
+    initLostOverlay();
   });
 </script>

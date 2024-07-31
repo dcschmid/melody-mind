@@ -400,10 +400,10 @@ const randomizedTriviaData = shuffleArray(triviaData);
     // Open the overlayWon overlay
     overlayTimeUp.style.visibility = "hidden";
 
-    // Check the value of allCorrectRound1 in localStorage
-    const allCorrectRound1 = localStorage.getItem("allCorrectRound1") === "true";
+    // Check the value of allCorrectRound2 in localStorage
+    const allCorrectRound2 = localStorage.getItem("allCorrectRound2") === "true";
 
-    if (allCorrectRound1) {
+    if (allCorrectRound2) {
       // Open the overlayWonLP overlay
       overlayWonLP!.style.visibility = "visible";
       jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
@@ -426,7 +426,7 @@ const randomizedTriviaData = shuffleArray(triviaData);
     const pointsRound2 = parseInt(localStorage.getItem("PointsRound2") || "0", 10);
 
     // Show the currentPoints in the div with the className 'points' in the overlay
-    const pointsDiv = allCorrectRound1 ? overlayWonLP!.querySelector(".point") : overlayWon!.querySelector(".point");
+    const pointsDiv = allCorrectRound2 ? overlayWonLP!.querySelector(".point") : overlayWon!.querySelector(".point");
     pointsDiv!.textContent = `+ ${pointsRound2} Pt`;
 
     // Double the currentPoints and update localStorage
