@@ -4,13 +4,6 @@ import { Icon } from "astro-icon/components";
 import PlaylistItem from "../components/PlaylistItem.astro";
 import Layout from "../layouts/Layout.astro";
 import Help from "../components/HeaderItems/Help.astro";
-
-import KulturgutCover from "../assets/category/kulturgut.png";
-import PopRockCover from "../assets/category/poprock.png";
-import PartyOnCover from "../assets/category/partyon.png";
-import SummerHitsCover from "../assets/category/summerhits.png";
-import TopChartsCover from "../assets/category/topcharts.png";
-import HipHopCover from "../assets/category/hiphop.png";
 ---
 
 <Layout title="Spiel Kategorien">
@@ -21,12 +14,12 @@ import HipHopCover from "../assets/category/hiphop.png";
   </div>
 
   <div class="choosePlaylist">
-    <PlaylistItem headline="Kulturgut" years="Alle Jahrzehnte" image={KulturgutCover} />
-    <a href="/category"><PlaylistItem headline="PopRock" years="70er bis heute" image={PopRockCover} /></a>
-    <PlaylistItem headline="Party On!" years="2010 bis 2024" image={PartyOnCover} />
-    <PlaylistItem headline="Summer Hits" years="2023/24" image={SummerHitsCover} />
-    <PlaylistItem headline="Top Charts" years="Alle Jahrzehnte" image={TopChartsCover} />
-    <PlaylistItem headline="HipHop" years="90er Jahre" image={HipHopCover} />
+    <PlaylistItem headline="Disco Fever" years="Hits der 70er und frühen 80er" image="/category/disco-fever.jpg" />
+    <PlaylistItem headline="Indie & Alternative" years="2000 bis 2020" image="/category/indie-alternative.jpg" } />
+    <PlaylistItem headline="Latin Vibes" years="2010 bis heute" image="/category/latin.jpg" />
+    <PlaylistItem headline="British Invasion" years="60er Jahre" image="/category/british-invasion.jpg" />
+    <PlaylistItem headline="Country Classics" years="80er bis 90er Jahre" image="/category/country-classics.jpg" />
+    <PlaylistItem headline="Millennium Pop" years="2000 bis 2010" image="/category/millennium-pop.jpg" />
   </div>
 
   <div class="hint">
@@ -59,7 +52,7 @@ import HipHopCover from "../assets/category/hiphop.png";
   }
 
   .subline {
-    color: var(--colour-text-secondary, #aeaeae);
+    color: var(--colour-text-secondary);
     leading-trim: both;
     text-edge: cap;
     font-size: 16px;
@@ -85,12 +78,12 @@ import HipHopCover from "../assets/category/hiphop.png";
   }
 
   .hint {
+    color: var(--colour-text-primary);
     display: flex;
-    align-items: center;
+    align-items: top;
     margin-top: var(--spacing-spacing-md);
-    color: var(--colour-text-secondary);
-    border-top: 2px solid var(--colour-border-disabled, #686868);
-    border-bottom: 2px solid var(--colour-border-disabled, #686868);
+    border-top: 2px solid var(--colour-border-disabled);
+    border-bottom: 2px solid var(--colour-border-disabled);
     padding: var(--spacing-spacing-xxs) 0;
   }
 
