@@ -3,7 +3,6 @@ import { Icon } from "astro-icon/components";
 import { Picture } from "astro:assets";
 
 import Button from "../Button.astro";
-import AvrilLavigneCover from "../../assets/bandcover/avrilLavigne.jpeg";
 ---
 
 <div class="jokerIcons">
@@ -36,7 +35,7 @@ import AvrilLavigneCover from "../../assets/bandcover/avrilLavigne.jpeg";
       </div>
       <div class="solutionRoot">
         <div class="solutionCover">
-          <Picture src={AvrilLavigneCover} width={240} height={240} formats={["avif", "webp"]} alt="" />
+          <Picture src="/bandcover/avrilLavigne.jpeg" width={240} height={240} formats={["avif", "webp"]} alt="" />
           <Icon class="share" name="share" width={48} height={48} />
         </div>
         <div class="solutionYear">48:37</div>
