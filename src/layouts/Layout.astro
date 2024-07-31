@@ -5,9 +5,10 @@ import { When } from "@astropub/flow";
 interface Props {
   title: string;
   showHeader?: boolean;
+  showUserLink?: boolean;
 }
 
-const { title, showHeader = true } = Astro.props;
+const { title, showHeader = true, showUserLink = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -29,7 +30,12 @@ const { title, showHeader = true } = Astro.props;
         </div>
         <div class="iconGroup">
           <Icon name="settings" width={24} height={22.24} />
-          <a href="/user"><Icon name="user" width={24} height={22.24} /></a>
+          <When test={showUserLink}>
+            <a href="/user"><Icon name="user-white" width={24} height={22.24} /></a>
+          </When>
+          <When test={!showUserLink}>
+            <Icon name="user" width={24} height={22.24} />
+          </When>
         </div>
       </header>
     </When>
