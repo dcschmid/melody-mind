@@ -1,25 +1,59 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Picture } from "astro:assets";
+import { For } from "@astropub/flow";
 
 import Layout from "../../layouts/Layout.astro";
 import Button from "../../components/Button.astro";
-import Blink182Cover from "../../assets/bandcover/blink182.jpeg";
-import DavidBowieCover from "../../assets/bandcover/davidBowie.jpg";
-import AvrilLavigneCover from "../../assets/bandcover/avrilLavigne.jpeg";
-import RedHotChiliPeppersCover from "../../assets/bandcover/redHotChiliPeppers.jpg";
-import Blink182MP3 from "../../assets/mp3s/blink182_cutted.mp3";
-import DavidBowieMP3 from "../../assets/mp3s/davidBowie.mp3";
-import AvrilLavigneMP3 from "../../assets/mp3s/avrilLavigne_cutted.mp3";
-import RedHotChiliPeppersMP3 from "../../assets/mp3s/redHotChiliPeppers.mp3";
 import OneJoker from "../../components/HeaderItems/OneJoker.astro";
+
+function shuffleArray(array: any) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const coverflowData = [
+  {
+    band: "Red Hot Chilli Peppers",
+    album: "Stadium Acradium",
+    data: "2:02:21",
+    coverSrc: "/bandcover/redHotChiliPeppers.jpg",
+    audioSrc: "/mp3s/redHotChiliPeppers.mp3",
+  },
+  {
+    band: "Avril Lavigne",
+    album: "Let Go",
+    data: "48:37",
+    coverSrc: "/bandcover/avrilLavigne.jpeg",
+    audioSrc: "/mp3s/avrilLavigne_cutted.mp3",
+  },
+  {
+    band: "David Bowie",
+    album: "Hunky Dory",
+    data: "41:37",
+    coverSrc: "/bandcover/davidBowie.jpg",
+    audioSrc: "/mp3s/davidBowie.mp3",
+  },
+  {
+    band: "blink-182",
+    album: "Enema of the State",
+    data: "35:18",
+    coverSrc: "/bandcover/blink182.jpeg",
+    audioSrc: "/mp3s/blink182_cutted.mp3",
+  },
+];
+
+const randomizedCoverflowData = shuffleArray(coverflowData);
 ---
 
 <Layout title="Spielrunde 3">
   <OneJoker slot="left-headercol" />
 
-  <div id="overlay" class="overlay">
-    <div class="overlay-content">
+  <div id="startOverlay" class="startOverlay">
+    <div class="startOverlay-content">
       <div class="headline">Runde 3 / 3</div>
       <div class="subline">
         Klicken Sie auf das Albumcover und sortieren Sie die Alben mithilfe der Pfeile in die richtige Reihen-folge nach
@@ -31,13 +65,13 @@ import OneJoker from "../../components/HeaderItems/OneJoker.astro";
     </div>
   </div>
 
-  <div id="overlay2" class="overlay2">
-    <div class="overlay2-content">
+  <div id="timupsOverlay" class="timupsOverlay">
+    <div class="timupsOverlay-content">
       <Icon name="clock" width={200} height={200} />
       <div class="headline">00:00</div>
       <div class="subline">Zeit ist abgelaufen!</div>
       <div class="centerButton">
-        <Button buttonText="weiter" url="/results/result-three-false" />
+        <Button id="finishRoundButton" buttonText="weiter" url="#" />
       </div>
     </div>
   </div>
@@ -50,34 +84,23 @@ import OneJoker from "../../components/HeaderItems/OneJoker.astro";
   <div class="smallText">Kürzeste</div>
 
   <div class="coverflow">
-    <div class="cover">
-      <Picture src={Blink182Cover} width={266} height={266} formats={["avif", "webp"]} alt="" />
-      <audio id="audio-Blink182" src={Blink182MP3} preload="none"></audio>
-      <div class="playButton" data-band="Blink182">
-        <Icon name="play" width={20} height={20} />
-      </div>
-    </div>
-    <div class="cover">
-      <Picture src={DavidBowieCover} width={266} height={266} formats={["avif", "webp"]} alt="" />
-      <audio id="audio-DavidBowie" src={DavidBowieMP3} preload="none"></audio>
-      <div class="playButton" data-band="DavidBowie">
-        <Icon name="play" width={20} height={20} />
-      </div>
-    </div>
-    <div class="cover">
-      <Picture src={AvrilLavigneCover} width={266} height={266} formats={["avif", "webp"]} alt="" />
-      <audio id="audio-AvrilLavigne" src={AvrilLavigneMP3} preload="none"></audio>
-      <div class="playButton" data-band="AvrilLavigne">
-        <Icon name="play" width={20} height={20} />
-      </div>
-    </div>
-    <div class="cover">
-      <Picture src={RedHotChiliPeppersCover} width={266} height={266} formats={["avif", "webp"]} alt="" />
-      <audio id="audio-RedHotChiliPeppers" src={RedHotChiliPeppersMP3} preload="none"></audio>
-      <div class="playButton" data-band="RedHotChiliPeppers">
-        <Icon name="play" width={20} height={20} />
-      </div>
-    </div>
+    <For of={randomizedCoverflowData}>
+      {
+        (item: any) => (
+          <div
+            class="cover"
+            data-band={item.band}
+            data-album={item.album}
+            data-data={item.data}
+            data-cover-source={item.coverSrc}
+          >
+            <Picture src={item.coverSrc} width={266} height={266} formats={["avif", "webp"]} alt="" />
+            <audio id={`audio-${item.band}`} src={item.audioSrc} preload="none" />
+          </div>
+        )
+      }
+    </For>
+
     <div class="buttons">
       <div class="arrowButton" id="up">
         <Icon name="up-arrow" width={48} height={48} />
@@ -92,17 +115,17 @@ import OneJoker from "../../components/HeaderItems/OneJoker.astro";
 
   <div class="timer">
     <Icon name="clock" width={48} height={48} />
-    <span id="minutes">02</span>:<span id="seconds">00</span>
+    <span id="minutes">01</span>:<span id="seconds">00</span>
 
     <div class="finishButton">
-      <Button url="/results/result-three" />
+      <Button id="endRound" url="#" />
     </div>
   </div>
 </Layout>
 
 <style>
-  .overlay,
-  .overlay2 {
+  .startOverlay,
+  .timupsOverlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -113,12 +136,12 @@ import OneJoker from "../../components/HeaderItems/OneJoker.astro";
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* ensures overlay is on top */
+    z-index: 1000;
     visibility: hidden;
   }
 
-  .overlay-content,
-  .overlay2-content {
+  .startOverlay-content,
+  .timupsOverlay-content {
     display: flex;
     width: 366px;
     flex-direction: column;
@@ -218,21 +241,6 @@ import OneJoker from "../../components/HeaderItems/OneJoker.astro";
     top: 7.5rem;
   }
 
-  .playButton {
-    border-radius: 100%;
-    background: var(--colour-BTN-primary);
-    cursor: pointer;
-    width: 25px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--colour-BTN-inverted);
-    padding: 0.25rem;
-    position: absolute;
-    bottom: -0.75rem;
-  }
-
   .buttons {
     display: inline-flex;
     align-items: center;
@@ -301,110 +309,269 @@ import OneJoker from "../../components/HeaderItems/OneJoker.astro";
 </style>
 
 <script>
-  let timeRemaining = 120;
+  let timeRemaining = 60;
   let timerInterval: number | null = null;
 
   const minutesElement = document.getElementById("minutes")!;
   const secondsElement = document.getElementById("seconds")!;
-  const overlay2 = document.getElementById("overlay2");
+  const timupsOverlay = document.getElementById("timupsOverlay");
+  const endRoundButton = document.getElementById("endRound");
+  const finishRoundButton = document.getElementById("finishRoundButton");
 
+  const finalSolutionsArray = [
+    {
+      band: "Red Hot Chilli Peppers",
+    },
+    {
+      band: "Avril Lavigne",
+    },
+    {
+      band: "David Bowie",
+    },
+    {
+      band: "blink-182",
+    },
+  ];
+
+  /**
+   * Retrieves the sorted results from the DOM and compares them with the final solutions.
+   * Calculates the number of points earned and saves them to localStorage.
+   * Returns nothing.
+   */
+  const getSortedResults = () => {
+    // Get all the cover elements from the DOM and convert them to an array
+    let sortedCovers = Array.from(document.querySelectorAll(".cover")).reverse();
+
+    // Map over the cover elements and create an array of objects containing the data attributes
+    const results = sortedCovers.map((cover) => ({
+      band: cover.getAttribute("data-band"), // Get the band name
+      album: cover.getAttribute("data-album"), // Get the album name
+      date: cover.getAttribute("data-data"), // Get the release date
+      coverSrc: cover.getAttribute("data-cover-source"), // Get the cover image source
+      isWrong: false, // Initialize the 'isWrong' property to false
+    }));
+
+    let points = 0;
+    let allCorrect = true;
+
+    // Compare the results with the final solutions array
+    results.forEach((result, index) => {
+      // Check if the band name matches the band name in the final solutions array
+      if (result.band === finalSolutionsArray[index]?.band) {
+        points += 25; // Add 25 points for each correct match
+      } else {
+        result.isWrong = true; // Mark as true if not a match
+        allCorrect = false; // Set allCorrect to false if there's any incorrect match
+      }
+    });
+
+    // Add 25 extra points if all results are correct
+    if (allCorrect) {
+      points += 25;
+      localStorage.setItem("allCorrectRound3", String(true));
+    } else {
+      localStorage.setItem("allCorrectRound3", String(false));
+    }
+
+    // Check if currentPoints exists in localStorage, if not, set it to 0
+    if (localStorage.getItem("currentPoints") === null) {
+      localStorage.setItem("currentPoints", "0");
+    }
+
+    // Save points to localStorage
+    localStorage.setItem("PointsRound3", String(points));
+
+    // Save results to localStorage
+    localStorage.setItem("ResultsRound3", JSON.stringify(results));
+  };
+
+  /**
+   * Updates the timer display and checks if the timer has reached zero.
+   * If the timer has reached zero, it hides the timer overlay.
+   */
   function updateTime() {
+    // Calculate minutes and seconds from the remaining time
     const minutes = Math.floor(timeRemaining / 60);
     const seconds = timeRemaining % 60;
 
+    // Update the display with the formatted minutes and seconds
     minutesElement.textContent = String(minutes).padStart(2, "0");
     secondsElement.textContent = String(seconds).padStart(2, "0");
 
+    // If the timer has reached zero, hide the timer overlay and stop the timer
     if (timeRemaining === 0) {
       clearInterval(timerInterval!);
-      overlay2!.style.visibility = "visible";
+      timupsOverlay!.style.visibility = "visible";
+      getSortedResults();
     } else {
+      // Otherwise, decrement the remaining time by one second
       timeRemaining--;
     }
   }
 
+  /**
+   * Starts the timer by setting an interval to call the updateTime function every second.
+   */
   function startTimer() {
+    // Set an interval to call the updateTime function every second
     timerInterval = window.setInterval(updateTime, 1000);
   }
 
-  window.addEventListener("load", function (_event: Event): void {
-    const overlay = document.getElementById("overlay");
-    const button = document.getElementById("gameButton");
+  /**
+   * Initializes the overlay by setting its visibility and adding a click event listener to the game button.
+   * When the game button is clicked, it hides the overlay and starts the timer.
+   */
+  function initializeOverlay() {
+    // Get the overlay and game button elements
+    const startOverlay = document.getElementById("startOverlay");
+    const gameButton = document.getElementById("gameButton");
 
-    overlay!.style.visibility = "visible";
-    overlay2!.style.visibility = "hidden";
+    // Set the visibility of the overlay and timupsOverlay elements
+    startOverlay!.style.visibility = "visible";
+    timupsOverlay!.style.visibility = "hidden";
 
-    button!.addEventListener("click", (_event: MouseEvent) => {
-      overlay!.style.visibility = "hidden";
-
+    // Add a click event listener to the game button
+    gameButton!.addEventListener("click", () => {
+      // Hide the overlay and start the timer
+      startOverlay!.style.visibility = "hidden";
       startTimer();
     });
+  }
 
-    const playButtons = document.querySelectorAll<HTMLButtonElement>(".playButton");
+  /**
+   * Updates the state of the up and down buttons based on the currently selected cover.
+   *
+   * @param {HTMLElement} selectedCover - The currently selected cover element.
+   * @param {HTMLElement} upButton - The up button element.
+   * @param {HTMLElement} downButton - The down button element.
+   */
+  function updateButtonState(selectedCover: HTMLElement, upButton: HTMLElement, downButton: HTMLElement) {
+    // Get the parent element of the selected cover
+    const parent = selectedCover.parentElement!;
+    // Get the index of the selected cover within its parent
+    const index = Array.from(parent.children).indexOf(selectedCover);
 
-    playButtons.forEach((button) => {
-      button.addEventListener("click", (event: MouseEvent) => {
-        const band = (event.currentTarget as HTMLButtonElement).getAttribute("data-band");
-        const audioElement = document.getElementById(`audio-${band}`) as HTMLAudioElement | null;
+    // Toggle the "disabled" class on the up button based on whether the selected cover is the first child
+    upButton.classList.toggle("disabled", index === 0);
+    // Toggle the "disabled" class on the down button based on whether the selected cover is within the last three children
+    downButton.classList.toggle("disabled", index >= parent.children.length - 3);
+  }
 
-        if (audioElement) {
-          audioElement.play();
-        }
-      });
-    });
+  /**
+   * Initializes the covers by setting up event listeners for each cover,
+   * handling clicks and updating the selected cover and audio.
+   */
+  function initializeCovers() {
+    // Initialize selected cover and covers elements
+    let selectedCover: HTMLElement | null = null; // The currently selected cover element
+    let currentAudio: HTMLAudioElement | null = null; // The currently playing audio element
+    const covers = document.querySelectorAll<HTMLElement>(".cover"); // All cover elements
 
-    let selectedCover: any = null;
-    const covers = document.querySelectorAll(".cover");
-    const upButton = document.getElementById("up");
-    const downButton = document.getElementById("down");
+    // Get up and down buttons
+    const upButton = document.getElementById("up")!; // The up button element
+    const downButton = document.getElementById("down")!; // The down button element
 
-    const updateButtonState = () => {
-      if (!selectedCover) return;
-      const parent = selectedCover.parentElement;
-      const index = Array.from(parent.children).indexOf(selectedCover);
-
-      if (index === 0) {
-        upButton!.classList.add("disabled");
-      } else {
-        upButton!.classList.remove("disabled");
-      }
-
-      if (index === parent.children.length - 3) {
-        console.log(index, parent.children.length);
-        downButton!.classList.add("disabled");
-      } else {
-        downButton!.classList.remove("disabled");
-      }
-    };
-
+    // Add click event listener to each cover
     covers.forEach((cover) => {
       cover.addEventListener("click", () => {
-        if (selectedCover) {
-          selectedCover.classList.remove("selected");
-        }
+        // Clear the selected class from the previously selected cover
+        selectedCover?.classList.remove("selected");
+        // Pause the currently playing audio
+        currentAudio?.pause();
+
+        // Set the selected cover to the clicked cover
         selectedCover = cover;
-        selectedCover.classList.add("selected");
-        updateButtonState();
+        // Add the selected class to the clicked cover
+        cover.classList.add("selected");
+
+        // Get the band attribute of the clicked cover
+        const band = cover.getAttribute("data-band")!;
+        // Get the audio element with the corresponding id
+        currentAudio = document.getElementById(`audio-${band}`) as HTMLAudioElement | null;
+
+        // Play the audio if it exists
+        if (currentAudio) {
+          currentAudio.play();
+        }
+
+        // Update the state of the up and down buttons
+        updateButtonState(selectedCover!, upButton, downButton);
       });
     });
 
-    const moveSelection = (direction: any) => {
+    /**
+     * Moves the selected cover element in the specified direction.
+     * If the move is valid, the selected cover is inserted before the reference node.
+     * The up and down buttons are updated accordingly.
+     *
+     * @param {number} direction - The direction to move the selected cover. Negative for up, positive for down.
+     */
+    function moveSelection(direction: number) {
+      // If no cover is selected, return early
       if (!selectedCover) return;
-      const parent = selectedCover.parentElement;
+
+      // Get the parent element of the selected cover
+      const parent = selectedCover.parentElement!;
+      // Get the index of the selected cover within its parent
       const index = Array.from(parent.children).indexOf(selectedCover);
+      // Calculate the new index after moving in the specified direction
       const newIndex = index + direction;
 
+      // If the new index is within the valid range, move the selected cover
       if (newIndex >= 0 && newIndex < parent.children.length) {
-        if (direction === -1) {
-          parent.insertBefore(selectedCover, parent.children[newIndex]);
-        } else {
-          parent.insertBefore(selectedCover, parent.children[newIndex].nextSibling);
-        }
-        updateButtonState();
-      }
-    };
+        // Determine the reference node based on the direction
+        const referenceNode = direction === -1 ? parent.children[newIndex] : parent.children[newIndex].nextSibling;
+        // Insert the selected cover before the reference node
+        parent.insertBefore(selectedCover, referenceNode);
+        selectedCover.dataset.index = index as unknown as string;
 
-    upButton!.addEventListener("click", () => moveSelection(-1));
-    downButton!.addEventListener("click", () => moveSelection(1));
+        // Update the state of the up and down buttons
+        updateButtonState(selectedCover, upButton, downButton);
+      }
+    }
+
+    // Add click event listeners to up and down buttons
+    upButton.addEventListener("click", () => moveSelection(-1));
+    downButton.addEventListener("click", () => moveSelection(1));
+  }
+
+  /**
+   * Adds a click event listener to the end round button.
+   * When the button is clicked, it gets the sorted results,
+   * navigates to the results page for round one.
+   */
+  endRoundButton?.addEventListener("click", () => {
+    // Get the sorted results
+    getSortedResults();
+    // Navigate to the results page for round two
+    window.location.href = "/results/result-three";
+  });
+
+  /**
+   * Adds a click event listener to the finsh round button.
+   * When the button is clicked, it gets the sorted results,
+   * navigates to the results page for round two.
+   */
+  finishRoundButton?.addEventListener("click", () => {
+    // Get the sorted results
+    getSortedResults();
+    // Navigate to the results page for round two
+    window.location.href = "/results/result-three";
+  });
+
+  window.addEventListener("load", function () {
+    // The 'PointsRound1' item stores the points earned in Round 1.
+    // If the item does not exist in localStorage, it means that the user has not played Round 1 yet,
+    // so we set it to 0.
+    if (localStorage.getItem("PointsRound3") === null) {
+      // Set the 'PointsRound1' item to 0 if it does not exist in localStorage
+      localStorage.setItem("PointsRound3", String(0));
+    } else {
+      // Set the 'PointsRound1' item to 0 if it exists in localStorage
+      localStorage.setItem("PointsRound3", String(0));
+    }
+
+    initializeOverlay();
+    initializeCovers();
   });
 </script>

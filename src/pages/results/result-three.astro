@@ -1,12 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
-import ResultItem from "../../components/ResultItem.astro";
-import Layout from "../../layouts/Layout.astro";
-import Blink182Cover from "../../assets/bandcover/blink182.jpeg";
-import DavidBowieCover from "../../assets/bandcover/davidBowie.jpg";
-import AvrilLavigneCover from "../../assets/bandcover/avrilLavigne.jpeg";
-import RedHotChiliPeppersCover from "../../assets/bandcover/redHotChiliPeppers.jpg";
 import Button from "../../components/Button.astro";
+import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="Result Runde 3">
@@ -17,25 +12,14 @@ import Button from "../../components/Button.astro";
     <div class="subline">Sortieren Sie nach der Gesamtlänge!</div>
   </div>
 
-  <div class="results">
-    <ResultItem
-      order={1}
-      band="Red Hot Chilli Peppers"
-      album="Stadium Acradium"
-      year="2:02:21"
-      image={RedHotChiliPeppersCover}
-    />
-    <ResultItem order={2} band="Avril Lavigne" album="Let Go" year="48:37" image={AvrilLavigneCover} />
-    <ResultItem order={3} band="David Bowie" album="Hunky Dory" year="41:37" image={DavidBowieCover} />
-    <ResultItem order={4} band="blink-182" album="Enema of the State" year="35:18" image={Blink182Cover} />
-  </div>
+  <div class="results" id="results-container"></div>
 
   <div class="points">
     <Icon name="coin" width={48} height={48} />
-    <span class="point">125</span>
+    <span class="point"></span>
 
     <div class="finishButton">
-      <Button url="/trivia/trivia-three" />
+      <Button id="finishedButton" url="#" />
     </div>
   </div>
 </Layout>
@@ -102,3 +86,99 @@ import Button from "../../components/Button.astro";
     margin-left: var(--spacing-spacing-s);
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    updateCurrentPoints();
+    populateResults();
+    setupFinishButton();
+  });
+
+  /**
+   * Sets up the event listener for the "Finished" button click event.
+   * When the button is clicked, it calls the `handleFinishedButtonClick` function.
+   */
+  function setupFinishButton() {
+    // Get the element with the ID "finishedButton"
+    const finishedButton = document.getElementById("finishedButton");
+
+    // Add a click event listener to the "Finished" button
+    // When the button is clicked, call the `handleFinishedButtonClick` function
+    finishedButton?.addEventListener("click", handleFinishedButtonClick);
+  }
+
+  /**
+   * Handles the click event of the "Finished" button.
+   */
+  function handleFinishedButtonClick() {
+    window.location.href = "/trivia/trivia-three";
+  }
+
+  /**
+   * Updates the text content of the element with the class "point" to the
+   * current points stored in localStorage. If no points are stored, it
+   * defaults to "0".
+   */
+  function updateCurrentPoints() {
+    // Select the element with the class "point"
+    const pointSpan = document.querySelector(".point");
+
+    // Set the text content to the current points stored in localStorage, or "0" if no points are stored
+    pointSpan!.textContent = localStorage.getItem("PointsRound3") || "0";
+  }
+
+  /**
+   * Populates the results container with the result items from round 1.
+   */
+  function populateResults() {
+    // Get the results container element
+    const resultsContainer = document.getElementById("results-container");
+
+    // If the results container element does not exist, exit the function
+    if (!resultsContainer) return;
+
+    // Get the results from round 1 from localStorage
+    const resultsRound1 = JSON.parse(localStorage.getItem("ResultsRound3") || "[]");
+
+    // Create a document fragment to improve performance when adding multiple elements to the DOM
+    const fragment = document.createDocumentFragment();
+
+    // Iterate over the results and create a result item for each one
+    resultsRound1.forEach((result: any, index: any) => {
+      const resultItem = createResultItem(result, index);
+      fragment.appendChild(resultItem);
+    });
+
+    // Append the result items to the results container
+    resultsContainer.appendChild(fragment);
+  }
+
+  /**
+   * Creates a result item element for the given result and index.
+   *
+   * @param {any} result - The result object.
+   * @param {any} index - The index of the result.
+   * @return {HTMLDivElement} The created result item element.
+   */
+  function createResultItem(result: any, index: any) {
+    // Create a new div element for the result item
+    const resultItem = document.createElement("div");
+
+    // Add the "result-item" class to the element
+    resultItem.classList.add("result-item");
+
+    // Set the innerHTML of the element to display the result details
+    resultItem.innerHTML = `
+      <div class="resultItem">
+        <div class="resultPlace ${result.isWrong ? "resultError" : ""}">${index + 1}.</div>
+        <img class="resultCover" src="${result.coverSrc}" alt="${result.band} - ${result.album}" width="126" height="126" />
+        <div class="resultBand">${result.band}</div>
+        <div class="resultAlbum">${result.album}</div>
+        <div class="resultData">${result.date}</div>
+      </div>
+    `;
+
+    // Return the created result item element
+    return resultItem;
+  }
+</script>
