@@ -1,12 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Picture } from "astro:assets";
-import CoverShuffle from "../assets/cover-shuffle.png";
 ---
 
 <Layout title="Wilkommen zum Cover Shuffle" showHeader={false}>
   <div class="container">
-    <Picture class="cover" src={CoverShuffle} formats={["avif", "webp"]} alt="" />
+    <Picture
+      class="cover"
+      src="/imagesites/cover-shuffle.jpg"
+      width={480}
+      height={815}
+      formats={["avif", "webp"]}
+      alt=""
+    />
     <a class="button" href="/gamehome">Jetzt loslegen</a>
   </div>
 </Layout>
