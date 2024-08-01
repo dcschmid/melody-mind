@@ -93,26 +93,6 @@ const randomizedTriviaData = shuffleArray(triviaData);
     </div>
   </div>
 
-  <div id="overlayWonLP" class="overlay">
-    <div class="overlayWonLP-content">
-      <div class="goldenLPRoot">
-        <Icon name="golden-lp" width={200} height={200} />
-        <Icon class="brainIcon" name="brain" width={80} height={80} />
-      </div>
-      <div class="headline">Glückwunsch!</div>
-      <div class="centerText">
-        Sie haben die <span class="goldText">goldene Schallplatte</span> für Ihr <span class="whiteText"
-          >umfangreiches Wissen</span
-        > erspielt!
-      </div>
-      <div class="smallText">& Punktestand verdoppelt!</div>
-      <div class="point">+ 125 Pt</div>
-      <div class="centerButton">
-        <Button buttonText="Auflösung" url="/trivia/trivia-one-solution" />
-      </div>
-    </div>
-  </div>
-
   <div class="introText">
     <div class="headline">Runde 1 / 3 – Trivia Frage</div>
     <div class="subline">Welches Album wurde vom Rolling Stone als siebtbestes aller Zeiten gewählt?</div>
@@ -155,8 +135,7 @@ const randomizedTriviaData = shuffleArray(triviaData);
   .overlayStart-content,
   .overlayTimeUp-content,
   .overlayLost-content,
-  .overlayWon-content,
-  .overlayWonLP-content {
+  .overlayWon-content {
     display: flex;
     width: 366px;
     flex-direction: column;
@@ -197,20 +176,17 @@ const randomizedTriviaData = shuffleArray(triviaData);
 
   .overlayStart-content .headline,
   .overlayLost-content .headline,
-  .overlayWon-content .headline,
-  .overlayWonLP-content .headline {
+  .overlayWon-content .headline {
     font-size: 48px;
   }
 
   .overlayStart-content .subline,
   .overlayLost-content .subline,
-  .overlayWon-content .subline,
-  .overlayWonLP .smallText {
+  .overlayWon-content .subline {
     font-size: 14px;
   }
 
-  .overlayStart-content .question,
-  .overlayWonLP .text {
+  .overlayStart-content .question {
     color: var(--colour-text-primary);
     font-size: 24px;
     font-weight: 400;
@@ -227,24 +203,6 @@ const randomizedTriviaData = shuffleArray(triviaData);
     font-size: 16px;
     justify-content: center;
     display: inline-flex;
-  }
-
-  .overlayWonLP-content .goldText {
-    color: var(--colour-text-link);
-  }
-
-  .overlayWonLP-content .whiteText {
-    color: var(--colour-text-primary);
-  }
-
-  .goldenLPRoot {
-    position: relative;
-  }
-
-  .brainIcon {
-    position: absolute;
-    bottom: 0;
-    right: 0;
   }
 
   .introText {
@@ -306,7 +264,6 @@ const randomizedTriviaData = shuffleArray(triviaData);
   const overlayStart = document.getElementById("overlayStart") as HTMLElement;
   const overlayLost = document.getElementById("overlayLost") as HTMLElement;
   const overlayWon = document.getElementById("overlayWon") as HTMLElement;
-  const overlayWonLP = document.getElementById("overlayWonLP") as HTMLElement;
   const gameButton = document.getElementById("gameButton") as HTMLElement;
   const minutesElement = document.getElementById("minutes") as HTMLElement;
   const secondsElement = document.getElementById("seconds") as HTMLElement;
@@ -397,18 +354,9 @@ const randomizedTriviaData = shuffleArray(triviaData);
     // Open the overlayWon overlay
     overlayTimeUp.style.visibility = "hidden";
 
-    // Check the value of allCorrectRound1 in localStorage
-    const allCorrectRound1 = localStorage.getItem("allCorrectRound1") === "true";
-
-    if (allCorrectRound1) {
-      // Open the overlayWonLP overlay
-      overlayWonLP!.style.visibility = "visible";
-      jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
-    } else {
-      // Open the overlayWon overlay
-      overlayWon!.style.visibility = "visible";
-      jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
-    }
+    // Open the overlayWon overlay
+    overlayWon!.style.visibility = "visible";
+    jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
 
     // Get the currentPoints from localStorage
     /**
@@ -417,7 +365,7 @@ const randomizedTriviaData = shuffleArray(triviaData);
     const currentPoints = parseInt(localStorage.getItem("PointsRound1") || "0", 10);
 
     // Show the currentPoints in the div with the className 'points' in the overlay
-    const pointsDiv = allCorrectRound1 ? overlayWonLP!.querySelector(".point") : overlayWon!.querySelector(".point");
+    const pointsDiv = overlayWon!.querySelector(".point");
     pointsDiv!.textContent = `+ ${currentPoints} Pt`;
 
     // Double the currentPoints and update localStorage
@@ -432,7 +380,6 @@ const randomizedTriviaData = shuffleArray(triviaData);
     overlayTimeUp.style.visibility = "hidden";
     overlayLost!.style.visibility = "hidden";
     overlayWon!.style.visibility = "hidden";
-    overlayWonLP!.style.visibility = "hidden";
     overlayStart.style.visibility = "visible";
 
     gameButton.addEventListener("click", startTimer);

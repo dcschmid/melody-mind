@@ -6,7 +6,8 @@ import { Picture } from "astro:assets";
 <Layout title="ARD Login" showHeader={false}>
   <div class="container">
     <Picture class="cover" src="/imagesites/ardlogin.jpg" width={480} height={815} formats={["avif", "webp"]} alt="" />
-    <a class="button" href="/loadingscreen">Jetzt loslegen</a>
+    <a class="loginButton" href="/loadingscreen">Jetzt loslegen</a>
+    <a class="withoutLoginButton" href="/loadingscreen">Ohne Anmeldung</a>
   </div>
 </Layout>
 
@@ -30,13 +31,32 @@ import { Picture } from "astro:assets";
     width: 75%;
   }
 
-  .button {
+  .loginButton {
     position: absolute;
     bottom: 10rem;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 128px;
     background: #96b0f5;
+    height: 40px;
+    width: 250px;
+    padding: 8px 24px;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+  }
+
+  .withoutLoginButton {
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 128px;
+    border: 4px solid #96b0f5;
+    background: #fff;
     height: 40px;
     width: 250px;
     padding: 8px 24px;
