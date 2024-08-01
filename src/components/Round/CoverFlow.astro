@@ -1,0 +1,128 @@
+---
+import { For } from "@astropub/flow";
+import Arrows from "../Round/Arrows.astro";
+import { Picture } from "astro:assets";
+
+const { randomizedCoverflowData } = Astro.props;
+---
+
+<div class="coverFlowRoot">
+  <div class="smallText">Älteste</div>
+
+  <div class="coverflow">
+    <For of={randomizedCoverflowData}>
+      {
+        (item: any) => (
+          <div
+            class="cover"
+            data-band={item.band}
+            data-album={item.album}
+            data-data={item.data}
+            data-cover-source={item.coverSrc}
+          >
+            <Picture src={item.coverSrc} width={266} height={266} formats={["avif", "webp"]} alt="" />
+            <audio id={`audio-${item.band}`} src={item.audioSrc} preload="none" />
+          </div>
+        )
+      }
+    </For>
+
+    <Arrows />
+  </div>
+
+  <div class="hintText">Neueste</div>
+</div>
+
+<style>
+  .smallText {
+    width: auto;
+    border-radius: var(--radius-radius-full);
+    background: var(--colour-BTN-inverted);
+    display: inline-flex;
+    padding: var(--spacing-spacing-xxs) var(--spacing-spacing-md);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-spacing-xxs);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 35.28px;
+    color: var(--colour-text-BTN-inverted);
+  }
+
+  .coverFlowRoot {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .coverflow {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    margin-bottom: var(--spacing-spacing-xl);
+    z-index: 2;
+  }
+
+  .cover {
+    width: 114px;
+    height: 114px;
+    position: absolute;
+  }
+
+  .cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cover.selected {
+    border-radius: var(--radius-radius-rounded);
+    border: 8px solid var(--colour-border-secondary);
+    transform: rotate(6.6deg);
+  }
+
+  .cover:nth-child(1) {
+    width: 114px;
+    height: 114px;
+  }
+
+  .cover:nth-child(2) {
+    width: 160px;
+    height: 160px;
+    top: 2.5rem;
+  }
+
+  .cover:nth-child(3) {
+    width: 214px;
+    height: 214px;
+    top: 5rem;
+  }
+
+  .cover:nth-child(4) {
+    width: 300px;
+    height: 300px;
+    top: 7.5rem;
+  }
+
+  .hintText {
+    position: absolute;
+    bottom: 0;
+    z-index: 4;
+    border-radius: var(--radius-radius-full);
+    background: var(--colour-BTN-inverted);
+    display: flex;
+    padding: var(--spacing-spacing-xxs) var(--spacing-spacing-md);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-spacing-xxs);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 35.28px;
+    color: var(--colour-text-BTN-inverted);
+  }
+</style>

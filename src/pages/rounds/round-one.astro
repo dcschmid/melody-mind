@@ -1,56 +1,15 @@
 ---
-import { Icon } from "astro-icon/components";
-import { Picture } from "astro:assets";
-import { For } from "@astropub/flow";
-
 import Layout from "../../layouts/Layout.astro";
 import ThreeJoker from "../../components/HeaderItems/ThreeJoker.astro";
 import StartOverlay from "../../components/Overlays/StartOverlay.astro";
 import TimeupsOverlay from "../../components/Overlays/TimeupsOverlay.astro";
 import IntroText from "../../components/Round/IntroText.astro";
 import Timer from "../../components/Round/Timer.astro";
-import Arrows from "../../components/Round/Arrows.astro";
+import CoverFlow from "../../components/Round/CoverFlow.astro";
+import { shuffleArray } from "../../utils/shuffleArray";
+import { coverflowRoundOneData } from "../../data/coverflowRoundOneData";
 
-function shuffleArray(array: any) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
-const coverflowData = [
-  {
-    band: "SnowPatrol",
-    album: "Eyes Open",
-    data: "2006",
-    coverSrc: "/bandcover/snowPatrol.jpeg",
-    audioSrc: "/mp3s/snowPatrol.mp3",
-  },
-  {
-    band: "KellyClarkson",
-    album: "Breakaway",
-    data: "2004",
-    coverSrc: "/bandcover/kellyClarkson.jpeg",
-    audioSrc: "/mp3s/kellyClarkson.mp3",
-  },
-  {
-    band: "NoDoubt",
-    album: "Tragic Kingdom",
-    data: "1995",
-    coverSrc: "/bandcover/noDoubt.jpg",
-    audioSrc: "/mp3s/noDoubt.mp3",
-  },
-  {
-    band: "FleetWoodMac",
-    album: "Rumours",
-    data: "1977",
-    coverSrc: "/bandcover/fleetwoodMac.jpg",
-    audioSrc: "/mp3s/fleetwoodMac.mp3",
-  },
-];
-
-const randomizedCoverflowData = shuffleArray(coverflowData);
+const randomizedCoverflowData = shuffleArray(coverflowRoundOneData);
 ---
 
 <Layout title="Spielrunde 1" showUserLink={false}>
@@ -62,112 +21,10 @@ const randomizedCoverflowData = shuffleArray(coverflowData);
 
   <IntroText headline="Runde 1 / 3" subline="Sortieren Sie nach dem" whiteText="Erscheinungsjahr!" />
 
-  <div class="smallText">Älteste</div>
-
-  <div class="coverflow">
-    <For of={randomizedCoverflowData}>
-      {
-        (item: any) => (
-          <div
-            class="cover"
-            data-band={item.band}
-            data-album={item.album}
-            data-data={item.data}
-            data-cover-source={item.coverSrc}
-          >
-            <Picture src={item.coverSrc} width={266} height={266} formats={["avif", "webp"]} alt="" />
-            <audio id={`audio-${item.band}`} src={item.audioSrc} preload="none" />
-          </div>
-        )
-      }
-    </For>
-
-    <Arrows />
-
-    <div class="hintText">Neueste</div>
-  </div>
+  <CoverFlow randomizedCoverflowData={randomizedCoverflowData} />
 
   <Timer minutes="01" seconds="00" />
 </Layout>
-
-<style>
-  .smallText {
-    color: var(--colour-text-BTN-inverted);
-    text-align: center;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 35.28px;
-  }
-
-  .coverflow {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 400px;
-    margin-bottom: var(--spacing-spacing-xl);
-  }
-
-  .cover {
-    width: 114px;
-    height: 114px;
-    position: absolute;
-  }
-
-  .cover img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .cover.selected {
-    border-radius: var(--radius-radius-rounded);
-    border: 8px solid var(--colour-border-secondary);
-    transform: rotate(6.6deg);
-  }
-
-  .cover:nth-child(1) {
-    width: 114px;
-    height: 114px;
-  }
-
-  .cover:nth-child(2) {
-    width: 160px;
-    height: 160px;
-    top: 2.5rem;
-  }
-
-  .cover:nth-child(3) {
-    width: 214px;
-    height: 214px;
-    top: 5rem;
-  }
-
-  .cover:nth-child(4) {
-    width: 300px;
-    height: 300px;
-    top: 7.5rem;
-  }
-
-  .hintText {
-    position: absolute;
-    bottom: -2rem;
-    z-index: 4;
-    border-radius: var(--radius-radius-full);
-    background: var(--colour-BTN-inverted);
-    display: flex;
-    padding: var(--spacing-spacing-xxs) var(--spacing-spacing-md);
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacing-spacing-xxs);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 35.28px;
-    color: var(--colour-text-BTN-inverted);
-  }
-</style>
 
 <script>
   import { resetLocalStorage } from "../../utils/resetLocalStorage";
@@ -317,7 +174,7 @@ const randomizedCoverflowData = shuffleArray(coverflowData);
     // Toggle the "disabled" class on the up button based on whether the selected cover is the first child
     upButton.classList.toggle("disabled", index === 0);
     // Toggle the "disabled" class on the down button based on whether the selected cover is within the last three children
-    downButton.classList.toggle("disabled", index >= parent.children.length - 3);
+    downButton.classList.toggle("disabled", index >= parent.children.length - 2);
   }
 
   /**
