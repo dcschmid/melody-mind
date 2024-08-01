@@ -5,7 +5,7 @@ import { Picture } from "astro:assets";
 import Button from "../../components/Button.astro";
 ---
 
-<Layout title="Trivia Runde 3 – Solution">
+<Layout title="Trivia Runde 3 – Solution" showUserLink={false}>
   <div slot="left-headercol"></div>
 
   <div id="overlayFinish" class="overlayFinish">
@@ -28,7 +28,6 @@ import Button from "../../components/Button.astro";
   <div class="solution">
     <div class="cover">
       <Picture src="/bandcover/davidBowie.jpg" width={240} height={240} formats={["avif", "webp"]} alt="" />
-      <Icon class="share" name="share" width={48} height={48} />
     </div>
     <div class="headline">Hunky Dory – David Bowie</div>
     <div class="text">
@@ -123,12 +122,6 @@ import Button from "../../components/Button.astro";
   .cover {
     margin: 0 auto;
     position: relative;
-  }
-
-  .share {
-    position: absolute;
-    bottom: -10px;
-    right: -25px;
   }
 
   .headline {
