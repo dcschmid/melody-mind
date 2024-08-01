@@ -1,0 +1,34 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "../Button.astro";
+
+const { minutes, seconds } = Astro.props;
+---
+
+<div class="timer">
+  <Icon name="clock" width={48} height={48} />
+  <span id="minutes">{minutes}</span>:<span id="seconds">{seconds}</span>
+
+  <div class="finishButton">
+    <Button id="endRound" url="#" />
+  </div>
+</div>
+
+<style>
+  .timer {
+    padding: 24px 20px 23px 112px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 2px;
+    color: var(--colour-text-primary);
+  }
+
+  .finishButton {
+    margin-left: var(--spacing-spacing-md);
+  }
+</style>

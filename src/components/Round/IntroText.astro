@@ -1,0 +1,43 @@
+---
+const { headline, subline, whiteText } = Astro.props;
+---
+
+<div class="introText">
+  <div class="headline">{headline}</div>
+  <div class="subline">{subline} <span class="whiteText">{whiteText}</span></div>
+</div>
+
+<style>
+  .introText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-15);
+    margin-bottom: var(--spacing-spacing-md);
+  }
+
+  .headline {
+    color: var(--colour-text-primary);
+    leading-trim: both;
+    text-edge: cap;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: 0.36px;
+  }
+
+  .subline {
+    color: var(--colour-text-secondary, #aeaeae);
+    leading-trim: both;
+    text-edge: cap;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .whiteText {
+    color: var(--colour-text-primary);
+  }
+</style>

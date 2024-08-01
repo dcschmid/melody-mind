@@ -1,0 +1,267 @@
+---
+import { Icon } from "astro-icon/components";
+import { Picture } from "astro:assets";
+import { For } from "@astropub/flow";
+
+import { shuffleArray } from "../../utils/shuffleArray";
+import { coverflowRoundOneData } from "../../data/coverflowRoundOneData";
+
+import Layout from "../../layouts/Layout.astro";
+import ThreeJoker from "../../components/HeaderItems/ThreeJoker.astro";
+import TimeupsOverlay from "../../components/Overlays/TimeupsOverlay.astro";
+import StartOverlay from "../../components/Overlays/StartOverlay.astro";
+import Timer from "../../components/Round/Timer.astro";
+import IntroText from "../../components/Round/IntroText.astro";
+
+const randomizedCoverflowData = shuffleArray(coverflowRoundOneData);
+---
+
+<Layout title="Spielrunde 1" showUserLink={false}>
+  <ThreeJoker slot="left-headercol" />
+
+  <StartOverlay headline="Runde 1 / 3" whiteText="Erscheinungsjahr: vorne das neueste, hinten das älteste." />
+
+  <TimeupsOverlay />
+
+  <IntroText headline="Runde 1 / 3" subline="Sortieren Sie nach dem" whiteText="Erscheinungsjahr!" />
+
+  <div class="smallText">Älteste</div>
+
+  <div class="coverflow">
+    <For of={randomizedCoverflowData}>
+      {
+        (item: any) => (
+          <div
+            class="cover"
+            data-band={item.band}
+            data-album={item.album}
+            data-data={item.data}
+            data-cover-source={item.coverSrc}
+          >
+            <Picture src={item.coverSrc} width={266} height={266} formats={["avif", "webp"]} alt="" />
+            <audio id={`audio-${item.band}`} src={item.audioSrc} preload="none" />
+          </div>
+        )
+      }
+    </For>
+
+    <div id="showButtons" class="buttons">
+      <div class="arrowButton" id="up">
+        <Icon name="up-arrow" width={48} height={48} />
+      </div>
+      <div class="arrowButton" id="down">
+        <Icon name="down-arrow" width={48} height={48} />
+      </div>
+    </div>
+
+    <div class="hintText">Neueste</div>
+  </div>
+
+  <Timer minutes="01" seconds="00" />
+</Layout>
+
+<style>
+  .smallText {
+    color: var(--colour-text-BTN-inverted);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 35.28px;
+  }
+
+  .coverflow {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    margin-bottom: var(--spacing-spacing-xl);
+  }
+
+  .cover {
+    width: 114px;
+    height: 114px;
+    position: absolute;
+  }
+
+  .cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cover.selected {
+    border-radius: var(--radius-radius-rounded);
+    border: 8px solid var(--colour-border-secondary);
+    transform: rotate(6.6deg);
+  }
+
+  .cover:nth-child(1) {
+    width: 114px;
+    height: 114px;
+  }
+
+  .cover:nth-child(2) {
+    width: 160px;
+    height: 160px;
+    top: 2.5rem;
+  }
+
+  .cover:nth-child(3) {
+    width: 214px;
+    height: 214px;
+    top: 5rem;
+  }
+
+  .cover:nth-child(4) {
+    width: 300px;
+    height: 300px;
+    top: 7.5rem;
+  }
+
+  .buttons {
+    display: none;
+    align-items: center;
+    gap: var(--spacing-spacing-xl);
+    z-index: 3;
+    bottom: 1rem;
+    position: absolute;
+  }
+
+  .arrowButton {
+    display: flex;
+    padding: var(--spacing-1) var(--spacing-spacing-xs);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-spacing-xxs);
+    border-radius: var(--radius-radius-full);
+    background: var(--colour-BTN-primary);
+    cursor: pointer;
+  }
+
+  .arrowButton.disabled {
+    background: var(--colour-BTN-disabled);
+    pointer-events: none;
+  }
+
+  .hintText {
+    position: absolute;
+    bottom: -2rem;
+    z-index: 4;
+    border-radius: var(--radius-radius-full);
+    background: var(--colour-BTN-inverted);
+    display: flex;
+    padding: var(--spacing-spacing-xxs) var(--spacing-spacing-md);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-spacing-xxs);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 35.28px;
+    color: var(--colour-text-BTN-inverted);
+  }
+</style>
+
+<script>
+  import { resetLocalStorage } from "../../utils/resetLocalStorage";
+  import { getSortedResults } from "../../utils/getSortedResults";
+  import { initializeCovers } from "../../utils/initializeCovers";
+  import { solutionRoundOne } from "../../data/solutionRoundOne";
+
+  let timeRemaining = 60;
+  let timerInterval: number | null = null;
+
+  const minutesElement = document.getElementById("minutes")!;
+  const secondsElement = document.getElementById("seconds")!;
+  const timupsOverlay = document.getElementById("timupsOverlay");
+  const endRoundButton = document.getElementById("endRound");
+  const finishRoundButton = document.getElementById("finishRoundButton");
+  const showButtons = document.getElementById("showButtons");
+  const upButton = document.getElementById("up")!; // The up button element
+  const downButton = document.getElementById("down")!; // The down button element
+
+  /**
+   * Updates the timer display and checks if the timer has reached zero.
+   * If the timer has reached zero, it hides the timer overlay.
+   */
+  function updateTime() {
+    // Calculate minutes and seconds from the remaining time
+    const minutes = Math.floor(timeRemaining / 60);
+    const seconds = timeRemaining % 60;
+
+    // Update the display with the formatted minutes and seconds
+    minutesElement.textContent = String(minutes).padStart(2, "0");
+    secondsElement.textContent = String(seconds).padStart(2, "0");
+
+    // If the timer has reached zero, hide the timer overlay and stop the timer
+    if (timeRemaining === 0) {
+      clearInterval(timerInterval!);
+      timupsOverlay!.style.visibility = "visible";
+      getSortedResults(solutionRoundOne, "allCorrectRound1", "PointsRound1", "ResultsRound1");
+    } else {
+      // Otherwise, decrement the remaining time by one second
+      timeRemaining--;
+    }
+  }
+
+  /**
+   * Starts the timer by setting an interval to call the updateTime function every second.
+   */
+  function startTimer() {
+    // Set an interval to call the updateTime function every second
+    timerInterval = window.setInterval(updateTime, 1000);
+  }
+
+  /**
+   * Initializes the overlay by setting its visibility and adding a click event listener to the game button.
+   * When the game button is clicked, it hides the overlay and starts the timer.
+   */
+  function initializeOverlay() {
+    // Get the overlay and game button elements
+    const startOverlay = document.getElementById("startOverlay");
+    const gameButton = document.getElementById("gameButton");
+
+    // Set the visibility of the overlay and timupsOverlay elements
+    startOverlay!.style.visibility = "visible";
+    timupsOverlay!.style.visibility = "hidden";
+
+    // Add a click event listener to the game button
+    gameButton!.addEventListener("click", () => {
+      // Hide the overlay and start the timer
+      startOverlay!.style.visibility = "hidden";
+      startTimer();
+    });
+  }
+
+  /**
+   * Adds a click event listener to the end round button.
+   * When the button is clicked, it gets the sorted results,
+   * navigates to the results page for round one.
+   */
+  endRoundButton?.addEventListener("click", () => {
+    // Get the sorted results
+    getSortedResults(solutionRoundOne, "allCorrectRound1", "PointsRound1", "ResultsRound1");
+    // Navigate to the results page for round one
+    window.location.href = "/results/result-one";
+  });
+
+  /**
+   * Adds a click event listener to the finsh round button.
+   * When the button is clicked, it gets the sorted results,
+   * navigates to the results page for round one.
+   */
+  finishRoundButton?.addEventListener("click", () => {
+    // Get the sorted results
+    getSortedResults(solutionRoundOne, "allCorrectRound1", "PointsRound1", "ResultsRound1");
+    // Navigate to the results page for round one
+    window.location.href = "/results/result-one";
+  });
+
+  window.addEventListener("load", function () {
+    resetLocalStorage();
+    initializeOverlay();
+    initializeCovers(upButton, downButton, showButtons);
+  });
+</script>

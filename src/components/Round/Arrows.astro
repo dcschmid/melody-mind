@@ -1,0 +1,39 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div id="showButtons" class="buttons">
+  <div class="arrowButton" id="up">
+    <Icon name="up-arrow" width={48} height={48} />
+  </div>
+  <div class="arrowButton" id="down">
+    <Icon name="down-arrow" width={48} height={48} />
+  </div>
+</div>
+
+<style>
+  .buttons {
+    display: none;
+    align-items: center;
+    gap: var(--spacing-spacing-xl);
+    z-index: 3;
+    bottom: 1rem;
+    position: absolute;
+  }
+
+  .arrowButton {
+    display: flex;
+    padding: var(--spacing-1) var(--spacing-spacing-xs);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-spacing-xxs);
+    border-radius: var(--radius-radius-full);
+    background: var(--colour-BTN-primary);
+    cursor: pointer;
+  }
+
+  .arrowButton.disabled {
+    background: var(--colour-BTN-disabled);
+    pointer-events: none;
+  }
+</style>

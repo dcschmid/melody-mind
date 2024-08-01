@@ -4,8 +4,12 @@ import { Picture } from "astro:assets";
 import { For } from "@astropub/flow";
 
 import Layout from "../../layouts/Layout.astro";
-import Button from "../../components/Button.astro";
 import ThreeJoker from "../../components/HeaderItems/ThreeJoker.astro";
+import StartOverlay from "../../components/Overlays/StartOverlay.astro";
+import TimeupsOverlay from "../../components/Overlays/TimeupsOverlay.astro";
+import IntroText from "../../components/Round/IntroText.astro";
+import Timer from "../../components/Round/Timer.astro";
+import Arrows from "../../components/Round/Arrows.astro";
 
 function shuffleArray(array: any) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -52,37 +56,11 @@ const randomizedCoverflowData = shuffleArray(coverflowData);
 <Layout title="Spielrunde 1" showUserLink={false}>
   <ThreeJoker slot="left-headercol" />
 
-  <div id="startOverlay" class="startOverlay">
-    <div class="startOverlay-content">
-      <div class="headline">Runde 1 / 3</div>
-      <div class="subline">
-        Klicken Sie auf das Albumcover und sortieren Sie die Alben in die richtige Reihenfolge nach
-        <span class="whiteText">Erscheinungsjahr: vorne das neueste, hinten das älteste.</span>
-      </div>
-      <div class="subline">
-        Nutzen Sie die Möglichkeit einen <span class="whiteText">Joker</span> einzulösen, um einen hilfreichen Tipp zu erhalten.
-      </div>
-      <div class="centerButton">
-        <Button id="gameButton" buttonText="spielen" url="#" />
-      </div>
-    </div>
-  </div>
+  <StartOverlay headline="Runde 1 / 3" whiteText="Erscheinungsjahr: vorne das neueste, hinten das älteste." />
 
-  <div id="timupsOverlay" class="timupsOverlay">
-    <div class="timupsOverlay-content">
-      <Icon name="clock" width={200} height={200} />
-      <div class="headline">00:00</div>
-      <div class="subline">Zeit ist abgelaufen!</div>
-      <div class="centerButton">
-        <Button id="finishRoundButton" buttonText="weiter" url="#" />
-      </div>
-    </div>
-  </div>
+  <TimeupsOverlay />
 
-  <div class="introText">
-    <div class="headline">Runde 1 / 3</div>
-    <div class="subline">Sortieren Sie nach dem <span class="whiteText">Erscheinungsjahr!</span></div>
-  </div>
+  <IntroText headline="Runde 1 / 3" subline="Sortieren Sie nach dem" whiteText="Erscheinungsjahr!" />
 
   <div class="smallText">Älteste</div>
 
@@ -104,87 +82,15 @@ const randomizedCoverflowData = shuffleArray(coverflowData);
       }
     </For>
 
-    <div id="showButtons" class="buttons">
-      <div class="arrowButton" id="up">
-        <Icon name="up-arrow" width={48} height={48} />
-      </div>
-      <div class="arrowButton" id="down">
-        <Icon name="down-arrow" width={48} height={48} />
-      </div>
-    </div>
+    <Arrows />
 
     <div class="hintText">Neueste</div>
   </div>
 
-  <div class="timer">
-    <Icon name="clock" width={48} height={48} />
-    <span id="minutes">01</span>:<span id="seconds">00</span>
-
-    <div class="finishButton">
-      <Button id="endRound" url="#" />
-    </div>
-  </div>
+  <Timer minutes="01" seconds="00" />
 </Layout>
 
 <style>
-  .startOverlay,
-  .timupsOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    visibility: hidden;
-  }
-
-  .startOverlay-content,
-  .timupsOverlay-content {
-    display: flex;
-    width: 366px;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-3);
-  }
-
-  .introText {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-15);
-    margin-bottom: var(--spacing-spacing-md);
-  }
-
-  .headline {
-    color: var(--colour-text-primary);
-    leading-trim: both;
-    text-edge: cap;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: 120%; /* 28.8px */
-    letter-spacing: 0.36px;
-  }
-
-  .subline {
-    color: var(--colour-text-secondary, #aeaeae);
-    leading-trim: both;
-    text-edge: cap;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-  }
-
-  .whiteText {
-    color: var(--colour-text-primary);
-  }
-
   .smallText {
     color: var(--colour-text-BTN-inverted);
     text-align: center;
@@ -244,31 +150,6 @@ const randomizedCoverflowData = shuffleArray(coverflowData);
     top: 7.5rem;
   }
 
-  .buttons {
-    display: none;
-    align-items: center;
-    gap: var(--spacing-spacing-xl);
-    z-index: 3;
-    bottom: 1rem;
-    position: absolute;
-  }
-
-  .arrowButton {
-    display: flex;
-    padding: var(--spacing-1) var(--spacing-spacing-xs);
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacing-spacing-xxs);
-    border-radius: var(--radius-radius-full);
-    background: var(--colour-BTN-primary);
-    cursor: pointer;
-  }
-
-  .arrowButton.disabled {
-    background: var(--colour-BTN-disabled);
-    pointer-events: none;
-  }
-
   .hintText {
     position: absolute;
     bottom: -2rem;
@@ -285,29 +166,6 @@ const randomizedCoverflowData = shuffleArray(coverflowData);
     font-weight: 400;
     line-height: 35.28px;
     color: var(--colour-text-BTN-inverted);
-  }
-
-  .centerButton {
-    display: flex;
-    justify-content: center;
-    margin-top: var(--spacing-spacing-md);
-  }
-
-  .finishButton {
-    margin-left: var(--spacing-spacing-md);
-  }
-
-  .timer {
-    padding: 24px 20px 23px 112px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: normal;
-    letter-spacing: 2px;
-    color: var(--colour-text-primary);
   }
 </style>
 
