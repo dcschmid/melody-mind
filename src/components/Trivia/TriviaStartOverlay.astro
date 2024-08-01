@@ -1,0 +1,77 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "../Shared/Button.astro";
+
+const { question } = Astro.props;
+---
+
+<div id="overlayStart" class="overlay">
+  <div class="overlayStart-content">
+    <Icon name="star-golden" width={80} height={80} />
+    <div class="headline">Trivia Frage</div>
+    <div class="subline">verdoppeln Sie Ihren Punktestand!</div>
+    <div class="question">{question}</div>
+    <div class="centerButton">
+      <Button id="gameButton" buttonText="weiter" url="#" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+  }
+
+  .overlayStart-content {
+    display: flex;
+    width: 366px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .headline {
+    color: var(--colour-text-primary);
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 120%;
+    margin-top: var(--spacing-3);
+  }
+
+  .subline {
+    color: var(--colour-text-secondary);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: center;
+    margin-top: var(--spacing-3);
+  }
+
+  .question {
+    color: var(--colour-text-primary);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 130%;
+    text-align: center;
+    margin-top: var(--spacing-3);
+  }
+
+  .centerButton {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-spacing-xl);
+  }
+</style>

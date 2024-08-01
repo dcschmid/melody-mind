@@ -1,5 +1,5 @@
 ---
-const { headline, subline, whiteText, isSmallHeadline = false, isWhiteSubline } = Astro.props;
+const { headline, subline, whiteText, isSmallHeadline = false, isWhiteSubline = false } = Astro.props;
 ---
 
 <div class="introText">
@@ -15,14 +15,12 @@ const { headline, subline, whiteText, isSmallHeadline = false, isWhiteSubline } 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-15);
-    margin-bottom: var(--spacing-spacing-md);
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-spacing-lg);
   }
 
   .headline {
     color: var(--colour-text-primary);
-    leading-trim: both;
-    text-edge: cap;
     font-size: 24px;
     font-style: normal;
     font-weight: 900;
@@ -40,12 +38,12 @@ const { headline, subline, whiteText, isSmallHeadline = false, isWhiteSubline } 
 
   .subline {
     color: var(--colour-text-secondary);
-    leading-trim: both;
-    text-edge: cap;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
+    text-align: center;
+    width: 386px;
   }
 
   .whiteText {

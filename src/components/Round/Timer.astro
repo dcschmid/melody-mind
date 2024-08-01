@@ -1,17 +1,20 @@
 ---
 import { Icon } from "astro-icon/components";
 import Button from "../Shared/Button.astro";
+import { When } from "@astropub/flow";
 
-const { minutes, seconds } = Astro.props;
+const { minutes, seconds, showFinishButton = true } = Astro.props;
 ---
 
-<div class="timer">
+<div class:list={["timer", showFinishButton ? "" : "timercenter"]}>
   <Icon name="clock" width={48} height={48} />
   <span id="minutes">{minutes}</span>:<span id="seconds">{seconds}</span>
 
-  <div class="finishButton">
-    <Button id="endRound" url="#" />
-  </div>
+  <When test={showFinishButton}>
+    <div class="finishButton">
+      <Button id="endRound" url="#" />
+    </div>
+  </When>
 </div>
 
 <style>
@@ -26,6 +29,11 @@ const { minutes, seconds } = Astro.props;
     line-height: normal;
     letter-spacing: 2px;
     color: var(--colour-text-primary);
+  }
+
+  .timercenter {
+    justify-content: center;
+    padding: var(--spacing-spacing-md) 0 0 0;
   }
 
   .finishButton {

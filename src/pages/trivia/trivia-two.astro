@@ -1,107 +1,43 @@
 ---
-import { Icon } from "astro-icon/components";
 import { For } from "@astropub/flow";
 
 import Layout from "../../layouts/Layout.astro";
-import TriviaItem from "../../components/TriviaItem.astro";
-import Button from "../../components/Shared/Button.astro";
+import TriviaItem from "../../components/Trivia/TriviaItem.astro";
+import TimeupsOverlay from "../../components/Overlays/TimeupsOverlay.astro";
+import TriviaLostOverlay from "../../components/Trivia/TriviaLostOverlay.astro";
+import TriviaWonOverlay from "../../components/Trivia/TriviaWonOverlay.astro";
+import { shuffleArray } from "../../utils/shuffleArray";
+import { triviaTwoData } from "../../data/triviaTwoData";
+import TriviaStartOverlay from "../../components/Trivia/TriviaStartOverlay.astro";
+import IntroText from "../../components/Shared/IntroText.astro";
+import Timer from "../../components/Round/Timer.astro";
+import TriviaWonLPOverlay from "../../components/Trivia/TriviaWonLPOverlay.astro";
 
-function shuffleArray(array: any) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
-const triviaData = [
-  {
-    band: "The B-52's",
-    album: "Cosmic Thing",
-    coverSrc: "/bandcover/b52.jpg",
-    type: "won",
-  },
-  {
-    band: "Coldplay",
-    album: "Ghost Stories",
-    coverSrc: "/bandcover/coldplay.jpg",
-    type: "lost",
-  },
-  {
-    band: "Blondie",
-    album: "Parallel Lines",
-    coverSrc: "/bandcover/blondie.jpg",
-    type: "lost",
-  },
-  {
-    band: "Kim Carnes",
-    album: "Mistaken Identity",
-    coverSrc: "/bandcover/kimCarnes.jpg",
-    type: "lost",
-  },
-];
-
-const randomizedTriviaData = shuffleArray(triviaData);
+const randomizedTriviaData = shuffleArray(triviaTwoData);
 ---
 
 <Layout title="Trivia Runde 2" showUserLink={false}>
   <div slot="left-headercol"></div>
 
-  <div id="overlayStart" class="overlay">
-    <div class="overlayStart-content">
-      <Icon name="star-golden" width={80} height={80} />
-      <div class="headline">Trivia Frage</div>
-      <div class="subline">verdoppeln Sie Ihren Punktestand!</div>
-      <div class="question">
-        Das Design Studio welchen Plattencovers hat außerdem auch das Logo des Musiksenders MTV gestaltet?
-      </div>
-      <div class="centerButton">
-        <Button id="gameButton" buttonText="weiter" url="#" />
-      </div>
-    </div>
-  </div>
+  <TriviaStartOverlay
+    question="Das Design Studio welchen Plattencovers hat außerdem auch das Logo des Musiksenders MTV gestaltet?"
+  />
 
-  <div id="overlayTimeUp" class="overlay">
-    <div class="overlayTimeUp-content">
-      <Icon name="clock" width={200} height={200} />
-      <div class="headline">00:00</div>
-      <div class="subline">Zeit ist abgelaufen!</div>
-      <div class="centerButton">
-        <Button buttonText="weiter" url="/trivia/trivia-two-solution" />
-      </div>
-    </div>
-  </div>
+  <TimeupsOverlay url="/trivia/trivia-two-solution" />
 
-  <div id="overlayLost" class="overlay">
-    <div class="overlayLost-content">
-      <Icon name="lost" width={80} height={80} />
-      <div class="headline">Leider falsch</div>
-      <div class="subline">Punktestand bleibt</div>
-      <div class="point"></div>
-      <div class="centerButton">
-        <Button buttonText="Auflösung" url="/trivia/trivia-two-solution" />
-      </div>
-    </div>
-  </div>
+  <TriviaLostOverlay url="/trivia/trivia-two-solution" />
 
-  <div id="overlayWon" class="overlay">
-    <div class="overlayWon-content">
-      <Icon name="golden-coins" width={80} height={80} />
-      <div class="headline">Glückwunsch!</div>
-      <div class="subline">Punktestand verdoppelt!</div>
-      <div class="point"></div>
-      <div class="centerButton">
-        <Button buttonText="Auflösung" url="/trivia/trivia-two-solution" />
-      </div>
-    </div>
-  </div>
+  <TriviaWonOverlay url="/trivia/trivia-two-solution" />
 
-  <div class="introText">
-    <div class="headline">Runde 2 / 3 – Trivia Frage</div>
-    <div class="subline">
-      Das Design Studio welchen Plattencovers hat außerdem auch das Logo des Musiksenders MTV gestaltet?
-    </div>
-  </div>
+  <TriviaWonLPOverlay url="/trivia/trivia-two-solution" />
+
+  <IntroText
+    headline="Runde 2 / 3 – Trivia Frage"
+    subline="Das Design Studio welchen Plattencovers hat außerdem auch das Logo des Musiksenders MTV gestaltet?"
+    whiteText=""
+    isSmallHeadline={true}
+    isWhiteSubline={true}
+  />
 
   <div class="trivia">
     <For of={randomizedTriviaData}>
@@ -115,130 +51,10 @@ const randomizedTriviaData = shuffleArray(triviaData);
     </For>
   </div>
 
-  <div class="timer">
-    <Icon name="clock" width={48} height={48} />
-    <span id="minutes">00</span>:<span id="seconds">10</span>
-  </div>
+  <Timer minutes="00" seconds="10" showFinishButton={false} />
 </Layout>
 
 <style>
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    visibility: hidden;
-  }
-
-  .overlayStart-content,
-  .overlayTimeUp-content,
-  .overlayLost-content,
-  .overlayWon-content {
-    display: flex;
-    width: 366px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-3);
-  }
-
-  .headline {
-    color: var(--colour-text-primary);
-    font-style: normal;
-    font-weight: 900;
-    line-height: 120%;
-  }
-
-  .subline {
-    color: var(--colour-text-secondary);
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    text-align: center;
-  }
-
-  .point {
-    color: var(--colour-text-primary);
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: normal;
-    letter-spacing: 2px;
-  }
-
-  .centerButton {
-    display: flex;
-    justify-content: center;
-    margin-top: var(--spacing-spacing-md);
-  }
-
-  .overlayStart-content .headline,
-  .overlayLost-content .headline,
-  .overlayWon-content .headline {
-    font-size: 48px;
-  }
-
-  .overlayStart-content .subline,
-  .overlayLost-content .subline,
-  .overlayWon-content .subline {
-    font-size: 14px;
-  }
-
-  .overlayStart-content .question {
-    color: var(--colour-text-primary);
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 130%;
-    text-align: center;
-  }
-
-  .overlayTimeUp-content .headline {
-    font-size: 24px;
-    letter-spacing: 0.36px;
-  }
-
-  .overlayTimeUp-content .subline {
-    font-size: 16px;
-    justify-content: center;
-    display: inline-flex;
-  }
-
-  .introText {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-2);
-    margin-bottom: var(--spacing-spacing-md);
-  }
-
-  .introText .headline {
-    color: var(--colour-text-secondary);
-    font-size: 14px;
-    font-weight: 700;
-  }
-
-  .introText .subline {
-    width: 366px;
-    color: var(--colour-text-primary);
-    font-size: 16px;
-  }
-
-  .centerText {
-    color: var(--colour-text-secondary);
-    text-align: center;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 130%;
-  }
-
   .trivia {
     display: flex;
     flex-wrap: wrap;
@@ -246,17 +62,6 @@ const randomizedTriviaData = shuffleArray(triviaData);
     align-items: center;
     justify-content: center;
     gap: var(--spacing-spacing-xl);
-  }
-
-  .timer {
-    padding: 24px 0 23px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    color: var(--colour-text-primary);
   }
 </style>
 
@@ -266,10 +71,11 @@ const randomizedTriviaData = shuffleArray(triviaData);
 
   const jsConfetti = new JSConfetti();
 
-  const overlayTimeUp = document.getElementById("overlayTimeUp") as HTMLElement;
+  const overlayTimeUp = document.getElementById("timupsOverlay") as HTMLElement;
   const overlayStart = document.getElementById("overlayStart") as HTMLElement;
   const overlayLost = document.getElementById("overlayLost") as HTMLElement;
   const overlayWon = document.getElementById("overlayWon") as HTMLElement;
+  const overlayWonLP = document.getElementById("overlayWonLP") as HTMLElement;
   const gameButton = document.getElementById("gameButton") as HTMLElement;
   const minutesElement = document.getElementById("minutes") as HTMLElement;
   const secondsElement = document.getElementById("seconds") as HTMLElement;
@@ -363,12 +169,21 @@ const randomizedTriviaData = shuffleArray(triviaData);
     // Open the overlayWon overlay
     overlayTimeUp.style.visibility = "hidden";
 
-    // Open the overlayWon overlay
-    overlayWon!.style.visibility = "visible";
-    jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
+    // Check the value of allCorrectRound2 in localStorage
+    const allCorrectRound2 = localStorage.getItem("allCorrectRound2") === "true";
+
+    if (allCorrectRound2) {
+      // Open the overlayWonLP overlay
+      overlayWonLP!.style.visibility = "visible";
+      jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
+    } else {
+      // Open the overlayWon overlay
+      overlayWon!.style.visibility = "visible";
+      jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
+    }
 
     // Show the currentPoints in the div with the className 'points' in the overlay
-    const pointsDiv = overlayWon!.querySelector(".point");
+    const pointsDiv = allCorrectRound2 ? overlayWonLP!.querySelector(".point") : overlayWon!.querySelector(".point");
     pointsDiv!.textContent = `+ ${pointsRound2} Pt`;
 
     calculateTheCurrentPoints();

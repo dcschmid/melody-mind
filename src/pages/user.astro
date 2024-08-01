@@ -25,9 +25,9 @@ import { Icon } from "astro-icon/components";
         <div class="frameButton">wechseln</div>
       </div>
       <div class="frames">
-        <div class="frameItem goldBackground">
+        <div class="frameItem whiteBackground">
           <Icon class="newIcon2" name="new-button" width={48} height={48} />
-          <Icon name="rocket" width={48} height={48} />
+          <Icon name="rocket-black" width={48} height={48} />
         </div>
         <div class="frameItem goldBackground">
           <Icon name="brain" width={48} height={48} />
@@ -67,7 +67,7 @@ import { Icon } from "astro-icon/components";
         <div class="goldenlpsItem">
           <div class="lpGroup">
             <Icon class="newIcon" name="new-button" width={48} height={48} />
-            <Icon name="golden-lp" width={80} height={80} />
+            <Icon name="golden-lp" width={70} height={70} />
             <Icon class="absIcon" name="rocket" width={48} height={48} />
           </div>
           <div class="lpText">PopRock</div>
@@ -237,13 +237,13 @@ import { Icon } from "astro-icon/components";
     height: 132px;
     width: 80px
     align-items: center;
-    gap: var(--spacing-spacing-xs);
     align-self: stretch;
   }
 
   .lpGroup {
     display: flex;
     position: relative;
+    margin-bottom: var(--spacing-spacing-xs);
   }
 
   .absIcon {
