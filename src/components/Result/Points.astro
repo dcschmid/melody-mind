@@ -1,21 +1,23 @@
 ---
 import { Icon } from "astro-icon/components";
 import Button from "../Shared/Button.astro";
-
-const { minutes, seconds } = Astro.props;
 ---
 
-<div class="timer">
-  <Icon name="clock" width={48} height={48} />
-  <span id="minutes">{minutes}</span>:<span id="seconds">{seconds}</span>
+<div class="points">
+  <Icon name="coin" width={48} height={48} />
+  <span class="point"></span>
 
   <div class="finishButton">
-    <Button id="endRound" url="#" />
+    <Button id="finishedButton" url="#" />
   </div>
 </div>
 
 <style>
-  .timer {
+  .finishButton {
+    margin-left: var(--spacing-spacing-md);
+  }
+
+  .points {
     padding: 24px 20px 23px 112px;
     display: flex;
     justify-content: flex-end;
@@ -26,9 +28,12 @@ const { minutes, seconds } = Astro.props;
     line-height: normal;
     letter-spacing: 2px;
     color: var(--colour-text-primary);
+    leading-trim: both;
+    text-edge: cap;
   }
 
-  .finishButton {
-    margin-left: var(--spacing-spacing-md);
+  .point {
+    display: block;
+    margin-left: var(--spacing-spacing-s);
   }
 </style>
