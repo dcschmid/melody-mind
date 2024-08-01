@@ -104,7 +104,7 @@ const randomizedCoverflowData = shuffleArray(coverflowData);
       }
     </For>
 
-    <div class="buttons">
+    <div id="showButtons" class="buttons">
       <div class="arrowButton" id="up">
         <Icon name="up-arrow" width={48} height={48} />
       </div>
@@ -245,7 +245,7 @@ const randomizedCoverflowData = shuffleArray(coverflowData);
   }
 
   .buttons {
-    display: inline-flex;
+    display: none;
     align-items: center;
     gap: var(--spacing-spacing-xl);
     z-index: 3;
@@ -469,6 +469,7 @@ const randomizedCoverflowData = shuffleArray(coverflowData);
     let selectedCover: HTMLElement | null = null; // The currently selected cover element
     let currentAudio: HTMLAudioElement | null = null; // The currently playing audio element
     const covers = document.querySelectorAll<HTMLElement>(".cover"); // All cover elements
+    const showButtons = document.getElementById("showButtons");
 
     // Get up and down buttons
     const upButton = document.getElementById("up")!; // The up button element
@@ -477,6 +478,8 @@ const randomizedCoverflowData = shuffleArray(coverflowData);
     // Add click event listener to each cover
     covers.forEach((cover) => {
       cover.addEventListener("click", () => {
+        showButtons!.style.display = "inline-flex";
+
         // Clear the selected class from the previously selected cover
         selectedCover?.classList.remove("selected");
         // Pause the currently playing audio
