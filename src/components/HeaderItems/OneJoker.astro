@@ -36,7 +36,6 @@ import Button from "../Button.astro";
       <div class="solutionRoot">
         <div class="solutionCover">
           <Picture src="/bandcover/avrilLavigne.jpeg" width={240} height={240} formats={["avif", "webp"]} alt="" />
-          <Icon class="share" name="share" width={48} height={48} />
         </div>
         <div class="solutionYear">48:37</div>
         <div class="solutionText">
@@ -128,18 +127,13 @@ import Button from "../Button.astro";
     position: relative;
   }
 
-  .share {
-    position: absolute;
-    bottom: -10px;
-    right: -25px;
-  }
-
   .solutionYear {
-    color: var(--colour-text-link);
-    font-size: 18px;
+    color: var(--colour-text-gold);
+    font-size: 24px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 900;
     line-height: 120%;
+    letter-spacing: 0.36px;
   }
 
   .solutionText {
