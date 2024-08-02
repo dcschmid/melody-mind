@@ -172,7 +172,7 @@ const randomizedCoverflowData = shuffleArray(coverflowRoundThreeData);
     // Toggle the "disabled" class on the up button based on whether the selected cover is the first child
     upButton.classList.toggle("disabled", index === 0);
     // Toggle the "disabled" class on the down button based on whether the selected cover is within the last three children
-    downButton.classList.toggle("disabled", index >= parent.children.length - 3);
+    downButton.classList.toggle("disabled", index >= parent.children.length - 2);
   }
 
   /**
