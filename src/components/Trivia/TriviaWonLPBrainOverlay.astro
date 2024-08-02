@@ -5,13 +5,17 @@ import Button from "../Shared/Button.astro";
 const { url } = Astro.props;
 ---
 
-<div id="overlayWonLP" class="overlay">
+<div id="overlayWonLPBrain" class="overlay">
   <div class="content">
     <div class="goldenLPRoot">
       <Icon name="golden-lp" width={200} height={200} />
+      <Icon class="icon" name="brain" width={80} height={80} />
     </div>
     <div class="headline">Glückwunsch!</div>
-    <div class="centerText">Alles richtig! Sie haben eine goldene Schallplatte erspielt!</div>
+    <div class="centerText">
+      Alles richtig! <br />
+      Sie sind ein <span class="goldenText">PopRock-Brain</span> und haben die goldene Schallplatte erspielt!
+    </div>
     <div class="smallText">& Punktestand verdoppelt!</div>
     <div class="point"></div>
     <div class="centerButton">
@@ -79,6 +83,10 @@ const { url } = Astro.props;
     font-weight: 400;
     line-height: 130%;
     text-align: center;
+  }
+
+  .goldenText {
+    color: var(--colour-text-gold);
   }
 
   .goldenLPRoot {

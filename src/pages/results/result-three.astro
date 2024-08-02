@@ -81,14 +81,14 @@ import IntroText from "../../components/Shared/IntroText.astro";
     // If the results container element does not exist, exit the function
     if (!resultsContainer) return;
 
-    // Get the results from round 1 from localStorage
-    const resultsRound1 = JSON.parse(localStorage.getItem("ResultsRound3") || "[]");
+    // Get the results from round 3 from localStorage
+    const resultsRound3 = JSON.parse(localStorage.getItem("ResultsRound3") || "[]");
 
     // Create a document fragment to improve performance when adding multiple elements to the DOM
     const fragment = document.createDocumentFragment();
 
     // Iterate over the results and create a result item for each one
-    resultsRound1.forEach((result: any, index: any) => {
+    resultsRound3.forEach((result: any, index: any) => {
       const resultItem = createResultItem(result, index);
       fragment.appendChild(resultItem);
     });

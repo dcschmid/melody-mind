@@ -136,13 +136,15 @@ const randomizedTriviaData = shuffleArray(triviaTwoData);
        * @param {Event} event - The click event
        */
       item.addEventListener("click", (_event) => {
-        calculateTheCurrentPoints();
-
         // Show the overlayLost overlay
         overlayLost!.style.visibility = "visible";
 
         // Clear the timer interval
         clearInterval(timerInterval!);
+
+        localStorage.setItem("triviaRound2Won", String("false"));
+
+        calculateTheCurrentPoints();
 
         // Update the points in the overlayLost
         const pointDiv = overlayLost!.querySelector(".point");
@@ -185,6 +187,8 @@ const randomizedTriviaData = shuffleArray(triviaTwoData);
     // Show the currentPoints in the div with the className 'points' in the overlay
     const pointsDiv = allCorrectRound2 ? overlayWonLP!.querySelector(".point") : overlayWon!.querySelector(".point");
     pointsDiv!.textContent = `+ ${pointsRound2} Pt`;
+
+    localStorage.setItem("triviaRound2Won", String("true"));
 
     calculateTheCurrentPoints();
   }

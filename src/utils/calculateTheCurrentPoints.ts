@@ -11,14 +11,14 @@ export function calculateTheCurrentPoints() {
   const pointsRound3 = parseInt(localStorage.getItem("PointsRound3") || "0", 10);
 
   // Retrieve the status of whether all answers were correct in each round from localStorage
-  const allCorrectRound1 = localStorage.getItem("allCorrectRound1") === "true";
-  const allCorrectRound2 = localStorage.getItem("allCorrectRound2") === "true";
-  const allCorrectRound3 = localStorage.getItem("allCorrectRound3") === "true";
+  const triviaRound1Won = localStorage.getItem("triviaRound1Won") === "true";
+  const triviaRound2Won = localStorage.getItem("triviaRound2Won") === "true";
+  const triviaRound3Won = localStorage.getItem("triviaRound3Won") === "true";
 
   // Calculate points for each round, doubling if all answers were correct
-  const calculatedPointsRound1 = allCorrectRound1 ? pointsRound1 * 2 : pointsRound1;
-  const calculatedPointsRound2 = allCorrectRound2 ? pointsRound2 * 2 : pointsRound2;
-  const calculatedPointsRound3 = allCorrectRound3 ? pointsRound3 * 2 : pointsRound3;
+  const calculatedPointsRound1 = triviaRound1Won ? pointsRound1 * 2 : pointsRound1;
+  const calculatedPointsRound2 = triviaRound2Won ? pointsRound2 * 2 : pointsRound2;
+  const calculatedPointsRound3 = triviaRound3Won ? pointsRound3 * 2 : pointsRound3;
 
   // Sum all round points
   const totalPoints = calculatedPointsRound1 + calculatedPointsRound2 + calculatedPointsRound3;

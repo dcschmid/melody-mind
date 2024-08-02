@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
 import Layout from "../../layouts/Layout.astro";
 import { Picture } from "astro:assets";
 import Button from "../../components/Shared/Button.astro";
@@ -70,11 +69,25 @@ import TriviaFinishOverlay from "../../components/Trivia/TriviaFinishOverlay.ast
   import JSConfetti from "js-confetti";
 
   const jsConfetti = new JSConfetti();
-
   const overlayFinish = document.getElementById("overlayFinish") as HTMLElement;
   const openOverlay = document.getElementById("openOverlay") as HTMLElement;
+  const currentPoints = parseInt(localStorage.getItem("currentPoints") || "0", 10);
+  const userPoints = parseInt(localStorage.getItem("userPoints") || "0", 10);
+  const calcfinalScore = currentPoints * 2;
+  localStorage.setItem("userPoints", String(userPoints + calcfinalScore));
 
   window.addEventListener("load", function (_event: Event): void {
+    // Find the element inside overlayFinish to display the currentPoints
+    const pointsElement = overlayFinish.querySelector(".points");
+    if (pointsElement) {
+      pointsElement.textContent = `+ ${currentPoints} Pt`;
+    }
+
+    const userPointsElement = overlayFinish.querySelector(".totalPoints");
+    if (userPointsElement) {
+      userPointsElement.textContent = `${calcfinalScore} Pt`;
+    }
+
     openOverlay.addEventListener("click", function (_event: Event): void {
       overlayFinish.style.visibility = "visible";
       jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());

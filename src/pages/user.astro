@@ -15,7 +15,7 @@ import { Icon } from "astro-icon/components";
       <div class="name">Hallo <span class="yellowName">Mika</span>!</div>
       <div class="points">
         <Icon class="coin" name="coin" width={24} height={24} />
-        1000 Pt
+        <span class="pointsValue"></span>
       </div>
     </div>
 
@@ -25,17 +25,18 @@ import { Icon } from "astro-icon/components";
         <div class="frameButton">wechseln</div>
       </div>
       <div class="frames">
-        <div class="frameItem whiteBackground">
+        <div class="newFrame frameItem whiteBackground">
           <Icon class="newIcon2" name="new-button" width={48} height={48} />
-          <Icon name="rocket-black" width={48} height={48} />
+          <Icon name="brain-dark" width={48} height={48} />
         </div>
         <div class="frameItem goldBackground">
-          <Icon name="brain" width={48} height={48} />
+          <Icon name="rocket" width={48} height={48} />
         </div>
         <div class="frameItem whiteBackground">
           <Icon name="microphone" width={48} height={48} />
         </div>
         <div class="frameItem"></div>
+        <div class="hideFrame frameItem"></div>
       </div>
     </div>
 
@@ -53,7 +54,7 @@ import { Icon } from "astro-icon/components";
         <div class="goldenlpsItem">
           <div class="lpGroup">
             <Icon name="golden-lp" width={80} height={80} />
-            <Icon class="absIcon" name="brain" width={48} height={48} />
+            <Icon class="absIcon" name="rocket" width={48} height={48} />
           </div>
           <div class="lpText">Brit Pop</div>
           <div class="lpData">90er Jahre</div>
@@ -64,14 +65,19 @@ import { Icon } from "astro-icon/components";
         <div class="goldenlpsItem">
           <Icon name="silver-lp" width={80} height={80} />
         </div>
-        <div class="goldenlpsItem">
-          <div class="lpGroup">
-            <Icon class="newIcon" name="new-button" width={48} height={48} />
-            <Icon name="golden-lp" width={70} height={70} />
-            <Icon class="absIcon" name="rocket" width={48} height={48} />
-          </div>
-          <div class="lpText">PopRock</div>
-          <div class="lpData">70er - heute</div>
+        <div id="PopRock" class="goldenlpsItem">
+            <div class="silverPopRock">
+                <Icon name="silver-lp" width={80} height={80} />
+            </div>
+            <div class="goldPopRock">
+                <div class="lpGroup">
+                    <Icon class="newIcon" name="new-button" width={48} height={48} />
+                    <Icon name="golden-lp" width={80} height={80} />
+                    <Icon class="absIcon" name="brain" width={48} height={48} />
+                </div>
+                <div class="lpText">PopRock</div>
+                <div class="lpData">70er - heute</div>
+            </div>
         </div>
         <div class="goldenlpsItem">
           <Icon name="silver-lp" width={80} height={80} />
@@ -279,4 +285,50 @@ import { Icon } from "astro-icon/components";
     top: -1rem;
     left: -1rem;
   }
+
+  .silverPopRock {
+    display: block;
+  }
+
+  .goldPopRock {
+    display: none;
+  }
+
+ .hideFrame {
+    display: block;
+  }
+
+  .newFrame {
+    display: none;
+  }
 </style>
+
+<script>
+  window.addEventListener("load", function () {
+    const userPoints = localStorage.getItem("userPoints") || "0";
+    document!.querySelector(".pointsValue")!.textContent = userPoints + " Pt";
+
+   const wonPopRockBrain = localStorage.getItem("WonPopRockBrain") === "true";
+    const wonBrainFrame = localStorage.getItem("WonBrainFrame") === "true";
+    const silverPopRock = document.querySelector(".silverPopRock") as HTMLElement;
+    const goldPopRock = document.querySelector(".goldPopRock") as HTMLElement;
+    const newFrame = document.querySelector(".newFrame") as HTMLElement;
+    const hideFrame = document.querySelector(".hideFrame") as HTMLElement;
+
+    if (wonPopRockBrain) {
+      silverPopRock!.style.display = "none";
+      goldPopRock!.style.display = "block";
+    } else {
+      silverPopRock!.style.display = "block";
+      goldPopRock!.style.display = "none";
+    }
+
+    if (wonBrainFrame) {
+      newFrame!.style.display = "flex";
+      hideFrame!.style.display = "none";
+    } else {
+      newFrame!.style.display = "none";
+      hideFrame!.style.display = "block";
+    }
+  });
+</script>

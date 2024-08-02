@@ -138,6 +138,10 @@ const randomizedTriviaData = shuffleArray(triviaOneData);
 
         // Clear the timer interval
         clearInterval(timerInterval!);
+        
+        localStorage.setItem("triviaRound1Won", String("false"));
+
+        calculateTheCurrentPoints();
 
         // Update the points in the overlayLost
         const pointDiv = overlayLost!.querySelector(".point");
@@ -180,6 +184,8 @@ const randomizedTriviaData = shuffleArray(triviaOneData);
     // Show the currentPoints in the div with the className 'points' in the overlay
     const pointsDiv = allCorrectRound1 ? overlayWonLP!.querySelector(".point") : overlayWon!.querySelector(".point");
     pointsDiv!.textContent = `+ ${pointsRound1} Pt`;
+
+    localStorage.setItem("triviaRound1Won", String("true"));
 
     calculateTheCurrentPoints();
   }

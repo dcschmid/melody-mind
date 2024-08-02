@@ -6,12 +6,12 @@ import TriviaItem from "../../components/Trivia/TriviaItem.astro";
 import { shuffleArray } from "../../utils/shuffleArray";
 import TimeupsOverlay from "../../components/Overlays/TimeupsOverlay.astro";
 import TriviaLostOverlay from "../../components/Trivia/TriviaLostOverlay.astro";
-import TriviaWonOverlay from "../../components/Trivia/TriviaWonOverlay.astro";
 import { triviaThreeData } from "../../data/triviaThreeData";
 import TriviaStartOverlay from "../../components/Trivia/TriviaStartOverlay.astro";
 import IntroText from "../../components/Shared/IntroText.astro";
 import Timer from "../../components/Round/Timer.astro";
 import TriviaWonLPOverlay from "../../components/Trivia/TriviaWonLPOverlay.astro";
+import TriviaWonLPBrainOverlay from "../../components/Trivia/TriviaWonLPBrainOverlay.astro";
 
 const randomizedTriviaData = shuffleArray(triviaThreeData);
 ---
@@ -20,14 +20,10 @@ const randomizedTriviaData = shuffleArray(triviaThreeData);
   <div slot="left-headercol"></div>
 
   <TriviaStartOverlay question="Welches Album wurde dem Sohn eines/einer der Musiker:innen gewidmet?" />
-
   <TimeupsOverlay url="/trivia/trivia-three-solution" />
-
   <TriviaLostOverlay url="/trivia/trivia-three-solution" />
-
-  <TriviaWonOverlay url="/trivia/trivia-three-solution" />
-
   <TriviaWonLPOverlay url="/trivia/trivia-three-solution" />
+  <TriviaWonLPBrainOverlay url="/trivia/trivia-three-solution" />
 
   <IntroText
     headline="Runde 3 / 3 – Trivia Frage"
@@ -72,7 +68,7 @@ const randomizedTriviaData = shuffleArray(triviaThreeData);
   const overlayTimeUp = document.getElementById("timupsOverlay") as HTMLElement;
   const overlayStart = document.getElementById("overlayStart") as HTMLElement;
   const overlayLost = document.getElementById("overlayLost") as HTMLElement;
-  const overlayWon = document.getElementById("overlayWon") as HTMLElement;
+  const overlayWonLPBrain = document.getElementById("overlayWonLPBrain") as HTMLElement;
   const overlayWonLP = document.getElementById("overlayWonLP") as HTMLElement;
   const gameButton = document.getElementById("gameButton") as HTMLElement;
   const minutesElement = document.getElementById("minutes") as HTMLElement;
@@ -140,6 +136,10 @@ const randomizedTriviaData = shuffleArray(triviaThreeData);
         // Clear the timer interval
         clearInterval(timerInterval!);
 
+        localStorage.setItem("triviaRound3Won", String("false"));
+
+        calculateTheCurrentPoints();
+
         // Update the points in the overlayLost
         const pointDiv = overlayLost!.querySelector(".point");
 
@@ -161,20 +161,33 @@ const randomizedTriviaData = shuffleArray(triviaThreeData);
   function handleWonClick() {
     clearInterval(timerInterval!);
 
+    localStorage.setItem("triviaRound3Won", String("true"));
+
     // Open the overlayWon overlay
     overlayTimeUp.style.visibility = "hidden";
 
-    // Check the value of allCorrectRound3 in localStorage
+    const triviaRound1Won = localStorage.getItem("triviaRound1Won") === "true";
+    const triviaRound2Won = localStorage.getItem("triviaRound2Won") === "true";
+    const triviaRound3Won = localStorage.getItem("triviaRound3Won") === "true";
+    const allCorrectRound1 = localStorage.getItem("allCorrectRound1") === "true";
+    const allCorrectRound2 = localStorage.getItem("allCorrectRound2") === "true";
     const allCorrectRound3 = localStorage.getItem("allCorrectRound3") === "true";
 
-    if (allCorrectRound3) {
+    const allRoundAndTriviaWon =
+      triviaRound1Won && triviaRound2Won && triviaRound3Won && allCorrectRound1 && allCorrectRound2 && allCorrectRound3;
+
+    if (allRoundAndTriviaWon) {
       // Open the overlayWonLP overlay
-      overlayWonLP!.style.visibility = "visible";
+      overlayWonLPBrain!.style.visibility = "visible";
       jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
+      localStorage.setItem("WonPopRockBrain", String("true"));
+      localStorage.setItem("WonBrainFrame", String("true"));
     } else {
       // Open the overlayWon overlay
-      overlayWon!.style.visibility = "visible";
+      overlayWonLP!.style.visibility = "visible";
       jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
+      localStorage.setItem("WonPopRockBrain", String("false"));
+      localStorage.setItem("WonBrainFrame", String("false"));
     }
 
     /**
@@ -184,7 +197,9 @@ const randomizedTriviaData = shuffleArray(triviaThreeData);
     const pointsRound3 = parseInt(localStorage.getItem("PointsRound3") || "0", 10);
 
     // Show the currentPoints in the div with the className 'points' in the overlay
-    const pointsDiv = allCorrectRound3 ? overlayWonLP!.querySelector(".point") : overlayWon!.querySelector(".point");
+    const pointsDiv = allCorrectRound3
+      ? overlayWonLP!.querySelector(".point")
+      : overlayWonLPBrain!.querySelector(".point");
     pointsDiv!.textContent = `+ ${pointsRound3} Pt`;
 
     calculateTheCurrentPoints();
@@ -193,7 +208,7 @@ const randomizedTriviaData = shuffleArray(triviaThreeData);
   window.addEventListener("load", function (_event: Event): void {
     overlayTimeUp.style.visibility = "hidden";
     overlayLost!.style.visibility = "hidden";
-    overlayWon!.style.visibility = "hidden";
+    overlayWonLPBrain!.style.visibility = "hidden";
     overlayWonLP!.style.visibility = "hidden";
     overlayStart.style.visibility = "visible";
 
