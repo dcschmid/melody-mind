@@ -1,0 +1,111 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "../Shared/Button.astro";
+
+const { url } = Astro.props;
+---
+
+<div id="overlayFinish" class="overlayFinish">
+  <div class="overlayFinish-content">
+    <div class="shareRoot">
+      <Icon name="share" width={48} height={48} />
+    </div>
+    <Icon name="diamond" width={150} height={150} />
+    <div class="bigHeadline">Glückwunsch!</div>
+    <div class="headline">PopRock erfolgreich durchgespielt!</div>
+    <div class="subline">Punktzahl verdoppelt</div>
+    <div class="points">+200 Pt</div>
+    <div class="totalText">gesamt</div>
+    <div class="totalPoints">1000 Pt</div>
+    <div class="centerButton">
+      <Button id="playVideo" buttonText="Video abspielen" url={url} />
+    </div>
+  </div>
+</div>
+
+<style>
+  .overlayFinish {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+  }
+
+  .overlayFinish-content {
+    display: flex;
+    width: 366px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-3);
+    position: relative;
+  }
+
+  .bigHeadline {
+    color: var(--colour-text-primary);
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 120%;
+    text-align: center;
+  }
+
+  .headline {
+    color: var(--colour-text-gold);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: 0.36px;
+    text-align: center;
+  }
+
+  .subline {
+    color: var(--colour-text-secondary);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: center;
+  }
+
+  .points {
+    color: var(--colour-text-secondary);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .totalText {
+    color: var(--colour-text-primary);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: 0.36px;
+  }
+
+  .totalPoints {
+    color: var(--colour-text-primary);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 2px;
+  }
+
+  .shareRoot {
+    position: absolute;
+    top: -2rem;
+    right: 1rem;
+  }
+</style>

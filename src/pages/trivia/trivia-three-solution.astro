@@ -3,28 +3,13 @@ import { Icon } from "astro-icon/components";
 import Layout from "../../layouts/Layout.astro";
 import { Picture } from "astro:assets";
 import Button from "../../components/Shared/Button.astro";
+import TriviaFinishOverlay from "../../components/Trivia/TriviaFinishOverlay.astro";
 ---
 
 <Layout title="Trivia Runde 3 – Solution" showUserLink={false}>
   <div slot="left-headercol"></div>
 
-  <div id="overlayFinish" class="overlayFinish">
-    <div class="overlayFinish-content">
-      <div class="shareRoot">
-        <Icon name="share" width={48} height={48} />
-      </div>
-      <Icon name="diamond" width={150} height={150} />
-      <div class="bigHeadline">Glückwunsch!</div>
-      <div class="headline">PopRock erfolgreich durchgespielt!</div>
-      <div class="subline">Punktzahl verdoppelt</div>
-      <div class="points">+200 Pt</div>
-      <div class="totalText">gesamt</div>
-      <div class="totalPoints">1000 Pt</div>
-      <div class="centerButton">
-        <Button id="playVideo" buttonText="Video abspielen" url="/videos/nilzvideo" />
-      </div>
-    </div>
-  </div>
+  <TriviaFinishOverlay url="/videos/nilzvideo" />
 
   <div class="solution">
     <div class="cover">
@@ -44,91 +29,6 @@ import Button from "../../components/Shared/Button.astro";
 </Layout>
 
 <style>
-  .overlayFinish {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    visibility: hidden;
-  }
-
-  .overlayFinish-content {
-    display: flex;
-    width: 366px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-3);
-    position: relative;
-  }
-
-  .overlayFinish-content .bigHeadline {
-    color: var(--colour-text-primary);
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: 120%;
-    text-align: center;
-  }
-
-  .overlayFinish-content .headline {
-    color: var(--colour-text-gold);
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: 120%;
-    letter-spacing: 0.36px;
-    text-align: center;
-  }
-
-  .overlayFinish-content .subline {
-    color: var(--colour-text-secondary);
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    text-align: center;
-  }
-
-  .overlayFinish-content .points {
-    color: var(--colour-text-secondary);
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-  }
-
-  .overlayFinish-content .totalText {
-    color: var(--colour-text-primary);
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: 120%;
-    letter-spacing: 0.36px;
-  }
-
-  .overlayFinish-content .totalPoints {
-    color: var(--colour-text-primary);
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: normal;
-    letter-spacing: 2px;
-  }
-
-  .overlayFinish-content .shareRoot {
-    position: absolute;
-    top: -2rem;
-    right: 1rem;
-  }
-
   .solution {
     display: flex;
     padding: var(--spacing-spacing-s) var(--spacing-spacing-s) var(--spacing-spacing-md) var(--spacing-spacing-s);
