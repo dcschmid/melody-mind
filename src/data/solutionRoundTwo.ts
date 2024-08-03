@@ -3,7 +3,7 @@ export const solutionRoundTwo = [
       band: "Blondie",
     },
     {
-      band: "The B-52's",
+      band: "The B-52s",
     },
     {
       band: "Coldplay",

@@ -1,6 +1,6 @@
 export const triviaTwoData = [
   {
-    band: "The B-52's",
+    band: "The B-52s",
     album: "Cosmic Thing",
     coverSrc: "/bandcover/b52.jpg",
     type: "won",

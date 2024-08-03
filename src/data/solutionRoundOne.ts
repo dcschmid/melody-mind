@@ -1,14 +1,14 @@
 export const solutionRoundOne = [
     {
-        band: "SnowPatrol",
+        band: "Snow Patrol",
     },
     {
-        band: "KellyClarkson",
+        band: "Kelly Clarkson",
     },
     {
-        band: "NoDoubt",
+        band: "No Doubt",
     },
     {
-        band: "FleetWoodMac",
+        band: "FleetWood Mac",
     },
 ];

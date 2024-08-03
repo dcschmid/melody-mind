@@ -1,7 +1,7 @@
 export const coverflowRoundThreeData = [
   {
     band: "Red Hot Chilli Peppers",
-    album: "Stadium Acradium",
+    album: "Stadium Arcadium",
     data: "2:02:21",
     coverSrc: "/bandcover/redHotChiliPeppers.jpg",
     audioSrc: "/mp3s/redHotChiliPeppers.mp3",
@@ -21,7 +21,7 @@ export const coverflowRoundThreeData = [
     audioSrc: "/mp3s/davidBowie.mp3",
   },
   {
-    band: "blink-182",
+    band: "Blink-182",
     album: "Enema of the State",
     data: "35:18",
     coverSrc: "/bandcover/blink182.jpeg",

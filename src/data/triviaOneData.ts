@@ -1,24 +1,24 @@
 export const triviaOneData = [
   {
-    band: "SnowPatrol",
+    band: "Snow Patrol",
     album: "Eyes Open",
     coverSrc: "/bandcover/snowPatrol.jpeg",
     type: "lost",
   },
   {
-    band: "KellyClarkson",
+    band: "Kelly Clarkson",
     album: "Breakaway",
     coverSrc: "/bandcover/kellyClarkson.jpeg",
     type: "lost",
   },
   {
-    band: "NoDoubt",
+    band: "No Doubt",
     album: "Tragic Kingdom",
     coverSrc: "/bandcover/noDoubt.jpg",
     type: "lost",
   },
   {
-    band: "FleetWoodMac",
+    band: "FleetWood Mac",
     album: "Rumours",
     coverSrc: "/bandcover/fleetwoodMac.jpg",
     type: "won",

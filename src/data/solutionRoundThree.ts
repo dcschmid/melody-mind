@@ -9,6 +9,6 @@ export const solutionRoundThree = [
       band: "David Bowie",
     },
     {
-      band: "blink-182",
+      band: "Blink-182",
     },
 ];

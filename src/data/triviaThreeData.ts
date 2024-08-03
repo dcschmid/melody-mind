@@ -1,7 +1,7 @@
 export const triviaThreeData = [
   {
     band: "Red Hot Chilli Peppers",
-    album: "Stadium Acradium",
+    album: "Stadium Arcadium",
     coverSrc: "/bandcover/redHotChiliPeppers.jpg",
     type: "lost",
   },
@@ -18,7 +18,7 @@ export const triviaThreeData = [
     type: "won",
   },
   {
-    band: "blink-182",
+    band: "Blink-182",
     album: "Enemy of the State",
     coverSrc: "/bandcover/blink182.jpeg",
     type: "lost",

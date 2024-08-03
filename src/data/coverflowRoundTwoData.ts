@@ -7,7 +7,7 @@ export const coverflowRoundTwoData = [
     audioSrc: "/mp3s/blondie.mp3",
   },
   {
-    band: "The B-52's",
+    band: "The B-52s",
     album: "Cosmic Thing",
     data: "5 Mio.",
     coverSrc: "/bandcover/b52.jpg",
