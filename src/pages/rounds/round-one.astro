@@ -21,7 +21,7 @@ const randomizedCoverflowData = shuffleArray(coverflowRoundOneData);
 
   <IntroText headline="Runde 1 / 3" subline="Sortieren Sie nach dem" whiteText="Erscheinungsjahr!" />
 
-  <CoverFlow randomizedCoverflowData={randomizedCoverflowData} />
+  <CoverFlow randomizedCoverflowData={randomizedCoverflowData} upText="Älteste" downText="Neuste" />
 
   <Timer minutes="01" seconds="00" />
 </Layout>
@@ -40,16 +40,16 @@ const randomizedCoverflowData = shuffleArray(coverflowRoundOneData);
 
   const finalSolutionsArray = [
     {
-      band: "SnowPatrol",
+      band: "Snow Patrol",
     },
     {
-      band: "KellyClarkson",
+      band: "Kelly Clarkson",
     },
     {
-      band: "NoDoubt",
+      band: "No Doubt",
     },
     {
-      band: "FleetWoodMac",
+      band: "FleetWood Mac",
     },
   ];
 
