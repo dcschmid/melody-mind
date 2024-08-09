@@ -23,11 +23,11 @@ const randomizedCoverflowData = shuffleArray(coverflowRoundThreeData);
 
   <CoverFlow randomizedCoverflowData={randomizedCoverflowData} upText="Kürzeste" downText="Längste" />
 
-  <Timer minutes="01" seconds="00" />
+  <Timer minutes="01" seconds="30" />
 </Layout>
 
 <script>
-  let timeRemaining = 60;
+  let timeRemaining = 90;
   let timerInterval: number | null = null;
 
   const minutesElement = document.getElementById("minutes")!;

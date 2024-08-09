@@ -48,7 +48,7 @@ const randomizedTriviaData = shuffleArray(triviaOneData);
     </For>
   </div>
 
-  <Timer minutes="00" seconds="10" showFinishButton={false} />
+  <Timer minutes="00" seconds="15" showFinishButton={false} />
 </Layout>
 
 <style>
@@ -77,7 +77,7 @@ const randomizedTriviaData = shuffleArray(triviaOneData);
   const minutesElement = document.getElementById("minutes") as HTMLElement;
   const secondsElement = document.getElementById("seconds") as HTMLElement;
 
-  let timeRemaining = 10;
+  let timeRemaining = 15;
   let timerInterval: number | null = null;
 
   /**
@@ -138,7 +138,7 @@ const randomizedTriviaData = shuffleArray(triviaOneData);
 
         // Clear the timer interval
         clearInterval(timerInterval!);
-        
+
         localStorage.setItem("triviaRound1Won", String("false"));
 
         calculateTheCurrentPoints();

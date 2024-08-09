@@ -23,13 +23,13 @@ const randomizedCoverflowData = shuffleArray(coverflowRoundOneData);
 
   <CoverFlow randomizedCoverflowData={randomizedCoverflowData} upText="Älteste" downText="Neuste" />
 
-  <Timer minutes="01" seconds="00" />
+  <Timer minutes="01" seconds="30" />
 </Layout>
 
 <script>
   import { resetLocalStorage } from "../../utils/resetLocalStorage";
 
-  let timeRemaining = 60;
+  let timeRemaining = 90;
   let timerInterval: number | null = null;
 
   const minutesElement = document.getElementById("minutes")!;

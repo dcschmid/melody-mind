@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { Picture } from "astro:assets";
 import Button from "../../components/Shared/Button.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout title="Spiel-Home" showUserLink={false}>
@@ -10,6 +11,7 @@ import Button from "../../components/Shared/Button.astro";
   <div class="solution">
     <div class="cover">
       <Picture src="/bandcover/b52.jpg" width={240} height={240} formats={["avif", "webp"]} alt="" />
+      <Icon class="shareIcon" name="share" width={48} height={48} />
     </div>
     <div class="headline">B-52's – Cosmic Thing</div>
     <div class="text">
@@ -37,6 +39,13 @@ import Button from "../../components/Shared/Button.astro";
   .cover {
     margin: 0 auto;
     position: relative;
+  }
+
+  .shareIcon {
+    position: absolute;
+    bottom: -15px;
+    right: -25px;
+    color: var(--colour-text-primary);
   }
 
   .headline {

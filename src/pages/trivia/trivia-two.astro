@@ -51,7 +51,7 @@ const randomizedTriviaData = shuffleArray(triviaTwoData);
     </For>
   </div>
 
-  <Timer minutes="00" seconds="10" showFinishButton={false} />
+  <Timer minutes="00" seconds="15" showFinishButton={false} />
 </Layout>
 
 <style>
@@ -80,7 +80,7 @@ const randomizedTriviaData = shuffleArray(triviaTwoData);
   const minutesElement = document.getElementById("minutes") as HTMLElement;
   const secondsElement = document.getElementById("seconds") as HTMLElement;
 
-  let timeRemaining = 10;
+  let timeRemaining = 15;
   let timerInterval: number | null = null;
 
   /**
