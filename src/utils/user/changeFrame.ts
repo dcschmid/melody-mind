@@ -44,8 +44,12 @@ export function changeFrame() {
         const frame = frames[frameValue! as keyof typeof frames];
         frame.icon!.style.display = "block";
         frame.frame!.style.display = "block";
-        actualGoldenFrame!.classList.remove("goldBackground");
-        actualGoldenFrame!.classList.add("whiteBackground");
+
+        if (actualGoldenFrame) {
+            actualGoldenFrame!.classList.remove("goldBackground");
+            actualGoldenFrame!.classList.add("whiteBackground");
+        }
+
         selectedFrameItem!.classList.remove("frameSelected");
         selectedFrameItem!.classList.remove("goldBackground");
         selectedFrameItem!.classList.remove("whiteBackground");
