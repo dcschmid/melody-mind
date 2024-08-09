@@ -10,8 +10,9 @@ import TriviaStartOverlay from "../../components/Trivia/TriviaStartOverlay.astro
 import IntroText from "../../components/Shared/IntroText.astro";
 import Timer from "../../components/Round/Timer.astro";
 import TriviaWonLPOverlay from "../../components/Trivia/TriviaWonLPOverlay.astro";
-import TriviaWonLPBrainOverlay from "../../components/Trivia/TriviaWonLPBrainOverlay.astro";
 import { shuffleArray } from "../../utils/share/shuffleArray";
+import TriviaWonOverlay from "../../components/Trivia/TriviaWonOverlay.astro";
+import TriviaWonLPSpecialOverlay from "../../components/Trivia/TriviaWonLPSpecialOverlay.astro";
 
 const randomizedTriviaData = shuffleArray(triviaThreeData);
 ---
@@ -22,8 +23,9 @@ const randomizedTriviaData = shuffleArray(triviaThreeData);
   <TriviaStartOverlay question="Welches Album wurde dem Sohn eines/einer der Musiker:innen gewidmet?" />
   <TimeupsOverlay url="/trivia/trivia-three-solution" />
   <TriviaLostOverlay url="/trivia/trivia-three-solution" />
+  <TriviaWonOverlay url="/trivia/trivia-three-solution" />
   <TriviaWonLPOverlay url="/trivia/trivia-three-solution" />
-  <TriviaWonLPBrainOverlay url="/trivia/trivia-three-solution" />
+  <TriviaWonLPSpecialOverlay url="/trivia/trivia-three-solution" />
 
   <IntroText
     headline="Runde 3 / 3 – Trivia Frage"
@@ -60,162 +62,70 @@ const randomizedTriviaData = shuffleArray(triviaThreeData);
 </style>
 
 <script>
-  import JSConfetti from "js-confetti";
-  import { calculateTheCurrentPoints } from "../../utils/calculateTheCurrentPoints";
+  // Import functions from the utils directory
+  import { updateTime } from "../../utils/share/updateTime";
+  import { handleWonClick } from "../../utils/trivia/handleWonClick";
+  import { initLostOverlay } from "../../utils/trivia/initLostOverlay";
 
-  const jsConfetti = new JSConfetti();
-
+  // Get DOM elements
   const overlayTimeUp = document.getElementById("timupsOverlay") as HTMLElement;
   const overlayStart = document.getElementById("overlayStart") as HTMLElement;
   const overlayLost = document.getElementById("overlayLost") as HTMLElement;
-  const overlayWonLPBrain = document.getElementById("overlayWonLPBrain") as HTMLElement;
-  const overlayWonLP = document.getElementById("overlayWonLP") as HTMLElement;
+  const overlayWon = document.getElementById("overlayWon") as HTMLElement;
   const gameButton = document.getElementById("gameButton") as HTMLElement;
-  const minutesElement = document.getElementById("minutes") as HTMLElement;
-  const secondsElement = document.getElementById("seconds") as HTMLElement;
 
+  // Set the initial time remaining and timer interval
   let timeRemaining = 15;
   let timerInterval: number | null = null;
 
   /**
-   * Updates the timer display and checks if the timer has reached zero.
-   * If the timer has reached zero, it hides the timer overlay.
+   * Add an event listener to the window load event
+   * This function is called when the page has finished loading
+   * It initializes the trivia game and sets the initial state of the overlays
    */
-  function updateTime() {
-    // Convert the time remaining to a string, padded with leading zeros to 4 digits
-    const timeStr = `${timeRemaining}`.padStart(4, "0");
+  window.addEventListener("load", function (_event: Event): void {
+    // Hide the timer overlay and show the start overlay
+    overlayTimeUp.style.visibility = "hidden";
+    overlayLost!.style.visibility = "hidden";
+    overlayWon!.style.visibility = "hidden";
+    overlayStart.style.visibility = "visible";
 
-    // Extract the minutes and seconds from the time string
-    const minutes = timeStr.slice(0, 2);
-    const seconds = timeStr.slice(2);
+    // Add a click event listener to the game button
+    gameButton.addEventListener("click", startTimer);
 
-    // Update the display with the formatted minutes and seconds
-    minutesElement.textContent = minutes;
-    secondsElement.textContent = seconds;
+    // Add a click event listener to the "won" button
+    // When the "won" button is clicked, call the handleWonClick function with the timer interval and the current points
+    document
+      .querySelector(".trivia .won")!
+      .addEventListener("click", () =>
+        handleWonClick(timerInterval, "PointsRound3", "allCorrectRound3", "triviaRound3Won")
+      );
 
-    // If the timer has reached zero, hide the timer overlay
-    if (--timeRemaining < 0) {
-      clearInterval(timerInterval!);
-      overlayTimeUp.style.visibility = "visible";
-    }
-  }
+    // Initialize the lost overlay
+    initLostOverlay(timerInterval, "triviaRound3Won");
+  });
 
   /**
-   * Starts the timer by setting an interval to call the updateTime function every second.
-   * Hides the overlayStart element.
+   * Start the timer by setting an interval to call the updateTime function every second
+   * The updateTime function updates the timer display and checks if the timer has reached zero
+   * If the timer has reached zero, it hides the timer overlay
    */
   function startTimer() {
     // Set an interval to call the updateTime function every second
-    timerInterval = window.setInterval(updateTime, 1000);
+    timerInterval = window.setInterval(() => {
+      // Call the updateTime function with the current timeRemaining value
+      updateTime(timeRemaining);
 
-    // Hide the overlayStart element
+      // Decrement the timeRemaining value and check if it has reached zero
+      if (--timeRemaining < 0) {
+        // If the timer has reached zero, hide the timer overlay
+        // Clear the timer interval to stop the timer
+        clearInterval(timerInterval!);
+        overlayTimeUp.style.visibility = "visible";
+      }
+    }, 1000);
+
+    // Hide the start overlay to show the gameboard
     overlayStart.style.visibility = "hidden";
   }
-
-  /**
-   * Initializes the lost overlay by adding a click event listener to each element with the class 'lost'.
-   * When a lost item is clicked, it shows the overlayLost overlay, clears the timer interval,
-   * and updates the points displayed in the overlayLost.
-   */
-  function initLostOverlay() {
-    // Select all elements with the class 'lost'
-    const lostItems = document.querySelectorAll(".lost");
-
-    lostItems.forEach((item) => {
-      /**
-       * Event listener for when a lost item is clicked.
-       * Shows the overlayLost overlay, clears the timer interval,
-       * and updates the points displayed in the overlayLost.
-       *
-       * @param {Event} event - The click event
-       */
-      item.addEventListener("click", (_event) => {
-        // Show the overlayLost overlay
-        overlayLost!.style.visibility = "visible";
-
-        // Clear the timer interval
-        clearInterval(timerInterval!);
-
-        localStorage.setItem("triviaRound3Won", String("false"));
-
-        calculateTheCurrentPoints();
-
-        // Update the points in the overlayLost
-        const pointDiv = overlayLost!.querySelector(".point");
-
-        // Get the current points from localStorage, defaulting to 0 if not set
-        const currentPoints = localStorage.getItem("currentPoints") || "0";
-
-        // Set the text content of the pointDiv to the current points
-        pointDiv!.textContent = `${currentPoints} Pt`;
-      });
-    });
-  }
-
-  /**
-   * Handles the click event when the "Won" button is clicked.
-   * Opens the overlayWon overlay, retrieves the current points from localStorage,
-   * displays the current points in the div with the className 'points' in the overlay,
-   * and doubles the current points and updates localStorage.
-   */
-  function handleWonClick() {
-    clearInterval(timerInterval!);
-
-    localStorage.setItem("triviaRound3Won", String("true"));
-
-    // Open the overlayWon overlay
-    overlayTimeUp.style.visibility = "hidden";
-
-    const triviaRound1Won = localStorage.getItem("triviaRound1Won") === "true";
-    const triviaRound2Won = localStorage.getItem("triviaRound2Won") === "true";
-    const triviaRound3Won = localStorage.getItem("triviaRound3Won") === "true";
-    const allCorrectRound1 = localStorage.getItem("allCorrectRound1") === "true";
-    const allCorrectRound2 = localStorage.getItem("allCorrectRound2") === "true";
-    const allCorrectRound3 = localStorage.getItem("allCorrectRound3") === "true";
-
-    const allRoundAndTriviaWon =
-      triviaRound1Won && triviaRound2Won && triviaRound3Won && allCorrectRound1 && allCorrectRound2 && allCorrectRound3;
-
-    if (allRoundAndTriviaWon) {
-      // Open the overlayWonLP overlay
-      overlayWonLPBrain!.style.visibility = "visible";
-      jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
-      localStorage.setItem("WonPopRockBrain", String("true"));
-      localStorage.setItem("WonBrainFrame", String("true"));
-    } else {
-      // Open the overlayWon overlay
-      overlayWonLP!.style.visibility = "visible";
-      jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
-      localStorage.setItem("WonPopRockBrain", String("false"));
-      localStorage.setItem("WonBrainFrame", String("false"));
-    }
-
-    /**
-     * The points earned in Round 2, stored in localStorage.
-     * Defaults to 0 if not set.
-     */
-    const pointsRound3 = parseInt(localStorage.getItem("PointsRound3") || "0", 10);
-
-    // Show the currentPoints in the div with the className 'points' in the overlay
-    const pointsDiv = allCorrectRound3
-      ? overlayWonLP!.querySelector(".point")
-      : overlayWonLPBrain!.querySelector(".point");
-    pointsDiv!.textContent = `+ ${pointsRound3} Pt`;
-
-    calculateTheCurrentPoints();
-  }
-
-  window.addEventListener("load", function (_event: Event): void {
-    overlayTimeUp.style.visibility = "hidden";
-    overlayLost!.style.visibility = "hidden";
-    overlayWonLPBrain!.style.visibility = "hidden";
-    overlayWonLP!.style.visibility = "hidden";
-    overlayStart.style.visibility = "visible";
-
-    gameButton.addEventListener("click", startTimer);
-
-    document.querySelector(".trivia .won")!.addEventListener("click", handleWonClick);
-
-    initLostOverlay();
-  });
 </script>
