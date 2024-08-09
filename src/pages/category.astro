@@ -2,15 +2,14 @@
 import { Picture } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Shared/Button.astro";
+import IntroText from "../components/Shared/IntroText.astro";
 ---
 
 <Layout title="Kategorie Start">
   <div slot="left-headercol"></div>
 
-  <div class="introText">
-    <div class="headline">PopRock gewählt!</div>
-    <div class="subline">Lassen Sie die Energie fließen und rocken Sie mit!</div>
-  </div>
+  <IntroText headline="PopRock gewählt!" subline="Lassen Sie die Energie fließen und rocken Sie mit!" />
+
   <div class="category">
     <div class="cover">
       <Picture src="/category/poprock.png" width={240} height={240} formats={["avif", "webp"]} alt="" />

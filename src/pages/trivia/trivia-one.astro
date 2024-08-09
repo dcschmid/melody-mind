@@ -2,7 +2,6 @@
 import Layout from "../../layouts/Layout.astro";
 import { For } from "@astropub/flow";
 import TriviaItem from "../../components/Trivia/TriviaItem.astro";
-import { shuffleArray } from "../../utils/shuffleArray";
 import TriviaStartOverlay from "../../components/Trivia/TriviaStartOverlay.astro";
 import TimeupsOverlay from "../../components/Overlays/TimeupsOverlay.astro";
 import TriviaLostOverlay from "../../components/Trivia/TriviaLostOverlay.astro";
@@ -11,6 +10,7 @@ import TriviaWonOverlay from "../../components/Trivia/TriviaWonOverlay.astro";
 import IntroText from "../../components/Shared/IntroText.astro";
 import Timer from "../../components/Round/Timer.astro";
 import TriviaWonLPOverlay from "../../components/Trivia/TriviaWonLPOverlay.astro";
+import { shuffleArray } from "../../utils/share/shuffleArray";
 
 const randomizedTriviaData = shuffleArray(triviaOneData);
 ---
@@ -80,6 +80,19 @@ const randomizedTriviaData = shuffleArray(triviaOneData);
   let timeRemaining = 15;
   let timerInterval: number | null = null;
 
+  window.addEventListener("load", function (_event: Event): void {
+    overlayTimeUp.style.visibility = "hidden";
+    overlayLost!.style.visibility = "hidden";
+    overlayWon!.style.visibility = "hidden";
+    overlayStart.style.visibility = "visible";
+
+    gameButton.addEventListener("click", startTimer);
+
+    document.querySelector(".trivia .won")!.addEventListener("click", handleWonClick);
+
+    initLostOverlay();
+  });
+  
   /**
    * Updates the timer display and checks if the timer has reached zero.
    * If the timer has reached zero, it hides the timer overlay.
@@ -189,17 +202,4 @@ const randomizedTriviaData = shuffleArray(triviaOneData);
 
     calculateTheCurrentPoints();
   }
-
-  window.addEventListener("load", function (_event: Event): void {
-    overlayTimeUp.style.visibility = "hidden";
-    overlayLost!.style.visibility = "hidden";
-    overlayWon!.style.visibility = "hidden";
-    overlayStart.style.visibility = "visible";
-
-    gameButton.addEventListener("click", startTimer);
-
-    document.querySelector(".trivia .won")!.addEventListener("click", handleWonClick);
-
-    initLostOverlay();
-  });
 </script>

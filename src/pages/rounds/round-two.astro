@@ -1,13 +1,13 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import TwoJoker from "../../components/HeaderItems/TwoJoker.astro";
-import { shuffleArray } from "../../utils/shuffleArray";
 import { coverflowRoundTwoData } from "../../data/coverflowRoundTwoData";
 import StartOverlay from "../../components/Overlays/StartOverlay.astro";
 import TimeupsOverlay from "../../components/Overlays/TimeupsOverlay.astro";
 import IntroText from "../../components/Shared/IntroText.astro";
 import CoverFlow from "../../components/Round/CoverFlow.astro";
 import Timer from "../../components/Round/Timer.astro";
+import { shuffleArray } from "../../utils/share/shuffleArray";
 
 const randomizedCoverflowData = shuffleArray(coverflowRoundTwoData);
 ---

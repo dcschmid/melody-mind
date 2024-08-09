@@ -3,7 +3,6 @@ import { For } from "@astropub/flow";
 
 import Layout from "../../layouts/Layout.astro";
 import TriviaItem from "../../components/Trivia/TriviaItem.astro";
-import { shuffleArray } from "../../utils/shuffleArray";
 import TimeupsOverlay from "../../components/Overlays/TimeupsOverlay.astro";
 import TriviaLostOverlay from "../../components/Trivia/TriviaLostOverlay.astro";
 import { triviaThreeData } from "../../data/triviaThreeData";
@@ -12,6 +11,7 @@ import IntroText from "../../components/Shared/IntroText.astro";
 import Timer from "../../components/Round/Timer.astro";
 import TriviaWonLPOverlay from "../../components/Trivia/TriviaWonLPOverlay.astro";
 import TriviaWonLPBrainOverlay from "../../components/Trivia/TriviaWonLPBrainOverlay.astro";
+import { shuffleArray } from "../../utils/share/shuffleArray";
 
 const randomizedTriviaData = shuffleArray(triviaThreeData);
 ---

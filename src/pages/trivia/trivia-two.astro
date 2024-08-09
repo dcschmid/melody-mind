@@ -6,12 +6,12 @@ import TriviaItem from "../../components/Trivia/TriviaItem.astro";
 import TimeupsOverlay from "../../components/Overlays/TimeupsOverlay.astro";
 import TriviaLostOverlay from "../../components/Trivia/TriviaLostOverlay.astro";
 import TriviaWonOverlay from "../../components/Trivia/TriviaWonOverlay.astro";
-import { shuffleArray } from "../../utils/shuffleArray";
 import { triviaTwoData } from "../../data/triviaTwoData";
 import TriviaStartOverlay from "../../components/Trivia/TriviaStartOverlay.astro";
 import IntroText from "../../components/Shared/IntroText.astro";
 import Timer from "../../components/Round/Timer.astro";
 import TriviaWonLPOverlay from "../../components/Trivia/TriviaWonLPOverlay.astro";
+import { shuffleArray } from "../../utils/share/shuffleArray";
 
 const randomizedTriviaData = shuffleArray(triviaTwoData);
 ---
