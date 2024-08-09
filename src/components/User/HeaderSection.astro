@@ -1,0 +1,161 @@
+---
+import { Icon } from "astro-icon/components";
+import { Picture } from "astro:assets";
+---
+
+<div class="headerBG">
+  <div class="headerContent">
+    <a href="/gamehome"><Icon name="cover-shuffle-logo" width={84} height={59.229} /></a>
+    <div class="avatar">
+      <Picture
+        class="avatarImage"
+        src="/user-profiles/mika.png"
+        width={128}
+        height={128}
+        formats={["avif", "webp"]}
+        alt=""
+      />
+      <Icon class="avatarFrame avatarFrameBrain" name="brain-frame" width={128} height={128} />
+      <Icon class="avatarFrame avatarFrameRocket" name="rocket-frame" width={160} height={160} />
+      <Icon class="avatarFrame avatarFrameMic" name="microphone-frame" width={160} height={160} />
+      <Icon class="avatarIcon avatarIconBrain" name="brain-thick" width={48} height={48} />
+      <Icon class="avatarIcon avatarIconRocket" name="rocket-thick" width={48} height={48} />
+      <Icon class="avatarIcon avatarIconMic" name="microphone-thick" width={48} height={48} />
+    </div>
+    <Icon name="trophy" width={48} height={48} />
+  </div>
+  <div class="nameContent">
+    <div class="name">
+      Hallo <span class="yellowName">Mika</span>! <Icon class="editIcon" name="edit" width={24} height={24} />
+    </div>
+    <div class="points">
+      <Icon class="coin" name="coin" width={24} height={24} />
+      <span class="pointsValue"></span>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .headerBG {
+    padding: var(--spacing-spacing-s) var(--spacing-spacing-s);
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .headerBGBrain {
+    background-image: url("/userbg/bg-brain.png");
+  }
+
+  .headerBGRocket {
+    background-image: url("/userbg/bg-rocket.png");
+  }
+
+  .headerBGMic {
+    background-image: url("/userbg/bg-mic.png");
+  }
+
+  .headerContent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    z-index: 1;
+    position: relative;
+  }
+
+  .avatar {
+    position: relative;
+    width: 128px;
+    height: 128px;
+    margin-bottom: 1rem;
+  }
+
+  .avatarFrame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+  }
+
+  .avatarFrameBrain {
+    display: none;
+  }
+
+  .avatarFrameRocket {
+    display: none;
+    top: -15px;
+    left: -15px;
+  }
+
+  .avatarFrameMic {
+    display: none;
+    top: -16px;
+    left: -16px;
+  }
+
+  .avatarIcon {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    color: #b89826;
+  }
+
+  .avatarIconBrain {
+    display: none;
+  }
+
+  .avatarIconRocket {
+    display: none;
+  }
+
+  .avatarIconMic {
+    display: none;
+  }
+
+  .nameContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-15);
+    z-index: 1;
+    position: relative;
+  }
+
+  .name {
+    color: var(--colour-text-primary);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 120%;
+    letter-spacing: 0.36px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .yellowName {
+    color: var(--colour-text-active);
+    padding-left: 0.25rem;
+  }
+
+  .editIcon {
+    padding-left: 0.5rem;
+  }
+
+  .points {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
+  .points .coin {
+    margin-right: var(--spacing-spacing-xs);
+  }
+</style>
