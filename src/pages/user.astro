@@ -24,6 +24,7 @@ import HeaderSection from "../components/User/HeaderSection.astro";
 <script>
   import { initLocalStorage } from "../utils/share/initLocalStorage";
   import { changeFrame } from "../utils/user/changeFrame";
+  import { changeUserName } from "../utils/user/changeUserName";
   import { checkLocalStorageOnLoad } from "../utils/user/checkLocalStorageOnLoad";
   import { selectFrameItem } from "../utils/user/selectFrameItem";
   import { updateDisplay } from "../utils/user/updateDisplay";
@@ -41,6 +42,7 @@ import HeaderSection from "../components/User/HeaderSection.astro";
   window.addEventListener("load", function () {
     // Initialize the user's local storage and set the userFrameSelected value to "unknown" if it doesn't exist
     initLocalStorage("userFrameSelected", "unknown");
+    initLocalStorage("userName", "Mika");
 
     // Check the user's local storage and update the values
     checkLocalStorageOnLoad();
@@ -61,5 +63,7 @@ import HeaderSection from "../components/User/HeaderSection.astro";
 
     // Call the changeFrame function to handle frame changes
     changeFrame();
+
+    changeUserName();
   });
 </script>

@@ -91,3 +91,18 @@ import Help from "../components/HeaderItems/Help.astro";
     margin-right: var(--spacing-spacing-xxs);
   }
 </style>
+
+<script>
+  import { initLocalStorage } from "../utils/share/initLocalStorage";
+
+  window.addEventListener("load", function () {
+    initLocalStorage("userName", "Mika");
+
+    // Get the user name element
+    const userName = document.querySelector(".name") as HTMLElement;
+
+    // Get the saved user name from local storage and update the user name element
+    const savedUserName = localStorage.getItem("userName");
+    userName.textContent = savedUserName;
+  });
+</script>
