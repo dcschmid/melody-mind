@@ -1,4 +1,4 @@
-import { startTimer } from "../share/startTimer";
+import { startTimer } from "./startTimer";
 
 /**
  * Initializes the overlay by setting its visibility and adding a click event listener to the game button.

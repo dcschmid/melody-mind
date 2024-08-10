@@ -1,4 +1,4 @@
-import { updateTime } from "./updateTime";
+import { updateTime } from "../share/updateTime";
 
 /**
  * Starts the timer by setting an interval to call the updateTime function every second.
