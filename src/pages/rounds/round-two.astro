@@ -27,272 +27,38 @@ const randomizedCoverflowData = shuffleArray(coverflowRoundTwoData);
 </Layout>
 
 <script>
-  let timeRemaining = 90;
-  let timerInterval: number | null = null;
+  // Import functions from the utils directory
+  import { resetLocalStorage } from "../../utils/resetLocalStorage";
+  import { handleEndRoundClick } from "../../utils/round/handleEndRoundClick";
+  import { initializeCovers } from "../../utils/round/initializeCovers";
+  import { initializeOverlay } from "../../utils/round/initializeOverlay";
+  import { solutionRoundTwo } from "../../data/solutionRoundTwo";
 
-  const minutesElement = document.getElementById("minutes")!;
-  const secondsElement = document.getElementById("seconds")!;
-  const timupsOverlay = document.getElementById("timupsOverlay");
-  const endRoundButton = document.getElementById("endRound");
-  const finishRoundButton = document.getElementById("finishRoundButton");
-
-  const finalSolutionsArray = [
-    {
-      band: "Blondie",
-    },
-    {
-      band: "The B-52s",
-    },
-    {
-      band: "Coldplay",
-    },
-    {
-      band: "Kim Carnes",
-    },
-  ];
+  // Set the initial time remaining and timer interval
+  let timeRemaining = 90; // Initial time remaining in seconds
+  let timerInterval: number | 0 = 0; // Initial timer interval in milliseconds
 
   /**
-   * Retrieves the sorted results from the DOM and compares them with the final solutions.
-   * Calculates the number of points earned and saves them to localStorage.
-   * Returns nothing.
+   * Add an event listener to the window load event
+   * This function is called when the page has finished loading
+   * It initializes the round game, resets the local storage,
+   * and handles the end round click event
    */
-  const getSortedResults = () => {
-    // Get all the cover elements from the DOM and convert them to an array
-    let sortedCovers = Array.from(document.querySelectorAll(".cover")).reverse();
-
-    // Map over the cover elements and create an array of objects containing the data attributes
-    const results = sortedCovers.map((cover) => ({
-      band: cover.getAttribute("data-band"), // Get the band name
-      album: cover.getAttribute("data-album"), // Get the album name
-      date: cover.getAttribute("data-data"), // Get the release date
-      coverSrc: cover.getAttribute("data-cover-source"), // Get the cover image source
-      isWrong: false, // Initialize the 'isWrong' property to false
-    }));
-
-    let points = 0;
-    let allCorrect = true;
-
-    // Compare the results with the final solutions array
-    results.forEach((result, index) => {
-      // Check if the band name matches the band name in the final solutions array
-      if (result.band === finalSolutionsArray[index]?.band) {
-        points += 25; // Add 25 points for each correct match
-      } else {
-        result.isWrong = true; // Mark as true if not a match
-        allCorrect = false; // Set allCorrect to false if there's any incorrect match
-      }
-    });
-
-    // Add 25 extra points if all results are correct
-    if (allCorrect) {
-      points += 25;
-      localStorage.setItem("allCorrectRound2", String(true));
-    } else {
-      localStorage.setItem("allCorrectRound2", String(false));
-    }
-
-    // Check if currentPoints exists in localStorage, if not, set it to 0
-    if (localStorage.getItem("currentPoints") === null) {
-      localStorage.setItem("currentPoints", "0");
-    }
-
-    // Save points to localStorage
-    localStorage.setItem("PointsRound2", String(points));
-
-    // Save results to localStorage
-    localStorage.setItem("ResultsRound2", JSON.stringify(results));
-  };
-
-  /**
-   * Updates the timer display and checks if the timer has reached zero.
-   * If the timer has reached zero, it hides the timer overlay.
-   */
-  function updateTime() {
-    // Calculate minutes and seconds from the remaining time
-    const minutes = Math.floor(timeRemaining / 60);
-    const seconds = timeRemaining % 60;
-
-    // Update the display with the formatted minutes and seconds
-    minutesElement.textContent = String(minutes).padStart(2, "0");
-    secondsElement.textContent = String(seconds).padStart(2, "0");
-
-    // If the timer has reached zero, hide the timer overlay and stop the timer
-    if (timeRemaining === 0) {
-      clearInterval(timerInterval!);
-      timupsOverlay!.style.visibility = "visible";
-      getSortedResults();
-    } else {
-      // Otherwise, decrement the remaining time by one second
-      timeRemaining--;
-    }
-  }
-
-  /**
-   * Starts the timer by setting an interval to call the updateTime function every second.
-   */
-  function startTimer() {
-    // Set an interval to call the updateTime function every second
-    timerInterval = window.setInterval(updateTime, 1000);
-  }
-
-  /**
-   * Initializes the overlay by setting its visibility and adding a click event listener to the game button.
-   * When the game button is clicked, it hides the overlay and starts the timer.
-   */
-  function initializeOverlay() {
-    // Get the overlay and game button elements
-    const startOverlay = document.getElementById("startOverlay");
-    const gameButton = document.getElementById("gameButton");
-
-    // Set the visibility of the overlay and timupsOverlay elements
-    startOverlay!.style.visibility = "visible";
-    timupsOverlay!.style.visibility = "hidden";
-
-    // Add a click event listener to the game button
-    gameButton!.addEventListener("click", () => {
-      // Hide the overlay and start the timer
-      startOverlay!.style.visibility = "hidden";
-      startTimer();
-    });
-  }
-
-  /**
-   * Updates the state of the up and down buttons based on the currently selected cover.
-   *
-   * @param {HTMLElement} selectedCover - The currently selected cover element.
-   * @param {HTMLElement} upButton - The up button element.
-   * @param {HTMLElement} downButton - The down button element.
-   */
-  function updateButtonState(selectedCover: HTMLElement, upButton: HTMLElement, downButton: HTMLElement) {
-    // Get the parent element of the selected cover
-    const parent = selectedCover.parentElement!;
-    // Get the index of the selected cover within its parent
-    const index = Array.from(parent.children).indexOf(selectedCover);
-
-    // Toggle the "disabled" class on the up button based on whether the selected cover is the first child
-    upButton.classList.toggle("disabled", index === 0);
-    // Toggle the "disabled" class on the down button based on whether the selected cover is within the last three children
-    downButton.classList.toggle("disabled", index >= parent.children.length - 2);
-  }
-
-  /**
-   * Initializes the covers by setting up event listeners for each cover,
-   * handling clicks and updating the selected cover and audio.
-   */
-  function initializeCovers() {
-    // Initialize selected cover and covers elements
-    let selectedCover: HTMLElement | null = null; // The currently selected cover element
-    let currentAudio: HTMLAudioElement | null = null; // The currently playing audio element
-    const covers = document.querySelectorAll<HTMLElement>(".cover"); // All cover elements
-    const showButtons = document.getElementById("showButtons");
-
-    // Get up and down buttons
-    const upButton = document.getElementById("up")!; // The up button element
-    const downButton = document.getElementById("down")!; // The down button element
-
-    // Add click event listener to each cover
-    covers.forEach((cover) => {
-      cover.addEventListener("click", () => {
-        showButtons!.style.display = "inline-flex";
-
-        // Clear the selected class from the previously selected cover
-        selectedCover?.classList.remove("selected");
-        // Pause the currently playing audio
-        currentAudio?.pause();
-
-        // Set the selected cover to the clicked cover
-        selectedCover = cover;
-        // Add the selected class to the clicked cover
-        cover.classList.add("selected");
-
-        // Get the band attribute of the clicked cover
-        const band = cover.getAttribute("data-band")!;
-        // Get the audio element with the corresponding id
-        currentAudio = document.getElementById(`audio-${band}`) as HTMLAudioElement | null;
-
-        // Play the audio if it exists
-        if (currentAudio) {
-          currentAudio.play();
-        }
-
-        // Update the state of the up and down buttons
-        updateButtonState(selectedCover!, upButton, downButton);
-      });
-    });
-
-    /**
-     * Moves the selected cover element in the specified direction.
-     * If the move is valid, the selected cover is inserted before the reference node.
-     * The up and down buttons are updated accordingly.
-     *
-     * @param {number} direction - The direction to move the selected cover. Negative for up, positive for down.
-     */
-    function moveSelection(direction: number) {
-      // If no cover is selected, return early
-      if (!selectedCover) return;
-
-      // Get the parent element of the selected cover
-      const parent = selectedCover.parentElement!;
-      // Get the index of the selected cover within its parent
-      const index = Array.from(parent.children).indexOf(selectedCover);
-      // Calculate the new index after moving in the specified direction
-      const newIndex = index + direction;
-
-      // If the new index is within the valid range, move the selected cover
-      if (newIndex >= 0 && newIndex < parent.children.length) {
-        // Determine the reference node based on the direction
-        const referenceNode = direction === -1 ? parent.children[newIndex] : parent.children[newIndex].nextSibling;
-        // Insert the selected cover before the reference node
-        parent.insertBefore(selectedCover, referenceNode);
-        selectedCover.dataset.index = index as unknown as string;
-
-        // Update the state of the up and down buttons
-        updateButtonState(selectedCover, upButton, downButton);
-      }
-    }
-
-    // Add click event listeners to up and down buttons
-    upButton.addEventListener("click", () => moveSelection(-1));
-    downButton.addEventListener("click", () => moveSelection(1));
-  }
-
-  /**
-   * Adds a click event listener to the end round button.
-   * When the button is clicked, it gets the sorted results,
-   * navigates to the results page for round one.
-   */
-  endRoundButton?.addEventListener("click", () => {
-    // Get the sorted results
-    getSortedResults();
-    // Navigate to the results page for round two
-    window.location.href = "/results/result-two";
-  });
-
-  /**
-   * Adds a click event listener to the finsh round button.
-   * When the button is clicked, it gets the sorted results,
-   * navigates to the results page for round two.
-   */
-  finishRoundButton?.addEventListener("click", () => {
-    // Get the sorted results
-    getSortedResults();
-    // Navigate to the results page for round two
-    window.location.href = "/results/result-two";
-  });
-
   window.addEventListener("load", function () {
-    // The 'PointsRound1' item stores the points earned in Round 1.
-    // If the item does not exist in localStorage, it means that the user has not played Round 1 yet,
-    // so we set it to 0.
-    if (localStorage.getItem("PointsRound2") === null) {
-      // Set the 'PointsRound1' item to 0 if it does not exist in localStorage
-      localStorage.setItem("PointsRound2", String(0));
-    } else {
-      // Set the 'PointsRound1' item to 0 if it exists in localStorage
-      localStorage.setItem("PointsRound2", String(0));
-    }
+    // Reset the local storage
+    resetLocalStorage();
 
-    initializeOverlay();
-    initializeCovers();
+    // Initialize the overlay and cover elements
+    initializeOverlay(timerInterval, timeRemaining); // Initialize the overlay with the initial time remaining and timer interval
+    initializeCovers(); // Initialize the cover elements
+
+    // Handle the end round click event
+    handleEndRoundClick(
+      solutionRoundTwo, // Solution for the current round
+      "/results/result-two", // URL for the results page
+      "allCorrectRound2", // Key for the local storage item that stores the correct answers
+      "PointsRound2", // Key for the local storage item that stores the points earned in this round
+      "ResultsRound2" // Key for the local storage item that stores the results for this round
+    );
   });
 </script>
