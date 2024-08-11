@@ -94,3 +94,12 @@ import IntroText from "../components/Shared/IntroText.astro";
     margin-top: var(--spacing-spacing-md);
   }
 </style>
+
+<script>
+  import { resetLocalStorage } from "../utils/resetLocalStorage";
+
+  window.addEventListener("load", function () {
+    // Reset the local storage
+    resetLocalStorage();
+  });
+</script>

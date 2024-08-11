@@ -28,7 +28,6 @@ const randomizedCoverflowData = shuffleArray(coverflowRoundTwoData);
 
 <script>
   // Import functions from the utils directory
-  import { resetLocalStorage } from "../../utils/resetLocalStorage";
   import { handleEndRoundClick } from "../../utils/round/handleEndRoundClick";
   import { initializeCovers } from "../../utils/round/initializeCovers";
   import { initializeOverlay } from "../../utils/round/initializeOverlay";
@@ -45,9 +44,6 @@ const randomizedCoverflowData = shuffleArray(coverflowRoundTwoData);
    * and handles the end round click event
    */
   window.addEventListener("load", function () {
-    // Reset the local storage
-    resetLocalStorage();
-
     // Initialize the overlay and cover elements
     initializeOverlay(timerInterval, timeRemaining); // Initialize the overlay with the initial time remaining and timer interval
     initializeCovers(); // Initialize the cover elements
