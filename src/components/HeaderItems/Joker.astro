@@ -3,24 +3,53 @@ import { Icon } from "astro-icon/components";
 import { Picture } from "astro:assets";
 
 import Button from "../Shared/Button.astro";
+import { When } from "@astropub/flow";
+
+const { jokerCoverUrl, jokerData, jokerText, round } = Astro.props;
 ---
 
 <div class="jokerIcons">
   <div id="joker">
-    <Icon name="joker-gold" width={24} height={24} />
-    <Icon name="joker-gold" width={24} height={24} />
-    <Icon name="joker-gold" width={24} height={24} />
+    <When test={round === "round-one"}>
+      <Icon name="joker-gold" width={24} height={24} />
+      <Icon name="joker-gold" width={24} height={24} />
+      <Icon name="joker-gold" width={24} height={24} />
+    </When>
+
+    <When test={round === "round-two"}>
+      <Icon name="joker-gold" width={24} height={24} />
+      <Icon name="joker-gold" width={24} height={24} />
+    </When>
+
+    <When test={round === "round-three"}>
+      <Icon name="joker-gold" width={24} height={24} />
+    </When>
   </div>
 
   <div id="jokeroverlay" class="jokeroverlay">
     <div class="jokercontent">
       <div class="smallheadline">Sie haben noch</div>
       <div class="jokergroup">
-        <Icon name="joker-gold" width={80} height={80} />
-        <Icon name="joker-gold" width={80} height={80} />
-        <Icon name="joker-gold" width={80} height={80} />
+        <When test={round === "round-one"}>
+          <Icon name="joker-gold" width={80} height={80} />
+          <Icon name="joker-gold" width={80} height={80} />
+          <Icon name="joker-gold" width={80} height={80} />
+        </When>
+
+        <When test={round === "round-two"}>
+          <Icon name="joker-gold" width={80} height={80} />
+          <Icon name="joker-gold" width={80} height={80} />
+        </When>
+
+        <When test={round === "round-three"}>
+          <Icon name="joker-gold" width={80} height={80} />
+        </When>
       </div>
-      <div class="jokeroneheadline">3 Joker</div>
+      <div class="jokeroneheadline">
+        <When test={round === "round-one"}> 3 Joker </When>
+        <When test={round === "round-two"}> 2 Joker </When>
+        <When test={round === "round-three"}> 1 Joker </When>
+      </div>
       <div class="centerButton">
         <Button id="redeemjoker" buttonText="1 Joker einlösen" url="#" />
       </div>
@@ -35,14 +64,11 @@ import Button from "../Shared/Button.astro";
       </div>
       <div class="solutionRoot">
         <div class="solutionCover">
-          <Picture src="/bandcover/noDoubt.jpg" width={240} height={240} formats={["avif", "webp"]} alt="" />
+          <Picture src={jokerCoverUrl} width={240} height={240} formats={["avif", "webp"]} alt="" />
         </div>
-        <div class="solutionYear">1995</div>
+        <div class="solutionData">{jokerData}</div>
         <div class="solutionText">
-          Die Fotos für das Album „Tragic Kingdom“ (1995) von No Doubt wurden in Orange County aufgenommen. Das rote
-          Kleid, das Gwen Stefani auf dem Cover trägt, fand seinen Weg in eine Ausstellung im Fullerton Museum Center
-          mit dem Thema „The Orange Groove: Orange County's Rock n' Roll History“. Leider wurde das Kleid im Januar 2005
-          aus der Ausstellung gestohlen.
+          {jokerText}
         </div>
       </div>
     </div>
@@ -133,7 +159,7 @@ import Button from "../Shared/Button.astro";
     right: -25px;
   }
 
-  .solutionYear {
+  .solutionData {
     color: var(--colour-text-gold);
     font-size: 24px;
     font-style: normal;
@@ -152,25 +178,42 @@ import Button from "../Shared/Button.astro";
 </style>
 
 <script>
-  const openJokerOverlay = document.getElementById("joker")!;
-  const jokeroverlay = document.getElementById("jokeroverlay")!;
-  const jokersolution = document.getElementById("jokersolution")!;
+  // Get references to the necessary DOM elements
+  const openJokerOverlay = document.getElementById("joker")!; // The main overlay element
+  const jokeroverlay = document.getElementById("jokeroverlay")!; // The overlay element that displays the joker solution
+  const jokersolution = document.getElementById("jokersolution")!; // The joker solution element
 
-  const openJokerSolution = document.getElementById("redeemjoker");
-  const closeButton = document.getElementById("closeButton");
+  const openJokerSolution = document.getElementById("redeemjoker"); // The button that triggers the joker solution overlay
+  const closeButton = document.getElementById("closeButton"); // The button that closes the joker solution overlay
 
+  // Set the initial visibility of the overlay and solution to hidden
   jokeroverlay!.style.visibility = "hidden";
   jokersolution!.style.visibility = "hidden";
 
+  // Add event listeners to the main overlay and the joker solution button
+  // The event listeners toggle the visibility of the overlay and solution
+
+  /**
+   * Event listener for the main overlay element
+   * @param {MouseEvent} _event - The mouse event that triggered the listener
+   */
   openJokerOverlay.addEventListener("click", (_event: MouseEvent) => {
     jokeroverlay!.style.visibility = "visible";
   });
 
+  /**
+   * Event listener for the joker solution button
+   * @param {MouseEvent} _event - The mouse event that triggered the listener
+   */
   openJokerSolution?.addEventListener("click", (_event: MouseEvent) => {
     jokeroverlay!.style.visibility = "hidden";
     jokersolution!.style.visibility = "visible";
   });
 
+  /**
+   * Event listener for the close button
+   * @param {MouseEvent} _event - The mouse event that triggered the listener
+   */
   closeButton?.addEventListener("click", (_event: MouseEvent) => {
     jokeroverlay!.style.visibility = "hidden";
     jokersolution!.style.visibility = "hidden";

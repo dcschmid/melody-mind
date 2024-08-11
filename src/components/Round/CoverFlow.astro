@@ -3,10 +3,22 @@ import { For } from "@astropub/flow";
 import Arrows from "../Round/Arrows.astro";
 import { Picture } from "astro:assets";
 
-const { randomizedCoverflowData, upText = "", downText = "" } = Astro.props;
+const {
+  randomizedCoverflowData,
+  upText = "",
+  downText = "",
+  dataCategory = "",
+  dataSolution,
+  dataRound = "",
+} = Astro.props;
 ---
 
-<div class="coverFlowRoot">
+<div
+  class="coverFlowRoot"
+  data-category={dataCategory}
+  data-solution={JSON.stringify(dataSolution)}
+  data-round={dataRound.replace("#", "")}
+>
   <div class="smallText">{upText}</div>
 
   <div class="coverflow">

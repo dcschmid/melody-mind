@@ -1,31 +1,50 @@
 ---
-import Layout from "../../layouts/Layout.astro";
 import { Picture } from "astro:assets";
-import Button from "../../components/Shared/Button.astro";
-import TriviaFinishOverlay from "../../components/Trivia/TriviaFinishOverlay.astro";
 import { Icon } from "astro-icon/components";
+
+import Layout from "../../../layouts/Layout.astro";
+import Button from "../../../components/Shared/Button.astro";
+import TriviaFinishOverlay from "../../../components/Trivia/TriviaFinishOverlay.astro";
+import categories from "../../../json/categories.json";
+
+const { category, round } = Astro.params;
+
+const currentCategory = categories.find((cat) => cat.slug === category);
+const currentRound = currentCategory?.rounds.find((rnd) => rnd.slug === round);
+
+const centerButtonText = round === "round-one" || round === "round-two" ? "nächste Runde" : "Spiel beenden";
+const centerButtonUrl =
+  round === "round-one"
+    ? `/${currentCategory?.slug}/round-two`
+    : round === "round-two"
+      ? `/${currentCategory?.slug}/round-three`
+      : `#`;
+
+const centerButtonID = round === "round-three" ? "openOverlay" : "";
 ---
 
-<Layout title="Trivia Runde 3 – Solution" showUserLink={false}>
+<Layout title=`${currentCategory?.name} - ${currentRound?.headline} - Trivia Lösung` showUserLink={false}>
   <div slot="left-headercol"></div>
 
-  <TriviaFinishOverlay url="/videos/nilzvideo" />
+  <TriviaFinishOverlay url={currentCategory?.videoPage} />
 
-  <div class="solution">
+  <div class="solution" data-category={category} data-round={round?.replace("#", "")}>
     <div class="cover">
-      <Picture src="/bandcover/davidBowie.jpg" width={240} height={240} formats={["avif", "webp"]} alt="" />
+      <Picture
+        src={currentRound?.triviaCoverUrl as string}
+        width={240}
+        height={240}
+        formats={["avif", "webp"]}
+        alt=""
+      />
       <Icon class="shareIcon" name="share" width={48} height={48} />
     </div>
-    <div class="headline">Hunky Dory – David Bowie</div>
-    <div class="text">
-      David Bowie nannte seinen Sohn, den Regisseur Duncan Jones, „Zowie“, weshalb dieser auch als Zowie Bowie bekannt
-      ist. Duncan kam 1971, im Erscheinsungsjahr des Albums „Hunky Dory“, auf die Welt – Deshalb steht auf dem Rücken
-      der Platte die Widmung „for small Z.“.
-    </div>
+    <div class="headline">{currentRound?.triviaHeadline}</div>
+    <div class="text">{currentRound?.triviaText}</div>
   </div>
 
   <div class="centerButton">
-    <Button id="openOverlay" buttonText="Spiel beenden" url="#" />
+    <Button id={centerButtonID} buttonText={centerButtonText} url={centerButtonUrl} />
   </div>
 </Layout>
 
@@ -73,9 +92,9 @@ import { Icon } from "astro-icon/components";
     margin-top: var(--spacing-spacing-xl);
   }
 </style>
-
 <script>
   import JSConfetti from "js-confetti";
+  import { clearLocalStorageAfterLastRound } from "../../../utils/clearLocalStorageAfterLastRound";
 
   const jsConfetti = new JSConfetti();
   const overlayFinish = document.getElementById("overlayFinish") as HTMLElement;
@@ -84,6 +103,11 @@ import { Icon } from "astro-icon/components";
   const userPoints = parseInt(localStorage.getItem("userPoints") || "0", 10);
   const calcfinalScore = currentPoints * 2;
   localStorage.setItem("userPoints", String(userPoints + calcfinalScore));
+
+  const triviaElement = document.querySelector(".solution") as HTMLElement;
+
+  const categoryValue = triviaElement.getAttribute("data-category"); // Get the category value from data attribute
+  const roundValue = triviaElement.getAttribute("data-round"); // Get the round value from data attribute
 
   window.addEventListener("load", function (_event: Event): void {
     // Find the element inside overlayFinish to display the currentPoints
@@ -100,6 +124,8 @@ import { Icon } from "astro-icon/components";
     openOverlay.addEventListener("click", function (_event: Event): void {
       overlayFinish.style.visibility = "visible";
       jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
+
+      if (roundValue === "round-three") clearLocalStorageAfterLastRound(categoryValue as string);
     });
   });
 </script>

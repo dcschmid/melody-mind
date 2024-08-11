@@ -1,14 +1,16 @@
 import { calculateTheCurrentPoints } from "../calculateTheCurrentPoints";
 
 /**
- * Initializes the lost overlay by adding a click event listener to each element with the class 'lost'.
- * When a lost item is clicked, it shows the overlayLost overlay, clears the timer interval,
- * and updates the points displayed in the overlayLost.
+ * Initializes the lost overlay by caching the overlayLost element and lost items,
+ * and adding a click event listener to each lost item to show the overlayLost overlay,
+ * clear the timer interval, and update the points displayed in the overlayLost.
  *
- * @param timerInterval - The interval ID of the timer.
- * @param triviaRoundWonName - The name of the trivia round won item in localStorage.
+ * @param {number | null} timerInterval - The timer interval to clear when a lost item is clicked.
+ * @param {string} triviaRoundWonName - The name of the trivia round won item to set to false in localStorage.
+ * @param {string} category - The category to use when calculating the current points.
+ * @return {void}
  */
-export function initLostOverlay(timerInterval: number | null, triviaRoundWonName: string) {
+export function initLostOverlay(timerInterval: number | null, triviaRoundWonName: string, category: string) {
   // Cache the overlayLost element
   const overlayLost = document.getElementById("overlayLost") as HTMLElement;
 
@@ -33,7 +35,7 @@ export function initLostOverlay(timerInterval: number | null, triviaRoundWonName
     localStorage.setItem(triviaRoundWonName, "false");
 
     // Calculate the current points
-    calculateTheCurrentPoints();
+    calculateTheCurrentPoints(category);
 
     // Get the pointDiv element in the overlayLost
     const pointDiv = overlayLost.querySelector(".point");
@@ -47,6 +49,7 @@ export function initLostOverlay(timerInterval: number | null, triviaRoundWonName
 
   // Add the click event listener to each lost item
   for (const lostItem of lostItems) {
+    // Add the click event listener to the lost item
     lostItem.addEventListener("click", lostItemClickHandler);
   }
 }

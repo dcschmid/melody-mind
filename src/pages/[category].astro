@@ -3,26 +3,40 @@ import { Picture } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Shared/Button.astro";
 import IntroText from "../components/Shared/IntroText.astro";
+import categories from "../json/categories.json";
+
+const { category } = Astro.params;
+
+const currentCategory = categories.find((cat: any) => cat.slug === category);
+
+if (!currentCategory) {
+  return Astro.redirect("/404");
+}
 ---
 
 <Layout title="Kategorie Start">
   <div slot="left-headercol"></div>
 
-  <IntroText headline="PopRock gewählt!" subline="Lassen Sie die Energie fließen und rocken Sie mit!" />
+  <IntroText headline={`${currentCategory?.name} gewählt!`} subline={currentCategory?.introSubline} />
 
-  <div class="category">
+  <div class="category" data-category={currentCategory?.slug}>
     <div class="cover">
-      <Picture src="/category/poprock.png" width={240} height={240} formats={["avif", "webp"]} alt="" />
+      <Picture
+        src={currentCategory?.categoryImage as string}
+        width={240}
+        height={240}
+        formats={["avif", "webp"]}
+        alt=""
+      />
     </div>
-    <div class="categoryHeadline">PopRock – 70er bis heute</div>
+    <div class="categoryHeadline">{currentCategory?.categoryHeadline}</div>
     <div class="text">
-      Poprock vereint die eingängigen Melodien des Pop mit der Energie des Rock. Dieser Stil bringt emotionale Balladen
-      und mitreißende Hits hervor, geprägt von vielseitigen Künstlern und Bands.
+      {currentCategory?.categoryText}
     </div>
   </div>
 
   <div class="centerButton">
-    <Button buttonText="weiter" url="/rounds/round-one" />
+    <Button buttonText="weiter" url=`${currentCategory?.slug}/round-one` />
   </div>
 </Layout>
 
@@ -99,7 +113,10 @@ import IntroText from "../components/Shared/IntroText.astro";
   import { resetLocalStorage } from "../utils/resetLocalStorage";
 
   window.addEventListener("load", function () {
+    const categoryElement = document.querySelector(".category") as HTMLElement;
+    const categoryValue = categoryElement.getAttribute("data-category");
+
     // Reset the local storage
-    resetLocalStorage();
+    resetLocalStorage(categoryValue as string);
   });
 </script>

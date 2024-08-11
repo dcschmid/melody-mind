@@ -2,18 +2,20 @@
  * Calculates the current points by summing up the points earned in each round,
  * doubling the points if all answers were correct in that round.
  * The points earned in each round are retrieved from localStorage.
- * The calculated points are stored back into localStorage.
+ * The calculated points are stored back into localStorage, with the key "currentPoints".
+ *
+ * @param {string} category - The category for which to calculate the current points.
  */
-export function calculateTheCurrentPoints() {
+export function calculateTheCurrentPoints(category: string) {
   // Retrieve points earned in each round from localStorage
-  const pointsRound1 = parseInt(localStorage.getItem("PointsRound1") || "0", 10);
-  const pointsRound2 = parseInt(localStorage.getItem("PointsRound2") || "0", 10);
-  const pointsRound3 = parseInt(localStorage.getItem("PointsRound3") || "0", 10);
+  const pointsRound1 = parseInt(localStorage.getItem(`${category}-Points-round-one`) || "0", 10);
+  const pointsRound2 = parseInt(localStorage.getItem(`${category}-Points-round-two`) || "0", 10);
+  const pointsRound3 = parseInt(localStorage.getItem(`${category}-Points-round-three`) || "0", 10);
 
   // Retrieve the status of whether all answers were correct in each round from localStorage
-  const triviaRound1Won = localStorage.getItem("triviaRound1Won") === "true";
-  const triviaRound2Won = localStorage.getItem("triviaRound2Won") === "true";
-  const triviaRound3Won = localStorage.getItem("triviaRound3Won") === "true";
+  const triviaRound1Won = localStorage.getItem(`${category}-TriviaWon-round-one`) === "true";
+  const triviaRound2Won = localStorage.getItem(`${category}-TriviaWon-round-two`) === "true";
+  const triviaRound3Won = localStorage.getItem(`${category}-TriviaWon-round-three`) === "true";
 
   // Calculate points for each round, doubling if all answers were correct
   const calculatedPointsRound1 = triviaRound1Won ? pointsRound1 * 2 : pointsRound1;

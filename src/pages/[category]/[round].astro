@@ -1,0 +1,112 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import StartOverlay from "../../components/Overlays/StartOverlay.astro";
+import TimeupsOverlay from "../../components/Overlays/TimeupsOverlay.astro";
+import IntroText from "../../components/Shared/IntroText.astro";
+import Timer from "../../components/Round/Timer.astro";
+import CoverFlow from "../../components/Round/CoverFlow.astro";
+import { shuffleArray } from "../../utils/share/shuffleArray";
+import categories from "../../json/categories.json";
+import Joker from "../../components/HeaderItems/Joker.astro";
+
+const { category, round } = Astro.params;
+
+const currentCategory = categories.find((cat) => cat.slug === category);
+const currentRound = currentCategory?.rounds.find((rnd) => rnd.slug === round);
+
+const randomizedCoverflowData = shuffleArray(currentRound?.coverData ?? []);
+---
+
+<Layout title=`${currentCategory?.name} - ${currentRound?.headline}` ` showUserLink={false}>
+  <Joker
+    slot="left-headercol"
+    jokerCoverUrl={currentRound?.jokerCoverUrl}
+    jokerText={currentRound?.jokerText}
+    jokerData={currentRound?.jokerData}
+    round={currentRound?.slug}
+  />
+
+  <StartOverlay headline={currentRound?.headline} whiteText={currentRound?.startOverlayText} />
+
+  <TimeupsOverlay />
+
+  <IntroText
+    headline={currentRound?.headline}
+    subline={currentRound?.introSubline}
+    whiteText={currentRound?.sortToText}
+  />
+
+  <CoverFlow
+    randomizedCoverflowData={randomizedCoverflowData}
+    upText={currentRound?.upToLabel}
+    downText={currentRound?.downToLabel}
+    dataCategory={category}
+    dataSolution={currentRound?.solutionsArray}
+    dataRound={round}
+  />
+
+  <Timer minutes="01" seconds="30" />
+</Layout>
+
+<script>
+  // Import functions from the utils directory
+  /**
+   * This function handles the end round click event
+   * It initializes the overlay and cover elements,
+   * and handles the end round click event
+   */
+  import { handleEndRoundClick } from "../../utils/round/handleEndRoundClick";
+  /**
+   * This function initializes the cover elements
+   */
+  import { initializeCovers } from "../../utils/round/initializeCovers";
+  /**
+   * This function initializes the overlay with the initial time remaining and timer interval
+   */
+  import { initializeOverlay } from "../../utils/round/initializeOverlay";
+
+  // Set the initial time remaining and timer interval
+  /**
+   * This variable stores the initial time remaining in seconds
+   */
+  let timeRemaining = 90;
+  /**
+   * This variable stores the initial timer interval in milliseconds
+   */
+  let timerInterval: number | 0 = 0;
+
+  /**
+   * Get the category value from the data attribute of the coverFlowRoot element
+   */
+  // Select the coverFlowRoot element and typecast it to HTMLElement
+  const categoryDataElement = document.querySelector(".coverFlowRoot") as HTMLElement;
+  // Get the value of the data-category attribute from the coverFlowRoot element
+  const categoryValue = categoryDataElement.getAttribute("data-category")!;
+  // Get the value of the data-round attribute from the coverFlowRoot element
+  const dataRound = categoryDataElement.getAttribute("data-round")!;
+  // Get the value of the data-solution attribute from the coverFlowRoot element
+  const solutionAttribute = categoryDataElement.getAttribute("data-solution");
+  // If the solution attribute exists, parse it as a JSON array, otherwise assign an empty array
+  const solutionArray = solutionAttribute ? JSON.parse(solutionAttribute) : [];
+
+  /**
+   * Add an event listener to the window load event
+   * This function is called when the page has finished loading
+   * It initializes the round game, resets the local storage,
+   * and handles the end round click event
+   */
+  window.addEventListener("load", function () {
+    // Initialize the overlay and cover elements
+    initializeOverlay(timerInterval, timeRemaining); // Initialize the overlay with the initial time remaining and timer interval
+    initializeCovers(); // Initialize the cover elements
+
+    // Handle the end round click event
+    handleEndRoundClick(
+      solutionArray, // Solution for the current round
+      `/${categoryValue}/result/${dataRound}`, // URL for the results page
+      `${categoryValue}-AllCorrect-${dataRound}`, // Key for the local storage item that stores the correct answers
+      `${categoryValue}-Points-${dataRound}`, // Key for the local storage item that stores the points earned in this round
+      `${categoryValue}-Results-${dataRound}` // Key for the local storage item that stores the results for this round
+    );
+  });
+</script>
