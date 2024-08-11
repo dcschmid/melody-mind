@@ -1,0 +1,81 @@
+export const categoriesList = [
+  {
+    headline: "PopRock",
+    years: "70er bis heute",
+    imageUrl: "/category/poprock.png",
+    categoryUrl: "/category",
+    isPlayable: true,
+  },
+  {
+    headline: "Heavy Metal",
+    years: "2010 bis heute",
+    imageUrl: "/category/heavymetal.png",
+    isPlayable: false,
+  },
+  {
+    headline: "Party On!",
+    years: "2010 bis 2024",
+    imageUrl: "/category/partyon.png",
+    isPlayable: false,
+  },
+  {
+    headline: "Summer Hits",
+    years: "2023/24",
+    imageUrl: "/category/summerhits.png",
+    isPlayable: false,
+  },
+  {
+    headline: "Top Charts",
+    years: "Alle Jahrzehnte",
+    imageUrl: "/category/topcharts.png",
+    isPlayable: false,
+  },
+  {
+    headline: "DeutschRap",
+    years: "2020 bis heute",
+    imageUrl: "/category/deutschrap.png",
+    isPlayable: false,
+  },
+  {
+    headline: "Disco Fever",
+    years: "Hits der 70er und frühen 80er",
+    imageUrl: "/category/disco-fever.jpg",
+    isPlayable: false,
+  },
+  {
+    headline: "Disco Fever",
+    years: "Hits der 70er und frühen 80er",
+    imageUrl: "/category/disco-fever.jpg",
+    isPlayable: false,
+  },
+  {
+    headline: "Indie & Alternative",
+    years: "2000 bis 2020",
+    imageUrl: "/category/indie-alternative.jpg",
+    isPlayable: false,
+  },
+  {
+    headline: "Latin Vibes",
+    years: "2010 bis heute",
+    imageUrl: "/category/latin.jpg",
+    isPlayable: false,
+  },
+  {
+    headline: "Gothic",
+    years: "2000 bis heute",
+    imageUrl: "/category/gothic.jpg",
+    isPlayable: false,
+  },
+  {
+    headline: "Country Classics",
+    years: "80er bis 90er Jahre",
+    imageUrl: "/category/country-classics.jpg",
+    isPlayable: false,
+  },
+  {
+    headline: "Millennium Pop",
+    years: "2000 bis 2010",
+    imageUrl: "/category/millennium-pop.jpg",
+    isPlayable: false,
+  },
+]

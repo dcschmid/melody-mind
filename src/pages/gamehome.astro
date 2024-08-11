@@ -1,9 +1,48 @@
 ---
 import { Icon } from "astro-icon/components";
+import { When } from "@astropub/flow";
 
 import PlaylistItem from "../components/PlaylistItem.astro";
 import Layout from "../layouts/Layout.astro";
 import Help from "../components/HeaderItems/Help.astro";
+import { categoriesList } from "../data/categories";
+import { shuffleArray } from "../utils/share/shuffleArray";
+
+/**
+ * This function filters the categoriesList array to only include items that are playable.
+ * It then randomly selects one of those items and returns it.
+ * @return {Array} An array containing one playable item.
+ */
+const getSelectedPlayableItem = () => {
+  // Filter playable items
+  const playableItems = categoriesList.filter((item) => item.isPlayable);
+
+  // Randomly select 1 playable item
+  const selectedPlayableItems = playableItems.sort(() => Math.random() - Math.random()).slice(0, 1);
+
+  return selectedPlayableItems;
+};
+
+/**
+ * This function filters the categoriesList array to only include items that are not playable.
+ * It then shuffles the array and limits it to a maximum of 5 items.
+ * @return {Array} An array containing non-playable items.
+ */
+const getNonPlayableItems = () => {
+  // Filter non-playable items
+  const nonPlayableItems = shuffleArray(categoriesList.filter((item) => !item.isPlayable));
+
+  // Limit the array to a maximum of 5 items
+  nonPlayableItems.length = Math.min(nonPlayableItems.length, 5);
+
+  return nonPlayableItems;
+};
+
+// Create an array by combining the selected playable item and the non-playable items
+// The selected playable item is randomly selected from the playable items
+// The non-playable items are randomly shuffled and limited to a maximum of 5 items
+const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
+
 ---
 
 <Layout title="Spiel Kategorien">
@@ -14,18 +53,25 @@ import Help from "../components/HeaderItems/Help.astro";
   </div>
 
   <div class="choosePlaylist">
-    <PlaylistItem headline="Heavy Metal" years="2010 bis heute" image="/category/heavymetal.png" />
-    <a href="/category"><PlaylistItem headline="PopRock" years="70er bis heute" image="/category/poprock.png" /></a>
-    <PlaylistItem headline="Party On!" years="2010 bis 2024" image="/category/partyon.png" />
-    <PlaylistItem headline="Summer Hits" years="2023/24" image="/category/summerhits.png" />
-    <PlaylistItem headline="Top Charts" years="Alle Jahrzehnte" image="/category/topcharts.png" />
-    <PlaylistItem headline="DeutschRap" years="2020 bis heute" image="/category/deutschrap.png" />
-  </div>
+    {
+      categories.map((item) => (
+        <When test={item.isPlayable}>
+          <a href={item.categoryUrl}>
+            <PlaylistItem headline={item.headline} years={item.years} image={item.imageUrl} />
+          </a>
+        </When>
 
-  <div class="hint">
-    <Icon class="icon" name="spotify" width={24} height={24} /> Spotify Account einbinden um Freunde zu challengen
+        <When test={!item.isPlayable}>
+          <PlaylistItem headline={item.headline} years={item.years} image={item.imageUrl} />
+        </When>
+      ))
+    }
   </div>
 </Layout>
+
+<div class="hint">
+  <Icon class="icon" name="spotify" width={24} height={24} /> Spotify Account einbinden um Freunde zu challengen
+</div>
 
 <style>
   .introText {
