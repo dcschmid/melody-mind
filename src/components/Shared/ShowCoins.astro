@@ -1,0 +1,35 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="coins">
+  <div>Erspielte Münzen:</div>
+  <div class="count"><Icon class="icon" name="coin" width={24} height={24} /> <span class="coinsCount"></span></div>
+</div>
+
+<style>
+  .coins {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--colour-text-primary);
+    gap: var(--spacing-spacing-xs);
+  }
+
+  .count {
+    display: flex;
+    align-items: center;
+  }
+
+  .icon {
+    padding-right: 0.25rem;
+  }
+</style>
+
+<script>
+  window.addEventListener("load", function () {
+    const coinsCountElement = document.querySelector(".coinsCount") as HTMLDivElement;
+    const currentPoints = localStorage.getItem("currentPoints");
+    coinsCountElement.textContent = currentPoints;
+  });
+</script>

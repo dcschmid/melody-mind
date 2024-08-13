@@ -59,10 +59,11 @@ export const getSortedResults = (
     localStorage.setItem(allCorrectRoundName, String(false));
   }
 
-  // Check if currentPoints exists in localStorage, if not, set it to 0
-  if (localStorage.getItem("currentPoints") === null) {
-    localStorage.setItem("currentPoints", "0");
-  }
+  const currentPoints = parseInt(localStorage.getItem("currentPoints") || "0", 10);
+
+  // Save the current points to localStorage
+  // This is used to display the current points on the results page
+  localStorage.setItem("currentPoints", String(currentPoints + points));
 
   // Save points to localStorage
   localStorage.setItem(PointsRoundName, String(points));

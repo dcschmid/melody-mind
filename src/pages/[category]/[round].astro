@@ -8,6 +8,7 @@ import CoverFlow from "../../components/Round/CoverFlow.astro";
 import { shuffleArray } from "../../utils/share/shuffleArray";
 import categories from "../../json/categories.json";
 import Joker from "../../components/HeaderItems/Joker.astro";
+import ShowCoins from "../../components/Shared/ShowCoins.astro";
 
 const { category, round } = Astro.params;
 
@@ -18,7 +19,9 @@ const randomizedCoverflowData = shuffleArray(currentRound?.coverData ?? []);
 ---
 
 <Layout title=`${currentCategory?.name} - ${currentRound?.headline}` ` showUserLink={false}>
-  <div slot="left-headercol"></div>
+  <div slot="left-headercol">
+    <ShowCoins />
+  </div>
 
   <StartOverlay headline={currentRound?.headline} whiteText={currentRound?.startOverlayText} />
 

@@ -3,6 +3,7 @@ import Layout from "../../../layouts/Layout.astro";
 import IntroText from "../../../components/Shared/IntroText.astro";
 import Points from "../../../components/Result/Points.astro";
 import categories from "../../../json/categories.json";
+import ShowCoins from "../../../components/Shared/ShowCoins.astro";
 
 const { category, round } = Astro.params;
 
@@ -11,7 +12,9 @@ const currentRound = currentCategory?.rounds.find((rnd) => rnd.slug === round);
 ---
 
 <Layout title=`${currentCategory?.name} - ${currentRound?.headline} - Ergebnisse`>
-  <div slot="left-headercol"></div>
+  <div slot="left-headercol">
+    <ShowCoins />
+  </div>
 
   <IntroText
     headline=`${currentRound?.headline} - Ergebnisse`

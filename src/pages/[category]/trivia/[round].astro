@@ -11,6 +11,7 @@ import TriviaWonOverlay from "../../../components/Trivia/TriviaWonOverlay.astro"
 import categories from "../../../json/categories.json";
 import Layout from "../../../layouts/Layout.astro";
 import { shuffleArray } from "../../../utils/share/shuffleArray";
+import ShowCoins from "../../../components/Shared/ShowCoins.astro";
 
 const { category, round } = Astro.params;
 
@@ -21,7 +22,9 @@ const randomizedTriviaData = shuffleArray(currentRound?.coverData ?? []);
 ---
 
 <Layout title=`${currentCategory?.name} - ${currentRound?.headline} - Trivia Frage` showUserLink={false}>
-  <div slot="left-headercol"></div>
+  <div slot="left-headercol">
+    <ShowCoins />
+  </div>
 
   <TriviaStartOverlay question={currentRound?.triviaQuestion} />
 
@@ -53,7 +56,7 @@ const randomizedTriviaData = shuffleArray(currentRound?.coverData ?? []);
     </For>
   </div>
 
-  <Timer minutes="00" seconds="15" showFinishButton={false} />
+  <Timer minutes="00" seconds="20" showFinishButton={false} />
 </Layout>
 
 <style>
@@ -88,7 +91,7 @@ const randomizedTriviaData = shuffleArray(currentRound?.coverData ?? []);
   const roundValue = triviaElement.getAttribute("data-round"); // Get the round value from data attribute
 
   // Set the initial time remaining and timer interval
-  let timeRemaining = 15;
+  let timeRemaining = 20;
   let timerInterval: number | null = null;
 
   /**
