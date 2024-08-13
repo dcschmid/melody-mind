@@ -3,55 +3,26 @@ import { Icon } from "astro-icon/components";
 import { Picture } from "astro:assets";
 
 import Button from "../Shared/Button.astro";
-import { When } from "@astropub/flow";
 
-const { jokerCoverUrl, jokerData, jokerText, round } = Astro.props;
+const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
 ---
 
 <div class="jokerIcons">
   <div id="joker">
-    <When test={round === "round-one"}>
-      <Icon name="joker-gold" width={24} height={24} />
-      <Icon name="joker-gold" width={24} height={24} />
-      <Icon name="joker-gold" width={24} height={24} />
-    </When>
-
-    <When test={round === "round-two"}>
-      <Icon name="joker-gold" width={24} height={24} />
-      <Icon name="joker-gold" width={24} height={24} />
-    </When>
-
-    <When test={round === "round-three"}>
-      <Icon name="joker-gold" width={24} height={24} />
-    </When>
+    <Icon name="joker-gold" width={50} height={50} />
   </div>
 
   <div id="jokeroverlay" class="jokeroverlay">
     <div class="jokercontent">
-      <div class="smallheadline">Sie haben noch</div>
+      <div class="closeRoot">
+        <Button id="closeButton" buttonText="close" url="#" />
+      </div>
       <div class="jokergroup">
-        <When test={round === "round-one"}>
-          <Icon name="joker-gold" width={80} height={80} />
-          <Icon name="joker-gold" width={80} height={80} />
-          <Icon name="joker-gold" width={80} height={80} />
-        </When>
-
-        <When test={round === "round-two"}>
-          <Icon name="joker-gold" width={80} height={80} />
-          <Icon name="joker-gold" width={80} height={80} />
-        </When>
-
-        <When test={round === "round-three"}>
-          <Icon name="joker-gold" width={80} height={80} />
-        </When>
+        <Icon name="joker-gold" width={80} height={80} />
       </div>
-      <div class="jokeroneheadline">
-        <When test={round === "round-one"}> 3 Joker </When>
-        <When test={round === "round-two"}> 2 Joker </When>
-        <When test={round === "round-three"}> 1 Joker </When>
-      </div>
+      <div class="jokeroneheadline">Joker</div>
       <div class="centerButton">
-        <Button id="redeemjoker" buttonText="1 Joker einlösen" url="#" />
+        <Button id="redeemjoker" buttonText="Joker einlösen" url="#" />
       </div>
     </div>
   </div>
@@ -76,6 +47,10 @@ const { jokerCoverUrl, jokerData, jokerText, round } = Astro.props;
 </div>
 
 <style>
+  #joker {
+    display: none;
+    cursor: pointer;
+  }
   .jokerIcons {
     display: inline-flex;
     align-items: top;
@@ -105,14 +80,6 @@ const { jokerCoverUrl, jokerData, jokerText, round } = Astro.props;
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-3);
-  }
-
-  .smallheadline {
-    color: var(--colour-text-secondary);
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
   }
 
   .jokergroup {
@@ -174,6 +141,32 @@ const { jokerCoverUrl, jokerData, jokerText, round } = Astro.props;
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
+  }
+
+  /* Define the shake animation */
+  .shake {
+    animation: shake 0.5s;
+  }
+
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    20% {
+      transform: translateX(-10px);
+    }
+    40% {
+      transform: translateX(10px);
+    }
+    60% {
+      transform: translateX(-10px);
+    }
+    80% {
+      transform: translateX(10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
 </style>
 

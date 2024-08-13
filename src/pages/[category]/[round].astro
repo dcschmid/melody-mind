@@ -18,13 +18,7 @@ const randomizedCoverflowData = shuffleArray(currentRound?.coverData ?? []);
 ---
 
 <Layout title=`${currentCategory?.name} - ${currentRound?.headline}` ` showUserLink={false}>
-  <Joker
-    slot="left-headercol"
-    jokerCoverUrl={currentRound?.jokerCoverUrl}
-    jokerText={currentRound?.jokerText}
-    jokerData={currentRound?.jokerData}
-    round={currentRound?.slug}
-  />
+  <div slot="left-headercol"></div>
 
   <StartOverlay headline={currentRound?.headline} whiteText={currentRound?.startOverlayText} />
 
@@ -45,8 +39,25 @@ const randomizedCoverflowData = shuffleArray(currentRound?.coverData ?? []);
     dataRound={round}
   />
 
-  <Timer minutes="01" seconds="30" />
+  <div class="timerSection">
+    <Joker
+      jokerCoverUrl={currentRound?.jokerCoverUrl}
+      jokerText={currentRound?.jokerText}
+      jokerData={currentRound?.jokerData}
+    />
+
+    <Timer minutes="01" seconds="30" />
+  </div>
 </Layout>
+
+<style>
+  .timerSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: var(--spacing-spacing-xxl);
+  }
+</style>
 
 <script>
   // Import functions from the utils directory
@@ -64,6 +75,7 @@ const randomizedCoverflowData = shuffleArray(currentRound?.coverData ?? []);
    * This function initializes the overlay with the initial time remaining and timer interval
    */
   import { initializeOverlay } from "../../utils/round/initializeOverlay";
+  import { showJoker } from "../../utils/round/showJoker";
 
   // Set the initial time remaining and timer interval
   /**
@@ -108,5 +120,12 @@ const randomizedCoverflowData = shuffleArray(currentRound?.coverData ?? []);
       `${categoryValue}-Points-${dataRound}`, // Key for the local storage item that stores the points earned in this round
       `${categoryValue}-Results-${dataRound}` // Key for the local storage item that stores the results for this round
     );
+
+    /**
+     * Set a timeout to call the showJoker function after 20 seconds
+     * This function is responsible for showing the joker by triggering the shake animation
+     * and making it visible. After the animation is done, the shake class is removed.
+     */
+    setTimeout(showJoker, 20000); // Call the showJoker function after 20 seconds
   });
 </script>
