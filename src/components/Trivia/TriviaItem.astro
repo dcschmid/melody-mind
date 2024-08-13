@@ -8,12 +8,14 @@ interface Props {
 const { band = "", album = "", image } = Astro.props;
 
 import { Picture } from "astro:assets";
+import { Icon } from "astro-icon/components";
 ---
 
 <div class="triviaItem">
   <Picture class="cover" src={image} width={126} height={126} formats={["avif", "webp"]} alt="" />
   <div class="band">{band}</div>
   <div class="album">{album}</div>
+  <Icon class="star" name="star" width={39} height={37} />
 </div>
 
 <style>
@@ -83,5 +85,14 @@ import { Picture } from "astro:assets";
     gap: var(--spacing-spacing-xxs);
     width: 31px;
     height: 31px;
+  }
+
+  .star {
+    position: absolute;
+    top: 45px;
+    left: 45px;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-property: transform;
   }
 </style>

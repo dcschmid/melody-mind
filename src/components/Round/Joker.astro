@@ -31,7 +31,7 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
     <div class="jokersolutioncontent">
       <div class="closeRoot">
         <Icon class="closeIcon" name="joker-gold" width={48} height={48} />
-        <Button id="closeButton" buttonText="close" url="#" />
+        <Button id="closeJokerButton" buttonText="close" url="#" />
       </div>
       <div class="solutionRoot">
         <div class="solutionCover">
@@ -178,6 +178,7 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
 
   const openJokerSolution = document.getElementById("redeemjoker"); // The button that triggers the joker solution overlay
   const closeButton = document.getElementById("closeButton"); // The button that closes the joker solution overlay
+  const closeJokerButton = document.getElementById("closeJokerButton"); // The button that closes the joker solution overlay
 
   // Set the initial visibility of the overlay and solution to hidden
   jokeroverlay!.style.visibility = "hidden";
@@ -205,10 +206,20 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
 
   /**
    * Event listener for the close button
-   * @param {MouseEvent} _event - The mouse event that triggered the listener
+   * @returns {void}
    */
-  closeButton?.addEventListener("click", (_event: MouseEvent) => {
+  closeButton?.addEventListener("click", (): void => {
     jokeroverlay!.style.visibility = "hidden";
     jokersolution!.style.visibility = "hidden";
+  });
+
+  /**
+   * Event listener for the close button
+   * @returns {void}
+   */
+  closeJokerButton?.addEventListener("click", (): void => {
+    jokeroverlay!.style.visibility = "hidden";
+    jokersolution!.style.visibility = "hidden";
+    openJokerOverlay!.style.display = "none";
   });
 </script>

@@ -7,7 +7,7 @@ import Timer from "../../components/Round/Timer.astro";
 import CoverFlow from "../../components/Round/CoverFlow.astro";
 import { shuffleArray } from "../../utils/share/shuffleArray";
 import categories from "../../json/categories.json";
-import Joker from "../../components/HeaderItems/Joker.astro";
+import Joker from "../../components/Round/Joker.astro";
 import ShowCoins from "../../components/Shared/ShowCoins.astro";
 
 const { category, round } = Astro.params;
@@ -114,6 +114,7 @@ const randomizedCoverflowData = shuffleArray(currentRound?.coverData ?? []);
     // Initialize the overlay and cover elements
     initializeOverlay(timerInterval, timeRemaining); // Initialize the overlay with the initial time remaining and timer interval
     initializeCovers(); // Initialize the cover elements
+    showJoker(); // Call the showJoker function
 
     // Handle the end round click event
     handleEndRoundClick(
@@ -123,12 +124,5 @@ const randomizedCoverflowData = shuffleArray(currentRound?.coverData ?? []);
       `${categoryValue}-Points-${dataRound}`, // Key for the local storage item that stores the points earned in this round
       `${categoryValue}-Results-${dataRound}` // Key for the local storage item that stores the results for this round
     );
-
-    /**
-     * Set a timeout to call the showJoker function after 20 seconds
-     * This function is responsible for showing the joker by triggering the shake animation
-     * and making it visible. After the animation is done, the shake class is removed.
-     */
-    setTimeout(showJoker, 20000); // Call the showJoker function after 20 seconds
   });
 </script>
