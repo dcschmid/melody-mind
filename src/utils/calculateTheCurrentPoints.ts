@@ -17,10 +17,27 @@ export function calculateTheCurrentPoints(category: string) {
   const triviaRound2Won = localStorage.getItem(`${category}-TriviaWon-round-two`) === "true";
   const triviaRound3Won = localStorage.getItem(`${category}-TriviaWon-round-three`) === "true";
 
-  // Calculate points for each round, doubling if all answers were correct
-  const calculatedPointsRound1 = triviaRound1Won ? pointsRound1 * 2 : pointsRound1;
-  const calculatedPointsRound2 = triviaRound2Won ? pointsRound2 * 2 : pointsRound2;
-  const calculatedPointsRound3 = triviaRound3Won ? pointsRound3 * 2 : pointsRound3;
+  // Calculate the points earned in each round
+  // If the round was won and no points were earned, add 50 points
+  // If the round was won, double the points earned
+  const calculatedPointsRound1 =
+    (pointsRound1 === 0 && triviaRound1Won) ? Math.floor(pointsRound1 + 50) :
+    triviaRound1Won ? Math.floor(pointsRound1 * 2) : pointsRound1;
+
+  // Calculate the points earned in each round
+  // If the round was won and no points were earned, add 50 points
+  // If the round was won, double the points earned
+  const calculatedPointsRound2 =
+    (pointsRound2 === 0 && triviaRound2Won) ? Math.floor(pointsRound2 + 50)  :
+    triviaRound2Won ? Math.floor(pointsRound2 * 2) : pointsRound2;
+
+  // Calculate the points earned in each round
+  // If the round was won and no points were earned, add 50 points
+  // If the round was won, double the points earned
+  const calculatedPointsRound3 =
+   (pointsRound3 === 0 && triviaRound3Won) ? Math.floor(pointsRound3 + 50) :
+    triviaRound3Won ? Math.floor(pointsRound3 * 2)
+    : pointsRound3;
 
   // Sum all round points
   const totalPoints = calculatedPointsRound1 + calculatedPointsRound2 + calculatedPointsRound3;

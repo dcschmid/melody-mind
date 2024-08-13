@@ -3,10 +3,17 @@ import Layout from "../layouts/Layout.astro";
 import { Picture } from "astro:assets";
 ---
 
-<Layout title="Instastory" showHeader={false}>
+<Layout title="Wilkommen zum Cover Shuffle" showHeader={false}>
   <div class="container">
-    <Picture class="cover" src="/imagesites/instastory.jpg" width={480} height={815} formats={["avif", "webp"]} alt="" />
-    <a class="button" href="/login"><span class="rainbowText">COVERSHUFFLE</span></a>
+    <Picture
+      class="cover"
+      src="/imagesites/cover-shuffle.jpg"
+      width={480}
+      height={815}
+      formats={["avif", "webp"]}
+      alt=""
+    />
+    <a class="button" href="/gamehome">Jetzt loslegen</a>
   </div>
 </Layout>
 
@@ -20,22 +27,13 @@ import { Picture } from "astro:assets";
     height: auto;
   }
 
-  .introText {
-    position: absolute;
-    top: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    right: 50%;
-    text-align: center;
-    width: 75%;
-  }
-
   .button {
     position: absolute;
     bottom: 4rem;
     left: 50%;
     transform: translateX(-50%);
-    background: #fff;
+    border-radius: 128px;
+    background: #ffe500;
     height: 40px;
     width: auto;
     padding: 12px 24px;
@@ -44,24 +42,5 @@ import { Picture } from "astro:assets";
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .rainbowText {
-    background: var(
-      --Gradients-Rainbow,
-      linear-gradient(
-        90deg,
-        #f1000f 0%,
-        #fd8d32 18.97%,
-        #f6ca5b 34.47%,
-        #75c050 51.14%,
-        #4498eb 65.72%,
-        #3b47d7 82.39%,
-        #921cbe 100%
-      )
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 </style>

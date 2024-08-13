@@ -45,6 +45,13 @@ export function handleWonClick(timerInterval: number | null, pointsRoundName: st
   const allCorrectRound2 = localStorage.getItem(`${category}-AllCorrect-round-two`) === "true";
   const allCorrectRound3 = localStorage.getItem(`${category}-AllCorrect-round-three`) === "true";
 
+  // Check if the user has earned 0 points in the round
+  const hasZeroPoints = pointsRound === 0;
+
+  // If the user has earned 0 points, add 50 points to the total points
+  // Otherwise, keep the points as is
+  const points = hasZeroPoints ? pointsRound + 50 : pointsRound;
+
   // Determine whether all rounds and trivia were won
   const allRoundAndTriviaWon =
     triviaRound1Won && triviaRound2Won && triviaRound3Won && allCorrectRound1 && allCorrectRound2 && allCorrectRound3;
@@ -60,7 +67,7 @@ export function handleWonClick(timerInterval: number | null, pointsRoundName: st
 
   // Display the points earned in the chosen overlay element
   const pointsDiv = overlayWonElement.querySelector(".point") as HTMLElement;
-  pointsDiv.textContent = `+ ${pointsRound} Pt`;
+  pointsDiv.textContent = `+ ${points} Pt`;
 
   // Set the value of another key in localStorage to indicate whether all rounds and trivia were won
   localStorage.setItem("WonPopRockBrain", String(allRoundAndTriviaWon ? "true" : "false"));
