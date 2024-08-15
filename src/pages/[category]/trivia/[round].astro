@@ -19,6 +19,12 @@ const currentCategory = categories.find((cat) => cat.slug === category);
 const currentRound = currentCategory?.rounds.find((rnd) => rnd.slug === round);
 
 const randomizedTriviaData = shuffleArray(currentRound?.coverData ?? []);
+
+const wonItem = randomizedTriviaData[0]; // select the first item as the won item
+const lostItems = randomizedTriviaData.slice(1); // get the remaining items as lost items
+
+// create a new array with the won item and lost items
+const triviaDataWithTypes = [{ ...wonItem, type: "won" }, ...lostItems.map((item) => ({ ...item, type: "lost" }))];
 ---
 
 <Layout title=`${currentCategory?.name} - ${currentRound?.headline} - Trivia Frage` showUserLink={false}>
@@ -26,7 +32,7 @@ const randomizedTriviaData = shuffleArray(currentRound?.coverData ?? []);
     <ShowCoins />
   </div>
 
-  <TriviaStartOverlay question={currentRound?.triviaQuestion} />
+  <TriviaStartOverlay question={wonItem?.triviaQuestion} />
 
   <TimeupsOverlay url=`/${category}/trivia-solution/${round}` />
 
@@ -38,14 +44,21 @@ const randomizedTriviaData = shuffleArray(currentRound?.coverData ?? []);
 
   <IntroText
     headline=`${currentRound?.headline} - Trivia Frage`
-    subline={currentRound?.triviaQuestion}
+    subline={wonItem?.triviaQuestion}
     whiteText=""
     isSmallHeadline={true}
     isWhiteSubline={true}
   />
 
-  <div class="trivia" data-category={category} data-round={round?.replace("#", "")}>
-    <For of={randomizedTriviaData}>
+  <div
+    class="trivia"
+    data-category={category}
+    data-round={round?.replace("#", "")}
+    data-triviaAnswer={wonItem?.triviaAnswer}
+    data-triviaAlbum={`${wonItem?.band} - ${wonItem?.album}`}
+    data-triviaImage={wonItem?.coverSrc}
+  >
+    <For of={triviaDataWithTypes}>
       {
         (item: any) => (
           <div class={item.type}>
@@ -94,6 +107,20 @@ const randomizedTriviaData = shuffleArray(currentRound?.coverData ?? []);
   let timeRemaining = 20;
   let timerInterval: number | null = null;
 
+  // Get the attributes
+  const triviaAnswer = triviaElement.getAttribute("data-triviaAnswer");
+  const triviaAlbum = triviaElement.getAttribute("data-triviaAlbum");
+  const triviaImage = triviaElement.getAttribute("data-triviaImage");
+
+  // Create a JSON object
+  const triviaData = {
+    triviaAnswer,
+    triviaAlbum,
+    triviaImage,
+  };
+
+  // Store the JSON object in local storage
+  localStorage.setItem(`${categoryValue}-triviaData-${roundValue}`, JSON.stringify(triviaData));
   /**
    * Add an event listener to the window load event
    * This function is called when the page has finished loading

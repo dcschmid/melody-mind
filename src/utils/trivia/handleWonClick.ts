@@ -10,7 +10,7 @@ import { calculateTheCurrentPoints } from "../calculateTheCurrentPoints";
  * @param {string} triviaRoundWonName - The name of the key in localStorage that stores whether Round was won.
  * @param {string} category - The category of the trivia round.
  */
-export function handleWonClick(timerInterval: number | null, pointsRoundName: string, allCorrectRoundName: string, triviaRoundWonName: string, category: string) {
+export function handleWonClick(timerInterval: number | null, pointsRoundName: string, allCorrectRoundName: string, triviaRoundWonName: string,  category: string) {
   // Create a new instance of JSConfetti
   const jsConfetti = new JSConfetti();
 
