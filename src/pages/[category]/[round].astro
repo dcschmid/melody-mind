@@ -16,6 +16,9 @@ const currentCategory = categories.find((cat) => cat.slug === category);
 const currentRound = currentCategory?.rounds.find((rnd) => rnd.slug === round);
 
 const randomizedCoverflowData = shuffleArray(currentRound?.coverData ?? []);
+const jokerText = randomizedCoverflowData?.[0].jokerText;
+const jokerData = randomizedCoverflowData?.[0].data;
+const jokerCoverUrl = randomizedCoverflowData?.[0].coverSrc;
 ---
 
 <Layout title=`${currentCategory?.name} - ${currentRound?.headline}` ` showUserLink={false}>
@@ -43,11 +46,7 @@ const randomizedCoverflowData = shuffleArray(currentRound?.coverData ?? []);
   />
 
   <div class="timerSection">
-    <Joker
-      jokerCoverUrl={currentRound?.jokerCoverUrl}
-      jokerText={currentRound?.jokerText}
-      jokerData={currentRound?.jokerData}
-    />
+    <Joker jokerCoverUrl={jokerCoverUrl} jokerText={jokerText} jokerData={jokerData} />
 
     <Timer minutes="01" seconds="30" />
   </div>
