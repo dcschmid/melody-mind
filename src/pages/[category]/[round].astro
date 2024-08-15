@@ -9,6 +9,7 @@ import { shuffleArray } from "../../utils/share/shuffleArray";
 import categories from "../../json/categories.json";
 import Joker from "../../components/Round/Joker.astro";
 import ShowCoins from "../../components/Shared/ShowCoins.astro";
+import { fetchRoundUIData } from "../../utils/share/fetchRoundUIData";
 
 const { category, round } = Astro.params;
 
@@ -19,27 +20,25 @@ const randomizedCoverflowData = shuffleArray(currentRound?.coverData ?? []);
 const jokerText = randomizedCoverflowData?.[0].jokerText;
 const jokerData = randomizedCoverflowData?.[0].data;
 const jokerCoverUrl = randomizedCoverflowData?.[0].coverSrc;
+
+const uiData = await fetchRoundUIData(round as string);
 ---
 
-<Layout title=`${currentCategory?.name} - ${currentRound?.headline}` ` showUserLink={false}>
+<Layout title=`${currentCategory?.name} - ${uiData?.headline}` ` showUserLink={false}>
   <div slot="left-headercol">
     <ShowCoins />
   </div>
 
-  <StartOverlay headline={currentRound?.headline} whiteText={currentRound?.startOverlayText} />
+  <StartOverlay headline={uiData?.headline} whiteText={uiData?.startOverlayText} />
 
   <TimeupsOverlay />
 
-  <IntroText
-    headline={currentRound?.headline}
-    subline={currentRound?.introSubline}
-    whiteText={currentRound?.sortToText}
-  />
+  <IntroText headline={uiData?.headline} subline={uiData?.introSubline} whiteText={uiData?.sortToText} />
 
   <CoverFlow
     randomizedCoverflowData={randomizedCoverflowData}
-    upText={currentRound?.upToLabel}
-    downText={currentRound?.downToLabel}
+    upText={uiData?.upToLabel}
+    downText={uiData?.downToLabel}
     dataCategory={category}
     dataSolution={currentRound?.solutionsArray}
     dataRound={round}

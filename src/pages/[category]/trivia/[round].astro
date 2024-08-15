@@ -12,6 +12,7 @@ import categories from "../../../json/categories.json";
 import Layout from "../../../layouts/Layout.astro";
 import { shuffleArray } from "../../../utils/share/shuffleArray";
 import ShowCoins from "../../../components/Shared/ShowCoins.astro";
+import { fetchRoundUIData } from "../../../utils/share/fetchRoundUIData";
 
 const { category, round } = Astro.params;
 
@@ -25,9 +26,11 @@ const lostItems = randomizedTriviaData.slice(1); // get the remaining items as l
 
 // create a new array with the won item and lost items
 const triviaDataWithTypes = [{ ...wonItem, type: "won" }, ...lostItems.map((item) => ({ ...item, type: "lost" }))];
+
+const uiData = await fetchRoundUIData(round as string);
 ---
 
-<Layout title=`${currentCategory?.name} - ${currentRound?.headline} - Trivia Frage` showUserLink={false}>
+<Layout title=`${currentCategory?.name} - ${uiData?.headline} - Trivia Frage` showUserLink={false}>
   <div slot="left-headercol">
     <ShowCoins />
   </div>
@@ -43,7 +46,7 @@ const triviaDataWithTypes = [{ ...wonItem, type: "won" }, ...lostItems.map((item
   <TriviaWonLPOverlay url=`/${category}/trivia-solution/${round}` />
 
   <IntroText
-    headline=`${currentRound?.headline} - Trivia Frage`
+    headline=`${uiData?.headline} - Trivia Frage`
     subline={wonItem?.triviaQuestion}
     whiteText=""
     isSmallHeadline={true}

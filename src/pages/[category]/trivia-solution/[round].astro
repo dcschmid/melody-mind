@@ -6,6 +6,7 @@ import Button from "../../../components/Shared/Button.astro";
 import TriviaFinishOverlay from "../../../components/Trivia/TriviaFinishOverlay.astro";
 import categories from "../../../json/categories.json";
 import ShowCoins from "../../../components/Shared/ShowCoins.astro";
+import { fetchRoundUIData } from "../../../utils/share/fetchRoundUIData";
 
 const { category, round } = Astro.params;
 
@@ -21,9 +22,11 @@ const centerButtonUrl =
       : `#`;
 
 const centerButtonID = round === "round-three" ? "openOverlay" : "";
+
+const uiData = await fetchRoundUIData(round as string);
 ---
 
-<Layout title=`${currentCategory?.name} - ${currentRound?.headline} - Trivia Lösung` showUserLink={false}>
+<Layout title=`${currentCategory?.name} - ${uiData?.headline} - Trivia Lösung` showUserLink={false}>
   <div slot="left-headercol">
     <ShowCoins />
   </div>

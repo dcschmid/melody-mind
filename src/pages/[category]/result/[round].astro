@@ -4,22 +4,23 @@ import IntroText from "../../../components/Shared/IntroText.astro";
 import Points from "../../../components/Result/Points.astro";
 import categories from "../../../json/categories.json";
 import ShowCoins from "../../../components/Shared/ShowCoins.astro";
+import { fetchRoundUIData } from "../../../utils/share/fetchRoundUIData";
 
 const { category, round } = Astro.params;
 
 const currentCategory = categories.find((cat) => cat.slug === category);
-const currentRound = currentCategory?.rounds.find((rnd) => rnd.slug === round);
+const uiData = await fetchRoundUIData(round as string);
 ---
 
-<Layout title=`${currentCategory?.name} - ${currentRound?.headline} - Ergebnisse`>
+<Layout title=`${currentCategory?.name} - ${uiData?.headline} - Ergebnisse`>
   <div slot="left-headercol">
     <ShowCoins />
   </div>
 
   <IntroText
-    headline=`${currentRound?.headline} - Ergebnisse`
-    subline={currentRound?.introSubline}
-    whiteText={currentRound?.sortToText}
+    headline=`${uiData?.headline} - Ergebnisse`
+    subline={uiData?.introSubline}
+    whiteText={uiData?.sortToText}
     isSmallHeadline={true}
     isWhiteSubline={true}
   />
