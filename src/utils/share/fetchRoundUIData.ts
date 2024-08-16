@@ -1,32 +1,4 @@
-/**
- * Data type for the UI data of a round.
- */
-interface RoundData {
-  /**
-   * The headline of the round.
-   */
-  headline: string;
-  /**
-   * The text to display in the start overlay.
-   */
-  startOverlayText: string;
-  /**
-   * The subline of the intro text.
-   */
-  introSubline: string;
-  /**
-   * The text to display as the sort-to text.
-   */
-  sortToText: string;
-  /**
-   * The label for the "up to" button.
-   */
-  upToLabel: string;
-  /**
-   * The label for the "down to" button.
-   */
-  downToLabel: string;
-}
+import type { RoundData } from "../interfaces/roundDataInterface";
 
 /**
  * Object containing the UI data for all rounds.
@@ -39,6 +11,8 @@ const roundData: Record<string, RoundData> = {
     sortToText: "Erscheinungsjahr!",
     upToLabel: "Älteste",
     downToLabel: "Neuste",
+    sortData: "dataYear",
+    sortOrder: "desc",
   },
   "round-two": {
     headline: "Runde 2 / 3",
@@ -47,6 +21,8 @@ const roundData: Record<string, RoundData> = {
     sortToText: "Verkaufszahlen!",
     upToLabel: "Wenigste",
     downToLabel: "Meiste",
+    sortData: "dataSales",
+    sortOrder: "desc",
   },
   "round-three": {
     headline: "Runde 3 / 3",
@@ -55,6 +31,8 @@ const roundData: Record<string, RoundData> = {
     sortToText: "Gesamtlänge!",
     upToLabel: "Kürzeste",
     downToLabel: "Längste",
+    sortData: "dataLength",
+    sortOrder: "desc",
   },
 };
 

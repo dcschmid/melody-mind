@@ -10,8 +10,9 @@ import { fetchRoundUIData } from "../../../utils/share/fetchRoundUIData";
 
 const { category, round } = Astro.params;
 
+const uiData = await fetchRoundUIData(round as string);
+
 const currentCategory = categories.find((cat) => cat.slug === category);
-const currentRound = currentCategory?.rounds.find((rnd) => rnd.slug === round);
 
 const centerButtonText = round === "round-one" || round === "round-two" ? "nächste Runde" : "Spiel beenden";
 const centerButtonUrl =
@@ -22,11 +23,9 @@ const centerButtonUrl =
       : `#`;
 
 const centerButtonID = round === "round-three" ? "openOverlay" : "";
-
-const uiData = await fetchRoundUIData(round as string);
 ---
 
-<Layout title=`${currentCategory?.name} - ${uiData?.headline} - Trivia Lösung` showUserLink={false}>
+<Layout title=`${currentCategory?.headline} - ${uiData?.headline} - Trivia Lösung` showUserLink={false}>
   <div slot="left-headercol">
     <ShowCoins />
   </div>

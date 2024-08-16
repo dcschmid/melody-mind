@@ -1,30 +1,52 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import StartOverlay from "../../components/Overlays/StartOverlay.astro";
-import TimeupsOverlay from "../../components/Overlays/TimeupsOverlay.astro";
-import IntroText from "../../components/Shared/IntroText.astro";
-import Timer from "../../components/Round/Timer.astro";
-import CoverFlow from "../../components/Round/CoverFlow.astro";
-import { shuffleArray } from "../../utils/share/shuffleArray";
-import categories from "../../json/categories.json";
-import Joker from "../../components/Round/Joker.astro";
-import ShowCoins from "../../components/Shared/ShowCoins.astro";
-import { fetchRoundUIData } from "../../utils/share/fetchRoundUIData";
+// Import necessary components and utilities
+import Layout from "../../layouts/Layout.astro"; // Layout component
+import StartOverlay from "../../components/Overlays/StartOverlay.astro"; // Start Overlay component
+import TimeupsOverlay from "../../components/Overlays/TimeupsOverlay.astro"; // Timeups Overlay component
+import IntroText from "../../components/Shared/IntroText.astro"; // IntroText component
+import Timer from "../../components/Round/Timer.astro"; // Timer component
+import CoverFlow from "../../components/Round/CoverFlow.astro"; // CoverFlow component
+import categories from "../../json/categories.json"; // JSON file containing categories data
+import Joker from "../../components/Round/Joker.astro"; // Joker component
+import ShowCoins from "../../components/Shared/ShowCoins.astro"; // ShowCoins component
+import { fetchRoundUIData } from "../../utils/share/fetchRoundUIData"; // Function to fetch round UI data
+import { getAlbumsSortedBySpecificFieldAndCatgory } from "../../utils/round/sortAlbums";
 
+/**
+ * Destructure `category` and `round` from `Astro.params`
+ */
 const { category, round } = Astro.params;
 
-const currentCategory = categories.find((cat) => cat.slug === category);
-const currentRound = currentCategory?.rounds.find((rnd) => rnd.slug === round);
-
-const randomizedCoverflowData = shuffleArray(currentRound?.coverData ?? []);
-const jokerText = randomizedCoverflowData?.[0].jokerText;
-const jokerData = randomizedCoverflowData?.[0].data;
-const jokerCoverUrl = randomizedCoverflowData?.[0].coverSrc;
-
+/**
+ * Fetch round UI data using the `fetchRoundUIData` function
+ */
 const uiData = await fetchRoundUIData(round as string);
+
+/**
+ * Find the current category based on the `category` parameter
+ */
+const currentCategoryData = categories.find((cat) => cat.slug === category);
+
+/**
+ * Shuffle the `albums` array and get the first four albums
+ */
+const solutionData = getAlbumsSortedBySpecificFieldAndCatgory(uiData?.sortData, uiData?.sortOrder, category as string);
+/**
+ * Get the joker text, data, and cover URL from the first album
+ */
+const jokerText = solutionData.randomAlbums?.[0].jokerText;
+const jokerData =
+  round === "round-one"
+    ? solutionData.randomAlbums?.[0].dataYear
+    : round === "round-two"
+      ? solutionData.randomAlbums?.[0].dataSales
+      : round === "round-three"
+        ? solutionData.randomAlbums?.[0].dataLength
+        : null;
+const jokerCoverUrl = solutionData.randomAlbums?.[0].coverSrc;
 ---
 
-<Layout title=`${currentCategory?.name} - ${uiData?.headline}` ` showUserLink={false}>
+<Layout title=`${currentCategoryData?.headline} - ${uiData?.headline}` ` showUserLink={false}>
   <div slot="left-headercol">
     <ShowCoins />
   </div>
@@ -36,11 +58,11 @@ const uiData = await fetchRoundUIData(round as string);
   <IntroText headline={uiData?.headline} subline={uiData?.introSubline} whiteText={uiData?.sortToText} />
 
   <CoverFlow
-    randomizedCoverflowData={randomizedCoverflowData}
+    randomizedCoverflowData={solutionData.randomAlbums}
     upText={uiData?.upToLabel}
     downText={uiData?.downToLabel}
     dataCategory={category}
-    dataSolution={currentRound?.solutionsArray}
+    dataSolution={solutionData.solutionArray}
     dataRound={round}
   />
 

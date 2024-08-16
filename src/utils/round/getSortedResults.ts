@@ -5,9 +5,9 @@
 interface CoverResult {
   band: string; // The band name
   album: string; // The album name
-  date: string; // The release date
+  data: string; // The release date
   coverSrc: string; // The cover image source
-  isWrong: boolean; // Indicates if the result is incorrect
+  isWrong: boolean;
 }
 
 /**
@@ -20,7 +20,7 @@ interface CoverResult {
  * @param ResultsRoundName - The name of the localStorage key that stores the results.
  */
 export const getSortedResults = (
-  solutionArray: { band: string }[],
+  solutionArray:[],
   allCorrectRoundName: string,
   PointsRoundName: string,
   ResultsRoundName: string
@@ -32,9 +32,9 @@ export const getSortedResults = (
   const results: CoverResult[] = sortedCovers.map((cover) => ({
     band: cover.getAttribute("data-band")!, // Get the band name
     album: cover.getAttribute("data-album")!, // Get the album name
-    date: cover.getAttribute("data-data")!, // Get the release date
+    data: cover.getAttribute("data-data")!, // Get the release date
     coverSrc: cover.getAttribute("data-cover-source")!, // Get the cover image source
-    isWrong: false, // Initialize the 'isWrong' property to false
+    isWrong: false,
   }));
 
   let points = 0;
@@ -43,11 +43,12 @@ export const getSortedResults = (
   // Compare the results with the final solutions array
   results.forEach((result, index) => {
     // Check if the band name matches the band name in the final solutions array
-    if (result.band === solutionArray[index]?.band) {
+    if (result.band === solutionArray[index]) {
       points += 25; // Add 25 points for each correct match
+      result.isWrong = false;
     } else {
-      result.isWrong = true; // Mark as true if not a match
       allCorrect = false; // Set allCorrect to false if there's any incorrect match
+      result.isWrong = true;
     }
   });
 

@@ -29,7 +29,9 @@ const {
             class="cover"
             data-band={item.band}
             data-album={item.album}
-            data-data={item.data}
+            data-data={
+              dataRound === "round-one" ? item.dataYear : dataRound === "round-two" ? item.dataSales : item.dataLength
+            }
             data-cover-source={item.coverSrc}
           >
             <Picture src={item.coverSrc} width={266} height={266} formats={["avif", "webp"]} alt="" />

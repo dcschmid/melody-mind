@@ -20,7 +20,7 @@ export function createResultItem(result: any, index: any) {
       <img class="resultCover" src="${result.coverSrc}" alt="${result.band} - ${result.album}" width="126" height="126" />
       <div class="resultBand">${result.band}</div>
       <div class="resultAlbum">${result.album}</div>
-      <div class="resultData">${result.date}</div>
+      <div class="resultData">${result.data}</div>
     </div>
   `;
 

@@ -10,27 +10,26 @@ import TriviaWonLPOverlay from "../../../components/Trivia/TriviaWonLPOverlay.as
 import TriviaWonOverlay from "../../../components/Trivia/TriviaWonOverlay.astro";
 import categories from "../../../json/categories.json";
 import Layout from "../../../layouts/Layout.astro";
-import { shuffleArray } from "../../../utils/share/shuffleArray";
 import ShowCoins from "../../../components/Shared/ShowCoins.astro";
 import { fetchRoundUIData } from "../../../utils/share/fetchRoundUIData";
+import { getAlbumsSortedBySpecificFieldAndCatgory } from "../../../utils/round/sortAlbums";
+import { shuffleArray } from "../../../utils/share/shuffleArray";
 
 const { category, round } = Astro.params;
 
+const uiData = await fetchRoundUIData(round as string);
+
 const currentCategory = categories.find((cat) => cat.slug === category);
-const currentRound = currentCategory?.rounds.find((rnd) => rnd.slug === round);
+const solutionData = getAlbumsSortedBySpecificFieldAndCatgory(uiData?.sortData, uiData?.sortOrder, category as string);
 
-const randomizedTriviaData = shuffleArray(currentRound?.coverData ?? []);
-
-const wonItem = randomizedTriviaData[0]; // select the first item as the won item
-const lostItems = randomizedTriviaData.slice(1); // get the remaining items as lost items
+const wonItem = solutionData.randomAlbums[0]; // select the first item as the won item
+const lostItems = solutionData.randomAlbums.slice(1); // get the remaining items as lost items
 
 // create a new array with the won item and lost items
 const triviaDataWithTypes = [{ ...wonItem, type: "won" }, ...lostItems.map((item) => ({ ...item, type: "lost" }))];
-
-const uiData = await fetchRoundUIData(round as string);
 ---
 
-<Layout title=`${currentCategory?.name} - ${uiData?.headline} - Trivia Frage` showUserLink={false}>
+<Layout title=`${currentCategory?.headline} - ${uiData?.headline} - Trivia Frage` showUserLink={false}>
   <div slot="left-headercol">
     <ShowCoins />
   </div>
@@ -61,7 +60,7 @@ const uiData = await fetchRoundUIData(round as string);
     data-triviaAlbum={`${wonItem?.band} - ${wonItem?.album}`}
     data-triviaImage={wonItem?.coverSrc}
   >
-    <For of={triviaDataWithTypes}>
+    <For of={shuffleArray(triviaDataWithTypes)}>
       {
         (item: any) => (
           <div class={item.type}>

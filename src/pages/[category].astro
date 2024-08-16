@@ -14,24 +14,18 @@ if (!currentCategory) {
 }
 ---
 
-<Layout title="Kategorie Start">
+<Layout title={`${currentCategory?.headline} Start`}>
   <div slot="left-headercol"></div>
 
-  <IntroText headline={`${currentCategory?.name} gewählt!`} subline={currentCategory?.introSubline} />
+  <IntroText headline={`${currentCategory?.headline} gewählt!`} subline={currentCategory?.introSubline} />
 
   <div class="category" data-category={currentCategory?.slug}>
     <div class="cover">
-      <Picture
-        src={currentCategory?.categoryImage as string}
-        width={240}
-        height={240}
-        formats={["avif", "webp"]}
-        alt=""
-      />
+      <Picture src={currentCategory?.imageUrl as string} width={240} height={240} formats={["avif", "webp"]} alt="" />
     </div>
-    <div class="categoryHeadline">{currentCategory?.categoryHeadline}</div>
+    <div class="categoryHeadline">{currentCategory?.headline}</div>
     <div class="text">
-      {currentCategory?.categoryText}
+      {currentCategory?.text}
     </div>
   </div>
 

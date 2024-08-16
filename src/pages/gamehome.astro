@@ -5,7 +5,7 @@ import { When } from "@astropub/flow";
 import PlaylistItem from "../components/PlaylistItem.astro";
 import Layout from "../layouts/Layout.astro";
 import Help from "../components/HeaderItems/Help.astro";
-import categoriesList from "../json/categoriesSelection.json";
+import categoriesList from "../json/categories.json";
 import { shuffleArray } from "../utils/share/shuffleArray";
 
 /**
@@ -17,10 +17,8 @@ const getSelectedPlayableItem = () => {
   // Filter playable items
   const playableItems = categoriesList.filter((item) => item.isPlayable);
 
-  // Randomly select 1 playable item
-  const selectedPlayableItems = playableItems.sort(() => Math.random() - Math.random()).slice(0, 1);
 
-  return selectedPlayableItems;
+  return playableItems;
 };
 
 /**
@@ -31,9 +29,6 @@ const getSelectedPlayableItem = () => {
 const getNonPlayableItems = () => {
   // Filter non-playable items
   const nonPlayableItems = shuffleArray(categoriesList.filter((item) => !item.isPlayable));
-
-  // Limit the array to a maximum of 5 items
-  nonPlayableItems.length = Math.min(nonPlayableItems.length, 5);
 
   return nonPlayableItems;
 };
@@ -57,12 +52,12 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
       categories.map((item) => (
         <When test={item.isPlayable}>
           <a href={item.categoryUrl}>
-            <PlaylistItem headline={item.headline} years={item.years} image={item.imageUrl} />
+            <PlaylistItem headline={item.headline}  image={item.imageUrl} />
           </a>
         </When>
 
         <When test={!item.isPlayable}>
-          <PlaylistItem headline={item.headline} years={item.years} image={item.imageUrl} />
+          <PlaylistItem headline={item.headline} image={item.imageUrl} />
         </When>
       ))
     }
@@ -115,7 +110,7 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     display: flex;
     padding: var(--spacing-spacing-s) var(--spacing-spacing-s) var(--spacing-spacing-md) var(--spacing-spacing-s);
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
     gap: var(--spacing-3);

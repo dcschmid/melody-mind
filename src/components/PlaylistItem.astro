@@ -1,11 +1,10 @@
 ---
 interface Props {
   headline: string;
-  years: string;
   image?: any;
 }
 
-const { headline = "", years = "", image } = Astro.props;
+const { headline = "", image } = Astro.props;
 
 import { Picture } from "astro:assets";
 ---
@@ -13,7 +12,6 @@ import { Picture } from "astro:assets";
 <div class="playlistItem">
   <Picture class="cover" src={image} width={106} height={106} formats={["avif", "webp"]} alt="" />
   <div class="headline">{headline}</div>
-  <div class="years">{years}</div>
 </div>
 
 <style>
@@ -33,15 +31,5 @@ import { Picture } from "astro:assets";
     font-style: normal;
     font-weight: 700;
     line-height: 120%;
-  }
-
-  .years {
-    color: var(--colour-text-secondary);
-    leading-trim: both;
-    text-edge: cap;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
   }
 </style>
