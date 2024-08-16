@@ -10,7 +10,7 @@ import { getSortedResults } from "./getSortedResults";
  * @param PointsRoundName - The name of the localStorage key that stores the points earned in the current round.
  * @param ResultsRoundName - The name of the localStorage key that stores the results of the current round.
  */
-export function handleEndRoundClick(solutionArray: { band: string }[], redirectURL: string, allCorrectRoundName: string, PointsRoundName: string, ResultsRoundName: string) {
+export function handleEndRoundClick(solutionArray: [], redirectURL: string, allCorrectRoundName: string, PointsRoundName: string, ResultsRoundName: string) {
   // Get the end round button and finish round button elements
   const endRoundButton = document.getElementById("endRound") as HTMLButtonElement;
   const finishRoundButton = document.getElementById("finishRoundButton") as HTMLButtonElement;
