@@ -1,0 +1,172 @@
+---
+import { Icon } from "astro-icon/components";
+
+import Layout from "../../../layouts/Layout.astro";
+import Button from "../../../components/Shared/Button.astro";
+import TriviaFinishOverlay from "../../../components/Trivia/TriviaFinishOverlay.astro";
+import categories from "../../../json/categories.json";
+import ShowCoins from "../../../components/Shared/ShowCoins.astro";
+
+const { category, round } = Astro.params;
+
+const currentCategory = categories.find((cat) => cat.slug === category);
+const currentRound = currentCategory?.rounds.find((rnd) => rnd.slug === round);
+
+const centerButtonText = round === "round-one" || round === "round-two" ? "nächste Runde" : "Spiel beenden";
+const centerButtonUrl =
+  round === "round-one"
+    ? `/${currentCategory?.slug}/round-two`
+    : round === "round-two"
+      ? `/${currentCategory?.slug}/round-three`
+      : `#`;
+
+const centerButtonID = round === "round-three" ? "openOverlay" : "";
+---
+
+<Layout title=`${currentCategory?.name} - ${currentRound?.headline} - Trivia Lösung` showUserLink={false}>
+  <div slot="left-headercol">
+    <ShowCoins />
+  </div>
+
+  <TriviaFinishOverlay url={currentCategory?.videoPage ? currentCategory?.videoPage : "/gamehome"} />
+
+  <div class="solution" data-category={category} data-round={round?.replace("#", "")}>
+    <div class="cover">
+      <img class="picture" src="" width={240} height={240} alt="" />
+      <Icon class="shareIcon" name="share" width={48} height={48} />
+    </div>
+    <div class="solutionHeadline"></div>
+    <div class="answer"></div>
+  </div>
+
+  <div class="centerButton">
+    <Button id={centerButtonID} buttonText={centerButtonText} url={centerButtonUrl} />
+  </div>
+</Layout>
+
+<style>
+  .solution {
+    display: flex;
+    padding: var(--spacing-spacing-s) var(--spacing-spacing-s) var(--spacing-spacing-md) var(--spacing-spacing-s);
+    flex-direction: column;
+    gap: var(--spacing-spacing-md);
+    border-radius: var(--radius-radius-rounded);
+    background: var(--colour-BG-secondary);
+  }
+
+  .cover {
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .shareIcon {
+    position: absolute;
+    bottom: -15px;
+    right: -25px;
+    color: var(--colour-text-primary);
+  }
+
+  .solutionHeadline {
+    color: var(--colour-text-primary);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
+  .answer {
+    color: var(--colour-text-primary);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .centerButton {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-spacing-xl);
+  }
+</style>
+<script>
+  /**
+   * Import the necessary modules for the script.
+   */
+  import JSConfetti from "js-confetti";
+  import { clearLocalStorageAfterLastRound } from "../../../utils/clearLocalStorageAfterLastRound";
+
+  // Create a new instance of the JSConfetti class.
+  const jsConfetti = new JSConfetti();
+
+  // Get the necessary DOM elements.
+  const overlayFinish = document.getElementById("overlayFinish") as HTMLElement; // Get the overlay finish element.
+  const openOverlay = document.getElementById("openOverlay") as HTMLElement; // Get the open overlay element.
+
+  // Get the current and user points from local storage.
+  const currentPoints = parseInt(localStorage.getItem("currentPoints") || "0", 10);
+  const userPoints = parseInt(localStorage.getItem("userPoints") || "0", 10);
+
+  // Calculate the final score.
+  const calcfinalScore = currentPoints * 2;
+
+  // Update the user points in local storage.
+  localStorage.setItem("userPoints", String(userPoints + calcfinalScore));
+
+  // Get the necessary DOM element.
+  const triviaElement = document.querySelector(".solution") as HTMLElement;
+
+  // Get the category and round values from the data attributes.
+  const categoryValue = triviaElement.getAttribute("data-category");
+  const roundValue = triviaElement.getAttribute("data-round");
+
+  // Get the trivia data from local storage.
+  const triviaData = JSON.parse(localStorage.getItem(`${categoryValue}-triviaData-${roundValue}`) ?? "[]");
+
+  // Update the headline and answer elements with the trivia data.
+  const headlineElement = document.querySelector(".solutionHeadline") as HTMLElement;
+  headlineElement.textContent = triviaData.triviaAlbum;
+
+  const answerElement = document.querySelector(".answer") as HTMLElement;
+  answerElement.textContent = triviaData.triviaAnswer;
+
+  // Update the picture element with the trivia image.
+  const pictureElement = document.querySelector(".picture") as HTMLImageElement;
+  pictureElement.src = triviaData.triviaImage;
+
+  /**
+   * Event listener for the window load event.
+   * This function is called when the page has finished loading.
+   * It updates the points and user points elements in the overlay finish element.
+   * It adds a click event listener to the open overlay element.
+   * When the open overlay element is clicked, it shows the overlay finish element,
+   * adds confetti, and clears the local storage after the last round if the round value is "round-three".
+   *
+   * @param {Event} _event - The event object.
+   * @return {void}
+   */
+  window.addEventListener("load", function (_event: Event): void {
+    // Find the element inside overlayFinish to display the currentPoints.
+    const pointsElement = overlayFinish.querySelector(".points");
+    if (pointsElement) {
+      pointsElement.textContent = `+ ${currentPoints} Pt`;
+    }
+
+    // Find the element inside overlayFinish to display the user points.
+    const userPointsElement = overlayFinish.querySelector(".totalPoints");
+    if (userPointsElement) {
+      userPointsElement.textContent = `${calcfinalScore} Pt`;
+    }
+
+    // Add a click event listener to the open overlay element.
+    openOverlay.addEventListener("click", function (_event: Event): void {
+      // Show the overlay finish element.
+      overlayFinish.style.visibility = "visible";
+
+      // Add confetti.
+      jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
+
+      // Clear the local storage after the last round if the round value is "round-three".
+      if (roundValue === "round-three") clearLocalStorageAfterLastRound(categoryValue as string);
+    });
+  });
+</script>

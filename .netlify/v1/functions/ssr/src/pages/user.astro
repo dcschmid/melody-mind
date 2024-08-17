@@ -1,0 +1,69 @@
+---
+import Layout from "../layouts/Layout.astro";
+import GoldenLPsSection from "../components/User/GoldenLPsSection.astro";
+import FrameSection from "../components/User/FrameSection.astro";
+import HeaderSection from "../components/User/HeaderSection.astro";
+---
+
+<Layout title="User Profile" showHeader={false}>
+  <div class="content">
+    <HeaderSection />
+
+    <FrameSection />
+
+    <GoldenLPsSection />
+  </div>
+</Layout>
+
+<style lang="scss">
+  .content {
+    margin: 0 var(--spacing-spacing-s) var(--spacing-spacing-xl);
+  }
+</style>
+
+<script>
+  import { initLocalStorage } from "../utils/share/initLocalStorage";
+  import { changeFrame } from "../utils/user/changeFrame";
+  import { changeUserName } from "../utils/user/changeUserName";
+  import { checkLocalStorageOnLoad } from "../utils/user/checkLocalStorageOnLoad";
+  import { selectFrameItem } from "../utils/user/selectFrameItem";
+  import { updateDisplay } from "../utils/user/updateDisplay";
+
+  /**
+   * Initializes the user's local storage on page load.
+   * Sets the userFrameSelected value to "rocket" if it doesn't exist.
+   * Calls the checkLocalStorageOnLoad function to update the user's local storage.
+   * Gets the WonPopRockBrain and WonBrainFrame values from local storage.
+   * Calls the updateDisplay function to update the display based on the values.
+   * Gets the userPoints value from local storage and sets it as the text content of the .pointsValue element.
+   * Calls the selectFrameItem function to select the frame item.
+   * Calls the changeFrame function to handle frame changes.
+   */
+  window.addEventListener("load", function () {
+    // Initialize the user's local storage and set the userFrameSelected value to "unknown" if it doesn't exist
+    initLocalStorage("userFrameSelected", "unknown");
+    initLocalStorage("userName", "Mika");
+
+    // Check the user's local storage and update the values
+    checkLocalStorageOnLoad();
+
+    // Get the WonPopRockBrain and WonBrainFrame values from local storage
+    const wonPopRockBrain = localStorage.getItem("WonPopRockBrain") === "true";
+    const wonBrainFrame = localStorage.getItem("WonBrainFrame") === "true";
+
+    // Call the updateDisplay function to update the display based on the values
+    updateDisplay(wonPopRockBrain, wonBrainFrame);
+
+    // Get the userPoints value from local storage and set it as the text content of the .pointsValue element
+    const userPoints = localStorage.getItem("userPoints") || "0";
+    document!.querySelector(".pointsValue")!.textContent = userPoints + " Pt";
+
+    // Call the selectFrameItem function to select the frame item
+    selectFrameItem();
+
+    // Call the changeFrame function to handle frame changes
+    changeFrame();
+
+    changeUserName();
+  });
+</script>

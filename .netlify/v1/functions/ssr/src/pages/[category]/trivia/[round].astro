@@ -1,0 +1,156 @@
+---
+import { For } from "@astropub/flow";
+import TimeupsOverlay from "../../../components/Overlays/TimeupsOverlay.astro";
+import Timer from "../../../components/Round/Timer.astro";
+import IntroText from "../../../components/Shared/IntroText.astro";
+import TriviaItem from "../../../components/Trivia/TriviaItem.astro";
+import TriviaLostOverlay from "../../../components/Trivia/TriviaLostOverlay.astro";
+import TriviaStartOverlay from "../../../components/Trivia/TriviaStartOverlay.astro";
+import TriviaWonLPOverlay from "../../../components/Trivia/TriviaWonLPOverlay.astro";
+import TriviaWonOverlay from "../../../components/Trivia/TriviaWonOverlay.astro";
+import categories from "../../../json/categories.json";
+import Layout from "../../../layouts/Layout.astro";
+import { shuffleArray } from "../../../utils/share/shuffleArray";
+import ShowCoins from "../../../components/Shared/ShowCoins.astro";
+
+const { category, round } = Astro.params;
+
+const currentCategory = categories.find((cat) => cat.slug === category);
+const currentRound = currentCategory?.rounds.find((rnd) => rnd.slug === round);
+
+const randomizedTriviaData = shuffleArray(currentRound?.coverData ?? []);
+
+const wonItem = randomizedTriviaData[0]; // select the first item as the won item
+const lostItems = randomizedTriviaData.slice(1); // get the remaining items as lost items
+
+// create a new array with the won item and lost items
+const triviaDataWithTypes = [{ ...wonItem, type: "won" }, ...lostItems.map((item) => ({ ...item, type: "lost" }))];
+---
+
+<Layout title=`${currentCategory?.name} - ${currentRound?.headline} - Trivia Frage` showUserLink={false}>
+  <div slot="left-headercol">
+    <ShowCoins />
+  </div>
+
+  <TriviaStartOverlay question={wonItem?.triviaQuestion} />
+
+  <TimeupsOverlay url=`/${category}/trivia-solution/${round}` />
+
+  <TriviaLostOverlay url=`/${category}/trivia-solution/${round}` />
+
+  <TriviaWonOverlay url=`/${category}/trivia-solution/${round}` />
+
+  <TriviaWonLPOverlay url=`/${category}/trivia-solution/${round}` />
+
+  <IntroText
+    headline=`${currentRound?.headline} - Trivia Frage`
+    subline={wonItem?.triviaQuestion}
+    whiteText=""
+    isSmallHeadline={true}
+    isWhiteSubline={true}
+  />
+
+  <div
+    class="trivia"
+    data-category={category}
+    data-round={round?.replace("#", "")}
+    data-triviaAnswer={wonItem?.triviaAnswer}
+    data-triviaAlbum={`${wonItem?.band} - ${wonItem?.album}`}
+    data-triviaImage={wonItem?.coverSrc}
+  >
+    <For of={triviaDataWithTypes}>
+      {
+        (item: any) => (
+          <div class={item.type}>
+            <TriviaItem band={item.band} album={item.album} image={item.coverSrc} />
+          </div>
+        )
+      }
+    </For>
+  </div>
+
+  <Timer minutes="00" seconds="20" showFinishButton={false} />
+</Layout>
+
+<style>
+  .trivia {
+    display: flex;
+    flex-wrap: wrap;
+    padding: var(--spacing-1) var(--spacing-spacing-xl) var(--spacing-15) var(--spacing-spacing-xl);
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-spacing-xl);
+  }
+</style>
+
+<script>
+  // Import functions from the utils directory
+  import { handleWonClick } from "../../../utils/trivia/handleWonClick";
+  import { initLostOverlay } from "../../../utils/trivia/initLostOverlay";
+  import { startTimer } from "../../../utils/trivia/startTimer";
+
+  // Get DOM elements
+  const overlayTimeUp = document.getElementById("timupsOverlay") as HTMLElement;
+  const overlayStart = document.getElementById("overlayStart") as HTMLElement;
+  const overlayLost = document.getElementById("overlayLost") as HTMLElement;
+  const overlayWon = document.getElementById("overlayWon") as HTMLElement;
+  const gameButton = document.getElementById("gameButton") as HTMLElement;
+
+  /**
+   * Get the results element from the DOM and store its data attributes.
+   */
+  const triviaElement = document.querySelector(".trivia") as HTMLElement;
+  const categoryValue = triviaElement.getAttribute("data-category"); // Get the category value from data attribute
+  const roundValue = triviaElement.getAttribute("data-round"); // Get the round value from data attribute
+
+  // Set the initial time remaining and timer interval
+  let timeRemaining = 20;
+  let timerInterval: number | null = null;
+
+  // Get the attributes
+  const triviaAnswer = triviaElement.getAttribute("data-triviaAnswer");
+  const triviaAlbum = triviaElement.getAttribute("data-triviaAlbum");
+  const triviaImage = triviaElement.getAttribute("data-triviaImage");
+
+  // Create a JSON object
+  const triviaData = {
+    triviaAnswer,
+    triviaAlbum,
+    triviaImage,
+  };
+
+  // Store the JSON object in local storage
+  localStorage.setItem(`${categoryValue}-triviaData-${roundValue}`, JSON.stringify(triviaData));
+  /**
+   * Add an event listener to the window load event
+   * This function is called when the page has finished loading
+   * It initializes the trivia game and sets the initial state of the overlays
+   */
+  window.addEventListener("load", function (_event: Event): void {
+    // Hide the timer overlay and show the start overlay
+    overlayTimeUp.style.visibility = "hidden";
+    overlayLost!.style.visibility = "hidden";
+    overlayWon!.style.visibility = "hidden";
+    overlayStart.style.visibility = "visible";
+
+    // Add a click event listener to the game button
+    gameButton.addEventListener("click", () => startTimer(timerInterval!, timeRemaining, overlayStart, overlayTimeUp));
+
+    // Add a click event listener to the "won" button
+    // When the "won" button is clicked, call the handleWonClick function with the timer interval and the current points
+    document
+      .querySelector(".trivia .won")!
+      .addEventListener("click", () =>
+        handleWonClick(
+          timerInterval,
+          `${categoryValue}-Points-${roundValue}`,
+          `${categoryValue}-AllCorrect-${roundValue}`,
+          `${categoryValue}-TriviaWon-${roundValue}`,
+          categoryValue ?? ""
+        )
+      );
+
+    // Initialize the lost overlay
+    initLostOverlay(timerInterval, `${categoryValue}-TriviaWon-${roundValue}`, categoryValue ?? "");
+  });
+</script>

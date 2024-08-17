@@ -1,0 +1,154 @@
+---
+import { Icon } from "astro-icon/components";
+import { When } from "@astropub/flow";
+
+import PlaylistItem from "../components/PlaylistItem.astro";
+import Layout from "../layouts/Layout.astro";
+import Help from "../components/HeaderItems/Help.astro";
+import categoriesList from "../json/categoriesSelection.json";
+import { shuffleArray } from "../utils/share/shuffleArray";
+
+/**
+ * This function filters the categoriesList array to only include items that are playable.
+ * It then randomly selects one of those items and returns it.
+ * @return {Array} An array containing one playable item.
+ */
+const getSelectedPlayableItem = () => {
+  // Filter playable items
+  const playableItems = categoriesList.filter((item) => item.isPlayable);
+
+  // Randomly select 1 playable item
+  const selectedPlayableItems = playableItems.sort(() => Math.random() - Math.random()).slice(0, 1);
+
+  return selectedPlayableItems;
+};
+
+/**
+ * This function filters the categoriesList array to only include items that are not playable.
+ * It then shuffles the array and limits it to a maximum of 5 items.
+ * @return {Array} An array containing non-playable items.
+ */
+const getNonPlayableItems = () => {
+  // Filter non-playable items
+  const nonPlayableItems = shuffleArray(categoriesList.filter((item) => !item.isPlayable));
+
+  // Limit the array to a maximum of 5 items
+  nonPlayableItems.length = Math.min(nonPlayableItems.length, 5);
+
+  return nonPlayableItems;
+};
+
+// Create an array by combining the selected playable item and the non-playable items
+// The selected playable item is randomly selected from the playable items
+// The non-playable items are randomly shuffled and limited to a maximum of 5 items
+const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
+
+---
+
+<Layout title="Spiel Kategorien">
+  <Help slot="left-headercol" />
+  <div class="introText">
+    <div class="headline">Willkommen <span class="name"></span>!</div>
+    <div class="subline">Wählen Sie eine <span class="whiteText">Playlist</span> zum spielen!</div>
+  </div>
+
+  <div class="choosePlaylist">
+    {
+      categories.map((item) => (
+        <When test={item.isPlayable}>
+          <a href={item.categoryUrl}>
+            <PlaylistItem headline={item.headline} years={item.years} image={item.imageUrl} />
+          </a>
+        </When>
+
+        <When test={!item.isPlayable}>
+          <PlaylistItem headline={item.headline} years={item.years} image={item.imageUrl} />
+        </When>
+      ))
+    }
+  </div>
+</Layout>
+
+<div class="hint">
+  <Icon class="icon" name="spotify" width={24} height={24} /> Spotify Account einbinden um Freunde zu challengen
+</div>
+
+<style>
+  .introText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-15);
+    margin-bottom: var(--spacing-spacing-md);
+  }
+
+  .headline {
+    color: var(--colour-text-primary);
+    leading-trim: both;
+    text-edge: cap;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 120%; /* 28.8px */
+    letter-spacing: 0.36px;
+  }
+
+  .name {
+    color: var(--colour-text-active);
+  }
+
+  .subline {
+    color: var(--colour-text-secondary, #aeaeae);
+    leading-trim: both;
+    text-edge: cap;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .whiteText {
+    color: var(--colour-text-primary);
+  }
+
+  .choosePlaylist {
+    display: flex;
+    padding: var(--spacing-spacing-s) var(--spacing-spacing-s) var(--spacing-spacing-md) var(--spacing-spacing-s);
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--spacing-3);
+    border-radius: var(--radius-radius-rounded);
+    background: var(--colour-BG-secondary);
+  }
+
+  .hint {
+    display: flex;
+    align-items: top;
+    margin-top: var(--spacing-spacing-md);
+    color: var(--colour-text-secondary);
+    border-top: 2px solid var(--colour-border-disabled);
+    border-bottom: 2px solid var(--colour-border-disabled);
+    padding: var(--spacing-spacing-xxs) 0;
+  }
+
+  .icon {
+    margin-right: var(--spacing-spacing-xxs);
+  }
+</style>
+
+<script>
+  import { initLocalStorage } from "../utils/share/initLocalStorage";
+
+  window.addEventListener("load", function () {
+    initLocalStorage("userName", "Mika");
+
+    // Get the user name element
+    const userName = document.querySelector(".name") as HTMLElement;
+
+    // Get the saved user name from local storage and update the user name element
+    const savedUserName = localStorage.getItem("userName");
+    userName.textContent = savedUserName;
+  });
+</script>

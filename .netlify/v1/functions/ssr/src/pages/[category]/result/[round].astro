@@ -1,0 +1,73 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import IntroText from "../../../components/Shared/IntroText.astro";
+import Points from "../../../components/Result/Points.astro";
+import categories from "../../../json/categories.json";
+import ShowCoins from "../../../components/Shared/ShowCoins.astro";
+
+const { category, round } = Astro.params;
+
+const currentCategory = categories.find((cat) => cat.slug === category);
+const currentRound = currentCategory?.rounds.find((rnd) => rnd.slug === round);
+---
+
+<Layout title=`${currentCategory?.name} - ${currentRound?.headline} - Ergebnisse`>
+  <div slot="left-headercol">
+    <ShowCoins />
+  </div>
+
+  <IntroText
+    headline=`${currentRound?.headline} - Ergebnisse`
+    subline={currentRound?.introSubline}
+    whiteText={currentRound?.sortToText}
+    isSmallHeadline={true}
+    isWhiteSubline={true}
+  />
+
+  <div class="results" id="results-container" data-category={category} data-round={round?.replace("#", "")}></div>
+
+  <Points />
+</Layout>
+
+<style>
+  .results {
+    display: flex;
+    flex-wrap: wrap;
+    padding: var(--spacing-1) var(--spacing-spacing-xl) var(--spacing-15) var(--spacing-spacing-xl);
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-spacing-xl);
+  }
+</style>
+
+<script>
+  /**
+   * Import the necessary functions for populating results, setting up the finish button, and updating current points.
+   */
+  import { populateResults } from "../../../utils/result/populateResults";
+  import { setupFinishButton } from "../../../utils/result/setupFinishButton";
+  import { updateCurrentPoints } from "../../../utils/share/updateCurrentPoints";
+
+  /**
+   * Get the results element from the DOM and store its data attributes.
+   */
+  const resultElement = document.querySelector(".results") as HTMLElement;
+  const categoryValue = resultElement.getAttribute("data-category"); // Get the category value from data attribute
+  const roundValue = resultElement.getAttribute("data-round"); // Get the round value from data attribute
+
+  /**
+   * Add an event listener to the DOMContentLoaded event.
+   * This event is fired when the initial HTML document has been completely loaded and parsed.
+   * The function updates the current points, populates the results, and sets up the finish button.
+   */
+  document.addEventListener("DOMContentLoaded", () => {
+    // Update the current points with the concatenated category and round values
+    updateCurrentPoints(`${categoryValue}-Points-${roundValue}`);
+
+    // Populate the results with the concatenated category and round values
+    populateResults(`${categoryValue}-Results-${roundValue}`);
+
+    // Set up the finish button with the specified URL
+    setupFinishButton(`/${categoryValue}/trivia/${roundValue}`);
+  });
+</script>
