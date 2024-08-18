@@ -21,8 +21,9 @@ async function getAlbumId(authToken: string, albumName: string, bandName: string
   });
   const data = await response.json();
   const albumId = data.albums.items[0].id;
+  const albumUrl = data.albums.items[0].external_urls.spotify;
   const albumCoverUrl = data.albums.items[0].images.find((image: { width: number }) => image.width >= 300)?.url || "";
-  return { albumId, albumCoverUrl };
+  return { albumId, albumUrl, albumCoverUrl };
 }
 
 async function getSongId(authToken: string, albumId: string) {

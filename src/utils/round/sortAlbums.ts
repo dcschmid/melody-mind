@@ -9,9 +9,16 @@ import { filterAlbumsByCategory } from "../../utils/share/filterAlbumsByCategroy
  * @returns The number value of the sales string.
  */
 const parseSales = (sales: string): number => {
-  const cleaned = sales.replace(/[^0-9.,]/g, "");
-  const number = parseFloat(cleaned.replace(",", "."));
-  return isNaN(number) ? 0 : number;
+  sales = sales.trim(); // Remove any whitespace
+  if (sales.endsWith("Mio.")) {
+    return parseFloat(sales.slice(0, -4).replace(",", ".")) * 1e6;
+  } else if (sales.endsWith("Tsd.")) {
+    return parseFloat(sales.slice(0, -4).replace(",", ".")) * 1e3;
+  } else {
+    const cleaned = sales.replace(/[^0-9.,]/g, "");
+    const number = parseFloat(cleaned.replace(",", "."));
+    return isNaN(number) ? 0 : number;
+  }
 };
 
 /**
@@ -38,11 +45,7 @@ const parseLength = (length: string): number => {
  * @param order The order of the sorting.
  * @returns The sorted array of albums.
  */
- function sortAlbums(
-  albums: Album[],
-  sortBy: string,
-  order: string
-): Album[] {
+ function sortAlbums(albums: Album[], sortBy: string, order: string): Album[] {
   return [...albums].sort((a, b) => {
     let compareA: number;
     let compareB: number;
@@ -64,11 +67,28 @@ const parseLength = (length: string): number => {
         throw new Error(`Invalid sortBy value: ${sortBy}`);
     }
 
+    if (compareA === compareB) {
+      return 0; // ignore equal values
+    }
+
     if (order === "asc") {
       return compareA - compareB;
     } else {
       return compareB - compareA;
     }
+  }).filter((album, index, self) => {
+    return index === self.findIndex((a) => {
+      switch (sortBy) {
+        case "dataYear":
+          return a.dataYear === album.dataYear;
+        case "dataSales":
+          return a.dataSales === album.dataSales;
+        case "dataLength":
+          return a.dataLength === album.dataLength;
+        default:
+          throw new Error(`Invalid sortBy value: ${sortBy}`);
+      }
+    });
   });
 }
 

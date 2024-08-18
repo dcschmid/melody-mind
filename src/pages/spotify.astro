@@ -2,10 +2,10 @@
 import { getAuthToken, getAlbumId, getSongId, getPreviewUrl } from "../utils/spotify";
 
 const albumName = "Master of Puppets";
-const bandName = "Metalica";
+const bandName = "Metallica";
 
 const authToken = await getAuthToken();
-const { albumId, albumCoverUrl } = await getAlbumId(authToken, albumName, bandName);
+const { albumId, albumCoverUrl, albumUrl } = await getAlbumId(authToken, albumName, bandName);
 const songId = await getSongId(authToken, albumId);
 const previewUrl = await getPreviewUrl(authToken, songId);
 ---
@@ -16,13 +16,8 @@ const previewUrl = await getPreviewUrl(authToken, songId);
   </head>
   <body>
     <h1>Hörschnipsel</h1>
-    <img src={albumCoverUrl} alt="Album-Cover" />
-    <audio controls>
-      <source src={previewUrl} type="audio/mpeg" />
-      Ihr Browser unterstützt kein Audio-Element.
-    </audio>
-
     <div>{albumCoverUrl}</div>
     <div>{previewUrl}</div>
+    <div>{albumUrl}</div>
   </body>
 </html>
