@@ -13,13 +13,6 @@ export function checkLocalStorageOnLoad() {
   // Get the header background element
   const headerBG = document.querySelector(".headerBG") as HTMLElement;
 
-  // Get the user name element
-  const userName = document.querySelector(".yellowName") as HTMLElement;
-
-  // Get the saved user name from local storage and update the user name element
-  const savedUserName = localStorage.getItem("userName");
-  userName.textContent = savedUserName;
-
   // Get the avatar icon and frame elements
   const avatarIconRocket = document.querySelector(".avatarIconRocket") as HTMLElement;
   const avatarFrameRocket = document.querySelector(".avatarFrameRocket") as HTMLElement;

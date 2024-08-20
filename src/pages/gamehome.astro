@@ -38,12 +38,14 @@ const getNonPlayableItems = () => {
 // The non-playable items are randomly shuffled and limited to a maximum of 5 items
 const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 
+const user = Astro.locals.user;
+
 ---
 
 <Layout title="Spiel Kategorien">
   <Help slot="left-headercol" />
   <div class="introText">
-    <div class="headline">Willkommen <span class="name"></span>!</div>
+    <div class="headline">Willkommen <span class="name">{user?.username ?? "Mika"}</span>!</div>
     <div class="subline">Wählen Sie eine <span class="whiteText">Playlist</span> zum spielen!</div>
   </div>
 
@@ -132,18 +134,3 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     margin-right: var(--spacing-spacing-xxs);
   }
 </style>
-
-<script>
-  import { initLocalStorage } from "../utils/share/initLocalStorage";
-
-  window.addEventListener("load", function () {
-    initLocalStorage("userName", "Mika");
-
-    // Get the user name element
-    const userName = document.querySelector(".name") as HTMLElement;
-
-    // Get the saved user name from local storage and update the user name element
-    const savedUserName = localStorage.getItem("userName");
-    userName.textContent = savedUserName;
-  });
-</script>

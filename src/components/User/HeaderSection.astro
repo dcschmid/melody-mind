@@ -1,6 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Picture } from "astro:assets";
+const user = Astro.locals.user;
+
 ---
 
 <div class="headerBG">
@@ -9,13 +11,14 @@ import { Picture } from "astro:assets";
     <div class="avatar">
       <Picture
         class="avatarImage"
-        src="/user-profiles/mika.png"
+        src={user?.avatarUrl ?? "/user-profiles/mika.png"}
         width={128}
         height={128}
         formats={["avif", "webp"]}
         alt=""
+        loading="eager"
       />
-      <Icon class="avatarFrame avatarFrameBrain" name="brain-frame" width={128} height={128} />
+      <Icon class="avatarFrame avatarFrameBrain" name="brain-frame" width={135} height={135} />
       <Icon class="avatarFrame avatarFrameRocket" name="rocket-frame" width={160} height={160} />
       <Icon class="avatarFrame avatarFrameMic" name="microphone-frame" width={160} height={160} />
       <Icon class="avatarIcon avatarIconBrain" name="brain-thick" width={48} height={48} />
@@ -26,7 +29,7 @@ import { Picture } from "astro:assets";
   </div>
   <div class="nameContent">
     <div class="name">
-      Hallo <span class="yellowName"></span>! <Icon class="editIcon" name="edit" width={24} height={24} />
+      Hallo <span class="yellowName">{user?.username ?? "Mika"}</span>! <Icon class="editIcon" name="edit" width={24} height={24} />
     </div>
     <div class="points">
       <Icon class="coin" name="coin" width={24} height={24} />
@@ -67,9 +70,16 @@ import { Picture } from "astro:assets";
 
   .avatar {
     position: relative;
-    width: 128px;
-    height: 128px;
+    width: 130px;
+    height: 130px;
     margin-bottom: 1rem;
+    border-radius: 100%;
+  }
+
+  .avatarImage {
+    border-radius: 100%;
+    object-fit: cover;
+    overflow: hidden;
   }
 
   .avatarFrame {
