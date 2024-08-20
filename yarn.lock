@@ -3145,6 +3145,18 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
+lucia-adapter-astrodb@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/lucia-adapter-astrodb/-/lucia-adapter-astrodb-0.1.0.tgz#d27c70b6c89565475620912193fa4826cb92bec6"
+  integrity sha512-G2/LHR8L7Sj5PziRrYBBE6w9cRBZpsiE22RifuQr/lCbUef4mjwZnGMshDdg+Z5qsArmt0b8L62bOjsrOezWXQ==
+
+lucia@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/lucia/-/lucia-3.2.0.tgz#de041c49fdcda8d370c5c894086b3d9e907e8c9e"
+  integrity sha512-eXMxXwk6hqtjRTj4W/x3EnTUtAztLPm0p2N2TEBMDEbakDLXiYnDQ9z/qahjPdPdhPguQc+vwO0/88zIWxlpuw==
+  dependencies:
+    oslo "1.2.0"
+
 magic-string@^0.30.11:
   version "0.30.11"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.30.11.tgz#301a6f93b3e8c2cb13ac1a7a673492c0dfd12954"

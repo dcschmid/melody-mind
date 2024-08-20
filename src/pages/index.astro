@@ -13,7 +13,11 @@ import { Picture } from "astro:assets";
       formats={["avif", "webp"]}
       alt=""
     />
-    <a class="button" href="/gamehome">Jetzt loslegen</a>
+    <div class="buttonGroup">
+      <a class="button" href="/login/github">Sign in with GitHub</a>
+
+      <a class="button" href="/gamehome">Jetzt loslegen</a>
+    </div>
   </div>
 </Layout>
 
@@ -27,11 +31,15 @@ import { Picture } from "astro:assets";
     height: auto;
   }
 
-  .button {
+  .buttonGroup {
     position: absolute;
     bottom: 4rem;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .button {
+    margin: 0.5rem 0;
     border-radius: 128px;
     background: #ffe500;
     height: 40px;

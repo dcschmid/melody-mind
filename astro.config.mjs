@@ -4,6 +4,8 @@ import playformCompress from "@playform/compress";
 import db from "@astrojs/db";
 import node from "@astrojs/node";
 
+import db from "@astrojs/db";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://o9m74nbeecerwsdt12134.cleavr.xyz",
