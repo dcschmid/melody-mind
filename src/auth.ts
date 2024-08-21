@@ -1,12 +1,19 @@
 import { AstroDBAdapter } from "lucia-adapter-astrodb";
 import { db, Session, User } from "astro:db";
 import { Lucia } from "lucia";
-import { GitHub } from "arctic";
+import { GitHub, Spotify } from "arctic";
 
 export const github = new GitHub(
 	import.meta.env.AUTH_GITHUB_ID,
 	import.meta.env.AUTH_GITHUB_SECRET
 );
+
+export const spotify = new Spotify(
+	import.meta.env.AUTH_SPOTIFY_ID,
+	import.meta.env.AUTH_SPOTIFY_SECRET,
+    import.meta.env.AUTH_SPOTIFY_CALLBACK_URL
+);
+
 
 const adapter = new AstroDBAdapter(db, Session, User);
 
