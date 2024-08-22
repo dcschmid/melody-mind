@@ -10,7 +10,7 @@ export async function GET(context: APIContext): Promise<Response> {
 	context.cookies.set("spotify_oauth_state", state, {
 		path: "/",
 		secure: import.meta.env.PROD,
-		httpOnly: true,
+		httpOnly: import.meta.env.DEV,
 		maxAge: 60 * 10,
 		sameSite: "lax"
 	});
