@@ -6,37 +6,53 @@ import { Picture } from "astro:assets";
 <Layout title="Wilkommen zum Cover Shuffle" showHeader={false}>
   <div class="container">
     <Picture
-      class="cover"
-      src="/imagesites/cover-shuffle.jpg"
-      width={480}
-      height={815}
+      class="logo"
+      src="/logo.png"
+      width={250}
+      height={275}
       formats={["avif", "webp"]}
       alt=""
       loading="eager"
     />
+
+    <div class="tab-panel">
+     <div role="tablist">
+        <button role="tab" aria-selected="true" id="tab-1">Anmelden</button>
+        <button role="tab" aria-selected="false" id="tab-2">Registrieren</button>
+      </div>
+      <div role="tabpanel" id="tabpanel-1" aria-labelledby="tab-1">
+       <form method="post" action="/api/login">
+			<label for="email">E-Mail</label>
+			<input id="email" name="email" />
+			<label for="password">Passwort</label>
+			<input id="password" type="password" name="password" />
+			<button>Anmelden</button>
+		</form>
+      </div>
+      <div role="tabpanel" id="tabpanel-2" aria-labelledby="tab-2" hidden>
+        <form method="post" action="/api/signup">
+			<label for="username">Benutzername</label>
+			<input id="username" name="username" />
+            <label for="email">E-Mail</label>
+			<input id="email" name="email" />
+			<label for="password">Passwort</label>
+			<input id="password" type="password" name="password" />
+			<button>Anmelden</button>
+		</form>
+      </div>
+    </div>
     <div class="buttonGroup">
       <a class="button" href="/login/github">Mit GitHub anmelden</a>
       <a class="button" href="/login/google">Mit Google anmelden</a>
-      <a class="button" href="/login/spotify">Mit Spotify anmelden</a>
     </div>
   </div>
 </Layout>
 
 <style>
-  .container {
-    position: relative;
-  }
-
-  .cover {
-    width: 100%;
-    height: auto;
-  }
-
-  .buttonGroup {
-    position: absolute;
-    bottom: 4rem;
-    left: 50%;
-    transform: translateX(-50%);
+  .logo {
+    width: auto;
+    display: block;
+    margin: 0 auto;
   }
 
   .button {
@@ -44,7 +60,7 @@ import { Picture } from "astro:assets";
     border-radius: 128px;
     background: #ffe500;
     height: 40px;
-    width: auto;
+    width: 180px;
     padding: 12px 24px;
     text-decoration: none;
     color: #1a0e38;
@@ -52,4 +68,62 @@ import { Picture } from "astro:assets";
     justify-content: center;
     align-items: center;
   }
+
+  .tab-panel {
+        display: flex;
+        flex-direction: column;
+      }
+
+      [role="tablist"] {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 20px;
+      }
+
+      [role="tab"] {
+        background-color: #f0f0f0;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+
+      [role="tab"]:hover {
+        background-color: #e0e0e0;
+      }
+
+      [role="tab"][aria-selected="true"] {
+        background-color: #ffffff;
+        border-bottom: 2px solid #007bff;
+      }
+
+      [role="tabpanel"] {
+        padding: 20px;
+      }
+
+      [role="tabpanel"][hidden] {
+        display: none;
+      }
 </style>
+
+    <script>
+      const tabButtons = document.querySelectorAll('[role="tab"]') as NodeListOf<HTMLButtonElement>;
+      const tabPanels = document.querySelectorAll('[role="tabpanel"]') as NodeListOf<HTMLElement>;
+
+      tabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const id = button.id;
+          const panelId = `tabpanel-${id.split('-')[1]}`;
+          const panel = document.getElementById(panelId);
+
+          // hide all panels
+          tabPanels.forEach((p) => p.setAttribute('hidden', 'true'));
+
+          // show selected panel
+          panel?.removeAttribute('hidden');
+
+          // update aria-selected attribute on buttons
+          tabButtons.forEach((b) => b.setAttribute('aria-selected', 'false'));
+          button.setAttribute('aria-selected', 'true');
+        });
+      });
+    </script>

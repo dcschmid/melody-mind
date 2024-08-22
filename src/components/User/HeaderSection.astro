@@ -11,7 +11,7 @@ const user = Astro.locals.user;
     <div class="avatar">
       <Picture
         class="avatarImage"
-        src={user?.avatarUrl ?? "/user-profiles/mika.png"}
+        src={user?.avatarUrl || "/user-profiles/mika.png"}
         width={128}
         height={128}
         formats={["avif", "webp"]}

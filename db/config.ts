@@ -5,7 +5,8 @@ const User = defineTable({
     id: column.text({
       primaryKey: true,
     }),
-    user_name: column.text(),
+    username: column.text(),
+    password_hash: column.text(),
     email: column.text(),
     provider_id: column.text(),
     provider_type: column.text(),
