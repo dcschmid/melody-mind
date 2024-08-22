@@ -14,7 +14,6 @@ export const spotify = new Spotify(
     import.meta.env.AUTH_SPOTIFY_CALLBACK_URL
 );
 
-
 const adapter = new AstroDBAdapter(db, Session, User);
 
 export const lucia = new Lucia(adapter, {
@@ -27,8 +26,8 @@ export const lucia = new Lucia(adapter, {
     getUserAttributes: (attributes) => {
 		return {
 			// attributes has the type of DatabaseUserAttributes
-			githubId: attributes.github_id,
-			username: attributes.name,
+			providerId: attributes.provider_id,
+			username: attributes.user_name,
             avatarUrl: attributes.avatar_url
 		};
 	}
@@ -42,7 +41,7 @@ declare module "lucia" {
 }
 
 interface DatabaseUserAttributes {
-	github_id: number;
-	name: string;
+	provider_id: number;
+	user_name: string;
     avatar_url: string;
 }

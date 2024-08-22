@@ -5,10 +5,12 @@ const User = defineTable({
     id: column.text({
       primaryKey: true,
     }),
-    name: column.text(),
+    user_name: column.text(),
     email: column.text(),
-    github_id: column.text(),
+    provider_id: column.text(),
+    provider_type: column.text(),
     avatar_url: column.text(),
+    totalUserPoints: column.number(),
   },
 });
 

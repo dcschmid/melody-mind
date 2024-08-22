@@ -27,7 +27,7 @@ export async function GET(context: APIContext): Promise<Response> {
 		const githubUser: GitHubUser = await githubUserResponse.json();
 
 		// Replace this with your own DB client.
-		const existingUser = await db.select().from(User).where(eq(User.github_id, githubUser.id));
+		const existingUser = await db.select().from(User).where(eq(User.provider_id, githubUser.id));
 
 		if (existingUser[0]) {
 			const session = await lucia.createSession(existingUser[0].id, {});
@@ -41,10 +41,12 @@ export async function GET(context: APIContext): Promise<Response> {
 		// Replace this with your own DB client.
 		await db.insert(User).values({
 			id: userId,
-			github_id: githubUser.id,
-			name: githubUser.name,
+			provider_id: githubUser.id,
+            provider_type: "github",
+			user_name: githubUser.name,
             email: githubUser.email ?? "",
             avatar_url: githubUser.avatar_url,
+            totalUserPoints: 0
 		});
 
 		const session = await lucia.createSession(userId, {});
