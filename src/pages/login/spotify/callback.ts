@@ -48,8 +48,9 @@ export async function GET(context: APIContext): Promise<Response> {
       id: userId,
       provider_id: spotifyUser.id,
       provider_type: "spotify",
-      user_name: spotifyUser.display_name ?? "",
+      username: spotifyUser.display_name ?? "",
       email: spotifyUser.email ?? "",
+      password_hash: "",
       avatar_url: spotifyUser.images[0]?.url ?? "",
       totalUserPoints: 0,
     });
