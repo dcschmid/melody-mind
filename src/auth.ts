@@ -36,6 +36,7 @@ export const lucia = new Lucia(adapter, {
       providerId: attributes.provider_id,
       username: attributes.username,
       avatarUrl: attributes.avatar_url,
+      favoriteGenres: [],
     };
   },
 });
