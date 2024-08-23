@@ -70,5 +70,5 @@ export async function POST(context: APIContext): Promise<Response> {
   context.cookies.set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
 
   // Redirect the user to the homepage
-  return context.redirect("/");
+  return context.redirect("/gamehome");
 }
