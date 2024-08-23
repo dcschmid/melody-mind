@@ -15,4 +15,8 @@ export default defineConfig({
   security: {
     checkOrigin: true,
   },
+  server: {
+    host: "0.0.0.0",
+    port: import.meta.env.PORT,
+  },
 });

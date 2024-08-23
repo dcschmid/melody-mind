@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && yarn add sharp --ignore-engines; ASTRO_STUDIO_APP_TOKEN=f1e72e71fcad612a956affa351f9f2da7c25b706:qhxqdah1045lcbf5btjsjwnn93bb:qhxqdah1045lcbf5btjsjwnn93bb astro build --remote",
+    "build": "astro check && yarn add sharp --ignore-engines; ASTRO_STUDIO_APP_TOKEN=f1e72e71fcad612a956affa351f9f2da7c25b706:qhxqdah1045lcbf5btjsjwnn93bb:qhxqdah1045lcbf5btjsjwnn93bb astro build --remote --port 10000",
     "preview": "astro preview",
     "astro": "astro"
   },
