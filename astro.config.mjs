@@ -6,7 +6,7 @@ import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://evjvx5ac8giyfg4012134.cleavr.one",
+  site: "https://cover-shuffle-ssr.onrender.com",
   output: "server",
   integrations: [icon(), playformCompress(), db()],
   adapter: node({

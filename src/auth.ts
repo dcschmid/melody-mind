@@ -9,7 +9,7 @@ export const google = new Google(
   import.meta.env.AUTH_GOOGLE_ID,
   import.meta.env.AUTH_GOOGLE_SECRET,
   import.meta.env.PROD
-    ? "https://o9m74nbeecerwsdt12134.cleavr.xyz/login/google/callback"
+    ? "https://cover-shuffle-ssr.onrender.com/login/google/callback"
     : "http://localhost:4321/login/google/callback"
 );
 
@@ -17,7 +17,7 @@ export const spotify = new Spotify(
   import.meta.env.AUTH_SPOTIFY_ID,
   import.meta.env.AUTH_SPOTIFY_SECRET,
   import.meta.env.PROD
-    ? "https://o9m74nbeecerwsdt12134.cleavr.xyz/login/spotify/callback"
+    ? "https://cover-shuffle-ssr.onrender.com/login/spotify/callback"
     : "http://localhost:4321/login/spotify/callback"
 );
 
