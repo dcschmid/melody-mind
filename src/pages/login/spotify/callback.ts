@@ -125,7 +125,6 @@ export async function GET(context: APIContext): Promise<Response> {
       provider_type: "spotify",
       username: spotifyUser.display_name ?? "",
       email: spotifyUser.email ?? "",
-      password_hash: "",
       avatar_url: spotifyUser.images[0]?.url ?? "",
       total_user_points: 0,
       favorite_genres: JSON.stringify(mergedGenres),

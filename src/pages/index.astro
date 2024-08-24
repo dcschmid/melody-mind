@@ -18,7 +18,8 @@ import { Picture } from "astro:assets";
 
     <div class="loginHeadline">Anmelden mit</div>
     <div class="buttonGroup">
-      <a class="loginButton" href="/login/spotify"><Icon class="loginIcon" name="spotify-alt" width={35} height={35} /> Spotify</a>
+      <a class="loginButton" href="/login/spotify"><Icon class="loginIcon" name="spotify-alt" width={80} height={80} /> Spotify</a>
+      <a class="loginButton" href=""><Icon class="loginIcon" name="apple" width={35} height={35} /> Apple</a>
       <a class="loginButton" href="/login/github"><Icon class="loginIcon" name="github" width={35} height={35} /> GitHub</a>
       <a class="loginButton" href="/login/google"><Icon class="loginIcon" name="google" width={35} height={35} /> Google</a>
     </div>
@@ -34,7 +35,7 @@ import { Picture } from "astro:assets";
 
   .loginHeadline {
     margin: 2rem 0;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -63,6 +64,7 @@ import { Picture } from "astro:assets";
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
+    width: 120px;
   }
 
   .loginIcon {

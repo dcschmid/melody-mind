@@ -59,7 +59,6 @@ export async function GET(context: APIContext): Promise<Response> {
       provider_type: "google",
       username: googleUser.name,
       email: googleUser.email ?? "",
-      password_hash: "",
       avatar_url: googleUser.picture ?? "",
       total_user_points: 0,
       favorite_genres: [],
