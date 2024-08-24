@@ -2,7 +2,7 @@
   {
     "slug": "pop-rock",
     "headline": "PopRock",
-    "imageUrl": "/category/poprock.jpg",
+    "imageUrl": "/category/pop-rock.jpg",
     "categoryUrl": "/pop-rock",
     "introSubline": "Lassen Sie die Energie fließen und rocken Sie mit!",
     "text": "Poprock vereint die eingängigen Melodien des Pop mit der Energie des Rock. Dieser Stil bringt emotionale Balladen und mitreißende Hits hervor, geprägt von vielseitigen Künstlern und Bands.",
@@ -32,7 +32,7 @@
   {
     "slug": "party-on",
     "headline": "Party On!",
-    "imageUrl": "/category/partyon.png",
+    "imageUrl": "/category/party-on.jpg",
     "categoryUrl": "/party-on",
     "introSubline": "Feier bis zum Morgengrauen und lass den Beat niemals enden!",
     "text": "Party On! bringt die besten Hits zusammen, die jede Feier zum Kochen bringen. Von energiegeladenen Dance-Tracks über mitreißende Pop-Hymnen bis hin zu pulsierenden Elektro-Beats – diese Kategorie liefert die perfekte Musik für unvergessliche Nächte und ausgelassene Stimmung. Egal, ob du tanzen, feiern oder einfach nur gute Laune haben willst, mit Party On! wird jede Veranstaltung zum Highlight.",
@@ -42,7 +42,7 @@
   {
     "slug": "summer-hits",
     "headline": "Summer Hits",
-    "imageUrl": "/category/summerhits.png",
+    "imageUrl": "/category/summer-hits.jpg",
     "categoryUrl": "/summer-hits",
     "introSubline": "Genieß den Sommer mit den heißesten Hits!",
     "text": "Summerhits sind die perfekte Begleitung für sonnige Tage und unvergessliche Sommernächte. Diese Kategorie vereint die besten Tracks, die gute Laune, heiße Beats und entspannte Vibes mit sich bringen. Von eingängigen Pop-Songs und tanzbaren Dance-Hits bis hin zu chilligen Melodien für den Strand – Summerhits sorgen dafür, dass jeder Moment im Sommer zum Highlight wird.",
@@ -50,10 +50,10 @@
     "isPlayable": false
   },
   {
-    "slug": "deutsch-rap",
-    "headline": "DeutschRap",
-    "imageUrl": "/category/deutschrap.png",
-    "categoryUrl": "/deutsch-rap",
+    "slug": "deutscher-rap",
+    "headline": "Deutscher Rap",
+    "imageUrl": "/category/deutscher-rap.jpg",
+    "categoryUrl": "/deutscher-rap",
     "introSubline": "Erlebe die kraftvollen Rhymes und Beats der deutschen Rap-Szene!",
     "text": "Deutschrap bringt die pulsierende Energie und den unverwechselbaren Flow der deutschen Rap-Künstler direkt zu dir. Diese Kategorie vereint alles von härteren Straßenrhythmen bis zu gefühlvollen, lyrischen Texten und bietet einen Einblick in die Vielfalt und Tiefe der deutschen Hip-Hop-Szene. Von angesagten Tracks bis zu authentischen Beats – Deutschrap ist der Soundtrack für echte Geschichten und ungeschönte Realität.",
     "videoPage": "",
@@ -70,20 +70,10 @@
     "isPlayable": false
   },
   {
-    "slug": "indie-alternative",
-    "headline": "Indie & Alternative",
-    "imageUrl": "/category/indie-alternative.jpg",
-    "categoryUrl": "/indie-alternative",
-    "introSubline": "Entdecke außergewöhnliche Klänge und innovative Sounds jenseits des Mainstreams!",
-    "text": "Indie & Alternative präsentieren eine vielfältige Palette von Künstlern, die den musikalischen Horizont erweitern. Diese Kategorie vereint kreative und unkonventionelle Sounds, die abseits des Mainstreams angesiedelt sind. Von experimentellen Indie-Rock-Tracks und melancholischen Alternativ-Pop-Hymnen bis hin zu innovativen Elektro-Beats – Indie & Alternative bieten Musik für alle, die auf der Suche nach einzigartigen Klängen und frischen Ideen sind.",
-    "videoPage": "",
-    "isPlayable": false
-  },
-  {
-    "slug": "gothic",
+    "slug": "goth",
     "headline": "Gothic",
     "imageUrl": "/category/gothic.jpg",
-    "categoryUrl": "/gothic",
+    "categoryUrl": "/goth",
     "introSubline": "Gothic entführt dich in eine Atmosphäre voller düsterer Eleganz und melancholischer Schönheit. Diese Kategorie vereint dramatische Klänge, kraftvolle Melodien und eine geheimnisvolle Stimmung, die von epischen Balladen bis hin zu kraftvollen Gothic-Rock-Hymnen reicht. Mit einer Mischung aus majestätischen Chören, tiefgründigen Texten und atmosphärischen Synthesizern – Gothic ist der Soundtrack für alle, die sich nach einer Welt voller dunkler Faszination sehnen.",
     "text": "",
     "videoPage": "",
@@ -105,6 +95,33 @@
     "categoryUrl": "/pop",
     "introSubline": "Lass dich von den angesagtesten Hits und mitreißenden Melodien mitreißen!",
     "text": "Popmusik ist der Puls der zeitgenössischen Musikszene, bekannt für ihre eingängigen Melodien und ansteckenden Rhythmen. Diese Kategorie vereint die besten aktuellen Chartstürmer und zeitlosen Klassiker, die immer für gute Laune sorgen. Von fröhlichen Ohrwürmern und emotionalen Balladen bis hin zu energetischen Beats und innovativen Sounds – Pop bietet die perfekte Mischung aus Unterhaltung und Ohrenschmaus, die garantiert zum Mitsingen und Tanzen einlädt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "afrobeat",
+    "headline": "Afrobeat",
+    "imageUrl": "/category/afrobeat.jpg",
+    "categoryUrl": "/afrobeat",
+    "introSubline": "Spür den Rhythmus und die Lebendigkeit der afrikanischen Beats!",
+    "text": "Afrobeat vereint pulsierende Rhythmen und lebendige Klänge, die die Energie und Vielfalt Afrikas widerspiegeln. Diese Kategorie bringt die fesselnden Grooves und einzigartigen Beats von Afrobeat-Ikonen und modernen Künstlern direkt zu dir. Von funkigen Trommelrhythmen und mitreißenden Melodien bis hin zu kraftvollen Bläserarrangements und hypnotisierenden Rhythmen – Afrobeat bietet eine musikalische Reise, die dich zum Tanzen und Feiern einlädt, während sie die kulturelle Tiefe und den rhythmischen Reichtum Afrikas feiert.",
+    "isPlayable": false
+  },
+  {
+    "slug": "alternative-rock",
+    "headline": "Alternative Rock",
+    "imageUrl": "/category/alternative-rock.jpg",
+    "categoryUrl": "/alternative-rock",
+    "introSubline": "Entdecke die unkonventionellen Klänge und innovativen Sounds des Alternative Rock!",
+    "text": "Alternative Rock vereint eine breite Palette von Stilen und Einflüssen, die über das traditionelle Rock-Genre hinausgehen. Diese Kategorie bietet eine Mischung aus experimentellen Klängen, einzigartigen Melodien und innovativen Arrangements, die den Alternative Rock definieren. Von melancholischen Balladen und kraftvollen Hymnen bis hin zu fesselnden Gitarrenriffs und ungewöhnlichen Songstrukturen – Alternative Rock ist der Ort für alle, die auf der Suche nach frischen, kreativen Klängen und musikalischen Abenteuern sind.",
+    "isPlayable": false
+  },
+  {
+    "slug": "alternative",
+    "headline": "Alternative",
+    "imageUrl": "/category/alternative.jpg",
+    "categoryUrl": "/alternative",
+    "introSubline": "Erkunde die grenzenlosen Klänge und innovativen Sounds jenseits des Mainstreams!",
+    "text": "Alternative Musik bietet eine erfrischende Abwechslung vom Gewöhnlichen und vereint eine Vielzahl von Stilen, die über die Mainstream-Pfade hinausgehen. Diese Kategorie umfasst alles von experimentellen Indie-Rock-Sounds und avantgardistischen Pop-Melodien bis hin zu fesselnden Folk- und Elektro-Kreationen. Mit kreativen Songstrukturen, unkonventionellen Rhythmen und einzigartigen Klangwelten ist Alternative die perfekte Wahl für alle, die auf der Suche nach musikalischer Vielfalt und neuen Hörerlebnissen sind.",
     "isPlayable": false
   }
 ]

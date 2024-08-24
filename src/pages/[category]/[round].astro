@@ -19,6 +19,7 @@ import type { Album } from '../../utils/interfaces/albumInterface';
  */
 const { category, round } = Astro.params;
 
+console.log("category", category, "round", round);
 /**
  * Import the JSON file containing the albums data for the current category
  * and destructure it into an array of Album objects
