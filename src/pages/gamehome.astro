@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
 import { When } from "@astropub/flow";
 
 import PlaylistItem from "../components/PlaylistItem.astro";
@@ -38,37 +37,74 @@ const getNonPlayableItems = () => {
 // The non-playable items are randomly shuffled and limited to a maximum of 5 items
 const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 
+/**
+ * Get the user object from the Astro context
+ */
 const user = Astro.locals.user;
 
+/**
+ * Parse the user's favourite genres from the user object
+ * If the user object doesn't exist, or the favourite genres are not set,
+ * return an empty array
+ */
+const favouriteGenres = JSON.parse(user?.favoriteGenres ? JSON.stringify(user.favoriteGenres) : '[]');
+
+/**
+ * Filter the categories to only include those that are in the user's favourite genres
+ */
+const userFavoriteGenres = categories.filter((category) => favouriteGenres.includes(category.slug));
+
+/**
+ * Filter the categories to exclude those that are in the user's favourite genres
+ */
+const filteredCategories = categories.filter((category) => !favouriteGenres.includes(category.slug));
 ---
 
 <Layout title="Spiel Kategorien">
   <Help slot="left-headercol" />
   <div class="introText">
     <div class="headline">Willkommen <span class="name">{user?.username ?? "Mika"}</span>!</div>
-    <div class="subline">Wählen Sie eine <span class="whiteText">Playlist</span> zum spielen!</div>
+    <div class="subline">Wählen Sie ein <span class="whiteText">Genre</span> zum spielen!</div>
   </div>
 
   <div class="choosePlaylist">
-    {
-      categories.map((item) => (
-        <When test={item.isPlayable}>
-          <a href={item.categoryUrl}>
-            <PlaylistItem headline={item.headline}  image={item.imageUrl} />
-          </a>
-        </When>
+    <input class="filterInput" type="search" id="filter-input" placeholder="Suche nach einem Genre">
 
-        <When test={!item.isPlayable}>
-          <PlaylistItem headline={item.headline} image={item.imageUrl} />
-        </When>
-      ))
-    }
+    <When test={userFavoriteGenres.length > 0}>
+        <div class="dividerHeadline">Deine Genres:</div>
+        {
+            userFavoriteGenres.map((item) => (
+                <When test={item.isPlayable}>
+                    <a href={item.categoryUrl}>
+                        <PlaylistItem headline={item.headline}  image={item.imageUrl} />
+                    </a>
+                </When>
+
+                <When test={!item.isPlayable}>
+                    <PlaylistItem headline={item.headline} image={item.imageUrl} />
+                </When>
+            ))
+        }
+    </When>
+
+    <When test={filteredCategories.length > 0}>
+        <When test={userFavoriteGenres.length > 0}><div class="dividerHeadline">Entdecke weitere Genres:</div></When>
+        {
+            filteredCategories.map((item) => (
+                <When test={item.isPlayable}>
+                    <a href={item.categoryUrl}>
+                        <PlaylistItem headline={item.headline}  image={item.imageUrl} />
+                    </a>
+                </When>
+
+                <When test={!item.isPlayable}>
+                    <PlaylistItem headline={item.headline} image={item.imageUrl} />
+                </When>
+            ))
+        }
+    </When>
   </div>
 </Layout>
-
-<div class="hint">
-  <Icon class="icon" name="spotify" width={24} height={24} /> Spotify Account einbinden um Freunde zu challengen
-</div>
 
 <style>
   .introText {
@@ -120,17 +156,80 @@ const user = Astro.locals.user;
     background: var(--colour-BG-secondary);
   }
 
-  .hint {
+  .dividerHeadline {
     display: flex;
-    align-items: top;
-    margin-top: var(--spacing-spacing-md);
-    color: var(--colour-text-secondary);
-    border-top: 2px solid var(--colour-border-disabled);
-    border-bottom: 2px solid var(--colour-border-disabled);
-    padding: var(--spacing-spacing-xxs) 0;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: var(--colour-text-active);
+    leading-trim: both;
+    text-edge: cap;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
   }
 
-  .icon {
-    margin-right: var(--spacing-spacing-xxs);
+  .filterInput {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0.36px;
+    padding: var(--spacing-spacing-s) var(--spacing-spacing-s) var(--spacing-spacing-s) var(--spacing-spacing-s);
+    color: var(--colour-text-BTN-primary);
+  }
+
+  .hidden {
+    display: none;
   }
 </style>
+
+<script>
+    /**
+     * The search query string entered by the user.
+     *
+     * @type {string}
+     */
+    let searchQuery = '';
+
+  /**
+   * Adds an event listener to the filter input element.
+   * When the user types something, the filterPlaylists function is called.
+   */
+  const filterInput = document.getElementById('filter-input') as HTMLInputElement;
+  filterInput.addEventListener('input', filterPlaylists);
+
+  /**
+   * Filters the playlist items based on the user input.
+   * If the user input is found in the headline text of the playlist item,
+   * the item is displayed, otherwise it is hidden.
+   */
+  function filterPlaylists() {
+    const query = filterInput.value.toLowerCase();
+    searchQuery = query;
+    const playlistItems = document.querySelectorAll('.playlistItem');
+
+    const dividerHeadlines = document.querySelectorAll('.dividerHeadline') as NodeListOf<HTMLElement>;
+
+    // Toggle visibility of divider headlines based on search query
+    dividerHeadlines.forEach(el => el.classList.toggle('hidden', searchQuery !== ''));
+
+    // Loop through each playlist item and check if the headline text
+    // contains the user input. If it does, display the item, otherwise
+    // hide it.
+    playlistItems.forEach((item) => {
+      const headlineText = (item as HTMLElement).querySelector('.headline')?.textContent;
+      if (headlineText && headlineText.toLowerCase().includes(query)) {
+        // Display the item if the headline text contains the search query
+        (item as HTMLElement).style.display = 'block';
+      } else {
+        // Hide the item if the headline text does not contain the search query
+        (item as HTMLElement).style.display = 'none';
+      }
+    });
+  }
+</script>
