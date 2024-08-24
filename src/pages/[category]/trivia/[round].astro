@@ -14,13 +14,17 @@ import ShowCoins from "../../../components/Shared/ShowCoins.astro";
 import { fetchRoundUIData } from "../../../utils/share/fetchRoundUIData";
 import { getAlbumsSortedBySpecificFieldAndCatgory } from "../../../utils/round/sortAlbums";
 import { shuffleArray } from "../../../utils/share/shuffleArray";
+import type { Album } from "../../../utils/interfaces/albumInterface";
 
 const { category, round } = Astro.params;
+
+const albumsPromise = import(`../../../json/genres/${category}.json`);
+const albums: Album[] = (await albumsPromise).default;
 
 const uiData = await fetchRoundUIData(round as string);
 
 const currentCategory = categories.find((cat) => cat.slug === category);
-const solutionData = getAlbumsSortedBySpecificFieldAndCatgory(uiData?.sortData, uiData?.sortOrder, category as string);
+const solutionData = await getAlbumsSortedBySpecificFieldAndCatgory(uiData?.sortData, uiData?.sortOrder, albums);
 
 const wonItem = solutionData.randomAlbums[0]; // select the first item as the won item
 const lostItems = solutionData.randomAlbums.slice(1); // get the remaining items as lost items

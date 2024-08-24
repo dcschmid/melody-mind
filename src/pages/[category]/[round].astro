@@ -1,5 +1,6 @@
 ---
 // Import necessary components and utilities
+
 import Layout from "../../layouts/Layout.astro"; // Layout component
 import StartOverlay from "../../components/Overlays/StartOverlay.astro"; // Start Overlay component
 import TimeupsOverlay from "../../components/Overlays/TimeupsOverlay.astro"; // Timeups Overlay component
@@ -11,11 +12,19 @@ import Joker from "../../components/Round/Joker.astro"; // Joker component
 import ShowCoins from "../../components/Shared/ShowCoins.astro"; // ShowCoins component
 import { fetchRoundUIData } from "../../utils/share/fetchRoundUIData"; // Function to fetch round UI data
 import { getAlbumsSortedBySpecificFieldAndCatgory } from "../../utils/round/sortAlbums";
+import type { Album } from '../../utils/interfaces/albumInterface';
 
 /**
  * Destructure `category` and `round` from `Astro.params`
  */
 const { category, round } = Astro.params;
+
+/**
+ * Import the JSON file containing the albums data for the current category
+ * and destructure it into an array of Album objects
+ */
+const albumsPromise = import(`../../json/genres/${category}.json`);
+const albums: Album[] = (await albumsPromise).default;
 
 /**
  * Fetch round UI data using the `fetchRoundUIData` function
@@ -29,20 +38,45 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
 
 /**
  * Shuffle the `albums` array and get the first four albums
+ *
+ * @param {string} sortBy - The field to sort the albums by. Can be one of "dataYear", "dataSales", or "dataLength".
+ * @param {string} order - The order of the sorting (asc/desc).
+ * @param {Album[]} albums - The albums to sort and shuffle.
+ * @return {Album[]} A list of shuffled albums with the first four albums being the solution.
  */
-const solutionData = getAlbumsSortedBySpecificFieldAndCatgory(uiData?.sortData, uiData?.sortOrder, category as string);
+const solutionData = await getAlbumsSortedBySpecificFieldAndCatgory(uiData?.sortData, uiData?.sortOrder, albums);
+
 /**
  * Get the joker text, data, and cover URL from the first album
+ *
+ * The joker text, data, and cover URL are used to display the joker
+ * information on the page. The data is determined by the current round
+ * (round one shows the year, round two shows the sales, and round three
+ * shows the length).
  */
 const jokerText = solutionData.randomAlbums?.[0].jokerText;
-const jokerData =
-  round === "round-one"
-    ? solutionData.randomAlbums?.[0].dataYear
-    : round === "round-two"
-      ? solutionData.randomAlbums?.[0].dataSales
-      : round === "round-three"
-        ? solutionData.randomAlbums?.[0].dataLength
-        : null;
+
+/**
+ * Get the joker data based on the current round
+ *
+ * @param {string} round - The current round (round-one, round-two, or round-three)
+ * @returns {string | null} The joker data, or null if the round is invalid
+ */
+const getJokerData = (round: string): string | null => {
+  switch (round) {
+    case "round-one":
+      return solutionData.randomAlbums?.[0].dataYear;
+    case "round-two":
+      return solutionData.randomAlbums?.[0].dataSales;
+    case "round-three":
+      return solutionData.randomAlbums?.[0].dataLength;
+    default:
+      return null;
+  }
+};
+
+const jokerData = getJokerData(round as string);
+
 const jokerCoverUrl = solutionData.randomAlbums?.[0].coverSrc;
 ---
 
