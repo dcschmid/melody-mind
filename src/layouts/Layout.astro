@@ -24,8 +24,10 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
   <body>
     <When test1={showHeader}>
       <header>
-        <slot name="left-headercol" />
-        <div>
+        <div class="slot">
+            <slot name="left-headercol" />
+        </div>
+        <div class="logo">
           <a href="/gamehome"><Icon name="cover-shuffle-logo" width={84} height={59.229} /></a>
         </div>
         <div class="iconGroup">
@@ -102,10 +104,20 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
         margin: var(--spacing-spacing-md) 0;
       }
 
+      .slot {
+        width: 33.33333%;
+      }
+
+      .logo {
+        width: 33.33333%;
+        text-align: center;
+      }
+
       .iconGroup {
         display: inline-flex;
         align-items: top;
         gap: var(--spacing-spacing-md);
+        width: 33.33333%;
       }
 
       main {
