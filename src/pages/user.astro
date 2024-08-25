@@ -3,6 +3,21 @@ import Layout from "../layouts/Layout.astro";
 import GoldenLPsSection from "../components/User/GoldenLPsSection.astro";
 import FrameSection from "../components/User/FrameSection.astro";
 import HeaderSection from "../components/User/HeaderSection.astro";
+
+/**
+ * Get the user object from the Astro context
+ */
+const user = Astro.locals.user;
+
+/**
+ * If the user is not logged in, redirect them to the login page.
+ */
+if (!user) {
+	/**
+	 * Redirect the user to the login page.
+	 */
+	return Astro.redirect("/");
+}
 ---
 
 <Layout title="User Profile" showHeader={false}>
@@ -34,7 +49,6 @@ import HeaderSection from "../components/User/HeaderSection.astro";
    * Calls the checkLocalStorageOnLoad function to update the user's local storage.
    * Gets the WonPopRockBrain and WonBrainFrame values from local storage.
    * Calls the updateDisplay function to update the display based on the values.
-   * Gets the userPoints value from local storage and sets it as the text content of the .pointsValue element.
    * Calls the selectFrameItem function to select the frame item.
    * Calls the changeFrame function to handle frame changes.
    */
@@ -51,10 +65,6 @@ import HeaderSection from "../components/User/HeaderSection.astro";
 
     // Call the updateDisplay function to update the display based on the values
     updateDisplay(wonPopRockBrain, wonBrainFrame);
-
-    // Get the userPoints value from local storage and set it as the text content of the .pointsValue element
-    const userPoints = localStorage.getItem("userPoints") || "0";
-    document!.querySelector(".pointsValue")!.textContent = userPoints + " Pt";
 
     // Call the selectFrameItem function to select the frame item
     selectFrameItem();

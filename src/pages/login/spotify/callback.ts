@@ -126,7 +126,7 @@ export async function GET(context: APIContext): Promise<Response> {
       username: spotifyUser.display_name ?? "",
       email: spotifyUser.email ?? "",
       avatar_url: spotifyUser.images[0]?.url ?? "",
-      total_user_points: 0,
+      total_user_points: "0",
       favorite_genres: JSON.stringify(mergedGenres),
     });
 

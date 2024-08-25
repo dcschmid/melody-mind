@@ -1,7 +1,23 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Picture } from "astro:assets";
+import { db, User, eq } from "astro:db";
+
+/**
+ * Get the user object from the Astro context
+ */
 const user = Astro.locals.user;
+
+/**
+ * Get the total user points from the database
+ */
+const currentUser = await db.select().from(User).where(eq(User.id, user?.id ?? ''));
+
+/**
+ * Get the total user points from the user object
+ * @type {number}
+ */
+const totalUserPoints = currentUser[0].total_user_points;
 
 ---
 
@@ -33,7 +49,7 @@ const user = Astro.locals.user;
     </div>
     <div class="points">
       <Icon class="coin" name="coin" width={24} height={24} />
-      <span class="pointsValue"></span>
+      <span class="pointsValue">{totalUserPoints}</span>
     </div>
   </div>
 </div>

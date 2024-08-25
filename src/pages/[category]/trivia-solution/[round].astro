@@ -73,7 +73,7 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
 
   <TriviaFinishOverlay url={currentCategory?.videoPage ? currentCategory?.videoPage : "/gamehome"} />
 
-  <div class="solution" data-category={category} data-round={round?.replace("#", "")}>
+  <div class="solution" data-user-id={user.id} data-category={category} data-round={round?.replace("#", "")}>
     <div class="cover">
       <img class="picture" src="" width={240} height={240} alt="" />
       <Icon class="shareIcon" name="share" width={48} height={48} />
@@ -138,41 +138,81 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
   import JSConfetti from "js-confetti";
   import { clearLocalStorageAfterLastRound } from "../../../utils/clearLocalStorageAfterLastRound";
 
-  // Create a new instance of the JSConfetti class.
+  /**
+   * Create a new instance of JSConfetti.
+   */
   const jsConfetti = new JSConfetti();
 
-  // Get the necessary DOM elements.
+  /**
+   * Get the necessary DOM elements.
+   */
+  const triviaElement = document.querySelector(".solution") as HTMLElement;
+
+  /**
+   * Get the user ID from the data attribute.
+   */
+  const userId = triviaElement.getAttribute("data-user-id");
+
+  /**
+   * Fetch the total user points from the API.
+   */
+  const response = await fetch(`/api/getTotalUserPoints`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ userId }),
+  });
+
+  /**
+   * Parse the response as JSON.
+   */
+  const userPoints = await response.json();
+
+  /**
+   * Get the necessary DOM elements.
+   */
   const overlayFinish = document.getElementById("overlayFinish") as HTMLElement; // Get the overlay finish element.
   const openOverlay = document.getElementById("openOverlay") as HTMLElement; // Get the open overlay element.
 
-  // Get the current and user points from local storage.
+  /**
+   * Get the current and user points from local storage.
+   */
   const currentPoints = parseInt(localStorage.getItem("currentPoints") || "0", 10);
-  const userPoints = parseInt(localStorage.getItem("userPoints") || "0", 10);
 
-  // Calculate the final score.
+  /**
+   * Calculate the final score.
+   */
   const calcfinalScore = currentPoints * 2;
 
-  // Update the user points in local storage.
-  localStorage.setItem("userPoints", String(userPoints + calcfinalScore));
+  await fetch(`/api/saveTotalUserPoints`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ userId, userPoints: userPoints + calcfinalScore }),
+  });
 
-  // Get the necessary DOM element.
-  const triviaElement = document.querySelector(".solution") as HTMLElement;
-
-  // Get the category and round values from the data attributes.
   const categoryValue = triviaElement.getAttribute("data-category");
   const roundValue = triviaElement.getAttribute("data-round");
 
-  // Get the trivia data from local storage.
+  /**
+   * Get the trivia data from local storage.
+   */
   const triviaData = JSON.parse(localStorage.getItem(`${categoryValue}-triviaData-${roundValue}`) ?? "[]");
 
-  // Update the headline and answer elements with the trivia data.
+  /**
+   * Update the headline and answer elements with the trivia data.
+   */
   const headlineElement = document.querySelector(".solutionHeadline") as HTMLElement;
   headlineElement.textContent = triviaData.triviaAlbum;
 
   const answerElement = document.querySelector(".answer") as HTMLElement;
   answerElement.textContent = triviaData.triviaAnswer;
 
-  // Update the picture element with the trivia image.
+  /**
+   * Update the picture element with the trivia image.
+   */
   const pictureElement = document.querySelector(".picture") as HTMLImageElement;
   pictureElement.src = triviaData.triviaImage;
 
