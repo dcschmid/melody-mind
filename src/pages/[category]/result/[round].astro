@@ -1,10 +1,10 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
-import IntroText from "../../../components/Shared/IntroText.astro";
-import Points from "../../../components/Result/Points.astro";
-import categories from "../../../json/categories.json";
-import ShowCoins from "../../../components/Shared/ShowCoins.astro";
-import { fetchRoundUIData } from "../../../utils/share/fetchRoundUIData";
+import Layout from "@layouts/Layout.astro";
+import IntroText from "@components/Shared/IntroText.astro";
+import Points from "@components/Result/Points.astro";
+import categories from "@json/categories.json";
+import ShowCoins from "@components/Shared/ShowCoins.astro";
+import { fetchRoundUIData } from "@utils/share/fetchRoundUIData";
 
 /**
  * Get the user object from the Astro context
@@ -79,9 +79,9 @@ const currentCategory = categories.find((cat) => cat.slug === category);
   /**
    * Import the necessary functions for populating results, setting up the finish button, and updating current points.
    */
-  import { populateResults } from "../../../utils/result/populateResults";
-  import { setupFinishButton } from "../../../utils/result/setupFinishButton";
-  import { updateCurrentPoints } from "../../../utils/share/updateCurrentPoints";
+  import { populateResults } from "@utils/result/populateResults";
+  import { setupFinishButton } from "@utils/result/setupFinishButton";
+  import { updateCurrentPoints } from "@utils/share/updateCurrentPoints";
 
   /**
    * Get the results element from the DOM and store its data attributes.

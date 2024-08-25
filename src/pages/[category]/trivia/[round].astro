@@ -1,20 +1,20 @@
 ---
 import { For } from "@astropub/flow";
-import TimeupsOverlay from "../../../components/Overlays/TimeupsOverlay.astro";
-import Timer from "../../../components/Round/Timer.astro";
-import IntroText from "../../../components/Shared/IntroText.astro";
-import TriviaItem from "../../../components/Trivia/TriviaItem.astro";
-import TriviaLostOverlay from "../../../components/Trivia/TriviaLostOverlay.astro";
-import TriviaStartOverlay from "../../../components/Trivia/TriviaStartOverlay.astro";
-import TriviaWonLPOverlay from "../../../components/Trivia/TriviaWonLPOverlay.astro";
-import TriviaWonOverlay from "../../../components/Trivia/TriviaWonOverlay.astro";
-import categories from "../../../json/categories.json";
-import Layout from "../../../layouts/Layout.astro";
-import ShowCoins from "../../../components/Shared/ShowCoins.astro";
-import { fetchRoundUIData } from "../../../utils/share/fetchRoundUIData";
-import { getAlbumsSortedBySpecificFieldAndCatgory } from "../../../utils/round/sortAlbums";
-import { shuffleArray } from "../../../utils/share/shuffleArray";
-import type { Album } from "../../../utils/interfaces/albumInterface";
+import TimeupsOverlay from "@components/Overlays/TimeupsOverlay.astro";
+import Timer from "@components/Round/Timer.astro";
+import IntroText from "@components/Shared/IntroText.astro";
+import TriviaItem from "@components/Trivia/TriviaItem.astro";
+import TriviaLostOverlay from "@components/Trivia/TriviaLostOverlay.astro";
+import TriviaStartOverlay from "@components/Trivia/TriviaStartOverlay.astro";
+import TriviaWonLPOverlay from "@components/Trivia/TriviaWonLPOverlay.astro";
+import TriviaWonOverlay from "@components/Trivia/TriviaWonOverlay.astro";
+import categories from "@json/categories.json";
+import Layout from "@layouts/Layout.astro";
+import ShowCoins from "@components/Shared/ShowCoins.astro";
+import { fetchRoundUIData } from "@utils/share/fetchRoundUIData";
+import { getAlbumsSortedBySpecificFieldAndCatgory } from "@utils/round/sortAlbums";
+import { shuffleArray } from "@utils/share/shuffleArray";
+import type { Album } from "@utils/interfaces/albumInterface";
 
 /**
  * Get the user object from the Astro context
@@ -150,9 +150,9 @@ const triviaDataWithTypes = [{ ...wonItem, type: "won" }, ...lostItems.map((item
 
 <script>
   // Import functions from the utils directory
-  import { handleWonClick } from "../../../utils/trivia/handleWonClick";
-  import { initLostOverlay } from "../../../utils/trivia/initLostOverlay";
-  import { startTimer } from "../../../utils/trivia/startTimer";
+  import { handleWonClick } from "@utils/trivia/handleWonClick";
+  import { initLostOverlay } from "@utils/trivia/initLostOverlay";
+  import { startTimer } from "@utils/trivia/startTimer";
 
   // Get DOM elements
   const overlayTimeUp = document.getElementById("timupsOverlay") as HTMLElement;

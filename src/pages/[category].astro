@@ -1,9 +1,9 @@
 ---
 import { Picture } from "astro:assets";
-import Layout from "../layouts/Layout.astro";
-import Button from "../components/Shared/Button.astro";
-import IntroText from "../components/Shared/IntroText.astro";
-import categories from "../json/categories.json";
+import Layout from "@layouts/Layout.astro";
+import Button from "@components/Shared/Button.astro";
+import IntroText from "@components/Shared/IntroText.astro";
+import categories from "@json/categories.json";
 
 /**
  * Get the user object from the Astro context
@@ -131,7 +131,7 @@ if (!currentCategory) {
 </style>
 
 <script>
-  import { resetLocalStorage } from "../utils/resetLocalStorage";
+  import { resetLocalStorage } from "@utils/resetLocalStorage";
 
   window.addEventListener("load", function () {
     const categoryElement = document.querySelector(".category") as HTMLElement;

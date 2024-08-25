@@ -1,18 +1,18 @@
 ---
 // Import necessary components and utilities
 
-import Layout from "../../layouts/Layout.astro"; // Layout component
-import StartOverlay from "../../components/Overlays/StartOverlay.astro"; // Start Overlay component
-import TimeupsOverlay from "../../components/Overlays/TimeupsOverlay.astro"; // Timeups Overlay component
-import IntroText from "../../components/Shared/IntroText.astro"; // IntroText component
-import Timer from "../../components/Round/Timer.astro"; // Timer component
-import CoverFlow from "../../components/Round/CoverFlow.astro"; // CoverFlow component
-import categories from "../../json/categories.json"; // JSON file containing categories data
-import Joker from "../../components/Round/Joker.astro"; // Joker component
-import ShowCoins from "../../components/Shared/ShowCoins.astro"; // ShowCoins component
-import { fetchRoundUIData } from "../../utils/share/fetchRoundUIData"; // Function to fetch round UI data
-import { getAlbumsSortedBySpecificFieldAndCatgory } from "../../utils/round/sortAlbums";
-import type { Album } from '../../utils/interfaces/albumInterface';
+import Layout from "@layouts/Layout.astro"; // Layout component
+import StartOverlay from "@components/Overlays/StartOverlay.astro"; // Start Overlay component
+import TimeupsOverlay from "@components/Overlays/TimeupsOverlay.astro"; // Timeups Overlay component
+import IntroText from "@components/Shared/IntroText.astro"; // IntroText component
+import Timer from "@components/Round/Timer.astro"; // Timer component
+import CoverFlow from "@components/Round/CoverFlow.astro"; // CoverFlow component
+import categories from "@json/categories.json"; // JSON file containing categories data
+import Joker from "@components/Round/Joker.astro"; // Joker component
+import ShowCoins from "@components/Shared/ShowCoins.astro"; // ShowCoins component
+import { fetchRoundUIData } from "@utils/share/fetchRoundUIData"; // Function to fetch round UI data
+import { getAlbumsSortedBySpecificFieldAndCatgory } from "@utils/round/sortAlbums";
+import type { Album } from '@utils/interfaces/albumInterface';
 
 /**
  * Get the user object from the Astro context
@@ -138,16 +138,16 @@ const jokerCoverUrl = solutionData.randomAlbums?.[0].coverSrc;
    * It initializes the overlay and cover elements,
    * and handles the end round click event
    */
-  import { handleEndRoundClick } from "../../utils/round/handleEndRoundClick";
+  import { handleEndRoundClick } from "@utils/round/handleEndRoundClick";
   /**
    * This function initializes the cover elements
    */
-  import { initializeCovers } from "../../utils/round/initializeCovers";
+  import { initializeCovers } from "@utils/round/initializeCovers";
   /**
    * This function initializes the overlay with the initial time remaining and timer interval
    */
-  import { initializeOverlay } from "../../utils/round/initializeOverlay";
-  import { showJoker } from "../../utils/round/showJoker";
+  import { initializeOverlay } from "@utils/round/initializeOverlay";
+  import { showJoker } from "@utils/round/showJoker";
 
   // Set the initial time remaining and timer interval
   /**

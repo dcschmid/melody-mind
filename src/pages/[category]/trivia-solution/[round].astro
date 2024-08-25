@@ -1,12 +1,12 @@
 ---
 import { Icon } from "astro-icon/components";
 
-import Layout from "../../../layouts/Layout.astro";
-import Button from "../../../components/Shared/Button.astro";
-import TriviaFinishOverlay from "../../../components/Trivia/TriviaFinishOverlay.astro";
-import categories from "../../../json/categories.json";
-import ShowCoins from "../../../components/Shared/ShowCoins.astro";
-import { fetchRoundUIData } from "../../../utils/share/fetchRoundUIData";
+import Layout from "@layouts/Layout.astro";
+import Button from "@components/Shared/Button.astro";
+import TriviaFinishOverlay from "@components/Trivia/TriviaFinishOverlay.astro";
+import categories from "@json/categories.json";
+import ShowCoins from "@components/Shared/ShowCoins.astro";
+import { fetchRoundUIData } from "@utils/share/fetchRoundUIData";
 
 /**
  * Get the user object from the Astro context
@@ -32,13 +32,13 @@ const { category, round } = Astro.params;
 
 /**
  * Fetch the UI data for the current round
- * @type {Promise<import("../../utils/share/fetchRoundUIData").RoundData>}
+ * @type {Promise<import("@utils/share/fetchRoundUIData").RoundData>}
  */
 const uiData = await fetchRoundUIData(round as string);
 
 /**
  * Find the category object in the categories array that matches the category parameter
- * @type {import("../../json/categories.json").Category | undefined}
+ * @type {import("@json/categories.json").Category | undefined}
  */
 const currentCategory = categories.find((cat) => cat.slug === category);
 
@@ -136,7 +136,7 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
    * Import the necessary modules for the script.
    */
   import JSConfetti from "js-confetti";
-  import { clearLocalStorageAfterLastRound } from "../../../utils/clearLocalStorageAfterLastRound";
+  import { clearLocalStorageAfterLastRound } from "@utils/clearLocalStorageAfterLastRound";
 
   /**
    * Create a new instance of JSConfetti.

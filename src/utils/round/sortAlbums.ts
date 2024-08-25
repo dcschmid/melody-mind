@@ -1,5 +1,5 @@
 import type { Album } from "../interfaces/albumInterface";
-import { shuffleArray } from "../../utils/share/shuffleArray";
+import { shuffleArray } from "@utils/share/shuffleArray";
 
 /**
  * Converts a sales string to a number.
