@@ -35,7 +35,7 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
             <Icon name="settings" width={24} height={22.24} />
             <a href="/user"><Icon name="user-white" width={24} height={22.24} /></a>
             <form method="post" action="/api/logout">
-                <button>Sign out</button>
+                <button><Icon name="logout" width={24} height={24} title="Abmelden" /></button>
             </form>
           </When>
           <When test={!showUserLink}>
@@ -190,6 +190,14 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
         font-weight: 400;
         line-height: 35.28px;
         color: var(--colour-text-gold);
+      }
+
+      button {
+        cursor: pointer;
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0;
       }
     </style>
   </body>

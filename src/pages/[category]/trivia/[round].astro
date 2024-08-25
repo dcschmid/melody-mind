@@ -16,20 +16,79 @@ import { getAlbumsSortedBySpecificFieldAndCatgory } from "../../../utils/round/s
 import { shuffleArray } from "../../../utils/share/shuffleArray";
 import type { Album } from "../../../utils/interfaces/albumInterface";
 
+/**
+ * Get the user object from the Astro context
+ * @type {import("@astro/core/types").User}
+ */
+const user = Astro.locals.user;
+
+/**
+ * If the user is not logged in, redirect them to the login page.
+ */
+if (!user) {
+	/**
+	 * Redirect the user to the login page.
+	 */
+	return Astro.redirect("/");
+}
+
+/**
+ * Get the category and round parameters from the Astro context.
+ * The category parameter is required and determines which category
+ * the user wants to play.
+ */
 const { category, round } = Astro.params;
 
+/**
+ * Fetch the JSON file containing the albums data for the current category.
+ * The JSON file is located in the `json/genres` directory.
+ * The `import()` function is used to load the JSON file and
+ * the `default` property is used to get the array of albums.
+ */
 const albumsPromise = import(`../../../json/genres/${category}.json`);
 const albums: Album[] = (await albumsPromise).default;
 
+/**
+ * Fetch the round UI data using the `fetchRoundUIData` function.
+ * The round UI data contains the headline, intro subline, sort data,
+ * sort order, and other UI data for the current round.
+ */
 const uiData = await fetchRoundUIData(round as string);
 
+/**
+ * Find the category object in the categories array that matches the category parameter.
+ * The `categories` array is a JSON file containing an array of category objects.
+ * The `find()` method is used to find the category object that matches the category parameter.
+ */
 const currentCategory = categories.find((cat) => cat.slug === category);
+
+/**
+ * Sort the albums array based on the sort data and sort order.
+ * The `getAlbumsSortedBySpecificFieldAndCatgory` function is used to sort the albums array.
+ * The function takes the sort data, sort order, and albums array as parameters.
+ * The function returns a new array of sorted albums with a random item as the first element.
+ */
 const solutionData = await getAlbumsSortedBySpecificFieldAndCatgory(uiData?.sortData, uiData?.sortOrder, albums);
 
+/**
+ * Get the won item from the solution data.
+ * The won item is the first element in the sorted array.
+ * The `type` property is set to "won" to indicate that it is the won item.
+ */
 const wonItem = solutionData.randomAlbums[0]; // select the first item as the won item
+
+/**
+ * Get the lost items from the solution data.
+ * The lost items are the remaining items in the sorted array.
+ * The `type` property is set to "lost" to indicate that they are lost items.
+ */
 const lostItems = solutionData.randomAlbums.slice(1); // get the remaining items as lost items
 
-// create a new array with the won item and lost items
+/**
+ * Create a new array with the won item and lost items.
+ * The new array is created using the spread operator.
+ * The `type` property is added to each item in the array.
+ */
 const triviaDataWithTypes = [{ ...wonItem, type: "won" }, ...lostItems.map((item) => ({ ...item, type: "lost" }))];
 ---
 

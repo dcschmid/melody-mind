@@ -8,13 +8,50 @@ import categories from "../../../json/categories.json";
 import ShowCoins from "../../../components/Shared/ShowCoins.astro";
 import { fetchRoundUIData } from "../../../utils/share/fetchRoundUIData";
 
+/**
+ * Get the user object from the Astro context
+ * @type {import("@astro/core/types").User}
+ */
+const user = Astro.locals.user;
+
+/**
+ * If the user is not logged in, redirect them to the login page.
+ */
+if (!user) {
+	/**
+	 * Redirect the user to the login page.
+	 */
+	return Astro.redirect("/");
+}
+
+/**
+ * Get the route parameters for the current page
+ * @type {import("@astro/core/types").PageParameters}
+ */
 const { category, round } = Astro.params;
 
+/**
+ * Fetch the UI data for the current round
+ * @type {Promise<import("../../utils/share/fetchRoundUIData").RoundData>}
+ */
 const uiData = await fetchRoundUIData(round as string);
 
+/**
+ * Find the category object in the categories array that matches the category parameter
+ * @type {import("../../json/categories.json").Category | undefined}
+ */
 const currentCategory = categories.find((cat) => cat.slug === category);
 
+/**
+ * Set the button text and URL based on the round
+ * @type {string}
+ */
 const centerButtonText = round === "round-one" || round === "round-two" ? "nächste Runde" : "Spiel beenden";
+
+/**
+ * Set the button URL based on the round
+ * @type {string}
+ */
 const centerButtonUrl =
   round === "round-one"
     ? `/${currentCategory?.slug}/round-two`
@@ -22,6 +59,10 @@ const centerButtonUrl =
       ? `/${currentCategory?.slug}/round-three`
       : `#`;
 
+/**
+ * Set the button ID based on the round
+ * @type {string}
+ */
 const centerButtonID = round === "round-three" ? "openOverlay" : "";
 ---
 

@@ -8,6 +8,22 @@ import categoriesList from "../json/categories.json";
 import { shuffleArray } from "../utils/share/shuffleArray";
 
 /**
+ * Get the user object from the Astro context
+ */
+const user = Astro.locals.user;
+
+
+/**
+ * If the user is not logged in, redirect them to the login page.
+ */
+if (!user) {
+	/**
+	 * Redirect the user to the login page.
+	 */
+	return Astro.redirect("/");
+}
+
+/**
  * This function filters the categoriesList array to only include items that are playable.
  * It then randomly selects one of those items and returns it.
  * @return {Array} An array containing one playable item.
@@ -37,10 +53,6 @@ const getNonPlayableItems = () => {
 // The non-playable items are randomly shuffled and limited to a maximum of 5 items
 const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 
-/**
- * Get the user object from the Astro context
- */
-const user = Astro.locals.user;
 
 /**
  * Parse the user's favourite genres from the user object

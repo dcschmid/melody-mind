@@ -6,9 +6,43 @@ import categories from "../../../json/categories.json";
 import ShowCoins from "../../../components/Shared/ShowCoins.astro";
 import { fetchRoundUIData } from "../../../utils/share/fetchRoundUIData";
 
+/**
+ * Get the user object from the Astro context
+ * @type {import("@astro/core/types").User}
+ */
+const user = Astro.locals.user;
+
+/**
+ * If the user is not logged in, redirect them to the login page.
+ */
+if (!user) {
+	/**
+	 * Redirect the user to the login page.
+	 */
+	return Astro.redirect("/");
+}
+
+/**
+ * Get the category and round parameters from the Astro context.
+ * The category parameter is required and determines which category
+ * the user wants to play.
+ * The round parameter is required and determines which round the user
+ * is currently playing.
+ */
 const { category, round } = Astro.params;
+
+/**
+ * Fetch the round UI data using the `fetchRoundUIData` function.
+ * The round UI data contains the headline, intro subline, sort data,
+ * sort order, and other UI data for the current round.
+ */
 const uiData = await fetchRoundUIData(round as string);
 
+/**
+ * Find the category object in the categories array that matches the category parameter.
+ * The `categories` array is a JSON file containing an array of category objects.
+ * The `find()` method is used to find the category object that matches the category parameter.
+ */
 const currentCategory = categories.find((cat) => cat.slug === category);
 ---
 

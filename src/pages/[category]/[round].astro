@@ -15,11 +15,25 @@ import { getAlbumsSortedBySpecificFieldAndCatgory } from "../../utils/round/sort
 import type { Album } from '../../utils/interfaces/albumInterface';
 
 /**
+ * Get the user object from the Astro context
+ */
+const user = Astro.locals.user;
+
+/**
+ * If the user is not logged in, redirect them to the login page.
+ */
+if (!user) {
+	/**
+	 * Redirect the user to the login page.
+	 */
+	return Astro.redirect("/");
+}
+
+/**
  * Destructure `category` and `round` from `Astro.params`
  */
 const { category, round } = Astro.params;
 
-console.log("category", category, "round", round);
 /**
  * Import the JSON file containing the albums data for the current category
  * and destructure it into an array of Album objects

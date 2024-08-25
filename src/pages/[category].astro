@@ -5,11 +5,38 @@ import Button from "../components/Shared/Button.astro";
 import IntroText from "../components/Shared/IntroText.astro";
 import categories from "../json/categories.json";
 
+/**
+ * Get the user object from the Astro context
+ */
+const user = Astro.locals.user;
+
+/**
+ * If the user is not logged in, redirect them to the login page.
+ */
+if (!user) {
+	/**
+	 * Redirect the user to the login page.
+	 */
+	return Astro.redirect("/");
+}
+
+/**
+ * Get the category parameter from the Astro context.
+ * The category parameter is required and determines which category
+ * the user wants to play.
+ */
 const { category } = Astro.params;
 
+/**
+ * Find the category object in the categories array that matches the category parameter.
+ * If the category is not found, redirect the user to a 404 page.
+ */
 const currentCategory = categories.find((cat: any) => cat.slug === category);
 
 if (!currentCategory) {
+  /**
+   * Redirect the user to a 404 page if the category is not found.
+   */
   return Astro.redirect("/404");
 }
 ---
