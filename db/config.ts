@@ -11,7 +11,6 @@ const User = defineTable({
     provider_type: column.text(),
     avatar_url: column.text(),
     total_user_points: column.number(),
-    favorite_genres: column.json({optional: true}),
   },
 });
 

@@ -52,23 +52,6 @@ const getNonPlayableItems = () => {
 // The non-playable items are randomly shuffled and limited to a maximum of 5 items
 const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 
-
-/**
- * Parse the user's favourite genres from the user object
- * If the user object doesn't exist, or the favourite genres are not set,
- * return an empty array
- */
-const favouriteGenres = JSON.parse(user?.favoriteGenres ? JSON.stringify(user.favoriteGenres) : '[]');
-
-/**
- * Filter the categories to only include those that are in the user's favourite genres
- */
-const userFavoriteGenres = categories.filter((category) => favouriteGenres.includes(category.slug));
-
-/**
- * Filter the categories to exclude those that are in the user's favourite genres
- */
-const filteredCategories = categories.filter((category) => !favouriteGenres.includes(category.slug));
 ---
 
 <Layout title="Spiel Kategorien">
@@ -81,27 +64,9 @@ const filteredCategories = categories.filter((category) => !favouriteGenres.incl
   <div class="choosePlaylist">
     <input class="filterInput" type="search" id="filter-input" placeholder="Suche nach einem Genre">
 
-    <When test={userFavoriteGenres.length > 0}>
-        <div class="dividerHeadline">Deine Genres:</div>
+    <When test={categories.length > 0}>
         {
-            userFavoriteGenres.map((item) => (
-                <When test={item.isPlayable}>
-                    <a href={item.categoryUrl}>
-                        <PlaylistItem headline={item.headline}  image={item.imageUrl} />
-                    </a>
-                </When>
-
-                <When test={!item.isPlayable}>
-                    <PlaylistItem headline={item.headline} image={item.imageUrl} />
-                </When>
-            ))
-        }
-    </When>
-
-    <When test={filteredCategories.length > 0}>
-        <When test={userFavoriteGenres.length > 0}><div class="dividerHeadline">Entdecke weitere Genres:</div></When>
-        {
-            filteredCategories.map((item) => (
+            categories.map((item) => (
                 <When test={item.isPlayable}>
                     <a href={item.categoryUrl}>
                         <PlaylistItem headline={item.headline}  image={item.imageUrl} />
@@ -167,20 +132,6 @@ const filteredCategories = categories.filter((category) => !favouriteGenres.incl
     background: var(--colour-BG-secondary);
   }
 
-  .dividerHeadline {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    color: var(--colour-text-active);
-    leading-trim: both;
-    text-edge: cap;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 150%;
-  }
-
   .filterInput {
     width: 100%;
     border: none;
@@ -223,11 +174,6 @@ const filteredCategories = categories.filter((category) => !favouriteGenres.incl
     const query = filterInput.value.toLowerCase();
     searchQuery = query;
     const playlistItems = document.querySelectorAll('.playlistItem');
-
-    const dividerHeadlines = document.querySelectorAll('.dividerHeadline') as NodeListOf<HTMLElement>;
-
-    // Toggle visibility of divider headlines based on search query
-    dividerHeadlines.forEach(el => el.classList.toggle('hidden', searchQuery !== ''));
 
     // Loop through each playlist item and check if the headline text
     // contains the user input. If it does, display the item, otherwise

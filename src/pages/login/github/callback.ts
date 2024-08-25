@@ -47,7 +47,6 @@ export async function GET(context: APIContext): Promise<Response> {
             email: githubUser.email ?? "",
             avatar_url: githubUser.avatar_url,
             total_user_points: 0,
-            favorite_genres: [],
 		});
 
 		const session = await lucia.createSession(userId, {});

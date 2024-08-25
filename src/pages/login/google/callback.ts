@@ -61,7 +61,6 @@ export async function GET(context: APIContext): Promise<Response> {
       email: googleUser.email ?? "",
       avatar_url: googleUser.picture ?? "",
       total_user_points: 0,
-      favorite_genres: [],
     })
 
     // Create a session for the new user.
