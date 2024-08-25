@@ -27,9 +27,23 @@ const Session = defineTable({
   },
 });
 
+const UserRankings = defineTable({
+  columns: {
+    id: column.text({
+      primaryKey: true,
+    }),
+    userId: column.text({
+      references: () => User.columns.id,
+    }),
+    category: column.text(),
+    points: column.number(),
+  },
+});
+
 export default defineDb({
   tables: {
     User,
     Session,
+    UserRankings,
   },
 });
