@@ -6,7 +6,7 @@ import { spotify } from "../../../auth";
 export async function GET(context: APIContext): Promise<Response> {
   const state = generateState();
   const url = await spotify.createAuthorizationURL(state, {
-    scopes: ["user-read-email"],
+    scopes: ["user-read-email, user-read-private"],
   });
 
   context.cookies.set("spotify_oauth_state", state, {
