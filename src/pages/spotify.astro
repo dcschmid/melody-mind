@@ -1,16 +1,17 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import { getAuthToken} from "@utils/spotify";
+// import { getAuthToken} from "@utils/spotify";
 
-const authToken = await getAuthToken();
+// const authToken = await getAuthToken();
 
-const response = await fetch(`https://api.spotify.com/v1/recommendations/available-genre-seeds?locale=de_DE`, {
+/*const response = await fetch(`https://api.spotify.com/v1/recommendations/available-genre-seeds?locale=de_DE`, {
     headers: {
         Authorization: `Bearer ${authToken}`,
     },
 });
 
 const genres = await response.json();
+*/
 
 function getGenreName(genre: string | number) {
   const genreMap = {
@@ -142,17 +143,12 @@ function getGenreName(genre: string | number) {
     'world-music': 'Weltmusik'
   };
 
-  return genreMap[genre as keyof typeof genreMap] || genre;
+  // return genreMap[genre as keyof typeof genreMap] || genre;
 }
 ---
 
 <Layout title="Spotify">
   <div>
     <h1>Spotify Genres</h1>
-    <ul>
-        {genres.genres.map((genre: any) => (
-        <li>{genre} - {getGenreName(genre)} </li>
-        ))}
-    </ul>
   </div>
 </Layout>

@@ -123,5 +123,158 @@
     "introSubline": "Erkunde die grenzenlosen Klänge und innovativen Sounds jenseits des Mainstreams!",
     "text": "Alternative Musik bietet eine erfrischende Abwechslung vom Gewöhnlichen und vereint eine Vielzahl von Stilen, die über die Mainstream-Pfade hinausgehen. Diese Kategorie umfasst alles von experimentellen Indie-Rock-Sounds und avantgardistischen Pop-Melodien bis hin zu fesselnden Folk- und Elektro-Kreationen. Mit kreativen Songstrukturen, unkonventionellen Rhythmen und einzigartigen Klangwelten ist Alternative die perfekte Wahl für alle, die auf der Suche nach musikalischer Vielfalt und neuen Hörerlebnissen sind.",
     "isPlayable": false
+  },
+  {
+    "slug": "black-metal",
+    "headline": "Black Metal",
+    "imageUrl": "/category/black-metal.jpg",
+    "categoryUrl": "/black-metal",
+    "introSubline": "Tauche ein in die düstere und intensive Welt des Black Metal!",
+    "text": "Black Metal ist bekannt für seine dunkle, aggressive Atmosphäre und seine kraftvollen, emotionalen Ausdrücke. Diese Kategorie vereint rasante Gitarrenriffs, intensiven Gesang und oft mystische, finstere Themen. Von atmosphärischen, epischen Kompositionen bis zu rohen, schnellen Tracks bietet Black Metal eine tiefgründige und oft herausfordernde Hörerfahrung. Erlebe die unbändige Energie und die komplexe Stimmung, die Black Metal zu einem einzigartigen und faszinierenden Genre machen.",
+    "isPlayable": false
+  },
+  {
+    "slug": "blues",
+    "headline": "Blues",
+    "imageUrl": "/category/blues.jpg",
+    "categoryUrl": "/blues",
+    "introSubline": "Spür die Seele und den Rhythmus des Blues, der Musik des Herzens!",
+    "text": "Blues ist ein Genre, das für seine gefühlvollen Melodien und tiefgründigen Texte bekannt ist. Diese Kategorie umfasst alles von klassischen Delta-Blues und elektrischen Chicago-Blues bis hin zu modernen Interpretationen des Genres. Mit seinen charakteristischen Gitarrenriffs, leidenschaftlichen Vocals und der kraftvollen Ausdrucksweise spiegelt Blues das Leben in all seinen Facetten wider – von Schmerz und Herzschmerz bis hin zu Hoffnung und Freude. Erlebe die emotionale Tiefe und die authentische Kraft, die den Blues zu einer unverwechselbaren und zeitlosen Musikrichtung machen.",
+    "isPlayable": false
+  },
+  {
+    "slug": "bossa-nova",
+    "headline": "Bossa Nova",
+    "imageUrl": "/category/bossa-nova.jpg",
+    "categoryUrl": "/bossa-nova",
+    "introSubline": "Genieße den sanften Rhythmus und die elegante Melodie der Bossa Nova!",
+    "text": "Bossa Nova vereint die geschmeidigen Klänge des brasilianischen Samba mit dem sanften Einfluss des Jazz. Diese Kategorie bietet dir eine Auswahl an zeitlosen Klassikern und modernen Interpretationen, die für ihre entspannte Eleganz und charmante Melancholie bekannt sind. Mit fließenden Gitarrenarrangements, sanften Vocals und einer unverwechselbaren Rhythmik verkörpert Bossa Nova die entspannte Atmosphäre der brasilianischen Küste und bringt ein Gefühl von Ruhe und Raffinesse in jede Hörsession.",
+    "isPlayable": false
+  },
+  {
+    "slug": "ambient",
+    "headline": "Ambient",
+    "imageUrl": "/category/ambient.jpg",
+    "categoryUrl": "/ambient",
+    "introSubline": "Lass dich von den beruhigenden Klängen und der atmosphärischen Tiefe des Ambient verzaubern!",
+    "text": "Ambient-Musik schafft Klanglandschaften, die für Entspannung und introspektive Erlebnisse sorgen. Diese Kategorie bietet eine Auswahl an sanften, immersiven Klängen und minimalistischen Kompositionen, die oft durch eine ruhige und meditative Atmosphäre gekennzeichnet sind. Von fließenden Synthesizer-Sounds und sanften Pads bis hin zu subtilen Field Recordings und texturalen Klangexperimenten – Ambient ist die perfekte Begleitung für Momente der Entspannung, Konzentration oder kreativen Reflexion. Erlebe eine Klangwelt, die dich einlädt, die Gedanken schweifen zu lassen und einfach im Moment zu sein.",
+    "isPlayable": false
+  },
+  {
+    "slug": "bluegrass",
+    "headline": "Bluegrass",
+    "imageUrl": "/category/bluegrass.jpg",
+    "categoryUrl": "/bluegrass",
+    "introSubline": "Erlebe die lebhaften Rhythmen und die herzliche Tradition des Bluegrass!",
+    "text": "Bluegrass ist ein Genre, das tief in den Traditionen der amerikanischen Folkmusik verwurzelt ist und durch seine virtuosen Instrumentalstücke und harmonischen Vocals besticht. Diese Kategorie bietet eine Auswahl an energetischen Jams und gefühlvollen Balladen, die von Banjo, Mandoline, Fiddle und akustischer Gitarre getragen werden. Mit seinem charakteristischen Tempo, den beeindruckenden Soli und den harmonischen Gesangslinien fängt Bluegrass die Essenz des ländlichen Lebens und der musikalischen Traditionen des amerikanischen Südens ein. Lass dich von der authentischen Leidenschaft und dem handwerklichen Können des Bluegrass begeistern!",
+    "isPlayable": false
+  },
+  {
+    "slug": "brasilianisch",
+    "headline": "Brasilianisch",
+    "imageUrl": "/category/brasilianisch.jpg",
+    "categoryUrl": "/brasilianisch",
+    "introSubline": "Erlebe die lebendige Vielfalt und den Rhythmus der brasilianischen Musik!",
+    "text": "Brasilianische Musik ist ein Kaleidoskop aus pulsierenden Rhythmen und leidenschaftlichen Melodien, die die reiche kulturelle Vielfalt Brasiliens widerspiegeln. Diese Kategorie vereint die besten Klänge von Samba und Bossa Nova bis hin zu Forró, MPB (Música Popular Brasileira) und Tropicália. Von den mitreißenden Beats der Sambaparaden bis zu den sanften, melancholischen Tönen der Bossa Nova – brasilianische Musik bietet eine faszinierende Mischung aus Tradition und Innovation, die dich direkt in die lebhafte Atmosphäre Brasiliens entführt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "breakbeat",
+    "headline": "Breakbeat",
+    "imageUrl": "/category/breakbeat.jpg",
+    "categoryUrl": "/breakbeat",
+    "introSubline": "Lass dich von den kraftvollen Rhythmen und der kreativen Energie des Breakbeat mitreißen!",
+    "text": "Breakbeat ist ein pulsierendes Genre, das für seine komplexen Rhythmen und energetischen Beats bekannt ist. Diese Kategorie vereint eine breite Palette von Tracks, die mit ihren knackigen Breakbeats und kreativen Sample-Techniken begeistern. Von klassischen Breakbeat-Hymnen und Hip-Hop-infizierten Beats bis hin zu modernen Drum'n'Bass- und Big Beat-Sounds – Breakbeat bietet eine dynamische und vielseitige Klangwelt, die zum Tanzen und Mitgrooven einlädt. Erlebe die unverwechselbare Energie und den rhythmischen Drive, die Breakbeat zu einem faszinierenden und ständig weiterentwickelnden Genre machen.",
+    "isPlayable": false
+  },
+  {
+    "slug": "britisch",
+    "headline": "Britisch",
+    "imageUrl": "/category/britisch.jpg",
+    "categoryUrl": "/britisch",
+    "introSubline": "Erlebe die vielfältigen Klänge und den unverwechselbaren Stil der britischen Musikszene!",
+    "text": "Britische Musik ist bekannt für ihre reichhaltige Geschichte und ihre Vielfalt an Stilen, die von klassischen Rock- und Pop-Hits bis zu innovativen modernen Sounds reichen. Diese Kategorie umfasst alles von den legendären Klängen der Beatles und The Rolling Stones über die experimentellen Sounds der Britpop-Ära bis hin zu den aktuellen Hits von Künstlern, die die internationale Musikszene prägen. Mit einem Mix aus ikonischen Bands, einzigartigen Solokünstlern und aufregenden neuen Acts bietet britische Musik einen faszinierenden Überblick über die kulturelle und musikalische Landschaft des Vereinigten Königreichs.",
+    "isPlayable": false
+  },
+  {
+    "slug": "cantopop",
+    "headline": "Cantopop",
+    "imageUrl": "/category/cantopop.jpg",
+    "categoryUrl": "/cantopop",
+    "introSubline": "Erlebe die eingängigen Melodien und den einzigartigen Charme des Cantopop!",
+    "text": "Cantopop, oder Cantonese Pop, ist ein faszinierendes Genre, das die lebhafte Musikszene Hongkongs und der südchinesischen Region repräsentiert. Diese Kategorie vereint eine Vielzahl von eingängigen Melodien, emotionalen Balladen und rhythmischen Hits, die auf Kantonesisch gesungen werden. Von den klassischen Cantopop-Hymnen der 80er und 90er Jahre bis zu den modernen Hits, die heute die Charts dominieren – Cantopop bietet eine bunte Mischung aus poppigen Klängen und kultureller Tiefe. Lass dich von der einzigartigen Atmosphäre und dem unverwechselbaren Stil des Cantopop mitreißen.",
+    "isPlayable": false
+  },
+  {
+    "slug": "chicago-house",
+    "headline": "Chicago House",
+    "imageUrl": "/category/chicago-house.jpg",
+    "categoryUrl": "/chicago-house",
+    "introSubline": "Tauche ein in den pulsierenden Rhythmus und die elektrisierende Energie des Chicago House!",
+    "text": "Chicago House ist das Herzstück des modernen Dance-Sounds und hat die Welt der elektronischen Musik revolutioniert. Diese Kategorie vereint die charakteristischen Beats, groovigen Basslines und hypnotisierenden Synthesizer-Sounds, die das Genre definiert haben. Von den frühen Pionieren wie Frankie Knuckles und Larry Heard bis hin zu zeitgenössischen Künstlern, die den klassischen House-Sound neu interpretieren – Chicago House bietet einen unverwechselbaren Klang, der die Tanzflächen weltweit erobert hat. Lass dich von den treibenden Rhythmen und dem energetischen Flair des Chicago House mitreißen und erlebe den pulsierenden Herzschlag der House-Music-Szene.",
+    "isPlayable": false
+  },
+  {
+    "slug": "klassik",
+    "headline": "Klassik",
+    "imageUrl": "/category/klassik.jpg",
+    "categoryUrl": "/klassik",
+    "introSubline": "Erlebe die zeitlose Schönheit und majestätische Komplexität der klassischen Musik!",
+    "text": "Klassische Musik ist die Grundlage der westlichen Musiktradition und bietet eine faszinierende Vielfalt von Kompositionen, die über Jahrhunderte hinweg begeistern. Diese Kategorie umfasst Meisterwerke von ikonischen Komponisten wie Bach, Mozart, Beethoven und viele weitere, die für ihre tiefgründigen Melodien, komplexen Strukturen und emotionale Ausdruckskraft bekannt sind. Von majestätischen Sinfonien und ergreifenden Solokonzerten bis zu eleganten Kammermusikstücken und intimen Klavierwerken – klassische Musik lädt dazu ein, in eine Welt von Raffinesse und zeitloser Schönheit einzutauchen. Lass dich von den großen Kompositionen inspirieren und genieße die Erhabenheit der Klassik.",
+    "isPlayable": false
+  },
+  {
+    "slug": "club",
+    "headline": "Club",
+    "imageUrl": "/category/club.jpg",
+    "categoryUrl": "/club",
+    "introSubline": "Erlebe die besten Beats und energischsten Tracks für die ultimative Clubnacht!",
+    "text": "Clubmusik bringt die pulsierenden Rhythmen und mitreißenden Klänge, die jede Party zum Leben erwecken. Diese Kategorie vereint die neuesten und besten Tracks aus Genres wie EDM, House, Techno und Trance, die speziell für die Tanzfläche und die Nachtclubs gemacht sind. Mit treibenden Basslines, hypnotisierenden Synthesizern und energiegeladenen Drops sorgt Clubmusik dafür, dass du die ganze Nacht durchfeiern kannst. Tauche ein in die vibrierende Atmosphäre und lass dich von den elektrisierenden Beats mitreißen, die jede Clubnacht unvergesslich machen.",
+    "isPlayable": false
+  },
+  {
+    "slug": "dancehall",
+    "headline": "Dancehall",
+    "imageUrl": "/category/dancehall.jpg",
+    "categoryUrl": "/dancehall",
+    "introSubline": "Spür den heißen Rhythmus und die pulsierende Energie der Dancehall-Beats!",
+    "text": "Dancehall ist ein lebendiges Genre, das mit seinen rhythmischen Beats und energetischen Vibes die Dancefloors weltweit erobert hat. Diese Kategorie vereint die besten Tracks von Dancehall-Pionieren und modernen Künstlern, die für ihre kraftvollen Rhythmen, eingängigen Melodien und dynamischen Vocals bekannt sind. Von den klassichen Hits der 80er und 90er Jahre bis hin zu aktuellen Chartstürmern – Dancehall bringt eine explosive Mischung aus Reggae-Infusionen, hypnotisierenden Grooves und urbanem Flair, die dich garantiert zum Tanzen und Feiern einlädt. Lass dich von den mitreißenden Rhythmen und der einzigartigen Energie der Dancehall mitreißen!",
+    "isPlayable": false
+  },
+  {
+    "slug": "death-metal",
+    "headline": "Death Metal",
+    "imageUrl": "/category/death-metal.jpg",
+    "categoryUrl": "/death-metal",
+    "introSubline": "Tauche ein in die kompromisslose Intensität und die dunkle Kraft des Death Metal!",
+    "text": "Death Metal ist bekannt für seine aggressive Energie, komplexen Strukturen und die unverwechselbaren, tiefen Growls. Diese Kategorie bietet eine Auswahl an Tracks, die durch brutale Gitarrenriffs, blast-beat Drumming und düstere, oft komplexe Texte geprägt sind. Von den frühen Pionieren wie Death und Morbid Angel bis hin zu den modernen Schwertschmieden des Genres – Death Metal vereint eine beeindruckende technische Virtuosität mit einem unerschütterlichen, intensiven Sound. Erlebe die rohe Kraft und die düstere Atmosphäre des Death Metal, die dich mit ihrer unbändigen Energie und ihrem extremen Ausdruckskraft fesseln wird.",
+    "isPlayable": false
+  },
+  {
+    "slug": "deep-house",
+    "headline": "Deep House",
+    "imageUrl": "/category/deep-house.jpg",
+    "categoryUrl": "/deep-house",
+    "introSubline": "Genieße die hypnotischen Grooves und den luxuriösen Sound des Deep House!",
+    "text": "Deep House bietet eine fesselnde Mischung aus sanften Beats, tiefen Basslines und atmosphärischen Klängen, die perfekte für entspannte, aber energiegeladene Momente ist. Diese Kategorie vereint melodische Elemente, subtile Rhythmen und eine elegante Produktion, die den Charakter des Deep House ausmachen. Von den hypnotischen Melodien und warmen Synthesizern bis hin zu den sanften Vocals und groovigen Basslines – Deep House schafft eine einladende und luxuriöse Atmosphäre, die dich sanft durch jede Nacht begleitet. Erlebe die entspannte Eleganz und den fesselnden Rhythmus, der Deep House zu einem unverzichtbaren Teil der elektronischen Musikszene macht.",
+    "isPlayable": false
+  },
+  {
+    "slug": "detroit-techno",
+    "headline": "Detroit Techno",
+    "imageUrl": "/category/detroit-techno.jpg",
+    "categoryUrl": "/detroit-techno",
+    "introSubline": "Erlebe die pulsierende Energie und den innovativen Sound des Detroit Techno!",
+    "text": "Detroit Techno ist ein Genre, das die elektronische Musikszene revolutioniert hat, geboren aus der kreativen Explosion der 1980er Jahre in Detroit. Diese Kategorie vereint die charakteristischen Elemente dieses Genres – von treibenden Beats und hypnotisierenden Synthesizern bis hin zu futuristischen Klängen und minimalistischen Strukturen. Mit Pionieren wie Derrick May, Juan Atkins und Kevin Saunderson, die den Sound geprägt haben, bietet Detroit Techno eine faszinierende Mischung aus Rhythmus, Technologie und urbanem Flair. Lass dich von den kraftvollen Basslines und dem einzigartigen, progressiven Sound des Detroit Techno mitreißen und spüre die unverwechselbare Energie, die diese Musik ausstrahlt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "drum-and-bass",
+    "headline": "Drum and Bass",
+    "imageUrl": "/category/drum-and-bass.jpg",
+    "categoryUrl": "/drum-and-bass",
+    "introSubline": "Erlebe die explosiven Beats und die energetische Intensität des Drum and Bass!",
+    "text": "Drum and Bass ist ein genre-definierendes Genre der elektronischen Musik, bekannt für seine rasanten Beats, komplexen Rhythmen und tiefen Basslines. Diese Kategorie bietet dir eine Auswahl an kraftvollen Tracks, die sowohl klassische Breakbeats als auch moderne, basslastige Variationen umfassen. Mit einem schnellen Tempo, hypnotisierenden Synthesizern und dynamischen Klanglandschaften schafft Drum and Bass eine aufregende und mitreißende Atmosphäre, die dich garantiert auf die Tanzfläche zieht. Lass dich von der pulsierenden Energie und dem innovativen Sound des Drum and Bass mitreißen und erlebe die geballte Kraft dieses einzigartigen Genres.",
+    "isPlayable": false
   }
 ]
