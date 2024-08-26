@@ -3,7 +3,6 @@ import { Icon } from "astro-icon/components";
 ---
 
 <div class="coins">
-  <div>Erspielte Münzen:</div>
   <div class="count"><Icon class="icon" name="coin" width={24} height={24} /> <span class="coinsCount"></span></div>
 </div>
 
@@ -12,8 +11,8 @@ import { Icon } from "astro-icon/components";
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: var(--colour-text-primary);
-    gap: var(--spacing-spacing-xs);
+    color: var(--text-color);
+    gap: var(--spacing-xs);
   }
 
   .count {

@@ -10,21 +10,21 @@ import { Picture } from "astro:assets";
 ---
 
 <div class="playlistItem">
-  <Picture class="cover" src={image} width={106} height={106} formats={["avif", "webp"]} alt="" />
+  <Picture class="cover" src={image} width={130} height={130} formats={["avif", "webp"]} alt="" />
   <div class="headline">{headline}</div>
 </div>
 
 <style>
   .playlistItem {
-    width: 106px;
+    width: 130px;
   }
 
   .cover {
-    border-radius: var(--radius-radius-rounded);
+    border-radius: var(--radius-rounded);
   }
 
   .headline {
-    color: var(--colour-text-primary);
+    color: var(--text-color);
     leading-trim: both;
     text-edge: cap;
     font-size: 18px;

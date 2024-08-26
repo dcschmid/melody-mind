@@ -8,40 +8,57 @@ import { Picture } from "astro:assets";
   <div class="container">
     <Picture
       class="logo"
-      src="/logo.png"
-      width={250}
-      height={275}
+      src="/cover-rush.jpg"
+      width={480}
+      height={274}
       formats={["avif", "webp"]}
       alt=""
       loading="eager"
     />
 
+    <div class="text">
+        Cover Rush ist ein rasantes Spiel, bei dem du deine Schnelligkeit und dein Wissen unter Beweis stellen musst! Sortiere und ordne CD-Cover blitzschnell, um Punkte zu sammeln und Trophäen zu gewinnen. Tritt gegen die Zeit an und zeige, wer der wahre Cover-Meister ist. Bist du bereit für den ultimativen Cover-Rausch?
+    </div>
+
     <div class="loginHeadline">Anmelden mit</div>
     <div class="buttonGroup">
-      <a class="loginButton" href="/login/spotify"><Icon class="loginIcon" name="spotify-alt" width={80} height={80} /> Spotify</a>
+      <a class="loginButton" href="/login/spotify"><Icon class="loginIcon" name="spotify" width={55} height={55} /> Spotify</a>
       <a class="loginButton" href=""><Icon class="loginIcon" name="apple" width={35} height={35} /> Apple</a>
       <a class="loginButton" href="/login/github"><Icon class="loginIcon" name="github" width={35} height={35} /> GitHub</a>
-      <a class="loginButton" href="/login/google"><Icon class="loginIcon" name="google" width={35} height={35} /> Google</a>
+      <a class="loginButton" href="/login/google"><Icon class="loginIcon" name="google" width={55} height={55} /> Google</a>
     </div>
   </div>
 </Layout>
 
 <style>
   .logo {
-    width: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 480 / 274;
     display: block;
-    margin: 0 auto;
+    margin: 2rem auto 0;
+  }
+
+  .text {
+    margin: 2rem 1rem;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: var(--text-color);
   }
 
   .loginHeadline {
     margin: 2rem 0;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     letter-spacing: 0.5px;
     text-align: center;
-    color: var(--colour-text-gold);
+    color: var(--primary-color);
   }
 
   .buttonGroup {
@@ -55,16 +72,23 @@ import { Picture } from "astro:assets";
 
   .loginButton {
     border-radius: 128px;
-    background: #ffe500;
+    background: var(--accent-color-1);
     height: 40px;
     padding: 12px 24px;
     text-decoration: none;
-    color: #1a0e38;
+    color: var(--text-color);
     display: inline-flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
     width: 120px;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--accent-color-2);
+        outline: 2px solid var(--accent-color-2);
+    }
   }
 
   .loginIcon {

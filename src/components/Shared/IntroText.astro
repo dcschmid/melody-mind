@@ -16,11 +16,10 @@ const { headline, subline, whiteText, isSmallHeadline = false, isWhiteSubline = 
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-2);
-    margin-bottom: var(--spacing-spacing-s);
+    margin-bottom: var(--spacing-s);
   }
 
   .headline {
-    color: var(--colour-text-primary);
     font-size: 24px;
     font-style: normal;
     font-weight: 900;
@@ -29,7 +28,6 @@ const { headline, subline, whiteText, isSmallHeadline = false, isWhiteSubline = 
   }
 
   .isSmallHeadline {
-    color: var(--colour-text-secondary);
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -37,16 +35,17 @@ const { headline, subline, whiteText, isSmallHeadline = false, isWhiteSubline = 
   }
 
   .subline {
-    color: var(--colour-text-secondary);
-    font-size: 16px;
+    color: var(--accent-color-4);
+    font-size: 1.125rem;
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
     text-align: center;
     width: 386px;
+    max-width: 100%;
   }
 
   .whiteText {
-    color: var(--colour-text-primary);
+    color: var(--text-color);
   }
 </style>

@@ -1,6 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
-
 import Layout from "@layouts/Layout.astro";
 import Button from "@components/Shared/Button.astro";
 import TriviaFinishOverlay from "@components/Trivia/TriviaFinishOverlay.astro";
@@ -76,7 +74,6 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
   <div class="solution" data-user-id={user.id} data-category={category} data-round={round?.replace("#", "")}>
     <div class="cover">
       <img class="picture" src="" width={240} height={240} alt="" />
-      <Icon class="shareIcon" name="share" width={48} height={48} />
     </div>
     <div class="solutionHeadline"></div>
     <div class="answer"></div>
@@ -90,11 +87,9 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
 <style>
   .solution {
     display: flex;
-    padding: var(--spacing-spacing-s) var(--spacing-spacing-s) var(--spacing-spacing-md) var(--spacing-spacing-s);
+    padding: var(--spacing-s) var(--spacing-s) var(--spacing-md) var(--spacing-s);
     flex-direction: column;
-    gap: var(--spacing-spacing-md);
-    border-radius: var(--radius-radius-rounded);
-    background: var(--colour-BG-secondary);
+    gap: var(--spacing-md);
   }
 
   .cover {
@@ -102,24 +97,15 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
     position: relative;
   }
 
-  .shareIcon {
-    position: absolute;
-    bottom: -15px;
-    right: -25px;
-    color: var(--colour-text-primary);
-  }
-
   .solutionHeadline {
-    color: var(--colour-text-primary);
-    font-size: 18px;
+    font-size: 1.125rem;
     font-style: normal;
     font-weight: 700;
     line-height: 120%;
   }
 
   .answer {
-    color: var(--colour-text-primary);
-    font-size: 14px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
@@ -128,7 +114,7 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
   .centerButton {
     display: flex;
     justify-content: center;
-    margin-top: var(--spacing-spacing-xl);
+    margin-top: var(--spacing-xl);
   }
 </style>
 

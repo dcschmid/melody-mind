@@ -15,7 +15,7 @@ import { Icon } from "astro-icon/components";
   .buttons {
     display: none;
     align-items: center;
-    gap: var(--spacing-spacing-xl);
+    gap: 8rem;
     z-index: 3;
     bottom: 1rem;
     position: absolute;
@@ -23,17 +23,17 @@ import { Icon } from "astro-icon/components";
 
   .arrowButton {
     display: flex;
-    padding: var(--spacing-1) var(--spacing-spacing-xs);
     justify-content: center;
     align-items: center;
-    gap: var(--spacing-spacing-xxs);
-    border-radius: var(--radius-radius-full);
-    background: var(--colour-BTN-primary);
+    gap: var(--spacing-s);
+    border-radius: var(--radius-circle);
+    background: var(--accent-color-1);
+    color: var(--text-color);
     cursor: pointer;
   }
 
   .arrowButton.disabled {
-    background: var(--colour-BTN-disabled);
+    background: var(--colour-disabled);
     pointer-events: none;
   }
 </style>

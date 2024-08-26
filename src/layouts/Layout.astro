@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { When } from "@astropub/flow";
+import { Image } from 'astro:assets';
 
 interface Props {
   title: string;
@@ -28,7 +29,7 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
             <slot name="left-headercol" />
         </div>
         <div class="logo">
-          <a href="/gamehome"><Icon name="cover-shuffle-logo" width={84} height={59.229} /></a>
+          <a href="/gamehome"><Image  alt="" src="/cover-rush.jpg" width={120} height={69} /></a>
         </div>
         <div class="iconGroup">
           <When test={showUserLink}>
@@ -52,41 +53,35 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
 
     <style is:global>
       :root {
-        --colour-BG-primary: #111a15;
-        --colour-BG-secondary: #2b2b2b;
-        --colour-BG-secondary: #2b2b2b;
-        --colour-BTN-disabled: #686868;
-        --colour-BTN-error: #ee0a4e;
-        --colour-BTN-gold: #b89826;
-        --colour-BTN-inverted-2: #fff;
-        --colour-BTN-inverted: #1a0e38;
-        --colour-BTN-primary: #ffe500;
-        --colour-BTN-verification: #2bdd6c;
-        --colour-border-disabled: #686868;
-        --colour-border-secondary: #ffe500;
-        --colour-text-BTN-primary: #1a0e38;
-        --colour-text-active: #ffe500;
-        --colour-text-gold: #b89826;
-        --colour-text-link: #b89826;
-        --colour-text-primary: #fff;
+        --background-color: #1F0E16;
+        --primary-color: #FFD700;
+        --accent-color-1: #FF4500;
+        --accent-color-2: #4DA6FF;
+        --accent-color-3: #32CD32;
+        --accent-color-4: #FF6F61;
+        --text-color: #FFFFFF;
+        --colour-disabled: #250606;
         --colour-text-secondary: #aeaeae;
-        --radius-radius-full: 128px;
-        --radius-radius-rounded: 8px;
+
+        /* Radiusvariablen */
+        --radius-circle: 128px;
+        --radius-rounded: 8px;
+
         --spacing-15: 12px;
         --spacing-1: 8px;
         --spacing-2: 16px;
         --spacing-3: 24px;
-        --spacing-spacing-lg: 32px;
-        --spacing-spacing-md: 24px;
-        --spacing-spacing-s: 12px;
-        --spacing-spacing-xl: 40px;
-        --spacing-spacing-xs: 8px;
-        --spacing-spacing-xxs: 4px;
+        --spacing-lg: 32px;
+        --spacing-md: 24px;
+        --spacing-s: 12px;
+        --spacing-xl: 40px;
+        --spacing-xs: 8px;
+        --spacing-xxs: 4px;
       }
 
       html {
         font-family: system-ui, sans-serif;
-        background: var(--colour-BG-primary);
+        background: var(--background-color);
       }
 
       body {
@@ -101,7 +96,7 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
         flex-direction: row;
         justify-content: space-between;
         align-items: top;
-        margin: var(--spacing-spacing-md) 0;
+        margin: var(--spacing-md) 0;
       }
 
       .slot {
@@ -116,20 +111,19 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
       .iconGroup {
         display: flex;
         align-items: top;
-        gap: var(--spacing-spacing-md);
+        gap: var(--spacing-md);
         width: 33.33333%;
         justify-content: flex-end;
       }
 
       main {
-        color: var(--colour-BG-primary);
+        color: var(--text-color);
         font-size: 1rem;
         line-height: 1.6;
-        color: #fff;
       }
 
       .hasMargin {
-        margin: 0 var(--spacing-spacing-s);
+        margin: 0 var(--spacing-s);
       }
 
       .resultItem {
@@ -145,7 +139,7 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
       }
 
       .resultBand {
-        color: var(--colour-text-primary);
+        color: var(--primary-color);
         font-size: 14px;
         font-style: normal;
         font-weight: 700;
@@ -153,7 +147,6 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
       }
 
       .resultAlbum {
-        color: var(--colour-text-secondary);
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
@@ -164,25 +157,25 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
         position: absolute;
         right: -14px;
         top: -14px;
-        border-radius: var(--radius-radius-full);
-        background: var(--colour-BTN-verification);
-        color: var(--colour-text-BTN-primary);
+        border-radius: var(--radius-circle);
+        background: var(--accent-color-3);
+        color: var(--text-color);
         text-align: center;
-        font-size: 18px;
+        font-size: 1.125rem;
         font-style: normal;
         font-weight: 700;
         line-height: 120%;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: var(--spacing-spacing-xxs);
-        width: 31px;
-        height: 31px;
+        gap: var(--spacing-xxs);
+        width: 2rem;
+        height: 2rem;
       }
 
       .resultError {
-        background: var(--colour-BTN-error);
-        color: var(--colour-text-BTN-inverted);
+        background: var(--accent-color-1);
+        color: var(--text-color);
       }
 
       .resultData {
@@ -190,7 +183,7 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
         font-style: normal;
         font-weight: 400;
         line-height: 35.28px;
-        color: var(--colour-text-gold);
+        color: var(--text-color);
       }
 
       button {

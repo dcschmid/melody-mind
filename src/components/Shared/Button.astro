@@ -18,13 +18,20 @@ const { buttonText = "", url = "", id } = Astro.props;
 <style>
   .button {
     border-radius: 128px;
-    background: #ffe500;
+    background: var(--accent-color-1);
     height: 24px;
     padding: 12px 24px;
     text-decoration: none;
-    color: #1a0e38;
+    color: var(--text-color);
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--accent-color-2);
+        outline: 2px solid var(--text-color);
+    }
   }
 </style>

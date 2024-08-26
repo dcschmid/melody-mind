@@ -57,12 +57,12 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
   <Help slot="left-headercol" />
   <div class="introText">
     <div class="headline">Willkommen <span class="name">{user?.username ?? "Mika"}</span>!</div>
-    <div class="subline">Wählen Sie ein <span class="whiteText">Genre</span> zum spielen!</div>
+    <div class="subline">Wähle hier ein Genre aus, das du spielen möchtest!</div>
   </div>
 
-  <div class="choosePlaylist">
-    <input class="filterInput" type="search" id="filter-input" placeholder="Suche nach einem Genre">
+  <input class="filterInput" type="search" id="filter-input" placeholder="Suche nach einem Genre">
 
+  <div class="choosePlaylist">
     <When test={categories.length > 0}>
         {
             categories.map((item) => (
@@ -87,11 +87,10 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-15);
-    margin-bottom: var(--spacing-spacing-md);
+    margin-bottom: var(--spacing-md);
   }
 
   .headline {
-    color: var(--colour-text-primary);
     leading-trim: both;
     text-edge: cap;
     font-size: 24px;
@@ -102,33 +101,26 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
   }
 
   .name {
-    color: var(--colour-text-active);
+    color: var(--primary-color);
   }
 
   .subline {
-    color: var(--colour-text-secondary, #aeaeae);
-    leading-trim: both;
-    text-edge: cap;
-    font-size: 16px;
+    color: var(--accent-color-4);
+    font-size: 1.125rem;
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
-  }
-
-  .whiteText {
-    color: var(--colour-text-primary);
+    text-align: center;
   }
 
   .choosePlaylist {
     display: flex;
-    padding: var(--spacing-spacing-s) var(--spacing-spacing-s) var(--spacing-spacing-md) var(--spacing-spacing-s);
+    padding: var(--spacing-s) var(--spacing-s) var(--spacing-md) var(--spacing-s);
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
     gap: var(--spacing-3);
-    border-radius: var(--radius-radius-rounded);
-    background: var(--colour-BG-secondary);
   }
 
   .filterInput {
@@ -140,8 +132,8 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     font-weight: 400;
     line-height: 120%;
     letter-spacing: 0.36px;
-    padding: var(--spacing-spacing-s) var(--spacing-spacing-s) var(--spacing-spacing-s) var(--spacing-spacing-s);
-    color: var(--colour-text-BTN-primary);
+    padding: var(--spacing-s);
+    color: var(--background-color);
   }
 
   .hidden {
@@ -150,13 +142,6 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 </style>
 
 <script>
-    /**
-     * The search query string entered by the user.
-     *
-     * @type {string}
-     */
-    let searchQuery = '';
-
   /**
    * Adds an event listener to the filter input element.
    * When the user types something, the filterPlaylists function is called.
@@ -171,7 +156,6 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
    */
   function filterPlaylists() {
     const query = filterInput.value.toLowerCase();
-    searchQuery = query;
     const playlistItems = document.querySelectorAll('.playlistItem');
 
     // Loop through each playlist item and check if the headline text

@@ -56,7 +56,6 @@ const currentCategory = categories.find((cat) => cat.slug === category);
     subline={uiData?.introSubline}
     whiteText={uiData?.sortToText}
     isSmallHeadline={true}
-    isWhiteSubline={true}
   />
 
   <div class="results" id="results-container" data-category={category} data-round={round?.replace("#", "")}></div>
@@ -68,10 +67,10 @@ const currentCategory = categories.find((cat) => cat.slug === category);
   .results {
     display: flex;
     flex-wrap: wrap;
-    padding: var(--spacing-1) var(--spacing-spacing-xl) var(--spacing-15) var(--spacing-spacing-xl);
+    padding: var(--spacing-1) var(--spacing-xl) var(--spacing-15) var(--spacing-xl);
     align-items: flex-start;
     justify-content: center;
-    gap: var(--spacing-spacing-xl);
+    gap: var(--spacing-xl);
   }
 </style>
 

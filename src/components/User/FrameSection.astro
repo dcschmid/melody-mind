@@ -39,21 +39,21 @@ import { Icon } from "astro-icon/components";
 <style lang="scss">
   .frame {
     display: flex;
-    margin: var(--spacing-spacing-s) 0;
-    padding: var(--spacing-spacing-md) var(--spacing-spacing-s);
+    margin: var(--spacing-s) 0;
+    padding: var(--spacing-md) var(--spacing-s);
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--spacing-spacing-lg);
+    gap: var(--spacing-lg);
     align-self: stretch;
     border-radius: var(--radius-radius-rounded);
-    background: var(--colour-BG-secondary);
+    background: var(--background-color);
   }
 
   .frames {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: var(--spacing-spacing-s);
+    gap: var(--spacing-s);
     flex-wrap: wrap;
   }
 
@@ -62,7 +62,7 @@ import { Icon } from "astro-icon/components";
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--spacing-spacing-s);
+    gap: var(--spacing-s);
     width: 80px;
   }
 
@@ -70,7 +70,7 @@ import { Icon } from "astro-icon/components";
     width: 60px;
     height: 60px;
     border-radius: var(--radius-radius-rounded);
-    border: 1px dotted var(--colour-border-disabled);
+    border: 1px dotted var(--colour-disabled);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,10 +78,10 @@ import { Icon } from "astro-icon/components";
   }
 
   .frameButton {
-    border-radius: var(--radius-radius-full);
-    background: var(--colour-BTN-primary);
-    padding: var(--spacing-spacing-xxs) var(--spacing-15);
-    color: var(--colour-text-BTN-primary);
+    border-radius: var(--radius-circle);
+    background: var(--primary-color);
+    padding: var(--spacing-xxs) var(--spacing-15);
+    color: var(--background-color);
     text-align: center;
     font-size: 16px;
     font-style: normal;
@@ -117,31 +117,31 @@ import { Icon } from "astro-icon/components";
   }
 
   .goldBackground {
-    background: var(--colour-BTN-gold, #b89826);
+    background: var(--primary-color);
     border: var(--pos-drei, 3px) solid var(--colour-brand-secondary, #ffe500);
     width: 54px;
     height: 54px;
 
     [data-icon] {
-      color: var(--colour-text-primary);
+      color: var(--text-color);
     }
 
     + .frameTitle {
-      color: var(--colour-text-primary);
+      color: var(--text-color);
     }
   }
 
   .whiteBackground {
-    background: var(--colour-BTN-inverted-2);
+    background: var(--text-color);
     border: 0;
 
     [data-icon] {
-      color: var(--colour-text-BTN-primary);
+      color: var(--background-color);
     }
   }
 
   .headline {
-    color: var(--colour-text-primary);
+    color: var(--text-color);
     font-size: 18px;
     font-style: normal;
     font-weight: 700;

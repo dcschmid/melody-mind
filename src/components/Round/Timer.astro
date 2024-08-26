@@ -19,24 +19,24 @@ const { minutes, seconds, showFinishButton = true } = Astro.props;
 
 <style>
   .timer {
-    padding: 24px 20px 23px 24px;
+    padding: 0.5rem;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    font-size: 40px;
+    font-size: 2rem;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
     letter-spacing: 2px;
-    color: var(--colour-text-primary);
+    color: var(--text-color);
   }
 
   .timercenter {
     justify-content: center;
-    padding: var(--spacing-spacing-md) 0 0 0;
+    padding: var(--spacing-md) 0 0 0;
   }
 
   .finishButton {
-    margin-left: var(--spacing-spacing-md);
+    margin-left: var(--spacing-md);
   }
 </style>

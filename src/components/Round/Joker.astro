@@ -9,22 +9,7 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
 
 <div class="jokerIcons">
   <div id="joker">
-    <Icon name="joker-gold" width={50} height={50} />
-  </div>
-
-  <div id="jokeroverlay" class="jokeroverlay">
-    <div class="jokercontent">
-      <div class="closeRoot">
-        <Button id="closeButton" buttonText="close" url="#" />
-      </div>
-      <div class="jokergroup">
-        <Icon name="joker-gold" width={80} height={80} />
-      </div>
-      <div class="jokeroneheadline">Joker</div>
-      <div class="centerButton">
-        <Button id="redeemjoker" buttonText="Joker einlösen" url="#" />
-      </div>
-    </div>
+    <Icon name="joker-gold" width={30} height={30} />
   </div>
 
   <div id="jokersolution" class="jokersolution">
@@ -35,7 +20,7 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
       </div>
       <div class="solutionRoot">
         <div class="solutionCover">
-          <Picture src={jokerCoverUrl} width={240} height={240} formats={["avif", "webp"]} alt="" />
+          <Picture class="solutionCoverImage" src={jokerCoverUrl} width={240} height={240} formats={["avif", "webp"]} alt="" />
         </div>
         <div class="solutionData">{jokerData}</div>
         <div class="solutionText">
@@ -51,35 +36,34 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
     display: none;
     cursor: pointer;
   }
+
   .jokerIcons {
     display: inline-flex;
     align-items: top;
-    gap: var(--spacing-spacing-s);
+    gap: var(--spacing-s);
   }
 
-  .jokeroverlay,
-  .jokersolution {
-    position: fixed;
+ .jokersolution {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000; /* ensures overlay is on top */
     visibility: hidden;
+    overflow-y: auto;
   }
 
-  .jokercontent,
   .jokersolutioncontent {
     display: flex;
-    width: 366px;
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-3);
+    margin: 0 1rem;
   }
 
   .jokergroup {
@@ -88,12 +72,8 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
     gap: var(--spacing-3);
   }
 
-  .jokeroneheadline {
-    color: var(--colour-text-primary);
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: 120%;
+  .solutionCoverImage {
+      border-radius: var(--radius-rounded);
   }
 
   .closeRoot {
@@ -102,17 +82,16 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
   }
 
   .closeIcon {
-    margin-right: var(--spacing-spacing-xl);
+    margin-right: var(--spacing-xl);
   }
 
   .solutionRoot {
     display: flex;
-    padding: var(--spacing-spacing-s) var(--spacing-spacing-s) var(--spacing-spacing-md) var(--spacing-spacing-s);
+    padding: var(--spacing-s) var(--spacing-s) var(--spacing-md) var(--spacing-s);
     flex-direction: column;
     align-items: start;
-    gap: var(--spacing-spacing-md);
-    border-radius: var(--radius-radius-rounded);
-    background: var(--colour-BG-secondary);
+    gap: var(--spacing-md);
+    max-width: 360px;
   }
 
   .solutionCover {
@@ -120,15 +99,9 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
     position: relative;
   }
 
-  .share {
-    position: absolute;
-    bottom: -10px;
-    right: -25px;
-  }
-
   .solutionData {
-    color: var(--colour-text-gold);
-    font-size: 24px;
+    color: var(--primary-color);
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 900;
     line-height: 120%;
@@ -136,11 +109,11 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
   }
 
   .solutionText {
-    color: var(--colour-text-primary);
-    font-size: 14px;
+    font-size: 1.125rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%;
+    line-height: 1.5;
+    hyphens: auto;
   }
 
   /* Define the shake animation */
@@ -173,15 +146,12 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
 <script>
   // Get references to the necessary DOM elements
   const openJokerOverlay = document.getElementById("joker")!; // The main overlay element
-  const jokeroverlay = document.getElementById("jokeroverlay")!; // The overlay element that displays the joker solution
   const jokersolution = document.getElementById("jokersolution")!; // The joker solution element
 
   const openJokerSolution = document.getElementById("redeemjoker"); // The button that triggers the joker solution overlay
-  const closeButton = document.getElementById("closeButton"); // The button that closes the joker solution overlay
   const closeJokerButton = document.getElementById("closeJokerButton"); // The button that closes the joker solution overlay
 
   // Set the initial visibility of the overlay and solution to hidden
-  jokeroverlay!.style.visibility = "hidden";
   jokersolution!.style.visibility = "hidden";
 
   // Add event listeners to the main overlay and the joker solution button
@@ -192,7 +162,7 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
    * @param {MouseEvent} _event - The mouse event that triggered the listener
    */
   openJokerOverlay.addEventListener("click", (_event: MouseEvent) => {
-    jokeroverlay!.style.visibility = "visible";
+    jokersolution!.style.visibility = "visible";
   });
 
   /**
@@ -200,7 +170,6 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
    * @param {MouseEvent} _event - The mouse event that triggered the listener
    */
   openJokerSolution?.addEventListener("click", (_event: MouseEvent) => {
-    jokeroverlay!.style.visibility = "hidden";
     jokersolution!.style.visibility = "visible";
   });
 
@@ -208,17 +177,7 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
    * Event listener for the close button
    * @returns {void}
    */
-  closeButton?.addEventListener("click", (): void => {
-    jokeroverlay!.style.visibility = "hidden";
-    jokersolution!.style.visibility = "hidden";
-  });
-
-  /**
-   * Event listener for the close button
-   * @returns {void}
-   */
   closeJokerButton?.addEventListener("click", (): void => {
-    jokeroverlay!.style.visibility = "hidden";
     jokersolution!.style.visibility = "hidden";
     openJokerOverlay!.style.display = "none";
   });
