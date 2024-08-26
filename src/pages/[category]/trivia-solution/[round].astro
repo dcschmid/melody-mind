@@ -71,7 +71,7 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
     <ShowCoins />
   </div>
 
-  <TriviaFinishOverlay url={currentCategory?.videoPage ? currentCategory?.videoPage : "/gamehome"} />
+  <TriviaFinishOverlay title={currentCategory?.headline} url={currentCategory?.videoPage ? currentCategory?.videoPage : "/gamehome"} />
 
   <div class="solution" data-user-id={user.id} data-category={category} data-round={round?.replace("#", "")}>
     <div class="cover">
@@ -131,7 +131,13 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
     margin-top: var(--spacing-spacing-xl);
   }
 </style>
+
 <script>
+  /**
+   * This script is responsible for displaying the final score of a round,
+   * adding confetti, and clearing the local storage after the last round.
+   */
+
   /**
    * Import the necessary modules for the script.
    */
@@ -184,6 +190,9 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
    * Calculate the final score.
    */
   const calcfinalScore = currentPoints * 2;
+  /**
+   * Update the user points in the database.
+   */
 
   await fetch(`/api/saveTotalUserPoints`, {
     method: 'POST',
@@ -210,6 +219,12 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
   const answerElement = document.querySelector(".answer") as HTMLElement;
   answerElement.textContent = triviaData.triviaAnswer;
 
+  const currentPointsDiv = document.querySelector(".overlayFinish .points") as HTMLElement;
+  currentPointsDiv.textContent = `+ ${currentPoints as unknown as string} Pt`;
+
+  const totalPointsDiv = document.querySelector(".overlayFinish .totalPoints") as HTMLElement;
+  totalPointsDiv.textContent = `${userPoints + calcfinalScore}`;
+
   /**
    * Update the picture element with the trivia image.
    */
@@ -217,39 +232,16 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
   pictureElement.src = triviaData.triviaImage;
 
   /**
-   * Event listener for the window load event.
-   * This function is called when the page has finished loading.
-   * It updates the points and user points elements in the overlay finish element.
-   * It adds a click event listener to the open overlay element.
-   * When the open overlay element is clicked, it shows the overlay finish element,
-   * adds confetti, and clears the local storage after the last round if the round value is "round-three".
-   *
-   * @param {Event} _event - The event object.
-   * @return {void}
+   * Add a click event listener to the open overlay element.
    */
-  window.addEventListener("load", function (_event: Event): void {
-    // Find the element inside overlayFinish to display the currentPoints.
-    const pointsElement = overlayFinish.querySelector(".points");
-    if (pointsElement) {
-      pointsElement.textContent = `+ ${currentPoints} Pt`;
-    }
+  openOverlay.addEventListener("click", function (_event: Event): void {
+    // Show the overlay finish element.
+    overlayFinish.style.visibility = "visible";
 
-    // Find the element inside overlayFinish to display the user points.
-    const userPointsElement = overlayFinish.querySelector(".totalPoints");
-    if (userPointsElement) {
-      userPointsElement.textContent = `${calcfinalScore} Pt`;
-    }
+    // Add confetti.
+    jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
 
-    // Add a click event listener to the open overlay element.
-    openOverlay.addEventListener("click", function (_event: Event): void {
-      // Show the overlay finish element.
-      overlayFinish.style.visibility = "visible";
-
-      // Add confetti.
-      jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
-
-      // Clear the local storage after the last round if the round value is "round-three".
-      if (roundValue === "round-three") clearLocalStorageAfterLastRound(categoryValue as string);
-    });
+    // Clear the local storage after the last round if the round value is "round-three".
+    if (roundValue === "round-three") clearLocalStorageAfterLastRound(categoryValue as string);
   });
 </script>

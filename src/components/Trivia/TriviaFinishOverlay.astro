@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 import Button from "../Shared/Button.astro";
 
-const { url } = Astro.props;
+const { url, title } = Astro.props;
 ---
 
 <div id="overlayFinish" class="overlayFinish">
@@ -12,9 +12,9 @@ const { url } = Astro.props;
     </div>
     <Icon name="diamond" width={150} height={150} />
     <div class="bigHeadline">Glückwunsch!</div>
-    <div class="headline">PopRock erfolgreich durchgespielt!</div>
+    <div class="headline">{title} erfolgreich durchgespielt!</div>
     <div class="subline">Punktzahl verdoppelt</div>
-    <div class="points">+200 Pt</div>
+    <div class="points"></div>
     <div class="totalText">gesamt</div>
     <div class="totalPoints"></div>
     <div class="centerButton">
