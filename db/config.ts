@@ -26,7 +26,7 @@ const Session = defineTable({
   },
 });
 
-const UserRankings = defineTable({
+const HighscorePerCategory = defineTable({
   columns: {
     id: column.text({
       primaryKey: true,
@@ -35,14 +35,28 @@ const UserRankings = defineTable({
       references: () => User.columns.id,
     }),
     category: column.text(),
-    points: column.number(),
+    score: column.number(),
   },
-});
+})
+
+const TotalHighscore = defineTable({
+  columns: {
+    id: column.text({
+      primaryKey: true,
+    }),
+    userId: column.text({
+      references: () => User.columns.id,
+    }),
+    score: column.number(),
+  },
+})
+
 
 export default defineDb({
   tables: {
     User,
     Session,
-    UserRankings,
+    HighscorePerCategory,
+    TotalHighscore
   },
 });
