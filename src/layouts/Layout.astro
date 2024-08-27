@@ -33,7 +33,7 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
         </div>
         <div class="iconGroup">
           <When test={showUserLink}>
-            <Icon name="settings" width={24} height={22.24} />
+            <Icon name="settings-grey" width={24} height={22.24} />
             <a href="/user"><Icon name="user-white" width={24} height={22.24} /></a>
             <form method="post" action="/api/logout">
                 <button><Icon name="logout" width={24} height={24} title="Abmelden" /></button>
