@@ -5,5 +5,5 @@
  * @returns {boolean} True if the email address is valid, false otherwise.
  */
 export function isValidEmail(email: string): boolean {
-	return email.includes('@');
+  return email.includes("@");
 }

@@ -11,14 +11,16 @@ const user = Astro.locals.user;
 /**
  * Get the total user points from the database
  */
-const currentUser = await db.select().from(User).where(eq(User.id, user?.id ?? ''));
+const currentUser = await db
+  .select()
+  .from(User)
+  .where(eq(User.id, user?.id ?? ""));
 
 /**
  * Get the total user points from the user object
  * @type {number}
  */
 const totalUserPoints = currentUser[0].total_user_points;
-
 ---
 
 <div class="headerBG">
@@ -38,7 +40,12 @@ const totalUserPoints = currentUser[0].total_user_points;
   </div>
   <div class="nameContent">
     <div class="name">
-      Hallo <span class="yellowName">{user?.username ?? "Mika"}</span>! <Icon class="editIcon" name="edit" width={24} height={24} />
+      Hallo <span class="yellowName">{user?.username ?? "Mika"}</span>! <Icon
+        class="editIcon"
+        name="edit"
+        width={24}
+        height={24}
+      />
     </div>
     <div class="points">
       <Icon class="coin" name="coin" width={24} height={24} />
@@ -49,8 +56,8 @@ const totalUserPoints = currentUser[0].total_user_points;
 
 <style lang="scss">
   .headerBG {
-    padding: var(--spacing-s);
     position: relative;
+    padding: var(--spacing-s);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -58,12 +65,12 @@ const totalUserPoints = currentUser[0].total_user_points;
   }
 
   .headerContent {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    z-index: 1;
-    position: relative;
   }
 
   .avatar {
@@ -93,23 +100,23 @@ const totalUserPoints = currentUser[0].total_user_points;
   }
 
   .nameContent {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: var(--spacing-15);
-    z-index: 1;
-    position: relative;
   }
 
   .name {
+    display: inline-flex;
     color: var(--text-color);
     font-size: 24px;
     font-style: normal;
     font-weight: 900;
     line-height: 120%;
     letter-spacing: 0.36px;
-    display: inline-flex;
     align-items: center;
   }
 

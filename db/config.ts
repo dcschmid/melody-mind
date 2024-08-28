@@ -37,7 +37,7 @@ const HighscorePerCategory = defineTable({
     category: column.text(),
     score: column.number(),
   },
-})
+});
 
 const TotalHighscore = defineTable({
   columns: {
@@ -49,14 +49,13 @@ const TotalHighscore = defineTable({
     }),
     score: column.number(),
   },
-})
-
+});
 
 export default defineDb({
   tables: {
     User,
     Session,
     HighscorePerCategory,
-    TotalHighscore
+    TotalHighscore,
   },
 });

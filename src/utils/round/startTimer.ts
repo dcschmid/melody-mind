@@ -9,7 +9,11 @@ import { updateTime } from "../share/updateTime";
  * @param timeRemaining - The remaining time in seconds.
  * @param timupsOverlay - The HTML element representing the timups overlay.
  */
-export function startTimer(timerInterval: number, timeRemaining: number, timupsOverlay: HTMLElement) {
+export function startTimer(
+  timerInterval: number,
+  timeRemaining: number,
+  timupsOverlay: HTMLElement,
+) {
   // Set an interval to call the updateTime function every second
   timerInterval = window.setInterval(() => {
     // Call the updateTime function with the current timeRemaining value

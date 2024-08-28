@@ -26,10 +26,10 @@ const user = Astro.locals.user;
  * If the user is not logged in, redirect them to the login page.
  */
 if (!user) {
-	/**
-	 * Redirect the user to the login page.
-	 */
-	return Astro.redirect("/");
+  /**
+   * Redirect the user to the login page.
+   */
+  return Astro.redirect("/");
 }
 
 /**
@@ -68,7 +68,11 @@ const currentCategory = categories.find((cat) => cat.slug === category);
  * The function takes the sort data, sort order, and albums array as parameters.
  * The function returns a new array of sorted albums with a random item as the first element.
  */
-const solutionData = await getAlbumsSortedBySpecificFieldAndCatgory(uiData?.sortData, uiData?.sortOrder, albums);
+const solutionData = await getAlbumsSortedBySpecificFieldAndCatgory(
+  uiData?.sortData,
+  uiData?.sortOrder,
+  albums,
+);
 
 /**
  * Get the won item from the solution data.
@@ -89,10 +93,16 @@ const lostItems = solutionData.randomAlbums.slice(1); // get the remaining items
  * The new array is created using the spread operator.
  * The `type` property is added to each item in the array.
  */
-const triviaDataWithTypes = [{ ...wonItem, type: "won" }, ...lostItems.map((item) => ({ ...item, type: "lost" }))];
+const triviaDataWithTypes = [
+  { ...wonItem, type: "won" },
+  ...lostItems.map((item) => ({ ...item, type: "lost" })),
+];
 ---
 
-<Layout title=`${currentCategory?.headline} - ${uiData?.headline} - Trivia Frage` showUserLink={false}>
+<Layout
+  title=`${currentCategory?.headline} - ${uiData?.headline} - Trivia Frage`
+  showUserLink={false}
+>
   <div slot="left-headercol">
     <ShowCoins />
   </div>
@@ -127,7 +137,11 @@ const triviaDataWithTypes = [{ ...wonItem, type: "won" }, ...lostItems.map((item
       {
         (item: any) => (
           <div class={item.type}>
-            <TriviaItem band={item.band} album={item.album} image={item.coverSrc} />
+            <TriviaItem
+              band={item.band}
+              album={item.album}
+              image={item.coverSrc}
+            />
           </div>
         )
       }
@@ -141,7 +155,8 @@ const triviaDataWithTypes = [{ ...wonItem, type: "won" }, ...lostItems.map((item
   .trivia {
     display: flex;
     flex-wrap: wrap;
-    padding: var(--spacing-1) var(--spacing-xl) var(--spacing-15) var(--spacing-xl);
+    padding: var(--spacing-1) var(--spacing-xl) var(--spacing-15)
+      var(--spacing-xl);
     align-items: center;
     justify-content: center;
     gap: var(--spacing-xl);
@@ -185,7 +200,10 @@ const triviaDataWithTypes = [{ ...wonItem, type: "won" }, ...lostItems.map((item
   };
 
   // Store the JSON object in local storage
-  localStorage.setItem(`${categoryValue}-triviaData-${roundValue}`, JSON.stringify(triviaData));
+  localStorage.setItem(
+    `${categoryValue}-triviaData-${roundValue}`,
+    JSON.stringify(triviaData),
+  );
   /**
    * Add an event listener to the window load event
    * This function is called when the page has finished loading
@@ -199,7 +217,9 @@ const triviaDataWithTypes = [{ ...wonItem, type: "won" }, ...lostItems.map((item
     overlayStart.style.visibility = "visible";
 
     // Add a click event listener to the game button
-    gameButton.addEventListener("click", () => startTimer(timerInterval!, timeRemaining, overlayStart, overlayTimeUp));
+    gameButton.addEventListener("click", () =>
+      startTimer(timerInterval!, timeRemaining, overlayStart, overlayTimeUp),
+    );
 
     // Add a click event listener to the "won" button
     // When the "won" button is clicked, call the handleWonClick function with the timer interval and the current points
@@ -211,11 +231,15 @@ const triviaDataWithTypes = [{ ...wonItem, type: "won" }, ...lostItems.map((item
           `${categoryValue}-Points-${roundValue}`,
           `${categoryValue}-AllCorrect-${roundValue}`,
           `${categoryValue}-TriviaWon-${roundValue}`,
-          categoryValue ?? ""
-        )
+          categoryValue ?? "",
+        ),
       );
 
     // Initialize the lost overlay
-    initLostOverlay(timerInterval, `${categoryValue}-TriviaWon-${roundValue}`, categoryValue ?? "");
+    initLostOverlay(
+      timerInterval,
+      `${categoryValue}-TriviaWon-${roundValue}`,
+      categoryValue ?? "",
+    );
   });
 </script>

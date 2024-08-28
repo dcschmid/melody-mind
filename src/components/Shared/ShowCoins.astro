@@ -3,7 +3,10 @@ import { Icon } from "astro-icon/components";
 ---
 
 <div class="coins">
-  <div class="count"><Icon class="icon" name="coin" width={24} height={24} /> <span class="coinsCount"></span></div>
+  <div class="count">
+    <Icon class="icon" name="coin" width={24} height={24} />
+    <span class="coinsCount"></span>
+  </div>
 </div>
 
 <style>
@@ -27,7 +30,9 @@ import { Icon } from "astro-icon/components";
 
 <script>
   window.addEventListener("load", function () {
-    const coinsCountElement = document.querySelector(".coinsCount") as HTMLDivElement;
+    const coinsCountElement = document.querySelector(
+      ".coinsCount",
+    ) as HTMLDivElement;
     const currentPoints = localStorage.getItem("currentPoints");
     coinsCountElement.textContent = currentPoints;
   });

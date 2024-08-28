@@ -14,7 +14,9 @@ export function populateResults(resultRoundName: string) {
   }
 
   // Get the results from the given round from localStorage
-  const resultsRound = JSON.parse(localStorage.getItem(resultRoundName) || "[]");
+  const resultsRound = JSON.parse(
+    localStorage.getItem(resultRoundName) || "[]",
+  );
 
   // Create a document fragment to improve performance when adding multiple elements to the DOM
   const fragment = document.createDocumentFragment();

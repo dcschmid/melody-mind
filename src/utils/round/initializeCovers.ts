@@ -42,7 +42,9 @@ export function initializeCovers() {
       const band = cover.getAttribute("data-band")!;
 
       // Get the audio element with the corresponding id
-      currentAudio = document.getElementById(`audio-${band}`) as HTMLAudioElement | null;
+      currentAudio = document.getElementById(
+        `audio-${band}`,
+      ) as HTMLAudioElement | null;
 
       // Play the audio if it exists
       if (currentAudio) {
@@ -55,6 +57,10 @@ export function initializeCovers() {
   });
 
   // Add click event listeners to up and down buttons
-  upButton.addEventListener("click", () => moveSelection(-1, selectedCover, upButton, downButton));
-  downButton.addEventListener("click", () => moveSelection(1, selectedCover, upButton, downButton));
+  upButton.addEventListener("click", () =>
+    moveSelection(-1, selectedCover, upButton, downButton),
+  );
+  downButton.addEventListener("click", () =>
+    moveSelection(1, selectedCover, upButton, downButton),
+  );
 }

@@ -10,7 +10,11 @@ import { calculateTheCurrentPoints } from "../calculateTheCurrentPoints";
  * @param {string} category - The category to use when calculating the current points.
  * @return {void}
  */
-export function initLostOverlay(timerInterval: number | null, triviaRoundWonName: string, category: string) {
+export function initLostOverlay(
+  timerInterval: number | null,
+  triviaRoundWonName: string,
+  category: string,
+) {
   // Cache the overlayLost element
   const overlayLost = document.getElementById("overlayLost") as HTMLElement;
 
@@ -41,7 +45,10 @@ export function initLostOverlay(timerInterval: number | null, triviaRoundWonName
     const pointDiv = overlayLost.querySelector(".point");
 
     // Get the current points from localStorage, defaulting to 0 if not set
-    const currentPoints = parseInt(localStorage.getItem("currentPoints") || "0", 10);
+    const currentPoints = parseInt(
+      localStorage.getItem("currentPoints") || "0",
+      10,
+    );
 
     // Set the text content of the pointDiv to the current points
     pointDiv!.textContent = `${currentPoints} Pt`;

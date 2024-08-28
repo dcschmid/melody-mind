@@ -116,10 +116,9 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
   .choosePlaylist {
     display: flex;
     padding: var(--spacing-s) var(--spacing-s) var(--spacing-md) var(--spacing-s);
-    flex-direction: row;
+    flex-flow: row wrap;
     justify-content: center;
     align-items: flex-start;
-    flex-wrap: wrap;
     gap: var(--spacing-3);
   }
 

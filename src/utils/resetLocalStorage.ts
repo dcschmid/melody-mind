@@ -1,4 +1,3 @@
-
 /**
  * Resets the local storage for a given category, setting all points, results, and trivia won flags to their default values.
  *

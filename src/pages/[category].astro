@@ -14,10 +14,10 @@ const user = Astro.locals.user;
  * If the user is not logged in, redirect them to the login page.
  */
 if (!user) {
-	/**
-	 * Redirect the user to the login page.
-	 */
-	return Astro.redirect("/");
+  /**
+   * Redirect the user to the login page.
+   */
+  return Astro.redirect("/");
 }
 
 /**
@@ -44,11 +44,21 @@ if (!currentCategory) {
 <Layout title={`${currentCategory?.headline} Start`}>
   <div slot="left-headercol"></div>
 
-  <IntroText headline={`${currentCategory?.headline} gewählt!`} subline={currentCategory?.introSubline} />
+  <IntroText
+    headline={`${currentCategory?.headline} gewählt!`}
+    subline={currentCategory?.introSubline}
+  />
 
   <div class="category" data-category={currentCategory?.slug}>
     <div class="cover">
-      <Picture class="coverImage" src={currentCategory?.imageUrl as string} width={280} height={280} formats={["avif", "webp"]} alt="" />
+      <Picture
+        class="coverImage"
+        src={currentCategory?.imageUrl as string}
+        width={280}
+        height={280}
+        formats={["avif", "webp"]}
+        alt=""
+      />
     </div>
     <div class="text">
       {currentCategory?.text}
@@ -76,7 +86,6 @@ if (!currentCategory) {
     line-height: 120%;
     letter-spacing: 0.36px;
   }
-
 
   .category {
     display: flex;

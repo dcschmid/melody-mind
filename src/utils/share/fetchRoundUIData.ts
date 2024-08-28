@@ -6,7 +6,8 @@ import type { RoundData } from "../interfaces/roundDataInterface";
 const roundData: Record<string, RoundData> = {
   "round-one": {
     headline: "Runde 1 / 3",
-    startOverlayText: "Erscheinungsjahr: vorne das neueste, hinten das älteste.",
+    startOverlayText:
+      "Erscheinungsjahr: vorne das neueste, hinten das älteste.",
     introSubline: "Sortieren Sie nach dem",
     sortToText: "Erscheinungsjahr!",
     upToLabel: "Älteste",

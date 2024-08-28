@@ -103,7 +103,11 @@ function sortAlbums(albums: Album[], sortBy: string, order: string): Album[] {
  * @param {Album[]} albums - The albums to filter by.
  * @return {Album[]} A list of sorted albums.
  */
-export async function getAlbumsSortedBySpecificFieldAndCatgory(sortBy: string, order: string, albums: Album[]) {
+export async function getAlbumsSortedBySpecificFieldAndCatgory(
+  sortBy: string,
+  order: string,
+  albums: Album[],
+) {
   /**
    * Filters the given albums array by category.
    *
@@ -111,11 +115,15 @@ export async function getAlbumsSortedBySpecificFieldAndCatgory(sortBy: string, o
    * @return {Album[]} The filtered array of albums.
    */
   const randomAlbums = shuffleArray(albums) // Shuffle the albums array
-    .filter((album, index, self) => { // Filter the albums array by category
+    .filter((album, index, self) => {
+      // Filter the albums array by category
       return (
         index ===
-        self.findIndex((a) => { // Find the index of the first album with the same category
-          switch (sortBy) { // Check the sortBy value
+        self.findIndex((a) => {
+          // Find the index of the first album with the same category
+          switch (
+            sortBy // Check the sortBy value
+          ) {
             case "dataYear":
               return a.dataYear === album.dataYear; // Compare the dataYear values
             case "dataSales":

@@ -15,7 +15,7 @@ export async function GET(context: APIContext): Promise<Response> {
     path: "/",
     secure: import.meta.env.PROD,
     httpOnly: import.meta.env.DEV,
-	maxAge: 60 * 60 * 24 * 30,
+    maxAge: 60 * 60 * 24 * 30,
     sameSite: "lax",
   });
 

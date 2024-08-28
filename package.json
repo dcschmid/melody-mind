@@ -7,7 +7,15 @@
     "start": "astro dev",
     "build": "astro check && yarn add sharp --ignore-engines; astro build --remote",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint:scss": "stylelint \"src/**/*.{astro,scss,svelte}\"",
+    "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,ts,astro}": "eslint --fix",
+    "*.{css,scss,astro}": "stylelint --fix",
+    "*.{html,json,md,mdx,astro}": "prettier --write"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
@@ -27,6 +35,24 @@
     "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "sass": "^1.77.8"
+    "@tinkoff/stylelint-config": "^4.0.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "eslint": "^9.9.1",
+    "eslint-plugin-astro": "^1.2.3",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.9",
+    "postcss-html": "^1.7.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "sass": "^1.77.8",
+    "stylelint": "^16.9.0",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-recommended-scss": "^14.1.0",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-csstree-validator": "^3.0.0",
+    "stylelint-prettier": "^5.0.2"
   }
 }

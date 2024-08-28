@@ -7,7 +7,10 @@ import { startTimer } from "./startTimer";
  * @param {number} timerInterval - The interval for the timer.
  * @param {number} timeRemaining - The initial time remaining.
  */
-export function initializeOverlay(timerInterval: number, timeRemaining: number) {
+export function initializeOverlay(
+  timerInterval: number,
+  timeRemaining: number,
+) {
   // Get the overlay and game button elements
   const timupsOverlay = document.getElementById("timupsOverlay") as HTMLElement;
   const startOverlay = document.getElementById("startOverlay");

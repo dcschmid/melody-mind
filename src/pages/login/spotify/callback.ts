@@ -36,12 +36,19 @@ export async function GET(context: APIContext): Promise<Response> {
 
     const spotifyUser: SpotifyUser = await spotifyUserResponse.json();
 
-    const existingUser = await db.select().from(User).where(eq(User.provider_id, spotifyUser.id));
+    const existingUser = await db
+      .select()
+      .from(User)
+      .where(eq(User.provider_id, spotifyUser.id));
 
     if (existingUser[0]) {
       const session = await lucia.createSession(existingUser[0].id, {});
       const sessionCookie = lucia.createSessionCookie(session.id);
-      context.cookies.set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
+      context.cookies.set(
+        sessionCookie.name,
+        sessionCookie.value,
+        sessionCookie.attributes,
+      );
 
       return context.redirect("/gamehome");
     }
@@ -60,7 +67,11 @@ export async function GET(context: APIContext): Promise<Response> {
 
     const session = await lucia.createSession(userId, {});
     const sessionCookie = lucia.createSessionCookie(session.id);
-    context.cookies.set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
+    context.cookies.set(
+      sessionCookie.name,
+      sessionCookie.value,
+      sessionCookie.attributes,
+    );
     return context.redirect("/gamehome");
   } catch (e) {
     console.log(e);

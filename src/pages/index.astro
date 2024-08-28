@@ -17,25 +17,37 @@ import { Picture } from "astro:assets";
     />
 
     <div class="text">
-        Cover Rush ist ein rasantes Spiel, bei dem du deine Schnelligkeit und dein Wissen unter Beweis stellen musst! Sortiere und ordne CD-Cover blitzschnell, um Punkte zu sammeln und Trophäen zu gewinnen. Tritt gegen die Zeit an und zeige, wer der wahre Cover-Meister ist. Bist du bereit für den ultimativen Cover-Rausch?
+      Cover Rush ist ein rasantes Spiel, bei dem du deine Schnelligkeit und dein
+      Wissen unter Beweis stellen musst! Sortiere und ordne CD-Cover
+      blitzschnell, um Punkte zu sammeln und Trophäen zu gewinnen. Tritt gegen
+      die Zeit an und zeige, wer der wahre Cover-Meister ist. Bist du bereit für
+      den ultimativen Cover-Rausch?
     </div>
 
     <div class="loginHeadline">Anmelden mit</div>
     <div class="buttonGroup">
-      <a class="loginButton" href="/login/spotify"><Icon class="loginIcon" name="spotify" width={55} height={55} /> Spotify</a>
-      <a class="loginButton" href=""><Icon class="loginIcon" name="apple" width={35} height={35} /> Apple</a>
-      <a class="loginButton" href="/login/github"><Icon class="loginIcon" name="github" width={35} height={35} /> GitHub</a>
-      <a class="loginButton" href="/login/google"><Icon class="loginIcon" name="google" width={55} height={55} /> Google</a>
+      <a class="loginButton" href="/login/spotify"
+        ><Icon class="loginIcon" name="spotify" width={55} height={55} /> Spotify</a
+      >
+      <a class="loginButton" href=""
+        ><Icon class="loginIcon" name="apple" width={35} height={35} /> Apple</a
+      >
+      <a class="loginButton" href="/login/github"
+        ><Icon class="loginIcon" name="github" width={35} height={35} /> GitHub</a
+      >
+      <a class="loginButton" href="/login/google"
+        ><Icon class="loginIcon" name="google" width={55} height={55} /> Google</a
+      >
     </div>
   </div>
 </Layout>
 
 <style>
   .logo {
+    display: block;
     width: 100%;
     height: auto;
     aspect-ratio: 480 / 274;
-    display: block;
     margin: 2rem auto 0;
   }
 
@@ -63,21 +75,20 @@ import { Picture } from "astro:assets";
 
   .buttonGroup {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 1.5rem;
   }
 
   .loginButton {
+    display: inline-flex;
     border-radius: 128px;
     background: var(--accent-color-1);
     height: 40px;
     padding: 12px 24px;
     text-decoration: none;
     color: var(--text-color);
-    display: inline-flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
@@ -86,8 +97,8 @@ import { Picture } from "astro:assets";
 
     &:hover,
     &:focus-visible {
-        background-color: var(--accent-color-2);
-        outline: 2px solid var(--accent-color-2);
+      background-color: var(--accent-color-2);
+      outline: 2px solid var(--accent-color-2);
     }
   }
 

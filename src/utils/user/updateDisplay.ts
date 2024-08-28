@@ -4,7 +4,10 @@
  * @param wonPopRockBrain - Indicates if PopRock Brain has been won.
  * @param wonBrainFrame - Indicates if Brain Frame has been won.
  */
-export function updateDisplay(wonPopRockBrain: boolean, wonBrainFrame: boolean) {
+export function updateDisplay(
+  wonPopRockBrain: boolean,
+  wonBrainFrame: boolean,
+) {
   /**
    * Represents the DOM elements used in the updateDisplay function.
    */

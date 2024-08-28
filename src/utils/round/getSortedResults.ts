@@ -1,5 +1,4 @@
-
-  /**
+/**
  * Represents the result of a cover.
  */
 interface CoverResult {
@@ -20,13 +19,15 @@ interface CoverResult {
  * @param ResultsRoundName - The name of the localStorage key that stores the results.
  */
 export const getSortedResults = (
-  solutionArray:[],
+  solutionArray: [],
   allCorrectRoundName: string,
   PointsRoundName: string,
-  ResultsRoundName: string
+  ResultsRoundName: string,
 ): void => {
   // Get all the cover elements from the DOM and convert them to an array
-  const sortedCovers: HTMLElement[] = Array.from(document.querySelectorAll<HTMLElement>(".cover")).reverse();
+  const sortedCovers: HTMLElement[] = Array.from(
+    document.querySelectorAll<HTMLElement>(".cover"),
+  ).reverse();
 
   // Map over the cover elements and create an array of objects containing the data attributes
   const results: CoverResult[] = sortedCovers.map((cover) => ({
@@ -60,7 +61,10 @@ export const getSortedResults = (
     localStorage.setItem(allCorrectRoundName, String(false));
   }
 
-  const currentPoints = parseInt(localStorage.getItem("currentPoints") || "0", 10);
+  const currentPoints = parseInt(
+    localStorage.getItem("currentPoints") || "0",
+    10,
+  );
 
   // Save the current points to localStorage
   // This is used to display the current points on the results page

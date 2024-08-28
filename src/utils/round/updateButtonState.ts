@@ -5,7 +5,11 @@
  * @param {HTMLElement} upButton - The up button element.
  * @param {HTMLElement} downButton - The down button element.
  */
-export function updateButtonState(selectedCover: HTMLElement, upButton: HTMLElement, downButton: HTMLElement): void {
+export function updateButtonState(
+  selectedCover: HTMLElement,
+  upButton: HTMLElement,
+  downButton: HTMLElement,
+): void {
   // Get the parent element of the selected cover
   const parent = selectedCover.parentElement!;
 

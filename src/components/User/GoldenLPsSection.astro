@@ -85,6 +85,7 @@ import { Icon } from "astro-icon/components";
     font-weight: 700;
     color: var(--primary-color);
   }
+
   .goldenlps {
     display: flex;
     margin: var(--spacing-s) 0;
@@ -99,10 +100,9 @@ import { Icon } from "astro-icon/components";
 
   .lpsRoot {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     align-items: flex-start;
     gap: var(--spacing-s);
-    flex-wrap: wrap;
   }
 
   .goldenlpsItem {
@@ -115,8 +115,8 @@ import { Icon } from "astro-icon/components";
   }
 
   .lpGroup {
-    display: flex;
     position: relative;
+    display: flex;
     margin-bottom: var(--spacing-xs);
   }
 

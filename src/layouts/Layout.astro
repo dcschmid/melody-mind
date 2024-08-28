@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { When } from "@astropub/flow";
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 interface Props {
   title: string;
@@ -26,17 +26,28 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
     <When test1={showHeader}>
       <header>
         <div class="slot">
-            <slot name="left-headercol" />
+          <slot name="left-headercol" />
         </div>
         <div class="logo">
-          <a href="/gamehome"><Image  alt="" src="/cover-rush.jpg" width={120} height={69} /></a>
+          <a href="/gamehome"
+            ><Image alt="" src="/cover-rush.jpg" width={120} height={69} /></a
+          >
         </div>
         <div class="iconGroup">
           <When test={showUserLink}>
             <Icon name="settings-grey" width={24} height={22.24} />
-            <a href="/user"><Icon name="user-white" width={24} height={22.24} /></a>
+            <a href="/user"
+              ><Icon name="user-white" width={24} height={22.24} /></a
+            >
             <form method="post" action="/api/logout">
-                <button><Icon name="logout" width={24} height={24} title="Abmelden" /></button>
+              <button
+                ><Icon
+                  name="logout"
+                  width={24}
+                  height={24}
+                  title="Abmelden"
+                /></button
+              >
             </form>
           </When>
           <When test={!showUserLink}>
@@ -51,22 +62,21 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
       <slot />
     </main>
 
-    <style is:global>
+    <style lang="scss" is:global>
       :root {
-        --background-color: #1F0E16;
-        --primary-color: #FFD700;
-        --accent-color-1: #FF4500;
-        --accent-color-2: #4DA6FF;
-        --accent-color-3: #32CD32;
-        --accent-color-4: #FF6F61;
-        --text-color: #FFFFFF;
+        --background-color: #1f0e16;
+        --primary-color: #ffd700;
+        --accent-color-1: #ff4500;
+        --accent-color-2: #4da6ff;
+        --accent-color-3: #32cd32;
+        --accent-color-4: #ff6f61;
+        --text-color: #fff;
         --colour-disabled: #250606;
         --colour-text-secondary: #aeaeae;
 
         /* Radiusvariablen */
         --radius-circle: 128px;
         --radius-rounded: 8px;
-
         --spacing-15: 12px;
         --spacing-1: 8px;
         --spacing-2: 16px;
@@ -128,9 +138,9 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
 
       .resultItem {
         position: relative;
+        display: flex;
         width: 126px;
         flex-direction: column;
-        display: flex;
       }
 
       .resultCover {
@@ -155,8 +165,9 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
 
       .resultPlace {
         position: absolute;
-        right: -14px;
         top: -14px;
+        right: -14px;
+        display: flex;
         border-radius: var(--radius-circle);
         background: var(--accent-color-3);
         color: var(--text-color);
@@ -165,7 +176,6 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
         font-style: normal;
         font-weight: 700;
         line-height: 120%;
-        display: flex;
         justify-content: center;
         align-items: center;
         gap: var(--spacing-xxs);

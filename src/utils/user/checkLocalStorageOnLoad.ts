@@ -14,12 +14,22 @@ export function checkLocalStorageOnLoad() {
   const headerBG = document.querySelector(".headerBG") as HTMLElement;
 
   // Get the avatar icon and frame elements
-  const avatarIconRocket = document.querySelector(".avatarIconRocket") as HTMLElement;
-  const avatarFrameRocket = document.querySelector(".avatarFrameRocket") as HTMLElement;
-  const avatarIconBrain = document.querySelector(".avatarIconBrain") as HTMLElement;
-  const avatarFrameBrain = document.querySelector(".avatarFrameBrain") as HTMLElement;
+  const avatarIconRocket = document.querySelector(
+    ".avatarIconRocket",
+  ) as HTMLElement;
+  const avatarFrameRocket = document.querySelector(
+    ".avatarFrameRocket",
+  ) as HTMLElement;
+  const avatarIconBrain = document.querySelector(
+    ".avatarIconBrain",
+  ) as HTMLElement;
+  const avatarFrameBrain = document.querySelector(
+    ".avatarFrameBrain",
+  ) as HTMLElement;
   const avatarIconMic = document.querySelector(".avatarIconMic") as HTMLElement;
-  const avatarFrameMic = document.querySelector(".avatarFrameMic") as HTMLElement;
+  const avatarFrameMic = document.querySelector(
+    ".avatarFrameMic",
+  ) as HTMLElement;
   const frameNew = document.querySelector(".newIcon2") as HTMLElement;
   const frameBrain = document.getElementById("brain") as HTMLElement;
   const frameRocket = document.getElementById("rocket") as HTMLElement;
@@ -31,20 +41,20 @@ export function checkLocalStorageOnLoad() {
       avatarIcon: avatarIconRocket,
       avatarFrame: avatarFrameRocket,
       headerBG: "headerBGRocket",
-      frame: frameRocket
+      frame: frameRocket,
     },
     brain: {
       avatarIcon: avatarIconBrain,
       avatarFrame: avatarFrameBrain,
       headerBG: "headerBGBrain",
-      frame: frameBrain
+      frame: frameBrain,
     },
     microphone: {
       avatarIcon: avatarIconMic,
       avatarFrame: avatarFrameMic,
       headerBG: "headerBGMic",
-      frame: frameMic
-    }
+      frame: frameMic,
+    },
   };
 
   // Get the selected frame object from the frames dictionary

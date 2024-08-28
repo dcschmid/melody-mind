@@ -4,16 +4,16 @@ import type { APIContext } from "astro";
 import { github } from "../../../auth";
 
 export async function GET(context: APIContext): Promise<Response> {
-	const state = generateState();
-	const url = await github.createAuthorizationURL(state);
+  const state = generateState();
+  const url = await github.createAuthorizationURL(state);
 
-	context.cookies.set("github_oauth_state", state, {
-		path: "/",
-		secure: import.meta.env.PROD,
-        httpOnly: import.meta.env.DEV,
-		maxAge: 60 * 60 * 24 * 30,
-		sameSite: "lax"
-	});
+  context.cookies.set("github_oauth_state", state, {
+    path: "/",
+    secure: import.meta.env.PROD,
+    httpOnly: import.meta.env.DEV,
+    maxAge: 60 * 60 * 24 * 30,
+    sameSite: "lax",
+  });
 
-	return context.redirect(url.toString());
+  return context.redirect(url.toString());
 }

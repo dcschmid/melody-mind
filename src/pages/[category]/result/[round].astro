@@ -16,10 +16,10 @@ const user = Astro.locals.user;
  * If the user is not logged in, redirect them to the login page.
  */
 if (!user) {
-	/**
-	 * Redirect the user to the login page.
-	 */
-	return Astro.redirect("/");
+  /**
+   * Redirect the user to the login page.
+   */
+  return Astro.redirect("/");
 }
 
 /**
@@ -58,7 +58,13 @@ const currentCategory = categories.find((cat) => cat.slug === category);
     isSmallHeadline={true}
   />
 
-  <div class="results" id="results-container" data-category={category} data-round={round?.replace("#", "")}></div>
+  <div
+    class="results"
+    id="results-container"
+    data-category={category}
+    data-round={round?.replace("#", "")}
+  >
+  </div>
 
   <Points />
 </Layout>
@@ -67,7 +73,8 @@ const currentCategory = categories.find((cat) => cat.slug === category);
   .results {
     display: flex;
     flex-wrap: wrap;
-    padding: var(--spacing-1) var(--spacing-xl) var(--spacing-15) var(--spacing-xl);
+    padding: var(--spacing-1) var(--spacing-xl) var(--spacing-15)
+      var(--spacing-xl);
     align-items: flex-start;
     justify-content: center;
     gap: var(--spacing-xl);

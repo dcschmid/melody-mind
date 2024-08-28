@@ -16,10 +16,10 @@ const user = Astro.locals.user;
  * If the user is not logged in, redirect them to the login page.
  */
 if (!user) {
-	/**
-	 * Redirect the user to the login page.
-	 */
-	return Astro.redirect("/");
+  /**
+   * Redirect the user to the login page.
+   */
+  return Astro.redirect("/");
 }
 
 /**
@@ -44,7 +44,10 @@ const currentCategory = categories.find((cat) => cat.slug === category);
  * Set the button text and URL based on the round
  * @type {string}
  */
-const centerButtonText = round === "round-one" || round === "round-two" ? "nächste Runde" : "Spiel beenden";
+const centerButtonText =
+  round === "round-one" || round === "round-two"
+    ? "nächste Runde"
+    : "Spiel beenden";
 
 /**
  * Set the button URL based on the round
@@ -64,14 +67,26 @@ const centerButtonUrl =
 const centerButtonID = round === "round-three" ? "openOverlay" : "";
 ---
 
-<Layout title=`${currentCategory?.headline} - ${uiData?.headline} - Trivia Lösung` showUserLink={false}>
+<Layout
+  title=`${currentCategory?.headline} - ${uiData?.headline} - Trivia Lösung`
+  showUserLink={false}
+>
   <div slot="left-headercol">
     <ShowCoins />
   </div>
 
-  <TriviaFinishOverlay title={currentCategory?.headline} url={currentCategory?.videoPage ? currentCategory?.videoPage : "/gamehome"} />
+  <TriviaFinishOverlay
+    title={currentCategory?.headline}
+    url={currentCategory?.videoPage ? currentCategory?.videoPage : "/gamehome"}
+  />
 
-  <div class="solution" data-user-id={user.id} data-category-name={currentCategory?.headline} data-category={category} data-round={round?.replace("#", "")}>
+  <div
+    class="solution"
+    data-user-id={user.id}
+    data-category-name={currentCategory?.headline}
+    data-category={category}
+    data-round={round?.replace("#", "")}
+  >
     <div class="cover">
       <img class="picture" src="" width={240} height={240} alt="" />
     </div>
@@ -80,21 +95,26 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
   </div>
 
   <div class="centerButton">
-    <Button id={centerButtonID} buttonText={centerButtonText} url={centerButtonUrl} />
+    <Button
+      id={centerButtonID}
+      buttonText={centerButtonText}
+      url={centerButtonUrl}
+    />
   </div>
 </Layout>
 
 <style>
   .solution {
     display: flex;
-    padding: var(--spacing-s) var(--spacing-s) var(--spacing-md) var(--spacing-s);
+    padding: var(--spacing-s) var(--spacing-s) var(--spacing-md)
+      var(--spacing-s);
     flex-direction: column;
     gap: var(--spacing-md);
   }
 
   .cover {
-    margin: 0 auto;
     position: relative;
+    margin: 0 auto;
   }
 
   .solutionHeadline {
@@ -145,12 +165,14 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
   /**
    * Get the current and user points from local storage.
    */
-  const currentPoints = parseInt(localStorage.getItem("currentPoints") || "0", 10);
+  const currentPoints = parseInt(
+    localStorage.getItem("currentPoints") || "0",
+    10,
+  );
 
   const categoryValue = triviaElement.getAttribute("data-category");
   const roundValue = triviaElement.getAttribute("data-round");
-    const categoryName = triviaElement.getAttribute("data-category-name");
-
+  const categoryName = triviaElement.getAttribute("data-category-name");
 
   /**
    * Get the user ID from the data attribute.
@@ -161,9 +183,9 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
    * Fetch the total user points from the API.
    */
   const response = await fetch(`/api/getUserPoints`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({ userId, categoryValue }),
   });
@@ -171,26 +193,34 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
   /**
    * Parse the response as JSON.
    */
-  const {totalUserPoints, currentCategoryPointsValue} = await response.json();
+  const { totalUserPoints, currentCategoryPointsValue } = await response.json();
 
   /**
    * Get the trivia data from local storage.
    */
-  const triviaData = JSON.parse(localStorage.getItem(`${categoryValue}-triviaData-${roundValue}`) ?? "[]");
+  const triviaData = JSON.parse(
+    localStorage.getItem(`${categoryValue}-triviaData-${roundValue}`) ?? "[]",
+  );
 
   /**
    * Update the headline and answer elements with the trivia data.
    */
-  const headlineElement = document.querySelector(".solutionHeadline") as HTMLElement;
+  const headlineElement = document.querySelector(
+    ".solutionHeadline",
+  ) as HTMLElement;
   headlineElement.textContent = triviaData.triviaAlbum;
 
   const answerElement = document.querySelector(".answer") as HTMLElement;
   answerElement.textContent = triviaData.triviaAnswer;
 
-  const currentPointsDiv = document.querySelector(".overlayFinish .points") as HTMLElement;
+  const currentPointsDiv = document.querySelector(
+    ".overlayFinish .points",
+  ) as HTMLElement;
   currentPointsDiv.textContent = `+ ${currentPoints as unknown as string} Pt`;
 
-  const totalPointsDiv = document.querySelector(".overlayFinish .totalPoints") as HTMLElement;
+  const totalPointsDiv = document.querySelector(
+    ".overlayFinish .totalPoints",
+  ) as HTMLElement;
   totalPointsDiv.textContent = `${currentPoints}`;
 
   /**
@@ -211,22 +241,26 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
 
     // Clear the local storage after the last round if the round value is "round-three".
     if (roundValue === "round-three") {
+      /**
+       * Update the user points in the database.
+       */
+      async function updateUserPoints() {
+        await fetch(`/api/saveTotalUserPointsAndHighscore`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId,
+            totalUserPoints: totalUserPoints + currentPoints,
+            category: categoryName,
+            categoryPoints: currentCategoryPointsValue + currentPoints,
+          }),
+        });
+      }
 
-       /**
-         * Update the user points in the database.
-         */
-        async function updateUserPoints() {
-            await fetch(`/api/saveTotalUserPointsAndHighscore`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ userId, totalUserPoints: totalUserPoints + currentPoints, category: categoryName, categoryPoints:  currentCategoryPointsValue + currentPoints }),
-            });
-        }
-
-        updateUserPoints();
-        clearLocalStorageAfterLastRound(categoryValue as string);
+      updateUserPoints();
+      clearLocalStorageAfterLastRound(categoryValue as string);
     }
   });
 </script>

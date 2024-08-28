@@ -12,7 +12,7 @@ import Joker from "@components/Round/Joker.astro"; // Joker component
 import ShowCoins from "@components/Shared/ShowCoins.astro"; // ShowCoins component
 import { fetchRoundUIData } from "@utils/share/fetchRoundUIData"; // Function to fetch round UI data
 import { getAlbumsSortedBySpecificFieldAndCatgory } from "@utils/round/sortAlbums";
-import type { Album } from '@utils/interfaces/albumInterface';
+import type { Album } from "@utils/interfaces/albumInterface";
 
 /**
  * Get the user object from the Astro context
@@ -23,10 +23,10 @@ const user = Astro.locals.user;
  * If the user is not logged in, redirect them to the login page.
  */
 if (!user) {
-	/**
-	 * Redirect the user to the login page.
-	 */
-	return Astro.redirect("/");
+  /**
+   * Redirect the user to the login page.
+   */
+  return Astro.redirect("/");
 }
 
 /**
@@ -59,7 +59,11 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
  * @param {Album[]} albums - The albums to sort and shuffle.
  * @return {Album[]} A list of shuffled albums with the first four albums being the solution.
  */
-const solutionData = await getAlbumsSortedBySpecificFieldAndCatgory(uiData?.sortData, uiData?.sortOrder, albums);
+const solutionData = await getAlbumsSortedBySpecificFieldAndCatgory(
+  uiData?.sortData,
+  uiData?.sortOrder,
+  albums,
+);
 
 /**
  * Get the joker text, data, and cover URL from the first album
@@ -95,16 +99,27 @@ const jokerData = getJokerData(round as string);
 const jokerCoverUrl = solutionData.randomAlbums?.[0].coverSrc;
 ---
 
-<Layout title=`${currentCategoryData?.headline} - ${uiData?.headline}` ` showUserLink={false}>
+<Layout
+  title=`${currentCategoryData?.headline} - ${uiData?.headline}`
+  `
+  showUserLink={false}
+>
   <div slot="left-headercol">
     <ShowCoins />
   </div>
 
-  <StartOverlay headline={uiData?.headline} whiteText={uiData?.startOverlayText} />
+  <StartOverlay
+    headline={uiData?.headline}
+    whiteText={uiData?.startOverlayText}
+  />
 
   <TimeupsOverlay />
 
-  <IntroText headline={uiData?.headline} subline={uiData?.introSubline} whiteText={uiData?.sortToText} />
+  <IntroText
+    headline={uiData?.headline}
+    subline={uiData?.introSubline}
+    whiteText={uiData?.sortToText}
+  />
 
   <CoverFlow
     randomizedCoverflowData={solutionData.randomAlbums}
@@ -116,7 +131,11 @@ const jokerCoverUrl = solutionData.randomAlbums?.[0].coverSrc;
   />
 
   <div class="timerSection">
-    <Joker jokerCoverUrl={jokerCoverUrl} jokerText={jokerText} jokerData={jokerData} />
+    <Joker
+      jokerCoverUrl={jokerCoverUrl}
+      jokerText={jokerText}
+      jokerData={jokerData}
+    />
 
     <Timer minutes="01" seconds="30" />
   </div>
@@ -162,7 +181,9 @@ const jokerCoverUrl = solutionData.randomAlbums?.[0].coverSrc;
    * Get the category value from the data attribute of the coverFlowRoot element
    */
   // Select the coverFlowRoot element and typecast it to HTMLElement
-  const categoryDataElement = document.querySelector(".coverFlowRoot") as HTMLElement;
+  const categoryDataElement = document.querySelector(
+    ".coverFlowRoot",
+  ) as HTMLElement;
   // Get the value of the data-category attribute from the coverFlowRoot element
   const categoryValue = categoryDataElement.getAttribute("data-category")!;
   // Get the value of the data-round attribute from the coverFlowRoot element
@@ -190,7 +211,7 @@ const jokerCoverUrl = solutionData.randomAlbums?.[0].coverSrc;
       `/${categoryValue}/result/${dataRound}`, // URL for the results page
       `${categoryValue}-AllCorrect-${dataRound}`, // Key for the local storage item that stores the correct answers
       `${categoryValue}-Points-${dataRound}`, // Key for the local storage item that stores the points earned in this round
-      `${categoryValue}-Results-${dataRound}` // Key for the local storage item that stores the results for this round
+      `${categoryValue}-Results-${dataRound}`, // Key for the local storage item that stores the results for this round
     );
   });
 </script>

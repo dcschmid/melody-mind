@@ -13,14 +13,13 @@ const {
 } = Astro.props;
 ---
 
-
 <div
   class="coverFlowRoot"
   data-category={dataCategory}
   data-solution={JSON.stringify(dataSolution)}
   data-round={dataRound.replace("#", "")}
 >
-<div class="smallText">{upText}</div>
+  <div class="smallText">{upText}</div>
 
   <div class="coverflow">
     <For of={randomizedCoverflowData}>
@@ -31,12 +30,26 @@ const {
             data-band={item.band}
             data-album={item.album}
             data-data={
-              dataRound === "round-one" ? item.dataYear : dataRound === "round-two" ? item.dataSales : item.dataLength
+              dataRound === "round-one"
+                ? item.dataYear
+                : dataRound === "round-two"
+                  ? item.dataSales
+                  : item.dataLength
             }
             data-cover-source={item.coverSrc}
           >
-            <Picture src={item.coverSrc} width={130} height={130} formats={["avif", "webp"]} alt="" />
-            <audio id={`audio-${item.band}`} src={item.audioSrc} preload="none" />
+            <Picture
+              src={item.coverSrc}
+              width={130}
+              height={130}
+              formats={["avif", "webp"]}
+              alt=""
+            />
+            <audio
+              id={`audio-${item.band}`}
+              src={item.audioSrc}
+              preload="none"
+            />
           </div>
         )
       }
@@ -45,14 +58,12 @@ const {
     <Arrows />
   </div>
   <div class="smallText">{downText}</div>
-
 </div>
-
 
 <style>
   .smallText {
-    width: auto;
     display: inline-flex;
+    width: auto;
     margin: var(--spacing-s) 0;
     justify-content: center;
     align-items: center;
@@ -63,10 +74,10 @@ const {
   }
 
   .coverFlowRoot {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
   }
 
   .coverflow {
@@ -77,8 +88,9 @@ const {
     justify-content: center;
     gap: var(--spacing-md);
 
-    @media screen and (min-width: 360px) {
-        padding: var(--spacing-1) var(--spacing-xl) var(--spacing-15) var(--spacing-xl);
+    @media screen and (width >= 360px) {
+      padding: var(--spacing-1) var(--spacing-xl) var(--spacing-15)
+        var(--spacing-xl);
     }
   }
 
@@ -86,22 +98,20 @@ const {
     width: 120px;
     height: 120px;
 
-
-    @media screen and (min-width: 385px) {
-        width: 140px;
-        height: 140px;
+    @media screen and (width >= 385px) {
+      width: 140px;
+      height: 140px;
     }
 
-    @media screen and (min-width: 425px) {
-        width: 160px;
-        height: 160px;
+    @media screen and (width >= 425px) {
+      width: 160px;
+      height: 160px;
     }
 
-    @media screen and (min-width: 475px) {
-        width: 180px;
-        height: 180px;
+    @media screen and (width >= 475px) {
+      width: 180px;
+      height: 180px;
     }
-
   }
 
   .cover img {

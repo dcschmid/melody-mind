@@ -10,21 +10,26 @@ import { updateTime } from "../share/updateTime";
  * @param overlayStart - The HTML element representing the start overlay.
  * @param overlayTimeUp - The HTML element representing the time up overlay.
  */
-export function startTimer(timerInterval: number, timeRemaining: number, overlayStart: HTMLElement, overlayTimeUp: HTMLElement) {
-    // Set an interval to call the updateTime function every second
-    timerInterval = window.setInterval(() => {
-      // Call the updateTime function with the current timeRemaining value
-      updateTime(timeRemaining);
+export function startTimer(
+  timerInterval: number,
+  timeRemaining: number,
+  overlayStart: HTMLElement,
+  overlayTimeUp: HTMLElement,
+) {
+  // Set an interval to call the updateTime function every second
+  timerInterval = window.setInterval(() => {
+    // Call the updateTime function with the current timeRemaining value
+    updateTime(timeRemaining);
 
-      // Decrement the timeRemaining value and check if it has reached zero
-      if (--timeRemaining < 0) {
-        // If the timer has reached zero, hide the timer overlay
-        // Clear the timer interval to stop the timer
-        clearInterval(timerInterval!);
-        overlayTimeUp.style.visibility = "visible";
-      }
-    }, 1000);
+    // Decrement the timeRemaining value and check if it has reached zero
+    if (--timeRemaining < 0) {
+      // If the timer has reached zero, hide the timer overlay
+      // Clear the timer interval to stop the timer
+      clearInterval(timerInterval!);
+      overlayTimeUp.style.visibility = "visible";
+    }
+  }, 1000);
 
-    // Hide the start overlay to show the gameboard
-    overlayStart.style.visibility = "hidden";
+  // Hide the start overlay to show the gameboard
+  overlayStart.style.visibility = "hidden";
 }

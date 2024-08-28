@@ -10,7 +10,13 @@ import { calculateTheCurrentPoints } from "../calculateTheCurrentPoints";
  * @param {string} triviaRoundWonName - The name of the key in localStorage that stores whether Round was won.
  * @param {string} category - The category of the trivia round.
  */
-export function handleWonClick(timerInterval: number | null, pointsRoundName: string, allCorrectRoundName: string, triviaRoundWonName: string,  category: string) {
+export function handleWonClick(
+  timerInterval: number | null,
+  pointsRoundName: string,
+  allCorrectRoundName: string,
+  triviaRoundWonName: string,
+  category: string,
+) {
   // Create a new instance of JSConfetti
   const jsConfetti = new JSConfetti();
 
@@ -20,7 +26,9 @@ export function handleWonClick(timerInterval: number | null, pointsRoundName: st
   // Get the overlay elements for displaying the "Won" message
   const overlayWon = document.getElementById("overlayWon") as HTMLElement;
   const overlayWonLP = document.getElementById("overlayWonLP") as HTMLElement;
-  const overlayWonLPSpecial = document.getElementById("overlayWonLPSpecial") as HTMLElement;
+  const overlayWonLPSpecial = document.getElementById(
+    "overlayWonLPSpecial",
+  ) as HTMLElement;
 
   // Clear the timer interval
   clearInterval(timerInterval!);
@@ -29,7 +37,10 @@ export function handleWonClick(timerInterval: number | null, pointsRoundName: st
   overlayTimeUp.style.visibility = "hidden";
 
   // Retrieve the points earned in Round from localStorage
-  const pointsRound = parseInt(localStorage.getItem(pointsRoundName) || "0", 10);
+  const pointsRound = parseInt(
+    localStorage.getItem(pointsRoundName) || "0",
+    10,
+  );
 
   // Retrieve whether all questions in Round were answered correctly from localStorage
   const allCorrectRound = localStorage.getItem(allCorrectRoundName) === "true";
@@ -38,12 +49,18 @@ export function handleWonClick(timerInterval: number | null, pointsRoundName: st
   localStorage.setItem(triviaRoundWonName, String("true"));
 
   // Retrieve the values of keys in localStorage that store whether each round was won and whether all questions in each round were answered correctly
-  const triviaRound1Won = localStorage.getItem(`${category}-TriviaWon-round-one`) === "true";
-  const triviaRound2Won = localStorage.getItem(`${category}-TriviaWon-round-two`) === "true";
-  const triviaRound3Won = localStorage.getItem(`${category}-TriviaWon-round-three`) === "true";
-  const allCorrectRound1 = localStorage.getItem(`${category}-AllCorrect-round-one`) === "true";
-  const allCorrectRound2 = localStorage.getItem(`${category}-AllCorrect-round-two`) === "true";
-  const allCorrectRound3 = localStorage.getItem(`${category}-AllCorrect-round-three`) === "true";
+  const triviaRound1Won =
+    localStorage.getItem(`${category}-TriviaWon-round-one`) === "true";
+  const triviaRound2Won =
+    localStorage.getItem(`${category}-TriviaWon-round-two`) === "true";
+  const triviaRound3Won =
+    localStorage.getItem(`${category}-TriviaWon-round-three`) === "true";
+  const allCorrectRound1 =
+    localStorage.getItem(`${category}-AllCorrect-round-one`) === "true";
+  const allCorrectRound2 =
+    localStorage.getItem(`${category}-AllCorrect-round-two`) === "true";
+  const allCorrectRound3 =
+    localStorage.getItem(`${category}-AllCorrect-round-three`) === "true";
 
   // Check if the user has earned 0 points in the round
   const hasZeroPoints = pointsRound === 0;
@@ -54,10 +71,19 @@ export function handleWonClick(timerInterval: number | null, pointsRoundName: st
 
   // Determine whether all rounds and trivia were won
   const allRoundAndTriviaWon =
-    triviaRound1Won && triviaRound2Won && triviaRound3Won && allCorrectRound1 && allCorrectRound2 && allCorrectRound3;
+    triviaRound1Won &&
+    triviaRound2Won &&
+    triviaRound3Won &&
+    allCorrectRound1 &&
+    allCorrectRound2 &&
+    allCorrectRound3;
 
   // Determine the overlay element to be displayed based on the round and question status
-  const overlayWonElement = allRoundAndTriviaWon ? overlayWonLPSpecial : allCorrectRound ? overlayWonLP : overlayWon;
+  const overlayWonElement = allRoundAndTriviaWon
+    ? overlayWonLPSpecial
+    : allCorrectRound
+      ? overlayWonLP
+      : overlayWon;
 
   // Set the visibility of the chosen overlay element to "visible"
   overlayWonElement.style.visibility = "visible";
@@ -70,8 +96,14 @@ export function handleWonClick(timerInterval: number | null, pointsRoundName: st
   pointsDiv.textContent = `+ ${points} Pt`;
 
   // Set the value of another key in localStorage to indicate whether all rounds and trivia were won
-  localStorage.setItem("WonPopRockBrain", String(allRoundAndTriviaWon ? "true" : "false"));
-  localStorage.setItem("WonBrainFrame", String(allRoundAndTriviaWon ? "true" : "false"));
+  localStorage.setItem(
+    "WonPopRockBrain",
+    String(allRoundAndTriviaWon ? "true" : "false"),
+  );
+  localStorage.setItem(
+    "WonBrainFrame",
+    String(allRoundAndTriviaWon ? "true" : "false"),
+  );
 
   // Call the `calculateTheCurrentPoints` function
   calculateTheCurrentPoints(category);

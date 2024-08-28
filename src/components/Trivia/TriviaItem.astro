@@ -11,7 +11,14 @@ import { Picture } from "astro:assets";
 ---
 
 <div class="triviaItem">
-  <Picture class="cover" src={image} width={126} height={126} formats={["avif", "webp"]} alt="" />
+  <Picture
+    class="cover"
+    src={image}
+    width={126}
+    height={126}
+    formats={["avif", "webp"]}
+    alt=""
+  />
   <div class="band">{band}</div>
   <div class="album">{album}</div>
 </div>
@@ -19,9 +26,9 @@ import { Picture } from "astro:assets";
 <style>
   .triviaItem {
     position: relative;
+    display: flex;
     width: 126px;
     flex-direction: column;
-    display: flex;
     color: var(--text-color);
 
     &:hover,
