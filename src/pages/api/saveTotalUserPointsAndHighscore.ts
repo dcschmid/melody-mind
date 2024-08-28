@@ -48,7 +48,7 @@ export const POST: APIRoute = async ({ request }) => {
     /**
      * Insert a new record into the HighscorePerCategory table with the userId, category, and userPoints.
      */
-    isUserInHighScoreInCategory.length > 0 && categoryPoints > isUserInHighScoreInCategory[0].score ?
+    isUserInHighScoreInCategory.length > 0 ?
       db.update(HighscorePerCategory).set({ score: categoryPoints }).where(and(eq(HighscorePerCategory.userId, userId), eq(HighscorePerCategory.category, category))) :
       db.insert(HighscorePerCategory).values({id: generateIdFromEntropySize(10), userId, category: category, score: categoryPoints })
   ]);

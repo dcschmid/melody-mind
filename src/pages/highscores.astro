@@ -1,30 +1,82 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import { HighscorePerCategory } from "astro:db";
 import { db, desc, eq, User, TotalHighscore } from "astro:db";
+import type { SQLWrapper } from "drizzle-orm";
 
-const highscores = await db.select().from(TotalHighscore).innerJoin(User, eq(TotalHighscore.userId, User.id)).orderBy(desc(TotalHighscore.score)).limit(10);
+// Get the user object from the Astro context
+const user = Astro.locals.user;
 
+// Batch the queries together
+const [highscores, playedCategories] = await db.batch([
+    db.select().from(TotalHighscore).innerJoin(User, eq(TotalHighscore.userId, User.id)).orderBy(desc(TotalHighscore.score)).limit(10),
+    db.select().from(HighscorePerCategory).where(eq(HighscorePerCategory.userId, user!.id))
+]);
+
+// Get an array of category names from the played categories.
+const categoriesNamesArray = playedCategories.map((category: { category: any; }) => category.category);
+
+// Create an object to store the scores for each category.
+const scoresByCategory: Record<string, any> = {};
+
+// Loop through each category and create a query to fetch the highscores for that category.
+const categoryQueries = categoriesNamesArray.map((category: string | SQLWrapper) => {
+  return db.select().from(HighscorePerCategory).innerJoin(User, eq(HighscorePerCategory.userId, User.id)).where(eq(HighscorePerCategory.category, category)).orderBy(desc(HighscorePerCategory.score)).limit(10);
+});
+
+// Batch the category queries together
+/* @ts-ignore */
+const categoryScores = await db.batch(categoryQueries);
+
+// Loop through each category and store the scores in the scoresByCategory object.
+for (let i = 0; i < categoriesNamesArray.length; i++) {
+  scoresByCategory[categoriesNamesArray[i]] = categoryScores[i];
+}
 ---
 <Layout title="Highscores">
-<div class="highscore-container">
-  <h2>Top 10</h2>
-  <table class="highscore-table">
-    <thead>
-      <tr>
-        <th>Rang</th>
-        <th>Spieler</th>
-        <th>Punkte</th>
-      </tr>
-    </thead>
-    <tbody>
-      {highscores.map((score, index) => (
+    <div class="highscore-container">
+        <h2>Top 10</h2>
+        <table class="highscore-table">
+        <thead>
         <tr>
-          <td>{index + 1}</td>
-          <td>{score.User.username}</td>
-          <td>{score.TotalHighscore.score}</td>
+            <th>Rang</th>
+            <th>Spieler</th>
+            <th>Punkte</th>
         </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
+        </thead>
+        <tbody>
+        {highscores.map((score: { User: { username: string; }; TotalHighscore: { score: number; }; }, index: number) => (
+            <tr>
+            <td>{index + 1}</td>
+            <td>{score.User.username}</td>
+            <td>{score.TotalHighscore.score}</td>
+            </tr>
+        ))}
+        </tbody>
+    </table>
+
+        {Object.keys(scoresByCategory).map((category) => (
+        <div>
+            <h3>{category}</h3>
+            <table>
+            <thead>
+                <tr>
+                <th>Rang</th>
+                <th>Spieler</th>
+                <th>Punkte</th>
+                </tr>
+            </thead>
+            <tbody>
+                {scoresByCategory[category].map((score: any, index: number) => (
+                <tr>
+                    <td>{index + 1}</td>
+                    <td>{score.User.username}</td>
+                    <td>{score.HighscorePerCategory.score}</td>
+                </tr>
+                ))}
+            </tbody>
+            </table>
+        </div>
+        ))}
+    </div>
 </Layout>

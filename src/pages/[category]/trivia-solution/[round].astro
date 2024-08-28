@@ -71,7 +71,7 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
 
   <TriviaFinishOverlay title={currentCategory?.headline} url={currentCategory?.videoPage ? currentCategory?.videoPage : "/gamehome"} />
 
-  <div class="solution" data-user-id={user.id} data-category={category} data-round={round?.replace("#", "")}>
+  <div class="solution" data-user-id={user.id} data-category-name={currentCategory?.headline} data-category={category} data-round={round?.replace("#", "")}>
     <div class="cover">
       <img class="picture" src="" width={240} height={240} alt="" />
     </div>
@@ -149,6 +149,8 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
 
   const categoryValue = triviaElement.getAttribute("data-category");
   const roundValue = triviaElement.getAttribute("data-round");
+    const categoryName = triviaElement.getAttribute("data-category-name");
+
 
   /**
    * Get the user ID from the data attribute.
@@ -219,7 +221,7 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ userId, totalUserPoints: totalUserPoints + currentPoints, category: categoryValue, categoryPoints:  currentCategoryPointsValue + currentPoints }),
+            body: JSON.stringify({ userId, totalUserPoints: totalUserPoints + currentPoints, category: categoryName, categoryPoints:  currentCategoryPointsValue + currentPoints }),
             });
         }
 

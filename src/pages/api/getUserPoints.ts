@@ -13,11 +13,10 @@ export const POST: APIRoute = async ({ request }) => {
    */
   const { userId, categoryValue } = await request.json();
 
-  /**
-   * Find the user object in the database using the userId.
-   */
-  const currentUser = await db.select().from(User).where(eq(User.id, userId));
-  const currentCategoryPoints = await db.select().from(HighscorePerCategory).where(and(eq(HighscorePerCategory.userId, userId), eq(HighscorePerCategory.category, categoryValue)));
+  const [currentUser, currentCategoryPoints] = await db.batch([
+    db.select().from(User).where(eq(User.id, userId)),
+    db.select().from(HighscorePerCategory).where(and(eq(HighscorePerCategory.userId, userId), eq(HighscorePerCategory.category, categoryValue))),
+  ])
 
   /**
    * Get the total user points from the user object.
