@@ -1,0 +1,30 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { db, desc, eq, User, TotalHighscore } from "astro:db";
+
+const highscores = await db.select().from(TotalHighscore).innerJoin(User, eq(TotalHighscore.userId, User.id)).orderBy(desc(TotalHighscore.score)).limit(10);
+
+---
+<Layout title="Highscores">
+<div class="highscore-container">
+  <h2>Top 10</h2>
+  <table class="highscore-table">
+    <thead>
+      <tr>
+        <th>Rang</th>
+        <th>Spieler</th>
+        <th>Punkte</th>
+      </tr>
+    </thead>
+    <tbody>
+      {highscores.map((score, index) => (
+        <tr>
+          <td>{index + 1}</td>
+          <td>{score.User.username}</td>
+          <td>{score.TotalHighscore.score}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+</Layout>

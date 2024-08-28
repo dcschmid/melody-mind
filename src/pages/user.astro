@@ -1,7 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import GoldenLPsSection from "@components/User/GoldenLPsSection.astro";
-import FrameSection from "@components/User/FrameSection.astro";
 import HeaderSection from "@components/User/HeaderSection.astro";
 
 /**
@@ -20,11 +19,9 @@ if (!user) {
 }
 ---
 
-<Layout title="User Profile" showHeader={false}>
+<Layout title="User Profile">
   <div class="content">
     <HeaderSection />
-
-    <FrameSection />
 
     <GoldenLPsSection />
   </div>
@@ -37,10 +34,7 @@ if (!user) {
 </style>
 
 <script>
-  import { initLocalStorage } from "@utils/share/initLocalStorage";
-  import { changeFrame } from "@utils/user/changeFrame";
   import { checkLocalStorageOnLoad } from "@utils/user/checkLocalStorageOnLoad";
-  import { selectFrameItem } from "@utils/user/selectFrameItem";
   import { updateDisplay } from "@utils/user/updateDisplay";
 
   /**
@@ -53,9 +47,6 @@ if (!user) {
    * Calls the changeFrame function to handle frame changes.
    */
   window.addEventListener("load", function () {
-    // Initialize the user's local storage and set the userFrameSelected value to "unknown" if it doesn't exist
-    initLocalStorage("userFrameSelected", "unknown");
-
     // Check the user's local storage and update the values
     checkLocalStorageOnLoad();
 
@@ -65,11 +56,5 @@ if (!user) {
 
     // Call the updateDisplay function to update the display based on the values
     updateDisplay(wonPopRockBrain, wonBrainFrame);
-
-    // Call the selectFrameItem function to select the frame item
-    selectFrameItem();
-
-    // Call the changeFrame function to handle frame changes
-    changeFrame();
   });
 </script>

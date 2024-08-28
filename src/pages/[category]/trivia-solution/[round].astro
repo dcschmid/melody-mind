@@ -139,6 +139,16 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
    * Get the necessary DOM elements.
    */
   const triviaElement = document.querySelector(".solution") as HTMLElement;
+  const overlayFinish = document.getElementById("overlayFinish") as HTMLElement; // Get the overlay finish element.
+  const openOverlay = document.getElementById("openOverlay") as HTMLElement; // Get the open overlay element.
+
+  /**
+   * Get the current and user points from local storage.
+   */
+  const currentPoints = parseInt(localStorage.getItem("currentPoints") || "0", 10);
+
+  const categoryValue = triviaElement.getAttribute("data-category");
+  const roundValue = triviaElement.getAttribute("data-round");
 
   /**
    * Get the user ID from the data attribute.
@@ -148,48 +158,18 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
   /**
    * Fetch the total user points from the API.
    */
-  const response = await fetch(`/api/getTotalUserPoints`, {
+  const response = await fetch(`/api/getUserPoints`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ userId }),
+    body: JSON.stringify({ userId, categoryValue }),
   });
 
   /**
    * Parse the response as JSON.
    */
-  const userPoints = await response.json();
-
-  /**
-   * Get the necessary DOM elements.
-   */
-  const overlayFinish = document.getElementById("overlayFinish") as HTMLElement; // Get the overlay finish element.
-  const openOverlay = document.getElementById("openOverlay") as HTMLElement; // Get the open overlay element.
-
-  /**
-   * Get the current and user points from local storage.
-   */
-  const currentPoints = parseInt(localStorage.getItem("currentPoints") || "0", 10);
-
-  /**
-   * Calculate the final score.
-   */
-  const calcfinalScore = currentPoints * 2;
-  /**
-   * Update the user points in the database.
-   */
-
-  await fetch(`/api/saveTotalUserPoints`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ userId, userPoints: userPoints + calcfinalScore }),
-  });
-
-  const categoryValue = triviaElement.getAttribute("data-category");
-  const roundValue = triviaElement.getAttribute("data-round");
+  const {totalUserPoints, currentCategoryPointsValue} = await response.json();
 
   /**
    * Get the trivia data from local storage.
@@ -209,7 +189,7 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
   currentPointsDiv.textContent = `+ ${currentPoints as unknown as string} Pt`;
 
   const totalPointsDiv = document.querySelector(".overlayFinish .totalPoints") as HTMLElement;
-  totalPointsDiv.textContent = `${userPoints + calcfinalScore}`;
+  totalPointsDiv.textContent = `${currentPoints}`;
 
   /**
    * Update the picture element with the trivia image.
@@ -228,6 +208,23 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
     jsConfetti.addConfetti().then(() => jsConfetti.clearCanvas());
 
     // Clear the local storage after the last round if the round value is "round-three".
-    if (roundValue === "round-three") clearLocalStorageAfterLastRound(categoryValue as string);
+    if (roundValue === "round-three") {
+
+       /**
+         * Update the user points in the database.
+         */
+        async function updateUserPoints() {
+            await fetch(`/api/saveTotalUserPointsAndHighscore`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ userId, totalUserPoints: totalUserPoints + currentPoints, category: categoryValue, categoryPoints:  currentCategoryPointsValue + currentPoints }),
+            });
+        }
+
+        updateUserPoints();
+        clearLocalStorageAfterLastRound(categoryValue as string);
+    }
   });
 </script>
