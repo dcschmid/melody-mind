@@ -52,7 +52,6 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 ---
 
 <Layout title="Spiel Kategorien">
-  <Help slot="left-headercol" />
   <div class="introText">
     <div class="headline">
       Willkommen <span class="name">{user?.username ?? "Mika"}</span>!
@@ -62,14 +61,13 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     </div>
   </div>
 
-  <input
-    class="filterInput"
-    type="search"
-    id="filter-input"
-    placeholder="Suche nach einem Genre"
-  />
-
   <div class="choosePlaylist">
+    <input
+      class="filterInput"
+      type="search"
+      id="filter-input"
+      placeholder="Suche nach einem Genre"
+    />
     <When test={categories.length > 0}>
       {
         categories.map((item) => (
@@ -134,7 +132,9 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 
   .filterInput {
     width: 100%;
+    max-width: 480px;
     padding: var(--spacing-s);
+    margin: 0 var(--spacing-md);
 
     font-size: 1rem;
     font-weight: 400;

@@ -2,6 +2,7 @@
 import { Icon } from "astro-icon/components";
 import { When } from "@astropub/flow";
 import { Image } from "astro:assets";
+import Help from "@components/HeaderItems/Help.astro";
 
 interface Props {
   title: string;
@@ -27,6 +28,7 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
       <header>
         <div class="slot">
           <slot name="left-headercol" />
+          <a href="/spielregeln"><Help /></a>
         </div>
         <div class="logo">
           <a href="/gamehome"
@@ -109,7 +111,7 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
         align-items: top;
         justify-content: space-between;
 
-        margin: var(--spacing-md) 0;
+        margin: var(--spacing-s);
       }
 
       .slot {
@@ -123,7 +125,7 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
 
       .iconGroup {
         display: flex;
-        gap: var(--spacing-md);
+        gap: var(--spacing-s);
         align-items: top;
         justify-content: flex-end;
 
