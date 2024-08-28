@@ -35,7 +35,9 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
         </div>
         <div class="iconGroup">
           <When test={showUserLink}>
-            <Icon name="settings-grey" width={24} height={22.24} />
+            <a href="/highscores"
+              ><Icon name="trophy" width={24} height={24} />
+            </a>
             <a href="/user"
               ><Icon name="user-white" width={24} height={22.24} /></a
             >
