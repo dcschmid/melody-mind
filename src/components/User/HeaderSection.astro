@@ -57,16 +57,19 @@ const totalUserPoints = currentUser[0].total_user_points;
 <style lang="scss">
   .headerBG {
     position: relative;
+
     padding: var(--spacing-s);
+
+    background-image: url("/userbg/bg-mic.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    background-image: url("/userbg/bg-mic.png");
   }
 
   .headerContent {
     position: relative;
     z-index: 1;
+
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -75,59 +78,58 @@ const totalUserPoints = currentUser[0].total_user_points;
 
   .avatar {
     position: relative;
+
     width: 130px;
     height: 130px;
     margin-bottom: 1rem;
+
     border-radius: 100%;
   }
 
   .avatarImage {
-    border-radius: 100%;
-    object-fit: cover;
     overflow: hidden;
+    object-fit: cover;
+    border-radius: 100%;
   }
 
   .avatarFrame {
     position: absolute;
-    top: 0;
-    left: 0;
-    border: 0;
-  }
-
-  .avatarFrame {
     top: -16px;
     left: -16px;
+    border: 0;
   }
 
   .nameContent {
     position: relative;
     z-index: 1;
+
     display: flex;
     flex-direction: column;
+    gap: var(--spacing-15);
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-15);
   }
 
   .name {
     display: inline-flex;
-    color: var(--text-color);
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: 120%;
-    letter-spacing: 0.36px;
     align-items: center;
+
+    font-size: 24px;
+    font-weight: 900;
+    font-style: normal;
+    line-height: 120%;
+    color: var(--text-color);
+    letter-spacing: 0.36px;
   }
 
   .yellowName {
-    color: var(--primary-color);
     padding-left: 0.25rem;
+    color: var(--primary-color);
   }
 
   .editIcon {
-    padding-left: 0.5rem;
     cursor: pointer;
+    padding-left: 0.5rem;
   }
 
   .points {
@@ -135,9 +137,10 @@ const totalUserPoints = currentUser[0].total_user_points;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+
     font-size: 18px;
-    font-style: normal;
     font-weight: 700;
+    font-style: normal;
     line-height: 120%;
   }
 

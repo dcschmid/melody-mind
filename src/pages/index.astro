@@ -45,55 +45,62 @@ import { Picture } from "astro:assets";
 <style>
   .logo {
     display: block;
+
+    aspect-ratio: 480 / 274;
     width: 100%;
     height: auto;
-    aspect-ratio: 480 / 274;
     margin: 2rem auto 0;
   }
 
   .text {
     margin: 2rem 1rem;
+
     font-size: 1.125rem;
-    font-style: normal;
     font-weight: 400;
+    font-style: normal;
     line-height: normal;
-    letter-spacing: 0.5px;
-    text-align: center;
     color: var(--text-color);
+    text-align: center;
+    letter-spacing: 0.5px;
   }
 
   .loginHeadline {
     margin: 2rem 0;
+
     font-size: 1.5rem;
-    font-style: normal;
     font-weight: 700;
+    font-style: normal;
     line-height: normal;
-    letter-spacing: 0.5px;
-    text-align: center;
     color: var(--primary-color);
+    text-align: center;
+    letter-spacing: 0.5px;
   }
 
   .buttonGroup {
     display: flex;
     flex-flow: row wrap;
+    gap: 1.5rem;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
   }
 
   .loginButton {
+    cursor: pointer;
+
     display: inline-flex;
-    border-radius: 128px;
-    background: var(--accent-color-1);
+    align-items: center;
+    justify-content: center;
+
+    width: 120px;
     height: 40px;
     padding: 12px 24px;
-    text-decoration: none;
-    color: var(--text-color);
-    justify-content: center;
-    align-items: center;
+
     font-size: 1.5rem;
-    width: 120px;
-    cursor: pointer;
+    color: var(--text-color);
+    text-decoration: none;
+
+    background: var(--accent-color-1);
+    border-radius: 128px;
 
     &:hover,
     &:focus-visible {

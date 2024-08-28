@@ -26,15 +26,18 @@ import { Picture } from "astro:assets";
 <style>
   .triviaItem {
     position: relative;
+
     display: flex;
-    width: 126px;
     flex-direction: column;
+
+    width: 126px;
+
     color: var(--text-color);
 
     &:hover,
     &:focus-visible {
-      color: var(--primary-color);
       cursor: pointer;
+      color: var(--primary-color);
 
       .cover {
         outline: 2px solid var(--primary-color);
@@ -54,15 +57,15 @@ import { Picture } from "astro:assets";
 
   .band {
     font-size: 14px;
-    font-style: normal;
     font-weight: 700;
+    font-style: normal;
     line-height: 120%;
   }
 
   .album {
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
+    font-style: normal;
     line-height: 150%;
   }
 </style>

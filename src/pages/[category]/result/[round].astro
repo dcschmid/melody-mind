@@ -73,11 +73,12 @@ const currentCategory = categories.find((cat) => cat.slug === category);
   .results {
     display: flex;
     flex-wrap: wrap;
-    padding: var(--spacing-1) var(--spacing-xl) var(--spacing-15)
-      var(--spacing-xl);
+    gap: var(--spacing-xl);
     align-items: flex-start;
     justify-content: center;
-    gap: var(--spacing-xl);
+
+    padding: var(--spacing-1) var(--spacing-xl) var(--spacing-15)
+      var(--spacing-xl);
   }
 </style>
 

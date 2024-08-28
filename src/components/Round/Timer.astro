@@ -20,15 +20,17 @@ const { minutes, seconds, showFinishButton = true } = Astro.props;
 <style>
   .timer {
     display: flex;
-    padding: 0.5rem;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: flex-end;
+
+    padding: 0.5rem;
+
     font-size: 2rem;
-    font-style: normal;
     font-weight: 900;
+    font-style: normal;
     line-height: normal;
-    letter-spacing: 2px;
     color: var(--text-color);
+    letter-spacing: 2px;
   }
 
   .timercenter {

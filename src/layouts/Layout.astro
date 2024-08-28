@@ -95,41 +95,43 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
       }
 
       body {
-        padding: 0;
         width: 480px;
         max-width: 100%;
         margin: 0 auto;
+        padding: 0;
       }
 
       header {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
         align-items: top;
+        justify-content: space-between;
+
         margin: var(--spacing-md) 0;
       }
 
       .slot {
-        width: 33.33333%;
+        width: 33.3333%;
       }
 
       .logo {
-        width: 33.33333%;
+        width: 33.3333%;
         text-align: center;
       }
 
       .iconGroup {
         display: flex;
-        align-items: top;
         gap: var(--spacing-md);
-        width: 33.33333%;
+        align-items: top;
         justify-content: flex-end;
+
+        width: 33.3333%;
       }
 
       main {
-        color: var(--text-color);
         font-size: 1rem;
         line-height: 1.6;
+        color: var(--text-color);
       }
 
       .hasMargin {
@@ -139,8 +141,8 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
       .resultItem {
         position: relative;
         display: flex;
-        width: 126px;
         flex-direction: column;
+        width: 126px;
       }
 
       .resultCover {
@@ -149,17 +151,17 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
       }
 
       .resultBand {
-        color: var(--primary-color);
         font-size: 14px;
-        font-style: normal;
         font-weight: 700;
+        font-style: normal;
         line-height: 120%;
+        color: var(--primary-color);
       }
 
       .resultAlbum {
         font-size: 14px;
-        font-style: normal;
         font-weight: 400;
+        font-style: normal;
         line-height: 150%;
       }
 
@@ -167,41 +169,47 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
         position: absolute;
         top: -14px;
         right: -14px;
+
         display: flex;
-        border-radius: var(--radius-circle);
-        background: var(--accent-color-3);
-        color: var(--text-color);
-        text-align: center;
-        font-size: 1.125rem;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 120%;
-        justify-content: center;
-        align-items: center;
         gap: var(--spacing-xxs);
+        align-items: center;
+        justify-content: center;
+
         width: 2rem;
         height: 2rem;
+
+        font-size: 1.125rem;
+        font-weight: 700;
+        font-style: normal;
+        line-height: 120%;
+        color: var(--text-color);
+        text-align: center;
+
+        background: var(--accent-color-3);
+        border-radius: var(--radius-circle);
       }
 
       .resultError {
-        background: var(--accent-color-1);
         color: var(--text-color);
+        background: var(--accent-color-1);
       }
 
       .resultData {
         font-size: 16px;
-        font-style: normal;
         font-weight: 400;
+        font-style: normal;
         line-height: 35.28px;
         color: var(--text-color);
       }
 
       button {
         cursor: pointer;
-        border: none;
-        background: none;
-        padding: 0;
+
         margin: 0;
+        padding: 0;
+
+        background: none;
+        border: none;
       }
     </style>
   </body>

@@ -26,80 +26,86 @@ const { url, title } = Astro.props;
 <style>
   .overlayFinish {
     position: fixed;
+    z-index: 1000;
     top: 0;
     left: 0;
-    z-index: 1000;
+
     display: flex;
+    align-items: center;
+    justify-content: center;
+
     width: 100%;
     height: 100%;
-    background-color: rgb(0 0 0 / 90%);
-    color: white;
-    justify-content: center;
-    align-items: center;
+
+    color: var(--text-color);
+
     visibility: hidden;
+    background-color: rgb(0 0 0 / 90%);
   }
 
   .overlayFinish-content {
     position: relative;
+
     display: flex;
-    width: 366px;
     flex-direction: column;
+    gap: var(--spacing-3);
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-3);
+
+    width: 366px;
   }
 
   .bigHeadline {
-    color: var(--text-color);
     font-size: 48px;
-    font-style: normal;
     font-weight: 900;
+    font-style: normal;
     line-height: 120%;
+    color: var(--text-color);
     text-align: center;
   }
 
   .headline {
-    color: var(--primary-color);
     font-size: 24px;
-    font-style: normal;
     font-weight: 900;
+    font-style: normal;
     line-height: 120%;
-    letter-spacing: 0.36px;
+    color: var(--primary-color);
     text-align: center;
+    letter-spacing: 0.36px;
   }
 
   .subline {
-    color: var(--colour-text-secondary);
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
+    font-style: normal;
     line-height: 150%;
+    color: var(--colour-text-secondary);
     text-align: center;
   }
 
   .points {
-    color: var(--colour-text-secondary);
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
+    font-style: normal;
     line-height: 150%;
+    color: var(--colour-text-secondary);
   }
 
   .totalText {
-    color: var(--text-color);
     font-size: 24px;
-    font-style: normal;
     font-weight: 900;
+    font-style: normal;
     line-height: 120%;
+    color: var(--text-color);
     letter-spacing: 0.36px;
   }
 
   .totalPoints {
-    color: var(--text-color);
     font-size: 40px;
-    font-style: normal;
     font-weight: 900;
+    font-style: normal;
     line-height: normal;
+    color: var(--text-color);
     letter-spacing: 2px;
   }
 

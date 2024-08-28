@@ -3,8 +3,10 @@ module.exports = {
     "stylelint-config-html",
     "@tinkoff/stylelint-config",
     "stylelint-config-standard-scss",
+    "stylelint-config-prettier-scss",
+    "stylelint-config-clean-order",
   ],
-  plugins: ["stylelint-scss"],
+  plugins: ["stylelint-scss", "@double-great/stylelint-a11y"],
   overrides: [
     {
       files: ["**/*.{astro,html}"],
@@ -16,21 +18,25 @@ module.exports = {
     },
   ],
   rules: {
-    "at-rule-no-unknown": null,
-    "scss/at-rule-no-unknown": true,
-    // 'scss/selector-no-redundant-nesting-selector': true,
-
-    "scss/at-rule-no-unknown": true,
-    "number-leading-zero": "always",
-    "color-no-hex": true,
-    "max-empty-lines": 2,
-    "no-descending-specificity": true,
     "no-duplicate-selectors": true,
+    "scss/at-mixin-pattern": [
+      "^([-_]?[a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+      {
+        message: "Expected mixin name to be kebab-case",
+      },
+    ],
     "selector-pseudo-class-no-unknown": [
       true,
-      { ignorePseudoClasses: ["global", "nth-last-col"] },
+      { ignorePseudoClasses: ["global", "export"] },
     ],
+
+    "selector-class-pattern": null,
+    "selector-id-pattern": null,
+    "custom-property-pattern": null,
+    "value-keyword-case": null,
+    "a11y/no-outline-none": null,
+    "no-descending-specificity": null,
   },
   ignoreFiles: ["node_modules/*"],
-  defaultSeverity: "warning",
+  defaultSeverity: "error",
 };

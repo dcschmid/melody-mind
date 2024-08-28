@@ -35,6 +35,7 @@
     "typescript": "^5.5.4"
   },
   "devDependencies": {
+    "@double-great/stylelint-a11y": "^3.0.2",
     "@tinkoff/stylelint-config": "^4.0.0",
     "@typescript-eslint/parser": "^8.3.0",
     "eslint": "^9.9.1",
@@ -47,12 +48,13 @@
     "prettier-plugin-astro": "^0.14.1",
     "sass": "^1.77.8",
     "stylelint": "^16.9.0",
+    "stylelint-config-clean-order": "^6.1.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-recommended-scss": "^14.1.0",
     "stylelint-config-standard": "^36.0.1",
     "stylelint-config-standard-scss": "^13.1.0",
-    "stylelint-csstree-validator": "^3.0.0",
     "stylelint-prettier": "^5.0.2"
   }
 }

@@ -15,10 +15,10 @@ const user = Astro.locals.user;
  * If the user is not logged in, redirect them to the login page.
  */
 if (!user) {
-	/**
-	 * Redirect the user to the login page.
-	 */
-	return Astro.redirect("/");
+  /**
+   * Redirect the user to the login page.
+   */
+  return Astro.redirect("/");
 }
 
 /**
@@ -29,7 +29,6 @@ if (!user) {
 const getSelectedPlayableItem = () => {
   // Filter playable items
   const playableItems = categoriesList.filter((item) => item.isPlayable);
-
 
   return playableItems;
 };
@@ -50,33 +49,43 @@ const getNonPlayableItems = () => {
 // The selected playable item is randomly selected from the playable items
 // The non-playable items are randomly shuffled and limited to a maximum of 5 items
 const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
-
 ---
 
 <Layout title="Spiel Kategorien">
   <Help slot="left-headercol" />
   <div class="introText">
-    <div class="headline">Willkommen <span class="name">{user?.username ?? "Mika"}</span>!</div>
-    <div class="subline">Wähle hier ein Genre aus, das du spielen möchtest!</div>
+    <div class="headline">
+      Willkommen <span class="name">{user?.username ?? "Mika"}</span>!
+    </div>
+    <div class="subline">
+      Wähle hier ein Genre aus, das du spielen möchtest!
+    </div>
   </div>
 
-  <input class="filterInput" type="search" id="filter-input" placeholder="Suche nach einem Genre">
+  <input
+    class="filterInput"
+    type="search"
+    id="filter-input"
+    placeholder="Suche nach einem Genre"
+  />
 
   <div class="choosePlaylist">
     <When test={categories.length > 0}>
-        {
-            categories.map((item) => (
-                <When test={item.isPlayable}>
-                    <a href={item.categoryUrl}>
-                        <PlaylistItem headline={item.headline}  image={item.imageUrl} />
-                    </a>
-                </When>
+      {
+        categories.map((item) => (
+          <>
+            <When test={item.isPlayable}>
+              <a href={item.categoryUrl}>
+                <PlaylistItem headline={item.headline} image={item.imageUrl} />
+              </a>
+            </When>
 
-                <When test={!item.isPlayable}>
-                    <PlaylistItem headline={item.headline} image={item.imageUrl} />
-                </When>
-            ))
-        }
+            <When test={!item.isPlayable}>
+              <PlaylistItem headline={item.headline} image={item.imageUrl} />
+            </When>
+          </>
+        ))
+      }
     </When>
   </div>
 </Layout>
@@ -85,17 +94,16 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
   .introText {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: var(--spacing-15);
+    align-items: center;
+
     margin-bottom: var(--spacing-md);
   }
 
   .headline {
-    leading-trim: both;
-    text-edge: cap;
     font-size: 24px;
-    font-style: normal;
     font-weight: 900;
+    font-style: normal;
     line-height: 120%; /* 28.8px */
     letter-spacing: 0.36px;
   }
@@ -105,34 +113,38 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
   }
 
   .subline {
-    color: var(--accent-color-4);
     font-size: 1.125rem;
-    font-style: normal;
     font-weight: 400;
+    font-style: normal;
     line-height: 150%;
+    color: var(--accent-color-4);
     text-align: center;
   }
 
   .choosePlaylist {
     display: flex;
-    padding: var(--spacing-s) var(--spacing-s) var(--spacing-md) var(--spacing-s);
     flex-flow: row wrap;
-    justify-content: center;
-    align-items: flex-start;
     gap: var(--spacing-3);
+    align-items: flex-start;
+    justify-content: center;
+
+    padding: var(--spacing-s) var(--spacing-s) var(--spacing-md)
+      var(--spacing-s);
   }
 
   .filterInput {
     width: 100%;
+    padding: var(--spacing-s);
+
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 120%;
+    color: var(--background-color);
+    letter-spacing: 0.36px;
+
     border: none;
     outline: none;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-    letter-spacing: 0.36px;
-    padding: var(--spacing-s);
-    color: var(--background-color);
   }
 
   .hidden {
@@ -145,8 +157,10 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
    * Adds an event listener to the filter input element.
    * When the user types something, the filterPlaylists function is called.
    */
-  const filterInput = document.getElementById('filter-input') as HTMLInputElement;
-  filterInput.addEventListener('input', filterPlaylists);
+  const filterInput = document.getElementById(
+    "filter-input",
+  ) as HTMLInputElement;
+  filterInput.addEventListener("input", filterPlaylists);
 
   /**
    * Filters the playlist items based on the user input.
@@ -155,19 +169,21 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
    */
   function filterPlaylists() {
     const query = filterInput.value.toLowerCase();
-    const playlistItems = document.querySelectorAll('.playlistItem');
+    const playlistItems = document.querySelectorAll(".playlistItem");
 
     // Loop through each playlist item and check if the headline text
     // contains the user input. If it does, display the item, otherwise
     // hide it.
     playlistItems.forEach((item) => {
-      const headlineText = (item as HTMLElement).querySelector('.headline')?.textContent;
+      const headlineText = (item as HTMLElement).querySelector(
+        ".headline",
+      )?.textContent;
       if (headlineText && headlineText.toLowerCase().includes(query)) {
         // Display the item if the headline text contains the search query
-        (item as HTMLElement).style.display = 'block';
+        (item as HTMLElement).style.display = "block";
       } else {
         // Hide the item if the headline text does not contain the search query
-        (item as HTMLElement).style.display = 'none';
+        (item as HTMLElement).style.display = "none";
       }
     });
   }

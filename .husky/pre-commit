@@ -1,1 +1,1 @@
-yarn
+npx prettier --cache --write --plugin-search-dir=. .
