@@ -193,25 +193,17 @@ const jokerCoverUrl = solutionData.randomAlbums?.[0].coverSrc;
   // If the solution attribute exists, parse it as a JSON array, otherwise assign an empty array
   const solutionArray = solutionAttribute ? JSON.parse(solutionAttribute) : [];
 
-  /**
-   * Add an event listener to the window load event
-   * This function is called when the page has finished loading
-   * It initializes the round game, resets the local storage,
-   * and handles the end round click event
-   */
-  window.addEventListener("load", function () {
-    // Initialize the overlay and cover elements
-    initializeOverlay(timerInterval, timeRemaining); // Initialize the overlay with the initial time remaining and timer interval
-    initializeCovers(); // Initialize the cover elements
-    showJoker(); // Call the showJoker function
+  // Initialize the overlay and cover elements
+  initializeOverlay(timerInterval, timeRemaining); // Initialize the overlay with the initial time remaining and timer interval
+  initializeCovers(); // Initialize the cover elements
+  showJoker(); // Call the showJoker function
 
-    // Handle the end round click event
-    handleEndRoundClick(
-      solutionArray, // Solution for the current round
-      `/${categoryValue}/result/${dataRound}`, // URL for the results page
-      `${categoryValue}-AllCorrect-${dataRound}`, // Key for the local storage item that stores the correct answers
-      `${categoryValue}-Points-${dataRound}`, // Key for the local storage item that stores the points earned in this round
-      `${categoryValue}-Results-${dataRound}`, // Key for the local storage item that stores the results for this round
-    );
-  });
+  // Handle the end round click event
+  handleEndRoundClick(
+    solutionArray, // Solution for the current round
+    `/${categoryValue}/result/${dataRound}`, // URL for the results page
+    `${categoryValue}-AllCorrect-${dataRound}`, // Key for the local storage item that stores the correct answers
+    `${categoryValue}-Points-${dataRound}`, // Key for the local storage item that stores the points earned in this round
+    `${categoryValue}-Results-${dataRound}`, // Key for the local storage item that stores the results for this round
+  );
 </script>

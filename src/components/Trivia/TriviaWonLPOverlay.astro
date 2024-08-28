@@ -14,7 +14,6 @@ const { url } = Astro.props;
     <div class="centerText">
       Alles richtig! Sie haben eine goldene Schallplatte erspielt!
     </div>
-    <div class="smallText">& Punktestand verdoppelt!</div>
     <div class="point"></div>
     <div class="centerButton">
       <Button buttonText="Auflösung" url={url} />
@@ -73,10 +72,6 @@ const { url } = Astro.props;
     display: flex;
     justify-content: center;
     margin-top: var(--spacing-md);
-  }
-
-  .smallText {
-    font-size: 14px;
   }
 
   .centerText {

@@ -8,7 +8,7 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
 ---
 
 <div class="jokerIcons">
-  <div class="joker">
+  <div id="joker">
     <Icon name="joker-gold" width={30} height={30} />
   </div>
 
@@ -39,7 +39,7 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
 </div>
 
 <style>
-  .joker {
+  #joker {
     cursor: pointer;
     display: none;
   }

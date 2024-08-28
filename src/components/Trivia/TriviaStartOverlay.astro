@@ -9,7 +9,6 @@ const { question } = Astro.props;
   <div class="overlayStart-content">
     <Icon name="star-golden" width={80} height={80} />
     <div class="headline">Trivia Frage</div>
-    <div class="subline">verdoppeln Sie Ihren Punktestand!</div>
     <div class="question">{question}</div>
     <div class="centerButton">
       <Button id="gameButton" buttonText="weiter" url="#" />
@@ -54,17 +53,6 @@ const { question } = Astro.props;
     font-style: normal;
     line-height: 120%;
     color: var(--text-color);
-  }
-
-  .subline {
-    margin-top: var(--spacing-3);
-
-    font-size: 14px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 150%;
-    color: var(--colour-text-secondary);
-    text-align: center;
   }
 
   .question {

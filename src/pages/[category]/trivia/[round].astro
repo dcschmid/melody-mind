@@ -115,7 +115,10 @@ const triviaDataWithTypes = [
 
   <TriviaWonOverlay url=`/${category}/trivia-solution/${round}` />
 
-  <TriviaWonLPOverlay url=`/${category}/trivia-solution/${round}` />
+  <TriviaWonLPOverlay
+    genre={category}
+    url=`/${category}/trivia-solution/${round}`
+  />
 
   <IntroText
     headline=`${uiData?.headline} - Trivia Frage`

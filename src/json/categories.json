@@ -6,7 +6,6 @@
     "categoryUrl": "/pop-rock",
     "introSubline": "Lassen Sie die Energie fließen und rocken Sie mit!",
     "text": "Poprock vereint die eingängigen Melodien des Pop mit der Energie des Rock. Dieser Stil bringt emotionale Balladen und mitreißende Hits hervor, geprägt von vielseitigen Künstlern und Bands.",
-    "videoPage": "/videos/nilzvideo",
     "isPlayable": true
   },
   {
@@ -16,7 +15,6 @@
     "categoryUrl": "/heavy-metal",
     "introSubline": "Lass die Gitarren heulen und die Schlagzeugstöcke krachen!",
     "text": "Heavy Metal ist die explosivste Form des Rock, geprägt von kraftvollen Gitarrenriffs, energischen Schlagzeugbeats und markanten Vocals. Dieser Musikstil bringt explosive Live-Shows und monumentale Hymnen hervor, gespielt von Bands, die keine Kompromisse eingehen. Von düsteren Balladen bis hin zu brachialen Hymnen – Heavy Metal liefert ungebremste Intensität und Leidenschaft.",
-    "videoPage": "",
     "isPlayable": true
   },
   {
@@ -26,7 +24,6 @@
     "categoryUrl": "/latin-vibes",
     "introSubline": "Spür die rhythmische Leidenschaft und die lebhaften Klänge der Latin-Welt!",
     "text": "Latin Vibes bringt die pulsierende Energie und den unwiderstehlichen Rhythmus der Latin-Musik direkt zu dir. Diese Kategorie vereint eine bunte Mischung aus heißen Salsa-, Reggaeton- und Bachata-Beats sowie den mitreißenden Grooves des Latin Pop. Von feurigen Tanztracks bis zu gefühlvollen Melodien – Latin Vibes sorgt für eine unvergleichliche Atmosphäre voller Lebensfreude und Energie.",
-    "videoPage": "",
     "isPlayable": true
   },
   {
@@ -36,7 +33,6 @@
     "categoryUrl": "/party-on",
     "introSubline": "Feier bis zum Morgengrauen und lass den Beat niemals enden!",
     "text": "Party On! bringt die besten Hits zusammen, die jede Feier zum Kochen bringen. Von energiegeladenen Dance-Tracks über mitreißende Pop-Hymnen bis hin zu pulsierenden Elektro-Beats – diese Kategorie liefert die perfekte Musik für unvergessliche Nächte und ausgelassene Stimmung. Egal, ob du tanzen, feiern oder einfach nur gute Laune haben willst, mit Party On! wird jede Veranstaltung zum Highlight.",
-    "videoPage": "",
     "isPlayable": false
   },
   {
@@ -46,7 +42,6 @@
     "categoryUrl": "/summer-hits",
     "introSubline": "Genieß den Sommer mit den heißesten Hits!",
     "text": "Summerhits sind die perfekte Begleitung für sonnige Tage und unvergessliche Sommernächte. Diese Kategorie vereint die besten Tracks, die gute Laune, heiße Beats und entspannte Vibes mit sich bringen. Von eingängigen Pop-Songs und tanzbaren Dance-Hits bis hin zu chilligen Melodien für den Strand – Summerhits sorgen dafür, dass jeder Moment im Sommer zum Highlight wird.",
-    "videoPage": "",
     "isPlayable": false
   },
   {
@@ -56,7 +51,6 @@
     "categoryUrl": "/deutscher-rap",
     "introSubline": "Erlebe die kraftvollen Rhymes und Beats der deutschen Rap-Szene!",
     "text": "Deutschrap bringt die pulsierende Energie und den unverwechselbaren Flow der deutschen Rap-Künstler direkt zu dir. Diese Kategorie vereint alles von härteren Straßenrhythmen bis zu gefühlvollen, lyrischen Texten und bietet einen Einblick in die Vielfalt und Tiefe der deutschen Hip-Hop-Szene. Von angesagten Tracks bis zu authentischen Beats – Deutschrap ist der Soundtrack für echte Geschichten und ungeschönte Realität.",
-    "videoPage": "",
     "isPlayable": false
   },
   {
@@ -66,7 +60,6 @@
     "categoryUrl": "/disco-fever",
     "introSubline": "Schwing die Hüften und lass die Disco-Kugeln funkeln!",
     "text": "Disco Fever bringt den Glanz und die Energie der 70er Jahre direkt zu dir. Diese Kategorie vereint die besten Disco-Hits mit groovigen Beats und funkigen Melodien, die jeden Raum zum Strahlen bringen. Von ikonischen Klassikern bis hin zu den besten Tanzflächenfüllern – Disco Fever sorgt dafür, dass du in einem Meer aus Glitzer und Rhythmus versinkst und jede Party zu einem unvergesslichen Erlebnis wird.",
-    "videoPage": "",
     "isPlayable": false
   },
   {
@@ -76,7 +69,6 @@
     "categoryUrl": "/goth",
     "introSubline": "Gothic entführt dich in eine Atmosphäre voller düsterer Eleganz und melancholischer Schönheit. Diese Kategorie vereint dramatische Klänge, kraftvolle Melodien und eine geheimnisvolle Stimmung, die von epischen Balladen bis hin zu kraftvollen Gothic-Rock-Hymnen reicht. Mit einer Mischung aus majestätischen Chören, tiefgründigen Texten und atmosphärischen Synthesizern – Gothic ist der Soundtrack für alle, die sich nach einer Welt voller dunkler Faszination sehnen.",
     "text": "",
-    "videoPage": "",
     "isPlayable": false
   },
   {

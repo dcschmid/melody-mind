@@ -9,7 +9,6 @@ const { url } = Astro.props;
   <div class="overlayWon-content">
     <Icon name="golden-coins" width={80} height={80} />
     <div class="headline">Glückwunsch!</div>
-    <div class="subline">Punktestand verdoppelt!</div>
     <div class="point"></div>
     <div class="centerButton">
       <Button buttonText="Auflösung" url={url} />
@@ -54,17 +53,6 @@ const { url } = Astro.props;
     font-style: normal;
     line-height: 120%;
     color: var(--text-color);
-  }
-
-  .subline {
-    margin-top: var(--spacing-3);
-
-    font-size: 14px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 150%;
-    color: var(--colour-text-secondary);
-    text-align: center;
   }
 
   .point {

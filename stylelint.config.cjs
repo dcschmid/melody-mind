@@ -36,7 +36,8 @@ module.exports = {
     "value-keyword-case": null,
     "a11y/no-outline-none": null,
     "no-descending-specificity": null,
+    "selector-max-specificity": null,
   },
-  ignoreFiles: ["node_modules/*"],
+  ignoreFiles: ["node_modules/*", "*.ts", "*.js"],
   defaultSeverity: "error",
 };

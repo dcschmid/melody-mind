@@ -13,12 +13,10 @@ const { url, title } = Astro.props;
     <Icon name="diamond" width={150} height={150} />
     <div class="bigHeadline">Glückwunsch!</div>
     <div class="headline">{title} erfolgreich durchgespielt!</div>
-    <div class="subline">Punktzahl verdoppelt</div>
-    <div class="points"></div>
     <div class="totalText">gesamt</div>
     <div class="totalPoints"></div>
     <div class="centerButton">
-      <Button id="playVideo" buttonText="Video abspielen" url={url} />
+      <Button id="playVideo" buttonText="Wähle ein neues Genre aus" url={url} />
     </div>
   </div>
 </div>
@@ -72,23 +70,6 @@ const { url, title } = Astro.props;
     color: var(--primary-color);
     text-align: center;
     letter-spacing: 0.36px;
-  }
-
-  .subline {
-    font-size: 14px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 150%;
-    color: var(--colour-text-secondary);
-    text-align: center;
-  }
-
-  .points {
-    font-size: 14px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 150%;
-    color: var(--colour-text-secondary);
   }
 
   .totalText {

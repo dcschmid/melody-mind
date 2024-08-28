@@ -27,6 +27,7 @@ export function handleEndRoundClick(
 
   // Define the click event handler function
   const handleClick = () => {
+    console.log("clicked");
     // Get the sorted results and store them in localStorage
     getSortedResults(
       solutionArray,

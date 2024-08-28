@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 import Button from "../Shared/Button.astro";
 
-const { url } = Astro.props;
+const { url, genre } = Astro.props;
 ---
 
 <div id="overlayWonLPSpecial" class="overlay">
@@ -14,10 +14,8 @@ const { url } = Astro.props;
     <div class="headline">Glückwunsch!</div>
     <div class="centerText">
       Alles richtig! <br />
-      Sie sind ein <span class="goldenText">PopRock-Rocketeer</span> und haben die
-      goldene Schallplatte erspielt!
+      Du hast die goldene {genre} Schallplatte erspielt!
     </div>
-    <div class="smallText">& Punktestand verdoppelt!</div>
     <div class="point"></div>
     <div class="centerButton">
       <Button buttonText="Auflösung" url={url} />
