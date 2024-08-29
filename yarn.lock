@@ -39,13 +39,13 @@
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-2.10.3.tgz#852386445029f7765a70b4c1d1140e175e1d8c27"
   integrity sha512-bL/O7YBxsFt55YHU021oL+xz+B/9HvGNId3F9xURN16aeqDK9juHGktdkCSXz+U4nqFACq6ZFvWomOzhV+zfPw==
 
-"@astrojs/db@^0.13.2":
-  version "0.13.2"
-  resolved "https://registry.yarnpkg.com/@astrojs/db/-/db-0.13.2.tgz#6b46c897e5d672ece20ca65c0957147e0a2ecaa9"
-  integrity sha512-J8u7T+NbIiD8MsQRGTzMfPUZGh0dAsnmb5Uon9N9E7L2JkcL65s6VRbkWhKEsBxmDGU4q/fz60PdAIERAOHxEQ==
+"@astrojs/db@^0.14.0":
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/db/-/db-0.14.0.tgz#c762ae04a7dbb44d059b106798d001b52e0d8ec1"
+  integrity sha512-8If3Z0FN2Mdto/jrKGQ4sisrO/rpGdteogPmZCjvTnSzNo5GECFBkxflpOyWX4Xw9qaU865f1BeDgGdU27xeXg==
   dependencies:
     "@astrojs/studio" "0.1.1"
-    "@libsql/client" "^0.9.0"
+    "@libsql/client" "^0.10.0"
     async-listen "^3.0.1"
     deep-diff "^1.0.2"
     drizzle-orm "^0.31.2"
@@ -53,7 +53,7 @@
     kleur "^4.1.5"
     nanoid "^5.0.7"
     open "^10.1.0"
-    ora "^8.0.1"
+    ora "^8.1.0"
     prompts "^2.4.2"
     strip-ansi "^7.1.0"
     yargs-parser "^21.1.1"
@@ -206,16 +206,6 @@
     "@jridgewell/trace-mapping" "^0.3.25"
     jsesc "^2.5.1"
 
-"@babel/generator@^7.25.4", "@babel/generator@^7.25.5":
-  version "7.25.5"
-  resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.25.5.tgz#b31cf05b3fe8c32d206b6dad03bb0aacbde73450"
-  integrity sha512-abd43wyLfbWoxC6ahM8xTkqLpGB2iWBVyuKC9/srhFunCd1SDNrV1s72bBpK4hLj8KLzHBBcOblvLQZBNw9r3w==
-  dependencies:
-    "@babel/types" "^7.25.4"
-    "@jridgewell/gen-mapping" "^0.3.5"
-    "@jridgewell/trace-mapping" "^0.3.25"
-    jsesc "^2.5.1"
-
 "@babel/helper-annotate-as-pure@^7.24.7":
   version "7.24.7"
   resolved "https://registry.yarnpkg.com/@babel/helper-annotate-as-pure/-/helper-annotate-as-pure-7.24.7.tgz#5373c7bc8366b12a033b4be1ac13a206c6656aab"
@@ -349,19 +339,6 @@
     "@babel/parser" "^7.25.3"
     "@babel/template" "^7.25.0"
     "@babel/types" "^7.25.2"
-    debug "^4.3.1"
-    globals "^11.1.0"
-
-"@babel/traverse@^7.25.4":
-  version "7.25.4"
-  resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.25.4.tgz#648678046990f2957407e3086e97044f13c3e18e"
-  integrity sha512-VJ4XsrD+nOvlXyLzmLzUs/0qjFS4sK30te5yEFlvbbUNEgKaVb2BHZUpAL+ttLPQAHNrsI3zZisbfha5Cvr8vg==
-  dependencies:
-    "@babel/code-frame" "^7.24.7"
-    "@babel/generator" "^7.25.4"
-    "@babel/parser" "^7.25.4"
-    "@babel/template" "^7.25.0"
-    "@babel/types" "^7.25.4"
     debug "^4.3.1"
     globals "^11.1.0"
 
@@ -957,21 +934,21 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@libsql/client@^0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@libsql/client/-/client-0.9.0.tgz#c5a24cc0081785380c06f140e9815e5fa39c1d6f"
-  integrity sha512-mT+91wtb8pxK9SWd566D5W2VUCemksUMqICRBtf0WXiS7XzNcQhWyrwYOnVrVmTSze/SCCsNNEKIkCRwk/pr2Q==
+"@libsql/client@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@libsql/client/-/client-0.10.0.tgz#83c1ecee3115be97fd4f09a717dc308d5526925b"
+  integrity sha512-2ERn08T4XOVx34yBtUPq0RDjAdd9TJ5qNH/izugr208ml2F94mk92qC64kXyDVQINodWJvp3kAdq6P4zTtCZ7g==
   dependencies:
-    "@libsql/core" "^0.9.0"
+    "@libsql/core" "^0.10.0"
     "@libsql/hrana-client" "^0.6.2"
     js-base64 "^3.7.5"
     libsql "^0.4.1"
     promise-limit "^2.7.0"
 
-"@libsql/core@^0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@libsql/core/-/core-0.9.0.tgz#5ad580fcd0239baf36904b244049957b22dbddc3"
-  integrity sha512-rCsS/EC32K8ARjDQJGqauGZmkR6orOOY4I7898PyQ/mmltAkMwRgz5kjEmYRZ42o7mP0ayJfbw28qgv7SRFEgg==
+"@libsql/core@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@libsql/core/-/core-0.10.0.tgz#c4a33cbd0e2363219935a1891f83ad1473269637"
+  integrity sha512-rqynAXGaiSpTsykOZdBtI1N4z4O+KZ6mt33K/aHeXAY0gSIfK/ctxuWa0Y1Bjo4FMz1idBTCXz4Ps5kITOvZZw==
   dependencies:
     js-base64 "^3.7.5"
 
@@ -2025,20 +2002,17 @@ astro@*:
   optionalDependencies:
     sharp "^0.33.3"
 
-astro@^4.14.6:
-  version "4.14.6"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-4.14.6.tgz#ff2feda4864ab103dcd5dc0b53f8104f4d4deb45"
-  integrity sha512-MIDyNhtu3L4uakHvlTprh21eQPehYOtZSuSLtd+r6xZcl3lB+mlBz/hs1W3iHEQAORyJnKArWSY/aVOBKUyflA==
+astro@^4.15.1:
+  version "4.15.1"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-4.15.1.tgz#ae0f4570a95a02de40f638c3b49368a8006fe898"
+  integrity sha512-XvKZ2GaDbCsMfcJess4o+4D4cCKja45GJ/9o6EJ6n96xaen8HZMRoJn3YKL9TOjIrL2NuU4mBFMG2JivPJ0foA==
   dependencies:
     "@astrojs/compiler" "^2.10.3"
     "@astrojs/internal-helpers" "0.4.1"
     "@astrojs/markdown-remark" "5.2.0"
     "@astrojs/telemetry" "3.1.0"
     "@babel/core" "^7.25.2"
-    "@babel/generator" "^7.25.5"
-    "@babel/parser" "^7.25.4"
     "@babel/plugin-transform-react-jsx" "^7.25.2"
-    "@babel/traverse" "^7.25.4"
     "@babel/types" "^7.25.4"
     "@oslojs/encoding" "^0.4.1"
     "@rollup/pluginutils" "^5.1.0"
@@ -2062,8 +2036,8 @@ astro@^4.14.6:
     es-module-lexer "^1.5.4"
     esbuild "^0.21.5"
     estree-walker "^3.0.3"
-    execa "^8.0.1"
     fast-glob "^3.3.2"
+    fastq "^1.17.1"
     flattie "^1.1.1"
     github-slugger "^2.0.0"
     gray-matter "^4.0.3"
@@ -2072,6 +2046,7 @@ astro@^4.14.6:
     js-yaml "^4.1.0"
     kleur "^4.1.5"
     magic-string "^0.30.11"
+    magicast "^0.3.5"
     micromatch "^4.0.8"
     mrmime "^2.0.0"
     neotraverse "^0.6.18"
@@ -2086,6 +2061,7 @@ astro@^4.14.6:
     shiki "^1.14.1"
     string-width "^7.2.0"
     strip-ansi "^7.1.0"
+    tinyexec "^0.3.0"
     tsconfck "^3.1.1"
     unist-util-visit "^5.0.0"
     vfile "^6.0.3"
@@ -3383,7 +3359,7 @@ fastest-levenshtein@^1.0.16:
   resolved "https://registry.yarnpkg.com/fastest-levenshtein/-/fastest-levenshtein-1.0.16.tgz#210e61b6ff181de91ea9b3d1b84fdedd47e034e5"
   integrity sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==
 
-fastq@^1.6.0:
+fastq@^1.17.1, fastq@^1.6.0:
   version "1.17.1"
   resolved "https://registry.yarnpkg.com/fastq/-/fastq-1.17.1.tgz#2a523f07a4e7b1e81a42b91b8bf2254107753b47"
   integrity sha512-sRVD3lWVIXWg6By68ZN7vho9a1pQcN/WBFaAAsDDFzlJjvoGx0P8z7V1t72grFJfJhu3YPZBuu25f7Kaw2jN1w==
@@ -4661,6 +4637,15 @@ magic-string@^0.30.11:
   integrity sha512-+Wri9p0QHMy+545hKww7YAu5NyzF8iomPL/RQazugQ9+Ez4Ic3mERMd8ZTX5rfK944j+560ZJi8iAwgak1Ac7A==
   dependencies:
     "@jridgewell/sourcemap-codec" "^1.5.0"
+
+magicast@^0.3.5:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/magicast/-/magicast-0.3.5.tgz#8301c3c7d66704a0771eb1bad74274f0ec036739"
+  integrity sha512-L0WhttDl+2BOsybvEOLK7fW3UA0OQ0IQ2d6Zl2x/a6vVRs3bAY0ECOSHHeL5jD+SbOpOCUEi0y1DgHEn9Qn1AQ==
+  dependencies:
+    "@babel/parser" "^7.25.4"
+    "@babel/types" "^7.25.4"
+    source-map-js "^1.2.0"
 
 markdown-table@^3.0.0:
   version "3.0.3"
@@ -6766,6 +6751,11 @@ text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==
+
+tinyexec@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/tinyexec/-/tinyexec-0.3.0.tgz#ed60cfce19c17799d4a241e06b31b0ec2bee69e6"
+  integrity sha512-tVGE0mVJPGb0chKhqmsoosjsS+qUnJVGJpZgsHYQcGoPlG3B51R3PouqTgEGH2Dc9jjFyOqOpix6ZHNMXp1FZg==
 
 to-fast-properties@^2.0.0:
   version "2.0.0"
