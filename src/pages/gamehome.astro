@@ -3,7 +3,6 @@ import { When } from "@astropub/flow";
 
 import PlaylistItem from "@components/PlaylistItem.astro";
 import Layout from "@layouts/Layout.astro";
-import Help from "@components/HeaderItems/Help.astro";
 import categoriesList from "@json/categories.json";
 
 /**
@@ -79,7 +78,11 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
             </When>
 
             <When test={!item.isPlayable}>
-              <PlaylistItem headline={item.headline} image={item.imageUrl} />
+              <PlaylistItem
+                isDisabled={true}
+                headline={item.headline}
+                image={item.imageUrl}
+              />
             </When>
           </>
         ))

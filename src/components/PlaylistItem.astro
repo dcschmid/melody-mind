@@ -2,16 +2,21 @@
 interface Props {
   headline: string;
   image?: any;
+  isDisabled?: boolean;
 }
 
-const { headline = "", image } = Astro.props;
+const { headline = "", image, isDisabled = false } = Astro.props;
 
+import { When } from "@astropub/flow";
 import { Picture } from "astro:assets";
 ---
 
 <div class="playlistItem">
+  <When test={isDisabled}>
+    <div class="disabled">Demnächst verfügbar</div>
+  </When>
   <Picture
-    class="cover"
+    class:list={["cover", { coverDisabled: isDisabled }]}
     src={image}
     width={130}
     height={130}
@@ -24,10 +29,28 @@ import { Picture } from "astro:assets";
 <style>
   .playlistItem {
     width: 130px;
+    position: relative;
   }
 
   .cover {
     border-radius: var(--radius-rounded);
+  }
+
+  .coverDisabled {
+    opacity: 0.5;
+  }
+
+  .disabled {
+    color: var(--text-color);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 120%;
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    z-index: 2;
   }
 
   .headline {
