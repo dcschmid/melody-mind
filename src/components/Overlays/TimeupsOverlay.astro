@@ -16,19 +16,15 @@ const { url = "#" } = Astro.props;
   </div>
 </div>
 
-<style>
+<style lang="scss">
   .timupsOverlay {
     position: fixed;
     z-index: 1000;
-    top: 0;
-    left: 0;
+    inset: 0;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
-    width: 100%;
-    height: 100%;
 
     color: var(--text-color);
 
@@ -40,21 +36,22 @@ const { url = "#" } = Astro.props;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 366px;
+
+    width: 100%;
+    max-width: 30rem;
+    margin: var(--spacing-2);
   }
 
   .headline {
-    font-size: 40px;
-    font-weight: 900;
-    font-style: normal;
-    line-height: normal;
+    font:
+      900 2.5rem "Source Sans Pro",
+      sans-serif;
     color: var(--text-color);
-    letter-spacing: 2px;
   }
 
   .subline {
     margin-top: var(--spacing-md);
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--colour-text-secondary);
   }
 

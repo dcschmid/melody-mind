@@ -25,16 +25,26 @@ import { Icon } from "astro-icon/components";
   }
 
   .icon {
-    padding-right: 0.25rem;
+    margin-right: 0.25rem;
   }
 </style>
 
 <script>
+  /**
+   * When the page has finished loading, this code is executed.
+   * It finds the element with the class "coinsCount" and updates its text content
+   * with the current points stored in the "currentPoints" key in localStorage.
+   */
   window.addEventListener("load", function () {
+    // Find the element with the class "coinsCount"
     const coinsCountElement = document.querySelector(
       ".coinsCount",
     ) as HTMLDivElement;
+
+    // Get the current points from localStorage
     const currentPoints = localStorage.getItem("currentPoints");
+
+    // Update the text content of the element with the current points
     coinsCountElement.textContent = currentPoints;
   });
 </script>

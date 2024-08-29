@@ -18,7 +18,7 @@ const {
   </div>
 </div>
 
-<style>
+<style lang="scss">
   .introText {
     display: flex;
     flex-direction: column;
@@ -29,28 +29,23 @@ const {
   }
 
   .headline {
-    font-size: 24px;
-    font-weight: 900;
-    font-style: normal;
-    line-height: 120%;
-    letter-spacing: 0.36px;
+    font:
+      900 1.5rem / 1.5 "Source Sans Pro",
+      sans-serif;
   }
 
   .isSmallHeadline {
-    font-size: 14px;
-    font-weight: 700;
-    font-style: normal;
-    line-height: 120%;
+    font:
+      700 14px / 1.5 "Source Sans Pro",
+      sans-serif;
   }
 
   .subline {
-    width: 386px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 30rem;
 
     font-size: 1.125rem;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 150%;
+    line-height: 1.5;
     color: var(--accent-color-4);
     text-align: center;
   }

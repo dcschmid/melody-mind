@@ -9,11 +9,11 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
 
 <div class="jokerIcons">
   <div id="joker">
-    <Icon name="joker-gold" width={30} height={30} />
+    <Icon name="joker-gold" width={40} height={40} />
   </div>
 
-  <div id="jokersolution" class="jokersolution">
-    <div class="jokersolutioncontent">
+  <div id="jokerSolution" class="jokerSolution">
+    <div class="jokerSolutionContent">
       <div class="closeRoot">
         <Icon class="closeIcon" name="joker-gold" width={48} height={48} />
         <Button id="closeJokerButton" buttonText="close" url="#" />
@@ -23,8 +23,8 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
           <Picture
             class="solutionCoverImage"
             src={jokerCoverUrl}
-            width={240}
-            height={240}
+            width={200}
+            height={200}
             formats={["avif", "webp"]}
             alt=""
           />
@@ -38,7 +38,7 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
   </div>
 </div>
 
-<style>
+<style lang="scss">
   #joker {
     cursor: pointer;
     display: none;
@@ -47,12 +47,12 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
   .jokerIcons {
     display: inline-flex;
     gap: var(--spacing-s);
-    align-items: top;
+    align-items: flex-start;
   }
 
-  .jokersolution {
-    position: absolute;
-    z-index: 1000; /* ensures overlay is on top */
+  .jokerSolution {
+    position: fixed;
+    z-index: 1000;
     top: 0;
     left: 0;
 
@@ -68,13 +68,13 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
     background-color: rgb(0 0 0 / 90%);
   }
 
-  .jokersolutioncontent {
+  .jokerSolutionContent {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-3);
+    gap: var(--spacing-1);
     align-items: center;
 
-    margin: 0 1rem;
+    margin: 0 var(--spacing-2);
   }
 
   .jokergroup {
@@ -89,7 +89,7 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
 
   .closeRoot {
     display: flex;
-    align-self: end;
+    align-self: flex-end;
   }
 
   .closeIcon {
@@ -99,12 +99,12 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
   .solutionRoot {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
-    align-items: start;
+    gap: var(--spacing-xs);
+    align-items: flex-start;
 
-    max-width: 360px;
-    padding: var(--spacing-s) var(--spacing-s) var(--spacing-md)
-      var(--spacing-s);
+    width: 100%;
+    max-width: 22.5rem;
+    padding: var(--spacing-md);
   }
 
   .solutionCover {
@@ -113,23 +113,18 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
   }
 
   .solutionData {
-    font-size: 1.5rem;
-    font-weight: 900;
-    font-style: normal;
-    line-height: 120%;
+    font:
+      900 1.5rem / 1.5 "Source Sans Pro",
+      sans-serif;
     color: var(--primary-color);
-    letter-spacing: 0.36px;
   }
 
   .solutionText {
     font-size: 1.125rem;
-    font-weight: 400;
-    font-style: normal;
     line-height: 1.5;
     hyphens: auto;
   }
 
-  /* Define the shake animation */
   .shake {
     animation: shake 0.5s;
   }
@@ -164,7 +159,7 @@ const { jokerCoverUrl, jokerData, jokerText } = Astro.props;
 <script>
   // Get references to the necessary DOM elements
   const openJokerOverlay = document.getElementById("joker")!; // The main overlay element
-  const jokersolution = document.getElementById("jokersolution")!; // The joker solution element
+  const jokersolution = document.getElementById("jokerSolution")!; // The joker solution element
 
   const openJokerSolution = document.getElementById("redeemjoker"); // The button that triggers the joker solution overlay
   const closeJokerButton = document.getElementById("closeJokerButton"); // The button that closes the joker solution overlay

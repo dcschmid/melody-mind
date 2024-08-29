@@ -37,9 +37,9 @@ import { Picture } from "astro:assets";
   }
 
   .cover {
-    border-radius: var(--radius-rounded);
     width: 100%;
     height: auto;
+    border-radius: var(--radius-rounded);
 
     &.coverDisabled {
       opacity: 0.4;
@@ -51,10 +51,11 @@ import { Picture } from "astro:assets";
     z-index: 2;
     top: 1rem;
     left: 0;
-    text-align: center;
-    font-size: 0.875rem;
 
-    @media screen and (min-width: 25.625rem) {
+    font-size: 0.875rem;
+    text-align: center;
+
+    @media screen and (width >= 25.625rem) {
       font-size: 1.125rem;
     }
   }

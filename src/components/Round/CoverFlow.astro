@@ -60,19 +60,18 @@ const {
   <div class="smallText">{downText}</div>
 </div>
 
-<style>
+<style lang="scss">
   .smallText {
     display: inline-flex;
     gap: var(--spacing-xxs);
     align-items: center;
     justify-content: center;
 
-    width: auto;
     margin: var(--spacing-s) 0;
 
-    font-size: 16px;
-    font-weight: 400;
-    font-style: normal;
+    font:
+      400 1rem / 1.5 "Source Sans Pro",
+      sans-serif;
   }
 
   .coverFlowRoot {
@@ -89,31 +88,39 @@ const {
     align-items: flex-start;
     justify-content: center;
 
-    padding: var(--spacing-md);
+    padding: var(--spacing-s) 0;
+  }
 
-    @media screen and (width >= 360px) {
+  @media screen and (width >= 22.5rem) {
+    .coverflow {
       padding: var(--spacing-1) var(--spacing-xl) var(--spacing-15)
         var(--spacing-xl);
     }
   }
 
   .cover {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
+  }
 
-    @media screen and (width >= 385px) {
-      width: 138px;
-      height: 138px;
+  @media screen and (width >= 24.063rem) {
+    .cover {
+      width: 120px;
+      height: 120px;
     }
+  }
 
-    @media screen and (width >= 425px) {
+  @media screen and (width >= 26.563rem) {
+    .cover {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  @media screen and (width >= 29.688rem) {
+    .cover {
       width: 160px;
       height: 160px;
-    }
-
-    @media screen and (width >= 475px) {
-      width: 180px;
-      height: 180px;
     }
   }
 
