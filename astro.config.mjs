@@ -19,4 +19,10 @@ export default defineConfig({
     host: "0.0.0.0",
     port: import.meta.env.PORT,
   },
+  routes: [
+    {
+      src: "/api/health",
+      dest: "src/pages/api/health.ts",
+    },
+  ],
 });
