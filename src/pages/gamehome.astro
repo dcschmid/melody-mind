@@ -136,15 +136,14 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
   .filterInput {
     width: 100%;
     max-width: 480px;
-    padding: var(--spacing-s);
     margin: 0 var(--spacing-md);
+    padding: var(--spacing-s);
 
-    font-size: 1rem;
+    font-size: 0.75rem;
     font-weight: 400;
     font-style: normal;
     line-height: 120%;
     color: var(--background-color);
-    letter-spacing: 0.36px;
 
     border: none;
     outline: none;
@@ -181,6 +180,7 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
       const headlineText = (item as HTMLElement).querySelector(
         ".headline",
       )?.textContent;
+
       if (headlineText && headlineText.toLowerCase().includes(query)) {
         // Display the item if the headline text contains the search query
         (item as HTMLElement).style.display = "block";

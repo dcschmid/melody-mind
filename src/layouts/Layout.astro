@@ -103,6 +103,7 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
       }
 
       html {
+        margin: var(--spacing-2);
         font-family: "Source Sans Pro", sans-serif;
         background: var(--background-color);
       }
@@ -119,8 +120,6 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
         flex-direction: row;
         align-items: top;
         justify-content: space-between;
-
-        margin: var(--spacing-s);
       }
 
       .slot {

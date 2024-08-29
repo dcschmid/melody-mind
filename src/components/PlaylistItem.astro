@@ -28,8 +28,8 @@ import { Picture } from "astro:assets";
 
 <style>
   .playlistItem {
-    width: 130px;
     position: relative;
+    width: 130px;
   }
 
   .cover {
@@ -41,16 +41,17 @@ import { Picture } from "astro:assets";
   }
 
   .disabled {
-    color: var(--text-color);
-    text-align: center;
+    position: absolute;
+    z-index: 2;
+    top: 1rem;
+    left: 0;
+
     font-size: 14px;
     font-weight: 700;
     font-style: normal;
     line-height: 120%;
-    position: absolute;
-    top: 1rem;
-    left: 0;
-    z-index: 2;
+    color: var(--text-color);
+    text-align: center;
   }
 
   .headline {
