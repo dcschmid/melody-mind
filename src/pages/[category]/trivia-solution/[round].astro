@@ -200,6 +200,12 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
   );
 
   /**
+   * Update the picture element with the trivia image.
+   */
+  const pictureElement = document.querySelector(".picture") as HTMLImageElement;
+  pictureElement.src = triviaData.triviaImage;
+
+  /**
    * Update the headline and answer elements with the trivia data.
    */
   const headlineElement = document.querySelector(
@@ -219,12 +225,6 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
     ".overlayFinish .totalPoints",
   ) as HTMLElement;
   totalPointsDiv.textContent = `${currentPoints}`;
-
-  /**
-   * Update the picture element with the trivia image.
-   */
-  const pictureElement = document.querySelector(".picture") as HTMLImageElement;
-  pictureElement.src = triviaData.triviaImage;
 
   /**
    * Add a click event listener to the open overlay element.
