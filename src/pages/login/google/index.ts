@@ -23,7 +23,7 @@ export async function GET(context: APIContext): Promise<Response> {
   context.cookies.set("google_code_verifier", codeVerifier, {
     secure: import.meta.env.PROD, // set to false in localhost
     path: "/",
-    httpOnly: true,
+    httpOnly: import.meta.env.DEV,
     maxAge: 60 * 10, // 10 min
   });
 
