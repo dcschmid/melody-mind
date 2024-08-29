@@ -3,6 +3,9 @@ import { Icon } from "astro-icon/components";
 import { When } from "@astropub/flow";
 import { Image } from "astro:assets";
 import Help from "@components/HeaderItems/Help.astro";
+import "@fontsource/source-sans-pro/400.css";
+import "@fontsource/source-sans-pro/700.css";
+import "@fontsource/source-sans-pro/900.css";
 
 interface Props {
   title: string;
@@ -94,7 +97,7 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
       }
 
       html {
-        font-family: system-ui, sans-serif;
+        font-family: "Source Sans Pro", sans-serif;
         background: var(--background-color);
       }
 
@@ -115,6 +118,8 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
       }
 
       .slot {
+        display: flex;
+        gap: var(--spacing-s);
         width: 33.3333%;
       }
 
