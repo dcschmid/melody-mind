@@ -112,13 +112,12 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
         width: 480px;
         max-width: 100%;
         margin: 0 auto;
-        padding: 0;
       }
 
       header {
         display: flex;
         flex-direction: row;
-        align-items: top;
+        align-items: flex-start;
         justify-content: space-between;
       }
 
@@ -136,9 +135,8 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
       .iconGroup {
         display: flex;
         gap: var(--spacing-s);
-        align-items: top;
+        align-items: flex-start;
         justify-content: flex-end;
-
         width: 33.3333%;
       }
 
@@ -156,49 +154,60 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
         position: relative;
         display: flex;
         flex-direction: column;
-        width: 126px;
+        width: 84px;
+      }
+
+      @media screen and (min-width: 22.813rem) {
+        .resultItem {
+          width: 105px;
+        }
+      }
+
+      @media screen and (min-width: 25rem) {
+        .resultItem {
+          width: 124px;
+        }
+      }
+
+      @media screen and (min-width: 28.125rem) {
+        .resultItem {
+          width: 145px;
+        }
       }
 
       .resultCover {
-        width: 126px;
-        height: 126px;
+        width: 100%;
+        height: auto;
       }
 
       .resultBand {
-        font-size: 14px;
+        font-size: 0.875rem;
         font-weight: 700;
-        font-style: normal;
-        line-height: 120%;
+        line-height: 1.5;
         color: var(--primary-color);
       }
 
       .resultAlbum {
-        font-size: 14px;
+        font-size: 0.875rem;
         font-weight: 400;
-        font-style: normal;
-        line-height: 150%;
+        line-height: 1.5;
       }
 
       .resultPlace {
         position: absolute;
-        top: -14px;
-        right: -14px;
-
+        top: -0.875rem;
+        right: -0.875rem;
         display: flex;
         gap: var(--spacing-xxs);
         align-items: center;
         justify-content: center;
-
         width: 2rem;
         height: 2rem;
-
         font-size: 1.125rem;
         font-weight: 700;
-        font-style: normal;
-        line-height: 120%;
+        line-height: 1.5;
         color: var(--text-color);
         text-align: center;
-
         background: var(--accent-color-3);
         border-radius: var(--radius-circle);
       }
@@ -209,20 +218,14 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
       }
 
       .resultData {
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: 400;
-        font-style: normal;
-        line-height: 35.28px;
+        line-height: 1.5;
         color: var(--text-color);
       }
 
       button {
         cursor: pointer;
-
-        margin: 0;
-        padding: 0;
-
-        background: none;
         border: none;
       }
     </style>
