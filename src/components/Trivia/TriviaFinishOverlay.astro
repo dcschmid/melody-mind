@@ -7,9 +7,6 @@ const { url, title } = Astro.props;
 
 <div id="overlayFinish" class="overlayFinish">
   <div class="overlayFinish-content">
-    <div class="shareRoot">
-      <Icon name="share" width={48} height={48} />
-    </div>
     <Icon name="diamond" width={150} height={150} />
     <div class="bigHeadline">Glückwunsch!</div>
     <div class="headline">{title} erfolgreich durchgespielt!</div>
@@ -25,8 +22,7 @@ const { url, title } = Astro.props;
   .overlayFinish {
     position: fixed;
     z-index: 1000;
-    top: 0;
-    left: 0;
+    inset: 0;
 
     display: flex;
     align-items: center;
@@ -38,61 +34,47 @@ const { url, title } = Astro.props;
     color: var(--text-color);
 
     visibility: hidden;
-    background-color: rgb(0 0 0 / 90%);
+    background-color: rgba(0, 0, 0, 0.9);
   }
 
   .overlayFinish-content {
-    position: relative;
-
     display: flex;
     flex-direction: column;
     gap: var(--spacing-3);
     align-items: center;
     justify-content: center;
 
-    width: 366px;
+    max-width: 366px;
+    margin: var(--spacing-2);
   }
 
   .bigHeadline {
-    font-size: 48px;
+    font-size: 3rem;
     font-weight: 900;
-    font-style: normal;
-    line-height: 120%;
+    line-height: 1.5cap;
     color: var(--text-color);
     text-align: center;
   }
 
   .headline {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 900;
-    font-style: normal;
-    line-height: 120%;
+    line-height: 1.5;
     color: var(--primary-color);
     text-align: center;
-    letter-spacing: 0.36px;
   }
 
   .totalText {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 900;
-    font-style: normal;
-    line-height: 120%;
+    line-height: 1.5;
     color: var(--text-color);
-    letter-spacing: 0.36px;
   }
 
   .totalPoints {
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: 900;
-    font-style: normal;
     line-height: normal;
     color: var(--text-color);
-    letter-spacing: 2px;
-  }
-
-  .shareRoot {
-    position: absolute;
-    top: -2rem;
-    right: 1rem;
   }
 </style>

@@ -100,32 +100,32 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
   </div>
 </Layout>
 
-<style>
+<style lang="scss">
   .solution {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
-    padding: var(--spacing-s) var(--spacing-s) var(--spacing-md)
-      var(--spacing-s);
+    gap: var(--spacing-s);
+    padding: var(--spacing-s);
   }
 
   .cover {
-    position: relative;
     margin: 0 auto;
+  }
+
+  .picture {
+    border-radius: var(--radius-rounded);
   }
 
   .solutionHeadline {
     font-size: 1.125rem;
     font-weight: 700;
-    font-style: normal;
-    line-height: 120%;
+    line-height: 1.5;
   }
 
   .answer {
     font-size: 1rem;
     font-weight: 400;
-    font-style: normal;
-    line-height: 150%;
+    line-height: 1.5;
   }
 
   .centerButton {
@@ -230,6 +230,7 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
    * Add a click event listener to the open overlay element.
    */
   openOverlay.addEventListener("click", function (_event: Event): void {
+    console.log("clicked");
     // Show the overlay finish element.
     overlayFinish.style.visibility = "visible";
 
