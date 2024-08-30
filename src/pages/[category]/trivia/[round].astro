@@ -124,7 +124,7 @@ const triviaDataWithTypes = [
     headline=`${uiData?.headline} - Trivia Frage`
     subline={wonItem?.triviaQuestion}
     whiteText=""
-    isSmallHeadline={true}
+    isSmallHeadline={false}
     isWhiteSubline={true}
   />
 
@@ -158,12 +158,10 @@ const triviaDataWithTypes = [
   .trivia {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-xl);
-    align-items: center;
+    gap: var(--spacing-md);
+    align-items: flex-start;
     justify-content: center;
-
-    padding: var(--spacing-1) var(--spacing-xl) var(--spacing-15)
-      var(--spacing-xl);
+    margin-top: var(--spacing-md);
   }
 </style>
 

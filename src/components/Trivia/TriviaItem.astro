@@ -26,13 +26,14 @@ import { Picture } from "astro:assets";
 <style>
   .triviaItem {
     position: relative;
-
     display: flex;
     flex-direction: column;
-
-    width: 126px;
-
+    width: 130px;
     color: var(--text-color);
+
+    @media screen and (width >= 25.625rem) {
+      width: 160px;
+    }
 
     &:hover,
     &:focus-visible {
@@ -45,27 +46,25 @@ import { Picture } from "astro:assets";
 
       .band,
       .album {
-        color: var(--primary-color);
+        color: inherit;
       }
     }
   }
 
   .cover {
-    width: 126px;
-    height: 126px;
+    width: 100%; /* Use 100% instead of repeating the width value */
+    height: auto;
   }
 
   .band {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 700;
-    font-style: normal;
-    line-height: 120%;
+    line-height: 1.5;
   }
 
   .album {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
-    font-style: normal;
-    line-height: 150%;
+    line-height: 1.5;
   }
 </style>

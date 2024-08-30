@@ -12,7 +12,7 @@ const { url } = Astro.props;
     </div>
     <div class="headline">Glückwunsch!</div>
     <div class="centerText">
-      Alles richtig! Sie haben eine goldene Schallplatte erspielt!
+      Alles richtig! Du hast eine goldene Schallplatte erspielt!
     </div>
     <div class="point"></div>
     <div class="centerButton">
@@ -24,21 +24,14 @@ const { url } = Astro.props;
 <style>
   .overlay {
     position: fixed;
+    inset: 0;
     z-index: 1000;
-    top: 0;
-    left: 0;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
-    width: 100%;
-    height: 100%;
-
     color: var(--text-color);
-
     visibility: hidden;
-    background-color: rgb(0 0 0 / 90%);
+    background-color: rgba(0, 0, 0, 0.9);
   }
 
   .content {
@@ -47,25 +40,24 @@ const { url } = Astro.props;
     gap: var(--spacing-3);
     align-items: center;
     justify-content: center;
+    max-width: 366px;
+    margin: var(--spacing-2);
+  }
 
-    width: 366px;
+  .headline,
+  .point {
+    font-weight: 900;
+    color: var(--text-color);
   }
 
   .headline {
-    font-size: 48px;
-    font-weight: 900;
-    font-style: normal;
-    line-height: 120%;
-    color: var(--text-color);
+    font-size: 3rem;
+    line-height: 1.5;
   }
 
   .point {
-    font-size: 40px;
-    font-weight: 900;
-    font-style: normal;
+    font-size: 2.5rem;
     line-height: normal;
-    color: var(--text-color);
-    letter-spacing: 2px;
   }
 
   .centerButton {
@@ -75,10 +67,9 @@ const { url } = Astro.props;
   }
 
   .centerText {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 400;
-    font-style: normal;
-    line-height: 130%;
+    line-height: 1.5;
     color: var(--colour-text-secondary);
     text-align: center;
   }
