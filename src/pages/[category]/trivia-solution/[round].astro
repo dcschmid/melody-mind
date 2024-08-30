@@ -216,11 +216,6 @@ const centerButtonID = round === "round-three" ? "openOverlay" : "";
   const answerElement = document.querySelector(".answer") as HTMLElement;
   answerElement.textContent = triviaData.triviaAnswer;
 
-  const currentPointsDiv = document.querySelector(
-    ".overlayFinish .points",
-  ) as HTMLElement;
-  currentPointsDiv.textContent = `+ ${currentPoints as unknown as string} Pt`;
-
   const totalPointsDiv = document.querySelector(
     ".overlayFinish .totalPoints",
   ) as HTMLElement;
