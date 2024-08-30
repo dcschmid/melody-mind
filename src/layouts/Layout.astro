@@ -9,10 +9,10 @@ import "@fontsource/source-sans-pro/900.css";
 interface Props {
   title: string;
   showHeader?: boolean;
-  showUserLink?: boolean;
+  showHeaderIcons?: boolean;
 }
 
-const { title, showHeader = true, showUserLink = true } = Astro.props;
+const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -35,10 +35,12 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
     <When test1={showHeader}>
       <header>
         <div class="slot">
+          <When test={showHeaderIcons}>
+            <a href="/spielregeln">
+              <Icon name="question" width={24} height={22.24} />
+            </a>
+          </When>
           <slot name="left-headercol" />
-          <a href="/spielregeln"
-            ><Icon name="question" width={24} height={22.24} /></a
-          >
         </div>
         <div class="logo">
           <a href="/gamehome"
@@ -46,27 +48,17 @@ const { title, showHeader = true, showUserLink = true } = Astro.props;
           >
         </div>
         <div class="iconGroup">
-          <When test={showUserLink}>
+          <When test={showHeaderIcons}>
             <a href="/highscores"
               ><Icon name="trophy" width={24} height={24} />
             </a>
-            <a href="/user"
-              ><Icon name="user-white" width={24} height={22.24} /></a
+            <a href="/user"><Icon name="user-white" width={24} height={24} /></a
             >
             <form method="post" action="/api/logout">
-              <button
-                ><Icon
-                  name="logout"
-                  width={24}
-                  height={24}
-                  title="Abmelden"
-                /></button
-              >
+              <button>
+                <Icon name="logout" width={24} height={24} title="Abmelden" />
+              </button>
             </form>
-          </When>
-          <When test={!showUserLink}>
-            <Icon name="settings-grey" width={24} height={22.24} />
-            <Icon name="user" width={24} height={22.24} />
           </When>
         </div>
       </header>
