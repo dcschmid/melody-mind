@@ -1,110 +1,11 @@
 [
   {
-    "slug": "pop-rock",
-    "headline": "PopRock",
-    "imageUrl": "/category/pop-rock.jpg",
-    "categoryUrl": "/pop-rock",
-    "introSubline": "Lassen Sie die Energie fließen und rocken Sie mit!",
-    "text": "Poprock vereint die eingängigen Melodien des Pop mit der Energie des Rock. Dieser Stil bringt emotionale Balladen und mitreißende Hits hervor, geprägt von vielseitigen Künstlern und Bands.",
-    "isPlayable": true
-  },
-  {
-    "slug": "heavy-metal",
-    "headline": "Heavy Metal",
-    "imageUrl": "/category/heavy-metal.jpg",
-    "categoryUrl": "/heavy-metal",
-    "introSubline": "Lass die Gitarren heulen und die Schlagzeugstöcke krachen!",
-    "text": "Heavy Metal ist die explosivste Form des Rock, geprägt von kraftvollen Gitarrenriffs, energischen Schlagzeugbeats und markanten Vocals. Dieser Musikstil bringt explosive Live-Shows und monumentale Hymnen hervor, gespielt von Bands, die keine Kompromisse eingehen. Von düsteren Balladen bis hin zu brachialen Hymnen – Heavy Metal liefert ungebremste Intensität und Leidenschaft.",
-    "isPlayable": true
-  },
-  {
-    "slug": "latin-vibes",
-    "headline": "Latin Vibes",
-    "imageUrl": "/category/latin.jpg",
-    "categoryUrl": "/latin-vibes",
-    "introSubline": "Spür die rhythmische Leidenschaft und die lebhaften Klänge der Latin-Welt!",
-    "text": "Latin Vibes bringt die pulsierende Energie und den unwiderstehlichen Rhythmus der Latin-Musik direkt zu dir. Diese Kategorie vereint eine bunte Mischung aus heißen Salsa-, Reggaeton- und Bachata-Beats sowie den mitreißenden Grooves des Latin Pop. Von feurigen Tanztracks bis zu gefühlvollen Melodien – Latin Vibes sorgt für eine unvergleichliche Atmosphäre voller Lebensfreude und Energie.",
-    "isPlayable": true
-  },
-  {
-    "slug": "party-on",
-    "headline": "Party On!",
-    "imageUrl": "/category/party-on.jpg",
-    "categoryUrl": "/party-on",
-    "introSubline": "Feier bis zum Morgengrauen und lass den Beat niemals enden!",
-    "text": "Party On! bringt die besten Hits zusammen, die jede Feier zum Kochen bringen. Von energiegeladenen Dance-Tracks über mitreißende Pop-Hymnen bis hin zu pulsierenden Elektro-Beats – diese Kategorie liefert die perfekte Musik für unvergessliche Nächte und ausgelassene Stimmung. Egal, ob du tanzen, feiern oder einfach nur gute Laune haben willst, mit Party On! wird jede Veranstaltung zum Highlight.",
-    "isPlayable": false
-  },
-  {
-    "slug": "summer-hits",
-    "headline": "Summer Hits",
-    "imageUrl": "/category/summer-hits.jpg",
-    "categoryUrl": "/summer-hits",
-    "introSubline": "Genieß den Sommer mit den heißesten Hits!",
-    "text": "Summerhits sind die perfekte Begleitung für sonnige Tage und unvergessliche Sommernächte. Diese Kategorie vereint die besten Tracks, die gute Laune, heiße Beats und entspannte Vibes mit sich bringen. Von eingängigen Pop-Songs und tanzbaren Dance-Hits bis hin zu chilligen Melodien für den Strand – Summerhits sorgen dafür, dass jeder Moment im Sommer zum Highlight wird.",
-    "isPlayable": false
-  },
-  {
-    "slug": "deutscher-rap",
-    "headline": "Deutscher Rap",
-    "imageUrl": "/category/deutscher-rap.jpg",
-    "categoryUrl": "/deutscher-rap",
-    "introSubline": "Erlebe die kraftvollen Rhymes und Beats der deutschen Rap-Szene!",
-    "text": "Deutschrap bringt die pulsierende Energie und den unverwechselbaren Flow der deutschen Rap-Künstler direkt zu dir. Diese Kategorie vereint alles von härteren Straßenrhythmen bis zu gefühlvollen, lyrischen Texten und bietet einen Einblick in die Vielfalt und Tiefe der deutschen Hip-Hop-Szene. Von angesagten Tracks bis zu authentischen Beats – Deutschrap ist der Soundtrack für echte Geschichten und ungeschönte Realität.",
-    "isPlayable": false
-  },
-  {
-    "slug": "disco-fever",
-    "headline": "Disco Fever",
-    "imageUrl": "/category/disco-fever.jpg",
-    "categoryUrl": "/disco-fever",
-    "introSubline": "Schwing die Hüften und lass die Disco-Kugeln funkeln!",
-    "text": "Disco Fever bringt den Glanz und die Energie der 70er Jahre direkt zu dir. Diese Kategorie vereint die besten Disco-Hits mit groovigen Beats und funkigen Melodien, die jeden Raum zum Strahlen bringen. Von ikonischen Klassikern bis hin zu den besten Tanzflächenfüllern – Disco Fever sorgt dafür, dass du in einem Meer aus Glitzer und Rhythmus versinkst und jede Party zu einem unvergesslichen Erlebnis wird.",
-    "isPlayable": false
-  },
-  {
-    "slug": "goth",
-    "headline": "Gothic",
-    "imageUrl": "/category/gothic.jpg",
-    "categoryUrl": "/goth",
-    "introSubline": "Gothic entführt dich in eine Atmosphäre voller düsterer Eleganz und melancholischer Schönheit. Diese Kategorie vereint dramatische Klänge, kraftvolle Melodien und eine geheimnisvolle Stimmung, die von epischen Balladen bis hin zu kraftvollen Gothic-Rock-Hymnen reicht. Mit einer Mischung aus majestätischen Chören, tiefgründigen Texten und atmosphärischen Synthesizern – Gothic ist der Soundtrack für alle, die sich nach einer Welt voller dunkler Faszination sehnen.",
-    "text": "",
-    "isPlayable": false
-  },
-  {
-    "slug": "country",
-    "headline": "Country",
-    "imageUrl": "/category/country.jpg",
-    "categoryUrl": "/country-classics",
-    "introSubline": "Erlebe die zeitlosen Geschichten und Melodien der Country-Musik!",
-    "text": "Country-Musik bringt die Seele des amerikanischen Südens zu dir. Diese Kategorie vereint alles von klassischen Balladen und rhythmischen Honky-Tonk-Songs bis hin zu modernen Country-Hits. Mit eingängigen Melodien, ehrlichen Texten und einem unverwechselbaren Sound, der von akustischen Gitarren und Fiddle-Riffs geprägt ist, bietet Country die perfekte Mischung aus traditioneller Authentizität und zeitgemäßem Flair. Erlebe die Geschichten von Liebe, Leben und ländlicher Idylle, die das Herz des Country ausmachen.",
-    "isPlayable": false
-  },
-  {
-    "slug": "pop",
-    "headline": "Pop",
-    "imageUrl": "/category/pop.jpg",
-    "categoryUrl": "/pop",
-    "introSubline": "Lass dich von den angesagtesten Hits und mitreißenden Melodien mitreißen!",
-    "text": "Popmusik ist der Puls der zeitgenössischen Musikszene, bekannt für ihre eingängigen Melodien und ansteckenden Rhythmen. Diese Kategorie vereint die besten aktuellen Chartstürmer und zeitlosen Klassiker, die immer für gute Laune sorgen. Von fröhlichen Ohrwürmern und emotionalen Balladen bis hin zu energetischen Beats und innovativen Sounds – Pop bietet die perfekte Mischung aus Unterhaltung und Ohrenschmaus, die garantiert zum Mitsingen und Tanzen einlädt.",
-    "isPlayable": false
-  },
-  {
     "slug": "afrobeat",
     "headline": "Afrobeat",
     "imageUrl": "/category/afrobeat.jpg",
     "categoryUrl": "/afrobeat",
     "introSubline": "Spür den Rhythmus und die Lebendigkeit der afrikanischen Beats!",
     "text": "Afrobeat vereint pulsierende Rhythmen und lebendige Klänge, die die Energie und Vielfalt Afrikas widerspiegeln. Diese Kategorie bringt die fesselnden Grooves und einzigartigen Beats von Afrobeat-Ikonen und modernen Künstlern direkt zu dir. Von funkigen Trommelrhythmen und mitreißenden Melodien bis hin zu kraftvollen Bläserarrangements und hypnotisierenden Rhythmen – Afrobeat bietet eine musikalische Reise, die dich zum Tanzen und Feiern einlädt, während sie die kulturelle Tiefe und den rhythmischen Reichtum Afrikas feiert.",
-    "isPlayable": false
-  },
-  {
-    "slug": "alternative-rock",
-    "headline": "Alternative Rock",
-    "imageUrl": "/category/alternative-rock.jpg",
-    "categoryUrl": "/alternative-rock",
-    "introSubline": "Entdecke die unkonventionellen Klänge und innovativen Sounds des Alternative Rock!",
-    "text": "Alternative Rock vereint eine breite Palette von Stilen und Einflüssen, die über das traditionelle Rock-Genre hinausgehen. Diese Kategorie bietet eine Mischung aus experimentellen Klängen, einzigartigen Melodien und innovativen Arrangements, die den Alternative Rock definieren. Von melancholischen Balladen und kraftvollen Hymnen bis hin zu fesselnden Gitarrenriffs und ungewöhnlichen Songstrukturen – Alternative Rock ist der Ort für alle, die auf der Suche nach frischen, kreativen Klängen und musikalischen Abenteuern sind.",
     "isPlayable": false
   },
   {
@@ -117,12 +18,48 @@
     "isPlayable": false
   },
   {
+    "slug": "alternative-rock",
+    "headline": "Alternative Rock",
+    "imageUrl": "/category/alternative-rock.jpg",
+    "categoryUrl": "/alternative-rock",
+    "introSubline": "Entdecke die unkonventionellen Klänge und innovativen Sounds des Alternative Rock!",
+    "text": "Alternative Rock vereint eine breite Palette von Stilen und Einflüssen, die über das traditionelle Rock-Genre hinausgehen. Diese Kategorie bietet eine Mischung aus experimentellen Klängen, einzigartigen Melodien und innovativen Arrangements, die den Alternative Rock definieren. Von melancholischen Balladen und kraftvollen Hymnen bis hin zu fesselnden Gitarrenriffs und ungewöhnlichen Songstrukturen – Alternative Rock ist der Ort für alle, die auf der Suche nach frischen, kreativen Klängen und musikalischen Abenteuern sind.",
+    "isPlayable": false
+  },
+  {
+    "slug": "ambient",
+    "headline": "Ambient",
+    "imageUrl": "/category/ambient.jpg",
+    "categoryUrl": "/ambient",
+    "introSubline": "Lass dich von den beruhigenden Klängen und der atmosphärischen Tiefe des Ambient verzaubern!",
+    "text": "Ambient-Musik schafft Klanglandschaften, die für Entspannung und introspektive Erlebnisse sorgen. Diese Kategorie bietet eine Auswahl an sanften, immersiven Klängen und minimalistischen Kompositionen, die oft durch eine ruhige und meditative Atmosphäre gekennzeichnet sind. Von fließenden Synthesizer-Sounds und sanften Pads bis hin zu subtilen Field Recordings und texturalen Klangexperimenten – Ambient ist die perfekte Begleitung für Momente der Entspannung, Konzentration oder kreativen Reflexion. Erlebe eine Klangwelt, die dich einlädt, die Gedanken schweifen zu lassen und einfach im Moment zu sein.",
+    "isPlayable": false
+  },
+  {
+    "slug": "belgisch",
+    "headline": "Belgisch",
+    "imageUrl": "/category/belgisch.jpg",
+    "categoryUrl": "/belgisch",
+    "introSubline": "Erlebe die reiche Vielfalt und die dynamischen Klänge der belgischen Musik!",
+    "text": "Die belgische Musikszene ist so vielfältig wie das Land selbst, das durch seine sprachliche und kulturelle Vielfalt geprägt ist. Diese Kategorie vereint die besten Tracks, die das musikalische Erbe und die kreative Kraft Belgiens repräsentieren – von den gefühlvollen Chansons auf Französisch über die energiegeladenen Rock- und Pop-Hits auf Flämisch bis hin zu den internationalen Dance- und Elektronik-Sounds, die Belgien weltweit bekannt gemacht haben. Mit Künstlern wie Jacques Brel, Stromae, Angèle und Hooverphonic zeigt die belgische Musik ihre beeindruckende Fähigkeit, verschiedenste Genres und Stile zu vereinen. Ob du auf der Suche nach melancholischen Balladen, mitreißenden Pop-Songs oder innovativen Elektro-Beats bist – die belgische Musik bietet für jeden Geschmack das Richtige. Lass dich von den vielfältigen Klängen und der kulturellen Tiefe der belgischen Musik inspirieren und genieße eine musikalische Reise durch das Herz Europas.",
+    "isPlayable": false
+  },
+  {
     "slug": "black-metal",
     "headline": "Black Metal",
     "imageUrl": "/category/black-metal.jpg",
     "categoryUrl": "/black-metal",
     "introSubline": "Tauche ein in die düstere und intensive Welt des Black Metal!",
     "text": "Black Metal ist bekannt für seine dunkle, aggressive Atmosphäre und seine kraftvollen, emotionalen Ausdrücke. Diese Kategorie vereint rasante Gitarrenriffs, intensiven Gesang und oft mystische, finstere Themen. Von atmosphärischen, epischen Kompositionen bis zu rohen, schnellen Tracks bietet Black Metal eine tiefgründige und oft herausfordernde Hörerfahrung. Erlebe die unbändige Energie und die komplexe Stimmung, die Black Metal zu einem einzigartigen und faszinierenden Genre machen.",
+    "isPlayable": false
+  },
+  {
+    "slug": "bluegrass",
+    "headline": "Bluegrass",
+    "imageUrl": "/category/bluegrass.jpg",
+    "categoryUrl": "/bluegrass",
+    "introSubline": "Erlebe die lebhaften Rhythmen und die herzliche Tradition des Bluegrass!",
+    "text": "Bluegrass ist ein Genre, das tief in den Traditionen der amerikanischen Folkmusik verwurzelt ist und durch seine virtuosen Instrumentalstücke und harmonischen Vocals besticht. Diese Kategorie bietet eine Auswahl an energetischen Jams und gefühlvollen Balladen, die von Banjo, Mandoline, Fiddle und akustischer Gitarre getragen werden. Mit seinem charakteristischen Tempo, den beeindruckenden Soli und den harmonischen Gesangslinien fängt Bluegrass die Essenz des ländlichen Lebens und der musikalischen Traditionen des amerikanischen Südens ein. Lass dich von der authentischen Leidenschaft und dem handwerklichen Können des Bluegrass begeistern!",
     "isPlayable": false
   },
   {
@@ -141,24 +78,6 @@
     "categoryUrl": "/bossa-nova",
     "introSubline": "Genieße den sanften Rhythmus und die elegante Melodie der Bossa Nova!",
     "text": "Bossa Nova vereint die geschmeidigen Klänge des brasilianischen Samba mit dem sanften Einfluss des Jazz. Diese Kategorie bietet dir eine Auswahl an zeitlosen Klassikern und modernen Interpretationen, die für ihre entspannte Eleganz und charmante Melancholie bekannt sind. Mit fließenden Gitarrenarrangements, sanften Vocals und einer unverwechselbaren Rhythmik verkörpert Bossa Nova die entspannte Atmosphäre der brasilianischen Küste und bringt ein Gefühl von Ruhe und Raffinesse in jede Hörsession.",
-    "isPlayable": false
-  },
-  {
-    "slug": "ambient",
-    "headline": "Ambient",
-    "imageUrl": "/category/ambient.jpg",
-    "categoryUrl": "/ambient",
-    "introSubline": "Lass dich von den beruhigenden Klängen und der atmosphärischen Tiefe des Ambient verzaubern!",
-    "text": "Ambient-Musik schafft Klanglandschaften, die für Entspannung und introspektive Erlebnisse sorgen. Diese Kategorie bietet eine Auswahl an sanften, immersiven Klängen und minimalistischen Kompositionen, die oft durch eine ruhige und meditative Atmosphäre gekennzeichnet sind. Von fließenden Synthesizer-Sounds und sanften Pads bis hin zu subtilen Field Recordings und texturalen Klangexperimenten – Ambient ist die perfekte Begleitung für Momente der Entspannung, Konzentration oder kreativen Reflexion. Erlebe eine Klangwelt, die dich einlädt, die Gedanken schweifen zu lassen und einfach im Moment zu sein.",
-    "isPlayable": false
-  },
-  {
-    "slug": "bluegrass",
-    "headline": "Bluegrass",
-    "imageUrl": "/category/bluegrass.jpg",
-    "categoryUrl": "/bluegrass",
-    "introSubline": "Erlebe die lebhaften Rhythmen und die herzliche Tradition des Bluegrass!",
-    "text": "Bluegrass ist ein Genre, das tief in den Traditionen der amerikanischen Folkmusik verwurzelt ist und durch seine virtuosen Instrumentalstücke und harmonischen Vocals besticht. Diese Kategorie bietet eine Auswahl an energetischen Jams und gefühlvollen Balladen, die von Banjo, Mandoline, Fiddle und akustischer Gitarre getragen werden. Mit seinem charakteristischen Tempo, den beeindruckenden Soli und den harmonischen Gesangslinien fängt Bluegrass die Essenz des ländlichen Lebens und der musikalischen Traditionen des amerikanischen Südens ein. Lass dich von der authentischen Leidenschaft und dem handwerklichen Können des Bluegrass begeistern!",
     "isPlayable": false
   },
   {
@@ -207,12 +126,12 @@
     "isPlayable": false
   },
   {
-    "slug": "klassik",
-    "headline": "Klassik",
-    "imageUrl": "/category/klassik.jpg",
-    "categoryUrl": "/klassik",
-    "introSubline": "Erlebe die zeitlose Schönheit und majestätische Komplexität der klassischen Musik!",
-    "text": "Klassische Musik ist die Grundlage der westlichen Musiktradition und bietet eine faszinierende Vielfalt von Kompositionen, die über Jahrhunderte hinweg begeistern. Diese Kategorie umfasst Meisterwerke von ikonischen Komponisten wie Bach, Mozart, Beethoven und viele weitere, die für ihre tiefgründigen Melodien, komplexen Strukturen und emotionale Ausdruckskraft bekannt sind. Von majestätischen Sinfonien und ergreifenden Solokonzerten bis zu eleganten Kammermusikstücken und intimen Klavierwerken – klassische Musik lädt dazu ein, in eine Welt von Raffinesse und zeitloser Schönheit einzutauchen. Lass dich von den großen Kompositionen inspirieren und genieße die Erhabenheit der Klassik.",
+    "slug": "classic-rock",
+    "headline": "Classic Rock",
+    "imageUrl": "/category/classic-rock.jpg",
+    "categoryUrl": "/classic-rock",
+    "introSubline": "Erlebe die unvergänglichen Riffs und die legendären Sounds des Classic Rock!",
+    "text": "Classic Rock steht für die goldene Ära der Rockmusik, die von den späten 1960er bis in die 1980er Jahre reicht. Diese Kategorie vereint die ikonischen Hits und zeitlosen Hymnen, die das Genre geprägt haben und bis heute in aller Welt gefeiert werden. Mit legendären Bands und Künstlern wie Led Zeppelin, The Rolling Stones, Queen, AC/DC und Pink Floyd bietet Classic Rock eine Mischung aus kraftvollen Gitarrenriffs, mitreißenden Melodien und unvergesslichen Vocals. Diese Musik hat Generationen beeinflusst und bleibt ein fester Bestandteil der Rockgeschichte. Lass dich von den epischen Solos, den eingängigen Refrains und der puren Energie des Classic Rock mitreißen und erlebe die Musik, die Rock 'n' Roll zu einem kulturellen Phänomen gemacht hat.",
     "isPlayable": false
   },
   {
@@ -222,6 +141,24 @@
     "categoryUrl": "/club",
     "introSubline": "Erlebe die besten Beats und energischsten Tracks für die ultimative Clubnacht!",
     "text": "Clubmusik bringt die pulsierenden Rhythmen und mitreißenden Klänge, die jede Party zum Leben erwecken. Diese Kategorie vereint die neuesten und besten Tracks aus Genres wie EDM, House, Techno und Trance, die speziell für die Tanzfläche und die Nachtclubs gemacht sind. Mit treibenden Basslines, hypnotisierenden Synthesizern und energiegeladenen Drops sorgt Clubmusik dafür, dass du die ganze Nacht durchfeiern kannst. Tauche ein in die vibrierende Atmosphäre und lass dich von den elektrisierenden Beats mitreißen, die jede Clubnacht unvergesslich machen.",
+    "isPlayable": false
+  },
+  {
+    "slug": "country",
+    "headline": "Country",
+    "imageUrl": "/category/country.jpg",
+    "categoryUrl": "/country-classics",
+    "introSubline": "Erlebe die zeitlosen Geschichten und Melodien der Country-Musik!",
+    "text": "Country-Musik bringt die Seele des amerikanischen Südens zu dir. Diese Kategorie vereint alles von klassischen Balladen und rhythmischen Honky-Tonk-Songs bis hin zu modernen Country-Hits. Mit eingängigen Melodien, ehrlichen Texten und einem unverwechselbaren Sound, der von akustischen Gitarren und Fiddle-Riffs geprägt ist, bietet Country die perfekte Mischung aus traditioneller Authentizität und zeitgemäßem Flair. Erlebe die Geschichten von Liebe, Leben und ländlicher Idylle, die das Herz des Country ausmachen.",
+    "isPlayable": false
+  },
+  {
+    "slug": "daenisch",
+    "headline": "Dänisch",
+    "imageUrl": "/category/daenisch.jpg",
+    "categoryUrl": "/daenisch",
+    "introSubline": "Erlebe die harmonischen Klänge und die kulturelle Vielfalt der dänischen Musik!",
+    "text": "Die dänische Musikszene ist bekannt für ihre abwechslungsreichen Stile und die kreative Mischung aus traditioneller und moderner Musik. Diese Kategorie vereint die besten Tracks, die das Herz und die Seele der dänischen Musik widerspiegeln – von den melancholischen Tönen des nordischen Folk über eingängigen Pop bis hin zu innovativen Rock- und Indie-Klängen. Mit Künstlern wie Kim Larsen, MØ, Lukas Graham und The Raveonettes zeigt die dänische Musik eine beeindruckende Bandbreite, die sowohl in Dänemark als auch international große Anerkennung findet. Ob es die sanften, nachdenklichen Melodien oder die energiegeladenen, fröhlichen Rhythmen sind – die dänische Musik bietet eine Vielzahl an Emotionen und Stimmungen. Lass dich von den authentischen Klängen und den charmanten Melodien der dänischen Musik verzaubern und entdecke die musikalische Vielfalt Dänemarks.",
     "isPlayable": false
   },
   {
@@ -261,12 +198,669 @@
     "isPlayable": false
   },
   {
+    "slug": "deutsch",
+    "headline": "Deutsch",
+    "imageUrl": "/category/deutsch.jpg",
+    "categoryUrl": "/deutsch",
+    "introSubline": "Entdecke die Vielfalt und den einzigartigen Klang der deutschen Musikszene!",
+    "text": "Deutsche Musik bietet eine faszinierende Bandbreite an Stilen und Genres, die die kulturelle Vielfalt und Kreativität Deutschlands widerspiegeln. Diese Kategorie umfasst alles von den klassischen Liedern der traditionellen Volksmusik und den zeitlosen Hits des deutschen Schlager, bis hin zu den innovativen Klängen der deutschen Rock-, Pop- und Elektronik-Szene. Von den großen Namen der deutschen Musikgeschichte bis zu den aktuellen Chartstürmern – deutsche Musik verbindet emotionale Tiefe mit einem unverwechselbaren Sound. Lass dich von den vielfältigen Klängen und der musikalischen Leidenschaft inspirieren, die Deutschland zu bieten hat.",
+    "isPlayable": false
+  },
+  {
+    "slug": "deutscher-rap",
+    "headline": "Deutscher Rap",
+    "imageUrl": "/category/deutscher-rap.jpg",
+    "categoryUrl": "/deutscher-rap",
+    "introSubline": "Erlebe die kraftvollen Rhymes und Beats der deutschen Rap-Szene!",
+    "text": "Deutschrap bringt die pulsierende Energie und den unverwechselbaren Flow der deutschen Rap-Künstler direkt zu dir. Diese Kategorie vereint alles von härteren Straßenrhythmen bis zu gefühlvollen, lyrischen Texten und bietet einen Einblick in die Vielfalt und Tiefe der deutschen Hip-Hop-Szene. Von angesagten Tracks bis zu authentischen Beats – Deutschrap ist der Soundtrack für echte Geschichten und ungeschönte Realität.",
+    "isPlayable": false
+  },
+  {
+    "slug": "disco-fever",
+    "headline": "Disco Fever",
+    "imageUrl": "/category/disco-fever.jpg",
+    "categoryUrl": "/disco-fever",
+    "introSubline": "Schwing die Hüften und lass die Disco-Kugeln funkeln!",
+    "text": "Disco Fever bringt den Glanz und die Energie der 70er Jahre direkt zu dir. Diese Kategorie vereint die besten Disco-Hits mit groovigen Beats und funkigen Melodien, die jeden Raum zum Strahlen bringen. Von ikonischen Klassikern bis hin zu den besten Tanzflächenfüllern – Disco Fever sorgt dafür, dass du in einem Meer aus Glitzer und Rhythmus versinkst und jede Party zu einem unvergesslichen Erlebnis wird.",
+    "isPlayable": false
+  },
+  {
     "slug": "drum-and-bass",
     "headline": "Drum and Bass",
     "imageUrl": "/category/drum-and-bass.jpg",
     "categoryUrl": "/drum-and-bass",
     "introSubline": "Erlebe die explosiven Beats und die energetische Intensität des Drum and Bass!",
     "text": "Drum and Bass ist ein genre-definierendes Genre der elektronischen Musik, bekannt für seine rasanten Beats, komplexen Rhythmen und tiefen Basslines. Diese Kategorie bietet dir eine Auswahl an kraftvollen Tracks, die sowohl klassische Breakbeats als auch moderne, basslastige Variationen umfassen. Mit einem schnellen Tempo, hypnotisierenden Synthesizern und dynamischen Klanglandschaften schafft Drum and Bass eine aufregende und mitreißende Atmosphäre, die dich garantiert auf die Tanzfläche zieht. Lass dich von der pulsierenden Energie und dem innovativen Sound des Drum and Bass mitreißen und erlebe die geballte Kraft dieses einzigartigen Genres.",
+    "isPlayable": false
+  },
+  {
+    "slug": "filmmusik",
+    "headline": "Filmmusik",
+    "imageUrl": "/category/filmmusik.jpg",
+    "categoryUrl": "/filmmusik",
+    "introSubline": "Erlebe die emotionale Kraft und die epischen Klänge der besten Filmmusik!",
+    "text": "Filmmusik verwandelt Kinoerlebnisse durch kraftvolle und oft bewegende Klanglandschaften, die die Emotionen der Szenen verstärken. Diese Kategorie bietet eine Auswahl an ikonischen Soundtracks, die von großartigen Komponisten wie Hans Zimmer, John Williams und Ennio Morricone geschaffen wurden. Von majestätischen Orchestermusiken und dramatischen Themen bis hin zu subtilen, atmosphärischen Klängen – Filmmusik reicht von den klassischen, mitreißenden Melodien bis zu den experimentellen und innovativen Kompositionen, die die Stimmung eines Films entscheidend beeinflussen. Lass dich von der dramatischen Tiefe und den unvergesslichen Melodien der Filmmusik mitreißen und erlebe, wie Musik die visuelle Kunst der Filme noch lebendiger macht.",
+    "isPlayable": false
+  },
+  {
+    "slug": "finnisch",
+    "headline": "Finnisch",
+    "imageUrl": "/category/finnisch.jpg",
+    "categoryUrl": "/finnisch",
+    "introSubline": "Entdecke die einzigartigen Klänge und die faszinierende Vielfalt der finnischen Musikszene!",
+    "text": "Finnische Musik bietet eine spannende Mischung aus traditionellen Klängen und modernen Einflüssen, die die reiche Kultur und das kreative Talent Finnlands widerspiegeln. Diese Kategorie umfasst alles von den melancholischen und kraftvollen Melodien der traditionellen Volksmusik bis hin zu den innovativen Sounds der zeitgenössischen Szene, einschließlich Rock, Metal, Pop und elektronischer Musik. Mit Künstlern wie Nightwish, HIM und Amorphis sowie einer Vielzahl von talentierten Singer-Songwritern und experimentellen Musikern bietet die finnische Musikszene eine faszinierende Klanglandschaft. Lass dich von den einzigartigen und oft mystischen Klängen der finnischen Musik verzaubern und erlebe die Vielfalt und Tiefe dieser außergewöhnlichen musikalischen Tradition.",
+    "isPlayable": false
+  },
+  {
+    "slug": "folk",
+    "headline": "Folk",
+    "imageUrl": "/category/folk.jpg",
+    "categoryUrl": "/folk",
+    "introSubline": "Erlebe die herzliche Einfachheit und die erzählerische Kraft der Folk-Musik!",
+    "text": "Folk-Musik verkörpert die Essenz traditioneller Erzählkunst und musikalischer Einfachheit, oft mit einem starken Fokus auf authentische Geschichten und akustische Instrumente. Diese Kategorie umfasst alles von den melancholischen Balladen und fröhlichen Tänzen der traditionellen Folk-Traditionen bis zu modernen Interpretationen, die das Genre neu beleben. Mit einer Mischung aus akustischen Gitarren, Banjo, Mandoline und harmonischem Gesang bietet Folk Musik, die sowohl nostalgisch als auch zeitlos ist. Tauche ein in die warmen Klänge und die tiefgründigen Geschichten, die Folk zu einem universellen und unvergesslichen Erlebnis machen.",
+    "isPlayable": false
+  },
+  {
+    "slug": "forro",
+    "headline": "Forró",
+    "imageUrl": "/category/forro.jpg",
+    "categoryUrl": "/forro",
+    "introSubline": "Lass dich von den mitreißenden Rhythmen und den fröhlichen Klängen des Forró begeistern!",
+    "text": "Forró ist ein lebendiger und rhythmischer Musikstil aus dem Nordosten Brasiliens, der durch seine energetischen Beats und fröhlichen Melodien besticht. Diese Kategorie vereint die besten Tracks des Genres, von traditionellen Forró-Klassikern bis hin zu modernen Interpretationen. Mit instrumentalen Klängen von Akkordeon, Zabumba (einer Art Trommel) und Triangel, bietet Forró eine einzigartige Mischung aus Tanzmusik, die sowohl zum Feiern als auch zum gemütlichen Zusammensein einlädt. Die ansteckenden Rhythmen und die herzlichen Melodien des Forró schaffen eine einladende Atmosphäre, die dich garantiert zum Tanzen und Mitsingen animiert.",
+    "isPlayable": false
+  },
+  {
+    "slug": "french",
+    "headline": "Französisch",
+    "imageUrl": "/category/french.jpg",
+    "categoryUrl": "/french",
+    "introSubline": "Erlebe die elegante Vielfalt und den besonderen Charme der französischen Musik!",
+    "text": "Französische Musik ist bekannt für ihre stilvolle Vielfalt und den einzigartigen Klang, der durch verschiedene Genres und Epochen geprägt ist. Diese Kategorie umfasst alles von den romantischen Chansons von Edith Piaf und Charles Aznavour über die eingängigen Pop-Hits von Künstlern wie Christine and the Queens und Daft Punk bis hin zu modernen Künstlern, die den französischen Sound neu interpretieren. Mit einer Mischung aus gefühlvollen Melodien, kreativen Beats und dem unverwechselbaren französischen Flair bietet französische Musik eine reiche Klanglandschaft, die sowohl nostalgisch als auch zeitgenössisch ist. Lass dich von den eleganten Klängen und der einzigartigen Atmosphäre der französischen Musik verzaubern.",
+    "isPlayable": false
+  },
+  {
+    "slug": "funk",
+    "headline": "Funk",
+    "imageUrl": "/category/funk.jpg",
+    "categoryUrl": "/funk",
+    "introSubline": "Spür den Groove und die unwiderstehliche Rhythmik des Funk!",
+    "text": "Funk ist das Herz der Tanzmusik, bekannt für seine groovigen Basslines, knackigen Schlagzeugbeats und mitreißenden Bläserarrangements. Diese Kategorie bietet dir eine Auswahl an Tracks, die das Beste des Genres repräsentieren – von den klassischen Hits der 70er Jahre bis hin zu modernen Funk-Interpretationen. Mit einem unverwechselbaren Rhythmus, der dich automatisch zum Mitbewegen einlädt, und einem Gefühl von purer Energie und Spaß, ist Funk perfekt für jede Party oder jede Gelegenheit, bei der gute Laune angesagt ist. Lass dich von den pulsierenden Beats und dem unwiderstehlichen Groove des Funk mitreißen und genieße den zeitlosen Sound, der immer für gute Stimmung sorgt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "garage",
+    "headline": "Garage",
+    "imageUrl": "/category/garage.jpg",
+    "categoryUrl": "/garage",
+    "introSubline": "Erlebe die pulsierenden Beats und den rohen Sound der Garage-Musik!",
+    "text": "Garage-Musik, oft bekannt als Garage Rock oder UK Garage, bietet eine energiegeladene Mischung aus rauem Rock’n’Roll und innovativem elektronischem Sound. Diese Kategorie umfasst die treibenden Rhythmen und dynamischen Melodien des Garage Rocks, der in den 60er Jahren entstand, sowie die aufregenden Beats und Samples des UK Garage, der in den 90er Jahren aufkam. Garage Rock ist bekannt für seine ungeschliffene Energie und direkten Klang, während UK Garage mit seinen pulsierenden Beats, schnellen Rhythmen und kreativen Vocal-Samples begeistert. Lass dich von der rohen Kraft und dem pulsierenden Groove der Garage-Musik mitreißen und genieße den unverwechselbaren Sound, der sowohl nostalgisch als auch modern ist.",
+    "isPlayable": false
+  },
+  {
+    "slug": "gitarre",
+    "headline": "Gitarre",
+    "imageUrl": "/category/gitarre.jpg",
+    "categoryUrl": "/gitarre",
+    "introSubline": "Erlebe die vielseitigen Klänge und die kraftvolle Präsenz der Gitarre in all ihren Facetten!",
+    "text": "Die Gitarre ist eines der vielseitigsten Instrumente und spielt in nahezu jedem Musikgenre eine zentrale Rolle. Diese Kategorie umfasst eine breite Palette von Gitarrenmusik, von den elektrisierenden Soli des Rock und Blues bis zu den sanften Akkorden der akustischen Balladen. Von virtuosen Fingerstyle-Techniken und prägnanten Riffs bis hin zu epischen Gitarren-Solos und innovativen Effektkreationen – die Gitarre bietet eine beeindruckende Vielfalt an Klängen und Ausdrucksmöglichkeiten. Lass dich von den emotionalen und kraftvollen Klängen der Gitarre mitreißen und entdecke, wie dieses Instrument die Musiklandschaft prägt und bereichert.",
+    "isPlayable": false
+  },
+  {
+    "slug": "gospel",
+    "headline": "Gospel",
+    "imageUrl": "/category/gospel.jpg",
+    "categoryUrl": "/gospel",
+    "introSubline": "Erlebe die kraftvollen Stimmen und die spirituelle Tiefe der Gospelmusik!",
+    "text": "Gospelmusik ist bekannt für ihre emotionale Intensität, ergreifenden Melodien und spirituelle Botschaft. Diese Kategorie bietet eine Auswahl an bewegenden Songs, die von den traditionellen Gospel-Klassikern bis zu modernen Interpretationen reichen. Mit kraftvollen Gesangsdarbietungen, einfühlsamen Texten und einem tiefen Gefühl von Gemeinschaft und Hoffnung bringt Gospelmusik die Herzen der Zuhörer zum Singen und Mitfühlen. Die dynamischen Rhythmen, eindringlichen Harmonien und der feierliche Klang schaffen eine Atmosphäre der Inspiration und des Glaubens. Lass dich von der spirituellen Kraft und der mitreißenden Energie der Gospelmusik berühren und erlebe, wie Musik zum Ausdruck von Hoffnung und Freude wird.",
+    "isPlayable": false
+  },
+  {
+    "slug": "goth",
+    "headline": "Gothic",
+    "imageUrl": "/category/gothic.jpg",
+    "categoryUrl": "/goth",
+    "introSubline": "Gothic entführt dich in eine Atmosphäre voller düsterer Eleganz und melancholischer Schönheit. Diese Kategorie vereint dramatische Klänge, kraftvolle Melodien und eine geheimnisvolle Stimmung, die von epischen Balladen bis hin zu kraftvollen Gothic-Rock-Hymnen reicht. Mit einer Mischung aus majestätischen Chören, tiefgründigen Texten und atmosphärischen Synthesizern – Gothic ist der Soundtrack für alle, die sich nach einer Welt voller dunkler Faszination sehnen.",
+    "text": "Gothic-Musik entführt dich in eine Welt voller dunkler Ästhetik und emotionaler Intensität. Diese Kategorie vereint kraftvolle Klänge, die von melancholischen Balladen bis zu energiegeladenem Gothic-Rock reichen, und bietet eine breite Palette von Stilen, die durch ihre düstere und oft dramatische Atmosphäre gekennzeichnet sind. Mit majestätischen Chören, tiefgründigen Texten und einer einzigartigen Mischung aus Rock, Klassik und elektronischen Elementen spiegelt Gothic eine faszinierende Welt wider, die sowohl mysteriös als auch bewegend ist. Lass dich von den packenden Klängen und der eindrucksvollen Stimmung des Gothic mitreißen und erlebe eine musikalische Reise in die dunkle Seite der Musik.",
+    "isPlayable": false
+  },
+  {
+    "slug": "grindcore",
+    "headline": "Grindcore",
+    "imageUrl": "/category/grindcore.jpg",
+    "categoryUrl": "/grindcore",
+    "introSubline": "Erlebe die kompromisslose Intensität und den rohen Sound des Grindcore!",
+    "text": "Grindcore ist bekannt für seine explosive Mischung aus extrem schnellen Beats, verzerrten Gitarren und aggressiven Vocals, die eine der intensivsten Erfahrungen in der Welt der extremen Musik bieten. Dieses Genre kombiniert Elemente aus Death Metal und Hardcore-Punk zu einem unverwechselbaren Sound, der durch seine hohe Geschwindigkeit und die oft kurzen, explosiven Songs gekennzeichnet ist. Mit sozialkritischen und oft provokanten Texten schafft Grindcore eine unvergleichliche Klanglandschaft, die sowohl energetisch als auch herausfordernd ist. Lass dich von der ungestümen Kraft und der einzigartigen Intensität des Grindcore mitreißen und erlebe die rohe, ungebändigte Energie dieses extremen Genres.",
+    "isPlayable": false
+  },
+  {
+    "slug": "groove",
+    "headline": "Groove",
+    "imageUrl": "/category/groove.jpg",
+    "categoryUrl": "/groove",
+    "introSubline": "Fühl den Rhythmus und lass dich vom unwiderstehlichen Groove mitreißen!",
+    "text": "Groove ist die Essenz von Musik, die dich nicht stillsitzen lässt. Diese Kategorie bietet eine breite Palette an Genres und Stilen, die durch ihren einzigartigen Rhythmus und die fesselnde Energie bestechen. Ob funkige Basslines, soulige Riffs oder elektronische Beats – Groove sorgt für eine unwiderstehliche Tanzbarkeit und Lebensfreude. Von den klassischen Funk- und Soul-Klängen über moderne Dance-Tracks bis hin zu stilvollen Jazz- und R&B-Grooves, hier findest du alles, was das Herz begehrt. Lass dich von den pulsierenden Rhythmen und dem mitreißenden Groove begeistern und genieße die Musik, die dich immer in Bewegung hält.",
+    "isPlayable": false
+  },
+  {
+    "slug": "grunge",
+    "headline": "Grunge",
+    "imageUrl": "/category/grunge.jpg",
+    "categoryUrl": "/grunge",
+    "introSubline": "Erlebe die rohe Energie und den unverwechselbaren Sound des Grunge!",
+    "text": "Grunge ist ein kraftvolles Genre, das in den 1990er Jahren seinen Ursprung in Seattle fand und für seine unverfälschte Energie und seinen einzigartigen Klang bekannt ist. Diese Kategorie umfasst die klassischen Grunge-Songs, die durch verzerrte Gitarrenriffs, kraftvolle Drums und emotionale Texte geprägt sind. Mit legendären Bands wie Nirvana, Pearl Jam und Soundgarden bietet Grunge eine Mischung aus rauem Rock, punkigem Einfluss und melancholischen Melodien. Die Musik fängt die ungestüme und oft düstere Atmosphäre der Ära ein und reflektiert Themen von Rebellion und Selbstfindung. Lass dich von der authentischen Kraft und dem unverwechselbaren Sound des Grunge mitreißen und genieße den tiefen Ausdruck dieser ikonischen Musikrichtung.",
+    "isPlayable": false
+  },
+  {
+    "slug": "happy",
+    "headline": "Happy",
+    "imageUrl": "/category/happy.jpg",
+    "categoryUrl": "/happy",
+    "introSubline": "Lass dich von fröhlichen Beats und guter Laune mitreißen!",
+    "text": "Die Kategorie 'Happy' bringt dir die besten Tracks, die pure Freude und positive Vibes verbreiten. Hier findest du Musik, die dir ein Lächeln ins Gesicht zaubert und die Laune hebt – perfekt für jede Gelegenheit, bei der gute Stimmung angesagt ist. Von eingängigen Pop-Hits und fröhlichen Dance-Tracks bis hin zu inspirierenden Indie-Songs und beschwingten Klassikern, diese Kategorie bietet eine Vielfalt an fröhlichen Klängen, die dich zum Tanzen und Mitsingen einladen. Erlebe den Sound von Lebensfreude und Optimismus und genieße die Musik, die deine Stimmung aufhellt und dir den perfekten Kick für einen tollen Tag gibt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "hard-rock",
+    "headline": "Hard Rock",
+    "imageUrl": "/category/hard-rock.jpg",
+    "categoryUrl": "/hard-rock",
+    "introSubline": "Erlebe die kraftvollen Riffs und den unbändigen Energie des Hard Rock!",
+    "text": "Hard Rock ist bekannt für seine energiegeladenen Gitarrenriffs, treibenden Rhythmen und kraftvollen Gesang. Diese Kategorie vereint die besten Tracks des Genres, das in den 70er Jahren entstanden ist und bis heute mit seinem rohen, dynamischen Sound begeistert. Mit ikonischen Bands wie Led Zeppelin, AC/DC und Deep Purple sowie modernen Vertretern bietet Hard Rock eine unvergleichliche Mischung aus druckvollen Instrumentalparts und packenden Melodien. Lass dich von den mitreißenden Gitarrenriffs, den energischen Drums und den intensiven Vocals mitreißen und genieße den robusten, ungestümen Charakter des Hard Rock, der dir immer einen Adrenalinkick gibt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "hardstyle",
+    "headline": "Hardstyle",
+    "imageUrl": "/category/hardstyle.jpg",
+    "categoryUrl": "/hardstyle",
+    "introSubline": "Erlebe den kraftvollen Bass und die energischen Beats des Hardstyle!",
+    "text": "Hardstyle ist bekannt für seine intensiven Basslines, treibenden Beats und epischen Drops, die jede Party zum Beben bringen. Diese Kategorie bietet dir die besten Tracks des Genres, das in den frühen 2000er Jahren entstand und sich durch seine Mischung aus Hard Dance und Hardcore-Elementen auszeichnet. Mit einem markanten Rhythmus, pulsierenden Kickdrums und kraftvollen Melodien sorgt Hardstyle für eine explosive Energie und eine mitreißende Atmosphäre auf der Tanzfläche. Lass dich von den dynamischen Rhythmen, den euphorischen Breakdowns und dem energetischen Sound des Hardstyle mitreißen und erlebe, wie diese Musikrichtung die Nacht zum Leben erweckt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "heavy-metal",
+    "headline": "Heavy Metal",
+    "imageUrl": "/category/heavy-metal.jpg",
+    "categoryUrl": "/heavy-metal",
+    "introSubline": "Lass die Gitarren heulen und die Schlagzeugstöcke krachen!",
+    "text": "Heavy Metal ist die explosivste Form des Rock, geprägt von kraftvollen Gitarrenriffs, energischen Schlagzeugbeats und markanten Vocals. Dieser Musikstil bringt explosive Live-Shows und monumentale Hymnen hervor, gespielt von Bands, die keine Kompromisse eingehen. Von düsteren Balladen bis hin zu brachialen Hymnen – Heavy Metal liefert ungebremste Intensität und Leidenschaft.",
+    "isPlayable": true
+  },
+  {
+    "slug": "hip-hop",
+    "headline": "Hip Hop",
+    "imageUrl": "/category/hip-hop.jpg",
+    "categoryUrl": "/hip-hop",
+    "introSubline": "Spür den Beat und den Flow der besten Hip-Hop-Tracks!",
+    "text": "Hip-Hop ist ein vielseitiges Genre, das sich durch seine kraftvollen Beats, kreativen Rhythmen und eindringlichen Texte auszeichnet. Diese Kategorie vereint alles von den klassischen Rap-Hymnen und Old-School-Beats bis hin zu modernen Hits und innovativen Produktionen. Mit einflussreichen Künstlern wie Tupac, The Notorious B.I.G. und aktuellen Größen wie Kendrick Lamar und Cardi B bietet Hip-Hop eine breite Palette an Klängen und Stilen, die durch ihren einzigartigen Rhythmus und ihre tiefgründigen Lyrics bestechen. Lass dich von den mitreißenden Beats, dem kreativen Flow und den eindrucksvollen Texten des Hip-Hop mitreißen und erlebe, wie diese Musikrichtung die Kultur und das Leben auf eindrucksvolle Weise widerspiegelt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "holiday",
+    "headline": "Holiday",
+    "imageUrl": "/category/holiday.jpg",
+    "categoryUrl": "/holiday",
+    "introSubline": "Feiere die Feiertage mit den besten Holiday-Tracks und stimmungsvollem Sound!",
+    "text": "Die Kategorie 'Holiday' bringt die perfekte Musik für jede festliche Gelegenheit. Egal ob Weihnachten, Silvester, Ostern oder andere besondere Anlässe – hier findest du eine Auswahl an klassischen Holiday-Hits, fröhlichen Festtagsmelodien und stimmungsvollen Liedern, die jede Feier unvergesslich machen. Von den zeitlosen Weihnachtsklassikern über fröhliche Neujahrslieder bis hin zu den besten Hits für Sommerferien und andere Festlichkeiten, die Holiday-Kategorie sorgt für die richtige Stimmung und gute Laune. Lass dich von der festlichen Musik mitreißen und genieße die Feiertage mit einer musikalischen Begleitung, die dir ein Lächeln ins Gesicht zaubert.",
+    "isPlayable": false
+  },
+  {
+    "slug": "house",
+    "headline": "House",
+    "imageUrl": "/category/house.jpg",
+    "categoryUrl": "/house",
+    "introSubline": "Erlebe die pulsierenden Beats und den unverwechselbaren Groove des House!",
+    "text": "House ist ein elektrisierendes Genre der elektronischen Tanzmusik, das in den 1980er Jahren in Chicago entstanden ist und sich durch seine eingängigen Rhythmen und tiefen Basslines auszeichnet. Diese Kategorie bietet dir eine breite Palette von House-Tracks, die von den klassischen Chicago House-Sounds über funky Disco-House bis hin zu modernen Deep-House- und Progressive-House-Varianten reichen. Mit ihren hypnotisierenden Beats, groovigen Basslines und oft souligen Vocals schafft House eine unvergleichliche Atmosphäre auf der Tanzfläche. Lass dich von den energetischen Rhythmen und dem mitreißenden Groove des House mitreißen und genieße die Musik, die in Clubs und auf Festivals für unvergessliche Nächte sorgt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "indie",
+    "headline": "Indie",
+    "imageUrl": "/category/indie.jpg",
+    "categoryUrl": "/indie",
+    "introSubline": "Entdecke die kreative Vielfalt und den einzigartigen Charme des Indie-Sounds!",
+    "text": "Indie-Musik steht für innovative Klänge, unkonventionelle Ansätze und kreative Freiheit. Diese Kategorie bietet eine breite Palette an Tracks von unabhängigen Künstlern und Bands, die sich durch ihren einzigartigen Stil und ihre authentische Ausdrucksweise auszeichnen. Von Indie-Rock und -Pop über experimentelle Elektronik bis hin zu akustischen Singer-Songwriter-Stücken – Indie-Musik zeigt eine bemerkenswerte Vielfalt und Originalität. Mit oft introspektiven Texten und unkonventionellen Arrangements bringt Indie-Musik frische Perspektiven und neue Klänge in die Musikwelt. Lass dich von den kreativen Sounds und der emotionalen Tiefe der Indie-Musik begeistern und entdecke Künstler, die abseits des Mainstreams neue Wege gehen.",
+    "isPlayable": false
+  },
+  {
+    "slug": "indie-pop",
+    "headline": "Indie-Pop",
+    "imageUrl": "/category/indie-pop.jpg",
+    "categoryUrl": "/indie-pop",
+    "introSubline": "Erlebe die frischen Klänge und die kreative Vielfalt des Indie-Pop!",
+    "text": "Indie-Pop ist bekannt für seine innovative Mischung aus eingängigen Melodien und unkonventionellen Klängen. Diese Kategorie vereint eine Auswahl an Tracks, die von unabhängigen Künstlern und Bands geschaffen wurden und sich durch ihren einzigartigen Sound und ihre kreative Freiheit auszeichnen. Mit einem Fokus auf melodische Hooks, experimentelle Arrangements und oft introspektive Texte bietet Indie-Pop eine erfrischende Alternative zu Mainstream-Popmusik. Von verträumten Soundscapes und sanften Gitarrenriffs bis hin zu energiegeladenen Beats und eingängigen Refrains – entdecke die Vielfalt und den Charme des Indie-Pop, der für seinen kreativen Ansatz und seine emotionale Tiefe geschätzt wird.",
+    "isPlayable": false
+  },
+  {
+    "slug": "indisch",
+    "headline": "Indisch",
+    "imageUrl": "/category/indisch.jpg",
+    "categoryUrl": "/indisch",
+    "introSubline": "Tauche ein in die faszinierende Vielfalt und den rhythmischen Reichtum der indischen Musik!",
+    "text": "Indische Musik bietet eine faszinierende Welt voller traditioneller Klänge, melodischer Komplexität und rhythmischer Vielfalt. Diese Kategorie umfasst alles von den klassischen Ragas der indischen Klassik, die tief in der kulturellen und spirituellen Tradition verwurzelt sind, bis hin zu den lebhaften Beats der Bollywood-Soundtracks und der modernen Fusion von Pop, Rock und elektronischen Elementen. Mit einer reichen Palette an Instrumenten wie Sitar, Tabla und Harmonium und einem breiten Spektrum von Musikstilen, die von ruhigen meditativen Klängen bis zu energetischen Tanzrhythmen reichen, zeigt indische Musik eine beeindruckende Vielfalt. Lass dich von den tiefgründigen Melodien, den komplexen Rhythmen und der einzigartigen Atmosphäre der indischen Musik verzaubern und erlebe eine musikalische Reise durch eines der reichhaltigsten und vielfältigsten Kulturkreise der Welt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "industrial",
+    "headline": "Industrial",
+    "imageUrl": "/category/industrial.jpg",
+    "categoryUrl": "/industrial",
+    "introSubline": "Erlebe die kraftvolle Mischung aus Maschinenklängen und elektronischen Beats des Industrial-Sounds!",
+    "text": "Industrial-Musik ist bekannt für ihren rauen, mechanischen Klang und ihre innovative Nutzung von Geräuschen und Samples. Diese Kategorie vereint eine breite Palette von Tracks, die durch ihre aggressive Ästhetik, verzerrten Klänge und oft dystopischen Themen charakterisiert sind. Von den frühen Pionieren wie Throbbing Gristle und Einstürzende Neubauten bis zu modernen Vertretern wie Nine Inch Nails und Ministry bietet Industrial eine unvergleichliche Mischung aus harten Beats, synthetischen Texturen und experimentellen Sounds. Mit ihrer einzigartigen Kombination aus elektronischer Musik, Punk-Elementen und industriellen Geräuschen schafft Industrial eine kraftvolle, oft verstörende Atmosphäre, die sowohl herausfordernd als auch fesselnd ist. Lass dich von den druckvollen Beats und der unkonventionellen Klanglandschaft des Industrial mitreißen und erlebe einen musikalischen Ausdruck, der Grenzen sprengt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "iranisch",
+    "headline": "Iranisch",
+    "imageUrl": "/category/iranisch.jpg",
+    "categoryUrl": "/iranisch",
+    "introSubline": "Entdecke die reiche Klangwelt und die kulturelle Tiefe der iranischen Musik!",
+    "text": "Iranische Musik bietet eine faszinierende Mischung aus traditioneller und zeitgenössischer Klangerfahrung, die tief in der kulturellen Geschichte und den vielfältigen Traditionen Irans verwurzelt ist. Diese Kategorie umfasst alles von den klassischen, anspruchsvollen Klängen der persischen Musik, wie sie in den traditionellen Instrumenten wie Santur, Tar und Setar zu finden sind, bis hin zu modernen Fusionen, die westliche und iranische Stile vereinen. Die Musik reicht von melancholischen, poetischen Gesängen, die die Schönheit der persischen Dichtkunst widerspiegeln, bis zu lebhaften Pop- und Rock-Produktionen, die die moderne iranische Musikszene repräsentieren. Lass dich von den emotionalen Melodien, den rhythmischen Strukturen und der kulturellen Vielfalt der iranischen Musik verzaubern und erlebe eine Klangwelt, die sowohl traditionell als auch innovativ ist.",
+    "isPlayable": false
+  },
+  {
+    "slug": "irisch",
+    "headline": "Irisch",
+    "imageUrl": "/category/tuerkisch.jpg",
+    "categoryUrl": "/irisch",
+    "introSubline": "Erlebe die lebhaften Rhythmen und die traditionelle Schönheit der irischen Musik!",
+    "text": "Die irische Musik ist tief in der Kultur und Geschichte Irlands verwurzelt und bekannt für ihre lebhaften Melodien, gefühlvollen Balladen und den charakteristischen Einsatz traditioneller Instrumente wie der Fiddle, Tin Whistle und Bodhrán. Diese Kategorie vereint eine breite Palette von Songs, die von den fröhlichen Jigs und Reels der irischen Folklore bis hin zu den emotionalen Balladen und modernen Interpretationen irischer Musik reichen. Mit legendären Bands und Künstlern wie The Dubliners, Clannad, The Chieftains und Enya bietet die irische Musik eine Mischung aus Freude, Melancholie und kultureller Tiefe. Lass dich von den mitreißenden Rhythmen und den ergreifenden Melodien der irischen Musik mitreißen und erlebe die zeitlose Schönheit einer Musik, die Generationen überdauert hat und immer wieder aufs Neue begeistert.",
+    "isPlayable": false
+  },
+  {
+    "slug": "islaendisch",
+    "headline": "Isländisch",
+    "imageUrl": "/category/islaendisch.jpg",
+    "categoryUrl": "/islaendisch",
+    "introSubline": "Tauche ein in die magische Klangwelt und die mystische Atmosphäre der isländischen Musik!",
+    "text": "Die isländische Musik ist bekannt für ihre einzigartige Mischung aus Naturverbundenheit, mystischen Klängen und innovativer Kreativität. Diese Kategorie vereint die besten Tracks, die den unverwechselbaren Charakter Islands widerspiegeln – von den sanften, atmosphärischen Melodien des Folk bis hin zu den experimentellen und avantgardistischen Klängen des modernen Pop und Indie. Mit Künstlern wie Björk, Sigur Rós, Of Monsters and Men und Ásgeir zeigt die isländische Musik eine beeindruckende Tiefe und Vielfalt, die sowohl die raue Schönheit der isländischen Landschaft als auch die introspektive und oft poetische Seele des Landes einfängt. Lass dich von den atmosphärischen Klängen und der emotionalen Intensität der isländischen Musik verzaubern und erlebe eine musikalische Reise durch eine Welt voller Magie und Geheimnisse.",
+    "isPlayable": false
+  },
+  {
+    "slug": "j-dance",
+    "headline": "J-Dance",
+    "imageUrl": "/category/j-dance.jpg",
+    "categoryUrl": "/j-dance",
+    "introSubline": "Spür den pulsierenden Rhythmus und die energetischen Beats des J-Dance!",
+    "text": "J-Dance ist ein lebendiges Genre der japanischen Musikszene, das für seine dynamischen Beats und seine mitreißenden Tanzrhythmen bekannt ist. Diese Kategorie bietet eine Auswahl an fröhlichen, energiegeladenen Tracks, die oft von modernen Dance-Pop-Klängen bis zu kraftvollen EDM-Produktionen reichen. Mit Künstlern und Produzenten, die innovative Sounds und kreative Melodien kombinieren, bringt J-Dance die neuesten Trends und frischen Einflüsse aus Japan direkt auf die Tanzfläche. Lass dich von den pulsierenden Rhythmen, den eingängigen Hooks und der energiegeladenen Atmosphäre des J-Dance mitreißen und erlebe die pulsierende Energie und den einzigartigen Stil der japanischen Dance-Musik.",
+    "isPlayable": false
+  },
+  {
+    "slug": "j-pop",
+    "headline": "J-Pop",
+    "imageUrl": "/category/j-pop.jpg",
+    "categoryUrl": "/j-pop",
+    "introSubline": "Erlebe die lebhaften Klänge und die einprägsamen Melodien des J-Pop!",
+    "text": "J-Pop, oder Japanischer Pop, ist bekannt für seine eingängigen Melodien, vielfältigen Stile und die unverwechselbare Energie, die es in der globalen Musikszene einzigartig macht. Diese Kategorie umfasst eine breite Palette von J-Pop-Tracks, die von den klassischen Hits der 90er Jahre bis zu den modernen Sounds der heutigen Zeit reichen. Mit Künstlern wie Kyary Pamyu Pamyu, Perfume und Arashi bietet J-Pop eine bunte Mischung aus fröhlichen, tanzbaren Songs und emotionalen Balladen, die oft von innovativen Produktionen und kreativen Musikvideos begleitet werden. Lass dich von den fesselnden Rhythmen, den lebhaften Beats und dem charmanten Flair des J-Pop mitreißen und erlebe, wie diese Musikrichtung Japan's einzigartige Kultur und Stil auf eine globale Bühne bringt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "j-rock",
+    "headline": "J-Rock",
+    "imageUrl": "/category/j-rock.jpg",
+    "categoryUrl": "/j-rock",
+    "introSubline": "Tauche ein in die kraftvollen Riffs und die dynamische Energie des J-Rock!",
+    "text": "J-Rock, oder japanischer Rock, ist bekannt für seine energiegeladenen Gitarrenriffs, packenden Melodien und die kreative Vielfalt, die das Genre ausmacht. Diese Kategorie vereint eine Vielzahl von Tracks, die sowohl klassische J-Rock-Elemente als auch moderne Einflüsse enthalten, von den Pionieren der Szene bis zu den heutigen Top-Bands. Mit Bands wie X Japan, L'ArcenCiel, ONE OK ROCK und vielen anderen bietet J-Rock eine spannende Mischung aus kraftvollen Balladen, epischen Rockhymnen und experimentellen Klängen. Erlebe den unverwechselbaren Sound und die ungebändigte Energie, die J-Rock zu einem der fesselndsten Genres der japanischen Musikszene macht.",
+    "isPlayable": false
+  },
+  {
+    "slug": "jazz",
+    "headline": "Jazz",
+    "imageUrl": "/category/jazz.jpg",
+    "categoryUrl": "/jazz",
+    "introSubline": "Erlebe die zeitlose Eleganz und die improvisierte Freiheit des Jazz!",
+    "text": "Jazz ist ein Genre, das durch seine stilistische Vielfalt, emotionale Tiefe und kreative Freiheit besticht. Diese Kategorie vereint die besten Tracks aus der Welt des Jazz, von den klassischen Melodien des Swing und Bebop bis hin zu den modernen Interpretationen des Contemporary Jazz und Fusion. Mit legendären Künstlern wie Miles Davis, John Coltrane und Ella Fitzgerald bietet Jazz eine reiche Klanglandschaft, die von sanften Balladen bis zu komplexen, rhythmischen Kompositionen reicht. Lass dich von den geschmeidigen Saxophonklängen, den virtuosen Klaviersoli und den pulsierenden Rhythmen mitreißen und genieße die Atmosphäre, die Jazz so einzigartig macht. Tauche ein in die Welt des Jazz, wo jeder Ton eine Geschichte erzählt und jedes Stück eine emotionale Reise ist.",
+    "isPlayable": false
+  },
+  {
+    "slug": "k-pop",
+    "headline": "K-Pop",
+    "imageUrl": "/category/k-pop.jpg",
+    "categoryUrl": "/k-pop",
+    "introSubline": "Erlebe die packenden Beats und die spektakulären Performances des K-Pop!",
+    "text": "K-Pop, oder Koreanischer Pop, ist ein weltweites Phänomen, das durch seine eingängigen Melodien, beeindruckenden Choreografien und visuell beeindruckenden Musikvideos begeistert. Diese Kategorie vereint die besten Tracks und ikonischen Hits, die die globale K-Pop-Szene dominieren. Mit Künstlern und Gruppen wie BTS, BLACKPINK, EXO und TWICE bietet K-Pop eine bunte Mischung aus Pop, Hip-Hop, R&B und elektronischen Einflüssen, die durch ihre hohe Produktionsqualität und innovative Sounds beeindrucken. Lass dich von den dynamischen Rhythmen, den mitreißenden Refrains und der einzigartigen Energie des K-Pop mitreißen und entdecke die Musik, die weltweit die Charts stürmt und Millionen von Fans begeistert.",
+    "isPlayable": false
+  },
+  {
+    "slug": "kinder",
+    "headline": "Kinder",
+    "imageUrl": "/category/kinder.jpg",
+    "categoryUrl": "/kinder",
+    "introSubline": "Spaßige Melodien und fröhliche Lieder für kleine Entdecker!",
+    "text": "Die Kategorie ‚Kinder‘ bietet eine bunte Auswahl an fröhlichen und eingängigen Liedern, die speziell für die jüngsten Musikfans gemacht sind. Von klassischen Kinderliedern und Schlafliedern bis hin zu modernen Songs aus beliebten Filmen und TV-Serien – diese Musik sorgt für Spaß, Bewegung und jede Menge gute Laune. Ob zum Mitsingen, Tanzen oder einfach nur zum Zuhören – die liebevoll gestalteten Lieder bringen Freude und regen die Fantasie der Kinder an. Lass die Kleinen in die Welt der Musik eintauchen und genieße gemeinsam die fröhlichen und lehrreichen Klänge, die das Herz jedes Kindes höher schlagen lassen.",
+    "isPlayable": false
+  },
+  {
+    "slug": "klassik",
+    "headline": "Klassik",
+    "imageUrl": "/category/klassik.jpg",
+    "categoryUrl": "/klassik",
+    "introSubline": "Erlebe die zeitlose Schönheit und majestätische Komplexität der klassischen Musik!",
+    "text": "Klassische Musik ist die Grundlage der westlichen Musiktradition und bietet eine faszinierende Vielfalt von Kompositionen, die über Jahrhunderte hinweg begeistern. Diese Kategorie umfasst Meisterwerke von ikonischen Komponisten wie Bach, Mozart, Beethoven und viele weitere, die für ihre tiefgründigen Melodien, komplexen Strukturen und emotionale Ausdruckskraft bekannt sind. Von majestätischen Sinfonien und ergreifenden Solokonzerten bis zu eleganten Kammermusikstücken und intimen Klavierwerken – klassische Musik lädt dazu ein, in eine Welt von Raffinesse und zeitloser Schönheit einzutauchen. Lass dich von den großen Kompositionen inspirieren und genieße die Erhabenheit der Klassik.",
+    "isPlayable": false
+  },
+  {
+    "slug": "klavier",
+    "headline": "Klavier",
+    "imageUrl": "/category/klavier.jpg",
+    "categoryUrl": "/klavier",
+    "introSubline": "Erlebe die zeitlose Schönheit und emotionale Tiefe des Klavierspiels!",
+    "text": "Das Klavier ist ein Instrument, das durch seine Vielseitigkeit und Ausdruckskraft fasziniert. Diese Kategorie vereint eine Vielzahl von Stücken, die die eleganten und kraftvollen Klänge des Klaviers in den Mittelpunkt stellen. Von klassischen Meisterwerken von Komponisten wie Beethoven, Chopin und Debussy bis hin zu modernen Piano-Kompositionen und gefühlvollen Balladen – die Klaviermusik bietet eine reiche Palette an Emotionen und Stimmungen. Ob sanfte Melodien zum Entspannen, virtuose Soli oder berührende Filmmusik, die Kategorie 'Klavier' entführt dich in eine Welt voller Klangzauber und musikalischer Raffinesse. Lass dich von den melodischen Linien und harmonischen Strukturen des Klaviers inspirieren und genieße die beruhigende und zugleich tief bewegende Wirkung dieses wunderbaren Instruments.",
+    "isPlayable": false
+  },
+  {
+    "slug": "latin-vibes",
+    "headline": "Latin Vibes",
+    "imageUrl": "/category/latin.jpg",
+    "categoryUrl": "/latin-vibes",
+    "introSubline": "Spür die rhythmische Leidenschaft und die lebhaften Klänge der Latin-Welt!",
+    "text": "Latin Vibes bringt die pulsierende Energie und den unwiderstehlichen Rhythmus der Latin-Musik direkt zu dir. Diese Kategorie vereint eine bunte Mischung aus heißen Salsa-, Reggaeton- und Bachata-Beats sowie den mitreißenden Grooves des Latin Pop. Von feurigen Tanztracks bis zu gefühlvollen Melodien – Latin Vibes sorgt für eine unvergleichliche Atmosphäre voller Lebensfreude und Energie.",
+    "isPlayable": true
+  },
+  {
+    "slug": "latino",
+    "headline": "Lateinamerikanisch",
+    "imageUrl": "/category/latino.jpg",
+    "categoryUrl": "/latino",
+    "introSubline": "Tauche ein in die lebhaften Rhythmen und die kulturelle Vielfalt Lateinamerikas!",
+    "text": "Die lateinamerikanische Musik ist ein pulsierendes Kaleidoskop aus verschiedenen Stilen und Traditionen, die die reiche kulturelle Vielfalt der Region widerspiegeln. Diese Kategorie vereint die besten Klänge aus Genres wie Salsa, Tango, Reggaeton, Cumbia, Bachata und vielen anderen. Mit feurigen Rhythmen, leidenschaftlichen Melodien und unwiderstehlichen Tanzbeats bietet die lateinamerikanische Musik eine fesselnde Mischung, die die Herzen und die Tanzflächen gleichermaßen erobert. Von den traditionellen Klängen der Anden bis zu den modernen Hits der Karibik und Südamerikas – lass dich von der Lebensfreude und dem musikalischen Reichtum Lateinamerikas begeistern und erlebe eine unvergessliche musikalische Reise.",
+    "isPlayable": false
+  },
+  {
+    "slug": "mandopop",
+    "headline": "Mandopop",
+    "imageUrl": "/category/mandopop.jpg",
+    "categoryUrl": "/mandopop",
+    "introSubline": "Erlebe die gefühlvollen Melodien und den modernen Sound des Mandopop!",
+    "text": "Mandopop, oder Mandarin-Pop, ist ein dominierendes Genre der chinesischsprachigen Musikszene, das durch seine eingängigen Melodien und vielseitigen Stile begeistert. Diese Kategorie bietet eine Mischung aus romantischen Balladen, dynamischen Pop-Hits und innovativen Fusionen, die sowohl traditionelle als auch moderne Einflüsse vereinen. Mit Künstlern wie Jay Chou, Jolin Tsai und Stefanie Sun hat Mandopop eine weitreichende Fangemeinde in ganz Asien und darüber hinaus erobert. Tauche ein in die Welt des Mandopop, wo gefühlvolle Texte und melodische Arrangements die Herzen der Zuhörer berühren und eine einzigartige musikalische Atmosphäre schaffen. Lass dich von der Vielfalt und dem emotionalen Ausdruck des Mandopop mitreißen und genieße die Klänge einer Musikrichtung, die Kultur und Moderne perfekt miteinander verbindet.",
+    "isPlayable": false
+  },
+  {
+    "slug": "new-age",
+    "headline": "New Age",
+    "imageUrl": "/category/new-age.jpg",
+    "categoryUrl": "/new-age",
+    "introSubline": "Entspanne und finde innere Ruhe mit den beruhigenden Klängen der New Age-Musik!",
+    "text": "New Age-Musik bietet eine sanfte und oft meditative Klangwelt, die perfekt für Entspannung, Meditation und innere Einkehr ist. Diese Kategorie vereint harmonische Melodien, atmosphärische Synthesizer, Naturklänge und traditionelle Instrumente, die zusammen eine beruhigende und heilende Wirkung entfalten. Von sphärischen Soundscapes bis hin zu spirituell inspirierten Kompositionen – New Age-Musik schafft einen Raum der Ruhe und Gelassenheit, der Körper und Geist in Einklang bringt. Lass dich von den sanften Klängen der New Age-Musik tragen, finde deinen inneren Frieden und genieße Momente der Entspannung und Erholung in einer hektischen Welt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "oper",
+    "headline": "Oper",
+    "imageUrl": "/category/oper.jpg",
+    "categoryUrl": "/oper",
+    "introSubline": "Erlebe die dramatische Kraft und die emotionale Tiefe der großen Opernwerke!",
+    "text": "Oper ist die Königin der Musikgenres, eine kraftvolle Mischung aus Musik, Theater und Poesie. Diese Kategorie vereint die ergreifendsten Arien, Duette und Chöre aus den bekanntesten Opern der Welt, von Komponisten wie Verdi, Puccini, Mozart und Wagner. Mit packenden Geschichten, eindrucksvollen Inszenierungen und virtuosen Gesangsdarbietungen bieten Opernwerke eine emotionale Reise durch Liebe, Leid, Triumph und Tragödie. Tauche ein in die Welt der Oper, wo dramatische Melodien und leidenschaftliche Performances die Bühne zum Leben erwecken und unvergessliche musikalische Momente schaffen. Genieße die majestätische Schönheit und die tiefe emotionale Wirkung der Opernmusik, die seit Jahrhunderten die Herzen der Menschen berührt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "party-on",
+    "headline": "Party On!",
+    "imageUrl": "/category/party-on.jpg",
+    "categoryUrl": "/party-on",
+    "introSubline": "Feier bis zum Morgengrauen und lass den Beat niemals enden!",
+    "text": "Party On! bringt die besten Hits zusammen, die jede Feier zum Kochen bringen. Von energiegeladenen Dance-Tracks über mitreißende Pop-Hymnen bis hin zu pulsierenden Elektro-Beats – diese Kategorie liefert die perfekte Musik für unvergessliche Nächte und ausgelassene Stimmung. Egal, ob du tanzen, feiern oder einfach nur gute Laune haben willst, mit Party On! wird jede Veranstaltung zum Highlight.",
+    "isPlayable": false
+  },
+  {
+    "slug": "pop",
+    "headline": "Pop",
+    "imageUrl": "/category/pop.jpg",
+    "categoryUrl": "/pop",
+    "introSubline": "Lass dich von den angesagtesten Hits und mitreißenden Melodien mitreißen!",
+    "text": "Popmusik ist der Puls der zeitgenössischen Musikszene, bekannt für ihre eingängigen Melodien und ansteckenden Rhythmen. Diese Kategorie vereint die besten aktuellen Chartstürmer und zeitlosen Klassiker, die immer für gute Laune sorgen. Von fröhlichen Ohrwürmern und emotionalen Balladen bis hin zu energetischen Beats und innovativen Sounds – Pop bietet die perfekte Mischung aus Unterhaltung und Ohrenschmaus, die garantiert zum Mitsingen und Tanzen einlädt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "pop-rock",
+    "headline": "PopRock",
+    "imageUrl": "/category/pop-rock.jpg",
+    "categoryUrl": "/pop-rock",
+    "introSubline": "Lassen Sie die Energie fließen und rocken Sie mit!",
+    "text": "Poprock vereint die eingängigen Melodien des Pop mit der Energie des Rock. Dieser Stil bringt emotionale Balladen und mitreißende Hits hervor, geprägt von vielseitigen Künstlern und Bands.",
+    "isPlayable": true
+  },
+  {
+    "slug": "power-pop",
+    "headline": "Power-Pop",
+    "imageUrl": "/category/power-pop.jpg",
+    "categoryUrl": "/power-pop",
+    "introSubline": "Erlebe die eingängigen Melodien und die dynamische Energie des Power-Pop!",
+    "text": "Power-Pop ist ein Genre, das die Melodieverliebtheit des Pop mit der Energie und dem Drive des Rock verbindet. Diese Kategorie bietet eine Auswahl an kraftvollen, melodiegetriebenen Songs, die von harmonischen Gesangsparts, eingängigen Refrains und knackigen Gitarrenriffs geprägt sind. Von den frühen Pionieren wie Big Star und Cheap Trick bis zu modernen Bands wie Weezer und Fountains of Wayne – Power-Pop steht für unwiderstehliche Ohrwürmer und eine positive, energetische Stimmung. Lass dich von den fröhlichen Melodien und dem mitreißenden Sound des Power-Pop begeistern und erlebe die perfekte Mischung aus Pop-Hooks und Rock-Energie, die dich zum Mitsingen und Mitwippen einlädt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "psych-rock",
+    "headline": "Psych-Rock",
+    "imageUrl": "/category/psych-rock.jpg",
+    "categoryUrl": "/psych-rock",
+    "introSubline": "Tauche ein in die hypnotischen Klänge und die kaleidoskopischen Soundlandschaften des Psych-Rock!",
+    "text": "Psych-Rock, oder Psychedelic Rock, ist ein Genre, das für seine experimentellen Klänge, träumerischen Melodien und die kreative Nutzung von Effekten bekannt ist. Diese Musikrichtung entstand in den 1960er Jahren und ist geprägt von verzerrten Gitarren, hypnotischen Rhythmen und surrealen Texten, die oft spirituelle oder bewusstseinserweiternde Themen behandeln. Von den Pionieren wie The Beatles, Pink Floyd und The Doors bis zu modernen Vertretern wie Tame Impala und King Gizzard & the Lizard Wizard – Psych-Rock bietet eine faszinierende Reise durch klangliche Sphären, die die Grenzen der Realität verschwimmen lassen. Lass dich von den psychedelischen Sounds und der atmosphärischen Tiefe des Psych-Rock mitreißen und erlebe eine musikalische Reise, die den Geist öffnet und die Fantasie beflügelt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "punk",
+    "headline": "Punk",
+    "imageUrl": "/category/punk.jpg",
+    "categoryUrl": "/punk",
+    "introSubline": "Erlebe die rohe Energie und den rebellischen Geist des Punk!",
+    "text": "Punk ist ein Genre, das sich durch seine ungeschliffene Energie, schnellen Rhythmen und eine klare, oft provokative Haltung auszeichnet. Entstanden in den 1970er Jahren als Reaktion auf die etablierte Musikindustrie und gesellschaftliche Normen, ist Punk die Stimme der Rebellion und des Nonkonformismus. Diese Kategorie vereint die besten Tracks der Punk-Bewegung, von den bahnbrechenden Klängen der Ramones, The Clash und Sex Pistols bis hin zu modernen Punk-Bands, die den Geist des Genres am Leben erhalten. Mit verzerrten Gitarren, direkten Texten und einem DIY-Ethos bietet Punk eine unverfälschte, rohe Klanglandschaft, die die Grenzen der Musik sprengt und den Zuhörer direkt anspricht. Lass dich von der Intensität und der unbändigen Energie des Punk mitreißen und erlebe den Soundtrack für alle, die gegen den Strom schwimmen.",
+    "isPlayable": false
+  },
+  {
+    "slug": "r-n-b",
+    "headline": "R&B",
+    "imageUrl": "/category/r-n-b.jpg",
+    "categoryUrl": "/r-n-b",
+    "introSubline": "Erlebe die geschmeidigen Grooves und die gefühlvollen Melodien des R&B!",
+    "text": "R&B, oder Rhythm and Blues, ist ein Genre, das für seine emotionale Tiefe, sanften Rhythmen und gefühlvollen Vocals bekannt ist. Diese Kategorie vereint die besten Tracks, die das Herzstück der R&B-Musik ausmachen – von den klassischen Soul-Hymnen der 60er Jahre bis zu den modernen, urbanen Sounds der heutigen Zeit. Mit Einflüssen aus Jazz, Gospel und Funk bietet R&B eine reiche musikalische Palette, die sowohl tanzbare Hits als auch emotionale Balladen umfasst. Künstler wie Marvin Gaye, Beyoncé, Usher und Alicia Keys haben das Genre geprägt und ihm eine unverwechselbare Stimme verliehen. Lass dich von den sinnlichen Grooves, den melodischen Hooks und der gefühlvollen Ausdruckskraft des R&B verzaubern und genieße eine Musikrichtung, die immer wieder das Herz berührt und die Seele bewegt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "regentag",
+    "headline": "Regentag",
+    "imageUrl": "/category/regentag.jpg",
+    "categoryUrl": "/regentag",
+    "introSubline": "Genieße die sanften Klänge und die beruhigende Atmosphäre für regnerische Tage!",
+    "text": "An Regentagen gibt es nichts Besseres, als sich in gemütliche Musik zu hüllen, die die melancholische, aber auch friedliche Stimmung untermalt. Diese Kategorie vereint eine Auswahl an sanften Melodien, ruhigen Instrumentalstücken und gefühlvollen Balladen, die perfekt zum Lauschen des Regens passen. Von akustischen Gitarrenklängen über sanfte Klavierstücke bis hin zu entspannendem Indie-Pop und Ambient-Musik – die Regentag-Playlist sorgt für eine behagliche Atmosphäre, in der du dich entspannen, nachdenken oder einfach den Moment genießen kannst. Lass dich von der beruhigenden Musik tragen und erlebe, wie Regentage zu einer Zeit der Ruhe und Reflexion werden.",
+    "isPlayable": false
+  },
+  {
+    "slug": "reggae",
+    "headline": "Reggae",
+    "imageUrl": "/category/reggae.jpg",
+    "categoryUrl": "/reggae",
+    "introSubline": "Spür den entspannten Vibe und die positiven Rhythmen des Reggae!",
+    "text": "Reggae ist ein Genre, das für seine entspannten Rhythmen, tiefen Basslines und spirituellen Botschaften bekannt ist. Entstanden in den 1960er Jahren in Jamaika, hat Reggae weltweit Einfluss genommen und ist ein Symbol für Frieden, Liebe und Widerstand geworden. Diese Kategorie vereint die ikonischen Klänge von Legenden wie Bob Marley, Peter Tosh und Burning Spear sowie moderne Reggae-Künstler, die das Genre weiterführen. Mit seinen Offbeat-Rhythmen, warmen Melodien und oft sozialkritischen Texten bietet Reggae eine musikalische Reise, die sowohl zum Tanzen als auch zum Nachdenken anregt. Lass dich von den sanften Grooves und den positiven Vibes des Reggae mitreißen und erlebe eine Musik, die Herz und Seele gleichermaßen berührt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "reggaeton",
+    "headline": "Reggaeton",
+    "imageUrl": "/category/reggaeton.jpg",
+    "categoryUrl": "/reggaeton",
+    "introSubline": "Spür den pulsierenden Beat und die feurigen Rhythmen des Reggaeton!",
+    "text": "Reggaeton ist ein explosiver Musikstil, der die Party zum Beben bringt und weltweit Tanzflächen erobert. Ursprünglich aus Puerto Rico stammend, kombiniert Reggaeton Einflüsse aus Reggae, Dancehall und Latin-Musik mit einem unverwechselbaren, treibenden Beat. Diese Kategorie vereint die größten Hits und angesagtesten Tracks, die durch ihre eingängigen Rhythmen und energiegeladenen Melodien bestechen. Mit Künstlern wie Daddy Yankee, Bad Bunny, J Balvin und Karol G hat Reggaeton die Musikszene revolutioniert und bringt die tropische Hitze direkt in die Ohren. Lass dich von den heißen Rhythmen und den kraftvollen Beats des Reggaeton mitreißen und genieße die pure Energie und den unwiderstehlichen Groove, der jeden Moment zur Feier macht.",
+    "isPlayable": false
+  },
+  {
+    "slug": "road-trip",
+    "headline": "Road Trip",
+    "imageUrl": "/category/road-trip.jpg",
+    "categoryUrl": "/road-trip",
+    "introSubline": "Mach dich bereit für die perfekte musikalische Begleitung auf deinem Road Trip!",
+    "text": "Die Kategorie ‚Road Trip‘ bietet die ideale Mischung aus energiegeladenen Tracks, zeitlosen Klassikern und entspannenden Melodien, die jede Autofahrt in ein unvergessliches Erlebnis verwandeln. Ob du kilometerweit durch die offene Landschaft fährst oder die Küstenstraßen entlang cruist – diese Playlist sorgt für den perfekten Soundtrack. Mit einer Auswahl an Rock-Hymnen, Indie-Pop-Songs, Folk-Balladen und sommerlichen Beats hält ‚Road Trip‘ für jeden Moment die richtige Musik bereit. Lass dich vom Rhythmus mitreißen, genieße den Fahrtwind und erlebe die Freiheit der Straße, während die Musik dich durch atemberaubende Landschaften und unvergessliche Abenteuer begleitet.",
+    "isPlayable": false
+  },
+  {
+    "slug": "rock",
+    "headline": "Rock",
+    "imageUrl": "/category/rock.jpg",
+    "categoryUrl": "/rock",
+    "introSubline": "Erlebe die kraftvollen Gitarrenriffs und die unbändige Energie des Rock!",
+    "text": "Rockmusik ist ein Genre, das Generationen geprägt und die Musiklandschaft revolutioniert hat. Diese Kategorie vereint die größten Hits und legendären Tracks, die Rock zu einem der einflussreichsten Musikstile aller Zeiten gemacht haben. Von den frühen Klängen der 60er und 70er Jahre mit Bands wie Led Zeppelin, The Rolling Stones und Queen bis hin zu den kraftvollen Sounds moderner Rockbands wie Foo Fighters und Muse – Rock bietet eine unvergleichliche Mischung aus Energie, Emotion und Rebellion. Mit donnernden Drums, markanten Gitarrenriffs und unvergesslichen Melodien ist Rockmusik der Soundtrack für all jene, die die Freiheit und die rohe Kraft der Musik spüren wollen. Lass dich von den ikonischen Klängen und der unverfälschten Energie des Rock mitreißen und genieße die Musik, die immer wieder neu begeistert und inspiriert.",
+    "isPlayable": false
+  },
+  {
+    "slug": "rock-n-roll",
+    "headline": "Rock 'n' Roll",
+    "imageUrl": "/category/rock-n-roll.jpg",
+    "categoryUrl": "/rock-n-roll",
+    "introSubline": "Erlebe die ungestüme Energie und den klassischen Sound des Rock 'n' Roll!",
+    "text": "Rock 'n' Roll ist das Genre, das die Musikgeschichte revolutioniert hat und die Grundlage für viele moderne Musikstile legte. Mit seiner Mischung aus Rhythm & Blues, Country und einem Hauch von Rebellion brachte Rock 'n' Roll in den 1950er Jahren eine neue Ära der Musik ein. Diese Kategorie vereint die größten Hits und zeitlosen Klassiker, die durch ihre mitreißenden Rhythmen, elektrisierenden Gitarrenriffs und unvergesslichen Melodien begeistern. Mit Legenden wie Elvis Presley, Chuck Berry, Little Richard und Jerry Lee Lewis verkörpert Rock 'n' Roll die pure Freude am Leben und Tanzen. Lass dich von den rockigen Beats und der mitreißenden Energie des Rock 'n' Roll anstecken und erlebe die Musik, die Generationen inspiriert und die Welt verändert hat.",
+    "isPlayable": false
+  },
+  {
+    "slug": "rockabilly",
+    "headline": "Rockabilly",
+    "imageUrl": "/category/rockabilly.jpg",
+    "categoryUrl": "/rockabilly",
+    "introSubline": "Tauche ein in den rebellischen Geist und die retrocoolen Klänge des Rockabilly!",
+    "text": "Rockabilly, eine der ersten Formen des Rock 'n' Roll, verbindet die Energie des Rhythm & Blues mit den eingängigen Melodien des Country. Entstanden in den 1950er Jahren, ist Rockabilly bekannt für seine schnellen Rhythmen, markanten Gitarrenriffs und unverwechselbaren Gesangsstile. Diese Kategorie vereint die größten Hits und zeitlosen Klassiker des Genres, das von Künstlern wie Elvis Presley, Carl Perkins und Johnny Cash geprägt wurde. Mit seinem authentischen Sound und der rebellischen Attitüde verkörpert Rockabilly die Aufbruchsstimmung einer ganzen Generation. Lass dich von den wilden Rhythmen und der ungezähmten Energie des Rockabilly mitreißen und erlebe die Musik, die Rock 'n' Roll zu dem gemacht hat, was es heute ist – eine zeitlose Feier des Lebens und der Freiheit.",
+    "isPlayable": false
+  },
+  {
+    "slug": "salsa",
+    "headline": "Salsa",
+    "imageUrl": "/category/salsa.jpg",
+    "categoryUrl": "/salsa",
+    "introSubline": "Spür den pulsierenden Rhythmus und die feurige Leidenschaft der Salsa!",
+    "text": "Salsa ist ein lebendiges und energiegeladenes Genre, das die Essenz der lateinamerikanischen Musik und Kultur verkörpert. Mit seinen mitreißenden Rhythmen, schwingenden Bläsern und leidenschaftlichen Melodien lädt Salsa zum Tanzen und Feiern ein. Diese Kategorie vereint die besten Tracks aus der Welt des Salsa, von den Klassikern der 60er und 70er Jahre bis zu den modernen Hits, die die Tanzflächen weltweit erobern. Mit Künstlern wie Celia Cruz, Willie Colón und Marc Anthony bietet Salsa eine unwiderstehliche Mischung aus Freude, Rhythmus und Lebensfreude. Lass dich von den pulsierenden Rhythmen und den feurigen Melodien mitreißen und erlebe die unvergleichliche Energie, die Salsa so einzigartig macht.",
+    "isPlayable": false
+  },
+  {
+    "slug": "samba",
+    "headline": "Samba",
+    "imageUrl": "/category/samba.jpg",
+    "categoryUrl": "/samba",
+    "introSubline": "Erlebe die mitreißenden Rhythmen und die unbeschwerte Lebensfreude der Samba!",
+    "text": "Samba ist das Herz und die Seele der brasilianischen Musik, ein Genre, das pure Lebensfreude und rhythmische Vielfalt verkörpert. Mit seinen treibenden Rhythmen, kraftvollen Percussions und schwungvollen Melodien ist Samba untrennbar mit der brasilianischen Kultur und dem weltberühmten Karneval verbunden. Diese Kategorie vereint die größten Hits und traditionellen Klassiker der Samba, von den energetischen Straßenrhythmen bis hin zu den eleganten Melodien des Samba-Enredo. Künstler wie João Gilberto, Elis Regina und Jorge Ben Jor haben Samba zu einem weltweiten Symbol für Tanz, Freude und Gemeinschaft gemacht. Lass dich von den lebendigen Klängen und der ausgelassenen Stimmung der Samba mitreißen und genieße die Musik, die das Herz Brasiliens zum Schlagen bringt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "schwedisch",
+    "headline": "Schwedisch",
+    "imageUrl": "/category/schwedisch.jpg",
+    "categoryUrl": "/schwedisch",
+    "introSubline": "Entdecke die vielfältigen Klänge und den einzigartigen Charme der schwedischen Musik!",
+    "text": "Die schwedische Musikszene ist bekannt für ihre beeindruckende Vielfalt und ihren kreativen Einfluss auf die internationale Musiklandschaft. Diese Kategorie vereint alles von den ikonischen Pop-Hits, die Schweden weltweit berühmt gemacht haben, bis hin zu traditionellen Folkklängen und innovativen modernen Sounds. Mit Künstlern wie ABBA, Robyn und Avicii hat Schweden einen unverwechselbaren musikalischen Stil geprägt, der von eingängigen Melodien und hochwertigen Produktionen geprägt ist. Doch auch die tief verwurzelte schwedische Volksmusik, die oft von melancholischen Melodien und instrumentalen Harmonien geprägt ist, findet hier ihren Platz. Lass dich von den vielfältigen Klängen der schwedischen Musik verzaubern und entdecke eine reiche musikalische Tradition, die von der Natur inspiriert und von modernem Zeitgeist durchdrungen ist.",
+    "isPlayable": false
+  },
+  {
+    "slug": "sertanejo",
+    "headline": "Sertanejo",
+    "imageUrl": "/category/sertanejo.jpg",
+    "categoryUrl": "/sertanejo",
+    "introSubline": "Erlebe die authentischen Klänge und die emotionalen Geschichten des Sertanejo!",
+    "text": "Sertanejo ist das Herzstück der brasilianischen Country-Musik und spiegelt die ländlichen Wurzeln und die Lebensweise des brasilianischen Hinterlandes wider. Dieses Genre, das oft als das brasilianische Pendant zur Country-Musik gesehen wird, vereint gefühlvolle Balladen, eingängige Melodien und kraftvolle Duette, die Geschichten von Liebe, Sehnsucht und dem Leben auf dem Land erzählen. Mit Künstlern wie Zezé Di Camargo & Luciano, Chitãozinho & Xororó und Luan Santana hat Sertanejo eine treue Anhängerschaft gewonnen und ist zu einem der populärsten Musikstile Brasiliens geworden. Lass dich von den authentischen Klängen und den emotionalen Texten des Sertanejo mitreißen und erlebe die musikalische Seele Brasiliens.",
+    "isPlayable": false
+  },
+  {
+    "slug": "ska",
+    "headline": "Ska",
+    "imageUrl": "/category/ska.jpg",
+    "categoryUrl": "/ska",
+    "introSubline": "Spür den fröhlichen Rhythmus und die positive Energie des Ska!",
+    "text": "Ska ist ein lebendiges Genre, das seinen Ursprung in Jamaika in den späten 1950er Jahren hat und sich durch seine mitreißenden Offbeat-Rhythmen, bläsergetriebenen Melodien und eine Mischung aus karibischen und westlichen Einflüssen auszeichnet. Diese Kategorie vereint die besten Tracks des Ska, von den frühen jamaikanischen Wurzeln bis zu den späteren Wellen, die weltweit populär wurden. Mit Künstlern wie The Skatalites, Desmond Dekker und The Specials hat Ska Generationen von Musikliebhabern mit seinem unverwechselbaren Sound begeistert. Die Musik ist bekannt für ihre fröhliche Stimmung, die zum Tanzen einlädt und eine positive, unbeschwerte Atmosphäre schafft. Lass dich von den sprudelnden Rhythmen und der ansteckenden Energie des Ska mitreißen und genieße die Musik, die Generationen zum Tanzen gebracht hat.",
+    "isPlayable": false
+  },
+  {
+    "slug": "songwriter",
+    "headline": "Songwriter",
+    "imageUrl": "/category/songwriter.jpg",
+    "categoryUrl": "/songwriter",
+    "introSubline": "Erlebe die kraftvollen Texte und die ehrlichen Melodien der besten Songwriter!",
+    "text": "Die Kategorie 'Songwriter' feiert die Kunst des Geschichtenerzählens durch Musik, vereint kraftvolle Texte, gefühlvolle Melodien und die authentische Stimme des Künstlers. Diese Kategorie bietet eine breite Auswahl an Songs, die von einigen der besten Singer-Songwriter der Musikgeschichte geschaffen wurden. Von den poetischen Balladen von Bob Dylan und Leonard Cohen bis hin zu den introspektiven Klängen von Joni Mitchell und Carole King – hier findest du Lieder, die durch ihre tiefgründigen Texte und emotionalen Darbietungen berühren. Diese Musik lädt zum Nachdenken, Träumen und Entdecken ein und offenbart die Schönheit der Worte und Melodien, die direkt aus dem Herzen der Künstler kommen. Lass dich von den ehrlichen Geschichten und der musikalischen Tiefe der Songwriter inspirieren und genieße eine intime Reise durch die Welt der Musik.",
+    "isPlayable": false
+  },
+  {
+    "slug": "soul",
+    "headline": "Soul",
+    "imageUrl": "/category/soul.jpg",
+    "categoryUrl": "/soul",
+    "introSubline": "Spüre die emotionale Tiefe und die kraftvolle Ausdruckskraft des Soul!",
+    "text": "Soul-Musik ist das Herz und die Seele der amerikanischen Musikgeschichte, geprägt von tiefen Emotionen, kraftvollen Vocals und einer unverwechselbaren Mischung aus Gospel, R&B und Jazz. Diese Kategorie vereint die unvergesslichen Klassiker und modernen Hits, die das Genre definiert haben. Mit legendären Künstlern wie Aretha Franklin, Marvin Gaye, Otis Redding und Etta James bietet Soul eine eindrucksvolle Palette an Liedern, die von Liebe, Schmerz, Freude und sozialem Bewusstsein erzählen. Die leidenschaftlichen Stimmen und die dynamischen Melodien des Soul ziehen den Zuhörer in eine Welt voller Gefühl und Authentizität. Lass dich von der emotionalen Kraft und der musikalischen Tiefe des Soul verzaubern und erlebe die Musik, die das Herz berührt und die Seele bewegt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "spanisch",
+    "headline": "Spanisch",
+    "imageUrl": "/category/spanisch.jpg",
+    "categoryUrl": "/spanisch",
+    "introSubline": "Entdecke die Leidenschaft und die Vielfalt der spanischen Musik!",
+    "text": "Die spanische Musikszene ist reich an kultureller Vielfalt und musikalischer Tradition, die tief in der Geschichte und dem Lebensgefühl des Landes verwurzelt ist. Diese Kategorie umfasst alles von den leidenschaftlichen Klängen des Flamenco und den traditionellen Rhythmen der spanischen Folklore bis hin zu modernen Pop-Hits und Latin-Beats, die weltweit die Charts erobern. Mit Künstlern wie Julio Iglesias, Rosalía, Enrique Iglesias und Pablo Alborán zeigt die spanische Musik ihre Fähigkeit, Emotionen in eindrucksvollen Melodien und kraftvollen Texten auszudrücken. Lass dich von den rhythmischen Gitarren, den intensiven Vocals und der musikalischen Vielfalt verzaubern und genieße eine Reise durch die leidenschaftliche und lebendige Welt der spanischen Musik.",
+    "isPlayable": false
+  },
+  {
+    "slug": "summer-hits",
+    "headline": "Summer Hits",
+    "imageUrl": "/category/summer-hits.jpg",
+    "categoryUrl": "/summer-hits",
+    "introSubline": "Genieß den Sommer mit den heißesten Hits!",
+    "text": "Summerhits sind die perfekte Begleitung für sonnige Tage und unvergessliche Sommernächte. Diese Kategorie vereint die besten Tracks, die gute Laune, heiße Beats und entspannte Vibes mit sich bringen. Von eingängigen Pop-Songs und tanzbaren Dance-Hits bis hin zu chilligen Melodien für den Strand – Summerhits sorgen dafür, dass jeder Moment im Sommer zum Highlight wird.",
+    "isPlayable": false
+  },
+  {
+    "slug": "synth-pop",
+    "headline": "Synth-Pop",
+    "imageUrl": "/category/synth-pop.jpg",
+    "categoryUrl": "/synth-pop",
+    "introSubline": "Tauche ein in die retrofuturistischen Klänge und die pulsierenden Rhythmen des Synth-Pop!",
+    "text": "Synth-Pop, auch bekannt als Elektro-Pop, ist ein Genre, das die elektronischen Klänge der 80er Jahre mit eingängigen Melodien und modernen Beats vereint. Diese Kategorie bietet eine Sammlung von Hits, die von den Pionieren des Genres wie Depeche Mode, The Human League und New Order bis hin zu modernen Künstlern wie CHVRCHES und The Weeknd geprägt wurden. Mit seinen markanten Synthesizer-Melodien, elektronischen Beats und oft melancholischen Texten, schafft Synth-Pop eine einzigartige Atmosphäre, die sowohl nostalgisch als auch zeitgemäß ist. Lass dich von den schimmernden Klängen und den pulsierenden Rhythmen des Synth-Pop mitreißen und genieße die Musik, die die Magie der 80er Jahre neu interpretiert und bis heute die Charts dominiert.",
+    "isPlayable": false
+  },
+  {
+    "slug": "tango",
+    "headline": "Tango",
+    "imageUrl": "/category/tango.jpg",
+    "categoryUrl": "/tango",
+    "introSubline": "Erlebe die Leidenschaft und die Eleganz des Tangos!",
+    "text": "Tango ist ein Tanz und Musikstil, der tief in der kulturellen Geschichte Argentiniens und Uruguays verwurzelt ist und durch seine dramatische Intensität und emotionale Tiefe besticht. Diese Kategorie vereint die ergreifendsten Tangos, die von den melancholischen Klängen des Bandoneons, den gefühlvollen Gitarren und den rhythmischen Bewegungen geprägt sind. Mit legendären Künstlern wie Carlos Gardel, Astor Piazzolla und Aníbal Troilo bietet Tango eine faszinierende Mischung aus Tradition und Innovation, die sowohl Herz als auch Geist berührt. Lass dich von den sinnlichen Melodien und den pulsierenden Rhythmen des Tangos verzaubern und tauche ein in die Welt dieses ikonischen und romantischen Musikstils, der sowohl zum Tanzen als auch zum Träumen einlädt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "techno",
+    "headline": "Techno",
+    "imageUrl": "/category/techno.jpg",
+    "categoryUrl": "/techno",
+    "introSubline": "Tauche ein in die pulsierenden Beats und die hypnotischen Klänge des Techno!",
+    "text": "Techno ist ein genreprägendes Element der elektronischen Musikszene, bekannt für seine treibenden Rhythmen, repetitiven Melodien und die immersive Klanglandschaft. Diese Kategorie vereint die besten Tracks, die die Essenz von Techno einfangen – von den frühen, minimalistischen Sounds aus Detroit bis hin zu den modernen, druckvollen Produktionen, die in den Clubs und auf Festivals weltweit zu hören sind. Mit Pionieren wie Jeff Mills, Carl Cox und Richie Hawtin sowie aktuellen Künstlern, die das Genre weiterentwickeln, bietet Techno eine einzigartige Mischung aus Energie und Tiefe, die sowohl zum Tanzen als auch zum gedanklichen Abtauchen einlädt. Lass dich von den hypnotischen Beats und den futuristischen Klängen des Techno mitreißen und erlebe die Musik, die seit Jahrzehnten die Tanzflächen beherrscht.",
+    "isPlayable": false
+  },
+  {
+    "slug": "trance",
+    "headline": "Trance",
+    "imageUrl": "/category/trance.jpg",
+    "categoryUrl": "/trance",
+    "introSubline": "Lass dich von den euphorischen Melodien und den hypnotischen Beats des Trance verzaubern!",
+    "text": "Trance ist ein energetisches und emotionales Genre der elektronischen Musik, das für seine sphärischen Melodien, treibenden Basslines und epischen Builds bekannt ist. Diese Kategorie bietet eine Auswahl an ikonischen Trance-Tracks, die sowohl die klassischen Klänge der 90er Jahre als auch die modernen, uplifting Melodien umfassen, die weltweit die Tanzflächen dominieren. Mit Pionieren wie Armin van Buuren, Tiësto und Paul van Dyk sowie neuen Talenten, die das Genre weiter prägen, versetzt dich Trance in einen Zustand der Ekstase und lässt dich in die Musik eintauchen. Die harmonischen Breakdowns und die euphorischen Climaxes des Trance bieten eine emotionale Reise, die sowohl den Körper als auch den Geist bewegt. Lass dich von den pulsierenden Beats und den mitreißenden Melodien des Trance entführen und erlebe die Magie dieses faszinierenden Musikgenres.",
+    "isPlayable": false
+  },
+  {
+    "slug": "traurig",
+    "headline": "Traurig",
+    "imageUrl": "/category/traurig.jpg",
+    "categoryUrl": "/traurig",
+    "introSubline": "Lass dich von den gefühlvollen Melodien und den melancholischen Klängen tragen.",
+    "text": "Die Kategorie ‚Traurig‘ bietet eine Sammlung von Liedern, die die tiefen Emotionen und die stille Melancholie des Lebens widerspiegeln. Ob du in einer nachdenklichen Stimmung bist, Trost suchst oder einfach nur in die emotionale Tiefe der Musik eintauchen möchtest – diese Playlist vereint sanfte Balladen, gefühlvolle Piano-Stücke und bewegende Texte, die das Herz berühren. Von klassischen Kompositionen bis hin zu modernen Pop- und Indie-Songs, diese Musik bringt die Traurigkeit auf eine Weise zum Ausdruck, die gleichzeitig tröstend und verbindend wirkt. Lass dich von den sanften Klängen und den ehrlichen Emotionen der traurigen Musik begleiten und finde in der Musik den Raum, den du gerade brauchst.",
+    "isPlayable": false
+  },
+  {
+    "slug": "trip-hop",
+    "headline": "Trip-Hop",
+    "imageUrl": "/category/trip-hop.jpg",
+    "categoryUrl": "/trip-hop",
+    "introSubline": "Tauche ein in die düsteren Beats und die atmosphärischen Klänge des Trip-Hop!",
+    "text": "Trip-Hop ist ein Genre, das die tiefen, hypnotischen Beats des Hip-Hop mit den melancholischen Melodien und atmosphärischen Texturen des Downtempo verbindet. Entstanden in den 1990er Jahren in Bristol, bietet Trip-Hop eine Mischung aus souligen Vocals, düsteren Instrumentals und elektronischen Klängen, die eine dichte, fast filmische Stimmung erzeugen. Diese Kategorie vereint die besten Tracks von Künstlern wie Massive Attack, Portishead und Tricky, die das Genre geprägt haben, sowie moderne Acts, die den Trip-Hop-Sound weiterentwickeln. Mit seinen rauchigen, entspannten Grooves und introspektiven Texten lädt Trip-Hop dazu ein, in eine tiefere, reflektierende Stimmung einzutauchen. Lass dich von den schwebenden Beats und der emotionalen Tiefe des Trip-Hop mitreißen und erlebe eine Klangwelt, die zugleich beruhigend und fesselnd ist.",
+    "isPlayable": false
+  },
+  {
+    "slug": "tuerkisch",
+    "headline": "Türkisch",
+    "imageUrl": "/category/tuerkisch.jpg",
+    "categoryUrl": "/tuerkisch",
+    "introSubline": "Erlebe die reiche Vielfalt und die emotionalen Klänge der türkischen Musik!",
+    "text": "Die türkische Musikszene ist bekannt für ihre reiche Tradition und die harmonische Verbindung von östlichen und westlichen Einflüssen. Diese Kategorie vereint die besten Tracks, die das Herz und die Seele der türkischen Musik widerspiegeln – von den gefühlvollen Melodien des Türkü und den kraftvollen Rhythmen der Volksmusik bis hin zu den modernen Klängen des türkischen Pop und Rock. Mit Künstlern wie Sezen Aksu, Tarkan, Zeki Müren und vielen anderen zeigt die türkische Musik eine beeindruckende Bandbreite, die von tiefen Emotionen und leidenschaftlichen Ausdrucksweisen geprägt ist. Lass dich von den einzigartigen Instrumenten wie der Saz und dem Ney sowie von den unverwechselbaren Stimmen der türkischen Musik verzaubern und genieße eine musikalische Reise durch die Klangwelten der Türkei.",
     "isPlayable": false
   }
 ]
