@@ -2024,7 +2024,7 @@ astro@*:
   optionalDependencies:
     sharp "^0.33.3"
 
-astro@^4.15.2:
+astro@^4.15.1:
   version "4.15.2"
   resolved "https://registry.yarnpkg.com/astro/-/astro-4.15.2.tgz#8cbc8835fc491bee1f5f132e0f45bf51559ff8af"
   integrity sha512-UlkQ/cWRLabOm6eVe6oRwjVAKd47N3+d1ktKpEZ5lqQKwq5uYrXQUu3n0ftsm6SJ+01x2LlPmjRe9OfKAbGpXA==
