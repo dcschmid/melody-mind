@@ -2,6 +2,7 @@
 import Layout from "@layouts/Layout.astro"; // Layout component
 import categories from "@json/categories.json"; // JSON file containing categories data
 import ShowCoins from "@components/Shared/ShowCoins.astro";
+import { Icon } from "astro-icon/components";
 
 /**
  * Get the user object from the Astro context
@@ -26,7 +27,7 @@ const { category } = Astro.params;
 const currentCategoryData = categories.find((cat) => cat.slug === category);
 ---
 
-<Layout title=`${currentCategoryData?.headline} - ` showHeaderIcons={false}>
+<Layout title=`${currentCategoryData?.headline}` showHeaderIcons={false}>
   <div slot="left-headercol">
     <ShowCoins />
   </div>
@@ -34,75 +35,116 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
   <div id="overlay" class="overlay hidden">
     <div class="overlay-content">
       <p id="feedback" class="feedback"></p>
-      <img id="overlay-cover" src="" alt="Album Cover" class="album-cover" />
+      <img id="overlay-cover" src="" alt="Album Cover" class="albumCover" />
       <h3 id="overlay-album">Album Name</h3>
-      <p id="overlay-year">Year</p>
       <p id="overlay-funfact" class="fun-fact">Fun Fact</p>
-      <button id="next-round-button" class="next-round-button"
-        >Nächste Runde</button
-      >
+      <button id="next-round-button" class="button">Nächste Runde</button>
     </div>
   </div>
 
+  <!-- Normales Popup, wenn das Spiel beendet ist -->
+  <div id="endgame-popup" class="popup hidden">
+    <div class="popup-content">
+      <h2>Spiel beendet!</h2>
+      <p>Erreichte Punkte: <span id="popup-score"></span></p>
+      <button id="restart-button" class="button">Neues Spiel</button>
+    </div>
+  </div>
+
+  <!-- Spezielles Popup für die goldene Schallplatte -->
+  <div id="golden-lp-popup" class="popup hidden">
+    <div class="popup-content">
+      <h2>Herzlichen Glückwunsch!</h2>
+      <Icon name="golden-lp" class="icon" width={100} height={100} />
+      <p>
+        Du hast die goldene <span class="goldenText">Pop-Rock</span> Schallplatte
+        gewonnen!
+      </p>
+      <p>Erreichte Punkte: <span id="golden-lp-score"></span></p>
+      <button id="restart-button-lp" class="button">Neues Spiel</button>
+    </div>
+  </div>
+
+  <div class="gameHeadline">
+    {currentCategoryData?.headline} - Runde <span class="round"></span>
+  </div>
   <div
     id="question-container"
     data-categoryName={currentCategoryData?.headline}
     data-genre={category}
     data-userID={user.id}
   >
-    <h2 id="question"></h2>
+    <div id="question"></div>
     <div id="options"></div>
   </div>
 </Layout>
 
 <style is:global lang="scss">
-  #question-container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: var(--background-color);
-    border-radius: 10px;
+  .gameHeadline {
     text-align: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-top: 1rem;
+    color: var(--primary-color);
+  }
+
+  #question-container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    text-align: center;
+  }
+
+  #question {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
   }
 
   #options {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--spacing-s);
   }
 
-  .option-button {
-    background-color: #ff4500; /* Beispielhafte Hintergrundfarbe */
-    color: #fff; /* Textfarbe */
-    border: none;
-    padding: 10px 20px;
-    margin: 10px 0; /* Abstand zwischen den Buttons */
-    border-radius: 5px;
+  .button,
+  .optionButton {
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
     cursor: pointer;
-    display: inline-block; /* Stelle sicher, dass die Buttons angezeigt werden */
-    text-align: center;
-    font-size: 16px;
-  }
 
-  .option-button:hover {
-    background-color: #32cd32; /* Beispielhafte Hover-Farbe */
-  }
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-  .option-button:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Fokus-Stil */
+    padding: var(--spacing-s) var(--spacing-md);
+
+    color: var(--text-color);
+    text-decoration: none;
+
+    background: var(--accent-color-1);
+    border-radius: var(--radius-circle);
+
+    transition: background-color 0.3s ease;
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--accent-color-2);
+      outline: 2px solid var(--text-color);
+    }
   }
 
   .feedback {
     font-size: 1rem;
-    color: #32cd32;
+    color: var(--accent-color-3);
     text-align: center;
   }
 
   .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,45 +156,72 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
   }
 
   .overlay-content {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 1);
     text-align: center;
     max-width: 480px;
-    margin: 0 1rem;
-  }
-
-  .album-cover {
-    max-width: 200px;
-    height: auto;
-    margin-bottom: 0.25rem;
+    margin: 1rem;
   }
 
   .fun-fact {
     hyphens: auto;
   }
 
-  .next-round-button {
-    background-color: #4da6ff;
-    color: #fff;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-top: 0.5rem;
+  .albumCover {
+    max-width: 200px;
+    height: auto;
+    display: flex;
+    align-self: center;
+    margin: 0 auto 0.25rem;
+    border: 1px solid var(--colour-disabled);
+    border-radius: var(--radius-rounded);
   }
 
-  .next-round-button:hover {
-    background-color: #32cd32;
+  .popup {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(31, 14, 22, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: var(--text-color);
+  }
+
+  .popup.hidden {
+    display: none;
+  }
+
+  .popup-content {
+    font-size: 1.25rem;
+    background-color: var(--background-color);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .golden-lp-image {
+    width: 100px;
+    margin-top: 20px;
+  }
+
+  .goldenText {
+    color: var(--primary-color);
   }
 </style>
 
 <script>
-  import { shuffleArray } from "@utils/share/shuffleArray";
+  import { getRandomQuestion } from "@utils/game/getRandomQuestion";
+  import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
 
   document.addEventListener("DOMContentLoaded", async function () {
     // Get the element that shows the current score
     const scoreElement = document.querySelector(
       ".coinsCount",
+    ) as HTMLParagraphElement;
+
+    const roundElement = document.querySelector(
+      ".round",
     ) as HTMLParagraphElement;
 
     // Get the element that shows the feedback after a question
@@ -182,52 +251,21 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
 
     // Initialize the score and the round index
     let score = 0;
+    let correctAnswers = 0;
     let roundIndex = 0;
 
     // How many rounds there are
     const totalRounds = 5;
+
+    roundElement.textContent = `${roundIndex + 1}/${totalRounds}`;
 
     // Import the albums data for the current category
     const albumsPromise = import(`../../json/genres/${category}.json`);
     // Get the albums data
     const albums: any = (await albumsPromise).default;
 
-    /**
-     * Fetch the total user points from the API.
-     */
-    const response = await fetch(`/api/getUserPoints`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userId, categoryValue: categoryName }),
-    });
-
-    /**
-     * Parse the response as JSON.
-     */
     const { totalUserPoints, currentCategoryPointsValue } =
-      await response.json();
-
-    /**
-     * Returns a random question from the albums data.
-     */
-    function getRandomQuestion() {
-      // Shuffle the albums array
-      const songs = shuffleArray(albums);
-
-      // Get the first element of the shuffled array
-      const randomAlbum = songs[0];
-
-      // Get a random question from the questions array of the random album
-      const randomQuestion =
-        randomAlbum.questions[
-          Math.floor(Math.random() * randomAlbum.questions.length)
-        ];
-
-      // Return the random question and the random album
-      return { randomQuestion, randomAlbum };
-    }
+      await getUserAndCategoryPoints(userId ?? "", categoryName ?? "");
 
     /**
      * Loads a question and its options into the DOM.
@@ -244,15 +282,14 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
         const imageElement = document.createElement("img");
         imageElement.src = question.image;
         imageElement.alt = "Frage Bild";
-        imageElement.style.maxWidth = "200px";
-        imageElement.style.marginBottom = "1rem";
+        imageElement.className = "albumCover";
         optionsContainer.appendChild(imageElement);
 
         // Add a button for each option
         question.options.forEach(function (option: any) {
           const button = document.createElement("button");
           button.textContent = option;
-          button.className = "option-button";
+          button.className = "optionButton";
           button.onclick = function () {
             handleAnswer(option, question.correctAnswer, question, album);
           };
@@ -278,7 +315,7 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
         question.options.forEach(function (option: any) {
           const button = document.createElement("button");
           button.textContent = option;
-          button.className = "option-button";
+          button.className = "optionButton";
           button.onclick = function () {
             /**
              * Handles the answer of the question
@@ -297,7 +334,7 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
         question.options.forEach(function (option: any) {
           const button = document.createElement("button");
           button.textContent = option;
-          button.className = "option-button";
+          button.className = "optionButton";
           button.onclick = function () {
             handleAnswer(option, question.correctAnswer, question, album);
           };
@@ -306,14 +343,14 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
       } else if (question.type === "true-false") {
         const trueButton = document.createElement("button");
         trueButton.textContent = "Wahr";
-        trueButton.className = "option-button";
+        trueButton.className = "optionButton";
         trueButton.onclick = function () {
           handleAnswer(true, question.correctAnswer, question, album);
         };
 
         const falseButton = document.createElement("button");
         falseButton.textContent = "Falsch";
-        falseButton.className = "option-button";
+        falseButton.className = "optionButton";
         falseButton.onclick = function () {
           handleAnswer(false, question.correctAnswer, question, album);
         };
@@ -330,6 +367,7 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
       album?: any,
     ) {
       if (option === correctAnswer) {
+        correctAnswers++;
         score += 100;
         feedbackElement.textContent = "Richtig! 100 Punkte";
       } else {
@@ -346,8 +384,6 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
       overlayCover.src = album.coverSrc || "";
       document.getElementById("overlay-album")!.textContent =
         album.artist + " - " + album.album || "";
-      document.getElementById("overlay-year")!.textContent =
-        `Erscheinungsjahr: ${album.year}` || "";
       document.getElementById("overlay-funfact")!.textContent =
         currentQuestion.funFact || "";
 
@@ -357,39 +393,78 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
         document.getElementById("overlay")!.classList.add("hidden");
         if (roundIndex < totalRounds - 1) {
           roundIndex++;
-          const newQuestion = getRandomQuestion();
+          roundElement.textContent = `${roundIndex + 1}/${totalRounds}`;
+
+          const newQuestion = getRandomQuestion(albums);
           loadQuestion(newQuestion.randomQuestion, newQuestion.randomAlbum);
           feedbackElement.textContent = ""; // Feedback zurücksetzen
         } else {
-          saveScoreToDB();
-          feedbackElement.textContent =
-            "Spiel beendet! Deine Punkte wurden gespeichert.";
-          window.location.href = "/gamehome";
+          endGame();
         }
       };
     }
 
-    async function saveScoreToDB() {
-      async function updateUserPoints() {
-        await fetch(`/api/saveTotalUserPointsAndHighscore`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            userId,
-            totalUserPoints: totalUserPoints + score,
-            category: categoryName,
-            categoryPoints: currentCategoryPointsValue + score,
-          }),
-        });
+    // Funktion für das Spielende
+    function endGame() {
+      if (correctAnswers === totalRounds) {
+        // Alle Fragen richtig beantwortet - Goldene LP Popup anzeigen
+        showGoldenLpPopup();
+      } else {
+        // Normales Spielende Popup anzeigen
+        showEndgamePopup();
       }
+    }
 
-      updateUserPoints();
+    function showEndgamePopup() {
+      document.getElementById("popup-genre")!.textContent =
+        categoryName || "Unbekanntes Genre";
+      document.getElementById("popup-score")!.textContent = score.toString();
+
+      const endgamePopup = document.getElementById("endgame-popup");
+      endgamePopup!.classList.remove("hidden");
+
+      document.getElementById("restart-button")!.onclick = function () {
+        restartGame();
+      };
+    }
+
+    function showGoldenLpPopup() {
+      document.getElementById("golden-lp-score")!.textContent =
+        score.toString();
+
+      const goldenLpPopup = document.getElementById("golden-lp-popup");
+      goldenLpPopup!.classList.remove("hidden");
+
+      document.getElementById("restart-button-lp")!.onclick = function () {
+        restartGame();
+      };
+    }
+
+    function restartGame() {
+      // Setze die Werte zurück und starte ein neues Spiel oder leite zur Startseite weiter
+      score = 0;
+      correctAnswers = 0;
+      roundIndex = 0;
+      window.location.href = "/gamehome";
+    }
+
+    async function saveScoreToDB() {
+      await fetch(`/api/saveTotalUserPointsAndHighscore`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId,
+          totalUserPoints: totalUserPoints + score,
+          category: categoryName,
+          categoryPoints: currentCategoryPointsValue + score,
+        }),
+      });
     }
 
     // Initiale Frage laden
-    const initialQuestion = getRandomQuestion();
+    const initialQuestion = getRandomQuestion(albums);
     loadQuestion(initialQuestion.randomQuestion, initialQuestion.randomAlbum);
   });
 </script>

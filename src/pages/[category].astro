@@ -117,15 +117,3 @@ if (!currentCategory) {
     margin-bottom: var(--spacing-xl);
   }
 </style>
-
-<script>
-  import { resetLocalStorage } from "@utils/resetLocalStorage";
-
-  window.addEventListener("load", function () {
-    const categoryElement = document.querySelector(".category") as HTMLElement;
-    const categoryValue = categoryElement.getAttribute("data-category");
-
-    // Reset the local storage
-    resetLocalStorage(categoryValue as string);
-  });
-</script>
