@@ -24,6 +24,8 @@ export const POST: APIRoute = async ({ request }) => {
   const { userId, totalUserPoints, category, categoryPoints } =
     await request.json();
 
+    console.log(totalUserPoints, category, categoryPoints, userId)
+
   // Check if the user is already in the TotalHighscore table
   // The condition is based on the userId column in the TotalHighscore table
   // The userId is used to find a record in the TotalHighscore table

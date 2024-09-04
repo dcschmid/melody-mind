@@ -1,397 +1,296 @@
 [
   {
     "category": "pop-rock",
-    "band": "The Beatles",
+    "song": "Come Together",
+    "artist": "The Beatles",
     "album": "Abbey Road",
-    "dataYear": "1969",
-    "dataSales": "31 Mio.",
-    "dataLength": "47:23",
+    "year": 1969,
     "coverSrc": "/bandcover/pop-rock/the_beatles_abbey_road.jpg",
-    "audioSrc": "/mp3s/pop-rock/the_beatles_abbey_road.mp3",
-    "jokerText": "The Beatles' Album Abbey Road, veröffentlicht 1969, gilt als eines der größten und einflussreichsten Alben in der Musikgeschichte. Es war das letzte Album, das die Band gemeinsam aufnahm, und enthält ikonische Songs wie Come Together, Here Comes the Sun, und das berühmte Medley auf der B-Seite. Das Albumcover, das die Beatles beim Überqueren eines Zebrastreifens vor den Abbey Road Studios zeigt, ist eines der bekanntesten Bilder in der Popkultur und wurde unzählige Male nachgeahmt und parodiert.",
-    "triviaQuestion": "Welches Album, das als eines der größten Werke der Rockgeschichte gilt, enthält ikonische Tracks wie „Come Together“ und „Here Comes the Sun“?",
-    "triviaAnswer": "Das Album „Abbey Road“ von The Beatles, veröffentlicht im Jahr 1969, gilt als eines der größten Werke der Rockgeschichte. Es enthält ikonische Tracks wie „Come Together“ und „Here Comes the Sun“ und ist bekannt für seine innovative Produktion, musikalische Vielfalt und den berühmten Medley auf der B-Seite. „Abbey Road“ markierte das letzte Album, das die Beatles gemeinsam aufnahmen, und bleibt ein zeitloser Klassiker, der Generationen von Musikern und Fans inspiriert hat."
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von The Beatles enthält den Song 'Come Together'?",
+        "options": [
+          "Abbey Road",
+          "Let It Be",
+          "Sgt. Pepper's Lonely Hearts Club Band",
+          "The White Album"
+        ],
+        "correctAnswer": "Abbey Road",
+        "funFact": "Das Album 'Abbey Road' wurde als letztes Album von The Beatles aufgenommen, obwohl 'Let It Be' später veröffentlicht wurde. Es zeigt die Band auf dem Höhepunkt ihrer kreativen Fähigkeiten und enthält einige ihrer bekanntesten Songs, darunter 'Come Together' und 'Something'. Der ikonische Zebrastreifen auf dem Cover wurde zu einem der bekanntesten Bildmotive in der Popkultur."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Come Together' wurde 1969 veröffentlicht.",
+        "correctAnswer": true,
+        "funFact": "Obwohl John Lennon den Song 'Come Together' schrieb, trägt er dennoch die typische Handschrift der Zusammenarbeit zwischen Lennon und McCartney. Der Song war ursprünglich als Wahlkampflied für den amerikanischen Aktivisten Timothy Leary gedacht, entwickelte sich jedoch zu einem dunklen, mysteriösen Track, der heute als einer der Höhepunkte des Albums 'Abbey Road' gilt."
+      },
+      {
+        "type": "image",
+        "question": "Welches Album zeigt dieses Cover?",
+        "image": "/bandcover/pop-rock/the_beatles_abbey_road.jpg",
+        "options": [
+          "Abbey Road",
+          "Let It Be",
+          "Sgt. Pepper's Lonely Hearts Club Band",
+          "The White Album"
+        ],
+        "correctAnswer": "Abbey Road",
+        "funFact": "Das Cover von 'Abbey Road', das die vier Beatles beim Überqueren des Zebrastreifens vor den Abbey Road Studios zeigt, ist eines der berühmtesten Albumcover aller Zeiten. Es wurde unzählige Male nachgeahmt und parodiert und hat den Zebrastreifen in London zu einem Pilgerort für Beatles-Fans aus der ganzen Welt gemacht."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/the_beatles_abbey_road.mp3",
+        "options": [
+          "Come Together",
+          "Here Comes the Sun",
+          "Something",
+          "Octopus's Garden"
+        ],
+        "correctAnswer": "Come Together",
+        "funFact": "Die hypnotische Basslinie in 'Come Together', gespielt von Paul McCartney, ist einer der markantesten Aspekte des Songs. John Lennons kryptische Texte und die entspannte, fast flüsternde Gesangsdarbietung tragen zur geheimnisvollen und eindringlichen Atmosphäre des Songs bei. 'Come Together' wurde zu einem der bekanntesten Songs von The Beatles und wird oft als Lennon-Meisterwerk gefeiert."
+      }
+    ]
   },
   {
     "category": "pop-rock",
-    "band": "FleetWood Mac",
+    "song": "Go Your Own Way",
+    "artist": "Fleetwood Mac",
     "album": "Rumours",
-    "dataYear": "1977",
-    "dataSales": "45 Mio.",
-    "dataLength": "39:44",
+    "year": 1977,
     "coverSrc": "/bandcover/pop-rock/fleetwood_mac_rumours.jpg",
-    "audioSrc": "/mp3s/pop-rock/fleetwood_mac_rumours.mp3",
-    "jokerText": "Während der Aufnahme des Albums Rumours von Fleetwood Mac waren fast alle Bandmitglieder inmitten von persönlichen Trennungen und Beziehungskrisen. Trotz (oder vielleicht wegen) dieser turbulenten Zeiten schufen sie eines der erfolgreichsten Alben aller Zeiten, das für seine emotionalen Texte und Harmonien bekannt ist.",
-    "triviaQuestion": "Welches Album wurde vom Rolling Stone zum siebtbesten Album aller Zeiten gekürt?",
-    "triviaAnswer": "Das Album „Rumours“ von Fleetwood Mac, das vom Rolling Stone als siebtbestes Album aller Zeiten ausgezeichnet wurde, erlebte ein Revival durch ein virales TikTok-Video. In dem Video fährt ein Mann entspannt auf einem Skateboard in den Sonnenuntergang, während er aus einer Saftpackung trinkt und der Song „Dreams“ im Hintergrund spielt."
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Fleetwood Mac enthält den Song 'Go Your Own Way'?",
+        "options": ["Rumours", "Fleetwood Mac", "Tusk", "Mirage"],
+        "correctAnswer": "Rumours",
+        "funFact": "Das Album 'Rumours' wurde unter extrem schwierigen persönlichen Umständen aufgenommen, da die Mitglieder von Fleetwood Mac zu dieser Zeit verschiedene Beziehungsprobleme durchmachten. Trotz oder vielleicht gerade wegen dieser Spannungen wurde 'Rumours' eines der meistverkauften Alben aller Zeiten und gewann 1978 den Grammy Award für das Album des Jahres. Der Song 'Go Your Own Way' war einer der Hitsingles des Albums und wurde von Lindsey Buckingham geschrieben."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Go Your Own Way' wurde 1977 veröffentlicht.",
+        "correctAnswer": true,
+        "funFact": "'Go Your Own Way' war die erste Single aus dem Album 'Rumours' und wurde zu einem der bekanntesten Songs von Fleetwood Mac. Lindsey Buckingham schrieb den Song als eine direkte Antwort auf die Trennung von Stevie Nicks, was zu einer der vielen internen Spannungen in der Band führte. Die kraftvollen Gitarrenriffs und der ehrliche Text machten den Song zu einem klassischen Beispiel für das Zusammenspiel von persönlicher und künstlerischer Dynamik."
+      },
+      {
+        "type": "image",
+        "question": "Welches Album zeigt dieses Cover?",
+        "image": "/bandcover/pop-rock/fleetwood_mac_rumours.jpg",
+        "options": ["Rumours", "Fleetwood Mac", "Tusk", "Mirage"],
+        "correctAnswer": "Rumours",
+        "funFact": "Das Cover des Albums 'Rumours' zeigt Mick Fleetwood und Stevie Nicks in einer mystischen Pose, die die dramatische und emotional aufgeladene Musik auf dem Album perfekt einfängt. Der minimalistische, aber stilvolle Look des Covers wurde zu einem ikonischen Bild der 1970er Jahre und trug zur Mystik und zum anhaltenden Erfolg des Albums bei."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/fleetwood_mac_rumours.mp3",
+        "options": ["Go Your Own Way", "Dreams", "The Chain", "Don't Stop"],
+        "correctAnswer": "Go Your Own Way",
+        "funFact": "Das Gitarrensolo in 'Go Your Own Way', gespielt von Lindsey Buckingham, ist eines der bekanntesten Soli in der Rockmusik. Es fängt die rohe Emotion des Songs perfekt ein und hat sich zu einem festen Bestandteil der Live-Auftritte der Band entwickelt. Der Song bleibt ein Symbol für die turbulente, aber kreative Energie, die Fleetwood Mac während der Aufnahme von 'Rumours' antrieb."
+      }
+    ]
   },
   {
     "category": "pop-rock",
-    "band": "Michael Jackson",
-    "album": "Thriller",
-    "dataYear": "1982",
-    "dataSales": "70 Mio.",
-    "dataLength": "42:19",
-    "coverSrc": "/bandcover/pop-rock/michael_jackson_thriller.jpg",
-    "audioSrc": "/mp3s/pop-rock/michael_jackson_thriller.mp3",
-    "jokerText": "Michael Jackson's Album Thriller, veröffentlicht 1982, ist das meistverkaufte Album aller Zeiten und revolutionierte die Musikindustrie mit seinen bahnbrechenden Musikvideos und genreübergreifenden Hits. Der Titeltrack Thriller wurde durch sein ikonisches Musikvideo, das von John Landis inszeniert wurde, unsterblich gemacht und gilt als Meilenstein in der Popkultur. Das Album brachte sieben Top-10-Singles hervor, darunter Billie Jean und Beat It, und etablierte Michael Jackson als den King of Pop.",
-    "triviaQuestion": "Welches Album, das als das meistverkaufte Album aller Zeiten gilt, enthält weltweite Hits wie „Billie Jean“ und „Beat It“?",
-    "triviaAnswer": "Das Album „Thriller“ von Michael Jackson, veröffentlicht im Jahr 1982, gilt als das meistverkaufte Album aller Zeiten. Es enthält weltweite Hits wie „Billie Jean“, „Beat It“ und den titelgebenden Track „Thriller“. Dieses Album revolutionierte die Musikindustrie durch seine innovative Produktion, ikonische Musikvideos und Michael Jacksons unvergleichliches Talent. „Thriller“ ist ein kulturelles Phänomen, das Jackson den Titel „King of Pop“ einbrachte und bis heute als Meilenstein in der Popmusik-Geschichte gefeiert wird."
-  },
-  {
-    "category": "pop-rock",
-    "band": "Pink Floyd",
-    "album": "The Dark Side of the Moon",
-    "dataYear": "1973",
-    "dataSales": "45 Mio.",
-    "dataLength": "42:49",
-    "coverSrc": "/bandcover/pop-rock/pink_floyd_the_dark_side_of_the_moon.jpg",
-    "audioSrc": "/mp3s/pop-rock/pink_floyd_the_dark_side_of_the_moon.mp3",
-    "jokerText": "Pink Floyd's Album The Dark Side of the Moon, veröffentlicht 1973, ist eines der erfolgreichsten und einflussreichsten Alben in der Musikgeschichte. Es verbrachte rekordverdächtige 937 Wochen in den Billboard 200 Charts und ist bekannt für seine innovativen Studio-Techniken, tiefgründigen Texte und die nahtlose Verbindung der Tracks. Das Album behandelt Themen wie Zeit, Tod, mentaler Stress und Konsum, und wurde wegen seiner technischen Brillanz und konzeptuellen Tiefe sowohl von Kritikern als auch von Fans hochgelobt.",
-    "triviaQuestion": "Welches Album, das als eines der bedeutendsten Werke der Rockgeschichte gilt, enthält ikonische Tracks wie „Time“ und „Money“?",
-    "triviaAnswer": "Das Album „The Dark Side of the Moon“ von Pink Floyd, veröffentlicht im Jahr 1973, gilt als eines der bedeutendsten Werke der Rockgeschichte. Es enthält ikonische Tracks wie „Time“ und „Money“ und ist bekannt für seine innovative Produktion, tiefgründigen Texte und komplexen Soundlandschaften. Das Album wurde ein kommerzieller und kritischer Erfolg, der Pink Floyd zu internationalem Ruhm verhalf und bleibt bis heute ein zeitloser Klassiker, der die Grenzen des Rockgenres erweiterte."
-  },
-  {
-    "category": "pop-rock",
-    "band": "The Rolling Stones",
-    "album": "Sticky Fingers",
-    "dataYear": "1971",
-    "dataSales": "22 Mio.",
-    "dataLength": "46:25",
-    "coverSrc": "/bandcover/pop-rock/the_rolling_stones_sticky_fingers.jpg",
-    "audioSrc": "/mp3s/pop-rock/the_rolling_stones_sticky_fingers.mp3",
-    "jokerText": "The Rolling Stones' Album Sticky Fingers, veröffentlicht 1971, ist bekannt für seine ikonische Albumhülle, die von Andy Warhol entworfen wurde und eine echte Reißverschlussfunktion auf der Original-LP besaß. Musikalisch markierte das Album die erste Zusammenarbeit der Band mit ihrem eigenen Plattenlabel, Rolling Stones Records, und enthält Klassiker wie Brown Sugar und Wild Horses. Sticky Fingers ist auch berüchtigt für seine thematische Offenheit gegenüber Drogen, Sex und gesellschaftlicher Rebellion, und es gilt als eines der besten Alben der Rolling Stones, das ihren Ruf als eine der größten Rockbands der Welt weiter festigte.",
-    "triviaQuestion": "Welches Album, das als eines der besten Werke der Band gilt, enthält ikonische Tracks wie „Brown Sugar“ und „Wild Horses“?",
-    "triviaAnswer": "Das Album „Sticky Fingers“ von The Rolling Stones, veröffentlicht im Jahr 1971, gilt als eines der besten Werke der Band. Es enthält ikonische Tracks wie „Brown Sugar“ und „Wild Horses“. „Sticky Fingers“ ist bekannt für seine Mischung aus Rock, Blues und Country sowie für sein berühmtes Albumcover mit dem Reißverschluss, entworfen von Andy Warhol. Das Album markierte auch das Debüt von Mick Taylor als vollwertiges Mitglied der Band und wurde ein Meilenstein in der Rockgeschichte."
-  },
-  {
-    "category": "pop-rock",
-    "band": "Elton John",
-    "album": "Goodbye Yellow Brick Road",
-    "dataYear": "1973",
-    "dataSales": "30 Mio.",
-    "dataLength": "76:20",
-    "coverSrc": "/bandcover/pop-rock/elton_john_goodbye_yellow_brick_road.jpg",
-    "audioSrc": "/mp3s/pop-rock/elton_john_goodbye_yellow_brick_road.mp3",
-    "jokerText": "Elton John's Album Goodbye Yellow Brick Road, veröffentlicht 1973, wird oft als sein Meisterwerk angesehen und enthält einige seiner bekanntesten Songs, darunter Candle in the Wind, Bennie and the Jets, und den Titeltrack Goodbye Yellow Brick Road. Das Doppelalbum zeigt eine beeindruckende Bandbreite an musikalischen Stilen, von Rock und Pop bis hin zu Balladen und Glam Rock. Goodbye Yellow Brick Road war ein massiver kommerzieller Erfolg und festigte Elton John's Status als einer der größten Popstars der 1970er Jahre.",
-    "triviaQuestion": "Welches Doppelalbum, das als eines der größten Werke in der Popmusikgeschichte gilt, enthält Klassiker wie „Bennie and the Jets“ und „Candle in the Wind“?",
-    "triviaAnswer": "Das Album „Goodbye Yellow Brick Road“ von Elton John, veröffentlicht im Jahr 1973, gilt als eines der größten Werke in der Popmusikgeschichte. Es enthält Klassiker wie „Bennie and the Jets“, „Candle in the Wind“, und den titelgebenden Track „Goodbye Yellow Brick Road“. Dieses Doppelalbum zeigt Elton John auf dem Höhepunkt seiner kreativen und kommerziellen Kräfte, kombiniert eine Vielzahl von Musikstilen und bleibt ein zeitloser Klassiker in seiner Diskografie."
-  },
-  {
-    "category": "pop-rock",
-    "band": "Queen",
+    "song": "Bohemian Rhapsody",
+    "artist": "Queen",
     "album": "A Night at the Opera",
-    "dataYear": "1975",
-    "dataSales": "6 Mio.",
-    "dataLength": "43:08",
-    "coverSrc": "/bandcover/pop-rock/elton_john_goodbye_yellow_brick_road.jpg",
-    "audioSrc": "/mp3s/pop-rock/elton_john_goodbye_yellow_brick_road.mp3",
-    "jokerText": "Queen's Album A Night at the Opera, veröffentlicht 1975, gilt als eines der ambitioniertesten und einflussreichsten Rockalben aller Zeiten. Es enthält den ikonischen Song Bohemian Rhapsody, der für seine innovative Struktur und Produktion berühmt wurde, einschließlich der Mischung von Opern-, Rock- und Balladenelementen. A Night at the Opera war das teuerste Album, das zu seiner Zeit aufgenommen wurde, und markierte den internationalen Durchbruch für Queen, wobei es ihren Ruf als eine der kreativsten und vielseitigsten Bands der Rockgeschichte festigte.",
-    "triviaQuestion": "Welches Album, das als eines der ambitioniertesten Werke der Rockgeschichte gilt, enthält den epischen Track „Bohemian Rhapsody“?",
-    "triviaAnswer": "Das Album „A Night at the Opera“ von Queen, veröffentlicht im Jahr 1975, gilt als eines der ambitioniertesten Werke der Rockgeschichte. Es enthält den epischen Track „Bohemian Rhapsody“, der mit seiner einzigartigen Struktur und musikalischen Vielfalt ein bahnbrechendes Stück in der Rockmusik wurde. Das Album kombiniert Rock, Opera, Balladen und Hard Rock auf meisterhafte Weise und festigte Queen's Ruf als eine der innovativsten und talentiertesten Bands ihrer Zeit."
-  },
-  {
-    "category": "pop-rock",
-    "band": "Queen",
-    "album": "A Night at the Opera",
-    "dataYear": "1975",
-    "dataSales": "6 Mio.",
-    "dataLength": "43:08",
+    "year": 1975,
     "coverSrc": "/bandcover/pop-rock/queen_a_night_at_the_opera.jpg",
-    "audioSrc": "/mp3s/pop-rock/queen_a_night_at_the_opera.mp3",
-    "jokerText": "Queen's Album A Night at the Opera, veröffentlicht 1975, gilt als eines der ambitioniertesten und einflussreichsten Rockalben aller Zeiten. Es enthält den ikonischen Song Bohemian Rhapsody, der für seine innovative Struktur und Produktion berühmt wurde, einschließlich der Mischung von Opern-, Rock- und Balladenelementen. A Night at the Opera war das teuerste Album, das zu seiner Zeit aufgenommen wurde, und markierte den internationalen Durchbruch für Queen, wobei es ihren Ruf als eine der kreativsten und vielseitigsten Bands der Rockgeschichte festigte.",
-    "triviaQuestion": "Welches Album, das als eines der ambitioniertesten Werke der Rockgeschichte gilt, enthält den epischen Track „Bohemian Rhapsody“?",
-    "triviaAnswer": "Das Album „A Night at the Opera“ von Queen, veröffentlicht im Jahr 1975, gilt als eines der ambitioniertesten Werke der Rockgeschichte. Es enthält den epischen Track „Bohemian Rhapsody“, der mit seiner einzigartigen Struktur und musikalischen Vielfalt ein bahnbrechendes Stück in der Rockmusik wurde. Das Album kombiniert Rock, Opera, Balladen und Hard Rock auf meisterhafte Weise und festigte Queen's Ruf als eine der innovativsten und talentiertesten Bands ihrer Zeit."
-  },
-    {
-    "category": "pop-rock",
-    "band": "Bruce Springsteen",
-    "album": "Born in the U.S.A.",
-    "dataYear": "1984",
-    "dataSales": "30 Mio.",
-    "dataLength": "46:57",
-    "coverSrc": "/bandcover/pop-rock/bruce_springsteen_born_in_the_usa.jpg",
-    "audioSrc": "/mp3s/pop-rock/bruce_springsteen_born_in_the_usa.mp3",
-    "jokerText": "Bruce Springsteen's Album Born in the U.S.A., veröffentlicht 1984, ist eines der meistverkauften Alben aller Zeiten und brachte sieben Top-10-Hits hervor, darunter die Titeltrack Born in the U.S.A., Dancing in the Dark, und Glory Days. Obwohl der Titeltrack oft als patriotische Hymne missverstanden wurde, handelt der Song tatsächlich von den Schwierigkeiten der amerikanischen Arbeiterklasse und den Herausforderungen, denen Vietnamkriegsveteranen nach ihrer Rückkehr ins zivile Leben gegenüberstanden. Das Album festigte Springsteen's Status als einer der größten Rockstars seiner Generation und bleibt ein kulturelles Symbol der 1980er Jahre.",
-    "triviaQuestion": "Welches Album, das als eines der erfolgreichsten Werke in der Rockmusik gilt, enthält ikonische Tracks wie „Born in the U.S.A.“ und „Dancing in the Dark“?",
-    "triviaAnswer": "Das Album „Born in the U.S.A.“ von Bruce Springsteen, veröffentlicht im Jahr 1984, gilt als eines der erfolgreichsten Werke in der Rockmusik. Es enthält ikonische Tracks wie „Born in the U.S.A.“ und „Dancing in the Dark“. Das Album brachte Springsteen weltweite Anerkennung, wurde zu einem kommerziellen Erfolg und ist bekannt für seine kraftvollen Texte, die amerikanische Themen und persönliche Geschichten miteinander verbinden. „Born in the U.S.A.“ bleibt ein zentraler Meilenstein in Springsteens Karriere und in der Geschichte des Rock."
-  },
+    "questions": [
       {
+        "type": "multiple-choice",
+        "question": "Welches Album von Queen enthält den Song 'Bohemian Rhapsody'?",
+        "options": [
+          "A Night at the Opera",
+          "News of the World",
+          "The Game",
+          "A Day at the Races"
+        ],
+        "correctAnswer": "A Night at the Opera",
+        "funFact": "Das Album 'A Night at the Opera' war das teuerste Album, das zu seiner Zeit produziert wurde, mit einem Produktionsbudget von über 40.000 Pfund. Der epische Track 'Bohemian Rhapsody' war ein Meisterwerk in der Musikproduktion, das über drei Wochen in fünf verschiedenen Studios aufgenommen wurde. Es ist bekannt für seine unverwechselbare Struktur, die Elemente aus Rock, Ballade und Oper verbindet und dadurch die traditionellen Songstrukturen völlig neu definierte."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Bohemian Rhapsody' wurde 1975 veröffentlicht.",
+        "correctAnswer": true,
+        "funFact": "Als 'Bohemian Rhapsody' 1975 veröffentlicht wurde, glaubte die Plattenfirma nicht daran, dass ein sechsminütiger Song ohne Refrain ein Hit werden könnte. Freddie Mercury bestand jedoch darauf, und der Song stieg schnell an die Spitze der Charts. Das Musikvideo zu 'Bohemian Rhapsody', das vor der Veröffentlichung des Songs produziert wurde, gilt als eines der ersten 'echten' Musikvideos und revolutionierte die Art und Weise, wie Musik visuell dargestellt wurde."
+      },
+      {
+        "type": "image",
+        "question": "Welches Album zeigt dieses Cover?",
+        "image": "/bandcover/pop-rock/queen_a_night_at_the_opera.jpg",
+        "options": [
+          "A Night at the Opera",
+          "News of the World",
+          "The Game",
+          "A Day at the Races"
+        ],
+        "correctAnswer": "A Night at the Opera",
+        "funFact": "Das Cover von 'A Night at the Opera' zeigt das Wappen von Queen, das von Freddie Mercury selbst entworfen wurde. Es kombiniert die Sternzeichen aller vier Bandmitglieder: zwei Löwen (für Roger Taylor und John Deacon), ein Krebs (für Brian May) und zwei Feen (für Freddie Mercury, der im Sternzeichen Jungfrau geboren wurde). Das aufwendige Wappen spiegelt den bombastischen und theatralischen Stil des Albums wider."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/queen_a_night_at_the_opera.mp3",
+        "options": [
+          "Bohemian Rhapsody",
+          "We Will Rock You",
+          "Radio Ga Ga",
+          "Somebody to Love"
+        ],
+        "correctAnswer": "Bohemian Rhapsody",
+        "funFact": "Das Gitarrensolo in 'Bohemian Rhapsody', gespielt von Brian May, ist einer der bekanntesten Momente in der Rockmusik. Interessanterweise wurde es nicht im Studio improvisiert, sondern sorgfältig geplant und komponiert, um nahtlos in die komplexe Struktur des Songs zu passen. Der Song ist bis heute ein kulturelles Phänomen und wurde 2018 als weltweit meistgestreamter Song des 20. Jahrhunderts gekrönt."
+      }
+    ]
+  },
+  {
     "category": "pop-rock",
-    "band": "Eagles",
+    "song": "Thriller",
+    "artist": "Michael Jackson",
+    "album": "Thriller",
+    "year": 1982,
+    "coverSrc": "/bandcover/pop-rock/michael_jackson_thriller.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Michael Jackson enthält den Song 'Thriller'?",
+        "options": ["Thriller", "Bad", "Off the Wall", "Dangerous"],
+        "correctAnswer": "Thriller",
+        "funFact": "Das Album 'Thriller' ist das meistverkaufte Album aller Zeiten, mit geschätzten 66 Millionen verkauften Exemplaren weltweit. Der Titeltrack, 'Thriller', wurde durch sein revolutionäres Musikvideo berühmt, das eine 14-minütige Horrorgeschichte erzählt und das Musikvideo-Format auf ein völlig neues Niveau hob. Das Video zeigte Michael Jackson in seiner ikonischen roten Lederjacke und revolutionierte die Popkultur."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Thriller' wurde 1982 veröffentlicht.",
+        "correctAnswer": true,
+        "funFact": "Der Song 'Thriller', produziert von Quincy Jones und geschrieben von Rod Temperton, wurde ursprünglich als 'Starlight' konzipiert. Die Entscheidung, den Song in 'Thriller' umzubenennen, kam spät im Produktionsprozess, beeinflusste jedoch maßgeblich das düstere und unvergessliche Thema des Albums und das dazugehörige Musikvideo. Der Song ist bekannt für Vincent Prices gespenstische Erzählung und das unverwechselbare, gruselige Lachen am Ende."
+      },
+      {
+        "type": "image",
+        "question": "Welches Album zeigt dieses Cover?",
+        "image": "/bandcover/pop-rock/michael_jackson_thriller.jpg",
+        "options": ["Thriller", "Bad", "Off the Wall", "Dangerous"],
+        "correctAnswer": "Thriller",
+        "funFact": "Das Cover des Albums 'Thriller' zeigt Michael Jackson in einem weißen Anzug, lässig zurückgelehnt und selbstbewusst in die Kamera blickend. Das Bild, aufgenommen von dem Fotografen Dick Zimmerman, strahlt Eleganz und Stil aus und wurde zu einem der bekanntesten Albumcover der Musikgeschichte. Es spiegelt Jacksons Übergang von Kinderstar zu einem der größten Pop-Ikonen aller Zeiten wider."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/michael_jackson_thriller.mp3",
+        "options": [
+          "Thriller",
+          "Billie Jean",
+          "Beat It",
+          "Wanna Be Startin' Somethin'"
+        ],
+        "correctAnswer": "Thriller",
+        "funFact": "Das ikonische Intro von 'Thriller', mit seinen schaurigen Synthesizer-Klängen und unheimlichen Türschlägen, wurde zu einem der einprägsamsten Momente in der Popmusik. Der Song ist nicht nur wegen seines musikalischen Inhalts berühmt, sondern auch wegen seiner bahnbrechenden Choreografie, insbesondere dem Zombie-Tanz, der weltweit nachgeahmt wurde und einen neuen Standard für Musikvideos setzte."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Money",
+    "artist": "Pink Floyd",
+    "album": "The Dark Side of the Moon",
+    "year": 1973,
+    "coverSrc": "/bandcover/pop-rock/pink_floyd_the_dark_side_of_the_moon.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Pink Floyd enthält den Song 'Money'?",
+        "options": [
+          "The Dark Side of the Moon",
+          "Wish You Were Here",
+          "The Wall",
+          "Animals"
+        ],
+        "correctAnswer": "The Dark Side of the Moon",
+        "funFact": "Das Album 'The Dark Side of the Moon' ist eines der meistverkauften Alben aller Zeiten und blieb unglaubliche 741 Wochen in den Billboard 200 Charts, was einen Rekord darstellt. Der Song 'Money', bekannt für sein markantes 7/4-Taktmaß, ist eine satirische Kritik an den Auswirkungen von Reichtum und Konsum. Der Klang von klingelnden Münzen und registrierenden Kassen wurde zu einem unverwechselbaren Erkennungsmerkmal des Songs."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Money' wurde 1973 veröffentlicht.",
+        "correctAnswer": true,
+        "funFact": "'Money' war die erste Single aus dem Album 'The Dark Side of the Moon' und wurde zu einem der erfolgreichsten Hits von Pink Floyd. Der Song wird oft als einer der besten Beispiele für die einzigartige Mischung aus Progressive Rock und experimentellen Klängen, die Pink Floyd berühmt gemacht hat, angesehen. Das Gitarrensolo von David Gilmour in 'Money' gilt als eines der besten in der Rockgeschichte."
+      },
+      {
+        "type": "image",
+        "question": "Welches Album zeigt dieses Cover?",
+        "image": "/bandcover/pop-rock/pink_floyd_the_dark_side_of_the_moon.jpg",
+        "options": [
+          "The Dark Side of the Moon",
+          "Wish You Were Here",
+          "The Wall",
+          "Animals"
+        ],
+        "correctAnswer": "The Dark Side of the Moon",
+        "funFact": "Das ikonische Prisma-Cover von 'The Dark Side of the Moon', entworfen von Storm Thorgerson von Hipgnosis, ist eines der bekanntesten Albumcover der Musikgeschichte. Es stellt einen Lichtstrahl dar, der durch ein Prisma bricht und das gesamte Farbspektrum erzeugt. Dieses Bild symbolisiert die thematischen Konzepte des Albums, die sich mit dem Licht und der Dunkelheit des menschlichen Geistes befassen."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/pink_floyd_the_dark_side_of_the_moon.mp3",
+        "options": ["Money", "Time", "Us and Them", "Brain Damage"],
+        "correctAnswer": "Money",
+        "funFact": "Der Song 'Money' ist bekannt für seinen unkonventionellen 7/4-Takt, der dem Song einen ungewöhnlichen, aber fesselnden Rhythmus verleiht. Nach dem Gitarrensolo wechselt der Song zu einem traditionelleren 4/4-Takt. Der innovative Einsatz von Geräuschen und die strukturelle Komplexität des Songs machen ihn zu einem Klassiker des Progressive Rock."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Hotel California",
+    "artist": "Eagles",
     "album": "Hotel California",
-    "dataYear": "1976",
-    "dataSales": "32 Mio.",
-    "dataLength": "43:28",
     "coverSrc": "/bandcover/pop-rock/eagles_hotel_california.jpg",
-    "audioSrc": "/mp3s/pop-rock/eagles_hotel_california.mp3",
-    "jokerText": "The Eagles' Album Hotel California, veröffentlicht 1976, ist eines der bekanntesten und erfolgreichsten Alben der Rockgeschichte. Der Titeltrack Hotel California wurde für seine komplexe Struktur und düstere, mysteriöse Texte berühmt, die oft als Metapher für die hedonistische und selbstzerstörerische Seite des amerikanischen Traums interpretiert werden. Das Album gewann den Grammy Award für Record of the Year und festigte die Eagles' Ruf als eine der prägendsten Bands der 1970er Jahre.",
-    "triviaQuestion": "Welches Album, das als eines der bedeutendsten Werke der Rockmusik gilt, enthält ikonische Tracks wie „Hotel California“ und „New Kid in Town“?",
-    "triviaAnswer": "Das Album „Hotel California“ von Eagles, veröffentlicht im Jahr 1976, gilt als eines der bedeutendsten Werke der Rockmusik. Es enthält ikonische Tracks wie „Hotel California“ und „New Kid in Town“. Der Titeltrack ist berühmt für sein eindringliches Gitarrensolo und seine mysteriösen Texte, während das Album als Ganzes für seine Mischung aus Rock, Country und Folk gefeiert wird. „Hotel California“ brachte den Eagles internationalen Ruhm und bleibt ein zeitloser Klassiker, der die amerikanische Rockmusik nachhaltig beeinflusst hat."
-  },
+    "year": 1976,
+    "questions": [
       {
-    "category": "pop-rock",
-    "band": "The Beatles",
-    "album": "Sgt. Pepper's Lonely Hearts Club Band",
-    "dataYear": "1967",
-    "dataSales": "32 Mio.",
-    "dataLength": "39:52",
-    "coverSrc": "/bandcover/pop-rock/the_beatles_sgt_peppers_lonely_hearts_club_band.jpg",
-    "audioSrc": "/mp3s/pop-rock/the_beatles_sgt_peppers_lonely_hearts_club_band.mp3",
-    "jokerText": "The Beatles' Album Sgt. Pepper's Lonely Hearts Club Band, veröffentlicht 1967, wird oft als eines der einflussreichsten Alben in der Geschichte der Popmusik angesehen und markierte einen Wendepunkt in der Entwicklung des Konzeptalbums. Es wurde für seine innovative Produktion, experimentellen Sounds und die Verschmelzung verschiedener Musikstile, von Rock über Klassik bis hin zu indischer Musik, gefeiert. Sgt. Pepper's gewann vier Grammy Awards, darunter den für das Album des Jahres, und wird häufig als Meisterwerk bezeichnet, das die Grenzen der populären Musik erweiterte und die Ära des psychedelischen Rock definierte.",
-    "triviaQuestion": "Welches Album, das als eines der einflussreichsten Werke der Musikgeschichte gilt, enthält innovative Tracks wie „Lucy in the Sky with Diamonds“ und „A Day in the Life“?",
-    "triviaAnswer": "Das Album „Sgt. Pepper's Lonely Hearts Club Band“ von The Beatles, veröffentlicht im Jahr 1967, gilt als eines der einflussreichsten Werke der Musikgeschichte. Es enthält innovative Tracks wie „Lucy in the Sky with Diamonds“ und „A Day in the Life“. Das Album wird für seine bahnbrechende Produktion, experimentellen Klang und kreative Konzepte gefeiert und markiert einen Wendepunkt in der Pop- und Rockmusik. „Sgt. Pepper“ wurde sowohl kommerziell als auch kritisch hochgelobt und bleibt ein Meilenstein, der die Grenzen der Musik erweiterte und eine neue Ära einleitete."
-  },
-{
-    "category": "pop-rock",
-    "band": "Dire Straits",
-    "album": "Brothers in Arms",
-    "dataYear": "1985",
-    "dataSales": "30 Mio.",
-    "dataLength": "55:07",
-    "coverSrc": "/bandcover/pop-rock/dire_straits_brothers_in_arms.jpg",
-    "audioSrc": "/mp3s/pop-rock/dire_straits_brothers_in_arms.mp3",
-    "jokerText": "Dire Straits' Album Brothers in Arms, veröffentlicht 1985, ist eines der ersten Alben, das vollständig digital aufgenommen wurde, was zu seinem klaren und hochwertigen Sound beitrug. Das Album enthält den Mega-Hit Money for Nothing, dessen markantes Gitarrenriff und satirische Texte über die Musikindustrie den Song zu einem der bekanntesten Stücke der 1980er Jahre machten. Brothers in Arms war ein massiver kommerzieller Erfolg, verkaufte sich weltweit über 30 Millionen Mal und gewann zwei Grammy Awards, darunter einen für die beste Abmischung eines nicht-klassischen Albums.",
-    "triviaQuestion": "Welches Album, das als eines der ersten digitalen Aufnahmen in der Rockmusik gilt, enthält weltweite Hits wie „Money for Nothing“ und „Walk of Life“?",
-    "triviaAnswer": "Das Album „Brothers in Arms“ von Dire Straits, veröffentlicht im Jahr 1985, gilt als eines der ersten Alben, das vollständig digital aufgenommen wurde und sich zu einem der meistverkauften Alben weltweit entwickelte. Es enthält weltweite Hits wie „Money for Nothing“ und „Walk of Life“ sowie den ikonischen Titeltrack „Brothers in Arms“. Das Album wird für seine brillante Produktion und Mark Knopflers meisterhaftes Gitarrenspiel gefeiert und bleibt ein Klassiker der Rockmusik, der das digitale Zeitalter der Musikproduktion einleitete."
-  },
-{
-    "category": "pop-rock",
-    "band": "Bon Jovi",
-    "album": "Slippery When Wet",
-    "dataYear": "1986",
-    "dataSales": "28 Mio.",
-    "dataLength": "43:42",
-    "coverSrc": "/bandcover/pop-rock/bon_jovi_slippery_when_wet.jpg",
-    "audioSrc": "/mp3s/pop-rock/bon_jovi_slippery_when_wet.mp3",
-    "jokerText": "Bon Jovi's Album Slippery When Wet, veröffentlicht 1986, war der Durchbruch der Band und wurde zu einem der meistverkauften Alben der 1980er Jahre. Das Album enthält einige ihrer größten Hits, darunter Livin' on a Prayer, You Give Love a Bad Name, und Wanted Dead or Alive. Slippery When Wet half dabei, Bon Jovi als eine der führenden Bands des Glam Metal und Arena Rock zu etablieren, und seine eingängigen Melodien und hymnischen Refrains machten es zu einem dauerhaften Favoriten bei Fans und auf Rockradiostationen weltweit.",
-    "triviaQuestion": "Welches Album, das den Durchbruch einer Rockband markierte, enthält ikonische Tracks wie „Livin' on a Prayer“ und „You Give Love a Bad Name“?",
-    "triviaAnswer": "Das Album „Slippery When Wet“ von Bon Jovi, veröffentlicht im Jahr 1986, markierte den internationalen Durchbruch der Band und enthält ikonische Tracks wie „Livin' on a Prayer“ und „You Give Love a Bad Name“. Dieses Album, das für seine eingängigen Melodien, hymnischen Refrains und kraftvollen Rock-Sound bekannt ist, wurde zu einem der meistverkauften Alben der 1980er Jahre und festigte Bon Jovi's Status als eine der führenden Rockbands weltweit. „Slippery When Wet“ bleibt ein Meilenstein in der Geschichte des Rock."
-  },
-{
-    "category": "pop-rock",
-    "band": "David Bowie",
-    "album": "The Rise and Fall of Ziggy Stardust and the Spiders from Mars",
-    "dataYear": "1972",
-    "dataSales": "7.5 Mio.",
-    "dataLength": "38:37",
-    "coverSrc": "/bandcover/pop-rock/david_bowie_the_rise_and_fall_of_ziggy_stardust_and_the_spiders_from_mars.jpg",
-    "audioSrc": "/mp3s/pop-rock/david_bowie_the_rise_and_fall_of_ziggy_stardust_and_the_spiders_from_mars.mp3",
-    "jokerText": "David Bowie's Album The Rise and Fall of Ziggy Stardust and the Spiders from Mars, veröffentlicht 1972, ist ein Konzeptalbum, das die Geschichte von Ziggy Stardust erzählt, einem androgynen Rock-Propheten aus dem All, der als Alter Ego von Bowie fungierte. Das Album kombinierte Glam Rock mit Science-Fiction-Elementen und spielte eine zentrale Rolle in der Etablierung von Bowie als eine der ikonischsten Figuren in der Popkultur. Mit Hits wie Starman und Suffragette City gilt Ziggy Stardust als eines der einflussreichsten Alben der Rockgeschichte und definierte eine ganze Ära der Musik und Mode.",
-    "triviaQuestion": "Welches Konzeptalbum, das die Geschichte eines fiktiven Rockstars erzählt und als eines der einflussreichsten Werke der Glam-Rock-Ära gilt, enthält Klassiker wie „Starman“ und „Suffragette City“?",
-    "triviaAnswer": "Das Album „The Rise and Fall of Ziggy Stardust and the Spiders from Mars“ von David Bowie, veröffentlicht im Jahr 1972, gilt als eines der einflussreichsten Werke der Glam-Rock-Ära. Es erzählt die Geschichte des fiktiven Rockstars Ziggy Stardust und enthält Klassiker wie „Starman“ und „Suffragette City“. Dieses Konzeptalbum wurde für seine innovative Kombination von Rock, Theater und Mode gefeiert und machte David Bowie zu einer Ikone der Popkultur. „Ziggy Stardust“ bleibt ein Meilenstein in der Geschichte der Rockmusik."
-  },
-  {
-    "category": "pop-rock",
-    "band": "Journey",
-    "album": "Escape",
-    "dataYear": "1981",
-    "dataSales": "12 Mio.",
-    "dataLength": "42:47",
-    "coverSrc": "/bandcover/pop-rock/journey_escape.jpg",
-    "audioSrc": "/mp3s/pop-rock/journey_escape.mp3",
-    "jokerText": "Journey's Album Escape, veröffentlicht 1981, ist das erfolgreichste Album der Band und enthält den Mega-Hit Don't Stop Believin', der zu einem der bekanntesten und meistverkauften Songs in der Geschichte des Rock wurde. Das Album brachte insgesamt vier Top-20-Hits hervor, darunter Who's Crying Now und Open Arms, und spielte eine zentrale Rolle dabei, Journey als eine der führenden Bands des Arena Rock zu etablieren. Escape war ein massiver kommerzieller Erfolg und bleibt ein Symbol für den klassischen Rock-Sound der 1980er Jahre.",
-    "triviaQuestion": "Welches Album, das als eines der erfolgreichsten Werke in der Rockmusik gilt, enthält Hits wie „Don’t Stop Believin’“ und „Open Arms“?",
-    "triviaAnswer": "Das Album „Escape“ von Journey, veröffentlicht im Jahr 1981, gilt als eines der erfolgreichsten Werke in der Rockmusik. Es enthält Hits wie „Don’t Stop Believin’“, einen der bekanntesten Songs der Band, sowie „Open Arms“. „Escape“ brachte Journey weltweiten Ruhm und kommerziellen Erfolg und bleibt ein Meilenstein in der Arena-Rock-Ära der 1980er Jahre."
-  },
-  {
-    "category": "pop-rock",
-    "band": "Paul Simon",
-    "album": "Graceland",
-    "dataYear": "1986",
-    "dataSales": "14 Mio.",
-    "dataLength": "43:18",
-    "coverSrc": "/bandcover/pop-rock/journey_escape.jpg",
-    "audioSrc": "/mp3s/pop-rock/journey_escape.mp3",
-    "jokerText": "Paul Simon's Album Graceland, veröffentlicht 1986, ist bekannt für seine innovative Mischung aus westlichen Pop- und Rockelementen mit traditionellen südafrikanischen Musikstilen wie Mbaqanga und Isicathamiya. Das Album wurde teilweise in Südafrika aufgenommen und brachte die Musik und Kultur des Landes einem weltweiten Publikum näher, obwohl es aufgrund der damaligen Apartheidspolitik auch für Kontroversen sorgte. Graceland gewann den Grammy Award für das Album des Jahres und wird heute als eines der wichtigsten Alben der 1980er Jahre angesehen, das den Weg für die sogenannte World Music im Mainstream ebnete.",
-    "triviaQuestion": "Welches Album, das als eines der bedeutendsten Werke der 1980er Jahre gilt und afrikanische Musik mit Pop kombinierte, enthält Hits wie „You Can Call Me Al“ und „Diamonds on the Soles of Her Shoes“?",
-    "triviaAnswer": "Das Album „Graceland“ von Paul Simon, veröffentlicht im Jahr 1986, gilt als eines der bedeutendsten Werke der 1980er Jahre. Es kombiniert afrikanische Musikstile mit Pop und enthält Hits wie „You Can Call Me Al“ und „Diamonds on the Soles of Her Shoes“. „Graceland“ wurde für seine innovative Mischung aus verschiedenen musikalischen Kulturen gefeiert und brachte Paul Simon sowohl kommerziellen Erfolg als auch kritische Anerkennung. Das Album spielte eine wichtige Rolle bei der Einführung afrikanischer Musik in die westliche Popkultur und bleibt ein wegweisendes Werk."
-  },
-  {
-    "category": "pop-rock",
-    "band": "The Police",
-    "album": "Synchronicity",
-    "dataYear": "1983",
-    "dataSales": "8 Mio.",
-    "dataLength": "44:38",
-    "coverSrc": "/bandcover/pop-rock/the_police_synchronicity.jpg",
-    "audioSrc": "/mp3s/pop-rock/the_police_synchronicity.mp3",
-    "jokerText": "The Police's Album Synchronicity, veröffentlicht 1983, war das letzte Studioalbum der Band und gilt als ihr kommerziell erfolgreichstes Werk. Es enthält den weltweiten Hit Every Breath You Take, der zum Signature-Song der Band wurde und den Grammy Award für den Song des Jahres gewann. Synchronicity ist bekannt für seine vielseitige Mischung aus Rock, New Wave, und Weltmusikeinflüssen, und es markierte den Höhepunkt der kreativen Spannungen innerhalb der Band, die schließlich zu ihrer Auflösung führten.",
-    "triviaQuestion": "Welches Album, das als eines der einflussreichsten Werke der 1980er Jahre gilt, enthält Hits wie „Every Breath You Take“ und „King of Pain“?",
-    "triviaAnswer": "Das Album „Synchronicity“ von The Police, veröffentlicht im Jahr 1983, gilt als eines der einflussreichsten Werke der 1980er Jahre. Es enthält Hits wie „Every Breath You Take“ und „King of Pain“. „Synchronicity“ markierte den Höhepunkt der Karriere der Band und brachte ihnen weltweiten Erfolg. Das Album ist bekannt für seine komplexen Arrangements und tiefgründigen Texte und bleibt ein Meilenstein in der Geschichte des Rock und New Wave."
-  },
-  {
-    "category": "pop-rock",
-    "band": "The Who",
-    "album": "Who's Next",
-    "dataYear": "1971",
-    "dataSales": "6 Mio.",
-    "dataLength": "43:25",
-    "coverSrc": "/bandcover/pop-rock/the_who_who's_next.jpg",
-    "audioSrc": "/mp3s/pop-rock/the_who_who's_next.mp3",
-    "jokerText": "The Who's Album Who's Next, veröffentlicht 1971, gilt als eines der größten Rockalben aller Zeiten und enthält einige der bekanntesten Songs der Band, darunter Baba O'Riley und Won't Get Fooled Again. Ursprünglich als Teil eines ehrgeizigen Rock-Opernprojekts namens Lifehouse geplant, wurde das Album schließlich zu einem eigenständigen Werk, das innovative Synthesizer-Arrangements mit kraftvollen Rockelementen kombinierte. Who's Next war ein kommerzieller und kritischer Erfolg und setzte neue Maßstäbe für Rockmusik in den 1970er Jahren.",
-    "triviaQuestion": "Welches Album, das als eines der größten Rockalben aller Zeiten gilt, enthält Klassiker wie „Baba O'Riley“ und „Won't Get Fooled Again“?",
-    "triviaAnswer": "Das Album „Who's Next“ von The Who, veröffentlicht im Jahr 1971, gilt als eines der größten Rockalben aller Zeiten. Es enthält Klassiker wie „Baba O'Riley“ und „Won't Get Fooled Again“, die für ihre kraftvollen Riffs, innovativen Synthesizer-Einsätze und sozialkritischen Texte bekannt sind. „Who's Next“ entstand aus dem gescheiterten Projekt „Lifehouse“ und wurde zu einem bahnbrechenden Erfolg, der The Who als eine der einflussreichsten Rockbands der Geschichte etablierte."
-  },
-  {
-    "category": "pop-rock",
-    "band": "Prince",
-    "album": "Purple Rain",
-    "dataYear": "1984",
-    "dataSales": "25 Mio.",
-    "dataLength": "43:51",
-    "coverSrc": "/bandcover/pop-rock/prince_purple_rain.jpg",
-    "audioSrc": "/mp3s/pop-rock/prince_purple_rain.mp3",
-    "jokerText": "Prince's Album Purple Rain, veröffentlicht 1984, ist sowohl der Soundtrack zum gleichnamigen Film als auch eines der erfolgreichsten und einflussreichsten Alben aller Zeiten. Der Titeltrack Purple Rain, sowie Hits wie When Doves Cry und Let's Go Crazy, zeigten Prince's einzigartige Mischung aus Rock, Pop, Funk, und R&B. Purple Rain gewann zwei Grammy Awards und einen Oscar für den besten Original-Songscore, und das Album verkaufte sich weltweit über 25 Millionen Mal, was Prince zu einem globalen Superstar machte.",
-    "triviaQuestion": "Welches Album, das sowohl als Soundtrack als auch als eines der größten Werke der Popmusikgeschichte gilt, enthält ikonische Tracks wie „When Doves Cry“ und „Purple Rain“?",
-    "triviaAnswer": "Das Album „Purple Rain“ von Prince, veröffentlicht im Jahr 1984, dient sowohl als Soundtrack zum gleichnamigen Film als auch als eines der größten Werke der Popmusikgeschichte. Es enthält ikonische Tracks wie „When Doves Cry“ und „Purple Rain“. Das Album wurde für seine innovative Mischung aus Rock, Pop, Funk und R&B gefeiert und brachte Prince internationalen Ruhm. „Purple Rain“ bleibt ein kultureller Meilenstein und ein Schlüsselmoment in der Karriere von Prince, der seine Position als einer der einflussreichsten Künstler der Musikgeschichte festigte."
-  },
-
-
-
-
-
-  {
-    "category": "pop-rock",
-    "band": "Snow Patrol",
-    "album": "Eyes Open",
-    "dataYear": "2006",
-    "dataSales": "4 Mio.",
-    "dataLength": "44:42",
-    "coverSrc": "/bandcover/pop-rock/snow_patrol_eyes_open.jpeg",
-    "audioSrc": "/mp3s/pop-rock/snow_patrol_eyes_open.mp3",
-    "jokerText": "Das Album Eyes Open von Snow Patrol enthält den Song Set the Fire to the Third Bar, ein Duett mit der kanadischen Sängerin Martha Wainwright. Dieser emotionale Track wurde später in verschiedenen Filmen und TV-Shows verwendet und zeigt die Fähigkeit der Band, kraftvolle und eindringliche Kollaborationen zu schaffen.",
-    "triviaQuestion": "Welches Album enthält den weltweiten Hit „Chasing Cars“?",
-    "triviaAnswer": "Das Album „Eyes Open“ von Snow Patrol, das den weltweiten Hit „Chasing Cars“ enthält, wurde 2006 veröffentlicht. Der Song erlangte besonders durch seine emotionale Präsenz und die prominente Verwendung in der TV-Serie „Grey’s Anatomy“ zusätzliche Bekanntheit."
-  },
-  {
-    "category": "pop-rock",
-    "band": "Kelly Clarkson",
-    "album": "Breakaway",
-    "dataYear": "2004",
-    "dataSales": "12 Mio.",
-    "dataLength": "47:20",
-    "coverSrc": "/bandcover/pop-rock/kelly_clarkson_breakaway.jpeg",
-    "audioSrc": "/mp3s/pop-rock/kelly_clarkson_breakaway.mp3",
-    "jokerText": "Kelly Clarkson's Album Breakaway war ursprünglich als reiner Soundtrack-Beitrag für den Film The Princess Diaries 2 gedacht. Der Erfolg des Titelsongs Breakaway führte jedoch dazu, dass er der Namensgeber für ihr zweites Studioalbum wurde, das schließlich über 12 Millionen Mal weltweit verkauft wurde.",
-    "triviaQuestion": "Welches Album enthält den Hit „Since U Been Gone“ und markierte einen stilistischen Wandel für die Künstlerin, die es aufnahm?",
-    "triviaAnswer": "Das Album „Breakaway“ von Kelly Clarkson, das den Hit „Since U Been Gone“ enthält, wurde 2004 veröffentlicht. Es markierte einen bedeutenden stilistischen Wandel für Clarkson, indem es Elemente von Pop-Rock stärker betonte und ihr half, sich als Künstlerin jenseits ihrer Anfänge bei „American Idol“ zu etablieren. Das Album wurde weltweit gefeiert und brachte mehrere Hitsingles hervor."
-  },
-  {
-    "category": "pop-rock",
-    "band": "No Doubt",
-    "album": "Tragic Kingdom",
-    "dataYear": "1995",
-    "dataSales": "16 Mio.",
-    "dataLength": "48:50",
-    "coverSrc": "/bandcover/pop-rock/no_doubt_tragic_kingdom.jpg",
-    "audioSrc": "/mp3s/pop-rock/no_doubt_tragic_kingdom.mp3",
-    "jokerText": "Die Fotos für das Album „Tragic Kingdom“ (1995) von No Doubt wurden in Orange County aufgenommen. Das rote Kleid, das Gwen Stefani auf dem Cover trägt, fand seinen Weg in eine Ausstellung im Fullerton Museum Center mit dem Thema „The Orange Groove: Orange County's Rock n' Roll History“. Leider wurde das Kleid im Januar 2005 aus der Ausstellung gestohlen.",
-    "triviaQuestion": "Welches Album, bekannt für die Hitsingle „Don’t Speak“, wurde während einer turbulenten Zeit für die Band aufgenommen und führte zu ihrem internationalen Durchbruch?",
-    "triviaAnswer": "Das Album „Tragic Kingdom“ von No Doubt, das die Hitsingle „Don’t Speak“ enthält, wurde 1995 veröffentlicht. Es wurde während einer turbulenten Zeit für die Band aufgenommen, in der Beziehungsdynamiken und Bandwechsel prägend waren. Dieses Album markierte den internationalen Durchbruch für No Doubt und zeigte ihre Vielseitigkeit in der Mischung von Ska, Punk und Popmusik."
-  },
-  {
-    "category": "pop-rock",
-    "band": "Blondie",
-    "album": "Parallel Lines",
-    "dataYear": "1978",
-    "dataSales": "20 Mio.",
-    "dataLength": "36:28",
-    "coverSrc": "/bandcover/pop-rock/blondie_parallel_lines.jpg",
-    "audioSrc": "/mp3s/pop-rock/blondie_parallel_lines.mp3",
-    "jokerText": "Blondie's Album Parallel Lines enthält den ikonischen Song Heart of Glass, der ursprünglich als langsamer Blues-Song geschrieben wurde. Die Band verwandelte ihn jedoch in einen Disco-Hit, was einige ihrer Punk-Fans irritierte, aber das Lied machte Blondie zu internationalen Stars und trug wesentlich zum kommerziellen Erfolg des Albums bei.",
-    "triviaQuestion": "Welches Album enthält den wegweisenden Hit „Heart of Glass“ und wurde als eines der einflussreichsten Alben in der Musikgeschichte anerkannt?",
-    "triviaAnswer": "Das Album „Parallel Lines“ von Blondie, das den wegweisenden Hit „Heart of Glass“ enthält, wurde 1978 veröffentlicht. Es spielte eine entscheidende Rolle in der Evolution der Musikszene, indem es Elemente von Punk, Disco, Pop und New Wave kombinierte. Dieses vielfältige Album half Blondie, internationalen Ruhm zu erlangen und bleibt bis heute einflussreich in der Musikgeschichte."
-  },
-  {
-    "category": "pop-rock",
-    "band": "The B-52s",
-    "album": "Cosmic Thing",
-    "dataYear": "1989",
-    "dataSales": "5 Mio.",
-    "dataLength": "43:38",
-    "coverSrc": "/bandcover/pop-rock/the_b-52s_cosmic_thing.jpg",
-    "audioSrc": "/mp3s/pop-rock/the_b-52s_cosmic_thing.mp3",
-    "jokerText": "Das Album Cosmic Thing von The B-52's markierte das Comeback der Band nach einer mehrjährigen Pause. Der Song Love Shack aus diesem Album wurde zu einem ihrer größten Hits und brachte der Band ihren ersten Top-10-Erfolg in den USA, was Cosmic Thing zu ihrem erfolgreichsten Album machte.",
-    "triviaQuestion": "Das Design Studio welchen Plattencovers hat außerdem auch das Logo des Musiksenders MTV gestaltet?",
-    "triviaAnswer": "Das Album „Cosmic Thing“ von The B-52s markierte ihr Comeback nach dem Tod von Ricky Wilson an HIV und bot der Band eine therapeutische Erfahrung. Das fröhliche Cover, das diese positive Stimmung widerspiegelt, wurde von „Manhattan Design“ gestaltet, dem Studio, das auch das MTV-Logo entworfen hat."
-  },
-  {
-    "category": "pop-rock",
-    "band": "Coldplay",
-    "album": "Ghost Stories",
-    "dataYear": "2014",
-    "dataSales": "4 Mio.",
-    "dataLength": "44:05",
-    "coverSrc": "/bandcover/pop-rock/coldplay_ghost_stories.jpg",
-    "audioSrc": "/mp3s/pop-rock/colplay_ghost_stories.mp3",
-    "jokerText": "Coldplay's Album Ghost Stories (2014) ist stark von der Trennung von Chris Martin und Gwyneth Paltrow inspiriert. Das Album hat eine deutlich melancholische und introspektive Atmosphäre, die die emotionalen Höhen und Tiefen dieser Phase widerspiegelt, was es zu einem der persönlichsten Werke der Band macht.",
-    "triviaQuestion": "Welches Album, das in seiner Thematik Trennung und Verlust verarbeitet, enthält den Song „A Sky Full of Stars“?",
-    "triviaAnswer": "Das Album „Ghost Stories“ von Coldplay, das den Song „A Sky Full of Stars“ enthält, wurde 2014 veröffentlicht. Es erkundet Themen wie Trennung und Verlust, inspiriert von persönlichen Erfahrungen der Bandmitglieder. Dieses emotional geladene Album zeigt eine ruhigere, introspektivere Seite von Coldplay, kombiniert mit elektronischen Einflüssen und minimalistischen Texturen."
-  },
-  {
-    "category": "pop-rock",
-    "band": "Kim Carnes",
-    "album": "Mistaken Identity",
-    "dataYear": "1981",
-    "dataSales": "1,5 Mio.",
-    "dataLength": "42:30",
-    "coverSrc": "/bandcover/pop-rock/kim_carnes_mistaken_identity.jpg",
-    "audioSrc": "/mp3s/pop-rock/kim_carnes_mistaken_identity.mp3",
-    "jokerText": "Kim Carnes Album Mistaken Identity enthält den Mega-Hit Bette Davis Eyes, der acht Wochen lang die Nummer 1 der US-Charts belegte. Interessanterweise war der Song ursprünglich ein langsamerer, jazzigerer Track, aber Carnes und ihr Produzent machten ihn zu einem Synth-Pop-Klassiker, der zu ihrem Markenzeichen wurde und ihr zwei Grammy Awards einbrachte.",
-    "triviaQuestion": "Welches Album enthält den Grammy-ausgezeichneten Hit „Bette Davis Eyes“, der mehrere Wochen die US-Charts dominierte?",
-    "triviaAnswer": "Das Album „Mistaken Identity“ von Kim Carnes, bekannt für den Hit „Bette Davis Eyes“, wurde 1981 veröffentlicht. Dieser Song, der Kim Carnes einen Grammy Award einbrachte, stand für mehrere Wochen an der Spitze der US-Charts und wurde zu einem der größten Hits des Jahres. Das Album selbst vereint Einflüsse aus Rock und Pop und spiegelt die markante raue Stimme von Carnes wider."
-  },
-  {
-    "category": "pop-rock",
-    "band": "Red Hot Chilli Peppers",
-    "album": "Stadium Arcadium",
-    "dataYear": "2006",
-    "dataSales": "7 Mio.",
-    "dataLength": "2:02:21",
-    "coverSrc": "/bandcover/pop-rock/red_hot_chili_peppers_stadium_arcadium.jpg",
-    "audioSrc": "/mp3s/pop-rock/red_hot_chili_peppers_stadium_arcadium.mp3",
-    "jokerText": "Stadium Arcadium von den Red Hot Chili Peppers war ursprünglich als Trilogie von drei Alben geplant, wurde aber schließlich als Doppelalbum mit 28 Tracks veröffentlicht. Es ist das letzte Album, an dem Gitarrist John Frusciante vor seinem Ausstieg im Jahr 2009 mitarbeitete, und es brachte der Band sieben Grammy-Nominierungen ein, von denen sie fünf gewann.",
-    "triviaQuestion": "Welches Doppelalbum umfasst 28 Tracks und wurde sowohl für seine musikalische Vielfalt als auch für seine technische Kompetenz bei den Grammy Awards ausgezeichnet?",
-    "triviaAnswer": "Das Album „Stadium Arcadium“ von den Red Hot Chili Peppers, ein ambitioniertes Doppelalbum mit 28 Tracks, wurde 2006 veröffentlicht. Es zeigt eine beeindruckende Bandbreite musikalischer Stile und technischer Fähigkeiten, was es zu einem der herausragendsten Werke der Band macht. Das Album erhielt mehrere Grammy Awards, darunter für das beste Rock-Album, und beinhaltet Hits wie „Dani California“, „Snow (Hey Oh)“ und „Tell Me Baby“."
-  },
-  {
-    "category": "pop-rock",
-    "band": "Avril Lavigne",
-    "album": "Let Go",
-    "dataYear": "2002",
-    "dataSales": "16 Mio.",
-    "dataLength": "43:50",
-    "coverSrc": "/bandcover/pop-rock/avril_lavigne_let_go.jpeg",
-    "audioSrc": "/mp3s/pop-rock/avril_lavigne_let_go.mp3",
-    "jokerText": "Die 48 Minuten und 37 Sekunden von Avril Lavignes Album Let Go hoben nicht nur ihre musikalische Karriere auf ein ganz neues Level, das Album revolutionierte auch den Pop-Punk und ebnete den Weg für viele weitere Pop-Punk-Front-Frauen. Das Cover, das die Musikerin an der Kreuzung von Broadway und Canal Street in NYC zeigt, behält bis heute Kult-Status.",
-    "triviaQuestion": "Welches Debütalbum, das die Jugendkultur der frühen 2000er Jahre maßgeblich prägte, enthält die Hits „Complicated“ und „Sk8er Boi“?",
-    "triviaAnswer": "Das Album „Let Go“ von Avril Lavigne, ihr Debütalbum, wurde 2002 veröffentlicht und enthält Hits wie „Complicated“ und „Sk8er Boi“. Es prägte die Jugendkultur der frühen 2000er Jahre mit seinem frischen Mix aus Pop-Punk und Rock. Dieses Album brachte Lavigne internationale Anerkennung und half, ihr Image als Pop-Punk-Prinzessin zu festigen."
-  },
-  {
-    "category": "pop-rock",
-    "band": "David Bowie",
-    "album": "Hunky Dory",
-    "dataYear": "1971",
-    "dataLength": "40:27",
-    "dataSales": "2 Mio.",
-    "coverSrc": "/bandcover/pop-rock/david_bowie_hunky_dory.jpg",
-    "audioSrc": "/mp3s/pop-rock/david_bowie_hunky_dory.mp3",
-    "jokerText": "David Bowies Album Hunky Dory enthält den Song Life on Mars?, den Bowie als a cross between a Broadway musical and a Salvador Dalí painting beschrieb. Das Album markierte einen Wendepunkt in Bowies Karriere und wird oft als der Beginn seiner legendären Ziggy Stardust-Phase betrachtet, obwohl diese erst mit seinem nächsten Album voll zur Geltung kam.",
-    "triviaQuestion": "Welches Album wurde dem Sohn eines/einer der Musiker:innen gewidmet?",
-    "triviaAnswer": "David Bowie nannte seinen Sohn, den Regisseur Duncan Jones, „Zowie“, weshalb dieser auch als Zowie Bowie bekannt ist. Duncan kam 1971, im Erscheinsungsjahr des Albums „Hunky Dory“, auf die Welt – Deshalb steht auf dem Rücken der Platte die Widmung „for small Z.“."
-  },
-  {
-    "category": "pop-rock",
-    "band": "Blink-182",
-    "album": "Enema of the State",
-    "dataYear": "1999",
-    "dataLength": "33:23",
-    "dataSales": "15 Mio.",
-    "coverSrc": "/bandcover/pop-rock/blink-182_enema_of_the_state.jpeg",
-    "audioSrc": "/mp3s/pop-rock/blink-182_enema_of_the_state.mp3",
-    "jokerText": "Das Album Enema of the State von Blink-182 war ihr großer Durchbruch und verhalf der Band zu weltweiter Bekanntheit. Das ikonische Albumcover zeigt die Pornodarstellerin Janine Lindemulder als Krankenschwester, was für einige Kontroversen sorgte, aber gleichzeitig zum pop-punkigen Image der Band beitrug und das Album visuell unvergesslich machte.",
-    "triviaQuestion": "Welches Album, das als Wendepunkt im Pop-Punk-Genre gilt und mehrere charttoppende Singles hervorbrachte, enthält die Hits „All the Small Things“ und „What’s My Age Again?“",
-    "triviaAnswer": "Das Album „Enema of the State“ von Blink-182, bekannt für die Hits „All the Small Things“ und „What’s My Age Again?“, wurde 1999 veröffentlicht. Es gilt als eines der einflussreichsten Alben im Pop-Punk-Genre und brachte der Band massiven kommerziellen Erfolg. Mit seinem humorvollen und jugendlichen Stil hatte es großen Einfluss auf die Musikszene und Kultur der späten 1990er und frühen 2000er Jahre."
+        "type": "multiple-choice",
+        "question": "Welches Album von den Eagles enthält den Song 'Hotel California'?",
+        "options": [
+          "One of These Nights",
+          "The Long Run",
+          "Hotel California",
+          "Desperado"
+        ],
+        "correctAnswer": "Hotel California",
+        "funFact": "Das Album 'Hotel California' markiert einen Wendepunkt in der Geschichte der Eagles. Es war ihr erstes Album mit Joe Walsh an der Gitarre, und es zeigte eine deutliche Veränderung in ihrem musikalischen Stil hin zu einer dunkleren und komplexeren Klangwelt. Der Titeltrack ist eine epische Rockballade, die für ihre düstere, allegorische Darstellung des Lebens in Kalifornien berühmt wurde."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Hotel California' wurde 1976 veröffentlicht.",
+        "correctAnswer": true,
+        "funFact": "Der Song 'Hotel California' wurde schnell zu einem der ikonischsten Tracks der 1970er Jahre. Die geheimnisvollen und metaphorischen Texte des Liedes haben zahlreiche Interpretationen hervorgerufen. Einige Fans glauben, dass der Song eine Kritik am hedonistischen Lebensstil in Los Angeles darstellt, während andere ihn als eine tiefere Reflexion über die menschliche Natur und die Gefahren von Überfluss und Dekadenz sehen."
+      },
+      {
+        "type": "image",
+        "question": "Welches Album zeigt dieses Cover?",
+        "image": "/bandcover/pop-rock/eagles_hotel_california.jpg",
+        "options": [
+          "One of These Nights",
+          "The Long Run",
+          "Hotel California",
+          "Desperado"
+        ],
+        "correctAnswer": "Hotel California",
+        "funFact": "Das Cover des Albums 'Hotel California' ist ebenso ikonisch wie der Titeltrack. Es zeigt das Beverly Hills Hotel im warmen Licht des Sonnenuntergangs, was eine paradoxe Kombination von glamouröser Schönheit und unheimlicher Atmosphäre schafft. Das Bild verstärkt die Themen des Songs, die zwischen Verführung und Gefahr balancieren."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/eagles_hotel_california.mp3",
+        "options": [
+          "Hotel California",
+          "Take It Easy",
+          "Life in the Fast Lane",
+          "New Kid in Town"
+        ],
+        "correctAnswer": "Hotel California",
+        "funFact": "Der Song 'Hotel California' ist bekannt für sein eindrucksvolles Gitarrensolo, das von Don Felder und Joe Walsh gespielt wird. Es wurde mehrfach als eines der besten Gitarrensoli aller Zeiten ausgezeichnet. Die besondere Kombination von Felder's 12-saitiger Akustikgitarre und Walshs elektrischer Lead-Gitarre erzeugt einen einzigartigen Klang, der den mystischen und bedrohlichen Ton des Songs perfekt einfängt."
+      }
+    ]
   }
 ]

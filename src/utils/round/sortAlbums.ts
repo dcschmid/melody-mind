@@ -98,14 +98,10 @@ function sortAlbums(albums: Album[], sortBy: string, order: string): Album[] {
 /**
  * Retrieves a list of albums sorted by a specific field and category.
  *
- * @param {string} sortBy - The field to sort the albums by. Can be one of "dataYear", "dataSales", or "dataLength".
- * @param {string} order - The order of the sorting (asc/desc).
  * @param {Album[]} albums - The albums to filter by.
  * @return {Album[]} A list of sorted albums.
  */
 export async function getAlbumsSortedBySpecificFieldAndCatgory(
-  sortBy: string,
-  order: string,
   albums: Album[],
 ) {
   /**
@@ -115,35 +111,7 @@ export async function getAlbumsSortedBySpecificFieldAndCatgory(
    * @return {Album[]} The filtered array of albums.
    */
   const randomAlbums = shuffleArray(albums) // Shuffle the albums array
-    .filter((album, index, self) => {
-      // Filter the albums array by category
-      return (
-        index ===
-        self.findIndex((a) => {
-          // Find the index of the first album with the same category
-          switch (
-            sortBy // Check the sortBy value
-          ) {
-            case "dataYear":
-              return a.dataYear === album.dataYear; // Compare the dataYear values
-            case "dataSales":
-              return a.dataSales === album.dataSales; // Compare the dataSales values
-            case "dataLength":
-              return a.dataLength === album.dataLength; // Compare the dataLength values
-            default:
-              throw new Error(`Invalid sortBy value: ${sortBy}`); // Throw an error if the sortBy value is invalid
-          }
-        })
-      );
-    })
     .slice(0, 4); // Slice the filtered array to get the first 4 albums
-
-  // Sort the filtered albums by the specified field and order
-  // The `sortAlbums` function sorts the albums array by the specified field and order
-  // The function takes the albums array, the field to sort by, and the order of the sorting as parameters
-  // The function returns a new array of sorted albums
-  const sortedAlbums = sortAlbums(randomAlbums, sortBy, order);
-
   /**
    * Maps the sorted albums array to a new array containing only the band names.
    *

@@ -1,0 +1,395 @@
+---
+import Layout from "@layouts/Layout.astro"; // Layout component
+import categories from "@json/categories.json"; // JSON file containing categories data
+import ShowCoins from "@components/Shared/ShowCoins.astro";
+
+/**
+ * Get the user object from the Astro context
+ */
+const user = Astro.locals.user;
+
+/**
+ * If the user is not logged in, redirect them to the login page.
+ */
+if (!user) {
+  /**
+   * Redirect the user to the login page.
+   */
+  return Astro.redirect("/");
+}
+
+/**
+ * Destructure `category` and `round` from `Astro.params`
+ */
+const { category } = Astro.params;
+
+const currentCategoryData = categories.find((cat) => cat.slug === category);
+---
+
+<Layout title=`${currentCategoryData?.headline} - ` showHeaderIcons={false}>
+  <div slot="left-headercol">
+    <ShowCoins />
+  </div>
+
+  <div id="overlay" class="overlay hidden">
+    <div class="overlay-content">
+      <p id="feedback" class="feedback"></p>
+      <img id="overlay-cover" src="" alt="Album Cover" class="album-cover" />
+      <h3 id="overlay-album">Album Name</h3>
+      <p id="overlay-year">Year</p>
+      <p id="overlay-funfact" class="fun-fact">Fun Fact</p>
+      <button id="next-round-button" class="next-round-button"
+        >Nächste Runde</button
+      >
+    </div>
+  </div>
+
+  <div
+    id="question-container"
+    data-categoryName={currentCategoryData?.headline}
+    data-genre={category}
+    data-userID={user.id}
+  >
+    <h2 id="question"></h2>
+    <div id="options"></div>
+  </div>
+</Layout>
+
+<style is:global lang="scss">
+  #question-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  #options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .option-button {
+    background-color: #ff4500; /* Beispielhafte Hintergrundfarbe */
+    color: #fff; /* Textfarbe */
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0; /* Abstand zwischen den Buttons */
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block; /* Stelle sicher, dass die Buttons angezeigt werden */
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .option-button:hover {
+    background-color: #32cd32; /* Beispielhafte Hover-Farbe */
+  }
+
+  .option-button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Fokus-Stil */
+  }
+
+  .feedback {
+    font-size: 1rem;
+    color: #32cd32;
+    text-align: center;
+  }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .overlay-content {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    max-width: 480px;
+    margin: 0 1rem;
+  }
+
+  .album-cover {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 0.25rem;
+  }
+
+  .fun-fact {
+    hyphens: auto;
+  }
+
+  .next-round-button {
+    background-color: #4da6ff;
+    color: #fff;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .next-round-button:hover {
+    background-color: #32cd32;
+  }
+</style>
+
+<script>
+  import { shuffleArray } from "@utils/share/shuffleArray";
+
+  document.addEventListener("DOMContentLoaded", async function () {
+    // Get the element that shows the current score
+    const scoreElement = document.querySelector(
+      ".coinsCount",
+    ) as HTMLParagraphElement;
+
+    // Get the element that shows the feedback after a question
+    const feedbackElement = document.getElementById(
+      "feedback",
+    ) as HTMLParagraphElement;
+
+    // Get the element that shows the question
+    const questionElement = document.getElementById(
+      "question",
+    ) as HTMLParagraphElement;
+
+    // Get the element that shows the options
+    const optionsContainer = document.getElementById(
+      "options",
+    ) as HTMLDivElement;
+
+    // Get the element that shows the question container
+    const questionContainer = document.getElementById(
+      "question-container",
+    ) as HTMLDivElement;
+
+    // Get the category from the question container
+    const category = questionContainer.getAttribute("data-genre");
+    const userId = questionContainer.getAttribute("data-userID");
+    const categoryName = questionContainer.getAttribute("data-categoryName");
+
+    // Initialize the score and the round index
+    let score = 0;
+    let roundIndex = 0;
+
+    // How many rounds there are
+    const totalRounds = 5;
+
+    // Import the albums data for the current category
+    const albumsPromise = import(`../../json/genres/${category}.json`);
+    // Get the albums data
+    const albums: any = (await albumsPromise).default;
+
+    /**
+     * Fetch the total user points from the API.
+     */
+    const response = await fetch(`/api/getUserPoints`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userId, categoryValue: categoryName }),
+    });
+
+    /**
+     * Parse the response as JSON.
+     */
+    const { totalUserPoints, currentCategoryPointsValue } =
+      await response.json();
+
+    /**
+     * Returns a random question from the albums data.
+     */
+    function getRandomQuestion() {
+      // Shuffle the albums array
+      const songs = shuffleArray(albums);
+
+      // Get the first element of the shuffled array
+      const randomAlbum = songs[0];
+
+      // Get a random question from the questions array of the random album
+      const randomQuestion =
+        randomAlbum.questions[
+          Math.floor(Math.random() * randomAlbum.questions.length)
+        ];
+
+      // Return the random question and the random album
+      return { randomQuestion, randomAlbum };
+    }
+
+    /**
+     * Loads a question and its options into the DOM.
+     */
+    function loadQuestion(question: any, album: any) {
+      // Set the question text
+      questionElement.textContent = question.question;
+
+      // Clear the options container
+      optionsContainer.innerHTML = "";
+
+      // Add the image to the options container if the question is an image question
+      if (question.type === "image") {
+        const imageElement = document.createElement("img");
+        imageElement.src = question.image;
+        imageElement.alt = "Frage Bild";
+        imageElement.style.maxWidth = "200px";
+        imageElement.style.marginBottom = "1rem";
+        optionsContainer.appendChild(imageElement);
+
+        // Add a button for each option
+        question.options.forEach(function (option: any) {
+          const button = document.createElement("button");
+          button.textContent = option;
+          button.className = "option-button";
+          button.onclick = function () {
+            handleAnswer(option, question.correctAnswer, question, album);
+          };
+          optionsContainer.appendChild(button);
+        });
+      }
+
+      // Add the audio player if the question is an audio question
+      // The audio player element is created with controls and a source element
+      // The source element is given the URL of the audio and the type of the audio
+      // The button for each option is created and appended to the options container
+      // The button is given the text of the option and the correct answer
+      // The button is given an event listener to handle the answer
+      if (question.type === "audio") {
+        const audioElement = document.createElement("audio");
+        audioElement.controls = true;
+        const sourceElement = document.createElement("source");
+        sourceElement.src = question.audio;
+        sourceElement.type = "audio/mpeg";
+        audioElement.appendChild(sourceElement);
+        optionsContainer.appendChild(audioElement);
+
+        question.options.forEach(function (option: any) {
+          const button = document.createElement("button");
+          button.textContent = option;
+          button.className = "option-button";
+          button.onclick = function () {
+            /**
+             * Handles the answer of the question
+             * @param option The option of the question
+             * @param correctAnswer The correct answer of the question
+             * @param question The question object
+             * @param album The album object
+             */
+            handleAnswer(option, question.correctAnswer, question, album);
+          };
+          optionsContainer.appendChild(button);
+        });
+      }
+
+      if (question.type === "multiple-choice") {
+        question.options.forEach(function (option: any) {
+          const button = document.createElement("button");
+          button.textContent = option;
+          button.className = "option-button";
+          button.onclick = function () {
+            handleAnswer(option, question.correctAnswer, question, album);
+          };
+          optionsContainer.appendChild(button);
+        });
+      } else if (question.type === "true-false") {
+        const trueButton = document.createElement("button");
+        trueButton.textContent = "Wahr";
+        trueButton.className = "option-button";
+        trueButton.onclick = function () {
+          handleAnswer(true, question.correctAnswer, question, album);
+        };
+
+        const falseButton = document.createElement("button");
+        falseButton.textContent = "Falsch";
+        falseButton.className = "option-button";
+        falseButton.onclick = function () {
+          handleAnswer(false, question.correctAnswer, question, album);
+        };
+
+        optionsContainer.appendChild(trueButton);
+        optionsContainer.appendChild(falseButton);
+      }
+    }
+
+    function handleAnswer(
+      option: boolean,
+      correctAnswer: any,
+      currentQuestion: any,
+      album?: any,
+    ) {
+      if (option === correctAnswer) {
+        score += 100;
+        feedbackElement.textContent = "Richtig! 100 Punkte";
+      } else {
+        feedbackElement.textContent = `Falsch! Die richtige Antwort war: ${correctAnswer}`;
+        feedbackElement.style.color = "red";
+      }
+
+      scoreElement.textContent = `${score}`;
+
+      // Funfact und weitere Informationen im Overlay anzeigen
+      const overlayCover = document.getElementById(
+        "overlay-cover",
+      ) as HTMLImageElement;
+      overlayCover.src = album.coverSrc || "";
+      document.getElementById("overlay-album")!.textContent =
+        album.artist + " - " + album.album || "";
+      document.getElementById("overlay-year")!.textContent =
+        `Erscheinungsjahr: ${album.year}` || "";
+      document.getElementById("overlay-funfact")!.textContent =
+        currentQuestion.funFact || "";
+
+      document.getElementById("overlay")!.classList.remove("hidden");
+
+      document.getElementById("next-round-button")!.onclick = function () {
+        document.getElementById("overlay")!.classList.add("hidden");
+        if (roundIndex < totalRounds - 1) {
+          roundIndex++;
+          const newQuestion = getRandomQuestion();
+          loadQuestion(newQuestion.randomQuestion, newQuestion.randomAlbum);
+          feedbackElement.textContent = ""; // Feedback zurücksetzen
+        } else {
+          saveScoreToDB();
+          feedbackElement.textContent =
+            "Spiel beendet! Deine Punkte wurden gespeichert.";
+          window.location.href = "/gamehome";
+        }
+      };
+    }
+
+    async function saveScoreToDB() {
+      async function updateUserPoints() {
+        await fetch(`/api/saveTotalUserPointsAndHighscore`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId,
+            totalUserPoints: totalUserPoints + score,
+            category: categoryName,
+            categoryPoints: currentCategoryPointsValue + score,
+          }),
+        });
+      }
+
+      updateUserPoints();
+    }
+
+    // Initiale Frage laden
+    const initialQuestion = getRandomQuestion();
+    loadQuestion(initialQuestion.randomQuestion, initialQuestion.randomAlbum);
+  });
+</script>

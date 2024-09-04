@@ -95,16 +95,6 @@ export function handleWonClick(
   const pointsDiv = overlayWonElement.querySelector(".point") as HTMLElement;
   pointsDiv.textContent = `+ ${points} Pt`;
 
-  // Set the value of another key in localStorage to indicate whether all rounds and trivia were won
-  localStorage.setItem(
-    "WonPopRockBrain",
-    String(allRoundAndTriviaWon ? "true" : "false"),
-  );
-  localStorage.setItem(
-    "WonBrainFrame",
-    String(allRoundAndTriviaWon ? "true" : "false"),
-  );
-
   // Call the `calculateTheCurrentPoints` function
   calculateTheCurrentPoints(category);
 }
