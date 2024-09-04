@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import icon from "astro-icon";
-import playformCompress from "@playform/compress";
 import db from "@astrojs/db";
 import node from "@astrojs/node";
 
@@ -8,7 +7,7 @@ import node from "@astrojs/node";
 export default defineConfig({
   site: "https://cover-shuffle-ssr.onrender.com",
   output: "server",
-  integrations: [icon(), playformCompress(), db()],
+  integrations: [icon(), db()],
   adapter: node({
     mode: "standalone",
   }),
