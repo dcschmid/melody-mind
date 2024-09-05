@@ -1,6 +1,5 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import GoldenLPsSection from "@components/User/GoldenLPsSection.astro";
 import HeaderSection from "@components/User/HeaderSection.astro";
 import { Icon } from "astro-icon/components";
 import { getGoldenLPs } from "@utils/db/getGoldenLPs";
@@ -48,85 +47,62 @@ const goldenLPs = await getGoldenLPs(user?.id);
 
   <style lang="scss">
     .content {
-      margin: var(--spacing-s) var(--spacing-xl);
+      padding: var(--spacing-md);
+      background-color: var(--secondary-color);
+      border-radius: var(--border-radius); /* Abgerundete Ecken */
+      box-shadow: var(--box-shadow); /* Schatten für den Content-Container */
     }
 
     .lpHeadline {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--primary-color);
+      font-size: 1.5rem; /* Größere Schriftgröße für Überschrift */
+      font-weight: 600;
+      color: var(--highlight-color); /* Primärfarbe für den Titel */
+      margin-bottom: var(--spacing-md); /* Abstand nach unten */
+      text-align: center;
     }
 
     .goldenlps {
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-lg);
-      align-items: flex-start;
-      align-self: stretch;
-
-      margin: var(--spacing-s) 0;
-      padding: var(--spacing-md) var(--spacing-s);
-
-      background: var(--background-color);
-      border-radius: var(--radius-radius-rounded);
+      gap: var(--spacing-lg); /* Großer Abstand zwischen den LPs */
+      align-items: center; /* Zentrierte Ausrichtung */
+      padding: var(--spacing-md) var(--spacing-lg); /* Padding für den Innenabstand */
+      background: var(--background-color); /* Hintergrundfarbe */
+      border-radius: var(--border-radius); /* Abgerundete Ecken */
+      box-shadow: var(--box-shadow); /* Schatten für Tiefe */
+      max-width: 800px; /* Maximale Breite für bessere Ausrichtung */
+      margin: 0 auto; /* Zentrierung der goldenen LPs */
     }
 
     .lpsRoot {
       display: flex;
-      flex-flow: row wrap;
-      gap: var(--spacing-s);
-      align-items: flex-start;
+      flex-wrap: wrap; /* Flexibles Layout mit Zeilenumbruch */
+      gap: var(--spacing-md); /* Abstand zwischen den Items */
+      justify-content: center; /* Zentrierte Anordnung der LPs */
     }
 
     .goldenlpsItem {
       display: flex;
       flex-direction: column;
       align-items: center;
-      align-self: stretch;
-
-      width: 80px;
-      height: 132px;
+      justify-content: flex-start;
+      background-color: var(
+        --secondary-color
+      ); /* Hintergrundfarbe der LP-Items */
+      border-radius: var(--border-radius); /* Abgerundete Ecken */
+      padding: var(--spacing-s); /* Innenabstand der LP-Items */
+      box-shadow: var(--box-shadow); /* Schatten für plastischen Effekt */
     }
 
     .lpGroup {
-      position: relative;
-      display: flex;
-      margin-bottom: var(--spacing-xs);
+      margin-bottom: var(--spacing-xs); /* Abstand zwischen Icon und Text */
     }
 
     .lpText {
-      font-size: 14px;
-      font-weight: 400;
-      font-style: normal;
-      line-height: 150%;
-      color: var(--text-color);
+      font-size: 1rem; /* Größere Schriftgröße für Lesbarkeit */
+      font-weight: 500; /* Etwas fetterer Text für Klarheit */
+      color: var(--text-color); /* Standard Textfarbe */
+      text-align: center; /* Zentrierter Text */
     }
   </style>
-
-  <script>
-    import { checkLocalStorageOnLoad } from "@utils/user/checkLocalStorageOnLoad";
-    import { updateDisplay } from "@utils/user/updateDisplay";
-
-    /**
-     * Initializes the user's local storage on page load.
-     * Sets the userFrameSelected value to "rocket" if it doesn't exist.
-     * Calls the checkLocalStorageOnLoad function to update the user's local storage.
-     * Gets the WonPopRockBrain and WonBrainFrame values from local storage.
-     * Calls the updateDisplay function to update the display based on the values.
-     * Calls the selectFrameItem function to select the frame item.
-     * Calls the changeFrame function to handle frame changes.
-     */
-    window.addEventListener("load", function () {
-      // Check the user's local storage and update the values
-      checkLocalStorageOnLoad();
-
-      // Get the WonPopRockBrain and WonBrainFrame values from local storage
-      const wonPopRockBrain =
-        localStorage.getItem("WonPopRockBrain") === "true";
-      const wonBrainFrame = localStorage.getItem("WonBrainFrame") === "true";
-
-      // Call the updateDisplay function to update the display based on the values
-      updateDisplay(wonPopRockBrain, wonBrainFrame);
-    });
-  </script>
 </Layout>

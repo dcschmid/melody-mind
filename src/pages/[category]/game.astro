@@ -27,31 +27,36 @@ const { category } = Astro.params;
 const currentCategoryData = categories.find((cat) => cat.slug === category);
 ---
 
-<Layout title=`${currentCategoryData?.headline}` showHeaderIcons={false}>
+<Layout title={`${currentCategoryData?.headline}`} showHeaderIcons={false}>
   <div slot="left-headercol">
     <ShowCoins />
   </div>
 
+  <!-- Overlay für Feedback und nächste Runde -->
   <div id="overlay" class="overlay hidden">
     <div class="overlay-content">
       <p id="feedback" class="feedback"></p>
       <img id="overlay-cover" src="" alt="Album Cover" class="albumCover" />
       <h3 id="overlay-album">Album Name</h3>
       <p id="overlay-funfact" class="fun-fact">Fun Fact</p>
-      <button id="next-round-button" class="button">Nächste Runde</button>
+      <div class="centerButton">
+        <button id="next-round-button" class="button">Nächste Runde</button>
+      </div>
     </div>
   </div>
 
-  <!-- Normales Popup, wenn das Spiel beendet ist -->
+  <!-- Spiel beendet Popup -->
   <div id="endgame-popup" class="popup hidden">
     <div class="popup-content">
       <h2>Spiel beendet!</h2>
       <p>Erreichte Punkte: <span id="popup-score"></span></p>
-      <button id="restart-button" class="button">Neues Spiel</button>
+      <div class="centerButton">
+        <button id="restart-button" class="button">Neues Spiel</button>
+      </div>
     </div>
   </div>
 
-  <!-- Spezielles Popup für die goldene Schallplatte -->
+  <!-- Goldenes LP Popup -->
   <div id="golden-lp-popup" class="popup hidden">
     <div class="popup-content">
       <h2>Herzlichen Glückwunsch!</h2>
@@ -61,10 +66,13 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
         gewonnen!
       </p>
       <p>Erreichte Punkte: <span id="golden-lp-score"></span></p>
-      <button id="restart-button-lp" class="button">Neues Spiel</button>
+      <div class="centerButton">
+        <button id="restart-button-lp" class="button">Neues Spiel</button>
+      </div>
     </div>
   </div>
 
+  <!-- Spielüberschrift und Fragenbereich -->
   <div class="gameHeadline">
     {currentCategoryData?.headline} - Runde <span class="round"></span>
   </div>
@@ -82,23 +90,27 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
 <style is:global lang="scss">
   .gameHeadline {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 900;
-    margin-top: 1rem;
+    margin-top: var(--spacing-md);
     color: var(--primary-color);
+    padding-bottom: var(--spacing-s);
   }
 
   #question-container {
-    max-width: 480px;
+    max-width: 600px;
     margin: 0 auto;
     padding: var(--spacing-md);
     text-align: center;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
   }
 
   #question {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-s);
   }
 
   #options {
@@ -107,75 +119,54 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
     gap: var(--spacing-s);
   }
 
-  .button,
-  .optionButton {
-    margin-top: 1rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    cursor: pointer;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: var(--spacing-s) var(--spacing-md);
-
-    color: var(--text-color);
-    text-decoration: none;
-
-    background: var(--accent-color-1);
-    border-radius: var(--radius-circle);
-
-    transition: background-color 0.3s ease;
-
-    &:hover,
-    &:focus-visible {
-      background-color: var(--accent-color-2);
-      outline: 2px solid var(--text-color);
-    }
-  }
-
   .feedback {
-    font-size: 1rem;
+    font-size: 1.25rem;
     color: var(--accent-color-3);
+    margin-top: var(--spacing-s);
+    margin-bottom: var(--spacing-md);
     text-align: center;
   }
 
+  /* Overlay */
   .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.85);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    padding: var(--spacing-s);
   }
 
-  .hidden {
+  .overlay.hidden {
     display: none;
   }
 
   .overlay-content {
-    background: rgba(0, 0, 0, 1);
+    background-color: var(--background-color);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
     text-align: center;
-    max-width: 480px;
-    margin: 1rem;
-  }
-
-  .fun-fact {
-    hyphens: auto;
+    box-shadow: var(--box-shadow);
+    max-width: 500px;
+    width: 100%;
   }
 
   .albumCover {
     max-width: 200px;
-    height: auto;
-    display: flex;
-    align-self: center;
-    margin: 0 auto 0.25rem;
-    border: 1px solid var(--colour-disabled);
+    margin: 0 auto var(--spacing-s);
+    border: 2px solid var(--primary-color);
     border-radius: var(--radius-rounded);
   }
 
+  .fun-fact {
+    hyphens: auto;
+    font-size: 1rem;
+    color: var(--text-color);
+  }
+
+  /* Popup */
   .popup {
     position: fixed;
     inset: 0;
@@ -185,6 +176,7 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
     align-items: center;
     z-index: 1000;
     color: var(--text-color);
+    padding: var(--spacing-md);
   }
 
   .popup.hidden {
@@ -193,20 +185,23 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
 
   .popup-content {
     font-size: 1.25rem;
-    background-color: var(--background-color);
-    padding: 30px;
-    border-radius: 10px;
+    background-color: var(--button-text-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .golden-lp-image {
-    width: 100px;
-    margin-top: 20px;
+    box-shadow: var(--box-shadow);
+    max-width: 480px;
+    width: 100%;
   }
 
   .goldenText {
     color: var(--primary-color);
+    font-weight: 700;
+  }
+
+  .centerButton {
+    display: flex;
+    justify-content: center;
   }
 </style>
 
@@ -289,7 +284,7 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
         question.options.forEach(function (option: any) {
           const button = document.createElement("button");
           button.textContent = option;
-          button.className = "optionButton";
+          button.className = "button";
           button.onclick = function () {
             handleAnswer(option, question.correctAnswer, question, album);
           };
@@ -315,7 +310,7 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
         question.options.forEach(function (option: any) {
           const button = document.createElement("button");
           button.textContent = option;
-          button.className = "optionButton";
+          button.className = "button";
           button.onclick = function () {
             /**
              * Handles the answer of the question
@@ -334,7 +329,7 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
         question.options.forEach(function (option: any) {
           const button = document.createElement("button");
           button.textContent = option;
-          button.className = "optionButton";
+          button.className = "button";
           button.onclick = function () {
             handleAnswer(option, question.correctAnswer, question, album);
           };
@@ -343,14 +338,14 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
       } else if (question.type === "true-false") {
         const trueButton = document.createElement("button");
         trueButton.textContent = "Wahr";
-        trueButton.className = "optionButton";
+        trueButton.className = "button";
         trueButton.onclick = function () {
           handleAnswer(true, question.correctAnswer, question, album);
         };
 
         const falseButton = document.createElement("button");
         falseButton.textContent = "Falsch";
-        falseButton.className = "optionButton";
+        falseButton.className = "button";
         falseButton.onclick = function () {
           handleAnswer(false, question.correctAnswer, question, album);
         };
@@ -419,8 +414,6 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
     }
 
     function showEndgamePopup() {
-      document.getElementById("popup-genre")!.textContent =
-        categoryName || "Unbekanntes Genre";
       document.getElementById("popup-score")!.textContent = score.toString();
 
       const endgamePopup = document.getElementById("endgame-popup");

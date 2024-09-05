@@ -95,56 +95,57 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
   .introText {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-15);
+    gap: var(--padding-medium); /* Verwende die padding-Variable */
     align-items: center;
-
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--padding-medium); /* Verwende die padding-Variable */
+    text-align: center;
   }
 
   .headline {
-    font:
-      900 1.5rem / 1.5 "Source Sans Pro",
-      sans-serif;
+    font: 900 var(--header-font-size) / 1.5 var(--font-family); /* Schriftgröße und Familie */
+    color: var(--text-color); /* Textfarbe */
   }
 
   .name {
-    color: var(--primary-color);
+    color: var(--highlight-color); /* Farbe für den Namen */
   }
 
   .subline {
-    font:
-      400 1.125rem / 1.5 "Source Sans Pro",
-      sans-serif;
-    color: var(--accent-color-4);
+    font: 400 var(--body-font-size) / 1.5 var(--font-family); /* Schriftgröße und Familie */
+    color: var(--secondary-color); /* Akzentfarbe */
     text-align: center;
+    max-width: 700px;
   }
 
   .choosePlaylist {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-3);
+    gap: var(--padding-large); /* Verwende das kleinere Padding für Abstand */
     justify-content: center;
-
-    padding: var(--spacing-s) var(--spacing-s) var(--spacing-md);
   }
 
   .filterInput {
     width: 100%;
     max-width: 480px;
-    margin: 0 var(--spacing-md);
-    padding: var(--spacing-s);
-
-    font:
-      400 1rem / 1.5 "Source Sans Pro",
-      sans-serif;
-    color: var(--background-color);
-
-    border: none;
+    margin: 0 var(--padding-medium); /* Verwende deine padding-Variable */
+    padding: var(--padding-small); /* Verwende kleine Padding-Variable */
+    border: 2px solid var(--highlight-color); /* Rand mit der Highlight-Farbe */
+    border-radius: var(--border-radius); /* Abrundungen gemäß Design */
+    font: 400 var(--body-font-size) / 1.5 var(--font-family); /* Schriftgröße und Familie */
+    color: var(--text-color); /* Textfarbe */
+    background-color: var(
+      --secondary-color
+    ); /* Hintergrundfarbe des Eingabefelds */
     outline: none;
+    transition: border-color var(--transition-speed); /* Übergang für den Fokuszustand */
   }
 
-  .hidden {
-    display: none;
+  .filterInput:focus {
+    border-color: var(--accent-color-4); /* Akzentfarbe beim Fokus */
+  }
+
+  a {
+    text-decoration: none;
   }
 </style>
 

@@ -30,8 +30,17 @@ import { Picture } from "astro:assets";
   .playlistItem {
     position: relative;
     width: 7.438rem;
+    margin-bottom: var(--padding-medium); /* Nutze dein Padding für Abstand */
+    padding: var(--padding-small); /* Kleines Padding für inneren Abstand */
+    background-color: var(
+      --secondary-color
+    ); /* Sekundärfarbe für den Hintergrund */
+    border-radius: var(
+      --border-radius
+    ); /* Abrundung mit deiner border-radius Variable */
+    box-shadow: var(--box-shadow); /* Schatten gemäß deiner Design-Vorgabe */
 
-    @media screen and (width >= 25.625rem) {
+    @media screen and (min-width: 25.625rem) {
       width: 10.313rem;
     }
   }
@@ -39,36 +48,44 @@ import { Picture } from "astro:assets";
   .cover {
     width: 100%;
     height: auto;
-    border-radius: var(--radius-rounded);
+    border-radius: var(--border-radius); /* Runde Ecken für das Bild */
+    transition: opacity var(--transition-speed); /* Smooth transition für Hover */
 
     &.coverDisabled {
-      opacity: 0.4;
+      opacity: 0.4; /* Transparenz für deaktivierte Elemente */
     }
   }
 
   .disabled {
     position: absolute;
     z-index: 2;
-    top: 1rem;
+    top: 50%;
     left: 0;
-
-    font-size: 0.875rem;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.6
+    ); /* Halbtransparenter Hintergrund für disabled */
+    padding: var(--padding-small); /* Padding für mehr Platz um den Text */
+    color: var(--button-text-color); /* Textfarbe aus deiner Button-Variable */
+    border-radius: var(--border-radius); /* Gleiche Abrundung */
+    font-size: 0.875rem; /* Textgröße für mobile Bildschirme */
     text-align: center;
+    line-height: 1.5;
 
-    @media screen and (width >= 25.625rem) {
-      font-size: 1.125rem;
+    @media screen and (min-width: 25.625rem) {
+      font-size: 1.125rem; /* Größerer Text für größere Bildschirme */
     }
   }
 
-  .headline,
-  .disabled {
-    font-weight: 700;
-    font-style: normal;
-    line-height: 1.5;
-    color: var(--text-color);
-  }
-
   .headline {
-    font-size: 1.125rem;
+    margin-top: var(--padding-small); /* Abstand zwischen Bild und Text */
+    font-weight: 700;
+    font-size: var(--body-font-size); /* Größe aus deiner Variablen */
+    color: var(--text-color); /* Textfarbe */
+    line-height: 1.5;
   }
 </style>

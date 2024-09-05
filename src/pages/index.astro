@@ -8,7 +8,7 @@ import { Picture } from "astro:assets";
   <div class="container">
     <Picture
       class="logo"
-      src="/cover-rush.jpg"
+      src="/melody-mind.jpg"
       width={480}
       height={274}
       formats={["avif", "webp"]}
@@ -16,29 +16,31 @@ import { Picture } from "astro:assets";
       loading="eager"
     />
 
+    <div class="headline">
+      Willkommen zu MelodyMind – dem ultimativen Musik-Quiz!
+    </div>
     <div class="text">
       Teste dein Wissen über deine Lieblingssongs, Alben und Künstler in
-      verschiedenen Musikgenres. Beweise dich in jeder Runde mit kniffligen
-      Fragen und erhalte spannende Funfacts zu den Songs und Künstlern. Ziel ist
-      es, möglichst viele Punkte zu sammeln und in die Top 10 zu gelangen.
+      verschiedenen Musikgenres. Stelle dich spannenden Fragen zu Audio-Clips,
+      Albumcovern und Musikfakten. Sammle Punkte, erhalte goldene Schallplatten
+      und kämpfe dich in die Top 10 der Ranglisten.
     </div>
 
     <div class="text">
-      Schaffst du es, alle Fragen eines Genres richtig zu beantworten, gewinnst
-      du eine goldene Schallplatte – eine besondere Auszeichnung für die besten
-      Musikkenner! Wähle dein Genre und starte das Spiel. Viel Spaß und Erfolg!
+      Starte jetzt ein neues Spiel, wähle dein Genre und zeige, dass du der
+      wahre Musikmeister bist!
     </div>
 
-    <div class="loginHeadline">Anmelden mit</div>
+    <div class="headline">Anmelden mit</div>
     <div class="buttonGroup">
-      <a class="loginButton" href="/login/spotify"
-        ><Icon class="loginIcon" name="spotify" width={55} height={55} /> Spotify</a
+      <a class="button" href="/login/spotify"
+        ><Icon class="loginIcon" name="spotify" width={35} height={35} /> Spotify</a
       >
-      <a class="loginButton" href="/login/github"
+      <a class="button" href="/login/github"
         ><Icon class="loginIcon" name="github" width={35} height={35} /> GitHub</a
       >
-      <a class="loginButton" href="/login/google"
-        ><Icon class="loginIcon" name="google" width={55} height={55} /> Google</a
+      <a class="button" href="/login/google"
+        ><Icon class="loginIcon" name="google" width={35} height={35} /> Google</a
       >
     </div>
   </div>
@@ -57,7 +59,7 @@ import { Picture } from "astro:assets";
   .text {
     margin: 2rem 1rem;
 
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 400;
     font-style: normal;
     line-height: normal;
@@ -66,14 +68,14 @@ import { Picture } from "astro:assets";
     letter-spacing: 0.5px;
   }
 
-  .loginHeadline {
+  .headline {
     margin: 2rem 0;
 
     font-size: 1.5rem;
     font-weight: 700;
     font-style: normal;
     line-height: normal;
-    color: var(--primary-color);
+    color: var(--highlight-color);
     text-align: center;
     letter-spacing: 0.5px;
   }
@@ -84,31 +86,7 @@ import { Picture } from "astro:assets";
     gap: 1.5rem;
     align-items: center;
     justify-content: center;
-  }
-
-  .loginButton {
-    cursor: pointer;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 120px;
-    height: 40px;
-    padding: 12px 24px;
-
-    font-size: 1.5rem;
-    color: var(--text-color);
-    text-decoration: none;
-
-    background: var(--accent-color-1);
-    border-radius: 128px;
-
-    &:hover,
-    &:focus-visible {
-      background-color: var(--accent-color-2);
-      outline: 2px solid var(--accent-color-2);
-    }
+    margin-bottom: 2rem;
   }
 
   .loginIcon {

@@ -14,28 +14,3 @@ const { buttonText = "", url = "", id } = Astro.props;
   {buttonText}
   <Icon name="next" width={24} height={24} />
 </a>
-
-<style>
-  .button {
-    cursor: pointer;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 24px;
-    padding: 12px 24px;
-
-    color: var(--text-color);
-    text-decoration: none;
-
-    background: var(--accent-color-1);
-    border-radius: 128px;
-
-    &:hover,
-    &:focus-visible {
-      background-color: var(--accent-color-2);
-      outline: 2px solid var(--text-color);
-    }
-  }
-</style>

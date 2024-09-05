@@ -13,18 +13,30 @@ import { Icon } from "astro-icon/components";
   .coins {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xs);
+    gap: var(
+      --spacing-xs
+    ); /* Verwende deine Spacing-Variable für den Abstand */
     align-items: center;
-
-    color: var(--text-color);
+    color: var(--text-color); /* Textfarbe */
+    background-color: var(
+      --secondary-color
+    ); /* Sekundärfarbe für den Hintergrund */
+    padding: var(--spacing-s); /* Padding für den Innenabstand */
+    border-radius: var(--border-radius); /* Abgerundete Ecken */
+    box-shadow: var(--box-shadow); /* Box-Schatten für Tiefe */
+    max-width: 120px; /* Maximalbreite für eine klare Ausrichtung */
   }
 
   .count {
     display: flex;
     align-items: center;
+    font-size: 1.25rem; /* Größere Schriftgröße für bessere Lesbarkeit */
+    font-weight: 700; /* Fettgedruckte Ziffern für Klarheit */
+    color: var(--primary-color); /* Primärfarbe für die Coins-Anzeige */
   }
 
-  .icon {
-    margin-right: 0.25rem;
+  [data-icon] {
+    margin-right: 0.5rem; /* Etwas mehr Abstand zwischen Icon und Zahl */
+    color: var(--primary-color); /* Akzentfarbe für das Coin-Icon */
   }
 </style>

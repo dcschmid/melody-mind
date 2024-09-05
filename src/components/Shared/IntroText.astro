@@ -1,14 +1,13 @@
 ---
-const { headline, subline, whiteText, isWhiteSubline = false } = Astro.props;
+const { headline, subline } = Astro.props;
 ---
 
 <div class="introText">
   <div class="headline">
     {headline}
   </div>
-  <div class:list={["subline", isWhiteSubline && "whiteText"]}>
+  <div class="subline">
     {subline}
-    <span class="whiteText">{whiteText}</span>
   </div>
 </div>
 
@@ -16,29 +15,26 @@ const { headline, subline, whiteText, isWhiteSubline = false } = Astro.props;
   .introText {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-2);
+    gap: var(--padding-small); /* Nutze deine Spacing-Variablen */
     align-items: center;
-
-    margin-bottom: var(--spacing-s);
+    margin-bottom: var(--padding-small); /* Konsistenter Abstand */
   }
 
   .headline {
-    font:
-      900 1.5rem / 1.5 "Source Sans Pro",
-      sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem; /* Nutze hier die Fontgröße direkt */
+    line-height: 1.5;
+    font-family: var(
+      --font-family
+    ); /* Nutze die Schriftfamilie aus deinen Variablen */
   }
 
   .subline {
     width: 100%;
     max-width: 30rem;
-
-    font-size: 1.125rem;
+    font-size: var(--body-font-size); /* Nutze die body-font-size Variable */
     line-height: 1.5;
-    color: var(--accent-color-4);
+    color: var(--secondary-color); /* Nutze die Akzentfarbe */
     text-align: center;
-  }
-
-  .whiteText {
-    color: var(--text-color);
   }
 </style>

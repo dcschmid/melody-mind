@@ -12,7 +12,7 @@ export const google = new Google(
   import.meta.env.AUTH_GOOGLE_ID,
   import.meta.env.AUTH_GOOGLE_SECRET,
   import.meta.env.PROD
-    ? "https://cover-rush.de/login/google/callback"
+    ? "https://melody-mind.de/login/google/callback"
     : "http://localhost:4321/login/google/callback",
 );
 
@@ -20,7 +20,7 @@ export const spotify = new Spotify(
   import.meta.env.AUTH_SPOTIFY_ID,
   import.meta.env.AUTH_SPOTIFY_SECRET,
   import.meta.env.PROD
-    ? "https://cover-rush.de/login/spotify/callback"
+    ? "https://melody-mind.de/login/spotify/callback"
     : "http://localhost:4321/login/spotify/callback",
 );
 

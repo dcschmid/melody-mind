@@ -63,25 +63,26 @@ if (!currentCategory) {
     <div class="text">
       {currentCategory?.text}
     </div>
-  </div>
 
-  <div class="centerButton">
-    <Button buttonText="weiter" url=`${currentCategory?.slug}/game` />
+    <div class="centerButton">
+      <Button buttonText="weiter" url={`${currentCategory?.slug}/game`} />
+    </div>
   </div>
 </Layout>
 
-<style>
+<style lang="scss">
   .introText {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-15);
+    gap: var(--padding-medium); /* Verwende deine Spacing-Variablen */
     align-items: center;
-
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--padding-medium); /* Konsistenter Abstand */
   }
 
   .headline {
-    font-size: 24px;
+    font-size: var(
+      --header-font-size
+    ); /* Nutze die Header-Größe aus deinen Variablen */
     font-weight: 900;
     font-style: normal;
     line-height: 120%;
@@ -91,8 +92,14 @@ if (!currentCategory) {
   .category {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
-    padding: var(--spacing-s);
+    gap: var(--padding-medium); /* Abstand zwischen Cover und Text */
+    padding: var(--padding-medium); /* Innenabstand für die Kategorie */
+    align-items: center; /* Zentriert den Inhalt */
+    background-color: var(--secondary-color); /* Hintergrundfarbe */
+    border-radius: var(--border-radius); /* Abrundung */
+    box-shadow: var(--box-shadow); /* Optionaler Schatten für Tiefe */
+    max-width: 480px; /* Breitenbegrenzung */
+    margin: 0 auto; /* Zentriert den Container */
   }
 
   .cover {
@@ -100,20 +107,24 @@ if (!currentCategory) {
   }
 
   .coverImage {
-    border-radius: var(--radius-rounded);
+    border-radius: var(
+      --border-radius
+    ); /* Verwende deine border-radius Variable */
+    width: 100%; /* Bild füllt die verfügbare Breite */
+    max-width: 280px; /* Maximalbreite des Bildes */
   }
 
   .text {
-    font-size: 1.125rem;
+    font-size: var(--body-font-size); /* Nutze deine body-font-size */
     font-weight: 400;
-    font-style: normal;
-    line-height: 150%;
+    line-height: 1.5;
     hyphens: auto;
+    max-width: 700px; /* Maximalbreite für besseren Lesefluss */
+    text-align: center; /* Zentriert den Text */
   }
 
   .centerButton {
     display: flex;
     justify-content: center;
-    margin-bottom: var(--spacing-xl);
   }
 </style>

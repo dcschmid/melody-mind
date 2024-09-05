@@ -4,125 +4,160 @@ import Layout from "@layouts/Layout.astro";
 
 <Layout title="Spielregeln">
   <div class="rules-container">
-    <h1 class="rules-title">Spielregeln</h1>
-    <p class="rules-intro">
-      Willkommen zu unserem Spiel! Bevor du loslegst, lies dir bitte die
-      folgenden Regeln durch, um sicherzustellen, dass du die besten Chancen
-      hast, an die Spitze der Ranglisten zu gelangen.
+    <h1>Spielregeln – MelodyMind</h1>
+
+    <h2>Überblick</h2>
+    <p>
+      Willkommen zu <strong class="highlight">MelodyMind</strong>, dem
+      ultimativen Musik-Quiz! In diesem Spiel testest du dein Wissen in
+      verschiedenen Musikgenres und kannst wertvolle Punkte und besondere
+      Belohnungen sammeln. Dein Ziel ist es, möglichst viele Fragen richtig zu
+      beantworten, Punkte zu sammeln und in den Top 10 der Rangliste zu landen.
+      Schaffst du es, alle Fragen eines Genres richtig zu beantworten, gewinnst
+      du eine <span class="golden-lp">goldene Schallplatte</span>!
     </p>
 
-    <h2 class="rules-heading">1. Spielziel</h2>
-    <p class="rules-text">
-      Das Ziel des Spiels ist es, durch das erfolgreiche Spielen von drei Runden
-      in einer bestimmten Musik-Kategorie möglichst viele Punkte zu sammeln. Je
-      besser deine Leistung, desto höher dein Punktestand!
+    <h2>Spielablauf</h2>
+    <p>
+      Das Spiel besteht aus mehreren Runden, in denen du Fragen zu Songs, Alben,
+      Künstlern oder Musikgenres beantworten musst.
     </p>
-
-    <h2 class="rules-heading">2. Kategorien</h2>
-    <p class="rules-text">
-      Du kannst aus verschiedenen Musik-Kategorien wählen, z.B. Rock, Pop,
-      Hip-Hop und mehr. Jede Kategorie hat ihre eigene Rangliste, in der du dich
-      mit anderen Spielern messen kannst.
-    </p>
-
-    <h2 class="rules-heading">3. Spielablauf</h2>
-    <ul class="rules-list">
-      <li>Wähle eine Musik-Kategorie, in der du spielen möchtest.</li>
+    <ul>
+      <li>Jedes Spiel umfasst <strong>5 Runden</strong>.</li>
       <li>
-        Spiele drei Runden und versuche, die bestmögliche Punktzahl zu
-        erreichen.
+        Für jede Runde erhältst du eine Frage zu einem zufällig ausgewählten
+        Album oder Song.
       </li>
       <li>
-        Deine Gesamtpunktzahl für diese Kategorie wird in die Rangliste
-        eingetragen.
-      </li>
-      <li>
-        Wenn du alle drei Runden erfolgreich abschließt, gewinnst du eine
-        "Goldene LP" als Belohnung.
+        Die Fragen können in verschiedenen Formaten gestellt werden:
+        <ul>
+          <li>
+            <strong>Multiple-Choice:</strong> Wähle die richtige Antwort aus verschiedenen
+            Optionen.
+          </li>
+          <li>
+            <strong>True/False:</strong> Entscheide, ob eine Aussage wahr oder falsch
+            ist.
+          </li>
+          <li>
+            <strong>Bilderfragen:</strong> Ordne das richtige Albumcover zu.
+          </li>
+          <li>
+            <strong>Audiofragen:</strong> Erkenne einen Song anhand eines kurzen
+            Audioschnipsels.
+          </li>
+        </ul>
       </li>
     </ul>
 
-    <h2 class="rules-heading">4. Highscore und Belohnungen</h2>
-    <p class="rules-text">
-      Die Top 10 Spieler jeder Kategorie werden in der Rangliste angezeigt. Wenn
-      du es noch nicht in die Top 10 geschafft hast, wird deine aktuelle
-      Platzierung darunter angezeigt. Sammle Punkte, um deine Position zu
-      verbessern und in die Top 10 aufzusteigen.
-    </p>
-    <p class="rules-text">
-      Für jede Kategorie, in der du alle drei Runden erfolgreich abschließt,
-      erhältst du eine "Goldene LP". Diese wird in deinem Profil gespeichert und
-      zeigt deinen Erfolg in dieser Kategorie an.
-    </p>
+    <h2>Punktesystem</h2>
+    <ul>
+      <li>
+        Für jede <strong>richtige Antwort</strong> erhältst du <strong
+          >100 Punkte</strong
+        >.
+      </li>
+      <li>Am Ende jeder Runde wird deine Punktzahl angezeigt.</li>
+      <li>
+        Beantworte alle 5 Fragen in einem Genre richtig und gewinne eine <span
+          class="golden-lp">goldene Schallplatte</span
+        >.
+      </li>
+    </ul>
 
-    <h2 class="rules-heading">5. Herausforderungen</h2>
-    <p class="rules-text">
-      Fordere deine Freunde heraus, um zu sehen, wer in einer bestimmten
-      Kategorie die höchste Punktzahl erzielen kann. Gemeinsam spielen macht
-      mehr Spaß und spornt dich an, noch besser zu werden!
+    <h2>Goldene Schallplatten</h2>
+    <p>
+      Schaffst du es, alle Fragen eines Genres korrekt zu beantworten, erhältst
+      du als Belohnung eine <span class="golden-lp">goldene Schallplatte</span>.
+      Diese besondere Auszeichnung wird in deinem Profil gespeichert und zeigt,
+      dass du das Genre vollständig gemeistert hast.
     </p>
+    <ul>
+      <li>
+        Jede <span class="golden-lp">goldene Schallplatte</span> wird <strong
+          >pro Genre</strong
+        > vergeben.
+      </li>
+      <li>
+        Sobald du eine goldene Schallplatte für ein Genre gewonnen hast, kannst
+        du keine weitere für dasselbe Genre gewinnen.
+      </li>
+      <li>
+        Deine gesammelten goldenen Schallplatten werden in deinem Profil
+        angezeigt.
+      </li>
+    </ul>
 
-    <h2 class="rules-heading">6. Fair Play</h2>
-    <p class="rules-text">
-      Betrug und unsportliches Verhalten werden nicht toleriert. Spieler, die
-      gegen die Regeln verstoßen, werden disqualifiziert und von der Rangliste
-      entfernt.
+    <h2>Ranglisten</h2>
+    <p>
+      Nachdem du ein Spiel beendet hast, werden deine Punkte in die Rangliste
+      aufgenommen. Die besten Spieler eines jeden Genres werden in den <strong
+        >Top 10</strong
+      > angezeigt.
     </p>
+    <ul>
+      <li>
+        Schaffst du es in die <strong>Top 10</strong>, wird dein Name in der
+        Rangliste angezeigt.
+      </li>
+      <li>
+        Deine Punktzahl und dein Fortschritt werden für jedes Genre separat
+        festgehalten.
+      </li>
+    </ul>
 
-    <p class="rules-footer">
-      Viel Spaß beim Spielen und viel Erfolg beim Erreichen der
-      Top-Platzierungen!
-    </p>
+    <h2>Tipps & Tricks</h2>
+    <ul>
+      <li>
+        Lerne die Musikstile der verschiedenen Genres, um deine Chancen zu
+        verbessern.
+      </li>
+      <li>
+        Höre dir bekannte Alben und Songs an, um bei Audiofragen sicher zu sein.
+      </li>
+      <li>
+        Nutze dein musikalisches Wissen, um in den Ranglisten nach oben zu
+        klettern und goldene Schallplatten zu gewinnen.
+      </li>
+    </ul>
   </div>
 </Layout>
 
 <style lang="scss">
-  .rules {
-    &-title {
-      margin-bottom: var(--spacing-3);
+  h1 {
+    font-size: var(--header-font-size);
+    color: var(--text-color);
+    margin-bottom: var(--padding-large);
+  }
 
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--primary-color);
-      text-align: center;
-    }
+  h2 {
+    color: var(--text-color);
+    font-size: 1.5em;
+    margin-bottom: var(--padding-medium);
+  }
 
-    &-intro {
-      margin-bottom: var(--spacing-3);
-      font-size: 1.125rem;
-      line-height: 1.6;
-      text-align: center;
-    }
+  p {
+    font-size: var(--body-font-size);
+    margin-bottom: var(--padding-medium);
+  }
 
-    &-heading {
-      margin-top: var(--spacing-3);
-      margin-bottom: var(--spacing-s);
-      font-size: 1.5rem;
-      color: var(--accent-color-1);
-    }
+  ul {
+    list-style-type: disc;
+    padding-left: var(--padding-large);
+    margin-bottom: var(--padding-medium);
+  }
 
-    &-text,
-    &-list {
-      margin-bottom: var(--spacing-2);
-      font-size: 1rem;
-      line-height: 1.6;
-    }
+  .rules-container {
+    max-width: 480px;
+    margin: 1rem auto;
+    background-color: var(--secondary-color);
+    padding: var(--padding-large);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
 
-    &-list {
-      margin-bottom: var(--spacing-md);
-
-      li {
-        margin-bottom: var(--spacing-s);
-      }
-    }
-
-    &-footer {
-      margin-top: var(--spacing-lg);
-
-      font-size: 1.125rem;
-      font-weight: 700;
-      color: var(--accent-color-3);
-      text-align: center;
-    }
+  .golden-lp,
+  .highlight {
+    font-weight: 600;
   }
 </style>

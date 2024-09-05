@@ -32,20 +32,14 @@ const totalUserPoints = currentUser[0].total_user_points;
         width={128}
         height={128}
         formats={["avif", "webp"]}
-        alt=""
+        alt="User Avatar"
         loading="eager"
       />
-      <Icon class="avatarFrame" name="rocket-frame" width={160} height={160} />
     </div>
   </div>
   <div class="nameContent">
     <div class="name">
-      Hallo <span class="yellowName">{user?.username ?? "Mika"}</span>! <Icon
-        class="editIcon"
-        name="edit"
-        width={24}
-        height={24}
-      />
+      Hallo <span class="yellowName">{user?.username ?? "Mika"}</span>
     </div>
     <div class="points">
       <Icon class="coin" name="coin" width={24} height={24} />
@@ -57,37 +51,39 @@ const totalUserPoints = currentUser[0].total_user_points;
 <style lang="scss">
   .headerBG {
     position: relative;
-
-    padding: var(--spacing-s);
-
-    background-image: url("/userbg/bg-mic.png");
+    padding: var(--padding-small);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/userbg/music-bg.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: var(--padding-medium);
   }
 
   .headerContent {
-    position: relative;
-    z-index: 1;
-
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    z-index: 1;
   }
 
   .avatar {
     position: relative;
-
     width: 130px;
     height: 130px;
-    margin-bottom: 1rem;
-
+    margin-bottom: var(--padding-small);
     border-radius: 100%;
+    overflow: hidden;
+    border: 4px solid var(--secondary-color);
+    box-shadow: var(--box-shadow);
   }
 
   .avatarImage {
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     border-radius: 100%;
   }
@@ -96,55 +92,45 @@ const totalUserPoints = currentUser[0].total_user_points;
     position: absolute;
     top: -16px;
     left: -16px;
-    border: 0;
+    border: none;
   }
 
   .nameContent {
-    position: relative;
-    z-index: 1;
-
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-15);
+    gap: var(--padding-small);
     align-items: center;
     justify-content: center;
+    z-index: 1;
   }
 
   .name {
-    display: inline-flex;
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    font-size: var(--header-font-size);
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--secondary-color);
+    flex-direction: column;
     align-items: center;
-
-    font-size: 24px;
-    font-weight: 900;
-    font-style: normal;
-    line-height: 120%;
-    color: var(--text-color);
-    letter-spacing: 0.36px;
   }
 
   .yellowName {
-    padding-left: 0.25rem;
-    color: var(--primary-color);
-  }
-
-  .editIcon {
-    cursor: pointer;
-    padding-left: 0.5rem;
+    color: var(--highlight-color);
+    text-align: center;
   }
 
   .points {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: center;
-
-    font-size: 18px;
+    font-size: var(--body-font-size);
     font-weight: 700;
-    font-style: normal;
     line-height: 120%;
+    color: var(--secondary-color);
   }
 
   .points .coin {
-    margin-right: var(--spacing-xs);
+    margin-right: var(--padding-small);
   }
 </style>
