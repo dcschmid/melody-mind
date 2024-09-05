@@ -2,6 +2,8 @@
 import Layout from "@layouts/Layout.astro";
 import GoldenLPsSection from "@components/User/GoldenLPsSection.astro";
 import HeaderSection from "@components/User/HeaderSection.astro";
+import { Icon } from "astro-icon/components";
+import { getGoldenLPs } from "@utils/db/getGoldenLPs";
 
 /**
  * Get the user object from the Astro context
@@ -17,44 +19,114 @@ if (!user) {
    */
   return Astro.redirect("/");
 }
+
+const goldenLPs = await getGoldenLPs(user?.id);
 ---
 
 <Layout title="User Profile">
   <div class="content">
     <HeaderSection />
 
-    <GoldenLPsSection />
+    <div class="goldenlps">
+      <div class="goldenlpsHeader">
+        <div class="lpHeadline">Meine gewonnene Schallplatten</div>
+      </div>
+      <div class="lpsRoot">
+        {
+          Object.keys(goldenLPs).map((genre) => (
+            <div class="goldenlpsItem">
+              <div class="lpGroup">
+                <Icon name="golden-lp" width={80} height={80} />
+              </div>
+              <div class="lpText">{genre}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
   </div>
+
+  <style lang="scss">
+    .content {
+      margin: var(--spacing-s) var(--spacing-xl);
+    }
+
+    .lpHeadline {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .goldenlps {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+      align-items: flex-start;
+      align-self: stretch;
+
+      margin: var(--spacing-s) 0;
+      padding: var(--spacing-md) var(--spacing-s);
+
+      background: var(--background-color);
+      border-radius: var(--radius-radius-rounded);
+    }
+
+    .lpsRoot {
+      display: flex;
+      flex-flow: row wrap;
+      gap: var(--spacing-s);
+      align-items: flex-start;
+    }
+
+    .goldenlpsItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-self: stretch;
+
+      width: 80px;
+      height: 132px;
+    }
+
+    .lpGroup {
+      position: relative;
+      display: flex;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .lpText {
+      font-size: 14px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 150%;
+      color: var(--text-color);
+    }
+  </style>
+
+  <script>
+    import { checkLocalStorageOnLoad } from "@utils/user/checkLocalStorageOnLoad";
+    import { updateDisplay } from "@utils/user/updateDisplay";
+
+    /**
+     * Initializes the user's local storage on page load.
+     * Sets the userFrameSelected value to "rocket" if it doesn't exist.
+     * Calls the checkLocalStorageOnLoad function to update the user's local storage.
+     * Gets the WonPopRockBrain and WonBrainFrame values from local storage.
+     * Calls the updateDisplay function to update the display based on the values.
+     * Calls the selectFrameItem function to select the frame item.
+     * Calls the changeFrame function to handle frame changes.
+     */
+    window.addEventListener("load", function () {
+      // Check the user's local storage and update the values
+      checkLocalStorageOnLoad();
+
+      // Get the WonPopRockBrain and WonBrainFrame values from local storage
+      const wonPopRockBrain =
+        localStorage.getItem("WonPopRockBrain") === "true";
+      const wonBrainFrame = localStorage.getItem("WonBrainFrame") === "true";
+
+      // Call the updateDisplay function to update the display based on the values
+      updateDisplay(wonPopRockBrain, wonBrainFrame);
+    });
+  </script>
 </Layout>
-
-<style lang="scss">
-  .content {
-    margin: 0 var(--spacing-s) var(--spacing-xl);
-  }
-</style>
-
-<script>
-  import { checkLocalStorageOnLoad } from "@utils/user/checkLocalStorageOnLoad";
-  import { updateDisplay } from "@utils/user/updateDisplay";
-
-  /**
-   * Initializes the user's local storage on page load.
-   * Sets the userFrameSelected value to "rocket" if it doesn't exist.
-   * Calls the checkLocalStorageOnLoad function to update the user's local storage.
-   * Gets the WonPopRockBrain and WonBrainFrame values from local storage.
-   * Calls the updateDisplay function to update the display based on the values.
-   * Calls the selectFrameItem function to select the frame item.
-   * Calls the changeFrame function to handle frame changes.
-   */
-  window.addEventListener("load", function () {
-    // Check the user's local storage and update the values
-    checkLocalStorageOnLoad();
-
-    // Get the WonPopRockBrain and WonBrainFrame values from local storage
-    const wonPopRockBrain = localStorage.getItem("WonPopRockBrain") === "true";
-    const wonBrainFrame = localStorage.getItem("WonBrainFrame") === "true";
-
-    // Call the updateDisplay function to update the display based on the values
-    updateDisplay(wonPopRockBrain, wonBrainFrame);
-  });
-</script>

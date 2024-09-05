@@ -11,6 +11,7 @@ const User = defineTable({
     provider_type: column.text(),
     avatar_url: column.text(),
     total_user_points: column.number(),
+    golden_lps: column.json({ optional: true, default: {} }),
   },
 });
 

@@ -407,9 +407,12 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
     // Funktion für das Spielende
     function endGame() {
       if (correctAnswers === totalRounds) {
+        saveGoldenLP(userId || "", categoryName || "");
+        saveScoreToDB();
         // Alle Fragen richtig beantwortet - Goldene LP Popup anzeigen
         showGoldenLpPopup();
       } else {
+        saveScoreToDB();
         // Normales Spielende Popup anzeigen
         showEndgamePopup();
       }
@@ -460,6 +463,16 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
           category: categoryName,
           categoryPoints: currentCategoryPointsValue + score,
         }),
+      });
+    }
+
+    async function saveGoldenLP(userId: string, genre: string) {
+      await fetch(`/api/saveUserGoldenLP`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId, genre }),
       });
     }
 
