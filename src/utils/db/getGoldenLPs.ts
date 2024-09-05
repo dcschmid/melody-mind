@@ -6,8 +6,9 @@ import { db, eq, User } from "astro:db";
  * @param {string} userId - The ID of the user.
  * @returns {Promise<{ [category: string]: { won: boolean; date: string } }>} - The golden LPs.
  */
-export async function getGoldenLPs(userId: string): Promise<{ [category: string]: { won: boolean; date: string } } | {}>
- {
+export async function getGoldenLPs(
+  userId: string,
+): Promise<{ [category: string]: { won: boolean; date: string } } | {}> {
   const data = await db.select().from(User).where(eq(User.id, userId));
 
   if (data && data[0].golden_lps) {

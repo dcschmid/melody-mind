@@ -23,5 +23,8 @@ export async function saveGoldenLP(userId: string, genre: string) {
   };
 
   // Update the user record with the new JSON value
-  await db.update(User).set({ golden_lps: updatedGoldenLPs }).where(eq(User.id, userId));
+  await db
+    .update(User)
+    .set({ golden_lps: updatedGoldenLPs })
+    .where(eq(User.id, userId));
 }
