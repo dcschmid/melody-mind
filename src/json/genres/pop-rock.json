@@ -4,105 +4,1962 @@
     "album": "Abbey Road",
     "year": 1969,
     "coverSrc": "/bandcover/pop-rock/the_beatles_abbey_road.jpg",
-    "spotifyUrl": "https://open.spotify.com/intl-de/album/0ETFjACtuP2ADo6LFhL6HN?si=3xk03TVPTxmFPGcW5dQ4aQ",
-    "appleMusicUrl": "https://music.apple.com/de/album/abbey-road-remastered/1441164426",
-    "deezerUrl": "https://deezer.page.link/6KUjU4W3wJ79ob2x6",
-    "questions": {
-      "easy": [
-        {
-          "question": "Welches Album von The Beatles enthält den Song 'Come Together'?",
-          "options": ["Revolver", "Abbey Road", "Sgt. Pepper's", "Let It Be"],
-          "correctAnswer": "Abbey Road",
-          "trivia": "'Come Together' war der Eröffnungstrack des Albums 'Abbey Road'. Geschrieben von John Lennon, wurde der Song ursprünglich als Wahlkampfsong für Timothy Leary entwickelt. Lennon überarbeitete den Song später und machte ihn zu einem der bekanntesten Tracks der Beatles."
-        },
-        {
-          "question": "Welcher berühmte Zebrastreifen ziert das Cover des Albums 'Abbey Road'?",
-          "options": [
-            "Abbey Road",
-            "Penny Lane",
-            "Strawberry Fields",
-            "Baker Street"
-          ],
-          "correctAnswer": "Abbey Road",
-          "trivia": "Das Albumcover von 'Abbey Road', auf dem die Beatles den berühmten Zebrastreifen überqueren, ist eines der ikonischsten Covers in der Musikgeschichte. Der Zebrastreifen vor den Abbey Road Studios ist heute eine beliebte Touristenattraktion."
-        },
-        {
-          "question": "Wer schrieb den Song 'Something' auf dem Album 'Abbey Road'?",
-          "options": [
-            "John Lennon",
-            "Paul McCartney",
-            "George Harrison",
-            "Ringo Starr"
-          ],
-          "correctAnswer": "George Harrison",
-          "trivia": "'Something' war George Harrisons erste A-Seite-Single mit den Beatles und wurde von Künstlern wie Frank Sinatra als eines der größten Liebeslieder aller Zeiten angesehen."
-        }
-      ],
-      "medium": [
-        {
-          "question": "Welcher Song auf 'Abbey Road' enthält die Textzeile 'Here comes the sun, and I say, it's all right'?",
-          "options": [
-            "Come Together",
-            "Sun King",
-            "Here Comes the Sun",
-            "Golden Slumbers"
-          ],
-          "correctAnswer": "Here Comes the Sun",
-          "trivia": "George Harrison schrieb 'Here Comes the Sun' in Eric Claptons Garten nach einem langen, kalten Winter. Der Song drückt die Freude aus, die er beim Beginn des Frühlings empfand, und ist einer der beliebtesten Songs auf dem Album."
-        },
-        {
-          "question": "Welcher Song auf 'Abbey Road' wurde als Medley aus mehreren kurzen Songs komponiert?",
-          "options": [
-            "Something",
-            "Maxwell's Silver Hammer",
-            "The End",
-            "Golden Slumbers/Carry That Weight/The End"
-          ],
-          "correctAnswer": "Golden Slumbers/Carry That Weight/The End",
-          "trivia": "Das Medley auf der zweiten Seite von 'Abbey Road' wurde von Paul McCartney und George Martin aus mehreren unvollendeten Songs zusammengesetzt. Es bildet den epischen Abschluss des Albums und markiert einen Höhepunkt in der Karriere der Beatles."
-        },
-        {
-          "question": "Welcher Song auf 'Abbey Road' wurde von Paul McCartney über einen Serienmörder geschrieben?",
-          "options": [
-            "Something",
-            "Maxwell's Silver Hammer",
-            "Come Together",
-            "The End"
-          ],
-          "correctAnswer": "Maxwell's Silver Hammer",
-          "trivia": "'Maxwell's Silver Hammer' handelt von einem fiktiven Serienmörder und wurde von Paul McCartney als humorvoller, makaberer Song konzipiert. Während der Aufnahmen kam es zu Spannungen innerhalb der Band, da John Lennon den Song für zu leicht hielt."
-        }
-      ],
-      "hard": [
-        {
-          "question": "Welcher Song auf 'Abbey Road' war John Lennons Antwort auf die Politik der späten 60er Jahre?",
-          "options": [
-            "Come Together",
-            "Revolution 9",
-            "The End",
-            "Mean Mr. Mustard"
-          ],
-          "correctAnswer": "Come Together",
-          "trivia": "'Come Together' begann als Wahlkampfsong für den Psychologen und Politiker Timothy Leary. Lennon entwickelte den Song weiter und machte daraus einen Kommentar zu den politischen und gesellschaftlichen Spannungen der späten 60er Jahre."
-        },
-        {
-          "question": "Welches Instrument spielt George Harrison im Song 'Something'?",
-          "options": ["Gitarre", "Bass", "Klavier", "Sitar"],
-          "correctAnswer": "Gitarre",
-          "trivia": "George Harrison spielte das berühmte Gitarrensolo in 'Something', das als eines der schönsten Soli der Beatles gilt. Das Solo wurde vielfach gelobt und hat bis heute großen Einfluss auf Gitarristen weltweit."
-        },
-        {
-          "question": "Welche Band hat sich beim Song 'Come Together' über Plagiatsvorwürfe beschwert?",
-          "options": [
-            "The Rolling Stones",
-            "The Kinks",
-            "Chuck Berry",
-            "The Animals"
-          ],
-          "correctAnswer": "Chuck Berry",
-          "trivia": "Chuck Berry verklagte John Lennon wegen der Textzeile 'Here come ol' flat-top', die er in seinem Song 'You Can't Catch Me' verwendet hatte. Der Fall wurde außergerichtlich beigelegt, und Lennon nahm später zwei Chuck Berry-Songs für sein Album 'Rock 'n' Roll' auf."
-        }
-      ]
-    }
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von The Beatles enthält den Song 'Come Together'?",
+        "options": [
+          "Abbey Road",
+          "Let It Be",
+          "Sgt. Pepper's Lonely Hearts Club Band",
+          "The White Album"
+        ],
+        "correctAnswer": "Abbey Road",
+        "funFact": "Das Album 'Abbey Road' wurde als letztes Album von The Beatles aufgenommen, obwohl 'Let It Be' später veröffentlicht wurde. Es zeigt die Band auf dem Höhepunkt ihrer kreativen Fähigkeiten und enthält einige ihrer bekanntesten Songs, darunter 'Come Together' und 'Something'. Der ikonische Zebrastreifen auf dem Cover wurde zu einem der bekanntesten Bildmotive in der Popkultur."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Come Together' wurde 1969 veröffentlicht.",
+        "correctAnswer": true,
+        "funFact": "Obwohl John Lennon den Song 'Come Together' schrieb, trägt er dennoch die typische Handschrift der Zusammenarbeit zwischen Lennon und McCartney. Der Song war ursprünglich als Wahlkampflied für den amerikanischen Aktivisten Timothy Leary gedacht, entwickelte sich jedoch zu einem dunklen, mysteriösen Track, der heute als einer der Höhepunkte des Albums 'Abbey Road' gilt."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/the_beatles_abbey_road.mp3",
+        "options": [
+          "Come Together",
+          "Here Comes the Sun",
+          "Something",
+          "Octopus's Garden"
+        ],
+        "correctAnswer": "Come Together",
+        "funFact": "Die hypnotische Basslinie in 'Come Together', gespielt von Paul McCartney, ist einer der markantesten Aspekte des Songs. John Lennons kryptische Texte und die entspannte, fast flüsternde Gesangsdarbietung tragen zur geheimnisvollen und eindringlichen Atmosphäre des Songs bei. 'Come Together' wurde zu einem der bekanntesten Songs von The Beatles und wird oft als Lennon-Meisterwerk gefeiert."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Go Your Own Way",
+    "artist": "Fleetwood Mac",
+    "album": "Rumours",
+    "year": 1977,
+    "coverSrc": "/bandcover/pop-rock/fleetwood_mac_rumours.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Fleetwood Mac enthält den Song 'Go Your Own Way'?",
+        "options": ["Rumours", "Fleetwood Mac", "Tusk", "Mirage"],
+        "correctAnswer": "Rumours",
+        "funFact": "Das Album 'Rumours' wurde unter extrem schwierigen persönlichen Umständen aufgenommen, da die Mitglieder von Fleetwood Mac zu dieser Zeit verschiedene Beziehungsprobleme durchmachten. Trotz oder vielleicht gerade wegen dieser Spannungen wurde 'Rumours' eines der meistverkauften Alben aller Zeiten und gewann 1978 den Grammy Award für das Album des Jahres. Der Song 'Go Your Own Way' war einer der Hitsingles des Albums und wurde von Lindsey Buckingham geschrieben."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Go Your Own Way' wurde 1977 veröffentlicht.",
+        "correctAnswer": true,
+        "funFact": "'Go Your Own Way' war die erste Single aus dem Album 'Rumours' und wurde zu einem der bekanntesten Songs von Fleetwood Mac. Lindsey Buckingham schrieb den Song als eine direkte Antwort auf die Trennung von Stevie Nicks, was zu einer der vielen internen Spannungen in der Band führte. Die kraftvollen Gitarrenriffs und der ehrliche Text machten den Song zu einem klassischen Beispiel für das Zusammenspiel von persönlicher und künstlerischer Dynamik."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/fleetwood_mac_rumours.mp3",
+        "options": ["Go Your Own Way", "Dreams", "The Chain", "Don't Stop"],
+        "correctAnswer": "Go Your Own Way",
+        "funFact": "Das Gitarrensolo in 'Go Your Own Way', gespielt von Lindsey Buckingham, ist eines der bekanntesten Soli in der Rockmusik. Es fängt die rohe Emotion des Songs perfekt ein und hat sich zu einem festen Bestandteil der Live-Auftritte der Band entwickelt. Der Song bleibt ein Symbol für die turbulente, aber kreative Energie, die Fleetwood Mac während der Aufnahme von 'Rumours' antrieb."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Bohemian Rhapsody",
+    "artist": "Queen",
+    "album": "A Night at the Opera",
+    "year": 1975,
+    "coverSrc": "/bandcover/pop-rock/queen_a_night_at_the_opera.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Queen enthält den Song 'Bohemian Rhapsody'?",
+        "options": [
+          "A Night at the Opera",
+          "News of the World",
+          "The Game",
+          "A Day at the Races"
+        ],
+        "correctAnswer": "A Night at the Opera",
+        "funFact": "Das Album 'A Night at the Opera' war das teuerste Album, das zu seiner Zeit produziert wurde, mit einem Produktionsbudget von über 40.000 Pfund. Der epische Track 'Bohemian Rhapsody' war ein Meisterwerk in der Musikproduktion, das über drei Wochen in fünf verschiedenen Studios aufgenommen wurde. Es ist bekannt für seine unverwechselbare Struktur, die Elemente aus Rock, Ballade und Oper verbindet und dadurch die traditionellen Songstrukturen völlig neu definierte."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Bohemian Rhapsody' wurde 1975 veröffentlicht.",
+        "correctAnswer": true,
+        "funFact": "Als 'Bohemian Rhapsody' 1975 veröffentlicht wurde, glaubte die Plattenfirma nicht daran, dass ein sechsminütiger Song ohne Refrain ein Hit werden könnte. Freddie Mercury bestand jedoch darauf, und der Song stieg schnell an die Spitze der Charts. Das Musikvideo zu 'Bohemian Rhapsody', das vor der Veröffentlichung des Songs produziert wurde, gilt als eines der ersten 'echten' Musikvideos und revolutionierte die Art und Weise, wie Musik visuell dargestellt wurde."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/queen_a_night_at_the_opera.mp3",
+        "options": [
+          "Bohemian Rhapsody",
+          "We Will Rock You",
+          "Radio Ga Ga",
+          "Somebody to Love"
+        ],
+        "correctAnswer": "Bohemian Rhapsody",
+        "funFact": "Das Gitarrensolo in 'Bohemian Rhapsody', gespielt von Brian May, ist einer der bekanntesten Momente in der Rockmusik. Interessanterweise wurde es nicht im Studio improvisiert, sondern sorgfältig geplant und komponiert, um nahtlos in die komplexe Struktur des Songs zu passen. Der Song ist bis heute ein kulturelles Phänomen und wurde 2018 als weltweit meistgestreamter Song des 20. Jahrhunderts gekrönt."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Thriller",
+    "artist": "Michael Jackson",
+    "album": "Thriller",
+    "year": 1982,
+    "coverSrc": "/bandcover/pop-rock/michael_jackson_thriller.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Michael Jackson enthält den Song 'Thriller'?",
+        "options": ["Thriller", "Bad", "Off the Wall", "Dangerous"],
+        "correctAnswer": "Thriller",
+        "funFact": "Das Album 'Thriller' ist das meistverkaufte Album aller Zeiten, mit geschätzten 66 Millionen verkauften Exemplaren weltweit. Der Titeltrack, 'Thriller', wurde durch sein revolutionäres Musikvideo berühmt, das eine 14-minütige Horrorgeschichte erzählt und das Musikvideo-Format auf ein völlig neues Niveau hob. Das Video zeigte Michael Jackson in seiner ikonischen roten Lederjacke und revolutionierte die Popkultur."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Thriller' wurde 1982 veröffentlicht.",
+        "correctAnswer": true,
+        "funFact": "Der Song 'Thriller', produziert von Quincy Jones und geschrieben von Rod Temperton, wurde ursprünglich als 'Starlight' konzipiert. Die Entscheidung, den Song in 'Thriller' umzubenennen, kam spät im Produktionsprozess, beeinflusste jedoch maßgeblich das düstere und unvergessliche Thema des Albums und das dazugehörige Musikvideo. Der Song ist bekannt für Vincent Prices gespenstische Erzählung und das unverwechselbare, gruselige Lachen am Ende."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/michael_jackson_thriller.mp3",
+        "options": [
+          "Thriller",
+          "Billie Jean",
+          "Beat It",
+          "Wanna Be Startin' Somethin'"
+        ],
+        "correctAnswer": "Thriller",
+        "funFact": "Das ikonische Intro von 'Thriller', mit seinen schaurigen Synthesizer-Klängen und unheimlichen Türschlägen, wurde zu einem der einprägsamsten Momente in der Popmusik. Der Song ist nicht nur wegen seines musikalischen Inhalts berühmt, sondern auch wegen seiner bahnbrechenden Choreografie, insbesondere dem Zombie-Tanz, der weltweit nachgeahmt wurde und einen neuen Standard für Musikvideos setzte."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Money",
+    "artist": "Pink Floyd",
+    "album": "The Dark Side of the Moon",
+    "year": 1973,
+    "coverSrc": "/bandcover/pop-rock/pink_floyd_the_dark_side_of_the_moon.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Pink Floyd enthält den Song 'Money'?",
+        "options": [
+          "The Dark Side of the Moon",
+          "Wish You Were Here",
+          "The Wall",
+          "Animals"
+        ],
+        "correctAnswer": "The Dark Side of the Moon",
+        "funFact": "Das Album 'The Dark Side of the Moon' ist eines der meistverkauften Alben aller Zeiten und blieb unglaubliche 741 Wochen in den Billboard 200 Charts, was einen Rekord darstellt. Der Song 'Money', bekannt für sein markantes 7/4-Taktmaß, ist eine satirische Kritik an den Auswirkungen von Reichtum und Konsum. Der Klang von klingelnden Münzen und registrierenden Kassen wurde zu einem unverwechselbaren Erkennungsmerkmal des Songs."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Money' wurde 1973 veröffentlicht.",
+        "correctAnswer": true,
+        "funFact": "'Money' war die erste Single aus dem Album 'The Dark Side of the Moon' und wurde zu einem der erfolgreichsten Hits von Pink Floyd. Der Song wird oft als einer der besten Beispiele für die einzigartige Mischung aus Progressive Rock und experimentellen Klängen, die Pink Floyd berühmt gemacht hat, angesehen. Das Gitarrensolo von David Gilmour in 'Money' gilt als eines der besten in der Rockgeschichte."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/pink_floyd_the_dark_side_of_the_moon.mp3",
+        "options": ["Money", "Time", "Us and Them", "Brain Damage"],
+        "correctAnswer": "Money",
+        "funFact": "Der Song 'Money' ist bekannt für seinen unkonventionellen 7/4-Takt, der dem Song einen ungewöhnlichen, aber fesselnden Rhythmus verleiht. Nach dem Gitarrensolo wechselt der Song zu einem traditionelleren 4/4-Takt. Der innovative Einsatz von Geräuschen und die strukturelle Komplexität des Songs machen ihn zu einem Klassiker des Progressive Rock."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Brown Sugar",
+    "artist": "The Rolling Stones",
+    "album": "Sticky Fingers",
+    "year": 1971,
+    "coverSrc": "/bandcover/pop-rock/the_rolling_stones_sticky_fingers.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von The Rolling Stones enthält den Song 'Brown Sugar'?",
+        "options": [
+          "Exile on Main St.",
+          "Let It Bleed",
+          "Sticky Fingers",
+          "Beggars Banquet"
+        ],
+        "correctAnswer": "Sticky Fingers",
+        "funFact": "Das Album 'Sticky Fingers' war das erste Album, das The Rolling Stones auf ihrem eigenen Label Rolling Stones Records veröffentlichten. Der Song 'Brown Sugar' war die Leadsingle des Albums und wurde zu einem der bekanntesten Hits der Band. Das Album ist auch für seine ikonische Covergestaltung bekannt, die von Andy Warhol entworfen wurde und eine echte, funktionierende Reißverschluss-Abbildung auf der Original-LP enthielt."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'Sticky Fingers' war das erste Album, das auf dem Rolling Stones Records-Label veröffentlicht wurde.",
+        "correctAnswer": true,
+        "funFact": "Mit der Gründung ihres eigenen Labels konnten The Rolling Stones mehr kreative Kontrolle über ihre Musik und ihre Veröffentlichungen ausüben. 'Sticky Fingers' war das erste Album, das unter diesem neuen Label veröffentlicht wurde und markierte einen wichtigen Wendepunkt in der Karriere der Band."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/the_rolling_stones_sticky_fingers.mp3",
+        "options": [
+          "Wild Horses",
+          "Can't You Hear Me Knocking",
+          "Brown Sugar",
+          "Sister Morphine"
+        ],
+        "correctAnswer": "Brown Sugar",
+        "funFact": "Das markante Riff von 'Brown Sugar', gespielt von Keith Richards, ist eines der bekanntesten in der Rockmusik. Der Song wurde während der legendären Aufnahmesessions in den Muscle Shoals Sound Studios in Alabama aufgenommen, wo die Band ihren unverwechselbaren, rohen und kraftvollen Sound verfeinerte. 'Brown Sugar' bleibt bis heute ein fester Bestandteil der Live-Auftritte der Rolling Stones."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Goodbye Yellow Brick Road",
+    "artist": "Elton John",
+    "album": "Goodbye Yellow Brick Road",
+    "year": 1973,
+    "coverSrc": "/bandcover/pop-rock/elton_john_goodbye_yellow_brick_road.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Elton John enthält den Song 'Goodbye Yellow Brick Road'?",
+        "options": [
+          "Captain Fantastic and the Brown Dirt Cowboy",
+          "Goodbye Yellow Brick Road",
+          "Honky Château",
+          "Madman Across the Water"
+        ],
+        "correctAnswer": "Goodbye Yellow Brick Road",
+        "funFact": "Das Album 'Goodbye Yellow Brick Road' enthält viele von Elton Johns größten Hits, darunter 'Candle in the Wind' und 'Bennie and the Jets'. Es wird oft als sein Meisterwerk angesehen und gilt als eines der besten Alben der 1970er Jahre."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'Goodbye Yellow Brick Road' wurde 1973 veröffentlicht.",
+        "correctAnswer": true,
+        "funFact": "Das Doppelalbum 'Goodbye Yellow Brick Road' wurde in weniger als drei Wochen in Frankreich aufgenommen und markierte den Höhepunkt von Elton Johns Karriere in den 1970er Jahren. Es verkaufte sich weltweit über 30 Millionen Mal und machte ihn zu einem der größten Stars der Popmusik."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/elton_john_goodbye_yellow_brick_road.mp3",
+        "options": [
+          "Goodbye Yellow Brick Road",
+          "Bennie and the Jets",
+          "Candle in the Wind",
+          "Saturday Night's Alright for Fighting"
+        ],
+        "correctAnswer": "Goodbye Yellow Brick Road",
+        "funFact": "Der Song 'Goodbye Yellow Brick Road' ist eine nostalgische Reflexion über die Flucht aus dem Rampenlicht und den Wunsch nach einem einfacheren Leben, eine oft wiederkehrende Thematik in Elton Johns Werk."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Born in the U.S.A.",
+    "artist": "Bruce Springsteen",
+    "album": "Born in the U.S.A.",
+    "year": 1984,
+    "coverSrc": "/bandcover/pop-rock/bruce_springsteen_born_in_the_usa.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Bruce Springsteen enthält den Song 'Born in the U.S.A.'?",
+        "options": [
+          "The River",
+          "Nebraska",
+          "Born to Run",
+          "Born in the U.S.A."
+        ],
+        "correctAnswer": "Born in the U.S.A.",
+        "funFact": "Das Album 'Born in the U.S.A.' ist eines der kommerziell erfolgreichsten Alben von Bruce Springsteen und brachte sieben Top-10-Hits hervor. Der Titeltrack wird oft missverstanden, da er nicht nur Patriotismus ausdrückt, sondern auch Kritik an der Behandlung von Vietnam-Veteranen."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Born in the U.S.A.' wurde 1984 veröffentlicht.",
+        "correctAnswer": true,
+        "funFact": "Der Song 'Born in the U.S.A.' wurde als patriotische Hymne wahrgenommen, ist jedoch eine kritische Auseinandersetzung mit den Folgen des Vietnamkriegs und der Situation der Veteranen. Der ikonische Synthesizer-Sound im Intro des Songs ist eines der Markenzeichen von Springsteens Musik aus dieser Zeit."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/bruce_springsteen_born_in_the_usa.mp3",
+        "options": [
+          "Born to Run",
+          "Glory Days",
+          "Dancing in the Dark",
+          "Born in the U.S.A."
+        ],
+        "correctAnswer": "Born in the U.S.A.",
+        "funFact": "Das Album 'Born in the U.S.A.' brachte Bruce Springsteen weltweiten Ruhm und machte ihn zu einer Ikone des amerikanischen Rock. Der Song selbst bleibt bis heute einer seiner bekanntesten und wird oft bei seinen Live-Auftritten gespielt."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Hotel California",
+    "artist": "Eagles",
+    "album": "Hotel California",
+    "year": 1976,
+    "coverSrc": "/bandcover/pop-rock/eagles_hotel_california.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von den Eagles enthält den Song 'Hotel California'?",
+        "options": [
+          "One of These Nights",
+          "The Long Run",
+          "Hotel California",
+          "Desperado"
+        ],
+        "correctAnswer": "Hotel California",
+        "funFact": "'Hotel California' war das fünfte Studioalbum der Eagles und markierte eine Wendung in ihrem musikalischen Stil. Es wurde eines der meistverkauften Alben aller Zeiten und enthielt mehrere Hits, darunter 'New Kid in Town' und 'Life in the Fast Lane'."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Lied 'Hotel California' wurde ursprünglich als einfache Ballade über das Leben in einem Hotel in Kalifornien geschrieben.",
+        "correctAnswer": false,
+        "funFact": "'Hotel California' ist mehr als nur eine Geschichte über ein Hotel. Die Texte werden oft als Metapher für den hedonistischen Lebensstil und die Dekadenz des Kaliforniens der 1970er Jahre interpretiert. Don Henley, der Haupttexter des Songs, beschrieb es als 'eine Reise vom Idealismus zum Materialismus und Egoismus'. Der Songtext wirft Fragen zu den Schattenseiten des Ruhms und der Kultur der Exzesse auf."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/eagles_hotel_california.mp3",
+        "options": [
+          "Take It Easy",
+          "Hotel California",
+          "Life in the Fast Lane",
+          "New Kid in Town"
+        ],
+        "correctAnswer": "Hotel California",
+        "funFact": "Das Gitarrensolo von Don Felder und Joe Walsh in 'Hotel California' gilt als eines der besten Gitarrensoli in der Rockgeschichte. Die komplizierte Struktur und die Mischung aus spanischen und lateinamerikanischen Einflüssen machten es zu einem Markenzeichen des Songs."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Sgt. Pepper's Lonely Hearts Club Band",
+    "artist": "The Beatles",
+    "album": "Sgt. Pepper's Lonely Hearts Club Band",
+    "year": 1967,
+    "coverSrc": "/bandcover/pop-rock/the_beatles_sgt_peppers_lonely_hearts_club_band.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von The Beatles enthält den Song 'Sgt. Pepper's Lonely Hearts Club Band'?",
+        "options": [
+          "Rubber Soul",
+          "Revolver",
+          "Sgt. Pepper's Lonely Hearts Club Band",
+          "The White Album"
+        ],
+        "correctAnswer": "Sgt. Pepper's Lonely Hearts Club Band",
+        "funFact": "'Sgt. Pepper's Lonely Hearts Club Band' gilt als eines der einflussreichsten Alben der Musikgeschichte. Es markierte einen Wendepunkt in der Rockmusik und wird oft als das erste Konzeptalbum angesehen, das Musik, Kunst und Kultur in einer neuen, revolutionären Weise verband."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'Sgt. Pepper's Lonely Hearts Club Band' wurde 1967 veröffentlicht und wird oft als eines der ersten Konzeptalben der Geschichte bezeichnet.",
+        "correctAnswer": true,
+        "funFact": "Das Album wurde während einer sechsmonatigen Aufnahmesession im Abbey Road Studio produziert und gilt als eine der innovativsten Platten der Beatles. Es beeinflusste die Popkultur nachhaltig, indem es Grenzen in der Musikproduktion sprengte und die Idee eines thematisch zusammenhängenden Albums popularisierte. Die komplexe Orchestrierung und die ausgeklügelte Studioarbeit machten es zu einem Meilenstein der Musikgeschichte."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/the_beatles_sgt_peppers_lonely_hearts_club_band.mp3",
+        "options": [
+          "Lucy in the Sky with Diamonds",
+          "A Day in the Life",
+          "Sgt. Pepper's Lonely Hearts Club Band",
+          "With a Little Help from My Friends"
+        ],
+        "correctAnswer": "Sgt. Pepper's Lonely Hearts Club Band",
+        "funFact": "Der Titeltrack des Albums präsentiert The Beatles als fiktive Band, die das Konzert eröffnet. Diese Idee, die Band als andere Figuren auftreten zu lassen, ermöglichte es ihnen, neue kreative Freiheiten zu erkunden und ihren Sound auf ungeahnte Weise zu erweitern."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Brothers in Arms",
+    "artist": "Dire Straits",
+    "album": "Brothers in Arms",
+    "year": 1985,
+    "coverSrc": "/bandcover/pop-rock/dire_straits_brothers_in_arms.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Dire Straits enthält den Song 'Brothers in Arms'?",
+        "options": [
+          "Making Movies",
+          "Love over Gold",
+          "Brothers in Arms",
+          "Communiqué"
+        ],
+        "correctAnswer": "Brothers in Arms",
+        "funFact": "Das Album 'Brothers in Arms' war eines der ersten vollständig digital produzierten Alben und wurde ein weltweiter Erfolg. Der Titeltrack ist eine nachdenkliche, melancholische Ballade, die von Mark Knopfler als Kommentar zu den Auswirkungen von Krieg und Konflikten geschrieben wurde."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'Brothers in Arms' wurde 1985 veröffentlicht und war eines der ersten Alben, das vollständig digital aufgenommen wurde.",
+        "correctAnswer": true,
+        "funFact": "'Brothers in Arms' war nicht nur ein kommerzieller Erfolg, sondern auch ein technischer Meilenstein. Es war eines der ersten Alben, das auf CD mehr Exemplare verkaufte als auf Vinyl und trug wesentlich zur Popularisierung des CD-Formats bei. Das Album gewann außerdem zwei Grammy Awards und ist eines der bestverkauften Alben der 1980er Jahre."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/dire_straits_brothers_in_arms.mp3",
+        "options": [
+          "Money for Nothing",
+          "Walk of Life",
+          "Brothers in Arms",
+          "So Far Away"
+        ],
+        "correctAnswer": "Brothers in Arms",
+        "funFact": "Der Song 'Brothers in Arms' ist ein emotionaler Kommentar zu den Schrecken des Krieges. Er wurde während des Falklandkriegs geschrieben und hat sich zu einem der bekanntesten Anti-Kriegslieder entwickelt. Das Gitarrenspiel von Mark Knopfler ist hier besonders eindringlich und trägt zur melancholischen Atmosphäre des Songs bei."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Livin' on a Prayer",
+    "artist": "Bon Jovi",
+    "album": "Slippery When Wet",
+    "year": 1986,
+    "coverSrc": "/bandcover/pop-rock/bon_jovi_slippery_when_wet.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Bon Jovi enthält den Song 'Livin' on a Prayer'?",
+        "options": [
+          "New Jersey",
+          "Slippery When Wet",
+          "Keep the Faith",
+          "7800° Fahrenheit"
+        ],
+        "correctAnswer": "Slippery When Wet",
+        "funFact": "'Slippery When Wet' ist das dritte Studioalbum von Bon Jovi und wurde zu einem der meistverkauften Alben der 1980er Jahre. Der Song 'Livin' on a Prayer' wurde zu einer Hymne der Band und ist bis heute einer ihrer größten Hits."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Livin' on a Prayer' wurde 1986 veröffentlicht und handelt von einem kämpfenden Paar namens Tommy und Gina.",
+        "correctAnswer": true,
+        "funFact": "Die Charaktere Tommy und Gina, die in 'Livin' on a Prayer' erwähnt werden, wurden zu Symbolen für die Herausforderungen und Kämpfe des Alltags. Der Song wurde von Jon Bon Jovi, Richie Sambora und Desmond Child geschrieben und war ursprünglich nicht für die Veröffentlichung vorgesehen, doch nach einer Überarbeitung wurde er zum größten Hit der Band."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/bon_jovi_slippery_when_wet.mp3",
+        "options": [
+          "You Give Love a Bad Name",
+          "Livin' on a Prayer",
+          "Wanted Dead or Alive",
+          "Never Say Goodbye"
+        ],
+        "correctAnswer": "Livin' on a Prayer",
+        "funFact": "'Livin' on a Prayer' wurde zu einem festen Bestandteil jeder Bon Jovi-Setlist und ist bekannt für seinen ikonischen Bass-Synthesizer-Intro. Der Song wurde zu einer Hymne für Durchhaltevermögen und Hoffnung und zählt zu den meistgespielten Rocksongs aller Zeiten."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Starman",
+    "artist": "David Bowie",
+    "album": "The Rise and Fall of Ziggy Stardust and the Spiders from Mars",
+    "year": 1972,
+    "coverSrc": "/bandcover/pop-rock/david_bowie_the_rise_and_fall_of_ziggy_stardust_and_the_spiders_from_mars.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von David Bowie enthält den Song 'Starman'?",
+        "options": [
+          "Hunky Dory",
+          "Aladdin Sane",
+          "The Rise and Fall of Ziggy Stardust and the Spiders from Mars",
+          "Diamond Dogs"
+        ],
+        "correctAnswer": "The Rise and Fall of Ziggy Stardust and the Spiders from Mars",
+        "funFact": "David Bowie schuf mit 'Ziggy Stardust' eine der berühmtesten Kunstfiguren der Rockmusik. Das Konzeptalbum erzählt die Geschichte des außerirdischen Rockstar-Messias Ziggy Stardust, der mit den Spiders from Mars auf die Erde kommt, um die Menschheit zu retten."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars' wurde 1972 veröffentlicht und ist ein Konzeptalbum über einen fiktiven Rockstar.",
+        "correctAnswer": true,
+        "funFact": "'Ziggy Stardust' ist eines der ikonischsten Alben in der Geschichte der Rockmusik. Es half, Bowies Ruf als visionärer Künstler zu festigen, der mit seiner Mischung aus Glam-Rock und futuristischen Themen die Grenzen der Popkultur erweiterte. Der Charakter Ziggy Stardust wird oft als Verkörperung der Exzentrizität und des künstlerischen Aufbruchs der 1970er Jahre gesehen."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/david_bowie_the_rise_and_fall_of_ziggy_stardust_and_the_spiders_from_mars.mp3",
+        "options": [
+          "Starman",
+          "Suffragette City",
+          "Moonage Daydream",
+          "Rock 'n' Roll Suicide"
+        ],
+        "correctAnswer": "Starman",
+        "funFact": "'Starman' war der Song, der Ziggy Stardust auf die Landkarte setzte. Mit seinem eingängigen Refrain und den spacigen Texten erzählt der Song die Geschichte von Ziggy, der die Menschheit darüber informiert, dass Hilfe aus den Sternen kommt. Der Song markierte Bowies Durchbruch in die Mainstream-Kultur."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Don't Stop Believin'",
+    "artist": "Journey",
+    "album": "Escape",
+    "year": 1981,
+    "coverSrc": "/bandcover/pop-rock/journey_escape.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Journey enthält den Song 'Don't Stop Believin''?",
+        "options": ["Frontiers", "Departure", "Escape", "Raised on Radio"],
+        "correctAnswer": "Escape",
+        "funFact": "'Escape' war das erste Album von Journey, das mit dem neuen Keyboarder Jonathan Cain aufgenommen wurde. 'Don't Stop Believin'' wurde zu einem der bekanntesten Songs der Band und gilt als eine Hymne des Durchhaltevermögens und der Hoffnung."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Don't Stop Believin'' von Journey wurde 1981 auf dem Album 'Escape' veröffentlicht und erreichte sofort Platz 1 der Charts.",
+        "correctAnswer": false,
+        "funFact": "Obwohl 'Don't Stop Believin'' heute als einer der größten Songs der Rockgeschichte gilt, erreichte er bei seiner Veröffentlichung nur Platz 9 der Billboard Hot 100. Erst Jahre später wurde er durch Filme, TV-Shows und seine Nutzung in Popkultur-Referenzen zu einem globalen Phänomen."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/journey_escape.mp3",
+        "options": [
+          "Open Arms",
+          "Who's Crying Now",
+          "Don't Stop Believin'",
+          "Stone in Love"
+        ],
+        "correctAnswer": "Don't Stop Believin'",
+        "funFact": "'Don't Stop Believin'' ist bekannt für sein einzigartiges Songformat, bei dem der Refrain erst sehr spät im Song auftaucht. Diese Struktur machte den Song einzigartig und trug zu seinem anhaltenden Erfolg und seiner Beliebtheit in der Popkultur bei."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Graceland",
+    "artist": "Paul Simon",
+    "album": "Graceland",
+    "year": 1986,
+    "coverSrc": "/bandcover/pop-rock/paul_simon_graceland.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Paul Simon enthält den Song 'Graceland'?",
+        "options": [
+          "Still Crazy After All These Years",
+          "Graceland",
+          "Rhythm of the Saints",
+          "Hearts and Bones"
+        ],
+        "correctAnswer": "Graceland",
+        "funFact": "Das Album 'Graceland' gilt als Meilenstein in der Worldbeat-Musik und war bekannt für seine Mischung aus westlichen Pop-Einflüssen und südafrikanischer Musik. Es erhielt 1987 den Grammy Award für das Album des Jahres und trug maßgeblich zur Popularisierung der südafrikanischen Musik weltweit bei."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'Graceland' wurde während des kulturellen Boykotts Südafrikas aufgenommen und stieß auf internationale Kontroversen.",
+        "correctAnswer": true,
+        "funFact": "Paul Simon reiste 1985 nach Südafrika, um mit lokalen Musikern zusammenzuarbeiten, obwohl das Land unter dem Apartheid-Regime stand und international boykottiert wurde. Dies führte zu Kontroversen, doch Simon verteidigte seine Entscheidung als Versuch, die Kultur der südafrikanischen Musiker zu fördern. Das Album hatte dennoch großen Erfolg und brachte der Welt das Talent von Gruppen wie Ladysmith Black Mambazo nahe."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/paul_simon_graceland.mp3",
+        "options": [
+          "You Can Call Me Al",
+          "Diamonds on the Soles of Her Shoes",
+          "Graceland",
+          "The Boy in the Bubble"
+        ],
+        "correctAnswer": "Graceland",
+        "funFact": "Der Song 'Graceland' ist inspiriert von einer Reise, die Paul Simon zu Elvis Presleys Anwesen, Graceland, in Memphis, Tennessee, unternahm. Der Song reflektiert persönliche und politische Themen und ist ein Paradebeispiel für Simons Fähigkeit, globale musikalische Einflüsse mit intimen, persönlichen Geschichten zu verbinden."
+      }
+    ]
+  },
+  {
+    "category": "rock",
+    "song": "Every Breath You Take",
+    "artist": "The Police",
+    "album": "Synchronicity",
+    "year": 1983,
+    "coverSrc": "/bandcover/pop-rock/the_police_synchronicity.png",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von The Police enthält den Song 'Every Breath You Take'?",
+        "options": [
+          "Zenyatta Mondatta",
+          "Ghost in the Machine",
+          "Synchronicity",
+          "Reggatta de Blanc"
+        ],
+        "correctAnswer": "Synchronicity",
+        "funFact": "'Synchronicity' war das fünfte und letzte Studioalbum von The Police und gilt als eines ihrer erfolgreichsten. Es enthält einige der größten Hits der Band, darunter 'Every Breath You Take', der zu einem der bekanntesten Songs der 1980er Jahre wurde."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Every Breath You Take' von The Police wird oft als romantischer Liebessong verstanden, obwohl er tatsächlich von Besessenheit handelt.",
+        "correctAnswer": true,
+        "funFact": "Obwohl 'Every Breath You Take' oft als Liebeslied interpretiert wird, handelt es tatsächlich von Überwachung und Besessenheit. Sting schrieb den Song nach seiner Scheidung und beschrieb ihn als düsteren Kommentar zu obsessiver Liebe. Der Song erreichte Platz 1 in vielen Ländern und wurde einer der größten Hits der 1980er Jahre."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/the_police_synchronicity.mp3",
+        "options": [
+          "King of Pain",
+          "Every Breath You Take",
+          "Wrapped Around Your Finger",
+          "Synchronicity II"
+        ],
+        "correctAnswer": "Every Breath You Take",
+        "funFact": "Mit seinem eingängigen Gitarrenriff und Stings unverwechselbarer Stimme wurde 'Every Breath You Take' zu einem der meistgespielten Songs im Radio und gewann 1984 den Grammy Award für den Song des Jahres."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Baba O'Riley",
+    "artist": "The Who",
+    "album": "Who's Next",
+    "year": 1971,
+    "coverSrc": "/bandcover/pop-rock/the_who_whos_next.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von The Who enthält den Song 'Baba O'Riley'?",
+        "options": ["Tommy", "Quadrophenia", "Who's Next", "Live at Leeds"],
+        "correctAnswer": "Who's Next",
+        "funFact": "'Who's Next' war ursprünglich als Teil eines unvollendeten Rock-Opernprojekts von Pete Townshend mit dem Titel 'Lifehouse' gedacht. Der Song 'Baba O'Riley' wurde zu einem der bekanntesten Songs der Band und gilt als eine Hymne des klassischen Rocks."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Baba O'Riley' wird oft als 'Teenage Wasteland' bezeichnet, obwohl dies nie der offizielle Titel war.",
+        "correctAnswer": true,
+        "funFact": "Obwohl 'Baba O'Riley' häufig als 'Teenage Wasteland' bezeichnet wird, ist dies nur eine Textzeile im Song und nicht der offizielle Titel. Der Titel selbst ist eine Hommage an den indischen Mystiker Meher Baba und den Komponisten Terry Riley, die beide Pete Townshend inspirierten."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/rock/the_who_whos_next.mp3",
+        "options": [
+          "Baba O'Riley",
+          "Behind Blue Eyes",
+          "Won't Get Fooled Again",
+          "Love Ain't for Keeping"
+        ],
+        "correctAnswer": "Baba O'Riley",
+        "funFact": "'Baba O'Riley' beginnt mit einem ikonischen Synthesizer-Riff, das von Pete Townshend komponiert wurde. Der Song ist eine einzigartige Mischung aus Rock, elektronischen Elementen und Einflüssen aus klassischer indischer Musik, die das innovative Wesen der Band widerspiegelt."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Purple Rain",
+    "artist": "Prince",
+    "album": "Purple Rain",
+    "year": 1984,
+    "coverSrc": "/bandcover/pop-rock/prince_purple_rain.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Prince enthält den Song 'Purple Rain'?",
+        "options": ["1999", "Sign o' the Times", "Purple Rain", "Controversy"],
+        "correctAnswer": "Purple Rain",
+        "funFact": "Das Album 'Purple Rain' war der Soundtrack zum gleichnamigen Film, in dem Prince die Hauptrolle spielte. Es wurde eines der erfolgreichsten Alben der 1980er Jahre und markierte den Durchbruch von Prince zum internationalen Superstar."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Purple Rain' war ursprünglich als Country-Song gedacht, wurde aber schließlich zu einer Rock-Ballade umgewandelt.",
+        "correctAnswer": true,
+        "funFact": "Prince schrieb 'Purple Rain' ursprünglich als Country-Song in Zusammenarbeit mit Stevie Nicks, bevor er entschied, ihn in eine epische Rock-Ballade zu verwandeln. Der Song wurde zum Herzstück seines Albums und ist bis heute einer der bekanntesten Titel seiner Karriere."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/prince_purple_rain.mp3",
+        "options": [
+          "When Doves Cry",
+          "Let's Go Crazy",
+          "Purple Rain",
+          "I Would Die 4 U"
+        ],
+        "correctAnswer": "Purple Rain",
+        "funFact": "'Purple Rain' ist eine Mischung aus Rock, R&B und Gospel und wurde oft als eine Art Abschiedslied gedeutet. Es ist bekannt für das ergreifende Gitarrensolo von Prince, das live oft noch länger und intensiver gespielt wurde."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "God Only Knows",
+    "artist": "The Beach Boys",
+    "album": "Pet Sounds",
+    "year": 1966,
+    "coverSrc": "/bandcover/pop-rock/the_beach_boys_pet_sounds.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von The Beach Boys enthält den Song 'God Only Knows'?",
+        "options": [
+          "Pet Sounds",
+          "Smile",
+          "Surf's Up",
+          "The Beach Boys Today!"
+        ],
+        "correctAnswer": "Pet Sounds",
+        "funFact": "Das Album 'Pet Sounds' gilt als eines der einflussreichsten Alben der Popgeschichte. Brian Wilson, der kreative Kopf hinter dem Projekt, wollte ein Album schaffen, das sowohl musikalisch als auch emotional neue Maßstäbe setzte. 'God Only Knows' gilt als eines der schönsten Liebeslieder der Popmusik."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'Pet Sounds' war ein großer kommerzieller Erfolg bei seiner Veröffentlichung und wurde sofort von der Kritik gefeiert.",
+        "correctAnswer": false,
+        "funFact": "Obwohl 'Pet Sounds' heute als Meisterwerk gilt, war es bei seiner Veröffentlichung 1966 kein kommerzieller Erfolg in den USA. Viele Fans der Beach Boys waren enttäuscht, dass das Album sich musikalisch von ihren früheren Surf-Hits entfernte. Erst später erlangte das Album den legendären Status, den es heute hat."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/the_beach_boys_pet_sounds.mp3",
+        "options": [
+          "God Only Knows",
+          "Wouldn't It Be Nice",
+          "Sloop John B",
+          "Caroline, No"
+        ],
+        "correctAnswer": "God Only Knows",
+        "funFact": "'God Only Knows' wurde von Brian Wilson und Tony Asher geschrieben und ist eines der ersten Poplieder, das das Wort 'Gott' im Titel verwendet. Paul McCartney nannte es einmal den besten Song, der je geschrieben wurde."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Imagine",
+    "artist": "John Lennon",
+    "album": "Imagine",
+    "year": 1971,
+    "coverSrc": "/bandcover/pop-rock/john_lennon_imagine.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von John Lennon enthält den Song 'Imagine'?",
+        "options": [
+          "Walls and Bridges",
+          "Mind Games",
+          "Imagine",
+          "Double Fantasy"
+        ],
+        "correctAnswer": "Imagine",
+        "funFact": "'Imagine' ist das zweite Soloalbum von John Lennon und enthält den gleichnamigen Song, der zu einer der bekanntesten Friedenshymnen aller Zeiten wurde. Das Album gilt als eines der besten Soloalben eines ehemaligen Beatles-Mitglieds."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Imagine' wurde 1971 veröffentlicht und thematisiert Frieden und weltweite Harmonie.",
+        "correctAnswer": true,
+        "funFact": "John Lennon schrieb 'Imagine' inspiriert von Yoko Onos Gedichten, insbesondere ihrem Buch 'Grapefruit'. Der Song regt dazu an, sich eine Welt ohne Grenzen, Religion oder Besitz vorzustellen und wurde weltweit als Friedensbotschaft interpretiert."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/john_lennon_imagine.mp3",
+        "options": ["Imagine", "Jealous Guy", "Oh My Love", "Gimme Some Truth"],
+        "correctAnswer": "Imagine",
+        "funFact": "Der Song 'Imagine' wurde von der BBC 1999 zum 'Song des Jahrtausends' ernannt. Es ist John Lennons meistverkaufter Solo-Song und wurde in zahlreichen politischen und gesellschaftlichen Kontexten gespielt, um den Wunsch nach Frieden zu symbolisieren."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Cryin'",
+    "artist": "Aerosmith",
+    "album": "Get a Grip",
+    "year": 1993,
+    "coverSrc": "/bandcover/pop-rock/aerosmith_get_a_grip.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Aerosmith enthält den Song 'Cryin''?",
+        "options": [
+          "Permanent Vacation",
+          "Pump",
+          "Get a Grip",
+          "Toys in the Attic"
+        ],
+        "correctAnswer": "Get a Grip",
+        "funFact": "'Get a Grip' war das elfte Studioalbum von Aerosmith und wurde ihr größter kommerzieller Erfolg in den 1990er Jahren. Es brachte mehrere Hitsingles hervor, darunter 'Cryin'', 'Crazy' und 'Livin' on the Edge', und verkaufte sich weltweit über 20 Millionen Mal."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'Get a Grip' gewann mehrere Grammy Awards und war eines der erfolgreichsten Alben von Aerosmith.",
+        "correctAnswer": true,
+        "funFact": "'Get a Grip' gewann Aerosmith zwei Grammy Awards für die besten Rock-Darbietungen ('Livin' on the Edge' und 'Crazy'). Es festigte ihren Status als eine der größten Rockbands der Welt und brachte ikonische Musikvideos hervor, die MTV in den 90er Jahren dominierten."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/aerosmith_get_a_grip.mp3",
+        "options": ["Cryin'", "Livin' on the Edge", "Crazy", "Amazing"],
+        "correctAnswer": "Cryin'",
+        "funFact": "Das Musikvideo zu 'Cryin'' war eines der beliebtesten Videos auf MTV und spielte Alicia Silverstone in der Hauptrolle, was ihre Karriere ins Rampenlicht rückte. Der Song wurde ein Klassiker und bleibt einer der beliebtesten Tracks von Aerosmith."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Back in Black",
+    "artist": "AC/DC",
+    "album": "Back in Black",
+    "year": 1980,
+    "coverSrc": "/bandcover/pop-rock/acdc_back_in_black.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von AC/DC enthält den Song 'Back in Black'?",
+        "options": [
+          "Highway to Hell",
+          "Powerage",
+          "Back in Black",
+          "For Those About to Rock"
+        ],
+        "correctAnswer": "Back in Black",
+        "funFact": "'Back in Black' wurde als Tribut an den verstorbenen Sänger Bon Scott veröffentlicht und war das erste Album mit dem neuen Sänger Brian Johnson. Es wurde eines der meistverkauften Alben aller Zeiten und machte AC/DC zu einer der größten Rockbands der Welt."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'Back in Black' ist das meistverkaufte Rockalbum aller Zeiten.",
+        "correctAnswer": false,
+        "funFact": "Obwohl 'Back in Black' eines der meistverkauften Alben aller Zeiten ist, hält Michael Jacksons 'Thriller' den Titel des meistverkauften Albums. Trotzdem bleibt 'Back in Black' das erfolgreichste Album von AC/DC und wird weltweit für seine Energie und seine ikonischen Riffs gefeiert."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/acdc_back_in_black.mp3",
+        "options": [
+          "You Shook Me All Night Long",
+          "Hells Bells",
+          "Back in Black",
+          "Shoot to Thrill"
+        ],
+        "correctAnswer": "Back in Black",
+        "funFact": "'Back in Black' beginnt mit einem der bekanntesten Gitarrenriffs der Rockgeschichte und wurde schnell zu einem festen Bestandteil in AC/DCs Live-Auftritten. Der Song gilt als Hymne für die Widerstandsfähigkeit der Band nach dem Tod ihres Frontmanns Bon Scott."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Losing My Religion",
+    "artist": "R.E.M.",
+    "album": "Out of Time",
+    "year": 1991,
+    "coverSrc": "/bandcover/pop-rock/rem_out_of_time.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von R.E.M. enthält den Song 'Losing My Religion'?",
+        "options": [
+          "Automatic for the People",
+          "Document",
+          "Out of Time",
+          "Green"
+        ],
+        "correctAnswer": "Out of Time",
+        "funFact": "'Out of Time' war das siebte Studioalbum von R.E.M. und brachte der Band ihren ersten weltweiten Erfolg. 'Losing My Religion' wurde zu einem der bekanntesten Songs der 1990er Jahre und half R.E.M., ihren Platz als eine der wichtigsten Alternative-Rock-Bands zu festigen."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Losing My Religion' handelt von einem persönlichen Glaubensverlust.",
+        "correctAnswer": false,
+        "funFact": "Obwohl der Titel 'Losing My Religion' oft missverstanden wird, bezieht er sich nicht auf einen Glaubensverlust. Der Ausdruck ist eine Redewendung aus dem Süden der USA und bedeutet, die Geduld zu verlieren oder frustriert zu sein. Der Song handelt von unerwiderter Liebe und Selbstzweifeln."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/rem_out_of_time.mp3",
+        "options": [
+          "Shiny Happy People",
+          "Radio Song",
+          "Losing My Religion",
+          "Near Wild Heaven"
+        ],
+        "correctAnswer": "Losing My Religion",
+        "funFact": "'Losing My Religion' war R.E.M.s kommerziell erfolgreichster Song und brachte der Band internationale Anerkennung. Das Musikvideo mit seinen surrealistischen Bildern trug wesentlich zur Popularität des Songs bei und wurde zu einem festen Bestandteil der frühen 1990er MTV-Ära."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Sweet Child O' Mine",
+    "artist": "Guns N' Roses",
+    "album": "Appetite for Destruction",
+    "year": 1987,
+    "coverSrc": "/bandcover/pop-rock/guns_n_roses_appetite_for_destruction.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Guns N' Roses enthält den Song 'Sweet Child O' Mine'?",
+        "options": [
+          "Use Your Illusion I",
+          "Appetite for Destruction",
+          "G N' R Lies",
+          "Use Your Illusion II"
+        ],
+        "correctAnswer": "Appetite for Destruction",
+        "funFact": "'Appetite for Destruction' ist das Debütalbum von Guns N' Roses und gilt als eines der erfolgreichsten Rockalben aller Zeiten. Der Song 'Sweet Child O' Mine' wurde ein weltweiter Hit und festigte den Status der Band als Rocklegenden."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'Appetite for Destruction' wurde 1987 veröffentlicht und ist bis heute das meistverkaufte Debütalbum in den USA.",
+        "correctAnswer": true,
+        "funFact": "'Appetite for Destruction' hat sich weltweit über 30 Millionen Mal verkauft und wurde damit zum meistverkauften Debütalbum in den USA. Es brachte Guns N' Roses in den Mainstream und enthielt weitere Klassiker wie 'Welcome to the Jungle' und 'Paradise City'."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/guns_n_roses_appetite_for_destruction.mp3",
+        "options": [
+          "Paradise City",
+          "Sweet Child O' Mine",
+          "Welcome to the Jungle",
+          "Nightrain"
+        ],
+        "correctAnswer": "Sweet Child O' Mine",
+        "funFact": "Das berühmte Gitarrenriff in 'Sweet Child O' Mine', gespielt von Slash, entstand ursprünglich als Fingerübung. Der Song wurde zu einem der größten Hits der Band und bleibt bis heute ein fester Bestandteil ihrer Live-Auftritte."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Stairway to Heaven",
+    "artist": "Led Zeppelin",
+    "album": "Led Zeppelin IV",
+    "year": 1971,
+    "coverSrc": "/bandcover/pop-rock/led_zeppelin_iv.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Led Zeppelin enthält den Song 'Stairway to Heaven'?",
+        "options": [
+          "Led Zeppelin III",
+          "Physical Graffiti",
+          "Led Zeppelin II",
+          "Led Zeppelin IV"
+        ],
+        "correctAnswer": "Led Zeppelin IV",
+        "funFact": "'Led Zeppelin IV', das offiziell keinen Titel trägt, wird oft als eines der besten Rockalben aller Zeiten angesehen. 'Stairway to Heaven' ist der bekannteste Song des Albums und wurde ein Kultklassiker, obwohl er nie als Single veröffentlicht wurde."
+      },
+      {
+        "type": "true-false",
+        "question": "'Stairway to Heaven' wurde als Single veröffentlicht und war ein kommerzieller Hit in den 1970er Jahren.",
+        "correctAnswer": false,
+        "funFact": "Obwohl 'Stairway to Heaven' einer der bekanntesten Songs der Rockgeschichte ist, wurde er nie als kommerzielle Single veröffentlicht. Stattdessen wurde er durch Radiospielzeiten und Mundpropaganda populär und gilt heute als einer der größten Rockklassiker."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/led_zeppelin_iv.mp3",
+        "options": [
+          "Black Dog",
+          "Rock and Roll",
+          "Stairway to Heaven",
+          "When the Levee Breaks"
+        ],
+        "correctAnswer": "Stairway to Heaven",
+        "funFact": "'Stairway to Heaven' ist bekannt für seine sich steigernde Struktur, die von einer sanften Akustikgitarre bis hin zu einem kraftvollen Rockfinale reicht. Das Gitarrensolo von Jimmy Page in diesem Song wird oft als eines der besten Soli der Rockgeschichte bezeichnet."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "You Oughta Know",
+    "artist": "Alanis Morissette",
+    "album": "Jagged Little Pill",
+    "year": 1995,
+    "coverSrc": "/bandcover/pop-rock/alanis_morissette_jagged_little_pill.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Alanis Morissette enthält den Song 'You Oughta Know'?",
+        "options": [
+          "Supposed Former Infatuation Junkie",
+          "Under Rug Swept",
+          "Jagged Little Pill",
+          "Flavors of Entanglement"
+        ],
+        "correctAnswer": "Jagged Little Pill",
+        "funFact": "'Jagged Little Pill' ist das dritte Studioalbum von Alanis Morissette und ihr erstes international veröffentlichtes Album. Es wurde ein riesiger kommerzieller Erfolg und gewann vier Grammy Awards, darunter Album des Jahres."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'Jagged Little Pill' wurde 1995 veröffentlicht und machte Alanis Morissette weltweit berühmt.",
+        "correctAnswer": true,
+        "funFact": "Mit dem Erfolg von 'Jagged Little Pill' wurde Alanis Morissette zu einer der wichtigsten Stimmen der 1990er Jahre. Der Song 'You Oughta Know' stach aufgrund seiner rohen Emotionalität hervor und wurde schnell zu einer feministischen Hymne."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/alanis_morissette_jagged_little_pill.mp3",
+        "options": [
+          "Ironic",
+          "You Oughta Know",
+          "Hand in My Pocket",
+          "Head Over Feet"
+        ],
+        "correctAnswer": "You Oughta Know",
+        "funFact": "'You Oughta Know' wurde wegen seiner aggressiven Texte und Alanis' kraftvoller Stimme gefeiert. Der Song, der sich mit einer gescheiterten Beziehung auseinandersetzt, traf einen Nerv und brachte der jungen Künstlerin weltweite Anerkennung."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Free Fallin'",
+    "artist": "Tom Petty",
+    "album": "Full Moon Fever",
+    "year": 1989,
+    "coverSrc": "/bandcover/pop-rock/tom_petty_full_moon_fever.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Tom Petty enthält den Song 'Free Fallin''?",
+        "options": [
+          "Wildflowers",
+          "Damn the Torpedoes",
+          "Full Moon Fever",
+          "Into the Great Wide Open"
+        ],
+        "correctAnswer": "Full Moon Fever",
+        "funFact": "'Full Moon Fever' war das erste Soloalbum von Tom Petty, obwohl viele seiner Bandkollegen von The Heartbreakers auf dem Album mitspielten. Es wurde eines der erfolgreichsten Alben seiner Karriere, mit Hits wie 'Free Fallin'' und 'I Won't Back Down'."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'Full Moon Fever' war ursprünglich nicht als Soloprojekt von Tom Petty geplant.",
+        "correctAnswer": true,
+        "funFact": "Tom Petty begann mit den Arbeiten an 'Full Moon Fever' als Seitenprojekt, das sich später zu einem vollständigen Soloalbum entwickelte. Es wurde mit Unterstützung von Jeff Lynne von Electric Light Orchestra produziert und brachte Petty großen kommerziellen Erfolg."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/tom_petty_full_moon_fever.mp3",
+        "options": [
+          "I Won't Back Down",
+          "Runnin' Down a Dream",
+          "Free Fallin'",
+          "Yer So Bad"
+        ],
+        "correctAnswer": "Free Fallin'",
+        "funFact": "'Free Fallin'' wurde zu einem der größten Hits von Tom Petty und ist bekannt für seinen ruhigen, eingängigen Refrain. Der Song handelt von der Sehnsucht nach Freiheit und dem Lebensgefühl in Los Angeles und bleibt bis heute einer von Pettys bekanntesten Tracks."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "The Scientist",
+    "artist": "Coldplay",
+    "album": "A Rush of Blood to the Head",
+    "year": 2002,
+    "coverSrc": "/bandcover/pop-rock/coldplay_a_rush_of_blood_to_the_head.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Coldplay enthält den Song 'The Scientist'?",
+        "options": [
+          "Parachutes",
+          "X&Y",
+          "A Rush of Blood to the Head",
+          "Viva la Vida or Death and All His Friends"
+        ],
+        "correctAnswer": "A Rush of Blood to the Head",
+        "funFact": "'A Rush of Blood to the Head' war das zweite Studioalbum von Coldplay und gewann zahlreiche Auszeichnungen, darunter den Grammy Award für das beste Alternative-Album. 'The Scientist' wurde besonders für seine emotionale Tiefe und das ikonische rückwärts laufende Musikvideo gelobt."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'The Scientist' handelt von einem Wissenschaftler, der sein Leben der Forschung gewidmet hat.",
+        "correctAnswer": false,
+        "funFact": "'The Scientist' ist kein Lied über Wissenschaft, sondern über Reue und den Wunsch, Fehler in einer Beziehung rückgängig zu machen. Der Titel bezieht sich darauf, wie schwer es manchmal ist, rationale Lösungen für emotionale Probleme zu finden."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/coldplay_a_rush_of_blood_to_the_head.mp3",
+        "options": [
+          "Clocks",
+          "In My Place",
+          "The Scientist",
+          "God Put a Smile upon Your Face"
+        ],
+        "correctAnswer": "The Scientist",
+        "funFact": "'The Scientist' wurde zu einem der emotionalsten und beliebtesten Songs von Coldplay. Es besticht durch seine einfache Klaviermelodie und Chris Martins gefühlvollen Gesang, der von Reue und einem Verlangen nach Wiedergutmachung handelt."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Pour Some Sugar on Me",
+    "artist": "Def Leppard",
+    "album": "Hysteria",
+    "year": 1987,
+    "coverSrc": "/bandcover/pop-rock/def_leppard_hysteria.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Def Leppard enthält den Song 'Pour Some Sugar on Me'?",
+        "options": [
+          "Pyromania",
+          "Adrenalize",
+          "Hysteria",
+          "On Through the Night"
+        ],
+        "correctAnswer": "Hysteria",
+        "funFact": "'Hysteria' war das vierte Studioalbum von Def Leppard und gilt als eines der erfolgreichsten Rockalben der 1980er Jahre. Es brachte mehrere große Hits hervor, darunter 'Pour Some Sugar on Me' und 'Love Bites'. Das Album verkaufte sich weltweit über 20 Millionen Mal."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'Hysteria' wurde nach einem Autounfall des Schlagzeugers Rick Allen benannt, bei dem er seinen linken Arm verlor.",
+        "correctAnswer": true,
+        "funFact": "Rick Allen verlor 1984 bei einem schweren Autounfall seinen linken Arm. Trotz dieses tragischen Ereignisses lernte er, ein speziell angepasstes Schlagzeug mit nur einem Arm zu spielen, und die Band nannte das Album 'Hysteria' als Tribut an seine Stärke und Durchhaltevermögen."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/def_leppard_hysteria.mp3",
+        "options": [
+          "Pour Some Sugar on Me",
+          "Love Bites",
+          "Animal",
+          "Armageddon It"
+        ],
+        "correctAnswer": "Pour Some Sugar on Me",
+        "funFact": "'Pour Some Sugar on Me' wurde schnell zu einem der größten Hits von Def Leppard und ist bis heute eine Rockhymne. Der Song trug maßgeblich zum gigantischen Erfolg des Albums bei und bleibt einer der meistgespielten Tracks der Band."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "American Idiot",
+    "artist": "Green Day",
+    "album": "American Idiot",
+    "year": 2004,
+    "coverSrc": "/bandcover/pop-rock/green_day_american_idiot.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Wie viele Teile umfasst der Song 'Jesus of Suburbia' auf dem Album 'American Idiot'?",
+        "options": ["3", "4", "5", "6"],
+        "correctAnswer": "5",
+        "funFact": "'Jesus of Suburbia' besteht aus fünf Abschnitten: 'Jesus of Suburbia', 'City of the Damned', 'I Don't Care', 'Dearly Beloved' und 'Tales of Another Broken Home'. Es ist ein zentrales Stück des Albums und erzählt die Geschichte des Protagonisten."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Titel 'American Idiot' bezieht sich direkt auf eine Person des amerikanischen politischen Establishments.",
+        "correctAnswer": false,
+        "funFact": "Obwohl der Song oft als politischer Protest interpretiert wird, richtet er sich nicht gegen eine bestimmte Person. Stattdessen kritisiert er die allgemeine soziale und politische Kultur in den USA, insbesondere die Rolle der Massenmedien und die politische Propaganda."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/green_day_american_idiot.mp3",
+        "options": [
+          "Boulevard of Broken Dreams",
+          "Holiday",
+          "American Idiot",
+          "Jesus of Suburbia"
+        ],
+        "correctAnswer": "American Idiot",
+        "funFact": "'American Idiot' wurde zu einem der erfolgreichsten Songs von Green Day und entwickelte sich zu einer Hymne des Widerstands gegen das Establishment. Der Song markierte einen Wendepunkt für die Band und brachte ihnen eine neue Generation von Fans."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Paranoid Android",
+    "artist": "Radiohead",
+    "album": "OK Computer",
+    "year": 1997,
+    "coverSrc": "/bandcover/pop-rock/radiohead_ok_computer.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Radiohead enthält den Song 'Paranoid Android'?",
+        "options": ["The Bends", "OK Computer", "Kid A", "In Rainbows"],
+        "correctAnswer": "OK Computer",
+        "funFact": "'OK Computer' gilt als eines der einflussreichsten Alben der 1990er Jahre und markierte einen kreativen Wendepunkt für Radiohead. Der Song 'Paranoid Android' besteht aus mehreren Abschnitten und wurde als moderne Version von klassischen Rock-Epen betrachtet."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'OK Computer' behandelt Themen wie Technologie und Isolation.",
+        "correctAnswer": true,
+        "funFact": "'OK Computer' wird oft als dystopisches Konzeptalbum betrachtet, das sich mit den wachsenden Sorgen der Gesellschaft über technologische Entfremdung, Überwachung und den Verlust der Menschlichkeit beschäftigt. Diese Themen machten das Album zeitlos und relevant in der modernen Ära."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/radiohead_ok_computer.mp3",
+        "options": [
+          "No Surprises",
+          "Paranoid Android",
+          "Karma Police",
+          "Let Down"
+        ],
+        "correctAnswer": "Paranoid Android",
+        "funFact": "'Paranoid Android' ist mit seiner Länge und komplexen Struktur ein zentrales Stück von 'OK Computer'. Der Song enthält mehrere musikalische Wechsel und wird oft mit klassischen Rock-Opern verglichen, was ihn zu einem der denkwürdigsten Tracks des Albums macht."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "She Will Be Loved",
+    "artist": "Maroon 5",
+    "album": "Songs About Jane",
+    "year": 2002,
+    "coverSrc": "/bandcover/pop-rock/maroon_5_songs_about_jane.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Maroon 5 enthält den Song 'She Will Be Loved'?",
+        "options": [
+          "It Won't Be Soon Before Long",
+          "Hands All Over",
+          "Songs About Jane",
+          "Overexposed"
+        ],
+        "correctAnswer": "Songs About Jane",
+        "funFact": "'Songs About Jane' ist das Debütalbum von Maroon 5 und enthält mehrere Hits wie 'This Love' und 'She Will Be Loved'. Das Album verhalf der Band zum Durchbruch und ist inspiriert von den realen Erfahrungen von Sänger Adam Levine mit einer Frau namens Jane."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'She Will Be Loved' wurde nach der Trennung von Adam Levine und der titelgebenden Jane geschrieben.",
+        "correctAnswer": true,
+        "funFact": "Viele der Songs auf 'Songs About Jane', darunter auch 'She Will Be Loved', handeln von der turbulenten Beziehung zwischen Adam Levine und seiner damaligen Freundin Jane. Der Song wurde zu einem der größten Hits der Band und bleibt bis heute einer ihrer beliebtesten."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/maroon_5_songs_about_jane.mp3",
+        "options": [
+          "This Love",
+          "Harder to Breathe",
+          "She Will Be Loved",
+          "Sunday Morning"
+        ],
+        "correctAnswer": "She Will Be Loved",
+        "funFact": "'She Will Be Loved' wurde durch seine emotionale Balladenstruktur und Adam Levines gefühlvollen Gesang zu einem weltweiten Hit. Der Song handelt von unerwiderter Liebe und einem starken Wunsch, jemandem in schwierigen Zeiten beizustehen."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Wonderwall",
+    "artist": "Oasis",
+    "album": "(What's the Story) Morning Glory?",
+    "year": 1995,
+    "coverSrc": "/bandcover/pop-rock/oasis_morning_glory.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Oasis enthält den Song 'Wonderwall'?",
+        "options": [
+          "Definitely Maybe",
+          "(What's the Story) Morning Glory?",
+          "Be Here Now",
+          "Heathen Chemistry"
+        ],
+        "correctAnswer": "(What's the Story) Morning Glory?",
+        "funFact": "'Wonderwall' wurde einer der bekanntesten Songs der 1990er Jahre und brachte Oasis weltweiten Erfolg. Das Album '(What's the Story) Morning Glory?' etablierte die Band als eine der führenden Gruppen der Britpop-Bewegung."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Wonderwall' wurde ursprünglich von Noel Gallagher als Liebeslied für seine damalige Freundin geschrieben.",
+        "correctAnswer": true,
+        "funFact": "Noel Gallagher schrieb 'Wonderwall' für seine damalige Freundin Meg Mathews. Der Song wurde später zu einem universellen Symbol für unerwiderte Liebe und Unsicherheit in Beziehungen, auch wenn Gallagher später sagte, dass er über etwas anderes nachgedacht habe."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/oasis_wonderwall.mp3",
+        "options": [
+          "Don't Look Back in Anger",
+          "Champagne Supernova",
+          "Wonderwall",
+          "Some Might Say"
+        ],
+        "correctAnswer": "Wonderwall",
+        "funFact": "'Wonderwall' ist bis heute einer der meistgespielten Songs von Oasis und wird regelmäßig auf Radiosendern auf der ganzen Welt gespielt. Der akustische Sound und die einfache, aber eindringliche Melodie machten ihn zu einem der größten Hits der Band."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Californication",
+    "artist": "Red Hot Chili Peppers",
+    "album": "Californication",
+    "year": 1999,
+    "coverSrc": "/bandcover/pop-rock/red_hot_chili_peppers_californication.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von den Red Hot Chili Peppers enthält den Song 'Californication'?",
+        "options": [
+          "Blood Sugar Sex Magik",
+          "By the Way",
+          "Californication",
+          "Stadium Arcadium"
+        ],
+        "correctAnswer": "Californication",
+        "funFact": "'Californication' markierte die Rückkehr von Gitarrist John Frusciante und führte die Band zu neuem musikalischen Erfolg. Es wurde eines der meistverkauften Alben der Red Hot Chili Peppers und enthielt mehrere Hits, darunter 'Scar Tissue' und 'Otherside'."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Californication' handelt von den Auswirkungen der Hollywood-Kultur auf die Welt.",
+        "correctAnswer": true,
+        "funFact": "Der Song 'Californication' thematisiert die Oberflächlichkeit und den Einfluss der kalifornischen (insbesondere Hollywood-)Kultur auf die Welt. Er reflektiert die Themen Ruhm, Schönheit und die dunkleren Seiten des kalifornischen Traums."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/red_hot_chili_peppers_californication.mp3",
+        "options": [
+          "Scar Tissue",
+          "Otherside",
+          "Californication",
+          "Around the World"
+        ],
+        "correctAnswer": "Californication",
+        "funFact": "'Californication' ist einer der erfolgreichsten Songs der Red Hot Chili Peppers und thematisiert den Einfluss der kalifornischen Kultur. Das entspannte, aber melancholische Gitarrenspiel und Anthony Kiedis' eindringlicher Gesang machten den Song zu einem Highlight der Bandkarriere."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Big Love",
+    "artist": "Fleetwood Mac",
+    "album": "Tango in the Night",
+    "year": 1987,
+    "coverSrc": "/bandcover/pop-rock/fleetwood_mac_tango_in_the_night.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Fleetwood Mac enthält den Song 'Big Love'?",
+        "options": ["Rumours", "Mirage", "Tusk", "Tango in the Night"],
+        "correctAnswer": "Tango in the Night",
+        "funFact": "'Tango in the Night' war das 14. Studioalbum von Fleetwood Mac und wurde ursprünglich als Soloprojekt von Lindsey Buckingham konzipiert. Es wurde jedoch zu einem kompletten Bandalbum und enthält mehrere Hits, darunter 'Big Love' und 'Little Lies'."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'Tango in the Night' wurde 1987 veröffentlicht und war das letzte Album, das Lindsey Buckingham vor seinem Ausstieg bei Fleetwood Mac aufnahm.",
+        "correctAnswer": true,
+        "funFact": "Nach der Veröffentlichung von 'Tango in the Night' verließ Lindsey Buckingham die Band, bevor sie auf Tour ging. Das Album war eines der kommerziell erfolgreichsten der Band in den 1980er Jahren und markierte einen Wendepunkt in ihrer Geschichte."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/fleetwood_mac_tango_in_the_night.mp3",
+        "options": ["Big Love", "Little Lies", "Everywhere", "Seven Wonders"],
+        "correctAnswer": "Big Love",
+        "funFact": "'Big Love' war der erste Song des Albums 'Tango in the Night' und markierte Lindsey Buckinghams Rückkehr zum Leadgesang. Der Song war ein großer Hit und wurde für seinen innovativen Gitarrensound und die markante Produktion gelobt."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "While My Guitar Gently Weeps",
+    "artist": "The Beatles",
+    "album": "The Beatles (The White Album)",
+    "year": 1968,
+    "coverSrc": "/bandcover/pop-rock/the_beatles_white_album.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von The Beatles enthält den Song 'While My Guitar Gently Weeps'?",
+        "options": [
+          "Rubber Soul",
+          "Revolver",
+          "The Beatles (The White Album)",
+          "Sgt. Pepper's Lonely Hearts Club Band"
+        ],
+        "correctAnswer": "The Beatles (The White Album)",
+        "funFact": "'The White Album' wurde als Doppelalbum veröffentlicht und enthält eine vielseitige Sammlung von Songs, die die Bandmitglieder weitgehend unabhängig voneinander komponiert hatten. 'While My Guitar Gently Weeps' wurde von George Harrison geschrieben und enthält ein legendäres Gitarrensolo von Eric Clapton."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'The White Album' war das erste Beatles-Album, das als Doppelalbum veröffentlicht wurde.",
+        "correctAnswer": true,
+        "funFact": "'The White Album' war das erste Doppelalbum der Beatles und markierte eine Zeit, in der die Bandmitglieder zunehmend individuelle kreative Wege einschlugen. Das Album enthält eine Vielzahl von musikalischen Stilen, von Rock bis hin zu experimenteller Musik."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/the_beatles_white_album.mp3",
+        "options": [
+          "Back in the U.S.S.R.",
+          "While My Guitar Gently Weeps",
+          "Blackbird",
+          "Helter Skelter"
+        ],
+        "correctAnswer": "While My Guitar Gently Weeps",
+        "funFact": "'While My Guitar Gently Weeps' wurde von George Harrison als einer der emotionalsten Songs auf 'The White Album' geschrieben. Eric Clapton, ein enger Freund Harrisons, spielte das Gitarrensolo auf der Aufnahme, obwohl er nicht offiziell zur Band gehörte."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Smells Like Teen Spirit",
+    "artist": "Nirvana",
+    "album": "Nevermind",
+    "year": 1991,
+    "coverSrc": "/bandcover/pop-rock/nirvana_nevermind.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Nirvana enthält den Song 'Smells Like Teen Spirit'?",
+        "options": [
+          "In Utero",
+          "Bleach",
+          "Nevermind",
+          "MTV Unplugged in New York"
+        ],
+        "correctAnswer": "Nevermind",
+        "funFact": "'Nevermind' war das zweite Studioalbum von Nirvana und katapultierte die Band in den Mainstream. Der Song 'Smells Like Teen Spirit' wurde zur Hymne der Generation X und etablierte Grunge als dominierenden Musikstil der frühen 1990er Jahre."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Smells Like Teen Spirit' wurde als rebellische Hymne gegen den Konsum und die Mainstream-Kultur geschrieben.",
+        "correctAnswer": true,
+        "funFact": "'Smells Like Teen Spirit' wurde von Kurt Cobain als satirische Antwort auf die Erwartungshaltung der Popkultur geschrieben. Der Song kritisierte den Konformismus und wurde ironischerweise selbst zu einem kommerziellen Erfolg, der den Grunge-Movement definierte."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/nirvana_nevermind.mp3",
+        "options": [
+          "Come as You Are",
+          "Lithium",
+          "Smells Like Teen Spirit",
+          "In Bloom"
+        ],
+        "correctAnswer": "Smells Like Teen Spirit",
+        "funFact": "'Smells Like Teen Spirit' wurde zum bekanntesten Song von Nirvana und gilt als der Track, der den Grunge-Sound weltweit bekannt machte. Der Song erreichte weltweiten Erfolg und bleibt ein Symbol der 1990er-Jahre."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Light My Fire",
+    "artist": "The Doors",
+    "album": "The Doors",
+    "year": 1967,
+    "coverSrc": "/bandcover/pop-rock/the_doors_the_doors.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von The Doors enthält den Song 'Light My Fire'?",
+        "options": [
+          "Strange Days",
+          "Morrison Hotel",
+          "The Soft Parade",
+          "The Doors"
+        ],
+        "correctAnswer": "The Doors",
+        "funFact": "'Light My Fire' war der erste große Hit der Band und half The Doors, sich als eine der einflussreichsten Bands der 1960er Jahre zu etablieren. Der Song wurde zu einer Hymne der Gegenkultur und zählt zu den bekanntesten Rocksongs aller Zeiten."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Light My Fire' wurde von Jim Morrison geschrieben.",
+        "correctAnswer": false,
+        "funFact": "Obwohl Jim Morrison den Großteil der Texte von The Doors schrieb, wurde 'Light My Fire' von Robby Krieger, dem Gitarristen der Band, geschrieben. Der Song war ein Beispiel für die Zusammenarbeit innerhalb der Band und ist eines der Markenzeichen der Doors."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/the_doors_the_doors.mp3",
+        "options": [
+          "Break On Through (To the Other Side)",
+          "The End",
+          "Light My Fire",
+          "People Are Strange"
+        ],
+        "correctAnswer": "Light My Fire",
+        "funFact": "'Light My Fire' ist berühmt für sein markantes Orgel-Riff, gespielt von Ray Manzarek. Der Song half The Doors, weltweite Anerkennung zu erlangen, und bleibt bis heute einer ihrer bekanntesten Songs."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Tumbling Dice",
+    "artist": "The Rolling Stones",
+    "album": "Exile on Main St.",
+    "year": 1972,
+    "coverSrc": "/bandcover/pop-rock/the_rolling_stones_exile_on_main_st.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von The Rolling Stones enthält den Song 'Tumbling Dice'?",
+        "options": [
+          "Sticky Fingers",
+          "Let It Bleed",
+          "Exile on Main St.",
+          "Beggars Banquet"
+        ],
+        "correctAnswer": "Exile on Main St.",
+        "funFact": "'Exile on Main St.' wurde größtenteils in einem gemieteten Haus in Frankreich aufgenommen, während die Band steuerliche Probleme hatte. Es wurde als eines der besten Alben der Band gefeiert und ist bekannt für seine rohe, bluesige Ästhetik."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'Exile on Main St.' wurde vollständig in einem professionellen Studio aufgenommen.",
+        "correctAnswer": false,
+        "funFact": "Ein Großteil des Albums wurde in der Villa Nellcôte in Frankreich aufgenommen, einem gemieteten Haus, das zu einem improvisierten Studio umgebaut wurde. Die unkonventionellen Aufnahmebedingungen trugen zum einzigartigen Sound des Albums bei."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/the_rolling_stones_exile_on_main_st.mp3",
+        "options": ["Rocks Off", "Tumbling Dice", "Happy", "Sweet Virginia"],
+        "correctAnswer": "Tumbling Dice",
+        "funFact": "'Tumbling Dice' war die Leadsingle von 'Exile on Main St.' und wurde schnell zu einem der bekanntesten Songs der Rolling Stones. Der Song handelt von einem Spieler und reflektiert das unbeschwerte, risikoreiche Leben, das die Band oft in ihren Texten behandelt."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "The River",
+    "artist": "Bruce Springsteen",
+    "album": "The River",
+    "year": 1980,
+    "coverSrc": "/bandcover/pop-rock/bruce_springsteen_the_river.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Bruce Springsteen enthält den Song 'The River'?",
+        "options": [
+          "Born to Run",
+          "Darkness on the Edge of Town",
+          "The River",
+          "Nebraska"
+        ],
+        "correctAnswer": "The River",
+        "funFact": "'The River' war das erste Doppelalbum von Bruce Springsteen und erreichte Platz 1 der Billboard-Charts. Der Titeltrack gilt als einer der emotionalsten Songs in Springsteens Karriere und erzählt eine melancholische Geschichte von Liebe und Verlust in der Arbeiterklasse."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'The River' war das erste Doppelalbum von Bruce Springsteen.",
+        "correctAnswer": true,
+        "funFact": "'The River' zeigte die vielseitige musikalische Bandbreite von Bruce Springsteen, von fröhlichen Rock-Songs bis hin zu tiefgründigen Balladen. Es markierte einen Wendepunkt in seiner Karriere, da es Themen wie wirtschaftliche Unsicherheit und das Erwachsenwerden behandelte."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/bruce_springsteen_the_river.mp3",
+        "options": [
+          "Hungry Heart",
+          "The River",
+          "Independence Day",
+          "Two Hearts"
+        ],
+        "correctAnswer": "The River",
+        "funFact": "'The River' ist eine der emotionalsten Balladen von Bruce Springsteen und erzählt die Geschichte einer schwierigen Beziehung und des wirtschaftlichen Überlebenskampfs. Der Song wurde zu einem festen Bestandteil von Springsteens Live-Auftritten."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Sussudio",
+    "artist": "Phil Collins",
+    "album": "No Jacket Required",
+    "year": 1985,
+    "coverSrc": "/bandcover/pop-rock/phil_collins_no_jacket_required.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Phil Collins enthält den Song 'Sussudio'?",
+        "options": [
+          "Face Value",
+          "Hello, I Must Be Going!",
+          "No Jacket Required",
+          "But Seriously"
+        ],
+        "correctAnswer": "No Jacket Required",
+        "funFact": "'No Jacket Required' war das dritte Soloalbum von Phil Collins und wurde ein großer kommerzieller Erfolg. Es brachte mehrere Top-Hits hervor, darunter 'Sussudio' und 'One More Night', und gewann den Grammy für das Album des Jahres."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'No Jacket Required' erhielt seinen Titel, nachdem Phil Collins in einem noblen Restaurant keinen Zutritt ohne Jackett erhielt.",
+        "correctAnswer": true,
+        "funFact": "Der Titel des Albums entstand, nachdem Phil Collins in ein schickes Restaurant in Chicago ging und ihm der Zutritt verweigert wurde, weil er kein Jackett trug. Der Vorfall inspirierte ihn, den humorvollen Titel 'No Jacket Required' zu wählen."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/phil_collins_no_jacket_required.mp3",
+        "options": [
+          "Sussudio",
+          "One More Night",
+          "Take Me Home",
+          "Don't Lose My Number"
+        ],
+        "correctAnswer": "Sussudio",
+        "funFact": "'Sussudio' wurde zu einem der größten Hits von Phil Collins und ist bekannt für seinen eingängigen Synthesizer-Sound. Collins selbst gab zu, dass der Name 'Sussudio' keinen besonderen Sinn hat, sondern eine Wortschöpfung war, die er einfach mochte."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Another One Bites the Dust",
+    "artist": "Queen",
+    "album": "The Game",
+    "year": 1980,
+    "coverSrc": "/bandcover/pop-rock/queen_the_game.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Queen enthält den Song 'Another One Bites the Dust'?",
+        "options": [
+          "A Night at the Opera",
+          "News of the World",
+          "The Game",
+          "Sheer Heart Attack"
+        ],
+        "correctAnswer": "The Game",
+        "funFact": "'The Game' war das erste Album von Queen, das Synthesizer enthielt. Es war ein großer kommerzieller Erfolg und brachte mehrere Hits hervor, darunter 'Another One Bites the Dust' und 'Crazy Little Thing Called Love'."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'The Game' markierte den ersten Einsatz von Synthesizern in der Musik von Queen.",
+        "correctAnswer": true,
+        "funFact": "Queen hatte bis dahin keine Synthesizer verwendet und sich sogar mit dem Hinweis 'No Synthesizers' auf ihren früheren Alben davon distanziert. Mit 'The Game' änderte sich das, und der Einsatz von Synthesizern trug zum moderneren Sound des Albums bei."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/queen_the_game.mp3",
+        "options": [
+          "Crazy Little Thing Called Love",
+          "Another One Bites the Dust",
+          "Play the Game",
+          "Dragon Attack"
+        ],
+        "correctAnswer": "Another One Bites the Dust",
+        "funFact": "'Another One Bites the Dust' wurde von Queen-Bassist John Deacon geschrieben und war stark vom Funk beeinflusst. Der Song wurde ein weltweiter Hit und ist bis heute einer der bekanntesten Songs der Band."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Separate Ways (Worlds Apart)",
+    "artist": "Journey",
+    "album": "Frontiers",
+    "year": 1983,
+    "coverSrc": "/bandcover/pop-rock/journey_frontiers.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Journey enthält den Song 'Separate Ways (Worlds Apart)'?",
+        "options": ["Escape", "Raised on Radio", "Departure", "Frontiers"],
+        "correctAnswer": "Frontiers",
+        "funFact": "'Frontiers' war das achte Studioalbum von Journey und enthielt mehrere Hits, darunter 'Separate Ways (Worlds Apart)' und 'Faithfully'. Das Album erreichte Platz 2 der US-Billboard-Charts und festigte den Erfolg der Band in den 1980er Jahren."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Separate Ways (Worlds Apart)' wurde als Liebeslied über eine Fernbeziehung geschrieben.",
+        "correctAnswer": true,
+        "funFact": "'Separate Ways (Worlds Apart)' handelt von der schmerzhaften Trennung zweier Liebender, die durch äußere Umstände auseinandergerissen wurden. Der kraftvolle Song ist bekannt für sein ikonisches Keyboard-Riff und seine emotionalen Texte."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/journey_frontiers.mp3",
+        "options": [
+          "Faithfully",
+          "Separate Ways (Worlds Apart)",
+          "Send Her My Love",
+          "After the Fall"
+        ],
+        "correctAnswer": "Separate Ways (Worlds Apart)",
+        "funFact": "'Separate Ways (Worlds Apart)' wurde einer der größten Hits von Journey und bleibt ein fester Bestandteil ihrer Live-Auftritte. Der Song wurde auch für sein episches Musikvideo bekannt, das oft in den 1980er-Jahre-Referenzen auftaucht."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Summer of '69",
+    "artist": "Bryan Adams",
+    "album": "Reckless",
+    "year": 1984,
+    "coverSrc": "/bandcover/pop-rock/bryan_adams_reckless.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Bryan Adams enthält den Song 'Summer of '69'?",
+        "options": [
+          "Cuts Like a Knife",
+          "Into the Fire",
+          "Reckless",
+          "Waking Up the Neighbours"
+        ],
+        "correctAnswer": "Reckless",
+        "funFact": "'Reckless' war das erfolgreichste Album von Bryan Adams und brachte sechs Hitsingles hervor, darunter 'Run to You', 'Heaven' und 'Summer of '69'. Es festigte seinen Status als Rock-Ikone der 1980er Jahre."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Summer of '69' handelt von tatsächlichen Ereignissen, die Bryan Adams im Jahr 1969 erlebt hat.",
+        "correctAnswer": false,
+        "funFact": "'Summer of '69' handelt nicht wörtlich von den Ereignissen des Jahres 1969, sondern ist vielmehr eine nostalgische Reflexion über die Jugend und die Liebe zur Musik. Bryan Adams war im Jahr 1969 erst neun Jahre alt."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/bryan_adams_reckless.mp3",
+        "options": ["Run to You", "Heaven", "Summer of '69", "Somebody"],
+        "correctAnswer": "Summer of '69",
+        "funFact": "'Summer of '69' wurde einer der bekanntesten Songs von Bryan Adams und ist bis heute eine Hymne des klassischen Rock. Der Song vermittelt das Gefühl der Freiheit und die Nostalgie eines unvergesslichen Sommers."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Jump",
+    "artist": "Van Halen",
+    "album": "1984",
+    "year": 1984,
+    "coverSrc": "/bandcover/pop-rock/van_halen_1984.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Van Halen enthält den Song 'Jump'?",
+        "options": [
+          "Women and Children First",
+          "Diver Down",
+          "1984",
+          "Fair Warning"
+        ],
+        "correctAnswer": "1984",
+        "funFact": "'1984' markierte einen stilistischen Wandel für Van Halen und brachte ihren größten kommerziellen Erfolg. 'Jump', der mit einem Synthesizer-Riff beginnt, wurde ihr einziger Nummer-1-Hit in den USA und veränderte den typischen Sound der Band."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Jump' war der erste Song von Van Halen, der stark auf Synthesizer setzte.",
+        "correctAnswer": true,
+        "funFact": "'Jump' war eine Abkehr vom traditionellen Gitarrenzentrierten Sound von Van Halen. Eddie Van Halen spielte das ikonische Synthesizer-Riff, das den Song einleitete, und trug damit zu einem neuen Klang bei, der das Album '1984' definierte."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/van_halen_1984.mp3",
+        "options": ["Panama", "Hot for Teacher", "Jump", "I'll Wait"],
+        "correctAnswer": "Jump",
+        "funFact": "'Jump' wurde zum größten Hit von Van Halen und ist bis heute einer ihrer bekanntesten Songs. Der Synthesizer-Riff kombiniert mit Eddie Van Halens Gitarrensolo machte den Song zu einer einzigartigen Mischung aus Rock und Pop."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Walk This Way",
+    "artist": "Aerosmith",
+    "album": "Toys in the Attic",
+    "year": 1975,
+    "coverSrc": "/bandcover/pop-rock/aerosmith_toys_in_the_attic.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Aerosmith enthält den Song 'Walk This Way'?",
+        "options": [
+          "Rocks",
+          "Get Your Wings",
+          "Toys in the Attic",
+          "Permanent Vacation"
+        ],
+        "correctAnswer": "Toys in the Attic",
+        "funFact": "'Toys in the Attic' ist eines der erfolgreichsten Alben von Aerosmith und verhalf der Band zu ihrem Durchbruch. Neben 'Walk This Way' enthält es auch den Hit 'Sweet Emotion', der die Band zu einer der größten Rockbands der 1970er Jahre machte."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Walk This Way' wurde 1986 erneut erfolgreich, als Aerosmith ihn zusammen mit Run-D.M.C. aufnahmen.",
+        "correctAnswer": true,
+        "funFact": "Der Song 'Walk This Way' wurde ursprünglich 1975 veröffentlicht, aber 1986 in Zusammenarbeit mit der Hip-Hop-Gruppe Run-D.M.C. wieder aufgenommen. Diese Version brachte den Song und Aerosmith einer neuen Generation von Fans näher und trug zur Popularität des Crossover-Stils zwischen Rock und Hip-Hop bei."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/aerosmith_toys_in_the_attic.mp3",
+        "options": [
+          "Sweet Emotion",
+          "Toys in the Attic",
+          "Walk This Way",
+          "Big Ten Inch Record"
+        ],
+        "correctAnswer": "Walk This Way",
+        "funFact": "'Walk This Way' ist einer der bekanntesten Songs von Aerosmith und ist bekannt für seine funkige Gitarrenlinie und Steven Tylers energischen Gesang. Der Song wurde später durch die Zusammenarbeit mit Run-D.M.C. zu einem ikonischen Crossover-Hit."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "One",
+    "artist": "U2",
+    "album": "Achtung Baby",
+    "year": 1991,
+    "coverSrc": "/bandcover/pop-rock/u2_achtung_baby.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von U2 enthält den Song 'One'?",
+        "options": [
+          "The Joshua Tree",
+          "Rattle and Hum",
+          "Achtung Baby",
+          "Zooropa"
+        ],
+        "correctAnswer": "Achtung Baby",
+        "funFact": "'Achtung Baby' markierte einen stilistischen Wandel für U2, der elektronische Einflüsse mit ihrem typischen Rock-Sound kombinierte. Der Song 'One' wurde zu einer der bekanntesten Balladen der Band und thematisiert Einheit und Versöhnung."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'Achtung Baby' wurde während der Aufnahmen in Berlin inspiriert, was die düstere und experimentelle Natur des Albums prägte.",
+        "correctAnswer": true,
+        "funFact": "U2 nahm einen Großteil von 'Achtung Baby' in den Berliner Hansa Studios auf, was die dunklere und experimentellere Stimmung des Albums beeinflusste. Die Aufnahmesessions waren eine schwierige Phase für die Band, aber das Album brachte ihnen großen Erfolg."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/u2_achtung_baby.mp3",
+        "options": [
+          "The Fly",
+          "Mysterious Ways",
+          "One",
+          "Even Better Than the Real Thing"
+        ],
+        "correctAnswer": "One",
+        "funFact": "'One' wurde während der schwierigen Aufnahmesessions in Berlin geschrieben und half, die Band zu vereinen, die sich damals fast aufgelöst hätte. Der Song wurde zu einem Symbol für Einheit und Solidarität und bleibt einer der bekanntesten Titel von U2."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Uptown Girl",
+    "artist": "Billy Joel",
+    "album": "An Innocent Man",
+    "year": 1983,
+    "coverSrc": "/bandcover/pop-rock/billy_joel_an_innocent_man.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von Billy Joel enthält den Song 'Uptown Girl'?",
+        "options": [
+          "The Stranger",
+          "An Innocent Man",
+          "52nd Street",
+          "Glass Houses"
+        ],
+        "correctAnswer": "An Innocent Man",
+        "funFact": "'An Innocent Man' war eine Hommage an die Musik der 1950er und frühen 1960er Jahre, die Billy Joel inspirierte. 'Uptown Girl' wurde ein weltweiter Hit und ist eine Hommage an Frankie Valli und die Four Seasons."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Uptown Girl' handelt von Billy Joels damaliger Freundin, dem Model Christie Brinkley.",
+        "correctAnswer": true,
+        "funFact": "'Uptown Girl' wurde von Billy Joel für Christie Brinkley geschrieben, die später seine Frau wurde. Der Song erzählt die Geschichte eines Jungen aus der Arbeiterklasse, der sich in ein wohlhabendes 'Uptown Girl' verliebt."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/billy_joel_an_innocent_man.mp3",
+        "options": [
+          "The Longest Time",
+          "Tell Her About It",
+          "Uptown Girl",
+          "An Innocent Man"
+        ],
+        "correctAnswer": "Uptown Girl",
+        "funFact": "'Uptown Girl' wurde einer der größten Hits von Billy Joel und ist bekannt für seine eingängige Melodie und das nostalgische Musikvideo, das in einer Werkstatt spielt. Der Song bleibt ein Klassiker der 1980er Jahre."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "London Calling",
+    "artist": "The Clash",
+    "album": "London Calling",
+    "year": 1979,
+    "coverSrc": "/bandcover/pop-rock/the_clash_london_calling.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von The Clash enthält den Song 'London Calling'?",
+        "options": [
+          "Combat Rock",
+          "Give 'Em Enough Rope",
+          "London Calling",
+          "Sandinista!"
+        ],
+        "correctAnswer": "London Calling",
+        "funFact": "'London Calling' ist das dritte Studioalbum von The Clash und wird oft als eines der größten Alben aller Zeiten angesehen. Der gleichnamige Titelsong war ein politisches Statement gegen soziale Ungerechtigkeit und die Gefahr eines nuklearen Krieges."
+      },
+      {
+        "type": "true-false",
+        "question": "Das Album 'London Calling' markierte den Übergang von The Clash vom reinen Punk-Rock zu einem vielfältigeren musikalischen Stil.",
+        "correctAnswer": true,
+        "funFact": "Während The Clash als Punk-Band bekannt wurden, mischten sie auf 'London Calling' verschiedene Genres wie Reggae, Ska und Rockabilly. Dies markierte einen Wendepunkt in ihrem Sound und zeigte ihre musikalische Vielseitigkeit."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/the_clash_london_calling.mp3",
+        "options": [
+          "Train in Vain",
+          "London Calling",
+          "Clampdown",
+          "The Guns of Brixton"
+        ],
+        "correctAnswer": "London Calling",
+        "funFact": "Der Song 'London Calling' wurde zu einem der bekanntesten Songs von The Clash. Die kraftvolle Mischung aus Punk und Reggae, gepaart mit den apokalyptischen Texten von Joe Strummer, machte den Song zu einem Meilenstein der Punk-Rock-Geschichte."
+      }
+    ]
+  },
+  {
+    "category": "pop-rock",
+    "song": "Gimme Shelter",
+    "artist": "The Rolling Stones",
+    "album": "Let It Bleed",
+    "year": 1969,
+    "coverSrc": "/bandcover/pop-rock/the_rolling_stones_let_it_bleed.jpg",
+    "questions": [
+      {
+        "type": "multiple-choice",
+        "question": "Welches Album von The Rolling Stones enthält den Song 'Gimme Shelter'?",
+        "options": [
+          "Beggars Banquet",
+          "Let It Bleed",
+          "Sticky Fingers",
+          "Exile on Main St."
+        ],
+        "correctAnswer": "Let It Bleed",
+        "funFact": "'Let It Bleed' wurde 1969 veröffentlicht und enthält einige der ikonischsten Songs der Stones, darunter 'Gimme Shelter' und 'You Can't Always Get What You Want'. Es wurde zu einem der Höhepunkte ihrer Karriere und spiegelt die Unruhen der späten 1960er Jahre wider."
+      },
+      {
+        "type": "true-false",
+        "question": "Der Song 'Gimme Shelter' wurde während der turbulenten politischen Ereignisse und des Vietnamkriegs geschrieben.",
+        "correctAnswer": true,
+        "funFact": "'Gimme Shelter' wurde inmitten der politischen Unruhen der späten 1960er Jahre und des Vietnamkriegs geschrieben. Der Song spiegelt die Ängste und den Aufruhr der Zeit wider, und die düstere Atmosphäre des Tracks macht ihn zu einem der intensivsten Songs der Rolling Stones."
+      },
+      {
+        "type": "audio",
+        "question": "Welcher Song wird in diesem Audioausschnitt gespielt?",
+        "audio": "/mp3s/pop-rock/the_rolling_stones_let_it_bleed.mp3",
+        "options": [
+          "Gimme Shelter",
+          "You Can't Always Get What You Want",
+          "Midnight Rambler",
+          "Love in Vain"
+        ],
+        "correctAnswer": "Gimme Shelter",
+        "funFact": "'Gimme Shelter' gilt als einer der kraftvollsten und düstersten Songs der Rolling Stones. Die intensive Stimmung des Songs, gepaart mit Merry Clayton's eindringlichem Gesang, machte ihn zu einem der größten Rockklassiker."
+      }
+    ]
   }
 ]

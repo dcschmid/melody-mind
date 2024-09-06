@@ -323,12 +323,64 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       // Clear the options container
       optionsContainer.innerHTML = "";
 
+<<<<<<< HEAD:src/pages/[category]/[difficulty].astro
       question.options.forEach(function (option: any) {
         const button = document.createElement("button");
         button.textContent = option;
         button.className = "button";
         button.onclick = function () {
           handleAnswer(option, question.correctAnswer, question, album);
+=======
+      // Add the audio player if the question is an audio question
+      // The audio player element is created with controls and a source element
+      // The source element is given the URL of the audio and the type of the audio
+      // The button for each option is created and appended to the options container
+      // The button is given the text of the option and the correct answer
+      // The button is given an event listener to handle the answer
+      if (question.type === "audio") {
+        const audioElement = document.createElement("audio");
+        audioElement.controls = true;
+        const sourceElement = document.createElement("source");
+        sourceElement.src = question.audio;
+        sourceElement.type = "audio/mpeg";
+        audioElement.appendChild(sourceElement);
+        optionsContainer.appendChild(audioElement);
+
+        question.options.forEach(function (option: any) {
+          const button = document.createElement("button");
+          button.textContent = option;
+          button.className = "button";
+          button.onclick = function () {
+            /**
+             * Handles the answer of the question
+             * @param option The option of the question
+             * @param correctAnswer The correct answer of the question
+             * @param question The question object
+             * @param album The album object
+             */
+            handleAnswer(option, question.correctAnswer, question, album);
+          };
+          optionsContainer.appendChild(button);
+        });
+      }
+
+      if (question.type === "multiple-choice") {
+        question.options.forEach(function (option: any) {
+          const button = document.createElement("button");
+          button.textContent = option;
+          button.className = "button";
+          button.onclick = function () {
+            handleAnswer(option, question.correctAnswer, question, album);
+          };
+          optionsContainer.appendChild(button);
+        });
+      } else if (question.type === "true-false") {
+        const trueButton = document.createElement("button");
+        trueButton.textContent = "Wahr";
+        trueButton.className = "button";
+        trueButton.onclick = function () {
+          handleAnswer(true, question.correctAnswer, question, album);
+>>>>>>> f9dceef (feat: remove type image questions):src/pages/[category]/game.astro
         };
         optionsContainer.appendChild(button);
       });
