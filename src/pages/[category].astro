@@ -74,15 +74,12 @@ if (!currentCategory) {
   .introText {
     display: flex;
     flex-direction: column;
-    gap: var(--padding-medium); /* Verwende deine Spacing-Variablen */
-    align-items: center;
-    margin-bottom: var(--padding-medium); /* Konsistenter Abstand */
+    gap: var(--padding-medium);
+    margin-bottom: var(--padding-medium);
   }
 
   .headline {
-    font-size: var(
-      --header-font-size
-    ); /* Nutze die Header-Größe aus deinen Variablen */
+    font-size: var(--header-font-size);
     font-weight: 900;
     font-style: normal;
     line-height: 120%;
@@ -92,14 +89,16 @@ if (!currentCategory) {
   .category {
     display: flex;
     flex-direction: column;
-    gap: var(--padding-medium); /* Abstand zwischen Cover und Text */
-    padding: var(--padding-medium); /* Innenabstand für die Kategorie */
-    align-items: center; /* Zentriert den Inhalt */
-    background-color: var(--secondary-color); /* Hintergrundfarbe */
-    border-radius: var(--border-radius); /* Abrundung */
-    box-shadow: var(--box-shadow); /* Optionaler Schatten für Tiefe */
-    max-width: 480px; /* Breitenbegrenzung */
-    margin: 0 auto; /* Zentriert den Container */
+    gap: var(--padding-medium);
+    align-items: center;
+
+    max-width: 480px;
+    margin: 0 auto;
+    padding: var(--padding-medium);
+
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
   }
 
   .cover {
@@ -107,20 +106,19 @@ if (!currentCategory) {
   }
 
   .coverImage {
-    border-radius: var(
-      --border-radius
-    ); /* Verwende deine border-radius Variable */
-    width: 100%; /* Bild füllt die verfügbare Breite */
-    max-width: 280px; /* Maximalbreite des Bildes */
+    width: 100%;
+    max-width: 280px;
+    border-radius: var(--border-radius);
   }
 
   .text {
-    font-size: var(--body-font-size); /* Nutze deine body-font-size */
+    max-width: 480px;
+
+    font-size: var(--body-font-size);
     font-weight: 400;
     line-height: 1.5;
     hyphens: auto;
-    max-width: 700px; /* Maximalbreite für besseren Lesefluss */
-    text-align: center; /* Zentriert den Text */
+    text-align: center;
   }
 
   .centerButton {

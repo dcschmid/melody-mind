@@ -71,55 +71,29 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
     <style lang="scss" is:global>
       :root {
         --secondary-color: #e1e1f0;
-        --highlight-color: #ffcc00;
+        --highlight-color: #fc0;
         --background-color: #a0a4c5;
         --text-color: #2e2e2e;
         --error-color: #ff5733;
-        --button-hover-color: #ffcc00;
+        --button-hover-color: #fc0;
         --button-text-color: #fff;
-
         --font-family: "Source Sans Pro", sans-serif;
         --header-font-size: 1.5em;
-        --body-font-size: 1.125em;
-        --button-font-size: 1em;
-
+        --body-font-size: 1em;
+        --button-font-size: 1rem;
         --padding-small: 8px;
         --padding-medium: 16px;
         --padding-large: 32px;
         --border-radius: 12px;
-        --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-
+        --box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
         --transition-speed: 0.2s;
-
-        --primary-color: #3a3a55;
-        --accent-color-1: #ff4500;
-        --accent-color-2: #4da6ff;
-        --accent-color-3: #013b01;
-        --accent-color-4: #ff6f61;
-        --text-color: #2e2e2e;
-        --colour-disabled: #250606;
-        --colour-text-secondary: #888;
-
-        /* Radiusvariablen */
-        --radius-circle: 128px;
-        --radius-rounded: 8px;
-        --spacing-15: 12px;
-        --spacing-1: 8px;
-        --spacing-2: 16px;
-        --spacing-3: 24px;
-        --spacing-lg: 32px;
-        --spacing-md: 24px;
-        --spacing-s: 12px;
-        --spacing-xl: 40px;
-        --spacing-xs: 8px;
-        --spacing-xxs: 4px;
       }
 
       html {
+        box-sizing: border-box;
         margin: var(--padding-small);
         font-family: var(--font-family);
         background-color: var(--background-color);
-        box-sizing: border-box;
       }
 
       *,
@@ -133,10 +107,12 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
         max-width: 480px;
         margin: 0 auto;
         padding: 0 var(--padding-medium);
-        background-color: var(--background-color);
-        color: var(--text-color);
+
         font-size: var(--body-font-size);
         line-height: 1.6;
+        color: var(--text-color);
+
+        background-color: var(--background-color);
       }
 
       header {
@@ -153,8 +129,8 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
       }
 
       .logo {
-        text-align: center;
         width: 33.3333%;
+        text-align: center;
       }
 
       .iconGroup {
@@ -162,14 +138,15 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
         gap: var(--padding-small);
         align-items: center;
         justify-content: flex-end;
+
         width: 33.3333%;
       }
 
       main {
+        padding: var(--padding-medium) 0;
         font-size: var(--body-font-size);
         line-height: 1.6;
         color: var(--text-color);
-        padding: var(--padding-medium) 0;
       }
 
       .hasMargin {
@@ -177,46 +154,53 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
       }
 
       .button {
+        cursor: pointer;
+
         display: flex;
         align-items: center;
         justify-content: center;
-        text-decoration: none;
-        background-color: var(--highlight-color);
-        color: var(--text-color);
-        border: none;
+
         padding: var(--padding-small) var(--padding-large);
+
         font-size: var(--button-font-size);
+        color: var(--text-color);
+        text-decoration: none;
+
+        background-color: var(--highlight-color);
+        border: none;
         border-radius: var(--border-radius);
-        cursor: pointer;
         box-shadow: var(--box-shadow);
+
         transition:
           transform var(--transition-speed) ease-in-out,
           box-shadow var(--transition-speed) ease-in-out;
 
         &:hover,
         &:focus-visible {
-          background-color: var(--button-hover-color);
           transform: scale(1.05);
-          box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+          background-color: var(--button-hover-color);
+          box-shadow: 0 7px 15px rgb(0 0 0 / 30%);
         }
       }
 
       button {
         cursor: pointer;
-        border: none;
-        background: none;
+
         margin: 0;
         padding: 0;
+
+        background: none;
+        border: none;
       }
 
-      @media (min-width: 600px) {
+      @media (width >= 600px) {
         body {
           max-width: 600px;
         }
 
         .logo {
-          width: auto;
           flex: 1;
+          width: auto;
         }
 
         .iconGroup {

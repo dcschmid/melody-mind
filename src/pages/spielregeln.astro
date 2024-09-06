@@ -125,33 +125,34 @@ import Layout from "@layouts/Layout.astro";
 
 <style lang="scss">
   h1 {
+    margin-bottom: var(--padding-large);
     font-size: var(--header-font-size);
     color: var(--text-color);
-    margin-bottom: var(--padding-large);
   }
 
   h2 {
-    color: var(--text-color);
-    font-size: 1.5em;
     margin-bottom: var(--padding-medium);
+    font-size: 1.5em;
+    color: var(--text-color);
   }
 
   p {
-    font-size: var(--body-font-size);
     margin-bottom: var(--padding-medium);
+    font-size: var(--body-font-size);
   }
 
   ul {
-    list-style-type: disc;
-    padding-left: var(--padding-large);
     margin-bottom: var(--padding-medium);
+    padding-left: var(--padding-large);
+    list-style-type: disc;
   }
 
   .rules-container {
     max-width: 480px;
     margin: 1rem auto;
-    background-color: var(--secondary-color);
     padding: var(--padding-large);
+
+    background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
   }

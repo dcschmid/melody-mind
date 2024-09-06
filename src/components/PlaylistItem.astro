@@ -29,18 +29,16 @@ import { Picture } from "astro:assets";
 <style lang="scss">
   .playlistItem {
     position: relative;
-    width: 7.438rem;
-    margin-bottom: var(--padding-medium); /* Nutze dein Padding für Abstand */
-    padding: var(--padding-small); /* Kleines Padding für inneren Abstand */
-    background-color: var(
-      --secondary-color
-    ); /* Sekundärfarbe für den Hintergrund */
-    border-radius: var(
-      --border-radius
-    ); /* Abrundung mit deiner border-radius Variable */
-    box-shadow: var(--box-shadow); /* Schatten gemäß deiner Design-Vorgabe */
 
-    @media screen and (min-width: 25.625rem) {
+    width: 7.438rem;
+    margin-bottom: var(--padding-medium);
+    padding: var(--padding-small);
+
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+
+    @media screen and (width >= 25.625rem) {
       width: 10.313rem;
     }
   }
@@ -48,11 +46,11 @@ import { Picture } from "astro:assets";
   .cover {
     width: 100%;
     height: auto;
-    border-radius: var(--border-radius); /* Runde Ecken für das Bild */
-    transition: opacity var(--transition-speed); /* Smooth transition für Hover */
+    border-radius: var(--border-radius);
+    transition: opacity var(--transition-speed);
 
     &.coverDisabled {
-      opacity: 0.4; /* Transparenz für deaktivierte Elemente */
+      opacity: 0.4;
     }
   }
 
@@ -60,32 +58,31 @@ import { Picture } from "astro:assets";
     position: absolute;
     z-index: 2;
     top: 50%;
-    left: 0;
     right: 0;
+    left: 0;
     transform: translateY(-50%);
-    background-color: rgba(
-      0,
-      0,
-      0,
-      0.6
-    ); /* Halbtransparenter Hintergrund für disabled */
-    padding: var(--padding-small); /* Padding für mehr Platz um den Text */
-    color: var(--button-text-color); /* Textfarbe aus deiner Button-Variable */
-    border-radius: var(--border-radius); /* Gleiche Abrundung */
-    font-size: 0.875rem; /* Textgröße für mobile Bildschirme */
-    text-align: center;
-    line-height: 1.5;
 
-    @media screen and (min-width: 25.625rem) {
-      font-size: 1.125rem; /* Größerer Text für größere Bildschirme */
+    padding: var(--padding-small);
+
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--button-text-color);
+    text-align: center;
+
+    background-color: rgb(0 0 0 / 60%);
+    border-radius: var(--border-radius);
+
+    @media screen and (width >= 25.625rem) {
+      font-size: 1.125rem;
     }
   }
 
   .headline {
-    margin-top: var(--padding-small); /* Abstand zwischen Bild und Text */
-    font-weight: 700;
-    font-size: var(--body-font-size); /* Größe aus deiner Variablen */
-    color: var(--text-color); /* Textfarbe */
+    margin-top: var(--padding-small);
+
+    font-size: var(--body-font-size);
+    font-weight: 600;
     line-height: 1.5;
+    color: var(--text-color);
   }
 </style>

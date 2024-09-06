@@ -15,26 +15,26 @@ const { headline, subline } = Astro.props;
   .introText {
     display: flex;
     flex-direction: column;
-    gap: var(--padding-small); /* Nutze deine Spacing-Variablen */
+    gap: var(--padding-small);
     align-items: center;
-    margin-bottom: var(--padding-small); /* Konsistenter Abstand */
+
+    margin-bottom: var(--padding-small);
   }
 
   .headline {
+    font-family: var(--font-family);
+    font-size: 1.5rem;
     font-weight: 900;
-    font-size: 1.5rem; /* Nutze hier die Fontgröße direkt */
     line-height: 1.5;
-    font-family: var(
-      --font-family
-    ); /* Nutze die Schriftfamilie aus deinen Variablen */
   }
 
   .subline {
     width: 100%;
     max-width: 30rem;
-    font-size: var(--body-font-size); /* Nutze die body-font-size Variable */
+
+    font-size: var(--body-font-size);
     line-height: 1.5;
-    color: var(--secondary-color); /* Nutze die Akzentfarbe */
+    color: var(--secondary-color);
     text-align: center;
   }
 </style>

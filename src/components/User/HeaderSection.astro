@@ -51,33 +51,39 @@ const totalUserPoints = currentUser[0].total_user_points;
 <style lang="scss">
   .headerBG {
     position: relative;
+
+    margin-bottom: var(--padding-medium);
     padding: var(--padding-small);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+
+    background-image: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0 / 50%)),
       url("/userbg/music-bg.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    margin-bottom: var(--padding-medium);
   }
 
   .headerContent {
+    z-index: 1;
+
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    z-index: 1;
   }
 
   .avatar {
     position: relative;
+
+    overflow: hidden;
+
     width: 130px;
     height: 130px;
     margin-bottom: var(--padding-small);
-    border-radius: 100%;
-    overflow: hidden;
+
     border: 4px solid var(--secondary-color);
+    border-radius: 100%;
     box-shadow: var(--box-shadow);
   }
 
@@ -96,24 +102,25 @@ const totalUserPoints = currentUser[0].total_user_points;
   }
 
   .nameContent {
+    z-index: 1;
+
     display: flex;
     flex-direction: column;
     gap: var(--padding-small);
     align-items: center;
     justify-content: center;
-    z-index: 1;
   }
 
   .name {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: column wrap;
+    align-items: center;
     align-self: center;
+
     font-size: var(--header-font-size);
     font-weight: 600;
     line-height: 1.5;
     color: var(--secondary-color);
-    flex-direction: column;
-    align-items: center;
   }
 
   .yellowName {
@@ -124,6 +131,7 @@ const totalUserPoints = currentUser[0].total_user_points;
   .points {
     display: flex;
     align-items: center;
+
     font-size: var(--body-font-size);
     font-weight: 700;
     line-height: 120%;

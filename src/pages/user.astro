@@ -47,38 +47,40 @@ const goldenLPs = await getGoldenLPs(user?.id);
 
   <style lang="scss">
     .content {
-      padding: var(--spacing-md);
+      padding: var(--padding-medium);
       background-color: var(--secondary-color);
-      border-radius: var(--border-radius); /* Abgerundete Ecken */
-      box-shadow: var(--box-shadow); /* Schatten für den Content-Container */
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
     }
 
     .lpHeadline {
-      font-size: 1.5rem; /* Größere Schriftgröße für Überschrift */
+      margin-bottom: var(--padding-medium);
+
+      font-size: 1.5rem;
       font-weight: 600;
-      color: var(--highlight-color); /* Primärfarbe für den Titel */
-      margin-bottom: var(--spacing-md); /* Abstand nach unten */
+      color: var(--highlight-color);
       text-align: center;
     }
 
     .goldenlps {
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-lg); /* Großer Abstand zwischen den LPs */
-      align-items: center; /* Zentrierte Ausrichtung */
-      padding: var(--spacing-md) var(--spacing-lg); /* Padding für den Innenabstand */
-      background: var(--background-color); /* Hintergrundfarbe */
-      border-radius: var(--border-radius); /* Abgerundete Ecken */
-      box-shadow: var(--box-shadow); /* Schatten für Tiefe */
-      max-width: 800px; /* Maximale Breite für bessere Ausrichtung */
-      margin: 0 auto; /* Zentrierung der goldenen LPs */
+      gap: var(--padding-large);
+      align-items: center;
+
+      margin: 0 auto;
+      padding: var(--padding-medium) var(--padding-large);
+
+      background: var(--background-color);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
     }
 
     .lpsRoot {
       display: flex;
-      flex-wrap: wrap; /* Flexibles Layout mit Zeilenumbruch */
-      gap: var(--spacing-md); /* Abstand zwischen den Items */
-      justify-content: center; /* Zentrierte Anordnung der LPs */
+      flex-wrap: wrap;
+      gap: var(--padding-medium);
+      justify-content: center;
     }
 
     .goldenlpsItem {
@@ -86,23 +88,23 @@ const goldenLPs = await getGoldenLPs(user?.id);
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      background-color: var(
-        --secondary-color
-      ); /* Hintergrundfarbe der LP-Items */
-      border-radius: var(--border-radius); /* Abgerundete Ecken */
-      padding: var(--spacing-s); /* Innenabstand der LP-Items */
-      box-shadow: var(--box-shadow); /* Schatten für plastischen Effekt */
+
+      padding: var(--padding-small);
+
+      background-color: var(--secondary-color);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
     }
 
     .lpGroup {
-      margin-bottom: var(--spacing-xs); /* Abstand zwischen Icon und Text */
+      margin-bottom: var(--padding-small);
     }
 
     .lpText {
-      font-size: 1rem; /* Größere Schriftgröße für Lesbarkeit */
-      font-weight: 500; /* Etwas fetterer Text für Klarheit */
-      color: var(--text-color); /* Standard Textfarbe */
-      text-align: center; /* Zentrierter Text */
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-color);
+      text-align: center;
     }
   </style>
 </Layout>
