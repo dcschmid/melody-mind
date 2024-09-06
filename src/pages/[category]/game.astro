@@ -286,25 +286,6 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
       // Clear the options container
       optionsContainer.innerHTML = "";
 
-      // Add the image to the options container if the question is an image question
-      if (question.type === "image") {
-        const imageElement = document.createElement("img");
-        imageElement.src = question.image;
-        imageElement.alt = "Frage Bild";
-        imageElement.className = "albumCover";
-        optionsContainer.appendChild(imageElement);
-
-        // Add a button for each option
-        question.options.forEach(function (option: any) {
-          const button = document.createElement("button");
-          button.textContent = option;
-          button.className = "button";
-          button.onclick = function () {
-            handleAnswer(option, question.correctAnswer, question, album);
-          };
-          optionsContainer.appendChild(button);
-        });
-      }
 
       // Add the audio player if the question is an audio question
       // The audio player element is created with controls and a source element
