@@ -104,8 +104,6 @@ for (const category of categoriesNamesArray) {
     playerRanks[category] = playerRank;
   }
 }
-
-
 ---
 
 <Layout title="Highscores">
@@ -155,13 +153,21 @@ for (const category of categoriesNamesArray) {
               </tr>
             </thead>
             <tbody>
-              {scoresByCategory[category].map((score, index) => (
-                <tr>
-                  <td>{index + 1}</td>
-                  <td>{score.User.username}</td>
-                  <td>{score.HighscorePerCategory.score}</td>
-                </tr>
-              ))}
+              {scoresByCategory[category].map(
+                (
+                  score: {
+                    User: { username: unknown };
+                    HighscorePerCategory: { score: unknown };
+                  },
+                  index: number,
+                ) => (
+                  <tr>
+                    <td>{index + 1}</td>
+                    <td>{score.User.username}</td>
+                    <td>{score.HighscorePerCategory.score}</td>
+                  </tr>
+                ),
+              )}
             </tbody>
           </table>
           {playerRanks[category] && (

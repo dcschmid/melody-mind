@@ -3,6 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import HeaderSection from "@components/User/HeaderSection.astro";
 import { Icon } from "astro-icon/components";
 import { getGoldenLPs } from "@utils/db/getGoldenLPs";
+import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
 
 /**
  * Get the user object from the Astro context
@@ -19,7 +20,7 @@ if (!user) {
   return Astro.redirect("/");
 }
 
-const goldenLPs = await getGoldenLPs(user?.id);
+const goldenLPs: { [genre: string]: any } = await getGoldenLPs(user?.id);
 ---
 
 <Layout title="User Profile">
@@ -38,6 +39,9 @@ const goldenLPs = await getGoldenLPs(user?.id);
                 <Icon name="golden-lp" width={80} height={80} />
               </div>
               <div class="lpText">{genre}</div>
+              <div>
+                {getTitleBasedOnDifficulty(goldenLPs?.[genre]?.difficulty)}
+              </div>
             </div>
           ))
         }

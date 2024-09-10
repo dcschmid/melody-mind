@@ -3,6 +3,7 @@ import Layout from "@layouts/Layout.astro"; // Layout component
 import categories from "@json/categories.json"; // JSON file containing categories data
 import ShowCoins from "@components/Shared/ShowCoins.astro";
 import { Icon } from "astro-icon/components";
+import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
 
 /**
  * Get the user object from the Astro context
@@ -25,6 +26,8 @@ if (!user) {
 const { category, difficulty } = Astro.params;
 
 const currentCategoryData = categories.find((cat) => cat.slug === category);
+
+const playerTitle = getTitleBasedOnDifficulty(difficulty);
 ---
 
 <Layout title={`${currentCategoryData?.headline}`} showHeaderIcons={false}>
@@ -63,7 +66,9 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
       <Icon name="golden-lp" class="icon" width={100} height={100} />
       <p>
         Du hast die goldene <span class="goldenText">Pop-Rock</span> Schallplatte
-        gewonnen!
+        gewonnen und außerdem hast du den Titel <span class="goldenText"
+          >{playerTitle}</span
+        > erhalten!
       </p>
       <p>Erreichte Punkte: <span id="golden-lp-score"></span></p>
       <div class="centerButton">
@@ -266,7 +271,7 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
     let roundIndex = 0;
 
     // How many rounds there are
-    const totalRounds = 5;
+    const totalRounds = 10;
 
     roundElement.textContent = `${roundIndex + 1}/${totalRounds}`;
 
@@ -307,11 +312,10 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
     ) {
       if (option === correctAnswer) {
         correctAnswers++;
-        score += 100;
-        feedbackElement.textContent = "Richtig! 100 Punkte";
+        score += 50;
+        feedbackElement.textContent = "Richtig! 50 Punkte";
       } else {
-        feedbackElement.textContent = `Falsch! Die richtige Antwort war: ${correctAnswer}`;
-        feedbackElement.style.color = "red";
+        feedbackElement.textContent = `Leider Falsch! Die richtige Antwort war: ${correctAnswer}`;
       }
 
       scoreElement.textContent = `${score}`;
@@ -409,7 +413,7 @@ const currentCategoryData = categories.find((cat) => cat.slug === category);
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ userId, genre }),
+        body: JSON.stringify({ userId, genre, difficulty }),
       });
     }
 

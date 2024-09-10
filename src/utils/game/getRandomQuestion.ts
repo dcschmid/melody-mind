@@ -2,7 +2,9 @@ import { shuffleArray } from "@utils/share/shuffleArray";
 
 /**
  * Function to get a random question from the given array of albums.
+ *
  * @param {object[]} albums - An array of albums
+ * @param {string} difficulty - The difficulty of the question, either 'easy', 'medium', or 'hard'
  * @returns {object} An object containing a random question and the album it belongs to
  */
 export function getRandomQuestion(albums: any[], difficulty: string) {
@@ -19,5 +21,8 @@ export function getRandomQuestion(albums: any[], difficulty: string) {
   const randomQuestion = randomAlbum.questions[difficulty][randomQuestionIndex];
 
   // Return the random question and the random album
-  return { randomQuestion, randomAlbum };
+  return {
+    randomQuestion,
+    randomAlbum,
+  };
 }
