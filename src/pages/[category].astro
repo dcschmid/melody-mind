@@ -64,8 +64,11 @@ if (!currentCategory) {
       {currentCategory?.text}
     </div>
 
+    <div class="buttonHeadline">Wähle deinen Schwierigkeitsgrad</div>
     <div class="centerButton">
-      <Button buttonText="weiter" url={`${currentCategory?.slug}/game`} />
+      <Button buttonText="Leicht" url={`${currentCategory?.slug}/easy`} />
+      <Button buttonText="Mittel" url={`${currentCategory?.slug}/medium`} />
+      <Button buttonText="Schwer" url={`${currentCategory?.slug}/hard`} />
     </div>
   </div>
 </Layout>
@@ -121,8 +124,17 @@ if (!currentCategory) {
     text-align: center;
   }
 
+  .buttonHeadline {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
   .centerButton {
     display: flex;
     justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--padding-medium);
   }
 </style>
