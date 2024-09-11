@@ -8,45 +8,29 @@ import Layout from "@layouts/Layout.astro";
 
     <h2>Überblick</h2>
     <p>
-      Willkommen zu <strong class="highlight">MelodyMind</strong>, dem
-      ultimativen Musik-Quiz! In diesem Spiel testest du dein Wissen in
-      verschiedenen Musikgenres und kannst wertvolle Punkte und besondere
-      Belohnungen sammeln. Dein Ziel ist es, möglichst viele Fragen richtig zu
-      beantworten, Punkte zu sammeln und in den Top 10 der Rangliste zu landen.
-      Schaffst du es, alle Fragen eines Genres richtig zu beantworten, gewinnst
-      du eine <span class="golden-lp">goldene Schallplatte</span>!
+      Willkommen bei <strong class="highlight">MelodyMind</strong>! Dein Ziel
+      ist es, Fragen zu Liedern, Interpreten und Alben aus verschiedenen
+      Musikrichtungen zu beantworten. Wähle ein Genre aus und stelle dein Wissen
+      auf die Probe. Je mehr Fragen du richtig beantwortest, desto mehr Punkte
+      bekommst du.
     </p>
 
-    <h2>Spielablauf</h2>
+    <h2>Schwierigkeitsgrade</h2>
     <p>
-      Das Spiel besteht aus mehreren Runden, in denen du Fragen zu Songs, Alben,
-      Künstlern oder Musikgenres beantworten musst.
+      Es gibt drei Schwierigkeitsstufen, aus denen du eine auswählen kannst:
     </p>
+
     <ul>
-      <li>Jedes Spiel umfasst <strong>5 Runden</strong>.</li>
       <li>
-        Für jede Runde erhältst du eine Frage zu einem zufällig ausgewählten
-        Album oder Song.
+        <strong>Leicht</strong>: 10 Fragen pro Runde. Perfekt, um sein Wissen
+        aufzufrischen und Spaß zu haben.
       </li>
       <li>
-        Die Fragen können in verschiedenen Formaten gestellt werden:
-        <ul>
-          <li>
-            <strong>Multiple-Choice:</strong> Wähle die richtige Antwort aus verschiedenen
-            Optionen.
-          </li>
-          <li>
-            <strong>True/False:</strong> Entscheide, ob eine Aussage wahr oder falsch
-            ist.
-          </li>
-          <li>
-            <strong>Bilderfragen:</strong> Ordne das richtige Albumcover zu.
-          </li>
-          <li>
-            <strong>Audiofragen:</strong> Erkenne einen Song anhand eines kurzen
-            Audioschnipsels.
-          </li>
-        </ul>
+        <strong>Mittel</strong>: 15 Fragen pro Runde. Eine Herausforderung für
+        fortgeschrittene Musikliebhaber.
+      </li>
+      <li>
+        <strong>Schwer</strong>: 20 Fragen pro Runde. Nur für echte Musikkenner!
       </li>
     </ul>
 
@@ -64,101 +48,174 @@ import Layout from "@layouts/Layout.astro";
         >.
       </li>
     </ul>
-
-    <h2>Goldene Schallplatten</h2>
     <p>
-      Schaffst du es, alle Fragen eines Genres korrekt zu beantworten, erhältst
-      du als Belohnung eine <span class="golden-lp">goldene Schallplatte</span>.
-      Diese besondere Auszeichnung wird in deinem Profil gespeichert und zeigt,
-      dass du das Genre vollständig gemeistert hast.
+      Jede Schwierigkeitsstufe hat einen eigenen Titel, der freigeschaltet
+      werden kann:
     </p>
+
     <ul>
       <li>
-        Jede <span class="golden-lp">goldene Schallplatte</span> wird <strong
-          >pro Genre</strong
-        > vergeben.
+        <strong>Musik-Novize</strong>: Wenn du alle Fragen im leichten Modus
+        richtig beantwortest.
       </li>
       <li>
-        Sobald du eine goldene Schallplatte für ein Genre gewonnen hast, kannst
-        du keine weitere für dasselbe Genre gewinnen.
+        <strong>Musik-Meister</strong>: Wenn du alle Fragen im
+        Schwierigkeitsgrad Mittel richtig beantwortest.
       </li>
       <li>
-        Deine gesammelten goldenen Schallplatten werden in deinem Profil
-        angezeigt.
+        <strong>Musik-Legende</strong>: Wenn du alle Fragen im
+        Schwierigkeitsgrad Schwer richtig beantwortest.
       </li>
     </ul>
 
-    <h2>Ranglisten</h2>
+    <h2>Punktesystem</h2>
+
+    <ul>
+      <li>Du erhältst <strong>50 Punkte</strong> für jede richtige Antwort.</li>
+      <li>Für falsche Antworten werden keine Punkte abgezogen.</li>
+    </ul>
+
     <p>
-      Nachdem du ein Spiel beendet hast, werden deine Punkte in die Rangliste
-      aufgenommen. Die besten Spieler eines jeden Genres werden in den <strong
-        >Top 10</strong
-      > angezeigt.
+      Die Anzahl der Fragen und die maximal erreichbare Punktzahl variieren je
+      nach Schwierigkeitsgrad:
     </p>
+
+    <ul>
+      <li><strong>Leicht</strong>: 10 Fragen, maximal 500 Punkte</li>
+      <li><strong>Mittel</strong>: 15 Fragen, maximal 750 Punkte</li>
+      <li><strong>Schwer</strong>: 20 Fragen, maximal 1000 Punkte</li>
+    </ul>
+
+    <h2>Goldene Schallplatten</h2>
+    <p>
+      Wenn du alle Fragen einer Kategorie richtig beantwortest, gewinnst du eine
+      spezielle <span class="golden-lp">goldene Schallplatte</span>. Diese LP
+      ist je nach Schwierigkeitsgrad unterschiedlich:
+    </p>
+
     <ul>
       <li>
-        Schaffst du es in die <strong>Top 10</strong>, wird dein Name in der
-        Rangliste angezeigt.
+        <strong>Leicht</strong>: Du erhältst den Titel “Musik-Novize”.
       </li>
       <li>
-        Deine Punktzahl und dein Fortschritt werden für jedes Genre separat
-        festgehalten.
+        <strong>Mittel</strong>: Du erhältst den Titel “Musik-Meister”.
+      </li>
+      <li>
+        <strong>Schwer</strong>: Du erhältst den Titel “Musik-Legende”.
+      </li>
+    </ul>
+
+    <p>
+      Sammle Goldene LPs in einer Vielzahl von Genres und Schwierigkeitsgraden,
+      um deinen Fortschritt unter Beweis zu stellen.
+    </p>
+
+    <h2>Ranglisten</h2>
+    <p>
+      Das Spiel enthält ein <strong>Rankingsystem</strong>, das dich mit anderen
+      Spielern vergleicht. Deine Platzierung in den <strong>Top 10</strong> hängt
+      von den Punkten ab, die du in allen Kategorien gesammelt hast.
+    </p>
+
+    <ul>
+      <li>
+        <strong>Genrespezifische Rangliste:</strong> Zeigt die besten Spieler in
+        einem bestimmten Genre. Hier kannst du deine Leistung in deinem bevorzugten
+        Genre mit anderen vergleichen.
+      </li>
+      <li>
+        <strong>Gesamtrangliste:</strong> Hier werden die besten Spielerinnen und
+        Spieler aller Kategorien zusammengefasst.
+      </li>
+      <li>
+        Auch wenn du nicht in den <strong>Top 10</strong> bist, wird deine aktuelle
+        Platzierung immer unter den Ranglisten angezeigt, sodass du weißt, wie nahe
+        du an den besten Spielern dran bist.
       </li>
     </ul>
 
     <h2>Tipps & Tricks</h2>
+    <p>
+      Hier sind einige nützliche Tipps, die dir helfen können, besser mit
+      MelodyMind zurechtzukommen:
+    </p>
     <ul>
       <li>
-        Lerne die Musikstile der verschiedenen Genres, um deine Chancen zu
-        verbessern.
+        <strong>Starte im leichten Modus:</strong> Starte im leichten Modus, um dich
+        mit der Spielmechanik und der Art der Fragen vertraut zu machen. Das gibt
+        dir Sicherheit, bevor du dich an die schwierigeren Levels wagst.
       </li>
       <li>
-        Höre dir bekannte Alben und Songs an, um bei Audiofragen sicher zu sein.
+        <strong>Wähle deine Stärken:</strong> Spiele in den Musikrichtungen, in denen
+        du dich am besten auskennst. Du kannst dich später immer noch in anderen
+        Genres verbessern.
       </li>
       <li>
-        Nutze dein musikalisches Wissen, um in den Ranglisten nach oben zu
-        klettern und goldene Schallplatten zu gewinnen.
+        <strong>Übe regelmäßig:</strong> Je öfter du spielst, desto besser wirst
+        du. Wiederhole Genres, in denen du nicht so gut abgeschnitten hast, um deine
+        Punktzahl zu verbessern.
+      </li>
+      <li>
+        <strong>Behalte deine Platzierung im Auge:</strong> Verfolge regelmäßig deine
+        Fortschritte in den genrespezifischen und globalen Ranglisten. Das spornt
+        dich an, noch mehr Punkte zu sammeln und dich zu verbessern.
+      </li>
+      <li>
+        <strong>Konzentriere dich auf Genauigkeit:</strong> Anstatt zu raten, wenn
+        du dir nicht sicher bist, nimm dir einen Moment Zeit, um die Frage genau
+        zu lesen. Für eine falsche Antwort bekommst du keine Punkte.
+      </li>
+      <li>
+        <strong>Bewältige die schwierigen Fragen:</strong> Der Schwere Modus ist
+        eine größere Herausforderung. Spiele zuerst die leichten und mittleren Runden,
+        bevor du den schweren Modus ausprobierst.
       </li>
     </ul>
+
+    <p>
+      Wenn du diese Tipps und Tricks befolgst, kannst du nicht nur mehr Goldene
+      LPs gewinnen, sondern dich auch in der Rangliste weiter nach oben
+      arbeiten.
+    </p>
   </div>
+
+  <style lang="scss">
+    h1 {
+      margin-bottom: var(--padding-large);
+      font-size: var(--header-font-size);
+      color: var(--text-color);
+    }
+
+    h2 {
+      margin-bottom: var(--padding-medium);
+      font-size: 1.5em;
+      color: var(--text-color);
+    }
+
+    p {
+      margin-bottom: var(--padding-medium);
+      font-size: var(--body-font-size);
+    }
+
+    ul {
+      margin-bottom: var(--padding-medium);
+      padding-left: var(--padding-large);
+      list-style-type: disc;
+    }
+
+    .rules-container {
+      max-width: 480px;
+      margin: 1rem auto;
+      padding: var(--padding-large);
+
+      background-color: var(--secondary-color);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+
+    .golden-lp,
+    .highlight {
+      font-weight: 600;
+    }
+  </style>
 </Layout>
-
-<style lang="scss">
-  h1 {
-    margin-bottom: var(--padding-large);
-    font-size: var(--header-font-size);
-    color: var(--text-color);
-  }
-
-  h2 {
-    margin-bottom: var(--padding-medium);
-    font-size: 1.5em;
-    color: var(--text-color);
-  }
-
-  p {
-    margin-bottom: var(--padding-medium);
-    font-size: var(--body-font-size);
-  }
-
-  ul {
-    margin-bottom: var(--padding-medium);
-    padding-left: var(--padding-large);
-    list-style-type: disc;
-  }
-
-  .rules-container {
-    max-width: 480px;
-    margin: 1rem auto;
-    padding: var(--padding-large);
-
-    background-color: var(--secondary-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-  }
-
-  .golden-lp,
-  .highlight {
-    font-weight: 600;
-  }
-</style>
