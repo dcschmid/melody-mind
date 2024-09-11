@@ -9,7 +9,11 @@ import { db, User, eq } from "astro:db";
  *
  * @returns {Promise<void>} - A Promise that resolves when the golden LPs have been updated
  */
-export async function saveGoldenLP(userId: string, genre: string, difficulty: string): Promise<void> {
+export async function saveGoldenLP(
+  userId: string,
+  genre: string,
+  difficulty: string,
+): Promise<void> {
   // Query the current golden LPs of the user
   const existingData = await db.select().from(User).where(eq(User.id, userId));
 

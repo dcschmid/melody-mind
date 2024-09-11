@@ -27,7 +27,7 @@ const { category, difficulty } = Astro.params;
 
 const currentCategoryData = categories.find((cat) => cat.slug === category);
 
-const playerTitle = getTitleBasedOnDifficulty(difficulty);
+const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 ---
 
 <Layout title={`${currentCategoryData?.headline}`} showHeaderIcons={false}>
@@ -41,6 +41,17 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty);
       <p id="feedback" class="feedback"></p>
       <img id="overlay-cover" src="" alt="Album Cover" class="albumCover" />
       <h3 id="overlay-album">Album Name</h3>
+      <div class="music-links">
+        <a class="spotifyUrl" href="" target="_blank">
+          <Icon name="spotify-music" width={35} height={35} />
+        </a>
+        <a class="appleMusicUrl" href="" target="_blank">
+          <Icon name="apple-music" width={35} height={35} />
+        </a>
+        <a class="deezerUrl" href="" target="_blank">
+          <Icon name="deezer" width={35} height={35} />
+        </a>
+      </div>
       <p id="overlay-funfact" class="fun-fact">Fun Fact</p>
       <div class="centerButton">
         <button id="next-round-button" class="button">Nächste Runde</button>
@@ -159,6 +170,8 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty);
     width: 100%;
     max-width: 500px;
     padding: var(--padding-medium);
+    max-height: 80vh;
+    overflow-y: auto;
 
     text-align: center;
 
@@ -223,6 +236,11 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty);
     display: flex;
     justify-content: center;
   }
+
+  .music-links > a {
+    text-decoration: none;
+    margin: 0 0.5rem;
+  }
 </style>
 
 <script>
@@ -264,6 +282,16 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty);
     const userId = questionContainer.getAttribute("data-userID");
     const categoryName = questionContainer.getAttribute("data-categoryName");
     const difficulty = questionContainer.getAttribute("date-difficulty");
+    // Get the anchor tags
+    const spotifyLink = document.querySelector(
+      "#overlay .music-links .spotifyUrl",
+    ) as HTMLAnchorElement;
+    const appleMusicLink = document.querySelector(
+      "#overlay .music-links .appleMusicUrl",
+    ) as HTMLAnchorElement;
+    const deezerLink = document.querySelector(
+      "#overlay .music-links .deezerUrl",
+    ) as HTMLAnchorElement;
 
     // Initialize the score and the round index
     let score = 0;
@@ -315,7 +343,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty);
         score += 50;
         feedbackElement.textContent = "Richtig! 50 Punkte";
       } else {
-        feedbackElement.textContent = `Leider Falsch! Die richtige Antwort war: ${correctAnswer}`;
+        feedbackElement.textContent = `Leider Falsch!`;
       }
 
       scoreElement.textContent = `${score}`;
@@ -329,6 +357,18 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty);
         album.artist + " - " + album.album || "";
       document.getElementById("overlay-funfact")!.textContent =
         currentQuestion.trivia || "";
+
+      album.spotifyUrl
+        ? (spotifyLink!.href = album.spotifyUrl)
+        : (spotifyLink!.style.display = "none");
+
+      album.appleMusicUrl
+        ? (appleMusicLink!.href = album.appleMusicUrl)
+        : (appleMusicLink.style.display = "none");
+
+      album.deezerUrl
+        ? (deezerLink!.href = album.deezerUrl)
+        : (deezerLink.style.display = "none");
 
       document.getElementById("overlay")!.classList.remove("hidden");
 

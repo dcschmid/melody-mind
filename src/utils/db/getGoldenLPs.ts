@@ -8,7 +8,10 @@ import { db, eq, User } from "astro:db";
  */
 export async function getGoldenLPs(
   userId: string,
-): Promise<{ [category: string]: { won: boolean; date: string, difficulty: string } } | {}> {
+): Promise<
+  | { [category: string]: { won: boolean; date: string; difficulty: string } }
+  | {}
+> {
   const data = await db.select().from(User).where(eq(User.id, userId));
 
   if (data && data[0].golden_lps) {
