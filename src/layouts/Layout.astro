@@ -39,6 +39,9 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
             <a href="/spielregeln">
               <Icon name="question" width={24} height={22.24} />
             </a>
+            <a href="/highscores"
+              ><Icon name="trophy" width={24} height={24} />
+            </a>
           </When>
           <slot name="left-headercol" />
         </div>
@@ -49,11 +52,7 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
         </div>
         <div class="iconGroup">
           <When test={showHeaderIcons}>
-            <a href="/highscores"
-              ><Icon name="trophy" width={24} height={24} />
-            </a>
-            <a href="/user"><Icon name="user-white" width={24} height={24} /></a
-            >
+            <a href="/user"><Icon name="user" width={24} height={24} /></a>
             <form method="post" action="/api/logout">
               <button>
                 <Icon name="logout" width={24} height={24} title="Abmelden" />
@@ -122,20 +121,27 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
         margin-bottom: var(--padding-medium);
       }
 
+      a {
+        text-decoration: none;
+
+        color: var(--text-color);
+      }
+
       .slot {
         display: flex;
-        gap: var(--padding-small);
+        gap: var(--padding-medium);
         width: 33.3333%;
       }
 
       .logo {
         width: 33.3333%;
         text-align: center;
+        gap: var(--padding-medium);
       }
 
       .iconGroup {
         display: flex;
-        gap: var(--padding-small);
+        gap: var(--padding-medium);
         align-items: center;
         justify-content: flex-end;
 
