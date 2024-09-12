@@ -1,7 +1,7 @@
 import { AstroDBAdapter } from "lucia-adapter-astrodb";
 import { db, Session, User } from "astro:db";
 import { Lucia } from "lucia";
-import { GitHub, Google, Spotify } from "arctic";
+import { GitHub, Google, Spotify, Yahoo } from "arctic";
 
 export const github = new GitHub(
   import.meta.env.AUTH_GITHUB_ID,
@@ -22,6 +22,14 @@ export const spotify = new Spotify(
   import.meta.env.PROD
     ? "https://melody-mind.de/login/spotify/callback"
     : "http://localhost:4321/login/spotify/callback",
+);
+
+export const yahoo = new Yahoo(
+  import.meta.env.AUTH_YAHOO_ID,
+  import.meta.env.AUTH_YAHOO_SECRET,
+  import.meta.env.PROD
+    ? "https://melody-mind.de/login/yahoo/callback"
+    : "http://localhost:4321/login/yahoo/callback",
 );
 
 const adapter = new AstroDBAdapter(db, Session, User);
