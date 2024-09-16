@@ -4,26 +4,40 @@ MelodyMind is an engaging and competitive music trivia game where players can te
 
 ## 🚀 Key Features:
 
-- Multiple Music Genres: Choose from a variety of genres such as Pop, Rock, Jazz, and more.
-- Challenging Rounds: Each genre has multiple rounds of questions to challenge your musical expertise.
-- Leaderboard: Compete with other players and climb the ranks in the global leaderboard or in specific genre categories.
-- Earn Rewards: Answer all questions correctly in a genre to win a coveted golden LP!
-- Personalized Experience: Track your progress, view your scores, and showcase your achievements.
+- Multiple Difficulty Levels: Choose between Easy, Medium, and Hard modes:
+  - Easy: 10 questions per round
+  - Medium: 15 questions per round
+  - Hard: 20 questions per round
+- Point System: Earn 50 points for every correct answer. The total score varies based on difficulty:
+  - Easy: Maximum 500 points
+  - Medium: Maximum 750 points
+  - Hard: Maximum 1000 points
+- Golden LPs: Unlock special rewards based on your performance:
+  - Musik-Novice: For completing all questions in Easy mode
+  - Musik-Master: For completing all questions in Medium mode
+  - Musik-Legend: For completing all questions in Hard mode
+- Rankings: Compete against others and climb the Top 10 Leaderboards based on your scores. Check out your position in genre-specific and overall rankings.
+- Music Genres: Select from a variety of music genres and prove your expertise in each category.
 
 ## 💡 How to Play:
 
-- Select a music genre from the available categories.
-- Complete rounds by answering trivia questions related to songs, albums, and artists.
-- Earn points for each correct answer and aim for a perfect score to win rewards.
-- Challenge yourself to reach the top 10 on the leaderboard in each category.
+1.	Select your favorite music genre.
+2.	Choose a difficulty level and start answering trivia questions.
+3.	For every correct answer, you’ll earn points. The harder the difficulty, the more questions you face!
+4.	At the end of each round, you’ll see your score and have the chance to unlock special Golden LPs if you answer all questions correctly.
+5.	Track your position on the leaderboards and aim to become a Music Legend.
+
 
 ## 🔧 Technologies Used:
 
-- Astro.js for server-side rendering.
-- TypeScript for a reliable codebase.
-- Custom API to fetch and store user scores and leaderboard data.
-- AstroDB for user data and game progress management.
+- Astro.js: For building the static and dynamic pages of the application.
+- TypeScript: To ensure type safety and provide better developer experience.
+- Astro DB: For managing game data, user profiles, and leaderboards.
+- HTML5 & CSS3: For designing the user interface and styling the game.
+- JSON: For managing question data and game configurations.
 
-## 🎯 Your Objective:
+## 🎯 Tips for Success:
 
-Score as many points as possible by correctly answering trivia questions, earn golden LPs, and cement your place in music history by topping the leaderboard!
+- Start with Easy mode to get comfortable, then work your way up to Hard.
+- Pay attention to your favorite genres for a better chance at winning.
+- Practice regularly to improve your ranking and collect more rewards!
