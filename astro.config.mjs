@@ -3,11 +3,13 @@ import icon from "astro-icon";
 import db from "@astrojs/db";
 import node from "@astrojs/node";
 
+import compressor from "astro-compressor";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://melody-mind.de",
   output: "server",
-  integrations: [icon(), db()],
+  integrations: [icon(), db(), compressor()],
   adapter: node({
     mode: "standalone",
   }),
