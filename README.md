@@ -21,12 +21,11 @@ MelodyMind is an engaging and competitive music trivia game where players can te
 
 ## 💡 How to Play:
 
-1.	Select your favorite music genre.
-2.	Choose a difficulty level and start answering trivia questions.
-3.	For every correct answer, you’ll earn points. The harder the difficulty, the more questions you face!
-4.	At the end of each round, you’ll see your score and have the chance to unlock special Golden LPs if you answer all questions correctly.
-5.	Track your position on the leaderboards and aim to become a Music Legend.
-
+1. Select your favorite music genre.
+2. Choose a difficulty level and start answering trivia questions.
+3. For every correct answer, you’ll earn points. The harder the difficulty, the more questions you face!
+4. At the end of each round, you’ll see your score and have the chance to unlock special Golden LPs if you answer all questions correctly.
+5. Track your position on the leaderboards and aim to become a Music Legend.
 
 ## 🔧 Technologies Used:
 
