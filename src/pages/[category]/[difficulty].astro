@@ -444,14 +444,16 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     let jokerUsedCount = 0;
     let maxJokers = 0;
 
-    // Festlege die maximale Anzahl an Jokern basierend auf dem Schwierigkeitsgrad
     if (difficulty === "easy") {
       maxJokers = 3;
     } else if (difficulty === "medium") {
       maxJokers = 5;
     } else if (difficulty === "hard") {
-      maxJokers = 10;
+      maxJokers = 7;
     }
+    const jokerButton = document.getElementById(
+      "joker-button",
+    ) as HTMLButtonElement;
 
     // Zeige die Anzahl der verfügbaren Joker im Interface an
     const jokerCounterElement = document.getElementById(
@@ -459,14 +461,17 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     ) as HTMLElement;
     jokerCounterElement.textContent = `Joker: ${maxJokers} verbleibend`;
 
+    let jokerUsed = false; // Der Joker kann nur einmal pro Runde verwendet werden
+
     // Funktion für den 50:50 Joker
     function use5050Joker(question: any) {
       const correctAnswer = question.correctAnswer;
       const options = Array.from(document.querySelectorAll("#options button"));
 
+      if (jokerUsed) return; // Verhindern, dass der Joker mehrmals verwendet wird
+
       if (jokerUsedCount >= maxJokers) {
-        alert("Du hast keine Joker mehr!");
-        return;
+        jokerButton.disabled = true;
       }
 
       // Finde die falschen Antworten
@@ -487,12 +492,12 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         });
       });
 
+      jokerUsed = true; // Joker wurde verwendet
+
       // Joker wurde verwendet, erhöhe den Joker-Count
       jokerUsedCount++;
       jokerCounterElement.textContent = `Joker: ${maxJokers - jokerUsedCount} verbleibend`;
     }
-
-    const jokerButton = document.getElementById("joker-button");
 
     if (jokerButton) {
       jokerButton.addEventListener("click", function () {
