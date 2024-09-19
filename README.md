@@ -12,6 +12,11 @@ MelodyMind is an engaging and competitive music trivia game where players can te
   - Easy: Maximum 500 points
   - Medium: Maximum 750 points
   - Hard: Maximum 1000 points
+- 50:50 Joker: Limited use based on difficulty:
+  - Easy: 3 Jokers
+  - Medium: 5 Jokers
+  - Hard: 10 Jokers
+  - Use the 50:50 Joker to eliminate two wrong answers and increase your chances of success.
 - Golden LPs: Unlock special rewards based on your performance:
   - Musik-Novice: For completing all questions in Easy mode
   - Musik-Master: For completing all questions in Medium mode
@@ -38,5 +43,6 @@ MelodyMind is an engaging and competitive music trivia game where players can te
 ## 🎯 Tips for Success:
 
 - Start with Easy mode to get comfortable, then work your way up to Hard.
+- Use your 50:50 Jokers wisely, especially in the harder difficulty levels.
 - Pay attention to your favorite genres for a better chance at winning.
 - Practice regularly to improve your ranking and collect more rewards!
