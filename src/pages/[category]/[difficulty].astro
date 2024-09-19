@@ -4,6 +4,7 @@ import categories from "@json/categories.json"; // JSON file containing categori
 import ShowCoins from "@components/Shared/ShowCoins.astro";
 import { Icon } from "astro-icon/components";
 import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
+import GameHeadline from "@components/Game/GameHeadline.astro";
 
 /**
  * Get the user object from the Astro context
@@ -90,9 +91,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   </div>
 
   <!-- Spielüberschrift und Fragenbereich -->
-  <div class="gameHeadline">
-    {currentCategoryData?.headline} - Runde <span class="round"></span>
-  </div>
+  <GameHeadline headline={currentCategoryData?.headline} />
 
   <div id="loading-spinner" class="spinner hidden"></div>
 
@@ -114,15 +113,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 </Layout>
 
 <style is:global lang="scss">
-  .gameHeadline {
-    padding-bottom: var(--padding-small);
-
-    font-size: 1.75rem;
-    font-weight: 900;
-    color: var(--text-color);
-    text-align: center;
-  }
-
   #question-container {
     max-width: 480px;
     margin: 0 auto;
@@ -130,10 +120,11 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 
     text-align: center;
 
+    opacity: 1;
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    opacity: 1;
+
     transition: opacity 0.5s ease;
   }
 
@@ -167,11 +158,14 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     position: fixed;
     z-index: 1000;
     inset: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     padding: var(--padding-small);
-    background: rgba(0, 0, 0, 0.85);
+
+    background: rgb(0 0 0 / 85%);
   }
 
   .overlay.hidden {
@@ -179,16 +173,20 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   }
 
   .overlay-content {
+    overflow-y: auto;
+
     width: 100%;
     max-width: 480px;
-    padding: var(--padding-large);
     max-height: 90vh;
-    overflow-y: auto;
+    padding: var(--padding-large);
+
+    color: var(--text-color);
     text-align: center;
+
     background-color: var(--background-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    color: var(--text-color);
+
     transition: all 0.3s ease;
   }
 
@@ -196,27 +194,28 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     max-width: 100%;
     height: auto;
     margin: 0 auto var(--padding-small);
+
     border: 2px solid var(--text-color);
     border-radius: var(--border-radius);
   }
 
   .overlay-album {
+    margin-bottom: var(--padding-small);
     font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: var(--padding-small);
     color: var(--highlight-color);
   }
 
   .overlay-year {
+    margin-bottom: var(--padding-small);
     font-size: 1rem;
     color: var(--text-color);
-    margin-bottom: var(--padding-small);
   }
 
   .music-links {
     display: flex;
-    justify-content: center;
     gap: var(--padding-small);
+    justify-content: center;
     margin-bottom: var(--padding-small);
   }
 
@@ -224,11 +223,14 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--padding-small);
-    background-color: var(--highlight-color);
-    border-radius: 50%;
+
     width: 50px;
     height: 50px;
+    padding: var(--padding-small);
+
+    background-color: var(--highlight-color);
+    border-radius: 50%;
+
     transition: background-color 0.3s ease;
   }
 
@@ -237,11 +239,12 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   }
 
   .fun-fact {
+    margin-top: var(--padding-small);
+
     font-size: 1.125rem;
     font-weight: 400;
-    color: var(--text-color);
-    margin-top: var(--padding-small);
     hyphens: auto;
+    color: var(--text-color);
   }
 
   /* Popup */
@@ -290,21 +293,25 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   }
 
   .centerButton .button {
+    cursor: pointer;
+
     padding: var(--padding-small) var(--padding-medium);
+
     font-size: var(--button-font-size);
+
     background-color: var(--highlight-color);
     border: none;
     border-radius: var(--border-radius);
-    cursor: pointer;
     box-shadow: var(--box-shadow);
+
     transition:
       background-color 0.3s ease,
       transform 0.2s ease;
   }
 
   .centerButton .button:hover {
-    background-color: var(--button-hover-color);
     transform: scale(1.05);
+    background-color: var(--button-hover-color);
   }
 
   .joker-container {
@@ -321,15 +328,19 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   }
 
   .button {
-    background-color: var(--highlight-color);
-    padding: var(--padding-small) var(--padding-large);
-    font-size: 1.125rem;
-    opacity: 1;
+    cursor: pointer;
+
     height: auto;
+    padding: var(--padding-small) var(--padding-large);
+
+    font-size: 1.125rem;
+
+    opacity: 1;
+    background-color: var(--highlight-color);
     border: none;
     border-radius: var(--border-radius);
-    cursor: pointer;
     box-shadow: var(--box-shadow);
+
     transition:
       background-color 0.3s ease,
       opacity 1s ease,
@@ -337,17 +348,20 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   }
 
   .button:hover {
-    background-color: var(--button-hover-color);
     transform: scale(1.05);
+    background-color: var(--button-hover-color);
   }
 
   .button.hidden {
-    opacity: 0;
-    height: 0;
-    padding: 0;
-    margin: 0;
     overflow: hidden;
+
+    height: 0;
+    margin: 0;
+    padding: 0;
+
+    opacity: 0;
   }
+
   .button.correct {
     background-color: green;
     animation: pulseCorrect 0.5s ease-out;
@@ -362,9 +376,11 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     0% {
       transform: scale(1);
     }
+
     50% {
       transform: scale(1.1);
     }
+
     100% {
       transform: scale(1);
     }
@@ -374,34 +390,41 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     0% {
       transform: translateX(0);
     }
+
     25% {
       transform: translateX(-5px);
     }
+
     50% {
       transform: translateX(5px);
     }
+
     75% {
       transform: translateX(-5px);
     }
+
     100% {
       transform: translateX(0);
     }
   }
 
   .spinner {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+
     border: 10px solid #f3f3f3;
     border-top: 10px solid var(--highlight-color);
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
+
     animation: spin 1s linear infinite;
-    margin: 0 auto;
   }
 
   @keyframes spin {
     0% {
       transform: rotate(0deg);
     }
+
     100% {
       transform: rotate(360deg);
     }
@@ -487,7 +510,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     let maxJokers = 0;
 
     let startTime: number;
-    let timeLimit = 30;
 
     if (difficulty === "easy") {
       maxJokers = 3;
@@ -524,7 +546,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         (option) => option.textContent !== correctAnswer,
       );
 
-      // Wähle zufällig zwei falsche Antworten aus, die entfernt werden
       const optionsToRemove = incorrectOptions
         .sort(() => Math.random() - 0.5)
         .slice(0, 2);
@@ -611,7 +632,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       if (option === correctAnswer) {
         if (timeTaken <= 10) {
           bonusPoints = 50; // Maximaler Bonus für superschnelle Antworten
-        } else if (timeTaken <= 20) {
+        } else if (timeTaken <= 15) {
           bonusPoints = 25; // Mittlerer Bonus für schnelle Antworten
         }
 

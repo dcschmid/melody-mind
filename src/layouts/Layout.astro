@@ -122,9 +122,8 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
       }
 
       a {
-        text-decoration: none;
-
         color: var(--text-color);
+        text-decoration: none;
       }
 
       .slot {
@@ -134,9 +133,9 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
       }
 
       .logo {
+        gap: var(--padding-medium);
         width: 33.3333%;
         text-align: center;
-        gap: var(--padding-medium);
       }
 
       .iconGroup {

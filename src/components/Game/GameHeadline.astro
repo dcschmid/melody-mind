@@ -1,0 +1,55 @@
+---
+interface Props {
+  headline: string | undefined;
+}
+
+const { headline = "" } = Astro.props;
+---
+
+<div class="gameHeadline">
+  <div class="category">{headline}</div>
+  <div>Runde <span class="round"></span></div>
+</div>
+
+<style lang="scss">
+  .gameHeadline {
+    margin: var(--padding-medium) 0;
+    padding: var(--padding-medium);
+
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--text-color);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+
+    background: linear-gradient(
+      90deg,
+      var(--highlight-color),
+      var(--secondary-color)
+    ); /* Farbverlauf */
+
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+
+    transition:
+      transform 0.3s ease-in-out,
+      box-shadow 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgb(0 0 0 / 20%); 
+    }
+
+    .category {
+      font-weight: bold;
+      color: var(--text-color);
+    }
+
+    .round {
+      padding-left: var(--padding-small);
+      font-size: 1.25rem;
+      color: var(--text-color);
+    }
+  }
+</style>
