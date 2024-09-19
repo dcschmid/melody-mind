@@ -486,6 +486,9 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     let jokerUsedCount = 0;
     let maxJokers = 0;
 
+    let startTime: number;
+    let timeLimit = 30;
+
     if (difficulty === "easy") {
       maxJokers = 3;
     } else if (difficulty === "medium") {
@@ -552,6 +555,8 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
      * Loads a question and its options into the DOM.
      */
     function loadQuestion(question: any, album: any) {
+      startTime = Date.now(); // Setze die Startzeit, wenn die Frage geladen wird
+
       const questionContainer = document.getElementById(
         "question-container",
       ) as HTMLDivElement;
@@ -598,15 +603,28 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       currentQuestion: any,
       album?: any,
     ) {
+      const endTime = Date.now(); // Zeit, wenn die Antwort gegeben wird
+      const timeTaken = (endTime - startTime) / 1000; // Zeit in Sekunden
+      let totalPoints = 0;
+
+      let bonusPoints = 0;
       if (option === correctAnswer) {
-        correctAnswers++;
-        score += 50;
-        feedbackElement.textContent = "Richtig! 50 Punkte";
+        if (timeTaken <= 10) {
+          bonusPoints = 50; // Maximaler Bonus für superschnelle Antworten
+        } else if (timeTaken <= 20) {
+          bonusPoints = 25; // Mittlerer Bonus für schnelle Antworten
+        }
+
+        totalPoints = 50 + bonusPoints; // Grundpunkte plus Bonus
+        feedbackElement.textContent = `Richtig! 50 Punkte + ${bonusPoints} Bonuspunkte`;
       } else {
         feedbackElement.textContent = `Falsch! Die richtige Antwort war: ${correctAnswer}`;
       }
 
-      scoreElement.textContent = `${score}`;
+      // Aktualisiere die Gesamtpunktzahl
+      score += totalPoints;
+
+      updateScoreDisplay(score);
 
       // Funfact und weitere Informationen im Overlay anzeigen
       const overlayCover = document.getElementById(
@@ -677,8 +695,17 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       };
     }
 
+    function updateScoreDisplay(score: string) {
+      scoreElement.textContent = score;
+
+      // Bonus Animation
+      scoreElement.classList.add("bonus");
+      setTimeout(() => {
+        scoreElement.classList.remove("bonus");
+      }, 500);
+    }
+
     function restartGame() {
-      // Setze die Werte zurück und starte ein neues Spiel oder leite zur Startseite weiter
       score = 0;
       correctAnswers = 0;
       roundIndex = 0;

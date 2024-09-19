@@ -12,6 +12,9 @@ MelodyMind is an engaging and competitive music trivia game where players can te
   - Easy: Maximum 500 points
   - Medium: Maximum 750 points
   - Hard: Maximum 1000 points
+- Speed Bonus: Answer quickly to earn extra points! The faster you answer, the more bonus points you receive:
+  - Answer within 10 seconds: +50 bonus points
+  - Answer within 20 seconds: +25 bonus points
 - 50:50 Joker: Limited use based on difficulty:
   - Easy: 3 Jokers
   - Medium: 5 Jokers
