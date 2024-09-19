@@ -41,6 +41,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       <p id="feedback" class="feedback"></p>
       <img id="overlay-cover" src="" alt="Album Cover" class="albumCover" />
       <h3 id="overlay-album">Album Name</h3>
+      <p id="overlay-year">Album Year</p>
       <div class="music-links">
         <a class="spotifyUrl" href="" target="_blank">
           <Icon name="spotify-music" width={35} height={35} />
@@ -92,6 +93,11 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   <div class="gameHeadline">
     {currentCategoryData?.headline} - Runde <span class="round"></span>
   </div>
+
+  <div class="progress-bar">
+    <div class="progress" style="width: 0;"></div>
+  </div>
+
   <div
     id="question-container"
     data-categoryName={currentCategoryData?.headline}
@@ -101,6 +107,11 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   >
     <div id="question"></div>
     <div id="options"></div>
+  </div>
+
+  <div class="joker-container">
+    <button id="joker-button" class="button">50:50 Joker</button>
+    <p id="joker-count" class="joker-count">Joker: 0 verbleibend</p>
   </div>
 </Layout>
 
@@ -135,7 +146,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   #options {
     display: flex;
     flex-direction: column;
-    gap: var(--padding-small);
+    gap: var(--padding-medium);
   }
 
   .feedback {
@@ -152,14 +163,11 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     position: fixed;
     z-index: 1000;
     inset: 0;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: var(--padding-small);
-
-    background: rgb(0 0 0 / 85%);
+    background: rgba(0, 0, 0, 0.85);
   }
 
   .overlay.hidden {
@@ -168,29 +176,68 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 
   .overlay-content {
     width: 100%;
-    max-width: 500px;
-    padding: var(--padding-medium);
-    max-height: 80vh;
+    max-width: 480px;
+    padding: var(--padding-large);
+    max-height: 90vh;
     overflow-y: auto;
-
     text-align: center;
-
     background-color: var(--background-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    color: var(--text-color);
+    transition: all 0.3s ease;
   }
 
   .albumCover {
-    max-width: 200px;
+    max-width: 100%;
+    height: auto;
     margin: 0 auto var(--padding-small);
     border: 2px solid var(--text-color);
     border-radius: var(--border-radius);
+  }
+
+  .overlay-album {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: var(--padding-small);
+    color: var(--highlight-color);
+  }
+
+  .overlay-year {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: var(--padding-small);
+  }
+
+  .music-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--padding-small);
+    margin-bottom: var(--padding-small);
+  }
+
+  .music-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-small);
+    background-color: var(--highlight-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transition: background-color 0.3s ease;
+  }
+
+  .music-links a:hover {
+    background-color: var(--button-hover-color);
   }
 
   .fun-fact {
     font-size: 1.125rem;
     font-weight: 400;
     color: var(--text-color);
+    margin-top: var(--padding-small);
+    hyphens: auto;
   }
 
   /* Popup */
@@ -235,11 +282,83 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   .centerButton {
     display: flex;
     justify-content: center;
+    margin-top: var(--padding-large);
   }
 
-  .music-links > a {
-    text-decoration: none;
-    margin: 0 0.5rem;
+  .centerButton .button {
+    padding: var(--padding-small) var(--padding-medium);
+    font-size: var(--button-font-size);
+    background-color: var(--highlight-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    transition:
+      background-color 0.3s ease,
+      transform 0.2s ease;
+  }
+
+  .centerButton .button:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+  }
+
+  .progress-bar {
+    width: 100%; /* Volle Breite */
+    height: 10px; /* Höhe der Fortschrittsleiste */
+    background-color: var(--secondary-color); /* Hintergrund der Leiste */
+    border-radius: var(--border-radius); /* Abgerundete Ecken */
+    overflow: hidden; /* Damit der Fortschritt nicht über den Rand hinausgeht */
+    margin: var(--padding-medium) 0; /* Abstand nach oben und unten */
+  }
+
+  .progress {
+    height: 100%;
+    background-color: var(--highlight-color); /* Fortschrittsfarbe */
+    width: 0; /* Start mit 0% */
+    transition: width 0.3s ease-in-out; /* Weiche Animation, wenn sich der Fortschritt ändert */
+  }
+
+  .joker-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: var(--padding-small) 0;
+  }
+
+  .joker-count {
+    margin-top: var(--padding-small);
+    font-size: 1.2rem;
+    color: var(--highlight-color);
+  }
+
+  .button {
+    background-color: var(--highlight-color);
+    padding: var(--padding-small) var(--padding-large);
+    font-size: 1.125rem;
+    opacity: 1;
+    height: auto;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    transition:
+      background-color 0.3s ease,
+      opacity 1s ease,
+      height 1ys ease;
+  }
+
+  .button:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+  }
+
+  .button.hidden {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
   }
 </style>
 
@@ -313,10 +432,81 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     const { totalUserPoints, currentCategoryPointsValue } =
       await getUserAndCategoryPoints(userId ?? "", categoryName ?? "");
 
+    function updateProgressBar(currentRound: number, totalRounds: number) {
+      const progressElement = document.querySelector(
+        ".progress",
+      ) as HTMLElement;
+      const progressPercentage = (currentRound / totalRounds) * 100;
+      progressElement.style.width = `${progressPercentage}%`;
+    }
+
+    let currentQuestion: null = null;
+    let jokerUsedCount = 0;
+    let maxJokers = 0;
+
+    // Festlege die maximale Anzahl an Jokern basierend auf dem Schwierigkeitsgrad
+    if (difficulty === "easy") {
+      maxJokers = 3;
+    } else if (difficulty === "medium") {
+      maxJokers = 5;
+    } else if (difficulty === "hard") {
+      maxJokers = 10;
+    }
+
+    // Zeige die Anzahl der verfügbaren Joker im Interface an
+    const jokerCounterElement = document.getElementById(
+      "joker-count",
+    ) as HTMLElement;
+    jokerCounterElement.textContent = `Joker: ${maxJokers} verbleibend`;
+
+    // Funktion für den 50:50 Joker
+    function use5050Joker(question: any) {
+      const correctAnswer = question.correctAnswer;
+      const options = Array.from(document.querySelectorAll("#options button"));
+
+      if (jokerUsedCount >= maxJokers) {
+        alert("Du hast keine Joker mehr!");
+        return;
+      }
+
+      // Finde die falschen Antworten
+      const incorrectOptions = options.filter(
+        (option) => option.textContent !== correctAnswer,
+      );
+
+      // Wähle zufällig zwei falsche Antworten aus, die entfernt werden
+      const optionsToRemove = incorrectOptions
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 2);
+
+      optionsToRemove.forEach((option) => {
+        option.classList.add("hidden");
+
+        option.addEventListener("transitionend", function () {
+          option.remove();
+        });
+      });
+
+      // Joker wurde verwendet, erhöhe den Joker-Count
+      jokerUsedCount++;
+      jokerCounterElement.textContent = `Joker: ${maxJokers - jokerUsedCount} verbleibend`;
+    }
+
+    const jokerButton = document.getElementById("joker-button");
+
+    if (jokerButton) {
+      jokerButton.addEventListener("click", function () {
+        const currentQuestion = getCurrentQuestion(); // Aktuelle Frage holen
+        use5050Joker(currentQuestion); // Joker aktivieren
+      });
+    }
+
     /**
      * Loads a question and its options into the DOM.
      */
     function loadQuestion(question: any, album: any) {
+      currentQuestion = question;
+
       // Set the question text
       questionElement.textContent = question.question;
 
@@ -332,6 +522,8 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         };
         optionsContainer.appendChild(button);
       });
+
+      jokerUsed = false;
     }
 
     function handleAnswer(
@@ -359,6 +551,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         album.artist + " - " + album.album || "";
       document.getElementById("overlay-funfact")!.textContent =
         currentQuestion.trivia || "";
+      document.getElementById("overlay-year")!.textContent = album.year || "";
 
       updateMusicLink(spotifyLink, album.spotifyUrl);
       updateMusicLink(appleMusicLink, album.appleMusicUrl);
@@ -370,6 +563,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         document.getElementById("overlay")!.classList.add("hidden");
         if (roundIndex < totalRounds - 1) {
           roundIndex++;
+          updateProgressBar(roundIndex, totalRounds);
           roundElement.textContent = `${roundIndex + 1}/${totalRounds}`;
 
           const newQuestion = getRandomQuestion(albums, difficulty || "easy");
@@ -451,7 +645,13 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       });
     }
 
+    function getCurrentQuestion() {
+      return currentQuestion;
+    }
+
     // Initiale Frage laden
+    updateProgressBar(roundIndex + 1, totalRounds);
+
     const initialQuestion = getRandomQuestion(albums, difficulty || "easy");
     loadQuestion(initialQuestion.randomQuestion, initialQuestion.randomAlbum);
   });
