@@ -94,9 +94,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     {currentCategoryData?.headline} - Runde <span class="round"></span>
   </div>
 
-  <div class="progress-bar">
-    <div class="progress" style="width: 0;"></div>
-  </div>
+  <div id="loading-spinner" class="spinner hidden"></div>
 
   <div
     id="question-container"
@@ -135,6 +133,12 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+
+  #question-container.hidden {
+    opacity: 0;
   }
 
   #question {
@@ -303,22 +307,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     transform: scale(1.05);
   }
 
-  .progress-bar {
-    width: 100%; /* Volle Breite */
-    height: 10px; /* Höhe der Fortschrittsleiste */
-    background-color: var(--secondary-color); /* Hintergrund der Leiste */
-    border-radius: var(--border-radius); /* Abgerundete Ecken */
-    overflow: hidden; /* Damit der Fortschritt nicht über den Rand hinausgeht */
-    margin: var(--padding-medium) 0; /* Abstand nach oben und unten */
-  }
-
-  .progress {
-    height: 100%;
-    background-color: var(--highlight-color); /* Fortschrittsfarbe */
-    width: 0; /* Start mit 0% */
-    transition: width 0.3s ease-in-out; /* Weiche Animation, wenn sich der Fortschritt ändert */
-  }
-
   .joker-container {
     display: flex;
     flex-direction: column;
@@ -359,6 +347,68 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     padding: 0;
     margin: 0;
     overflow: hidden;
+  }
+  .button.correct {
+    background-color: green;
+    animation: pulseCorrect 0.5s ease-out;
+  }
+
+  .button.wrong {
+    background-color: red;
+    animation: shake 0.5s ease-out;
+  }
+
+  @keyframes pulseCorrect {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    75% {
+      transform: translateX(-5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .spinner {
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid var(--highlight-color);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .spinner.hidden {
+    display: none;
   }
 </style>
 
@@ -432,14 +482,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     const { totalUserPoints, currentCategoryPointsValue } =
       await getUserAndCategoryPoints(userId ?? "", categoryName ?? "");
 
-    function updateProgressBar(currentRound: number, totalRounds: number) {
-      const progressElement = document.querySelector(
-        ".progress",
-      ) as HTMLElement;
-      const progressPercentage = (currentRound / totalRounds) * 100;
-      progressElement.style.width = `${progressPercentage}%`;
-    }
-
     let currentQuestion: null = null;
     let jokerUsedCount = 0;
     let maxJokers = 0;
@@ -510,23 +552,42 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
      * Loads a question and its options into the DOM.
      */
     function loadQuestion(question: any, album: any) {
+      const questionContainer = document.getElementById(
+        "question-container",
+      ) as HTMLDivElement;
+
+      // Fade-Out der aktuellen Frage
+      questionContainer.classList.add("hidden");
+
+      const spinner = document.getElementById(
+        "loading-spinner",
+      ) as HTMLDivElement;
+      spinner.classList.remove("hidden");
+
       currentQuestion = question;
 
-      // Set the question text
-      questionElement.textContent = question.question;
+      setTimeout(() => {
+        // Set the question text
+        questionElement.textContent = question.question;
 
-      // Clear the options container
-      optionsContainer.innerHTML = "";
+        // Clear the options container
+        optionsContainer.innerHTML = "";
 
-      question.options.forEach(function (option: any) {
-        const button = document.createElement("button");
-        button.textContent = option;
-        button.className = "button";
-        button.onclick = function () {
-          handleAnswer(option, question.correctAnswer, question, album);
-        };
-        optionsContainer.appendChild(button);
-      });
+        question.options.forEach(function (option: any) {
+          const button = document.createElement("button");
+          button.textContent = option;
+          button.className = "button";
+          button.onclick = function () {
+            handleAnswer(option, question.correctAnswer, question, album);
+          };
+          optionsContainer.appendChild(button);
+        });
+
+        spinner.classList.add("hidden");
+
+        // Fade-In der neuen Frage
+        questionContainer.classList.remove("hidden");
+      }, 500);
 
       jokerUsed = false;
     }
@@ -542,7 +603,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         score += 50;
         feedbackElement.textContent = "Richtig! 50 Punkte";
       } else {
-        feedbackElement.textContent = `Leider Falsch!`;
+        feedbackElement.textContent = `Falsch! Die richtige Antwort war: ${correctAnswer}`;
       }
 
       scoreElement.textContent = `${score}`;
@@ -568,7 +629,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         document.getElementById("overlay")!.classList.add("hidden");
         if (roundIndex < totalRounds - 1) {
           roundIndex++;
-          updateProgressBar(roundIndex, totalRounds);
           roundElement.textContent = `${roundIndex + 1}/${totalRounds}`;
 
           const newQuestion = getRandomQuestion(albums, difficulty || "easy");
@@ -653,9 +713,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     function getCurrentQuestion() {
       return currentQuestion;
     }
-
-    // Initiale Frage laden
-    updateProgressBar(roundIndex + 1, totalRounds);
 
     const initialQuestion = getRandomQuestion(albums, difficulty || "easy");
     loadQuestion(initialQuestion.randomQuestion, initialQuestion.randomAlbum);
