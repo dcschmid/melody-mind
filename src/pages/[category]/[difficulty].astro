@@ -136,40 +136,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     background-color: var(--button-hover-color);
   }
 
-  .button {
-    cursor: pointer;
 
-    height: auto;
-    padding: var(--padding-small) var(--padding-large);
-
-    font-size: 1.125rem;
-
-    opacity: 1;
-    background-color: var(--highlight-color);
-    border: none;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-
-    transition:
-      background-color 0.3s ease,
-      opacity 1s ease,
-      height 1ys ease;
-  }
-
-  .button:hover {
-    transform: scale(1.05);
-    background-color: var(--button-hover-color);
-  }
-
-  .button.hidden {
-    overflow: hidden;
-
-    height: 0;
-    margin: 0;
-    padding: 0;
-
-    opacity: 0;
-  }
 </style>
 
 <script>
@@ -272,7 +239,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       const correctAnswer = question.correctAnswer;
       const options = Array.from(document.querySelectorAll("#options button"));
 
-      if (jokerUsed) return; // Verhindern, dass der Joker mehrmals verwendet wird
+         // Verhindern, dass der Joker mehrmals verwendet wird
 
       if (jokerUsedCount >= maxJokers) {
         jokerButton.disabled = true;
