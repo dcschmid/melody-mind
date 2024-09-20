@@ -142,6 +142,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
   import { loadQuestion } from "@utils/game/loadQuestion";
   import { updateMusicLink } from "@utils/game/updateMusicLink";
+  import { updateRoundProgress } from "@utils/game/updateRoundProgress";
   import { use5050Joker } from "@utils/game/use5050Joker";
 
   document.addEventListener("DOMContentLoaded", async function () {
@@ -203,7 +204,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     const totalRounds =
       difficulty === "hard" ? 20 : difficulty === "medium" ? 15 : 10;
 
-    roundElement.textContent = `${roundIndex + 1}/${totalRounds}`;
+    updateRoundProgress(roundIndex, totalRounds, roundElement);
 
     // Import the albums data for the current category
     const albumsPromise = import(`../../json/genres/${category}.json`);
@@ -310,7 +311,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         document.getElementById("overlay")!.classList.add("hidden");
         if (roundIndex < totalRounds - 1) {
           roundIndex++;
-          roundElement.textContent = `${roundIndex + 1}/${totalRounds}`;
+          updateRoundProgress(roundIndex, totalRounds, roundElement);
 
           const newQuestion = getRandomQuestion(albums, difficulty || "easy");
           currentQuestion = newQuestion.randomQuestion;

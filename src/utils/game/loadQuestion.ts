@@ -16,9 +16,11 @@ export function loadQuestion(
   spinner: HTMLDivElement,
   questionElement: HTMLParagraphElement,
   handleAnswer: Function,
-  feedbackElement: HTMLParagraphElement
+  feedbackElement: HTMLParagraphElement,
 ) {
-  const questionContainer = document.getElementById("question-container") as HTMLDivElement;
+  const questionContainer = document.getElementById(
+    "question-container",
+  ) as HTMLDivElement;
 
   // Fade-out the current question
   // We use setTimeout to create a small delay between the fade-out and fade-in
