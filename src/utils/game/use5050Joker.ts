@@ -11,7 +11,7 @@ export function use5050Joker(
   question: any,
   jokerButton: HTMLButtonElement,
   maxJokers: number,
-  jokerUsedCount: number
+  jokerUsedCount: number,
 ): number {
   // Check if the Joker has already been used
   let jokerUsed = false;
@@ -27,11 +27,13 @@ export function use5050Joker(
 
   // Get the correct answer and all the options
   const correctAnswer = question.correctAnswer;
-  const options = document.querySelectorAll("#options button") as NodeListOf<HTMLElement>;
+  const options = document.querySelectorAll(
+    "#options button",
+  ) as NodeListOf<HTMLElement>;
 
   // Find all the incorrect options
   const incorrectOptions: HTMLElement[] = [];
-  options.forEach(option => {
+  options.forEach((option) => {
     // Check if the option is not the correct answer
     if (option.textContent !== correctAnswer) {
       incorrectOptions.push(option);
@@ -44,7 +46,7 @@ export function use5050Joker(
     .slice(0, 2); // Get the first 2 elements
 
   // Add a transitionend event listener to each element to remove it after the transition has finished
-  toRemove.forEach(option => {
+  toRemove.forEach((option) => {
     // Add the hidden class to trigger the transition
     option.classList.add("hidden");
     option.addEventListener("transitionend", () => option.remove());

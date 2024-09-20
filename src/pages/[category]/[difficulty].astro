@@ -135,14 +135,14 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     transform: scale(1.05);
     background-color: var(--button-hover-color);
   }
-
-
 </style>
 
 <script>
   import { getRandomQuestion } from "@utils/game/getRandomQuestion";
   import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
+  import { loadQuestion } from "@utils/game/loadQuestion";
   import { updateMusicLink } from "@utils/game/updateMusicLink";
+  import { use5050Joker } from "@utils/game/use5050Joker";
 
   document.addEventListener("DOMContentLoaded", async function () {
     // Get the element that shows the current score
@@ -172,6 +172,10 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     // Get the element that shows the question container
     const questionContainer = document.getElementById(
       "question-container",
+    ) as HTMLDivElement;
+
+    const spinner = document.getElementById(
+      "loading-spinner",
     ) as HTMLDivElement;
 
     // Get the category from the question container
@@ -232,94 +236,17 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     ) as HTMLElement;
     jokerCounterElement.textContent = `Joker: ${maxJokers} verbleibend`;
 
-    let jokerUsed = false; // Der Joker kann nur einmal pro Runde verwendet werden
-
-    // Funktion für den 50:50 Joker
-    function use5050Joker(question: any) {
-      const correctAnswer = question.correctAnswer;
-      const options = Array.from(document.querySelectorAll("#options button"));
-
-         // Verhindern, dass der Joker mehrmals verwendet wird
-
-      if (jokerUsedCount >= maxJokers) {
-        jokerButton.disabled = true;
-      }
-
-      // Finde die falschen Antworten
-      const incorrectOptions = options.filter(
-        (option) => option.textContent !== correctAnswer,
-      );
-
-      const optionsToRemove = incorrectOptions
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 2);
-
-      optionsToRemove.forEach((option) => {
-        option.classList.add("hidden");
-
-        option.addEventListener("transitionend", function () {
-          option.remove();
-        });
-      });
-
-      jokerUsed = true; // Joker wurde verwendet
-
-      // Joker wurde verwendet, erhöhe den Joker-Count
-      jokerUsedCount++;
-      jokerCounterElement.textContent = `Joker: ${maxJokers - jokerUsedCount} verbleibend`;
-    }
-
     if (jokerButton) {
       jokerButton.addEventListener("click", function () {
-        const currentQuestion = getCurrentQuestion(); // Aktuelle Frage holen
-        use5050Joker(currentQuestion); // Joker aktivieren
+        const currentQuestion = getCurrentQuestion();
+        jokerUsedCount = use5050Joker(
+          currentQuestion,
+          jokerButton,
+          maxJokers,
+          jokerUsedCount,
+        );
+        jokerCounterElement.textContent = `Joker: ${maxJokers - jokerUsedCount} verbleibend`;
       });
-    }
-
-    /**
-     * Loads a question and its options into the DOM.
-     */
-    function loadQuestion(question: any, album: any) {
-      startTime = Date.now(); // Setze die Startzeit, wenn die Frage geladen wird
-
-      const questionContainer = document.getElementById(
-        "question-container",
-      ) as HTMLDivElement;
-
-      // Fade-Out der aktuellen Frage
-      questionContainer.classList.add("hidden");
-
-      const spinner = document.getElementById(
-        "loading-spinner",
-      ) as HTMLDivElement;
-      spinner.classList.remove("hidden");
-
-      currentQuestion = question;
-
-      setTimeout(() => {
-        // Set the question text
-        questionElement.textContent = question.question;
-
-        // Clear the options container
-        optionsContainer.innerHTML = "";
-
-        question.options.forEach(function (option: any) {
-          const button = document.createElement("button");
-          button.textContent = option;
-          button.className = "button";
-          button.onclick = function () {
-            handleAnswer(option, question.correctAnswer, question, album);
-          };
-          optionsContainer.appendChild(button);
-        });
-
-        spinner.classList.add("hidden");
-
-        // Fade-In der neuen Frage
-        questionContainer.classList.remove("hidden");
-      }, 500);
-
-      jokerUsed = false;
     }
 
     function handleAnswer(
@@ -386,7 +313,17 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
           roundElement.textContent = `${roundIndex + 1}/${totalRounds}`;
 
           const newQuestion = getRandomQuestion(albums, difficulty || "easy");
-          loadQuestion(newQuestion.randomQuestion, newQuestion.randomAlbum);
+          currentQuestion = newQuestion.randomQuestion;
+
+          loadQuestion(
+            newQuestion.randomQuestion,
+            newQuestion.randomAlbum,
+            optionsContainer,
+            spinner,
+            questionElement,
+            handleAnswer,
+            feedbackElement,
+          );
           feedbackElement.textContent = ""; // Feedback zurücksetzen
         } else {
           endGame();
@@ -478,6 +415,16 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     }
 
     const initialQuestion = getRandomQuestion(albums, difficulty || "easy");
-    loadQuestion(initialQuestion.randomQuestion, initialQuestion.randomAlbum);
+    loadQuestion(
+      initialQuestion.randomQuestion,
+      initialQuestion.randomAlbum,
+      optionsContainer,
+      spinner,
+      questionElement,
+      handleAnswer,
+      feedbackElement,
+    );
+
+    currentQuestion = initialQuestion.randomQuestion;
   });
 </script>
