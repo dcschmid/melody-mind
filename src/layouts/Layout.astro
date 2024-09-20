@@ -34,27 +34,34 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
   <body>
     <When test1={showHeader}>
       <header>
-        <div class="slot">
+        <div class="slot left">
           <When test={showHeaderIcons}>
             <a href="/spielregeln">
               <Icon name="question" width={24} height={22.24} />
             </a>
-            <a href="/highscores"
-              ><Icon name="trophy" width={24} height={24} />
+            <a href="/highscores">
+              <Icon name="trophy" width={24} height={24} />
             </a>
           </When>
           <slot name="left-headercol" />
         </div>
         <div class="logo">
-          <a href="/gamehome"
-            ><Image alt="" src="/melody-mind.jpg" width={120} height={69} /></a
-          >
+          <a href="/gamehome">
+            <img
+              alt="MelodyMind Logo"
+              src="/melody-mind.jpg"
+              width={120}
+              height={69}
+            />
+          </a>
         </div>
-        <div class="iconGroup">
+        <div class="slot right">
           <When test={showHeaderIcons}>
-            <a href="/user"><Icon name="user" width={24} height={24} /></a>
+            <a href="/user">
+              <Icon name="user" width={24} height={24} />
+            </a>
             <form method="post" action="/api/logout">
-              <button>
+              <button class="icon-button">
                 <Icon name="logout" width={24} height={24} title="Abmelden" />
               </button>
             </form>
@@ -118,33 +125,58 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: var(--padding-medium);
-      }
-
-      a {
-        color: var(--text-color);
-        text-decoration: none;
       }
 
       .slot {
         display: flex;
-        gap: var(--padding-medium);
-        width: 33.3333%;
+        gap: var(--padding-small);
+        align-items: center;
+      }
+
+      .slot.left,
+      .slot.right {
+        flex: 1;
+      }
+
+      .slot.right {
+        justify-content: flex-end;
       }
 
       .logo {
-        gap: var(--padding-medium);
-        width: 33.3333%;
-        text-align: center;
+        display: flex;
+        justify-content: center;
       }
 
-      .iconGroup {
-        display: flex;
-        gap: var(--padding-medium);
-        align-items: center;
-        justify-content: flex-end;
+      .logo img {
+        max-width: 100%;
+        height: auto;
+      }
 
-        width: 33.3333%;
+      a {
+        display: inline-block;
+        color: var(--text-color);
+        text-decoration: none;
+        transition:
+          transform var(--transition-speed),
+          color var(--transition-speed);
+      }
+
+      a:hover {
+        color: var(--highlight-color);
+        transform: scale(1.1);
+      }
+
+      .icon-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        display: inline-block;
+        transition: transform var(--transition-speed);
+      }
+
+      .icon-button:hover {
+        transform: scale(1.1);
       }
 
       main {
@@ -183,6 +215,7 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
         &:hover,
         &:focus-visible {
           transform: scale(1.05);
+          color: var(--text-color);
           background-color: var(--button-hover-color);
           box-shadow: 0 7px 15px rgb(0 0 0 / 30%);
         }
@@ -196,21 +229,6 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
 
         background: none;
         border: none;
-      }
-
-      @media (width >= 600px) {
-        body {
-          max-width: 600px;
-        }
-
-        .logo {
-          flex: 1;
-          width: auto;
-        }
-
-        .iconGroup {
-          justify-content: flex-end;
-        }
       }
     </style>
   </body>
