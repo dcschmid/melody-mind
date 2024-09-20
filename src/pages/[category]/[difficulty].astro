@@ -141,6 +141,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   import { getRandomQuestion } from "@utils/game/getRandomQuestion";
   import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
   import { loadQuestion } from "@utils/game/loadQuestion";
+  import { setupJokers } from "@utils/game/setupJokers";
   import { updateMusicLink } from "@utils/game/updateMusicLink";
   import { updateRoundProgress } from "@utils/game/updateRoundProgress";
   import { use5050Joker } from "@utils/game/use5050Joker";
@@ -215,18 +216,11 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       await getUserAndCategoryPoints(userId ?? "", categoryName ?? "");
 
     let currentQuestion: null = null;
-    let jokerUsedCount = 0;
-    let maxJokers = 0;
 
     let startTime: number;
 
-    if (difficulty === "easy") {
-      maxJokers = 3;
-    } else if (difficulty === "medium") {
-      maxJokers = 5;
-    } else if (difficulty === "hard") {
-      maxJokers = 7;
-    }
+    const { maxJokers, jokerUsedCount } = setupJokers(difficulty);
+
     const jokerButton = document.getElementById(
       "joker-button",
     ) as HTMLButtonElement;

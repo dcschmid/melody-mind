@@ -20,8 +20,18 @@ export function handleAnswer(
   feedbackElement: HTMLParagraphElement,
   score: number,
   updateScoreDisplay: Function,
-  overlayElements: { overlayCover: HTMLImageElement, artist: HTMLParagraphElement, album: HTMLParagraphElement, year: HTMLParagraphElement, funfact: HTMLParagraphElement },
-  links: { spotifyLink: HTMLAnchorElement, appleMusicLink: HTMLAnchorElement, deezerLink: HTMLAnchorElement }
+  overlayElements: {
+    overlayCover: HTMLImageElement;
+    artist: HTMLParagraphElement;
+    album: HTMLParagraphElement;
+    year: HTMLParagraphElement;
+    funfact: HTMLParagraphElement;
+  },
+  links: {
+    spotifyLink: HTMLAnchorElement;
+    appleMusicLink: HTMLAnchorElement;
+    deezerLink: HTMLAnchorElement;
+  },
 ): void {
   let bonusPoints = 0;
   const endTime = Date.now();
