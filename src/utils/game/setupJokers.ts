@@ -8,7 +8,7 @@
  */
 export function setupJokers(difficulty: string | null): {
   maxJokers: number;
-  jokerUsedCount: number;
+  jokerUsed: number;
 } {
   let maxJokers = 0;
 
@@ -25,5 +25,5 @@ export function setupJokers(difficulty: string | null): {
       break;
   }
 
-  return { maxJokers, jokerUsedCount: 0 };
+  return { maxJokers, jokerUsed: 0 };
 }

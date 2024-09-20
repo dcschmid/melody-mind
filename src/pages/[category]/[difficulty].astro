@@ -219,7 +219,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 
     let startTime: number;
 
-    const { maxJokers, jokerUsedCount } = setupJokers(difficulty);
+    const { maxJokers, jokerUsed } = setupJokers(difficulty);
 
     const jokerButton = document.getElementById(
       "joker-button",
@@ -234,11 +234,11 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     if (jokerButton) {
       jokerButton.addEventListener("click", function () {
         const currentQuestion = getCurrentQuestion();
-        jokerUsedCount = use5050Joker(
+        const jokerUsedCount = use5050Joker(
           currentQuestion,
           jokerButton,
           maxJokers,
-          jokerUsedCount,
+          jokerUsed,
         );
         jokerCounterElement.textContent = `Joker: ${maxJokers - jokerUsedCount} verbleibend`;
       });
