@@ -9,6 +9,7 @@ import FeedbackOverlay from "@components/Overlays/FeedbackOverlay.astro";
 import EndOverlay from "@components/Overlays/EndOverlay.astro";
 import GoldenLPOverlay from "@components/Overlays/GoldenLPOverlay.astro";
 import LoadingSpinner from "@components/Game/LoadingSpinner.astro";
+import Joker from "@components/Game/Joker.astro";
 
 /**
  * Get the user object from the Astro context
@@ -64,10 +65,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     <div id="options"></div>
   </div>
 
-  <div class="joker-container">
-    <button id="joker-button" class="button">50:50 Joker</button>
-    <p id="joker-count" class="joker-count">Joker: 0 verbleibend</p>
-  </div>
+  <Joker />
 </Layout>
 
 <style is:global lang="scss">
@@ -138,19 +136,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     background-color: var(--button-hover-color);
   }
 
-  .joker-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: var(--padding-small) 0;
-  }
-
-  .joker-count {
-    margin-top: var(--padding-small);
-    font-size: 1.2rem;
-    color: var(--highlight-color);
-  }
-
   .button {
     cursor: pointer;
 
@@ -184,52 +169,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     padding: 0;
 
     opacity: 0;
-  }
-
-  .button.correct {
-    background-color: green;
-    animation: pulseCorrect 0.5s ease-out;
-  }
-
-  .button.wrong {
-    background-color: red;
-    animation: shake 0.5s ease-out;
-  }
-
-  @keyframes pulseCorrect {
-    0% {
-      transform: scale(1);
-    }
-
-    50% {
-      transform: scale(1.1);
-    }
-
-    100% {
-      transform: scale(1);
-    }
-  }
-
-  @keyframes shake {
-    0% {
-      transform: translateX(0);
-    }
-
-    25% {
-      transform: translateX(-5px);
-    }
-
-    50% {
-      transform: translateX(5px);
-    }
-
-    75% {
-      transform: translateX(-5px);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
   }
 </style>
 
