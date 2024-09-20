@@ -1,0 +1,149 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div id="overlay" class="overlay hidden">
+  <div class="overlay-content">
+    <p id="feedback" class="feedback"></p>
+    <img id="overlay-cover" src="" alt="Album Cover" class="albumCover" />
+    <p id="overlay-artist" class="overlay-artist">Artist Name</p>
+    <p id="overlay-album" class="overlay-album">Album Name</p>
+    <p id="overlay-year" class="overlay-year">Album Year</p>
+    <div class="music-links">
+      <a class="spotifyUrl" href="" target="_blank">
+        <Icon name="spotify-music" width={35} height={35} />
+      </a>
+      <a class="appleMusicUrl" href="" target="_blank">
+        <Icon name="apple-music" width={35} height={35} />
+      </a>
+      <a class="deezerUrl" href="" target="_blank">
+        <Icon name="deezer" width={35} height={35} />
+      </a>
+    </div>
+    <p id="overlay-funfact" class="fun-fact">Fun Fact</p>
+    <div class="centerButton">
+      <button id="next-round-button" class="button">Nächste Runde</button>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .overlay {
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-large);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    transition: opacity var(--transition-speed) ease-in-out;
+  }
+
+  .overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .overlay-content {
+    width: 100%;
+    max-width: 480px;
+    padding: var(--padding-large);
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: center;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    color: var(--text-color);
+    transition: transform var(--transition-speed) ease-in-out;
+    transform: scale(0.95);
+
+    .albumCover {
+      max-width: 250px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto var(--padding-small);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      transition:
+        transform var(--transition-speed),
+        box-shadow var(--transition-speed);
+    }
+
+    .overlay-artist,
+    .overlay-album,
+    .overlay-year {
+      font-size: 1.25rem;
+      color: var(--text-color);
+      margin: var(--padding-small) 0;
+    }
+
+    .overlay-artist {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: var(--highlight-color);
+    }
+
+    .overlay-album {
+      font-weight: 600;
+    }
+
+    .overlay-year {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--text-color);
+    }
+
+    .music-links {
+      display: flex;
+      justify-content: center;
+      gap: var(--padding-medium);
+      margin: var(--padding-medium) 0;
+    }
+
+    .music-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--padding-small);
+      background-color: var(--highlight-color);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      transition: background-color var(--transition-speed);
+    }
+
+    .music-links a:hover {
+      background-color: var(--button-hover-color);
+    }
+
+    .fun-fact {
+      font-size: 1.125rem;
+      color: var(--text-color);
+      margin-top: var(--padding-medium);
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    .centerButton .button {
+      padding: var(--padding-small) var(--padding-medium);
+      font-size: var(--button-font-size);
+      background-color: var(--highlight-color);
+      color: var(--text-color);
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition:
+        background-color var(--transition-speed),
+        transform 0.2s;
+      box-shadow: var(--box-shadow);
+    }
+
+    .centerButton .button:hover {
+      background-color: var(--button-hover-color);
+      transform: scale(1.05);
+    }
+  }
+</style>

@@ -5,6 +5,7 @@ import ShowCoins from "@components/Shared/ShowCoins.astro";
 import { Icon } from "astro-icon/components";
 import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
 import GameHeadline from "@components/Game/GameHeadline.astro";
+import FeedbackOverlay from "@components/Overlays/FeedbackOverlay.astro";
 
 /**
  * Get the user object from the Astro context
@@ -37,29 +38,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   </div>
 
   <!-- Overlay für Feedback und nächste Runde -->
-  <div id="overlay" class="overlay hidden">
-    <div class="overlay-content">
-      <p id="feedback" class="feedback"></p>
-      <img id="overlay-cover" src="" alt="Album Cover" class="albumCover" />
-      <h3 id="overlay-album">Album Name</h3>
-      <p id="overlay-year">Album Year</p>
-      <div class="music-links">
-        <a class="spotifyUrl" href="" target="_blank">
-          <Icon name="spotify-music" width={35} height={35} />
-        </a>
-        <a class="appleMusicUrl" href="" target="_blank">
-          <Icon name="apple-music" width={35} height={35} />
-        </a>
-        <a class="deezerUrl" href="" target="_blank">
-          <Icon name="deezer" width={35} height={35} />
-        </a>
-      </div>
-      <p id="overlay-funfact" class="fun-fact">Fun Fact</p>
-      <div class="centerButton">
-        <button id="next-round-button" class="button">Nächste Runde</button>
-      </div>
-    </div>
-  </div>
+  <FeedbackOverlay />
 
   <!-- Spiel beendet Popup -->
   <div id="endgame-popup" class="popup hidden">
@@ -652,8 +631,9 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         "overlay-cover",
       ) as HTMLImageElement;
       overlayCover.src = album.coverSrc || "";
-      document.getElementById("overlay-album")!.textContent =
-        album.artist + " - " + album.album || "";
+      document.getElementById("overlay-artist")!.textContent =
+        album.artist || "";
+      document.getElementById("overlay-album")!.textContent = album.album || "";
       document.getElementById("overlay-funfact")!.textContent =
         currentQuestion.trivia || "";
       document.getElementById("overlay-year")!.textContent = album.year || "";
