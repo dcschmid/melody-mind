@@ -6,6 +6,7 @@ import { Icon } from "astro-icon/components";
 import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
 import GameHeadline from "@components/Game/GameHeadline.astro";
 import FeedbackOverlay from "@components/Overlays/FeedbackOverlay.astro";
+import EndOverlay from "@components/Overlays/EndOverlay.astro";
 
 /**
  * Get the user object from the Astro context
@@ -37,19 +38,9 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     <ShowCoins />
   </div>
 
-  <!-- Overlay für Feedback und nächste Runde -->
   <FeedbackOverlay />
 
-  <!-- Spiel beendet Popup -->
-  <div id="endgame-popup" class="popup hidden">
-    <div class="popup-content">
-      <h2>Spiel beendet!</h2>
-      <p>Erreichte Punkte: <span id="popup-score"></span></p>
-      <div class="centerButton">
-        <button id="restart-button" class="button">Neues Spiel</button>
-      </div>
-    </div>
-  </div>
+  <EndOverlay />
 
   <!-- Goldenes LP Popup -->
   <div id="golden-lp-popup" class="popup hidden">

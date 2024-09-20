@@ -1,0 +1,91 @@
+---
+
+---
+
+<div id="endgame-popup" class="popup hidden">
+  <div class="popup-content">
+    <h2>Spiel beendet!</h2>
+    <p class="motivation-text">
+      Toll gemacht! Noch ein paar Runden und du bist ein Champion!
+    </p>
+    <p>Erreichte Punkte: <span id="popup-score"></span></p>
+    <div class="centerButton">
+      <button id="restart-button" class="button">Neues Spiel</button>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .popup {
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(31, 14, 22, 0.9);
+    color: var(--text-color);
+    padding: var(--padding-large);
+  }
+
+  .popup-content {
+    background-color: var(--button-text-color);
+    padding: var(--padding-large);
+    max-width: 400px;
+    width: 100%;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  h2 {
+    font-size: var(--header-font-size);
+    color: var(--highlight-color);
+    margin-bottom: var(--padding-small);
+  }
+
+  .motivation-text {
+    font-size: 1.125rem;
+    font-style: italic;
+    color: var(--text-color);
+    margin-bottom: var(--padding-medium);
+  }
+
+  #popup-score {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--highlight-color);
+    margin-bottom: var(--padding-medium);
+  }
+
+  .centerButton .button {
+    padding: var(--padding-small) var(--padding-medium);
+    font-size: var(--button-font-size);
+    background-color: var(--highlight-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    transition:
+      background-color var(--transition-speed),
+      transform 0.2s ease;
+  }
+
+  .centerButton .button:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+  }
+</style>
