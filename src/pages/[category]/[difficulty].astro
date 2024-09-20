@@ -2,7 +2,6 @@
 import Layout from "@layouts/Layout.astro"; // Layout component
 import categories from "@json/categories.json"; // JSON file containing categories data
 import ShowCoins from "@components/Shared/ShowCoins.astro";
-import { Icon } from "astro-icon/components";
 import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
 import GameHeadline from "@components/Game/GameHeadline.astro";
 import FeedbackOverlay from "@components/Overlays/FeedbackOverlay.astro";
@@ -139,10 +138,11 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 
 <script>
   import { calculateBonusPoints } from "@utils/game/calculateBonusPoints";
-import { getRandomQuestion } from "@utils/game/getRandomQuestion";
+  import { getRandomQuestion } from "@utils/game/getRandomQuestion";
   import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
   import { loadQuestion } from "@utils/game/loadQuestion";
   import { setupJokers } from "@utils/game/setupJokers";
+  import { showFeedback } from "@utils/game/showFeedback";
   import { updateMusicLink } from "@utils/game/updateMusicLink";
   import { updateRoundProgress } from "@utils/game/updateRoundProgress";
   import { use5050Joker } from "@utils/game/use5050Joker";
@@ -253,24 +253,14 @@ import { getRandomQuestion } from "@utils/game/getRandomQuestion";
     ) {
       let totalPoints = 0;
 
-      if (option === correctAnswer) {
-        const bonusPoints = calculateBonusPoints(startTime);
+      const isCorrect = option === correctAnswer;
+      const bonusPoints = calculateBonusPoints(startTime);
 
-        totalPoints = 50 + bonusPoints; // Grundpunkte plus Bonus
-        feedbackElement.classList.add("correct");
-
-        feedbackElement.textContent = `Richtig! 50 Punkte + ${bonusPoints} Bonuspunkte`;
-      } else {
-        feedbackElement.classList.add("incorrect");
-        feedbackElement.textContent = `Falsch! Die richtige Antwort war: ${correctAnswer}`;
+      if (isCorrect) {
+        totalPoints = 50 + bonusPoints;
       }
 
-      feedbackElement.classList.add("show");
-
-      setTimeout(
-        () => feedbackElement.classList.remove("show", "correct", "incorrect"),
-        3000,
-      );
+      showFeedback(isCorrect, feedbackElement, correctAnswer, bonusPoints);
 
       // Aktualisiere die Gesamtpunktzahl
       score += totalPoints;
