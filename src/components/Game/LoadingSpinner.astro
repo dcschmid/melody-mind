@@ -1,0 +1,33 @@
+---
+
+---
+
+<div id="loading-spinner" class="spinner hidden"></div>
+
+<style lang="scss">
+  .spinner {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid var(--highlight-color);
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .spinner.hidden {
+    display: none;
+  }
+</style>
