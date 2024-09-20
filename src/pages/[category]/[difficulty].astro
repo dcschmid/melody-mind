@@ -143,7 +143,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   import { loadQuestion } from "@utils/game/loadQuestion";
   import { setupJokers } from "@utils/game/setupJokers";
   import { showFeedback } from "@utils/game/showFeedback";
-  import { updateMusicLink } from "@utils/game/updateMusicLink";
+  import { showOverlay } from "@utils/game/showOverlay";
   import { updateRoundProgress } from "@utils/game/updateRoundProgress";
   import { use5050Joker } from "@utils/game/use5050Joker";
 
@@ -186,16 +186,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     const userId = questionContainer.getAttribute("data-userID");
     const categoryName = questionContainer.getAttribute("data-categoryName");
     const difficulty = questionContainer.getAttribute("date-difficulty");
-    // Get the anchor tags
-    const spotifyLink = document.querySelector(
-      "#overlay .music-links .spotifyUrl",
-    ) as HTMLAnchorElement;
-    const appleMusicLink = document.querySelector(
-      "#overlay .music-links .appleMusicUrl",
-    ) as HTMLAnchorElement;
-    const deezerLink = document.querySelector(
-      "#overlay .music-links .deezerUrl",
-    ) as HTMLAnchorElement;
 
     // Initialize the score and the round index
     let score = 0;
@@ -267,23 +257,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 
       updateScoreDisplay(score);
 
-      // Funfact und weitere Informationen im Overlay anzeigen
-      const overlayCover = document.getElementById(
-        "overlay-cover",
-      ) as HTMLImageElement;
-      overlayCover.src = album.coverSrc || "";
-      document.getElementById("overlay-artist")!.textContent =
-        album.artist || "";
-      document.getElementById("overlay-album")!.textContent = album.album || "";
-      document.getElementById("overlay-funfact")!.textContent =
-        currentQuestion.trivia || "";
-      document.getElementById("overlay-year")!.textContent = album.year || "";
-
-      updateMusicLink(spotifyLink, album.spotifyUrl);
-      updateMusicLink(appleMusicLink, album.appleMusicUrl);
-      updateMusicLink(deezerLink, album.deezerUrl);
-
-      document.getElementById("overlay")!.classList.remove("hidden");
+      showOverlay(currentQuestion, album);
 
       document.getElementById("next-round-button")!.onclick = function () {
         document.getElementById("overlay")!.classList.add("hidden");
