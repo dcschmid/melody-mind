@@ -616,10 +616,20 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         }
 
         totalPoints = 50 + bonusPoints; // Grundpunkte plus Bonus
+        feedbackElement.classList.add("correct");
+
         feedbackElement.textContent = `Richtig! 50 Punkte + ${bonusPoints} Bonuspunkte`;
       } else {
+        feedbackElement.classList.add("incorrect");
         feedbackElement.textContent = `Falsch! Die richtige Antwort war: ${correctAnswer}`;
       }
+
+      feedbackElement.classList.add("show");
+
+      setTimeout(
+        () => feedbackElement.classList.remove("show", "correct", "incorrect"),
+        3000,
+      );
 
       // Aktualisiere die Gesamtpunktzahl
       score += totalPoints;
@@ -696,8 +706,8 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       };
     }
 
-    function updateScoreDisplay(score: string) {
-      scoreElement.textContent = score;
+    function updateScoreDisplay(score: number) {
+      scoreElement.textContent = score as unknown as string;
 
       // Bonus Animation
       scoreElement.classList.add("bonus");

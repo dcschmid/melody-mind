@@ -60,6 +60,41 @@ import { Icon } from "astro-icon/components";
     transition: transform var(--transition-speed) ease-in-out;
     transform: scale(0.95);
 
+    .feedback {
+      font-size: 1.25rem;
+      font-weight: bold;
+      text-align: center;
+      padding: var(--padding-medium);
+      border-radius: var(--border-radius);
+      margin-bottom: var(--padding-large);
+      transition:
+        background-color var(--transition-speed),
+        transform 0.3s ease-in-out,
+        display 0.3s ease-in-out;
+      opacity: 0;
+      transform: translateY(-10px);
+      display: none;
+    }
+
+    .feedback.show {
+      opacity: 1;
+      transform: translateY(0);
+      height: auto;
+      display: block;
+    }
+
+    .feedback.correct {
+      background-color: var(--highlight-color);
+      color: var(--text-color);
+      box-shadow: var(--box-shadow);
+    }
+
+    .feedback.incorrect {
+      background-color: var(--error-color);
+      color: var(--text-color);
+      box-shadow: var(--box-shadow);
+    }
+
     .albumCover {
       max-width: 250px;
       width: 100%;
@@ -123,7 +158,6 @@ import { Icon } from "astro-icon/components";
       font-size: 1.125rem;
       color: var(--text-color);
       margin-top: var(--padding-medium);
-      font-style: italic;
       opacity: 0.9;
     }
 
