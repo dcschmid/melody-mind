@@ -138,7 +138,8 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 </style>
 
 <script>
-  import { getRandomQuestion } from "@utils/game/getRandomQuestion";
+  import { calculateBonusPoints } from "@utils/game/calculateBonusPoints";
+import { getRandomQuestion } from "@utils/game/getRandomQuestion";
   import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
   import { loadQuestion } from "@utils/game/loadQuestion";
   import { setupJokers } from "@utils/game/setupJokers";
@@ -250,17 +251,10 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       currentQuestion: any,
       album?: any,
     ) {
-      const endTime = Date.now(); // Zeit, wenn die Antwort gegeben wird
-      const timeTaken = (endTime - startTime) / 1000; // Zeit in Sekunden
       let totalPoints = 0;
 
-      let bonusPoints = 0;
       if (option === correctAnswer) {
-        if (timeTaken <= 10) {
-          bonusPoints = 50; // Maximaler Bonus für superschnelle Antworten
-        } else if (timeTaken <= 15) {
-          bonusPoints = 25; // Mittlerer Bonus für schnelle Antworten
-        }
+        const bonusPoints = calculateBonusPoints(startTime);
 
         totalPoints = 50 + bonusPoints; // Grundpunkte plus Bonus
         feedbackElement.classList.add("correct");
