@@ -7,6 +7,7 @@ import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
 import GameHeadline from "@components/Game/GameHeadline.astro";
 import FeedbackOverlay from "@components/Overlays/FeedbackOverlay.astro";
 import EndOverlay from "@components/Overlays/EndOverlay.astro";
+import GoldenLPOverlay from "@components/Overlays/GoldenLPOverlay.astro";
 
 /**
  * Get the user object from the Astro context
@@ -42,25 +43,11 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 
   <EndOverlay />
 
-  <!-- Goldenes LP Popup -->
-  <div id="golden-lp-popup" class="popup hidden">
-    <div class="popup-content">
-      <h2>Herzlichen Glückwunsch!</h2>
-      <Icon name="golden-lp" class="icon" width={100} height={100} />
-      <p>
-        Du hast die goldene <span class="goldenText">Pop-Rock</span> Schallplatte
-        gewonnen und außerdem hast du den Titel <span class="goldenText"
-          >{playerTitle}</span
-        > erhalten!
-      </p>
-      <p>Erreichte Punkte: <span id="golden-lp-score"></span></p>
-      <div class="centerButton">
-        <button id="restart-button-lp" class="button">Neues Spiel</button>
-      </div>
-    </div>
-  </div>
+  <GoldenLPOverlay
+    playerTitle={playerTitle}
+    category={currentCategoryData?.headline}
+  />
 
-  <!-- Spielüberschrift und Fragenbereich -->
   <GameHeadline headline={currentCategoryData?.headline} />
 
   <div id="loading-spinner" class="spinner hidden"></div>
@@ -114,146 +101,12 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     gap: var(--padding-medium);
   }
 
-  .feedback {
-    margin-top: var(--padding-small);
-    margin-bottom: var(--padding-medium);
-
-    font-size: 1.25rem;
-    color: var(--text-color);
-    text-align: center;
-  }
-
-  /* Overlay */
-  .overlay {
-    position: fixed;
-    z-index: 1000;
-    inset: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: var(--padding-small);
-
-    background: rgb(0 0 0 / 85%);
-  }
-
   .overlay.hidden {
     display: none;
   }
 
-  .overlay-content {
-    overflow-y: auto;
-
-    width: 100%;
-    max-width: 480px;
-    max-height: 90vh;
-    padding: var(--padding-large);
-
-    color: var(--text-color);
-    text-align: center;
-
-    background-color: var(--background-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-
-    transition: all 0.3s ease;
-  }
-
-  .albumCover {
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto var(--padding-small);
-
-    border: 2px solid var(--text-color);
-    border-radius: var(--border-radius);
-  }
-
-  .overlay-album {
-    margin-bottom: var(--padding-small);
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--highlight-color);
-  }
-
-  .overlay-year {
-    margin-bottom: var(--padding-small);
-    font-size: 1rem;
-    color: var(--text-color);
-  }
-
-  .music-links {
-    display: flex;
-    gap: var(--padding-small);
-    justify-content: center;
-    margin-bottom: var(--padding-small);
-  }
-
-  .music-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 50px;
-    height: 50px;
-    padding: var(--padding-small);
-
-    background-color: var(--highlight-color);
-    border-radius: 50%;
-
-    transition: background-color 0.3s ease;
-  }
-
-  .music-links a:hover {
-    background-color: var(--button-hover-color);
-  }
-
-  .fun-fact {
-    margin-top: var(--padding-small);
-
-    font-size: 1.125rem;
-    font-weight: 400;
-    hyphens: auto;
-    color: var(--text-color);
-  }
-
-  /* Popup */
-  .popup {
-    position: fixed;
-    z-index: 1000;
-    inset: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: var(--padding-medium);
-
-    color: var(--text-color);
-
-    background-color: rgb(31 14 22 / 90%);
-  }
-
   .popup.hidden {
     display: none;
-  }
-
-  .popup-content {
-    width: 100%;
-    max-width: 480px;
-    padding: var(--padding-large);
-
-    font-size: 1.25rem;
-    text-align: center;
-
-    background-color: var(--button-text-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-  }
-
-  .goldenText {
-    font-weight: 700;
-    color: var(--text-color);
   }
 
   .centerButton {

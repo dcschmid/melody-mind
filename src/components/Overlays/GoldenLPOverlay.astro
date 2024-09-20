@@ -1,0 +1,119 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { playerTitle, category } = Astro.props;
+---
+
+<div id="golden-lp-popup" class="popup hidden">
+  <div class="popup-content">
+    <h2>Herzlichen Glückwunsch!</h2>
+    <Icon name="golden-lp" class="icon" width={100} height={100} />
+    <p>
+      Du hast die goldene <span class="goldenText">{category}</span> Schallplatte
+      gewonnen und außerdem hast du den Titel <span class="goldenText"
+        >{playerTitle}</span
+      > erhalten!
+    </p>
+    <p>Erreichte Punkte: <span id="golden-lp-score"></span></p>
+    <div class="centerButton">
+      <button id="restart-button-lp" class="button">Neues Spiel</button>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .popup {
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(
+      31,
+      14,
+      22,
+      0.9
+    ); /* Dunkler Hintergrund mit Transparenz */
+    padding: var(--padding-large);
+    transition: opacity 0.3s ease;
+  }
+
+  .popup-content {
+    background-color: var(--button-text-color);
+    padding: var(--padding-large);
+    max-width: 400px;
+    width: 100%;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    animation: scaleIn 0.5s ease-in-out;
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  h2 {
+    font-size: var(--header-font-size);
+    color: var(--highlight-color);
+    margin-bottom: var(--padding-small);
+  }
+
+  .golden-lp-icon {
+    margin: var(--padding-medium) auto;
+    animation: rotate 2s infinite linear;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  p {
+    font-size: var(--body-font-size);
+    color: var(--text-color);
+    margin-bottom: var(--padding-medium);
+  }
+
+  .goldenText {
+    color: var(--highlight-color);
+    font-weight: bold;
+  }
+
+  #golden-lp-score {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--highlight-color);
+  }
+
+  .centerButton .button {
+    padding: var(--padding-small) var(--padding-medium);
+    font-size: var(--button-font-size);
+    background-color: var(--highlight-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    transition:
+      background-color var(--transition-speed),
+      transform 0.2s ease;
+  }
+
+  .centerButton .button:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+  }
+</style>
