@@ -1,25 +1,32 @@
 /**
  * Shows the feedback for the user after answering a question.
- * @param {boolean} isCorrect Whether the user's answer was correct or not.
- * @param {HTMLElement} feedbackElement The HTML element to display the feedback.
- * @param {string|null} correctAnswer The correct answer to the question.
+ *
+ * @param {boolean} isCorrect - Whether the user answered correctly or not.
+ * @param {HTMLElement} feedbackElement - The element to display the feedback in.
+ * @param {string | null} correctAnswer - The correct answer, if the user answered incorrectly.
  */
 export function showFeedback(
   isCorrect: boolean,
   feedbackElement: HTMLElement,
   correctAnswer: string | null = null,
-  bonusPoints: number
-): void {
-  const text = isCorrect
-    ? `Richtig! 50 Punkte + ${bonusPoints} Bonuspunkte`
-    : `Falsch! Die richtige Antwort war: ${correctAnswer}`;
-  const className = isCorrect ? "show correct" : "show incorrect";
+) {
+  if (isCorrect) {
+    // Add the correct class to the element
+    feedbackElement.classList.add("correct");
+    // Set the text content to a success message
+    feedbackElement.textContent = "Richtig! 50 Punkte + Bonus";
+  } else {
+    // Add the incorrect class to the element
+    feedbackElement.classList.add("incorrect");
+    // Set the text content to a failure message with the correct answer
+    feedbackElement.textContent = `Falsch! Die richtige Antwort war: ${correctAnswer}`;
+  }
 
-  feedbackElement.classList.add(className);
-  feedbackElement.textContent = text;
-
-  // Show the feedback for 3 seconds
-  window.setTimeout(() => {
-    feedbackElement.classList.remove(className);
+  // Add the show class to the element to display it
+  feedbackElement.classList.add("show");
+  // Set a timeout to hide the element after 3 seconds
+  setTimeout(() => {
+    // Remove the show class and the correct/incorrect classes from the element
+    feedbackElement.classList.remove("show", "correct", "incorrect");
   }, 3000);
 }
