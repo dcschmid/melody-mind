@@ -142,6 +142,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   import { getRandomQuestion } from "@utils/game/getRandomQuestion";
   import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
   import { loadQuestion } from "@utils/game/loadQuestion";
+  import { setupJokerEvent } from "@utils/game/setupJokerEvent";
   import { setupJokers } from "@utils/game/setupJokers";
   import { showEndgamePopup } from "@utils/game/showEndgamePopup";
   import { showFeedback } from "@utils/game/showFeedback";
@@ -217,24 +218,13 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       "joker-button",
     ) as HTMLButtonElement;
 
-    // Zeige die Anzahl der verfügbaren Joker im Interface an
-    const jokerCounterElement = document.getElementById(
-      "joker-count",
-    ) as HTMLElement;
-    jokerCounterElement.textContent = `Joker: ${maxJokers} verbleibend`;
-
-    if (jokerButton) {
-      jokerButton.addEventListener("click", function () {
-        const currentQuestion = getCurrentQuestion();
-        const jokerUsedCount = use5050Joker(
-          currentQuestion,
-          jokerButton,
-          maxJokers,
-          jokerUsed,
-        );
-        jokerCounterElement.textContent = `Joker: ${maxJokers - jokerUsedCount} verbleibend`;
-      });
-    }
+    setupJokerEvent(
+      jokerButton,
+      maxJokers,
+      jokerUsed,
+      use5050Joker,
+      getCurrentQuestion,
+    );
 
     function handleAnswer(
       option: boolean,
