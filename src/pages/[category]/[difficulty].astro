@@ -142,6 +142,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
   import { loadQuestion } from "@utils/game/loadQuestion";
   import { setupJokers } from "@utils/game/setupJokers";
+  import { showEndgamePopup } from "@utils/game/showEndgamePopup";
   import { showFeedback } from "@utils/game/showFeedback";
   import { showOverlay } from "@utils/game/showOverlay";
   import { updateRoundProgress } from "@utils/game/updateRoundProgress";
@@ -294,19 +295,8 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       } else {
         saveScoreToDB();
         // Normales Spielende Popup anzeigen
-        showEndgamePopup();
+        showEndgamePopup(score, restartGame);
       }
-    }
-
-    function showEndgamePopup() {
-      document.getElementById("popup-score")!.textContent = score.toString();
-
-      const endgamePopup = document.getElementById("endgame-popup");
-      endgamePopup!.classList.remove("hidden");
-
-      document.getElementById("restart-button")!.onclick = function () {
-        restartGame();
-      };
     }
 
     function showGoldenLpPopup() {
