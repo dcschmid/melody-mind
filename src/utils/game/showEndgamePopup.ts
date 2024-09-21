@@ -3,9 +3,10 @@
  * @param {number} score The user's final score.
  * @param {Function} restartGame A function to restart the game.
  */
-export function showEndgamePopup(score: number, restartGame: Function) {
+export function showEndgamePopup(score: string, restartGame: Function) {
   // Set the score in the popup
-  document.getElementById("popup-score")!.textContent = score.toString();
+  const scoreElement = document.getElementById("popup-score");
+  scoreElement!.textContent = score;
 
   // Get the endgame popup element
   const endgamePopup = document.getElementById("endgame-popup");

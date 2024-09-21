@@ -138,6 +138,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 
 <script>
   import { calculateBonusPoints } from "@utils/game/calculateBonusPoints";
+  import { endGame } from "@utils/game/endGame";
   import { getRandomQuestion } from "@utils/game/getRandomQuestion";
   import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
   import { loadQuestion } from "@utils/game/loadQuestion";
@@ -280,23 +281,20 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
           );
           feedbackElement.textContent = ""; // Feedback zurücksetzen
         } else {
-          endGame();
+          endGame(
+            correctAnswers,
+            totalRounds,
+            saveGoldenLP,
+            saveScoreToDB,
+            showGoldenLpPopup,
+            showEndgamePopup,
+            userId || "",
+            categoryName || "",
+            restartGame,
+            score as unknown as string,
+          );
         }
       };
-    }
-
-    // Funktion für das Spielende
-    function endGame() {
-      if (correctAnswers === totalRounds) {
-        saveGoldenLP(userId || "", categoryName || "");
-        saveScoreToDB();
-        // Alle Fragen richtig beantwortet - Goldene LP Popup anzeigen
-        showGoldenLpPopup();
-      } else {
-        saveScoreToDB();
-        // Normales Spielende Popup anzeigen
-        showEndgamePopup(score, restartGame);
-      }
     }
 
     function showGoldenLpPopup() {
