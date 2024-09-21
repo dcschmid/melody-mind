@@ -147,13 +147,11 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   import { showFeedback } from "@utils/game/showFeedback";
   import { showOverlay } from "@utils/game/showOverlay";
   import { updateRoundProgress } from "@utils/game/updateRoundProgress";
+  import { updateScoreDisplay } from "@utils/game/updateScoreDisplay";
   import { use5050Joker } from "@utils/game/use5050Joker";
 
   document.addEventListener("DOMContentLoaded", async function () {
     // Get the element that shows the current score
-    const scoreElement = document.querySelector(
-      ".coinsCount",
-    ) as HTMLParagraphElement;
 
     const roundElement = document.querySelector(
       ".round",
@@ -307,16 +305,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       document.getElementById("restart-button-lp")!.onclick = function () {
         restartGame();
       };
-    }
-
-    function updateScoreDisplay(score: number) {
-      scoreElement.textContent = score as unknown as string;
-
-      // Bonus Animation
-      scoreElement.classList.add("bonus");
-      setTimeout(() => {
-        scoreElement.classList.remove("bonus");
-      }, 500);
     }
 
     function restartGame() {
