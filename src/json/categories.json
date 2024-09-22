@@ -555,7 +555,7 @@
     "categoryUrl": "/latin-vibes",
     "introSubline": "Spür die rhythmische Leidenschaft und die lebhaften Klänge der Latin-Welt!",
     "text": "Latin Vibes bringt die pulsierende Energie und den unwiderstehlichen Rhythmus der Latin-Musik direkt zu dir. Diese Kategorie vereint eine bunte Mischung aus heißen Salsa-, Reggaeton- und Bachata-Beats sowie den mitreißenden Grooves des Latin Pop. Von feurigen Tanztracks bis zu gefühlvollen Melodien – Latin Vibes sorgt für eine unvergleichliche Atmosphäre voller Lebensfreude und Energie.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "latino",

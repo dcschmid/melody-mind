@@ -1,0 +1,2537 @@
+[
+  {
+    "artist": "Shakira",
+    "album": "Pies Descalzos",
+    "year": 1995,
+    "coverSrc": "/bandcover/latin-vibes/shakira_pies_descalzos.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Shakira ist der Song 'Estoy Aquí' zu finden?",
+          "options": [
+            "Dónde Están los Ladrones?",
+            "Pies Descalzos",
+            "Fijación Oral, Vol. 1",
+            "Servicio de Lavandería"
+          ],
+          "correctAnswer": "Pies Descalzos",
+          "trivia": "'Estoy Aquí' ist der bekannteste Song von Shakiras Durchbruchsalbum 'Pies Descalzos' aus dem Jahr 1995. Der Song machte Shakira zu einer der bekanntesten Künstlerinnen Lateinamerikas."
+        },
+        {
+          "question": "Welches Lied aus Shakiras Album 'Pies Descalzos' wurde einer ihrer ersten internationalen Hits?",
+          "options": [
+            "Estoy Aquí",
+            "Pies Descalzos, Sueños Blancos",
+            "¿Dónde Estás Corazón?",
+            "Un Poco de Amor"
+          ],
+          "correctAnswer": "Estoy Aquí",
+          "trivia": "'Estoy Aquí' war einer der ersten internationalen Hits von Shakira. Der Song mischt lateinamerikanische Rhythmen mit Pop und brachte ihr weltweite Anerkennung ein."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'Pies Descalzos' von Shakira enthält die Zeile 'Estoy aquí queriéndote, ahogándome entre fotos y cuadernos'?",
+          "options": [
+            "Estoy Aquí",
+            "Antología",
+            "Te Necesito",
+            "Se Quiere, Se Mata"
+          ],
+          "correctAnswer": "Estoy Aquí",
+          "trivia": "Die Zeile 'Estoy aquí queriéndote, ahogándome entre fotos y cuadernos' stammt aus dem Lied 'Estoy aquí'. Das Lied handelt von Liebeskummer und den emotionalen Kämpfen, die mit einer gescheiterten Beziehung einhergehen."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied auf Shakiras Album 'Pies Descalzos' ist bekannt für seinen introspektiven und gefühlvollen Text, in dem die Künstlerin über eine vergangene Liebe nachdenkt?",
+          "options": [
+            "Antología",
+            "Estoy Aquí",
+            "Te Necesito",
+            "Un Poco de Amor"
+          ],
+          "correctAnswer": "Antología",
+          "trivia": "'Antología' ist eines der emotionalsten Lieder auf 'Pies Descalzos'. In diesem Lied reflektiert Shakira über eine vergangene Liebe und die Lehren, die sie aus dieser Beziehung gezogen hat."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'Pies Descalzos' von Shakira beinhaltet die Botschaft, selbstbestimmt und unabhängig zu leben?",
+          "options": [
+            "Pies Descalzos, Sueños Blancos",
+            "Estoy Aquí",
+            "Se Quiere, Se Mata",
+            "Antología"
+          ],
+          "correctAnswer": "Pies Descalzos, Sueños Blancos",
+          "trivia": "'Pies Descalzos, Sueños Blancos' ist der Titelsong des Albums und handelt von Selbstbestimmung und der Wichtigkeit, seinen eigenen Weg im Leben zu finden. Der Song zeigt Shakiras Talent, tiefgründige Botschaften in eingängige Melodien zu verpacken."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'Pies Descalzos' von Shakira ist ein Lied über die Erwartungen der Gesellschaft an das Leben und die Liebe?",
+          "options": [
+            "Se Quiere, Se Mata",
+            "Pies Descalzos, Sueños Blancos",
+            "Antología",
+            "Te Necesito"
+          ],
+          "correctAnswer": "Se Quiere, Se Mata",
+          "trivia": "'Se Quiere, Se Mata' thematisiert gesellschaftliche Normen und Erwartungen in Bezug auf Liebe und Sexualität. Das Lied behandelt ernste Themen in einem humorvollen, aber kritischen Ton."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welches Lied auf dem Album 'Pies Descalzos' von Shakira handelt von innerer Zerrissenheit und der Suche nach Identität?",
+          "options": [
+            "Te Espero Sentada",
+            "Estoy Aquí",
+            "Te Necesito",
+            "Antología"
+          ],
+          "correctAnswer": "Te Necesito",
+          "trivia": "'Te Necesito' behandelt das Thema der inneren Zerrissenheit und die Suche nach einer stabilen Identität. Der Song zeigt Shakiras Fähigkeit, tiefgründige Emotionen und persönliche Kämpfe in ihrer Musik widerzuspiegeln."
+        },
+        {
+          "question": "Welches Lied verbindet lateinamerikanische Rhythmen mit Pop- und Reggae-Elementen auf dem Album 'Pies Descalzos' von Shakira?",
+          "options": [
+            "Un Poco de Amor",
+            "Pies Descalzos, Sueños Blancos",
+            "Estoy Aquí",
+            "Se Quiere, Se Mata"
+          ],
+          "correctAnswer": "Un Poco de Amor",
+          "trivia": "'Un Poco de Amor' kombiniert lateinamerikanische Rhythmen mit Pop und Reggae und ist damit einer der vielseitigsten Titel auf 'Pies Descalzos'. Der Song zeigt Shakiras musikalische Flexibilität und ihr Interesse an verschiedenen Genres."
+        },
+        {
+          "question": "Welches Lied auf Shakiras Album 'Pies Descalzos' handelt von der Schwierigkeit, in einer Welt voller Erwartungen die eigene Stimme zu finden?",
+          "options": [
+            "Pies Descalzos, Sueños Blancos",
+            "Te Necesito",
+            "Se Quiere, Se Mata",
+            "Antología"
+          ],
+          "correctAnswer": "Pies Descalzos, Sueños Blancos",
+          "trivia": "'Pies Descalzos, Sueños Blancos' handelt davon, wie schwierig es ist, in einer Welt voller Erwartungen seine eigene Stimme und seinen eigenen Weg zu finden. Das Lied ist zu einer Hymne für Selbstbestimmung und individuelle Freiheit geworden."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Juan Gabriel",
+    "album": "Recuerdos, Vol. II",
+    "year": 1984,
+    "coverSrc": "/bandcover/latin-vibes/juan_gabriel_recuerdos_vol_ii.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Juan Gabriel ist der Song 'Querida' enthalten?",
+          "options": [
+            "Recuerdos",
+            "Pensamientos",
+            "Recuerdos, Vol. II",
+            "Siempre en Mi Mente"
+          ],
+          "correctAnswer": "Recuerdos, Vol. II",
+          "trivia": "'Querida' ist einer der größten Hits von Juan Gabriel und stammt aus seinem 1984 erschienenen Erfolgsalbum 'Recuerdos, Vol. II'. Das Lied wurde zu einer Hymne der lateinamerikanischen Musik und zeigt den emotionalen Gesangsstil von Juan Gabriel."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'Recuerdos, Vol. II' von Juan Gabriel wurde zu einem seiner bekanntesten Hits und ist ein Lied über Liebeskummer und Sehnsucht?",
+          "options": [
+            "Querida",
+            "Te Lo Pido por Favor",
+            "He Venido a Pedirte Perdón",
+            "Amor Eterno"
+          ],
+          "correctAnswer": "Querida",
+          "trivia": "'Querida' ist ein emotionales Lied, das von Liebeskummer und Sehnsucht handelt. Das Lied wurde ein großer Erfolg und ist bis heute eines der bekanntesten Lieder von Juan Gabriel."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'Recuerdos, Vol. II' von Juan Gabriel wird die Zeile 'Querida, dime cuándo tú, dime cuándo tú vas a volver' verwendet?",
+          "options": [
+            "Querida",
+            "Te Lo Pido por Favor",
+            "Amor Eterno",
+            "La Farsante"
+          ],
+          "correctAnswer": "Querida",
+          "trivia": "Die Zeile 'Querida, dime cuándo tú, dime cuándo tú vas a volver' stammt aus dem Lied 'Querida'. Dieses Lied ist Ausdruck von Verzweiflung und Sehnsucht und wurde zu einem der emotionalsten Hits von Juan Gabriel."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Bei welchem Lied auf dem Album 'Recuerdos, Vol. II' von Juan Gabriel handelt es sich um eine gefühlvolle Ballade, die vor allem bei Beerdigungen und Gedenkfeiern bekannt geworden ist?",
+          "options": [
+            "Amor Eterno",
+            "Querida",
+            "Te Lo Pido por Favor",
+            "La Farsante"
+          ],
+          "correctAnswer": "Amor Eterno",
+          "trivia": "'Amor Eterno' ist eine der bekanntesten Balladen von Juan Gabriel und wird oft bei Beerdigungen und Gedenkfeiern gespielt. Das Lied handelt von der ewigen Liebe und dem Schmerz des Verlustes und wird oft als Hommage an geliebte Verstorbene verstanden."
+        },
+        {
+          "question": "Welches Lied auf Juan Gabriels Album 'Recuerdos, Vol. II' ist eine Vergebungsbitte an einen geliebten Menschen?",
+          "options": [
+            "He Venido a Pedirte Perdón",
+            "Querida",
+            "Te Lo Pido por Favor",
+            "La Farsante"
+          ],
+          "correctAnswer": "He Venido a Pedirte Perdón",
+          "trivia": "'He Venido a Pedirte Perdón' ist eine der emotionalsten Bitten um Vergebung im Werk von Juan Gabriel. Das Lied beschreibt den Schmerz und die Reue, die mit einem gebrochenen Herzen einhergehen."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Recuerdos, Vol. II' von Juan Gabriel beschreibt die Trauer über das Ende einer Beziehung und den Verrat eines geliebten Menschen?",
+          "options": [
+            "La Farsante",
+            "Amor Eterno",
+            "Querida",
+            "Te Lo Pido por Favor"
+          ],
+          "correctAnswer": "La Farsante",
+          "trivia": "'La Farsante' beschreibt die Trauer und den Schmerz über das Ende einer Beziehung, die durch den Betrug eines geliebten Menschen verursacht wurde. Das Lied zeigt Juan Gabriels Fähigkeit, tiefe emotionale Themen in seinen Liedern zu verarbeiten."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welcher Song auf dem Album 'Recuerdos, Vol. II' von Juan Gabriel verbindet traditionelle Mariachi-Musik mit Pop-Elementen und zeigt seine musikalische Vielseitigkeit?",
+          "options": [
+            "Te Lo Pido por Favor",
+            "Querida",
+            "Amor Eterno",
+            "La Farsante"
+          ],
+          "correctAnswer": "Te Lo Pido por Favor",
+          "trivia": "'Te Lo Pido por Favor' verbindet traditionelle Mariachi-Elemente mit moderner Popmusik und zeigt die musikalische Vielseitigkeit von Juan Gabriel. Das Lied ist eine Mischung aus Romantik und Dramatik und wurde zu einem beliebten Hit in seinem Repertoire."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Recuerdos, Vol. II' von Juan Gabriel ist für seine starke emotionale Tiefe bekannt und handelt von dem Versprechen der ewigen Liebe?",
+          "options": [
+            "Amor Eterno",
+            "Querida",
+            "He Venido a Pedirte Perdón",
+            "Te Lo Pido por Favor"
+          ],
+          "correctAnswer": "Amor Eterno",
+          "trivia": "'Amor Eterno' ist ein zutiefst emotionales Lied über das Versprechen ewiger Liebe. Es wurde oft als Hymne der Trauer und des Gedenkens an geliebte Menschen gespielt und bleibt eines der bewegendsten Lieder von Juan Gabriel."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Recuerdos, Vol. II' von Juan Gabriel handelt von dem inneren Konflikt zwischen Stolz und dem Wunsch nach Versöhnung in einer gescheiterten Beziehung?",
+          "options": [
+            "He Venido a Pedirte Perdón",
+            "La Farsante",
+            "Querida",
+            "Te Lo Pido por Favor"
+          ],
+          "correctAnswer": "He Venido a Pedirte Perdón",
+          "trivia": "'He Venido a Pedirte Perdón' beschreibt den inneren Konflikt zwischen Stolz und dem Wunsch nach Versöhnung in einer gescheiterten Beziehung. Das Lied drückt schmerzhaft aus, wie schwer es ist, um Vergebung zu bitten."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Celia Cruz",
+    "album": "La Negra Tiene Tumbao",
+    "year": 2001,
+    "coverSrc": "/bandcover/latin-vibes/celia_cruz_la_negra_tiene_tumbao.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Celia Cruz ist der Song 'La Negra Tiene Tumbao' enthalten?",
+          "options": [
+            "Siempre Viviré",
+            "Azúcar Negra",
+            "La Negra Tiene Tumbao",
+            "Regalo del Alma"
+          ],
+          "correctAnswer": "La Negra Tiene Tumbao",
+          "trivia": "'La Negra Tiene Tumbao' ist der Titelsong des gleichnamigen Albums von Celia Cruz aus dem Jahr 2001. Der Song brachte ihr viel Anerkennung ein und wurde für seinen modernen Salsa-Sound und die innovative Mischung mit Reggaeton-Elementen gelobt."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'La Negra Tiene Tumbao' von Celia Cruz wurde ein internationaler Hit und ist ein Lied über Selbstvertrauen und Stärke?",
+          "options": [
+            "La Negra Tiene Tumbao",
+            "Ríe y Llora",
+            "Pa' Arriba No Va",
+            "Que Culpa Tengo Yo"
+          ],
+          "correctAnswer": "La Negra Tiene Tumbao",
+          "trivia": "'La Negra Tiene Tumbao' wurde zu einem Welthit und ist bekannt für seine Botschaft von Selbstvertrauen und Stärke. Das Lied ist eine Hymne an Unabhängigkeit und Stolz, und der charismatische Gesang von Celia Cruz machte es zu einem ihrer größten Erfolge."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'La Negra Tiene Tumbao' von Celia Cruz ist mit der Zeile 'Camina como yo' ein Ausdruck für das Selbstbewusstsein einer Frau?",
+          "options": [
+            "La Negra Tiene Tumbao",
+            "Ríe y Llora",
+            "Pa' Arriba No Va",
+            "Déjenme Vivir"
+          ],
+          "correctAnswer": "La Negra Tiene Tumbao",
+          "trivia": "Die Zeile 'Camina como yo' stammt aus dem Lied 'La Negra Tiene Tumbao'. Dieses Lied betont das Selbstvertrauen und die innere Stärke einer Frau, die sich nicht um die Meinung anderer schert."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied auf dem Album 'La Negra Tiene Tumbao' von Celia Cruz ist eine Mischung aus traditionellem Salsa und modernen Einflüssen wie Reggaeton?",
+          "options": [
+            "La Negra Tiene Tumbao",
+            "Ríe y Llora",
+            "Déjenme Vivir",
+            "Pa' Arriba No Va"
+          ],
+          "correctAnswer": "La Negra Tiene Tumbao",
+          "trivia": "'La Negra Tiene Tumbao' verbindet traditionelle Salsa-Rhythmen mit modernen Einflüssen wie Reggaeton. Diese Mischung macht das Lied zu einem einzigartigen und innovativen Werk in der Karriere von Celia Cruz."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'La Negra Tiene Tumbao' von Celia Cruz ermutigt die Menschen, in guten wie in schlechten Zeiten zu lachen und das Leben zu genießen?",
+          "options": [
+            "Ríe y Llora",
+            "La Negra Tiene Tumbao",
+            "Pa' Arriba No Va",
+            "Déjenme Vivir"
+          ],
+          "correctAnswer": "Ríe y Llora",
+          "trivia": "'Ríe y Llora' ist ein fröhliches Lied, das die Menschen ermutigt, zu lachen und das Leben zu genießen, in guten wie in schlechten Zeiten. Das Lied vermittelt eine optimistische und positive Lebenseinstellung."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'La Negra Tiene Tumbao' von Celia Cruz wird die Kraft des Lachens als Heilmittel gegen Herzschmerz und Traurigkeit gefeiert?",
+          "options": [
+            "Ríe y Llora",
+            "La Negra Tiene Tumbao",
+            "Pa' Arriba No Va",
+            "Que Culpa Tengo Yo"
+          ],
+          "correctAnswer": "Ríe y Llora",
+          "trivia": "Ríe y Llora' feiert das Lachen als Heilmittel gegen Herzschmerz und Traurigkeit. Celia Cruz vermittelt in diesem Lied eine starke Botschaft über die Kraft positiver Energie und die Fähigkeit, das Leben mit Freude zu leben."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welches Lied auf dem Album 'La Negra Tiene Tumbao' von Celia Cruz wurde für seine innovative musikalische Produktion gelobt und enthält eine Mischung aus Salsa und elektronischen Beats?",
+          "options": [
+            "La Negra Tiene Tumbao",
+            "Pa' Arriba No Va",
+            "Déjenme Vivir",
+            "Ríe y Llora"
+          ],
+          "correctAnswer": "La Negra Tiene Tumbao",
+          "trivia": "'La Negra Tiene Tumbao' wurde für seine innovative Produktion gelobt, die traditionellen Salsa mit elektronischen Beats und modernen Einflüssen verbindet. Der Song markierte eine neue Richtung in Celia Cruz' Musikstil und wurde zu einem ihrer bekanntesten Lieder."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'La Negra Tiene Tumbao' von Celia Cruz wurde für seine starke Botschaft über Unabhängigkeit und die Fähigkeit, trotz aller Hindernisse weiterzumachen, gefeiert?",
+          "options": [
+            "Pa' Arriba No Va",
+            "La Negra Tiene Tumbao",
+            "Ríe y Llora",
+            "Déjenme Vivir"
+          ],
+          "correctAnswer": "Pa' Arriba No Va",
+          "trivia": "'Pa' Arriba No Va' ist ein Lied über Unabhängigkeit und die Fähigkeit, trotz aller Hindernisse weiterzumachen. Das Lied wurde für seine starke Botschaft und die kraftvolle Interpretation von Celia Cruz gelobt."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'La Negra Tiene Tumbao' von Celia Cruz verbindet kraftvolle Perkussion mit tiefgründigen Texten über Freiheit und Selbstbestimmung?",
+          "options": [
+            "Déjenme Vivir",
+            "La Negra Tiene Tumbao",
+            "Ríe y Llora",
+            "Que Culpa Tengo Yo"
+          ],
+          "correctAnswer": "Déjenme Vivir",
+          "trivia": "'Déjenme Vivir' ist ein Lied, das von Freiheit und Selbstbestimmung handelt. Die starke Perkussion und der tiefgründige Text machen es zu einem der herausragenden Stücke des Albums."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Marc Anthony",
+    "album": "Marc Anthony",
+    "year": 1999,
+    "coverSrc": "/bandcover/latin-vibes/marc_anthony_marc_anthony.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Marc Anthony ist der Song 'I Need to Know' enthalten?",
+          "options": [
+            "Contra la Corriente",
+            "Marc Anthony",
+            "Amar Sin Mentiras",
+            "Otra Nota"
+          ],
+          "correctAnswer": "Marc Anthony",
+          "trivia": "'I Need to Know' ist der bekannteste Song aus Marc Anthonys 1999 erschienenem Album 'Marc Anthony'. Der Song brachte ihm weltweite Anerkennung und festigte seinen Status als internationaler Latin-Pop-Star."
+        },
+        {
+          "question": "Welcher Song von Marc Anthonys Album 'Marc Anthony' wurde ein großer Hit mit englischem Text?",
+          "options": [
+            "I Need to Know",
+            "You Sang to Me",
+            "When I Dream at Night",
+            "My Baby You"
+          ],
+          "correctAnswer": "I Need to Know",
+          "trivia": "'I Need to Know' war Marc Anthonys erster großer Hit in englischer Sprache und trug wesentlich dazu bei, seine Karriere auf den englischsprachigen Märkten zu etablieren. Der Song kombiniert Latin-Rhythmen mit Pop-Elementen und hat eine eingängige Melodie."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'Marc Anthony' von Marc Anthony wird die Zeile 'Tell me baby girl, 'cause I need to know' verwendet?",
+          "options": [
+            "I Need to Know",
+            "You Sang to Me",
+            "When I Dream at Night",
+            "Am I the Only One"
+          ],
+          "correctAnswer": "I Need to Know",
+          "trivia": "Die Zeile 'Tell me baby girl, 'cause I need to know' stammt aus dem Lied 'I Need to Know'. Der Song wurde wegen seiner eingängigen Melodie und seiner Mischung aus Pop- und Latin-Musik gefeiert."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied aus dem Album 'Marc Anthony' von Marc Anthony ist eine gefühlvolle Ballade, die auf vielen Hochzeiten und romantischen Anlässen gespielt wird?",
+          "options": [
+            "You Sang to Me",
+            "My Baby You",
+            "I Need to Know",
+            "How Could I"
+          ],
+          "correctAnswer": "You Sang to Me",
+          "trivia": "'You Sang to Me' ist eine gefühlvolle Ballade über Liebe und Hingabe. Das Lied ist zu einem beliebten Titel für Hochzeiten und romantische Anlässe auf der ganzen Welt geworden."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'Marc Anthony' von Marc Anthony handelt von der Überraschung, die Liebe im Leben zu finden, und war ein großer Hit in den US-Charts?",
+          "options": [
+            "You Sang to Me",
+            "When I Dream at Night",
+            "I Need to Know",
+            "My Baby You"
+          ],
+          "correctAnswer": "You Sang to Me",
+          "trivia": "'You Sang to Me' handelt von der überraschenden Erkenntnis, die große Liebe gefunden zu haben. Der Song erreichte hohe Platzierungen in den US-Charts und wurde zu einem der größten Erfolge von Marc Anthony."
+        },
+        {
+          "question": "Welcher Song auf Marc Anthonys Album 'Marc Anthony' ist eine Liebeserklärung an sein Kind und zeigt seine emotionale Vaterseite?",
+          "options": [
+            "My Baby You",
+            "You Sang to Me",
+            "How Could I",
+            "I Need to Know"
+          ],
+          "correctAnswer": "My Baby You",
+          "trivia": "'My Baby You' ist eine Liebeserklärung an Marc Anthonys Kind und zeigt seine gefühlvolle Seite als Vater. Der Song ist eine emotionale Ballade über die bedingungslose Liebe eines Elternteils."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welches Lied auf dem Album 'Marc Anthony' von Marc Anthony wurde sowohl in englischer als auch in spanischer Sprache veröffentlicht und zeigt seine Fähigkeit, in beiden Sprachen erfolgreich zu sein?",
+          "options": [
+            "You Sang to Me",
+            "I Need to Know",
+            "When I Dream at Night",
+            "Am I the Only One"
+          ],
+          "correctAnswer": "You Sang to Me",
+          "trivia": "You Sang to Me' wurde sowohl in einer englischen als auch in einer spanischen Version veröffentlicht und zeigt Marc Anthonys Fähigkeit, in beiden Sprachen musikalisch erfolgreich zu sein. Das Lied wurde in beiden Versionen ein Hit."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Marc Anthony' von Marc Anthony enthält lateinamerikanische Rhythmen und Elemente aus Pop und Dance, mit denen er weltweit bekannt wurde?",
+          "options": [
+            "I Need to Know",
+            "My Baby You",
+            "You Sang to Me",
+            "How Could I"
+          ],
+          "correctAnswer": "I Need to Know",
+          "trivia": "'I Need to Know' verbindet lateinamerikanische Rhythmen mit Pop- und Dance-Elementen und wurde dadurch weltweit bekannt. Der Song wurde zu einem der größten internationalen Hits von Marc Anthony."
+        },
+        {
+          "question": "In welchem Song auf dem Album 'Marc Anthony' von Marc Anthony wird die Liebe als eine überraschende und unerwartete Erfahrung beschrieben?",
+          "options": [
+            "You Sang to Me",
+            "When I Dream at Night",
+            "Am I the Only One",
+            "My Baby You"
+          ],
+          "correctAnswer": "You Sang to Me",
+          "trivia": "'You Sang to Me' beschreibt die Liebe als eine überraschende und unerwartete Erfahrung. Der Song wurde sowohl für seinen romantischen Text als auch für die gefühlvolle Interpretation von Marc Anthony gelobt."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Luis Miguel",
+    "album": "Romance",
+    "year": 1991,
+    "coverSrc": "/bandcover/latin-vibes/luis_miguel_romance.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Der Song 'Inolvidable' stammt aus welchem Album von Luis Miguel?",
+          "options": [
+            "Segundo Romance",
+            "Amarte Es Un Placer",
+            "Romance",
+            "Nada Es Igual"
+          ],
+          "correctAnswer": "Romance",
+          "trivia": "'Inolvidable' ist eines der bekanntesten Lieder aus Luis Miguels Album 'Romance' von 1991. Das Album war ein Meilenstein in der Neuinterpretation klassischer Boleros und ein internationaler Erfolg."
+        },
+        {
+          "question": "Welches Lied aus Luis Miguels Album 'Romance' machte ihn berühmt und gilt als einer seiner klassischen Bolero-Hits?",
+          "options": [
+            "Inolvidable",
+            "No Sé Tú",
+            "Contigo en la Distancia",
+            "La Barca"
+          ],
+          "correctAnswer": "Inolvidable",
+          "trivia": "'Inolvidable' ist eines der herausragenden Lieder des Albums 'Romance' und machte Luis Miguel zu einem der führenden Interpreten des modernen Boleros. Das Lied handelt von unvergesslicher Liebe und wurde zu einem Klassiker seines Repertoires."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'Romance' von Luis Miguel wird die Zeile 'Siempre serás en mi vida el amor más profundo' verwendet?",
+          "options": ["Inolvidable", "No Sé Tú", "La Barca", "Mucho Corazón"],
+          "correctAnswer": "Inolvidable",
+          "trivia": "Die Zeile 'Siempre serás en mi vida el amor más profundo' stammt aus dem Lied 'Inolvidable'. Dieser Bolero drückt die Tiefe einer unvergesslichen Liebe aus und ist eines der emotionalsten Stücke des Albums."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied auf dem Album 'Romance' von Luis Miguel wurde von Armando Manzanero geschrieben und handelt von der Sehnsucht nach einer geliebten Person?",
+          "options": ["No Sé Tú", "Inolvidable", "La Barca", "El Reloj"],
+          "correctAnswer": "No Sé Tú",
+          "trivia": "'No Sé Tú' wurde von dem bekannten mexikanischen Komponisten Armando Manzanero geschrieben. Das Lied handelt von der Sehnsucht nach dem Geliebten und wurde zu einem der beliebtesten Lieder des Albums."
+        },
+        {
+          "question": "Welches Lied beschreibt den Schmerz einer unerwiderten, aber dennoch unauslöschlichen Liebe auf dem Album 'Romance' von Luis Miguel?",
+          "options": [
+            "La Barca",
+            "Inolvidable",
+            "Contigo en la Distancia",
+            "No Sé Tú"
+          ],
+          "correctAnswer": "La Barca",
+          "trivia": "'La Barca' ist ein klassischer Bolero, der den Schmerz einer unerwiderten Liebe beschreibt. Das Lied erzählt die Geschichte einer tiefen, aber unerfüllten Liebesbeziehung, die dennoch unauslöschlich bleibt."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'Romance' von Luis Miguel geht es um die Einsamkeit und das unaufhaltsame Vergehen der Zeit?",
+          "options": ["El Reloj", "No Sé Tú", "La Barca", "Mucho Corazón"],
+          "correctAnswer": "El Reloj",
+          "trivia": "'El Reloj' ist ein Bolero, der die Einsamkeit und die Vergänglichkeit der Zeit thematisiert. Das Lied beschreibt die Dringlichkeit der Liebe, bevor die Zeit sie auslöscht, und wurde zu einem der melancholischsten Stücke des Albums."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welches Lied von César Portillo de la Luz ist ein leidenschaftliches Liebesgeständnis auf dem Album 'Romance' von Luis Miguel?",
+          "options": [
+            "Contigo en la Distancia",
+            "No Sé Tú",
+            "La Barca",
+            "Mucho Corazón"
+          ],
+          "correctAnswer": "Contigo en la Distancia",
+          "trivia": "'Contigo en la Distancia' wurde von dem kubanischen Komponisten César Portillo de la Luz geschrieben. Das Lied ist ein leidenschaftliches Liebesgeständnis und drückt die intensive Sehnsucht und den Wunsch aus, immer bei der geliebten Person zu sein."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'Romance' von Luis Miguel wird die Zeit als metaphorische Grenze einer unerfüllten Liebe verwendet?",
+          "options": ["El Reloj", "La Barca", "No Sé Tú", "Inolvidable"],
+          "correctAnswer": "El Reloj",
+          "trivia": "'El Reloj' benutzt die Zeit als Metapher für die Grenzen einer unerfüllten Liebe. Das Lied beschreibt, wie die Zeit gegen die Liebenden arbeitet und ist einer der gefühlvollsten Boleros des Albums."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'Romance' von Luis Miguel ist ursprünglich eine Komposition von Consuelo Velázquez und ist einer der bekanntesten Boleros aller Zeiten?",
+          "options": [
+            "Mucho Corazón",
+            "Inolvidable",
+            "Contigo en la Distancia",
+            "No Sé Tú"
+          ],
+          "correctAnswer": "Mucho Corazón",
+          "trivia": "'Mucho Corazón' ist ein Bolero, der ursprünglich von Consuelo Velázquez geschrieben wurde. Das Lied drückt die Leidenschaft und Intensität der Liebe aus und wurde durch die Interpretation von Luis Miguel auf *Romance* wieder populär."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Daddy Yankee",
+    "album": "Barrio Fino",
+    "year": 2004,
+    "coverSrc": "/bandcover/latin-vibes/daddy_yankee_barrio_fino.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Daddy Yankee ist der Song 'Gasolina' enthalten?",
+          "options": [
+            "El Cartel: The Big Boss",
+            "Mundial",
+            "Barrio Fino",
+            "Prestige"
+          ],
+          "correctAnswer": "Barrio Fino",
+          "trivia": "'Gasolina' ist einer der bekanntesten Songs auf Daddy Yankees 2004 erschienenem Album 'Barrio Fino'. Der Song gilt als einer der Meilensteine des Reggaeton-Genres und machte Daddy Yankee international bekannt."
+        },
+        {
+          "question": "Welches Lied war ein internationaler Hit und gilt als Durchbruch des Reggaeton auf dem Album 'Barrio Fino' von Daddy Yankee?",
+          "options": ["Gasolina", "Lo Que Pasó, Pasó", "Rompe", "Salud y Vida"],
+          "correctAnswer": "Gasolina",
+          "trivia": "'Gasolina' war einer der ersten Reggaeton-Songs, der internationale Anerkennung fand und zu einem Welthit wurde. Der Song markiert den Durchbruch des Reggaeton-Genres auf dem globalen Musikmarkt."
+        },
+        {
+          "question": "Welches Lied enthält die Zeile 'A ella le gusta la gasolina' auf dem Album 'Barrio Fino' von Daddy Yankee?",
+          "options": [
+            "Gasolina",
+            "Lo Que Pasó, Pasó",
+            "Corazones",
+            "Salud y Vida"
+          ],
+          "correctAnswer": "Gasolina",
+          "trivia": "Die Zeile 'A ella le gusta la gasolina' stammt aus dem Lied 'Gasolina', das die Karriere von Daddy Yankee prägte. Der Song wurde wegen seines eingängigen Refrains und seiner energiegeladenen Produktion gefeiert."
+        }
+      ],
+      "medium": [
+        {
+          "question": "In welchem Song auf dem Album 'Barrio Fino' von Daddy Yankee geht es um eine turbulente Beziehung, die trotz aller Schwierigkeiten weiter besteht?",
+          "options": [
+            "Lo Que Pasó, Pasó",
+            "Gasolina",
+            "King Daddy",
+            "Salud y Vida"
+          ],
+          "correctAnswer": "Lo Que Pasó, Pasó",
+          "trivia": "'Lo Que Pasó, Pasó' handelt von einer komplizierten Beziehung voller Missverständnisse und Rückschläge. Der Song wurde zu einem der beliebtesten Titel des Albums und erhielt viel Airplay in lateinamerikanischen Radiosendern."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'Barrio Fino' von Daddy Yankee spiegelt den Stolz und die Herausforderungen, in einem Barrio zu leben, wider?",
+          "options": [
+            "King Daddy",
+            "Corazones",
+            "Gasolina",
+            "Lo Que Pasó, Pasó"
+          ],
+          "correctAnswer": "King Daddy",
+          "trivia": "'King Daddy' ist ein Lied, das den Stolz und die Herausforderungen des Lebens im Barrio widerspiegelt. Das Lied ist ein kraftvoller Ausdruck von Daddy Yankees Herkunft und seinem Aufstieg an die Spitze der Reggaeton-Szene."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'Barrio Fino' von Daddy Yankee handelt vom Einfluss des sozialen Drucks und der Suche nach Liebe in einem schwierigen Umfeld?",
+          "options": [
+            "Corazones",
+            "Lo Que Pasó, Pasó",
+            "Salud y Vida",
+            "Gasolina"
+          ],
+          "correctAnswer": "Corazones",
+          "trivia": "'Corazones' thematisiert die emotionalen und sozialen Herausforderungen bei der Suche nach Liebe in einem schwierigen Umfeld. Der Song zeigt Daddy Yankee von seiner nachdenklichen Seite und besticht durch seinen tiefgründigen Text."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welcher Song auf dem Album 'Barrio Fino' von Daddy Yankee ist ein Statement gegen die Gewalt in lateinamerikanischen Stadtvierteln und fordert ein Ende des Blutvergießens?",
+          "options": [
+            "Salud y Vida",
+            "Corazones",
+            "Gasolina",
+            "Lo Que Pasó, Pasó"
+          ],
+          "correctAnswer": "Salud y Vida",
+          "trivia": "'Salud y Vida' ist ein kraftvolles Lied gegen die Gewalt in den lateinamerikanischen Stadtvierteln. Daddy Yankee fordert darin ein Ende des Blutvergießens und plädiert für Frieden und Respekt in den Barrios."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'Barrio Fino' von Daddy Yankee thematisiert mit Reggaeton-Rhythmen soziale Missstände und die Sehnsucht nach einer besseren Zukunft?",
+          "options": ["Corazones", "Salud y Vida", "Gasolina", "King Daddy"],
+          "correctAnswer": "Corazones",
+          "trivia": "Corazones' handelt von sozialen Missständen und der Sehnsucht nach einer besseren Zukunft für Jugendliche, die in schwierigen Verhältnissen aufwachsen. Der Song verbindet nachdenkliche Texte mit typischen Reggaeton-Rhythmen."
+        },
+        {
+          "question": "Welcher Song auf Daddy Yankees Album 'Barrio Fino' wurde zu einer Hymne für Selbstbestimmung und Unabhängigkeit in der Reggaeton-Szene?",
+          "options": [
+            "King Daddy",
+            "Gasolina",
+            "Lo Que Pasó, Pasó",
+            "Salud y Vida"
+          ],
+          "correctAnswer": "King Daddy",
+          "trivia": "'King Daddy' wurde zu einer Hymne für Selbstbestimmung und Unabhängigkeit in der Reggaeton-Gemeinschaft. Der Song zeigt Daddy Yankees starke Persönlichkeit und seinen Stolz auf seine Herkunft."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Selena",
+    "album": "Amor Prohibido",
+    "year": 1994,
+    "coverSrc": "/bandcover/latin-vibes/selena_amor_prohibido.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Der Song 'Amor Prohibido' stammt aus welchem Album von Selena?",
+          "options": [
+            "Ven Conmigo",
+            "Dreaming of You",
+            "Entre a Mi Mundo",
+            "Amor Prohibido"
+          ],
+          "correctAnswer": "Amor Prohibido",
+          "trivia": "'Amor Prohibido' ist der Titelsong des gleichnamigen Albums von Selena aus dem Jahr 1994. Der Song wurde zu einem der größten Erfolge ihrer Karriere und zu einer Hymne der lateinamerikanischen Musik."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'Amor Prohibido' von Selena wurde zu einer der bekanntesten Tejano-Hymnen und ist die Beschreibung einer verbotenen Liebe?",
+          "options": [
+            "Amor Prohibido",
+            "Bidi Bidi Bom Bom",
+            "No Me Queda Más",
+            "Si Una Vez"
+          ],
+          "correctAnswer": "Amor Prohibido",
+          "trivia": "Amor Prohibido' erzählt die Geschichte einer verbotenen Liebe, die auf gesellschaftliche Hindernisse stößt. Das Lied wurde zu einer Hymne für die Fans und festigte Selenas Status als Ikone der lateinamerikanischen Musik."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'Amor prohibido' von Selena wird die Zeile 'Amor prohibido murmuran por las calles' verwendet?",
+          "options": [
+            "Amor Prohibido",
+            "No Me Queda Más",
+            "Bidi Bidi Bom Bom",
+            "Fotos y Recuerdos"
+          ],
+          "correctAnswer": "Amor Prohibido",
+          "trivia": "Die Zeile 'Amor prohibido murmuran por las calles' stammt aus dem Lied 'Amor Prohibido'. Das Lied thematisiert die Hindernisse einer Liebe, die von der Gesellschaft nicht akzeptiert wird."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied auf Selenas Album 'Amor Prohibido' handelt von der bittersüßen Erfahrung, über eine verlorene Liebe hinwegzukommen?",
+          "options": [
+            "No Me Queda Más",
+            "Amor Prohibido",
+            "Bidi Bidi Bom Bom",
+            "El Chico del Apartamento 512"
+          ],
+          "correctAnswer": "No Me Queda Más",
+          "trivia": "'No me queda más' ist eine herzzerreißende Ballade über die schmerzliche Erfahrung, über eine verlorene Liebe hinwegzukommen. Das Lied wurde zu einem der emotionalsten Hits von Selena."
+        },
+        {
+          "question": "Welches Lied aus Selenas Album 'Amor Prohibido' ist eine Mischung aus Cumbia-Rhythmen und leichtem Pop und wurde zu einem ihrer fröhlichsten Hits?",
+          "options": [
+            "Bidi Bidi Bom Bom",
+            "Amor Prohibido",
+            "No Me Queda Más",
+            "Fotos y Recuerdos"
+          ],
+          "correctAnswer": "Bidi Bidi Bom Bom",
+          "trivia": "'Bidi Bidi Bom Bom' ist ein fröhliches und eingängiges Lied, das Cumbia-Rhythmen mit Pop-Einflüssen verbindet. Das Lied beschreibt das Gefühl des Verliebtseins und wurde zu einem von Selenas größten Hits."
+        },
+        {
+          "question": "Welcher Song auf Selenas Album 'Amor Prohibido' handelt von der Erinnerung an eine vergangene Beziehung und dem Schmerz, den diese Erinnerungen auslösen?",
+          "options": [
+            "Fotos y Recuerdos",
+            "No Me Queda Más",
+            "Bidi Bidi Bom Bom",
+            "Si Una Vez"
+          ],
+          "correctAnswer": "Fotos y Recuerdos",
+          "trivia": "'In 'Fotos y Recuerdos' geht es um die Erinnerung an eine vergangene Beziehung und den damit verbundenen Schmerz. Das Lied verwendet eine eingängige Melodie, um die bittersüßen Emotionen auszudrücken."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welcher Song auf Selenas Album 'Amor Prohibido' wurde von ihrem Bruder A.B. Quintanilla und Pete Astudillo geschrieben und handelt von einer unerwiderten Liebe?",
+          "options": [
+            "No Me Queda Más",
+            "Si Una Vez",
+            "Amor Prohibido",
+            "Fotos y Recuerdos"
+          ],
+          "correctAnswer": "No Me Queda Más",
+          "trivia": "'No me queda más' wurde von Selenas Bruder A.B. Quintanilla und Pete Astudillo geschrieben. Der Song thematisiert den Schmerz einer unerwiderten Liebe und wurde zu einem der emotionalsten Titel des Albums."
+        },
+        {
+          "question": "In welchem Song auf dem Album 'Amor Prohibido' von Selena geht es um die Wut und den Schmerz, sich aus einer toxischen Beziehung zu lösen?",
+          "options": [
+            "Si Una Vez",
+            "No Me Queda Más",
+            "Amor Prohibido",
+            "Bidi Bidi Bom Bom"
+          ],
+          "correctAnswer": "Si Una Vez",
+          "trivia": "'Si Una Vez' handelt von der Wut und dem Schmerz, eine giftige Beziehung hinter sich zu lassen. Das Lied ist kraftvoll und emotional und zeigt Selenas stimmliche Intensität in der Darstellung dieser Emotionen."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Amor Prohibido' von Selena verwendet eine Melodie, die von einem Lied der britischen Band The Pretenders inspiriert wurde?",
+          "options": [
+            "Fotos y Recuerdos",
+            "Amor Prohibido",
+            "No Me Queda Más",
+            "El Chico del Apartamento 512"
+          ],
+          "correctAnswer": "Fotos y Recuerdos",
+          "trivia": "'Fotos y Recuerdos' enthält eine Melodie, die von dem Song 'Back on the Chain Gang' der britischen Band The Pretenders inspiriert wurde. Das Lied handelt von einer vergangenen Liebe, die nur noch in der Erinnerung weiterlebt."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "J Balvin",
+    "album": "Vibras",
+    "year": 2018,
+    "coverSrc": "/bandcover/latin-vibes/j_balvin_vibras.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von J Balvin ist der Song 'Mi Gente' zu finden?",
+          "options": ["Energía", "Colores", "Vibras", "Oasis"],
+          "correctAnswer": "Vibras",
+          "trivia": "'Mi Gente' ist einer der größten Hits von J Balvins Album 'Vibras' aus dem Jahr 2018. Der Song erlangte internationale Bekanntheit und katapultierte den kolumbianischen Künstler an die Spitze der weltweiten Charts."
+        },
+        {
+          "question": "Welcher Song auf J Balvins Album 'Vibras' wurde ein weltweiter Hit und wurde mit Willy William komponiert?",
+          "options": ["Mi Gente", "Ambiente", "Machika", "Ahora"],
+          "correctAnswer": "Mi Gente",
+          "trivia": "'Mi Gente', eine Zusammenarbeit mit dem französischen DJ Willy William, wurde zu einem der größten globalen Hits des Jahres 2018. Der Song verbindet lateinamerikanische Rhythmen mit elektronischen Beats und wurde weltweit gefeiert."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'Vibras' von J Balvin wird die Zeile 'Mi música no discrimina a nadie' verwendet?",
+          "options": ["Mi Gente", "Ambiente", "Machika", "Ahora"],
+          "correctAnswer": "Mi Gente",
+          "trivia": "Die Zeile 'Mi música no discrimina a nadie' aus dem Lied 'Mi Gente' unterstreicht die universelle Botschaft von J Balvins Musik, die Menschen unterschiedlicher Herkunft verbindet. Das Lied ist zu einem weltweiten Phänomen geworden."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied auf dem Album 'Vibras' von J Balvin thematisiert das entspannte und sorglose Lebensgefühl und hat eine Mischung aus Reggaeton- und Dancehall-Rhythmen?",
+          "options": ["Ambiente", "Machika", "No Es Justo", "Mi Gente"],
+          "correctAnswer": "Ambiente",
+          "trivia": "'Ambiente' beschreibt ein entspanntes und unbeschwertes Lebensgefühl und verbindet Reggaeton mit Dancehall-Rhythmen. Der Song vermittelt positive Vibes und wurde zu einem der beliebtesten Tracks des Albums."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'Vibras' von J Balvin ist eine Zusammenarbeit mit Anitta und handelt von der Unabhängigkeit und Selbstbestimmung einer Frau?",
+          "options": ["Downtown", "Machika", "No Es Justo", "Ambiente"],
+          "correctAnswer": "Machika",
+          "trivia": "'Machika' ist eine Zusammenarbeit mit der brasilianischen Sängerin Anitta und handelt von der Stärke und Unabhängigkeit einer Frau. Der Song wurde für seine energiegeladene Produktion und die eingängige Melodie gefeiert."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Vibras' von J Balvin beschäftigt sich mit dem Thema einer offenen, aber unverbindlichen Beziehung und ist mit sanften Reggaeton-Rhythmen unterlegt?",
+          "options": ["Ahora", "Ambiente", "En Mí", "No Es Justo"],
+          "correctAnswer": "Ahora",
+          "trivia": "'Ahora' beschreibt eine offene, aber unverbindliche Beziehung und verbindet sanfte Reggaeton-Rhythmen mit einer eingängigen Melodie. Das Lied zeichnet sich durch seine Leichtigkeit und entspannte Atmosphäre aus."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welcher Song auf dem Album 'Vibras' von J Balvin wurde als einer der vielseitigsten Tracks des Albums gelobt und mischt Reggaeton mit afro-karibischen Einflüssen?",
+          "options": ["En Mí", "Ambiente", "Brillo", "Machika"],
+          "correctAnswer": "Ambiente",
+          "trivia": "'Ambiente' mischt Reggaeton mit afrokaribischen Einflüssen und wurde für seine Vielseitigkeit und seinen entspannten, sommerlichen Sound gelobt. Der Song zeigt J Balvins Fähigkeit, verschiedene Musikstile miteinander zu verbinden."
+        },
+        {
+          "question": "Welcher Song auf J Balvins Album 'Vibras' handelt von den Herausforderungen moderner Beziehungen und verwendet melodische Trap-Elemente?",
+          "options": ["No Es Justo", "En Mí", "Ambiente", "Cuando Tú Quieras"],
+          "correctAnswer": "En Mí",
+          "trivia": "'En Mí' handelt von den Herausforderungen einer modernen Beziehung und kombiniert Reggaeton mit melodischen Trap-Elementen. Der Song zeigt J Balvins experimentellen Ansatz, traditionelle und moderne Musikstile miteinander zu verbinden."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'Vibras' von J Balvin wurde von vielen als einer der emotionalsten Songs des Albums gelobt und handelt von Verletzlichkeit und innerer Stärke?",
+          "options": ["Brillo", "Ahora", "Ambiente", "Machika"],
+          "correctAnswer": "Brillo",
+          "trivia": "'Brillo' ist einer der emotionalsten Songs auf 'Vibras' und handelt von Verletzlichkeit und innerer Stärke. Der Song, der in Zusammenarbeit mit der spanischen Sängerin Rosalía entstand, wurde für seinen tiefgründigen Text und seine ruhige Melodie gelobt."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Ricky Martin",
+    "album": "A Medio Vivir",
+    "year": 1995,
+    "coverSrc": "/bandcover/latin-vibes/ricky_martin_a_medio_vivir.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Ricky Martin ist der Song 'María' zu finden?",
+          "options": [
+            "Vuelve",
+            "Ricky Martin",
+            "A Medio Vivir",
+            "Almas del Silencio"
+          ],
+          "correctAnswer": "A Medio Vivir",
+          "trivia": "'María' ist einer der größten Hits von Ricky Martins Album 'A Medio Vivir' aus dem Jahr 1995. Der Song machte ihn international bekannt und etablierte ihn als eine der führenden Figuren des Latin-Pop."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'A Medio Vivir' von Ricky Martin wurde zu einem internationalen Hit und machte ihn auf der ganzen Welt bekannt?",
+          "options": [
+            "María",
+            "Te Extraño, Te Olvido, Te Amo",
+            "Fuego de Noche, Nieve de Día",
+            "Volverás"
+          ],
+          "correctAnswer": "María",
+          "trivia": "'María' ist der Song, der Ricky Martin international bekannt gemacht hat. Mit seinen pulsierenden Rhythmen und dem eingängigen Refrain wurde das Lied zu einem weltweiten Hit."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'A Medio Vivir' von Ricky Martin wird die Zeile 'Un, dos, tres, un pasito pa'lante, María' verwendet?",
+          "options": [
+            "María",
+            "Fuego de Noche, Nieve de Día",
+            "Te Extraño, Te Olvido, Te Amo",
+            "Volverás"
+          ],
+          "correctAnswer": "María",
+          "trivia": "Die Zeile 'Un, dos, tres, un pasito pa'lante, María' stammt aus dem Lied 'María'. Das Lied ist bekannt für seinen energiegeladenen Rhythmus und wurde zu einem Markenzeichen von Ricky Martin."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied auf dem Album 'A Medio Vivir' von Ricky Martin handelt von Liebeskummer und den emotionalen Höhen und Tiefen einer schwierigen Beziehung?",
+          "options": [
+            "Fuego de Noche, Nieve de Día",
+            "María",
+            "Te Extraño, Te Olvido, Te Amo",
+            "Volverás"
+          ],
+          "correctAnswer": "Fuego de Noche, Nieve de Día",
+          "trivia": "'Fuego de Noche, Nieve de Día' handelt von den emotionalen Höhen und Tiefen einer schwierigen Beziehung. Das Lied beschreibt die intensiven Gefühle von Liebe und Verlust und wurde zu einem der emotionalsten Stücke des Albums."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'A Medio Vivir' von Ricky Martin beschreibt den Schmerz, jemanden zu vermissen, den man einmal geliebt hat?",
+          "options": [
+            "Te Extraño, Te Olvido, Te Amo",
+            "María",
+            "Fuego de Noche, Nieve de Día",
+            "Volverás"
+          ],
+          "correctAnswer": "Te Extraño, Te Olvido, Te Amo",
+          "trivia": "'Te Extraño, Te Olvido, Te Amo' ist eine Ballade, die den Schmerz beschreibt, jemanden zu vermissen, den man einmal geliebt hat. Das Lied ist gefühlvoll und zeigt Ricky Martins Emotionen und stimmliche Tiefe."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'A Medio Vivir' von Ricky Martin ist eine Mischung aus lateinamerikanischen Rhythmen und modernem Popsound und wurde ein Tanzhit?",
+          "options": [
+            "María",
+            "Fuego de Noche, Nieve de Día",
+            "Volverás",
+            "Te Extraño, Te Olvido, Te Amo"
+          ],
+          "correctAnswer": "María",
+          "trivia": "'María' ist bekannt für seine Kombination aus lateinamerikanischen Rhythmen und modernem Pop-Sound. Der Song wurde zum Dance-Hit und brachte Ricky Martin weltweite Anerkennung in der Popmusik."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welches Lied handelt von den Schwierigkeiten des Lebens und der Suche nach persönlicher Erfüllung auf dem Album 'A Medio Vivir' von Ricky Martin?",
+          "options": [
+            "A Medio Vivir",
+            "María",
+            "Te Extraño, Te Olvido, Te Amo",
+            "Fuego de Noche, Nieve de Día"
+          ],
+          "correctAnswer": "A Medio Vivir",
+          "trivia": "Der Titelsong 'A Medio Vivir' handelt von den Schwierigkeiten des Lebens und der Suche nach persönlicher Erfüllung. Das Lied beschreibt das Gefühl, nur halb zu leben, während man sich nach mehr im Leben sehnt."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'A Medio Vivir' von Ricky Martin wurde von K.C. Porter und Luis Gómez Escolar mitgeschrieben und handelt vom Schmerz einer unerwiderten Liebe?",
+          "options": [
+            "Volverás",
+            "Fuego de Noche, Nieve de Día",
+            "María",
+            "A Medio Vivir"
+          ],
+          "correctAnswer": "Volverás",
+          "trivia": "'Volverás' wurde von K. C. Porter und Luis Gómez Escolar gemeinsam geschrieben und beschreibt den Schmerz einer unerwiderten Liebe. Das Lied wurde für seine emotionale Tiefe und den ergreifenden Text gelobt."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'A Medio Vivir' von Ricky Martin handelt von dem Versuch, eine vergangene Liebe zurückzugewinnen und zeigt seine stimmliche Vielseitigkeit?",
+          "options": [
+            "Volverás",
+            "María",
+            "Te Extraño, Te Olvido, Te Amo",
+            "A Medio Vivir"
+          ],
+          "correctAnswer": "Volverás",
+          "trivia": "'Volverás' handelt vom Versuch, eine vergangene Liebe zurückzugewinnen, und zeigt Ricky Martins stimmliche Vielseitigkeit. Der Song besticht durch seine gefühlvolle Interpretation und die eingängigen Melodien."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Maná",
+    "album": "¿Dónde Jugarán los Niños?",
+    "year": 1992,
+    "coverSrc": "/bandcover/latin-vibes/mana_donde_jugaran_los_ninos.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Maná ist der Song 'Oye Mi Amor' enthalten?",
+          "options": [
+            "Falta Amor",
+            "Sueños Líquidos",
+            "¿Dónde Jugarán los Niños?",
+            "Amar es Combatir"
+          ],
+          "correctAnswer": "¿Dónde Jugarán los Niños?",
+          "trivia": "'Oye Mi Amor' ist einer der größten Hits von Maná und stammt aus dem Album 'Dónde Jugarán los Niños' von 1992. Der Song wurde zu einem Klassiker der Rock en Español-Bewegung und festigte Manás Status als eine der wichtigsten lateinamerikanischen Rockbands."
+        },
+        {
+          "question": "Welches Lied aus Manás Album '¿Dónde Jugarán los Niños?' wurde einer ihrer bekanntesten Hits und handelt von unerwiderter Liebe?",
+          "options": [
+            "Oye Mi Amor",
+            "Vivir Sin Aire",
+            "Cómo Te Deseo",
+            "Te Llore Un Río"
+          ],
+          "correctAnswer": "Oye Mi Amor",
+          "trivia": "'Oye Mi Amor' wurde zu einem der bekanntesten Hits von Maná und handelt von der Frustration einer unerwiderten Liebe. Das Lied ist bekannt für seine eingängige Melodie und die kraftvolle Instrumentierung."
+        },
+        {
+          "question": "In welchem Lied auf dem Album '¿Dónde Jugarán los Niños?' von Maná wird die Zeile 'Oye mi amor, no me digas que no' verwendet?",
+          "options": [
+            "Oye Mi Amor",
+            "Vivir Sin Aire",
+            "Cómo Te Deseo",
+            "Te Llore Un Río"
+          ],
+          "correctAnswer": "Oye Mi Amor",
+          "trivia": "Die Zeile 'Oye mi amor, no me digas que no' stammt aus dem Lied 'Oye mi amor'. Das Lied wurde ein internationaler Erfolg und ist fester Bestandteil von Manás Live-Auftritten."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied auf dem Album '¿Dónde Jugarán los Niños?' von Maná ist ein Lied über den Wunsch nach einer besseren Umwelt für zukünftige Generationen?",
+          "options": [
+            "¿Dónde Jugarán los Niños?",
+            "Oye Mi Amor",
+            "Vivir Sin Aire",
+            "Cómo Te Deseo"
+          ],
+          "correctAnswer": "¿Dónde Jugarán los Niños?",
+          "trivia": "Der Titelsong '¿Dónde Jugarán los Niños?' thematisiert die Umweltzerstörung und die Sorge um die Zukunft kommender Generationen. Der Song drückt die Frage aus, ob die Kinder der Zukunft einen sicheren Ort zum Spielen haben werden."
+        },
+        {
+          "question": "Welches Lied auf dem Album ¿Dónde Jugarán los Niños? von Maná handelt von der tiefen Sehnsucht und dem Gefühl, ohne Liebe nicht atmen zu können?",
+          "options": [
+            "Vivir Sin Aire",
+            "Oye Mi Amor",
+            "Te Llore Un Río",
+            "Cómo Te Deseo"
+          ],
+          "correctAnswer": "Vivir Sin Aire",
+          "trivia": "'Vivir Sin Aire' ist eine gefühlvolle Ballade, die von der tiefen Sehnsucht und dem Gefühl erzählt, ohne Liebe nicht atmen zu können. Das Lied wurde zu einer der beliebtesten Balladen in Manás Repertoire."
+        },
+        {
+          "question": "Welches Lied auf dem Album '¿Dónde Jugarán los Niños?' von Maná handelt von dem emotionalen Schmerz, den der Verrat eines geliebten Menschen verursacht?",
+          "options": [
+            "Te Llore Un Río",
+            "Vivir Sin Aire",
+            "Cómo Te Deseo",
+            "Oye Mi Amor"
+          ],
+          "correctAnswer": "Te Llore Un Río",
+          "trivia": "'Te Llore Un Río' handelt vom Schmerz und der Enttäuschung, die durch den Verrat eines geliebten Menschen hervorgerufen werden. Das Lied wurde zu einem Symbol des Liebeskummers im Rock en Español."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welches Lied auf dem Album '¿Dónde Jugarán los Niños?' von Maná verwendet Metaphern aus der Natur, um den Schmerz und die Verzweiflung einer zerbrochenen Beziehung zu beschreiben?",
+          "options": [
+            "Te Llore Un Río",
+            "Vivir Sin Aire",
+            "¿Dónde Jugarán los Niños?",
+            "Cómo Te Deseo"
+          ],
+          "correctAnswer": "Te Llore Un Río",
+          "trivia": "'Te Llore Un Río' verwendet Naturmetaphern, um den Schmerz einer zerbrochenen Beziehung zu beschreiben. Das Lied handelt von Tränen, die wie ein Fluss fließen und den emotionalen Schmerz des Protagonisten symbolisieren."
+        },
+        {
+          "question": "Welcher Song auf dem Album ¿Dónde Jugarán los Niños? von Maná verbindet sozialkritische Themen mit eingängigen Rockmelodien und thematisiert die Zerstörung der Umwelt?",
+          "options": [
+            "¿Dónde Jugarán los Niños?",
+            "Vivir Sin Aire",
+            "Oye Mi Amor",
+            "Te Llore Un Río"
+          ],
+          "correctAnswer": "¿Dónde Jugarán los Niños?",
+          "trivia": "Der Titelsong ¿Dónde Jugarán los Niños? verbindet sozialkritische Themen wie Umweltzerstörung mit eingängigen Rockmelodien. Der Song stellt die Frage, welche Welt wir den kommenden Generationen hinterlassen."
+        },
+        {
+          "question": "Welcher Song auf dem Album ¿Dónde Jugarán los Niños? von Maná wurde als einer der sozial bewusstesten Songs der Band gelobt und ruft zum Handeln für den Umweltschutz auf?",
+          "options": [
+            "¿Dónde Jugarán los Niños?",
+            "Te Llore Un Río",
+            "Vivir Sin Aire",
+            "Oye Mi Amor"
+          ],
+          "correctAnswer": "¿Dónde Jugarán los Niños?",
+          "trivia": "'¿Dónde Jugarán los Niños?' wurde als einer der sozial bewusstesten Songs von Maná gefeiert. Das Lied ruft zum Handeln für den Umweltschutz auf und bleibt ein zentrales Thema in Diskussionen über die Bedeutung von Musik im Aktivismus."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Enrique Iglesias",
+    "album": "Escape",
+    "year": 2001,
+    "coverSrc": "/bandcover/latin-vibes/enrique_iglesias_escape.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Aus welchem Album von Enrique Iglesias stammt der Song 'Escape'?",
+          "options": ["Insomniac", "Enrique", "Escape", "Euphoria"],
+          "correctAnswer": "Escape",
+          "trivia": "'Escape' ist der Titelsong des 2001 erschienenen Albums 'Escape' von Enrique Iglesias. Das Lied war ein großer Erfolg und trug dazu bei, Iglesias als internationalen Popstar zu etablieren."
+        },
+        {
+          "question": "Welcher Song aus dem Album 'Escape' von Enrique Iglesias wurde ein Welthit und enthält die Zeile 'You can run, you can hide, but you can't escape my love'?",
+          "options": [
+            "Escape",
+            "Hero",
+            "Love to See You Cry",
+            "Don't Turn Off the Lights"
+          ],
+          "correctAnswer": "Escape",
+          "trivia": "'Escape' enthält die berühmte Zeile 'You can run, you can hide, but you can't escape my love'. Der Song wurde zu einem der bekanntesten Hits von Enrique Iglesias und vor allem durch das Musikvideo mit Anna Kournikova berühmt."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'Escape' von Enrique Iglesias wird die Zeile 'You can run, you can hide' verwendet?",
+          "options": ["Escape", "Hero", "Love to See You Cry", "Maybe"],
+          "correctAnswer": "Escape",
+          "trivia": "Die Zeile 'You can run, you can hide' stammt aus dem Song 'Escape'. Der Song und das dazugehörige Musikvideo mit Anna Kournikova wurden zu einem der größten Pop-Hits der 2000er Jahre."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied auf dem Album 'Escape' von Enrique Iglesias handelt vom heldenhaften Versuch, eine geliebte Person zu beschützen?",
+          "options": [
+            "Hero",
+            "Escape",
+            "Don't Turn Off the Lights",
+            "Love to See You Cry"
+          ],
+          "correctAnswer": "Hero",
+          "trivia": "'Hero' ist eine gefühlvolle Ballade über bedingungslose Liebe und den Schutz einer geliebten Person. Das Lied wurde besonders populär, als es nach den Anschlägen vom 11. September 2001 veröffentlicht wurde."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'Escape' von Enrique Iglesias zeigt seine romantische Seite und ist bei Hochzeiten und besonderen Anlässen sehr beliebt?",
+          "options": ["Hero", "Escape", "Maybe", "Love to See You Cry"],
+          "correctAnswer": "Hero",
+          "trivia": "'Hero' wurde zu einem der bekanntesten Lieder von Enrique Iglesias und ist besonders für seinen romantischen Text bekannt. Das Lied wird oft bei Hochzeiten und anderen romantischen Anlässen gespielt."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'Escape' von Enrique Iglesias ist ein Lied über eine schwierige Trennung und die Hoffnung auf Versöhnung?",
+          "options": ["Maybe", "Hero", "Escape", "Don't Turn Off the Lights"],
+          "correctAnswer": "Maybe",
+          "trivia": "'Maybe' thematisiert die Unsicherheit einer zerbrochenen Beziehung und die Hoffnung auf eine mögliche Versöhnung. Der Song zeigt die stimmlichen Emotionen von Enrique Iglesias und reflektiert das Thema Liebeskummer."
+        }
+      ],
+      "hard": [
+        {
+          "question": "In welchem Lied auf dem Album 'Escape' von Enrique Iglesias werden die Sehnsucht nach körperlicher Nähe und die Komplexität von Beziehungen thematisiert?",
+          "options": [
+            "Love to See You Cry",
+            "Escape",
+            "Don't Turn Off the Lights",
+            "Maybe"
+          ],
+          "correctAnswer": "Love to See You Cry",
+          "trivia": "'Love to See You Cry' beschreibt die emotionale Sehnsucht nach Nähe und die Komplexität von Beziehungen, in denen Leidenschaft und Schmerz dicht beieinander liegen. Der Song zeigt die Fähigkeit von Enrique Iglesias, emotionale Themen musikalisch darzustellen."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'Escape' von Enrique Iglesias verbindet romantische Pop-Melodien mit einem leicht rockigen Sound?",
+          "options": ["Don't Turn Off the Lights", "Escape", "Hero", "Maybe"],
+          "correctAnswer": "Don't Turn Off the Lights",
+          "trivia": "'Don't Turn Off the Lights' kombiniert romantische Popmelodien mit einem leicht rockigen Sound und zeigt eine andere musikalische Seite von Enrique Iglesias. Der Song wurde für seine eingängige Melodie und seine Energie gelobt."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'Escape' von Enrique Iglesias wurde von vielen als kraftvoller Liebesbrief interpretiert, der seine Entschlossenheit in einer Beziehung ausdrückt?",
+          "options": ["Escape", "Hero", "Maybe", "Love to See You Cry"],
+          "correctAnswer": "Escape",
+          "trivia": "Escape' wurde oft als kraftvoller Liebesbrief interpretiert, der die Entschlossenheit von Enrique Iglesias in einer Beziehung darstellt. Der Song wurde vor allem durch das ikonische Musikvideo mit Anna Kournikova bekannt."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Carlos Vives",
+    "album": "Clásicos de la Provincia",
+    "year": 1993,
+    "coverSrc": "/bandcover/latin-vibes/carlos_vives_clasicos_de_la_provincia.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Der Song 'La Gota Fría' stammt aus welchem Album von Carlos Vives?",
+          "options": [
+            "El Amor de Mi Tierra",
+            "Déjame Entrar",
+            "Clásicos de la Provincia",
+            "Corazón Profundo"
+          ],
+          "correctAnswer": "Clásicos de la Provincia",
+          "trivia": "'La Gota Fría' ist das bekannteste Lied aus dem Album 'Clásicos de la Provincia' von Carlos Vives aus dem Jahr 1993, mit dem er das traditionelle Genre des Vallenato modernisierte und international bekannt machte."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'Clásicos de la Provincia' von Carlos Vives wurde ein internationaler Hit und ist eine moderne Interpretation eines traditionellen Vallenato-Liedes?",
+          "options": [
+            "La Gota Fría",
+            "Matilde Lina",
+            "Alicia Adorada",
+            "El Cantor de Fonseca"
+          ],
+          "correctAnswer": "La Gota Fría",
+          "trivia": "'La Gota Fría' ist eine moderne Interpretation eines traditionellen Vallenato-Liedes, das ursprünglich von Emiliano Zuleta komponiert wurde. Die Version von Carlos Vives machte das Lied weltweit bekannt."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'Clásicos de la Provincia' von Carlos Vives wird die Zeile 'Me lleva él o me lo llevo yo' verwendet?",
+          "options": [
+            "La Gota Fría",
+            "Alicia Adorada",
+            "Matilde Lina",
+            "El Cantor de Fonseca"
+          ],
+          "correctAnswer": "La Gota Fría",
+          "trivia": "Die Zeile 'Me lleva él o me lo llevo yo' stammt aus dem Lied 'La Gota Fría'. Das Lied erzählt von einem musikalischen Wettstreit zwischen zwei Vallenato-Komponisten und ist zu einem Klassiker des Genres geworden."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied auf dem Album 'Clásicos de la Provincia' von Carlos Vives ist eine Hommage an eine geliebte Frau und verbindet Vallenato mit modernen Pop-Elementen?",
+          "options": [
+            "Alicia Adorada",
+            "La Gota Fría",
+            "Matilde Lina",
+            "La Cañaguatera"
+          ],
+          "correctAnswer": "Alicia Adorada",
+          "trivia": "'Alicia Adorada' ist eine Hommage an eine geliebte Frau und verbindet traditionelle Vallenato-Rhythmen mit modernen Pop-Elementen. Das Lied zeigt Carlos Vives' Fähigkeit, traditionelle Musik zu modernisieren und einem breiteren Publikum zugänglich zu machen."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Clásicos de la Provincia' von Carlos Vives beschreibt das Leben eines fahrenden Sängers und die Herausforderungen des Tourneelebens?",
+          "options": [
+            "El Cantor de Fonseca",
+            "Matilde Lina",
+            "La Cañaguatera",
+            "Alicia Adorada"
+          ],
+          "correctAnswer": "El Cantor de Fonseca",
+          "trivia": "'El Cantor de Fonseca' erzählt die Geschichte eines fahrenden Sängers, der durch verschiedene Regionen Kolumbiens reist und das Leben der Menschen in seinen Liedern widerspiegelt. Das Lied beschreibt die Herausforderungen des Tourlebens."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'Clásicos de la Provincia' von Carlos Vives handelt von einer Frau, die in einem kleinen Dorf lebt und für ihre Schönheit und Stärke bekannt ist?",
+          "options": [
+            "Matilde Lina",
+            "La Cañaguatera",
+            "Alicia Adorada",
+            "La Gota Fría"
+          ],
+          "correctAnswer": "Matilde Lina",
+          "trivia": "Matilde Lina' erzählt die Geschichte einer Frau, die für ihre Schönheit und Stärke bekannt ist. Das Lied wurde zu einem der beliebtesten Vallenato-Stücke des Albums und zeigt Carlos Vives' Verbundenheit mit der kolumbianischen Tradition."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welches Lied aus dem Album 'Clásicos de la Provincia' von Carlos Vives thematisiert die Bedeutung von Traditionen und Bräuchen in den ländlichen Regionen Kolumbiens?",
+          "options": [
+            "La Cañaguatera",
+            "Matilde Lina",
+            "El Cantor de Fonseca",
+            "Alicia Adorada"
+          ],
+          "correctAnswer": "La Cañaguatera",
+          "trivia": "'La Cañaguatera' thematisiert die Bedeutung von Traditionen und Bräuchen in den ländlichen Regionen Kolumbiens. Das Lied verbindet die Liebe zur Natur und die Verbundenheit mit den Wurzeln des Vallenato mit einer modernen Interpretation."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Clásicos de la Provincia' von Carlos Vives ist eine modernisierte Version des traditionellen kolumbianischen Vallenato-Stils und hat das Genre weltweit populär gemacht?",
+          "options": [
+            "La Gota Fría",
+            "Alicia Adorada",
+            "El Cantor de Fonseca",
+            "Matilde Lina"
+          ],
+          "correctAnswer": "La Gota Fría",
+          "trivia": "'La Gota Fría' modernisierte den traditionellen kolumbianischen Vallenato und führte das Genre in die internationale Musikszene ein. Das Lied markiert einen Wendepunkt in der lateinamerikanischen Musik und wurde von der Kritik hoch gelobt."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Clásicos de la Provincia' von Carlos Vives verwendet das Akkordeon als zentrales Instrument, was typisch für das Genre des Vallenato ist?",
+          "options": [
+            "Alicia Adorada",
+            "La Gota Fría",
+            "Matilde Lina",
+            "El Cantor de Fonseca"
+          ],
+          "correctAnswer": "Matilde Lina",
+          "trivia": "'Matilde Lina' verwendet das Akkordeon als zentrales Instrument, das für das Genre des Vallenato charakteristisch ist. Das Stück ist ein klassisches Beispiel für die Verbindung des traditionellen Vallenato mit modernen musikalischen Einflüssen."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Thalía",
+    "album": "Primera Fila",
+    "year": 2009,
+    "coverSrc": "/bandcover/latin-vibes/thalia_primera_fila.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Thalía ist der Song 'Equivocada' enthalten?",
+          "options": [
+            "Arrasando",
+            "Habítame Siempre",
+            "Primera Fila",
+            "Amor a la Mexicana"
+          ],
+          "correctAnswer": "Primera Fila",
+          "trivia": "'Equivocada' ist einer der bekanntesten Songs aus Thalías 2009 erschienenem Live-Album 'Primera Fila'. Der Song wurde für seinen emotionalen Text und Thalías kraftvolle Interpretation gelobt."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'Primera Fila' von Thalía geht es um Fehler und den Wunsch, sich selbst zu finden?",
+          "options": [
+            "Equivocada",
+            "Enséñame a Vivir",
+            "Qué Será de Ti",
+            "Con Banda"
+          ],
+          "correctAnswer": "Equivocada",
+          "trivia": "'Equivocada' handelt von den Fehlern, die man im Leben macht, und dem Wunsch, daraus zu lernen und sich selbst zu finden. Der Song war ein großer Erfolg und wurde von Fans und Kritikern gleichermaßen gelobt."
+        },
+        {
+          "question": "Welches Lied enthält die Zeile 'Equivocada, por dejarte y no encontrar salida' auf dem Album 'Primera Fila' von Thalía?",
+          "options": [
+            "Equivocada",
+            "Enséñame a Vivir",
+            "Cómo",
+            "Qué Será de Ti"
+          ],
+          "correctAnswer": "Equivocada",
+          "trivia": "Die Zeile 'Equivocada, por dejarte y no encontrar salida' stammt aus dem Lied 'Equivocada'. Das Lied beschreibt den emotionalen Kampf, seinen eigenen Weg nach einer Trennung zu finden."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied auf dem Album 'Primera Fila' von Thalía ist eine Neuinterpretation des Klassikers von Roberto Carlos und handelt von der Sehnsucht nach einer verlorenen Liebe?",
+          "options": [
+            "Qué Será de Ti",
+            "Equivocada",
+            "Enséñame a Vivir",
+            "Estoy Enamorado"
+          ],
+          "correctAnswer": "Qué Será de Ti",
+          "trivia": "'Qué Será de Ti' ist eine Neuinterpretation des Klassikers von Roberto Carlos. Das Lied beschreibt die Sehnsucht und die Ungewissheit, die mit dem Verlust einer großen Liebe einhergehen."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Primera Fila' von Thalía handelt von der Hoffnung auf eine neue Liebe und dem Mut, wieder zu vertrauen?",
+          "options": [
+            "Enséñame a Vivir",
+            "Equivocada",
+            "Cómo",
+            "Estoy Enamorado"
+          ],
+          "correctAnswer": "Enséñame a Vivir",
+          "trivia": "'Enséñame a Vivir' ist ein optimistisches Lied über die Hoffnung auf eine neue Liebe und den Mut, sich wieder zu öffnen. Thalías gefühlvolle Interpretation machte das Lied zu einem Favoriten der Fans."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Primera Fila' von Thalía wurde als Duett mit dem Duo Pedro Capó aufgenommen und handelt von der intensiven Leidenschaft einer Liebesbeziehung?",
+          "options": [
+            "Estoy Enamorado",
+            "Equivocada",
+            "Cómo",
+            "Enséñame a Vivir"
+          ],
+          "correctAnswer": "Estoy Enamorado",
+          "trivia": "'Estoy Enamorado' wurde im Duett mit Pedro Capó aufgenommen und handelt von der intensiven Leidenschaft und dem Glück einer neuen Liebesbeziehung. Das Lied wurde vor allem in Lateinamerika sehr populär."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welches Lied auf dem Album 'Primera Fila' von Thalía verwendet akustische Elemente, um die emotionale Tiefe der Trennung und des Neuanfangs zu unterstreichen?",
+          "options": [
+            "Equivocada",
+            "Cómo",
+            "Enséñame a Vivir",
+            "Qué Será de Ti"
+          ],
+          "correctAnswer": "Cómo",
+          "trivia": "'Cómo' verwendet akustische Elemente, um die emotionale Tiefe der Trennung und des Neubeginns zu unterstreichen. Das Lied wurde für seine sanfte Melodie und Thalías ausdrucksstarke Interpretation gelobt."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Primera Fila' von Thalía handelt von Selbstreflexion und dem Prozess des Vergebens nach einer schwierigen Zeit?",
+          "options": [
+            "Equivocada",
+            "Enséñame a Vivir",
+            "Cómo",
+            "Estoy Enamorado"
+          ],
+          "correctAnswer": "Equivocada",
+          "trivia": "'Equivocada' ist ein Lied, in dem es um Selbstreflexion und den Prozess des Vergebens geht. Das Lied beschreibt die Reise der Heilung und des Loslassens nach einer schwierigen Zeit."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Primera Fila' von Thalía verwendet sowohl lateinamerikanische als auch moderne Pop-Elemente, um die Vielfalt ihrer musikalischen Wurzeln zu zeigen?",
+          "options": [
+            "Estoy Enamorado",
+            "Qué Será de Ti",
+            "Enséñame a Vivir",
+            "Equivocada"
+          ],
+          "correctAnswer": "Estoy Enamorado",
+          "trivia": "'Estoy Enamorado' verbindet lateinamerikanische Rhythmen mit modernen Pop-Elementen und zeigt Thalías Fähigkeit, verschiedene Musikstile miteinander zu verbinden. Das Lied feiert die Liebe und den Neuanfang in Beziehungen."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Chayanne",
+    "album": "Atado a Tu Amor",
+    "year": 1998,
+    "coverSrc": "/bandcover/latin-vibes/chayanne_atado_a_tu_amor.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Chayanne ist das Lied 'Dejaría Todo' enthalten?",
+          "options": [
+            "Volver a Nacer",
+            "Atado a Tu Amor",
+            "Sincero",
+            "Tiempo de Vals"
+          ],
+          "correctAnswer": "Atado a Tu Amor",
+          "trivia": "'Dejaría Todo' ist eines der bekanntesten Lieder von Chayannes Album 'Atado a Tu Amor' aus dem Jahr 1998. Das Lied war ein großer Erfolg und zeigt Chayannes gefühlvollen Gesang und ihre romantische Seite."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'Atado a Tu Amor' von Chayanne wurde ein internationaler Hit und handelt von Hingabe und Aufopferung für einen geliebten Menschen?",
+          "options": [
+            "Dejaría Todo",
+            "Salomé",
+            "Atado a Tu Amor",
+            "Pienso en Ti"
+          ],
+          "correctAnswer": "Dejaría Todo",
+          "trivia": "'Dejaría Todo' ist einer von Chayannes größten Hits und handelt von Aufopferung und Hingabe in der Liebe. Es ist ein emotionales Liebeslied, das Chayannes musikalische Vielseitigkeit unterstreicht."
+        },
+        {
+          "question": "Welches Lied enthält die Zeile 'Dejaría todo porque te quedaras' auf dem Album 'Atado a Tu Amor' von Chayanne?",
+          "options": [
+            "Dejaría Todo",
+            "Salomé",
+            "Atado a Tu Amor",
+            "Pienso en Ti"
+          ],
+          "correctAnswer": "Dejaría Todo",
+          "trivia": "Die Zeile 'Dejaría todo porque te quedaras' stammt aus dem Lied 'Dejaría Todo'. Das Lied beschreibt die tiefe Hingabe und das Opfer, das man für eine geliebte Person bringen würde."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied auf dem Album 'Atado a Tu Amor' von Chayanne verbindet lateinamerikanische Rhythmen mit einem tanzbaren Beat und wurde zu einem beliebten Dance-Hit?",
+          "options": [
+            "Salomé",
+            "Dejaría Todo",
+            "Atado a Tu Amor",
+            "Pienso en Ti"
+          ],
+          "correctAnswer": "Salomé",
+          "trivia": "'Salomé' kombiniert lateinamerikanische Rhythmen mit einem tanzbaren Beat und wurde zu einem beliebten Dance-Hit. Der Song zeigt Chayanne von ihrer energiegeladenen Seite und wurde in vielen Clubs gespielt."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Atado a Tu Amor' von Chayanne ist ein Lied über die Kraft der Liebe, die einen Menschen in emotionaler und spiritueller Hinsicht in ihren Bann zieht?",
+          "options": [
+            "Atado a Tu Amor",
+            "Salomé",
+            "Dejaría Todo",
+            "Refugio de Amor"
+          ],
+          "correctAnswer": "Atado a Tu Amor",
+          "trivia": "Der Titelsong 'Atado a Tu Amor' handelt von der Kraft der Liebe, die einen Menschen emotional und spirituell fesselt. Der Song zeigt Chayannes gefühlvolle Interpretation und ist zu einem Fanliebling geworden."
+        },
+        {
+          "question": "Welches Lied ist als romantische Ballade über bedingungslose Liebe und Hingabe auf dem Album 'Atado a Tu Amor' von Chayanne bekannt geworden?",
+          "options": [
+            "Pienso en Ti",
+            "Dejaría Todo",
+            "Salomé",
+            "Atado a Tu Amor"
+          ],
+          "correctAnswer": "Pienso en Ti",
+          "trivia": "'Pienso en Ti' ist eine romantische Ballade, die die bedingungslose Liebe und Hingabe an einen geliebten Menschen feiert. Das Lied zeigt Chayannes stimmliche Tiefe und ihre Fähigkeit, starke Emotionen auszudrücken."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welches Lied aus dem Album 'Atado a Tu Amor' der Gruppe Chayanne hat die Sehnsucht nach einer verlorenen Liebe und die Erinnerung an bessere Zeiten zum Thema?",
+          "options": [
+            "Refugio de Amor",
+            "Pienso en Ti",
+            "Atado a Tu Amor",
+            "Dejaría Todo"
+          ],
+          "correctAnswer": "Refugio de Amor",
+          "trivia": "'Refugio de Amor' handelt von der Sehnsucht nach einer verlorenen Liebe und der Erinnerung an bessere Zeiten. Das Lied wurde für seine emotionale Tiefe und Chayannes einfühlsame Interpretation gelobt."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'Atado a Tu Amor' von Chayanne wird das Thema Liebeskummer mit einer Mischung aus Pop und lateinamerikanischen Rhythmen behandelt?",
+          "options": [
+            "Salomé",
+            "Dejaría Todo",
+            "Refugio de Amor",
+            "Atado a Tu Amor"
+          ],
+          "correctAnswer": "Dejaría Todo",
+          "trivia": "'Dejaría Todo' verwendet eine Mischung aus Pop und lateinamerikanischen Rhythmen, um das Thema Herzschmerz und Hingabe zu behandeln. Das Lied war in ganz Lateinamerika und darüber hinaus ein großer Erfolg."
+        },
+        {
+          "question": "Welcher Song des Albums 'Atado a Tu Amor' von Chayanne wurde in Zusammenarbeit mit Vanessa Williams als Filmmusik aufgenommen?",
+          "options": [
+            "Refugio de Amor",
+            "Pienso en Ti",
+            "Atado a Tu Amor",
+            "Salomé"
+          ],
+          "correctAnswer": "Refugio de Amor",
+          "trivia": "'Refugio de Amor' wurde in Zusammenarbeit mit Vanessa Williams aufgenommen und diente als Soundtrack für den Film 'Dance with Me' (1998). Das Lied zeigt die stimmliche Harmonie zwischen Chayanne und Williams."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Calle 13",
+    "album": "Residente o Visitante",
+    "year": 2007,
+    "coverSrc": "/bandcover/latin-vibes/calle_13_residente_o_visitante.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Calle 13 ist der Song 'Tango del Pecado'?",
+          "options": [
+            "Entren Los Que Quieran",
+            "Residente o Visitante",
+            "Multi_Viral",
+            "Los de Atrás Vienen Conmigo"
+          ],
+          "correctAnswer": "Residente o Visitante",
+          "trivia": "'Tango del Pecado' ist eines der bekanntesten Lieder des Albums 'Residente o Visitante' von Calle 13, das lateinamerikanische Rhythmen mit satirischen Texten verbindet und soziale Normen kritisiert."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'Residente o Visitante' von Calle 13 wurde ein großer Hit und handelt vom Kampf gegen gesellschaftliche Erwartungen und Konventionen?",
+          "options": [
+            "Tango del Pecado",
+            "La Cumbia de los Aburridos",
+            "Pal' Norte",
+            "El Avión Se Cae"
+          ],
+          "correctAnswer": "Tango del Pecado",
+          "trivia": "'Tango del Pecado' war ein großer Erfolg und thematisiert den Widerstand gegen gesellschaftliche Normen. Der Song unterstreicht die rebellische Haltung von Calle 13 und zeigt ihre Fähigkeit, Sozialkritik mit eingängigen Rhythmen zu verbinden."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'Residente o Visitante' von Calle 13 wird die Zeile 'Los más buenos son aburridos, los más malos son divertidos' verwendet?",
+          "options": [
+            "Tango del Pecado",
+            "Pal' Norte",
+            "La Cumbia de los Aburridos",
+            "Un Beso de Desayuno"
+          ],
+          "correctAnswer": "Tango del Pecado",
+          "trivia": "Die Zeile 'Los más buenos son aburridos, los más malos son divertidos' stammt aus dem Lied 'Tango del Pecado'. Das Lied kritisiert die Doppelmoral und Scheinheiligkeit der Gesellschaft."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied auf dem Album 'Residente o Visitante' von Calle 13 hat die Herausforderungen von Migrantinnen und Migranten und ihren Kampf ums Überleben zum Thema?",
+          "options": [
+            "Pal' Norte",
+            "Tango del Pecado",
+            "La Cumbia de los Aburridos",
+            "Un Beso de Desayuno"
+          ],
+          "correctAnswer": "Pal' Norte",
+          "trivia": "Pal' Norte' thematisiert die Herausforderungen, denen sich Migranten auf der Suche nach einem besseren Leben stellen müssen. Das Lied ist eine kraftvolle Hymne des Widerstands und des Überlebenswillens."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Residente o Visitante' von Calle 13 kritisiert die kulturelle Verengung und Ausgrenzung von Migranten in der westlichen Welt?",
+          "options": [
+            "Pal' Norte",
+            "Tango del Pecado",
+            "La Cumbia de los Aburridos",
+            "Un Beso de Desayuno"
+          ],
+          "correctAnswer": "Pal' Norte",
+          "trivia": "'Pal' Norte' ist eine eindringliche Kritik an der Ausgrenzung von Migranten in westlichen Gesellschaften. Der Song wurde für seinen sozialkritischen Text und seine eingängige Mischung aus urbanen und lateinamerikanischen Klängen gefeiert."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Residente o Visitante' von Calle 13 handelt vom Einfluss der Religion auf das Leben und stellt die moralische Autorität in Frage?",
+          "options": [
+            "Tango del Pecado",
+            "La Cumbia de los Aburridos",
+            "Pal' Norte",
+            "El Avión Se Cae"
+          ],
+          "correctAnswer": "Tango del Pecado",
+          "trivia": "'Tango del Pecado' hinterfragt die Rolle der Religion und ihrer moralischen Autorität in der Gesellschaft. Das Lied stellt traditionelle Werte und Normen in Frage und wurde für seinen satirischen Text gelobt."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welcher Song auf dem Album 'Residente o Visitante' von Calle 13 verbindet Tango-Rhythmen mit urbanen Beats und kritisiert die Doppelmoral der Gesellschaft?",
+          "options": [
+            "Tango del Pecado",
+            "Pal' Norte",
+            "Un Beso de Desayuno",
+            "La Cumbia de los Aburridos"
+          ],
+          "correctAnswer": "Tango del Pecado",
+          "trivia": "'Tango del Pecado' verbindet traditionelle Tango-Rhythmen mit modernen urbanen Beats, um die Doppelmoral und Heuchelei in der Gesellschaft zu kritisieren. Der Song wurde für seine innovativen musikalischen Elemente und provokanten Texte gefeiert."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Residente o Visitante' von Calle 13 hat den Grammy in der Kategorie 'Best Urban Music' gewonnen?",
+          "options": [
+            "Pal' Norte",
+            "Tango del Pecado",
+            "Un Beso de Desayuno",
+            "La Cumbia de los Aburridos"
+          ],
+          "correctAnswer": "Pal' Norte",
+          "trivia": "'Pal' Norte' wurde 2007 mit einem Grammy in der Kategorie 'Best Urban Music' ausgezeichnet. Das Lied wurde als Hymne an die Migranten und ihren Widerstand gefeiert und hat sich als eines der wichtigsten Werke von Calle 13 etabliert."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Residente o Visitante' von Calle 13 handelt vom Kampf gegen politische Unterdrückung und soziale Ungerechtigkeit?",
+          "options": [
+            "Pal' Norte",
+            "Tango del Pecado",
+            "La Cumbia de los Aburridos",
+            "El Avión Se Cae"
+          ],
+          "correctAnswer": "Pal' Norte",
+          "trivia": "'Pal' Norte' handelt von den politischen und sozialen Kämpfen von Migranten und Unterdrückten. Der Song wurde für seine starke Botschaft und seine innovative Mischung aus lateinamerikanischen und urbanen Klängen gelobt."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Tito Puente",
+    "album": "Dance Mania",
+    "year": 1958,
+    "coverSrc": "/bandcover/latin-vibes/tito_puente_dance_mania.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Tito Puente ist der Song 'El Cayuco'?",
+          "options": [
+            "Cuban Carnival",
+            "Dance Mania",
+            "Top Percussion",
+            "Mambo Diablo"
+          ],
+          "correctAnswer": "Dance Mania",
+          "trivia": "'Dance Mania' ist eines der bekanntesten Alben von Tito Puente aus dem Jahr 1958. Der Song 'El Cayuco' ist eines der herausragenden Stücke, die Puentes Ruf als 'King of Mambo' begründeten."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'Dance Mania' von Tito Puente war ein Hit und ist für seinen energiegeladenen Mambo-Rhythmus bekannt?",
+          "options": [
+            "El Cayuco",
+            "Complicación",
+            "Hong Kong Mambo",
+            "Estoy Siempre Junto a Ti"
+          ],
+          "correctAnswer": "El Cayuco",
+          "trivia": "'El Cayuco' ist ein energiegeladener Mambo-Song, der mit seinen pulsierenden Rhythmen und dem typischen Sound der Tito-Puentes-Band die Zuhörer in Bewegung bringt. Der Song ist nach wie vor ein Favorit in der Latin-Jazz-Szene."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Dance Mania' von Tito Puente enthält die Zeile 'Cayuco es un barquito que navega por el mar'?",
+          "options": [
+            "El Cayuco",
+            "Complicación",
+            "Cuando Te Vea",
+            "Agua Limpia Todo"
+          ],
+          "correctAnswer": "El Cayuco",
+          "trivia": "Die Zeile 'Cayuco es un barquito que navega por el mar' stammt aus dem Lied 'El Cayuco'. Dieser Klassiker ist ein Paradebeispiel für Tito Puentes Fähigkeit, mitreißende und dynamische Musik zu komponieren."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied auf dem Album 'Dance Mania' von Tito Puente handelt von den Verwicklungen des Lebens und verwendet einen verspielten Mambo-Rhythmus?",
+          "options": [
+            "Complicación",
+            "El Cayuco",
+            "Hong Kong Mambo",
+            "Cuando Te Vea"
+          ],
+          "correctAnswer": "Complicación",
+          "trivia": "'Complicación' kombiniert komplexe Rhythmen und verspielte Melodien, um die Komplikationen des Lebens auszudrücken. Das Lied zeigt Tito Puentes musikalische Vielseitigkeit und seine Fähigkeit, dynamische Stücke zu komponieren."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Dance Mania' von Tito Puente mischt traditionelle lateinamerikanische Rhythmen mit Jazzelementen und wurde zu einem Klassiker des Latin Jazz?",
+          "options": [
+            "Hong Kong Mambo",
+            "Complicación",
+            "El Cayuco",
+            "Agua Limpia Todo"
+          ],
+          "correctAnswer": "Hong Kong Mambo",
+          "trivia": "'Hong Kong Mambo' ist eine Mischung aus traditionellen lateinamerikanischen Rhythmen und Jazzelementen. Das Stück ist zu einem Klassiker des Latin Jazz geworden und spiegelt Puentes kreativen Ansatz wider, verschiedene Musikstile zu kombinieren."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Dance Mania' von Tito Puente ist berühmt für seine Perkussion und wird oft als Paradebeispiel für Puentes Fähigkeiten als Perkussionist angesehen?",
+          "options": [
+            "El Cayuco",
+            "Complicación",
+            "Hong Kong Mambo",
+            "Agua Limpia Todo"
+          ],
+          "correctAnswer": "El Cayuco",
+          "trivia": "'El Cayuco' ist bekannt für seine hervorragende Perkussion, die Tito Puentes Fähigkeiten als einer der besten Perkussionisten seiner Zeit zeigt. Es ist ein dynamisches Stück, das den typischen Mambo-Sound repräsentiert."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welches Lied aus dem Album 'Dance Mania' von Tito Puente gilt als wegweisender Mambo-Hit und zeigt die Entwicklung des Mambos in den 1950er Jahren?",
+          "options": [
+            "Complicación",
+            "El Cayuco",
+            "Hong Kong Mambo",
+            "Estoy Siempre Junto a Ti"
+          ],
+          "correctAnswer": "El Cayuco",
+          "trivia": "'El Cayuco' war ein bahnbrechender Mambo-Hit, der die Entwicklung des Mambo in den 1950er Jahren zeigt. Das Lied steht exemplarisch für den Übergang des Mambo vom Tanzstil zur musikalischen Kunstform."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Dance Mania' von Tito Puente verbindet den klassischen Mambo mit Einflüssen der damaligen Populärmusik und wurde zu einem Lieblingslied der Tänzerinnen und Tänzer?",
+          "options": [
+            "Hong Kong Mambo",
+            "El Cayuco",
+            "Complicación",
+            "Cuando Te Vea"
+          ],
+          "correctAnswer": "Hong Kong Mambo",
+          "trivia": "Hong Kong Mambo' verbindet den klassischen Mambo mit Einflüssen der populären Musik jener Zeit. Das Stück wurde schnell zum Liebling der Tänzer und ist bis heute ein Klassiker der Latin-Jazz-Szene."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'Dance Mania' von Tito Puente gilt als Paradebeispiel für die Mambo-Revolution und verhalf dem Genre zu internationaler Anerkennung?",
+          "options": [
+            "El Cayuco",
+            "Complicación",
+            "Hong Kong Mambo",
+            "Agua Limpia Todo"
+          ],
+          "correctAnswer": "El Cayuco",
+          "trivia": "'El Cayuco' gilt als Paradebeispiel für die Mambo-Revolution der 1950er Jahre und trug dazu bei, das Genre weltweit bekannt zu machen. Tito Puente wurde durch solche Lieder zu einem der größten Botschafter des Mambo."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Bad Bunny",
+    "album": "X 100PRE",
+    "year": 2018,
+    "coverSrc": "/bandcover/latin-vibes/bad_bunny_x_100pre.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Bad Bunny ist der Song 'Mía' enthalten?",
+          "options": [
+            "YHLQMDLG",
+            "Oasis",
+            "X 100PRE",
+            "El Último Tour Del Mundo"
+          ],
+          "correctAnswer": "X 100PRE",
+          "trivia": "'Mía' ist ein Kollaborationshit von Bad Bunny und Drake aus seinem Debütalbum 'X 100PRE' von 2018. Der Song wurde international bekannt und brachte Bad Bunny weltweite Anerkennung."
+        },
+        {
+          "question": "Welcher Song auf Bad Bunny's Album 'X 100PRE' wurde in Zusammenarbeit mit Drake geschrieben und ist zu einem weltweiten Hit avanciert?",
+          "options": ["Mía", "Estamos Bien", "Ni Bien Ni Mal", "Caro"],
+          "correctAnswer": "Mía",
+          "trivia": "'Mía' ist eine der erfolgreichsten Kollaborationen zwischen Bad Bunny und Drake. Der Song kombiniert Reggaeton-Rhythmen mit modernen Urban-Elementen und wurde schnell zu einem der größten Hits des Jahres 2018."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'X 100PRE' von Bad Bunny kommt die Zeile 'Mía, mía, tú eres mía' vor?",
+          "options": ["Mía", "Estamos Bien", "Ni Bien Ni Mal", "Solo de Mí"],
+          "correctAnswer": "Mía",
+          "trivia": "Die Zeile 'Mía, mía, tú eres mía' stammt aus dem Lied 'Mía'. Das Lied beschreibt die Sehnsucht und Leidenschaft in einer romantischen Beziehung und war ein internationaler Erfolg."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied auf dem Album 'X 100PRE' von Bad Bunny hat den emotionalen Aufschwung und die Selbstakzeptanz nach schwierigen Zeiten zum Thema?",
+          "options": ["Estamos Bien", "Mía", "Ni Bien Ni Mal", "Solo de Mí"],
+          "correctAnswer": "Estamos Bien",
+          "trivia": "'Estamos Bien' ist eine Hymne der Selbstakzeptanz und des persönlichen Wachstums nach schwierigen Zeiten. Das Lied feiert die positive Einstellung gegenüber den Herausforderungen des Lebens und ist für viele Fans zu einem Motivationslied geworden."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'X 100PRE' von Bad Bunny thematisiert den Schmerz und die Unsicherheit nach dem Ende einer Beziehung, zeigt aber auch die Kraft, weiterzumachen?",
+          "options": ["Ni Bien Ni Mal", "Mía", "Estamos Bien", "Solo de Mí"],
+          "correctAnswer": "Ni Bien Ni Mal",
+          "trivia": "'Ni Bien Ni Mal' handelt vom Liebeskummer nach dem Ende einer Beziehung, wobei Bad Bunny zeigt, dass er sich trotz des Schmerzes wieder erholen wird. Der Song verbindet einen emotionalen Text mit einem rhythmischen, tanzbaren Beat."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'X 100PRE' von Bad Bunny handelt von der Entschlossenheit, nach einer toxischen Beziehung nicht mehr zurückzukehren?",
+          "options": ["Solo de Mí", "Mía", "Caro", "Estamos Bien"],
+          "correctAnswer": "Solo de Mí",
+          "trivia": "'Solo de Mí' handelt von der Entschlossenheit, nach einer toxischen Beziehung wieder zu sich selbst zu finden und nicht zurückzukehren. Der Song wurde für seine emotionale Tiefe und Bad Bunnys kraftvolle Interpretation gelobt."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welcher Song auf dem Album 'X 100PRE' von Bad Bunny zeigt seine Kritik an gesellschaftlichen Normen, insbesondere an solchen, die die Identität und den individuellen Ausdruck einschränken?",
+          "options": ["Caro", "Estamos Bien", "Solo de Mí", "Ni Bien Ni Mal"],
+          "correctAnswer": "Caro",
+          "trivia": "'Caro' ist ein kraftvoller Song, in dem Bad Bunny über Selbstachtung, Luxus und die Freiheit, sich auszudrücken, spricht. Das Lied kritisiert gesellschaftliche Normen, die versuchen, die Identität und den Ausdruck des Individuums zu kontrollieren."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'X 100PRE' von Bad Bunny handelt von Unabhängigkeit und dem Versuch, nach einer Trennung stärker zu sein als zuvor?",
+          "options": ["Solo de Mí", "Caro", "Estamos Bien", "Mía"],
+          "correctAnswer": "Solo de Mí",
+          "trivia": "'Solo de Mí' handelt von emotionaler Stärke und der Wiedererlangung der Kontrolle über das eigene Leben nach einer schmerzhaften Trennung. Der Song wurde für seine Mischung aus tiefem, emotionalem Text und kraftvollem Beat gelobt."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'X 100PRE' von Bad Bunny verbindet Reggaeton mit Trap-Elementen und handelt von emotionalem Schmerz und Widerstand in Beziehungen?",
+          "options": ["Ni Bien Ni Mal", "Caro", "Estamos Bien", "Solo de Mí"],
+          "correctAnswer": "Ni Bien Ni Mal",
+          "trivia": "'Ni Bien Ni Mal' kombiniert Reggaeton- und Trap-Elemente, um den emotionalen Schmerz und den Widerstand in einer Beziehung zu thematisieren. Der Song wurde für seinen ehrlichen Text und seine innovative Produktion gefeiert."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Rubén Blades",
+    "album": "Siembra",
+    "year": 1978,
+    "coverSrc": "/bandcover/salsa/ruben_blades_siembra.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Rubén Blades ist der Song 'Pedro Navaja' zu finden?",
+          "options": [
+            "Metiendo Mano",
+            "Canciones del Solar de los Aburridos",
+            "Siembra",
+            "Maestra Vida"
+          ],
+          "correctAnswer": "Siembra",
+          "trivia": "'Pedro Navaja' ist das bekannteste Lied des Albums 'Siembra' von Rubén Blades und Willie Colón aus dem Jahr 1978. Das Lied gilt als einer der größten Salsa-Klassiker."
+        },
+        {
+          "question": "Wie hieß der Song auf dem Album 'Siembra' von Rubén Blades und Willie Colón, der die Geschichte einer kriminellen Figur erzählt und ein Salsa-Hit wurde?",
+          "options": [
+            "Pedro Navaja",
+            "Plástico",
+            "Buscando Guayaba",
+            "Siembra"
+          ],
+          "correctAnswer": "Pedro Navaja",
+          "trivia": "'Pedro Navaja' erzählt die Geschichte eines Straßengangsters und wurde zu einem der größten Salsa-Hits. Das Lied ist eine spannende Erzählung und wird oft mit dem Broadway-Musical Die Dreigroschenoper von Bertolt Brecht verglichen."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'Siembra' von Rubén Blades wird die Zeile 'La vida te da sorpresas, sorpresas te da la vida' verwendet?",
+          "options": [
+            "Pedro Navaja",
+            "Plástico",
+            "Buscando Guayaba",
+            "Siembra"
+          ],
+          "correctAnswer": "Pedro Navaja",
+          "trivia": "Die Zeile 'La vida te da sorpresas, sorpresas te da la vida' stammt aus dem Lied 'Pedro Navaja'. Diese Zeile ist zu einer Ikone geworden und spiegelt das unvorhersehbare Schicksal des Protagonisten wider."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied auf dem Album 'Siembra' von Rubén Blades und Willie Colón kritisiert den Materialismus und die Oberflächlichkeit der modernen Gesellschaft?",
+          "options": ["Plástico", "Pedro Navaja", "Dime", "Siembra"],
+          "correctAnswer": "Plástico",
+          "trivia": "'Plástico' kritisiert den Materialismus und die Oberflächlichkeit der modernen Gesellschaft. Das Lied beschreibt, wie die Menschen in einer Welt aus Plastik leben, in der die wahren Werte auf der Strecke bleiben."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Siembra' von Rubén Blades und Willie Colón beschreibt die Probleme der modernen Gesellschaft wie Rassismus und soziale Ungerechtigkeit?",
+          "options": [
+            "Plástico",
+            "Pedro Navaja",
+            "Siembra",
+            "Buscando Guayaba"
+          ],
+          "correctAnswer": "Plástico",
+          "trivia": "'Plástico' behandelt Themen wie Rassismus und soziale Ungerechtigkeit in der modernen Welt. Das Lied endet jedoch mit einer Botschaft der Hoffnung und dem Aufruf, nach einer gerechteren und menschlicheren Gesellschaft zu streben."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Siembra' von Rubén Blades handelt von politischem und sozialem Aktivismus und fordert die Menschen auf, Veränderungen zu säen?",
+          "options": ["Siembra", "Pedro Navaja", "Plástico", "Dime"],
+          "correctAnswer": "Siembra",
+          "trivia": "Der Titelsong 'Siembra' handelt von politischem und sozialem Aktivismus und fordert die Menschen auf, positive Veränderungen zu säen, damit zukünftige Generationen ernten können. Das Lied ist zu einer Hymne des sozialen Bewusstseins geworden."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welches Lied auf dem Album 'Siembra' von Rubén Blades verwendet eine Erzählstruktur, die an lateinamerikanische Volksmärchen erinnert, um eine komplexe Schicksalsgeschichte zu erzählen?",
+          "options": [
+            "Pedro Navaja",
+            "Siembra",
+            "Plástico",
+            "Buscando Guayaba"
+          ],
+          "correctAnswer": "Pedro Navaja",
+          "trivia": "'Pedro Navaja' verwendet eine Erzählstruktur, die an lateinamerikanische Volkserzählungen erinnert, um eine komplexe und dramatische Geschichte über das Schicksal eines Kriminellen zu erzählen. Das Lied wurde für seine literarische Qualität gelobt."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'Siembra' von Rubén Blades verbindet afro-kubanische Rhythmen mit sozialkritischen Texten und wurde als einer der innovativsten Salsa-Songs der 1970er Jahre gefeiert?",
+          "options": ["Siembra", "Pedro Navaja", "Plástico", "Dime"],
+          "correctAnswer": "Siembra",
+          "trivia": "Der Song 'Siembra' verbindet afro-kubanische Rhythmen mit sozialkritischen Texten und wurde als einer der innovativsten Salsa-Songs der 70er Jahre gefeiert. Das Lied inspiriert die Zuhörer, Verantwortung für die Zukunft zu übernehmen."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Siembra' von Rubén Blades enthält sozialkritische Texte, die zum Nachdenken über soziale Verantwortung und Gerechtigkeit anregen?",
+          "options": [
+            "Siembra",
+            "Plástico",
+            "Pedro Navaja",
+            "Buscando Guayaba"
+          ],
+          "correctAnswer": "Siembra",
+          "trivia": "'Siembra' enthält tiefgründige sozialkritische Texte, die die Menschen auffordern, Verantwortung zu übernehmen und Gerechtigkeit zu fördern. Das Lied ist ein Klassiker der politischen Salsa."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Julio Iglesias",
+    "album": "De Niña a Mujer",
+    "year": 1981,
+    "coverSrc": "/bandcover/latin-vibes/julio_iglesias_de_nina_a_mujer.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Julio Iglesias ist das Lied 'De Niña a Mujer' zu hören?",
+          "options": ["Momentos", "Soy", "De Niña a Mujer", "El Amor"],
+          "correctAnswer": "De Niña a Mujer",
+          "trivia": "'De Niña a Mujer' ist das Titellied des Albums von Julio Iglesias aus dem Jahr 1981. Das Lied beschreibt die emotionale Reise eines Vaters, der seine Tochter aufwachsen sieht."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'De Niña a Mujer' von Julio Iglesias beschreibt die Gefühle eines Vaters, während seine Tochter heranwächst?",
+          "options": ["De Niña a Mujer", "Hey", "Amor", "Quiero"],
+          "correctAnswer": "De Niña a Mujer",
+          "trivia": "'De Niña a Mujer' ist eine emotionale Hommage von Julio Iglesias an seine Tochter und beschreibt die Gefühle, die er empfand, als er sah, wie sie von einem Kind zu einer jungen Frau heranwuchs."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'De Niña a Mujer' von Julio Iglesias wird die Zeile 'Y te haces mayor' verwendet?",
+          "options": ["De Niña a Mujer", "Amor", "Quiero", "No Vengo Ni Voy"],
+          "correctAnswer": "De Niña a Mujer",
+          "trivia": "Die Zeile 'Y te haces mayor' stammt aus dem Lied 'De Niña a Mujer'. Sie drückt die tiefe emotionale Bindung eines Vaters zu seiner Tochter aus, während diese aufwächst."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied aus dem Album 'De Niña a Mujer' von Julio Iglesias hat Nostalgie und Erinnerungen an vergangene Zeiten zum Thema?",
+          "options": ["Quiero", "De Niña a Mujer", "Amor", "Volver a Empezar"],
+          "correctAnswer": "Quiero",
+          "trivia": "'Quiero' beschreibt Nostalgie und Sehnsucht nach vergangenen Zeiten. Das Lied ist eine gefühlvolle Ballade über Liebe und Verlust, ein wiederkehrendes Thema in der Musik von Julio Iglesias."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'De Niña a Mujer' von Julio Iglesias behandelt die universellen Themen Liebe und Liebeskummer und wurde zu einem seiner bekanntesten Hits?",
+          "options": ["Amor", "De Niña a Mujer", "Quiero", "Volver a Empezar"],
+          "correctAnswer": "Amor",
+          "trivia": "'Amor' ist einer der bekanntesten Songs von Julio Iglesias, der die universellen Themen Liebe und Liebeskummer behandelt. Das Lied ist vor allem im spanischsprachigen Raum sehr populär geworden."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'De Niña a Mujer' von Julio Iglesias beschreibt den Wunsch nach einem Neuanfang nach einer schwierigen Zeit?",
+          "options": ["Volver a Empezar", "Quiero", "Amor", "De Niña a Mujer"],
+          "correctAnswer": "Volver a Empezar",
+          "trivia": "'Volver a Empezar' beschreibt den Wunsch nach einem Neuanfang nach einer schwierigen Lebensphase. Das Lied handelt von Widerstandskraft und dem Willen, nach Rückschlägen wieder aufzustehen."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welches Lied auf dem Album 'De Niña a Mujer' von Julio Iglesias verbindet sanfte Balladenmelodien mit traditionellen lateinamerikanischen Einflüssen?",
+          "options": ["Quiero", "De Niña a Mujer", "Amor", "Volver a Empezar"],
+          "correctAnswer": "Quiero",
+          "trivia": "'Quiero' ist eine Kombination aus traditionellen lateinamerikanischen Rhythmen und sanften Balladenmelodien. Das Lied zeigt Julio Iglesias' Fähigkeit, romantische Themen in einem unverwechselbaren Stil zu interpretieren."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'De Niña a Mujer' von Julio Iglesias wurde als persönliche Hommage an seine Familie verstanden und spiegelt seine enge Beziehung zu seinen Kindern wider?",
+          "options": ["De Niña a Mujer", "Amor", "Quiero", "Volver a Empezar"],
+          "correctAnswer": "De Niña a Mujer",
+          "trivia": "'De Niña a Mujer' ist ein sehr persönliches Lied, das Julio Iglesias' Familie und seinen Kindern gewidmet ist. Das Lied zeigt seine emotionale Verbundenheit und die tiefen Gefühle, die er als Vater empfindet."
+        },
+        {
+          "question": "Welcher Song aus dem Album 'De Niña a Mujer' von Julio Iglesias wurde international gefeiert und gilt als einer der wichtigsten Meilensteine seiner Karriere?",
+          "options": ["Amor", "De Niña a Mujer", "Volver a Empezar", "Quiero"],
+          "correctAnswer": "De Niña a Mujer",
+          "trivia": "'De Niña a Mujer' wurde international gefeiert und gilt als einer der wichtigsten Meilensteine in der Karriere von Julio Iglesias. Das Lied wurde von Kritikern und Fans gleichermaßen für seine tiefe Emotionalität und Botschaft gelobt."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Alejandro Sanz",
+    "album": "Más",
+    "year": 1997,
+    "coverSrc": "/bandcover/latin-vibes/alejandro_sanz_mas.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Alejandro Sanz ist der Song 'Corazón Partío' enthalten?",
+          "options": [
+            "El Alma al Aire",
+            "Si Tú Me Miras",
+            "Más",
+            "No Es lo Mismo"
+          ],
+          "correctAnswer": "Más",
+          "trivia": "'Corazón Partío' ist einer der erfolgreichsten Songs aus dem Album 'Más' von Alejandro Sanz aus dem Jahr 1997. Das Lied brachte ihm internationale Anerkennung und festigte seinen Status als einer der führenden Künstler des Latin-Pop."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'Más' von Alejandro Sanz wurde ein Welthit und handelt von Liebeskummer und Liebesverlust?",
+          "options": [
+            "Corazón Partío",
+            "Amiga Mía",
+            "Y, ¿Si Fuera Ella?",
+            "Aquello Que Me Diste"
+          ],
+          "correctAnswer": "Corazón Partío",
+          "trivia": "'Corazón Partío' ist ein Klassiker des Latin-Pop, der von Herzschmerz und dem Verlust einer großen Liebe handelt. Das Lied wurde ein Welthit und machte Alejandro Sanz zu einem internationalen Star."
+        },
+        {
+          "question": "Welches Lied enthält die Zeile '¿Quién me va a entregar sus emociones?' auf dem Album 'Más' von Alejandro Sanz?",
+          "options": [
+            "Corazón Partío",
+            "Amiga Mía",
+            "Y, ¿Si Fuera Ella?",
+            "Aquello Que Me Diste"
+          ],
+          "correctAnswer": "Corazón Partío",
+          "trivia": "Die Zeile '¿Quién me va a entregar sus emociones?' stammt aus dem Lied 'Corazón Partío'. Das Lied beschreibt den emotionalen Schmerz einer zerbrochenen Beziehung."
+        }
+      ],
+      "medium": [
+        {
+          "question": "In welchem Lied auf dem Album 'Más' von Alejandro Sanz geht es um die unerwiderte Liebe eines Freundes und um den Schmerz, dieser Person seine Gefühle nicht offenbaren zu können?",
+          "options": [
+            "Amiga Mía",
+            "Corazón Partío",
+            "Aquello Que Me Diste",
+            "Y, ¿Si Fuera Ella?"
+          ],
+          "correctAnswer": "Amiga Mía",
+          "trivia": "'Amiga Mía' handelt von unerwiderter Liebe und erzählt die Geschichte eines Freundes, der seine wahren Gefühle nicht zeigen kann. Das Lied zeigt die Fähigkeit von Alejandro Sanz, komplexe emotionale Themen musikalisch darzustellen."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'Más' von Alejandro Sanz wurde für seinen tiefgründigen und nachdenklichen Text über Identität und das Finden des eigenen Weges gefeiert?",
+          "options": [
+            "Y, ¿Si Fuera Ella?",
+            "Corazón Partío",
+            "Aquello Que Me Diste",
+            "Amiga Mía"
+          ],
+          "correctAnswer": "Y, ¿Si Fuera Ella?",
+          "trivia": "'Y, ¿Si Fuera Ella?' ist ein nachdenkliches Lied über Selbstfindung und Identität. Das Lied wurde für seinen tiefgründigen und emotionalen Text gelobt und ist einer der anspruchsvolleren Songs auf dem Album 'Más'."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Más' von Alejandro Sanz beschreibt den Schmerz einer verpassten Chance und die Unsicherheit, ob man hätte anders handeln sollen?",
+          "options": [
+            "Y, ¿Si Fuera Ella?",
+            "Amiga Mía",
+            "Aquello Que Me Diste",
+            "Corazón Partío"
+          ],
+          "correctAnswer": "Y, ¿Si Fuera Ella?",
+          "trivia": "'Y, ¿Si Fuera Ella?' thematisiert den Schmerz einer verpassten Chance und die Unsicherheit, ob man hätte anders handeln sollen. Das Lied ist für seine starke emotionale Tiefe bekannt."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welches Lied auf dem Album 'Más' von Alejandro Sanz wurde als musikalisches Meisterwerk gefeiert, das lateinamerikanische Rhythmen mit Flamenco-Elementen verbindet?",
+          "options": [
+            "Corazón Partío",
+            "Aquello Que Me Diste",
+            "Amiga Mía",
+            "Y, ¿Si Fuera Ella?"
+          ],
+          "correctAnswer": "Corazón Partío",
+          "trivia": "'Corazón Partío' verbindet lateinamerikanische Rhythmen mit Flamenco-Elementen und wurde wegen seiner innovativen Produktion und emotionalen Tiefe als musikalisches Meisterwerk gefeiert. Das Lied markierte einen Wendepunkt in der Karriere von Alejandro Sanz."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Más' von Alejandro Sanz enthält den poetischen Text 'Se me va de los dedos, se me va de los labios' und thematisiert das Gefühl des Verlustes?",
+          "options": [
+            "Y, ¿Si Fuera Ella?",
+            "Corazón Partío",
+            "Amiga Mía",
+            "Aquello Que Me Diste"
+          ],
+          "correctAnswer": "Y, ¿Si Fuera Ella?",
+          "trivia": "'Y, ¿Si Fuera Ella?' enthält den poetischen Text 'Se me va de los dedos, se me va de los labios' und thematisiert das schmerzhafte Gefühl von Verlust und Ungewissheit. Das Lied wurde für seinen tiefgründigen und emotionalen Text gelobt."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Más' von Alejandro Sanz gilt als musikalisches Experiment, das Pop mit traditionellen spanischen Musikstilen wie dem Flamenco verbindet?",
+          "options": [
+            "Corazón Partío",
+            "Y, ¿Si Fuera Ella?",
+            "Amiga Mía",
+            "Aquello Que Me Diste"
+          ],
+          "correctAnswer": "Corazón Partío",
+          "trivia": "'Corazón Partío' gilt als musikalisches Experiment, das moderne Popmusik mit traditionellen spanischen Musikstilen wie dem Flamenco verbindet. Diese Mischung machte das Lied zu einem internationalen Erfolg und zu einem stilistischen Meilenstein in der Karriere von Alejandro Sanz."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Jennifer Lopez",
+    "album": "On the 6",
+    "year": 1999,
+    "coverSrc": "/bandcover/latin-vibes/jennifer_lopez_on_the_6.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Aus welchem Album von Jennifer Lopez stammt der Song 'If You Had My Love'?",
+          "options": ["J.Lo", "This Is Me... Then", "On the 6", "Brave"],
+          "correctAnswer": "On the 6",
+          "trivia": "'If You Had My Love' war der Durchbruchssong von Jennifer Lopez und stammt aus ihrem Debütalbum 'On the 6' von 1999. Der Song erreichte weltweit die Spitze der Charts."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'On the 6' von Jennifer Lopez war ihre erste Single und wurde ein internationaler Hit?",
+          "options": [
+            "If You Had My Love",
+            "Waiting for Tonight",
+            "Let's Get Loud",
+            "No Me Ames"
+          ],
+          "correctAnswer": "If You Had My Love",
+          "trivia": "'If You Had My Love' war die erste Single von Jennifer Lopez und wurde sofort ein internationaler Hit. Der Song katapultierte sie in die Musikszene und zeigte ihre Vielseitigkeit als Künstlerin."
+        },
+        {
+          "question": "In welchem Song auf dem Album 'On the 6' von Jennifer Lopez wird die Zeile 'If you had my love and I gave you all my trust' verwendet?",
+          "options": [
+            "If You Had My Love",
+            "Waiting for Tonight",
+            "No Me Ames",
+            "Feelin' So Good"
+          ],
+          "correctAnswer": "If You Had My Love",
+          "trivia": "Die Zeile 'If you had my love and I gave you all my trust' stammt aus Jennifer Lopez' Debütsingle 'If You Had My Love'. Das Lied handelt von Vertrauen und den Bedingungen einer Beziehung."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welcher Song auf dem Album 'On the 6' von Jennifer Lopez wurde in Zusammenarbeit mit Marc Anthony geschrieben und ist zu einem erfolgreichen Latin-Pop-Hit avanciert?",
+          "options": [
+            "No Me Ames",
+            "If You Had My Love",
+            "Waiting for Tonight",
+            "Feelin' So Good"
+          ],
+          "correctAnswer": "No Me Ames",
+          "trivia": "'No Me Ames' ist eine Zusammenarbeit von Jennifer Lopez und Marc Anthony, die die lateinamerikanischen Wurzeln von Lopez unterstreicht. Der Song wurde vor allem in der Latin-Pop-Szene gefeiert."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'On the 6' von Jennifer Lopez ist eine tanzbare Hymne, die von vielen als einer der besten Partysongs der 1990er Jahre bezeichnet wird?",
+          "options": [
+            "Waiting for Tonight",
+            "If You Had My Love",
+            "Let's Get Loud",
+            "Feelin' So Good"
+          ],
+          "correctAnswer": "Let's Get Loud",
+          "trivia": "'Let's Get Loud' ist eine energiegeladene Tanzhymne auf dem Album *On the 6*. Der Song wurde schnell zu einem Partyklassiker und zeigt Jennifer Lopez' starke Verbindung zur Latino-Musik."
+        },
+        {
+          "question": "Welcher Song aus dem Album 'On the 6' von Jennifer Lopez hat die Vorfreude auf eine unvergessliche Nacht zum Thema und wurde zum Clubhit?",
+          "options": [
+            "Waiting for Tonight",
+            "Let's Get Loud",
+            "If You Had My Love",
+            "Feelin' So Good"
+          ],
+          "correctAnswer": "Waiting for Tonight",
+          "trivia": "'Waiting for Tonight' ist ein Dance-Pop-Song, der die Vorfreude auf eine unvergessliche Nacht thematisiert. Der Song wurde ein Clubhit und ist nach wie vor einer der beliebtesten Songs von Jennifer Lopez."
+        }
+      ],
+      "hard": [
+        {
+          "question": "In welchem Song auf dem Album 'On the 6' von Jennifer Lopez geht es um Unabhängigkeit und das Selbstvertrauen, in Beziehungen hohe Erwartungen zu haben?",
+          "options": [
+            "If You Had My Love",
+            "Waiting for Tonight",
+            "Let's Get Loud",
+            "Feelin' So Good"
+          ],
+          "correctAnswer": "If You Had My Love",
+          "trivia": "'If You Had My Love' handelt von Unabhängigkeit und dem Selbstvertrauen, hohe Erwartungen in Beziehungen zu haben. Das Lied fordert Ehrlichkeit und Vertrauen, bevor man sich emotional öffnet."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'On the 6' von Jennifer Lopez verbindet lateinamerikanische Rhythmen mit Mainstream-Pop und wird oft als Hymne für Selbstbewusstsein und Empowerment bezeichnet?",
+          "options": [
+            "Let's Get Loud",
+            "Waiting for Tonight",
+            "If You Had My Love",
+            "No Me Ames"
+          ],
+          "correctAnswer": "Let's Get Loud",
+          "trivia": "'Let's Get Loud' verbindet lateinamerikanische Rhythmen mit Mainstream-Pop und wurde schnell zu einer Hymne für Selbstbewusstsein und Empowerment. Der Song ruft dazu auf, das Leben in vollen Zügen zu genießen."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'On the 6' von Jennifer Lopez verwendet elektronische Beats und wurde zu einem der erfolgreichsten Dance-Songs ihrer Karriere?",
+          "options": [
+            "Waiting for Tonight",
+            "If You Had My Love",
+            "Let's Get Loud",
+            "No Me Ames"
+          ],
+          "correctAnswer": "Waiting for Tonight",
+          "trivia": "'Waiting for Tonight' verwendet elektronische Beats und wurde zu einem der erfolgreichsten Dance-Songs in der Karriere von Jennifer Lopez. Der Song ist ein zeitloser Clubhit und ein Favorit ihrer Fans."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Aventura",
+    "album": "The Last",
+    "year": 2009,
+    "coverSrc": "/bandcover/latin-vibes/aventura_the_last.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Aventura ist das Lied 'Dile Al Amor' enthalten?",
+          "options": [
+            "Love & Hate",
+            "God's Project",
+            "We Broke the Rules",
+            "The Last"
+          ],
+          "correctAnswer": "The Last",
+          "trivia": "'Dile Al Amor' ist eines der bekanntesten Lieder von Aventura aus ihrem 2009 erschienenen Album 'The Last'. Das Lied wurde ein Hit und gilt als klassisches Beispiel für moderne Bachata-Musik."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'The Last' von Aventura wurde ein internationaler Hit und hat das Ende einer schmerzhaften Liebesbeziehung zum Thema?",
+          "options": ["Dile Al Amor", "Por un Segundo", "El Malo", "Su Veneno"],
+          "correctAnswer": "Dile Al Amor",
+          "trivia": "'Dile Al Amor' thematisiert das Ende einer schmerzhaften Liebesbeziehung und den Wunsch, die Liebe zu vergessen. Das Lied wurde ein internationaler Erfolg und festigte Aventuras Position als eine der wichtigsten Bachata-Bands."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'The Last' von Aventura enthält die Zeile 'Dile al amor que no toque mi puerta'?",
+          "options": ["Dile Al Amor", "Por un Segundo", "El Malo", "Su Veneno"],
+          "correctAnswer": "Dile Al Amor",
+          "trivia": "Die Zeile 'Dile al amor que no toque mi puerta' stammt aus dem Lied 'Dile Al Amor'. Das Lied beschreibt den Schmerz einer gescheiterten Beziehung und die Ablehnung weiterer romantischer Versuche."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied auf dem Album 'The Last' von Aventura handelt von einer gescheiterten Beziehung, in der die Liebe nur noch eine Illusion ist?",
+          "options": ["Por un Segundo", "Dile Al Amor", "El Malo", "Su Veneno"],
+          "correctAnswer": "Por un Segundo",
+          "trivia": "'Por un Segundo' beschreibt das schmerzliche Ende einer Beziehung, in der die Liebe nur noch eine Illusion ist. Der Song war ein großer Erfolg und zeigt Aventuras einzigartigen Stil, emotionale Themen in ihre Musik zu integrieren."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'The Last' von Aventura handelt von der Wahl zwischen dem 'richtigen' und dem 'falschen' Partner in einer Beziehung?",
+          "options": ["El Malo", "Por un Segundo", "Su Veneno", "Dile Al Amor"],
+          "correctAnswer": "El Malo",
+          "trivia": "In 'El Malo' geht es um die Wahl zwischen einem 'guten' und einem 'schlechten' Partner in einer Beziehung. Das Lied spielt mit der Idee, dass der 'Böse' oft mehr Leidenschaft in die Beziehung bringt, obwohl er moralisch fragwürdig ist."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'The Last' von Aventura beschreibt den Schmerz des Verrats in einer Beziehung und seine Folgen?",
+          "options": ["Su Veneno", "Dile Al Amor", "Por un Segundo", "El Malo"],
+          "correctAnswer": "Su Veneno",
+          "trivia": "'Su Veneno' beschreibt den Schmerz des Verrats in einer Beziehung und die emotionalen Folgen. Das Lied verwendet giftige Metaphern, um die zerstörerische Kraft des Verrats zu veranschaulichen."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welches Lied auf dem Album 'The Last' von Aventura handelt davon, dass Liebe wie Gift sein kann, wenn sie in einer toxischen Beziehung gelebt wird?",
+          "options": ["Su Veneno", "Por un Segundo", "El Malo", "Dile Al Amor"],
+          "correctAnswer": "Su Veneno",
+          "trivia": "'Su Veneno' thematisiert die Idee, dass Liebe wie Gift wirken kann, wenn sie in einer toxischen Beziehung gelebt wird. Das Lied zeigt die dunklen Seiten der Liebe und wurde für seine metaphorische Tiefe gelobt."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'The Last' von Aventura verwendet klassische Bachata-Rhythmen und verbindet sie mit modernen Elementen wie Hip-Hop und R&B?",
+          "options": ["Dile Al Amor", "El Malo", "Por un Segundo", "Su Veneno"],
+          "correctAnswer": "El Malo",
+          "trivia": "'El Malo' kombiniert klassische Bachata-Rhythmen mit modernen Elementen wie Hip-Hop und R&B. Dieser innovative Stil machte Aventura berühmt und ebnete den Weg für den modernen Bachata."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'The Last' von Aventura wird oft als eines der emotionalsten Lieder der Band bezeichnet, da es die Dunkelheit einer ungesunden Liebe darstellt?",
+          "options": ["Su Veneno", "Por un Segundo", "El Malo", "Dile Al Amor"],
+          "correctAnswer": "Su Veneno",
+          "trivia": "'Su Veneno' wird oft als eines der emotionalsten Lieder von Aventura bezeichnet, da es die dunkle und zerstörerische Seite der Liebe thematisiert. Das Lied verwendet die Metapher des Giftes, um den Schmerz und die Gefahr einer toxischen Beziehung darzustellen."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Daddy Yankee",
+    "album": "El Cartel: The Big Boss",
+    "year": 2007,
+    "coverSrc": "/bandcover/latin-vibes/daddy_yankee_el_cartel_the_big_boss.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Daddy Yankee ist der Song 'Impacto' enthalten?",
+          "options": [
+            "Barrio Fino",
+            "El Cartel: The Big Boss",
+            "Prestige",
+            "Mundial"
+          ],
+          "correctAnswer": "El Cartel: The Big Boss",
+          "trivia": "'Impacto' ist einer der erfolgreichsten Songs von Daddy Yankee aus seinem 2007 erschienenen Album 'El Cartel: The Big Boss'. Der Song zeigt Daddy Yankees prägende Rolle in der Reggaeton-Szene."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'El Cartel: The Big Boss' von Daddy Yankee wird die Zeile 'Tú tienes un impacto que me lleva al acto' verwendet?",
+          "options": [
+            "Impacto",
+            "Ella Me Levantó",
+            "Mensaje de Estado",
+            "Somos de Calle"
+          ],
+          "correctAnswer": "Impacto",
+          "trivia": "Die Zeile 'Tú tienes un impacto que me lleva al acto' stammt aus dem Lied 'Impacto'. Das Lied ist bekannt für seinen schnellen Rhythmus und seine eingängige Melodie, die in den Clubs sehr beliebt ist."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'El Cartel: The Big Boss' von Daddy Yankee war ein Hit und markierte seinen Übergang zum internationalen Popstar?",
+          "options": [
+            "Impacto",
+            "Ella Me Levantó",
+            "Mensaje de Estado",
+            "Somos de Calle"
+          ],
+          "correctAnswer": "Impacto",
+          "trivia": "'Impacto' war ein großer Erfolg und zeigte Daddy Yankees Fähigkeit, Reggaeton mit modernen Pop-Elementen zu mischen. Der Song ebnete den Weg für seinen internationalen Durchbruch als weltweiter Superstar."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welcher Song auf dem Album 'El Cartel: The Big Boss' von Daddy Yankee wurde mit Fergie neu aufgenommen und ist eine Mischung aus Reggaeton und Hip-Hop?",
+          "options": [
+            "Impacto (Remix)",
+            "Ella Me Levantó",
+            "A Lo Clasico",
+            "Fuera de Control"
+          ],
+          "correctAnswer": "Impacto (Remix)",
+          "trivia": "'Impacto (Remix)' wurde in Zusammenarbeit mit Fergie neu aufgenommen. Der Song verbindet Reggaeton und Hip-Hop und ist ein weiterer Beweis für Daddy Yankees Fähigkeit, verschiedene Genres erfolgreich zu kombinieren."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'El Cartel: The Big Boss' von Daddy Yankee handelt vom Leben auf der Straße und zeigt seine Wurzeln im Barrio?",
+          "options": [
+            "Somos de Calle",
+            "Ella Me Levantó",
+            "Mensaje de Estado",
+            "Impacto"
+          ],
+          "correctAnswer": "Somos de Calle",
+          "trivia": "'Somos de Calle' handelt vom Leben auf der Straße und von Daddy Yankees Erfahrungen im Barrio. Der Song reflektiert seine Herkunft und die Kämpfe, die er auf seinem Weg nach oben zu bestehen hatte."
+        },
+        {
+          "question": "Welcher Song auf Daddy Yankees Album 'El Cartel: The Big Boss' handelt von Loyalität und den Herausforderungen des Ghettolebens?",
+          "options": [
+            "Somos de Calle",
+            "Impacto",
+            "Ella Me Levantó",
+            "A Lo Clasico"
+          ],
+          "correctAnswer": "Somos de Calle",
+          "trivia": "'Somos de Calle' handelt von Loyalität im Ghetto und den Schwierigkeiten des Lebens auf der Straße. Der Song zeigt Daddy Yankees Nähe zu seinen Wurzeln und seinen Stolz auf seine Herkunft."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welcher Song auf dem Album 'El Cartel: The Big Boss' von Daddy Yankee wurde von vielen als einer der emotionalsten Songs des Albums bezeichnet, da er den Schmerz nach einer Trennung beschreibt?",
+          "options": [
+            "Ella Me Levantó",
+            "Impacto",
+            "Mensaje de Estado",
+            "Fuera de Control"
+          ],
+          "correctAnswer": "Ella Me Levantó",
+          "trivia": "'Ella Me Levantó' gilt als einer der emotionalsten Songs des Albums. Der Song beschreibt den Schmerz und die Heilung nach einer schwierigen Trennung und zeigt die Vielseitigkeit von Daddy Yankee als Künstler."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'El Cartel: The Big Boss' von Daddy Yankee zeigt seine politische Seite und enthält sozialkritische Texte über den Zustand der Gesellschaft?",
+          "options": [
+            "Mensaje de Estado",
+            "Impacto",
+            "Ella Me Levantó",
+            "Fuera de Control"
+          ],
+          "correctAnswer": "Mensaje de Estado",
+          "trivia": "'Mensaje de Estado' zeigt Daddy Yankee von seiner politischen Seite. Der Song enthält sozialkritische Texte, die den Zustand der Gesellschaft und die Ungerechtigkeiten, mit denen viele Menschen konfrontiert sind, aufzeigen."
+        },
+        {
+          "question": "Welcher Song auf dem Album 'El Cartel: The Big Boss' von Daddy Yankee wurde als Ausdruck seiner Dominanz in der Reggaeton-Szene gefeiert und unterstreicht seine Position als 'Big Boss'?",
+          "options": [
+            "Impacto",
+            "Mensaje de Estado",
+            "Somos de Calle",
+            "Ella Me Levantó"
+          ],
+          "correctAnswer": "Somos de Calle",
+          "trivia": "'Somos de Calle' wurde als ein Song gefeiert, der Daddy Yankees Dominanz in der Reggaeton-Szene unterstreicht. Der Song zeigt seine Verbundenheit mit der Straße und festigt seine Position als 'Big Boss' des Genres."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Romeo Santos",
+    "album": "Fórmula, Vol. 2",
+    "year": 2014,
+    "coverSrc": "/bandcover/latin-vibes/romeo_santos_formula_vol_2.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Romeo Santos ist der Song 'Propuesta Indecente' zu finden?",
+          "options": [
+            "Golden",
+            "Fórmula, Vol. 2",
+            "The King Stays King",
+            "Utopía"
+          ],
+          "correctAnswer": "Fórmula, Vol. 2",
+          "trivia": "'Propuesta Indecente' ist eines der erfolgreichsten Lieder des 2014 erschienenen Albums *Fórmula, Vol. 2*. Der Song kombiniert Bachata und Tango und wurde ein internationaler Hit."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Fórmula, Vol. 2' von Romeo Santos wurde ein Welterfolg und handelt von einem verlockenden, aber moralisch fragwürdigen Angebot?",
+          "options": ["Propuesta Indecente", "Eres Mía", "Odio", "Hilito"],
+          "correctAnswer": "Propuesta Indecente",
+          "trivia": "'Propuesta Indecente' ist ein Lied, in dem es um Verführung geht. Das Lied wurde für seine Mischung aus Bachata und Tango gefeiert und erreichte in vielen Ländern die Hitparaden."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'Fórmula, Vol. 2' von Romeo Santos kommt die Zeile 'Dime qué harás, decídete ya' vor?",
+          "options": ["Propuesta Indecente", "Eres Mía", "Odio", "Necio"],
+          "correctAnswer": "Propuesta Indecente",
+          "trivia": "Die Zeile 'Dime qué harás, decídete ya' stammt aus dem Lied 'Propuesta Indecente'. Das Lied handelt vom Hin und Her einer romantischen Versuchung."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welcher Song auf Romeo Santos' Album 'Fórmula, Vol. 2' ist ein Duett mit dem Rapper Drake und handelt von Eifersucht?",
+          "options": ["Odio", "Propuesta Indecente", "Eres Mía", "Necio"],
+          "correctAnswer": "Odio",
+          "trivia": "'Odio' ist ein Duett mit dem Rapper Drake und handelt von Eifersucht in einer Beziehung. Der Song verbindet Bachata mit modernen urbanen Elementen und war ein großer Erfolg."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'Fórmula, Vol. 2' von Romeo Santos geht es um den Besitzanspruch eines Mannes gegenüber seiner Geliebten?",
+          "options": ["Eres Mía", "Propuesta Indecente", "Necio", "Odio"],
+          "correctAnswer": "Eres Mía",
+          "trivia": "'Eres Mía' beschreibt den Besitzanspruch eines Mannes gegenüber seiner Geliebten. Das Lied war vor allem in Lateinamerika sehr erfolgreich und zeigt Romeo Santos' Fähigkeit, mit Musik emotionale Geschichten zu erzählen."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'Fórmula, Vol. 2' von Romeo Santos geht es um eine schwierige Trennung, bei der der Schmerz fast nicht mehr zu ertragen ist?",
+          "options": ["Hilito", "Propuesta Indecente", "Odio", "Necio"],
+          "correctAnswer": "Hilito",
+          "trivia": "'Hilito' thematisiert den Schmerz einer schwierigen Trennung, bei der die Gefühle noch am seidenen Faden hängen. Das Lied wurde für seine emotionale Tiefe und Santos' stimmliche Leistung gelobt."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welcher Song auf dem Album 'Fórmula, Vol. 2' von Romeo Santos ist eine Zusammenarbeit mit Marc Anthony und mischt Bachata mit Salsa-Elementen?",
+          "options": ["Necio", "Propuesta Indecente", "Odio", "Eres Mía"],
+          "correctAnswer": "Necio",
+          "trivia": "'Necio' ist eine Zusammenarbeit von Romeo Santos und Marc Anthony und verbindet Bachata mit Salsa-Elementen. Der Song wurde sowohl von Bachata- als auch von Salsa-Fans gefeiert und zeigt die Vielseitigkeit der beiden Künstler."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Fórmula, Vol. 2' von Romeo Santos handelt von unerfüllter Sehnsucht und beschreibt die Qualen eines Mannes, der für seine Geliebte unerreichbar ist?",
+          "options": ["Odio", "Necio", "Hilito", "Eres Mía"],
+          "correctAnswer": "Odio",
+          "trivia": "'Odio' handelt von unerfüllter Sehnsucht und beschreibt die Qualen eines Mannes, der nicht mit seiner Geliebten zusammen sein kann. Der Song mit Drake ist einer der emotionalsten Tracks des Albums."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'Fórmula, Vol. 2' von Romeo Santos wurde für seine innovativen musikalischen Elemente gefeiert, die Tango und Bachata auf neue Weise verbinden?",
+          "options": ["Propuesta Indecente", "Necio", "Eres Mía", "Odio"],
+          "correctAnswer": "Propuesta Indecente",
+          "trivia": "'Propuesta Indecente' wurde für seine innovative Mischung aus Tango und Bachata gefeiert, die dem Lied eine einzigartige Klanglandschaft verleiht. Der Song brachte Romeo Santos internationalen Erfolg und festigte seine Position als 'King of Bachata'."
+        }
+      ]
+    }
+  },
+  {
+    "artist": "Juanes",
+    "album": "La Vida… Es un Ratico",
+    "year": 2007,
+    "coverSrc": "/bandcover/latin-vibes/juanes_la_vida_es_un_ratico.jpg",
+    "questions": {
+      "easy": [
+        {
+          "question": "Auf welchem Album von Juanes ist der Song 'Me Enamora' zu finden?",
+          "options": [
+            "Mi Sangre",
+            "Un Día Normal",
+            "La Vida… Es un Ratico",
+            "Loco de Amor"
+          ],
+          "correctAnswer": "La Vida… Es un Ratico",
+          "trivia": "'Me Enamora' ist das bekannteste Lied des Albums 'La Vida... Es un Ratico' aus dem Jahr 2007. Der Song erreichte in vielen Ländern die Spitze der Charts und wurde zu einem Klassiker des Latin-Pop."
+        },
+        {
+          "question": "Welches Lied aus dem Album 'La Vida... Es un Ratico' von Juanes wurde ein internationaler Hit und handelt von der Freude, sich zu verlieben?",
+          "options": [
+            "Me Enamora",
+            "Gotas de Agua Dulce",
+            "Tres",
+            "Hoy Me Voy"
+          ],
+          "correctAnswer": "Me Enamora",
+          "trivia": "'Me Enamora' beschreibt die freudigen Gefühle, die mit dem Verliebtsein einhergehen. Das Lied wurde zu einem der größten Hits von Juanes und brachte ihm weltweite Anerkennung ein."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'La Vida... Es un Ratico' von Juanes wird die Zeile 'Cada blanco de mi mente se vuelve color con verte' verwendet?",
+          "options": [
+            "Me Enamora",
+            "Gotas de Agua Dulce",
+            "Hoy Me Voy",
+            "La Vida… Es un Ratico"
+          ],
+          "correctAnswer": "Me Enamora",
+          "trivia": "Die Zeile 'Cada blanco de mi mente se vuelve color con verte' stammt aus dem Lied 'Me Enamora'. Sie beschreibt, wie die Anwesenheit eines geliebten Menschen das Leben lebendiger und bunter macht."
+        }
+      ],
+      "medium": [
+        {
+          "question": "Welches Lied auf dem Album 'La Vida... Es un Ratico' von Juanes handelt von Vergebung und dem Loslassen negativer Gefühle?",
+          "options": [
+            "Tres",
+            "Gotas de Agua Dulce",
+            "Hoy Me Voy",
+            "La Vida… Es un Ratico"
+          ],
+          "correctAnswer": "Tres",
+          "trivia": "'Tres' handelt von Vergebung und dem Loslassen negativer Emotionen. Das Lied ermutigt dazu, nicht an Ärger oder Groll festzuhalten, sondern loszulassen und sich auf positive Gefühle zu konzentrieren."
+        },
+        {
+          "question": "In welchem Lied auf dem Album 'La Vida... Es un Ratico' von Juanes wird Wasser als Metapher für Liebe und Glück verwendet?",
+          "options": [
+            "Gotas de Agua Dulce",
+            "Me Enamora",
+            "Hoy Me Voy",
+            "Tres"
+          ],
+          "correctAnswer": "Gotas de Agua Dulce",
+          "trivia": "Gotas de Agua Dulce' verwendet Wasser als Metapher für Liebe und Glück. Das Lied beschreibt, wie kleine Momente der Freude und Liebe das Leben erfrischen können, wie Wassertropfen in der Wüste."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'La Vida... Es un Ratico' von Juanes handelt von einer Trennung und dem damit verbundenen emotionalen Schmerz?",
+          "options": [
+            "Hoy Me Voy",
+            "Me Enamora",
+            "Gotas de Agua Dulce",
+            "Tres"
+          ],
+          "correctAnswer": "Hoy Me Voy",
+          "trivia": "'Hoy Me Voy' handelt von der emotionalen Belastung einer Trennung und dem Schmerz, der damit verbunden ist. Das Lied zeigt die Verletzlichkeit des Verlassens und den Prozess des Loslassens."
+        }
+      ],
+      "hard": [
+        {
+          "question": "Welches Lied auf dem Album 'La Vida... Es un Ratico' von Juanes verbindet lateinamerikanische Rhythmen mit Pop-Rock-Elementen und handelt von der Vergänglichkeit des Lebens?",
+          "options": [
+            "La Vida… Es un Ratico",
+            "Me Enamora",
+            "Tres",
+            "Gotas de Agua Dulce"
+          ],
+          "correctAnswer": "La Vida… Es un Ratico",
+          "trivia": "Der Titelsong 'La Vida... Es un Ratico' verbindet lateinamerikanische Rhythmen mit Pop-Rock-Elementen und thematisiert die Vergänglichkeit des Lebens. Der Song erinnert daran, das Leben zu schätzen und jeden Moment zu genießen."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'La Vida... Es un Ratico' von Juanes reflektiert das Thema Selbstfindung und die Wichtigkeit, im Moment zu leben?",
+          "options": [
+            "La Vida… Es un Ratico",
+            "Hoy Me Voy",
+            "Tres",
+            "Gotas de Agua Dulce"
+          ],
+          "correctAnswer": "La Vida… Es un Ratico",
+          "trivia": "'La Vida... Es un Ratico' reflektiert über das Leben und die Suche nach sich selbst. Das Lied betont, wie wichtig es ist, den Augenblick zu leben und sich nicht von Sorgen und Ängsten beherrschen zu lassen."
+        },
+        {
+          "question": "Welches Lied auf dem Album 'La Vida... Es un Ratico' von Juanes wurde für seine positive Botschaft über Vergebung und das Vorankommen im Leben gefeiert?",
+          "options": [
+            "Tres",
+            "La Vida… Es un Ratico",
+            "Hoy Me Voy",
+            "Gotas de Agua Dulce"
+          ],
+          "correctAnswer": "Tres",
+          "trivia": "'Tres' wurde für seine positive Botschaft über Vergebung und das Loslassen negativer Emotionen gefeiert. Das Lied betont, wie wichtig es ist, nicht an Negativität festzuhalten und im Leben voranzukommen."
+        }
+      ]
+    }
+  }
+]
