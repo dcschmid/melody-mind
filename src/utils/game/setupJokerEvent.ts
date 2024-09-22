@@ -16,7 +16,7 @@ export function setupJokerEvent(
   maxJokers: number,
   jokerUsed: number,
   use5050Joker: Function,
-  getCurrentQuestion: Function
+  getCurrentQuestion: Function,
 ) {
   // Get the Joker counter element
   const jokerCounterElement = document.getElementById(
@@ -45,4 +45,3 @@ export function setupJokerEvent(
     jokerCounterElement.textContent = `Joker: ${maxJokers - jokerUsedCount} verbleibend`;
   });
 }
-    

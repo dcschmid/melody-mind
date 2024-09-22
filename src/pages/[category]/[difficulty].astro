@@ -140,8 +140,9 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   import { calculateBonusPoints } from "@utils/game/calculateBonusPoints";
   import { endGame } from "@utils/game/endGame";
   import { getRandomQuestion } from "@utils/game/getRandomQuestion";
-  import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
   import { loadQuestion } from "@utils/game/loadQuestion";
+  import { saveGoldenLP } from "@utils/game/saveGoldenLP";
+  import { saveScoreToDB } from "@utils/game/saveScoreToDB";
   import { setupJokerEvent } from "@utils/game/setupJokerEvent";
   import { setupJokers } from "@utils/game/setupJokers";
   import { showEndgamePopup } from "@utils/game/showEndgamePopup";
@@ -204,9 +205,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     const albumsPromise = import(`../../json/genres/${category}.json`);
     // Get the albums data
     const albums: any = (await albumsPromise).default;
-
-    const { totalUserPoints, currentCategoryPointsValue } =
-      await getUserAndCategoryPoints(userId ?? "", categoryName ?? "");
 
     let currentQuestion: null = null;
 
@@ -281,6 +279,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
             categoryName || "",
             restartGame,
             score as unknown as string,
+            difficulty || "",
           );
         }
       };
@@ -291,31 +290,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       correctAnswers = 0;
       roundIndex = 0;
       window.location.href = "/gamehome";
-    }
-
-    async function saveScoreToDB() {
-      await fetch(`/api/saveTotalUserPointsAndHighscore`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId,
-          totalUserPoints: totalUserPoints + score,
-          category: categoryName,
-          categoryPoints: currentCategoryPointsValue + score,
-        }),
-      });
-    }
-
-    async function saveGoldenLP(userId: string, genre: string) {
-      await fetch(`/api/saveUserGoldenLP`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ userId, genre, difficulty }),
-      });
     }
 
     function getCurrentQuestion() {

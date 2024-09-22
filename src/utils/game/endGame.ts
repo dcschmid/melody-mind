@@ -1,3 +1,5 @@
+import { getUserAndCategoryPoints } from "./getUserAndCategoryPoints";
+
 /**
  * Handles the logic for when the user finishes answering all the questions.
  * Checks if the user answered all questions correctly and if so, saves a golden LP
@@ -15,7 +17,7 @@
  * @param restartGame - A function to restart the game.
  * @param score - The user's current score.
  */
-export function endGame(
+export async function endGame(
   correctAnswers: number,
   totalRounds: number,
   saveGoldenLP: Function,
@@ -26,7 +28,11 @@ export function endGame(
   categoryName: string,
   restartGame: Function,
   score: string,
+  difficulty: string,
 ) {
+  const { totalUserPoints, currentCategoryPointsValue } =
+    await getUserAndCategoryPoints(userId ?? "", categoryName ?? "");
+
   /**
    * Check if the user answered all questions correctly. If they did,
    * save a golden LP to their profile and show a popup to the user.
@@ -35,12 +41,25 @@ export function endGame(
   if (correctAnswers === totalRounds) {
     // The user answered all questions correctly, so save a golden LP to their profile
     // and show a popup to the user.
-    saveGoldenLP(userId, categoryName);
-    saveScoreToDB();
+    await saveGoldenLP(userId, categoryName, difficulty);
+    await saveScoreToDB(
+      userId,
+      totalUserPoints,
+      score,
+      categoryName,
+      currentCategoryPointsValue,
+    );
+
     showGoldenLpPopup();
   } else {
     // The user did not answer all questions correctly, so only show a popup to the user.
-    saveScoreToDB();
+    await saveScoreToDB(
+      userId,
+      totalUserPoints,
+      score,
+      categoryName,
+      currentCategoryPointsValue,
+    );
     showEndgamePopup(score, restartGame);
   }
 }
