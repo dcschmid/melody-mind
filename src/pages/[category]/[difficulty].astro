@@ -137,24 +137,15 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 </style>
 
 <script>
-  import { calculateBonusPoints } from "@utils/game/calculateBonusPoints";
-  import { endGame } from "@utils/game/endGame";
   import { getRandomQuestion } from "@utils/game/getRandomQuestion";
-  import { loadQuestion } from "@utils/game/loadQuestion";
-  import { saveGoldenLP } from "@utils/game/saveGoldenLP";
-  import { saveScoreToDB } from "@utils/game/saveScoreToDB";
-  import { setupJokerEvent } from "@utils/game/setupJokerEvent";
-  import { setupJokers } from "@utils/game/setupJokers";
-  import { showEndgamePopup } from "@utils/game/showEndgamePopup";
-  import { showFeedback } from "@utils/game/showFeedback";
-  import { showGoldenLpPopup } from "@utils/game/showGoldenLpPopup";
-  import { showOverlay } from "@utils/game/showOverlay";
-  import { updateRoundProgress } from "@utils/game/updateRoundProgress";
-  import { updateScoreDisplay } from "@utils/game/updateScoreDisplay";
-  import { use5050Joker } from "@utils/game/use5050Joker";
+  import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
+  import { updateMusicLink } from "@utils/game/updateMusicLink";
 
   document.addEventListener("DOMContentLoaded", async function () {
     // Get the element that shows the current score
+    const scoreElement = document.querySelector(
+      ".coinsCount",
+    ) as HTMLParagraphElement;
 
     const roundElement = document.querySelector(
       ".round",
@@ -180,15 +171,21 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       "question-container",
     ) as HTMLDivElement;
 
-    const spinner = document.getElementById(
-      "loading-spinner",
-    ) as HTMLDivElement;
-
     // Get the category from the question container
     const category = questionContainer.getAttribute("data-genre");
     const userId = questionContainer.getAttribute("data-userID");
     const categoryName = questionContainer.getAttribute("data-categoryName");
     const difficulty = questionContainer.getAttribute("date-difficulty");
+    // Get the anchor tags
+    const spotifyLink = document.querySelector(
+      "#overlay .music-links .spotifyUrl",
+    ) as HTMLAnchorElement;
+    const appleMusicLink = document.querySelector(
+      "#overlay .music-links .appleMusicUrl",
+    ) as HTMLAnchorElement;
+    const deezerLink = document.querySelector(
+      "#overlay .music-links .deezerUrl",
+    ) as HTMLAnchorElement;
 
     // Initialize the score and the round index
     let score = 0;
@@ -199,30 +196,128 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     const totalRounds =
       difficulty === "hard" ? 20 : difficulty === "medium" ? 15 : 10;
 
-    updateRoundProgress(roundIndex, totalRounds, roundElement);
+    roundElement.textContent = `${roundIndex + 1}/${totalRounds}`;
 
     // Import the albums data for the current category
     const albumsPromise = import(`../../json/genres/${category}.json`);
     // Get the albums data
     const albums: any = (await albumsPromise).default;
 
+    const { totalUserPoints, currentCategoryPointsValue } =
+      await getUserAndCategoryPoints(userId ?? "", categoryName ?? "");
+
     let currentQuestion: null = null;
+    let jokerUsedCount = 0;
+    let maxJokers = 0;
 
     let startTime: number;
 
-    const { maxJokers, jokerUsed } = setupJokers(difficulty);
-
+    if (difficulty === "easy") {
+      maxJokers = 3;
+    } else if (difficulty === "medium") {
+      maxJokers = 5;
+    } else if (difficulty === "hard") {
+      maxJokers = 7;
+    }
     const jokerButton = document.getElementById(
       "joker-button",
     ) as HTMLButtonElement;
 
-    setupJokerEvent(
-      jokerButton,
-      maxJokers,
-      jokerUsed,
-      use5050Joker,
-      getCurrentQuestion,
-    );
+    // Zeige die Anzahl der verfügbaren Joker im Interface an
+    const jokerCounterElement = document.getElementById(
+      "joker-count",
+    ) as HTMLElement;
+    jokerCounterElement.textContent = `Joker: ${maxJokers} verbleibend`;
+
+    let jokerUsed = false; // Der Joker kann nur einmal pro Runde verwendet werden
+
+    // Funktion für den 50:50 Joker
+    function use5050Joker(question: any) {
+      const correctAnswer = question.correctAnswer;
+      const options = Array.from(document.querySelectorAll("#options button"));
+
+      if (jokerUsed) return; // Verhindern, dass der Joker mehrmals verwendet wird
+
+      if (jokerUsedCount >= maxJokers) {
+        jokerButton.disabled = true;
+      }
+
+      // Finde die falschen Antworten
+      const incorrectOptions = options.filter(
+        (option) => option.textContent !== correctAnswer,
+      );
+
+      const optionsToRemove = incorrectOptions
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 2);
+
+      optionsToRemove.forEach((option) => {
+        option.classList.add("hidden");
+
+        option.addEventListener("transitionend", function () {
+          option.remove();
+        });
+      });
+
+      jokerUsed = true; // Joker wurde verwendet
+
+      // Joker wurde verwendet, erhöhe den Joker-Count
+      jokerUsedCount++;
+      jokerCounterElement.textContent = `Joker: ${maxJokers - jokerUsedCount} verbleibend`;
+    }
+
+    if (jokerButton) {
+      jokerButton.addEventListener("click", function () {
+        const currentQuestion = getCurrentQuestion(); // Aktuelle Frage holen
+        use5050Joker(currentQuestion); // Joker aktivieren
+      });
+    }
+
+    /**
+     * Loads a question and its options into the DOM.
+     */
+    function loadQuestion(question: any, album: any) {
+      startTime = Date.now(); // Setze die Startzeit, wenn die Frage geladen wird
+
+      const questionContainer = document.getElementById(
+        "question-container",
+      ) as HTMLDivElement;
+
+      // Fade-Out der aktuellen Frage
+      questionContainer.classList.add("hidden");
+
+      const spinner = document.getElementById(
+        "loading-spinner",
+      ) as HTMLDivElement;
+      spinner.classList.remove("hidden");
+
+      currentQuestion = question;
+
+      setTimeout(() => {
+        // Set the question text
+        questionElement.textContent = question.question;
+
+        // Clear the options container
+        optionsContainer.innerHTML = "";
+
+        question.options.forEach(function (option: any) {
+          const button = document.createElement("button");
+          button.textContent = option;
+          button.className = "button";
+          button.onclick = function () {
+            handleAnswer(option, question.correctAnswer, question, album);
+          };
+          optionsContainer.appendChild(button);
+        });
+
+        spinner.classList.add("hidden");
+
+        // Fade-In der neuen Frage
+        questionContainer.classList.remove("hidden");
+      }, 500);
+
+      jokerUsed = false;
+    }
 
     function handleAnswer(
       option: boolean,
@@ -230,59 +325,117 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       currentQuestion: any,
       album?: any,
     ) {
+      const endTime = Date.now(); // Zeit, wenn die Antwort gegeben wird
+      const timeTaken = (endTime - startTime) / 1000; // Zeit in Sekunden
       let totalPoints = 0;
 
-      const isCorrect = option === correctAnswer;
-      const bonusPoints = calculateBonusPoints(startTime);
+      let bonusPoints = 0;
+      if (option === correctAnswer) {
+        if (timeTaken <= 10) {
+          bonusPoints = 50; // Maximaler Bonus für superschnelle Antworten
+        } else if (timeTaken <= 15) {
+          bonusPoints = 25; // Mittlerer Bonus für schnelle Antworten
+        }
 
-      if (isCorrect) {
-        totalPoints = 50 + bonusPoints;
+        totalPoints = 50 + bonusPoints; // Grundpunkte plus Bonus
+        feedbackElement.classList.add("correct");
+
+        feedbackElement.textContent = `Richtig! 50 Punkte + ${bonusPoints} Bonuspunkte`;
+      } else {
+        feedbackElement.classList.add("incorrect");
+        feedbackElement.textContent = `Falsch! Die richtige Antwort war: ${correctAnswer}`;
       }
 
-      showFeedback(isCorrect, feedbackElement, correctAnswer, bonusPoints);
+      feedbackElement.classList.add("show");
+
+      setTimeout(
+        () => feedbackElement.classList.remove("show", "correct", "incorrect"),
+        3000,
+      );
 
       // Aktualisiere die Gesamtpunktzahl
       score += totalPoints;
 
       updateScoreDisplay(score);
 
-      showOverlay(currentQuestion, album);
+      // Funfact und weitere Informationen im Overlay anzeigen
+      const overlayCover = document.getElementById(
+        "overlay-cover",
+      ) as HTMLImageElement;
+      overlayCover.src = album.coverSrc || "";
+      document.getElementById("overlay-artist")!.textContent =
+        album.artist || "";
+      document.getElementById("overlay-album")!.textContent = album.album || "";
+      document.getElementById("overlay-funfact")!.textContent =
+        currentQuestion.trivia || "";
+      document.getElementById("overlay-year")!.textContent = album.year || "";
+
+      updateMusicLink(spotifyLink, album.spotifyUrl);
+      updateMusicLink(appleMusicLink, album.appleMusicUrl);
+      updateMusicLink(deezerLink, album.deezerUrl);
+
+      document.getElementById("overlay")!.classList.remove("hidden");
 
       document.getElementById("next-round-button")!.onclick = function () {
         document.getElementById("overlay")!.classList.add("hidden");
         if (roundIndex < totalRounds - 1) {
           roundIndex++;
-          updateRoundProgress(roundIndex, totalRounds, roundElement);
+          roundElement.textContent = `${roundIndex + 1}/${totalRounds}`;
 
           const newQuestion = getRandomQuestion(albums, difficulty || "easy");
-          currentQuestion = newQuestion.randomQuestion;
-
-          loadQuestion(
-            newQuestion.randomQuestion,
-            newQuestion.randomAlbum,
-            optionsContainer,
-            spinner,
-            questionElement,
-            handleAnswer,
-            feedbackElement,
-          );
+          loadQuestion(newQuestion.randomQuestion, newQuestion.randomAlbum);
           feedbackElement.textContent = ""; // Feedback zurücksetzen
         } else {
-          endGame(
-            correctAnswers,
-            totalRounds,
-            saveGoldenLP,
-            saveScoreToDB,
-            showGoldenLpPopup,
-            showEndgamePopup,
-            userId || "",
-            categoryName || "",
-            restartGame,
-            score as unknown as string,
-            difficulty || "",
-          );
+          endGame();
         }
       };
+    }
+
+    // Funktion für das Spielende
+    function endGame() {
+      if (correctAnswers === totalRounds) {
+        saveGoldenLP(userId || "", categoryName || "");
+        saveScoreToDB();
+        // Alle Fragen richtig beantwortet - Goldene LP Popup anzeigen
+        showGoldenLpPopup();
+      } else {
+        saveScoreToDB();
+        // Normales Spielende Popup anzeigen
+        showEndgamePopup();
+      }
+    }
+
+    function showEndgamePopup() {
+      document.getElementById("popup-score")!.textContent = score.toString();
+
+      const endgamePopup = document.getElementById("endgame-popup");
+      endgamePopup!.classList.remove("hidden");
+
+      document.getElementById("restart-button")!.onclick = function () {
+        restartGame();
+      };
+    }
+
+    function showGoldenLpPopup() {
+      document.getElementById("golden-lp-score")!.textContent =
+        score.toString();
+
+      const goldenLpPopup = document.getElementById("golden-lp-popup");
+      goldenLpPopup!.classList.remove("hidden");
+
+      document.getElementById("restart-button-lp")!.onclick = function () {
+        restartGame();
+      };
+    }
+
+    function updateScoreDisplay(score: number) {
+      scoreElement.textContent = score as unknown as string;
+
+      // Bonus Animation
+      scoreElement.classList.add("bonus");
+      setTimeout(() => {
+        scoreElement.classList.remove("bonus");
+      }, 500);
     }
 
     function restartGame() {
@@ -292,21 +445,36 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       window.location.href = "/gamehome";
     }
 
+    async function saveScoreToDB() {
+      await fetch(`/api/saveTotalUserPointsAndHighscore`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId,
+          totalUserPoints: totalUserPoints + score,
+          category: categoryName,
+          categoryPoints: currentCategoryPointsValue + score,
+        }),
+      });
+    }
+
+    async function saveGoldenLP(userId: string, genre: string) {
+      await fetch(`/api/saveUserGoldenLP`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId, genre, difficulty }),
+      });
+    }
+
     function getCurrentQuestion() {
       return currentQuestion;
     }
 
     const initialQuestion = getRandomQuestion(albums, difficulty || "easy");
-    loadQuestion(
-      initialQuestion.randomQuestion,
-      initialQuestion.randomAlbum,
-      optionsContainer,
-      spinner,
-      questionElement,
-      handleAnswer,
-      feedbackElement,
-    );
-
-    currentQuestion = initialQuestion.randomQuestion;
+    loadQuestion(initialQuestion.randomQuestion, initialQuestion.randomAlbum);
   });
 </script>

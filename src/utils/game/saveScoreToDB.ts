@@ -11,7 +11,7 @@ export async function saveScoreToDB(
   totalUserPoints: number,
   score: number,
   categoryName: string,
-  currentCategoryPointsValue: number
+  currentCategoryPointsValue: number,
 ): Promise<void> {
   // Save the score to the database
   await fetch(`/api/saveTotalUserPointsAndHighscore`, {

@@ -14,10 +14,11 @@
 export function setupJokerEvent(
   jokerButton: HTMLButtonElement,
   maxJokers: number,
-  jokerUsed: number,
+  jokerUsedCount: number,
   use5050Joker: Function,
   getCurrentQuestion: Function,
-) {
+  jokerUsed: boolean,
+): void {
   // Get the Joker counter element
   const jokerCounterElement = document.getElementById(
     "joker-count",
@@ -34,10 +35,11 @@ export function setupJokerEvent(
     const currentQuestion = getCurrentQuestion();
 
     // Use the 50/50 Joker and get the updated Joker count
-    const jokerUsedCount = use5050Joker(
+    use5050Joker(
       currentQuestion,
       jokerButton,
       maxJokers,
+      jokerUsedCount,
       jokerUsed,
     );
 

@@ -4,7 +4,11 @@
  * @param {string} genre - The genre of the golden LP to be saved.
  * @param {string} difficulty - The difficulty of the game.
  */
-export async function saveGoldenLP(userId: string, genre: string, difficulty: string) {
+export async function saveGoldenLP(
+  userId: string,
+  genre: string,
+  difficulty: string,
+) {
   // Send a POST request to the /api/saveUserGoldenLP endpoint with the userId, genre, and difficulty
   await fetch(`/api/saveUserGoldenLP`, {
     method: "POST",

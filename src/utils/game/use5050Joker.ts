@@ -12,10 +12,8 @@ export function use5050Joker(
   jokerButton: HTMLButtonElement,
   maxJokers: number,
   jokerUsedCount: number,
+  jokerUsed: boolean,
 ): number {
-  // Check if the Joker has already been used
-  let jokerUsed = false;
-
   // Return the current joker count if it has already been used
   if (jokerUsed) return jokerUsedCount;
 
