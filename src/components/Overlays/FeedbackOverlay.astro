@@ -181,3 +181,25 @@ import { Icon } from "astro-icon/components";
     }
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const overlay = document.getElementById("overlay");
+
+    // Überprüfen, ob das Overlay sichtbar ist
+    function isOverlayVisible() {
+      return !overlay?.classList.contains("hidden");
+    }
+
+    // Scrollen, wenn die Pfeiltasten nach oben oder unten gedrückt werden
+    document.addEventListener("keydown", (event) => {
+      if (isOverlayVisible()) {
+        if (event.key === "ArrowDown") {
+          overlay?.scrollBy({ top: 100, behavior: "smooth" });
+        } else if (event.key === "ArrowUp") {
+          overlay?.scrollBy({ top: -100, behavior: "smooth" });
+        }
+      }
+    });
+  });
+</script>

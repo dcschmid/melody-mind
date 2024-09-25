@@ -170,6 +170,7 @@ import Layout from "@layouts/Layout.astro";
       margin-bottom: var(--padding-large);
       font-size: var(--header-font-size);
       color: var(--text-color);
+      text-align: center;
     }
 
     h2 {
@@ -181,6 +182,7 @@ import Layout from "@layouts/Layout.astro";
     p {
       margin-bottom: var(--padding-medium);
       font-size: var(--body-font-size);
+      line-height: 1.6;
     }
 
     ul {
@@ -202,6 +204,46 @@ import Layout from "@layouts/Layout.astro";
     .golden-lp,
     .highlight {
       font-weight: 600;
+    }
+
+    @media (max-width: 1024px) {
+      .rules-container {
+        padding: var(--padding-medium);
+      }
+
+      h1 {
+        font-size: 1.75rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .rules-container {
+        padding: var(--padding-small);
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: var(--padding-medium);
+      }
     }
   </style>
 </Layout>

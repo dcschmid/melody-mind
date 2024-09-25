@@ -52,16 +52,14 @@ import { Picture } from "astro:assets";
 <style>
   .logo {
     display: block;
-
     aspect-ratio: 480 / 274;
     width: 100%;
     height: auto;
-    margin: 2rem auto 0;
+    margin: var(--padding-large) auto 0;
   }
 
   .text {
-    margin: 2rem 1rem;
-
+    margin: var(--padding-large) var(--padding-medium);
     font-size: 1.25rem;
     font-weight: 400;
     font-style: normal;
@@ -72,9 +70,8 @@ import { Picture } from "astro:assets";
   }
 
   .headline {
-    margin: 2rem 0;
-
-    font-size: 1.5rem;
+    margin: var(--padding-large) 0;
+    font-size: var(--header-font-size);
     font-weight: 700;
     font-style: normal;
     line-height: normal;
@@ -86,15 +83,68 @@ import { Picture } from "astro:assets";
   .buttonGroup {
     display: flex;
     flex-flow: row wrap;
-    gap: 1.5rem;
+    gap: var(--padding-medium);
     align-items: center;
     justify-content: center;
-
-    margin-bottom: 2rem;
+    margin-bottom: var(--padding-large);
   }
 
   .loginIcon {
     display: inline-block;
-    margin-right: 0.5rem;
+    margin-right: var(--padding-small);
+  }
+
+  @media (max-width: 1024px) {
+    .logo {
+      width: 90%;
+      margin: var(--padding-medium) auto;
+    }
+
+    .headline {
+      font-size: 1.4rem;
+      margin: var(--padding-medium) 0;
+    }
+
+    .text {
+      font-size: 1.1rem;
+      margin: var(--padding-medium) var(--padding-small);
+    }
+
+    .buttonGroup {
+      gap: var(--padding-small);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .logo {
+      width: 85%;
+      margin: var(--padding-small) auto;
+    }
+
+    .headline {
+      font-size: 1.3rem;
+      margin: var(--padding-small) 0;
+    }
+
+    .text {
+      font-size: 1rem;
+      margin: var(--padding-small) var(--padding-small);
+    }
+
+    .buttonGroup {
+      flex-direction: column;
+      gap: var(--padding-small);
+    }
+
+    .loginIcon {
+      width: 30px;
+      height: 30px;
+      margin-right: var(--padding-small);
+    }
+
+    .button {
+      font-size: var(--button-font-size);
+      padding: var(--padding-small) var(--padding-medium);
+    }
   }
 </style>
