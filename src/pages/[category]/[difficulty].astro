@@ -140,6 +140,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   import { getRandomQuestion } from "@utils/game/getRandomQuestion";
   import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
   import { updateMusicLink } from "@utils/game/updateMusicLink";
+  import { shuffleArray } from "@utils/share/shuffleArray";
 
   document.addEventListener("DOMContentLoaded", async function () {
     // Get the element that shows the current score
@@ -300,7 +301,10 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         // Clear the options container
         optionsContainer.innerHTML = "";
 
-        question.options.forEach(function (option: any) {
+        // Shuffle the options before rendering
+        const shuffledOptions = shuffleArray([...question.options]);
+
+        shuffledOptions.forEach(function (option: any) {
           const button = document.createElement("button");
           button.textContent = option;
           button.className = "button";

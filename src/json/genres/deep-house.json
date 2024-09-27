@@ -116,7 +116,7 @@
     "artist": "Kerri Chandler",
     "album": "The Thing for Linda EP",
     "year": "1993",
-    "coverSrc": "bandcover/deep-house/kerri_chandler_the_thing_for_linda_ep.jpg",
+    "coverSrc": "/bandcover/deep-house/kerri_chandler_the_thing_for_linda_ep.jpg",
     "questions": {
       "easy": [
         {
@@ -214,7 +214,7 @@
     "artist": "Moodymann",
     "album": "Silentintroduction",
     "year": "1997",
-    "coverSrc": "bandcover/deep-house/moodymann_silentintroduction.jpg",
+    "coverSrc": "/bandcover/deep-house/moodymann_silentintroduction.jpg",
     "questions": {
       "easy": [
         {
@@ -327,7 +327,7 @@
     "artist": "Maceo Plex",
     "album": "Life Index",
     "year": "2011",
-    "coverSrc": "bandcover/deep-house/maceo_plex_life_index.jpg",
+    "coverSrc": "/bandcover/deep-house/maceo_plex_life_index.jpg",
     "questions": {
       "easy": [
         {
@@ -435,7 +435,7 @@
     "artist": "St. Germain",
     "album": "Boulevard",
     "year": "1995",
-    "coverSrc": "bandcover/deep-house/st__germain_boulevard.jpg",
+    "coverSrc": "/bandcover/deep-house/st__germain_boulevard.jpg",
     "questions": {
       "easy": [
         {
@@ -533,7 +533,7 @@
     "artist": "Nuyorican Soul",
     "album": "Nuyorican Soul",
     "year": "1997",
-    "coverSrc": "bandcover/deep-house/nuyorican_soul_nuyorican_soul.jpg",
+    "coverSrc": "/bandcover/deep-house/nuyorican_soul_nuyorican_soul.jpg",
     "questions": {
       "easy": [
         {
@@ -647,7 +647,7 @@
     "artist": "Miguel Migs",
     "album": "Colorful You",
     "year": "2002",
-    "coverSrc": "bandcover/deep-house/miguel_migs_colorful_you.jpg",
+    "coverSrc": "/bandcover/deep-house/miguel_migs_colorful_you.jpg",
     "questions": {
       "easy": [
         {
@@ -745,7 +745,7 @@
     "artist": "Theo Parrish",
     "album": "Sound Sculptures Vol. 1",
     "year": "2007",
-    "coverSrc": "bandcover/deep-house/theo_parrish_sound_sculptures_vol__1.jpg",
+    "coverSrc": "/bandcover/deep-house/theo_parrish_sound_sculptures_vol__1.jpg",
     "questions": {
       "easy": [
         {
@@ -843,7 +843,7 @@
     "artist": "Henrik Schwarz",
     "album": "DJ-Kicks",
     "year": "2006",
-    "coverSrc": "bandcover/deep-house/henrik_schwarz_dj_kicks.jpg",
+    "coverSrc": "/bandcover/deep-house/henrik_schwarz_dj_kicks.jpg",
     "questions": {
       "easy": [
         {
@@ -941,7 +941,7 @@
     "artist": "Chez Damier & Ron Trent",
     "album": "The Collective",
     "year": "1993",
-    "coverSrc": "bandcover/deep-house/chez_damier___ron_trent_the_collective.jpg",
+    "coverSrc": "/bandcover/deep-house/chez_damier___ron_trent_the_collective.jpg",
     "questions": {
       "easy": [
         {
@@ -1034,7 +1034,7 @@
     "artist": "Fred Everything",
     "album": "Lost Together",
     "year": "2004",
-    "coverSrc": "bandcover/deep-house/fred_everything_lost_together.jpg",
+    "coverSrc": "/bandcover/deep-house/fred_everything_lost_together.jpg",
     "questions": {
       "easy": [
         {
@@ -1147,7 +1147,7 @@
     "artist": "Osunlade",
     "album": "Aquarian Moon",
     "year": "2006",
-    "coverSrc": "bandcover/deep-house/osunlade_aquarian_moon.jpg",
+    "coverSrc": "/bandcover/deep-house/osunlade_aquarian_moon.jpg",
     "questions": {
       "easy": [
         {
@@ -1255,7 +1255,7 @@
     "artist": "Jimpster",
     "album": "Porchlight and Rocking Chairs",
     "year": "2013",
-    "coverSrc": "bandcover/deep-house/jimpster_porchlight_and_rocking_chairs.jpg",
+    "coverSrc": "/bandcover/deep-house/jimpster_porchlight_and_rocking_chairs.jpg",
     "questions": {
       "easy": [
         {
@@ -1368,7 +1368,7 @@
     "artist": "Tensnake",
     "album": "Glow",
     "year": "2014",
-    "coverSrc": "bandcover/deep-house/tensnake_glow.jpg",
+    "coverSrc": "/bandcover/deep-house/tensnake_glow.jpg",
     "questions": {
       "easy": [
         {
@@ -1461,7 +1461,7 @@
     "artist": "Satoshi Tomiie",
     "album": "Full Lick",
     "year": "1999",
-    "coverSrc": "bandcover/deep-house/satoshi_tomiie_full_lick.jpg",
+    "coverSrc": "/bandcover/deep-house/satoshi_tomiie_full_lick.jpg",
     "questions": {
       "easy": [
         {
@@ -1564,7 +1564,7 @@
     "artist": "M.A.N.D.Y. vs. Booka Shade",
     "album": "Body Language",
     "year": "2005",
-    "coverSrc": "bandcover/deep-house/m_a_n_d_y__vs__booka_shade_body_language.jpg",
+    "coverSrc": "/bandcover/deep-house/m_a_n_d_y__vs__booka_shade_body_language.jpg",
     "questions": {
       "easy": [
         {
@@ -1647,7 +1647,7 @@
     "artist": "Atjazz",
     "album": "Labfunk",
     "year": "2001",
-    "coverSrc": "bandcover/deep-house/atjazz_labfunk.jpg",
+    "coverSrc": "/bandcover/deep-house/atjazz_labfunk.jpg",
     "questions": {
       "easy": [
         {
@@ -1745,7 +1745,7 @@
     "artist": "Fingers Inc.",
     "album": "Another Side",
     "year": "1988",
-    "coverSrc": "bandcover/deep-house/fingers_inc__another_side.jpg",
+    "coverSrc": "/bandcover/deep-house/fingers_inc__another_side.jpg",
     "questions": {
       "easy": [
         {
@@ -1853,7 +1853,7 @@
     "artist": "Franck Roger",
     "album": "We Walk to Dance",
     "year": "2012",
-    "coverSrc": "bandcover/deep-house/franck_roger_we_walk_to_dance.jpg",
+    "coverSrc": "/bandcover/deep-house/franck_roger_we_walk_to_dance.jpg",
     "questions": {
       "easy": [
         {
@@ -1966,7 +1966,7 @@
     "artist": "Moomin",
     "album": "The Story About You",
     "year": "2011",
-    "coverSrc": "bandcover/deep-house/moomin_the_story_about_you.jpg",
+    "coverSrc": "/bandcover/deep-house/moomin_the_story_about_you.jpg",
     "questions": {
       "easy": [
         {
@@ -2069,7 +2069,7 @@
     "artist": "Ananda Project",
     "album": "Morning Light",
     "year": "2003",
-    "coverSrc": "bandcover/deep-house/ananda_project_morning_light.jpg",
+    "coverSrc": "/bandcover/deep-house/ananda_project_morning_light.jpg",
     "questions": {
       "easy": [
         {
@@ -2157,7 +2157,7 @@
     "artist": "Pepe Bradock",
     "album": "Deep Burnt",
     "year": "1999",
-    "coverSrc": "bandcover/deep-house/pepe_bradock_deep_burnt.jpg",
+    "coverSrc": "/bandcover/deep-house/pepe_bradock_deep_burnt.jpg",
     "questions": {
       "easy": [
         {
@@ -2255,7 +2255,7 @@
     "artist": "Black Coffee",
     "album": "Pieces of Me",
     "year": "2015",
-    "coverSrc": "bandcover/deep-house/black_coffee_pieces_of_me.jpg",
+    "coverSrc": "/bandcover/deep-house/black_coffee_pieces_of_me.jpg",
     "questions": {
       "easy": [
         {
@@ -2358,7 +2358,7 @@
     "artist": "Larry Heard",
     "album": "Sceneries Not Songs, Volume 1",
     "year": "1994",
-    "coverSrc": "bandcover/deep-house/larry_heard_sceneries_not_songs__volume_1.jpg",
+    "coverSrc": "/bandcover/deep-house/larry_heard_sceneries_not_songs__volume_1.jpg",
     "questions": {
       "easy": [
         {
@@ -2471,7 +2471,7 @@
     "artist": "Fred Everything",
     "album": "Long Way Home",
     "year": "2018",
-    "coverSrc": "bandcover/deep-house/fred_everything_long_way_home.jpg",
+    "coverSrc": "/bandcover/deep-house/fred_everything_long_way_home.jpg",
     "questions": {
       "easy": [
         {
@@ -2569,7 +2569,7 @@
     "artist": "Marlon Hoffstadt",
     "album": "Observing the Known",
     "year": "2017",
-    "coverSrc": "bandcover/deep-house/marlon_hoffstadt_observing_the_known.jpg",
+    "coverSrc": "/bandcover/deep-house/marlon_hoffstadt_observing_the_known.jpg",
     "questions": {
       "easy": [
         {
@@ -2682,7 +2682,7 @@
     "artist": "Move D",
     "album": "Kunststoff",
     "year": "1995",
-    "coverSrc": "bandcover/deep-house/move_d_kunststoff.jpg",
+    "coverSrc": "/bandcover/deep-house/move_d_kunststoff.jpg",
     "questions": {
       "easy": [
         {
@@ -2785,7 +2785,7 @@
     "artist": "Kerri Chandler",
     "album": "Computer Games",
     "year": "2008",
-    "coverSrc": "bandcover/deep-house/kerri_chandler_computer_games.jpg",
+    "coverSrc": "/bandcover/deep-house/kerri_chandler_computer_games.jpg",
     "questions": {
       "easy": [
         {
@@ -2858,7 +2858,7 @@
     "artist": "Art Department",
     "album": "The Drawing Board",
     "year": "2011",
-    "coverSrc": "bandcover/deep-house/art_department_the_drawing_board.jpg",
+    "coverSrc": "/bandcover/deep-house/art_department_the_drawing_board.jpg",
     "questions": {
       "easy": [
         {
@@ -2951,7 +2951,7 @@
     "artist": "Pépé Bradock",
     "album": "Confiote de Bits",
     "year": "2005",
-    "coverSrc": "bandcover/deep-house/p_p__bradock_confiote_de_bits.jpg",
+    "coverSrc": "/bandcover/deep-house/p_p__bradock_confiote_de_bits.jpg",
     "questions": {
       "easy": [
         {
@@ -3049,7 +3049,7 @@
     "artist": "DJ Sprinkles",
     "album": "Midtown 120 Blues",
     "year": "2008",
-    "coverSrc": "bandcover/deep-house/dj_sprinkles_midtown_120_blues.jpg",
+    "coverSrc": "/bandcover/deep-house/dj_sprinkles_midtown_120_blues.jpg",
     "questions": {
       "easy": [
         {
@@ -3147,7 +3147,7 @@
     "artist": "Manuel Tur",
     "album": "0201",
     "year": "2010",
-    "coverSrc": "bandcover/deep-house/manuel_tur_0201.jpg",
+    "coverSrc": "/bandcover/deep-house/manuel_tur_0201.jpg",
     "questions": {
       "easy": [
         {
@@ -3250,7 +3250,7 @@
     "artist": "The Timewriter",
     "album": "Jigsaw Pieces",
     "year": "2002",
-    "coverSrc": "bandcover/deep-house/the_timewriter_jigsaw_pieces.jpg",
+    "coverSrc": "/bandcover/deep-house/the_timewriter_jigsaw_pieces.jpg",
     "questions": {
       "easy": [
         {
@@ -3348,7 +3348,7 @@
     "artist": "Soul Clap",
     "album": "Efunk",
     "year": "2012",
-    "coverSrc": "bandcover/deep-house/soul_clap_efunk.jpg",
+    "coverSrc": "/bandcover/deep-house/soul_clap_efunk.jpg",
     "questions": {
       "easy": [
         {
@@ -3456,7 +3456,7 @@
     "artist": "Shur-i-kan",
     "album": "Advance",
     "year": "2005",
-    "coverSrc": "bandcover/deep-house/shur_i_kan_advance.jpg",
+    "coverSrc": "/bandcover/deep-house/shur_i_kan_advance.jpg",
     "questions": {
       "easy": [
         {
@@ -3564,7 +3564,7 @@
     "artist": "FCL",
     "album": "It’s You (Remixes)",
     "year": "2013",
-    "coverSrc": "bandcover/deep-house/fcl_it_s_you__remixes_.jpg",
+    "coverSrc": "/bandcover/deep-house/fcl_it_s_you__remixes_.jpg",
     "questions": {
       "easy": [
         {
@@ -3667,7 +3667,7 @@
     "artist": "King Britt",
     "album": "Adventures in Lo-Fi",
     "year": "2003",
-    "coverSrc": "bandcover/deep-house/king_britt_adventures_in_lo_fi.jpg",
+    "coverSrc": "/bandcover/deep-house/king_britt_adventures_in_lo_fi.jpg",
     "questions": {
       "easy": [
         {
@@ -3780,7 +3780,7 @@
     "artist": "Roman Flügel",
     "album": "Happiness Is Happening",
     "year": "2014",
-    "coverSrc": "bandcover/deep-house/roman_fl_gel_happiness_is_happening.jpg",
+    "coverSrc": "/bandcover/deep-house/roman_fl_gel_happiness_is_happening.jpg",
     "questions": {
       "easy": [
         {
@@ -3873,7 +3873,7 @@
     "artist": "John Tejada",
     "album": "Parabolas",
     "year": "2011",
-    "coverSrc": "bandcover/deep-house/john_tejada_parabolas.jpg",
+    "coverSrc": "/bandcover/deep-house/john_tejada_parabolas.jpg",
     "questions": {
       "easy": [
         {
@@ -3971,7 +3971,7 @@
     "artist": "Booka Shade",
     "album": "Movements",
     "year": "2006",
-    "coverSrc": "bandcover/deep-house/booka_shade_movements.jpg",
+    "coverSrc": "/bandcover/deep-house/booka_shade_movements.jpg",
     "questions": {
       "easy": [
         {
@@ -4074,7 +4074,7 @@
     "artist": "Moomin",
     "album": "Yesterday’s Tomorrows",
     "year": "2016",
-    "coverSrc": "bandcover/deep-house/moomin_yesterday_s_tomorrows.jpg",
+    "coverSrc": "/bandcover/deep-house/moomin_yesterday_s_tomorrows.jpg",
     "questions": {
       "easy": [
         {
@@ -4187,7 +4187,7 @@
     "artist": "Chez Damier",
     "album": "Can You Feel It",
     "year": "1992",
-    "coverSrc": "bandcover/deep-house/chez_damier_can_you_feel_it.jpg",
+    "coverSrc": "/bandcover/deep-house/chez_damier_can_you_feel_it.jpg",
     "questions": {
       "easy": [
         {
@@ -4285,7 +4285,7 @@
     "artist": "Moodymann",
     "album": "Mahogany Brown",
     "year": "1998",
-    "coverSrc": "bandcover/deep-house/moodymann_mahogany_brown.jpg",
+    "coverSrc": "/bandcover/deep-house/moodymann_mahogany_brown.jpg",
     "questions": {
       "easy": [
         {
@@ -4398,7 +4398,7 @@
     "artist": "Jay Haze",
     "album": "Love for a Strange World",
     "year": "2005",
-    "coverSrc": "bandcover/deep-house/jay_haze_love_for_a_strange_world.jpg",
+    "coverSrc": "/bandcover/deep-house/jay_haze_love_for_a_strange_world.jpg",
     "questions": {
       "easy": [
         {
@@ -4511,7 +4511,7 @@
     "artist": "Jimpster",
     "album": "Amour",
     "year": "2006",
-    "coverSrc": "bandcover/deep-house/jimpster_amour.jpg",
+    "coverSrc": "/bandcover/deep-house/jimpster_amour.jpg",
     "questions": {
       "easy": [
         {
@@ -4624,7 +4624,7 @@
     "artist": "DJ Koze",
     "album": "Knock Knock",
     "year": "2018",
-    "coverSrc": "bandcover/deep-house/dj_koze_knock_knock.jpg",
+    "coverSrc": "/bandcover/deep-house/dj_koze_knock_knock.jpg",
     "questions": {
       "easy": [
         {
@@ -4727,7 +4727,7 @@
     "artist": "Dusky",
     "album": "Stick by This",
     "year": "2011",
-    "coverSrc": "bandcover/deep-house/dusky_stick_by_this.jpg",
+    "coverSrc": "/bandcover/deep-house/dusky_stick_by_this.jpg",
     "questions": {
       "easy": [
         {
@@ -4820,7 +4820,7 @@
     "artist": "Lawrence",
     "album": "The Absence of Blight",
     "year": "2003",
-    "coverSrc": "bandcover/deep-house/lawrence_the_absence_of_blight.jpg",
+    "coverSrc": "/bandcover/deep-house/lawrence_the_absence_of_blight.jpg",
     "questions": {
       "easy": [
         {
@@ -4903,7 +4903,7 @@
     "artist": "Fred P",
     "album": "6",
     "year": "2013",
-    "coverSrc": "bandcover/deep-house/fred_p_6.jpg",
+    "coverSrc": "/bandcover/deep-house/fred_p_6.jpg",
     "questions": {
       "easy": [
         {
@@ -5006,7 +5006,7 @@
     "artist": "Move D",
     "album": "Building Bridges",
     "year": "2018",
-    "coverSrc": "bandcover/deep-house/move_d_building_bridges.jpg",
+    "coverSrc": "/bandcover/deep-house/move_d_building_bridges.jpg",
     "questions": {
       "easy": [
         {
@@ -5119,7 +5119,7 @@
     "artist": "Kevin Yost",
     "album": "One Starry Night",
     "year": "1998",
-    "coverSrc": "bandcover/deep-house/kevin_yost_one_starry_night.jpg",
+    "coverSrc": "/bandcover/deep-house/kevin_yost_one_starry_night.jpg",
     "questions": {
       "easy": [
         {
@@ -5217,7 +5217,7 @@
     "artist": "Session Victim",
     "album": "Listen to Your Heart",
     "year": "2017",
-    "coverSrc": "bandcover/deep-house/session_victim_listen_to_your_heart.jpg",
+    "coverSrc": "/bandcover/deep-house/session_victim_listen_to_your_heart.jpg",
     "questions": {
       "easy": [
         {
@@ -5315,7 +5315,7 @@
     "artist": "Mark Farina",
     "album": "Mushroom Jazz 6",
     "year": "2008",
-    "coverSrc": "bandcover/deep-house/mark_farina_mushroom_jazz_6.jpg",
+    "coverSrc": "/bandcover/deep-house/mark_farina_mushroom_jazz_6.jpg",
     "questions": {
       "easy": [
         {
@@ -5418,7 +5418,7 @@
     "artist": "Tornado Wallace",
     "album": "Lonely Planet",
     "year": "2017",
-    "coverSrc": "bandcover/deep-house/tornado_wallace_lonely_planet.jpg",
+    "coverSrc": "/bandcover/deep-house/tornado_wallace_lonely_planet.jpg",
     "questions": {
       "easy": [
         {
@@ -5511,7 +5511,7 @@
     "artist": "Dusky",
     "album": "Outer",
     "year": "2016",
-    "coverSrc": "bandcover/deep-house/dusky_outer.jpg",
+    "coverSrc": "/bandcover/deep-house/dusky_outer.jpg",
     "questions": {
       "easy": [
         {
@@ -5619,7 +5619,7 @@
     "artist": "Shonky",
     "album": "Time Zero",
     "year": "2007",
-    "coverSrc": "bandcover/deep-house/shonky_time_zero.jpg",
+    "coverSrc": "/bandcover/deep-house/shonky_time_zero.jpg",
     "questions": {
       "easy": [
         {
@@ -5712,7 +5712,7 @@
     "artist": "Ian Pooley",
     "album": "Meridian",
     "year": "1998",
-    "coverSrc": "bandcover/deep-house/ian_pooley_meridian.jpg",
+    "coverSrc": "/bandcover/deep-house/ian_pooley_meridian.jpg",
     "questions": {
       "easy": [
         {
@@ -5815,7 +5815,7 @@
     "artist": "Rick Wade",
     "album": "Harmonie Park",
     "year": "2004",
-    "coverSrc": "bandcover/deep-house/rick_wade_harmonie_park.jpg",
+    "coverSrc": "/bandcover/deep-house/rick_wade_harmonie_park.jpg",
     "questions": {
       "easy": [
         {
@@ -5918,7 +5918,7 @@
     "artist": "Motor City Drum Ensemble",
     "album": "Raw Cuts Vol. 1 & 2",
     "year": "2008",
-    "coverSrc": "bandcover/deep-house/motor_city_drum_ensemble_raw_cuts_vol__1___2.jpg",
+    "coverSrc": "/bandcover/deep-house/motor_city_drum_ensemble_raw_cuts_vol__1___2.jpg",
     "questions": {
       "easy": [
         {
@@ -6031,7 +6031,7 @@
     "artist": "Black Loops",
     "album": "7Hills",
     "year": "2019",
-    "coverSrc": "bandcover/deep-house/black_loops_7hills.jpg",
+    "coverSrc": "/bandcover/deep-house/black_loops_7hills.jpg",
     "questions": {
       "easy": [
         {
@@ -6139,7 +6139,7 @@
     "artist": "Kyle Hall",
     "album": "The Water Is Fine",
     "year": "2014",
-    "coverSrc": "bandcover/deep-house/kyle_hall_the_water_is_fine.jpg",
+    "coverSrc": "/bandcover/deep-house/kyle_hall_the_water_is_fine.jpg",
     "questions": {
       "easy": [
         {
@@ -6242,7 +6242,7 @@
     "artist": "DJ Nature",
     "album": "Return of the Savage",
     "year": "2012",
-    "coverSrc": "bandcover/deep-house/dj_nature_return_of_the_savage.jpg",
+    "coverSrc": "/bandcover/deep-house/dj_nature_return_of_the_savage.jpg",
     "questions": {
       "easy": [
         {
@@ -6355,7 +6355,7 @@
     "artist": "Fort Romeau",
     "album": "Kingdoms",
     "year": "2012",
-    "coverSrc": "bandcover/deep-house/fort_romeau_kingdoms.jpg",
+    "coverSrc": "/bandcover/deep-house/fort_romeau_kingdoms.jpg",
     "questions": {
       "easy": [
         {
@@ -6443,7 +6443,7 @@
     "artist": "Fred P",
     "album": "Re: People",
     "year": "2018",
-    "coverSrc": "bandcover/deep-house/fred_p_re__people.jpg",
+    "coverSrc": "/bandcover/deep-house/fred_p_re__people.jpg",
     "questions": {
       "easy": [
         {
@@ -6541,7 +6541,7 @@
     "artist": "Dinky",
     "album": "Anemik",
     "year": "2009",
-    "coverSrc": "bandcover/deep-house/dinky_anemik.jpg",
+    "coverSrc": "/bandcover/deep-house/dinky_anemik.jpg",
     "questions": {
       "easy": [
         {
@@ -6629,7 +6629,7 @@
     "artist": "Nightmares on Wax",
     "album": "In a Space Outta Sound",
     "year": "2006",
-    "coverSrc": "bandcover/deep-house/nightmares_on_wax_in_a_space_outta_sound.jpg",
+    "coverSrc": "/bandcover/deep-house/nightmares_on_wax_in_a_space_outta_sound.jpg",
     "questions": {
       "easy": [
         {
@@ -6742,7 +6742,7 @@
     "artist": "Osunlade",
     "album": "Rebirth",
     "year": "2009",
-    "coverSrc": "bandcover/deep-house/osunlade_rebirth.jpg",
+    "coverSrc": "/bandcover/deep-house/osunlade_rebirth.jpg",
     "questions": {
       "easy": [
         {
@@ -6835,7 +6835,7 @@
     "artist": "Ben Watt",
     "album": "Buzzin’ Fly Vol. 1",
     "year": "2003",
-    "coverSrc": "bandcover/deep-house/ben_watt_buzzin__fly_vol__1.jpg",
+    "coverSrc": "/bandcover/deep-house/ben_watt_buzzin__fly_vol__1.jpg",
     "questions": {
       "easy": [
         {
@@ -6938,7 +6938,7 @@
     "artist": "Blaze",
     "album": "Basic Blaze",
     "year": "1997",
-    "coverSrc": "bandcover/deep-house/blaze_basic_blaze.jpg",
+    "coverSrc": "/bandcover/deep-house/blaze_basic_blaze.jpg",
     "questions": {
       "easy": [
         {
@@ -7041,7 +7041,7 @@
     "artist": "Mark E",
     "album": "Stone Breaker",
     "year": "2011",
-    "coverSrc": "bandcover/deep-house/mark_e_stone_breaker.jpg",
+    "coverSrc": "/bandcover/deep-house/mark_e_stone_breaker.jpg",
     "questions": {
       "easy": [
         {
@@ -7149,7 +7149,7 @@
     "artist": "Vakula",
     "album": "You’ve Never Been to Konotop",
     "year": "2013",
-    "coverSrc": "bandcover/deep-house/vakula_you_ve_never_been_to_konotop.jpg",
+    "coverSrc": "/bandcover/deep-house/vakula_you_ve_never_been_to_konotop.jpg",
     "questions": {
       "easy": [
         {
@@ -7247,7 +7247,7 @@
     "artist": "Atjazz",
     "album": "That Something",
     "year": "2009",
-    "coverSrc": "bandcover/deep-house/atjazz_that_something.jpg",
+    "coverSrc": "/bandcover/deep-house/atjazz_that_something.jpg",
     "questions": {
       "easy": [
         {
@@ -7320,7 +7320,7 @@
     "artist": "Cassy",
     "album": "Panorama Bar 01",
     "year": "2006",
-    "coverSrc": "bandcover/deep-house/cassy_panorama_bar_01.jpg",
+    "coverSrc": "/bandcover/deep-house/cassy_panorama_bar_01.jpg",
     "questions": {
       "easy": [
         {
@@ -7423,7 +7423,7 @@
     "artist": "Ame",
     "album": "Live",
     "year": "2006",
-    "coverSrc": "bandcover/deep-house/ame_live.jpg",
+    "coverSrc": "/bandcover/deep-house/ame_live.jpg",
     "questions": {
       "easy": [
         {
@@ -7531,7 +7531,7 @@
     "artist": "Fred P",
     "album": "Sound Destination",
     "year": "2015",
-    "coverSrc": "bandcover/deep-house/fred_p_sound_destination.jpg",
+    "coverSrc": "/bandcover/deep-house/fred_p_sound_destination.jpg",
     "questions": {
       "easy": [
         {
@@ -7629,7 +7629,7 @@
     "artist": "Genius of Time",
     "album": "Gliese 581g",
     "year": "2010",
-    "coverSrc": "bandcover/deep-house/genius_of_time_gliese_581g.jpg",
+    "coverSrc": "/bandcover/deep-house/genius_of_time_gliese_581g.jpg",
     "questions": {
       "easy": [
         {
@@ -7727,7 +7727,7 @@
     "artist": "Axel Boman",
     "album": "Family Vacation",
     "year": "2013",
-    "coverSrc": "bandcover/deep-house/axel_boman_family_vacation.jpg",
+    "coverSrc": "/bandcover/deep-house/axel_boman_family_vacation.jpg",
     "questions": {
       "easy": [
         {
@@ -7835,7 +7835,7 @@
     "artist": "Andres",
     "album": "Andres II",
     "year": "2009",
-    "coverSrc": "bandcover/deep-house/andres_andres_ii.jpg",
+    "coverSrc": "/bandcover/deep-house/andres_andres_ii.jpg",
     "questions": {
       "easy": [
         {
@@ -7933,7 +7933,7 @@
     "artist": "Ripperton",
     "album": "Niwa",
     "year": "2010",
-    "coverSrc": "bandcover/deep-house/ripperton_niwa.jpg",
+    "coverSrc": "/bandcover/deep-house/ripperton_niwa.jpg",
     "questions": {
       "easy": [
         {
@@ -8041,7 +8041,7 @@
     "artist": "M.A.N.D.Y.",
     "album": "Fabric 38",
     "year": "2008",
-    "coverSrc": "bandcover/deep-house/m_a_n_d_y__fabric_38.jpg",
+    "coverSrc": "/bandcover/deep-house/m_a_n_d_y__fabric_38.jpg",
     "questions": {
       "easy": [
         {
@@ -8139,7 +8139,7 @@
     "artist": "St. Germain",
     "album": "St. Germain",
     "year": "2015",
-    "coverSrc": "bandcover/deep-house/st__germain_st__germain.jpg",
+    "coverSrc": "/bandcover/deep-house/st__germain_st__germain.jpg",
     "questions": {
       "easy": [
         {
@@ -8252,7 +8252,7 @@
     "artist": "Loco Dice",
     "album": "7 Dunham Place",
     "year": "2008",
-    "coverSrc": "bandcover/deep-house/loco_dice_7_dunham_place.jpg",
+    "coverSrc": "/bandcover/deep-house/loco_dice_7_dunham_place.jpg",
     "questions": {
       "easy": [
         {
@@ -8345,7 +8345,7 @@
     "artist": "Phonique",
     "album": "Identification",
     "year": "2004",
-    "coverSrc": "bandcover/deep-house/phonique_identification.jpg",
+    "coverSrc": "/bandcover/deep-house/phonique_identification.jpg",
     "questions": {
       "easy": [
         {
@@ -8443,7 +8443,7 @@
     "artist": "Lawrence",
     "album": "A Day in the Life",
     "year": "2011",
-    "coverSrc": "bandcover/deep-house/lawrence_a_day_in_the_life.jpg",
+    "coverSrc": "/bandcover/deep-house/lawrence_a_day_in_the_life.jpg",
     "questions": {
       "easy": [
         {
@@ -8556,7 +8556,7 @@
     "artist": "Frankie Knuckles",
     "album": "Motivation Too",
     "year": "2006",
-    "coverSrc": "bandcover/deep-house/frankie_knuckles_motivation_too.jpg",
+    "coverSrc": "/bandcover/deep-house/frankie_knuckles_motivation_too.jpg",
     "questions": {
       "easy": [
         {
@@ -8654,7 +8654,7 @@
     "artist": "Tim Green",
     "album": "Vacation to Life",
     "year": "2018",
-    "coverSrc": "bandcover/deep-house/tim_green_vacation_to_life.jpg",
+    "coverSrc": "/bandcover/deep-house/tim_green_vacation_to_life.jpg",
     "questions": {
       "easy": [
         {
@@ -8757,7 +8757,7 @@
     "artist": "Manuel Tur",
     "album": "Swans Reflecting Elephants",
     "year": "2012",
-    "coverSrc": "bandcover/deep-house/manuel_tur_swans_reflecting_elephants.jpg",
+    "coverSrc": "/bandcover/deep-house/manuel_tur_swans_reflecting_elephants.jpg",
     "questions": {
       "easy": [
         {
@@ -8870,7 +8870,7 @@
     "artist": "Anthony Collins",
     "album": "Dreaming of Running",
     "year": "2012",
-    "coverSrc": "bandcover/deep-house/anthony_collins_dreaming_of_running.jpg",
+    "coverSrc": "/bandcover/deep-house/anthony_collins_dreaming_of_running.jpg",
     "questions": {
       "easy": [
         {
@@ -8983,7 +8983,7 @@
     "artist": "Melchior Productions",
     "album": "No Disco Future",
     "year": "2007",
-    "coverSrc": "bandcover/deep-house/melchior_productions_no_disco_future.jpg",
+    "coverSrc": "/bandcover/deep-house/melchior_productions_no_disco_future.jpg",
     "questions": {
       "easy": [
         {
@@ -9071,7 +9071,7 @@
     "artist": "Mr. G",
     "album": "State of Flux",
     "year": "2012",
-    "coverSrc": "bandcover/deep-house/mr__g_state_of_flux.jpg",
+    "coverSrc": "/bandcover/deep-house/mr__g_state_of_flux.jpg",
     "questions": {
       "easy": [
         {
