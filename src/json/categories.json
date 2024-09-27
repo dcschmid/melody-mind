@@ -204,7 +204,7 @@
     "categoryUrl": "/deutsch",
     "introSubline": "Entdecke die Vielfalt und den einzigartigen Klang der deutschen Musikszene!",
     "text": "Deutsche Musik bietet eine faszinierende Bandbreite an Stilen und Genres, die die kulturelle Vielfalt und Kreativität Deutschlands widerspiegeln. Diese Kategorie umfasst alles von den klassischen Liedern der traditionellen Volksmusik und den zeitlosen Hits des deutschen Schlager, bis hin zu den innovativen Klängen der deutschen Rock-, Pop- und Elektronik-Szene. Von den großen Namen der deutschen Musikgeschichte bis zu den aktuellen Chartstürmern – deutsche Musik verbindet emotionale Tiefe mit einem unverwechselbaren Sound. Lass dich von den vielfältigen Klängen und der musikalischen Leidenschaft inspirieren, die Deutschland zu bieten hat.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "deutscher-rap",
