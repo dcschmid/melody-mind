@@ -42,7 +42,7 @@
     "categoryUrl": "/belgisch",
     "introSubline": "Erlebe die reiche Vielfalt und die dynamischen Klänge der belgischen Musik!",
     "text": "Die belgische Musikszene ist so vielfältig wie das Land selbst, das durch seine sprachliche und kulturelle Vielfalt geprägt ist. Diese Kategorie vereint die besten Tracks, die das musikalische Erbe und die kreative Kraft Belgiens repräsentieren – von den gefühlvollen Chansons auf Französisch über die energiegeladenen Rock- und Pop-Hits auf Flämisch bis hin zu den internationalen Dance- und Elektronik-Sounds, die Belgien weltweit bekannt gemacht haben. Mit Künstlern wie Jacques Brel, Stromae, Angèle und Hooverphonic zeigt die belgische Musik ihre beeindruckende Fähigkeit, verschiedenste Genres und Stile zu vereinen. Ob du auf der Suche nach melancholischen Balladen, mitreißenden Pop-Songs oder innovativen Elektro-Beats bist – die belgische Musik bietet für jeden Geschmack das Richtige. Lass dich von den vielfältigen Klängen und der kulturellen Tiefe der belgischen Musik inspirieren und genieße eine musikalische Reise durch das Herz Europas.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "black-metal",
