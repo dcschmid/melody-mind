@@ -531,15 +531,6 @@
     "isPlayable": false
   },
   {
-    "slug": "klassik",
-    "headline": "Klassik",
-    "imageUrl": "/category/klassik.jpg",
-    "categoryUrl": "/klassik",
-    "introSubline": "Erlebe die zeitlose Schönheit und majestätische Komplexität der klassischen Musik!",
-    "text": "Klassische Musik ist die Grundlage der westlichen Musiktradition und bietet eine faszinierende Vielfalt von Kompositionen, die über Jahrhunderte hinweg begeistern. Diese Kategorie umfasst Meisterwerke von ikonischen Komponisten wie Bach, Mozart, Beethoven und viele weitere, die für ihre tiefgründigen Melodien, komplexen Strukturen und emotionale Ausdruckskraft bekannt sind. Von majestätischen Sinfonien und ergreifenden Solokonzerten bis zu eleganten Kammermusikstücken und intimen Klavierwerken – klassische Musik lädt dazu ein, in eine Welt von Raffinesse und zeitloser Schönheit einzutauchen. Lass dich von den großen Kompositionen inspirieren und genieße die Erhabenheit der Klassik.",
-    "isPlayable": false
-  },
-  {
     "slug": "klavier",
     "headline": "Klavier",
     "imageUrl": "/category/klavier.jpg",
@@ -789,7 +780,7 @@
     "categoryUrl": "/spanisch",
     "introSubline": "Entdecke die Leidenschaft und die Vielfalt der spanischen Musik!",
     "text": "Die spanische Musikszene ist reich an kultureller Vielfalt und musikalischer Tradition, die tief in der Geschichte und dem Lebensgefühl des Landes verwurzelt ist. Diese Kategorie umfasst alles von den leidenschaftlichen Klängen des Flamenco und den traditionellen Rhythmen der spanischen Folklore bis hin zu modernen Pop-Hits und Latin-Beats, die weltweit die Charts erobern. Mit Künstlern wie Julio Iglesias, Rosalía, Enrique Iglesias und Pablo Alborán zeigt die spanische Musik ihre Fähigkeit, Emotionen in eindrucksvollen Melodien und kraftvollen Texten auszudrücken. Lass dich von den rhythmischen Gitarren, den intensiven Vocals und der musikalischen Vielfalt verzaubern und genieße eine Reise durch die leidenschaftliche und lebendige Welt der spanischen Musik.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "summer-hits",
