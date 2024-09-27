@@ -519,7 +519,7 @@
     "categoryUrl": "/k-pop",
     "introSubline": "Erlebe die packenden Beats und die spektakulären Performances des K-Pop!",
     "text": "K-Pop, oder Koreanischer Pop, ist ein weltweites Phänomen, das durch seine eingängigen Melodien, beeindruckenden Choreografien und visuell beeindruckenden Musikvideos begeistert. Diese Kategorie vereint die besten Tracks und ikonischen Hits, die die globale K-Pop-Szene dominieren. Mit Künstlern und Gruppen wie BTS, BLACKPINK, EXO und TWICE bietet K-Pop eine bunte Mischung aus Pop, Hip-Hop, R&B und elektronischen Einflüssen, die durch ihre hohe Produktionsqualität und innovative Sounds beeindrucken. Lass dich von den dynamischen Rhythmen, den mitreißenden Refrains und der einzigartigen Energie des K-Pop mitreißen und entdecke die Musik, die weltweit die Charts stürmt und Millionen von Fans begeistert.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "kinder",
