@@ -177,7 +177,7 @@
     "categoryUrl": "/death-metal",
     "introSubline": "Tauche ein in die kompromisslose Intensität und die dunkle Kraft des Death Metal!",
     "text": "Death Metal ist bekannt für seine aggressive Energie, komplexen Strukturen und die unverwechselbaren, tiefen Growls. Diese Kategorie bietet eine Auswahl an Tracks, die durch brutale Gitarrenriffs, blast-beat Drumming und düstere, oft komplexe Texte geprägt sind. Von den frühen Pionieren wie Death und Morbid Angel bis hin zu den modernen Schwertschmieden des Genres – Death Metal vereint eine beeindruckende technische Virtuosität mit einem unerschütterlichen, intensiven Sound. Erlebe die rohe Kraft und die düstere Atmosphäre des Death Metal, die dich mit ihrer unbändigen Energie und ihrem extremen Ausdruckskraft fesseln wird.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "deep-house",
