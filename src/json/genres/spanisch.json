@@ -3,7 +3,7 @@
     "artist": "Alejandro Sanz",
     "album": "Más",
     "year": "1997",
-    "coverSrc": "bandcover/spanisch/alejandro_sanz_m_s.jpg",
+    "coverSrc": "/bandcover/spanisch/alejandro_sanz_m_s.jpg",
     "questions": {
       "easy": [
         {
@@ -111,7 +111,7 @@
     "artist": "Pablo Alborán",
     "album": "Terral",
     "year": "2014",
-    "coverSrc": "bandcover/spanisch/pablo_albor_n_terral.jpg",
+    "coverSrc": "/bandcover/spanisch/pablo_albor_n_terral.jpg",
     "questions": {
       "easy": [
         {
@@ -224,7 +224,7 @@
     "artist": "Rosalía",
     "album": "El Mal Querer",
     "year": "2018",
-    "coverSrc": "bandcover/spanisch/rosal_a_el_mal_querer.jpg",
+    "coverSrc": "/bandcover/spanisch/rosal_a_el_mal_querer.jpg",
     "questions": {
       "easy": [
         {
@@ -317,7 +317,7 @@
     "artist": "Joaquín Sabina",
     "album": "19 días y 500 noches",
     "year": "1999",
-    "coverSrc": "bandcover/spanisch/joaqu_n_sabina_19_d_as_y_500_noches.jpg",
+    "coverSrc": "/bandcover/spanisch/joaqu_n_sabina_19_d_as_y_500_noches.jpg",
     "questions": {
       "easy": [
         {
@@ -430,7 +430,7 @@
     "artist": "El Canto del Loco",
     "album": "Zapatillas",
     "year": "2005",
-    "coverSrc": "bandcover/spanisch/el_canto_del_loco_zapatillas.jpg",
+    "coverSrc": "/bandcover/spanisch/el_canto_del_loco_zapatillas.jpg",
     "questions": {
       "easy": [
         {
@@ -533,7 +533,7 @@
     "artist": "Amaral",
     "album": "Pájaros en la cabeza",
     "year": "2005",
-    "coverSrc": "bandcover/spanisch/amaral_p_jaros_en_la_cabeza.jpg",
+    "coverSrc": "/bandcover/spanisch/amaral_p_jaros_en_la_cabeza.jpg",
     "questions": {
       "easy": [
         {
@@ -646,7 +646,7 @@
     "artist": "Duncan Dhu",
     "album": "Canciones",
     "year": "1986",
-    "coverSrc": "bandcover/spanisch/duncan_dhu_canciones.jpg",
+    "coverSrc": "/bandcover/spanisch/duncan_dhu_canciones.jpg",
     "questions": {
       "easy": [
         {
@@ -754,7 +754,7 @@
     "artist": "Héroes del Silencio",
     "album": "Senderos de traición",
     "year": "1990",
-    "coverSrc": "bandcover/spanisch/h_roes_del_silencio_senderos_de_traici_n.jpg",
+    "coverSrc": "/bandcover/spanisch/h_roes_del_silencio_senderos_de_traici_n.jpg",
     "questions": {
       "easy": [
         {
@@ -862,7 +862,7 @@
     "artist": "La Oreja de Van Gogh",
     "album": "El viaje de Copperpot",
     "year": "2000",
-    "coverSrc": "bandcover/spanisch/la_oreja_de_van_gogh_el_viaje_de_copperpot.jpg",
+    "coverSrc": "/bandcover/spanisch/la_oreja_de_van_gogh_el_viaje_de_copperpot.jpg",
     "questions": {
       "easy": [
         {
@@ -965,7 +965,7 @@
     "artist": "Extremoduro",
     "album": "Agila",
     "year": "1996",
-    "coverSrc": "bandcover/spanisch/extremoduro_agila.jpg",
+    "coverSrc": "/bandcover/spanisch/extremoduro_agila.jpg",
     "questions": {
       "easy": [
         {
@@ -1078,7 +1078,7 @@
     "artist": "Estopa",
     "album": "Estopa",
     "year": "1999",
-    "coverSrc": "bandcover/spanisch/estopa_estopa.jpg",
+    "coverSrc": "/bandcover/spanisch/estopa_estopa.jpg",
     "questions": {
       "easy": [
         {
@@ -1186,7 +1186,7 @@
     "artist": "Mecano",
     "album": "Descanso Dominical",
     "year": "1988",
-    "coverSrc": "bandcover/spanisch/mecano_descanso_dominical.jpg",
+    "coverSrc": "/bandcover/spanisch/mecano_descanso_dominical.jpg",
     "questions": {
       "easy": [
         {
@@ -1299,7 +1299,7 @@
     "artist": "Fito & Fitipaldis",
     "album": "Lo más lejos, a tu lado",
     "year": "2003",
-    "coverSrc": "bandcover/spanisch/fito___fitipaldis_lo_m_s_lejos__a_tu_lado.jpg",
+    "coverSrc": "/bandcover/spanisch/fito___fitipaldis_lo_m_s_lejos__a_tu_lado.jpg",
     "questions": {
       "easy": [
         {
@@ -1407,7 +1407,7 @@
     "artist": "Los Secretos",
     "album": "Adiós tristeza",
     "year": "1991",
-    "coverSrc": "bandcover/spanisch/los_secretos_adi_s_tristeza.jpg",
+    "coverSrc": "/bandcover/spanisch/los_secretos_adi_s_tristeza.jpg",
     "questions": {
       "easy": [
         {
@@ -1520,7 +1520,7 @@
     "artist": "Miguel Bosé",
     "album": "Papito",
     "year": "2007",
-    "coverSrc": "bandcover/spanisch/miguel_bos__papito.jpg",
+    "coverSrc": "/bandcover/spanisch/miguel_bos__papito.jpg",
     "questions": {
       "easy": [
         {
@@ -1618,7 +1618,7 @@
     "artist": "Vanesa Martín",
     "album": "Munay",
     "year": "2016",
-    "coverSrc": "bandcover/spanisch/vanesa_mart_n_munay.jpg",
+    "coverSrc": "/bandcover/spanisch/vanesa_mart_n_munay.jpg",
     "questions": {
       "easy": [
         {
@@ -1726,7 +1726,7 @@
     "artist": "Ketama",
     "album": "De aki a Ketama",
     "year": "1995",
-    "coverSrc": "bandcover/spanisch/ketama_de_aki_a_ketama.jpg",
+    "coverSrc": "/bandcover/spanisch/ketama_de_aki_a_ketama.jpg",
     "questions": {
       "easy": [
         {
@@ -1839,7 +1839,7 @@
     "artist": "Leiva",
     "album": "Monstruos",
     "year": "2016",
-    "coverSrc": "bandcover/spanisch/leiva_monstruos.jpg",
+    "coverSrc": "/bandcover/spanisch/leiva_monstruos.jpg",
     "questions": {
       "easy": [
         {
@@ -1937,7 +1937,7 @@
     "artist": "Serrat",
     "album": "Mediterráneo",
     "year": "1971",
-    "coverSrc": "bandcover/spanisch/serrat_mediterr_neo.jpg",
+    "coverSrc": "/bandcover/spanisch/serrat_mediterr_neo.jpg",
     "questions": {
       "easy": [
         {
@@ -2050,7 +2050,7 @@
     "artist": "Jarabe de Palo",
     "album": "Depende",
     "year": "1998",
-    "coverSrc": "bandcover/spanisch/jarabe_de_palo_depende.jpg",
+    "coverSrc": "/bandcover/spanisch/jarabe_de_palo_depende.jpg",
     "questions": {
       "easy": [
         {
@@ -2153,7 +2153,7 @@
     "artist": "Vetusta Morla",
     "album": "Un día en el mundo",
     "year": "2008",
-    "coverSrc": "bandcover/spanisch/vetusta_morla_un_d_a_en_el_mundo.jpg",
+    "coverSrc": "/bandcover/spanisch/vetusta_morla_un_d_a_en_el_mundo.jpg",
     "questions": {
       "easy": [
         {
@@ -2256,7 +2256,7 @@
     "artist": "Nacha Pop",
     "album": "Buena disposición",
     "year": "1982",
-    "coverSrc": "bandcover/spanisch/nacha_pop_buena_disposici_n.jpg",
+    "coverSrc": "/bandcover/spanisch/nacha_pop_buena_disposici_n.jpg",
     "questions": {
       "easy": [
         {
@@ -2369,7 +2369,7 @@
     "artist": "Ana Torroja",
     "album": "Sonrisa",
     "year": "2010",
-    "coverSrc": "bandcover/spanisch/ana_torroja_sonrisa.jpg",
+    "coverSrc": "/bandcover/spanisch/ana_torroja_sonrisa.jpg",
     "questions": {
       "easy": [
         {
@@ -2482,7 +2482,7 @@
     "artist": "Enrique Iglesias",
     "album": "Quizás",
     "year": "2002",
-    "coverSrc": "bandcover/spanisch/enrique_iglesias_quiz_s.jpg",
+    "coverSrc": "/bandcover/spanisch/enrique_iglesias_quiz_s.jpg",
     "questions": {
       "easy": [
         {
@@ -2590,7 +2590,7 @@
     "artist": "Raphael",
     "album": "Mi gran noche",
     "year": "1967",
-    "coverSrc": "bandcover/spanisch/raphael_mi_gran_noche.jpg",
+    "coverSrc": "/bandcover/spanisch/raphael_mi_gran_noche.jpg",
     "questions": {
       "easy": [
         {
@@ -2703,7 +2703,7 @@
     "artist": "Camarón de la Isla",
     "album": "La leyenda del tiempo",
     "year": "1979",
-    "coverSrc": "bandcover/spanisch/camar_n_de_la_isla_la_leyenda_del_tiempo.jpg",
+    "coverSrc": "/bandcover/spanisch/camar_n_de_la_isla_la_leyenda_del_tiempo.jpg",
     "questions": {
       "easy": [
         {
@@ -2811,7 +2811,7 @@
     "artist": "Ismael Serrano",
     "album": "La memoria de los peces",
     "year": "1997",
-    "coverSrc": "bandcover/spanisch/ismael_serrano_la_memoria_de_los_peces.jpg",
+    "coverSrc": "/bandcover/spanisch/ismael_serrano_la_memoria_de_los_peces.jpg",
     "questions": {
       "easy": [
         {
@@ -2919,7 +2919,7 @@
     "artist": "Carlos Vives",
     "album": "Corazón Profundo",
     "year": "2013",
-    "coverSrc": "bandcover/spanisch/carlos_vives_coraz_n_profundo.jpg",
+    "coverSrc": "/bandcover/spanisch/carlos_vives_coraz_n_profundo.jpg",
     "questions": {
       "easy": [
         {
@@ -3027,7 +3027,7 @@
     "artist": "David Bisbal",
     "album": "Bulería",
     "year": "2004",
-    "coverSrc": "bandcover/spanisch/david_bisbal_buler_a.jpg",
+    "coverSrc": "/bandcover/spanisch/david_bisbal_buler_a.jpg",
     "questions": {
       "easy": [
         {
@@ -3130,7 +3130,7 @@
     "artist": "Luz Casal",
     "album": "A contraluz",
     "year": "1991",
-    "coverSrc": "bandcover/spanisch/luz_casal_a_contraluz.jpg",
+    "coverSrc": "/bandcover/spanisch/luz_casal_a_contraluz.jpg",
     "questions": {
       "easy": [
         {
@@ -3238,7 +3238,7 @@
     "artist": "Rosendo",
     "album": "A tientas y barrancas",
     "year": "1998",
-    "coverSrc": "bandcover/spanisch/rosendo_a_tientas_y_barrancas.jpg",
+    "coverSrc": "/bandcover/spanisch/rosendo_a_tientas_y_barrancas.jpg",
     "questions": {
       "easy": [
         {
@@ -3351,7 +3351,7 @@
     "artist": "Hombres G",
     "album": "Hombres G",
     "year": "1985",
-    "coverSrc": "bandcover/spanisch/hombres_g_hombres_g.jpg",
+    "coverSrc": "/bandcover/spanisch/hombres_g_hombres_g.jpg",
     "questions": {
       "easy": [
         {
@@ -3459,7 +3459,7 @@
     "artist": "Alaska y Dinarama",
     "album": "Deseo carnal",
     "year": "1984",
-    "coverSrc": "bandcover/spanisch/alaska_y_dinarama_deseo_carnal.jpg",
+    "coverSrc": "/bandcover/spanisch/alaska_y_dinarama_deseo_carnal.jpg",
     "questions": {
       "easy": [
         {
@@ -3567,7 +3567,7 @@
     "artist": "Quique González",
     "album": "Personal",
     "year": "1998",
-    "coverSrc": "bandcover/spanisch/quique_gonz_lez_personal.jpg",
+    "coverSrc": "/bandcover/spanisch/quique_gonz_lez_personal.jpg",
     "questions": {
       "easy": [
         {
@@ -3680,7 +3680,7 @@
     "artist": "El Barrio",
     "album": "La voz de mi silencio",
     "year": "2007",
-    "coverSrc": "bandcover/spanisch/el_barrio_la_voz_de_mi_silencio.jpg",
+    "coverSrc": "/bandcover/spanisch/el_barrio_la_voz_de_mi_silencio.jpg",
     "questions": {
       "easy": [
         {
@@ -3788,7 +3788,7 @@
     "artist": "Bunbury",
     "album": "Flamingos",
     "year": "2002",
-    "coverSrc": "bandcover/spanisch/bunbury_flamingos.jpg",
+    "coverSrc": "/bandcover/spanisch/bunbury_flamingos.jpg",
     "questions": {
       "easy": [
         {
@@ -3881,7 +3881,7 @@
     "artist": "Los Planetas",
     "album": "Una semana en el motor de un autobús",
     "year": "1998",
-    "coverSrc": "bandcover/spanisch/los_planetas_una_semana_en_el_motor_de_un_autob_s.jpg",
+    "coverSrc": "/bandcover/spanisch/los_planetas_una_semana_en_el_motor_de_un_autob_s.jpg",
     "questions": {
       "easy": [
         {
@@ -3994,7 +3994,7 @@
     "artist": "Malú",
     "album": "Caos",
     "year": "2015",
-    "coverSrc": "bandcover/spanisch/mal__caos.jpg",
+    "coverSrc": "/bandcover/spanisch/mal__caos.jpg",
     "questions": {
       "easy": [
         {
@@ -4102,7 +4102,7 @@
     "artist": "Sole Giménez",
     "album": "La felicidad",
     "year": "2010",
-    "coverSrc": "bandcover/spanisch/sole_gim_nez_la_felicidad.jpg",
+    "coverSrc": "/bandcover/spanisch/sole_gim_nez_la_felicidad.jpg",
     "questions": {
       "easy": [
         {
@@ -4215,7 +4215,7 @@
     "artist": "Macaco",
     "album": "Puerto presente",
     "year": "2009",
-    "coverSrc": "bandcover/spanisch/macaco_puerto_presente.jpg",
+    "coverSrc": "/bandcover/spanisch/macaco_puerto_presente.jpg",
     "questions": {
       "easy": [
         {
@@ -4323,7 +4323,7 @@
     "artist": "Dani Martín",
     "album": "Pequeño",
     "year": "2010",
-    "coverSrc": "bandcover/spanisch/dani_mart_n_peque_o.jpg",
+    "coverSrc": "/bandcover/spanisch/dani_mart_n_peque_o.jpg",
     "questions": {
       "easy": [
         {
@@ -4426,7 +4426,7 @@
     "artist": "Love of Lesbian",
     "album": "1999",
     "year": "2009",
-    "coverSrc": "bandcover/spanisch/love_of_lesbian_1999.jpg",
+    "coverSrc": "/bandcover/spanisch/love_of_lesbian_1999.jpg",
     "questions": {
       "easy": [
         {
@@ -4534,7 +4534,7 @@
     "artist": "Manolo García",
     "album": "Para que no se duerman mis sentidos",
     "year": "2004",
-    "coverSrc": "bandcover/spanisch/manolo_garc_a_para_que_no_se_duerman_mis_sentidos.jpg",
+    "coverSrc": "/bandcover/spanisch/manolo_garc_a_para_que_no_se_duerman_mis_sentidos.jpg",
     "questions": {
       "easy": [
         {
@@ -4642,7 +4642,7 @@
     "artist": "Paco de Lucía",
     "album": "Siroco",
     "year": "1987",
-    "coverSrc": "bandcover/spanisch/paco_de_luc_a_siroco.jpg",
+    "coverSrc": "/bandcover/spanisch/paco_de_luc_a_siroco.jpg",
     "questions": {
       "easy": [
         {
@@ -4755,7 +4755,7 @@
     "artist": "Kiko Veneno",
     "album": "Échate un cantecito",
     "year": "1992",
-    "coverSrc": "bandcover/spanisch/kiko_veneno__chate_un_cantecito.jpg",
+    "coverSrc": "/bandcover/spanisch/kiko_veneno__chate_un_cantecito.jpg",
     "questions": {
       "easy": [
         {
@@ -4858,7 +4858,7 @@
     "artist": "El Último de la Fila",
     "album": "Astronomía razonable",
     "year": "1993",
-    "coverSrc": "bandcover/spanisch/el__ltimo_de_la_fila_astronom_a_razonable.jpg",
+    "coverSrc": "/bandcover/spanisch/el__ltimo_de_la_fila_astronom_a_razonable.jpg",
     "questions": {
       "easy": [
         {
@@ -4971,7 +4971,7 @@
     "artist": "Lola Flores",
     "album": "La Faraona",
     "year": "1965",
-    "coverSrc": "bandcover/spanisch/lola_flores_la_faraona.jpg",
+    "coverSrc": "/bandcover/spanisch/lola_flores_la_faraona.jpg",
     "questions": {
       "easy": [
         {
@@ -5074,7 +5074,7 @@
     "artist": "Nino Bravo",
     "album": "Un beso y una flor",
     "year": "1972",
-    "coverSrc": "bandcover/spanisch/nino_bravo_un_beso_y_una_flor.jpg",
+    "coverSrc": "/bandcover/spanisch/nino_bravo_un_beso_y_una_flor.jpg",
     "questions": {
       "easy": [
         {
@@ -5177,7 +5177,7 @@
     "artist": "Plácido Domingo",
     "album": "De mi alma Latina",
     "year": "1994",
-    "coverSrc": "bandcover/spanisch/pl_cido_domingo_de_mi_alma_latina.jpg",
+    "coverSrc": "/bandcover/spanisch/pl_cido_domingo_de_mi_alma_latina.jpg",
     "questions": {
       "easy": [
         {
@@ -5280,7 +5280,7 @@
     "artist": "Mägo de Oz",
     "album": "Gaia",
     "year": "2003",
-    "coverSrc": "bandcover/spanisch/m_go_de_oz_gaia.jpg",
+    "coverSrc": "/bandcover/spanisch/m_go_de_oz_gaia.jpg",
     "questions": {
       "easy": [
         {
@@ -5393,7 +5393,7 @@
     "artist": "Rocío Dúrcal",
     "album": "Amor eterno",
     "year": "1984",
-    "coverSrc": "bandcover/spanisch/roc_o_d_rcal_amor_eterno.jpg",
+    "coverSrc": "/bandcover/spanisch/roc_o_d_rcal_amor_eterno.jpg",
     "questions": {
       "easy": [
         {
@@ -5501,7 +5501,7 @@
     "artist": "Dover",
     "album": "Devil Came to Me",
     "year": "1997",
-    "coverSrc": "bandcover/spanisch/dover_devil_came_to_me.jpg",
+    "coverSrc": "/bandcover/spanisch/dover_devil_came_to_me.jpg",
     "questions": {
       "easy": [
         {
@@ -5614,7 +5614,7 @@
     "artist": "Siniestro Total",
     "album": "Bailaré sobre tu tumba",
     "year": "1985",
-    "coverSrc": "bandcover/spanisch/siniestro_total_bailar__sobre_tu_tumba.jpg",
+    "coverSrc": "/bandcover/spanisch/siniestro_total_bailar__sobre_tu_tumba.jpg",
     "questions": {
       "easy": [
         {
@@ -5727,7 +5727,7 @@
     "artist": "Melendi",
     "album": "Que el cielo espere sentao",
     "year": "2005",
-    "coverSrc": "bandcover/spanisch/melendi_que_el_cielo_espere_sentao.jpg",
+    "coverSrc": "/bandcover/spanisch/melendi_que_el_cielo_espere_sentao.jpg",
     "questions": {
       "easy": [
         {
@@ -5840,7 +5840,7 @@
     "artist": "La Casa Azul",
     "album": "La Revolución Sexual",
     "year": "2007",
-    "coverSrc": "bandcover/spanisch/la_casa_azul_la_revoluci_n_sexual.jpg",
+    "coverSrc": "/bandcover/spanisch/la_casa_azul_la_revoluci_n_sexual.jpg",
     "questions": {
       "easy": [
         {
@@ -5953,7 +5953,7 @@
     "artist": "Raphael",
     "album": "Raphael: 50 años después",
     "year": "2008",
-    "coverSrc": "bandcover/spanisch/raphael_raphael__50_a_os_despu_s.jpg",
+    "coverSrc": "/bandcover/spanisch/raphael_raphael__50_a_os_despu_s.jpg",
     "questions": {
       "easy": [
         {
@@ -6061,7 +6061,7 @@
     "artist": "Lola Índigo",
     "album": "Akelarre",
     "year": "2019",
-    "coverSrc": "bandcover/spanisch/lola__ndigo_akelarre.jpg",
+    "coverSrc": "/bandcover/spanisch/lola__ndigo_akelarre.jpg",
     "questions": {
       "easy": [
         {
@@ -6149,7 +6149,7 @@
     "artist": "C. Tangana",
     "album": "Ídolo",
     "year": "2017",
-    "coverSrc": "bandcover/spanisch/c__tangana__dolo.jpg",
+    "coverSrc": "/bandcover/spanisch/c__tangana__dolo.jpg",
     "questions": {
       "easy": [
         {
@@ -6262,7 +6262,7 @@
     "artist": "Antonio Orozco",
     "album": "Diez",
     "year": "2011",
-    "coverSrc": "bandcover/spanisch/antonio_orozco_diez.jpg",
+    "coverSrc": "/bandcover/spanisch/antonio_orozco_diez.jpg",
     "questions": {
       "easy": [
         {
@@ -6365,7 +6365,7 @@
     "artist": "Chambao",
     "album": "Endorfinas en la mente",
     "year": "2003",
-    "coverSrc": "bandcover/spanisch/chambao_endorfinas_en_la_mente.jpg",
+    "coverSrc": "/bandcover/spanisch/chambao_endorfinas_en_la_mente.jpg",
     "questions": {
       "easy": [
         {
@@ -6478,7 +6478,7 @@
     "artist": "Mala Rodríguez",
     "album": "Bruja",
     "year": "2013",
-    "coverSrc": "bandcover/spanisch/mala_rodr_guez_bruja.jpg",
+    "coverSrc": "/bandcover/spanisch/mala_rodr_guez_bruja.jpg",
     "questions": {
       "easy": [
         {
@@ -6591,7 +6591,7 @@
     "artist": "Celtas Cortos",
     "album": "Cuéntame un cuento",
     "year": "1991",
-    "coverSrc": "bandcover/spanisch/celtas_cortos_cu_ntame_un_cuento.jpg",
+    "coverSrc": "/bandcover/spanisch/celtas_cortos_cu_ntame_un_cuento.jpg",
     "questions": {
       "easy": [
         {
@@ -6704,7 +6704,7 @@
     "artist": "El Sueño de Morfeo",
     "album": "Nos vemos en el camino",
     "year": "2007",
-    "coverSrc": "bandcover/spanisch/el_sue_o_de_morfeo_nos_vemos_en_el_camino.jpg",
+    "coverSrc": "/bandcover/spanisch/el_sue_o_de_morfeo_nos_vemos_en_el_camino.jpg",
     "questions": {
       "easy": [
         {
@@ -6817,7 +6817,7 @@
     "artist": "Niña Pastori",
     "album": "María",
     "year": "2002",
-    "coverSrc": "bandcover/spanisch/ni_a_pastori_mar_a.jpg",
+    "coverSrc": "/bandcover/spanisch/ni_a_pastori_mar_a.jpg",
     "questions": {
       "easy": [
         {
@@ -6925,7 +6925,7 @@
     "artist": "Revolver",
     "album": "El Dorado",
     "year": "1995",
-    "coverSrc": "bandcover/spanisch/revolver_el_dorado.jpg",
+    "coverSrc": "/bandcover/spanisch/revolver_el_dorado.jpg",
     "questions": {
       "easy": [
         {
@@ -7028,7 +7028,7 @@
     "artist": "Antonio Vega",
     "album": "No me iré mañana",
     "year": "1991",
-    "coverSrc": "bandcover/spanisch/antonio_vega_no_me_ir__ma_ana.jpg",
+    "coverSrc": "/bandcover/spanisch/antonio_vega_no_me_ir__ma_ana.jpg",
     "questions": {
       "easy": [
         {
@@ -7141,7 +7141,7 @@
     "artist": "India Martínez",
     "album": "Te cuento un secreto",
     "year": "2016",
-    "coverSrc": "bandcover/spanisch/india_mart_nez_te_cuento_un_secreto.jpg",
+    "coverSrc": "/bandcover/spanisch/india_mart_nez_te_cuento_un_secreto.jpg",
     "questions": {
       "easy": [
         {
@@ -7244,7 +7244,7 @@
     "artist": "Miguel Poveda",
     "album": "Sonetos y poemas para la libertad",
     "year": "2015",
-    "coverSrc": "bandcover/spanisch/miguel_poveda_sonetos_y_poemas_para_la_libertad.jpg",
+    "coverSrc": "/bandcover/spanisch/miguel_poveda_sonetos_y_poemas_para_la_libertad.jpg",
     "questions": {
       "easy": [
         {
@@ -7357,7 +7357,7 @@
     "artist": "Rayden",
     "album": "Antónimo",
     "year": "2017",
-    "coverSrc": "bandcover/spanisch/rayden_ant_nimo.jpg",
+    "coverSrc": "/bandcover/spanisch/rayden_ant_nimo.jpg",
     "questions": {
       "easy": [
         {
@@ -7465,7 +7465,7 @@
     "artist": "Zahara",
     "album": "Santa",
     "year": "2015",
-    "coverSrc": "bandcover/spanisch/zahara_santa.jpg",
+    "coverSrc": "/bandcover/spanisch/zahara_santa.jpg",
     "questions": {
       "easy": [
         {
@@ -7563,7 +7563,7 @@
     "artist": "Fangoria",
     "album": "Absolutamente",
     "year": "2009",
-    "coverSrc": "bandcover/spanisch/fangoria_absolutamente.jpg",
+    "coverSrc": "/bandcover/spanisch/fangoria_absolutamente.jpg",
     "questions": {
       "easy": [
         {
@@ -7676,7 +7676,7 @@
     "artist": "Kase.O",
     "album": "El Círculo",
     "year": "2016",
-    "coverSrc": "bandcover/spanisch/kase_o_el_c_rculo.jpg",
+    "coverSrc": "/bandcover/spanisch/kase_o_el_c_rculo.jpg",
     "questions": {
       "easy": [
         {
@@ -7779,7 +7779,7 @@
     "artist": "Fuel Fandango",
     "album": "Aurora",
     "year": "2016",
-    "coverSrc": "bandcover/spanisch/fuel_fandango_aurora.jpg",
+    "coverSrc": "/bandcover/spanisch/fuel_fandango_aurora.jpg",
     "questions": {
       "easy": [
         {
@@ -7887,7 +7887,7 @@
     "artist": "Vega",
     "album": "La cuenta atrás",
     "year": "2011",
-    "coverSrc": "bandcover/spanisch/vega_la_cuenta_atr_s.jpg",
+    "coverSrc": "/bandcover/spanisch/vega_la_cuenta_atr_s.jpg",
     "questions": {
       "easy": [
         {
@@ -7995,7 +7995,7 @@
     "artist": "Juanes",
     "album": "Mi Sangre",
     "year": "2004",
-    "coverSrc": "bandcover/spanisch/juanes_mi_sangre.jpg",
+    "coverSrc": "/bandcover/spanisch/juanes_mi_sangre.jpg",
     "questions": {
       "easy": [
         {
@@ -8108,7 +8108,7 @@
     "artist": "Nino Bravo",
     "album": "América, América",
     "year": "1973",
-    "coverSrc": "bandcover/spanisch/nino_bravo_am_rica__am_rica.jpg",
+    "coverSrc": "/bandcover/spanisch/nino_bravo_am_rica__am_rica.jpg",
     "questions": {
       "easy": [
         {
@@ -8221,7 +8221,7 @@
     "artist": "José Mercé",
     "album": "Aire",
     "year": "2000",
-    "coverSrc": "bandcover/spanisch/jos__merc__aire.jpg",
+    "coverSrc": "/bandcover/spanisch/jos__merc__aire.jpg",
     "questions": {
       "easy": [
         {
@@ -8334,7 +8334,7 @@
     "artist": "Tino Casal",
     "album": "Etiqueta negra",
     "year": "1983",
-    "coverSrc": "bandcover/spanisch/tino_casal_etiqueta_negra.jpg",
+    "coverSrc": "/bandcover/spanisch/tino_casal_etiqueta_negra.jpg",
     "questions": {
       "easy": [
         {
@@ -8437,7 +8437,7 @@
     "artist": "Coque Malla",
     "album": "Irrepetible",
     "year": "2018",
-    "coverSrc": "bandcover/spanisch/coque_malla_irrepetible.jpg",
+    "coverSrc": "/bandcover/spanisch/coque_malla_irrepetible.jpg",
     "questions": {
       "easy": [
         {
@@ -8550,7 +8550,7 @@
     "artist": "Lérica",
     "album": "Cien mil motivos",
     "year": "2016",
-    "coverSrc": "bandcover/spanisch/l_rica_cien_mil_motivos.jpg",
+    "coverSrc": "/bandcover/spanisch/l_rica_cien_mil_motivos.jpg",
     "questions": {
       "easy": [
         {
@@ -8658,7 +8658,7 @@
     "artist": "Triana",
     "album": "El Patio",
     "year": "1975",
-    "coverSrc": "bandcover/spanisch/triana_el_patio.jpg",
+    "coverSrc": "/bandcover/spanisch/triana_el_patio.jpg",
     "questions": {
       "easy": [
         {
@@ -8771,7 +8771,7 @@
     "artist": "Soleá Morente",
     "album": "Tendrá que haber un camino",
     "year": "2015",
-    "coverSrc": "bandcover/spanisch/sole__morente_tendr__que_haber_un_camino.jpg",
+    "coverSrc": "/bandcover/spanisch/sole__morente_tendr__que_haber_un_camino.jpg",
     "questions": {
       "easy": [
         {
@@ -8879,7 +8879,7 @@
     "artist": "El Arrebato",
     "album": "Lo que el viento me dejó",
     "year": "2010",
-    "coverSrc": "bandcover/spanisch/el_arrebato_lo_que_el_viento_me_dej_.jpg",
+    "coverSrc": "/bandcover/spanisch/el_arrebato_lo_que_el_viento_me_dej_.jpg",
     "questions": {
       "easy": [
         {
@@ -8982,7 +8982,7 @@
     "artist": "Pastora Soler",
     "album": "La Calma",
     "year": "2017",
-    "coverSrc": "bandcover/spanisch/pastora_soler_la_calma.jpg",
+    "coverSrc": "/bandcover/spanisch/pastora_soler_la_calma.jpg",
     "questions": {
       "easy": [
         {
@@ -9095,7 +9095,7 @@
     "artist": "Estopa",
     "album": "Rumba a lo desconocido",
     "year": "2015",
-    "coverSrc": "bandcover/spanisch/estopa_rumba_a_lo_desconocido.jpg",
+    "coverSrc": "/bandcover/spanisch/estopa_rumba_a_lo_desconocido.jpg",
     "questions": {
       "easy": [
         {
@@ -9203,7 +9203,7 @@
     "artist": "Amaral",
     "album": "Gato Negro Dragón Rojo",
     "year": "2008",
-    "coverSrc": "bandcover/spanisch/amaral_gato_negro_drag_n_rojo.jpg",
+    "coverSrc": "/bandcover/spanisch/amaral_gato_negro_drag_n_rojo.jpg",
     "questions": {
       "easy": [
         {
@@ -9311,7 +9311,7 @@
     "artist": "La Bien Querida",
     "album": "Romancero",
     "year": "2009",
-    "coverSrc": "bandcover/spanisch/la_bien_querida_romancero.jpg",
+    "coverSrc": "/bandcover/spanisch/la_bien_querida_romancero.jpg",
     "questions": {
       "easy": [
         {
@@ -9424,7 +9424,7 @@
     "artist": "Sílvia Pérez Cruz",
     "album": "11 de novembre",
     "year": "2012",
-    "coverSrc": "bandcover/spanisch/s_lvia_p_rez_cruz_11_de_novembre.jpg",
+    "coverSrc": "/bandcover/spanisch/s_lvia_p_rez_cruz_11_de_novembre.jpg",
     "questions": {
       "easy": [
         {
@@ -9532,7 +9532,7 @@
     "artist": "Los Rodríguez",
     "album": "Sin documentos",
     "year": "1993",
-    "coverSrc": "bandcover/spanisch/los_rodr_guez_sin_documentos.jpg",
+    "coverSrc": "/bandcover/spanisch/los_rodr_guez_sin_documentos.jpg",
     "questions": {
       "easy": [
         {
@@ -9645,7 +9645,7 @@
     "artist": "Vetusta Morla",
     "album": "Mismo sitio, distinto lugar",
     "year": "2017",
-    "coverSrc": "bandcover/spanisch/vetusta_morla_mismo_sitio__distinto_lugar.jpg",
+    "coverSrc": "/bandcover/spanisch/vetusta_morla_mismo_sitio__distinto_lugar.jpg",
     "questions": {
       "easy": [
         {
@@ -9758,7 +9758,7 @@
     "artist": "Los Suaves",
     "album": "San Francisco Express",
     "year": "1997",
-    "coverSrc": "bandcover/spanisch/los_suaves_san_francisco_express.jpg",
+    "coverSrc": "/bandcover/spanisch/los_suaves_san_francisco_express.jpg",
     "questions": {
       "easy": [
         {
@@ -9979,7 +9979,7 @@
     "artist": "Manzanita",
     "album": "Mal de amores",
     "year": "1980",
-    "coverSrc": "bandcover/spanisch/manzanita_mal_de_amores.jpg",
+    "coverSrc": "/bandcover/spanisch/manzanita_mal_de_amores.jpg",
     "questions": {
       "easy": [
         {
@@ -10092,7 +10092,7 @@
     "artist": "Los Chichos",
     "album": "Ni más ni menos",
     "year": "1974",
-    "coverSrc": "bandcover/spanisch/los_chichos_ni_m_s_ni_menos.jpg",
+    "coverSrc": "/bandcover/spanisch/los_chichos_ni_m_s_ni_menos.jpg",
     "questions": {
       "easy": [
         {
@@ -10200,7 +10200,7 @@
     "artist": "Juanito Makandé",
     "album": "El habitante de la tarde roja",
     "year": "2015",
-    "coverSrc": "bandcover/spanisch/juanito_makand__el_habitante_de_la_tarde_roja.jpg",
+    "coverSrc": "/bandcover/spanisch/juanito_makand__el_habitante_de_la_tarde_roja.jpg",
     "questions": {
       "easy": [
         {
@@ -10308,7 +10308,7 @@
     "artist": "Camarón de la Isla",
     "album": "Soy gitano",
     "year": "1989",
-    "coverSrc": "bandcover/spanisch/camar_n_de_la_isla_soy_gitano.jpg",
+    "coverSrc": "/bandcover/spanisch/camar_n_de_la_isla_soy_gitano.jpg",
     "questions": {
       "easy": [
         {
