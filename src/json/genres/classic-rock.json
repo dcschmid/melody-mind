@@ -19,12 +19,7 @@
         },
         {
           "question": "In welcher berühmten Stadt traten Led Zeppelin im Jahr 1971 auf, während sie ihr ikonisches Album 'Led Zeppelin IV' beworben haben?",
-          "options": [
-            "London",
-            "Los Angeles",
-            "München",
-            "New York"
-          ],
+          "options": ["London", "Los Angeles", "München", "New York"],
           "correctAnswer": "London",
           "trivia": "Led Zeppelin ist eine der einflussreichsten Rockbands der Geschichte, bekannt für ihren einzigartigen Mix aus Rock, Blues und Folk. Ihr viertes Studioalbum, 'Led Zeppelin IV', wurde 1971 veröffentlicht und enthält einige ihrer bekanntesten Songs wie 'Stairway to Heaven' und 'Black Dog'. Während der Tour zur Promotion dieses Albums spielte die Band in vielen legendären Städten. Besonders bemerkenswert war ihr Auftritt in London, der für die Fans und die Band selbst unvergesslich blieb. Die energiegeladene Performance und die musikalische Virtuosität von Led Zeppelin machten diese Konzerte zu einem Highlight der Rockgeschichte. Die Tour half, die Popularität von 'Led Zeppelin IV' weiter zu steigern und das Album zu einem der meistverkauften in der Musikgeschichte zu machen. Led Zeppelin bleibt bis heute eine der wichtigsten Inspirationsquellen im Rockgenre."
         },
@@ -234,12 +229,7 @@
       "easy": [
         {
           "question": "Welches ikonische visuelle Element ist auf dem Cover des Albums 'The Dark Side of the Moon' von Pink Floyd abgebildet?",
-          "options": [
-            "Ein Regenbogen",
-            "Ein Pyramide",
-            "Ein Auge",
-            "Ein Mond"
-          ],
+          "options": ["Ein Regenbogen", "Ein Pyramide", "Ein Auge", "Ein Mond"],
           "correctAnswer": "Ein Regenbogen",
           "trivia": "Das Cover des Albums 'The Dark Side of the Moon' von Pink Floyd zeigt ein einfaches, aber kraftvolles Design, das ein Prisma abbildet, durch das Licht in einen Regenbogen gebrochen wird. Dieses Bild symbolisiert die Verbindung zwischen Licht und Farbe und spiegelt die komplexen Themen des Albums wider. Das Album wurde 1973 veröffentlicht und gilt als eines der einflussreichsten in der Geschichte der Rockmusik. Die Verwendung von visuellen Elementen auf dem Cover hat dazu beigetragen, eine tiefere Verbindung zu den Inhalten der Musik herzustellen. Pink Floyd, bekannt für ihre progressiven Klänge und tiefgründigen Texte, hat mit diesem Album eine Reise durch die menschliche Erfahrung geschaffen. Das Cover-Design wurde von Storm Thorgerson und der Designgruppe Hipgnosis erstellt. 'The Dark Side of the Moon' bleibt ein zeitloses Werk, das sowohl musikalisch als auch visuell beeindruckt."
         },
@@ -269,12 +259,7 @@
       "medium": [
         {
           "question": "Welches visuelle Element, das auf dem Albumcover von 'The Dark Side of the Moon' von Pink Floyd zu sehen ist, symbolisiert das Konzept der Lichtbrechung?",
-          "options": [
-            "Ein Prisma",
-            "Ein Regenbogen",
-            "Eine Uhr",
-            "Ein Auge"
-          ],
+          "options": ["Ein Prisma", "Ein Regenbogen", "Eine Uhr", "Ein Auge"],
           "correctAnswer": "Ein Prisma",
           "trivia": "Das Album 'The Dark Side of the Moon' von Pink Floyd, das 1973 veröffentlicht wurde, ist nicht nur für seine musikalische Tiefe bekannt, sondern auch für seine ikonische visuelle Gestaltung. Das Cover zeigt ein Prisma, das Licht in ein Spektrum von Farben bricht, was das Thema des Albums - die Komplexität des menschlichen Lebens und die Wahrnehmung der Realität - perfekt widerspiegelt. Dieses Design wurde von dem Grafiker Storm Thorgerson entworfen und ist eines der bekanntesten Albumcover der Musikgeschichte. Der Einsatz von Licht und Schatten auf dem Cover wurde als Symbol für die Dualität von Licht und Dunkelheit interpretiert, was auch die emotionalen und psychologischen Themen der Songs widerspiegelt. Das Album selbst enthält zeitlose Klassiker wie 'Time' und 'Money', die tiefgründige Texte mit innovativen musikalischen Arrangements verbinden. Pink Floyds Verwendung von visuellen Elementen in ihren Aufführungen und Musikvideos hat sie zu Pionieren des progressiven Rock gemacht. Die Kombination aus Musik und visueller Kunst hat dazu beigetragen, 'The Dark Side of the Moon' zu einem der erfolgreichsten und einflussreichsten Alben aller Zeiten zu machen."
         },
@@ -756,12 +741,7 @@
       "hard": [
         {
           "question": "Welcher Platz belegte das Album 'Sgt. Pepper’s Lonely Hearts Club Band' von The Beatles in den Billboard 200 Charts der USA im Jahr seiner Veröffentlichung?",
-          "options": [
-            "Platz 1",
-            "Platz 2",
-            "Platz 3",
-            "Platz 4"
-          ],
+          "options": ["Platz 1", "Platz 2", "Platz 3", "Platz 4"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Album 'Sgt. Pepper’s Lonely Hearts Club Band' von The Beatles wurde am 26. Mai 1967 veröffentlicht und erreichte in den Billboard 200 Charts der USA sofort Platz 1. Es blieb insgesamt 15 Wochen an der Spitze der Charts, was zu dieser Zeit einen Rekord darstellte. Das Album wird oft als eines der einflussreichsten in der Geschichte der Rockmusik angesehen und gilt als Meilenstein in der Entwicklung des Konzeptalbums. Die innovative Produktion und die Verwendung von verschiedenen Musikstilen trugen zu seinem Erfolg bei. Zu den bekanntesten Songs auf dem Album gehören 'Lucy in the Sky with Diamonds' und 'A Day in the Life'. 'Sgt. Pepper’s Lonely Hearts Club Band' hat auch zahlreiche Auszeichnungen erhalten, darunter mehrere Grammy Awards, und wurde von Kritikern hoch gelobt. Das Album hat nicht nur die Charts dominiert, sondern auch die Popkultur nachhaltig beeinflusst."
         },
@@ -778,12 +758,7 @@
         },
         {
           "question": "Welches ungewöhnliche Instrument, das auf dem Album 'Sgt. Pepper’s Lonely Hearts Club Band' von The Beatles zu hören ist, wurde speziell für den Song 'Within You Without You' verwendet?",
-          "options": [
-            "Sitar",
-            "Theremin",
-            "Ocarina",
-            "Conga"
-          ],
+          "options": ["Sitar", "Theremin", "Ocarina", "Conga"],
           "correctAnswer": "Sitar",
           "trivia": "Das Album 'Sgt. Pepper’s Lonely Hearts Club Band' von The Beatles, das 1967 veröffentlicht wurde, gilt als eines der einflussreichsten Alben der Musikgeschichte. In diesem Werk experimentierten die Beatles mit verschiedenen Musikstilen und Instrumenten, was zur Entwicklung des Psychedelic Rock beitrug. Besonders bemerkenswert ist der Einsatz der Sitar, die auf dem Song 'Within You Without You' zu hören ist. George Harrison, der die Sitar spielte, wurde von der indischen Musik und Philosophie inspiriert, was auch seine spätere Beschäftigung mit dem Thema prägte. Der Song selbst behandelt spirituelle und philosophische Themen und hebt sich stark von den vorherigen Arbeiten der Band ab. 'Sgt. Pepper’s' brachte auch innovative Aufnahme-Techniken und komplexe Arrangements in die populäre Musik ein. Das Album gilt als Meilenstein, der die Grenzen der Musik neu definierte."
         }
@@ -1047,12 +1022,7 @@
         },
         {
           "question": "Welches Jahr war das Veröffentlichungsdatum des Albums 'Cosmo’s Factory' von Creedence Clearwater Revival?",
-          "options": [
-            "1968",
-            "1970",
-            "1972",
-            "1975"
-          ],
+          "options": ["1968", "1970", "1972", "1975"],
           "correctAnswer": "1970",
           "trivia": "Creedence Clearwater Revival ist eine amerikanische Rockband, die in den späten 1960er und frühen 1970er Jahren große Erfolge feierte. Ihr Album 'Cosmo’s Factory' wurde 1970 veröffentlicht und gilt als eines ihrer wichtigsten Werke. Das Album enthält einige ihrer bekanntesten Songs, darunter 'Lookin' Out My Back Door' und 'Run Through the Jungle'. Mit einer Mischung aus Rock, Blues und Country hat die Band einen einzigartigen Sound geschaffen, der bis heute Einfluss auf viele Künstler hat. 'Cosmo’s Factory' verkaufte sich weltweit millionenfach und erreichte hohe Chartplatzierungen. Das Album spiegelt die kulturellen und sozialen Umwälzungen der damaligen Zeit wider, einschließlich der Protestbewegungen und des Wandels in der Popkultur. Bis heute wird es als ein zeitloses Meisterwerk angesehen, das die musikalische Landschaft der 70er Jahre geprägt hat."
         }
@@ -1149,12 +1119,7 @@
         },
         {
           "question": "Welches berühmte Album von Fleetwood Mac, das 1977 veröffentlicht wurde, gilt als eines der meistverkauften Alben aller Zeiten und hat einen signifikanten Einfluss auf die Musikgeschichte?",
-          "options": [
-            "Rumours",
-            "Tusk",
-            "Fleetwood Mac",
-            "Say You Will"
-          ],
+          "options": ["Rumours", "Tusk", "Fleetwood Mac", "Say You Will"],
           "correctAnswer": "Rumours",
           "trivia": "Das Album 'Rumours' von Fleetwood Mac, das 1977 veröffentlicht wurde, ist eines der meistverkauften Alben in der Geschichte der Musik und hat mehr als 40 Millionen Exemplare weltweit verkauft. Es wurde in einer Zeit großer persönlicher Turbulenzen für die Bandmitglieder aufgenommen, was sich in den emotionalen Texten und der eingängigen Musik widerspiegelt. Songs wie 'Go Your Own Way' und 'Dreams' wurden zu Klassikern und sind bis heute sehr populär. 'Rumours' gewann das Grammy Award für das Album des Jahres und wurde in zahlreichen Bestenlisten als eines der besten Alben aller Zeiten eingestuft. Die Kombination aus harmonischen Melodien, tiefgründigen Texten und innovativer Produktion hat die Musikwelt nachhaltig beeinflusst. Fleetwood Mac's Fähigkeit, persönliche Probleme in Kunst umzuwandeln, machte das Album zu einem zeitlosen Meisterwerk. 'Rumours' bleibt ein Symbol für die 1970er Jahre und die Rockgeschichte insgesamt."
         },
@@ -1195,12 +1160,7 @@
         },
         {
           "question": "In welchem Jahr begleitete Fleetwood Mac ihr Album 'Rumours' mit einer ausgedehnten Tournee, die zu einem der bekanntesten Live-Auftritte der Band wurde?",
-          "options": [
-            "1976",
-            "1977",
-            "1978",
-            "1979"
-          ],
+          "options": ["1976", "1977", "1978", "1979"],
           "correctAnswer": "1977",
           "trivia": "Fleetwood Mac, eine der erfolgreichsten Rockbands der 1970er Jahre, veröffentlichte ihr berühmtes Album 'Rumours' im Jahr 1977. Die Tour, die die Band zur Unterstützung des Albums unternahm, war eine der am meisten besuchten und einflussreichsten ihrer Karriere. Während dieser Tour spielte Fleetwood Mac zahlreiche Hits aus 'Rumours', darunter Klassiker wie 'Go Your Own Way' und 'Dreams'. Die Band war bekannt für ihre energiegeladenen Live-Auftritte und die chemische Verbindung zwischen den Mitgliedern, trotz der persönlichen Spannungen, die während der Aufnahmen zum Album entstanden waren. 'Rumours' wurde ein kulturelles Phänomen und festigte den Status von Fleetwood Mac als eine der führenden Bands ihrer Zeit. Die Tournee trug erheblich zum weltweiten Erfolg des Albums bei, das bis heute eines der meistverkauften Alben aller Zeiten ist."
         }
@@ -1251,23 +1211,13 @@
       "easy": [
         {
           "question": "Welches bemerkenswerte Chart-Ranking erreichte das Album 'Electric Ladyland' von Jimi Hendrix in den USA nach seiner Veröffentlichung im Jahr 1968?",
-          "options": [
-            "Nummer 1",
-            "Nummer 5",
-            "Nummer 10",
-            "Nummer 15"
-          ],
+          "options": ["Nummer 1", "Nummer 5", "Nummer 10", "Nummer 15"],
           "correctAnswer": "Nummer 1",
           "trivia": "Das Album 'Electric Ladyland' von Jimi Hendrix wurde 1968 veröffentlicht und erreichte in den USA Platz 1 der Billboard 200 Charts. Es ist das dritte und letzte Studioalbum von Jimi Hendrix und wird oft als sein Meisterwerk angesehen. 'Electric Ladyland' enthält einige der bekanntesten Songs von Hendrix, darunter 'All Along the Watchtower' und 'Voodoo Child (Slight Return)'. Das Album gilt als ein Meilenstein in der Rockmusik und ist bekannt für seine innovative Produktion und den einzigartigen Einsatz von Effekten. Jimi Hendrix, ein virtuoser Gitarrist und Songwriter, hat mit diesem Album einen bleibenden Einfluss auf die Musikgeschichte hinterlassen. Es war auch das erste Album, das unter dem eigenen Label von Hendrix, 'Electric Lady Studios', veröffentlicht wurde. 'Electric Ladyland' wird bis heute als eines der besten Rockalben aller Zeiten angesehen."
         },
         {
           "question": "Welche innovative Produktionstechnik verwendete Jimi Hendrix auf dem Album 'Electric Ladyland', um den charakteristischen Klang seiner Gitarre zu erzeugen?",
-          "options": [
-            "Wah-Wah-Pedal",
-            "Overdrive",
-            "Chorus-Effekt",
-            "Reverb"
-          ],
+          "options": ["Wah-Wah-Pedal", "Overdrive", "Chorus-Effekt", "Reverb"],
           "correctAnswer": "Wah-Wah-Pedal",
           "trivia": "Jimi Hendrix, einer der einflussreichsten Gitarristen der Rockgeschichte, veröffentlichte 1968 das bahnbrechende Album 'Electric Ladyland'. Auf diesem Album experimentierte Hendrix intensiv mit verschiedenen Instrumentierungstechniken und Effekten, um seinen einzigartigen Sound zu kreieren. Eine der bemerkenswertesten Techniken war die Verwendung des Wah-Wah-Pedals, das ihm erlaubte, den Klang seiner Gitarre dynamisch zu modulieren. Dies verlieh vielen Songs auf 'Electric Ladyland' eine ausgeprägte Ausdruckskraft. Tracks wie 'Voodoo Child (Slight Return)' zeigen eindrucksvoll, wie Hendrix das Pedal einsetzte, um seine virtuose Spielweise zu unterstreichen. 'Electric Ladyland' gilt als eines der besten Alben der Rockmusik und zeigt Hendrix' kreative Vision in voller Blüte. Die Kombination aus innovativen Effekten und seiner meisterhaften Gitarrentechnik machte das Album zu einem Meilenstein in der Musikgeschichte."
         },
@@ -1286,12 +1236,7 @@
       "medium": [
         {
           "question": "Welche Chartplatzierung erreichte das Album 'Electric Ladyland' von Jimi Hendrix in den US Billboard 200?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Album 'Electric Ladyland' von Jimi Hendrix wurde am 16. Oktober 1968 veröffentlicht und gilt als eines der bedeutendsten Werke der Rockmusik. Es erreichte in den USA die Spitzenposition der Billboard 200 und blieb für zwei Wochen auf Platz 1. 'Electric Ladyland' ist das dritte und letzte Studioalbum von Jimi Hendrix und enthält einige seiner bekanntesten Songs, darunter 'All Along the Watchtower' und 'Voodoo Child (Slight Return)'. Das Album ist bekannt für seine innovative Produktion und den kreativen Einsatz von Effekten, die Hendrix' virtuoses Gitarrenspiel unterstreichen. Trotz anfänglicher gemischter Kritiken hat es sich im Laufe der Jahre zu einem Klassiker entwickelt und wird oft als eines der besten Alben aller Zeiten angesehen. Jimi Hendrix, der als einer der größten Gitarristen der Musikgeschichte gilt, hinterließ mit diesem Album einen bleibenden Eindruck in der Rockmusik."
         },
@@ -1534,12 +1479,7 @@
         },
         {
           "question": "Welche Position erreichte das Album 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars' von David Bowie in den britischen Albumcharts?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 5",
           "trivia": "David Bowie veröffentlichte 1972 das wegweisende Album 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars', das nicht nur musikalisch, sondern auch kulturell einen enormen Einfluss hatte. Das Album erreichte in den britischen Albumcharts Platz 5 und festigte Bowies Status als einer der innovativsten Künstler seiner Zeit. Die Figur Ziggy Stardust, ein androgyner Rockstar, wurde zum Symbol für die Glam-Rock-Bewegung und beeinflusste Generationen von Musikern. Zu den bekanntesten Songs des Albums gehören 'Starman', 'Suffragette City' und 'Rock 'n' Roll Suicide'. Das Konzeptalbum erzählt die Geschichte von Ziggy, der als Botschafter der Erde zu den Sternen geschickt wird. Bowies einzigartige Mischung aus Rock, Theater und Sci-Fi machte das Album zu einem zeitlosen Klassiker, das bis heute viele Fans begeistert."
         }
@@ -1725,12 +1665,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Born to Run' von Bruce Springsteen in den US Billboard 200 Charts?",
-          "options": [
-            "Platz 1",
-            "Platz 3",
-            "Platz 5",
-            "Platz 10"
-          ],
+          "options": ["Platz 1", "Platz 3", "Platz 5", "Platz 10"],
           "correctAnswer": "Platz 3",
           "trivia": "Das Album 'Born to Run' von Bruce Springsteen wurde 1975 veröffentlicht und gilt als eines der bedeutendsten Rockalben der Musikgeschichte. Es erreichte in den US Billboard 200 Charts den dritten Platz und festigte Springsteens Status als wichtigen Musiker der Rock- und Folk-Szene. Die titelgebende Single 'Born to Run' wurde zu einem seiner bekanntesten Songs und handelt von dem Streben nach Freiheit und dem Wunsch, aus der Enge der Kleinstadt auszubrechen. Springsteen kombinierte in seinen Texten autobiografische Elemente mit universellen Themen, die viele seiner Hörer ansprechen. Das Album wurde für seine kraftvollen Melodien und die poetischen Texte hoch gelobt und hat bis heute einen großen Einfluss auf zahlreiche Künstler. 'Born to Run' wird oft als Meisterwerk angesehen und ist ein fester Bestandteil der Rockmusikgeschichte."
         }
@@ -1886,12 +1821,7 @@
       "hard": [
         {
           "question": "Welche Chartplatzierung erreichte das Album 'Tommy' von The Who in den USA nach seiner Veröffentlichung im Jahr 1969?",
-          "options": [
-            "Platz 1",
-            "Platz 4",
-            "Platz 8",
-            "Platz 10"
-          ],
+          "options": ["Platz 1", "Platz 4", "Platz 8", "Platz 10"],
           "correctAnswer": "Platz 4",
           "trivia": "Das Album 'Tommy' von The Who, das 1969 veröffentlicht wurde, gilt als eines der ersten Rockoper-Alben und hat die Musikwelt nachhaltig geprägt. Es erzählt die Geschichte eines taubstummen, blinden und stummen Jungen, der als 'Pinball Wizard' berühmt wird. In den USA erreichte 'Tommy' Platz 4 der Billboard 200 Charts, was für ein Konzeptalbum zu dieser Zeit eine beachtliche Leistung war. Die Single 'Pinball Wizard' wurde ein Hit und trug maßgeblich zum Erfolg des Albums bei. The Who, eine britische Rockband, wurde durch ihre energiegeladenen Auftritte und innovativen Musikstile bekannt. Das Album wird häufig als Meilenstein in der Geschichte des Rock angesehen und hat zahlreiche Künstler inspiriert. 'Tommy' wurde später auch für die Bühne und das Kino adaptiert, was seine kulturelle Relevanz weiter festigte."
         },
@@ -2021,12 +1951,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'The White Album' von The Beatles thematisiert die innere Zerrissenheit und die Suche nach Identität, und enthält dabei die wiederkehrende Zeile 'I’m so tired'?",
-          "options": [
-            "Blackbird",
-            "Revolution 9",
-            "Yer Blues",
-            "Julia"
-          ],
+          "options": ["Blackbird", "Revolution 9", "Yer Blues", "Julia"],
           "correctAnswer": "Yer Blues",
           "trivia": "The Beatles veröffentlichten 'The White Album' im Jahr 1968, ein Werk, das für seine stilistische Vielfalt und experimentellen Ansätze bekannt ist. 'Yer Blues' ist ein besonders kraftvoller Song, der die Verzweiflung und innere Zerrissenheit des Sängers thematisiert. Die Texte spiegeln eine tiefe Melancholie wider, während die Musik stark von Blues-Elementen geprägt ist. John Lennon, der Hauptsänger und Texter des Stücks, drückt in diesem Song seine Einsamkeit und den Kampf mit seiner eigenen Identität aus. Die wiederkehrende Zeile 'I’m so tired' verstärkt das Gefühl der Erschöpfung und Verzweiflung. Diese emotionale Tiefe macht 'Yer Blues' zu einem der bemerkenswertesten Lieder des Albums. 'The White Album' wird oft für seine experimentelle Herangehensweise an verschiedene Musikstile gelobt und hat die Musikgeschichte nachhaltig beeinflusst."
         }
@@ -2190,12 +2115,7 @@
       "medium": [
         {
           "question": "Welche spezielle Produktionstechnik wurde auf Aerosmiths Album 'Toys in the Attic' von 1975 eingesetzt, um den charakteristischen Klang der E-Gitarre in Songs wie 'Walk This Way' zu erzeugen?",
-          "options": [
-            "Overdubbing",
-            "Direct Injection",
-            "Reverb",
-            "Panning"
-          ],
+          "options": ["Overdubbing", "Direct Injection", "Reverb", "Panning"],
           "correctAnswer": "Overdubbing",
           "trivia": "Aerosmiths Album 'Toys in the Attic', das 1975 veröffentlicht wurde, ist bekannt für seinen innovativen Sound und seine eingängigen Melodien. Eine der Schlüsseltechniken, die in der Produktion verwendet wurde, ist das Overdubbing, bei dem mehrere Spuren von Instrumenten und Gesang übereinandergelegt werden, um einen volleren Klang zu erzielen. Insbesondere bei dem ikonischen Track 'Walk This Way' wurde diese Technik meisterhaft eingesetzt, um den kraftvollen Gitarrensound zu verstärken. Das Album markierte einen Wendepunkt in der Karriere von Aerosmith und trug dazu bei, ihren Ruf als eine der führenden Rockbands der 1970er Jahre zu festigen. Die Kombination aus Steven Tylers markantem Gesang und Joe Perrys virtuosem Gitarrenspiel wurde durch diese Produktionsmethoden noch verstärkt. 'Toys in the Attic' gilt bis heute als eines der einflussreichsten Rockalben und beeinflusste zahlreiche Musiker und Bands der kommenden Jahrzehnte."
         },
@@ -2290,12 +2210,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Machine Head' von Deep Purple in den deutschen Albumcharts?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Album 'Machine Head' von Deep Purple wurde 1972 veröffentlicht und gilt als eines der einflussreichsten Rockalben aller Zeiten. In Deutschland erreichte es sensationell den ersten Platz der Albumcharts und hielt sich dort mehrere Wochen. 'Machine Head' enthält einige der bekanntesten Songs der Band, darunter 'Smoke on the Water', der oft als einer der besten Rock-Songs aller Zeiten angesehen wird. Der Erfolg des Albums trug maßgeblich zur Popularität von Deep Purple in den 1970er Jahren bei. Die Band kombinierte klassische Rock-Elemente mit innovativen Techniken und prägte so den Hard Rock und Heavy Metal. 'Machine Head' wurde in Montreux, Schweiz, aufgenommen und erzählt die wahre Geschichte eines Brandes im Casino, der die Inspiration für 'Smoke on the Water' lieferte. Das Album wird noch heute als Meisterwerk angesehen und bleibt ein fester Bestandteil der Rockmusikgeschichte."
         }
@@ -2403,12 +2318,7 @@
         },
         {
           "question": "Welches Instrument spielt Allen Collins auf dem Album '(Pronounced ’Lĕh-’nérd ‘Skin-‘nérd)' von Lynyrd Skynyrd?",
-          "options": [
-            "E-Gitarre",
-            "Bassgitarre",
-            "Klavier",
-            "Schlagzeug"
-          ],
+          "options": ["E-Gitarre", "Bassgitarre", "Klavier", "Schlagzeug"],
           "correctAnswer": "E-Gitarre",
           "trivia": "Lynyrd Skynyrd veröffentlichte 1973 ihr Debütalbum '(Pronounced ’Lĕh-’nérd ‘Skin-‘nérd)', das schnell zu einem Klassiker des Southern Rock wurde. Allen Collins war einer der Hauptgitarristen der Band und spielte auf diesem Album E-Gitarre. Die markante Doppelt-Gitarren-Harmonie, die für den Sound von Lynyrd Skynyrd charakteristisch ist, wurde durch die Kombination von Collins und Gary Rossington geschaffen. Das Album enthält berühmte Songs wie 'Free Bird' und 'Sweet Home Alabama', die beide von der kraftvollen Instrumentierung und den einzigartigen Produktionstechniken profitieren. Die Band nutzte während der Aufnahmen verschiedene Mikrofonierungs- und Aufnahmeverfahren, um ihren unverwechselbaren Klang zu erzielen. '(Pronounced ’Lĕh-’nérd ‘Skin-‘nérd)' ist nicht nur ein Meilenstein in der Rockgeschichte, sondern hat auch Generationen von Musikern inspiriert."
         }
@@ -2629,12 +2539,7 @@
         },
         {
           "question": "Welche berühmte Musikrichtung, die stark von Blues und Jazz beeinflusst ist, hat die Allman Brothers Band für ihr Album 'At Fillmore East' inspiriert?",
-          "options": [
-            "Rock",
-            "Country",
-            "Folk",
-            "Reggae"
-          ],
+          "options": ["Rock", "Country", "Folk", "Reggae"],
           "correctAnswer": "Rock",
           "trivia": "Die Allman Brothers Band ist bekannt für ihren einzigartigen Sound, der Rock, Blues und Jazz kombiniert. Ihr Album 'At Fillmore East', das 1971 veröffentlicht wurde, gilt als eines der besten Live-Alben aller Zeiten. Die Band zog Inspiration aus verschiedenen Musikrichtungen, insbesondere aus dem Southern Rock, einer Subkultur des Rock, die in den Südstaaten der USA entstand. Die Songs auf diesem Album, wie 'Whipping Post' und 'In Memory of Elizabeth Reed', zeigen die virtuosen Fähigkeiten der Bandmitglieder und ihre Fähigkeit, improvisierte Soli zu spielen. Die Allman Brothers Band hat viele andere Künstler beeinflusst und gilt als eine der wichtigsten Bands des Genres. Ihr Stil kombiniert eingängige Melodien mit komplexen Harmonien, was ihnen eine besondere Identität in der Rockmusik verleiht."
         }
@@ -2801,12 +2706,7 @@
         },
         {
           "question": "Welcher Platz erreichte das Album 'London Calling' von The Clash in den britischen Albumcharts im Jahr 1979?",
-          "options": [
-            "1. Platz",
-            "5. Platz",
-            "9. Platz",
-            "12. Platz"
-          ],
+          "options": ["1. Platz", "5. Platz", "9. Platz", "12. Platz"],
           "correctAnswer": "9. Platz",
           "trivia": "Das Album 'London Calling' von The Clash wurde 1979 veröffentlicht und gilt als eines der einflussreichsten Alben der Rockgeschichte. In den britischen Albumcharts erreichte es den 9. Platz, was für ein Punk-Album zu dieser Zeit eine bemerkenswerte Leistung war. Der Titeltrack 'London Calling' ist besonders bekannt und wird oft als Hymne der Punk-Bewegung angesehen. Die Mischung aus Punk, Reggae und Rockabilly in diesem Album setzte neue Maßstäbe und beeinflusste zahlreiche Künstler. 'London Calling' wurde sowohl von Kritikern als auch von Fans gefeiert und wird oft in Bestenlisten der Alben aller Zeiten geführt. The Clash waren bekannt für ihre sozialkritischen Texte und ihren politischen Aktivismus, was sich auch in den Themen des Albums widerspiegelt. Trotz der anfänglichen Schwierigkeiten in den Charts wurde 'London Calling' im Laufe der Jahre zu einem Kultklassiker."
         },
@@ -3172,12 +3072,7 @@
       "easy": [
         {
           "question": "Welches Jahr war für das Album 'Eliminator' von ZZ Top besonders bedeutend, da es eine große kommerzielle Erfolge und positive Kritiken erhielt?",
-          "options": [
-            "1981",
-            "1983",
-            "1985",
-            "1990"
-          ],
+          "options": ["1981", "1983", "1985", "1990"],
           "correctAnswer": "1983",
           "trivia": "Das Album 'Eliminator' von ZZ Top wurde im Jahr 1983 veröffentlicht und gilt als eines der erfolgreichsten Alben der Band. Es kombinierte Rock-Elemente mit Blues und neuen Technologien, einschließlich Synthesizern und Drum-Machines, was zu einem frischen Klang führte. Die Single 'Gimme All Your Lovin'' wurde ein Hit und trug zur Popularität des Albums bei. Kritiker lobten die eingängigen Melodien und den charakteristischen Stil von ZZ Top, der sich durch die markanten Gitarrenriffs auszeichnet. 'Eliminator' erreichte hohe Chartplatzierungen und wurde mehrfach mit Platin ausgezeichnet. Die ikonischen Musikvideos, die oft mit dem markanten Auto aus dem Albumcover verbunden waren, trugen ebenfalls zur positiven Rezeption bei. Insgesamt festigte 'Eliminator' den Status von ZZ Top als eine der bedeutendsten Rockbands der 1980er Jahre."
         },
@@ -3194,12 +3089,7 @@
         },
         {
           "question": "Mit welchem berühmten Künstler arbeiteten ZZ Top beim Song 'Legs' aus dem Album 'Eliminator' zusammen?",
-          "options": [
-            "David Bowie",
-            "Billy Gibbons",
-            "Prince",
-            "Mick Jagger"
-          ],
+          "options": ["David Bowie", "Billy Gibbons", "Prince", "Mick Jagger"],
           "correctAnswer": "David Bowie",
           "trivia": "Das Album 'Eliminator' von ZZ Top wurde 1983 veröffentlicht und ist eines ihrer erfolgreichsten Werke. Es enthält zahlreiche Hits, darunter 'Gimme All Your Lovin'' und 'Legs'. Der Song 'Legs' erlangte große Popularität und wurde oft im Radio gespielt. ZZ Top sind bekannt für ihren charakteristischen Blues-Rock-Sound und ihre ikonischen Bärte. Die Band besteht aus Billy Gibbons, Dusty Hill und Frank Beard. Die Zusammenarbeit mit David Bowie, einem der größten Rockstars der Geschichte, half, den Song und das Album weiter zu fördern. 'Eliminator' gilt als Meilenstein in der Musikgeschichte und zeigt, wie Rockmusik in den 1980er Jahren neue Höhen erreichte."
         }
@@ -3207,12 +3097,7 @@
       "medium": [
         {
           "question": "Welcher bekannte Musikproduzent arbeitete mit ZZ Top an ihrem erfolgreichen Album 'Eliminator', das 1983 veröffentlicht wurde?",
-          "options": [
-            "T-Bone Burnett",
-            "Glyn Johns",
-            "Mutt Lange",
-            "Bill Ham"
-          ],
+          "options": ["T-Bone Burnett", "Glyn Johns", "Mutt Lange", "Bill Ham"],
           "correctAnswer": "Bill Ham",
           "trivia": "ZZ Top ist eine amerikanische Rockband, die 1969 in Houston, Texas, gegründet wurde. Ihr Album 'Eliminator' aus dem Jahr 1983 gilt als eines der einflussreichsten Alben der 1980er Jahre und vermischt Blues-Rock mit neuen Technologien wie Synthesizern und Drum-Machines. Bill Ham, der Produzent des Albums, war ein langjähriger Partner der Band und trug maßgeblich zu ihrem charakteristischen Sound bei. 'Eliminator' enthält Hits wie 'Gimme All Your Lovin'' und 'Legs', die beide die Charts stürmten und die Popularität der Band weiter steigerten. Das Album wurde für seinen einzigartigen Stil und seine eingängigen Melodien hoch gelobt. Es half ZZ Top, eine neue Generation von Fans zu gewinnen und ihre Position als eine der bekanntesten Rockbands zu festigen. Die Zusammenarbeit mit Bill Ham war entscheidend für den Erfolg des Albums und prägte den Sound der Band für die kommenden Jahre."
         },
@@ -3296,12 +3181,7 @@
         },
         {
           "question": "Welches berühmte Lied von Rush ist auf dem Album 'Moving Pictures' zu finden und wurde ein Hit in den 1980er Jahren?",
-          "options": [
-            "Tom Sawyer",
-            "Limelight",
-            "Red Barchetta",
-            "YYZ"
-          ],
+          "options": ["Tom Sawyer", "Limelight", "Red Barchetta", "YYZ"],
           "correctAnswer": "Tom Sawyer",
           "trivia": "Rush ist eine kanadische Rockband, die 1968 gegründet wurde und für ihren progressiven Rockstil bekannt ist. Das Album 'Moving Pictures' wurde 1981 veröffentlicht und gilt als eines der besten Alben der Band. Der Song 'Tom Sawyer', der auf diesem Album zu finden ist, wurde ein großer Hit und ist bis heute ein Klassiker. Die Musik von Rush zeichnet sich durch komplexe Songstrukturen und tiefgründige Texte aus, oft inspiriert von Literatur und Philosophie. 'Moving Pictures' enthält auch den Song 'Limelight', der die Herausforderungen des Ruhms thematisiert. Das Album erreichte hohe Chartplatzierungen und wird von vielen Fans und Kritikern als Meisterwerk angesehen. Rush hat mit ihrem einzigartigen Sound und ihren virtuosen Fähigkeiten einen bleibenden Eindruck in der Rockmusik hinterlassen."
         },
@@ -3331,12 +3211,7 @@
         },
         {
           "question": "Welche bekannte Produzenten-Kollaboration war für die Aufnahme des Albums 'Moving Pictures' von Rush im Jahr 1981 verantwortlich?",
-          "options": [
-            "Geddy Lee",
-            "Terry Brown",
-            "Bob Ezrin",
-            "Neil Peart"
-          ],
+          "options": ["Geddy Lee", "Terry Brown", "Bob Ezrin", "Neil Peart"],
           "correctAnswer": "Terry Brown",
           "trivia": "Rush, die kanadische Rockband, veröffentlichte 1981 ihr ikonisches Album 'Moving Pictures', das als eines ihrer besten Werke gilt. Für die Produktion des Albums arbeitete die Band erneut mit Terry Brown zusammen, der bereits an früheren Alben mitgewirkt hatte. Terry Brown war maßgeblich daran beteiligt, den charakteristischen Sound von Rush zu formen, der eine Mischung aus Progressive Rock und Hard Rock ist. 'Moving Pictures' enthält einige der bekanntesten Songs der Band, darunter 'Tom Sawyer' und 'Limelight', die beide große kommerzielle Erfolge wurden. Das Album wurde nicht nur für seine musikalische Komplexität, sondern auch für seine tiefgründigen Texte geschätzt. Die Zusammenarbeit mit Terry Brown trug entscheidend dazu bei, dass 'Moving Pictures' sowohl bei Kritikern als auch bei Fans große Anerkennung fand. Es gilt als Meilenstein in der Rockgeschichte und beeinflusste zahlreiche Musiker und Bands in den folgenden Jahrzehnten."
         },
@@ -3737,34 +3612,19 @@
       "easy": [
         {
           "question": "Welches berühmte Lied von Black Sabbath aus dem Album 'Paranoid' spielt eine zentrale Rolle in ihren Live-Auftritten?",
-          "options": [
-            "Iron Man",
-            "War Pigs",
-            "Paranoid",
-            "Fairies Wear Boots"
-          ],
+          "options": ["Iron Man", "War Pigs", "Paranoid", "Fairies Wear Boots"],
           "correctAnswer": "Paranoid",
           "trivia": "Black Sabbath, eine der einflussreichsten Bands der Heavy-Metal-Geschichte, veröffentlichte 1970 das Album 'Paranoid', das als eines ihrer besten Werke gilt. Der Titeltrack 'Paranoid' ist besonders bekannt und wird oft als das Markenzeichen der Band angesehen. Bei Live-Auftritten von Black Sabbath ist 'Paranoid' ein fester Bestandteil des Sets und begeistert die Fans seit Jahrzehnten. Das Lied hat einen eingängigen Refrain und eine kurze, prägnante Struktur, die es ideal für Konzerte macht. 'Paranoid' wurde zum Symbol für die gesamte Metal-Musikszene und hat Generationen von Musikern inspiriert. Black Sabbath tourte nach der Veröffentlichung des Albums ausgiebig und spielte in vielen großen Städten weltweit. Der Einfluss von 'Paranoid' ist so stark, dass es auch heute noch in vielen Live-Performances zu hören ist."
         },
         {
           "question": "Welche besondere Produktionstechnik wurde auf dem Album 'Paranoid' von Black Sabbath, das im Jahr 1970 veröffentlicht wurde, verwendet, um den charakteristischen Sound der Gitarre zu erzeugen?",
-          "options": [
-            "Overdrive",
-            "Reverb",
-            "Chorus",
-            "Flanger"
-          ],
+          "options": ["Overdrive", "Reverb", "Chorus", "Flanger"],
           "correctAnswer": "Overdrive",
           "trivia": "Black Sabbath, eine der einflussreichsten Bands des Heavy Metal, veröffentlichte 1970 das Album 'Paranoid', das als Meilenstein des Genres gilt. Eine der herausragenden Eigenschaften des Albums ist der kraftvolle und verzerrte Gitarrensound von Tony Iommi. Um diesen charakteristischen Klang zu erzielen, wurde die Overdrive-Technik eingesetzt, die die Lautstärke und Verzerrung der Gitarre erhöht und so einen druckvollen Klang erzeugt. Die Kombination aus Iommis heavy Riffs und der markanten Rhythmusarbeit von Geezer Butler und Bill Ward trug maßgeblich zum Erfolg des Albums bei. Der Titeltrack 'Paranoid' und andere Songs wie 'Iron Man' und 'War Pigs' zeigen diese einzigartige Instrumentierung. Das Album wurde nicht nur wegen seiner Musik, sondern auch wegen seiner thematischen Tiefe und sozialkritischen Texte gefeiert. 'Paranoid' bleibt bis heute ein zeitloses Werk und ein Paradebeispiel für den Heavy Metal Sound."
         },
         {
           "question": "Welcher berühmte Produzent arbeitete mit Black Sabbath an ihrem Album 'Paranoid', das 1970 veröffentlicht wurde?",
-          "options": [
-            "Rick Rubin",
-            "George Martin",
-            "Roger Bain",
-            "Brian Eno"
-          ],
+          "options": ["Rick Rubin", "George Martin", "Roger Bain", "Brian Eno"],
           "correctAnswer": "Roger Bain",
           "trivia": "Black Sabbath, die Pioniere des Heavy Metal, veröffentlichten 1970 ihr ikonisches Album 'Paranoid'. Der Produzent Roger Bain spielte eine entscheidende Rolle in der Produktion dieses Werkes und half dabei, den charakteristischen Sound der Band zu formen. 'Paranoid' enthält einige der bekanntesten Songs von Black Sabbath, darunter 'Iron Man' und 'War Pigs'. Das Album wurde schnell zu einem Klassiker und trug erheblich zur Popularität des Genres bei. Roger Bain arbeitete auch an den ersten beiden Alben der Band, was zur Entwicklung ihres Sounds beitrug. 'Paranoid' gilt als eines der besten Heavy-Metal-Alben aller Zeiten und beeinflusste zahlreiche Musiker und Bands weltweit. Die Kombination aus Bains Produktion und der einzigartigen Musik von Black Sabbath machte 'Paranoid' zu einem Meilenstein in der Musikgeschichte."
         }
@@ -3807,12 +3667,7 @@
       "hard": [
         {
           "question": "Welcher Song aus dem Album 'Paranoid' von Black Sabbath wurde besonders häufig in der Popkultur verwendet und gilt als einer der einflussreichsten Rocksongs aller Zeiten?",
-          "options": [
-            "Iron Man",
-            "War Pigs",
-            "Paranoid",
-            "Fairies Wear Boots"
-          ],
+          "options": ["Iron Man", "War Pigs", "Paranoid", "Fairies Wear Boots"],
           "correctAnswer": "Paranoid",
           "trivia": "Der Song 'Paranoid' von Black Sabbath, veröffentlicht 1970 auf dem gleichnamigen Album, ist nicht nur eines der bekanntesten Lieder der Band, sondern hat auch weitreichenden Einfluss auf die Rock- und Metal-Szene. Die eingängige Melodie und der prägnante Text spiegeln den Geist der damaligen Zeit wider und haben Generationen von Musikern inspiriert. Aufgrund seiner Popularität wurde der Song in zahlreichen Filmen, Fernsehsendungen und Werbespots verwendet, was seine Bedeutung in der Popkultur unterstreicht. 'Paranoid' wurde oft als Hymne für die Jugendbewegung der 70er Jahre betrachtet und half dabei, das Genre des Heavy Metal zu definieren. Die Kombination aus kraftvollen Gitarrenriffs und der markanten Stimme von Ozzy Osbourne machte den Song zeitlos. Darüber hinaus ist 'Paranoid' ein fester Bestandteil der Setlists bei Live-Auftritten von Black Sabbath und wird häufig als Abschlussnummer gespielt. Diese anhaltende Relevanz zeigt, wie tief der Einfluss dieses Tracks in der Musikgeschichte verwurzelt ist."
         },
@@ -3963,12 +3818,7 @@
       "easy": [
         {
           "question": "Welches Jahr wurde das Album 'Sheer Heart Attack' von Queen veröffentlicht, das von Kritikern sehr positiv aufgenommen wurde?",
-          "options": [
-            "1972",
-            "1974",
-            "1976",
-            "1978"
-          ],
+          "options": ["1972", "1974", "1976", "1978"],
           "correctAnswer": "1974",
           "trivia": "Das Album 'Sheer Heart Attack' von Queen wurde 1974 veröffentlicht und markierte einen wichtigen Moment in der Karriere der Band. Es wurde von Kritikern für seine musikalische Vielfalt und die innovativen Arrangements gelobt. Besonders hervorzuheben ist der Hit 'Killer Queen', der die ersten großen Erfolge der Band in den USA einleitete und ihren internationalen Ruhm festigte. Die Kombination aus Rock, Glam und Opern-Elementen machte das Album zu einem Meilenstein in der Musikgeschichte. Queen, unter der Leitung des charismatischen Sängers Freddie Mercury, bewies mit diesem Werk, dass sie in der Lage waren, verschiedene Musikstile zu kombinieren. 'Sheer Heart Attack' wird oft als eines der besten Alben der 70er Jahre angesehen und hat bis heute einen bleibenden Einfluss auf die Rockmusik. Die positive Rezeption des Albums half Queen, sich als eine der führenden Bands ihrer Zeit zu etablieren."
         },
@@ -3985,12 +3835,7 @@
         },
         {
           "question": "Welches berühmte Musiklabel arbeitete mit der Band Queen an der Produktion ihres Albums 'Sheer Heart Attack'?",
-          "options": [
-            "EMI",
-            "Columbia",
-            "RCA",
-            "Warner Bros."
-          ],
+          "options": ["EMI", "Columbia", "RCA", "Warner Bros."],
           "correctAnswer": "EMI",
           "trivia": "Queen veröffentlichte ihr drittes Studioalbum 'Sheer Heart Attack' im Jahr 1974 und arbeitete dabei eng mit dem Musiklabel EMI zusammen. Das Album wurde von Roy Thomas Baker produziert, der eine entscheidende Rolle im charakteristischen Klang der Band spielte. 'Sheer Heart Attack' enthält einige der bekanntesten Songs von Queen, darunter 'Killer Queen' und 'Now I'm Here'. Die Zusammenarbeit mit EMI half der Band, ihre Musikalität und ihren einzigartigen Stil weiterzuentwickeln. Die Produktion des Albums war ein wichtiger Schritt in der Karriere von Queen und trug zu ihrem internationalen Erfolg bei. Das Album etablierte die Band als eine der innovativsten Rockgruppen der 70er Jahre. 'Sheer Heart Attack' gilt als Meilenstein in der Rockgeschichte und zeigt die Vielseitigkeit und Kreativität von Queen."
         }
@@ -4609,12 +4454,7 @@
         },
         {
           "question": "Welches Musikvideo, das von The Kinks für das Album 'The Kinks Are the Village Green Preservation Society' aus dem Jahr 1968 produziert wurde, zeigt eine nostalgische Darstellung des ländlichen Lebens in England und thematisiert die Veränderung der Gesellschaft?",
-          "options": [
-            "Village Green",
-            "Picture Book",
-            "Days",
-            "Animal Farm"
-          ],
+          "options": ["Village Green", "Picture Book", "Days", "Animal Farm"],
           "correctAnswer": "Village Green",
           "trivia": "The Kinks sind eine der einflussreichsten britischen Rockbands, die in den 1960er Jahren gegründet wurde. Ihr Album 'The Kinks Are the Village Green Preservation Society' gilt als Meisterwerk und spiegelt die Sehnsucht nach einem idyllischen England wider. Das Musikvideo zu 'Village Green' zeigt die ländliche Idylle und die Herausforderungen, die mit der Modernisierung einhergehen. In diesem Song wird die Kluft zwischen der traditionellen Lebensweise und der aufkommenden Konsumgesellschaft thematisiert. Die Band verband in ihren visuellen Inhalten oft Humor mit tiefgründiger sozialer Kritik. 'The Kinks Are the Village Green Preservation Society' wurde von Kritikern gelobt, obwohl es zu seiner Zeit kommerziell nicht so erfolgreich war. Heute gilt das Album als eines der besten britischen Alben aller Zeiten und hat einen bedeutenden Einfluss auf die Pop- und Rockmusik hinterlassen."
         },
@@ -5128,12 +4968,7 @@
       "medium": [
         {
           "question": "Welcher berühmte Musiker war an der Produktion des Albums 'Every Picture Tells a Story' von Rod Stewart beteiligt, das 1971 veröffentlicht wurde?",
-          "options": [
-            "Jeff Beck",
-            "David Bowie",
-            "Ronnie Wood",
-            "Mick Jagger"
-          ],
+          "options": ["Jeff Beck", "David Bowie", "Ronnie Wood", "Mick Jagger"],
           "correctAnswer": "Ronnie Wood",
           "trivia": "Rod Stewart veröffentlichte 1971 das Album 'Every Picture Tells a Story', das als eines seiner besten Werke gilt und zahlreiche Hits enthält. Besonders hervorzuheben ist der Song 'Maggie May', der Stewart internationale Anerkennung einbrachte. Bei der Produktion des Albums arbeitete Stewart eng mit Ronnie Wood zusammen, der nicht nur als Gitarrist, sondern auch als Songwriter einen bedeutenden Einfluss hatte. Wood, der später Mitglied der Rolling Stones wurde, trug zu dem charakteristischen Sound des Albums bei, der eine Mischung aus Rock, Folk und Blues darstellt. Das Album erreichte hohe Chartplatzierungen und festigte Stewarts Status als einer der führenden Musiker der 1970er Jahre. 'Every Picture Tells a Story' gilt als wegweisend für Stewarts Karriere und wird oft als Klassiker bezeichnet. Die Zusammenarbeit mit Ronnie Wood wird als einer der Schlüsselfaktoren für den Erfolg des Albums angesehen."
         },
@@ -5241,12 +5076,7 @@
       "medium": [
         {
           "question": "In welchem Jahr traten die Rolling Stones erstmals mit Songs aus ihrem Album 'Beggars Banquet' live auf?",
-          "options": [
-            "1967",
-            "1968",
-            "1969",
-            "1970"
-          ],
+          "options": ["1967", "1968", "1969", "1970"],
           "correctAnswer": "1969",
           "trivia": "Die Rolling Stones veröffentlichten ihr ikonisches Album 'Beggars Banquet' im Jahr 1968. Die Tour zur Unterstützung des Albums begann tatsächlich ein Jahr später, im Jahr 1969. Zu den bekanntesten Songs des Albums gehören 'Street Fighting Man' und 'Sympathy for the Devil', die beide schnell zu Live-Klassikern wurden. Die Band spielte die Songs in verschiedenen Städten und Festivals, was die Popularität des Albums weiter steigerte. Ein bemerkenswerter Auftritt fand im Jahr 1969 beim Altamont Free Concert statt, das als eines der denkwürdigsten und umstrittensten Konzerte in der Rockgeschichte gilt. 'Beggars Banquet' wird oft als Wendepunkt in der Karriere der Rolling Stones angesehen, da es ihren Übergang zu einem raueren, authentischeren Sound markiert. Die Live-Performances der Rolling Stones sind bekannt für ihre Energie und die Interaktion mit dem Publikum, was sicherlich auch die Songs von 'Beggars Banquet' zu einem Erlebnis machte."
         },
@@ -5556,12 +5386,7 @@
         },
         {
           "question": "Welches hohe Chartplatzierung erreichte das Album 'Wish You Were Here' von Pink Floyd in Deutschland nach seiner Veröffentlichung im Jahr 1975?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Album 'Wish You Were Here' von Pink Floyd, das 1975 veröffentlicht wurde, ist eines der bekanntesten Werke der Band. Es erreichte in mehreren Ländern, einschließlich Deutschland, hohe Chartplatzierungen. In Deutschland landete das Album auf Platz 1 der Albumcharts und blieb dort für mehrere Wochen. Die erste Singleauskopplung, 'Shine On You Crazy Diamond', ist eine Hommage an den ehemaligen Bandkollegen Syd Barrett. Das Album thematisiert unter anderem das Gefühl der Entfremdung und die kommerziellen Aspekte der Musikindustrie. 'Wish You Were Here' gilt als eines der besten Alben aller Zeiten und hat eine große Fangemeinde. Pink Floyd ist bekannt für ihre innovativen Klänge und tiefgründigen Texte, was sich auch in diesem Album widerspiegelt."
         },
@@ -5782,12 +5607,7 @@
         },
         {
           "question": "Welches Instrument dominierte in vielen Songs des Albums 'Bad Company' von Bad Company, das im Jahr 1974 veröffentlicht wurde?",
-          "options": [
-            "E-Gitarre",
-            "Keyboard",
-            "Schlagzeug",
-            "Bass"
-          ],
+          "options": ["E-Gitarre", "Keyboard", "Schlagzeug", "Bass"],
           "correctAnswer": "E-Gitarre",
           "trivia": "Das Album 'Bad Company' von Bad Company, das 1974 veröffentlicht wurde, ist bekannt für seinen kraftvollen Rocksound, der stark von der E-Gitarre geprägt ist. Die Band, gegründet von Paul Rodgers und Simon Kirke, kombinierte Elemente des Hard Rock mit bluesigen Einflüssen. In vielen Songs des Albums spielt die E-Gitarre eine zentrale Rolle, insbesondere in Hits wie 'Can't Get Enough' und 'Bad Company'. Die Produktion des Albums wurde von dem renommierten Produzenten Peter Grant überwacht, der auch für seine Arbeit mit Led Zeppelin bekannt ist. Die markanten Gitarrenriffs und die prägnante Melodieführung tragen zur zeitlosen Anziehungskraft des Albums bei. 'Bad Company' gilt als ein wegweisendes Album in der Rockmusik und festigte den Ruf der Band als eine der führenden Gruppen ihrer Zeit."
         },
@@ -5817,12 +5637,7 @@
         },
         {
           "question": "Welches Musikinstrument spielt Mick Ralphs, der Gitarrist von Bad Company, im Titelsong des Albums 'Bad Company'?",
-          "options": [
-            "E-Gitarre",
-            "Akustikgitarre",
-            "Keyboard",
-            "Bassgitarre"
-          ],
+          "options": ["E-Gitarre", "Akustikgitarre", "Keyboard", "Bassgitarre"],
           "correctAnswer": "E-Gitarre",
           "trivia": "Bad Company ist eine britische Rockband, die 1973 gegründet wurde und mit ihrem selbstbetitelten Debütalbum 'Bad Company' im Jahr 1974 große Erfolge feierte. Der Titelsong des Albums, 'Bad Company', wird von Mick Ralphs an der E-Gitarre dominiert, dessen markante Riffs und Melodien zum charakteristischen Sound der Band beitragen. Die Band kombinierte Elemente aus Hard Rock und Blues, was sie von anderen Gruppen der Zeit abhob. Der Gesang von Paul Rodgers, der als einer der besten Rock-Sänger gilt, verleiht den Songs eine besondere Tiefe und Emotion. 'Bad Company' wurde ein Klassiker und ist bis heute ein beliebter Song im Rock-Genre. Die Kombination aus kraftvollen Gitarrenriffs und eingängigen Melodien machte das Album zu einem Meilenstein in der Rockgeschichte."
         },
@@ -5884,12 +5699,7 @@
       "easy": [
         {
           "question": "Welcher berühmte Produzent arbeitete an dem Album 'Synchronicity' von The Police?",
-          "options": [
-            "Glyn Johns",
-            "Bob Rock",
-            "Hugh Padgham",
-            "Phil Collins"
-          ],
+          "options": ["Glyn Johns", "Bob Rock", "Hugh Padgham", "Phil Collins"],
           "correctAnswer": "Hugh Padgham",
           "trivia": "The Police, eine der bekanntesten Rockbands der 1980er Jahre, veröffentlichten 1983 ihr ikonisches Album 'Synchronicity'. Dieses Album wurde von Hugh Padgham produziert, der für seinen innovativen Sound bekannt ist und auch mit anderen berühmten Künstlern wie Genesis und Phil Collins zusammengearbeitet hat. 'Synchronicity' enthält einige der größten Hits der Band, darunter den weltbekannten Song 'Every Breath You Take'. Die Zusammenarbeit mit Padgham half, den charakteristischen Klang des Albums zu formen, der Elemente aus Rock, Reggae und Pop vereint. 'Synchronicity' war ein enormer kommerzieller Erfolg und erreichte in zahlreichen Ländern die Spitze der Charts. Die Band experimentierte während der Produktion mit verschiedenen Musikstilen und klanglichen Effekten, was zu einem einzigartigen Hörerlebnis führte. Das Album gilt bis heute als eines der besten Werke der Band und hat einen bleibenden Einfluss auf die Musikszene hinterlassen."
         },
@@ -6145,12 +5955,7 @@
       "medium": [
         {
           "question": "Welcher berühmte Songwriter war der Hauptautor des Titelsongs 'Mr. Tambourine Man', der auf dem gleichnamigen Album von The Byrds aus dem Jahr 1965 zu finden ist?",
-          "options": [
-            "Bob Dylan",
-            "Paul Simon",
-            "John Lennon",
-            "Neil Young"
-          ],
+          "options": ["Bob Dylan", "Paul Simon", "John Lennon", "Neil Young"],
           "correctAnswer": "Bob Dylan",
           "trivia": "The Byrds veröffentlichten 1965 ihr ikonisches Album 'Mr. Tambourine Man', das als eines der wegweisendsten Werke der Folkrock-Bewegung gilt. Der Titelsong, 'Mr. Tambourine Man', wurde von Bob Dylan geschrieben und ist als seine Komposition sehr bekannt. Die Byrds interpretierten Dylans Lied in einem charakteristischen, harmonischen Stil, der ihnen half, in der Musikszene der 60er Jahre hervorzuheben. Die Band, bestehend aus Roger McGuinn, Gene Clark, David Crosby, Chris Hillman und Michael Clarke, kombinierte Folk-Elemente mit Rock und schuf so einen einzigartigen Sound. Das Album erreichte große kommerzielle Erfolge und beeinflusste zahlreiche Musiker und Bands. Neben dem Titelsong enthält das Album auch weitere bemerkenswerte Tracks, die den Einfluss der Byrds auf die Rockmusik unterstreichen. 'Mr. Tambourine Man' wird oft als einer der besten Songs aller Zeiten angesehen."
         },
@@ -6167,12 +5972,7 @@
         },
         {
           "question": "In welchem Jahr traten The Byrds erstmals mit ihrem Album 'Mr. Tambourine Man' in Europa auf?",
-          "options": [
-            "1964",
-            "1965",
-            "1966",
-            "1967"
-          ],
+          "options": ["1964", "1965", "1966", "1967"],
           "correctAnswer": "1965",
           "trivia": "The Byrds, eine einflussreiche Folk-Rock-Band, veröffentlichten ihr Debütalbum 'Mr. Tambourine Man' im Jahr 1965. Das Album enthält die ikonische Titelnummer, die von Bob Dylan geschrieben wurde, und half, den Folk-Rock-Sound zu definieren. Im selben Jahr, nach dem Erfolg des Albums, begaben sich The Byrds auf ihre erste Tournee in Europa. Diese Tour trug dazu bei, ihre Popularität weltweit zu steigern. Die Band war bekannt für ihre harmonischen Gesangseinlagen und den innovativen Einsatz von elektrischer Gitarre. Während der Tour spielten sie nicht nur in großen Städten, sondern auch in kleineren Clubs, was ihnen eine treue Fangemeinde sicherte. Die Verbindung zwischen ihrem Album 'Mr. Tambourine Man' und den Live-Auftritten war entscheidend für ihren frühen Erfolg."
         }
@@ -6234,23 +6034,13 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Aja' von Steely Dan in den US Billboard 200 Charts?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 3",
           "trivia": "Das Album 'Aja' von Steely Dan wurde 1977 veröffentlicht und gilt als eines der Meisterwerke der Band. Es erreichte in den US Billboard 200 Charts den 3. Platz und blieb insgesamt 50 Wochen in den Charts. Die Mischung aus Jazz, Rock und Pop, die in diesem Album zu finden ist, wurde von Kritikern hochgelobt. Besondere Aufmerksamkeit erhielt der Song 'Peg', der ebenfalls auf 'Aja' zu finden ist und ein großer Hit wurde. Steely Dan, gegründet von Walter Becker und Donald Fagen, kombinierte komplexe Melodien mit cleveren Texten. Das Album wurde 1978 mit dem Grammy Award für das beste Pop-Performance-Duo ausgezeichnet. 'Aja' bleibt eines der einflussreichsten Alben der 70er Jahre und hat viele Künstler inspiriert."
         },
         {
           "question": "Welcher Song aus dem Album 'Aja' von Steely Dan wurde mit einem Musikvideo versehen, das die ästhetische Qualität der 1970er Jahre widerspiegelt?",
-          "options": [
-            "Deacon Blues",
-            "Peg",
-            "Black Cow",
-            "Josie"
-          ],
+          "options": ["Deacon Blues", "Peg", "Black Cow", "Josie"],
           "correctAnswer": "Peg",
           "trivia": "Steely Dan ist bekannt für ihren einzigartigen Sound, der Elemente aus Rock, Jazz und Pop kombiniert. Ihr Album 'Aja', das 1977 veröffentlicht wurde, gilt als eines der Meisterwerke der Band. Der Song 'Peg' aus diesem Album wurde mit einem Musikvideo versehen, das die visuelle Ästhetik der 1970er Jahre einfängt. Das Video zeigt eine Mischung aus stilisierten Bildern und einer lebendigen Farbpalette, die die Atmosphäre der Musik unterstreicht. 'Aja' selbst enthält komplexe Arrangements und beeindruckende Instrumentalleistungen, die typisch für den Sound von Steely Dan sind. Die Band, gegründet von Donald Fagen und Walter Becker, hat einen großen Einfluss auf die Musikszene und ist für ihre tiefgründigen Texte bekannt. 'Peg' ist nicht nur ein Hit, sondern auch ein Beispiel für die innovative Herangehensweise der Band an Musikvideos."
         }
@@ -6293,12 +6083,7 @@
       "hard": [
         {
           "question": "Welcher Platz wurde dem Album 'Aja' von Steely Dan in den Billboard 200 Charts in den USA im Jahr 1977 zugewiesen?",
-          "options": [
-            "Platz 1",
-            "Platz 3",
-            "Platz 5",
-            "Platz 10"
-          ],
+          "options": ["Platz 1", "Platz 3", "Platz 5", "Platz 10"],
           "correctAnswer": "Platz 3",
           "trivia": "Steely Dan, ein amerikanisches Jazz-Rock-Duo, veröffentlichte 1977 das Album 'Aja', das als eines ihrer Meisterwerke gilt. 'Aja' erreichte in den Billboard 200 Charts den dritten Platz und blieb dort für insgesamt 16 Wochen. Das Album ist bekannt für seine komplexe Musikstruktur und die hochwertigen Produktionen, die sich stark von der typischen Rockmusik jener Zeit abheben. Ein besonderes Merkmal von 'Aja' sind die vielschichtigen Arrangements, die häufig Jazz-Elemente integrieren. Der Song 'Peg' aus diesem Album wurde ebenfalls ein Hit und brachte Steely Dan eine Grammy-Nominierung ein. 'Aja' wurde von Kritikern hoch gelobt und wird oft als eines der besten Alben aller Zeiten angesehen. Die Kombination aus raffinierter Lyrik und musikalischer Virtuosität hat Steely Dan eine treue Anhängerschaft eingebracht."
         },
@@ -6336,23 +6121,13 @@
       "easy": [
         {
           "question": "Mit welchem berühmten Künstler arbeitet Dire Straits auf dem Album 'Brothers in Arms' zusammen?",
-          "options": [
-            "Eric Clapton",
-            "Sting",
-            "David Bowie",
-            "Paul McCartney"
-          ],
+          "options": ["Eric Clapton", "Sting", "David Bowie", "Paul McCartney"],
           "correctAnswer": "Sting",
           "trivia": "Das Album 'Brothers in Arms' wurde 1985 von der britischen Rockband Dire Straits veröffentlicht und gilt als eines ihrer bekanntesten Werke. Ein herausragendes Merkmal des Albums ist die Zusammenarbeit mit dem ehemaligen Police-Sänger Sting, der im Song 'Money for Nothing' mit seiner markanten Stimme zu hören ist. 'Brothers in Arms' war ein kommerzieller Erfolg und erreichte in vielen Ländern hohe Chartplatzierungen. Der Track 'Money for Nothing' wurde besonders populär und thematisiert die Perspektive von Arbeitern, die Musiker bewundern. Die beeindruckende Gitarrenarbeit von Mark Knopfler und der eingängige Refrain machten das Lied zu einem Klassiker der 80er Jahre. Das Album selbst ist auch für seinen innovativen Einsatz von digitalen Technologien in der Musikproduktion bekannt. 'Brothers in Arms' bleibt bis heute ein zeitloses Werk der Rockmusik."
         },
         {
           "question": "In welchem Jahr trat die Band Dire Straits erstmals auf ihrer Tour zum Album 'Brothers in Arms' auf?",
-          "options": [
-            "1982",
-            "1985",
-            "1987",
-            "1990"
-          ],
+          "options": ["1982", "1985", "1987", "1990"],
           "correctAnswer": "1985",
           "trivia": "Dire Straits ist eine britische Rockband, die 1977 gegründet wurde und für ihren charakteristischen Sound bekannt ist, der Elemente aus Rock, Jazz und Country kombiniert. Ihr Album 'Brothers in Arms', veröffentlicht im Jahr 1985, wurde ein großer Erfolg und enthält einige ihrer bekanntesten Songs, darunter 'Money for Nothing' und 'Walk of Life'. Die Tour zum Album begann 1985 und beinhaltete zahlreiche Konzerte in Europa und Nordamerika. Diese Tour war besonders bemerkenswert, da sie die Band in die Reihe der großen Rockacts der 80er Jahre katapultierte. 'Brothers in Arms' wurde nicht nur für seine musikalische Qualität, sondern auch für seine innovativen Musikvideos bekannt, die im MTV-Zeitalter große Beachtung fanden. Die Live-Auftritte der Band während dieser Zeit waren oft ausverkauft und wurden für ihre energiegeladenen Performances geschätzt."
         },
@@ -6449,12 +6224,7 @@
       "easy": [
         {
           "question": "Welches bedeutende Genre prägte das Album '461 Ocean Boulevard' von Eric Clapton, das 1974 veröffentlicht wurde?",
-          "options": [
-            "Blues",
-            "Jazz",
-            "Rock",
-            "Pop"
-          ],
+          "options": ["Blues", "Jazz", "Rock", "Pop"],
           "correctAnswer": "Blues",
           "trivia": "Eric Clapton ist bekannt für seinen Einfluss auf die Rock- und Bluesmusik. Mit dem Album '461 Ocean Boulevard' aus dem Jahr 1974 kehrte er zu seinen Wurzeln im Blues zurück. Das Album enthält Hits wie 'I Shot the Sheriff', das ein Cover des Bob Marley Songs ist und Claptons Popularität während dieser Zeit erheblich steigerte. Claptons Stil in diesem Album zeigt eine Mischung aus Rock und karibischen Einflüssen, die sich in der Musik und den Arrangements widerspiegeln. '461 Ocean Boulevard' war auch das erste Album, das Clapton nach seiner Entziehungskur veröffentlichte, was seiner Karriere eine neue Richtung gab. Das Album wird oft als eines der besten Werke in Claptons Diskografie angesehen und hat die Entwicklung des modernen Bluesrock beeinflusst. Es bleibt ein wichtiger Meilenstein in der Musikgeschichte."
         },
@@ -7060,12 +6830,7 @@
         },
         {
           "question": "In welchem Jahr trat George Harrison mit den Songs von seinem Album 'All Things Must Pass' erstmals live auf, nachdem das Album 1970 veröffentlicht wurde?",
-          "options": [
-            "1971",
-            "1972",
-            "1973",
-            "1974"
-          ],
+          "options": ["1971", "1972", "1973", "1974"],
           "correctAnswer": "1971",
           "trivia": "George Harrison, ehemaliges Mitglied der Beatles, veröffentlichte 1970 sein bahnbrechendes Soloalbum 'All Things Must Pass'. Dieses Album war nicht nur ein kommerzieller Erfolg, sondern auch das erste, das Harrison die Möglichkeit gab, seine eigenen musikalischen Ideen und persönlichen Themen zu erkunden. Im November 1971 trat er zum ersten Mal live auf, um Songs aus diesem Album zu spielen, darunter Hits wie 'My Sweet Lord' und 'What Is Life'. Das Konzert fand im Rahmen des 'Concert for Bangladesh' statt, das er zusammen mit Ravi Shankar organisierte. Dieser Live-Auftritt war historisch, da er das erste große Benefit-Konzert war und ein neues Kapitel in der Musikgeschichte aufschlug. Harrison's Performance wurde von Kritikern und Fans gleichermaßen gelobt und festigte seinen Status als bedeutender Solo-Künstler. 'All Things Must Pass' gilt heute als eines der besten Alben der Rockgeschichte."
         },
@@ -7332,12 +7097,7 @@
         },
         {
           "question": "In welchem Jahr trat die Band Jethro Tull erstmals live mit ihrem Album 'Aqualung' auf, das 1971 veröffentlicht wurde?",
-          "options": [
-            "1969",
-            "1970",
-            "1971",
-            "1972"
-          ],
+          "options": ["1969", "1970", "1971", "1972"],
           "correctAnswer": "1971",
           "trivia": "Jethro Tull veröffentlichte ihr ikonisches Album 'Aqualung' im Jahr 1971, das häufig als eines der bedeutendsten Konzeptalben der Rockgeschichte bezeichnet wird. Im selben Jahr, kurz nach der Veröffentlichung, begann die Band ihre Tournee, um das Album zu promoten. Die Live-Performances zeichneten sich durch die charakteristische Mischung aus Rock, Folk und progressiven Elementen aus, die Jethro Tull berühmt machten. Insbesondere die Songs 'Aqualung' und 'Locomotive Breath' wurden zu festen Bestandteilen ihrer Konzerte. Ian Anderson, der Frontmann der Band, ist bekannt für seine einzigartige Bühnenpräsenz und den Einsatz von Flöte, was den Sound von Jethro Tull unverwechselbar macht. Die Tournee 1971 trug entscheidend zur Popularität der Band bei und half, 'Aqualung' zu einem zeitlosen Klassiker zu machen. Viele dieser Konzerte wurden später auf Live-Alben festgehalten und sind bis heute bei den Fans sehr beliebt."
         }
@@ -7625,12 +7385,7 @@
         },
         {
           "question": "Mit welchem anderen Künstler hat Steppenwolf auf dem Album 'Steppenwolf' von 1968 zusammengearbeitet, um den Song 'Born to Be Wild' zu kreieren?",
-          "options": [
-            "Jimi Hendrix",
-            "Bob Dylan",
-            "John Kay",
-            "Eric Clapton"
-          ],
+          "options": ["Jimi Hendrix", "Bob Dylan", "John Kay", "Eric Clapton"],
           "correctAnswer": "John Kay",
           "trivia": "Das Album 'Steppenwolf' wurde 1968 veröffentlicht und gilt als eines der bedeutendsten Alben der Rockgeschichte. Der Song 'Born to Be Wild' wurde von Mars Bonfire geschrieben, der der Bruder von John Kay, dem Leadsänger von Steppenwolf, ist. Diese Zusammenarbeit brachte einen der bekanntesten Rockhits hervor, der oft mit der Gegenkultur der 1960er Jahre und dem Motorradfahren in Verbindung gebracht wird. Steppenwolf kombinierte in diesem Album verschiedene Musikstile, darunter Rock und Blues, und entwickelte ihren eigenen einzigartigen Sound. Die Band war bekannt für ihre kraftvollen Texte und eingängigen Melodien. Das Album enthält auch andere berühmte Tracks wie 'The Pusher', der sich mit Drogenmissbrauch auseinandersetzt. Steppenwolf hat mit ihrem Einfluss auf die Musikszene bis heute einen bleibenden Eindruck hinterlassen."
         },
@@ -7692,12 +7447,7 @@
       "easy": [
         {
           "question": "Welchen Platz erreichte das Album '2112' von Rush in den Billboard 200 Charts nach seiner Veröffentlichung im Jahr 1976?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 20"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 20"],
           "correctAnswer": "Platz 61",
           "trivia": "Das Album '2112' von Rush wurde 1976 veröffentlicht und ist eines der bekanntesten Werke der kanadischen Rockband. Es gilt als ein Meilenstein des Progressive Rock und enthält epische Songs, die oft science-fiction Themen behandeln. Trotz seiner massiven Bekanntheit erreichte das Album in den Billboard 200 Charts nur Platz 61, was jedoch nicht seinen Einfluss schmälerte. '2112' ist besonders für seinen Titeltrack bekannt, der über 20 Minuten lang ist und die gesamte erste Seite der Schallplatte einnimmt. Das Album half Rush, eine treue Fanbasis aufzubauen und ihren Status als eine der einflussreichsten Rockbands der 70er Jahre zu festigen. Außerdem enthielt das Album den Hit 'A Passage to Bangkok', der bis heute ein beliebter Live-Song ist. Insgesamt hat '2112' einen bleibenden Einfluss auf die Rockmusik und inspiriert viele Künstler bis heute."
         },
@@ -7816,12 +7566,7 @@
         },
         {
           "question": "Welches Musikvideo von T. Rex, das für das Album 'Electric Warrior' veröffentlicht wurde, zeigt den charakteristischen Glam-Rock-Stil der Band?",
-          "options": [
-            "Get It On",
-            "Jeepster",
-            "Cosmic Dancer",
-            "Bang a Gong"
-          ],
+          "options": ["Get It On", "Jeepster", "Cosmic Dancer", "Bang a Gong"],
           "correctAnswer": "Get It On",
           "trivia": "T. Rex, unter der Leitung von Marc Bolan, veröffentlichte 1971 das ikonische Album 'Electric Warrior', das als Meilenstein des Glam Rock gilt. Besonders bekannt ist das Musikvideo zu 'Get It On', das die flamboyante Ästhetik und den einzigartigen Stil der Band widerspiegelt. In diesem Video kombiniert T. Rex kraftvolle Live-Performances mit auffälligen visuellen Elementen, die das Glam-Rock-Genre prägten. Die Musikvideos von T. Rex trugen dazu bei, ihre Popularität zu steigern und ein jüngeres Publikum anzusprechen. 'Electric Warrior' enthält zahlreiche Hits, die bis heute in der Rockmusik gefeiert werden. Die Mischung aus eingängigen Melodien und Bolans charismatischem Auftreten machte die Band zu einer der einflussreichsten des 20. Jahrhunderts. Das Album gilt als wegweisend für viele nachfolgende Künstler im Glam-Rock-Genre."
         },
@@ -8053,12 +7798,7 @@
         },
         {
           "question": "In welchem Jahr traten Thin Lizzy mit ihrem Album 'Jailbreak' erstmals in den USA auf?",
-          "options": [
-            "1975",
-            "1976",
-            "1977",
-            "1978"
-          ],
+          "options": ["1975", "1976", "1977", "1978"],
           "correctAnswer": "1976",
           "trivia": "Thin Lizzy, eine irische Rockband, veröffentlichte ihr legendäres Album 'Jailbreak' im Jahr 1976. Dieses Album enthält einige ihrer bekanntesten Songs, darunter 'The Boys Are Back in Town'. Der Erfolg von 'Jailbreak' öffnete Thin Lizzy die Türen zu internationalen Märkten, insbesondere in den USA. Im selben Jahr, als das Album veröffentlicht wurde, starteten sie eine Tour, die sie in verschiedene amerikanische Städte führte. Die Band war bekannt für ihre energiegeladenen Live-Auftritte und die beeindruckenden Harmonien zwischen den Gitarristen. 'Jailbreak' gilt als Wendepunkt in der Karriere von Thin Lizzy und half ihnen, sich in der Rockszene zu etablieren. Ihre Touren in den späten 1970er Jahren trugen maßgeblich zur Popularität der Band bei."
         }
@@ -8279,12 +8019,7 @@
         },
         {
           "question": "Welchen Chartplatz erreichte das Album 'Fleetwood Mac' von Fleetwood Mac in den Billboard 200?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Album 'Fleetwood Mac', veröffentlicht im Jahr 1975, markierte einen entscheidenden Moment in der Karriere von Fleetwood Mac. Es war das erste Album der Band, das mit der neuen Besetzung, einschließlich Stevie Nicks und Lindsey Buckingham, aufgenommen wurde. Das Album erreichte in den Billboard 200 den ersten Platz und blieb dort für 5 Wochen. Zu den bekanntesten Songs des Albums zählen 'Rhiannon' und 'Landslide', die beide zu Klassikern der Rockmusik wurden. Die Kombination aus melodischem Rock und eingängigen Harmonien machte das Album zu einem kommerziellen Erfolg. Zudem erhielt das Album mehrere Platinauszeichnungen und festigte den Status von Fleetwood Mac als eine der führenden Rockbands der 70er Jahre. 'Fleetwood Mac' legte den Grundstein für zukünftige Erfolge, einschließlich des legendären Albums 'Rumours', das 1977 folgte."
         }
@@ -8494,12 +8229,7 @@
         },
         {
           "question": "In welchem Jahr trat Meat Loaf erstmals live mit dem Album 'Bat Out of Hell' auf?",
-          "options": [
-            "1975",
-            "1976",
-            "1977",
-            "1978"
-          ],
+          "options": ["1975", "1976", "1977", "1978"],
           "correctAnswer": "1977",
           "trivia": "Meat Loaf veröffentlichte sein ikonisches Album 'Bat Out of Hell' im Jahr 1977, das schnell zu einem der meistverkauften Alben aller Zeiten wurde. Bei den Live-Auftritten zu diesem Album beeindruckte Meat Loaf mit seiner außergewöhnlichen Stimme und dramatischen Bühnenpräsenz. Die Tournee zum Album begann kurz nach der Veröffentlichung und führte Meat Loaf durch zahlreiche Städte in den Vereinigten Staaten und Europa. Die Kombination aus Rockmusik, opernhaften Elementen und poetischen Texten machte die Konzerte unvergesslich. Besonders der Titelsong 'Bat Out of Hell' wurde schnell zum Klassiker und ist bis heute ein fester Bestandteil seiner Live-Shows. Die Live-Performances waren geprägt von einer einzigartigen Energie und Leidenschaft, die das Publikum in den Bann zog. Meat Loaf's Auftritte zu 'Bat Out of Hell' gelten als Meilensteine in der Rockmusikgeschichte."
         },
@@ -8607,12 +8337,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Billion Dollar Babies' von Alice Cooper in den US Billboard 200 Charts?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 3"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 3"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Album 'Billion Dollar Babies' von Alice Cooper wurde 1973 veröffentlicht und gilt als eines der erfolgreichsten Werke des Künstlers. Es erreichte in den US Billboard 200 Charts den ersten Platz und hielt sich dort für insgesamt 14 Wochen. Mit diesem Album festigte Alice Cooper seinen Status als einer der Pioniere des Glam-Rock. Zu den bekanntesten Songs des Albums zählen 'No More Mr. Nice Guy' und 'Elected'. 'Billion Dollar Babies' wurde für seine provokanten Texte und die extravagante Bühnenshow bekannt, die Cooper für seine Auftritte einsetzte. Das Album verkaufte sich weltweit über 2 Millionen Mal und zählt zu den Must-Haves für Rockmusik-Fans der 70er Jahre."
         },
@@ -8755,12 +8480,7 @@
         },
         {
           "question": "In welchem Jahr trat Jefferson Airplane erstmals live auf, nachdem sie das Album 'Surrealistic Pillow' veröffentlicht hatten?",
-          "options": [
-            "1966",
-            "1967",
-            "1968",
-            "1969"
-          ],
+          "options": ["1966", "1967", "1968", "1969"],
           "correctAnswer": "1967",
           "trivia": "Jefferson Airplane, eine der einflussreichsten Bands der Psychedelic-Rock-Ära, veröffentlichte ihr legendäres Album 'Surrealistic Pillow' im Jahr 1967. Dieses Album enthielt einige ihrer bekanntesten Songs, darunter 'Somebody to Love' und 'White Rabbit', die schnell zu Hymnen der Gegenkultur wurden. Nach der Veröffentlichung des Albums tourte die Band intensiv, um ihre Musik einem breiteren Publikum vorzustellen. Ihr Live-Auftritt auf dem Monterey Pop Festival im Juni 1967 war ein Meilenstein, der ihnen nationale Aufmerksamkeit einbrachte. Die energiegeladenen Auftritte der Band trugen dazu bei, den Ruf von Jefferson Airplane als eine der führenden Live-Acts der 60er Jahre zu festigen. Die Kombination aus eindringlichen Texten und innovativem Sound machte sie zu einer treibenden Kraft der psychedelischen Musikszene. Jefferson Airplane blieb bis in die 1970er Jahre aktiv und beeinflusste viele nachfolgende Künstler."
         },
@@ -8857,12 +8577,7 @@
       "medium": [
         {
           "question": "Welche spezielle Technik verwendete Peter Frampton auf dem Album 'Frampton Comes Alive!', um die charakteristische Klangfarbe seiner Gitarre zu erzeugen?",
-          "options": [
-            "Vibrato",
-            "Talk Box",
-            "Distortion",
-            "Delay"
-          ],
+          "options": ["Vibrato", "Talk Box", "Distortion", "Delay"],
           "correctAnswer": "Talk Box",
           "trivia": "Peter Frampton ist bekannt für seinen innovativen Einsatz der Talk Box, einer Musik-Technik, die es ihm ermöglicht, die Klänge seiner Gitarre durch seinen Mund zu modulieren. Auf dem Album 'Frampton Comes Alive!', das 1976 veröffentlicht wurde, erreichte dieser Effekt besondere Berühmtheit, insbesondere im Hit 'Do You Feel Like We Do'. Frampton verwendete die Talk Box, um seine Gitarre wie eine menschliche Stimme klingen zu lassen, was dem Live-Album eine einzigartige Note verlieh. 'Frampton Comes Alive!' wurde eines der erfolgreichsten Live-Alben aller Zeiten und trug erheblich zu Framptons Ruhm bei. Die Kombination aus kraftvollen Gitarrensoli und dem innovativen Einsatz der Talk Box machte das Album zu einem Meilenstein in der Rockmusik. Frampton selbst beschrieb die Live-Performance als eine der besten Erfahrungen seiner Karriere. Diese Technik hat nicht nur seinen Stil geprägt, sondern auch viele andere Musiker inspiriert."
         },
@@ -8892,12 +8607,7 @@
       "hard": [
         {
           "question": "Welche spezielle Technik für den Einsatz von Gitarren-Pedalen, die häufig in Peter Framptons Album 'Frampton Comes Alive!' verwendet wird, wird oft als 'Talk Box' bezeichnet?",
-          "options": [
-            "Overdrive",
-            "Wah-Wah",
-            "Distortion",
-            "Chorus"
-          ],
+          "options": ["Overdrive", "Wah-Wah", "Distortion", "Chorus"],
           "correctAnswer": "Overdrive",
           "trivia": "Peter Frampton ist bekannt für seinen innovativen Einsatz der Talk Box, einer speziellen Gitarre-Technik, die es ihm ermöglicht, den Klang seiner Gitarre mit der Stimme zu modulieren. In seinem legendären Album 'Frampton Comes Alive!', das 1976 veröffentlicht wurde, ist die Talk Box ein zentrales Element, das den Songs eine unverwechselbare Klangfarbe verleiht. Besonders eindrucksvoll zu hören ist diese Technik im Hit 'Do You Feel Like We Do', der zu einem der bekanntesten Live-Stücke der Rockgeschichte zählt. Das Album selbst ist eines der meistverkauften Live-Alben aller Zeiten und hat Frampton zu einem internationalen Superstar gemacht. Die Verwendung von musikalischen Elementen wie der Talk Box hat nicht nur seinen Stil geprägt, sondern auch die Art und Weise, wie Gitarristen diese Technik in der Rockmusik einsetzen. 'Frampton Comes Alive!' zeigt auch eine Vielzahl anderer musikalischer Elemente, die das Live-Erlebnis intensivieren und das Publikum begeistern. Diese Kombination aus virtuosem Gitarrenspiel und innovativen Klängen hat dazu beigetragen, dass das Album auch heute noch als Meilenstein in der Musikgeschichte gilt."
         },
@@ -8957,12 +8667,7 @@
         },
         {
           "question": "Welches Jahr war die Veröffentlichung des Albums 'The Low Spark of High Heeled Boys' von Traffic?",
-          "options": [
-            "1969",
-            "1971",
-            "1973",
-            "1975"
-          ],
+          "options": ["1969", "1971", "1973", "1975"],
           "correctAnswer": "1971",
           "trivia": "Traffic ist eine britische Rockband, die 1967 gegründet wurde und als eine der ersten Bands gilt, die den psychedelischen Rock mit Folk- und Jazz-Elementen kombinierte. Ihr drittes Studioalbum, 'The Low Spark of High Heeled Boys', wurde 1971 veröffentlicht und gilt als eines ihrer besten Werke. Der Titeltrack des Albums, 'The Low Spark of High Heeled Boys', ist besonders bekannt für seinen eingängigen Groove und die markante Verwendung von Flöte und Klavier. Das Album reflektiert die Erfahrungen der Bandmitglieder in der Musikszene der frühen 1970er Jahre und behandelt Themen wie das Streben nach Authentizität in einer kommerzialisierten Welt. 'The Low Spark of High Heeled Boys' wurde ein Erfolg und erreichte hohe Chartplatzierungen in verschiedenen Ländern. Traffic wurde für ihren innovativen Stil und ihre musikalische Vielseitigkeit geschätzt, was sie zu einer einflussreichen Band ihrer Zeit machte."
         }
@@ -9613,23 +9318,13 @@
       "easy": [
         {
           "question": "Welches Instrument wird häufig in den Songs des Albums 'Elvis Presley' von Elvis Presley, das 1956 veröffentlicht wurde, verwendet?",
-          "options": [
-            "Gitarre",
-            "Klavier",
-            "Trompete",
-            "Schlagzeug"
-          ],
+          "options": ["Gitarre", "Klavier", "Trompete", "Schlagzeug"],
           "correctAnswer": "Gitarre",
           "trivia": "Elvis Presley, der als 'King of Rock and Roll' bekannt ist, veröffentlichte 1956 sein selbstbetiteltes Album 'Elvis Presley', das als Meilenstein in der Musikgeschichte gilt. Die Gitarre spielte eine zentrale Rolle in vielen der Songs des Albums und prägte den charakteristischen Sound des Rockabilly. Mit einem Mix aus Rock, Country und Rhythm and Blues setzte Elvis neue Maßstäbe in der Musikproduktion. Auf dem Album finden sich Hits wie 'Blue Suede Shoes' und 'Heartbreak Hotel', die beide stark von der Gitarrenbegleitung profitieren. Die Produktion des Albums war innovativ für die damalige Zeit, da sie verschiedene Genres miteinander verband und den Einsatz von Instrumenten in neuen Kontexten zeigte. Elvis' markante Stimme zusammen mit der kraftvollen Gitarrenarbeit trugen dazu bei, dass das Album ein großer Erfolg wurde. 'Elvis Presley' gilt als eines der ersten Rockalben, das die Massen begeisterte und die Musikwelt revolutionierte."
         },
         {
           "question": "Welches Jahr gilt als das Veröffentlichungsjahr des Albums 'Elvis Presley' von Elvis Presley, das einen bedeutenden Einfluss auf die Musikszene hatte?",
-          "options": [
-            "1954",
-            "1956",
-            "1958",
-            "1960"
-          ],
+          "options": ["1954", "1956", "1958", "1960"],
           "correctAnswer": "1956",
           "trivia": "Elvis Presley veröffentlichte 1956 sein selbstbetiteltes Debütalbum 'Elvis Presley', das als Meilenstein in der Rock'n'Roll-Geschichte gilt. Dieses Album brachte nicht nur Elvis' einzigartige Stimme und seinen charismatischen Stil zur Geltung, sondern trug auch dazu bei, Rockmusik in die Mainstream-Popkultur zu integrieren. Die Mischung aus Rhythm and Blues, Country und Pop in seinen Songs veränderte die Musikszene nachhaltig und inspirierte zahlreiche Künstler. Hits wie 'Blue Suede Shoes' und 'Heartbreak Hotel' wurden zu Klassikern und zeigten die Vielseitigkeit von Elvis Presley. Sein Einfluss auf die Jugendkultur der 1950er Jahre war enorm, und er gilt bis heute als einer der größten Musiker aller Zeiten. Das Album 'Elvis Presley' war nicht nur ein kommerzieller Erfolg, sondern auch ein kulturelles Phänomen, das den Weg für zukünftige Rock- und Popmusik ebnete."
         },
@@ -9737,12 +9432,7 @@
         },
         {
           "question": "Welches Musikvideo zur berühmtesten Single des Albums 'Layla and Other Assorted Love Songs' von Derek and the Dominos zeigt eine emotionale Darstellung der Liebe und des Herzschmerzes?",
-          "options": [
-            "Layla",
-            "Bell Bottom Blues",
-            "I Looked Away",
-            "Anyday"
-          ],
+          "options": ["Layla", "Bell Bottom Blues", "I Looked Away", "Anyday"],
           "correctAnswer": "Layla",
           "trivia": "Derek and the Dominos ist eine britisch-amerikanische Rockband, die 1970 das ikonische Album 'Layla and Other Assorted Love Songs' veröffentlichte. Die bekannteste Single des Albums ist der Titeltrack 'Layla', der oft als einer der besten Rocksongs aller Zeiten angesehen wird. Das Musikvideo zu 'Layla' zeigt eine leidenschaftliche, aber tragische Liebesgeschichte, die die Emotionen des Songs perfekt einfängt. Eric Clapton, der Leadsänger und Gitarrist der Band, schrieb 'Layla' ursprünglich für Pattie Boyd, die damalige Frau von George Harrison. Das Album kombiniert Elemente von Rock, Blues und psychedelischer Musik und hat einen bleibenden Einfluss auf die Musikgeschichte. 'Layla and Other Assorted Love Songs' wird oft als Meisterwerk bezeichnet und ist ein essentielles Werk für jeden Musikliebhaber."
         },
@@ -9783,12 +9473,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Layla and Other Assorted Love Songs' von Derek and the Dominos wurde in einem ikonischen Musikvideo visuell interpretiert, das die emotionale Intensität des Tracks unterstreicht?",
-          "options": [
-            "Layla",
-            "Bell Bottom Blues",
-            "Anyday",
-            "Little Wing"
-          ],
+          "options": ["Layla", "Bell Bottom Blues", "Anyday", "Little Wing"],
           "correctAnswer": "Layla",
           "trivia": "Derek and the Dominos veröffentlichte 1970 das Album 'Layla and Other Assorted Love Songs', das als eines der besten Rockalben aller Zeiten gilt. Der bekannteste Song des Albums, 'Layla', erzählt die leidenschaftliche und unerwiderte Liebe des Protagonisten. Das Musikvideo zum Song zeigt eindrucksvoll die emotionale Tiefe und die musikalische Virtuosität der Band. Derek Clapton, der Frontmann, war maßgeblich an der Entstehung des Songs beteiligt und ließ sich von seiner eigenen Liebesgeschichte inspirieren. Die Kombination aus Claptons markantem Gitarrenspiel und der kraftvollen Stimme von Jim Gordon macht 'Layla' zu einem zeitlosen Klassiker. Das Album enthält auch andere bemerkenswerte Tracks wie 'Bell Bottom Blues' und 'Anyday', die ebenfalls die Stärken der Band zeigen. Die visuellen Inhalte des Musikvideos tragen zur Legende des Songs bei und festigen seinen Status in der Musikgeschichte."
         }
@@ -9850,12 +9535,7 @@
         },
         {
           "question": "Welches Musikinstrument spielt Billy Joel hauptsächlich auf dem Album 'The Stranger'?",
-          "options": [
-            "Gitarre",
-            "Schlagzeug",
-            "Klavier",
-            "Bass"
-          ],
+          "options": ["Gitarre", "Schlagzeug", "Klavier", "Bass"],
           "correctAnswer": "Klavier",
           "trivia": "Billy Joel, ein amerikanischer Singer-Songwriter, ist bekannt für seinen einzigartigen Stil, der Elemente aus Rock, Pop und klassischer Musik kombiniert. Sein Album 'The Stranger', das 1977 veröffentlicht wurde, enthält einige seiner bekanntesten Songs, darunter 'Just the Way You Are' und 'Scenes from an Italian Restaurant'. Joel ist ein virtuoser Pianist und das Klavier spielt eine zentrale Rolle in fast allen seinen Kompositionen. Auf 'The Stranger' verwendet er das Klavier nicht nur als Begleitinstrument, sondern auch als Hauptinstrument, um komplexe Melodien und Harmonien zu erzeugen. Das Album wurde ein großer kommerzieller Erfolg und festigte Joels Ruf als einer der besten Songwriter seiner Generation. Die Mischung aus eingängigen Melodien und tiefgründigen Texten hat 'The Stranger' zu einem zeitlosen Klassiker gemacht."
         },
@@ -10189,12 +9869,7 @@
         },
         {
           "question": "Welchen Chartplatz erreichte das Album 'We’re an American Band' von Grand Funk Railroad in den Billboard 200?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Album 'We’re an American Band' von Grand Funk Railroad wurde 1973 veröffentlicht und war ein großer Erfolg. Es erreichte den ersten Platz der Billboard 200 und hielt sich dort für mehrere Wochen. Grand Funk Railroad war bekannt für ihren kraftvollen Rocksound und ihre energiegeladenen Live-Auftritte. Der Titeltrack 'We’re an American Band' wurde zu einem ihrer bekanntesten Hits und erreichte ebenfalls hohe Chartplatzierungen. Das Album markierte einen Wendepunkt in der Karriere der Band und festigte ihren Status in der Rockmusik. Grand Funk Railroad wurde in den 1970er Jahren zu einer der erfolgreichsten Rockbands in den USA. 'We’re an American Band' bleibt bis heute ein beliebtes Werk und wird oft als Klassiker des Genres angesehen."
         },
@@ -10404,12 +10079,7 @@
       "easy": [
         {
           "question": "In welchem Jahr trat Roxy Music nach der Veröffentlichung ihres Albums 'Avalon' live auf, um das Album zu promoten?",
-          "options": [
-            "1982",
-            "1984",
-            "1980",
-            "1986"
-          ],
+          "options": ["1982", "1984", "1980", "1986"],
           "correctAnswer": "1982",
           "trivia": "Roxy Music veröffentlichte ihr Album 'Avalon' im Jahr 1982, das als eines ihrer bekanntesten und erfolgreichsten Werke gilt. Nach dieser Veröffentlichung tourte die Band, um die neuen Songs live zu präsentieren und ihre Fans zu begeistern. Die Tournee war besonders wichtig, da 'Avalon' den charakteristischen Sound von Roxy Music mit einer Mischung aus Rock und eleganten, atmosphärischen Klängen verkörperte. Hits wie 'More Than This' und 'Avalon' wurden Teil des Repertoires während der Auftritte. Die Band war bekannt für ihre stilvolle Bühnenshow und die beeindruckende musikalische Darbietung, die das Publikum fesselte. Diese Live-Auftritte trugen dazu bei, das Erbe von Roxy Music zu festigen und ihre Musik einer neuen Generation vorzustellen. 'Avalon' bleibt bis heute ein Meilenstein im Rock-Genre."
         },
@@ -10687,12 +10357,7 @@
         },
         {
           "question": "Welches ungewöhnliche Instrument, das oft in der afrikanischen Musik verwendet wird, wurde auf dem Album 'Remain in Light' von Talking Heads eingesetzt, um den charakteristischen Klang des Albums zu erzeugen?",
-          "options": [
-            "Kalimba",
-            "Djembe",
-            "Bongos",
-            "Didgeridoo"
-          ],
+          "options": ["Kalimba", "Djembe", "Bongos", "Didgeridoo"],
           "correctAnswer": "Kalimba",
           "trivia": "Das Album 'Remain in Light', das 1980 von der Band Talking Heads veröffentlicht wurde, ist bekannt für seine innovative Mischung aus Rock, Funk und Weltmusik. Eine der auffälligsten Eigenschaften der Instrumentierung auf diesem Album ist der Einsatz der Kalimba, ein traditionelles afrikanisches Musikinstrument. Die Kalimba verleiht den Songs eine einzigartige rhythmische Textur und trägt zur experimentellen Klanglandschaft bei, die das Album prägt. Talking Heads arbeiteten eng mit dem Produzenten Brian Eno zusammen, dessen Einfluss entscheidend war für die Entwicklung des charakteristischen Sounds des Albums. 'Remain in Light' erforscht Themen wie Identität und das Selbst, unterstützt durch komplexe Arrangements und mehrschichtige Klänge. Die Kombination aus elektronischen Klängen und akustischen Instrumenten zeigt den kreativen Ansatz der Band, der sie in der Musikszene der 1980er Jahre hervorhob. Die Verwendung der Kalimba ist ein Beispiel für die Art und Weise, wie Talking Heads verschiedene kulturelle Einflüsse in ihre Musik integrierten."
         }
@@ -11015,12 +10680,7 @@
         },
         {
           "question": "Mit welchem berühmten Musiker arbeitete die Band Foreigner an ihrem Debütalbum 'Foreigner', das 1977 veröffentlicht wurde?",
-          "options": [
-            "Mick Jones",
-            "Lou Gramm",
-            "David Bowie",
-            "John Lennon"
-          ],
+          "options": ["Mick Jones", "Lou Gramm", "David Bowie", "John Lennon"],
           "correctAnswer": "Mick Jones",
           "trivia": "Das Debütalbum 'Foreigner' von Foreigner wurde 1977 veröffentlicht und ist bekannt für seinen charakteristischen Klang, der Rock und Pop-Elemente kombiniert. Die Band wurde von Mick Jones und Lou Gramm gegründet, die beide maßgeblich zu den kreativen Prozessen des Albums beitrugen. Mick Jones, der Gitarrist und Hauptsongwriter, arbeitete an mehreren der bekanntesten Tracks auf dem Album. Die Zusammenarbeit zwischen Jones und Gramm war entscheidend für den Erfolg von Foreigner in den späten 1970er Jahren. Das Album enthält Hits wie 'Cold as Ice' und 'Long, Long Way from Home', die beide den Weg für die weiteren Erfolge der Band ebneten. Die Kombination von Jones' rockigen Riffs und Gramm's kraftvollem Gesang trug dazu bei, Foreigner zu einer der beliebtesten Rockbands ihrer Zeit zu machen. 'Foreigner' gilt als eines der besten Debütalben in der Rockgeschichte."
         },

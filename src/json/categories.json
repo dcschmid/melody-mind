@@ -33,7 +33,7 @@
     "categoryUrl": "/ambient",
     "introSubline": "Lass dich von den beruhigenden Klängen und der atmosphärischen Tiefe des Ambient verzaubern!",
     "text": "Ambient-Musik schafft Klanglandschaften, die für Entspannung und introspektive Erlebnisse sorgen. Diese Kategorie bietet eine Auswahl an sanften, immersiven Klängen und minimalistischen Kompositionen, die oft durch eine ruhige und meditative Atmosphäre gekennzeichnet sind. Von fließenden Synthesizer-Sounds und sanften Pads bis hin zu subtilen Field Recordings und texturalen Klangexperimenten – Ambient ist die perfekte Begleitung für Momente der Entspannung, Konzentration oder kreativen Reflexion. Erlebe eine Klangwelt, die dich einlädt, die Gedanken schweifen zu lassen und einfach im Moment zu sein.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "belgisch",
