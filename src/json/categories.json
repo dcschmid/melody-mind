@@ -6,7 +6,7 @@
     "categoryUrl": "/afrobeat",
     "introSubline": "Spür den Rhythmus und die Lebendigkeit der afrikanischen Beats!",
     "text": "Afrobeat vereint pulsierende Rhythmen und lebendige Klänge, die die Energie und Vielfalt Afrikas widerspiegeln. Diese Kategorie bringt die fesselnden Grooves und einzigartigen Beats von Afrobeat-Ikonen und modernen Künstlern direkt zu dir. Von funkigen Trommelrhythmen und mitreißenden Melodien bis hin zu kraftvollen Bläserarrangements und hypnotisierenden Rhythmen – Afrobeat bietet eine musikalische Reise, die dich zum Tanzen und Feiern einlädt, während sie die kulturelle Tiefe und den rhythmischen Reichtum Afrikas feiert.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "alternative",
