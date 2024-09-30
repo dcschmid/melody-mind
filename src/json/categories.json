@@ -132,7 +132,7 @@
     "categoryUrl": "/classic-rock",
     "introSubline": "Erlebe die unvergänglichen Riffs und die legendären Sounds des Classic Rock!",
     "text": "Classic Rock steht für die goldene Ära der Rockmusik, die von den späten 1960er bis in die 1980er Jahre reicht. Diese Kategorie vereint die ikonischen Hits und zeitlosen Hymnen, die das Genre geprägt haben und bis heute in aller Welt gefeiert werden. Mit legendären Bands und Künstlern wie Led Zeppelin, The Rolling Stones, Queen, AC/DC und Pink Floyd bietet Classic Rock eine Mischung aus kraftvollen Gitarrenriffs, mitreißenden Melodien und unvergesslichen Vocals. Diese Musik hat Generationen beeinflusst und bleibt ein fester Bestandteil der Rockgeschichte. Lass dich von den epischen Solos, den eingängigen Refrains und der puren Energie des Classic Rock mitreißen und erlebe die Musik, die Rock 'n' Roll zu einem kulturellen Phänomen gemacht hat.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "club",
