@@ -78,7 +78,7 @@
     "categoryUrl": "/brasilianisch",
     "introSubline": "Erlebe die lebendige Vielfalt und den Rhythmus der brasilianischen Musik!",
     "text": "Brasilianische Musik ist ein Kaleidoskop aus pulsierenden Rhythmen und leidenschaftlichen Melodien, die die reiche kulturelle Vielfalt Brasiliens widerspiegeln. Diese Kategorie vereint die besten Klänge von Samba und Bossa Nova bis hin zu Forró, MPB (Música Popular Brasileira) und Tropicália. Von den mitreißenden Beats der Sambaparaden bis zu den sanften, melancholischen Tönen der Bossa Nova – brasilianische Musik bietet eine faszinierende Mischung aus Tradition und Innovation, die dich direkt in die lebhafte Atmosphäre Brasiliens entführt.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "breakbeat",
