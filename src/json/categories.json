@@ -537,7 +537,7 @@
     "categoryUrl": "/klavier",
     "introSubline": "Erlebe die zeitlose Schönheit und emotionale Tiefe des Klavierspiels!",
     "text": "Das Klavier ist ein Instrument, das durch seine Vielseitigkeit und Ausdruckskraft fasziniert. Diese Kategorie vereint eine Vielzahl von Stücken, die die eleganten und kraftvollen Klänge des Klaviers in den Mittelpunkt stellen. Von klassischen Meisterwerken von Komponisten wie Beethoven, Chopin und Debussy bis hin zu modernen Piano-Kompositionen und gefühlvollen Balladen – die Klaviermusik bietet eine reiche Palette an Emotionen und Stimmungen. Ob sanfte Melodien zum Entspannen, virtuose Soli oder berührende Filmmusik, die Kategorie 'Klavier' entführt dich in eine Welt voller Klangzauber und musikalischer Raffinesse. Lass dich von den melodischen Linien und harmonischen Strukturen des Klaviers inspirieren und genieße die beruhigende und zugleich tief bewegende Wirkung dieses wunderbaren Instruments.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "latin-vibes",
