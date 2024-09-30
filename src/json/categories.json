@@ -51,7 +51,7 @@
     "categoryUrl": "/black-metal",
     "introSubline": "Tauche ein in die düstere und intensive Welt des Black Metal!",
     "text": "Black Metal ist bekannt für seine dunkle, aggressive Atmosphäre und seine kraftvollen, emotionalen Ausdrücke. Diese Kategorie vereint rasante Gitarrenriffs, intensiven Gesang und oft mystische, finstere Themen. Von atmosphärischen, epischen Kompositionen bis zu rohen, schnellen Tracks bietet Black Metal eine tiefgründige und oft herausfordernde Hörerfahrung. Erlebe die unbändige Energie und die komplexe Stimmung, die Black Metal zu einem einzigartigen und faszinierenden Genre machen.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "bluegrass",
