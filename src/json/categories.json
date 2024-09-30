@@ -24,7 +24,7 @@
     "categoryUrl": "/alternative-rock",
     "introSubline": "Entdecke die unkonventionellen Klänge und innovativen Sounds des Alternative Rock!",
     "text": "Alternative Rock vereint eine breite Palette von Stilen und Einflüssen, die über das traditionelle Rock-Genre hinausgehen. Diese Kategorie bietet eine Mischung aus experimentellen Klängen, einzigartigen Melodien und innovativen Arrangements, die den Alternative Rock definieren. Von melancholischen Balladen und kraftvollen Hymnen bis hin zu fesselnden Gitarrenriffs und ungewöhnlichen Songstrukturen – Alternative Rock ist der Ort für alle, die auf der Suche nach frischen, kreativen Klängen und musikalischen Abenteuern sind.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "ambient",
