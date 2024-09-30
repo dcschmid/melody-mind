@@ -9,15 +9,6 @@
     "isPlayable": true
   },
   {
-    "slug": "alternative",
-    "headline": "Alternative",
-    "imageUrl": "/category/alternative.jpg",
-    "categoryUrl": "/alternative",
-    "introSubline": "Erkunde die grenzenlosen Klänge und innovativen Sounds jenseits des Mainstreams!",
-    "text": "Alternative Musik bietet eine erfrischende Abwechslung vom Gewöhnlichen und vereint eine Vielzahl von Stilen, die über die Mainstream-Pfade hinausgehen. Diese Kategorie umfasst alles von experimentellen Indie-Rock-Sounds und avantgardistischen Pop-Melodien bis hin zu fesselnden Folk- und Elektro-Kreationen. Mit kreativen Songstrukturen, unkonventionellen Rhythmen und einzigartigen Klangwelten ist Alternative die perfekte Wahl für alle, die auf der Suche nach musikalischer Vielfalt und neuen Hörerlebnissen sind.",
-    "isPlayable": false
-  },
-  {
     "slug": "alternative-rock",
     "headline": "Alternative Rock",
     "imageUrl": "/category/alternative-rock.jpg",
@@ -105,7 +96,7 @@
     "categoryUrl": "/britisch",
     "introSubline": "Erlebe die vielfältigen Klänge und den unverwechselbaren Stil der britischen Musikszene!",
     "text": "Britische Musik ist bekannt für ihre reichhaltige Geschichte und ihre Vielfalt an Stilen, die von klassischen Rock- und Pop-Hits bis zu innovativen modernen Sounds reichen. Diese Kategorie umfasst alles von den legendären Klängen der Beatles und The Rolling Stones über die experimentellen Sounds der Britpop-Ära bis hin zu den aktuellen Hits von Künstlern, die die internationale Musikszene prägen. Mit einem Mix aus ikonischen Bands, einzigartigen Solokünstlern und aufregenden neuen Acts bietet britische Musik einen faszinierenden Überblick über die kulturelle und musikalische Landschaft des Vereinigten Königreichs.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "cantopop",
