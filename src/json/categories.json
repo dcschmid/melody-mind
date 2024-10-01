@@ -204,7 +204,7 @@
     "categoryUrl": "/deutscher-rap",
     "introSubline": "Erlebe die kraftvollen Rhymes und Beats der deutschen Rap-Szene!",
     "text": "Deutschrap bringt die pulsierende Energie und den unverwechselbaren Flow der deutschen Rap-Künstler direkt zu dir. Diese Kategorie vereint alles von härteren Straßenrhythmen bis zu gefühlvollen, lyrischen Texten und bietet einen Einblick in die Vielfalt und Tiefe der deutschen Hip-Hop-Szene. Von angesagten Tracks bis zu authentischen Beats – Deutschrap ist der Soundtrack für echte Geschichten und ungeschönte Realität.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "disco-fever",
