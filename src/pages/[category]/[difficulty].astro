@@ -177,16 +177,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     const userId = questionContainer.getAttribute("data-userID");
     const categoryName = questionContainer.getAttribute("data-categoryName");
     const difficulty = questionContainer.getAttribute("date-difficulty");
-    // Get the anchor tags
-    const spotifyLink = document.querySelector(
-      "#overlay .music-links .spotifyUrl",
-    ) as HTMLAnchorElement;
-    const appleMusicLink = document.querySelector(
-      "#overlay .music-links .appleMusicUrl",
-    ) as HTMLAnchorElement;
-    const deezerLink = document.querySelector(
-      "#overlay .music-links .deezerUrl",
-    ) as HTMLAnchorElement;
 
     // Initialize the score and the round index
     let score = 0;
@@ -324,26 +314,30 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     }
 
     function handleAnswer(
-      option: boolean,
+      option: any,
       correctAnswer: any,
-      currentQuestion: any,
-      album?: any,
+      currentQuestion: { trivia: string },
+      album: {
+        coverSrc: string;
+        artist: string;
+        album: string;
+        year: string;
+      },
     ) {
-      const endTime = Date.now(); // Zeit, wenn die Antwort gegeben wird
-      const timeTaken = (endTime - startTime) / 1000; // Zeit in Sekunden
+      const endTime = Date.now(); // Time when the answer is given
+      const timeTaken = (endTime - startTime) / 1000; // Time in seconds
       let totalPoints = 0;
 
       let bonusPoints = 0;
       if (option === correctAnswer) {
         if (timeTaken <= 10) {
-          bonusPoints = 50; // Maximaler Bonus für superschnelle Antworten
+          bonusPoints = 50; // Max bonus for very fast answers
         } else if (timeTaken <= 15) {
-          bonusPoints = 25; // Mittlerer Bonus für schnelle Antworten
+          bonusPoints = 25; // Medium bonus for quick answers
         }
 
-        totalPoints = 50 + bonusPoints; // Grundpunkte plus Bonus
+        totalPoints = 50 + bonusPoints; // Base points plus bonus
         feedbackElement.classList.add("correct");
-
         feedbackElement.textContent = `Richtig! 50 Punkte + ${bonusPoints} Bonuspunkte`;
       } else {
         feedbackElement.classList.add("incorrect");
@@ -357,12 +351,11 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         3000,
       );
 
-      // Aktualisiere die Gesamtpunktzahl
+      // Update the total score
       score += totalPoints;
-
       updateScoreDisplay(score);
 
-      // Funfact und weitere Informationen im Overlay anzeigen
+      // Show fun fact and additional information in the overlay
       const overlayCover = document.getElementById(
         "overlay-cover",
       ) as HTMLImageElement;
@@ -374,21 +367,26 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         currentQuestion.trivia || "";
       document.getElementById("overlay-year")!.textContent = album.year || "";
 
-      updateMusicLink(spotifyLink, album.spotifyUrl);
-      updateMusicLink(appleMusicLink, album.appleMusicUrl);
-      updateMusicLink(deezerLink, album.deezerUrl);
+      // Display the overlay
+      const overlay = document.getElementById("overlay") as HTMLDivElement;
 
-      document.getElementById("overlay")!.classList.remove("hidden");
+      overlay.classList.remove("hidden");
 
-      document.getElementById("next-round-button")!.onclick = function () {
-        document.getElementById("overlay")!.classList.add("hidden");
+      // Move the focus to the next-round-button inside the overlay
+      const nextRoundButton = document.getElementById(
+        "next-round-button",
+      ) as HTMLButtonElement;
+      nextRoundButton.focus();
+
+      nextRoundButton.onclick = function () {
+        overlay.classList.add("hidden");
         if (roundIndex < totalRounds - 1) {
           roundIndex++;
           roundElement.textContent = `${roundIndex + 1}/${totalRounds}`;
 
           const newQuestion = getRandomQuestion(albums, difficulty || "easy");
           loadQuestion(newQuestion.randomQuestion, newQuestion.randomAlbum);
-          feedbackElement.textContent = ""; // Feedback zurücksetzen
+          feedbackElement.textContent = ""; // Reset feedback
         } else {
           endGame();
         }

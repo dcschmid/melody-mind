@@ -75,11 +75,6 @@ export function handleAnswer(
   overlayElements.year.textContent = album.year || "";
   overlayElements.funfact.textContent = currentQuestion.trivia || "";
 
-  // Update the links with the correct URLs
-  updateMusicLink(links.spotifyLink, album.spotifyUrl);
-  updateMusicLink(links.appleMusicLink, album.appleMusicUrl);
-  updateMusicLink(links.deezerLink, album.deezerUrl);
-
   // Show the overlay
   document.getElementById("overlay")!.classList.remove("hidden");
 }

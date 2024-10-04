@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon/components";
+
 ---
 
 <div id="overlay" class="overlay hidden">
@@ -9,17 +9,6 @@ import { Icon } from "astro-icon/components";
     <p id="overlay-artist" class="overlay-artist">Artist Name</p>
     <p id="overlay-album" class="overlay-album">Album Name</p>
     <p id="overlay-year" class="overlay-year">Album Year</p>
-    <div class="music-links">
-      <a class="spotifyUrl" href="" target="_blank">
-        <Icon name="spotify-music" width={35} height={35} />
-      </a>
-      <a class="appleMusicUrl" href="" target="_blank">
-        <Icon name="apple-music" width={35} height={35} />
-      </a>
-      <a class="deezerUrl" href="" target="_blank">
-        <Icon name="deezer" width={35} height={35} />
-      </a>
-    </div>
     <p id="overlay-funfact" class="fun-fact">Fun Fact</p>
     <div class="centerButton">
       <button id="next-round-button" class="button">Nächste Runde</button>
@@ -60,7 +49,7 @@ import { Icon } from "astro-icon/components";
     transition: transform var(--transition-speed) ease-in-out;
     transform: scale(0.95);
 
-    .feedback {
+    feedback {
       font-size: 1.25rem;
       font-weight: bold;
       text-align: center;
@@ -68,19 +57,20 @@ import { Icon } from "astro-icon/components";
       border-radius: var(--border-radius);
       margin-bottom: var(--padding-large);
       transition:
-        background-color var(--transition-speed),
+        opacity 0.3s ease-in-out,
         transform 0.3s ease-in-out,
-        display 0.3s ease-in-out;
+        max-height 0.3s ease-in-out;
       opacity: 0;
       transform: translateY(-10px);
-      display: none;
+      max-height: 0;
+      overflow: hidden;
     }
 
     .feedback.show {
       opacity: 1;
       transform: translateY(0);
-      height: auto;
-      display: block;
+      max-height: 500px;
+      overflow: visible;
     }
 
     .feedback.correct {
@@ -131,29 +121,6 @@ import { Icon } from "astro-icon/components";
       color: var(--text-color);
     }
 
-    .music-links {
-      display: flex;
-      justify-content: center;
-      gap: var(--padding-medium);
-      margin: var(--padding-medium) 0;
-    }
-
-    .music-links a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: var(--padding-small);
-      background-color: var(--highlight-color);
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      transition: background-color var(--transition-speed);
-    }
-
-    .music-links a:hover {
-      background-color: var(--button-hover-color);
-    }
-
     .fun-fact {
       font-size: 1.125rem;
       color: var(--text-color);
@@ -184,16 +151,27 @@ import { Icon } from "astro-icon/components";
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const overlay = document.getElementById("overlay");
+    const overlay = document.getElementById("overlay") as HTMLDivElement;
+    const feedbackElement = document.getElementById(
+      "feedback",
+    ) as HTMLParagraphElement;
 
-    // Überprüfen, ob das Overlay sichtbar ist
+    // Funktion um sicherzustellen, dass der Overlay-Inhalt gescrollt wird
     function isOverlayVisible() {
       return !overlay?.classList.contains("hidden");
     }
 
-    // Scrollen, wenn die Pfeiltasten nach oben oder unten gedrückt werden
+    // Fokussiere den Anfang des Overlays und scrolle es nach oben
+    function focusOverlay() {
+      overlay.focus();
+      overlay.scrollTop = 0;
+    }
+
+    // Wenn das Overlay geöffnet wird, sicherstellen, dass es auf den Anfang gescrollt wird
     document.addEventListener("keydown", (event) => {
       if (isOverlayVisible()) {
+        overlay.scrollTop = 0; // Setze den Scroll auf den Anfang
+
         if (event.key === "ArrowDown") {
           overlay?.scrollBy({ top: 100, behavior: "smooth" });
         } else if (event.key === "ArrowUp") {
@@ -201,5 +179,13 @@ import { Icon } from "astro-icon/components";
         }
       }
     });
+
+    // Scrollen und Fokussieren wenn das Overlay sichtbar ist
+    document
+      .getElementById("next-round-button")
+      ?.addEventListener("click", () => {
+        focusOverlay();
+        feedbackElement.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
   });
 </script>
