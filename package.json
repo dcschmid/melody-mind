@@ -18,13 +18,13 @@
     "*.{html,json,md,mdx,astro}": "prettier --write"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.3",
+    "@astrojs/check": "^0.9.4",
     "@astrojs/db": "^0.14.1",
     "@astrojs/node": "^8.3.4",
     "@astropub/flow": "^0.4.0",
     "@fontsource/source-sans-pro": "^5.1.0",
     "arctic": "^1.9.2",
-    "astro": "^4.15.9",
+    "astro": "^4.15.11",
     "astro-compressor": "^0.4.1",
     "astro-icon": "^1.1.1",
     "js-confetti": "^0.12.0",
@@ -37,8 +37,8 @@
   "devDependencies": {
     "@double-great/stylelint-a11y": "^3.0.2",
     "@tinkoff/stylelint-config": "^4.0.0",
-    "@typescript-eslint/parser": "^8.7.0",
-    "eslint": "^9.11.1",
+    "@typescript-eslint/parser": "^8.8.0",
+    "eslint": "^9.12.0",
     "eslint-plugin-astro": "^1.2.4",
     "eslint-plugin-jsx-a11y": "^6.10.0",
     "husky": "^9.1.6",
