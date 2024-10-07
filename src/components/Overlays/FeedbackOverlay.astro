@@ -1,15 +1,35 @@
 ---
-
+import { Icon } from "astro-icon/components";
 ---
 
 <div id="overlay" class="overlay hidden">
   <div class="overlay-content">
     <p id="feedback" class="feedback"></p>
-    <img id="overlay-cover" src="" alt="Album Cover" class="albumCover" />
+
+    <!-- Dynamische Anzeige: Cover oder Audio Player -->
+    <div class="media-section">
+      <img id="overlay-cover" src="" alt="Album Cover" class="albumCover" />
+      <audio id="audio-preview" class="audioPlayer" controls>
+        <source id="audio-preview-source" src="" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="music-links">
+      <a id="spotify-link" class="music-button" href="#" target="_blank">
+        <Icon name="spotify" width={36} height={36} />
+      </a>
+      <a id="deezer-link" class="music-button" href="#" target="_blank">
+        <Icon name="deezer" width={36} height={36} />
+      </a>
+    </div>
+
     <p id="overlay-artist" class="overlay-artist">Artist Name</p>
     <p id="overlay-album" class="overlay-album">Album Name</p>
     <p id="overlay-year" class="overlay-year">Album Year</p>
+
     <p id="overlay-funfact" class="fun-fact">Fun Fact</p>
+
     <div class="centerButton">
       <button id="next-round-button" class="button">Nächste Runde</button>
     </div>
@@ -25,8 +45,8 @@
     align-items: center;
     justify-content: center;
     padding: var(--padding-large);
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(12px);
     transition: opacity var(--transition-speed) ease-in-out;
   }
 
@@ -44,57 +64,62 @@
     text-align: center;
     background-color: var(--background-color);
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
     color: var(--text-color);
     transition: transform var(--transition-speed) ease-in-out;
-    transform: scale(0.95);
+    transform: scale(0.98);
 
-    feedback {
-      font-size: 1.25rem;
-      font-weight: bold;
-      text-align: center;
-      padding: var(--padding-medium);
-      border-radius: var(--border-radius);
-      margin-bottom: var(--padding-large);
-      transition:
-        opacity 0.3s ease-in-out,
-        transform 0.3s ease-in-out,
-        max-height 0.3s ease-in-out;
-      opacity: 0;
-      transform: translateY(-10px);
-      max-height: 0;
-      overflow: hidden;
-    }
-
-    .feedback.show {
-      opacity: 1;
-      transform: translateY(0);
-      max-height: 500px;
-      overflow: visible;
-    }
-
-    .feedback.correct {
-      background-color: var(--highlight-color);
-      color: var(--text-color);
-      box-shadow: var(--box-shadow);
-    }
-
-    .feedback.incorrect {
-      background-color: var(--error-color);
-      color: var(--text-color);
-      box-shadow: var(--box-shadow);
+    .media-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: var(--padding-medium);
     }
 
     .albumCover {
       max-width: 250px;
       width: 100%;
       height: auto;
-      margin: 0 auto var(--padding-small);
+      margin-bottom: var(--padding-small);
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
       transition:
         transform var(--transition-speed),
         box-shadow var(--transition-speed);
+    }
+
+    .audioPlayer {
+      width: 100%;
+      max-width: 250px;
+      margin-top: var(--padding-small);
+      border: none;
+      box-shadow: var(--box-shadow);
+    }
+
+    .music-links {
+      display: flex;
+      justify-content: center;
+      gap: var(--padding-small);
+      margin-bottom: var(--padding-medium);
+    }
+
+    .music-button {
+      display: inline-block;
+      padding: var(--padding-small);
+      background-color: var(--highlight-color);
+      color: var(--text-color);
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: var(--box-shadow);
+      transition:
+        background-color var(--transition-speed),
+        transform 0.2s;
+    }
+
+    .music-button:hover {
+      background-color: var(--button-hover-color);
+      transform: scale(1.05);
     }
 
     .overlay-artist,
@@ -152,40 +177,43 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const overlay = document.getElementById("overlay") as HTMLDivElement;
-    const feedbackElement = document.getElementById(
-      "feedback",
-    ) as HTMLParagraphElement;
+    const overlayContent = document.querySelector(
+      ".overlay-content",
+    ) as HTMLDivElement;
 
-    // Funktion um sicherzustellen, dass der Overlay-Inhalt gescrollt wird
-    function isOverlayVisible() {
-      return !overlay?.classList.contains("hidden");
+    // Funktion um sicherzustellen, dass der Overlay-Inhalt nach dem Öffnen gescrollt wird
+    function scrollToTop() {
+      if (overlayContent) {
+        setTimeout(() => {
+          overlayContent.scrollTop = 0; // Scrollt den Inhalt nach dem Rendering auf den Anfang
+        }, 100); // Geringe Verzögerung, um sicherzustellen, dass das Overlay gerendert ist
+      }
     }
 
-    // Fokussiere den Anfang des Overlays und scrolle es nach oben
-    function focusOverlay() {
-      overlay.focus();
-      overlay.scrollTop = 0;
-    }
+    // Überwache das Overlay und scrolle den Inhalt nach oben, wenn es sichtbar wird
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach(() => {
+        if (!overlay.classList.contains("hidden")) {
+          scrollToTop(); // Scrollt nach oben, wenn das Overlay sichtbar ist
+        }
+      });
+    });
 
-    // Wenn das Overlay geöffnet wird, sicherstellen, dass es auf den Anfang gescrollt wird
+    // Beobachte Änderungen an der Sichtbarkeit des Overlays
+    observer.observe(overlay, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    // Optional: Scrollen mit den Pfeiltasten
     document.addEventListener("keydown", (event) => {
-      if (isOverlayVisible()) {
-        overlay.scrollTop = 0; // Setze den Scroll auf den Anfang
-
+      if (!overlay.classList.contains("hidden")) {
         if (event.key === "ArrowDown") {
-          overlay?.scrollBy({ top: 100, behavior: "smooth" });
+          overlayContent.scrollBy({ top: 100, behavior: "smooth" });
         } else if (event.key === "ArrowUp") {
-          overlay?.scrollBy({ top: -100, behavior: "smooth" });
+          overlayContent.scrollBy({ top: -100, behavior: "smooth" });
         }
       }
     });
-
-    // Scrollen und Fokussieren wenn das Overlay sichtbar ist
-    document
-      .getElementById("next-round-button")
-      ?.addEventListener("click", () => {
-        focusOverlay();
-        feedbackElement.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
   });
 </script>

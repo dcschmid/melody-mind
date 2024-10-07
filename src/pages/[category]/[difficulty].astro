@@ -139,7 +139,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 <script>
   import { getRandomQuestion } from "@utils/game/getRandomQuestion";
   import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
-  import { updateMusicLink } from "@utils/game/updateMusicLink";
   import { shuffleArray } from "@utils/share/shuffleArray";
 
   document.addEventListener("DOMContentLoaded", async function () {
@@ -171,6 +170,22 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     const questionContainer = document.getElementById(
       "question-container",
     ) as HTMLDivElement;
+
+    const overlayCover = document.getElementById(
+      "overlay-cover",
+    ) as HTMLImageElement;
+    const audioPreview = document.getElementById(
+      "audio-preview",
+    ) as HTMLAudioElement;
+    const audioPreviewSource = document.getElementById(
+      "audio-preview-source",
+    ) as HTMLSourceElement;
+    const spotifyLink = document.getElementById(
+      "spotify-link",
+    ) as HTMLAnchorElement;
+    const deezerLink = document.getElementById(
+      "deezer-link",
+    ) as HTMLAnchorElement;
 
     // Get the category from the question container
     const category = questionContainer.getAttribute("data-genre");
@@ -262,6 +277,22 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         const currentQuestion = getCurrentQuestion(); // Aktuelle Frage holen
         use5050Joker(currentQuestion); // Joker aktivieren
       });
+    }
+
+    function updateMedia(album: any) {
+      if (album.preview_url) {
+        audioPreviewSource.src = album.preview_url;
+        audioPreview.load();
+        audioPreview.classList.remove("hidden");
+        overlayCover.classList.add("hidden");
+      } else {
+        overlayCover.src = album.coverSrc;
+        overlayCover.classList.remove("hidden");
+        audioPreview.classList.add("hidden");
+      }
+
+      spotifyLink.href = album.spotify_link || "#";
+      deezerLink.href = album.deezer_link || "#";
     }
 
     /**
@@ -366,6 +397,8 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       document.getElementById("overlay-funfact")!.textContent =
         currentQuestion.trivia || "";
       document.getElementById("overlay-year")!.textContent = album.year || "";
+
+      updateMedia(album);
 
       // Display the overlay
       const overlay = document.getElementById("overlay") as HTMLDivElement;
