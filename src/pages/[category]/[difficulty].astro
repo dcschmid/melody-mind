@@ -142,35 +142,25 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   import { shuffleArray } from "@utils/share/shuffleArray";
 
   document.addEventListener("DOMContentLoaded", async function () {
-    // Get the element that shows the current score
     const scoreElement = document.querySelector(
       ".coinsCount",
     ) as HTMLParagraphElement;
-
     const roundElement = document.querySelector(
       ".round",
     ) as HTMLParagraphElement;
-
-    // Get the element that shows the feedback after a question
     const feedbackElement = document.getElementById(
       "feedback",
     ) as HTMLParagraphElement;
-
-    // Get the element that shows the question
     const questionElement = document.getElementById(
       "question",
     ) as HTMLParagraphElement;
-
-    // Get the element that shows the options
     const optionsContainer = document.getElementById(
       "options",
     ) as HTMLDivElement;
-
-    // Get the element that shows the question container
     const questionContainer = document.getElementById(
       "question-container",
     ) as HTMLDivElement;
-
+    const overlay = document.getElementById("overlay") as HTMLDivElement;
     const overlayCover = document.getElementById(
       "overlay-cover",
     ) as HTMLImageElement;
@@ -193,20 +183,14 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     const categoryName = questionContainer.getAttribute("data-categoryName");
     const difficulty = questionContainer.getAttribute("date-difficulty");
 
-    // Initialize the score and the round index
     let score = 0;
     let correctAnswers = 0;
     let roundIndex = 0;
-
-    // How many rounds there are
     const totalRounds =
       difficulty === "hard" ? 20 : difficulty === "medium" ? 15 : 10;
-
     roundElement.textContent = `${roundIndex + 1}/${totalRounds}`;
 
-    // Import the albums data for the current category
     const albumsPromise = import(`../../json/genres/${category}.json`);
-    // Get the albums data
     const albums: any = (await albumsPromise).default;
 
     const { totalUserPoints, currentCategoryPointsValue } =
@@ -214,72 +198,68 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 
     let currentQuestion: null = null;
     let jokerUsedCount = 0;
-    let maxJokers = 0;
+    let maxJokers = difficulty === "easy" ? 3 : difficulty === "medium" ? 5 : 7;
 
-    let startTime: number;
-
-    if (difficulty === "easy") {
-      maxJokers = 3;
-    } else if (difficulty === "medium") {
-      maxJokers = 5;
-    } else if (difficulty === "hard") {
-      maxJokers = 7;
-    }
     const jokerButton = document.getElementById(
       "joker-button",
     ) as HTMLButtonElement;
-
-    // Zeige die Anzahl der verfügbaren Joker im Interface an
     const jokerCounterElement = document.getElementById(
       "joker-count",
     ) as HTMLElement;
     jokerCounterElement.textContent = `Joker: ${maxJokers} verbleibend`;
 
-    let jokerUsed = false; // Der Joker kann nur einmal pro Runde verwendet werden
+    let jokerUsed = false;
+
+    let startTime = 0;
+
+    // Stop the audio when a new question is loaded
+    function stopAudio() {
+      if (audioPreview) {
+        audioPreview.pause();
+        audioPreview.currentTime = 0; // Reset to the beginning
+      }
+    }
 
     // Funktion für den 50:50 Joker
     function use5050Joker(question: any) {
       const correctAnswer = question.correctAnswer;
       const options = Array.from(document.querySelectorAll("#options button"));
 
-      if (jokerUsed) return; // Verhindern, dass der Joker mehrmals verwendet wird
+      if (jokerUsed) return;
 
       if (jokerUsedCount >= maxJokers) {
         jokerButton.disabled = true;
       }
 
-      // Finde die falschen Antworten
       const incorrectOptions = options.filter(
         (option) => option.textContent !== correctAnswer,
       );
-
       const optionsToRemove = incorrectOptions
         .sort(() => Math.random() - 0.5)
         .slice(0, 2);
 
       optionsToRemove.forEach((option) => {
         option.classList.add("hidden");
-
         option.addEventListener("transitionend", function () {
           option.remove();
         });
       });
 
-      jokerUsed = true; // Joker wurde verwendet
-
-      // Joker wurde verwendet, erhöhe den Joker-Count
+      jokerUsed = true;
       jokerUsedCount++;
       jokerCounterElement.textContent = `Joker: ${maxJokers - jokerUsedCount} verbleibend`;
     }
 
     if (jokerButton) {
       jokerButton.addEventListener("click", function () {
-        const currentQuestion = getCurrentQuestion(); // Aktuelle Frage holen
-        use5050Joker(currentQuestion); // Joker aktivieren
+        const currentQuestion = getCurrentQuestion();
+        use5050Joker(currentQuestion);
       });
     }
 
     function updateMedia(album: any) {
+      stopAudio(); // Stop the audio when new media is loaded
+
       if (album.preview_url) {
         audioPreviewSource.src = album.preview_url;
         audioPreview.load();
@@ -291,21 +271,23 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         audioPreview.classList.add("hidden");
       }
 
-      spotifyLink.href = album.spotify_link || "#";
-      deezerLink.href = album.deezer_link || "#";
+      if (album.spotify_link) {
+        spotifyLink.href = album.spotify_link;
+        spotifyLink.style.display = "inline-block";
+      } else {
+        spotifyLink.style.display = "none";
+      }
+
+      if (album.deezer_link) {
+        deezerLink.href = album.deezer_link;
+        deezerLink.style.display = "inline-block";
+      } else {
+        deezerLink.style.display = "none";
+      }
     }
 
-    /**
-     * Loads a question and its options into the DOM.
-     */
     function loadQuestion(question: any, album: any) {
-      startTime = Date.now(); // Setze die Startzeit, wenn die Frage geladen wird
-
-      const questionContainer = document.getElementById(
-        "question-container",
-      ) as HTMLDivElement;
-
-      // Fade-Out der aktuellen Frage
+      startTime = Date.now();
       questionContainer.classList.add("hidden");
 
       const spinner = document.getElementById(
@@ -316,13 +298,9 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       currentQuestion = question;
 
       setTimeout(() => {
-        // Set the question text
         questionElement.textContent = question.question;
-
-        // Clear the options container
         optionsContainer.innerHTML = "";
 
-        // Shuffle the options before rendering
         const shuffledOptions = shuffleArray([...question.options]);
 
         shuffledOptions.forEach(function (option: any) {
@@ -336,8 +314,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         });
 
         spinner.classList.add("hidden");
-
-        // Fade-In der neuen Frage
         questionContainer.classList.remove("hidden");
       }, 500);
 
@@ -348,26 +324,21 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       option: any,
       correctAnswer: any,
       currentQuestion: { trivia: string },
-      album: {
-        coverSrc: string;
-        artist: string;
-        album: string;
-        year: string;
-      },
+      album: { coverSrc: string; artist: string; album: string; year: string },
     ) {
-      const endTime = Date.now(); // Time when the answer is given
-      const timeTaken = (endTime - startTime) / 1000; // Time in seconds
+      const endTime = Date.now();
+      const timeTaken = (endTime - startTime) / 1000;
       let totalPoints = 0;
-
       let bonusPoints = 0;
+
       if (option === correctAnswer) {
         if (timeTaken <= 10) {
-          bonusPoints = 50; // Max bonus for very fast answers
+          bonusPoints = 50;
         } else if (timeTaken <= 15) {
-          bonusPoints = 25; // Medium bonus for quick answers
+          bonusPoints = 25;
         }
 
-        totalPoints = 50 + bonusPoints; // Base points plus bonus
+        totalPoints = 50 + bonusPoints;
         feedbackElement.classList.add("correct");
         feedbackElement.textContent = `Richtig! 50 Punkte + ${bonusPoints} Bonuspunkte`;
       } else {
@@ -382,14 +353,9 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         3000,
       );
 
-      // Update the total score
       score += totalPoints;
       updateScoreDisplay(score);
 
-      // Show fun fact and additional information in the overlay
-      const overlayCover = document.getElementById(
-        "overlay-cover",
-      ) as HTMLImageElement;
       overlayCover.src = album.coverSrc || "";
       document.getElementById("overlay-artist")!.textContent =
         album.artist || "";
@@ -400,12 +366,9 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 
       updateMedia(album);
 
-      // Display the overlay
       const overlay = document.getElementById("overlay") as HTMLDivElement;
-
       overlay.classList.remove("hidden");
 
-      // Move the focus to the next-round-button inside the overlay
       const nextRoundButton = document.getElementById(
         "next-round-button",
       ) as HTMLButtonElement;
@@ -419,30 +382,26 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 
           const newQuestion = getRandomQuestion(albums, difficulty || "easy");
           loadQuestion(newQuestion.randomQuestion, newQuestion.randomAlbum);
-          feedbackElement.textContent = ""; // Reset feedback
+          feedbackElement.textContent = "";
         } else {
           endGame();
         }
       };
     }
 
-    // Funktion für das Spielende
     function endGame() {
       if (correctAnswers === totalRounds) {
         saveGoldenLP(userId || "", categoryName || "");
         saveScoreToDB();
-        // Alle Fragen richtig beantwortet - Goldene LP Popup anzeigen
         showGoldenLpPopup();
       } else {
         saveScoreToDB();
-        // Normales Spielende Popup anzeigen
         showEndgamePopup();
       }
     }
 
     function showEndgamePopup() {
       document.getElementById("popup-score")!.textContent = score.toString();
-
       const endgamePopup = document.getElementById("endgame-popup");
       endgamePopup!.classList.remove("hidden");
 
@@ -454,7 +413,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     function showGoldenLpPopup() {
       document.getElementById("golden-lp-score")!.textContent =
         score.toString();
-
       const goldenLpPopup = document.getElementById("golden-lp-popup");
       goldenLpPopup!.classList.remove("hidden");
 
@@ -464,13 +422,9 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     }
 
     function updateScoreDisplay(score: number) {
-      scoreElement.textContent = score as unknown as string;
-
-      // Bonus Animation
+      scoreElement.textContent = score.toString();
       scoreElement.classList.add("bonus");
-      setTimeout(() => {
-        scoreElement.classList.remove("bonus");
-      }, 500);
+      setTimeout(() => scoreElement.classList.remove("bonus"), 500);
     }
 
     function restartGame() {
