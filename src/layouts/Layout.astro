@@ -35,30 +35,32 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
       <header>
         <div class="slot left">
           <When test={showHeaderIcons}>
-            <a href="/spielregeln">
+            <button
+              class="icon-button"
+              onclick="window.location.href='/gamehome'"
+            >
+              <Icon name="home" width={24} height={22.24} />
+            </button>
+            <button
+              class="icon-button"
+              onclick="window.location.href='/spielregeln'"
+            >
               <Icon name="question" width={24} height={22.24} />
-            </a>
-            <a href="/highscores">
+            </button>
+            <button
+              class="icon-button"
+              onclick="window.location.href='/highscores'"
+            >
               <Icon name="trophy" width={24} height={24} />
-            </a>
+            </button>
           </When>
           <slot name="left-headercol" />
         </div>
-        <div class="logo">
-          <a href="/gamehome">
-            <img
-              alt="MelodyMind Logo"
-              src="/melody-mind.jpg"
-              width={120}
-              height={69}
-            />
-          </a>
-        </div>
         <div class="slot right">
           <When test={showHeaderIcons}>
-            <a href="/user">
+            <button class="icon-button" onclick="window.location.href='/user'">
               <Icon name="user" width={24} height={24} />
-            </a>
+            </button>
             <form method="post" action="/api/logout">
               <button class="icon-button">
                 <Icon name="logout" width={24} height={24} title="Abmelden" />
@@ -151,21 +153,7 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
         height: auto;
       }
 
-      a {
-        display: inline-block;
-        color: var(--text-color);
-        text-decoration: none;
-        transition:
-          transform var(--transition-speed),
-          color var(--transition-speed);
-      }
-
-      a:hover {
-        color: var(--highlight-color);
-        transform: scale(1.1);
-      }
-
-      .icon-button {
+      button {
         background: none;
         border: none;
         cursor: pointer;
@@ -174,8 +162,19 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
         transition: transform var(--transition-speed);
       }
 
+      .icon-button {
+        background-color: var(--highlight-color);
+        border-radius: var(--border-radius);
+        padding: var(--padding-small);
+        box-shadow: var(--box-shadow);
+        transition:
+          background-color var(--transition-speed),
+          transform var(--transition-speed);
+      }
+
       .icon-button:hover {
-        transform: scale(1.1);
+        background-color: var(--button-hover-color);
+        transform: scale(1.05);
       }
 
       main {
@@ -205,11 +204,12 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
         border: none;
         border-radius: var(--border-radius);
         box-shadow: var(--box-shadow);
+        color: var(--text-color);
+        text-decoration: none;
 
         transition:
           background-color 0.3s ease,
-          opacity 1s ease,
-          height 1ys ease;
+          opacity 1s ease;
       }
 
       .button:hover {
@@ -226,16 +226,6 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
         padding: 0;
 
         opacity: 0;
-      }
-
-      button {
-        cursor: pointer;
-
-        margin: 0;
-        padding: 0;
-
-        background: none;
-        border: none;
       }
     </style>
   </body>
