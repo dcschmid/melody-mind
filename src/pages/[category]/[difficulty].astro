@@ -332,12 +332,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       let bonusPoints = 0;
 
       if (option === correctAnswer) {
-        if (timeTaken <= 10) {
-          bonusPoints = 50;
-        } else if (timeTaken <= 15) {
-          bonusPoints = 25;
-        }
-
+        bonusPoints = timeTaken <= 10 ? 50 : timeTaken <= 15 ? 25 : 0;
         totalPoints = 50 + bonusPoints;
         feedbackElement.classList.add("correct");
         feedbackElement.textContent = `Richtig! 50 Punkte + ${bonusPoints} Bonuspunkte`;
@@ -348,10 +343,9 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 
       feedbackElement.classList.add("show");
 
-      setTimeout(
-        () => feedbackElement.classList.remove("show", "correct", "incorrect"),
-        3000,
-      );
+      setTimeout(() => {
+        feedbackElement.classList.remove("show", "correct", "incorrect");
+      }, 5000);
 
       score += totalPoints;
       updateScoreDisplay(score);

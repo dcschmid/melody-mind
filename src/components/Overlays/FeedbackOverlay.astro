@@ -70,16 +70,16 @@ import { Icon } from "astro-icon/components";
     transform: scale(0.98);
 
     .feedback {
-      margin: 1rem 0;
-      padding: 1.5rem 2rem;
+      margin: var(--padding-medium) 0;
+      padding: var(--padding-medium) var(--padding-large);
       border-radius: var(--border-radius);
       font-size: 1.25rem;
       font-weight: 600;
       text-align: center;
       opacity: 0;
       transition:
-        opacity 0.4s ease,
-        transform 0.4s ease;
+        opacity var(--transition-speed) ease,
+        transform var(--transition-speed) ease;
     }
 
     .feedback.show {
@@ -88,18 +88,18 @@ import { Icon } from "astro-icon/components";
     }
 
     .feedback.correct {
-      background-color: #4caf50;
-      color: #fff;
-      box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
-      border: 2px solid #388e3c;
+      background-color: var(--highlight-color);
+      color: var(--text-color);
+      box-shadow: var(--box-shadow);
+      border: 2px solid var(--highlight-color);
       animation: correctAnimation 1s ease;
     }
 
     .feedback.incorrect {
-      background-color: #f44336;
-      color: #fff;
-      box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
-      border: 2px solid #d32f2f;
+      background-color: var(--error-color);
+      color: var(--button-text-color);
+      box-shadow: var(--box-shadow);
+      border: 2px solid var(--error-color);
       animation: incorrectAnimation 1s ease;
     }
 
@@ -123,11 +123,11 @@ import { Icon } from "astro-icon/components";
 
     /* Optional glow effect */
     .feedback.correct {
-      box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+      box-shadow: 0 0 20px rgba(255, 200, 0, 0.5);
     }
 
     .feedback.incorrect {
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+      box-shadow: 0 0 20px rgba(255, 87, 51, 0.5);
     }
 
     .media-section {
