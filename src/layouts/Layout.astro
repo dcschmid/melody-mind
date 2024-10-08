@@ -34,13 +34,13 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
     <When test1={showHeader}>
       <header>
         <div class="slot left">
+          <button
+            class="icon-button"
+            onclick="window.location.href='/gamehome'"
+          >
+            <Icon name="home" width={24} height={22.24} />
+          </button>
           <When test={showHeaderIcons}>
-            <button
-              class="icon-button"
-              onclick="window.location.href='/gamehome'"
-            >
-              <Icon name="home" width={24} height={22.24} />
-            </button>
             <button
               class="icon-button"
               onclick="window.location.href='/spielregeln'"
