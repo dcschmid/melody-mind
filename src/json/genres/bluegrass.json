@@ -181,12 +181,7 @@
         },
         {
           "question": "In welchem Jahr traten Flatt & Scruggs mit ihrem Album 'Foggy Mountain Banjo' erstmals live auf, nachdem es 1961 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "1961",
-            "1962",
-            "1963",
-            "1964"
-          ],
+          "options": ["1961", "1962", "1963", "1964"],
           "correctAnswer": "1962",
           "trivia": "Flatt & Scruggs, ein ikonisches Duo der Bluegrass-Musik, ver\u00f6ffentlichten 'Foggy Mountain Banjo' im Jahr 1961 und tourten intensiv, um das Album zu f\u00f6rdern. Ihr unverwechselbarer Stil und die virtuose Banjo-Darbietung von Earl Scruggs trugen dazu bei, das Album zu einem Meilenstein in der Bluegrass-Historie zu machen. Im Jahr 1962 begannen sie mit einer Reihe von Live-Auftritten, die ihre Popularit\u00e4t weiter steigerten und sie zu f\u00fchrenden Figuren in der Country- und Bluegrass-Szene machten."
         }
@@ -356,33 +351,19 @@
       "easy": [
         {
           "question": "Welches Musikvideo von Ricky Skaggs aus dem Album 'Bluegrass Rules!' wurde 1997 ver\u00f6ffentlicht und zeigt seine au\u00dfergew\u00f6hnlichen F\u00e4higkeiten als Musiker?",
-          "options": [
-            "Highway 40 Blues",
-            "Uncle Pen",
-            "Hillbilly Fever"
-          ],
+          "options": ["Highway 40 Blues", "Uncle Pen", "Hillbilly Fever"],
           "correctAnswer": "Highway 40 Blues",
           "trivia": "Ricky Skaggs ist ein prominenter Country- und Bluegrass-Musiker, der f\u00fcr seine virtuosen F\u00e4higkeiten auf der Mandoline und der Gitarre bekannt ist. Das Album 'Bluegrass Rules!', das 1997 ver\u00f6ffentlicht wurde, enth\u00e4lt den Hit 'Highway 40 Blues', der seine charakteristische Mischung aus Bluegrass und Country-Elementen zeigt. Das dazugeh\u00f6rige Musikvideo hebt nicht nur seine musikalischen Talente hervor, sondern auch die lebendige Atmosph\u00e4re der Bluegrass-Szene."
         },
         {
           "question": "Welche Art von Musik pr\u00e4sentierte Ricky Skaggs auf seinem Album 'Bluegrass Rules!', das 1997 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Country",
-            "Jazz",
-            "Bluegrass",
-            "Rock"
-          ],
+          "options": ["Country", "Jazz", "Bluegrass", "Rock"],
           "correctAnswer": "Bluegrass",
           "trivia": "Ricky Skaggs ist ein renommierter Musiker, der f\u00fcr seine Beitr\u00e4ge zur Bluegrass- und Country-Musik bekannt ist. Mit dem Album 'Bluegrass Rules!' aus dem Jahr 1997 kehrte er zu seinen Wurzeln in der Bluegrass-Musik zur\u00fcck und feierte damit den traditionellen Sound. Die Aufnahmen wurden von vielen als Hommage an die klassischen Bluegrass-Elemente angesehen, die Skaggs in seinen eigenen Stil integriert hat."
         },
         {
           "question": "Welches typische Instrument der Bluegrass-Musik wird h\u00e4ufig in Ricky Skaggs' Album 'Bluegrass Rules!' verwendet?",
-          "options": [
-            "Banjo",
-            "Piano",
-            "Synthesizer",
-            "Gitarre"
-          ],
+          "options": ["Banjo", "Piano", "Synthesizer", "Gitarre"],
           "correctAnswer": "Banjo",
           "trivia": "Ricky Skaggs ist ein renommierter Musiker im Bluegrass-Genre, bekannt f\u00fcr seine virtuosen F\u00e4higkeiten an verschiedenen Instrumenten. In seinem Album 'Bluegrass Rules!', das 1997 ver\u00f6ffentlicht wurde, spielt das Banjo eine zentrale Rolle und verleiht den Songs ihren charakteristischen Klang. Bluegrass ist f\u00fcr den Einsatz von akustischen Instrumenten wie Banjo, Mandoline und Geige bekannt, die alle in Skaggs' Musik pr\u00e4sent sind."
         }
@@ -714,12 +695,7 @@
         },
         {
           "question": "Welches bedeutende musikalische Genre repr\u00e4sentiert das Album 'Manzanita' von Tony Rice, das 1979 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Bluegrass",
-            "Jazz",
-            "Pop",
-            "Klassik"
-          ],
+          "options": ["Bluegrass", "Jazz", "Pop", "Klassik"],
           "correctAnswer": "Bluegrass",
           "trivia": "Tony Rice ist ein einflussreicher amerikanischer Musiker, der als Meister des Bluegrass-Gitarrenspiels gilt. Sein Album 'Manzanita' aus dem Jahr 1979 zeigt seine virtuosen F\u00e4higkeiten und innovative Ans\u00e4tze innerhalb des Genres. Die Kombination aus traditionellen Bluegrass-Elementen und modernen Einfl\u00fcssen hat dazu beigetragen, Rice als Schl\u00fcsselfigur in der Entwicklung der akustischen Musik zu etablieren."
         },
@@ -841,12 +817,7 @@
         },
         {
           "question": "In welchem Jahr trat Ralph Stanley mit seinem Album 'Cry from the Cross' erstmals live auf?",
-          "options": [
-            "1965",
-            "1971",
-            "1975",
-            "1980"
-          ],
+          "options": ["1965", "1971", "1975", "1980"],
           "correctAnswer": "1971",
           "trivia": "Ralph Stanley, ein legend\u00e4rer Bluegrass-Musiker, ver\u00f6ffentlichte sein Album 'Cry from the Cross' im Jahr 1971. Dieses Album enth\u00e4lt einige seiner bekanntesten Songs und spiegelt seinen einzigartigen Stil wider. Ralph Stanley war f\u00fcr seine beeindruckenden Live-Auftritte bekannt, bei denen er oft eine Mischung aus traditionellen und modernen Bluegrass-St\u00fccken pr\u00e4sentierte. Sein Einfluss auf die Musikszene ist bis heute sp\u00fcrbar."
         }
@@ -1027,12 +998,7 @@
         },
         {
           "question": "Mit welchem ber\u00fchmten K\u00fcnstler hat die Del McCoury Band auf ihrem 1996 ver\u00f6ffentlichten Album 'The Cold Hard Facts' zusammengearbeitet, um einen einzigartigen Bluegrass-Sound zu kreieren?",
-          "options": [
-            "Bill Monroe",
-            "Ricky Skaggs",
-            "Steve Earle",
-            "Sam Bush"
-          ],
+          "options": ["Bill Monroe", "Ricky Skaggs", "Steve Earle", "Sam Bush"],
           "correctAnswer": "Steve Earle",
           "trivia": "Die Del McCoury Band hat auf 'The Cold Hard Facts' mit dem renommierten Singer-Songwriter Steve Earle zusammengearbeitet, der f\u00fcr seine F\u00e4higkeiten im Country- und Folk-Genre bekannt ist. Earle's Einfluss bringt eine zus\u00e4tzliche Dimension in das Album, das insgesamt f\u00fcr seinen traditionellen Bluegrass-Stil und seine tiefgr\u00fcndigen Texte gelobt wird. Diese Zusammenarbeit zeigt die Vielseitigkeit und den Einfluss von Del McCoury in der amerikanischen Musikszene."
         }
@@ -1062,12 +1028,7 @@
         },
         {
           "question": "Welches Instrument spielte John Hartford auf seinem Album 'Aereo-Plain', das 1971 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Banjo",
-            "Gitarre",
-            "Geige",
-            "Klavier"
-          ],
+          "options": ["Banjo", "Gitarre", "Geige", "Klavier"],
           "correctAnswer": "Banjo",
           "trivia": "John Hartford, ein talentierter Singer-Songwriter und Musiker, ist bekannt f\u00fcr seine einzigartigen Beitr\u00e4ge zur Bluegrass- und Folk-Musik. Auf seinem Album 'Aereo-Plain' kombinierte er verschiedene Stilrichtungen und zeigte sein K\u00f6nnen am Banjo. Das Album enth\u00e4lt auch Beitr\u00e4ge von anderen namhaften Musikern, die Hartfords innovative musikalische Vision unterst\u00fctzten. 'Aereo-Plain' wird oft f\u00fcr seine kreativen Arrangements und die Mischung aus Tradition und Experimentierfreude gelobt."
         },
@@ -1304,12 +1265,7 @@
         },
         {
           "question": "Welches Jahr wurde das Album 'Back Porch Bluegrass' von The Dillards ver\u00f6ffentlicht, das in der Bluegrass-Szene gro\u00dfe Beachtung fand?",
-          "options": [
-            "1960",
-            "1963",
-            "1965",
-            "1968"
-          ],
+          "options": ["1960", "1963", "1965", "1968"],
           "correctAnswer": "1963",
           "trivia": "The Dillards sind ein einflussreiches Bluegrass-Quartett, das in den 1960er Jahren aktiv war. Ihr Album 'Back Porch Bluegrass' wurde 1963 ver\u00f6ffentlicht und gilt als wegweisend f\u00fcr das Genre. Es enth\u00e4lt eine Mischung aus traditionellen Bluegrass-Kl\u00e4ngen und innovativen Elementen, die die Band von anderen abheben. The Dillards trugen wesentlich zur Popularit\u00e4t von Bluegrass in der Folk- und Country-Musikszene bei."
         }
@@ -1755,12 +1711,7 @@
         },
         {
           "question": "Welches Instrument spielte Sierra Hull w\u00e4hrend des Aufnahmeprozesses ihres Albums 'Weighted Mind'?",
-          "options": [
-            "Gitarre",
-            "Banjo",
-            "Mandoline",
-            "Klavier"
-          ],
+          "options": ["Gitarre", "Banjo", "Mandoline", "Klavier"],
           "correctAnswer": "Mandoline",
           "trivia": "Sierra Hull ist eine talentierte Musikerin, die f\u00fcr ihr au\u00dfergew\u00f6hnliches Mandolinenspiel bekannt ist. Ihr Album 'Weighted Mind', das 2016 ver\u00f6ffentlicht wurde, zeigt nicht nur ihre F\u00e4higkeiten als Instrumentalistin, sondern auch ihre beeindruckenden Gesangstalente. Das Album wurde von der Kritik gelobt und hebt sich durch eine Mischung aus Bluegrass und Folk-Elementen hervor. Hull arbeitete w\u00e4hrend des Aufnahmeprozesses eng mit hochkar\u00e4tigen Musikern zusammen, was zu dem einzigartigen Klang des Albums beitrug."
         },
@@ -1779,12 +1730,7 @@
       "medium": [
         {
           "question": "In welchem Jahr trat Sierra Hull mit ihrem Album 'Weighted Mind' w\u00e4hrend einer Tour in Europa auf?",
-          "options": [
-            "2015",
-            "2016",
-            "2017",
-            "2018"
-          ],
+          "options": ["2015", "2016", "2017", "2018"],
           "correctAnswer": "2016",
           "trivia": "Sierra Hull ist eine talentierte amerikanische Musikerin und Songwriterin, die f\u00fcr ihr virtuoses Mandolinenspiel bekannt ist. Ihr Album 'Weighted Mind', ver\u00f6ffentlicht im Jahr 2016, enth\u00e4lt eine Vielzahl von emotionalen und tiefgr\u00fcndigen Songs. W\u00e4hrend ihrer Europatournee 2016 pr\u00e4sentierte sie das Album in verschiedenen St\u00e4dten, was dazu beitrug, ihre internationale Fangemeinde zu erweitern. Hull wird oft f\u00fcr ihre F\u00e4higkeit gelobt, traditionelle Bluegrass-Elemente mit modernen Kl\u00e4ngen zu verbinden."
         },
@@ -1860,12 +1806,7 @@
       "easy": [
         {
           "question": "Welches bekannte Instrument spielte Clarence White, der bekannteste Gitarrist der Kentucky Colonels, auf dem Album 'Appalachian Swing!'?",
-          "options": [
-            "Banjo",
-            "Mandoline",
-            "Gitarre",
-            "Kontrabass"
-          ],
+          "options": ["Banjo", "Mandoline", "Gitarre", "Kontrabass"],
           "correctAnswer": "Gitarre",
           "trivia": "The Kentucky Colonels ver\u00f6ffentlichten 1964 das Album 'Appalachian Swing!', das als eines der bedeutendsten Werke des Bluegrass-Genres gilt. Clarence White, der als virtuoser Gitarrist bekannt war, spielte eine zentrale Rolle in der Band und pr\u00e4gte den Sound des Albums mit seiner beeindruckenden Fingerfertigkeit. 'Appalachian Swing!' enth\u00e4lt mehrere traditionelle und originelle St\u00fccke, die die Wurzeln der Bluegrass-Musik zelebrieren."
         },
@@ -2346,12 +2287,7 @@
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Antifogmatic' von The Punch Brothers?",
-          "options": [
-            "2008",
-            "2010",
-            "2012",
-            "2015"
-          ],
+          "options": ["2008", "2010", "2012", "2015"],
           "correctAnswer": "2010",
           "trivia": "The Punch Brothers, eine amerikanische Band, die f\u00fcr ihren innovativen Stil und ihre Verschmelzung von Bluegrass und Indie-Folk bekannt ist, ver\u00f6ffentlichten 2010 ihr Album 'Antifogmatic'. Dieses Album wird oft f\u00fcr seine lyrische Tiefe und musikalische Raffinesse gelobt. 'Antifogmatic' enth\u00e4lt Songs, die sich mit Themen wie Liebe, Verlust und der Suche nach Identit\u00e4t auseinandersetzen, und hat die Band in der modernen Musikszene etabliert."
         }
@@ -2834,12 +2770,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Ancient Tones' von Ricky Skaggs & Kentucky Thunder in den Billboard Country Charts nach seiner Ver\u00f6ffentlichung im Jahr 1999?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 5",
           "trivia": "Ricky Skaggs & Kentucky Thunder ver\u00f6ffentlichten 1999 das Album 'Ancient Tones', das in den Billboard Country Charts den f\u00fcnften Platz erreichte. Skaggs, ein renommierter Musiker im Bereich Country und Bluegrass, wurde f\u00fcr seine virtuosen F\u00e4higkeiten auf der Mandoline und seine einflussreiche Musik bekannt. Das Album enth\u00e4lt eine Mischung aus Tradition und Moderne, die f\u00fcr Skaggs' einzigartigen Stil typisch ist und zeigt seine F\u00e4higkeit, verschiedene Genres miteinander zu verbinden."
         },
@@ -2960,12 +2891,7 @@
         },
         {
           "question": "Welches Instrument, das in der traditionellen Country- und Folk-Musik h\u00e4ufig verwendet wird, spielt eine zentrale Rolle auf dem Album 'Will the Circle Be Unbroken' von The Nitty Gritty Dirt Band, das 1972 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Banjo",
-            "Mandoline",
-            "Pedal Steel Guitar",
-            "Fiddle"
-          ],
+          "options": ["Banjo", "Mandoline", "Pedal Steel Guitar", "Fiddle"],
           "correctAnswer": "Fiddle",
           "trivia": "Das Album 'Will the Circle Be Unbroken' von The Nitty Gritty Dirt Band ist bekannt f\u00fcr seine authentische Darstellung von American Roots Music. Besonders hervorzuheben ist der Einsatz des Violins, auch Fiddle genannt, das auf vielen Tracks prominent zu h\u00f6ren ist. Die Produktion des Albums kombiniert traditionelle Instrumentierung mit modernen Aufnahme-Techniken, was zu einem zeitlosen Klang f\u00fchrt, der sowohl alte als auch neue Fans anspricht."
         }
@@ -3262,12 +3188,7 @@
         },
         {
           "question": "Welches Jahr war die Ver\u00f6ffentlichung des Albums 'Wheels' von Dan Tyminski, das bei Fans f\u00fcr seine Mischung aus Bluegrass und Country sehr beliebt wurde?",
-          "options": [
-            "2005",
-            "2008",
-            "2010",
-            "2012"
-          ],
+          "options": ["2005", "2008", "2010", "2012"],
           "correctAnswer": "2008",
           "trivia": "Dan Tyminski ist ein renommierter Bluegrass-Musiker und S\u00e4nger, der f\u00fcr seine markante Stimme und seine virtuose Mandolinenspiel bekannt ist. Sein Album 'Wheels', das 2008 ver\u00f6ffentlicht wurde, enth\u00e4lt eine Vielzahl von Songs, die sowohl traditionelle als auch moderne Einfl\u00fcsse vereinen. Die Fans sch\u00e4tzten besonders die tiefgr\u00fcndigen Texte und die musikalische Vielfalt des Albums, was zu seiner Beliebtheit in der Country- und Bluegrass-Community beitrug."
         },
@@ -3367,12 +3288,7 @@
       "easy": [
         {
           "question": "In welchem Jahr trat Doyle Lawson & Quicksilver mit ihrem Album 'Rock My Soul' auf einer Tour auf?",
-          "options": [
-            "1979",
-            "1981",
-            "1983",
-            "1985"
-          ],
+          "options": ["1979", "1981", "1983", "1985"],
           "correctAnswer": "1981",
           "trivia": "Doyle Lawson & Quicksilver ver\u00f6ffentlichten ihr Album 'Rock My Soul' im Jahr 1981 und gingen im Anschluss auf Tour. Die Band ist bekannt f\u00fcr ihren charakteristischen Bluegrass-Sound und ihre harmonischen Ges\u00e4nge. 'Rock My Soul' enth\u00e4lt einige der beliebtesten Songs der Band, die oft bei Live-Auftritten gespielt werden. Doyle Lawson ist eine Schl\u00fcsselfigur in der Bluegrass-Szene und hat \u00fcber die Jahre zahlreiche Alben ver\u00f6ffentlicht."
         },
@@ -3437,12 +3353,7 @@
       "hard": [
         {
           "question": "Welcher Platz erreichte das Album 'Rock My Soul' von Doyle Lawson & Quicksilver in den Billboard Bluegrass Charts nach seiner Ver\u00f6ffentlichung im Jahr 1981?",
-          "options": [
-            "Platz 1",
-            "Platz 3",
-            "Platz 5",
-            "Platz 10"
-          ],
+          "options": ["Platz 1", "Platz 3", "Platz 5", "Platz 10"],
           "correctAnswer": "Platz 1",
           "trivia": "Doyle Lawson & Quicksilver sind bekannt f\u00fcr ihren Einfluss auf die Bluegrass-Musik und haben mit 'Rock My Soul' ein wegweisendes Album ver\u00f6ffentlicht. Das Album erreichte Platz 1 in den Billboard Bluegrass Charts und festigte Lawson's Ruf als einer der f\u00fchrenden K\u00fcnstler des Genres. Die Kombination aus traditioneller Bluegrass-Instrumentierung und eing\u00e4ngigen Melodien trug zur gro\u00dfen Popularit\u00e4t des Albums bei."
         },
@@ -3494,12 +3405,7 @@
         },
         {
           "question": "In welchem Jahr traten The Infamous Stringdusters mit ihrem Album 'Laws of Gravity' auf Tour?",
-          "options": [
-            "2015",
-            "2016",
-            "2017",
-            "2018"
-          ],
+          "options": ["2015", "2016", "2017", "2018"],
           "correctAnswer": "2017",
           "trivia": "The Infamous Stringdusters sind bekannt f\u00fcr ihre beeindruckenden Live-Auftritte und ihre F\u00e4higkeit, das Publikum mit ihrer Mischung aus Bluegrass und modernen Kl\u00e4ngen zu fesseln. Ihr Album 'Laws of Gravity', das 2017 ver\u00f6ffentlicht wurde, brachte ihnen viel Anerkennung und wurde w\u00e4hrend ihrer Touren ausgiebig pr\u00e4sentiert. Die Band hat sich einen Ruf als eine der besten Live-Acts in der Bluegrass-Szene erarbeitet und begeistert Fans mit ihrer Energie und Musikalit\u00e4t."
         },
@@ -3599,12 +3505,7 @@
       "easy": [
         {
           "question": "Welches beliebte Instrument, das oft mit Bluegrass und Folk-Musik assoziiert wird, spielt B\u00e9la Fleck auf seinem Album 'Drive'?",
-          "options": [
-            "Gitarre",
-            "Banjo",
-            "Klavier",
-            "Violine"
-          ],
+          "options": ["Gitarre", "Banjo", "Klavier", "Violine"],
           "correctAnswer": "Banjo",
           "trivia": "B\u00e9la Fleck ist bekannt f\u00fcr seine virtuosen F\u00e4higkeiten auf dem Banjo und hat mit seinem Album 'Drive', das 1988 ver\u00f6ffentlicht wurde, das Genre der Bluegrass-Musik neu definiert. Das Album wurde von Fans und Kritikern gleicherma\u00dfen gefeiert und trug dazu bei, das Banjo in der modernen Musik popul\u00e4r zu machen. Die innovative Mischung aus verschiedenen Musikstilen auf 'Drive' hat B\u00e9la Fleck zu einer einflussreichen Figur in der Musikszene gemacht."
         },
@@ -3726,12 +3627,7 @@
         },
         {
           "question": "In welchem Jahr trat die Band The Steeldrivers erstmals mit ihrem selbstbetitelten Album 'The Steeldrivers' auf Tour?",
-          "options": [
-            "2008",
-            "2009",
-            "2010",
-            "2011"
-          ],
+          "options": ["2008", "2009", "2010", "2011"],
           "correctAnswer": "2008",
           "trivia": "The Steeldrivers, bekannt f\u00fcr ihren einzigartigen Mix aus Bluegrass und Country, ver\u00f6ffentlichten ihr selbstbetiteltes Album 'The Steeldrivers' im Jahr 2008. Das Album war der Beginn ihrer musikalischen Reise und brachte ihnen viel Anerkennung in der Bluegrass- und Country-Szene. W\u00e4hrend ihrer Touren pr\u00e4sentierten sie ihre eing\u00e4ngigen Melodien und emotionalen Texte, die das Publikum begeisterten."
         },
@@ -3796,12 +3692,7 @@
         },
         {
           "question": "Welchen Platz erreichte das selbstbetitelte Deb\u00fctalbum 'The Steeldrivers' von The Steeldrivers in den US Billboard Bluegrass Charts nach seiner Ver\u00f6ffentlichung im Jahr 2008?",
-          "options": [
-            "1. Platz",
-            "5. Platz",
-            "3. Platz",
-            "10. Platz"
-          ],
+          "options": ["1. Platz", "5. Platz", "3. Platz", "10. Platz"],
           "correctAnswer": "1. Platz",
           "trivia": "Das Album 'The Steeldrivers' von The Steeldrivers, das 2008 ver\u00f6ffentlicht wurde, erreichte den 1. Platz in den US Billboard Bluegrass Charts und wurde f\u00fcr seinen einzigartigen Sound und die kraftvollen Texte gelobt. Die Band, die f\u00fcr ihre Mischung aus Bluegrass, Country und Blues bekannt ist, hat mit diesem Deb\u00fct ein starkes Fundament f\u00fcr ihre Karriere gelegt. Besonders der Song 'Blue Side of the Mountain' wurde zu einem ihrer bekanntesten Hits."
         },
@@ -4119,12 +4010,7 @@
         },
         {
           "question": "Welche Chartplatzierung erreichte das Album 'Del and the Boys' von The Del McCoury Band in den Billboard Bluegrass Albums Charts?",
-          "options": [
-            "Platz 1",
-            "Platz 3",
-            "Platz 5",
-            "Platz 10"
-          ],
+          "options": ["Platz 1", "Platz 3", "Platz 5", "Platz 10"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Album 'Del and the Boys' von The Del McCoury Band wurde im Jahr 2001 ver\u00f6ffentlicht und erreichte Platz 1 in den Billboard Bluegrass Albums Charts. Diese Auszeichnung unterstreicht den Einfluss und die Beliebtheit der Band innerhalb des Bluegrass-Genres. The Del McCoury Band ist bekannt f\u00fcr ihren traditionellen Bluegrass-Sound und hat im Laufe ihrer Karriere zahlreiche Preise gewonnen. 'Del and the Boys' enth\u00e4lt auch einige bemerkenswerte Gastauftritte von bekannten Bluegrass-Musikern."
         }
@@ -4375,12 +4261,7 @@
         },
         {
           "question": "Welches spezifische Instrument, das in der traditionellen amerikanischen Folkmusik h\u00e4ufig verwendet wird, spielt Tim O\u2019Brien auf dem Album 'Traveler'?",
-          "options": [
-            "Banjo",
-            "Mandoline",
-            "Dulzian",
-            "Harmonika"
-          ],
+          "options": ["Banjo", "Mandoline", "Dulzian", "Harmonika"],
           "correctAnswer": "Mandoline",
           "trivia": "Tim O\u2019Brien ist ein bedeutender amerikanischer Singer-Songwriter und Multiinstrumentalist, der f\u00fcr seine virtuosen F\u00e4higkeiten auf der Mandoline bekannt ist. In seinem 2003 ver\u00f6ffentlichten Album 'Traveler' kombiniert er verschiedene musikalische Stile, darunter Folk, Bluegrass und Americana. Die Mandoline spielt eine zentrale Rolle in vielen der Songs auf diesem Album und verleiht ihnen eine unverwechselbare Klangfarbe. O\u2019Briens meisterhafte Beherrschung dieses Instruments tr\u00e4gt wesentlich zur emotionalen Tiefe und zur musikalischen Vielfalt des Albums bei."
         },
@@ -4607,12 +4488,7 @@
         },
         {
           "question": "Welcher Platz erreichte das Album 'IV' von Chatham County Line in den Billboard Bluegrass Charts nach seiner Ver\u00f6ffentlichung im Jahr 2008?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 5",
           "trivia": "Chatham County Line ist eine amerikanische Bluegrass-Band, die f\u00fcr ihren harmonischen Gesang und ihren traditionellen Stil bekannt ist. Das Album 'IV' wurde 2008 ver\u00f6ffentlicht und erreichte in den Billboard Bluegrass Charts Platz 5. Es enth\u00e4lt mehrere bemerkenswerte Tracks, die die Entwicklung des modernen Bluegrass widerspiegeln und die Band weiter in der Szene etablierten."
         },
@@ -4815,12 +4691,7 @@
         },
         {
           "question": "Welcher Platz erreichte das Album 'Who\u2019s Feeling Young Now?' von The Punch Brothers in den Billboard Bluegrass Charts nach seiner Ver\u00f6ffentlichung im Jahr 2012?",
-          "options": [
-            "Platz 1",
-            "Platz 3",
-            "Platz 5",
-            "Platz 7"
-          ],
+          "options": ["Platz 1", "Platz 3", "Platz 5", "Platz 7"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Album 'Who\u2019s Feeling Young Now?' von The Punch Brothers, ver\u00f6ffentlicht im Jahr 2012, erreichte in den Billboard Bluegrass Charts den ersten Platz. Es gilt als eine der bedeutendsten Arbeiten der Band, die f\u00fcr ihren innovativen Mix aus Bluegrass, Folk und klassischer Musik bekannt ist. Mit diesem Album festigten The Punch Brothers ihren Status als eine der f\u00fchrenden Gruppen des modernen Bluegrass und wurden f\u00fcr ihre musikalische Kreativit\u00e4t und Virtuosit\u00e4t gelobt."
         }
@@ -4850,12 +4721,7 @@
         },
         {
           "question": "Welcher Platz wurde von The Punch Brothers mit ihrem Album 'Who\u2019s Feeling Young Now?' in den US Billboard Bluegrass Charts erreicht?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 1",
           "trivia": "The Punch Brothers erreichten mit ihrem 2012 ver\u00f6ffentlichten Album 'Who\u2019s Feeling Young Now?' den ersten Platz in den US Billboard Bluegrass Charts. Dieses Album, das eine Mischung aus Bluegrass, Folk und Indie-Elementen bietet, zeigt die au\u00dfergew\u00f6hnlichen musikalischen F\u00e4higkeiten der Band und ihren innovativen Ansatz. 'Who\u2019s Feeling Young Now?' wurde von Kritikern hoch gelobt und festigte The Punch Brothers als eine der f\u00fchrenden Gruppen im modernen Bluegrass. Ihr charakteristischer Sound und die eing\u00e4ngigen Melodien trugen ma\u00dfgeblich zu ihrem Erfolg in den Charts bei."
         }
@@ -5244,12 +5110,7 @@
         },
         {
           "question": "Welches Jahr wurde das Album 'The Storm Still Rages' von Rhonda Vincent ver\u00f6ffentlicht?",
-          "options": [
-            "1999",
-            "2001",
-            "2003",
-            "2005"
-          ],
+          "options": ["1999", "2001", "2003", "2005"],
           "correctAnswer": "2001",
           "trivia": "Rhonda Vincent ver\u00f6ffentlichte ihr Album 'The Storm Still Rages' im Jahr 2001. Dieses Album festigte ihren Ruf als eine der f\u00fchrenden K\u00fcnstlerinnen in der Bluegrass- und Country-Musikszene. Es enth\u00e4lt eine Mischung aus Originalsongs und traditionellen Coverversionen, die ihren einzigartigen Stil und ihre beeindruckenden stimmlichen F\u00e4higkeiten zur Geltung bringen. 'The Storm Still Rages' wurde von Kritikern gelobt und trug dazu bei, Rhonda Vincents Karriere auf ein neues Level zu heben."
         }
@@ -5511,12 +5372,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Fly Through the Country' von The New Grass Revival in den US-amerikanischen Charts?",
-          "options": [
-            "Top 10",
-            "Top 20",
-            "Top 30",
-            "Top 40"
-          ],
+          "options": ["Top 10", "Top 20", "Top 30", "Top 40"],
           "correctAnswer": "Top 40",
           "trivia": "Das Album 'Fly Through the Country' von The New Grass Revival, das 1975 ver\u00f6ffentlicht wurde, erreichte in den US-amerikanischen Country-Charts einen Platz in den Top 40. The New Grass Revival ist bekannt f\u00fcr ihre innovative Mischung aus Bluegrass und Rock, die das Genre in den 1970er Jahren ma\u00dfgeblich beeinflusste. Das Album enth\u00e4lt mehrere bemerkenswerte Songs, die die musikalische Vielseitigkeit der Band unter Beweis stellen."
         }
@@ -5592,12 +5448,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Real Time' von Tim O\u2019Brien & Darrell Scott in den US-Bluegrass-Charts?",
-          "options": [
-            "Platz 1",
-            "Platz 3",
-            "Platz 5",
-            "Platz 10"
-          ],
+          "options": ["Platz 1", "Platz 3", "Platz 5", "Platz 10"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Album 'Real Time', das 2000 von Tim O\u2019Brien & Darrell Scott ver\u00f6ffentlicht wurde, erreichte Platz 1 in den US-Bluegrass-Charts. Tim O\u2019Brien ist bekannt f\u00fcr seinen Einfluss auf die amerikanische Roots-Musik und hat zahlreiche Preise gewonnen, w\u00e4hrend Darrell Scott f\u00fcr seine au\u00dfergew\u00f6hnlichen Songwriting-F\u00e4higkeiten gesch\u00e4tzt wird. Die Kombination ihrer Talente in 'Real Time' f\u00fchrte zu einem kritischen und kommerziellen Erfolg."
         }
@@ -5721,12 +5572,7 @@
       "medium": [
         {
           "question": "Wie viele Tage dauerte der Aufnahmeprozess f\u00fcr das Album 'Hot Dawg' des David Grisman Quintet?",
-          "options": [
-            "Zwei Tage",
-            "F\u00fcnf Tage",
-            "Eine Woche",
-            "Zehn Tage"
-          ],
+          "options": ["Zwei Tage", "F\u00fcnf Tage", "Eine Woche", "Zehn Tage"],
           "correctAnswer": "F\u00fcnf Tage",
           "trivia": "Das Album 'Hot Dawg' wurde 1978 vom David Grisman Quintet ver\u00f6ffentlicht und gilt als ein Meilenstein im Bereich des New Acoustic Music. Der Aufnahmeprozess dauerte insgesamt f\u00fcnf Tage, in denen die Band ihre charakteristische Mischung aus Bluegrass, Jazz und traditioneller Folkmusik einfangte. David Grisman, ein virtuoser Mandolinist, war bekannt f\u00fcr seine innovative Herangehensweise an die Musik und trug ma\u00dfgeblich zur Entwicklung des Genres bei. Die Songs auf 'Hot Dawg' zeigen die technische Brillanz und die kreative Dynamik der Bandmitglieder."
         },
@@ -6161,12 +6007,7 @@
         },
         {
           "question": "Welches Jahr markierte die Ver\u00f6ffentlichung des Albums 'Idle Time' von Nashville Bluegrass Band?",
-          "options": [
-            "1985",
-            "1986",
-            "1987",
-            "1988"
-          ],
+          "options": ["1985", "1986", "1987", "1988"],
           "correctAnswer": "1986",
           "trivia": "Das Album 'Idle Time' wurde 1986 von der Nashville Bluegrass Band ver\u00f6ffentlicht. Diese Band ist bekannt f\u00fcr ihren traditionellen Bluegrass-Sound und hat sich einen Namen in der Musikszene gemacht. 'Idle Time' enth\u00e4lt eine Mischung aus Originalkompositionen und traditionellen Bluegrass-St\u00fccken, die die Vielseitigkeit und das K\u00f6nnen der Musiker unter Beweis stellen. Die Band hat im Laufe ihrer Karriere zahlreiche Auszeichnungen erhalten und wird oft f\u00fcr ihren Beitrag zur Bluegrass-Musik gew\u00fcrdigt."
         },
@@ -6185,12 +6026,7 @@
       "medium": [
         {
           "question": "Welchen Platz erreichte das Album 'Idle Time' von Nashville Bluegrass Band in den amerikanischen Bluegrass-Charts nach seiner Ver\u00f6ffentlichung im Jahr 1986?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 10",
           "trivia": "Das Album 'Idle Time' von Nashville Bluegrass Band wurde 1986 ver\u00f6ffentlicht und hat sich in der Bluegrass-Szene schnell einen Namen gemacht. Es enth\u00e4lt eine Mischung aus traditionellen und modernen Bluegrass-Stilen, was zu seiner Beliebtheit beitr\u00e4gt. In den amerikanischen Bluegrass-Charts erreichte das Album Platz 10 und festigte den Ruf der Band als eine der f\u00fchrenden Gruppen in diesem Genre. Die Nashville Bluegrass Band ist bekannt f\u00fcr ihre virtuosen Instrumentalst\u00fccke und harmonischen Ges\u00e4nge, die das Album zu einem Highlight in der Bluegrass-Musik machen."
         },
@@ -7041,12 +6877,7 @@
         },
         {
           "question": "In welchem Jahr traten die Gibson Brothers w\u00e4hrend ihrer Tour zur F\u00f6rderung des Albums 'Ring the Bell' in Europa auf?",
-          "options": [
-            "2008",
-            "2009",
-            "2010",
-            "2011"
-          ],
+          "options": ["2008", "2009", "2010", "2011"],
           "correctAnswer": "2009",
           "trivia": "The Gibson Brothers sind bekannt f\u00fcr ihren harmonischen Gesang und ihre einf\u00fchlsamen Texte, die oft von pers\u00f6nlichen Erlebnissen inspiriert sind. Ihr Album 'Ring the Bell' wurde 2009 ver\u00f6ffentlicht und beinhaltete mehrere Songs, die sich gro\u00dfer Beliebtheit erfreuten. W\u00e4hrend der Europa-Tour 2009 pr\u00e4sentierten sie ihre neuesten Werke und begeisterten das Publikum mit ihrer energiegeladenen Live-Performance. Diese Tour festigte ihren Ruf als herausragende Live-Acts in der Bluegrass- und Country-Szene."
         },
@@ -7076,12 +6907,7 @@
       "easy": [
         {
           "question": "Welches Musikinstrument spielt Sierra Hull haupts\u00e4chlich auf ihrem Album '25 Trips'?",
-          "options": [
-            "Gitarre",
-            "Banjo",
-            "Mandoline",
-            "Klavier"
-          ],
+          "options": ["Gitarre", "Banjo", "Mandoline", "Klavier"],
           "correctAnswer": "Mandoline",
           "trivia": "Sierra Hull ist eine talentierte Musikerin und Songwriterin, die vor allem f\u00fcr ihr herausragendes Mandolinenspiel bekannt ist. Ihr Album '25 Trips', das 2020 ver\u00f6ffentlicht wurde, zeigt ihre F\u00e4higkeiten und kombiniert verschiedene musikalische Stile, darunter Bluegrass und Folk. Die Mandoline spielt eine zentrale Rolle in vielen der Songs auf diesem Album, was Sierra Hulls einzigartigen Sound unterstreicht."
         },
@@ -7308,12 +7134,7 @@
       "easy": [
         {
           "question": "Welches Instrument spielte Norman Blake auf seinem Album 'Whiskey Before Breakfast', das 1976 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Gitarre",
-            "Klavier",
-            "Schlagzeug",
-            "Geige"
-          ],
+          "options": ["Gitarre", "Klavier", "Schlagzeug", "Geige"],
           "correctAnswer": "Gitarre",
           "trivia": "Norman Blake ist bekannt f\u00fcr sein virtuoses Gitarrenspiel und seine F\u00e4higkeit, traditionelle amerikanische Folkmusik mit modernen Einfl\u00fcssen zu vermischen. Auf dem Album 'Whiskey Before Breakfast' zeigt er seine beeindruckenden F\u00e4higkeiten auf der Gitarre, die einen zentralen Teil seiner Musik ausmachen. Das Album enth\u00e4lt sowohl eigene Kompositionen als auch traditionelle St\u00fccke, die Blake mit seinem einzigartigen Stil interpretiert."
         },
@@ -7561,12 +7382,7 @@
         },
         {
           "question": "Welches Instrument spielt B\u00e9la Fleck auf dem Album 'B\u00e9la Fleck & Abigail Washburn'?",
-          "options": [
-            "Gitarre",
-            "Banjo",
-            "Klavier",
-            "Geige"
-          ],
+          "options": ["Gitarre", "Banjo", "Klavier", "Geige"],
           "correctAnswer": "Banjo",
           "trivia": "B\u00e9la Fleck & Abigail Washburn ist ein musikalisches Duo, das 2014 ihr gleichnamiges Album 'B\u00e9la Fleck & Abigail Washburn' ver\u00f6ffentlicht hat. B\u00e9la Fleck ist bekannt f\u00fcr seine virtuosen F\u00e4higkeiten auf dem Banjo, einem Instrument, das in der amerikanischen Folklore und im Bluegrass eine zentrale Rolle spielt. Das Album kombiniert verschiedene Musikstile und zeigt Flecks Meisterschaft in der Banjo-Spieltechnik. Abigail Washburn erg\u00e4nzt den Sound mit ihrer einzigartigen Stimme und ihrem Spiel auf der Geige."
         }
@@ -7609,12 +7425,7 @@
       "hard": [
         {
           "question": "Welchen Platz erreichte das Album 'B\u00e9la Fleck & Abigail Washburn' von B\u00e9la Fleck & Abigail Washburn in den Billboard Bluegrass Charts?",
-          "options": [
-            "1.",
-            "3.",
-            "5.",
-            "8."
-          ],
+          "options": ["1.", "3.", "5.", "8."],
           "correctAnswer": "1.",
           "trivia": "Das selbstbetitelte Album 'B\u00e9la Fleck & Abigail Washburn' von B\u00e9la Fleck & Abigail Washburn, das 2014 ver\u00f6ffentlicht wurde, erreichte Platz 1 in den Billboard Bluegrass Charts. Es vereint die virtuosen Spielstile des Banjoisten B\u00e9la Fleck und der S\u00e4ngerin Abigail Washburn und kombiniert Bluegrass mit Folk-Elementen. Das Album wurde von Kritikern hochgelobt und trug dazu bei, das Publikum f\u00fcr die moderne Bluegrass-Musik zu begeistern."
         },
@@ -7690,12 +7501,7 @@
       "medium": [
         {
           "question": "Welchen Platz erreichte das Album 'Circles Around Me' von Sam Bush in den Billboard Bluegrass Charts?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 3"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 3"],
           "correctAnswer": "Platz 3",
           "trivia": "Sam Bush, ein herausragender Mandolinenspieler und S\u00e4nger, ver\u00f6ffentlichte im Jahr 2009 das Album 'Circles Around Me'. Das Album erreichte in den Billboard Bluegrass Charts den dritten Platz und festigte Bushs Ruf als eine pr\u00e4gende Figur in der Bluegrass- und Acoustic-Musikszene. 'Circles Around Me' enth\u00e4lt eine Mischung aus Originalkompositionen und traditionellen St\u00fccken, die seinen einzigartigen Stil unterstreichen."
         },
@@ -7793,12 +7599,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'All Ashore' von The Punch Brothers handelt von der Sehnsucht nach einer tiefen Verbindung und dem Streben nach Verst\u00e4ndnis in Beziehungen?",
-          "options": [
-            "Julep",
-            "All Ashore",
-            "Love and Theft",
-            "It's All Over"
-          ],
+          "options": ["Julep", "All Ashore", "Love and Theft", "It's All Over"],
           "correctAnswer": "All Ashore",
           "trivia": "The Punch Brothers ist eine amerikanische Folk-Band, die f\u00fcr ihren einzigartigen Sound und ihre tiefgr\u00fcndigen Texte bekannt ist. Das Album 'All Ashore', das 2018 ver\u00f6ffentlicht wurde, thematisiert oft zwischenmenschliche Beziehungen und die Herausforderungen, die damit verbunden sind. Der Titeltrack 'All Ashore' spiegelt die Hoffnung wider, dass trotz aller Schwierigkeiten und Missverst\u00e4ndnisse eine tiefere Verbindung hergestellt werden kann."
         }
@@ -7828,12 +7629,7 @@
         },
         {
           "question": "Welches Musikvideo von The Punch Brothers, das auf dem Album 'All Ashore' von 2018 basiert, zeigt eindrucksvolle visuelle Effekte und thematisiert die Herausforderungen zwischenmenschlicher Beziehungen?",
-          "options": [
-            "Julep",
-            "All Ashore",
-            "It's All Over",
-            "Bamboo"
-          ],
+          "options": ["Julep", "All Ashore", "It's All Over", "Bamboo"],
           "correctAnswer": "Julep",
           "trivia": "The Punch Brothers sind bekannt f\u00fcr ihren einzigartigen Mix aus Bluegrass, Folk und Indie-Rock. Ihr Album 'All Ashore' wurde 2018 ver\u00f6ffentlicht und enth\u00e4lt den Song 'Julep', dessen Musikvideo mit kreativen visuellen Effekten spielt und die Komplexit\u00e4t von Beziehungen widerspiegelt. Die Band, die oft f\u00fcr ihre virtuosen Instrumentalf\u00e4higkeiten gelobt wird, hat eine treue Fangemeinde und hat mit ihrem innovativen Stil die Grenzen traditioneller Musik neu definiert."
         }
@@ -8025,12 +7821,7 @@
         },
         {
           "question": "Welches Instrument wird auf dem Album 'One Step Forward' von Lonesome River Band, das 1996 ver\u00f6ffentlicht wurde, h\u00e4ufig als zentrales Element in der Instrumentierung verwendet?",
-          "options": [
-            "Banjo",
-            "Geige",
-            "Mandoline",
-            "Gitarre"
-          ],
+          "options": ["Banjo", "Geige", "Mandoline", "Gitarre"],
           "correctAnswer": "Banjo",
           "trivia": "Lonesome River Band, bekannt f\u00fcr ihren Einfluss auf die Bluegrass-Musik, hat auf ihrem Album 'One Step Forward' von 1996 das Banjo als zentrales Instrument verwendet. Der Banjo-Spieler dieser Platte bringt einen charakteristischen Klang ein, der die Melodien und Harmonien der Songs pr\u00e4gt. Die Kombination aus traditioneller Instrumentierung und modernen Produktionstechniken verleiht dem Album seinen einzigartigen Klang und Stil."
         }
@@ -8189,12 +7980,7 @@
       "hard": [
         {
           "question": "Welchen Platz erreichte das Album 'Scene It All' von The Seldom Scene in den Billboard Bluegrass Charts im Jahr 2000?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 5",
           "trivia": "The Seldom Scene ist eine einflussreiche Bluegrass-Band, die f\u00fcr ihren innovativen Stil und ihre meisterhafte Musikalit\u00e4t bekannt ist. Ihr Album 'Scene It All', das 2000 ver\u00f6ffentlicht wurde, erreichte in den Billboard Bluegrass Charts Platz 5 und zeigte die Weiterentwicklung ihres Sounds. Besonders die harmonischen Gesangseinlagen und die geschickte Instrumentierung tragen zur zeitlosen Qualit\u00e4t der St\u00fccke bei. Die Band hat im Laufe ihrer Karriere viele Fans gewonnen und gilt als eine der wichtigsten Vertreterinnen des modernen Bluegrass."
         },
@@ -8257,12 +8043,7 @@
         },
         {
           "question": "Wer war der Produzent des Albums 'Songs That Made the Juke Box Play' von Mac Wiseman, das 1963 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Owen Bradley",
-            "Chet Atkins",
-            "Bill Porter",
-            "Don Law"
-          ],
+          "options": ["Owen Bradley", "Chet Atkins", "Bill Porter", "Don Law"],
           "correctAnswer": "Owen Bradley",
           "trivia": "Mac Wiseman, ein bedeutender amerikanischer Country- und Bluegrass-S\u00e4nger, ver\u00f6ffentlichte 1963 das Album 'Songs That Made the Juke Box Play', das eine Sammlung von beliebten Songs enth\u00e4lt. Das Album wurde unter der Regie von Owen Bradley produziert, einem einflussreichen Produzenten, der f\u00fcr seine Arbeit mit vielen Gr\u00f6\u00dfen der Country-Musik bekannt ist. Wisemans einzigartiger Stil und die sorgf\u00e4ltige Produktion trugen dazu bei, die zeitlosen Melodien des Albums zu einem Hit zu machen."
         }
@@ -8467,23 +8248,13 @@
       "easy": [
         {
           "question": "In welchem Jahr trat Rhonda Vincent w\u00e4hrend ihrer Tour f\u00fcr das Album 'Only Me' auf, das 2014 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "2014",
-            "2015",
-            "2016",
-            "2017"
-          ],
+          "options": ["2014", "2015", "2016", "2017"],
           "correctAnswer": "2014",
           "trivia": "Rhonda Vincent ist eine bekannte amerikanische Country- und Bluegrass-S\u00e4ngerin, die f\u00fcr ihre beeindruckenden Live-Auftritte ber\u00fchmt ist. Ihr Album 'Only Me', das 2014 ver\u00f6ffentlicht wurde, enth\u00e4lt viele pers\u00f6nliche und emotionale Songs, die oft w\u00e4hrend ihrer Konzerte aufgef\u00fchrt werden. W\u00e4hrend der Tour zu diesem Album hatte Rhonda die Gelegenheit, ihre Musik einem breiten Publikum vorzustellen und ihre Fangemeinde zu erweitern."
         },
         {
           "question": "Welches Jahr wurde das Album 'Only Me' von Rhonda Vincent ver\u00f6ffentlicht?",
-          "options": [
-            "2012",
-            "2014",
-            "2016",
-            "2018"
-          ],
+          "options": ["2012", "2014", "2016", "2018"],
           "correctAnswer": "2014",
           "trivia": "Rhonda Vincent, oft als 'Die K\u00f6nigin des Bluegrass' bezeichnet, ver\u00f6ffentlichte ihr Album 'Only Me' im Jahr 2014. Das Album zeigt ihren charakteristischen Stil, der traditionelle Bluegrass-Musik mit modernen Elementen verbindet. 'Only Me' erhielt viel Anerkennung und wurde f\u00fcr mehrere Preise nominiert, was Rhonda Vincents Status als eine der f\u00fchrenden K\u00fcnstlerinnen im Bluegrass-Genre weiter festigte."
         },
@@ -8629,12 +8400,7 @@
         },
         {
           "question": "Welcher Platz erreichte das Album 'Will the Circle Be Unbroken, Vol. 2' von The Nitty Gritty Dirt Band in den US Country Charts nach seiner Ver\u00f6ffentlichung im Jahr 1989?",
-          "options": [
-            "1. Platz",
-            "5. Platz",
-            "10. Platz",
-            "15. Platz"
-          ],
+          "options": ["1. Platz", "5. Platz", "10. Platz", "15. Platz"],
           "correctAnswer": "5. Platz",
           "trivia": "Das Album 'Will the Circle Be Unbroken, Vol. 2' von The Nitty Gritty Dirt Band wurde 1989 ver\u00f6ffentlicht und ist die Fortsetzung des ikonischen ersten Teils aus dem Jahr 1972. Es enth\u00e4lt eine Vielzahl von G\u00e4sten, die zur Country-Musikszene geh\u00f6ren, und wurde f\u00fcr seine musikalische Tiefe und seinen Einfluss auf das Genre gesch\u00e4tzt. In den US Country Charts erreichte es den 5. Platz und festigte damit den Status der Band als bedeutenden Akteur in der amerikanischen Musikszene."
         },
@@ -8699,23 +8465,13 @@
       "easy": [
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Backwaters' von The Tony Rice Unit?",
-          "options": [
-            "1980",
-            "1982",
-            "1985",
-            "1990"
-          ],
+          "options": ["1980", "1982", "1985", "1990"],
           "correctAnswer": "1982",
           "trivia": "Das Album 'Backwaters' von The Tony Rice Unit wurde 1982 ver\u00f6ffentlicht und gilt als ein Meilenstein im Bereich des modernen Bluegrass. Tony Rice, ein virtuoser Gitarrist und S\u00e4nger, ist bekannt f\u00fcr seinen einzigartigen Stil, der Elemente des traditionellen Bluegrass mit jazzigen Einfl\u00fcssen kombiniert. 'Backwaters' zeigt eine Vielzahl von beeindruckenden Kompositionen und meisterhaften Instrumentalst\u00fccken, die Rice's au\u00dfergew\u00f6hnliches Talent zur Geltung bringen."
         },
         {
           "question": "In welchem Jahr trat The Tony Rice Unit mit ihrem Album 'Backwaters' auf Tour?",
-          "options": [
-            "1980",
-            "1982",
-            "1985",
-            "1990"
-          ],
+          "options": ["1980", "1982", "1985", "1990"],
           "correctAnswer": "1982",
           "trivia": "The Tony Rice Unit ver\u00f6ffentlichte das Album 'Backwaters' im Jahr 1982. Zur Unterst\u00fctzung des Albums gab die Band zahlreiche Live-Auftritte, die f\u00fcr ihre virtuosen musikalischen F\u00e4higkeiten bekannt waren. Tony Rice, ein herausragender amerikanischer Bluegrass- und Jazz-Gitarrist, brachte mit seiner Band neue Klangdimensionen in die Folk-Musik. 'Backwaters' zeigt nicht nur seine beeindruckende Spieltechnik, sondern auch die kreative Zusammenarbeit mit anderen talentierten Musikern der Einheit."
         },
@@ -8815,12 +8571,7 @@
       "easy": [
         {
           "question": "Welches ber\u00fchmte Genre beeinflusste die Produktion des Albums 'Doc Watson in Nashville: Good Deal!' von Doc Watson, das 1968 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Blues",
-            "Country",
-            "Rock",
-            "Jazz"
-          ],
+          "options": ["Blues", "Country", "Rock", "Jazz"],
           "correctAnswer": "Country",
           "trivia": "Doc Watson ist bekannt f\u00fcr seine meisterhafte Beherrschung der Folk- und Country-Musik. Das Album 'Doc Watson in Nashville: Good Deal!' wurde in Nashville, dem Herzen der Country-Musik, aufgenommen und spiegelt den Einfluss dieses Genres wider. Auf diesem Album zeigt Watson seine F\u00e4higkeiten als Gitarrist und S\u00e4nger und arbeitet mit verschiedenen Musikern der Country-Szene zusammen."
         },
@@ -9058,12 +8809,7 @@
         },
         {
           "question": "In welchem Jahr trat Flatt Lonesome w\u00e4hrend ihrer Tour zum Album 'Runaway Train' erstmals live auf?",
-          "options": [
-            "2014",
-            "2015",
-            "2016",
-            "2017"
-          ],
+          "options": ["2014", "2015", "2016", "2017"],
           "correctAnswer": "2015",
           "trivia": "Flatt Lonesome ist eine amerikanische Bluegrass-Band, die 2015 ihr gefeiertes Album 'Runaway Train' ver\u00f6ffentlicht hat. W\u00e4hrend ihrer Tour zu diesem Album traten sie in zahlreichen St\u00e4dten auf und gewannen schnell an Popularit\u00e4t. Die Band ist bekannt f\u00fcr ihre beeindruckenden Harmonien und ihre energiegeladenen Live-Auftritte, die das Publikum begeistern. 'Runaway Train' enth\u00e4lt einige ihrer bekanntesten Songs und ist ein wichtiger Bestandteil ihrer Diskographie."
         },
@@ -9335,12 +9081,7 @@
         },
         {
           "question": "In welchem Jahr traten die Steep Canyon Rangers erstmals mit dem Album 'Nobody Knows You' auf einer gr\u00f6\u00dferen Tour auf?",
-          "options": [
-            "2010",
-            "2011",
-            "2012",
-            "2013"
-          ],
+          "options": ["2010", "2011", "2012", "2013"],
           "correctAnswer": "2012",
           "trivia": "Die Steep Canyon Rangers, bekannt f\u00fcr ihren einzigartigen blend aus Bluegrass und Americana, ver\u00f6ffentlichten ihr Album 'Nobody Knows You' im Jahr 2012. Im Rahmen der Promotion f\u00fcr dieses Album gingen sie auf eine ausgedehnte Tour, die ihnen half, ihre Fangemeinde erheblich zu vergr\u00f6\u00dfern. Ihre Live-Auftritte sind bekannt f\u00fcr ihre Energie und die Interaktion mit dem Publikum, was das Erlebnis f\u00fcr die Fans unvergesslich macht."
         }
@@ -9556,12 +9297,7 @@
         },
         {
           "question": "In welchem Jahr traten Blue Highway, die f\u00fcr ihr Album 'Midnight Storm' von 1994 bekannt sind, w\u00e4hrend ihrer Tournee in mehreren renommierten Musikfestivals auf?",
-          "options": [
-            "1994",
-            "1995",
-            "1996",
-            "1997"
-          ],
+          "options": ["1994", "1995", "1996", "1997"],
           "correctAnswer": "1995",
           "trivia": "Blue Highway ist eine bedeutende Bluegrass-Band, die 1994 mit ihrem Album 'Midnight Storm' gro\u00dfe Erfolge feierte. W\u00e4hrend ihrer Tournee im Jahr 1995 traten sie auf verschiedenen renommierten Musikfestivals auf, was ihre Popularit\u00e4t in der Bluegrass-Szene weiter steigerte. Das Album enth\u00e4lt einige ihrer bekanntesten Songs und zeigt die au\u00dfergew\u00f6hnlichen musikalischen F\u00e4higkeiten der Bandmitglieder."
         },
@@ -9683,12 +9419,7 @@
         },
         {
           "question": "Welche Chartplatzierung erreichte das Album '16 Greatest Gospel Hits' von Don Reno & Red Smiley in den US Country Charts, nachdem es 1961 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 5",
           "trivia": "Das Album '16 Greatest Gospel Hits' von Don Reno & Red Smiley wurde 1961 ver\u00f6ffentlicht und erreichte Platz 5 in den US Country Charts. Don Reno und Red Smiley waren ein bekanntes Duo in der Bluegrass- und Country-Musikszene und sind f\u00fcr ihre harmonischen Stimmen und virtuosen Instrumentalspiel bekannt. Ihre Gospelmusik hat viele Fans gewonnen und bleibt bis heute ein wichtiger Teil des Erbes der amerikanischen Musik."
         }
@@ -9753,23 +9484,13 @@
         },
         {
           "question": "Welches Jahr war die Ver\u00f6ffentlichung des Albums 'Traitor in Our Midst' von Country Gazette?",
-          "options": [
-            "1970",
-            "1972",
-            "1975",
-            "1980"
-          ],
+          "options": ["1970", "1972", "1975", "1980"],
           "correctAnswer": "1972",
           "trivia": "Das Album 'Traitor in Our Midst' von Country Gazette wurde 1972 ver\u00f6ffentlicht und stellte eine bedeutende Ver\u00f6ffentlichung in der Welt der Country-Musik dar. Die Band, bekannt f\u00fcr ihren einzigartigen Mix aus Bluegrass und Country, trug zur Popularit\u00e4t des Genres in den 1970er Jahren bei. 'Traitor in Our Midst' enth\u00e4lt eine Vielzahl von Songs, die die Bandbreite ihres musikalischen Talents und ihrer kreativen Inspirationen zeigen."
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Traitor in Our Midst' von Country Gazette, das einen bedeutenden Einfluss auf die Entwicklung des Country-Rock hatte?",
-          "options": [
-            "1970",
-            "1972",
-            "1975",
-            "1980"
-          ],
+          "options": ["1970", "1972", "1975", "1980"],
           "correctAnswer": "1972",
           "trivia": "Country Gazette ist eine US-amerikanische Band, die insbesondere in den 1970er Jahren aktiv war und sich durch ihren einzigartigen Stil aus Country und Rockmusik auszeichnete. Das Album 'Traitor in Our Midst', das 1972 ver\u00f6ffentlicht wurde, gilt als ein wichtiger Beitrag zur Fusion von Country- und Rockmusik und spiegelt die kulturellen Ver\u00e4nderungen dieser Zeit wider. Die Band war bekannt f\u00fcr ihre instrumentalen F\u00e4higkeiten und die harmonischen Ges\u00e4nge, die sie in ihren Liedern pr\u00e4sentierten."
         }
@@ -9834,12 +9555,7 @@
         },
         {
           "question": "In welchem Jahr trat Country Gazette erstmals live auf, nachdem sie das Album 'Traitor in Our Midst' ver\u00f6ffentlicht hatten?",
-          "options": [
-            "1971",
-            "1972",
-            "1973",
-            "1974"
-          ],
+          "options": ["1971", "1972", "1973", "1974"],
           "correctAnswer": "1972",
           "trivia": "Country Gazette, gegr\u00fcndet in den fr\u00fchen 1970er Jahren, ist bekannt f\u00fcr ihren einzigartigen Mix aus Bluegrass und Country-Musik. Ihr Album 'Traitor in Our Midst' wurde 1972 ver\u00f6ffentlicht und zeigte die musikalische Vielseitigkeit der Band. Im Jahr 1972 traten sie auf verschiedenen Festivals und Konzerten auf, was ihnen half, ihren Einfluss in der Country-Musik-Szene zu festigen."
         }
@@ -9985,12 +9701,7 @@
         },
         {
           "question": "Welches Jahr wurde das Album 'Now That I\u2019ve Found You: A Collection' von Alison Krauss ver\u00f6ffentlicht?",
-          "options": [
-            "1995",
-            "1990",
-            "2000",
-            "1985"
-          ],
+          "options": ["1995", "1990", "2000", "1985"],
           "correctAnswer": "1995",
           "trivia": "Alison Krauss ver\u00f6ffentlichte 1995 das Album 'Now That I\u2019ve Found You: A Collection', das eine Zusammenstellung ihrer besten Songs darstellt. Das Album erhielt positive Kritiken und wurde daf\u00fcr gelobt, die Vielfalt und Tiefe von Krauss' musikalischem Talent zu zeigen. Sie ist bekannt f\u00fcr ihre Mischung aus Bluegrass, Country und Folk, was ihr zahlreiche Auszeichnungen und eine gro\u00dfe Fangemeinde eingebracht hat."
         },
@@ -10147,12 +9858,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'No Other Way' von Mountain Heart in den Billboard Bluegrass Charts im Jahr 2002?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 5",
           "trivia": "Mountain Heart ist eine amerikanische Bluegrass-Band, die f\u00fcr ihren innovativen Stil und ihre virtuosen Musiker bekannt ist. Ihr Album 'No Other Way' wurde 2002 ver\u00f6ffentlicht und erreichte Platz 5 in den Billboard Bluegrass Charts. Das Album enth\u00e4lt eine Mischung aus traditionellen und modernen Bluegrass-Elementen und zeigt die Vielseitigkeit der Bandmitglieder. Die Songs auf diesem Album tragen zur Reputation von Mountain Heart als eine der f\u00fchrenden Stimmen im Bluegrass-Genre bei."
         }
@@ -10182,12 +9888,7 @@
         },
         {
           "question": "In welchem Jahr trat Mountain Heart w\u00e4hrend ihrer Tour zur Promotion des Albums 'No Other Way' erstmals auf dem renommierten MerleFest auf?",
-          "options": [
-            "2001",
-            "2002",
-            "2003",
-            "2004"
-          ],
+          "options": ["2001", "2002", "2003", "2004"],
           "correctAnswer": "2002",
           "trivia": "Mountain Heart ist eine amerikanische Bluegrass-Band, die f\u00fcr ihre energetischen Live-Auftritte und innovativen Arrangements bekannt ist. Das Album 'No Other Way' wurde 2002 ver\u00f6ffentlicht und stellte einen entscheidenden Moment in der Karriere der Band dar, da es ihre musikalische Vielfalt und ihr Talent unter Beweis stellte. Der MerleFest ist eines der gr\u00f6\u00dften Festivals f\u00fcr Folk- und Bluegrass-Musik und bietet eine Plattform f\u00fcr viele aufstrebende K\u00fcnstler wie Mountain Heart, um ihre Musik einem breiteren Publikum vorzustellen."
         }
@@ -10357,12 +10058,7 @@
       "medium": [
         {
           "question": "In welchem Jahr trat die Del McCoury Band w\u00e4hrend ihrer Tour zum Album 'My Dixie Home' auf, das 1992 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "1991",
-            "1992",
-            "1993",
-            "1994"
-          ],
+          "options": ["1991", "1992", "1993", "1994"],
           "correctAnswer": "1992",
           "trivia": "Die Del McCoury Band ist bekannt f\u00fcr ihren einzigartigen Stil, der traditionelle Bluegrass-Musik mit modernen Einfl\u00fcssen kombiniert. Das Album 'My Dixie Home' aus dem Jahr 1992 markiert einen wichtigen Moment in ihrer Karriere, da es viele ihrer bekanntesten Songs enth\u00e4lt. W\u00e4hrend ihrer Tour zu diesem Album spielte die Band in zahlreichen renommierten Venues und Festivals, was ihre Beliebtheit und ihren Einfluss auf die Bluegrass-Szene weiter festigte."
         },
@@ -10438,12 +10134,7 @@
       "easy": [
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'The Stanley Brothers and the Clinch Mountain Boys' von The Stanley Brothers?",
-          "options": [
-            "1955",
-            "1959",
-            "1962",
-            "1965"
-          ],
+          "options": ["1955", "1959", "1962", "1965"],
           "correctAnswer": "1959",
           "trivia": "The Stanley Brothers, bestehend aus den Br\u00fcdern Carter und Ralph Stanley, ver\u00f6ffentlichten 1959 das Album 'The Stanley Brothers and the Clinch Mountain Boys'. Dieses Album ist ein hervorragendes Beispiel f\u00fcr den traditionellen Bluegrass-Stil und zeigt die charakteristischen Harmonien und Instrumentalf\u00e4higkeiten der Br\u00fcder. Die Clinch Mountain Boys waren die Begleitband der Stanley Brothers und trugen ma\u00dfgeblich zum Erfolg des Albums bei."
         },
@@ -10554,12 +10245,7 @@
       "easy": [
         {
           "question": "Welches Jahr war die Ver\u00f6ffentlichung des Albums 'Front and Center' von Sideline?",
-          "options": [
-            "2016",
-            "2017",
-            "2018",
-            "2019"
-          ],
+          "options": ["2016", "2017", "2018", "2019"],
           "correctAnswer": "2018",
           "trivia": "Sideline ist eine bekannte Band aus Bulgarien, die f\u00fcr ihren einzigartigen Stil im Bereich der Folk- und Popmusik bekannt ist. Ihr Album 'Front and Center' wurde 2018 ver\u00f6ffentlicht und zeigt eine Mischung aus eing\u00e4ngigen Melodien und emotionalen Texten. Die Band hat sich einen Namen gemacht, indem sie traditionelle bulgarische Musik mit modernen Kl\u00e4ngen verbindet und so ein breites Publikum anspricht."
         },
@@ -10576,12 +10262,7 @@
         },
         {
           "question": "Welches Musikvideo von Sideline aus dem Album 'Front and Center' wurde 2018 ver\u00f6ffentlicht?",
-          "options": [
-            "All In",
-            "Never Let Go",
-            "Rise Again",
-            "Into the Light"
-          ],
+          "options": ["All In", "Never Let Go", "Rise Again", "Into the Light"],
           "correctAnswer": "All In",
           "trivia": "Sideline ist eine bekannte Band, die f\u00fcr ihren einzigartigen Sound bekannt ist. Ihr Album 'Front and Center', das 2018 herauskam, enth\u00e4lt mehrere eing\u00e4ngige Songs, darunter das Musikvideo zu 'All In'. Dieses Video zeigt eindrucksvoll die Energie und den Stil der Band und hat viele Fans begeistert. Sideline hat sich mit ihrem kreativen Ansatz in der Musikszene einen Namen gemacht."
         }
@@ -10716,12 +10397,7 @@
         },
         {
           "question": "Welchen renommierten Musikpreis gewannen The Grascals f\u00fcr ihr Album 'Keep on Walkin\u2019', das 2008 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Grammy Award",
-            "CMA Award",
-            "IBMA Award",
-            "ACM Award"
-          ],
+          "options": ["Grammy Award", "CMA Award", "IBMA Award", "ACM Award"],
           "correctAnswer": "IBMA Award",
           "trivia": "The Grascals sind eine amerikanische Bluegrass-Band, die f\u00fcr ihren harmonischen Gesang und ihren kreativen Stil bekannt ist. Ihr Album 'Keep on Walkin\u2019', das 2008 ver\u00f6ffentlicht wurde, erhielt viel Lob und trug zur Popularit\u00e4t der Band bei. F\u00fcr ihre herausragenden Leistungen in der Bluegrass-Musik wurden sie mit dem International Bluegrass Music Association (IBMA) Award ausgezeichnet, was ihre Stellung in der Musikszene weiter festigte."
         },

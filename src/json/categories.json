@@ -60,7 +60,7 @@
     "categoryUrl": "/blues",
     "introSubline": "Spür die Seele und den Rhythmus des Blues, der Musik des Herzens!",
     "text": "Blues ist ein Genre, das für seine gefühlvollen Melodien und tiefgründigen Texte bekannt ist. Diese Kategorie umfasst alles von klassischen Delta-Blues und elektrischen Chicago-Blues bis hin zu modernen Interpretationen des Genres. Mit seinen charakteristischen Gitarrenriffs, leidenschaftlichen Vocals und der kraftvollen Ausdrucksweise spiegelt Blues das Leben in all seinen Facetten wider – von Schmerz und Herzschmerz bis hin zu Hoffnung und Freude. Erlebe die emotionale Tiefe und die authentische Kraft, die den Blues zu einer unverwechselbaren und zeitlosen Musikrichtung machen.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "bossa-nova",
