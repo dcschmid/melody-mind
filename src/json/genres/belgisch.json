@@ -135,12 +135,7 @@
         },
         {
           "question": "Welches Jahr wurde das Album 'Racine Carr\u00e9e' von Stromae ver\u00f6ffentlicht, das in der Musikwelt hohe Anerkennung fand?",
-          "options": [
-            "2010",
-            "2012",
-            "2013",
-            "2015"
-          ],
+          "options": ["2010", "2012", "2013", "2015"],
           "correctAnswer": "2013",
           "trivia": "Stromae, der belgische Musiker und Produzent, ver\u00f6ffentlichte sein zweites Studioalbum 'Racine Carr\u00e9e' im Jahr 2013. Das Album wurde von Kritikern hochgelobt und enth\u00e4lt Hits wie 'Papaoutai' und 'Formidable'. Es kombiniert verschiedene Musikstile, darunter Hip-Hop und elektronische Musik, und behandelt Themen wie Identit\u00e4t und soziale Probleme. 'Racine Carr\u00e9e' wurde ein internationaler Erfolg und festigte Stromaes Ruf als innovativer K\u00fcnstler."
         },
@@ -159,12 +154,7 @@
       "medium": [
         {
           "question": "Mit welchem K\u00fcnstler hat Stromae auf dem Album 'Racine Carr\u00e9e' eine Kollaboration f\u00fcr den Song 'Carmen' durchgef\u00fchrt?",
-          "options": [
-            "Lana Del Rey",
-            "Sofia Valdes",
-            "Orelsan",
-            "Kery James"
-          ],
+          "options": ["Lana Del Rey", "Sofia Valdes", "Orelsan", "Kery James"],
           "correctAnswer": "Orelsan",
           "trivia": "Stromae, der belgische S\u00e4nger und Musikproduzent, ver\u00f6ffentlichte 2013 das Album 'Racine Carr\u00e9e', das international gro\u00dfe Erfolge feierte. Der Song 'Carmen', der auf diesem Album zu finden ist, enth\u00e4lt eine Kollaboration mit dem franz\u00f6sischen Rapper Orelsan. Das Lied behandelt Themen wie die Gefahren der sozialen Medien und deren Einfluss auf das Leben der Menschen. 'Racine Carr\u00e9e' wird oft f\u00fcr seine innovativen Beats und tiefgr\u00fcndigen Texte gelobt."
         },
@@ -181,12 +171,7 @@
         },
         {
           "question": "Welche erfolgreiche Chartplatzierung erreichte das Album 'Racine Carr\u00e9e' von Stromae in den deutschen Albumcharts?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 20"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 20"],
           "correctAnswer": "Platz 1",
           "trivia": "Stromae, ein belgischer Musiker, ver\u00f6ffentlichte 2013 das Album 'Racine Carr\u00e9e', das zu einem weltweiten Hit wurde. In den deutschen Albumcharts erreichte das Album den ersten Platz und hielt sich \u00fcber mehrere Wochen in den Top 10. Der Hit 'Papaoutai' aus diesem Album trug wesentlich zum Erfolg bei und wurde in vielen L\u00e4ndern popul\u00e4r. Stromae ist bekannt f\u00fcr seine innovative Mischung aus elektronischer Musik und Chanson-Einfl\u00fcssen."
         }
@@ -413,12 +398,7 @@
         },
         {
           "question": "In welchem Lied des Albums 'Much Against Everyone\u2019s Advice' von Soulwax wird die innere Zerrissenheit und der Druck, den Erwartungen anderer gerecht zu werden, thematisiert?",
-          "options": [
-            "Waves",
-            "Conversation Intercom",
-            "Anecdote",
-            "Sisters"
-          ],
+          "options": ["Waves", "Conversation Intercom", "Anecdote", "Sisters"],
           "correctAnswer": "Conversation Intercom",
           "trivia": "Soulwax ist bekannt f\u00fcr ihren einzigartigen Mix aus Rock und elektronischer Musik. In 'Much Against Everyone\u2019s Advice', ihrem Deb\u00fctalbum von 1998, reflektieren sie oft \u00fcber Themen wie Identit\u00e4t und soziale Erwartungen. Der Song 'Conversation Intercom' beleuchtet die innere Zerrissenheit und das Streben nach Authentizit\u00e4t in einer Welt voller Druck und Erwartungen. Die tiefgr\u00fcndigen Texte und der innovative Sound machten das Album zu einem Meilenstein in der Musikszene."
         }
@@ -842,12 +822,7 @@
         },
         {
           "question": "Wie viele Songs wurden w\u00e4hrend des Aufnahmeprozesses f\u00fcr das Album 'I Paint Pictures on a Wedding Dress' von Zita Swoon im Jahr 1998 aufgenommen?",
-          "options": [
-            "10 Songs",
-            "12 Songs",
-            "15 Songs",
-            "8 Songs"
-          ],
+          "options": ["10 Songs", "12 Songs", "15 Songs", "8 Songs"],
           "correctAnswer": "12 Songs",
           "trivia": "Zita Swoon, ein belgisches Musikprojekt um den K\u00fcnstler Stef Kamil Carlens, ver\u00f6ffentlichte 1998 das Album 'I Paint Pictures on a Wedding Dress'. W\u00e4hrend des Aufnahmeprozesses wurden insgesamt 12 Songs f\u00fcr das Album aufgenommen, wobei der kreative Stil des K\u00fcnstlers stark zum Ausdruck kommt. Das Album kombiniert verschiedene Musikstile und zeigt den einzigartigen Sound von Zita Swoon, der von Folk bis Rock reicht."
         }
@@ -912,12 +887,7 @@
         },
         {
           "question": "Welches ungew\u00f6hnliche Instrument wurde w\u00e4hrend des Aufnahmeprozesses des Albums 'I Paint Pictures on a Wedding Dress' von Zita Swoon eingesetzt, um den charakteristischen Klang des Albums zu kreieren?",
-          "options": [
-            "Theremin",
-            "Mandoline",
-            "Okarina",
-            "Kalimba"
-          ],
+          "options": ["Theremin", "Mandoline", "Okarina", "Kalimba"],
           "correctAnswer": "Kalimba",
           "trivia": "Zita Swoon experimentierte w\u00e4hrend der Aufnahmen zu 'I Paint Pictures on a Wedding Dress' mit verschiedenen Instrumenten, um einen einzigartigen Klang zu erzielen. Besonders die Kalimba, ein afrikanisches Daumenklavier, brachte eine au\u00dfergew\u00f6hnliche, melodische Textur in die Songs des Albums. Das Album wurde 1998 ver\u00f6ffentlicht und gilt als eine der bedeutendsten Arbeiten von Zita Swoon, die sich durch ihre kreative Vielfalt auszeichnet."
         }
@@ -992,12 +962,7 @@
         },
         {
           "question": "In welchem Jahr trat Arno, der bekannte belgische S\u00e4nger und Songwriter, mit seinem Album 'Charles Ernest' auf verschiedenen Festivals auf?",
-          "options": [
-            "2000",
-            "2001",
-            "2002",
-            "2003"
-          ],
+          "options": ["2000", "2001", "2002", "2003"],
           "correctAnswer": "2002",
           "trivia": "Arno ver\u00f6ffentlichte sein Album 'Charles Ernest' im Jahr 2002 und tourte anschlie\u00dfend durch verschiedene europ\u00e4ische Festivals. Der belgische K\u00fcnstler ist bekannt f\u00fcr seine einzigartige Mischung aus Rock, Chanson und Pop, die durch seine markante Stimme und poetischen Texte gepr\u00e4gt ist. Die Live-Auftritte waren besonders f\u00fcr ihre energiegeladene Atmosph\u00e4re und die Verbindung zu den Fans bekannt, was Arnos Status als Kultfigur in der belgischen Musikszene festigte."
         }
@@ -1005,12 +970,7 @@
       "hard": [
         {
           "question": "Welcher Platz erreichte das Album 'Charles Ernest' von Arno in den belgischen Albumcharts nach seiner Ver\u00f6ffentlichung im Jahr 2002?",
-          "options": [
-            "Platz 5",
-            "Platz 12",
-            "Platz 20",
-            "Platz 3"
-          ],
+          "options": ["Platz 5", "Platz 12", "Platz 20", "Platz 3"],
           "correctAnswer": "Platz 12",
           "trivia": "Arno, ein einflussreicher belgischer Musiker, ver\u00f6ffentlichte 2002 das Album 'Charles Ernest', das sich schnell gro\u00dfer Beliebtheit erfreute. Obwohl es nicht den ersten Platz erreichte, konnte es sich in den belgischen Albumcharts auf Platz 12 positionieren. Arno ist bekannt f\u00fcr seinen einzigartigen Stil, der Rock, Chanson und Pop miteinander verbindet, und 'Charles Ernest' festigte seinen Status als bedeutender K\u00fcnstler in der Musikszene."
         },
@@ -1073,12 +1033,7 @@
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'As Heard on Radio Soulwax Pt. 2' von 2 Many DJs, das als bedeutender Beitrag zur Mashup-Kultur gilt?",
-          "options": [
-            "2000",
-            "2001",
-            "2002",
-            "2003"
-          ],
+          "options": ["2000", "2001", "2002", "2003"],
           "correctAnswer": "2002",
           "trivia": "2 Many DJs ist ein belgisches DJ-Duo, das f\u00fcr seine kreativen Mashups und innovativen Sets bekannt ist. Ihr Album 'As Heard on Radio Soulwax Pt. 2', das 2002 ver\u00f6ffentlicht wurde, wird oft als ein Meilenstein in der Entwicklung der Mashup-Musik angesehen. Es kombinierte verschiedene Musikstile und -genres, was zur Popularit\u00e4t von Mashups in der fr\u00fchen 2000er Jahre beitrug und den Weg f\u00fcr viele nachfolgende K\u00fcnstler ebnete."
         }
@@ -1097,12 +1052,7 @@
         },
         {
           "question": "In welchem Jahr traten 2 Many DJs mit ihrem Album 'As Heard on Radio Soulwax Pt. 2' auf der renommierten Musikfestival-B\u00fchne des Glastonbury Festivals auf?",
-          "options": [
-            "2001",
-            "2002",
-            "2003",
-            "2004"
-          ],
+          "options": ["2001", "2002", "2003", "2004"],
           "correctAnswer": "2002",
           "trivia": "2 Many DJs, bekannt f\u00fcr ihre innovative Mischung aus verschiedenen Musikgenres, ver\u00f6ffentlichten 'As Heard on Radio Soulwax Pt. 2' im Jahr 2002. Das Album ist eine Sammlung von Mashups und Remixen, die die DJ-Sets des Duos ma\u00dfgeblich beeinflussten. Ihr Auftritt beim Glastonbury Festival 2002 trug dazu bei, ihre Bekanntheit international zu steigern und festigte ihren Status in der elektronischen Musikszene."
         },
@@ -1283,12 +1233,7 @@
       "easy": [
         {
           "question": "Welches Instrument wird in vielen Songs des Albums 'Applause' von Balthazar h\u00e4ufig eingesetzt, um den charakteristischen Sound der Band zu erzeugen?",
-          "options": [
-            "Gitarre",
-            "Klavier",
-            "Schlagzeug",
-            "Geige"
-          ],
+          "options": ["Gitarre", "Klavier", "Schlagzeug", "Geige"],
           "correctAnswer": "Klavier",
           "trivia": "Balthazar ist eine belgische Indie-Pop-Band, die 2004 gegr\u00fcndet wurde. Ihr erstes Album 'Applause' wurde 2010 ver\u00f6ffentlicht und zeigt eine Vielzahl von Instrumentierungen, darunter das pr\u00e4gnante Klavier, das oft die Melodien in ihren Songs unterst\u00fctzt. Die Kombination von akustischen und elektronischen Kl\u00e4ngen in 'Applause' tr\u00e4gt zur einzigartigen Atmosph\u00e4re des Albums bei und hebt die kreative Produktionsweise der Band hervor."
         },
@@ -1410,23 +1355,13 @@
         },
         {
           "question": "Welches hohe Chart-Ranking erreichte das Album 'Heartcore' von Shameboy in den belgischen Albumcharts im Jahr 2005?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 20"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 20"],
           "correctAnswer": "Platz 5",
           "trivia": "Shameboy ist ein belgischer K\u00fcnstler, der f\u00fcr seinen einzigartigen Mix aus Elektropop und Dance-Musik bekannt ist. Sein Album 'Heartcore', das 2005 ver\u00f6ffentlicht wurde, erreichte in den belgischen Albumcharts den 5. Platz und festigte seinen Status in der Musikszene. Die Single 'High On Life' aus diesem Album wurde besonders popul\u00e4r und trug zu seinem kommerziellen Erfolg bei."
         },
         {
           "question": "Welches Jahr wurde das Album 'Heartcore' von Shameboy ver\u00f6ffentlicht?",
-          "options": [
-            "2003",
-            "2005",
-            "2007",
-            "2010"
-          ],
+          "options": ["2003", "2005", "2007", "2010"],
           "correctAnswer": "2005",
           "trivia": "Shameboy ist ein belgischer Musiker und Produzent, der f\u00fcr seinen einzigartigen Mix aus Electro, House und Pop bekannt ist. Das Album 'Heartcore' wurde im Jahr 2005 ver\u00f6ffentlicht und enth\u00e4lt einige der bekanntesten Tracks des K\u00fcnstlers, die in den Clubs sehr popul\u00e4r wurden. Der Sound des Albums spiegelt die damaligen Trends der elektronischen Musik wider und zeigt die Vielseitigkeit von Shameboy als K\u00fcnstler."
         }
@@ -1537,12 +1472,7 @@
         },
         {
           "question": "Welches Jahr wurde das Album 'A T\u00e2tons' von Axelle Red ver\u00f6ffentlicht, das in der Musikszene positive Kritiken erhielt?",
-          "options": [
-            "1995",
-            "1996",
-            "1997",
-            "1998"
-          ],
+          "options": ["1995", "1996", "1997", "1998"],
           "correctAnswer": "1996",
           "trivia": "Axelle Red, eine belgische S\u00e4ngerin und Songwriterin, ver\u00f6ffentlichte ihr zweites Album 'A T\u00e2tons' im Jahr 1996. Das Album erhielt viel Lob f\u00fcr seine eing\u00e4ngigen Melodien und die emotionale Tiefe der Texte. Besonders die Mischung aus Pop und Chanson wurde von Kritikern gesch\u00e4tzt, was Axelle Red half, sich in der franz\u00f6sischsprachigen Musikszene einen Namen zu machen."
         }
@@ -1642,23 +1572,13 @@
         },
         {
           "question": "Mit welchem K\u00fcnstler hat Ghinzu auf dem Album 'Blow' von 2004 zusammengearbeitet?",
-          "options": [
-            "David Bowie",
-            "Chris Cornell",
-            "Lio",
-            "Sting"
-          ],
+          "options": ["David Bowie", "Chris Cornell", "Lio", "Sting"],
           "correctAnswer": "Lio",
           "trivia": "Ghinzu ist eine belgische Rockband, die f\u00fcr ihren einzigartigen Sound bekannt ist. Auf dem Album 'Blow' von 2004 arbeitet die Band mit der franz\u00f6sischen S\u00e4ngerin Lio zusammen, die f\u00fcr ihren Einfluss in der Popmusik der 80er Jahre bekannt ist. Diese Kollaboration tr\u00e4gt dazu bei, dass das Album eine interessante Mischung aus verschiedenen Musikstilen bietet."
         },
         {
           "question": "Welches Jahr war das Ver\u00f6ffentlichungsdatum des Albums 'Blow' von Ghinzu?",
-          "options": [
-            "2003",
-            "2004",
-            "2005",
-            "2006"
-          ],
+          "options": ["2003", "2004", "2005", "2006"],
           "correctAnswer": "2004",
           "trivia": "Ghinzu ist eine belgische Rockband, die f\u00fcr ihren einzigartigen Sound bekannt ist. Das Album 'Blow', das 2004 ver\u00f6ffentlicht wurde, enth\u00e4lt eine Mischung aus Rock, Pop und experimentellen Kl\u00e4ngen. Die Band hat mit verschiedenen Produzenten zusammengearbeitet, um ihren charakteristischen Stil zu entwickeln, der in Songs wie 'Do You Like Me?' und 'The Dragster-Wave' zum Ausdruck kommt."
         }
@@ -1688,12 +1608,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Blow' von Ghinzu thematisiert das Streben nach Freiheit und Selbstfindung durch metaphorische Texte?",
-          "options": [
-            "The One",
-            "Do You",
-            "Blow",
-            "Sick"
-          ],
+          "options": ["The One", "Do You", "Blow", "Sick"],
           "correctAnswer": "The One",
           "trivia": "Ghinzu ist eine belgische Rockband, die f\u00fcr ihren einzigartigen Sound und tiefgr\u00fcndige Texte bekannt ist. Das Album 'Blow', ver\u00f6ffentlicht im Jahr 2004, enth\u00e4lt mehrere Songs, die emotionale und philosophische Themen behandeln. 'The One' ist besonders bemerkenswert, da es das Streben nach Freiheit und Individualit\u00e4t in einer sich st\u00e4ndig ver\u00e4ndernden Welt thematisiert. Die kraftvolle Musik und die eindringlichen Texte machen diesen Song zu einem Highlight des Albums."
         }
@@ -1885,12 +1800,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'All This Dancin\u2019 Around' von Triggerfinger thematisiert das Gef\u00fchl von Freiheit und Unbeschwertheit?",
-          "options": [
-            "I Follow Rivers",
-            "Let It Ride",
-            "Colossus",
-            "The One"
-          ],
+          "options": ["I Follow Rivers", "Let It Ride", "Colossus", "The One"],
           "correctAnswer": "I Follow Rivers",
           "trivia": "Triggerfinger ist eine belgische Rockband, die 1998 gegr\u00fcndet wurde und f\u00fcr ihren kraftvollen Sound bekannt ist. Ihr Album 'All This Dancin\u2019 Around', das 2010 ver\u00f6ffentlicht wurde, enth\u00e4lt den beliebten Song 'I Follow Rivers', der von Freiheit und dem Streben nach Gl\u00fcck handelt. Die Band kombiniert Elemente aus Rock und alternative Musik und hat sich mit ihrem einzigartigen Stil eine treue Fangemeinde erarbeitet."
         }
@@ -1955,12 +1865,7 @@
         },
         {
           "question": "In welchem Jahr trat die belgische Rockband Triggerfinger w\u00e4hrend ihrer Tour zum Album 'All This Dancin\u2019 Around' in der legend\u00e4ren Royal Albert Hall in London auf?",
-          "options": [
-            "2011",
-            "2012",
-            "2010",
-            "2013"
-          ],
+          "options": ["2011", "2012", "2010", "2013"],
           "correctAnswer": "2011",
           "trivia": "Triggerfinger, bekannt f\u00fcr ihren kraftvollen Sound und energiegeladene Live-Auftritte, ver\u00f6ffentlichten ihr drittes Studioalbum 'All This Dancin\u2019 Around' im Jahr 2010. Die Band nahm an zahlreichen Festivals und Konzerten teil, um das Album zu promoten, darunter auch ein bemerkenswerter Auftritt in der Royal Albert Hall im Jahr 2011. Die Mischung aus Rock, Blues und Stoner-Einfl\u00fcssen machte die Live-Darbietungen besonders unvergesslich und zog Fans aus der ganzen Welt an."
         }
@@ -2036,12 +1941,7 @@
         },
         {
           "question": "In welchem Jahr trat Ang\u00e8le w\u00e4hrend ihrer 'Brol'-Tour erstmals in der AccorHotels Arena in Paris auf?",
-          "options": [
-            "2018",
-            "2019",
-            "2020",
-            "2021"
-          ],
+          "options": ["2018", "2019", "2020", "2021"],
           "correctAnswer": "2019",
           "trivia": "Ang\u00e8le, die belgische S\u00e4ngerin und Songwriterin, ver\u00f6ffentlichte ihr Deb\u00fctalbum 'Brol' im Jahr 2018 und gewann schnell an Popularit\u00e4t. Im Jahr 2019 trat sie w\u00e4hrend ihrer erfolgreichen 'Brol'-Tour in der AccorHotels Arena in Paris auf, was einen bedeutenden Moment in ihrer Karriere darstellte. Ihre Live-Auftritte sind bekannt f\u00fcr ihre energiegeladene Performance und die Interaktion mit dem Publikum, wobei sie Hits wie 'Tout Oublier' und 'Balance Ton Quoi' pr\u00e4sentierte."
         }
@@ -2095,12 +1995,7 @@
       "easy": [
         {
           "question": "Welchen Platz erreichte das Album 'New Day' von Absynthe Minded in den belgischen Albumcharts?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 5",
           "trivia": "Das Album 'New Day' von Absynthe Minded wurde 2007 ver\u00f6ffentlicht und erreichte in den belgischen Albumcharts den 5. Platz. Die belgische Band ist bekannt f\u00fcr ihren einzigartigen Mix aus Rock, Pop und Jazz, was sich auch in den verschiedenen Songs des Albums widerspiegelt. Mit 'New Day' festigten sie ihren Status in der belgischen Musikszene und gewannen eine treue Fangemeinde."
         },
@@ -2130,12 +2025,7 @@
       "medium": [
         {
           "question": "In welchem Jahr trat Absynthe Minded erstmals mit ihrem Album 'New Day' auf einer gro\u00dfen Tournee auf?",
-          "options": [
-            "2005",
-            "2007",
-            "2008",
-            "2010"
-          ],
+          "options": ["2005", "2007", "2008", "2010"],
           "correctAnswer": "2007",
           "trivia": "Absynthe Minded ver\u00f6ffentlichte ihr Album 'New Day' im Jahr 2007 und begab sich kurz danach auf eine erfolgreiche Tournee. Die Band, bekannt f\u00fcr ihren einzigartigen Mix aus Jazz, Pop und Rock, begeisterte das Publikum mit energiegeladenen Live-Auftritten. 'New Day' enth\u00e4lt einige ihrer bekanntesten Songs, die oft f\u00fcr ihre eing\u00e4ngigen Melodien und tiefgr\u00fcndigen Texte gelobt werden."
         },
@@ -2222,12 +2112,7 @@
         },
         {
           "question": "In welchem Jahr trat Admiral Freebee mit seinem Album 'Admiral Freebee' erstmals auf Tour?",
-          "options": [
-            "2001",
-            "2003",
-            "2005",
-            "2007"
-          ],
+          "options": ["2001", "2003", "2005", "2007"],
           "correctAnswer": "2003",
           "trivia": "Admiral Freebee, ein belgischer Singer-Songwriter, ver\u00f6ffentlichte sein selbstbetiteltes Album 'Admiral Freebee' im Jahr 2003. Im selben Jahr ging er auf Tour, um sein neues Material live vorzustellen. Diese Tour half ihm, eine breitere Fangemeinde zu gewinnen und seine eing\u00e4ngigen Melodien einem gr\u00f6\u00dferen Publikum n\u00e4herzubringen."
         },
@@ -2281,12 +2166,7 @@
       "hard": [
         {
           "question": "In welchem Jahr trat Admiral Freebee w\u00e4hrend seiner Tour zum Album 'Admiral Freebee', das 2003 ver\u00f6ffentlicht wurde, in der ber\u00fchmten Ancienne Belgique in Br\u00fcssel auf?",
-          "options": [
-            "2004",
-            "2005",
-            "2006",
-            "2003"
-          ],
+          "options": ["2004", "2005", "2006", "2003"],
           "correctAnswer": "2004",
           "trivia": "Admiral Freebee, ein belgischer Singer-Songwriter, ver\u00f6ffentlichte sein selbstbetiteltes Album 'Admiral Freebee' im Jahr 2003, das schnell zu einem Hit wurde. W\u00e4hrend seiner darauf folgenden Tour spielte er in verschiedenen renommierten Venues, einschlie\u00dflich der Ancienne Belgique in Br\u00fcssel, was seine Popularit\u00e4t in der belgischen Musikszene weiter steigerte. Seine energiegeladenen Live-Auftritte sind bekannt f\u00fcr ihre emotionale Intensit\u00e4t und fesselnde B\u00fchnenpr\u00e4senz, die das Publikum begeistert."
         },
@@ -2327,23 +2207,13 @@
       "easy": [
         {
           "question": "Welches Album von Girls in Hawaii erhielt 2013 positive Kritiken f\u00fcr seinen melancholischen Sound und die eing\u00e4ngige Melodien?",
-          "options": [
-            "Innocence",
-            "Everest",
-            "Plan Your Escape",
-            "Evergreen"
-          ],
+          "options": ["Innocence", "Everest", "Plan Your Escape", "Evergreen"],
           "correctAnswer": "Everest",
           "trivia": "Das Album 'Everest' von Girls in Hawaii wurde 2013 ver\u00f6ffentlicht und erfreute sich gro\u00dfer Beliebtheit bei Kritikern. Die Band, die f\u00fcr ihre melancholischen Kl\u00e4nge und emotionalen Texte bekannt ist, kombinierte in diesem Album eing\u00e4ngige Melodien mit tiefgr\u00fcndigen Themen. Viele Rezensenten lobten die musikalische Entwicklung der Band und bezeichneten 'Everest' als eines ihrer besten Werke."
         },
         {
           "question": "Mit welchem K\u00fcnstler haben Girls in Hawaii auf ihrem Album 'Everest' aus dem Jahr 2013 zusammengearbeitet?",
-          "options": [
-            "M83",
-            "Air",
-            "The D\u00f8",
-            "Phoenix"
-          ],
+          "options": ["M83", "Air", "The D\u00f8", "Phoenix"],
           "correctAnswer": "The D\u00f8",
           "trivia": "Girls in Hawaii sind eine belgische Indie-Pop-Band, die 2000 gegr\u00fcndet wurde. Auf ihrem Album 'Everest' aus dem Jahr 2013 arbeiten sie mit dem franz\u00f6sischen Duo The D\u00f8 zusammen. Die Zusammenarbeit bringt einen einzigartigen Klang in die bereits atmosph\u00e4rische Musik der Band ein. Das Album wird f\u00fcr seine eing\u00e4ngigen Melodien und emotionalen Texte gesch\u00e4tzt."
         },
@@ -2362,12 +2232,7 @@
       "medium": [
         {
           "question": "In welchem Jahr traten Girls in Hawaii mit ihrem Album 'Everest' erstmals auf einer gro\u00dfen Tournee auf?",
-          "options": [
-            "2012",
-            "2013",
-            "2014",
-            "2015"
-          ],
+          "options": ["2012", "2013", "2014", "2015"],
           "correctAnswer": "2013",
           "trivia": "Girls in Hawaii ver\u00f6ffentlichten ihr drittes Studioalbum 'Everest' im Jahr 2013 und begaben sich daraufhin auf eine umfassende Tournee durch Europa. Die Band, die f\u00fcr ihren melancholischen Indie-Pop bekannt ist, gewann mit diesem Album an Popularit\u00e4t und spielte in vielen renommierten Venues. Ihre Live-Auftritte sind f\u00fcr ihre emotionale Intensit\u00e4t und die atmosph\u00e4rische Klanglandschaft bekannt, die die Songs von 'Everest' perfekt zur Geltung bringt."
         },
@@ -2478,12 +2343,7 @@
       "medium": [
         {
           "question": "Mit welchem bekannten K\u00fcnstler kollaborierte TC Matic auf dem Album 'Choco', das 1983 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Arno",
-            "Kurt Weill",
-            "David Bowie",
-            "Jean-Luc Ponty"
-          ],
+          "options": ["Arno", "Kurt Weill", "David Bowie", "Jean-Luc Ponty"],
           "correctAnswer": "Arno",
           "trivia": "TC Matic ist eine belgische Band, die f\u00fcr ihren einzigartigen Mix aus Rock, Chanson und Weltmusik bekannt ist. Auf dem 1983 ver\u00f6ffentlichten Album 'Choco' arbeitete die Band eng mit dem belgischen S\u00e4nger Arno zusammen, dessen markante Stimme und Stil das Album pr\u00e4gen. 'Choco' gilt als eines der bedeutendsten Werke von TC Matic und zeigt die kreative Verschmelzung der beiden K\u00fcnstler."
         },
@@ -2570,22 +2430,13 @@
         },
         {
           "question": "In welchem Jahr trat Selah Sue erstmals mit ihrem Album 'Selah Sue' auf Tour?",
-          "options": [
-            "2010",
-            "2011",
-            "2012",
-            "2013"
-          ],
+          "options": ["2010", "2011", "2012", "2013"],
           "correctAnswer": "2011",
           "trivia": "Selah Sue, eine belgische Singer-Songwriterin, ver\u00f6ffentlichte ihr selbstbetiteltes Deb\u00fctalbum 'Selah Sue' im Jahr 2011. Ihre Tournee, die auf die Ver\u00f6ffentlichung folgte, brachte ihr internationale Aufmerksamkeit und half ihr, sich als aufstrebende K\u00fcnstlerin in der Musikszene zu etablieren. Das Album enth\u00e4lt eine Mischung aus Soul, Reggae und Pop, und viele ihrer Live-Auftritte sind f\u00fcr ihre energiegeladene Darbietung bekannt."
         },
         {
           "question": "Welches Musikvideo von Selah Sue, das auf dem Album 'Selah Sue' von 2011 ver\u00f6ffentlicht wurde, zeigt eindrucksvolle Szenen, die den pers\u00f6nlichen und emotionalen Ausdruck der K\u00fcnstlerin unterstreichen?",
-          "options": [
-            "Raggamuffin",
-            "This World",
-            "Crazy Sufferin' Style"
-          ],
+          "options": ["Raggamuffin", "This World", "Crazy Sufferin' Style"],
           "correctAnswer": "Raggamuffin",
           "trivia": "Selah Sue ist eine belgische S\u00e4ngerin und Songwriterin, die mit ihrem selbstbetitelten Deb\u00fctalbum 'Selah Sue' im Jahr 2011 internationale Anerkennung erlangte. Das Musikvideo zu 'Raggamuffin' zeigt Selah Sue in verschiedenen urbanen Umgebungen und betont ihre starke Pr\u00e4senz und emotionale Tiefe. Ihre Musik kombiniert Elemente aus Reggae, Soul und Pop, was sie zu einer einzigartigen Stimme in der Musiklandschaft macht."
         }
@@ -2604,12 +2455,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'Selah Sue' von Selah Sue thematisiert den inneren Kampf mit Selbstzweifeln und der Suche nach Selbstakzeptanz?",
-          "options": [
-            "Raggamuffin",
-            "This World",
-            "Crazy",
-            "Black Part Love"
-          ],
+          "options": ["Raggamuffin", "This World", "Crazy", "Black Part Love"],
           "correctAnswer": "Crazy",
           "trivia": "Selah Sue ist eine belgische Singer-Songwriterin, die mit ihrem Deb\u00fctalbum 'Selah Sue' im Jahr 2011 internationale Anerkennung fand. Der Song 'Crazy' beschreibt eindringlich die Herausforderungen, die mit psychischen K\u00e4mpfen und dem Streben nach innerer Ruhe verbunden sind. Selah Sues einzigartige Mischung aus Soul, Reggae und Pop spiegelt sich in ihren Texten wider, die oft sehr pers\u00f6nlich und emotional sind. Ihr Stil hat sie zu einer wichtigen Stimme in der Musikszene gemacht."
         },
@@ -2836,12 +2682,7 @@
         },
         {
           "question": "Welches Musikvideo von Amatorski, das zum Album 'TBC' aus dem Jahr 2011 geh\u00f6rt, zeichnet sich durch eine k\u00fcnstlerische und surrealistische Bildsprache aus?",
-          "options": [
-            "Eleanor",
-            "Black Hole",
-            "The Last Time",
-            "TBC"
-          ],
+          "options": ["Eleanor", "Black Hole", "The Last Time", "TBC"],
           "correctAnswer": "Eleanor",
           "trivia": "Amatorski ist ein belgisches Musikprojekt, das f\u00fcr seinen einzigartigen Sound und visuelle \u00c4sthetik bekannt ist. Das Album 'TBC' enth\u00e4lt mehrere eindrucksvolle Musikvideos, darunter das zur Single 'Eleanor', das mit seinen surrealen Bildern und emotionalen Darstellungen besticht. Die Kombination aus melancholischen Melodien und kreativen visuellen Inhalten hat das Projekt bei Kritikern und Fans gleicherma\u00dfen beliebt gemacht."
         },
@@ -2871,12 +2712,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'TBC' von Amatorski in den belgischen Albumcharts nach seiner Ver\u00f6ffentlichung im Jahr 2011?",
-          "options": [
-            "Platz 10",
-            "Platz 15",
-            "Platz 3",
-            "Platz 5"
-          ],
+          "options": ["Platz 10", "Platz 15", "Platz 3", "Platz 5"],
           "correctAnswer": "Platz 5",
           "trivia": "Amatorski, eine belgische Indie-Pop-Band, ver\u00f6ffentlichte ihr Deb\u00fctalbum 'TBC' im Jahr 2011. Das Album erhielt viel Lob von Kritikern und erreichte in den belgischen Albumcharts den 5. Platz. Die Mischung aus melancholischen Melodien und eing\u00e4ngigen Texten trug zur Popularit\u00e4t der Band bei und half, ihre Karriere zu etablieren. Mit diesem Album festigte Amatorski ihren Platz in der alternativen Musikszene."
         },
@@ -2928,12 +2764,7 @@
         },
         {
           "question": "Welches Jahr wurde das Album 'Oker' von Clouseau ver\u00f6ffentlicht?",
-          "options": [
-            "1995",
-            "1990",
-            "2000",
-            "1992"
-          ],
+          "options": ["1995", "1990", "2000", "1992"],
           "correctAnswer": "1995",
           "trivia": "Clouseau ist eine bekannte belgische Popband, die 1984 gegr\u00fcndet wurde. Ihr Album 'Oker' aus dem Jahr 1995 enth\u00e4lt mehrere Hits, darunter 'Vanavond' und 'Anne'. Die Band ist bekannt f\u00fcr ihren melodischen Stil und hat in Belgien und den Niederlanden gro\u00dfe Erfolge gefeiert. 'Oker' festigte ihren Status als eine der beliebtesten Bands in der Region."
         }
@@ -3380,12 +3211,7 @@
         },
         {
           "question": "Welches Album von Millionaire, das im Jahr 2005 ver\u00f6ffentlicht wurde, gilt als eines der einflussreichsten Werke der belgischen Musikszene?",
-          "options": [
-            "Paradisiac",
-            "Karma",
-            "Blackbox",
-            "Heaven"
-          ],
+          "options": ["Paradisiac", "Karma", "Blackbox", "Heaven"],
           "correctAnswer": "Paradisiac",
           "trivia": "Das Album 'Paradisiac' von Millionaire, ver\u00f6ffentlicht im Jahr 2005, wird oft als Meilenstein in der belgischen Rockmusik angesehen. Mit seinem einzigartigen Sound, der Elemente aus Rock, Elektronik und Pop vereint, hat es nicht nur die Musikkritiker beeindruckt, sondern auch einen gro\u00dfen Einfluss auf die Entwicklung der alternativen Musikszene in Belgien gehabt. Die Band, bekannt f\u00fcr ihre energiegeladenen Auftritte und kreativen Ans\u00e4tze, hat mit diesem Album eine breite Fangemeinde gewonnen und gilt als Vorreiter f\u00fcr viele nachfolgende K\u00fcnstler in der Region."
         },
@@ -3566,12 +3392,7 @@
         },
         {
           "question": "In welchem Jahr trat Daan w\u00e4hrend seiner Tour zum Album 'Manhay' in der ber\u00fchmten Ancienne Belgique in Br\u00fcssel auf?",
-          "options": [
-            "2008",
-            "2009",
-            "2010",
-            "2011"
-          ],
+          "options": ["2008", "2009", "2010", "2011"],
           "correctAnswer": "2009",
           "trivia": "Daan ist ein belgischer Musiker, der f\u00fcr seine innovative Mischung aus Pop, Rock und elektronischen Kl\u00e4ngen bekannt ist. Sein Album 'Manhay', das 2009 ver\u00f6ffentlicht wurde, enth\u00e4lt einige seiner bekanntesten Songs und bringt seine k\u00fcnstlerische Vision eindrucksvoll zum Ausdruck. W\u00e4hrend seiner Tour zu 'Manhay' trat Daan in vielen renommierten Venues auf, darunter die Ancienne Belgique, wo er eine leidenschaftliche Performance hinlegte, die seine treue Fangemeinde begeisterte."
         },
@@ -3798,12 +3619,7 @@
         },
         {
           "question": "Welche Chartplatzierung erreichte das Album 'Royalty in Exile' von The Scabs in den belgischen Albumcharts im Jahr 1991?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 5",
           "trivia": "The Scabs, eine bekannte belgische Rockband, ver\u00f6ffentlichten 1991 ihr Album 'Royalty in Exile', das in den belgischen Albumcharts f\u00fcr Aufsehen sorgte. Das Album erreichte Platz 5 und wurde f\u00fcr seinen einzigartigen Sound und eing\u00e4ngige Melodien gelobt. Es ist eines der erfolgreichsten Werke der Band und enth\u00e4lt mehrere beliebte Singles, die bis heute im Radio gespielt werden."
         },
@@ -4087,12 +3903,7 @@
         },
         {
           "question": "In welchem Jahr trat Will Tura mit seinem Album 'Vlaanderen Mijn Land' erstmals live auf?",
-          "options": [
-            "1971",
-            "1975",
-            "1980",
-            "1968"
-          ],
+          "options": ["1971", "1975", "1980", "1968"],
           "correctAnswer": "1971",
           "trivia": "Will Tura ist ein belgischer S\u00e4nger, der f\u00fcr seine romantischen Balladen und seine Verbindung zur fl\u00e4mischen Musik bekannt ist. Sein Album 'Vlaanderen Mijn Land', das 1971 ver\u00f6ffentlicht wurde, feierte die Sch\u00f6nheit und Kultur Flanderns. Tura f\u00fchrte zahlreiche Live-Auftritte durch, in denen er die emotionalen Lieder seines Albums pr\u00e4sentierte und seine Fans begeisterte. Der K\u00fcnstler hat im Laufe seiner Karriere eine gro\u00dfe Fangemeinde gewonnen und gilt als eine Ikone der belgischen Musikszene."
         }
@@ -4192,12 +4003,7 @@
         },
         {
           "question": "Mit welchem K\u00fcnstler arbeitete Milk Inc. auf dem Album 'Forever', das im Jahr 2008 ver\u00f6ffentlicht wurde, zusammen?",
-          "options": [
-            "Kate Ryan",
-            "DJ Encore",
-            "Sylver",
-            "Lasgo"
-          ],
+          "options": ["Kate Ryan", "DJ Encore", "Sylver", "Lasgo"],
           "correctAnswer": "Kate Ryan",
           "trivia": "Das Album 'Forever' von Milk Inc. enth\u00e4lt die erfolgreiche Zusammenarbeit mit der S\u00e4ngerin Kate Ryan. Diese Kollaboration brachte frische Kl\u00e4nge und erweiterte den bekannten Eurodance-Stil von Milk Inc. Kate Ryan ist bekannt f\u00fcr ihre eing\u00e4ngigen Melodien und hat sich ebenfalls einen Namen in der Eurodance-Szene gemacht, was diese Kooperation besonders gelungen macht."
         },
@@ -4216,23 +4022,13 @@
       "medium": [
         {
           "question": "Welcher Song auf dem Album 'Forever' von Milk Inc. wurde besonders f\u00fcr seine eing\u00e4ngige Melodie und den hohen Chartplatzierungen in mehreren europ\u00e4ischen L\u00e4ndern bekannt?",
-          "options": [
-            "In My Eyes",
-            "Forever",
-            "The Night",
-            "Walk on Water"
-          ],
+          "options": ["In My Eyes", "Forever", "The Night", "Walk on Water"],
           "correctAnswer": "In My Eyes",
           "trivia": "Das Album 'Forever' von Milk Inc. wurde 2008 ver\u00f6ffentlicht und enth\u00e4lt mehrere Hits, darunter 'In My Eyes', der in vielen europ\u00e4ischen L\u00e4ndern hohe Chartplatzierungen erreichte. Milk Inc. ist bekannt f\u00fcr ihren eing\u00e4ngigen Eurodance-Stil und hat sich seit den 90er Jahren einen Namen in der Musikszene gemacht. Der Song 'In My Eyes' zeichnet sich durch seine kraftvollen Vocals und einen dynamischen Beat aus, was ihn zu einem Favoriten in Clubs und auf Partys machte."
         },
         {
           "question": "Welchen Platz erreichte das Album 'Forever' von Milk Inc. in den belgischen Album-Charts nach seiner Ver\u00f6ffentlichung im Jahr 2008?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 1",
           "trivia": "Milk Inc. ist eine belgische Eurodance-Gruppe, die f\u00fcr ihre eing\u00e4ngigen Melodien und energiegeladenen Beats bekannt ist. Ihr Album 'Forever', das 2008 ver\u00f6ffentlicht wurde, erreichte in Belgien den ersten Platz der Album-Charts und festigte ihren Status als einer der f\u00fchrenden Acts der Dance-Musikszene. Mit Songs wie 'Forever' und 'The Sun Always Shines on T.V.' hat das Album sowohl kommerziellen Erfolg als auch positive Kritiken erhalten."
         },
@@ -4297,12 +4093,7 @@
       "easy": [
         {
           "question": "Welches Musikvideo von Lara Fabian aus dem Album 'Pure' zeigt eindrucksvolle visuelle Elemente und emotionale Darstellungen?",
-          "options": [
-            "Adagio",
-            "La Vie Est Belle",
-            "Je suis malade",
-            "Tout"
-          ],
+          "options": ["Adagio", "La Vie Est Belle", "Je suis malade", "Tout"],
           "correctAnswer": "Adagio",
           "trivia": "Das Musikvideo zu 'Adagio' von Lara Fabian, das auf dem Album 'Pure' aus dem Jahr 1996 zu finden ist, zeichnet sich durch seine dramatischen und emotionalen Bilder aus. Lara Fabian ist bekannt f\u00fcr ihre kraftvolle Stimme und die F\u00e4higkeit, tiefgreifende Emotionen in ihren Performances zu vermitteln. 'Pure' war ihr Durchbruchsalbum und stellte sie als eine der bedeutendsten K\u00fcnstlerinnen der franz\u00f6sischen Musikszene dar. Das Video zu 'Adagio' verst\u00e4rkt die Wirkung des Songs durch eine beeindruckende visuelle Inszenierung."
         },
@@ -4354,12 +4145,7 @@
         },
         {
           "question": "In welchem Jahr startete Lara Fabian ihre Tournee zum Album 'Pure', das 1996 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "1997",
-            "1998",
-            "1999",
-            "2000"
-          ],
+          "options": ["1997", "1998", "1999", "2000"],
           "correctAnswer": "1998",
           "trivia": "Lara Fabian, die f\u00fcr ihre kraftvolle Stimme und emotionalen Auftritte bekannt ist, begann 1998 mit ihrer Tour zur Promotion des Albums 'Pure'. Dieses Album war ein gro\u00dfer Erfolg in Europa und setzte Lara Fabian auf die Karte der internationalen Musikszene. W\u00e4hrend der Tour pr\u00e4sentierte sie nicht nur ihre Hits aus 'Pure', sondern auch einige ihrer fr\u00fcheren Werke, was sie zu einer der gefragtesten K\u00fcnstlerinnen ihrer Zeit machte."
         }
@@ -4378,12 +4164,7 @@
         },
         {
           "question": "Welches Musikvideo aus dem Album 'Pure' von Lara Fabian zeigt sie in einer emotionalen Darstellung, die stark mit dem Thema der inneren Zerissenheit verbunden ist?",
-          "options": [
-            "Adagio",
-            "La Difference",
-            "Tout",
-            "L'oubli"
-          ],
+          "options": ["Adagio", "La Difference", "Tout", "L'oubli"],
           "correctAnswer": "Adagio",
           "trivia": "Lara Fabians Album 'Pure', das 1996 ver\u00f6ffentlicht wurde, enth\u00e4lt das ikonische Musikvideo zu 'Adagio', das f\u00fcr seine eindringliche visuelle Umsetzung bekannt ist. In diesem Video wird Lara Fabian in verschiedenen emotionalen Szenen gezeigt, die die intensiven Gef\u00fchle des Songs unterstreichen. 'Adagio' gilt als einer der H\u00f6hepunkte des Albums und zeigt die beeindruckende stimmliche Range und die k\u00fcnstlerische Tiefe von Lara Fabian."
         },
@@ -4540,12 +4321,7 @@
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Unsafe' von Channel Zero, das als wegweisend f\u00fcr die belgische Metal-Szene gilt?",
-          "options": [
-            "1992",
-            "1994",
-            "1996",
-            "1998"
-          ],
+          "options": ["1992", "1994", "1996", "1998"],
           "correctAnswer": "1994",
           "trivia": "Channel Zero ist eine belgische Metal-Band, die 1990 gegr\u00fcndet wurde und eine wichtige Rolle in der Entwicklung der Metal-Szene in Belgien spielt. Ihr Album 'Unsafe' wurde 1994 ver\u00f6ffentlicht und gilt als ein Meilenstein, der den charakteristischen Sound der Band festigte. Die Mischung aus Groove-Metal und Einfl\u00fcssen aus Hardcore-Punk machte das Album einflussreich und half, die Band international bekannt zu machen."
         },
@@ -4761,12 +4537,7 @@
       "easy": [
         {
           "question": "Welches Album ver\u00f6ffentlichte die belgische Band Yevgueni im Jahr 2005?",
-          "options": [
-            "Aan de arbeid",
-            "Zomer",
-            "Eerste liefde",
-            "Herfst"
-          ],
+          "options": ["Aan de arbeid", "Zomer", "Eerste liefde", "Herfst"],
           "correctAnswer": "Aan de arbeid",
           "trivia": "Das Album 'Aan de arbeid' von Yevgueni wurde 2005 ver\u00f6ffentlicht und ist eines der bekanntesten Werke der Band. Yevgueni ist f\u00fcr ihren eing\u00e4ngigen Pop-Rock-Sound und die tiefgr\u00fcndigen Texte bekannt, die oft gesellschaftliche Themen ansprechen. Mit 'Aan de arbeid' festigte die Band ihren Platz in der belgischen Musikszene und erhielt viel positive Resonanz von Kritikern und Fans."
         },
@@ -4899,12 +4670,7 @@
         },
         {
           "question": "Welches Jahr wurde das Album 'Hollands Glorie' von BL\u00d8F & Het Goede Doel ver\u00f6ffentlicht?",
-          "options": [
-            "1999",
-            "2000",
-            "2001",
-            "2002"
-          ],
+          "options": ["1999", "2000", "2001", "2002"],
           "correctAnswer": "2000",
           "trivia": "Das Album 'Hollands Glorie', das 2000 von den K\u00fcnstlern BL\u00d8F & Het Goede Doel ver\u00f6ffentlicht wurde, enth\u00e4lt eine Mischung aus Pop- und Rockmusik. Es ist bekannt f\u00fcr seine eing\u00e4ngigen Melodien und Texte, die oft das Leben in den Niederlanden thematisieren. Die Zusammenarbeit dieser beiden prominenten niederl\u00e4ndischen Bands bringt eine besondere musikalische Vielfalt und Kreativit\u00e4t hervor, die bei den Fans sehr gut ankam."
         }
@@ -4993,12 +4759,7 @@
       "easy": [
         {
           "question": "Mit welchem anderen K\u00fcnstler hat Black Box Revelation auf dem Album 'Set Your Head on Fire' aus dem Jahr 2007 zusammengearbeitet?",
-          "options": [
-            "Arno",
-            "Selah Sue",
-            "Ozark Henry",
-            "Milow"
-          ],
+          "options": ["Arno", "Selah Sue", "Ozark Henry", "Milow"],
           "correctAnswer": "Arno",
           "trivia": "Black Box Revelation ist ein belgisches Rock-Duo, das f\u00fcr seinen kraftvollen Sound und eing\u00e4ngige Melodien bekannt ist. Auf ihrem Album 'Set Your Head on Fire' aus dem Jahr 2007 haben sie mit dem renommierten belgischen K\u00fcnstler Arno zusammengearbeitet. Diese Kollaboration hat dem Album eine zus\u00e4tzliche kreative Dimension verliehen und zeigt die Vielseitigkeit von Black Box Revelation. Die Mischung aus Rock und anderen Musikstilen macht dieses Album zu einem besonderen Erlebnis."
         },
@@ -5120,12 +4881,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'The Dark Side of the Moule' von Sttellla behandelt das Thema der inneren Konflikte und der Suche nach Identit\u00e4t?",
-          "options": [
-            "La Qu\u00eate",
-            "Les Ombres",
-            "L'Envol",
-            "Le Voyage"
-          ],
+          "options": ["La Qu\u00eate", "Les Ombres", "L'Envol", "Le Voyage"],
           "correctAnswer": "La Qu\u00eate",
           "trivia": "Sttellla ist eine belgische Band, die f\u00fcr ihre eing\u00e4ngigen Melodien und tiefgr\u00fcndigen Texte bekannt ist. Ihr Album 'The Dark Side of the Moule', das 1994 ver\u00f6ffentlicht wurde, enth\u00e4lt viele Songs, die sich mit pers\u00f6nlichen und gesellschaftlichen Themen auseinandersetzen. Der Song 'La Qu\u00eate' besch\u00e4ftigt sich speziell mit der Suche nach dem eigenen Selbst und den Herausforderungen, die damit verbunden sind. Sttelllas einzigartiger Stil kombiniert Rock mit poetischen Texten, was ihnen eine treue Fangemeinde eingebracht hat."
         },
@@ -5306,12 +5062,7 @@
         },
         {
           "question": "Mit welchem K\u00fcnstler hat Niels Destadsbader auf dem Album 'Dertig' eine bemerkenswerte Kollaboration in dem Song 'Dertien' umgesetzt?",
-          "options": [
-            "K3",
-            "Gers Pardoel",
-            "Maan",
-            "Emma Heesters"
-          ],
+          "options": ["K3", "Gers Pardoel", "Maan", "Emma Heesters"],
           "correctAnswer": "Gers Pardoel",
           "trivia": "Niels Destadsbader ist ein belgischer S\u00e4nger und Schauspieler, der 2018 sein Album 'Dertig' ver\u00f6ffentlichte. In diesem Album zeigt er nicht nur seine musikalische Vielseitigkeit, sondern arbeitet auch mit verschiedenen K\u00fcnstlern zusammen. Besonders hervorzuheben ist die Zusammenarbeit mit Gers Pardoel im Song 'Dertien', der durch seine eing\u00e4ngige Melodie und den harmonischen Gesang besticht. Diese Kollaboration hat dazu beigetragen, das Album zu einem der erfolgreichsten in der belgischen Musikszene zu machen."
         },
@@ -5457,12 +5208,7 @@
       "easy": [
         {
           "question": "Welche Chartplatzierung erreichte das Album 'Killing Me' von Janez Detd in den deutschen Albumcharts?",
-          "options": [
-            "Platz 10",
-            "Platz 25",
-            "Platz 15",
-            "Platz 5"
-          ],
+          "options": ["Platz 10", "Platz 25", "Platz 15", "Platz 5"],
           "correctAnswer": "Platz 10",
           "trivia": "Das Album 'Killing Me' von Janez Detd wurde 2002 ver\u00f6ffentlicht und erreichte in den deutschen Albumcharts Platz 10. Es war ein gro\u00dfer Erfolg f\u00fcr die Band, die f\u00fcr ihren eing\u00e4ngigen Punk-Rock-Stil bekannt ist. Die Singleauskopplungen des Albums trugen ebenfalls zur hohen Chartplatzierung und zur Bekanntheit der Band in der Musikszene bei."
         },
@@ -5492,12 +5238,7 @@
       "medium": [
         {
           "question": "Welchen Platz erreichte das Album 'Killing Me' von Janez Detd in den offiziellen Charts in seinem Ver\u00f6ffentlichungsjahr 2002?",
-          "options": [
-            "Platz 5",
-            "Platz 10",
-            "Platz 15",
-            "Platz 20"
-          ],
+          "options": ["Platz 5", "Platz 10", "Platz 15", "Platz 20"],
           "correctAnswer": "Platz 10",
           "trivia": "Das Album 'Killing Me' von Janez Detd, das 2002 ver\u00f6ffentlicht wurde, erzielte in den offiziellen Charts einen bemerkenswerten Erfolg und erreichte Platz 10. Janez Detd ist eine bekannte Band aus Slowenien, die f\u00fcr ihren einzigartigen Mix aus Rock und Pop bekannt ist. Mit eing\u00e4ngigen Melodien und kraftvollen Texten hat die Band eine treue Anh\u00e4ngerschaft gewonnen und geh\u00f6rt zu den einflussreichsten Vertretern der slowenischen Musikszene."
         },
@@ -5619,12 +5360,7 @@
         },
         {
           "question": "Mit welchem K\u00fcnstler hat Abd Al Malik auf dem Album 'Scarifications' von 2015 zusammengearbeitet?",
-          "options": [
-            "Kery James",
-            "Oxmo Puccino",
-            "IAM",
-            "Soprano"
-          ],
+          "options": ["Kery James", "Oxmo Puccino", "IAM", "Soprano"],
           "correctAnswer": "Oxmo Puccino",
           "trivia": "Abd Al Malik, ein bedeutender franz\u00f6sischer Rapper und Schriftsteller, ver\u00f6ffentlichte 2015 sein Album 'Scarifications'. Auf diesem Album arbeitete er unter anderem mit dem renommierten Rapper Oxmo Puccino zusammen, der f\u00fcr seinen lyrischen Stil bekannt ist. Diese Kollaboration bringt verschiedene musikalische Einfl\u00fcsse zusammen und verst\u00e4rkt die poetische Tiefe der Songs. 'Scarifications' thematisiert pers\u00f6nliche und gesellschaftliche Herausforderungen und zeigt Abd Al Maliks einzigartigen Ansatz in der franz\u00f6sischen Musikszene."
         },
@@ -5654,12 +5390,7 @@
         },
         {
           "question": "Welche Chartplatzierung erreichte das Album 'Scarifications' von Abd Al Malik in den franz\u00f6sischen Albumcharts im Jahr 2015?",
-          "options": [
-            "Platz 5",
-            "Platz 10",
-            "Platz 15",
-            "Platz 20"
-          ],
+          "options": ["Platz 5", "Platz 10", "Platz 15", "Platz 20"],
           "correctAnswer": "Platz 10",
           "trivia": "Abd Al Malik, ein einflussreicher franz\u00f6sischer Rapper und Poet, ver\u00f6ffentlichte im Jahr 2015 sein Album 'Scarifications', das in den franz\u00f6sischen Albumcharts auf Platz 10 einstieg. Das Album kombiniert Elemente von Hip-Hop mit Poesie und behandelt Themen wie Identit\u00e4t und gesellschaftliche Herausforderungen. Abd Al Malik ist bekannt f\u00fcr seine tiefgr\u00fcndigen Texte und seine F\u00e4higkeit, verschiedene Musikstile zu fusionieren, was 'Scarifications' zu einem wichtigen Werk in seiner Diskografie macht."
         },
@@ -5700,12 +5431,7 @@
         },
         {
           "question": "Welches Jahr wurde das Album 'Bel 80 - Het Beste uit de Belpop' von Diverse Artiesten ver\u00f6ffentlicht?",
-          "options": [
-            "2005",
-            "2010",
-            "2015",
-            "2020"
-          ],
+          "options": ["2005", "2010", "2015", "2020"],
           "correctAnswer": "2010",
           "trivia": "Das Album 'Bel 80 - Het Beste uit de Belpop' von Diverse Artiesten wurde im Jahr 2010 ver\u00f6ffentlicht und ist eine Zusammenstellung von beliebten belgischen Pop-Songs aus den 1980er Jahren. Es spiegelt die musikalische Vielfalt und den Einfluss der Belpop-Szene wider, die in dieser Zeit aufbl\u00fchte. Die Lieder auf diesem Album sind nicht nur nostalgische Hits, sondern zeigen auch das gro\u00dfe Talent belgischer K\u00fcnstler dieser \u00c4ra."
         },
@@ -5875,12 +5601,7 @@
       "hard": [
         {
           "question": "In welchem Jahr traten Goose w\u00e4hrend ihrer Tour zur Unterst\u00fctzung des Albums 'Bring It On' auf dem renommierten 'Pukkelpop'-Festival auf?",
-          "options": [
-            "2005",
-            "2006",
-            "2007",
-            "2008"
-          ],
+          "options": ["2005", "2006", "2007", "2008"],
           "correctAnswer": "2006",
           "trivia": "Goose ist eine belgische Band, die f\u00fcr ihren einzigartigen Mix aus elektronischen und rockigen Kl\u00e4ngen bekannt ist. Ihr Album 'Bring It On', das 2006 ver\u00f6ffentlicht wurde, stellte einen bedeutenden Meilenstein in ihrer Karriere dar und trug zur Popularit\u00e4t der Gruppe in der europ\u00e4ischen Musikszene bei. Im Jahr 2006 traten sie auf dem Pukkelpop-Festival auf, einem der gr\u00f6\u00dften Musikfestivals in Belgien, was ihre internationale Reichweite weiter festigte."
         },
@@ -5956,12 +5677,7 @@
       "medium": [
         {
           "question": "Welcher Hit aus dem Album 'Jo Lemaire + Flouze' von Jo Lemaire erreichte in den belgischen Charts hohe Platzierungen und trug ma\u00dfgeblich zu ihrem Erfolg bei?",
-          "options": [
-            "Laundromat",
-            "D\u00e9sir",
-            "Soleil",
-            "Amour"
-          ],
+          "options": ["Laundromat", "D\u00e9sir", "Soleil", "Amour"],
           "correctAnswer": "Laundromat",
           "trivia": "Jo Lemaire ist eine belgische S\u00e4ngerin, die in den 1980er Jahren mit ihrem Album 'Jo Lemaire + Flouze' gro\u00dfe Erfolge feierte. Der Song 'Laundromat' wurde zu einem ihrer bekanntesten Hits und erreichte hohe Platzierungen in den belgischen Charts. Das Album kombiniert Elemente aus Pop und New Wave und zeigt Jo Lemaires markante Stimme und kreative Texte."
         },
@@ -5991,12 +5707,7 @@
       "hard": [
         {
           "question": "In welchem Jahr trat Jo Lemaire mit ihrer Band Flouze erstmals live auf, nachdem das Album 'Jo Lemaire + Flouze' ver\u00f6ffentlicht wurde?",
-          "options": [
-            "1981",
-            "1982",
-            "1983",
-            "1984"
-          ],
+          "options": ["1981", "1982", "1983", "1984"],
           "correctAnswer": "1982",
           "trivia": "Jo Lemaire, eine belgische S\u00e4ngerin und Songwriterin, ver\u00f6ffentlichte 1981 das Album 'Jo Lemaire + Flouze', das sie in der belgischen Musikszene bekannt machte. Ihr einzigartiger Stil, der Pop und Chanson kombiniert, fand schnell Anklang und f\u00fchrte zu einer Tour, die 1982 begann. W\u00e4hrend dieser Tour pr\u00e4sentierte sie ihre eing\u00e4ngigen Songs und beeindruckte das Publikum mit ihrer charismatischen B\u00fchnenpr\u00e4senz. Die Auftritte trugen dazu bei, ihren Status als bedeutende K\u00fcnstlerin im franz\u00f6sischsprachigen Raum zu festigen."
         },
@@ -6072,12 +5783,7 @@
       "medium": [
         {
           "question": "In welchem Jahr trat Trixie Whitley erstmals mit Songs aus ihrem Album 'Porta Bohemica' live auf?",
-          "options": [
-            "2014",
-            "2015",
-            "2016",
-            "2017"
-          ],
+          "options": ["2014", "2015", "2016", "2017"],
           "correctAnswer": "2015",
           "trivia": "Trixie Whitley, eine talentierte Singer-Songwriterin, ver\u00f6ffentlichte ihr Album 'Porta Bohemica' im Jahr 2015. Bei ihren Live-Auftritten von 2015 pr\u00e4sentierte sie eine Mischung aus kraftvollen Gesang und emotionalen Texten, die das Publikum begeisterten. Die Tour um das Album herum half, ihren Ruf als beeindruckende Live-K\u00fcnstlerin zu festigen und ihre musikalische Entwicklung zu zeigen."
         },
@@ -6164,12 +5870,7 @@
         },
         {
           "question": "In welchem Jahr trat DAAN mit seinem Album 'Le Franc Belge' auf einer Tour auf?",
-          "options": [
-            "2003",
-            "2004",
-            "2005",
-            "2006"
-          ],
+          "options": ["2003", "2004", "2005", "2006"],
           "correctAnswer": "2004",
           "trivia": "DAAN ver\u00f6ffentlichte sein Album 'Le Franc Belge' im Jahr 2004 und begleitete dies mit einer Tour, die in vielen europ\u00e4ischen St\u00e4dten stattfand. Der K\u00fcnstler, bekannt f\u00fcr seinen einzigartigen Stil und seine eing\u00e4ngigen Melodien, zog viele Fans an. Die Live-Auftritte waren gepr\u00e4gt von energiegeladenen Darbietungen und der tiefen Verbindung des K\u00fcnstlers zu seinem Publikum."
         },
@@ -6326,12 +6027,7 @@
         },
         {
           "question": "Mit welchem bekannten K\u00fcnstler hat De Mens auf dem Album 'Sex verandert alles' von 1994 zusammengearbeitet?",
-          "options": [
-            "dEUS",
-            "Gabrielle",
-            "K's Choice",
-            "Clouseau"
-          ],
+          "options": ["dEUS", "Gabrielle", "K's Choice", "Clouseau"],
           "correctAnswer": "dEUS",
           "trivia": "De Mens ist eine belgische Rockband, die in den 1990er Jahren gro\u00dfe Erfolge feierte. Ihr Album 'Sex verandert alles' enth\u00e4lt eine bemerkenswerte Zusammenarbeit mit der Band dEUS, die f\u00fcr ihren einzigartigen Stil bekannt ist. Diese Kollaboration hat nicht nur die Grenzen der belgischen Musikszene erweitert, sondern auch die Verbindung zwischen verschiedenen Musikrichtungen gest\u00e4rkt."
         }
@@ -6350,12 +6046,7 @@
         },
         {
           "question": "Welche prominente belgische Musikgruppe war an der Produktion des Albums 'Sex verandert alles' von De Mens aus dem Jahr 1994 beteiligt?",
-          "options": [
-            "The Scabs",
-            "Gorki",
-            "Clouseau",
-            "Zita Swoon"
-          ],
+          "options": ["The Scabs", "Gorki", "Clouseau", "Zita Swoon"],
           "correctAnswer": "Gorki",
           "trivia": "De Mens, eine bekannte belgische Rockband, ver\u00f6ffentlichte 1994 das Album 'Sex verandert alles', das f\u00fcr seinen eing\u00e4ngigen Sound und seine provokanten Texte ber\u00fchmt wurde. An der Produktion des Albums war die belgische Band Gorki beteiligt, die in den 90er Jahren ebenfalls gro\u00dfe Erfolge feierte. De Mens kombinierte in diesem Album verschiedene Musikstile und setzte sich mit Themen auseinander, die f\u00fcr die Jugend der damaligen Zeit relevant waren. Diese Zusammenarbeit trug dazu bei, den einzigartigen Klang des Albums zu formen und dessen Popularit\u00e4t zu steigern."
         },
@@ -6385,12 +6076,7 @@
       "easy": [
         {
           "question": "Welches Musikvideo von La\u00efs, dem K\u00fcnstler, der das Album 'La\u00efs' im Jahr 1998 ver\u00f6ffentlicht hat, zeigt eindrucksvolle visuelle Elemente, die die folkloristischen Wurzeln der Band hervorheben?",
-          "options": [
-            "Het Verdriet",
-            "De Roos",
-            "Zij Zal Zien",
-            "Alaaf"
-          ],
+          "options": ["Het Verdriet", "De Roos", "Zij Zal Zien", "Alaaf"],
           "correctAnswer": "Zij Zal Zien",
           "trivia": "La\u00efs ist eine belgische Folkband, die f\u00fcr ihren harmonischen Gesang und ihre lebendigen Arrangements bekannt ist. Das Album 'La\u00efs' aus dem Jahr 1998 enth\u00e4lt viele traditionelle Lieder, die mit modernen Kl\u00e4ngen kombiniert werden. Das Musikvideo zu 'Zij Zal Zien' ist besonders bemerkenswert, da es die sch\u00f6nen Landschaften und kulturellen Traditionen der Region einf\u00e4ngt und damit die Verbindung zur Folklore der Band unterstreicht."
         },
@@ -6512,23 +6198,13 @@
         },
         {
           "question": "Welches Musikinstrument spielt eine zentrale Rolle in den meisten Songs des Albums 'Lotuk' von Arsenal?",
-          "options": [
-            "Schlagzeug",
-            "Gitarre",
-            "Klavier",
-            "Bass"
-          ],
+          "options": ["Schlagzeug", "Gitarre", "Klavier", "Bass"],
           "correctAnswer": "Gitarre",
           "trivia": "Arsenal ist eine bekannte Band aus Belgien, die f\u00fcr ihren einzigartigen Sound bekannt ist, der Elemente aus Rock, Pop und traditioneller Musik vereint. Ihr Album 'Lotuk', das 2011 ver\u00f6ffentlicht wurde, beinhaltet viele eing\u00e4ngige Melodien, die stark von der Gitarre gepr\u00e4gt sind. Die Kombination aus akustischen und elektrischen Gitarren tr\u00e4gt wesentlich zur charakteristischen Klang\u00e4sthetik des Albums bei."
         },
         {
           "question": "Welches hohe Chartplatzierung erreichte das Album 'Lotuk' von Arsenal in den belgischen Albumcharts im Jahr 2011?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 20"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 20"],
           "correctAnswer": "Platz 5",
           "trivia": "Das Album 'Lotuk' von Arsenal, das 2011 ver\u00f6ffentlicht wurde, erreichte in den belgischen Albumcharts den beeindruckenden 5. Platz. Arsenal ist bekannt f\u00fcr ihren einzigartigen Stil, der Elemente aus Rock und Pop kombiniert. Mit 'Lotuk' festigten sie ihren Status als eine der einflussreichsten Bands in Belgien. Die Songs auf dem Album zeigen eine kreative Weiterentwicklung und wurden von Fans und Kritikern gleicherma\u00dfen gesch\u00e4tzt."
         }
@@ -6558,12 +6234,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'Lotuk' von Arsenal thematisiert die innere Zerrissenheit und das Streben nach pers\u00f6nlicher Freiheit?",
-          "options": [
-            "Wachstum",
-            "Freiheit",
-            "Traumf\u00e4nger",
-            "Grenzenlos"
-          ],
+          "options": ["Wachstum", "Freiheit", "Traumf\u00e4nger", "Grenzenlos"],
           "correctAnswer": "Freiheit",
           "trivia": "Arsenal ist eine bekannte Band aus Deutschland, die f\u00fcr ihre einzigartigen Texte und Melodien gesch\u00e4tzt wird. Das Album 'Lotuk', ver\u00f6ffentlicht im Jahr 2011, besch\u00e4ftigt sich mit Themen wie Identit\u00e4t und gesellschaftlichen Erwartungen. Der Song 'Freiheit' auf diesem Album reflektiert die innere Zerrissenheit und das Streben nach einem selbstbestimmten Leben. Die kraftvollen Texte und eing\u00e4ngigen Melodien machen diesen Track zu einem Highlight des Albums."
         }
@@ -6790,12 +6461,7 @@
         },
         {
           "question": "In welchem Jahr trat La Smala live auf, um das Album 'Un murmure dans le vent' zu f\u00f6rdern?",
-          "options": [
-            "2015",
-            "2016",
-            "2017",
-            "2018"
-          ],
+          "options": ["2015", "2016", "2017", "2018"],
           "correctAnswer": "2016",
           "trivia": "La Smala ist eine franz\u00f6sische Hip-Hop-Gruppe, die f\u00fcr ihren einzigartigen Stil und ihre energiegeladenen Live-Auftritte bekannt ist. Das Album 'Un murmure dans le vent' wurde 2016 ver\u00f6ffentlicht und markierte einen bedeutenden Schritt in ihrer Karriere. W\u00e4hrend ihrer Touren in diesem Jahr pr\u00e4sentierten sie eine Vielzahl von Songs aus dem Album und begeisterten das Publikum mit ihrer dynamischen B\u00fchnenpr\u00e4senz."
         }
@@ -6849,23 +6515,13 @@
       "easy": [
         {
           "question": "Welche Chartplatzierung erreichte Mauro Pawlowski mit seinem Album 'Songs from a Bad Hat' im Jahr 2001?",
-          "options": [
-            "Platz 1",
-            "Platz 10",
-            "Platz 20",
-            "Platz 30"
-          ],
+          "options": ["Platz 1", "Platz 10", "Platz 20", "Platz 30"],
           "correctAnswer": "Platz 20",
           "trivia": "Mauro Pawlowski ist ein belgischer Musiker und Songwriter, der f\u00fcr seinen einzigartigen Stil bekannt ist. Sein Album 'Songs from a Bad Hat', das 2001 ver\u00f6ffentlicht wurde, erreichte in den belgischen Charts Platz 20 und festigte seinen Ruf in der alternativen Musikszene. Das Album zeigt eine Mischung aus Rock und experimentellen Kl\u00e4ngen, die Pawlowskis kreative Vielseitigkeit unterstreichen."
         },
         {
           "question": "Welches Instrument verwendet Mauro Pawlowski in vielen Songs seines Albums 'Songs from a Bad Hat'?",
-          "options": [
-            "Gitarre",
-            "Klavier",
-            "Schlagzeug",
-            "Geige"
-          ],
+          "options": ["Gitarre", "Klavier", "Schlagzeug", "Geige"],
           "correctAnswer": "Gitarre",
           "trivia": "Mauro Pawlowski ist ein vielseitiger Musiker und bekannt f\u00fcr seinen charakteristischen Gitarrenstil. In seinem Album 'Songs from a Bad Hat', das 2001 ver\u00f6ffentlicht wurde, spielt die Gitarre eine zentrale Rolle und pr\u00e4gt den Klang der meisten Songs. Pawlowski kombiniert verschiedene Spieltechniken und Effekte, um eine einzigartige Klanglandschaft zu schaffen, die seine musikalische Kreativit\u00e4t widerspiegelt."
         },
@@ -7046,12 +6702,7 @@
         },
         {
           "question": "In welchem Jahr trat Jasper Steverlinck w\u00e4hrend seiner Tour f\u00fcr das Album 'Songs of Innocence' in der Stadt Amsterdam auf?",
-          "options": [
-            "2017",
-            "2018",
-            "2016",
-            "2019"
-          ],
+          "options": ["2017", "2018", "2016", "2019"],
           "correctAnswer": "2017",
           "trivia": "Jasper Steverlinck, der belgische Singer-Songwriter, ver\u00f6ffentlichte sein Album 'Songs of Innocence' im Jahr 2017. W\u00e4hrend seiner Tournee pr\u00e4sentierte er seine eing\u00e4ngigen Melodien und tiefgr\u00fcndigen Texte in verschiedenen St\u00e4dten Europas, darunter auch Amsterdam. Die Live-Auftritte waren bekannt f\u00fcr ihre emotionale Intensit\u00e4t, wobei Steverlincks kraftvolle Stimme das Publikum fesselte. 'Songs of Innocence' zeigt eine k\u00fcnstlerische Weiterentwicklung, die in den Live-Interpretationen besonders zur Geltung kam."
         },
@@ -7219,12 +6870,7 @@
         },
         {
           "question": "Welches Jahr markierte die Ver\u00f6ffentlichung des Albums 'Silver Souls' von Compact Disk Dummies?",
-          "options": [
-            "2014",
-            "2015",
-            "2016",
-            "2017"
-          ],
+          "options": ["2014", "2015", "2016", "2017"],
           "correctAnswer": "2016",
           "trivia": "Compact Disk Dummies ist ein belgisches Musikduo, das f\u00fcr seinen einzigartigen Sound bekannt ist, der elektronische und Indie-Elemente kombiniert. Ihr Album 'Silver Souls' wurde 2016 ver\u00f6ffentlicht und enth\u00e4lt eine Mischung aus eing\u00e4ngigen Melodien und experimentellen Kl\u00e4ngen. Das Album wurde von Kritikern gelobt und tr\u00e4gt zur wachsenden Beliebtheit des Duos in der alternativen Musikszene bei."
         }
@@ -7278,12 +6924,7 @@
         },
         {
           "question": "Welche bemerkenswerte Chartplatzierung erreichte das Album 'Silver Souls' von Compact Disk Dummies im Jahr 2016 in den belgischen Albumcharts?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 5",
           "trivia": "Das Album 'Silver Souls' von Compact Disk Dummies wurde 2016 ver\u00f6ffentlicht und erreichte in den belgischen Albumcharts den beeindruckenden 5. Platz. Die beiden Br\u00fcder, die als Compact Disk Dummies bekannt sind, kombinieren in ihrer Musik elektronische Kl\u00e4nge mit eing\u00e4ngigen Melodien und haben sich in der belgischen Musikszene einen Namen gemacht. 'Silver Souls' zeigt ihre musikalische Entwicklung und wurde f\u00fcr seine innovative Produktion gelobt."
         },
@@ -7450,12 +7091,7 @@
         },
         {
           "question": "Welches Land erreichte das Album 'Berchem' von Dead Man Ray in den Charts?",
-          "options": [
-            "Belgien",
-            "Niederlande",
-            "Deutschland",
-            "Frankreich"
-          ],
+          "options": ["Belgien", "Niederlande", "Deutschland", "Frankreich"],
           "correctAnswer": "Belgien",
           "trivia": "Dead Man Ray ist eine belgische Band, die 1998 das Album 'Berchem' ver\u00f6ffentlicht hat. Das Album erreichte in Belgien gro\u00dfe Erfolge und wurde in den Charts hoch eingestuft. Die Band ist bekannt f\u00fcr ihren einzigartigen Mix aus Rock und Pop-Elementen, der sich in den Songs des Albums widerspiegelt."
         }
@@ -7485,11 +7121,7 @@
         },
         {
           "question": "Welches Musikvideo von Dead Man Ray, ver\u00f6ffentlicht auf dem Album 'Berchem' aus dem Jahr 1998, zeigt eindrucksvoll die Verbindung zwischen musikalischen und visuellen Elementen?",
-          "options": [
-            "Le Chien",
-            "Racoon",
-            "The New You"
-          ],
+          "options": ["Le Chien", "Racoon", "The New You"],
           "correctAnswer": "Le Chien",
           "trivia": "Dead Man Ray ist eine belgische Band, die f\u00fcr ihren einzigartigen Mix aus Rock, Pop und experimenteller Musik bekannt ist. Ihr Album 'Berchem', das 1998 ver\u00f6ffentlicht wurde, enth\u00e4lt den Song 'Le Chien', dessen Musikvideo durch k\u00fcnstlerische Visualisierungen und eine melancholische Stimmung besticht. Das Video spiegelt die emotionale Tiefe des Songs wider und verst\u00e4rkt das Erlebnis der H\u00f6rer durch eindrucksvolle Bildsprache."
         }
@@ -7589,23 +7221,13 @@
         },
         {
           "question": "In welchem Jahr trat die Band Deus w\u00e4hrend ihrer Tour f\u00fcr das Album 'Pocket Revolution' in einem der bekanntesten Musikfestivals in Belgien auf?",
-          "options": [
-            "2004",
-            "2005",
-            "2006",
-            "2007"
-          ],
+          "options": ["2004", "2005", "2006", "2007"],
           "correctAnswer": "2005",
           "trivia": "Deus ist eine belgische Rockband, die f\u00fcr ihren einzigartigen Sound und innovative Musik bekannt ist. Ihr Album 'Pocket Revolution' wurde 2005 ver\u00f6ffentlicht und brachte einige ihrer bekanntesten Songs hervor. Im gleichen Jahr trat die Band auch beim bekannten Rockfestival 'Rock Werchter' auf, wo sie ihr neues Material live pr\u00e4sentierten und das Publikum begeisterten. Diese Auftritte trugen dazu bei, die Bekanntheit von Deus international zu steigern."
         },
         {
           "question": "In welchem Jahr erreichte das Album 'Pocket Revolution' von Deus die Top 10 der belgischen Albumcharts?",
-          "options": [
-            "2003",
-            "2004",
-            "2005",
-            "2006"
-          ],
+          "options": ["2003", "2004", "2005", "2006"],
           "correctAnswer": "2005",
           "trivia": "Deus ist eine belgische Rockband, die f\u00fcr ihren einzigartigen Sound und experimentelle Musik bekannt ist. 'Pocket Revolution', ver\u00f6ffentlicht im Jahr 2005, war ein bedeutendes Album f\u00fcr die Band und erreichte hohe Chartplatzierungen in Belgien. Die Mischung aus Rock, Pop und Indie-Elementen machte das Album zu einem kritischen und kommerziellen Erfolg."
         }
@@ -7913,12 +7535,7 @@
         },
         {
           "question": "Welches Jahr wurde das Album 'Teardrops' von Tom Dice ver\u00f6ffentlicht?",
-          "options": [
-            "2008",
-            "2010",
-            "2012",
-            "2015"
-          ],
+          "options": ["2008", "2010", "2012", "2015"],
           "correctAnswer": "2010",
           "trivia": "Tom Dice ist ein belgischer S\u00e4nger und Songwriter, der 2010 sein Deb\u00fctalbum 'Teardrops' ver\u00f6ffentlichte. Das Album enth\u00e4lt eine Mischung aus Pop- und Folk-Elementen und zeigt Dice's charakteristische Stimme und Songwriting-F\u00e4higkeiten. 'Teardrops' wurde gut aufgenommen und trug dazu bei, Dice in der Musikszene bekannt zu machen."
         }
@@ -7972,12 +7589,7 @@
         },
         {
           "question": "Welche erfolgreiche Chartplatzierung erreichte das Album 'Teardrops' von Tom Dice in den belgischen Albumcharts im Jahr 2010?",
-          "options": [
-            "Platz 1",
-            "Platz 3",
-            "Platz 5",
-            "Platz 7"
-          ],
+          "options": ["Platz 1", "Platz 3", "Platz 5", "Platz 7"],
           "correctAnswer": "Platz 3",
           "trivia": "Tom Dice, ein belgischer Singer-Songwriter, ver\u00f6ffentlichte sein Deb\u00fctalbum 'Teardrops' im Jahr 2010. Das Album erreichte in den belgischen Albumcharts beeindruckende Platzierungen und konnte sich bis auf Platz 3 vorarbeiten. Es enth\u00e4lt einige seiner bekanntesten Songs, die auch nach dem Eurovision Song Contest, an dem er 2010 teilnahm, popul\u00e4r wurden. Tom Dices musikalischer Stil kombiniert Folk-Elemente mit eing\u00e4ngigen Melodien, was zu seinem Erfolg in den Charts beitrug."
         },
@@ -8018,23 +7630,13 @@
         },
         {
           "question": "In welchem Jahr trat die Band Hooverphonic w\u00e4hrend ihrer Tour zur Unterst\u00fctzung des Albums 'No More Sweet Music' auf?",
-          "options": [
-            "2003",
-            "2005",
-            "2007",
-            "2009"
-          ],
+          "options": ["2003", "2005", "2007", "2009"],
           "correctAnswer": "2005",
           "trivia": "Hooverphonic, eine belgische Band, ver\u00f6ffentlichte ihr Album 'No More Sweet Music' im Jahr 2005. Im Rahmen der Albumver\u00f6ffentlichung tourten sie durch verschiedene europ\u00e4ische L\u00e4nder und pr\u00e4sentierten ihre einzigartigen Kl\u00e4nge, die Elemente aus Trip-Hop und Pop kombinieren. Die Tour erm\u00f6glichte es den Fans, die neuen Songs live zu erleben und die stilistische Entwicklung der Band zu genie\u00dfen."
         },
         {
           "question": "Mit welchem bekannten K\u00fcnstler hat Hooverphonic auf ihrem Album 'No More Sweet Music' aus dem Jahr 2005 zusammengearbeitet?",
-          "options": [
-            "David Bowie",
-            "Moby",
-            "Arno",
-            "Sting"
-          ],
+          "options": ["David Bowie", "Moby", "Arno", "Sting"],
           "correctAnswer": "Arno",
           "trivia": "Das Album 'No More Sweet Music' von Hooverphonic enth\u00e4lt eine spannende Zusammenarbeit mit dem belgischen K\u00fcnstler Arno. Diese Kollaboration f\u00fcgt dem charakteristischen Sound von Hooverphonic eine besondere Note hinzu, die Fans begeistert. Arno ist bekannt f\u00fcr seine einzigartige Stimme und seinen Einfluss auf die belgische Musikszene, was die Verbindung zwischen den beiden K\u00fcnstlern noch faszinierender macht."
         }
@@ -8099,12 +7701,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'No More Sweet Music' von Hooverphonic behandelt thematisch die Verg\u00e4nglichkeit von Erinnerungen und den Schmerz des Verlusts?",
-          "options": [
-            "Eden",
-            "The Night Before",
-            "Battersea",
-            "You"
-          ],
+          "options": ["Eden", "The Night Before", "Battersea", "You"],
           "correctAnswer": "Eden",
           "trivia": "Hooverphonic ist eine belgische Band, die f\u00fcr ihren einzigartigen Mix aus Trip-Hop und Pop bekannt ist. Ihr Album 'No More Sweet Music', ver\u00f6ffentlicht im Jahr 2005, enth\u00e4lt den Song 'Eden', der tiefgr\u00fcndige Texte \u00fcber Erinnerungen und das Gef\u00fchl des Verlusts vermittelt. Die melancholische Stimmung des Songs spiegelt die Themen von Verg\u00e4nglichkeit und Trauer wider, die oft in Hooverphonics Musik zu finden sind. Die Band hat mit ihren eindringlichen Melodien und poetischen Texten einen bleibenden Eindruck in der Musikszene hinterlassen."
         }
@@ -8123,12 +7720,7 @@
       "easy": [
         {
           "question": "Welchen Platz erreichte das Album 'Synrise' von Goose in den belgischen Albumcharts nach seiner Ver\u00f6ffentlichung im Jahr 2010?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 5",
           "trivia": "Das Album 'Synrise' von Goose wurde 2010 ver\u00f6ffentlicht und erreichte in den belgischen Albumcharts Platz 5. Goose ist bekannt f\u00fcr ihren einzigartigen Mix aus elektronischer Musik und Indie-Rock. 'Synrise' enth\u00e4lt einige ihrer bekanntesten Songs, die sowohl in Clubs als auch im Radio popul\u00e4r wurden. Die Band hat sich einen Namen gemacht, indem sie energetische Live-Shows und eing\u00e4ngige Melodien kombinieren."
         },
@@ -8214,12 +7806,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Synrise' von Goose in den belgischen Albumcharts nach seiner Ver\u00f6ffentlichung im Jahr 2010?",
-          "options": [
-            "Platz 5",
-            "Platz 12",
-            "Platz 3",
-            "Platz 8"
-          ],
+          "options": ["Platz 5", "Platz 12", "Platz 3", "Platz 8"],
           "correctAnswer": "Platz 12",
           "trivia": "Das Album 'Synrise' von Goose, das 2010 ver\u00f6ffentlicht wurde, konnte sich in den belgischen Albumcharts bis auf Platz 12 hocharbeiten. Goose ist bekannt f\u00fcr ihren einzigartigen Mix aus elektronischer Musik und Rock-Elementen, der ihnen eine treue Fangemeinde eingebracht hat. 'Synrise' enth\u00e4lt mehrere beliebte Tracks, die die Band in ihrer Karriere weiter etablierten. Trotz des Erfolgs in den Charts blieb die Band relativ unabh\u00e4ngig und setzte auf kreative Freiheit in ihrer Musikproduktion."
         }
@@ -8295,12 +7882,7 @@
         },
         {
           "question": "In welchem Jahr trat Salvatore Adamo auf seiner Tour zur Unterst\u00fctzung des Albums 'Inch\u2019Allah' in Deutschland auf?",
-          "options": [
-            "1966",
-            "1967",
-            "1968",
-            "1969"
-          ],
+          "options": ["1966", "1967", "1968", "1969"],
           "correctAnswer": "1967",
           "trivia": "Salvatore Adamo ver\u00f6ffentlichte sein Album 'Inch\u2019Allah' im Jahr 1967 und startete daraufhin eine erfolgreiche Tour, die ihn durch mehrere europ\u00e4ische L\u00e4nder f\u00fchrte, darunter auch Deutschland. Adamo, bekannt f\u00fcr seine gef\u00fchlvollen Texte und melodischen Songs, erfreute sich gro\u00dfer Beliebtheit in der franz\u00f6sischen und deutschen Musikszene. W\u00e4hrend dieser Tour pr\u00e4sentierte er nicht nur Songs aus dem Album, sondern auch seine vorherigen Hits, was seine Fans begeisterte."
         }
@@ -8424,11 +8006,7 @@
       "hard": [
         {
           "question": "Welches Musikvideo von Vive La F\u00eate, das auf dem Album 'Nuit Blanche' ver\u00f6ffentlicht wurde, zeichnet sich durch eine surreale \u00c4sthetik und eine Kombination aus lebhaften Farben und traumhaften Szenen aus?",
-          "options": [
-            "Aline",
-            "Noir D\u00e9sir",
-            "Laissez Passer"
-          ],
+          "options": ["Aline", "Noir D\u00e9sir", "Laissez Passer"],
           "correctAnswer": "Laissez Passer",
           "trivia": "Vive La F\u00eate ist ein belgisches Electropop-Duo, das 1997 gegr\u00fcndet wurde und f\u00fcr seinen einzigartigen Stil bekannt ist, der Elemente von Pop, Rock und elektronischer Musik kombiniert. Das Album 'Nuit Blanche', ver\u00f6ffentlicht im Jahr 2003, enth\u00e4lt einige ihrer bekanntesten Hits und ist gepr\u00e4gt von einem fantasievollen, oft surrealen visuellen Stil. Das Musikvideo zu 'Laissez Passer' hebt sich besonders durch seine kreative Bildsprache und den Einsatz von Symbolik hervor, die die Themen Freiheit und Entgrenzung thematisiert."
         },
@@ -8491,12 +8069,7 @@
         },
         {
           "question": "Welchen Musikpreis erhielt Noordkaap f\u00fcr ihr Album 'Programma \u201996'?",
-          "options": [
-            "ECHO",
-            "Zilveren Harp",
-            "Grammy",
-            "MTV Music Award"
-          ],
+          "options": ["ECHO", "Zilveren Harp", "Grammy", "MTV Music Award"],
           "correctAnswer": "Zilveren Harp",
           "trivia": "Noordkaap ist eine belgische Rockband, die in den 1990er Jahren ber\u00fchmt wurde. Ihr Album 'Programma \u201996', das 1996 ver\u00f6ffentlicht wurde, enth\u00e4lt mehrere erfolgreiche Singles und hat die Band in der belgischen Musikszene etabliert. F\u00fcr ihre herausragenden musikalischen Leistungen erhielt Noordkaap den Zilveren Harp, einen bedeutenden Musikpreis in den Niederlanden, der f\u00fcr kreative und innovative K\u00fcnstler vergeben wird."
         }
@@ -8550,12 +8123,7 @@
         },
         {
           "question": "Welchen renommierten Musikpreis gewann Noordkaap f\u00fcr ihr Album 'Programma \u201996' im Jahr 1997?",
-          "options": [
-            "Edison",
-            "Zilveren Harp",
-            "Popprijs",
-            "AMADEUS"
-          ],
+          "options": ["Edison", "Zilveren Harp", "Popprijs", "AMADEUS"],
           "correctAnswer": "Edison",
           "trivia": "Noordkaap, eine bekannte belgische Rockband, ver\u00f6ffentlichte 1996 ihr Album 'Programma \u201996', das f\u00fcr seinen innovativen Sound und eing\u00e4ngige Texte gefeiert wurde. Im Jahr 1997 erhielt die Band den prestigetr\u00e4chtigen Edison Award, der ihre hervorragenden Leistungen in der Musikindustrie w\u00fcrdigte. Das Album enth\u00e4lt mehrere erfolgreiche Singles, die in den belgischen Charts hohe Pl\u00e4tze belegten und zur Popularit\u00e4t der Band beitrugen. Noordkaap bleibt bis heute eine einflussreiche Gr\u00f6\u00dfe in der belgischen Musikszene."
         },
@@ -8655,12 +8223,7 @@
       "hard": [
         {
           "question": "In welchem Jahr gab Zornik ihr erstes Live-Konzert, nachdem sie ihr Album 'The Place Where You Will Find Us' im Jahr 2002 ver\u00f6ffentlicht hatten?",
-          "options": [
-            "2001",
-            "2002",
-            "2003",
-            "2004"
-          ],
+          "options": ["2001", "2002", "2003", "2004"],
           "correctAnswer": "2002",
           "trivia": "Zornik, eine belgische Rockband, ver\u00f6ffentlichte ihr Album 'The Place Where You Will Find Us' im Jahr 2002 und tourte anschlie\u00dfend intensiv, um ihre Musik einem breiten Publikum vorzustellen. Das Album enth\u00e4lt einige ihrer bekanntesten Songs und half der Band, sich in der belgischen Musikszene einen Namen zu machen. Ihre Live-Auftritte waren bekannt f\u00fcr ihre energiegeladene Darbietung und ihre Interaktion mit dem Publikum, was zu ihrer wachsenden Beliebtheit beitrug."
         },
@@ -8677,12 +8240,7 @@
         },
         {
           "question": "Welcher bedeutende Musikpreis wurde Zornik f\u00fcr das Album 'The Place Where You Will Find Us' im Jahr 2003 verliehen?",
-          "options": [
-            "Edison Award",
-            "MIA Award",
-            "D6 Award",
-            "Popprijs"
-          ],
+          "options": ["Edison Award", "MIA Award", "D6 Award", "Popprijs"],
           "correctAnswer": "Edison Award",
           "trivia": "Zornik, eine belgische Rockband, ver\u00f6ffentlichte 2002 ihr Album 'The Place Where You Will Find Us', das schnell positive Kritiken erhielt. Im Jahr 2003 wurde das Album mit einem Edison Award ausgezeichnet, einem der renommiertesten Musikpreise in den Niederlanden. Die Band ist bekannt f\u00fcr ihren melodischen Stil und ihre eing\u00e4ngigen Texte, was sie in der belgischen Musikszene popul\u00e4r machte. Zu den bekanntesten Songs des Albums geh\u00f6ren Hits wie 'Sister' und 'The Place Where You Will Find Us', die die Herzen vieler Fans eroberten."
         }
@@ -8839,12 +8397,7 @@
         },
         {
           "question": "Welches Jahr wurde das Album 'Anti-Anthem' von Janez Detd ver\u00f6ffentlicht?",
-          "options": [
-            "2003",
-            "2005",
-            "2007",
-            "2009"
-          ],
+          "options": ["2003", "2005", "2007", "2009"],
           "correctAnswer": "2005",
           "trivia": "Janez Detd ist eine bekannte Band aus Slowenien, die im Bereich der alternativen Rockmusik aktiv ist. Ihr Album 'Anti-Anthem', das 2005 ver\u00f6ffentlicht wurde, enth\u00e4lt energiegeladene Songs, die oft mit gesellschaftlichen Themen und pers\u00f6nlichen Erfahrungen verkn\u00fcpft sind. Die Band hat sich durch ihren einzigartigen Stil und eing\u00e4ngige Melodien einen Namen gemacht und ist besonders in der Region des ehemaligen Jugoslawien beliebt."
         }
@@ -8852,12 +8405,7 @@
       "medium": [
         {
           "question": "Welchen Platz erreichte das Album 'Anti-Anthem' von Janez Detd in den \u00f6sterreichischen Albumcharts nach seiner Ver\u00f6ffentlichung im Jahr 2005?",
-          "options": [
-            "Platz 10",
-            "Platz 20",
-            "Platz 15",
-            "Platz 5"
-          ],
+          "options": ["Platz 10", "Platz 20", "Platz 15", "Platz 5"],
           "correctAnswer": "Platz 10",
           "trivia": "Janez Detd ist eine bekannte Band aus Slowenien, die 1996 gegr\u00fcndet wurde und f\u00fcr ihren energiegeladenen Punkrock-Stil bekannt ist. Ihr Album 'Anti-Anthem' wurde 2005 ver\u00f6ffentlicht und erreichte in den \u00f6sterreichischen Albumcharts Platz 10, was einen wichtigen Erfolg f\u00fcr die Band darstellt. Die Mischung aus eing\u00e4ngigen Melodien und kritischen Texten hat dazu beigetragen, dass das Album in der Szene gut aufgenommen wurde."
         },
@@ -8898,12 +8446,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Anti-Anthem' von Janez Detd in den offiziellen deutschen Albumcharts nach seiner Ver\u00f6ffentlichung im Jahr 2005?",
-          "options": [
-            "Platz 15",
-            "Platz 25",
-            "Platz 10",
-            "Platz 30"
-          ],
+          "options": ["Platz 15", "Platz 25", "Platz 10", "Platz 30"],
           "correctAnswer": "Platz 10",
           "trivia": "Janez Detd ist eine bekannte Band aus Slowenien, die in der Rock- und Punk-Szene aktiv ist. Ihr Album 'Anti-Anthem', das 2005 ver\u00f6ffentlicht wurde, konnte sich in den offiziellen deutschen Albumcharts bis auf Platz 10 positionieren und erlangte damit erhebliche Aufmerksamkeit. Die Band ist bekannt f\u00fcr ihren eing\u00e4ngigen Sound und ihre energiegeladenen Live-Auftritte, die auch in Deutschland zahlreiche Fans gewinnen konnten."
         },
@@ -9442,12 +8985,7 @@
         },
         {
           "question": "Mit welchem bekannten belgischen K\u00fcnstler hat Niels Destadsbader auf dem Album 'Speeltijd' eine Kollaboration?",
-          "options": [
-            "Maarten Cox",
-            "K3",
-            "Swoop",
-            "Laura Tesoro"
-          ],
+          "options": ["Maarten Cox", "K3", "Swoop", "Laura Tesoro"],
           "correctAnswer": "Laura Tesoro",
           "trivia": "Niels Destadsbader, ein beliebter belgischer S\u00e4nger und Schauspieler, ver\u00f6ffentlichte 2016 das Album 'Speeltijd', das mehrere erfolgreiche Songs enth\u00e4lt. Eine der bemerkenswertesten Kollaborationen auf diesem Album ist mit der talentierten S\u00e4ngerin Laura Tesoro, die ebenfalls in Belgien bekannt ist. Ihre Zusammenarbeit zeigt eine Mischung aus eing\u00e4ngigen Melodien und modernen Pop-Elementen, die das Album zu einem Hit machten. 'Speeltijd' festigte Destadsbaders Position in der belgischen Musikszene und brachte ihm zahlreiche Auszeichnungen ein."
         },
@@ -9512,12 +9050,7 @@
       "easy": [
         {
           "question": "In welchem Jahr traten The Sore Losers mit ihrem Album 'Skydogs' auf zahlreichen Festivals auf?",
-          "options": [
-            "2015",
-            "2016",
-            "2017",
-            "2018"
-          ],
+          "options": ["2015", "2016", "2017", "2018"],
           "correctAnswer": "2016",
           "trivia": "The Sore Losers, eine belgische Rockband, ver\u00f6ffentlichten ihr Album 'Skydogs' im Jahr 2016. Nach der Ver\u00f6ffentlichung tourten sie durch verschiedene Festivals in Europa und begeisterten das Publikum mit ihrem energiegeladenen Sound. Das Album enth\u00e4lt eine Mischung aus Rock- und Blues-Einfl\u00fcssen, die die Band zu einem beliebten Act auf der Live-B\u00fchne machte."
         },
@@ -9569,12 +9102,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Skydogs' von The Sore Losers in den belgischen Albumcharts nach seiner Ver\u00f6ffentlichung im Jahr 2016?",
-          "options": [
-            "Platz 5",
-            "Platz 12",
-            "Platz 3",
-            "Platz 8"
-          ],
+          "options": ["Platz 5", "Platz 12", "Platz 3", "Platz 8"],
           "correctAnswer": "Platz 8",
           "trivia": "The Sore Losers ist eine belgische Rockband, die f\u00fcr ihren einzigartigen Sound und ihre energiegeladenen Auftritte bekannt ist. Ihr Album 'Skydogs', das im Jahr 2016 ver\u00f6ffentlicht wurde, erreichte in den belgischen Albumcharts Platz 8 und festigte ihren Status in der Musikszene. Die Band kombiniert verschiedene Musikstile, was sich auch in den abwechslungsreichen Songs des Albums widerspiegelt."
         }
@@ -9628,12 +9156,7 @@
       "easy": [
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'As It Ever Was' von Absynthe Minded?",
-          "options": [
-            "2010",
-            "2011",
-            "2012",
-            "2013"
-          ],
+          "options": ["2010", "2011", "2012", "2013"],
           "correctAnswer": "2012",
           "trivia": "Absynthe Minded ist eine belgische Band, die f\u00fcr ihren einzigartigen Musikstil bekannt ist, der Elemente von Pop, Jazz und Rock vereint. Ihr Album 'As It Ever Was' wurde 2012 ver\u00f6ffentlicht und zeigt die charakteristische Mischung aus eing\u00e4ngigen Melodien und tiefgr\u00fcndigen Texten, die die Band auszeichnen. Die Songs des Albums reflektieren pers\u00f6nliche und gesellschaftliche Themen und tragen zur kulturellen Vielfalt der belgischen Musikszene bei."
         },
@@ -9755,12 +9278,7 @@
         },
         {
           "question": "Welches Instrument wird auf dem Album 'Behold Thyself' von Thyself, das 1993 ver\u00f6ffentlicht wurde, h\u00e4ufig in den Arrangements verwendet?",
-          "options": [
-            "E-Gitarre",
-            "Synthesizer",
-            "Schlagzeug",
-            "Bassgitarre"
-          ],
+          "options": ["E-Gitarre", "Synthesizer", "Schlagzeug", "Bassgitarre"],
           "correctAnswer": "Synthesizer",
           "trivia": "Thyself ist bekannt f\u00fcr ihren innovativen Einsatz von Synthesizern in der Musik. Auf dem Album 'Behold Thyself' von 1993 spielen Synthesizer eine zentrale Rolle und verleihen den Songs eine einzigartige Atmosph\u00e4re. Diese Produktionstechnik tr\u00e4gt zur charakteristischen Klanglandschaft des Albums bei und hebt die experimentelle Natur der Band hervor."
         },
@@ -9976,12 +9494,7 @@
       "easy": [
         {
           "question": "Welchen Platz erreichte das Album 'Simple' von DAAN in den belgischen Albumcharts nach seiner Ver\u00f6ffentlichung im Jahr 2010?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 20"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 20"],
           "correctAnswer": "Platz 5",
           "trivia": "DAAN ist ein belgischer Musiker und Singer-Songwriter, der f\u00fcr seinen einzigartigen Stil bekannt ist. Sein Album 'Simple' wurde 2010 ver\u00f6ffentlicht und erreichte in den belgischen Albumcharts den 5. Platz. Das Album enth\u00e4lt eine Mischung aus Pop- und Rock-Elementen und zeigt DAANs charakteristische Stimme und Songwriting-F\u00e4higkeiten. Mit 'Simple' festigte DAAN seinen Status als eine der einflussreichsten Figuren in der belgischen Musikszene."
         },
@@ -10102,11 +9615,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'De Mens' von De Mens aus dem Jahr 1992 thematisiert die Herausforderungen des Erwachsenwerdens und die damit verbundenen Emotionen?",
-          "options": [
-            "Zij",
-            "Kleine jongen",
-            "Wit licht"
-          ],
+          "options": ["Zij", "Kleine jongen", "Wit licht"],
           "correctAnswer": "Zij",
           "trivia": "De Mens ist eine belgische Rockband, die 1992 mit ihrem selbstbetitelten Album 'De Mens' deb\u00fctierte. Der Song 'Zij' spricht \u00fcber die Schwierigkeiten und Freuden des Erwachsenwerdens und reflektiert die innere Welt eines jungen Menschen. Die Texte sind gepr\u00e4gt von einer Mischung aus Melancholie und Hoffnung, was den Zuh\u00f6rern hilft, sich mit den Themen der Selbstfindung und Identit\u00e4t zu identifizieren. De Mens wird f\u00fcr ihren einpr\u00e4gsamen Stil und tiefgr\u00fcndige Texte gesch\u00e4tzt."
         },
@@ -10217,12 +9726,7 @@
         },
         {
           "question": "Welches Jahr wurde das Album 'Electric Soldiers' von The Van Jets ver\u00f6ffentlicht?",
-          "options": [
-            "2005",
-            "2007",
-            "2010",
-            "2009"
-          ],
+          "options": ["2005", "2007", "2010", "2009"],
           "correctAnswer": "2007",
           "trivia": "The Van Jets ist eine belgische Rockband, die 2007 ihr Album 'Electric Soldiers' herausbrachte. Dieses Album wurde von der Band selbst produziert und zeigt ihren einzigartigen Sound, der Elemente aus Rock und Indie kombiniert. Die Band wurde schnell f\u00fcr ihre energiegeladenen Live-Auftritte bekannt und 'Electric Soldiers' half ihnen, sich in der europ\u00e4ischen Musikszene einen Namen zu machen."
         },
@@ -10241,12 +9745,7 @@
       "medium": [
         {
           "question": "Mit welchem K\u00fcnstler arbeiteten The Van Jets auf dem Album 'Electric Soldiers' von 2007 zusammen, um den Song 'The Future' zu produzieren?",
-          "options": [
-            "dEUS",
-            "Balthazar",
-            "Ozark Henry",
-            "Triggerfinger"
-          ],
+          "options": ["dEUS", "Balthazar", "Ozark Henry", "Triggerfinger"],
           "correctAnswer": "Ozark Henry",
           "trivia": "The Van Jets, eine belgische Rockband, ver\u00f6ffentlichten 2007 ihr Album 'Electric Soldiers', das f\u00fcr seinen innovativen Sound und eing\u00e4ngige Melodien bekannt ist. In diesem Album arbeiteten sie mit dem renommierten K\u00fcnstler Ozark Henry zusammen, der seine einzigartige musikalische Perspektive einbrachte. Der Song 'The Future' ist ein Beispiel f\u00fcr diese erfolgreiche Zusammenarbeit, die das kreative Spektrum der Band erweitern konnte. 'Electric Soldiers' gilt als Meilenstein in der Karriere der Van Jets und festigte ihren Platz in der belgischen Musikszene."
         },
@@ -10263,12 +9762,7 @@
         },
         {
           "question": "Welcher Hit aus dem Album 'Electric Soldiers' von The Van Jets erreichte in Belgien hohe Chartplatzierungen und trug zur Bekanntheit der Band im Jahr 2007 bei?",
-          "options": [
-            "She Was",
-            "The Future",
-            "Electric Soldiers",
-            "Loverboy"
-          ],
+          "options": ["She Was", "The Future", "Electric Soldiers", "Loverboy"],
           "correctAnswer": "She Was",
           "trivia": "The Van Jets ist eine belgische Rockband, die 2007 mit ihrem Album 'Electric Soldiers' gro\u00dfe Erfolge feierte. Der Song 'She Was' wurde besonders popul\u00e4r und half der Band, sich in der Musikszene zu etablieren. Das Album kombiniert eing\u00e4ngige Melodien mit kraftvollen Instrumentals und zeigt den charakteristischen Sound der Band. Dank dieser Erfolge konnten The Van Jets ihre Fangemeinde erweitern und traten auf verschiedenen Festivals auf."
         }
@@ -10287,12 +9781,7 @@
         },
         {
           "question": "In welchem Song des Albums 'Electric Soldiers' von The Van Jets wird die Thematik des pers\u00f6nlichen Kampfes und der Suche nach Identit\u00e4t stark thematisiert?",
-          "options": [
-            "Scream",
-            "The Future",
-            "Marilyn",
-            "Electric Soldiers"
-          ],
+          "options": ["Scream", "The Future", "Marilyn", "Electric Soldiers"],
           "correctAnswer": "The Future",
           "trivia": "The Van Jets, eine belgische Rockband, ver\u00f6ffentlichten 2007 ihr Album 'Electric Soldiers', das f\u00fcr seine eing\u00e4ngigen Melodien und tiefgr\u00fcndigen Texte bekannt ist. Im Song 'The Future' wird eine starke Metapher f\u00fcr den inneren Konflikt und die Herausforderungen der Selbstfindung verwendet. Die Kombination aus kraftvollem Sound und nachdenklichen Lyrics spiegelt die Unsicherheiten und Hoffnungen der Generation wider, die mit den Ver\u00e4nderungen der modernen Welt konfrontiert ist."
         },
@@ -10379,12 +9868,7 @@
         },
         {
           "question": "Welches Musikvideo von Oathbreaker, das auf dem Album 'Rheia' aus dem Jahr 2016 basiert, zeigt eindringliche visuelle Elemente und thematisiert den inneren Kampf der Protagonistin?",
-          "options": [
-            "Glimmer",
-            "Second Son",
-            "Womb",
-            "Immortals"
-          ],
+          "options": ["Glimmer", "Second Son", "Womb", "Immortals"],
           "correctAnswer": "Glimmer",
           "trivia": "Das Musikvideo zu 'Glimmer' von Oathbreaker ist bekannt f\u00fcr seine emotionalen und intensiven Bilder, die die Themen des Albums 'Rheia' verk\u00f6rpern. In dem Video wird die innere Zerrissenheit und der Kampf um Identit\u00e4t und Akzeptanz visuell eindrucksvoll dargestellt. Oathbreaker, eine belgische Post-Hardcore-Band, nutzt in ihren Werken oft starke visuelle und lyrische Elemente, um tiefere Emotionen zu vermitteln. 'Rheia' ist ein Album, das sowohl musikalisch als auch visuell eine gewaltige Pr\u00e4senz hat und die H\u00f6rer in eine d\u00fcstere, aber fesselnde Welt eintauchen l\u00e4sst."
         }
@@ -10703,12 +10187,7 @@
       "medium": [
         {
           "question": "In welchem Jahr traten The Black Box Revelation erstmals live mit ihrem Album 'Highway Cruiser' auf?",
-          "options": [
-            "2015",
-            "2016",
-            "2017",
-            "2018"
-          ],
+          "options": ["2015", "2016", "2017", "2018"],
           "correctAnswer": "2016",
           "trivia": "The Black Box Revelation ver\u00f6ffentlichte ihr Album 'Highway Cruiser' im Jahr 2016 und startete kurz darauf eine Tour, um die neuen Songs live zu pr\u00e4sentieren. Die Band, die f\u00fcr ihren kraftvollen Sound und ihre energiegeladenen Auftritte bekannt ist, brachte das Album in verschiedenen europ\u00e4ischen St\u00e4dten auf die B\u00fchne. Besonders hervorzuheben sind die Songs, die durch ihre eing\u00e4ngigen Melodien und dynamischen Live-Performances bestechen."
         },
@@ -10970,12 +10449,7 @@
       "hard": [
         {
           "question": "In welchem Song des Albums 'En Route' von Tourist LeMC wird das Thema der Heimatverbundenheit und der Suche nach Identit\u00e4t besonders eindrucksvoll thematisiert?",
-          "options": [
-            "Wanderlust",
-            "Lepel",
-            "Boven de Wolken",
-            "Zij"
-          ],
+          "options": ["Wanderlust", "Lepel", "Boven de Wolken", "Zij"],
           "correctAnswer": "Zij",
           "trivia": "Tourist LeMC ist bekannt f\u00fcr seine tiefgr\u00fcndigen Texte, die oft pers\u00f6nliche und gesellschaftliche Themen ansprechen. Im Song 'Zij' aus dem Album 'En Route' reflektiert er \u00fcber die Bedeutung der Heimat und die Herausforderungen, mit denen man konfrontiert ist, wenn man die eigene Identit\u00e4t in einer sich st\u00e4ndig ver\u00e4ndernden Welt finden m\u00f6chte. Das Album, das 2015 ver\u00f6ffentlicht wurde, vermischt Rap mit melancholischen Melodien und zieht viele H\u00f6rer mit seiner ehrlichen Lyrik in den Bann."
         },
@@ -11213,12 +10687,7 @@
         },
         {
           "question": "In welchem Jahr trat die franz\u00f6sische Band Fauve, die mit ihrem Album 'Blizzard' von 2014 bekannt wurde, auf dem renommierten Festival Les Vieilles Charrues auf?",
-          "options": [
-            "2015",
-            "2014",
-            "2016",
-            "2017"
-          ],
+          "options": ["2015", "2014", "2016", "2017"],
           "correctAnswer": "2014",
           "trivia": "Fauve, bekannt f\u00fcr ihren einzigartigen Stil, der Poesie und Musik kombiniert, ver\u00f6ffentlichte ihr Deb\u00fctalbum 'Blizzard' im Jahr 2014. Das Album erhielt viel Aufmerksamkeit und f\u00fchrte zu zahlreichen Live-Auftritten, darunter der Auftritt beim Festival Les Vieilles Charrues im selben Jahr. Die Band erlangte durch ihre kraftvollen und emotionalen Live-Performances eine treue Anh\u00e4ngerschaft und setzte neue Ma\u00dfst\u00e4be f\u00fcr die franz\u00f6sische Musikszene."
         },
@@ -11248,12 +10717,7 @@
       "easy": [
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'The Brighter Story' von Jasper Erkens?",
-          "options": [
-            "2008",
-            "2009",
-            "2010",
-            "2011"
-          ],
+          "options": ["2008", "2009", "2010", "2011"],
           "correctAnswer": "2009",
           "trivia": "Jasper Erkens ist ein belgischer Singer-Songwriter, der mit seinem Deb\u00fctalbum 'The Brighter Story' im Jahr 2009 die Musikwelt betrat. Das Album zeichnet sich durch seine eing\u00e4ngigen Melodien und tiefgr\u00fcndigen Texte aus. Erkens arbeitete bei diesem Projekt mit verschiedenen Produzenten zusammen, um seinen einzigartigen Sound zu entwickeln, der Folk und Pop-Elemente vereint."
         },
