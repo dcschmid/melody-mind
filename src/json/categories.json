@@ -51,7 +51,7 @@
     "categoryUrl": "/bluegrass",
     "introSubline": "Erlebe die lebhaften Rhythmen und die herzliche Tradition des Bluegrass!",
     "text": "Bluegrass ist ein Genre, das tief in den Traditionen der amerikanischen Folkmusik verwurzelt ist und durch seine virtuosen Instrumentalstücke und harmonischen Vocals besticht. Diese Kategorie bietet eine Auswahl an energetischen Jams und gefühlvollen Balladen, die von Banjo, Mandoline, Fiddle und akustischer Gitarre getragen werden. Mit seinem charakteristischen Tempo, den beeindruckenden Soli und den harmonischen Gesangslinien fängt Bluegrass die Essenz des ländlichen Lebens und der musikalischen Traditionen des amerikanischen Südens ein. Lass dich von der authentischen Leidenschaft und dem handwerklichen Können des Bluegrass begeistern!",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "blues",
