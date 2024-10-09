@@ -30,12 +30,7 @@
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'OK Computer' von Radiohead?",
-          "options": [
-            "1995",
-            "1997",
-            "1999",
-            "2001"
-          ],
+          "options": ["1995", "1997", "1999", "2001"],
           "correctAnswer": "1997",
           "trivia": "Das Album 'OK Computer' von Radiohead wurde am 21. Mai 1997 ver\u00f6ffentlicht und gilt als eines der einflussreichsten Alben der 1990er Jahre. Es zeichnet sich durch seine experimentelle Herangehensweise an Rockmusik und seine komplexen Themen aus, die Fragen zur Technologie und Entfremdung aufwerfen. 'OK Computer' erhielt zahlreiche Auszeichnungen und wurde h\u00e4ufig in Bestenlisten genannt, was Radiohead zu einer der bedeutendsten Bands ihrer Generation machte."
         }
@@ -135,11 +130,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'Nevermind' von Nirvana behandelt Themen wie Selbstzweifel und gesellschaftlichen Druck?",
-          "options": [
-            "Smells Like Teen Spirit",
-            "Come As You Are",
-            "Lithium"
-          ],
+          "options": ["Smells Like Teen Spirit", "Come As You Are", "Lithium"],
           "correctAnswer": "Smells Like Teen Spirit",
           "trivia": "Nirvana ver\u00f6ffentlichte 1991 das Album 'Nevermind', das als Meilenstein des Grunge-Genres gilt. Der Song 'Smells Like Teen Spirit' wird oft als Hymne der Generation X interpretiert und thematisiert das Gef\u00fchl der Entfremdung und den Druck, den Erwartungen der Gesellschaft gerecht zu werden. Die markante Melodie und der kraftvolle Gesang von Kurt Cobain machten den Song zu einem weltweiten Hit und katapultierten die Band an die Spitze der Rockmusik."
         },
@@ -250,12 +241,7 @@
         },
         {
           "question": "Welches Deb\u00fctalbum ver\u00f6ffentlichte die Band Pearl Jam im Jahr 1991?",
-          "options": [
-            "Ten",
-            "Vs.",
-            "Vitalogy",
-            "Yield"
-          ],
+          "options": ["Ten", "Vs.", "Vitalogy", "Yield"],
           "correctAnswer": "Ten",
           "trivia": "Das Album 'Ten' von Pearl Jam wurde am 27. August 1991 ver\u00f6ffentlicht und gilt als eines der einflussreichsten Alben der Grunge-Bewegung. Es enth\u00e4lt bekannte Songs wie 'Alive', 'Even Flow' und 'Black', die schnell zu Klassikern wurden. 'Ten' erhielt von Kritikern und Fans gleicherma\u00dfen viel Lob und half der Band, sich als eine der f\u00fchrenden Gruppen der 90er Jahre zu etablieren."
         },
@@ -668,12 +654,7 @@
         },
         {
           "question": "Welcher Platz erreichte das Album 'Doolittle' von Pixies in den US Billboard 200 Charts nach seiner Ver\u00f6ffentlichung im Jahr 1989?",
-          "options": [
-            "Platz 10",
-            "Platz 28",
-            "Platz 14",
-            "Platz 34"
-          ],
+          "options": ["Platz 10", "Platz 28", "Platz 14", "Platz 34"],
           "correctAnswer": "Platz 28",
           "trivia": "Das Album 'Doolittle' von Pixies, das 1989 ver\u00f6ffentlicht wurde, gilt als eines der einflussreichsten Alben der Alternative-Rock-Szene. Es erreichte Platz 28 in den US Billboard 200 Charts und wird oft f\u00fcr seinen einzigartigen Mix aus Melodien und experimentellen Kl\u00e4ngen gelobt. Zu den bekanntesten Songs des Albums geh\u00f6ren 'Monkey Gone to Heaven' und 'Here Comes Your Man', die beide zum Kultstatus der Band beitrugen."
         },
@@ -714,23 +695,13 @@
         },
         {
           "question": "Welches hohe Chartplatzierung erreichte das Album 'Kid A' von Radiohead in den US Billboard 200 nach seiner Ver\u00f6ffentlichung im Jahr 2000?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 20"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 20"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Album 'Kid A' von Radiohead, das im Jahr 2000 ver\u00f6ffentlicht wurde, erreichte in den US Billboard 200 die Spitze der Charts und belegte Platz 1. Es wurde f\u00fcr seine innovative Mischung aus elektronischen Kl\u00e4ngen und Rockmusik gelobt und gilt als eines der einflussreichsten Alben des 21. Jahrhunderts. 'Kid A' enth\u00e4lt auch bekannte Songs wie 'Everything in Its Right Place' und 'Idioteque', die den experimentellen Stil der Band unterstreichen."
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Kid A' von Radiohead?",
-          "options": [
-            "1997",
-            "1999",
-            "2000",
-            "2001"
-          ],
+          "options": ["1997", "1999", "2000", "2001"],
           "correctAnswer": "2000",
           "trivia": "Das Album 'Kid A' von Radiohead wurde am 2. Oktober 2000 ver\u00f6ffentlicht und markierte einen bedeutenden Wendepunkt in der Musik der Band. Es gilt als eines der einflussreichsten Alben des 21. Jahrhunderts und experimentiert mit elektronischen Kl\u00e4ngen und ungew\u00f6hnlichen Songstrukturen. 'Kid A' wurde sowohl von Kritikern als auch von Fans f\u00fcr seine innovative Herangehensweise an Rockmusik gefeiert."
         }
@@ -738,23 +709,13 @@
       "medium": [
         {
           "question": "Welches ungew\u00f6hnliche Instrument wurde von Radiohead auf dem Album 'Kid A' verwendet, um einen experimentellen Klang zu erzeugen?",
-          "options": [
-            "Theremin",
-            "Ondes Martenot",
-            "Kazoo",
-            "Hang Drum"
-          ],
+          "options": ["Theremin", "Ondes Martenot", "Kazoo", "Hang Drum"],
           "correctAnswer": "Ondes Martenot",
           "trivia": "Radiohead experimentierte auf ihrem Album 'Kid A' mit einer Vielzahl von Instrumenten und Produktionstechniken, um einen einzigartigen Klang zu kreieren. Besonders auff\u00e4llig ist der Einsatz des Ondes Martenot, eines fr\u00fchen elektronischen Instruments, das f\u00fcr seine melancholischen und schwebenden Kl\u00e4nge bekannt ist. Diese innovative Herangehensweise an die Instrumentierung trug zur atmosph\u00e4rischen Dichte des Albums bei und festigte Radioheads Ruf als Pioniere im Bereich der modernen Musik."
         },
         {
           "question": "In welchem Jahr f\u00fchrte Radiohead ihre Tour zur Unterst\u00fctzung des Albums 'Kid A' durch, das 2000 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "1999",
-            "2000",
-            "2001",
-            "2002"
-          ],
+          "options": ["1999", "2000", "2001", "2002"],
           "correctAnswer": "2001",
           "trivia": "Radiohead tourte im Jahr 2001 zur Unterst\u00fctzung ihres bahnbrechenden Albums 'Kid A', das 2000 ver\u00f6ffentlicht wurde. Diese Tour beinhaltete innovative visuelle Elemente und eine experimentelle Auswahl von Songs, die das Publikum begeisterten. 'Kid A' markierte einen Wendepunkt in Radioheads Karriere, indem es von elektronischen Kl\u00e4ngen und avantgardistischen Einfl\u00fcssen gepr\u00e4gt war."
         },
@@ -819,12 +780,7 @@
       "easy": [
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Disintegration' von The Cure?",
-          "options": [
-            "1987",
-            "1988",
-            "1989",
-            "1990"
-          ],
+          "options": ["1987", "1988", "1989", "1990"],
           "correctAnswer": "1989",
           "trivia": "'Disintegration' ist das achte Studioalbum der britischen Rockband The Cure und wurde 1989 ver\u00f6ffentlicht. Es wird oft als eines der besten Alben der Band angesehen und enth\u00e4lt Klassiker wie 'Lovesong' und 'Pictures of You'. Das Album ist bekannt f\u00fcr seinen melancholischen Sound und seine tiefgr\u00fcndigen Texte, die von den pers\u00f6nlichen Erfahrungen des Frontmanns Robert Smith inspiriert wurden."
         },
@@ -1236,12 +1192,7 @@
       "hard": [
         {
           "question": "Mit welchem bekannten K\u00fcnstler haben The Smiths w\u00e4hrend der Entstehung ihres Albums 'The Queen is Dead' von 1986 zusammengearbeitet, um den ikonischen Song 'There Is a Light That Never Goes Out' zu produzieren?",
-          "options": [
-            "Johnny Marr",
-            "David Bowie",
-            "Brian Eno",
-            "Morrissey"
-          ],
+          "options": ["Johnny Marr", "David Bowie", "Brian Eno", "Morrissey"],
           "correctAnswer": "Johnny Marr",
           "trivia": "The Smiths, eine der einflussreichsten britischen Bands der 1980er Jahre, haben mit ihrem Gitarristen Johnny Marr eine einzigartige musikalische Partnerschaft entwickelt. 'The Queen is Dead' gilt als eines ihrer Meisterwerke und enth\u00e4lt den ber\u00fchmten Song 'There Is a Light That Never Goes Out', der von Marr musikalisch und von Morrissey textlich gepr\u00e4gt wurde. Die Zusammenarbeit zwischen den beiden K\u00fcnstlern war entscheidend f\u00fcr den charakteristischen Sound der Band, der melancholische Texte mit eing\u00e4ngigen Melodien verbindet."
         },
@@ -1479,12 +1430,7 @@
         },
         {
           "question": "Welches Musikvideo aus dem Album 'The Downward Spiral' von Nine Inch Nails enth\u00e4lt verst\u00f6rende visuelle Elemente, die eine Verbindung zu Themen wie Selbstzerst\u00f6rung und innerem Konflikt herstellen?",
-          "options": [
-            "Hurt",
-            "March of the Pigs",
-            "Closer",
-            "Piggy"
-          ],
+          "options": ["Hurt", "March of the Pigs", "Closer", "Piggy"],
           "correctAnswer": "Closer",
           "trivia": "Das Musikvideo zu 'Closer' von Nine Inch Nails, einem Track aus dem Album 'The Downward Spiral', ist bekannt f\u00fcr seine provokanten und oft verst\u00f6renden Bilder, die Themen wie Sexualit\u00e4t, Gewalt und innere Konflikte darstellen. Regisseur David Fincher schuf visuelle Metaphern, die die d\u00fcstere Stimmung des Songs unterstreichen. Das Video hat nicht nur die Kontroversen um das Album verst\u00e4rkt, sondern auch zu einem ikonischen Status in der Musikvideokunst beigetragen."
         },
@@ -1768,12 +1714,7 @@
         },
         {
           "question": "Welches Album von Beck, das 1996 ver\u00f6ffentlicht wurde, erhielt von Kritikern viel Lob f\u00fcr seine innovative Mischung aus verschiedenen Musikstilen?",
-          "options": [
-            "Odelay",
-            "Mellow Gold",
-            "Sea Change",
-            "Guero"
-          ],
+          "options": ["Odelay", "Mellow Gold", "Sea Change", "Guero"],
           "correctAnswer": "Odelay",
           "trivia": "Becks Album 'Odelay' wird oft als eines der besten Alben der 1990er Jahre bezeichnet. Es kombiniert Elemente aus Rock, Hip-Hop, Folk und Elektronik und zeigt Becks einzigartige F\u00e4higkeit, Genres zu vermischen. Die Kritiken lobten besonders die Songs wie 'Where It's At' und 'Devils Haircut', die den kreativen und experimentellen Ansatz des K\u00fcnstlers verk\u00f6rpern."
         }
@@ -1942,12 +1883,7 @@
         },
         {
           "question": "Welcher bekannte Musiker und Produzent war an der Produktion des Albums 'Weezer (The Blue Album)' von Weezer im Jahr 1994 beteiligt und ist bekannt f\u00fcr seine Zusammenarbeit mit vielen anderen Bands im Alternative-Rock-Genre?",
-          "options": [
-            "Rick Rubin",
-            "Butch Vig",
-            "Steve Albini",
-            "Brian Eno"
-          ],
+          "options": ["Rick Rubin", "Butch Vig", "Steve Albini", "Brian Eno"],
           "correctAnswer": "Butch Vig",
           "trivia": "Weezer (The Blue Album) wurde 1994 unter der Regie des renommierten Produzenten Butch Vig ver\u00f6ffentlicht, der auch f\u00fcr die Produktion des ikonischen Nirvana-Albums 'Nevermind' bekannt ist. Vig brachte seinen einzigartigen Sound und seine Erfahrungen in die Aufnahmen ein, was zur charakteristischen Klang\u00e4sthetik des Albums beitrug. 'The Blue Album' enth\u00e4lt einige der bekanntesten Songs von Weezer, darunter 'Buddy Holly' und 'Say It Ain't So', die bis heute als Klassiker gelten."
         },
@@ -2093,12 +2029,7 @@
       "easy": [
         {
           "question": "Welchen Chartplatz erreichte das Album 'Elephant' von The White Stripes in den US Billboard 200?",
-          "options": [
-            "Platz 1",
-            "Platz 3",
-            "Platz 5",
-            "Platz 10"
-          ],
+          "options": ["Platz 1", "Platz 3", "Platz 5", "Platz 10"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Album 'Elephant' von The White Stripes wurde 2003 ver\u00f6ffentlicht und erreichte in den US Billboard 200 den ersten Platz. Es gilt als eines der einflussreichsten Alben der 2000er Jahre und enth\u00e4lt den Hit 'Seven Nation Army', der zu einem der bekanntesten Songs der Band wurde. The White Stripes, bestehend aus Jack White und Meg White, pr\u00e4gten mit ihrem einzigartigen Sound und minimalistischen Stil das Garage-Rock-Genre."
         },
@@ -2163,12 +2094,7 @@
       "hard": [
         {
           "question": "Welches bedeutende Musikmagazin bewertete das Album 'Elephant' von The White Stripes im Jahr 2003 mit der H\u00f6chstnote und bezeichnete es als eines der besten Alben des Jahres?",
-          "options": [
-            "Rolling Stone",
-            "NME",
-            "Pitchfork",
-            "Spin"
-          ],
+          "options": ["Rolling Stone", "NME", "Pitchfork", "Spin"],
           "correctAnswer": "NME",
           "trivia": "Das Album 'Elephant' von The White Stripes wurde von der Kritik hochgelobt und gilt als eines der besten Alben des 21. Jahrhunderts. NME verlieh dem Album die H\u00f6chstnote und lobte insbesondere die Single 'Seven Nation Army', die zu einem ikonischen Song der Band wurde. 'Elephant' stellte die charakteristische Mischung aus Garage Rock und Blues der Band eindrucksvoll unter Beweis und festigte ihren Status in der Musikszene."
         },
@@ -2220,12 +2146,7 @@
         },
         {
           "question": "Welche britische Musikrichtung beeinflusste die Arctic Monkeys stark bei der Entstehung ihres Albums 'Whatever People Say I Am, That\u2019s What I\u2019m Not'?",
-          "options": [
-            "Britpop",
-            "Punk",
-            "Garage Rock",
-            "Indie Rock"
-          ],
+          "options": ["Britpop", "Punk", "Garage Rock", "Indie Rock"],
           "correctAnswer": "Indie Rock",
           "trivia": "Die Arctic Monkeys sind bekannt f\u00fcr ihren einzigartigen Sound, der stark vom Indie Rock beeinflusst ist. Ihr Deb\u00fctalbum 'Whatever People Say I Am, That\u2019s What I\u2019m Not', das 2006 ver\u00f6ffentlicht wurde, stellt eine Hommage an das Lebensgef\u00fchl junger Menschen in Gro\u00dfbritannien dar. Die Band kombinierte eing\u00e4ngige Melodien mit intelligenten Texten, die oft vom Nachtleben und den Erfahrungen ihrer Generation handeln."
         },
@@ -2336,12 +2257,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Fever to Tell' von Yeah Yeah Yeahs in den Billboard 200 Charts?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 10",
           "trivia": "Das Album 'Fever to Tell' von Yeah Yeah Yeahs wurde 2003 ver\u00f6ffentlicht und erreichte Platz 10 in den Billboard 200 Charts. Es enth\u00e4lt erfolgreiche Singles wie 'Maps' und 'Y Control', die dem Album zu gro\u00dfer Bekanntheit verhalfen. Yeah Yeah Yeahs sind bekannt f\u00fcr ihren einzigartigen Mix aus Garage Rock und Punk, der sie zu einer der einflussreichsten Bands der 2000er Jahre machte."
         },
@@ -2476,12 +2392,7 @@
       "medium": [
         {
           "question": "Mit welchem K\u00fcnstler hat Interpol bei einem Remix eines Songs aus dem Album 'Turn On the Bright Lights' zusammengearbeitet?",
-          "options": [
-            "The Strokes",
-            "The National",
-            "M83",
-            "Franz Ferdinand"
-          ],
+          "options": ["The Strokes", "The National", "M83", "Franz Ferdinand"],
           "correctAnswer": "M83",
           "trivia": "Interpol ver\u00f6ffentlichte 2002 das Album 'Turn On the Bright Lights', das als eines der einflussreichsten Post-Punk-Revival-Alben gilt. Der franz\u00f6sische Elektronik-K\u00fcnstler M83 remixte den Song 'Slow Hands' aus diesem Album. Diese Zusammenarbeit verdeutlicht die Vielseitigkeit von Interpol und ihre F\u00e4higkeit, mit verschiedenen Genres zu experimentieren. Das Album half, die Band in der Indie-Rock-Szene zu etablieren und wird bis heute von Kritikern gefeiert."
         },
@@ -2695,12 +2606,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Deb\u00fctalbum 'Franz Ferdinand' von Franz Ferdinand in den britischen Albumcharts?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Deb\u00fctalbum 'Franz Ferdinand' von der gleichnamigen Band Franz Ferdinand wurde 2004 ver\u00f6ffentlicht und erreichte in den britischen Albumcharts den ersten Platz. Das Album gilt als eines der einflussreichsten Indie-Rock-Alben der 2000er Jahre und enth\u00e4lt Hits wie 'Take Me Out' und 'The Dark of the Matin\u00e9e'. Der Erfolg des Albums half der Band, internationale Anerkennung zu gewinnen und zu einem der pr\u00e4gendsten Acts des Genres zu werden."
         }
@@ -2730,12 +2636,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Franz Ferdinand' von Franz Ferdinand in den UK Albums Chart nach seiner Ver\u00f6ffentlichung im Jahr 2004?",
-          "options": [
-            "Platz 1",
-            "Platz 2",
-            "Platz 3",
-            "Platz 4"
-          ],
+          "options": ["Platz 1", "Platz 2", "Platz 3", "Platz 4"],
           "correctAnswer": "Platz 3",
           "trivia": "Das selbstbetitelte Deb\u00fctalbum 'Franz Ferdinand' von Franz Ferdinand, das im Jahr 2004 ver\u00f6ffentlicht wurde, erreichte in den UK Albums Chart den dritten Platz. Es wurde f\u00fcr seinen innovativen Sound und die eing\u00e4ngigen Melodien gelobt und half der Band, internationale Bekanntheit zu erlangen. Die Singles 'Take Me Out' und 'This Fire' trugen ma\u00dfgeblich zu dem Erfolg des Albums bei und wurden zu Hits in vielen L\u00e4ndern."
         }
@@ -2916,12 +2817,7 @@
         },
         {
           "question": "In welchem Jahr trat Neutral Milk Hotel erstmals live auf, nachdem ihr Album 'In the Aeroplane Over the Sea' ver\u00f6ffentlicht wurde?",
-          "options": [
-            "1996",
-            "1998",
-            "2000",
-            "2005"
-          ],
+          "options": ["1996", "1998", "2000", "2005"],
           "correctAnswer": "2005",
           "trivia": "Neutral Milk Hotel, eine einflussreiche Indie-Band, ver\u00f6ffentlichte ihr Album 'In the Aeroplane Over the Sea' im Jahr 1998. Nach einer langen Pause von Live-Auftritten kehrte die Band 2005 auf die B\u00fchne zur\u00fcck und spielte zahlreiche Konzerte. Dieses Album gilt als eines der besten Indie-Alben aller Zeiten und hat einen bleibenden Eindruck in der Musikszene hinterlassen."
         },
@@ -3067,12 +2963,7 @@
         },
         {
           "question": "Welches ber\u00fchmte Musikvideo von Green Day aus dem Album 'Dookie' von 1994 enth\u00e4lt eine Szene, in der die Band auf einem Schulhof auftritt?",
-          "options": [
-            "Basket Case",
-            "When I Come Around",
-            "Longview",
-            "She"
-          ],
+          "options": ["Basket Case", "When I Come Around", "Longview", "She"],
           "correctAnswer": "Basket Case",
           "trivia": "Das Musikvideo zu 'Basket Case' wurde 1994 ver\u00f6ffentlicht und gilt als eines der bekanntesten Videos von Green Day. Der Song handelt von der Angst und Paranoia, die Billie Joe Armstrong, der Frontmann der Band, w\u00e4hrend seiner Zeit im Krankenhaus erlebte. 'Dookie' war das dritte Studioalbum der Band und half, Pop-Punk in den Mainstream zu bringen, was zu ihrem weltweiten Erfolg beitrug."
         },
@@ -3253,12 +3144,7 @@
       "easy": [
         {
           "question": "Mit welchem K\u00fcnstler arbeitete Elliott Smith bei dem Song 'Between the Bars' auf seinem Album 'Either/Or'?",
-          "options": [
-            "Nick Drake",
-            "Beck",
-            "Sam Beam",
-            "Rachael Yamagata"
-          ],
+          "options": ["Nick Drake", "Beck", "Sam Beam", "Rachael Yamagata"],
           "correctAnswer": "Rachael Yamagata",
           "trivia": "Elliott Smith ver\u00f6ffentlichte 1997 sein Album 'Either/Or', das f\u00fcr seinen melancholischen Stil und tiefgr\u00fcndige Texte bekannt ist. W\u00e4hrend der Aufnahmen zu diesem Album arbeitete er mit der Singer-Songwriterin Rachael Yamagata zusammen, die f\u00fcr ihre gef\u00fchlvolle Stimme und ihre poetischen Texte bekannt ist. 'Between the Bars' ist einer der bekanntesten Songs von Elliott Smith und zeigt seine F\u00e4higkeit, emotionale Geschichten durch Musik zu erz\u00e4hlen. Das Album gilt als eines der besten Werke von Smith und hat einen gro\u00dfen Einfluss auf das Indie-Genre."
         },
@@ -3380,23 +3266,13 @@
         },
         {
           "question": "Welche Stadt und deren Atmosph\u00e4re haben PJ Harvey bei der Entstehung ihres Albums 'Stories from the City, Stories from the Sea' aus dem Jahr 2000 stark inspiriert?",
-          "options": [
-            "London",
-            "New York",
-            "Paris",
-            "Berlin"
-          ],
+          "options": ["London", "New York", "Paris", "Berlin"],
           "correctAnswer": "London",
           "trivia": "PJ Harvey lie\u00df sich bei der Kreation ihres Albums 'Stories from the City, Stories from the Sea' stark von der Stadt London inspirieren. Die Lieder reflektieren ihre Erfahrungen und die komplexe Beziehung zu dieser Stadt, die sowohl ihre Herausforderungen als auch ihre Sch\u00f6nheit zeigt. PJ Harvey kombinierte dabei pers\u00f6nliche Erlebnisse mit einer universellen Erz\u00e4hlweise, die das Album zu einem zeitlosen Werk macht."
         },
         {
           "question": "Welcher bekannte Produzent arbeitete mit PJ Harvey an ihrem Album 'Stories from the City, Stories from the Sea', das im Jahr 2000 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "John Parish",
-            "Rick Rubin",
-            "Brian Eno",
-            "Steve Albini"
-          ],
+          "options": ["John Parish", "Rick Rubin", "Brian Eno", "Steve Albini"],
           "correctAnswer": "John Parish",
           "trivia": "PJ Harvey arbeitete eng mit dem Produzenten John Parish an ihrem Album 'Stories from the City, Stories from the Sea'. Dieses Album kombiniert Elemente aus Rock und Folk und wurde f\u00fcr seinen einzigartigen Klang und die tiefgr\u00fcndigen Texte gelobt. Die Zusammenarbeit mit Parish war entscheidend f\u00fcr die Entwicklung des charakteristischen Sounds, der das Album pr\u00e4gt."
         }
@@ -3404,12 +3280,7 @@
       "medium": [
         {
           "question": "Mit welchem bekannten K\u00fcnstler arbeitete PJ Harvey bei ihrem Album 'Stories from the City, Stories from the Sea', das im Jahr 2000 ver\u00f6ffentlicht wurde, zusammen?",
-          "options": [
-            "Nick Cave",
-            "John Parish",
-            "Thom Yorke",
-            "David Bowie"
-          ],
+          "options": ["Nick Cave", "John Parish", "Thom Yorke", "David Bowie"],
           "correctAnswer": "John Parish",
           "trivia": "PJ Harvey arbeitete bei ihrem Album 'Stories from the City, Stories from the Sea' eng mit John Parish zusammen, der nicht nur als Produzent fungierte, sondern auch an der Komposition und den Arrangements der Songs beteiligt war. Diese Zusammenarbeit f\u00fchrte zu einem einzigartigen Klang, der Elemente aus Rock, Folk und experimenteller Musik vereint. Das Album erhielt viel Kritikerlob und gilt als eines von PJ Harveys besten Werken."
         },
@@ -3507,12 +3378,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Transatlanticism' von Death Cab for Cutie in den US Billboard 200 Charts?",
-          "options": [
-            "Platz 1",
-            "Platz 4",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 4", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 4",
           "trivia": "Das Album 'Transatlanticism' von Death Cab for Cutie, das im Jahr 2003 ver\u00f6ffentlicht wurde, erreichte in den US Billboard 200 Charts den vierten Platz. Es gilt als eines der einflussreichsten Indie-Rock-Alben der fr\u00fchen 2000er Jahre und enth\u00e4lt beliebte Songs wie 'Title and Registration' und 'Transatlanticism'. Die Band, die urspr\u00fcnglich 1997 gegr\u00fcndet wurde, hat mit ihrem melancholischen Stil und tiefgr\u00fcndigen Texten eine gro\u00dfe Fangemeinde gewonnen."
         }
@@ -3717,11 +3583,7 @@
       "easy": [
         {
           "question": "Welcher Hit von MGMT aus dem Album 'Oracular Spectacular' erreichte 2008 hohe Chartplatzierungen und wurde besonders f\u00fcr seinen eing\u00e4ngigen Refrain bekannt?",
-          "options": [
-            "Electric Feel",
-            "Time to Pretend",
-            "Kids"
-          ],
+          "options": ["Electric Feel", "Time to Pretend", "Kids"],
           "correctAnswer": "Kids",
           "trivia": "MGMT ist eine amerikanische Band, die 2007 mit ihrem Deb\u00fctalbum 'Oracular Spectacular' gro\u00dfe Erfolge feierte. Der Song 'Kids' wurde einer der bekanntesten Tracks des Albums und erreichte hohe Positionen in den Charts weltweit. Die eing\u00e4ngige Melodie und der nostalgische Text trugen dazu bei, dass 'Kids' nicht nur ein Hit in den USA, sondern auch international beliebt wurde."
         },
@@ -3843,12 +3705,7 @@
         },
         {
           "question": "Welches bedeutende Musikgenre pr\u00e4gte das Album 'Dummy' von Portishead, das 1994 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Grunge",
-            "Trip-Hop",
-            "Heavy Metal",
-            "Pop"
-          ],
+          "options": ["Grunge", "Trip-Hop", "Heavy Metal", "Pop"],
           "correctAnswer": "Trip-Hop",
           "trivia": "Das Album 'Dummy' von Portishead gilt als eines der Schl\u00fcsselwerke des Trip-Hop-Genres, das in den 1990er Jahren entstand. Mit seinem melancholischen Sound und den einzigartigen Samples mischte Portishead Hip-Hop, Jazz und elektronische Musik auf innovative Weise. Die eindringliche Stimme von Beth Gibbons und die atmosph\u00e4rischen Beats trugen dazu bei, das Album zu einem Klassiker der alternativen Musik zu machen und beeinflussten zahlreiche K\u00fcnstler in den folgenden Jahren."
         },
@@ -3878,22 +3735,13 @@
         },
         {
           "question": "Welches Musikvideo von Portishead, das auf dem Album 'Dummy' von 1994 basiert, ist bekannt f\u00fcr seine d\u00fcstere \u00c4sthetik und experimentellen visuellen Effekte?",
-          "options": [
-            "Sour Times",
-            "Glory Box",
-            "Numb"
-          ],
+          "options": ["Sour Times", "Glory Box", "Numb"],
           "correctAnswer": "Sour Times",
           "trivia": "Das Musikvideo zu 'Sour Times' von Portishead ist bekannt f\u00fcr seine melancholische und surrealistische Bildsprache, die perfekt zur Musik des Albums 'Dummy' passt. Die Kombination aus Schwarz-Wei\u00df-Visuals und eindringlicher Atmosph\u00e4re spiegelt die emotionale Tiefe der Songs wider. Portishead, eine Band, die oft dem Trip-Hop-Genre zugerechnet wird, hat mit ihrem Deb\u00fctalbum 'Dummy' einen gro\u00dfen Einfluss auf die Musikszene der 90er Jahre ausge\u00fcbt."
         },
         {
           "question": "Welcher prominente Musikproduzent war an der Produktion des Albums 'Dummy' von Portishead beteiligt, das 1994 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Geoff Barrow",
-            "Tricky",
-            "DJ Shadow",
-            "Brian Eno"
-          ],
+          "options": ["Geoff Barrow", "Tricky", "DJ Shadow", "Brian Eno"],
           "correctAnswer": "Geoff Barrow",
           "trivia": "Portishead, die 1991 in Bristol gegr\u00fcndet wurden, sind bekannt f\u00fcr ihren einzigartigen Sound, der Elemente aus Trip-Hop, Jazz und Elektronik vereint. Das Deb\u00fctalbum 'Dummy' wurde 1994 von Geoff Barrow produziert, der auch als Schlagzeuger und Multiinstrumentalist der Band fungiert. Die melancholische Stimme von Beth Gibbons und die atmosph\u00e4rischen Kl\u00e4nge des Albums haben es zu einem Klassiker der 90er Jahre gemacht und trugen ma\u00dfgeblich zur Popularit\u00e4t von Trip-Hop bei."
         }
@@ -3912,12 +3760,7 @@
         },
         {
           "question": "Welcher prominente Musiker hat an einem Remix des Songs 'Glory Box' von Portishead, aus dem Album 'Dummy', mitgewirkt?",
-          "options": [
-            "Tricky",
-            "Beck",
-            "Massive Attack",
-            "DJ Shadow"
-          ],
+          "options": ["Tricky", "Beck", "Massive Attack", "DJ Shadow"],
           "correctAnswer": "Tricky",
           "trivia": "Portishead, eine der einflussreichsten Bands des Trip-Hop-Genres, ver\u00f6ffentlichte 1994 ihr Deb\u00fctalbum 'Dummy', das sofort f\u00fcr seine innovative Klanglandschaft und melancholischen Texte gefeiert wurde. Tricky, ein Kollege aus Bristol und Mitbegr\u00fcnder des Trip-Hop-Stils, remixte den ikonischen Song 'Glory Box', was die Zusammenarbeit zwischen diesen beiden K\u00fcnstlern verst\u00e4rkte. Diese Verbindungen zwischen verschiedenen Musikern pr\u00e4gten die Szene der 90er Jahre und trugen zur Popularit\u00e4t des Genres bei."
         },
@@ -3993,12 +3836,7 @@
         },
         {
           "question": "Welches bedeutende Musikkritik-Magazin bezeichnete das Album 'Loveless' von My Bloody Valentine als eines der besten Alben der 1990er Jahre?",
-          "options": [
-            "Rolling Stone",
-            "NME",
-            "Pitchfork",
-            "Spin"
-          ],
+          "options": ["Rolling Stone", "NME", "Pitchfork", "Spin"],
           "correctAnswer": "NME",
           "trivia": "Das Album 'Loveless' von My Bloody Valentine, das 1991 ver\u00f6ffentlicht wurde, gilt als eines der einflussreichsten Alben der Shoegaze-Genre. Die innovative Produktion und die vielschichtigen Klanglandschaften des Albums wurden von vielen Kritikern hochgelobt. Das NME (New Musical Express) nannte 'Loveless' in seinen Jahresr\u00fcckblicken h\u00e4ufig unter den besten Alben der 1990er Jahre, was zur Kultstatus des Albums beitrug. My Bloody Valentine hat mit diesem Album die Grenzen des Rockgenres erweitert und bleibt bis heute ein Referenzpunkt f\u00fcr viele Musiker."
         },
@@ -4411,12 +4249,7 @@
       "easy": [
         {
           "question": "Welchen Platz erreichte das Album 'Sea Change' von Beck in den US Billboard 200 Charts nach seiner Ver\u00f6ffentlichung im Jahr 2002?",
-          "options": [
-            "Platz 1",
-            "Platz 8",
-            "Platz 15",
-            "Platz 25"
-          ],
+          "options": ["Platz 1", "Platz 8", "Platz 15", "Platz 25"],
           "correctAnswer": "Platz 8",
           "trivia": "Becks Album 'Sea Change', ver\u00f6ffentlicht im Jahr 2002, erreichte in den US Billboard 200 Charts den 8. Platz. Das Album gilt als eines seiner besten Werke und zeichnet sich durch seine melancholische Stimmung und introspektiven Texte aus. Es enth\u00e4lt bekannte Songs wie 'Lost Cause' und 'Guess I'm Doing Fine', die beide zur positiven Rezeption des Albums beitrugen. 'Sea Change' wird oft als Wendepunkt in Becks Karriere angesehen, da es sich musikalisch von seinen fr\u00fcheren, experimentelleren Arbeiten abhebt."
         },
@@ -4527,12 +4360,7 @@
       "easy": [
         {
           "question": "Welches bedeutende Deb\u00fctalbum ver\u00f6ffentlichten The Killers im Jahr 2004?",
-          "options": [
-            "Hot Fuss",
-            "Sam's Town",
-            "Battle Born",
-            "Day & Age"
-          ],
+          "options": ["Hot Fuss", "Sam's Town", "Battle Born", "Day & Age"],
           "correctAnswer": "Hot Fuss",
           "trivia": "Das Album 'Hot Fuss' von The Killers wurde 2004 ver\u00f6ffentlicht und gilt als eines der wichtigsten Deb\u00fcts des 21. Jahrhunderts. Es enth\u00e4lt Hits wie 'Mr. Brightside' und 'Somebody Told Me', die den Sound der Indie-Rock-Szene dieser Zeit pr\u00e4gten. 'Hot Fuss' wurde weltweit \u00fcber 7 Millionen Mal verkauft und half, The Killers zu internationalen Stars zu machen."
         },
@@ -4597,12 +4425,7 @@
       "hard": [
         {
           "question": "Welcher bekannte Musikproduzent arbeitete an dem Deb\u00fctalbum 'Hot Fuss' von The Killers mit und trug ma\u00dfgeblich zum charakteristischen Sound des Albums bei?",
-          "options": [
-            "Flood",
-            "Brendan O'Brien",
-            "Tchad Blake",
-            "Rick Rubin"
-          ],
+          "options": ["Flood", "Brendan O'Brien", "Tchad Blake", "Rick Rubin"],
           "correctAnswer": "Flood",
           "trivia": "The Killers' Deb\u00fctalbum 'Hot Fuss', das 2004 ver\u00f6ffentlicht wurde, wurde von dem renommierten Produzenten Flood produziert. Flood, der auch f\u00fcr seine Arbeit mit Bands wie U2 und Nine Inch Nails bekannt ist, half dabei, den einzigartigen Sound des Albums zu formen, der eine Mischung aus Post-Punk und New Wave-Elementen aufweist. 'Hot Fuss' erhielt weltweit hohe Anerkennung und etablierte The Killers als eine der f\u00fchrenden Bands der 2000er Jahre."
         },
@@ -4724,12 +4547,7 @@
         },
         {
           "question": "Welches zentrale visuelle Element, das in mehreren Musikvideos des Albums 'Lungs' von Florence + the Machine vorkommt, symbolisiert oft den Kampf zwischen Licht und Dunkelheit?",
-          "options": [
-            "Wasser",
-            "Blumen",
-            "Feuer",
-            "V\u00f6gel"
-          ],
+          "options": ["Wasser", "Blumen", "Feuer", "V\u00f6gel"],
           "correctAnswer": "Wasser",
           "trivia": "Florence + the Machine nutzt in den Musikvideos zu 'Lungs' h\u00e4ufig Wasser als zentrales visuelles Element, um emotionale und transformative Erfahrungen darzustellen. In Clips wie 'Shake It Out' und 'What the Water Gave Me' wird Wasser sowohl als Symbol f\u00fcr Reinigung als auch f\u00fcr die Tiefe von Gef\u00fchlen eingesetzt. Diese visuelle Metapher verst\u00e4rkt die thematische Tiefe der Songs und unterstreicht die Verbindung zwischen der Musik und der Natur."
         },
@@ -4829,12 +4647,7 @@
       "hard": [
         {
           "question": "Welcher bekannte K\u00fcnstler hat an dem Song 'Jesus, Etc.' vom Album 'Yankee Hotel Foxtrot' von Wilco mitgewirkt und gilt als einflussreiche Figur in der Alternative-Country-Szene?",
-          "options": [
-            "Jeff Tweedy",
-            "Nels Cline",
-            "Jay Bennett",
-            "Ryan Adams"
-          ],
+          "options": ["Jeff Tweedy", "Nels Cline", "Jay Bennett", "Ryan Adams"],
           "correctAnswer": "Jay Bennett",
           "trivia": "Jay Bennett war ein entscheidendes Mitglied von Wilco w\u00e4hrend der Entstehung von 'Yankee Hotel Foxtrot', das im Jahr 2002 ver\u00f6ffentlicht wurde. Er trug nicht nur zur musikalischen Gestaltung von Songs wie 'Jesus, Etc.' bei, sondern war auch f\u00fcr die Produktion des Albums verantwortlich. Bennett's kreative Einfl\u00fcsse halfen, den einzigartigen Sound des Albums zu formen, das heute als eines der besten Alben der 2000er Jahre gilt."
         },
@@ -5002,12 +4815,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Deb\u00fctalbum 'The Stone Roses' von The Stone Roses in den britischen Albumcharts?",
-          "options": [
-            "1. Platz",
-            "5. Platz",
-            "10. Platz",
-            "20. Platz"
-          ],
+          "options": ["1. Platz", "5. Platz", "10. Platz", "20. Platz"],
           "correctAnswer": "1. Platz",
           "trivia": "Das Deb\u00fctalbum 'The Stone Roses' von The Stone Roses, das 1989 ver\u00f6ffentlicht wurde, erreichte in den britischen Albumcharts den ersten Platz. Mit Hits wie 'Fool's Gold' und 'I Wanna Be Adored' trugen die Stone Roses ma\u00dfgeblich zur Entstehung des Madchester-Sounds bei, der die Musikszene der sp\u00e4ten 80er und fr\u00fchen 90er Jahre pr\u00e4gte. Das Album gilt als eines der einflussreichsten Alben der britischen Rockgeschichte und wird oft als Meisterwerk angesehen."
         },
@@ -5037,12 +4845,7 @@
         },
         {
           "question": "Welche bedeutende Zeitung beschrieb das Album 'The Stone Roses' von The Stone Roses als einen Meilenstein des Britpop und pries besonders die innovativen Melodien und den einzigartigen Sound?",
-          "options": [
-            "The Guardian",
-            "NME",
-            "The Times",
-            "Rolling Stone"
-          ],
+          "options": ["The Guardian", "NME", "The Times", "Rolling Stone"],
           "correctAnswer": "NME",
           "trivia": "'The Stone Roses', das Deb\u00fctalbum der britischen Band The Stone Roses, wurde 1989 ver\u00f6ffentlicht und gilt als eines der einflussreichsten Alben der 80er Jahre. NME (New Musical Express) lobte das Album f\u00fcr seine innovativen Melodien und den frischen Sound, der die britische Musikszene revolutionierte. Die Kombination aus Rock, Psychedelia und Tanzmusik setzte neue Ma\u00dfst\u00e4be und beeinflusste viele nachfolgende K\u00fcnstler im Britpop-Genre."
         },
@@ -5142,12 +4945,7 @@
       "medium": [
         {
           "question": "Welche ber\u00fchmte afrikanische Musikerin arbeitete mit den Talking Heads an dem Album 'Remain in Light' zusammen?",
-          "options": [
-            "Ang\u00e9lique Kidjo",
-            "Nneka",
-            "Bj\u00f6rk",
-            "Sade"
-          ],
+          "options": ["Ang\u00e9lique Kidjo", "Nneka", "Bj\u00f6rk", "Sade"],
           "correctAnswer": "Ang\u00e9lique Kidjo",
           "trivia": "Das Album 'Remain in Light' wurde 1980 von den Talking Heads ver\u00f6ffentlicht und gilt als eines ihrer einflussreichsten Werke. Bei der Produktion des Albums arbeiteten die Bandmitglieder eng mit dem afrokubanischen Musiker Brian Eno zusammen, der den charakteristischen Sound pr\u00e4gte. Ang\u00e9lique Kidjo, eine herausragende afrikanische Musikerin, wurde sp\u00e4ter von diesem Album inspiriert und hat einige der Songs in ihrem eigenen Stil gecovert. 'Remain in Light' zeigt die Vermischung von Rock, Funk und Weltmusik und bleibt ein bedeutender Meilenstein in der Musikgeschichte."
         },
@@ -5223,23 +5021,13 @@
       "easy": [
         {
           "question": "Welchen Platz erreichte das Album 'Mellon Collie and the Infinite Sadness' von Smashing Pumpkins in den Billboard 200 Charts?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Album 'Mellon Collie and the Infinite Sadness' von Smashing Pumpkins erreichte 1995 den ersten Platz in den Billboard 200 Charts und wurde schnell zu einem der erfolgreichsten Alben der 90er Jahre. Es enth\u00e4lt Hits wie 'Bullet with Butterfly Wings' und '1979', die beide gro\u00dfe Erfolge waren. Das Album wird oft f\u00fcr seine Mischung aus verschiedenen Musikstilen und tiefgr\u00fcndigen Texten gelobt."
         },
         {
           "question": "Welches ber\u00fchmte Musikmagazin gab dem Album 'Mellon Collie and the Infinite Sadness' von Smashing Pumpkins eine hohe Bewertung und bezeichnete es als ein Meisterwerk der 90er Jahre?",
-          "options": [
-            "Rolling Stone",
-            "Billboard",
-            "NME",
-            "Pitchfork"
-          ],
+          "options": ["Rolling Stone", "Billboard", "NME", "Pitchfork"],
           "correctAnswer": "Rolling Stone",
           "trivia": "'Mellon Collie and the Infinite Sadness' von Smashing Pumpkins wurde 1995 ver\u00f6ffentlicht und erhielt von vielen Kritikern \u00fcberw\u00e4ltigende Anerkennung. Das Album wird oft als eines der besten Alben der 90er Jahre angesehen und enth\u00e4lt Hits wie 'Bullet with Butterfly Wings' und '1979'. Die Vielseitigkeit der Songs und die tiefgr\u00fcndigen Texte trugen zur positiven Rezeption bei, und das Album wurde in diversen Bestenlisten aufgef\u00fchrt."
         },
@@ -5477,12 +5265,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Illinois' von Sufjan Stevens in den US Billboard 200 Charts?",
-          "options": [
-            "Platz 10",
-            "Platz 20",
-            "Platz 30",
-            "Platz 50"
-          ],
+          "options": ["Platz 10", "Platz 20", "Platz 30", "Platz 50"],
           "correctAnswer": "Platz 10",
           "trivia": "Das Album 'Illinois', ver\u00f6ffentlicht im Jahr 2005 von Sufjan Stevens, erreichte in den US Billboard 200 Charts den beeindruckenden 10. Platz. Es gilt als eines der besten Alben des 21. Jahrhunderts und zeichnet sich durch seine Mischung aus Folk und orchestralen Elementen aus. 'Illinois' enth\u00e4lt zahlreiche Songs, die von der Geschichte und Kultur des Bundesstaates Illinois inspiriert sind, und wurde von Kritikern hoch gelobt."
         }
@@ -5582,12 +5365,7 @@
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums '\u00c1g\u00e6tis byrjun' von Sigur R\u00f3s, das als wegweisend f\u00fcr die Post-Rock-Musik gilt?",
-          "options": [
-            "1997",
-            "1999",
-            "2001",
-            "2003"
-          ],
+          "options": ["1997", "1999", "2001", "2003"],
           "correctAnswer": "1999",
           "trivia": "Das Album '\u00c1g\u00e6tis byrjun' von Sigur R\u00f3s wurde im Jahr 1999 ver\u00f6ffentlicht und gilt als ein Meilenstein in der Post-Rock-Musik. Es brachte der Band internationale Anerkennung und half, das Interesse an isl\u00e4ndischer Musik zu wecken. Mit seinen atmosph\u00e4rischen Kl\u00e4ngen und emotionalen Texten hat das Album einen bleibenden Einfluss auf die Musikszene hinterlassen."
         },
@@ -5641,12 +5419,7 @@
       "hard": [
         {
           "question": "In welchem Jahr trat Sigur R\u00f3s w\u00e4hrend ihrer Tour zur Unterst\u00fctzung des Albums '\u00c1g\u00e6tis byrjun' im legend\u00e4ren Glastonbury Festival auf?",
-          "options": [
-            "1999",
-            "2000",
-            "2001",
-            "2002"
-          ],
+          "options": ["1999", "2000", "2001", "2002"],
           "correctAnswer": "2001",
           "trivia": "Sigur R\u00f3s, die isl\u00e4ndische Post-Rock-Band, ver\u00f6ffentlichte ihr zweites Studioalbum '\u00c1g\u00e6tis byrjun' im Jahr 1999 und erlangte schnell internationale Bekanntheit. W\u00e4hrend ihrer Tour zur Promotion des Albums trat die Band 2001 auf dem renommierten Glastonbury Festival auf, wo sie mit ihrem einzigartigen Sound und eindrucksvollen Live-Performance das Publikum begeisterte. '\u00c1g\u00e6tis byrjun' gilt als eines der einflussreichsten Alben der 1990er Jahre und festigte den Status von Sigur R\u00f3s in der Musikszene."
         },
@@ -5872,12 +5645,7 @@
       "hard": [
         {
           "question": "Welcher Platz wurde im Jahr 2003 f\u00fcr das Album 'Chutes Too Narrow' von The Shins in den Billboard 200 erreicht?",
-          "options": [
-            "Platz 20",
-            "Platz 25",
-            "Platz 30",
-            "Platz 35"
-          ],
+          "options": ["Platz 20", "Platz 25", "Platz 30", "Platz 35"],
           "correctAnswer": "Platz 25",
           "trivia": "Das Album 'Chutes Too Narrow' von The Shins, das 2003 ver\u00f6ffentlicht wurde, erreichte in den Billboard 200 Platz 25. Dieses Album gilt als eines der einflussreichsten Indie-Rock-Alben der 2000er Jahre und brachte Hits wie 'New Slang' hervor, der die Popularit\u00e4t der Band steigerte. The Shins, gegr\u00fcndet 1996 in Albuquerque, New Mexico, wurden f\u00fcr ihren einzigartigen Sound und die poetischen Texte bekannt, die oft melancholische Themen behandeln."
         },
@@ -5940,12 +5708,7 @@
         },
         {
           "question": "Welches charakteristische Instrument wird h\u00e4ufig in den Songs des Albums 'Give Up' von The Postal Service verwendet?",
-          "options": [
-            "E-Gitarre",
-            "Klavier",
-            "Synthesizer",
-            "Schlagzeug"
-          ],
+          "options": ["E-Gitarre", "Klavier", "Synthesizer", "Schlagzeug"],
           "correctAnswer": "Synthesizer",
           "trivia": "The Postal Service ist bekannt f\u00fcr ihren einzigartigen Sound, der elektronische Elemente mit Indie-Pop kombiniert. In ihrem 2003 ver\u00f6ffentlichten Album 'Give Up' spielen Synthesizer eine zentrale Rolle und verleihen den Songs eine atmosph\u00e4rische Tiefe. Diese instrumentale Entscheidung tr\u00e4gt entscheidend zur melancholischen und gleichzeitig eing\u00e4ngigen Stimmung der Lieder bei."
         }
@@ -6010,12 +5773,7 @@
         },
         {
           "question": "Welches Jahr war f\u00fcr The Postal Service besonders bedeutsam im Zusammenhang mit Live-Auftritten des Albums 'Give Up'?",
-          "options": [
-            "2002",
-            "2003",
-            "2004",
-            "2005"
-          ],
+          "options": ["2002", "2003", "2004", "2005"],
           "correctAnswer": "2004",
           "trivia": "The Postal Service, bekannt f\u00fcr ihren einzigartigen Indie-Pop-Sound, tourten erstmals im Jahr 2004, ein Jahr nach der Ver\u00f6ffentlichung ihres Deb\u00fctalbums 'Give Up' im Jahr 2003. Diese Tour war besonders bemerkenswert, da es sich um eine der wenigen Gelegenheiten handelte, die Band live zu erleben, da sie nur sporadisch auftraten. Die Konzerte wurden gefeiert f\u00fcr ihre emotionale Intensit\u00e4t und die nostalgische Atmosph\u00e4re, die durch die Musik des Albums geschaffen wurde."
         }
@@ -6150,11 +5908,7 @@
       "easy": [
         {
           "question": "Welcher Hit des Albums 'Brothers' von The Black Keys erreichte hohe Chartplatzierungen und wurde zu einem ihrer bekanntesten Lieder?",
-          "options": [
-            "Tighten Up",
-            "Everlasting Light",
-            "Howlin' for You"
-          ],
+          "options": ["Tighten Up", "Everlasting Light", "Howlin' for You"],
           "correctAnswer": "Tighten Up",
           "trivia": "Das Album 'Brothers' von The Black Keys wurde 2010 ver\u00f6ffentlicht und brachte die Band zu internationalem Ruhm. 'Tighten Up' war einer der Hauptsingles des Albums und erreichte in mehreren L\u00e4ndern hohe Chartplatzierungen. Die Kombination aus bluesigen Riffs und eing\u00e4ngigem Refrain machte den Song zu einem Liebling der Fans und half, den charakteristischen Sound der Band zu definieren."
         },
@@ -6171,12 +5925,7 @@
         },
         {
           "question": "Mit welchem K\u00fcnstler arbeiten The Black Keys auf ihrem Album 'Brothers' von 2010 zusammen?",
-          "options": [
-            "RZA",
-            "Jack White",
-            "Danger Mouse",
-            "Dave Grohl"
-          ],
+          "options": ["RZA", "Jack White", "Danger Mouse", "Dave Grohl"],
           "correctAnswer": "Danger Mouse",
           "trivia": "The Black Keys haben auf ihrem Album 'Brothers', das 2010 ver\u00f6ffentlicht wurde, mit dem Produzenten Danger Mouse zusammengearbeitet. Diese Kollaboration hat dem Album einen einzigartigen Sound verliehen, der Elemente von Blues, Rock und Soul vereint. Danger Mouse ist bekannt f\u00fcr seine Arbeit mit verschiedenen K\u00fcnstlern und hat auch an anderen Projekten, wie Gnarls Barkley, mitgewirkt. 'Brothers' wurde von Kritikern gelobt und brachte den Black Keys eine breitere Anerkennung in der Musikszene."
         }
@@ -6357,12 +6106,7 @@
         },
         {
           "question": "Welcher bekannte Produzent war ma\u00dfgeblich an der Produktion des Albums 'The Moon & Antarctica' von Modest Mouse beteiligt und trug dazu bei, den unverwechselbaren Sound der Band weiterzuentwickeln?",
-          "options": [
-            "Brian Deck",
-            "Steve Albini",
-            "Rick Rubin",
-            "Phil Ek"
-          ],
+          "options": ["Brian Deck", "Steve Albini", "Rick Rubin", "Phil Ek"],
           "correctAnswer": "Brian Deck",
           "trivia": "Das Album 'The Moon & Antarctica' von Modest Mouse, das im Jahr 2000 ver\u00f6ffentlicht wurde, wurde von Brian Deck produziert. Deck, der auch f\u00fcr seine Arbeit mit Bands wie Iron & Wine bekannt ist, brachte eine einzigartige Klangfarbe und Komplexit\u00e4t in die Aufnahmen. Diese Zusammenarbeit half Modest Mouse, ihren charakteristischen Indie-Rock-Sound zu verfeinern und auf ein neues Level zu heben. Seine Einfl\u00fcsse sind besonders in der experimentellen Natur vieler Songs des Albums h\u00f6rbar."
         }
@@ -6392,12 +6136,7 @@
         },
         {
           "question": "In welchem Jahr trat die Band Queens of the Stone Age w\u00e4hrend ihrer Tour zum Album 'Songs for the Deaf' in Europa auf?",
-          "options": [
-            "2001",
-            "2002",
-            "2003",
-            "2004"
-          ],
+          "options": ["2001", "2002", "2003", "2004"],
           "correctAnswer": "2002",
           "trivia": "Queens of the Stone Age ver\u00f6ffentlichte ihr Album 'Songs for the Deaf' im Jahr 2002 und begab sich anschlie\u00dfend auf eine ausgedehnte Tournee durch Europa. W\u00e4hrend dieser Tour spielte die Band viele ihrer bekanntesten Songs, darunter 'No One Knows' und 'Go With the Flow', die beide auf dem Album enthalten sind. Die Tour war ein wichtiger Meilenstein in der Karriere der Band und half, ihre Fangemeinde erheblich zu vergr\u00f6\u00dfern."
         },
@@ -6670,12 +6409,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'xx' von The xx thematisiert die Unsicherheit und Komplexit\u00e4t von Beziehungen und enth\u00e4lt die wiederkehrende Zeile \"I don't want to wait for you\"?",
-          "options": [
-            "Intro",
-            "VCR",
-            "Crystal",
-            "Islands"
-          ],
+          "options": ["Intro", "VCR", "Crystal", "Islands"],
           "correctAnswer": "VCR",
           "trivia": "The xx ist bekannt f\u00fcr ihren minimalistischen Sound und die tiefgr\u00fcndigen Texte, die oft zwischen Melancholie und Hoffnung schwanken. Ihr Deb\u00fctalbum 'xx', das 2009 ver\u00f6ffentlicht wurde, enth\u00e4lt den Song 'VCR', der die Schwierigkeiten und \u00c4ngste in zwischenmenschlichen Beziehungen thematisiert. Die intime Atmosph\u00e4re des Songs wird durch die harmonischen Stimmen der Bandmitglieder Romy Madley Croft und Oliver Sim verst\u00e4rkt, die eine verletzliche Verbindung zu ihren H\u00f6rer:innen herstellen."
         }
@@ -6683,12 +6417,7 @@
       "hard": [
         {
           "question": "Welcher Song auf dem Album 'xx' von The xx thematisiert das Gef\u00fchl der emotionalen Distanz in einer Beziehung und enth\u00e4lt die wiederkehrende Zeile \"I can\u2019t give you everything\"?",
-          "options": [
-            "Crystal",
-            "Islands",
-            "VCR",
-            "Basic Space"
-          ],
+          "options": ["Crystal", "Islands", "VCR", "Basic Space"],
           "correctAnswer": "Basic Space",
           "trivia": "The xx ist eine britische Indie-Pop-Band, die 2009 mit ihrem Deb\u00fctalbum 'xx' international bekannt wurde. Der Song 'Basic Space' untersucht die Komplexit\u00e4t und Herausforderungen von Beziehungen, wobei die wiederkehrende Zeile \"I can\u2019t give you everything\" die innere Zerrissenheit und das Gef\u00fchl der Unzul\u00e4nglichkeit widerspiegelt. Das Album ist bekannt f\u00fcr seinen minimalistischen Sound und die melancholischen Texte, die oft von emotionalen Themen handeln."
         },
@@ -6775,12 +6504,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'The Reminder' von Feist thematisiert die Komplexit\u00e4t von Beziehungen und die Melancholie des Erwachsenwerdens?",
-          "options": [
-            "Mushaboom",
-            "1234",
-            "I Feel It All",
-            "Let It Die"
-          ],
+          "options": ["Mushaboom", "1234", "I Feel It All", "Let It Die"],
           "correctAnswer": "I Feel It All",
           "trivia": "Feist, eine kanadische Singer-Songwriterin, ver\u00f6ffentlichte 2007 ihr drittes Studioalbum 'The Reminder', das f\u00fcr seinen einzigartigen Sound und tiefgehende Texte bekannt ist. Der Song 'I Feel It All' reflektiert die emotionalen H\u00f6hen und Tiefen in zwischenmenschlichen Beziehungen und bietet einen eindringlichen Blick auf das Erwachsenwerden. Das Album erhielt viel Lob von Kritikern und half Feist, ein internationales Publikum zu erreichen."
         },
@@ -6937,12 +6661,7 @@
         },
         {
           "question": "Welcher Platz erreichte das Album 'Sound of Silver' von LCD Soundsystem in den US Billboard 200 Charts nach seiner Ver\u00f6ffentlichung im Jahr 2007?",
-          "options": [
-            "Platz 4",
-            "Platz 8",
-            "Platz 12",
-            "Platz 16"
-          ],
+          "options": ["Platz 4", "Platz 8", "Platz 12", "Platz 16"],
           "correctAnswer": "Platz 8",
           "trivia": "'Sound of Silver' von LCD Soundsystem, ver\u00f6ffentlicht im Jahr 2007, wurde sowohl von Kritikern als auch von Fans hochgelobt. Das Album erreichte Platz 8 in den US Billboard 200 und gilt als eines der einflussreichsten Werke der 2000er Jahre. Besonders die Singles 'North American Scum' und 'All My Friends' trugen ma\u00dfgeblich zum Erfolg des Albums und zur Popularit\u00e4t der Band bei. LCD Soundsystem kombinierte elektronische Musik mit Punk und Rock-Elementen, was ihnen eine treue Anh\u00e4ngerschaft einbrachte."
         }
@@ -6983,12 +6702,7 @@
         },
         {
           "question": "Welcher Produzent arbeitete mit den Fleet Foxes an ihrem Deb\u00fctalbum 'Fleet Foxes', das 2008 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Phil Ek",
-            "Rick Rubin",
-            "Brian Eno",
-            "T-Bone Burnett"
-          ],
+          "options": ["Phil Ek", "Rick Rubin", "Brian Eno", "T-Bone Burnett"],
           "correctAnswer": "Phil Ek",
           "trivia": "Das Deb\u00fctalbum 'Fleet Foxes' wurde 2008 ver\u00f6ffentlicht und gilt als Meilenstein im Indie-Folk-Genre. Phil Ek, ein bekannter Produzent, der auch mit Bands wie Band of Horses und Modest Mouse gearbeitet hat, \u00fcbernahm die Produktion dieses Albums. Die harmonischen Ges\u00e4nge und die einf\u00fchlsamen Texte der Fleet Foxes trugen ma\u00dfgeblich zu ihrem internationalen Erfolg bei."
         }
@@ -7158,11 +6872,7 @@
         },
         {
           "question": "Welches Musikvideo von The Raconteurs aus ihrem Album 'Broken Boy Soldiers' von 2006 zeigt eine symbolische Darstellung von Isolation und gemeinschaftlichem Kampf?",
-          "options": [
-            "Steady, As She Goes",
-            "Hands",
-            "Level"
-          ],
+          "options": ["Steady, As She Goes", "Hands", "Level"],
           "correctAnswer": "Steady, As She Goes",
           "trivia": "Das Musikvideo zu 'Steady, As She Goes' ist bekannt f\u00fcr seine visuelle Darstellung von Entfremdung und der Suche nach Gemeinschaft. The Raconteurs, eine Supergroup bestehend aus Jack White, Brendan Benson, Jack Lawrence und Patrick Keeler, ver\u00f6ffentlichten ihr Deb\u00fctalbum 'Broken Boy Soldiers' im Jahr 2006. Der Song selbst erlangte gro\u00dfe Popularit\u00e4t und wurde zum Markenzeichen der Band, w\u00e4hrend das Album f\u00fcr seinen einzigartigen Sound und die Mischung aus Rock-Elementen gefeiert wurde."
         },
@@ -7249,12 +6959,7 @@
         },
         {
           "question": "Welche bekannte K\u00fcnstlerin hat auf dem Album 'It\u2019s Blitz!' von The Yeah Yeah Yeahs mitgewirkt, insbesondere im Song 'Dull Life'?",
-          "options": [
-            "Karen O",
-            "Sofia Coppola",
-            "Peaches",
-            "Regina Spektor"
-          ],
+          "options": ["Karen O", "Sofia Coppola", "Peaches", "Regina Spektor"],
           "correctAnswer": "Peaches",
           "trivia": "Das Album 'It\u2019s Blitz!' von The Yeah Yeah Yeahs wurde 2009 ver\u00f6ffentlicht und zeigt eine interessante Mischung aus Rock und elektronischen Elementen. Die K\u00fcnstlerin Peaches, bekannt f\u00fcr ihren provokanten Stil und ihre einzigartigen Beats, hat auf dem Track 'Dull Life' mitgewirkt. Dies bringt eine zus\u00e4tzliche Dimension in den Song, der sich mit Themen der Entfremdung und des Alltags besch\u00e4ftigt."
         }
@@ -7284,12 +6989,7 @@
         },
         {
           "question": "In welchem Jahr traten die Yeah Yeah Yeahs w\u00e4hrend ihrer 'It\u2019s Blitz!' Tour erstmals in einem gro\u00dfen europ\u00e4ischen Festival auf?",
-          "options": [
-            "2008",
-            "2009",
-            "2010",
-            "2011"
-          ],
+          "options": ["2008", "2009", "2010", "2011"],
           "correctAnswer": "2009",
           "trivia": "Die Yeah Yeah Yeahs ver\u00f6ffentlichten ihr drittes Studioalbum 'It\u2019s Blitz!' im Jahr 2009 und tourten intensiv, um das Album zu promoten. W\u00e4hrend dieser Tour traten sie auf bedeutenden Festivals wie dem Coachella und dem Glastonbury Festival auf. Ihr energiegeladener Live-Auftritt und die Kombination aus Rock und elektronischen Elementen machten die Konzerte zu unvergesslichen Erlebnissen f\u00fcr die Fans."
         }
@@ -7610,12 +7310,7 @@
       "hard": [
         {
           "question": "Welcher Platz erreichte das Album 'If You\u2019re Feeling Sinister' von Belle and Sebastian in den britischen Albumcharts, nachdem es 1996 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Platz 25",
-            "Platz 15",
-            "Platz 35",
-            "Platz 10"
-          ],
+          "options": ["Platz 25", "Platz 15", "Platz 35", "Platz 10"],
           "correctAnswer": "Platz 15",
           "trivia": "Belle and Sebastian ver\u00f6ffentlichten ihr zweites Studioalbum 'If You\u2019re Feeling Sinister' im Jahr 1996 und erzielten damit gro\u00dfen Kritikererfolg. Das Album stieg in den britischen Albumcharts bis auf Platz 15 und wird oft als eines der besten Alben der 90er Jahre angesehen. Die melancholischen Melodien und poetischen Texte von Stuart Murdoch, dem Frontmann der Band, trugen zur Kultstatus des Albums bei und beeinflussten viele Indie-Musiker der folgenden Jahre."
         },
@@ -7783,12 +7478,7 @@
         },
         {
           "question": "Welches Musikvideo aus dem Album 'Wolfgang Amadeus Phoenix' von Phoenix zeigt eine farbenfrohe und surrealistische Animation, die perfekt zur verspielten Stimmung des Songs passt?",
-          "options": [
-            "1901",
-            "Lasso",
-            "Lisztomania",
-            "Fences"
-          ],
+          "options": ["1901", "Lasso", "Lisztomania", "Fences"],
           "correctAnswer": "Lisztomania",
           "trivia": "Phoenix ist eine franz\u00f6sische Band, die 1999 gegr\u00fcndet wurde und f\u00fcr ihren eing\u00e4ngigen Indie-Pop-Sound bekannt ist. Das Album 'Wolfgang Amadeus Phoenix', ver\u00f6ffentlicht im Jahr 2009, erhielt viel Kritikerlob und wurde mit einem Grammy ausgezeichnet. Das Musikvideo zu 'Lisztomania' ist besonders bemerkenswert f\u00fcr seine lebendige Animation und seine k\u00fcnstlerische Darstellung, die die Themen des Songs visuell unterstreicht."
         },
@@ -7899,23 +7589,13 @@
         },
         {
           "question": "Welches ikonische Lied von Gorillaz aus dem Album 'Demon Days' thematisiert die Herausforderungen und den Stress des modernen Lebens?",
-          "options": [
-            "Feel Good Inc.",
-            "Clint Eastwood",
-            "19-2000",
-            "Dare"
-          ],
+          "options": ["Feel Good Inc.", "Clint Eastwood", "19-2000", "Dare"],
           "correctAnswer": "Feel Good Inc.",
           "trivia": "Das Album 'Demon Days' von Gorillaz, das 2005 ver\u00f6ffentlicht wurde, ist bekannt f\u00fcr seine kritischen Themen und den Einfluss auf die Popkultur. 'Feel Good Inc.' wurde zu einer Hymne gegen Konsumismus und die Oberfl\u00e4chlichkeit der modernen Gesellschaft. Mit seinem eing\u00e4ngigen Beat und tiefgr\u00fcndigen Texten spiegelte das Lied die Sorgen der damaligen Zeit wider und katapultierte Gorillaz in den internationalen Musik-Olymp."
         },
         {
           "question": "Welches Album von Gorillaz wurde im Jahr 2005 ver\u00f6ffentlicht und enth\u00e4lt den Hit 'Feel Good Inc.'?",
-          "options": [
-            "Demon Days",
-            "Plastic Beach",
-            "The Fall",
-            "Humanz"
-          ],
+          "options": ["Demon Days", "Plastic Beach", "The Fall", "Humanz"],
           "correctAnswer": "Demon Days",
           "trivia": "Das Album 'Demon Days' von Gorillaz wurde am 23. April 2005 ver\u00f6ffentlicht und gilt als eines der erfolgreichsten Werke der Band. Es enth\u00e4lt mehrere Hits, darunter 'Feel Good Inc.', der weltweit popul\u00e4r wurde und f\u00fcr seinen eing\u00e4ngigen Refrain und den einzigartigen Sound bekannt ist. 'Demon Days' thematisiert soziale und politische Themen und wird oft f\u00fcr seine innovative Mischung aus verschiedenen Musikstilen gelobt."
         }
@@ -8141,12 +7821,7 @@
         },
         {
           "question": "In welchem Jahr trat die Band Pavement erstmals live mit ihrem Album 'Crooked Rain, Crooked Rain' auf?",
-          "options": [
-            "1992",
-            "1994",
-            "1995",
-            "1996"
-          ],
+          "options": ["1992", "1994", "1995", "1996"],
           "correctAnswer": "1994",
           "trivia": "Pavement ver\u00f6ffentlichte ihr zweites Album 'Crooked Rain, Crooked Rain' im Jahr 1994, das f\u00fcr seinen Einfluss auf die Indie-Rock-Szene bekannt ist. Im selben Jahr startete die Band eine umfangreiche Tour, um das Album zu promoten, und spielte in vielen renommierten Clubs und Festivals. Der Song 'Cut Your Hair' wurde besonders beliebt und ist bis heute einer der bekanntesten Tracks von Pavement."
         }
@@ -8154,23 +7829,13 @@
       "medium": [
         {
           "question": "Welches prominente Musikmagazin beschrieb das Album 'Crooked Rain, Crooked Rain' von Pavement als eine der besten Ver\u00f6ffentlichungen des Jahres 1994?",
-          "options": [
-            "Rolling Stone",
-            "Pitchfork",
-            "NME",
-            "Spin"
-          ],
+          "options": ["Rolling Stone", "Pitchfork", "NME", "Spin"],
           "correctAnswer": "NME",
           "trivia": "'Crooked Rain, Crooked Rain' ist das zweite Studioalbum der US-amerikanischen Indie-Rock-Band Pavement und wurde 1994 ver\u00f6ffentlicht. Das Album erhielt viel Lob von Kritikern und wurde h\u00e4ufig als Meilenstein des Slacker-Rock bezeichnet. Insbesondere die Single 'Cut Your Hair' erreichte gro\u00dfe Popularit\u00e4t und trug zur Reputation der Band bei. Das NME nannte das Album nicht nur eine der besten Ver\u00f6ffentlichungen des Jahres, sondern hob auch den einzigartigen Sound und die lyrische Cleverness von Pavement hervor."
         },
         {
           "question": "Welcher bekannte K\u00fcnstler hat an einem Song auf dem Album 'Crooked Rain, Crooked Rain' von Pavement mitgewirkt?",
-          "options": [
-            "Thurston Moore",
-            "Beck",
-            "Elliott Smith",
-            "Kim Deal"
-          ],
+          "options": ["Thurston Moore", "Beck", "Elliott Smith", "Kim Deal"],
           "correctAnswer": "Thurston Moore",
           "trivia": "Pavement ist eine einflussreiche Indie-Rock-Band, die 1994 ihr zweites Album 'Crooked Rain, Crooked Rain' ver\u00f6ffentlichte. Der Song 'Range Life' enth\u00e4lt Gastbeitr\u00e4ge von Thurston Moore, dem Frontmann der legend\u00e4ren Band Sonic Youth. Das Album wird oft f\u00fcr seine lo-fi \u00c4sthetik und cleveren Texte gelobt und gilt als Meilenstein des 90er-Jahre Indie-Rocks."
         },
@@ -8605,12 +8270,7 @@
         },
         {
           "question": "Welches Jahr markierte die Ver\u00f6ffentlichung des Albums 'Silent Alarm' von Bloc Party, das als einflussreich f\u00fcr das Post-Punk-Revival gilt?",
-          "options": [
-            "2003",
-            "2005",
-            "2007",
-            "2009"
-          ],
+          "options": ["2003", "2005", "2007", "2009"],
           "correctAnswer": "2005",
           "trivia": "Bloc Party ver\u00f6ffentlichte ihr Deb\u00fctalbum 'Silent Alarm' im Jahr 2005 und trug ma\u00dfgeblich zur Wiederbelebung des Post-Punk-Genres bei. Mit energiegeladenen Songs wie 'Banquet' und 'Helicopter' erforschte die Band Themen wie Identit\u00e4t und Urbanit\u00e4t. Das Album erhielt viel Lob von Kritikern und beeinflusste zahlreiche Bands, die in den folgenden Jahren \u00e4hnliche Musikstile verfolgten."
         }
@@ -8664,12 +8324,7 @@
         },
         {
           "question": "Welche Single aus dem Album 'Silent Alarm' von Bloc Party wurde besonders f\u00fcr ihre politische Botschaft und ihren Einfluss auf die britische Musikszene gelobt, was zu einer verst\u00e4rkten Reaktion der Fans f\u00fchrte?",
-          "options": [
-            "Helicopter",
-            "Banquet",
-            "Pioneers",
-            "So Here We Are"
-          ],
+          "options": ["Helicopter", "Banquet", "Pioneers", "So Here We Are"],
           "correctAnswer": "Helicopter",
           "trivia": "Die Single 'Helicopter' aus dem Album 'Silent Alarm' von Bloc Party, das 2005 ver\u00f6ffentlicht wurde, gilt als einer der st\u00e4rksten Tracks des Albums und hat sich zu einer Hymne f\u00fcr die Generation der 2000er entwickelt. Die energiegeladene Musik und der eindringliche Text thematisieren den politischen Unmut und die gesellschaftlichen Spannungen der Zeit. Diese Kombination aus musikalischer Innovation und relevanten Themen f\u00fchrte zu einer intensiven Fan-Reaktion und einem nachhaltigen Einfluss auf die britische Indie-Rock-Szene."
         },
@@ -8826,23 +8481,13 @@
         },
         {
           "question": "Welches besonders beliebte Lied von Alt-J aus dem Album 'An Awesome Wave' wurde h\u00e4ufig in Social Media und Filmen verwendet, was zu einer gro\u00dfen Fan-Reaktion f\u00fchrte?",
-          "options": [
-            "Breezeblocks",
-            "Taro",
-            "Fitzpleasure",
-            "Matilda"
-          ],
+          "options": ["Breezeblocks", "Taro", "Fitzpleasure", "Matilda"],
           "correctAnswer": "Breezeblocks",
           "trivia": "Das Lied 'Breezeblocks' von Alt-J, aus dem Deb\u00fctalbum 'An Awesome Wave', wurde schnell zu einem Hit und erreichte hohe Chartplatzierungen. Es ist bekannt f\u00fcr seinen eing\u00e4ngigen Refrain und die einzigartigen Klangexperimente, die Alt-J charakterisieren. Die Verwendung des Songs in verschiedenen Medien, einschlie\u00dflich Filmen und Werbespots, hat die Popularit\u00e4t des Tracks verst\u00e4rkt und zu einer leidenschaftlichen Fanbasis gef\u00fchrt."
         },
         {
           "question": "Mit welchem K\u00fcnstler hat Alt-J auf dem Album 'An Awesome Wave' zusammengearbeitet?",
-          "options": [
-            "Lorde",
-            "Django Django",
-            "Arctic Monkeys",
-            "Hozier"
-          ],
+          "options": ["Lorde", "Django Django", "Arctic Monkeys", "Hozier"],
           "correctAnswer": "Django Django",
           "trivia": "Alt-J ist eine britische Indie-Rock-Band, die 2012 ihr Deb\u00fctalbum 'An Awesome Wave' ver\u00f6ffentlicht hat. Auf diesem Album findet sich eine Kollaboration mit der Band Django Django, die den Sound von Alt-J weiter bereichert. 'An Awesome Wave' erhielt viel Anerkennung und wurde 2012 mit dem prestigetr\u00e4chtigen Mercury Prize ausgezeichnet. Die Mischung aus elektronischen Kl\u00e4ngen und akustischen Elementen macht das Album zu einem einzigartigen Erlebnis."
         }
@@ -8907,12 +8552,7 @@
         },
         {
           "question": "Welches bedeutende Musikmagazin verlieh dem Deb\u00fctalbum 'An Awesome Wave' von Alt-J im Jahr 2012 die H\u00f6chstwertung und lobte besonders die innovative Kombination aus verschiedenen Musikstilen?",
-          "options": [
-            "Pitchfork",
-            "NME",
-            "Rolling Stone",
-            "The Guardian"
-          ],
+          "options": ["Pitchfork", "NME", "Rolling Stone", "The Guardian"],
           "correctAnswer": "NME",
           "trivia": "'An Awesome Wave' von Alt-J erhielt von der Musikzeitschrift NME die H\u00f6chstwertung von 10/10. Das Album wurde f\u00fcr seine experimentellen Kl\u00e4nge und die ungew\u00f6hnliche Mischung aus Indie-Rock, Folktronica und elektronischen Elementen gelobt. Es stellte sich als ein kritischer und kommerzieller Erfolg heraus und trug ma\u00dfgeblich zur Popularit\u00e4t von Alt-J bei. Die Band wurde f\u00fcr ihre kreative Herangehensweise an Songwriting und Produktion gefeiert, was das Deb\u00fctalbum zu einem Meilenstein der Musikszene 2012 machte."
         }
@@ -9174,12 +8814,7 @@
         },
         {
           "question": "In welchem Jahr trat James Blake erstmals mit seinem selbstbetitelten Album 'James Blake' auf Tournee?",
-          "options": [
-            "2010",
-            "2011",
-            "2012",
-            "2013"
-          ],
+          "options": ["2010", "2011", "2012", "2013"],
           "correctAnswer": "2011",
           "trivia": "James Blake, der britische Singer-Songwriter und Produzent, ver\u00f6ffentlichte sein Deb\u00fctalbum 'James Blake' im Jahr 2011. Im gleichen Jahr begann er mit der Promotion des Albums durch verschiedene Live-Auftritte und Touren. Seine innovative Mischung aus elektronischer Musik und Soul sorgte f\u00fcr viel Aufmerksamkeit und half ihm, eine treue Fangemeinde aufzubauen."
         },
@@ -9279,12 +8914,7 @@
       "easy": [
         {
           "question": "Welchen Platz erreichte das Album 'The Idler Wheel\u2026' von Fiona Apple in den US Billboard 200 Charts?",
-          "options": [
-            "Platz 1",
-            "Platz 2",
-            "Platz 5",
-            "Platz 10"
-          ],
+          "options": ["Platz 1", "Platz 2", "Platz 5", "Platz 10"],
           "correctAnswer": "Platz 5",
           "trivia": "Fiona Apples Album 'The Idler Wheel\u2026', das 2012 ver\u00f6ffentlicht wurde, erreichte in den US Billboard 200 Charts den 5. Platz. Dieses Album wurde von Kritikern hoch gelobt und markierte Apples R\u00fcckkehr nach einer langen Pause seit ihrem letzten Studioalbum. Die Songs sind gepr\u00e4gt von pers\u00f6nlichen Texten und innovativen Kl\u00e4ngen, was Fiona Apple als eine der einzigartigsten K\u00fcnstlerinnen ihrer Generation festigte."
         },
@@ -9336,12 +8966,7 @@
         },
         {
           "question": "Welcher Produzent arbeitete eng mit Fiona Apple an ihrem Album 'The Idler Wheel\u2026', das 2012 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Jon Brion",
-            "Rick Rubin",
-            "David Foster",
-            "Brian Eno"
-          ],
+          "options": ["Jon Brion", "Rick Rubin", "David Foster", "Brian Eno"],
           "correctAnswer": "Jon Brion",
           "trivia": "Fiona Apple arbeitete an ihrem Album 'The Idler Wheel\u2026' mit dem Produzenten Jon Brion zusammen, der bereits bei ihrem vorherigen Album 'Extraordinary Machine' eine wichtige Rolle spielte. Brion ist bekannt f\u00fcr seinen experimentellen Ansatz und seine F\u00e4higkeit, komplexe Emotionen in Musik zu \u00fcbersetzen. Das Album erhielt viel Lob f\u00fcr seine ehrlichen Texte und die innovative Produktion, die Apples charakteristischen Stil unterstreicht."
         }
@@ -9395,12 +9020,7 @@
       "easy": [
         {
           "question": "Welches Instrument spielt Conor Oberst, der K\u00fcnstler hinter Bright Eyes, h\u00e4ufig auf dem Album 'Lifted or The Story is in the Soil, Keep Your Ear to the Ground'?",
-          "options": [
-            "Gitarre",
-            "Klavier",
-            "Schlagzeug",
-            "Violine"
-          ],
+          "options": ["Gitarre", "Klavier", "Schlagzeug", "Violine"],
           "correctAnswer": "Gitarre",
           "trivia": "Bright Eyes, die von Conor Oberst gegr\u00fcndete Band, ver\u00f6ffentlichte 2002 das Album 'Lifted or The Story is in the Soil, Keep Your Ear to the Ground'. Auf diesem Album spielt Oberst h\u00e4ufig Gitarre, die einen zentralen Bestandteil des Sounds bildet. Die Mischung aus Folk und Indie-Rock-Elementen ist typisch f\u00fcr den Stil von Bright Eyes und tr\u00e4gt zur emotionalen Tiefe der Texte bei."
         },
@@ -9511,23 +9131,13 @@
       "easy": [
         {
           "question": "Welches hohe Chartplatzierung erreichte das Album 'Goo' von Sonic Youth in den USA?",
-          "options": [
-            "Platz 1",
-            "Platz 10",
-            "Platz 30",
-            "Platz 50"
-          ],
+          "options": ["Platz 1", "Platz 10", "Platz 30", "Platz 50"],
           "correctAnswer": "Platz 30",
           "trivia": "Das Album 'Goo' von Sonic Youth wurde 1990 ver\u00f6ffentlicht und gilt als eines der einflussreichsten Alben der Alternative-Rock-Szene. Es erreichte in den USA Platz 30 der Billboard 200 und markierte einen wichtigen Schritt in der Karriere der Band. Mit Songs wie 'Kissability' und 'Dirty Boots' zeigte Sonic Youth ihren charakteristischen Sound, der von dissonanten Gitarrenriffs und experimentellen Kl\u00e4ngen gepr\u00e4gt ist."
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Goo' von Sonic Youth, das als eines der einflussreichsten Alben der 1990er Jahre gilt?",
-          "options": [
-            "1987",
-            "1990",
-            "1992",
-            "1995"
-          ],
+          "options": ["1987", "1990", "1992", "1995"],
           "correctAnswer": "1990",
           "trivia": "Sonic Youth ver\u00f6ffentlichte ihr Album 'Goo' im Jahr 1990, das als Meilenstein der alternativen Rockmusik gilt. Das Album brachte die Band einem breiteren Publikum n\u00e4her und half, das Genre des Noise Rock popul\u00e4r zu machen. Mit Songs wie 'Kissability' und 'Dirty Boots' zeigte die Band ihren einzigartigen Stil, der Avantgarde-Elemente mit eing\u00e4ngigen Melodien verband. 'Goo' wird oft als eines der besten Alben der 90er Jahre angesehen und hatte einen nachhaltigen Einfluss auf zahlreiche K\u00fcnstler und Bands."
         },
@@ -9546,12 +9156,7 @@
       "medium": [
         {
           "question": "Welchen Platz erreichte das Album 'Goo' von Sonic Youth in den Billboard 200 Charts?",
-          "options": [
-            "Platz 20",
-            "Platz 30",
-            "Platz 40",
-            "Platz 50"
-          ],
+          "options": ["Platz 20", "Platz 30", "Platz 40", "Platz 50"],
           "correctAnswer": "Platz 30",
           "trivia": "Sonic Youth ver\u00f6ffentlichte 1990 das Album 'Goo', das als eines ihrer erfolgreichsten Werke gilt. Es erreichte Platz 30 in den Billboard 200 Charts und festigte den Status der Band in der alternativen Rockszene. 'Goo' enth\u00e4lt bekannte Songs wie 'Kissability' und 'Cool Thing', die beide zur Popularit\u00e4t des Albums beitrugen. Das Album wird oft als ein Meilenstein des Noise Rock angesehen."
         },
@@ -9627,12 +9232,7 @@
       "easy": [
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'XO' von Elliott Smith, das von Kritikern besonders f\u00fcr seine melancholischen Texte gelobt wurde?",
-          "options": [
-            "1996",
-            "1998",
-            "2000",
-            "2002"
-          ],
+          "options": ["1996", "1998", "2000", "2002"],
           "correctAnswer": "1998",
           "trivia": "Elliott Smith ver\u00f6ffentlichte sein Album 'XO' im Jahr 1998, das als eines seiner besten Werke gilt. Kritiker lobten das Album f\u00fcr seine eing\u00e4ngigen Melodien und tiefgr\u00fcndigen, oft autobiografischen Texte. 'XO' enth\u00e4lt bekannte Songs wie 'Waltz #2 (XO)' und 'Baby Britain', die beide zum Markenzeichen von Smiths einzigartigem Stil wurden. Das Album festigte seinen Platz in der Indie-Musikszene und wird bis heute gesch\u00e4tzt."
         },
@@ -9778,12 +9378,7 @@
       "medium": [
         {
           "question": "Welches bedeutende Musikmagazin bezeichnete das Album 'Teen Dream' von Beach House als eines der besten Alben des Jahres 2010?",
-          "options": [
-            "Pitchfork",
-            "Rolling Stone",
-            "NME",
-            "Spin"
-          ],
+          "options": ["Pitchfork", "Rolling Stone", "NME", "Spin"],
           "correctAnswer": "Pitchfork",
           "trivia": "Das Album 'Teen Dream' von Beach House wurde 2010 ver\u00f6ffentlicht und erhielt von Kritikern \u00fcberwiegend positive Resonanz. Insbesondere Pitchfork lobte die tr\u00e4umerische Klanglandschaft und die emotionale Tiefe der Songs. 'Teen Dream' gilt als eines der wegweisenden Alben des Dream-Pop-Genres und trug ma\u00dfgeblich zur Popularit\u00e4t von Beach House bei. Mit Hits wie 'Zebra' und 'Norway' festigte das Duo ihren Status als innovative K\u00fcnstler in der Indie-Musikszene."
         },
@@ -9813,12 +9408,7 @@
       "hard": [
         {
           "question": "Welches Musikvideo aus dem Album 'Teen Dream' von Beach House zeigt eine traumhafte, surreale Darstellung von Natur, die oft mit nostalgischen und melancholischen Bildern kombiniert wird?",
-          "options": [
-            "Zebra",
-            "Norway",
-            "Walk in the Park",
-            "Used to Be"
-          ],
+          "options": ["Zebra", "Norway", "Walk in the Park", "Used to Be"],
           "correctAnswer": "Walk in the Park",
           "trivia": "Das Musikvideo zu 'Walk in the Park' von Beach House, ver\u00f6ffentlicht im Jahr 2010 auf dem Album 'Teen Dream', ist bekannt f\u00fcr seine eindrucksvolle visuelle Umsetzung, die eine melancholische Stimmung vermittelt. Die Bilder sind durchzogen von sanften Farben und traumhaften Naturaufnahmen, die die emotionale Tiefe des Songs unterstreichen. Beach House, ein Duo aus Baltimore, Maryland, ist f\u00fcr ihren Dream-Pop-Stil bekannt und hat mit 'Teen Dream' einen wichtigen Beitrag zur Indie-Musikszene geleistet."
         },
@@ -9997,12 +9587,7 @@
         },
         {
           "question": "Welches Musikvideo aus dem Album 'Gish' von The Smashing Pumpkins wurde f\u00fcr seine k\u00fcnstlerische \u00c4sthetik und symbolischen Bilder bekannt?",
-          "options": [
-            "Siva",
-            "Rhinoceros",
-            "Bury Me",
-            "Daydream"
-          ],
+          "options": ["Siva", "Rhinoceros", "Bury Me", "Daydream"],
           "correctAnswer": "Siva",
           "trivia": "Das Musikvideo zu 'Siva', einem der bekanntesten Songs aus dem Deb\u00fctalbum 'Gish' von The Smashing Pumpkins, ist f\u00fcr seine eindrucksvolle visuelle Umsetzung und die traumhaften Bilder bekannt. 'Gish', das 1991 ver\u00f6ffentlicht wurde, markierte den Beginn der Karriere der Band und kombinierte Elemente von Alternative Rock und psychedelischem Sound. Der Song 'Siva' behandelt Themen wie Sehnsucht und innere K\u00e4mpfe, was sich auch in der Bildsprache des Videos widerspiegelt."
         }
@@ -10056,11 +9641,7 @@
         },
         {
           "question": "Welches Musikvideo von The Smashing Pumpkins, das aus dem Album 'Gish' von 1991 stammt, zeigt eine surrealistische Darstellung von Natur und Technologie?",
-          "options": [
-            "Siva",
-            "Rhinoceros",
-            "Crush"
-          ],
+          "options": ["Siva", "Rhinoceros", "Crush"],
           "correctAnswer": "Siva",
           "trivia": "Das Musikvideo zu 'Siva' von The Smashing Pumpkins, dem Deb\u00fctalbum 'Gish', zeigt eine faszinierende Mischung aus traumhaften Bildern und einer intensiven Performance der Band. Es wurde von Regisseur Samuel Bayer inszeniert, der auch f\u00fcr viele andere ikonische Musikvideos bekannt ist. Die visuelle \u00c4sthetik des Videos spiegelt den einzigartigen Sound der Band wider, der Elemente aus Alternative Rock und Grunge kombiniert."
         },
@@ -10322,23 +9903,13 @@
       "easy": [
         {
           "question": "Welches spezielle Instrument wurde w\u00e4hrend des Aufnahmeprozesses des Albums 'Mezzanine' von Massive Attack h\u00e4ufig verwendet?",
-          "options": [
-            "Theremin",
-            "E-Gitarre",
-            "Synthesizer",
-            "Geige"
-          ],
+          "options": ["Theremin", "E-Gitarre", "Synthesizer", "Geige"],
           "correctAnswer": "Synthesizer",
           "trivia": "Massive Attack experimentierte w\u00e4hrend des Aufnahmeprozesses des Albums 'Mezzanine' von 1998 intensiv mit verschiedenen Kl\u00e4ngen und Effekten. Insbesondere der Einsatz von Synthesizern trug dazu bei, den charakteristischen d\u00fcsteren und atmosph\u00e4rischen Sound des Albums zu kreieren. 'Mezzanine' gilt als ein Meilenstein in der Trip-Hop-Musik und enth\u00e4lt ikonische Tracks wie 'Teardrop' und 'Angel'."
         },
         {
           "question": "Welches bekannte Lied von Massive Attack ist auf dem Album 'Mezzanine' aus dem Jahr 1998 zu finden?",
-          "options": [
-            "Teardrop",
-            "Angel",
-            "Protection",
-            "Inertia Creeps"
-          ],
+          "options": ["Teardrop", "Angel", "Protection", "Inertia Creeps"],
           "correctAnswer": "Teardrop",
           "trivia": "Massive Attack ist eine britische Musikgruppe, die als Pioniere des Trip-Hop-Genres gilt. Ihr Album 'Mezzanine' von 1998 enth\u00e4lt den Hit 'Teardrop', der durch den eindringlichen Gesang von Elizabeth Fraser bekannt wurde. Das Album ist f\u00fcr seinen dunklen, atmosph\u00e4rischen Sound und innovative Produktion ber\u00fchmt und gilt als eines der besten Alben der 90er Jahre. 'Mezzanine' hat nicht nur die Musikszene beeinflusst, sondern auch die visuelle Kunst und Filmkultur."
         },
@@ -10357,12 +9928,7 @@
       "medium": [
         {
           "question": "Welches ikonische Musikvideo aus dem Album 'Mezzanine' von Massive Attack zeigt eine d\u00fcstere, surrealistische Atmosph\u00e4re und wurde von dem renommierten Regisseur Walter Stern erstellt?",
-          "options": [
-            "Teardrop",
-            "Angel",
-            "Inertia Creeps",
-            "Risingson"
-          ],
+          "options": ["Teardrop", "Angel", "Inertia Creeps", "Risingson"],
           "correctAnswer": "Teardrop",
           "trivia": "Das Musikvideo zu 'Teardrop' von Massive Attack, das 1998 im Rahmen des Albums 'Mezzanine' ver\u00f6ffentlicht wurde, ist f\u00fcr seine eindringliche visuelle Darstellung und die Verwendung von CGI bekannt. Es zeigt eindrucksvolle Bilder und vermittelt eine melancholische Stimmung, die perfekt zur Musik passt. Die Kombination aus emotionalem Gesang und hypnotisierenden Bildern macht das Video zu einem der denkw\u00fcrdigsten der Band. Massive Attack, als Pioniere des Trip-Hop, haben mit 'Mezzanine' einen bleibenden Einfluss auf die Musik- und Videokunst hinterlassen."
         },
@@ -10554,12 +10120,7 @@
       "easy": [
         {
           "question": "Welchen Platz erreichte das Album 'My Love Is Cool' von Wolf Alice in den UK Albums Chart?",
-          "options": [
-            "Platz 2",
-            "Platz 4",
-            "Platz 6",
-            "Platz 1"
-          ],
+          "options": ["Platz 2", "Platz 4", "Platz 6", "Platz 1"],
           "correctAnswer": "Platz 2",
           "trivia": "Das Deb\u00fctalbum 'My Love Is Cool' von Wolf Alice, das 2015 ver\u00f6ffentlicht wurde, erreichte in den UK Albums Chart den beeindruckenden zweiten Platz. Die Band, die f\u00fcr ihren einzigartigen Mix aus Rock, Grunge und Shoegaze bekannt ist, konnte mit diesem Album zahlreiche Fans gewinnen. Zu den bekanntesten Songs des Albums z\u00e4hlen 'Bros' und 'Giant', die beide in der alternativen Musikszene gro\u00dfe Erfolge feierten."
         },
@@ -10624,12 +10185,7 @@
       "hard": [
         {
           "question": "Welche bekannte britische Produzentin arbeitete an Wolf Alices Deb\u00fctalbum 'My Love Is Cool', das 2015 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Rob Ellis",
-            "Linda Perry",
-            "Gareth Jones",
-            "Dan Carey"
-          ],
+          "options": ["Rob Ellis", "Linda Perry", "Gareth Jones", "Dan Carey"],
           "correctAnswer": "Rob Ellis",
           "trivia": "Wolf Alice, eine britische Alternative-Rock-Band, ver\u00f6ffentlichte 2015 ihr Deb\u00fctalbum 'My Love Is Cool', das von Rob Ellis produziert wurde. Ellis ist bekannt f\u00fcr seine Arbeit mit verschiedenen K\u00fcnstlern und Bands, darunter PJ Harvey und Bat for Lashes. Das Album erhielt sowohl von Kritikern als auch von Fans viel Lob und wurde f\u00fcr seinen vielseitigen Sound und die tiefgr\u00fcndigen Texte gesch\u00e4tzt. Es zeigt eine Mischung aus Grunge, Folk und Shoegaze-Elementen, die Wolf Alice zu einer der herausragenden Bands ihrer Generation machte."
         },
@@ -10681,12 +10237,7 @@
         },
         {
           "question": "Welche Musikrichtung beeinflusste stark die Kl\u00e4nge des Albums 'Psychocandy' von The Jesus and Mary Chain?",
-          "options": [
-            "Punk Rock",
-            "Jazz",
-            "Klassik",
-            "Reggae"
-          ],
+          "options": ["Punk Rock", "Jazz", "Klassik", "Reggae"],
           "correctAnswer": "Punk Rock",
           "trivia": "The Jesus and Mary Chain, eine schottische Band, die 1983 gegr\u00fcndet wurde, zog gro\u00dfen Einfluss aus der Punk-Rock-Szene. Ihr Deb\u00fctalbum 'Psychocandy', das 1985 ver\u00f6ffentlicht wurde, kombiniert Elemente von Punk mit einer einzigartigen Melodienstruktur und erzeugt so einen unverwechselbaren Sound. Die Band ist bekannt f\u00fcr ihre Verwendung von verzerrten Gitarren und melancholischen Texten, die den Spirit der 80er Jahre perfekt einfangen."
         },
@@ -10832,12 +10383,7 @@
         },
         {
           "question": "Welche bekannte Produzenten-Kollaboration hat Sigur R\u00f3s f\u00fcr ihr Album 'Takk\u2026' im Jahr 2005 genutzt?",
-          "options": [
-            "Steve Albini",
-            "Gustav Holst",
-            "Flood",
-            "Brian Eno"
-          ],
+          "options": ["Steve Albini", "Gustav Holst", "Flood", "Brian Eno"],
           "correctAnswer": "Flood",
           "trivia": "Sigur R\u00f3s arbeitete f\u00fcr ihr Album 'Takk\u2026' mit dem renommierten Produzenten Flood zusammen, der auch f\u00fcr seine Arbeit mit Bands wie Depeche Mode und Nine Inch Nails bekannt ist. 'Takk\u2026' wurde f\u00fcr seinen einzigartigen Sound und die emotionale Tiefe gelobt, die durch die sorgf\u00e4ltige Produktion von Flood verst\u00e4rkt wurde. Das Album enth\u00e4lt einige der bekanntesten Songs der Band, darunter 'Hopp\u00edpolla' und 'S\u00e6gl\u00f3pur', die beide die charakteristische Mischung aus atmosph\u00e4rischen Kl\u00e4ngen und eindringlichen Melodien zeigen."
         },
@@ -10913,12 +10459,7 @@
         },
         {
           "question": "Welches Musikinstrument spielt eine zentrale Rolle im Titelsong 'Neon Bible' von Arcade Fire, dem Album, das 2007 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Orgel",
-            "Gitarre",
-            "Schlagzeug",
-            "Geige"
-          ],
+          "options": ["Orgel", "Gitarre", "Schlagzeug", "Geige"],
           "correctAnswer": "Orgel",
           "trivia": "Arcade Fire ist eine kanadische Indierockband, die f\u00fcr ihren kraftvollen Sound und ihre vielschichtigen Texte bekannt ist. Das Album 'Neon Bible' enth\u00e4lt eine markante Verwendung der Orgel, die dem Titelsong eine eindringliche Atmosph\u00e4re verleiht. Die Orgel symbolisiert in vielen Liedern des Albums ein Gef\u00fchl der Melancholie und des Traums, was das Gesamtbild des Werkes verst\u00e4rkt."
         },
@@ -11134,12 +10675,7 @@
       "easy": [
         {
           "question": "Welches Instrument spielt Kurt Vile \u00fcberwiegend auf seinem Album 'Wakin on a Pretty Daze', das 2013 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Gitarre",
-            "Klavier",
-            "Schlagzeug",
-            "Bass"
-          ],
+          "options": ["Gitarre", "Klavier", "Schlagzeug", "Bass"],
           "correctAnswer": "Gitarre",
           "trivia": "Kurt Vile ist bekannt f\u00fcr seinen charakteristischen Gitarrenstil, der auch auf dem Album 'Wakin on a Pretty Daze' stark zur Geltung kommt. Die Musik auf diesem Album kombiniert Elemente des Folk und Rock, wobei Vile h\u00e4ufig eine akustische und eine elektrische Gitarre einsetzt. Die Produktion des Albums betont eine entspannte, lo-fi \u00c4sthetik, die den melancholischen und tr\u00e4umerischen Klang seiner Kompositionen unterstreicht."
         },
@@ -11307,12 +10843,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'This Is Happening' von LCD Soundsystem in den US Billboard 200 Charts nach seiner Ver\u00f6ffentlichung im Jahr 2010?",
-          "options": [
-            "Platz 1",
-            "Platz 4",
-            "Platz 10",
-            "Platz 20"
-          ],
+          "options": ["Platz 1", "Platz 4", "Platz 10", "Platz 20"],
           "correctAnswer": "Platz 10",
           "trivia": "Das Album 'This Is Happening' von LCD Soundsystem, das 2010 ver\u00f6ffentlicht wurde, erreichte in den US Billboard 200 Charts den 10. Platz. Es war das dritte und letzte Studioalbum der Band und wurde von vielen Kritikern als eine ihrer besten Arbeiten angesehen. Die Single 'Dance Yrself Clean' aus dem Album wurde besonders popul\u00e4r und trug zur anhaltenden Relevanz der Band bei."
         }
