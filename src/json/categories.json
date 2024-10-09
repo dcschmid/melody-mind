@@ -844,5 +844,167 @@
     "introSubline": "Erlebe die reiche Vielfalt und die emotionalen Klänge der türkischen Musik!",
     "text": "Die türkische Musikszene ist bekannt für ihre reiche Tradition und die harmonische Verbindung von östlichen und westlichen Einflüssen. Diese Kategorie vereint die besten Tracks, die das Herz und die Seele der türkischen Musik widerspiegeln – von den gefühlvollen Melodien des Türkü und den kraftvollen Rhythmen der Volksmusik bis hin zu den modernen Klängen des türkischen Pop und Rock. Mit Künstlern wie Sezen Aksu, Tarkan, Zeki Müren und vielen anderen zeigt die türkische Musik eine beeindruckende Bandbreite, die von tiefen Emotionen und leidenschaftlichen Ausdrucksweisen geprägt ist. Lass dich von den einzigartigen Instrumenten wie der Saz und dem Ney sowie von den unverwechselbaren Stimmen der türkischen Musik verzaubern und genieße eine musikalische Reise durch die Klangwelten der Türkei.",
     "isPlayable": false
+  },
+  {
+    "slug": "classic-heavy-metal",
+    "headline": "Classic Heavy Metal",
+    "imageUrl": "/category/classic-heavy-metal.jpg",
+    "categoryUrl": "/classic-heavy-metal",
+    "introSubline": "Erlebe die donnernden Riffs und die mächtige Energie des klassischen Heavy Metal!",
+    "text": "Classic Heavy Metal steht für die Ursprünge eines Genres, das die Musikwelt mit seiner intensiven Energie, kraftvollen Gitarrenriffs und epischen Gesängen revolutionierte. Diese Kategorie vereint die bahnbrechenden Bands und Tracks, die den Heavy Metal in den 70er und 80er Jahren geprägt haben und bis heute Kultstatus genießen. Mit Legenden wie Black Sabbath, Iron Maiden, Judas Priest und Motörhead bietet Classic Heavy Metal eine unvergleichliche Mischung aus düsteren, donnernden Klängen und energiegeladenen Hymnen, die die Herzen von Metal-Fans weltweit höher schlagen lassen. Lass dich von den heftigen Gitarrensolos, dem markanten Gesang und der ungezähmten Kraft dieses Genres mitreißen und erlebe den Sound, der Metal zur Ikone der Rockmusik gemacht hat.",
+    "isPlayable": false
+  },
+  {
+    "slug": "trash-metal",
+    "headline": "Thrash Metal",
+    "imageUrl": "/category/trash-metal.jpg",
+    "categoryUrl": "/trash-metal",
+    "introSubline": "Erlebe die rasenden Riffs und die unbändige Aggression des Thrash Metal!",
+    "text": "Thrash Metal ist ein kraftvolles Genre, das für seine blitzschnellen Gitarrenriffs, rasanten Drums und aggressive Energie bekannt ist. Entstanden in den frühen 1980er Jahren, hat Thrash Metal die Metal-Szene revolutioniert, indem es die Härte des Punk mit der Präzision des Heavy Metal kombinierte. Diese Kategorie vereint die legendären Bands und Tracks, die Thrash Metal groß gemacht haben, darunter Metallica, Slayer, Megadeth und Anthrax – bekannt als die ‘Big Four’ des Genres. Mit schreddernden Solos, wütenden Vocals und kompromisslosen Texten bringt Thrash Metal eine explosive Mischung aus Tempo und Intensität. Lass dich von den wilden Rhythmen und der rohen Kraft des Thrash Metal mitreißen und erlebe den Sound, der Geschwindigkeit und Aggression in den Vordergrund der Metal-Szene brachte.",
+    "isPlayable": false
+  },
+  {
+    "slug": "doom-metal",
+    "headline": "Doom Metal",
+    "imageUrl": "/category/doom-metal.jpg",
+    "categoryUrl": "/doom-metal",
+    "introSubline": "Tauche ein in die düsteren, schweren Klänge und die bedrohliche Atmosphäre des Doom Metal!",
+    "text": "Doom Metal ist ein Genre, das für seine langsamen, schweren Gitarrenriffs und seine düstere, melancholische Stimmung bekannt ist. Inspiriert von Bands wie Black Sabbath, verkörpert Doom Metal eine Atmosphäre von Dunkelheit und existenzieller Schwere, in der die Musik tiefere Emotionen und oft apokalyptische Themen erforscht. Mit Bands wie Candlemass, Saint Vitus, Electric Wizard und Cathedral setzt Doom Metal auf kraftvolle, verzerrte Riffs, langgezogene Songs und einen epischen, fast rituellen Charakter. Diese Musik ist wie ein langsamer Marsch durch Nebel und Schatten, mit einem unaufhaltsamen, dröhnenden Sound, der die Grenzen zwischen Melancholie und erdrückender Schwere auslotet. Lass dich von den dunklen Klangwelten des Doom Metal mitreißen und erlebe die volle emotionale Tiefe und die erhabene Schwere dieses einzigartigen Metal-Subgenres.",
+    "isPlayable": false
+  },
+  {
+    "slug": "power-metal",
+    "headline": "Power Metal",
+    "imageUrl": "/category/power-metal.jpg",
+    "categoryUrl": "/power-metal",
+    "introSubline": "Erlebe die epischen Melodien und die heroischen Hymnen des Power Metal!",
+    "text": "Power Metal ist ein Genre, das für seine schnellen, melodischen Riffs, hohen Gesangslinien und epischen, oft fantastischen Texte bekannt ist. Diese Kategorie vereint die besten Tracks des Power Metal, die mit ihren heldenhaften Themen von Schlachten, Mythen und Abenteuern die Fantasie anregen. Mit Bands wie Helloween, Blind Guardian, DragonForce und Sabaton bietet Power Metal eine dynamische Mischung aus druckvollen Rhythmen, virtuosen Gitarrensolos und choralen Refrains, die zum Mitsingen einladen. Das Genre steht für Hochstimmung, rasante Tempi und unvergessliche Melodien, die sowohl Stärke als auch Emotionen in den Vordergrund stellen. Lass dich von den kraftvollen Hymnen und der dramatischen Energie des Power Metal mitreißen und erlebe den Sound, der epische Geschichten und bombastische Musik vereint.",
+    "isPlayable": false
+  },
+  {
+    "slug": "progressive-metal",
+    "headline": "Progressive Metal",
+    "imageUrl": "/category/progressive-metal.jpg",
+    "categoryUrl": "/progressive-metal",
+    "introSubline": "Erlebe die technische Brillanz und die komplexen Kompositionen des Progressive Metal!",
+    "text": "Progressive Metal ist bekannt für seine anspruchsvollen Strukturen, experimentellen Klanglandschaften und virtuosen Musiker. Das Genre kombiniert die Härte und Intensität des Heavy Metal mit den komplexen Rhythmen und ausgedehnten Songstrukturen des Progressive Rock. Diese Kategorie vereint die besten Tracks von Pionieren wie Dream Theater, Opeth, Symphony X und Tool, die das Genre durch ihre einzigartigen Arrangements und ihre technischen Fähigkeiten geprägt haben. Mit wechselnden Taktarten, atmosphärischen Melodien und tiefgründigen Texten bietet Progressive Metal eine musikalische Reise, die sowohl den Geist als auch die Sinne herausfordert. Lass dich von den unvorhersehbaren Kompositionen und der intellektuellen Tiefe des Progressive Metal mitreißen und erlebe ein Genre, das die Grenzen des Metals sprengt und neue Dimensionen erschafft.",
+    "isPlayable": false
+  },
+  {
+    "slug": "symphonic-metal",
+    "headline": "Symphonic Metal",
+    "imageUrl": "/category/symphonic-metal.jpg",
+    "categoryUrl": "/symphonic-metal",
+    "introSubline": "Erlebe die majestätische Fusion von orchestralen Arrangements und kraftvollem Metal-Sound!",
+    "text": "Symphonic Metal kombiniert die rohe Energie des Metal mit den opulenten Klangwelten eines Orchesters und erschafft so ein episches, bombastisches Musikerlebnis. Diese Kategorie vereint die besten Tracks von Bands wie Nightwish, Epica, Within Temptation und Kamelot, die das Genre durch ihre symphonischen Arrangements, eindrucksvollen Vocals und dramatischen Kompositionen geprägt haben. Mit klangvollen Chören, orchestralen Streicherpassagen und mächtigen Gitarrenriffs bietet Symphonic Metal eine einzigartige Atmosphäre, die sowohl cineastisch als auch intensiv ist. Lass dich von den opulenten Melodien und der epischen Kraft des Symphonic Metal mitreißen und erlebe eine Klangwelt, in der Metal und Klassik zu einem monumentalen Sound verschmelzen.",
+    "isPlayable": false
+  },
+  {
+    "slug": "groove-metal",
+    "headline": "Groove Metal",
+    "imageUrl": "/category/groove-metal.jpg",
+    "categoryUrl": "/groove-metal",
+    "introSubline": "Spür den druckvollen Rhythmus und die unaufhaltsamen Riffs des Groove Metal!",
+    "text": "Groove Metal zeichnet sich durch seine schweren, tief gestimmten Gitarrenriffs und treibenden Rhythmen aus, die das Genre unverwechselbar machen. Im Gegensatz zu den rasanten Tempi des Thrash Metal setzt Groove Metal auf drückende Mid-Tempo-Grooves und eine kraftvolle, oft aggressive Atmosphäre. Diese Kategorie vereint die besten Tracks von Genre-Pionieren wie Pantera, Sepultura, Lamb of God und Machine Head, die den Groove Metal durch ihren unverwechselbaren Sound geprägt haben. Mit kompromisslosen Riffs, donnernden Drums und markanten Vocals bietet Groove Metal eine intensive, mitreißende Energie, die das Genre zu einem Favoriten unter Metal-Fans gemacht hat. Lass dich von den erdigen Grooves und der schweren Intensität des Groove Metal mitreißen und erlebe die rohe Kraft dieses eindrucksvollen Genres.",
+    "isPlayable": false
+  },
+  {
+    "slug": "nu-metal",
+    "headline": "Nu Metal",
+    "imageUrl": "/category/nu-metal.jpg",
+    "categoryUrl": "/nu-metal",
+    "introSubline": "Spür den druckvollen Rhythmus und die unaufhaltsamen Riffs des Groove Metal!",
+    "text": "Nu Metal ist ein genreübergreifender Musikstil, der die rohe Intensität des Metal mit Elementen aus Hip-Hop, Alternative Rock und Industrial vereint. Diese Kategorie bietet die größten Hits der Bands, die den Nu Metal in den späten 90er und frühen 2000er Jahren populär gemacht haben. Mit Künstlern wie Linkin Park, Korn, Limp Bizkit und Slipknot, die für ihre schweren Gitarrenriffs, aggressiven Vocals und rhythmusbetonten Rhythmen bekannt sind, hat Nu Metal eine neue Generation von Metal-Fans begeistert. Durch das Einbeziehen von Rap-Vocals, elektronischen Elementen und eingängigen Hooks schafft Nu Metal eine einzigartige und kraftvolle Atmosphäre. Lass dich von den energiegeladenen Sounds und der genreübergreifenden Kreativität des Nu Metal mitreißen und erlebe die Musik, die Metal neu definiert hat.",
+    "isPlayable": false
+  },
+  {
+    "slug": "metalcore",
+    "headline": "Metalcore",
+    "imageUrl": "/category/metalcore.jpg",
+    "categoryUrl": "/metalcore",
+    "introSubline": "Erlebe die kraftvolle Fusion aus aggressivem Metal und Hardcore-Punk mit Metalcore!",
+    "text": "Metalcore verbindet die Härte des Metal mit der Intensität und Attitüde des Hardcore-Punks. Dieses Genre ist bekannt für seine donnernden Breakdowns, melodischen Gitarrenriffs und kraftvollen Shouts, die oft mit klarem Gesang kombiniert werden. Diese Kategorie vereint die größten Tracks und innovativsten Bands, die das Genre seit den frühen 2000er Jahren geprägt haben – darunter Killswitch Engage, As I Lay Dying, Parkway Drive und August Burns Red. Mit seinem markanten Wechsel zwischen Aggression und Melodie bietet Metalcore eine dynamische und emotionale Hörerfahrung. Lass dich von den energischen Riffs, den intensiven Vocals und den eingängigen Refrains mitreißen und erlebe die perfekte Mischung aus brachialer Härte und melodischer Tiefe.",
+    "isPlayable": false
+  },
+  {
+    "slug": "post-metal",
+    "headline": "Post Metal",
+    "imageUrl": "/category/post-metal.jpg",
+    "categoryUrl": "/post-metal",
+    "introSubline": "Tauche ein in die atmosphärischen Klanglandschaften und die schwere Intensität des Post-Metal!",
+    "text": "Post-Metal ist ein genreübergreifender Stil, der die Schwere des Metal mit den experimentellen und atmosphärischen Elementen des Post-Rock vereint. Diese Kategorie bietet eine breite Palette von tiefen, dröhnenden Riffs, hypnotischen Melodien und epischen, oft cineastischen Songstrukturen. Mit Bands wie Neurosis, Isis, Cult of Luna und Pelican hat Post-Metal ein einzigartiges Genre geschaffen, das langsame, schrittweise musikalische Entwicklungen mit explosiven Höhepunkten verbindet. Die Musik taucht tief in emotionale und klangliche Schichten ein und bietet eine intensive, introspektive Hörerfahrung. Lass dich von den düsteren, schweren Klängen und der musikalischen Tiefe des Post-Metal mitreißen und erlebe eine Klangwelt, die Grenzen sprengt und in neue musikalische Territorien vorstößt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "industrial-metal",
+    "headline": "Industrial Metal",
+    "imageUrl": "/category/industrial-metal.jpg",
+    "categoryUrl": "/industrial-metal",
+    "introSubline": "Erlebe die brutale Fusion aus hämmernden Maschinenklängen und Metal-Riffs im Industrial Metal!",
+    "text": "Industrial Metal kombiniert die rohe Kraft des Metal mit der mechanischen Präzision und den elektronischen Elementen des Industrial. Diese Kategorie vereint treibende Gitarrenriffs, verzerrte Vocals und düstere, mechanische Beats zu einem kraftvollen und dystopischen Sound. Mit wegweisenden Bands wie Ministry, Nine Inch Nails, Rammstein und Fear Factory hat Industrial Metal eine einzigartige Klanglandschaft geschaffen, die gleichermaßen aggressiv und futuristisch wirkt. Die verzerrten, maschinenartigen Rhythmen und die dunkle, oft apokalyptische Stimmung machen dieses Genre zu einem intensiven und energiegeladenen Erlebnis. Lass dich von der kalten, industriellen Ästhetik und den brachialen Sounds des Industrial Metal mitreißen und erlebe die perfekte Mischung aus Mensch und Maschine.",
+    "isPlayable": false
+  },
+  {
+    "slug": "stoner-metal",
+    "headline": "Stoner Metal",
+    "imageUrl": "/category/stoner-metal.jpg",
+    "categoryUrl": "/stoner-metal",
+    "introSubline": "Erlebe die schweren Riffs und die psychedelischen Vibes des Stoner Metal!",
+    "text": "Stoner Metal ist ein Genre, das tiefe, fuzzlastige Gitarrenriffs, langsame, groove-orientierte Rhythmen und psychedelische Elemente kombiniert, um eine dichte, atmosphärische Klanglandschaft zu schaffen. Diese Kategorie vereint die besten Tracks von Genre-Pionieren wie Kyuss, Sleep, und Electric Wizard sowie moderne Bands wie Queens of the Stone Age und Red Fang. Der Sound von Stoner Metal ist tief verwurzelt im Hard Rock und Doom Metal, aber auch stark beeinflusst von den psychedelischen Klängen der 70er Jahre. Mit seinem dichten, warmen Sound und den oft tranceartigen Kompositionen lädt Stoner Metal dazu ein, die Musik intensiv zu fühlen und in die schweren, hypnotischen Riffs einzutauchen. Lass dich von den erdigen Grooves und den wuchtigen Klängen des Stoner Metal mitreißen und genieße das volle, berauschende Musikerlebnis.",
+    "isPlayable": false
+  },
+  {
+    "slug": "folk-metal",
+    "headline": "Folk Metal",
+    "imageUrl": "/category/folk-metal.jpg",
+    "categoryUrl": "/folk-metal",
+    "introSubline": "Erlebe die kraftvolle Mischung aus traditioneller Volksmusik und Metal-Riffs im Folk Metal!",
+    "text": "Folk Metal verbindet die Härte des Metal mit den Melodien und Instrumenten traditioneller Volksmusik. Diese Kategorie bietet eine einzigartige Mischung aus epischen Gitarrenriffs, folkloristischen Melodien und Instrumenten wie Flöten, Dudelsäcken und Geigen, die das Genre unverwechselbar machen. Mit Bands wie Eluveitie, Finntroll, Ensiferum und Korpiklaani ist Folk Metal bekannt für seine abwechslungsreichen Songs, die Themen wie Mythen, Legenden und Natur behandeln. Diese Musik bietet sowohl kraftvolle, mitreißende Rhythmen als auch melodische, oft fröhliche Passagen, die eine besondere Atmosphäre schaffen. Lass dich von den erdigen Klängen und der epischen Kraft des Folk Metal mitreißen und erlebe die perfekte Verbindung von Metal und Volksmusik in einer energiegeladenen und faszinierenden Klangwelt.",
+    "isPlayable": false
+  },
+  {
+    "slug": "sludge-metal",
+    "headline": "Sludge Metal",
+    "imageUrl": "/category/sludge-metal.jpg",
+    "categoryUrl": "/sludge-metal",
+    "introSubline": "Tauche ein in die düstere Schwere und die dröhnenden Riffs des Sludge Metal!",
+    "text": "Sludge Metal ist ein Genre, das die zähen, dröhnenden Riffs des Doom Metal mit der Aggression und Wut des Hardcore-Punk verbindet. Diese Kategorie bietet eine intensive Mischung aus schweren, verzerrten Gitarren, dröhnenden Basslines und oft rauen, verzweifelten Vocals. Mit Bands wie Eyehategod, Crowbar, Melvins und Mastodon hat Sludge Metal eine kraftvolle und ungeschliffene Klanglandschaft geschaffen, die sowohl erdrückend als auch kathartisch ist. Die Songs zeichnen sich durch langsame, schleppende Rhythmen aus, die eine düstere, erdrückende Atmosphäre erzeugen, während die Texte oft Themen wie Schmerz, Wut und Isolation behandeln. Lass dich von den erdrückenden, dröhnenden Klängen und der rohen Intensität des Sludge Metal mitreißen und erlebe die brutale, emotionale Kraft dieses einzigartigen Genres.",
+    "isPlayable": false
+  },
+  {
+    "slug": "alternative-metal",
+    "headline": "Alternative Metal",
+    "imageUrl": "/category/alternative-metal.jpg",
+    "categoryUrl": "/alternative-metal",
+    "introSubline": "Erlebe die experimentelle Vielfalt und die kraftvollen Klänge des Alternative Metal!",
+    "text": "Alternative Metal ist ein vielseitiges Genre, das die Härte des Metal mit Einflüssen aus Grunge, Alternative Rock, Funk und anderen Musikstilen kombiniert. Diese Kategorie bietet eine spannende Mischung aus dynamischen Riffs, unkonventionellen Songstrukturen und einer breiten Palette von Einflüssen, die das Genre unvorhersehbar und innovativ machen. Mit Bands wie Tool, Deftones, System of a Down und Alice in Chains hat Alternative Metal eine experimentelle Klanglandschaft geschaffen, die gleichzeitig heavy und melodisch ist. Die Songs variieren zwischen aggressiven, brachialen Riffs und atmosphärischen, oft melancholischen Passagen. Lass dich von den kreativen Arrangements und der genreübergreifenden Energie des Alternative Metal mitreißen und erlebe Musik, die keine Grenzen kennt und den Hörer immer wieder überrascht.",
+    "isPlayable": false
+  },
+  {
+    "slug": "gothic-metal",
+    "headline": "Gothic Metal",
+    "imageUrl": "/category/gothic-metal.jpg",
+    "categoryUrl": "/gothic-metal",
+    "introSubline": "Erlebe die experimentelle Vielfalt und die kraftvollen Klänge des Alternative Metal!",
+    "text": "Gothic Metal verbindet die dunkle, melancholische Atmosphäre des Gothic Rock mit der Härte und Intensität des Metal. Diese Kategorie bietet eine eindrucksvolle Mischung aus kraftvollen Gitarrenriffs, tiefen, emotionalen Texten und oft symphonischen, orchestralen Arrangements. Mit Bands wie Paradise Lost, Tristania, Within Temptation und Lacrimosa hat Gothic Metal ein Genre geschaffen, das durch seine düstere Ästhetik und melodische Tiefe besticht. Die Musik bewegt sich zwischen harten, metallischen Elementen und sanften, oft opernhaften Gesängen, die eine romantische, manchmal tragische Stimmung erzeugen. Lass dich von den epischen Klängen und der emotionalen Intensität des Gothic Metal mitreißen und erlebe eine Musikrichtung, die Dunkelheit und Schönheit auf unvergleichliche Weise miteinander verbindet.",
+    "isPlayable": false
+  },
+  {
+    "slug": "melodic-death-metal",
+    "headline": "Melodic Death Metal",
+    "imageUrl": "/category/melodic-death-metal.jpg",
+    "categoryUrl": "/melodic-death-metal",
+    "introSubline": "Erlebe die brutale Kraft des Death Metal kombiniert mit melodischen Harmonien im Melodic Death Metal!",
+    "text": "Melodic Death Metal verbindet die aggressive Intensität des Death Metal mit eingängigen Melodien und komplexen Harmonien. Diese Kategorie bietet eine Mischung aus heftigen Gitarrenriffs, schnellen Drums und tiefen Growls, die durch melodische Leads und atmosphärische Elemente ergänzt werden. Mit Bands wie In Flames, Dark Tranquillity, Amon Amarth und Arch Enemy hat Melodic Death Metal einen Stil geschaffen, der sowohl brutal als auch melodisch ist. Die Kombination aus roher Kraft und epischen Melodien erzeugt eine einzigartige Dynamik, die sowohl die Aggression des Death Metal als auch die emotionale Tiefe der Melodien hervorhebt. Lass dich von den packenden Gitarrensolos und den donnernden Rhythmen mitreißen und erlebe die perfekte Balance zwischen Härte und Melodie im Melodic Death Metal.",
+    "isPlayable": false
+  },
+  {
+    "slug": "technical-death-metal",
+    "headline": "Technical Death Metal",
+    "imageUrl": "/category/technical-death-metal.jpg",
+    "categoryUrl": "/technical-death-metal",
+    "introSubline": "Erlebe die brutale Kraft des Death Metal kombiniert mit melodischen Harmonien im Melodic Death Metal!",
+    "text": "Melodic Death Metal verbindet die aggressive Intensität des Death Metal mit eingängigen Melodien und komplexen Harmonien. Diese Kategorie bietet eine Mischung aus heftigen Gitarrenriffs, schnellen Drums und tiefen Growls, die durch melodische Leads und atmosphärische Elemente ergänzt werden. Mit Bands wie In Flames, Dark Tranquillity, Amon Amarth und Arch Enemy hat Melodic Death Metal einen Stil geschaffen, der sowohl brutal als auch melodisch ist. Die Kombination aus roher Kraft und epischen Melodien erzeugt eine einzigartige Dynamik, die sowohl die Aggression des Death Metal als auch die emotionale Tiefe der Melodien hervorhebt. Lass dich von den packenden Gitarrensolos und den donnernden Rhythmen mitreißen und erlebe die perfekte Balance zwischen Härte und Melodie im Melodic Death Metal.",
+    "isPlayable": false
   }
 ]

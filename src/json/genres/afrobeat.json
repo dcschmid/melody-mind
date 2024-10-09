@@ -123,12 +123,7 @@
       "easy": [
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Black Voices' von Tony Allen?",
-          "options": [
-            "1997",
-            "1999",
-            "2001",
-            "2003"
-          ],
+          "options": ["1997", "1999", "2001", "2003"],
           "correctAnswer": "1999",
           "trivia": "Tony Allen, ein einflussreicher nigerianischer Schlagzeuger und Komponist, ver\u00f6ffentlichte 'Black Voices' im Jahr 1999. Dieses Album wird oft als eine der besten Fusionen von Afrobeat und Jazz angesehen, was Allens einzigartigen Stil widerspiegelt. 'Black Voices' enth\u00e4lt kraftvolle Rhythmen und tiefgr\u00fcndige Melodien, die die kulturellen Wurzeln von Allen ehren. Sein Einfluss auf die Musikszene ist bis heute sp\u00fcrbar, und er gilt als einer der Pioniere des Afrobeat."
         },
@@ -239,12 +234,7 @@
       "easy": [
         {
           "question": "Welches Musikvideo von Burna Boy, das auf dem Album 'African Giant' zu finden ist, zeigt eindrucksvolle Szenen aus Nigeria und feiert die afrikanische Kultur?",
-          "options": [
-            "Gbona",
-            "On the Low",
-            "Anybody",
-            "Dangote"
-          ],
+          "options": ["Gbona", "On the Low", "Anybody", "Dangote"],
           "correctAnswer": "On the Low",
           "trivia": "Burna Boy ist ein angesehener nigerianischer Musiker, der mit seinem Album 'African Giant' im Jahr 2019 internationale Anerkennung erlangte. Das Musikvideo zu 'On the Low' zeigt lebendige Szenen, die die Sch\u00f6nheit und Vielfalt Nigerias hervorheben. Es kombiniert traditionelle afrikanische Elemente mit modernen visuellen Erz\u00e4hltechniken, was es zu einem der herausragenden Videos des Albums macht. 'African Giant' festigte Burna Boys Status als eine der gr\u00f6\u00dften Stimmen der afrobeat-Musik."
         },
@@ -274,12 +264,7 @@
       "medium": [
         {
           "question": "Welcher prominente K\u00fcnstler arbeitete mit Burna Boy an einem der bekanntesten Tracks seines Albums 'African Giant', das 2019 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Wizkid",
-            "J Hus",
-            "Damian Marley",
-            "Beyonc\u00e9"
-          ],
+          "options": ["Wizkid", "J Hus", "Damian Marley", "Beyonc\u00e9"],
           "correctAnswer": "J Hus",
           "trivia": "Burna Boy, ein f\u00fchrender Vertreter des Afrofusion-Genres, ver\u00f6ffentlichte 2019 das gefeierte Album 'African Giant'. Ein herausragender Track auf diesem Album ist 'Anybody', f\u00fcr den er mit dem britischen Rapper J Hus zusammenarbeitete. Diese Kollaboration zeigt die Verschmelzung von afrofuturistischen Kl\u00e4ngen mit britischem Grime und hat den internationalen Erfolg von Burna Boy ma\u00dfgeblich beeinflusst."
         },
@@ -309,12 +294,7 @@
       "hard": [
         {
           "question": "In welchem Lied des Albums 'African Giant' von Burna Boy wird das Thema der Identit\u00e4t und der R\u00fcckkehr zu den Wurzeln behandelt, und welche tiefere Bedeutung steckt hinter den Texten?",
-          "options": [
-            "Gbona",
-            "Anybody",
-            "On the Low",
-            "Dangote"
-          ],
+          "options": ["Gbona", "Anybody", "On the Low", "Dangote"],
           "correctAnswer": "Gbona",
           "trivia": "Das Lied 'Gbona' aus dem Album 'African Giant' von Burna Boy thematisiert die R\u00fcckkehr zu den eigenen Wurzeln und die Bedeutung von Identit\u00e4t in einer sich schnell ver\u00e4ndernden Welt. Burna Boy verwendet in seinen Texten eine Mischung aus Pidgin-Englisch und Yoruba, um seine pers\u00f6nliche Verbindung zur afrikanischen Kultur zu verdeutlichen. Der Song dr\u00fcckt nicht nur Stolz auf seine Herkunft aus, sondern thematisiert auch die Herausforderungen, die mit dieser Identit\u00e4t verbunden sind, und wie wichtig es ist, die eigenen Wurzeln zu ehren."
         },
@@ -633,23 +613,13 @@
         },
         {
           "question": "Welcher internationale K\u00fcnstler hat gemeinsam mit Wizkid auf dem Song 'Essence' aus dem Album 'Made in Lagos' von 2020 zusammengearbeitet?",
-          "options": [
-            "Tems",
-            "Burna Boy",
-            "Drake",
-            "Davido"
-          ],
+          "options": ["Tems", "Burna Boy", "Drake", "Davido"],
           "correctAnswer": "Tems",
           "trivia": "Das Album 'Made in Lagos' von Wizkid, das 2020 ver\u00f6ffentlicht wurde, enth\u00e4lt den Hit 'Essence', der eine bemerkenswerte Zusammenarbeit mit der aufstrebenden K\u00fcnstlerin Tems darstellt. Der Song wurde zu einem weltweiten Erfolg und gilt als einer der Meilensteine des afrobeat-Genres. Wizkid, der auch als Starboy bekannt ist, hat mit 'Made in Lagos' sein Talent und seine Vielseitigkeit unter Beweis gestellt, indem er verschiedene Musikstile und Einfl\u00fcsse kombiniert."
         },
         {
           "question": "In welchem Jahr gab Wizkid sein erstes Live-Konzert zur Unterst\u00fctzung seines Albums 'Made in Lagos'?",
-          "options": [
-            "2019",
-            "2020",
-            "2021",
-            "2022"
-          ],
+          "options": ["2019", "2020", "2021", "2022"],
           "correctAnswer": "2020",
           "trivia": "Wizkid, der nigerianische Superstar, ver\u00f6ffentlichte sein Album 'Made in Lagos' im Jahr 2020. Das Album erhielt viel Anerkennung und wurde f\u00fcr seine fusionierten Sounds aus Afrobeats, R&B und Reggae gefeiert. Wizkid gab mehrere beeindruckende Live-Auftritte, um das Album zu promoten, darunter ein bemerkenswerter Auftritt bei dem ber\u00fchmten 'O2 Arena'-Konzert in London."
         }
@@ -714,12 +684,7 @@
         },
         {
           "question": "Welches Musikvideo von Femi Kuti aus dem Album 'Shoki Shoki' von 1998 zeigt eindrucksvoll die Verbindung zwischen traditioneller afrikanischer Kultur und modernem Leben?",
-          "options": [
-            "Zombie",
-            "Beng Beng",
-            "Sorry Sorry",
-            "Black Man"
-          ],
+          "options": ["Zombie", "Beng Beng", "Sorry Sorry", "Black Man"],
           "correctAnswer": "Beng Beng",
           "trivia": "Femi Kuti ist ein angesehener nigerianischer Musiker und der Sohn des legend\u00e4ren Afrobeat-Pioniers Fela Kuti. Das Album 'Shoki Shoki' von 1998 enth\u00e4lt das Musikvideo zu 'Beng Beng', das eine kraftvolle visuelle Darstellung von sozialen Themen und der afrikanischen Identit\u00e4t bietet. Femi Kuti kombiniert in seinen Musikvideos oft traditionelle afrikanische T\u00e4nze mit modernen Elementen, was die kulturelle Vielfalt und den Einfluss seiner Musik unterstreicht."
         },
@@ -784,23 +749,13 @@
         },
         {
           "question": "In welchem Jahr trat Femi Kuti mit seinem Album 'Shoki Shoki' erstmals live in Europa auf, nachdem das Album 1998 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "1999",
-            "2000",
-            "2001",
-            "2002"
-          ],
+          "options": ["1999", "2000", "2001", "2002"],
           "correctAnswer": "1999",
           "trivia": "Femi Kuti, der Sohn des legend\u00e4ren afrobeat-Pioniers Fela Kuti, ver\u00f6ffentlichte 1998 sein Album 'Shoki Shoki', das seinen einzigartigen Stil und seine politische Botschaft pr\u00e4sentierte. Im Jahr 1999 trat er erstmals in Europa auf, was seine internationale Karriere erheblich f\u00f6rderte. Seine energiegeladenen Live-Auftritte sind bekannt f\u00fcr die Kombination aus Musik, Tanz und sozialkritischen Themen, die das Publikum begeistern. 'Shoki Shoki' enth\u00e4lt einige seiner bekanntesten Songs, die oft Teil seiner dynamischen Live-Performances sind."
         },
         {
           "question": "In welchem Musikvideo des Albums 'Shoki Shoki' von Femi Kuti wird eine eindrucksvolle Tanzauff\u00fchrung gezeigt, die traditionelle nigerianische Elemente mit modernen Einfl\u00fcssen kombiniert?",
-          "options": [
-            "Zombie",
-            "Shoki Shoki",
-            "Beng Beng Beng",
-            "Traum"
-          ],
+          "options": ["Zombie", "Shoki Shoki", "Beng Beng Beng", "Traum"],
           "correctAnswer": "Beng Beng Beng",
           "trivia": "Femi Kuti, der Sohn des legend\u00e4ren Afrobeat-Pioniers Fela Kuti, ver\u00f6ffentlichte 1998 das Album 'Shoki Shoki', das verschiedene musikalische Stile vereint. Im Musikvideo zu 'Beng Beng Beng' sind beeindruckende Choreografien zu sehen, die die kulturellen Wurzeln Nigerias lebendig darstellen. Das Video hebt die energiegeladene Performance von Femi und seiner Band hervor, die den Einfluss von Afrobeat auf die moderne Musik verdeutlicht."
         }
@@ -841,12 +796,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'A Good Time' von Davido erreichte hohe Chartplatzierungen und trug wesentlich zum internationalen Erfolg des Albums bei?",
-          "options": [
-            "Fall",
-            "Risky",
-            "If",
-            "Blow My Mind"
-          ],
+          "options": ["Fall", "Risky", "If", "Blow My Mind"],
           "correctAnswer": "Blow My Mind",
           "trivia": "Davido, ein ber\u00fchmter nigerianischer Musiker, ver\u00f6ffentlichte sein Album 'A Good Time' im Jahr 2019. Der Hit 'Blow My Mind', eine Zusammenarbeit mit dem amerikanischen K\u00fcnstler Chris Brown, erreichte hohe Positionen in verschiedenen internationalen Charts und festigte Davidos Status als globaler Star. Das Album wurde f\u00fcr seine eing\u00e4ngigen Melodien und vielf\u00e4ltigen Stile gelobt und half, afrobeat weltweit popul\u00e4r zu machen."
         }
@@ -889,12 +839,7 @@
       "hard": [
         {
           "question": "In welchem Song des Albums 'A Good Time' von Davido wird das Thema der Selbstliebe und des Genusses des Lebens in den Texten besonders betont, und welche Bedeutung hat dies f\u00fcr Davidos k\u00fcnstlerische Identit\u00e4t?",
-          "options": [
-            "Fall",
-            "Sweet In The Middle",
-            "If",
-            "Risky"
-          ],
+          "options": ["Fall", "Sweet In The Middle", "If", "Risky"],
           "correctAnswer": "Sweet In The Middle",
           "trivia": "Der Song 'Sweet In The Middle' auf dem Album 'A Good Time' von Davido thematisiert die Selbstliebe und das Auskosten sch\u00f6ner Momente im Leben. Dies spiegelt Davidos k\u00fcnstlerische Identit\u00e4t wider, die stark von einem positiven Lebensgef\u00fchl und der Feier der eigenen Kultur gepr\u00e4gt ist. Die Zusammenarbeit mit anderen K\u00fcnstlern in diesem Track verst\u00e4rkt die Botschaft der Gemeinschaft und des gemeinsamen Genusses. Davido nutzt seine Musik, um sowohl pers\u00f6nliche als auch universelle Themen anzusprechen, die viele seiner Fans ansprechen."
         },
@@ -1121,12 +1066,7 @@
       "hard": [
         {
           "question": "In welchem Musikvideo aus dem Album 'Mama Africa' von Yemi Alade wird eine farbenfrohe Darstellung traditioneller afrikanischer T\u00e4nze und kultureller Elemente verwendet, um die Vielfalt und den Reichtum des afrikanischen Kontinents zu feiern?",
-          "options": [
-            "Na Gode",
-            "Ferrari",
-            "Tangerine",
-            "Duro Timi"
-          ],
+          "options": ["Na Gode", "Ferrari", "Tangerine", "Duro Timi"],
           "correctAnswer": "Na Gode",
           "trivia": "Yemi Alade, eine der bekanntesten afro-pop K\u00fcnstlerinnen Afrikas, hat mit ihrem Album 'Mama Africa' im Jahr 2016 einen bedeutenden Beitrag zur afrikanischen Musikszene geleistet. Das Musikvideo zu 'Na Gode' hebt nicht nur ihre beeindruckenden Gesangsf\u00e4higkeiten hervor, sondern zeigt auch lebhafte Tanzchoreografien und traditionelle Kleidungsst\u00fccke, die die kulturelle Identit\u00e4t Afrikas widerspiegeln. Die visuelle \u00c4sthetik des Videos steht im Einklang mit Yemi Alades Botschaft, die Sch\u00f6nheit und den Stolz Afrikas zu zelebrieren."
         },
@@ -1143,12 +1083,7 @@
         },
         {
           "question": "Welcher K\u00fcnstler hat auf dem Album 'Mama Africa' von Yemi Alade, das 2016 ver\u00f6ffentlicht wurde, mit ihr zusammengearbeitet?",
-          "options": [
-            "Patoranking",
-            "Flavour",
-            "Wizkid",
-            "Olamide"
-          ],
+          "options": ["Patoranking", "Flavour", "Wizkid", "Olamide"],
           "correctAnswer": "Flavour",
           "trivia": "Yemi Alade ist eine erfolgreiche nigerianische S\u00e4ngerin, die mit ihrem Album 'Mama Africa' gro\u00dfe Anerkennung fand. Auf diesem Album arbeitete sie mit dem beliebten nigerianischen K\u00fcnstler Flavour zusammen, der f\u00fcr seinen einzigartigen Afrobeat-Stil bekannt ist. Die Kollaboration zwischen Yemi Alade und Flavour brachte den Song 'Get Through This' hervor, der die kraftvolle Verbindung von beiden K\u00fcnstlern zeigt. 'Mama Africa' thematisiert die afrikanische Identit\u00e4t und kulturelle Vielfalt und stellte Yemi Alade als eine der f\u00fchrenden Stimmen der afrikanischen Musikszene dar."
         }
@@ -1178,12 +1113,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'Celia' von Tiwa Savage thematisiert die Herausforderungen und St\u00e4rken von Frauen?",
-          "options": [
-            "Koroba",
-            "Dangerous Love",
-            "49-99",
-            "Temptation"
-          ],
+          "options": ["Koroba", "Dangerous Love", "49-99", "Temptation"],
           "correctAnswer": "49-99",
           "trivia": "Tiwa Savage ist eine prominente nigerianische S\u00e4ngerin und Songwriterin, die f\u00fcr ihre kraftvolle Stimme und ihre einflussreiche Rolle in der Afrobeat-Musikszene bekannt ist. Ihr Album 'Celia', das 2020 ver\u00f6ffentlicht wurde, feiert die St\u00e4rke und Resilienz von Frauen. Der Song '49-99' besch\u00e4ftigt sich mit sozialen Themen und dem Streben nach Gerechtigkeit, wobei er die Herausforderungen reflektiert, mit denen viele Frauen konfrontiert sind."
         },
@@ -1202,12 +1132,7 @@
       "medium": [
         {
           "question": "Welche K\u00fcnstler hat Tiwa Savage auf ihrem Album 'Celia' aus dem Jahr 2020 in einer Kollaboration unterst\u00fctzt?",
-          "options": [
-            "Burna Boy",
-            "Davido",
-            "Omah Lay",
-            "Nasty C"
-          ],
+          "options": ["Burna Boy", "Davido", "Omah Lay", "Nasty C"],
           "correctAnswer": "Burna Boy",
           "trivia": "Tiwa Savage, eine der bekanntesten K\u00fcnstlerinnen der afrobeats Szene, hat auf ihrem Album 'Celia' eine bemerkenswerte Zusammenarbeit mit Burna Boy. Der Song 'Temptation' ist ein Highlight des Albums und zeigt die Chemie zwischen den beiden K\u00fcnstlern. Tiwa Savage ist bekannt f\u00fcr ihre kraftvolle Stimme und ihre F\u00e4higkeit, verschiedene Musikstile zu kombinieren, w\u00e4hrend Burna Boy f\u00fcr seinen einzigartigen Sound und seine lyrische Tiefe gesch\u00e4tzt wird."
         },
@@ -1237,12 +1162,7 @@
       "hard": [
         {
           "question": "In welchem Jahr trat Tiwa Savage w\u00e4hrend ihrer 'Celia'-Tour erstmals in Europa auf, nachdem sie ihr Album 'Celia' ver\u00f6ffentlicht hatte?",
-          "options": [
-            "2019",
-            "2021",
-            "2020",
-            "2022"
-          ],
+          "options": ["2019", "2021", "2020", "2022"],
           "correctAnswer": "2021",
           "trivia": "Tiwa Savage, eine f\u00fchrende Stimme der afrikanischen Musikszene, ver\u00f6ffentlichte ihr Album 'Celia' im Jahr 2020 und startete anschlie\u00dfend eine Tour, um ihre neuen Songs live zu pr\u00e4sentieren. Obwohl die Pandemie viele Live-Auftritte beeinflusste, konnte sie 2021 in mehreren europ\u00e4ischen St\u00e4dten auftreten. Ihre Tour beinhaltete auch einige der beliebtesten Tracks aus 'Celia', die ein breites Publikum ansprachen und die Vielfalt ihrer musikalischen Einfl\u00fcsse zeigten."
         },
@@ -1318,34 +1238,19 @@
       "medium": [
         {
           "question": "Welches Musikvideo von Omah Lay aus dem Album 'Get Layd' zeigt eine eindrucksvolle visuelle Darstellung von Liebe und Herzschmerz und wurde zu einem viralen Hit?",
-          "options": [
-            "Bad Influence",
-            "Lo Lo",
-            "Damn",
-            "You"
-          ],
+          "options": ["Bad Influence", "Lo Lo", "Damn", "You"],
           "correctAnswer": "Bad Influence",
           "trivia": "Omah Lay ist ein nigerianischer Singer-Songwriter, der mit seinem Deb\u00fctalbum 'Get Layd' im Jahr 2020 internationale Aufmerksamkeit erlangte. Das Musikvideo zu 'Bad Influence' beeindruckt durch seine k\u00fcnstlerische Vision und die emotionale Tiefe, die die Themen Liebe und Verlust behandelt. Das Album kombinierte Afrobeats mit R&B-Elementen und half Omah Lay, sich als einer der vielversprechendsten K\u00fcnstler seiner Generation zu etablieren."
         },
         {
           "question": "Welcher Produzent war ma\u00dfgeblich an der Entstehung des Albums 'Get Layd' von Omah Lay beteiligt und hat auch einige Songs des Albums produziert?",
-          "options": [
-            "Blaq Jerzee",
-            "Pheelz",
-            "Sarz",
-            "Killertunes"
-          ],
+          "options": ["Blaq Jerzee", "Pheelz", "Sarz", "Killertunes"],
           "correctAnswer": "Blaq Jerzee",
           "trivia": "Omah Lay ist ein aufstrebender nigerianischer K\u00fcnstler, der mit seinem Deb\u00fct-EP 'Get Layd', das 2020 ver\u00f6ffentlicht wurde, internationale Aufmerksamkeit erregte. Blaq Jerzee, der auch an der Produktion des erfolgreichen Tracks 'Bad Influence' beteiligt war, hat einen entscheidenden Einfluss auf den Sound des Albums gehabt. 'Get Layd' kombiniert verschiedene Musikstile und zeigt die Vielseitigkeit von Omah Lay als K\u00fcnstler. Diese Zusammenarbeit hat dazu beigetragen, das Album zu einem Hit in der Afrobeats-Szene zu machen."
         },
         {
           "question": "Welches Musikvideo von Omah Lay aus dem Album 'Get Layd' zeigt eindrucksvoll die Themen Liebe und Verlust, unterst\u00fctzt durch eine k\u00fcnstlerische Bildsprache?",
-          "options": [
-            "Bad Influence",
-            "You",
-            "Lo Lo",
-            "Damn"
-          ],
+          "options": ["Bad Influence", "You", "Lo Lo", "Damn"],
           "correctAnswer": "Bad Influence",
           "trivia": "Omah Lay ist ein aufstrebender nigerianischer K\u00fcnstler, dessen Deb\u00fct-EP 'Get Layd' 2020 ver\u00f6ffentlicht wurde und sofort gro\u00dfe Aufmerksamkeit erhielt. Das Musikvideo zu 'Bad Influence' nutzt eindrucksvolle visuelle Elemente, um die Emotionen und Herausforderungen in einer Beziehung darzustellen. Mit seiner einzigartigen Mischung aus Afrobeats und R&B hat Omah Lay einen unverwechselbaren Stil entwickelt, der ihn zu einem der vielversprechendsten Talente der modernen Musikszene macht."
         }
@@ -1445,12 +1350,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Gentleman' von Fela Kuti erreichte in den 1970er Jahren gro\u00dfe Popularit\u00e4t und gilt als eines der bekanntesten St\u00fccke des K\u00fcnstlers?",
-          "options": [
-            "Water No Get Enemy",
-            "Gentleman",
-            "Zombie",
-            "Shakara"
-          ],
+          "options": ["Water No Get Enemy", "Gentleman", "Zombie", "Shakara"],
           "correctAnswer": "Gentleman",
           "trivia": "Das Album 'Gentleman', ver\u00f6ffentlicht im Jahr 1973, ist eines der bekanntesten Werke von Fela Kuti und brachte ihm internationale Anerkennung. Der Titeltrack 'Gentleman' thematisiert die Herausforderungen der afrikanischen Identit\u00e4t und den Einfluss westlicher Kulturen auf das Leben in Nigeria. Fela Kuti, bekannt f\u00fcr seine einzigartigen afrobeat-Rhythmen, kombinierte politische Themen mit eing\u00e4ngigen Melodien, was ihm half, eine treue Anh\u00e4ngerschaft zu gewinnen."
         },
@@ -1526,12 +1426,7 @@
         },
         {
           "question": "Welcher bekannte nigerianische Musiker, der f\u00fcr seine afrobeat Musik gefeiert wird, ver\u00f6ffentlichte das Album 'Roforofo Fight' im Jahr 1972?",
-          "options": [
-            "Fela Kuti",
-            "Bob Marley",
-            "James Brown",
-            "David Bowie"
-          ],
+          "options": ["Fela Kuti", "Bob Marley", "James Brown", "David Bowie"],
           "correctAnswer": "Fela Kuti",
           "trivia": "Fela Kuti ist ein legend\u00e4rer nigerianischer Musiker und Komponist, der als einer der Pioniere des Afrobeat gilt. Sein Album 'Roforofo Fight' von 1972 enth\u00e4lt kraftvolle politische Botschaften und sozialkritische Texte, die f\u00fcr Fela Kuti typisch sind. Obwohl das Album nicht bei gro\u00dfen Musikpreisen ausgezeichnet wurde, spielte es eine wichtige Rolle in der Verbreitung seines einzigartigen musikalischen Stils und seines Engagements f\u00fcr soziale Gerechtigkeit."
         },
@@ -1747,23 +1642,13 @@
       "easy": [
         {
           "question": "In welchem Jahr trat Mr Eazi mit seinem Album 'Lagos to London' auf verschiedenen B\u00fchnen auf, um seine Musik live zu pr\u00e4sentieren?",
-          "options": [
-            "2016",
-            "2017",
-            "2018",
-            "2019"
-          ],
+          "options": ["2016", "2017", "2018", "2019"],
           "correctAnswer": "2018",
           "trivia": "Mr Eazi ver\u00f6ffentlichte sein Album 'Lagos to London' im Jahr 2018, das viele Fans weltweit begeisterte. Im Rahmen seiner Tour trat er in verschiedenen St\u00e4dten auf, um seine neuen Songs live zu performen. Das Album enth\u00e4lt Hits wie 'Leg Over' und 'Pour Me Water', die seine einzigartige Mischung aus Afrobeat und Hip-Hop zeigen. Mr Eazi ist bekannt f\u00fcr seine energiegeladenen Auftritte und die F\u00e4higkeit, das Publikum in seinen Bann zu ziehen."
         },
         {
           "question": "Welches Musikvideo von Mr Eazi aus dem Album 'Lagos to London' zeigt eindrucksvolle Szenen aus Lagos und London?",
-          "options": [
-            "Pour Me Water",
-            "Dabebi",
-            "Leg Over",
-            "Surrender"
-          ],
+          "options": ["Pour Me Water", "Dabebi", "Leg Over", "Surrender"],
           "correctAnswer": "Dabebi",
           "trivia": "Mr Eazi ist ein nigerianischer Musiker, der f\u00fcr seinen einzigartigen Stil bekannt ist, der Afrobeats mit internationalen Kl\u00e4ngen verbindet. Sein Album 'Lagos to London', das 2018 ver\u00f6ffentlicht wurde, umfasst verschiedene Hits, darunter 'Dabebi', dessen Musikvideo eindrucksvoll die kulturellen Kontraste zwischen Lagos und London einf\u00e4ngt. Diese visuelle Darstellung unterstreicht die Themen des Albums und die Reise des K\u00fcnstlers zwischen diesen beiden St\u00e4dten."
         },
@@ -1782,23 +1667,13 @@
       "medium": [
         {
           "question": "Welches Musikvideo aus dem Album 'Lagos to London' von Mr Eazi zeigt eindrucksvolle Szenen aus Lagos und vermittelt ein Gef\u00fchl f\u00fcr die Kultur und das Leben in Nigeria?",
-          "options": [
-            "Pour Me Water",
-            "Leg Over",
-            "Surrender",
-            "Property"
-          ],
+          "options": ["Pour Me Water", "Leg Over", "Surrender", "Property"],
           "correctAnswer": "Property",
           "trivia": "Mr Eazi ist ein nigerianischer S\u00e4nger und Songwriter, der mit seinem einzigartigen Stil, der Afrobeats mit internationalen Kl\u00e4ngen kombiniert, gro\u00dfe Erfolge feiert. Das Album 'Lagos to London', ver\u00f6ffentlicht im Jahr 2018, stellt nicht nur seine musikalischen F\u00e4higkeiten unter Beweis, sondern auch seine F\u00e4higkeit, visuelle Geschichten zu erz\u00e4hlen. Im Musikvideo zu 'Property' wird die lebendige Atmosph\u00e4re Lagos' eingefangen, was dem Zuschauer einen tiefen Einblick in die nigerianische Kultur bietet."
         },
         {
           "question": "Welcher bekannte K\u00fcnstler hat mit Mr Eazi auf dem Album 'Lagos to London' zusammengearbeitet und ist f\u00fcr seinen Hit 'Joana' bekannt?",
-          "options": [
-            "Wizkid",
-            "Tekno",
-            "Burna Boy",
-            "Simi"
-          ],
+          "options": ["Wizkid", "Tekno", "Burna Boy", "Simi"],
           "correctAnswer": "Wizkid",
           "trivia": "Mr Eazi, ein prominenter nigerianischer Musiker, ver\u00f6ffentlicht 2018 sein Album 'Lagos to London', das eine Mischung aus Afrobeats und internationalen Kl\u00e4ngen pr\u00e4sentiert. Eine der herausragenden Kollaborationen auf diesem Album ist mit dem ber\u00fchmten K\u00fcnstler Wizkid, der f\u00fcr seine eing\u00e4ngigen Melodien und seinen Einfluss auf die moderne afrobrazilianische Musik bekannt ist. Diese Zusammenarbeit bringt eine spannende Dynamik und zeigt die kreative Verbindung zwischen den beiden K\u00fcnstlern."
         },
@@ -1990,23 +1865,13 @@
         },
         {
           "question": "In welchem Song aus dem Album 'Once Upon a Time' von Tiwa Savage wird das Thema der Liebe und der Sehnsucht besonders deutlich?",
-          "options": [
-            "Eminado",
-            "Kele Kele Love",
-            "My Darlin",
-            "Olorun Mi"
-          ],
+          "options": ["Eminado", "Kele Kele Love", "My Darlin", "Olorun Mi"],
           "correctAnswer": "Eminado",
           "trivia": "Tiwa Savage ist eine einflussreiche nigerianische S\u00e4ngerin und Songwriterin, die 2013 ihr Album 'Once Upon a Time' ver\u00f6ffentlichte. Der Song 'Eminado' ist besonders bekannt f\u00fcr seine eing\u00e4ngige Melodie und die lyrische Darstellung von Liebe und Dankbarkeit. Tiwa Savage kombiniert in diesem Track traditionelle afrikanische Kl\u00e4nge mit zeitgen\u00f6ssischem R&B, was zu ihrem internationalen Erfolg beitr\u00e4gt. Das Album zeigt ihre Vielseitigkeit und die F\u00e4higkeit, verschiedene Musikstile zu fusionieren."
         },
         {
           "question": "Welcher bekannte nigerianische K\u00fcnstler hat das Album 'Once Upon a Time' im Jahr 2013 ver\u00f6ffentlicht und mit verschiedenen anderen K\u00fcnstlern zusammengearbeitet?",
-          "options": [
-            "Wizkid",
-            "Tiwa Savage",
-            "Davido",
-            "Burna Boy"
-          ],
+          "options": ["Wizkid", "Tiwa Savage", "Davido", "Burna Boy"],
           "correctAnswer": "Tiwa Savage",
           "trivia": "Tiwa Savage ist eine der einflussreichsten K\u00fcnstlerinnen in der nigerianischen Musikszene. Ihr Album 'Once Upon a Time' zeigt eine Vielzahl von Kollaborationen mit anderen prominenten K\u00fcnstlern und wurde sowohl national als auch international gut aufgenommen. Die Mischung aus Afrobeats, R&B und Pop in diesem Album hat dazu beigetragen, ihren einzigartigen Stil zu definieren und ihre Fangemeinde zu erweitern."
         }
@@ -2211,12 +2076,7 @@
       "easy": [
         {
           "question": "Welches Musikvideo von Rema, das auf dem Album 'Rave & Roses' ver\u00f6ffentlicht wurde, zeigt eindrucksvolle visuelle Effekte und eine lebendige Farbpalette?",
-          "options": [
-            "Dumebi",
-            "Calm Down",
-            "Soundgasm",
-            "Holiday"
-          ],
+          "options": ["Dumebi", "Calm Down", "Soundgasm", "Holiday"],
           "correctAnswer": "Calm Down",
           "trivia": "Rema ist ein aufstrebender nigerianischer K\u00fcnstler, der f\u00fcr seinen einzigartigen Sound und seine eing\u00e4ngigen Melodien bekannt ist. Das Album 'Rave & Roses' enth\u00e4lt mehrere Hits, darunter 'Calm Down', dessen Musikvideo durch seine kreativen visuelle Effekte besticht. Rema hat sich schnell einen Namen in der Musikszene gemacht und verbindet in seinen Videos oft farbenfrohe und dynamische Elemente, die die Stimmung seiner Musik widerspiegeln."
         },
@@ -2454,23 +2314,13 @@
         },
         {
           "question": "Welches Musikvideo von Burna Boy aus dem Album 'Outside' zeigt eindrucksvolle visuelle Szenen, die die Kultur und Energie Nigerias widerspiegeln?",
-          "options": [
-            "Gbona",
-            "On the Low",
-            "Ye",
-            "Dangote"
-          ],
+          "options": ["Gbona", "On the Low", "Ye", "Dangote"],
           "correctAnswer": "On the Low",
           "trivia": "Burna Boy ist ein nigerianischer Musiker, der f\u00fcr seinen einzigartigen Sound bekannt ist, der Afrobeat, Dancehall und Reggae kombiniert. Das Album 'Outside', das 2018 ver\u00f6ffentlicht wurde, enth\u00e4lt mehrere Hits, darunter 'On the Low', dessen Musikvideo mit lebendigen Bildern und einer starken Verbindung zur nigerianischen Kultur begeistert. 'On the Low' wurde ein internationaler Erfolg und festigte Burna Boys Ruf als einer der f\u00fchrenden K\u00fcnstler Afrikas."
         },
         {
           "question": "Mit welchem K\u00fcnstler kollaborierte Burna Boy auf dem Album 'Outside', das 2018 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Wizkid",
-            "J Hus",
-            "Ed Sheeran",
-            "Damian Marley"
-          ],
+          "options": ["Wizkid", "J Hus", "Ed Sheeran", "Damian Marley"],
           "correctAnswer": "J Hus",
           "trivia": "Burna Boy ist ein nigerianischer S\u00e4nger und Songwriter, der mit seinem Album 'Outside' internationale Anerkennung fand. Auf diesem Album arbeitet er mit dem britischen Rapper J Hus zusammen, dessen einzigartige Mischung aus Afrobeat und Hip-Hop das Lied bereichert. 'Outside' enth\u00e4lt eine Vielzahl von Einfl\u00fcssen und zeigt Burna Boys F\u00e4higkeit, verschiedene Musikstile zu kombinieren."
         }
@@ -2524,12 +2374,7 @@
         },
         {
           "question": "In welchem Jahr trat Burna Boy w\u00e4hrend seiner Tour zur Unterst\u00fctzung seines Albums 'Outside' erstmals auf dem ber\u00fchmten Glastonbury Festival auf?",
-          "options": [
-            "2017",
-            "2018",
-            "2019",
-            "2020"
-          ],
+          "options": ["2017", "2018", "2019", "2020"],
           "correctAnswer": "2019",
           "trivia": "Burna Boy, der f\u00fcr seinen einzigartigen Stil bekannt ist, trat 2019 auf dem Glastonbury Festival auf und stellte damit einen wichtigen Meilenstein in seiner Karriere dar. Sein Album 'Outside', das 2018 ver\u00f6ffentlicht wurde, half ihm, internationale Anerkennung zu erlangen und seinen Platz in der globalen Musikszene zu festigen. W\u00e4hrend seiner Auftritte pr\u00e4sentierte er einige der eing\u00e4ngigsten Tracks des Albums, die das Publikum mit ihrer Mischung aus Afrobeat und Reggae begeisterten."
         },
@@ -2581,12 +2426,7 @@
         },
         {
           "question": "Welches Jahr war die Ver\u00f6ffentlichung des Albums 'Afrowave 3' von Afro B?",
-          "options": [
-            "2017",
-            "2018",
-            "2019",
-            "2020"
-          ],
+          "options": ["2017", "2018", "2019", "2020"],
           "correctAnswer": "2019",
           "trivia": "Afro B ist ein britischer S\u00e4nger und Songwriter, der f\u00fcr seine Mischung aus Afrobeats und UK-Rap bekannt ist. Sein Album 'Afrowave 3', das 2019 ver\u00f6ffentlicht wurde, enth\u00e4lt mehrere Hits und zeigt seine kreative Entwicklung als K\u00fcnstler. Afro B hat sich durch seine eing\u00e4ngigen Melodien und energiegeladenen Beats einen Namen gemacht und ist ein wichtiger Vertreter des modernen Afrobeats-Genres."
         }
@@ -2616,12 +2456,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Afrowave 3' von Afro B thematisiert die Herausforderungen und Freuden des Lebens in einer Beziehung und zeigt dabei seinen typischen Afrobeat-Stil?",
-          "options": [
-            "Dancing",
-            "Shaku",
-            "Go Dance",
-            "Joanna"
-          ],
+          "options": ["Dancing", "Shaku", "Go Dance", "Joanna"],
           "correctAnswer": "Joanna",
           "trivia": "Afro B, ein britischer K\u00fcnstler mit ivorischen Wurzeln, hat mit 'Afrowave 3' im Jahr 2019 ein Album ver\u00f6ffentlicht, das seine einzigartige Mischung aus Afrobeat und Dancehall zeigt. Der Song 'Joanna' hebt die Dynamik und die Emotionen in Beziehungen hervor und kombiniert eing\u00e4ngige Melodien mit energiegeladenen Rhythmen. Afro B ist bekannt f\u00fcr seine F\u00e4higkeit, traditionelle afrikanische Kl\u00e4nge mit modernen Beats zu vereinen, was ihn zu einer bedeutenden Stimme in der globalen Musikszene macht."
         }
@@ -2801,12 +2636,7 @@
         },
         {
           "question": "Welches Musikvideo von Femi Kuti, das auf dem Album 'Fight to Win' ver\u00f6ffentlicht wurde, zeigt eindrucksvolle Tanzdarbietungen und eine starke visuelle Botschaft \u00fcber soziale Themen?",
-          "options": [
-            "Beng Beng",
-            "Fight to Win",
-            "Sorry Sorry",
-            "Dem Bobo"
-          ],
+          "options": ["Beng Beng", "Fight to Win", "Sorry Sorry", "Dem Bobo"],
           "correctAnswer": "Beng Beng",
           "trivia": "Femi Kuti ist ein angesehener nigerianischer Musiker und Sohn des legend\u00e4ren Afrobeat-Pioniers Fela Kuti. Sein Album 'Fight to Win', das 2001 ver\u00f6ffentlicht wurde, enth\u00e4lt mehrere kraftvolle Songs, darunter 'Beng Beng'. Dieses Musikvideo kombiniert mitrei\u00dfende Tanzbewegungen und eine kritische Auseinandersetzung mit sozialen Problemen, was es zu einem wichtigen visuellen Element des Albums macht."
         },
@@ -2917,12 +2747,7 @@
         },
         {
           "question": "Mit welchem K\u00fcnstler hat Yemi Alade auf ihrem Album 'Woman of Steel' eine Zusammenarbeit f\u00fcr den Song 'Shekere' ver\u00f6ffentlicht?",
-          "options": [
-            "Burna Boy",
-            "Angelique Kidjo",
-            "Patoranking",
-            "Wizkid"
-          ],
+          "options": ["Burna Boy", "Angelique Kidjo", "Patoranking", "Wizkid"],
           "correctAnswer": "Angelique Kidjo",
           "trivia": "Yemi Alade ist eine erfolgreiche nigerianische S\u00e4ngerin und Songwriterin, die f\u00fcr ihre kraftvolle Stimme und ihren einzigartigen Musikstil bekannt ist. Ihr Album 'Woman of Steel', das 2019 ver\u00f6ffentlicht wurde, umfasst eine Vielzahl von Kollaborationen mit anderen K\u00fcnstlern. Besonders hervorzuheben ist die Zusammenarbeit mit der legend\u00e4ren Beninischen S\u00e4ngerin Angelique Kidjo im Song 'Shekere', der kulturelle Einfl\u00fcsse aus Afrika vereint und die Bedeutung von Frauen st\u00e4rkt."
         },
@@ -2987,12 +2812,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Woman of Steel' von Yemi Alade erreichte in Nigeria eine herausragende Chartplatzierung und wurde zum Hit des Jahres 2019?",
-          "options": [
-            "Shekere",
-            "Oyi",
-            "Vibe",
-            "Lai Lai"
-          ],
+          "options": ["Shekere", "Oyi", "Vibe", "Lai Lai"],
           "correctAnswer": "Shekere",
           "trivia": "Yemi Alade ist eine prominente nigerianische S\u00e4ngerin, die mit ihrem Album 'Woman of Steel' im Jahr 2019 internationale Anerkennung fand. Der Song 'Shekere', der auf diesem Album enthalten ist, avancierte in Nigeria zu einem der meistgespielten Tracks und brachte Yemi Alade zahlreiche Auszeichnungen ein. Das Album kombiniert verschiedene Musikstile und zeigt Alades beeindruckendes Talent als K\u00fcnstlerin und Songwriterin."
         },
@@ -3079,12 +2899,7 @@
         },
         {
           "question": "Welches Musikvideo aus dem Album 'Last Daze of Summer' von Maleek Berry zeigt eine farbenfrohe Strandkulisse und spiegelt das entspannte Sommergef\u00fchl wider?",
-          "options": [
-            "Kontrol",
-            "Love You",
-            "Eko",
-            "Soco"
-          ],
+          "options": ["Kontrol", "Love You", "Eko", "Soco"],
           "correctAnswer": "Kontrol",
           "trivia": "Maleek Berry ist bekannt f\u00fcr seinen einzigartigen Sound, der afrobeat mit modernen R&B-Elementen kombiniert. Das Album 'Last Daze of Summer', das 2016 ver\u00f6ffentlicht wurde, enth\u00e4lt den Hit 'Kontrol', dessen Musikvideo in einer lebhaften Strandumgebung spielt. Dieses visuelle Element verst\u00e4rkt das Thema des Albums, das die Leichtigkeit und Freude des Sommers einf\u00e4ngt. Maleek Berry hat sich mit seiner kreativen Herangehensweise einen Namen gemacht und zieht Fans aus aller Welt an."
         }
@@ -3103,12 +2918,7 @@
         },
         {
           "question": "Welcher K\u00fcnstler hat auf dem Album 'Last Daze of Summer' von Maleek Berry, das 2016 ver\u00f6ffentlicht wurde, mitgewirkt und ist bekannt f\u00fcr seinen einzigartigen Stil, der afrikanische Rhythmen mit modernen R&B-Elementen kombiniert?",
-          "options": [
-            "Wizkid",
-            "Mr Eazi",
-            "Seyi Shay",
-            "Omah Lay"
-          ],
+          "options": ["Wizkid", "Mr Eazi", "Seyi Shay", "Omah Lay"],
           "correctAnswer": "Mr Eazi",
           "trivia": "Maleek Berry's Album 'Last Daze of Summer' enth\u00e4lt mehrere bemerkenswerte Kollaborationen, darunter einen Track mit Mr Eazi. Dieser K\u00fcnstler hat sich in der Musikszene durch seine Fusion von Afrobeats und zeitgen\u00f6ssischem R&B einen Namen gemacht. 'Last Daze of Summer' zeigt die Vielseitigkeit von Maleek Berry und die harmonische Zusammenarbeit mit anderen talentierten K\u00fcnstlern, was dem Album eine besondere Note verleiht."
         },
@@ -3219,12 +3029,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Old Romance' von Tekno erreichte 2020 die h\u00f6chsten Chartplatzierungen in Nigeria und anderen afrikanischen L\u00e4ndern?",
-          "options": [
-            "Suru",
-            "Enjoy",
-            "Mufasa",
-            "Woman"
-          ],
+          "options": ["Suru", "Enjoy", "Mufasa", "Woman"],
           "correctAnswer": "Enjoy",
           "trivia": "Tekno, ein prominenter nigerianischer Musiker und Produzent, ver\u00f6ffentlichte 2020 das Album 'Old Romance', das sowohl in Nigeria als auch international gro\u00dfe Aufmerksamkeit erregte. Der Song 'Enjoy' aus diesem Album wurde zum Hit und erreichte hohe Chartplatzierungen in mehreren afrikanischen L\u00e4ndern, was Tekno's Einfluss auf die Musikszene weiter festigte. Tekno ist bekannt f\u00fcr seine eing\u00e4ngigen Melodien und innovativen Produktionen, die oft Elemente des Afrobeats mit verschiedenen Musikstilen kombinieren."
         },
@@ -3265,12 +3070,7 @@
         },
         {
           "question": "Mit welchem K\u00fcnstler hat Teni auf ihrem Album 'Billionaire' zusammengearbeitet?",
-          "options": [
-            "Davido",
-            "Wizkid",
-            "Olamide",
-            "Rema"
-          ],
+          "options": ["Davido", "Wizkid", "Olamide", "Rema"],
           "correctAnswer": "Davido",
           "trivia": "Teni hat auf ihrem Deb\u00fctalbum 'Billionaire', das 2019 ver\u00f6ffentlicht wurde, mit dem ber\u00fchmten nigerianischen K\u00fcnstler Davido zusammengearbeitet. Diese Kollaboration hat dem Album zus\u00e4tzliche Aufmerksamkeit und Popularit\u00e4t verliehen. Teni ist bekannt f\u00fcr ihren einzigartigen Stil, der Afrobeats mit eing\u00e4ngigen Melodien kombiniert, was sie zu einer der gefragtesten K\u00fcnstlerinnen in der nigerianischen Musikszene macht."
         },
@@ -3289,12 +3089,7 @@
       "medium": [
         {
           "question": "Mit welchem K\u00fcnstler hat Teni auf ihrem Album 'Billionaire' eine bemerkenswerte Kollaboration f\u00fcr den Song 'For You' durchgef\u00fchrt?",
-          "options": [
-            "Davido",
-            "Wizkid",
-            "Burna Boy",
-            "Olamide"
-          ],
+          "options": ["Davido", "Wizkid", "Burna Boy", "Olamide"],
           "correctAnswer": "Davido",
           "trivia": "Teni, eine aufstrebende afrobeats K\u00fcnstlerin, hat auf ihrem Deb\u00fctalbum 'Billionaire' im Jahr 2019 mit Davido f\u00fcr den Song 'For You' zusammengearbeitet. Diese Zusammenarbeit brachte Teni's einzigartigen Stil und Davidos eing\u00e4ngige Melodien zusammen, was zu einem Hit f\u00fchrte. 'Billionaire' stellt Teni's Vielseitigkeit und Kreativit\u00e4t als K\u00fcnstlerin unter Beweis und zeigt, wie sie bedeutende K\u00fcnstler in ihre Musik integrieren kann."
         },
@@ -3335,12 +3130,7 @@
         },
         {
           "question": "Mit welchem K\u00fcnstler hat Teni auf ihrem Album 'Billionaire' von 2019 eine Kollaboration f\u00fcr den Song 'Case' ver\u00f6ffentlicht?",
-          "options": [
-            "Niniola",
-            "Davido",
-            "Wande Coal",
-            "Olamide"
-          ],
+          "options": ["Niniola", "Davido", "Wande Coal", "Olamide"],
           "correctAnswer": "Niniola",
           "trivia": "Teni, eine aufstrebende nigerianische K\u00fcnstlerin, hat auf ihrem gefeierten Deb\u00fctalbum 'Billionaire' die talentierte S\u00e4ngerin Niniola f\u00fcr den Song 'Case' gewonnen. Diese Zusammenarbeit zeigt die beeindruckenden Gesangsf\u00e4higkeiten beider K\u00fcnstlerinnen und vereint verschiedene Stile der afrobeat-Musik. Das Album 'Billionaire' erhielt viel Lob f\u00fcr seine eing\u00e4ngigen Melodien und die authentische Darstellung des nigerianischen Lebensstils."
         },
@@ -3392,12 +3182,7 @@
         },
         {
           "question": "Welches musikalische Element ist in Patorankings Album 'Three' aus dem Jahr 2020 besonders ausgepr\u00e4gt?",
-          "options": [
-            "Reggae",
-            "Klassik",
-            "Jazz",
-            "Blues"
-          ],
+          "options": ["Reggae", "Klassik", "Jazz", "Blues"],
           "correctAnswer": "Reggae",
           "trivia": "Patoranking ist ein renommierter nigerianischer Musiker, der f\u00fcr seine F\u00e4higkeit bekannt ist, verschiedene Musikstile zu kombinieren. In seinem Album 'Three' zeigt er besonders die Einfl\u00fcsse des Reggae, die stark in seinen Melodien und Rhythmen verankert sind. Das Album enth\u00e4lt auch Elemente des Dancehall und Afrobeats, was es zu einem vielf\u00e4ltigen H\u00f6rerlebnis macht. Patoranking hat sich mit diesem Album weiter als einer der f\u00fchrenden K\u00fcnstler in der afrikanischen Musikszene etabliert."
         }
@@ -3427,12 +3212,7 @@
         },
         {
           "question": "In welchem Jahr trat Patoranking erstmals live mit Songs aus seinem Album 'Three' auf?",
-          "options": [
-            "2019",
-            "2020",
-            "2021",
-            "2022"
-          ],
+          "options": ["2019", "2020", "2021", "2022"],
           "correctAnswer": "2020",
           "trivia": "Patoranking, der f\u00fcr seine einzigartige Mischung aus Dancehall und Reggae bekannt ist, ver\u00f6ffentlichte sein drittes Studioalbum 'Three' im Jahr 2020. Bei der Promotion des Albums gab er mehrere Live-Auftritte, unter anderem bei bedeutenden Musikfestivals und Konzerten. Die Songs auf 'Three' reflektieren Patorankings k\u00fcnstlerische Entwicklung und seine Wurzeln in der afrokaribischen Musik. Mit Hits wie 'Abule' und 'Celebrate' begeisterte er Fans weltweit."
         }
@@ -3497,12 +3277,7 @@
         },
         {
           "question": "Welches Musikvideo von Niniola aus dem Album 'Colours and Sounds' zeigt eindrucksvolle visuelle Elemente und Tanzchoreografien, die die Energie des Songs unterstreichen?",
-          "options": [
-            "Baddest",
-            "Addicted",
-            "Designer",
-            "Omo Rapala"
-          ],
+          "options": ["Baddest", "Addicted", "Designer", "Omo Rapala"],
           "correctAnswer": "Baddest",
           "trivia": "Niniola ist eine talentierte nigerianische S\u00e4ngerin und Songwriterin, die f\u00fcr ihre einzigartige Mischung aus Afro-Haus und R&B bekannt ist. Ihr Album 'Colours and Sounds', das 2020 ver\u00f6ffentlicht wurde, enth\u00e4lt mehrere visuell beeindruckende Musikvideos, die ihre k\u00fcnstlerische Vision unterstreichen. Das Musikvideo zu 'Baddest' hebt sich durch kreative Choreografien und lebendige Farben hervor, was die Energie des Songs perfekt einf\u00e4ngt."
         },
@@ -3567,12 +3342,7 @@
         },
         {
           "question": "Welcher bekannte Produzent und K\u00fcnstler hat an Niniolas Album 'Colours and Sounds' mitgewirkt und ist f\u00fcr seine Arbeit im Afrobeats-Genre ber\u00fchmt?",
-          "options": [
-            "Patoranking",
-            "Masterkraft",
-            "Wizkid",
-            "Sarz"
-          ],
+          "options": ["Patoranking", "Masterkraft", "Wizkid", "Sarz"],
           "correctAnswer": "Sarz",
           "trivia": "Niniola, die f\u00fcr ihren einzigartigen Stil im Afro-Haus bekannt ist, ver\u00f6ffentlichte 2020 das Album 'Colours and Sounds', das mehrere aufregende Kollaborationen umfasst. Eine der herausragenden Produktionen stammt von Sarz, einem renommierten Produzenten, der f\u00fcr seine innovativen Beats im Afrobeats-Genre ber\u00fchmt ist. Die Zusammenarbeit brachte eine frische Klangfarbe in Niniolas Musik und half, das Album international zu positionieren. 'Colours and Sounds' zeigt die Vielseitigkeit von Niniola und ihre F\u00e4higkeit, verschiedene musikalische Einfl\u00fcsse zu integrieren."
         },
@@ -3729,12 +3499,7 @@
         },
         {
           "question": "Welches Musikvideo des K\u00fcnstlers Olamide aus dem Album 'Carpe Diem' zeigt beeindruckende Tanzchoreografien und eine farbenfrohe \u00c4sthetik?",
-          "options": [
-            "Infinity",
-            "Loading",
-            "Greenlight",
-            "Ruby"
-          ],
+          "options": ["Infinity", "Loading", "Greenlight", "Ruby"],
           "correctAnswer": "Infinity",
           "trivia": "Olamide ist ein bekannter nigerianischer Musiker, der f\u00fcr seinen einzigartigen Stil und eing\u00e4ngige Beats bekannt ist. Sein Album 'Carpe Diem', das 2020 ver\u00f6ffentlicht wurde, enth\u00e4lt mehrere erfolgreiche Singles, darunter 'Infinity'. Das Musikvideo zu 'Infinity' hebt sich durch seine dynamischen Tanzszenen und lebhaften Farben hervor, was es zu einem besonderen visuellem Erlebnis macht."
         },
@@ -3788,23 +3553,13 @@
       "hard": [
         {
           "question": "Welcher prominente Produzent hat an mehreren Tracks des Albums 'Carpe Diem' von Olamide mitgewirkt, das 2020 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Pheelz",
-            "Sarz",
-            "Young John",
-            "Killertunes"
-          ],
+          "options": ["Pheelz", "Sarz", "Young John", "Killertunes"],
           "correctAnswer": "Pheelz",
           "trivia": "Olamide ist bekannt f\u00fcr seine F\u00e4higkeit, verschiedene Musikstile zu kombinieren und hat mit vielen namhaften Produzenten zusammengearbeitet. F\u00fcr sein Album 'Carpe Diem' aus dem Jahr 2020 arbeitete er insbesondere mit Pheelz zusammen, der f\u00fcr seinen einzigartigen Sound und innovative Beats bekannt ist. Gemeinsam schufen sie Tracks, die sowohl in Nigeria als auch international gro\u00dfen Anklang fanden, und setzten Olamides Status als einer der f\u00fchrenden K\u00fcnstler der Afrobeat-Szene fest."
         },
         {
           "question": "Welche prominente Kollaboration von Olamide auf dem Album 'Carpe Diem' aus dem Jahr 2020 hebt sich besonders hervor und zeigt die Verschmelzung von Afrobeat und Hip-Hop?",
-          "options": [
-            "Wizkid",
-            "Bella Shmurda",
-            "Burna Boy",
-            "Davido"
-          ],
+          "options": ["Wizkid", "Bella Shmurda", "Burna Boy", "Davido"],
           "correctAnswer": "Bella Shmurda",
           "trivia": "Olamide hat auf seinem Album 'Carpe Diem' aus dem Jahr 2020 mit Bella Shmurda zusammengearbeitet, was einen frischen und energischen Sound in die Tracks brachte. Diese Zusammenarbeit ist ein hervorragendes Beispiel f\u00fcr die Verschmelzung von verschiedenen Musikstilen, die in der nigerianischen Musikszene popul\u00e4r sind. Bella Shmurda, bekannt f\u00fcr seinen einzigartigen Stil, erg\u00e4nzt Olamides eing\u00e4ngige Melodien und Texte perfekt."
         },
@@ -3880,12 +3635,7 @@
         },
         {
           "question": "In welchem Jahr trat Falz erstmals mit seinem Album 'Moral Instruction' auf einer Tour auf, um die Themen des Albums zu pr\u00e4sentieren?",
-          "options": [
-            "2018",
-            "2019",
-            "2020",
-            "2021"
-          ],
+          "options": ["2018", "2019", "2020", "2021"],
           "correctAnswer": "2019",
           "trivia": "Falz ist ein nigerianischer Musiker und Schauspieler, der f\u00fcr seine sozialen und politischen Texte bekannt ist. Sein Album 'Moral Instruction', das 2019 ver\u00f6ffentlicht wurde, thematisiert wichtige gesellschaftliche Fragen und fordert die H\u00f6rer auf, \u00fcber Moral und Ethik nachzudenken. W\u00e4hrend der Tour zu diesem Album f\u00fchrte Falz zahlreiche Live-Auftritte durch, bei denen er seine eing\u00e4ngigen Songs und kritischen Botschaften pr\u00e4sentierte."
         },
@@ -3985,12 +3735,7 @@
       "medium": [
         {
           "question": "Welches Musikvideo aus dem Album 'Zaza Vibes' von L.A.X zeigt eine farbenfrohe und festliche Atmosph\u00e4re, die die kulturellen Wurzeln des K\u00fcnstlers widerspiegelt?",
-          "options": [
-            "Zaza",
-            "Semilore",
-            "Lagos Anthem",
-            "Jungle"
-          ],
+          "options": ["Zaza", "Semilore", "Lagos Anthem", "Jungle"],
           "correctAnswer": "Zaza",
           "trivia": "L.A.X, ein aufstrebender K\u00fcnstler der afrobeats-Szene, ver\u00f6ffentlichte sein Album 'Zaza Vibes' im Jahr 2020 und begeisterte Fans mit seinen eing\u00e4ngigen Melodien und visuellen Elementen. Das Musikvideo zu 'Zaza' ist besonders hervorzuheben, da es eine lebendige Darstellung von Festlichkeiten und Traditionen zeigt, die die Essenz der afrikanischen Kultur verk\u00f6rpern. Die visuelle \u00c4sthetik des Videos tr\u00e4gt dazu bei, die Botschaft der Freude und des Feierns zu vermitteln, die in vielen Songs des Albums pr\u00e4sent ist."
         },
@@ -4007,12 +3752,7 @@
         },
         {
           "question": "Mit welchem K\u00fcnstler hat L.A.X auf dem Album 'Zaza Vibes' eine Kollaboration f\u00fcr den Song 'Semilore' ver\u00f6ffentlicht?",
-          "options": [
-            "Wizkid",
-            "Olamide",
-            "Patoranking",
-            "Tiwa Savage"
-          ],
+          "options": ["Wizkid", "Olamide", "Patoranking", "Tiwa Savage"],
           "correctAnswer": "Olamide",
           "trivia": "L.A.X ist ein aufstrebender nigerianischer K\u00fcnstler, der f\u00fcr seinen Afrobeat-Stil bekannt ist. Auf seinem Album 'Zaza Vibes', das 2020 ver\u00f6ffentlicht wurde, zeigt er seine Vielseitigkeit durch verschiedene Kollaborationen. Der Song 'Semilore', der in Zusammenarbeit mit dem ber\u00fchmten K\u00fcnstler Olamide entstand, hebt sich durch eing\u00e4ngige Melodien und kraftvolle Texte hervor. Diese Zusammenarbeit hat beiden K\u00fcnstlern geholfen, ihre Reichweite und ihren Einfluss in der Musikszene zu erweitern."
         }
@@ -4217,12 +3957,7 @@
       "medium": [
         {
           "question": "Welches Musikvideo von Sauti Sol aus dem Album 'Midnight Train' wurde f\u00fcr seine eindrucksvollen visuellen Effekte und die Darstellung kultureller Elemente in Kenia gelobt?",
-          "options": [
-            "Vivendi",
-            "Insecure",
-            "Monica",
-            "Short N Sweet"
-          ],
+          "options": ["Vivendi", "Insecure", "Monica", "Short N Sweet"],
           "correctAnswer": "Insecure",
           "trivia": "Sauti Sol ist eine ber\u00fchmte kenianische Musikgruppe, die f\u00fcr ihren einzigartigen Mix aus Afro-Pop und Soul bekannt ist. Ihr Album 'Midnight Train', das 2020 ver\u00f6ffentlicht wurde, enth\u00e4lt das Musikvideo zu 'Insecure', das f\u00fcr seine k\u00fcnstlerische Gestaltung und die emotionale Tiefe des Themas gelobt wurde. Das Video spiegelt nicht nur die Herausforderungen in Beziehungen wider, sondern zeigt auch die Sch\u00f6nheit und Vielfalt der kenianischen Kultur."
         },
@@ -4263,23 +3998,13 @@
         },
         {
           "question": "Welche Platzierung erreichte das Album 'Midnight Train' von Sauti Sol in den kenianischen Albumcharts im Jahr 2020?",
-          "options": [
-            "Platz 1",
-            "Platz 3",
-            "Platz 5",
-            "Platz 10"
-          ],
+          "options": ["Platz 1", "Platz 3", "Platz 5", "Platz 10"],
           "correctAnswer": "Platz 1",
           "trivia": "Sauti Sol ist eine der bekanntesten Musikgruppen in Kenia und hat sich mit ihrem einzigartigen Sound und ihren eing\u00e4ngigen Melodien einen Namen gemacht. Ihr Album 'Midnight Train', das im Jahr 2020 ver\u00f6ffentlicht wurde, erreichte in den kenianischen Albumcharts den ersten Platz und wurde f\u00fcr seine innovativen Kl\u00e4nge und tiefgr\u00fcndigen Texte gelobt. Die Band kombiniert verschiedene Musikstile, darunter Afro-Pop und R&B, und hat zahlreiche Auszeichnungen f\u00fcr ihre k\u00fcnstlerischen Leistungen erhalten."
         },
         {
           "question": "Welches Musikvideo von Sauti Sol aus dem Album 'Midnight Train' zeigt eindrucksvolle visuelle Elemente und thematisiert die Reise und das Streben nach Tr\u00e4umen?",
-          "options": [
-            "Lenge Lenge",
-            "Insecure",
-            "Sura Yako",
-            "Kamasutra"
-          ],
+          "options": ["Lenge Lenge", "Insecure", "Sura Yako", "Kamasutra"],
           "correctAnswer": "Insecure",
           "trivia": "Das Musikvideo zu 'Insecure' von Sauti Sol, das im Jahr 2020 mit dem Album 'Midnight Train' ver\u00f6ffentlicht wurde, zeichnet sich durch seine lebendigen Farben und die emotionale Erz\u00e4hlweise aus. Es zeigt, wie die Protagonisten mit Unsicherheiten in Beziehungen umgehen und das Streben nach Selbstvertrauen und Akzeptanz. Sauti Sol, bekannt f\u00fcr ihren einzigartigen Sound und ihre kreative Herangehensweise an Musikvideos, nutzt visuelle Kunst, um tiefere Themen zu vermitteln, die viele Menschen ansprechen."
         }
@@ -4320,12 +4045,7 @@
         },
         {
           "question": "Welcher bekannte K\u00fcnstler hat an dem Album 'Life is Eazi, Vol. 2' von Mr Eazi, das 2018 ver\u00f6ffentlicht wurde, mitgewirkt?",
-          "options": [
-            "Wizkid",
-            "Burna Boy",
-            "Santi",
-            "Tems"
-          ],
+          "options": ["Wizkid", "Burna Boy", "Santi", "Tems"],
           "correctAnswer": "Wizkid",
           "trivia": "Mr Eazi ist ein nigerianischer S\u00e4nger und Songwriter, der f\u00fcr seinen einzigartigen Stil bekannt ist, der Afrobeats mit verschiedenen Musikrichtungen kombiniert. Auf dem Album 'Life is Eazi, Vol. 2' hat er mit verschiedenen K\u00fcnstlern zusammengearbeitet, einschlie\u00dflich dem ber\u00fchmten Wizkid, der f\u00fcr seine eing\u00e4ngigen Melodien und energiegeladenen Auftritte bekannt ist. Das Album enth\u00e4lt eine Vielzahl von Songs, die das afro-urbanische Lebensgef\u00fchl widerspiegeln und die Vielfalt der afrikanischen Musikszene zeigen."
         }
@@ -4333,23 +4053,13 @@
       "medium": [
         {
           "question": "Welchen Platz erreichte Mr Eazi mit seinem Album 'Life is Eazi, Vol. 2' in den offiziellen Albumcharts Nigerias?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 3"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 3"],
           "correctAnswer": "Platz 1",
           "trivia": "Mr Eazi ist bekannt f\u00fcr seinen einzigartigen Stil, der Afrobeats mit globalen Kl\u00e4ngen verbindet. Sein Album 'Life is Eazi, Vol. 2', das 2018 ver\u00f6ffentlicht wurde, erreichte in Nigeria den ersten Platz der Albumcharts. Das Album enth\u00e4lt mehrere erfolgreiche Singles, die zur Popularit\u00e4t von Mr Eazi auf dem internationalen Musikmarkt beigetragen haben."
         },
         {
           "question": "Welcher Song aus dem Album 'Life is Eazi, Vol. 2' von Mr Eazi thematisiert die Herausforderungen und die Sehns\u00fcchte des Lebens in einer Beziehung und enth\u00e4lt eine eing\u00e4ngige Hook, die oft in sozialen Medien zitiert wird?",
-          "options": [
-            "Pour Me Water",
-            "Dabebi",
-            "London Town",
-            "Surrender"
-          ],
+          "options": ["Pour Me Water", "Dabebi", "London Town", "Surrender"],
           "correctAnswer": "Dabebi",
           "trivia": "Mr Eazi, ein erfolgreicher nigerianischer Musiker, ver\u00f6ffentlichte 2018 das Album 'Life is Eazi, Vol. 2', das eine Mischung aus Afrobeats und globalen Kl\u00e4ngen pr\u00e4sentiert. Der Song 'Dabebi' behandelt die Themen Liebe und Beziehung und f\u00e4ngt die Emotionen ein, die mit der Suche nach Verbundenheit verbunden sind. Die eing\u00e4ngige Melodie und der relatable Text haben dazu gef\u00fchrt, dass der Song in der afrobeat-Community sehr beliebt ist."
         },
@@ -4390,12 +4100,7 @@
         },
         {
           "question": "Welches Musikvideo aus dem Album 'Life is Eazi, Vol. 2' von Mr Eazi zeigt eine bunte, lebendige Szenerie, die die kulturellen Einfl\u00fcsse der afrikanischen Diaspora widerspiegelt?",
-          "options": [
-            "Anointing",
-            "Property",
-            "Dabebi",
-            "Pour Me Water"
-          ],
+          "options": ["Anointing", "Property", "Dabebi", "Pour Me Water"],
           "correctAnswer": "Dabebi",
           "trivia": "Mr Eazi, ein nigerianischer K\u00fcnstler, der f\u00fcr seine einzigartige Fusion von Afrobeats und internationalem Pop bekannt ist, ver\u00f6ffentlichte 2018 das Album 'Life is Eazi, Vol. 2'. Das Musikvideo zu 'Dabebi' hebt die lebhaften Farben und dynamischen Tanzbewegungen hervor, die typisch f\u00fcr die Kultur des Kontinents sind. Zudem zeigt es verschiedene Aspekte des urbanen Lebens in Lagos, was die Verbindung zwischen Musik und visueller Kunst verst\u00e4rkt."
         }
@@ -4414,23 +4119,13 @@
       "easy": [
         {
           "question": "In welchem Jahr trat Davido erstmals mit seinem Album 'Omo Baba Olowo' live auf?",
-          "options": [
-            "2012",
-            "2013",
-            "2014",
-            "2015"
-          ],
+          "options": ["2012", "2013", "2014", "2015"],
           "correctAnswer": "2012",
           "trivia": "Davido ver\u00f6ffentlichte sein Deb\u00fctalbum 'Omo Baba Olowo' im Jahr 2012, das ihn schnell zu einem der bekanntesten K\u00fcnstler in der afrobeat-Szene machte. Im selben Jahr begann er, sein Album live zu pr\u00e4sentieren, was ihm half, eine treue Fangemeinde aufzubauen. Die Songs des Albums, darunter Hits wie 'Dami Duro', trugen erheblich zu seinem Ruhm bei."
         },
         {
           "question": "Welcher ber\u00fchmte K\u00fcnstler hat an dem Song 'Dami Duro' auf dem Album 'Omo Baba Olowo' von Davido mitgewirkt?",
-          "options": [
-            "Wande Coal",
-            "P-Square",
-            "Burna Boy",
-            "Olamide"
-          ],
+          "options": ["Wande Coal", "P-Square", "Burna Boy", "Olamide"],
           "correctAnswer": "Wande Coal",
           "trivia": "Davido ist ein nigerianischer S\u00e4nger und Songwriter, der mit seinem Deb\u00fctalbum 'Omo Baba Olowo', das 2012 ver\u00f6ffentlicht wurde, gro\u00dfe Erfolge feierte. Der Song 'Dami Duro' ist einer der bekanntesten Tracks des Albums und enth\u00e4lt eine bemerkenswerte Kollaboration mit dem ber\u00fchmten K\u00fcnstler Wande Coal. Das Album zeigt Davidos F\u00e4higkeit, verschiedene Musikstile zu kombinieren und hat ihm geholfen, sich als einer der f\u00fchrenden K\u00fcnstler in der afrikanischen Musikszene zu etablieren."
         },
@@ -4449,12 +4144,7 @@
       "medium": [
         {
           "question": "Welches Musikvideo von Davido, das auf seinem Album 'Omo Baba Olowo' von 2012 enthalten ist, zeigt eine lebendige Feier mit traditionellen nigerianischen Elementen und hat sich durch seine hohe Produktionsqualit\u00e4t hervorgetan?",
-          "options": [
-            "Dami Duro",
-            "Ekuro",
-            "Overseas",
-            "All of You"
-          ],
+          "options": ["Dami Duro", "Ekuro", "Overseas", "All of You"],
           "correctAnswer": "Dami Duro",
           "trivia": "Davido ist ein nigerianischer S\u00e4nger und Musikproduzent, der mit seinem Deb\u00fctalbum 'Omo Baba Olowo' gro\u00dfe Erfolge feierte. Das Musikvideo zu 'Dami Duro' ist besonders bekannt f\u00fcr seine farbenfrohen Darstellungen und die Einbeziehung nigerianischer Kultur. Der Song selbst wurde zu einem Hit und half, Davidos Karriere international zu etablieren."
         },
@@ -4541,12 +4231,7 @@
         },
         {
           "question": "Welches Musikgenre pr\u00e4gte den Aufnahmeprozess von Adekunle Gold f\u00fcr sein Album 'Afro Pop, Vol. 1', das im Jahr 2020 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Afrobeats",
-            "Jazz",
-            "Rock",
-            "Klassik"
-          ],
+          "options": ["Afrobeats", "Jazz", "Rock", "Klassik"],
           "correctAnswer": "Afrobeats",
           "trivia": "Adekunle Gold ist bekannt f\u00fcr seine F\u00e4higkeit, traditionelle afrikanische Kl\u00e4nge mit modernen Musikstilen zu kombinieren. In seinem Album 'Afro Pop, Vol. 1' aus dem Jahr 2020 liegt der Fokus stark auf dem Genre Afrobeats, das durch rhythmische Beats und eing\u00e4ngige Melodien gepr\u00e4gt ist. Der K\u00fcnstler hat mit verschiedenen Produzenten zusammengearbeitet, um einen frischen und zeitgem\u00e4\u00dfen Sound zu kreieren, der seine Wurzeln in der afroamerikanischen Musik reflektiert."
         },
@@ -4692,23 +4377,13 @@
         },
         {
           "question": "Welches Musikvideo aus dem Album 'Black Love' von Sarkodie zeigt eindrucksvoll die kulturellen Elemente Ghanas und kombiniert moderne Tanzstile mit traditionellen Motiven?",
-          "options": [
-            "Adonai",
-            "Lucky",
-            "Do You",
-            "Bleeding"
-          ],
+          "options": ["Adonai", "Lucky", "Do You", "Bleeding"],
           "correctAnswer": "Do You",
           "trivia": "Sarkodie ist ein renommierter ghanaischer Rapper, der mit seinem Album 'Black Love' im Jahr 2019 gro\u00dfe Erfolge feierte. Im Musikvideo zu 'Do You' wird die Verbindung zwischen moderner Musik und der ghanaischen Kultur visuell eindrucksvoll dargestellt, wodurch die Zuschauer in die Vielfalt und Sch\u00f6nheit des Landes eintauchen k\u00f6nnen. Die Kombination aus zeitgen\u00f6ssischem Tanz und traditionellen Elementen hebt das Video hervor und macht es zu einem wichtigen Teil des Albums."
         },
         {
           "question": "Welcher prominente K\u00fcnstler hat an einem Song auf Sarkodies Album 'Black Love' mitgewirkt und ist bekannt f\u00fcr seine unverwechselbare Stimme und seinen Einfluss auf die afrikanische Musikszene?",
-          "options": [
-            "Wendy Shay",
-            "Stonebwoy",
-            "R2Bees",
-            "Burna Boy"
-          ],
+          "options": ["Wendy Shay", "Stonebwoy", "R2Bees", "Burna Boy"],
           "correctAnswer": "Burna Boy",
           "trivia": "Sarkodie, einer der bekanntesten Rapper Ghanas, ver\u00f6ffentlichte 2019 das Album 'Black Love', das f\u00fcr seine vielf\u00e4ltigen Kl\u00e4nge und tiefgr\u00fcndigen Texte gefeiert wird. Ein bemerkenswerter Song auf diesem Album ist die Zusammenarbeit mit dem nigerianischen Star Burna Boy, der durch seinen einzigartigen Stil und seine globale Popularit\u00e4t bekannt ist. Diese Kollaboration tr\u00e4gt zur musikalischen Vielfalt des Albums bei und zeigt die starken Verbindungen zwischen der ghanaischen und nigerianischen Musikszene."
         }
@@ -4899,12 +4574,7 @@
         },
         {
           "question": "Mit welchem K\u00fcnstler hat Shatta Wale auf dem Album 'Reign' von 2018 zusammengearbeitet?",
-          "options": [
-            "Burna Boy",
-            "Beyonc\u00e9",
-            "Davido",
-            "Stonebwoy"
-          ],
+          "options": ["Burna Boy", "Beyonc\u00e9", "Davido", "Stonebwoy"],
           "correctAnswer": "Stonebwoy",
           "trivia": "Shatta Wale, ein prominenter ghanaischer Dancehall-K\u00fcnstler, ver\u00f6ffentlichte das Album 'Reign' im Jahr 2018. Auf diesem Album arbeitete er mit dem ebenso ber\u00fchmten ghanaischen K\u00fcnstler Stonebwoy zusammen. Ihre Kollaboration zeigt eine Fusion von Dancehall und Reggae, die beide K\u00fcnstler perfekt repr\u00e4sentiert. 'Reign' wurde ein bedeutender Erfolg in der afrikanischen Musikszene."
         }
@@ -5015,12 +4685,7 @@
         },
         {
           "question": "Welches Instrument spielt Fela Kuti h\u00e4ufig auf seinem Album 'Confusion', das 1975 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Trompete",
-            "Saxophon",
-            "Gitarre",
-            "Schlagzeug"
-          ],
+          "options": ["Trompete", "Saxophon", "Gitarre", "Schlagzeug"],
           "correctAnswer": "Saxophon",
           "trivia": "Fela Kuti, ein Pionier des Afrobeat, ist bekannt f\u00fcr seinen charakteristischen Einsatz des Saxophons in seinen Kompositionen. Auf dem Album 'Confusion' von 1975 zeigt er eindrucksvoll seine F\u00e4higkeiten und verleiht den Songs eine unverwechselbare Klangfarbe. Fela kombinierte traditionelle afrikanische Rhythmen mit Jazz-Elementen und politischen Botschaften, was ihn zu einer einflussreichen Figur in der Musikgeschichte machte. Das Album ist ein perfektes Beispiel f\u00fcr seine innovative Instrumentierung und seine F\u00e4higkeit, verschiedene Musikstile zu vereinen."
         }
@@ -5179,12 +4844,7 @@
       "hard": [
         {
           "question": "Welches Musikvideo aus dem Album 'Anloga Junction' von Stonebwoy zeigt eindrucksvolle visuelle Elemente, die die kulturelle Vielfalt Ghanas widerspiegeln und wurde 2020 ver\u00f6ffentlicht?",
-          "options": [
-            "Nominate",
-            "Critical",
-            "Journey",
-            "Motion"
-          ],
+          "options": ["Nominate", "Critical", "Journey", "Motion"],
           "correctAnswer": "Nominate",
           "trivia": "Stonebwoy ist ein vielfach ausgezeichneter ghanaischer K\u00fcnstler, der bekannt ist f\u00fcr seine einzigartige Verschmelzung von Reggae, Dancehall und Afrobeats. Das Album 'Anloga Junction', das 2020 ver\u00f6ffentlicht wurde, enth\u00e4lt verschiedene Songs, die die kulturelle Identit\u00e4t Ghanas zelebrieren. Das Musikvideo zu 'Nominate' zeichnet sich durch lebendige Farben und beeindruckende T\u00e4nze aus, die die traditionelle ghanaische Kultur in den Mittelpunkt r\u00fccken."
         },
@@ -5225,12 +4885,7 @@
       "easy": [
         {
           "question": "Wie nennt Teni ihr Deb\u00fctalbum, das im Jahr 2021 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Wondaland",
-            "Teni's World",
-            "Teniverse",
-            "Dreamland"
-          ],
+          "options": ["Wondaland", "Teni's World", "Teniverse", "Dreamland"],
           "correctAnswer": "Wondaland",
           "trivia": "Teni ist eine nigerianische S\u00e4ngerin und Songwriterin, die f\u00fcr ihren einzigartigen Musikstil und ihre eing\u00e4ngigen Melodien bekannt ist. Ihr Deb\u00fctalbum 'Wondaland' wurde 2021 ver\u00f6ffentlicht und umfasst eine Vielzahl von Genres, die ihre k\u00fcnstlerische Vielseitigkeit zeigen. Der Aufnahmeprozess war gepr\u00e4gt von Kreativit\u00e4t und einer starken Verbindung zu ihren kulturellen Wurzeln, was sich in den Texten und der Musik des Albums widerspiegelt."
         },
@@ -5352,23 +5007,13 @@
         },
         {
           "question": "Welches ber\u00fchmte Album von Fela Kuti, das 1974 ver\u00f6ffentlicht wurde, tr\u00e4gt den Titel 'Alagbon Close'?",
-          "options": [
-            "Alagbon Close",
-            "Zombie",
-            "Expensive Shit",
-            "Lady"
-          ],
+          "options": ["Alagbon Close", "Zombie", "Expensive Shit", "Lady"],
           "correctAnswer": "Alagbon Close",
           "trivia": "Fela Kuti war ein nigerianischer Musiker und Aktivist, der als Pionier des Afrobeat gilt. Sein Album 'Alagbon Close' von 1974 ist bekannt f\u00fcr seine Mischung aus traditioneller afrikanischer Musik und Jazz. Der Titel des Albums bezieht sich auf eine Stra\u00dfe in Lagos, die f\u00fcr ihr lebhaftes Nachtleben bekannt war. Fela Kuti nutzte seine Musik oft, um politische und soziale Themen zu thematisieren."
         },
         {
           "question": "Welches Instrument ist besonders pr\u00e4gnant in Fela Kutis Album 'Alagbon Close' von 1974 vertreten?",
-          "options": [
-            "Trompete",
-            "Saxophon",
-            "Schlagzeug",
-            "Gitarre"
-          ],
+          "options": ["Trompete", "Saxophon", "Schlagzeug", "Gitarre"],
           "correctAnswer": "Saxophon",
           "trivia": "Fela Kuti, der Pionier des Afrobeat, integrierte in seinem Album 'Alagbon Close' von 1974 das Saxophon als zentrales Instrument. Die kraftvollen und improvisierten Saxophonlinien verleihen den Songs eine charakteristische Klangfarbe, die f\u00fcr Fela Kutis Stil typisch ist. Neben dem Saxophon spielen auch andere Instrumente wie Trommeln und Klavier eine wichtige Rolle, jedoch hebt sich das Saxophon durch seine melodische Dominanz hervor. Dieses Album ist ein hervorragendes Beispiel f\u00fcr die innovative Verbindung von afrikanischer Musik und Jazz."
         }
@@ -5468,12 +5113,7 @@
         },
         {
           "question": "In welchem Jahr trat Fela Kuti mit seinem Album 'Yellow Fever' in verschiedenen St\u00e4dten auf, um seine Musik und politischen Botschaften zu verbreiten?",
-          "options": [
-            "1975",
-            "1976",
-            "1977",
-            "1978"
-          ],
+          "options": ["1975", "1976", "1977", "1978"],
           "correctAnswer": "1976",
           "trivia": "Fela Kuti, ein einflussreicher nigerianischer Musiker und politischer Aktivist, ver\u00f6ffentlichte 1976 das Album 'Yellow Fever'. W\u00e4hrend dieser Zeit war er bekannt f\u00fcr seine energiegeladenen Live-Auftritte, die oft politische Themen und soziale Kommentare beinhalteten. 'Yellow Fever' ist eines seiner ber\u00fchmtesten Werke und reflektiert seinen Kampf gegen Kolonialismus und westliche Sch\u00f6nheitsideale. Kuti tourte intensiv, um seine Musik und Botschaften einem breiten Publikum nahezubringen."
         },
@@ -5503,12 +5143,7 @@
         },
         {
           "question": "Welcher bekannte Produzent war an der Produktion des Albums 'Yellow Fever' von Fela Kuti beteiligt, das 1976 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Tony Allen",
-            "Brian Eno",
-            "Mickey Hart",
-            "Steve Albini"
-          ],
+          "options": ["Tony Allen", "Brian Eno", "Mickey Hart", "Steve Albini"],
           "correctAnswer": "Tony Allen",
           "trivia": "Fela Kuti arbeitete eng mit dem legend\u00e4ren Schlagzeuger Tony Allen zusammen, der als einer der Hauptarchitekten des Afrobeat gilt. Das Album 'Yellow Fever' enth\u00e4lt eine Mischung aus funkigen Rhythmen und politischen Texten, die f\u00fcr Fela Kutis Musik charakteristisch sind. Tony Allens innovative Schlagtechnik und sein Verst\u00e4ndnis von Rhythmus haben wesentlich zum einzigartigen Sound von 'Yellow Fever' beigetragen."
         },
@@ -5608,12 +5243,7 @@
       "medium": [
         {
           "question": "In welchem Jahr trat Wizkid mit seinem Album 'Sounds from the Other Side' auf der 'Starboy World Tour' auf, die seine weltweite Bekanntheit weiter steigerte?",
-          "options": [
-            "2016",
-            "2017",
-            "2018",
-            "2019"
-          ],
+          "options": ["2016", "2017", "2018", "2019"],
           "correctAnswer": "2017",
           "trivia": "Wizkid ver\u00f6ffentlichte sein Album 'Sounds from the Other Side' im Jahr 2017, das eine Mischung aus Afrobeats, R&B und Dancehall enth\u00e4lt. Im Rahmen der 'Starboy World Tour' stellte er dieses Album in verschiedenen St\u00e4dten vor, was zu seiner internationalen Anerkennung beitrug. Die Tour umfasste mehrere bedeutende Auftritte, bei denen er seine Hits wie 'Come Closer' und 'Ojuelegba' pr\u00e4sentierte. Wizkid hat sich als einer der einflussreichsten K\u00fcnstler der Afrobeats-Szene etabliert."
         },
@@ -5759,12 +5389,7 @@
       "hard": [
         {
           "question": "Welcher Song aus dem Album 'Warriors' von 2Baba, das im Jahr 2020 ver\u00f6ffentlicht wurde, erreichte in Nigeria die h\u00f6chste Chartplatzierung und etablierte sich als einer der gr\u00f6\u00dften Hits des K\u00fcnstlers?",
-          "options": [
-            "Opo",
-            "I Dey Hear Everything",
-            "Moniegram",
-            "Ginger"
-          ],
+          "options": ["Opo", "I Dey Hear Everything", "Moniegram", "Ginger"],
           "correctAnswer": "Opo",
           "trivia": "2Baba, einer der bekanntesten K\u00fcnstler der nigerianischen Musikszene, ver\u00f6ffentlichte sein Album 'Warriors' im Jahr 2020 und setzte damit seinen Einfluss auf die Afrobeats-Musik fort. Besonders der Song 'Opo' erhielt immense Anerkennung und erreichte hohe Chartplatzierungen in Nigeria. Mit seinen eing\u00e4ngigen Melodien und tiefgr\u00fcndigen Texten festigte 2Baba erneut seinen Status als Musiklegende in Afrika."
         },
@@ -5897,12 +5522,7 @@
         },
         {
           "question": "Welches Musikvideo aus dem Album 'L.I.F.E' von Burna Boy zeigt eindrucksvoll die kulturelle Vielfalt Nigerias und wurde f\u00fcr seine k\u00fcnstlerische Darstellung sowie die Verwendung traditioneller Elemente gelobt?",
-          "options": [
-            "Yawa Dey",
-            "Like to Party",
-            "Soke",
-            "Run My Race"
-          ],
+          "options": ["Yawa Dey", "Like to Party", "Soke", "Run My Race"],
           "correctAnswer": "Like to Party",
           "trivia": "Burna Boy, ein nigerianischer Musiker, ver\u00f6ffentlichte 2013 das Album 'L.I.F.E', das f\u00fcr seinen einzigartigen Mix aus Afrobeats und Dancehall bekannt ist. Das Musikvideo zu 'Like to Party' hebt die kulturellen Aspekte Nigerias hervor und zeigt lebendige Szenen aus dem Alltag. Es gilt als eines der einflussreichsten Videos seiner Karriere und trug dazu bei, Burna Boys internationalen Ruhm zu festigen."
         }
@@ -5943,12 +5563,7 @@
         },
         {
           "question": "Welches erfolgreiche Album von P-Square wurde im Jahr 2007 ver\u00f6ffentlicht und zeichnet sich durch mehrere Kollaborationen aus?",
-          "options": [
-            "Game Over",
-            "Last Night",
-            "Dance With Me",
-            "Invasion"
-          ],
+          "options": ["Game Over", "Last Night", "Dance With Me", "Invasion"],
           "correctAnswer": "Game Over",
           "trivia": "Das Album 'Game Over' von P-Square, das 2007 ver\u00f6ffentlicht wurde, ist eines der bekanntesten Werke des nigerianischen Zwillingsduos. Es enth\u00e4lt zahlreiche Hits und bemerkenswerte Kollaborationen, darunter den Song 'Do Me', der die Gruppe international bekannt machte. P-Square kombinierte in diesem Album verschiedene Musikstile, darunter R&B, Hip-Hop und Afrobeat, was zu seinem gro\u00dfen Erfolg beitrug."
         }
@@ -6013,12 +5628,7 @@
         },
         {
           "question": "Welche prominente Kollaboration ist auf dem Album 'Game Over' von P-Square zu finden, das im Jahr 2007 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Baba Dee",
-            "2Baba",
-            "Waje",
-            "Mr. P"
-          ],
+          "options": ["Baba Dee", "2Baba", "Waje", "Mr. P"],
           "correctAnswer": "2Baba",
           "trivia": "Das Album 'Game Over' von P-Square, das 2007 ver\u00f6ffentlicht wurde, enth\u00e4lt die erfolgreiche Kollaboration mit dem legend\u00e4ren nigerianischen K\u00fcnstler 2Baba, bekannt f\u00fcr seine Einflussnahme in der afrikanischen Musikszene. Dieser Song tr\u00e4gt ma\u00dfgeblich zur Popularit\u00e4t des Albums bei und zeigt die F\u00e4higkeit von P-Square, verschiedene Musikstile zu kombinieren. 'Game Over' wurde in mehreren afrikanischen L\u00e4ndern zu einem Hit und festigte den Ruf von P-Square als eines der f\u00fchrenden Duos in der afrikanischen Musikindustrie."
         }
@@ -6269,23 +5879,13 @@
       "easy": [
         {
           "question": "Welcher bekannte Produzent hat an mehreren Songs auf Joeboys Album 'Somewhere Between Beauty & Magic' mitgewirkt?",
-          "options": [
-            "Kiddominant",
-            "Pheelz",
-            "Sarz",
-            "Masterkraft"
-          ],
+          "options": ["Kiddominant", "Pheelz", "Sarz", "Masterkraft"],
           "correctAnswer": "Kiddominant",
           "trivia": "Joeboy ist ein aufstrebender nigerianischer K\u00fcnstler, der f\u00fcr seine eing\u00e4ngigen Melodien und gef\u00fchlvollen Texte bekannt ist. Sein Deb\u00fctalbum 'Somewhere Between Beauty & Magic', das 2021 ver\u00f6ffentlicht wurde, enth\u00e4lt mehrere Hits, die von renommierten Produzenten wie Kiddominant unterst\u00fctzt wurden. Kiddominant hat mit vielen ber\u00fchmten K\u00fcnstlern zusammengearbeitet und tr\u00e4gt ma\u00dfgeblich zu dem einzigartigen Sound des Albums bei."
         },
         {
           "question": "Welches Instrument wird h\u00e4ufig in den Produktionen von Joeboy auf dem Album 'Somewhere Between Beauty & Magic' eingesetzt, um den afrobeat-Sound zu verst\u00e4rken?",
-          "options": [
-            "Gitarre",
-            "Klavier",
-            "Schlagzeug",
-            "Synthesizer"
-          ],
+          "options": ["Gitarre", "Klavier", "Schlagzeug", "Synthesizer"],
           "correctAnswer": "Synthesizer",
           "trivia": "Joeboy verwendet in vielen Songs seines Albums 'Somewhere Between Beauty & Magic' Synthesizer, um den charakteristischen afrobeat-Sound zu erzeugen. Die Kombination aus modernen und traditionellen Instrumenten verleiht den Tracks eine einzigartige Klangfarbe und Energie. Joeboy, ein aufstrebender nigerianischer K\u00fcnstler, hat sich mit seinem unverwechselbaren Stil einen Namen gemacht und begeistert die Zuh\u00f6rer mit eing\u00e4ngigen Melodien und Rhythmen."
         },
@@ -6501,12 +6101,7 @@
       "easy": [
         {
           "question": "In welchem Jahr trat Falz w\u00e4hrend seiner Tour f\u00fcr das Album 'Stories That Touch' auf?",
-          "options": [
-            "2015",
-            "2016",
-            "2017",
-            "2018"
-          ],
+          "options": ["2015", "2016", "2017", "2018"],
           "correctAnswer": "2015",
           "trivia": "Falz, ein talentierter nigerianischer K\u00fcnstler, ver\u00f6ffentlichte sein Album 'Stories That Touch' im Jahr 2015. Die Tour zu diesem Album brachte ihn in viele St\u00e4dte, wo er seine eing\u00e4ngigen Songs und einzigartigen Stil pr\u00e4sentierte. Falz ist bekannt f\u00fcr seine F\u00e4higkeit, gesellschaftliche Themen in seine Musik zu integrieren, was ihm eine gro\u00dfe Fangemeinde eingebracht hat."
         },
@@ -6686,12 +6281,7 @@
       "hard": [
         {
           "question": "Welche Kollaboration mit einem anderen K\u00fcnstler auf dem Album 'King of Love' von Kizz Daniel enth\u00e4lt den ber\u00fchmten Refrain \"Wo wo wo\"?",
-          "options": [
-            "Nasty C",
-            "Tekno",
-            "Omah Lay",
-            "Patoranking"
-          ],
+          "options": ["Nasty C", "Tekno", "Omah Lay", "Patoranking"],
           "correctAnswer": "Tekno",
           "trivia": "Kizz Daniel hat auf seinem Album 'King of Love', das 2020 ver\u00f6ffentlicht wurde, mit dem K\u00fcnstler Tekno zusammengearbeitet. Der Song 'Buga', der in dieser Kollaboration erscheint, ist besonders beliebt und zeigt die harmonische Verbindung der beiden K\u00fcnstler. Tekno, bekannt f\u00fcr seinen eing\u00e4ngigen Sound und kreative Produktionen, erg\u00e4nzt Kizz Daniels Stil perfekt. Diese Zusammenarbeit hat die Aufmerksamkeit vieler Fans auf sich gezogen und das Album zu einem gro\u00dfen Erfolg gemacht."
         },
@@ -6754,12 +6344,7 @@
         },
         {
           "question": "In welchem Jahr traten Skepta und Wizkid gemeinsam auf, um Songs aus ihrem Album 'Energy (Stay Far Away)' zu pr\u00e4sentieren?",
-          "options": [
-            "2016",
-            "2017",
-            "2018",
-            "2019"
-          ],
+          "options": ["2016", "2017", "2018", "2019"],
           "correctAnswer": "2018",
           "trivia": "Das Album 'Energy (Stay Far Away)' von Skepta und Wizkid wurde im Jahr 2018 ver\u00f6ffentlicht. W\u00e4hrend ihrer Live-Auftritte in diesem Jahr begeisterten die beiden K\u00fcnstler ihre Fans mit energiegeladenen Darbietungen. Skepta, bekannt f\u00fcr seinen Einfluss auf die Grime-Musikszene, und Wizkid, der f\u00fcr seine afrobeat Kl\u00e4nge ber\u00fchmt ist, vereinten ihre Talente und schufen unvergessliche Momente auf der B\u00fchne. Ihr gemeinsames Auftreten zog viele Fans an und festigte ihre Position in der internationalen Musikszene."
         }
@@ -6870,12 +6455,7 @@
         },
         {
           "question": "Welcher Hit von Yemi Alade aus dem Album 'King of Queens' erreichte hohe Chartplatzierungen in Afrika und machte sie international bekannt?",
-          "options": [
-            "Johnny",
-            "Tangerine",
-            "Na Gode",
-            "Kissing"
-          ],
+          "options": ["Johnny", "Tangerine", "Na Gode", "Kissing"],
           "correctAnswer": "Johnny",
           "trivia": "Yemi Alade ist eine nigerianische S\u00e4ngerin, die mit ihrem Deb\u00fctalbum 'King of Queens' im Jahr 2014 gro\u00dfe Erfolge feierte. Der Song 'Johnny' wurde zu einem ihrer bekanntesten Hits und erreichte hohe Chartplatzierungen in mehreren afrikanischen L\u00e4ndern. Das Album zeigt Yemi Alades vielseitigen Stil, der von Afropop bis hin zu R&B reicht, und half ihr, sich als eine der f\u00fchrenden K\u00fcnstlerinnen Afrikas zu etablieren."
         }
@@ -6894,12 +6474,7 @@
         },
         {
           "question": "Welches Musikvideo von Yemi Alade aus dem Album 'King of Queens' zeigt beeindruckende farbenfrohe T\u00e4nze und traditionelle afrikanische Kleidung?",
-          "options": [
-            "Johnny",
-            "Tangerine",
-            "K.O",
-            "Na Gode"
-          ],
+          "options": ["Johnny", "Tangerine", "K.O", "Na Gode"],
           "correctAnswer": "Johnny",
           "trivia": "Yemi Alade ist eine bekannte nigerianische S\u00e4ngerin und Songwriterin, die mit ihrem Deb\u00fctalbum 'King of Queens' im Jahr 2014 internationale Aufmerksamkeit erlangte. Das Musikvideo zu 'Johnny' ist besonders beliebt und zeigt eine Kombination aus lebendigen T\u00e4nzen und kulturellen Elementen, die die afrikanische Identit\u00e4t feiern. Das Video wurde f\u00fcr seine kreative Bildsprache und die energiegeladenen Performances gelobt und trug ma\u00dfgeblich zu Yemi Alades Ruhm bei."
         },
@@ -6918,12 +6493,7 @@
       "hard": [
         {
           "question": "Welches Musikvideo aus dem Album 'King of Queens' von Yemi Alade zeigt eindrucksvoll traditionelle afrikanische T\u00e4nze und Kost\u00fcme?",
-          "options": [
-            "Johnny",
-            "Tangerine",
-            "Kissing",
-            "Nagode"
-          ],
+          "options": ["Johnny", "Tangerine", "Kissing", "Nagode"],
           "correctAnswer": "Johnny",
           "trivia": "Yemi Alade, eine herausragende K\u00fcnstlerin der afrikanischen Musikszene, ver\u00f6ffentlichte 2014 das Album 'King of Queens', das sie international bekannt machte. Das Musikvideo zu 'Johnny' sticht besonders hervor, da es mit lebendigen Farben, beeindruckenden traditionellen T\u00e4nzen und einem kreativen Storytelling aufwartet. Es zeigt nicht nur Yemi Alades k\u00fcnstlerische Vielseitigkeit, sondern auch die kulturelle Vielfalt Afrikas. 'Johnny' wurde zu einem weltweiten Hit und festigte ihren Status als eine der f\u00fchrenden Stimmen im Afro-Pop-Genre."
         },
@@ -6964,12 +6534,7 @@
       "easy": [
         {
           "question": "Mit welchem K\u00fcnstler hat Omah Lay auf dem Album 'What Have We Done' zusammengearbeitet?",
-          "options": [
-            "Tems",
-            "Burna Boy",
-            "Wizkid",
-            "Davido"
-          ],
+          "options": ["Tems", "Burna Boy", "Wizkid", "Davido"],
           "correctAnswer": "Tems",
           "trivia": "Omah Lay ist ein aufstrebender nigerianischer K\u00fcnstler, der mit seinem Deb\u00fctalbum 'What Have We Done' im Jahr 2020 gro\u00dfe Aufmerksamkeit erregte. Auf diesem Album arbeitet er unter anderem mit der talentierten S\u00e4ngerin Tems zusammen, die f\u00fcr ihre einzigartigen Vocals bekannt ist. 'What Have We Done' kombiniert afrobeat mit modernen R&B-Elementen und zeigt Omah Lays Vielseitigkeit als K\u00fcnstler. Die Zusammenarbeit mit Tems verst\u00e4rkt die emotionale Tiefe einiger Songs auf dem Album."
         },
@@ -7045,12 +6610,7 @@
         },
         {
           "question": "Welches Musikvideo aus dem Album 'What Have We Done' von Omah Lay enth\u00e4lt eine symbolische Darstellung von Verlust und Trauer, die durch eindrucksvolle visuelle Metaphern verst\u00e4rkt wird?",
-          "options": [
-            "Bad Influence",
-            "Godly",
-            "You",
-            "Lo Lo"
-          ],
+          "options": ["Bad Influence", "Godly", "You", "Lo Lo"],
           "correctAnswer": "Godly",
           "trivia": "Omah Lay ist ein nigerianischer Musiker, der mit seinem Deb\u00fctalbum 'What Have We Done' im Jahr 2020 internationale Aufmerksamkeit erregte. Das Musikvideo zu 'Godly' besticht durch seine eindrucksvolle visuelle \u00c4sthetik, die starke emotionale Themen wie Verlust und Hoffnung thematisiert. In diesem Video werden verschiedene Szenen eingesetzt, die die inneren Konflikte des Protagonisten widerspiegeln und so die Botschaft des Songs verst\u00e4rken. Omah Lays einzigartige F\u00e4higkeit, Musik mit visuellen Erz\u00e4hlungen zu verbinden, hebt ihn in der zeitgen\u00f6ssischen Musikszene hervor."
         },
@@ -7102,12 +6662,7 @@
         },
         {
           "question": "Welches musikalische Element ist besonders pr\u00e4gnant in Zlatans Album 'Zanku', das 2019 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Afrobeats",
-            "Rock",
-            "Jazz",
-            "Klassik"
-          ],
+          "options": ["Afrobeats", "Rock", "Jazz", "Klassik"],
           "correctAnswer": "Afrobeats",
           "trivia": "Zlatan ist ein nigerianischer Musiker, der mit seinem Album 'Zanku' im Jahr 2019 gro\u00dfe Erfolge feierte. Das Album ist ma\u00dfgeblich von Afrobeats gepr\u00e4gt, einem Genre, das rhythmische und melodische Elemente aus der afrikanischen Musik kombiniert. 'Zanku' enth\u00e4lt mehrere Hits, die den charakteristischen Klang und die Energie des Afrobeats widerspiegeln, und trugen dazu bei, Zlatans Popularit\u00e4t in der Musikszene zu steigern."
         }
@@ -7115,12 +6670,7 @@
       "medium": [
         {
           "question": "Mit welchem K\u00fcnstler hat Zlatan auf seinem Album 'Zanku' aus dem Jahr 2019 die erfolgreiche Kollaboration 'Bolanle' ver\u00f6ffentlicht?",
-          "options": [
-            "Davido",
-            "Tiwa Savage",
-            "Patoranking",
-            "Olamide"
-          ],
+          "options": ["Davido", "Tiwa Savage", "Patoranking", "Olamide"],
           "correctAnswer": "Olamide",
           "trivia": "Zlatan, ein aufstrebender Star der nigerianischen Musikszene, ver\u00f6ffentlichte 2019 sein Album 'Zanku', das f\u00fcr seinen einzigartigen Stil und eing\u00e4ngige Beats bekannt ist. Die Zusammenarbeit mit Olamide auf dem Track 'Bolanle' brachte beiden K\u00fcnstlern viel Anerkennung und verst\u00e4rkte Zlatans Pr\u00e4senz in der Afrobeats-Szene. 'Zanku' enth\u00e4lt zudem weitere Kollaborationen und stellt einen wichtigen Schritt in Zlatans Karriere dar."
         },
@@ -7172,12 +6722,7 @@
         },
         {
           "question": "In welchem Musikvideo des Albums 'Zanku' von Zlatan wird eine eindrucksvolle Tanzchoreografie gezeigt, die von der gleichnamigen Tanzbewegung inspiriert ist?",
-          "options": [
-            "Bolanle",
-            "Zanku Leg",
-            "Osanle",
-            "Ale Yi"
-          ],
+          "options": ["Bolanle", "Zanku Leg", "Osanle", "Ale Yi"],
           "correctAnswer": "Bolanle",
           "trivia": "Zlatan, der mit seinem Album 'Zanku' im Jahr 2019 internationale Aufmerksamkeit erlangte, revolutionierte die nigerianische Musikszene mit seiner einzigartigen Mischung aus Afrobeats und Street-Pop. Das Musikvideo zu 'Bolanle' ist besonders bekannt f\u00fcr seine dynamische Tanzchoreografie, die den beliebten 'Zanku Leg' Tanzfeaturet, der zum viralen Hit wurde. Diese visuelle Darstellung unterstreicht nicht nur Zlatans k\u00fcnstlerische F\u00e4higkeiten, sondern auch den Einfluss seiner Musik auf die Tanzkultur in Nigeria und dar\u00fcber hinaus."
         }
@@ -7218,12 +6763,7 @@
         },
         {
           "question": "Welches Musikvideo von Fela Kuti, das aus dem Album 'Open & Close' von 1971 stammt, zeigt seine charakteristischen Tanzbewegungen und eine lebendige B\u00fchnenshow?",
-          "options": [
-            "Water No Get Enemy",
-            "Lady",
-            "Shakara",
-            "Zombie"
-          ],
+          "options": ["Water No Get Enemy", "Lady", "Shakara", "Zombie"],
           "correctAnswer": "Shakara",
           "trivia": "Fela Kuti war ein nigerianischer Musiker und Aktivist, der bekannt daf\u00fcr ist, Afrobeats mit politischen Botschaften zu verbinden. Sein Album 'Open & Close' von 1971 enth\u00e4lt einige seiner bekanntesten St\u00fccke und stellt einen wichtigen Beitrag zur afrikanischen Musik dar. Das Musikvideo zu 'Shakara' zeigt nicht nur Fela Kuti's beeindruckende musikalische F\u00e4higkeiten, sondern auch seine energiegeladenen T\u00e4nze und die kulturelle Vielfalt seiner Band."
         }
@@ -7323,12 +6863,7 @@
         },
         {
           "question": "In welchem Jahr trat Teni live auf ihrer Tour zum Album 'My Way' auf?",
-          "options": [
-            "2021",
-            "2022",
-            "2023",
-            "2024"
-          ],
+          "options": ["2021", "2022", "2023", "2024"],
           "correctAnswer": "2022",
           "trivia": "Teni, eine aufstrebende K\u00fcnstlerin aus Nigeria, ver\u00f6ffentlichte ihr Album 'My Way' im Jahr 2022. Im Rahmen ihrer Tour zu diesem Album gab sie mehrere mitrei\u00dfende Live-Auftritte, bei denen sie ihre Hits pr\u00e4sentierte und das Publikum begeisterte. Teni ist bekannt f\u00fcr ihren einzigartigen Musikstil, der Elemente aus Afrobeats und Pop kombiniert, und 'My Way' zeigt ihr au\u00dfergew\u00f6hnliches Talent und ihre Kreativit\u00e4t."
         },
@@ -7474,12 +7009,7 @@
         },
         {
           "question": "Welcher K\u00fcnstler hat auf dem Album 'T.A.P (Talk About Poe)' von Ladipoe aus dem Jahr 2018 mitgewirkt, insbesondere auf dem Track 'Jungle Fever'?",
-          "options": [
-            "Santi",
-            "Nasty C",
-            "Tems",
-            "Omah Lay"
-          ],
+          "options": ["Santi", "Nasty C", "Tems", "Omah Lay"],
           "correctAnswer": "Santi",
           "trivia": "Ladipoe ist ein aufstrebender nigerianischer Rapper, der 2018 mit seinem Deb\u00fctalbum 'T.A.P (Talk About Poe)' auf sich aufmerksam machte. Der Track 'Jungle Fever', auf dem Santi zu h\u00f6ren ist, verbindet verschiedene Musikstile und hebt die kreative Synergie zwischen den beiden K\u00fcnstlern hervor. Diese Zusammenarbeit zeigt nicht nur Ladipoes Vielseitigkeit, sondern auch die wachsende Bedeutung von Kollaborationen in der nigerianischen Musikszene."
         },
@@ -7544,12 +7074,7 @@
       "easy": [
         {
           "question": "Wie viele Musiker waren in der Regel an den Aufnahmen f\u00fcr das Album 'Music of Many Colours' von Fela Kuti beteiligt?",
-          "options": [
-            "Zwei",
-            "F\u00fcnf",
-            "Zehn",
-            "Mehr als zwanzig"
-          ],
+          "options": ["Zwei", "F\u00fcnf", "Zehn", "Mehr als zwanzig"],
           "correctAnswer": "Mehr als zwanzig",
           "trivia": "Fela Kuti war bekannt f\u00fcr seine gro\u00df angelegten Live-Performances und die Einbeziehung vieler talentierter Musiker in seine Band, die als Afrika '70 bekannt wurde. Das Album 'Music of Many Colours', das 1980 ver\u00f6ffentlicht wurde, zeigt Kuti's charakteristischen Afrobeat-Stil und spiegelt die Zusammenarbeit von mehr als zwanzig Musikern wider. Diese Vielzahl an Musikern trug dazu bei, den komplexen und dynamischen Sound zu schaffen, f\u00fcr den Fela Kuti ber\u00fchmt war."
         },
@@ -7695,23 +7220,13 @@
       "medium": [
         {
           "question": "Welcher bekannte Produzent arbeitete an mehreren Tracks des Albums 'Redemption' von Burna Boy, das 2016 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Wizkid",
-            "Burna Boy selbst",
-            "P2J",
-            "Sarz"
-          ],
+          "options": ["Wizkid", "Burna Boy selbst", "P2J", "Sarz"],
           "correctAnswer": "P2J",
           "trivia": "Burna Boy, ein aufstrebender Star der afrofuturistischen Musikszene, ver\u00f6ffentlichte 2016 sein Album 'Redemption', das f\u00fcr seinen einzigartigen Sound und tiefgr\u00fcndige Texte bekannt ist. Der Produzent P2J war ma\u00dfgeblich an der Produktion mehrerer Songs des Albums beteiligt und half, einen modernen afro-fusion Sound zu kreieren. Burna Boys Musik kombiniert verschiedene Genres, darunter Dancehall, Reggae und Hip-Hop, und hat ihm internationale Anerkennung eingebracht."
         },
         {
           "question": "In welchem Jahr trat Burna Boy w\u00e4hrend seiner Tour f\u00fcr das Album 'Redemption' erstmals auf einem gro\u00dfen Festival in Europa auf?",
-          "options": [
-            "2016",
-            "2017",
-            "2018",
-            "2019"
-          ],
+          "options": ["2016", "2017", "2018", "2019"],
           "correctAnswer": "2018",
           "trivia": "Burna Boy, ein aufstrebender Star der afro-fusion Musikszene, ver\u00f6ffentlichte sein Album 'Redemption' im Jahr 2016. Auf dieser Tour erlangte er internationale Aufmerksamkeit und trat 2018 auf dem renommierten Glastonbury Festival in Gro\u00dfbritannien auf. Dieser Auftritt markierte einen Wendepunkt in seiner Karriere und half ihm, seine Fangemeinde in Europa erheblich zu vergr\u00f6\u00dfern."
         },
@@ -7903,12 +7418,7 @@
         },
         {
           "question": "In welchem Jahr trat Olamide mit seinem Album 'The Glory' auf der B\u00fchne w\u00e4hrend einer Tournee auf?",
-          "options": [
-            "2015",
-            "2016",
-            "2017",
-            "2018"
-          ],
+          "options": ["2015", "2016", "2017", "2018"],
           "correctAnswer": "2016",
           "trivia": "Olamide ver\u00f6ffentlichte sein Album 'The Glory' im Jahr 2016 und unternahm kurze Zeit sp\u00e4ter eine Tour, um die neuen Songs live zu pr\u00e4sentieren. Das Album enth\u00e4lt Hits wie 'Wo!!' und 'Omo Wobe', die bei den Fans sehr beliebt sind. Olamide ist bekannt f\u00fcr seine energiegeladenen Auftritte und seine F\u00e4higkeit, das Publikum zu begeistern."
         },
@@ -8008,12 +7518,7 @@
       "easy": [
         {
           "question": "Mit welchem K\u00fcnstler hat Fireboy DML auf dem Album 'Laughter, Tears & Goosebumps' eine Kollaboration f\u00fcr den Song 'Vibration' gemacht?",
-          "options": [
-            "Wande Coal",
-            "Olamide",
-            "Burna Boy",
-            "Davido"
-          ],
+          "options": ["Wande Coal", "Olamide", "Burna Boy", "Davido"],
           "correctAnswer": "Wande Coal",
           "trivia": "Fireboy DML, ein aufstrebender nigerianischer K\u00fcnstler, ver\u00f6ffentlichte sein Deb\u00fctalbum 'Laughter, Tears & Goosebumps' im Jahr 2019. Auf diesem Album ist der Song 'Vibration' enthalten, bei dem er mit Wande Coal zusammenarbeitet. Diese Zusammenarbeit tr\u00e4gt zur Vielfalt und dem einzigartigen Sound des Albums bei, das sowohl emotionale als auch fr\u00f6hliche Themen behandelt."
         },
@@ -8065,12 +7570,7 @@
         },
         {
           "question": "Welches Musikvideo aus dem Album 'Laughter, Tears & Goosebumps' von Fireboy DML zeigt eine visuelle Erz\u00e4hlung, die die Themen Liebe und Sehnsucht verk\u00f6rpert?",
-          "options": [
-            "Vibration",
-            "Jealous",
-            "What If",
-            "Champion"
-          ],
+          "options": ["Vibration", "Jealous", "What If", "Champion"],
           "correctAnswer": "Jealous",
           "trivia": "Fireboy DML ist ein aufstrebender nigerianischer K\u00fcnstler, der mit seinem Deb\u00fctalbum 'Laughter, Tears & Goosebumps' im Jahr 2019 gro\u00dfe Aufmerksamkeit erregte. Das Musikvideo zu 'Jealous' zeigt eindrucksvoll die emotionale Tiefe des Songs und spielt mit starken visuellen Elementen, die das Gef\u00fchl der Eifersucht und des Verlangens darstellen. Diese kreative Herangehensweise an die visuelle Umsetzung hat dazu beigetragen, dass der Song zu einem der bekanntesten Tracks des Albums wurde."
         }
@@ -8089,12 +7589,7 @@
         },
         {
           "question": "Mit welchem K\u00fcnstler hat Fireboy DML auf dem Album 'Laughter, Tears & Goosebumps', das 2019 ver\u00f6ffentlicht wurde, eine Kollaboration f\u00fcr den Song 'Vibration'?",
-          "options": [
-            "Wizkid",
-            "Olamide",
-            "Burna Boy",
-            "Davido"
-          ],
+          "options": ["Wizkid", "Olamide", "Burna Boy", "Davido"],
           "correctAnswer": "Olamide",
           "trivia": "Fireboy DML, ein aufstrebender Star der nigerianischen Musikszene, hat auf seinem Deb\u00fctalbum 'Laughter, Tears & Goosebumps' eine bemerkenswerte Zusammenarbeit mit Olamide. Der Song 'Vibration' zeigt die harmonische Verbindung zwischen Fireboys melodischem Stil und Olamides erfahrenem Flow. Dieses Album hat Fireboy DMLs Karriere ma\u00dfgeblich gepr\u00e4gt und ihm internationale Anerkennung eingebracht."
         },
@@ -8320,12 +7815,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Ghetto University' von Runtown erreichte 2016 hohe Chartplatzierungen in Nigeria und wurde zu einem der gr\u00f6\u00dften Hits des K\u00fcnstlers?",
-          "options": [
-            "Mad Over You",
-            "For Life",
-            "Energy",
-            "Bend Down Pause"
-          ],
+          "options": ["Mad Over You", "For Life", "Energy", "Bend Down Pause"],
           "correctAnswer": "Mad Over You",
           "trivia": "Runtown's Album 'Ghetto University', das 2015 ver\u00f6ffentlicht wurde, enth\u00e4lt den Hit 'Mad Over You', der 2016 in den nigerianischen Charts sehr erfolgreich war. Der Song half Runtown, sich als einer der f\u00fchrenden K\u00fcnstler der Afrobeats-Szene zu etablieren. 'Mad Over You' wurde nicht nur in Nigeria popul\u00e4r, sondern erlangte auch internationale Aufmerksamkeit und trug zur globalen Verbreitung von Afrobeats bei."
         },
@@ -8355,12 +7845,7 @@
       "easy": [
         {
           "question": "In welchem Jahr trat Rema erstmals mit seinem Album 'Bad Commando' auf Tournee?",
-          "options": [
-            "2018",
-            "2019",
-            "2020",
-            "2021"
-          ],
+          "options": ["2018", "2019", "2020", "2021"],
           "correctAnswer": "2019",
           "trivia": "Rema ist ein nigerianischer Musiker, der mit seinem Deb\u00fctalbum 'Bad Commando' im Jahr 2019 gro\u00dfe Erfolge feierte. Das Album enth\u00e4lt Hit-Singles, die Rema international bekannt machten. Im Rahmen seiner Tournee 2019 pr\u00e4sentierte er seine energiegeladenen Live-Auftritte, die von Fans begeistert aufgenommen wurden. Rema's einzigartige Mischung aus Afrobeat und Trap hat ihn zu einem der aufstrebenden Stars der Musikszene gemacht."
         },
@@ -8471,12 +7956,7 @@
       "easy": [
         {
           "question": "Welches Musikvideo von Adekunle Gold aus dem Album 'About 30' zeigt eine romantische Beziehung zwischen zwei Menschen, die in einer malerischen Umgebung spielt?",
-          "options": [
-            "Heartbreak Anniversary",
-            "Ire",
-            "Only Girl",
-            "Money"
-          ],
+          "options": ["Heartbreak Anniversary", "Ire", "Only Girl", "Money"],
           "correctAnswer": "Ire",
           "trivia": "Adekunle Gold ist ein nigerianischer Singer-Songwriter, der mit seinem einzigartigen Stil die Herzen vieler Musikliebhaber erobert hat. Das Album 'About 30', das 2018 ver\u00f6ffentlicht wurde, enth\u00e4lt den Hit 'Ire', dessen Musikvideo eine wundersch\u00f6ne Liebesgeschichte erz\u00e4hlt. In diesem Video wird die positive Energie und die Bedeutung von Liebe und Freude visuell eindrucksvoll dargestellt, was den Song noch ansprechender macht."
         },
@@ -8506,12 +7986,7 @@
       "medium": [
         {
           "question": "Welches Musikvideo von Adekunle Gold aus dem Album 'About 30' zeigt eine emotionale Erz\u00e4hlung \u00fcber Liebe und Verlust, und ist f\u00fcr seine eindrucksvolle visuelle \u00c4sthetik bekannt?",
-          "options": [
-            "Ire",
-            "Money",
-            "Fame",
-            "Something Different"
-          ],
+          "options": ["Ire", "Money", "Fame", "Something Different"],
           "correctAnswer": "Fame",
           "trivia": "Adekunle Gold ist ein nigerianischer S\u00e4nger und Songwriter, der mit seinem Album 'About 30' im Jahr 2018 gro\u00dfe Erfolge feierte. Das Musikvideo zu 'Fame' zeigt eine tiefgr\u00fcndige Geschichte, die die Herausforderungen und den Druck des Ruhms thematisiert. Die visuelle Umsetzung ist besonders hervorzuheben, da sie emotionale und dramatische Elemente kombiniert, die die Botschaft des Songs verst\u00e4rken."
         },
@@ -8528,12 +8003,7 @@
         },
         {
           "question": "In welchem Musikvideo aus dem Album 'About 30' von Adekunle Gold wird eine lebendige und farbenfrohe Darstellung der nigerianischen Kultur und Traditionen gezeigt?",
-          "options": [
-            "Ire",
-            "Money",
-            "Femi",
-            "Something Different"
-          ],
+          "options": ["Ire", "Money", "Femi", "Something Different"],
           "correctAnswer": "Something Different",
           "trivia": "Adekunle Gold ist bekannt f\u00fcr seine einzigartigen visuellen Konzepte, und im Musikvideo zu 'Something Different' aus dem Album 'About 30' wird die Sch\u00f6nheit und Vielfalt der nigerianischen Kultur eindrucksvoll eingefangen. Das Video kombiniert traditionelle Elemente mit modernen Ans\u00e4tzen und zeigt die Lebensfreude der Menschen. Adekunle Gold hat sich mit seinem Stil und seinen visuellen Erz\u00e4hlungen einen Namen gemacht, was ihn zu einem bedeutenden K\u00fcnstler in der afrikanischen Musikszene macht."
         }
@@ -8668,12 +8138,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'On a Spaceship' von Burna Boy erreichte einen signifikanten Erfolg in den afrikanischen Musikcharts und trug dazu bei, seinen internationalen Durchbruch zu f\u00f6rdern?",
-          "options": [
-            "Like to Party",
-            "Soke",
-            "Jealousy",
-            "Run My Race"
-          ],
+          "options": ["Like to Party", "Soke", "Jealousy", "Run My Race"],
           "correctAnswer": "Like to Party",
           "trivia": "Burna Boy, ein aufstrebender nigerianischer K\u00fcnstler, ver\u00f6ffentlichte 2015 sein Album 'On a Spaceship', das ihm gro\u00dfe Anerkennung einbrachte. Der Song 'Like to Party' wurde besonders popul\u00e4r und erreichte hohe Platzierungen in den afrikanischen Musikcharts, was ihm half, sich als internationaler Star zu etablieren. Burna Boys einzigartige Mischung aus Afrobeat und Dancehall machte ihn zu einem der einflussreichsten K\u00fcnstler seiner Generation."
         },
@@ -8749,12 +8214,7 @@
         },
         {
           "question": "Mit welchem K\u00fcnstler hat Simi auf ihrem Album 'Omo Charlie Champagne, Vol. 1' zusammengearbeitet?",
-          "options": [
-            "Adekunle Gold",
-            "Wande Coal",
-            "Patoranking",
-            "Olamide"
-          ],
+          "options": ["Adekunle Gold", "Wande Coal", "Patoranking", "Olamide"],
           "correctAnswer": "Adekunle Gold",
           "trivia": "Simi hat auf ihrem Album 'Omo Charlie Champagne, Vol. 1' mit ihrem Ehemann Adekunle Gold zusammengearbeitet. Das Album, das 2019 ver\u00f6ffentlicht wurde, enth\u00e4lt eine Mischung aus Afro-Pop und R&B und zeigt die kreative Chemie zwischen den beiden K\u00fcnstlern. Adekunle Gold und Simi sind nicht nur musikalisch, sondern auch privat ein Paar, was ihre Zusammenarbeit besonders authentisch und emotional macht."
         },
@@ -8830,23 +8290,13 @@
         },
         {
           "question": "Welches Jahr wurde das Album 'No Bad Songz' von Kizz Daniel ver\u00f6ffentlicht, das von Kritikern f\u00fcr seine eing\u00e4ngigen Melodien und vielf\u00e4ltigen Stile gelobt wurde?",
-          "options": [
-            "2016",
-            "2017",
-            "2018",
-            "2019"
-          ],
+          "options": ["2016", "2017", "2018", "2019"],
           "correctAnswer": "2018",
           "trivia": "Kizz Daniel ver\u00f6ffentlichte sein Album 'No Bad Songz' im Jahr 2018 und erntete viel Lob von Kritikern f\u00fcr seine musikalische Vielfalt und eing\u00e4ngigen Beats. Das Album enth\u00e4lt mehrere erfolgreiche Singles, die in den afrikanischen Charts hoch platziert waren. Kizz Daniel, bekannt f\u00fcr seine einzigartige Stimme und seinen Stil, festigte mit diesem Album seinen Platz in der Musikszene."
         },
         {
           "question": "In welchem Jahr begann Kizz Daniel seine Tour zur Unterst\u00fctzung seines Albums 'No Bad Songz'?",
-          "options": [
-            "2017",
-            "2018",
-            "2019",
-            "2020"
-          ],
+          "options": ["2017", "2018", "2019", "2020"],
           "correctAnswer": "2018",
           "trivia": "Kizz Daniel, ein renommierter nigerianischer Musiker, ver\u00f6ffentlichte sein Album 'No Bad Songz' im Jahr 2018. Im Rahmen seiner Tour trat er in verschiedenen St\u00e4dten auf und begeisterte seine Fans mit Hits wie 'One Ticket' und 'Madu'. Das Album zeigt seine Vielseitigkeit und sein Talent, eing\u00e4ngige Melodien zu kreieren, die sowohl in Nigeria als auch international beliebt sind."
         }
@@ -8900,12 +8350,7 @@
         },
         {
           "question": "Welches Musikvideo aus dem Album 'No Bad Songz' von Kizz Daniel zeigt eine aufwendige Kulisse, die von afrikanischer Kultur inspiriert ist, und hebt die Themen Liebe und Herzschmerz hervor?",
-          "options": [
-            "Killing Them",
-            "Poko",
-            "One Ticket",
-            "Madu"
-          ],
+          "options": ["Killing Them", "Poko", "One Ticket", "Madu"],
           "correctAnswer": "One Ticket",
           "trivia": "Kizz Daniel's Album 'No Bad Songz', das 2018 ver\u00f6ffentlicht wurde, enth\u00e4lt viele visuell beeindruckende Musikvideos, die die Themen seiner Songs unterstreichen. Das Musikvideo zu 'One Ticket', featuring Davido, ist besonders bemerkenswert f\u00fcr seine lebendige Inszenierung und die Darstellung von Beziehungen. Die Kombination aus leidenschaftlichem Gesang und einer ansprechenden Storyline macht dieses Video zu einem Highlight des Albums. Kizz Daniel, bekannt f\u00fcr seine eing\u00e4ngigen Melodien und seinen einzigartigen Stil, festigte mit diesem Album seinen Platz in der afrikanischen Musikszene."
         },
@@ -9005,12 +8450,7 @@
       "hard": [
         {
           "question": "In welchem Jahr trat Wizkid w\u00e4hrend seiner 'Superstar'-Tour erstmals in Europa auf, um sein Deb\u00fctalbum 'Superstar', das 2011 ver\u00f6ffentlicht wurde, zu promoten?",
-          "options": [
-            "2012",
-            "2013",
-            "2014",
-            "2015"
-          ],
+          "options": ["2012", "2013", "2014", "2015"],
           "correctAnswer": "2013",
           "trivia": "Wizkid, ein prominenter nigerianischer K\u00fcnstler, ver\u00f6ffentlichte sein erstes Studioalbum 'Superstar' im Jahr 2011, das ihn international bekannt machte. W\u00e4hrend seiner 'Superstar'-Tour im Jahr 2013 gelang es ihm, in mehreren europ\u00e4ischen L\u00e4ndern aufzutreten, was seine wachsende Popularit\u00e4t au\u00dferhalb Afrikas unterstrich. Die Tour beinhaltete viele seiner Hits, die sowohl in der Heimat als auch international gut ankamen und ihn als wichtigen Akteur in der globalen Musikszene etablierten."
         },
@@ -9445,12 +8885,7 @@
         },
         {
           "question": "Welcher bekannte Produzent war an der Produktion von Kidi's Album 'Sugar' aus dem Jahr 2019 beteiligt?",
-          "options": [
-            "Kidi selbst",
-            "Sarkodie",
-            "GuiltyBeatz",
-            "M.O.G Beatz"
-          ],
+          "options": ["Kidi selbst", "Sarkodie", "GuiltyBeatz", "M.O.G Beatz"],
           "correctAnswer": "GuiltyBeatz",
           "trivia": "Kidi ist ein aufstrebender K\u00fcnstler aus Ghana, der mit seinem Album 'Sugar' im Jahr 2019 gro\u00dfe Erfolge feierte. Eine der zentralen Figuren bei der Produktion dieses Albums war der renommierte Produzent GuiltyBeatz, der auch f\u00fcr viele andere Hits in der ghanaischen Musikszene bekannt ist. Die Zusammenarbeit zwischen Kidi und GuiltyBeatz hat ma\u00dfgeblich zur eing\u00e4ngigen und modernen Klang\u00e4sthetik des Albums beigetragen."
         },
@@ -9480,12 +8915,7 @@
         },
         {
           "question": "Mit welchem K\u00fcnstler hat Kidi auf dem Album 'Sugar' von 2019 zusammengearbeitet, um den Hit 'Dance' zu kreieren?",
-          "options": [
-            "Joeboy",
-            "Kwesi Arthur",
-            "Burna Boy",
-            "Wizkid"
-          ],
+          "options": ["Joeboy", "Kwesi Arthur", "Burna Boy", "Wizkid"],
           "correctAnswer": "Joeboy",
           "trivia": "Kidi, ein aufstrebender ghanaischer K\u00fcnstler, ist bekannt f\u00fcr seine eing\u00e4ngigen Melodien und seinen einzigartigen Stil, der Afrobeats und R&B kombiniert. Auf dem Album 'Sugar' aus dem Jahr 2019 hat Kidi mit dem nigerianischen K\u00fcnstler Joeboy zusammengearbeitet, um den beliebten Track 'Dance' zu produzieren. Diese Kollaboration trug dazu bei, Kidi's internationalen Ruhm zu festigen und Joeboy als talentierten neuen K\u00fcnstler in der Musikszene zu etablieren."
         },
@@ -9526,12 +8956,7 @@
         },
         {
           "question": "Welches Jahr wurde das Album 'Life is Eazi, Vol. 1' von Mr Eazi ver\u00f6ffentlicht?",
-          "options": [
-            "2015",
-            "2016",
-            "2017",
-            "2018"
-          ],
+          "options": ["2015", "2016", "2017", "2018"],
           "correctAnswer": "2017",
           "trivia": "Mr Eazi ist ein nigerianischer Musiker, der f\u00fcr seinen einzigartigen Stil bekannt ist, der Afrobeats mit verschiedenen anderen Genres kombiniert. Sein Deb\u00fctalbum 'Life is Eazi, Vol. 1', das 2017 ver\u00f6ffentlicht wurde, enth\u00e4lt beliebte Tracks wie 'Leg Over' und 'Pour Me Water'. Das Album trug ma\u00dfgeblich zu seinem internationalen Erfolg bei und half dabei, den Afrobeats-Sound weltweit popul\u00e4r zu machen."
         },
@@ -9572,12 +8997,7 @@
         },
         {
           "question": "Mit welchem K\u00fcnstler hat Mr Eazi auf dem Album 'Life is Eazi, Vol. 1' eine Zusammenarbeit in dem Song 'In the Morning'?",
-          "options": [
-            "Wizkid",
-            "J Hus",
-            "Santi",
-            "Tems"
-          ],
+          "options": ["Wizkid", "J Hus", "Santi", "Tems"],
           "correctAnswer": "J Hus",
           "trivia": "Mr Eazi, ein bedeutender Vertreter der Afrobeats-Szene, ver\u00f6ffentlichte 2017 das Album 'Life is Eazi, Vol. 1', das mehrere erfolgreiche Kollaborationen enth\u00e4lt. Der Song 'In the Morning' featured den britischen Rapper J Hus, der f\u00fcr seinen einzigartigen Stil und Einfluss auf die UK-Musikszene bekannt ist. Das Album wurde f\u00fcr seine eing\u00e4ngigen Melodien und den Mix aus afrikanischen und westlichen Musikstilen gelobt."
         }
@@ -9642,12 +9062,7 @@
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Son of Mercy' von Davido?",
-          "options": [
-            "2015",
-            "2016",
-            "2017",
-            "2018"
-          ],
+          "options": ["2015", "2016", "2017", "2018"],
           "correctAnswer": "2016",
           "trivia": "Davido, ein ber\u00fchmter nigerianischer S\u00e4nger und Musikproduzent, ver\u00f6ffentlichte sein Album 'Son of Mercy' im Jahr 2016. Das Album beinhaltet eine Mischung aus Afrobeats und R&B und zeigt Davidos charakteristischen Stil, der ihn international bekannt gemacht hat. 'Son of Mercy' enth\u00e4lt mehrere popul\u00e4re Tracks, die sowohl in Nigeria als auch weltweit gro\u00dfe Erfolge feierten."
         },
@@ -9677,12 +9092,7 @@
         },
         {
           "question": "Welcher bekannte K\u00fcnstler hat an der Produktion des Songs 'How Long' auf dem Album 'Son of Mercy' von Davido, das im Jahr 2016 ver\u00f6ffentlicht wurde, mitgewirkt?",
-          "options": [
-            "Wizkid",
-            "P-Square",
-            "Timbaland",
-            "Skiibii"
-          ],
+          "options": ["Wizkid", "P-Square", "Timbaland", "Skiibii"],
           "correctAnswer": "Timbaland",
           "trivia": "Davido ist ein gefeierter nigerianischer S\u00e4nger und Songwriter, der mit seinem Album 'Son of Mercy' neue musikalische Wege beschritt. Der Song 'How Long' auf diesem Album zeichnet sich durch die Produktion des renommierten amerikanischen Musikproduzenten Timbaland aus, der f\u00fcr seinen einzigartigen Sound und seine innovativen Beats bekannt ist. Diese Zusammenarbeit verdeutlicht Davidos F\u00e4higkeit, internationale Talente in seine Musik zu integrieren und so seinen globalen Einfluss zu erweitern."
         },
@@ -9723,12 +9133,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Son of Mercy' von Davido erreichte in Nigeria hohe Chartplatzierungen und trug wesentlich zu seinem internationalen Erfolg bei?",
-          "options": [
-            "If",
-            "Fall",
-            "Fia",
-            "Skelewu"
-          ],
+          "options": ["If", "Fall", "Fia", "Skelewu"],
           "correctAnswer": "If",
           "trivia": "Davido, ein prominenter nigerianischer Musikproduzent und S\u00e4nger, ver\u00f6ffentlichte 2016 das Album 'Son of Mercy', das mehrere erfolgreiche Singles enthielt. Der Song 'If' aus diesem Album wurde zu einem weltweiten Hit und erzielte hohe Platzierungen in den nigerianischen Charts. Davido ist bekannt f\u00fcr seine F\u00e4higkeit, verschiedene Musikstile zu kombinieren, was ihm eine gro\u00dfe Fangemeinde eingebracht hat."
         }
@@ -9863,12 +9268,7 @@
       "easy": [
         {
           "question": "Welcher bekannte nigerianische K\u00fcnstler ver\u00f6ffentlichte 2017 das Album 'This is Me'?",
-          "options": [
-            "Niniola",
-            "Burna Boy",
-            "Davido",
-            "Yemi Alade"
-          ],
+          "options": ["Niniola", "Burna Boy", "Davido", "Yemi Alade"],
           "correctAnswer": "Niniola",
           "trivia": "Niniola ist eine aufstrebende nigerianische S\u00e4ngerin und Songwriterin, die f\u00fcr ihren einzigartigen Sound bekannt ist, der Afrobeats mit verschiedenen Musikstilen kombiniert. Ihr Deb\u00fctalbum 'This is Me' wurde 2017 ver\u00f6ffentlicht und enth\u00e4lt beliebte Songs wie 'Maradona' und 'Sicker'. Niniola hat sich schnell einen Namen in der Musikszene gemacht und wurde f\u00fcr ihre kraftvolle Stimme und eing\u00e4ngigen Melodien gelobt."
         },
@@ -9920,12 +9320,7 @@
         },
         {
           "question": "Welches Musikvideo aus Niniolas Album 'This is Me' von 2017 zeigt eine lebendige Darstellung von nigerianischer Kultur und Tanz?",
-          "options": [
-            "Bana",
-            "Sicker",
-            "Maradona",
-            "Designer"
-          ],
+          "options": ["Bana", "Sicker", "Maradona", "Designer"],
           "correctAnswer": "Maradona",
           "trivia": "Niniola, eine talentierte nigerianische S\u00e4ngerin und Songwriterin, ver\u00f6ffentlichte 2017 das Album 'This is Me', das ihren einzigartigen Stil und ihre Wurzeln feiert. Das Musikvideo zu 'Maradona' hebt die Energie und den Reichtum der nigerianischen Kultur hervor, und zeigt beeindruckende Choreografien sowie farbenfrohe Kost\u00fcme. Niniola kombiniert in ihren visuellen Elementen traditionelle Einfl\u00fcsse mit modernen Sounds, was sie zu einer der bemerkenswertesten K\u00fcnstlerinnen in der afrobeat-Szene macht."
         }
@@ -9933,12 +9328,7 @@
       "hard": [
         {
           "question": "In welchem Song auf dem Album 'This is Me' von Niniola thematisiert die K\u00fcnstlerin die Herausforderungen und Selbstfindung im Kontext von Beziehungen, w\u00e4hrend sie eine Mischung aus traditionellen afrikanischen Rhythmen und modernen Beats nutzt?",
-          "options": [
-            "Maradona",
-            "Sicker",
-            "Designer",
-            "Shaky Shaky"
-          ],
+          "options": ["Maradona", "Sicker", "Designer", "Shaky Shaky"],
           "correctAnswer": "Maradona",
           "trivia": "Niniola, eine nigerianische S\u00e4ngerin und Songwriterin, ver\u00f6ffentlichte 2017 ihr Deb\u00fctalbum 'This is Me', das f\u00fcr seine eing\u00e4ngigen Melodien und tiefgr\u00fcndigen Texte bekannt ist. Der Song 'Maradona' thematisiert das Spiel der Liebe und die damit verbundenen Emotionen, w\u00e4hrend er gleichzeitig die kulturellen Wurzeln der K\u00fcnstlerin feiert. Niniola kombiniert in ihren Songs oft Elemente der Afrobeats und des Highlife, was ihr einen einzigartigen Platz in der Musikszene verschafft hat."
         },
@@ -10176,12 +9566,7 @@
         },
         {
           "question": "Welche Kollaboration mit einem ber\u00fchmten britischen Musiker findet sich auf dem Album 'Struggle Sounds' von Seun Kuti & Egypt 80, das 2016 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Fela Kuti",
-            "Brian Eno",
-            "Tony Allen",
-            "Damon Albarn"
-          ],
+          "options": ["Fela Kuti", "Brian Eno", "Tony Allen", "Damon Albarn"],
           "correctAnswer": "Damon Albarn",
           "trivia": "Auf dem Album 'Struggle Sounds' von Seun Kuti & Egypt 80, das 2016 ver\u00f6ffentlicht wurde, gibt es eine bemerkenswerte Kollaboration mit Damon Albarn, dem Frontmann der Band Blur und Mitbegr\u00fcnder von Gorillaz. Diese Zusammenarbeit zeigt die Verschmelzung von afrobeat mit zeitgen\u00f6ssischen Kl\u00e4ngen und hebt die kulturelle Vielfalt von Seun Kutis Musik hervor. Seun Kuti, der Sohn des legend\u00e4ren Fela Kuti, setzt mit seinem Album ein starkes Zeichen f\u00fcr soziale Gerechtigkeit und politische Themen."
         },
@@ -10211,23 +9596,13 @@
       "easy": [
         {
           "question": "Welches Jahr wurde das Album 'Lord of Lamba' von Naira Marley ver\u00f6ffentlicht?",
-          "options": [
-            "2017",
-            "2018",
-            "2019",
-            "2020"
-          ],
+          "options": ["2017", "2018", "2019", "2020"],
           "correctAnswer": "2019",
           "trivia": "Naira Marley, ein aufstrebender nigerianischer K\u00fcnstler, ver\u00f6ffentlichte sein Album 'Lord of Lamba' im Jahr 2019. Das Album enth\u00e4lt mehrere beliebte Tracks, die den Afrobeat-Stil mit eing\u00e4ngigen Rhythmen verbinden. Naira Marley ist bekannt f\u00fcr seine provokanten Texte und seinen einzigartigen Musikstil, der ihm eine gro\u00dfe Fangemeinde eingebracht hat."
         },
         {
           "question": "Welches Musikvideo von Naira Marley aus dem Album 'Lord of Lamba' zeigt lebendige Farben und eine energiegeladene Tanzszene?",
-          "options": [
-            "Soapy",
-            "Am I A Yahoo Boy",
-            "Mafo",
-            "Bad Influence"
-          ],
+          "options": ["Soapy", "Am I A Yahoo Boy", "Mafo", "Bad Influence"],
           "correctAnswer": "Soapy",
           "trivia": "Naira Marley ist ein nigerianischer Musiker, der 2019 mit seinem Album 'Lord of Lamba' gro\u00dfe Aufmerksamkeit erregte. Das Musikvideo zu 'Soapy' zeichnet sich durch seine lebhaften Farben und dynamischen Tanzbewegungen aus, die die Botschaft des Songs unterstreichen. Naira Marley ist bekannt f\u00fcr seinen einzigartigen Stil und seine F\u00e4higkeit, verschiedene Musikgenres zu kombinieren, was ihn zu einem der einflussreichsten K\u00fcnstler seiner Generation macht."
         },
@@ -10267,12 +9642,7 @@
         },
         {
           "question": "Welcher bekannte Produzent war an der Produktion von Naira Marleys Album 'Lord of Lamba' beteiligt?",
-          "options": [
-            "Pheelz",
-            "Killertunes",
-            "Sarz",
-            "Wavy the Creator"
-          ],
+          "options": ["Pheelz", "Killertunes", "Sarz", "Wavy the Creator"],
           "correctAnswer": "Pheelz",
           "trivia": "Naira Marleys Album 'Lord of Lamba', das 2019 ver\u00f6ffentlicht wurde, zeigt die beeindruckenden F\u00e4higkeiten des Produzenten Pheelz. Er ist bekannt f\u00fcr seine eing\u00e4ngigen Beats und hat mit vielen prominenten K\u00fcnstlern der nigerianischen Musikszene zusammengearbeitet. Das Album kombiniert Elemente des Afrobeats mit Marleys einzigartigem Stil und festigte seine Position als einflussreicher K\u00fcnstler in der Musikindustrie."
         }
@@ -10302,12 +9672,7 @@
         },
         {
           "question": "Welcher Song auf Naira Marleys Album 'Lord of Lamba' behandelt das Thema des \u00dcberlebens in einer herausfordernden Umgebung und spiegelt die K\u00e4mpfe des K\u00fcnstlers mit sozialen und wirtschaftlichen Problemen wider?",
-          "options": [
-            "Killing Dem",
-            "Puta",
-            "Soapy",
-            "Mafo"
-          ],
+          "options": ["Killing Dem", "Puta", "Soapy", "Mafo"],
           "correctAnswer": "Soapy",
           "trivia": "Naira Marley ist bekannt f\u00fcr seine provokanten Texte und seinen einzigartigen Stil, der Afrobeats mit Stra\u00dfenkultur verbindet. Das Album 'Lord of Lamba', das 2019 ver\u00f6ffentlicht wurde, enth\u00e4lt den Song 'Soapy', der symbolisch f\u00fcr die Herausforderungen steht, mit denen viele Menschen in Nigeria konfrontiert sind. Der Songtext thematisiert die Suche nach einem Ausweg aus der Armut und die Erfahrungen des Lebens in einer schwierigen Umgebung. Naira Marleys Musik ist oft eine Reflexion seiner eigenen Lebensgeschichte und der Realit\u00e4t, in der er lebt."
         }
@@ -10337,12 +9702,7 @@
         },
         {
           "question": "Welches Jahr wurde das Album 'Wanted' von Wande Coal ver\u00f6ffentlicht, das von Kritikern als ein wichtiger Beitrag zur nigerianischen Musikszene angesehen wird?",
-          "options": [
-            "2013",
-            "2015",
-            "2017",
-            "2019"
-          ],
+          "options": ["2013", "2015", "2017", "2019"],
           "correctAnswer": "2015",
           "trivia": "Wande Coal ver\u00f6ffentlichte sein Album 'Wanted' im Jahr 2015 und erhielt viel Lob von Kritikern f\u00fcr seine eing\u00e4ngigen Melodien und seinen einzigartigen Musikstil. Das Album zeigt eine Mischung aus Afrobeat, R&B und Pop und enth\u00e4lt mehrere erfolgreiche Singles, die Wande Coals Status als einer der f\u00fchrenden K\u00fcnstler in der nigerianischen Musikszene festigten. Viele Kritiker hoben die Produktion und die lyrischen Qualit\u00e4ten der Songs hervor, was zu einer positiven Rezeption in der Musikpresse f\u00fchrte."
         },
@@ -10361,12 +9721,7 @@
       "medium": [
         {
           "question": "In welchem Jahr trat Wande Coal erstmals mit seinem Album 'Wanted' auf der B\u00fchne auf, nachdem es 2015 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "2015",
-            "2016",
-            "2017",
-            "2018"
-          ],
+          "options": ["2015", "2016", "2017", "2018"],
           "correctAnswer": "2016",
           "trivia": "Wande Coal, ein herausragender nigerianischer S\u00e4nger und Songwriter, ver\u00f6ffentlichte sein Album 'Wanted' im Jahr 2015. Im Jahr 2016 begann er mit einer Reihe von Live-Auftritten, um die Songs seines Albums einem breiteren Publikum vorzustellen. Diese Tourneen halfen ihm, seine Popularit\u00e4t in der afrobeat-Szene weiter zu steigern und neue Fans zu gewinnen."
         },
@@ -10463,12 +9818,7 @@
         },
         {
           "question": "Mit welchem K\u00fcnstler hat King Promise auf dem Album 'As Promised' eine Kollaboration f\u00fcr den Song 'CCTV' aufgenommen?",
-          "options": [
-            "Burna Boy",
-            "Wizkid",
-            "M Huncho",
-            "Omah Lay"
-          ],
+          "options": ["Burna Boy", "Wizkid", "M Huncho", "Omah Lay"],
           "correctAnswer": "Burna Boy",
           "trivia": "King Promise hat auf seinem Deb\u00fctalbum 'As Promised', das 2019 ver\u00f6ffentlicht wurde, mit dem nigerianischen Superstar Burna Boy f\u00fcr den Hit 'CCTV' zusammengearbeitet. Diese Zusammenarbeit kombinierte King Promises melodischen Stil mit Burna Boys einzigartigem Sound und trug dazu bei, die Reichweite beider K\u00fcnstler in der afropop Musikszene zu erweitern. 'As Promised' erhielt viel Lob f\u00fcr seine eing\u00e4ngigen Melodien und tiefgr\u00fcndigen Texte."
         }
@@ -10476,12 +9826,7 @@
       "medium": [
         {
           "question": "Welcher Song auf dem Album 'As Promised' von King Promise thematisiert die Herausforderungen und Freuden einer Liebesbeziehung und enth\u00e4lt die Zeilen \u00fcber die Sehnsucht nach N\u00e4he?",
-          "options": [
-            "CCTV",
-            "Sorrow",
-            "Pay Attention",
-            "Self Love"
-          ],
+          "options": ["CCTV", "Sorrow", "Pay Attention", "Self Love"],
           "correctAnswer": "CCTV",
           "trivia": "King Promise, ein aufstrebender K\u00fcnstler aus Ghana, hat mit seinem Deb\u00fctalbum 'As Promised' im Jahr 2019 die Herzen vieler Fans erobert. Der Song 'CCTV' ist besonders bekannt f\u00fcr seine eing\u00e4ngige Melodie und die tiefgr\u00fcndigen Texte, die die Komplexit\u00e4t von Beziehungen widerspiegeln. In 'CCTV' thematisiert King Promise, wie man trotz Distanz und Herausforderungen die Verbindung zu einem geliebten Menschen aufrechterhalten kann. Das Album zeigt King Promises Vielseitigkeit und Talent im Bereich Afrobeats und R&B."
         },
@@ -10498,12 +9843,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'As Promised' von King Promise erreichte in den ghanaischen Charts eine hohe Platzierung und festigte seinen Status als aufstrebender K\u00fcnstler?",
-          "options": [
-            "CCTV",
-            "Sika",
-            "Abena",
-            "Selfish"
-          ],
+          "options": ["CCTV", "Sika", "Abena", "Selfish"],
           "correctAnswer": "CCTV",
           "trivia": "King Promise ist ein talentierter ghanaischer S\u00e4nger und Songwriter, der mit seinem Deb\u00fctalbum 'As Promised' im Jahr 2019 gro\u00dfe Erfolge feierte. Der Song 'CCTV' wurde zu einem Hit und trug dazu bei, King Promises Bekanntheit \u00fcber die Grenzen Ghanas hinaus zu steigern. Das Album enth\u00e4lt eine Mischung aus Afrobeats und R&B und zeigt die musikalische Vielfalt des K\u00fcnstlers."
         }
@@ -10614,12 +9954,7 @@
         },
         {
           "question": "Welcher erfolgreiche Hit aus dem Album 'Sugar Mummy' von Teni erreichte hohe Chartplatzierungen in Nigeria und trug zur Bekanntheit der K\u00fcnstlerin bei?",
-          "options": [
-            "Case",
-            "Billionaire",
-            "Uyo Meyo",
-            "Lagos"
-          ],
+          "options": ["Case", "Billionaire", "Uyo Meyo", "Lagos"],
           "correctAnswer": "Case",
           "trivia": "Teni, eine aufstrebende nigerianische K\u00fcnstlerin, ver\u00f6ffentlichte 2019 ihr Album 'Sugar Mummy', das mehrere erfolgreiche Singles enth\u00e4lt. Besonders der Track 'Case' erlangte gro\u00dfe Popularit\u00e4t und erreichte hohe Chartplatzierungen in Nigeria. Teni ist bekannt f\u00fcr ihren einzigartigen Stil und ihre eing\u00e4ngigen Melodien, die sie in der afrikanischen Musikszene hervorheben."
         }
@@ -10684,23 +10019,13 @@
         },
         {
           "question": "In welchem Jahr trat Olamide mit seinem Album 'YBNL' erstmals live auf?",
-          "options": [
-            "2010",
-            "2011",
-            "2012",
-            "2013"
-          ],
+          "options": ["2010", "2011", "2012", "2013"],
           "correctAnswer": "2012",
           "trivia": "Olamide ver\u00f6ffentlichte sein Album 'YBNL' im Jahr 2012 und feierte damit seinen Durchbruch in der nigerianischen Musikszene. Das Album enth\u00e4lt Hits wie 'First of All' und 'Durosoke', die Olamide auch bei Live-Auftritten popul\u00e4r gemacht haben. Seine energiegeladenen Performances und fesselnden B\u00fchnenshows haben ihm eine gro\u00dfe Fanbase eingebracht."
         },
         {
           "question": "Welches Deb\u00fctalbum ver\u00f6ffentlichte der nigerianische K\u00fcnstler Olamide im Jahr 2012?",
-          "options": [
-            "YBNL",
-            "The Last of a Kind",
-            "Street OT",
-            "Carpe Diem"
-          ],
+          "options": ["YBNL", "The Last of a Kind", "Street OT", "Carpe Diem"],
           "correctAnswer": "YBNL",
           "trivia": "Olamide ver\u00f6ffentlichte sein Deb\u00fctalbum 'YBNL' im Jahr 2012 und etablierte sich schnell als einer der f\u00fchrenden K\u00fcnstler der nigerianischen Hip-Hop-Szene. Das Album enth\u00e4lt beliebte Tracks wie 'First of All' und 'Voice of the Street', die seinen einzigartigen Stil und seine F\u00e4higkeit, mit der urbanen Jugend zu kommunizieren, unter Beweis stellen. 'YBNL' war ein entscheidender Schritt in Olamides Karriere und half ihm, eine treue Fangemeinde aufzubauen."
         }
@@ -10869,12 +10194,7 @@
         },
         {
           "question": "Mit welchem prominenten Musiker arbeitete Fela Kuti an einem Song auf dem Album 'Authority Stealing', das 1980 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Tony Allen",
-            "Bunny Wailer",
-            "Peter Tosh",
-            "Bela Fleck"
-          ],
+          "options": ["Tony Allen", "Bunny Wailer", "Peter Tosh", "Bela Fleck"],
           "correctAnswer": "Tony Allen",
           "trivia": "Fela Kuti, der legend\u00e4re nigerianische Musiker und Pionier des Afrobeat, kollaborierte eng mit Tony Allen, seinem langj\u00e4hrigen Schlagzeuger und musikalischen Partner. Allen war nicht nur f\u00fcr den charakteristischen Rhythmus von Fela Kutis Musik verantwortlich, sondern auch f\u00fcr die kreative Entwicklung vieler Songs auf dem Album 'Authority Stealing'. Die beiden K\u00fcnstler schufen gemeinsam einen einzigartigen Sound, der bis heute Einfluss auf zahlreiche Musikrichtungen hat."
         },
@@ -10961,12 +10281,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Live!' von Fela Kuti in den US Billboard Jazz Charts nach seiner Ver\u00f6ffentlichung im Jahr 1971?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 10",
           "trivia": "Fela Kuti, ein Pionier des Afrobeat, ver\u00f6ffentlichte 1971 das Album 'Live!', das als eines seiner bekanntesten Werke gilt. Das Album kombiniert traditionelle afrikanische Musik mit Jazz und Funk und erhielt sowohl in der Heimat als auch international gro\u00dfe Anerkennung. In den US Billboard Jazz Charts erreichte 'Live!' Platz 10 und festigte Fela Kutis Status als bedeutender Musiker und sozialer Kommentator."
         }
@@ -11031,12 +10346,7 @@
         },
         {
           "question": "Welches Instrument wird h\u00e4ufig in den Tracks des Albums 'Vibration' von Fireboy DML verwendet, um den melodischen Charakter der Songs zu unterstreichen?",
-          "options": [
-            "Gitarre",
-            "Klavier",
-            "Schlagzeug",
-            "Saxophon"
-          ],
+          "options": ["Gitarre", "Klavier", "Schlagzeug", "Saxophon"],
           "correctAnswer": "Gitarre",
           "trivia": "Fireboy DML ist bekannt f\u00fcr seinen einzigartigen Sound, der afrobeat und R&B kombiniert. In seinem Album 'Vibration', das 2020 ver\u00f6ffentlicht wurde, spielt die Gitarre eine zentrale Rolle in vielen Tracks und tr\u00e4gt zur eing\u00e4ngigen Melodienstruktur bei. Die Produktionstechnik umfasst auch den Einsatz von modernen Beats, die die traditionelle afrobeat-\u00c4sthetik erg\u00e4nzen und das Album zu einem Hit machen."
         },
@@ -11147,12 +10457,7 @@
         },
         {
           "question": "In welchem Jahr trat Burna Boy w\u00e4hrend seiner Tour f\u00fcr das Album 'Steel & Copper' in London auf?",
-          "options": [
-            "2018",
-            "2019",
-            "2020",
-            "2021"
-          ],
+          "options": ["2018", "2019", "2020", "2021"],
           "correctAnswer": "2019",
           "trivia": "Burna Boy, ein herausragender K\u00fcnstler der afrofuturistischen Musikszene, ver\u00f6ffentlichte 2019 das Album 'Steel & Copper'. Im Rahmen seiner Tour f\u00fcr dieses Album gab er ein bemerkenswertes Konzert in London, das viele Fans begeisterte. Das Album zeigt seine einzigartige Mischung aus Afrobeats und anderen Musikstilen und festigte seinen internationalen Ruf."
         },
@@ -11171,12 +10476,7 @@
       "medium": [
         {
           "question": "Welches Musikvideo aus dem Album 'Steel & Copper' von Burna Boy zeigt eindrucksvolle visuelle Elemente, die die kulturellen Wurzeln des K\u00fcnstlers widerspiegeln?",
-          "options": [
-            "Gbona",
-            "On the Low",
-            "Dangote",
-            "Anybody"
-          ],
+          "options": ["Gbona", "On the Low", "Dangote", "Anybody"],
           "correctAnswer": "Gbona",
           "trivia": "Burna Boy, ein f\u00fchrender afrofuturistischer K\u00fcnstler, ver\u00f6ffentlichte 2019 das Album 'Steel & Copper', das seinen einzigartigen Stil vereint. Das Musikvideo zu 'Gbona' ist besonders bemerkenswert, da es traditionelle nigerianische Elemente und moderne \u00c4sthetik miteinander verbindet, was die kulturelle Identit\u00e4t des K\u00fcnstlers unterstreicht. Die lebendigen Farben und kraftvollen T\u00e4nze in dem Video tragen zur Energie und zum globalen Appeal von Burna Boys Musik bei."
         },
@@ -11228,12 +10528,7 @@
         },
         {
           "question": "Welcher prominente K\u00fcnstler, bekannt f\u00fcr seinen einzigartigen Stil, arbeitete mit Burna Boy an einem Track auf dem Album 'Steel & Copper', das 2019 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Wizkid",
-            "J Hus",
-            "Damian Marley",
-            "Eminem"
-          ],
+          "options": ["Wizkid", "J Hus", "Damian Marley", "Eminem"],
           "correctAnswer": "J Hus",
           "trivia": "Burna Boy, ein herausragender Vertreter des afro-fusion Genres, ver\u00f6ffentlichte 2019 das Album 'Steel & Copper', das f\u00fcr seine einzigartigen Kl\u00e4nge und Kollaborationen gefeiert wurde. Auf diesem Album ist der britische Rapper J Hus vertreten, der f\u00fcr seinen Einfluss auf die UK-Grime- und Afrobeat-Szene bekannt ist. Die Zusammenarbeit zwischen Burna Boy und J Hus bringt unterschiedliche kulturelle Einfl\u00fcsse zusammen und zeigt die Vielfalt der zeitgen\u00f6ssischen Musiklandschaft."
         }
@@ -11287,12 +10582,7 @@
       "medium": [
         {
           "question": "Welche bekannte K\u00fcnstlerin hat auf dem Album 'Timeless' von Davido, das im Jahr 2023 ver\u00f6ffentlicht wurde, eine Kollaboration mit ihm?",
-          "options": [
-            "Tems",
-            "Burna Boy",
-            "Simi",
-            "Tiwa Savage"
-          ],
+          "options": ["Tems", "Burna Boy", "Simi", "Tiwa Savage"],
           "correctAnswer": "Tems",
           "trivia": "Das Album 'Timeless' von Davido umfasst mehrere spannende Kollaborationen mit namhaften K\u00fcnstlern, darunter auch die talentierte S\u00e4ngerin Tems. Diese Zusammenarbeit bringt eine einzigartige Mischung aus Afrobeats und R&B, die die Fans begeistert hat. Davido, ein f\u00fchrender Vertreter der afrikanischen Musikszene, hat mit 'Timeless' erneut seinen Einfluss und seine Vielseitigkeit unter Beweis gestellt."
         },
