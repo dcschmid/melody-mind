@@ -30,12 +30,7 @@
         },
         {
           "question": "Welche einzigartige Technik verwendete Jo\u00e3o Gilberto auf dem Album 'Chega de Saudade', um den Klang seiner Gitarre zu betonen?",
-          "options": [
-            "Fingerpicking",
-            "Slapping",
-            "Plekspiel",
-            "Hammering"
-          ],
+          "options": ["Fingerpicking", "Slapping", "Plekspiel", "Hammering"],
           "correctAnswer": "Fingerpicking",
           "trivia": "Jo\u00e3o Gilberto verwendete auf seinem wegweisenden Album 'Chega de Saudade', das 1959 ver\u00f6ffentlicht wurde, die Fingerpicking-Technik, um einen sanften und rhythmischen Klang zu erzeugen. Diese Methode hebt die Melodien und Harmonien seiner Gitarre hervor und tr\u00e4gt zum charakteristischen Sound der Bossa Nova bei. Das Album gilt als eines der ersten, das den Bossa Nova-Stil weltweit popul\u00e4r machte und Gilberto als Pionier dieses Genres etablierte."
         }
@@ -194,12 +189,7 @@
       "hard": [
         {
           "question": "In welchem Jahr trat Antonio Carlos Jobim w\u00e4hrend seiner Tour zur Promotion des Albums 'The Composer of Desafinado, Plays', das 1963 ver\u00f6ffentlicht wurde, erstmals in Europa auf?",
-          "options": [
-            "1962",
-            "1963",
-            "1964",
-            "1965"
-          ],
+          "options": ["1962", "1963", "1964", "1965"],
           "correctAnswer": "1963",
           "trivia": "Antonio Carlos Jobim, ein bedeutender Vertreter der Bossa Nova, ver\u00f6ffentlichte 1963 das Album 'The Composer of Desafinado, Plays', das seine kompositorischen F\u00e4higkeiten und seinen einzigartigen Stil demonstriert. W\u00e4hrend seiner Europatournee in demselben Jahr trug Jobim entscheidend zur Verbreitung der Bossa Nova bei und f\u00fchrte viele seiner bekanntesten St\u00fccke live auf. Diese Tour war ein Meilenstein in seiner Karriere und half, internationale Anerkennung f\u00fcr die brasilianische Musik zu f\u00f6rdern."
         },
@@ -240,11 +230,7 @@
       "easy": [
         {
           "question": "Welcher ber\u00fchmte Song auf dem Album 'Getz/Gilberto' von Stan Getz & Jo\u00e3o Gilberto handelt von der Sehnsucht nach einer verlorenen Liebe und ist bekannt f\u00fcr seine eing\u00e4ngige Melodie?",
-          "options": [
-            "Garota de Ipanema",
-            "Desafinado",
-            "Corcovado"
-          ],
+          "options": ["Garota de Ipanema", "Desafinado", "Corcovado"],
           "correctAnswer": "Garota de Ipanema",
           "trivia": "Der Song 'Garota de Ipanema', geschrieben von Vinicius de Moraes und Antonio Carlos Jobim, ist einer der bekanntesten Titel auf dem Album 'Getz/Gilberto' von Stan Getz & Jo\u00e3o Gilberto. Er erz\u00e4hlt von der Sch\u00f6nheit und Anziehungskraft eines M\u00e4dchens, das am Strand von Ipanema vorbeigeht, und dr\u00fcckt die bitters\u00fc\u00dfe Sehnsucht des S\u00e4ngers aus. Das Lied wurde zu einem Klassiker der Bossa Nova und hat die internationale Musikwelt nachhaltig beeinflusst."
         },
@@ -482,11 +468,7 @@
         },
         {
           "question": "Welcher ber\u00fchmte Song, der auf dem Album 'The Astrud Gilberto Album' von Astrud Gilberto aus dem Jahr 1965 zu finden ist, beschreibt eine melancholische Sehnsucht nach einer verlorenen Liebe und wird oft mit der Bossa Nova verbunden?",
-          "options": [
-            "Garota de Ipanema",
-            "Desafinado",
-            "Corcovado"
-          ],
+          "options": ["Garota de Ipanema", "Desafinado", "Corcovado"],
           "correctAnswer": "Garota de Ipanema",
           "trivia": "Astrud Gilberto, eine brasilianische S\u00e4ngerin, ist bekannt f\u00fcr ihren sanften Gesang und ihre bedeutende Rolle bei der Popularisierung der Bossa Nova in den USA. Das Album 'The Astrud Gilberto Album' enth\u00e4lt den ikonischen Song 'Garota de Ipanema', der von Tom Jobim und Vinicius de Moraes geschrieben wurde. Die Texte des Songs handeln von der bewunderten Sch\u00f6nheit eines M\u00e4dchens, das die Str\u00e4nde von Ipanema entlanggeht, und dr\u00fccken eine tiefe Melancholie und Sehnsucht aus."
         },
@@ -586,12 +568,7 @@
       "easy": [
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Elis & Tom' von Elis Regina & Antonio Carlos Jobim?",
-          "options": [
-            "1970",
-            "1974",
-            "1980",
-            "1965"
-          ],
+          "options": ["1970", "1974", "1980", "1965"],
           "correctAnswer": "1974",
           "trivia": "Das Album 'Elis & Tom' wurde 1974 ver\u00f6ffentlicht und gilt als eines der bedeutendsten Werke der brasilianischen Musik. Elis Regina, eine der bekanntesten S\u00e4ngerinnen Brasiliens, und der legend\u00e4re Komponist Antonio Carlos Jobim, bekannt f\u00fcr seine Rolle in der Bossa Nova, vereinen hier ihre Talente. Die Kombination aus Reginas kraftvollem Gesang und Jobims einf\u00fchlsamer Komposition schafft eine zeitlose Atmosph\u00e4re, die bis heute viele Musikliebhaber begeistert."
         },
@@ -713,23 +690,13 @@
         },
         {
           "question": "In welchem Jahr traten Vin\u00edcius de Moraes, Antonio Carlos Jobim & Jo\u00e3o Gilberto erstmals gemeinsam auf, nachdem sie das Album 'Os Afro-Sambas' ver\u00f6ffentlicht hatten?",
-          "options": [
-            "1965",
-            "1966",
-            "1967",
-            "1968"
-          ],
+          "options": ["1965", "1966", "1967", "1968"],
           "correctAnswer": "1966",
           "trivia": "Das Album 'Os Afro-Sambas', das 1966 ver\u00f6ffentlicht wurde, zeigt die Zusammenarbeit von Vin\u00edcius de Moraes, Antonio Carlos Jobim und Jo\u00e3o Gilberto. Diese drei K\u00fcnstler sind bekannt f\u00fcr ihre bedeutenden Beitr\u00e4ge zur Bossa Nova und zur brasilianischen Musik im Allgemeinen. Ihre Live-Auftritte nach der Ver\u00f6ffentlichung des Albums waren entscheidend, um die afro-brasilianischen Rhythmen und Melodien einem breiteren Publikum n\u00e4herzubringen."
         },
         {
           "question": "In welchem Jahr wurde das Album 'Os Afro-Sambas' von Vin\u00edcius de Moraes, Antonio Carlos Jobim & Jo\u00e3o Gilberto ver\u00f6ffentlicht?",
-          "options": [
-            "1964",
-            "1965",
-            "1966",
-            "1967"
-          ],
+          "options": ["1964", "1965", "1966", "1967"],
           "correctAnswer": "1966",
           "trivia": "Das Album 'Os Afro-Sambas' wurde 1966 ver\u00f6ffentlicht und ist ein bedeutendes Werk der brasilianischen Musik, das die Verbindung von Samba mit afrikanischen Rhythmen erforscht. Vin\u00edcius de Moraes, Antonio Carlos Jobim & Jo\u00e3o Gilberto arbeiteten eng zusammen, um die kulturellen Wurzeln und Einfl\u00fcsse in ihren Kompositionen zu verbinden. Dieses Album gilt als eines der besten Beispiele f\u00fcr die Bossa Nova und hat einen nachhaltigen Einfluss auf die Musikszene in Brasilien und dar\u00fcber hinaus."
         }
@@ -1050,12 +1017,7 @@
       "easy": [
         {
           "question": "Welche kulturelle Bewegung wird oft mit dem Album 'Gal Costa' von Gal Costa in Verbindung gebracht, das 1969 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Tropic\u00e1lia",
-            "Samba",
-            "Bossa Nova",
-            "MPB"
-          ],
+          "options": ["Tropic\u00e1lia", "Samba", "Bossa Nova", "MPB"],
           "correctAnswer": "Tropic\u00e1lia",
           "trivia": "Das Album 'Gal Costa' von Gal Costa spielt eine zentrale Rolle in der Tropic\u00e1lia-Bewegung, die in den sp\u00e4ten 1960er Jahren in Brasilien entstand. Diese Bewegung kombinierte traditionelle brasilianische Musik mit internationalen Einfl\u00fcssen und war ein kreativer Ausdruck des kulturellen Wandels und der politischen Opposition in dieser Zeit. Gal Costa, als eine der f\u00fchrenden Stimmen der Tropic\u00e1lia, brachte mit ihrem einzigartigen Stil und ihrer Experimentierfreude frischen Wind in die brasilianische Musikszene."
         },
@@ -1177,12 +1139,7 @@
         },
         {
           "question": "Welches Instrument spielte Walter Wanderley auf seinem Album 'Rain Forest', das 1966 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Klavier",
-            "Gitarre",
-            "Orgel",
-            "Schlagzeug"
-          ],
+          "options": ["Klavier", "Gitarre", "Orgel", "Schlagzeug"],
           "correctAnswer": "Orgel",
           "trivia": "Walter Wanderley war ein brasilianischer Musiker, der vor allem f\u00fcr sein virtuoses Spiel auf der Orgel bekannt war. Sein Album 'Rain Forest' aus dem Jahr 1966 kombiniert bossa nova und Jazz-Elemente und zeigt seine einzigartigen Arrangements. Wanderleys Stil hat ma\u00dfgeblich dazu beigetragen, die Orgel als f\u00fchrendes Instrument in der brasilianischen Musik zu etablieren."
         },
@@ -1293,12 +1250,7 @@
         },
         {
           "question": "In welchem Jahr trat Roberto Menescal mit seinem Album 'A Nova Bossa Nova' auf Tour?",
-          "options": [
-            "1994",
-            "1990",
-            "1996",
-            "1992"
-          ],
+          "options": ["1994", "1990", "1996", "1992"],
           "correctAnswer": "1994",
           "trivia": "Roberto Menescal ist ein bekannter brasilianischer Musiker und einer der Pioniere der Bossa Nova. Sein Album 'A Nova Bossa Nova', das 1994 ver\u00f6ffentlicht wurde, pr\u00e4sentiert eine moderne Interpretation des klassischen Bossa Nova-Stils. W\u00e4hrend seiner Touren hat Menescal viele Fans mit seinen einzigartigen Arrangements und Melodien begeistert, die eine Br\u00fccke zwischen Tradition und zeitgen\u00f6ssischer Musik schlagen."
         },
@@ -1676,12 +1628,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'Stone Flower' von Antonio Carlos Jobim thematisiert die Sehnsucht nach einer verlorenen Liebe und nutzt dabei poetische Bilder aus der Natur?",
-          "options": [
-            "Felicidade",
-            "Sabia",
-            "Flor de Lis",
-            "Stone Flower"
-          ],
+          "options": ["Felicidade", "Sabia", "Flor de Lis", "Stone Flower"],
           "correctAnswer": "Flor de Lis",
           "trivia": "Antonio Carlos Jobim, ein Meister der Bossa Nova, ver\u00f6ffentlichte 1970 das Album 'Stone Flower', das f\u00fcr seine lyrischen und melodischen Kompositionen bekannt ist. Der Song 'Flor de Lis' ist ein herausragendes Beispiel f\u00fcr Jobims F\u00e4higkeit, Emotionen durch eindrucksvolle Naturmetaphern auszudr\u00fccken. In diesem St\u00fcck reflektiert Jobim die Melancholie und den Schmerz einer verlorenen Liebe und verbindet diese Gef\u00fchle mit der Sch\u00f6nheit der Natur."
         },
@@ -1746,12 +1693,7 @@
       "easy": [
         {
           "question": "Welches musikalische Element ist besonders charakteristisch f\u00fcr das Album 'Amor Em Hi-Fi' von Sylvia Telles?",
-          "options": [
-            "Bossa Nova",
-            "Rock",
-            "Jazz",
-            "Klassik"
-          ],
+          "options": ["Bossa Nova", "Rock", "Jazz", "Klassik"],
           "correctAnswer": "Bossa Nova",
           "trivia": "Sylvia Telles ist eine ikonische brasilianische S\u00e4ngerin, die f\u00fcr ihre sanfte Stimme und ihren Einfluss auf die Bossa Nova bekannt ist. Ihr Album 'Amor Em Hi-Fi', das 1960 ver\u00f6ffentlicht wurde, enth\u00e4lt viele typische Bossa Nova-Elemente, die den Klang und die Atmosph\u00e4re des Albums pr\u00e4gen. Die Kombination aus sanften Melodien und rhythmischen Akzenten macht es zu einem herausragenden Beispiel f\u00fcr dieses Musikgenre."
         },
@@ -1862,12 +1804,7 @@
       "easy": [
         {
           "question": "Welches ber\u00fchmte Musik-Genre wurde durch das Album 'Jazz Samba Encore!' von Stan Getz & Luiz Bonf\u00e1 im Jahr 1963 stark beeinflusst und von Fans als neuartig empfunden?",
-          "options": [
-            "Bossa Nova",
-            "Rock",
-            "Blues",
-            "Reggae"
-          ],
+          "options": ["Bossa Nova", "Rock", "Blues", "Reggae"],
           "correctAnswer": "Bossa Nova",
           "trivia": "Das Album 'Jazz Samba Encore!' von Stan Getz & Luiz Bonf\u00e1 spielte eine entscheidende Rolle bei der Popularisierung des Bossa Nova in den USA und weltweit. Fans waren von der Kombination aus Jazz und brasilianischen Rhythmen fasziniert, was zu einem neuen Musiktrend f\u00fchrte. Die eing\u00e4ngigen Melodien und der entspannte Groove machten das Album zu einem Hit und etablierten Stan Getz als einen der f\u00fchrenden Jazzmusiker seiner Zeit."
         },
@@ -1978,12 +1915,7 @@
       "easy": [
         {
           "question": "In welchem Jahr trat Edu Lobo mit seinem Album 'A M\u00fasica de Edu Lobo por Edu Lobo' auf der B\u00fchne auf, das 1965 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "1965",
-            "1970",
-            "1960",
-            "1980"
-          ],
+          "options": ["1965", "1970", "1960", "1980"],
           "correctAnswer": "1965",
           "trivia": "Edu Lobo ist ein ber\u00fchmter brasilianischer Musiker und Komponist, der f\u00fcr seine innovative Fusion von Bossa Nova und anderen Musikstilen bekannt ist. Sein Album 'A M\u00fasica de Edu Lobo por Edu Lobo' wurde 1965 ver\u00f6ffentlicht und enth\u00e4lt einige seiner bekanntesten Songs. W\u00e4hrend seiner Live-Auftritte pr\u00e4sentiert er oft eine einzigartige Mischung aus Melodien und Texten, die die brasilianische Kultur widerspiegeln. Edu Lobos Musik hat auch internationale Anerkennung gefunden und inspiriert viele K\u00fcnstler weltweit."
         },
@@ -2048,12 +1980,7 @@
       "hard": [
         {
           "question": "Welches spezifische musikalische Element, das h\u00e4ufig in der brasilianischen Musik vorkommt, verwendet Edu Lobo in seinem Album 'A M\u00fasica de Edu Lobo por Edu Lobo', um die rhythmische Komplexit\u00e4t seiner Kompositionen zu verst\u00e4rken?",
-          "options": [
-            "Polyrhythmik",
-            "Monophonie",
-            "Dissonanz",
-            "Unisono"
-          ],
+          "options": ["Polyrhythmik", "Monophonie", "Dissonanz", "Unisono"],
           "correctAnswer": "Polyrhythmik",
           "trivia": "Edu Lobo ist ein bedeutender brasilianischer Musiker und Komponist, der f\u00fcr seine innovative Fusion von traditionellen brasilianischen Stilen mit moderner Musik bekannt ist. Sein Album 'A M\u00fasica de Edu Lobo por Edu Lobo', ver\u00f6ffentlicht im Jahr 1965, zeigt eindrucksvoll seine F\u00e4higkeit, komplexe Rhythmen zu schaffen, die oft auf Polyrhythmik basieren. Diese Technik verleiht seinen Kompositionen eine einzigartige Tiefe und Dynamik, die das H\u00f6rerlebnis bereichert."
         },
@@ -2094,12 +2021,7 @@
       "easy": [
         {
           "question": "In welchem Jahr trat Gal Costa mit ihrem Album 'Legal' erstmals live auf, nachdem es 1970 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "1970",
-            "1971",
-            "1972",
-            "1973"
-          ],
+          "options": ["1970", "1971", "1972", "1973"],
           "correctAnswer": "1970",
           "trivia": "Gal Costa ist eine herausragende brasilianische S\u00e4ngerin, die mit ihrem Album 'Legal' von 1970 einen wichtigen Beitrag zur Tropic\u00e1lia-Bewegung leistete. Das Album enth\u00e4lt eine Mischung aus verschiedenen Musikstilen und zeigt Gal Costas au\u00dfergew\u00f6hnliche Stimme. Bei ihren Live-Auftritten zog sie mit ihrer k\u00fcnstlerischen Energie und ihrem charismatischen Auftreten das Publikum in ihren Bann. Das Jahr 1970 war entscheidend f\u00fcr ihre Karriere, da sie damit begann, ihre Musik auf internationalen B\u00fchnen zu pr\u00e4sentieren."
         },
@@ -2383,12 +2305,7 @@
         },
         {
           "question": "In welchem Jahr erhielt Baden Powell f\u00fcr sein Album 'Tristeza on Guitar' einen renommierten Musikpreis, der seine Bedeutung in der brasilianischen Musikszene unterstreicht?",
-          "options": [
-            "1965",
-            "1966",
-            "1967",
-            "1968"
-          ],
+          "options": ["1965", "1966", "1967", "1968"],
           "correctAnswer": "1966",
           "trivia": "Baden Powell, ein herausragender brasilianischer Gitarrist und Komponist, ver\u00f6ffentlichte 1966 das Album 'Tristeza on Guitar', das als Meilenstein der Bossa Nova gilt. Das Album zeigt Powells virtuoses Gitarrenspiel und innovative Arrangements, die die traditionelle brasilianische Musik mit Jazz-Elementen verbinden. 'Tristeza on Guitar' erhielt zahlreiche Auszeichnungen und trug wesentlich zu Powells internationalem Ruhm bei, indem es neue Ma\u00dfst\u00e4be f\u00fcr die Gitarre in der Weltmusik setzte."
         }
@@ -2569,12 +2486,7 @@
         },
         {
           "question": "Welches Instrument spielte Caetano Veloso w\u00e4hrend des Aufnahmeprozesses seines Albums 'Caetano Veloso', das 1969 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Gitarre",
-            "Klavier",
-            "Schlagzeug",
-            "Querfl\u00f6te"
-          ],
+          "options": ["Gitarre", "Klavier", "Schlagzeug", "Querfl\u00f6te"],
           "correctAnswer": "Gitarre",
           "trivia": "Caetano Veloso ist ein einflussreicher brasilianischer Musiker, der mit seinem gleichnamigen Album von 1969 einen wichtigen Beitrag zur Tropic\u00e1lia-Bewegung leistete. W\u00e4hrend des Aufnahmeprozesses des Albums spielte Veloso h\u00e4ufig Gitarre, was seinen charakteristischen Klang pr\u00e4gte. Das Album kombiniert verschiedene Musikstile und spiegelt die kulturellen Umbr\u00fcche in Brasilien wider. Viele der Songs werden bis heute als Klassiker angesehen und zeigen Velosos Talent als Songwriter und Performer."
         },
@@ -2674,23 +2586,13 @@
       "easy": [
         {
           "question": "Welches ber\u00fchmte brasilianische Musiklabel war an der Produktion des Albums 'A Bossa Muito Moderna' von Jo\u00e3o Donato beteiligt?",
-          "options": [
-            "Odeon",
-            "Som Livre",
-            "RCA Victor",
-            "Polydor"
-          ],
+          "options": ["Odeon", "Som Livre", "RCA Victor", "Polydor"],
           "correctAnswer": "Odeon",
           "trivia": "Jo\u00e3o Donato ist ein bedeutender Pianist und Komponist der Bossa Nova und hat mit vielen renommierten Musikern zusammengearbeitet. Sein Album 'A Bossa Muito Moderna', das 1963 ver\u00f6ffentlicht wurde, ist ein herausragendes Beispiel f\u00fcr die Fusion von Jazz und brasilianischer Musik. Die Produktion dieses Albums fand unter dem Label Odeon statt, das in der brasilianischen Musikszene eine wichtige Rolle spielt."
         },
         {
           "question": "Welches Jahr wurde das Album 'A Bossa Muito Moderna' von Jo\u00e3o Donato ver\u00f6ffentlicht, das von Kritikern f\u00fcr seine innovative Mischung aus Bossa Nova und Jazz gelobt wurde?",
-          "options": [
-            "1960",
-            "1963",
-            "1965",
-            "1970"
-          ],
+          "options": ["1960", "1963", "1965", "1970"],
           "correctAnswer": "1963",
           "trivia": "Jo\u00e3o Donato, ein einflussreicher brasilianischer Pianist und Komponist, ver\u00f6ffentlichte 1963 das Album 'A Bossa Muito Moderna'. Es wird oft f\u00fcr seinen kreativen Ansatz in der Fusion von Bossa Nova und Jazz hervorgehoben, was dem Album eine besondere Stellung in der Musikgeschichte verleiht. Kritiker lobten die harmonischen Strukturen und die versierte Musikalit\u00e4t, die Donatos Stil auszeichnen."
         },
@@ -2801,12 +2703,7 @@
         },
         {
           "question": "Welches ber\u00fchmte brasilianische Musikprojekt war Tom Z\u00e9 an der Produktion seines Albums 'Estudando o Samba' im Jahr 1976 beteiligt?",
-          "options": [
-            "Tropic\u00e1lia",
-            "Samba de Roda",
-            "Bossa Nova",
-            "MPB"
-          ],
+          "options": ["Tropic\u00e1lia", "Samba de Roda", "Bossa Nova", "MPB"],
           "correctAnswer": "Tropic\u00e1lia",
           "trivia": "Tom Z\u00e9 ist bekannt f\u00fcr seine innovative Musik und seine Rolle in der Tropic\u00e1lia-Bewegung, die in den sp\u00e4ten 1960er Jahren begann. Sein Album 'Estudando o Samba' von 1976 ist ein hervorragendes Beispiel f\u00fcr die Fusion von traditionellen brasilianischen Rhythmen mit avantgardistischen Kl\u00e4ngen. In diesem Album erforscht Tom Z\u00e9 die verschiedenen Facetten des Samba und zeigt, wie diese Musikform in der modernen brasilianischen Kultur interpretiert werden kann."
         },
@@ -3033,23 +2930,13 @@
         },
         {
           "question": "Welches bekannte brasilianische Musiklabel war an der Produktion des Albums 'Samba Esquema Novo' von Jorge Ben beteiligt?",
-          "options": [
-            "Elenco",
-            "Som Livre",
-            "Polygram",
-            "Warner Music"
-          ],
+          "options": ["Elenco", "Som Livre", "Polygram", "Warner Music"],
           "correctAnswer": "Elenco",
           "trivia": "Jorge Ben ver\u00f6ffentlichte 1963 sein bahnbrechendes Album 'Samba Esquema Novo', das als ein Meilenstein der brasilianischen Musik gilt. Das Album wurde unter dem Label Elenco produziert, das f\u00fcr die Unterst\u00fctzung vieler wichtiger K\u00fcnstler der Bossa Nova und Samba bekannt ist. Jorge Ben kombinierte in seinen Songs verschiedene Stile und pr\u00e4gte damit den Sound der brasilianischen Musik nachhaltig."
         },
         {
           "question": "Wie viele Songs hat Jorge Ben auf seinem Album 'Samba Esquema Novo', das 1963 ver\u00f6ffentlicht wurde, selbst geschrieben?",
-          "options": [
-            "Zehn",
-            "Zw\u00f6lf",
-            "Acht",
-            "F\u00fcnf"
-          ],
+          "options": ["Zehn", "Zw\u00f6lf", "Acht", "F\u00fcnf"],
           "correctAnswer": "Zehn",
           "trivia": "Jorge Ben ist ein einflussreicher brasilianischer Musiker, der mit seinem Album 'Samba Esquema Novo' im Jahr 1963 einen bedeutenden Beitrag zur brasilianischen Musikszene geleistet hat. Das Album enth\u00e4lt insgesamt zehn selbstgeschriebene Songs, die eine Mischung aus Samba, Bossa Nova und anderen Musikstilen pr\u00e4sentieren. Jorge Ben's einzigartige Stimme und sein innovativer Stil machten ihn schnell zu einem der bekanntesten K\u00fcnstler seiner Zeit."
         }
@@ -3057,12 +2944,7 @@
       "medium": [
         {
           "question": "Welches musikalische Element, das stark in Jorge Bens Album 'Samba Esquema Novo' von 1963 pr\u00e4sent ist, war eine wesentliche Inspirationsquelle f\u00fcr den K\u00fcnstler?",
-          "options": [
-            "Funk",
-            "Jazz",
-            "Bossa Nova",
-            "Rock"
-          ],
+          "options": ["Funk", "Jazz", "Bossa Nova", "Rock"],
           "correctAnswer": "Bossa Nova",
           "trivia": "Jorge Ben kombinierte in 'Samba Esquema Novo' verschiedene musikalische Stile, wobei die Bossa Nova als eine der Hauptinspirationsquellen diente. Das Album brachte frische Rhythmen und Melodien in die brasilianische Musikszene und beeinflusste zahlreiche K\u00fcnstler. Jorge Bens einzigartige Mischung aus Samba und Bossa Nova trug dazu bei, seinen unverwechselbaren Stil zu formen, der bis heute gesch\u00e4tzt wird."
         },
@@ -3149,12 +3031,7 @@
         },
         {
           "question": "In welchem Jahr trat Wilson Simonal mit seinem Album 'Alegria, Alegria Vol. 2' live auf, nachdem es ver\u00f6ffentlicht wurde?",
-          "options": [
-            "1968",
-            "1969",
-            "1970",
-            "1971"
-          ],
+          "options": ["1968", "1969", "1970", "1971"],
           "correctAnswer": "1968",
           "trivia": "Wilson Simonal ist ein ber\u00fchmter brasilianischer S\u00e4nger, der in den 1960er Jahren gro\u00dfe Erfolge feierte. Sein Album 'Alegria, Alegria Vol. 2' wurde 1968 ver\u00f6ffentlicht und umfasst einige seiner bekanntesten Songs. Simonal war bekannt f\u00fcr seine energiegeladenen Live-Auftritte, in denen er das Publikum mit seinem Charisma und seiner Stimme begeisterte."
         },
@@ -3265,12 +3142,7 @@
         },
         {
           "question": "Welches bekannte brasilianische Musiklabel produzierte das Album 'Bossa Nova' von Carlos Lyra, das 1960 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Emi",
-            "Odeon",
-            "RCA",
-            "Polydor"
-          ],
+          "options": ["Emi", "Odeon", "RCA", "Polydor"],
           "correctAnswer": "Odeon",
           "trivia": "Carlos Lyra ist ein bedeutender Vertreter der Bossa Nova und hat mit seinem Album 'Bossa Nova' im Jahr 1960 einen wichtigen Beitrag zur brasilianischen Musik geleistet. Das Album wurde unter dem Label Odeon ver\u00f6ffentlicht, das viele bekannte K\u00fcnstler der Zeit vertrat. Lyra ist bekannt f\u00fcr seine eing\u00e4ngigen Melodien und poetischen Texte, die das Lebensgef\u00fchl der 1960er Jahre in Brasilien widerspiegeln."
         },
@@ -3440,12 +3312,7 @@
       "hard": [
         {
           "question": "In welchem Jahr trat das Quarteto em Cy erstmals live auf, nachdem sie ihr Album 'Quarteto em Cy' ver\u00f6ffentlicht hatten?",
-          "options": [
-            "1963",
-            "1964",
-            "1965",
-            "1966"
-          ],
+          "options": ["1963", "1964", "1965", "1966"],
           "correctAnswer": "1964",
           "trivia": "Quarteto em Cy, eine brasilianische Gesangsgruppe, ver\u00f6ffentlichte ihr gleichnamiges Album 'Quarteto em Cy' im Jahr 1964. Nach der Ver\u00f6ffentlichung des Albums begannen sie, in Brasilien und international aufzutreten, was ihrer Popularit\u00e4t erheblich beitrug. Die Gruppe ist bekannt f\u00fcr ihre harmonischen Gesangseinlagen und ihren Einfluss auf die Bossa Nova-Bewegung. Ihre Live-Auftritte sind oft von einem besonderen Charme und einer hohen musikalischen Qualit\u00e4t gepr\u00e4gt."
         },
@@ -3718,12 +3585,7 @@
       "easy": [
         {
           "question": "Welches Instrument wird auf dem Album 'Viola Enluarada' von Marcos Valle besonders hervorgehoben?",
-          "options": [
-            "Gitarre",
-            "Schlagzeug",
-            "Klavier",
-            "Saxophon"
-          ],
+          "options": ["Gitarre", "Schlagzeug", "Klavier", "Saxophon"],
           "correctAnswer": "Gitarre",
           "trivia": "Marcos Valle ist bekannt f\u00fcr seine innovative Verwendung der Gitarre in der brasilianischen Musik. Auf dem Album 'Viola Enluarada', das 1968 ver\u00f6ffentlicht wurde, spielt die Gitarre eine zentrale Rolle und pr\u00e4gt den charakteristischen Sound des Werks. Valle kombiniert verschiedene Stile, darunter Bossa Nova und MPB, und nutzt die Gitarre, um emotionale Melodien und komplexe Rhythmen zu schaffen."
         },
@@ -3891,12 +3753,7 @@
         },
         {
           "question": "In welchem Jahr trat Gal Costa auf ihrer Tour zum Album 'Fa-Tal: Gal a Todo Vapor' auf und konnte sie dabei gro\u00dfe Erfolge in Brasilien feiern?",
-          "options": [
-            "1969",
-            "1971",
-            "1973",
-            "1975"
-          ],
+          "options": ["1969", "1971", "1973", "1975"],
           "correctAnswer": "1971",
           "trivia": "Gal Costa, eine der bedeutendsten Stimmen der brasilianischen Musikszene, ver\u00f6ffentlichte das Album 'Fa-Tal: Gal a Todo Vapor' im Jahr 1971. Im Rahmen ihrer Tour zu diesem Album pr\u00e4sentierte sie ihre Mischung aus Tropic\u00e1lia und anderen Musikstilen, die das Publikum begeisterte. Ihre Live-Auftritte waren f\u00fcr ihre energiegeladene Darbietung und die innovative Interpretation traditioneller brasilianischer Kl\u00e4nge bekannt. Das Album selbst gilt als eines ihrer Meisterwerke und festigte ihren Status im Musikgesch\u00e4ft."
         }
@@ -3961,23 +3818,13 @@
         },
         {
           "question": "Welches musikalische Element, das aus der brasilianischen Musik stammt, spielt eine zentrale Rolle im Album 'Jazz Samba' von Stan Getz & Charlie Byrd?",
-          "options": [
-            "Bossa Nova",
-            "Blues",
-            "Rock",
-            "Jazz Funk"
-          ],
+          "options": ["Bossa Nova", "Blues", "Rock", "Jazz Funk"],
           "correctAnswer": "Bossa Nova",
           "trivia": "Das Album 'Jazz Samba', ver\u00f6ffentlicht im Jahr 1962 von Stan Getz & Charlie Byrd, gilt als eines der ersten Alben, das die Bossa Nova in die Jazzmusik integrierte. Bossa Nova ist ein brasilianischer Musikstil, der Elemente des Samba und des Jazz kombiniert. Die Zusammenarbeit der beiden K\u00fcnstler f\u00fchrte zu einem neuen Klang, der die amerikanische Musikszene nachhaltig beeinflusste. Zu den bekanntesten St\u00fccken des Albums geh\u00f6rt der Song 'Desafinado', der die sanften Rhythmen und Melodien der Bossa Nova perfekt einf\u00e4ngt."
         },
         {
           "question": "Mit welchem ber\u00fchmten brasilianischen Musikstil ist das Album 'Jazz Samba' von Stan Getz & Charlie Byrd eng verbunden?",
-          "options": [
-            "Samba",
-            "Bossa Nova",
-            "Salsa",
-            "Fado"
-          ],
+          "options": ["Samba", "Bossa Nova", "Salsa", "Fado"],
           "correctAnswer": "Bossa Nova",
           "trivia": "Das Album 'Jazz Samba', ver\u00f6ffentlicht im Jahr 1962 von Stan Getz & Charlie Byrd, ist eines der ersten Werke, das den Bossa Nova-Stil international popul\u00e4r machte. Stan Getz, ein renommierter Jazz-Saxophonist, und Charlie Byrd, ein talentierter Gitarrist, kombinieren in diesem Album Jazz-Elemente mit den sanften Rhythmen der brasilianischen Musik. Der Erfolg von 'Jazz Samba' trug ma\u00dfgeblich zur Verbreitung der Bossa Nova in den USA und dar\u00fcber hinaus bei."
         }
@@ -4088,12 +3935,7 @@
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Le Monde Musical de Baden Powell' von Baden Powell, das die brasilianische Musikszene nachhaltig beeinflusste?",
-          "options": [
-            "1960",
-            "1964",
-            "1970",
-            "1968"
-          ],
+          "options": ["1960", "1964", "1970", "1968"],
           "correctAnswer": "1964",
           "trivia": "Baden Powell war ein bedeutender brasilianischer Gitarrist und Komponist, der f\u00fcr seine innovative Fusion von Samba und Bossa Nova bekannt ist. Das Album 'Le Monde Musical de Baden Powell', das 1964 ver\u00f6ffentlicht wurde, erhielt viel Anerkennung und trug dazu bei, das internationale Interesse an brasilianischer Musik zu wecken. Die Melodien und Rhythmen, die in diesem Album pr\u00e4sentiert werden, haben zahlreiche Musiker inspiriert und sind bis heute in der Popkultur pr\u00e4sent."
         }
@@ -4773,12 +4615,7 @@
         },
         {
           "question": "Welche kulturelle Bewegung wird eng mit dem Album 'Vagamente' von Roberto Menescal & Wanda S\u00e1, das 1964 ver\u00f6ffentlicht wurde, assoziiert?",
-          "options": [
-            "Tropic\u00e1lia",
-            "Bossa Nova",
-            "Samba de Roda",
-            "MPB"
-          ],
+          "options": ["Tropic\u00e1lia", "Bossa Nova", "Samba de Roda", "MPB"],
           "correctAnswer": "Bossa Nova",
           "trivia": "Roberto Menescal & Wanda S\u00e1 sind zentrale Figuren der Bossa Nova, einer brasilianischen Musikbewegung, die in den sp\u00e4ten 1950er Jahren entstand. Ihr Album 'Vagamente' von 1964 tr\u00e4gt zur weiteren Etablierung dieses Genres bei, das f\u00fcr seinen sanften, melodischen Stil und seine poetischen Texte bekannt ist. Die Bossa Nova verbindet traditionelle brasilianische Rhythmen mit Jazz-Elementen und hat weltweit gro\u00dfen Einfluss auf die Musikszene ausge\u00fcbt."
         },
@@ -5004,12 +4841,7 @@
         },
         {
           "question": "In welchem Jahr wurde das Album 'Wanda Vagamente' von Wanda S\u00e1 aufgenommen?",
-          "options": [
-            "1962",
-            "1963",
-            "1964",
-            "1965"
-          ],
+          "options": ["1962", "1963", "1964", "1965"],
           "correctAnswer": "1964",
           "trivia": "Wanda S\u00e1 ist eine bedeutende brasilianische S\u00e4ngerin und Songwriterin, die f\u00fcr ihren einzigartigen Stil bekannt ist. Ihr Album 'Wanda Vagamente' wurde 1964 ver\u00f6ffentlicht und zeigt eine Mischung aus Bossa Nova und MPB (M\u00fasica Popular Brasileira). Der Aufnahmeprozess dieses Albums war gepr\u00e4gt von kreativen Experimenten, die Wanda S\u00e1 halfen, ihren charakteristischen Klang zu entwickeln."
         },
@@ -5144,12 +4976,7 @@
       "medium": [
         {
           "question": "Welches spezielle Instrument wurde w\u00e4hrend des Aufnahmeprozesses des Albums 'Wave' von Antonio Carlos Jobim, das 1967 ver\u00f6ffentlicht wurde, prominent eingesetzt, um den charakteristischen Klang des Bossa Nova zu erzeugen?",
-          "options": [
-            "Gitarre",
-            "Fl\u00f6te",
-            "Piano",
-            "Saxophon"
-          ],
+          "options": ["Gitarre", "Fl\u00f6te", "Piano", "Saxophon"],
           "correctAnswer": "Piano",
           "trivia": "Antonio Carlos Jobim, einer der Hauptarchitekten des Bossa Nova, nutzte das Piano als zentrales Instrument in seinem Album 'Wave', um eine sanfte und melodische Atmosph\u00e4re zu schaffen. Die harmonischen Strukturen und die rhythmische Vielfalt des Pianos tragen entscheidend zur einzigartigen Klangfarbe des Albums bei. 'Wave' gilt als eines der Meisterwerke von Jobim und zeigt seine F\u00e4higkeit, komplexe Emotionen durch einfache, aber ausdrucksstarke Melodien zu vermitteln."
         },
@@ -5341,12 +5168,7 @@
       "easy": [
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Elis' von Elis Regina?",
-          "options": [
-            "1965",
-            "1966",
-            "1967",
-            "1968"
-          ],
+          "options": ["1965", "1966", "1967", "1968"],
           "correctAnswer": "1966",
           "trivia": "Elis Regina ver\u00f6ffentlichte ihr Album 'Elis' im Jahr 1966, das als eines ihrer bedeutendsten Werke gilt. Diese Platte half, ihren Status als eine der gr\u00f6\u00dften brasilianischen S\u00e4ngerinnen ihrer Zeit zu festigen. Bekannt f\u00fcr ihre kraftvolle Stimme und emotionale Darbietung, kombinierte Elis Regina in diesem Album verschiedene Musikstile, darunter Bossa Nova und MPB (M\u00fasica Popular Brasileira)."
         },
@@ -5468,22 +5290,13 @@
         },
         {
           "question": "Welche musikalischen Elemente sind typisch f\u00fcr das Album 'Gilberto Gil' von Gilberto Gil, das 1969 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Folk und Samba",
-            "Rock und Jazz",
-            "Reggae und Blues"
-          ],
+          "options": ["Folk und Samba", "Rock und Jazz", "Reggae und Blues"],
           "correctAnswer": "Folk und Samba",
           "trivia": "Gilberto Gil ist ein einflussreicher brasilianischer Musiker und eine zentrale Figur der Tropic\u00e1lia-Bewegung. Sein selbstbetiteltes Album 'Gilberto Gil' von 1969 kombiniert traditionelle brasilianische Musikstile, insbesondere Folk und Samba, mit modernen Kl\u00e4ngen und Experimenten. Diese innovative Mischung trug dazu bei, die brasilianische Musikszene nachhaltig zu ver\u00e4ndern und Gil als Pionier in der Weltmusik zu etablieren."
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Gilberto Gil' von Gilberto Gil, das einen wichtigen Beitrag zur Tropic\u00e1lia-Bewegung leistete?",
-          "options": [
-            "1968",
-            "1969",
-            "1970",
-            "1971"
-          ],
+          "options": ["1968", "1969", "1970", "1971"],
           "correctAnswer": "1969",
           "trivia": "Das selbstbetitelte Album 'Gilberto Gil' wurde 1969 ver\u00f6ffentlicht und gilt als ein Meilenstein der brasilianischen Musikgeschichte. Gilberto Gil, ein prominenter Vertreter der Tropic\u00e1lia-Bewegung, verband in diesem Album traditionelle brasilianische Musik mit internationalen Einfl\u00fcssen wie Rock und Pop. Die Lieder auf diesem Album spiegeln die sozialen und politischen Ver\u00e4nderungen in Brasilien der damaligen Zeit wider und trugen zur Popularit\u00e4t der Tropic\u00e1lia-Bewegung bei."
         }
@@ -5594,12 +5407,7 @@
         },
         {
           "question": "In welchem Jahr traten Stan Getz & Jo\u00e3o Gilberto mit ihrem Album 'The Best of Two Worlds' live auf?",
-          "options": [
-            "1975",
-            "1976",
-            "1977",
-            "1978"
-          ],
+          "options": ["1975", "1976", "1977", "1978"],
           "correctAnswer": "1976",
           "trivia": "Stan Getz & Jo\u00e3o Gilberto sind ber\u00fchmte Musiker, die den Bossa Nova-Stil gepr\u00e4gt haben. Ihr Album 'The Best of Two Worlds' wurde 1976 ver\u00f6ffentlicht und beinhaltet eine Mischung aus jazzigen und brasilianischen Kl\u00e4ngen. W\u00e4hrend ihrer Live-Auftritte kombinieren sie virtuos ihre Instrumente und Gesang, was zu unvergesslichen musikalischen Erlebnissen f\u00fchrt."
         }
@@ -5653,12 +5461,7 @@
         },
         {
           "question": "Welcher bedeutende musikalische Stil, der sich aus brasilianischer Musik entwickelte, wird in dem Album 'The Best of Two Worlds' von Stan Getz & Jo\u00e3o Gilberto besonders hervorgehoben?",
-          "options": [
-            "Samba",
-            "Bossa Nova",
-            "Salsa",
-            "Choro"
-          ],
+          "options": ["Samba", "Bossa Nova", "Salsa", "Choro"],
           "correctAnswer": "Bossa Nova",
           "trivia": "Das Album 'The Best of Two Worlds', ver\u00f6ffentlicht im Jahr 1976, vereint die einzigartigen Stile von Stan Getz & Jo\u00e3o Gilberto und ist ein wichtiger Beitrag zur Popularisierung der Bossa Nova in den USA und dar\u00fcber hinaus. Bossa Nova, eine Fusion aus Samba und Jazz, wurde in den 1960er Jahren popul\u00e4r und erlebte durch die Zusammenarbeit dieser beiden K\u00fcnstler einen neuen H\u00f6hepunkt. Getz, ein amerikanischer Jazzsaxophonist, und Gilberto, ein brasilianischer Gitarrist und S\u00e4nger, schufen mit ihren harmonischen Melodien und Rhythmen einen zeitlosen Sound, der bis heute Einfluss auf viele Musiker hat."
         },
@@ -5688,12 +5491,7 @@
       "easy": [
         {
           "question": "Welches Jahr wurde das Album 'Plays and Sings Bossa Nova' von Luiz Bonf\u00e1 ver\u00f6ffentlicht?",
-          "options": [
-            "1960",
-            "1963",
-            "1965",
-            "1968"
-          ],
+          "options": ["1960", "1963", "1965", "1968"],
           "correctAnswer": "1963",
           "trivia": "Luiz Bonf\u00e1 war ein bedeutender brasilianischer Gitarrist und Komponist, der das Bossa Nova-Genre mitbeeinflusste. Sein Album 'Plays and Sings Bossa Nova', das 1963 ver\u00f6ffentlicht wurde, zeigt seine beeindruckenden F\u00e4higkeiten als Gitarrist und S\u00e4nger. Bonf\u00e1 ist bekannt f\u00fcr seine melodischen Kompositionen, die oft romantische und melancholische Themen behandeln, und er hat die Bossa Nova weltweit popul\u00e4r gemacht."
         },
@@ -5780,12 +5578,7 @@
         },
         {
           "question": "Welchen Platz erreichte Luiz Bonf\u00e1s Album 'Plays and Sings Bossa Nova' in den US Billboard Jazz Charts nach seiner Ver\u00f6ffentlichung im Jahr 1963?",
-          "options": [
-            "Platz 5",
-            "Platz 10",
-            "Platz 15",
-            "Platz 20"
-          ],
+          "options": ["Platz 5", "Platz 10", "Platz 15", "Platz 20"],
           "correctAnswer": "Platz 10",
           "trivia": "Luiz Bonf\u00e1, ein bedeutender brasilianischer Gitarrist und Komponist, ver\u00f6ffentlichte 1963 das Album 'Plays and Sings Bossa Nova', das die Bossa Nova-Bewegung international popularisierte. Das Album erreichte in den US Billboard Jazz Charts den 10. Platz und trug zur Verbreitung seines einzigartigen Stils bei, der traditionelle brasilianische Rhythmen mit Jazz-Elementen kombinierte. Bonf\u00e1s Einfluss auf die Musikszene ist bis heute sp\u00fcrbar, und seine Kompositionen werden von vielen K\u00fcnstlern weltweit gecovert."
         }
@@ -5920,12 +5713,7 @@
       "easy": [
         {
           "question": "In welchem Jahr trat das Quarteto em Cy erstmals mit ihrem Album 'Som Definitivo' in Brasilien auf?",
-          "options": [
-            "1965",
-            "1966",
-            "1967",
-            "1968"
-          ],
+          "options": ["1965", "1966", "1967", "1968"],
           "correctAnswer": "1966",
           "trivia": "Quarteto em Cy ist ein bekanntes brasilianisches Vokalensemble, das f\u00fcr seine harmonischen Ges\u00e4nge und kreativen Arrangements ber\u00fchmt ist. Ihr Album 'Som Definitivo', das 1966 ver\u00f6ffentlicht wurde, war ein Meilenstein in ihrer Karriere und trug dazu bei, ihr einzigartiges Musikstil einem breiteren Publikum vorzustellen. Die Gruppe tourte intensiv und gewann schnell an Popularit\u00e4t, besonders durch ihre Live-Auftritte, die oft mit einer Mischung aus Bossa Nova und MPB (M\u00fasica Popular Brasileira) gef\u00fcllt waren."
         },
@@ -6047,12 +5835,7 @@
         },
         {
           "question": "Welches Instrument wird h\u00e4ufig in S\u00e9rgio Mendes' Album 'Equinox' von 1967 verwendet, um den charakteristischen brasilianischen Sound zu erzeugen?",
-          "options": [
-            "Ukulele",
-            "Berimbau",
-            "Saxophon",
-            "Klavier"
-          ],
+          "options": ["Ukulele", "Berimbau", "Saxophon", "Klavier"],
           "correctAnswer": "Berimbau",
           "trivia": "S\u00e9rgio Mendes' Album 'Equinox', ver\u00f6ffentlicht im Jahr 1967, ist bekannt f\u00fcr seine Mischung aus brasilianischen Rhythmen und Jazz-Elementen. Ein zentrales Instrument, das in vielen Tracks des Albums zu h\u00f6ren ist, ist der Berimbau, ein traditionelles brasilianisches Musikinstrument, das typisch f\u00fcr die Capoeira-Musik ist. Mendes kombiniert geschickt verschiedene Instrumente und Produktionsstile, um einen einzigartigen Klang zu kreieren, der den H\u00f6rer in die brasilianische Musiktradition eintauchen l\u00e4sst."
         },
@@ -6511,12 +6294,7 @@
         },
         {
           "question": "Welches Instrument spielte Luiz E\u00e7a w\u00e4hrend der Aufnahmen zu seinem Album 'O Fabuloso Luiz E\u00e7a', das 1963 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Klavier",
-            "Gitarre",
-            "Schlagzeug",
-            "Saxophon"
-          ],
+          "options": ["Klavier", "Gitarre", "Schlagzeug", "Saxophon"],
           "correctAnswer": "Klavier",
           "trivia": "Luiz E\u00e7a war ein talentierter Pianist und Komponist, der ma\u00dfgeblich zur Entwicklung des Bossa Nova beigetragen hat. In seinem Album 'O Fabuloso Luiz E\u00e7a' zeigt er seine F\u00e4higkeiten am Klavier, das eine zentrale Rolle in vielen der St\u00fccke spielt. Das Album wurde 1963 ver\u00f6ffentlicht und umfasst eine Vielzahl von jazzigen und rhythmischen Kl\u00e4ngen, die E\u00e7as einzigartigen Stil widerspiegeln."
         },
@@ -6546,12 +6324,7 @@
         },
         {
           "question": "Welche kulturelle Str\u00f6mung wird mit dem Album 'O Fabuloso Luiz E\u00e7a' von Luiz E\u00e7a, das 1963 ver\u00f6ffentlicht wurde, in Verbindung gebracht?",
-          "options": [
-            "Tropic\u00e1lia",
-            "Bossa Nova",
-            "Samba de Roda",
-            "MPB"
-          ],
+          "options": ["Tropic\u00e1lia", "Bossa Nova", "Samba de Roda", "MPB"],
           "correctAnswer": "Bossa Nova",
           "trivia": "Luiz E\u00e7a war ein bedeutender Pianist und Komponist in der brasilianischen Musikszene, der mit seinem Album 'O Fabuloso Luiz E\u00e7a' einen wesentlichen Beitrag zur Bossa Nova leistete. Diese Musikrichtung, die in den sp\u00e4ten 1950er Jahren entstand, kombinierte brasilianische Samba-Rhythmen mit Jazz-Elementen. E\u00e7a's innovative Arrangements und sein einzigartiger Stil trugen dazu bei, die Bossa Nova international bekannt zu machen und beeinflussten zahlreiche K\u00fcnstler weltweit."
         },
@@ -6616,12 +6389,7 @@
       "easy": [
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Avan\u00e7o' von Tamba Trio?",
-          "options": [
-            "1960",
-            "1961",
-            "1963",
-            "1965"
-          ],
+          "options": ["1960", "1961", "1963", "1965"],
           "correctAnswer": "1963",
           "trivia": "Das Album 'Avan\u00e7o' wurde 1963 von Tamba Trio ver\u00f6ffentlicht und gilt als eines der bedeutendsten Werke des brasilianischen Jazz und Bossa Nova. Tamba Trio, bestehend aus dem Pianisten Luiz E\u00e7a, dem Bassisten Ti\u00e3o Neto und dem Schlagzeuger Edson Esp\u00edndola, kombinierte traditionelle brasilianische Rhythmen mit jazzigen Elementen. Die Musik des Albums reflektiert die kreative Energie der brasilianischen Musikszene in den 1960er Jahren."
         },
@@ -6870,12 +6638,7 @@
         },
         {
           "question": "In welchem Jahr trat Jo\u00e3o Gilberto mit seinem Album 'Jo\u00e3o Voz e Viol\u00e3o' auf, das 2000 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "1995",
-            "2000",
-            "2005",
-            "2010"
-          ],
+          "options": ["1995", "2000", "2005", "2010"],
           "correctAnswer": "2000",
           "trivia": "Jo\u00e3o Gilberto ist ein ber\u00fchmter brasilianischer Musiker, der als einer der Pioniere der Bossa Nova gilt. Sein Album 'Jo\u00e3o Voz e Viol\u00e3o', das im Jahr 2000 ver\u00f6ffentlicht wurde, zeigt seine einzigartige F\u00e4higkeit, mit nur Stimme und Gitarre eine intime Atmosph\u00e4re zu schaffen. Gilberto ist bekannt f\u00fcr seine gef\u00fchlvollen Live-Auftritte, die oft das Publikum in ihren Bann ziehen."
         }
@@ -6986,12 +6749,7 @@
         },
         {
           "question": "Welches Jahr wurde das Album 'Elis Especial' von Elis Regina ver\u00f6ffentlicht?",
-          "options": [
-            "1965",
-            "1968",
-            "1970",
-            "1972"
-          ],
+          "options": ["1965", "1968", "1970", "1972"],
           "correctAnswer": "1968",
           "trivia": "Elis Regina war eine der bedeutendsten S\u00e4ngerinnen Brasiliens und ein zentraler Bestandteil der Musikkultur der 1960er Jahre. Ihr Album 'Elis Especial', das 1968 ver\u00f6ffentlicht wurde, zeigt ihre au\u00dfergew\u00f6hnliche Stimme und ihren einzigartigen Stil. In diesem Album kombiniert sie verschiedene Musikgenres und pr\u00e4sentiert sowohl eigene Lieder als auch Coverversionen. 'Elis Especial' gilt als ein Meilenstein in ihrer Karriere und hat bis heute gro\u00dfen Einfluss auf die brasilianische Musikszene."
         }
@@ -7368,12 +7126,7 @@
         },
         {
           "question": "In welchem Jahr trat Stan Getz mit dem Album 'Getz/Gilberto #2' auf einer bedeutenden Tour auf, die seine Popularit\u00e4t in der Bossa Nova-Szene weiter steigerte?",
-          "options": [
-            "1963",
-            "1965",
-            "1967",
-            "1969"
-          ],
+          "options": ["1963", "1965", "1967", "1969"],
           "correctAnswer": "1965",
           "trivia": "Stan Getz, ein renommierter Saxophonist, ver\u00f6ffentlichte das Album 'Getz/Gilberto #2' im Jahr 1965, das eine wichtige Rolle in der Bossa Nova-Bewegung spielte. W\u00e4hrend dieser Zeit unternahm Getz zahlreiche Live-Auftritte, die dazu beitrugen, die brasilianische Musik in den USA popul\u00e4r zu machen. Die Zusammenarbeit mit dem brasilianischen Gitarristen Jo\u00e3o Gilberto und dem legend\u00e4ren Komponisten Antonio Carlos Jobim f\u00fchrte zu vielen unvergesslichen Momenten auf der B\u00fchne und trug zur Entstehung klassischer Musikst\u00fccke bei."
         }
@@ -7473,12 +7226,7 @@
         },
         {
           "question": "In welchem Jahr trat Gal Costa erstmals mit ihrem Album '\u00cdndia' live auf, das 1973 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "1973",
-            "1974",
-            "1975",
-            "1976"
-          ],
+          "options": ["1973", "1974", "1975", "1976"],
           "correctAnswer": "1973",
           "trivia": "Gal Costa, eine bedeutende Figur der brasilianischen Musikszene, ver\u00f6ffentlichte ihr Album '\u00cdndia' im Jahr 1973. Dieses Album war nicht nur ein Meilenstein in ihrer Karriere, sondern auch ein wichtiger Beitrag zur Tropic\u00e1lia-Bewegung. Die Live-Auftritte von Gal Costa zu dieser Zeit waren bekannt f\u00fcr ihre Energie und Kreativit\u00e4t, wodurch sie das Publikum immer wieder begeisterte. '\u00cdndia' enth\u00e4lt einige ihrer bekanntesten Songs, die in ihren Konzerten oft mit leidenschaftlicher Darbietung pr\u00e4sentiert wurden."
         },
@@ -7774,12 +7522,7 @@
       "easy": [
         {
           "question": "Welches bedeutende musikalische Genre wird stark mit dem Album 'Expresso 2222' von Gilberto Gil in Verbindung gebracht?",
-          "options": [
-            "Samba",
-            "Tropic\u00e1lia",
-            "Bossa Nova",
-            "Forr\u00f3"
-          ],
+          "options": ["Samba", "Tropic\u00e1lia", "Bossa Nova", "Forr\u00f3"],
           "correctAnswer": "Tropic\u00e1lia",
           "trivia": "Gilberto Gil ist ein zentraler Vertreter der Tropic\u00e1lia-Bewegung, die in den sp\u00e4ten 1960er und fr\u00fchen 1970er Jahren in Brasilien entstand. Sein Album 'Expresso 2222', das 1972 ver\u00f6ffentlicht wurde, kombiniert verschiedene musikalische Stile und reflektiert die sozialen und politischen Umw\u00e4lzungen dieser Zeit. Die Tropic\u00e1lia-Bewegung verband traditionelle brasilianische Musik mit internationalen Einfl\u00fcssen und setzte sich f\u00fcr kulturelle Vielfalt und Innovation ein."
         },
@@ -8006,12 +7749,7 @@
       "easy": [
         {
           "question": "Welches bedeutende brasilianische Musikgenre wird mit dem Album 'Muito \u00e0 Vontade' von Jo\u00e3o Donato, das 1963 ver\u00f6ffentlicht wurde, stark in Verbindung gebracht?",
-          "options": [
-            "Samba",
-            "Bossa Nova",
-            "Forr\u00f3",
-            "Tropicalia"
-          ],
+          "options": ["Samba", "Bossa Nova", "Forr\u00f3", "Tropicalia"],
           "correctAnswer": "Bossa Nova",
           "trivia": "Jo\u00e3o Donato gilt als einer der einflussreichsten Musiker der Bossa Nova und des brasilianischen Jazz. Sein Album 'Muito \u00e0 Vontade' von 1963 zeigt die Verschmelzung von Jazz mit brasilianischen Rhythmen und Melodien. Die Lieder auf diesem Album sind bekannt f\u00fcr ihre harmonischen Komplexit\u00e4t und ihren einzigartigen Groove, was zur Popularit\u00e4t der Bossa Nova in den 1960er Jahren beitrug."
         },
@@ -8028,12 +7766,7 @@
         },
         {
           "question": "Welches Jahr wurde das Album 'Muito \u00e0 Vontade' von Jo\u00e3o Donato ver\u00f6ffentlicht?",
-          "options": [
-            "1960",
-            "1963",
-            "1965",
-            "1967"
-          ],
+          "options": ["1960", "1963", "1965", "1967"],
           "correctAnswer": "1963",
           "trivia": "Jo\u00e3o Donato ist ein brasilianischer Pianist und Komponist, der f\u00fcr seine innovative Mischung aus Bossa Nova und Jazz bekannt ist. Sein Album 'Muito \u00e0 Vontade', das 1963 ver\u00f6ffentlicht wurde, zeigt seine einzigartigen Arrangements und seinen virtuosen Klavierstil. Dieses Album trug dazu bei, Jo\u00e3o Donato als wichtigen Einfluss in der brasilianischen Musikszene zu etablieren und enth\u00e4lt einige seiner bekanntesten Kompositionen."
         }
@@ -8063,12 +7796,7 @@
         },
         {
           "question": "Welches bekannte brasilianische Musiklabel ver\u00f6ffentlichte das Album 'Muito \u00e0 Vontade' von Jo\u00e3o Donato im Jahr 1963 und war ma\u00dfgeblich an der Produktion beteiligt?",
-          "options": [
-            "Odeon",
-            "RCA Victor",
-            "Polydor",
-            "Continental"
-          ],
+          "options": ["Odeon", "RCA Victor", "Polydor", "Continental"],
           "correctAnswer": "Odeon",
           "trivia": "Jo\u00e3o Donato, ein einflussreicher Pianist und Komponist der Bossa Nova, ver\u00f6ffentlichte 1963 sein Album 'Muito \u00e0 Vontade', das f\u00fcr seinen innovativen Stil und seine Melodien bekannt ist. Das Album wurde unter dem renommierten Label Odeon ver\u00f6ffentlicht, das viele bedeutende K\u00fcnstler der brasilianischen Musikgeschichte repr\u00e4sentiert. 'Muito \u00e0 Vontade' zeigt Donatos F\u00e4higkeit, verschiedene Musikrichtungen miteinander zu verweben und hat einen bleibenden Einfluss auf die brasilianische Musikszene hinterlassen."
         }
@@ -8308,12 +8036,7 @@
       "hard": [
         {
           "question": "Welche prominente brasilianische Musikrichtung, die stark von den sozialen und politischen Themen der 1960er und 1970er Jahre gepr\u00e4gt ist, inspirierte Elis Regina bei der Erstellung ihres Albums 'Falso Brilhante'?",
-          "options": [
-            "Samba",
-            "Bossa Nova",
-            "Tropic\u00e1lia",
-            "MPB"
-          ],
+          "options": ["Samba", "Bossa Nova", "Tropic\u00e1lia", "MPB"],
           "correctAnswer": "MPB",
           "trivia": "Elis Regina, eine der bedeutendsten Stimmen Brasiliens, lie\u00df sich bei ihrem Album 'Falso Brilhante' von der Musica Popular Brasileira (MPB) inspirieren, einer Musikrichtung, die traditionelle brasilianische Stile mit internationalen Einfl\u00fcssen verbindet. In den 1970er Jahren war MPB ein Ausdruck des Widerstands gegen die Milit\u00e4rdiktatur in Brasilien und thematisierte oft soziale Ungerechtigkeiten. Regina arbeitete mit herausragenden Komponisten und Musikern dieser Bewegung zusammen, was das Album zu einem zeitlosen Klassiker macht."
         },
@@ -8354,12 +8077,7 @@
       "easy": [
         {
           "question": "Welcher zentrale emotionale Zustand wird in den Songtexten des Albums 'Drama' von Maria Beth\u00e2nia h\u00e4ufig thematisiert?",
-          "options": [
-            "Einsamkeit",
-            "Freundschaft",
-            "Hoffnung",
-            "Trauer"
-          ],
+          "options": ["Einsamkeit", "Freundschaft", "Hoffnung", "Trauer"],
           "correctAnswer": "Trauer",
           "trivia": "Maria Beth\u00e2nia ist eine der bekanntesten S\u00e4ngerinnen Brasiliens und hat mit ihrem Album 'Drama' aus dem Jahr 1972 gro\u00dfen Einfluss auf die Musikwelt genommen. Die Texte der Songs auf diesem Album besch\u00e4ftigen sich oft mit tiefen emotionalen Themen, insbesondere Trauer und Verlust. Beth\u00e2nias eindringlicher Gesangstil verst\u00e4rkt die Bedeutung der Lyrics und zieht die Zuh\u00f6rer in eine bewegende emotionale Welt."
         },
@@ -8481,12 +8199,7 @@
         },
         {
           "question": "Welches Musikvideo von S\u00e9rgio Mendes aus dem Album 'Look Around' zeigt eine lebendige Kombination aus brasilianischen Rhythmen und amerikanischem Jazz?",
-          "options": [
-            "Mas que Nada",
-            "Ponteio",
-            "Day Tripper",
-            "Berimbau"
-          ],
+          "options": ["Mas que Nada", "Ponteio", "Day Tripper", "Berimbau"],
           "correctAnswer": "Mas que Nada",
           "trivia": "S\u00e9rgio Mendes ist ein ber\u00fchmter brasilianischer Musiker, der f\u00fcr seine Fusion von brasilianischer Musik mit Jazz und Pop bekannt ist. Das Album 'Look Around', das 1968 ver\u00f6ffentlicht wurde, enth\u00e4lt einige seiner bekanntesten St\u00fccke, darunter 'Mas que Nada'. Dieses Lied wurde durch verschiedene Musikvideos und Auff\u00fchrungen weltweit popul\u00e4r und zeigt Mendes' einzigartige F\u00e4higkeit, kulturelle Grenzen zu \u00fcberschreiten."
         },
@@ -8702,12 +8415,7 @@
       "easy": [
         {
           "question": "In welchem Jahr trat Astrud Gilberto mit ihrem Album 'The Shadow of Your Smile' erstmals live auf?",
-          "options": [
-            "1965",
-            "1960",
-            "1970",
-            "1962"
-          ],
+          "options": ["1965", "1960", "1970", "1962"],
           "correctAnswer": "1965",
           "trivia": "Astrud Gilberto, eine brasilianische S\u00e4ngerin, ver\u00f6ffentlichte 1965 ihr ikonisches Album 'The Shadow of Your Smile', das eine Mischung aus Bossa Nova und Jazz pr\u00e4sentiert. In diesem Jahr trat sie auch live auf, was ihr half, internationale Ber\u00fchmtheit zu erlangen. Ihr sanfter Gesang und die einzigartige F\u00e4higkeit, Emotionen zu vermitteln, machten sie zu einer der bekanntesten Stimmen der Bossa Nova. Das Album enth\u00e4lt einige ihrer bekanntesten St\u00fccke und ist ein Meilenstein in ihrer Karriere."
         },
@@ -8772,12 +8480,7 @@
       "hard": [
         {
           "question": "Welcher Chartplatzierung erreichte Astrud Gilberto mit ihrem Album 'The Shadow of Your Smile' in den US Billboard 200?",
-          "options": [
-            "Platz 10",
-            "Platz 25",
-            "Platz 50",
-            "Platz 75"
-          ],
+          "options": ["Platz 10", "Platz 25", "Platz 50", "Platz 75"],
           "correctAnswer": "Platz 25",
           "trivia": "Astrud Gilberto, eine brasilianische S\u00e4ngerin, erlangte mit ihrem Album 'The Shadow of Your Smile', das 1965 ver\u00f6ffentlicht wurde, gro\u00dfe Anerkennung in den USA. Das Album erreichte Platz 25 in den US Billboard 200 und festigte ihren Status als eine der f\u00fchrenden Stimmen des Bossa Nova. Besonders bekannt wurde die Titelsong 'The Shadow of Your Smile', der aus dem Film 'The Sandpiper' stammt und f\u00fcr seine melancholische Melodie und Gilbertos sanfte Stimme gesch\u00e4tzt wird."
         },
@@ -8829,12 +8532,7 @@
         },
         {
           "question": "In welchem Jahr trat Jo\u00e3o Gilberto mit seinem Album 'Brazil\u2019s Brilliant Jo\u00e3o Gilberto' live auf, das 1961 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "1959",
-            "1960",
-            "1961",
-            "1962"
-          ],
+          "options": ["1959", "1960", "1961", "1962"],
           "correctAnswer": "1961",
           "trivia": "Jo\u00e3o Gilberto ist ein brasilianischer Musiker, der als einer der Begr\u00fcnder des Bossa Nova gilt. Sein Album 'Brazil\u2019s Brilliant Jo\u00e3o Gilberto', ver\u00f6ffentlicht im Jahr 1961, enth\u00e4lt einige seiner bekanntesten Lieder und hat gro\u00dfen Einfluss auf die brasilianische Musikszene gehabt. Gilberto ist bekannt f\u00fcr seinen einzigartigen Gitarrenstil und seine sanfte Stimme, die die Melodien der Bossa Nova perfekt zur Geltung bringt."
         },
@@ -8956,12 +8654,7 @@
         },
         {
           "question": "Welches Musikvideo von Gal Costa, das zu ihrem Album 'Cantar' aus dem Jahr 1974 geh\u00f6rt, zeigt eine beeindruckende visuelle Inszenierung und die k\u00fcnstlerische Vielfalt der S\u00e4ngerin?",
-          "options": [
-            "Baby",
-            "Cantar",
-            "Festa",
-            "Ora\u00e7\u00e3o"
-          ],
+          "options": ["Baby", "Cantar", "Festa", "Ora\u00e7\u00e3o"],
           "correctAnswer": "Baby",
           "trivia": "Gal Costa ist eine herausragende brasilianische S\u00e4ngerin, die f\u00fcr ihre einzigartige Stimme und ihren Einfluss auf die M\u00fasica Popular Brasileira bekannt ist. Ihr Album 'Cantar' aus dem Jahr 1974 enth\u00e4lt verschiedene musikalische Stile und ist ein Meilenstein in ihrer Karriere. Das Musikvideo zu 'Baby' zeigt nicht nur ihre Stimme, sondern auch ihre k\u00fcnstlerische Ausdruckskraft und die kreative \u00c4sthetik der 70er Jahre in Brasilien."
         }
@@ -8991,12 +8684,7 @@
         },
         {
           "question": "In welchem Jahr trat Gal Costa mit ihrem Album 'Cantar' auf einer bedeutenden Tour auf, die ihre Popularit\u00e4t im brasilianischen Musikgesch\u00e4ft festigte?",
-          "options": [
-            "1972",
-            "1974",
-            "1976",
-            "1978"
-          ],
+          "options": ["1972", "1974", "1976", "1978"],
           "correctAnswer": "1974",
           "trivia": "Gal Costa, eine der herausragendsten Stimmen der Tropic\u00e1lia-Bewegung, ver\u00f6ffentlichte ihr Album 'Cantar' im Jahr 1974. Diese Zeit war entscheidend f\u00fcr ihre Karriere, da sie zahlreiche Live-Auftritte gab, die nicht nur ihre Musikalit\u00e4t, sondern auch ihre k\u00fcnstlerische Pr\u00e4senz unter Beweis stellten. 'Cantar' enth\u00e4lt eine Vielzahl von Liedern, die das Publikum sowohl emotional als auch musikalisch ber\u00fchrten und Gal Costa als eine der f\u00fchrenden K\u00fcnstlerinnen Brasiliens etablierten."
         }
@@ -9015,12 +8703,7 @@
         },
         {
           "question": "In welchem Jahr trat Gal Costa mit ihrem Album 'Cantar' auf der B\u00fchne der renommierten 'Teatro Municipal' in S\u00e3o Paulo auf, nachdem das Album 1974 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "1974",
-            "1975",
-            "1976",
-            "1977"
-          ],
+          "options": ["1974", "1975", "1976", "1977"],
           "correctAnswer": "1975",
           "trivia": "Gal Costa, eine zentrale Figur der Tropic\u00e1lia-Bewegung, beeindruckte mit ihrem Album 'Cantar', das 1974 ver\u00f6ffentlicht wurde. Ihr Auftritt im 'Teatro Municipal' in S\u00e3o Paulo im Jahr 1975 gilt als einer der denkw\u00fcrdigsten ihrer Karriere, da sie dort viele Lieder aus dem Album live pr\u00e4sentierte. Die Verbindung zwischen Gal und ihrem Publikum wurde durch ihre kraftvolle Stimme und innovative Musik verst\u00e4rkt, was das Live-Erlebnis unvergesslich machte."
         },
@@ -9096,12 +8779,7 @@
         },
         {
           "question": "Welches spezielle Instrument wurde w\u00e4hrend des Aufnahmeprozesses des Albums 'Limite das \u00c1guas' von Edu Lobo verwendet, um die einzigartige Klangfarbe zu erzeugen?",
-          "options": [
-            "Ukulele",
-            "Berimbau",
-            "Saxophon",
-            "Piano"
-          ],
+          "options": ["Ukulele", "Berimbau", "Saxophon", "Piano"],
           "correctAnswer": "Berimbau",
           "trivia": "Edu Lobo, ein bedeutender brasilianischer Musiker, ver\u00f6ffentlichte 1976 das Album 'Limite das \u00c1guas', das eine Mischung aus verschiedenen Musikstilen verk\u00f6rpert. W\u00e4hrend des Aufnahmeprozesses wurde das Berimbau, ein traditionelles brasilianisches Instrument, verwendet, um den Songs eine authentische, rhythmische Tiefe zu verleihen. Lobo kombinierte dabei Elemente der klassischen Musik mit brasilianischen Rhythmen, was zu seinem charakteristischen Sound beitr\u00e4gt."
         },
@@ -9188,12 +8866,7 @@
         },
         {
           "question": "Welches besondere Instrument spielte Antonio Carlos Jobim w\u00e4hrend des Aufnahmeprozesses f\u00fcr sein Album 'Matita Per\u00ea'?",
-          "options": [
-            "Klavier",
-            "Gitarre",
-            "Saxophon",
-            "Schlagzeug"
-          ],
+          "options": ["Klavier", "Gitarre", "Saxophon", "Schlagzeug"],
           "correctAnswer": "Klavier",
           "trivia": "Antonio Carlos Jobim, bekannt als einer der Begr\u00fcnder der Bossa Nova, verwendete w\u00e4hrend des Aufnahmeprozesses f\u00fcr sein Album 'Matita Per\u00ea' h\u00e4ufig das Klavier. Dieses Instrument spielte eine zentrale Rolle in seinen Kompositionen und trug ma\u00dfgeblich zur einzigartigen Klang\u00e4sthetik des Albums bei. 'Matita Per\u00ea' kombiniert melodische Harmonien mit poetischen Texten, was es zu einem wichtigen Werk in Jobims Diskografie macht."
         }
@@ -9420,12 +9093,7 @@
         },
         {
           "question": "Welches Jahr wurde das Album 'Mi\u00facha' von Mi\u00facha ver\u00f6ffentlicht?",
-          "options": [
-            "1975",
-            "1977",
-            "1980",
-            "1979"
-          ],
+          "options": ["1975", "1977", "1980", "1979"],
           "correctAnswer": "1977",
           "trivia": "Das Album 'Mi\u00facha' von Mi\u00facha wurde 1977 ver\u00f6ffentlicht und geh\u00f6rt zu den bedeutendsten Werken der brasilianischen Musik. Mi\u00facha, die Schwester des ber\u00fchmten Komponisten und Musikers Chico Buarque, ist bekannt f\u00fcr ihre sanfte Stimme und ihre F\u00e4higkeit, verschiedene Musikstile zu vereinen. Auf diesem Album finden sich viele klassische Bossa Nova-Lieder, die die musikalische Tradition Brasiliens widerspiegeln."
         }
@@ -9978,12 +9646,7 @@
       "easy": [
         {
           "question": "Welches Instrument spielte Luiz E\u00e7a, eines der Mitglieder des Tamba Trio, w\u00e4hrend der Aufnahmen zum Album 'Tamba Trio'?",
-          "options": [
-            "Klavier",
-            "Gitarre",
-            "Schlagzeug",
-            "Bass"
-          ],
+          "options": ["Klavier", "Gitarre", "Schlagzeug", "Bass"],
           "correctAnswer": "Klavier",
           "trivia": "Das Tamba Trio, bestehend aus Luiz E\u00e7a, Thiago de Mello und Bebeto, ver\u00f6ffentlichte 1962 ihr gleichnamiges Album 'Tamba Trio'. Luiz E\u00e7a war bekannt f\u00fcr sein virtuoses Klavierspiel, das einen gro\u00dfen Einfluss auf die Arrangements des Albums hatte. Das Album kombiniert Elemente des Bossa Nova mit Jazz und setzt auf harmonische Vielfalt. Die kreative Zusammenarbeit der Mitglieder f\u00fchrte zu einem einzigartigen Klang, der das Tamba Trio zu einer bedeutenden Gruppe in der brasilianischen Musik machte."
         },
@@ -10012,12 +9675,7 @@
       "medium": [
         {
           "question": "Welchen Platz erreichte das Album 'Tamba Trio' von Tamba Trio in den brasilianischen Albumcharts nach seiner Ver\u00f6ffentlichung im Jahr 1962?",
-          "options": [
-            "Platz 5",
-            "Platz 10",
-            "Platz 15",
-            "Platz 20"
-          ],
+          "options": ["Platz 5", "Platz 10", "Platz 15", "Platz 20"],
           "correctAnswer": "Platz 10",
           "trivia": "Das Album 'Tamba Trio' von Tamba Trio, ver\u00f6ffentlicht im Jahr 1962, wurde schnell zu einem Klassiker der brasilianischen Musik. Es kombiniert Elemente des Bossa Nova mit traditioneller brasilianischer Musik und zeigt die au\u00dfergew\u00f6hnlichen musikalischen F\u00e4higkeiten des Trios. Besonders hervorzuheben sind die harmonischen Gesangseinlagen und die innovativen Arrangements, die dem Album zu einem Platz in den Top 10 der brasilianischen Albumcharts verhalfen."
         },
@@ -10034,12 +9692,7 @@
         },
         {
           "question": "In welchem Jahr trat das Tamba Trio erstmals mit ihrem Album 'Tamba Trio' auf einer bedeutenden Tournee in Europa auf?",
-          "options": [
-            "1962",
-            "1964",
-            "1966",
-            "1968"
-          ],
+          "options": ["1962", "1964", "1966", "1968"],
           "correctAnswer": "1964",
           "trivia": "Das Tamba Trio, bekannt f\u00fcr seine einzigartige Mischung aus Bossa Nova und Samba, ver\u00f6ffentlichte 1962 ihr selbstbetiteltes Album 'Tamba Trio'. Zwei Jahre sp\u00e4ter, 1964, starteten sie eine bedeutende Tournee durch Europa, die ihre internationale Bekanntheit erheblich steigerte. Die Live-Auftritte des Trios waren gepr\u00e4gt von ihrem harmonischen Gesang und virtuosen Instrumentalspiel, was sie zu einem der herausragenden Acts der brasilianischen Musikszene machte."
         }
@@ -10139,12 +9792,7 @@
         },
         {
           "question": "In welchem Jahr fand der legend\u00e4re Live-Auftritt von Elis Regina statt, der Teil der Promotion f\u00fcr ihr Album 'Elis, Essa Mulher' war?",
-          "options": [
-            "1975",
-            "1977",
-            "1979",
-            "1981"
-          ],
+          "options": ["1975", "1977", "1979", "1981"],
           "correctAnswer": "1979",
           "trivia": "Elis Regina, eine der einflussreichsten S\u00e4ngerinnen Brasiliens, ver\u00f6ffentlichte 1979 ihr Album 'Elis, Essa Mulher', das nicht nur ihre kraftvolle Stimme, sondern auch ihre F\u00e4higkeit, verschiedene Musikstile zu kombinieren, unter Beweis stellte. Im selben Jahr gab sie einen bemerkenswerten Live-Auftritt, der von Fans und Kritikern gleicherma\u00dfen gefeiert wurde. Ihr Auftritt trug ma\u00dfgeblich zur Popularit\u00e4t des Albums bei und festigte ihren Status als Ikone der brasilianischen Musikszene."
         },
@@ -10255,12 +9903,7 @@
         },
         {
           "question": "Welches bedeutende Genre der brasilianischen Musik wurde durch das Album 'A Bossa Nova de Roberto Menescal' von Roberto Menescal im Jahr 1959 ma\u00dfgeblich gepr\u00e4gt?",
-          "options": [
-            "Samba",
-            "Bossa Nova",
-            "MPB",
-            "Forr\u00f3"
-          ],
+          "options": ["Samba", "Bossa Nova", "MPB", "Forr\u00f3"],
           "correctAnswer": "Bossa Nova",
           "trivia": "Roberto Menescal gilt als einer der Pioniere der Bossa Nova und hat mit seinem Album 'A Bossa Nova de Roberto Menescal' einen entscheidenden Beitrag zur weltweiten Popularit\u00e4t dieses Genres geleistet. Das Album enth\u00e4lt mehrere ikonische St\u00fccke, die den charakteristischen sanften Rhythmus und die melancholische Melodik der Bossa Nova verk\u00f6rpern. Menescal arbeitete eng mit anderen Gr\u00f6\u00dfen der Musikszene zusammen und half, den Stil international bekannt zu machen, was ihn zu einer Schl\u00fcsselfigur in der Entwicklung der modernen brasilianischen Musik machte."
         },
@@ -10360,12 +10003,7 @@
       "medium": [
         {
           "question": "Welches musikalische Genre pr\u00e4gt das Album 'Zimbo Trio' von Zimbo Trio, das 1964 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Jazz",
-            "Samba",
-            "Rock",
-            "Blues"
-          ],
+          "options": ["Jazz", "Samba", "Rock", "Blues"],
           "correctAnswer": "Samba",
           "trivia": "Zimbo Trio ist bekannt f\u00fcr seine Fusion von Jazz und brasilianischer Musik, insbesondere Samba. Das Album 'Zimbo Trio' aus dem Jahr 1964 zeigt die Virtuosit\u00e4t der Musiker und ihre F\u00e4higkeit, komplexe Harmonien mit rhythmischen Elementen der brasilianischen Musik zu kombinieren. Die Gruppe hat mit ihrer einzigartigen Interpretation von Samba und Bossa Nova einen wichtigen Beitrag zur brasilianischen Musikszene geleistet."
         },
@@ -10730,12 +10368,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Arca de No\u00e9' von Vinicius de Moraes in den brasilianischen Albumcharts nach seiner Ver\u00f6ffentlichung im Jahr 1980?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 5",
           "trivia": "Vinicius de Moraes, ein bedeutender brasilianischer Dichter und Musiker, ver\u00f6ffentlichte 1980 das Album 'Arca de No\u00e9', das eine Mischung aus Musik und Poesie darstellt. Das Album enth\u00e4lt mehrere beliebte Lieder, die heute als Klassiker gelten. 'Arca de No\u00e9' erreichte Platz 5 in den brasilianischen Albumcharts und festigte Moraes' Status als einer der einflussreichsten K\u00fcnstler der Bossa Nova-Bewegung."
         }
@@ -10789,12 +10422,7 @@
       "easy": [
         {
           "question": "Welches ber\u00fchmte Lied von Toquinho stammt aus dem Album 'Aquarela', das 1983 ver\u00f6ffentlicht wurde und ist bekannt f\u00fcr seine poetischen Texte und Melodien?",
-          "options": [
-            "Aquarela",
-            "Sampa",
-            "O Caderno",
-            "Trem das Onze"
-          ],
+          "options": ["Aquarela", "Sampa", "O Caderno", "Trem das Onze"],
           "correctAnswer": "Aquarela",
           "trivia": "Toquinho, ein renommierter brasilianischer Musiker und Komponist, ver\u00f6ffentlichte 1983 das Album 'Aquarela', das als eines seiner bekanntesten Werke gilt. Der Titeltrack 'Aquarela' ist ein ikonisches Lied, das die Fantasie und die Kindheit thematisiert und oft f\u00fcr seine tiefgr\u00fcndigen, bildhaften Texte gelobt wird. Das Album verbindet verschiedene Musikstile und hat einen nachhaltigen Einfluss auf die brasilianische Musikszene, indem es die kulturelle Identit\u00e4t des Landes widerspiegelt."
         },
@@ -10811,12 +10439,7 @@
         },
         {
           "question": "Welches ber\u00fchmte Lied von Toquinho aus dem Album 'Aquarela' von 1983 wurde zu einem beliebten Kinderlied und ist f\u00fcr seine fantasievollen Texte bekannt?",
-          "options": [
-            "Aquarela",
-            "Trem da Alegria",
-            "O Caderno",
-            "Sampa"
-          ],
+          "options": ["Aquarela", "Trem da Alegria", "O Caderno", "Sampa"],
           "correctAnswer": "Aquarela",
           "trivia": "Das Lied 'Aquarela' von Toquinho, das 1983 auf dem gleichnamigen Album ver\u00f6ffentlicht wurde, ist ein Klassiker der brasilianischen Musik. Es erz\u00e4hlt die Geschichte eines Jungen, der mit Farben und Fantasie die Welt um sich herum gestaltet. 'Aquarela' wurde nicht nur in Brasilien popul\u00e4r, sondern hat auch international viele Fans gefunden und ist h\u00e4ufig in Schulen und Kinderg\u00e4rten zu h\u00f6ren. Die einpr\u00e4gsame Melodie und die poetischen Texte haben Toquinho als bedeutenden K\u00fcnstler der brasilianischen Musikszene etabliert."
         }
@@ -10905,12 +10528,7 @@
       "easy": [
         {
           "question": "Welches bedeutende musikalische Genre wird h\u00e4ufig mit dem Album 'I Haven\u2019t Got Anything Better to Do' von Astrud Gilberto in Verbindung gebracht?",
-          "options": [
-            "Bossa Nova",
-            "Rock",
-            "Hip-Hop",
-            "Jazz"
-          ],
+          "options": ["Bossa Nova", "Rock", "Hip-Hop", "Jazz"],
           "correctAnswer": "Bossa Nova",
           "trivia": "Astrud Gilberto ist eine ikonische brasilianische S\u00e4ngerin, die f\u00fcr ihre sanfte Stimme und ihren Einfluss auf die Bossa Nova Musik bekannt ist. Ihr Album 'I Haven\u2019t Got Anything Better to Do', das 1969 ver\u00f6ffentlicht wurde, tr\u00e4gt zur Popularit\u00e4t dieses Genres in der internationalen Musikszene bei. Das Album enth\u00e4lt eine Mischung aus eigenst\u00e4ndigen Songs und Coverversionen und zeigt Gilbertos einzigartige F\u00e4higkeit, Emotionen durch Musik auszudr\u00fccken."
         },
