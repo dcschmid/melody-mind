@@ -69,7 +69,7 @@
     "categoryUrl": "/bossa-nova",
     "introSubline": "Genieße den sanften Rhythmus und die elegante Melodie der Bossa Nova!",
     "text": "Bossa Nova vereint die geschmeidigen Klänge des brasilianischen Samba mit dem sanften Einfluss des Jazz. Diese Kategorie bietet dir eine Auswahl an zeitlosen Klassikern und modernen Interpretationen, die für ihre entspannte Eleganz und charmante Melancholie bekannt sind. Mit fließenden Gitarrenarrangements, sanften Vocals und einer unverwechselbaren Rhythmik verkörpert Bossa Nova die entspannte Atmosphäre der brasilianischen Küste und bringt ein Gefühl von Ruhe und Raffinesse in jede Hörsession.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "brasilianisch",
@@ -978,7 +978,7 @@
     "categoryUrl": "/alternative-metal",
     "introSubline": "Erlebe die experimentelle Vielfalt und die kraftvollen Klänge des Alternative Metal!",
     "text": "Alternative Metal ist ein vielseitiges Genre, das die Härte des Metal mit Einflüssen aus Grunge, Alternative Rock, Funk und anderen Musikstilen kombiniert. Diese Kategorie bietet eine spannende Mischung aus dynamischen Riffs, unkonventionellen Songstrukturen und einer breiten Palette von Einflüssen, die das Genre unvorhersehbar und innovativ machen. Mit Bands wie Tool, Deftones, System of a Down und Alice in Chains hat Alternative Metal eine experimentelle Klanglandschaft geschaffen, die gleichzeitig heavy und melodisch ist. Die Songs variieren zwischen aggressiven, brachialen Riffs und atmosphärischen, oft melancholischen Passagen. Lass dich von den kreativen Arrangements und der genreübergreifenden Energie des Alternative Metal mitreißen und erlebe Musik, die keine Grenzen kennt und den Hörer immer wieder überrascht.",
-    "isPlayable": false
+    "isPlayable": true
   },
   {
     "slug": "gothic-metal",
