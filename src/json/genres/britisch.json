@@ -124,12 +124,7 @@
       "easy": [
         {
           "question": "Welchen Platz erreichte das Album 'Exile on Main St.' von The Rolling Stones in den US Billboard 200 Charts nach seiner Ver\u00f6ffentlichung im Jahr 1972?",
-          "options": [
-            "Platz 1",
-            "Platz 3",
-            "Platz 5",
-            "Platz 10"
-          ],
+          "options": ["Platz 1", "Platz 3", "Platz 5", "Platz 10"],
           "correctAnswer": "Platz 1",
           "trivia": "'Exile on Main St.' ist das zehnte Studioalbum der Rolling Stones und wurde am 12. Mai 1972 ver\u00f6ffentlicht. Das Album erreichte in den US Billboard 200 Charts den ersten Platz und hielt sich insgesamt 4 Wochen an der Spitze. Es gilt als eines der besten Alben der Band und enth\u00e4lt Klassiker wie 'Tumbling Dice' und 'Happy'. Die Mischung aus Rock, Blues und Country-Stilen hat die Musikgeschichte nachhaltig beeinflusst."
         },
@@ -378,12 +373,7 @@
         },
         {
           "question": "Wie viele Songs wurden urspr\u00fcnglich f\u00fcr das Album 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars' von David Bowie geschrieben?",
-          "options": [
-            "10",
-            "12",
-            "15",
-            "8"
-          ],
+          "options": ["10", "12", "15", "8"],
           "correctAnswer": "12",
           "trivia": "David Bowie schrieb insgesamt 12 Songs f\u00fcr sein ikonisches Album 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars', das 1972 ver\u00f6ffentlicht wurde. Das Album gilt als ein Meilenstein in der Rockgeschichte und stellt den Charakter Ziggy Stardust vor, eine der bekanntesten B\u00fchnenpers\u00f6nlichkeiten von Bowie. Der Aufnahmeprozess fand haupts\u00e4chlich in den Trident Studios in London statt, wo Bowie mit seinem Bandkollegen Mick Ronson zusammenarbeitete. Die Kombination aus Glam-Rock-Elementen und beeindruckender Storytelling-Technik machte das Album zu einem zeitlosen Klassiker."
         }
@@ -507,12 +497,7 @@
       "medium": [
         {
           "question": "Welches ikonische visuelle Element, das auf dem Albumcover von 'The Dark Side of the Moon' von Pink Floyd zu sehen ist, wird h\u00e4ufig in Musikvideos und visuellen Inhalten der Band verwendet?",
-          "options": [
-            "Ein Regenbogen",
-            "Ein Prisma",
-            "Ein Auge",
-            "Ein Zelt"
-          ],
+          "options": ["Ein Regenbogen", "Ein Prisma", "Ein Auge", "Ein Zelt"],
           "correctAnswer": "Ein Prisma",
           "trivia": "Das Album 'The Dark Side of the Moon', ver\u00f6ffentlicht von Pink Floyd im Jahr 1973, ist nicht nur musikalisch bahnbrechend, sondern auch visuell eindrucksvoll. Das Cover, entworfen von Storm Thorgerson, zeigt ein Prisma, das Licht in ein Spektrum zerlegt, was symbolisch f\u00fcr die Themen des Albums steht. Dieses visuelle Element wurde oft in Musikvideos und Live-Auftritten der Band verwendet und ist heute eines der bekanntesten Symbole der Rockmusik."
         },
@@ -842,12 +827,7 @@
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'OK Computer' von Radiohead, das als wegweisend f\u00fcr die britische Rockmusik gilt?",
-          "options": [
-            "1995",
-            "1997",
-            "1999",
-            "2001"
-          ],
+          "options": ["1995", "1997", "1999", "2001"],
           "correctAnswer": "1997",
           "trivia": "Radiohead ver\u00f6ffentlichte ihr drittes Studioalbum 'OK Computer' im Jahr 1997 und revolutionierte damit die Musikszene. Das Album wird oft als eines der besten Alben aller Zeiten angesehen und handelt von Themen wie Entfremdung und Technologie. 'OK Computer' stellte einen bedeutenden Fortschritt in der Musikproduktion dar und beeinflusste zahlreiche K\u00fcnstler in den folgenden Jahren."
         }
@@ -855,12 +835,7 @@
       "medium": [
         {
           "question": "Welcher Platz erreichte das Album 'OK Computer' von Radiohead in den UK Albums Chart nach seiner Ver\u00f6ffentlichung im Jahr 1997?",
-          "options": [
-            "Platz 1",
-            "Platz 2",
-            "Platz 4",
-            "Platz 6"
-          ],
+          "options": ["Platz 1", "Platz 2", "Platz 4", "Platz 6"],
           "correctAnswer": "Platz 1",
           "trivia": "'OK Computer' von Radiohead gilt als eines der einflussreichsten Alben der 1990er Jahre und erreichte in den UK Albums Chart den ersten Platz. Das Album, das f\u00fcr seine komplexen Themen und experimentellen Kl\u00e4nge bekannt ist, wurde von Kritikern hochgelobt und erhielt zahlreiche Auszeichnungen. Songs wie 'Paranoid Android' und 'Karma Police' trugen zur Popularit\u00e4t des Albums bei und festigten Radioheads Ruf als innovative Band. 'OK Computer' hat auch einen bleibenden Einfluss auf die Musikszene und wird oft in Bestenlisten aufgef\u00fchrt."
         },
@@ -936,12 +911,7 @@
       "easy": [
         {
           "question": "In welchem Jahr trat die Band Queen erstmals mit Songs aus ihrem Album 'A Night at the Opera' live auf?",
-          "options": [
-            "1974",
-            "1975",
-            "1976",
-            "1977"
-          ],
+          "options": ["1974", "1975", "1976", "1977"],
           "correctAnswer": "1975",
           "trivia": "Queen ver\u00f6ffentlichte ihr ikonisches Album 'A Night at the Opera' im Jahr 1975. Im selben Jahr begann die Band, die neuen Songs, darunter den ber\u00fchmten Hit 'Bohemian Rhapsody', live aufzuf\u00fchren. Diese Auftritte trugen entscheidend zur Popularit\u00e4t des Albums und der Band bei und festigten Queens Ruf als eine der innovativsten Rockbands ihrer Zeit."
         },
@@ -1133,12 +1103,7 @@
         },
         {
           "question": "Welcher Platz wurde f\u00fcr das Album 'The Queen Is Dead' von The Smiths in den UK Album Charts im Jahr 1986 erreicht?",
-          "options": [
-            "Platz 1",
-            "Platz 2",
-            "Platz 3",
-            "Platz 4"
-          ],
+          "options": ["Platz 1", "Platz 2", "Platz 3", "Platz 4"],
           "correctAnswer": "Platz 2",
           "trivia": "Das Album 'The Queen Is Dead' von The Smiths, das 1986 ver\u00f6ffentlicht wurde, erreichte den 2. Platz in den UK Album Charts. Es gilt als eines der einflussreichsten Alben der 1980er Jahre und wird h\u00e4ufig als Meisterwerk der britischen Indie-Rock-Musik angesehen. Der Titeltrack und Songs wie 'There Is a Light That Never Goes Out' sind bis heute beliebte Klassiker. The Smiths, angef\u00fchrt von Morrissey und Johnny Marr, haben mit diesem Album ihren einzigartigen Sound und lyrischen Stil perfektioniert."
         },
@@ -1526,12 +1491,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Unknown Pleasures' von Joy Division in den britischen Albumcharts nach seiner Ver\u00f6ffentlichung im Jahr 1979?",
-          "options": [
-            "Platz 1",
-            "Platz 29",
-            "Platz 50",
-            "Platz 10"
-          ],
+          "options": ["Platz 1", "Platz 29", "Platz 50", "Platz 10"],
           "correctAnswer": "Platz 29",
           "trivia": "Joy Division ver\u00f6ffentlichte ihr Deb\u00fctalbum 'Unknown Pleasures' im Jahr 1979 und erreichte damit Platz 29 in den britischen Albumcharts. Das Album gilt als eines der einflussreichsten Werke der Post-Punk-Bewegung und ist bekannt f\u00fcr seinen charakteristischen Sound sowie die tiefgr\u00fcndigen Texte von S\u00e4nger Ian Curtis. 'Unknown Pleasures' hat im Laufe der Jahre Kultstatus erreicht und wird heute oft als Meisterwerk angesehen."
         },
@@ -1701,12 +1661,7 @@
       "hard": [
         {
           "question": "In welchem Jahr spielte The Who einen legend\u00e4ren Live-Auftritt in der Young Vic Theatre in London, der als Teil ihrer Promotion f\u00fcr das Album 'Who\u2019s Next' gilt?",
-          "options": [
-            "1969",
-            "1970",
-            "1971",
-            "1972"
-          ],
+          "options": ["1969", "1970", "1971", "1972"],
           "correctAnswer": "1971",
           "trivia": "Der Live-Auftritt von The Who im Young Vic Theatre im Jahr 1971 wird oft als einer der denkw\u00fcrdigsten Konzerte der Band angesehen und diente dazu, das Album 'Who\u2019s Next' zu bewerben. Dieses Album, das als eines der besten Rockalben aller Zeiten gilt, enth\u00e4lt Hits wie 'Baba O'Riley' und 'Behind Blue Eyes'. The Who waren bekannt f\u00fcr ihre energiegeladenen Auftritte und innovativen musikalischen Ans\u00e4tze, die sie zu einer der einflussreichsten Bands ihrer Zeit machten."
         },
@@ -1747,12 +1702,7 @@
       "easy": [
         {
           "question": "In welchem Jahr trat Elton John zum ersten Mal auf einer Tour f\u00fcr sein Album 'Goodbye Yellow Brick Road' auf?",
-          "options": [
-            "1972",
-            "1973",
-            "1974",
-            "1975"
-          ],
+          "options": ["1972", "1973", "1974", "1975"],
           "correctAnswer": "1973",
           "trivia": "Elton John ver\u00f6ffentlichte sein ikonisches Album 'Goodbye Yellow Brick Road' im Jahr 1973. Die gleichnamige Tour war ein bedeutender Bestandteil seiner Karriere und brachte viele seiner ber\u00fchmtesten Songs live auf die B\u00fchne. Mit Hits wie 'Candle in the Wind' und 'Bennie and the Jets' erlangte er weltweiten Ruhm. Die Tour half, Elton John als einen der gr\u00f6\u00dften Live-Performer seiner Zeit zu etablieren."
         },
@@ -1885,12 +1835,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Parklife' von Blur in den britischen Albumcharts nach seiner Ver\u00f6ffentlichung im Jahr 1994?",
-          "options": [
-            "Platz 1",
-            "Platz 3",
-            "Platz 5",
-            "Platz 7"
-          ],
+          "options": ["Platz 1", "Platz 3", "Platz 5", "Platz 7"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Album 'Parklife' von Blur wurde 1994 ver\u00f6ffentlicht und erreichte Platz 1 der britischen Albumcharts. Es gilt als eines der einflussreichsten Alben der britischen Rockmusik der 90er Jahre und half, die Britpop-Bewegung zu definieren. Mit Hits wie 'Girls & Boys' und 'Parklife' festigte die Band ihren Status und wurde zu einem Symbol f\u00fcr die kulturelle Identit\u00e4t dieser Zeit."
         }
@@ -1990,23 +1935,13 @@
         },
         {
           "question": "Welches ber\u00fchmte britische Musikmagazin bezeichnete das Deb\u00fctalbum 'The Stone Roses' von The Stone Roses aus dem Jahr 1989 als eines der besten Alben aller Zeiten?",
-          "options": [
-            "NME",
-            "Rolling Stone",
-            "Pitchfork",
-            "Q Magazine"
-          ],
+          "options": ["NME", "Rolling Stone", "Pitchfork", "Q Magazine"],
           "correctAnswer": "NME",
           "trivia": "Das Deb\u00fctalbum 'The Stone Roses' von The Stone Roses wurde 1989 ver\u00f6ffentlicht und gilt als eines der einflussreichsten Alben der britischen Musikgeschichte. Das Album erhielt durchweg positive Kritiken und wurde insbesondere von NME als Meisterwerk gefeiert. Es kombinierte Elemente aus Rock, Psychedelia und Madchester-Sound und beeinflusste zahlreiche K\u00fcnstler und Bands der 90er Jahre."
         },
         {
           "question": "Welches Instrument wird in vielen Songs des Albums 'The Stone Roses' von The Stone Roses prominent eingesetzt?",
-          "options": [
-            "E-Gitarre",
-            "Klavier",
-            "Saxophon",
-            "Trompete"
-          ],
+          "options": ["E-Gitarre", "Klavier", "Saxophon", "Trompete"],
           "correctAnswer": "E-Gitarre",
           "trivia": "Das selbstbetitelte Deb\u00fctalbum 'The Stone Roses' von The Stone Roses, das 1989 ver\u00f6ffentlicht wurde, ist bekannt f\u00fcr seine charakteristischen Gitarrenkl\u00e4nge. Die E-Gitarre spielt eine zentrale Rolle in vielen der Songs und tr\u00e4gt zur einzigartigen Klang\u00e4sthetik des Albums bei. Die Kombination aus melodischen Gitarrenriffs und psychedelischen Einfl\u00fcssen hat das Album zu einem Meilenstein des Britpop gemacht."
         }
@@ -2211,11 +2146,7 @@
       "easy": [
         {
           "question": "Welches Musikvideo von Pulp, das auf dem Album 'Different Class' ver\u00f6ffentlicht wurde, zeigt eine interessante Darstellung von Klassenunterschieden und den Alltag in den 90er Jahren?",
-          "options": [
-            "Common People",
-            "Disco 2000",
-            "Sorted for E's & Wizz"
-          ],
+          "options": ["Common People", "Disco 2000", "Sorted for E's & Wizz"],
           "correctAnswer": "Common People",
           "trivia": "Pulp ist eine britische Band, die f\u00fcr ihren einzigartigen Stil und ihre sozialkritischen Texte bekannt ist. Das Album 'Different Class', das 1995 ver\u00f6ffentlicht wurde, enth\u00e4lt den ikonischen Song 'Common People', dessen Musikvideo eindrucksvoll die Kluft zwischen verschiedenen sozialen Schichten darstellt. Der Song und das dazugeh\u00f6rige Video wurden zu Hymnen der 90er Jahre und spiegeln die kulturellen Spannungen dieser Zeit wider."
         },
@@ -2372,12 +2303,7 @@
         },
         {
           "question": "Welches Musikvideo von Black Sabbath, das auf dem Album 'Paranoid' basiert, zeigt eine d\u00fcstere, apokalyptische Szenerie und spiegelt die Themen des Songs wider?",
-          "options": [
-            "Iron Man",
-            "War Pigs",
-            "Paranoid",
-            "Fairies Wear Boots"
-          ],
+          "options": ["Iron Man", "War Pigs", "Paranoid", "Fairies Wear Boots"],
           "correctAnswer": "Iron Man",
           "trivia": "Das Musikvideo zu 'Iron Man' von Black Sabbath, das auf dem legend\u00e4ren Album 'Paranoid' aus dem Jahr 1970 basiert, zeigt eine d\u00fcstere und apokalyptische Szenerie. Der Song handelt von einem Mann, der in die Zukunft reist und von den Folgen seiner Taten betroffen ist. Black Sabbath war eine der ersten Bands, die Heavy Metal popul\u00e4r gemacht haben, und 'Paranoid' gilt als eines ihrer ikonischsten Werke. Das Video verst\u00e4rkt die d\u00fcstere Stimmung des Songs und tr\u00e4gt zur Mythologie der Band bei."
         },
@@ -2906,12 +2832,7 @@
       "easy": [
         {
           "question": "Welcher Produzent war ma\u00dfgeblich am Aufnahmeprozess des Albums 'Whatever People Say I Am, That\u2019s What I\u2019m Not' von Arctic Monkeys beteiligt?",
-          "options": [
-            "James Ford",
-            "Brian Eno",
-            "Rick Rubin",
-            "Phil Spector"
-          ],
+          "options": ["James Ford", "Brian Eno", "Rick Rubin", "Phil Spector"],
           "correctAnswer": "James Ford",
           "trivia": "Arctic Monkeys arbeiteten w\u00e4hrend der Aufnahmen zu ihrem Deb\u00fctalbum 'Whatever People Say I Am, That\u2019s What I\u2019m Not' eng mit dem Produzenten James Ford zusammen. Ford, der auch Mitglied der Band Simian Mobile Disco ist, half dabei, den charakteristischen Sound der Arctic Monkeys zu entwickeln. Das Album wurde in den Chapel Studios in Lincolnshire aufgenommen und erhielt viel Lob f\u00fcr seinen frischen und unverf\u00e4lschten Stil."
         },
@@ -2928,12 +2849,7 @@
         },
         {
           "question": "Mit welchem K\u00fcnstler haben die Arctic Monkeys nicht auf dem Album 'Whatever People Say I Am, That\u2019s What I\u2019m Not' zusammengearbeitet?",
-          "options": [
-            "Miles Kane",
-            "Alex Turner",
-            "Oasis",
-            "Richard Hawley"
-          ],
+          "options": ["Miles Kane", "Alex Turner", "Oasis", "Richard Hawley"],
           "correctAnswer": "Oasis",
           "trivia": "Die Arctic Monkeys sind bekannt f\u00fcr ihre Zusammenarbeit mit verschiedenen K\u00fcnstlern, insbesondere mit Miles Kane und Richard Hawley, die beide in der britischen Musikszene einen bedeutenden Einfluss haben. Das Deb\u00fctalbum 'Whatever People Say I Am, That\u2019s What I\u2019m Not' wurde 2006 ver\u00f6ffentlicht und erlangte sofortige Anerkennung. Oasis hingegen war eine der gr\u00f6\u00dften britischen Bands der 90er Jahre, jedoch gab es keine direkte Zusammenarbeit mit den Arctic Monkeys auf diesem Album."
         }
@@ -3497,12 +3413,7 @@
         },
         {
           "question": "Welche spezielle Produktionstechnik verwendete Depeche Mode auf ihrem Album 'Violator', um den Klang der Synthesizer zu verfeinern?",
-          "options": [
-            "Sampling",
-            "Reverb",
-            "Equalization",
-            "Overdubbing"
-          ],
+          "options": ["Sampling", "Reverb", "Equalization", "Overdubbing"],
           "correctAnswer": "Reverb",
           "trivia": "Depeche Mode nutzte auf ihrem Album 'Violator', das 1990 ver\u00f6ffentlicht wurde, umfangreiche Reverb-Effekte, um eine tiefere und atmosph\u00e4rischere Klanglandschaft zu schaffen. Diese Technik trug zur Stimmung der ikonischen Songs bei, wie etwa 'Enjoy the Silence' und 'Personal Jesus'. Die Kombination aus melancholischen Melodien und innovativen Produktionstechniken machte 'Violator' zu einem Meilenstein in der Synthpop- und Elektronikmusik."
         },
@@ -3810,12 +3721,7 @@
         },
         {
           "question": "Welche bekannte Zusammenarbeit hatte David Bowie auf dem Album 'Hunky Dory' mit dem Musiker, der auch als Mitglied der Band The Spiders from Mars ber\u00fchmt wurde?",
-          "options": [
-            "Mick Ronson",
-            "Brian Eno",
-            "Tony Visconti",
-            "Iggy Pop"
-          ],
+          "options": ["Mick Ronson", "Brian Eno", "Tony Visconti", "Iggy Pop"],
           "correctAnswer": "Mick Ronson",
           "trivia": "David Bowie arbeitete auf dem Album 'Hunky Dory' eng mit Mick Ronson zusammen, der nicht nur als Gitarrist, sondern auch als Arrangierer und Produzent fungierte. Ronsons innovative Gitarrenarbeit und seine kreativen Beitr\u00e4ge halfen, den charakteristischen Klang des Albums zu formen. 'Hunky Dory', ver\u00f6ffentlicht im Jahr 1971, galt als Wendepunkt in Bowies Karriere und stellte den Grundstein f\u00fcr seinen sp\u00e4teren Erfolg als Glam-Rock-Star."
         }
@@ -3961,23 +3867,13 @@
         },
         {
           "question": "Mit welchem anderen K\u00fcnstler collaborierte The Police auf dem Album 'Synchronicity', das 1983 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Elton John",
-            "Sting",
-            "David Bowie",
-            "Madonna"
-          ],
+          "options": ["Elton John", "Sting", "David Bowie", "Madonna"],
           "correctAnswer": "Sting",
           "trivia": "The Police, eine ber\u00fchmte Rockband, ver\u00f6ffentlichten 1983 ihr ikonisches Album 'Synchronicity', das gro\u00dfe Hits wie 'Every Breath You Take' enth\u00e4lt. Der Leads\u00e4nger Sting war nicht nur das Gesicht der Band, sondern auch ein erfolgreicher Solok\u00fcnstler. Die Zusammenarbeit innerhalb der Band war entscheidend f\u00fcr ihren einzigartigen Sound und die kreativen Texte, die das Album pr\u00e4gten. 'Synchronicity' gilt als eines der besten Alben der 1980er Jahre."
         },
         {
           "question": "Welches Instrument wurde in dem Song 'Every Breath You Take' auf dem Album 'Synchronicity' von The Police prominent eingesetzt?",
-          "options": [
-            "Klavier",
-            "Synthesizer",
-            "Gitarre",
-            "Schlagzeug"
-          ],
+          "options": ["Klavier", "Synthesizer", "Gitarre", "Schlagzeug"],
           "correctAnswer": "Synthesizer",
           "trivia": "Das Album 'Synchronicity', ver\u00f6ffentlicht von The Police im Jahr 1983, enth\u00e4lt den Hit 'Every Breath You Take', der f\u00fcr seine eing\u00e4ngige Melodie und den charakteristischen Synthesizer-Sound bekannt ist. Der Synthesizer wurde von dem Bandmitglied Andy Summers verwendet, um eine atmosph\u00e4rische Klanglandschaft zu schaffen. 'Synchronicity' gilt als eines der erfolgreichsten Alben der Band und zeigt die innovative Verwendung von Instrumentierung in der Rockmusik der 80er Jahre."
         }
@@ -4193,11 +4089,7 @@
         },
         {
           "question": "Welches Musikvideo von New Order aus dem Album 'Power, Corruption & Lies' zeigt eine auff\u00e4llige Farbgestaltung und visuelle Effekte, die typisch f\u00fcr die \u00c4sthetik der 1980er Jahre sind?",
-          "options": [
-            "Blue Monday",
-            "Confusion",
-            "Age of Consent"
-          ],
+          "options": ["Blue Monday", "Confusion", "Age of Consent"],
           "correctAnswer": "Blue Monday",
           "trivia": "New Order ver\u00f6ffentlichte 1983 das Album 'Power, Corruption & Lies', das als Meilenstein der Synthpop- und New-Wave-Musik gilt. Das Musikvideo zu 'Blue Monday', dem bekanntesten Track des Albums, ist bekannt f\u00fcr seine innovative Nutzung von Farben und grafischen Elementen, die den visuellen Stil der 80er Jahre pr\u00e4gen. Das Lied selbst wurde zu einem der meistverkauften 12-Zoll-Singles aller Zeiten und festigte New Orders Einfluss auf die elektronische Musikszene."
         },
@@ -4297,12 +4189,7 @@
       "easy": [
         {
           "question": "Welches Jahr wurde das Album 'Blue Lines' von Massive Attack ver\u00f6ffentlicht, das von Kritikern als wegweisend f\u00fcr das Genre Trip-Hop angesehen wird?",
-          "options": [
-            "1989",
-            "1991",
-            "1993",
-            "1995"
-          ],
+          "options": ["1989", "1991", "1993", "1995"],
           "correctAnswer": "1991",
           "trivia": "Massive Attack ver\u00f6ffentlichte ihr Deb\u00fctalbum 'Blue Lines' im Jahr 1991 und erlangte damit gro\u00dfe Anerkennung in der Musikwelt. Das Album wird oft als ein Pionierwerk des Trip-Hop-Genres angesehen und kombinierte Elemente aus Hip-Hop, Reggae und Soul. Kritiker lobten die innovative Produktion und die atmosph\u00e4rischen Kl\u00e4nge, die das Album zu einem Klassiker machten."
         },
@@ -4319,12 +4206,7 @@
         },
         {
           "question": "Welches Deb\u00fctalbum ver\u00f6ffentlichte die britische Musikgruppe Massive Attack im Jahr 1991?",
-          "options": [
-            "Blue Lines",
-            "Mezzanine",
-            "Protection",
-            "Heligoland"
-          ],
+          "options": ["Blue Lines", "Mezzanine", "Protection", "Heligoland"],
           "correctAnswer": "Blue Lines",
           "trivia": "Massive Attack ver\u00f6ffentlichte 1991 ihr Deb\u00fctalbum 'Blue Lines', das als eines der ersten Alben gilt, das den Trip-Hop-Sound definierte. Das Album enth\u00e4lt bekannte Tracks wie 'Safe From Harm' und 'Unfinished Sympathy'. 'Blue Lines' wurde von Kritikern hoch gelobt und gilt als wegweisend f\u00fcr viele Genres, die in den 1990er Jahren popul\u00e4r wurden."
         }
@@ -4332,12 +4214,7 @@
       "medium": [
         {
           "question": "Welche kulturelle Bewegung und musikalische Str\u00f6mung wird oft mit dem Album 'Blue Lines' von Massive Attack in Verbindung gebracht?",
-          "options": [
-            "Trip-Hop",
-            "Punk-Rock",
-            "Hip-Hop",
-            "Jazz"
-          ],
+          "options": ["Trip-Hop", "Punk-Rock", "Hip-Hop", "Jazz"],
           "correctAnswer": "Trip-Hop",
           "trivia": "Das Album 'Blue Lines' von Massive Attack, das 1991 ver\u00f6ffentlicht wurde, gilt als eines der wegweisenden Werke des Trip-Hop-Genres. Diese Musikrichtung kombiniert Elemente aus Hip-Hop, Elektronik und Soul und hat ihren Ursprung in Bristol, England. Massive Attack, als Pioniere des Genres, beeinflussten zahlreiche K\u00fcnstler und trugen zur Entstehung einer ganzen Szene in den 1990er Jahren bei. Songs wie 'Unfinished Sympathy' und 'Safe from Harm' sind bis heute Klassiker und zeigen die einzigartige Verschmelzung von atmosph\u00e4rischen Kl\u00e4ngen und tiefgr\u00fcndigen Texten."
         },
@@ -4761,12 +4638,7 @@
       "easy": [
         {
           "question": "Welches ikonische Musikvideo von T. Rex, das mit dem Album 'Electric Warrior' von 1971 verbunden ist, zeigt den Frontmann Marc Bolan in einem auff\u00e4lligen Glam-Rock-Outfit?",
-          "options": [
-            "Get It On",
-            "Jeepster",
-            "Cosmic Dancer",
-            "Bang a Gong"
-          ],
+          "options": ["Get It On", "Jeepster", "Cosmic Dancer", "Bang a Gong"],
           "correctAnswer": "Get It On",
           "trivia": "T. Rex ver\u00f6ffentlichte 1971 das Album 'Electric Warrior', das als eines der einflussreichsten Glam-Rock-Alben gilt. Das Musikvideo zu 'Get It On' zeigt den charismatischen Frontmann Marc Bolan, der in einem auff\u00e4lligen Outfit auftritt, was den Glam-Rock-Stil der Zeit perfekt verk\u00f6rpert. Der Song wurde zu einem der bekanntesten Hits der Band und half, ihren Status in der Musikszene zu festigen."
         },
@@ -4993,23 +4865,13 @@
       "easy": [
         {
           "question": "Welchen Platz erreichte das Album 'Dummy' von Portishead in den UK Albums Chart?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 10",
-            "Platz 15"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 10", "Platz 15"],
           "correctAnswer": "Platz 2",
           "trivia": "Das Album 'Dummy' von Portishead, das 1994 ver\u00f6ffentlicht wurde, erreichte in den UK Albums Chart den beeindruckenden zweiten Platz. Es gilt als eines der einflussreichsten Alben der Trip-Hop-\u00c4ra und hat zahlreiche Auszeichnungen erhalten. Die Mischung aus melancholischen Kl\u00e4ngen und der einzigartigen Stimme von Beth Gibbons tr\u00e4gt ma\u00dfgeblich zu seinem Erfolg bei und hat das Genre nachhaltig gepr\u00e4gt."
         },
         {
           "question": "Welches Musikvideo von Portishead aus dem Album 'Dummy' zeigt eine melancholische Atmosph\u00e4re und nutzt eine Vielzahl von visuellen Effekten, um die Stimmung des Songs zu unterstreichen?",
-          "options": [
-            "Sour Times",
-            "Glory Box",
-            "Mysterons",
-            "Roads"
-          ],
+          "options": ["Sour Times", "Glory Box", "Mysterons", "Roads"],
           "correctAnswer": "Sour Times",
           "trivia": "Portishead ist eine britische Band, die f\u00fcr ihren einzigartigen Sound bekannt ist, der Elemente von Trip-Hop, Jazz und Electronica kombiniert. Ihr Deb\u00fctalbum 'Dummy', das 1994 ver\u00f6ffentlicht wurde, enth\u00e4lt mehrere ikonische Tracks und ist f\u00fcr seine d\u00fcstere, atmosph\u00e4rische Klanglandschaft ber\u00fchmt. Das Musikvideo zu 'Sour Times' spiegelt den melancholischen Ton des Songs wider, indem es mit surrealen Bildern und einer hypnotisierenden Erz\u00e4hlweise spielt. 'Dummy' wurde sowohl von Kritikern als auch von Fans hochgelobt und gilt als Meilenstein in der Musikgeschichte."
         },
@@ -5074,12 +4936,7 @@
         },
         {
           "question": "Mit welchem bekannten K\u00fcnstler kollaborierte Portishead f\u00fcr den Song 'Sour Times' auf ihrem Deb\u00fctalbum 'Dummy' aus dem Jahr 1994?",
-          "options": [
-            "Tricky",
-            "Massive Attack",
-            "DJ Shadow",
-            "Beck"
-          ],
+          "options": ["Tricky", "Massive Attack", "DJ Shadow", "Beck"],
           "correctAnswer": "Tricky",
           "trivia": "Portishead, eine pr\u00e4gende Band des Trip-Hop-Genres, ver\u00f6ffentlichte 1994 ihr Deb\u00fctalbum 'Dummy', das f\u00fcr seinen einzigartigen Sound und seine melancholischen Texte bekannt ist. Der Song 'Sour Times' enth\u00e4lt Samples und stilistische Elemente, die stark von der Zusammenarbeit mit dem K\u00fcnstler Tricky beeinflusst sind, der ebenfalls in der Bristol-Szene aktiv war. Diese Kollaboration trug dazu bei, die charakteristische Atmosph\u00e4re des Albums zu schaffen, das bis heute als eines der besten Alben der 90er Jahre gilt."
         },
@@ -5234,12 +5091,7 @@
         },
         {
           "question": "Wer produzierte das Album 'The Number of the Beast' von Iron Maiden, das 1982 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Martin Birch",
-            "Rick Rubin",
-            "Bob Rock",
-            "Eddie Kramer"
-          ],
+          "options": ["Martin Birch", "Rick Rubin", "Bob Rock", "Eddie Kramer"],
           "correctAnswer": "Martin Birch",
           "trivia": "Das Album 'The Number of the Beast' von Iron Maiden wurde von Martin Birch produziert, einem renommierten Produzenten, der mit vielen ber\u00fchmten Rockbands zusammenarbeitete. Es gilt als eines der einflussreichsten Heavy-Metal-Alben und enth\u00e4lt Klassiker wie 'Hallowed Be Thy Name' und 'Run to the Hills'. Martin Birch trug wesentlich zur Klanggestaltung des Albums bei, das 1982 ver\u00f6ffentlicht wurde und Iron Maidens Durchbruch in den USA markierte."
         },
@@ -5280,12 +5132,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'The Number of the Beast' von Iron Maiden in den UK Albums Chart, als es 1982 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "1. Platz",
-            "3. Platz",
-            "5. Platz",
-            "7. Platz"
-          ],
+          "options": ["1. Platz", "3. Platz", "5. Platz", "7. Platz"],
           "correctAnswer": "1. Platz",
           "trivia": "Das Album 'The Number of the Beast' von Iron Maiden, das 1982 ver\u00f6ffentlicht wurde, erreichte in den UK Albums Chart den ersten Platz. Es wird oft als eines der bedeutendsten Heavy-Metal-Alben angesehen und enth\u00e4lt Klassiker wie 'Hallowed Be Thy Name' und 'Run to the Hills'. Der Erfolg des Albums trug ma\u00dfgeblich zur Popularit\u00e4t von Iron Maiden in den 1980er Jahren bei und festigte ihren Status in der Rockmusik."
         }
@@ -5512,12 +5359,7 @@
         },
         {
           "question": "Welches einzigartige Instrument wurde w\u00e4hrend des Aufnahmeprozesses des Albums 'Moondance' von Van Morrison verwendet, um dem Titeltrack eine besondere Klangfarbe zu verleihen?",
-          "options": [
-            "Clave",
-            "Saxophon",
-            "Fagott",
-            "Glockenspiel"
-          ],
+          "options": ["Clave", "Saxophon", "Fagott", "Glockenspiel"],
           "correctAnswer": "Glockenspiel",
           "trivia": "Van Morrison nutzte bei der Aufnahme von 'Moondance' eine Vielzahl von Instrumenten, um den charakteristischen Sound des Albums zu kreieren. Besonders das Glockenspiel in dem gleichnamigen Titel verleiht dem Song eine luftige und vertr\u00e4umte Atmosph\u00e4re. Das Album, das 1970 ver\u00f6ffentlicht wurde, gilt als eines der Meisterwerke von Morrison und kombiniert Elemente aus Jazz, Folk und Pop. Die kreative Experimentierfreude w\u00e4hrend des Aufnahmeprozesses trug wesentlich zu seinem internationalen Erfolg bei."
         }
@@ -5617,23 +5459,13 @@
         },
         {
           "question": "In welchem Jahr traten The Libertines im Rahmen ihrer Tour zum Album 'Up the Bracket' auf dem ber\u00fchmten Glastonbury Festival auf?",
-          "options": [
-            "2001",
-            "2002",
-            "2003",
-            "2004"
-          ],
+          "options": ["2001", "2002", "2003", "2004"],
           "correctAnswer": "2002",
           "trivia": "The Libertines gaben im Jahr 2002 eines ihrer denkw\u00fcrdigsten Konzerte beim Glastonbury Festival, nur wenige Monate nach der Ver\u00f6ffentlichung ihres Deb\u00fctalbums 'Up the Bracket'. Diese Performance half dabei, ihre Popularit\u00e4t in der britischen Musikszene erheblich zu steigern. Das Album enth\u00e4lt einige ihrer bekanntesten Songs wie 'Time for Heroes' und 'Can't Stand Me Now', die weiterhin bei Live-Auftritten gefeiert werden."
         },
         {
           "question": "Welchen Platz erreichte das Deb\u00fctalbum 'Up the Bracket' von The Libertines in den britischen Albumcharts?",
-          "options": [
-            "Platz 1",
-            "Platz 3",
-            "Platz 5",
-            "Platz 10"
-          ],
+          "options": ["Platz 1", "Platz 3", "Platz 5", "Platz 10"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Deb\u00fctalbum 'Up the Bracket' von The Libertines wurde am 30. September 2002 ver\u00f6ffentlicht und erreichte in den britischen Albumcharts den beeindruckenden ersten Platz. Es gilt als eines der bedeutendsten Alben der Garage-Rock-Revival-Bewegung und enth\u00e4lt bekannte Songs wie 'Can't Stand Me Now' und 'Time for Heroes'. The Libertines, angef\u00fchrt von den charismatischen Frontm\u00e4nnern Pete Doherty und Carl Bar\u00e2t, wurden f\u00fcr ihren einzigartigen Sound und ihre rebellische Haltung gefeiert."
         }
@@ -5838,12 +5670,7 @@
       "medium": [
         {
           "question": "Welche ber\u00fchmte Pop-K\u00fcnstlerin inspirierte die Pet Shop Boys bei der Entstehung des Albums 'Actually'?",
-          "options": [
-            "Madonna",
-            "Cyndi Lauper",
-            "Debbie Harry",
-            "Cher"
-          ],
+          "options": ["Madonna", "Cyndi Lauper", "Debbie Harry", "Cher"],
           "correctAnswer": "Madonna",
           "trivia": "Das Album 'Actually' der Pet Shop Boys, das 1987 ver\u00f6ffentlicht wurde, zeigt deutlich die Einfl\u00fcsse der zeitgen\u00f6ssischen Popkultur. Besonders die K\u00fcnstlerin Madonna, die in den 80er Jahren mit ihrem innovativen Musikstil und ihren provokativen Themen die Musikszene pr\u00e4gte, hatte einen gro\u00dfen Einfluss auf die Pet Shop Boys. Ihr Erfolg und ihre F\u00e4higkeit, verschiedene Musikstile zu kombinieren, inspirierte Neil Tennant und Chris Lowe bei der Schaffung ihrer eigenen einzigartigen Klangwelt."
         },
@@ -6057,12 +5884,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'The Holy Bible' von Manic Street Preachers in den UK Albums Chart?",
-          "options": [
-            "Platz 1",
-            "Platz 6",
-            "Platz 12",
-            "Platz 20"
-          ],
+          "options": ["Platz 1", "Platz 6", "Platz 12", "Platz 20"],
           "correctAnswer": "Platz 6",
           "trivia": "Das Album 'The Holy Bible' von Manic Street Preachers wurde 1994 ver\u00f6ffentlicht und erreichte in den UK Albums Chart den 6. Platz. Es gilt als eines der einflussreichsten Alben der Band und ist bekannt f\u00fcr seine provokanten Texte und politischen Themen. Die Single 'If You Tolerate This Your Children Will Be Next' wurde ein gro\u00dfer Erfolg und trug zur Popularit\u00e4t des Albums bei."
         }
@@ -6151,12 +5973,7 @@
       "easy": [
         {
           "question": "Welcher Song auf dem Album 'Band on the Run' von Paul McCartney & Wings handelt von der Sehnsucht nach Freiheit und dem Entkommen aus einer auswegslosen Situation?",
-          "options": [
-            "Jet",
-            "Band on the Run",
-            "Bluebird",
-            "Mamunia"
-          ],
+          "options": ["Jet", "Band on the Run", "Bluebird", "Mamunia"],
           "correctAnswer": "Band on the Run",
           "trivia": "Das Album 'Band on the Run', das 1973 von Paul McCartney & Wings ver\u00f6ffentlicht wurde, enth\u00e4lt den gleichnamigen Song 'Band on the Run'. Dieser Song beschreibt die Geschichte von Gefangenen, die aus einem Gef\u00e4ngnis ausbrechen und auf der Suche nach Freiheit sind. Der Song spiegelt die Themen Freiheit und Flucht wider, die in vielen der Lieder des Albums pr\u00e4sent sind. 'Band on the Run' wurde ein gro\u00dfer Hit und ist heute eines der bekanntesten Werke von McCartney."
         },
@@ -6186,12 +6003,7 @@
       "medium": [
         {
           "question": "Welcher Song aus dem Album 'Band on the Run' von Paul McCartney & Wings erreichte in den USA und Gro\u00dfbritannien hohe Chartplatzierungen und gilt als einer der bekanntesten Hits des Albums?",
-          "options": [
-            "Jet",
-            "Bluebird",
-            "Mrs. Vandebilt",
-            "Let Me Roll It"
-          ],
+          "options": ["Jet", "Bluebird", "Mrs. Vandebilt", "Let Me Roll It"],
           "correctAnswer": "Jet",
           "trivia": "Das Album 'Band on the Run' von Paul McCartney & Wings wurde 1973 ver\u00f6ffentlicht und geh\u00f6rt zu den erfolgreichsten Alben der Band. Der Song 'Jet' erreichte in den USA Platz 7 der Billboard Hot 100 und wurde auch in Gro\u00dfbritannien ein Hit. Das Album selbst erreichte in vielen L\u00e4ndern die Spitzenposition der Charts und wird oft als eines der besten Werke von Paul McCartney angesehen."
         },
@@ -6615,12 +6427,7 @@
       "easy": [
         {
           "question": "Welches Instrument spielt Matt Bellamy, der Frontmann von Muse, auf dem Album 'Absolution'?",
-          "options": [
-            "Gitarre",
-            "Klavier",
-            "Schlagzeug",
-            "Bass"
-          ],
+          "options": ["Gitarre", "Klavier", "Schlagzeug", "Bass"],
           "correctAnswer": "Gitarre",
           "trivia": "Auf dem Album 'Absolution', das 2003 von Muse ver\u00f6ffentlicht wurde, spielt Matt Bellamy haupts\u00e4chlich die Gitarre. Besonders hervorzuheben ist der Einsatz von verschiedenen Effekten und Techniken wie dem Einsatz von Verzerrung und dem sogenannten 'tapping', um einen einzigartigen Klang zu erzeugen. 'Absolution' wird oft f\u00fcr seine innovative Instrumentierung und tiefgr\u00fcndigen Texte gelobt, die sowohl Rock- als auch elektronische Elemente kombinieren."
         },
@@ -6847,12 +6654,7 @@
       "easy": [
         {
           "question": "Welches Lied aus dem Album 'I\u2019ve Been Expecting You' von Robbie Williams wurde w\u00e4hrend seiner Touren besonders h\u00e4ufig live aufgef\u00fchrt?",
-          "options": [
-            "Angels",
-            "Millennium",
-            "No Regrets",
-            "Strong"
-          ],
+          "options": ["Angels", "Millennium", "No Regrets", "Strong"],
           "correctAnswer": "Angels",
           "trivia": "Robbie Williams ver\u00f6ffentlichte das Album 'I\u2019ve Been Expecting You' im Jahr 1998, das ihn international ber\u00fchmt machte. Besonders das Lied 'Angels' wurde zu einem seiner bekanntesten Hits und ist ein fester Bestandteil seiner Live-Auftritte. Bei seinen Konzerten begeistert Robbie seine Fans oft mit emotionalen Versionen dieses Songs. 'I\u2019ve Been Expecting You' festigte Williams' Status als einer der erfolgreichsten Popstars der 90er Jahre."
         },
@@ -6882,12 +6684,7 @@
       "medium": [
         {
           "question": "Welcher Song auf Robbie Williams' Album 'I\u2019ve Been Expecting You' war ein weltweiter Hit und gilt als einer seiner bekanntesten Tracks?",
-          "options": [
-            "Angels",
-            "Let Me Entertain You",
-            "Strong",
-            "Millennium"
-          ],
+          "options": ["Angels", "Let Me Entertain You", "Strong", "Millennium"],
           "correctAnswer": "Angels",
           "trivia": "Robbie Williams ver\u00f6ffentlichte 1998 das Album 'I\u2019ve Been Expecting You', das ihn endg\u00fcltig als Solok\u00fcnstler etablierte. Der Song 'Angels' wurde zu einem seiner bekanntesten Hits und erreichte hohe Chartplatzierungen weltweit. Das Album kombinierte Elemente aus Pop, Rock und Soul und zeigte Williams' au\u00dfergew\u00f6hnliche stimmliche Bandbreite sowie seine F\u00e4higkeit, emotionale Texte zu schreiben. 'Angels' wird oft als seine Signaturmelodie betrachtet und ist bis heute ein fester Bestandteil seiner Live-Auftritte."
         },
@@ -7044,12 +6841,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'Spice' der Spice Girls enth\u00e4lt eine Zeile, die als ihre ber\u00fchmteste und ikonischste angesehen wird?",
-          "options": [
-            "Wannabe",
-            "Say You'll Be There",
-            "2 Become 1",
-            "Mama"
-          ],
+          "options": ["Wannabe", "Say You'll Be There", "2 Become 1", "Mama"],
           "correctAnswer": "Wannabe",
           "trivia": "Der Song 'Wannabe' von den Spice Girls, der auf dem Album 'Spice' ver\u00f6ffentlicht wurde, enth\u00e4lt die ber\u00fchmte Zeile 'If you wanna be my lover, you gotta get with my friends'. Dieser ikonische Hit war nicht nur der Deb\u00fctsingle der Gruppe, sondern katapultierte die Spice Girls auch in die internationalen Charts und machte sie zu einem Ph\u00e4nomen der Popkultur der 90er Jahre. 'Wannabe' verkaufte sich weltweit \u00fcber 7 Millionen Mal und gilt bis heute als eine Hymne der Girl-Power."
         },
@@ -7101,11 +6893,7 @@
         },
         {
           "question": "Welcher Song auf dem Album '461 Ocean Boulevard' von Eric Clapton handelt von der Sehnsucht nach einer verlorenen Liebe?",
-          "options": [
-            "I Shot the Sheriff",
-            "Let It Grow",
-            "Give Me Strength"
-          ],
+          "options": ["I Shot the Sheriff", "Let It Grow", "Give Me Strength"],
           "correctAnswer": "I Shot the Sheriff",
           "trivia": "Eric Claptons Album '461 Ocean Boulevard', das 1974 ver\u00f6ffentlicht wurde, enth\u00e4lt den ber\u00fchmten Song 'I Shot the Sheriff', der urspr\u00fcnglich von Bob Marley geschrieben wurde. In diesem Lied geht es um Themen wie Reue und die Komplexit\u00e4t der Liebe. Claptons Interpretation verbindet Elemente des Blues mit Reggae, was dem Album eine besondere Note verleiht und es zu einem der bekanntesten Werke des K\u00fcnstlers macht."
         }
@@ -7194,23 +6982,13 @@
       "easy": [
         {
           "question": "Welcher ber\u00fchmte K\u00fcnstler hat mit Peter Gabriel an dem Song 'Don't Give Up' auf dem Album 'So' aus dem Jahr 1986 zusammengearbeitet?",
-          "options": [
-            "Kate Bush",
-            "Sting",
-            "David Bowie",
-            "Annie Lennox"
-          ],
+          "options": ["Kate Bush", "Sting", "David Bowie", "Annie Lennox"],
           "correctAnswer": "Kate Bush",
           "trivia": "Peter Gabriel ver\u00f6ffentlichte 1986 das Album 'So', welches als eines seiner erfolgreichsten Werke gilt. Der Song 'Don't Give Up' ist eine eindrucksvolle Zusammenarbeit zwischen Peter Gabriel und der S\u00e4ngerin Kate Bush. Die emotionale Ballade thematisiert die Herausforderungen der Lebensf\u00fchrung und wurde von Kritikern hoch gelobt. 'So' enth\u00e4lt auch weitere bekannte Hits wie 'Sledgehammer' und 'In Your Eyes'."
         },
         {
           "question": "Welches ber\u00fchmte Lied von Peter Gabriel aus dem Album 'So', das 1986 ver\u00f6ffentlicht wurde, gilt als eines der bekanntesten und hat das Thema der emotionalen Verbindung?",
-          "options": [
-            "Sledgehammer",
-            "In Your Eyes",
-            "Big Time",
-            "Red Rain"
-          ],
+          "options": ["Sledgehammer", "In Your Eyes", "Big Time", "Red Rain"],
           "correctAnswer": "In Your Eyes",
           "trivia": "Peter Gabriel ver\u00f6ffentlichte 1986 sein ikonisches Album 'So', das sowohl kommerziell als auch kritisch sehr erfolgreich war. Das Lied 'In Your Eyes' ist besonders bekannt f\u00fcr seine tiefgr\u00fcndigen Texte und wurde in verschiedenen kulturellen Kontexten verwendet, darunter in dem Film 'Say Anything...'. Gabriel's innovative Mischung aus Rock, Weltmusik und emotionalen Themen in 'So' trug ma\u00dfgeblich zu seiner kulturellen Bedeutung bei."
         },
@@ -7264,12 +7042,7 @@
       "hard": [
         {
           "question": "Welcher innovative Musikstil, der in Peter Gabriels Album 'So' von 1986 stark vertreten ist, kombinierte Elemente aus Rock, Pop und Weltmusik, und welche Auswirkungen hatte dies auf die Wahrnehmung von internationaler Musik in den 1980er Jahren?",
-          "options": [
-            "Progressive Rock",
-            "Worldbeat",
-            "Synthpop",
-            "Post-Punk"
-          ],
+          "options": ["Progressive Rock", "Worldbeat", "Synthpop", "Post-Punk"],
           "correctAnswer": "Worldbeat",
           "trivia": "Peter Gabriels Album 'So' gilt als ein Meilenstein im Genre des Worldbeat, das in den 1980er Jahren aufkam. Der Song 'Sledgehammer' ist besonders bekannt f\u00fcr seine Fusion von Rock und afro-kubanischen Rhythmen, was die globale Musikwelt pr\u00e4gte. Gabriels Zusammenarbeit mit K\u00fcnstlern aus verschiedenen Kulturen trug dazu bei, das Bewusstsein f\u00fcr internationale Kl\u00e4nge und Stilrichtungen zu sch\u00e4rfen und beeinflusste viele nachfolgende Musiker."
         },
@@ -7321,12 +7094,7 @@
         },
         {
           "question": "Welches Musikvideo von Lily Allen aus dem Album 'Alright, Still' zeigt eine animierte Darstellung von verschiedenen Szenen, die den Text des Songs widerspiegeln?",
-          "options": [
-            "Smile",
-            "LDN",
-            "Alfie",
-            "Not Fair"
-          ],
+          "options": ["Smile", "LDN", "Alfie", "Not Fair"],
           "correctAnswer": "Smile",
           "trivia": "Lily Allens Deb\u00fctalbum 'Alright, Still' wurde 2006 ver\u00f6ffentlicht und enth\u00e4lt den Hit 'Smile', dessen Musikvideo f\u00fcr seine kreative Animation bekannt ist. Das Video zeigt verschiedene Szenen, die die Emotionen und Themen des Songs unterstreichen. 'Smile' erz\u00e4hlt von einer gescheiterten Beziehung und hat Lily Allen international popul\u00e4r gemacht. Ihr einzigartiger Stil und die Mischung aus Pop und Reggae-Elementen haben das Album zu einem gro\u00dfen Erfolg gemacht."
         },
@@ -7507,12 +7275,7 @@
         },
         {
           "question": "Welches Musikvideo von Supergrass, das auf dem Album 'I Should Coco' ver\u00f6ffentlicht wurde, zeigt eine humorvolle Darstellung des Lebensstils junger Briten in den 90er Jahren und enth\u00e4lt eine ikonische Szene mit einem \u00fcberdimensionalen Keks?",
-          "options": [
-            "Caught by the Fuzz",
-            "Lenny",
-            "Alright",
-            "Time"
-          ],
+          "options": ["Caught by the Fuzz", "Lenny", "Alright", "Time"],
           "correctAnswer": "Caught by the Fuzz",
           "trivia": "Supergrass ist eine britische Rockband, die 1993 gegr\u00fcndet wurde und f\u00fcr ihren eing\u00e4ngigen Sound und jugendlichen Charme bekannt ist. Ihr Deb\u00fctalbum 'I Should Coco' wurde 1995 ver\u00f6ffentlicht und brachte Hits wie 'Alright' und 'Caught by the Fuzz' hervor. Das Musikvideo zu 'Caught by the Fuzz' spielt mit dem Thema Jugendkultur und zeigt den unbeschwerten Lebensstil der 90er Jahre, w\u00e4hrend es gleichzeitig den Humor und die Energie der Band einf\u00e4ngt. Supergrass wurde f\u00fcr ihren einzigartigen Stil und ihre F\u00e4higkeit, verschiedene Musikrichtungen zu kombinieren, anerkannt."
         },
@@ -7611,12 +7374,7 @@
       "hard": [
         {
           "question": "Welchen Platz erreichte das Album 'Let England Shake' von PJ Harvey in den UK Albums Chart nach seiner Ver\u00f6ffentlichung im Jahr 2011?",
-          "options": [
-            "Platz 1",
-            "Platz 4",
-            "Platz 8",
-            "Platz 10"
-          ],
+          "options": ["Platz 1", "Platz 4", "Platz 8", "Platz 10"],
           "correctAnswer": "Platz 4",
           "trivia": "Das Album 'Let England Shake' von PJ Harvey wurde am 14. Februar 2011 ver\u00f6ffentlicht und erreichte in den UK Albums Chart den vierten Platz. Es wurde von der Kritik hochgelobt und gilt als eines der besten Werke der K\u00fcnstlerin. PJ Harvey gewann f\u00fcr dieses Album den renommierten Mercury Prize und festigte damit ihren Status als eine der einflussreichsten Musikerinnen ihrer Generation."
         },
@@ -7714,12 +7472,7 @@
         },
         {
           "question": "Welchen Platz erreichte das Album 'Dig Your Own Hole' von The Chemical Brothers in den britischen Albumcharts?",
-          "options": [
-            "Platz 1",
-            "Platz 3",
-            "Platz 5",
-            "Platz 10"
-          ],
+          "options": ["Platz 1", "Platz 3", "Platz 5", "Platz 10"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Album 'Dig Your Own Hole' von The Chemical Brothers wurde 1997 ver\u00f6ffentlicht und erreichte in den britischen Albumcharts den ersten Platz. Es gilt als eines der einflussreichsten Werke der elektronischen Musik und enth\u00e4lt Hits wie 'Block Rockin' Beats' und 'Setting Sun'. Die Chemiker aus Manchester haben mit diesem Album ihren internationalen Erfolg weiter gefestigt und einen bedeutenden Beitrag zur Big Beat-Bewegung geleistet."
         }
@@ -7830,12 +7583,7 @@
         },
         {
           "question": "Mit welchem K\u00fcnstler hat The Prodigy auf dem Album 'Music for the Jilted Generation' von 1994 zusammengearbeitet, um den Track 'Their Law' zu erstellen?",
-          "options": [
-            "Liam Howlett",
-            "Keith Flint",
-            "Maxim",
-            "The Orb"
-          ],
+          "options": ["Liam Howlett", "Keith Flint", "Maxim", "The Orb"],
           "correctAnswer": "The Orb",
           "trivia": "The Prodigy, bekannt f\u00fcr ihren innovativen Sound und ihre energiegeladenen Live-Auftritte, ver\u00f6ffentlichte 1994 das Album 'Music for the Jilted Generation', das sowohl kritischen als auch kommerziellen Erfolg hatte. Der Track 'Their Law' ist eine Zusammenarbeit mit der britischen elektronischen Musikgruppe The Orb, die f\u00fcr ihren einzigartigen Mix aus Ambient und House bekannt ist. Dieses Album festigte The Prodigys Ruf als Vorreiter in der elektronischen Musikszene der 90er Jahre."
         }
@@ -8097,12 +7845,7 @@
         },
         {
           "question": "Welcher ber\u00fchmte K\u00fcnstler trat auf dem Album 'Demon Days' von Gorillaz als Gastmusiker auf und war f\u00fcr den Hit 'Feel Good Inc.' verantwortlich?",
-          "options": [
-            "De La Soul",
-            "Lou Reed",
-            "Damon Albarn",
-            "Snoop Dogg"
-          ],
+          "options": ["De La Soul", "Lou Reed", "Damon Albarn", "Snoop Dogg"],
           "correctAnswer": "De La Soul",
           "trivia": "Gorillaz' Album 'Demon Days', das 2005 ver\u00f6ffentlicht wurde, enth\u00e4lt zahlreiche bemerkenswerte Kollaborationen mit anderen K\u00fcnstlern. Eine der bekanntesten ist die Zusammenarbeit mit De La Soul in dem Song 'Feel Good Inc.', der zu einem der gr\u00f6\u00dften Hits des Albums wurde. Diese Fusion von Hip-Hop und alternativer Musik trug ma\u00dfgeblich zum einzigartigen Sound von Gorillaz bei und festigte ihren Platz in der Musikszene. De La Soul, eine ikonische Hip-Hop-Gruppe aus den 80er Jahren, brachte ihren charakteristischen Stil und kreative Texte in die Zusammenarbeit ein."
         }
@@ -8143,12 +7886,7 @@
         },
         {
           "question": "Welches Jahr war die Ver\u00f6ffentlichung des Albums 'Original Pirate Material' von The Streets?",
-          "options": [
-            "2000",
-            "2002",
-            "2005",
-            "2010"
-          ],
+          "options": ["2000", "2002", "2005", "2010"],
           "correctAnswer": "2002",
           "trivia": "The Streets ist das musikalische Projekt des britischen K\u00fcnstlers Mike Skinner, das 2002 mit dem Album 'Original Pirate Material' gro\u00dfe Bekanntheit erlangte. Dieses Deb\u00fctalbum kombiniert Elemente von Garage, Hip-Hop und Grime und gilt als wegweisend f\u00fcr die britische Musikszene. Die Texte sind gepr\u00e4gt von pers\u00f6nlichen Erlebnissen und der britischen Jugendsprache, was das Album zu einem authentischen Spiegel der damaligen Zeit macht."
         }
@@ -8469,12 +8207,7 @@
       "easy": [
         {
           "question": "Welches Jahr wurde das Album 'The Bends' von Radiohead ver\u00f6ffentlicht?",
-          "options": [
-            "1994",
-            "1995",
-            "1996",
-            "1997"
-          ],
+          "options": ["1994", "1995", "1996", "1997"],
           "correctAnswer": "1995",
           "trivia": "Das Album 'The Bends' von Radiohead wurde 1995 ver\u00f6ffentlicht und war das zweite Studioalbum der Band. Es markierte einen Wendepunkt in ihrem musikalischen Stil und wird oft als eines der besten Alben der 90er Jahre angesehen. Der Titeltrack sowie Songs wie 'High and Dry' und 'Fake Plastic Trees' sind auf diesem Album zu finden, das die Band international bekannt machte."
         },
@@ -8491,12 +8224,7 @@
         },
         {
           "question": "Welches Album von Radiohead, das 1995 ver\u00f6ffentlicht wurde, gilt als Meilenstein der britischen Rockmusik und erhielt viel Lob von Fans und Kritikern?",
-          "options": [
-            "The Bends",
-            "OK Computer",
-            "Pablo Honey",
-            "Kid A"
-          ],
+          "options": ["The Bends", "OK Computer", "Pablo Honey", "Kid A"],
           "correctAnswer": "The Bends",
           "trivia": "Das Album 'The Bends' von Radiohead gilt als eines der besten Alben der 90er Jahre und wurde von Fans als Wendepunkt in der Karriere der Band angesehen. Die experimentelle Herangehensweise an Rockmusik und die emotionalen Texte haben eine gro\u00dfe Fangemeinde angezogen und die Popkultur nachhaltig beeinflusst. Songs wie 'High and Dry' und 'Fake Plastic Trees' wurden zu Hymnen f\u00fcr eine Generation, die sich mit Themen wie Entfremdung und Identit\u00e4t auseinandersetzte."
         }
@@ -8607,12 +8335,7 @@
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Performance and Cocktails' von Stereophonics?",
-          "options": [
-            "1998",
-            "1999",
-            "2000",
-            "2001"
-          ],
+          "options": ["1998", "1999", "2000", "2001"],
           "correctAnswer": "1999",
           "trivia": "Das Album 'Performance and Cocktails' von Stereophonics wurde im Jahr 1999 ver\u00f6ffentlicht und ist das zweite Studioalbum der Band. Es enth\u00e4lt beliebte Singles wie 'The Bartender and the Thief' und 'Just Looking', die ma\u00dfgeblich zum Erfolg der Band beitrugen. Stereophonics, bekannt f\u00fcr ihren charakteristischen Sound, haben mit diesem Album ihren Platz in der britischen Rockmusik festigen k\u00f6nnen."
         }
@@ -8631,12 +8354,7 @@
         },
         {
           "question": "Welcher bekannte Produzent arbeitete mit den Stereophonics an ihrem Album 'Performance and Cocktails', das 1999 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Steve Albini",
-            "Owen Morris",
-            "Rick Rubin",
-            "Brian Eno"
-          ],
+          "options": ["Steve Albini", "Owen Morris", "Rick Rubin", "Brian Eno"],
           "correctAnswer": "Owen Morris",
           "trivia": "Die Stereophonics arbeiteten bei ihrem zweiten Studioalbum 'Performance and Cocktails' mit dem Produzenten Owen Morris zusammen, der bereits beim Deb\u00fctalbum 'Word Gets Around' mitwirkte. Morris half dabei, den charakteristischen Sound der Band zu formen, der eine Mischung aus Rock und britischem Pop ist. Das Album enth\u00e4lt Hits wie 'Dakota' und 'Just Looking', die die Band international bekannt machten."
         },
@@ -8852,12 +8570,7 @@
       "medium": [
         {
           "question": "Welches Instrument spielte Morrissey w\u00e4hrend des Aufnahmeprozesses f\u00fcr das Album 'Viva Hate'?",
-          "options": [
-            "Gitarre",
-            "Klavier",
-            "Bass",
-            "Schlagzeug"
-          ],
+          "options": ["Gitarre", "Klavier", "Bass", "Schlagzeug"],
           "correctAnswer": "Gitarre",
           "trivia": "Morrissey, der f\u00fcr seine markante Stimme und seine poetischen Texte bekannt ist, spielte w\u00e4hrend des Aufnahmeprozesses f\u00fcr 'Viva Hate' auch Gitarre, um seine musikalischen Ideen zu entwickeln. Das Album, das 1988 ver\u00f6ffentlicht wurde, war sein Deb\u00fct als Solok\u00fcnstler nach der Trennung von The Smiths. 'Viva Hate' enth\u00e4lt Hits wie 'Suedehead' und 'Everyday Is Like Sunday', die beide die stilistische Weiterentwicklung von Morrissey zeigen."
         },
@@ -8944,12 +8657,7 @@
         },
         {
           "question": "In welchem Jahr traten The Clash zum ersten Mal in den USA auf, kurz nach der Ver\u00f6ffentlichung ihres Albums 'The Clash'?",
-          "options": [
-            "1977",
-            "1978",
-            "1979",
-            "1980"
-          ],
+          "options": ["1977", "1978", "1979", "1980"],
           "correctAnswer": "1979",
           "trivia": "The Clash, eine der einflussreichsten Punkrock-Bands, ver\u00f6ffentlichten ihr selbstbetiteltes Album 'The Clash' im Jahr 1977. Im Jahr 1979 begaben sie sich auf ihre erste US-Tour, die ihre internationale Bekanntheit erheblich steigerte. Die Band war bekannt f\u00fcr ihre energiegeladenen Live-Auftritte und ihren unverwechselbaren Sound, der Punk, Reggae und Rock mischte."
         },
@@ -9165,11 +8873,7 @@
       "easy": [
         {
           "question": "Welchen bedeutenden Musikpreis erhielt Peter Gabriel f\u00fcr sein Album 'Melt (Peter Gabriel 3)', das 1980 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Grammy Award",
-            "BRIT Award",
-            "MTV Video Music Award"
-          ],
+          "options": ["Grammy Award", "BRIT Award", "MTV Video Music Award"],
           "correctAnswer": "Grammy Award",
           "trivia": "Peter Gabriel, ein innovativer K\u00fcnstler und Pionier in der Musikindustrie, wurde f\u00fcr sein Album 'Melt (Peter Gabriel 3)' mit dem Grammy Award ausgezeichnet. Dieses Album enth\u00e4lt einige seiner bekanntesten Songs, darunter 'Games Without Frontiers' und 'Biko'. Gabriel wurde f\u00fcr seine kreative Herangehensweise an Musik und visuelle Darstellungen gefeiert und hat im Laufe seiner Karriere mehrere Auszeichnungen erhalten."
         },
@@ -9233,12 +8937,7 @@
       "hard": [
         {
           "question": "Welches au\u00dfergew\u00f6hnliche Instrument, das in der Musikproduktion des Albums 'Melt (Peter Gabriel 3)' von Peter Gabriel verwendet wurde, tr\u00e4gt zur charakteristischen Klanglandschaft des Albums bei?",
-          "options": [
-            "Theremin",
-            "Oberheim OB-X",
-            "E-Gitarre",
-            "Didgeridoo"
-          ],
+          "options": ["Theremin", "Oberheim OB-X", "E-Gitarre", "Didgeridoo"],
           "correctAnswer": "Oberheim OB-X",
           "trivia": "Peter Gabriel's Album 'Melt (Peter Gabriel 3)', ver\u00f6ffentlicht im Jahr 1980, wird oft f\u00fcr seine innovative Verwendung elektronischer Klangerzeuger gelobt. Besonders hervorzuheben ist der Einsatz des Oberheim OB-X Synthesizers, der nicht nur f\u00fcr die Texturen in den Songs verantwortlich ist, sondern auch einen ma\u00dfgeblichen Einfluss auf den Sound der 80er Jahre hatte. Der Einsatz solcher Instrumente verleiht dem Album eine avantgardistische Note und hebt es von anderen zeitgen\u00f6ssischen Werken ab."
         },
@@ -9371,12 +9070,7 @@
         },
         {
           "question": "Welches Ranking erreichte das Album 'Powerslave' von Iron Maiden in den UK Albums Chart unmittelbar nach seiner Ver\u00f6ffentlichung im Jahr 1984?",
-          "options": [
-            "Platz 2",
-            "Platz 4",
-            "Platz 1",
-            "Platz 5"
-          ],
+          "options": ["Platz 2", "Platz 4", "Platz 1", "Platz 5"],
           "correctAnswer": "Platz 2",
           "trivia": "Das Album 'Powerslave' von Iron Maiden, das 1984 ver\u00f6ffentlicht wurde, erreichte in den UK Albums Chart den zweiten Platz. Es gilt als eines der wichtigsten Alben der Band und enth\u00e4lt Klassiker wie '2 Minutes to Midnight' und 'Aces High'. 'Powerslave' festigte die Position von Iron Maiden als f\u00fchrende Kraft im Heavy Metal und trug ma\u00dfgeblich zu ihrem internationalen Erfolg bei."
         }
@@ -9417,12 +9111,7 @@
         },
         {
           "question": "Welches Musikvideo von Coldplay aus dem Album 'Parachutes' zeigt eine emotionale Reise eines Mannes, der mit einem Ballon durch die Stra\u00dfen einer Stadt wandert?",
-          "options": [
-            "Trouble",
-            "Shiver",
-            "Yellow",
-            "Don't Panic"
-          ],
+          "options": ["Trouble", "Shiver", "Yellow", "Don't Panic"],
           "correctAnswer": "Yellow",
           "trivia": "Das Musikvideo zu 'Yellow' von Coldplay, das auf dem Deb\u00fctalbum 'Parachutes' aus dem Jahr 2000 zu finden ist, zeigt eindrucksvoll die melancholische Stimmung des Songs. Es wurde von der Band selbst und dem Regisseur James Morrison in einer k\u00fcnstlerischen Schwarz-Wei\u00df-\u00c4sthetik gedreht. In diesem Video wird das Gef\u00fchl der Sehnsucht und des Verliebtseins visuell dargestellt, was es zu einem der bekanntesten Musikvideos der Band macht. 'Yellow' wurde zu einem der gro\u00dfen Hits von Coldplay und half der Band, internationale Anerkennung zu erlangen."
         }
@@ -9511,12 +9200,7 @@
       "easy": [
         {
           "question": "Welcher Hit von Spandau Ballet aus dem Album 'True' erreichte 1983 in vielen L\u00e4ndern hohe Chartplatzierungen, darunter auch Platz 1 in Neuseeland?",
-          "options": [
-            "Gold",
-            "True",
-            "Only When You Leave",
-            "Lifeline"
-          ],
+          "options": ["Gold", "True", "Only When You Leave", "Lifeline"],
           "correctAnswer": "True",
           "trivia": "Das Album 'True', ver\u00f6ffentlicht von Spandau Ballet im Jahr 1983, enth\u00e4lt den weltber\u00fchmten Titel 'True', der zu einem der gr\u00f6\u00dften Erfolge der Band wurde. Der Song erreichte in mehreren L\u00e4ndern hohe Chartplatzierungen, einschlie\u00dflich Platz 1 in Neuseeland und Top 5 in vielen anderen L\u00e4ndern. Spandau Ballet, eine britische Band, war w\u00e4hrend der 1980er Jahre besonders bekannt f\u00fcr ihren charakteristischen Sound, der New Wave und Soul-Elemente vereinte."
         },
@@ -9568,12 +9252,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'True' von Spandau Ballet erreichte 1983 in den USA Platz 4 der Billboard Hot 100?",
-          "options": [
-            "Gold",
-            "True",
-            "Lifeline",
-            "Communication"
-          ],
+          "options": ["Gold", "True", "Lifeline", "Communication"],
           "correctAnswer": "True",
           "trivia": "Das Album 'True' von Spandau Ballet, das 1983 ver\u00f6ffentlicht wurde, gilt als eines der erfolgreichsten Alben der Band. Der Titeltrack 'True' wurde ein weltweiter Hit und erreichte in den USA Platz 4 der Billboard Hot 100. Der Song ist bekannt f\u00fcr seine eing\u00e4ngige Melodie und romantischen Texte und ist bis heute ein Klassiker der 80er Jahre."
         }
@@ -9754,23 +9433,13 @@
         },
         {
           "question": "Welches Album von Suede, das 1994 ver\u00f6ffentlicht wurde, gilt als eines der einflussreichsten Werke der Britpop-\u00c4ra und wurde von Fans f\u00fcr seine d\u00fcstere Atmosph\u00e4re und tiefgr\u00fcndigen Texte gefeiert?",
-          "options": [
-            "Dog Man Star",
-            "Coming Up",
-            "Head Music",
-            "Suede"
-          ],
+          "options": ["Dog Man Star", "Coming Up", "Head Music", "Suede"],
           "correctAnswer": "Dog Man Star",
           "trivia": "Das Album 'Dog Man Star' von Suede wird oft als Meisterwerk des Britpop angesehen und zeichnet sich durch seine melancholischen Kl\u00e4nge und poetischen Texte aus. Es war das zweite Studioalbum der Band und zeigte eine k\u00fcnstlerische Weiterentwicklung, die von den Fans sehr gesch\u00e4tzt wurde. Die Songs des Albums, besonders 'We Are the Pigs' und 'New Generation', fanden gro\u00dfen Anklang und beeinflussten zahlreiche K\u00fcnstler der 90er Jahre."
         },
         {
           "question": "Welchen Platz erreichte das Album 'Dog Man Star' von Suede in den UK Albums Chart nach seiner Ver\u00f6ffentlichung im Jahr 1994?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 3",
-            "Platz 10"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 3", "Platz 10"],
           "correctAnswer": "Platz 3",
           "trivia": "Das Album 'Dog Man Star' von Suede, das 1994 ver\u00f6ffentlicht wurde, erreichte in den UK Albums Chart den dritten Platz. Es gilt als eines der besten Alben der Britpop-\u00c4ra und zeigt eine k\u00fcnstlerische Weiterentwicklung der Band. Die Single 'We Are the Pigs' war eine der bekanntesten Auskopplungen und trug zum Erfolg des Albums bei."
         }
@@ -9824,12 +9493,7 @@
         },
         {
           "question": "Welcher ber\u00fchmte Produzent war an der Entstehung des Albums 'Dog Man Star' von Suede beteiligt und trug ma\u00dfgeblich zum charakteristischen Klang des Werkes bei?",
-          "options": [
-            "Ed Buller",
-            "David Bowie",
-            "Brian Eno",
-            "Nigel Godrich"
-          ],
+          "options": ["Ed Buller", "David Bowie", "Brian Eno", "Nigel Godrich"],
           "correctAnswer": "Ed Buller",
           "trivia": "Das Album 'Dog Man Star', das 1994 von Suede ver\u00f6ffentlicht wurde, wurde von Ed Buller produziert, der zuvor bereits mit der Band an ihrem Deb\u00fctalbum gearbeitet hatte. Buller spielte eine entscheidende Rolle bei der Entwicklung des einzigartigen Klanges von 'Dog Man Star', das f\u00fcr seine orchestralen Arrangements und melancholischen Texte bekannt ist. Es gilt als eines der wichtigsten Alben der Britpop-\u00c4ra und zeigt Suedes k\u00fcnstlerische Weiterentwicklung, insbesondere in den Themen und der musikalischen Komplexit\u00e4t."
         },
@@ -9870,12 +9534,7 @@
         },
         {
           "question": "In welchem Jahr ver\u00f6ffentlichte Bj\u00f6rk ihr Album 'Debut', das auch ihre ersten Solo-Live-Auftritte pr\u00e4gte?",
-          "options": [
-            "1991",
-            "1992",
-            "1993",
-            "1994"
-          ],
+          "options": ["1991", "1992", "1993", "1994"],
           "correctAnswer": "1993",
           "trivia": "Das Album 'Debut' von Bj\u00f6rk wurde 1993 ver\u00f6ffentlicht und markierte ihren Durchbruch als Solo-K\u00fcnstlerin nach ihrer Zeit mit der Band The Sugarcubes. In den folgenden Jahren trat sie auf zahlreichen internationalen Touren auf, um die Songs aus 'Debut' zu pr\u00e4sentieren. Die Mischung aus elektronischen Kl\u00e4ngen und einzigartigen Melodien stellte sicher, dass Bj\u00f6rk schnell zu einer der innovativsten K\u00fcnstlerinnen der 90er Jahre wurde."
         },
@@ -9986,12 +9645,7 @@
         },
         {
           "question": "Welches Instrument spielte Ed Sheeran w\u00e4hrend des Aufnahmeprozesses seines Albums '+'?",
-          "options": [
-            "Gitarre",
-            "Klavier",
-            "Schlagzeug",
-            "Violine"
-          ],
+          "options": ["Gitarre", "Klavier", "Schlagzeug", "Violine"],
           "correctAnswer": "Gitarre",
           "trivia": "Ed Sheeran ist bekannt f\u00fcr seine au\u00dfergew\u00f6hnlichen F\u00e4higkeiten am Instrument, insbesondere an der Gitarre. Bei der Aufnahme seines Deb\u00fctalbums '+' im Jahr 2011 verwendete er haupts\u00e4chlich die Gitarre, um seine eing\u00e4ngigen Melodien und Texte zu kreieren. Das Album enth\u00e4lt viele akustische Elemente, die Eds charakteristischen Stil pr\u00e4gen und ihm helfen, eine intime Atmosph\u00e4re in seinen Songs zu erzeugen."
         },
@@ -10031,12 +9685,7 @@
         },
         {
           "question": "Welcher Song auf Ed Sheerans Album '+' aus dem Jahr 2011 thematisiert die Herausforderungen und die Sch\u00f6nheit einer zerbrochenen Beziehung und enth\u00e4lt die Zeilen \u00fcber das Gef\u00fchl, dass man nie wieder so gl\u00fccklich sein wird wie mit der betreffenden Person?",
-          "options": [
-            "The A Team",
-            "Lego House",
-            "Drunk",
-            "Small Bump"
-          ],
+          "options": ["The A Team", "Lego House", "Drunk", "Small Bump"],
           "correctAnswer": "The A Team",
           "trivia": "Ed Sheeran's Deb\u00fctalbum '+' enth\u00e4lt den Song 'The A Team', der die schwierigen Umst\u00e4nde einer jungen Frau beschreibt, die mit Drogenabh\u00e4ngigkeit k\u00e4mpft. Der Song ist bekannt f\u00fcr seine melancholische Melodie und tiefgr\u00fcndigen Texte, die auf pers\u00f6nliche Erfahrungen des K\u00fcnstlers basieren. Ed Sheeran verwendet in seinen Liedern oft autobiografische Elemente, was ihm erm\u00f6glicht, eine starke emotionale Verbindung zu seinen Zuh\u00f6rern herzustellen. '+' wurde ein bedeutender Erfolg und katapultierte Sheeran in die internationale Musikwelt."
         }
@@ -10101,12 +9750,7 @@
         },
         {
           "question": "Welches Musikvideo von Duffy aus dem Album 'Rockferry' zeigt sie in einer nostalgischen, vintage-inspirierten Umgebung?",
-          "options": [
-            "Mercy",
-            "Warwick Avenue",
-            "Stepping Stone",
-            "Rockferry"
-          ],
+          "options": ["Mercy", "Warwick Avenue", "Stepping Stone", "Rockferry"],
           "correctAnswer": "Mercy",
           "trivia": "Duffy ist eine walisische S\u00e4ngerin, die mit ihrem Deb\u00fctalbum 'Rockferry', das 2008 ver\u00f6ffentlicht wurde, weltweit bekannt wurde. Das Musikvideo zu 'Mercy' zeigt eine Mischung aus Retro-Elementen und einer gef\u00fchlvollen Darstellung der K\u00fcnstlerin, die ihre emotionale Tiefe unterstreicht. 'Mercy' war einer der gr\u00f6\u00dften Hits des Albums und half Duffy, eine neue \u00c4ra der Soul-Musik einzuleiten."
         },
@@ -10206,12 +9850,7 @@
       "easy": [
         {
           "question": "Welches Instrument wird auf dem Album 'Beggars Banquet' von The Rolling Stones besonders prominent eingesetzt, um den charakteristischen Sound der Band zu verst\u00e4rken?",
-          "options": [
-            "Piano",
-            "Saxophon",
-            "Akustische Gitarre",
-            "Streicher"
-          ],
+          "options": ["Piano", "Saxophon", "Akustische Gitarre", "Streicher"],
           "correctAnswer": "Akustische Gitarre",
           "trivia": "Das Album 'Beggars Banquet' von The Rolling Stones, das 1968 ver\u00f6ffentlicht wurde, zeigt eine R\u00fcckkehr zu akustischen Kl\u00e4ngen und Folk-Elementen. Besonders die akustische Gitarre spielt eine zentrale Rolle in vielen Songs, was dem Album einen einzigartigen und erdigen Sound verleiht. Die Verwendung von akustischen Instrumenten hebt die musikalische Vielfalt der Band hervor und zeigt ihre Entwicklung in der Produktionstechnik."
         },
@@ -10448,12 +10087,7 @@
         },
         {
           "question": "In welchem Jahr traten The Animals mit ihrem Album 'Animal Tracks' auf Tournee?",
-          "options": [
-            "1963",
-            "1965",
-            "1967",
-            "1969"
-          ],
+          "options": ["1963", "1965", "1967", "1969"],
           "correctAnswer": "1965",
           "trivia": "The Animals sind eine britische Rockband, die in den 1960er Jahren gro\u00dfe Erfolge feierte. Ihr Album 'Animal Tracks', das 1965 ver\u00f6ffentlicht wurde, enth\u00e4lt einige ihrer bekanntesten Songs. W\u00e4hrend der Tournee zum Album gewannen sie an Popularit\u00e4t und trugen zur Entwicklung des britischen Bluesrock bei. Die Band ist bekannt f\u00fcr ihre kraftvolle Stimme von Eric Burdon und ihren einzigartigen Sound."
         },
@@ -11132,12 +10766,7 @@
       "easy": [
         {
           "question": "Welches Musikinstrument spielt Simon Fowler, der S\u00e4nger von Ocean Colour Scene, haupts\u00e4chlich auf dem Album 'Moseley Shoals'?",
-          "options": [
-            "Gitarre",
-            "Piano",
-            "Schlagzeug",
-            "Bass"
-          ],
+          "options": ["Gitarre", "Piano", "Schlagzeug", "Bass"],
           "correctAnswer": "Gitarre",
           "trivia": "Ocean Colour Scene ist eine britische Rockband, die 1996 mit ihrem zweiten Album 'Moseley Shoals' gro\u00dfe Erfolge feierte. Die Band kombiniert Elemente aus Rock, Britpop und Soul, was sich in den eing\u00e4ngigen Melodien und dem charakteristischen Sound des Albums widerspiegelt. Simon Fowler, der Leads\u00e4nger und Gitarrist, tr\u00e4gt entscheidend zu dem einzigartigen Klang der Band bei. 'Moseley Shoals' enth\u00e4lt einige ihrer bekanntesten Songs, darunter 'The River' und 'Day We Caught the Train'."
         },
@@ -11259,12 +10888,7 @@
         },
         {
           "question": "In welchem Jahr traten The Shadows mit ihrem Album 'The Shadows' erstmals live auf?",
-          "options": [
-            "1959",
-            "1961",
-            "1963",
-            "1965"
-          ],
+          "options": ["1959", "1961", "1963", "1965"],
           "correctAnswer": "1961",
           "trivia": "The Shadows, eine britische Instrumentalband, ver\u00f6ffentlichten ihr gleichnamiges Album 'The Shadows' im Jahr 1961. Dieses Album markierte einen wichtigen Meilenstein in ihrer Karriere und trug zu ihrem Ruhm als Live-Act bei. Die Band war bekannt f\u00fcr ihre fesselnden Live-Auftritte und ihre innovative Gitarrenarbeit, die viele nachfolgende Musiker beeinflusste. Ihr Stil kombinierte Elemente aus Rock, Pop und Instrumentalmusik, was sie zu einer der erfolgreichsten Bands ihrer Zeit machte."
         },
@@ -11305,12 +10929,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'The Shadows' von The Shadows aus dem Jahr 1961 thematisiert das Gef\u00fchl von Sehnsucht und Erinnerungen an vergangene Zeiten?",
-          "options": [
-            "Apache",
-            "Kon-Tiki",
-            "The Stranger",
-            "Wonderful Land"
-          ],
+          "options": ["Apache", "Kon-Tiki", "The Stranger", "Wonderful Land"],
           "correctAnswer": "Apache",
           "trivia": "Das Album 'The Shadows' von The Shadows, das 1961 ver\u00f6ffentlicht wurde, enth\u00e4lt den ikonischen Instrumentaltrack 'Apache'. Dieser Song, der f\u00fcr seine eing\u00e4ngige Melodie bekannt ist, spiegelt das Gef\u00fchl von Nostalgie und Sehnsucht wider. 'Apache' wurde zu einem der bekanntesten Lieder der Band und ist bis heute ein beliebter Klassiker. The Shadows waren eine der einflussreichsten britischen Instrumentalgruppen und pr\u00e4gten den Sound der 1960er Jahre."
         }
@@ -11480,12 +11099,7 @@
       "easy": [
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des selbstbetitelten Albums 'James Blake' von James Blake, das als wegweisend f\u00fcr die Entwicklung des Dubstep-Genres gilt?",
-          "options": [
-            "2009",
-            "2011",
-            "2013",
-            "2015"
-          ],
+          "options": ["2009", "2011", "2013", "2015"],
           "correctAnswer": "2011",
           "trivia": "Das Album 'James Blake' wurde im Jahr 2011 ver\u00f6ffentlicht und gilt als ein Meilenstein in der Musikszene, insbesondere im Bereich des Dubstep. James Blake kombinierte auf diesem Album elektronische Kl\u00e4nge mit souligen Gesangseinlagen und schuf so einen einzigartigen Sound. Die innovative Produktion und emotionale Tiefe der Songs, wie 'Limit to Your Love', haben den K\u00fcnstler international bekannt gemacht und beeinflussten viele nachfolgende Musiker."
         },
@@ -11502,12 +11116,7 @@
         },
         {
           "question": "Welches Instrument spielte James Blake w\u00e4hrend des Aufnahmeprozesses seines selbstbetitelten Albums 'James Blake', das 2011 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Klavier",
-            "Gitarre",
-            "Schlagzeug",
-            "Violine"
-          ],
+          "options": ["Klavier", "Gitarre", "Schlagzeug", "Violine"],
           "correctAnswer": "Klavier",
           "trivia": "James Blake ist bekannt f\u00fcr seine einzigartige Kombination aus Gesang und elektronischer Musik. W\u00e4hrend des Aufnahmeprozesses seines Deb\u00fctalbums 'James Blake' spielte er h\u00e4ufig Klavier, um die emotionale Tiefe seiner Songs zu verst\u00e4rken. Das Album enth\u00e4lt eine Mischung aus minimalistischen Beats und souligen Vocals, die Blake zu einem wichtigen Akteur in der zeitgen\u00f6ssischen Musikszene machten."
         }
@@ -11653,12 +11262,7 @@
         },
         {
           "question": "In welchem Jahr trat Dido w\u00e4hrend ihrer Tournee zum Album 'No Angel' in der Royal Albert Hall in London auf?",
-          "options": [
-            "1998",
-            "1999",
-            "2000",
-            "2001"
-          ],
+          "options": ["1998", "1999", "2000", "2001"],
           "correctAnswer": "1999",
           "trivia": "Dido, die britische S\u00e4ngerin und Songwriterin, ver\u00f6ffentlichte ihr Deb\u00fctalbum 'No Angel' im Jahr 1999, das schnell zu einem internationalen Erfolg wurde. W\u00e4hrend ihrer Tournee zu diesem Album trat sie unter anderem in der renommierten Royal Albert Hall auf, was ihren Status als aufstrebender Star festigte. 'No Angel' enth\u00e4lt Hits wie 'Thank You' und 'Here with Me', die Dido weltweit bekannt machten und ihr eine treue Fangemeinde einbrachten."
         }
@@ -11677,12 +11281,7 @@
         },
         {
           "question": "In welchem Jahr begann Dido ihre erste gro\u00dfe Tournee zur Unterst\u00fctzung ihres Albums 'No Angel'?",
-          "options": [
-            "1998",
-            "1999",
-            "2000",
-            "2001"
-          ],
+          "options": ["1998", "1999", "2000", "2001"],
           "correctAnswer": "1999",
           "trivia": "Dido startete ihre erste gro\u00dfe Tournee im Jahr 1999, um ihr Deb\u00fctalbum 'No Angel' zu promoten. Diese Tour f\u00fchrte sie durch mehrere L\u00e4nder und half dabei, ihre Musikkarriere international zu etablieren. 'No Angel' enth\u00e4lt Hits wie 'Thank You' und 'Here with Me', die w\u00e4hrend der Tour oft live aufgef\u00fchrt wurden. Die Tour war entscheidend f\u00fcr Didos Aufstieg zur weltweiten Bekanntheit."
         },
@@ -11723,12 +11322,7 @@
         },
         {
           "question": "Welches einzigartige Instrument wurde w\u00e4hrend des Aufnahmeprozesses f\u00fcr das Album 'Mezzanine' von Massive Attack h\u00e4ufig verwendet?",
-          "options": [
-            "Theremin",
-            "Cello",
-            "Djembe",
-            "Harmonium"
-          ],
+          "options": ["Theremin", "Cello", "Djembe", "Harmonium"],
           "correctAnswer": "Harmonium",
           "trivia": "Massive Attack experimentierte w\u00e4hrend des Aufnahmeprozesses f\u00fcr ihr Album 'Mezzanine' von 1998 intensiv mit verschiedenen Instrumenten. Besonders das Harmonium, ein Tasteninstrument, das h\u00e4ufig in der indischen Musik verwendet wird, fand in mehreren Songs des Albums Verwendung. Diese klanglichen Experimente trugen zur einzigartigen Atmosph\u00e4re des Albums bei, das oft als Meilenstein des Trip-Hop-Genres angesehen wird."
         },
@@ -11782,12 +11376,7 @@
       "hard": [
         {
           "question": "Welche Chartplatzierung erreichte das Album 'Mezzanine' von Massive Attack in den britischen Albumcharts nach seiner Ver\u00f6ffentlichung im Jahr 1998?",
-          "options": [
-            "Platz 1",
-            "Platz 3",
-            "Platz 5",
-            "Platz 10"
-          ],
+          "options": ["Platz 1", "Platz 3", "Platz 5", "Platz 10"],
           "correctAnswer": "Platz 1",
           "trivia": "Das Album 'Mezzanine' von Massive Attack erreichte 1998 Platz 1 der britischen Albumcharts und gilt als eines der einflussreichsten Werke der Trip-Hop-\u00c4ra. Es enth\u00e4lt bekannte Tracks wie 'Teardrop' und 'Angel', die beide kommerziellen Erfolg hatten und die Musiklandschaft nachhaltig pr\u00e4gten. Massive Attack, urspr\u00fcnglich aus Bristol, kombinieren in ihrem Sound Elemente aus Hip-Hop, Dub und Rock und haben mit 'Mezzanine' eine d\u00fcstere, atmosph\u00e4rische Klangwelt geschaffen."
         },
