@@ -1,28 +1,52 @@
 import { shuffleArray } from "@utils/share/shuffleArray";
 
+// Set to keep track of used questions
+let usedQuestions = new Set();
+
 /**
  * Function to get a random question from the given array of albums.
  *
  * @param {object[]} albums - An array of albums
  * @param {string} difficulty - The difficulty of the question, either 'easy', 'medium', or 'hard'
- * @returns {object} An object containing a random question and the album it belongs to
+ * @param {number} totalRounds - The total number of rounds in the game
+ * @returns {object|null} An object containing a random question and the album it belongs to, or null if no new questions are available
  */
-export function getRandomQuestion(albums: any[], difficulty: string) {
+export function getRandomQuestion(albums: any[], difficulty: string, totalRounds: number) {
   // Shuffle the albums array to randomize the questions order
   const shuffledAlbums = shuffleArray(albums);
 
-  // Get the first element of the shuffled array (the random album)
-  const randomAlbum = shuffledAlbums[0];
+  // Loop through the shuffled albums to find a new question
+  for (const album of shuffledAlbums) {
+    const availableQuestions = album.questions[difficulty].filter(
+      (question: any) => !usedQuestions.has(question.question),
+    );
 
-  // Get a random question from the questions array of the random album
-  const randomQuestionIndex = Math.floor(
-    Math.random() * randomAlbum.questions[difficulty].length,
-  );
-  const randomQuestion = randomAlbum.questions[difficulty][randomQuestionIndex];
+    // If there are available questions that haven't been used
+    if (availableQuestions.length > 0) {
+      // Get a random question from the filtered available questions
+      const randomQuestionIndex = Math.floor(
+        Math.random() * availableQuestions.length,
+      );
+      const randomQuestion = availableQuestions[randomQuestionIndex];
 
-  // Return the random question and the random album
-  return {
-    randomQuestion,
-    randomAlbum,
-  };
+      // Add the question to the usedQuestions set to track it
+      usedQuestions.add(randomQuestion.question);
+
+      // Return the random question and the album it belongs to
+      return {
+        randomQuestion,
+        randomAlbum: album,
+      };
+    }
+  }
+
+  // If all questions have been used or after total rounds, reset the used questions
+  if (usedQuestions.size >= totalRounds) {
+    console.warn("All questions have been used. Resetting the question set.");
+    usedQuestions.clear(); // Reset the used questions for a new round
+  }
+
+  // Return null if no new questions available or after all rounds
+  console.warn("No new questions available for this difficulty.");
+  return null;
 }

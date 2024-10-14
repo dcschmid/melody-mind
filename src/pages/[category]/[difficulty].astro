@@ -374,9 +374,15 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
           roundIndex++;
           roundElement.textContent = `${roundIndex + 1}/${totalRounds}`;
 
-          const newQuestion = getRandomQuestion(albums, difficulty || "easy");
-          loadQuestion(newQuestion.randomQuestion, newQuestion.randomAlbum);
-          feedbackElement.textContent = "";
+          const newQuestion = getRandomQuestion(
+            albums,
+            difficulty || "easy",
+            totalRounds,
+          );
+          if (newQuestion) {
+            loadQuestion(newQuestion.randomQuestion, newQuestion.randomAlbum);
+            feedbackElement.textContent = "";
+          }
         } else {
           endGame();
         }
@@ -457,7 +463,14 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       return currentQuestion;
     }
 
-    const initialQuestion = getRandomQuestion(albums, difficulty || "easy");
-    loadQuestion(initialQuestion.randomQuestion, initialQuestion.randomAlbum);
+    const initialQuestion = getRandomQuestion(
+      albums,
+      difficulty || "easy",
+      totalRounds,
+    );
+
+    if (initialQuestion) {
+      loadQuestion(initialQuestion.randomQuestion, initialQuestion.randomAlbum);
+    }
   });
 </script>
