@@ -1,5 +1,14 @@
 [
   {
+    "categoryUrl": "/acoustic-metal",
+    "headline": "Acoustic Metal",
+    "imageUrl": "/category/acoustic-metal.jpg",
+    "introSubline": "Erlebe die rohe Emotion und die kraftvolle Energie des Metal in akustischer Form!",
+    "isPlayable": false,
+    "slug": "acoustic-metal",
+    "text": "Acoustic Metal ist ein Subgenre, das die Intensität und emotionale Tiefe des Metal mit den sanften, klanglichen Nuancen akustischer Instrumente kombiniert. Diese Kategorie bietet eine einzigartige Mischung aus kraftvollen Melodien und unplugged-Versionen von Metal-Klassikern, die den Fokus auf die emotionale Tiefe und das Songwriting legen. Bands wie Opeth, Metallica (mit ihrer legendären ‘S&M’-Performance) und Anathema haben gezeigt, wie akustische Arrangements den Songs eine neue, intensivere Dimension verleihen können. Mit komplexen Akustikgitarren, sanftem Gesang und einer oft introspektiven Stimmung bietet Acoustic Metal ein intensives, aber dennoch zugängliches Hörerlebnis, das die rohen Emotionen des Metal in einem ruhigeren, atmosphärischen Kontext einfängt. Lass dich von den emotionalen Tiefen und der musikalischen Raffinesse des Acoustic Metal mitreißen und erlebe eine ganz neue Seite deines Lieblingsgenres."
+  },
+  {
     "categoryUrl": "/afrobeat",
     "headline": "Afrobeat",
     "imageUrl": "/category/afrobeat.jpg",
@@ -36,6 +45,24 @@
     "text": "Ambient-Musik schafft Klanglandschaften, die für Entspannung und introspektive Erlebnisse sorgen. Diese Kategorie bietet eine Auswahl an sanften, immersiven Klängen und minimalistischen Kompositionen, die oft durch eine ruhige und meditative Atmosphäre gekennzeichnet sind. Von fließenden Synthesizer-Sounds und sanften Pads bis hin zu subtilen Field Recordings und texturalen Klangexperimenten – Ambient ist die perfekte Begleitung für Momente der Entspannung, Konzentration oder kreativen Reflexion. Erlebe eine Klangwelt, die dich einlädt, die Gedanken schweifen zu lassen und einfach im Moment zu sein."
   },
   {
+    "categoryUrl": "/ambient-metal",
+    "headline": "Ambient Metal",
+    "imageUrl": "/category/ambient-metal.jpg",
+    "introSubline": "Erlebe die hypnotische Verschmelzung von schweren Riffs und atmosphärischen Klängen im Ambient Metal!",
+    "isPlayable": false,
+    "slug": "ambient-metal",
+    "text": "Ambient Metal verbindet die Härte und Intensität des Metal mit den träumerischen und weitläufigen Klanglandschaften der Ambient-Musik. Dieses Genre zeichnet sich durch eine dichte Atmosphäre, schwebende Melodien und langsame, kraftvolle Gitarrenriffs aus, die eine fast meditative Wirkung haben. Bands wie Isis, Wolves in the Throne Room, Neurosis und Alcest erschaffen epische und oft hypnotische Musik, die sowohl erdrückend als auch beruhigend wirkt. Ambient Metal legt besonderen Wert auf Texturen, lange instrumentale Passagen und emotionale Tiefe, wobei die Musik zwischen kraftvollen Ausbrüchen und stillen, introspektiven Momenten pendelt. Lass dich von den fließenden Klangwelten und den majestätischen Riffs des Ambient Metal mitreißen und tauche ein in eine Klangwelt, die sowohl episch als auch meditativ ist."
+  },
+  {
+    "categoryUrl": "/avant-garde-metal",
+    "headline": "Avant-Garde Metal",
+    "imageUrl": "/category/avant-garde-metal.jpg",
+    "introSubline": "Erlebe die kreative Freiheit und die unkonventionellen Klänge des Avant-Garde Metal!",
+    "isPlayable": false,
+    "slug": "avant-garde-metal",
+    "text": "Avant-Garde Metal steht für radikale Innovation und experimentelle Vielfalt. Dieses Genre sprengt die traditionellen Grenzen des Metal und kombiniert seine Härte und Intensität mit ungewöhnlichen Instrumentierungen, komplexen Strukturen und genreübergreifenden Einflüssen. Avant-Garde Metal-Bands wie Arcturus, Ulver, Celtic Frost und Sigh sind bekannt dafür, eine Vielzahl von Stilen – von Jazz und Klassik über elektronische Musik bis hin zu experimentellen Klangtexturen – in ihre Musik zu integrieren. Mit unvorhersehbaren Songverläufen, atmosphärischen Arrangements und einer ständigen Suche nach neuen musikalischen Ausdrucksformen bietet Avant-Garde Metal eine künstlerische Klanglandschaft, die gleichermaßen anspruchsvoll und faszinierend ist. Lass dich von der kreativen Freiheit und der einzigartigen Ästhetik des Avant-Garde Metal mitreißen und erlebe eine Musikrichtung, die ständig die Grenzen des Möglichen erweitert."
+  },
+  {
     "categoryUrl": "/belgisch",
     "headline": "Belgisch",
     "imageUrl": "/category/belgisch.jpg",
@@ -52,6 +79,15 @@
     "isPlayable": true,
     "slug": "black-metal",
     "text": "Black Metal ist bekannt für seine dunkle, aggressive Atmosphäre und seine kraftvollen, emotionalen Ausdrücke. Diese Kategorie vereint rasante Gitarrenriffs, intensiven Gesang und oft mystische, finstere Themen. Von atmosphärischen, epischen Kompositionen bis zu rohen, schnellen Tracks bietet Black Metal eine tiefgründige und oft herausfordernde Hörerfahrung. Erlebe die unbändige Energie und die komplexe Stimmung, die Black Metal zu einem einzigartigen und faszinierenden Genre machen."
+  },
+  {
+    "categoryUrl": "/blackened-death-metal",
+    "headline": "Blackened Death Metal",
+    "imageUrl": "/category/blackened-death-metal.jpg",
+    "introSubline": "Erlebe die düstere Fusion aus der Brutalität des Death Metal und der finsteren Atmosphäre des Black Metal!",
+    "isPlayable": false,
+    "slug": "blackened-death-metal",
+    "text": "Blackened Death Metal kombiniert die unbändige Aggression und technischen Elemente des Death Metal mit der düsteren, oft okkulten Atmosphäre des Black Metal. Diese Kategorie vereint die besten Tracks, die durch blast-beat-geladene Drums, knurrende Growls, rasende Riffs und eine dunkle, bedrohliche Stimmung beeindrucken. Mit Bands wie Behemoth, Belphegor, Dissection und Goatwhore hat Blackened Death Metal ein Genre geschaffen, das sowohl die rohe Härte des Death Metal als auch die mystische und unheilvolle Atmosphäre des Black Metal in sich trägt. Die Musik ist brutal und technisch präzise, während sie gleichzeitig durch symphonische oder atmosphärische Elemente eine eindringliche, finstere Stimmung aufbaut. Lass dich von den apokalyptischen Klängen und der finsteren Intensität des Blackened Death Metal mitreißen und erlebe eine Fusion aus zwei der härtesten Metal-Genres."
   },
   {
     "categoryUrl": "/bluegrass",
@@ -117,6 +153,24 @@
     "text": "Cantopop, oder Cantonese Pop, ist ein faszinierendes Genre, das die lebhafte Musikszene Hongkongs und der südchinesischen Region repräsentiert. Diese Kategorie vereint eine Vielzahl von eingängigen Melodien, emotionalen Balladen und rhythmischen Hits, die auf Kantonesisch gesungen werden. Von den klassischen Cantopop-Hymnen der 80er und 90er Jahre bis zu den modernen Hits, die heute die Charts dominieren – Cantopop bietet eine bunte Mischung aus poppigen Klängen und kultureller Tiefe. Lass dich von der einzigartigen Atmosphäre und dem unverwechselbaren Stil des Cantopop mitreißen."
   },
   {
+    "categoryUrl": "/celtic-metal",
+    "headline": "Celtic Metal",
+    "imageUrl": "/category/celtic-metal.jpg",
+    "introSubline": "Erlebe die epische Fusion von keltischer Folklore und metallischer Power im Celtic Metal!",
+    "isPlayable": false,
+    "slug": "celtic-metal",
+    "text": "Celtic Metal verbindet die kraftvollen Riffs und die Härte des Metal mit den melodischen und oft mystischen Klängen der keltischen Folklore. Dieses Genre vereint traditionelle Instrumente wie Flöten, Dudelsäcke und Geigen mit donnernden Gitarren und epischen Songstrukturen, um eine einzigartige Mischung aus Metal und Folk zu erschaffen. Bands wie Cruachan, Eluveitie, Primordial und Waylander prägen diesen Stil, indem sie Geschichten aus der keltischen Mythologie, Naturverehrung und historischen Themen in ihre Musik einfließen lassen. Die Musik variiert zwischen harten, riffbetonten Passagen und ruhigen, atmosphärischen Momenten, die an die Weiten der grünen Landschaften Irlands und Schottlands erinnern. Lass dich von den majestätischen Melodien und der spirituellen Tiefe des Celtic Metal mitreißen und erlebe eine Musikrichtung, die Tradition und Moderne auf beeindruckende Weise vereint."
+  },
+  {
+    "categoryUrl": "/chamber-metal",
+    "headline": "Chamber Metal",
+    "imageUrl": "/category/chamber-metal.jpg",
+    "introSubline": "Erlebe die raffinierte Fusion von klassischer Kammermusik und kraftvollem Metal im Chamber Metal!",
+    "isPlayable": false,
+    "slug": "chamber-metal",
+    "text": "Chamber Metal verbindet die orchestrale Eleganz und Komplexität der Kammermusik mit der rohen Energie und Härte des Metal. In dieser einzigartigen Mischung werden traditionelle Metal-Instrumente wie verzerrte Gitarren und Schlagzeug mit klassischen Instrumenten wie Streichquartetten, Klavieren oder Bläserensembles kombiniert. Bands und Projekte wie Apocalyptica, Ne Obliviscaris und Septicflesh haben dieses Genre geprägt, indem sie epische Metal-Sounds mit der Raffinesse und Tiefe klassischer Musik zusammenführen. Chamber Metal zeichnet sich durch dramatische Dynamikwechsel, komplexe Arrangements und eine atmosphärische, oft melancholische Stimmung aus. Die Musik bietet sowohl die Intensität des Metal als auch die emotionale Tiefe und technische Finesse der Kammermusik. Lass dich von der harmonischen, kraftvollen Verschmelzung von Metal und klassischer Musik in eine Klangwelt voller Epik und künstlerischer Tiefe entführen."
+  },
+  {
     "categoryUrl": "/chicago-house",
     "headline": "Chicago House",
     "imageUrl": "/category/chicago-house.jpg",
@@ -124,6 +178,15 @@
     "isPlayable": true,
     "slug": "chicago-house",
     "text": "Chicago House ist das Herzstück des modernen Dance-Sounds und hat die Welt der elektronischen Musik revolutioniert. Diese Kategorie vereint die charakteristischen Beats, groovigen Basslines und hypnotisierenden Synthesizer-Sounds, die das Genre definiert haben. Von den frühen Pionieren wie Frankie Knuckles und Larry Heard bis hin zu zeitgenössischen Künstlern, die den klassischen House-Sound neu interpretieren – Chicago House bietet einen unverwechselbaren Klang, der die Tanzflächen weltweit erobert hat. Lass dich von den treibenden Rhythmen und dem energetischen Flair des Chicago House mitreißen und erlebe den pulsierenden Herzschlag der House-Music-Szene."
+  },
+  {
+    "categoryUrl": "/christian-metal",
+    "headline": "Christian Metal",
+    "imageUrl": "/category/christian-metal.jpg",
+    "introSubline": "Erlebe die kraftvolle Mischung aus Metal und spiritueller Botschaft im Christian Metal!",
+    "isPlayable": false,
+    "slug": "christian-metal",
+    "text": "Christian Metal vereint die intensiven Klänge des Metal mit spirituellen und religiösen Themen. Diese Kategorie bietet eine breite Palette von Stilen, von Heavy Metal und Metalcore bis zu Symphonic und Power Metal, in denen der Glaube und die Hoffnung im Vordergrund stehen. Mit Bands wie Stryper, Demon Hunter, Underoath und Skillet zeigt Christian Metal, dass Metal und eine positive, spirituelle Botschaft nahtlos miteinander verschmelzen können. Die Texte behandeln oft Themen wie Erlösung, Glaube, innere Kämpfe und den spirituellen Weg, während die Musik die volle Kraft und Intensität des Metal beibehält. Lass dich von den kraftvollen Riffs, den eindringlichen Melodien und den erhebenden Botschaften des Christian Metal inspirieren und erlebe Musik, die Seele und Sinne gleichermaßen anspricht."
   },
   {
     "categoryUrl": "/classic-heavy-metal",
@@ -153,6 +216,15 @@
     "text": "Clubmusik bringt die pulsierenden Rhythmen und mitreißenden Klänge, die jede Party zum Leben erwecken. Diese Kategorie vereint die neuesten und besten Tracks aus Genres wie EDM, House, Techno und Trance, die speziell für die Tanzfläche und die Nachtclubs gemacht sind. Mit treibenden Basslines, hypnotisierenden Synthesizern und energiegeladenen Drops sorgt Clubmusik dafür, dass du die ganze Nacht durchfeiern kannst. Tauche ein in die vibrierende Atmosphäre und lass dich von den elektrisierenden Beats mitreißen, die jede Clubnacht unvergesslich machen."
   },
   {
+    "categoryUrl": "/coregrind",
+    "headline": "Coregrind",
+    "imageUrl": "/category/coregrind.jpg",
+    "introSubline": "Erlebe die explosive Fusion aus Grindcore und Hardcore in der extremen Welt des Coregrind!",
+    "isPlayable": false,
+    "slug": "coregrind",
+    "text": "Coregrind verbindet die kompromisslose Brutalität des Grindcore mit den intensiven Elementen des Hardcore-Punks. Dieses Genre zeichnet sich durch rasend schnelle Drums, ultrakurze Songs, aggressive Shouts und gutturale Growls aus. Die Musik ist gnadenlos, chaotisch und oft sozialkritisch, mit einer Vorliebe für extreme Geschwindigkeit und rohe Energie. Bands wie Pig Destroyer, Full of Hell, Magrudergrind und Nails repräsentieren diesen explosiven Sound, der die Schärfe des Hardcore-Punk mit der schieren Heftigkeit des Grindcore kombiniert. Coregrind bietet knallharte Breakdowns, Blastbeats und extrem verzerrte Gitarren, die die Intensität auf ein Maximum treiben. Lass dich von der unerbittlichen Energie und den brutalen Klängen des Coregrind mitreißen und erlebe die rohe Gewalt und den puren Adrenalinschub dieses extremen Metal-Subgenres."
+  },
+  {
     "categoryUrl": "/country-classics",
     "headline": "Country",
     "imageUrl": "/category/country.jpg",
@@ -162,6 +234,24 @@
     "text": "Country-Musik bringt die Seele des amerikanischen Südens zu dir. Diese Kategorie vereint alles von klassischen Balladen und rhythmischen Honky-Tonk-Songs bis hin zu modernen Country-Hits. Mit eingängigen Melodien, ehrlichen Texten und einem unverwechselbaren Sound, der von akustischen Gitarren und Fiddle-Riffs geprägt ist, bietet Country die perfekte Mischung aus traditioneller Authentizität und zeitgemäßem Flair. Erlebe die Geschichten von Liebe, Leben und ländlicher Idylle, die das Herz des Country ausmachen."
   },
   {
+    "categoryUrl": "/crossover-thrash",
+    "headline": "Crossover Thrash",
+    "imageUrl": "/category/crossover-thrash.jpg",
+    "introSubline": "Erlebe die aggressive Fusion aus Thrash Metal und Hardcore-Punk im Crossover Thrash!",
+    "isPlayable": false,
+    "slug": "crossover-thrash",
+    "text": "Crossover Thrash kombiniert die rasante Intensität des Thrash Metal mit der rohen, rebellischen Energie des Hardcore-Punks. Diese explosive Mischung bringt schnelle, aggressive Riffs, knackige Drums und kompromisslose Vocals zusammen, die sowohl den Metal- als auch den Punk-Spirit verkörpern. Mit Bands wie Suicidal Tendencies, D.R.I., Municipal Waste und Cro-Mags hat Crossover Thrash ein Genre geschaffen, das für seine gnadenlose Geschwindigkeit und seine direkte, aggressive Attitüde bekannt ist. Die Songs sind oft kurz, aber energiegeladen, mit rasanten Rhythmen und starken politischen oder sozialkritischen Texten. Lass dich von der ungezügelten Energie und den mitreißenden Grooves des Crossover Thrash packen und erlebe die perfekte Mischung aus Metal und Punk in ihrer explosivsten Form."
+  },
+  {
+    "categoryUrl": "/cyber-metal",
+    "headline": "Cyber Metal",
+    "imageUrl": "/category/cyber-metal.jpg",
+    "introSubline": "Erlebe die futuristischen Klänge und die mechanische Härte des Cyber Metal!",
+    "isPlayable": false,
+    "slug": "cyber-metal",
+    "text": "Cyber Metal ist ein futuristisches und oft industriell geprägtes Subgenre des Metal, das elektronische Elemente und High-Tech-Soundeffekte mit den druckvollen Riffs und der Härte des Metal kombiniert. Diese Kategorie vereint treibende Gitarren, elektronische Beats und atmosphärische Soundscapes, die eine dystopische, mechanische Welt heraufbeschwören. Mit Bands wie Fear Factory, Sybreed, Static-X und The Algorithm hat Cyber Metal eine Klanglandschaft geschaffen, die von kalten, maschinenartigen Rhythmen und futuristischen Themen geprägt ist. Die Musik variiert zwischen brutalen, mechanischen Riffs und elektronischen, manchmal tranceartigen Momenten, was eine faszinierende Verbindung von Mensch und Maschine darstellt. Lass dich von den synthetischen Klängen und den kraftvollen Rhythmen des Cyber Metal in eine dystopische Zukunft mitreißen, in der Technologie und Metal verschmelzen."
+  },
+  {
     "categoryUrl": "/dancehall",
     "headline": "Dancehall",
     "imageUrl": "/category/dancehall.jpg",
@@ -169,6 +259,15 @@
     "isPlayable": false,
     "slug": "dancehall",
     "text": "Dancehall ist ein lebendiges Genre, das mit seinen rhythmischen Beats und energetischen Vibes die Dancefloors weltweit erobert hat. Diese Kategorie vereint die besten Tracks von Dancehall-Pionieren und modernen Künstlern, die für ihre kraftvollen Rhythmen, eingängigen Melodien und dynamischen Vocals bekannt sind. Von den klassichen Hits der 80er und 90er Jahre bis hin zu aktuellen Chartstürmern – Dancehall bringt eine explosive Mischung aus Reggae-Infusionen, hypnotisierenden Grooves und urbanem Flair, die dich garantiert zum Tanzen und Feiern einlädt. Lass dich von den mitreißenden Rhythmen und der einzigartigen Energie der Dancehall mitreißen!"
+  },
+  {
+    "categoryUrl": "/dark-metal",
+    "headline": "Dark Metal",
+    "imageUrl": "/category/dark-metal.jpg",
+    "introSubline": "Erlebe die düsteren Klanglandschaften und die emotionale Schwere des Dark Metal!",
+    "isPlayable": false,
+    "slug": "dark-metal",
+    "text": "Dark Metal ist ein atmosphärisches Subgenre des Metal, das melancholische und düstere Stimmungen mit schweren Riffs und intensiven Vocals verbindet. Diese Kategorie vereint die besten Tracks, die eine Mischung aus Doom, Black und Gothic Metal-Elementen beinhalten, wobei oft Themen wie Tod, Einsamkeit und innere Dunkelheit im Vordergrund stehen. Mit Bands wie Bethlehem, Agalloch, Moonspell und Rotting Christ zeichnet sich Dark Metal durch langsame, dröhnende Gitarren, kraftvolle Growls und atmosphärische Melodien aus, die eine bedrohliche und oft emotionale Klangwelt erschaffen. Die Musik variiert zwischen harten, intensiven Passagen und ruhigen, fast hypnotischen Momenten. Lass dich von der tiefen, düsteren Atmosphäre und der emotionalen Tiefe des Dark Metal mitreißen und erlebe eine Musikrichtung, die Schmerz, Dunkelheit und Schönheit in sich vereint."
   },
   {
     "categoryUrl": "/death-metal",
@@ -187,6 +286,24 @@
     "isPlayable": true,
     "slug": "deep-house",
     "text": "Deep House bietet eine fesselnde Mischung aus sanften Beats, tiefen Basslines und atmosphärischen Klängen, die perfekte für entspannte, aber energiegeladene Momente ist. Diese Kategorie vereint melodische Elemente, subtile Rhythmen und eine elegante Produktion, die den Charakter des Deep House ausmachen. Von den hypnotischen Melodien und warmen Synthesizern bis hin zu den sanften Vocals und groovigen Basslines – Deep House schafft eine einladende und luxuriöse Atmosphäre, die dich sanft durch jede Nacht begleitet. Erlebe die entspannte Eleganz und den fesselnden Rhythmus, der Deep House zu einem unverzichtbaren Teil der elektronischen Musikszene macht."
+  },
+  {
+    "categoryUrl": "/desert-rock",
+    "headline": "Desert Rock",
+    "imageUrl": "/category/desert-rock.jpg",
+    "introSubline": "Spüre die staubigen Vibes und die hypnotischen Grooves des Desert Rock!",
+    "isPlayable": false,
+    "slug": "desert-rock",
+    "text": "Desert Rock, auch bekannt als Stoner Rock, entstand in den weiten Wüsten Kaliforniens und zeichnet sich durch seine schweren, fuzzgetränkten Gitarrenriffs, hypnotischen Grooves und eine entspannte, oft träge Atmosphäre aus. Dieses Genre bietet eine Mischung aus rauem Hard Rock, psychedelischen Elementen und einem Hauch von Blues, die zusammen eine einzigartige Klanglandschaft schaffen. Mit Bands wie Kyuss, Queens of the Stone Age, Fu Manchu und Truckfighters verkörpert Desert Rock eine erdige, fast meditative Klangästhetik, die perfekt zu langen Fahrten durch heiße, endlose Wüsten passt. Die Musik bewegt sich zwischen drückenden, langsamen Rhythmen und treibenden, energiegeladenen Riffs, die eine besondere Spannung erzeugen. Lass dich von den sonnengetränkten Riffs und den entspannten Vibes des Desert Rock mitreißen und tauche ein in eine Welt, in der die Hitze und Weite der Wüste in jeden Ton einfließen."
+  },
+  {
+    "categoryUrl": "/desert-rock",
+    "headline": "Desert Rock",
+    "imageUrl": "/category/desert-rock.jpg",
+    "introSubline": "Spüre die staubigen Vibes und die hypnotischen Grooves des Desert Rock!",
+    "isPlayable": false,
+    "slug": "desert-rock",
+    "text": "Desert Rock, auch bekannt als Stoner Rock, entstand in den weiten Wüsten Kaliforniens und zeichnet sich durch seine schweren, fuzzgetränkten Gitarrenriffs, hypnotischen Grooves und eine entspannte, oft träge Atmosphäre aus. Dieses Genre bietet eine Mischung aus rauem Hard Rock, psychedelischen Elementen und einem Hauch von Blues, die zusammen eine einzigartige Klanglandschaft schaffen. Mit Bands wie Kyuss, Queens of the Stone Age, Fu Manchu und Truckfighters verkörpert Desert Rock eine erdige, fast meditative Klangästhetik, die perfekt zu langen Fahrten durch heiße, endlose Wüsten passt. Die Musik bewegt sich zwischen drückenden, langsamen Rhythmen und treibenden, energiegeladenen Riffs, die eine besondere Spannung erzeugen. Lass dich von den sonnengetränkten Riffs und den entspannten Vibes des Desert Rock mitreißen und tauche ein in eine Welt, in der die Hitze und Weite der Wüste in jeden Ton einfließen."
   },
   {
     "categoryUrl": "/detroit-techno",
@@ -252,6 +369,15 @@
     "text": "Die dänische Musikszene ist bekannt für ihre abwechslungsreichen Stile und die kreative Mischung aus traditioneller und moderner Musik. Diese Kategorie vereint die besten Tracks, die das Herz und die Seele der dänischen Musik widerspiegeln – von den melancholischen Tönen des nordischen Folk über eingängigen Pop bis hin zu innovativen Rock- und Indie-Klängen. Mit Künstlern wie Kim Larsen, MØ, Lukas Graham und The Raveonettes zeigt die dänische Musik eine beeindruckende Bandbreite, die sowohl in Dänemark als auch international große Anerkennung findet. Ob es die sanften, nachdenklichen Melodien oder die energiegeladenen, fröhlichen Rhythmen sind – die dänische Musik bietet eine Vielzahl an Emotionen und Stimmungen. Lass dich von den authentischen Klängen und den charmanten Melodien der dänischen Musik verzaubern und entdecke die musikalische Vielfalt Dänemarks."
   },
   {
+    "categoryUrl": "/experimental-metal",
+    "headline": "Experimental Metal",
+    "imageUrl": "/category/experimental-metal.jpg",
+    "introSubline": "Erlebe die klanglichen Grenzüberschreitungen und die unvorhersehbaren Klangwelten des Experimental Metal!",
+    "isPlayable": false,
+    "slug": "experimental-metal",
+    "text": "Experimental Metal ist ein Genre, das sich durch seine radikale Offenheit und seine genreübergreifenden Einflüsse auszeichnet. Es verbindet die Härte und Intensität des Metal mit unkonventionellen Klängen, komplexen Strukturen und innovativen Ideen aus verschiedensten Musikrichtungen. Diese Kategorie vereint die Arbeiten von Bands wie Neurosis, Sunn O))), Meshuggah und Mr. Bungle, die mit ungewöhnlichen Rhythmen, atmosphärischen Soundscapes und avantgardistischen Ansätzen die Grenzen des Metal ständig erweitern. Experimental Metal überrascht mit unvorhersehbaren Wendungen, düsteren Klangexperimenten und einem Sinn für das Außergewöhnliche. Lass dich von den komplexen Arrangements, den einzigartigen Soundtexturen und den kreativen Klanglandschaften des Experimental Metal mitreißen und erlebe eine Musikrichtung, die keine Regeln kennt und ständig neue Wege erforscht."
+  },
+  {
     "categoryUrl": "/filmmusik",
     "headline": "Filmmusik",
     "imageUrl": "/category/filmmusik.jpg",
@@ -304,6 +430,15 @@
     "isPlayable": false,
     "slug": "french",
     "text": "Französische Musik ist bekannt für ihre stilvolle Vielfalt und den einzigartigen Klang, der durch verschiedene Genres und Epochen geprägt ist. Diese Kategorie umfasst alles von den romantischen Chansons von Edith Piaf und Charles Aznavour über die eingängigen Pop-Hits von Künstlern wie Christine and the Queens und Daft Punk bis hin zu modernen Künstlern, die den französischen Sound neu interpretieren. Mit einer Mischung aus gefühlvollen Melodien, kreativen Beats und dem unverwechselbaren französischen Flair bietet französische Musik eine reiche Klanglandschaft, die sowohl nostalgisch als auch zeitgenössisch ist. Lass dich von den eleganten Klängen und der einzigartigen Atmosphäre der französischen Musik verzaubern."
+  },
+  {
+    "categoryUrl": "/funeral-doom-metal",
+    "headline": "Funeral Doom Metal",
+    "imageUrl": "/category/funeral-doom-metal.jpg",
+    "introSubline": "Erlebe die erdrückende Schwere und die tiefen, melancholischen Klänge des Funeral Doom Metal!",
+    "isPlayable": false,
+    "slug": "funeral-doom-metal",
+    "text": "Funeral Doom Metal ist das düsterste und langsamste Subgenre des Doom Metal, bekannt für seine extrem langsamen Tempi, tiefen Gitarrenriffs und eine bedrückende, melancholische Atmosphäre. Diese Kategorie vereint die schwersten und emotional intensivsten Tracks des Genres, mit Bands wie Ahab, Mournful Congregation, Evoken und Shape of Despair. Funeral Doom Metal nimmt den Hörer mit auf eine tief emotionale Reise, oft mit Themen wie Tod, Trauer und Verzweiflung. Die Songs sind lang und getragen, mit dröhnenden Gitarren, minimalistischen, fast schmerzhaften Melodien und tiefen, gutturalen Vocals, die oft von düsteren, atmosphärischen Synthesizern begleitet werden. Lass dich von der erdrückenden Schwere und den trostlosen, doch ergreifenden Klängen des Funeral Doom Metal in eine Welt der Dunkelheit und inneren Reflexion entführen."
   },
   {
     "categoryUrl": "/funk",
@@ -396,6 +531,24 @@
     "text": "Grunge ist ein kraftvolles Genre, das in den 1990er Jahren seinen Ursprung in Seattle fand und für seine unverfälschte Energie und seinen einzigartigen Klang bekannt ist. Diese Kategorie umfasst die klassischen Grunge-Songs, die durch verzerrte Gitarrenriffs, kraftvolle Drums und emotionale Texte geprägt sind. Mit legendären Bands wie Nirvana, Pearl Jam und Soundgarden bietet Grunge eine Mischung aus rauem Rock, punkigem Einfluss und melancholischen Melodien. Die Musik fängt die ungestüme und oft düstere Atmosphäre der Ära ein und reflektiert Themen von Rebellion und Selbstfindung. Lass dich von der authentischen Kraft und dem unverwechselbaren Sound des Grunge mitreißen und genieße den tiefen Ausdruck dieser ikonischen Musikrichtung."
   },
   {
+    "categoryUrl": "/hair-metal",
+    "headline": "Hair Metal",
+    "imageUrl": "/category/hair-metal.jpg",
+    "introSubline": "Erlebe den Glamour, die eingängigen Riffs und die unvergesslichen Hymnen des Hair Metal!",
+    "isPlayable": false,
+    "slug": "hair-metal",
+    "text": "Hair Metal, auch bekannt als Glam Metal, war ein prägendes Genre der 1980er Jahre, das für seine eingängigen Melodien, übertriebene Gitarrensoli und den extravaganten Stil der Bands bekannt war. Diese Kategorie vereint die größten Hits und Hymnen von Bands wie Mötley Crüe, Poison, Def Leppard, und Bon Jovi, die durch ihre energiegeladenen Shows und ihren unverwechselbaren Look die Musiklandschaft dominierten. Mit einer Mischung aus Rock ‘n’ Roll-Attitüde, Partyhymnen und kraftvollen Balladen bietet Hair Metal eine unterhaltsame und leicht zugängliche Form des Metal, die die 80er Jahre in all ihrem Glamour und Überfluss perfekt widerspiegelt. Lass dich von den mitreißenden Riffs, den eingängigen Refrains und der ungebändigten Energie des Hair Metal zurück in eine Zeit versetzen, in der der Rock groß, laut und absolut ikonisch war."
+  },
+  {
+    "categoryUrl": "/haiwaiinisch",
+    "headline": "Haiwaiinisch",
+    "imageUrl": "/category/haiwaiinisch.jpg",
+    "introSubline": "Erlebe die sanften Klänge und die tropische Magie der hawaiianischen Musik!",
+    "isPlayable": false,
+    "slug": "haiwaiinisch",
+    "text": "Die hawaiianische Musik ist bekannt für ihre beruhigenden Melodien, die von der Natur und Kultur Hawaiis inspiriert sind. Diese Kategorie umfasst die traditionellen Klänge der Inseln, darunter die Ukulele, das Slack-Key-Gitarrenspiel und die schönen Vokalharmonien, die oft in der Hula-Musik verwendet werden. Künstler wie Israel Kamakawiwo’ole, Gabby Pahinui und Keali’i Reichel haben die hawaiianische Musik weltweit bekannt gemacht. Die Musik verkörpert das Aloha-Gefühl und bietet eine Mischung aus sanften Melodien, die Entspannung und Freude bringen. Moderne hawaiianische Künstler fügen den traditionellen Klängen Elemente aus Pop, Reggae und Folk hinzu, um eine einzigartige, tropische Klangwelt zu schaffen. Lass dich von den harmonischen Gesängen, den sanften Ukulele-Akkorden und der entspannten Atmosphäre der hawaiianischen Musik in die paradiesische Welt der Inseln entführen."
+  },
+  {
     "categoryUrl": "/happy",
     "headline": "Happy",
     "imageUrl": "/category/happy.jpg",
@@ -432,6 +585,15 @@
     "text": "Heavy Metal ist die explosivste Form des Rock, geprägt von kraftvollen Gitarrenriffs, energischen Schlagzeugbeats und markanten Vocals. Dieser Musikstil bringt explosive Live-Shows und monumentale Hymnen hervor, gespielt von Bands, die keine Kompromisse eingehen. Von düsteren Balladen bis hin zu brachialen Hymnen – Heavy Metal liefert ungebremste Intensität und Leidenschaft."
   },
   {
+    "categoryUrl": "/heavy-psych",
+    "headline": "Heavy Psych",
+    "imageUrl": "/category/heavy-psych.jpg",
+    "introSubline": "Tauche ein in die hypnotischen, riffgeladenen Klangwelten des Heavy Psych!",
+    "isPlayable": false,
+    "slug": "heavy-psych",
+    "text": "Heavy Psych verbindet die schweren, dröhnenden Riffs des Hard Rock und Metal mit den psychedelischen Klängen und Trance-artigen Melodien des Psychedelic Rock. Dieses Genre zeichnet sich durch verzerrte Gitarren, lange, atmosphärische Jams und eine hypnotische, manchmal fast tranceartige Klanglandschaft aus. Mit Bands wie Earthless, Hawkwind, Electric Moon und Samsara Blues Experiment bietet Heavy Psych eine tiefgründige Reise durch treibende Rhythmen, psychedelische Effekte und endlos scheinende Gitarrensoli. Die Musik ist schwer und intensiv, während sie gleichzeitig die Freiheit und das grenzenlose Experimentieren des Psychedelic Rock verkörpert. Lass dich von den fuzzgeladenen Riffs und den kosmischen Klängen des Heavy Psych mitreißen und erlebe eine Musikrichtung, die Körper und Geist in schwerelose Klangwelten versetzt."
+  },
+  {
     "categoryUrl": "/hip-hop",
     "headline": "Hip Hop",
     "imageUrl": "/category/hip-hop.jpg",
@@ -448,6 +610,15 @@
     "isPlayable": false,
     "slug": "holiday",
     "text": "Die Kategorie 'Holiday' bringt die perfekte Musik für jede festliche Gelegenheit. Egal ob Weihnachten, Silvester, Ostern oder andere besondere Anlässe – hier findest du eine Auswahl an klassischen Holiday-Hits, fröhlichen Festtagsmelodien und stimmungsvollen Liedern, die jede Feier unvergesslich machen. Von den zeitlosen Weihnachtsklassikern über fröhliche Neujahrslieder bis hin zu den besten Hits für Sommerferien und andere Festlichkeiten, die Holiday-Kategorie sorgt für die richtige Stimmung und gute Laune. Lass dich von der festlichen Musik mitreißen und genieße die Feiertage mit einer musikalischen Begleitung, die dir ein Lächeln ins Gesicht zaubert."
+  },
+  {
+    "categoryUrl": "/horror-metal",
+    "headline": "Horror Metal",
+    "imageUrl": "/category/horror-metal.jpg",
+    "introSubline": "Erlebe die düsteren Klänge und unheimlichen Geschichten des Horror Metal!",
+    "isPlayable": false,
+    "slug": "horror-metal",
+    "text": "Horror Metal verbindet die kraftvolle Intensität des Metal mit der unheimlichen Atmosphäre und den schaurigen Themen der Horror-Kultur. Dieses Genre zeichnet sich durch düstere, oft theatralische Musik aus, die von Geschichten über Monster, Geister, Albträume und das Übernatürliche geprägt ist. Bands wie King Diamond, Rob Zombie, Cradle of Filth und Wednesday 13 haben Horror Metal zu einem Genre gemacht, das musikalische Härte mit einer cineastischen, gruseligen Atmosphäre vereint. Oft werden Elemente des Gothic, Doom und Thrash Metal verwendet, um eine bedrückende, furchteinflößende Stimmung zu erzeugen, während die Texte von Horrorfilmen, düsteren Legenden oder makabren Erzählungen inspiriert sind. Lass dich von den unheimlichen Melodien und der düsteren Stimmung des Horror Metal in eine Welt voller Schrecken und Finsternis entführen und erlebe die perfekte Fusion aus Metal und Horror."
   },
   {
     "categoryUrl": "/house",
@@ -567,6 +738,15 @@
     "text": "Jazz ist ein Genre, das durch seine stilistische Vielfalt, emotionale Tiefe und kreative Freiheit besticht. Diese Kategorie vereint die besten Tracks aus der Welt des Jazz, von den klassischen Melodien des Swing und Bebop bis hin zu den modernen Interpretationen des Contemporary Jazz und Fusion. Mit legendären Künstlern wie Miles Davis, John Coltrane und Ella Fitzgerald bietet Jazz eine reiche Klanglandschaft, die von sanften Balladen bis zu komplexen, rhythmischen Kompositionen reicht. Lass dich von den geschmeidigen Saxophonklängen, den virtuosen Klaviersoli und den pulsierenden Rhythmen mitreißen und genieße die Atmosphäre, die Jazz so einzigartig macht. Tauche ein in die Welt des Jazz, wo jeder Ton eine Geschichte erzählt und jedes Stück eine emotionale Reise ist."
   },
   {
+    "categoryUrl": "/jazz-metal",
+    "headline": "Jazz Metal",
+    "imageUrl": "/category/jazz-metal.jpg",
+    "introSubline": "Erlebe die kühne Fusion von improvisatorischer Freiheit und metallischer Härte im Jazz Metal!",
+    "isPlayable": false,
+    "slug": "jazz-metal",
+    "text": "Jazz Metal verbindet die komplexen Rhythmen, Improvisationen und harmonischen Freiheiten des Jazz mit der rohen Energie und den kraftvollen Riffs des Metal. Dieses Genre bietet eine spannende und dynamische Mischung aus unvorhersehbaren Songstrukturen, virtuosen Soli und einer intensiven, oft experimentellen Klanglandschaft. Bands wie Cynic, Atheist, Panzerballett und Exivious haben Jazz Metal geprägt, indem sie progressive Metal-Elemente mit komplexen Jazz-Arrangements und polyrhythmischen Strukturen kombinierten. Die Musik bewegt sich zwischen hartem, aggressivem Metal und atmosphärischen, jazzigen Passagen, die Raum für technische Brillanz und musikalische Exploration bieten. Lass dich von den unkonventionellen Arrangements und der kreativen Freiheit des Jazz Metal mitreißen und erlebe eine Musikrichtung, die die Grenzen von Metal und Jazz auf beeindruckende Weise erweitert."
+  },
+  {
     "categoryUrl": "/k-pop",
     "headline": "K-Pop",
     "imageUrl": "/category/k-pop.jpg",
@@ -585,6 +765,15 @@
     "text": "Die Kategorie ‚Kinder‘ bietet eine bunte Auswahl an fröhlichen und eingängigen Liedern, die speziell für die jüngsten Musikfans gemacht sind. Von klassischen Kinderliedern und Schlafliedern bis hin zu modernen Songs aus beliebten Filmen und TV-Serien – diese Musik sorgt für Spaß, Bewegung und jede Menge gute Laune. Ob zum Mitsingen, Tanzen oder einfach nur zum Zuhören – die liebevoll gestalteten Lieder bringen Freude und regen die Fantasie der Kinder an. Lass die Kleinen in die Welt der Musik eintauchen und genieße gemeinsam die fröhlichen und lehrreichen Klänge, die das Herz jedes Kindes höher schlagen lassen."
   },
   {
+    "categoryUrl": "/klassik",
+    "headline": "Klassik",
+    "imageUrl": "/category/klassik.jpg",
+    "introSubline": "Erlebe die zeitlose Eleganz und die emotionale Tiefe der klassischen Musik!",
+    "isPlayable": false,
+    "slug": "klassik",
+    "text": "Klassische Musik ist ein Genre, das die Kunst des Komponierens und das handwerkliche Können der Musiker in Perfektion widerspiegelt. Diese Kategorie vereint die größten Meisterwerke von Komponisten wie Beethoven, Mozart, Bach und Tchaikovsky, die die Musikgeschichte mit ihren symphonischen Werken, Opern und Konzertstücken geprägt haben. Die Musik reicht von sanften, beruhigenden Melodien bis hin zu dramatischen und kraftvollen Kompositionen, die tiefgreifende Emotionen wecken. Ob Solo-Klavierstücke, Streichquartette oder große Orchesterwerke – klassische Musik bietet eine immense Vielfalt und ist sowohl intellektuell anregend als auch emotional bewegend. Lass dich von den erhabenen Melodien und der meisterhaften Kompositionen der Klassik verzaubern und genieße die Musik, die seit Jahrhunderten die Herzen der Menschen berührt."
+  },
+  {
     "categoryUrl": "/klavier",
     "headline": "Klavier",
     "imageUrl": "/category/klavier.jpg",
@@ -592,6 +781,15 @@
     "isPlayable": true,
     "slug": "klavier",
     "text": "Das Klavier ist ein Instrument, das durch seine Vielseitigkeit und Ausdruckskraft fasziniert. Diese Kategorie vereint eine Vielzahl von Stücken, die die eleganten und kraftvollen Klänge des Klaviers in den Mittelpunkt stellen. Von klassischen Meisterwerken von Komponisten wie Beethoven, Chopin und Debussy bis hin zu modernen Piano-Kompositionen und gefühlvollen Balladen – die Klaviermusik bietet eine reiche Palette an Emotionen und Stimmungen. Ob sanfte Melodien zum Entspannen, virtuose Soli oder berührende Filmmusik, die Kategorie 'Klavier' entführt dich in eine Welt voller Klangzauber und musikalischer Raffinesse. Lass dich von den melodischen Linien und harmonischen Strukturen des Klaviers inspirieren und genieße die beruhigende und zugleich tief bewegende Wirkung dieses wunderbaren Instruments."
+  },
+  {
+    "categoryUrl": "/kubanisch",
+    "headline": "Kubanisch",
+    "imageUrl": "/category/kubanisch.jpg",
+    "introSubline": "Spüre die lebhaften Rhythmen und die leidenschaftlichen Klänge der kubanischen Musik!",
+    "isPlayable": false,
+    "slug": "kubanisch",
+    "text": "Die kubanische Musik ist weltweit bekannt für ihre kraftvollen Rhythmen, mitreißenden Melodien und die einzigartige Fusion von afrikanischen und spanischen Einflüssen. Diese Kategorie vereint die traditionellen Klänge von Son, Mambo, Salsa und Cha-Cha-Cha sowie die modernen Sounds der kubanischen Musikszene. Mit Legenden wie Buena Vista Social Club, Celia Cruz, Compay Segundo und modernen Künstlern wie Orishas und Gente de Zona bietet kubanische Musik eine energiegeladene Mischung aus Percussion, Bläsern und dynamischen Gesängen. Instrumente wie die Congas, Bongos, Claves und Tres-Gitarre schaffen den charakteristischen Rhythmus, der Kuba ausmacht. Lass dich von den feurigen Rhythmen und der musikalischen Leidenschaft der kubanischen Musik mitreißen und genieße eine Reise durch die lebendige und vielfältige Musikkultur der Karibikinsel."
   },
   {
     "categoryUrl": "/latino",
@@ -621,6 +819,15 @@
     "text": "Mandopop, oder Mandarin-Pop, ist ein dominierendes Genre der chinesischsprachigen Musikszene, das durch seine eingängigen Melodien und vielseitigen Stile begeistert. Diese Kategorie bietet eine Mischung aus romantischen Balladen, dynamischen Pop-Hits und innovativen Fusionen, die sowohl traditionelle als auch moderne Einflüsse vereinen. Mit Künstlern wie Jay Chou, Jolin Tsai und Stefanie Sun hat Mandopop eine weitreichende Fangemeinde in ganz Asien und darüber hinaus erobert. Tauche ein in die Welt des Mandopop, wo gefühlvolle Texte und melodische Arrangements die Herzen der Zuhörer berühren und eine einzigartige musikalische Atmosphäre schaffen. Lass dich von der Vielfalt und dem emotionalen Ausdruck des Mandopop mitreißen und genieße die Klänge einer Musikrichtung, die Kultur und Moderne perfekt miteinander verbindet."
   },
   {
+    "categoryUrl": "/math-metal",
+    "headline": "Math Metal",
+    "imageUrl": "/category/math-metal.jpg",
+    "introSubline": "Erlebe die komplexen Rhythmen und die technische Präzision des Math Metal!",
+    "isPlayable": false,
+    "slug": "math-metal",
+    "text": "Math Metal, auch als Mathcore bekannt, zeichnet sich durch seine extrem komplexen Rhythmen, unvorhersehbaren Songstrukturen und technische Präzision aus. Dieses Genre kombiniert die Härte und Intensität des Metal mit komplizierten Taktarten, polyrhythmischen Riffs und atemberaubenden Gitarren- und Drum-Patterns. Bands wie Meshuggah, The Dillinger Escape Plan, Car Bomb und SikTh haben Math Metal geprägt, indem sie mathematisch anspruchsvolle Kompositionen und chaotische, aggressive Klanglandschaften schufen. Die Musik ist oft hektisch und herausfordernd, mit abrupten Wechseln und progressiven Elementen, die sowohl technisch als auch musikalisch beeindrucken. Lass dich von der Komplexität und der schieren Intensität des Math Metal mitreißen und erlebe ein Genre, das die Grenzen technischer Musik auf faszinierende Weise auslotet."
+  },
+  {
     "categoryUrl": "/melodic-death-metal",
     "headline": "Melodic Death Metal",
     "imageUrl": "/category/melodic-death-metal.jpg",
@@ -639,6 +846,24 @@
     "text": "Metalcore verbindet die Härte des Metal mit der Intensität und Attitüde des Hardcore-Punks. Dieses Genre ist bekannt für seine donnernden Breakdowns, melodischen Gitarrenriffs und kraftvollen Shouts, die oft mit klarem Gesang kombiniert werden. Diese Kategorie vereint die größten Tracks und innovativsten Bands, die das Genre seit den frühen 2000er Jahren geprägt haben – darunter Killswitch Engage, As I Lay Dying, Parkway Drive und August Burns Red. Mit seinem markanten Wechsel zwischen Aggression und Melodie bietet Metalcore eine dynamische und emotionale Hörerfahrung. Lass dich von den energischen Riffs, den intensiven Vocals und den eingängigen Refrains mitreißen und erlebe die perfekte Mischung aus brachialer Härte und melodischer Tiefe."
   },
   {
+    "categoryUrl": "/mexikanisch",
+    "headline": "Mexikanisch",
+    "imageUrl": "/category/mexikanisch.jpg",
+    "introSubline": "Erlebe die reiche Vielfalt und die leidenschaftlichen Klänge der mexikanischen Musik!",
+    "isPlayable": false,
+    "slug": "mexikanisch",
+    "text": "Die mexikanische Musikszene ist geprägt von einer beeindruckenden Vielfalt an Stilen, die tief in der Kultur und Geschichte des Landes verwurzelt sind. Diese Kategorie umfasst alles von traditionellen Genres wie Mariachi, Ranchera und Norteño bis hin zu modernen mexikanischen Pop-, Rock- und Cumbia-Hits. Mit ikonischen Künstlern wie Vicente Fernández, Luis Miguel, Lila Downs und Maná spiegelt die mexikanische Musik die Leidenschaft, Freude und Tragik des Lebens wider. Traditionelle Instrumente wie Gitarren, Trompeten und Akkordeons spielen eine zentrale Rolle, während moderne Künstler innovative Fusionen mit Rock, Jazz und elektronischen Klängen kreieren. Lass dich von den fröhlichen Rhythmen, den tiefen Emotionen und den eingängigen Melodien der mexikanischen Musik mitreißen und erlebe die unverwechselbare musikalische Seele Mexikos."
+  },
+  {
+    "categoryUrl": "/neo-classical-metal",
+    "headline": "Neo-Classical Metal",
+    "imageUrl": "/category/neo-classical-metal.jpg",
+    "introSubline": "Erlebe die perfekte Verschmelzung von klassischer Virtuosität und metallischer Härte im Neo-Classical Metal!Erlebe die perfekte Verschmelzung von klassischer Virtuosität und metallischer Härte im Neo-Classical Metal!",
+    "isPlayable": false,
+    "slug": "neo-classical-metal",
+    "text": "Neo-Classical Metal vereint die technischen Fähigkeiten und Komplexität der klassischen Musik mit der Power und Intensität des Metal. Dieses Genre zeichnet sich durch atemberaubende Gitarrensoli, schnelle Läufe und eine orchestrale Herangehensweise an das Songwriting aus. Mit Pionieren wie Yngwie Malmsteen, Symphony X und Rhapsody of Fire hat Neo-Classical Metal einen Stil geschaffen, der sowohl klassisch inspirierten Melodien als auch den donnernden Rhythmen des Metal huldigt. Die Musik ist oft geprägt von virtuosen Gitarren- und Keyboard-Soli, die an barocke und klassische Kompositionen erinnern, während die Struktur und Dynamik klar in der Welt des Heavy Metal verankert bleibt. Lass dich von den epischen Melodien und der technischen Brillanz des Neo-Classical Metal mitreißen und genieße eine Musikrichtung, die die Grenzen zwischen Klassik und Metal auf meisterhafte Weise verwischt."
+  },
+  {
     "categoryUrl": "/new-age",
     "headline": "New Age",
     "imageUrl": "/category/new-age.jpg",
@@ -646,6 +871,24 @@
     "isPlayable": false,
     "slug": "new-age",
     "text": "New Age-Musik bietet eine sanfte und oft meditative Klangwelt, die perfekt für Entspannung, Meditation und innere Einkehr ist. Diese Kategorie vereint harmonische Melodien, atmosphärische Synthesizer, Naturklänge und traditionelle Instrumente, die zusammen eine beruhigende und heilende Wirkung entfalten. Von sphärischen Soundscapes bis hin zu spirituell inspirierten Kompositionen – New Age-Musik schafft einen Raum der Ruhe und Gelassenheit, der Körper und Geist in Einklang bringt. Lass dich von den sanften Klängen der New Age-Musik tragen, finde deinen inneren Frieden und genieße Momente der Entspannung und Erholung in einer hektischen Welt."
+  },
+  {
+    "categoryUrl": "/new-wave-of-british-heavy-metal",
+    "headline": "New Wave of British Heavy Metal",
+    "imageUrl": "/category/new-wave-of-british-heavy-metal.jpg",
+    "introSubline": "Erlebe die revolutionären Klänge, die die Heavy Metal-Welt veränderten!",
+    "isPlayable": false,
+    "slug": "new-wave-of-british-heavy-metal",
+    "text": "Die New Wave of British Heavy Metal (NWOBHM) war eine Bewegung in den späten 1970er und frühen 1980er Jahren, die den Heavy Metal neu definierte und den Weg für zukünftige Metal-Genres ebnete. Diese Kategorie vereint die Pioniere des Genres, deren kraftvolle Riffs, schnelle Rhythmen und epischen Hymnen den Metal nachhaltig prägten. Mit Bands wie Iron Maiden, Judas Priest, Saxon und Diamond Head erlebte die Metal-Szene eine Explosion an Kreativität und Härte, die den Underground-Sound in die Mainstream-Rockwelt brachte. NWOBHM steht für donnernde Gitarrenriffs, mitreißende Soli und unvergessliche Refrains, die das Genre auf eine neue Stufe hoben. Lass dich von den heroischen Hymnen und der unbändigen Energie der NWOBHM mitreißen und genieße die Klänge, die die Grundlagen des modernen Metal legten."
+  },
+  {
+    "categoryUrl": "/noise-metal",
+    "headline": "Noise Metal",
+    "imageUrl": "/category/noise-metal.jpg",
+    "introSubline": "Erlebe die rohe Intensität und die klangliche Aggression des Noise Metal!",
+    "isPlayable": false,
+    "slug": "noise-metal",
+    "text": "Noise Metal vereint die schroffe Härte des Metal mit den klanglichen Extremen und der experimentellen Natur des Noise. Dieses Genre ist bekannt für seine unbarmherzigen, verzerrten Gitarrenriffs, dissonanten Klänge und oft chaotischen Songstrukturen. Bands wie Today is the Day, The Body, KEN mode und Unsane verschmelzen die brutale Energie von Metal mit den harschen, atonalen Elementen von Noise, um eine klangliche Landschaft zu schaffen, die gleichermaßen aggressiv und verstörend ist. Die Musik ist geprägt von einer abrasiven, oft lärmenden Ästhetik, die den Hörer in eine Welt des rohen Klangs und der intensiven Emotionen führt. Noise Metal sprengt die konventionellen Grenzen der Musik und schafft ein überwältigendes, kathartisches Hörerlebnis. Lass dich von der chaotischen Energie und den klanglichen Extremen des Noise Metal mitreißen und erlebe eine Musikrichtung, die radikal, aggressiv und ungezähmt ist."
   },
   {
     "categoryUrl": "/nu-metal",
@@ -675,6 +918,15 @@
     "text": "Party On! bringt die besten Hits zusammen, die jede Feier zum Kochen bringen. Von energiegeladenen Dance-Tracks über mitreißende Pop-Hymnen bis hin zu pulsierenden Elektro-Beats – diese Kategorie liefert die perfekte Musik für unvergessliche Nächte und ausgelassene Stimmung. Egal, ob du tanzen, feiern oder einfach nur gute Laune haben willst, mit Party On! wird jede Veranstaltung zum Highlight."
   },
   {
+    "categoryUrl": "/polnisch",
+    "headline": "Polnisch",
+    "imageUrl": "/category/polnisch.jpg",
+    "introSubline": "Erlebe die emotionale Tiefe und die reiche Vielfalt der polnischen Musik!",
+    "isPlayable": false,
+    "slug": "polnisch",
+    "text": "Die polnische Musikszene bietet eine beeindruckende Mischung aus traditioneller Folklore, klassischer Musik und modernen Klängen aus Pop, Rock und Elektronik. Diese Kategorie umfasst die schönsten polnischen Volkslieder und -tänze wie die Mazurka oder Polka, sowie die kraftvollen Werke der modernen Musikszene. Künstler wie Chopin, Czesław Niemen, Maanam und Dawid Podsiadło haben die polnische Musiklandschaft maßgeblich geprägt. Polnische Volksmusik mit Geigen, Akkordeons und Chören spiegelt die jahrhundertealte Tradition wider, während zeitgenössische Künstler innovativ mit Genres wie Indie, Rock und Pop experimentieren. Lass dich von den gefühlvollen Melodien, den poetischen Texten und den dynamischen Rhythmen der polnischen Musik mitreißen und tauche ein in die Klangwelt eines Landes mit einer tief verwurzelten musikalischen Kultur."
+  },
+  {
     "categoryUrl": "/pop",
     "headline": "Pop",
     "imageUrl": "/category/pop.jpg",
@@ -691,6 +943,15 @@
     "isPlayable": true,
     "slug": "pop-rock",
     "text": "Poprock vereint die eingängigen Melodien des Pop mit der Energie des Rock. Dieser Stil bringt emotionale Balladen und mitreißende Hits hervor, geprägt von vielseitigen Künstlern und Bands."
+  },
+  {
+    "categoryUrl": "/post-hardcore",
+    "headline": "Post Hardcore",
+    "imageUrl": "/category/post-hardcore.jpg",
+    "introSubline": "Erlebe die emotionale Intensität und die klangliche Tiefe des Post-Hardcore!",
+    "isPlayable": false,
+    "slug": "post-hardcore",
+    "text": "Post-Hardcore ist ein Genre, das die rohe Energie des Hardcore-Punks mit melodischen und experimentellen Elementen kombiniert. Diese Kategorie vereint die besten Tracks, die durch emotionale Lyrics, dynamische Gitarrenriffs und oft komplexe Songstrukturen beeindrucken. Mit Bands wie Fugazi, Thrice, At the Drive-In und Silverstein hat Post-Hardcore eine Klanglandschaft geschaffen, die von Aggression und Emotion gleichermaßen geprägt ist. Die Musik bewegt sich zwischen harten, schnellen Passagen und atmosphärischen, manchmal melancholischen Momenten, wodurch eine einzigartige Spannung entsteht. Lass dich von den kraftvollen Vocals, den mitreißenden Melodien und der emotionalen Tiefe des Post-Hardcore mitreißen und erlebe ein Genre, das ständig zwischen Härte und Sensibilität balanciert."
   },
   {
     "categoryUrl": "/post-metal",
@@ -819,6 +1080,15 @@
     "text": "Rockabilly, eine der ersten Formen des Rock 'n' Roll, verbindet die Energie des Rhythm & Blues mit den eingängigen Melodien des Country. Entstanden in den 1950er Jahren, ist Rockabilly bekannt für seine schnellen Rhythmen, markanten Gitarrenriffs und unverwechselbaren Gesangsstile. Diese Kategorie vereint die größten Hits und zeitlosen Klassiker des Genres, das von Künstlern wie Elvis Presley, Carl Perkins und Johnny Cash geprägt wurde. Mit seinem authentischen Sound und der rebellischen Attitüde verkörpert Rockabilly die Aufbruchsstimmung einer ganzen Generation. Lass dich von den wilden Rhythmen und der ungezähmten Energie des Rockabilly mitreißen und erlebe die Musik, die Rock 'n' Roll zu dem gemacht hat, was es heute ist – eine zeitlose Feier des Lebens und der Freiheit."
   },
   {
+    "categoryUrl": "/russisch",
+    "headline": "Russisch",
+    "imageUrl": "/category/russisch.jpg",
+    "introSubline": "Tauche ein in die kraftvollen Klänge und die kulturelle Tiefe der russischen Musik!",
+    "isPlayable": false,
+    "slug": "russisch",
+    "text": "Die russische Musikszene ist geprägt von einer reichen und vielfältigen Tradition, die von klassischer Volksmusik bis hin zu modernen Pop-, Rock- und Elektroklängen reicht. Diese Kategorie vereint die schönsten Volkslieder, die emotionalen Balladen sowie die neuesten Hits der russischen Popkultur. Mit Künstlern wie Alla Pugatschowa, Zemfira, DDT, und modernen Stars wie Little Big und Manizha zeigt die russische Musik eine beeindruckende Bandbreite, die von tiefgründigen Texten bis hin zu kraftvollen Beats reicht. Traditionelle Instrumente wie die Balalaika, das Akkordeon und Chöre werden in modernen Arrangements verwendet, um einzigartige Klänge zu erzeugen. Lass dich von der emotionalen Intensität und den vielfältigen Melodien der russischen Musik verzaubern und erlebe die Seele eines Landes, das musikalisch so vielfältig wie seine Geschichte ist."
+  },
+  {
     "categoryUrl": "/salsa",
     "headline": "Salsa",
     "imageUrl": "/category/salsa.jpg",
@@ -837,6 +1107,15 @@
     "text": "Samba ist das Herz und die Seele der brasilianischen Musik, ein Genre, das pure Lebensfreude und rhythmische Vielfalt verkörpert. Mit seinen treibenden Rhythmen, kraftvollen Percussions und schwungvollen Melodien ist Samba untrennbar mit der brasilianischen Kultur und dem weltberühmten Karneval verbunden. Diese Kategorie vereint die größten Hits und traditionellen Klassiker der Samba, von den energetischen Straßenrhythmen bis hin zu den eleganten Melodien des Samba-Enredo. Künstler wie João Gilberto, Elis Regina und Jorge Ben Jor haben Samba zu einem weltweiten Symbol für Tanz, Freude und Gemeinschaft gemacht. Lass dich von den lebendigen Klängen und der ausgelassenen Stimmung der Samba mitreißen und genieße die Musik, die das Herz Brasiliens zum Schlagen bringt."
   },
   {
+    "categoryUrl": "/schlager",
+    "headline": "Schlager",
+    "imageUrl": "/category/schlager.jpg",
+    "introSubline": "Erlebe die fröhlichen Melodien und die eingängigen Refrains des deutschen Schlagers!",
+    "isPlayable": false,
+    "slug": "schlager",
+    "text": "Schlager ist ein Genre, das sich durch seine fröhlichen Melodien, leicht zugänglichen Texte und eingängigen Refrains auszeichnet. Seit Jahrzehnten fester Bestandteil der deutschsprachigen Musiklandschaft, begeistert der Schlager mit Geschichten über Liebe, Freundschaft und das Leben. Künstler wie Helene Fischer, Andrea Berg, Roland Kaiser und Udo Jürgens haben das Genre geprägt und bieten eine emotionale und oft heitere musikalische Begleitung für viele Gelegenheiten. Schlager verbindet das Gefühl von Nostalgie mit modernen Popsounds und sorgt für gute Laune und Mitsing-Momente. Lass dich von den heiteren Melodien und den positiven Botschaften des Schlagers mitreißen und erlebe die Leichtigkeit und Freude, die dieses Genre seit Generationen beliebt macht."
+  },
+  {
     "categoryUrl": "/schwedisch",
     "headline": "Schwedisch",
     "imageUrl": "/category/schwedisch.jpg",
@@ -844,6 +1123,15 @@
     "isPlayable": false,
     "slug": "schwedisch",
     "text": "Die schwedische Musikszene ist bekannt für ihre beeindruckende Vielfalt und ihren kreativen Einfluss auf die internationale Musiklandschaft. Diese Kategorie vereint alles von den ikonischen Pop-Hits, die Schweden weltweit berühmt gemacht haben, bis hin zu traditionellen Folkklängen und innovativen modernen Sounds. Mit Künstlern wie ABBA, Robyn und Avicii hat Schweden einen unverwechselbaren musikalischen Stil geprägt, der von eingängigen Melodien und hochwertigen Produktionen geprägt ist. Doch auch die tief verwurzelte schwedische Volksmusik, die oft von melancholischen Melodien und instrumentalen Harmonien geprägt ist, findet hier ihren Platz. Lass dich von den vielfältigen Klängen der schwedischen Musik verzaubern und entdecke eine reiche musikalische Tradition, die von der Natur inspiriert und von modernem Zeitgeist durchdrungen ist."
+  },
+  {
+    "categoryUrl": "/screamo",
+    "headline": "Screamo",
+    "imageUrl": "/category/screamo.jpg",
+    "introSubline": "Tauche ein in die rohe Emotion und die intensiven Klänge des Screamo!",
+    "isPlayable": false,
+    "slug": "screamo",
+    "text": "Post-Hardcore ist ein Genre, das die rohe Energie des Hardcore-Punks mit melodischen und experimentellen Elementen kombiniert. Diese Kategorie vereint die besten Tracks, die durch emotionale Lyrics, dynamische Gitarrenriffs und oft komplexe Songstrukturen beeindrucken. Mit Bands wie Fugazi, Thrice, At the Drive-In und Silverstein hat Post-Hardcore eine Klanglandschaft geschaffen, die von Aggression und Emotion gleichermaßen geprägt ist. Die Musik bewegt sich zwischen harten, schnellen Passagen und atmosphärischen, manchmal melancholischen Momenten, wodurch eine einzigartige Spannung entsteht. Lass dich von den kraftvollen Vocals, den mitreißenden Melodien und der emotionalen Tiefe des Post-Hardcore mitreißen und erlebe ein Genre, das ständig zwischen Härte und Sensibilität balanciert."
   },
   {
     "categoryUrl": "/sertanejo",
@@ -900,6 +1188,15 @@
     "text": "Die spanische Musikszene ist reich an kultureller Vielfalt und musikalischer Tradition, die tief in der Geschichte und dem Lebensgefühl des Landes verwurzelt ist. Diese Kategorie umfasst alles von den leidenschaftlichen Klängen des Flamenco und den traditionellen Rhythmen der spanischen Folklore bis hin zu modernen Pop-Hits und Latin-Beats, die weltweit die Charts erobern. Mit Künstlern wie Julio Iglesias, Rosalía, Enrique Iglesias und Pablo Alborán zeigt die spanische Musik ihre Fähigkeit, Emotionen in eindrucksvollen Melodien und kraftvollen Texten auszudrücken. Lass dich von den rhythmischen Gitarren, den intensiven Vocals und der musikalischen Vielfalt verzaubern und genieße eine Reise durch die leidenschaftliche und lebendige Welt der spanischen Musik."
   },
   {
+    "categoryUrl": "/speed-metal",
+    "headline": "Speed Metal",
+    "imageUrl": "/category/speed-metal.jpg",
+    "introSubline": "Spür den Adrenalinschub und die rasenden Riffs des Speed Metal!",
+    "isPlayable": false,
+    "slug": "speed-metal",
+    "text": "Speed Metal ist ein Genre, das durch seine extrem schnellen Rhythmen, präzisen Gitarrenriffs und kraftvollen Vocals definiert wird. Es verbindet die Härte des Heavy Metal mit dem Tempo und der Aggression des Punk und legte den Grundstein für Thrash und Power Metal. Bands wie Motörhead, Helloween, Exciter und early Metallica prägten den Sound, der durch donnernde Drums und blitzschnelle Gitarrenarbeit besticht. Speed Metal steht für pure Energie und Hochgeschwindigkeit, kombiniert mit hymnischen Refrains und explosiven Soli, die den Hörer in einen Rausch der Geschwindigkeit versetzen. Lass dich von den rasanten Melodien und der unbändigen Energie des Speed Metal mitreißen und erlebe die Musik, die Metal auf das nächste Level der Intensität gebracht hat."
+  },
+  {
     "categoryUrl": "/stoner-metal",
     "headline": "Stoner Metal",
     "imageUrl": "/category/stoner-metal.jpg",
@@ -916,6 +1213,15 @@
     "isPlayable": false,
     "slug": "summer-hits",
     "text": "Summerhits sind die perfekte Begleitung für sonnige Tage und unvergessliche Sommernächte. Diese Kategorie vereint die besten Tracks, die gute Laune, heiße Beats und entspannte Vibes mit sich bringen. Von eingängigen Pop-Songs und tanzbaren Dance-Hits bis hin zu chilligen Melodien für den Strand – Summerhits sorgen dafür, dass jeder Moment im Sommer zum Highlight wird."
+  },
+  {
+    "categoryUrl": "/symphonic-black-metal",
+    "headline": "Symphonic Black Metal",
+    "imageUrl": "/category/symphonic-black-metal.jpg",
+    "introSubline": "Erlebe die finstere Majestät und orchestrale Pracht des Symphonic Black Metal!",
+    "isPlayable": false,
+    "slug": "symphonic-black-metal",
+    "text": "Symphonic Black Metal verbindet die rohe Intensität und dunkle Atmosphäre des Black Metal mit majestätischen, orchestralen Arrangements. Diese Kategorie vereint die düsteren Riffs und aggressiven Vocals des Black Metal mit opulenten, symphonischen Elementen wie Chören, Streichern und dramatischen Keyboards. Bands wie Dimmu Borgir, Emperor, Carach Angren und Cradle of Filth haben dieses Genre geprägt und es zu einer einzigartigen musikalischen Erfahrung gemacht, bei der finstere Geschichten von Dämonen, Mythen und Apokalypsen erzählt werden. Mit seiner Mischung aus brutaler Härte und epischer Größe bietet Symphonic Black Metal eine eindrucksvolle Klanglandschaft, die gleichzeitig dunkel, bedrohlich und majestätisch ist. Lass dich von den orchestralen Melodien und der finsteren Atmosphäre mitreißen und erlebe die erhabene Verbindung von Black Metal und symphonischer Pracht."
   },
   {
     "categoryUrl": "/symphonic-metal",
@@ -1006,5 +1312,23 @@
     "isPlayable": false,
     "slug": "tuerkisch",
     "text": "Die türkische Musikszene ist bekannt für ihre reiche Tradition und die harmonische Verbindung von östlichen und westlichen Einflüssen. Diese Kategorie vereint die besten Tracks, die das Herz und die Seele der türkischen Musik widerspiegeln – von den gefühlvollen Melodien des Türkü und den kraftvollen Rhythmen der Volksmusik bis hin zu den modernen Klängen des türkischen Pop und Rock. Mit Künstlern wie Sezen Aksu, Tarkan, Zeki Müren und vielen anderen zeigt die türkische Musik eine beeindruckende Bandbreite, die von tiefen Emotionen und leidenschaftlichen Ausdrucksweisen geprägt ist. Lass dich von den einzigartigen Instrumenten wie der Saz und dem Ney sowie von den unverwechselbaren Stimmen der türkischen Musik verzaubern und genieße eine musikalische Reise durch die Klangwelten der Türkei."
+  },
+  {
+    "categoryUrl": "/ukrainisch",
+    "headline": "Ukrainisch",
+    "imageUrl": "/category/ukrainisch.jpg",
+    "introSubline": "Erlebe die kraftvollen Melodien und die kulturelle Tiefe der ukrainischen Musik!",
+    "isPlayable": false,
+    "slug": "ukrainisch",
+    "text": "Die ukrainische Musikszene ist ein faszinierendes Spiegelbild der reichen kulturellen Geschichte des Landes, das tief in der Volksmusik verwurzelt ist und gleichzeitig moderne Einflüsse integriert. Diese Kategorie umfasst traditionelle ukrainische Musik mit Volksliedern, Bandura-Klängen und Chorwerken sowie zeitgenössische ukrainische Pop-, Rock- und Elektro-Musik. Künstler wie DakhaBrakha, ONUKA, Go_A und The Hardkiss bringen traditionelle Instrumente und moderne Beats zusammen, um eine einzigartige Klangwelt zu schaffen. Ukrainische Musik ist oft geprägt von melancholischen, aber kraftvollen Melodien, die von der Natur, Geschichte und Volkskultur inspiriert sind. Lass dich von den tiefgründigen Texten, den emotionalen Harmonien und den mitreißenden Rhythmen der ukrainischen Musik begeistern und erlebe die musikalische Vielfalt eines Landes, das Tradition und Moderne auf eindrucksvolle Weise verbindet."
+  },
+  {
+    "categoryUrl": "/viking-metal",
+    "headline": "Viking Metal",
+    "imageUrl": "/category/viking-metal.jpg",
+    "introSubline": "Erlebe die epischen Schlachten und nordischen Legenden im kraftvollen Viking Metal!",
+    "isPlayable": false,
+    "slug": "viking-metal",
+    "text": "Viking Metal ist ein Subgenre des Metal, das die Härte des Metal mit epischen Themen aus der nordischen Mythologie, Wikinger-Sagen und der nordischen Geschichte verbindet. Diese Kategorie bietet donnernde Gitarrenriffs, mächtige Schlachtenhymnen und oft folkige Melodien, die die raue und majestätische Natur des Nordens widerspiegeln. Mit Bands wie Amon Amarth, Bathory, Ensiferum und Týr führt Viking Metal den Hörer in eine Welt voller Götter, Heldentum und epischer Schlachten. Die Musik reicht von brachialen, riffgetriebenen Stücken bis hin zu atmosphärischen, oft folk-inspirierten Klängen, die eine majestätische und kraftvolle Atmosphäre schaffen. Lass dich von den epischen Melodien und den heroischen Geschichten des Viking Metal mitreißen und tauche ein in eine Welt voller Mythen und Legenden, in der die Musik so mächtig ist wie die Götter selbst."
   }
 ]
