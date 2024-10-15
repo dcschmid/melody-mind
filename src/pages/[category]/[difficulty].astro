@@ -378,6 +378,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       nextRoundButton.focus();
 
       nextRoundButton.onclick = function () {
+        stopAudio(); // Stoppt die Audio-Vorschau, wenn das Overlay geschlossen wird.
         overlay.classList.add("hidden");
         if (roundIndex < totalRounds - 1) {
           roundIndex++;
@@ -410,6 +411,8 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     }
 
     function showEndgamePopup() {
+      stopAudio(); // Stoppt die Audio-Vorschau, wenn das Endgame-Overlay angezeigt wird.
+
       document.getElementById("popup-score")!.textContent = score.toString();
       const endgamePopup = document.getElementById("endgame-popup");
       endgamePopup!.classList.remove("hidden");
@@ -420,6 +423,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     }
 
     function showGoldenLpPopup() {
+      stopAudio(); // Stoppt die Audio-Vorschau, wenn das Golden LP-Overlay angezeigt wird.
       document.getElementById("golden-lp-score")!.textContent =
         score.toString();
       const goldenLpPopup = document.getElementById("golden-lp-popup");
