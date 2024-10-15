@@ -160,7 +160,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     const questionContainer = document.getElementById(
       "question-container",
     ) as HTMLDivElement;
-    const overlay = document.getElementById("overlay") as HTMLDivElement;
     const overlayCover = document.getElementById(
       "overlay-cover",
     ) as HTMLImageElement;
@@ -175,6 +174,9 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     ) as HTMLAnchorElement;
     const deezerLink = document.getElementById(
       "deezer-link",
+    ) as HTMLAnchorElement;
+    const appleLink = document.getElementById(
+      "apple-link",
     ) as HTMLAnchorElement;
 
     // Get the category from the question container
@@ -260,8 +262,8 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     function updateMedia(album: any) {
       stopAudio(); // Stop the audio when new media is loaded
 
-      if (album.preview_url) {
-        audioPreviewSource.src = album.preview_url;
+      if (album.preview_link) {
+        audioPreviewSource.src = album.preview_link;
         audioPreview.load();
         audioPreview.classList.remove("hidden");
         overlayCover.classList.add("hidden");
@@ -283,6 +285,13 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         deezerLink.style.display = "inline-block";
       } else {
         deezerLink.style.display = "none";
+      }
+
+      if (album.apple_music_link) {
+        appleLink.href = album.apple_music_link;
+        appleLink.style.display = "inline-block";
+      } else {
+        appleLink.style.display = "none";
       }
     }
 
