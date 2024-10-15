@@ -11,7 +11,11 @@ let usedQuestions = new Set();
  * @param {number} totalRounds - The total number of rounds in the game
  * @returns {object|null} An object containing a random question and the album it belongs to, or null if no new questions are available
  */
-export function getRandomQuestion(albums: any[], difficulty: string, totalRounds: number) {
+export function getRandomQuestion(
+  albums: any[],
+  difficulty: string,
+  totalRounds: number,
+) {
   // Shuffle the albums array to randomize the questions order
   const shuffledAlbums = shuffleArray(albums);
 

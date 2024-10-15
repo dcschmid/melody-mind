@@ -155,6 +155,8 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
   /**
    * Adds an event listener to the filter input element.
    * When the user types something, the filterPlaylists function is called.
+   *
+   * @param {HTMLInputElement} filterInput - The filter input element.
    */
   const filterInput = document.getElementById(
     "filter-input",
@@ -165,25 +167,25 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
    * Filters the playlist items based on the user input.
    * If the user input is found in the headline text of the playlist item,
    * the item is displayed, otherwise it is hidden.
+   *
+   * @param {Event} event - The event object.
    */
-  function filterPlaylists() {
+  function filterPlaylists(_event: Event) {
     const query = filterInput.value.toLowerCase();
-    const playlistItems = document.querySelectorAll(".playlistItem");
+    const playlistLinks = document.querySelectorAll(".choosePlaylist a");
 
-    // Loop through each playlist item and check if the headline text
-    // contains the user input. If it does, display the item, otherwise
+    // Loop through each playlist link and check if the headline text
+    // contains the user input. If it does, display the link, otherwise
     // hide it.
-    playlistItems.forEach((item) => {
-      const headlineText = (item as HTMLElement).querySelector(
-        ".headline",
-      )?.textContent;
+    playlistLinks.forEach((link) => {
+      const headlineText = link.querySelector(".headline")?.textContent;
 
       if (headlineText && headlineText.toLowerCase().includes(query)) {
-        // Display the item if the headline text contains the search query
-        (item as HTMLElement).style.display = "block";
+        // Display the link if the headline text contains the search query
+        (link as HTMLElement).style.display = "block";
       } else {
-        // Hide the item if the headline text does not contain the search query
-        (item as HTMLElement).style.display = "none";
+        // Hide the link if the headline text does not contain the search query
+        (link as HTMLElement).style.display = "none";
       }
     });
   }

@@ -12,101 +12,123 @@ import { Picture } from "astro:assets";
       width={480}
       height={274}
       formats={["avif", "webp"]}
-      alt=""
+      alt="Melody Mind Logo"
       loading="eager"
     />
 
     <div class="headline">
       Willkommen zu MelodyMind – dem ultimativen Musik-Quiz!
     </div>
+
     <div class="text">
       Teste dein Wissen über deine Lieblingssongs, -alben und -künstler aus
-      verschiedenen verschiedenen Musikrichtungen. Stelle dich spannende Fragen
-      zu Künstlern, Alben und Musikfakten. Sammle Punkte, gewinne goldene
-      Schallplatten und kämpfe dich in die Top 10 der Bestenliste.
+      verschiedenen Musikrichtungen. Stelle dich spannenden Fragen zu Künstlern,
+      Alben und Musikfakten. Sammle Punkte, gewinne goldene Schallplatten und
+      kämpfe dich in die Top 10 der Bestenliste.
     </div>
 
     <div class="text">
       Starte jetzt ein neues Spiel, wähle dein Genre und zeige, dass du der
-      wahre wahre Meister der Musik bist!
+      wahre Meister der Musik bist!
     </div>
 
     <div class="headline">Anmelden mit</div>
+
     <div class="buttonGroup">
-      <a class="button" href="/login/spotify"
-        ><Icon class="loginIcon" name="spotify" width={35} height={35} /> Spotify</a
-      >
-      <a class="button" href="/login/github"
-        ><Icon class="loginIcon" name="github" width={35} height={35} /> GitHub</a
-      >
-      <a class="button" href="/login/google"
-        ><Icon class="loginIcon" name="google" width={35} height={35} /> Google</a
-      >
-      <a class="button" href="/login/yahoo"
-        ><Icon class="loginIcon" name="yahoo" width={35} height={35} /> Yahoo</a
-      >
+      <a class="button" href="/login/spotify">
+        <Icon class="loginIcon" name="spotify" width={35} height={35} />
+        Spotify
+      </a>
+      <a class="button" href="/login/github">
+        <Icon class="loginIcon" name="github" width={35} height={35} />
+        GitHub
+      </a>
+      <a class="button" href="/login/google">
+        <Icon class="loginIcon" name="google" width={35} height={35} />
+        Google
+      </a>
+      <a class="button" href="/login/yahoo">
+        <Icon class="loginIcon" name="yahoo" width={35} height={35} />
+        Yahoo
+      </a>
     </div>
   </div>
 </Layout>
 
-<style>
-  .logo {
-    display: block;
-    aspect-ratio: 480 / 274;
-    width: 100%;
-    height: auto;
-    margin: var(--padding-large) auto 0;
+<style lang="scss">
+  .container {
+    text-align: center;
+    padding: var(--padding-large);
   }
 
-  .text {
-    margin: var(--padding-large) var(--padding-medium);
-    font-size: 1.25rem;
-    font-weight: 400;
-    font-style: normal;
-    line-height: normal;
-    color: var(--text-color);
-    text-align: center;
-    letter-spacing: 0.5px;
+  .logo {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: var(--padding-large) auto;
+    transition: transform 0.3s ease-in-out;
   }
 
   .headline {
-    margin: var(--padding-large) 0;
-    font-size: var(--header-font-size);
+    font-size: 1.75rem;
     font-weight: 700;
-    font-style: normal;
-    line-height: normal;
+    margin: var(--padding-medium) 0;
     color: var(--highlight-color);
-    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  .text {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--text-color);
+    margin: var(--padding-medium) 0;
+    line-height: 1.6;
     letter-spacing: 0.5px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .buttonGroup {
     display: flex;
-    flex-flow: row wrap;
-    gap: var(--padding-medium);
-    align-items: center;
     justify-content: center;
-    margin-bottom: var(--padding-large);
+    gap: var(--padding-medium);
+    flex-wrap: wrap;
+    margin-top: var(--padding-medium);
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--padding-small) var(--padding-large);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-color);
+    background-color: var(--highlight-color);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition:
+      background-color 0.3s ease,
+      transform 0.2s ease;
+    box-shadow: var(--box-shadow);
+  }
+
+  .button:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
   }
 
   .loginIcon {
-    display: inline-block;
     margin-right: var(--padding-small);
   }
 
   @media (max-width: 1024px) {
-    .logo {
-      width: 90%;
-      margin: var(--padding-medium) auto;
-    }
-
     .headline {
-      font-size: 1.4rem;
-      margin: var(--padding-medium) 0;
+      font-size: 1.5rem;
     }
 
     .text {
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin: var(--padding-medium) var(--padding-small);
     }
 
@@ -116,19 +138,12 @@ import { Picture } from "astro:assets";
   }
 
   @media (max-width: 768px) {
-    .logo {
-      width: 85%;
-      margin: var(--padding-small) auto;
-    }
-
     .headline {
-      font-size: 1.3rem;
-      margin: var(--padding-small) 0;
+      font-size: 1.25rem;
     }
 
     .text {
-      font-size: 1rem;
-      margin: var(--padding-small) var(--padding-small);
+      font-size: 0.95rem;
     }
 
     .buttonGroup {
@@ -136,15 +151,13 @@ import { Picture } from "astro:assets";
       gap: var(--padding-small);
     }
 
+    .button {
+      padding: var(--padding-small) var(--padding-large);
+    }
+
     .loginIcon {
       width: 30px;
       height: 30px;
-      margin-right: var(--padding-small);
-    }
-
-    .button {
-      font-size: var(--button-font-size);
-      padding: var(--padding-small) var(--padding-medium);
     }
   }
 </style>

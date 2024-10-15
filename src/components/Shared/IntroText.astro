@@ -17,23 +17,64 @@ const { headline, subline } = Astro.props;
     flex-direction: column;
     gap: var(--padding-small);
     align-items: center;
+    margin-bottom: var(--padding-medium);
+    text-align: center;
+    animation: fadeIn 0.6s ease-in-out;
 
-    margin-bottom: var(--padding-small);
+    @media (max-width: 768px) {
+      margin-bottom: var(--padding-small);
+    }
   }
 
   .headline {
     font-family: var(--font-family);
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 900;
     line-height: 1.5;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--padding-small);
+    transition: color 0.3s ease;
+
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+    }
   }
 
   .subline {
     width: 100%;
     max-width: 30rem;
-
     font-size: var(--body-font-size);
-    line-height: 1.5;
+    line-height: 1.6;
+    color: var(--text-color);
+    opacity: 0.9;
     text-align: center;
+    transition: opacity 0.3s ease;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      max-width: 24rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 0.95rem;
+      max-width: 20rem;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>

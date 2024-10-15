@@ -118,7 +118,7 @@ for (const category of categoriesNamesArray) {
   </div>
 
   <div class="highscore-container">
-    <h2 class="highscore-title">Top 10 Gesamt</h2>
+    <h2 class="highscore-subtitle">Top 10 Gesamt</h2>
     <table class="highscore-table">
       <thead>
         <tr>
@@ -183,57 +183,62 @@ for (const category of categoriesNamesArray) {
 
 <style lang="scss">
   .highscore-intro {
-    max-width: 768px;
-    margin: 0 auto 20px;
-    padding: var(--padding-medium);
-
-    font-size: var(--body-font-size);
-    line-height: 1.5;
-    text-align: center;
-
+    max-width: 800px;
+    margin: 0 auto var(--padding-large);
+    padding: var(--padding-large);
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--text-color);
   }
 
   .highscore-container {
-    max-width: 768px;
+    max-width: 800px;
     margin: 0 auto;
     color: var(--text-color);
   }
 
   .highscore-title {
-    margin-bottom: var(--padding-medium);
-
-    font-size: var(--header-font-size);
-    font-weight: bold;
-    color: var(--text-color);
+    font-size: 2rem;
+    font-weight: 700;
     text-align: center;
+    margin-bottom: var(--padding-medium);
+    color: var(--highlight-color);
+  }
+
+  .highscore-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: var(--padding-medium);
   }
 
   .highscore-table {
-    border-collapse: collapse;
     width: 100%;
+    border-collapse: collapse;
     margin-bottom: var(--padding-large);
     box-shadow: var(--box-shadow);
   }
 
   .highscore-table th,
   .highscore-table td {
-    padding: var(--padding-medium);
+    padding: var(--padding-small) var(--padding-medium);
     text-align: left;
-    border-bottom: 1px solid var(--error-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   .highscore-table th {
-    font-weight: bold;
-    color: var(--button-text-color);
     background-color: var(--text-color);
+    color: var(--button-text-color);
+    font-weight: bold;
   }
 
   .highscore-table td {
-    color: var(--text-color);
     background-color: var(--secondary-color);
+    color: var(--text-color);
   }
 
   .category-highscore {
@@ -241,23 +246,44 @@ for (const category of categoriesNamesArray) {
   }
 
   .category-title {
-    margin-bottom: var(--padding-medium);
-
-    font-size: var(--header-font-size);
-    font-weight: bold;
-    color: var(--text-color);
+    font-size: 1.5rem;
+    font-weight: 600;
     text-align: center;
+    margin-bottom: var(--padding-medium);
+    color: var(--text-color);
   }
 
   .player-rank {
-    margin-top: var(--padding-small);
-    padding: var(--padding-small);
-
-    font-weight: bold;
-    color: var(--text-color);
     text-align: center;
-
-    background-color: var(--secondary-color);
+    margin-top: var(--padding-medium);
+    padding: var(--padding-small);
+    background-color: var(--highlight-color);
+    color: var(--button-text-color);
+    font-weight: bold;
     border-radius: var(--border-radius);
+  }
+
+  @media screen and (max-width: 768px) {
+    .highscore-intro,
+    .highscore-container {
+      padding: var(--padding-medium);
+    }
+
+    .highscore-title {
+      font-size: 1.75rem;
+    }
+
+    .highscore-subtitle {
+      font-size: 1.25rem;
+    }
+
+    .category-title {
+      font-size: 1.25rem;
+    }
+
+    .highscore-table th,
+    .highscore-table td {
+      font-size: 0.875rem;
+    }
   }
 </style>
