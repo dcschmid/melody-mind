@@ -23,7 +23,7 @@ import { Icon } from "astro-icon/components";
         <Icon name="deezer" width={36} height={36} />
       </a>
       <a id="apple-link" class="music-button" href="#" target="_blank">
-        <Icon name="apple" width={36} height={36} />
+        <Icon name="apple-music" width={36} height={36} />
       </a>
     </div>
 
@@ -243,45 +243,35 @@ import { Icon } from "astro-icon/components";
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const overlay = document.getElementById("overlay") as HTMLDivElement;
-    const overlayContent = document.querySelector(
-      ".overlay-content",
-    ) as HTMLDivElement;
+  const overlay = document.getElementById("overlay") as HTMLElement;
+  const observer = new MutationObserver(() => {
+    if (!overlay.classList.contains("hidden")) {
+      overlay.querySelector(".overlay-content")?.scrollTo({ top: 0 });
+    }
+  });
 
-    // Funktion um sicherzustellen, dass der Overlay-Inhalt nach dem Öffnen gescrollt wird
-    function scrollToTop() {
-      if (overlayContent) {
-        setTimeout(() => {
-          overlayContent.scrollTop = 0; // Scrollt den Inhalt nach dem Rendering auf den Anfang
-        }, 100); // Geringe Verzögerung, um sicherzustellen, dass das Overlay gerendert ist
+  observer.observe(overlay, { attributes: true, attributeFilter: ["class"] });
+
+  document.addEventListener("keydown", (event) => {
+    if (!overlay.classList.contains("hidden")) {
+      switch (event.key) {
+        case "ArrowDown":
+          overlay
+            .querySelector(".overlay-content")
+            ?.scrollBy({ top: 100, behavior: "smooth" });
+          break;
+        case "ArrowUp":
+          overlay
+            .querySelector(".overlay-content")
+            ?.scrollBy({ top: -100, behavior: "smooth" });
+          break;
+        case "Enter":
+        case "Escape":
+          document.getElementById("next-round-button")?.click();
+          break;
+        default:
+          break;
       }
     }
-
-    // Überwache das Overlay und scrolle den Inhalt nach oben, wenn es sichtbar wird
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach(() => {
-        if (!overlay.classList.contains("hidden")) {
-          scrollToTop(); // Scrollt nach oben, wenn das Overlay sichtbar ist
-        }
-      });
-    });
-
-    // Beobachte Änderungen an der Sichtbarkeit des Overlays
-    observer.observe(overlay, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    // Optional: Scrollen mit den Pfeiltasten
-    document.addEventListener("keydown", (event) => {
-      if (!overlay.classList.contains("hidden")) {
-        if (event.key === "ArrowDown") {
-          overlayContent.scrollBy({ top: 100, behavior: "smooth" });
-        } else if (event.key === "ArrowUp") {
-          overlayContent.scrollBy({ top: -100, behavior: "smooth" });
-        }
-      }
-    });
   });
 </script>
