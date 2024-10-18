@@ -1,5 +1,50 @@
 [
   {
+    "categoryUrl": "/50er",
+    "headline": "50er",
+    "imageUrl": "/category/50er.jpg",
+    "introSubline": "Erlebe den Sound des Rock ‘n’ Roll und die zeitlosen Klassiker der 50er Jahre!",
+    "isPlayable": false,
+    "slug": "50er",
+    "text": "Die 50er Jahre markierten den Beginn einer musikalischen Revolution, die den Rock ‘n’ Roll hervorbrachte und die moderne Popmusik formte. Dieses Jahrzehnt brachte unvergessliche Künstler wie Elvis Presley, Chuck Berry, Little Richard und Buddy Holly hervor, die mit ihren energiegeladenen Rhythmen und elektrisierenden Gitarrenriffs die Jugendkultur prägten. Neben Rock ‘n’ Roll war auch Doo-Wop, Rhythm & Blues und frühe Popmusik ein fester Bestandteil der 50er Jahre, mit Hits von Legenden wie Frank Sinatra und Ray Charles. Die Musik der 50er steht für Freiheit, Rebellion und den Beginn der Popkultur, die bis heute Einfluss auf die Musikwelt hat. Lass dich von den mitreißenden Rhythmen, den unvergesslichen Melodien und dem authentischen Sound der 50er Jahre mitreißen und erlebe das Jahrzehnt, das den Rock ‘n’ Roll zum Leben erweckte."
+  },
+  {
+    "categoryUrl": "/60er",
+    "headline": "60er",
+    "imageUrl": "/category/60er.jpg",
+    "introSubline": "Erlebe die revolutionären Klänge und die unvergesslichen Hits der 60er!",
+    "isPlayable": false,
+    "slug": "60er",
+    "text": "Die 60er Jahre waren ein Jahrzehnt der musikalischen Veränderung und Innovation. Diese Ära brachte einige der einflussreichsten Künstler und Bands hervor, die bis heute die Musikwelt prägen. Mit Legenden wie The Beatles, The Rolling Stones, Jimi Hendrix, The Supremes und Bob Dylan steht die Musik der 60er für die Entstehung von Rock, Motown, Folk und Psychedelic Rock. Die 60er Jahre waren auch ein Jahrzehnt des sozialen und kulturellen Umbruchs, was sich in den kraftvollen Texten und Melodien widerspiegelt. Von den eingängigen Pop-Hymnen der British Invasion bis hin zu den experimentellen Klängen der Hippie-Bewegung und der Protestlieder des Folk – die 60er waren ein prägendes Jahrzehnt für die Musikgeschichte. Lass dich von den zeitlosen Melodien und der innovativen Energie der 60er Jahre verzaubern und erlebe eine Ära, die die Welt veränderte."
+  },
+  {
+    "categoryUrl": "/70er",
+    "headline": "70er",
+    "imageUrl": "/category/70er.jpg",
+    "introSubline": "Erlebe die zeitlosen Klassiker und den unverwechselbaren Sound der 70er!",
+    "isPlayable": false,
+    "slug": "70er",
+    "text": "Die 70er Jahre waren ein Jahrzehnt der musikalischen Revolution, das viele prägende Genres wie Disco, Classic Rock, Funk und Punk hervorgebracht hat. Diese Kategorie vereint die größten Hits von Künstlern wie ABBA, Queen, Led Zeppelin, The Rolling Stones, David Bowie und Stevie Wonder. Ob du die energiegeladenen Grooves der Disco-Ära mit Künstlern wie Donna Summer und Bee Gees spüren oder die kraftvollen Gitarrenriffs des Rock erleben möchtest – die Musik der 70er bietet eine unglaubliche Vielfalt. Von den funky Beats des Funk bis hin zu den rebellischen Klängen des Punks hat dieses Jahrzehnt die Musikwelt nachhaltig geprägt. Lass dich von den ikonischen Melodien und dem zeitlosen Charme der 70er Jahre mitreißen und genieße eine musikalische Reise durch ein einzigartiges Jahrzehnt."
+  },
+  {
+    "categoryUrl": "/80er",
+    "headline": "80er",
+    "imageUrl": "/category/80er.jpg",
+    "introSubline": "Tauche ein in die unvergesslichen Sounds und die ikonischen Hits der 80er!",
+    "isPlayable": false,
+    "slug": "80er",
+    "text": "Die 80er Jahre waren ein Jahrzehnt voller musikalischer Innovationen und prägender Popkultur. Diese Kategorie vereint die größten Hits der 80er, die durch Synthesizer, tanzbare Beats und einzigartige Stile geprägt wurden. Mit Künstlern wie Michael Jackson, Madonna, Prince, Duran Duran, Depeche Mode und A-ha bietet die Musik der 80er eine bunte Mischung aus Pop, Rock, New Wave und Synth-Pop. Die 80er waren bekannt für ihre kraftvollen Refrains, epischen Gitarrensoli und unverwechselbaren Melodien, die bis heute zeitlos sind. Ob du zu den Rhythmen von Disco tanzen, den Glamour des Pop genießen oder die rebellischen Klänge des Rock fühlen möchtest – die 80er bieten das perfekte musikalische Erlebnis. Lass dich von den Retro-Vibes und den kultigen Sounds der 80er Jahre mitreißen und genieße eine Zeitreise in eines der prägendsten Jahrzehnte der Musikgeschichte!"
+  },
+  {
+    "categoryUrl": "/90er",
+    "headline": "90er",
+    "imageUrl": "/category/90er.jpg",
+    "introSubline": "Erlebe die unvergesslichen Hits und den Soundtrack eines ikonischen Jahrzehnts – die 90er!",
+    "isPlayable": false,
+    "slug": "90er",
+    "text": "Die 90er Jahre waren ein Jahrzehnt, das musikalisch alles bot – von Eurodance über Grunge bis hin zu Hip-Hop und Pop-Hymnen. Diese Kategorie vereint die größten Hits, die den Soundtrack dieser Zeit prägten, und bringt die besten Songs zurück, die bis heute nostalgische Erinnerungen wecken. Mit Künstlern wie Nirvana, Britney Spears, Backstreet Boys, 2Pac, Spice Girls und Oasis steht die 90er-Musik für Vielfalt, Innovation und einen unverwechselbaren Vibe. Ob du zu den energischen Rhythmen von Techno und Eurodance tanzen oder in den alternativen Rock-Sound eintauchen möchtest – die 90er haben für jeden Geschmack etwas zu bieten. Lass dich von den eingängigen Melodien und den kultigen Hits der 90er mitreißen und erlebe das Jahrzehnt, das die Musikwelt revolutionierte!"
+  },
+  {
     "categoryUrl": "/acoustic-metal",
     "headline": "Acoustic Metal",
     "imageUrl": "/category/acoustic-metal.jpg",
