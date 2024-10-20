@@ -351,15 +351,6 @@
     "text": "Desert Rock, auch bekannt als Stoner Rock, entstand in den weiten Wüsten Kaliforniens und zeichnet sich durch seine schweren, fuzzgetränkten Gitarrenriffs, hypnotischen Grooves und eine entspannte, oft träge Atmosphäre aus. Dieses Genre bietet eine Mischung aus rauem Hard Rock, psychedelischen Elementen und einem Hauch von Blues, die zusammen eine einzigartige Klanglandschaft schaffen. Mit Bands wie Kyuss, Queens of the Stone Age, Fu Manchu und Truckfighters verkörpert Desert Rock eine erdige, fast meditative Klangästhetik, die perfekt zu langen Fahrten durch heiße, endlose Wüsten passt. Die Musik bewegt sich zwischen drückenden, langsamen Rhythmen und treibenden, energiegeladenen Riffs, die eine besondere Spannung erzeugen. Lass dich von den sonnengetränkten Riffs und den entspannten Vibes des Desert Rock mitreißen und tauche ein in eine Welt, in der die Hitze und Weite der Wüste in jeden Ton einfließen."
   },
   {
-    "categoryUrl": "/desert-rock",
-    "headline": "Desert Rock",
-    "imageUrl": "/category/desert-rock.jpg",
-    "introSubline": "Spüre die staubigen Vibes und die hypnotischen Grooves des Desert Rock!",
-    "isPlayable": false,
-    "slug": "desert-rock",
-    "text": "Desert Rock, auch bekannt als Stoner Rock, entstand in den weiten Wüsten Kaliforniens und zeichnet sich durch seine schweren, fuzzgetränkten Gitarrenriffs, hypnotischen Grooves und eine entspannte, oft träge Atmosphäre aus. Dieses Genre bietet eine Mischung aus rauem Hard Rock, psychedelischen Elementen und einem Hauch von Blues, die zusammen eine einzigartige Klanglandschaft schaffen. Mit Bands wie Kyuss, Queens of the Stone Age, Fu Manchu und Truckfighters verkörpert Desert Rock eine erdige, fast meditative Klangästhetik, die perfekt zu langen Fahrten durch heiße, endlose Wüsten passt. Die Musik bewegt sich zwischen drückenden, langsamen Rhythmen und treibenden, energiegeladenen Riffs, die eine besondere Spannung erzeugen. Lass dich von den sonnengetränkten Riffs und den entspannten Vibes des Desert Rock mitreißen und tauche ein in eine Welt, in der die Hitze und Weite der Wüste in jeden Ton einfließen."
-  },
-  {
     "categoryUrl": "/detroit-techno",
     "headline": "Detroit Techno",
     "imageUrl": "/category/detroit-techno.jpg",
@@ -1375,6 +1366,15 @@
     "isPlayable": false,
     "slug": "trip-hop",
     "text": "Trip-Hop ist ein Genre, das die tiefen, hypnotischen Beats des Hip-Hop mit den melancholischen Melodien und atmosphärischen Texturen des Downtempo verbindet. Entstanden in den 1990er Jahren in Bristol, bietet Trip-Hop eine Mischung aus souligen Vocals, düsteren Instrumentals und elektronischen Klängen, die eine dichte, fast filmische Stimmung erzeugen. Diese Kategorie vereint die besten Tracks von Künstlern wie Massive Attack, Portishead und Tricky, die das Genre geprägt haben, sowie moderne Acts, die den Trip-Hop-Sound weiterentwickeln. Mit seinen rauchigen, entspannten Grooves und introspektiven Texten lädt Trip-Hop dazu ein, in eine tiefere, reflektierende Stimmung einzutauchen. Lass dich von den schwebenden Beats und der emotionalen Tiefe des Trip-Hop mitreißen und erlebe eine Klangwelt, die zugleich beruhigend und fesselnd ist."
+  },
+  {
+    "categoryUrl": "/tschechisch",
+    "headline": "Tschechisch",
+    "imageUrl": "/category/tschechisch.jpg",
+    "introSubline": "Erlebe die reiche musikalische Tradition und die modernen Klänge der tschechischen Musik!",
+    "isPlayable": false,
+    "slug": "tschechisch",
+    "text": "Die tschechische Musik ist tief in der Geschichte und Kultur Mitteleuropas verwurzelt und reicht von volkstümlichen Melodien bis hin zu moderner Pop- und Rockmusik. Diese Kategorie vereint die klassischen Werke berühmter Komponisten wie Antonín Dvořák und Bedřich Smetana, die mit ihren symphonischen und operativen Werken internationale Bekanntheit erlangten, mit modernen Hits der tschechischen Pop- und Rockszene. Bands wie Lucie und Kabát sowie Sängerinnen wie Ewa Farna prägen die aktuelle Musiklandschaft. Die tschechische Volksmusik, mit ihren charakteristischen Geigen- und Zitherklängen, erzählt Geschichten vom Leben auf dem Land und wird bis heute bei Festen und traditionellen Feierlichkeiten gespielt. Gleichzeitig ist die tschechische Musikszene ein Nährboden für innovative Sounds, in denen Rock, Pop und sogar elektronische Musik eine wichtige Rolle spielen. Lass dich von der reichen musikalischen Tradition und den modernen Klängen der tschechischen Musik mitreißen und tauche ein in die faszinierende Kultur eines Landes, das Musik tief in seiner Seele trägt."
   },
   {
     "categoryUrl": "/tuerkisch",
