@@ -475,12 +475,7 @@
       "easy": [
         {
           "question": "Welche bekannte Band hat in einem ihrer Songs von dem Album 'Skid Row' von Skid Row Elemente eines ber\u00fchmten Beatles-Songs verwendet?",
-          "options": [
-            "Guns N' Roses",
-            "Metallica",
-            "Nirvana",
-            "Bon Jovi"
-          ],
+          "options": ["Guns N' Roses", "Metallica", "Nirvana", "Bon Jovi"],
           "correctAnswer": "Guns N' Roses",
           "trivia": "Die Band Skid Row hat in ihrem Song 'Youth Gone Wild' auf dem Album 'Skid Row' von 1989 Elemente aus dem Beatles-Klassiker 'Come Together' referenziert. Dies zeigt, wie stark der Einfluss der Beatles auf viele Rockbands ist, auch auf Skid Row. 'Youth Gone Wild' wurde ein Hit und half der Band, sich in der Rockszene der sp\u00e4ten 80er Jahre zu etablieren. Skid Row selbst gilt als eine der einflussreichsten Bands des Glam Metal."
         },
@@ -510,12 +505,7 @@
       "medium": [
         {
           "question": "In welcher Stadt wurde das Deb\u00fctalbum 'Skid Row' von Skid Row, das 1989 ver\u00f6ffentlicht wurde, aufgenommen?",
-          "options": [
-            "Los Angeles",
-            "New York",
-            "San Francisco",
-            "Seattle"
-          ],
+          "options": ["Los Angeles", "New York", "San Francisco", "Seattle"],
           "correctAnswer": "Los Angeles",
           "trivia": "Das Album 'Skid Row' von Skid Row wurde in Los Angeles aufgenommen, einer Stadt, die bekannt ist f\u00fcr ihre lebendige Musikszene und zahlreiche ber\u00fchmte Aufnahmestudios. Die Band, die 1986 gegr\u00fcndet wurde, kombinierte Elemente des Glam Metal und Hard Rock und erreichte mit diesem Album gro\u00dfe Erfolge. Mit Hits wie '18 and Life' und 'I Remember You' gelang es Skid Row, sich schnell einen Namen in der Rockmusik zu machen und eine treue Fangemeinde zu gewinnen."
         },
@@ -1234,12 +1224,7 @@
         },
         {
           "question": "Welcher Song des Albums 'Dirty Rotten Filthy Stinking Rich' von Warrant wurde erstmals live w\u00e4hrend eines Auftritts im Jahr 1989 performt und erlangte schnell gro\u00dfe Popularit\u00e4t?",
-          "options": [
-            "Heaven",
-            "Down Boys",
-            "Uncle Tom's Cabin",
-            "I Saw Red"
-          ],
+          "options": ["Heaven", "Down Boys", "Uncle Tom's Cabin", "I Saw Red"],
           "correctAnswer": "Down Boys",
           "trivia": "Der Song 'Down Boys' wurde 1989 als einer der ersten Hits von Warrant live aufgef\u00fchrt und zeigte den typischen Glam-Metal-Stil der Band. Das Album 'Dirty Rotten Filthy Stinking Rich' brachte Warrant schnell in die Top-R\u00e4nge der Rockszene, und 'Down Boys' trug ma\u00dfgeblich zu ihrem Erfolg bei. Mit eing\u00e4ngigen Melodien und einem dynamischen Auftritt eroberten sie die Herzen der Fans und etablierten sich als eine der f\u00fchrenden Bands des Hair Metal in den sp\u00e4ten 80er Jahren."
         }
@@ -1468,12 +1453,7 @@
         },
         {
           "question": "In welchem Jahr wurde das Album 'New Jersey' von Bon Jovi ver\u00f6ffentlicht, das sich als eines der erfolgreichsten Werke der Band erwies?",
-          "options": [
-            "1986",
-            "1988",
-            "1990",
-            "1992"
-          ],
+          "options": ["1986", "1988", "1990", "1992"],
           "correctAnswer": "1988",
           "trivia": "Das Album 'New Jersey' von Bon Jovi wurde 1988 ver\u00f6ffentlicht und ist das vierte Studioalbum der Band. Es enth\u00e4lt mehrere Hits, darunter 'Bad Medicine' und 'I'll Be There for You', die ma\u00dfgeblich zum weltweiten Erfolg von Bon Jovi beitrugen. 'New Jersey' erreichte in vielen L\u00e4ndern hohe Chartplatzierungen und festigte den Status von Bon Jovi als eine der f\u00fchrenden Rockbands der 1980er Jahre."
         }
@@ -1620,12 +1600,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Pyromania' von Def Leppard wurde erstmals 1982 live aufgef\u00fchrt und gilt als einer der gr\u00f6\u00dften Hits der Band?",
-          "options": [
-            "Photograph",
-            "Rock of Ages",
-            "Foolin'",
-            "Stagefright"
-          ],
+          "options": ["Photograph", "Rock of Ages", "Foolin'", "Stagefright"],
           "correctAnswer": "Photograph",
           "trivia": "Der Song 'Photograph' von Def Leppard wurde erstmals 1982 w\u00e4hrend einer Live-Performance in England aufgef\u00fchrt, bevor das Album 'Pyromania' 1983 ver\u00f6ffentlicht wurde. Dieser Track entwickelte sich schnell zu einem der bekanntesten Lieder der Band und erreichte hohe Chartplatzierungen in den USA. 'Photograph' zeichnet sich durch seinen eing\u00e4ngigen Refrain und die kraftvollen Gitarrenriffs aus, die typisch f\u00fcr den Sound von Def Leppard sind. Der Erfolg des Songs trug entscheidend zur Etablierung der Band in der Rockmusikszene der 80er Jahre bei."
         }
@@ -1656,23 +1631,13 @@
         },
         {
           "question": "Welches ber\u00fchmte Musikgenre hat Poison mit ihrem Deb\u00fctalbum 'Look What the Cat Dragged In' im Jahr 1986 stark gepr\u00e4gt?",
-          "options": [
-            "Heavy Metal",
-            "Pop",
-            "Glam Rock",
-            "Punk Rock"
-          ],
+          "options": ["Heavy Metal", "Pop", "Glam Rock", "Punk Rock"],
           "correctAnswer": "Glam Rock",
           "trivia": "Poison ist eine Band, die ma\u00dfgeblich zur Popularit\u00e4t des Glam Rock in den 1980er Jahren beitrug. Ihr Deb\u00fctalbum 'Look What the Cat Dragged In' enth\u00e4lt eing\u00e4ngige Melodien und auff\u00e4llige Outfits, die f\u00fcr das Genre charakteristisch sind. Songs wie 'Talk Dirty to Me' und 'I Want Action' wurden zu Hits und verk\u00f6rpern den energiegeladenen Stil der Band. Dieses Album stellte Poison als eine der f\u00fchrenden Bands des Glam Rock und der Hair-Metal-Szene auf."
         },
         {
           "question": "In welchem Jahr trat die Band Poison mit ihrem Deb\u00fctalbum 'Look What the Cat Dragged In' zum ersten Mal auf Tournee?",
-          "options": [
-            "1985",
-            "1986",
-            "1987",
-            "1988"
-          ],
+          "options": ["1985", "1986", "1987", "1988"],
           "correctAnswer": "1986",
           "trivia": "Poison, die glam rock Band aus Pennsylvania, ver\u00f6ffentlichte ihr erstes Studioalbum 'Look What the Cat Dragged In' im Jahr 1986. Im selben Jahr starteten sie ihre erste gro\u00dfe Tournee, um das Album zu promoten, was ihnen half, sich schnell einen Namen in der Musikszene zu machen. Hits wie 'Talk Dirty to Me' und 'I Want Action' waren Teil ihres Sets und trugen ma\u00dfgeblich zu ihrem fr\u00fchen Erfolg bei. Die Tour war entscheidend, um ihre Fangemeinde zu vergr\u00f6\u00dfern und die Band in der Rockmusik zu etablieren."
         }
@@ -1832,12 +1797,7 @@
       "hard": [
         {
           "question": "Welcher unver\u00f6ffentlichte Song aus den Sessions f\u00fcr das Album 'Slave to the Grind' von Skid Row ist bekannt, aber nie offiziell ver\u00f6ffentlicht worden?",
-          "options": [
-            "Forever",
-            "The Mirror",
-            "Psycho Love",
-            "Dawn Patrol"
-          ],
+          "options": ["Forever", "The Mirror", "Psycho Love", "Dawn Patrol"],
           "correctAnswer": "Forever",
           "trivia": "Der Song 'Forever' wurde w\u00e4hrend der Aufnahmen zu 'Slave to the Grind' geschrieben, fand jedoch keinen Platz auf dem finalen Album. Skid Row, eine der einflussreichsten Rockbands der fr\u00fchen 90er Jahre, experimentierte w\u00e4hrend dieser Zeit mit musikalischen Stilen, weshalb einige ihrer besten St\u00fccke ungeh\u00f6rt blieben. 'Slave to the Grind' selbst gilt als eines der st\u00e4rksten Alben der Band und festigte ihren Status in der Rockszene."
         },
@@ -1854,12 +1814,7 @@
         },
         {
           "question": "Welches andere Musikgenre, das sich deutlich in den Kompositionen von Skid Rows Album 'Slave to the Grind' zeigt, hat einen erheblichen Einfluss auf den Sound der Band ausge\u00fcbt?",
-          "options": [
-            "Jazz",
-            "Reggae",
-            "Punk",
-            "Klassik"
-          ],
+          "options": ["Jazz", "Reggae", "Punk", "Klassik"],
           "correctAnswer": "Punk",
           "trivia": "Skid Rows Album 'Slave to the Grind' aus dem Jahr 1991 weist einen starken Einfluss des Punk-Genres auf, was sich in der Aggressivit\u00e4t und Energie der Songs niederschl\u00e4gt. Die Band integrierte Elemente des Punk, um ihren Sound rauer und unverf\u00e4lschter zu gestalten, was zu einem kraftvollen und dynamischen H\u00f6rerlebnis f\u00fchrte. Diese Verschmelzung von Glam Metal und Punk-Rock zeigt sich besonders in den aggressiven Riffs und den aufgeladenen Texten, die das Album pr\u00e4gen."
         }
@@ -1890,23 +1845,13 @@
         },
         {
           "question": "Welcher Song auf dem Album 'Cherry Pie' von Warrant enth\u00e4lt eine Zeile, die oft als eine Hommage an die Unbeschwertheit der Jugend interpretiert wird?",
-          "options": [
-            "Cherry Pie",
-            "I Saw Red",
-            "Uncle Tom's Cabin",
-            "Heaven"
-          ],
+          "options": ["Cherry Pie", "I Saw Red", "Uncle Tom's Cabin", "Heaven"],
           "correctAnswer": "Cherry Pie",
           "trivia": "Der Titeltrack 'Cherry Pie' von Warrant ist nicht nur das bekannteste Lied des gleichnamigen Albums aus dem Jahr 1990, sondern auch ein Symbol f\u00fcr die Glam-Rock-\u00c4ra. Der Song handelt von einer leidenschaftlichen, aber auch unbeschwerten Beziehung, die oft als Metapher f\u00fcr die Freuden und Herausforderungen der Jugend interpretiert wird. Mit eing\u00e4ngigen Melodien und einem unverkennbaren Refrain wurde 'Cherry Pie' zu einem der gr\u00f6\u00dften Hits der Band und festigte Warrants Platz in der Rockgeschichte."
         },
         {
           "question": "Welches ikonische Lied von Warrant, das auf dem Album 'Cherry Pie' von 1990 zu finden ist, wurde zu einem Markenzeichen der Band und gilt als einer der gr\u00f6\u00dften Hits des Glam Metal?",
-          "options": [
-            "Heaven",
-            "Cherry Pie",
-            "Uncle Tom's Cabin",
-            "I Saw Red"
-          ],
+          "options": ["Heaven", "Cherry Pie", "Uncle Tom's Cabin", "I Saw Red"],
           "correctAnswer": "Cherry Pie",
           "trivia": "Das Lied 'Cherry Pie' von Warrant ist nicht nur der Titeltrack des gleichnamigen Albums, sondern auch einer der bekanntesten Songs der Band. Die eing\u00e4ngige Melodie und der provokante Text machten den Song zu einem Hit, der in den fr\u00fchen 90er Jahren die Charts st\u00fcrmte. Der Song wurde zu einem Symbol des Glam Metal und hat bis heute einen hohen Wiedererkennungswert. Dar\u00fcber hinaus bleibt das Album 'Cherry Pie' ein wichtiges Werk in der Musikgeschichte, das Warrant zu internationalem Ruhm verhalf."
         }
@@ -1925,12 +1870,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'Cherry Pie' von Warrant wurde bei der ersten Live-Performance des Albums im Jahr 1990 besonders gefeiert und gilt seither als einer der bekanntesten Hits der Band?",
-          "options": [
-            "I Saw Red",
-            "Cherry Pie",
-            "Uncle Tom's Cabin",
-            "Heaven"
-          ],
+          "options": ["I Saw Red", "Cherry Pie", "Uncle Tom's Cabin", "Heaven"],
           "correctAnswer": "Cherry Pie",
           "trivia": "Der Song 'Cherry Pie' wurde bei der ersten Live-Performance des gleichnamigen Albums im Jahr 1990 besonders gefeiert und ist seitdem einer der bekanntesten Hits von Warrant. Mit seinem eing\u00e4ngigen Refrain und dem charakteristischen Gitarrenspiel wurde er schnell zu einer Hymne des Glam Metal der 90er Jahre. Der Song beschreibt eine leidenschaftliche, aber auch spielerische Beziehung und spiegelt den typischen Sound der Band wider, der Rock und Melodie perfekt vereint. 'Cherry Pie' wurde nicht nur zum Markenzeichen von Warrant, sondern auch zu einem der ikonischsten Songs des Hard Rock-Genres."
         },
@@ -1960,12 +1900,7 @@
         },
         {
           "question": "In welchem Jahr wurde das Album 'Cherry Pie' von Warrant ver\u00f6ffentlicht, das als einer der bekanntesten Vertreter des Glam Metal gilt und das die H\u00f6rgewohnheiten vieler Musikliebhaber in den fr\u00fchen 90er Jahren pr\u00e4gte?",
-          "options": [
-            "1988",
-            "1990",
-            "1992",
-            "1994"
-          ],
+          "options": ["1988", "1990", "1992", "1994"],
           "correctAnswer": "1990",
           "trivia": "'Cherry Pie' wurde 1990 ver\u00f6ffentlicht und ist das zweite Studioalbum von Warrant. Es enth\u00e4lt Hits wie den gleichnamigen Song 'Cherry Pie', der zum Markenzeichen der Band wurde und oft als Hymne des Glam Metal angesehen wird. Die eing\u00e4ngigen Melodien und der charakteristische Sound spiegeln die Musik\u00e4sthetik dieser \u00c4ra wider und trugen entscheidend zum kommerziellen Erfolg der Band bei, wodurch sie in der Rockszene der 90er Jahre eine bedeutende Rolle spielten."
         },
@@ -2241,12 +2176,7 @@
         },
         {
           "question": "Welches andere Musikgenre hatte einen sp\u00fcrbaren Einfluss auf das Album 'You Can\u2019t Stop Rock \u2018n\u2019 Roll' von Twisted Sister?",
-          "options": [
-            "Blues",
-            "Jazz",
-            "Punk",
-            "Klassik"
-          ],
+          "options": ["Blues", "Jazz", "Punk", "Klassik"],
           "correctAnswer": "Punk",
           "trivia": "Das Album 'You Can\u2019t Stop Rock \u2018n\u2019 Roll' von Twisted Sister, ver\u00f6ffentlicht im Jahr 1983, zeigt deutliche Einfl\u00fcsse des Punk-Rock. Die energiegeladenen und rebellischen Texte sowie die kraftvollen Gitarrenriffs sind Merkmale, die sowohl im Punk als auch im Glam Metal zu finden sind. Twisted Sister kombinierte diese Stile, um ihren eigenen unverwechselbaren Sound zu kreieren, der die Rockmusik der 80er Jahre nachhaltig pr\u00e4gte. Die Band war bekannt f\u00fcr ihre provokanten Auftritte und ihre Botschaften der Selbstakzeptanz und des Durchhaltens, die auch im Punk h\u00e4ufig thematisiert werden."
         },
@@ -2486,12 +2416,7 @@
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des selbstbetitelten Albums 'L.A. Guns' von L.A. Guns?",
-          "options": [
-            "1986",
-            "1988",
-            "1990",
-            "1992"
-          ],
+          "options": ["1986", "1988", "1990", "1992"],
           "correctAnswer": "1988",
           "trivia": "Das Album 'L.A. Guns', das 1988 von L.A. Guns ver\u00f6ffentlicht wurde, war ein wichtiger Beitrag zur Glam-Metal-Szene der sp\u00e4ten 80er Jahre. Es enthielt mehrere erfolgreiche Singles, darunter 'Electric Gypsy' und 'Cocaine', die den charakteristischen Sound der Band pr\u00e4gten. Mit seinem rauen und energiegeladenen Stil trug das Album zur Popularit\u00e4t von L.A. Guns bei und festigte ihren Platz in der Rockmusik der damaligen Zeit."
         }
@@ -2556,12 +2481,7 @@
         },
         {
           "question": "Welcher bekannte Musikproduzent war verantwortlich f\u00fcr die Produktionsarbeit an dem selbstbetitelten Deb\u00fctalbum 'L.A. Guns' von L.A. Guns, das 1988 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Bob Rock",
-            "Mack David",
-            "Mike Clink",
-            "Rick Rubin"
-          ],
+          "options": ["Bob Rock", "Mack David", "Mike Clink", "Rick Rubin"],
           "correctAnswer": "Mike Clink",
           "trivia": "Mike Clink, der f\u00fcr seine Zusammenarbeit mit Bands wie Guns N' Roses und Metallica bekannt ist, \u00fcbernahm die Produktion des Deb\u00fctalbums 'L.A. Guns' von L.A. Guns. Das Album, das 1988 ver\u00f6ffentlicht wurde, gilt als eines der wegweisenden Werke des Glam Metal und half der Band, ihren Platz in der Rockszene der sp\u00e4ten 1980er Jahre zu festigen. Clink's pr\u00e4ziser Produktionsstil trug erheblich zur charakteristischen Klangqualit\u00e4t des Albums bei, das Hits wie 'Sex Action' enth\u00e4lt. Diese Zusammenarbeit stellte einen wichtigen Schritt in der Karriere von L.A. Guns dar und machte sie zu einer der bekanntesten Bands des Genres."
         }
@@ -2744,23 +2664,13 @@
         },
         {
           "question": "Welcher Song auf dem Album '1984' von Van Halen hatte seine erste Live-Performance w\u00e4hrend der Tour im Jahr 1984?",
-          "options": [
-            "Jump",
-            "Panama",
-            "Hot for Teacher",
-            "I'll Wait"
-          ],
+          "options": ["Jump", "Panama", "Hot for Teacher", "I'll Wait"],
           "correctAnswer": "Jump",
           "trivia": "Der Song 'Jump' war die erste Singleauskopplung aus dem Album '1984' von Van Halen und wurde w\u00e4hrend der Tour im selben Jahr erstmals live gespielt. Die energiegeladene Performance des Songs, die von Eddie Van Halens ikonischem Synthesizer-Riff gepr\u00e4gt ist, trug ma\u00dfgeblich zum Erfolg des Albums bei. 'Jump' erreichte hohe Chartplatzierungen und wurde zu einem der bekanntesten Lieder der Band. Diese Live-Darbietungen halfen, die explosive B\u00fchnenpr\u00e4senz von Van Halen weiter zu etablieren."
         },
         {
           "question": "Welches ber\u00fchmte Zitat aus dem Album '1984' von Van Halen beschreibt ein Gef\u00fchl von Freiheit und Unbeschwertheit?",
-          "options": [
-            "Jump!",
-            "Panama!",
-            "Hot for Teacher!",
-            "I'll Wait!"
-          ],
+          "options": ["Jump!", "Panama!", "Hot for Teacher!", "I'll Wait!"],
           "correctAnswer": "Jump!",
           "trivia": "Das ikonische Zitat 'Jump!' aus dem gleichnamigen Song dr\u00fcckt den Aufruf zur Freiheit und zum Handeln aus. Van Halen, eine der einflussreichsten Rockbands der 1980er Jahre, ver\u00f6ffentlichte '1984' im Jahr 1984 und erreichte damit gro\u00dfe kommerzielle Erfolge. Der Song 'Jump!' wurde zu einem der bekanntesten Hits der Band und ist bekannt f\u00fcr seinen eing\u00e4ngigen Synthesizer-Riff, der den Sound der \u00c4ra pr\u00e4gt. 'Jump!' ermutigt die H\u00f6rer, Chancen zu ergreifen und Risiken einzugehen, was es zu einem zeitlosen Motto macht."
         }
@@ -2815,12 +2725,7 @@
       "easy": [
         {
           "question": "Welches innovative Musikmedium spielte eine wichtige Rolle bei der Verbreitung des Albums 'Stick It to Ya' von Slaughter, das 1990 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "CDs",
-            "Kassetten",
-            "Vinyl-Schallplatten",
-            "MP3-Formate"
-          ],
+          "options": ["CDs", "Kassetten", "Vinyl-Schallplatten", "MP3-Formate"],
           "correctAnswer": "CDs",
           "trivia": "Das Album 'Stick It to Ya' von Slaughter wurde in einer Zeit ver\u00f6ffentlicht, in der CDs zunehmend das bevorzugte Medium f\u00fcr Musikliebhaber wurden. CDs boten eine bessere Audioqualit\u00e4t und eine gr\u00f6\u00dfere Haltbarkeit im Vergleich zu Kassetten und Schallplatten. Diese technologische Innovation half Slaughter, ihre Musik einem breiteren Publikum zug\u00e4nglich zu machen, was zu ihrem kometenhaften Aufstieg in den fr\u00fchen 90er Jahren beitrug."
         },
@@ -3049,12 +2954,7 @@
       "easy": [
         {
           "question": "Welches andere Musikgenre hatte einen sp\u00fcrbaren Einfluss auf den Sound von Great White auf ihrem Album 'Once Bitten' aus dem Jahr 1987?",
-          "options": [
-            "Blues",
-            "Jazz",
-            "Hip-Hop",
-            "Klassik"
-          ],
+          "options": ["Blues", "Jazz", "Hip-Hop", "Klassik"],
           "correctAnswer": "Blues",
           "trivia": "Great White ist bekannt f\u00fcr ihren einzigartigen Mix aus Hard Rock und anderen Musikstilen, wobei der Blues eine wesentliche Rolle spielt. Auf dem Album 'Once Bitten' von 1987 sind viele Elemente des Blues zu h\u00f6ren, insbesondere in den Gitarrenriffs und den Gesangsmelodien. Diese Einfl\u00fcsse verleihen den Songs eine tiefere emotionale Resonanz und tragen zu ihrem charakteristischen Sound bei. Die Kombination aus kraftvollem Rock und bluesigen Kl\u00e4ngen macht Great White zu einer herausragenden Band der Rockmusik der 80er Jahre."
         },
@@ -3305,12 +3205,7 @@
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Danger Danger' von Danger Danger?",
-          "options": [
-            "1988",
-            "1989",
-            "1990",
-            "1991"
-          ],
+          "options": ["1988", "1989", "1990", "1991"],
           "correctAnswer": "1989",
           "trivia": "Das Album 'Danger Danger' von Danger Danger wurde im Jahr 1989 ver\u00f6ffentlicht und gilt als eines der pr\u00e4gendsten Werke des Glam Metal. Die Band, die in New York City gegr\u00fcndet wurde, kombinierte eing\u00e4ngige Melodien mit kraftvollen Gitarrenriffs und einem markanten Gesang. Der Titeltrack und die Hitsingle 'Naughty Naughty' trugen ma\u00dfgeblich zum Erfolg des Albums bei und festigten den Ruf der Band in der Rockszene der sp\u00e4ten 80er Jahre."
         }
@@ -3422,12 +3317,7 @@
         },
         {
           "question": "Welche ber\u00fchmte Rockband inspirierte Quiet Riot bei der Entstehung des Albums 'Metal Health', das 1983 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Led Zeppelin",
-            "Black Sabbath",
-            "AC/DC",
-            "Van Halen"
-          ],
+          "options": ["Led Zeppelin", "Black Sabbath", "AC/DC", "Van Halen"],
           "correctAnswer": "Black Sabbath",
           "trivia": "Quiet Riot lie\u00df sich bei der Schaffung von 'Metal Health' stark von der Musik und dem Stil von Black Sabbath inspirieren. Die d\u00fcstere Stimmung und die kraftvollen Riffs von Black Sabbath pr\u00e4gten nicht nur die Hard-Rock-Szene der 70er Jahre, sondern beeinflussten auch die Richtung von Quiet Riot. Insbesondere der Song 'Metal Health' zeigt die Einfl\u00fcsse des typischen Heavy-Metal-Sounds, der in der Musik von Black Sabbath verwurzelt ist. Diese Inspiration half Quiet Riot, ihren eigenen charakteristischen Sound zu entwickeln, der sie zu einer der f\u00fchrenden Bands des Glam Metal in den 80er Jahren machte."
         }
@@ -3517,12 +3407,7 @@
       "easy": [
         {
           "question": "In welchem Jahr wurde das Album 'The Final Countdown' von der Band Europe ver\u00f6ffentlicht?",
-          "options": [
-            "1985",
-            "1986",
-            "1987",
-            "1988"
-          ],
+          "options": ["1985", "1986", "1987", "1988"],
           "correctAnswer": "1986",
           "trivia": "Das Album 'The Final Countdown' von Europe wurde im Jahr 1986 ver\u00f6ffentlicht und markierte einen entscheidenden Moment in der Rockmusik der 80er Jahre. Der gleichnamige Titeltrack wurde ein weltweiter Hit und ist bis heute eines der bekanntesten Lieder der Band. Mit seiner eing\u00e4ngigen Melodie und dem charakteristischen Synthesizer-Intro hat sich der Song in die Geschichtsb\u00fccher der Musik eingetragen. Europe, eine schwedische Rockband, erzielte mit diesem Album nicht nur kommerziellen Erfolg, sondern pr\u00e4gte auch den Sound der damaligen Zeit."
         },
@@ -3539,12 +3424,7 @@
         },
         {
           "question": "Welches Jahr markierte die Ver\u00f6ffentlichung des ber\u00fchmten Albums 'The Final Countdown' von Europe, das in der Rockmusikgeschichte einen bleibenden Eindruck hinterlassen hat?",
-          "options": [
-            "1985",
-            "1986",
-            "1987",
-            "1988"
-          ],
+          "options": ["1985", "1986", "1987", "1988"],
           "correctAnswer": "1986",
           "trivia": "'The Final Countdown' von Europe wurde 1986 ver\u00f6ffentlicht und gilt als eines der bekanntesten Rockalben der 1980er Jahre. Der Titeltrack erreichte weltweite Popularit\u00e4t und wurde zu einer Hymne der \u00c4ra. Die Mischung aus eing\u00e4ngigen Melodien und kraftvollen Synthesizern trug dazu bei, dass das Album nicht nur kommerziell erfolgreich war, sondern auch in der Rockmusik als einflussreich angesehen wird."
         }
@@ -3680,12 +3560,7 @@
         },
         {
           "question": "Welcher bekannte Musikproduzent hat auf dem Album 'Vixen' von Vixen, das 1988 ver\u00f6ffentlicht wurde, mitgewirkt und war f\u00fcr den charakteristischen Sound der Band verantwortlich?",
-          "options": [
-            "Mutt Lange",
-            "Desmond Child",
-            "Bob Rock",
-            "Max Martin"
-          ],
+          "options": ["Mutt Lange", "Desmond Child", "Bob Rock", "Max Martin"],
           "correctAnswer": "Desmond Child",
           "trivia": "Desmond Child ist ein renommierter Songwriter und Musikproduzent, der f\u00fcr seine Zusammenarbeit mit zahlreichen bekannten K\u00fcnstlern bekannt ist. Auf dem Album 'Vixen' von Vixen, das 1988 erschien, trug er zur Produktion und zum Songwriting bei. Seine F\u00e4higkeit, eing\u00e4ngige Melodien zu kreieren, half Vixen, ihren charakteristischen Glam-Rock-Sound zu entwickeln. Child hat auch mit anderen gro\u00dfen Namen der Musikindustrie, wie Aerosmith und Bon Jovi, zusammengearbeitet."
         },
@@ -3726,12 +3601,7 @@
         },
         {
           "question": "In welcher Stadt wurde das Album 'Vixen' von Vixen, das 1988 ver\u00f6ffentlicht wurde, haupts\u00e4chlich aufgenommen?",
-          "options": [
-            "Los Angeles",
-            "New York City",
-            "Chicago",
-            "Nashville"
-          ],
+          "options": ["Los Angeles", "New York City", "Chicago", "Nashville"],
           "correctAnswer": "Los Angeles",
           "trivia": "Das Album 'Vixen' von Vixen wurde haupts\u00e4chlich in Los Angeles aufgenommen, einer Stadt, die bekannt ist f\u00fcr ihre lebendige Musikszene und viele ber\u00fchmte Aufnahmestudios. Vixen, eine der wenigen rein weiblichen Rockbands der 80er Jahre, erlangte mit Hits wie 'Edge of a Broken Heart' gro\u00dfe Bekanntheit. Los Angeles bot der Band die ideale Umgebung, um ihren kraftvollen Sound zu entwickeln und sich in der Glam-Metal-Szene zu etablieren. Die Verbindung zu dieser Stadt trug wesentlich zum Erfolg des Albums und zur Popularit\u00e4t der Band bei."
         }
@@ -3751,12 +3621,7 @@
       "easy": [
         {
           "question": "In welchem Jahr wurde das Album 'Faster Pussycat' von Faster Pussycat ver\u00f6ffentlicht, das in der Vergangenheit als Teil von Sportereignissen verwendet wurde?",
-          "options": [
-            "1985",
-            "1987",
-            "1989",
-            "1991"
-          ],
+          "options": ["1985", "1987", "1989", "1991"],
           "correctAnswer": "1987",
           "trivia": "Das Album 'Faster Pussycat', ver\u00f6ffentlicht im Jahr 1987, ist ein bemerkenswertes Werk der Glam-Rock-Band Faster Pussycat. Es enth\u00e4lt Hits wie 'Bathroom Wall', die nicht nur die Rockmusikszene pr\u00e4gten, sondern auch in verschiedenen Sportveranstaltungen und Werbespots eingesetzt wurden. Diese Verwendung in sportlichen Kontexten hat dazu beigetragen, die Band einem breiteren Publikum bekannt zu machen und ihre Musik in die Popkultur zu integrieren. Faster Pussycat ist bekannt f\u00fcr ihren einzigartigen Stil, der Elemente des Glam Rock mit einer rebellischen Attit\u00fcde verbindet."
         },
@@ -3786,12 +3651,7 @@
       "medium": [
         {
           "question": "In welchem Jahr trat die Band Faster Pussycat zum ersten Mal live auf, nachdem sie ihr Deb\u00fctalbum 'Faster Pussycat' ver\u00f6ffentlicht hatte?",
-          "options": [
-            "1985",
-            "1987",
-            "1988",
-            "1990"
-          ],
+          "options": ["1985", "1987", "1988", "1990"],
           "correctAnswer": "1987",
           "trivia": "Faster Pussycat gab ihr erstes gro\u00dfes Live-Konzert im Jahr 1987, kurz nach der Ver\u00f6ffentlichung ihres selbstbetitelten Deb\u00fctalbums 'Faster Pussycat'. Die Band, die f\u00fcr ihren besonderen Glam-Rock-Stil bekannt ist, tourte intensiv, um ihr Album zu promoten und neue Fans zu gewinnen. Ihre energiegeladenen Auftritte und der charakteristische Sound machten sie schnell zu einer festen Gr\u00f6\u00dfe in der Rockszene der sp\u00e4ten 80er Jahre. Diese Konzerte halfen der Band, ihren Ruf als dynamische Live-Act zu festigen."
         },
@@ -3879,12 +3739,7 @@
         },
         {
           "question": "Welches ber\u00fchmte Musikgenre wird oft mit dem Album 'Tooth and Nail' von Dokken in Verbindung gebracht, das 1984 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Heavy Metal",
-            "Jazz",
-            "Blues",
-            "Pop"
-          ],
+          "options": ["Heavy Metal", "Jazz", "Blues", "Pop"],
           "correctAnswer": "Heavy Metal",
           "trivia": "Das Album 'Tooth and Nail' von Dokken gilt als ein wegweisendes Werk im Heavy Metal-Genre der 1980er Jahre. Es zeigt die charakteristischen Merkmale des Genres, wie kraftvolle Gitarrenriffs und leidenschaftlichen Gesang. Die Band, gegr\u00fcndet in Los Angeles, war Teil der aufkommenden Glam-Metal-Szene und beeinflusste zahlreiche andere K\u00fcnstler. Songs wie 'Just Got Lucky' und der Titeltrack 'Tooth and Nail' sind bis heute Klassiker und zeigen Dokken's F\u00e4higkeit, eing\u00e4ngige Melodien mit hartem Sound zu kombinieren."
         },
@@ -4077,12 +3932,7 @@
         },
         {
           "question": "Welche ber\u00fchmte Rockband hatte einen signifikanten Einfluss auf den Stil und die musikalische Ausrichtung von Lita Ford in ihrem selbstbetitelten Album 'Lita' aus dem Jahr 1988?",
-          "options": [
-            "Black Sabbath",
-            "The Runaways",
-            "Led Zeppelin",
-            "Heart"
-          ],
+          "options": ["Black Sabbath", "The Runaways", "Led Zeppelin", "Heart"],
           "correctAnswer": "The Runaways",
           "trivia": "Lita Ford, bekannt als Mitglied der legend\u00e4ren M\u00e4dchenrockband The Runaways, lie\u00df sich stark von ihrer fr\u00fcheren Band inspirieren, als sie ihr Soloalbum 'Lita' ver\u00f6ffentlichte. Die Erfahrungen und der Stil, den sie w\u00e4hrend ihrer Zeit bei The Runaways entwickelte, pr\u00e4gten ihren Sound und ihre B\u00fchnenpr\u00e4senz. In 'Lita' kombiniert sie kraftvolle Gitarrenriffs und eing\u00e4ngige Melodien, die an die Energie ihrer fr\u00fcheren Arbeiten erinnern und gleichzeitig ihren eigenen individuellen Stil hervorheben."
         }
@@ -4534,12 +4384,7 @@
         },
         {
           "question": "In welchem Jahr gelang es dem Album 'Wake Me When It\u2019s Over' von Faster Pussycat, die Verkaufszahlen in den USA erheblich zu steigern und somit einen bedeutenden wirtschaftlichen Erfolg zu erzielen?",
-          "options": [
-            "1988",
-            "1989",
-            "1990",
-            "1991"
-          ],
+          "options": ["1988", "1989", "1990", "1991"],
           "correctAnswer": "1989",
           "trivia": "Das Album 'Wake Me When It\u2019s Over', das 1989 von Faster Pussycat ver\u00f6ffentlicht wurde, erreichte rasch hohe Verkaufszahlen und trug ma\u00dfgeblich zur Popularit\u00e4t der Band bei. Besonders der Hit 'House of Pain' half, das Album in den US-Albumcharts auf Platz 26 zu bringen. Dieser kommerzielle Erfolg stellte einen wichtigen Meilenstein in der Karriere von Faster Pussycat dar und festigte ihre Stellung in der Glam-Metal-Szene der sp\u00e4ten 80er Jahre."
         },
@@ -4687,12 +4532,7 @@
       "easy": [
         {
           "question": "Welches bekannte Album ver\u00f6ffentlichte die Rockband Great White im Jahr 1989, das f\u00fcr seinen Einfluss auf die Glam-Metal-Szene ber\u00fchmt ist?",
-          "options": [
-            "Twice Shy",
-            "Once Bitten",
-            "Hooked",
-            "Sail Away"
-          ],
+          "options": ["Twice Shy", "Once Bitten", "Hooked", "Sail Away"],
           "correctAnswer": "Twice Shy",
           "trivia": "Das Album 'Twice Shy' von Great White, das 1989 ver\u00f6ffentlicht wurde, gilt als eines der bedeutendsten Werke der Glam-Metal-\u00c4ra. Es enth\u00e4lt den Hit 'Once Bitten, Twice Shy', der ein gro\u00dfer kommerzieller Erfolg war und die Band zu internationalem Ruhm verhalf. Great White, bekannt f\u00fcr ihren markanten Sound und energiegeladene Live-Auftritte, kombinierte auf diesem Album Melodien mit kraftvollem Rock, was es zu einem Favoriten unter Fans machte. Die Mischung aus eing\u00e4ngigen Refrains und rockigen Gitarrenriffs machte 'Twice Shy' zu einem wichtigen Bestandteil der Musik der sp\u00e4ten 80er Jahre."
         },
@@ -5177,12 +5017,7 @@
         },
         {
           "question": "Welche Band hat sich bei der Entstehung des Albums 'Cocked & Loaded' von L.A. Guns von der Glam-Rock-Szene der 70er Jahre inspirieren lassen?",
-          "options": [
-            "Van Halen",
-            "Kiss",
-            "Def Leppard",
-            "Aerosmith"
-          ],
+          "options": ["Van Halen", "Kiss", "Def Leppard", "Aerosmith"],
           "correctAnswer": "Kiss",
           "trivia": "L.A. Guns lie\u00df sich bei ihrem Album 'Cocked & Loaded' stark von der Glam-Rock-Band Kiss inspirieren, deren extravagante B\u00fchnenpr\u00e4senz und eing\u00e4ngige Melodien einen gro\u00dfen Einfluss auf die Rockmusik der 80er Jahre hatten. Kiss, bekannt f\u00fcr ihre auff\u00e4lligen Kost\u00fcme und energiegeladenen Auftritte, hat die \u00c4sthetik und den Sound von vielen Bands dieser \u00c4ra gepr\u00e4gt. Die Mischung aus melodischem Rock und aggressiven Gitarrenriffs in 'Cocked & Loaded' spiegelt diese Inspiration wider und tr\u00e4gt zur zeitlosen Anziehungskraft des Albums bei."
         }
@@ -5400,23 +5235,13 @@
         },
         {
           "question": "In welchem Jahr fand der Aufnahmeprozess f\u00fcr das Album 'Back for the Attack' von Dokken statt?",
-          "options": [
-            "1985",
-            "1986",
-            "1987",
-            "1988"
-          ],
+          "options": ["1985", "1986", "1987", "1988"],
           "correctAnswer": "1987",
           "trivia": "Das Album 'Back for the Attack' von Dokken wurde 1987 ver\u00f6ffentlicht und gilt als eines der erfolgreichsten Werke der Band. Die Aufnahmen fanden in einem entscheidenden Jahr statt, in dem Dokken ihren charakteristischen Sound weiterentwickelten und die Hard-Rock-Szene ma\u00dfgeblich pr\u00e4gten. Mit Hits wie 'Dream Warriors' und 'Burning Like a Flame' festigten sie ihren Status und setzten neue Ma\u00dfst\u00e4be f\u00fcr die Musik der sp\u00e4ten 80er Jahre."
         },
         {
           "question": "In welchem Jahr ver\u00f6ffentlichte die Band Dokken ihr Album 'Back for the Attack'?",
-          "options": [
-            "1985",
-            "1987",
-            "1989",
-            "1990"
-          ],
+          "options": ["1985", "1987", "1989", "1990"],
           "correctAnswer": "1987",
           "trivia": "Das Album 'Back for the Attack' von Dokken wurde 1987 ver\u00f6ffentlicht und gilt als eines der bedeutendsten Werke der Glam-Metal-\u00c4ra. Es enth\u00e4lt Hits wie 'Dream Warriors', der auch im Soundtrack des Films 'A Nightmare on Elm Street 3: Dream Warriors' zu h\u00f6ren ist. Die kraftvollen Riffs und der charakteristische Gesang von Don Dokken trugen dazu bei, dass das Album kommerziell erfolgreich wurde und die Band in der Rockszene weiter etablierte."
         }
@@ -5506,12 +5331,7 @@
       "easy": [
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des selbstbetitelten Albums 'BulletBoys' von der Band BulletBoys, das eine wichtige Rolle im Glam-Metal-Genre der sp\u00e4ten 1980er Jahre spielte?",
-          "options": [
-            "1985",
-            "1988",
-            "1990",
-            "1992"
-          ],
+          "options": ["1985", "1988", "1990", "1992"],
           "correctAnswer": "1988",
           "trivia": "Das Album 'BulletBoys' wurde im Jahr 1988 ver\u00f6ffentlicht und gilt als ein Meilenstein des Glam-Metal. BulletBoys, gegr\u00fcndet in Los Angeles, kombinieren Hardrock-Elemente mit einem unverwechselbaren Glam-Stil. Mit Hits wie 'Smooth Up in Ya' erlangten sie gro\u00dfe Bekanntheit und trugen zur Popularit\u00e4t des Genres in dieser \u00c4ra bei. Das Album verkaufte sich gut und half der Band, sich in der Musikszene der sp\u00e4ten 80er Jahre zu etablieren."
         },
@@ -6148,12 +5968,7 @@
         },
         {
           "question": "Welcher Song aus dem Deb\u00fctalbum 'Enuff Z\u2019Nuff' von Enuff Z\u2019Nuff, das 1989 ver\u00f6ffentlicht wurde, entwickelte sich zu einem der bekanntesten Hits der Band und wird h\u00e4ufig im Radio gespielt?",
-          "options": [
-            "New Thing",
-            "Fly High Michelle",
-            "The Price",
-            "For Now"
-          ],
+          "options": ["New Thing", "Fly High Michelle", "The Price", "For Now"],
           "correctAnswer": "New Thing",
           "trivia": "Der Song 'New Thing' ist einer der bekanntesten Tracks aus dem selbstbetitelten Deb\u00fctalbum 'Enuff Z\u2019Nuff' von Enuff Z\u2019Nuff. Mit seinen eing\u00e4ngigen Melodien und dem charakteristischen Glam-Rock-Sound gelang es der Band, in den sp\u00e4ten 80er Jahren eine treue Fangemeinde zu gewinnen. 'New Thing' wird oft als Beispiel f\u00fcr den typischen Stil der Band betrachtet, der Elemente des Hard Rocks und des Pop vereint. Das Album selbst war ein wichtiger Schritt in der Karriere der Band und half, ihren Platz in der Musikszene zu festigen."
         }
@@ -6523,12 +6338,7 @@
         },
         {
           "question": "In welchem Jahr trat die Band Kix w\u00e4hrend ihrer Tour zum Album 'Hot Wire' in einem ber\u00fchmten Club in Los Angeles auf, der bekannt f\u00fcr seine Rolle in der Rockgeschichte ist?",
-          "options": [
-            "1989",
-            "1991",
-            "1993",
-            "1990"
-          ],
+          "options": ["1989", "1991", "1993", "1990"],
           "correctAnswer": "1991",
           "trivia": "Im Jahr 1991 tourte Kix intensiv zur Unterst\u00fctzung ihres Albums 'Hot Wire', das ihren charakteristischen Glam-Metal-Sound weiter festigte. Ein herausragendes Konzert fand im legend\u00e4ren Whisky a Go Go in Los Angeles statt, einem Ort, der f\u00fcr viele ikonische Rockbands der 60er und 70er Jahre bekannt ist. Diese Performance half Kix, ihre Fangemeinde zu erweitern und ihre Live-Qualit\u00e4ten zu demonstrieren, die sie zu einer beliebten Band im Rockgenre machten."
         },
@@ -6559,12 +6369,7 @@
       "easy": [
         {
           "question": "In welchem Jahr ver\u00f6ffentlichte die finnische Rockband Hanoi Rocks ihr Album 'Two Steps from the Move', das die Glam-Rock-Szene der 80er Jahre ma\u00dfgeblich beeinflusste?",
-          "options": [
-            "1982",
-            "1984",
-            "1986",
-            "1988"
-          ],
+          "options": ["1982", "1984", "1986", "1988"],
           "correctAnswer": "1984",
           "trivia": "Das Album 'Two Steps from the Move' von Hanoi Rocks wurde 1984 ver\u00f6ffentlicht und gilt als eines der einflussreichsten Werke der Glam-Rock-Bewegung. In dieser Zeit erlebte die Band einen gro\u00dfen Aufschwung und trug zur Popularit\u00e4t von Glam-Rock in Europa und Nordamerika bei. Mit Hits wie 'Don't You Ever Leave Me' und 'Boulevard of Broken Dreams' festigte die Band ihren Status und inspirierte zahlreiche Musiker nach ihnen. Das Album spiegelt den gesellschaftlichen Zeitgeist der 80er Jahre wider, in dem extravagante Mode und ein rebellischer Lebensstil dominierend waren."
         },
@@ -6581,12 +6386,7 @@
         },
         {
           "question": "Welches bekannte Musikgenre, das stark von Glam-Rock und Punk beeinflusst ist, pr\u00e4gte Hanoi Rocks und ihr Album 'Two Steps from the Move'?",
-          "options": [
-            "Heavy Metal",
-            "Grunge",
-            "Glam-Punk",
-            "Hip-Hop"
-          ],
+          "options": ["Heavy Metal", "Grunge", "Glam-Punk", "Hip-Hop"],
           "correctAnswer": "Glam-Punk",
           "trivia": "Hanoi Rocks ist bekannt f\u00fcr ihren einzigartigen Sound, der stark vom Glam-Punk Einfluss gepr\u00e4gt ist. Ihr Album 'Two Steps from the Move', ver\u00f6ffentlicht im Jahr 1984, vereint eing\u00e4ngige Melodien mit energiegeladenen Punk-Elementen und Spuren des Glam-Rock. Die Band, die in den fr\u00fchen 80er Jahren in Helsinki gegr\u00fcndet wurde, gilt als Pionier des Glam-Punk und hat zahlreiche andere K\u00fcnstler inspiriert."
         }
@@ -6676,12 +6476,7 @@
       "easy": [
         {
           "question": "In welchem Jahr wurde das Album 'Kingdom Come' von Kingdom Come ver\u00f6ffentlicht, als sich die Musikindustrie durch neue Technologien und Produktionsmethoden stark ver\u00e4nderte?",
-          "options": [
-            "1986",
-            "1988",
-            "1990",
-            "1992"
-          ],
+          "options": ["1986", "1988", "1990", "1992"],
           "correctAnswer": "1988",
           "trivia": "Das Album 'Kingdom Come', das 1988 von der gleichnamigen Band Kingdom Come ver\u00f6ffentlicht wurde, war ein bedeutendes Werk, das die Rockmusik der sp\u00e4ten 80er Jahre pr\u00e4gte. In dieser Zeit erlebte die Musikindustrie durch digitale Aufnahmeverfahren und Synthesizer eine technologische Revolution. Kingdom Come kombinierte traditionelle Rockelemente mit modernen Kl\u00e4ngen, was ihnen eine gro\u00dfe Fangemeinde einbrachte. Besonders der Hit 'Get It On' trug dazu bei, die Band in den Fokus der Rockmusik zu r\u00fccken."
         },
@@ -6793,12 +6588,7 @@
       "easy": [
         {
           "question": "In welchem Jahr wurde das Album 'Steelheart' von Steelheart ver\u00f6ffentlicht?",
-          "options": [
-            "1988",
-            "1990",
-            "1992",
-            "1995"
-          ],
+          "options": ["1988", "1990", "1992", "1995"],
           "correctAnswer": "1990",
           "trivia": "Das Album 'Steelheart' von Steelheart wurde 1990 ver\u00f6ffentlicht und markiert den Deb\u00fct-Langspieler der Band. Steelheart, bekannt f\u00fcr ihren kraftvollen Hardrock-Sound und die beeindruckende Stimme von S\u00e4nger Miljenko Matijevic, erlangte schnell Aufmerksamkeit in der Musikszene. Die Ver\u00f6ffentlichung des Albums beinhaltete Hits wie 'I'll Never Let You Go' und trug zur Popularit\u00e4t der Band in den fr\u00fchen 90er Jahren bei."
         },
@@ -7097,12 +6887,7 @@
       "hard": [
         {
           "question": "Welcher Song auf dem Album 'Badlands' von Badlands gilt als der gr\u00f6\u00dfte Crossover-Erfolg und erlangte besondere Popularit\u00e4t in den Rock- und Metal-Charts der sp\u00e4ten 80er Jahre?",
-          "options": [
-            "Dreams",
-            "Heaven's Call",
-            "Scream",
-            "Winter's Call"
-          ],
+          "options": ["Dreams", "Heaven's Call", "Scream", "Winter's Call"],
           "correctAnswer": "Dreams",
           "trivia": "Der Song 'Dreams' aus dem Album 'Badlands', ver\u00f6ffentlicht 1989, wurde zum gr\u00f6\u00dften Crossover-Erfolg des Albums und erreichte hohe Platzierungen in den Rock- und Metal-Charts. Badlands, eine Formation rund um den ehemaligen Ozzy Osbourne-Gitarristen Jake E. Lee, kombinierte in diesem Titel kraftvolle Riffs mit eing\u00e4ngigen Melodien, was zur breiten Akzeptanz des Songs in verschiedenen Musikgenres f\u00fchrte. 'Dreams' bleibt eines der markantesten St\u00fccke des Albums, das den charakteristischen Stil der Band pr\u00e4gte und bis heute von vielen Fans gesch\u00e4tzt wird."
         },
@@ -7225,12 +7010,7 @@
         },
         {
           "question": "Welches bedeutende Verkaufszertifikat erhielt das Album 'Reach for the Sky' von Ratt in den USA nach seiner Ver\u00f6ffentlichung im Jahr 1988?",
-          "options": [
-            "Platin",
-            "Gold",
-            "Silber",
-            "Diamant"
-          ],
+          "options": ["Platin", "Gold", "Silber", "Diamant"],
           "correctAnswer": "Platin",
           "trivia": "Das Album 'Reach for the Sky' von Ratt wurde in den USA mit Platin ausgezeichnet, was bedeutet, dass es \u00fcber eine Million Exemplare verkauft hat. Dies war ein weiterer Meilenstein in der Karriere von Ratt, die in den 1980er Jahren zu den bekanntesten Bands der Glam-Metal-Szene geh\u00f6rte. Besonders der Song 'Way Cool Jr.' trug zur Popularit\u00e4t des Albums bei und wurde ein Hit in den amerikanischen Billboard-Charts. Ratt konnte mit diesem Album nicht nur seinen Ruf festigen, sondern auch eine treue Fangemeinde gewinnen."
         },
@@ -7272,12 +7052,7 @@
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Saigon Kick' von Saigon Kick?",
-          "options": [
-            "1989",
-            "1991",
-            "1993",
-            "1995"
-          ],
+          "options": ["1989", "1991", "1993", "1995"],
           "correctAnswer": "1991",
           "trivia": "Das Deb\u00fctalbum 'Saigon Kick' von Saigon Kick wurde im Jahr 1991 ver\u00f6ffentlicht. Die Band, die in Florida gegr\u00fcndet wurde, kombinierte Elemente aus Hard Rock, Glam Metal und alternative Rock, was zu ihrem einzigartigen Sound beitrug. Das Album enth\u00e4lt den Hit 'Love is on the Way', der der Band gro\u00dfe Bekanntheit verschaffte und in den Rock-Charts erfolgreich war. 'Saigon Kick' legte den Grundstein f\u00fcr die Karriere der Band und half, ihren Ruf in der Musikszene der 90er Jahre zu festigen."
         },
@@ -7530,12 +7305,7 @@
       "medium": [
         {
           "question": "In welchem Jahr trat Tyketto erstmals live auf, um das Album 'Don\u2019t Come Easy' zu promoten?",
-          "options": [
-            "1991",
-            "1992",
-            "1993",
-            "1990"
-          ],
+          "options": ["1991", "1992", "1993", "1990"],
           "correctAnswer": "1991",
           "trivia": "Tyketto begann ihre erste Tour zur Promotion des Albums 'Don\u2019t Come Easy' im Jahr 1991. Diese Tour f\u00fchrte sie in zahlreiche St\u00e4dte und half dabei, die Band in der Rockszene bekannter zu machen. Das Deb\u00fctalbum, das die Hitsingle 'Forever Young' enthielt, fand gro\u00dfen Anklang und stellte die Weichen f\u00fcr den weiteren Erfolg der Band. Die energiegeladenen Live-Auftritte trugen ma\u00dfgeblich zur Beliebtheit von Tyketto bei und festigten ihren Status im Hard-Rock-Genre."
         },
@@ -7669,12 +7439,7 @@
         },
         {
           "question": "In welchem Jahr wurde das Album 'Boys in Heat' von Britny Fox ver\u00f6ffentlicht, das f\u00fcr seinen charakteristischen Glam-Metal-Sound bekannt ist?",
-          "options": [
-            "1987",
-            "1989",
-            "1991",
-            "1993"
-          ],
+          "options": ["1987", "1989", "1991", "1993"],
           "correctAnswer": "1989",
           "trivia": "Das Album 'Boys in Heat' wurde 1989 von Britny Fox ver\u00f6ffentlicht und stellte einen weiteren H\u00f6hepunkt f\u00fcr die Band im Glam-Metal-Genre dar. Es war das zweite Studioalbum der Gruppe und enthielt Hits wie 'Girl School' und 'Livin' on the Edge'. Die Ver\u00f6ffentlichung wurde von einer umfangreichen Tour begleitet, die half, die Popularit\u00e4t der Band weiter zu steigern. Britny Fox etablierte sich so als eine der pr\u00e4genden Bands dieser \u00c4ra."
         }
@@ -7927,12 +7692,7 @@
         },
         {
           "question": "In welcher Stadt wurde das Album 'Blue Murder' von Blue Murder im Jahr 1989 aufgenommen, das f\u00fcr seinen kraftvollen Hardrock-Sound bekannt ist?",
-          "options": [
-            "Los Angeles",
-            "London",
-            "New York",
-            "Nashville"
-          ],
+          "options": ["Los Angeles", "London", "New York", "Nashville"],
           "correctAnswer": "Los Angeles",
           "trivia": "Das Album 'Blue Murder' von Blue Murder wurde in Los Angeles aufgenommen, einer Stadt, die oft als Zentrum der Rockmusik gilt. Die Band, angef\u00fchrt von dem ehemaligen Whitesnake-Gitarristen John Sykes, kombinierte auf diesem Deb\u00fctalbum Elemente des Hardrock mit melodischen Hooks. Mit Songs wie 'Get Your Hands on Me' und 'Jelly Roll' stellte die Band ihr Talent unter Beweis und gewann schnell an Popularit\u00e4t. Los Angeles spielte eine entscheidende Rolle in der Rockmusik der 80er Jahre und bot der Band die perfekte Kulisse f\u00fcr ihre musikalischen Ambitionen."
         },
@@ -8442,23 +8202,13 @@
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Hear!' von Trixter, das eine wichtige Rolle in der Rockmusik der fr\u00fchen 90er Jahre spielte?",
-          "options": [
-            "1990",
-            "1992",
-            "1994",
-            "1996"
-          ],
+          "options": ["1990", "1992", "1994", "1996"],
           "correctAnswer": "1992",
           "trivia": "Das Album 'Hear!' von Trixter wurde 1992 ver\u00f6ffentlicht und gilt als eines der pr\u00e4gnanten Werke des Glam Rock. Mit Hits wie 'Give It to Me Good' und 'One in a Million' erreichte die Band in den fr\u00fchen 90er Jahren gro\u00dfe Popularit\u00e4t. Trixter, urspr\u00fcnglich aus New Jersey, kombinierte eing\u00e4ngige Melodien mit einem kraftvollen Rocksound und trug so zur Entwicklung der Musikszene in dieser Zeit bei. 'Hear!' festigte ihren Platz in der Rockgeschichte und bleibt ein beliebtes Album unter Fans des Genres."
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Hear!' von Trixter, das international gro\u00dfen Einfluss auf die Glam-Metal-Szene hatte?",
-          "options": [
-            "1990",
-            "1992",
-            "1995",
-            "1989"
-          ],
+          "options": ["1990", "1992", "1995", "1989"],
           "correctAnswer": "1992",
           "trivia": "Das Album 'Hear!' von Trixter wurde 1992 ver\u00f6ffentlicht und war ein bedeutendes Werk der Glam-Metal-Bewegung der fr\u00fchen 90er Jahre. Mit Hits wie 'Give It to Me Good' und 'One in a Million' erreichte die Band gro\u00dfe Popularit\u00e4t und trug zur internationalen Verbreitung des Genres bei. Trixter, die urspr\u00fcnglich aus New Jersey stammen, pr\u00e4gten mit ihrem eing\u00e4ngigen Sound und ihrem markanten Look die Musikwelt dieser \u00c4ra nachhaltig."
         }
@@ -9144,12 +8894,7 @@
         },
         {
           "question": "In welchem Jahr trat die Band Helix w\u00e4hrend ihrer Tour zum Album 'Long Way to Heaven' in zahlreichen St\u00e4dten auf?",
-          "options": [
-            "1984",
-            "1985",
-            "1986",
-            "1987"
-          ],
+          "options": ["1984", "1985", "1986", "1987"],
           "correctAnswer": "1985",
           "trivia": "Im Jahr 1985 tourte die kanadische Rockband Helix ausgiebig, um ihr Album 'Long Way to Heaven' zu promoten. Diese Tour war entscheidend f\u00fcr die Steigerung ihrer Popularit\u00e4t und f\u00fchrte sie in viele nordamerikanische St\u00e4dte. Das Album selbst enthielt Hits wie 'Rock You' und 'Deep Cuts the Knife', die beide w\u00e4hrend der Live-Auftritte gefeiert wurden und das Publikum begeisterten."
         },
@@ -9331,12 +9076,7 @@
         },
         {
           "question": "In welcher Stadt fand die Aufnahme des Albums 'The Final Frontier' von Keel, das im Jahr 1986 ver\u00f6ffentlicht wurde, statt?",
-          "options": [
-            "Los Angeles",
-            "New York",
-            "Chicago",
-            "San Francisco"
-          ],
+          "options": ["Los Angeles", "New York", "Chicago", "San Francisco"],
           "correctAnswer": "Los Angeles",
           "trivia": "Das Album 'The Final Frontier' von Keel wurde in Los Angeles aufgenommen, einer Stadt, die f\u00fcr ihre lebendige Musikszene und zahlreiche Studios bekannt ist. Keel, eine Hardrock-Band, konnte mit diesem Album ihren charakteristischen Sound weiterentwickeln und die Fans mit energiegeladenen Tracks begeistern. Los Angeles spielte eine zentrale Rolle in der Karriere vieler Rockbands der 80er Jahre, und die Wahl des Aufnahmeortes trug zur hohen Produktionsqualit\u00e4t des Albums bei. Die Band, gegr\u00fcndet in den fr\u00fchen 80er Jahren, hat sich mit ihrem melodischen Heavy Metal einen Namen gemacht."
         },
@@ -9740,12 +9480,7 @@
         },
         {
           "question": "Welches innovative Musikformat wurde w\u00e4hrend der Ver\u00f6ffentlichung des Albums 'Slave to the Thrill' von Hurricane im Jahr 1990 zunehmend popul\u00e4r?",
-          "options": [
-            "CD",
-            "Vinyl",
-            "Kassette",
-            "Streaming"
-          ],
+          "options": ["CD", "Vinyl", "Kassette", "Streaming"],
           "correctAnswer": "CD",
           "trivia": "Als Hurricane 1990 ihr Album 'Slave to the Thrill' herausbrachte, war die Compact Disc (CD) das aufstrebende Musikformat, das begann, die Kassette und die Schallplatte in den Hintergrund zu dr\u00e4ngen. Die CD bot eine bessere Klangqualit\u00e4t und eine h\u00f6here Haltbarkeit, was sie besonders bei Musikliebhabern beliebt machte. Dieses Album, das die kraftvolle Stimme von Frontmann Andreas W. und die markanten Gitarrenriffs der Band zeigt, konnte somit auch in diesem modernen Format viele Fans begeistern."
         }
@@ -9835,12 +9570,7 @@
       "easy": [
         {
           "question": "In welcher Stadt wurde das Album 'Shake Your Soul' von Baton Rouge aufgenommen?",
-          "options": [
-            "New Orleans",
-            "Los Angeles",
-            "Nashville",
-            "Atlanta"
-          ],
+          "options": ["New Orleans", "Los Angeles", "Nashville", "Atlanta"],
           "correctAnswer": "Los Angeles",
           "trivia": "Das Album 'Shake Your Soul' von Baton Rouge wurde in Los Angeles aufgenommen, einer Stadt, die f\u00fcr ihre lebendige Musikszene und ihre erstklassigen Aufnahmestudios bekannt ist. Baton Rouge, eine Rockband aus den USA, erlangte mit diesem Album Bekanntheit und kombinierte Elemente aus Glam Metal und Hard Rock. Die Wahl von Los Angeles als Aufnahmelocation spiegelt den Einfluss der Stadt auf die Musikindustrie in den sp\u00e4ten 80ern und fr\u00fchen 90ern wider."
         },
@@ -10115,12 +9845,7 @@
         },
         {
           "question": "Welche ber\u00fchmte Band, die f\u00fcr ihren einzigartigen Stil bekannt ist, lie\u00df sich bei der Entstehung des Albums 'Mechanical Resonance' von Tesla aus dem Jahr 1986 inspirieren?",
-          "options": [
-            "Led Zeppelin",
-            "Aerosmith",
-            "Queen",
-            "AC/DC"
-          ],
+          "options": ["Led Zeppelin", "Aerosmith", "Queen", "AC/DC"],
           "correctAnswer": "Aerosmith",
           "trivia": "Tesla, eine Rockband aus Sacramento, Kalifornien, lie\u00df sich stark von Aerosmith inspirieren, insbesondere in Bezug auf ihren melodischen Hardrock-Sound und die starke Gesangsdarbietung. 'Mechanical Resonance' enth\u00e4lt einige Elemente, die an den Stil von Aerosmith erinnern, insbesondere in Songs wie 'Modern Day Cowboy'. Diese musikalischen Einfl\u00fcsse trugen dazu bei, dass Tesla eine eigene, unverwechselbare Identit\u00e4t in der Rockmusik entwickelte."
         },
@@ -10208,12 +9933,7 @@
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Law of the Order' von Shark Island, das f\u00fcr seinen Einfluss auf das musikalische Revival der sp\u00e4ten 80er Jahre bekannt ist?",
-          "options": [
-            "1987",
-            "1989",
-            "1990",
-            "1988"
-          ],
+          "options": ["1987", "1989", "1990", "1988"],
           "correctAnswer": "1989",
           "trivia": "Das Album 'Law of the Order' von Shark Island wurde 1989 ver\u00f6ffentlicht und gilt als ein bedeutendes Werk des Glam Metal und Hard Rock. Die Band, die in den sp\u00e4ten 80er Jahren aktiv war, kombinierte melodische Hooks mit kraftvollen Gitarrenriffs und trug damit zur Wiederbelebung des Rock-Genres bei. Mit Songs wie 'Paris' und 'Falling Rain' zog die Band die Aufmerksamkeit auf sich und festigte ihren Platz in der Musikszene dieser Zeit."
         }
@@ -10629,12 +10349,7 @@
         },
         {
           "question": "In welcher Stadt fand die Aufnahme des Albums 'Right Between the Eyes' von Icon statt, das 1989 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Los Angeles",
-            "New York",
-            "Chicago",
-            "Seattle"
-          ],
+          "options": ["Los Angeles", "New York", "Chicago", "Seattle"],
           "correctAnswer": "Los Angeles",
           "trivia": "Das Album 'Right Between the Eyes' von Icon wurde in Los Angeles aufgenommen, einer Stadt, die als Zentrum der Musikindustrie gilt. Los Angeles ist bekannt f\u00fcr seine vielf\u00e4ltige Musikszene und hat zahlreichen K\u00fcnstlern und Bands als kreativer Schmelztiegel gedient. Icon, eine Band, die sich durch ihren kraftvollen Hardrock-Sound auszeichnet, profitierte von der einzigartigen Atmosph\u00e4re und den professionellen Studios der Stadt, um ihre musikalische Vision zu verwirklichen. Die Songs auf diesem Album reflektieren nicht nur den typischen Sound der sp\u00e4ten 80er Jahre, sondern auch die Einfl\u00fcsse, die die Band w\u00e4hrend ihrer Zeit in Los Angeles aufnahm."
         }
@@ -10771,12 +10486,7 @@
       "easy": [
         {
           "question": "Welches Musikvideo von Dirty Looks, das vom Album 'Cool from the Wire' stammt, gilt als besonders pr\u00e4gnant f\u00fcr den Glam-Rock-Stil der Band?",
-          "options": [
-            "Oh Ruby",
-            "She's a Teaser",
-            "Hot Shot",
-            "Get Away"
-          ],
+          "options": ["Oh Ruby", "She's a Teaser", "Hot Shot", "Get Away"],
           "correctAnswer": "Oh Ruby",
           "trivia": "Das Musikvideo zu 'Oh Ruby' von Dirty Looks, ver\u00f6ffentlicht auf dem Album 'Cool from the Wire' im Jahr 1988, verk\u00f6rpert den Glam-Rock-Stil der Band perfekt. In diesem Video werden die charakteristischen Elemente des Glam-Rock, wie auff\u00e4llige Outfits und eine energiegeladene Performance, eindrucksvoll zur Schau gestellt. Dirty Looks, bekannt f\u00fcr ihren unverwechselbaren Sound und Stil, kombinieren in diesem Track eing\u00e4ngige Melodien mit rockigen Gitarrenriffs, was das Lied zu einem Highlight des Albums macht."
         },
@@ -10852,12 +10562,7 @@
         },
         {
           "question": "Mit welchem bekannten K\u00fcnstler kollaborierte die Band Dirty Looks auf ihrem Album 'Cool from the Wire', das 1988 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Kurt Cobain",
-            "Paul Stanley",
-            "Lita Ford",
-            "Axl Rose"
-          ],
+          "options": ["Kurt Cobain", "Paul Stanley", "Lita Ford", "Axl Rose"],
           "correctAnswer": "Paul Stanley",
           "trivia": "Dirty Looks arbeitete mit Paul Stanley, dem legend\u00e4ren Frontmann von Kiss, an ihrem Album 'Cool from the Wire'. Stanley steuerte seine kreativen F\u00e4higkeiten bei und trug zur Erschaffung des charakteristischen Sounds bei, der das Album pr\u00e4gte. Diese Zusammenarbeit brachte eine interessante Fusion aus Glam-Rock und Hard Rock hervor, die das Album zu einem besonderen Erlebnis f\u00fcr Fans von beiden K\u00fcnstlern machte. Das Werk wird oft f\u00fcr seine eing\u00e4ngigen Melodien und seine energiegeladenen Performances gelobt."
         },
@@ -10910,12 +10615,7 @@
         },
         {
           "question": "Wie hoch waren die ungef\u00e4hren Produktionskosten f\u00fcr das Album 'Over the Edge' von Hurricane, das 1988 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "50.000 DM",
-            "150.000 DM",
-            "100.000 DM",
-            "200.000 DM"
-          ],
+          "options": ["50.000 DM", "150.000 DM", "100.000 DM", "200.000 DM"],
           "correctAnswer": "100.000 DM",
           "trivia": "Die Produktionskosten f\u00fcr das Album 'Over the Edge' von Hurricane beliefen sich auf etwa 100.000 DM. Dieses Budget umfasste sowohl die Aufnahmekosten als auch die Produktions- und Marketingausgaben. Hurricane, eine bekannte deutsche Rockband, erreichte mit diesem Album gro\u00dfe Erfolge und festigte ihren Platz in der Musikszene der sp\u00e4ten 80er Jahre. 'Over the Edge' enth\u00e4lt einige ihrer bekanntesten Songs, die bis heute Fans begeistern."
         }
@@ -11086,12 +10786,7 @@
         },
         {
           "question": "Mit welchem renommierten Produzenten arbeitete der K\u00fcnstler XYZ an seinem 1991 ver\u00f6ffentlichten Album 'Hungry', um den charakteristischen Sound des Albums zu kreieren?",
-          "options": [
-            "David Foster",
-            "Rick Rubin",
-            "Bob Ezrin",
-            "Toto"
-          ],
+          "options": ["David Foster", "Rick Rubin", "Bob Ezrin", "Toto"],
           "correctAnswer": "Bob Ezrin",
           "trivia": "XYZ arbeitete an dem Album 'Hungry' mit dem legend\u00e4ren Produzenten Bob Ezrin zusammen, der f\u00fcr seine innovative Arbeit mit K\u00fcnstlern wie Pink Floyd und Alice Cooper bekannt ist. Ezrin brachte seine umfangreiche Erfahrung und kreative Vision in die Produktion ein, was dem Album eine einzigartige Klanglandschaft verlieh. Die Zusammenarbeit f\u00fchrte zu mehreren erfolgreichen Singles und half, den Sound von XYZ in den fr\u00fchen 90er Jahren zu definieren."
         },
@@ -11331,12 +11026,7 @@
         },
         {
           "question": "In welchem Jahr, als das Album 'Mane Attraction' von White Lion ver\u00f6ffentlicht wurde, erlebte die Musikindustrie bedeutende technologische Ver\u00e4nderungen durch den Aufstieg der CD-Technologie?",
-          "options": [
-            "1989",
-            "1991",
-            "1993",
-            "1995"
-          ],
+          "options": ["1989", "1991", "1993", "1995"],
           "correctAnswer": "1991",
           "trivia": "Das Album 'Mane Attraction' von White Lion wurde 1991 ver\u00f6ffentlicht, einem Jahr, in dem die CD-Technologie ihren Durchbruch feierte und die Schallplatte zunehmend abl\u00f6ste. Diese technologische Innovation ver\u00e4nderte nicht nur die Art und Weise, wie Musik konsumiert wurde, sondern beeinflusste auch die Art und Weise, wie K\u00fcnstler wie White Lion ihre Alben produzierten und vermarkteten. Die Songs auf 'Mane Attraction', darunter Hits wie 'Little Fighter', profitierten von der verbesserten Klangqualit\u00e4t und der h\u00f6heren Speicherkapazit\u00e4t der CDs, was zu einem abwechslungsreicheren und dynamischeren H\u00f6rerlebnis f\u00fchrte."
         }
