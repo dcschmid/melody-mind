@@ -55,13 +55,15 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 
   <div
     id="question-container"
+    role="main"
+    aria-label="Spielbereich"
     data-categoryName={currentCategoryData?.headline}
     data-genre={category}
     data-userID={user.id}
     date-difficulty={difficulty}
   >
-    <div id="question"></div>
-    <div id="options"></div>
+    <div id="question" role="heading" aria-level="2"></div>
+    <div id="options" role="radiogroup" aria-label="Antwortmöglichkeiten"></div>
   </div>
 
   <Joker />
@@ -312,15 +314,67 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 
         const shuffledOptions = shuffleArray([...question.options]);
 
+        questionContainer.setAttribute("role", "main");
+        questionContainer.setAttribute("aria-label", "Aktuelle Spielfrage");
+
+        questionElement.setAttribute("role", "heading");
+        questionElement.setAttribute("aria-level", "2");
+
+        optionsContainer.setAttribute("role", "radiogroup");
+        optionsContainer.setAttribute("aria-label", "Antwortmöglichkeiten");
+
+        // Erstelle alle Buttons
         shuffledOptions.forEach(function (option: any) {
           const button = document.createElement("button");
           button.textContent = option;
           button.className = "button";
-          button.onclick = function () {
+          button.setAttribute("role", "radio");
+          button.setAttribute("aria-checked", "false");
+          button.setAttribute("aria-label", `Antwort auswählen: ${option}`);
+
+          button.onclick = () =>
             handleAnswer(option, question.correctAnswer, question, album);
-          };
           optionsContainer.appendChild(button);
         });
+
+        // Keyboard Navigation
+        const options =
+          document.querySelectorAll<HTMLElement>("#options button");
+        options.forEach((button, index) => {
+          button.addEventListener("keydown", (e: KeyboardEvent) => {
+            switch (e.key) {
+              case "ArrowDown":
+              case "ArrowRight":
+                e.preventDefault();
+                const nextButton = options[(index + 1) % options.length];
+                nextButton.focus();
+                break;
+              case "ArrowUp":
+              case "ArrowLeft":
+                e.preventDefault();
+                const prevButton =
+                  options[(index - 1 + options.length) % options.length];
+                prevButton.focus();
+                break;
+              case "Enter":
+              case " ":
+                e.preventDefault();
+                const optionText = button.textContent || "";
+                handleAnswer(
+                  optionText,
+                  question.correctAnswer,
+                  question,
+                  album,
+                );
+                break;
+            }
+          });
+        });
+
+        // Setze initialen Fokus
+        if (options.length > 0) {
+          options[0].focus();
+        }
 
         spinner.classList.add("hidden");
         questionContainer.classList.remove("hidden");
@@ -375,7 +429,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       const nextRoundButton = document.getElementById(
         "next-round-button",
       ) as HTMLButtonElement;
-      nextRoundButton.focus();
 
       nextRoundButton.onclick = function () {
         stopAudio(); // Stoppt die Audio-Vorschau, wenn das Overlay geschlossen wird.

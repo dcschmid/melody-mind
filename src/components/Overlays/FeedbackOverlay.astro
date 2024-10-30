@@ -2,8 +2,15 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<div id="overlay" class="overlay hidden">
+<div
+  id="overlay"
+  class="overlay hidden"
+  role="dialog"
+  aria-labelledby="overlay-title"
+  aria-modal="true"
+>
   <div class="overlay-content">
+    <h2 id="overlay-title">Auflösung</h2>
     <p id="feedback" class="feedback"></p>
 
     <!-- Dynamische Anzeige: Cover oder Audio Player -->
@@ -265,7 +272,6 @@ import { Icon } from "astro-icon/components";
             .querySelector(".overlay-content")
             ?.scrollBy({ top: -100, behavior: "smooth" });
           break;
-        case "Enter":
         case "Escape":
           document.getElementById("next-round-button")?.click();
           break;

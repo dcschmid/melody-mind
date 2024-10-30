@@ -218,6 +218,11 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
         color: var(--text-color);
       }
 
+      .button:focus {
+        outline: 3px solid var(--text-color);
+        outline-offset: 2px;
+      }
+
       .button.hidden {
         overflow: hidden;
 
@@ -226,6 +231,17 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
         padding: 0;
 
         opacity: 0;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
       }
     </style>
   </body>
