@@ -6,45 +6,147 @@ interface Props {
 const { headline = "" } = Astro.props;
 ---
 
-<div class="gameHeadline">
-  <div class="category">{headline}</div>
-  <div>Runde <span class="round"></span></div>
-</div>
+<header class="gameHeadline" role="banner" aria-label="Spielinformationen">
+  <h1 class="category" id="game-category">
+    {headline}
+  </h1>
+  <div class="roundInfo" aria-live="polite">
+    Runde <span class="round" aria-label="Aktuelle Rundennummer"></span>
+  </div>
+</header>
 
 <style lang="scss">
   .gameHeadline {
-    margin: var(--padding-medium) 0;
+    position: relative;
+    width: 100%;
+    max-width: var(--max-line-length);
+    margin: var(--padding-medium) auto;
     padding: var(--padding-medium);
 
-    font-size: 1.25rem;
-    font-weight: 900;
-    color: var(--text-color);
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-small);
+    align-items: center;
+    justify-content: center;
 
     background: linear-gradient(
       90deg,
       var(--highlight-color),
       var(--secondary-color)
-    ); /* Farbverlauf */
-
+    );
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 
-    transition:
-      transform 0.3s ease-in-out,
-      box-shadow 0.3s ease-in-out;
+    // Bessere Animation mit Reduced Motion Support
+    @media (prefers-reduced-motion: no-preference) {
+      transition:
+        transform var(--transition-speed) ease-in-out,
+        box-shadow var(--transition-speed) ease-in-out;
 
-    .category {
-      font-weight: bold;
-      color: var(--text-color);
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-elevated);
+      }
+    }
+
+    // Mobile Anpassungen
+    @media (max-width: 768px) {
+      margin: var(--padding-small) auto;
+      padding: var(--padding-small);
+    }
+  }
+
+  .category {
+    font-family: var(--font-family);
+    font-size: var(--header-font-size);
+    font-weight: 900;
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--spacing-text);
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--text-color);
+    margin: 0;
+
+    // Verbesserte Lesbarkeit
+    text-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+
+    // Responsive Textgröße
+    @media (max-width: 768px) {
+      font-size: calc(var(--header-font-size) * 0.85);
+    }
+  }
+
+  .roundInfo {
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    font-weight: 600;
+    line-height: var(--line-height-body);
+    color: var(--text-color);
+
+    display: flex;
+    align-items: center;
+    gap: var(--padding-small);
+  }
+
+  .round {
+    font-weight: 700;
+    color: var(--text-color);
+
+    // Optischer Fokus auf die Rundennummer
+    padding: calc(var(--padding-small) / 2) var(--padding-small);
+    background-color: rgb(255 255 255 / 15%);
+    border-radius: calc(var(--border-radius) / 2);
+  }
+
+  // High Contrast Mode Support
+  @media (forced-colors: active) {
+    .gameHeadline {
+      border: 2px solid CanvasText;
+      background: Canvas;
     }
 
     .round {
-      padding-left: var(--padding-small);
-      font-size: 1.25rem;
-      color: var(--text-color);
+      border: 1px solid CurrentColor;
+    }
+  }
+
+  // Print Styles
+  @media print {
+    .gameHeadline {
+      background: none;
+      box-shadow: none;
+      border: 1px solid #000;
+    }
+
+    .category,
+    .roundInfo {
+      color: #000;
+    }
+  }
+
+  // Kontrastverbesserung bei dunklem Hintergrund
+  @media (prefers-color-scheme: dark) {
+    .category,
+    .roundInfo {
+      text-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+    }
+  }
+
+  // Bessere Touch-Ziele
+  @media (hover: none) and (pointer: coarse) {
+    .gameHeadline {
+      padding: calc(var(--padding-medium) * 1.2);
     }
   }
 </style>
+
+<script>
+  // Hilfsfunktion zum Aktualisieren der Rundennummer
+  export function updateRoundNumber(round: number) {
+    const roundElement = document.querySelector(".round");
+    if (roundElement) {
+      roundElement.textContent = round.toString();
+      roundElement.setAttribute("aria-label", `Aktuelle Runde: ${round}`);
+    }
+  }
+</script>

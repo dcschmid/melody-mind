@@ -2,41 +2,140 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<div class="coins">
-  <div class="count">
-    <Icon class="icon" name="coin" width={24} height={24} />
-    <span class="coinsCount">0</span>
+<div
+  class="coinsContainer"
+  role="status"
+  aria-label="Gesammelte Münzen"
+  aria-live="polite"
+>
+  <div class="coinsDisplay">
+    <Icon
+      class="coinIcon"
+      name="coin"
+      width={24}
+      height={24}
+      aria-hidden="true"
+    />
+    <span class="coinsCount" aria-atomic="true">
+      <span class="sr-only">Gesammelte Münzen:</span>
+      <span class="count">0</span>
+    </span>
   </div>
 </div>
 
 <style lang="scss">
-  .coins {
+  .coinsContainer {
     display: flex;
-    flex-direction: column;
-    gap: var(--padding-small);
     align-items: center;
-
-    max-width: 120px;
+    justify-content: center;
+    min-width: var(--min-touch-target);
+    max-width: min(120px, 100%);
     padding: var(--padding-small);
-
-    color: var(--text-color);
-
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+
+    // Hover Effekt
+    @media (hover: hover) {
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-elevated);
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition:
+        transform var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease;
+    }
   }
 
-  .count {
+  .coinsDisplay {
     display: flex;
     align-items: center;
-
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-color);
+    gap: var(--padding-small);
+    padding: calc(var(--padding-small) / 2);
   }
 
-  [data-icon] {
-    margin-right: 0.5rem;
+  .coinIcon {
+    color: var(--highlight-color);
+    filter: drop-shadow(0 2px 4px rgb(0 0 0 / 15%));
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: bounce 1s ease infinite;
+    }
+  }
+
+  .coinsCount {
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    font-weight: 700;
+    line-height: var(--line-height-tight);
     color: var(--text-color);
+
+    // Nummernanzeige optimieren
+    font-variant-numeric: tabular-nums;
+
+    .count {
+      display: inline-block;
+      min-width: 1.5ch;
+      text-align: right;
+    }
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-2px);
+    }
+  }
+
+  // High Contrast Mode Support
+  @media (forced-colors: active) {
+    .coinsContainer {
+      border: 2px solid CanvasText;
+    }
+
+    .coinIcon {
+      forced-color-adjust: none;
+      color: LinkText;
+    }
+  }
+
+  // Dark Mode Optimierungen
+  @media (prefers-color-scheme: dark) {
+    .coinsContainer {
+      background-color: color-mix(in srgb, var(--secondary-color) 85%, black);
+    }
+
+    .coinIcon {
+      filter: drop-shadow(0 2px 4px rgb(0 0 0 / 30%));
+    }
+  }
+
+  // Mobile Optimierungen
+  @media (max-width: 768px) {
+    .coinsContainer {
+      padding: calc(var(--padding-small) * 0.75);
+    }
+
+    .coinsCount {
+      font-size: calc(var(--body-font-size) * 0.9);
+    }
+  }
+
+  // Print Styles
+  @media print {
+    .coinsContainer {
+      box-shadow: none;
+      border: 1px solid #000;
+    }
+
+    .coinIcon {
+      display: none;
+    }
   }
 </style>

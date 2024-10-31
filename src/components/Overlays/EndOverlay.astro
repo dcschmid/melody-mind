@@ -1,16 +1,40 @@
 ---
+interface Props {
+  title?: string;
+  motivationText?: string;
+}
 
+const {
+  title = "Spiel beendet!",
+  motivationText = "Toll gemacht! Noch ein paar Runden und du bist ein Champion!",
+} = Astro.props;
 ---
 
-<div id="endgame-popup" class="popup hidden">
-  <div class="popup-content">
-    <h2>Spiel beendet!</h2>
-    <p class="motivation-text">
-      Toll gemacht! Noch ein paar Runden und du bist ein Champion!
-    </p>
-    <p>Erreichte Punkte: <span id="popup-score"></span></p>
-    <div class="centerButton">
-      <button id="restart-button" class="button">Neues Spiel</button>
+<div
+  id="endgame-popup"
+  class="popup hidden"
+  role="dialog"
+  aria-labelledby="popup-title"
+  aria-modal="true"
+  aria-live="polite"
+>
+  <div class="popupContent" role="document" tabindex="0">
+    <h2 id="popup-title" class="title">{title}</h2>
+    <p class="motivationText">{motivationText}</p>
+
+    <div class="scoreSection" role="status" aria-live="polite">
+      <span class="scoreLabel">Erreichte Punkte:</span>
+      <span id="popup-score" class="scoreValue"></span>
+    </div>
+
+    <div class="buttonWrapper">
+      <button
+        id="restart-button"
+        class="restartButton"
+        aria-label="Starte ein neues Spiel"
+      >
+        Neues Spiel
+      </button>
     </div>
   </div>
 </div>
@@ -18,31 +42,53 @@
 <style lang="scss">
   .popup {
     position: fixed;
-    z-index: 1000;
+    z-index: var(--layer-above);
     inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(31, 14, 22, 0.9);
-    color: var(--text-color);
-    padding: var(--padding-large);
+    padding: var(--padding-medium);
+    background-color: rgb(31 14 22 / 90%);
+    backdrop-filter: blur(8px);
+
+    &.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: opacity var(--transition-speed) ease-in-out;
+    }
   }
 
-  .popup-content {
-    background-color: var(--button-text-color);
-    padding: var(--padding-large);
-    max-width: 400px;
+  .popupContent {
     width: 100%;
+    max-width: min(400px, 90vw);
+    padding: var(--padding-large);
+    background-color: var(--secondary-color);
     border-radius: var(--border-radius);
-    text-align: center;
     box-shadow: var(--box-shadow);
-    animation: fadeIn 0.5s ease-in-out;
+    text-align: center;
+
+    &:focus {
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: popIn var(--transition-speed) ease-out;
+    }
+
+    @media (max-width: 768px) {
+      padding: var(--padding-medium);
+    }
   }
 
-  @keyframes fadeIn {
+  @keyframes popIn {
     from {
       opacity: 0;
-      transform: scale(0.9);
+      transform: scale(0.95);
     }
     to {
       opacity: 1;
@@ -50,42 +96,132 @@
     }
   }
 
-  h2 {
+  .title {
+    font-family: var(--font-family);
     font-size: var(--header-font-size);
+    font-weight: 700;
+    line-height: var(--line-height-body);
     color: var(--highlight-color);
-    margin-bottom: var(--padding-small);
+    margin-bottom: var(--padding-medium);
   }
 
-  .motivation-text {
-    font-size: 1.125rem;
+  .motivationText {
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    line-height: var(--line-height-body);
     font-style: italic;
     color: var(--text-color);
     margin-bottom: var(--padding-medium);
   }
 
-  #popup-score {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--highlight-color);
-    margin-bottom: var(--padding-medium);
+  .scoreSection {
+    margin: var(--padding-medium) 0;
   }
 
-  .centerButton .button {
-    padding: var(--padding-small) var(--padding-medium);
-    font-size: var(--button-font-size);
-    background-color: var(--highlight-color);
+  .scoreLabel {
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
     color: var(--text-color);
+    margin-right: var(--padding-small);
+  }
+
+  .scoreValue {
+    font-family: var(--font-family);
+    font-size: calc(var(--body-font-size) * 1.25);
+    font-weight: 700;
+    color: var(--highlight-color);
+  }
+
+  .buttonWrapper {
+    margin-top: var(--padding-medium);
+  }
+
+  .restartButton {
+    padding: var(--padding-medium) var(--padding-large);
+    font-family: var(--font-family);
+    font-size: var(--button-font-size);
+    font-weight: 600;
+    color: var(--button-text-color);
+    background-color: var(--highlight-color);
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
-    box-shadow: var(--box-shadow);
-    transition:
-      background-color var(--transition-speed),
-      transform 0.2s ease;
+    min-width: var(--min-touch-target);
+    min-height: var(--min-touch-target);
+
+    &:hover {
+      background-color: var(--button-hover-color);
+    }
+
+    &:focus-visible {
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: background-color var(--transition-speed) ease;
+    }
   }
 
-  .centerButton .button:hover {
-    background-color: var(--button-hover-color);
-    transform: scale(1.05);
+  // High Contrast Mode Support
+  @media (forced-colors: active) {
+    .popupContent {
+      border: 2px solid CanvasText;
+    }
+
+    .restartButton {
+      border: 2px solid ButtonText;
+    }
+  }
+
+  // Print Styles
+  @media print {
+    .popup {
+      position: static;
+      background: none;
+      padding: 0;
+    }
+
+    .popupContent {
+      box-shadow: none;
+      border: 1px solid #000;
+    }
+
+    .restartButton {
+      display: none;
+    }
   }
 </style>
+
+<script>
+  const popup = document.getElementById("endgame-popup");
+  const restartButton = document.getElementById("restart-button");
+
+  // Verbesserte Keyboard-Navigation
+  document.addEventListener("keydown", (event) => {
+    if (!popup?.classList.contains("hidden")) {
+      if (event.key === "Escape") {
+        restartButton?.click();
+      }
+    }
+  });
+
+  // Fokus-Management
+  const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.type === "attributes" &&
+          mutation.attributeName === "class"
+        ) {
+          const element = mutation.target as HTMLElement;
+          if (!element.classList.contains("hidden")) {
+            (element.querySelector(".popupContent") as HTMLElement)?.focus();
+          }
+        }
+      });
+    });
+
+  if (popup) {
+    observer.observe(popup, { attributes: true });
+  }
+</script>

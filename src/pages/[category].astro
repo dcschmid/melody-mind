@@ -5,6 +5,14 @@ import Button from "@components/Shared/Button.astro";
 import IntroText from "@components/Shared/IntroText.astro";
 import categories from "@json/categories.json";
 
+interface Category {
+  slug: string;
+  headline: string;
+  introSubline: string;
+  imageUrl: string;
+  text: string;
+}
+
 /**
  * Get the user object from the Astro context
  */
@@ -31,7 +39,9 @@ const { category } = Astro.params;
  * Find the category object in the categories array that matches the category parameter.
  * If the category is not found, redirect the user to a 404 page.
  */
-const currentCategory = categories.find((cat: any) => cat.slug === category);
+const currentCategory = categories.find(
+  (cat: Category) => cat.slug === category,
+);
 
 if (!currentCategory) {
   /**
@@ -42,53 +52,66 @@ if (!currentCategory) {
 ---
 
 <Layout title={`${currentCategory?.headline} Start`}>
-  <div slot="left-headercol"></div>
-
   <IntroText
     headline={`${currentCategory?.headline} gewählt!`}
     subline={currentCategory?.introSubline}
   />
 
-  <div class="category" data-category={currentCategory?.slug}>
-    <div class="cover">
+  <article
+    class="category"
+    data-category={currentCategory?.slug}
+    aria-labelledby="difficulty-heading"
+  >
+    <div
+      class="cover"
+      role="img"
+      aria-label={`${currentCategory?.headline} Cover-Bild`}
+    >
       <Picture
         class="coverImage"
-        src={currentCategory?.imageUrl as string}
+        src={currentCategory?.imageUrl}
         width={280}
         height={280}
         formats={["avif", "webp"]}
-        alt={`${currentCategory?.headline} Cover`}
+        alt=""
+        loading="eager"
       />
     </div>
-    <div class="text">
-      {currentCategory?.text}
-    </div>
 
-    <div class="buttonHeadline">Wähle deinen Schwierigkeitsgrad</div>
-    <div class="centerButton">
-      <Button buttonText="Leicht" url={`${currentCategory?.slug}/easy`} />
-      <Button buttonText="Mittel" url={`${currentCategory?.slug}/medium`} />
-      <Button buttonText="Schwer" url={`${currentCategory?.slug}/hard`} />
+    <p class="text">
+      {currentCategory?.text}
+    </p>
+
+    <div class="difficultySection">
+      <h2 id="difficulty-heading" class="buttonHeadline">
+        Wähle deinen Schwierigkeitsgrad
+      </h2>
+      <div class="buttonGroup" role="group" aria-label="Schwierigkeitsgrade">
+        <Button
+          buttonText="Leicht"
+          url={`${currentCategory?.slug}/easy`}
+          aria-label="Starte Spiel im leichten Modus"
+        />
+        <Button
+          buttonText="Mittel"
+          url={`${currentCategory?.slug}/medium`}
+          aria-label="Starte Spiel im mittleren Modus"
+        />
+        <Button
+          buttonText="Schwer"
+          url={`${currentCategory?.slug}/hard`}
+          aria-label="Starte Spiel im schweren Modus"
+        />
+      </div>
     </div>
-  </div>
+  </article>
 </Layout>
 
 <style lang="scss">
-  .introText {
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-medium);
-    margin-bottom: var(--padding-medium);
-    text-align: center;
-    color: var(--text-color);
-  }
-
-  .headline {
-    font-size: var(--header-font-size);
-    font-weight: 900;
-    line-height: 1.2;
-    letter-spacing: 0.36px;
-    color: var(--highlight-color);
+  .categoryPage {
+    max-width: var(--max-line-length);
+    margin: 0 auto;
+    padding: var(--padding-medium);
   }
 
   .category {
@@ -96,17 +119,20 @@ if (!currentCategory) {
     flex-direction: column;
     align-items: center;
     gap: var(--padding-medium);
-    max-width: 1024px;
-    margin: 0 auto;
+    width: 100%;
     padding: var(--padding-large);
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease-in-out;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform var(--transition-speed) ease-in-out;
+    }
   }
 
   .cover {
     margin: 0 auto;
+    position: relative;
   }
 
   .coverImage {
@@ -114,65 +140,67 @@ if (!currentCategory) {
     height: auto;
     max-width: 280px;
     border-radius: var(--border-radius);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transition:
-      transform 0.3s ease-in-out,
-      box-shadow 0.3s ease-in-out;
-  }
+    box-shadow: var(--box-shadow);
 
-  .coverImage:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    @media (prefers-reduced-motion: no-preference) {
+      transition:
+        transform var(--transition-speed) ease-in-out,
+        box-shadow var(--transition-speed) ease-in-out;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 24px rgb(0 0 0 / 30%);
+    }
   }
 
   .text {
     max-width: 700px;
     margin: 0 auto;
+    font-family: var(--font-family);
     font-size: var(--body-font-size);
-    font-weight: 400;
-    line-height: 1.6;
-    hyphens: auto;
+    line-height: var(--line-height-body);
+    letter-spacing: var(--spacing-text);
     text-align: center;
     color: var(--text-color);
+    hyphens: auto;
+  }
+
+  .difficultySection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--padding-medium);
+    width: 100%;
   }
 
   .buttonHeadline {
-    font-size: 1.5rem;
+    font-family: var(--font-family);
+    font-size: var(--header-font-size);
     font-weight: 700;
-    line-height: 1.5;
+    line-height: var(--line-height-body);
     text-align: center;
     color: var(--text-color);
-    margin-top: var(--padding-medium);
   }
 
-  .centerButton {
+  .buttonGroup {
     display: flex;
     gap: var(--padding-medium);
     justify-content: center;
     flex-wrap: wrap;
+
+    // Verbesserte Touch-Targets
+    padding: calc(var(--padding-small) / 2);
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      width: 100%;
+      max-width: 300px;
+    }
   }
 
-  .centerButton button {
-    padding: var(--padding-small) var(--padding-large);
-    font-size: var(--button-font-size);
-    font-weight: 600;
-    color: var(--button-text-color);
-    background-color: var(--highlight-color);
-    border: none;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition:
-      background-color 0.3s ease,
-      transform 0.2s ease;
-    cursor: pointer;
-  }
-
-  .centerButton button:hover {
-    background-color: var(--button-hover-color);
-    transform: scale(1.05);
-  }
-
-  @media screen and (max-width: 768px) {
+  // Responsive Anpassungen
+  @media (max-width: 768px) {
     .category {
       padding: var(--padding-medium);
     }
@@ -180,32 +208,26 @@ if (!currentCategory) {
     .coverImage {
       max-width: 200px;
     }
-
-    .text {
-      font-size: 1rem;
-    }
-
-    .buttonHeadline {
-      font-size: 1.125rem;
-    }
   }
 
-  @media screen and (max-width: 480px) {
-    .centerButton {
-      flex-direction: column;
-      gap: var(--padding-small);
-    }
-
+  @media (max-width: 480px) {
     .coverImage {
       max-width: 150px;
     }
 
-    .headline {
-      font-size: 1.25rem;
+    .buttonHeadline {
+      font-size: calc(var(--header-font-size) * 0.8);
+    }
+  }
+
+  // High Contrast Mode Anpassungen
+  @media (forced-colors: active) {
+    .category {
+      border: 2px solid CanvasText;
     }
 
-    .buttonHeadline {
-      font-size: 1rem;
+    .buttonGroup button {
+      border: 2px solid ButtonText;
     }
   }
 </style>

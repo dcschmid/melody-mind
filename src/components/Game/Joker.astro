@@ -2,22 +2,140 @@
 
 ---
 
-<div class="joker-container">
-  <button id="joker-button" class="button">50:50 Joker</button>
-  <p id="joker-count" class="joker-count">Joker: 0 verbleibend</p>
+<div class="jokerContainer" role="group" aria-labelledby="joker-title">
+  <span id="joker-title" class="sr-only">Joker Optionen</span>
+  <button
+    id="joker-button"
+    class="jokerButton"
+    aria-label="50:50 Joker einsetzen"
+    aria-describedby="joker-description"
+  >
+    50:50 Joker
+  </button>
+  <p id="joker-count" class="jokerCount">
+    <span class="buttonText">50:50 Joker</span>
+  </p>
+  <span id="joker-description" class="sr-only">
+    Entfernt zwei falsche Antwortmöglichkeiten
+  </span>
 </div>
 
 <style lang="scss">
-  .joker-container {
+  .jokerContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: var(--padding-small) 0;
+    gap: var(--padding-small);
+    margin: var(--padding-medium) 0;
+    padding: var(--padding-small);
+  }
+
+  .jokerButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--padding-small);
+
+    min-width: var(--min-touch-target);
+    min-height: var(--min-touch-target);
+    padding: var(--padding-small) var(--padding-medium);
+
+    font-family: var(--font-family);
+    font-size: var(--button-font-size);
+    font-weight: 600;
+    line-height: var(--line-height-tight);
+    color: var(--button-text-color);
+
+    background-color: var(--highlight-color);
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      background-color: var(--button-hover-color);
+    }
+
+    &:focus-visible {
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
+    }
+
+    &:disabled {
+      opacity: var(--opacity-disabled);
+      cursor: not-allowed;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition:
+        background-color var(--transition-speed) ease,
+        transform var(--transition-speed) ease,
+        opacity var(--transition-speed) ease;
+
+      &:hover:not(:disabled) {
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .buttonIcon {
+    font-size: 1.2em;
   }
 
   .joker-count {
     margin-top: var(--padding-small);
     font-size: 1.2rem;
     color: var(--highlight-color);
+  }
+
+  .jokerCount {
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    line-height: var(--line-height-body);
+    color: var(--text-color);
+    text-align: center;
+
+    .count {
+      font-weight: 700;
+      color: var(--highlight-color);
+    }
+  }
+
+  // High Contrast Mode Support
+  @media (forced-colors: active) {
+    .jokerButton {
+      border: 2px solid ButtonText;
+
+      &:disabled {
+        border: 2px solid GrayText;
+      }
+    }
+  }
+
+  // Dark Mode Anpassungen
+  @media (prefers-color-scheme: dark) {
+    .jokerButton {
+      box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
+    }
+  }
+
+  // Mobile Optimierungen
+  @media (max-width: 768px) {
+    .jokerContainer {
+      margin: var(--padding-small) 0;
+    }
+
+    .jokerButton {
+      width: 100%;
+      max-width: 300px;
+      padding: calc(var(--padding-small) * 1.2);
+    }
+  }
+
+  // Print Styles
+  @media print {
+    .jokerContainer {
+      display: none;
+    }
   }
 </style>

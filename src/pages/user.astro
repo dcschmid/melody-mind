@@ -5,110 +5,212 @@ import { Icon } from "astro-icon/components";
 import { getGoldenLPs } from "@utils/db/getGoldenLPs";
 import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
 
-/**
- * Get the user object from the Astro context
- */
+interface GoldenLP {
+  difficulty: string;
+}
+
 const user = Astro.locals.user;
 
-/**
- * If the user is not logged in, redirect them to the login page.
- */
 if (!user) {
-  /**
-   * Redirect the user to the login page.
-   */
   return Astro.redirect("/");
 }
 
-const goldenLPs: { [genre: string]: any } = await getGoldenLPs(user?.id);
+const goldenLPs: Record<string, GoldenLP> = await getGoldenLPs(user?.id);
 ---
 
-<Layout title="User Profile">
-  <div class="content">
+<Layout title="Benutzerprofil">
+  <main class="userProfile">
     <HeaderSection />
 
-    <div class="goldenlps">
-      <div class="goldenlpsHeader">
-        <div class="lpHeadline">Meine gewonnene Schallplatten</div>
-      </div>
-      <div class="lpsRoot">
-        {
-          Object.keys(goldenLPs).map((genre) => (
-            <div class="goldenlpsItem">
-              <div class="lpGroup">
+    <section class="achievementsSection" aria-labelledby="achievements-title">
+      <h2 id="achievements-title" class="sectionTitle">
+        Meine gewonnenen Schallplatten
+      </h2>
+
+      {
+        Object.keys(goldenLPs).length > 0 ? (
+          <div
+            class="achievementsGrid"
+            role="list"
+            aria-label="Liste der gewonnenen Schallplatten"
+          >
+            {Object.entries(goldenLPs).map(([genre, data]) => (
+              <article class="achievementCard" role="listitem">
+                <div class="cardIcon" aria-hidden="true">
                 <Icon name="golden-lp" width={80} height={80} />
-              </div>
-              <div class="lpText">{genre}</div>
-              <div>
-                {getTitleBasedOnDifficulty(goldenLPs?.[genre]?.difficulty)}
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </div>
-
-  <style lang="scss">
-    .content {
-      padding: var(--padding-medium);
-      background-color: var(--secondary-color);
-      border-radius: var(--border-radius);
-      box-shadow: var(--box-shadow);
-    }
-
-    .lpHeadline {
-      margin-bottom: var(--padding-medium);
-
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--highlight-color);
-      text-align: center;
-    }
-
-    .goldenlps {
-      display: flex;
-      flex-direction: column;
-      gap: var(--padding-large);
-      align-items: center;
-
-      margin: 0 auto;
-      padding: var(--padding-medium) var(--padding-large);
-
-      background: var(--background-color);
-      border-radius: var(--border-radius);
-      box-shadow: var(--box-shadow);
-    }
-
-    .lpsRoot {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--padding-medium);
-      justify-content: center;
-    }
-
-    .goldenlpsItem {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-
-      padding: var(--padding-small);
-
-      background-color: var(--secondary-color);
-      border-radius: var(--border-radius);
-      box-shadow: var(--box-shadow);
-    }
-
-    .lpGroup {
-      margin-bottom: var(--padding-small);
-    }
-
-    .lpText {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-color);
-      text-align: center;
-    }
-  </style>
+                </div>
+                <div class="cardContent">
+                  <h3 class="achievementTitle">{genre}</h3>
+                  <p class="achievementRank">
+                    {getTitleBasedOnDifficulty(data?.difficulty)}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <p class="emptyState">
+            Du hast noch keine Schallplatten gewonnen. Spiele ein paar Runden um
+            Auszeichnungen zu erhalten!
+          </p>
+        )
+      }
+    </section>
+  </main>
 </Layout>
+
+<style lang="scss">
+  .userProfile {
+    width: 100%;
+    max-width: var(--max-line-length);
+    margin: 0 auto;
+    padding: var(--padding-medium);
+  }
+
+  .achievementsSection {
+    margin-top: var(--padding-large);
+    padding: var(--padding-large);
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+
+    @media (max-width: 768px) {
+      padding: var(--padding-medium);
+    }
+  }
+
+  .sectionTitle {
+    font-family: var(--font-family);
+    font-size: var(--header-font-size);
+    font-weight: 700;
+    line-height: var(--line-height-tight);
+    color: var(--highlight-color);
+    text-align: center;
+    margin-bottom: var(--padding-large);
+
+    @media (max-width: 768px) {
+      font-size: calc(var(--header-font-size) * 0.85);
+    }
+  }
+
+  .achievementsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: var(--padding-medium);
+    justify-items: center;
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .achievementCard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--padding-medium);
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+
+    @media (hover: hover) {
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-elevated);
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition:
+        transform var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease;
+    }
+  }
+
+  .cardIcon {
+    margin-bottom: var(--padding-small);
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: float 3s ease-in-out infinite;
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .cardContent {
+    text-align: center;
+  }
+
+  .achievementTitle {
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    font-weight: 600;
+    line-height: var(--line-height-body);
+    color: var(--text-color);
+    margin-bottom: var(--padding-small);
+  }
+
+  .achievementRank {
+    font-family: var(--font-family);
+    font-size: calc(var(--body-font-size) * 0.9);
+    color: var(--highlight-color);
+    font-weight: 500;
+  }
+
+  .emptyState {
+    text-align: center;
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    line-height: var(--line-height-body);
+    padding: var(--padding-large);
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+  }
+
+  // High Contrast Mode Support
+  @media (forced-colors: active) {
+    .achievementCard {
+      border: 2px solid CanvasText;
+    }
+
+    .achievementTitle,
+    .achievementRank {
+      color: CanvasText;
+    }
+  }
+
+  // Dark Mode Optimierungen
+  @media (prefers-color-scheme: dark) {
+    .achievementCard {
+      background-color: color-mix(in srgb, var(--background-color) 95%, white);
+    }
+  }
+
+  // Print Styles
+  @media print {
+    .achievementsSection {
+      box-shadow: none;
+      border: 1px solid #000;
+    }
+
+    .achievementCard {
+      box-shadow: none;
+      border: 1px solid #000;
+      break-inside: avoid;
+    }
+
+    .cardIcon {
+      display: none;
+    }
+  }
+</style>

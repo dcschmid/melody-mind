@@ -1,33 +1,164 @@
 ---
+interface Props {
+  size?: "small" | "medium" | "large";
+  label?: string;
+}
 
+const { size = "large", label = "Inhalte werden geladen..." } = Astro.props;
 ---
 
-<div id="loading-spinner" class="spinner hidden"></div>
+<div
+  class="spinnerContainer hidden"
+  id="loading-spinner"
+  role="status"
+  aria-live="polite"
+>
+  <div class={`spinner spinner--${size}`} aria-hidden="true"></div>
+  <span class="visually-hidden">{label}</span>
+</div>
 
 <style lang="scss">
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .spinnerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: var(--min-touch-target);
+    padding: var(--padding-medium);
+
+    &.hidden {
+      display: none;
+    }
+  }
+
   .spinner {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto;
-
-    border: 10px solid #f3f3f3;
-    border-top: 10px solid var(--highlight-color);
+    position: relative;
     border-radius: 50%;
+    border: var(--spinner-width) solid var(--secondary-color);
+    border-top-color: var(--highlight-color);
 
-    animation: spin 1s linear infinite;
+    // Basis-Größen für verschiedene Spinner-Varianten
+    --spinner-size-small: 40px;
+    --spinner-size-medium: 80px;
+    --spinner-size-large: 120px;
+    --spinner-width: calc(var(--spinner-size) / 12);
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: spin 1s linear infinite;
+    }
+
+    // Größenvarianten
+    &--small {
+      --spinner-size: var(--spinner-size-small);
+      width: var(--spinner-size);
+      height: var(--spinner-size);
+    }
+
+    &--medium {
+      --spinner-size: var(--spinner-size-medium);
+      width: var(--spinner-size);
+      height: var(--spinner-size);
+    }
+
+    &--large {
+      --spinner-size: var(--spinner-size-large);
+      width: var(--spinner-size);
+      height: var(--spinner-size);
+    }
+
+    // Pseudo-Elemente für zusätzliche visuelle Effekte
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    &::before {
+      inset: calc(var(--spinner-width) * -0.5);
+      border: var(--spinner-width) solid transparent;
+      border-top-color: var(--highlight-color);
+      opacity: 0.5;
+
+      @media (prefers-reduced-motion: no-preference) {
+        animation: spin 2s linear infinite;
+      }
+    }
   }
 
   @keyframes spin {
-    0% {
+    from {
       transform: rotate(0deg);
     }
-
-    100% {
+    to {
       transform: rotate(360deg);
     }
   }
 
-  .spinner.hidden {
-    display: none;
+  // High Contrast Mode Anpassungen
+  @media (forced-colors: active) {
+    .spinner {
+      border-color: CanvasText;
+      border-top-color: Highlight;
+
+      &::before {
+        border-top-color: Highlight;
+      }
+    }
+  }
+
+  // Reduced Motion
+  @media (prefers-reduced-motion: reduce) {
+    .spinner {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  // Dark Mode Anpassungen
+  @media (prefers-color-scheme: dark) {
+    .spinner {
+      opacity: 0.8;
+    }
+  }
+
+  // Responsive Anpassungen
+  @media (max-width: 768px) {
+    .spinner {
+      --spinner-size-small: 30px;
+      --spinner-size-medium: 60px;
+      --spinner-size-large: 90px;
+    }
   }
 </style>
+
+<script>
+  class LoadingSpinner {
+    private spinner: HTMLElement | null;
+
+    constructor() {
+      this.spinner = document.getElementById("loading-spinner");
+    }
+
+    show() {
+      this.spinner?.classList.remove("hidden");
+      this.spinner?.setAttribute("aria-busy", "true");
+    }
+
+    hide() {
+      this.spinner?.classList.add("hidden");
+      this.spinner?.setAttribute("aria-busy", "false");
+    }
+  }
+</script>

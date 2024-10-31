@@ -51,60 +51,102 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 ---
 
 <Layout title="Spiel Kategorien">
-  <div class="introText">
-    <div class="headline">
-      Willkommen <span class="name">{user?.username ?? "Mika"}</span>!
-    </div>
-    <div class="subline">
-      Wähle hier ein Genre aus, das du spielen möchtest!
-    </div>
-  </div>
+  <main class="gameHome">
+    <section class="introSection" aria-labelledby="welcome-heading">
+      <h1 class="headline" id="welcome-heading">
+        Willkommen <span class="name">{user?.username ?? "Mika"}</span>!
+      </h1>
+      <p class="subline">Wähle hier ein Genre aus, das du spielen möchtest!</p>
+    </section>
 
-  <div class="choosePlaylist">
-    <input
-      class="filterInput"
-      type="search"
-      id="filter-input"
-      placeholder="Suche nach einem Genre"
-    />
-    <When test={categories.length > 0}>
-      {
-        categories.map((item) => (
-          <>
-            <When test={item.isPlayable}>
-              <a href={item.categoryUrl}>
-                <PlaylistItem headline={item.headline} image={item.imageUrl} />
-              </a>
-            </When>
+    <section class="playlistSection" aria-labelledby="playlist-heading">
+      <h2 id="playlist-heading" class="visually-hidden">Genre Auswahl</h2>
 
-            <When test={!item.isPlayable}>
-              <PlaylistItem
-                isDisabled={true}
-                headline={item.headline}
-                image={item.imageUrl}
-              />
-            </When>
-          </>
-        ))
-      }
-    </When>
-  </div>
+      <div class="searchWrapper">
+        <label for="filter-input" class="visually-hidden">
+          Suche nach einem Genre
+        </label>
+        <input
+          class="filterInput"
+          type="search"
+          id="filter-input"
+          placeholder="Suche nach einem Genre"
+          aria-label="Filterung der Genre-Liste"
+        />
+      </div>
+
+      <div
+        class="playlistGrid"
+        role="list"
+        aria-label="Liste der verfügbaren Genre"
+      >
+        <When test={categories.length > 0}>
+          {
+            categories.map((item) => (
+              <>
+                <When test={item.isPlayable}>
+                  <a
+                    href={item.categoryUrl}
+                    class="playlistLink"
+                    aria-label={`Spiele ${item.headline}`}
+                  >
+                    <PlaylistItem
+                      headline={item.headline}
+                      image={item.imageUrl}
+                    />
+                  </a>
+                </When>
+
+                <When test={!item.isPlayable}>
+                  <div class="playlistItem">
+                    <PlaylistItem
+                      isDisabled={true}
+                      headline={item.headline}
+                      image={item.imageUrl}
+                    />
+                  </div>
+                </When>
+              </>
+            ))
+          }
+        </When>
+      </div>
+    </section>
+  </main>
 </Layout>
 
 <style lang="scss">
-  .introText {
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .gameHome {
+    padding: var(--padding-medium);
+    max-width: var(--max-line-length);
+    margin: 0 auto;
+  }
+
+  .introSection {
     display: flex;
     flex-direction: column;
     gap: var(--padding-medium);
     align-items: center;
-
-    margin-bottom: var(--padding-medium);
-
+    margin-bottom: var(--padding-large);
     text-align: center;
   }
 
   .headline {
-    font: 900 var(--header-font-size) / 1.5 var(--font-family);
+    font-family: var(--font-family);
+    font-size: var(--header-font-size);
+    line-height: var(--line-height-body);
+    font-weight: 900;
     color: var(--text-color);
   }
 
@@ -113,80 +155,150 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
   }
 
   .subline {
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    line-height: var(--line-height-body);
+    letter-spacing: var(--spacing-text);
     max-width: 768px;
-    font: 400 var(--body-font-size) / 1.5 var(--font-family);
-    text-align: center;
   }
 
-  .choosePlaylist {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--padding-medium);
-    justify-content: center;
+  .searchWrapper {
+    margin-bottom: var(--padding-medium);
   }
 
   .filterInput {
     width: 100%;
     max-width: 1024px;
-    margin: 0 var(--padding-medium);
     padding: var(--padding-small);
-
-    font: 400 var(--body-font-size) / 1.5 var(--font-family);
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    line-height: var(--line-height-body);
     color: var(--text-color);
-
     background-color: var(--secondary-color);
     border: 2px solid var(--highlight-color);
     border-radius: var(--border-radius);
-    outline: none;
+    transition: all var(--transition-speed);
 
-    transition: border-color var(--transition-speed);
+    &::placeholder {
+      color: var(--text-color);
+      opacity: 0.7;
+    }
+
+    &:focus {
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
+      border-color: var(--highlight-color);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 
-  .filterInput:focus {
-    border-color: var(--error-color);
+  .playlistGrid {
+    display: grid;
+    gap: var(--padding-medium);
+    width: 100%;
+    margin: 0 auto;
+    padding: var(--padding-medium);
+
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(
+        clamp(
+          var(--size-playlist-small),
+          calc(100% / 4),
+          var(--size-playlist-large) 
+        ),
+        1fr
+      )
+    );
+
+    justify-content: center; 
+    justify-items: center; 
+    align-items: start;
+
+    // Optionale Container-Queries wenn unterstützt
+    @container (min-width: 50em) {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
   }
 
-  a {
+  .playlistLink {
     text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    transition: transform var(--transition-speed) ease;
+    position: relative; // Für den Fokus-Effekt
+
+    // Fokus-Styles
+    &:focus-visible {
+      outline: none;
+      transform: translateY(-2px);
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        border: var(--focus-outline-width) solid var(--focus-outline-color);
+        border-radius: calc(var(--border-radius) + 4px);
+        pointer-events: none;
+      }
+    }
+
+    // Hover-Effekte nur für nicht-deaktivierte Items
+    &:not([aria-disabled="true"]):hover {
+      transform: translateY(-2px);
+    }
+
+    // Deaktivierte Items
+    &[aria-disabled="true"] {
+      cursor: not-allowed;
+      opacity: var(--opacity-disabled);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 </style>
 
 <script>
-  /**
-   * Adds an event listener to the filter input element.
-   * When the user types something, the filterPlaylists function is called.
-   *
-   * @param {HTMLInputElement} filterInput - The filter input element.
-   */
   const filterInput = document.getElementById(
     "filter-input",
   ) as HTMLInputElement;
-  filterInput.addEventListener("input", filterPlaylists);
+  const playlistGrid = document.querySelector(".playlistGrid");
 
-  /**
-   * Filters the playlist items based on the user input.
-   * If the user input is found in the headline text of the playlist item,
-   * the item is displayed, otherwise it is hidden.
-   *
-   * @param {Event} event - The event object.
-   */
+  filterInput?.addEventListener("input", filterPlaylists);
+
   function filterPlaylists(_event: Event) {
     const query = filterInput.value.toLowerCase();
-    const playlistLinks = document.querySelectorAll(".choosePlaylist a");
+    const playlistItems = document.querySelectorAll(
+      ".playlistLink, .playlistItem",
+    );
+    let hasResults = false;
 
-    // Loop through each playlist link and check if the headline text
-    // contains the user input. If it does, display the link, otherwise
-    // hide it.
-    playlistLinks.forEach((link) => {
-      const headlineText = link.querySelector(".headline")?.textContent;
+    playlistItems.forEach((item) => {
+      const headlineText = item.querySelector(".headline")?.textContent;
+      const isVisible = headlineText?.toLowerCase().includes(query);
 
-      if (headlineText && headlineText.toLowerCase().includes(query)) {
-        // Display the link if the headline text contains the search query
-        (link as HTMLElement).style.display = "block";
-      } else {
-        // Hide the link if the headline text does not contain the search query
-        (link as HTMLElement).style.display = "none";
-      }
+      (item as HTMLElement).style.display = isVisible ? "block" : "none";
+      if (isVisible) hasResults = true;
     });
+
+    // Füge eine "Keine Ergebnisse" Nachricht hinzu
+    let noResultsMsg = playlistGrid?.querySelector(".no-results");
+    if (!hasResults) {
+      if (!noResultsMsg) {
+        noResultsMsg = document.createElement("p");
+        noResultsMsg.className = "no-results";
+        noResultsMsg.setAttribute("role", "status");
+        noResultsMsg.textContent = "Keine Ergebnisse gefunden";
+        playlistGrid?.appendChild(noResultsMsg);
+      }
+    } else {
+      noResultsMsg?.remove();
+    }
   }
 </script>

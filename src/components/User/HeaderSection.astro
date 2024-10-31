@@ -3,142 +3,233 @@ import { Icon } from "astro-icon/components";
 import { Picture } from "astro:assets";
 import { db, User, eq } from "astro:db";
 
-/**
- * Get the user object from the Astro context
- */
+interface UserData {
+  id: string;
+  username: string;
+  avatarUrl: string;
+  total_user_points: number;
+}
+
 const user = Astro.locals.user;
 
-/**
- * Get the total user points from the database
- */
 const currentUser = await db
   .select()
   .from(User)
   .where(eq(User.id, user?.id ?? ""));
 
-/**
- * Get the total user points from the user object
- * @type {number}
- */
-const totalUserPoints = currentUser[0].total_user_points;
+const totalUserPoints = currentUser[0]?.total_user_points ?? 0;
 ---
 
-<div class="headerBG">
+<header class="profileHeader" role="banner" aria-label="Benutzerprofil Header">
   <div class="headerContent">
-    <div class="avatar">
+    <div
+      class="avatarWrapper"
+      role="img"
+      aria-label={`Profilbild von ${user?.username ?? "Mika"}`}
+    >
       <Picture
         class="avatarImage"
         src={user?.avatarUrl || "/user-profiles/mika.png"}
         width={128}
         height={128}
         formats={["avif", "webp"]}
-        alt="User Avatar"
+        alt=""
         loading="eager"
       />
     </div>
-  </div>
-  <div class="nameContent">
-    <div class="name">
-      Hallo <span class="yellowName">{user?.username ?? "Mika"}</span>
+
+    <div class="userInfo">
+      <h1 class="userName">
+        Hallo <span class="highlightText">{user?.username ?? "Mika"}</span>
+      </h1>
+
+      <div class="pointsDisplay" role="status" aria-label="Gesamtpunktzahl">
+        <Icon
+          class="coinIcon"
+          name="coin"
+          width={24}
+          height={24}
+          aria-hidden="true"
+        />
+        <span class="pointsValue">
+          <span class="visually-hidden">Punktestand:</span>
+          {totalUserPoints}
+        </span>
+      </div>
     </div>
-    <div class="points">
-      <Icon class="coin" name="coin" width={24} height={24} />
-      <span class="pointsValue">{totalUserPoints}</span>
-    </div>
   </div>
-</div>
+</header>
 
 <style lang="scss">
-  .headerBG {
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .profileHeader {
     position: relative;
-
-    margin-bottom: var(--padding-medium);
-    padding: var(--padding-small);
-
-    background-image: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0 / 50%)),
-      url("/userbg/music-bg.jpg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+    margin-bottom: var(--padding-large);
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgb(0 0 0 / 60%), rgb(0 0 0 / 60%)),
+        url("/userbg/music-bg.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
   }
 
   .headerContent {
+    position: relative;
     z-index: 1;
-
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    gap: var(--padding-medium);
+    padding: var(--padding-large);
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: center;
+      gap: var(--padding-large);
+    }
   }
 
-  .avatar {
+  .avatarWrapper {
     position: relative;
-
+    width: clamp(100px, 30vw, 130px);
+    height: clamp(100px, 30vw, 130px);
+    border: 4px solid var(--secondary-color);
+    border-radius: 50%;
+    box-shadow: var(--box-shadow);
     overflow: hidden;
 
-    width: 130px;
-    height: 130px;
-    margin-bottom: var(--padding-small);
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform var(--transition-speed) ease;
 
-    border: 4px solid var(--secondary-color);
-    border-radius: 100%;
-    box-shadow: var(--box-shadow);
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
   }
 
   .avatarImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 100%;
+    border-radius: 50%;
   }
 
-  .avatarFrame {
-    position: absolute;
-    top: -16px;
-    left: -16px;
-    border: none;
-  }
-
-  .nameContent {
-    z-index: 1;
-
+  .userInfo {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: var(--padding-small);
-    align-items: center;
-    justify-content: center;
-  }
-
-  .name {
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-    align-self: center;
-
-    font-size: var(--header-font-size);
-    font-weight: 600;
-    line-height: 1.5;
-    color: var(--secondary-color);
-  }
-
-  .yellowName {
-    color: var(--highlight-color);
     text-align: center;
   }
 
-  .points {
-    display: flex;
-    align-items: center;
-
-    font-size: var(--body-font-size);
+  .userName {
+    font-family: var(--font-family);
+    font-size: var(--header-font-size);
     font-weight: 700;
-    line-height: 120%;
+    line-height: var(--line-height-tight);
     color: var(--secondary-color);
+    text-shadow: 0 2px 4px rgb(0 0 0 / 30%);
+    margin: 0;
   }
 
-  .points .coin {
-    margin-right: var(--padding-small);
+  .highlightText {
+    color: var(--highlight-color);
+    display: block;
+    margin-top: calc(var(--padding-small) / 2);
+  }
+
+  .pointsDisplay {
+    display: flex;
+    align-items: center;
+    gap: var(--padding-small);
+    padding: var(--padding-small) var(--padding-medium);
+    background-color: rgb(255 255 255 / 10%);
+    border-radius: calc(var(--border-radius) / 2);
+    backdrop-filter: blur(8px);
+  }
+
+  .coinIcon {
+    color: var(--highlight-color);
+    filter: drop-shadow(0 2px 4px rgb(0 0 0 / 20%));
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: bounce 2s ease-in-out infinite;
+    }
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+
+  .pointsValue {
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-shadow: 0 1px 2px rgb(0 0 0 / 30%);
+  }
+
+  // High Contrast Mode Support
+  @media (forced-colors: active) {
+    .profileHeader::before {
+      background: Canvas;
+      border: 2px solid CanvasText;
+    }
+
+    .avatarWrapper {
+      border: 2px solid ButtonText;
+    }
+
+    .pointsDisplay {
+      border: 1px solid ButtonText;
+    }
+  }
+
+  // Print Styles
+  @media print {
+    .profileHeader::before {
+      background: none !important;
+    }
+
+    .userName,
+    .pointsValue {
+      color: #000;
+      text-shadow: none;
+    }
+
+    .highlightText {
+      color: #666;
+    }
+  }
+
+  // Reduced Motion
+  @media (prefers-reduced-motion: reduce) {
+    .coinIcon {
+      animation: none;
+    }
   }
 </style>

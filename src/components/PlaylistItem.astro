@@ -11,9 +11,16 @@ import { When } from "@astropub/flow";
 import { Picture } from "astro:assets";
 ---
 
-<div class="playlistItem">
+<article class="playlistItem" aria-disabled={isDisabled} role="listitem">
   <When test={isDisabled}>
-    <div class="disabled">Demnächst verfügbar</div>
+    <div
+      class="disabled"
+      aria-label="Dieser Inhalt ist noch nicht verfügbar"
+      role="status"
+    >
+      <span class="sr-only">Status:</span>
+      Demnächst verfügbar
+    </div>
   </When>
   <Picture
     class:list={["cover", { coverDisabled: isDisabled }]}
@@ -21,25 +28,42 @@ import { Picture } from "astro:assets";
     width={130}
     height={130}
     formats={["avif", "webp"]}
-    alt=""
+    alt={`Cover-Bild für ${headline}`}
+    loading="lazy"
   />
-  <div class="headline">{headline}</div>
-</div>
+  <h2 class="headline">{headline}</h2>
+</article>
 
 <style lang="scss">
   .playlistItem {
     position: relative;
-
-    width: 7.438rem;
-    margin-bottom: var(--padding-medium);
+    width: var(--size-playlist-small);
     padding: var(--padding-small);
-
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    transition: transform var(--transition-speed) ease-in-out;
+    min-height: var(--min-touch-target);
 
-    @media screen and (width >= 25.625rem) {
-      width: 10.313rem;
+    &:hover:not([aria-disabled="true"]) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgb(0 0 0 / 25%);
+    }
+
+    &[aria-disabled="true"] {
+      cursor: not-allowed;
+    }
+
+    @media screen and (min-width: 48em) {
+      width: var(--size-playlist-large);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
     }
   }
 
@@ -47,42 +71,40 @@ import { Picture } from "astro:assets";
     width: 100%;
     height: auto;
     border-radius: var(--border-radius);
-    transition: opacity var(--transition-speed);
+    transition: opacity var(--transition-speed) ease-in-out;
 
     &.coverDisabled {
-      opacity: 0.4;
+      opacity: var(--opacity-disabled);
+      filter: grayscale(50%);
     }
   }
 
   .disabled {
     position: absolute;
-    z-index: 2;
+    z-index: var(--layer-above);
     top: 50%;
-    right: 0;
     left: 0;
+    right: 0;
     transform: translateY(-50%);
-
     padding: var(--padding-small);
-
-    font-size: 0.875rem;
-    line-height: 1.5;
-    color: var(--button-text-color);
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    line-height: var(--line-height-body);
+    color: var(--secondary-color);
     text-align: center;
-
-    background-color: rgb(0 0 0 / 60%);
+    background-color: var(--color-overlay);
     border-radius: var(--border-radius);
-
-    @media screen and (width >= 25.625rem) {
-      font-size: 1.125rem;
-    }
+    letter-spacing: var(--spacing-text);
   }
 
   .headline {
     margin-top: var(--padding-small);
-
+    font-family: var(--font-family);
     font-size: var(--body-font-size);
     font-weight: 600;
-    line-height: 1.5;
+    line-height: var(--line-height-body);
     color: var(--text-color);
+    overflow-wrap: break-word;
+    max-width: var(--max-line-length);
   }
 </style>

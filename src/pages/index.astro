@@ -12,46 +12,70 @@ import { Picture } from "astro:assets";
       width={480}
       height={274}
       formats={["avif", "webp"]}
-      alt="Melody Mind Logo"
+      alt="Melody Mind Logo - Musikquiz App Logo"
       loading="eager"
     />
 
-    <div class="headline">
+    <h1 class="headline">
       Willkommen zu MelodyMind – dem ultimativen Musik-Quiz!
-    </div>
+    </h1>
 
-    <div class="text">
+    <p class="text">
       Teste dein Wissen über deine Lieblingssongs, -alben und -künstler aus
       verschiedenen Musikrichtungen. Stelle dich spannenden Fragen zu Künstlern,
       Alben und Musikfakten. Sammle Punkte, gewinne goldene Schallplatten und
       kämpfe dich in die Top 10 der Bestenliste.
-    </div>
+    </p>
 
-    <div class="text">
+    <p class="text">
       Starte jetzt ein neues Spiel, wähle dein Genre und zeige, dass du der
       wahre Meister der Musik bist!
-    </div>
+    </p>
 
-    <div class="headline">Anmelden mit</div>
+    <h2 class="headline">Anmelden mit</h2>
 
-    <div class="buttonGroup">
-      <a class="button" href="/login/spotify">
-        <Icon class="loginIcon" name="spotify" width={35} height={35} />
-        Spotify
+    <nav class="buttonGroup" aria-label="Login-Optionen">
+      <a class="button" href="/login/spotify" aria-label="Mit Spotify anmelden">
+        <Icon
+          class="loginIcon"
+          name="spotify"
+          width={35}
+          height={35}
+          aria-hidden="true"
+        />
+        <span>Spotify</span>
       </a>
-      <a class="button" href="/login/github">
-        <Icon class="loginIcon" name="github" width={35} height={35} />
-        GitHub
+      <a class="button" href="/login/github" aria-label="Mit GitHub anmelden">
+        <Icon
+          class="loginIcon"
+          name="github"
+          width={35}
+          height={35}
+          aria-hidden="true"
+        />
+        <span>GitHub</span>
       </a>
-      <a class="button" href="/login/google">
-        <Icon class="loginIcon" name="google" width={35} height={35} />
-        Google
+      <a class="button" href="/login/google" aria-label="Mit Google anmelden">
+        <Icon
+          class="loginIcon"
+          name="google"
+          width={35}
+          height={35}
+          aria-hidden="true"
+        />
+        <span>Google</span>
       </a>
-      <a class="button" href="/login/yahoo">
-        <Icon class="loginIcon" name="yahoo" width={35} height={35} />
-        Yahoo
+      <a class="button" href="/login/yahoo" aria-label="Mit Yahoo anmelden">
+        <Icon
+          class="loginIcon"
+          name="yahoo"
+          width={35}
+          height={35}
+          aria-hidden="true"
+        />
+        <span>Yahoo</span>
       </a>
-    </div>
+    </nav>
   </div>
 </Layout>
 
@@ -59,6 +83,8 @@ import { Picture } from "astro:assets";
   .container {
     text-align: center;
     padding: var(--padding-large);
+    max-width: var(--max-line-length);
+    margin: 0 auto;
   }
 
   .logo {
@@ -66,27 +92,24 @@ import { Picture } from "astro:assets";
     max-width: 320px;
     height: auto;
     margin: var(--padding-large) auto;
-    transition: transform 0.3s ease-in-out;
+    transition: transform var(--transition-speed);
   }
 
   .headline {
-    font-size: 1.75rem;
+    font-size: var(--header-font-size);
     font-weight: 700;
     margin: var(--padding-medium) 0;
-    color: var(--highlight-color);
-    letter-spacing: 1px;
+    color: var(--text-color);
+    letter-spacing: var(--spacing-text);
   }
 
   .text {
-    font-size: 1.125rem;
+    font-size: var(--body-font-size);
     font-weight: 400;
     color: var(--text-color);
     margin: var(--padding-medium) 0;
-    line-height: 1.6;
-    letter-spacing: 0.5px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    line-height: var(--line-height-body);
+    letter-spacing: var(--spacing-text);
   }
 
   .buttonGroup {
@@ -98,24 +121,30 @@ import { Picture } from "astro:assets";
   }
 
   .button {
+    min-height: var(--min-touch-target);
+    min-width: var(--min-touch-target);
     display: inline-flex;
     align-items: center;
     padding: var(--padding-small) var(--padding-large);
-    font-size: 1.125rem;
+    font-size: var(--button-font-size);
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--button-text-color);
     background-color: var(--highlight-color);
     border-radius: var(--border-radius);
     text-decoration: none;
-    transition:
-      background-color 0.3s ease,
-      transform 0.2s ease;
     box-shadow: var(--box-shadow);
-  }
+    transition: all var(--transition-speed);
 
-  .button:hover {
-    background-color: var(--button-hover-color);
-    transform: scale(1.05);
+    &:hover {
+      background-color: var(--button-hover-color);
+      transform: scale(1.05);
+    }
+
+    &:focus-visible {
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
+      transform: none;
+    }
   }
 
   .loginIcon {
@@ -123,41 +152,33 @@ import { Picture } from "astro:assets";
   }
 
   @media (max-width: 1024px) {
-    .headline {
-      font-size: 1.5rem;
-    }
-
-    .text {
-      font-size: 1rem;
-      margin: var(--padding-medium) var(--padding-small);
-    }
-
     .buttonGroup {
       gap: var(--padding-small);
     }
   }
 
   @media (max-width: 768px) {
-    .headline {
-      font-size: 1.25rem;
-    }
-
-    .text {
-      font-size: 0.95rem;
-    }
-
     .buttonGroup {
       flex-direction: column;
       gap: var(--padding-small);
     }
+  }
 
-    .button {
-      padding: var(--padding-small) var(--padding-large);
+  /* Reduzierte Bewegung */
+  @media (prefers-reduced-motion: reduce) {
+    .button:hover {
+      transform: none;
     }
 
-    .loginIcon {
-      width: 30px;
-      height: 30px;
+    .logo {
+      transition: none;
+    }
+  }
+
+  /* Hoher Kontrast */
+  @media (prefers-contrast: high) {
+    .button {
+      border: 2px solid var(--text-color);
     }
   }
 </style>

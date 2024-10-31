@@ -37,33 +37,50 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
           <button
             class="icon-button"
             onclick="window.location.href='/gamehome'"
+            aria-label="Zur Startseite"
           >
-            <Icon name="home" width={24} height={22.24} />
+            <Icon name="home" width={24} height={22.24} aria-hidden="true" />
+            <span class="sr-only">Startseite</span>
           </button>
           <When test={showHeaderIcons}>
             <button
               class="icon-button"
               onclick="window.location.href='/spielregeln'"
+              aria-label="Spielregeln anzeigen"
             >
-              <Icon name="question" width={24} height={22.24} />
+              <Icon
+                name="question"
+                width={24}
+                height={22.24}
+                aria-hidden="true"
+              />
+              <span class="sr-only">Spielregeln</span>
             </button>
             <button
               class="icon-button"
               onclick="window.location.href='/highscores'"
+              aria-label="Bestenliste anzeigen"
             >
-              <Icon name="trophy" width={24} height={24} />
+              <Icon name="trophy" width={24} height={24} aria-hidden="true" />
+              <span class="sr-only">Bestenliste</span>
             </button>
           </When>
           <slot name="left-headercol" />
         </div>
         <div class="slot right">
           <When test={showHeaderIcons}>
-            <button class="icon-button" onclick="window.location.href='/user'">
-              <Icon name="user" width={24} height={24} />
+            <button
+              class="icon-button"
+              onclick="window.location.href='/user'"
+              aria-label="Benutzerprofil"
+            >
+              <Icon name="user" width={24} height={24} aria-hidden="true" />
+              <span class="sr-only">Profil</span>
             </button>
             <form method="post" action="/api/logout">
-              <button class="icon-button">
-                <Icon name="logout" width={24} height={24} title="Abmelden" />
+              <button class="icon-button" aria-label="Abmelden">
+                <Icon name="logout" width={24} height={24} aria-hidden="true" />
+                <span class="sr-only">Abmelden</span>
               </button>
             </form>
           </When>
@@ -77,23 +94,54 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
 
     <style lang="scss" is:global>
       :root {
+        /* Farben mit verbessertem Kontrast */
         --secondary-color: #e1e1f0;
-        --highlight-color: #fc0;
+        --highlight-color: #e6b800;
         --background-color: #a0a4c5;
-        --text-color: #2e2e2e;
-        --error-color: #ff5733;
-        --button-hover-color: #fc0;
-        --button-text-color: #fff;
-        --font-family: "Source Sans Pro", sans-serif;
-        --header-font-size: 1.5em;
-        --body-font-size: 1em;
-        --button-font-size: 1rem;
-        --padding-small: 8px;
-        --padding-medium: 16px;
-        --padding-large: 32px;
+        --text-color: #1a1a1a;
+        --error-color: #d94f2b;
+        --button-hover-color: #cc9900;
+        --button-text-color: #000000;
+
+        /* Fokus-Indikatoren */
+        --focus-outline-color: #005fcc;
+        --focus-outline-width: 3px;
+        --focus-outline-offset: 2px;
+
+        /* Schrift */
+        --font-family: "Source Sans Pro", system-ui, sans-serif;
+        --header-font-size: clamp(1.25rem, 2vw, 1.5rem);
+        --body-font-size: clamp(1rem, 1.5vw, 1.125rem);
+        --button-font-size: clamp(0.875rem, 1.25vw, 1rem);
+
+        /* Größen und Abstände */
+        --padding-small: max(8px, 0.5rem);
+        --padding-medium: max(16px, 1rem);
+        --padding-large: max(32px, 2rem);
         --border-radius: 12px;
+
+        /* Interaktive Elemente */
+        --min-touch-target: 44px;
         --box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
         --transition-speed: 0.2s;
+
+        /* Zusätzliche Barrierefreiheits-Variablen */
+        --line-height-body: 1.6;
+        --max-line-length: 70ch;
+        --spacing-text: 0.05em;
+
+        /* Größen */
+        --size-playlist-small: 7.438rem;
+        --size-playlist-large: 10.313rem;
+
+        /* Overlay */
+        --color-overlay: rgb(0 0 0 / 60%);
+
+        /* Opacity */
+        --opacity-disabled: 0.4;
+
+        /* Z-Index */
+        --layer-above: 2;
       }
 
       html {
@@ -116,7 +164,8 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
         padding: 0 var(--padding-medium);
 
         font-size: var(--body-font-size);
-        line-height: 1.6;
+        line-height: var(--line-height-body);
+        letter-spacing: var(--spacing-text);
         color: var(--text-color);
 
         background-color: var(--background-color);
@@ -163,18 +212,23 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
       }
 
       .icon-button {
+        min-width: var(--min-touch-target);
+        min-height: var(--min-touch-target);
         background-color: var(--highlight-color);
         border-radius: var(--border-radius);
         padding: var(--padding-small);
         box-shadow: var(--box-shadow);
-        transition:
-          background-color var(--transition-speed),
-          transform var(--transition-speed);
-      }
+        transition: all var(--transition-speed);
 
-      .icon-button:hover {
-        background-color: var(--button-hover-color);
-        transform: scale(1.05);
+        &:hover {
+          background-color: var(--button-hover-color);
+          transform: scale(1.05);
+        }
+
+        &:focus-visible {
+          outline: var(--focus-outline-width) solid var(--focus-outline-color);
+          outline-offset: var(--focus-outline-offset);
+        }
       }
 
       main {
@@ -182,6 +236,8 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
         font-size: var(--body-font-size);
         line-height: 1.6;
         color: var(--text-color);
+        max-width: var(--max-line-length);
+        margin: 0 auto;
       }
 
       .hasMargin {
@@ -194,43 +250,41 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
         justify-content: center;
         cursor: pointer;
 
-        height: auto;
+        // Neue Größen-Eigenschaften
+        min-height: var(--min-touch-target);
         padding: var(--padding-small) var(--padding-large);
-
-        font-size: 1.125rem;
+        font-size: var(--button-font-size);
 
         opacity: 1;
         background-color: var(--highlight-color);
         border: none;
         border-radius: var(--border-radius);
         box-shadow: var(--box-shadow);
-        color: var(--text-color);
+        color: var(--button-text-color);
         text-decoration: none;
 
-        transition:
-          background-color 0.3s ease,
-          opacity 1s ease;
-      }
+        transition: all var(--transition-speed);
 
-      .button:hover {
-        transform: scale(1.05);
-        background-color: var(--button-hover-color);
-        color: var(--text-color);
-      }
+        &:hover {
+          transform: scale(1.05);
+          background-color: var(--button-hover-color);
+          color: var(--button-text-color);
+        }
 
-      .button:focus {
-        outline: 3px solid var(--text-color);
-        outline-offset: 2px;
-      }
+        // Neue Focus-Styles
+        &:focus-visible {
+          outline: var(--focus-outline-width) solid var(--focus-outline-color);
+          outline-offset: var(--focus-outline-offset);
+          transform: none; // Verhindert Skalierung während des Fokus
+        }
 
-      .button.hidden {
-        overflow: hidden;
-
-        height: 0;
-        margin: 0;
-        padding: 0;
-
-        opacity: 0;
+        &.hidden {
+          overflow: hidden;
+          height: 0;
+          margin: 0;
+          padding: 0;
+          opacity: 0;
+        }
       }
 
       .sr-only {
@@ -242,6 +296,28 @@ const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
         overflow: hidden;
         clip: rect(0, 0, 0, 0);
         border: 0;
+      }
+
+      /* Media Queries für Barrierefreiheit */
+      @media (prefers-reduced-motion: reduce) {
+        :root {
+          --transition-speed: 0s;
+        }
+
+        .button:hover,
+        .icon-button:hover {
+          transform: none;
+        }
+      }
+
+      @media (prefers-contrast: high) {
+        :root {
+          --highlight-color: #000000;
+          --text-color: #000000;
+          --background-color: #ffffff;
+          --button-text-color: #ffffff;
+          --button-hover-color: #000000;
+        }
       }
     </style>
   </body>

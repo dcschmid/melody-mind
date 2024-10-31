@@ -107,183 +107,242 @@ for (const category of categoriesNamesArray) {
 ---
 
 <Layout title="Highscores">
-  <h1 class="highscore-title">Willkommen auf unserer Highscore-Seite!</h1>
+  <h1 class="highscoreTitle">Willkommen auf unserer Highscore-Seite!</h1>
 
-  <div class="highscore-intro">
-    Hier siehst du die besten Spieler in jeder Kategorie und die Top 10 aller
-    Zeiten. Zeige deine Fähigkeiten und arbeite dich an die Spitze, um dir
-    deinen Platz in den Ranglisten zu sichern. Ob du ein Spezialist in einer
-    bestimmten Musikrichtung bist oder in allen Kategorien glänzen möchtest –
-    deine Reise beginnt hier. Viel Erfolg und viel Spaß beim Spielen!
-  </div>
+  <section class="introSection" aria-label="Einführung">
+    <p class="introText">
+      Hier siehst du die besten Spieler in jeder Kategorie und die Top 10 aller
+      Zeiten. Zeige deine Fähigkeiten und arbeite dich an die Spitze, um dir
+      deinen Platz in den Ranglisten zu sichern. Ob du ein Spezialist in einer
+      bestimmten Musikrichtung bist oder in allen Kategorien glänzen möchtest –
+      deine Reise beginnt hier. Viel Erfolg und viel Spaß beim Spielen!
+    </p>
+  </section>
 
-  <div class="highscore-container">
-    <h2 class="highscore-subtitle">Top 10 Gesamt</h2>
-    <table class="highscore-table">
-      <thead>
-        <tr>
-          <th>Platz</th>
-          <th>Name</th>
-          <th>Punkte</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          highscores.map((score, index) => (
-            <tr>
-              <td>{index + 1}</td>
-              <td>{score.User.username}</td>
-              <td>{score.TotalHighscore.score}</td>
-            </tr>
-          ))
-        }
-      </tbody>
-    </table>
+  <section class="highscoreSection" aria-labelledby="total-highscore">
+    <h2 id="total-highscore" class="sectionTitle">Top 10 Gesamt</h2>
+    <div
+      class="tableWrapper"
+      role="region"
+      aria-label="Gesamte Top 10 Tabelle"
+      tabindex="0"
+    >
+      <table class="highscoreTable">
+        <caption class="visually-hidden">Top 10 Spieler aller Zeiten</caption>
+        <thead>
+          <tr>
+            <th scope="col">Platz</th>
+            <th scope="col">Name</th>
+            <th scope="col">Punkte</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            highscores.map((score, index) => (
+              <tr class={score.User.id === user?.id ? "currentUser" : ""}>
+                <td>{index + 1}</td>
+                <td>{score.User.username}</td>
+                <td>{score.TotalHighscore.score}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-    {
-      Object.keys(scoresByCategory).map((category) => (
-        <div class="category-highscore">
-          <h2 class="category-title">{category}</h2>
-          <table class="highscore-table">
+  {
+    Object.keys(scoresByCategory).map((category) => (
+      <section class="categorySection" aria-labelledby={`category-${category}`}>
+        <h2 id={`category-${category}`} class="categoryTitle">
+          {category}
+        </h2>
+        <div
+          class="tableWrapper"
+          role="region"
+          aria-label={`${category} Highscores`}
+          tabindex="0"
+        >
+          <table class="highscoreTable">
+            <caption class="visually-hidden">
+              Top 10 Spieler in {category}
+            </caption>
             <thead>
               <tr>
-                <th>Platz</th>
-                <th>Name</th>
-                <th>Punkte</th>
+                <th scope="col">Platz</th>
+                <th scope="col">Name</th>
+                <th scope="col">Punkte</th>
               </tr>
             </thead>
             <tbody>
-              {scoresByCategory[category].map(
-                (
-                  score: {
-                    User: { username: unknown };
-                    HighscorePerCategory: { score: unknown };
-                  },
-                  index: number,
-                ) => (
-                  <tr>
-                    <td>{index + 1}</td>
-                    <td>{score.User.username}</td>
-                    <td>{score.HighscorePerCategory.score}</td>
-                  </tr>
-                ),
-              )}
+              {scoresByCategory[category].map((score: any, index: number) => (
+                <tr class={score.User.id === user?.id ? "currentUser" : ""}>
+                  <td>{index + 1}</td>
+                  <td>{score.User.username}</td>
+                  <td>{score.HighscorePerCategory.score}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
-          {playerRanks[category] && (
-            <div class="player-rank">
-              <p>Deine Platzierung: {playerRanks[category]}. Platz</p>
-            </div>
-          )}
         </div>
-      ))
-    }
-  </div>
+        {playerRanks[category] && (
+          <div class="playerRank" role="status" aria-live="polite">
+            Deine Platzierung: {playerRanks[category]}. Platz
+          </div>
+        )}
+      </section>
+    ))
+  }
 </Layout>
 
 <style lang="scss">
-  .highscore-intro {
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .highscorePage {
+    max-width: var(--max-line-length);
+    margin: 0 auto;
+    padding: var(--padding-medium);
+  }
+
+  .highscoreTitle {
+    font-family: var(--font-family);
+    font-size: var(--header-font-size);
+    font-weight: 700;
+    line-height: var(--line-height-body);
+    text-align: center;
+    color: var(--highlight-color);
+    margin-bottom: var(--padding-medium);
+  }
+
+  .introSection {
+    margin-bottom: var(--padding-large);
+  }
+
+  .introText {
     max-width: 800px;
-    margin: 0 auto var(--padding-large);
+    margin: 0 auto;
     padding: var(--padding-large);
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    line-height: var(--line-height-body);
+    letter-spacing: var(--spacing-text);
+    text-align: center;
+    color: var(--text-color);
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    text-align: center;
-    font-size: 1.125rem;
-    line-height: 1.6;
-    color: var(--text-color);
   }
 
-  .highscore-container {
-    max-width: 800px;
-    margin: 0 auto;
-    color: var(--text-color);
-  }
-
-  .highscore-title {
-    font-size: 2rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: var(--padding-medium);
-    color: var(--highlight-color);
-  }
-
-  .highscore-subtitle {
-    font-size: 1.5rem;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: var(--padding-medium);
-  }
-
-  .highscore-table {
-    width: 100%;
-    border-collapse: collapse;
+  .tableWrapper {
+    overflow-x: auto;
     margin-bottom: var(--padding-large);
+
+    &:focus {
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
+    }
+  }
+
+  .highscoreTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+
+    th,
+    td {
+      padding: var(--padding-small) var(--padding-medium);
+      text-align: left;
+      border-bottom: 1px solid rgb(0 0 0 / 10%);
+    }
+
+    th {
+      background-color: var(--text-color);
+      color: var(--secondary-color);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    td {
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+    }
+
+    .currentUser td {
+      background-color: var(--highlight-color);
+      color: var(--button-text-color);
+      font-weight: 600;
+    }
   }
 
-  .highscore-table th,
-  .highscore-table td {
-    padding: var(--padding-small) var(--padding-medium);
-    text-align: left;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .highscore-table th {
-    background-color: var(--text-color);
-    color: var(--button-text-color);
-    font-weight: bold;
-  }
-
-  .highscore-table td {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-  }
-
-  .category-highscore {
-    margin-top: var(--padding-large);
-  }
-
-  .category-title {
-    font-size: 1.5rem;
+  .sectionTitle,
+  .categoryTitle {
+    font-family: var(--font-family);
+    font-size: calc(var(--header-font-size) * 0.8);
     font-weight: 600;
     text-align: center;
-    margin-bottom: var(--padding-medium);
     color: var(--text-color);
+    margin-bottom: var(--padding-medium);
   }
 
-  .player-rank {
+  .playerRank {
     text-align: center;
     margin-top: var(--padding-medium);
     padding: var(--padding-small);
     background-color: var(--highlight-color);
     color: var(--button-text-color);
-    font-weight: bold;
+    font-weight: 600;
     border-radius: var(--border-radius);
   }
 
-  @media screen and (max-width: 768px) {
-    .highscore-intro,
-    .highscore-container {
+  @media (max-width: 768px) {
+    .highscorePage {
+      padding: var(--padding-small);
+    }
+
+    .introText {
       padding: var(--padding-medium);
+      font-size: calc(var(--body-font-size) * 0.9);
     }
 
-    .highscore-title {
-      font-size: 1.75rem;
+    .highscoreTable {
+      font-size: calc(var(--body-font-size) * 0.875);
+
+      th,
+      td {
+        padding: calc(var(--padding-small) * 0.75);
+      }
+    }
+  }
+
+  @media (forced-colors: active) {
+    .highscoreTable {
+      border: 2px solid CanvasText;
+
+      th,
+      td {
+        border: 1px solid CanvasText;
+      }
     }
 
-    .highscore-subtitle {
-      font-size: 1.25rem;
+    .currentUser td {
+      border: 2px solid Highlight;
     }
+  }
 
-    .category-title {
-      font-size: 1.25rem;
-    }
-
-    .highscore-table th,
-    .highscore-table td {
-      font-size: 0.875rem;
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition: none !important;
     }
   }
 </style>

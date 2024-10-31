@@ -46,7 +46,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 
   <GoldenLPOverlay
     playerTitle={playerTitle}
-    category={currentCategoryData?.headline}
+    category={currentCategoryData?.headline || ""}
   />
 
   <GameHeadline headline={currentCategoryData?.headline} />

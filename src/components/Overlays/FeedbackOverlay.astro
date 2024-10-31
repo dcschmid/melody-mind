@@ -8,40 +8,84 @@ import { Icon } from "astro-icon/components";
   role="dialog"
   aria-labelledby="overlay-title"
   aria-modal="true"
+  aria-live="polite"
 >
-  <div class="overlay-content">
-    <h2 id="overlay-title">Auflösung</h2>
-    <p id="feedback" class="feedback"></p>
+  <div class="overlayContent" role="document" tabindex="0">
+    <h2 id="overlay-title" class="title">Auflösung</h2>
+    <p id="feedback" class="feedback" role="status" aria-live="assertive"></p>
 
     <!-- Dynamische Anzeige: Cover oder Audio Player -->
-    <div class="media-section">
-      <img id="overlay-cover" src="" alt="Album Cover" class="albumCover" />
-      <audio id="audio-preview" class="audioPlayer" controls>
+    <div class="mediaSection" aria-label="Medien-Bereich">
+      <img
+        id="overlay-cover"
+        class="albumCover"
+        src=""
+        alt=""
+        loading="eager"
+      />
+      <audio
+        id="audio-preview"
+        class="audioPlayer"
+        controls
+        preload="metadata"
+        aria-label="Musik-Vorschau"
+      >
         <source id="audio-preview-source" src="" type="audio/mpeg" />
-        Your browser does not support the audio element.
+        <p>Dein Browser unterstützt keine Audio-Wiedergabe.</p>
       </audio>
     </div>
 
-    <div class="music-links">
-      <a id="spotify-link" class="music-button" href="#" target="_blank">
+    <div class="musicLinks" role="group" aria-label="Musik-Streaming Links">
+      <a
+        id="spotify-link"
+        class="musicButton"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Auf Spotify anhören"
+      >
         <Icon name="spotify" width={36} height={36} />
+        <span class="sr-only">Spotify</span>
       </a>
-      <a id="deezer-link" class="music-button" href="#" target="_blank">
+      <a
+        id="deezer-link"
+        class="musicButton"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Auf Deezer anhören"
+      >
         <Icon name="deezer" width={36} height={36} />
+        <span class="sr-only">Deezer</span>
       </a>
-      <a id="apple-link" class="music-button" href="#" target="_blank">
+      <a
+        id="apple-link"
+        class="musicButton"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Auf Apple Music anhören"
+      >
         <Icon name="apple-music" width={36} height={36} />
+        <span class="sr-only">Apple Music</span>
       </a>
     </div>
 
-    <p id="overlay-artist" class="overlay-artist">Artist Name</p>
-    <p id="overlay-album" class="overlay-album">Album Name</p>
-    <p id="overlay-year" class="overlay-year">Album Year</p>
+    <div class="infoSection" role="contentinfo">
+      <p id="overlay-artist" class="artist"></p>
+      <p id="overlay-album" class="album"></p>
+      <p id="overlay-year" class="year"></p>
+      <p id="overlay-funfact" class="funFact"></p>
+    </div>
 
-    <p id="overlay-funfact" class="fun-fact">Fun Fact</p>
-
-    <div class="centerButton">
-      <button id="next-round-button" class="button">Nächste Runde</button>
+    <div class="buttonWrapper">
+      <button
+        id="next-round-button"
+        class="nextButton"
+        aria-label="Zur nächsten Runde"
+      >
+        Nächste Runde
+      </button>
     </div>
   </div>
 </div>
@@ -49,202 +93,189 @@ import { Icon } from "astro-icon/components";
 <style lang="scss">
   .overlay {
     position: fixed;
-    z-index: 1000;
+    z-index: var(--layer-above);
     inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: var(--padding-large);
-    background: rgba(0, 0, 0, 0.9);
+    background: rgb(0 0 0 / 90%);
     backdrop-filter: blur(12px);
-    transition: opacity var(--transition-speed) ease-in-out;
-  }
 
-  .overlay.hidden {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  .overlay-content {
-    width: 100%;
-    max-width: 768px;
-    padding: var(--padding-large);
-    max-height: 95vh;
-    overflow-y: auto;
-    text-align: center;
-    background-color: var(--background-color);
-    border-radius: var(--border-radius);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
-    color: var(--text-color);
-    transition: transform var(--transition-speed) ease-in-out;
-    transform: scale(0.98);
-
-    .feedback {
-      margin: var(--padding-medium) 0;
-      padding: var(--padding-medium) var(--padding-large);
-      border-radius: var(--border-radius);
-      font-size: 1.25rem;
-      font-weight: 600;
-      text-align: center;
+    &.hidden {
       opacity: 0;
-      transition:
-        opacity var(--transition-speed) ease,
-        transform var(--transition-speed) ease;
+      visibility: hidden;
+      pointer-events: none;
     }
 
-    .feedback.show {
-      opacity: 1;
-      transform: scale(1);
+    @media (prefers-reduced-motion: no-preference) {
+      transition: opacity var(--transition-speed) ease-in-out;
+    }
+  }
+
+  .overlayContent {
+    width: 100%;
+    max-width: min(768px, 90vw);
+    max-height: 90vh;
+    padding: var(--padding-large);
+    overflow-y: auto;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    color: var(--text-color);
+
+    &:focus {
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
     }
 
-    .feedback.correct {
+    @media (max-width: 768px) {
+      padding: var(--padding-medium);
+    }
+  }
+
+  .title {
+    font-size: var(--header-font-size);
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: var(--padding-medium);
+    text-align: center;
+  }
+
+  .feedback {
+    margin: var(--padding-medium) 0;
+    padding: var(--padding-medium);
+    border-radius: var(--border-radius);
+    font-size: var(--body-font-size);
+    font-weight: 600;
+    text-align: center;
+
+    &.correct {
       background-color: var(--highlight-color);
-      color: var(--text-color);
-      box-shadow: var(--box-shadow);
-      border: 2px solid var(--highlight-color);
-      animation: correctAnimation 1s ease;
+      color: var(--button-text-color);
     }
 
-    .feedback.incorrect {
+    &.incorrect {
       background-color: var(--error-color);
       color: var(--button-text-color);
-      box-shadow: var(--box-shadow);
-      border: 2px solid var(--error-color);
-      animation: incorrectAnimation 1s ease;
     }
+  }
 
-    @keyframes correctAnimation {
-      0% {
-        transform: scale(0.8);
-      }
-      100% {
-        transform: scale(1);
-      }
+  .mediaSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--padding-medium);
+    margin-bottom: var(--padding-medium);
+  }
+
+  .albumCover {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+
+  .audioPlayer {
+    width: 100%;
+    max-width: 250px;
+    margin-top: var(--padding-small);
+
+    &:focus-within {
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
     }
+  }
 
-    @keyframes incorrectAnimation {
-      0% {
-        transform: scale(0.8);
-      }
-      100% {
-        transform: scale(1);
-      }
+  .musicLinks {
+    display: flex;
+    justify-content: center;
+    gap: var(--padding-medium);
+    margin: var(--padding-medium) 0;
+
+    @media (max-width: 480px) {
+      flex-wrap: wrap;
     }
+  }
 
-    /* Optional glow effect */
-    .feedback.correct {
-      box-shadow: 0 0 20px rgba(255, 200, 0, 0.5);
-    }
+  .musicButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-small);
+    background-color: var(--highlight-color);
+    border-radius: var(--border-radius);
+    color: var(--button-text-color);
+    min-width: var(--min-touch-target);
+    min-height: var(--min-touch-target);
 
-    .feedback.incorrect {
-      box-shadow: 0 0 20px rgba(255, 87, 51, 0.5);
-    }
-
-    .media-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: var(--padding-medium);
-    }
-
-    .albumCover {
-      max-width: 250px;
-      width: 100%;
-      height: auto;
-      margin-bottom: var(--padding-small);
-      border-radius: var(--border-radius);
-      box-shadow: var(--box-shadow);
-      transition:
-        transform var(--transition-speed),
-        box-shadow var(--transition-speed);
-    }
-
-    .audioPlayer {
-      width: 100%;
-      max-width: 250px;
-      margin-top: var(--padding-small);
-      border: none;
-      box-shadow: var(--box-shadow);
-    }
-
-    .audioPlayer.hidden {
-      display: none;
-    }
-
-    .music-links {
-      display: flex;
-      justify-content: center;
-      gap: var(--padding-small);
-      margin-bottom: var(--padding-medium);
-    }
-
-    .music-button {
-      display: inline-block;
-      padding: var(--padding-small);
-      background-color: var(--highlight-color);
-      color: var(--text-color);
-      border-radius: var(--border-radius);
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: var(--box-shadow);
-      transition:
-        background-color var(--transition-speed),
-        transform 0.2s;
-    }
-
-    .music-button:hover {
+    &:hover {
       background-color: var(--button-hover-color);
-      transform: scale(1.05);
     }
 
-    .overlay-artist,
-    .overlay-album,
-    .overlay-year {
-      font-size: 1.25rem;
-      color: var(--text-color);
-      margin: var(--padding-small) 0;
+    &:focus-visible {
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
     }
+  }
 
-    .overlay-artist {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: var(--highlight-color);
-    }
+  .infoSection {
+    text-align: center;
+    margin: var(--padding-medium) 0;
+  }
 
-    .overlay-album {
-      font-weight: 600;
-    }
+  .artist {
+    font-size: calc(var(--body-font-size) * 1.2);
+    font-weight: 700;
+    color: var(--highlight-color);
+  }
 
-    .overlay-year {
-      font-size: 1.1rem;
-      font-style: italic;
-      color: var(--text-color);
-    }
+  .album,
+  .year,
+  .funFact {
+    margin-top: var(--padding-small);
+    line-height: var(--line-height-body);
+  }
 
-    .fun-fact {
-      font-size: 1.125rem;
-      color: var(--text-color);
-      margin-top: var(--padding-medium);
-      opacity: 0.9;
-    }
+  .nextButton {
+    padding: var(--padding-medium) var(--padding-large);
+    font-size: var(--button-font-size);
+    font-weight: 600;
+    color: var(--button-text-color);
+    background-color: var(--highlight-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    min-width: var(--min-touch-target);
+    min-height: var(--min-touch-target);
 
-    .centerButton .button {
-      padding: var(--padding-small) var(--padding-medium);
-      font-size: var(--button-font-size);
-      background-color: var(--highlight-color);
-      color: var(--text-color);
-      border: none;
-      border-radius: var(--border-radius);
-      cursor: pointer;
-      transition:
-        background-color var(--transition-speed),
-        transform 0.2s;
-      box-shadow: var(--box-shadow);
-    }
-
-    .centerButton .button:hover {
+    &:hover {
       background-color: var(--button-hover-color);
-      transform: scale(1.05);
+    }
+
+    &:focus-visible {
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
+    }
+  }
+
+  .buttonWrapper {
+    display: flex;
+    justify-content: center;
+    gap: var(--padding-medium);
+    margin-top: var(--padding-medium);
+  }
+
+  // High Contrast Mode Support
+  @media (forced-colors: active) {
+    .overlayContent {
+      border: 2px solid CanvasText;
+    }
+
+    .musicButton,
+    .nextButton {
+      border: 2px solid ButtonText;
     }
   }
 </style>
@@ -259,23 +290,28 @@ import { Icon } from "astro-icon/components";
 
   observer.observe(overlay, { attributes: true, attributeFilter: ["class"] });
 
+  const focusableElements =
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
   document.addEventListener("keydown", (event) => {
-    if (!overlay.classList.contains("hidden")) {
+    const overlay = document.getElementById("overlay");
+    if (!overlay?.classList.contains("hidden")) {
+      const content = overlay!.querySelector(".overlayContent");
+
       switch (event.key) {
-        case "ArrowDown":
-          overlay
-            .querySelector(".overlay-content")
-            ?.scrollBy({ top: 100, behavior: "smooth" });
-          break;
-        case "ArrowUp":
-          overlay
-            .querySelector(".overlay-content")
-            ?.scrollBy({ top: -100, behavior: "smooth" });
-          break;
         case "Escape":
           document.getElementById("next-round-button")?.click();
           break;
-        default:
+        case "Tab":
+          const focusable = content?.querySelectorAll(focusableElements);
+          if (
+            focusable &&
+            event.shiftKey &&
+            document.activeElement === focusable[0]
+          ) {
+            event.preventDefault();
+            (focusable[focusable.length - 1] as HTMLElement).focus();
+          }
           break;
       }
     }

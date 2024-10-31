@@ -1,80 +1,153 @@
 ---
-const { headline, subline } = Astro.props;
+interface Props {
+  headline: string;
+  subline?: string;
+  level?: 1 | 2 | 3; // Für verschiedene Heading-Level
+}
+
+const { headline, subline, level = 1 } = Astro.props;
+
+// Dynamisches Heading-Element basierend auf level
+const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
 ---
 
-<div class="introText">
-  <div class="headline">
+<div class="introSection" role="region" aria-labelledby="intro-heading">
+  <HeadingTag id="intro-heading" class="headline">
     {headline}
-  </div>
-  <div class="subline">
-    {subline}
-  </div>
+  </HeadingTag>
+
+  {
+    subline && (
+      <p class="subline" id="intro-subline">
+        {subline}
+      </p>
+    )
+  }
 </div>
 
 <style lang="scss">
-  .introText {
+  .introSection {
+    width: 100%;
+    max-width: var(--max-line-length);
+    margin-inline: auto;
+    margin-block-end: var(--padding-large);
+    padding-inline: var(--padding-medium);
+
     display: flex;
     flex-direction: column;
-    gap: var(--padding-small);
     align-items: center;
-    margin-bottom: var(--padding-medium);
+    gap: var(--padding-medium);
     text-align: center;
-    animation: fadeIn 0.6s ease-in-out;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: fadeIn var(--transition-speed) ease-out;
+    }
 
     @media (max-width: 768px) {
-      margin-bottom: var(--padding-small);
+      margin-block-end: var(--padding-medium);
+      padding-inline: var(--padding-small);
     }
   }
 
   .headline {
     font-family: var(--font-family);
-    font-size: 2rem;
+    font-size: var(--header-font-size);
     font-weight: 900;
-    line-height: 1.5;
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--spacing-text);
     color: var(--text-color);
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: var(--padding-small);
-    transition: color 0.3s ease;
+    max-width: var(--max-line-length);
+    margin: 0;
 
+    // Verbesserte Lesbarkeit
+    text-wrap: balance; // Für Browser die es unterstützen
+    hyphens: auto;
+
+    // Responsive Anpassungen
     @media (max-width: 768px) {
-      font-size: 1.75rem;
+      font-size: calc(var(--header-font-size) * 0.85);
     }
 
     @media (max-width: 480px) {
-      font-size: 1.5rem;
+      font-size: calc(var(--header-font-size) * 0.75);
     }
   }
 
   .subline {
-    width: 100%;
-    max-width: 30rem;
+    font-family: var(--font-family);
     font-size: var(--body-font-size);
-    line-height: 1.6;
+    line-height: var(--line-height-body);
+    letter-spacing: var(--spacing-text);
     color: var(--text-color);
-    opacity: 0.9;
-    text-align: center;
-    transition: opacity 0.3s ease;
+    max-width: min(30rem, 90%);
+    margin: 0;
 
+    // Subtile Transparenz für visuelle Hierarchie
+    opacity: 0.9;
+
+    // Responsive Anpassungen
     @media (max-width: 768px) {
-      font-size: 1rem;
-      max-width: 24rem;
+      font-size: calc(var(--body-font-size) * 0.95);
+      max-width: min(24rem, 95%);
     }
 
     @media (max-width: 480px) {
-      font-size: 0.95rem;
-      max-width: 20rem;
+      font-size: calc(var(--body-font-size) * 0.9);
+      max-width: min(20rem, 100%);
     }
   }
 
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(1rem);
     }
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  // High Contrast Mode Support
+  @media (forced-colors: active) {
+    .headline,
+    .subline {
+      color: CanvasText;
+    }
+  }
+
+  // Dark Mode Optimierungen
+  @media (prefers-color-scheme: dark) {
+    .headline {
+      text-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+    }
+  }
+
+  // Print Styles
+  @media print {
+    .introSection {
+      margin-block-end: 1rem;
+      animation: none;
+    }
+
+    .headline {
+      color: #000;
+    }
+
+    .subline {
+      color: #333;
+    }
+  }
+
+  // Fokus-Styles für bessere Keyboard-Navigation
+  .introSection:focus-within {
+    outline: none;
+
+    .headline {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
     }
   }
 </style>

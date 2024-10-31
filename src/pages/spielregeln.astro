@@ -3,182 +3,256 @@ import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout title="Spielregeln">
-  <div class="rules-container">
-    <h1>Spielregeln – MelodyMind</h1>
+  <article class="rulesContainer">
+    <h1 class="mainTitle">Spielregeln – MelodyMind</h1>
 
-    <h2>Überblick</h2>
-    <p>
-      Willkommen bei <strong class="highlight">MelodyMind</strong>! Dein Ziel
-      ist es, Fragen zu Liedern, Interpreten und Alben aus verschiedenen
-      Musikrichtungen zu beantworten. Wähle ein Genre aus und stelle dein Wissen
-      auf die Probe. Je mehr Fragen du richtig beantwortest, desto mehr Punkte
-      bekommst du.
-    </p>
+    <section aria-labelledby="overview">
+      <h2 id="overview" class="sectionTitle">Überblick</h2>
+      <p class="text">
+        Willkommen bei <strong>MelodyMind</strong>! Dein Ziel ist es, Fragen zu
+        Liedern, Interpreten und Alben aus verschiedenen Musikrichtungen zu
+        beantworten. Wähle ein Genre aus und stelle dein Wissen auf die Probe.
+        Je mehr Fragen du richtig beantwortest, desto mehr Punkte bekommst du.
+      </p>
+    </section>
 
-    <h2>Schwierigkeitsgrade</h2>
-    <p>
-      Es gibt drei Schwierigkeitsstufen, aus denen du eine auswählen kannst:
-    </p>
-    <ul>
-      <li>
-        <strong>Leicht</strong>: 10 Fragen pro Runde. Perfekt, um dein Wissen
-        aufzufrischen und Spaß zu haben.
-      </li>
-      <li>
-        <strong>Mittel</strong>: 15 Fragen pro Runde. Eine Herausforderung für
-        fortgeschrittene Musikliebhaber.
-      </li>
-      <li>
-        <strong>Schwer</strong>: 20 Fragen pro Runde. Nur für echte Musikkenner!
-      </li>
-    </ul>
+    <section aria-labelledby="difficulty-levels">
+      <h2 id="difficulty-levels" class="sectionTitle">Schwierigkeitsgrade</h2>
 
-    <p>
-      Jede Schwierigkeitsstufe hat einen eigenen Titel, den du freischalten
-      kannst:
-    </p>
-    <ul>
-      <li>
-        <strong>Musik-Novize</strong>: Alle Fragen im leichten Modus richtig
-        beantwortet.
-      </li>
-      <li>
-        <strong>Musik-Meister</strong>: Alle Fragen im mittleren Modus richtig
-        beantwortet.
-      </li>
-      <li>
-        <strong>Musik-Legende</strong>: Alle Fragen im schweren Modus richtig
-        beantwortet.
-      </li>
-    </ul>
+      <p class="text">
+        Es gibt drei Schwierigkeitsstufen, aus denen du eine auswählen kannst:
+      </p>
 
-    <h2>Punktesystem</h2>
-    <ul>
-      <li>50 Punkte für jede richtige Antwort.</li>
-      <li>Keine Punkte für falsche Antworten.</li>
-    </ul>
+      <ul class="list" role="list">
+        <li>
+          <strong>Leicht</strong>: 10 Fragen pro Runde. Perfekt, um dein Wissen
+          aufzufrischen und Spaß zu haben.
+        </li>
+        <li>
+          <strong>Mittel</strong>: 15 Fragen pro Runde. Eine Herausforderung für
+          fortgeschrittene Musikliebhaber.
+        </li>
+        <li>
+          <strong>Schwer</strong>: 20 Fragen pro Runde. Nur für echte
+          Musikkenner!
+        </li>
+      </ul>
 
-    <h2>Goldene Schallplatten</h2>
-    <p>
-      Bei vollständiger richtiger Beantwortung aller Fragen einer Kategorie
-      erhältst du eine <span class="golden-lp">goldene Schallplatte</span>:
-    </p>
-    <ul>
-      <li><strong>Leicht</strong>: Musik-Novize.</li>
-      <li><strong>Mittel</strong>: Musik-Meister.</li>
-      <li><strong>Schwer</strong>: Musik-Legende.</li>
-    </ul>
+      <p class="text">
+        Jede Schwierigkeitsstufe hat einen eigenen Titel, den du freischalten
+        kannst:
+      </p>
 
-    <h2>Ranglisten</h2>
-    <p>
-      Das <strong>Rankingsystem</strong> vergleicht dich mit anderen Spielern. Die
-      Platzierung in den <strong>Top 10</strong> basiert auf deinen gesammelten Punkten
-      in allen Kategorien.
-    </p>
-    <ul>
-      <li>Genrespezifische Rangliste: Beste Spieler eines Genres.</li>
-      <li>Gesamtrangliste: Beste Spieler aller Kategorien.</li>
-    </ul>
+      <ul class="list" role="list">
+        <li>
+          <strong>Musik-Novize</strong>: Alle Fragen im leichten Modus richtig
+          beantwortet.
+        </li>
+        <li>
+          <strong>Musik-Meister</strong>: Alle Fragen im mittleren Modus richtig
+          beantwortet.
+        </li>
+        <li>
+          <strong>Musik-Legende</strong>: Alle Fragen im schweren Modus richtig
+          beantwortet.
+        </li>
+      </ul>
+    </section>
 
-    <h2>Tipps & Tricks</h2>
-    <ul>
-      <li>
-        <strong>Starte im leichten Modus</strong>, um ein Gefühl für das Spiel
-        zu bekommen.
-      </li>
-      <li>
-        <strong>Wähle deine Stärken</strong> und spiele die Genres, in denen du dich
-        sicher fühlst.
-      </li>
-      <li>
-        <strong>Übe regelmäßig</strong>, um deine Punktzahl zu verbessern.
-      </li>
-      <li>
-        <strong>Genauigkeit</strong> geht vor Tempo – lies jede Frage sorgfältig
-        durch.
-      </li>
-    </ul>
-  </div>
+    <section aria-labelledby="points-system">
+      <h2 class="sectionTitle" id="points-system">Punktesystem</h2>
+
+      <ul class="list" role="list">
+        <li>50 Punkte für jede richtige Antwort.</li>
+        <li>Keine Punkte für falsche Antworten.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="golden-lps">
+      <h2 class="sectionTitle" id="golden-lps">Goldene Schallplatten</h2>
+
+      <p class="text">
+        Bei vollständiger richtiger Beantwortung aller Fragen einer Kategorie
+        erhältst du eine <span class="golden-lp">goldene Schallplatte</span>:
+      </p>
+
+      <ul class="list" role="list">
+        <li><strong>Leicht</strong>: Musik-Novize.</li>
+        <li><strong>Mittel</strong>: Musik-Meister.</li>
+        <li><strong>Schwer</strong>: Musik-Legende.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="rankings">
+      <h2 class="sectionTitle" id="rankings">Ranglisten</h2>
+
+      <p class="text">
+        Das <strong>Rankingsystem</strong> vergleicht dich mit anderen Spielern.
+        Die Platzierung in den <strong>Top 10</strong> basiert auf deinen gesammelten
+        Punkten in allen Kategorien.
+      </p>
+
+      <ul class="list" role="list">
+        <li>Genrespezifische Rangliste: Beste Spieler eines Genres.</li>
+        <li>Gesamtrangliste: Beste Spieler aller Kategorien.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="tips-tricks">
+      <h2 class="sectionTitle" id="tips-tricks">Tipps & Tricks</h2>
+
+      <ul class="list" role="list">
+        <li>
+          <strong>Starte im leichten Modus</strong>, um ein Gefühl für das Spiel
+          zu bekommen.
+        </li>
+        <li>
+          <strong>Wähle deine Stärken</strong> und spiele die Genres, in denen du
+          dich sicher fühlst.
+        </li>
+        <li>
+          <strong>Übe regelmäßig</strong>, um deine Punktzahl zu verbessern.
+        </li>
+        <li>
+          <strong>Genauigkeit</strong> geht vor Tempo – lies jede Frage sorgfältig
+          durch.
+        </li>
+      </ul>
+    </section>
+  </article>
 
   <style lang="scss">
-    h1 {
-      margin-bottom: var(--padding-large);
-      font-size: 2rem;
-      color: var(--text-color);
-      text-align: center;
+    .rulesPage {
+      width: 100%;
+      max-width: var(--max-line-length);
+      margin: 0 auto;
+      padding: var(--padding-medium);
     }
 
-    h2 {
-      margin-bottom: var(--padding-medium);
-      font-size: 1.5rem;
-      color: var(--text-color);
-    }
-
-    p {
-      margin-bottom: var(--padding-medium);
-      font-size: var(--body-font-size);
-      line-height: 1.6;
-      color: var(--text-color);
-    }
-
-    ul {
-      margin-bottom: var(--padding-medium);
-      padding-left: var(--padding-large);
-      list-style-type: disc;
-      color: var(--text-color);
-    }
-
-    .rules-container {
-      max-width: 768px;
-      margin: 2rem auto;
+    .rulesContainer {
       padding: var(--padding-large);
       background-color: var(--secondary-color);
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
+
+      @media (max-width: 768px) {
+        padding: var(--padding-medium);
+      }
     }
 
-    .golden-lp,
+    .mainTitle {
+      font-family: var(--font-family);
+      font-size: var(--header-font-size);
+      font-weight: 900;
+      line-height: var(--line-height-body);
+      text-align: center;
+      color: var(--text-color);
+      margin-block-end: var(--padding-large);
+
+      @media (max-width: 768px) {
+        font-size: calc(var(--header-font-size) * 0.8);
+      }
+    }
+
+    .sectionTitle {
+      font-family: var(--font-family);
+      font-size: calc(var(--header-font-size) * 0.8);
+      font-weight: 700;
+      line-height: var(--line-height-body);
+      color: var(--text-color);
+      margin-block: var(--padding-medium);
+
+      @media (max-width: 768px) {
+        font-size: calc(var(--header-font-size) * 0.7);
+      }
+    }
+
+    .text {
+      font-family: var(--font-family);
+      font-size: var(--body-font-size);
+      line-height: var(--line-height-body);
+      letter-spacing: var(--spacing-text);
+      color: var(--text-color);
+      margin-block-end: var(--padding-medium);
+
+      strong {
+        font-weight: 600;
+      }
+    }
+
+    .list {
+      list-style-type: disc;
+      padding-inline-start: var(--padding-large);
+      margin-block-end: var(--padding-medium);
+
+      li {
+        font-family: var(--font-family);
+        font-size: var(--body-font-size);
+        line-height: var(--line-height-body);
+        color: var(--text-color);
+        margin-block-end: var(--padding-small);
+
+        strong {
+          font-weight: 600;
+        }
+      }
+
+      @media (max-width: 768px) {
+        padding-inline-start: var(--padding-medium);
+      }
+    }
+
     .highlight {
+      color: var(--highlight-color);
       font-weight: 600;
     }
 
-    @media (max-width: 1024px) {
-      .rules-container {
-        padding: var(--padding-medium);
+    // High Contrast Mode Support
+    @media (forced-colors: active) {
+      .rulesContainer {
+        border: 2px solid CanvasText;
       }
 
-      h1 {
-        font-size: 1.75rem;
-      }
-
-      h2 {
-        font-size: 1.4rem;
-      }
-
-      p {
-        font-size: 1.1rem;
+      .highlight,
+      .list li strong {
+        border-bottom: 1px solid CurrentColor;
       }
     }
 
-    @media (max-width: 768px) {
-      .rules-container {
-        padding: var(--padding-medium);
+    // Reduced Motion
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+      }
+    }
+
+    // Print Styles
+    @media print {
+      .rulesContainer {
+        box-shadow: none;
+        border: 1px solid #000;
       }
 
-      h1 {
-        font-size: 1.5rem;
+      .mainTitle,
+      .sectionTitle {
+        color: #000;
       }
 
-      h2 {
-        font-size: 1.3rem;
+      .list {
+        page-break-inside: avoid;
       }
+    }
 
-      p {
-        font-size: 1rem;
-      }
+    // Focus Styles
+    :focus-visible {
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
+    }
 
-      ul {
-        padding-left: var(--padding-medium);
+    // Better Touch Targets
+    @media (hover: none) and (pointer: coarse) {
+      .list li {
+        padding-block: calc(var(--padding-small) / 2);
       }
     }
   </style>
