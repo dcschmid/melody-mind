@@ -37,7 +37,7 @@ const goldenLPs: Record<string, GoldenLP> = await getGoldenLPs(user?.id);
             {Object.entries(goldenLPs).map(([genre, data]) => (
               <article class="achievementCard" role="listitem">
                 <div class="cardIcon" aria-hidden="true">
-                <Icon name="golden-lp" width={80} height={80} />
+                  <Icon name="golden-lp" width={80} height={80} />
                 </div>
                 <div class="cardContent">
                   <h3 class="achievementTitle">{genre}</h3>

@@ -208,18 +208,18 @@ const {
 
   // Fokus-Management
   const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (
-          mutation.type === "attributes" &&
-          mutation.attributeName === "class"
-        ) {
-          const element = mutation.target as HTMLElement;
-          if (!element.classList.contains("hidden")) {
-            (element.querySelector(".popupContent") as HTMLElement)?.focus();
-          }
+    mutations.forEach((mutation) => {
+      if (
+        mutation.type === "attributes" &&
+        mutation.attributeName === "class"
+      ) {
+        const element = mutation.target as HTMLElement;
+        if (!element.classList.contains("hidden")) {
+          (element.querySelector(".popupContent") as HTMLElement)?.focus();
         }
-      });
+      }
     });
+  });
 
   if (popup) {
     observer.observe(popup, { attributes: true });

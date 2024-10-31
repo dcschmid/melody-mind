@@ -21,13 +21,7 @@ const { playerTitle, category } = Astro.props;
     <h2 id="golden-lp-title" class="title">Herzlichen Glückwunsch!</h2>
 
     <div class="iconWrapper" aria-hidden="true">
-      <Icon
-        name="golden-lp"
-        class="trophyIcon"
-        width={100}
-        height={100}
-
-      />
+      <Icon name="golden-lp" class="trophyIcon" width={100} height={100} />
     </div>
 
     <div class="messageSection" role="status">
@@ -131,8 +125,12 @@ const { playerTitle, category } = Astro.props;
   }
 
   @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   .messageSection {
@@ -202,7 +200,7 @@ const { playerTitle, category } = Astro.props;
     .popupContent {
       border: 2px solid CanvasText;
     }
-    
+
     .restartButton {
       border: 2px solid ButtonText;
     }
@@ -236,13 +234,13 @@ const { playerTitle, category } = Astro.props;
 </style>
 
 <script>
-  const popup = document.getElementById('golden-lp-popup');
-  const restartButton = document.getElementById('restart-button-lp');
+  const popup = document.getElementById("golden-lp-popup");
+  const restartButton = document.getElementById("restart-button-lp");
 
   // Verbesserte Keyboard-Navigation
-  document.addEventListener('keydown', (event) => {
-    if (!popup?.classList.contains('hidden')) {
-      if (event.key === 'Escape') {
+  document.addEventListener("keydown", (event) => {
+    if (!popup?.classList.contains("hidden")) {
+      if (event.key === "Escape") {
         restartButton?.click();
       }
     }
@@ -250,15 +248,18 @@ const { playerTitle, category } = Astro.props;
 
   // Fokus-Management
   const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-          const element = mutation.target as HTMLElement;
-          if (!element.classList.contains('hidden')) {
-            (element.querySelector('.popupContent') as HTMLElement)?.focus();
-          }
+    mutations.forEach((mutation) => {
+      if (
+        mutation.type === "attributes" &&
+        mutation.attributeName === "class"
+      ) {
+        const element = mutation.target as HTMLElement;
+        if (!element.classList.contains("hidden")) {
+          (element.querySelector(".popupContent") as HTMLElement)?.focus();
         }
-      });
+      }
     });
+  });
 
   if (popup) {
     observer.observe(popup, { attributes: true });
