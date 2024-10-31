@@ -1,0 +1,87 @@
+---
+interface Props {
+  message?: string;
+}
+
+const { message = "Ein Fehler ist aufgetreten" } = Astro.props;
+---
+
+<div class="errorMessage hidden" role="alert" aria-live="polite">
+  <div class="errorContent">
+    <span class="errorIcon">⚠️</span>
+    <p class="errorText">{message}</p>
+    <button class="closeButton" aria-label="Fehlermeldung schließen">×</button>
+  </div>
+</div>
+
+<style lang="scss">
+  .errorMessage {
+    position: fixed;
+    top: var(--padding-medium);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: var(--layer-above);
+
+    padding: var(--padding-medium);
+    background-color: var(--error-color);
+    color: var(--button-text-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+
+    &.hidden {
+      display: none;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: slideIn 0.3s ease-out;
+    }
+  }
+
+  .errorContent {
+    display: flex;
+    align-items: center;
+    gap: var(--padding-small);
+  }
+
+  .errorIcon {
+    font-size: 1.2em;
+  }
+
+  .errorText {
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    margin: 0;
+  }
+
+  .closeButton {
+    padding: calc(var(--padding-small) / 2);
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1.2em;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity var(--transition-speed) ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translate(-50%, -100%);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .errorMessage {
+      border: 2px solid ButtonText;
+    }
+  }
+</style>

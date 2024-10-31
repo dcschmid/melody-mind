@@ -9,6 +9,7 @@ import EndOverlay from "@components/Overlays/EndOverlay.astro";
 import GoldenLPOverlay from "@components/Overlays/GoldenLPOverlay.astro";
 import LoadingSpinner from "@components/Game/LoadingSpinner.astro";
 import Joker from "@components/Game/Joker.astro";
+import ErrorMessage from "@components/Shared/ErrorMessage.astro";
 
 /**
  * Get the user object from the Astro context
@@ -50,6 +51,8 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   />
 
   <GameHeadline headline={currentCategoryData?.headline} />
+
+  <ErrorMessage />
 
   <LoadingSpinner />
 
@@ -139,9 +142,22 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 </style>
 
 <script>
+  import { stopAudio } from "@utils/audio/audioControls";
   import { getRandomQuestion } from "@utils/game/getRandomQuestion";
   import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
   import { shuffleArray } from "@utils/share/shuffleArray";
+  import {
+    use5050Joker,
+    createInitialJokerState,
+  } from "@utils/game/jokerUtils";
+  import { updateMedia, initializeMediaElements } from "@utils/game/mediaUtils";
+  import {
+    handleEndGame,
+    showEndgamePopup,
+    showGoldenLpPopup,
+    restartGame,
+  } from "@utils/game/endGameUtils";
+  import { ErrorHandler } from "@utils/error/errorHandler";
 
   document.addEventListener("DOMContentLoaded", async function () {
     const scoreElement = document.querySelector(
@@ -201,8 +217,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       await getUserAndCategoryPoints(userId ?? "", categoryName ?? "");
 
     let currentQuestion: null = null;
-    let jokerUsedCount = 0;
-    let maxJokers = difficulty === "easy" ? 3 : difficulty === "medium" ? 5 : 7;
 
     const jokerButton = document.getElementById(
       "joker-button",
@@ -210,95 +224,43 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     const jokerCounterElement = document.getElementById(
       "joker-count",
     ) as HTMLElement;
+
+    const { maxJokers, jokerState } = createInitialJokerState(
+      difficulty || "easy",
+    );
+    let currentJokerState = jokerState;
+
     jokerCounterElement.textContent = `Joker: ${maxJokers} verbleibend`;
 
-    let jokerUsed = false;
-
-    let startTime = 0;
-
-    // Stop the audio when a new question is loaded
-    function stopAudio() {
-      if (audioPreview) {
-        audioPreview.pause();
-        audioPreview.currentTime = 0; // Reset to the beginning
-      }
-    }
-
-    // Funktion für den 50:50 Joker
-    function use5050Joker(question: any) {
-      const correctAnswer = question.correctAnswer;
-      const options = Array.from(document.querySelectorAll("#options button"));
-
-      if (jokerUsed) return;
-
-      if (jokerUsedCount >= maxJokers) {
-        jokerButton.disabled = true;
-      }
-
-      const incorrectOptions = options.filter(
-        (option) => option.textContent !== correctAnswer,
-      );
-      const optionsToRemove = incorrectOptions
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 2);
-
-      optionsToRemove.forEach((option) => {
-        option.classList.add("hidden");
-        option.addEventListener("transitionend", function () {
-          option.remove();
-        });
-      });
-
-      jokerUsed = true;
-      jokerUsedCount++;
-      jokerCounterElement.textContent = `Joker: ${maxJokers - jokerUsedCount} verbleibend`;
-    }
-
+    // Event-Handler für Joker-Button
     if (jokerButton) {
       jokerButton.addEventListener("click", function () {
-        const currentQuestion = getCurrentQuestion();
-        use5050Joker(currentQuestion);
+        const question = getCurrentQuestion();
+        if (!question) return;
+
+        currentJokerState = use5050Joker(
+          question,
+          currentJokerState,
+          maxJokers,
+          {
+            updateButton: (disabled) => {
+              jokerButton.disabled = disabled;
+            },
+            updateCounter: (remaining) => {
+              jokerCounterElement.textContent = `Joker: ${remaining} verbleibend`;
+            },
+          },
+        );
       });
     }
 
-    function updateMedia(album: any) {
-      stopAudio(); // Stop the audio when new media is loaded
-
-      if (album.preview_link) {
-        audioPreviewSource.src = album.preview_link;
-        audioPreview.load();
-        audioPreview.classList.remove("hidden");
-        overlayCover.classList.add("hidden");
-      } else {
-        overlayCover.src = album.coverSrc;
-        overlayCover.classList.remove("hidden");
-        audioPreview.classList.add("hidden");
-      }
-
-      if (album.spotify_link) {
-        spotifyLink.href = album.spotify_link;
-        spotifyLink.style.display = "inline-block";
-      } else {
-        spotifyLink.style.display = "none";
-      }
-
-      if (album.deezer_link) {
-        deezerLink.href = album.deezer_link;
-        deezerLink.style.display = "inline-block";
-      } else {
-        deezerLink.style.display = "none";
-      }
-
-      if (album.apple_music_link) {
-        appleLink.href = album.apple_music_link;
-        appleLink.style.display = "inline-block";
-      } else {
-        appleLink.style.display = "none";
-      }
+    const mediaElements = initializeMediaElements();
+    if (!mediaElements) {
+      console.error("Media-Elemente konnten nicht initialisiert werden");
+      return;
     }
 
     function loadQuestion(question: any, album: any) {
-      startTime = Date.now();
       questionContainer.classList.add("hidden");
 
       const spinner = document.getElementById(
@@ -380,7 +342,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         questionContainer.classList.remove("hidden");
       }, 500);
 
-      jokerUsed = false;
+      currentJokerState.jokerUsed = false;
     }
 
     function handleAnswer(
@@ -389,6 +351,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       currentQuestion: { trivia: string },
       album: { coverSrc: string; artist: string; album: string; year: string },
     ) {
+      const startTime = Date.now();
       const endTime = Date.now();
       const timeTaken = (endTime - startTime) / 1000;
       let totalPoints = 0;
@@ -421,7 +384,9 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         currentQuestion.trivia || "";
       document.getElementById("overlay-year")!.textContent = album.year || "";
 
-      updateMedia(album);
+      if (mediaElements) {
+        updateMedia(album, mediaElements);
+      }
 
       const overlay = document.getElementById("overlay") as HTMLDivElement;
       overlay.classList.remove("hidden");
@@ -452,78 +417,43 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       };
     }
 
-    function endGame() {
-      if (correctAnswers === totalRounds) {
-        saveGoldenLP(userId || "", categoryName || "");
-        saveScoreToDB();
-        showGoldenLpPopup();
-      } else {
-        saveScoreToDB();
-        showEndgamePopup();
-      }
-    }
-
-    function showEndgamePopup() {
-      stopAudio(); // Stoppt die Audio-Vorschau, wenn das Endgame-Overlay angezeigt wird.
-
-      document.getElementById("popup-score")!.textContent = score.toString();
-      const endgamePopup = document.getElementById("endgame-popup");
-      endgamePopup!.classList.remove("hidden");
-
-      document.getElementById("restart-button")!.onclick = function () {
-        restartGame();
-      };
-    }
-
-    function showGoldenLpPopup() {
-      stopAudio(); // Stoppt die Audio-Vorschau, wenn das Golden LP-Overlay angezeigt wird.
-      document.getElementById("golden-lp-score")!.textContent =
-        score.toString();
-      const goldenLpPopup = document.getElementById("golden-lp-popup");
-      goldenLpPopup!.classList.remove("hidden");
-
-      document.getElementById("restart-button-lp")!.onclick = function () {
-        restartGame();
-      };
-    }
-
     function updateScoreDisplay(score: number) {
       scoreElement.textContent = score.toString();
       scoreElement.classList.add("bonus");
       setTimeout(() => scoreElement.classList.remove("bonus"), 500);
     }
 
-    function restartGame() {
-      score = 0;
-      correctAnswers = 0;
-      roundIndex = 0;
-      window.location.href = "/gamehome";
-    }
+    function endGame() {
+      const config = {
+        userId: userId || "",
+        categoryName: categoryName || "",
+        difficulty: difficulty || "easy",
+        totalRounds,
+        correctAnswers,
+        score,
+        totalUserPoints,
+        currentCategoryPointsValue,
+      };
 
-    async function saveScoreToDB() {
-      await fetch(`/api/saveTotalUserPointsAndHighscore`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const ui = {
+        showGoldenLpPopup: () => showGoldenLpPopup(score),
+        showEndgamePopup: () => showEndgamePopup(score),
+      };
+
+      handleEndGame(config, ui, {
+        onError: (error) => {
+          ErrorHandler.handleApiError(error);
         },
-        body: JSON.stringify({
-          userId,
-          totalUserPoints: totalUserPoints + score,
-          category: categoryName,
-          categoryPoints: currentCategoryPointsValue + score,
-        }),
       });
     }
 
-    async function saveGoldenLP(userId: string, genre: string) {
-      await fetch(`/api/saveUserGoldenLP`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ userId, genre, difficulty }),
-      });
-    }
+    // Event-Listener für die Restart-Buttons
+    document
+      .getElementById("restart-button")
+      ?.addEventListener("click", restartGame);
+    document
+      .getElementById("restart-button-lp")
+      ?.addEventListener("click", restartGame);
 
     function getCurrentQuestion() {
       return currentQuestion;
