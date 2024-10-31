@@ -1,4 +1,5 @@
 import { stopAudio } from "../audio/audioControls";
+import { QueueManager } from "../queue/queueManager";
 
 interface EndGameConfig {
   userId: string;
@@ -31,14 +32,42 @@ export async function handleEndGame(
 ) {
   try {
     if (config.correctAnswers === config.totalRounds) {
-      await Promise.all([saveGoldenLP(config), saveScoreToDB(config)]);
+      try {
+        await Promise.all([saveGoldenLP(config), saveScoreToDB(config)]);
+      } catch (error) {
+        // Bei Fehler zur Queue hinzufügen
+        await QueueManager.addToQueue("score", {
+          userId: config.userId,
+          totalUserPoints: config.totalUserPoints + config.score,
+          category: config.categoryName,
+          categoryPoints: config.currentCategoryPointsValue + config.score,
+        });
+
+        await QueueManager.addToQueue("goldenLP", {
+          userId: config.userId,
+          genre: config.categoryName,
+          difficulty: config.difficulty,
+        });
+
+        callbacks?.onError?.(error as Error);
+      }
       ui.showGoldenLpPopup();
     } else {
-      await saveScoreToDB(config);
+      try {
+        await saveScoreToDB(config);
+      } catch (error) {
+        // Bei Fehler zur Queue hinzufügen
+        await QueueManager.addToQueue("score", {
+          userId: config.userId,
+          totalUserPoints: config.totalUserPoints + config.score,
+          category: config.categoryName,
+          categoryPoints: config.currentCategoryPointsValue + config.score,
+        });
+
+        callbacks?.onError?.(error as Error);
+      }
       ui.showEndgamePopup();
     }
-
-    callbacks?.onSaveComplete?.();
   } catch (error) {
     console.error("Fehler beim Beenden des Spiels:", error);
     callbacks?.onError?.(error as Error);

@@ -69,7 +69,6 @@ export function use5050Joker(
   }
 }
 
-
 export function createInitialJokerState(difficulty: string): {
   maxJokers: number;
   jokerState: JokerState;

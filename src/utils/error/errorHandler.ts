@@ -1,3 +1,5 @@
+import { QueueManager } from "../queue/queueManager";
+
 export interface ErrorOptions {
   duration?: number;
   autoHide?: boolean;
@@ -68,5 +70,21 @@ export class ErrorHandler {
     }
 
     this.showError(message);
+  }
+
+  static async handleSaveError(
+    error: Error,
+    type: "score" | "goldenLP",
+    data: any,
+  ): Promise<void> {
+    // Füge die Daten zur Queue hinzu
+    await QueueManager.addToQueue(type, data);
+
+    // Zeige eine informative Nachricht
+    this.showError(
+      "Deine Daten werden im Hintergrund gespeichert und automatisch synchronisiert, " +
+        "sobald die Verbindung wiederhergestellt ist.",
+      { autoHide: true, duration: 8000 },
+    );
   }
 }

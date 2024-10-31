@@ -143,23 +143,26 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 
 <script>
   import { stopAudio } from "@utils/audio/audioControls";
-  import { getRandomQuestion } from "@utils/game/getRandomQuestion";
-  import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
-  import { shuffleArray } from "@utils/share/shuffleArray";
-  import {
-    use5050Joker,
-    createInitialJokerState,
-  } from "@utils/game/jokerUtils";
-  import { updateMedia, initializeMediaElements } from "@utils/game/mediaUtils";
+  import { ErrorHandler } from "@utils/error/errorHandler";
   import {
     handleEndGame,
+    restartGame,
     showEndgamePopup,
     showGoldenLpPopup,
-    restartGame,
   } from "@utils/game/endGameUtils";
-  import { ErrorHandler } from "@utils/error/errorHandler";
+  import { getRandomQuestion } from "@utils/game/getRandomQuestion";
+  import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
+  import {
+    createInitialJokerState,
+    use5050Joker,
+  } from "@utils/game/jokerUtils";
+  import { initializeMediaElements, updateMedia } from "@utils/game/mediaUtils";
+  import { QueueManager } from "@utils/queue/queueManager";
+  import { shuffleArray } from "@utils/share/shuffleArray";
 
   document.addEventListener("DOMContentLoaded", async function () {
+    QueueManager.startProcessing();
+
     const scoreElement = document.querySelector(
       ".coinsCount",
     ) as HTMLParagraphElement;
@@ -442,7 +445,12 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 
       handleEndGame(config, ui, {
         onError: (error) => {
-          ErrorHandler.handleApiError(error);
+          ErrorHandler.handleSaveError(error, "score", {
+            userId: config.userId,
+            totalUserPoints: config.totalUserPoints + config.score,
+            category: config.categoryName,
+            categoryPoints: config.currentCategoryPointsValue + config.score,
+          });
         },
       });
     }
@@ -468,5 +476,11 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     if (initialQuestion) {
       loadQuestion(initialQuestion.randomQuestion, initialQuestion.randomAlbum);
     }
+
+    window.addEventListener("beforeunload", (e) => {
+      if (QueueManager.hasUnsavedData()) {
+        e.preventDefault();
+      }
+    });
   });
 </script>
