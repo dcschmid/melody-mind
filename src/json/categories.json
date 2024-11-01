@@ -846,12 +846,12 @@
     "text": "Die kubanische Musik ist weltweit bekannt für ihre kraftvollen Rhythmen, mitreißenden Melodien und die einzigartige Fusion von afrikanischen und spanischen Einflüssen. Diese Kategorie vereint die traditionellen Klänge von Son, Mambo, Salsa und Cha-Cha-Cha sowie die modernen Sounds der kubanischen Musikszene. Mit Legenden wie Buena Vista Social Club, Celia Cruz, Compay Segundo und modernen Künstlern wie Orishas und Gente de Zona bietet kubanische Musik eine energiegeladene Mischung aus Percussion, Bläsern und dynamischen Gesängen. Instrumente wie die Congas, Bongos, Claves und Tres-Gitarre schaffen den charakteristischen Rhythmus, der Kuba ausmacht. Lass dich von den feurigen Rhythmen und der musikalischen Leidenschaft der kubanischen Musik mitreißen und genieße eine Reise durch die lebendige und vielfältige Musikkultur der Karibikinsel."
   },
   {
-    "categoryUrl": "/latino",
+    "categoryUrl": "/lateinamerikanisch",
     "headline": "Lateinamerikanisch",
-    "imageUrl": "/category/latino.jpg",
+    "imageUrl": "/category/lateinamerikanisch.jpg",
     "introSubline": "Tauche ein in die lebhaften Rhythmen und die kulturelle Vielfalt Lateinamerikas!",
-    "isPlayable": false,
-    "slug": "latino",
+    "isPlayable": true,
+    "slug": "lateinamerikanisch",
     "text": "Die lateinamerikanische Musik ist ein pulsierendes Kaleidoskop aus verschiedenen Stilen und Traditionen, die die reiche kulturelle Vielfalt der Region widerspiegeln. Diese Kategorie vereint die besten Klänge aus Genres wie Salsa, Tango, Reggaeton, Cumbia, Bachata und vielen anderen. Mit feurigen Rhythmen, leidenschaftlichen Melodien und unwiderstehlichen Tanzbeats bietet die lateinamerikanische Musik eine fesselnde Mischung, die die Herzen und die Tanzflächen gleichermaßen erobert. Von den traditionellen Klängen der Anden bis zu den modernen Hits der Karibik und Südamerikas – lass dich von der Lebensfreude und dem musikalischen Reichtum Lateinamerikas begeistern und erlebe eine unvergessliche musikalische Reise."
   },
   {
