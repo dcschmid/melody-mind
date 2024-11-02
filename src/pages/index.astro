@@ -2,9 +2,21 @@
 import { Icon } from "astro-icon/components";
 import Layout from "@layouts/Layout.astro";
 import { Picture } from "astro:assets";
+
+const title = "Melody Mind - Das ultimative Musik-Quiz";
+const description =
+  "Teste dein Musikwissen in unserem interaktiven Quiz. Erkenne Songs, Alben und Künstler, sammle Punkte und werde zum Musik-Champion. Jetzt kostenlos spielen!";
+const keywords =
+  "Musik Quiz, Musikspiel, Song Quiz, Künstler Quiz, Online Musikquiz, Musik Trivia, Melody Mind, Musik Ratespiel";
 ---
 
-<Layout title="Wilkommen zu Melody Mind" showHeader={false}>
+<Layout
+  title="Wilkommen zu Melody Mind"
+  title={title}
+  description={description}
+  keywords={keywords}
+  showHeader={false}
+>
   <div class="container">
     <Picture
       class="logo"

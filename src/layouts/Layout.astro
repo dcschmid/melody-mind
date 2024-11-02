@@ -7,28 +7,87 @@ import "@fontsource/source-sans-pro/900.css";
 
 interface Props {
   title: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
   showHeader?: boolean;
   showHeaderIcons?: boolean;
 }
 
-const { title, showHeader = true, showHeaderIcons = true } = Astro.props;
+const {
+  title,
+  description = "Melody Mind - Das musikalische Ratespiel",
+  keywords = "Musik, Ratespiel, Quiz, Cover, Entertainment",
+  image = "/social-share.jpg",
+  showHeader = true,
+  showHeaderIcons = true,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>{title} | Melody Mind</title>
+    <meta name="title" content={`${title} | Melody Mind`} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Daniel Schmid" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={`${title} | Melody Mind`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={`${title} | Melody Mind`} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.site)} />
+
+    <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+
+    <!-- Theme Colors -->
     <meta name="msapplication-TileColor" content="#2b5797" />
     <meta name="theme-color" content="#ffffff" />
+
+    <!-- Generator -->
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+
+    <!-- JSON-LD strukturierte Daten -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Melody Mind",
+        "description": ${description},
+        "url": ${canonicalURL},
+        "applicationCategory": "Game",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        }
+      }
+    </script>
   </head>
   <body>
     <When test1={showHeader}>
