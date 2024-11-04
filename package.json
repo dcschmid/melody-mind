@@ -23,6 +23,7 @@
     "@astrojs/node": "^8.3.4",
     "@astropub/flow": "^0.4.0",
     "@fontsource/source-sans-pro": "^5.1.0",
+    "@playform/compress": "^0.1.6",
     "arctic": "^1.9.2",
     "astro": "^4.16.8",
     "astro-compressor": "^0.4.1",

@@ -5,11 +5,18 @@ import node from "@astrojs/node";
 
 import compressor from "astro-compressor";
 
+import playformCompress from "@playform/compress";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://melody-mind.de",
   output: "server",
-  integrations: [icon(), db(), compressor()],
+  integrations: [
+    icon(),
+    db(),
+    compressor(),
+    playformCompress(),
+  ],
   adapter: node({
     mode: "standalone",
   }),
