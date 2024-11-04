@@ -73,7 +73,7 @@ export class ErrorHandler {
   }
 
   static async handleSaveError(
-    error: Error,
+    _error: Error,
     type: "score" | "goldenLP",
     data: any,
   ): Promise<void> {
