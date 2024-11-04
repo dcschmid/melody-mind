@@ -11,12 +11,7 @@ import playformCompress from "@playform/compress";
 export default defineConfig({
   site: "https://melody-mind.de",
   output: "server",
-  integrations: [
-    icon(),
-    db(),
-    compressor(),
-    playformCompress(),
-  ],
+  integrations: [icon(), db(), compressor(), playformCompress()],
   adapter: node({
     mode: "standalone",
   }),

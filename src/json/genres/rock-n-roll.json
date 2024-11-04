@@ -29,12 +29,7 @@
         },
         {
           "question": "In welchem Jahr wurde das Deb\u00fctalbum 'Elvis Presley' von Elvis Presley ver\u00f6ffentlicht, das einen gro\u00dfen Einfluss auf die Musik- und Jugendkultur der 1950er Jahre hatte?",
-          "options": [
-            "1955",
-            "1956",
-            "1957",
-            "1958"
-          ],
+          "options": ["1955", "1956", "1957", "1958"],
           "correctAnswer": "1956",
           "trivia": "Das Album 'Elvis Presley' wurde 1956 ver\u00f6ffentlicht und markierte den Durchbruch des K\u00fcnstlers in der Musikszene. In einer Zeit, in der Rock 'n' Roll aufkam, beeinflusste Elvis Presley mit seinem unverwechselbaren Stil und seiner Ausstrahlung die Jugendkultur nachhaltig. Das Album enth\u00e4lt Klassiker wie 'Blue Suede Shoes' und 'Heartbreak Hotel', die dazu beitrugen, Elvis als K\u00f6nig des Rock 'n' Roll zu etablieren und die gesellschaftlichen Normen jener Zeit zu revolutionieren."
         }
@@ -42,12 +37,7 @@
       "medium": [
         {
           "question": "Welches Musikgenre hatte einen erheblichen Einfluss auf die Songs im Album 'Elvis Presley', das 1956 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Country",
-            "Jazz",
-            "Blues",
-            "Rock 'n' Roll"
-          ],
+          "options": ["Country", "Jazz", "Blues", "Rock 'n' Roll"],
           "correctAnswer": "Rock 'n' Roll",
           "trivia": "Elvis Presley gilt als einer der Pioniere des Rock 'n' Roll, und sein selbstbetiteltes Album 'Elvis Presley' von 1956 ist ein Paradebeispiel f\u00fcr diese Musikrichtung. Die Einfl\u00fcsse des Blues sind in vielen der auf dem Album enthaltenen Lieder sp\u00fcrbar, insbesondere in den kraftvollen Melodien und rhythmischen Strukturen. Elvis kombinierte rhythmische Elemente des Rock 'n' Roll mit dem emotionalen Ausdruck des Blues, was zu seinem einzigartigen Stil f\u00fchrte. Diese Fusion half, den Rock 'n' Roll als dominierende Kraft in der Musikszene der 1950er Jahre zu etablieren."
         },
@@ -263,12 +253,7 @@
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Buddy Holly' von Buddy Holly, das als ein Meilenstein in der Rock- und Popmusik gilt?",
-          "options": [
-            "1956",
-            "1958",
-            "1960",
-            "1954"
-          ],
+          "options": ["1956", "1958", "1960", "1954"],
           "correctAnswer": "1958",
           "trivia": "Das Album 'Buddy Holly' wurde 1958 ver\u00f6ffentlicht und stellte einen wichtigen Wendepunkt in der Musikgeschichte dar. Buddy Holly war einer der ersten Rockmusiker, der Songwriting und eigene Aufnahmen kombinierte, was das Genre nachhaltig beeinflusste. Zu den bekanntesten Songs des Albums geh\u00f6ren Hits wie 'Peggy Sue' und 'Everyday', die bis heute in der Popkultur resonieren. Holly gilt als einer der Pioniere des Rock 'n' Roll und hat zahlreiche K\u00fcnstler inspiriert."
         }
@@ -276,12 +261,7 @@
       "medium": [
         {
           "question": "In welcher Stadt fand die Aufnahme des Albums 'Buddy Holly' von Buddy Holly statt?",
-          "options": [
-            "New York City",
-            "Los Angeles",
-            "Nashville",
-            "Lubbock"
-          ],
+          "options": ["New York City", "Los Angeles", "Nashville", "Lubbock"],
           "correctAnswer": "Lubbock",
           "trivia": "Buddy Holly, einer der einflussreichsten Pioniere des Rock 'n' Roll, nahm sein gleichnamiges Album 'Buddy Holly' in seiner Heimatstadt Lubbock, Texas, auf. Diese Stadt spielte eine entscheidende Rolle in seiner musikalischen Entwicklung und pr\u00e4gte seinen einzigartigen Stil. Viele der Songs auf diesem Album, darunter Hits wie 'Peggy Sue', wurden von Holly selbst geschrieben und sind bis heute Klassiker der Rockmusik. Lubbock bleibt ein wichtiger Teil der Legende von Buddy Holly."
         },
@@ -333,12 +313,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'Buddy Holly' von Buddy Holly wurde erstmals 1957 in einer Live-Performance pr\u00e4sentiert, bevor er offiziell auf dem Album ver\u00f6ffentlicht wurde?",
-          "options": [
-            "That'll Be the Day",
-            "Oh Boy!",
-            "Peggy Sue",
-            "Everyday"
-          ],
+          "options": ["That'll Be the Day", "Oh Boy!", "Peggy Sue", "Everyday"],
           "correctAnswer": "That'll Be the Day",
           "trivia": "Der Song 'That'll Be the Day' ist einer der bekanntesten Tracks von Buddy Holly und war nicht nur auf dem Album 'Buddy Holly' von 1958 enthalten, sondern wurde auch erstmals 1957 live aufgef\u00fchrt. Diese Auff\u00fchrung fand w\u00e4hrend einer Tournee statt und half, den Song in den Charts bekannt zu machen. Buddy Holly, ein Pionier des Rock 'n' Roll, beeinflusste viele K\u00fcnstler mit seinem einzigartigen Stil und seiner innovativen Musik. 'That'll Be the Day' gilt als einer der ersten gro\u00dfen Hits von Holly und legte den Grundstein f\u00fcr seine bemerkenswerte Karriere."
         }
@@ -731,12 +706,7 @@
         },
         {
           "question": "In welchem Jahr trat Bo Diddley mit seinem Album 'Bo Diddley' auf einer Tournee auf, die ihn in viele St\u00e4dte der USA f\u00fchrte?",
-          "options": [
-            "1955",
-            "1958",
-            "1960",
-            "1962"
-          ],
+          "options": ["1955", "1958", "1960", "1962"],
           "correctAnswer": "1958",
           "trivia": "Bo Diddley ver\u00f6ffentlichte sein selbstbetiteltes Album 'Bo Diddley' im Jahr 1958 und startete daraufhin eine erfolgreiche Tournee durch die Vereinigten Staaten. Diese Tour war entscheidend f\u00fcr die Verbreitung seines einzigartigen Stils, der Rock und Rhythm & Blues miteinander verband. Bo Diddley war bekannt f\u00fcr seine energiegeladenen Live-Auftritte, die oft seine markanten Beats und kreativen Gitarrenriffs pr\u00e4sentierten. Sein Einfluss auf die Musik ist bis heute sp\u00fcrbar und er gilt als einer der Pioniere des Rock 'n' Roll."
         }
@@ -837,12 +807,7 @@
         },
         {
           "question": "Welches Musikgenre hat Bill Haley & His Comets in ihrem Album 'Rock Around the Clock' ma\u00dfgeblich beeinflusst?",
-          "options": [
-            "Jazz",
-            "Country",
-            "Rhythm and Blues",
-            "Klassik"
-          ],
+          "options": ["Jazz", "Country", "Rhythm and Blues", "Klassik"],
           "correctAnswer": "Rhythm and Blues",
           "trivia": "Bill Haley & His Comets haben mit ihrem Album 'Rock Around the Clock' das Genre des Rock 'n' Roll stark gepr\u00e4gt, das sich aus verschiedenen Musikstilen, einschlie\u00dflich Rhythm and Blues, entwickelte. Rhythm and Blues, oft abgek\u00fcrzt als R&B, war in den 1940er und 1950er Jahren besonders popul\u00e4r und beeinflusste die Melodien und Beats von Haley's Musik entscheidend. Das Album, das 1956 ver\u00f6ffentlicht wurde, enth\u00e4lt auch den gleichnamigen Hit, der als einer der ersten Rock 'n' Roll Songs gilt und dazu beitrug, die Rockmusik weltweit bekannt zu machen."
         },
@@ -1188,12 +1153,7 @@
         },
         {
           "question": "Welches Jahr markiert die Ver\u00f6ffentlichung des Albums 'Elvis' von Elvis Presley?",
-          "options": [
-            "1955",
-            "1956",
-            "1957",
-            "1958"
-          ],
+          "options": ["1955", "1956", "1957", "1958"],
           "correctAnswer": "1956",
           "trivia": "Das Album 'Elvis', ver\u00f6ffentlicht im Jahr 1956, war das erste vollst\u00e4ndige Studioalbum von Elvis Presley. Es enth\u00e4lt einige der bekanntesten Songs des K\u00fcnstlers, darunter 'Blue Suede Shoes' und 'Heartbreak Hotel'. Diese Ver\u00f6ffentlichung trug entscheidend zu Presleys Aufstieg als einer der gr\u00f6\u00dften Rock'n'Roll-Stars bei und festigte seinen Einfluss auf die Musikindustrie."
         },
@@ -1620,12 +1580,7 @@
         },
         {
           "question": "Welcher bekannte Musiker, der f\u00fcr seine au\u00dfergew\u00f6hnlichen B\u00fchnenauftritte bekannt ist, hatte einen \u00dcberraschungsauftritt auf dem Album 'The Fabulous Little Richard' von Little Richard, das 1959 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Sam Cooke",
-            "James Brown",
-            "Chuck Berry",
-            "Ray Charles"
-          ],
+          "options": ["Sam Cooke", "James Brown", "Chuck Berry", "Ray Charles"],
           "correctAnswer": "Ray Charles",
           "trivia": "Auf dem Album 'The Fabulous Little Richard' von Little Richard, das 1959 ver\u00f6ffentlicht wurde, gibt es einen bemerkenswerten Gastauftritt von Ray Charles. Beide K\u00fcnstler, die f\u00fcr ihre energiegeladenen Performances ber\u00fchmt sind, haben im Laufe ihrer Karrieren einen bedeutenden Einfluss auf die Musikgeschichte ausge\u00fcbt. Ray Charles, bekannt f\u00fcr seinen einzigartigen Stil, der Rhythm and Blues mit Gospel und Jazz verbindet, f\u00fcgte dem Album eine besondere Note hinzu. Diese Zusammenarbeit verdeutlicht die Vielfalt und den kreativen Austausch, der in der Musikwelt der sp\u00e4ten 1950er Jahre stattfand."
         }
@@ -1645,12 +1600,7 @@
       "easy": [
         {
           "question": "Welches Musikgenre beeinflusste besonders die Stilrichtung von Jerry Lee Lewis auf seinem Album 'Jerry Lee Lewis', das 1958 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Blues",
-            "Jazz",
-            "Country",
-            "Rock 'n' Roll"
-          ],
+          "options": ["Blues", "Jazz", "Country", "Rock 'n' Roll"],
           "correctAnswer": "Rock 'n' Roll",
           "trivia": "Jerry Lee Lewis war ein pionierhafter K\u00fcnstler des Rock 'n' Roll und sein selbstbetiteltes Album 'Jerry Lee Lewis' aus dem Jahr 1958 demonstriert eindrucksvoll diesen Einfluss. Mit seinem energiegeladenen Klavierspiel und seiner unverwechselbaren Stimme trug er zur Popularit\u00e4t des Genres bei und fusionierte Elemente des Country mit Rhythm and Blues. Songs wie 'Whole Lotta Shakin' Goin' On' zeigen, wie er die Grenzen der Musik aufbrach und eine neue \u00c4ra des Rock 'n' Roll einleitete, die bis heute nachhallt."
         },
@@ -1797,12 +1747,7 @@
       "medium": [
         {
           "question": "Welche Musikrichtung, die stark von Blues und Country beeinflusst ist, spiegelt sich in den Tracks des Albums 'Dance Album of Carl Perkins' von Carl Perkins wider?",
-          "options": [
-            "Rockabilly",
-            "Jazz",
-            "Reggae",
-            "Folk"
-          ],
+          "options": ["Rockabilly", "Jazz", "Reggae", "Folk"],
           "correctAnswer": "Rockabilly",
           "trivia": "Carl Perkins, ein Pionier des Rockabilly, kombinierte in seinem Album 'Dance Album of Carl Perkins' Elemente aus Rock, Country und Blues. Diese Stilrichtung, die in den 1950er Jahren aufkam, zeichnet sich durch einen rhythmischen und energetischen Sound aus, der perfekt zum Tanzen geeignet ist. Perkins' einzigartige Gitarrentechniken und sein charakteristischer Gesang machten ihn zu einem der einflussreichsten K\u00fcnstler dieser \u00c4ra, dessen Musik bis heute nachhallt."
         },
@@ -2066,12 +2011,7 @@
       "hard": [
         {
           "question": "In welchem Jahr f\u00fchrten die Everly Brothers mit ihrem Album 'The Everly Brothers' eine neue Technologie in der Musikproduktion ein, die den Klang von Gitarren beeinflusste?",
-          "options": [
-            "1956",
-            "1957",
-            "1958",
-            "1959"
-          ],
+          "options": ["1956", "1957", "1958", "1959"],
           "correctAnswer": "1958",
           "trivia": "Das Album 'The Everly Brothers', ver\u00f6ffentlicht im Jahr 1958, markierte einen bedeutenden Fortschritt in der Musikproduktion, insbesondere durch die Verwendung von elektrischen Gitarren und innovativen Aufnahme-Techniken. Die Everly Brothers waren bekannt f\u00fcr ihren harmonischen Gesang und ihre eing\u00e4ngigen Melodien, die durch die neue Technologie klarer und kraftvoller zur Geltung kamen. Diese Entwicklungen trugen ma\u00dfgeblich zum Sound der 1960er Jahre bei und beeinflussten zahlreiche K\u00fcnstler, die nach ihnen kamen."
         },
@@ -2113,23 +2053,13 @@
       "easy": [
         {
           "question": "Welches bedeutende Album ver\u00f6ffentlichte Roy Orbison im Jahr 1962, das einen gro\u00dfen Einfluss auf die Pop- und Rockmusik hatte?",
-          "options": [
-            "Crying",
-            "Blue Bayou",
-            "Only the Lonely",
-            "In Dreams"
-          ],
+          "options": ["Crying", "Blue Bayou", "Only the Lonely", "In Dreams"],
           "correctAnswer": "Crying",
           "trivia": "Das Album 'Crying' von Roy Orbison, ver\u00f6ffentlicht im Jahr 1962, gilt als eines der Meisterwerke des K\u00fcnstlers und zeigt seine einzigartige F\u00e4higkeit, emotionale Balladen zu interpretieren. Der Titeltrack 'Crying' wurde zu einem seiner bekanntesten Songs und verdeutlicht Orbison's charakteristische Mischung aus Traurigkeit und Melancholie. Orbison, bekannt f\u00fcr seine kraftvolle Stimme und seinen unverwechselbaren Stil, beeinflusste zahlreiche K\u00fcnstler und trug zur Entwicklung des Rock 'n' Roll bei."
         },
         {
           "question": "Welcher Song auf Roy Orbisons Album 'Crying' wurde erstmals 1961 in einer Live-Performance aufgef\u00fchrt?",
-          "options": [
-            "Crying",
-            "Dream Baby",
-            "Candy Man",
-            "Only the Lonely"
-          ],
+          "options": ["Crying", "Dream Baby", "Candy Man", "Only the Lonely"],
           "correctAnswer": "Only the Lonely",
           "trivia": "Der Song 'Only the Lonely' ist einer der bekanntesten Hits von Roy Orbison und wurde 1961 erstmals live aufgef\u00fchrt. Er war ein gro\u00dfer Erfolg und ist auf dem Album 'Crying' von 1962 enthalten. Die gef\u00fchlvolle Darbietung und Orbisons unverwechselbare Stimme machten den Song zu einem Markenzeichen seiner Karriere. 'Only the Lonely' zeigt Orbisons Talent, Emotionen durch Musik zu transportieren, und bleibt bis heute ein Klassiker."
         },
@@ -2183,12 +2113,7 @@
       "hard": [
         {
           "question": "Welche einflussreiche Musikrichtung, die Roy Orbison und seine Kompositionen auf dem Album 'Crying' pr\u00e4gte, war stark von den Arbeiten von K\u00fcnstlern wie Elvis Presley und Buddy Holly beeinflusst?",
-          "options": [
-            "Country",
-            "Rockabilly",
-            "Blues",
-            "Soul"
-          ],
+          "options": ["Country", "Rockabilly", "Blues", "Soul"],
           "correctAnswer": "Rockabilly",
           "trivia": "Roy Orbison wurde stark von der Rockabilly-Bewegung beeinflusst, die in den 1950er Jahren aufkam und K\u00fcnstler wie Elvis Presley und Buddy Holly hervorbrachte. Diese stilistische Pr\u00e4gung zeigt sich klar in seinen Kompositionen auf dem Album 'Crying', das 1962 ver\u00f6ffentlicht wurde. Orbison kombinierte Elemente des Rockabilly mit seiner einzigartigen Stimme und seinem emotionalen Songwriting, was zu Hits wie dem Titeltrack 'Crying' f\u00fchrte, der bis heute als Klassiker gilt."
         },
@@ -2603,12 +2528,7 @@
         },
         {
           "question": "In welchem Jahr trat Buddy Holly mit seinem Album 'That\u2019ll Be the Day' auf einer Tournee durch die USA auf?",
-          "options": [
-            "1956",
-            "1957",
-            "1958",
-            "1959"
-          ],
+          "options": ["1956", "1957", "1958", "1959"],
           "correctAnswer": "1958",
           "trivia": "Buddy Holly startete 1958 eine bedeutende Tournee durch die USA, w\u00e4hrend er f\u00fcr sein Album 'That\u2019ll Be the Day' bekannt wurde. Diese Tour half dabei, seine Musik und seinen einzigartigen Stil einem breiteren Publikum vorzustellen. Holly war eine Schl\u00fcsselfigur in der Rock'n'Roll-Bewegung und beeinflusste viele nachfolgende K\u00fcnstler. Sein Einfluss ist bis heute in der Musikszene sp\u00fcrbar."
         }
@@ -2638,12 +2558,7 @@
         },
         {
           "question": "In welcher Stadt wurde das Album 'That\u2019ll Be the Day' von Buddy Holly aufgenommen, das im Jahr 1958 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Dallas",
-            "Lubbock",
-            "Nashville",
-            "New York"
-          ],
+          "options": ["Dallas", "Lubbock", "Nashville", "New York"],
           "correctAnswer": "Lubbock",
           "trivia": "Das Album 'That\u2019ll Be the Day' von Buddy Holly wurde in Lubbock, Texas, aufgenommen, wo der K\u00fcnstler aufwuchs. Buddy Holly, einer der wegweisenden Musiker des Rock 'n' Roll, pr\u00e4gte mit seinem einzigartigen Stil und seinen eing\u00e4ngigen Melodien die Musikszene der 1950er Jahre entscheidend. Die Stadt Lubbock ist nicht nur Holly's Heimat, sondern auch der Ort, an dem viele seiner ersten musikalischen Schritte stattfanden. Diese Verbindung zur Stadt ist ein bedeutender Teil seines k\u00fcnstlerischen Erbes."
         }
@@ -2673,12 +2588,7 @@
         },
         {
           "question": "In welcher Stadt wurde das Album 'That\u2019ll Be the Day' von Buddy Holly aufgenommen, welches 1958 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Lubbock",
-            "New York City",
-            "Los Angeles",
-            "Dallas"
-          ],
+          "options": ["Lubbock", "New York City", "Los Angeles", "Dallas"],
           "correctAnswer": "Lubbock",
           "trivia": "Buddy Holly, ein Pionier des Rock 'n' Roll, nahm sein Album 'That\u2019ll Be the Day' in seiner Heimatstadt Lubbock, Texas, auf. Diese Stadt sollte nicht nur seine Wurzeln, sondern auch seinen einzigartigen Musikstil pr\u00e4gen. Holly gilt als einer der ersten K\u00fcnstler, der die Grundlagen f\u00fcr moderne Rockmusik legte, und viele Songs auf diesem Album, wie der Titeltrack 'That\u2019ll Be the Day', spiegeln seinen innovativen Ansatz wider. Lubbock bleibt somit ein bedeutender Ort in der Musikgeschichte, da es den Aufstieg eines der einflussreichsten Musiker des 20. Jahrhunderts miterlebte."
         }
@@ -2698,12 +2608,7 @@
       "easy": [
         {
           "question": "Welcher Song von Bo Diddley aus dem Album 'Go Bo Diddley' gelangte 1959 in die US-Charts?",
-          "options": [
-            "I'm a Man",
-            "Road Runner",
-            "Who Do You Love",
-            "Mona"
-          ],
+          "options": ["I'm a Man", "Road Runner", "Who Do You Love", "Mona"],
           "correctAnswer": "I'm a Man",
           "trivia": "Der Song 'I'm a Man' von Bo Diddley, der 1959 auf dem Album 'Go Bo Diddley' ver\u00f6ffentlicht wurde, erreichte in den US-Charts gro\u00dfe Anerkennung. Bo Diddley, ein einflussreicher Musiker des Rock 'n' Roll, kombinierte in diesem Track seine charakteristischen Rhythmen und eine markante Gitarrenlinie. 'I'm a Man' wurde zu einem seiner bekanntesten Lieder und inspirierte viele nachfolgende K\u00fcnstler im Rock- und Blues-Genre. Das Album selbst gilt als ein Meilenstein in der Musikgeschichte und zeigt Diddleys einzigartigen Stil und seine Innovationskraft."
         },
@@ -3106,12 +3011,7 @@
         },
         {
           "question": "In welchem Jahr trat Jerry Lee Lewis mit seinem Album 'The Killer Rocks On' in Europa auf und begeisterte seine Fans mit energiegeladenen Live-Performances?",
-          "options": [
-            "1970",
-            "1972",
-            "1975",
-            "1980"
-          ],
+          "options": ["1970", "1972", "1975", "1980"],
           "correctAnswer": "1972",
           "trivia": "Jerry Lee Lewis tourte 1972 durch Europa und bot beeindruckende Live-Auftritte, die die Fans in seinen Bann zogen. Sein Album 'The Killer Rocks On', das im selben Jahr ver\u00f6ffentlicht wurde, brachte einige seiner bekanntesten Hits zur Geltung und zeigte sein au\u00dfergew\u00f6hnliches Talent als Pianist und S\u00e4nger. Diese Tour war entscheidend f\u00fcr Lewis, um seine Popularit\u00e4t in Europa zu steigern und ein neues Publikum zu erreichen, das seine einzigartige Mischung aus Rock 'n' Roll und Country-Musik sch\u00e4tzte."
         }
@@ -3201,12 +3101,7 @@
       "medium": [
         {
           "question": "In welchem Jahr trat Carl Perkins mit seinem Album 'On Top' in einer bemerkenswerten Live-Performance auf, die als Teil seiner Tournee bekannt wurde?",
-          "options": [
-            "1965",
-            "1969",
-            "1971",
-            "1975"
-          ],
+          "options": ["1965", "1969", "1971", "1975"],
           "correctAnswer": "1969",
           "trivia": "Carl Perkins ver\u00f6ffentlichte sein Album 'On Top' im Jahr 1969 und unternahm w\u00e4hrend dieser Zeit eine erfolgreiche Tour. Diese Live-Auftritte waren entscheidend f\u00fcr die Wiederbelebung seiner Karriere und halfen, seine Musik einem neuen Publikum vorzustellen. Perkins, bekannt f\u00fcr Hits wie 'Blue Suede Shoes', kombinierte Rockabilly mit Country und Blues und zog Fans mit seiner energiegeladenen Performance an. Die Tournee und das Album markierten einen H\u00f6hepunkt in seiner musikalischen Laufbahn."
         },
@@ -3364,23 +3259,13 @@
         },
         {
           "question": "Welcher bekannte Song, der auf Elvis Presleys Album 'Elvis Is Back!' von 1960 zu finden ist, wurde urspr\u00fcnglich von einem anderen K\u00fcnstler interpretiert und ist mittlerweile als eine der ikonischsten Elvis-Versionen bekannt?",
-          "options": [
-            "Blue Moon",
-            "Fever",
-            "Mona Lisa",
-            "Such a Night"
-          ],
+          "options": ["Blue Moon", "Fever", "Mona Lisa", "Such a Night"],
           "correctAnswer": "Fever",
           "trivia": "Der Song 'Fever', der auf dem Album 'Elvis Is Back!' enthalten ist, wurde urspr\u00fcnglich 1956 von Little Willie John aufgenommen. Elvis Presleys Interpretation des Liedes, die mit einem eindringlichen Arrangement und seiner charakteristischen Stimme besticht, hat das St\u00fcck zu einem Klassiker gemacht und es in die Popkultur eingef\u00fchrt. Neben der markanten Melodie ist es auch Elvis' leidenschaftliche Darbietung, die 'Fever' zu einer der unvergesslichsten Neuinterpretationen seiner Karriere erhebt."
         },
         {
           "question": "In welchem Jahr trat Elvis Presley w\u00e4hrend seiner ersten Tour nach dem Milit\u00e4rdienst auf, die auch mit der Ver\u00f6ffentlichung seines Albums 'Elvis Is Back!' verbunden war?",
-          "options": [
-            "1959",
-            "1960",
-            "1961",
-            "1962"
-          ],
+          "options": ["1959", "1960", "1961", "1962"],
           "correctAnswer": "1960",
           "trivia": "Elvis Presley kehrte 1960 nach seinem Milit\u00e4rdienst zur\u00fcck und ver\u00f6ffentlichte das Album 'Elvis Is Back!', das als eines seiner besten Werke gilt. Im selben Jahr startete er auch seine erste Tournee nach der R\u00fcckkehr, die gro\u00dfen Erfolg hatte und zahlreiche Konzerte in den USA umfasste. Die Mischung aus neuen Songs und seinen klassischen Hits begeisterte die Fans und festigte Elvis' Status als 'King of Rock and Roll'."
         }
@@ -3422,12 +3307,7 @@
         },
         {
           "question": "Welche Musikrichtung hatte einen gro\u00dfen Einfluss auf Gene Vincents Stil auf dem Album 'Gene Vincent Rocks and the Blue Caps Roll'?",
-          "options": [
-            "Rockabilly",
-            "Jazz",
-            "Klassik",
-            "Reggae"
-          ],
+          "options": ["Rockabilly", "Jazz", "Klassik", "Reggae"],
           "correctAnswer": "Rockabilly",
           "trivia": "Gene Vincent, ein Pionier des Rock and Roll, lie\u00df sich stark von der Rockabilly-Musik inspirieren, die Elemente aus Country und Rhythm and Blues kombiniert. Auf seinem Album 'Gene Vincent Rocks and the Blue Caps Roll', das 1958 ver\u00f6ffentlicht wurde, zeigt er eindrucksvoll, wie diese Stilrichtung seinen einzigartigen Sound pr\u00e4gte. Songs wie 'Be-Bop-A-Lula' sind perfekte Beispiele f\u00fcr diese Mischung und unterstreichen seine Bedeutung in der Entwicklung des Rockabilly-Genres."
         }
@@ -3517,12 +3397,7 @@
       "easy": [
         {
           "question": "In welcher Stadt wurde das Album 'One Dozen Berrys' von Chuck Berry im Jahr 1958 aufgenommen?",
-          "options": [
-            "Chicago",
-            "New York",
-            "Los Angeles",
-            "St. Louis"
-          ],
+          "options": ["Chicago", "New York", "Los Angeles", "St. Louis"],
           "correctAnswer": "St. Louis",
           "trivia": "Chuck Berry, einer der Pioniere des Rock 'n' Roll, nahm sein Album 'One Dozen Berrys' in St. Louis auf, einer Stadt, die eine wichtige Rolle in seiner Karriere spielte. St. Louis war nicht nur seine Heimatstadt, sondern auch ein zentraler Ort f\u00fcr die Entwicklung seiner Musik. Auf diesem Album sind einige seiner bekanntesten Songs enthalten, die seinen einzigartigen Stil und seinen Einfluss auf die Rockmusik unterstreichen."
         },
@@ -3645,12 +3520,7 @@
         },
         {
           "question": "In welchem popul\u00e4ren Film oder welcher TV-Show wurde ein Song aus Bo Diddleys Album 'Have Guitar Will Travel' verwendet?",
-          "options": [
-            "Pulp Fiction",
-            "The Sopranos",
-            "The Simpsons",
-            "Grease"
-          ],
+          "options": ["Pulp Fiction", "The Sopranos", "The Simpsons", "Grease"],
           "correctAnswer": "The Sopranos",
           "trivia": "Ein Song aus Bo Diddleys Album 'Have Guitar Will Travel' wurde in der ber\u00fchmten TV-Serie 'The Sopranos' verwendet. Bo Diddley, bekannt f\u00fcr seinen einzigartigen Stil und seine einflussreiche Rolle in der Rockmusik, ver\u00f6ffentlichte dieses Album 1960. Es enth\u00e4lt einige seiner bekanntesten St\u00fccke, die den \u00dcbergang von Rhythm and Blues zu Rock 'n' Roll pr\u00e4gten. Die Verwendung seiner Musik in 'The Sopranos' zeigt, wie zeitlos und einflussreich Diddleys Arbeit ist."
         },
@@ -4265,12 +4135,7 @@
         },
         {
           "question": "Welcher musikalische Stil, der in den 1950er Jahren popul\u00e4r war, spiegelt sich besonders in Elvis Presleys Album 'A Date with Elvis' wider?",
-          "options": [
-            "Rock'n'Roll",
-            "Jazz",
-            "Klassische Musik",
-            "Blues"
-          ],
+          "options": ["Rock'n'Roll", "Jazz", "Klassische Musik", "Blues"],
           "correctAnswer": "Rock'n'Roll",
           "trivia": "Elvis Presley, oft als 'King of Rock'n'Roll' bezeichnet, hat mit seinem Album 'A Date with Elvis' aus dem Jahr 1959 den typischen Rock'n'Roll-Sound der \u00c4ra verk\u00f6rpert. In diesem Album finden sich energiegeladene Songs, die den Rhythmus und die Melodik des Rock'n'Roll perfekt einfangen. Die Mischung aus eing\u00e4ngigen Melodien, kraftvollem Gesang und dem Einfluss von Rhythm and Blues machte das Album zu einem Meilenstein in der Musikgeschichte und festigte Elvis' Status als einer der einflussreichsten K\u00fcnstler seiner Zeit."
         },
@@ -4289,12 +4154,7 @@
       "hard": [
         {
           "question": "Welcher ber\u00fchmte Musikstil, der stark von Elvis Presley und seinem Album 'A Date with Elvis' beeinflusst wurde, erlebte in den 1960er Jahren einen bemerkenswerten Aufschwung und formte die Karrieren vieler nachfolgender K\u00fcnstler?",
-          "options": [
-            "Rock'n'Roll",
-            "Punk",
-            "Hip-Hop",
-            "Country"
-          ],
+          "options": ["Rock'n'Roll", "Punk", "Hip-Hop", "Country"],
           "correctAnswer": "Rock'n'Roll",
           "trivia": "Elvis Presley, bekannt als der 'King of Rock'n'Roll', hat mit seinem Album 'A Date with Elvis' den Grundstein f\u00fcr das Genre gelegt, das in den 1960er Jahren explodierte. Sein unverwechselbarer Stil und seine musikalische Energie inspirierten zahlreiche K\u00fcnstler, darunter Gr\u00f6\u00dfen wie Chuck Berry und Buddy Holly, die das Rock'n'Roll-Genre weiter pr\u00e4gten. Durch die Verschmelzung von Rhythm and Blues mit Country-Elementen schuf Presley einen neuen Sound, der die Musiklandschaft revolutionierte und eine ganze Generation von Musikern beeinflusste."
         },
@@ -4393,12 +4253,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'The Buddy Holly Story', das 1959 ver\u00f6ffentlicht wurde, hatte seine erste Performance im Jahr 1957 und gilt als einer der bekanntesten Hits von Buddy Holly?",
-          "options": [
-            "That'll Be the Day",
-            "Peggy Sue",
-            "Everyday",
-            "Oh Boy!"
-          ],
+          "options": ["That'll Be the Day", "Peggy Sue", "Everyday", "Oh Boy!"],
           "correctAnswer": "That'll Be the Day",
           "trivia": "'That'll Be the Day' war der erste Hit von Buddy Holly, der 1957 ver\u00f6ffentlicht wurde und auf dem Album 'The Buddy Holly Story' enthalten ist. Der Song erreichte gro\u00dfe Popularit\u00e4t und katapultierte Holly in die oberen Regionen der Charts. Die eing\u00e4ngige Melodie und der charakteristische Gesangsstil machten ihn zu einem zeitlosen Klassiker, der bis heute viele Musikliebhaber begeistert. Buddy Hollys Einfluss auf die Rockmusik ist unbestreitbar, und dieser Song ist ein Paradebeispiel f\u00fcr seine innovative Herangehensweise an die Musik."
         }
@@ -4417,12 +4272,7 @@
         },
         {
           "question": "Welches wichtige Musikgenre, das Buddy Holly stark beeinflusste und auch in seinem Album 'The Buddy Holly Story' zu h\u00f6ren ist, pr\u00e4gte seinen einzigartigen Stil als Pionier des Rock 'n' Roll?",
-          "options": [
-            "Blues",
-            "Country",
-            "Rythm and Blues",
-            "Jazz"
-          ],
+          "options": ["Blues", "Country", "Rythm and Blues", "Jazz"],
           "correctAnswer": "Rythm and Blues",
           "trivia": "Buddy Holly, der mit seinem Album 'The Buddy Holly Story' einen bleibenden Eindruck in der Musikgeschichte hinterlie\u00df, wurde stark vom Rythm and Blues beeinflusst. Dieses Genre kombinierte Elemente des Blues mit ansteckenden Rhythmen und Melodien, die Holly in seinen eigenen Kompositionen meisterhaft umsetzte. Songs wie 'That'll Be the Day' zeigen deutlich, wie Rythm and Blues seinen kreativen Ausdruck pr\u00e4gte und ihn zu einem der bedeutendsten Vorreiter des Rock 'n' Roll machte."
         },
@@ -4523,12 +4373,7 @@
       "hard": [
         {
           "question": "In welchem Jahr wurde das Album 'Lonely and Blue' von Roy Orbison ver\u00f6ffentlicht, das einen bedeutenden Einfluss auf die musikalische R\u00fcckbesinnung der 60er Jahre hatte?",
-          "options": [
-            "1958",
-            "1960",
-            "1962",
-            "1964"
-          ],
+          "options": ["1958", "1960", "1962", "1964"],
           "correctAnswer": "1960",
           "trivia": "Das Album 'Lonely and Blue' von Roy Orbison wurde 1960 ver\u00f6ffentlicht und gilt als eines der wegweisenden Werke, das den Sound der zeitgen\u00f6ssischen Musik pr\u00e4gte. Mit seinen emotionalen Balladen und der markanten Stimme Orbison's setzte das Album neue Ma\u00dfst\u00e4be f\u00fcr die Popmusik und inspirierte zahlreiche K\u00fcnstler. St\u00fccke wie 'Only the Lonely' und 'Blue Angel' zeigen sein au\u00dfergew\u00f6hnliches Talent, Gef\u00fchle durch Musik zu transportieren, was den H\u00f6rer bis heute ber\u00fchrt."
         },
@@ -4616,12 +4461,7 @@
         },
         {
           "question": "Welches spezifische Musikgenre wird auf dem Album 'Southern Roots' von Jerry Lee Lewis, das 1973 ver\u00f6ffentlicht wurde, besonders hervorgehoben?",
-          "options": [
-            "Country",
-            "Rock'n'Roll",
-            "Blues",
-            "Folk"
-          ],
+          "options": ["Country", "Rock'n'Roll", "Blues", "Folk"],
           "correctAnswer": "Country",
           "trivia": "Das Album 'Southern Roots' von Jerry Lee Lewis zeigt eine starke Verbindung zum Country-Genre, was f\u00fcr den K\u00fcnstler, der urspr\u00fcnglich aus dem Rock'n'Roll kommt, eine interessante Wendung darstellt. Jerry Lee Lewis interpretiert auf diesem Album zahlreiche traditionelle Country-Songs und bringt seinen charakteristischen, energiegeladenen Stil ein. Diese Fusion aus Rock und Country spiegelt nicht nur seine musikalischen Wurzeln wider, sondern auch den Einfluss, den die Country-Musik auf seine Karriere hatte. 'Southern Roots' ist somit nicht nur ein R\u00fcckblick auf Lewis' Herkunft, sondern auch eine Hommage an die Musiktraditionen des amerikanischen S\u00fcdens."
         },
@@ -4687,12 +4527,7 @@
       "easy": [
         {
           "question": "Welches Musikgenre hatte einen bemerkenswerten Einfluss auf Little Richards Album 'The Second Coming', das 1972 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Blues",
-            "Jazz",
-            "Country",
-            "Folk"
-          ],
+          "options": ["Blues", "Jazz", "Country", "Folk"],
           "correctAnswer": "Blues",
           "trivia": "Little Richard, bekannt f\u00fcr seinen energiegeladenen Stil und seinen Einfluss auf Rock 'n' Roll, lie\u00df sich bei der Erstellung des Albums 'The Second Coming' stark vom Blues inspirieren. Der Blues, mit seinen tiefen emotionalen Ausdr\u00fccken und charakteristischen Rhythmen, brachte eine zus\u00e4tzliche Dimension in Richards Musik, die oft von kraftvollem Gesang und dynamischen Klavierkl\u00e4ngen gepr\u00e4gt ist. Diese Einfl\u00fcsse sind besonders in den kraftvollen Balladen und energiegeladenen Tracks des Albums zu erkennen, die das Gef\u00fchl und die Seele des Blues widerspiegeln."
         },
@@ -4826,12 +4661,7 @@
         },
         {
           "question": "Welches Musikgenre, das stark von Rhythm and Blues und Country beeinflusst ist, spiegelt sich in Bill Haley & His Comets' Album 'Rockin\u2019 Around the World' wider?",
-          "options": [
-            "Jazz",
-            "Rock'n'Roll",
-            "Klassische Musik",
-            "Reggae"
-          ],
+          "options": ["Jazz", "Rock'n'Roll", "Klassische Musik", "Reggae"],
           "correctAnswer": "Rock'n'Roll",
           "trivia": "Das Album 'Rockin\u2019 Around the World' von Bill Haley & His Comets ist ein hervorragendes Beispiel f\u00fcr die Verschmelzung von Rhythm and Blues und Country zu dem, was wir heute als Rock'n'Roll kennen. Bill Haley gilt als einer der Pioniere dieses Genres, das in den 1950er Jahren popul\u00e4r wurde und zahlreiche K\u00fcnstler und Musikstile beeinflusste. Mit Hits wie 'Rock Around the Clock' trugen Haley und seine Band dazu bei, Rock'n'Roll in die Mainstream-Musik zu bringen und die Jugendkultur jener Zeit zu pr\u00e4gen."
         }
@@ -4932,12 +4762,7 @@
         },
         {
           "question": "In welchem Jahr nahm Carl Perkins das Album 'Greatest Hits' auf, das seine bekanntesten Songs pr\u00e4sentiert?",
-          "options": [
-            "1958",
-            "1961",
-            "1963",
-            "1965"
-          ],
+          "options": ["1958", "1961", "1963", "1965"],
           "correctAnswer": "1961",
           "trivia": "Carl Perkins ver\u00f6ffentlichte sein Album 'Greatest Hits' im Jahr 1961. Dieses Album enth\u00e4lt einige seiner bekanntesten Songs, wie 'Blue Suede Shoes' und 'Honey Don't'. Perkins war bekannt f\u00fcr seinen einzigartigen Stil, der Rockabilly und Country miteinander verband, und er gilt als einer der Pioniere des Rock 'n' Roll. Der Aufnahmeprozess f\u00fcr 'Greatest Hits' war gepr\u00e4gt von der Zusammenarbeit mit talentierten Musikern, die Perkins' innovativen Sound unterst\u00fctzten."
         },
@@ -4991,12 +4816,7 @@
       "hard": [
         {
           "question": "In welchem Jahr wurde das Album 'Greatest Hits' von Carl Perkins ver\u00f6ffentlicht, und welche Bedeutung hatte dies f\u00fcr seine Karriere im Kontext der Musikvermarktung?",
-          "options": [
-            "1958",
-            "1961",
-            "1965",
-            "1970"
-          ],
+          "options": ["1958", "1961", "1965", "1970"],
           "correctAnswer": "1961",
           "trivia": "Das Album 'Greatest Hits' von Carl Perkins wurde im Jahr 1961 ver\u00f6ffentlicht und stellte einen bedeutenden Meilenstein in seiner Karriere dar. Es half ihm, seine Popularit\u00e4t in der aufkommenden Rockabilly-Szene zu festigen und erm\u00f6glichte es ihm, seine Musik einem breiteren Publikum zug\u00e4nglich zu machen. Zu den bekanntesten Songs auf diesem Album geh\u00f6ren Hits wie 'Blue Suede Shoes' und 'Honey Don't', die das Genre ma\u00dfgeblich pr\u00e4gten und seinen Einfluss auf zuk\u00fcnftige K\u00fcnstler verdeutlichen."
         },
@@ -5013,12 +4833,7 @@
         },
         {
           "question": "In welchem Jahr trat Carl Perkins, der mit seinem Album 'Greatest Hits' von 1961 ber\u00fchmt wurde, auf der ber\u00fchmten 'Million Dollar Quartet'-Tour auf, die auch andere Legenden wie Elvis Presley und Johnny Cash umfasste?",
-          "options": [
-            "1956",
-            "1960",
-            "1964",
-            "1970"
-          ],
+          "options": ["1956", "1960", "1964", "1970"],
           "correctAnswer": "1960",
           "trivia": "Carl Perkins trat 1960 w\u00e4hrend der legend\u00e4ren 'Million Dollar Quartet'-Sessions auf, die auch Elvis Presley, Johnny Cash und Jerry Lee Lewis umfassten. Diese einmaligen Live-Auftritte wurden zu einem Meilenstein in der Rock'n'Roll-Geschichte und festigten Perkins' Status als einer der Pioniere des Genres. Sein Album 'Greatest Hits' von 1961 enth\u00e4lt einige seiner bekanntesten Songs und reflektiert die Energie und den Einfluss, den er auf die Musik hatte. Diese Auftritte zeigten nicht nur sein au\u00dfergew\u00f6hnliches Talent, sondern auch seine F\u00e4higkeit, mit anderen Gr\u00f6\u00dfen der Musikszene zusammenzuarbeiten."
         }
@@ -5073,12 +4888,7 @@
       "medium": [
         {
           "question": "In welchem Jahr traten die Everly Brothers erstmals mit Songs von ihrem Album 'It\u2019s Everly Time' live auf?",
-          "options": [
-            "1958",
-            "1960",
-            "1962",
-            "1965"
-          ],
+          "options": ["1958", "1960", "1962", "1965"],
           "correctAnswer": "1960",
           "trivia": "Die Everly Brothers traten 1960 erstmals live mit Songs aus ihrem Album 'It\u2019s Everly Time' auf. Dieses Album, das in der gleichen Zeit ver\u00f6ffentlicht wurde, brachte Hits wie 'Cathy's Clown' hervor, die zu ihren bekanntesten Songs z\u00e4hlen. Die harmonischen Stimmen der Br\u00fcder Don und Phil Everly waren charakteristisch f\u00fcr ihre Auftritte und halfen, den Folk-Rock-Sound zu definieren, der in den 60er Jahren popul\u00e4r wurde."
         },
@@ -5130,12 +4940,7 @@
         },
         {
           "question": "In welchem Jahr wurde das Album 'It\u2019s Everly Time' von The Everly Brothers ver\u00f6ffentlicht, das die damals neue Technik der Mehrspuraufnahme nutzte, um ihre charakteristischen Harmonien zu perfektionieren?",
-          "options": [
-            "1958",
-            "1960",
-            "1962",
-            "1964"
-          ],
+          "options": ["1958", "1960", "1962", "1964"],
           "correctAnswer": "1960",
           "trivia": "Das Album 'It\u2019s Everly Time' wurde 1960 ver\u00f6ffentlicht und markiert einen bedeutenden Fortschritt in der Musikproduktion durch den Einsatz von Mehrspuraufnahme-Techniken. The Everly Brothers, bekannt f\u00fcr ihren harmonischen Gesang und ihren Einfluss auf die Rock- und Country-Musik, nutzten diese Technologie, um ihre Stimmen klar und pr\u00e4zise zu kombinieren. Die innovative Herangehensweise an das Songwriting und die Aufnahme half, den charakteristischen Sound der Br\u00fcder zu formen, der sie zu einer der einflussreichsten Duos ihrer Zeit machte."
         }
@@ -5307,12 +5112,7 @@
       "medium": [
         {
           "question": "In welchem Jahr wurde das Album 'Fresh Berry\u2019s' von Chuck Berry ver\u00f6ffentlicht, das eine bedeutende Rolle in der Vermarktung seiner Musik spielte?",
-          "options": [
-            "1965",
-            "1960",
-            "1970",
-            "1962"
-          ],
+          "options": ["1965", "1960", "1970", "1962"],
           "correctAnswer": "1965",
           "trivia": "Das Album 'Fresh Berry\u2019s' wurde 1965 ver\u00f6ffentlicht und markiert einen wichtigen Meilenstein in Chuck Berrys Karriere. Es enth\u00e4lt einige seiner bekanntesten Songs und zeigt, wie Berry den Rock 'n' Roll pr\u00e4gte und vermarktete. Mit seiner einzigartigen Mischung aus Rhythmus und eing\u00e4ngigen Melodien wurde das Album zu einem Klassiker, der nicht nur Fans ansprach, sondern auch neue Zuh\u00f6rer gewann."
         },
@@ -5435,12 +5235,7 @@
         },
         {
           "question": "In welchem Jahr trat Elvis Presley w\u00e4hrend seiner Tournee zur Promotion des Albums 'King Creole (Soundtrack)' erstmals in New Orleans auf?",
-          "options": [
-            "1956",
-            "1957",
-            "1958",
-            "1959"
-          ],
+          "options": ["1956", "1957", "1958", "1959"],
           "correctAnswer": "1958",
           "trivia": "Elvis Presley trat 1958 erstmals in New Orleans auf, um das Album 'King Creole (Soundtrack)' zu promoten. Diese Stadt hat eine besondere Bedeutung in der Musikgeschichte, und der Auftritt war Teil seiner grandiosen R\u00fcckkehr auf die B\u00fchne, nachdem er seinen Milit\u00e4rdienst beendet hatte. 'King Creole' selbst enth\u00e4lt einige der bekanntesten Songs von Elvis, die seinen einzigartigen Stil und Einfluss auf die Rockmusik zeigen. Der Film und der Soundtrack festigten seinen Status als eine der zentralen Figuren der Popkultur in den sp\u00e4ten 50er Jahren."
         },
@@ -5481,12 +5276,7 @@
         },
         {
           "question": "Welches musikalische Element, das in Elvis Presleys 'King Creole (Soundtrack)' von 1958 prominent vertreten ist, gilt als entscheidender Einfluss auf die Rock-'n'-Roll-Bewegung?",
-          "options": [
-            "Rockabilly",
-            "Blues",
-            "Country",
-            "Gospel"
-          ],
+          "options": ["Rockabilly", "Blues", "Country", "Gospel"],
           "correctAnswer": "Rockabilly",
           "trivia": "Das Album 'King Creole (Soundtrack)' von Elvis Presley ist ein Paradebeispiel f\u00fcr die Verschmelzung von Rockabilly mit anderen Musikstilen. Rockabilly, das als eine Fusion aus Rock 'n' Roll und Country gilt, zeigt sich in vielen der energiegeladenen St\u00fccke des Albums. Elvis, der als einer der Pioniere des Rockabilly gilt, brachte mit seiner einzigartigen Stimme und seinem charismatischen Stil diesen Musikstil in den Mainstream. Songs wie 'Hard Headed Woman' und 'Trouble' verdeutlichen den Einfluss des Rockabilly auf die Entwicklung der Rockmusik der sp\u00e4ten 1950er Jahre."
         }
@@ -5541,12 +5331,7 @@
       "medium": [
         {
           "question": "In welcher Stadt wurde das Album 'A Gene Vincent Record Date' von Gene Vincent im Jahr 1959 aufgenommen?",
-          "options": [
-            "Los Angeles",
-            "Nashville",
-            "New York",
-            "Chicago"
-          ],
+          "options": ["Los Angeles", "Nashville", "New York", "Chicago"],
           "correctAnswer": "Los Angeles",
           "trivia": "Das Album 'A Gene Vincent Record Date' wurde in Los Angeles aufgenommen, einer Stadt, die in der Musikgeschichte eine bedeutende Rolle spielt. Gene Vincent, ein Pionier des Rock 'n' Roll, nutzte die kreativen M\u00f6glichkeiten dieser Stadt, um seinen einzigartigen Sound zu entwickeln. Die Aufnahmen in Los Angeles trugen entscheidend zur Verbreitung seines kraftvollen Stils bei, der auch in diesem Album zum Ausdruck kommt. Vincent ist besonders bekannt f\u00fcr seine energiegeladenen Live-Auftritte und seine markante Stimme, die das Rock-Genre nachhaltig pr\u00e4gte."
         },
@@ -5892,12 +5677,7 @@
       "medium": [
         {
           "question": "In welchem Jahr wurde das Live-Album 'In Concert at Pacoima Jr. High' von Ritchie Valens ver\u00f6ffentlicht?",
-          "options": [
-            "1959",
-            "1960",
-            "1961",
-            "1962"
-          ],
+          "options": ["1959", "1960", "1961", "1962"],
           "correctAnswer": "1960",
           "trivia": "Das Album 'In Concert at Pacoima Jr. High' von Ritchie Valens wurde im Jahr 1960 ver\u00f6ffentlicht und dokumentiert einen seiner bemerkenswerten Live-Auftritte. Ritchie Valens, ein Pionier des Rock 'n' Roll und bekannt f\u00fcr Hits wie 'La Bamba', trat h\u00e4ufig in Schulen und kleinen Veranstaltungsorten auf, um seine Musik zu pr\u00e4sentieren. Das Album f\u00e4ngt die Energie und Begeisterung seiner Live-Performances ein und zeigt Valens' au\u00dfergew\u00f6hnliches Talent und Charisma auf der B\u00fchne."
         },
@@ -5914,12 +5694,7 @@
         },
         {
           "question": "In welchem Song auf Ritchie Valens' Album 'In Concert at Pacoima Jr. High' aus dem Jahr 1960 wird eine bekannte Melodie aus der traditionellen Musik neu interpretiert?",
-          "options": [
-            "La Bamba",
-            "Donna",
-            "C'mon Let's Go",
-            "Blueberry Hill"
-          ],
+          "options": ["La Bamba", "Donna", "C'mon Let's Go", "Blueberry Hill"],
           "correctAnswer": "La Bamba",
           "trivia": "Der Song 'La Bamba', der auf Ritchie Valens' Album 'In Concert at Pacoima Jr. High' pr\u00e4sentiert wird, ist eine Neuinterpretation eines traditionellen mexikanischen Volksliedes. Valens gelang es, diesen Song in die Rock 'n' Roll-Musik einzuf\u00fchren und damit eine Br\u00fccke zwischen verschiedenen Musikstilen zu schlagen. Sein einzigartiger Stil und die Kombination aus Rock und mexikanischen Kl\u00e4ngen machten 'La Bamba' zu einem zeitlosen Hit, der Valens' Verm\u00e4chtnis bis heute pr\u00e4gt."
         }
@@ -6243,12 +6018,7 @@
       "medium": [
         {
           "question": "Welches Symbol wird auf dem Cover des Albums 'The Fabulous Mr. D' von Fats Domino verwendet, um seinen einzigartigen Stil und seine musikalische Identit\u00e4t zu repr\u00e4sentieren?",
-          "options": [
-            "Ein Klavier",
-            "Ein Hut",
-            "Eine Gitarre",
-            "Ein Mikrofon"
-          ],
+          "options": ["Ein Klavier", "Ein Hut", "Eine Gitarre", "Ein Mikrofon"],
           "correctAnswer": "Ein Klavier",
           "trivia": "Auf dem Cover von 'The Fabulous Mr. D' wird ein Klavier prominent dargestellt, was Fats Dominos enge Verbindung zur Musik und seine F\u00e4higkeiten als Pianist symbolisiert. Fats Domino, bekannt f\u00fcr seinen charakteristischen Boogie-Woogie-Stil, hat das Klavier nicht nur als Instrument, sondern auch als zentrales Element seiner B\u00fchnenpr\u00e4senz genutzt. Das Album, ver\u00f6ffentlicht im Jahr 1958, festigte seinen Status als einer der f\u00fchrenden Vertreter des Rock 'n' Roll und zeigt eine Vielzahl von Hits, die seine unverwechselbare Klangfarbe unterstreichen."
         },
@@ -6382,12 +6152,7 @@
         },
         {
           "question": "Welche bekannte alternative Version eines Songs aus dem Album 'Rockin\u2019 at the Hops' von Chuck Berry wurde in den 1970er Jahren von einem anderen K\u00fcnstler neu interpretiert?",
-          "options": [
-            "Johnny B. Goode",
-            "Little Queenie",
-            "Carol",
-            "Nadine"
-          ],
+          "options": ["Johnny B. Goode", "Little Queenie", "Carol", "Nadine"],
           "correctAnswer": "Johnny B. Goode",
           "trivia": "Der Song 'Johnny B. Goode' aus Chuck Berrys Album 'Rockin\u2019 at the Hops' wurde von vielen K\u00fcnstlern gecovert, darunter die ber\u00fchmte Version von Peter Tosh in den 1970er Jahren. Dieser Klassiker gilt als einer der einflussreichsten Rock\u2019n\u2019Roll-Songs und erz\u00e4hlt die Geschichte eines talentierten Gitarristen. Die Popularit\u00e4t von 'Johnny B. Goode' hat nicht nur die Rockmusik gepr\u00e4gt, sondern auch einen festen Platz in der Popkultur gefunden, unter anderem durch seinen Einsatz im Film 'Zur\u00fcck in die Zukunft'."
         }
@@ -6616,12 +6381,7 @@
         },
         {
           "question": "In welcher Stadt wurde das Album '12 of His Biggest Hits' von Eddie Cochran aufgenommen?",
-          "options": [
-            "Los Angeles",
-            "Nashville",
-            "New York",
-            "Chicago"
-          ],
+          "options": ["Los Angeles", "Nashville", "New York", "Chicago"],
           "correctAnswer": "Los Angeles",
           "trivia": "Das Album '12 of His Biggest Hits' von Eddie Cochran wurde in Los Angeles aufgenommen, einer Stadt, die f\u00fcr ihre bedeutende Rolle in der Musikindustrie bekannt ist. Eddie Cochran war ein einflussreicher Rock-'n'-Roll-K\u00fcnstler der 1950er Jahre, dessen Stil und Songs Generationen von Musikern inspirierten. In diesem Album sind einige seiner bekanntesten Tracks enthalten, wie 'Summertime Blues' und 'C'mon Everybody', die bis heute beliebt sind. Cochran's Einfluss auf die Rockmusik ist unbestreitbar, und die Aufnahmen in Los Angeles trugen ma\u00dfgeblich zu seinem legend\u00e4ren Status bei."
         }
@@ -6676,12 +6436,7 @@
       "easy": [
         {
           "question": "In welchem Jahr traten The Everly Brothers erstmals mit ihrem Album 'Songs Our Daddy Taught Us' auf der B\u00fchne auf?",
-          "options": [
-            "1958",
-            "1960",
-            "1956",
-            "1959"
-          ],
+          "options": ["1958", "1960", "1956", "1959"],
           "correctAnswer": "1958",
           "trivia": "The Everly Brothers ver\u00f6ffentlichten ihr Album 'Songs Our Daddy Taught Us' im Jahr 1958 und pr\u00e4sentierten darauf eine Sammlung von traditionellen amerikanischen Folksongs. Bei ihren Live-Auftritten, die in diesem Jahr stattfanden, begeisterten sie das Publikum mit ihren harmonischen Stimmen und dem charakteristischen Gitarrenspiel. Die Songs auf dem Album, wie 'Down in the Willow Garden', wurden schnell zu Klassikern und sind bis heute ein fester Bestandteil ihres Repertoires."
         },
@@ -6804,12 +6559,7 @@
         },
         {
           "question": "Welches andere Musikgenre beeinflusste stark den Sound von Bill Haley & His Comets auf ihrem Album 'Rockin\u2019 Rollin\u2019' aus dem Jahr 1959?",
-          "options": [
-            "Country",
-            "Jazz",
-            "Blues",
-            "Reggae"
-          ],
+          "options": ["Country", "Jazz", "Blues", "Reggae"],
           "correctAnswer": "Blues",
           "trivia": "Bill Haley & His Comets integrierten zahlreiche Elemente des Blues in ihren Musikstil, was besonders auf dem Album 'Rockin\u2019 Rollin\u2019' deutlich wird. Der Einfluss des Blues zeigt sich in den rhythmischen Strukturen und der emotionalen Ausdrucksweise vieler Songs. Diese Fusion half, Rock 'n' Roll als Genre zu etablieren und machte das Album zu einem wichtigen Bestandteil der Musikgeschichte der sp\u00e4ten 1950er Jahre. Haley selbst war stark von den Blues-Pionieren seiner Zeit inspiriert."
         },
@@ -6921,12 +6671,7 @@
         },
         {
           "question": "Welches bedeutende Musikgenre wird oft mit Gene Vincent und seinem Album 'The Crazy Beat of Gene Vincent' aus dem Jahr 1963 in Verbindung gebracht?",
-          "options": [
-            "Rock 'n' Roll",
-            "Jazz",
-            "Pop",
-            "Blues"
-          ],
+          "options": ["Rock 'n' Roll", "Jazz", "Pop", "Blues"],
           "correctAnswer": "Rock 'n' Roll",
           "trivia": "Gene Vincent war eine Schl\u00fcsselfigur in der Rock 'n' Roll-Bewegung der 1950er und 1960er Jahre. Sein Album 'The Crazy Beat of Gene Vincent' zeigt seinen einzigartigen Stil, der sowohl kraftvolle Vocals als auch energiegeladene Instrumentierung kombiniert. Mit Hits wie 'Be-Bop-A-Lula' wurde er zu einem Vorbild f\u00fcr viele nachfolgende Rockmusiker und half, das Genre weltweit popul\u00e4r zu machen."
         },
@@ -7166,12 +6911,7 @@
         },
         {
           "question": "In welchem Jahr wurde das Album 'Lifetime Friend' von Little Richard ver\u00f6ffentlicht?",
-          "options": [
-            "1985",
-            "1986",
-            "1987",
-            "1988"
-          ],
+          "options": ["1985", "1986", "1987", "1988"],
           "correctAnswer": "1986",
           "trivia": "Das Album 'Lifetime Friend' von Little Richard wurde im Jahr 1986 ver\u00f6ffentlicht und markiert eine bedeutende R\u00fcckkehr des Rock'n'Roll-Pioniers. Es enth\u00e4lt eine Mischung aus Gospel, Rock und Soul, die Little Richards einzigartige musikalische Identit\u00e4t unterstreicht. Mit dieser Ver\u00f6ffentlichung wollte der K\u00fcnstler neue Generationen von Fans erreichen und gleichzeitig seine Wurzeln im Gospel beibehalten. Die Kombination aus kraftvollen Melodien und spirituellen Texten macht 'Lifetime Friend' zu einem bemerkenswerten Werk in seinem umfangreichen Katalog."
         }
@@ -7296,12 +7036,7 @@
       "medium": [
         {
           "question": "In welchem Jahr wurde das Album 'Elvis\u2019 Golden Records', das die gr\u00f6\u00dften Hits von Elvis Presley beinhaltet, ver\u00f6ffentlicht?",
-          "options": [
-            "1956",
-            "1958",
-            "1960",
-            "1955"
-          ],
+          "options": ["1956", "1958", "1960", "1955"],
           "correctAnswer": "1958",
           "trivia": "Das Album 'Elvis\u2019 Golden Records' wurde im Jahr 1958 ver\u00f6ffentlicht und gilt als eine der ersten Kompilationen von Greatest Hits in der Musikgeschichte. Es umfasst einige der bekanntesten Songs von Elvis Presley, darunter 'Heartbreak Hotel' und 'Hound Dog'. Diese Sammlung trug entscheidend zu seinem Ruhm bei und half, Elvis als K\u00f6nig des Rock 'n' Roll zu etablieren. Dar\u00fcber hinaus spiegelte das Album die kulturelle Bedeutung von Elvis in den 1950er Jahren wider, als er das Musikgesch\u00e4ft revolutionierte."
         },
@@ -7389,12 +7124,7 @@
         },
         {
           "question": "Welcher Song auf Buddy Hollys Album 'Showcase' wurde erstmals 1957 ver\u00f6ffentlicht und gilt als einer seiner bekanntesten Hits?",
-          "options": [
-            "Everyday",
-            "Peggy Sue",
-            "Rave On",
-            "True Love Ways"
-          ],
+          "options": ["Everyday", "Peggy Sue", "Rave On", "True Love Ways"],
           "correctAnswer": "Peggy Sue",
           "trivia": "Der Song 'Peggy Sue' wurde urspr\u00fcnglich 1957 von Buddy Holly ver\u00f6ffentlicht und ist einer seiner bekanntesten Hits, der auch auf dem Album 'Showcase' zu finden ist, das 1964 erschien. Die eing\u00e4ngige Melodie und der charakteristische Gesang von Holly machten den Song zu einem Klassiker der Rock'n'Roll-\u00c4ra. 'Peggy Sue' erz\u00e4hlt die Geschichte eines jungen Mannes, der in das M\u00e4dchen Peggy Sue verliebt ist und seine Sehns\u00fcchte und Tr\u00e4ume in den Texten zum Ausdruck bringt. Buddy Hollys Einfluss auf die Musik ist bis heute sp\u00fcrbar und er wird oft als einer der Pioniere des Rock'n'Roll bezeichnet."
         },
@@ -7424,12 +7154,7 @@
         },
         {
           "question": "Welche Live-Performance eines Songs von Buddy Holly ist auf dem 1964 ver\u00f6ffentlichten Album 'Showcase' zu finden?",
-          "options": [
-            "That'll Be the Day",
-            "Peggy Sue",
-            "Rave On",
-            "Everyday"
-          ],
+          "options": ["That'll Be the Day", "Peggy Sue", "Rave On", "Everyday"],
           "correctAnswer": "Rave On",
           "trivia": "Auf dem Album 'Showcase' von Buddy Holly, das 1964 ver\u00f6ffentlicht wurde, befindet sich die Live-Performance des Songs 'Rave On'. Dieser Song, der urspr\u00fcnglich 1958 erschien, ist bekannt f\u00fcr seinen eing\u00e4ngigen Rhythmus und Hollys charakteristische Gesangstechnik. 'Rave On' gilt als eines der fr\u00fchen Beispiele f\u00fcr Rock 'n' Roll, das den Einfluss von Buddy Holly auf die Musikgeschichte deutlich macht. Das Album zeigt eine Sammlung von verschiedenen Live-Auftritten, die die Energie und das Talent von Holly perfekt widerspiegeln."
         },
@@ -7530,12 +7255,7 @@
       "medium": [
         {
           "question": "Welcher bekannte Musikproduzent war ma\u00dfgeblich an der Produktion des Albums 'Greatest Hits' von Ritchie Valens beteiligt, das 1963 ver\u00f6ffentlicht wurde?",
-          "options": [
-            "Phil Spector",
-            "Teo Macero",
-            "Gary Usher",
-            "Bob Keane"
-          ],
+          "options": ["Phil Spector", "Teo Macero", "Gary Usher", "Bob Keane"],
           "correctAnswer": "Bob Keane",
           "trivia": "Bob Keane war der Produzent, der entscheidend zur Entstehung des Albums 'Greatest Hits' von Ritchie Valens beitrug. Keane war bekannt daf\u00fcr, talentierte K\u00fcnstler zu f\u00f6rdern und spielte eine wesentliche Rolle in der Karriere von Valens, der mit Hits wie 'La Bamba' und 'Donna' ber\u00fchmt wurde. Das Album, das posthum ver\u00f6ffentlicht wurde, vereint einige der bekanntesten Songs von Valens und zeigt seinen einzigartigen Einfluss auf die Rock- und Chicano-Musik. Leider starb Ritchie Valens fr\u00fch, aber sein Erbe bleibt dank solcher Ver\u00f6ffentlichungen lebendig."
         },
@@ -7612,12 +7332,7 @@
       "easy": [
         {
           "question": "In welchem Jahr ver\u00f6ffentlichte Chuck Berry sein Album 'Chuck', das als sein letztes Werk gilt?",
-          "options": [
-            "2015",
-            "2017",
-            "2019",
-            "2016"
-          ],
+          "options": ["2015", "2017", "2019", "2016"],
           "correctAnswer": "2017",
           "trivia": "Chuck Berry ver\u00f6ffentlichte sein Album 'Chuck' im Jahr 2017, was es zu seinem letzten ver\u00f6ffentlichten Werk vor seinem Tod macht. In diesem Album verarbeitet er pers\u00f6nliche Erfahrungen und reflektiert \u00fcber sein Leben und seine Karriere. Die Songs zeigen nicht nur seine charakteristischen Rock'n'Roll-Rhythmen, sondern auch tiefgr\u00fcndige Texte, die seine Reise als Musiker und Mensch widerspiegeln. 'Chuck' ist ein zeitloses Zeugnis eines der einflussreichsten Rock-Pioniere aller Zeiten."
         },
@@ -8044,12 +7759,7 @@
         },
         {
           "question": "In welchem Jahr ver\u00f6ffentlichte Elvis Presley das Album 'Something for Everybody', das auch seine vielf\u00e4ltigen musikalischen Einfl\u00fcsse und H\u00f6rgewohnheiten widerspiegelt?",
-          "options": [
-            "1958",
-            "1961",
-            "1965",
-            "1960"
-          ],
+          "options": ["1958", "1961", "1965", "1960"],
           "correctAnswer": "1961",
           "trivia": "Elvis Presley ver\u00f6ffentlichte das Album 'Something for Everybody' im Jahr 1961. Dieses Album zeigt die musikalische Vielseitigkeit von Elvis, die von Rock 'n' Roll \u00fcber Balladen bis hin zu Country-Elementen reicht. Mit Hits wie 'Can't Help Falling in Love' und 'There's Always Me' festigte Presley seinen Status als einer der einflussreichsten Musiker der damaligen Zeit. Die Mischung aus verschiedenen Musikstilen spricht sowohl die breiten H\u00f6rgewohnheiten der damaligen Zeit als auch seine eigene Entwicklung als K\u00fcnstler an."
         },
@@ -8583,12 +8293,7 @@
       "medium": [
         {
           "question": "In welchem Jahr wurde das Album 'Holly in the Hills' von Buddy Holly ver\u00f6ffentlicht, und welche Bedeutung hat es im Fandom des K\u00fcnstlers?",
-          "options": [
-            "1960",
-            "1965",
-            "1970",
-            "1958"
-          ],
+          "options": ["1960", "1965", "1970", "1958"],
           "correctAnswer": "1965",
           "trivia": "Das Album 'Holly in the Hills' wurde 1965 ver\u00f6ffentlicht und markiert eine wichtige Phase in Buddy Hollys posthumer Karriere. W\u00e4hrend Buddy Holly bereits 1959 verstorben war, wurde dieses Album aus unver\u00f6ffentlichten Aufnahmen und Demos zusammengestellt, was es f\u00fcr Fans besonders wertvoll macht. Es zeigt nicht nur Hollys unverwechselbaren Stil, sondern auch die Entwicklung seiner Musik, die viele K\u00fcnstler beeinflusst hat. Das Album bleibt ein bedeutendes Sammlerst\u00fcck f\u00fcr Fandom und Merchandise, da es die zeitlose Anziehungskraft und den Einfluss von Buddy Holly in der Rockmusik dokumentiert."
         },
@@ -8640,12 +8345,7 @@
         },
         {
           "question": "In welcher Stadt wurde das Album 'Holly in the Hills', ver\u00f6ffentlicht von Buddy Holly im Jahr 1965, aufgenommen?",
-          "options": [
-            "Lubbock",
-            "Nashville",
-            "Los Angeles",
-            "New York"
-          ],
+          "options": ["Lubbock", "Nashville", "Los Angeles", "New York"],
           "correctAnswer": "Nashville",
           "trivia": "Das Album 'Holly in the Hills' von Buddy Holly wurde in Nashville, Tennessee, aufgenommen, was zu dieser Zeit ein Zentrum f\u00fcr die Country- und Rockmusik war. Buddy Holly, der als einer der Pioniere des Rock 'n' Roll gilt, hatte einen signifikanten Einfluss auf viele Musiker, die nach ihm kamen. Die Wahl von Nashville als Aufnahmelocation verdeutlicht Hollys Verbindung zu verschiedenen Musikstilen und seine F\u00e4higkeit, \u00fcber Genregrenzen hinweg zu arbeiten. Trotz seines fr\u00fchen Todes bleibt sein musikalisches Erbe bis heute lebendig."
         }
@@ -8839,12 +8539,7 @@
         },
         {
           "question": "In welchem Jahr wurde das Album 'Little Richard\u2019s Greatest Hits' von Little Richard ver\u00f6ffentlicht, das als Meilenstein in der musikalischen Entwicklung des Rock 'n' Roll gilt?",
-          "options": [
-            "1965",
-            "1960",
-            "1970",
-            "1980"
-          ],
+          "options": ["1965", "1960", "1970", "1980"],
           "correctAnswer": "1965",
           "trivia": "Das Album 'Little Richard\u2019s Greatest Hits' wurde 1965 ver\u00f6ffentlicht und gilt als eine der bedeutendsten Sammlungen von Little Richards einflussreichsten Hits. Little Richard, bekannt f\u00fcr seinen energetischen Stil und seine markante Stimme, trug ma\u00dfgeblich zur Popularisierung des Rock 'n' Roll bei. Zu den bekanntesten Songs auf diesem Album geh\u00f6ren 'Tutti Frutti' und 'Long Tall Sally', die beide nicht nur kommerziell erfolgreich waren, sondern auch K\u00fcnstler der n\u00e4chsten Generation inspirierten."
         }
@@ -9097,12 +8792,7 @@
         },
         {
           "question": "In welchem Jahr erschien das Album 'Shakin\u2019 Up a Storm' von Gene Vincent, das als Teil seiner musikalischen R\u00fcckbesinnung auf fr\u00fche Rock'n'Roll-Einfl\u00fcsse gilt?",
-          "options": [
-            "1962",
-            "1964",
-            "1965",
-            "1966"
-          ],
+          "options": ["1962", "1964", "1965", "1966"],
           "correctAnswer": "1964",
           "trivia": "Das Album 'Shakin\u2019 Up a Storm' von Gene Vincent wurde 1964 ver\u00f6ffentlicht und zeigt eine R\u00fcckkehr zu den Wurzeln des Rock'n'Roll, die Vincent ma\u00dfgeblich mitgestaltet hat. Gene Vincent, einer der Pioniere des Genres, kombinierte in diesem Werk Elemente des Rockabilly mit kraftvollen Balladen und energiegeladenen Rhythmen. Mit Songs wie 'The Night Is So Lonely' und 'Shakin' Up a Storm' zeigt er seine unverwechselbare Stimme und seinen einzigartigen Stil, der auch in den 1960er Jahren gro\u00dfen Einfluss auf die Musikszene hatte."
         },
@@ -9389,12 +9079,7 @@
         },
         {
           "question": "In welchem Jahr wurde das Album 'Elvis Sings Flaming Star' von Elvis Presley ver\u00f6ffentlicht?",
-          "options": [
-            "1965",
-            "1969",
-            "1972",
-            "1967"
-          ],
+          "options": ["1965", "1969", "1972", "1967"],
           "correctAnswer": "1969",
           "trivia": "Das Album 'Elvis Sings Flaming Star' wurde 1969 ver\u00f6ffentlicht und stellt eine Sammlung von Songs aus dem gleichnamigen Film dar, in dem Elvis Presley die Hauptrolle spielte. Die Lieder auf dem Album spiegeln den charakteristischen Stil des King of Rock 'n' Roll wider und zeigen seine einzigartige F\u00e4higkeit, Emotionen durch Musik zu vermitteln. Neben 'Flaming Star' enth\u00e4lt das Album auch andere bemerkenswerte Tracks, die Presleys Karriere weiter festigten und seine Popularit\u00e4t in den sp\u00e4ten 1960er Jahren unterst\u00fctzten."
         }
@@ -9541,12 +9226,7 @@
         },
         {
           "question": "In welchem Jahr trat Fats Domino, w\u00e4hrend seiner Touren zur Promotion des Albums 'Million Sellers by Fats', in der ber\u00fchmten Carnegie Hall auf?",
-          "options": [
-            "1960",
-            "1962",
-            "1964",
-            "1966"
-          ],
+          "options": ["1960", "1962", "1964", "1966"],
           "correctAnswer": "1962",
           "trivia": "Fats Domino trat 1962 in der Carnegie Hall auf, was ein bedeutender Moment in seiner Karriere war, insbesondere zur Zeit der Ver\u00f6ffentlichung seines Albums 'Million Sellers by Fats'. Diese Tour half, seine Popularit\u00e4t \u00fcber die Grenzen von Rhythm and Blues hinaus zu steigern. Das Album enth\u00e4lt einige seiner gr\u00f6\u00dften Hits und demonstriert seine einpr\u00e4gsame Melodik und den charakteristischen Klavierstil, die ihn zu einem der f\u00fchrenden K\u00fcnstler seiner Zeit machten."
         }
@@ -9718,12 +9398,7 @@
       "easy": [
         {
           "question": "In welcher Stadt wurde das Album 'Cry Softly, Lonely One' von Roy Orbison im Jahr 1967 aufgenommen?",
-          "options": [
-            "Nashville",
-            "Los Angeles",
-            "New York",
-            "Miami"
-          ],
+          "options": ["Nashville", "Los Angeles", "New York", "Miami"],
           "correctAnswer": "Nashville",
           "trivia": "Roy Orbison nahm sein Album 'Cry Softly, Lonely One' in Nashville auf, einer Stadt, die f\u00fcr ihre bedeutende Rolle in der Country- und Popmusik bekannt ist. Nashville war in den 1960er Jahren ein Zentrum f\u00fcr viele K\u00fcnstler und Musiker, die dort ihre Alben produzierten. Orbison, ein Pionier des Rock 'n' Roll und bekannt f\u00fcr seine markante Stimme, schuf mit diesem Album einige seiner emotionalsten Balladen, die bis heute gesch\u00e4tzt werden."
         },
@@ -9799,12 +9474,7 @@
         },
         {
           "question": "In welchem Lied des Albums 'Cry Softly, Lonely One' von Roy Orbison thematisiert der S\u00e4nger die tiefen Emotionen von Einsamkeit und Verlust, die durch eindringliche Metaphern in den Songtexten verst\u00e4rkt werden?",
-          "options": [
-            "Crying",
-            "Love Hurts",
-            "Lonely One",
-            "It's Over"
-          ],
+          "options": ["Crying", "Love Hurts", "Lonely One", "It's Over"],
           "correctAnswer": "Crying",
           "trivia": "Das Lied 'Crying' aus dem Album 'Cry Softly, Lonely One' von Roy Orbison beschreibt eindringlich die Qualen und den Schmerz, die mit der Einsamkeit verbunden sind. Orbison nutzt kraftvolle Metaphern und eine gef\u00fchlvolle Melodie, um die Verletzlichkeit und Traurigkeit des Herzens darzustellen. Dieses Lied gilt als eines seiner Meisterwerke und zeigt seine au\u00dfergew\u00f6hnliche F\u00e4higkeit, komplexe Emotionen musikalisch auszudr\u00fccken. Roy Orbison, bekannt f\u00fcr seine eindringliche Stimme und seine melancholischen Texte, hat mit diesem Album einen bleibenden Eindruck in der Musikgeschichte hinterlassen."
         },
@@ -10044,12 +9714,7 @@
         },
         {
           "question": "In welchem Jahr trat Carl Perkins mit seinem Album 'My Kind of Country' auf einer bedeutenden Tournee auf, die seine R\u00fcckkehr auf die B\u00fchne nach einigen Jahren der Abwesenheit markierte?",
-          "options": [
-            "1970",
-            "1973",
-            "1975",
-            "1980"
-          ],
+          "options": ["1970", "1973", "1975", "1980"],
           "correctAnswer": "1973",
           "trivia": "Carl Perkins, bekannt f\u00fcr seine einflussreiche Rolle in der Rockabilly-Musik, ver\u00f6ffentlichte 'My Kind of Country' im Jahr 1973. Diese Tour war entscheidend f\u00fcr seine Karriere, da sie ihm half, nach einer Zeit der pers\u00f6nlichen und beruflichen Herausforderungen wieder in das Rampenlicht zu treten. Die Mischung aus traditionellen Country-Kl\u00e4ngen und Perkins' einzigartigem Stil machte die Auftritte zu einem unvergesslichen Erlebnis f\u00fcr die Fans und festigte seinen Status als Legende der Musikszene."
         }
@@ -10186,12 +9851,7 @@
       "easy": [
         {
           "question": "In welchem Jahr trat Little Richard mit seinem Album 'The Explosive Little Richard' in verschiedenen Live-Auftritten auf?",
-          "options": [
-            "1965",
-            "1967",
-            "1969",
-            "1970"
-          ],
+          "options": ["1965", "1967", "1969", "1970"],
           "correctAnswer": "1967",
           "trivia": "Das Album 'The Explosive Little Richard' wurde 1967 ver\u00f6ffentlicht und zeigt die hohe Energie und den unverwechselbaren Stil von Little Richard. In diesem Jahr gab er zahlreiche Live-Auftritte, die sein Publikum mit seiner einzigartigen Mischung aus Rock\u2019n\u2019Roll und Gospelmusik begeisterten. Little Richard, bekannt f\u00fcr seine extravaganten B\u00fchnenauftritte und seine kraftvolle Stimme, festigte mit diesem Album seinen Status als eine der einflussreichsten Figuren der Musikgeschichte."
         },
@@ -10477,12 +10137,7 @@
         },
         {
           "question": "Welche bekannte Musikrichtung, die in den 1960er Jahren popul\u00e4r wurde, hat das Album 'Roots' von The Everly Brothers beeinflusst und zu einem Crossover-Erfolg gemacht?",
-          "options": [
-            "Folk-Rock",
-            "Punk",
-            "Disco",
-            "Reggae"
-          ],
+          "options": ["Folk-Rock", "Punk", "Disco", "Reggae"],
           "correctAnswer": "Folk-Rock",
           "trivia": "Das Album 'Roots', ver\u00f6ffentlicht von The Everly Brothers im Jahr 1968, zeigt eine starke Verbindung zur Folk-Rock-Musik, die zu dieser Zeit auf dem Vormarsch war. Mit Einfl\u00fcssen aus traditioneller Volksmusik und Rock'n'Roll, gelang es den Everly Brothers, eine Br\u00fccke zwischen verschiedenen Musikstilen zu schlagen. Songs wie 'Down in the Willow Garden' und 'Long Time Gone' sind Beispiele f\u00fcr diese Fusion und tragen zur zeitlosen Anziehungskraft des Albums bei."
         }
@@ -10583,12 +10238,7 @@
         },
         {
           "question": "Welche musikalische Bewegung wird h\u00e4ufig mit Bo Diddley und seinem Album 'Bo Diddley\u2019s Beach Party' von 1963 in Verbindung gebracht, das den Rock'n'Roll der 1960er Jahre pr\u00e4gte?",
-          "options": [
-            "Surf-Rock",
-            "Psychedelic Rock",
-            "Motown",
-            "Blues-Rock"
-          ],
+          "options": ["Surf-Rock", "Psychedelic Rock", "Motown", "Blues-Rock"],
           "correctAnswer": "Surf-Rock",
           "trivia": "Bo Diddley ist bekannt f\u00fcr seinen einzigartigen Stil, der Elemente des Blues und Rock'n'Roll vereint. 'Bo Diddley\u2019s Beach Party' spiegelt die aufkommende Surf-Rock-Bewegung wider, die in den fr\u00fchen 1960er Jahren popul\u00e4r wurde. Das Album kombiniert nicht nur Diddleys charakteristische Beats, sondern stellt auch den Einfluss der Strandkultur dar, die in dieser Zeit eine zentrale Rolle im Musikleben spielte."
         },
@@ -10806,12 +10456,7 @@
       "medium": [
         {
           "question": "In welcher Stadt wurde das Album 'Important Words' von Gene Vincent, das 1966 ver\u00f6ffentlicht wurde, aufgenommen?",
-          "options": [
-            "Los Angeles",
-            "Nashville",
-            "New York",
-            "London"
-          ],
+          "options": ["Los Angeles", "Nashville", "New York", "London"],
           "correctAnswer": "Los Angeles",
           "trivia": "Das Album 'Important Words' von Gene Vincent wurde in Los Angeles aufgenommen, einem bedeutenden Zentrum f\u00fcr Musikproduktionen in den 1960er Jahren. Gene Vincent, bekannt f\u00fcr seinen Einfluss auf den Rock'n'Roll, kombinierte auf diesem Album verschiedene Musikstile, die seinen charakteristischen Sound pr\u00e4gten. Die Stadt war nicht nur ein Schmelztiegel f\u00fcr kreative Talente, sondern auch der Ort, an dem Vincent einige seiner denkw\u00fcrdigsten Aufnahmen machte, die bis heute Fans weltweit begeistern."
         },
