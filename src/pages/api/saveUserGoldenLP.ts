@@ -8,10 +8,10 @@ import type { APIRoute } from "astro";
  * @returns {Response} The response object with a JSON body containing the message "User points saved".
  */
 export const POST: APIRoute = async ({ request }) => {
-  const { userId, genre } = await request.json();
+  const { userId, genre, difficulty } = await request.json();
 
   // Save the golden LP for the given user ID and genre
-  await saveGoldenLP(userId, genre);
+  await saveGoldenLP(userId, genre, difficulty);
 
   // Return the response with a JSON body containing the message "Golden LP saved"
   return new Response("Golden LP saved", {
