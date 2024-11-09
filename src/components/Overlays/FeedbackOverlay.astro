@@ -282,9 +282,14 @@ import { Icon } from "astro-icon/components";
 
 <script>
   const overlay = document.getElementById("overlay") as HTMLElement;
+  const overlayContent = overlay.querySelector(
+    ".overlayContent",
+  ) as HTMLElement;
+
   const observer = new MutationObserver(() => {
     if (!overlay.classList.contains("hidden")) {
-      overlay.querySelector(".overlay-content")?.scrollTo({ top: 0 });
+      overlayContent.scrollTop = 0;
+      overlayContent.focus();
     }
   });
 
