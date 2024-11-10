@@ -1318,7 +1318,7 @@
     "headline": "Technical Death Metal",
     "imageUrl": "/category/technical-death-metal.jpg",
     "introSubline": "Erlebe die brutale Kraft des Death Metal kombiniert mit melodischen Harmonien im Melodic Death Metal!",
-    "isPlayable": false,
+    "isPlayable": true,
     "slug": "technical-death-metal",
     "text": "Melodic Death Metal verbindet die aggressive Intensität des Death Metal mit eingängigen Melodien und komplexen Harmonien. Diese Kategorie bietet eine Mischung aus heftigen Gitarrenriffs, schnellen Drums und tiefen Growls, die durch melodische Leads und atmosphärische Elemente ergänzt werden. Mit Bands wie In Flames, Dark Tranquillity, Amon Amarth und Arch Enemy hat Melodic Death Metal einen Stil geschaffen, der sowohl brutal als auch melodisch ist. Die Kombination aus roher Kraft und epischen Melodien erzeugt eine einzigartige Dynamik, die sowohl die Aggression des Death Metal als auch die emotionale Tiefe der Melodien hervorhebt. Lass dich von den packenden Gitarrensolos und den donnernden Rhythmen mitreißen und erlebe die perfekte Balance zwischen Härte und Melodie im Melodic Death Metal."
   },
@@ -1332,12 +1332,12 @@
     "text": "Techno ist ein genreprägendes Element der elektronischen Musikszene, bekannt für seine treibenden Rhythmen, repetitiven Melodien und die immersive Klanglandschaft. Diese Kategorie vereint die besten Tracks, die die Essenz von Techno einfangen – von den frühen, minimalistischen Sounds aus Detroit bis hin zu den modernen, druckvollen Produktionen, die in den Clubs und auf Festivals weltweit zu hören sind. Mit Pionieren wie Jeff Mills, Carl Cox und Richie Hawtin sowie aktuellen Künstlern, die das Genre weiterentwickeln, bietet Techno eine einzigartige Mischung aus Energie und Tiefe, die sowohl zum Tanzen als auch zum gedanklichen Abtauchen einlädt. Lass dich von den hypnotischen Beats und den futuristischen Klängen des Techno mitreißen und erlebe die Musik, die seit Jahrzehnten die Tanzflächen beherrscht."
   },
   {
-    "categoryUrl": "/trash-metal",
+    "categoryUrl": "/thrash-metal",
     "headline": "Thrash Metal",
-    "imageUrl": "/category/trash-metal.jpg",
+    "imageUrl": "/category/thrash-metal.jpg",
     "introSubline": "Erlebe die rasenden Riffs und die unbändige Aggression des Thrash Metal!",
     "isPlayable": false,
-    "slug": "trash-metal",
+    "slug": "thrash-metal",
     "text": "Thrash Metal ist ein kraftvolles Genre, das für seine blitzschnellen Gitarrenriffs, rasanten Drums und aggressive Energie bekannt ist. Entstanden in den frühen 1980er Jahren, hat Thrash Metal die Metal-Szene revolutioniert, indem es die Härte des Punk mit der Präzision des Heavy Metal kombinierte. Diese Kategorie vereint die legendären Bands und Tracks, die Thrash Metal groß gemacht haben, darunter Metallica, Slayer, Megadeth und Anthrax – bekannt als die ‘Big Four’ des Genres. Mit schreddernden Solos, wütenden Vocals und kompromisslosen Texten bringt Thrash Metal eine explosive Mischung aus Tempo und Intensität. Lass dich von den wilden Rhythmen und der rohen Kraft des Thrash Metal mitreißen und erlebe den Sound, der Geschwindigkeit und Aggression in den Vordergrund der Metal-Szene brachte."
   },
   {
