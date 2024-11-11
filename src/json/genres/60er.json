@@ -3,6 +3,11 @@
     "artist": "The Beatles",
     "album": "Sgt. Pepper\u2019s Lonely Hearts Club Band",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/the-beatles-sgt-peppers-lonely-hearts-club-band.jpg",
+    "spotify_link": "https://open.spotify.com/album/6QaVfG1pHYl1z15ZxkvVDW",
+    "deezer_link": "https://www.deezer.com/album/12047960",
+    "apple_music_link": "https://music.apple.com/de/album/sgt-peppers-lonely-hearts-club-band/1441164604",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/42/35/a6/4235a66e-8e1b-5345-2bc9-feac7331d865/mzaf_18162144467277692513.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -109,17 +114,17 @@
           "trivia": "Das Album 'Sgt. Pepper\u2019s Lonely Hearts Club Band' von The Beatles gilt als eines der ersten Konzeptalben der Rockgeschichte und hat den Weg f\u00fcr eine Vielzahl von K\u00fcnstlern geebnet, die ebenfalls thematisch zusammenh\u00e4ngende Werke schaffen wollten. Mit seiner innovativen Mischung aus Musik und visuellen Elementen hat es die Erwartungen an Alben grundlegend ver\u00e4ndert und das Genre des Rock als ernsthafte Kunstform etabliert. Viele K\u00fcnstler, darunter Pink Floyd und David Bowie, folgten diesem Beispiel und experimentierten mit komplexen Erz\u00e4hlstrukturen in ihren eigenen Alben."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-beatles-sgt-peppers-lonely-hearts-club-band.jpg",
-    "spotify_link": "https://open.spotify.com/album/6QaVfG1pHYl1z15ZxkvVDW",
-    "deezer_link": "https://www.deezer.com/album/12047960",
-    "apple_music_link": "https://music.apple.com/de/album/sgt-peppers-lonely-hearts-club-band-remix/1573250333",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/4e/90/2e/4e902e90-0a7c-16c2-2709-c7be8eee2448/mzaf_8371300191849179189.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Bob Dylan",
     "album": "Highway 61 Revisited",
     "year": "1965",
+    "coverSrc": "/bandcover/60er/bob-dylan-highway-61-revisited.jpg",
+    "spotify_link": "https://open.spotify.com/album/6YabPKtZAjxwyWbuO9p4ZD",
+    "deezer_link": "https://www.deezer.com/album/1329897",
+    "apple_music_link": "https://music.apple.com/de/album/highway-61-revisited/201281514",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/0d/07/ce/0d07cef9-c7a5-013c-1414-aa9f9370ebfe/mzaf_10130407559827284152.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -226,17 +231,17 @@
           "trivia": "Das Album 'Highway 61 Revisited' von Bob Dylan, das 1965 ver\u00f6ffentlicht wurde, hatte gesch\u00e4tzte Produktionskosten von rund 30.000 US-Dollar. Diese Investition spiegelte sich in der Vielfalt und Komplexit\u00e4t der Musik wider, die nicht nur Folk-Elemente, sondern auch Rock und Blues kombinierte. Die ber\u00fchmte Er\u00f6ffnungsnummer 'Like a Rolling Stone' gilt als einer der H\u00f6hepunkte des Albums und verdeutlicht Dylans innovative Herangehensweise an Songwriting und Produktion in dieser Zeit."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/bob-dylan-highway-61-revisited.jpg",
-    "spotify_link": "https://open.spotify.com/album/6YabPKtZAjxwyWbuO9p4ZD",
-    "deezer_link": "https://www.deezer.com/album/1329897",
-    "apple_music_link": "https://music.apple.com/de/album/highway-61-revisited/201281514",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/0d/07/ce/0d07cef9-c7a5-013c-1414-aa9f9370ebfe/mzaf_10130407559827284152.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Rolling Stones",
     "album": "Let It Bleed",
     "year": "1969",
+    "coverSrc": "/bandcover/60er/the-rolling-stones-let-it-bleed.jpg",
+    "spotify_link": "https://open.spotify.com/album/47hOpZQfXVIRzTiv0Ef8pO",
+    "deezer_link": "https://www.deezer.com/album/116581832",
+    "apple_music_link": "https://music.apple.com/de/album/let-it-bleed-2019-remaster/1500642838",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/d2/e6/63/d2e66325-dfe7-ea59-32e1-221b53645142/mzaf_18422428509293667368.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -343,12 +348,7 @@
           "trivia": "'Let It Bleed', ver\u00f6ffentlicht 1969 von The Rolling Stones, ist stark vom gesellschaftlichen Klima der Zeit beeinflusst, insbesondere vom Vietnamkrieg und den damit verbundenen Protestbewegungen. Lieder wie 'Gimme Shelter' thematisieren die Angst und Unsicherheit, die viele Menschen im Angesicht des Kriegs f\u00fchlten. Das Album wird oft als eine Antwort auf die turbulente politische Lage der sp\u00e4ten 1960er Jahre betrachtet und f\u00e4ngt den Geist einer Generation ein, die sich gegen Ungerechtigkeit und Gewalt auflehnte."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-rolling-stones-let-it-bleed.jpg",
-    "spotify_link": "https://open.spotify.com/album/4l4u9e9jSbotSXNjYfOugy",
-    "deezer_link": "https://www.deezer.com/album/908516",
-    "apple_music_link": "https://music.apple.com/de/album/let-it-bleed-2019-remaster/1500642838",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/d2/e6/63/d2e66325-dfe7-ea59-32e1-221b53645142/mzaf_18422428509293667368.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Beach Boys",
@@ -466,6 +466,11 @@
     "artist": "The Beatles",
     "album": "Revolver",
     "year": "1966",
+    "coverSrc": "/bandcover/60er/the-beatles-revolver.jpg",
+    "spotify_link": "https://open.spotify.com/album/3PRoXYsngSwjEQWR5PsHWR",
+    "deezer_link": "https://www.deezer.com/album/12047948",
+    "apple_music_link": "https://music.apple.com/de/album/revolver/1441164670",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/d4/75/af/d475af25-115f-c8c6-b783-5a560a75cbe6/mzaf_3272414101274863328.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -572,17 +577,17 @@
           "trivia": "Der Song 'Tomorrow Never Knows' von The Beatles wurde in dem Kultfilm 'Trainspotting' verwendet, der 1996 ver\u00f6ffentlicht wurde. Das Album 'Revolver', das 1966 erschien, gilt als eines der innovativsten Werke der Band und zeigt ihren Einfluss auf die Psychedelic-Rock-Bewegung. 'Tomorrow Never Knows' ist bekannt f\u00fcr seine experimentellen Kl\u00e4nge und den Einsatz von Tape-Loop-Techniken, die die Grenzen der damaligen Musikproduktion sprengten. Die Verwendung des Songs im Film verst\u00e4rkt seine hypnotische Atmosph\u00e4re und passt perfekt zur Thematik des Drogenkonsums und der Flucht aus der Realit\u00e4t."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-beatles-revolver.jpg",
-    "spotify_link": "https://open.spotify.com/album/3PRoXYsngSwjEQWR5PsHWR",
-    "deezer_link": "https://www.deezer.com/album/12047948",
-    "apple_music_link": "https://music.apple.com/de/album/revolver-2022-mix/1642995371",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/7a/76/8d/7a768de5-c0d3-ffc0-6094-77679f7b65f7/mzaf_8639387869692159784.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Jimi Hendrix Experience",
     "album": "Are You Experienced",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/jimi-hendrix_are-you-experienced.jpg",
+    "spotify_link": "https://open.spotify.com/album/7rSZXXHHvIhF4yUFdaOCy9",
+    "deezer_link": "https://www.deezer.com/album/455131",
+    "apple_music_link": "https://music.apple.com/de/album/are-you-experienced-deluxe-version/345300270",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/70/73/5d/70735d39-1fd6-d2ab-a7d5-eba3c6415099/mzaf_13117011659558603322.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -689,17 +694,17 @@
           "trivia": "Beim Album 'Are You Experienced' nutzte The Jimi Hendrix Experience innovative Techniken wie Stereo-Panning und Overdubbing, die zu den produktionstechnischen Herausforderungen der Aufnahmen f\u00fchrten. Diese Methoden erm\u00f6glichten es Hendrix, seine Gitarre in neuartigen Kl\u00e4ngen und Effekten zu pr\u00e4sentieren, was das Album revolution\u00e4r machte. Insbesondere der Song 'Purple Haze' zeigte eindrucksvoll, wie Hendrix diese Techniken einsetzte, um einen unverwechselbaren Sound zu kreieren, der die Rockmusik nachhaltig beeinflusste."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-jimi-hendrix-experience-are-you-experienced.jpg",
-    "spotify_link": "https://open.spotify.com/album/7rSZXXHHvIhF4yUFdaOCy9",
-    "deezer_link": null,
-    "apple_music_link": "https://music.apple.com/de/album/are-you-experienced-deluxe-version/345300270",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/70/73/5d/70735d39-1fd6-d2ab-a7d5-eba3c6415099/mzaf_13117011659558603322.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Velvet Underground & Nico",
     "album": "The Velvet Underground & Nico",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/the-velvet-underground-nico-the-velvet-underground-nico.jpg",
+    "spotify_link": "https://open.spotify.com/album/1b27KQt4bBP2hlgrHbQMIw",
+    "deezer_link": "https://www.deezer.com/album/6005531",
+    "apple_music_link": "https://music.apple.com/de/album/the-velvet-underground-nico-45th-anniversary-deluxe/1444213891",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/38/cc/07/38cc07f9-a41d-61df-8e47-623109a6f86c/mzaf_5045186348152699250.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -796,17 +801,17 @@
           "trivia": "Das Album 'The Velvet Underground & Nico' von The Velvet Underground & Nico enth\u00e4lt innovative musikalische Arrangements, die h\u00e4ufig die Atonalit\u00e4t einbeziehen. Diese Technik, bei der die Musik von traditionellen harmonischen Strukturen abweicht, verst\u00e4rkt die emotionale Intensit\u00e4t der Lieder und passt hervorragend zur experimentellen Natur des Albums. Besonders die St\u00fccke wie 'Heroin' zeigen, wie Atonalit\u00e4t eingesetzt wird, um die chaotischen und oft d\u00fcsteren Themen der Texte zu unterstreichen. Dadurch wird das Album nicht nur als Rockwerk, sondern auch als bedeutendes Beispiel f\u00fcr avantgardistische Musikgeschichte angesehen."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-velvet-underground-nico-the-velvet-underground-nico.jpg",
-    "spotify_link": "https://open.spotify.com/album/4xwx0x7k6c5VuThz5qVqmV",
-    "deezer_link": "https://www.deezer.com/album/6004996",
-    "apple_music_link": "https://music.apple.com/de/album/the-velvet-underground-nico-45th-anniversary-super/1431071111",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/24/3d/5d/243d5d36-9107-ffb4-9277-660d6b228ac9/mzaf_15371551085775591641.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Beatles",
     "album": "The Beatles (The White Album)",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/the-beatles-the-beatles-the-white-album.jpg",
+    "spotify_link": "https://open.spotify.com/album/1klALx0u4AavZNEvC4LrTL",
+    "deezer_link": "https://www.deezer.com/album/12047934",
+    "apple_music_link": "https://music.apple.com/de/album/the-beatles-the-white-album/1441133180",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/92/db/7e/92db7eb0-73df-11a5-c0f8-3c09b49ba10d/mzaf_12637010066616668216.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -898,17 +903,17 @@
           "trivia": "Im Jahr 1968 nahmen die Beatles den Song 'Revolution' in den Abbey Road Studios auf, der auf ihrem sp\u00e4teren Album 'The Beatles (The White Album)' erschienen ist. Dieser Song spiegelt die politischen Unruhen und den Widerstand der damaligen Zeit wider und zeigt die musikalische Entwicklung der Beatles im Vergleich zu ihren fr\u00fcheren Arbeiten. Die Bedeutung der Aufnahme liegt nicht nur in der musikalischen Innovation, sondern auch in der Art und Weise, wie die Beatles auf die gesellschaftlichen Herausforderungen reagierten, was das Album zu einem zeitlosen Meisterwerk macht."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-beatles-the-beatles-the-white-album.jpg",
-    "spotify_link": "https://open.spotify.com/album/2kgmS70ErVkjft03EC2DfH",
-    "deezer_link": "https://www.deezer.com/artist/1",
-    "apple_music_link": "https://music.apple.com/de/album/the-beatles-the-white-album/1441133180",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/92/db/7e/92db7eb0-73df-11a5-c0f8-3c09b49ba10d/mzaf_12637010066616668216.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Doors",
     "album": "The Doors",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/the-doors_the-doors.jpg",
+    "spotify_link": "https://open.spotify.com/album/1jWmEhn3ggaL6isoyLfwBn",
+    "deezer_link": "https://www.deezer.com/album/340878",
+    "apple_music_link": "https://music.apple.com/de/album/the-doors/1622368510",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/49/70/00/49700080-e541-5892-519d-cf0e6fb05afb/mzaf_10578724709305008025.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -1015,17 +1020,17 @@
           "trivia": "The Doors, bekannt f\u00fcr ihren revolution\u00e4ren Sound und die charismatische Pr\u00e4senz von Jim Morrison, integrierten in ihren Live-Auftritten h\u00e4ufig psychedelische Lichtprojektionen. Diese visuellen Elemente verst\u00e4rkten die hypnotische Wirkung ihrer Musik und schufen eine intensive Atmosph\u00e4re, die perfekt zu den Themen des Albums 'The Doors' passte. Die Kombination aus Musik und visueller Kunst trug dazu bei, das Publikum in eine andere Dimension zu entf\u00fchren, was f\u00fcr die Zeit einzigartig war."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-doors-the-doors.jpg",
-    "spotify_link": "https://open.spotify.com/album/3zVyMAtWiXugudXuCRiUjL",
-    "deezer_link": "https://www.deezer.com/album/340853",
-    "apple_music_link": "https://music.apple.com/de/album/the-very-best-of-the-doors/640047463",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/be/38/39/be3839db-2e34-f3d6-d52e-6176bf26b659/mzaf_10861448242954412151.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Bob Dylan",
     "album": "Blonde on Blonde",
     "year": "1966",
+    "coverSrc": "/bandcover/60er/bob-dylan-blonde-on-blonde.jpg",
+    "spotify_link": "https://open.spotify.com/album/4NP1rhnsPdYpnyJP0p0k0L",
+    "deezer_link": "https://www.deezer.com/album/1400030",
+    "apple_music_link": "https://music.apple.com/de/album/blonde-on-blonde/178049863",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/25/11/ec/2511ec1e-c551-b4ce-d9ec-22faec5fcc9e/mzaf_10573987368366267286.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -1132,17 +1137,17 @@
           "trivia": "Bob Dylans Album 'Blonde on Blonde' ist stark von der Literatur des amerikanischen S\u00fcdens, insbesondere von William Faulkner, inspiriert. Die komplexen Erz\u00e4hlstrukturen und die tiefgr\u00fcndigen Charakterstudien in Dylans Texten spiegeln Faulkners Einfluss wider, w\u00e4hrend die spontane und experimentelle Lyrik der Beatniks, wie die von Allen Ginsberg, die kreative Freiheit und den avantgardistischen Stil des Albums pr\u00e4gt. Diese Kombination aus literarischen Einfl\u00fcssen verleiht den Songs eine au\u00dfergew\u00f6hnliche Tiefe und Vielschichtigkeit, die 'Blonde on Blonde' zu einem Meisterwerk der Folk- und Rockmusik macht."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/bob-dylan-blonde-on-blonde.jpg",
-    "spotify_link": "https://open.spotify.com/album/4NP1rhnsPdYpnyJP0p0k0L",
-    "deezer_link": "https://www.deezer.com/album/1400030",
-    "apple_music_link": "https://music.apple.com/de/album/blonde-on-blonde/178049863",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/25/11/ec/2511ec1e-c551-b4ce-d9ec-22faec5fcc9e/mzaf_10573987368366267286.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Rolling Stones",
     "album": "Beggars Banquet",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/the-rolling-stones-beggars-banquet.jpg",
+    "spotify_link": "https://open.spotify.com/album/6OHri5qNxwCdVSdyCslspd",
+    "deezer_link": "https://www.deezer.com/album/912322",
+    "apple_music_link": "https://music.apple.com/de/album/beggars-banquet-2018-remaster/1500643395",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/15/e3/2c/15e32cbe-c278-d4ec-7eff-77044663e7d9/mzaf_2898313549928250822.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -1249,17 +1254,17 @@
           "trivia": "In 'Sympathy for the Devil', einem der bekanntesten Songs von The Rolling Stones auf dem Album 'Beggars Banquet', wird der Teufel als Erz\u00e4hler dargestellt, der durch verschiedene historische und kulturelle Ereignisse f\u00fchrt. Eine seiner vielen Anspielungen bezieht sich auf die Verbrechen von Jack the Ripper, die im London des sp\u00e4ten 19. Jahrhunderts stattfanden. Diese Verbindung verst\u00e4rkt das d\u00fcstere und provokante Thema des Songs, indem sie die Idee des B\u00f6sen in der Menschheit thematisiert und den Zuh\u00f6rer dazu anregt, \u00fcber die Natur des B\u00f6sen nachzudenken. Das Album selbst markierte einen Wendepunkt f\u00fcr die Band, indem es ihren k\u00fcnstlerischen Ausdruck erweiterte und die gesellschaftlichen Umw\u00e4lzungen der Zeit reflektierte."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-rolling-stones-beggars-banquet.jpg",
-    "spotify_link": "https://open.spotify.com/album/6OHri5qNxwCdVSdyCslspd",
-    "deezer_link": "https://www.deezer.com/album/912322",
-    "apple_music_link": "https://music.apple.com/de/album/beggars-banquet-2018-remaster/1500643395",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/15/e3/2c/15e32cbe-c278-d4ec-7eff-77044663e7d9/mzaf_2898313549928250822.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Who",
     "album": "Tommy",
     "year": "1969",
+    "coverSrc": "/bandcover/60er/the-who-tommy.jpg",
+    "spotify_link": "https://open.spotify.com/album/2srjzxgFaYLNh8UlJPAJ8b",
+    "deezer_link": "https://www.deezer.com/album/94860372",
+    "apple_music_link": "https://music.apple.com/de/album/tommy-deluxe-edition-2013-remaster/1461213097",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/13/75/b3/1375b382-02b1-e120-71e8-f573b938b8c5/mzaf_8728691236472910230.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -1366,17 +1371,17 @@
           "trivia": "'Tommy' von The Who gilt als eines der ersten Rockoper-Alben und erzielte einen enormen Einfluss auf die Musikkultur der 70er Jahre. Mit seiner komplexen Erz\u00e4hlstruktur und den tiefgr\u00fcndigen Themen wandelte es die Erwartungen an Alben und konventionelle Songstrukturen. Die Erz\u00e4hlung von Tommy, einem taubstummen und blind geborenen Jungen, der sich zu einem spirituellen F\u00fchrer entwickelt, inspirierte zahlreiche K\u00fcnstler und f\u00fchrte zu einer Welle von Konzeptalben, die rockmusikalische Narrative erkundeten."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-who-tommy.jpg",
-    "spotify_link": "https://open.spotify.com/album/5cT7ee1sy2oEbFalP4asS4",
-    "deezer_link": "https://www.deezer.com/album/94860372",
-    "apple_music_link": "https://music.apple.com/de/album/tommy/1461210985",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/f9/af/04/f9af0438-9ae2-3364-2c76-5ee480225d0c/mzaf_3432906256010459441.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Kinks",
     "album": "The Kinks Are the Village Green Preservation Society",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/the-kinks-the-kinks-are-the-village-green-preservation-society.jpg",
+    "spotify_link": "https://open.spotify.com/album/10c0h2wJ40mTjfIM5B0Lwr",
+    "deezer_link": "https://www.deezer.com/album/76396632",
+    "apple_music_link": "https://music.apple.com/de/album/the-kinks-are-the-village-green-preservation/1415003287",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/45/a5/71/45a57156-d919-2eb0-544a-4d6c680bd6d5/mzaf_7725528234513683061.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -1483,17 +1488,17 @@
           "trivia": "Die Albumkunst von 'The Kinks Are the Village Green Preservation Society' symbolisiert den Verlust traditioneller Werte in der britischen Gesellschaft der 1960er Jahre. Die Darstellung einer idyllischen, l\u00e4ndlichen Gemeinschaft steht im Kontrast zu den aufkommenden modernen Einfl\u00fcssen und dem industriellen Wandel. Ray Davies, der Frontmann von The Kinks, wollte mit diesem Album eine Hommage an die vergangenen Zeiten und die Einfachheit des Lebens schaffen, w\u00e4hrend er gleichzeitig die Herausforderungen der modernen Welt anprangerte. Dies spiegelt sich nicht nur in der Musik, sondern auch in den visuellen Elementen des Covers wider."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-kinks-the-kinks-are-the-village-green-preservation-society.jpg",
-    "spotify_link": "https://open.spotify.com/album/2zYEcirgirihBtUr9ninD6",
-    "deezer_link": "https://www.deezer.com/album/76396632",
-    "apple_music_link": "https://music.apple.com/de/album/the-kinks-are-the-village-green-preservation/1415003287",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/45/a5/71/45a57156-d919-2eb0-544a-4d6c680bd6d5/mzaf_7725528234513683061.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Aretha Franklin",
     "album": "I Never Loved a Man the Way I Love You",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/aretha-franklin-i-never-loved-a-man-the-way-i-love-you.jpg",
+    "spotify_link": "https://open.spotify.com/album/5WndWfzGwCkHzAbQXVkg2V",
+    "deezer_link": "https://www.deezer.com/album/102206",
+    "apple_music_link": "https://music.apple.com/de/album/i-never-loved-a-man-the-way-i-love-you/937107826",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/ee/3d/73/ee3d7366-bdcb-1370-a807-e9a138345974/mzaf_8633168135836320660.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -1600,17 +1605,17 @@
           "trivia": "Aretha Franklins Album 'I Never Loved a Man the Way I Love You', ver\u00f6ffentlicht 1967, gilt als ein Meilenstein der Soulmusik und hat eine starke Verbindung zur B\u00fcrgerrechtsbewegung. Die Titel des Albums reflektieren die K\u00e4mpfe und Herausforderungen, denen afroamerikanische Frauen gegen\u00fcberstanden, und geben ihnen eine Stimme in einer Zeit des gesellschaftlichen Wandels. Insbesondere der Titelsong ist ein kraftvolles Beispiel f\u00fcr die Ausdrucksform von Liebe und Verletzlichkeit, die gleichzeitig als Manifest f\u00fcr Selbstwert und Unabh\u00e4ngigkeit interpretiert werden kann."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/aretha-franklin-i-never-loved-a-man-the-way-i-love-you.jpg",
-    "spotify_link": "https://open.spotify.com/album/5WndWfzGwCkHzAbQXVkg2V",
-    "deezer_link": "https://www.deezer.com/album/102206",
-    "apple_music_link": "https://music.apple.com/de/album/i-never-loved-a-man-the-way-i-love-you-mono/878000342",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/db/95/ca/db95ca9e-0f46-1463-eaa4-26a138272607/mzaf_15311046442965620066.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Byrds",
     "album": "Mr. Tambourine Man",
     "year": "1965",
+    "coverSrc": "/bandcover/60er/the-byrds-mr-tambourine-man.jpg",
+    "spotify_link": "https://open.spotify.com/album/0pkrqPjeq9K5KD0hFqAKNa",
+    "deezer_link": "https://www.deezer.com/album/1444478",
+    "apple_music_link": "https://music.apple.com/de/album/mr-tambourine-man/251989391",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f0/0e/ce/f00eceef-6006-c443-0fd2-8dd4017554ec/mzaf_12577291184498809022.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -1717,17 +1722,17 @@
           "trivia": "Das Album 'Mr. Tambourine Man' von The Byrds gilt als eines der wegweisenden Werke des Folk-Rock-Genres und hat die Musiklandschaft der 1960er Jahre nachhaltig gepr\u00e4gt. Mit ihrer Covern des Bob Dylan Songs 'Mr. Tambourine Man' kombinierten die Byrds akustische Folk-Elemente mit elektrischen Instrumenten, was zu einem neuen Sound f\u00fchrte und das Genre popul\u00e4r machte. Dieses innovative Album inspirierte zahlreiche K\u00fcnstler und Bands, die daraufhin \u00e4hnliche Stile in ihren eigenen Musikproduktionen aufnahmen, was die kulturelle Bewegung des Folk-Rock weiter vorantrieb."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-byrds-mr-tambourine-man.jpg",
-    "spotify_link": "https://open.spotify.com/album/0pkrqPjeq9K5KD0hFqAKNa",
-    "deezer_link": "https://www.deezer.com/album/1444478",
-    "apple_music_link": "https://music.apple.com/de/album/mr-tambourine-man/251989391",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f0/0e/ce/f00eceef-6006-c443-0fd2-8dd4017554ec/mzaf_12577291184498809022.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Cream",
     "album": "Disraeli Gears",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/cream-disraeli-gears.jpg",
+    "spotify_link": "https://open.spotify.com/album/3W6CI0Lw7lElAPID2Fd3B4",
+    "deezer_link": "https://www.deezer.com/album/122164852",
+    "apple_music_link": "https://music.apple.com/de/album/disraeli-gears-deluxe-edition/1489665029",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/3d/e6/c9/3de6c9bc-d904-8c8c-0698-cba337e6b653/mzaf_4480877842180634204.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -1834,17 +1839,17 @@
           "trivia": "Der Titel 'Disraeli Gears' von Cream ist eine Anspielung auf Benjamin Disraeli, der im 19. Jahrhundert britischer Premierminister war. Der Name wurde gew\u00e4hlt, um die verschiedenen Stile und Einfl\u00fcsse, die in der Musik des Albums zusammenflie\u00dfen, zu symbolisieren. Cream kombinierte Blues, Rock und psychedelische Elemente, was die Vielfalt und Komplexit\u00e4t der damaligen Musikkultur widerspiegelt. Dar\u00fcber hinaus ist das Album f\u00fcr seine innovativen Gitarrenriffs und Eric Claptons markanten Stil bekannt, die es zu einem Meilenstein der Rockgeschichte machen."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/cream-disraeli-gears.jpg",
-    "spotify_link": "https://open.spotify.com/album/3W6CI0Lw7lElAPID2Fd3B4",
-    "deezer_link": "https://www.deezer.com/album/226291",
-    "apple_music_link": "https://music.apple.com/de/album/disraeli-gears/1440817229",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/34/d0/ce/34d0cefc-4954-06f4-eb37-75089b21a7da/mzaf_16936698250776856724.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Simon & Garfunkel",
     "album": "Bridge Over Troubled Water",
     "year": "1969",
+    "coverSrc": "/bandcover/60er/simon-garfunkel-bridge-over-troubled-water.jpg",
+    "spotify_link": "https://open.spotify.com/album/0JwHz5SSvpYWuuCNbtYZoV",
+    "deezer_link": "https://www.deezer.com/album/1208585",
+    "apple_music_link": "https://music.apple.com/de/album/bridge-over-troubled-water/324127933",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/02/a2/17/02a21703-ed00-e68a-2411-104437c2a7e4/mzaf_11284201080504456602.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -1951,17 +1956,17 @@
           "trivia": "Das 'Central Park Concert' von Simon & Garfunkel fand am 19. September 1981 statt und zog \u00fcber 500.000 Zuschauer an. W\u00e4hrend dieser denkw\u00fcrdigen Auff\u00fchrung pr\u00e4sentierten sie unter anderem ihren Hit 'Bridge Over Troubled Water', der durch seine emotionale Tiefe und kraftvolle Darbietung besticht. Das Album 'Bridge Over Troubled Water', das 1969 ver\u00f6ffentlicht wurde, gilt als eines der erfolgreichsten Alben der Musikgeschichte und war ein Meilenstein in der Karriere des Duos."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/simon-garfunkel-bridge-over-troubled-water.jpg",
-    "spotify_link": "https://open.spotify.com/album/0JwHz5SSvpYWuuCNbtYZoV",
-    "deezer_link": "https://www.deezer.com/album/1208585",
-    "apple_music_link": "https://music.apple.com/de/album/bridge-over-troubled-water/324127933",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/02/a2/17/02a21703-ed00-e68a-2411-104437c2a7e4/mzaf_11284201080504456602.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Beatles",
     "album": "Rubber Soul",
     "year": "1965",
+    "coverSrc": "/bandcover/60er/the-beatles-rubber-soul.jpg",
+    "spotify_link": "https://open.spotify.com/album/50o7kf2wLwVmOTVYJOTplm",
+    "deezer_link": "https://www.deezer.com/album/12047936",
+    "apple_music_link": "https://music.apple.com/de/album/rubber-soul/1441164359",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/83/0f/ba/830fba09-94cc-8a03-d6fd-5fb034789d22/mzaf_1628656129109641982.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -2063,17 +2068,17 @@
           "trivia": "Das Album 'Rubber Soul' von The Beatles gilt als Meilenstein in der Musikgeschichte und spiegelt die gesellschaftlichen Ver\u00e4nderungen der 1960er Jahre wider. Es thematisiert die Entfaltung der individuellen Identit\u00e4t und das Streben nach pers\u00f6nlicher Freiheit, was die aufkommende Gegenkultur und die neuen sozialen Bewegungen jener Zeit widerspiegelt. Songs wie 'Norwegian Wood' und 'In My Life' zeigen eine introspektive Herangehensweise an pers\u00f6nliche Erfahrungen und Beziehungen, die die H\u00f6rer dazu anregen, \u00fcber ihre eigene Identit\u00e4t und den Platz in der Gesellschaft nachzudenken. Die Beatles legten mit diesem Album den Grundstein f\u00fcr die Entwicklung von Rockmusik als Medium f\u00fcr soziale und kulturelle Kommentare."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-beatles-rubber-soul.jpg",
-    "spotify_link": "https://open.spotify.com/album/50o7kf2wLwVmOTVYJOTplm",
-    "deezer_link": "https://www.deezer.com/album/12047936",
-    "apple_music_link": "https://music.apple.com/de/album/rubber-soul/1441164359",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/83/0f/ba/830fba09-94cc-8a03-d6fd-5fb034789d22/mzaf_1628656129109641982.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Otis Redding",
     "album": "Otis Blue: Otis Redding Sings Soul",
     "year": "1965",
+    "coverSrc": "/bandcover/60er/otis-redding-otis-blue-otis-redding-sings-soul.jpg",
+    "spotify_link": "https://open.spotify.com/album/68BCjMsHX4Gf11BJSkjwGz",
+    "deezer_link": "https://www.deezer.com/album/92678",
+    "apple_music_link": "https://music.apple.com/de/album/otis-blue-otis-redding-sings-soul-collectors-edition/278115738",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/e9/b2/4d/e9b24d22-684a-9c4a-6b5a-a7e435309d50/mzaf_4242129192607451051.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -2180,17 +2185,17 @@
           "trivia": "Im Album 'Otis Blue: Otis Redding Sings Soul' von 1965 behandelt Otis Redding vorwiegend die Herausforderungen und Freuden der Liebe. Die emotionale Tiefe seiner Texte und die kraftvolle Darbietung verdeutlichen, wie Liebe sowohl Schmerz als auch Freude bringen kann. Besonders durch Songs wie \"I've Been Loving You Too Long\" und \"Respect\" wird die Komplexit\u00e4t zwischenmenschlicher Beziehungen eindrucksvoll thematisiert. Reddings F\u00e4higkeit, diese Emotionen authentisch zu vermitteln, macht das Album zu einem Meilenstein der Soul-Musik."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/otis-redding-otis-blue-otis-redding-sings-soul.jpg",
-    "spotify_link": "https://open.spotify.com/album/68BCjMsHX4Gf11BJSkjwGz",
-    "deezer_link": "https://www.deezer.com/album/92678",
-    "apple_music_link": "https://music.apple.com/de/album/otis-blue-otis-redding-sings-soul-collectors-edition/278115738",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/e9/b2/4d/e9b24d22-684a-9c4a-6b5a-a7e435309d50/mzaf_4242129192607451051.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "John Coltrane",
     "album": "A Love Supreme",
     "year": "1965",
+    "coverSrc": "/bandcover/60er/john-coltrane-a-love-supreme.jpg",
+    "spotify_link": "https://open.spotify.com/album/5XYodUvdFXy3LiSJ6UfNvF",
+    "deezer_link": "https://www.deezer.com/album/121066",
+    "apple_music_link": "https://music.apple.com/de/album/a-love-supreme-deluxe-edition/1445734006",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/cc/86/94/cc8694fe-92c7-b381-2792-6329fb03288d/mzaf_5494412296045007500.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -2297,17 +2302,17 @@
           "trivia": "'A Love Supreme' wird oft als ein Meilenstein in der Geschichte des Jazz betrachtet, da es nicht nur musikalisch innovativ war, sondern auch eine tiefere, spirituelle Botschaft vermittelte. John Coltrane schuf mit diesem Album ein Werk, das die Verbindung zwischen Musik und Spiritualit\u00e4t aufzeigt und damit zahlreiche Musiker beeinflusste, die nach ihm kamen. Die vier Teile des Albums reflektieren Coltranes eigenen Glauben und seine Suche nach einer h\u00f6heren Wahrheit, was den Jazz als Genre erweiterte und neue Dimensionen er\u00f6ffnete."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/john-coltrane-a-love-supreme.jpg",
-    "spotify_link": "https://open.spotify.com/album/7Eoz7hJvaX1eFkbpQxC5PA",
-    "deezer_link": "https://www.deezer.com/album/265770192",
-    "apple_music_link": "https://music.apple.com/de/album/a-love-supreme/1440713018",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/ac/7e/fb/ac7efb79-7dda-631f-9432-549ce2d4752b/mzaf_8721454991504769547.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Jimi Hendrix Experience",
     "album": "Electric Ladyland",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/the-jimi-hendrix-experience-electric-ladyland.jpg",
+    "spotify_link": "https://open.spotify.com/album/5z090LQztiqh13wYspQvKQ",
+    "deezer_link": "https://www.deezer.com/album/466046405",
+    "apple_music_link": "https://music.apple.com/de/album/electric-ladyland/357652252",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/45/56/43/455643f3-f08c-6b51-7dc5-dba00d101c1c/mzaf_9891326617480230298.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -2414,17 +2419,17 @@
           "trivia": "Das Album 'Electric Ladyland' von The Jimi Hendrix Experience behandelt in mehreren Songs gesellschaftliche Themen, die auch Umweltbewusstsein implizieren. Besonders in St\u00fccken wie 'All Along the Watchtower' wird auf die Ver\u00e4nderung und die Herausforderungen der damaligen Zeit angespielt, die durch Krieg und Umweltverschmutzung gepr\u00e4gt waren. Hendrix' Musik war nicht nur musikalisch innovativ, sondern diente auch als Plattform, um auf soziale Missst\u00e4nde hinzuweisen und das Bewusstsein f\u00fcr wichtige Themen der Zeit zu sch\u00e4rfen."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-jimi-hendrix-experience-electric-ladyland.jpg",
-    "spotify_link": "https://open.spotify.com/album/5z090LQztiqh13wYspQvKQ",
-    "deezer_link": null,
-    "apple_music_link": "https://music.apple.com/de/album/electric-ladyland/357652252",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/45/56/43/455643f3-f08c-6b51-7dc5-dba00d101c1c/mzaf_9891326617480230298.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Band",
     "album": "Music from Big Pink",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/the-band-music-from-big-pink.jpg",
+    "spotify_link": "https://open.spotify.com/album/0ky5kdvfPxSmSpj03hpSAE",
+    "deezer_link": "https://www.deezer.com/album/65988822",
+    "apple_music_link": "https://music.apple.com/de/album/music-from-big-pink-remastered-2000/1440814725",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/f8/bf/e3/f8bfe382-b3e9-7ff6-3d71-589e7e0c8c9b/mzaf_14448174629668437015.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -2526,17 +2531,17 @@
           "trivia": "Bob Dylan war ein entscheidender Einfluss auf die Entstehung von 'Music from Big Pink', da er nicht nur enge Freunde der Band war, sondern auch einige Texte zu den Songs des Albums beisteuerte. Das Album, das 1968 ver\u00f6ffentlicht wurde, gilt als Meilenstein in der Rockmusik und fusioniert Folk, Rock und Blues auf innovative Weise. Insbesondere der Song 'The Weight', der von Robbie Robertson geschrieben wurde, wurde durch Dylans Einfluss gepr\u00e4gt und wird oft als eines der besten Lieder der Band angesehen."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-band-music-from-big-pink.jpg",
-    "spotify_link": "https://open.spotify.com/album/0ky5kdvfPxSmSpj03hpSAE",
-    "deezer_link": "https://www.deezer.com/album/65988822",
-    "apple_music_link": "https://music.apple.com/de/album/music-from-big-pink-deluxe-edition-2018-stereo-remix/1399765030",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/1c/c4/05/1cc405f5-2914-6689-179b-e1082375c3c1/mzaf_304898917089271836.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Beach Boys",
     "album": "Today!",
     "year": "1965",
+    "coverSrc": "/bandcover/60er/the-beach-boys-today.jpg",
+    "spotify_link": "https://open.spotify.com/album/1xPtXzS5yCbDAqC7pxRCaF",
+    "deezer_link": "https://www.deezer.com/album/5909551",
+    "apple_music_link": "https://music.apple.com/de/album/the-beach-boys-today/1443096398",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/96/b3/8e/96b38ef2-9267-fcc5-81e6-603a5e8c4d91/mzaf_11493503883022335834.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -2643,17 +2648,17 @@
           "trivia": "Das Album 'Today!' von The Beach Boys markierte einen Wendepunkt in der Darstellung des kalifornischen Lebensstils, insbesondere der Surfer-Kultur, die Anfang der 1960er Jahre aufkam. Mit seinen fr\u00f6hlichen Melodien und Themen, die den Strand und das Surfen feierten, trugen die Beach Boys ma\u00dfgeblich zur Etablierung der Surfer-Mode bei, die sich durch l\u00e4ssige, farbenfrohe Kleidung und Freizeitkleidung auszeichnete. Dar\u00fcber hinaus f\u00f6rderte das Album ein Gef\u00fchl von Freiheit und Unbeschwertheit, das die Jugendkultur der 1960er Jahre pr\u00e4gte."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-beach-boys-today.jpg",
-    "spotify_link": "https://open.spotify.com/album/1xPtXzS5yCbDAqC7pxRCaF",
-    "deezer_link": "https://www.deezer.com/album/5909551",
-    "apple_music_link": "https://music.apple.com/de/album/the-beach-boys-today/1443096398",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/96/b3/8e/96b38ef2-9267-fcc5-81e6-603a5e8c4d91/mzaf_11493503883022335834.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "James Brown",
     "album": "Live at the Apollo",
     "year": "1963",
+    "coverSrc": "/bandcover/60er/james-brown-live-at-the-apollo.jpg",
+    "spotify_link": "https://open.spotify.com/album/2YbNS9jFAQJNZA3ctIHdYK",
+    "deezer_link": "https://www.deezer.com/album/80672622",
+    "apple_music_link": "https://music.apple.com/de/album/live-at-the-apollo-expanded-edition/1444487850",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/80/c9/9f/80c99f6a-4b48-e171-0022-9c4caac8a09d/mzaf_10481387944855075800.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -2750,17 +2755,17 @@
           "trivia": "Der Song 'Please, Please, Please' von James Brown, der auf dem Album 'Live at the Apollo' ver\u00f6ffentlicht wurde, ist nicht nur ein Klassiker, sondern auch ein h\u00e4ufiges Sample in der Hip-Hop- und R&B-Musik. Er wurde von zahlreichen K\u00fcnstlern, darunter Public Enemy und Jay-Z, in ihren Songs verwendet, was seine anhaltende Wirkung und seinen Einfluss auf die Musikindustrie unterstreicht. Die emotionale Intensit\u00e4t und der unverwechselbare Gesangsstil von James Brown in diesem Track haben dazu beigetragen, dass er als einer der besten Soul-Songs aller Zeiten gilt."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/james-brown-live-at-the-apollo.jpg",
-    "spotify_link": "https://open.spotify.com/album/0B6BbyElOe4bwziJrunOTe",
-    "deezer_link": "https://www.deezer.com/album/70196722",
-    "apple_music_link": "https://music.apple.com/de/album/live-at-the-apollo-1962/1445669062",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/cb/ba/95/cbba95f9-11e5-234d-952a-3892132aceea/mzaf_12476879719364148465.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Miles Davis",
     "album": "Kind of Blue",
     "year": "1959 (Although technically released in 1959, it had a major influence in the 60s)",
+    "coverSrc": "/bandcover/60er/miles-davis-kind-of-blue.jpg",
+    "spotify_link": "https://open.spotify.com/album/4sb0eMpDn3upAFfyi4q2rw",
+    "deezer_link": "https://www.deezer.com/album/262078",
+    "apple_music_link": "https://music.apple.com/de/album/kind-of-blue-legacy-edition/300865074",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/46/a7/02/46a702d6-5a32-aaa8-fe9f-b33aba8af111/mzaf_148201952828218111.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -2862,17 +2867,17 @@
           "trivia": "Das Album 'Kind of Blue' von Miles Davis revolutionierte das Jazz-Genre durch die Einf\u00fchrung der modalischen Improvisation, die den Musikern erm\u00f6glichte, sich auf Melodien und Atmosph\u00e4ren zu konzentrieren, anstatt strengen harmonischen Vorgaben zu folgen. Die Verwendung von modalen Skalen gab den Musikern eine gr\u00f6\u00dfere Freiheit bei der Improvisation und schuf eine entspannte, meditative Stimmung, die viele sp\u00e4tere Jazzmusiker beeinflusste. Diese innovative Herangehensweise trug ma\u00dfgeblich zur Entwicklung des modernen Jazz in den 60er Jahren bei und macht das Album bis heute zu einem zeitlosen Klassiker."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/miles-davis-kind-of-blue.jpg",
-    "spotify_link": "https://open.spotify.com/album/4sb0eMpDn3upAFfyi4q2rw",
-    "deezer_link": "https://www.deezer.com/album/262078",
-    "apple_music_link": "https://music.apple.com/de/album/kind-of-blue/268443092",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview113/v4/07/c4/5d/07c45dd9-1c4c-db5d-e0d8-fb658e0417ed/mzaf_2148636893492510145.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Byrds",
     "album": "Sweetheart of the Rodeo",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/the-byrds-sweetheart-of-the-rodeo.jpg",
+    "spotify_link": "https://open.spotify.com/album/3aMsY1X4xHt0CP3iUnhzFn",
+    "deezer_link": "https://www.deezer.com/album/77854",
+    "apple_music_link": "https://music.apple.com/de/album/sweetheart-of-the-rodeo-legacy-edition/203945407",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/81/dc/76/81dc76be-1e1a-512f-0497-6bd17156bd29/mzaf_3991480269671090206.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -2979,17 +2984,17 @@
           "trivia": "Das Album 'Sweetheart of the Rodeo' von The Byrds gilt als eines der ersten und einflussreichsten Werke des Country-Rock-Genres. Die Musikpresse lobte die innovative Mischung aus Rock und Country, was dazu f\u00fchrte, dass die Byrds eine neue musikalische Richtung einschlugen. Besonders die Zusammenarbeit mit prominenten Country-K\u00fcnstlern und die Verwendung traditioneller Instrumente wurden hervorgehoben. Diese Ver\u00e4nderungen trugen wesentlich zur Entwicklung des Genres in den sp\u00e4ten 1960er Jahren bei und beeinflussten zahlreiche nachfolgende K\u00fcnstler."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-byrds-sweetheart-of-the-rodeo.jpg",
-    "spotify_link": "https://open.spotify.com/album/02XyFDfvHfIwtqOC3o0PcK",
-    "deezer_link": "https://www.deezer.com/album/1208821",
-    "apple_music_link": "https://music.apple.com/de/album/sweetheart-of-the-rodeo/281801812",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/31/73/96/317396f5-4336-6a32-f7f8-e4b813705131/mzaf_15664568955112906126.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Zombies",
     "album": "Odessey and Oracle",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/the-zombies-odessey-and-oracle.jpg",
+    "spotify_link": "https://open.spotify.com/album/6ToVzL6h7HnatpBcOF0fH5",
+    "deezer_link": "https://www.deezer.com/album/7261318",
+    "apple_music_link": "https://music.apple.com/de/album/odessey-and-oracle/1719880807",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/f7/e7/e1/f7e7e1df-c9bc-1761-1393-97ed069a5086/mzaf_14121629222845108829.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -3091,17 +3096,17 @@
           "trivia": "Das Album 'Odessey and Oracle' von The Zombies, das heute als eines der einflussreichsten Alben der Psychedelic-Rock-\u00c4ra gilt, wurde posthum in die Rock and Roll Hall of Fame aufgenommen. Obwohl das Album bei seiner Ver\u00f6ffentlichung nicht kommerziell erfolgreich war, hat es im Laufe der Jahre an Bedeutung gewonnen und gilt als Meisterwerk. Besonders der Song 'Time of the Season' hat einen bleibenden Eindruck hinterlassen und wird oft in verschiedenen Medien zitiert. Die Induktion w\u00fcrdigt den au\u00dfergew\u00f6hnlichen Einfluss, den The Zombies und ihr Werk auf die Musiklandschaft ausge\u00fcbt haben."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-zombies-odessey-and-oracle.jpg",
-    "spotify_link": "https://open.spotify.com/album/6ToVzL6h7HnatpBcOF0fH5",
-    "deezer_link": "https://www.deezer.com/album/7261318",
-    "apple_music_link": "https://music.apple.com/de/album/odessey-and-oracle/1719880807",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/f7/e7/e1/f7e7e1df-c9bc-1761-1393-97ed069a5086/mzaf_14121629222845108829.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Rolling Stones",
     "album": "Aftermath",
     "year": "1966",
+    "coverSrc": "/bandcover/60er/the-rolling-stones-aftermath.jpg",
+    "spotify_link": "https://open.spotify.com/album/72qrnM4yUNMDDlWiqKc8iY",
+    "deezer_link": "https://www.deezer.com/album/912318",
+    "apple_music_link": "https://music.apple.com/de/album/aftermath/1440745549",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6e/aa/9b/6eaa9b92-f0eb-3f1b-c2a2-bb6426e4461f/mzaf_8136851056974338043.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -3208,17 +3213,17 @@
           "trivia": "Der Song 'Under My Thumb', der auf dem Album 'Aftermath' von The Rolling Stones zu finden ist, wird in Martin Scorseses Film 'Casino' verwendet. In dieser Geschichte \u00fcber Machtspiele und Verrat im Las Vegas der 1970er Jahre unterstreicht der Song die Manipulation und Kontrolle, die im Zentrum der Handlung stehen. 'Aftermath', das 1966 ver\u00f6ffentlicht wurde, markierte einen Wendepunkt in der Musikgeschichte, indem es die Verwendung von Rock-Elementen in einer Vielzahl von Genres vorantrieb und die k\u00fcnstlerische Entwicklung der Rolling Stones weiter festigte."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-rolling-stones-aftermath.jpg",
-    "spotify_link": "https://open.spotify.com/album/72qrnM4yUNMDDlWiqKc8iY",
-    "deezer_link": "https://www.deezer.com/album/912318",
-    "apple_music_link": "https://music.apple.com/de/album/aftermath-uk/1440769047",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/34/1b/59/341b59f3-937a-1e5b-85cb-df0b54def6e0/mzaf_7573132841553272397.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Van Morrison",
     "album": "Astral Weeks",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/van-morrison-astral-weeks.jpg",
+    "spotify_link": "https://open.spotify.com/album/5PBbOTrlaXQauwwcq2ZiWO",
+    "deezer_link": "https://www.deezer.com/album/11445730",
+    "apple_music_link": "https://music.apple.com/de/album/astral-weeks-expanded-edition/1041585854",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/a5/5a/f6/a55af68c-991b-c878-62f7-90b834124873/mzaf_2058481982953473410.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -3325,17 +3330,17 @@
           "trivia": "Das Album 'Astral Weeks' von Van Morrison, das 1968 ver\u00f6ffentlicht wurde, ist bekannt f\u00fcr seine einzigartige Mischung aus Folk, Blues und vor allem Jazz-Elementen. Die improvisierten Melodien und komplexen Harmonien, die in vielen Tracks vorkommen, zeigen deutlich den Einfluss des Jazz auf die Kompositionen. Van Morrison nutzt diese Stilmittel, um eine emotionale Tiefe und eine spirituelle Atmosph\u00e4re zu erzeugen, die das Album zu einem zeitlosen Meisterwerk macht."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/van-morrison-astral-weeks.jpg",
-    "spotify_link": "https://open.spotify.com/album/4pG3bKkbmReDt5QTDn3JDz",
-    "deezer_link": "https://www.deezer.com/album/345012",
-    "apple_music_link": "https://music.apple.com/de/album/astral-weeks/1031002336",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/a1/6f/6d/a16f6d1c-7338-62fe-9b41-aae77614d44c/mzaf_5097363580226178061.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Jefferson Airplane",
     "album": "Surrealistic Pillow",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/jefferson-airplane-surrealistic-pillow.jpg",
+    "spotify_link": "https://open.spotify.com/album/6lPb7Eoon6QPbscWbMsk6a",
+    "deezer_link": "https://www.deezer.com/album/77496",
+    "apple_music_link": "https://music.apple.com/de/album/surrealistic-pillow-2003-bonus-track-edition/281811707",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/b6/0b/8e/b60b8e27-483f-c246-08b7-096e3999f507/mzaf_13502292234252143465.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -3442,17 +3447,17 @@
           "trivia": "Jefferson Airplane nutzte bei der Produktion von 'Surrealistic Pillow' die innovative Mehrspurtechnik, die es erm\u00f6glichte, verschiedene Instrumente und Gesangsspuren getrennt aufzunehmen und dann zu mischen. Diese Technologie trug dazu bei, den charakteristischen psychedelischen Sound des Albums zu kreieren, insbesondere in Songs wie 'Somebody to Love' und 'White Rabbit'. Die F\u00e4higkeit, Schichten von Kl\u00e4ngen aufzubauen, erlaubte es der Band, eine dichte und atmosph\u00e4rische Klanglandschaft zu schaffen, die f\u00fcr die 1960er Jahre entscheidend war."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/jefferson-airplane-surrealistic-pillow.jpg",
-    "spotify_link": "https://open.spotify.com/album/6lPb7Eoon6QPbscWbMsk6a",
-    "deezer_link": "https://www.deezer.com/album/77496",
-    "apple_music_link": "https://music.apple.com/de/album/surrealistic-pillow-2003-bonus-track-edition/281811707",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/b6/0b/8e/b60b8e27-483f-c246-08b7-096e3999f507/mzaf_13502292234252143465.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Johnny Cash",
     "album": "At Folsom Prison",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/johnny-cash-at-folsom-prison.jpg",
+    "spotify_link": "https://open.spotify.com/album/6wZ6UMWSAmDOCZ4ErWlqPa",
+    "deezer_link": "https://www.deezer.com/album/83806182",
+    "apple_music_link": "https://music.apple.com/de/album/at-folsom-prison-legacy-edition/1448967103",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/74/3d/d5/743dd564-5fb8-7323-94de-fa19bc854f1c/mzaf_14064279759262328425.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -3559,17 +3564,17 @@
           "trivia": "Der Song 'Folsom Prison Blues' wurde urspr\u00fcnglich von Johnny Cash selbst geschrieben und ver\u00f6ffentlicht, jedoch erlangte er durch die Live-Aufnahme auf dem Album 'At Folsom Prison' im Jahr 1968 eine noch gr\u00f6\u00dfere Bekanntheit. Cashs eindringliche Darbietung und die authentische Atmosph\u00e4re des Konzerts in einem Gef\u00e4ngnis trugen dazu bei, den Song als Hymne f\u00fcr die Gefangenen und als Symbol f\u00fcr die Reue und die Sehnsucht nach Freiheit zu etablieren. Diese Neuinterpretation brachte nicht nur Cashs einzigartige Stimme zur Geltung, sondern machte auch die Herausforderungen des Lebens hinter Gittern f\u00fcr viele H\u00f6rer greifbar."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/johnny-cash-at-folsom-prison.jpg",
-    "spotify_link": "https://open.spotify.com/album/4TJIdlY9hGSSTO1kUs1neh",
-    "deezer_link": "https://www.deezer.com/album/7452568",
-    "apple_music_link": "https://music.apple.com/de/album/at-folsom-prison-live/825516828",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/88/8f/5d/888f5d5a-8c09-92a4-bf2c-250200e7309b/mzaf_15717249670570928373.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Nina Simone",
     "album": "Nina Simone Sings the Blues",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/nina-simone-nina-simone-sings-the-blues.jpg",
+    "spotify_link": "https://open.spotify.com/album/12aKG91Tj6hJFOe90TzcX2",
+    "deezer_link": "https://www.deezer.com/album/74551",
+    "apple_music_link": "https://music.apple.com/de/album/sings-the-blues/209405366",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/34/64/18/3464180d-9360-69eb-c000-c5d701cc0681/mzaf_2136514656157126064.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -3676,17 +3681,17 @@
           "trivia": "Das Album 'Nina Simone Sings the Blues' wurde von Kritikern f\u00fcr seine beeindruckende emotionale Tiefe und musikalische Vielfalt gefeiert. Die Lieder kombinieren Blues und Jazz auf einzigartige Weise und zeigen Simones unverwechselbare Stimme und Ausdruckskraft. Diese Platte gilt als ein wichtiges Werk in ihrem Schaffen, da sie sowohl ihre technischen F\u00e4higkeiten als auch ihre F\u00e4higkeit, intensive Emotionen zu vermitteln, demonstriert."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/nina-simone-nina-simone-sings-the-blues.jpg",
-    "spotify_link": "https://open.spotify.com/album/12aKG91Tj6hJFOe90TzcX2",
-    "deezer_link": "https://www.deezer.com/album/74551",
-    "apple_music_link": "https://music.apple.com/de/album/sings-the-blues/209405366",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/34/64/18/3464180d-9360-69eb-c000-c5d701cc0681/mzaf_2136514656157126064.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Beatles",
     "album": "Magical Mystery Tour",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/the-beatles-magical-mystery-tour.jpg",
+    "spotify_link": "https://open.spotify.com/album/2BtE7qm1qzM80p9vLSiXkj",
+    "deezer_link": "https://www.deezer.com/album/12047938",
+    "apple_music_link": "https://music.apple.com/de/album/magical-mystery-tour/1441163490",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/9a/52/b3/9a52b367-96ad-13f8-24ab-f9e299ab1104/mzaf_629551791673063492.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -3788,17 +3793,17 @@
           "trivia": "Der Song 'Penny Lane' von The Beatles ist auf dem Album 'Magical Mystery Tour' enthalten, wurde jedoch w\u00e4hrend der letzten Live-Performance der Band in den USA im Jahr 1966 nicht gespielt. Obwohl er 1967 ver\u00f6ffentlicht wurde, war die Band zu diesem Zeitpunkt bereits in eine Phase eingetreten, in der Live-Auftritte weniger Fokus erhielten. 'Penny Lane' ist bekannt f\u00fcr seine eing\u00e4ngige Melodie und die charakteristische Verwendung von Blechbl\u00e4sern, was f\u00fcr die innovative Klangpalette der Beatles in dieser Zeit steht."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-beatles-magical-mystery-tour.jpg",
-    "spotify_link": "https://open.spotify.com/album/2BtE7qm1qzM80p9vLSiXkj",
-    "deezer_link": "https://www.deezer.com/album/12047938",
-    "apple_music_link": "https://music.apple.com/de/album/magical-mystery-tour/1441163490",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/9a/52/b3/9a52b367-96ad-13f8-24ab-f9e299ab1104/mzaf_629551791673063492.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Creedence Clearwater Revival",
     "album": "Green River",
     "year": "1969",
+    "coverSrc": "/bandcover/60er/creedence-clearwater-revival-green-river.jpg",
+    "spotify_link": "https://open.spotify.com/album/0i9mOB6mPGqwVvtJEXiwPG",
+    "deezer_link": "https://www.deezer.com/album/79842512",
+    "apple_music_link": "https://music.apple.com/de/album/green-river/1440952818",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/05/a8/43/05a84373-b75f-2748-e2ac-8d73ee586646/mzaf_7680251921099419915.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -3890,17 +3895,17 @@
           "trivia": "Die Er\u00f6ffnung mit dem Titeltrack 'Green River' von Creedence Clearwater Revival schafft sofort eine nostalgische und sehns\u00fcchtige Atmosph\u00e4re, die sich durch das gesamte Album zieht. Die geschickte Anordnung der Songs sorgt daf\u00fcr, dass die H\u00f6rer in eine Reise durch die amerikanische S\u00fcdstaatenkultur eintauchen, w\u00e4hrend sie die Themen von Freiheit und Erinnerungen erleben. Diese gezielte Track-Reihenfolge verst\u00e4rkt die emotionale Wirkung der Musik und tr\u00e4gt zur zeitlosen Qualit\u00e4t des Albums bei."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/creedence-clearwater-revival-green-river.jpg",
-    "spotify_link": "https://open.spotify.com/album/0i9mOB6mPGqwVvtJEXiwPG",
-    "deezer_link": "https://www.deezer.com/album/79842512",
-    "apple_music_link": "https://music.apple.com/de/album/green-river/1440952818",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/05/a8/43/05a84373-b75f-2748-e2ac-8d73ee586646/mzaf_7680251921099419915.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Supremes",
     "album": "Where Did Our Love Go",
     "year": "1964",
+    "coverSrc": "/bandcover/60er/the-supremes-where-did-our-love-go.jpg",
+    "spotify_link": "https://open.spotify.com/album/05pI1Rx1HQ4KA0a0e3PJlV",
+    "deezer_link": "https://www.deezer.com/album/7846331",
+    "apple_music_link": "https://music.apple.com/de/album/where-did-our-love-go/1443150912",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d0/b3/77/d0b37707-f7e5-a224-0c76-ccc4736bf2e3/mzaf_4085936696731261720.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -4002,17 +4007,17 @@
           "trivia": "Der Song 'I Want a Guy' wurde urspr\u00fcnglich f\u00fcr das ikonische Album 'Where Did Our Love Go' von The Supremes aufgenommen, das 1964 erschienen ist. Trotz seines Potenzials und der starken Melodie wurde der Track nie ver\u00f6ffentlicht, was ihn zu einer faszinierenden Fu\u00dfnote in der Geschichte der Girlgroup macht. The Supremes, die ma\u00dfgeblich zum Motown-Sound beitrugen, blieben mit Hits wie 'Baby Love' und 'Where Did Our Love Go' im Ged\u00e4chtnis, w\u00e4hrend 'I Want a Guy' in den Archiven von Motown verweilte und somit einen besonderen Platz in der Musikkultur einnimmt."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-supremes-where-did-our-love-go.jpg",
-    "spotify_link": "https://open.spotify.com/album/05pI1Rx1HQ4KA0a0e3PJlV",
-    "deezer_link": "https://www.deezer.com/album/126348",
-    "apple_music_link": "https://music.apple.com/de/album/where-did-our-love-go-40th-anniversary-edition/1452856142",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/a0/e4/ba/a0e4baaa-c971-9c48-7ba2-87a0fbe1da55/mzaf_15075065680203447684.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Crosby, Stills & Nash",
     "album": "Crosby, Stills & Nash",
     "year": "1969",
+    "coverSrc": "/bandcover/60er/crosby-stills-nash-crosby-stills-nash.jpg",
+    "spotify_link": "https://open.spotify.com/album/6vUWpE8qciYHOhf7mgaGny",
+    "deezer_link": "https://www.deezer.com/album/339096",
+    "apple_music_link": "https://music.apple.com/de/album/crosby-stills-nash/908303090",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f1/49/6a/f1496a09-58e4-c2e1-ec2b-f9ecde7ce2d0/mzaf_925331352519956981.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -4114,17 +4119,17 @@
           "trivia": "Der Song 'Wasted on the Way' wurde in der beliebten Serie 'The Wonder Years' verwendet, die sich mit dem Erwachsenwerden in den sp\u00e4ten 1960er und fr\u00fchen 1970er Jahren besch\u00e4ftigt. Das Album 'Crosby, Stills & Nash' von 1969 gilt als Meilenstein der Folk-Rock-Musik und hat einen gro\u00dfen Einfluss auf die Musikszene dieser Zeit. Die Harmonien und Texte des Trios spiegeln die emotionalen Herausforderungen der Jugend wider, was perfekt zur Atmosph\u00e4re der Serie passt. Damit wird nicht nur die musikalische Bedeutung des Albums gew\u00fcrdigt, sondern auch die F\u00e4higkeit der Band, Generationen zu verbinden."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/crosby-stills-nash-crosby-stills-nash.jpg",
-    "spotify_link": "https://open.spotify.com/album/6vUWpE8qciYHOhf7mgaGny",
-    "deezer_link": "https://www.deezer.com/album/339096",
-    "apple_music_link": "https://music.apple.com/de/album/crosby-stills-nash/908303090",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f1/49/6a/f1496a09-58e4-c2e1-ec2b-f9ecde7ce2d0/mzaf_925331352519956981.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Rolling Stones",
     "album": "Their Satanic Majesties Request",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/the-rolling-stones-their-satanic-majesties-request.jpg",
+    "spotify_link": "https://open.spotify.com/album/2SE7fs002NlNc3cw3SQLRC",
+    "deezer_link": "https://www.deezer.com/album/48211722",
+    "apple_music_link": "https://music.apple.com/de/album/their-satanic-majesties-request-50th-anniversary-special/1440759322",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/8f/c9/a3/8fc9a328-49cf-a6ef-a5e5-e6c29ae7b16c/mzaf_11245986937906113058.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -4226,17 +4231,17 @@
           "trivia": "Die Rolling Stones traten 1967 im Madison Square Garden auf, einem der bekanntesten Veranstaltungsorte der Welt. Diese Tour war bedeutend, da sie das psychedelische Album 'Their Satanic Majesties Request' f\u00f6rderte, das in einer Zeit voller kultureller Umbr\u00fcche ver\u00f6ffentlicht wurde. Das Album zeigt mit seinen experimentellen Kl\u00e4ngen und surrealen Texten den Einfluss der psychedelischen Bewegung der 1960er Jahre. Die Live-Performances der Stones w\u00e4hrend dieser Zeit waren wegweisend und trugen zur Festigung ihres Rufs als eine der gr\u00f6\u00dften Rockbands der Geschichte bei."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-rolling-stones-their-satanic-majesties-request.jpg",
-    "spotify_link": "https://open.spotify.com/album/2SE7fs002NlNc3cw3SQLRC",
-    "deezer_link": "https://www.deezer.com/album/48211722",
-    "apple_music_link": "https://music.apple.com/de/album/their-satanic-majesties-request/1440773836",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/bd/19/84/bd19847e-af9a-99a4-6308-20af6d02dfe3/mzaf_1135123770023705247.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Bob Dylan",
     "album": "Bringing It All Back Home",
     "year": "1965",
+    "coverSrc": "/bandcover/60er/bob-dylan-bringing-it-all-back-home.jpg",
+    "spotify_link": "https://open.spotify.com/album/1lPoRKSgZHQAYXxzBsOQ7v",
+    "deezer_link": "https://www.deezer.com/album/1261189",
+    "apple_music_link": "https://music.apple.com/de/album/bringing-it-all-back-home/177964575",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/10/1f/d6/101fd67b-7a85-4b76-bb94-93f55ade8bde/mzaf_3604764504457850521.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -4343,17 +4348,17 @@
           "trivia": "Das Album 'Bringing It All Back Home' von Bob Dylan gilt als eines der ersten Werke, das Folk-Elemente mit Rockmusik kombinierte, was zur damaligen Zeit als revolution\u00e4r angesehen wurde. Kritiker wie der Rolling Stone feierten das Album und hoben Dylans innovative Texte und musikalischen Stil hervor, die sowohl pers\u00f6nlich als auch politisch waren. Diese Kombination von Genres trug dazu bei, Dylans Einfluss auf die Musiklandschaft der 1960er Jahre zu festigen und ebnete den Weg f\u00fcr viele nachfolgende K\u00fcnstler."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/bob-dylan-bringing-it-all-back-home.jpg",
-    "spotify_link": "https://open.spotify.com/album/1lPoRKSgZHQAYXxzBsOQ7v",
-    "deezer_link": "https://www.deezer.com/album/1261189",
-    "apple_music_link": "https://music.apple.com/de/album/bringing-it-all-back-home/177964575",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/10/1f/d6/101fd67b-7a85-4b76-bb94-93f55ade8bde/mzaf_3604764504457850521.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Marvin Gaye",
     "album": "Moods of Marvin Gaye",
     "year": "1966",
+    "coverSrc": "/bandcover/60er/marvin-gaye-moods-of-marvin-gaye.jpg",
+    "spotify_link": "https://open.spotify.com/album/4pfaSNzd1uXEumYj6VAzF0",
+    "deezer_link": "https://www.deezer.com/album/3226431",
+    "apple_music_link": "https://music.apple.com/de/album/moods-of-marvin-gaye/1442454606",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/99/d9/1b/99d91b65-76a1-05c5-1e50-fb5e8a97f20b/mzaf_10490035396877265530.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -4450,17 +4455,17 @@
           "trivia": "Der Song 'How Sweet It Is (To Be Loved by You)', der auf dem Album 'Moods of Marvin Gaye' von Marvin Gaye enthalten ist, wurde zu einem der bekanntesten Live-Hits des K\u00fcnstlers. Marvin Gaye pr\u00e4sentierte diesen Song oft mit einer energetischen und emotionalen Darbietung, die das Publikum begeisterte. Die eing\u00e4ngige Melodie und der gef\u00fchlvolle Text machten ihn zu einem Favoriten bei seinen Fans und tragen bis heute zu seinem Erbe als einer der gr\u00f6\u00dften Soul-S\u00e4nger aller Zeiten bei."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/marvin-gaye-moods-of-marvin-gaye.jpg",
-    "spotify_link": "https://open.spotify.com/album/4pfaSNzd1uXEumYj6VAzF0",
-    "deezer_link": "https://www.deezer.com/album/338112",
-    "apple_music_link": "https://music.apple.com/de/album/moods-of-marvin-gaye/1442454606",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/99/d9/1b/99d91b65-76a1-05c5-1e50-fb5e8a97f20b/mzaf_10490035396877265530.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Led Zeppelin",
     "album": "Led Zeppelin",
     "year": "1969",
+    "coverSrc": "/bandcover/60er/led-zeppelin_led-zeppelin.jpg",
+    "spotify_link": "https://open.spotify.com/album/1J8QW9qsMLx3staWaHpQmU",
+    "deezer_link": "https://www.deezer.com/album/7820635",
+    "apple_music_link": "https://music.apple.com/de/album/led-zeppelin-remastered/580708520",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/13/d2/85/13d2852d-5562-930c-6067-bc6cfb4c2233/mzaf_16176730149296629814.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -4567,17 +4572,17 @@
           "trivia": "Das Deb\u00fctalbum 'Led Zeppelin' von Led Zeppelin, das 1969 ver\u00f6ffentlicht wurde, gilt als Meilenstein der Rockmusik und hatte einen signifikanten Einfluss auf die Mode der damaligen Zeit. Die Bandmitglieder, insbesondere Robert Plant und Jimmy Page, trugen oft lange Haare und auff\u00e4llige Ledermode, was dazu beitrug, dass diese Stile bei der Jugend popul\u00e4r wurden. Diese visuelle \u00c4sthetik, verbunden mit ihrer kraftvollen Musik, spielte eine wichtige Rolle in der Entwicklung der Rockkultur und inspirierte viele nachfolgende Generationen von Musikern und Fans."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/led-zeppelin-led-zeppelin.jpg",
-    "spotify_link": "https://open.spotify.com/album/44Ig8dzqOkvkGDzaUof9lK",
-    "deezer_link": "https://www.deezer.com/album/8887733",
-    "apple_music_link": "https://music.apple.com/de/album/led-zeppelin-iv-remastered/580708175",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/05/d9/4d/05d94da2-11d8-dbc0-0080-877ff3a6727d/mzaf_3202083383964343705.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Dusty Springfield",
     "album": "Dusty in Memphis",
     "year": "1969",
+    "coverSrc": "/bandcover/60er/dusty-springfield-dusty-in-memphis.jpg",
+    "spotify_link": "https://open.spotify.com/album/6SNMenG3NjZyqgI5p4Hcmg",
+    "deezer_link": "https://www.deezer.com/album/119137",
+    "apple_music_link": "https://music.apple.com/de/album/dusty-in-memphis-remastered-deluxe-edition/1440717710",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/2c/12/c0/2c12c0cb-665f-9552-f984-cc3a4e40d8ef/mzaf_11637915745841003275.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -4679,17 +4684,17 @@
           "trivia": "Dusty Springfields 'Dusty in Memphis' wurde im renommierten American Sound Studio in Memphis, Tennessee, aufgenommen, wo eine einzigartige Mischung aus Soul, Pop und R&B entstand. Die Aufnahmen vereinen hervorragende Musiker und innovative Produktionsmethoden, was zu einem zeitlosen Sound f\u00fchrte. Besonders die Zusammenarbeit mit dem Produzenten Jerry Wexler und der Komponisten-Duo Burt Bacharach und Hal David trugen zur hohen Qualit\u00e4t des Albums bei. Es gilt als ein Meilenstein in der Musikkarriere von Dusty Springfield und wird oft f\u00fcr seine emotionale Tiefe und musikalische Vielfalt gelobt."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/dusty-springfield-dusty-in-memphis.jpg",
-    "spotify_link": "https://open.spotify.com/album/6SNMenG3NjZyqgI5p4Hcmg",
-    "deezer_link": "https://www.deezer.com/album/119137",
-    "apple_music_link": "https://music.apple.com/de/album/dusty-in-memphis-remastered-deluxe-edition/1440717710",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/2c/12/c0/2c12c0cb-665f-9552-f984-cc3a4e40d8ef/mzaf_11637915745841003275.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Frank Sinatra",
     "album": "September of My Years",
     "year": "1965",
+    "coverSrc": "/bandcover/60er/frank-sinatra-september-of-my-years.jpg",
+    "spotify_link": "https://open.spotify.com/album/3DdN3GRJj8YS0V0fiyXtbt",
+    "deezer_link": "https://www.deezer.com/album/6954988",
+    "apple_music_link": "https://music.apple.com/de/album/september-of-my-years-expanded-edition/1440825417",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/20/06/b1/2006b1dc-7ffd-56be-fe35-59b23a21f9f8/mzaf_18433033765769383103.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -4796,17 +4801,17 @@
           "trivia": "'A Very Good Year' ist ein ikonischer Song, der auf 'September of My Years' von Frank Sinatra zu finden ist und erstmals 1965 ver\u00f6ffentlicht wurde. Dieser Titel erz\u00e4hlt von den Erinnerungen und der Reflexion \u00fcber die verschiedenen Lebensjahre und wird oft als Sinnbild f\u00fcr den nostalgischen Blick auf die eigene Vergangenheit gesehen. Sinatra's kraftvolle Interpretation bringt die emotionale Tiefe des Textes perfekt zur Geltung und machte den Song zu einem zeitlosen Klassiker in seinem Repertoire. Die Kombination aus der melancholischen Melodie und Sinatras charismatischer Stimme hat dazu beigetragen, dass dieser Song bis heute bei vielen Fans beliebt ist."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/frank-sinatra-september-of-my-years.jpg",
-    "spotify_link": "https://open.spotify.com/album/3DdN3GRJj8YS0V0fiyXtbt",
-    "deezer_link": "https://www.deezer.com/album/6954988",
-    "apple_music_link": "https://music.apple.com/de/album/september-of-my-years-expanded-edition/1440825417",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/20/06/b1/2006b1dc-7ffd-56be-fe35-59b23a21f9f8/mzaf_18433033765769383103.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Simon & Garfunkel",
     "album": "Sounds of Silence",
     "year": "1966",
+    "coverSrc": "/bandcover/60er/simon-garfunkel-sounds-of-silence.jpg",
+    "spotify_link": "https://open.spotify.com/album/07RAGILF28QweYQSZasr5k",
+    "deezer_link": "https://www.deezer.com/album/242478",
+    "apple_music_link": "https://music.apple.com/de/album/sounds-of-silence/192480256",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/58/50/44/58504445-1bf2-0560-b55f-91b4b6adbf0b/mzaf_13851124265518095228.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -4908,17 +4913,17 @@
           "trivia": "Das Album 'Sounds of Silence' von Simon & Garfunkel, ver\u00f6ffentlicht im Jahr 1966, nutzt die Technik des Overdubbings, um die harmonischen Stimmen der beiden K\u00fcnstler und instrumentale Begleitungen zu verdichten. Diese Methode erlaubte es, mehrere Gesangsspuren und Instrumente in einer einzigen Aufnahme zu kombinieren, was zu dem charakteristischen, vielschichtigen Klang f\u00fchrte, der das Album pr\u00e4gte. Die Verwendung von Overdubbing war zu dieser Zeit innovativ und stellte einen bedeutenden Fortschritt in der Musikproduktion dar, der viele K\u00fcnstler der folgenden Jahrzehnte beeinflusste."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/simon-garfunkel-sounds-of-silence.jpg",
-    "spotify_link": "https://open.spotify.com/album/07RAGILF28QweYQSZasr5k",
-    "deezer_link": "https://www.deezer.com/album/242478",
-    "apple_music_link": "https://music.apple.com/de/album/sounds-of-silence/192480256",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/58/50/44/58504445-1bf2-0560-b55f-91b4b6adbf0b/mzaf_13851124265518095228.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Temptations",
     "album": "Cloud Nine",
     "year": "1969",
+    "coverSrc": "/bandcover/60er/the-temptations-cloud-nine.jpg",
+    "spotify_link": "https://open.spotify.com/album/5ETcOu2ITbVLilnw3QQqSX",
+    "deezer_link": "https://www.deezer.com/album/8446951",
+    "apple_music_link": "https://music.apple.com/de/album/cloud-nine/1443179202",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/98/80/39/9880398e-8708-05b2-f86d-e627089193d1/mzaf_8783281520648134088.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -5025,17 +5030,17 @@
           "trivia": "Das Album 'Cloud Nine' von The Temptations markiert einen Wendepunkt in der Verwendung von Mehrspuraufnahme-Techniken, die es erm\u00f6glichten, verschiedene Instrumente und Gesangsspuren unabh\u00e4ngig voneinander aufzunehmen und zu mischen. Diese Methode trug dazu bei, den charakteristischen Sound des Albums zu kreieren, der Soul-Elemente mit psychedelischen Kl\u00e4ngen verband. Insbesondere der gleichnamige Titeltrack nutzt diese Technik, um einen reichhaltigen und komplexen Klang zu erzeugen, der die musikalische Evolution der Temptations widerspiegelt."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-temptations-cloud-nine.jpg",
-    "spotify_link": "https://open.spotify.com/album/5ETcOu2ITbVLilnw3QQqSX",
-    "deezer_link": "https://www.deezer.com/album/8446951",
-    "apple_music_link": "https://music.apple.com/de/album/cloud-nine/1443179202",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/98/80/39/9880398e-8708-05b2-f86d-e627089193d1/mzaf_8783281520648134088.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Beatles",
     "album": "Help!",
     "year": "1965",
+    "coverSrc": "/bandcover/60er/the-beatles-help.jpg",
+    "spotify_link": "https://open.spotify.com/album/0PT5m6hwPRrpBwIHVnvbFX",
+    "deezer_link": "https://www.deezer.com/album/12047944",
+    "apple_music_link": "https://music.apple.com/de/album/help/1441164524",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/2f/9d/d0/2f9dd093-1666-1048-8f89-04ec5e6baf6f/mzaf_18394656747594210325.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -5142,17 +5147,17 @@
           "trivia": "Der Song 'You've Got to Hide Your Love Away' von The Beatles, der auf dem Album 'Help!' ver\u00f6ffentlicht wurde, zeigt eine markante Verwendung von harmonischen Elementen, die stark von Folk-Musik inspiriert sind. Geschrieben von John Lennon, spiegelt der Song die introspektiven und emotionalen Themen wider, die in den 1960er Jahren popul\u00e4r wurden. Die Verwendung von akustischen Instrumenten und der melancholische Text unterstreichen die musikalische Vielfalt, die The Beatles in dieser Zeit entwickelten. Dieser Einfluss trug dazu bei, den Song zu einem zeitlosen Klassiker zu machen."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-beatles-help.jpg",
-    "spotify_link": "https://open.spotify.com/album/0PT5m6hwPRrpBwIHVnvbFX",
-    "deezer_link": "https://www.deezer.com/album/12047944",
-    "apple_music_link": "https://music.apple.com/de/album/help/1441164524",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/2f/9d/d0/2f9dd093-1666-1048-8f89-04ec5e6baf6f/mzaf_18394656747594210325.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Elvis Presley",
     "album": "From Elvis in Memphis",
     "year": "1969",
+    "coverSrc": "/bandcover/60er/elvis-presley-from-elvis-in-memphis.jpg",
+    "spotify_link": "https://open.spotify.com/album/3ekkFrfotMsEAKc5g71GHk",
+    "deezer_link": "https://www.deezer.com/album/13669784",
+    "apple_music_link": "https://music.apple.com/de/album/from-elvis-in-memphis/1138094621",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/d4/96/0d/d4960db2-71c6-d279-4ecd-f66f4be03f95/mzaf_10966051147802861758.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -5259,17 +5264,17 @@
           "trivia": "Das Album 'From Elvis in Memphis' gilt als wegweisend f\u00fcr die Fusion von Rock und Country, was zur Entstehung des Genres Country-Rock beitrug. Elvis Presley, der mit seiner einzigartigen Stimme und seinem Charisma die Musikwelt ma\u00dfgeblich pr\u00e4gte, setzte in diesem Album neue Ma\u00dfst\u00e4be. Bands wie die Eagles und Lynyrd Skynyrd wurden von seinem Stil und seinen musikalischen Ans\u00e4tzen inspiriert, was die Entwicklung der amerikanischen Musik in den 1970er Jahren entscheidend beeinflusste."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/elvis-presley-from-elvis-in-memphis.jpg",
-    "spotify_link": "https://open.spotify.com/album/3ekkFrfotMsEAKc5g71GHk",
-    "deezer_link": "https://www.deezer.com/album/13669784",
-    "apple_music_link": "https://music.apple.com/de/album/from-elvis-in-memphis/1138094621",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/d4/96/0d/d4960db2-71c6-d279-4ecd-f66f4be03f95/mzaf_10966051147802861758.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Cream",
     "album": "Wheels of Fire",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/cream-wheels-of-fire.jpg",
+    "spotify_link": "https://open.spotify.com/album/0zrtTZC7yY2TOEhnbJzSb9",
+    "deezer_link": "https://www.deezer.com/album/248343",
+    "apple_music_link": "https://music.apple.com/de/album/wheels-of-fire/1440830708",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/41/8d/fa/418dfa73-9f41-1e6a-3c29-6e1af1be9845/mzaf_2816592389165417830.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -5376,17 +5381,17 @@
           "trivia": "Das Album 'Wheels of Fire', ver\u00f6ffentlicht von Cream im Jahr 1968, enth\u00e4lt die legend\u00e4re Live-Version von 'Crossroads', die Eric Clapton's virtuosit\u00e4t am elektrischen Guitar eindrucksvoll demonstriert. Diese Aufnahme gilt als eine der bedeutendsten Darbietungen im Blues-Rock und hat unz\u00e4hlige Musiker inspiriert, ihre Technik und ihren Stil zu verfeinern. Clapton's Spiel und die kraftvollen Soli in 'Crossroads' trugen dazu bei, die Musikrichtung des Blues-Rock zu definieren und setzten einen neuen Standard f\u00fcr Live-Performances in diesem Genre."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/cream-wheels-of-fire.jpg",
-    "spotify_link": "https://open.spotify.com/album/0zrtTZC7yY2TOEhnbJzSb9",
-    "deezer_link": "https://www.deezer.com/album/248343",
-    "apple_music_link": "https://music.apple.com/de/album/wheels-of-fire/1440830708",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/41/8d/fa/418dfa73-9f41-1e6a-3c29-6e1af1be9845/mzaf_2816592389165417830.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Stevie Wonder",
     "album": "For Once in My Life",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/stevie-wonder-for-once-in-my-life.jpg",
+    "spotify_link": "https://open.spotify.com/album/3pPBbp1Nl9n1AM9xFpdKtZ",
+    "deezer_link": "https://www.deezer.com/album/629868",
+    "apple_music_link": "https://music.apple.com/de/album/for-once-in-my-life/1442836193",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/b1/72/3f/b1723fdb-ce25-2cad-af33-1026bfe913ad/mzaf_1376230708366965209.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -5488,17 +5493,17 @@
           "trivia": "Stevie Wonder arbeitete bei seinem ikonischen Album 'For Once in My Life' eng mit Smokey Robinson zusammen, der als einer der einflussreichsten Songwriter und Produzenten der Motown-\u00c4ra gilt. Robinson half nicht nur beim Songwriting, sondern brachte auch seine charakteristische Vocals und Stil ein, die dem Lied eine besondere Note verleihen. Der Song wurde ein Hit und festigte Wonders Status als einer der gr\u00f6\u00dften K\u00fcnstler seiner Zeit. \"For Once in My Life\" gilt bis heute als zeitloser Klassiker."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/stevie-wonder-for-once-in-my-life.jpg",
-    "spotify_link": "https://open.spotify.com/album/3pPBbp1Nl9n1AM9xFpdKtZ",
-    "deezer_link": "https://www.deezer.com/album/629868",
-    "apple_music_link": "https://music.apple.com/de/album/for-once-in-my-life/1442836193",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/b1/72/3f/b1723fdb-ce25-2cad-af33-1026bfe913ad/mzaf_1376230708366965209.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Mamas & the Papas",
     "album": "If You Can Believe Your Eyes and Ears",
     "year": "1966",
+    "coverSrc": "/bandcover/60er/the-mamas-the-papas-if-you-can-believe-your-eyes-and-ears.jpg",
+    "spotify_link": "https://open.spotify.com/album/76oMr4Y2pOtcrvZLc2ZikF",
+    "deezer_link": "https://www.deezer.com/album/231182",
+    "apple_music_link": "https://music.apple.com/de/album/if-you-can-believe-your-eyes-and-ears/1440795791",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/d3/dc/12/d3dc1254-5e96-769d-2ea6-38f2fbfcac1e/mzaf_15231186714678102517.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -5605,17 +5610,17 @@
           "trivia": "Der Auftritt von The Mamas & the Papas in der Ed Sullivan Show im Jahr 1966 war entscheidend f\u00fcr den Erfolg ihres Albums 'If You Can Believe Your Eyes and Ears'. Diese Show war eine der beliebtesten amerikanischen Fernsehsendungen und half, die Band einem weiten Publikum vorzustellen. Ihr Hit 'California Dreamin'' wurde w\u00e4hrend dieses Auftritts aufgef\u00fchrt und trug ma\u00dfgeblich zur Steigerung der Verkaufszahlen und zur Bekanntheit der Gruppe bei. Die Kombination aus harmonischem Gesang und dem ikonischen Sound der Band machte diesen Auftritt unvergesslich."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-mamas-the-papas-if-you-can-believe-your-eyes-and-ears.jpg",
-    "spotify_link": "https://open.spotify.com/album/76oMr4Y2pOtcrvZLc2ZikF",
-    "deezer_link": "https://www.deezer.com/album/231182",
-    "apple_music_link": "https://music.apple.com/de/album/if-you-can-believe-your-eyes-and-ears/1440795791",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/d3/dc/12/d3dc1254-5e96-769d-2ea6-38f2fbfcac1e/mzaf_15231186714678102517.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Buffalo Springfield",
     "album": "Buffalo Springfield Again",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/buffalo-springfield-buffalo-springfield-again.jpg",
+    "spotify_link": "https://open.spotify.com/album/7hez8jibf36E66GHpFkWz7",
+    "deezer_link": "https://www.deezer.com/album/735458",
+    "apple_music_link": "https://music.apple.com/de/album/buffalo-springfield-again/384584309",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/22/9e/6b/229e6ba2-5d03-9ad1-1940-c7006d3d5df2/mzaf_15280655122292058088.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -5722,17 +5727,17 @@
           "trivia": "Buffalo Springfield, eine der einflussreichsten Bands der Folk-Rock-\u00c4ra, ver\u00f6ffentlichte 1967 das Album 'Buffalo Springfield Again', das stark von den sozialen und politischen Unruhen der Zeit gepr\u00e4gt ist. Insbesondere die Songs wie 'For What It's Worth' thematisieren den Widerstand gegen den Vietnamkrieg und spiegeln die aufkommende Friedensbewegung wider. Die Texte vermitteln ein Gef\u00fchl der Dringlichkeit und des Wandels, indem sie die H\u00f6rer dazu anregen, sich mit den gesellschaftlichen Herausforderungen auseinanderzusetzen, die das Land in den sp\u00e4ten 1960er Jahren pr\u00e4gten."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/buffalo-springfield-buffalo-springfield-again.jpg",
-    "spotify_link": "https://open.spotify.com/album/7hez8jibf36E66GHpFkWz7",
-    "deezer_link": "https://www.deezer.com/album/735458",
-    "apple_music_link": "https://music.apple.com/de/album/buffalo-springfield-again/384584309",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/22/9e/6b/229e6ba2-5d03-9ad1-1940-c7006d3d5df2/mzaf_15280655122292058088.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Booker T. & the MG\u2019s",
     "album": "Green Onions",
     "year": "1962",
+    "coverSrc": "/bandcover/60er/booker-t-the-mgs-green-onions.jpg",
+    "spotify_link": "https://open.spotify.com/album/1LMSiyS5O2gcVTUa2rlu9u",
+    "deezer_link": "https://www.deezer.com/album/406517617",
+    "apple_music_link": "https://music.apple.com/de/album/green-onions-remastered/1443259416",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/28/e6/7a/28e67a20-0ad8-e713-096d-135572487209/mzaf_13312296083466532701.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -5839,17 +5844,17 @@
           "trivia": "Der Song 'Green Onions' von Booker T. & the MG\u2019s, der 1962 auf dem gleichnamigen Album ver\u00f6ffentlicht wurde, spielt eine zentrale Rolle im Film 'The Blues Brothers'. Dieser Kultfilm von John Landis aus dem Jahr 1980 nutzt den Song, um die lebendige Atmosph\u00e4re der Musikszene der 1960er Jahre einzufangen. Die markanten Kl\u00e4nge des St\u00fccks unterstreichen die Energie und den Humor des Films, w\u00e4hrend sie gleichzeitig die Bedeutung der Band im Genre des Rhythm and Blues hervorheben. Booker T. & the MG\u2019s sind bekannt f\u00fcr ihren einzigartigen Stil, der Instrumentalmusik pr\u00e4gt und bis heute viele Generationen inspiriert."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/booker-t-the-mgs-green-onions.jpg",
-    "spotify_link": "https://open.spotify.com/album/2aGFVLz0oQPa3uxCfq9lcU",
-    "deezer_link": "https://www.deezer.com/album/88582",
-    "apple_music_link": null,
-    "preview_link": null
+    }
   },
   {
     "artist": "Ray Charles",
     "album": "Modern Sounds in Country and Western Music",
     "year": "1962",
+    "coverSrc": "/bandcover/60er/ray-charles-modern-sounds-in-country-and-western-music.jpg",
+    "spotify_link": "https://open.spotify.com/album/0UvA1bMY9dqS6LQ4ktBl4y",
+    "deezer_link": "https://www.deezer.com/album/582960632",
+    "apple_music_link": "https://music.apple.com/de/album/modern-sounds-in-country-and-western-music-vols-1-2/1744974346",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/cc/49/c4/cc49c4a2-5a94-5998-186c-efd27bd88029/mzaf_2710050890537573154.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -5956,17 +5961,17 @@
           "trivia": "Ray Charles' Album 'Modern Sounds in Country and Western Music', das 1962 ver\u00f6ffentlicht wurde, ist bekannt f\u00fcr seine innovative Verbindung von Country-Musik mit Jazz-Elementen und orchestralen Arrangements. Diese einzigartige Mischung verhalf dem Genre zu einer breiteren Anerkennung und verschob die Grenzen der damaligen Musikstile. Insbesondere Charles' gef\u00fchlvolle Stimme und die geschickte Instrumentierung in Songs wie 'I Can't Stop Loving You' trugen wesentlich dazu bei, Country-Musik einem neuen Publikum n\u00e4herzubringen und den Weg f\u00fcr zuk\u00fcnftige Crossover-Artists zu ebnen."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/ray-charles-modern-sounds-in-country-and-western-music.jpg",
-    "spotify_link": "https://open.spotify.com/album/0UvA1bMY9dqS6LQ4ktBl4y",
-    "deezer_link": "https://www.deezer.com/album/6555658",
-    "apple_music_link": "https://music.apple.com/de/album/modern-sounds-in-country-and-western-music-vols-1-2/1744974346",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/cc/49/c4/cc49c4a2-5a94-5998-186c-efd27bd88029/mzaf_2710050890537573154.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Stooges",
     "album": "The Stooges",
     "year": "1969",
+    "coverSrc": "/bandcover/60er/the-stooges-the-stooges.jpg",
+    "spotify_link": "https://open.spotify.com/album/3MANoCcmaHWeXSuWiO3iVo",
+    "deezer_link": "https://www.deezer.com/album/667044",
+    "apple_music_link": "https://music.apple.com/de/album/the-stooges/393789238",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/13/f0/aa/13f0aafa-95e0-36ce-3e79-e95131169f95/mzaf_10711015466017099928.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -6063,17 +6068,17 @@
           "trivia": "Das Deb\u00fctalbum 'The Stooges' von The Stooges, ver\u00f6ffentlicht im Jahr 1969, erreichte in den Billboard 200 Platz 106. Trotz seiner relativ niedrigen Chartplatzierung gilt das Album als eines der wegweisendsten Werke in der Geschichte des Punk und Rock. Die Kombination aus rohem Sound und provokanten Texten hat zahlreiche Bands beeinflusst und das Album hat im Laufe der Jahre an Bedeutung gewonnen. Songs wie 'I Wanna Be Your Dog' sind heute Klassiker und spiegeln den rebellischen Geist der damaligen Zeit wider."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-stooges-the-stooges.jpg",
-    "spotify_link": "https://open.spotify.com/album/5n9MNlvwkaVv6Q2ja52pE0",
-    "deezer_link": "https://www.deezer.com/album/667044",
-    "apple_music_link": "https://music.apple.com/de/album/the-stooges-deluxe-edition/89319049",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/ec/d0/3a/ecd03acf-7451-060f-34bc-290db5031291/mzaf_10221883176875043184.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Moody Blues",
     "album": "Days of Future Passed",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/the-moody-blues-days-of-future-passed.jpg",
+    "spotify_link": "https://open.spotify.com/album/7IIy4elDOHGHr6qemgpa9i",
+    "deezer_link": "https://www.deezer.com/album/51430582",
+    "apple_music_link": "https://music.apple.com/de/album/days-of-future-passed/1440798214",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/4c/f9/fc/4cf9fcf0-3b4c-eef6-a197-d64b5dbbb6ca/mzaf_11474383843361556268.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -6180,17 +6185,17 @@
           "trivia": "'Days of Future Passed' von The Moody Blues ist ein bahnbrechendes Konzeptalbum, das 1967 ver\u00f6ffentlicht wurde und als eines der ersten Rockalben gilt, das mit einem vollst\u00e4ndigen Orchester zusammenarbeitet. Die Kombination aus symphonischen Arrangements und Rockmusik schuf eine einzigartige Klanglandschaft, die den Einfluss klassischer Musik auf die Band verdeutlicht. Besonders hervorzuheben ist der Song 'Nights in White Satin', der durch seine melancholische Melodie und den orchestralen Hintergrund besticht und zu einem der bekanntesten St\u00fccke der Band avancierte."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-moody-blues-days-of-future-passed.jpg",
-    "spotify_link": "https://open.spotify.com/album/3JyYXOBRAuc3XFQxFxrEcM",
-    "deezer_link": "https://www.deezer.com/album/104946",
-    "apple_music_link": "https://music.apple.com/de/album/days-of-future-passed/1440798214",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/4c/f9/fc/4cf9fcf0-3b4c-eef6-a197-d64b5dbbb6ca/mzaf_11474383843361556268.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Byrds",
     "album": "Turn! Turn! Turn!",
     "year": "1965",
+    "coverSrc": "/bandcover/60er/the-byrds-turn-turn-turn.jpg",
+    "spotify_link": "https://open.spotify.com/album/3v0i9qyogPoQEQj2bG6Fmn",
+    "deezer_link": "https://www.deezer.com/album/111736",
+    "apple_music_link": "https://music.apple.com/de/album/turn-turn-turn-reissue-edition-with-bonus-tracks/155655951",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/ce/27/05/ce27056b-8500-fa3e-77fa-ecac6fa3b90b/mzaf_3461482518075655503.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -6292,17 +6297,17 @@
           "trivia": "Das Album 'Turn! Turn! Turn!' von The Byrds, ver\u00f6ffentlicht im Jahr 1965, markiert einen entscheidenden Schritt in der musikalischen Entwicklung der Band. W\u00e4hrend ihre vorherigen Werke stark vom Folk gepr\u00e4gt waren, verbindet dieses Album stilistisch Folk mit Rock, was sich in den eing\u00e4ngigen Melodien und harmonischen Ges\u00e4ngen widerspiegelt. Der Titeltrack, eine Adaption eines Gedichts von Ecclesiastes, zeigt zudem die lyrische Tiefe, die die Byrds in ihrer Musik anstreben, und hebt ihren Einfluss auf die sp\u00e4tere Folk-Rock-Bewegung hervor."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-byrds-turn-turn-turn.jpg",
-    "spotify_link": "https://open.spotify.com/album/3v0i9qyogPoQEQj2bG6Fmn",
-    "deezer_link": "https://www.deezer.com/album/11375040",
-    "apple_music_link": "https://music.apple.com/de/album/turn-turn-turn-the-byrds-ultimate-collection/1042989410",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/38/1c/03/381c03a5-311f-864c-000e-5be4d0aa9f66/mzaf_16099727034063565824.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Cannonball Adderley",
     "album": "Somethin\u2019 Else",
     "year": "1958 (Like \u201cKind of Blue,\u201d influential in the 60s)",
+    "coverSrc": "/bandcover/60er/cannonball-adderley-somethin-else.jpg",
+    "spotify_link": "https://open.spotify.com/album/3Wu0chxAm4GxSeRnIIf2Om",
+    "deezer_link": "https://www.deezer.com/album/11329542",
+    "apple_music_link": "https://music.apple.com/de/album/somethin-else/721271258",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/06/c0/92/06c0921d-45fc-8f61-98fd-ae0538ad388e/mzaf_8104084262708625517.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -6409,17 +6414,17 @@
           "trivia": "Auf Cannonball Adderleys Album 'Somethin\u2019 Else' spielt der legend\u00e4re Trompeter Miles Davis eine entscheidende Rolle. Davis, der als einer der gr\u00f6\u00dften Innovatoren im Jazz gilt, ist auf dem Titeltrack zu h\u00f6ren, was das Album zus\u00e4tzlich aufwertet. Diese Zusammenarbeit brachte nicht nur eine harmonische Verbindung zwischen Adderleys Saxophon und Davis' Trompete, sondern trug auch dazu bei, den Sound des Modern Jazz in den sp\u00e4ten 50er Jahren zu definieren. 'Somethin\u2019 Else' wird oft als eines der besten Jazz-Alben angesehen und ist ein Muss f\u00fcr jeden Jazzliebhaber."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/cannonball-adderley-somethin-else.jpg",
-    "spotify_link": "https://open.spotify.com/album/3Wu0chxAm4GxSeRnIIf2Om",
-    "deezer_link": "https://www.deezer.com/album/300267",
-    "apple_music_link": "https://music.apple.com/de/album/somethin-else-the-rudy-van-gelder-edition-remastered/724729986",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/9d/15/dd/9d15dd86-acba-e342-5159-e5294bc8ba1f/mzaf_7967675758776200354.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Rolling Stones",
     "album": "Out of Our Heads",
     "year": "1965",
+    "coverSrc": "/bandcover/60er/the-rolling-stones-out-of-our-heads.jpg",
+    "spotify_link": "https://open.spotify.com/album/2Q5MwpTmtjscaS34mJFXQQ",
+    "deezer_link": "https://www.deezer.com/album/912316",
+    "apple_music_link": "https://music.apple.com/de/album/out-of-our-heads/1440743344",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/35/4d/03/354d0356-d13c-2b5e-1682-d8d096623468/mzaf_9783712148255951267.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -6521,17 +6526,17 @@
           "trivia": "Der Song 'Satisfaction', bekannt f\u00fcr sein ikonisches Gitarrenriff, wurde 1965 von Mick Jagger und Keith Richards geschrieben und gilt als einer der gr\u00f6\u00dften Hits der Rolling Stones. 'Out of Our Heads' war das dritte Studioalbum der Band und trug ma\u00dfgeblich zu ihrem internationalen Ruhm bei. Der Erfolg von 'Satisfaction' stellte einen Wendepunkt in der Rockmusik dar und festigte den Status der Stones als f\u00fchrende Band der 1960er Jahre. Der Song wurde nicht nur in den USA, sondern auch international ein Hit und ist bis heute eines der Markenzeichen der Rolling Stones."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-rolling-stones-out-of-our-heads.jpg",
-    "spotify_link": "https://open.spotify.com/album/2Q5MwpTmtjscaS34mJFXQQ",
-    "deezer_link": "https://www.deezer.com/album/912316",
-    "apple_music_link": "https://music.apple.com/de/album/out-of-our-heads-uk/1440764632",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/71/1b/a2/711ba2b8-4586-66f5-c010-ef1978062434/mzaf_13315035841421428084.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Muddy Waters",
     "album": "Folk Singer",
     "year": "1964",
+    "coverSrc": "/bandcover/60er/muddy-waters-folk-singer.jpg",
+    "spotify_link": "https://open.spotify.com/album/4bi0CKFKviadIaSlkakfN7",
+    "deezer_link": "https://www.deezer.com/album/70199692",
+    "apple_music_link": "https://music.apple.com/de/album/folk-singer/1423326717",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/5c/a8/ea/5ca8ea97-6acd-161c-492f-810c160ae71c/mzaf_1448914642580824069.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -6638,17 +6643,17 @@
           "trivia": "Das Album 'Folk Singer' von Muddy Waters gilt als wegweisend f\u00fcr die Akustik des Blues und stellte einen Kontrast zu den damals popul\u00e4ren elektrischen Blues-Stilen dar. Durch seine R\u00fcckkehr zu den Wurzeln des Genres und die Betonung akustischer Instrumente erreichte Waters ein breiteres Publikum und trug dazu bei, das Interesse an traditionellem Blues in den 1960er Jahren neu zu entfachen. Dieses Album beeinflusste nicht nur die Blues-Szene, sondern auch viele Folk- und Rockmusiker, die sich von Muddy Waters' Stil inspirieren lie\u00dfen."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/muddy-waters-folk-singer.jpg",
-    "spotify_link": "https://open.spotify.com/album/4bi0CKFKviadIaSlkakfN7",
-    "deezer_link": "https://www.deezer.com/album/70199692",
-    "apple_music_link": "https://music.apple.com/de/album/folk-singer/1423326717",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/5c/a8/ea/5ca8ea97-6acd-161c-492f-810c160ae71c/mzaf_1448914642580824069.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Animals",
     "album": "Animal Tracks",
     "year": "1965",
+    "coverSrc": "/bandcover/60er/the-animals-animal-tracks.jpg",
+    "spotify_link": "https://open.spotify.com/album/3GoBNqjGtsJ8jnwp1PfKby",
+    "deezer_link": "https://www.deezer.com/album/310406",
+    "apple_music_link": "https://music.apple.com/de/album/animal-tracks-remastered/696031877",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/86/80/5f/86805f60-e778-45e7-b838-63dbc44d9af3/mzaf_6945151127275590768.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -6745,17 +6750,17 @@
           "trivia": "Auf 'Animal Tracks' von The Animals spielt die Harmonica eine zentrale Rolle und verleiht den Songs eine authentische Blues- und Rock-\u00c4sthetik. Insbesondere Eric Burdon, der S\u00e4nger der Band, nutzt die Harmonica in vielen ihrer St\u00fccke, um die emotionale Tiefe und den rauen Charakter ihrer Musik zu verst\u00e4rken. Diese Instrumentierung ist typisch f\u00fcr die britische R&B-Szene der 1960er Jahre und spiegelt den Einfluss amerikanischer Bluesmusiker wider, die die Band stark inspirierten."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-animals-animal-tracks.jpg",
-    "spotify_link": "https://open.spotify.com/album/3GoBNqjGtsJ8jnwp1PfKby",
-    "deezer_link": "https://www.deezer.com/album/310406",
-    "apple_music_link": "https://music.apple.com/de/album/animal-tracks-remastered/696031877",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/86/80/5f/86805f60-e778-45e7-b838-63dbc44d9af3/mzaf_6945151127275590768.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Pink Floyd",
     "album": "The Piper at the Gates of Dawn",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/pink-floyd-the-piper-at-the-gates-of-dawn.jpg",
+    "spotify_link": "https://open.spotify.com/album/2Se4ZylF9NkFGD92yv1aZC",
+    "deezer_link": "https://www.deezer.com/album/12506866",
+    "apple_music_link": "https://music.apple.com/de/album/the-piper-at-the-gates-of-dawn/699637401",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/08/a3/d9/08a3d98f-5ff5-b303-3235-56ed5c0430a9/mzaf_16817849935328000636.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -6862,17 +6867,17 @@
           "trivia": "'The Piper at the Gates of Dawn' gilt als eines der einflussreichsten Alben der Psychedelic Rock-\u00c4ra. Pink Floyd verband in diesem Werk innovative Kl\u00e4nge, die von der experimentellen Musikkultur der 60er Jahre gepr\u00e4gt waren, mit folkloristischen Elementen und surrealen Texten. Die Verwendung von Effekten und unkonventionellen Instrumenten, wie dem Mellotron und dem Theremin, setzte Ma\u00dfst\u00e4be, die viele nachfolgende K\u00fcnstler inspirierten und den Psychedelic Rock entscheidend pr\u00e4gten."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/pink-floyd-the-piper-at-the-gates-of-dawn.jpg",
-    "spotify_link": "https://open.spotify.com/album/2Se4ZylF9NkFGD92yv1aZC",
-    "deezer_link": "https://www.deezer.com/album/12506866",
-    "apple_music_link": "https://music.apple.com/de/album/the-piper-at-the-gates-of-dawn/699637401",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/08/a3/d9/08a3d98f-5ff5-b303-3235-56ed5c0430a9/mzaf_16817849935328000636.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Velvet Underground",
     "album": "White Light/White Heat",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/the-velvet-underground-white-light-white-heat.jpg",
+    "spotify_link": "https://open.spotify.com/album/0HHmJpwOXXRJu9HI9iQiEO",
+    "deezer_link": "https://www.deezer.com/album/70483632",
+    "apple_music_link": "https://music.apple.com/de/album/white-light-white-heat-45th-anniversary-edition/1469578042",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/01/70/39/01703925-fb12-fa86-40b0-3aad6d0a87e6/mzaf_11517611194833818424.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -6974,17 +6979,17 @@
           "trivia": "Das Album 'White Light/White Heat' von The Velvet Underground, das 1968 ver\u00f6ffentlicht wurde, ist bekannt f\u00fcr seine avantgardistischen Klangexperimente und seine d\u00fcstere Thematik. Andy Warhol, ein enger Freund der Band und ein f\u00fchrender Vertreter der Pop-Art, produzierte mehrere visuelle Inhalte f\u00fcr die Gruppe. Unter anderem schuf er ein Musikvideo, das auf die provokanten und rauen Kl\u00e4nge des Albums abgestimmt ist und das visuelle Konzept von 'Sister Ray' aufgreift. Warhols Einfluss auf die Band und die Kunstszene der 60er Jahre bleibt bis heute von gro\u00dfer Bedeutung."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-velvet-underground-white-light-white-heat.jpg",
-    "spotify_link": "https://open.spotify.com/album/0HHmJpwOXXRJu9HI9iQiEO",
-    "deezer_link": "https://www.deezer.com/album/70483632",
-    "apple_music_link": "https://music.apple.com/de/album/white-light-white-heat-45th-anniversary-edition/1469578042",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/01/70/39/01703925-fb12-fa86-40b0-3aad6d0a87e6/mzaf_11517611194833818424.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Doors",
     "album": "Strange Days",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/the-doors-strange-days.jpg",
+    "spotify_link": "https://open.spotify.com/album/6v5IVMmY1IvWtbfnQoiFSf",
+    "deezer_link": "https://www.deezer.com/album/340880",
+    "apple_music_link": "https://music.apple.com/de/album/strange-days/1622362830",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/47/82/bf/4782bf78-a84e-162d-efb0-9003c71a3164/mzaf_3095636475111081173.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -7086,17 +7091,17 @@
           "trivia": "Die Produktionskosten f\u00fcr das Album 'Strange Days' von The Doors beliefen sich auf etwa 15.000 US-Dollar. Trotz des begrenzten Budgets gelang es der Band, einen innovativen Sound zu schaffen, der die Psychedelic-Rock-Musik der 1960er Jahre ma\u00dfgeblich beeinflusste. Die Herausforderung, in einem so engen finanziellen Rahmen zu arbeiten, f\u00fchrte dazu, dass die Band und die Produktionscrew kreativ werden mussten, was sich in der experimentellen Natur der Musik und den ikonischen Texten von Jim Morrison niederschlug."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-doors-strange-days.jpg",
-    "spotify_link": "https://open.spotify.com/album/6v5IVMmY1IvWtbfnQoiFSf",
-    "deezer_link": "https://www.deezer.com/album/51067362",
-    "apple_music_link": "https://music.apple.com/de/album/strange-days/1622362830",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/47/82/bf/4782bf78-a84e-162d-efb0-9003c71a3164/mzaf_3095636475111081173.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Laura Nyro",
     "album": "Eli and the Thirteenth Confession",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/laura-nyro-eli-and-the-thirteenth-confession.jpg",
+    "spotify_link": "https://open.spotify.com/album/533zqKatpy90jse2K5IaiQ",
+    "deezer_link": "https://www.deezer.com/album/77908",
+    "apple_music_link": "https://music.apple.com/de/album/eli-and-the-thirteenth-confessión-expanded-edition/273493406",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/Music/a8/19/00/mzm.wuwbzgrl.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -7198,17 +7203,17 @@
           "trivia": "Laura Nyro trat 1967 beim Monterey Pop Festival auf, wo sie einige ihrer bekanntesten Songs, darunter St\u00fccke aus dem Album 'Eli and the Thirteenth Confession', pr\u00e4sentierte. Dieser Auftritt trug ma\u00dfgeblich dazu bei, ihr k\u00fcnstlerisches Profil zu sch\u00e4rfen und ein breiteres Publikum zu erreichen. Nyros einzigartige Mischung aus Pop, Jazz und Soul, kombiniert mit ihren emotionalen Texten, machte sie zu einer herausragenden Figur der Musikszene der sp\u00e4ten 60er Jahre."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/laura-nyro-eli-and-the-thirteenth-confession.jpg",
-    "spotify_link": "https://open.spotify.com/album/533zqKatpy90jse2K5IaiQ",
-    "deezer_link": "https://www.deezer.com/album/1408424",
-    "apple_music_link": "https://music.apple.com/de/album/eli-and-the-thirteenth-confessi%C3%B3n-expanded-edition/273493406",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/Music/a8/19/00/mzm.wuwbzgrl.aac.p.m4a"
+    }
   },
   {
     "artist": "Cream",
     "album": "Fresh Cream",
     "year": "1966",
+    "coverSrc": "/bandcover/60er/cream-fresh-cream.jpg",
+    "spotify_link": "https://open.spotify.com/album/6iyKqDoL9pRSHUsDBYemlB",
+    "deezer_link": "https://www.deezer.com/album/229690",
+    "apple_music_link": "https://music.apple.com/de/album/fresh-cream/1440822300",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/04/c3/94/04c39456-230d-3b6f-02d2-e1ea9fbc45cf/mzaf_8533959228965174312.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -7310,17 +7315,17 @@
           "trivia": "Der Song 'I Feel Free' von Cream, der auf dem Deb\u00fctalbum 'Fresh Cream' von 1966 enthalten ist, wurde in der Kultserie 'Mad Men' verwendet. Diese Serie, die in den 1960er Jahren spielt, f\u00e4ngt die kulturellen und sozialen Umw\u00e4lzungen dieser Zeit ein, und der kraftvolle Song von Cream verst\u00e4rkt die Atmosph\u00e4re und Emotionen in der Szene. 'Fresh Cream' gilt als wegweisendes Album, das den Blues-Rock-Sound der Zeit pr\u00e4gte und die Karriere von Cream, einer der einflussreichsten Rockbands dieser \u00c4ra, entscheidend vorantrieb."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/cream-fresh-cream.jpg",
-    "spotify_link": "https://open.spotify.com/album/6iyKqDoL9pRSHUsDBYemlB",
-    "deezer_link": "https://www.deezer.com/album/229690",
-    "apple_music_link": "https://music.apple.com/de/album/fresh-cream/1440822300",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/04/c3/94/04c39456-230d-3b6f-02d2-e1ea9fbc45cf/mzaf_8533959228965174312.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Harry Nilsson",
     "album": "Aerial Ballet",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/harry-nilsson-aerial-ballet.jpg",
+    "spotify_link": "https://open.spotify.com/album/0H3v4snD6xhworsjXndsai",
+    "deezer_link": "https://www.deezer.com/album/49924462",
+    "apple_music_link": "https://music.apple.com/de/album/aerial-ballet/1296521451",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c4/d1/6a/c4d16a42-537d-becb-968f-efeec046c7e3/mzaf_13384476069153016762.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -7417,17 +7422,17 @@
           "trivia": "Harry Nilsson's 'Aerial Ballet', das 1968 ver\u00f6ffentlicht wurde, enth\u00e4lt eine ikonische Coverversion des Songs 'Everybody's Talkin'', der urspr\u00fcnglich von Fred Neil geschrieben wurde. Diese Interpretation wurde zu einem gro\u00dfen kommerziellen Erfolg und half, Nilssons Karriere zu f\u00f6rdern, indem sie ihm eine breite Zuh\u00f6rerschaft verschaffte. Der Song wurde sp\u00e4ter auch durch den Film 'Midnight Cowboy' (1969) noch bekannter, was die kulturelle Relevanz des Albums in dieser Zeit verst\u00e4rkte und Nilsson als einen der herausragenden Singer-Songwriter seiner Generation etablierte."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/harry-nilsson-aerial-ballet.jpg",
-    "spotify_link": "https://open.spotify.com/album/0H3v4snD6xhworsjXndsai",
-    "deezer_link": "https://www.deezer.com/album/49924462",
-    "apple_music_link": "https://music.apple.com/de/album/aerial-ballet/1296521451",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c4/d1/6a/c4d16a42-537d-becb-968f-efeec046c7e3/mzaf_13384476069153016762.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Frank Zappa",
     "album": "Hot Rats",
     "year": "1969",
+    "coverSrc": "/bandcover/60er/frank-zappa-hot-rats.jpg",
+    "spotify_link": "https://open.spotify.com/album/0WYYrC9My9rYWigac003hw",
+    "deezer_link": "https://www.deezer.com/album/5819501",
+    "apple_music_link": "https://music.apple.com/de/album/hot-rats/1562897106",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview114/v4/38/73/cd/3873cd8a-2f93-887b-c417-20aff03ae265/mzaf_14403308117520180077.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -7534,17 +7539,17 @@
           "trivia": "Frank Zappa's Album 'Hot Rats', ver\u00f6ffentlicht im Jahr 1969, ist ein Meilenstein, der die musikalische Experimentierfreudigkeit der damaligen Zeit verk\u00f6rpert. Die Fusion von Jazz, Rock und avantgardistischen Elementen spiegelt den kulturellen Aufbruch der Jugendbewegung wider, die in den sp\u00e4ten 1960er Jahren f\u00fcr soziale Ver\u00e4nderungen k\u00e4mpfte. Instrumentalst\u00fccke wie 'Peaches en Regalia' zeigen nicht nur Zappas virtuose Kompositionskunst, sondern auch den Drang der Jugend, sich von konventionellen Normen zu befreien und ihre eigenen Klangwelten zu schaffen."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/frank-zappa-hot-rats.jpg",
-    "spotify_link": "https://open.spotify.com/album/0WYYrC9My9rYWigac003hw",
-    "deezer_link": "https://www.deezer.com/album/123113202",
-    "apple_music_link": "https://music.apple.com/de/album/hot-rats/1562897106",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview114/v4/38/73/cd/3873cd8a-2f93-887b-c417-20aff03ae265/mzaf_14403308117520180077.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Righteous Brothers",
     "album": "You\u2019ve Lost That Lovin\u2019 Feelin\u2019",
     "year": "1965",
+    "coverSrc": "/bandcover/60er/the-righteous-brothers-youve-lost-that-lovin-feelin.jpg",
+    "spotify_link": "https://open.spotify.com/album/28FEznublcKslK88ehRrfy",
+    "deezer_link": "https://www.deezer.com/album/58140922",
+    "apple_music_link": "https://music.apple.com/de/album/youve-lost-that-lovin-feelin/1428755889",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/31/09/61/310961fc-f42c-3868-e9e4-e4a82c90050b/mzaf_14084836502509423440.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -7636,17 +7641,17 @@
           "trivia": "Der Song 'You\u2019ve Lost That Lovin\u2019 Feelin\u2019' von The Righteous Brothers handelt von der schmerzlichen Einsicht, dass die einstige Leidenschaft in einer Beziehung verloren gegangen ist. Die eindringlichen und melancholischen Lyrics beschreiben, wie der Protagonist die emotionale K\u00e4lte seines Partners wahrnimmt und sich nach den intensiven Gef\u00fchlen sehnt, die einst vorhanden waren. Dieses Lied, das 1965 ver\u00f6ffentlicht wurde, gilt als eines der ikonischsten Beispiele f\u00fcr die Kombination aus Soul und Pop und hat Generationen von H\u00f6rerinnen und H\u00f6rern ber\u00fchrt."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-righteous-brothers-youve-lost-that-lovin-feelin.jpg",
-    "spotify_link": "https://open.spotify.com/artist/4b0WsB47XCa9F83BmwQ7WX",
-    "deezer_link": "https://www.deezer.com/album/248362",
-    "apple_music_link": "https://music.apple.com/de/album/youve-lost-that-lovin-feelin/1444005513",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/9b/65/fb/9b65fb60-95a1-1b91-2d35-6a91ebfdc2ce/mzaf_17310054789801503355.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "John Mayall & the Bluesbreakers",
     "album": "Blues Breakers with Eric Clapton",
     "year": "1966",
+    "coverSrc": "/bandcover/60er/john-mayall-the-bluesbreakers-blues-breakers-with-eric-clapton.jpg",
+    "spotify_link": "https://open.spotify.com/album/3W45Tazulh4zb48uL1RV8H",
+    "deezer_link": "https://www.deezer.com/album/72087942",
+    "apple_music_link": "https://music.apple.com/de/album/blues-breakers-with-eric-clapton/1434913344",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/19/16/00/191600fc-bb33-81e2-f25e-8d845e2b54aa/mzaf_5868399048626856306.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -7753,17 +7758,17 @@
           "trivia": "Das Album 'Blues Breakers with Eric Clapton', ver\u00f6ffentlicht im Jahr 1966, gilt als eines der Schl\u00fcsseldokumente der britischen Bluesbewegung und trug ma\u00dfgeblich zur Integration des Blues in die Rockmusik bei. Eric Claptons virtuoses Gitarrenspiel brachte viele junge Musiker dazu, sich f\u00fcr das Genre zu interessieren und es zu spielen. Die Kombination aus John Mayalls kraftvollem Gesang und Claptons innovativen Gitarrenriffs setzte neue Ma\u00dfst\u00e4be und inspirierte eine ganze Generation, die sp\u00e4ter die Musiklandschaft entscheidend pr\u00e4gen sollte."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/john-mayall-the-bluesbreakers-blues-breakers-with-eric-clapton.jpg",
-    "spotify_link": "https://open.spotify.com/artist/2ScuQMRWThcifBRIvNDFDC",
-    "deezer_link": "https://www.deezer.com/artist/10375",
-    "apple_music_link": "https://music.apple.com/de/album/blues-breakers-with-eric-clapton-deluxe-edition/1425961217",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/ad/0e/26/ad0e26bf-fe0e-3dd0-bb07-4d9f4f0e50f0/mzaf_7950949422154611887.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The 13th Floor Elevators",
     "album": "The Psychedelic Sounds of the 13th Floor Elevators",
     "year": "1966",
+    "coverSrc": "/bandcover/60er/the-13th-floor-elevators-the-psychedelic-sounds-of-the-13th-floor-elevators.jpg",
+    "spotify_link": "https://open.spotify.com/album/2afQ7u8n1CzNBAHjl6OQCG",
+    "deezer_link": "https://www.deezer.com/album/9102755",
+    "apple_music_link": "https://music.apple.com/de/album/the-psychedelic-sounds-of-the-13th-floor/938644586",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/00/c1/26/00c12689-4577-c253-5e8d-6ffeb73966ce/mzaf_11108604608377598032.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -7860,17 +7865,17 @@
           "trivia": "Im Album 'The Psychedelic Sounds of the 13th Floor Elevators' von The 13th Floor Elevators, das 1966 ver\u00f6ffentlicht wurde, spielt die elektrische Sitar eine entscheidende Rolle und ist eines der ersten Beispiele f\u00fcr den Einsatz dieses Instruments im Rock. Die Band, die als eine der ersten psychedelischen Gruppen gilt, kombinierte traditionelle Rockelemente mit experimentellen Klanglandschaften, die durch die Sitar verst\u00e4rkt wurden. Diese innovative Herangehensweise trug ma\u00dfgeblich zur Entstehung des Psychedelic-Rock-Genres bei und beeinflusste zahlreiche nachfolgende K\u00fcnstler."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-13th-floor-elevators-the-psychedelic-sounds-of-the-13th-floor-elevators.jpg",
-    "spotify_link": "https://open.spotify.com/album/2afQ7u8n1CzNBAHjl6OQCG",
-    "deezer_link": "https://www.deezer.com/artist/10464",
-    "apple_music_link": "https://music.apple.com/de/album/the-psychedelic-sounds-of-the-13th-floor-elevators/558685692",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/7a/7a/7f/7a7a7f08-e9ed-5211-5cb7-413d6d96637e/mzaf_10721939863764600796.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Sly and the Family Stone",
     "album": "Stand!",
     "year": "1969",
+    "coverSrc": "/bandcover/60er/sly-and-the-family-stone-stand.jpg",
+    "spotify_link": "https://open.spotify.com/album/7iwS1r6JHYJe9xpPjzmWqD",
+    "deezer_link": "https://www.deezer.com/album/71151",
+    "apple_music_link": "https://music.apple.com/de/album/stand-deluxe-edition/216551517",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/a0/b7/6b/a0b76b33-2b77-95e6-26d2-13cda5f8694c/mzaf_16974797833785226570.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -7972,17 +7977,17 @@
           "trivia": "Das Album 'Stand!' von Sly and the Family Stone, das 1969 ver\u00f6ffentlicht wurde, erreichte au\u00dfergew\u00f6hnliche Verkaufszahlen und \u00fcbertraf die Marke von 1 Million verkauften Einheiten. Es gilt als eines der wegweisendsten Alben der Funk- und Rockmusik und ist bekannt f\u00fcr seine sozialkritischen Texte und innovativen Arrangements. Hits wie 'Everyday People' und 'Stand!' trugen nicht nur zum kommerziellen Erfolg bei, sondern auch zur Popularit\u00e4t der Band, die als Pioniere des Genres angesehen werden. Die Mischung aus verschiedenen Musikstilen und kulturellen Einfl\u00fcssen machte das Album zu einem Meilenstein in der Musikgeschichte."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/sly-and-the-family-stone-stand.jpg",
-    "spotify_link": "https://open.spotify.com/album/7iwS1r6JHYJe9xpPjzmWqD",
-    "deezer_link": "https://www.deezer.com/album/71151",
-    "apple_music_link": "https://music.apple.com/de/album/stand-deluxe-edition/216551517",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/a0/b7/6b/a0b76b33-2b77-95e6-26d2-13cda5f8694c/mzaf_16974797833785226570.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Temptations",
     "album": "The Temptations Sing Smokey",
     "year": "1965",
+    "coverSrc": "/bandcover/60er/the-temptations-the-temptations-sing-smokey.jpg",
+    "spotify_link": "https://open.spotify.com/album/45tweuKI0zdh8zgKo05cTw",
+    "deezer_link": "https://www.deezer.com/album/70198002",
+    "apple_music_link": "https://music.apple.com/de/album/the-temptations-sing-smokey/1423301162",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/4c/2f/14/4c2f14e7-2801-acc0-ce26-6846876f1349/mzaf_11880709638931695316.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -8079,17 +8084,17 @@
           "trivia": "Smokey Robinson, der als einer der einflussreichsten Songwriter der Motown-\u00c4ra gilt, ist der kreative Kopf hinter vielen der Songs, die auf dem Album 'The Temptations Sing Smokey' von The Temptations zu finden sind. Robinson schrieb und produzierte zahlreiche Hits, die nicht nur die Temptations, sondern auch die gesamte Musiklandschaft der 1960er Jahre pr\u00e4gten. Seine F\u00e4higkeit, Emotionen und Geschichten in seinen Texten zu transportieren, hat das Soul-Genre nachhaltig beeinflusst und macht ihn zu einer Schl\u00fcsselfigur in der Musikgeschichte."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-temptations-the-temptations-sing-smokey.jpg",
-    "spotify_link": "https://open.spotify.com/album/45tweuKI0zdh8zgKo05cTw",
-    "deezer_link": "https://www.deezer.com/album/70198002",
-    "apple_music_link": "https://music.apple.com/de/album/the-temptations-sing-smokey/1423301162",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/4c/2f/14/4c2f14e7-2801-acc0-ce26-6846876f1349/mzaf_11880709638931695316.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Joni Mitchell",
     "album": "Clouds",
     "year": "1969",
+    "coverSrc": "/bandcover/60er/joni-mitchell-clouds.jpg",
+    "spotify_link": "https://open.spotify.com/album/03iFLgmgkLT7X5gnXVPID5",
+    "deezer_link": "https://www.deezer.com/album/369496",
+    "apple_music_link": "https://music.apple.com/de/album/clouds/74769392",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/42/85/b5/4285b58d-34cc-eef5-f150-1ed89ea4bc40/mzaf_14788214946508434033.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -8196,17 +8201,17 @@
           "trivia": "Das Album 'Clouds' von Joni Mitchell gilt als ein wegweisendes Werk, das die Art und Weise, wie pers\u00f6nliche Erfahrungen in Songtexte integriert werden, revolutionierte. K\u00fcnstler wie Taylor Swift und Ed Sheeran haben oft von Mitchells F\u00e4higkeit, Emotionen und allt\u00e4gliche Erlebnisse in ihrer Musik einzufangen, profitiert. Ihre einf\u00fchlsamen Texte und melodischen Kompositionen haben Generationen von Songwritern motiviert, authentische und autobiografische Geschichten in ihren eigenen Werken zu erz\u00e4hlen."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/joni-mitchell-clouds.jpg",
-    "spotify_link": "https://open.spotify.com/album/03iFLgmgkLT7X5gnXVPID5",
-    "deezer_link": "https://www.deezer.com/album/369496",
-    "apple_music_link": "https://music.apple.com/de/album/clouds/74769392",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/42/85/b5/4285b58d-34cc-eef5-f150-1ed89ea4bc40/mzaf_14788214946508434033.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Wilson Pickett",
     "album": "The Exciting Wilson Pickett",
     "year": "1966",
+    "coverSrc": "/bandcover/60er/wilson-pickett-the-exciting-wilson-pickett.jpg",
+    "spotify_link": "https://open.spotify.com/album/3fxWzXNMhTz01uShzMARnm",
+    "deezer_link": "https://www.deezer.com/album/97337",
+    "apple_music_link": "https://music.apple.com/de/album/the-exciting-wilson-pickett/281713749",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/b7/34/e8/b734e812-5445-44c4-9b5a-f1254f5d6d74/mzaf_4598191922943157189.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -8313,17 +8318,17 @@
           "trivia": "Der Song 'In the Midnight Hour', der auf dem Album 'The Exciting Wilson Pickett' zu finden ist, wurde von Kritikern als revolution\u00e4r f\u00fcr das Genre des Southern Soul angesehen. Besonders hervorzuheben ist die Kombination aus kraftvollem Gesang und funkigen Rhythmen, die Pickett meisterhaft umsetzt. Die innovative Produktion und der unverkennbare Groove des Songs haben nicht nur zu seiner Popularit\u00e4t beigetragen, sondern auch einen nachhaltigen Einfluss auf nachfolgende K\u00fcnstler und die Entwicklung des Genres gehabt."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/wilson-pickett-the-exciting-wilson-pickett.jpg",
-    "spotify_link": "https://open.spotify.com/album/3fxWzXNMhTz01uShzMARnm",
-    "deezer_link": "https://www.deezer.com/album/97337",
-    "apple_music_link": "https://music.apple.com/de/album/the-exciting-wilson-pickett/281713749",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/b7/34/e8/b734e812-5445-44c4-9b5a-f1254f5d6d74/mzaf_4598191922943157189.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Bob Dylan",
     "album": "The Freewheelin\u2019 Bob Dylan",
     "year": "1963",
+    "coverSrc": "/bandcover/60er/bob-dylan-the-freewheelin-bob-dylan.jpg",
+    "spotify_link": "https://open.spotify.com/album/0o1uFxZ1VTviqvNaYkTJek",
+    "deezer_link": "https://www.deezer.com/album/6716152",
+    "apple_music_link": "https://music.apple.com/de/album/the-freewheelin-bob-dylan/190758914",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/86/db/13/86db13c7-3148-c3c3-13ef-d34aa8dd1b93/mzaf_7616061957856387732.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -8430,17 +8435,17 @@
           "trivia": "Bob Dylan, bekannt f\u00fcr seine tiefgr\u00fcndigen Texte und seine sozialkritische Haltung, nutzte w\u00e4hrend seiner Tourneen h\u00e4ufig Plakate mit politischen Botschaften, um die Themen seiner Songs aus 'The Freewheelin\u2019 Bob Dylan' zu unterstreichen. Diese visuelle Strategie diente nicht nur der Werbung f\u00fcr seine Konzerte, sondern war auch eine Art politischer Aktivismus. Die Verbindung von Musik und visueller Kunst verst\u00e4rkte die Wirkung seiner Lieder, die oft gesellschaftliche Missst\u00e4nde und den Drang nach Ver\u00e4nderung thematisierten. Insbesondere in der Folkbewegung der 1960er Jahre war diese Art der Pr\u00e4sentation von gro\u00dfer Bedeutung."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/bob-dylan-the-freewheelin-bob-dylan.jpg",
-    "spotify_link": "https://open.spotify.com/album/0o1uFxZ1VTviqvNaYkTJek",
-    "deezer_link": "https://www.deezer.com/album/6716152",
-    "apple_music_link": "https://music.apple.com/de/album/the-freewheelin-bob-dylan/190758914",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/86/db/13/86db13c7-3148-c3c3-13ef-d34aa8dd1b93/mzaf_7616061957856387732.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Kinks",
     "album": "Something Else by The Kinks",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/the-kinks-something-else-by-the-kinks.jpg",
+    "spotify_link": "https://open.spotify.com/album/65D4K5KKZqL4r0jxuaUR0M",
+    "deezer_link": "https://www.deezer.com/album/352735987",
+    "apple_music_link": "https://music.apple.com/de/album/something-else-by-the-kinks/1528512217",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/84/ce/a2/84cea2bd-c09a-bccc-18df-e2f88eeb61ce/mzaf_1425190315499365762.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -8547,17 +8552,17 @@
           "trivia": "Das Album 'Something Else by The Kinks', ver\u00f6ffentlicht im Jahr 1967, markierte einen Wendepunkt in der britischen Rockmusik, indem es sich von der vorherrschenden Beatmusik abwandte und komplexere Melodien sowie tiefgr\u00fcndige Texte einf\u00fchrte. Ray Davies, der Songwriter der Kinks, experimentierte mit gesellschaftskritischen Themen und musikalischen Stilen, was das Album zu einem Vorreiter f\u00fcr zuk\u00fcnftige Rock-Genres machte. Die Songs wie 'Waterloo Sunset' sind heute Klassiker, die nicht nur den Einfluss der Kinks auf die Rockmusik belegen, sondern auch die Entwicklung der britischen Musikszene im Allgemeinen pr\u00e4gen."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-kinks-something-else-by-the-kinks.jpg",
-    "spotify_link": "https://open.spotify.com/album/65D4K5KKZqL4r0jxuaUR0M",
-    "deezer_link": "https://www.deezer.com/artist/1415",
-    "apple_music_link": "https://music.apple.com/de/album/something-else-by-the-kinks/1528512217",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/84/ce/a2/84cea2bd-c09a-bccc-18df-e2f88eeb61ce/mzaf_1425190315499365762.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Beach Boys",
     "album": "Wild Honey",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/the-beach-boys-wild-honey.jpg",
+    "spotify_link": "https://open.spotify.com/album/01uTaEF0YlcBgNwaSS9iIl",
+    "deezer_link": "https://www.deezer.com/album/5909511",
+    "apple_music_link": "https://music.apple.com/de/album/wild-honey/1443213067",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/1a/be/e7/1abee728-4ba7-5532-f9d6-e2180ebdef5f/mzaf_11840960181270797037.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -8659,17 +8664,17 @@
           "trivia": "Brian Eno, der als einer der Pioniere der Ambient-Musik gilt, hat oft \u00fcber den Einfluss des Albums 'Wild Honey' von The Beach Boys gesprochen. Er sch\u00e4tzte die unkonventionelle Herangehensweise an die Produktion und die Harmonien, die das Album charakterisieren. Insbesondere die Mischung aus Pop und experimentellen Kl\u00e4ngen inspirierte ihn, neue Wege in seiner eigenen Musik zu gehen und den Rahmen traditioneller Genregrenzen zu erweitern."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-beach-boys-wild-honey.jpg",
-    "spotify_link": "https://open.spotify.com/album/01uTaEF0YlcBgNwaSS9iIl",
-    "deezer_link": "https://www.deezer.com/album/5909511",
-    "apple_music_link": "https://music.apple.com/de/album/wild-honey/1443213067",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/1a/be/e7/1abee728-4ba7-5532-f9d6-e2180ebdef5f/mzaf_11840960181270797037.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Miracles",
     "album": "Going to a Go-Go",
     "year": "1965",
+    "coverSrc": "/bandcover/60er/the-miracles-going-to-a-go-go.jpg",
+    "spotify_link": "https://open.spotify.com/album/2NT1Pc0MXlXORHLBkHyKQW",
+    "deezer_link": "https://www.deezer.com/album/79884722",
+    "apple_music_link": "https://music.apple.com/de/album/going-to-a-go-go/1469577666",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/39/fe/6c/39fe6c74-3b8d-1625-fe02-dc5bc3ce86dd/mzaf_7175233629387876020.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -8776,17 +8781,17 @@
           "trivia": "Das Album 'Going to a Go-Go' von The Miracles, ver\u00f6ffentlicht im Jahr 1965, gilt als wegweisend f\u00fcr den Motown-Sound, da es neue Produktionsans\u00e4tze und Arrangements einf\u00fchrte, die sp\u00e4ter von zahlreichen K\u00fcnstlern innerhalb und au\u00dferhalb des Motown-Labels \u00fcbernommen wurden. Die Kombination aus eing\u00e4ngigen Melodien und harmonischen Gesangseinlagen schuf einen charakteristischen Stil, der die Pop- und Soul-Musik dieser \u00c4ra pr\u00e4gte. Viele Songs des Albums, darunter der gleichnamige Titel, wurden zu Klassikern und trugen dazu bei, The Miracles als eine der f\u00fchrenden Gruppen der Motown-\u00c4ra zu etablieren."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-miracles-going-to-a-go-go.jpg",
-    "spotify_link": "https://open.spotify.com/album/2NT1Pc0MXlXORHLBkHyKQW",
-    "deezer_link": "https://www.deezer.com/album/79884722",
-    "apple_music_link": "https://music.apple.com/de/album/going-to-a-go-go/1469577666",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/39/fe/6c/39fe6c74-3b8d-1625-fe02-dc5bc3ce86dd/mzaf_7175233629387876020.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Diana Ross & The Supremes",
     "album": "Reflections",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/diana-ross-the-supremes_reflections-expanded-edition.jpg",
+    "spotify_link": "https://open.spotify.com/album/5Hihm4B5op6ktt8qP1AHKK",
+    "deezer_link": "https://www.deezer.com/album/96639162",
+    "apple_music_link": "https://music.apple.com/de/album/reflections/1442909810",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/18/aa/e2/18aae2b7-e4b4-04dd-aaed-10701bda934e/mzaf_17958164420112266394.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -8893,17 +8898,17 @@
           "trivia": "Die Produktionskosten f\u00fcr das Album 'Reflections' von Diana Ross & The Supremes betrugen sch\u00e4tzungsweise 100.000 US-Dollar. Dieser Betrag war f\u00fcr die damalige Zeit relativ hoch und spiegelt die gro\u00dfen Erwartungen wider, die an das Album gestellt wurden, da es als ein Wendepunkt in der Karriere der Gruppe galt. Mit Hits wie 'Reflections' und 'In and Out of Love' setzte das Album neue Ma\u00dfst\u00e4be im Motown-Sound und festigte den Status der Supremes als eine der f\u00fchrenden Girlgroups der 1960er Jahre."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/diana-ross-the-supremes-reflections.jpg",
-    "spotify_link": "https://open.spotify.com/album/5Hihm4B5op6ktt8qP1AHKK",
-    "deezer_link": "https://www.deezer.com/album/96639162",
-    "apple_music_link": "https://music.apple.com/de/artist/diana-ross-the-supremes/14150727",
-    "preview_link": null
+    }
   },
   {
     "artist": "The Monkees",
     "album": "More of The Monkees",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/the-monkees-more-of-the-monkees.jpg",
+    "spotify_link": "https://open.spotify.com/album/50zHjIiTOZM232gnWvOydX",
+    "deezer_link": "https://www.deezer.com/album/90089",
+    "apple_music_link": "https://music.apple.com/de/album/more-of-the-monkees-deluxe-edition/176079756",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/dc/26/ce/dc26ce73-8bde-df73-9b1b-8c8be18851b6/mzaf_17646206787622181587.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -9010,17 +9015,17 @@
           "trivia": "Das Album 'More of The Monkees', das 1967 ver\u00f6ffentlicht wurde, beinhaltete mehrere Songs von Neil Diamond, einem der prominentesten Songwriter der Zeit. Diamond schrieb unter anderem die Hits 'I'm a Believer' und 'A Little Bit Me, A Little Bit You', die beide zu den erfolgreichsten Singles der Monkees avancierten. Diese Zusammenarbeit trug ma\u00dfgeblich zum kometenhaften Aufstieg der Monkees in den 1960er Jahren bei und stellte eine interessante Verbindung zwischen verschiedenen Musikstilen und -k\u00fcnstlern her."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-monkees-more-of-the-monkees.jpg",
-    "spotify_link": "https://open.spotify.com/album/50zHjIiTOZM232gnWvOydX",
-    "deezer_link": "https://www.deezer.com/album/90089",
-    "apple_music_link": "https://music.apple.com/de/album/more-of-the-monkees-deluxe-edition/176079756",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/dc/26/ce/dc26ce73-8bde-df73-9b1b-8c8be18851b6/mzaf_17646206787622181587.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Rolling Stones",
     "album": "Between the Buttons",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/the-rolling-stones-between-the-buttons.jpg",
+    "spotify_link": "https://open.spotify.com/album/36BIYdP4WtviD9Ngqc4SK5",
+    "deezer_link": "https://www.deezer.com/album/910728",
+    "apple_music_link": "https://music.apple.com/de/album/between-the-buttons/1440717458",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/d6/8d/8b/d68d8b8f-d420-948d-64c5-149e6aec78ee/mzaf_10929618475622389487.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -9127,17 +9132,17 @@
           "trivia": "Das Album 'Between the Buttons' der Rolling Stones enth\u00e4lt Texte, die auf die Oberfl\u00e4chlichkeit der Konsumgesellschaft anspielen, was indirekt auf die Auswirkungen auf die Umwelt hinweist. In Songs wie 'Ruby Tuesday' wird eine Sehnsucht nach echtem, unverf\u00e4lschtem Leben und gegen den Materialismus ausgedr\u00fcckt. Diese Themen sind auch heute noch relevant, da sie die Diskussion \u00fcber nachhaltiges Leben und den verantwortungsvollen Umgang mit Ressourcen ansto\u00dfen."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-rolling-stones-between-the-buttons.jpg",
-    "spotify_link": "https://open.spotify.com/album/36BIYdP4WtviD9Ngqc4SK5",
-    "deezer_link": "https://www.deezer.com/album/910728",
-    "apple_music_link": "https://music.apple.com/de/album/between-the-buttons-uk/1440752258",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/36/ba/d4/36bad4f7-24d4-9fd1-dd0b-df8570c4328b/mzaf_3283529758276742197.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Mothers of Invention",
     "album": "We\u2019re Only in It for the Money",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/the-mothers-of-invention-were-only-in-it-for-the-money.jpg",
+    "spotify_link": "https://open.spotify.com/album/3u1f0ziKFCkqcHUQ0AldCU",
+    "deezer_link": "https://www.deezer.com/album/5818401",
+    "apple_music_link": "https://music.apple.com/de/album/were-only-in-it-for-the-money/1443746670",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/3d/00/4c/3d004c3e-57be-bca0-774f-302658533219/mzaf_13547259034730379911.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -9244,17 +9249,17 @@
           "trivia": "Das Album 'We\u2019re Only in It for the Money', ver\u00f6ffentlicht von The Mothers of Invention im Jahr 1968, ist eine scharfe Satire auf die Kommerzialisierung der Hippiekultur. Frank Zappa und seine Band nutzen humorvolle und oft provokante Texte, um die Heuchelei und den Materialismus der Gesellschaft zu entlarven. Musikalisch kombiniert das Album verschiedene Stile, darunter Rock, Jazz und Avantgarde, und schafft so eine komplexe Klanglandschaft, die die Themen der Entfremdung und des Konsumdenkens unterstreicht."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-mothers-of-invention-were-only-in-it-for-the-money.jpg",
-    "spotify_link": "https://open.spotify.com/artist/3P2gYnypDVi90ZavnaAhfL",
-    "deezer_link": "https://www.deezer.com/album/5818401",
-    "apple_music_link": "https://music.apple.com/de/album/were-only-in-it-for-the-money/1443746670",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/3d/00/4c/3d004c3e-57be-bca0-774f-302658533219/mzaf_13547259034730379911.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Otis Redding",
     "album": "The Dock of the Bay",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/otis-redding-the-dock-of-the-bay.jpg",
+    "spotify_link": "https://open.spotify.com/album/0kSkzG0sfuG4lRuFF5jWVr",
+    "deezer_link": "https://www.deezer.com/album/273467",
+    "apple_music_link": "https://music.apple.com/de/album/the-dock-of-the-bay/995809797",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/19/c2/53/19c2536b-1669-811e-bee3-d803d36724a5/mzaf_1523399449106868366.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -9361,17 +9366,17 @@
           "trivia": "Steve Cropper war nicht nur der Gitarrist der ber\u00fchmten Stax-Records-Band Booker T. & the MG's, sondern auch ein wesentlicher Produzent f\u00fcr das Album 'The Dock of the Bay' von Otis Redding. Cropper, der f\u00fcr seinen unverwechselbaren Gitarrenstil bekannt ist, half dabei, den einzigartigen Mix aus Soul, Blues und R&B zu kreieren, der das Album so besonders macht. Au\u00dferdem co-schreibt er den Titeltrack 'Sittin' On The Dock of the Bay', der posthum ein gro\u00dfer Hit wurde und bis heute als eines der besten Lieder der Musikgeschichte gilt."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/otis-redding-the-dock-of-the-bay.jpg",
-    "spotify_link": "https://open.spotify.com/album/03HMOcANauhLD0WNrMkmLU",
-    "deezer_link": "https://www.deezer.com/album/9214449",
-    "apple_music_link": "https://music.apple.com/de/album/the-dock-of-the-bay-mono/944799431",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/86/7b/b3/867bb3f2-271c-f5b5-4334-4fedbd2af89f/mzaf_15037903302791691256.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Four Tops",
     "album": "Reach Out",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/the-four-tops-reach-out.jpg",
+    "spotify_link": "https://open.spotify.com/album/4Jw0RycAqlXeAoymbc0CYp",
+    "deezer_link": "https://www.deezer.com/album/9148717",
+    "apple_music_link": "https://music.apple.com/de/album/reach-out/1443092485",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/55/01/1e/55011e94-c6da-bc7a-52ed-9742679b8073/mzaf_12406578786975030505.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -9478,17 +9483,17 @@
           "trivia": "Der Titel 'Reach Out' von The Four Tops spiegelt das zentrale Thema des Albums wider, das die Zuh\u00f6rer dazu anregen soll, emotionale Verbindungen zu anderen Menschen herzustellen und \u00fcber pers\u00f6nliche Erfahrungen zu reflektieren. Die Band, bekannt f\u00fcr ihren kraftvollen Gesang und eing\u00e4ngige Melodien, nutzt dieses Album, um ihre Botschaft von Liebe und Gemeinschaft zu verbreiten. Besonders der gleichnamige Song 'Reach Out I'll Be There' ist ein eindringlicher Aufruf an diejenigen in Not und betont die Bedeutung von Unterst\u00fctzung in schwierigen Zeiten."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-four-tops-reach-out.jpg",
-    "spotify_link": "https://open.spotify.com/artist/6Le2z313jMRXrlMXv2qXzE",
-    "deezer_link": null,
-    "apple_music_link": "https://music.apple.com/de/album/reach-out/1443092485",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/55/01/1e/55011e94-c6da-bc7a-52ed-9742679b8073/mzaf_12406578786975030505.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Sam Cooke",
     "album": "Ain\u2019t That Good News",
     "year": "1964",
+    "coverSrc": "/bandcover/60er/sam-cooke-aint-that-good-news.jpg",
+    "spotify_link": "https://open.spotify.com/album/4JtsHZBPAvCXNaXWOWV08j",
+    "deezer_link": "https://www.deezer.com/album/603417292",
+    "apple_music_link": "https://music.apple.com/de/album/aint-that-good-news/1440762537",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/32/44/41/32444102-25cb-51f2-9914-cc6404715dae/mzaf_18267110877849632612.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -9590,17 +9595,17 @@
           "trivia": "Der Song 'Change is Gonna Come' auf Sam Cookes Album 'Ain\u2019t That Good News' gilt als eine der kraftvollsten Hymnen der B\u00fcrgerrechtsbewegung. In seinen Texten versteckt Cooke Anspielungen auf die Herausforderungen und den Schmerz, den er als Afroamerikaner in den USA erlebte. Trotz der melancholischen Botschaft vermittelt der Song eine Botschaft der Hoffnung und des Wandels, was ihn zu einem zeitlosen Klassiker macht. Die Kombination aus einer eing\u00e4ngigen Melodie und tiefgr\u00fcndigen Texten zeigt die k\u00fcnstlerische Vielseitigkeit von Sam Cooke."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/sam-cooke-aint-that-good-news.jpg",
-    "spotify_link": "https://open.spotify.com/album/4JtsHZBPAvCXNaXWOWV08j",
-    "deezer_link": "https://www.deezer.com/album/603417292",
-    "apple_music_link": "https://music.apple.com/de/album/aint-that-good-news/1440762537",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/32/44/41/32444102-25cb-51f2-9914-cc6404715dae/mzaf_18267110877849632612.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Charles Mingus",
     "album": "Mingus Ah Um",
     "year": "1959 (Had a major influence in the 60s)",
+    "coverSrc": "/bandcover/60er/charles-mingus-mingus-ah-um.jpg",
+    "spotify_link": "https://open.spotify.com/album/7pojWP7x9uEFSJgw765khA",
+    "deezer_link": "https://www.deezer.com/album/6516035",
+    "apple_music_link": "https://music.apple.com/de/album/mingus-ah-um/636353127",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e2/7b/c6/e27bc6ee-3a6f-21d2-03ad-a2529c8f15dd/mzaf_5168934042265146836.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -9707,17 +9712,17 @@
           "trivia": "Das Album 'Mingus Ah Um' von Charles Mingus gilt als eines der wichtigsten Werke des Jazz und wurde von Zeitgenossen \u00fcberwiegend positiv aufgenommen. Kritiker hoben insbesondere die innovative Komposition und die gelungene Mischung aus verschiedenen musikalischen Stilen hervor, die Mingus einsetzte, um tiefere emotionale und soziale Themen zu behandeln. St\u00fccke wie 'Better Get Hit in Your Soul' und 'Fables of Faubus' zeugen von Mingus' F\u00e4higkeit, Jazz als Plattform f\u00fcr politische und gesellschaftliche Kommentare zu nutzen, was ihm viel Anerkennung in der Jazzszene der 1960er Jahre einbrachte."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/charles-mingus-mingus-ah-um.jpg",
-    "spotify_link": "https://open.spotify.com/album/7pojWP7x9uEFSJgw765khA",
-    "deezer_link": "https://www.deezer.com/album/6516035",
-    "apple_music_link": "https://music.apple.com/de/album/mingus-ah-um-bonus-track-version/282907091",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/2e/af/a8/2eafa8ab-353f-5936-5d33-99235c25db24/mzaf_349111701774221142.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Impressions",
     "album": "This Is My Country",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/the-impressions-this-is-my-country.jpg",
+    "spotify_link": "https://open.spotify.com/album/1kKPH6oqlh9iPP3uAQhb68",
+    "deezer_link": "https://www.deezer.com/album/89271",
+    "apple_music_link": "https://music.apple.com/de/album/this-is-my-country/111234124",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/02/09/0b/02090b3d-5a45-456d-f1c3-fe4d6854bc94/mzaf_12714982839126718395.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -9819,17 +9824,17 @@
           "trivia": "Das Album 'This Is My Country' von The Impressions gilt als eines der zentralen Werke des Soul-Genres und hat durch seine politischen und sozialen Themen die Musik der 1970er Jahre ma\u00dfgeblich beeinflusst. Lieder wie 'We're a Winner' und 'It's All Right' thematisieren den Kampf f\u00fcr B\u00fcrgerrechte und die Hoffnung auf eine bessere Zukunft. Die eing\u00e4ngigen Melodien und harmonischen Ges\u00e4nge setzten Ma\u00dfst\u00e4be, die viele K\u00fcnstler und Bands in den folgenden Jahrzehnten inspirierten, insbesondere innerhalb des R&B und Hip-Hop, wo gesellschaftliche Themen oft im Mittelpunkt stehen."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-impressions-this-is-my-country.jpg",
-    "spotify_link": "https://open.spotify.com/album/1kKPH6oqlh9iPP3uAQhb68",
-    "deezer_link": "https://www.deezer.com/album/89271",
-    "apple_music_link": "https://music.apple.com/de/album/this-is-my-country/111234124",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/02/09/0b/02090b3d-5a45-456d-f1c3-fe4d6854bc94/mzaf_12714982839126718395.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Ronettes",
     "album": "Presenting the Fabulous Ronettes",
     "year": "1964",
+    "coverSrc": "/bandcover/60er/the-ronettes-presenting-the-fabulous-ronettes.jpg",
+    "spotify_link": "https://open.spotify.com/album/0CoNLgOwcZGBUSwd9fAZuy",
+    "deezer_link": "https://www.deezer.com/album/8305234",
+    "apple_music_link": "https://music.apple.com/de/album/presenting-the-fabulous-ronettes-featuring-veronica/518081279",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/ac/df/c2/acdfc26e-ee1a-f560-1255-02f48be44c0f/mzaf_7645649355016290731.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -9936,17 +9941,17 @@
           "trivia": "Das Album 'Presenting the Fabulous Ronettes' von The Ronettes gilt als ein wegweisendes Werk des Phil Spector Sound, der die 1960er Jahre pr\u00e4gte. Die eindringliche, harmonische Gesangstechnik der Gruppe und die ausgekl\u00fcgelte Produktion beeinflussten zahlreiche britische Bands, darunter die Beatles und die Rolling Stones, die von der Energie und dem Stil der Ronettes fasziniert waren. Dies f\u00fchrte dazu, dass der Phil Spector Sound nicht nur in den USA, sondern auch international gro\u00dfen Anklang fand und die Entwicklung des Pop- und Rockgenres nachhaltig beeinflusste."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-ronettes-presenting-the-fabulous-ronettes.jpg",
-    "spotify_link": "https://open.spotify.com/album/0CoNLgOwcZGBUSwd9fAZuy",
-    "deezer_link": "https://www.deezer.com/album/8305234",
-    "apple_music_link": "https://music.apple.com/de/album/presenting-the-fabulous-ronettes-featuring-veronica/518081279",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/ac/df/c2/acdfc26e-ee1a-f560-1255-02f48be44c0f/mzaf_7645649355016290731.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Elvis Presley",
     "album": "Elvis is Back!",
     "year": "1960",
+    "coverSrc": "/bandcover/60er/elvis-presley-elvis-is-back.jpg",
+    "spotify_link": "https://open.spotify.com/album/2SBAAtgdyjgfTO1UMHnza1",
+    "deezer_link": "https://www.deezer.com/album/9301680",
+    "apple_music_link": "https://music.apple.com/de/album/elvis-is-back/948933421",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a3/2c/ab/a32cabae-be32-f024-5e6a-2224406e7000/mzaf_10902810829526303422.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -10048,17 +10053,17 @@
           "trivia": "Das Album 'Elvis is Back!' wurde 1960 ver\u00f6ffentlicht und markierte Elvis Presleys triumphanten R\u00fcckkehr zur Musikszene nach seiner Zeit im Milit\u00e4r. Es war das erste Studioalbum, das er nach seiner R\u00fcckkehr aufnahm, und es zeigte seine F\u00e4higkeit, sowohl Rock'n'Roll als auch Balladen zu meistern. Die Aufnahmen fanden in den RCA Studios in Nashville statt und beinhalteten Hits wie 'Are You Lonesome Tonight?' und 'It's Now or Never', die beide zu seinen gr\u00f6\u00dften Erfolgen z\u00e4hlen."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/elvis-presley-elvis-is-back.jpg",
-    "spotify_link": "https://open.spotify.com/album/2SBAAtgdyjgfTO1UMHnza1",
-    "deezer_link": "https://www.deezer.com/album/9301680",
-    "apple_music_link": "https://music.apple.com/de/album/elvis-is-back/948933421",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a3/2c/ab/a32cabae-be32-f024-5e6a-2224406e7000/mzaf_10902810829526303422.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Bee Gees",
     "album": "Bee Gees\u2019 1st",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/the-bee-gees-bee-gees-1st.jpg",
+    "spotify_link": "https://open.spotify.com/album/2ESenDgBlvBFn6G1SfVZIw",
+    "deezer_link": "https://www.deezer.com/album/14954501",
+    "apple_music_link": "https://music.apple.com/de/album/bee-gees-1st/1444082992",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9d/84/51/9d8451e4-5c78-46e0-a7c2-29fc0655046b/mzaf_8713261936473361898.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -10165,17 +10170,17 @@
           "trivia": "Das Album 'Bee Gees\u2019 1st' von The Bee Gees, das 1967 ver\u00f6ffentlicht wurde, hatte einen nachhaltigen Einfluss auf die Mode und Kultur der damaligen Zeit. Mit seinen bunten, psychedelischen Designs und dem unverwechselbaren Stil der Bandmitglieder pr\u00e4gte es das Erscheinungsbild vieler anderer Musikgruppen und trug zur Entwicklung einer neuen Popmusik-\u00c4sthetik bei. Die Bee Gees wurden nicht nur f\u00fcr ihre Musik, sondern auch f\u00fcr ihre ikonischen Outfits bekannt, die lange Haare und auff\u00e4llige Farben umfassten, was sie zu Trendsettern in der Musikszene machte."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-bee-gees-bee-gees-1st.jpg",
-    "spotify_link": "https://open.spotify.com/album/2ESenDgBlvBFn6G1SfVZIw",
-    "deezer_link": null,
-    "apple_music_link": "https://music.apple.com/de/album/bee-gees-1st/1444082992",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9d/84/51/9d8451e4-5c78-46e0-a7c2-29fc0655046b/mzaf_8713261936473361898.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "James Brown",
     "album": "Cold Sweat",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/james-brown-cold-sweat.jpg",
+    "spotify_link": "https://open.spotify.com/album/2PJm0LWNtuetLiTzLfIvHO",
+    "deezer_link": "https://www.deezer.com/album/2961671",
+    "apple_music_link": "https://music.apple.com/de/album/cold-sweat/1444039014",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/d7/f6/98/d7f69807-534a-d61b-05ad-a02268a15c91/mzaf_5529727450462496873.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -10282,17 +10287,17 @@
           "trivia": "Das Album 'Cold Sweat' von James Brown gilt als einer der zentralen Meilensteine des Funk-Genres. Besonders pr\u00e4gend ist der charakteristische, repetitive Groove, der sich in dem gleichnamigen Titeltrack zeigt und den Funk ma\u00dfgeblich beeinflusste. James Browns innovative Nutzung von Rhythmen und seine F\u00e4higkeit, musikalische Grenzen zu \u00fcberschreiten, haben dazu beigetragen, dass dieses Album als wegweisend f\u00fcr die Entwicklung des modernen Funk angesehen wird. 'Cold Sweat' markiert somit nicht nur einen H\u00f6hepunkt in Browns Karriere, sondern auch einen entscheidenden Moment in der Musikgeschichte des 20. Jahrhunderts."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/james-brown-cold-sweat.jpg",
-    "spotify_link": null,
-    "deezer_link": "https://www.deezer.com/album/70498482",
-    "apple_music_link": "https://music.apple.com/de/album/cold-sweat/1444039014",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/d7/f6/98/d7f69807-534a-d61b-05ad-a02268a15c91/mzaf_5529727450462496873.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Yardbirds",
     "album": "Having a Rave Up with The Yardbirds",
     "year": "1965",
+    "coverSrc": "/bandcover/60er/the-yardbirds-having-a-rave-up-with-the-yardbirds.jpg",
+    "spotify_link": "https://open.spotify.com/album/5SC92pfXSbQvZjgfk0oGno",
+    "deezer_link": null,
+    "apple_music_link": "https://music.apple.com/de/album/having-a-rave-up-with-the-yardbirds-2015-remaster/1512238072",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/f9/93/f4/f993f401-ad91-c276-f767-b54cc937bbca/mzaf_970137330548338853.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -10399,17 +10404,17 @@
           "trivia": "The Yardbirds setzten bei der Produktion ihres Albums 'Having a Rave Up with The Yardbirds' im Jahr 1965 auf die innovative Technik der Mehrspuraufnahme. Diese Methode erlaubte es ihnen, die verschiedenen Instrumente und Gesangsspuren getrennt aufzunehmen und dann zu einer einheitlichen Klanglandschaft zusammenzuf\u00fcgen. Durch diese Herangehensweise konnten sie ihren charakteristischen Sound, der von kraftvollen Gitarrenriffs und komplexen Harmonien gepr\u00e4gt ist, weiter verfeinern und so ihren Einfluss auf die Rockmusik festigen."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-yardbirds-having-a-rave-up-with-the-yardbirds.jpg",
-    "spotify_link": null,
-    "deezer_link": "https://www.deezer.com/artist/5494",
-    "apple_music_link": "https://music.apple.com/de/album/having-a-rave-up-with-the-yardbirds-2015-remaster/1512238072",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/f9/93/f4/f993f401-ad91-c276-f767-b54cc937bbca/mzaf_970137330548338853.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Lovin\u2019 Spoonful",
     "album": "Do You Believe in Magic",
     "year": "1965",
+    "coverSrc": "/bandcover/60er/the-lovin-spoonful-do-you-believe-in-magic.jpg",
+    "spotify_link": "https://open.spotify.com/album/5bx2ZHa0KUDMD5T0r9V030",
+    "deezer_link": "https://www.deezer.com/album/108410",
+    "apple_music_link": "https://music.apple.com/de/album/do-you-believe-in-magic/253682988",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ce/88/99/ce889989-863b-8e5d-05b6-31c3163ff2ad/mzaf_3471205269508848974.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -10511,17 +10516,17 @@
           "trivia": "John Sebastian war nicht nur der Leads\u00e4nger der Band The Lovin\u2019 Spoonful, sondern auch der Hauptsongwriter des Albums 'Do You Believe in Magic'. Der Song 'Younger Generation' reflektiert Sebastians einzigartige Mischung aus Folk- und Rock-Elementen, die das Album pr\u00e4gten und den Sound der 60er Jahre mitgestalteten. The Lovin\u2019 Spoonful erlangte gro\u00dfe Popularit\u00e4t durch ihre eing\u00e4ngigen Melodien und den unverwechselbaren Stil, der sie von anderen Bands der Zeit abhob."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-lovin-spoonful-do-you-believe-in-magic.jpg",
-    "spotify_link": null,
-    "deezer_link": "https://www.deezer.com/album/108410",
-    "apple_music_link": "https://music.apple.com/de/album/do-you-believe-in-magic/253682988",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ce/88/99/ce889989-863b-8e5d-05b6-31c3163ff2ad/mzaf_3471205269508848974.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "The Ventures",
     "album": "Walk, Don\u2019t Run",
     "year": "1960",
+    "coverSrc": "/bandcover/60er/the-ventures-walk-dont-run.jpg",
+    "spotify_link": "https://open.spotify.com/album/63nMHrHgu1xVuaWMT9eEap",
+    "deezer_link": "https://www.deezer.com/album/7589133",
+    "apple_music_link": "https://music.apple.com/de/album/walk-dont-run/1443065914",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/2e/44/62/2e446282-cd5c-7cb1-6754-272972674789/mzaf_6514535624206779229.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -10623,17 +10628,17 @@
           "trivia": "Das Album 'Walk, Don\u2019t Run' von The Ventures ist ein Meilenstein in der Geschichte des Surf-Rock und pr\u00e4gte die Musikszene der 1960er Jahre ma\u00dfgeblich. Die innovative Nutzung von E-Gitarren mit Hall-Effekten verlieh den Songs eine r\u00e4umliche Tiefe, die sowohl die damaligen Zuh\u00f6rer als auch nachfolgende Generationen faszinierte. Diese Technik trug dazu bei, den charakteristischen Klang des Surf-Rock zu etablieren und beeinflusste zahlreiche K\u00fcnstler weltweit, wodurch The Ventures eine Schl\u00fcsselrolle in der internationalen Musikszene einnahmen."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/the-ventures-walk-dont-run.jpg",
-    "spotify_link": null,
-    "deezer_link": "https://www.deezer.com/album/157963342",
-    "apple_music_link": "https://music.apple.com/de/album/walk-dont-run/1443065914",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/2e/44/62/2e446282-cd5c-7cb1-6754-272972674789/mzaf_6514535624206779229.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Johnny Cash",
     "album": "At San Quentin",
     "year": "1969",
+    "coverSrc": "/bandcover/60er/johnny-cash-at-san-quentin.jpg",
+    "spotify_link": "https://open.spotify.com/album/6bYqwLMVRQzwPQweVzCiry",
+    "deezer_link": "https://www.deezer.com/album/7452480",
+    "apple_music_link": "https://music.apple.com/de/album/at-san-quentin-legacy-edition-live/205706577",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/5f/d1/e6/5fd1e6c1-5ad0-57bf-8f7e-a009bf4d25f7/mzaf_12426866724517910635.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -10735,17 +10740,17 @@
           "trivia": "Auf 'At San Quentin', einem Live-Album von Johnny Cash aus dem Jahr 1969, thematisiert der K\u00fcnstler die brutalen und oft unmenschlichen Bedingungen, unter denen die Insassen leben. Durch seine direkte Ansprache und die kraftvollen Texte vermittelt Cash nicht nur die Verzweiflung der Gefangenen, sondern auch ihre Menschlichkeit und W\u00fcrde. Besonders bemerkenswert ist der Song 'San Quentin', in dem Cash seine Abneigung gegen das Gef\u00e4ngnis und das Justizsystem offenbart, was dem Album einen tiefen emotionalen Gehalt verleiht."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/johnny-cash-at-san-quentin.jpg",
-    "spotify_link": null,
-    "deezer_link": "https://www.deezer.com/album/1425788",
-    "apple_music_link": "https://music.apple.com/de/album/at-san-quentin-legacy-edition-live/205706577",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/5f/d1/e6/5fd1e6c1-5ad0-57bf-8f7e-a009bf4d25f7/mzaf_12426866724517910635.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Big Brother and the Holding Company",
     "album": "Cheap Thrills",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/big-brother-and-the-holding-company-cheap-thrills.jpg",
+    "spotify_link": "https://open.spotify.com/album/2rogKfOpmCFuqNhtGKf2dX",
+    "deezer_link": null,
+    "apple_music_link": "https://music.apple.com/de/album/cheap-thrills/203773381",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/72/90/44/7290442d-9a35-59f8-7d9a-7841c89b8d1d/mzaf_15337303910883833170.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -10852,17 +10857,17 @@
           "trivia": "Der Song 'Piece of My Heart' aus dem Album 'Cheap Thrills' von Big Brother and the Holding Company wurde in einer Werbekampagne eines bekannten Automobilunternehmens genutzt, um den Wunsch nach Freiheit und Abenteuer zu symbolisieren. Das Album, das 1968 ver\u00f6ffentlicht wurde, gilt als eines der einflussreichsten Werke der psychedelischen Rockmusik und zeigt die kraftvolle Stimme von Janis Joplin. Die Verwendung des Songs in der Werbung spiegelt die kulturelle Bedeutung und den Einfluss der 60er Jahre wider, in denen Rebellion und individuelle Freiheit im Vordergrund standen."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/big-brother-and-the-holding-company-cheap-thrills.jpg",
-    "spotify_link": null,
-    "deezer_link": "https://www.deezer.com/album/73094002",
-    "apple_music_link": "https://music.apple.com/de/album/cheap-thrills/203773381",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/72/90/44/7290442d-9a35-59f8-7d9a-7841c89b8d1d/mzaf_15337303910883833170.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Cream",
     "album": "Goodbye",
     "year": "1969",
+    "coverSrc": "/bandcover/60er/cream-goodbye.jpg",
+    "spotify_link": "https://open.spotify.com/album/2tVc8PhqDSRkpgiGOw7Ukb",
+    "deezer_link": "https://www.deezer.com/album/228395",
+    "apple_music_link": "https://music.apple.com/de/album/goodbye/1443256252",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/f0/6b/e0/f06be0e6-e039-453a-51cf-ce086c02da51/mzaf_1729728030375365797.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -10969,17 +10974,17 @@
           "trivia": "Das Album 'Goodbye' von Cream, einer der einflussreichsten britischen Rockbands der 1960er Jahre, ist bekannt f\u00fcr seine innovativen musikalischen Arrangements, insbesondere durch die Integration von jazzigen Improvisationen und Blues-Elementen. Diese Mischung spiegelt sich deutlich in Songs wie 'I'm So Glad' und 'Badge' wider, wo die virtuosen F\u00e4higkeiten der Bandmitglieder, insbesondere Eric Clapton's Gitarrenspiel und Jack Bruce's Gesang, zur Geltung kommen. Cream war bekannt daf\u00fcr, Rock mit anderen Musikstilen zu verbinden, was ihnen half, eine einzigartige Klanglandschaft zu schaffen, die bis heute bewundert wird."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/cream-goodbye.jpg",
-    "spotify_link": null,
-    "deezer_link": "https://www.deezer.com/album/119036362",
-    "apple_music_link": "https://music.apple.com/de/album/goodbye/1443256252",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/f0/6b/e0/f06be0e6-e039-453a-51cf-ce086c02da51/mzaf_1729728030375365797.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Simon & Garfunkel",
     "album": "Parsley, Sage, Rosemary and Thyme",
     "year": "1966",
+    "coverSrc": "/bandcover/60er/simon-garfunkel-parsley-sage-rosemary-and-thyme.jpg",
+    "spotify_link": "https://open.spotify.com/album/1sh32o99zA04PJIUJUpEj7",
+    "deezer_link": "https://www.deezer.com/album/99603212",
+    "apple_music_link": "https://music.apple.com/de/album/parsley-sage-rosemary-and-thyme/1467438660",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/33/02/f3/3302f3df-1628-7164-ddb6-15926fe8530a/mzaf_920927329158748996.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -11071,17 +11076,17 @@
           "trivia": "Das Album 'Parsley, Sage, Rosemary and Thyme' wurde 1966 von Simon & Garfunkel ver\u00f6ffentlicht und markiert einen wichtigen Wendepunkt in der Musikgeschichte. Es pr\u00e4sentiert eine vielschichtige Mischung aus Folk und Rock und behandelt Themen wie Liebe, Krieg und soziale Gerechtigkeit. Zu den bekanntesten Songs des Albums z\u00e4hlt 'Scarborough Fair/Canticle', der auf traditionellen englischen Melodien basiert und auch in der Popkultur weit verbreitet ist. Simon & Garfunkel haben mit diesem Werk nicht nur die Musikwelt gepr\u00e4gt, sondern auch einen bedeutenden Einfluss auf die gesellschaftlichen Bewegungen ihrer Zeit ausge\u00fcbt."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/simon-garfunkel-parsley-sage-rosemary-and-thyme.jpg",
-    "spotify_link": null,
-    "deezer_link": "https://www.deezer.com/album/99603212",
-    "apple_music_link": "https://music.apple.com/de/album/parsley-sage-rosemary-and-thyme/1467438660",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/33/02/f3/3302f3df-1628-7164-ddb6-15926fe8530a/mzaf_920927329158748996.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Sly and the Family Stone",
     "album": "Life",
     "year": "1968",
+    "coverSrc": "/bandcover/60er/sly-and-the-family-stone-life.jpg",
+    "spotify_link": "https://open.spotify.com/album/2fWTszgtsvzlCwCdb3Tpru",
+    "deezer_link": "https://www.deezer.com/album/71154",
+    "apple_music_link": "https://music.apple.com/de/album/life-bonus-tracks-edition-2007-remaster/212576561",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/94/10/00/94100002-8bee-ee53-eb9d-17db86196c40/mzaf_8618054681599263212.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -11188,17 +11193,17 @@
           "trivia": "Auf dem Album 'Life' nutzte Sly and the Family Stone die Multitrack-Recording-Technik, die es ihnen erm\u00f6glichte, verschiedene Instrumente und Stimmen getrennt aufzunehmen und anschlie\u00dfend zu mischen. Diese Methode half, den vielschichtigen und dynamischen Sound zu kreieren, der charakteristisch f\u00fcr ihre Musik ist. Die Kombination aus Funk, Rock und Soul wurde durch das geschickte Layering von Harmonien und Instrumentals verst\u00e4rkt, was das Album zu einem wichtigen Werk der sp\u00e4ten 60er Jahre machte."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/sly-and-the-family-stone-life.jpg",
-    "spotify_link": null,
-    "deezer_link": "https://www.deezer.com/album/71154",
-    "apple_music_link": "https://music.apple.com/de/album/life-bonus-tracks-edition-2007-remaster/212576561",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/94/10/00/94100002-8bee-ee53-eb9d-17db86196c40/mzaf_8618054681599263212.plus.aac.p.m4a"
+    }
   },
   {
     "artist": "Vanilla Fudge",
     "album": "Vanilla Fudge",
     "year": "1967",
+    "coverSrc": "/bandcover/60er/vanilla-fudge-vanilla-fudge.jpg",
+    "spotify_link": "https://open.spotify.com/album/4rvXyAx9phjxiU4cQS1AJh",
+    "deezer_link": "https://www.deezer.com/album/88918",
+    "apple_music_link": "https://music.apple.com/de/album/vanilla-fudge/78980146",
+    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/c2/ed/fc/c2edfca2-a3db-90de-6fd3-7c923e660ae8/mzaf_4866364124952026467.plus.aac.p.m4a",
     "questions": {
       "easy": [
         {
@@ -11295,11 +11300,6 @@
           "trivia": "Das Album 'Vanilla Fudge' von Vanilla Fudge gilt als eines der ersten, das die Mehrspuraufnahmetechniken in vollem Umfang nutzte, insbesondere Overdubbing, um eine reichhaltigere Klanglandschaft zu schaffen. Diese technologische Innovation erm\u00f6glichte es den K\u00fcnstlern, mehrere Instrumente und Gesangsspuren gleichzeitig aufzunehmen und zu bearbeiten, was zu einem komplexeren und vielschichtigeren Sound f\u00fchrte. Die Band, bekannt f\u00fcr ihre psychedelischen Interpretationen von Rock- und Pop-Songs, trug damit erheblich zur Evolution des Genres bei und beeinflusste zahlreiche nachfolgende Musiker."
         }
       ]
-    },
-    "coverSrc": "/bandcover/60er/vanilla-fudge-vanilla-fudge.jpg",
-    "spotify_link": null,
-    "deezer_link": "https://www.deezer.com/album/88918",
-    "apple_music_link": "https://music.apple.com/de/album/vanilla-fudge/78980146",
-    "preview_link": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/c2/ed/fc/c2edfca2-a3db-90de-6fd3-7c923e660ae8/mzaf_4866364124952026467.plus.aac.p.m4a"
+    }
   }
 ]
