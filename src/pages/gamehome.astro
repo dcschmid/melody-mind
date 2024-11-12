@@ -174,7 +174,7 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     font-size: var(--body-font-size);
     line-height: var(--line-height-body);
     color: var(--text-color);
-    background-color: var(--secondary-color);
+    background-color: var(--background-color);
     border: 2px solid var(--highlight-color);
     border-radius: var(--border-radius);
     transition: all var(--transition-speed);
@@ -199,7 +199,7 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     display: grid;
     gap: var(--padding-medium);
     width: 100%;
-    margin: 0 auto;
+        margin: 0 auto;
     padding: var(--padding-medium);
 
     grid-template-columns: repeat(
@@ -225,14 +225,14 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
   }
 
   .playlistLink {
+    width: 100px;
     text-decoration: none;
     color: inherit;
     display: block;
     width: 100%;
     transition: transform var(--transition-speed) ease;
-    position: relative; // Für den Fokus-Effekt
+    position: relative;
 
-    // Fokus-Styles
     &:focus-visible {
       outline: none;
       transform: translateY(-2px);
@@ -247,12 +247,10 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
       }
     }
 
-    // Hover-Effekte nur für nicht-deaktivierte Items
     &:not([aria-disabled="true"]):hover {
       transform: translateY(-2px);
     }
 
-    // Deaktivierte Items
     &[aria-disabled="true"] {
       cursor: not-allowed;
       opacity: var(--opacity-disabled);
@@ -261,6 +259,15 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     @media (prefers-reduced-motion: reduce) {
       transition: none;
     }
+  }
+
+  // Add styles for the "No results" message
+  .no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-color);
+    font-size: var(--body-font-size);
+    padding: var(--padding-medium);
   }
 </style>
 

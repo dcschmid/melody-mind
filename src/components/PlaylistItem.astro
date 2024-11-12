@@ -42,7 +42,9 @@ import { Picture } from "astro:assets";
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    transition: transform var(--transition-speed) ease-in-out;
+    transition:
+      transform var(--transition-speed) ease-in-out,
+      box-shadow var(--transition-speed) ease-in-out;
     min-height: var(--min-touch-target);
 
     &:hover:not([aria-disabled="true"]) {
@@ -52,14 +54,16 @@ import { Picture } from "astro:assets";
 
     &[aria-disabled="true"] {
       cursor: not-allowed;
+      opacity: var(--opacity-disabled);
     }
 
     @media screen and (min-width: 48em) {
       width: var(--size-playlist-large);
     }
 
-    &:focus {
-      outline: none;
+    &:focus-visible {
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -90,7 +94,7 @@ import { Picture } from "astro:assets";
     font-family: var(--font-family);
     font-size: var(--body-font-size);
     line-height: var(--line-height-body);
-    color: var(--secondary-color);
+    color: var(--button-text-color);
     text-align: center;
     background-color: var(--color-overlay);
     border-radius: var(--border-radius);
@@ -106,5 +110,17 @@ import { Picture } from "astro:assets";
     color: var(--text-color);
     overflow-wrap: break-word;
     max-width: var(--max-line-length);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
   }
 </style>

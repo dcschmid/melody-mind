@@ -71,123 +71,108 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- Generator -->
     <meta name="generator" content={Astro.generator} />
 
-    <!-- JSON-LD strukturierte Daten -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Melody Mind",
-        "description": ${description},
-        "url": ${canonicalURL},
-        "applicationCategory": "Game",
-        "operatingSystem": "Web Browser",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "EUR"
-        }
-      }
-    </script>
+    <meta name="color-scheme" content="light dark" />
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+
     <When test1={showHeader}>
-      <header>
-        <div class="slot left">
-          <button
-            class="icon-button"
-            onclick="window.location.href='/gamehome'"
-            aria-label="Zur Startseite"
-          >
-            <Icon name="home" width={24} height={22.24} aria-hidden="true" />
-            <span class="sr-only">Startseite</span>
-          </button>
-          <When test={showHeaderIcons}>
-            <button
-              class="icon-button"
-              onclick="window.location.href='/spielregeln'"
-              aria-label="Spielregeln anzeigen"
-            >
-              <Icon
-                name="question"
-                width={24}
-                height={22.24}
-                aria-hidden="true"
-              />
-              <span class="sr-only">Spielregeln</span>
-            </button>
-            <button
-              class="icon-button"
-              onclick="window.location.href='/highscores'"
-              aria-label="Bestenliste anzeigen"
-            >
-              <Icon name="trophy" width={24} height={24} aria-hidden="true" />
-              <span class="sr-only">Bestenliste</span>
-            </button>
-          </When>
-          <slot name="left-headercol" />
-        </div>
-        <div class="slot right">
-          <When test={showHeaderIcons}>
-            <button
-              class="icon-button"
-              onclick="window.location.href='/user'"
-              aria-label="Benutzerprofil"
-            >
-              <Icon name="user" width={24} height={24} aria-hidden="true" />
-              <span class="sr-only">Profil</span>
-            </button>
-            <form method="post" action="/api/logout">
-              <button class="icon-button" aria-label="Abmelden">
-                <Icon name="logout" width={24} height={24} aria-hidden="true" />
-                <span class="sr-only">Abmelden</span>
-              </button>
-            </form>
-          </When>
-        </div>
+      <header role="banner">
+        <nav aria-label="Hauptnavigation">
+          <div class="slot left">
+            <a href="/gamehome" class="icon-button" aria-label="Zur Startseite">
+              <Icon name="home" width={24} height={22.24} aria-hidden="true" />
+              <span class="sr-only">Startseite</span>
+            </a>
+            <When test={showHeaderIcons}>
+              <a
+                href="/spielregeln"
+                class="icon-button"
+                aria-label="Spielregeln anzeigen"
+              >
+                <Icon
+                  name="question"
+                  width={24}
+                  height={22.24}
+                  aria-hidden="true"
+                />
+                <span class="sr-only">Spielregeln</span>
+              </a>
+              <a
+                href="/highscores"
+                class="icon-button"
+                aria-label="Bestenliste anzeigen"
+              >
+                <Icon name="trophy" width={24} height={24} aria-hidden="true" />
+                <span class="sr-only">Bestenliste</span>
+              </a>
+            </When>
+            <slot name="left-headercol" />
+          </div>
+          <div class="slot right">
+            <When test={showHeaderIcons}>
+              <a href="/user" class="icon-button" aria-label="Benutzerprofil">
+                <Icon name="user" width={24} height={24} aria-hidden="true" />
+                <span class="sr-only">Profil</span>
+              </a>
+              <form method="post" action="/api/logout">
+                <button class="icon-button" type="submit" aria-label="Abmelden">
+                  <Icon
+                    name="logout"
+                    width={24}
+                    height={24}
+                    aria-hidden="true"
+                  />
+                  <span class="sr-only">Abmelden</span>
+                </button>
+              </form>
+            </When>
+          </div>
+        </nav>
       </header>
     </When>
 
-    <main>
+    <main id="main-content">
       <slot />
     </main>
 
     <style lang="scss" is:global>
       :root {
-        /* Farben mit verbessertem Kontrast */
-        --secondary-color: #e1e1f0;
-        --highlight-color: #e6b800;
-        --background-color: #a0a4c5;
+        /* Light mode colors (WCAG AAA compliant) */
+        --secondary-color: #e6f2ff;
+        --highlight-color: #005a9e;
+        --background-color: #ffffff;
         --text-color: #1a1a1a;
-        --error-color: #d94f2b;
-        --button-hover-color: #cc9900;
-        --button-text-color: #000000;
+        --error-color: #d32f2f;
+        --button-hover-color: #004075;
+        --button-text-color: #ffffff;
 
-        /* Fokus-Indikatoren */
-        --focus-outline-color: #005fcc;
+        /* Focus indicators */
+        --focus-outline-color: #0056b3;
         --focus-outline-width: 3px;
         --focus-outline-offset: 2px;
 
         /* Schrift */
         --font-family: "Source Sans Pro", system-ui, sans-serif;
-        --header-font-size: clamp(1.25rem, 2vw, 1.5rem);
-        --body-font-size: clamp(1rem, 1.5vw, 1.125rem);
-        --button-font-size: clamp(0.875rem, 1.25vw, 1rem);
+        --header-font-size: clamp(1.5rem, 2vw, 2rem);
+        --body-font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+        --button-font-size: clamp(1rem, 1.25vw, 1.125rem);
 
         /* Größen und Abstände */
-        --padding-small: max(8px, 0.5rem);
-        --padding-medium: max(16px, 1rem);
-        --padding-large: max(32px, 2rem);
-        --border-radius: 12px;
+        --padding-small: max(10px, 0.625rem);
+        --padding-medium: max(20px, 1.25rem);
+        --padding-large: max(40px, 2.5rem);
+        --border-radius: 8px;
 
         /* Interaktive Elemente */
-        --min-touch-target: 44px;
-        --box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
-        --transition-speed: 0.2s;
+        --min-touch-target: 48px;
+        --box-shadow: 0 4px 8px rgb(0 0 0 / 25%);
+        --transition-speed: 0.3s;
 
         /* Zusätzliche Barrierefreiheits-Variablen */
-        --line-height-body: 1.6;
+        --line-height-body: 1.8;
         --max-line-length: 70ch;
-        --spacing-text: 0.05em;
+        --spacing-text: 0.08em;
 
         /* Größen */
         --size-playlist-small: 7.438rem;
@@ -203,6 +188,23 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         --layer-above: 2;
       }
 
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* Dark mode colors (WCAG AAA compliant) */
+
+          --secondary-color: #1e3a5f;
+          --highlight-color: #79c0ff;
+          --background-color: #0d1117;
+          --text-color: #f0f6fc;
+          --error-color: #ff8080;
+          --button-hover-color: #58a6ff;
+          --button-text-color: #0d1117;
+
+          /* Adjust focus outline for better visibility in dark mode */
+          --focus-outline-color: #58a6ff;
+        }
+      }
+
       html {
         box-sizing: border-box;
         margin: var(--padding-small);
@@ -214,6 +216,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       *::before,
       *::after {
         box-sizing: inherit;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
       }
 
       body {
@@ -230,15 +241,50 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         background-color: var(--background-color);
       }
 
+      .skip-link {
+        position: absolute;
+        top: -100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--highlight-color);
+        color: var(--button-text-color);
+        padding: var(--padding-small) var(--padding-medium);
+        font-size: var(--button-font-size);
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+        box-shadow: var(--box-shadow);
+        z-index: 1000;
+        transition: top var(--transition-speed);
+
+        &:focus {
+          top: 0;
+          outline: var(--focus-outline-width) solid var(--focus-outline-color);
+          outline-offset: var(--focus-outline-offset);
+        }
+
+        &:hover {
+          background-color: var(--button-hover-color);
+        }
+      } /* ... (rest of the CSS) */
+
       header {
+        border-radius: var(--border-radius);
+        margin-bottom: var(--padding-medium);
+      }
+
+      nav {
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
+        max-width: var(--max-line-length);
+        margin: 0 auto;
+        padding: 0 var(--padding-medium);
       }
 
       .slot {
         display: flex;
-        gap: var(--padding-small);
+        gap: var(--padding-medium);
         align-items: center;
       }
 
@@ -271,22 +317,34 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
 
       .icon-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         min-width: var(--min-touch-target);
         min-height: var(--min-touch-target);
         background-color: var(--highlight-color);
+        color: var(--button-text-color);
         border-radius: var(--border-radius);
         padding: var(--padding-small);
         box-shadow: var(--box-shadow);
         transition: all var(--transition-speed);
+        text-decoration: none;
 
-        &:hover {
+        &:hover,
+        &:focus {
           background-color: var(--button-hover-color);
-          transform: scale(1.05);
+          transform: translateY(-2px);
         }
 
         &:focus-visible {
           outline: var(--focus-outline-width) solid var(--focus-outline-color);
           outline-offset: var(--focus-outline-offset);
+          transform: none;
+        }
+
+        [astro-icon] {
+          width: 24px;
+          height: 24px;
         }
       }
 
