@@ -11,7 +11,7 @@ import { When } from "@astropub/flow";
 import { Picture } from "astro:assets";
 ---
 
-<article class="playlistItem" aria-disabled={isDisabled} role="listitem">
+<article class="playlistItem" role="listitem">
   <When test={isDisabled}>
     <div
       class="disabled"
@@ -22,74 +22,64 @@ import { Picture } from "astro:assets";
       Demnächst verfügbar
     </div>
   </When>
-  <Picture
-    class:list={["cover", { coverDisabled: isDisabled }]}
-    src={image}
-    width={130}
-    height={130}
-    formats={["avif", "webp"]}
-    alt={`Cover-Bild für ${headline}`}
-    loading="lazy"
-  />
+  <div class="imageWrapper">
+    <Picture
+      class:list={["cover", { coverDisabled: isDisabled }]}
+      src={image}
+      width={130}
+      height={130}
+      formats={["avif", "webp"]}
+      alt={`Cover-Bild für ${headline}`}
+      loading="lazy"
+    />
+  </div>
   <h2 class="headline">{headline}</h2>
 </article>
 
 <style lang="scss">
   .playlistItem {
     position: relative;
-    width: var(--size-playlist-small);
-    padding: var(--padding-small);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition:
-      transform var(--transition-speed) ease-in-out,
-      box-shadow var(--transition-speed) ease-in-out;
-    min-height: var(--min-touch-target);
-
-    &:hover:not([aria-disabled="true"]) {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 15px rgb(0 0 0 / 25%);
-    }
-
-    &[aria-disabled="true"] {
-      cursor: not-allowed;
-      opacity: var(--opacity-disabled);
-    }
-
-    @media screen and (min-width: 48em) {
-      width: var(--size-playlist-large);
-    }
-
-    &:focus-visible {
-      outline: var(--focus-outline-width) solid var(--focus-outline-color);
-      outline-offset: var(--focus-outline-offset);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      transition: none;
-    }
-  }
-
-  .cover {
-    width: 100%;
-    height: auto;
-    border-radius: var(--border-radius);
+    overflow: hidden;
     transition: opacity var(--transition-speed) ease-in-out;
 
-    &.coverDisabled {
+    &[aria-disabled="true"] {
       opacity: var(--opacity-disabled);
       filter: grayscale(50%);
     }
   }
 
+  .imageWrapper {
+    width: 100%;
+    padding-top: 100%; // 1:1 Aspect Ratio
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .disabled {
     position: absolute;
     z-index: var(--layer-above);
-    top: 50%;
+    top: 0;
     left: 0;
     right: 0;
-    transform: translateY(-50%);
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: var(--padding-small);
     font-family: var(--font-family);
     font-size: var(--body-font-size);
@@ -97,19 +87,20 @@ import { Picture } from "astro:assets";
     color: var(--button-text-color);
     text-align: center;
     background-color: var(--color-overlay);
-    border-radius: var(--border-radius);
     letter-spacing: var(--spacing-text);
   }
 
   .headline {
-    margin-top: var(--padding-small);
+    padding: var(--padding-small);
+    margin: 0;
     font-family: var(--font-family);
     font-size: var(--body-font-size);
     font-weight: 600;
     line-height: var(--line-height-body);
     color: var(--text-color);
     overflow-wrap: break-word;
-    max-width: var(--max-line-length);
+    text-align: center;
+    hyphens: auto;
   }
 
   .sr-only {

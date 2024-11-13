@@ -98,7 +98,7 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
                 </When>
 
                 <When test={!item.isPlayable}>
-                  <div class="playlistItem">
+                  <div class="playlistItem" aria-disabled="true">
                     <PlaylistItem
                       isDisabled={true}
                       headline={item.headline}
@@ -131,6 +131,9 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     padding: var(--padding-medium);
     max-width: var(--max-line-length);
     margin: 0 auto;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   .introSection {
@@ -140,18 +143,25 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     align-items: center;
     margin-bottom: var(--padding-large);
     text-align: center;
+    padding: var(--padding-large);
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
   }
 
   .headline {
     font-family: var(--font-family);
     font-size: var(--header-font-size);
-    line-height: var(--line-height-body);
+    line-height: 1.2;
     font-weight: 900;
     color: var(--text-color);
+    margin-bottom: var(--padding-small);
   }
 
   .name {
     color: var(--highlight-color);
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
   }
 
   .subline {
@@ -160,6 +170,7 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     line-height: var(--line-height-body);
     letter-spacing: var(--spacing-text);
     max-width: 768px;
+    color: var(--text-color);
   }
 
   .searchWrapper {
@@ -169,7 +180,7 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
   .filterInput {
     width: 100%;
     max-width: 1024px;
-    padding: var(--padding-small);
+    padding: var(--padding-small) var(--padding-medium);
     font-family: var(--font-family);
     font-size: var(--body-font-size);
     line-height: var(--line-height-body);
@@ -178,6 +189,7 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     border: 2px solid var(--highlight-color);
     border-radius: var(--border-radius);
     transition: all var(--transition-speed);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
     &::placeholder {
       color: var(--text-color);
@@ -185,8 +197,8 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     }
 
     &:focus {
-      outline: var(--focus-outline-width) solid var(--focus-outline-color);
-      outline-offset: var(--focus-outline-offset);
+      outline: none;
+      box-shadow: 0 0 0 3px var(--focus-outline-color);
       border-color: var(--highlight-color);
     }
 
@@ -202,58 +214,66 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     margin: 0 auto;
     padding: var(--padding-medium);
 
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(
-        clamp(
-          var(--size-playlist-small),
-          calc(100% / 4),
-          var(--size-playlist-large)
-        ),
-        1fr
-      )
-    );
+    grid-template-columns: repeat(2, 1fr);
+
+    // Für Tablets (3 Spalten)
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
 
     justify-content: center;
-    justify-items: center;
-    align-items: start;
-
-    // Optionale Container-Queries wenn unterstützt
-    @container (min-width: 50em) {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
+    align-items: stretch;
   }
 
-  .playlistLink {
-    width: 100px;
+  .playlistLink,
+  .playlistItem {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     text-decoration: none;
     color: inherit;
-    display: block;
-    width: 100%;
-    transition: transform var(--transition-speed) ease;
+    transition:
+      transform var(--transition-speed) ease,
+      box-shadow var(--transition-speed) ease;
     position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--secondary-color);
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
+    }
+
+    .headline {
+      padding: var(--padding-small);
+      text-align: center;
+      font-weight: bold;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+    }
 
     &:focus-visible {
       outline: none;
+      box-shadow:
+        0 0 0 3px var(--focus-outline-color),
+        0 4px 8px rgba(0, 0, 0, 0.2);
       transform: translateY(-2px);
-
-      &::after {
-        content: "";
-        position: absolute;
-        inset: -4px;
-        border: var(--focus-outline-width) solid var(--focus-outline-color);
-        border-radius: calc(var(--border-radius) + 4px);
-        pointer-events: none;
-      }
     }
 
     &:not([aria-disabled="true"]):hover {
       transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     &[aria-disabled="true"] {
       cursor: not-allowed;
       opacity: var(--opacity-disabled);
+      filter: grayscale(50%);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -261,13 +281,15 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     }
   }
 
-  // Add styles for the "No results" message
   .no-results {
     grid-column: 1 / -1;
     text-align: center;
     color: var(--text-color);
     font-size: var(--body-font-size);
     padding: var(--padding-medium);
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 </style>
 
