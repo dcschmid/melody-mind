@@ -58,10 +58,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="twitter:image" content={new URL(image, Astro.site)} />
 
     <!-- Favicons -->
-    <link rel="icon" type="image/png" href="/favicon-96x96.png?v=2" sizes="96x96" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/favicon-96x96.png?v=2"
+      sizes="96x96"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
     <link rel="shortcut icon" href="/favicon.ico?v=2" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-touch-icon.png?v=2"
+    />
     <meta name="apple-mobile-web-app-title" content="Melody Mind" />
     <link rel="manifest" href="/site.webmanifest" />
 
@@ -228,7 +237,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         width: 100%;
         max-width: 768px;
         margin: 0 auto;
-        padding: 0 var(--padding-medium);
+        padding: 0 var(--padding-small);
 
         font-size: var(--body-font-size);
         line-height: var(--line-height-body);
@@ -236,6 +245,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         color: var(--text-color);
 
         background-color: var(--background-color);
+
+        @media (min-width: 768px) {
+          max-width: 768px;
+          padding: 0 var(--padding-medium);
+        }
       }
 
       .skip-link {
@@ -263,34 +277,49 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         &:hover {
           background-color: var(--button-hover-color);
         }
-      } /* ... (rest of the CSS) */
+      }
 
       header {
         border-radius: var(--border-radius);
         margin-bottom: var(--padding-medium);
+
+        @media (min-width: 768px) {
+          padding: var(--padding-medium);
+        }
       }
 
       nav {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
-        max-width: var(--max-line-length);
-        margin: 0 auto;
+        gap: var(--padding-small);
+
+        @media (min-width: 768px) {
+          flex-wrap: nowrap;
+        }
       }
 
       .slot {
         display: flex;
-        gap: var(--padding-medium);
+        gap: var(--padding-small);
         align-items: center;
       }
 
       .slot.left,
       .slot.right {
         flex: 1;
+        justify-content: center;
+
+        @media (min-width: 768px) {
+          justify-content: flex-start;
+        }
       }
 
       .slot.right {
-        justify-content: flex-end;
+        @media (min-width: 768px) {
+          justify-content: flex-end;
+        }
       }
 
       .logo {
@@ -349,8 +378,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         font-size: var(--body-font-size);
         line-height: 1.6;
         color: var(--text-color);
-        max-width: var(--max-line-length);
+        max-width: 100%;
         margin: 0 auto;
+
+        @media (min-width: 768px) {
+          max-width: var(--max-line-length);
+        }
       }
 
       .hasMargin {
@@ -432,6 +465,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           --button-hover-color: #000000;
         }
       }
+
+      @media (max-width: 767px) {
+        :root {
+          --padding-small: max(8px, 0.5rem);
+          --padding-medium: max(16px, 1rem);
+          --padding-large: max(32px, 2rem);
+          --body-font-size: 1rem;
+          --button-font-size: 0.875rem;
+        }
+      }
     </style>
+    <script src="https://cdn.usefathom.com/script.js" data-site="RKHOWTTO" defer
+    ></script>
   </body>
 </html>
