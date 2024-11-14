@@ -60,10 +60,10 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     </section>
 
     <section class="playlistSection" aria-labelledby="playlist-heading">
-      <h2 id="playlist-heading" class="visually-hidden">Genre Auswahl</h2>
+      <h2 id="playlist-heading" class="sr-only">Genre Auswahl</h2>
 
       <div class="searchWrapper">
-        <label for="filter-input" class="visually-hidden">
+        <label for="filter-input" class="sr-only">
           Suche nach einem Genre
         </label>
         <input
@@ -116,17 +116,6 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 </Layout>
 
 <style lang="scss">
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-  }
-
   .gameHome {
     padding: var(--padding-medium);
     max-width: var(--max-line-length);
