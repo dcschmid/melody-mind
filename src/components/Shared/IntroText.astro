@@ -2,8 +2,8 @@
 interface Props {
   headline: string;
   subline?: string;
-  level?: 1 | 2 | 3; // Für verschiedene Heading-Level
-  headingId?: string; // Für explizite IDs
+  level?: 1 | 2 | 3;
+  headingId?: string;
 }
 
 const {
@@ -13,7 +13,6 @@ const {
   headingId = "intro-heading",
 } = Astro.props;
 
-// Dynamisches Heading-Element basierend auf level
 const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
 ---
 
@@ -43,7 +42,6 @@ const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
     margin-inline: auto;
     margin-block-end: var(--padding-large);
     padding-inline: var(--padding-medium);
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,12 +68,9 @@ const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
     text-transform: uppercase;
     max-width: var(--max-line-length);
     margin: 0;
-
-    // Verbesserte Lesbarkeit
-    text-wrap: balance; // Für Browser die es unterstützen
+    text-wrap: balance;
     hyphens: auto;
 
-    // Responsive Anpassungen
     @media (max-width: 768px) {
       font-size: calc(var(--header-font-size) * 0.85);
     }
@@ -84,41 +79,33 @@ const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
       font-size: calc(var(--header-font-size) * 0.75);
     }
 
-    // Verbesserte Kontrastverhältnisse (WCAG AAA)
     @media (prefers-color-scheme: dark) {
       --minimum-contrast: 7;
       color: var(--text-color);
-      text-shadow: none; // Entfernt Schatten für bessere Lesbarkeit
+      text-shadow: none;
     }
 
-    // Verbesserte Zeilenabstände für bessere Lesbarkeit
-    line-height: 1.5;
-    margin-block: 0.5em;
+    @media (prefers-reduced-motion: no-preference) {
+      will-change: transform, opacity;
+    }
   }
 
   .subline {
     font-family: var(--font-family);
-    font-size: var(--body-font-size);
-    line-height: var(--line-height-body);
+    font-size: clamp(1.2rem, var(--body-font-size), 2rem);
+    line-height: 1.8;
     letter-spacing: var(--spacing-text);
     color: var(--text-color);
     max-width: min(30rem, 90%);
     margin: 0;
-
-    // Verbesserte Kontrastverhältnisse (WCAG AAA)
-    opacity: 1; // Volle Opazität für maximalen Kontrast
-
-    // Größerer Zeilenabstand für bessere Lesbarkeit
-    line-height: 1.8;
-
-    // Mindestgröße für Text (WCAG AAA)
-    font-size: max(1.2rem, var(--body-font-size));
+    opacity: 1;
   }
 
   @keyframes fadeIn {
     from {
       opacity: 0;
       transform: translateY(1rem);
+      will-change: transform, opacity;
     }
     to {
       opacity: 1;
@@ -126,16 +113,6 @@ const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
     }
   }
 
-  // Verbesserte Fokus-Styles
-  .introSection:focus-within,
-  .headline:focus,
-  .subline:focus {
-    outline: 3px solid var(--focus-outline-color);
-    outline-offset: 4px;
-    border-radius: 4px;
-  }
-
-  // Reduzierte Bewegung
   @media (prefers-reduced-motion: reduce) {
     .introSection {
       animation: none;
@@ -143,7 +120,6 @@ const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
     }
   }
 
-  // Hoher Kontrast Modus
   @media (forced-colors: active) {
     .headline,
     .subline {
@@ -152,7 +128,6 @@ const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
     }
   }
 
-  // Vergrößerte Texte unterstützen
   @media (max-width: 768px) {
     .headline {
       font-size: max(1.8rem, var(--header-font-size));
