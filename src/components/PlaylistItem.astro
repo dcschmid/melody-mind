@@ -3,9 +3,10 @@ interface Props {
   headline: string;
   image?: any;
   isDisabled?: boolean;
+  imageAlt?: string;
 }
 
-const { headline = "", image, isDisabled = false } = Astro.props;
+const { headline = "", image, isDisabled = false, imageAlt = "" } = Astro.props;
 
 import { When } from "@astropub/flow";
 import { Picture } from "astro:assets";
@@ -29,7 +30,7 @@ import { Picture } from "astro:assets";
       width={130}
       height={130}
       formats={["avif", "webp"]}
-      alt={`Cover-Bild für ${headline}`}
+      alt={imageAlt}
       loading="lazy"
     />
   </div>

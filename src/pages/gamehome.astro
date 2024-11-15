@@ -4,6 +4,7 @@ import { When } from "@astropub/flow";
 import PlaylistItem from "@components/PlaylistItem.astro";
 import Layout from "@layouts/Layout.astro";
 import categoriesList from "@json/categories.json";
+import IntroText from "@components/Shared/IntroText.astro";
 
 /**
  * Get the user object from the Astro context
@@ -51,13 +52,12 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 ---
 
 <Layout title="Spiel Kategorien">
-  <main class="gameHome">
-    <section class="introSection" aria-labelledby="welcome-heading">
-      <h1 class="headline" id="welcome-heading">
-        Willkommen <span class="name">{user?.username ?? "Mika"}</span>!
-      </h1>
-      <p class="subline">Wähle hier ein Genre aus, das du spielen möchtest!</p>
-    </section>
+  <main class="gameHome" id="main-content">
+    <IntroText
+      headline={`Willkommen ${user?.username ?? "Mika"}`}
+      subline="Wähle hier ein Genre aus, das du spielen möchtest!"
+      headingId="welcome-heading"
+    />
 
     <section class="playlistSection" aria-labelledby="playlist-heading">
       <h2 id="playlist-heading" class="sr-only">Genre Auswahl</h2>
@@ -72,10 +72,16 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
           id="filter-input"
           placeholder="Suche nach einem Genre"
           aria-label="Filterung der Genre-Liste"
+          aria-controls="playlist-grid"
+          aria-describedby="search-description"
         />
+        <span id="search-description" class="sr-only">
+          Die Liste wird während der Eingabe automatisch gefiltert
+        </span>
       </div>
 
       <div
+        id="playlist-grid"
         class="playlistGrid"
         role="list"
         aria-label="Liste der verfügbaren Genre"
@@ -85,26 +91,19 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
             categories.map((item) => (
               <>
                 <When test={item.isPlayable}>
-                  <a
-                    href={item.categoryUrl}
-                    class="playlistLink"
-                    aria-label={`Spiele ${item.headline}`}
-                  >
-                    <PlaylistItem
-                      headline={item.headline}
-                      image={item.imageUrl}
-                    />
-                  </a>
-                </When>
-
-                <When test={!item.isPlayable}>
-                  <div class="playlistItem" aria-disabled="true">
-                    <PlaylistItem
-                      isDisabled={true}
-                      headline={item.headline}
-                      image={item.imageUrl}
-                    />
-                  </div>
+                  <li>
+                    <a
+                      href={item.categoryUrl}
+                      class="playlistLink"
+                      aria-label={`${item.headline} Genre spielen`}
+                    >
+                      <PlaylistItem
+                        headline={item.headline}
+                        image={item.imageUrl}
+                        imageAlt={`Cover-Bild für ${item.headline}`}
+                      />
+                    </a>
+                  </li>
                 </When>
               </>
             ))
@@ -117,168 +116,138 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 
 <style lang="scss">
   .gameHome {
-    padding: var(--padding-medium);
+    padding: var(--padding-large);
     max-width: var(--max-line-length);
     margin: 0 auto;
     background-color: var(--background-color);
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
-  .introSection {
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-medium);
-    align-items: center;
-    margin-bottom: var(--padding-large);
-    text-align: center;
-    padding: var(--padding-large);
-    background-color: var(--secondary-color);
-    border-radius: var(--border-radius);
-  }
-
-  .headline {
-    font-family: var(--font-family);
-    font-size: var(--header-font-size);
-    line-height: 1.2;
-    font-weight: 900;
-    color: var(--text-color);
-    margin-bottom: var(--padding-small);
-  }
-
-  .name {
-    color: var(--highlight-color);
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-    text-underline-offset: 4px;
-  }
-
-  .subline {
-    font-family: var(--font-family);
+  .search-label {
+    display: block;
+    margin-bottom: 0.75rem;
     font-size: var(--body-font-size);
-    line-height: var(--line-height-body);
-    letter-spacing: var(--spacing-text);
-    max-width: 768px;
+    font-weight: 600;
     color: var(--text-color);
   }
 
   .searchWrapper {
-    margin-bottom: var(--padding-medium);
+    margin: var(--padding-large) 0;
   }
 
   .filterInput {
     width: 100%;
     max-width: 1024px;
-    padding: var(--padding-small) var(--padding-medium);
+    padding: 1rem var(--padding-medium);
     font-family: var(--font-family);
     font-size: var(--body-font-size);
     line-height: var(--line-height-body);
     color: var(--text-color);
     background-color: var(--background-color);
-    border: 2px solid var(--highlight-color);
+    border: 2px solid var(--text-color);
     border-radius: var(--border-radius);
-    transition: all var(--transition-speed);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
     &::placeholder {
       color: var(--text-color);
-      opacity: 0.7;
+      opacity: 0.8;
     }
 
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px var(--focus-outline-color);
-      border-color: var(--highlight-color);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      transition: none;
+    &:focus-visible {
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
+      border-color: var(--focus-outline-color);
     }
   }
 
   .playlistGrid {
     display: grid;
-    gap: var(--padding-medium);
+    gap: var(--padding-large);
     width: 100%;
-    margin: 0 auto;
-    padding: var(--padding-medium);
+    margin: var(--padding-large) auto;
+    padding: 0;
+    list-style: none;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    max-width: 1200px;
+  }
 
-    // Für Tablets (3 Spalten)
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    justify-content: center;
-    align-items: stretch;
+  .playlist-item {
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   .playlistLink,
   .playlistItem {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
+    width: 100%;
     text-decoration: none;
-    color: inherit;
-    transition:
-      transform var(--transition-speed) ease,
-      box-shadow var(--transition-speed) ease;
-    position: relative;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    border: 2px solid transparent;
     border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: var(--secondary-color);
 
     img {
       width: 100%;
       height: auto;
+      aspect-ratio: 1;
       object-fit: cover;
-      aspect-ratio: 1 / 1;
     }
 
     .headline {
-      padding: var(--padding-small);
+      padding: var(--padding-medium);
       text-align: center;
-      font-weight: bold;
-      background-color: rgba(0, 0, 0, 0.7);
-      color: white;
+      font-size: var(--body-font-size);
+      font-weight: 600;
+      line-height: var(--line-height-body);
+      background-color: rgba(0, 0, 0, 0.85);
+      color: #ffffff;
     }
 
     &:focus-visible {
-      outline: none;
-      box-shadow:
-        0 0 0 3px var(--focus-outline-color),
-        0 4px 8px rgba(0, 0, 0, 0.2);
-      transform: translateY(-2px);
-    }
-
-    &:not([aria-disabled="true"]):hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
     }
 
     &[aria-disabled="true"] {
+      opacity: 0.85;
+      background-color: var(--secondary-color);
       cursor: not-allowed;
-      opacity: var(--opacity-disabled);
-      filter: grayscale(50%);
-    }
 
-    @media (prefers-reduced-motion: reduce) {
-      transition: none;
+      &::after {
+        content: "Nicht verfügbar";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.9);
+        color: #ffffff;
+        padding: 1em 1.5em;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        font-size: var(--body-font-size);
+      }
     }
   }
 
   .no-results {
     grid-column: 1 / -1;
     text-align: center;
-    color: var(--text-color);
-    font-size: var(--body-font-size);
-    padding: var(--padding-medium);
+    padding: var(--padding-large);
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: var(--body-font-size);
+    font-weight: 500;
+    color: var(--text-color);
+  }
+
+  @media (forced-colors: active) {
+    .playlistLink,
+    .playlistItem {
+      border: 2px solid ButtonText;
+    }
   }
 </style>
 

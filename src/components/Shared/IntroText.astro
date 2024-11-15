@@ -3,22 +3,33 @@ interface Props {
   headline: string;
   subline?: string;
   level?: 1 | 2 | 3; // Für verschiedene Heading-Level
+  headingId?: string; // Für explizite IDs
 }
 
-const { headline, subline, level = 1 } = Astro.props;
+const {
+  headline,
+  subline,
+  level = 1,
+  headingId = "intro-heading",
+} = Astro.props;
 
 // Dynamisches Heading-Element basierend auf level
 const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
 ---
 
-<div class="introSection" role="region" aria-labelledby="intro-heading">
-  <HeadingTag id="intro-heading" class="headline">
+<div
+  class="introSection"
+  role="region"
+  aria-labelledby={headingId}
+  tabindex="-1"
+>
+  <HeadingTag id={headingId} class="headline" tabindex="-1">
     {headline}
   </HeadingTag>
 
   {
     subline && (
-      <p class="subline" id="intro-subline">
+      <p class="subline" id="intro-subline" aria-describedby={headingId}>
         {subline}
       </p>
     )
@@ -72,6 +83,17 @@ const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
     @media (max-width: 480px) {
       font-size: calc(var(--header-font-size) * 0.75);
     }
+
+    // Verbesserte Kontrastverhältnisse (WCAG AAA)
+    @media (prefers-color-scheme: dark) {
+      --minimum-contrast: 7;
+      color: var(--text-color);
+      text-shadow: none; // Entfernt Schatten für bessere Lesbarkeit
+    }
+
+    // Verbesserte Zeilenabstände für bessere Lesbarkeit
+    line-height: 1.5;
+    margin-block: 0.5em;
   }
 
   .subline {
@@ -83,19 +105,14 @@ const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
     max-width: min(30rem, 90%);
     margin: 0;
 
-    // Subtile Transparenz für visuelle Hierarchie
-    opacity: 0.9;
+    // Verbesserte Kontrastverhältnisse (WCAG AAA)
+    opacity: 1; // Volle Opazität für maximalen Kontrast
 
-    // Responsive Anpassungen
-    @media (max-width: 768px) {
-      font-size: calc(var(--body-font-size) * 0.95);
-      max-width: min(24rem, 95%);
-    }
+    // Größerer Zeilenabstand für bessere Lesbarkeit
+    line-height: 1.8;
 
-    @media (max-width: 480px) {
-      font-size: calc(var(--body-font-size) * 0.9);
-      max-width: min(20rem, 100%);
-    }
+    // Mindestgröße für Text (WCAG AAA)
+    font-size: max(1.2rem, var(--body-font-size));
   }
 
   @keyframes fadeIn {
@@ -109,45 +126,44 @@ const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
     }
   }
 
-  // High Contrast Mode Support
+  // Verbesserte Fokus-Styles
+  .introSection:focus-within,
+  .headline:focus,
+  .subline:focus {
+    outline: 3px solid var(--focus-outline-color);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  // Reduzierte Bewegung
+  @media (prefers-reduced-motion: reduce) {
+    .introSection {
+      animation: none;
+      transform: none;
+    }
+  }
+
+  // Hoher Kontrast Modus
   @media (forced-colors: active) {
     .headline,
     .subline {
       color: CanvasText;
+      forced-color-adjust: none;
     }
   }
 
-  // Dark Mode Optimierungen
-  @media (prefers-color-scheme: dark) {
+  // Vergrößerte Texte unterstützen
+  @media (max-width: 768px) {
     .headline {
-      text-shadow: 0 1px 2px rgb(0 0 0 / 20%);
-    }
-  }
-
-  // Print Styles
-  @media print {
-    .introSection {
-      margin-block-end: 1rem;
-      animation: none;
-    }
-
-    .headline {
-      color: #000;
+      font-size: max(1.8rem, var(--header-font-size));
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     .subline {
-      color: #333;
-    }
-  }
-
-  // Fokus-Styles für bessere Keyboard-Navigation
-  .introSection:focus-within {
-    outline: none;
-
-    .headline {
-      text-decoration: underline;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 4px;
+      font-size: max(1.2rem, var(--body-font-size));
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
   }
 </style>

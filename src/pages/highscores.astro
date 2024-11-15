@@ -107,9 +107,12 @@ for (const category of categoriesNamesArray) {
 ---
 
 <Layout title="Highscores">
-  <h1 class="highscoreTitle">Willkommen auf unserer Highscore-Seite!</h1>
+  <h1 class="highscoreTitle" id="main-heading">
+    Bestenliste der Melody Mind Spieler
+  </h1>
 
-  <section class="introSection" aria-label="Einführung">
+  <section class="introSection" aria-labelledby="intro-heading">
+    <h2 id="intro-heading">Über die Bestenliste</h2>
     <p class="introText">
       Hier siehst du die besten Spieler in jeder Kategorie und die Top 10 aller
       Zeiten. Zeige deine Fähigkeiten und arbeite dich an die Spitze, um dir
@@ -120,13 +123,8 @@ for (const category of categoriesNamesArray) {
   </section>
 
   <section class="highscoreSection" aria-labelledby="total-highscore">
-    <h2 id="total-highscore" class="sectionTitle">Top 10 Gesamt</h2>
-    <div
-      class="tableWrapper"
-      role="region"
-      aria-label="Gesamte Top 10 Tabelle"
-      tabindex="0"
-    >
+    <h2 id="total-highscore" class="sectionTitle">Gesamt-Bestenliste</h2>
+    <div class="tableWrapper" role="region" aria-label="Gesamte Top 10 Tabelle">
       <table class="highscoreTable">
         <caption class="visually-hidden">Top 10 Spieler aller Zeiten</caption>
         <thead>
@@ -160,13 +158,10 @@ for (const category of categoriesNamesArray) {
         <div
           class="tableWrapper"
           role="region"
-          aria-label={`${category} Highscores`}
-          tabindex="0"
+          aria-label={`${category} Bestenliste`}
         >
           <table class="highscoreTable">
-            <caption class="visually-hidden">
-              Top 10 Spieler in {category}
-            </caption>
+            <caption class="sr-only">Top 10 Spieler in {category}</caption>
             <thead>
               <tr>
                 <th scope="col">Platz</th>
@@ -186,7 +181,12 @@ for (const category of categoriesNamesArray) {
           </table>
         </div>
         {playerRanks[category] && (
-          <div class="playerRank" role="status" aria-live="polite">
+          <div
+            class="playerRank"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
             Deine Platzierung: {playerRanks[category]}. Platz
           </div>
         )}
@@ -196,17 +196,6 @@ for (const category of categoriesNamesArray) {
 </Layout>
 
 <style lang="scss">
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-  }
-
   .highscorePage {
     max-width: var(--max-line-length);
     margin: 0 auto;
@@ -214,13 +203,12 @@ for (const category of categoriesNamesArray) {
   }
 
   .highscoreTitle {
-    font-family: var(--font-family);
     font-size: var(--header-font-size);
     font-weight: 700;
     line-height: var(--line-height-body);
     text-align: center;
-    color: var(--highlight-color);
-    margin-bottom: var(--padding-medium);
+    color: var(--text-color);
+    margin: var(--padding-large) 0;
   }
 
   .introSection {
@@ -231,20 +219,49 @@ for (const category of categoriesNamesArray) {
     max-width: 800px;
     margin: 0 auto;
     padding: var(--padding-large);
-    font-family: var(--font-family);
     font-size: var(--body-font-size);
     line-height: var(--line-height-body);
     letter-spacing: var(--spacing-text);
-    text-align: center;
+    text-align: left;
     color: var(--text-color);
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
   }
 
+  .sectionTitle,
+  .categoryTitle {
+    font-size: calc(var(--header-font-size) * 0.9);
+    font-weight: 700;
+    line-height: var(--line-height-body);
+    color: var(--text-color);
+    margin: var(--padding-large) 0 var(--padding-medium);
+  }
+
   .tableWrapper {
     overflow-x: auto;
     margin-bottom: var(--padding-large);
+    padding: var(--padding-small);
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+
+    // Horizontaler Scroll-Indikator
+    background-image: linear-gradient(
+        to right,
+        var(--secondary-color) 30%,
+        rgba(255, 255, 255, 0)
+      ),
+      linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        var(--secondary-color) 70%
+      );
+    background-position:
+      0 0,
+      100% 0;
+    background-repeat: no-repeat;
+    background-size: 40px 100%;
+    background-attachment: local, local;
 
     &:focus {
       outline: var(--focus-outline-width) solid var(--focus-outline-color);
@@ -256,93 +273,151 @@ for (const category of categoriesNamesArray) {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    margin: var(--padding-small) 0;
 
-    th,
-    td {
-      padding: var(--padding-small) var(--padding-medium);
-      text-align: left;
-      border-bottom: 1px solid rgb(0 0 0 / 10%);
-    }
-
-    th {
-      background-color: var(--text-color);
-      color: var(--secondary-color);
+    caption {
       font-weight: 600;
-      white-space: nowrap;
-    }
-
-    td {
-      background-color: var(--secondary-color);
+      text-align: left;
+      padding: var(--padding-small) var(--padding-medium);
       color: var(--text-color);
     }
 
-    .currentUser td {
-      background-color: var(--highlight-color);
-      color: var(--button-text-color);
-      font-weight: 600;
+    // Desktop Styles
+    @media (min-width: 769px) {
+      th,
+      td {
+        padding: var(--padding-medium);
+        text-align: left;
+        border: 1px solid var(--text-color);
+      }
+
+      th {
+        background-color: var(--text-color);
+        color: var(--button-text-color);
+        font-weight: 700;
+        white-space: nowrap;
+      }
+    }
+
+    // Mobile Styles - Card Layout
+    @media (max-width: 768px) {
+      thead {
+        display: none; // Hide table headers on mobile
+      }
+
+      tbody {
+        display: block;
+        width: 100%;
+      }
+
+      tr {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: var(--padding-small);
+        margin-bottom: var(--padding-medium);
+        padding: var(--padding-medium);
+        background-color: var(--background-color);
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+
+        &.currentUser {
+          background-color: var(--highlight-color);
+          color: var(--button-text-color);
+        }
+      }
+
+      td {
+        padding: var(--padding-small);
+        font-size: var(--body-font-size);
+        line-height: var(--line-height-body);
+
+        // Pseudo-headers für mobile Ansicht
+        &:nth-child(1)::before {
+          content: "Rang: ";
+          font-weight: 700;
+        }
+
+        &:nth-child(2)::before {
+          content: "Name: ";
+          font-weight: 700;
+        }
+
+        &:nth-child(3)::before {
+          content: "Punkte: ";
+          font-weight: 700;
+        }
+
+        &::before {
+          display: inline-block;
+          margin-right: var(--padding-small);
+          color: inherit;
+        }
+      }
+    }
+
+    // Sehr kleine Bildschirme
+    @media (max-width: 480px) {
+      tr {
+        grid-template-columns: 1fr;
+      }
+
+      td {
+        border-bottom: 1px solid var(--text-color);
+        padding: var(--padding-small) 0;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
     }
   }
 
-  .sectionTitle,
-  .categoryTitle {
-    font-family: var(--font-family);
-    font-size: calc(var(--header-font-size) * 0.8);
-    font-weight: 600;
-    text-align: center;
-    color: var(--text-color);
-    margin-bottom: var(--padding-medium);
+  .currentUser td {
+    background-color: var(--highlight-color);
+    color: var(--button-text-color);
+    font-weight: 700;
+  }
+
+  // Verbesserte Hover-States
+  @media (hover: hover) {
+    tbody tr:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--box-shadow);
+      transition: transform 0.2s ease-in-out;
+    }
   }
 
   .playerRank {
     text-align: center;
-    margin-top: var(--padding-medium);
-    padding: var(--padding-small);
+    margin: var(--padding-medium) 0;
+    padding: var(--padding-medium);
     background-color: var(--highlight-color);
     color: var(--button-text-color);
     font-weight: 600;
     border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
   }
 
-  @media (max-width: 768px) {
-    .highscorePage {
-      padding: var(--padding-small);
-    }
-
-    .introText {
-      padding: var(--padding-medium);
-      font-size: calc(var(--body-font-size) * 0.9);
-    }
-
-    .highscoreTable {
-      font-size: calc(var(--body-font-size) * 0.875);
-
-      th,
-      td {
-        padding: calc(var(--padding-small) * 0.75);
-      }
-    }
-  }
-
+  // High Contrast Mode
   @media (forced-colors: active) {
     .highscoreTable {
-      border: 2px solid CanvasText;
-
-      th,
-      td {
+      tr,
+      td,
+      th {
         border: 1px solid CanvasText;
       }
-    }
 
-    .currentUser td {
-      border: 2px solid Highlight;
+      .currentUser {
+        border: 2px solid Highlight;
+      }
     }
   }
 
+  // Reduced Motion
   @media (prefers-reduced-motion: reduce) {
-    * {
-      transition: none !important;
+    tbody tr:hover {
+      transform: none;
+      transition: none;
     }
   }
 </style>
