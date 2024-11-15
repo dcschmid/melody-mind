@@ -89,23 +89,23 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
         <When test={categories.length > 0}>
           {
             categories.map((item) => (
-              <>
+              <li key={item.id}>
+                {" "}
+                {/* Ensure each item has a unique key */}
                 <When test={item.isPlayable}>
-                  <li>
-                    <a
-                      href={item.categoryUrl}
-                      class="playlistLink"
-                      aria-label={`${item.headline} Genre spielen`}
-                    >
-                      <PlaylistItem
-                        headline={item.headline}
-                        image={item.imageUrl}
-                        imageAlt={`Cover-Bild für ${item.headline}`}
-                      />
-                    </a>
-                  </li>
+                  <a
+                    href={item.categoryUrl}
+                    class="playlistLink"
+                    aria-label={`${item.headline} Genre spielen`}
+                  >
+                    <PlaylistItem
+                      headline={item.headline}
+                      image={item.imageUrl}
+                      imageAlt={`Cover-Bild für ${item.headline}`}
+                    />
+                  </a>
                 </When>
-              </>
+              </li>
             ))
           }
         </When>
@@ -169,6 +169,11 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     max-width: 1200px;
+
+    > li {
+      display: list-item;
+      width: 100%;
+    }
   }
 
   .playlist-item {
@@ -261,16 +266,14 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 
   function filterPlaylists(_event: Event) {
     const query = filterInput.value.toLowerCase();
-    const playlistItems = document.querySelectorAll(
-      ".playlistLink, .playlistItem",
-    );
+    const playlistItems = document.querySelectorAll(".playlistGrid > li"); // Änderung hier
     let hasResults = false;
 
     playlistItems.forEach((item) => {
       const headlineText = item.querySelector(".headline")?.textContent;
       const isVisible = headlineText?.toLowerCase().includes(query);
 
-      (item as HTMLElement).style.display = isVisible ? "block" : "none";
+      (item as HTMLElement).style.display = isVisible ? "list-item" : "none"; // Änderung hier
       if (isVisible) hasResults = true;
     });
 
