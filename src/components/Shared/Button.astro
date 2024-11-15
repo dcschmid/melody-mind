@@ -10,7 +10,7 @@ interface Props {
 const { buttonText = "", url = "", id } = Astro.props;
 ---
 
-<a id={id} class="button" href={url} class="button">
+<a id={id} class="button" href={url}>
   {buttonText}
   <Icon name="next" width={24} height={24} />
 </a>
