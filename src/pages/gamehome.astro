@@ -10,6 +10,7 @@ import IntroText from "@components/Shared/IntroText.astro";
  * Get the user object from the Astro context
  */
 const user = Astro.locals.user;
+const username = user?.username ?? "Gast";
 
 /**
  * If the user is not logged in, redirect them to the login page.
@@ -21,16 +22,40 @@ if (!user) {
   return Astro.redirect("/");
 }
 
+interface Category {
+  isPlayable: boolean;
+  headline: string;
+  categoryUrl?: string;
+  imageUrl: string;
+  introSubline: string;
+  slug: string;
+  text: string;
+}
+
 /**
  * This function filters the categoriesList array to only include items that are playable.
  * It then randomly selects one of those items and returns it.
  * @return {Array} An array containing one playable item.
  */
-const getSelectedPlayableItem = () => {
-  // Filter playable items
-  const playableItems = categoriesList.filter((item) => item.isPlayable);
-
-  return playableItems;
+const getSelectedPlayableItem = (): Category[] => {
+  if (!Array.isArray(categoriesList)) return [];
+  return categoriesList.filter(
+    (item): item is Category & { categoryUrl: string } => {
+      return (
+        typeof item === "object" &&
+        item !== null &&
+        "isPlayable" in item &&
+        "headline" in item &&
+        "imageUrl" in item &&
+        "introSubline" in item &&
+        "slug" in item &&
+        "text" in item &&
+        "categoryUrl" in item &&
+        item.isPlayable &&
+        Boolean(item.categoryUrl)
+      );
+    },
+  );
 };
 
 /**
@@ -39,22 +64,16 @@ const getSelectedPlayableItem = () => {
  * @return {Array} An array containing non-playable items.
  */
 const getNonPlayableItems = () => {
-  // Filter non-playable items
-  const nonPlayableItems = categoriesList.filter((item) => !item.isPlayable);
-
-  return nonPlayableItems;
+  return categoriesList.filter((item) => !item.isPlayable);
 };
 
-// Create an array by combining the selected playable item and the non-playable items
-// The selected playable item is randomly selected from the playable items
-// The non-playable items are randomly shuffled and limited to a maximum of 5 items
 const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 ---
 
 <Layout title="Spiel Kategorien">
   <main class="gameHome" id="main-content">
     <IntroText
-      headline={`Willkommen ${user?.username ?? "Mika"}`}
+      headline={`Willkommen ${username}`}
       subline="Wähle hier ein Genre aus, das du spielen möchtest!"
       headingId="welcome-heading"
     />
@@ -74,6 +93,8 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
           aria-label="Filterung der Genre-Liste"
           aria-controls="playlist-grid"
           aria-describedby="search-description"
+          autocomplete="off"
+          spellcheck="false"
         />
         <span id="search-description" class="sr-only">
           Die Liste wird während der Eingabe automatisch gefiltert
@@ -85,13 +106,12 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
         class="playlistGrid"
         role="list"
         aria-label="Liste der verfügbaren Genre"
+        aria-live="polite"
       >
         <When test={categories.length > 0}>
           {
             categories.map((item) => (
-              <li key={item.id}>
-                {" "}
-                {/* Ensure each item has a unique key */}
+              <li>
                 <When test={item.isPlayable}>
                   <a
                     href={item.categoryUrl}
@@ -146,6 +166,8 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     background-color: var(--background-color);
     border: 2px solid var(--text-color);
     border-radius: var(--border-radius);
+    -webkit-appearance: none;
+    appearance: none;
 
     &::placeholder {
       color: var(--text-color);
@@ -157,6 +179,10 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
       outline-offset: var(--focus-outline-offset);
       border-color: var(--focus-outline-color);
     }
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
   }
 
   .playlistGrid {
@@ -166,6 +192,7 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     margin: var(--padding-large) auto;
     padding: 0;
     list-style: none;
+    min-height: 200px;
 
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     max-width: 1200px;
@@ -173,6 +200,11 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     > li {
       display: list-item;
       width: 100%;
+    }
+
+    &[aria-busy="true"] {
+      opacity: 0.7;
+      pointer-events: none;
     }
   }
 
@@ -193,6 +225,13 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     border: 2px solid transparent;
     border-radius: var(--border-radius);
     overflow: hidden;
+
+    will-change: transform;
+    transition: transform 0.2s ease-out;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
 
     img {
       width: 100%;
@@ -254,30 +293,94 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
       border: 2px solid ButtonText;
     }
   }
+
+  @media print {
+    .filterInput,
+    .searchWrapper {
+      display: none;
+    }
+
+    .playlistGrid {
+      gap: 1rem;
+    }
+
+    .playlistLink,
+    .playlistItem {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+  }
 </style>
 
 <script>
+  /**
+   * Debounces a function to limit its execution rate.
+   * @param {Function} func - The function to debounce
+   * @param {number} wait - The delay in milliseconds before the function can be called again
+   * @returns {Function} A debounced version of the input function
+   */
+  function debounce<T extends (...args: any[]) => void>(
+    func: T,
+    wait: number,
+  ): (...args: Parameters<T>) => void {
+    let timeout: ReturnType<typeof setTimeout>;
+    return (...args: Parameters<T>) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func(...args), wait);
+    };
+  }
+
   const filterInput = document.getElementById(
     "filter-input",
   ) as HTMLInputElement;
   const playlistGrid = document.querySelector(".playlistGrid");
 
-  filterInput?.addEventListener("input", filterPlaylists);
+  /**
+   * Debounced filter function
+   */
+  const debouncedFilter = debounce(filterPlaylists, 300);
+  filterInput?.addEventListener("input", debouncedFilter);
 
+  /**
+   * Cache for better performance
+   */
+  const playlistItemsCache = new Map<HTMLElement, string>();
+
+  /**
+   * Filters the playlist items based on the search query and updates their visibility.
+   * @param {Event} _event - The event object (not used)
+   */
   function filterPlaylists(_event: Event) {
-    const query = filterInput.value.toLowerCase();
-    const playlistItems = document.querySelectorAll(".playlistGrid > li"); // Änderung hier
+    if (!filterInput || !playlistGrid) return;
+
+    const query = filterInput.value.toLowerCase().trim();
+    const playlistItems =
+      document.querySelectorAll<HTMLElement>(".playlistGrid > li");
     let hasResults = false;
 
     playlistItems.forEach((item) => {
-      const headlineText = item.querySelector(".headline")?.textContent;
-      const isVisible = headlineText?.toLowerCase().includes(query);
+      let headlineText = playlistItemsCache.get(item);
+      if (!headlineText) {
+        headlineText =
+          item.querySelector(".headline")?.textContent?.toLowerCase() ?? "";
+        playlistItemsCache.set(item, headlineText);
+      }
 
-      (item as HTMLElement).style.display = isVisible ? "list-item" : "none"; // Änderung hier
+      const isVisible = headlineText.includes(query);
+      item.style.display = isVisible ? "list-item" : "none";
       if (isVisible) hasResults = true;
     });
 
-    // Füge eine "Keine Ergebnisse" Nachricht hinzu
+    updateNoResultsMessage(hasResults);
+  }
+
+  /**
+   * Updates the visibility of playlist items based on the search query and shows/hides
+   * a "no results" message accordingly.
+   * @param {boolean} hasResults - Indicates whether any playlist items match the current filter
+   * @returns {void}
+   */
+  function updateNoResultsMessage(hasResults: boolean) {
     let noResultsMsg = playlistGrid?.querySelector(".no-results");
     if (!hasResults) {
       if (!noResultsMsg) {
