@@ -3,14 +3,14 @@ interface Props {
   headline: string | undefined;
 }
 
-const { headline = "" } = Astro.props;
+const { headline = "Spiel" } = Astro.props;
 ---
 
 <header class="gameHeadline" role="banner" aria-label="Spielinformationen">
   <h1 class="category" id="game-category">
     {headline}
   </h1>
-  <div class="roundInfo" aria-live="polite">
+  <div class="roundInfo" aria-live="polite" role="status">
     Runde <span class="round" aria-label="Aktuelle Rundennummer"></span>
   </div>
 </header>
@@ -37,19 +37,13 @@ const { headline = "" } = Astro.props;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 
-    // Bessere Animation mit Reduced Motion Support
     @media (prefers-reduced-motion: no-preference) {
+      will-change: transform;
       transition:
         transform var(--transition-speed) ease-in-out,
         box-shadow var(--transition-speed) ease-in-out;
-
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-elevated);
-      }
     }
 
-    // Mobile Anpassungen
     @media (max-width: 768px) {
       margin: var(--padding-small) auto;
       padding: var(--padding-small);
@@ -67,10 +61,8 @@ const { headline = "" } = Astro.props;
     color: var(--text-color);
     margin: 0;
 
-    // Verbesserte Lesbarkeit
     text-shadow: 0 1px 2px rgb(0 0 0 / 10%);
 
-    // Responsive Textgröße
     @media (max-width: 768px) {
       font-size: calc(var(--header-font-size) * 0.85);
     }
@@ -92,13 +84,11 @@ const { headline = "" } = Astro.props;
     font-weight: 700;
     color: var(--text-color);
 
-    // Optischer Fokus auf die Rundennummer
     padding: calc(var(--padding-small) / 2) var(--padding-small);
     background-color: rgb(255 255 255 / 15%);
     border-radius: calc(var(--border-radius) / 2);
   }
 
-  // High Contrast Mode Support
   @media (forced-colors: active) {
     .gameHeadline {
       border: 2px solid CanvasText;
@@ -110,7 +100,6 @@ const { headline = "" } = Astro.props;
     }
   }
 
-  // Print Styles
   @media print {
     .gameHeadline {
       background: none;
@@ -124,29 +113,26 @@ const { headline = "" } = Astro.props;
     }
   }
 
-  // Kontrastverbesserung bei dunklem Hintergrund
   @media (prefers-color-scheme: dark) {
     .category,
     .roundInfo {
       text-shadow: 0 1px 3px rgb(0 0 0 / 30%);
     }
   }
-
-  // Bessere Touch-Ziele
-  @media (hover: none) and (pointer: coarse) {
-    .gameHeadline {
-      padding: calc(var(--padding-medium) * 1.2);
-    }
-  }
 </style>
 
 <script>
-  // Hilfsfunktion zum Aktualisieren der Rundennummer
+  /**
+   * Update the round number
+   */
   export function updateRoundNumber(round: number) {
-    const roundElement = document.querySelector(".round");
-    if (roundElement) {
-      roundElement.textContent = round.toString();
-      roundElement.setAttribute("aria-label", `Aktuelle Runde: ${round}`);
-    }
+    const ROUND_SELECTOR = ".round" as const;
+
+    const roundElement = document.querySelector(ROUND_SELECTOR);
+    if (!roundElement) return; // Früher Return bei fehlendem Element
+
+    const roundText = round.toString();
+    roundElement.textContent = roundText;
+    roundElement.setAttribute("aria-label", `Aktuelle Runde: ${round}`);
   }
 </script>
