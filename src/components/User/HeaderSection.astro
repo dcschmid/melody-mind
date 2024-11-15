@@ -3,24 +3,36 @@ import { Icon } from "astro-icon/components";
 import { Picture } from "astro:assets";
 import { db, User, eq } from "astro:db";
 
-interface UserData {
-  id: string;
-  username: string;
-  avatarUrl: string;
-  total_user_points: number;
-}
+const defaultUser = {
+  id: "1",
+  username: "Mika",
+  avatarUrl: "/user-profiles/mika.png",
+};
 
-const user = Astro.locals.user;
+const backgroundImage = "/userbg/music-bg.jpg";
 
-const currentUser = await db
-  .select()
-  .from(User)
-  .where(eq(User.id, user?.id ?? ""));
+const user = Astro.locals.user ?? defaultUser;
 
-const totalUserPoints = currentUser[0]?.total_user_points ?? 0;
+const currentUser = user?.id
+  ? await db
+      .select({
+        total_user_points: User.total_user_points,
+        username: User.username,
+      })
+      .from(User)
+      .where(eq(User.id, user.id))
+      .limit(1)
+  : null;
+
+const totalUserPoints = currentUser?.[0]?.total_user_points ?? 0;
 ---
 
-<header class="profileHeader" role="banner" aria-label="Benutzerprofil Header">
+<header
+  class="profileHeader"
+  role="banner"
+  aria-label="Benutzerprofil Header"
+  style={`--background-image: url(${backgroundImage});`}
+>
   <div class="headerContent">
     <div
       class="avatarWrapper"
@@ -38,40 +50,28 @@ const totalUserPoints = currentUser[0]?.total_user_points ?? 0;
       />
     </div>
 
-    <div class="userInfo">
-      <h1 class="userName">
-        Hallo <span class="highlightText">{user?.username ?? "Mika"}</span>
-      </h1>
-
-      <div class="pointsDisplay" role="status" aria-label="Gesamtpunktzahl">
-        <Icon
-          class="coinIcon"
-          name="coin"
-          width={24}
-          height={24}
-          aria-hidden="true"
-        />
-        <span class="pointsValue">
-          <span class="visually-hidden">Punktestand:</span>
-          {totalUserPoints}
-        </span>
-      </div>
+    <div
+      class="pointsDisplay"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      <Icon
+        class="coinIcon"
+        name="coin"
+        width={24}
+        height={24}
+        aria-hidden="true"
+      />
+      <span class="pointsValue">
+        <span class="sr-only">Punktestand:</span>
+        {totalUserPoints}
+      </span>
     </div>
   </div>
 </header>
 
 <style lang="scss">
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-  }
-
   .profileHeader {
     position: relative;
     margin-bottom: var(--padding-large);
@@ -82,12 +82,35 @@ const totalUserPoints = currentUser[0]?.total_user_points ?? 0;
       content: "";
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(rgb(0 0 0 / 60%), rgb(0 0 0 / 60%)),
-        url("/userbg/music-bg.jpg");
+      background-image: linear-gradient(
+          to bottom,
+          rgb(0 0 0 / 60%),
+          rgb(0 0 0 / 60%)
+        ),
+        var(--background-image);
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
       z-index: 0;
+      will-change: transform;
+
+      @supports (object-fit: cover) {
+        background-size: cover;
+      }
+    }
+  }
+
+  @layer base {
+    .avatarImage {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+
+      @supports not (object-fit: cover) {
+        height: auto;
+        min-height: 100%;
+      }
     }
   }
 
@@ -116,6 +139,11 @@ const totalUserPoints = currentUser[0]?.total_user_points ?? 0;
     box-shadow: var(--box-shadow);
     overflow: hidden;
 
+    img {
+      content-visibility: auto;
+      contain: paint;
+    }
+
     @media (prefers-reduced-motion: no-preference) {
       transition: transform var(--transition-speed) ease;
 
@@ -125,35 +153,12 @@ const totalUserPoints = currentUser[0]?.total_user_points ?? 0;
     }
   }
 
-  .avatarImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-
   .userInfo {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--padding-small);
     text-align: center;
-  }
-
-  .userName {
-    font-family: var(--font-family);
-    font-size: var(--header-font-size);
-    font-weight: 700;
-    line-height: var(--line-height-tight);
-    color: var(--secondary-color);
-    text-shadow: 0 2px 4px rgb(0 0 0 / 30%);
-    margin: 0;
-  }
-
-  .highlightText {
-    color: var(--highlight-color);
-    display: block;
-    margin-top: calc(var(--padding-small) / 2);
   }
 
   .pointsDisplay {
@@ -172,6 +177,8 @@ const totalUserPoints = currentUser[0]?.total_user_points ?? 0;
 
     @media (prefers-reduced-motion: no-preference) {
       animation: bounce 2s ease-in-out infinite;
+      will-change: transform;
+      transform: translateZ(0);
     }
   }
 
@@ -189,8 +196,13 @@ const totalUserPoints = currentUser[0]?.total_user_points ?? 0;
     font-family: var(--font-family);
     font-size: var(--body-font-size);
     font-weight: 700;
-    color: var(--secondary-color);
+    color: #fff;
     text-shadow: 0 1px 2px rgb(0 0 0 / 30%);
+
+    @media (prefers-contrast: more) {
+      color: var(--high-contrast-text, #fff);
+      text-shadow: none;
+    }
   }
 
   // High Contrast Mode Support
@@ -215,14 +227,9 @@ const totalUserPoints = currentUser[0]?.total_user_points ?? 0;
       background: none !important;
     }
 
-    .userName,
     .pointsValue {
       color: #000;
       text-shadow: none;
-    }
-
-    .highlightText {
-      color: #666;
     }
   }
 
