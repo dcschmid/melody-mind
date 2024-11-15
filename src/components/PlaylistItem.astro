@@ -1,9 +1,9 @@
 ---
 interface Props {
   headline: string;
-  image?: any;
+  image: string;
   isDisabled?: boolean;
-  imageAlt?: string;
+  imageAlt: string;
 }
 
 const { headline = "", image, isDisabled = false, imageAlt = "" } = Astro.props;
@@ -32,6 +32,9 @@ import { Picture } from "astro:assets";
       formats={["avif", "webp"]}
       alt={imageAlt}
       loading="lazy"
+      decoding="async"
+      fetchpriority={isDisabled ? "low" : "auto"}
+      quality={80}
     />
   </div>
   <h2 class="headline">{headline}</h2>
@@ -48,18 +51,38 @@ import { Picture } from "astro:assets";
     border-radius: var(--border-radius);
     overflow: hidden;
     transition: opacity var(--transition-speed) ease-in-out;
+    will-change: opacity;
 
     &[aria-disabled="true"] {
       opacity: var(--opacity-disabled);
       filter: grayscale(50%);
     }
+
+    @media (hover: hover) {
+      &:hover:not([aria-disabled="true"]) {
+        transform: translateY(-2px);
+        transition: transform 0.2s ease-in-out;
+      }
+    }
   }
 
   .imageWrapper {
+    aspect-ratio: 1 / 1;
+    padding-top: 0;
     width: 100%;
-    padding-top: 100%; // 1:1 Aspect Ratio
+    padding-top: 100%;
     position: relative;
     overflow: hidden;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  @supports not (aspect-ratio: 1 / 1) {
+    .imageWrapper {
+      padding-top: 100%;
+    }
   }
 
   .cover {
