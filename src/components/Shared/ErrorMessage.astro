@@ -1,16 +1,28 @@
 ---
 interface Props {
   message?: string;
+  autoHideAfter?: number;
 }
 
-const { message = "Ein Fehler ist aufgetreten" } = Astro.props;
+const { message = "Ein Fehler ist aufgetreten", autoHideAfter = 5000 } =
+  Astro.props;
 ---
 
-<div class="errorMessage hidden" role="alert" aria-live="polite">
+<div
+  class="errorMessage hidden"
+  role="alert"
+  aria-live="assertive"
+  aria-atomic="true"
+  data-auto-hide={autoHideAfter}
+>
   <div class="errorContent">
-    <span class="errorIcon">⚠️</span>
+    <span class="errorIcon" aria-hidden="true">⚠️</span>
     <p class="errorText">{message}</p>
-    <button class="closeButton" aria-label="Fehlermeldung schließen">×</button>
+    <button
+      class="closeButton"
+      aria-label="Fehlermeldung schließen"
+      type="button">×</button
+    >
   </div>
 </div>
 
@@ -29,11 +41,25 @@ const { message = "Ein Fehler ist aufgetreten" } = Astro.props;
     box-shadow: var(--box-shadow);
 
     &.hidden {
-      display: none;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        visibility 0s linear 0.3s,
+        opacity 0.3s ease-out;
+    }
+
+    &:not(.hidden) {
+      visibility: visible;
+      opacity: 1;
+      transition:
+        visibility 0s,
+        opacity 0.3s ease-out;
     }
 
     @media (prefers-reduced-motion: no-preference) {
       animation: slideIn 0.3s ease-out;
+      will-change: transform, opacity;
     }
   }
 
@@ -66,11 +92,17 @@ const { message = "Ein Fehler ist aufgetreten" } = Astro.props;
     &:hover {
       opacity: 1;
     }
+
+    &:focus-visible {
+      outline: 2px solid var(--button-text-color);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
   }
 
   @keyframes slideIn {
     from {
-      transform: translate(-50%, -100%);
+      transform: translate(-50%, -2rem);
       opacity: 0;
     }
     to {
@@ -85,3 +117,44 @@ const { message = "Ein Fehler ist aufgetreten" } = Astro.props;
     }
   }
 </style>
+
+<script>
+  class ErrorMessage extends HTMLElement {
+    private closeButton: HTMLButtonElement | null;
+    private autoHideTimeout: ReturnType<typeof setTimeout> | null;
+
+    constructor() {
+      super();
+      this.closeButton = this.querySelector(".closeButton");
+      this.autoHideTimeout = null;
+      this.init();
+    }
+
+    init() {
+      this.closeButton?.addEventListener("click", () => this.hide());
+
+      const autoHideAfter = this.dataset.autoHide
+        ? parseInt(this.dataset.autoHide)
+        : 0;
+
+      if (autoHideAfter > 0) {
+        this.autoHideTimeout = setTimeout(() => this.hide(), autoHideAfter);
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !this.classList.contains("hidden")) {
+          this.hide();
+        }
+      });
+    }
+
+    hide() {
+      this.classList.add("hidden");
+      if (this.autoHideTimeout) {
+        clearTimeout(this.autoHideTimeout);
+      }
+    }
+  }
+
+  customElements.define("error-message", ErrorMessage);
+</script>
