@@ -2,33 +2,28 @@
 interface Props {
   size?: "small" | "medium" | "large";
   label?: string;
+  id?: string;
 }
 
-const { size = "large", label = "Inhalte werden geladen..." } = Astro.props;
+const {
+  size = "large",
+  label = "Inhalte werden geladen...",
+  id = "loading-spinner",
+} = Astro.props;
 ---
 
 <div
   class="spinnerContainer hidden"
-  id="loading-spinner"
+  id={id}
   role="status"
   aria-live="polite"
+  aria-busy="false"
 >
   <div class={`spinner spinner--${size}`} aria-hidden="true"></div>
-  <span class="visually-hidden">{label}</span>
+  <span class="sr-only">{label}</span>
 </div>
 
 <style lang="scss">
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-  }
-
   .spinnerContainer {
     display: flex;
     justify-content: center;
@@ -47,17 +42,12 @@ const { size = "large", label = "Inhalte werden geladen..." } = Astro.props;
     border: var(--spinner-width) solid var(--secondary-color);
     border-top-color: var(--highlight-color);
 
-    // Basis-Größen für verschiedene Spinner-Varianten
-    --spinner-size-small: 40px;
-    --spinner-size-medium: 80px;
-    --spinner-size-large: 120px;
     --spinner-width: calc(var(--spinner-size) / 12);
 
     @media (prefers-reduced-motion: no-preference) {
       animation: spin 1s linear infinite;
     }
 
-    // Größenvarianten
     &--small {
       --spinner-size: var(--spinner-size-small);
       width: var(--spinner-size);
@@ -76,7 +66,6 @@ const { size = "large", label = "Inhalte werden geladen..." } = Astro.props;
       height: var(--spinner-size);
     }
 
-    // Pseudo-Elemente für zusätzliche visuelle Effekte
     &::before,
     &::after {
       content: "";
@@ -94,6 +83,11 @@ const { size = "large", label = "Inhalte werden geladen..." } = Astro.props;
         animation: spin 2s linear infinite;
       }
     }
+
+    @media (prefers-reduced-motion: no-preference) {
+      will-change: transform;
+      animation: spin 1s linear infinite;
+    }
   }
 
   @keyframes spin {
@@ -105,7 +99,6 @@ const { size = "large", label = "Inhalte werden geladen..." } = Astro.props;
     }
   }
 
-  // High Contrast Mode Anpassungen
   @media (forced-colors: active) {
     .spinner {
       border-color: CanvasText;
@@ -117,7 +110,6 @@ const { size = "large", label = "Inhalte werden geladen..." } = Astro.props;
     }
   }
 
-  // Reduced Motion
   @media (prefers-reduced-motion: reduce) {
     .spinner {
       &::before {
@@ -126,39 +118,48 @@ const { size = "large", label = "Inhalte werden geladen..." } = Astro.props;
     }
   }
 
-  // Dark Mode Anpassungen
   @media (prefers-color-scheme: dark) {
     .spinner {
       opacity: 0.8;
-    }
-  }
-
-  // Responsive Anpassungen
-  @media (max-width: 768px) {
-    .spinner {
-      --spinner-size-small: 30px;
-      --spinner-size-medium: 60px;
-      --spinner-size-large: 90px;
     }
   }
 </style>
 
 <script>
   class LoadingSpinner {
-    private spinner: HTMLElement | null;
+    private readonly spinner: HTMLElement | null;
+    private static instances: Map<string, LoadingSpinner> = new Map();
 
-    constructor() {
-      this.spinner = document.getElementById("loading-spinner");
+    constructor(id: string = "loading-spinner") {
+      this.spinner = document.getElementById(id);
+      LoadingSpinner.instances.set(id, this);
     }
 
-    show() {
-      this.spinner?.classList.remove("hidden");
-      this.spinner?.setAttribute("aria-busy", "true");
+    static getInstance(id: string = "loading-spinner"): LoadingSpinner {
+      if (!this.instances.has(id)) {
+        return new LoadingSpinner(id);
+      }
+      return this.instances.get(id)!;
     }
 
-    hide() {
-      this.spinner?.classList.add("hidden");
-      this.spinner?.setAttribute("aria-busy", "false");
+    show(): void {
+      if (!this.spinner) return;
+      this.spinner.classList.remove("hidden");
+      this.spinner.setAttribute("aria-busy", "true");
+    }
+
+    hide(): void {
+      if (!this.spinner) return;
+      this.spinner.classList.add("hidden");
+      this.spinner.setAttribute("aria-busy", "false");
     }
   }
+
+  declare global {
+    interface Window {
+      LoadingSpinner: typeof LoadingSpinner;
+    }
+  }
+
+  window.LoadingSpinner = LoadingSpinner;
 </script>
