@@ -3,14 +3,16 @@
 ---
 
 <div class="jokerContainer" role="group" aria-labelledby="joker-title">
-  <span id="joker-title" class="sr-only">Joker Optionen</span>
+  <h2 id="joker-title" class="sr-only">Joker Optionen</h2>
+  <!-- span zu h2 geändert -->
   <button
     id="joker-button"
     class="jokerButton"
     aria-label="50:50 Joker einsetzen"
     aria-describedby="joker-description"
+    data-joker-type="fifty-fifty"
   >
-    50:50 Joker
+    <span class="buttonText">50:50 Joker</span>
   </button>
   <p id="joker-count" class="jokerCount">
     <span class="buttonText">50:50 Joker</span>
@@ -22,6 +24,7 @@
 
 <style lang="scss">
   .jokerContainer {
+    isolation: isolate;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,6 +34,7 @@
   }
 
   .jokerButton {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -51,6 +55,14 @@
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     cursor: pointer;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: transparent;
+      transition: background-color var(--transition-speed) ease;
+    }
 
     &:hover:not(:disabled) {
       background-color: var(--button-hover-color);
@@ -76,6 +88,12 @@
         transform: translateY(-2px);
       }
     }
+
+    @media (hover: none) {
+      &:hover:not(:disabled) {
+        transform: none;
+      }
+    }
   }
 
   .buttonIcon {
@@ -99,6 +117,12 @@
       font-weight: 700;
       color: var(--highlight-color);
     }
+  }
+
+  .jokerButton,
+  .buttonIcon {
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
   // High Contrast Mode Support
