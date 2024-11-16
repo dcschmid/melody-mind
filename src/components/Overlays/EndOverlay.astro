@@ -17,10 +17,11 @@ const {
   aria-labelledby="popup-title"
   aria-modal="true"
   aria-live="polite"
+  aria-describedby="motivation-text"
 >
-  <div class="popupContent" role="document" tabindex="0">
+  <div class="popupContent" role="document">
     <h2 id="popup-title" class="title">{title}</h2>
-    <p class="motivationText">{motivationText}</p>
+    <p id="motivation-text" class="motivationText">{motivationText}</p>
 
     <div class="scoreSection" role="status" aria-live="polite">
       <span class="scoreLabel">Erreichte Punkte:</span>
@@ -55,6 +56,7 @@ const {
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
+      will-change: opacity, visibility;
     }
 
     @media (prefers-reduced-motion: no-preference) {
@@ -78,6 +80,7 @@ const {
 
     @media (prefers-reduced-motion: no-preference) {
       animation: popIn var(--transition-speed) ease-out;
+      will-change: transform, opacity;
     }
 
     @media (max-width: 768px) {
@@ -194,20 +197,21 @@ const {
 </style>
 
 <script>
+  const EVENTS = {
+    GAME_END: "gameEnd",
+    GAME_RESTART: "gameRestart",
+  } as const;
+
   const popup = document.getElementById("endgame-popup");
   const restartButton = document.getElementById("restart-button");
 
-  // Verbesserte Keyboard-Navigation
-  document.addEventListener("keydown", (event) => {
-    if (!popup?.classList.contains("hidden")) {
-      if (event.key === "Escape") {
-        restartButton?.click();
-      }
+  const handleKeydown = (event: KeyboardEvent) => {
+    if (!popup?.classList.contains("hidden") && event.key === "Escape") {
+      restartButton?.click();
     }
-  });
+  };
 
-  // Fokus-Management
-  const observer = new MutationObserver((mutations) => {
+  const handlePopupVisibilityChange = (mutations: MutationRecord[]) => {
     mutations.forEach((mutation) => {
       if (
         mutation.type === "attributes" &&
@@ -215,13 +219,27 @@ const {
       ) {
         const element = mutation.target as HTMLElement;
         if (!element.classList.contains("hidden")) {
-          (element.querySelector(".popupContent") as HTMLElement)?.focus();
+          const content = element.querySelector(".popupContent") as HTMLElement;
+          content?.focus();
+          window.dispatchEvent(new CustomEvent(EVENTS.GAME_END));
         }
       }
     });
-  });
+  };
+
+  document.addEventListener("keydown", handleKeydown);
+
+  const observer = new MutationObserver(handlePopupVisibilityChange);
 
   if (popup) {
     observer.observe(popup, { attributes: true });
   }
+
+  const cleanup = () => {
+    observer.disconnect();
+    document.removeEventListener("keydown", handleKeydown);
+  };
+
+  document.addEventListener("astro:before-swap", cleanup);
+  window.addEventListener("unload", cleanup);
 </script>
