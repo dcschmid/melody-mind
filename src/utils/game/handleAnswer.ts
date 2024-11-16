@@ -1,3 +1,7 @@
+/**
+ * @fileoverview Handles the game answer logic and scoring system
+ */
+
 import { stopAudio } from "@utils/audio/audioControls";
 import { updateScoreDisplay } from "./scoreUtils";
 import { getRandomQuestion } from "./getRandomQuestion";
@@ -5,54 +9,115 @@ import { loadQuestion, type Question } from "./loadQuestion";
 import type { MediaElements } from "./mediaUtils";
 import { updateMedia } from "./mediaUtils";
 
+/**
+ * Configuration interface for the answer handler
+ * @interface HandleAnswerConfig
+ */
 interface HandleAnswerConfig {
+  /** Element to display feedback messages */
   feedbackElement: HTMLParagraphElement;
+  /** Element to display the current score */
   scoreElement: HTMLParagraphElement;
+  /** Image element for the album cover overlay */
   overlayCover: HTMLImageElement;
+  /** Optional media elements for audio playback */
   mediaElements: MediaElements | null;
+  /** Element to display the current round */
   roundElement: HTMLParagraphElement;
+  /** Current question object */
   currentQuestion: Question | null;
+  /** Current round index */
   roundIndex: number;
+  /** Total number of rounds in the game */
   totalRounds: number;
+  /** Current game score */
   score: number;
-  difficulty: string | null;
+  /** Game difficulty setting */
+  difficulty: "easy" | "medium" | "hard" | null;
+  /** Array of available albums */
   albums: any[];
+  /** Question configuration settings */
   questionConfig: any;
+  /** Callback function to end the game */
   endGame: () => void;
 }
 
+/**
+ * Constants for bonus points based on answer speed
+ */
+const BONUS_POINTS = {
+  /** Bonus points for answering within 10 seconds */
+  FAST: 50,
+  /** Bonus points for answering within 15 seconds */
+  MEDIUM: 25,
+  /** No bonus points */
+  NONE: 0,
+} as const;
+
+/** Base points awarded for correct answers */
+const BASE_POINTS = 50;
+/** Timeout duration for feedback messages in milliseconds */
+const FEEDBACK_TIMEOUT = 5000;
+
+/**
+ * Creates an answer handler function with the given configuration
+ * @param config - Configuration object for the answer handler
+ * @returns A function that handles answer submission and scoring
+ */
 export function createHandleAnswer(config: HandleAnswerConfig) {
+  /**
+   * Handles the user's answer submission and updates game state
+   * @param option - The selected answer option
+   * @param correctAnswer - The correct answer
+   * @param currentQuestion - The current question object
+   * @param album - The current album object
+   */
   return function handleAnswer(
     option: string,
     correctAnswer: string,
     currentQuestion: { trivia: string },
     album: { coverSrc: string; artist: string; album: string; year: string },
   ) {
-    const startTime = Date.now();
-    const endTime = Date.now();
-    const timeTaken = (endTime - startTime) / 1000;
-    let totalPoints = 0;
-    let bonusPoints = 0;
+    // Calculate time taken to answer
+    const timeTaken = (Date.now() - Date.now()) / 1000;
 
-    if (option === correctAnswer) {
-      bonusPoints = timeTaken <= 10 ? 50 : timeTaken <= 15 ? 25 : 0;
-      totalPoints = 50 + bonusPoints;
-      config.feedbackElement.classList.add("correct");
-      config.feedbackElement.textContent = `Richtig! 50 Punkte + ${bonusPoints} Bonuspunkte`;
-    } else {
-      config.feedbackElement.classList.add("incorrect");
-      config.feedbackElement.textContent = `Falsch! Die richtige Antwort war: ${correctAnswer}`;
-    }
+    /**
+     * Calculates bonus points based on answer time
+     * @param time - Time taken to answer in seconds
+     * @returns Number of bonus points awarded
+     */
+    const calculateBonus = (time: number): number => {
+      if (time <= 10) return BONUS_POINTS.FAST;
+      if (time <= 15) return BONUS_POINTS.MEDIUM;
+      return BONUS_POINTS.NONE;
+    };
 
-    config.feedbackElement.classList.add("show");
+    // Calculate points
+    const bonusPoints =
+      option === correctAnswer ? calculateBonus(timeTaken) : 0;
+    const totalPoints =
+      option === correctAnswer ? BASE_POINTS + bonusPoints : 0;
 
+    // Update feedback display
+    const feedbackClass = option === correctAnswer ? "correct" : "incorrect";
+    const feedbackText =
+      option === correctAnswer
+        ? `Richtig! ${BASE_POINTS} Punkte + ${bonusPoints} Bonuspunkte`
+        : `Falsch! Die richtige Antwort war: ${correctAnswer}`;
+
+    config.feedbackElement.classList.add(feedbackClass, "show");
+    config.feedbackElement.textContent = feedbackText;
+
+    // Hide feedback after timeout
     setTimeout(() => {
       config.feedbackElement.classList.remove("show", "correct", "incorrect");
-    }, 5000);
+    }, FEEDBACK_TIMEOUT);
 
+    // Update score
     config.score += totalPoints;
     updateScoreDisplay(config.score, config.scoreElement);
 
+    // Update overlay information
     config.overlayCover.src = album.coverSrc || "";
     document.getElementById("overlay-artist")!.textContent = album.artist || "";
     document.getElementById("overlay-album")!.textContent = album.album || "";
@@ -60,13 +125,16 @@ export function createHandleAnswer(config: HandleAnswerConfig) {
       currentQuestion.trivia || "";
     document.getElementById("overlay-year")!.textContent = album.year || "";
 
+    // Update media if available
     if (config.mediaElements) {
       updateMedia(album, config.mediaElements);
     }
 
+    // Show overlay
     const overlay = document.getElementById("overlay") as HTMLDivElement;
     overlay.classList.remove("hidden");
 
+    // Setup next round button
     const nextRoundButton = document.getElementById(
       "next-round-button",
     ) as HTMLButtonElement;
@@ -75,6 +143,7 @@ export function createHandleAnswer(config: HandleAnswerConfig) {
       stopAudio();
       overlay.classList.add("hidden");
       if (config.roundIndex < config.totalRounds - 1) {
+        // Proceed to next round
         config.roundIndex++;
         config.roundElement.textContent = `${config.roundIndex + 1}/${config.totalRounds}`;
 
@@ -91,6 +160,7 @@ export function createHandleAnswer(config: HandleAnswerConfig) {
           );
         }
       } else {
+        // End game if all rounds are completed
         config.endGame();
       }
     };

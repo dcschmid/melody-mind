@@ -46,18 +46,18 @@ export async function getUserAndCategoryPoints(
     const currentCategoryPointsValue = Number(data?.currentCategoryPointsValue);
 
     if (isNaN(totalUserPoints) || isNaN(currentCategoryPointsValue)) {
-      throw new Error('Invalid response format: Points must be valid numbers');
+      throw new Error("Invalid response format: Points must be valid numbers");
     }
 
     return {
       totalUserPoints,
-      currentCategoryPointsValue
+      currentCategoryPointsValue,
     };
   } catch (error) {
-    console.error('Fehler beim Abrufen der Punktzahl:', error);
+    console.error("Fehler beim Abrufen der Punktzahl:", error);
     return {
       totalUserPoints: 0,
-      currentCategoryPointsValue: 0
+      currentCategoryPointsValue: 0,
     };
   }
 }
