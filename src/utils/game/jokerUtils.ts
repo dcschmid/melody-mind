@@ -24,11 +24,11 @@ interface Question {
  */
 export enum Difficulty {
   /** Easy difficulty - 3 jokers available */
-  EASY = 'easy',
+  EASY = "easy",
   /** Medium difficulty - 5 jokers available */
-  MEDIUM = 'medium',
+  MEDIUM = "medium",
   /** Hard difficulty - 7 jokers available */
-  HARD = 'hard'
+  HARD = "hard",
 }
 
 /**
@@ -67,7 +67,9 @@ export function use5050Joker(
     return jokerState;
   }
 
-  const options = Array.from(document.querySelectorAll<HTMLButtonElement>("#options button"));
+  const options = Array.from(
+    document.querySelectorAll<HTMLButtonElement>("#options button"),
+  );
 
   if (options.length === 0) {
     console.warn("Keine Antwortoptionen gefunden");
@@ -117,7 +119,12 @@ export function createInitialJokerState(difficulty: Difficulty): {
   maxJokers: number;
   jokerState: JokerState;
 } {
-  const maxJokers = difficulty === Difficulty.EASY ? 3 : difficulty === Difficulty.MEDIUM ? 5 : 7;
+  const maxJokers =
+    difficulty === Difficulty.EASY
+      ? 3
+      : difficulty === Difficulty.MEDIUM
+        ? 5
+        : 7;
 
   return {
     maxJokers,

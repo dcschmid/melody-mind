@@ -1,59 +1,115 @@
 import { stopAudio } from "../audio/audioControls";
 
+/**
+ * Interface representing media elements in the DOM
+ * @interface MediaElements
+ */
 export interface MediaElements {
+  /** Audio preview element for playing song snippets */
   audioPreview: HTMLAudioElement;
+  /** Source element for the audio preview */
   audioPreviewSource: HTMLSourceElement;
+  /** Image element for album cover display */
   overlayCover: HTMLImageElement;
-  streamingLinks: {
-    spotify?: HTMLAnchorElement;
-    deezer?: HTMLAnchorElement;
-    apple?: HTMLAnchorElement;
-  };
+  /** Collection of streaming service links */
+  streamingLinks: Partial<Record<StreamingService, HTMLAnchorElement>>;
 }
 
+/**
+ * Interface representing an album with its media links
+ * @interface Album
+ */
 interface Album {
+  /** URL for the audio preview snippet */
   preview_link?: string;
+  /** URL for the album cover image */
   coverSrc?: string;
+  /** Spotify streaming link */
   spotify_link?: string;
+  /** Deezer streaming link */
   deezer_link?: string;
+  /** Apple Music streaming link */
   apple_music_link?: string;
 }
 
 /**
- * Aktualisiert die Medienelemente (Audio/Cover und Streaming-Links) basierend auf den Album-Daten
- * @param album - Album-Daten mit Links und Cover
- * @param elements - DOM-Elemente für Media-Anzeige
+ * Enum for supported streaming services
+ * @enum {string}
+ */
+export enum StreamingService {
+  SPOTIFY = 'spotify',
+  DEEZER = 'deezer',
+  APPLE = 'apple'
+}
+
+/**
+ * Updates all media elements based on album data
+ * @param {Album} album - Album data containing links and cover
+ * @param {MediaElements} elements - DOM elements for media display
+ * @throws {Error} If media update fails
  */
 export function updateMedia(album: Album, elements: MediaElements): void {
+  if (!elements) {
+    console.error('Keine Media-Elemente übergeben');
+    return;
+  }
+
   try {
-    // Stoppe zuerst die Audio-Wiedergabe
     stopAudio(elements.audioPreview);
 
-    // Aktualisiere Audio/Cover
-    if (album.preview_link) {
-      elements.audioPreviewSource.src = album.preview_link;
-      elements.audioPreview.load();
-      elements.audioPreview.classList.remove("hidden");
-      elements.overlayCover.classList.add("hidden");
-    } else if (album.coverSrc) {
-      elements.overlayCover.src = album.coverSrc;
-      elements.overlayCover.classList.remove("hidden");
-      elements.audioPreview.classList.add("hidden");
-    }
-
-    // Aktualisiere Streaming-Links
-    updateStreamingLink(elements.streamingLinks.spotify, album.spotify_link);
-    updateStreamingLink(elements.streamingLinks.deezer, album.deezer_link);
-    updateStreamingLink(elements.streamingLinks.apple, album.apple_music_link);
+    updateAudioAndCover(album, elements);
+    updateAllStreamingLinks(album, elements.streamingLinks);
   } catch (error) {
     console.error("Fehler beim Aktualisieren der Medien:", error);
+    throw new Error(`Medienaktualisierung fehlgeschlagen: ${error.message}`);
   }
 }
 
 /**
- * Aktualisiert einen einzelnen Streaming-Link
- * @param linkElement - Das Link-Element
- * @param url - Die neue URL
+ * Updates audio preview and cover image elements
+ * @param {Album} album - Album data containing preview and cover links
+ * @param {MediaElements} elements - DOM elements for media display
+ */
+function updateAudioAndCover(album: Album, elements: MediaElements): void {
+  const { preview_link, coverSrc } = album;
+  const { audioPreview, audioPreviewSource, overlayCover } = elements;
+
+  if (preview_link) {
+    audioPreviewSource.src = preview_link;
+    audioPreview.load();
+    audioPreview.classList.remove("hidden");
+    overlayCover.classList.add("hidden");
+  } else if (coverSrc) {
+    overlayCover.src = coverSrc;
+    overlayCover.classList.remove("hidden");
+    audioPreview.classList.add("hidden");
+  }
+}
+
+/**
+ * Updates all streaming service links
+ * @param {Album} album - Album data containing streaming links
+ * @param {MediaElements['streamingLinks']} streamingLinks - Collection of streaming link elements
+ */
+function updateAllStreamingLinks(
+  album: Album,
+  streamingLinks: MediaElements['streamingLinks']
+): void {
+  const linkMap = {
+    [StreamingService.SPOTIFY]: album.spotify_link,
+    [StreamingService.DEEZER]: album.deezer_link,
+    [StreamingService.APPLE]: album.apple_music_link
+  };
+
+  Object.entries(linkMap).forEach(([service, url]) => {
+    updateStreamingLink(streamingLinks[service as StreamingService], url);
+  });
+}
+
+/**
+ * Updates a single streaming service link
+ * @param {HTMLAnchorElement} [linkElement] - The link element to update
+ * @param {string} [url] - The new URL for the streaming service
  */
 function updateStreamingLink(
   linkElement?: HTMLAnchorElement,
@@ -70,8 +126,9 @@ function updateStreamingLink(
 }
 
 /**
- * Initialisiert die Media-Elements-Sammlung
- * @returns MediaElements-Objekt oder null bei Fehler
+ * Initializes and collects all media elements from the DOM
+ * @returns {MediaElements | null} Collection of media elements or null if initialization fails
+ * @throws {Error} If required elements are not found in the DOM
  */
 export function initializeMediaElements(): MediaElements | null {
   try {
