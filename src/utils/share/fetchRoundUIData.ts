@@ -5,16 +5,16 @@ import type { RoundData } from "../interfaces/roundDataInterface";
  * @readonly
  */
 export const ROUND_SLUGS = {
-  ROUND_ONE: 'round-one',
-  ROUND_TWO: 'round-two',
-  ROUND_THREE: 'round-three',
+  ROUND_ONE: "round-one",
+  ROUND_TWO: "round-two",
+  ROUND_THREE: "round-three",
 } as const;
 
 /**
  * Type representing valid round slugs
  * @typedef {typeof ROUND_SLUGS[keyof typeof ROUND_SLUGS]} RoundSlug
  */
-export type RoundSlug = typeof ROUND_SLUGS[keyof typeof ROUND_SLUGS];
+export type RoundSlug = (typeof ROUND_SLUGS)[keyof typeof ROUND_SLUGS];
 
 /**
  * Object containing the UI data for all rounds.
