@@ -10,11 +10,10 @@ import { Icon } from "astro-icon/components";
   aria-modal="true"
   aria-live="polite"
 >
-  <div class="overlayContent" role="document" tabindex="0">
+  <div class="overlayContent" role="document">
     <h2 id="overlay-title" class="title">Auflösung</h2>
     <p id="feedback" class="feedback" role="status" aria-live="assertive"></p>
 
-    <!-- Dynamische Anzeige: Cover oder Audio Player -->
     <div class="mediaSection" aria-label="Medien-Bereich">
       <img
         id="overlay-cover"
@@ -22,6 +21,7 @@ import { Icon } from "astro-icon/components";
         src=""
         alt=""
         loading="eager"
+        decoding="async"
       />
       <audio
         id="audio-preview"
@@ -31,6 +31,8 @@ import { Icon } from "astro-icon/components";
         aria-label="Musik-Vorschau"
       >
         <source id="audio-preview-source" src="" type="audio/mpeg" />
+        <source id="audio-preview-source-ogg" src="" type="audio/ogg" />
+        <track kind="captions" src="" label="Untertitel" />
         <p>Dein Browser unterstützt keine Audio-Wiedergabe.</p>
       </audio>
     </div>
@@ -44,7 +46,7 @@ import { Icon } from "astro-icon/components";
         rel="noopener noreferrer"
         aria-label="Auf Spotify anhören"
       >
-        <Icon name="spotify" width={36} height={36} />
+        <Icon name="spotify" width={36} height={36} aria-hidden="true" />
         <span class="sr-only">Spotify</span>
       </a>
       <a
@@ -55,7 +57,7 @@ import { Icon } from "astro-icon/components";
         rel="noopener noreferrer"
         aria-label="Auf Deezer anhören"
       >
-        <Icon name="deezer" width={36} height={36} />
+        <Icon name="deezer" width={36} height={36} aria-hidden="true" />
         <span class="sr-only">Deezer</span>
       </a>
       <a
@@ -66,7 +68,7 @@ import { Icon } from "astro-icon/components";
         rel="noopener noreferrer"
         aria-label="Auf Apple Music anhören"
       >
-        <Icon name="apple-music" width={36} height={36} />
+        <Icon name="apple-music" width={36} height={36} aria-hidden="true" />
         <span class="sr-only">Apple Music</span>
       </a>
     </div>
@@ -108,6 +110,10 @@ import { Icon } from "astro-icon/components";
       pointer-events: none;
     }
 
+    &:not(.hidden) {
+      will-change: opacity;
+    }
+
     @media (prefers-reduced-motion: no-preference) {
       transition: opacity var(--transition-speed) ease-in-out;
     }
@@ -123,6 +129,8 @@ import { Icon } from "astro-icon/components";
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     color: var(--text-color);
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
 
     &:focus {
       outline: var(--focus-outline-width) solid var(--focus-outline-color);
@@ -175,6 +183,8 @@ import { Icon } from "astro-icon/components";
     height: auto;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
   }
 
   .audioPlayer {
@@ -217,6 +227,12 @@ import { Icon } from "astro-icon/components";
     &:focus-visible {
       outline: var(--focus-outline-width) solid var(--focus-outline-color);
       outline-offset: var(--focus-outline-offset);
+    }
+
+    @media (max-width: 480px) {
+      padding: var(--padding-medium);
+      min-width: calc(var(--min-touch-target) * 1.2);
+      min-height: calc(var(--min-touch-target) * 1.2);
     }
   }
 
@@ -267,7 +283,6 @@ import { Icon } from "astro-icon/components";
     margin-top: var(--padding-medium);
   }
 
-  // High Contrast Mode Support
   @media (forced-colors: active) {
     .overlayContent {
       border: 2px solid CanvasText;
@@ -276,6 +291,12 @@ import { Icon } from "astro-icon/components";
     .musicButton,
     .nextButton {
       border: 2px solid ButtonText;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .overlay {
+      transition: none;
     }
   }
 </style>
@@ -302,23 +323,42 @@ import { Icon } from "astro-icon/components";
     const overlay = document.getElementById("overlay");
     if (!overlay?.classList.contains("hidden")) {
       const content = overlay!.querySelector(".overlayContent");
+      const focusable = Array.from(
+        content?.querySelectorAll(focusableElements) || [],
+      );
+      const firstFocusable = focusable[0] as HTMLElement;
+      const lastFocusable = focusable[focusable.length - 1] as HTMLElement;
 
       switch (event.key) {
         case "Escape":
           document.getElementById("next-round-button")?.click();
           break;
         case "Tab":
-          const focusable = content?.querySelectorAll(focusableElements);
-          if (
-            focusable &&
-            event.shiftKey &&
-            document.activeElement === focusable[0]
+          if (event.shiftKey && document.activeElement === firstFocusable) {
+            event.preventDefault();
+            lastFocusable.focus();
+          } else if (
+            !event.shiftKey &&
+            document.activeElement === lastFocusable
           ) {
             event.preventDefault();
-            (focusable[focusable.length - 1] as HTMLElement).focus();
+            firstFocusable.focus();
           }
           break;
       }
     }
+  });
+
+  document.addEventListener("astro:before-swap", () => {
+    observer.disconnect();
+  });
+
+  // Audio cleanup
+  const audioPlayer = document.getElementById(
+    "audio-preview",
+  ) as HTMLAudioElement;
+  document.addEventListener("astro:before-swap", () => {
+    audioPlayer.pause();
+    audioPlayer.src = "";
   });
 </script>
