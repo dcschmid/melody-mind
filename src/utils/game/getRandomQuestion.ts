@@ -1,56 +1,83 @@
 import { shuffleArray } from "@utils/share/shuffleArray";
 
-// Set to keep track of used questions
-let usedQuestions = new Set();
+/**
+ * Set to keep track of questions that have already been used
+ * to avoid duplicates during the game
+ */
+const usedQuestions = new Set<string>();
 
 /**
- * Function to get a random question from the given array of albums.
+ * Gets a random question from the available albums based on difficulty
  *
- * @param {object[]} albums - An array of albums
- * @param {string} difficulty - The difficulty of the question, either 'easy', 'medium', or 'hard'
- * @param {number} totalRounds - The total number of rounds in the game
- * @returns {object|null} An object containing a random question and the album it belongs to, or null if no new questions are available
+ * @param albums - Array of album objects containing questions
+ * @param difficulty - Difficulty level of the questions to select from
+ * @param totalRounds - Total number of rounds in the game
+ *
+ * @returns Object containing the random question and its corresponding album,
+ *          or null if no questions are available
+ *
+ * @example
+ * ```typescript
+ * const result = getRandomQuestion(albums, 'medium', 10);
+ * if (result) {
+ *   const { randomQuestion, randomAlbum } = result;
+ *   // Use the question...
+ * }
+ * ```
  */
 export function getRandomQuestion(
-  albums: any[],
-  difficulty: string,
+  albums: Array<{
+    questions: {
+      [key: string]: Array<{
+        question: string;
+        [key: string]: any;
+      }>;
+    };
+  }>,
+  difficulty: 'easy' | 'medium' | 'hard',
   totalRounds: number,
 ) {
-  // Shuffle the albums array to randomize the questions order
+  if (!albums?.length) {
+    console.warn('No albums provided');
+    return null;
+  }
+
+  /**
+   * Shuffle the albums array to ensure random selection
+   * across different albums
+   */
   const shuffledAlbums = shuffleArray(albums);
 
-  // Loop through the shuffled albums to find a new question
-  for (const album of shuffledAlbums) {
-    const availableQuestions = album.questions[difficulty].filter(
-      (question: any) => !usedQuestions.has(question.question),
+  /**
+   * Collect all available questions that haven't been used yet
+   * and map them to include their corresponding album
+   */
+  const allAvailableQuestions = shuffledAlbums
+    .flatMap(album =>
+      album.questions[difficulty]
+        .filter(question => !usedQuestions.has(question.question))
+        .map(question => ({ randomQuestion: question, randomAlbum: album }))
     );
 
-    // If there are available questions that haven't been used
-    if (availableQuestions.length > 0) {
-      // Get a random question from the filtered available questions
-      const randomQuestionIndex = Math.floor(
-        Math.random() * availableQuestions.length,
-      );
-      const randomQuestion = availableQuestions[randomQuestionIndex];
-
-      // Add the question to the usedQuestions set to track it
-      usedQuestions.add(randomQuestion.question);
-
-      // Return the random question and the album it belongs to
-      return {
-        randomQuestion,
-        randomAlbum: album,
-      };
-    }
+  /**
+   * If there are available questions, select one randomly
+   * and mark it as used
+   */
+  if (allAvailableQuestions.length > 0) {
+    const randomIndex = Math.floor(Math.random() * allAvailableQuestions.length);
+    const result = allAvailableQuestions[randomIndex];
+    usedQuestions.add(result.randomQuestion.question);
+    return result;
   }
 
-  // If all questions have been used or after total rounds, reset the used questions
+  /**
+   * If all questions have been used, clear the used questions set
+   * and try again, unless we've reached the total number of rounds
+   */
   if (usedQuestions.size >= totalRounds) {
-    console.warn("All questions have been used. Resetting the question set.");
-    usedQuestions.clear(); // Reset the used questions for a new round
+    usedQuestions.clear();
+    return getRandomQuestion(albums, difficulty, totalRounds);
   }
 
-  // Return null if no new questions available or after all rounds
-  console.warn("No new questions available for this difficulty.");
   return null;
 }
