@@ -1,22 +1,55 @@
+/**
+ * Interface representing score data to be saved
+ * @interface ScoreData
+ */
+interface ScoreData {
+  points: number;
+  highscore: number;
+  userId: string;
+}
+
+/**
+ * Interface representing golden LP data to be saved
+ * @interface GoldenLPData
+ */
+interface GoldenLPData {
+  userId: string;
+  lpId: string;
+}
+
+/**
+ * Interface representing a queue item
+ * @interface QueueItem
+ */
 interface QueueItem {
   id: string;
   type: "score" | "goldenLP";
-  data: any;
+  data: ScoreData | GoldenLPData;
   retryCount: number;
   lastAttempt: number;
 }
 
+/**
+ * Manages a persistent queue for saving game data
+ * Implements retry logic and handles failed save attempts
+ * @class QueueManager
+ */
 export class QueueManager {
   private static readonly STORAGE_KEY = "game_save_queue";
   private static readonly MAX_RETRIES = 3;
-  private static readonly RETRY_DELAY = 5000; // 5 Sekunden
+  private static readonly RETRY_DELAY = 5000;
+  private static isProcessing = false;
+  private static _interval: NodeJS.Timeout | undefined;
 
   /**
-   * Fügt ein Element zur Queue hinzu
+   * Adds a new item to the queue and starts processing
+   * @param type - Type of the queue item ("score" or "goldenLP")
+   * @param data - Data to be saved (ScoreData or GoldenLPData)
+   * @returns Promise<void>
    */
   static async addToQueue(
     type: "score" | "goldenLP",
-    data: any,
+    data: ScoreData | GoldenLPData,
   ): Promise<void> {
     const queue = this.getQueue();
     const item: QueueItem = {
@@ -33,66 +66,90 @@ export class QueueManager {
   }
 
   /**
-   * Verarbeitet die Queue
+   * Processes all items in the queue
+   * Implements retry logic and removes successfully processed items
+   * @returns Promise<void>
    */
   static async processQueue(): Promise<void> {
-    const queue = this.getQueue();
-    if (queue.length === 0) return;
+    if (this.isProcessing) return;
 
-    for (const item of queue) {
-      if (item.retryCount >= this.MAX_RETRIES) {
-        // Element nach zu vielen Versuchen entfernen
-        this.removeFromQueue(item.id);
-        continue;
-      }
+    try {
+      this.isProcessing = true;
+      const queue = this.getQueue();
+      if (queue.length === 0) return;
 
-      // Prüfe, ob genug Zeit seit dem letzten Versuch vergangen ist
-      if (Date.now() - item.lastAttempt < this.RETRY_DELAY) {
-        continue;
-      }
-
-      try {
-        if (item.type === "score") {
-          await this.saveScore(item.data);
-        } else if (item.type === "goldenLP") {
-          await this.saveGoldenLP(item.data);
+      for (const item of queue) {
+        if (item.retryCount >= this.MAX_RETRIES) {
+          this.removeFromQueue(item.id);
+          continue;
         }
 
-        // Bei Erfolg aus der Queue entfernen
-        this.removeFromQueue(item.id);
-      } catch (error) {
-        // Retry-Counter erhöhen und Zeitstempel aktualisieren
-        item.retryCount++;
-        item.lastAttempt = Date.now();
-        this.saveQueue(queue);
+        if (Date.now() - item.lastAttempt < this.RETRY_DELAY) {
+          continue;
+        }
 
-        console.error(
-          `Fehler beim Speichern (Versuch ${item.retryCount}):`,
-          error,
+        try {
+          if (item.type === "score") {
+            await this.saveScore(item.data as ScoreData);
+          } else if (item.type === "goldenLP") {
+            await this.saveGoldenLP(item.data as GoldenLPData);
+          }
+
+          this.removeFromQueue(item.id);
+        } catch (error) {
+          item.retryCount++;
+          item.lastAttempt = Date.now();
+          this.saveQueue(queue);
+
+          console.error(
+            `Fehler beim Speichern (Versuch ${item.retryCount}):`,
+            error,
+          );
+        }
+      }
+    } finally {
+      this.isProcessing = false;
+    }
+  }
+
+  /**
+   * Saves score data to the backend
+   * @param data - Score data to be saved
+   * @throws Error if the save operation fails
+   * @returns Promise<void>
+   * @private
+   */
+  private static async saveScore(data: ScoreData): Promise<void> {
+    try {
+      const response = await fetch("/api/saveTotalUserPointsAndHighscore", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(
+          `Fehler beim Speichern des Scores: ${response.status} - ${errorText}`,
         );
       }
+    } catch (error) {
+      console.error("[QueueManager] Score-Speicherfehler:", error);
+      throw error;
     }
   }
 
   /**
-   * Speichert einen Score
+   * Saves golden LP data to the backend
+   * @param data - Golden LP data to be saved
+   * @throws Error if the save operation fails
+   * @returns Promise<void>
+   * @private
    */
-  private static async saveScore(data: any): Promise<void> {
-    const response = await fetch("/api/saveTotalUserPointsAndHighscore", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-
-    if (!response.ok) {
-      throw new Error("Fehler beim Speichern des Scores");
-    }
-  }
-
-  /**
-   * Speichert eine goldene LP
-   */
-  private static async saveGoldenLP(data: any): Promise<void> {
+  private static async saveGoldenLP(data: GoldenLPData): Promise<void> {
     const response = await fetch("/api/saveUserGoldenLP", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -105,7 +162,9 @@ export class QueueManager {
   }
 
   /**
-   * Holt die aktuelle Queue aus dem Storage
+   * Retrieves the current queue from local storage
+   * @returns Array of QueueItems
+   * @private
    */
   private static getQueue(): QueueItem[] {
     try {
@@ -117,7 +176,9 @@ export class QueueManager {
   }
 
   /**
-   * Speichert die Queue im Storage
+   * Saves the current queue to local storage
+   * @param queue - Array of queue items to save
+   * @private
    */
   private static saveQueue(queue: QueueItem[]): void {
     try {
@@ -128,7 +189,9 @@ export class QueueManager {
   }
 
   /**
-   * Entfernt ein Element aus der Queue
+   * Removes an item from the queue by its ID
+   * @param id - ID of the item to remove
+   * @private
    */
   private static removeFromQueue(id: string): void {
     const queue = this.getQueue();
@@ -137,17 +200,28 @@ export class QueueManager {
   }
 
   /**
-   * Prüft ob es ungespeicherte Daten gibt
+   * Checks if there are any unsaved items in the queue
    */
   static hasUnsavedData(): boolean {
     return this.getQueue().length > 0;
   }
 
   /**
-   * Startet die Verarbeitung der Queue
+   * Starts processing the queue
    */
   static startProcessing(): void {
-    // Regelmäßig die Queue überprüfen und verarbeiten
-    setInterval(() => this.processQueue(), this.RETRY_DELAY);
+    if (this._interval) {
+      clearInterval(this._interval);
+    }
+    this._interval = setInterval(() => this.processQueue(), this.RETRY_DELAY);
+
+    this.processQueue().catch(console.error);
+  }
+
+  static stopProcessing(): void {
+    if (this._interval) {
+      clearInterval(this._interval);
+      this._interval = undefined;
+    }
   }
 }
