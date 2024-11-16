@@ -22,8 +22,12 @@ export interface AudioControl {
  * @param {HTMLAudioElement | null} [audioElement] - Target audio element
  * @returns {Promise<void>}
  */
-export async function stopAudio(audioElement?: HTMLAudioElement | null): Promise<void> {
-  const audio = audioElement || document.getElementById("audio-preview") as HTMLAudioElement;
+export async function stopAudio(
+  audioElement?: HTMLAudioElement | null,
+): Promise<void> {
+  const audio =
+    audioElement ||
+    (document.getElementById("audio-preview") as HTMLAudioElement);
 
   if (!audio) return;
 
@@ -46,7 +50,9 @@ export class AudioController implements AudioControl {
   private readonly defaultVolume = 1.0;
 
   constructor(audioElementId: string = "audio-preview") {
-    this.audioElement = document.getElementById(audioElementId) as HTMLAudioElement;
+    this.audioElement = document.getElementById(
+      audioElementId,
+    ) as HTMLAudioElement;
     if (this.audioElement) {
       this.audioElement.volume = this.defaultVolume;
     }
