@@ -37,9 +37,9 @@ interface Album {
  * @enum {string}
  */
 export enum StreamingService {
-  SPOTIFY = 'spotify',
-  DEEZER = 'deezer',
-  APPLE = 'apple'
+  SPOTIFY = "spotify",
+  DEEZER = "deezer",
+  APPLE = "apple",
 }
 
 /**
@@ -50,7 +50,7 @@ export enum StreamingService {
  */
 export function updateMedia(album: Album, elements: MediaElements): void {
   if (!elements) {
-    console.error('Keine Media-Elemente übergeben');
+    console.error("Keine Media-Elemente übergeben");
     return;
   }
 
@@ -93,12 +93,12 @@ function updateAudioAndCover(album: Album, elements: MediaElements): void {
  */
 function updateAllStreamingLinks(
   album: Album,
-  streamingLinks: MediaElements['streamingLinks']
+  streamingLinks: MediaElements["streamingLinks"],
 ): void {
   const linkMap = {
     [StreamingService.SPOTIFY]: album.spotify_link,
     [StreamingService.DEEZER]: album.deezer_link,
-    [StreamingService.APPLE]: album.apple_music_link
+    [StreamingService.APPLE]: album.apple_music_link,
   };
 
   Object.entries(linkMap).forEach(([service, url]) => {
