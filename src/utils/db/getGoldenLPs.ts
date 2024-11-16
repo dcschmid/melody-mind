@@ -1,24 +1,29 @@
 import { db, eq, User } from "astro:db";
 
 /**
- * @function getGoldenLPs
- * @description Gets the golden LPs from the given user ID.
- * @param {string} userId - The ID of the user.
- * @returns {Promise<{ [category: string]: { won: boolean; date: string } }>} - The golden LPs.
+ * Retrieves the golden LPs (Learning Points) for a specific user
+ *
+ * @param userId - The unique identifier of the user
+ * @returns A record object where:
+ *          - key: category name
+ *          - value: object containing:
+ *            - won: whether the LP was earned
+ *            - date: when it was earned
+ *            - difficulty: difficulty level of the achievement
+ * @example
+ * const goldenLPs = await getGoldenLPs("user123");
+ *  Returns: {
+ *    "category1": { won: true, date: "2024-03-20", difficulty: "hard" },
+ *    "category2": { won: false, date: "", difficulty: "medium" }
+ *  }
  */
 export async function getGoldenLPs(
   userId: string,
-): Promise<
-  | { [category: string]: { won: boolean; date: string; difficulty: string } }
-  | {}
-> {
-  const data = await db.select().from(User).where(eq(User.id, userId));
+): Promise<Record<string, { won: boolean; date: string; difficulty: string }>> {
+  const [user] = await db
+    .select()
+    .from(User)
+    .where(eq(User.id, userId));
 
-  if (data && data[0].golden_lps) {
-    // If the user has golden LPs, return them
-    return data[0].golden_lps;
-  } else {
-    // If the user doesn't have golden LPs, return an empty object
-    return {}; // Keine LPs gefunden
-  }
+  return user?.golden_lps ?? {};
 }
