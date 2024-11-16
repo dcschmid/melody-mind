@@ -29,21 +29,23 @@ const { message = "Ein Fehler ist aufgetreten", autoHideAfter = 5000 } =
 <style lang="scss">
   .errorMessage {
     position: fixed;
+    z-index: var(--layer-above);
     top: var(--padding-medium);
     left: 50%;
     transform: translateX(-50%);
-    z-index: var(--layer-above);
 
     padding: var(--padding-medium);
-    background-color: var(--error-color);
+
     color: var(--button-text-color);
+
+    background-color: var(--error-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 
     &.hidden {
+      pointer-events: none;
       visibility: hidden;
       opacity: 0;
-      pointer-events: none;
       transition:
         visibility 0s linear 0.3s,
         opacity 0.3s ease-out;
@@ -58,15 +60,15 @@ const { message = "Ein Fehler ist aufgetreten", autoHideAfter = 5000 } =
     }
 
     @media (prefers-reduced-motion: no-preference) {
-      animation: slideIn 0.3s ease-out;
       will-change: transform, opacity;
+      animation: slide-in 0.3s ease-out;
     }
   }
 
   .errorContent {
     display: flex;
-    align-items: center;
     gap: var(--padding-small);
+    align-items: center;
   }
 
   .errorIcon {
@@ -74,19 +76,23 @@ const { message = "Ein Fehler ist aufgetreten", autoHideAfter = 5000 } =
   }
 
   .errorText {
+    margin: 0;
     font-family: var(--font-family);
     font-size: var(--body-font-size);
-    margin: 0;
   }
 
   .closeButton {
+    cursor: pointer;
+
     padding: calc(var(--padding-small) / 2);
+
+    font-size: 1.2em;
+    color: inherit;
+
+    opacity: 0.8;
     background: none;
     border: none;
-    color: inherit;
-    font-size: 1.2em;
-    cursor: pointer;
-    opacity: 0.8;
+
     transition: opacity var(--transition-speed) ease;
 
     &:hover {
@@ -94,17 +100,18 @@ const { message = "Ein Fehler ist aufgetreten", autoHideAfter = 5000 } =
     }
 
     &:focus-visible {
+      border-radius: 2px;
       outline: 2px solid var(--button-text-color);
       outline-offset: 2px;
-      border-radius: 2px;
     }
   }
 
-  @keyframes slideIn {
+  @keyframes slide-in {
     from {
       transform: translate(-50%, -2rem);
       opacity: 0;
     }
+
     to {
       transform: translate(-50%, 0);
       opacity: 1;

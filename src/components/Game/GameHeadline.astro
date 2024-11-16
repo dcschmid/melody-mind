@@ -18,16 +18,17 @@ const { headline = "Spiel" } = Astro.props;
 <style lang="scss">
   .gameHeadline {
     position: relative;
-    width: 100%;
-    max-width: var(--max-line-length);
-    margin: var(--padding-medium) auto;
-    padding: var(--padding-medium);
 
     display: flex;
     flex-direction: column;
     gap: var(--padding-small);
     align-items: center;
     justify-content: center;
+
+    width: 100%;
+    max-width: var(--max-line-length);
+    margin: var(--padding-medium) auto;
+    padding: var(--padding-medium);
 
     background: linear-gradient(
       90deg,
@@ -44,55 +45,56 @@ const { headline = "Spiel" } = Astro.props;
         box-shadow var(--transition-speed) ease-in-out;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       margin: var(--padding-small) auto;
       padding: var(--padding-small);
     }
   }
 
   .category {
+    margin: 0;
+
     font-family: var(--font-family);
     font-size: var(--header-font-size);
     font-weight: 900;
     line-height: var(--line-height-tight);
-    letter-spacing: var(--spacing-text);
-    text-align: center;
-    text-transform: uppercase;
     color: var(--text-color);
-    margin: 0;
-
+    text-align: center;
     text-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+    text-transform: uppercase;
+    letter-spacing: var(--spacing-text);
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       font-size: calc(var(--header-font-size) * 0.85);
     }
   }
 
   .roundInfo {
+    display: flex;
+    gap: var(--padding-small);
+    align-items: center;
+
     font-family: var(--font-family);
     font-size: var(--body-font-size);
     font-weight: 600;
     line-height: var(--line-height-body);
     color: var(--text-color);
-
-    display: flex;
-    align-items: center;
-    gap: var(--padding-small);
   }
 
   .round {
+    padding: calc(var(--padding-small) / 2) var(--padding-small);
+
     font-weight: 700;
     color: var(--text-color);
 
-    padding: calc(var(--padding-small) / 2) var(--padding-small);
     background-color: rgb(255 255 255 / 15%);
     border-radius: calc(var(--border-radius) / 2);
   }
 
   @media (forced-colors: active) {
     .gameHeadline {
-      border: 2px solid CanvasText;
       background: Canvas;
+      border: 2px solid CanvasText;
     }
 
     .round {
@@ -103,8 +105,8 @@ const { headline = "Spiel" } = Astro.props;
   @media print {
     .gameHeadline {
       background: none;
-      box-shadow: none;
       border: 1px solid #000;
+      box-shadow: none;
     }
 
     .category,

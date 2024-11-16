@@ -25,20 +25,25 @@
 <style lang="scss">
   .jokerContainer {
     isolation: isolate;
+
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: var(--padding-small);
+    align-items: center;
+
     margin: var(--padding-medium) 0;
     padding: var(--padding-small);
   }
 
   .jokerButton {
+    cursor: pointer;
+
     position: relative;
+
     display: inline-flex;
+    gap: var(--padding-small);
     align-items: center;
     justify-content: center;
-    gap: var(--padding-small);
 
     min-width: var(--min-touch-target);
     min-height: var(--min-touch-target);
@@ -54,13 +59,15 @@
     border: none;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    cursor: pointer;
 
     &::after {
       content: "";
+
       position: absolute;
       inset: 0;
+
       background-color: transparent;
+
       transition: background-color var(--transition-speed) ease;
     }
 
@@ -74,8 +81,8 @@
     }
 
     &:disabled {
-      opacity: var(--opacity-disabled);
       cursor: not-allowed;
+      opacity: var(--opacity-disabled);
     }
 
     @media (prefers-reduced-motion: no-preference) {
@@ -144,7 +151,7 @@
   }
 
   // Mobile Optimierungen
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     .jokerContainer {
       margin: var(--padding-small) 0;
     }

@@ -151,7 +151,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         --text-color: #1a1a1a;
         --error-color: #c62828;
         --button-hover-color: #004080;
-        --button-text-color: #ffffff;
+        --button-text-color: #fff;
 
         /* Focus indicators */
         --focus-outline-color: #0056b3;
@@ -192,10 +192,253 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
         /* Z-Index */
         --layer-above: 2;
-
         --spinner-size-small: 40px;
         --spinner-size-medium: 80px;
         --spinner-size-large: 120px;
+      }
+
+      html {
+        box-sizing: border-box;
+        margin: var(--padding-small);
+        font-family: var(--font-family);
+        background-color: var(--background-color);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+
+      body {
+        width: 100%;
+        max-width: 768px;
+        margin: 0 auto;
+        padding: 0 var(--padding-small);
+
+        font-size: var(--body-font-size);
+        line-height: var(--line-height-body);
+        color: var(--text-color);
+        letter-spacing: var(--spacing-text);
+
+        background-color: var(--background-color);
+
+        @media (width >= 768px) {
+          max-width: 768px;
+          padding: 0 var(--padding-medium);
+        }
+      }
+
+      .skip-link {
+        position: absolute;
+        z-index: 1000;
+        top: -100%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        padding: var(--padding-small) var(--padding-medium);
+
+        font-size: var(--button-font-size);
+        font-weight: bold;
+        color: var(--button-text-color);
+        text-decoration: none;
+
+        background: var(--highlight-color);
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+        box-shadow: var(--box-shadow);
+
+        transition: top var(--transition-speed);
+
+        &:focus {
+          top: 0;
+          outline: var(--focus-outline-width) solid var(--focus-outline-color);
+          outline-offset: var(--focus-outline-offset);
+        }
+
+        &:hover {
+          background-color: var(--button-hover-color);
+        }
+      }
+
+      header {
+        margin-bottom: var(--padding-medium);
+        border-radius: var(--border-radius);
+
+        @media (width >= 768px) {
+          padding: var(--padding-medium);
+        }
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--padding-small);
+        align-items: center;
+        justify-content: space-between;
+
+        @media (width >= 768px) {
+          flex-wrap: nowrap;
+        }
+      }
+
+      .slot {
+        display: flex;
+        gap: var(--padding-small);
+        align-items: center;
+      }
+
+      .slot.left,
+      .slot.right {
+        flex: 1;
+        justify-content: center;
+
+        @media (width >= 768px) {
+          justify-content: flex-start;
+        }
+      }
+
+      .slot.right {
+        @media (width >= 768px) {
+          justify-content: flex-end;
+        }
+      }
+
+      .logo {
+        display: flex;
+        justify-content: center;
+      }
+
+      .logo img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      button {
+        cursor: pointer;
+
+        display: inline-block;
+
+        padding: 0;
+
+        background: none;
+        border: none;
+
+        transition: transform var(--transition-speed);
+      }
+
+      .icon-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        min-width: var(--min-touch-target);
+        min-height: var(--min-touch-target);
+        padding: var(--padding-small);
+
+        color: var(--button-text-color);
+        text-decoration: none;
+
+        background-color: var(--highlight-color);
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+
+        transition: all var(--transition-speed);
+
+        &:hover,
+        &:focus {
+          transform: translateY(-2px);
+          background-color: var(--button-hover-color);
+        }
+
+        &:focus-visible {
+          transform: none;
+          outline: var(--focus-outline-width) solid var(--focus-outline-color);
+          outline-offset: var(--focus-outline-offset);
+        }
+
+        [astro-icon] {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      main {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: var(--padding-medium) 0;
+
+        font-size: var(--body-font-size);
+        line-height: 1.6;
+        color: var(--text-color);
+
+        @media (width >= 768px) {
+          max-width: var(--max-line-length);
+        }
+      }
+
+      .hasMargin {
+        margin: 0 var(--padding-small);
+      }
+
+      .button {
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        // Neue Größen-Eigenschaften
+        min-height: var(--min-touch-target);
+        padding: var(--padding-small) var(--padding-large);
+
+        font-size: var(--button-font-size);
+        color: var(--button-text-color);
+        text-decoration: none;
+
+        opacity: 1;
+        background-color: var(--highlight-color);
+        border: none;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+
+        transition: all var(--transition-speed);
+
+        &:hover {
+          transform: scale(1.05);
+          color: var(--button-text-color);
+          background-color: var(--button-hover-color);
+        }
+
+        // Neue Focus-Styles
+        &:focus-visible {
+          transform: none; // Verhindert Skalierung während des Fokus
+          outline: var(--focus-outline-width) solid var(--focus-outline-color);
+          outline-offset: var(--focus-outline-offset);
+        }
+
+        &.hidden {
+          overflow: hidden;
+
+          height: 0;
+          margin: 0;
+          padding: 0;
+
+          opacity: 0;
+        }
+      }
+
+      .sr-only {
+        position: absolute;
+
+        overflow: hidden;
+
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+
+        clip: rect(0, 0, 0, 0);
+        border: 0;
       }
 
       @media (prefers-color-scheme: dark) {
@@ -215,237 +458,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         }
       }
 
-      html {
-        box-sizing: border-box;
-        margin: var(--padding-small);
-        font-family: var(--font-family);
-        background-color: var(--background-color);
-      }
-
-      *,
-      *::before,
-      *::after {
-        box-sizing: inherit;
-      }
-
       @media (prefers-reduced-motion: reduce) {
         * {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
           animation-duration: 0.01ms !important;
           animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
-          scroll-behavior: auto !important;
         }
-      }
-
-      body {
-        width: 100%;
-        max-width: 768px;
-        margin: 0 auto;
-        padding: 0 var(--padding-small);
-
-        font-size: var(--body-font-size);
-        line-height: var(--line-height-body);
-        letter-spacing: var(--spacing-text);
-        color: var(--text-color);
-
-        background-color: var(--background-color);
-
-        @media (min-width: 768px) {
-          max-width: 768px;
-          padding: 0 var(--padding-medium);
-        }
-      }
-
-      .skip-link {
-        position: absolute;
-        top: -100%;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--highlight-color);
-        color: var(--button-text-color);
-        padding: var(--padding-small) var(--padding-medium);
-        font-size: var(--button-font-size);
-        font-weight: bold;
-        text-decoration: none;
-        border-radius: 0 0 var(--border-radius) var(--border-radius);
-        box-shadow: var(--box-shadow);
-        z-index: 1000;
-        transition: top var(--transition-speed);
-
-        &:focus {
-          top: 0;
-          outline: var(--focus-outline-width) solid var(--focus-outline-color);
-          outline-offset: var(--focus-outline-offset);
-        }
-
-        &:hover {
-          background-color: var(--button-hover-color);
-        }
-      }
-
-      header {
-        border-radius: var(--border-radius);
-        margin-bottom: var(--padding-medium);
-
-        @media (min-width: 768px) {
-          padding: var(--padding-medium);
-        }
-      }
-
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        gap: var(--padding-small);
-
-        @media (min-width: 768px) {
-          flex-wrap: nowrap;
-        }
-      }
-
-      .slot {
-        display: flex;
-        gap: var(--padding-small);
-        align-items: center;
-      }
-
-      .slot.left,
-      .slot.right {
-        flex: 1;
-        justify-content: center;
-
-        @media (min-width: 768px) {
-          justify-content: flex-start;
-        }
-      }
-
-      .slot.right {
-        @media (min-width: 768px) {
-          justify-content: flex-end;
-        }
-      }
-
-      .logo {
-        display: flex;
-        justify-content: center;
-      }
-
-      .logo img {
-        max-width: 100%;
-        height: auto;
-      }
-
-      button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        display: inline-block;
-        transition: transform var(--transition-speed);
-      }
-
-      .icon-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-width: var(--min-touch-target);
-        min-height: var(--min-touch-target);
-        background-color: var(--highlight-color);
-        color: var(--button-text-color);
-        border-radius: var(--border-radius);
-        padding: var(--padding-small);
-        box-shadow: var(--box-shadow);
-        transition: all var(--transition-speed);
-        text-decoration: none;
-
-        &:hover,
-        &:focus {
-          background-color: var(--button-hover-color);
-          transform: translateY(-2px);
-        }
-
-        &:focus-visible {
-          outline: var(--focus-outline-width) solid var(--focus-outline-color);
-          outline-offset: var(--focus-outline-offset);
-          transform: none;
-        }
-
-        [astro-icon] {
-          width: 24px;
-          height: 24px;
-        }
-      }
-
-      main {
-        padding: var(--padding-medium) 0;
-        font-size: var(--body-font-size);
-        line-height: 1.6;
-        color: var(--text-color);
-        max-width: 100%;
-        margin: 0 auto;
-
-        @media (min-width: 768px) {
-          max-width: var(--max-line-length);
-        }
-      }
-
-      .hasMargin {
-        margin: 0 var(--padding-small);
-      }
-
-      .button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-
-        // Neue Größen-Eigenschaften
-        min-height: var(--min-touch-target);
-        padding: var(--padding-small) var(--padding-large);
-        font-size: var(--button-font-size);
-
-        opacity: 1;
-        background-color: var(--highlight-color);
-        border: none;
-        border-radius: var(--border-radius);
-        box-shadow: var(--box-shadow);
-        color: var(--button-text-color);
-        text-decoration: none;
-
-        transition: all var(--transition-speed);
-
-        &:hover {
-          transform: scale(1.05);
-          background-color: var(--button-hover-color);
-          color: var(--button-text-color);
-        }
-
-        // Neue Focus-Styles
-        &:focus-visible {
-          outline: var(--focus-outline-width) solid var(--focus-outline-color);
-          outline-offset: var(--focus-outline-offset);
-          transform: none; // Verhindert Skalierung während des Fokus
-        }
-
-        &.hidden {
-          overflow: hidden;
-          height: 0;
-          margin: 0;
-          padding: 0;
-          opacity: 0;
-        }
-      }
-
-      .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
       }
 
       /* Media Queries für Barrierefreiheit */
@@ -462,15 +481,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
       @media (prefers-contrast: high) {
         :root {
-          --highlight-color: #000000;
-          --text-color: #000000;
-          --background-color: #ffffff;
-          --button-text-color: #ffffff;
-          --button-hover-color: #000000;
+          --highlight-color: #000;
+          --text-color: #000;
+          --background-color: #fff;
+          --button-text-color: #fff;
+          --button-hover-color: #000;
         }
       }
 
-      @media (max-width: 767px) {
+      @media (width <= 767px) {
         :root {
           --padding-small: max(8px, 0.5rem);
           --padding-medium: max(16px, 1rem);

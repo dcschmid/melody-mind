@@ -97,17 +97,20 @@ import { Icon } from "astro-icon/components";
     position: fixed;
     z-index: var(--layer-above);
     inset: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     padding: var(--padding-large);
+
     background: rgb(0 0 0 / 90%);
     backdrop-filter: blur(12px);
 
     &.hidden {
-      opacity: 0;
-      visibility: hidden;
       pointer-events: none;
+      visibility: hidden;
+      opacity: 0;
     }
 
     &:not(.hidden) {
@@ -120,71 +123,80 @@ import { Icon } from "astro-icon/components";
   }
 
   .overlayContent {
+    scrollbar-gutter: stable;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
     width: 100%;
     max-width: min(768px, 90vw);
     max-height: 90vh;
     padding: var(--padding-large);
-    overflow-y: auto;
+
+    color: var(--text-color);
+
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    color: var(--text-color);
-    overscroll-behavior: contain;
-    scrollbar-gutter: stable;
 
     &:focus {
       outline: var(--focus-outline-width) solid var(--focus-outline-color);
       outline-offset: var(--focus-outline-offset);
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       padding: var(--padding-medium);
     }
   }
 
   .title {
+    margin-bottom: var(--padding-medium);
+
     font-size: var(--header-font-size);
     font-weight: 700;
     color: var(--text-color);
-    margin-bottom: var(--padding-medium);
     text-align: center;
   }
 
   .feedback {
     margin: var(--padding-medium) 0;
     padding: var(--padding-medium);
-    border-radius: var(--border-radius);
+
     font-size: var(--body-font-size);
     font-weight: 600;
     text-align: center;
 
+    border-radius: var(--border-radius);
+
     &.correct {
-      background-color: var(--highlight-color);
       color: var(--button-text-color);
+      background-color: var(--highlight-color);
     }
 
     &.incorrect {
-      background-color: var(--error-color);
       color: var(--button-text-color);
+      background-color: var(--error-color);
     }
   }
 
   .mediaSection {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: var(--padding-medium);
+    align-items: center;
+
     margin-bottom: var(--padding-medium);
   }
 
   .albumCover {
+    aspect-ratio: 1 / 1;
     width: 100%;
     max-width: 250px;
     height: auto;
+
+    object-fit: cover;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
   }
 
   .audioPlayer {
@@ -200,11 +212,11 @@ import { Icon } from "astro-icon/components";
 
   .musicLinks {
     display: flex;
-    justify-content: center;
     gap: var(--padding-medium);
+    justify-content: center;
     margin: var(--padding-medium) 0;
 
-    @media (max-width: 480px) {
+    @media (width <= 480px) {
       flex-wrap: wrap;
     }
   }
@@ -213,12 +225,15 @@ import { Icon } from "astro-icon/components";
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: var(--padding-small);
-    background-color: var(--highlight-color);
-    border-radius: var(--border-radius);
-    color: var(--button-text-color);
+
     min-width: var(--min-touch-target);
     min-height: var(--min-touch-target);
+    padding: var(--padding-small);
+
+    color: var(--button-text-color);
+
+    background-color: var(--highlight-color);
+    border-radius: var(--border-radius);
 
     &:hover {
       background-color: var(--button-hover-color);
@@ -229,16 +244,16 @@ import { Icon } from "astro-icon/components";
       outline-offset: var(--focus-outline-offset);
     }
 
-    @media (max-width: 480px) {
-      padding: var(--padding-medium);
+    @media (width <= 480px) {
       min-width: calc(var(--min-touch-target) * 1.2);
       min-height: calc(var(--min-touch-target) * 1.2);
+      padding: var(--padding-medium);
     }
   }
 
   .infoSection {
-    text-align: center;
     margin: var(--padding-medium) 0;
+    text-align: center;
   }
 
   .artist {
@@ -255,16 +270,19 @@ import { Icon } from "astro-icon/components";
   }
 
   .nextButton {
+    cursor: pointer;
+
+    min-width: var(--min-touch-target);
+    min-height: var(--min-touch-target);
     padding: var(--padding-medium) var(--padding-large);
+
     font-size: var(--button-font-size);
     font-weight: 600;
     color: var(--button-text-color);
+
     background-color: var(--highlight-color);
     border: none;
     border-radius: var(--border-radius);
-    cursor: pointer;
-    min-width: var(--min-touch-target);
-    min-height: var(--min-touch-target);
 
     &:hover {
       background-color: var(--button-hover-color);
@@ -278,8 +296,8 @@ import { Icon } from "astro-icon/components";
 
   .buttonWrapper {
     display: flex;
-    justify-content: center;
     gap: var(--padding-medium);
+    justify-content: center;
     margin-top: var(--padding-medium);
   }
 

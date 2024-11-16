@@ -26,8 +26,9 @@ const {
 <style lang="scss">
   .spinnerContainer {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
     min-height: var(--min-touch-target);
     padding: var(--padding-medium);
 
@@ -37,34 +38,12 @@ const {
   }
 
   .spinner {
-    position: relative;
-    border-radius: 50%;
-    border: var(--spinner-width) solid var(--secondary-color);
-    border-top-color: var(--highlight-color);
-
     --spinner-width: calc(var(--spinner-size) / 12);
 
-    @media (prefers-reduced-motion: no-preference) {
-      animation: spin 1s linear infinite;
-    }
-
-    &--small {
-      --spinner-size: var(--spinner-size-small);
-      width: var(--spinner-size);
-      height: var(--spinner-size);
-    }
-
-    &--medium {
-      --spinner-size: var(--spinner-size-medium);
-      width: var(--spinner-size);
-      height: var(--spinner-size);
-    }
-
-    &--large {
-      --spinner-size: var(--spinner-size-large);
-      width: var(--spinner-size);
-      height: var(--spinner-size);
-    }
+    position: relative;
+    border: var(--spinner-width) solid var(--secondary-color);
+    border-top-color: var(--highlight-color);
+    border-radius: 50%;
 
     &::before,
     &::after {
@@ -75,13 +54,38 @@ const {
 
     &::before {
       inset: calc(var(--spinner-width) * -0.5);
+      opacity: 0.5;
       border: var(--spinner-width) solid transparent;
       border-top-color: var(--highlight-color);
-      opacity: 0.5;
 
       @media (prefers-reduced-motion: no-preference) {
         animation: spin 2s linear infinite;
       }
+    }
+
+    &--small {
+      --spinner-size: var(--spinner-size-small);
+
+      width: var(--spinner-size);
+      height: var(--spinner-size);
+    }
+
+    &--medium {
+      --spinner-size: var(--spinner-size-medium);
+
+      width: var(--spinner-size);
+      height: var(--spinner-size);
+    }
+
+    &--large {
+      --spinner-size: var(--spinner-size-large);
+
+      width: var(--spinner-size);
+      height: var(--spinner-size);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: spin 1s linear infinite;
     }
 
     @media (prefers-reduced-motion: no-preference) {
@@ -94,6 +98,7 @@ const {
     from {
       transform: rotate(0deg);
     }
+
     to {
       transform: rotate(360deg);
     }

@@ -93,10 +93,10 @@ const keywords =
 
 <style lang="scss">
   .container {
-    text-align: center;
-    padding: var(--padding-large);
     max-width: var(--max-line-length);
     margin: 0 auto;
+    padding: var(--padding-large);
+    text-align: center;
   }
 
   .logo {
@@ -104,58 +104,66 @@ const keywords =
     max-width: 320px;
     height: auto;
     margin: var(--padding-large) auto;
+
     transition: transform var(--transition-speed);
   }
 
   .headline {
+    margin: var(--padding-medium) 0;
+
     font-size: var(--header-font-size);
     font-weight: 700;
-    margin: var(--padding-medium) 0;
     color: var(--text-color);
     letter-spacing: var(--spacing-text);
   }
 
   .text {
+    margin: var(--padding-medium) 0;
+
     font-size: var(--body-font-size);
     font-weight: 400;
-    color: var(--text-color);
-    margin: var(--padding-medium) 0;
     line-height: var(--line-height-body);
+    color: var(--text-color);
     letter-spacing: var(--spacing-text);
   }
 
   .buttonGroup {
     display: flex;
-    justify-content: center;
-    gap: var(--padding-medium);
     flex-wrap: wrap;
+    gap: var(--padding-medium);
+    justify-content: center;
+
     margin-top: var(--padding-medium);
   }
 
   .button {
-    min-height: var(--min-touch-target);
-    min-width: var(--min-touch-target);
     display: inline-flex;
     align-items: center;
+
+    min-width: var(--min-touch-target);
+    min-height: var(--min-touch-target);
     padding: var(--padding-small) var(--padding-large);
+
     font-size: var(--button-font-size);
     font-weight: 600;
     color: var(--button-text-color);
+    text-decoration: none;
+
     background-color: var(--highlight-color);
     border-radius: var(--border-radius);
-    text-decoration: none;
     box-shadow: var(--box-shadow);
+
     transition: all var(--transition-speed);
 
     &:hover {
-      background-color: var(--button-hover-color);
       transform: scale(1.05);
+      background-color: var(--button-hover-color);
     }
 
     &:focus-visible {
+      transform: none;
       outline: var(--focus-outline-width) solid var(--focus-outline-color);
       outline-offset: var(--focus-outline-offset);
-      transform: none;
     }
   }
 
@@ -163,13 +171,13 @@ const keywords =
     margin-right: var(--padding-small);
   }
 
-  @media (max-width: 1024px) {
+  @media (width <= 1024px) {
     .buttonGroup {
       gap: var(--padding-small);
     }
   }
 
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     .buttonGroup {
       flex-direction: column;
       gap: var(--padding-small);

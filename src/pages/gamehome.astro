@@ -136,16 +136,19 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 
 <style lang="scss">
   .gameHome {
-    padding: var(--padding-large);
     max-width: var(--max-line-length);
     margin: 0 auto;
+    padding: var(--padding-large);
+
     background-color: var(--background-color);
     border-radius: var(--border-radius);
   }
 
   .search-label {
     display: block;
+
     margin-bottom: 0.75rem;
+
     font-size: var(--body-font-size);
     font-weight: 600;
     color: var(--text-color);
@@ -159,15 +162,16 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     width: 100%;
     max-width: 1024px;
     padding: 1rem var(--padding-medium);
+
     font-family: var(--font-family);
     font-size: var(--body-font-size);
     line-height: var(--line-height-body);
     color: var(--text-color);
+
+    appearance: none;
     background-color: var(--background-color);
     border: 2px solid var(--text-color);
     border-radius: var(--border-radius);
-    -webkit-appearance: none;
-    appearance: none;
 
     &::placeholder {
       color: var(--text-color);
@@ -175,27 +179,28 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     }
 
     &:focus-visible {
+      border-color: var(--focus-outline-color);
       outline: var(--focus-outline-width) solid var(--focus-outline-color);
       outline-offset: var(--focus-outline-offset);
-      border-color: var(--focus-outline-color);
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       font-size: 16px;
     }
   }
 
   .playlistGrid {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: var(--padding-large);
+
     width: 100%;
+    max-width: 1200px;
+    min-height: 200px;
     margin: var(--padding-large) auto;
     padding: 0;
-    list-style: none;
-    min-height: 200px;
 
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    max-width: 1200px;
+    list-style: none;
 
     > li {
       display: list-item;
@@ -203,30 +208,34 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     }
 
     &[aria-busy="true"] {
-      opacity: 0.7;
       pointer-events: none;
+      opacity: 0.7;
     }
   }
 
   .playlist-item {
-    list-style: none;
     margin: 0;
     padding: 0;
+    list-style: none;
   }
 
   .playlistLink,
   .playlistItem {
+    will-change: transform;
+
+    overflow: hidden;
     display: flex;
     flex-direction: column;
+
     width: 100%;
-    text-decoration: none;
+
     color: var(--text-color);
+    text-decoration: none;
+
     background-color: var(--secondary-color);
     border: 2px solid transparent;
     border-radius: var(--border-radius);
-    overflow: hidden;
 
-    will-change: transform;
     transition: transform 0.2s ease-out;
 
     &:hover {
@@ -234,20 +243,22 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     }
 
     img {
+      aspect-ratio: 1;
       width: 100%;
       height: auto;
-      aspect-ratio: 1;
       object-fit: cover;
     }
 
     .headline {
       padding: var(--padding-medium);
-      text-align: center;
+
       font-size: var(--body-font-size);
       font-weight: 600;
       line-height: var(--line-height-body);
-      background-color: rgba(0, 0, 0, 0.85);
-      color: #ffffff;
+      color: #fff;
+      text-align: center;
+
+      background-color: rgb(0 0 0 / 85%);
     }
 
     &:focus-visible {
@@ -256,35 +267,42 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     }
 
     &[aria-disabled="true"] {
+      cursor: not-allowed;
       opacity: 0.85;
       background-color: var(--secondary-color);
-      cursor: not-allowed;
 
       &::after {
         content: "Nicht verfügbar";
+
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: rgba(0, 0, 0, 0.9);
-        color: #ffffff;
+
         padding: 1em 1.5em;
-        border-radius: var(--border-radius);
-        font-weight: 600;
+
         font-size: var(--body-font-size);
+        font-weight: 600;
+        color: #fff;
+
+        background: rgb(0 0 0 / 90%);
+        border-radius: var(--border-radius);
       }
     }
   }
 
   .no-results {
     grid-column: 1 / -1;
-    text-align: center;
+
     padding: var(--padding-large);
-    background-color: var(--secondary-color);
-    border-radius: var(--border-radius);
+
     font-size: var(--body-font-size);
     font-weight: 500;
     color: var(--text-color);
+    text-align: center;
+
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
   }
 
   @media (forced-colors: active) {
@@ -307,6 +325,7 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     .playlistLink,
     .playlistItem {
       break-inside: avoid;
+
       page-break-inside: avoid;
     }
   }

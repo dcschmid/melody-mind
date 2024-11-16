@@ -45,18 +45,21 @@ const {
     position: fixed;
     z-index: var(--layer-above);
     inset: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     padding: var(--padding-medium);
+
     background-color: rgb(31 14 22 / 90%);
     backdrop-filter: blur(8px);
 
     &.hidden {
-      opacity: 0;
-      visibility: hidden;
       pointer-events: none;
       will-change: opacity, visibility;
+      visibility: hidden;
+      opacity: 0;
     }
 
     @media (prefers-reduced-motion: no-preference) {
@@ -68,10 +71,12 @@ const {
     width: 100%;
     max-width: min(400px, 90vw);
     padding: var(--padding-large);
+
+    text-align: center;
+
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    text-align: center;
 
     &:focus {
       outline: var(--focus-outline-width) solid var(--focus-outline-color);
@@ -79,42 +84,45 @@ const {
     }
 
     @media (prefers-reduced-motion: no-preference) {
-      animation: popIn var(--transition-speed) ease-out;
       will-change: transform, opacity;
+      animation: pop-in var(--transition-speed) ease-out;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       padding: var(--padding-medium);
     }
   }
 
-  @keyframes popIn {
+  @keyframes pop-in {
     from {
-      opacity: 0;
       transform: scale(0.95);
+      opacity: 0;
     }
+
     to {
-      opacity: 1;
       transform: scale(1);
+      opacity: 1;
     }
   }
 
   .title {
+    margin-bottom: var(--padding-medium);
+
     font-family: var(--font-family);
     font-size: var(--header-font-size);
     font-weight: 700;
     line-height: var(--line-height-body);
     color: var(--highlight-color);
-    margin-bottom: var(--padding-medium);
   }
 
   .motivationText {
+    margin-bottom: var(--padding-medium);
+
     font-family: var(--font-family);
     font-size: var(--body-font-size);
-    line-height: var(--line-height-body);
     font-style: italic;
+    line-height: var(--line-height-body);
     color: var(--text-color);
-    margin-bottom: var(--padding-medium);
   }
 
   .scoreSection {
@@ -122,10 +130,10 @@ const {
   }
 
   .scoreLabel {
+    margin-right: var(--padding-small);
     font-family: var(--font-family);
     font-size: var(--body-font-size);
     color: var(--text-color);
-    margin-right: var(--padding-small);
   }
 
   .scoreValue {
@@ -140,17 +148,20 @@ const {
   }
 
   .restartButton {
+    cursor: pointer;
+
+    min-width: var(--min-touch-target);
+    min-height: var(--min-touch-target);
     padding: var(--padding-medium) var(--padding-large);
+
     font-family: var(--font-family);
     font-size: var(--button-font-size);
     font-weight: 600;
     color: var(--button-text-color);
+
     background-color: var(--highlight-color);
     border: none;
     border-radius: var(--border-radius);
-    cursor: pointer;
-    min-width: var(--min-touch-target);
-    min-height: var(--min-touch-target);
 
     &:hover {
       background-color: var(--button-hover-color);
@@ -181,13 +192,13 @@ const {
   @media print {
     .popup {
       position: static;
-      background: none;
       padding: 0;
+      background: none;
     }
 
     .popupContent {
-      box-shadow: none;
       border: 1px solid #000;
+      box-shadow: none;
     }
 
     .restartButton {

@@ -56,17 +56,20 @@ const { playerTitle, category } = Astro.props;
     position: fixed;
     z-index: var(--layer-above);
     inset: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     padding: var(--padding-medium);
+
     background-color: rgb(31 14 22 / 90%);
     backdrop-filter: blur(8px);
 
     &.hidden {
-      opacity: 0;
-      visibility: hidden;
       pointer-events: none;
+      visibility: hidden;
+      opacity: 0;
     }
 
     @media (prefers-reduced-motion: no-preference) {
@@ -78,10 +81,12 @@ const { playerTitle, category } = Astro.props;
     width: 100%;
     max-width: min(400px, 90vw);
     padding: var(--padding-large);
+
+    text-align: center;
+
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    text-align: center;
 
     &:focus {
       outline: var(--focus-outline-width) solid var(--focus-outline-color);
@@ -89,41 +94,43 @@ const { playerTitle, category } = Astro.props;
     }
 
     @media (prefers-reduced-motion: no-preference) {
-      animation: popIn var(--transition-speed) ease-out;
       will-change: transform, opacity;
+      animation: pop-in var(--transition-speed) ease-out;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       padding: var(--padding-medium);
     }
   }
 
-  @keyframes popIn {
+  @keyframes pop-in {
     from {
-      opacity: 0;
       transform: scale(0.95);
+      opacity: 0;
     }
+
     to {
-      opacity: 1;
       transform: scale(1);
+      opacity: 1;
     }
   }
 
   .title {
+    margin-bottom: var(--padding-medium);
+
     font-family: var(--font-family);
     font-size: var(--header-font-size);
     font-weight: 700;
     line-height: var(--line-height-body);
     color: var(--highlight-color);
-    margin-bottom: var(--padding-medium);
   }
 
   .iconWrapper {
     margin: var(--padding-medium) auto;
 
     @media (prefers-reduced-motion: no-preference) {
-      animation: spin 4s infinite linear;
       will-change: transform;
+      animation: spin 4s infinite linear;
     }
   }
 
@@ -131,6 +138,7 @@ const { playerTitle, category } = Astro.props;
     from {
       transform: rotate(0deg);
     }
+
     to {
       transform: rotate(360deg);
     }
@@ -141,17 +149,18 @@ const { playerTitle, category } = Astro.props;
   }
 
   .message {
+    margin-bottom: var(--padding-medium);
+
     font-family: var(--font-family);
     font-size: var(--body-font-size);
     line-height: var(--line-height-body);
-    letter-spacing: var(--spacing-text);
     color: var(--text-color);
-    margin-bottom: var(--padding-medium);
+    letter-spacing: var(--spacing-text);
   }
 
   .highlight {
-    color: var(--highlight-color);
     font-weight: 700;
+    color: var(--highlight-color);
   }
 
   .scoreText {
@@ -172,17 +181,20 @@ const { playerTitle, category } = Astro.props;
   }
 
   .restartButton {
+    cursor: pointer;
+
+    min-width: var(--min-touch-target);
+    min-height: var(--min-touch-target);
     padding: var(--padding-medium) var(--padding-large);
+
     font-family: var(--font-family);
     font-size: var(--button-font-size);
     font-weight: 600;
     color: var(--button-text-color);
+
     background-color: var(--highlight-color);
     border: none;
     border-radius: var(--border-radius);
-    cursor: pointer;
-    min-width: var(--min-touch-target);
-    min-height: var(--min-touch-target);
 
     &:hover {
       background-color: var(--button-hover-color);
@@ -217,13 +229,13 @@ const { playerTitle, category } = Astro.props;
   @media print {
     .popup {
       position: static;
-      background: none;
       padding: 0;
+      background: none;
     }
 
     .popupContent {
-      box-shadow: none;
       border: 1px solid #000;
+      box-shadow: none;
     }
 
     .iconWrapper {

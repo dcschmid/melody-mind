@@ -70,25 +70,27 @@ const goldenLPs: Record<string, GoldenLP> = await getGoldenLPs(user?.id);
   .achievementsSection {
     margin-top: var(--padding-large);
     padding: var(--padding-large);
+
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       padding: var(--padding-medium);
     }
   }
 
   .sectionTitle {
+    margin-bottom: var(--padding-large);
+
     font-family: var(--font-family);
     font-size: var(--header-font-size);
     font-weight: 700;
     line-height: var(--line-height-tight);
     color: var(--highlight-color);
     text-align: center;
-    margin-bottom: var(--padding-large);
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       font-size: calc(var(--header-font-size) * 0.85);
     }
   }
@@ -99,17 +101,19 @@ const goldenLPs: Record<string, GoldenLP> = await getGoldenLPs(user?.id);
     gap: var(--padding-medium);
     justify-items: center;
 
-    @media (max-width: 480px) {
+    @media (width <= 480px) {
       grid-template-columns: 1fr;
     }
   }
 
   .achievementCard {
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    width: 100%;
     padding: var(--padding-medium);
+
     background-color: var(--background-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
@@ -141,6 +145,7 @@ const goldenLPs: Record<string, GoldenLP> = await getGoldenLPs(user?.id);
     100% {
       transform: translateY(0);
     }
+
     50% {
       transform: translateY(-5px);
     }
@@ -151,28 +156,31 @@ const goldenLPs: Record<string, GoldenLP> = await getGoldenLPs(user?.id);
   }
 
   .achievementTitle {
+    margin-bottom: var(--padding-small);
+
     font-family: var(--font-family);
     font-size: var(--body-font-size);
     font-weight: 600;
     line-height: var(--line-height-body);
     color: var(--text-color);
-    margin-bottom: var(--padding-small);
   }
 
   .achievementRank {
     font-family: var(--font-family);
     font-size: calc(var(--body-font-size) * 0.9);
-    color: var(--highlight-color);
     font-weight: 500;
+    color: var(--highlight-color);
   }
 
   .emptyState {
-    text-align: center;
-    color: var(--text-color);
+    padding: var(--padding-large);
+
     font-family: var(--font-family);
     font-size: var(--body-font-size);
     line-height: var(--line-height-body);
-    padding: var(--padding-large);
+    color: var(--text-color);
+    text-align: center;
+
     background-color: var(--background-color);
     border-radius: var(--border-radius);
   }
@@ -192,21 +200,21 @@ const goldenLPs: Record<string, GoldenLP> = await getGoldenLPs(user?.id);
   // Dark Mode Optimierungen
   @media (prefers-color-scheme: dark) {
     .achievementCard {
-      background-color: color-mix(in srgb, var(--background-color) 95%, white);
+      background-color: color-mix(in srgb, var(--background-color) 95%, #fff);
     }
   }
 
   // Print Styles
   @media print {
     .achievementsSection {
-      box-shadow: none;
       border: 1px solid #000;
+      box-shadow: none;
     }
 
     .achievementCard {
-      box-shadow: none;
-      border: 1px solid #000;
       break-inside: avoid;
+      border: 1px solid #000;
+      box-shadow: none;
     }
 
     .cardIcon {

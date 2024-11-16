@@ -26,16 +26,19 @@ import { Icon } from "astro-icon/components";
 
 <style lang="scss">
   .coinsContainer {
+    will-change: transform;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     min-width: var(--min-touch-target);
     max-width: min(120px, 100%);
     padding: var(--padding-small);
+
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    will-change: transform;
 
     // Hover Effekt
     @media (hover: hover) {
@@ -46,8 +49,9 @@ import { Icon } from "astro-icon/components";
     }
 
     @media (hover: none) {
-      -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
+
+      -webkit-tap-highlight-color: transparent;
     }
 
     @media (prefers-reduced-motion: no-preference) {
@@ -59,16 +63,16 @@ import { Icon } from "astro-icon/components";
 
   .coinsDisplay {
     display: flex;
-    align-items: center;
     gap: var(--padding-small);
+    align-items: center;
     padding: calc(var(--padding-small) / 2);
   }
 
   .coinIcon {
-    color: var(--highlight-color);
-    filter: drop-shadow(0 2px 4px rgb(0 0 0 / 15%));
     will-change: transform;
+    color: var(--highlight-color);
     backface-visibility: hidden;
+    filter: drop-shadow(0 2px 4px rgb(0 0 0 / 15%));
 
     @media (prefers-reduced-motion: no-preference) {
       animation: bounce 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
@@ -79,9 +83,9 @@ import { Icon } from "astro-icon/components";
     font-family: var(--font-family);
     font-size: var(--body-font-size);
     font-weight: 700;
+    font-variant-numeric: tabular-nums;
     line-height: var(--line-height-tight);
     color: var(--text-color);
-    font-variant-numeric: tabular-nums;
 
     .count {
       display: inline-block;
@@ -95,6 +99,7 @@ import { Icon } from "astro-icon/components";
     100% {
       transform: translateY(0) translateZ(0);
     }
+
     50% {
       transform: translateY(-2px) translateZ(0);
     }
@@ -107,15 +112,15 @@ import { Icon } from "astro-icon/components";
     }
 
     .coinIcon {
-      forced-color-adjust: none;
       color: LinkText;
+      forced-color-adjust: none;
     }
   }
 
   // Dark Mode Optimierungen
   @media (prefers-color-scheme: dark) {
     .coinsContainer {
-      background-color: color-mix(in srgb, var(--secondary-color) 85%, black);
+      background-color: color-mix(in srgb, var(--secondary-color) 85%, #000);
     }
 
     .coinIcon {
@@ -124,7 +129,7 @@ import { Icon } from "astro-icon/components";
   }
 
   // Mobile Optimierungen
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     .coinsContainer {
       padding: calc(var(--padding-small) * 0.75);
     }
@@ -137,8 +142,8 @@ import { Icon } from "astro-icon/components";
   // Print Styles
   @media print {
     .coinsContainer {
-      box-shadow: none;
       border: 1px solid #000;
+      box-shadow: none;
     }
 
     .coinIcon {

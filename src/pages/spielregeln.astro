@@ -135,45 +135,48 @@ import Layout from "@layouts/Layout.astro";
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
 
-      @media (max-width: 768px) {
+      @media (width <= 768px) {
         padding: var(--padding-medium);
       }
     }
 
     .mainTitle {
+      margin-block-end: var(--padding-large);
+
       font-family: var(--font-family);
       font-size: var(--header-font-size);
       font-weight: 900;
       line-height: var(--line-height-body);
-      text-align: center;
       color: var(--text-color);
-      margin-block-end: var(--padding-large);
+      text-align: center;
 
-      @media (max-width: 768px) {
+      @media (width <= 768px) {
         font-size: calc(var(--header-font-size) * 0.8);
       }
     }
 
     .sectionTitle {
+      margin-block: var(--padding-medium);
+
       font-family: var(--font-family);
       font-size: calc(var(--header-font-size) * 0.8);
       font-weight: 700;
       line-height: var(--line-height-body);
       color: var(--text-color);
-      margin-block: var(--padding-medium);
 
-      @media (max-width: 768px) {
+      @media (width <= 768px) {
         font-size: calc(var(--header-font-size) * 0.7);
       }
     }
 
     .text {
+      margin-block-end: var(--padding-medium);
+
       font-family: var(--font-family);
       font-size: var(--body-font-size);
       line-height: var(--line-height-body);
-      letter-spacing: var(--spacing-text);
       color: var(--text-color);
-      margin-block-end: var(--padding-medium);
+      letter-spacing: var(--spacing-text);
 
       strong {
         font-weight: 600;
@@ -181,30 +184,37 @@ import Layout from "@layouts/Layout.astro";
     }
 
     .list {
-      list-style-type: disc;
-      padding-inline-start: var(--padding-large);
       margin-block-end: var(--padding-medium);
+      padding-inline-start: var(--padding-large);
+      list-style-type: disc;
 
       li {
+        margin-block-end: var(--padding-small);
+
         font-family: var(--font-family);
         font-size: var(--body-font-size);
         line-height: var(--line-height-body);
         color: var(--text-color);
-        margin-block-end: var(--padding-small);
 
         strong {
           font-weight: 600;
         }
       }
 
-      @media (max-width: 768px) {
+      @media (width <= 768px) {
         padding-inline-start: var(--padding-medium);
       }
     }
 
     .highlight {
-      color: var(--highlight-color);
       font-weight: 600;
+      color: var(--highlight-color);
+    }
+
+    // Focus Styles
+    :focus-visible {
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
     }
 
     // High Contrast Mode Support
@@ -229,8 +239,8 @@ import Layout from "@layouts/Layout.astro";
     // Print Styles
     @media print {
       .rulesContainer {
-        box-shadow: none;
         border: 1px solid #000;
+        box-shadow: none;
       }
 
       .mainTitle,
@@ -241,12 +251,6 @@ import Layout from "@layouts/Layout.astro";
       .list {
         page-break-inside: avoid;
       }
-    }
-
-    // Focus Styles
-    :focus-visible {
-      outline: var(--focus-outline-width) solid var(--focus-outline-color);
-      outline-offset: var(--focus-outline-offset);
     }
 
     // Better Touch Targets

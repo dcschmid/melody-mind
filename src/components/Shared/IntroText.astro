@@ -37,50 +37,54 @@ const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
 
 <style lang="scss">
   .introSection {
-    width: 100%;
-    max-width: var(--max-line-length);
-    margin-inline: auto;
-    margin-block-end: var(--padding-large);
-    padding-inline: var(--padding-medium);
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: var(--padding-medium);
+    align-items: center;
+
+    width: 100%;
+    max-width: var(--max-line-length);
+    margin-block-end: var(--padding-large);
+    margin-inline: auto;
+    padding-inline: var(--padding-medium);
+
     text-align: center;
 
     @media (prefers-reduced-motion: no-preference) {
-      animation: fadeIn var(--transition-speed) ease-out;
+      animation: fade-in var(--transition-speed) ease-out;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       margin-block-end: var(--padding-medium);
       padding-inline: var(--padding-small);
     }
   }
 
   .headline {
+    max-width: var(--max-line-length);
+    margin: 0;
+
     font-family: var(--font-family);
     font-size: var(--header-font-size);
     font-weight: 900;
     line-height: var(--line-height-tight);
-    letter-spacing: var(--spacing-text);
+    hyphens: auto;
     color: var(--text-color);
     text-transform: uppercase;
-    max-width: var(--max-line-length);
-    margin: 0;
     text-wrap: balance;
-    hyphens: auto;
+    letter-spacing: var(--spacing-text);
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       font-size: calc(var(--header-font-size) * 0.85);
     }
 
-    @media (max-width: 480px) {
+    @media (width <= 480px) {
       font-size: calc(var(--header-font-size) * 0.75);
     }
 
     @media (prefers-color-scheme: dark) {
       --minimum-contrast: 7;
+
       color: var(--text-color);
       text-shadow: none;
     }
@@ -91,32 +95,35 @@ const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
   }
 
   .subline {
+    max-width: min(30rem, 90%);
+    margin: 0;
+
     font-family: var(--font-family);
     font-size: clamp(1.2rem, var(--body-font-size), 2rem);
     line-height: 1.8;
-    letter-spacing: var(--spacing-text);
     color: var(--text-color);
-    max-width: min(30rem, 90%);
-    margin: 0;
+    letter-spacing: var(--spacing-text);
+
     opacity: 1;
   }
 
-  @keyframes fadeIn {
+  @keyframes fade-in {
     from {
-      opacity: 0;
-      transform: translateY(1rem);
       will-change: transform, opacity;
+      transform: translateY(1rem);
+      opacity: 0;
     }
+
     to {
-      opacity: 1;
       transform: translateY(0);
+      opacity: 1;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .introSection {
-      animation: none;
       transform: none;
+      animation: none;
     }
   }
 
@@ -128,7 +135,7 @@ const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
     }
   }
 
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     .headline {
       font-size: max(1.8rem, var(--header-font-size));
       word-wrap: break-word;

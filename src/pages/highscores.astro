@@ -203,12 +203,13 @@ for (const category of categoriesNamesArray) {
   }
 
   .highscoreTitle {
+    margin: var(--padding-large) 0;
+
     font-size: var(--header-font-size);
     font-weight: 700;
     line-height: var(--line-height-body);
-    text-align: center;
     color: var(--text-color);
-    margin: var(--padding-large) 0;
+    text-align: center;
   }
 
   .introSection {
@@ -219,11 +220,13 @@ for (const category of categoriesNamesArray) {
     max-width: 800px;
     margin: 0 auto;
     padding: var(--padding-large);
+
     font-size: var(--body-font-size);
     line-height: var(--line-height-body);
-    letter-spacing: var(--spacing-text);
-    text-align: left;
     color: var(--text-color);
+    text-align: left;
+    letter-spacing: var(--spacing-text);
+
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
@@ -231,37 +234,40 @@ for (const category of categoriesNamesArray) {
 
   .sectionTitle,
   .categoryTitle {
+    margin: var(--padding-large) 0 var(--padding-medium);
+
     font-size: calc(var(--header-font-size) * 0.9);
     font-weight: 700;
     line-height: var(--line-height-body);
     color: var(--text-color);
-    margin: var(--padding-large) 0 var(--padding-medium);
   }
 
   .tableWrapper {
     overflow-x: auto;
+
     margin-bottom: var(--padding-large);
     padding: var(--padding-small);
+
     background-color: var(--secondary-color);
-    border-radius: var(--border-radius);
 
     // Horizontaler Scroll-Indikator
     background-image: linear-gradient(
         to right,
         var(--secondary-color) 30%,
-        rgba(255, 255, 255, 0)
+        rgb(255 255 255 / 0%)
       ),
       linear-gradient(
         to right,
-        rgba(255, 255, 255, 0),
+        rgb(255 255 255 / 0%),
         var(--secondary-color) 70%
       );
+    background-repeat: no-repeat;
+    background-attachment: local, local;
     background-position:
       0 0,
       100% 0;
-    background-repeat: no-repeat;
     background-size: 40px 100%;
-    background-attachment: local, local;
+    border-radius: var(--border-radius);
 
     &:focus {
       outline: var(--focus-outline-width) solid var(--focus-outline-color);
@@ -270,20 +276,20 @@ for (const category of categoriesNamesArray) {
   }
 
   .highscoreTable {
-    width: 100%;
-    border-collapse: separate;
     border-spacing: 0;
+    border-collapse: separate;
+    width: 100%;
     margin: var(--padding-small) 0;
 
     caption {
-      font-weight: 600;
-      text-align: left;
       padding: var(--padding-small) var(--padding-medium);
+      font-weight: 600;
       color: var(--text-color);
+      text-align: left;
     }
 
     // Desktop Styles
-    @media (min-width: 769px) {
+    @media (width >= 769px) {
       th,
       td {
         padding: var(--padding-medium);
@@ -292,15 +298,15 @@ for (const category of categoriesNamesArray) {
       }
 
       th {
-        background-color: var(--text-color);
-        color: var(--button-text-color);
         font-weight: 700;
+        color: var(--button-text-color);
         white-space: nowrap;
+        background-color: var(--text-color);
       }
     }
 
     // Mobile Styles - Card Layout
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       thead {
         display: none; // Hide table headers on mobile
       }
@@ -314,15 +320,17 @@ for (const category of categoriesNamesArray) {
         display: grid;
         grid-template-columns: auto 1fr;
         gap: var(--padding-small);
+
         margin-bottom: var(--padding-medium);
         padding: var(--padding-medium);
+
         background-color: var(--background-color);
         border-radius: var(--border-radius);
         box-shadow: var(--box-shadow);
 
         &.currentUser {
-          background-color: var(--highlight-color);
           color: var(--button-text-color);
+          background-color: var(--highlight-color);
         }
       }
 
@@ -330,6 +338,12 @@ for (const category of categoriesNamesArray) {
         padding: var(--padding-small);
         font-size: var(--body-font-size);
         line-height: var(--line-height-body);
+
+        &::before {
+          display: inline-block;
+          margin-right: var(--padding-small);
+          color: inherit;
+        }
 
         // Pseudo-headers für mobile Ansicht
         &:nth-child(1)::before {
@@ -346,24 +360,18 @@ for (const category of categoriesNamesArray) {
           content: "Punkte: ";
           font-weight: 700;
         }
-
-        &::before {
-          display: inline-block;
-          margin-right: var(--padding-small);
-          color: inherit;
-        }
       }
     }
 
     // Sehr kleine Bildschirme
-    @media (max-width: 480px) {
+    @media (width <= 480px) {
       tr {
         grid-template-columns: 1fr;
       }
 
       td {
-        border-bottom: 1px solid var(--text-color);
         padding: var(--padding-small) 0;
+        border-bottom: 1px solid var(--text-color);
 
         &:last-child {
           border-bottom: none;
@@ -373,9 +381,22 @@ for (const category of categoriesNamesArray) {
   }
 
   .currentUser td {
-    background-color: var(--highlight-color);
-    color: var(--button-text-color);
     font-weight: 700;
+    color: var(--button-text-color);
+    background-color: var(--highlight-color);
+  }
+
+  .playerRank {
+    margin: var(--padding-medium) 0;
+    padding: var(--padding-medium);
+
+    font-weight: 600;
+    color: var(--button-text-color);
+    text-align: center;
+
+    background-color: var(--highlight-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
   }
 
   // Verbesserte Hover-States
@@ -385,17 +406,6 @@ for (const category of categoriesNamesArray) {
       box-shadow: var(--box-shadow);
       transition: transform 0.2s ease-in-out;
     }
-  }
-
-  .playerRank {
-    text-align: center;
-    margin: var(--padding-medium) 0;
-    padding: var(--padding-medium);
-    background-color: var(--highlight-color);
-    color: var(--button-text-color);
-    font-weight: 600;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
   }
 
   // High Contrast Mode

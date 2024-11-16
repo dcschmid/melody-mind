@@ -117,10 +117,12 @@ if (!currentCategory) {
   .category {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: var(--padding-medium);
+    align-items: center;
+
     width: 100%;
     padding: var(--padding-large);
+
     background-color: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
@@ -131,46 +133,49 @@ if (!currentCategory) {
   }
 
   .cover {
-    margin: 0 auto;
     position: relative;
+    margin: 0 auto;
   }
 
   .coverImage {
     width: 100%;
-    height: auto;
     max-width: 280px;
+    height: auto;
+
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 24px rgb(0 0 0 / 30%);
+    }
 
     @media (prefers-reduced-motion: no-preference) {
       transition:
         transform var(--transition-speed) ease-in-out,
         box-shadow var(--transition-speed) ease-in-out;
     }
-
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 24px rgb(0 0 0 / 30%);
-    }
   }
 
   .text {
     max-width: 700px;
     margin: 0 auto;
+
     font-family: var(--font-family);
     font-size: var(--body-font-size);
     line-height: var(--line-height-body);
-    letter-spacing: var(--spacing-text);
-    text-align: center;
-    color: var(--text-color);
     hyphens: auto;
+    color: var(--text-color);
+    text-align: center;
+    letter-spacing: var(--spacing-text);
   }
 
   .difficultySection {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: var(--padding-medium);
+    align-items: center;
+
     width: 100%;
   }
 
@@ -179,20 +184,20 @@ if (!currentCategory) {
     font-size: var(--header-font-size);
     font-weight: 700;
     line-height: var(--line-height-body);
-    text-align: center;
     color: var(--text-color);
+    text-align: center;
   }
 
   .buttonGroup {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--padding-medium);
     justify-content: center;
-    flex-wrap: wrap;
 
     // Verbesserte Touch-Targets
     padding: calc(var(--padding-small) / 2);
 
-    @media (max-width: 480px) {
+    @media (width <= 480px) {
       flex-direction: column;
       width: 100%;
       max-width: 300px;
@@ -200,7 +205,7 @@ if (!currentCategory) {
   }
 
   // Responsive Anpassungen
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     .category {
       padding: var(--padding-medium);
     }
@@ -210,7 +215,7 @@ if (!currentCategory) {
     }
   }
 
-  @media (max-width: 480px) {
+  @media (width <= 480px) {
     .coverImage {
       max-width: 150px;
     }
