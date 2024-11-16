@@ -20,10 +20,7 @@ import { db, eq, User } from "astro:db";
 export async function getGoldenLPs(
   userId: string,
 ): Promise<Record<string, { won: boolean; date: string; difficulty: string }>> {
-  const [user] = await db
-    .select()
-    .from(User)
-    .where(eq(User.id, userId));
+  const [user] = await db.select().from(User).where(eq(User.id, userId));
 
   return user?.golden_lps ?? {};
 }
