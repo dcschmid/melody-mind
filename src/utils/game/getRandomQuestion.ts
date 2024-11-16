@@ -34,11 +34,11 @@ export function getRandomQuestion(
       }>;
     };
   }>,
-  difficulty: 'easy' | 'medium' | 'hard',
+  difficulty: "easy" | "medium" | "hard",
   totalRounds: number,
 ) {
   if (!albums?.length) {
-    console.warn('No albums provided');
+    console.warn("No albums provided");
     return null;
   }
 
@@ -52,19 +52,20 @@ export function getRandomQuestion(
    * Collect all available questions that haven't been used yet
    * and map them to include their corresponding album
    */
-  const allAvailableQuestions = shuffledAlbums
-    .flatMap(album =>
-      album.questions[difficulty]
-        .filter(question => !usedQuestions.has(question.question))
-        .map(question => ({ randomQuestion: question, randomAlbum: album }))
-    );
+  const allAvailableQuestions = shuffledAlbums.flatMap((album) =>
+    album.questions[difficulty]
+      .filter((question) => !usedQuestions.has(question.question))
+      .map((question) => ({ randomQuestion: question, randomAlbum: album })),
+  );
 
   /**
    * If there are available questions, select one randomly
    * and mark it as used
    */
   if (allAvailableQuestions.length > 0) {
-    const randomIndex = Math.floor(Math.random() * allAvailableQuestions.length);
+    const randomIndex = Math.floor(
+      Math.random() * allAvailableQuestions.length,
+    );
     const result = allAvailableQuestions[randomIndex];
     usedQuestions.add(result.randomQuestion.question);
     return result;
