@@ -1,77 +1,121 @@
 /**
  * Interface for audio control operations
- * Provides methods for basic audio playback control
- * @interface
+ *
+ * @interface AudioControl
+ * @property {Function} stop - Stops and resets audio playback
+ * @property {Function} play - Starts or resumes audio playback
+ * @property {Function} pause - Pauses audio playback
+ * @property {Function} setVolume - Sets audio volume (0-1)
+ * @property {Function} getAudioElement - Returns the current audio element
  */
 export interface AudioControl {
-  stopAudio: (audioElement?: HTMLAudioElement | null) => void;
-  play: (src?: string) => void;
+  stop: () => void;
+  play: (src?: string) => Promise<void>;
   pause: () => void;
   setVolume: (volume: number) => void;
+  getAudioElement: () => HTMLAudioElement | null;
 }
 
 /**
- * Stops audio playback and resets to beginning
- * @param audioElement - Optional: Specific audio element to control. If not provided, looks for element with ID 'audio-preview'
- * @throws {Error} If audio element cannot be stopped or reset
- * @returns void
+ * Utility function to safely stop audio playback
+ *
+ * @param {HTMLAudioElement | null} [audioElement] - Target audio element
+ * @returns {Promise<void>}
  */
-export function stopAudio(audioElement?: HTMLAudioElement | null): void {
-  const audio =
-    audioElement ||
-    (document.getElementById("audio-preview") as HTMLAudioElement);
+export async function stopAudio(audioElement?: HTMLAudioElement | null): Promise<void> {
+  const audio = audioElement || document.getElementById("audio-preview") as HTMLAudioElement;
 
-  if (audio) {
-    try {
-      audio.pause();
-      audio.currentTime = 0;
-    } catch (error) {
-      console.warn("Audio konnte nicht gestoppt werden:", error);
-    }
+  if (!audio) return;
+
+  try {
+    await audio.pause();
+    audio.currentTime = 0;
+  } catch (error) {
+    console.error("Failed to stop audio:", error);
   }
 }
 
 /**
- * Audio Controller Class for extended audio functionality
- * Provides a comprehensive interface for managing audio playback
- * Implements AudioControl interface for standardized audio operations
+ * Audio Controller implementation with enhanced error handling and type safety
  *
- * @class
+ * @class AudioController
  * @implements {AudioControl}
  */
-export class AudioController {
+export class AudioController implements AudioControl {
   private audioElement: HTMLAudioElement | null;
+  private readonly defaultVolume = 1.0;
 
   constructor(audioElementId: string = "audio-preview") {
-    this.audioElement = document.getElementById(
-      audioElementId,
-    ) as HTMLAudioElement;
-  }
-
-  stop(): void {
-    stopAudio(this.audioElement);
-  }
-
-  play(src?: string): void {
+    this.audioElement = document.getElementById(audioElementId) as HTMLAudioElement;
     if (this.audioElement) {
+      this.audioElement.volume = this.defaultVolume;
+    }
+  }
+
+  /**
+   * Returns the current audio element
+   */
+  getAudioElement(): HTMLAudioElement | null {
+    return this.audioElement;
+  }
+
+  /**
+   * Stops current audio playback
+   */
+  stop(): void {
+    void stopAudio(this.audioElement);
+  }
+
+  /**
+   * Starts or resumes audio playback
+   *
+   * @param {string} [src] - Optional new audio source URL
+   * @returns {Promise<void>}
+   * @throws {Error} If playback fails or audio element is not available
+   */
+  async play(src?: string): Promise<void> {
+    if (!this.audioElement) {
+      throw new Error("Audio element not initialized");
+    }
+
+    try {
       if (src) {
         this.audioElement.src = src;
       }
-      this.audioElement.play().catch((error) => {
-        console.warn("Audio konnte nicht abgespielt werden:", error);
-      });
+      await this.audioElement.play();
+    } catch (error) {
+      console.error("Failed to play audio:", error);
+      throw error;
     }
   }
 
+  /**
+   * Pauses audio playback
+   */
   pause(): void {
-    this.audioElement?.pause();
+    if (this.audioElement?.played) {
+      this.audioElement.pause();
+    }
   }
 
+  /**
+   * Sets audio volume
+   *
+   * @param {number} volume - Volume level (0-1)
+   * @throws {Error} If volume is out of valid range
+   */
   setVolume(volume: number): void {
+    if (volume < 0 || volume > 1) {
+      throw new Error("Volume must be between 0 and 1");
+    }
+
     if (this.audioElement) {
-      this.audioElement.volume = Math.max(0, Math.min(1, volume));
+      this.audioElement.volume = volume;
     }
   }
 }
 
+/**
+ * Singleton instance of AudioController
+ */
 export const audioController = new AudioController();
