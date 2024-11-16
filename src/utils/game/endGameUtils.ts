@@ -1,6 +1,18 @@
 import { stopAudio } from "../audio/audioControls";
 import { QueueManager } from "../queue/queueManager";
 
+/**
+ * Configuration for ending a game session
+ * @interface EndGameConfig
+ * @property {string} userId - The unique identifier of the user
+ * @property {string} categoryName - The name of the game category/genre
+ * @property {string} difficulty - The difficulty level of the game
+ * @property {number} totalRounds - Total number of rounds in the game
+ * @property {number} correctAnswers - Number of correctly answered questions
+ * @property {number} score - Current game score
+ * @property {number} totalUserPoints - Total points of the user across all games
+ * @property {number} currentCategoryPointsValue - Current points in this category
+ */
 interface EndGameConfig {
   userId: string;
   categoryName: string;
@@ -12,18 +24,35 @@ interface EndGameConfig {
   currentCategoryPointsValue: number;
 }
 
+/**
+ * Callback functions for the end game process
+ * @interface EndGameCallbacks
+ * @property {() => void} [onSaveComplete] - Called when save operations complete successfully
+ * @property {(error: Error) => void} [onError] - Called when an error occurs during save operations
+ */
 interface EndGameCallbacks {
   onSaveComplete?: () => void;
   onError?: (error: Error) => void;
 }
 
+/**
+ * UI interface for handling game end states
+ * @interface EndGameUI
+ * @property {(score: number) => void} showGoldenLpPopup - Displays the golden LP achievement popup
+ * @property {(score: number) => void} showEndgamePopup - Displays the regular end game popup
+ */
 interface EndGameUI {
   showGoldenLpPopup: () => void;
   showEndgamePopup: () => void;
 }
 
 /**
- * Verwaltet das Spielende und die damit verbundenen Aktionen
+ * Handles the end game logic including score saving and UI updates
+ * @async
+ * @param {EndGameConfig} config - Configuration object containing game end state
+ * @param {EndGameUI} ui - UI interface for displaying end game states
+ * @param {EndGameCallbacks} [callbacks] - Optional callback functions
+ * @throws {Error} When save operations fail
  */
 export async function handleEndGame(
   config: EndGameConfig,
@@ -75,7 +104,11 @@ export async function handleEndGame(
 }
 
 /**
- * Speichert den Spielstand in der Datenbank
+ * Saves the game score to the database
+ * @async
+ * @param {EndGameConfig} config - Configuration containing score data
+ * @throws {Error} When the API call fails or returns an error
+ * @returns {Promise<void>}
  */
 async function saveScoreToDB({
   userId,
@@ -108,7 +141,11 @@ async function saveScoreToDB({
 }
 
 /**
- * Speichert die goldene Schallplatte
+ * Saves a golden LP achievement to the database
+ * @async
+ * @param {EndGameConfig} config - Configuration containing achievement data
+ * @throws {Error} When the API call fails or returns an error
+ * @returns {Promise<void>}
  */
 async function saveGoldenLP({
   userId,
@@ -168,7 +205,8 @@ export function showGoldenLpPopup(score: number): void {
 }
 
 /**
- * Startet ein neues Spiel
+ * Redirects to the game home page to start a new game
+ * @returns {void}
  */
 export function restartGame(): void {
   window.location.href = "/gamehome";
