@@ -10,6 +10,7 @@ import GoldenLPOverlay from "@components/Overlays/GoldenLPOverlay.astro";
 import LoadingSpinner from "@components/Game/LoadingSpinner.astro";
 import Joker from "@components/Game/Joker.astro";
 import ErrorMessage from "@components/Shared/ErrorMessage.astro";
+import type { Difficulty } from "@utils/game/jokerUtils";
 
 /**
  * Get the user object from the Astro context
@@ -33,7 +34,7 @@ const { category, difficulty } = Astro.params;
 
 const currentCategoryData = categories.find((cat) => cat.slug === category);
 
-const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
+const playerTitle = getTitleBasedOnDifficulty(difficulty as Difficulty);
 ---
 
 <Layout title={`${currentCategoryData?.headline}`} showHeaderIcons={false}>
@@ -154,6 +155,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
   import {
     createInitialJokerState,
+    Difficulty,
     use5050Joker,
   } from "@utils/game/jokerUtils";
   import { initializeMediaElements } from "@utils/game/mediaUtils";
@@ -162,10 +164,18 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   import { handleAnswer } from "@utils/game/handleAnswerUtils";
 
   const ROUNDS_PER_DIFFICULTY = {
-    easy: 10,
-    medium: 15,
-    hard: 20,
+    [Difficulty.EASY]: 10,
+    [Difficulty.MEDIUM]: 15,
+    [Difficulty.HARD]: 20,
   } as const;
+
+  // Typ-Überprüfung für difficulty hinzufügen
+  const validateDifficulty = (diff: string | null): Difficulty => {
+    if (diff === "easy") return Difficulty.EASY;
+    if (diff === "medium") return Difficulty.MEDIUM;
+    if (diff === "hard") return Difficulty.HARD;
+    return Difficulty.EASY;
+  };
 
   document.addEventListener("DOMContentLoaded", async function () {
     QueueManager.startProcessing();
@@ -208,7 +218,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     let correctAnswers = 0;
     let roundIndex = 0;
     const totalRounds =
-      ROUNDS_PER_DIFFICULTY[difficulty as keyof typeof ROUNDS_PER_DIFFICULTY] ??
+      ROUNDS_PER_DIFFICULTY[validateDifficulty(difficulty)] ??
       ROUNDS_PER_DIFFICULTY.easy;
     elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
 
@@ -231,7 +241,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     let currentQuestion: null = null;
 
     const { maxJokers, jokerState } = createInitialJokerState(
-      difficulty || "easy",
+      validateDifficulty(difficulty) as Difficulty,
     );
     let currentJokerState = jokerState;
 
@@ -298,7 +308,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
 
           const newQuestion = getRandomQuestion(
             albums,
-            difficulty || "easy",
+            validateDifficulty(difficulty),
             totalRounds,
           );
           if (newQuestion) {
@@ -318,7 +328,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       const config = {
         userId: userId || "",
         categoryName: categoryName || "",
-        difficulty: difficulty || "easy",
+        difficulty: validateDifficulty(difficulty) || "easy",
         totalRounds,
         correctAnswers,
         score,
@@ -379,7 +389,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     // Initiale Frage laden
     const initialQuestion = getRandomQuestion(
       albums,
-      difficulty || "easy",
+      validateDifficulty(difficulty),
       totalRounds,
     );
     if (initialQuestion?.randomQuestion && initialQuestion?.randomAlbum) {

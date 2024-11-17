@@ -4,6 +4,7 @@ import HeaderSection from "@components/User/HeaderSection.astro";
 import { Icon } from "astro-icon/components";
 import { getGoldenLPs } from "@utils/db/getGoldenLPs";
 import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
+import type { Difficulty } from "@utils/game/jokerUtils";
 
 interface GoldenLP {
   difficulty: string;
@@ -42,7 +43,7 @@ const goldenLPs: Record<string, GoldenLP> = await getGoldenLPs(user?.id);
                 <div class="cardContent">
                   <h3 class="achievementTitle">{genre}</h3>
                   <p class="achievementRank">
-                    {getTitleBasedOnDifficulty(data?.difficulty)}
+                    {getTitleBasedOnDifficulty(data?.difficulty as Difficulty)}
                   </p>
                 </div>
               </article>
