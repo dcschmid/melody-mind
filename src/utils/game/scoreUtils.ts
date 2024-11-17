@@ -14,7 +14,10 @@
  * updateScoreDisplay(100, scoreElement);
  * ```
  */
-export function updateScoreDisplay(score: number, scoreElement: HTMLElement): void {
+export function updateScoreDisplay(
+  score: number,
+  scoreElement: HTMLElement,
+): void {
   if (scoreElement.textContent !== score.toString()) {
     scoreElement.textContent = score.toString();
   }
