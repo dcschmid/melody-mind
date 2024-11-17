@@ -159,6 +159,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   import { initializeMediaElements, updateMedia } from "@utils/game/mediaUtils";
   import { QueueManager } from "@utils/queue/queueManager";
   import { shuffleArray } from "@utils/share/shuffleArray";
+  import { updateScoreDisplay } from "@utils/game/scoreUtils";
 
   document.addEventListener("DOMContentLoaded", async function () {
     QueueManager.startProcessing();
@@ -362,7 +363,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       }, 5000);
 
       score += totalPoints;
-      updateScoreDisplay(score);
+      updateScoreDisplay(score, scoreElement);
 
       overlayCover.src = album.coverSrc || "";
       document.getElementById("overlay-artist")!.textContent =
@@ -403,12 +404,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
           endGame();
         }
       };
-    }
-
-    function updateScoreDisplay(score: number) {
-      scoreElement.textContent = score.toString();
-      scoreElement.classList.add("bonus");
-      setTimeout(() => scoreElement.classList.remove("bonus"), 500);
     }
 
     function endGame() {
