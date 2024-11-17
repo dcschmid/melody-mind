@@ -50,7 +50,12 @@ type LoadQuestionParams = {
   /** Event handlers for question interactions */
   handlers: {
     /** Callback function when an answer is selected */
-    handleAnswer: (option: string, correctAnswer: string, question: Question, album: Album) => void;
+    handleAnswer: (
+      option: string,
+      correctAnswer: string,
+      question: Question,
+      album: Album,
+    ) => void;
   };
   /** State management for the joker feature */
   jokerState: {
@@ -76,7 +81,8 @@ export function loadQuestion({
   handlers,
   jokerState,
 }: LoadQuestionParams): void {
-  const { questionContainer, spinner, questionElement, optionsContainer } = elements;
+  const { questionContainer, spinner, questionElement, optionsContainer } =
+    elements;
 
   // Initialize display state
   questionContainer.classList.add("hidden");
@@ -93,7 +99,9 @@ export function loadQuestion({
     optionsContainer.innerHTML = "";
 
     // Create shuffled options array
-    const shuffledOptions = Array.isArray(options) ? shuffleArray([...options]) : [];
+    const shuffledOptions = Array.isArray(options)
+      ? shuffleArray([...options])
+      : [];
 
     // Set accessibility attributes
     questionContainer.setAttribute("role", "main");
@@ -112,12 +120,18 @@ export function loadQuestion({
       button.setAttribute("aria-checked", "false");
       button.setAttribute("aria-label", `Select answer: ${option}`);
 
-      button.onclick = () => handlers.handleAnswer(
-        option,
-        question?.correctAnswer ?? "",
-        question ?? { question: "", options: [], correctAnswer: "", trivia: "" },
-        album ?? { coverSrc: "", artist: "", album: "", year: "" }
-      );
+      button.onclick = () =>
+        handlers.handleAnswer(
+          option,
+          question?.correctAnswer ?? "",
+          question ?? {
+            question: "",
+            options: [],
+            correctAnswer: "",
+            trivia: "",
+          },
+          album ?? { coverSrc: "", artist: "", album: "", year: "" },
+        );
 
       optionsContainer.appendChild(button);
     });
@@ -127,7 +141,7 @@ export function loadQuestion({
       optionsContainer,
       question ?? { question: "", options: [], correctAnswer: "", trivia: "" },
       album ?? { coverSrc: "", artist: "", album: "", year: "" },
-      handlers.handleAnswer
+      handlers.handleAnswer,
     );
 
     // Update display state
@@ -148,7 +162,12 @@ function setupKeyboardNavigation(
   optionsContainer: HTMLElement,
   question: Question,
   album: Album,
-  handleAnswer: (option: string, correctAnswer: string, question: Question, album: Album) => void
+  handleAnswer: (
+    option: string,
+    correctAnswer: string,
+    question: Question,
+    album: Album,
+  ) => void,
 ): void {
   const options = optionsContainer.querySelectorAll<HTMLElement>("button");
 
@@ -164,7 +183,8 @@ function setupKeyboardNavigation(
         case "ArrowUp":
         case "ArrowLeft":
           e.preventDefault();
-          const prevButton = options[(index - 1 + options.length) % options.length];
+          const prevButton =
+            options[(index - 1 + options.length) % options.length];
           prevButton.focus();
           break;
         case "Enter":

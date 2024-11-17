@@ -156,10 +156,10 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     createInitialJokerState,
     use5050Joker,
   } from "@utils/game/jokerUtils";
-  import { initializeMediaElements, updateMedia } from "@utils/game/mediaUtils";
+  import { initializeMediaElements } from "@utils/game/mediaUtils";
   import { QueueManager } from "@utils/queue/queueManager";
-  import { updateScoreDisplay } from "@utils/game/scoreUtils";
   import { loadQuestion } from "@utils/game/loadQuestionUtils";
+  import { handleAnswer } from "@utils/game/handleAnswerUtils";
 
   document.addEventListener("DOMContentLoaded", async function () {
     QueueManager.startProcessing();
@@ -249,58 +249,40 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       return;
     }
 
-    function handleAnswer(
+    function handleAnswerWrapper(
       option: any,
       correctAnswer: any,
       currentQuestion: { trivia: string },
       album: { coverSrc: string; artist: string; album: string; year: string },
     ) {
-      const startTime = Date.now();
-      const endTime = Date.now();
-      const timeTaken = (endTime - startTime) / 1000;
-      let totalPoints = 0;
-      let bonusPoints = 0;
-
-      if (option === correctAnswer) {
-        bonusPoints = timeTaken <= 10 ? 50 : timeTaken <= 15 ? 25 : 0;
-        totalPoints = 50 + bonusPoints;
-        feedbackElement.classList.add("correct");
-        feedbackElement.textContent = `Richtig! 50 Punkte + ${bonusPoints} Bonuspunkte`;
-      } else {
-        feedbackElement.classList.add("incorrect");
-        feedbackElement.textContent = `Falsch! Die richtige Antwort war: ${correctAnswer}`;
-      }
-
-      feedbackElement.classList.add("show");
-
-      setTimeout(() => {
-        feedbackElement.classList.remove("show", "correct", "incorrect");
-      }, 5000);
-
-      score += totalPoints;
-      updateScoreDisplay(score, scoreElement);
-
-      overlayCover.src = album.coverSrc || "";
-      document.getElementById("overlay-artist")!.textContent =
-        album.artist || "";
-      document.getElementById("overlay-album")!.textContent = album.album || "";
-      document.getElementById("overlay-funfact")!.textContent =
-        currentQuestion.trivia || "";
-      document.getElementById("overlay-year")!.textContent = album.year || "";
-
-      if (mediaElements) {
-        updateMedia(album, mediaElements);
-      }
-
-      const overlay = document.getElementById("overlay") as HTMLDivElement;
-      overlay.classList.remove("hidden");
+      score = handleAnswer({
+        option,
+        correctAnswer,
+        currentQuestion,
+        album,
+        elements: {
+          feedbackElement,
+          scoreElement,
+          overlayCover,
+          overlay: document.getElementById("overlay") as HTMLDivElement,
+          mediaElements,
+        },
+        state: {
+          score,
+          roundIndex,
+          totalRounds,
+          roundElement,
+        },
+      });
 
       const nextRoundButton = document.getElementById(
         "next-round-button",
       ) as HTMLButtonElement;
 
+      const overlay = document.getElementById("overlay") as HTMLDivElement;
+
       nextRoundButton.onclick = function () {
-        stopAudio(); // Stoppt die Audio-Vorschau, wenn das Overlay geschlossen wird.
+        stopAudio();
         overlay.classList.add("hidden");
         if (roundIndex < totalRounds - 1) {
           roundIndex++;
@@ -383,8 +365,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
           optionsContainer,
         },
         handlers: {
-          handleAnswer: (option, correctAnswer, question, album) =>
-            handleAnswer(option, correctAnswer, question, album),
+          handleAnswer: handleAnswerWrapper,
         },
         jokerState: currentJokerState,
       });
