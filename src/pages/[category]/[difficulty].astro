@@ -161,86 +161,87 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
   import { loadQuestion } from "@utils/game/loadQuestionUtils";
   import { handleAnswer } from "@utils/game/handleAnswerUtils";
 
+  const ROUNDS_PER_DIFFICULTY = {
+    easy: 10,
+    medium: 15,
+    hard: 20,
+  } as const;
+
   document.addEventListener("DOMContentLoaded", async function () {
     QueueManager.startProcessing();
 
-    const scoreElement = document.querySelector(
-      ".coinsCount",
-    ) as HTMLParagraphElement;
-    const roundElement = document.querySelector(
-      ".round",
-    ) as HTMLParagraphElement;
-    const feedbackElement = document.getElementById(
-      "feedback",
-    ) as HTMLParagraphElement;
-    const questionElement = document.getElementById(
-      "question",
-    ) as HTMLParagraphElement;
-    const optionsContainer = document.getElementById(
-      "options",
-    ) as HTMLDivElement;
-    const questionContainer = document.getElementById(
-      "question-container",
-    ) as HTMLDivElement;
-    const overlayCover = document.getElementById(
-      "overlay-cover",
-    ) as HTMLImageElement;
+    // DOM-Selektoren cachen
+    const elements = {
+      score: document.querySelector(".coinsCount") as HTMLParagraphElement,
+      round: document.querySelector(".round") as HTMLParagraphElement,
+      feedback: document.getElementById("feedback") as HTMLParagraphElement,
+      question: document.getElementById("question") as HTMLParagraphElement,
+      options: document.getElementById("options") as HTMLDivElement,
+      container: document.getElementById("question-container") as HTMLDivElement,
+      overlayCover: document.getElementById("overlay-cover") as HTMLImageElement,
+      overlay: document.getElementById("overlay") as HTMLDivElement,
+      jokerButton: document.getElementById("joker-button") as HTMLButtonElement,
+      jokerCounter: document.getElementById("joker-count") as HTMLElement,
+      nextRoundButton: document.getElementById("next-round-button") as HTMLButtonElement,
+      restartButton: document.getElementById("restart-button") as HTMLButtonElement,
+      restartButtonLp: document.getElementById("restart-button-lp") as HTMLButtonElement,
+      loadingSpinner: document.getElementById("loading-spinner") as HTMLElement
+    };
 
-    // Get the category from the question container
-    const category = questionContainer.getAttribute("data-genre");
-    const userId = questionContainer.getAttribute("data-userID");
-    const categoryName = questionContainer.getAttribute("data-categoryName");
-    const difficulty = questionContainer.getAttribute("date-difficulty");
+    // Kategorie-Informationen aus dem Container holen
+    const category = elements.container.getAttribute("data-genre");
+    const userId = elements.container.getAttribute("data-userID");
+    const categoryName = elements.container.getAttribute("data-categoryName");
+    const difficulty = elements.container.getAttribute("date-difficulty");
 
     let score = 0;
     let correctAnswers = 0;
     let roundIndex = 0;
-    const totalRounds =
-      difficulty === "hard" ? 20 : difficulty === "medium" ? 15 : 10;
-    roundElement.textContent = `${roundIndex + 1}/${totalRounds}`;
+    const totalRounds = ROUNDS_PER_DIFFICULTY[difficulty as keyof typeof ROUNDS_PER_DIFFICULTY] ?? ROUNDS_PER_DIFFICULTY.easy;
+    elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
 
-    const albumsPromise = import(`../../json/genres/${category}.json`);
-    const albums: any = (await albumsPromise).default;
+    // Albums laden und in einer Variable speichern
+    let albums;
+    try {
+      const albumsPromise = import(`../../json/genres/${category}.json`);
+      albums = (await albumsPromise).default;
+      if (!albums?.length) {
+        throw new Error(`Keine Alben für Kategorie ${category} gefunden`);
+      }
+    } catch (error) {
+      ErrorHandler.handleApiError(error);
+      return;
+    }
 
     const { totalUserPoints, currentCategoryPointsValue } =
       await getUserAndCategoryPoints(userId ?? "", categoryName ?? "");
 
     let currentQuestion: null = null;
 
-    const jokerButton = document.getElementById(
-      "joker-button",
-    ) as HTMLButtonElement;
-    const jokerCounterElement = document.getElementById(
-      "joker-count",
-    ) as HTMLElement;
-
     const { maxJokers, jokerState } = createInitialJokerState(
       difficulty || "easy",
     );
     let currentJokerState = jokerState;
 
-    jokerCounterElement.textContent = `Joker: ${maxJokers} verbleibend`;
+    elements.jokerCounter.textContent = `Joker: ${maxJokers} verbleibend`;
 
-    // Event-Handler für Joker-Button
-    if (jokerButton) {
-      jokerButton.addEventListener("click", function () {
-        const question = getCurrentQuestion();
-        if (!question) return;
+    // Joker-Logik anpassen
+    function handleJokerClick() {
+      const question = getCurrentQuestion();
+      if (!question) return;
 
-        currentJokerState = use5050Joker(
-          question,
-          currentJokerState,
-          maxJokers,
-          {
-            updateButton: (disabled) => {
-              jokerButton.disabled = disabled;
-            },
-            updateCounter: (remaining) => {
-              jokerCounterElement.textContent = `Joker: ${remaining} verbleibend`;
-            },
-          },
-        );
+      currentJokerState = use5050Joker(question, currentJokerState, maxJokers, {
+        updateButton: (disabled) => {
+          elements.jokerButton.disabled = disabled;
+        },
+        updateCounter: (remaining) => {
+          elements.jokerCounter.textContent = `Joker: ${remaining} verbleibend`;
+        },
       });
+    }
+
+    if (elements.jokerButton) {
+      elements.jokerButton.addEventListener("click", handleJokerClick);
     }
 
     const mediaElements = initializeMediaElements();
@@ -249,6 +250,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       return;
     }
 
+    // handleAnswer anpassen
     function handleAnswerWrapper(
       option: any,
       correctAnswer: any,
@@ -261,32 +263,26 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         currentQuestion,
         album,
         elements: {
-          feedbackElement,
-          scoreElement,
-          overlayCover,
-          overlay: document.getElementById("overlay") as HTMLDivElement,
+          feedbackElement: elements.feedback,
+          scoreElement: elements.score,
+          overlayCover: elements.overlayCover,
+          overlay: elements.overlay,
           mediaElements,
         },
         state: {
           score,
           roundIndex,
           totalRounds,
-          roundElement,
+          roundElement: elements.round,
         },
       });
 
-      const nextRoundButton = document.getElementById(
-        "next-round-button",
-      ) as HTMLButtonElement;
-
-      const overlay = document.getElementById("overlay") as HTMLDivElement;
-
-      nextRoundButton.onclick = function () {
+      elements.nextRoundButton.onclick = function () {
         stopAudio();
-        overlay.classList.add("hidden");
+        elements.overlay.classList.add("hidden");
         if (roundIndex < totalRounds - 1) {
           roundIndex++;
-          roundElement.textContent = `${roundIndex + 1}/${totalRounds}`;
+          elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
 
           const newQuestion = getRandomQuestion(
             albums,
@@ -298,7 +294,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
               newQuestion.randomQuestion,
               newQuestion.randomAlbum,
             );
-            feedbackElement.textContent = "";
+            elements.feedback.textContent = "";
           }
         } else {
           endGame();
@@ -335,18 +331,15 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       });
     }
 
-    // Event-Listener für die Restart-Buttons
-    document
-      .getElementById("restart-button")
-      ?.addEventListener("click", restartGame);
-    document
-      .getElementById("restart-button-lp")
-      ?.addEventListener("click", restartGame);
+    // Event Listener für Restart-Buttons
+    elements.restartButton?.addEventListener("click", restartGame);
+    elements.restartButtonLp?.addEventListener("click", restartGame);
 
     function getCurrentQuestion() {
       return currentQuestion;
     }
 
+    // loadNewQuestion anpassen
     function loadNewQuestion(question: any, album: any) {
       if (!question || !question.options) {
         console.error("Ungültige Frage oder keine Optionen vorhanden");
@@ -359,10 +352,10 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         question,
         album,
         elements: {
-          questionContainer,
-          spinner: document.getElementById("loading-spinner") as HTMLElement,
-          questionElement,
-          optionsContainer,
+          questionContainer: elements.container,
+          spinner: elements.loadingSpinner,
+          questionElement: elements.question,
+          optionsContainer: elements.options,
         },
         handlers: {
           handleAnswer: handleAnswerWrapper,
@@ -391,5 +384,16 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
         e.preventDefault();
       }
     });
+
+    // Cleanup-Funktion anpassen
+    const cleanup = () => {
+      stopAudio();
+      QueueManager.stopProcessing();
+      elements.jokerButton?.removeEventListener("click", handleJokerClick);
+      elements.restartButton?.removeEventListener("click", restartGame);
+      elements.restartButtonLp?.removeEventListener("click", restartGame);
+    };
+
+    window.addEventListener("unload", cleanup);
   });
 </script>
