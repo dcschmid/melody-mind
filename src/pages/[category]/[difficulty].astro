@@ -177,15 +177,25 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
       feedback: document.getElementById("feedback") as HTMLParagraphElement,
       question: document.getElementById("question") as HTMLParagraphElement,
       options: document.getElementById("options") as HTMLDivElement,
-      container: document.getElementById("question-container") as HTMLDivElement,
-      overlayCover: document.getElementById("overlay-cover") as HTMLImageElement,
+      container: document.getElementById(
+        "question-container",
+      ) as HTMLDivElement,
+      overlayCover: document.getElementById(
+        "overlay-cover",
+      ) as HTMLImageElement,
       overlay: document.getElementById("overlay") as HTMLDivElement,
       jokerButton: document.getElementById("joker-button") as HTMLButtonElement,
       jokerCounter: document.getElementById("joker-count") as HTMLElement,
-      nextRoundButton: document.getElementById("next-round-button") as HTMLButtonElement,
-      restartButton: document.getElementById("restart-button") as HTMLButtonElement,
-      restartButtonLp: document.getElementById("restart-button-lp") as HTMLButtonElement,
-      loadingSpinner: document.getElementById("loading-spinner") as HTMLElement
+      nextRoundButton: document.getElementById(
+        "next-round-button",
+      ) as HTMLButtonElement,
+      restartButton: document.getElementById(
+        "restart-button",
+      ) as HTMLButtonElement,
+      restartButtonLp: document.getElementById(
+        "restart-button-lp",
+      ) as HTMLButtonElement,
+      loadingSpinner: document.getElementById("loading-spinner") as HTMLElement,
     };
 
     // Kategorie-Informationen aus dem Container holen
@@ -197,7 +207,9 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty || "easy");
     let score = 0;
     let correctAnswers = 0;
     let roundIndex = 0;
-    const totalRounds = ROUNDS_PER_DIFFICULTY[difficulty as keyof typeof ROUNDS_PER_DIFFICULTY] ?? ROUNDS_PER_DIFFICULTY.easy;
+    const totalRounds =
+      ROUNDS_PER_DIFFICULTY[difficulty as keyof typeof ROUNDS_PER_DIFFICULTY] ??
+      ROUNDS_PER_DIFFICULTY.easy;
     elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
 
     // Albums laden und in einer Variable speichern
