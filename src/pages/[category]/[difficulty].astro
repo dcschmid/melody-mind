@@ -153,15 +153,12 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as Difficulty);
   } from "@utils/game/endGameUtils";
   import { getRandomQuestion } from "@utils/game/getRandomQuestion";
   import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
-  import {
-    createInitialJokerState,
-    Difficulty,
-    use5050Joker,
-  } from "@utils/game/jokerUtils";
   import { initializeMediaElements } from "@utils/game/mediaUtils";
   import { QueueManager } from "@utils/queue/queueManager";
   import { loadQuestion } from "@utils/game/loadQuestionUtils";
   import { handleAnswer } from "@utils/game/handleAnswerUtils";
+  import { JokerManager } from "@utils/game/jokerManager";
+  import { Difficulty } from "@utils/game/jokerUtils";
 
   const ROUNDS_PER_DIFFICULTY = {
     [Difficulty.EASY]: 10,
@@ -240,31 +237,13 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as Difficulty);
 
     let currentQuestion: null = null;
 
-    const { maxJokers, jokerState } = createInitialJokerState(
-      validateDifficulty(difficulty) as Difficulty,
-    );
-    let currentJokerState = jokerState;
-
-    elements.jokerCounter.textContent = `Joker: ${maxJokers} verbleibend`;
-
-    // Joker-Logik anpassen
-    function handleJokerClick() {
-      const question = getCurrentQuestion();
-      if (!question) return;
-
-      currentJokerState = use5050Joker(question, currentJokerState, maxJokers, {
-        updateButton: (disabled) => {
-          elements.jokerButton.disabled = disabled;
-        },
-        updateCounter: (remaining) => {
-          elements.jokerCounter.textContent = `Joker: ${remaining} verbleibend`;
-        },
-      });
-    }
-
-    if (elements.jokerButton) {
-      elements.jokerButton.addEventListener("click", handleJokerClick);
-    }
+    const jokerManager = new JokerManager({
+      difficulty: validateDifficulty(difficulty) as Difficulty,
+      elements: {
+        jokerButton: elements.jokerButton,
+        jokerCounter: elements.jokerCounter,
+      },
+    });
 
     const mediaElements = initializeMediaElements();
     if (!mediaElements) {
@@ -357,10 +336,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as Difficulty);
     elements.restartButton?.addEventListener("click", restartGame);
     elements.restartButtonLp?.addEventListener("click", restartGame);
 
-    function getCurrentQuestion() {
-      return currentQuestion;
-    }
-
     // loadNewQuestion anpassen
     function loadNewQuestion(question: any, album: any) {
       if (!question || !question.options) {
@@ -369,6 +344,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as Difficulty);
       }
 
       currentQuestion = question;
+      jokerManager.setCurrentQuestion(question);
 
       loadQuestion({
         question,
@@ -382,7 +358,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as Difficulty);
         handlers: {
           handleAnswer: handleAnswerWrapper,
         },
-        jokerState: currentJokerState,
+        jokerState: jokerManager.getCurrentJokerState(),
       });
     }
 
@@ -411,7 +387,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as Difficulty);
     const cleanup = () => {
       stopAudio();
       QueueManager.stopProcessing();
-      elements.jokerButton?.removeEventListener("click", handleJokerClick);
+      jokerManager.cleanup();
       elements.restartButton?.removeEventListener("click", restartGame);
       elements.restartButtonLp?.removeEventListener("click", restartGame);
     };
