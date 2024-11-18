@@ -1,0 +1,76 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="shareContainer">
+  <h3 class="shareTitle">Teile deinen Erfolg!</h3>
+
+  <div
+    class="shareButtons"
+    role="group"
+    aria-label="Social Media Teilen-Optionen"
+  >
+    <button
+      class="shareButton facebook"
+      data-share="facebook"
+      aria-label="Auf Facebook teilen"
+    >
+      <Icon name="facebook" width={24} height={24} />
+      Facebook
+    </button>
+
+    <button
+      class="shareButton whatsapp"
+      data-share="whatsapp"
+      aria-label="Über WhatsApp teilen"
+    >
+      <Icon name="whatsapp" width={24} height={24} />
+      WhatsApp
+    </button>
+  </div>
+</div>
+
+<style lang="scss">
+  .shareContainer {
+    margin-top: var(--padding-medium);
+    text-align: center;
+  }
+
+  .shareButtons {
+    display: flex;
+    gap: var(--padding-small);
+    justify-content: center;
+    margin-top: var(--padding-small);
+  }
+
+  .shareButton {
+    display: flex;
+    gap: var(--padding-small);
+    align-items: center;
+
+    padding: var(--padding-small) var(--padding-medium);
+
+    color: var(--button-text-color);
+
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+
+    &.twitter {
+      background-color: #1da1f2;
+    }
+
+    &.facebook {
+      background-color: #4267b2;
+    }
+
+    &.whatsapp {
+      background-color: #25d366;
+    }
+
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+  }
+</style>

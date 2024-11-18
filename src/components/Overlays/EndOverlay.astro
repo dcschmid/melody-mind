@@ -1,32 +1,45 @@
 ---
+import ShareOverlay from "./ShareOverlay.astro";
+
 interface Props {
   title?: string;
   motivationText?: string;
+  id: string;
+  "data-score"?: string;
+  "data-category"?: string;
+  "data-difficulty"?: string;
 }
 
 const {
   title = "Spiel beendet!",
   motivationText = "Toll gemacht! Noch ein paar Runden und du bist ein Champion!",
+  id,
+  "data-score": initialScore = "0",
+  "data-category": category = "",
+  "data-difficulty": difficulty = "",
 } = Astro.props;
 ---
 
 <div
-  id="endgame-popup"
+  id={id}
   class="popup hidden"
   role="dialog"
   aria-labelledby="popup-title"
   aria-modal="true"
-  aria-live="polite"
-  aria-describedby="motivation-text"
+  data-score={initialScore}
+  data-category={category}
+  data-difficulty={difficulty}
 >
-  <div class="popupContent" role="document">
+  <div class="popupContent">
     <h2 id="popup-title" class="title">{title}</h2>
-    <p id="motivation-text" class="motivationText">{motivationText}</p>
+    <p class="motivationText">{motivationText}</p>
 
-    <div class="scoreSection" role="status" aria-live="polite">
+    <div class="scoreSection">
       <span class="scoreLabel">Erreichte Punkte:</span>
-      <span id="popup-score" class="scoreValue"></span>
+      <span id="popup-score" class="scoreValue">0</span>
     </div>
+
+    <ShareOverlay />
 
     <div class="buttonWrapper">
       <button
@@ -39,6 +52,30 @@ const {
     </div>
   </div>
 </div>
+
+<script>
+  import { shareScore } from "../../utils/share/shareUtils";
+
+  // Event-Listener für Share-Buttons
+  document.querySelectorAll("[data-share]").forEach(button => {
+    button.addEventListener("click", (e) => {
+      const platform = (e.currentTarget as HTMLElement).dataset.share;
+      const popup = document.querySelector("#endgame-popup");
+
+      if (platform && popup) {
+        const score = parseInt(popup.getAttribute("data-score") || "0");
+        const category = popup.getAttribute("data-category") || "";
+        const difficulty = popup.getAttribute("data-difficulty") || "";
+
+        shareScore(platform, {
+          score,
+          category,
+          difficulty
+        });
+      }
+    });
+  });
+</script>
 
 <style lang="scss">
   .popup {
@@ -206,51 +243,3 @@ const {
     }
   }
 </style>
-
-<script>
-  const EVENTS = {
-    GAME_END: "gameEnd",
-    GAME_RESTART: "gameRestart",
-  } as const;
-
-  const popup = document.getElementById("endgame-popup");
-  const restartButton = document.getElementById("restart-button");
-
-  const handleKeydown = (event: KeyboardEvent) => {
-    if (!popup?.classList.contains("hidden") && event.key === "Escape") {
-      restartButton?.click();
-    }
-  };
-
-  const handlePopupVisibilityChange = (mutations: MutationRecord[]) => {
-    mutations.forEach((mutation) => {
-      if (
-        mutation.type === "attributes" &&
-        mutation.attributeName === "class"
-      ) {
-        const element = mutation.target as HTMLElement;
-        if (!element.classList.contains("hidden")) {
-          const content = element.querySelector(".popupContent") as HTMLElement;
-          content?.focus();
-          window.dispatchEvent(new CustomEvent(EVENTS.GAME_END));
-        }
-      }
-    });
-  };
-
-  document.addEventListener("keydown", handleKeydown);
-
-  const observer = new MutationObserver(handlePopupVisibilityChange);
-
-  if (popup) {
-    observer.observe(popup, { attributes: true });
-  }
-
-  const cleanup = () => {
-    observer.disconnect();
-    document.removeEventListener("keydown", handleKeydown);
-  };
-
-  document.addEventListener("astro:before-swap", cleanup);
-  window.addEventListener("unload", cleanup);
-</script>

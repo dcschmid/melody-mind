@@ -42,8 +42,8 @@ interface EndGameCallbacks {
  * @property {(score: number) => void} showEndgamePopup - Displays the regular end game popup
  */
 interface EndGameUI {
-  showGoldenLpPopup: () => void;
-  showEndgamePopup: () => void;
+  showGoldenLpPopup: (score: number) => void;
+  showEndgamePopup: (score: number) => void;
 }
 
 /**
@@ -64,7 +64,6 @@ export async function handleEndGame(
       try {
         await Promise.all([saveGoldenLP(config), saveScoreToDB(config)]);
       } catch (error) {
-        // Bei Fehler zur Queue hinzufügen
         await QueueManager.addToQueue("score", {
           userId: config.userId,
           totalUserPoints: config.totalUserPoints + config.score,
@@ -80,12 +79,11 @@ export async function handleEndGame(
 
         callbacks?.onError?.(error as Error);
       }
-      ui.showGoldenLpPopup();
+      ui.showGoldenLpPopup(config.score);
     } else {
       try {
         await saveScoreToDB(config);
       } catch (error) {
-        // Bei Fehler zur Queue hinzufügen
         await QueueManager.addToQueue("score", {
           userId: config.userId,
           totalUserPoints: config.totalUserPoints + config.score,
@@ -95,7 +93,7 @@ export async function handleEndGame(
 
         callbacks?.onError?.(error as Error);
       }
-      ui.showEndgamePopup();
+      ui.showEndgamePopup(config.score);
     }
   } catch (error) {
     console.error("Fehler beim Beenden des Spiels:", error);

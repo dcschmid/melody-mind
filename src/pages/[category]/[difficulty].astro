@@ -44,7 +44,12 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as Difficulty);
 
   <FeedbackOverlay />
 
-  <EndOverlay />
+  <EndOverlay
+    id="endgame-popup"
+    data-score="0"
+    data-category={currentCategoryData?.headline || ""}
+    data-difficulty={difficulty || ""}
+  />
 
   <GoldenLPOverlay
     playerTitle={playerTitle}
@@ -316,8 +321,25 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as Difficulty);
       };
 
       const ui = {
-        showGoldenLpPopup: () => showGoldenLpPopup(score),
-        showEndgamePopup: () => showEndgamePopup(score),
+        showEndgamePopup: (score: number) => {
+          const popup = document.getElementById("endgame-popup");
+          const scoreElement = popup?.querySelector("#popup-score");
+
+          if (popup && scoreElement) {
+            scoreElement.textContent = score.toString();
+            popup.setAttribute("data-score", score.toString());
+            popup.classList.remove("hidden");
+          }
+        },
+        showGoldenLpPopup: (score: number) => {
+          const popup = document.getElementById("golden-lp-popup");
+          const scoreElement = popup?.querySelector("#golden-lp-score");
+
+          if (popup && scoreElement) {
+            scoreElement.textContent = score.toString();
+            popup.classList.remove("hidden");
+          }
+        }
       };
 
       handleEndGame(config, ui, {
