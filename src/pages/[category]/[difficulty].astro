@@ -150,12 +150,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as Difficulty);
 <script>
   import { stopAudio } from "@utils/audio/audioControls";
   import { ErrorHandler } from "@utils/error/errorHandler";
-  import {
-    handleEndGame,
-    restartGame,
-    showEndgamePopup,
-    showGoldenLpPopup,
-  } from "@utils/game/endGameUtils";
+  import { handleEndGame, restartGame } from "@utils/game/endGameUtils";
   import { getRandomQuestion } from "@utils/game/getRandomQuestion";
   import { getUserAndCategoryPoints } from "@utils/game/getUserAndCategoryPoints";
   import { initializeMediaElements } from "@utils/game/mediaUtils";
@@ -164,6 +159,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as Difficulty);
   import { handleAnswer } from "@utils/game/handleAnswerUtils";
   import { JokerManager } from "@utils/game/jokerManager";
   import { Difficulty } from "@utils/game/jokerUtils";
+  import type { Album } from "src/types/game";
 
   const ROUNDS_PER_DIFFICULTY = {
     [Difficulty.EASY]: 10,
@@ -225,7 +221,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as Difficulty);
     elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
 
     // Albums laden und in einer Variable speichern
-    let albums;
+    let albums: Album[] | null = null;
     try {
       const albumsPromise = import(`../../json/genres/${category}.json`);
       albums = (await albumsPromise).default;
@@ -233,7 +229,9 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as Difficulty);
         throw new Error(`Keine Alben für Kategorie ${category} gefunden`);
       }
     } catch (error) {
-      ErrorHandler.handleApiError(error);
+      ErrorHandler.handleApiError(
+        error instanceof Error ? error : new Error(String(error)),
+      );
       return;
     }
 
@@ -289,9 +287,8 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as Difficulty);
         if (roundIndex < totalRounds - 1) {
           roundIndex++;
           elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
-
           const newQuestion = getRandomQuestion(
-            albums,
+            albums ?? [],
             validateDifficulty(difficulty),
             totalRounds,
           );

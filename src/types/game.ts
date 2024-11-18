@@ -14,6 +14,12 @@ export interface Album {
   spotify_link?: string;
   deezer_link?: string;
   apple_music_link?: string;
+  questions: {
+    [key: string]: {
+      [key: string]: any;
+      question: string;
+    }[];
+  };
 }
 
 export interface GameState {
