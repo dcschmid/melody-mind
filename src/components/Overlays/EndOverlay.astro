@@ -57,7 +57,7 @@ const {
   import { shareScore } from "../../utils/share/shareUtils";
 
   // Event-Listener für Share-Buttons
-  document.querySelectorAll("[data-share]").forEach(button => {
+  document.querySelectorAll("[data-share]").forEach((button) => {
     button.addEventListener("click", (e) => {
       const platform = (e.currentTarget as HTMLElement).dataset.share;
       const popup = document.querySelector("#endgame-popup");
@@ -70,7 +70,7 @@ const {
         shareScore(platform, {
           score,
           category,
-          difficulty
+          difficulty,
         });
       }
     });

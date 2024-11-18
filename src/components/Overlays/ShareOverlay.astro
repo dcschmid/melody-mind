@@ -44,6 +44,8 @@ import { Icon } from "astro-icon/components";
   }
 
   .shareButton {
+    cursor: pointer;
+
     display: flex;
     gap: var(--padding-small);
     align-items: center;
@@ -54,7 +56,6 @@ import { Icon } from "astro-icon/components";
 
     border: none;
     border-radius: var(--border-radius);
-    cursor: pointer;
 
     &.twitter {
       background-color: #1da1f2;
@@ -69,8 +70,8 @@ import { Icon } from "astro-icon/components";
     }
 
     &:hover {
-      opacity: 0.9;
       transform: translateY(-2px);
+      opacity: 0.9;
     }
   }
 </style>

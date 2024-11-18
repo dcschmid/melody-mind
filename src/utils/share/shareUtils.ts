@@ -66,7 +66,7 @@ function getScoreEmoji(score: number): string {
   if (score >= 900) return "🏆"; // Trophy for excellent scores
   if (score >= 700) return "🌟"; // Star for great scores
   if (score >= 500) return "🎵"; // Musical note for good scores
-  return "🎮";                   // Game controller for other scores
+  return "🎮"; // Game controller for other scores
 }
 
 /**
