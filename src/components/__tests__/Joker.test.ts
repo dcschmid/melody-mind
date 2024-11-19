@@ -1,20 +1,20 @@
-import { experimental_AstroContainer as AstroContainer } from 'astro/container';
-import { describe, expect, it } from 'vitest';
-import Joker from '../Joker.astro';
+import { experimental_AstroContainer as AstroContainer } from "astro/container";
+import { describe, expect, it } from "vitest";
+import Joker from "../Game/Joker.astro";
 
-describe('Joker', () => {
-  it('sollte die korrekte Struktur und Inhalte haben', async () => {
+describe("Joker", () => {
+  it("sollte die korrekte Struktur und Inhalte haben", async () => {
     const container = await AstroContainer.create();
     const result = await container.renderToString(Joker);
 
     // Überprüfung der Grundstruktur
     expect(result).toContain('class="jokerContainer"');
     expect(result).toContain('class="jokerButton"');
-    expect(result).toContain('50:50 Joker');
+    expect(result).toContain("50:50 Joker");
     expect(result).toContain('data-joker-type="fifty-fifty"');
   });
 
-  it('sollte die korrekten Zugänglichkeitsattribute haben', async () => {
+  it("sollte die korrekten Zugänglichkeitsattribute haben", async () => {
     const container = await AstroContainer.create();
     const result = await container.renderToString(Joker);
 
@@ -25,16 +25,16 @@ describe('Joker', () => {
     expect(result).toContain('id="joker-title"');
   });
 
-  it('sollte die korrekte Beschreibung enthalten', async () => {
+  it("sollte die korrekte Beschreibung enthalten", async () => {
     const container = await AstroContainer.create();
     const result = await container.renderToString(Joker);
 
     // Überprüfung des Beschreibungstexts
     expect(result).toContain('id="joker-description"');
-    expect(result).toContain('Entfernt zwei falsche Antwortmöglichkeiten');
+    expect(result).toContain("Entfernt zwei falsche Antwortmöglichkeiten");
   });
 
-  it('sollte alle erforderlichen CSS-Klassen haben', async () => {
+  it("sollte alle erforderlichen CSS-Klassen haben", async () => {
     const container = await AstroContainer.create();
     const result = await container.renderToString(Joker);
 

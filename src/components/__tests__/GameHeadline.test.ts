@@ -14,7 +14,7 @@ describe("GameHeadline", () => {
     expect(result).toContain('class="gameHeadline"');
     expect(result).toContain('role="banner"');
     expect(result).toContain('<h1 class="category"');
-    expect(result).toContain('Spiel');
+    expect(result).toContain("Spiel");
   });
 
   it("sollte die korrekte Zugänglichkeitsattribute haben", async () => {
