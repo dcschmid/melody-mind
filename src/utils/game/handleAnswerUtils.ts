@@ -57,8 +57,6 @@ interface HandleAnswerConfig {
 
 /**
  * Handles the user's answer submission in the game
- * @param {HandleAnswerConfig} config - Configuration object containing all necessary data
- * @returns {number} Updated score after handling the answer
  *
  * @description
  * This function:

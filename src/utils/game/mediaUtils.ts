@@ -59,9 +59,10 @@ export function updateMedia(album: Album, elements: MediaElements): void {
 
     updateAudioAndCover(album, elements);
     updateAllStreamingLinks(album, elements.streamingLinks);
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Fehler beim Aktualisieren der Medien:", error);
-    throw new Error(`Medienaktualisierung fehlgeschlagen: ${error.message}`);
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    throw new Error(`Medienaktualisierung fehlgeschlagen: ${errorMessage}`);
   }
 }
 

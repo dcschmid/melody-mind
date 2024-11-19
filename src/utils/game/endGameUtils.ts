@@ -73,7 +73,7 @@ export async function handleEndGame(
 
         await QueueManager.addToQueue("goldenLP", {
           userId: config.userId,
-          genre: config.categoryName,
+          category: config.categoryName,
           difficulty: config.difficulty,
         });
 

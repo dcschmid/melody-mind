@@ -3,7 +3,7 @@ import { shuffleArray } from "../share/shuffleArray";
 /**
  * Represents a question in the game
  */
-type Question = {
+export type Question = {
   /** The question text to be displayed */
   question: string;
   /** Array of possible answer options */

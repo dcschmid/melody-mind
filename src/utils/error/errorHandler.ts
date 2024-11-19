@@ -120,7 +120,7 @@ export class ErrorHandler {
   static async handleSaveError(
     _error: Error,
     type: "score" | "goldenLP",
-    data: any
+    data: any,
   ): Promise<void> {
     await QueueManager.addToQueue(type, data);
     this.showError(ERROR_MESSAGES.OFFLINE_SYNC, {

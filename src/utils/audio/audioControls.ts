@@ -32,7 +32,7 @@ export async function stopAudio(
   if (!audio) return;
 
   try {
-    await audio.pause();
+    audio.pause();
     audio.currentTime = 0;
   } catch (error) {
     console.error("Failed to stop audio:", error);

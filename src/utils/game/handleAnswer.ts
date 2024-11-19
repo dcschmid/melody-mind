@@ -5,7 +5,6 @@
 import { stopAudio } from "@utils/audio/audioControls";
 import { updateScoreDisplay } from "./scoreUtils";
 import { getRandomQuestion } from "./getRandomQuestion";
-import { loadQuestion, type Question } from "./loadQuestion";
 import type { MediaElements } from "./mediaUtils";
 import { updateMedia } from "./mediaUtils";
 
@@ -25,7 +24,7 @@ interface HandleAnswerConfig {
   /** Element to display the current round */
   roundElement: HTMLParagraphElement;
   /** Current question object */
-  currentQuestion: Question | null;
+  currentQuestion: any | null;
   /** Current round index */
   roundIndex: number;
   /** Total number of rounds in the game */
@@ -153,11 +152,11 @@ export function createHandleAnswer(config: HandleAnswerConfig) {
           config.totalRounds,
         );
         if (newQuestion) {
-          config.currentQuestion = loadQuestion(
-            newQuestion.randomQuestion,
-            newQuestion.randomAlbum,
-            config.questionConfig,
-          );
+          config.currentQuestion = {
+            question: newQuestion.randomQuestion,
+            album: newQuestion.randomAlbum,
+            ...config.questionConfig,
+          };
         }
       } else {
         // End game if all rounds are completed

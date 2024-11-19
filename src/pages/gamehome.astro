@@ -35,7 +35,6 @@ interface Category {
 /**
  * This function filters the categoriesList array to only include items that are playable.
  * It then randomly selects one of those items and returns it.
- * @return {Array} An array containing one playable item.
  */
 const getSelectedPlayableItem = (): Category[] => {
   if (!Array.isArray(categoriesList)) return [];
@@ -61,7 +60,6 @@ const getSelectedPlayableItem = (): Category[] => {
 /**
  * This function filters the categoriesList array to only include items that are not playable.
  * It then shuffles the array and limits it to a maximum of 5 items.
- * @return {Array} An array containing non-playable items.
  */
 const getNonPlayableItems = () => {
   return categoriesList.filter((item) => !item.isPlayable);
@@ -334,8 +332,6 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 <script>
   /**
    * Debounces a function to limit its execution rate.
-   * @param {Function} func - The function to debounce
-   * @param {number} wait - The delay in milliseconds before the function can be called again
    * @returns {Function} A debounced version of the input function
    */
   function debounce<T extends (...args: any[]) => void>(
@@ -367,7 +363,6 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 
   /**
    * Filters the playlist items based on the search query and updates their visibility.
-   * @param {Event} _event - The event object (not used)
    */
   function filterPlaylists(_event: Event) {
     if (!filterInput || !playlistGrid) return;
@@ -396,8 +391,6 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
   /**
    * Updates the visibility of playlist items based on the search query and shows/hides
    * a "no results" message accordingly.
-   * @param {boolean} hasResults - Indicates whether any playlist items match the current filter
-   * @returns {void}
    */
   function updateNoResultsMessage(hasResults: boolean) {
     let noResultsMsg = playlistGrid?.querySelector(".no-results");

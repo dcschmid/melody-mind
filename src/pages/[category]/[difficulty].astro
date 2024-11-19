@@ -10,7 +10,7 @@ import GoldenLPOverlay from "@components/Overlays/GoldenLPOverlay.astro";
 import LoadingSpinner from "@components/Game/LoadingSpinner.astro";
 import Joker from "@components/Game/Joker.astro";
 import ErrorMessage from "@components/Shared/ErrorMessage.astro";
-import type { Difficulty } from "@utils/game/jokerUtils";
+import type { Difficulty as GameDifficulty } from "@utils/game/jokerUtils";
 
 /**
  * Get the user object from the Astro context
@@ -34,7 +34,7 @@ const { category, difficulty } = Astro.params;
 
 const currentCategoryData = categories.find((cat) => cat.slug === category);
 
-const playerTitle = getTitleBasedOnDifficulty(difficulty as Difficulty);
+const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 ---
 
 <Layout title={`${currentCategoryData?.headline}`} showHeaderIcons={false}>

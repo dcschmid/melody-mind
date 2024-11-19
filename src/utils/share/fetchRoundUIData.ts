@@ -12,7 +12,6 @@ export const ROUND_SLUGS = {
 
 /**
  * Type representing valid round slugs
- * @typedef {typeof ROUND_SLUGS[keyof typeof ROUND_SLUGS]} RoundSlug
  */
 export type RoundSlug = (typeof ROUND_SLUGS)[keyof typeof ROUND_SLUGS];
 

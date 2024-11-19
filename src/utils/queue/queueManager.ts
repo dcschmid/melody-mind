@@ -1,30 +1,11 @@
 /**
- * Interface representing score data to be saved
- * @interface ScoreData
- */
-interface ScoreData {
-  points: number;
-  highscore: number;
-  userId: string;
-}
-
-/**
- * Interface representing golden LP data to be saved
- * @interface GoldenLPData
- */
-interface GoldenLPData {
-  userId: string;
-  lpId: string;
-}
-
-/**
  * Interface representing a queue item
  * @interface QueueItem
  */
 interface QueueItem {
   id: string;
   type: "score" | "goldenLP";
-  data: ScoreData | GoldenLPData;
+  data: any;
   retryCount: number;
   lastAttempt: number;
 }
@@ -49,7 +30,7 @@ export class QueueManager {
    */
   static async addToQueue(
     type: "score" | "goldenLP",
-    data: ScoreData | GoldenLPData,
+    data: any,
   ): Promise<void> {
     const queue = this.getQueue();
     const item: QueueItem = {
@@ -90,9 +71,9 @@ export class QueueManager {
 
         try {
           if (item.type === "score") {
-            await this.saveScore(item.data as ScoreData);
+            await this.saveScore(item.data);
           } else if (item.type === "goldenLP") {
-            await this.saveGoldenLP(item.data as GoldenLPData);
+            await this.saveGoldenLP(item.data);
           }
 
           this.removeFromQueue(item.id);
@@ -119,7 +100,7 @@ export class QueueManager {
    * @returns Promise<void>
    * @private
    */
-  private static async saveScore(data: ScoreData): Promise<void> {
+  private static async saveScore(data: any): Promise<void> {
     try {
       const response = await fetch("/api/saveTotalUserPointsAndHighscore", {
         method: "POST",
@@ -149,7 +130,7 @@ export class QueueManager {
    * @returns Promise<void>
    * @private
    */
-  private static async saveGoldenLP(data: GoldenLPData): Promise<void> {
+  private static async saveGoldenLP(data: any): Promise<void> {
     const response = await fetch("/api/saveUserGoldenLP", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
