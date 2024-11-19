@@ -7,8 +7,8 @@ describe("ErrorMessage", () => {
     const container = await AstroContainer.create();
     const result = await container.renderToString(ErrorMessage, {
       props: {
-        message: "Fehlermeldung"
-      }
+        message: "Fehlermeldung",
+      },
     });
 
     expect(result).toContain('class="errorMessage hidden"');
@@ -21,7 +21,7 @@ describe("ErrorMessage", () => {
     const result = await container.renderToString(ErrorMessage);
 
     expect(result).toContain('<span class="errorIcon"');
-    expect(result).toContain('⚠️');
+    expect(result).toContain("⚠️");
   });
 
   it("sollte optionale Props korrekt verarbeiten", async () => {
@@ -29,8 +29,8 @@ describe("ErrorMessage", () => {
     const result = await container.renderToString(ErrorMessage, {
       props: {
         message: "Test",
-        autoHide: 5000
-      }
+        autoHide: 5000,
+      },
     });
 
     expect(result).toContain('data-auto-hide="5000"');
@@ -53,6 +53,6 @@ describe("ErrorMessage", () => {
     const result = await container.renderToString(ErrorMessage);
 
     expect(result).toContain('<button class="closeButton"');
-    expect(result).toContain('×');
+    expect(result).toContain("×");
   });
 });

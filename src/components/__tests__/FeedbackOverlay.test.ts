@@ -54,4 +54,4 @@ describe("FeedbackOverlay", () => {
     expect(result).toContain('aria-live="polite"');
     expect(result).toContain('aria-labelledby="overlay-title"');
   });
-}); 
+});

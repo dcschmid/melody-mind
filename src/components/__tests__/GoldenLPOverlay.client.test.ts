@@ -107,7 +107,9 @@ describe("GoldenLPOverlay Client", () => {
     initializeGoldenLPOverlay();
 
     // Simuliere mehrere Escape-Tastendrücke
-    const escapeEvent = new dom.window.KeyboardEvent("keydown", { key: "Escape" });
+    const escapeEvent = new dom.window.KeyboardEvent("keydown", {
+      key: "Escape",
+    });
     document.dispatchEvent(escapeEvent);
     document.dispatchEvent(escapeEvent);
     document.dispatchEvent(escapeEvent);
@@ -122,7 +124,9 @@ describe("GoldenLPOverlay Client", () => {
     initializeGoldenLPOverlay();
 
     // Simuliere andere Tasten
-    const enterEvent = new dom.window.KeyboardEvent("keydown", { key: "Enter" });
+    const enterEvent = new dom.window.KeyboardEvent("keydown", {
+      key: "Enter",
+    });
     const spaceEvent = new dom.window.KeyboardEvent("keydown", { key: " " });
 
     document.dispatchEvent(enterEvent);

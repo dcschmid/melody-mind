@@ -80,4 +80,4 @@ describe("GoldenLPOverlay", () => {
     expect(result).toContain('aria-label="Starte ein neues Spiel"');
     expect(result).toContain("Neues Spiel");
   });
-}); 
+});

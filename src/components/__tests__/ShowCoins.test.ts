@@ -27,9 +27,9 @@ describe("ShowCoins", () => {
     const result = await container.renderToString(ShowCoins);
 
     expect(result).toContain('<span class="count" data-astro-cid');
-    expect(result).toContain('>0</span>');
+    expect(result).toContain(">0</span>");
     expect(result).toContain('<span class="sr-only"');
-    expect(result).toContain('>Gesammelte Münzen:</span>');
+    expect(result).toContain(">Gesammelte Münzen:</span>");
   });
 
   it("sollte die korrekten ARIA-Attribute haben", async () => {

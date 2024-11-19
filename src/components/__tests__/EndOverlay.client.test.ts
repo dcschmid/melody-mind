@@ -3,7 +3,7 @@ import { JSDOM } from "jsdom";
 
 // Mock muss vor dem Import der zu testenden Komponente definiert werden
 vi.mock("../../utils/share/shareUtils", () => ({
-  shareScore: vi.fn()
+  shareScore: vi.fn(),
 }));
 
 // Import nach dem Mock
@@ -37,7 +37,7 @@ describe("EndOverlay Client", () => {
     expect(shareScore).toHaveBeenCalledWith("twitter", {
       score: 0,
       category: "",
-      difficulty: ""
+      difficulty: "",
     });
   });
 
@@ -48,7 +48,7 @@ describe("EndOverlay Client", () => {
     expect(shareScore).toHaveBeenCalledWith("facebook", {
       score: 0,
       category: "",
-      difficulty: ""
+      difficulty: "",
     });
   });
 
@@ -59,7 +59,7 @@ describe("EndOverlay Client", () => {
     expect(shareScore).toHaveBeenCalledWith("twitter", {
       score: 0,
       category: "",
-      difficulty: ""
+      difficulty: "",
     });
   });
 });

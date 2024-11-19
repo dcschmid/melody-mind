@@ -8,8 +8,8 @@ describe("IntroText", () => {
     const result = await container.renderToString(IntroText, {
       props: {
         headline: "Test Headline",
-        subline: "Test Subline"
-      }
+        subline: "Test Subline",
+      },
     });
 
     expect(result).toContain('class="introSection"');
@@ -22,8 +22,8 @@ describe("IntroText", () => {
     const result = await container.renderToString(IntroText, {
       props: {
         headline: "Test Headline",
-        subline: "Test Subline"
-      }
+        subline: "Test Subline",
+      },
     });
 
     expect(result).toContain("Test Headline");
@@ -34,8 +34,8 @@ describe("IntroText", () => {
     const container = await AstroContainer.create();
     const result = await container.renderToString(IntroText, {
       props: {
-        headline: "Only Headline"
-      }
+        headline: "Only Headline",
+      },
     });
 
     expect(result).toContain("Only Headline");
@@ -55,12 +55,12 @@ describe("IntroText", () => {
     const container = await AstroContainer.create();
     const result = await container.renderToString(IntroText, {
       props: {
-        headline: "Test Headline"
-      }
+        headline: "Test Headline",
+      },
     });
 
     expect(result).toContain('role="region"');
     expect(result).toContain('aria-labelledby="intro-heading"');
     expect(result).toContain('id="intro-heading"');
   });
-}); 
+});

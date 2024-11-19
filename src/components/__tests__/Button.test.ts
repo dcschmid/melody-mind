@@ -8,8 +8,8 @@ describe("Button", () => {
     const result = await container.renderToString(Button, {
       props: {
         buttonText: "Klick mich",
-        url: "/test"
-      }
+        url: "/test",
+      },
     });
 
     expect(result).toContain('class="button"');
@@ -21,7 +21,7 @@ describe("Button", () => {
     const container = await AstroContainer.create();
     const result = await container.renderToString(Button);
 
-    expect(result).toContain('<svg');
+    expect(result).toContain("<svg");
     expect(result).toContain('data-icon="next"');
     expect(result).toContain('width="24"');
     expect(result).toContain('height="24"');
@@ -33,8 +33,8 @@ describe("Button", () => {
       props: {
         id: "test-button",
         buttonText: "Test",
-        url: "#"
-      }
+        url: "#",
+      },
     });
 
     expect(result).toContain('id="test-button"');

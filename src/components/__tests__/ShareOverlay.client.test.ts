@@ -6,16 +6,19 @@ describe("ShareOverlay Client", () => {
   let mockOpen: ReturnType<typeof vi.fn>;
 
   beforeEach(() => {
-    dom = new JSDOM(`
+    dom = new JSDOM(
+      `
       <div class="shareContainer">
         <button class="shareButton facebook" data-share="facebook">Facebook</button>
         <button class="shareButton whatsapp" data-share="whatsapp">WhatsApp</button>
       </div>
-    `, {
-      url: "http://localhost",
-      referrer: "http://localhost",
-      runScripts: "dangerously",
-    });
+    `,
+      {
+        url: "http://localhost",
+        referrer: "http://localhost",
+        runScripts: "dangerously",
+      },
+    );
 
     mockOpen = vi.fn();
 
@@ -25,20 +28,23 @@ describe("ShareOverlay Client", () => {
       location: {
         value: {
           href: "http://localhost/game",
-          origin: "http://localhost"
-        }
-      }
+          origin: "http://localhost",
+        },
+      },
     });
 
     // Client-Side-Logik direkt initialisieren
-    document.querySelectorAll("[data-share]").forEach(button => {
+    document.querySelectorAll("[data-share]").forEach((button) => {
       button.addEventListener("click", (e) => {
         const target = e.currentTarget as HTMLElement;
         const type = target.getAttribute("data-share");
         const url = window.location.href;
 
         if (type === "facebook") {
-          window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, "_blank");
+          window.open(
+            `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+            "_blank",
+          );
         } else if (type === "whatsapp") {
           window.open(`https://api.whatsapp.com/send?text=${url}`, "_blank");
         }
@@ -52,7 +58,7 @@ describe("ShareOverlay Client", () => {
 
     expect(mockOpen).toHaveBeenCalledWith(
       expect.stringContaining("facebook.com/sharer/sharer.php"),
-      "_blank"
+      "_blank",
     );
   });
 
@@ -62,7 +68,7 @@ describe("ShareOverlay Client", () => {
 
     expect(mockOpen).toHaveBeenCalledWith(
       expect.stringContaining("api.whatsapp.com/send"),
-      "_blank"
+      "_blank",
     );
   });
 });

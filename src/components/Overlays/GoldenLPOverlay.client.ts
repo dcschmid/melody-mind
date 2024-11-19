@@ -11,9 +11,11 @@ export function initializeGoldenLPOverlay() {
 
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
-      if (mutation.type === "attributes" &&
-          mutation.attributeName === "class" &&
-          !popup?.classList.contains("hidden")) {
+      if (
+        mutation.type === "attributes" &&
+        mutation.attributeName === "class" &&
+        !popup?.classList.contains("hidden")
+      ) {
         popupContent?.focus();
       }
     });

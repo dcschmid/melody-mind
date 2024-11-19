@@ -32,7 +32,7 @@ describe("HeaderSection", () => {
     expect(result).toContain('class="coinIcon"');
     expect(result).toContain('class="pointsValue"');
     expect(result).toContain('<span class="sr-only"');
-    expect(result).toContain('>Punktestand:</span>');
+    expect(result).toContain(">Punktestand:</span>");
   });
 
   it("sollte die korrekten ARIA-Attribute haben", async () => {
