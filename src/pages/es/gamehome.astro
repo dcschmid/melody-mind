@@ -1,0 +1,399 @@
+---
+import { When } from "@astropub/flow";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import PlaylistItem from "@components/PlaylistItem.astro";
+import Layout from "@layouts/Layout.astro";
+import categoriesList from "@json/es_categories.json";
+import IntroText from "@components/Shared/IntroText.astro";
+
+// Spracheinstellungen
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+/**
+ * Get the user object from the Astro context
+ */
+const user = Astro.locals.user;
+const username = user?.username ?? "Guest";
+
+/**
+ * If the user is not logged in, redirect them to the login page.
+ */
+if (!user) {
+  /**
+   * Redirect the user to the login page.
+   */
+  return Astro.redirect(`/`);
+}
+
+interface Category {
+  isPlayable: boolean;
+  headline: string;
+  categoryUrl?: string;
+  imageUrl: string;
+  introSubline: string;
+  slug: string;
+  text: string;
+}
+
+/**
+ * This function filters the categoriesList array to only include items that are playable.
+ * It then randomly selects one of those items and returns it.
+ */
+const getSelectedPlayableItem = (): Category[] => {
+  if (!Array.isArray(categoriesList)) return [];
+  return categoriesList.filter((item): item is Category & { categoryUrl: string } => {
+    return (
+      typeof item === "object" &&
+      item !== null &&
+      "isPlayable" in item &&
+      "headline" in item &&
+      "imageUrl" in item &&
+      "introSubline" in item &&
+      "slug" in item &&
+      "text" in item &&
+      "categoryUrl" in item &&
+      item.isPlayable &&
+      Boolean(item.categoryUrl)
+    );
+  });
+};
+
+/**
+ * This function filters the categoriesList array to only include items that are not playable.
+ * It then shuffles the array and limits it to a maximum of 5 items.
+ */
+const getNonPlayableItems = () => {
+  return categoriesList.filter((item) => !item.isPlayable);
+};
+
+const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
+---
+
+<Layout title={t("game.select")}>
+  <main class="gameHome" id="main-content">
+    <IntroText headline={`${t("game.welcome")} ${username}`} subline={t("game.select")} headingId="welcome-heading" />
+
+    <section class="playlistSection" aria-labelledby="playlist-heading">
+      <h2 id="playlist-heading" class="sr-only">{t("game.genre.list")}</h2>
+
+      <div class="searchWrapper">
+        <label for="filter-input" class="sr-only">
+          {t("game.search.label")}
+        </label>
+        <input
+          class="filterInput"
+          type="search"
+          id="filter-input"
+          placeholder={t("game.search.label")}
+          aria-label={t("game.search.label")}
+          aria-controls="playlist-grid"
+          aria-describedby="search-description"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <span id="search-description" class="sr-only">
+          {t("game.search.description")}
+        </span>
+      </div>
+
+      <div id="playlist-grid" class="playlistGrid" role="list" aria-label={t("game.genre.list")} aria-live="polite">
+        <When test={categories.length > 0}>
+          {
+            categories.map((item) => (
+              <li>
+                <When test={item.isPlayable}>
+                  <a
+                    href={`/${lang}${item.categoryUrl}`}
+                    class="playlistLink"
+                    aria-label={item.headline + " " + t("game.genre.play.label")}
+                  >
+                    <PlaylistItem
+                      headline={item.headline}
+                      image={item.imageUrl}
+                      imageAlt={t("game.genre.image") + " " + item.headline}
+                    />
+                  </a>
+                </When>
+              </li>
+            ))
+          }
+        </When>
+      </div>
+    </section>
+  </main>
+</Layout>
+<style lang="scss">
+  .gameHome {
+    max-width: var(--max-line-length);
+    margin: 0 auto;
+    padding: var(--padding-large);
+
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+  }
+
+  .search-label {
+    display: block;
+
+    margin-bottom: 0.75rem;
+
+    font-size: var(--body-font-size);
+    font-weight: 600;
+    color: var(--text-color);
+  }
+
+  .searchWrapper {
+    margin: var(--padding-large) 0;
+  }
+
+  .filterInput {
+    width: 100%;
+    max-width: 1024px;
+    padding: 1rem var(--padding-medium);
+
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    line-height: var(--line-height-body);
+    color: var(--text-color);
+
+    appearance: none;
+    background-color: var(--background-color);
+    border: 2px solid var(--text-color);
+    border-radius: var(--border-radius);
+
+    &::placeholder {
+      color: var(--text-color);
+      opacity: 0.8;
+    }
+
+    &:focus-visible {
+      border-color: var(--focus-outline-color);
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
+    }
+
+    @media (width <= 768px) {
+      font-size: 16px;
+    }
+  }
+
+  .playlistGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--padding-large);
+
+    width: 100%;
+    max-width: 1200px;
+    min-height: 200px;
+    margin: var(--padding-large) auto;
+    padding: 0;
+
+    list-style: none;
+
+    > li {
+      display: list-item;
+      width: 100%;
+    }
+
+    &[aria-busy="true"] {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+  }
+
+  .playlist-item {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .playlistLink,
+  .playlistItem {
+    will-change: transform;
+
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    color: var(--text-color);
+    text-decoration: none;
+
+    background-color: var(--secondary-color);
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+
+    transition: transform 0.2s ease-out;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    img {
+      aspect-ratio: 1;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .headline {
+      padding: var(--padding-medium);
+
+      font-size: var(--body-font-size);
+      font-weight: 600;
+      line-height: var(--line-height-body);
+      color: #fff;
+      text-align: center;
+
+      background-color: rgb(0 0 0 / 85%);
+    }
+
+    &:focus-visible {
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
+    }
+
+    &[aria-disabled="true"] {
+      cursor: not-allowed;
+      opacity: 0.85;
+      background-color: var(--secondary-color);
+
+      &::after {
+        content: "Nicht verfügbar";
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        padding: 1em 1.5em;
+
+        font-size: var(--body-font-size);
+        font-weight: 600;
+        color: #fff;
+
+        background: rgb(0 0 0 / 90%);
+        border-radius: var(--border-radius);
+      }
+    }
+  }
+
+  .no-results {
+    grid-column: 1 / -1;
+
+    padding: var(--padding-large);
+
+    font-size: var(--body-font-size);
+    font-weight: 500;
+    color: var(--text-color);
+    text-align: center;
+
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+  }
+
+  @media (forced-colors: active) {
+    .playlistLink,
+    .playlistItem {
+      border: 2px solid ButtonText;
+    }
+  }
+
+  @media print {
+    .filterInput,
+    .searchWrapper {
+      display: none;
+    }
+
+    .playlistGrid {
+      gap: 1rem;
+    }
+
+    .playlistLink,
+    .playlistItem {
+      break-inside: avoid;
+
+      page-break-inside: avoid;
+    }
+  }
+</style>
+
+<script>
+  import { ui } from "../../i18n/ui";
+
+  const translations = {
+    noResults: ui.es["game.no.results"],
+  };
+
+  /**
+   * Debounces a function to limit its execution rate.
+   * @returns {Function} A debounced version of the input function
+   */
+  function debounce<T extends (...args: any[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
+    let timeout: ReturnType<typeof setTimeout>;
+    return (...args: Parameters<T>) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func(...args), wait);
+    };
+  }
+
+  const filterInput = document.getElementById("filter-input") as HTMLInputElement;
+  const playlistGrid = document.querySelector(".playlistGrid");
+
+  /**
+   * Debounced filter function
+   */
+  const debouncedFilter = debounce(filterPlaylists, 300);
+  filterInput?.addEventListener("input", debouncedFilter);
+
+  /**
+   * Cache for better performance
+   */
+  const playlistItemsCache = new Map<HTMLElement, string>();
+
+  /**
+   * Filters the playlist items based on the search query and updates their visibility.
+   */
+  function filterPlaylists(_event: Event) {
+    if (!filterInput || !playlistGrid) return;
+
+    const query = filterInput.value.toLowerCase().trim();
+    const playlistItems = document.querySelectorAll<HTMLElement>(".playlistGrid > li");
+    let hasResults = false;
+
+    playlistItems.forEach((item) => {
+      let headlineText = playlistItemsCache.get(item);
+      if (!headlineText) {
+        headlineText = item.querySelector(".headline")?.textContent?.toLowerCase() ?? "";
+        playlistItemsCache.set(item, headlineText);
+      }
+
+      const isVisible = headlineText.includes(query);
+      item.style.display = isVisible ? "list-item" : "none";
+      if (isVisible) hasResults = true;
+    });
+
+    updateNoResultsMessage(hasResults);
+  }
+
+  /**
+   * Updates the visibility of playlist items based on the search query and shows/hides
+   * a "no results" message accordingly.
+   */
+  function updateNoResultsMessage(hasResults: boolean) {
+    let noResultsMsg = playlistGrid?.querySelector(".no-results");
+    if (!hasResults) {
+      if (!noResultsMsg) {
+        noResultsMsg = document.createElement("p");
+        noResultsMsg.className = "no-results";
+        noResultsMsg.setAttribute("role", "status");
+        noResultsMsg.textContent = translations.noResults;
+        playlistGrid?.appendChild(noResultsMsg);
+      }
+    } else {
+      noResultsMsg?.remove();
+    }
+  }
+</script>

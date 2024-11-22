@@ -1,0 +1,177 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const currentPath = Astro.url.pathname;
+const cleanPath = currentPath
+  .split("/")
+  .filter((segment) => !["de", "en", "es", "fr", "it"].includes(segment))
+  .join("/");
+
+// Sprachnamen für bessere Accessibility
+const languages = {
+  de: {
+    name: "Deutsch",
+    label: "Webseite auf Deutsch anzeigen",
+    flag: "🇩🇪",
+  },
+  en: {
+    name: "English",
+    label: "View website in English",
+    flag: "🇬🇧",
+  },
+  es: {
+    name: "Español",
+    label: "Ver sitio web en español",
+    flag: "🇪🇸",
+  },
+  fr: {
+    name: "Français",
+    label: "Voir le site en français",
+    flag: "🇫🇷",
+  },
+  it: {
+    name: "Italiano",
+    label: "Visualizza il sito in italiano",
+    flag: "🇮🇹",
+  },
+};
+---
+
+<div class="languagePicker" role="navigation" aria-label="Sprachwahl">
+  <label for="language-select">
+    <span class="sr-only">Sprache der Webseite ändern</span>
+    <span class="globe-icon" aria-hidden="true">🌐</span>
+  </label>
+  <select
+    id="language-select"
+    class="selectLanguage"
+    onchange="
+      const newLang = this.value.split('/')[1];
+      window.localStorage.setItem('preferred-language', newLang);
+      window.location.href=this.value;
+    "
+    aria-label="Wählen Sie Ihre bevorzugte Sprache"
+  >
+    {
+      Object.entries(languages).map(([code, { name, label, flag }]) => (
+        <option value={getRelativeLocaleUrl(code, cleanPath)} aria-label={label}>
+          {flag} {name}
+        </option>
+      ))
+    }
+  </select>
+
+  <script>
+    // Funktion zum Extrahieren der Basis-Sprachcodes
+    function getBaseLanguage(lang: string): string {
+      return lang.split("-")[0].toLowerCase();
+    }
+
+    // Funktion zum Überprüfen, ob eine Sprache unterstützt wird
+    function isLanguageSupported(lang: string): boolean {
+      return ["de", "en", "es", "fr", "it"].includes(lang);
+    }
+
+    // Sprache bestimmen
+    function determineLanguage(): string {
+      // 1. Überprüfe localStorage
+      const storedLang = localStorage.getItem("preferred-language");
+      if (storedLang && isLanguageSupported(storedLang)) {
+        return storedLang;
+      }
+
+      // 2. Überprüfe Browser-Sprache
+      const browserLang = getBaseLanguage(navigator.language);
+      if (isLanguageSupported(browserLang)) {
+        return browserLang;
+      }
+
+      // 3. Fallback zu Deutsch
+      return "de";
+    }
+
+    // Aktuelle URL-Sprache
+    const currentPath = window.location.pathname;
+    const currentLang = currentPath.split("/")[1];
+
+    // Ermittle die bevorzugte Sprache
+    const preferredLang = determineLanguage();
+
+    // Wenn die aktuelle Sprache nicht der bevorzugten entspricht, leite um
+    if (currentLang !== preferredLang) {
+      const newPath = window.location.pathname
+        .split("/")
+        .filter((segment) => !["de", "en", "es", "fr", "it"].includes(segment))
+        .join("/");
+      window.location.href = `/${preferredLang}${newPath}`;
+    }
+
+    // Setze den korrekten Wert im Select-Element
+    const select = document.getElementById("language-select") as HTMLSelectElement;
+    if (select) {
+      for (let i = 0; i < select.options.length; i++) {
+        const option = select.options[i];
+        if (option.value.includes(`/${currentLang}/`)) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+    }
+  </script>
+</div>
+
+<style lang="scss">
+  .languagePicker {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .globe-icon {
+    font-size: 1.2em;
+  }
+
+  .selectLanguage {
+    padding: 0.5em 2.5em 0.5em 0.5em;
+    font-family: var(--font-family);
+    background-color: var(--secondary-color);
+    border: 2px solid var(--highlight-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1em center;
+    transition: all 0.2s ease;
+    font-size: 1em;
+    line-height: 1.5;
+
+    &:hover,
+    &:focus {
+      background-color: var(--highlight-color);
+      color: var(--background-color);
+      outline: none;
+      box-shadow:
+        0 0 0 2px var(--highlight-color),
+        0 0 0 4px rgba(var(--highlight-color-rgb), 0.3);
+    }
+
+    option {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>

@@ -1,3 +1,4 @@
+import { getCurrentLanguage } from "@utils/languageUtils";
 import { stopAudio } from "../audio/audioControls";
 import { QueueManager } from "../queue/queueManager";
 
@@ -207,5 +208,6 @@ export function showGoldenLpPopup(score: number): void {
  * @returns {void}
  */
 export function restartGame(): void {
-  window.location.href = "/gamehome";
+  const currentLanguage = getCurrentLanguage();
+  window.location.href = `/${currentLanguage}/gamehome`;
 }

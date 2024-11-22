@@ -28,7 +28,7 @@
     "@fontsource/source-sans-pro": "^5.1.0",
     "@playform/compress": "^0.1.6",
     "arctic": "^1.9.2",
-    "astro": "^4.16.13",
+    "astro": "^4.16.14",
     "astro-compressor": "^0.4.1",
     "astro-icon": "^1.1.2",
     "js-confetti": "^0.12.0",
@@ -36,7 +36,7 @@
     "lucia-adapter-astrodb": "^0.2.0",
     "oslo": "^1.2.1",
     "sharp": "^0.33.5",
-    "typescript": "^5.6.3"
+    "typescript": "^5.7.2"
   },
   "devDependencies": {
     "@double-great/stylelint-a11y": "^3.0.2",
@@ -44,6 +44,7 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.4.2",
     "@tinkoff/stylelint-config": "^4.0.0",
+    "@types/jsdom": "^21.1.7",
     "@typescript-eslint/parser": "^8.15.0",
     "@vitest/browser": "^2.1.5",
     "@vitest/coverage-v8": "^2.1.5",

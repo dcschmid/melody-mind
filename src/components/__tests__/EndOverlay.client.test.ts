@@ -31,7 +31,9 @@ describe("EndOverlay Client", () => {
   });
 
   it("sollte beim Klick auf Twitter-Share die shareScore Funktion aufrufen", () => {
-    const twitterButton = document.querySelector('[data-share="twitter"]');
+    const twitterButton = document.querySelector(
+      '[data-share="twitter"]',
+    ) as HTMLButtonElement;
     twitterButton?.click();
 
     expect(shareScore).toHaveBeenCalledWith("twitter", {
@@ -42,7 +44,9 @@ describe("EndOverlay Client", () => {
   });
 
   it("sollte beim Klick auf Facebook-Share die shareScore Funktion aufrufen", () => {
-    const facebookButton = document.querySelector('[data-share="facebook"]');
+    const facebookButton = document.querySelector(
+      '[data-share="facebook"]',
+    ) as HTMLButtonElement;
     facebookButton?.click();
 
     expect(shareScore).toHaveBeenCalledWith("facebook", {
@@ -53,7 +57,9 @@ describe("EndOverlay Client", () => {
   });
 
   it("sollte mit fehlenden Daten umgehen können", () => {
-    const twitterButton = document.querySelector('[data-share="twitter"]');
+    const twitterButton = document.querySelector(
+      '[data-share="twitter"]',
+    ) as HTMLButtonElement;
     twitterButton?.click();
 
     expect(shareScore).toHaveBeenCalledWith("twitter", {

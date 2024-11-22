@@ -1,0 +1,220 @@
+---
+import Layout from "@layouts/Layout.astro";
+import HeaderSection from "@components/User/HeaderSection.astro";
+import { Icon } from "astro-icon/components";
+import { getGoldenLPs } from "@utils/db/getGoldenLPs";
+import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
+import type { Difficulty } from "@utils/game/jokerUtils";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+
+interface GoldenLP {
+  difficulty: string;
+}
+
+const user = Astro.locals.user;
+
+if (!user) {
+  return Astro.redirect("/");
+}
+
+const goldenLPs: Record<string, GoldenLP> = await getGoldenLPs(user?.id);
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title="Benutzerprofil">
+  <main class="userProfile">
+    <HeaderSection />
+
+    <section class="achievementsSection" aria-labelledby="achievements-title">
+      <h2 id="achievements-title" class="sectionTitle">
+        {t("user.achievements.title")}
+      </h2>
+
+      {
+        Object.keys(goldenLPs).length > 0 ? (
+          <div class="achievementsGrid" role="list" aria-label={t("user.achievements.list.label")}>
+            {Object.entries(goldenLPs).map(([genre, data]) => (
+              <article class="achievementCard" role="listitem">
+                <div class="cardIcon" aria-hidden="true">
+                  <Icon name="golden-lp" width={80} height={80} />
+                </div>
+                <div class="cardContent">
+                  <h3 class="achievementTitle">{genre}</h3>
+                  <p class="achievementRank">{getTitleBasedOnDifficulty(data?.difficulty as Difficulty)}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <p class="emptyState">{t("user.achievements.empty")}</p>
+        )
+      }
+    </section>
+  </main>
+</Layout>
+
+<style lang="scss">
+  .userProfile {
+    width: 100%;
+    max-width: var(--max-line-length);
+    margin: 0 auto;
+    padding: var(--padding-medium);
+  }
+
+  .achievementsSection {
+    margin-top: var(--padding-large);
+    padding: var(--padding-large);
+
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+
+    @media (width <= 768px) {
+      padding: var(--padding-medium);
+    }
+  }
+
+  .sectionTitle {
+    margin-bottom: var(--padding-large);
+
+    font-family: var(--font-family);
+    font-size: var(--header-font-size);
+    font-weight: 700;
+    line-height: var(--line-height-tight);
+    color: var(--highlight-color);
+    text-align: center;
+
+    @media (width <= 768px) {
+      font-size: calc(var(--header-font-size) * 0.85);
+    }
+  }
+
+  .achievementsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: var(--padding-medium);
+    justify-items: center;
+
+    @media (width <= 480px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .achievementCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    padding: var(--padding-medium);
+
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+
+    @media (hover: hover) {
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-elevated);
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition:
+        transform var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease;
+    }
+  }
+
+  .cardIcon {
+    margin-bottom: var(--padding-small);
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: float 3s ease-in-out infinite;
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .cardContent {
+    text-align: center;
+  }
+
+  .achievementTitle {
+    margin-bottom: var(--padding-small);
+
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    font-weight: 600;
+    line-height: var(--line-height-body);
+    color: var(--text-color);
+  }
+
+  .achievementRank {
+    font-family: var(--font-family);
+    font-size: calc(var(--body-font-size) * 0.9);
+    font-weight: 500;
+    color: var(--highlight-color);
+  }
+
+  .emptyState {
+    padding: var(--padding-large);
+
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    line-height: var(--line-height-body);
+    color: var(--text-color);
+    text-align: center;
+
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+  }
+
+  // High Contrast Mode Support
+  @media (forced-colors: active) {
+    .achievementCard {
+      border: 2px solid CanvasText;
+    }
+
+    .achievementTitle,
+    .achievementRank {
+      color: CanvasText;
+    }
+  }
+
+  // Dark Mode Optimierungen
+  @media (prefers-color-scheme: dark) {
+    .achievementCard {
+      background-color: color-mix(in srgb, var(--background-color) 95%, #fff);
+    }
+  }
+
+  // Print Styles
+  @media print {
+    .achievementsSection {
+      border: 1px solid #000;
+      box-shadow: none;
+    }
+
+    .achievementCard {
+      break-inside: avoid;
+      border: 1px solid #000;
+      box-shadow: none;
+    }
+
+    .cardIcon {
+      display: none;
+    }
+  }
+</style>

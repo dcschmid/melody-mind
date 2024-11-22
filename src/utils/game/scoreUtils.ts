@@ -16,8 +16,12 @@
  */
 export function updateScoreDisplay(
   score: number,
-  scoreElement: HTMLElement,
+  scoreElement: HTMLElement | null,
 ): void {
+  if (!scoreElement) {
+    return;
+  }
+
   if (scoreElement.textContent !== score.toString()) {
     scoreElement.textContent = score.toString();
   }

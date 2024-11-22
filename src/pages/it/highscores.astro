@@ -1,15 +1,11 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import { getPlayerRank } from "@utils/highscore/getPlayerRank";
-import {
-  db,
-  desc,
-  eq,
-  User,
-  TotalHighscore,
-  HighscorePerCategory,
-} from "astro:db";
+import { db, desc, eq, User, TotalHighscore, HighscorePerCategory } from "astro:db";
+import { ui } from "../../i18n/ui";
 import type { SQLWrapper } from "drizzle-orm";
+
+const t = ui["it"];
 
 // Get the user object from the Astro context
 const user = Astro.locals.user;
@@ -45,32 +41,25 @@ const [highscores, playedCategories] = await db.batch([
     .limit(10),
   // Fetch the categories that the user has played from the HighscorePerCategory table.
   // Filter the results by the user's ID.
-  db
-    .select()
-    .from(HighscorePerCategory)
-    .where(eq(HighscorePerCategory.userId, user!.id)),
+  db.select().from(HighscorePerCategory).where(eq(HighscorePerCategory.userId, user!.id)),
 ]);
 
 // Get an array of category names from the played categories.
-const categoriesNamesArray = playedCategories.map(
-  (category: { category: any }) => category.category,
-);
+const categoriesNamesArray = playedCategories.map((category: { category: any }) => category.category);
 
 // Create an object to store the scores for each category.
 const scoresByCategory: Record<string, any> = {};
 
 // Loop through each category and create a query to fetch the highscores for that category.
-const categoryQueries = categoriesNamesArray.map(
-  (category: string | SQLWrapper) => {
-    return db
-      .select()
-      .from(HighscorePerCategory)
-      .innerJoin(User, eq(HighscorePerCategory.userId, User.id))
-      .where(eq(HighscorePerCategory.category, category))
-      .orderBy(desc(HighscorePerCategory.score))
-      .limit(10);
-  },
-);
+const categoryQueries = categoriesNamesArray.map((category: string | SQLWrapper) => {
+  return db
+    .select()
+    .from(HighscorePerCategory)
+    .innerJoin(User, eq(HighscorePerCategory.userId, User.id))
+    .where(eq(HighscorePerCategory.category, category))
+    .orderBy(desc(HighscorePerCategory.score))
+    .limit(10);
+});
 
 // Batch the category queries together
 /* @ts-ignore */
@@ -106,32 +95,28 @@ for (const category of categoriesNamesArray) {
 }
 ---
 
-<Layout title="Highscores">
+<Layout title={t["highscore.title"]}>
   <h1 class="highscoreTitle" id="main-heading">
-    Bestenliste der Melody Mind Spieler
+    {t["highscore.title"]}
   </h1>
 
   <section class="introSection" aria-labelledby="intro-heading">
-    <h2 id="intro-heading">Über die Bestenliste</h2>
+    <h2 id="intro-heading">{t["highscore.about.title"]}</h2>
     <p class="introText">
-      Hier siehst du die besten Spieler in jeder Kategorie und die Top 10 aller
-      Zeiten. Zeige deine Fähigkeiten und arbeite dich an die Spitze, um dir
-      deinen Platz in den Ranglisten zu sichern. Ob du ein Spezialist in einer
-      bestimmten Musikrichtung bist oder in allen Kategorien glänzen möchtest –
-      deine Reise beginnt hier. Viel Erfolg und viel Spaß beim Spielen!
+      {t["highscore.about.text"]}
     </p>
   </section>
 
   <section class="highscoreSection" aria-labelledby="total-highscore">
-    <h2 id="total-highscore" class="sectionTitle">Gesamt-Bestenliste</h2>
-    <div class="tableWrapper" role="region" aria-label="Gesamte Top 10 Tabelle">
+    <h2 id="total-highscore" class="sectionTitle">{t["highscore.total"]}</h2>
+    <div class="tableWrapper" role="region" aria-label={t["highscore.total.top10"]}>
       <table class="highscoreTable">
-        <caption class="visually-hidden">Top 10 Spieler aller Zeiten</caption>
+        <caption class="visually-hidden">{t["highscore.total.top10"]}</caption>
         <thead>
           <tr>
-            <th scope="col">Platz</th>
-            <th scope="col">Name</th>
-            <th scope="col">Punkte</th>
+            <th scope="col">{t["highscore.rank"]}</th>
+            <th scope="col">{t["highscore.name"]}</th>
+            <th scope="col">{t["highscore.points"]}</th>
           </tr>
         </thead>
         <tbody>
@@ -155,18 +140,16 @@ for (const category of categoriesNamesArray) {
         <h2 id={`category-${category}`} class="categoryTitle">
           {category}
         </h2>
-        <div
-          class="tableWrapper"
-          role="region"
-          aria-label={`${category} Bestenliste`}
-        >
+        <div class="tableWrapper" role="region" aria-label={`${t["highscore.category.top10"]} ${category}`}>
           <table class="highscoreTable">
-            <caption class="sr-only">Top 10 Spieler in {category}</caption>
+            <caption class="sr-only">
+              {t["highscore.category.top10"]} {category}
+            </caption>
             <thead>
               <tr>
-                <th scope="col">Platz</th>
-                <th scope="col">Name</th>
-                <th scope="col">Punkte</th>
+                <th scope="col">{t["highscore.rank"]}</th>
+                <th scope="col">{t["highscore.name"]}</th>
+                <th scope="col">{t["highscore.points"]}</th>
               </tr>
             </thead>
             <tbody>
@@ -181,13 +164,8 @@ for (const category of categoriesNamesArray) {
           </table>
         </div>
         {playerRanks[category] && (
-          <div
-            class="playerRank"
-            role="status"
-            aria-live="polite"
-            aria-atomic="true"
-          >
-            Deine Platzierung: {playerRanks[category]}. Platz
+          <div class="playerRank" role="status" aria-live="polite" aria-atomic="true">
+            {t["highscore.your.rank"]}: {t["highscore.rank.position"]} {playerRanks[category]}
           </div>
         )}
       </section>
@@ -251,16 +229,8 @@ for (const category of categoriesNamesArray) {
     background-color: var(--secondary-color);
 
     // Horizontaler Scroll-Indikator
-    background-image: linear-gradient(
-        to right,
-        var(--secondary-color) 30%,
-        rgb(255 255 255 / 0%)
-      ),
-      linear-gradient(
-        to right,
-        rgb(255 255 255 / 0%),
-        var(--secondary-color) 70%
-      );
+    background-image: linear-gradient(to right, var(--secondary-color) 30%, rgb(255 255 255 / 0%)),
+      linear-gradient(to right, rgb(255 255 255 / 0%), var(--secondary-color) 70%);
     background-repeat: no-repeat;
     background-attachment: local, local;
     background-position:

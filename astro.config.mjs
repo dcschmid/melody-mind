@@ -28,4 +28,11 @@ export default defineConfig({
       dest: "src/pages/api/health.ts",
     },
   ],
+  i18n: {
+    defaultLocale: "de",
+    locales: ["de", "en", "es", "fr", "it"],
+    routing: {
+      prefixDefaultLocale: true,
+    },
+  },
 });

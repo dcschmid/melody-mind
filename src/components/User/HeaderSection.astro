@@ -39,15 +39,19 @@ const totalUserPoints = currentUser?.[0]?.total_user_points ?? 0;
       role="img"
       aria-label={`Profilbild von ${user?.username ?? "Mika"}`}
     >
-      <Picture
-        class="avatarImage"
-        src={user?.avatarUrl || "/user-profiles/mika.png"}
-        width={128}
-        height={128}
-        formats={["avif", "webp"]}
-        alt=""
-        loading="eager"
-      />
+      {
+        user?.avatarUrl && (
+          <Picture
+            class="avatarImage"
+            src={user?.avatarUrl ?? "/user-profiles/mika.png"}
+            width={128}
+            height={128}
+            formats={["avif", "webp"]}
+            alt=""
+            loading="eager"
+          />
+        )
+      })
     </div>
 
     <div

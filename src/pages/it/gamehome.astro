@@ -1,16 +1,20 @@
 ---
 import { When } from "@astropub/flow";
-
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import PlaylistItem from "@components/PlaylistItem.astro";
 import Layout from "@layouts/Layout.astro";
-import categoriesList from "@json/categories.json";
+import categoriesList from "@json/it_categories.json";
 import IntroText from "@components/Shared/IntroText.astro";
+
+// Spracheinstellungen
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 /**
  * Get the user object from the Astro context
  */
 const user = Astro.locals.user;
-const username = user?.username ?? "Gast";
+const username = user?.username ?? "Guest";
 
 /**
  * If the user is not logged in, redirect them to the login page.
@@ -19,7 +23,7 @@ if (!user) {
   /**
    * Redirect the user to the login page.
    */
-  return Astro.redirect("/");
+  return Astro.redirect(`/`);
 }
 
 interface Category {
@@ -38,23 +42,21 @@ interface Category {
  */
 const getSelectedPlayableItem = (): Category[] => {
   if (!Array.isArray(categoriesList)) return [];
-  return categoriesList.filter(
-    (item): item is Category & { categoryUrl: string } => {
-      return (
-        typeof item === "object" &&
-        item !== null &&
-        "isPlayable" in item &&
-        "headline" in item &&
-        "imageUrl" in item &&
-        "introSubline" in item &&
-        "slug" in item &&
-        "text" in item &&
-        "categoryUrl" in item &&
-        item.isPlayable &&
-        Boolean(item.categoryUrl)
-      );
-    },
-  );
+  return categoriesList.filter((item): item is Category & { categoryUrl: string } => {
+    return (
+      typeof item === "object" &&
+      item !== null &&
+      "isPlayable" in item &&
+      "headline" in item &&
+      "imageUrl" in item &&
+      "introSubline" in item &&
+      "slug" in item &&
+      "text" in item &&
+      "categoryUrl" in item &&
+      item.isPlayable &&
+      Boolean(item.categoryUrl)
+    );
+  });
 };
 
 /**
@@ -68,58 +70,48 @@ const getNonPlayableItems = () => {
 const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 ---
 
-<Layout title="Spiel Kategorien">
+<Layout title={t("game.select")}>
   <main class="gameHome" id="main-content">
-    <IntroText
-      headline={`Willkommen ${username}`}
-      subline="Wähle hier ein Genre aus, das du spielen möchtest!"
-      headingId="welcome-heading"
-    />
+    <IntroText headline={`${t("game.welcome")} ${username}`} subline={t("game.select")} headingId="welcome-heading" />
 
     <section class="playlistSection" aria-labelledby="playlist-heading">
-      <h2 id="playlist-heading" class="sr-only">Genre Auswahl</h2>
+      <h2 id="playlist-heading" class="sr-only">{t("game.genre.list")}</h2>
 
       <div class="searchWrapper">
         <label for="filter-input" class="sr-only">
-          Suche nach einem Genre
+          {t("game.search.label")}
         </label>
         <input
           class="filterInput"
           type="search"
           id="filter-input"
-          placeholder="Suche nach einem Genre"
-          aria-label="Filterung der Genre-Liste"
+          placeholder={t("game.search.label")}
+          aria-label={t("game.search.label")}
           aria-controls="playlist-grid"
           aria-describedby="search-description"
           autocomplete="off"
           spellcheck="false"
         />
         <span id="search-description" class="sr-only">
-          Die Liste wird während der Eingabe automatisch gefiltert
+          {t("game.search.description")}
         </span>
       </div>
 
-      <div
-        id="playlist-grid"
-        class="playlistGrid"
-        role="list"
-        aria-label="Liste der verfügbaren Genre"
-        aria-live="polite"
-      >
+      <div id="playlist-grid" class="playlistGrid" role="list" aria-label={t("game.genre.list")} aria-live="polite">
         <When test={categories.length > 0}>
           {
             categories.map((item) => (
               <li>
                 <When test={item.isPlayable}>
                   <a
-                    href={item.categoryUrl}
+                    href={`/${lang}${item.categoryUrl}`}
                     class="playlistLink"
-                    aria-label={`${item.headline} Genre spielen`}
+                    aria-label={item.headline + " " + t("game.genre.play.label")}
                   >
                     <PlaylistItem
                       headline={item.headline}
                       image={item.imageUrl}
-                      imageAlt={`Cover-Bild für ${item.headline}`}
+                      imageAlt={t("game.genre.image") + " " + item.headline}
                     />
                   </a>
                 </When>
@@ -131,7 +123,6 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     </section>
   </main>
 </Layout>
-
 <style lang="scss">
   .gameHome {
     max-width: var(--max-line-length);
@@ -330,14 +321,17 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 </style>
 
 <script>
+  import { ui } from "../../i18n/ui";
+
+  const translations = {
+    noResults: ui.it["game.no.results"],
+  };
+
   /**
    * Debounces a function to limit its execution rate.
    * @returns {Function} A debounced version of the input function
    */
-  function debounce<T extends (...args: any[]) => void>(
-    func: T,
-    wait: number,
-  ): (...args: Parameters<T>) => void {
+  function debounce<T extends (...args: any[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
     let timeout: ReturnType<typeof setTimeout>;
     return (...args: Parameters<T>) => {
       clearTimeout(timeout);
@@ -345,9 +339,7 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     };
   }
 
-  const filterInput = document.getElementById(
-    "filter-input",
-  ) as HTMLInputElement;
+  const filterInput = document.getElementById("filter-input") as HTMLInputElement;
   const playlistGrid = document.querySelector(".playlistGrid");
 
   /**
@@ -368,15 +360,13 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     if (!filterInput || !playlistGrid) return;
 
     const query = filterInput.value.toLowerCase().trim();
-    const playlistItems =
-      document.querySelectorAll<HTMLElement>(".playlistGrid > li");
+    const playlistItems = document.querySelectorAll<HTMLElement>(".playlistGrid > li");
     let hasResults = false;
 
     playlistItems.forEach((item) => {
       let headlineText = playlistItemsCache.get(item);
       if (!headlineText) {
-        headlineText =
-          item.querySelector(".headline")?.textContent?.toLowerCase() ?? "";
+        headlineText = item.querySelector(".headline")?.textContent?.toLowerCase() ?? "";
         playlistItemsCache.set(item, headlineText);
       }
 
@@ -399,7 +389,7 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
         noResultsMsg = document.createElement("p");
         noResultsMsg.className = "no-results";
         noResultsMsg.setAttribute("role", "status");
-        noResultsMsg.textContent = "Keine Ergebnisse gefunden";
+        noResultsMsg.textContent = translations.noResults;
         playlistGrid?.appendChild(noResultsMsg);
       }
     } else {

@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro"; // Layout component
-import categories from "@json/categories.json"; // JSON file containing categories data
+import categories from "@json/de_categories.json"; // JSON file containing categories data
 import ShowCoins from "@components/Shared/ShowCoins.astro";
 import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
 import GameHeadline from "@components/Game/GameHeadline.astro";
@@ -32,12 +32,14 @@ if (!user) {
  */
 const { category, difficulty } = Astro.params;
 
-const currentCategoryData = categories.find((cat) => cat.slug === category);
+const currentCategoryData = categories.find(
+  (cat: any) => cat.slug === category,
+);
 
 const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 ---
 
-<Layout title={`${currentCategoryData?.headline}`} showHeaderIcons={false}>
+<Layout title={`${currentCategoryData?.headline}`} showCoins={true}>
   <div slot="left-headercol">
     <ShowCoins />
   </div>
@@ -223,7 +225,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     // Albums laden und in einer Variable speichern
     let albums: Album[] | null = null;
     try {
-      const albumsPromise = import(`../../json/genres/${category}.json`);
+      const albumsPromise = import(`../../../json/genres/de/${category}.json`);
       albums = (await albumsPromise).default;
       if (!albums?.length) {
         throw new Error(`Keine Alben für Kategorie ${category} gefunden`);

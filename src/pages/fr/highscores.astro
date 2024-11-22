@@ -1,0 +1,403 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { getPlayerRank } from "@utils/highscore/getPlayerRank";
+import { db, desc, eq, User, TotalHighscore, HighscorePerCategory } from "astro:db";
+import { ui } from "../../i18n/ui";
+import type { SQLWrapper } from "drizzle-orm";
+
+const t = ui["fr"];
+
+// Get the user object from the Astro context
+const user = Astro.locals.user;
+
+/**
+ * If the user is not logged in, redirect them to the login page.
+ */
+if (!user) {
+  /**
+   * Redirect the user to the login page.
+   */
+  return Astro.redirect("/");
+}
+
+/**
+ * Fetches the top 10 highest scores from the TotalHighscore table,
+ * ordered by score in descending order. Also fetches the categories
+ * that the user has played from the HighscorePerCategory table,
+ * filtered by the user's ID.
+ *
+ * @returns {Promise<[Array<{TotalHighscore & {User: User}}>, Array<{category: string}>>>}
+ * An array containing the top 10 highest scores and the categories the user has played.
+ */
+const [highscores, playedCategories] = await db.batch([
+  // Fetch the top 10 highest scores from the TotalHighscore table
+  // ordered by score in descending order.
+  db
+    .select()
+    .from(TotalHighscore)
+    // Join the TotalHighscore table with the User table on the userId column.
+    .innerJoin(User, eq(TotalHighscore.userId, User.id))
+    .orderBy(desc(TotalHighscore.score))
+    .limit(10),
+  // Fetch the categories that the user has played from the HighscorePerCategory table.
+  // Filter the results by the user's ID.
+  db.select().from(HighscorePerCategory).where(eq(HighscorePerCategory.userId, user!.id)),
+]);
+
+// Get an array of category names from the played categories.
+const categoriesNamesArray = playedCategories.map((category: { category: any }) => category.category);
+
+// Create an object to store the scores for each category.
+const scoresByCategory: Record<string, any> = {};
+
+// Loop through each category and create a query to fetch the highscores for that category.
+const categoryQueries = categoriesNamesArray.map((category: string | SQLWrapper) => {
+  return db
+    .select()
+    .from(HighscorePerCategory)
+    .innerJoin(User, eq(HighscorePerCategory.userId, User.id))
+    .where(eq(HighscorePerCategory.category, category))
+    .orderBy(desc(HighscorePerCategory.score))
+    .limit(10);
+});
+
+// Batch the category queries together
+/* @ts-ignore */
+const categoryScores = await db.batch(categoryQueries);
+
+// Loop through each category and store the scores in the scoresByCategory object.
+for (let i = 0; i < categoriesNamesArray.length; i++) {
+  scoresByCategory[categoriesNamesArray[i]] = categoryScores[i];
+}
+
+/**
+ * An object that stores the rank of the current user in each category.
+ * The key is the category name and the value is the rank of the user.
+ * If the user is not in the top 10, the rank is stored in this object.
+ * @type {Record<string, number | null>}
+ */
+const playerRanks: Record<string, number | null> = {};
+
+/**
+ * Loop through each category and get the rank of the current user in that category.
+ * The `getPlayerRank` function is used to get the rank of the user.
+ * If the user is not in the top 10, the rank is stored in the `playerRanks` object.
+ */
+for (const category of categoriesNamesArray) {
+  const playerRank = await getPlayerRank(user!.id, category);
+  if (playerRank && typeof playerRank === "number" && playerRank > 10) {
+    /**
+     * Store the rank of the user in the `playerRanks` object.
+     * The key is the category name and the value is the rank of the user.
+     */
+    playerRanks[category] = playerRank;
+  }
+}
+---
+
+<Layout title={t["highscore.title"]}>
+  <h1 class="highscoreTitle" id="main-heading">
+    {t["highscore.title"]}
+  </h1>
+
+  <section class="introSection" aria-labelledby="intro-heading">
+    <h2 id="intro-heading">{t["highscore.about.title"]}</h2>
+    <p class="introText">
+      {t["highscore.about.text"]}
+    </p>
+  </section>
+
+  <section class="highscoreSection" aria-labelledby="total-highscore">
+    <h2 id="total-highscore" class="sectionTitle">{t["highscore.total"]}</h2>
+    <div class="tableWrapper" role="region" aria-label={t["highscore.total.top10"]}>
+      <table class="highscoreTable">
+        <caption class="visually-hidden">{t["highscore.total.top10"]}</caption>
+        <thead>
+          <tr>
+            <th scope="col">{t["highscore.rank"]}</th>
+            <th scope="col">{t["highscore.name"]}</th>
+            <th scope="col">{t["highscore.points"]}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            highscores.map((score, index) => (
+              <tr class={score.User.id === user?.id ? "currentUser" : ""}>
+                <td>{index + 1}</td>
+                <td>{score.User.username}</td>
+                <td>{score.TotalHighscore.score}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  {
+    Object.keys(scoresByCategory).map((category) => (
+      <section class="categorySection" aria-labelledby={`category-${category}`}>
+        <h2 id={`category-${category}`} class="categoryTitle">
+          {category}
+        </h2>
+        <div class="tableWrapper" role="region" aria-label={`${t["highscore.category.top10"]} ${category}`}>
+          <table class="highscoreTable">
+            <caption class="sr-only">
+              {t["highscore.category.top10"]} {category}
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">{t["highscore.rank"]}</th>
+                <th scope="col">{t["highscore.name"]}</th>
+                <th scope="col">{t["highscore.points"]}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {scoresByCategory[category].map((score: any, index: number) => (
+                <tr class={score.User.id === user?.id ? "currentUser" : ""}>
+                  <td>{index + 1}</td>
+                  <td>{score.User.username}</td>
+                  <td>{score.HighscorePerCategory.score}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {playerRanks[category] && (
+          <div class="playerRank" role="status" aria-live="polite" aria-atomic="true">
+            {t["highscore.your.rank"]}: {t["highscore.rank.position"]} {playerRanks[category]}
+          </div>
+        )}
+      </section>
+    ))
+  }
+</Layout>
+
+<style lang="scss">
+  .highscorePage {
+    max-width: var(--max-line-length);
+    margin: 0 auto;
+    padding: var(--padding-medium);
+  }
+
+  .highscoreTitle {
+    margin: var(--padding-large) 0;
+
+    font-size: var(--header-font-size);
+    font-weight: 700;
+    line-height: var(--line-height-body);
+    color: var(--text-color);
+    text-align: center;
+  }
+
+  .introSection {
+    margin-bottom: var(--padding-large);
+  }
+
+  .introText {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--padding-large);
+
+    font-size: var(--body-font-size);
+    line-height: var(--line-height-body);
+    color: var(--text-color);
+    text-align: left;
+    letter-spacing: var(--spacing-text);
+
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+
+  .sectionTitle,
+  .categoryTitle {
+    margin: var(--padding-large) 0 var(--padding-medium);
+
+    font-size: calc(var(--header-font-size) * 0.9);
+    font-weight: 700;
+    line-height: var(--line-height-body);
+    color: var(--text-color);
+  }
+
+  .tableWrapper {
+    overflow-x: auto;
+
+    margin-bottom: var(--padding-large);
+    padding: var(--padding-small);
+
+    background-color: var(--secondary-color);
+
+    // Horizontaler Scroll-Indikator
+    background-image: linear-gradient(to right, var(--secondary-color) 30%, rgb(255 255 255 / 0%)),
+      linear-gradient(to right, rgb(255 255 255 / 0%), var(--secondary-color) 70%);
+    background-repeat: no-repeat;
+    background-attachment: local, local;
+    background-position:
+      0 0,
+      100% 0;
+    background-size: 40px 100%;
+    border-radius: var(--border-radius);
+
+    &:focus {
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
+    }
+  }
+
+  .highscoreTable {
+    border-spacing: 0;
+    border-collapse: separate;
+    width: 100%;
+    margin: var(--padding-small) 0;
+
+    caption {
+      padding: var(--padding-small) var(--padding-medium);
+      font-weight: 600;
+      color: var(--text-color);
+      text-align: left;
+    }
+
+    // Desktop Styles
+    @media (width >= 769px) {
+      th,
+      td {
+        padding: var(--padding-medium);
+        text-align: left;
+        border: 1px solid var(--text-color);
+      }
+
+      th {
+        font-weight: 700;
+        color: var(--button-text-color);
+        white-space: nowrap;
+        background-color: var(--text-color);
+      }
+    }
+
+    // Mobile Styles - Card Layout
+    @media (width <= 768px) {
+      thead {
+        display: none; // Hide table headers on mobile
+      }
+
+      tbody {
+        display: block;
+        width: 100%;
+      }
+
+      tr {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: var(--padding-small);
+
+        margin-bottom: var(--padding-medium);
+        padding: var(--padding-medium);
+
+        background-color: var(--background-color);
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+
+        &.currentUser {
+          color: var(--button-text-color);
+          background-color: var(--highlight-color);
+        }
+      }
+
+      td {
+        padding: var(--padding-small);
+        font-size: var(--body-font-size);
+        line-height: var(--line-height-body);
+
+        &::before {
+          display: inline-block;
+          margin-right: var(--padding-small);
+          color: inherit;
+        }
+
+        // Pseudo-headers für mobile Ansicht
+        &:nth-child(1)::before {
+          content: "Rang: ";
+          font-weight: 700;
+        }
+
+        &:nth-child(2)::before {
+          content: "Name: ";
+          font-weight: 700;
+        }
+
+        &:nth-child(3)::before {
+          content: "Punkte: ";
+          font-weight: 700;
+        }
+      }
+    }
+
+    // Sehr kleine Bildschirme
+    @media (width <= 480px) {
+      tr {
+        grid-template-columns: 1fr;
+      }
+
+      td {
+        padding: var(--padding-small) 0;
+        border-bottom: 1px solid var(--text-color);
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  .currentUser td {
+    font-weight: 700;
+    color: var(--button-text-color);
+    background-color: var(--highlight-color);
+  }
+
+  .playerRank {
+    margin: var(--padding-medium) 0;
+    padding: var(--padding-medium);
+
+    font-weight: 600;
+    color: var(--button-text-color);
+    text-align: center;
+
+    background-color: var(--highlight-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+
+  // Verbesserte Hover-States
+  @media (hover: hover) {
+    tbody tr:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--box-shadow);
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+
+  // High Contrast Mode
+  @media (forced-colors: active) {
+    .highscoreTable {
+      tr,
+      td,
+      th {
+        border: 1px solid CanvasText;
+      }
+
+      .currentUser {
+        border: 2px solid Highlight;
+      }
+    }
+  }
+
+  // Reduced Motion
+  @media (prefers-reduced-motion: reduce) {
+    tbody tr:hover {
+      transform: none;
+      transition: none;
+    }
+  }
+</style>

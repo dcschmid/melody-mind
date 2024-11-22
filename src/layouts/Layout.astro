@@ -1,9 +1,14 @@
 ---
 import { Icon } from "astro-icon/components";
 import { When } from "@astropub/flow";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
 import "@fontsource/source-sans-pro/400.css";
 import "@fontsource/source-sans-pro/700.css";
 import "@fontsource/source-sans-pro/900.css";
+import LanguagePicker from "@components/LanguagePicker.astro";
+import ShowCoins from "@components/Shared/ShowCoins.astro";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 interface Props {
   title: string;
@@ -12,6 +17,7 @@ interface Props {
   image?: string;
   showHeader?: boolean;
   showHeaderIcons?: boolean;
+  showCoins?: boolean;
 }
 
 const {
@@ -21,13 +27,17 @@ const {
   image = "/social-share.jpg",
   showHeader = true,
   showHeaderIcons = true,
+  showCoins = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -58,19 +68,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="twitter:image" content={new URL(image, Astro.site)} />
 
     <!-- Favicons -->
-    <link
-      rel="icon"
-      type="image/png"
-      href="/favicon-96x96.png?v=2"
-      sizes="96x96"
-    />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png?v=2" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
     <link rel="shortcut icon" href="/favicon.ico?v=2" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/apple-touch-icon.png?v=2"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2" />
     <meta name="apple-mobile-web-app-title" content="Melody Mind" />
     <link rel="manifest" href="/site.webmanifest" />
 
@@ -79,69 +80,59 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <meta name="color-scheme" content="light dark" />
 
-    <script
-      src="https://cdn.usefathom.com/script.js"
-      data-site="RKHOWTTO"
-      defer
-      is:inline></script>
+    <script src="https://cdn.usefathom.com/script.js" data-site="RKHOWTTO" defer is:inline></script>
   </head>
   <body>
-    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+    <a href="#main-content" class="skip-link">{t("nav.skip.main")}</a>
 
-    <When test1={showHeader}>
+    <When test={showHeader && !showCoins}>
       <header role="banner">
+        <LanguagePicker />
         <nav aria-label="Hauptnavigation">
           <div class="slot left">
-            <a href="/gamehome" class="icon-button" aria-label="Zur Startseite">
-              <Icon name="home" width={24} height={22.24} aria-hidden="true" />
-              <span class="sr-only">Startseite</span>
-            </a>
-            <When test={showHeaderIcons}>
-              <a
-                href="/spielregeln"
-                class="icon-button"
-                aria-label="Spielregeln anzeigen"
-              >
-                <Icon
-                  name="question"
-                  width={24}
-                  height={22.24}
-                  aria-hidden="true"
-                />
-                <span class="sr-only">Spielregeln</span>
+            <button
+              class="hamburger icon-button"
+              aria-label={t("nav.menu.open")}
+              aria-expanded="false"
+              aria-controls="menu"
+            >
+              <Icon name="menu" width={24} height={24} aria-hidden="true" />
+              <span class="sr-only">{t("nav.menu.open")}</span>
+            </button>
+
+            <div id="menu" class="menu">
+              <button class="close-button" aria-label={t("nav.menu.close")}> X </button>
+              <a href={getRelativeLocaleUrl(lang, "gamehome")}>
+                <Icon name="home" width={24} height={22.24} aria-hidden="true" />
+                {t("nav.menu.home")}
               </a>
-              <a
-                href="/highscores"
-                class="icon-button"
-                aria-label="Bestenliste anzeigen"
-              >
-                <Icon name="trophy" width={24} height={24} aria-hidden="true" />
-                <span class="sr-only">Bestenliste</span>
-              </a>
-            </When>
-            <slot name="left-headercol" />
-          </div>
-          <div class="slot right">
-            <When test={showHeaderIcons}>
-              <a href="/user" class="icon-button" aria-label="Benutzerprofil">
-                <Icon name="user" width={24} height={24} aria-hidden="true" />
-                <span class="sr-only">Profil</span>
-              </a>
-              <form method="post" action="/api/logout">
-                <button class="icon-button" type="submit" aria-label="Abmelden">
-                  <Icon
-                    name="logout"
-                    width={24}
-                    height={24}
-                    aria-hidden="true"
-                  />
-                  <span class="sr-only">Abmelden</span>
-                </button>
-              </form>
-            </When>
+              <When test={showHeaderIcons}>
+                <a href={getRelativeLocaleUrl(lang, "spielregeln")}>
+                  <Icon name="question" width={24} height={22.24} aria-hidden="true" />
+                  {t("nav.menu.rules")}
+                </a>
+                <a href={getRelativeLocaleUrl(lang, "highscores")}>
+                  <Icon name="trophy" width={24} height={24} aria-hidden="true" />
+                  {t("nav.menu.highscores")}
+                </a>
+                <a href={getRelativeLocaleUrl(lang, "user")}>
+                  <Icon name="user" width={24} height={24} aria-hidden="true" />
+                  {t("nav.menu.profile")}
+                </a>
+                <form method="post" action="/api/logout">
+                  <button type="submit">
+                    <Icon name="logout" width={24} height={24} aria-hidden="true" />
+                    {t("nav.menu.logout")}
+                  </button>
+                </form>
+              </When>
+            </div>
           </div>
         </nav>
       </header>
+    </When>
+    <When test={showCoins}>
+      <ShowCoins />
     </When>
 
     <main id="main-content">
@@ -269,6 +260,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       header {
         margin-bottom: var(--padding-medium);
         border-radius: var(--border-radius);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
 
         @media (width >= 768px) {
           padding: var(--padding-medium);
@@ -504,8 +498,127 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           --button-font-size: 0.875rem;
         }
       }
+
+      .menu {
+        position: fixed;
+        z-index: var(--layer-above);
+        top: 0;
+        left: 0;
+
+        visibility: hidden;
+        width: 100%;
+        height: 100vh;
+        padding: var(--padding-large);
+
+        background-color: var(--background-color);
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: all var(--transition-speed) ease-in-out;
+
+        &.is-open {
+          visibility: visible;
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        a,
+        button {
+          display: flex;
+          gap: var(--padding-small);
+          align-items: center;
+
+          width: 100%;
+          margin-bottom: var(--padding-small);
+          padding: var(--padding-medium);
+
+          color: var(--text-color);
+          font-size: var(--body-font-size);
+          text-align: left;
+          text-decoration: none;
+
+          background-color: transparent;
+          border: none;
+          border-radius: var(--border-radius);
+          transition: background-color var(--transition-speed);
+
+          &:hover,
+          &:focus-visible {
+            background-color: var(--secondary-color);
+            outline: none;
+          }
+
+          [astro-icon] {
+            width: 24px;
+            height: 24px;
+          }
+        }
+
+        form {
+          width: 100%;
+        }
+
+        .close-button {
+          position: absolute;
+          top: var(--padding-medium);
+          right: var(--padding-medium);
+
+          font-size: 2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+
+          color: var(--text-color);
+          background-color: transparent;
+          border: none;
+          border-radius: 50%;
+          transition: background-color var(--transition-speed);
+
+          &:hover,
+          &:focus-visible {
+            background-color: var(--secondary-color);
+            outline: none;
+          }
+        }
+
+        // Mehr Platz für den Menü-Inhalt
+        padding-top: calc(var(--padding-large) + 40px);
+      }
+
+      // Verhindert Scrolling wenn Menü offen
+      body.menu-open {
+        overflow: hidden;
+      }
+
+      // Hamburger Button Styles
+      .hamburger {
+        position: relative;
+      }
     </style>
-    <script src="https://cdn.usefathom.com/script.js" data-site="RKHOWTTO" defer
-    ></script>
+
+    <script>
+      const button = document.querySelector(".hamburger") as HTMLButtonElement;
+      const menu = document.querySelector("#menu") as HTMLDivElement;
+      const closeButton = menu?.querySelector(".close-button") as HTMLButtonElement;
+      const body = document.body;
+
+      const toggleMenu = () => {
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", String(!isExpanded));
+        menu.classList.toggle("is-open");
+        body.classList.toggle("menu-open");
+      };
+
+      button.addEventListener("click", toggleMenu);
+      closeButton.addEventListener("click", toggleMenu);
+
+      // Schließen mit Escape-Taste
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && menu.classList.contains("is-open")) {
+          toggleMenu();
+        }
+      });
+    </script>
   </body>
 </html>

@@ -1,0 +1,255 @@
+---
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="Game Rules">
+  <article class="rulesContainer">
+    <h1 class="mainTitle">Game Rules – MelodyMind</h1>
+
+    <section aria-labelledby="overview">
+      <h2 id="overview" class="sectionTitle">Overview</h2>
+      <p class="text">
+        Welcome to <strong>MelodyMind</strong>! Your goal is to answer questions about
+        songs, artists, and albums from various music genres. Choose a genre and put
+        your knowledge to the test. The more questions you answer correctly, the more
+        points you'll earn.
+      </p>
+    </section>
+
+    <section aria-labelledby="difficulty-levels">
+      <h2 id="difficulty-levels" class="sectionTitle">Difficulty Levels</h2>
+
+      <p class="text">
+        There are three difficulty levels you can choose from:
+      </p>
+
+      <ul class="list">
+        <li>
+          <strong>Easy</strong>: 10 questions per round. Perfect for refreshing your
+          knowledge and having fun.
+        </li>
+        <li>
+          <strong>Medium</strong>: 15 questions per round. A challenge for advanced
+          music lovers.
+        </li>
+        <li>
+          <strong>Hard</strong>: 20 questions per round. Only for true music experts!
+        </li>
+      </ul>
+
+      <p class="text">
+        Each difficulty level has its own title that you can unlock:
+      </p>
+
+      <ul class="list">
+        <li>
+          <strong>Music Novice</strong>: All questions answered correctly in easy mode.
+        </li>
+        <li>
+          <strong>Music Master</strong>: All questions answered correctly in medium mode.
+        </li>
+        <li>
+          <strong>Music Legend</strong>: All questions answered correctly in hard mode.
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="points-system">
+      <h2 class="sectionTitle" id="points-system">Points System</h2>
+
+      <ul class="list">
+        <li>50 points for each correct answer.</li>
+        <li>No points for incorrect answers.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="golden-lps">
+      <h2 class="sectionTitle" id="golden-lps">Golden Records</h2>
+
+      <p class="text">
+        When you answer all questions correctly in a category, you'll receive a
+        <span class="golden-lp">golden record</span>:
+      </p>
+
+      <ul class="list">
+        <li><strong>Easy</strong>: Music Novice.</li>
+        <li><strong>Medium</strong>: Music Master.</li>
+        <li><strong>Hard</strong>: Music Legend.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="rankings">
+      <h2 class="sectionTitle" id="rankings">Rankings</h2>
+
+      <p class="text">
+        The <strong>ranking system</strong> compares you with other players.
+        Your placement in the <strong>Top 10</strong> is based on your collected
+        points across all categories.
+      </p>
+
+      <ul class="list">
+        <li>Genre-specific ranking: Best players in a genre.</li>
+        <li>Overall ranking: Best players across all categories.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="tips-tricks">
+      <h2 class="sectionTitle" id="tips-tricks">Tips & Tricks</h2>
+
+      <ul class="list">
+        <li>
+          <strong>Start in easy mode</strong> to get a feel for the game.
+        </li>
+        <li>
+          <strong>Choose your strengths</strong> and play the genres you're confident in.
+        </li>
+        <li>
+          <strong>Practice regularly</strong> to improve your score.
+        </li>
+        <li>
+          <strong>Accuracy</strong> over speed – read each question carefully.
+        </li>
+      </ul>
+    </section>
+  </article>
+
+  <style lang="scss">
+    .rulesPage {
+      width: 100%;
+      max-width: var(--max-line-length);
+      margin: 0 auto;
+      padding: var(--padding-medium);
+    }
+
+    .rulesContainer {
+      padding: var(--padding-large);
+      background-color: var(--secondary-color);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+
+      @media (width <= 768px) {
+        padding: var(--padding-medium);
+      }
+    }
+
+    .mainTitle {
+      margin-block-end: var(--padding-large);
+
+      font-family: var(--font-family);
+      font-size: var(--header-font-size);
+      font-weight: 900;
+      line-height: var(--line-height-body);
+      color: var(--text-color);
+      text-align: center;
+
+      @media (width <= 768px) {
+        font-size: calc(var(--header-font-size) * 0.8);
+      }
+    }
+
+    .sectionTitle {
+      margin-block: var(--padding-medium);
+
+      font-family: var(--font-family);
+      font-size: calc(var(--header-font-size) * 0.8);
+      font-weight: 700;
+      line-height: var(--line-height-body);
+      color: var(--text-color);
+
+      @media (width <= 768px) {
+        font-size: calc(var(--header-font-size) * 0.7);
+      }
+    }
+
+    .text {
+      margin-block-end: var(--padding-medium);
+
+      font-family: var(--font-family);
+      font-size: var(--body-font-size);
+      line-height: var(--line-height-body);
+      color: var(--text-color);
+      letter-spacing: var(--spacing-text);
+
+      strong {
+        font-weight: 600;
+      }
+    }
+
+    .list {
+      margin-block-end: var(--padding-medium);
+      padding-inline-start: var(--padding-large);
+      list-style-type: disc;
+
+      li {
+        margin-block-end: var(--padding-small);
+
+        font-family: var(--font-family);
+        font-size: var(--body-font-size);
+        line-height: var(--line-height-body);
+        color: var(--text-color);
+
+        strong {
+          font-weight: 600;
+        }
+      }
+
+      @media (width <= 768px) {
+        padding-inline-start: var(--padding-medium);
+      }
+    }
+
+    .highlight {
+      font-weight: 600;
+      color: var(--highlight-color);
+    }
+
+    // Focus Styles
+    :focus-visible {
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
+    }
+
+    // High Contrast Mode Support
+    @media (forced-colors: active) {
+      .rulesContainer {
+        border: 2px solid CanvasText;
+      }
+
+      .highlight,
+      .list li strong {
+        border-bottom: 1px solid CurrentColor;
+      }
+    }
+
+    // Reduced Motion
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+      }
+    }
+
+    // Print Styles
+    @media print {
+      .rulesContainer {
+        border: 1px solid #000;
+        box-shadow: none;
+      }
+
+      .mainTitle,
+      .sectionTitle {
+        color: #000;
+      }
+
+      .list {
+        page-break-inside: avoid;
+      }
+    }
+
+    // Better Touch Targets
+    @media (hover: none) and (pointer: coarse) {
+      .list li {
+        padding-block: calc(var(--padding-small) / 2);
+      }
+    }
+  </style>
+</Layout>

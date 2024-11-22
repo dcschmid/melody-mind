@@ -43,7 +43,7 @@ export async function GET(context: APIContext): Promise<Response> {
         sessionCookie.value,
         sessionCookie.attributes,
       );
-      return context.redirect("/gamehome");
+      return context.redirect("/de/gamehome");
     }
 
     const userId = generateIdFromEntropySize(10); // 16 characters long
@@ -66,7 +66,7 @@ export async function GET(context: APIContext): Promise<Response> {
       sessionCookie.value,
       sessionCookie.attributes,
     );
-    return context.redirect("/gamehome");
+    return context.redirect("/de/gamehome");
   } catch (e) {
     console.log(e);
     // the specific error message depends on the provider

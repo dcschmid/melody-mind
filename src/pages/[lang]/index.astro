@@ -1,0 +1,207 @@
+---
+import { Icon } from "astro-icon/components";
+import Layout from "@layouts/Layout.astro";
+import { Picture } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import LanguagePicker from "@components/LanguagePicker.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Dynamische Weiterleitung basierend auf Browser-Sprache
+if (Astro.request.method === "GET" && !Astro.params.lang) {
+  return Astro.redirect(
+    getRelativeLocaleUrl(Astro.preferredLocale || "de", "/"),
+  );
+}
+
+const title = t("login.welcome");
+const description = t("login.description");
+const keywords =
+  "Musik Quiz, Musikspiel, Song Quiz, Künstler Quiz, Online Musikquiz, Musik Trivia, Melody Mind, Musik Ratespiel";
+---
+
+<Layout
+  title={title}
+  description={description}
+  keywords={keywords}
+  showHeader={false}
+>
+  <div class="container">
+    <LanguagePicker />
+
+    <Picture
+      class="logo"
+      src="/melody-mind.png"
+      width={480}
+      height={480}
+      formats={["avif", "webp"]}
+      alt="Melody Mind Logo - Musikquiz App Logo"
+      loading="eager"
+    />
+
+    <h1 class="headline">{title}</h1>
+    <p class="description">{description}</p>
+
+    <div class="buttonGroup">
+      <nav class="buttonGroup" aria-label="Login-Optionen">
+        <a
+          class="button"
+          href="/login/spotify"
+          aria-label="Mit Spotify anmelden"
+        >
+          <Icon
+            class="loginIcon"
+            name="spotify"
+            width={35}
+            height={35}
+            aria-hidden="true"
+          />
+          <span>Spotify</span>
+        </a>
+        <a class="button" href="/login/github" aria-label="Mit GitHub anmelden">
+          <Icon
+            class="loginIcon"
+            name="github"
+            width={35}
+            height={35}
+            aria-hidden="true"
+          />
+          <span>GitHub</span>
+        </a>
+        <a class="button" href="/login/google" aria-label="Mit Google anmelden">
+          <Icon
+            class="loginIcon"
+            name="google"
+            width={35}
+            height={35}
+            aria-hidden="true"
+          />
+          <span>Google</span>
+        </a>
+        <a class="button" href="/login/yahoo" aria-label="Mit Yahoo anmelden">
+          <Icon
+            class="loginIcon"
+            name="yahoo"
+            width={35}
+            height={35}
+            aria-hidden="true"
+          />
+          <span>Yahoo</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+  .container {
+    max-width: var(--max-line-length);
+    margin: 0 auto;
+    padding: var(--padding-large);
+    text-align: center;
+  }
+
+  .logo {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: var(--padding-large) auto;
+
+    transition: transform var(--transition-speed);
+  }
+
+  .headline {
+    margin: var(--padding-medium) 0;
+
+    font-size: var(--header-font-size);
+    font-weight: 700;
+    color: var(--text-color);
+    letter-spacing: var(--spacing-text);
+  }
+
+  .text {
+    margin: var(--padding-medium) 0;
+
+    font-size: var(--body-font-size);
+    font-weight: 400;
+    line-height: var(--line-height-body);
+    color: var(--text-color);
+    letter-spacing: var(--spacing-text);
+  }
+
+  .buttonGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--padding-medium);
+    justify-content: center;
+
+    margin-top: var(--padding-medium);
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+
+    min-width: var(--min-touch-target);
+    min-height: var(--min-touch-target);
+    padding: var(--padding-small) var(--padding-large);
+
+    font-size: var(--button-font-size);
+    font-weight: 600;
+    color: var(--button-text-color);
+    text-decoration: none;
+
+    background-color: var(--highlight-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+
+    transition: all var(--transition-speed);
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: var(--button-hover-color);
+    }
+
+    &:focus-visible {
+      transform: none;
+      outline: var(--focus-outline-width) solid var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
+    }
+  }
+
+  .loginIcon {
+    margin-right: var(--padding-small);
+  }
+
+  @media (width <= 1024px) {
+    .buttonGroup {
+      gap: var(--padding-small);
+    }
+  }
+
+  @media (width <= 768px) {
+    .buttonGroup {
+      flex-direction: column;
+      gap: var(--padding-small);
+    }
+  }
+
+  /* Reduzierte Bewegung */
+  @media (prefers-reduced-motion: reduce) {
+    .button:hover {
+      transform: none;
+    }
+
+    .logo {
+      transition: none;
+    }
+  }
+
+  /* Hoher Kontrast */
+  @media (prefers-contrast: high) {
+    .button {
+      border: 2px solid var(--text-color);
+    }
+  }
+</style>

@@ -55,6 +55,20 @@ describe("GoldenLPOverlay Client", () => {
       type: "attributes",
       attributeName: "class",
       target: popup,
+      addedNodes: {
+        length: 0,
+        item: () => null,
+        [Symbol.iterator]: function* () {},
+      } as unknown as NodeList,
+      removedNodes: {
+        length: 0,
+        item: () => null,
+        [Symbol.iterator]: function* () {},
+      } as unknown as NodeList,
+      previousSibling: null,
+      nextSibling: null,
+      attributeNamespace: null,
+      oldValue: null,
     } as MutationRecord;
 
     // Rufe den Observer-Callback manuell auf
@@ -88,6 +102,20 @@ describe("GoldenLPOverlay Client", () => {
       type: "attributes",
       attributeName: "class",
       target: popup,
+      addedNodes: {
+        length: 0,
+        item: () => null,
+        [Symbol.iterator]: function* () {},
+      } as unknown as NodeList,
+      removedNodes: {
+        length: 0,
+        item: () => null,
+        [Symbol.iterator]: function* () {},
+      } as unknown as NodeList,
+      previousSibling: null,
+      nextSibling: null,
+      attributeNamespace: null,
+      oldValue: null,
     } as MutationRecord;
 
     mutationCallback([mutation], {} as MutationObserver);

@@ -3,7 +3,15 @@ import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Button from "@components/Shared/Button.astro";
 import IntroText from "@components/Shared/IntroText.astro";
-import categories from "@json/categories.json";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+// Spracheinstellungen
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Kategorien basierend auf Sprache laden
+const categories = await import(`@json/it_categories.json`);
 
 interface Category {
   slug: string;
@@ -13,69 +21,40 @@ interface Category {
   text: string;
 }
 
-/**
- * Get the user object from the Astro context
- */
 const user = Astro.locals.user;
 
-/**
- * If the user is not logged in, redirect them to the login page.
- */
 if (!user) {
-  /**
-   * Redirect the user to the login page.
-   */
-  return Astro.redirect("/");
+  return Astro.redirect(`/${lang}/`);
 }
 
-/**
- * Get the category parameter from the Astro context.
- * The category parameter is required and determines which category
- * the user wants to play.
- */
 const { category } = Astro.params;
 
-/**
- * Find the category object in the categories array that matches the category parameter.
- * If the category is not found, redirect the user to a 404 page.
- */
-const currentCategory = categories.find(
-  (cat: Category) => cat.slug === category,
-);
-
-if (!currentCategory) {
-  /**
-   * Redirect the user to a 404 page if the category is not found.
-   */
-  return Astro.redirect("/404");
-}
+const currentCategory = categories.default.find((cat: Category) => cat.slug === category);
 ---
 
 <Layout title={`${currentCategory?.headline} Start`}>
   <IntroText
-    headline={`${currentCategory?.headline} gewählt!`}
+    headline={currentCategory?.headline + " " + t("category.selected")}
     subline={currentCategory?.introSubline}
   />
 
-  <article
-    class="category"
-    data-category={currentCategory?.slug}
-    aria-labelledby="difficulty-heading"
-  >
-    <div
-      class="cover"
-      role="img"
-      aria-label={`${currentCategory?.headline} Cover-Bild`}
-    >
-      <Picture
-        class="coverImage"
-        src={currentCategory?.imageUrl}
-        width={280}
-        height={280}
-        formats={["avif", "webp"]}
-        alt=""
-        loading="eager"
-      />
+  <article class="category" data-category={currentCategory?.slug} aria-labelledby="difficulty-heading">
+    <div class="cover" role="img" aria-label={currentCategory?.headline + " " + t("category.image.alt")}>
+      {
+        currentCategory?.imageUrl ? (
+          <Picture
+            class="coverImage"
+            src={currentCategory.imageUrl}
+            width={280}
+            height={280}
+            formats={["avif", "webp"]}
+            alt=""
+            loading="eager"
+          />
+        ) : (
+          <div class="fallbackImage">Kein Bild verfügbar</div>
+        )
+      }
     </div>
 
     <p class="text">
@@ -84,23 +63,23 @@ if (!currentCategory) {
 
     <div class="difficultySection">
       <h2 id="difficulty-heading" class="buttonHeadline">
-        Wähle deinen Schwierigkeitsgrad
+        {t("category.difficulty.heading")}
       </h2>
-      <div class="buttonGroup" role="group" aria-label="Schwierigkeitsgrade">
+      <div class="buttonGroup" role="group" aria-label={t("category.difficulty.group")}>
         <Button
-          buttonText="Leicht"
-          url={`${currentCategory?.slug}/easy`}
-          aria-label="Starte Spiel im leichten Modus"
+          buttonText={t("category.difficulty.easy")}
+          url={getRelativeLocaleUrl(lang, `${currentCategory?.slug}/easy`)}
+          aria-label={t("category.difficulty.easy.label")}
         />
         <Button
-          buttonText="Mittel"
-          url={`${currentCategory?.slug}/medium`}
-          aria-label="Starte Spiel im mittleren Modus"
+          buttonText={t("category.difficulty.medium")}
+          url={getRelativeLocaleUrl(lang, `${currentCategory?.slug}/medium`)}
+          aria-label={t("category.difficulty.medium.label")}
         />
         <Button
-          buttonText="Schwer"
-          url={`${currentCategory?.slug}/hard`}
-          aria-label="Starte Spiel im schweren Modus"
+          buttonText={t("category.difficulty.hard")}
+          url={getRelativeLocaleUrl(lang, `${currentCategory?.slug}/hard`)}
+          aria-label={t("category.difficulty.hard.label")}
         />
       </div>
     </div>

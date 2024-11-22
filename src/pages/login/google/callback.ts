@@ -59,7 +59,7 @@ export async function GET(context: APIContext): Promise<Response> {
         sessionCookie.value,
         sessionCookie.attributes,
       );
-      return context.redirect("/gamehome");
+      return context.redirect("/de/gamehome");
     }
 
     // If the user does not exist, create a new user in the database.
@@ -82,7 +82,7 @@ export async function GET(context: APIContext): Promise<Response> {
       sessionCookie.value,
       sessionCookie.attributes,
     );
-    return context.redirect("/gamehome");
+    return context.redirect("/de/gamehome");
   } catch (e) {
     // Handle errors.
     if (e instanceof OAuth2RequestError) {
