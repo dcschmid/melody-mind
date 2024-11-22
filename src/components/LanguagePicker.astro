@@ -54,7 +54,10 @@ const languages = {
   >
     {
       Object.entries(languages).map(([code, { name, label, flag }]) => (
-        <option value={getRelativeLocaleUrl(code, cleanPath)} aria-label={label}>
+        <option
+          value={getRelativeLocaleUrl(code, cleanPath)}
+          aria-label={label}
+        >
           {flag} {name}
         </option>
       ))
@@ -107,7 +110,9 @@ const languages = {
     }
 
     // Setze den korrekten Wert im Select-Element
-    const select = document.getElementById("language-select") as HTMLSelectElement;
+    const select = document.getElementById(
+      "language-select",
+    ) as HTMLSelectElement;
     if (select) {
       for (let i = 0; i < select.options.length; i++) {
         const option = select.options[i];
@@ -123,8 +128,8 @@ const languages = {
 <style lang="scss">
   .languagePicker {
     display: flex;
-    align-items: center;
     gap: 0.5em;
+    align-items: center;
   }
 
   .globe-icon {
@@ -132,24 +137,28 @@ const languages = {
   }
 
   .selectLanguage {
-    padding: 0.5em 2.5em 0.5em 0.5em;
-    font-family: var(--font-family);
-    background-color: var(--secondary-color);
-    border: 2px solid var(--highlight-color);
-    border-radius: var(--border-radius);
     cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1em center;
-    transition: all 0.2s ease;
+
+    padding: 0.5em 2.5em 0.5em 0.5em;
+
+    font-family: var(--font-family);
     font-size: 1em;
     line-height: 1.5;
 
+    appearance: none;
+    background-color: var(--secondary-color);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1em center;
+    border: 2px solid var(--highlight-color);
+    border-radius: var(--border-radius);
+
+    transition: all 0.2s ease;
+
     &:hover,
     &:focus {
-      background-color: var(--highlight-color);
       color: var(--background-color);
+      background-color: var(--highlight-color);
       outline: none;
       box-shadow:
         0 0 0 2px var(--highlight-color),
@@ -158,20 +167,24 @@ const languages = {
 
     option {
       display: flex;
-      align-items: center;
       gap: 0.5em;
+      align-items: center;
     }
   }
 
   .sr-only {
     position: absolute;
+
+    overflow: hidden;
+
     width: 1px;
     height: 1px;
-    padding: 0;
     margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    padding: 0;
+
     white-space: nowrap;
+
+    clip: rect(0, 0, 0, 0);
     border: 0;
   }
 </style>

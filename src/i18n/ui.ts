@@ -47,7 +47,8 @@ export const ui = {
     "category.image.alt": "Cover-Bild",
     "highscore.title": "Bestenliste der Melody Mind Spieler",
     "highscore.about.title": "Über die Bestenliste",
-    "highscore.about.text": "Hier siehst du die besten Spieler in jeder Kategorie und die Top 10 aller Zeiten. Zeige deine Fähigkeiten und arbeite dich an die Spitze, um dir deinen Platz in den Ranglisten zu sichern. Ob du ein Spezialist in einer bestimmten Musikrichtung bist oder in allen Kategorien glänzen möchtest – deine Reise beginnt hier. Viel Erfolg und viel Spaß beim Spielen!",
+    "highscore.about.text":
+      "Hier siehst du die besten Spieler in jeder Kategorie und die Top 10 aller Zeiten. Zeige deine Fähigkeiten und arbeite dich an die Spitze, um dir deinen Platz in den Ranglisten zu sichern. Ob du ein Spezialist in einer bestimmten Musikrichtung bist oder in allen Kategorien glänzen möchtest – deine Reise beginnt hier. Viel Erfolg und viel Spaß beim Spielen!",
     "highscore.total": "Gesamt-Bestenliste",
     "highscore.total.top10": "Top 10 Spieler aller Zeiten",
     "highscore.rank": "Platz",
@@ -57,7 +58,8 @@ export const ui = {
     "highscore.your.rank": "Deine Platzierung",
     "highscore.rank.position": "{rank}. Platz",
     "user.achievements.title": "Meine gewonnenen Schallplatten",
-    "user.achievements.empty": "Du hast noch keine Schallplatten gewonnen. Spiele ein paar Runden um Auszeichnungen zu erhalten!",
+    "user.achievements.empty":
+      "Du hast noch keine Schallplatten gewonnen. Spiele ein paar Runden um Auszeichnungen zu erhalten!",
     "user.achievements.list.label": "Liste der gewonnenen Schallplatten",
     "nav.menu.open": "Menü öffnen",
     "nav.menu.close": "Menü schließen",
@@ -66,7 +68,7 @@ export const ui = {
     "nav.menu.highscores": "Bestenliste",
     "nav.menu.profile": "Profil",
     "nav.menu.logout": "Abmelden",
-    "nav.skip.main": "Zum Hauptinhalt springen"
+    "nav.skip.main": "Zum Hauptinhalt springen",
   },
   en: {
     "nav.home": "Home",
@@ -106,7 +108,8 @@ export const ui = {
     "category.image.alt": "cover image",
     "highscore.title": "Melody Mind Leaderboard",
     "highscore.about.title": "About the Leaderboard",
-    "highscore.about.text": "Here you can see the best players in each category and the all-time top 10. Show your skills and work your way to the top to secure your place in the rankings. Whether you're a specialist in a particular genre or want to excel in all categories - your journey begins here. Good luck and have fun playing!",
+    "highscore.about.text":
+      "Here you can see the best players in each category and the all-time top 10. Show your skills and work your way to the top to secure your place in the rankings. Whether you're a specialist in a particular genre or want to excel in all categories - your journey begins here. Good luck and have fun playing!",
     "highscore.total": "Total Highscore",
     "highscore.total.top10": "All-time Top 10 Players",
     "highscore.rank": "Rank",
@@ -116,7 +119,8 @@ export const ui = {
     "highscore.your.rank": "Your Rank",
     "highscore.rank.position": "Rank {rank}",
     "user.achievements.title": "My Earned Records",
-    "user.achievements.empty": "You haven't won any records yet. Play a few rounds to earn achievements!",
+    "user.achievements.empty":
+      "You haven't won any records yet. Play a few rounds to earn achievements!",
     "user.achievements.list.label": "List of earned records",
     "nav.menu.open": "Open menu",
     "nav.menu.close": "Close menu",
@@ -125,7 +129,7 @@ export const ui = {
     "nav.menu.highscores": "Highscores",
     "nav.menu.profile": "Profile",
     "nav.menu.logout": "Logout",
-    "nav.skip.main": "Skip to main content"
+    "nav.skip.main": "Skip to main content",
   },
   es: {
     "nav.home": "Inicio",
@@ -165,7 +169,8 @@ export const ui = {
     "category.image.alt": "Imagen de portada de",
     "highscore.title": "Tabla de Clasificación de Melody Mind",
     "highscore.about.title": "Sobre la Clasificación",
-    "highscore.about.text": "Aquí puedes ver los mejores jugadores en cada categoría y el top 10 de todos los tiempos. Demuestra tus habilidades y trabaja para llegar a la cima y asegurar tu lugar en las clasificaciones. Ya seas especialista en un género particular o quieras destacar en todas las categorías - tu viaje comienza aquí. ¡Buena suerte y diviértete jugando!",
+    "highscore.about.text":
+      "Aquí puedes ver los mejores jugadores en cada categoría y el top 10 de todos los tiempos. Demuestra tus habilidades y trabaja para llegar a la cima y asegurar tu lugar en las clasificaciones. Ya seas especialista en un género particular o quieras destacar en todas las categorías - tu viaje comienza aquí. ¡Buena suerte y diviértete jugando!",
     "highscore.total": "Puntuación Total",
     "highscore.total.top10": "Top 10 Jugadores de Todos los Tiempos",
     "highscore.rank": "Posición",
@@ -175,7 +180,8 @@ export const ui = {
     "highscore.your.rank": "Tu Posición",
     "highscore.rank.position": "Posición {rank}",
     "user.achievements.title": "Mis Discos Ganados",
-    "user.achievements.empty": "Aún no has ganado ningún disco. ¡Juega algunas rondas para ganar logros!",
+    "user.achievements.empty":
+      "Aún no has ganado ningún disco. ¡Juega algunas rondas para ganar logros!",
     "user.achievements.list.label": "Lista de discos ganados",
     "nav.menu.open": "Abrir menú",
     "nav.menu.close": "Cerrar menú",
@@ -184,7 +190,7 @@ export const ui = {
     "nav.menu.highscores": "Puntuaciones",
     "nav.menu.profile": "Perfil",
     "nav.menu.logout": "Cerrar sesión",
-    "nav.skip.main": "Ir al contenido principal"
+    "nav.skip.main": "Ir al contenido principal",
   },
   fr: {
     "nav.home": "Accueil",
@@ -224,7 +230,8 @@ export const ui = {
     "category.image.alt": "Image de couverture de",
     "highscore.title": "Classement Melody Mind",
     "highscore.about.title": "À propos du Classement",
-    "highscore.about.text": "Ici, vous pouvez voir les meilleurs joueurs dans chaque catégorie et le top 10 de tous les temps. Montrez vos compétences et progressez vers le sommet pour assurer votre place dans les classements. Que vous soyez spécialiste d'un genre particulier ou que vous souhaitiez exceller dans toutes les catégories - votre voyage commence ici. Bonne chance et amusez-vous bien !",
+    "highscore.about.text":
+      "Ici, vous pouvez voir les meilleurs joueurs dans chaque catégorie et le top 10 de tous les temps. Montrez vos compétences et progressez vers le sommet pour assurer votre place dans les classements. Que vous soyez spécialiste d'un genre particulier ou que vous souhaitiez exceller dans toutes les catégories - votre voyage commence ici. Bonne chance et amusez-vous bien !",
     "highscore.total": "Score Total",
     "highscore.total.top10": "Top 10 des Joueurs de Tous les Temps",
     "highscore.rank": "Rang",
@@ -234,7 +241,8 @@ export const ui = {
     "highscore.your.rank": "Votre Rang",
     "highscore.rank.position": "Rang {rank}",
     "user.achievements.title": "Mes Disques Gagnés",
-    "user.achievements.empty": "Vous n'avez pas encore gagné de disques. Jouez quelques parties pour gagner des récompenses !",
+    "user.achievements.empty":
+      "Vous n'avez pas encore gagné de disques. Jouez quelques parties pour gagner des récompenses !",
     "user.achievements.list.label": "Liste des disques gagnés",
     "nav.menu.open": "Ouvrir le menu",
     "nav.menu.close": "Fermer le menu",
@@ -243,7 +251,7 @@ export const ui = {
     "nav.menu.highscores": "Classement",
     "nav.menu.profile": "Profil",
     "nav.menu.logout": "Déconnexion",
-    "nav.skip.main": "Aller au contenu principal"
+    "nav.skip.main": "Aller au contenu principal",
   },
   it: {
     "nav.home": "Home",
@@ -255,7 +263,8 @@ export const ui = {
     "difficulty.medium": "Medio",
     "difficulty.hard": "Difficile",
     "login.welcome": "Benvenuto su Melody Mind",
-    "login.description": "Metti alla prova le tue conoscenze musicali nel nostro quiz interattivo. Riconosci canzoni, album e artisti, accumula punti e diventa il campione della musica. Gioca ora gratuitamente!",
+    "login.description":
+      "Metti alla prova le tue conoscenze musicali nel nostro quiz interattivo. Riconosci canzoni, album e artisti, accumula punti e diventa il campione della musica. Gioca ora gratuitamente!",
     "login.spotify": "Accedi con Spotify",
     "login.github": "Accedi con GitHub",
     "login.google": "Accedi con Google",
@@ -264,7 +273,8 @@ export const ui = {
     "game.welcome": "Benvenuto",
     "game.genre.list": "Selezione del genere",
     "game.search.label": "Cerca un genere",
-    "game.search.description": "La lista viene filtrata automaticamente durante la digitazione",
+    "game.search.description":
+      "La lista viene filtrata automaticamente durante la digitazione",
     "game.genre.play.label": "Gioca",
     "game.genre.image": "Immagine di copertina per",
     "game.no.results": "Nessun risultato trovato",
@@ -281,7 +291,8 @@ export const ui = {
     "category.image.alt": "Immagine di copertina",
     "highscore.title": "Classifica Melody Mind",
     "highscore.about.title": "Informazioni sulla Classifica",
-    "highscore.about.text": "Qui puoi vedere i migliori giocatori in ogni categoria e la top 10 di tutti i tempi. Mostra le tue abilità e fai strada verso la vetta per assicurarti il tuo posto in classifica. Che tu sia uno specialista in un genere particolare o voglia eccellere in tutte le categorie - il tuo viaggio inizia qui. Buona fortuna e buon divertimento!",
+    "highscore.about.text":
+      "Qui puoi vedere i migliori giocatori in ogni categoria e la top 10 di tutti i tempi. Mostra le tue abilità e fai strada verso la vetta per assicurarti il tuo posto in classifica. Che tu sia uno specialista in un genere particolare o voglia eccellere in tutte le categorie - il tuo viaggio inizia qui. Buona fortuna e buon divertimento!",
     "highscore.total": "Punteggio Totale",
     "highscore.total.top10": "Top 10 Giocatori di Tutti i Tempi",
     "highscore.rank": "Posizione",
@@ -291,7 +302,8 @@ export const ui = {
     "highscore.your.rank": "La Tua Posizione",
     "highscore.rank.position": "Posizione {rank}",
     "user.achievements.title": "I Miei Dischi Vinti",
-    "user.achievements.empty": "Non hai ancora vinto nessun disco. Gioca qualche partita per ottenere dei riconoscimenti!",
+    "user.achievements.empty":
+      "Non hai ancora vinto nessun disco. Gioca qualche partita per ottenere dei riconoscimenti!",
     "user.achievements.list.label": "Elenco dei dischi vinti",
     "nav.menu.open": "Apri menu",
     "nav.menu.close": "Chiudi menu",
@@ -300,6 +312,6 @@ export const ui = {
     "nav.menu.highscores": "Punteggi",
     "nav.menu.profile": "Profilo",
     "nav.menu.logout": "Esci",
-    "nav.skip.main": "Vai al contenuto principale"
+    "nav.skip.main": "Vai al contenuto principale",
   },
 };

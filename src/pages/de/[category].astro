@@ -30,7 +30,9 @@ if (!user) {
 
 const { category } = Astro.params;
 
-const currentCategory = categories.default.find((cat: Category) => cat.slug === category);
+const currentCategory = categories.default.find(
+  (cat: Category) => cat.slug === category,
+);
 ---
 
 <Layout title={`${currentCategory?.headline} Start`}>
@@ -39,8 +41,16 @@ const currentCategory = categories.default.find((cat: Category) => cat.slug === 
     subline={currentCategory?.introSubline}
   />
 
-  <article class="category" data-category={currentCategory?.slug} aria-labelledby="difficulty-heading">
-    <div class="cover" role="img" aria-label={currentCategory?.headline + " " + t("category.image.alt")}>
+  <article
+    class="category"
+    data-category={currentCategory?.slug}
+    aria-labelledby="difficulty-heading"
+  >
+    <div
+      class="cover"
+      role="img"
+      aria-label={currentCategory?.headline + " " + t("category.image.alt")}
+    >
       {
         currentCategory?.imageUrl ? (
           <Picture
@@ -66,7 +76,11 @@ const currentCategory = categories.default.find((cat: Category) => cat.slug === 
       <h2 id="difficulty-heading" class="buttonHeadline">
         {t("category.difficulty.heading")}
       </h2>
-      <div class="buttonGroup" role="group" aria-label={t("category.difficulty.group")}>
+      <div
+        class="buttonGroup"
+        role="group"
+        aria-label={t("category.difficulty.group")}
+      >
         <Button
           buttonText={t("category.difficulty.easy")}
           url={getRelativeLocaleUrl(lang, `${currentCategory?.slug}/easy`)}

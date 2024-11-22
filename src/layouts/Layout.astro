@@ -68,10 +68,19 @@ const t = useTranslations(lang);
     <meta property="twitter:image" content={new URL(image, Astro.site)} />
 
     <!-- Favicons -->
-    <link rel="icon" type="image/png" href="/favicon-96x96.png?v=2" sizes="96x96" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/favicon-96x96.png?v=2"
+      sizes="96x96"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
     <link rel="shortcut icon" href="/favicon.ico?v=2" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-touch-icon.png?v=2"
+    />
     <meta name="apple-mobile-web-app-title" content="Melody Mind" />
     <link rel="manifest" href="/site.webmanifest" />
 
@@ -80,7 +89,11 @@ const t = useTranslations(lang);
 
     <meta name="color-scheme" content="light dark" />
 
-    <script src="https://cdn.usefathom.com/script.js" data-site="RKHOWTTO" defer is:inline></script>
+    <script
+      src="https://cdn.usefathom.com/script.js"
+      data-site="RKHOWTTO"
+      defer
+      is:inline></script>
   </head>
   <body>
     <a href="#main-content" class="skip-link">{t("nav.skip.main")}</a>
@@ -101,18 +114,35 @@ const t = useTranslations(lang);
             </button>
 
             <div id="menu" class="menu">
-              <button class="close-button" aria-label={t("nav.menu.close")}> X </button>
+              <button class="close-button" aria-label={t("nav.menu.close")}>
+                X
+              </button>
               <a href={getRelativeLocaleUrl(lang, "gamehome")}>
-                <Icon name="home" width={24} height={22.24} aria-hidden="true" />
+                <Icon
+                  name="home"
+                  width={24}
+                  height={22.24}
+                  aria-hidden="true"
+                />
                 {t("nav.menu.home")}
               </a>
               <When test={showHeaderIcons}>
                 <a href={getRelativeLocaleUrl(lang, "spielregeln")}>
-                  <Icon name="question" width={24} height={22.24} aria-hidden="true" />
+                  <Icon
+                    name="question"
+                    width={24}
+                    height={22.24}
+                    aria-hidden="true"
+                  />
                   {t("nav.menu.rules")}
                 </a>
                 <a href={getRelativeLocaleUrl(lang, "highscores")}>
-                  <Icon name="trophy" width={24} height={24} aria-hidden="true" />
+                  <Icon
+                    name="trophy"
+                    width={24}
+                    height={24}
+                    aria-hidden="true"
+                  />
                   {t("nav.menu.highscores")}
                 </a>
                 <a href={getRelativeLocaleUrl(lang, "user")}>
@@ -121,7 +151,12 @@ const t = useTranslations(lang);
                 </a>
                 <form method="post" action="/api/logout">
                   <button type="submit">
-                    <Icon name="logout" width={24} height={24} aria-hidden="true" />
+                    <Icon
+                      name="logout"
+                      width={24}
+                      height={24}
+                      aria-hidden="true"
+                    />
                     {t("nav.menu.logout")}
                   </button>
                 </form>
@@ -258,11 +293,13 @@ const t = useTranslations(lang);
       }
 
       header {
-        margin-bottom: var(--padding-medium);
-        border-radius: var(--border-radius);
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+
+        margin-bottom: var(--padding-medium);
+
+        border-radius: var(--border-radius);
 
         @media (width >= 768px) {
           padding: var(--padding-medium);
@@ -441,6 +478,108 @@ const t = useTranslations(lang);
         border: 0;
       }
 
+      .menu {
+        position: fixed;
+        z-index: var(--layer-above);
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+
+        width: 100%;
+        height: 100vh;
+        padding: var(--padding-large);
+
+        // Mehr Platz für den Menü-Inhalt
+        padding-top: calc(var(--padding-large) + 40px);
+
+        visibility: hidden;
+        opacity: 0;
+        background-color: var(--background-color);
+
+        transition: all var(--transition-speed) ease-in-out;
+
+        &.is-open {
+          transform: translateX(0);
+          visibility: visible;
+          opacity: 1;
+        }
+
+        a,
+        button {
+          display: flex;
+          gap: var(--padding-small);
+          align-items: center;
+
+          width: 100%;
+          margin-bottom: var(--padding-small);
+          padding: var(--padding-medium);
+
+          font-size: var(--body-font-size);
+          color: var(--text-color);
+          text-align: left;
+          text-decoration: none;
+
+          background-color: transparent;
+          border: none;
+          border-radius: var(--border-radius);
+
+          transition: background-color var(--transition-speed);
+
+          &:hover,
+          &:focus-visible {
+            background-color: var(--secondary-color);
+            outline: none;
+          }
+
+          [astro-icon] {
+            width: 24px;
+            height: 24px;
+          }
+        }
+
+        form {
+          width: 100%;
+        }
+
+        .close-button {
+          position: absolute;
+          top: var(--padding-medium);
+          right: var(--padding-medium);
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          width: 40px;
+          height: 40px;
+
+          font-size: 2rem;
+          color: var(--text-color);
+
+          background-color: transparent;
+          border: none;
+          border-radius: 50%;
+
+          transition: background-color var(--transition-speed);
+
+          &:hover,
+          &:focus-visible {
+            background-color: var(--secondary-color);
+            outline: none;
+          }
+        }
+      }
+
+      // Verhindert Scrolling wenn Menü offen
+      body.menu-open {
+        overflow: hidden;
+      }
+
+      // Hamburger Button Styles
+      .hamburger {
+        position: relative;
+      }
+
       @media (prefers-color-scheme: dark) {
         :root {
           /* Dark mode colors (WCAG AAA compliant) */
@@ -498,109 +637,14 @@ const t = useTranslations(lang);
           --button-font-size: 0.875rem;
         }
       }
-
-      .menu {
-        position: fixed;
-        z-index: var(--layer-above);
-        top: 0;
-        left: 0;
-
-        visibility: hidden;
-        width: 100%;
-        height: 100vh;
-        padding: var(--padding-large);
-
-        background-color: var(--background-color);
-        opacity: 0;
-        transform: translateX(-100%);
-        transition: all var(--transition-speed) ease-in-out;
-
-        &.is-open {
-          visibility: visible;
-          opacity: 1;
-          transform: translateX(0);
-        }
-
-        a,
-        button {
-          display: flex;
-          gap: var(--padding-small);
-          align-items: center;
-
-          width: 100%;
-          margin-bottom: var(--padding-small);
-          padding: var(--padding-medium);
-
-          color: var(--text-color);
-          font-size: var(--body-font-size);
-          text-align: left;
-          text-decoration: none;
-
-          background-color: transparent;
-          border: none;
-          border-radius: var(--border-radius);
-          transition: background-color var(--transition-speed);
-
-          &:hover,
-          &:focus-visible {
-            background-color: var(--secondary-color);
-            outline: none;
-          }
-
-          [astro-icon] {
-            width: 24px;
-            height: 24px;
-          }
-        }
-
-        form {
-          width: 100%;
-        }
-
-        .close-button {
-          position: absolute;
-          top: var(--padding-medium);
-          right: var(--padding-medium);
-
-          font-size: 2rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 40px;
-          height: 40px;
-
-          color: var(--text-color);
-          background-color: transparent;
-          border: none;
-          border-radius: 50%;
-          transition: background-color var(--transition-speed);
-
-          &:hover,
-          &:focus-visible {
-            background-color: var(--secondary-color);
-            outline: none;
-          }
-        }
-
-        // Mehr Platz für den Menü-Inhalt
-        padding-top: calc(var(--padding-large) + 40px);
-      }
-
-      // Verhindert Scrolling wenn Menü offen
-      body.menu-open {
-        overflow: hidden;
-      }
-
-      // Hamburger Button Styles
-      .hamburger {
-        position: relative;
-      }
     </style>
 
     <script>
       const button = document.querySelector(".hamburger") as HTMLButtonElement;
       const menu = document.querySelector("#menu") as HTMLDivElement;
-      const closeButton = menu?.querySelector(".close-button") as HTMLButtonElement;
+      const closeButton = menu?.querySelector(
+        ".close-button",
+      ) as HTMLButtonElement;
       const body = document.body;
 
       const toggleMenu = () => {

@@ -34,7 +34,11 @@ const t = useTranslations(lang);
 
       {
         Object.keys(goldenLPs).length > 0 ? (
-          <div class="achievementsGrid" role="list" aria-label={t("user.achievements.list.label")}>
+          <div
+            class="achievementsGrid"
+            role="list"
+            aria-label={t("user.achievements.list.label")}
+          >
             {Object.entries(goldenLPs).map(([genre, data]) => (
               <article class="achievementCard" role="listitem">
                 <div class="cardIcon" aria-hidden="true">
@@ -42,7 +46,9 @@ const t = useTranslations(lang);
                 </div>
                 <div class="cardContent">
                   <h3 class="achievementTitle">{genre}</h3>
-                  <p class="achievementRank">{getTitleBasedOnDifficulty(data?.difficulty as Difficulty)}</p>
+                  <p class="achievementRank">
+                    {getTitleBasedOnDifficulty(data?.difficulty as Difficulty)}
+                  </p>
                 </div>
               </article>
             ))}
