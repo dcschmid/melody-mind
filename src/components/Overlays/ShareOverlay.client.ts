@@ -1,6 +1,10 @@
 document.querySelectorAll("[data-share]").forEach((button) => {
+  if (!button) return; // Sicherheitsprüfung
+
   button.addEventListener("click", (e) => {
     const target = e.currentTarget as HTMLElement;
+    if (!target) return; // Zusätzliche Sicherheitsprüfung
+
     const type = target.getAttribute("data-share");
     const url = window.location.href;
 
