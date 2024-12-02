@@ -1,6 +1,6 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { getLangFromUrl, useTranslations } from '@utils/i18n';
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -13,36 +13,40 @@ const cleanPath = currentPath
 
 const languages = {
   de: {
-    name: t('language.de'),
-    label: t('language.de.label'),
+    name: t("language.de"),
+    label: t("language.de.label"),
     flag: "🇩🇪",
   },
   en: {
-    name: t('language.en'),
-    label: t('language.en.label'),
+    name: t("language.en"),
+    label: t("language.en.label"),
     flag: "🇬🇧",
   },
   es: {
-    name: t('language.es'),
-    label: t('language.es.label'),
+    name: t("language.es"),
+    label: t("language.es.label"),
     flag: "🇪🇸",
   },
   fr: {
-    name: t('language.fr'),
-    label: t('language.fr.label'),
+    name: t("language.fr"),
+    label: t("language.fr.label"),
     flag: "🇫🇷",
   },
   it: {
-    name: t('language.it'),
-    label: t('language.it.label'),
+    name: t("language.it"),
+    label: t("language.it.label"),
     flag: "🇮🇹",
   },
 };
 ---
 
-<div class="languagePicker" role="navigation" aria-label={t('language.picker.label')}>
+<div
+  class="languagePicker"
+  role="navigation"
+  aria-label={t("language.picker.label")}
+>
   <label for="language-select">
-    <span class="sr-only">{t('language.change')}</span>
+    <span class="sr-only">{t("language.change")}</span>
     <span class="globe-icon" aria-hidden="true">🌐</span>
   </label>
   <select
@@ -53,7 +57,7 @@ const languages = {
       window.localStorage.setItem('preferred-language', newLang);
       window.location.href=this.value;
     "
-    aria-label={t('language.select.label')}
+    aria-label={t("language.select.label")}
   >
     {
       Object.entries(languages).map(([code, { name, label, flag }]) => (

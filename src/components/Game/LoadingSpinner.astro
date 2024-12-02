@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from '@utils/i18n';
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 interface Props {
   size?: "small" | "medium" | "large";
@@ -12,7 +12,7 @@ const t = useTranslations(lang);
 
 const {
   size = "large",
-  label = t('loading.content'),
+  label = t("loading.content"),
   id = "loading-spinner",
 } = Astro.props;
 ---

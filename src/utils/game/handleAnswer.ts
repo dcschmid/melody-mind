@@ -7,7 +7,7 @@ import { updateScoreDisplay } from "./scoreUtils";
 import { getRandomQuestion } from "./getRandomQuestion";
 import type { MediaElements } from "./mediaUtils";
 import { updateMedia } from "./mediaUtils";
-import { getLangFromUrl, useTranslations } from '@utils/i18n';
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 /**
  * Configuration interface for the answer handler
@@ -65,7 +65,9 @@ const FEEDBACK_TIMEOUT = 5000;
  * @returns A function that handles answer submission and scoring
  */
 export function createHandleAnswer(config: HandleAnswerConfig) {
-  const lang = getLangFromUrl(new URL(window.location.pathname, window.location.origin));
+  const lang = getLangFromUrl(
+    new URL(window.location.pathname, window.location.origin),
+  );
   const t = useTranslations(lang);
 
   /**
@@ -105,8 +107,8 @@ export function createHandleAnswer(config: HandleAnswerConfig) {
     const feedbackClass = option === correctAnswer ? "correct" : "incorrect";
     const feedbackText =
       option === correctAnswer
-        ? `${t('game.answer.correct').replace('{points}', String(BASE_POINTS)).replace('{bonus}', String(bonusPoints))}`
-        : `${t('game.answer.wrong').replace('{answer}', correctAnswer)}`;
+        ? `${t("game.answer.correct").replace("{points}", String(BASE_POINTS)).replace("{bonus}", String(bonusPoints))}`
+        : `${t("game.answer.wrong").replace("{answer}", correctAnswer)}`;
 
     config.feedbackElement.classList.add(feedbackClass, "show");
     config.feedbackElement.textContent = feedbackText;

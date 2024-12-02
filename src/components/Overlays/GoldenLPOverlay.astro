@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { getLangFromUrl, useTranslations } from '@utils/i18n';
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 interface Props {
   playerTitle: string;
@@ -22,7 +22,7 @@ const t = useTranslations(lang);
   aria-describedby="popup-description"
 >
   <div class="popupContent" role="document">
-    <h2 id="golden-lp-title" class="title">{t('golden.lp.title')}</h2>
+    <h2 id="golden-lp-title" class="title">{t("golden.lp.title")}</h2>
 
     <div class="iconWrapper" aria-hidden="true">
       <Icon name="golden-lp" class="trophyIcon" width={100} height={100} />
@@ -30,12 +30,14 @@ const t = useTranslations(lang);
 
     <div class="messageSection" role="status" id="popup-description">
       <p class="message">
-        {t('golden.lp.message.1')} <span class="highlight">{category}</span>
-        {t('golden.lp.message.2')} <span class="highlight">{playerTitle}</span>!
+        {t("golden.lp.message.1")}
+        <span class="highlight">{category}</span>
+        {t("golden.lp.message.2")}
+        <span class="highlight">{playerTitle}</span>!
       </p>
 
       <p class="scoreText">
-        {t('golden.lp.score')}
+        {t("golden.lp.score")}
         <span id="golden-lp-score" class="scoreValue" aria-live="polite"></span>
       </p>
     </div>
@@ -44,9 +46,9 @@ const t = useTranslations(lang);
       <button
         id="restart-button-lp"
         class="restartButton"
-        aria-label={t('golden.lp.restart.label')}
+        aria-label={t("golden.lp.restart.label")}
       >
-        {t('golden.lp.restart')}
+        {t("golden.lp.restart")}
       </button>
     </div>
   </div>

@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from '@utils/i18n';
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 interface Props {
   headline: string;
@@ -21,11 +21,11 @@ import { Picture } from "astro:assets";
   <When test={isDisabled}>
     <div
       class="disabled"
-      aria-label={t('playlist.item.unavailable')}
+      aria-label={t("playlist.item.unavailable")}
       role="status"
     >
-      <span class="sr-only">{t('playlist.item.status')}:</span>
-      {t('playlist.item.coming.soon')}
+      <span class="sr-only">{t("playlist.item.status")}:</span>
+      {t("playlist.item.coming.soon")}
     </div>
   </When>
   <div class="imageWrapper">

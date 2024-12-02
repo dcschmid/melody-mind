@@ -24,7 +24,9 @@ if (!user) {
 
 const { category, difficulty } = Astro.params;
 
-const currentCategoryData = categories.find((cat: any) => cat.slug === category);
+const currentCategoryData = categories.find(
+  (cat: any) => cat.slug === category,
+);
 
 const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 ---
@@ -43,7 +45,10 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     data-difficulty={difficulty || ""}
   />
 
-  <GoldenLPOverlay playerTitle={playerTitle} category={currentCategoryData?.headline || ""} />
+  <GoldenLPOverlay
+    playerTitle={playerTitle}
+    category={currentCategoryData?.headline || ""}
+  />
 
   <GameHeadline headline={currentCategoryData?.headline} />
 
@@ -61,7 +66,8 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     date-difficulty={difficulty}
   >
     <div id="question" role="heading" aria-level="2"></div>
-    <div id="options" role="radiogroup" aria-label={t("game.options.label")}></div>
+    <div id="options" role="radiogroup" aria-label={t("game.options.label")}>
+    </div>
   </div>
 
   <Joker />
@@ -151,7 +157,9 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
   import type { Album } from "src/types/game";
   import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
-  const lang = getLangFromUrl(new URL(window.location.pathname, window.location.origin));
+  const lang = getLangFromUrl(
+    new URL(window.location.pathname, window.location.origin),
+  );
   const t = useTranslations(lang);
 
   const ROUNDS_PER_DIFFICULTY = {
@@ -178,14 +186,24 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       feedback: document.getElementById("feedback") as HTMLParagraphElement,
       question: document.getElementById("question") as HTMLParagraphElement,
       options: document.getElementById("options") as HTMLDivElement,
-      container: document.getElementById("question-container") as HTMLDivElement,
-      overlayCover: document.getElementById("overlay-cover") as HTMLImageElement,
+      container: document.getElementById(
+        "question-container",
+      ) as HTMLDivElement,
+      overlayCover: document.getElementById(
+        "overlay-cover",
+      ) as HTMLImageElement,
       overlay: document.getElementById("overlay") as HTMLDivElement,
       jokerButton: document.getElementById("joker-button") as HTMLButtonElement,
       jokerCounter: document.getElementById("joker-count") as HTMLElement,
-      nextRoundButton: document.getElementById("next-round-button") as HTMLButtonElement,
-      restartButton: document.getElementById("restart-button") as HTMLButtonElement,
-      restartButtonLp: document.getElementById("restart-button-lp") as HTMLButtonElement,
+      nextRoundButton: document.getElementById(
+        "next-round-button",
+      ) as HTMLButtonElement,
+      restartButton: document.getElementById(
+        "restart-button",
+      ) as HTMLButtonElement,
+      restartButtonLp: document.getElementById(
+        "restart-button-lp",
+      ) as HTMLButtonElement,
       loadingSpinner: document.getElementById("loading-spinner") as HTMLElement,
     };
 
@@ -198,26 +216,30 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     let score = 0;
     let correctAnswers = 0;
     let roundIndex = 0;
-    const totalRounds = ROUNDS_PER_DIFFICULTY[validateDifficulty(difficulty)] ?? ROUNDS_PER_DIFFICULTY.easy;
+    const totalRounds =
+      ROUNDS_PER_DIFFICULTY[validateDifficulty(difficulty)] ??
+      ROUNDS_PER_DIFFICULTY.easy;
     elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
 
     // Albums laden und in einer Variable speichern
     let albums: Album[] | null = null;
     try {
-      const albumsPromise = import(`../../../json/genres/${lang}/${category}.json`);
+      const albumsPromise = import(
+        `../../../json/genres/${lang}/${category}.json`
+      );
       albums = (await albumsPromise).default;
       if (!albums?.length) {
         throw new Error(t("error.no.albums.found"));
       }
     } catch (error) {
-      ErrorHandler.handleApiError(error instanceof Error ? error : new Error(String(error)));
+      ErrorHandler.handleApiError(
+        error instanceof Error ? error : new Error(String(error)),
+      );
       return;
     }
 
-    const { totalUserPoints, currentCategoryPointsValue } = await getUserAndCategoryPoints(
-      userId ?? "",
-      categoryName ?? ""
-    );
+    const { totalUserPoints, currentCategoryPointsValue } =
+      await getUserAndCategoryPoints(userId ?? "", categoryName ?? "");
 
     let currentQuestion: null = null;
 
@@ -240,7 +262,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       option: any,
       correctAnswer: any,
       currentQuestion: { trivia: string },
-      album: { coverSrc: string; artist: string; album: string; year: string }
+      album: { coverSrc: string; artist: string; album: string; year: string },
     ) {
       score = handleAnswer({
         option,
@@ -268,9 +290,16 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
         if (roundIndex < totalRounds - 1) {
           roundIndex++;
           elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
-          const newQuestion = getRandomQuestion(albums ?? [], validateDifficulty(difficulty), totalRounds);
+          const newQuestion = getRandomQuestion(
+            albums ?? [],
+            validateDifficulty(difficulty),
+            totalRounds,
+          );
           if (newQuestion) {
-            loadNewQuestion(newQuestion.randomQuestion, newQuestion.randomAlbum);
+            loadNewQuestion(
+              newQuestion.randomQuestion,
+              newQuestion.randomAlbum,
+            );
             elements.feedback.textContent = "";
           }
         } else {
@@ -356,9 +385,16 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     }
 
     // Initiale Frage laden
-    const initialQuestion = getRandomQuestion(albums, validateDifficulty(difficulty), totalRounds);
+    const initialQuestion = getRandomQuestion(
+      albums,
+      validateDifficulty(difficulty),
+      totalRounds,
+    );
     if (initialQuestion?.randomQuestion && initialQuestion?.randomAlbum) {
-      loadNewQuestion(initialQuestion.randomQuestion, initialQuestion.randomAlbum);
+      loadNewQuestion(
+        initialQuestion.randomQuestion,
+        initialQuestion.randomAlbum,
+      );
     } else {
       console.error(t("error.no.initial.question"));
     }

@@ -19,7 +19,14 @@ const t = useTranslations(lang);
     <p id="feedback" class="feedback" role="status" aria-live="assertive"></p>
 
     <div class="mediaSection" aria-label={t("game.feedback.media.section")}>
-      <img id="overlay-cover" class="albumCover" src="" alt="" loading="eager" decoding="async" />
+      <img
+        id="overlay-cover"
+        class="albumCover"
+        src=""
+        alt=""
+        loading="eager"
+        decoding="async"
+      />
       <audio
         id="audio-preview"
         class="audioPlayer"
@@ -34,7 +41,11 @@ const t = useTranslations(lang);
       </audio>
     </div>
 
-    <div class="musicLinks" role="group" aria-label={t("game.feedback.streaming.links")}>
+    <div
+      class="musicLinks"
+      role="group"
+      aria-label={t("game.feedback.streaming.links")}
+    >
       <a
         id="spotify-link"
         class="musicButton"
@@ -78,7 +89,11 @@ const t = useTranslations(lang);
     </div>
 
     <div class="buttonWrapper">
-      <button id="next-round-button" class="nextButton" aria-label={t("game.feedback.next.round")}>
+      <button
+        id="next-round-button"
+        class="nextButton"
+        aria-label={t("game.feedback.next.round")}
+      >
         {t("game.feedback.next.round")}
       </button>
     </div>
@@ -314,7 +329,9 @@ const t = useTranslations(lang);
 
 <script>
   const overlay = document.getElementById("overlay") as HTMLElement;
-  const overlayContent = overlay.querySelector(".overlayContent") as HTMLElement;
+  const overlayContent = overlay.querySelector(
+    ".overlayContent",
+  ) as HTMLElement;
 
   const observer = new MutationObserver(() => {
     if (!overlay.classList.contains("hidden")) {
@@ -325,13 +342,16 @@ const t = useTranslations(lang);
 
   observer.observe(overlay, { attributes: true, attributeFilter: ["class"] });
 
-  const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  const focusableElements =
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
   document.addEventListener("keydown", (event) => {
     const overlay = document.getElementById("overlay");
     if (!overlay?.classList.contains("hidden")) {
       const content = overlay!.querySelector(".overlayContent");
-      const focusable = Array.from(content?.querySelectorAll(focusableElements) || []);
+      const focusable = Array.from(
+        content?.querySelectorAll(focusableElements) || [],
+      );
       const firstFocusable = focusable[0] as HTMLElement;
       const lastFocusable = focusable[focusable.length - 1] as HTMLElement;
 
@@ -343,7 +363,10 @@ const t = useTranslations(lang);
           if (event.shiftKey && document.activeElement === firstFocusable) {
             event.preventDefault();
             lastFocusable.focus();
-          } else if (!event.shiftKey && document.activeElement === lastFocusable) {
+          } else if (
+            !event.shiftKey &&
+            document.activeElement === lastFocusable
+          ) {
             event.preventDefault();
             firstFocusable.focus();
           }
@@ -357,7 +380,9 @@ const t = useTranslations(lang);
   });
 
   // Audio cleanup
-  const audioPlayer = document.getElementById("audio-preview") as HTMLAudioElement;
+  const audioPlayer = document.getElementById(
+    "audio-preview",
+  ) as HTMLAudioElement;
   document.addEventListener("astro:before-swap", () => {
     audioPlayer.pause();
     audioPlayer.src = "";

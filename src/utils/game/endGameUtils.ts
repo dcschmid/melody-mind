@@ -1,7 +1,7 @@
 import { getCurrentLanguage } from "@utils/languageUtils";
 import { stopAudio } from "../audio/audioControls";
 import { QueueManager } from "../queue/queueManager";
-import { getLangFromUrl, useTranslations } from '@utils/i18n';
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 /**
  * Configuration for ending a game session
@@ -179,14 +179,16 @@ async function saveGoldenLP({
  */
 export function showEndgamePopup(score: number): void {
   stopAudio();
-  const lang = getLangFromUrl(new URL(window.location.pathname, window.location.origin));
+  const lang = getLangFromUrl(
+    new URL(window.location.pathname, window.location.origin),
+  );
   const t = useTranslations(lang);
 
   const scoreElement = document.getElementById("popup-score");
   const popup = document.getElementById("endgame-popup");
 
   if (scoreElement && popup) {
-    scoreElement.textContent = t('popup.score', { score: score.toString() });
+    scoreElement.textContent = t("popup.score", { score: score.toString() });
     popup.classList.remove("hidden");
   }
 }
@@ -196,14 +198,18 @@ export function showEndgamePopup(score: number): void {
  */
 export function showGoldenLpPopup(score: number): void {
   stopAudio();
-  const lang = getLangFromUrl(new URL(window.location.pathname, window.location.origin));
+  const lang = getLangFromUrl(
+    new URL(window.location.pathname, window.location.origin),
+  );
   const t = useTranslations(lang);
 
   const scoreElement = document.getElementById("golden-lp-score");
   const popup = document.getElementById("golden-lp-popup");
 
   if (scoreElement && popup) {
-    scoreElement.textContent = t('popup.golden.lp.score', { score: score.toString() });
+    scoreElement.textContent = t("popup.golden.lp.score", {
+      score: score.toString(),
+    });
     popup.classList.remove("hidden");
   }
 }

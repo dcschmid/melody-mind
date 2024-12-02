@@ -1,23 +1,23 @@
 ---
 import { Icon } from "astro-icon/components";
-import { getLangFromUrl, useTranslations } from '@utils/i18n';
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <div class="shareContainer">
-  <h3 class="shareTitle">{t('share.title')}</h3>
+  <h3 class="shareTitle">{t("share.title")}</h3>
 
   <div
     class="shareButtons"
     role="group"
-    aria-label={t('share.buttons.group.label')}
+    aria-label={t("share.buttons.group.label")}
   >
     <button
       class="shareButton facebook"
       data-share="facebook"
-      aria-label={t('share.facebook')}
+      aria-label={t("share.facebook")}
     >
       <Icon name="facebook" width={24} height={24} />
       Facebook
@@ -26,7 +26,7 @@ const t = useTranslations(lang);
     <button
       class="shareButton whatsapp"
       data-share="whatsapp"
-      aria-label={t('share.whatsapp')}
+      aria-label={t("share.whatsapp")}
     >
       <Icon name="whatsapp" width={24} height={24} />
       WhatsApp

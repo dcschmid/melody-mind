@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { getLangFromUrl, useTranslations } from '@utils/i18n';
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -22,7 +22,7 @@ const t = useTranslations(lang);
       aria-hidden="true"
     />
     <span class="coinsCount" aria-atomic="true">
-      <span class="sr-only">{t('coins.collected')}:</span>
+      <span class="sr-only">{t("coins.collected")}:</span>
       <span class="count">0</span>
     </span>
   </div>

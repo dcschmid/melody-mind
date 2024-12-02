@@ -93,7 +93,8 @@ export const ui = {
     "loading.content": "Inhalte werden geladen...",
     "golden.lp.title": "Herzlichen Glückwunsch!",
     "golden.lp.message.1": "Du hast die goldene",
-    "golden.lp.message.2": "Schallplatte gewonnen und außerdem hast du den Titel",
+    "golden.lp.message.2":
+      "Schallplatte gewonnen und außerdem hast du den Titel",
     "golden.lp.score": "Erreichte Punkte:",
     "golden.lp.restart": "Neues Spiel",
     "golden.lp.restart.label": "Starte ein neues Spiel",
@@ -127,7 +128,8 @@ export const ui = {
     "error.invalid.question": "Ungültige Frage oder keine Optionen vorhanden",
     "error.no.initial.question": "Keine gültige initiale Frage gefunden",
     "error.no.albums.found": "Keine Alben für Kategorie {category} gefunden",
-    "meta.keywords": "Musik Quiz, Musikspiel, Song Quiz, Künstler Quiz, Online Musikquiz, Musik Trivia, Melody Mind, Musik Ratespiel",
+    "meta.keywords":
+      "Musik Quiz, Musikspiel, Song Quiz, Künstler Quiz, Online Musikquiz, Musik Trivia, Melody Mind, Musik Ratespiel",
     "game.remaining": "verbleibend",
     "game.default.headline": "Spiel",
     "popup.score": "Punkte: {score}",
@@ -251,7 +253,8 @@ export const ui = {
     "error.invalid.question": "Invalid question or no options available",
     "error.no.initial.question": "No valid initial question found",
     "error.no.albums.found": "No albums found for category {category}",
-    "meta.keywords": "Music Quiz, Music Game, Song Quiz, Artist Quiz, Online Music Quiz, Music Trivia, Melody Mind, Music Guessing Game",
+    "meta.keywords":
+      "Music Quiz, Music Game, Song Quiz, Artist Quiz, Online Music Quiz, Music Trivia, Melody Mind, Music Guessing Game",
     "game.remaining": "remaining",
     "game.default.headline": "Game",
     "popup.score": "Score: {score}",
@@ -373,8 +376,10 @@ export const ui = {
     "game.answer.wrong": "¡Incorrecto! La respuesta correcta era: {answer}",
     "error.invalid.question": "Pregunta inválida o sin opciones disponibles",
     "error.no.initial.question": "No se encontró una pregunta inicial válida",
-    "error.no.albums.found": "No se encontraron álbumes para la categoría {category}",
-    "meta.keywords": "Quiz Musical, Juego de Música, Quiz de Canciones, Quiz de Artistas, Quiz Musical Online, Trivia Musical, Melody Mind, Juego de Adivinanzas Musicales",
+    "error.no.albums.found":
+      "No se encontraron álbumes para la categoría {category}",
+    "meta.keywords":
+      "Quiz Musical, Juego de Música, Quiz de Canciones, Quiz de Artistas, Quiz Musical Online, Trivia Musical, Melody Mind, Juego de Adivinanzas Musicales",
     "game.remaining": "restante",
     "game.default.headline": "Juego",
     "popup.score": "Puntuación: {score}",
@@ -498,7 +503,8 @@ export const ui = {
     "error.invalid.question": "Question invalide ou aucune option disponible",
     "error.no.initial.question": "Aucune question initiale valide trouvée",
     "error.no.albums.found": "Aucun album trouvé pour la catégorie {category}",
-    "meta.keywords": "Quiz Musical, Jeu de Musique, Quiz de Chansons, Quiz d'Artistes, Quiz Musical en Ligne, Trivia Musicale, Melody Mind, Jeu de Devinettes Musicales",
+    "meta.keywords":
+      "Quiz Musical, Jeu de Musique, Quiz de Chansons, Quiz d'Artistes, Quiz Musical en Ligne, Trivia Musicale, Melody Mind, Jeu de Devinettes Musicales",
     "game.remaining": "restant",
     "game.default.headline": "Jeu",
     "popup.score": "Score : {score}",
@@ -619,10 +625,12 @@ export const ui = {
     "game.options.label": "Opzioni di risposta",
     "game.answer.correct": "Corretto! {points} punti + {bonus} punti bonus",
     "game.answer.wrong": "Sbagliato! La risposta corretta era: {answer}",
-    "error.invalid.question": "Domanda non valida o nessuna opzione disponibile",
+    "error.invalid.question":
+      "Domanda non valida o nessuna opzione disponibile",
     "error.no.initial.question": "Nessuna domanda iniziale valida trovata",
     "error.no.albums.found": "Nessun album trovato per la categoria {category}",
-    "meta.keywords": "Quiz Musicale, Gioco Musicale, Quiz Canzoni, Quiz Artisti, Quiz Musicale Online, Trivia Musicale, Melody Mind, Gioco Indovina la Musica",
+    "meta.keywords":
+      "Quiz Musicale, Gioco Musicale, Quiz Canzoni, Quiz Artisti, Quiz Musicale Online, Trivia Musicale, Melody Mind, Gioco Indovina la Musica",
     "game.remaining": "rimanente",
     "game.default.headline": "Gioco",
     "popup.score": "Punteggio: {score}",

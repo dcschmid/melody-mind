@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from '@utils/i18n';
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 interface Props {
   message?: string;
@@ -9,7 +9,7 @@ interface Props {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const { message = t('error.default'), autoHideAfter = 5000 } = Astro.props;
+const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
 ---
 
 <div
@@ -22,10 +22,8 @@ const { message = t('error.default'), autoHideAfter = 5000 } = Astro.props;
   <div class="errorContent">
     <span class="errorIcon" aria-hidden="true">⚠️</span>
     <p class="errorText">{message}</p>
-    <button
-      class="closeButton"
-      aria-label={t('error.close')}
-      type="button">×</button
+    <button class="closeButton" aria-label={t("error.close")} type="button"
+      >×</button
     >
   </div>
 </div>

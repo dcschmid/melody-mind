@@ -43,21 +43,23 @@ interface Category {
  */
 const getSelectedPlayableItem = (): Category[] => {
   if (!Array.isArray(categoriesList)) return [];
-  return categoriesList.filter((item): item is Category & { categoryUrl: string } => {
-    return (
-      typeof item === "object" &&
-      item !== null &&
-      "isPlayable" in item &&
-      "headline" in item &&
-      "imageUrl" in item &&
-      "introSubline" in item &&
-      "slug" in item &&
-      "text" in item &&
-      "categoryUrl" in item &&
-      item.isPlayable &&
-      Boolean(item.categoryUrl)
-    );
-  });
+  return categoriesList.filter(
+    (item): item is Category & { categoryUrl: string } => {
+      return (
+        typeof item === "object" &&
+        item !== null &&
+        "isPlayable" in item &&
+        "headline" in item &&
+        "imageUrl" in item &&
+        "introSubline" in item &&
+        "slug" in item &&
+        "text" in item &&
+        "categoryUrl" in item &&
+        item.isPlayable &&
+        Boolean(item.categoryUrl)
+      );
+    },
+  );
 };
 
 /**
@@ -73,7 +75,11 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 
 <Layout title={t("game.select")}>
   <main class="gameHome" id="main-content">
-    <IntroText headline={`${t("game.welcome")} ${username}`} subline={t("game.select")} headingId="welcome-heading" />
+    <IntroText
+      headline={`${t("game.welcome")} ${username}`}
+      subline={t("game.select")}
+      headingId="welcome-heading"
+    />
 
     <section class="playlistSection" aria-labelledby="playlist-heading">
       <h2 id="playlist-heading" class="sr-only">{t("game.genre.list")}</h2>
@@ -98,7 +104,13 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
         </span>
       </div>
 
-      <div id="playlist-grid" class="playlistGrid" role="list" aria-label={t("game.genre.list")} aria-live="polite">
+      <div
+        id="playlist-grid"
+        class="playlistGrid"
+        role="list"
+        aria-label={t("game.genre.list")}
+        aria-live="polite"
+      >
         <When test={categories.length > 0}>
           {
             categories.map((item) => (
@@ -107,7 +119,9 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
                   <a
                     href={`/${lang}${item.categoryUrl}`}
                     class="playlistLink"
-                    aria-label={item.headline + " " + t("game.genre.play.label")}
+                    aria-label={
+                      item.headline + " " + t("game.genre.play.label")
+                    }
                   >
                     <PlaylistItem
                       headline={item.headline}
@@ -332,7 +346,10 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
    * Debounces a function to limit its execution rate.
    * @returns {Function} A debounced version of the input function
    */
-  function debounce<T extends (...args: any[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
+  function debounce<T extends (...args: any[]) => void>(
+    func: T,
+    wait: number,
+  ): (...args: Parameters<T>) => void {
     let timeout: ReturnType<typeof setTimeout>;
     return (...args: Parameters<T>) => {
       clearTimeout(timeout);
@@ -340,7 +357,9 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     };
   }
 
-  const filterInput = document.getElementById("filter-input") as HTMLInputElement;
+  const filterInput = document.getElementById(
+    "filter-input",
+  ) as HTMLInputElement;
   const playlistGrid = document.querySelector(".playlistGrid");
 
   /**
@@ -361,13 +380,15 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     if (!filterInput || !playlistGrid) return;
 
     const query = filterInput.value.toLowerCase().trim();
-    const playlistItems = document.querySelectorAll<HTMLElement>(".playlistGrid > li");
+    const playlistItems =
+      document.querySelectorAll<HTMLElement>(".playlistGrid > li");
     let hasResults = false;
 
     playlistItems.forEach((item) => {
       let headlineText = playlistItemsCache.get(item);
       if (!headlineText) {
-        headlineText = item.querySelector(".headline")?.textContent?.toLowerCase() ?? "";
+        headlineText =
+          item.querySelector(".headline")?.textContent?.toLowerCase() ?? "";
         playlistItemsCache.set(item, headlineText);
       }
 
