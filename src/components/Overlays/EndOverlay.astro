@@ -1,5 +1,9 @@
 ---
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import ShareOverlay from "./ShareOverlay.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 interface Props {
   title?: string;
@@ -11,8 +15,8 @@ interface Props {
 }
 
 const {
-  title = "Spiel beendet!",
-  motivationText = "Toll gemacht! Noch ein paar Runden und du bist ein Champion!",
+  title = t("game.end.title"),
+  motivationText = t("game.end.motivation"),
   id,
   "data-score": initialScore = "0",
   "data-category": category = "",
@@ -35,19 +39,15 @@ const {
     <p class="motivationText">{motivationText}</p>
 
     <div class="scoreSection">
-      <span class="scoreLabel">Erreichte Punkte:</span>
+      <span class="scoreLabel">{t("game.end.score")}</span>
       <span id="popup-score" class="scoreValue">0</span>
     </div>
 
     <ShareOverlay />
 
     <div class="buttonWrapper">
-      <button
-        id="restart-button"
-        class="restartButton"
-        aria-label="Starte ein neues Spiel"
-      >
-        Neues Spiel
+      <button id="restart-button" class="restartButton" aria-label={t("game.end.newgame")}>
+        {t("game.end.newgame")}
       </button>
     </div>
   </div>

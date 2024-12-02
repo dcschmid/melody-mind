@@ -1,5 +1,9 @@
 ---
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div
@@ -11,40 +15,33 @@ import { Icon } from "astro-icon/components";
   aria-live="polite"
 >
   <div class="overlayContent" role="document">
-    <h2 id="overlay-title" class="title">Auflösung</h2>
+    <h2 id="overlay-title" class="title">{t("game.feedback.resolution")}</h2>
     <p id="feedback" class="feedback" role="status" aria-live="assertive"></p>
 
-    <div class="mediaSection" aria-label="Medien-Bereich">
-      <img
-        id="overlay-cover"
-        class="albumCover"
-        src=""
-        alt=""
-        loading="eager"
-        decoding="async"
-      />
+    <div class="mediaSection" aria-label={t("game.feedback.media.section")}>
+      <img id="overlay-cover" class="albumCover" src="" alt="" loading="eager" decoding="async" />
       <audio
         id="audio-preview"
         class="audioPlayer"
         controls
         preload="metadata"
-        aria-label="Musik-Vorschau"
+        aria-label={t("game.feedback.audio.preview")}
       >
         <source id="audio-preview-source" src="" type="audio/mpeg" />
         <source id="audio-preview-source-ogg" src="" type="audio/ogg" />
-        <track kind="captions" src="" label="Untertitel" />
-        <p>Dein Browser unterstützt keine Audio-Wiedergabe.</p>
+        <track kind="captions" src="" label={t("game.feedback.subtitles")} />
+        <p>{t("game.feedback.audio.unsupported")}</p>
       </audio>
     </div>
 
-    <div class="musicLinks" role="group" aria-label="Musik-Streaming Links">
+    <div class="musicLinks" role="group" aria-label={t("game.feedback.streaming.links")}>
       <a
         id="spotify-link"
         class="musicButton"
         href="#"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Auf Spotify anhören"
+        aria-label={t("game.feedback.listen.spotify")}
       >
         <Icon name="spotify" width={36} height={36} aria-hidden="true" />
         <span class="sr-only">Spotify</span>
@@ -55,7 +52,7 @@ import { Icon } from "astro-icon/components";
         href="#"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Auf Deezer anhören"
+        aria-label={t("game.feedback.listen.deezer")}
       >
         <Icon name="deezer" width={36} height={36} aria-hidden="true" />
         <span class="sr-only">Deezer</span>
@@ -66,7 +63,7 @@ import { Icon } from "astro-icon/components";
         href="#"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Auf Apple Music anhören"
+        aria-label={t("game.feedback.listen.apple")}
       >
         <Icon name="apple-music" width={36} height={36} aria-hidden="true" />
         <span class="sr-only">Apple Music</span>
@@ -81,12 +78,8 @@ import { Icon } from "astro-icon/components";
     </div>
 
     <div class="buttonWrapper">
-      <button
-        id="next-round-button"
-        class="nextButton"
-        aria-label="Zur nächsten Runde"
-      >
-        Nächste Runde
+      <button id="next-round-button" class="nextButton" aria-label={t("game.feedback.next.round")}>
+        {t("game.feedback.next.round")}
       </button>
     </div>
   </div>
@@ -321,9 +314,7 @@ import { Icon } from "astro-icon/components";
 
 <script>
   const overlay = document.getElementById("overlay") as HTMLElement;
-  const overlayContent = overlay.querySelector(
-    ".overlayContent",
-  ) as HTMLElement;
+  const overlayContent = overlay.querySelector(".overlayContent") as HTMLElement;
 
   const observer = new MutationObserver(() => {
     if (!overlay.classList.contains("hidden")) {
@@ -334,16 +325,13 @@ import { Icon } from "astro-icon/components";
 
   observer.observe(overlay, { attributes: true, attributeFilter: ["class"] });
 
-  const focusableElements =
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
   document.addEventListener("keydown", (event) => {
     const overlay = document.getElementById("overlay");
     if (!overlay?.classList.contains("hidden")) {
       const content = overlay!.querySelector(".overlayContent");
-      const focusable = Array.from(
-        content?.querySelectorAll(focusableElements) || [],
-      );
+      const focusable = Array.from(content?.querySelectorAll(focusableElements) || []);
       const firstFocusable = focusable[0] as HTMLElement;
       const lastFocusable = focusable[focusable.length - 1] as HTMLElement;
 
@@ -355,10 +343,7 @@ import { Icon } from "astro-icon/components";
           if (event.shiftKey && document.activeElement === firstFocusable) {
             event.preventDefault();
             lastFocusable.focus();
-          } else if (
-            !event.shiftKey &&
-            document.activeElement === lastFocusable
-          ) {
+          } else if (!event.shiftKey && document.activeElement === lastFocusable) {
             event.preventDefault();
             firstFocusable.focus();
           }
@@ -372,9 +357,7 @@ import { Icon } from "astro-icon/components";
   });
 
   // Audio cleanup
-  const audioPlayer = document.getElementById(
-    "audio-preview",
-  ) as HTMLAudioElement;
+  const audioPlayer = document.getElementById("audio-preview") as HTMLAudioElement;
   document.addEventListener("astro:before-swap", () => {
     audioPlayer.pause();
     audioPlayer.src = "";

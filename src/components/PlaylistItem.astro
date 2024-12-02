@@ -1,10 +1,15 @@
 ---
+import { getLangFromUrl, useTranslations } from '@utils/i18n';
+
 interface Props {
   headline: string;
   image: string;
   isDisabled?: boolean;
   imageAlt: string;
 }
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const { headline = "", image, isDisabled = false, imageAlt = "" } = Astro.props;
 
@@ -16,11 +21,11 @@ import { Picture } from "astro:assets";
   <When test={isDisabled}>
     <div
       class="disabled"
-      aria-label="Dieser Inhalt ist noch nicht verfügbar"
+      aria-label={t('playlist.item.unavailable')}
       role="status"
     >
-      <span class="sr-only">Status:</span>
-      Demnächst verfügbar
+      <span class="sr-only">{t('playlist.item.status')}:</span>
+      {t('playlist.item.coming.soon')}
     </div>
   </When>
   <div class="imageWrapper">

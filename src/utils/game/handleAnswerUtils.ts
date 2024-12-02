@@ -1,5 +1,6 @@
 import { updateScoreDisplay } from "./scoreUtils";
 import { updateMedia } from "./mediaUtils";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 /**
  * Interface representing media-related elements of an album
@@ -67,6 +68,11 @@ interface HandleAnswerConfig {
  * - Updates media elements if provided
  */
 export function handleAnswer(config: HandleAnswerConfig) {
+  const lang = getLangFromUrl(
+    new URL(window.location.pathname, window.location.origin),
+  );
+  const t = useTranslations(lang);
+
   const startTime = Date.now();
   const endTime = Date.now();
   const timeTaken = (endTime - startTime) / 1000;
@@ -87,10 +93,10 @@ export function handleAnswer(config: HandleAnswerConfig) {
     bonusPoints = timeTaken <= 10 ? 50 : timeTaken <= 15 ? 25 : 0;
     totalPoints = 50 + bonusPoints;
     feedbackElement.classList.add("correct");
-    feedbackElement.textContent = `Richtig! 50 Punkte + ${bonusPoints} Bonuspunkte`;
+    feedbackElement.textContent = `${t("game.answer.correct").replace("{points}", "50").replace("{bonus}", String(bonusPoints))}`;
   } else {
     feedbackElement.classList.add("incorrect");
-    feedbackElement.textContent = `Falsch! Die richtige Antwort war: ${correctAnswer}`;
+    feedbackElement.textContent = `${t("game.answer.wrong").replace("{answer}", correctAnswer)}`;
   }
 
   feedbackElement.classList.add("show");

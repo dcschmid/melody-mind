@@ -1,5 +1,9 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLangFromUrl, useTranslations } from '@utils/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const currentPath = Astro.url.pathname;
 const cleanPath = currentPath
@@ -7,39 +11,38 @@ const cleanPath = currentPath
   .filter((segment) => !["de", "en", "es", "fr", "it"].includes(segment))
   .join("/");
 
-// Sprachnamen für bessere Accessibility
 const languages = {
   de: {
-    name: "Deutsch",
-    label: "Webseite auf Deutsch anzeigen",
+    name: t('language.de'),
+    label: t('language.de.label'),
     flag: "🇩🇪",
   },
   en: {
-    name: "English",
-    label: "View website in English",
+    name: t('language.en'),
+    label: t('language.en.label'),
     flag: "🇬🇧",
   },
   es: {
-    name: "Español",
-    label: "Ver sitio web en español",
+    name: t('language.es'),
+    label: t('language.es.label'),
     flag: "🇪🇸",
   },
   fr: {
-    name: "Français",
-    label: "Voir le site en français",
+    name: t('language.fr'),
+    label: t('language.fr.label'),
     flag: "🇫🇷",
   },
   it: {
-    name: "Italiano",
-    label: "Visualizza il sito in italiano",
+    name: t('language.it'),
+    label: t('language.it.label'),
     flag: "🇮🇹",
   },
 };
 ---
 
-<div class="languagePicker" role="navigation" aria-label="Sprachwahl">
+<div class="languagePicker" role="navigation" aria-label={t('language.picker.label')}>
   <label for="language-select">
-    <span class="sr-only">Sprache der Webseite ändern</span>
+    <span class="sr-only">{t('language.change')}</span>
     <span class="globe-icon" aria-hidden="true">🌐</span>
   </label>
   <select
@@ -50,7 +53,7 @@ const languages = {
       window.localStorage.setItem('preferred-language', newLang);
       window.location.href=this.value;
     "
-    aria-label="Wählen Sie Ihre bevorzugte Sprache"
+    aria-label={t('language.select.label')}
   >
     {
       Object.entries(languages).map(([code, { name, label, flag }]) => (
@@ -63,66 +66,6 @@ const languages = {
       ))
     }
   </select>
-
-  <script>
-    // Funktion zum Extrahieren der Basis-Sprachcodes
-    function getBaseLanguage(lang: string): string {
-      return lang.split("-")[0].toLowerCase();
-    }
-
-    // Funktion zum Überprüfen, ob eine Sprache unterstützt wird
-    function isLanguageSupported(lang: string): boolean {
-      return ["de", "en", "es", "fr", "it"].includes(lang);
-    }
-
-    // Sprache bestimmen
-    function determineLanguage(): string {
-      // 1. Überprüfe localStorage
-      const storedLang = localStorage.getItem("preferred-language");
-      if (storedLang && isLanguageSupported(storedLang)) {
-        return storedLang;
-      }
-
-      // 2. Überprüfe Browser-Sprache
-      const browserLang = getBaseLanguage(navigator.language);
-      if (isLanguageSupported(browserLang)) {
-        return browserLang;
-      }
-
-      // 3. Fallback zu Deutsch
-      return "de";
-    }
-
-    // Aktuelle URL-Sprache
-    const currentPath = window.location.pathname;
-    const currentLang = currentPath.split("/")[1];
-
-    // Ermittle die bevorzugte Sprache
-    const preferredLang = determineLanguage();
-
-    // Wenn die aktuelle Sprache nicht der bevorzugten entspricht, leite um
-    if (currentLang !== preferredLang) {
-      const newPath = window.location.pathname
-        .split("/")
-        .filter((segment) => !["de", "en", "es", "fr", "it"].includes(segment))
-        .join("/");
-      window.location.href = `/${preferredLang}${newPath}`;
-    }
-
-    // Setze den korrekten Wert im Select-Element
-    const select = document.getElementById(
-      "language-select",
-    ) as HTMLSelectElement;
-    if (select) {
-      for (let i = 0; i < select.options.length; i++) {
-        const option = select.options[i];
-        if (option.value.includes(`/${currentLang}/`)) {
-          select.selectedIndex = i;
-          break;
-        }
-      }
-    }
-  </script>
 </div>
 
 <style lang="scss">

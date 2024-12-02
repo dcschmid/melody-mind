@@ -1,9 +1,14 @@
 ---
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+
 interface Props {
   headline: string | undefined;
 }
 
-const { headline = "Spiel" } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const { headline = t("game.default.headline") } = Astro.props;
 ---
 
 <header class="gameHeadline" role="banner" aria-label="Spielinformationen">
@@ -11,7 +16,8 @@ const { headline = "Spiel" } = Astro.props;
     {headline}
   </h1>
   <div class="roundInfo" aria-live="polite" role="status">
-    Runde <span class="round" aria-label="Aktuelle Rundennummer"></span>
+    {t("game.current.round")}
+    <span class="round" aria-label={t("game.current.round.label")}></span>
   </div>
 </header>
 
@@ -30,11 +36,7 @@ const { headline = "Spiel" } = Astro.props;
     margin: var(--padding-medium) auto;
     padding: var(--padding-medium);
 
-    background: linear-gradient(
-      90deg,
-      var(--highlight-color),
-      var(--secondary-color)
-    );
+    background: linear-gradient(90deg, var(--highlight-color), var(--secondary-color));
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 
@@ -124,17 +126,25 @@ const { headline = "Spiel" } = Astro.props;
 </style>
 
 <script>
-  /**
-   * Update the round number
-   */
+  type SupportedLanguages = "de" | "en" | "es" | "fr" | "it";
+
   export function updateRoundNumber(round: number) {
     const ROUND_SELECTOR = ".round" as const;
-
     const roundElement = document.querySelector(ROUND_SELECTOR);
-    if (!roundElement) return; // Früher Return bei fehlendem Element
+    if (!roundElement) return;
 
     const roundText = round.toString();
     roundElement.textContent = roundText;
-    roundElement.setAttribute("aria-label", `Aktuelle Runde: ${round}`);
+
+    const lang = document.documentElement.lang as SupportedLanguages;
+    const ariaLabels: Record<SupportedLanguages, string> = {
+      de: `Aktuelle Runde: ${round}`,
+      en: `Current round: ${round}`,
+      es: `Ronda actual: ${round}`,
+      fr: `Tour actuel: ${round}`,
+      it: `Round attuale: ${round}`,
+    };
+
+    roundElement.setAttribute("aria-label", ariaLabels[lang] || ariaLabels.en);
   }
 </script>

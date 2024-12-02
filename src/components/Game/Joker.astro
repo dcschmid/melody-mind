@@ -1,24 +1,26 @@
 ---
+import { getLangFromUrl, useTranslations } from '@utils/i18n';
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div class="jokerContainer" role="group" aria-labelledby="joker-title">
-  <h2 id="joker-title" class="sr-only">Joker Optionen</h2>
-  <!-- span zu h2 geändert -->
+  <h2 id="joker-title" class="sr-only">{t('game.joker.options')}</h2>
   <button
     id="joker-button"
     class="jokerButton"
-    aria-label="50:50 Joker einsetzen"
+    aria-label={t('game.joker.use')}
     aria-describedby="joker-description"
     data-joker-type="fifty-fifty"
   >
-    <span class="buttonText">50:50 Joker</span>
+    <span class="buttonText">{t('game.joker')}</span>
   </button>
   <p id="joker-count" class="jokerCount">
-    <span class="buttonText">50:50 Joker</span>
+    <span class="buttonText">{t('game.joker')}</span>
   </p>
   <span id="joker-description" class="sr-only">
-    Entfernt zwei falsche Antwortmöglichkeiten
+    {t('game.joker.description')}
   </span>
 </div>
 

@@ -1,13 +1,18 @@
 ---
+import { getLangFromUrl, useTranslations } from '@utils/i18n';
+
 interface Props {
   size?: "small" | "medium" | "large";
   label?: string;
   id?: string;
 }
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const {
   size = "large",
-  label = "Inhalte werden geladen...",
+  label = t('loading.content'),
   id = "loading-spinner",
 } = Astro.props;
 ---

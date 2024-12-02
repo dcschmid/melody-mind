@@ -1,11 +1,15 @@
 ---
+import { getLangFromUrl, useTranslations } from '@utils/i18n';
+
 interface Props {
   message?: string;
   autoHideAfter?: number;
 }
 
-const { message = "Ein Fehler ist aufgetreten", autoHideAfter = 5000 } =
-  Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const { message = t('error.default'), autoHideAfter = 5000 } = Astro.props;
 ---
 
 <div
@@ -20,7 +24,7 @@ const { message = "Ein Fehler ist aufgetreten", autoHideAfter = 5000 } =
     <p class="errorText">{message}</p>
     <button
       class="closeButton"
-      aria-label="Fehlermeldung schließen"
+      aria-label={t('error.close')}
       type="button">×</button
     >
   </div>

@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import { getLangFromUrl, useTranslations } from '@utils/i18n';
 
 interface Props {
   playerTitle: string;
@@ -7,6 +8,8 @@ interface Props {
 }
 
 const { playerTitle, category } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div
@@ -19,7 +22,7 @@ const { playerTitle, category } = Astro.props;
   aria-describedby="popup-description"
 >
   <div class="popupContent" role="document">
-    <h2 id="golden-lp-title" class="title">Herzlichen Glückwunsch!</h2>
+    <h2 id="golden-lp-title" class="title">{t('golden.lp.title')}</h2>
 
     <div class="iconWrapper" aria-hidden="true">
       <Icon name="golden-lp" class="trophyIcon" width={100} height={100} />
@@ -27,14 +30,12 @@ const { playerTitle, category } = Astro.props;
 
     <div class="messageSection" role="status" id="popup-description">
       <p class="message">
-        Du hast die goldene <span class="highlight">{category}</span> Schallplatte
-        gewonnen und außerdem hast du den Titel <span class="highlight"
-          >{playerTitle}</span
-        > erhalten!
+        {t('golden.lp.message.1')} <span class="highlight">{category}</span>
+        {t('golden.lp.message.2')} <span class="highlight">{playerTitle}</span>!
       </p>
 
       <p class="scoreText">
-        Erreichte Punkte:
+        {t('golden.lp.score')}
         <span id="golden-lp-score" class="scoreValue" aria-live="polite"></span>
       </p>
     </div>
@@ -43,9 +44,9 @@ const { playerTitle, category } = Astro.props;
       <button
         id="restart-button-lp"
         class="restartButton"
-        aria-label="Starte ein neues Spiel"
+        aria-label={t('golden.lp.restart.label')}
       >
-        Neues Spiel
+        {t('golden.lp.restart')}
       </button>
     </div>
   </div>

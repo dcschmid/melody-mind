@@ -1,3 +1,4 @@
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import {
   Difficulty,
   use5050Joker,
@@ -48,7 +49,11 @@ export class JokerManager {
    * @private
    */
   private updateJokerCounter() {
-    this.elements.jokerCounter.textContent = `Joker: ${this.maxJokers} verbleibend`;
+    const lang = getLangFromUrl(
+      new URL(window.location.pathname, window.location.origin),
+    );
+    const t = useTranslations(lang);
+    this.elements.jokerCounter.textContent = `Joker: ${this.maxJokers} ${t("game.remaining")}`;
   }
 
   /**
@@ -68,7 +73,11 @@ export class JokerManager {
           this.elements.jokerButton.disabled = disabled;
         },
         updateCounter: (remaining) => {
-          this.elements.jokerCounter.textContent = `Joker: ${remaining} verbleibend`;
+          const lang = getLangFromUrl(
+            new URL(window.location.pathname, window.location.origin),
+          );
+          const t = useTranslations(lang);
+          this.elements.jokerCounter.textContent = `Joker: ${remaining} ${t("game.remaining")}`;
         },
       },
     );
