@@ -52,6 +52,7 @@ const languages = {
   <select
     id="language-select"
     class="selectLanguage"
+    value={getRelativeLocaleUrl(lang, cleanPath)}
     onchange="
       const newLang = this.value.split('/')[1];
       window.localStorage.setItem('preferred-language', newLang);
@@ -60,14 +61,14 @@ const languages = {
     aria-label={t("language.select.label")}
   >
     {
-      Object.entries(languages).map(([code, { name, label, flag }]) => (
-        <option
-          value={getRelativeLocaleUrl(code, cleanPath)}
-          aria-label={label}
-        >
-          {flag} {name}
-        </option>
-      ))
+      Object.entries(languages).map(([code, { name, label, flag }]) => {
+        const url = getRelativeLocaleUrl(code, cleanPath);
+        return (
+          <option value={url} selected={code === lang} aria-label={label}>
+            {flag} {name}
+          </option>
+        );
+      })
     }
   </select>
 </div>

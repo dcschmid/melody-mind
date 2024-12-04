@@ -24,6 +24,7 @@ interface EndGameConfig {
   score: number;
   totalUserPoints: number;
   currentCategoryPointsValue: number;
+  language: string;
 }
 
 /**
@@ -116,6 +117,7 @@ async function saveScoreToDB({
   categoryName,
   currentCategoryPointsValue,
   score,
+  language,
 }: EndGameConfig): Promise<void> {
   try {
     const response = await fetch(`/api/saveTotalUserPointsAndHighscore`, {
@@ -128,6 +130,7 @@ async function saveScoreToDB({
         totalUserPoints: totalUserPoints + score,
         category: categoryName,
         categoryPoints: currentCategoryPointsValue + score,
+        language,
       }),
     });
 

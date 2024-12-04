@@ -37,6 +37,7 @@ const HighscorePerCategory = defineTable({
     }),
     category: column.text(),
     score: column.number(),
+    language: column.text(),
   },
 });
 
@@ -49,6 +50,9 @@ const TotalHighscore = defineTable({
       references: () => User.columns.id,
     }),
     score: column.number(),
+    language: column.text({
+      default: "de",
+    }),
   },
 });
 

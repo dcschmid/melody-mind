@@ -21,7 +21,7 @@ export const POST: APIRoute = async ({ request }) => {
    * The userPoints is the new value of the user's total points.
    * The category is used to insert a new record into the HighscorePerCategory table.
    */
-  const { userId, totalUserPoints, category, categoryPoints } =
+  const { userId, totalUserPoints, category, categoryPoints, language } =
     await request.json();
 
   // Check if the user is already in the TotalHighscore table
@@ -61,12 +61,13 @@ export const POST: APIRoute = async ({ request }) => {
     isUserInHighscore.length > 0
       ? db
           .update(TotalHighscore)
-          .set({ score: totalUserPoints })
+          .set({ score: totalUserPoints, language })
           .where(eq(TotalHighscore.userId, userId))
       : db.insert(TotalHighscore).values({
           id: generateIdFromEntropySize(10),
           userId,
           score: totalUserPoints,
+          language,
         }),
     /**
      * Insert a new record into the HighscorePerCategory table with the userId, category, and userPoints.
@@ -85,6 +86,7 @@ export const POST: APIRoute = async ({ request }) => {
           id: generateIdFromEntropySize(10),
           userId,
           category: category,
+          language,
           score: categoryPoints,
         }),
   ]);

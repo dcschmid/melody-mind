@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import categories from "@json/de_categories.json";
+import categories from "@json/en_categories.json";
 import ShowCoins from "@components/Shared/ShowCoins.astro";
 import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
 import GameHeadline from "@components/Game/GameHeadline.astro";
@@ -318,6 +318,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
         score,
         totalUserPoints,
         currentCategoryPointsValue,
+        language: lang,
       };
 
       const ui = {

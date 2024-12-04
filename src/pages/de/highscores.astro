@@ -5,12 +5,14 @@ import {
   db,
   desc,
   eq,
+  and,
   User,
   TotalHighscore,
   HighscorePerCategory,
 } from "astro:db";
 import { ui } from "../../i18n/ui";
-import type { SQLWrapper } from "drizzle-orm";
+import { getLangFromUrl } from "@utils/i18n";
+const lang = getLangFromUrl(Astro.url);
 
 const t = ui["de"];
 
@@ -55,9 +57,9 @@ const [highscores, playedCategories] = await db.batch([
 ]);
 
 // Get an array of category names from the played categories.
-const categoriesNamesArray = playedCategories.map(
-  (category: { category: any }) => category.category,
-);
+const categoriesNamesArray = playedCategories
+  .map((category: { category: any }) => category.category)
+  .filter((category) => category !== "");
 
 // Create an object to store the scores for each category.
 const scoresByCategory: Record<string, any> = {};
@@ -69,19 +71,25 @@ const categoryQueries = categoriesNamesArray.map(
       .select()
       .from(HighscorePerCategory)
       .innerJoin(User, eq(HighscorePerCategory.userId, User.id))
-      .where(eq(HighscorePerCategory.category, category))
+      .where(
+        and(
+          eq(HighscorePerCategory.category, category),
+          eq(HighscorePerCategory.language, lang),
+        ),
+      )
       .orderBy(desc(HighscorePerCategory.score))
       .limit(10);
   },
 );
 
 // Batch the category queries together
-/* @ts-ignore */
 const categoryScores = await db.batch(categoryQueries);
 
 // Loop through each category and store the scores in the scoresByCategory object.
 for (let i = 0; i < categoriesNamesArray.length; i++) {
-  scoresByCategory[categoriesNamesArray[i]] = categoryScores[i];
+  if (categoryScores[i].length > 0) {
+    scoresByCategory[categoriesNamesArray[i]] = categoryScores[i];
+  }
 }
 
 /**
