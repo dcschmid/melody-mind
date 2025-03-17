@@ -104,7 +104,11 @@ const languages = {
              focus-visible:outline focus-visible:outline-[--focus-outline-color] focus-visible:outline-offset-2
              focus-visible:bg-[--highlight-color] focus-visible:text-white"
       value={getRelativeLocaleUrl(lang, cleanPath)}
-      onchange="handleLanguageChange(this)"
+      onchange="
+        const newLang = this.value.split('/')[1];
+        window.localStorage.setItem('preferred-language', newLang);
+        window.location.href = this.value;
+      "
       aria-label={t("language.select.label")}
     >
       {
@@ -150,29 +154,21 @@ const languages = {
 
 <script>
   /**
-   * Handles the language change when a new option is selected
-   * @param {HTMLSelectElement} selectElement - The select dropdown element
+   * Initialize the language picker with enhanced interactivity
    */
-  function handleLanguageChange(selectElement: HTMLSelectElement) {
-    // Extract language code from the URL (second segment after split)
-    const newLang = selectElement.value.split("/")[1];
-
-    // Store user's language preference for future visits
-    window.localStorage.setItem("preferred-language", newLang);
-
-    // Navigate to the translated page
-    window.location.href = selectElement.value;
-  }
+  document.addEventListener('DOMContentLoaded', () => {
+    initLanguagePicker();
+  });
 
   /**
-   * Initialize the language picker with enhanced interactivity
+   * Set up the rotating arrow effect for the language picker
    */
   function initLanguagePicker() {
     // Get required DOM elements
     const selectElement = document.getElementById("language-select");
     const arrowElement = document.getElementById("language-arrow");
     const arrowContainer = document.getElementById("arrow-container");
-
+    
     // Ensure all required elements exist
     if (!selectElement || !arrowElement || !arrowContainer) {
       console.warn("Language picker elements not found");
@@ -209,7 +205,7 @@ const languages = {
      * Handles keyboard interactions for accessibility
      * @param {KeyboardEvent} e - The keyboard event
      */
-    function handleKeyboardInteraction(e: KeyboardEvent) {
+    function handleKeyboardInteraction(e) {
       // Toggle rotation when using Enter or Space to activate the select
       if (e.key === "Enter" || e.key === " ") {
         arrowElement?.classList.toggle("rotate-180");
@@ -222,7 +218,4 @@ const languages = {
     selectElement.addEventListener("mousedown", handleMouseInteraction);
     selectElement.addEventListener("keydown", handleKeyboardInteraction);
   }
-
-  // Initialize when the DOM is ready
-  document.addEventListener("DOMContentLoaded", initLanguagePicker);
 </script>
