@@ -6,6 +6,8 @@ import playformCompress from "@playform/compress";
 import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs";
 import path from "path";
 
+import tailwindcss from "@tailwindcss/vite";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://melody-mind.de",
@@ -51,5 +53,7 @@ export default defineConfig({
         // ...other aliases...
       },
     },
+
+    plugins: [tailwindcss()],
   },
 });

@@ -28,12 +28,14 @@
     "@astropub/flow": "^0.4.0",
     "@fontsource/source-sans-pro": "^5.2.5",
     "@playform/compress": "^0.1.7",
+    "@tailwindcss/vite": "^4.0.14",
     "astro": "^5.5.2",
     "astro-compressor": "^1.0.0",
     "astro-icon": "^1.1.5",
     "js-confetti": "^0.12.0",
     "mdast-util-to-string": "^4.0.0",
     "sharp": "^0.33.5",
+    "tailwindcss": "^4.0.14",
     "typescript": "^5.8.2"
   },
   "devDependencies": {
