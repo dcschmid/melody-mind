@@ -1,0 +1,270 @@
+---
+import { Picture } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
+import Button from "@components/Shared/Button.astro";
+import IntroText from "@components/Shared/IntroText.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { useTranslations } from "@utils/i18n";
+
+// Mark this route for static generation
+export const prerender = true;
+
+// Get static paths for all supported languages
+export async function getStaticPaths() {
+  const supportedLanguages = ['de', 'en', 'es', 'fr', 'it', 'pt', 'da', 'nl', 'sv', 'fi'] as const;
+  
+  const paths = [];
+  
+  for (const lang of supportedLanguages) {
+    // Load categories based on language
+    let categories;
+    try {
+      categories = await import(/* @vite-ignore */ `@json/${lang}_categories.json`);
+    } catch (error) {
+      // Fallback to default language if the specific language file doesn't exist
+      categories = await import(/* @vite-ignore */ `@json/de_categories.json`);
+    }
+    
+    // Create a path for each category
+    for (const category of categories.default) {
+      paths.push({
+        params: { lang, category: category.slug },
+        props: { 
+          categories: categories.default,
+          category: category,
+          lang
+        }
+      });
+    }
+  }
+
+  return paths;
+}
+
+// Get props from getStaticPaths
+const {  category, lang } = Astro.props;
+const t = useTranslations(lang);
+
+interface Category {
+  slug: string;
+  headline: string;
+  introSubline: string;
+  imageUrl: string;
+  text: string;
+}
+
+// No login check needed anymore
+const currentCategory = category;
+---
+
+<Layout title={`${currentCategory?.headline} Start`}>
+  <IntroText
+    headline={currentCategory?.headline + " " + t("category.selected")}
+    subline={currentCategory?.introSubline}
+  />
+
+  <article
+    class="category"
+    data-category={currentCategory?.slug}
+    aria-labelledby="difficulty-heading"
+  >
+    <div
+      class="cover"
+      role="img"
+      aria-label={currentCategory?.headline + " " + t("category.image.alt")}
+    >
+      {
+        currentCategory?.imageUrl ? (
+          <Picture
+            class="coverImage"
+            src={currentCategory.imageUrl}
+            width={280}
+            height={280}
+            formats={["avif", "webp"]}
+            alt=""
+            loading="eager"
+          />
+        ) : (
+          <div class="fallbackImage">{t("category.no_image_available")}</div>
+        )
+      }
+    </div>
+
+    <p class="text">
+      {currentCategory?.text}
+    </p>
+
+    <div class="difficultySection">
+      <h2 id="difficulty-heading" class="buttonHeadline">
+        {t("category.difficulty.heading")}
+      </h2>
+      <div
+        class="buttonGroup"
+        role="group"
+        aria-label={t("category.difficulty.group")}
+      >
+        <Button
+          buttonText={t("category.difficulty.easy")}
+          url={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/easy`)}
+          aria-label={t("category.difficulty.easy.label")}
+        />
+        <Button
+          buttonText={t("category.difficulty.medium")}
+          url={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/medium`)}
+          aria-label={t("category.difficulty.medium.label")}
+        />
+        <Button
+          buttonText={t("category.difficulty.hard")}
+          url={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/hard`)}
+          aria-label={t("category.difficulty.hard.label")}
+        />
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style lang="scss">
+  .categoryPage {
+    max-width: var(--max-line-length);
+    margin: 0 auto;
+    padding: var(--padding-medium);
+  }
+
+  .category {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-medium);
+    align-items: center;
+
+    width: 100%;
+    padding: var(--padding-large);
+
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform var(--transition-speed) ease-in-out;
+    }
+  }
+
+  .cover {
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .coverImage {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 24px rgb(0 0 0 / 30%);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition:
+        transform var(--transition-speed) ease-in-out,
+        box-shadow var(--transition-speed) ease-in-out;
+    }
+  }
+
+  .fallbackImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 280px;
+    height: 280px;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    text-align: center;
+    padding: var(--padding-medium);
+  }
+
+  .text {
+    max-width: 700px;
+    margin: 0 auto;
+
+    font-family: var(--font-family);
+    font-size: var(--body-font-size);
+    line-height: var(--line-height-body);
+    hyphens: auto;
+    color: var(--text-color);
+    text-align: center;
+    letter-spacing: var(--spacing-text);
+  }
+
+  .difficultySection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-medium);
+    align-items: center;
+
+    width: 100%;
+  }
+
+  .buttonHeadline {
+    font-family: var(--font-family);
+    font-size: var(--header-font-size);
+    font-weight: 700;
+    line-height: var(--line-height-body);
+    color: var(--text-color);
+    text-align: center;
+  }
+
+  .buttonGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--padding-medium);
+    justify-content: center;
+
+    // Verbesserte Touch-Targets
+    padding: calc(var(--padding-small) / 2);
+
+    @media (width <= 480px) {
+      flex-direction: column;
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+
+  // Responsive Anpassungen
+  @media (width <= 768px) {
+    .category {
+      padding: var(--padding-medium);
+    }
+
+    .coverImage {
+      max-width: 200px;
+    }
+  }
+
+  @media (width <= 480px) {
+    .coverImage {
+      max-width: 150px;
+    }
+
+    .buttonHeadline {
+      font-size: calc(var(--header-font-size) * 0.8);
+    }
+  }
+
+  // High Contrast Mode Anpassungen
+  @media (forced-colors: active) {
+    .category {
+      border: 2px solid CanvasText;
+    }
+
+    .buttonGroup button {
+      border: 2px solid ButtonText;
+    }
+  }
+</style>

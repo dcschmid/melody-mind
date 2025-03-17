@@ -1,32 +1,20 @@
-import { lucia } from "./auth";
-import { defineMiddleware } from "astro:middleware";
+import { defineMiddleware } from 'astro:middleware';
+import { languages, defaultLang } from './i18n/ui';
 
 export const onRequest = defineMiddleware(async (context, next) => {
-  const sessionId = context.cookies.get(lucia.sessionCookieName)?.value ?? null;
-  if (!sessionId) {
-    context.locals.user = null;
-    context.locals.session = null;
-    return next();
+  const { url, redirect } = context;
+  const pathname = url.pathname;
+
+  // Redirect root to default language
+  if (pathname === '/') {
+    return redirect(`/${defaultLang}`);
   }
 
-  const { session, user } = await lucia.validateSession(sessionId);
-  if (session && session.fresh) {
-    const sessionCookie = lucia.createSessionCookie(session.id);
-    context.cookies.set(
-      sessionCookie.name,
-      sessionCookie.value,
-      sessionCookie.attributes,
-    );
+  // Handle missing language prefix
+  const [, lang] = pathname.split('/');
+  if (!lang || !(lang in languages)) {
+    return redirect(`/${defaultLang}${pathname}`);
   }
-  if (!session) {
-    const sessionCookie = lucia.createBlankSessionCookie();
-    context.cookies.set(
-      sessionCookie.name,
-      sessionCookie.value,
-      sessionCookie.attributes,
-    );
-  }
-  context.locals.session = session;
-  context.locals.user = user;
+
   return next();
 });
