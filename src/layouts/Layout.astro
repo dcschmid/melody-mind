@@ -1,14 +1,15 @@
 ---
-import { Icon } from "astro-icon/components";
 import { When } from "@astropub/flow";
-import { getRelativeLocaleUrl } from "astro:i18n";
 
 import "@fontsource/source-sans-pro/400.css";
 import "@fontsource/source-sans-pro/700.css";
 import "@fontsource/source-sans-pro/900.css";
-import LanguagePicker from "@components/LanguagePicker.astro";
 import ShowCoins from "@components/Shared/ShowCoins.astro";
-import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import Navigation from "@components/Header/Navigation.astro";
+import SEO from "@components/SEO.astro";
+import SkipLink from "@components/Shared/SkipLink.astro";
+import { getLangFromUrl } from "@utils/i18n";
+import "../styles/global.css";
 
 interface Props {
   title: string;
@@ -22,72 +23,30 @@ interface Props {
 
 const {
   title,
-  description = "Melody Mind - Das musikalische Ratespiel",
-  keywords = "Musik, Ratespiel, Quiz, Cover, Entertainment",
-  image = "/social-share.jpg",
+  description,
+  keywords,
+  image,
   showHeader = true,
   showHeaderIcons = true,
   showCoins = false,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} class="box-border m-2">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Primary Meta Tags -->
-    <title>{title} | Melody Mind</title>
-    <meta name="title" content={`${title} | Melody Mind`} />
-    <meta name="description" content={description} />
-    <meta name="keywords" content={keywords} />
-    <meta name="author" content="Daniel Schmid" />
-    <meta name="robots" content="index, follow" />
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href={canonicalURL} />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={`${title} | Melody Mind`} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, Astro.site)} />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={`${title} | Melody Mind`} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(image, Astro.site)} />
-
-    <!-- Favicons -->
-    <link
-      rel="icon"
-      type="image/png"
-      href="/favicon-96x96.png?v=2"
-      sizes="96x96"
-    />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
-    <link rel="shortcut icon" href="/favicon.ico?v=2" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/apple-touch-icon.png?v=2"
-    />
-    <meta name="apple-mobile-web-app-title" content="Melody Mind" />
-    <link rel="manifest" href="/site.webmanifest" />
-
-    <!-- Generator -->
-    <meta name="generator" content={Astro.generator} />
-
     <meta name="color-scheme" content="light dark" />
+
+    <SEO 
+      title={title}
+      description={description}
+      keywords={keywords}
+      image={image}
+    />
 
     <script
       src="https://cdn.usefathom.com/script.js"
@@ -95,577 +54,51 @@ const t = useTranslations(lang);
       defer
       is:inline></script>
   </head>
-  <body>
-    <a href="#main-content" class="skip-link">{t("nav.skip.main")}</a>
+  <body
+    class="w-full max-w-6xl mx-auto px-3 text-base leading-7 text-color tracking-wide bg-[--background-color] text-wrap"
+  >
+    <SkipLink />
 
     <When test={showHeader && !showCoins}>
-      <header role="banner">
-        <LanguagePicker />
-        <nav aria-label="Hauptnavigation">
-          <div class="slot left">
-            <button
-              class="hamburger icon-button"
-              aria-label={t("nav.menu.open")}
-              aria-expanded="false"
-              aria-controls="menu"
-            >
-              <Icon name="menu" width={24} height={24} aria-hidden="true" />
-              <span class="sr-only">{t("nav.menu.open")}</span>
-            </button>
-
-            <div id="menu" class="menu">
-              <button class="close-button" aria-label={t("nav.menu.close")}>
-                X
-              </button>
-              <a href={getRelativeLocaleUrl(lang, "gamehome")}>
-                <Icon
-                  name="home"
-                  width={24}
-                  height={22.24}
-                  aria-hidden="true"
-                />
-                {t("nav.menu.home")}
-              </a>
-              <When test={showHeaderIcons}>
-                <a href={getRelativeLocaleUrl(lang, "spielregeln")}>
-                  <Icon
-                    name="question"
-                    width={24}
-                    height={22.24}
-                    aria-hidden="true"
-                  />
-                  {t("nav.menu.rules")}
-                </a>
-                <a href={getRelativeLocaleUrl(lang, "highscores")}>
-                  <Icon
-                    name="trophy"
-                    width={24}
-                    height={24}
-                    aria-hidden="true"
-                  />
-                  {t("nav.menu.highscores")}
-                </a>
-                <a href={getRelativeLocaleUrl(lang, "user")}>
-                  <Icon name="user" width={24} height={24} aria-hidden="true" />
-                  {t("nav.menu.profile")}
-                </a>
-                <form method="post" action="/api/logout">
-                  <button type="submit">
-                    <Icon
-                      name="logout"
-                      width={24}
-                      height={24}
-                      aria-hidden="true"
-                    />
-                    {t("nav.menu.logout")}
-                  </button>
-                </form>
-              </When>
-            </div>
-          </div>
-        </nav>
-      </header>
+      <Navigation showHeaderIcons={showHeaderIcons} />
     </When>
+
     <When test={showCoins}>
       <ShowCoins />
     </When>
 
-    <main id="main-content">
+    <main
+      id="main-content"
+      class="max-w-full mx-auto py-6 px-0 text-base leading-relaxed text-pretty md:max-w-prose"
+    >
       <slot />
     </main>
 
-    <style lang="scss" is:global>
-      :root {
-        /* Light mode colors (WCAG AAA compliant) */
-        --secondary-color: #c4d8f0;
-        --highlight-color: #0056b3;
-        --background-color: #d0e4ff;
-        --text-color: #1a1a1a;
-        --error-color: #c62828;
-        --button-hover-color: #004080;
-        --button-text-color: #fff;
-
-        /* Focus indicators */
-        --focus-outline-color: #0056b3;
-        --focus-outline-width: 3px;
-        --focus-outline-offset: 2px;
-
-        /* Schrift */
-        --font-family: "Source Sans Pro", system-ui, sans-serif;
-        --header-font-size: clamp(1.5rem, 2vw, 2rem);
-        --body-font-size: clamp(1.125rem, 1.5vw, 1.25rem);
-        --button-font-size: clamp(1rem, 1.25vw, 1.125rem);
-
-        /* Größen und Abstände */
-        --padding-small: max(10px, 0.625rem);
-        --padding-medium: max(20px, 1.25rem);
-        --padding-large: max(40px, 2.5rem);
-        --border-radius: 8px;
-
-        /* Interaktive Elemente */
-        --min-touch-target: 48px;
-        --box-shadow: 0 4px 8px rgb(0 0 0 / 25%);
-        --transition-speed: 0.3s;
-
-        /* Zusätzliche Barrierefreiheits-Variablen */
-        --line-height-body: 1.8;
-        --max-line-length: 70ch;
-        --spacing-text: 0.08em;
-
-        /* Größen */
-        --size-playlist-small: 7.438rem;
-        --size-playlist-large: 10.313rem;
-
-        /* Overlay */
-        --color-overlay: rgb(0 0 0 / 60%);
-
-        /* Opacity */
-        --opacity-disabled: 0.4;
-
-        /* Z-Index */
-        --layer-above: 2;
-        --spinner-size-small: 40px;
-        --spinner-size-medium: 80px;
-        --spinner-size-large: 120px;
-      }
-
-      html {
-        box-sizing: border-box;
-        margin: var(--padding-small);
-        font-family: var(--font-family);
-        background-color: var(--background-color);
-      }
-
-      *,
-      *::before,
-      *::after {
-        box-sizing: inherit;
-      }
-
-      body {
-        width: 100%;
-        max-width: 768px;
-        margin: 0 auto;
-        padding: 0 var(--padding-small);
-
-        font-size: var(--body-font-size);
-        line-height: var(--line-height-body);
-        color: var(--text-color);
-        letter-spacing: var(--spacing-text);
-
-        background-color: var(--background-color);
-
-        @media (width >= 768px) {
-          max-width: 768px;
-          padding: 0 var(--padding-medium);
-        }
-      }
-
-      .skip-link {
-        position: absolute;
-        z-index: 1000;
-        top: -100%;
-        left: 50%;
-        transform: translateX(-50%);
-
-        padding: var(--padding-small) var(--padding-medium);
-        border-radius: 0 0 var(--border-radius) var(--border-radius);
-
-        font-size: var(--button-font-size);
-        font-weight: bold;
-        color: var(--button-text-color);
-        text-decoration: none;
-
-        background: var(--highlight-color);
-        box-shadow: var(--box-shadow);
-
-        transition: top var(--transition-speed);
-
-        &:focus {
-          top: 0;
-          outline: var(--focus-outline-width) solid var(--focus-outline-color);
-          outline-offset: var(--focus-outline-offset);
-        }
-
-        &:hover {
-          background-color: var(--button-hover-color);
-        }
-      }
-
-      header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-
-        margin-bottom: var(--padding-medium);
-        border-radius: var(--border-radius);
-
-        @media (width >= 768px) {
-          padding: var(--padding-medium);
-        }
-      }
-
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--padding-small);
-        align-items: center;
-        justify-content: space-between;
-
-        @media (width >= 768px) {
-          flex-wrap: nowrap;
-        }
-      }
-
-      .slot {
-        display: flex;
-        gap: var(--padding-small);
-        align-items: center;
-      }
-
-      .slot.left,
-      .slot.right {
-        flex: 1;
-        justify-content: center;
-
-        @media (width >= 768px) {
-          justify-content: flex-start;
-        }
-      }
-
-      .slot.right {
-        @media (width >= 768px) {
-          justify-content: flex-end;
-        }
-      }
-
-      .logo {
-        display: flex;
-        justify-content: center;
-      }
-
-      .logo img {
-        max-width: 100%;
-        height: auto;
-      }
-
-      button {
-        cursor: pointer;
-
-        display: inline-block;
-
-        padding: 0;
-        border: none;
-
-        background: none;
-
-        transition: transform var(--transition-speed);
-      }
-
-      .icon-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        min-width: var(--min-touch-target);
-        min-height: var(--min-touch-target);
-        padding: var(--padding-small);
-        border-radius: var(--border-radius);
-
-        color: var(--button-text-color);
-        text-decoration: none;
-
-        background-color: var(--highlight-color);
-        box-shadow: var(--box-shadow);
-
-        transition: all var(--transition-speed);
-
-        &:hover,
-        &:focus {
-          transform: translateY(-2px);
-          background-color: var(--button-hover-color);
-        }
-
-        &:focus-visible {
-          transform: none;
-          outline: var(--focus-outline-width) solid var(--focus-outline-color);
-          outline-offset: var(--focus-outline-offset);
-        }
-
-        [astro-icon] {
-          width: 24px;
-          height: 24px;
-        }
-      }
-
-      main {
-        max-width: 100%;
-        margin: 0 auto;
-        padding: var(--padding-medium) 0;
-
-        font-size: var(--body-font-size);
-        line-height: 1.6;
-        color: var(--text-color);
-
-        @media (width >= 768px) {
-          max-width: var(--max-line-length);
-        }
-      }
-
-      .hasMargin {
-        margin: 0 var(--padding-small);
-      }
-
-      .button {
-        cursor: pointer;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        // Neue Größen-Eigenschaften
-        min-height: var(--min-touch-target);
-        padding: var(--padding-small) var(--padding-large);
-        border: none;
-        border-radius: var(--border-radius);
-
-        font-size: var(--button-font-size);
-        color: var(--button-text-color);
-        text-decoration: none;
-
-        opacity: 1;
-        background-color: var(--highlight-color);
-        box-shadow: var(--box-shadow);
-
-        transition: all var(--transition-speed);
-
-        &:hover {
-          transform: scale(1.05);
-          color: var(--button-text-color);
-          background-color: var(--button-hover-color);
-        }
-
-        // Neue Focus-Styles
-        &:focus-visible {
-          transform: none; // Verhindert Skalierung während des Fokus
-          outline: var(--focus-outline-width) solid var(--focus-outline-color);
-          outline-offset: var(--focus-outline-offset);
-        }
-
-        &.hidden {
-          overflow: hidden;
-
-          height: 0;
-          margin: 0;
-          padding: 0;
-
-          opacity: 0;
-        }
-      }
-
+    <!-- Mit Tailwind v4 kompatible globale Stile -->
+    <style is:global>
       .sr-only {
-        position: absolute;
+        @apply absolute w-px h-px -m-px overflow-hidden;
 
-        overflow: hidden;
-
-        width: 1px;
-        height: 1px;
-        margin: -1px;
-        padding: 0;
-        border: 0;
-
+        border-width: 0;
+        white-space: nowrap;
         clip: rect(0, 0, 0, 0);
       }
 
-      .menu {
-        position: fixed;
-        z-index: var(--layer-above);
-        top: 0;
-        left: 0;
-        transform: translateX(-100%);
-
-        width: 100%;
-        height: 100vh;
-        padding: var(--padding-large);
-
-        // Mehr Platz für den Menü-Inhalt
-        padding-top: calc(var(--padding-large) + 40px);
-
-        visibility: hidden;
-        opacity: 0;
-        background-color: var(--background-color);
-
-        transition: all var(--transition-speed) ease-in-out;
-
-        &.is-open {
-          transform: translateX(0);
-          visibility: visible;
-          opacity: 1;
-        }
-
-        a,
-        button {
-          display: flex;
-          gap: var(--padding-small);
-          align-items: center;
-
-          width: 100%;
-          margin-bottom: var(--padding-small);
-          padding: var(--padding-medium);
-          border: none;
-          border-radius: var(--border-radius);
-
-          font-size: var(--body-font-size);
-          color: var(--text-color);
-          text-align: left;
-          text-decoration: none;
-
-          background-color: transparent;
-
-          transition: background-color var(--transition-speed);
-
-          &:hover,
-          &:focus-visible {
-            background-color: var(--secondary-color);
-            outline: none;
-          }
-
-          [astro-icon] {
-            width: 24px;
-            height: 24px;
-          }
-        }
-
-        form {
-          width: 100%;
-        }
-
-        .close-button {
-          position: absolute;
-          top: var(--padding-medium);
-          right: var(--padding-medium);
-
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          width: 40px;
-          height: 40px;
-          border: none;
-          border-radius: 50%;
-
-          font-size: 2rem;
-          color: var(--text-color);
-
-          background-color: transparent;
-
-          transition: background-color var(--transition-speed);
-
-          &:hover,
-          &:focus-visible {
-            background-color: var(--secondary-color);
-            outline: none;
-          }
-        }
+      .button {
+        @apply cursor-pointer flex items-center justify-center 
+               border-0 no-underline bg-[--highlight-color] 
+               transition-all duration-300 hover:scale-105 hover:bg-[--button-hover-color]
+               focus-visible:scale-100 focus-visible:outline
+               focus-visible:outline-[--focus-outline-color] focus-visible:outline-offset-2;
       }
 
-      // Verhindert Scrolling wenn Menü offen
-      body.menu-open {
-        overflow: hidden;
+      .button.hidden {
+        @apply overflow-hidden opacity-0;
       }
 
-      // Hamburger Button Styles
-      .hamburger {
-        position: relative;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        :root {
-          /* Dark mode colors (WCAG AAA compliant) */
-
-          --secondary-color: #1e3a5f;
-          --highlight-color: #79c0ff;
-          --background-color: #0d1117;
-          --text-color: #f0f6fc;
-          --error-color: #ff8080;
-          --button-hover-color: #58a6ff;
-          --button-text-color: #0d1117;
-
-          /* Adjust focus outline for better visibility in dark mode */
-          --focus-outline-color: #58a6ff;
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        * {
-          scroll-behavior: auto !important;
-          transition-duration: 0.01ms !important;
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-        }
-      }
-
-      /* Media Queries für Barrierefreiheit */
-      @media (prefers-reduced-motion: reduce) {
-        :root {
-          --transition-speed: 0s;
-        }
-
-        .button:hover,
-        .icon-button:hover {
-          transform: none;
-        }
-      }
-
-      @media (prefers-contrast: high) {
-        :root {
-          --highlight-color: #000;
-          --text-color: #000;
-          --background-color: #fff;
-          --button-text-color: #fff;
-          --button-hover-color: #000;
-        }
-      }
-
-      @media (width <= 767px) {
-        :root {
-          --padding-small: max(8px, 0.5rem);
-          --padding-medium: max(16px, 1rem);
-          --padding-large: max(32px, 2rem);
-          --body-font-size: 1rem;
-          --button-font-size: 0.875rem;
-        }
+      body[data-menu-open="true"] {
+        @apply overflow-hidden;
       }
     </style>
-
-    <script>
-      const button = document.querySelector(".hamburger") as HTMLButtonElement;
-      const menu = document.querySelector("#menu") as HTMLDivElement;
-      const closeButton = menu?.querySelector(
-        ".close-button",
-      ) as HTMLButtonElement;
-      const body = document.body;
-
-      const toggleMenu = () => {
-        const isExpanded = button.getAttribute("aria-expanded") === "true";
-        button.setAttribute("aria-expanded", String(!isExpanded));
-        menu.classList.toggle("is-open");
-        body.classList.toggle("menu-open");
-      };
-
-      if (button) {
-        button.addEventListener("click", toggleMenu);
-      }
-      if (closeButton) {
-        closeButton.addEventListener("click", toggleMenu);
-      }
-
-      // Schließen mit Escape-Taste
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && menu?.classList.contains("is-open")) {
-          toggleMenu();
-        }
-      });
-    </script>
   </body>
 </html>

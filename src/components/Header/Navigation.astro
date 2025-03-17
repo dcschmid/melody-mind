@@ -1,0 +1,272 @@
+---
+import { Icon } from "astro-icon/components";
+import { When } from "@astropub/flow";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import LanguagePicker from "@components/LanguagePicker.astro";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+
+interface Props {
+  showHeaderIcons?: boolean;
+}
+
+const { showHeaderIcons = true } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<header role="banner" class="flex flex-row justify-between md-6 rounded-lg">
+  <LanguagePicker />
+  <nav
+    aria-label="Hauptnavigation"
+    class="flex flex-wrap gap-3 items-center justify-between"
+  >
+    <div
+      class="slot left flex gap-3 items-center flex-1 justify-center"
+    >
+      <button
+        class="hamburger relative flex items-center justify-center gap-2 min-h-12 min-w-12
+               py-2 px-4 rounded-lg bg-[--highlight-color] text-white
+               shadow-md transition-all duration-300
+               border-2 border-white/10"
+        aria-label={t("nav.menu.open")}
+        aria-expanded="false"
+        aria-controls="main-menu"
+        id="menu-toggle"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="w-6 h-6"
+          aria-hidden="true"
+        >
+          <line x1="4" y1="6" x2="20" y2="6"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="18" x2="20" y2="18"></line>
+        </svg>
+        <span class="font-medium">Menü</span>
+      </button>
+
+      <div
+        id="menu-backdrop"
+        class="fixed inset-0 z-30 bg-black/70 backdrop-blur-sm invisible opacity-0 transition-opacity duration-300
+               data-[state=open]:visible data-[state=open]:opacity-100"
+        aria-hidden="true"
+      >
+      </div>
+
+      <div
+        id="main-menu"
+        class="fixed inset-y-0 left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-md bg-[--background-color] rounded-xl
+               shadow-2xl -translate-y-[100%] my-4 transition-transform duration-300 ease-out pt-16 pb-8
+               overflow-y-auto invisible opacity-0 data-[state=open]:translate-y-0
+               data-[state=open]:visible data-[state=open]:opacity-100"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="menu-toggle"
+      >
+        <button
+          class="close-menu absolute top-4 right-4 flex items-center justify-center w-12 h-12
+                 rounded-full bg-gray-200/30 text-current hover:bg-gray-200/50
+                 transition-colors duration-200"
+          aria-label={t("nav.menu.close")}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="w-7 h-7"
+            aria-hidden="true"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <div class="text-center mb-6">
+          <h2 class="text-xl font-bold text-balance">Navigation</h2>
+        </div>
+
+        <ul class="flex flex-col space-y-4 px-4" role="menu">
+          <li role="none">
+            <a
+              href={getRelativeLocaleUrl(lang, "gamehome")}
+              class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
+                    font-medium no-underline transition-all
+                    duration-200 hover:bg-[--secondary-color] hover:translate-x-1 focus-visible:bg-[--secondary-color]
+                    focus-visible:outline focus-visible:outline-[--focus-outline-color]"
+              role="menuitem"
+            >
+              <Icon
+                name="home"
+                width={28}
+                height={28}
+                aria-hidden="true"
+                class="w-7 h-7"
+              />
+              <span>{t("nav.menu.home")}</span>
+            </a>
+          </li>
+
+          <When test={showHeaderIcons}>
+            <li role="none">
+              <a
+                href={getRelativeLocaleUrl(lang, "rules")}
+                class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
+                      font-medium no-underline transition-all
+                      duration-200 hover:bg-[--secondary-color] hover:translate-x-1 focus-visible:bg-[--secondary-color]
+                      focus-visible:outline focus-visible:outline-[--focus-outline-color]"
+                role="menuitem"
+              >
+                <Icon
+                  name="question"
+                  width={28}
+                  height={28}
+                  aria-hidden="true"
+                  class="w-7 h-7"
+                />
+                <span>{t("nav.menu.rules")}</span>
+              </a>
+            </li>
+
+            <div class="w-full h-px bg-gray-200/20 my-2"></div>
+          </When>
+
+          <div class="w-full h-px bg-gray-200/20 my-4"></div>
+
+          <div class="px-5">
+            <h3 class="text-lg font-bold mb-4">{t("nav.donate.heading")}</h3>
+            <div class="flex flex-col gap-3">
+              <a
+                href="https://www.paypal.me/dcschmid"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-center gap-2 py-3 px-4 bg-[#0070BA] hover:bg-[#005ea6] 
+                       text-white rounded-lg transition-colors duration-200 font-medium"
+              >
+                <Icon
+                  name="coin"
+                  width={24}
+                  height={24}
+                  aria-hidden="true"
+                  class="w-6 h-6"
+                />
+                <span>{t("nav.donate.paypal")}</span>
+              </a>
+              <a
+                href="https://www.buymeacoffee.com/dcschmid"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-center gap-2 py-3 px-4 bg-[#FFDD00] hover:bg-[#ffcd00]
+                       text-[#000000] rounded-lg transition-colors duration-200 font-medium"
+              >
+                <Icon
+                  name="trophy"
+                  width={24}
+                  height={24}
+                  aria-hidden="true"
+                  class="w-6 h-6"
+                />
+                <span>{t("nav.donate.coffee")}</span>
+              </a>
+            </div>
+          </div>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  /**
+   * Navigation Menu Controller
+   * Manages the opening, closing and accessibility of the main navigation menu.
+   * Implements WCAG AAA compliant focus management and keyboard interactions.
+   */
+  document.addEventListener("DOMContentLoaded", initNavigationMenu);
+
+  /**
+   * Initializes the navigation menu and sets up all necessary event listeners
+   */
+  function initNavigationMenu(): void {
+    // Get all required DOM elements
+    const menuToggle = document.getElementById("menu-toggle") as HTMLButtonElement | null;
+    const mainMenu = document.getElementById("main-menu") as HTMLDivElement | null;
+    const menuBackdrop = document.getElementById("menu-backdrop") as HTMLDivElement | null;
+    const closeButton = mainMenu?.querySelector(".close-menu") as HTMLButtonElement | null;
+
+    // Ensure all required elements exist before proceeding
+    if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
+      console.warn("Navigation menu elements not found, menu functionality disabled");
+      return;
+    }
+
+    // Set up event listeners
+    menuToggle.addEventListener("click", () => toggleMenu(menuToggle, mainMenu, menuBackdrop));
+    closeButton.addEventListener("click", () => toggleMenu(menuToggle, mainMenu, menuBackdrop));
+    menuBackdrop.addEventListener("click", () => toggleMenu(menuToggle, mainMenu, menuBackdrop));
+    
+    // Close menu with Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mainMenu.getAttribute("data-state") === "open") {
+        toggleMenu(menuToggle, mainMenu, menuBackdrop);
+      }
+    });
+  }
+
+  /**
+   * Toggles the menu state between open and closed
+   * @param {HTMLButtonElement} menuToggle - The button that controls the menu
+   * @param {HTMLElement} mainMenu - The main menu container
+   * @param {HTMLElement} menuBackdrop - The backdrop overlay element
+   */
+  function toggleMenu(
+    menuToggle: HTMLButtonElement,
+    mainMenu: HTMLElement,
+    menuBackdrop: HTMLElement
+  ): void {
+    // Get current state and determine new state
+    const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+    const newState = !isExpanded;
+    
+    // Update ARIA attributes for accessibility
+    menuToggle.setAttribute("aria-expanded", String(newState));
+    
+    // Update visual state using data attributes
+    mainMenu.setAttribute("data-state", newState ? "open" : "closed");
+    menuBackdrop.setAttribute("data-state", newState ? "open" : "closed");
+    
+    // Prevent scrolling when menu is open
+    document.body.setAttribute("data-menu-open", String(newState));
+    
+    // Implement proper focus management
+    if (newState) {
+      // When opening: move focus to first interactive element after animation
+      setTimeout(() => {
+        const firstFocusableElement = mainMenu.querySelector(
+          "a[href], button:not(.close-menu), input, select, textarea, [tabindex]:not([tabindex='-1'])"
+        ) as HTMLElement;
+        
+        if (firstFocusableElement) {
+          firstFocusableElement.focus();
+        }
+      }, 100); // Short delay to allow animation to start
+    } else {
+      // When closing: return focus to the toggle button
+      menuToggle.focus();
+    }
+  }
+</script>

@@ -1,0 +1,53 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description = "Melody Mind - Das musikalische Ratespiel",
+  keywords = "Musik, Ratespiel, Quiz, Cover, Entertainment",
+  image = "/social-share.jpg",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!-- Primary Meta Tags -->
+<title>{title} | Melody Mind</title>
+<meta name="title" content={`${title} | Melody Mind`} />
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<meta name="author" content="Daniel Schmid" />
+<meta name="robots" content="index, follow" />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={`${title} | Melody Mind`} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.site)} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={`${title} | Melody Mind`} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.site)} />
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" href="/favicon-96x96.png?v=2" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+<link rel="shortcut icon" href="/favicon.ico?v=2" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2" />
+<meta name="apple-mobile-web-app-title" content="Melody Mind" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<!-- Generator -->
+<meta name="generator" content={Astro.generator} />
