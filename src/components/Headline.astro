@@ -1,0 +1,13 @@
+---
+interface Props {
+  title: string;
+  level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  className?: string;
+}
+
+const { title, level = 'h1', className = 'text-3xl md:text-4xl' } = Astro.props as Props;
+const Tag = level;
+---
+<Tag class={`${className} font-bold tracking-wide mb-6 text-balance text-sky-500`}>
+  {title}
+</Tag>

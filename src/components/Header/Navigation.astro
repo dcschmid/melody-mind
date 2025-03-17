@@ -20,9 +20,7 @@ const t = useTranslations(lang);
     aria-label="Hauptnavigation"
     class="flex flex-wrap gap-3 items-center justify-between"
   >
-    <div
-      class="slot left flex gap-3 items-center flex-1 justify-center"
-    >
+    <div class="slot left flex gap-3 items-center flex-1 justify-center">
       <button
         class="hamburger relative flex items-center justify-center gap-2 min-h-12 min-w-12
                py-2 px-4 rounded-lg bg-[--highlight-color] text-white
@@ -153,7 +151,7 @@ const t = useTranslations(lang);
                 href="https://www.paypal.me/dcschmid"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center justify-center gap-2 py-3 px-4 bg-[#0070BA] hover:bg-[#005ea6] 
+                class="flex items-center justify-center gap-2 py-3 px-4 bg-[#0070BA] hover:bg-[#005ea6]
                        text-white rounded-lg transition-colors duration-200 font-medium"
               >
                 <Icon
@@ -183,7 +181,6 @@ const t = useTranslations(lang);
               </a>
             </div>
           </div>
-
         </ul>
       </div>
     </div>
@@ -203,25 +200,44 @@ const t = useTranslations(lang);
    */
   function initNavigationMenu(): void {
     // Get all required DOM elements
-    const menuToggle = document.getElementById("menu-toggle") as HTMLButtonElement | null;
-    const mainMenu = document.getElementById("main-menu") as HTMLDivElement | null;
-    const menuBackdrop = document.getElementById("menu-backdrop") as HTMLDivElement | null;
-    const closeButton = mainMenu?.querySelector(".close-menu") as HTMLButtonElement | null;
+    const menuToggle = document.getElementById(
+      "menu-toggle",
+    ) as HTMLButtonElement | null;
+    const mainMenu = document.getElementById(
+      "main-menu",
+    ) as HTMLDivElement | null;
+    const menuBackdrop = document.getElementById(
+      "menu-backdrop",
+    ) as HTMLDivElement | null;
+    const closeButton = mainMenu?.querySelector(
+      ".close-menu",
+    ) as HTMLButtonElement | null;
 
     // Ensure all required elements exist before proceeding
     if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
-      console.warn("Navigation menu elements not found, menu functionality disabled");
+      console.warn(
+        "Navigation menu elements not found, menu functionality disabled",
+      );
       return;
     }
 
     // Set up event listeners
-    menuToggle.addEventListener("click", () => toggleMenu(menuToggle, mainMenu, menuBackdrop));
-    closeButton.addEventListener("click", () => toggleMenu(menuToggle, mainMenu, menuBackdrop));
-    menuBackdrop.addEventListener("click", () => toggleMenu(menuToggle, mainMenu, menuBackdrop));
-    
+    menuToggle.addEventListener("click", () =>
+      toggleMenu(menuToggle, mainMenu, menuBackdrop),
+    );
+    closeButton.addEventListener("click", () =>
+      toggleMenu(menuToggle, mainMenu, menuBackdrop),
+    );
+    menuBackdrop.addEventListener("click", () =>
+      toggleMenu(menuToggle, mainMenu, menuBackdrop),
+    );
+
     // Close menu with Escape key
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && mainMenu.getAttribute("data-state") === "open") {
+      if (
+        e.key === "Escape" &&
+        mainMenu.getAttribute("data-state") === "open"
+      ) {
         toggleMenu(menuToggle, mainMenu, menuBackdrop);
       }
     });
@@ -236,30 +252,30 @@ const t = useTranslations(lang);
   function toggleMenu(
     menuToggle: HTMLButtonElement,
     mainMenu: HTMLElement,
-    menuBackdrop: HTMLElement
+    menuBackdrop: HTMLElement,
   ): void {
     // Get current state and determine new state
     const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
     const newState = !isExpanded;
-    
+
     // Update ARIA attributes for accessibility
     menuToggle.setAttribute("aria-expanded", String(newState));
-    
+
     // Update visual state using data attributes
     mainMenu.setAttribute("data-state", newState ? "open" : "closed");
     menuBackdrop.setAttribute("data-state", newState ? "open" : "closed");
-    
+
     // Prevent scrolling when menu is open
     document.body.setAttribute("data-menu-open", String(newState));
-    
+
     // Implement proper focus management
     if (newState) {
       // When opening: move focus to first interactive element after animation
       setTimeout(() => {
         const firstFocusableElement = mainMenu.querySelector(
-          "a[href], button:not(.close-menu), input, select, textarea, [tabindex]:not([tabindex='-1'])"
+          "a[href], button:not(.close-menu), input, select, textarea, [tabindex]:not([tabindex='-1'])",
         ) as HTMLElement;
-        
+
         if (firstFocusableElement) {
           firstFocusableElement.focus();
         }

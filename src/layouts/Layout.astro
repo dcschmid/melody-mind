@@ -35,13 +35,13 @@ const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang={lang} class="box-border m-2">
+<html lang={lang} class="box-border m-0">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="color-scheme" content="dark" />
 
-    <SEO 
+    <SEO
       title={title}
       description={description}
       keywords={keywords}
@@ -55,7 +55,7 @@ const lang = getLangFromUrl(Astro.url);
       is:inline></script>
   </head>
   <body
-    class="w-full max-w-6xl mx-auto px-3 text-base leading-7 text-color tracking-wide bg-[--background-color] text-wrap"
+    class="w-full max-w-6xl mx-auto p-3 md:p-6 text-base leading-7 tracking-wide text-wrap bg-zinc-900 text-zinc-50"
   >
     <SkipLink />
 
@@ -73,32 +73,5 @@ const lang = getLangFromUrl(Astro.url);
     >
       <slot />
     </main>
-
-    <!-- Mit Tailwind v4 kompatible globale Stile -->
-    <style is:global>
-      .sr-only {
-        @apply absolute w-px h-px -m-px overflow-hidden;
-
-        border-width: 0;
-        white-space: nowrap;
-        clip: rect(0, 0, 0, 0);
-      }
-
-      .button {
-        @apply cursor-pointer flex items-center justify-center 
-               border-0 no-underline bg-[--highlight-color] 
-               transition-all duration-300 hover:scale-105 hover:bg-[--button-hover-color]
-               focus-visible:scale-100 focus-visible:outline
-               focus-visible:outline-[--focus-outline-color] focus-visible:outline-offset-2;
-      }
-
-      .button.hidden {
-        @apply overflow-hidden opacity-0;
-      }
-
-      body[data-menu-open="true"] {
-        @apply overflow-hidden;
-      }
-    </style>
   </body>
 </html>

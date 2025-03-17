@@ -19,7 +19,12 @@ const cleanPath = currentPath
   .join("/");
 
 // Available languages configuration with localized names and accessibility labels
-const languages = {
+const unsortedLanguages = {
+  da: {
+    name: t("language.da"),
+    label: t("language.da.label"),
+    flag: "🇩🇰",
+  },
   de: {
     name: t("language.de"),
     label: t("language.de.label"),
@@ -35,6 +40,11 @@ const languages = {
     label: t("language.es.label"),
     flag: "🇪🇸",
   },
+  fi: {
+    name: t("language.fi"),
+    label: t("language.fi.label"),
+    flag: "🇫🇮",
+  },
   fr: {
     name: t("language.fr"),
     label: t("language.fr.label"),
@@ -45,32 +55,27 @@ const languages = {
     label: t("language.it.label"),
     flag: "🇮🇹",
   },
-  pt: {
-    name: t("language.pt"),
-    label: t("language.pt.label"),
-    flag: "🇵🇹",
-  },
-  da: {
-    name: t("language.da"),
-    label: t("language.da.label"),
-    flag: "🇩🇰",
-  },
   nl: {
     name: t("language.nl"),
     label: t("language.nl.label"),
     flag: "🇳🇱",
+  },
+  pt: {
+    name: t("language.pt"),
+    label: t("language.pt.label"),
+    flag: "🇵🇹",
   },
   sv: {
     name: t("language.sv"),
     label: t("language.sv.label"),
     flag: "🇸🇪",
   },
-  fi: {
-    name: t("language.fi"),
-    label: t("language.fi.label"),
-    flag: "🇫🇮",
-  },
 };
+
+const languages = Object.fromEntries(
+  Object.entries(unsortedLanguages)
+    .sort(([, a], [, b]) => a.name.localeCompare(b.name))
+);
 ---
 
 <!-- 
@@ -156,7 +161,7 @@ const languages = {
   /**
    * Initialize the language picker with enhanced interactivity
    */
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     initLanguagePicker();
   });
 
@@ -168,7 +173,7 @@ const languages = {
     const selectElement = document.getElementById("language-select");
     const arrowElement = document.getElementById("language-arrow");
     const arrowContainer = document.getElementById("arrow-container");
-    
+
     // Ensure all required elements exist
     if (!selectElement || !arrowElement || !arrowContainer) {
       console.warn("Language picker elements not found");
@@ -205,7 +210,7 @@ const languages = {
      * Handles keyboard interactions for accessibility
      * @param {KeyboardEvent} e - The keyboard event
      */
-    function handleKeyboardInteraction(e) {
+    function handleKeyboardInteraction(e: any) {
       // Toggle rotation when using Enter or Space to activate the select
       if (e.key === "Enter" || e.key === " ") {
         arrowElement?.classList.toggle("rotate-180");
