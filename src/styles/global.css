@@ -1,139 +1,112 @@
 @import "tailwindcss";
 
 @theme {
-  /* Light mode colors (WCAG AAA compliant) */
-  --secondary-color: #9cbce6; /* Dunkler für besseren Kontrast */
-  --highlight-color: #0050a6; /* Leicht angepasst für besseren Kontrast mit weißem Text */
-  --background-color: #f0f8ff; /* Heller für besseren Kontrast mit Text */
-  --text-color: #121212; /* Dunkler für besseren Kontrast auf hellem Hintergrund */
-  --error-color: #b00020; /* Angepasstes Rot für besseren Kontrast */
-  --button-hover-color: #003b70; /* Dunkler für bessere Unterscheidbarkeit */
-  --button-text-color: #ffffff; /* Reines Weiß für maximalen Kontrast auf dunklen Buttons */
+  /* Dark theme WCAG AAA compliant colors */
+  --color-background: oklch(0.2 0.02 270);     /* Dunkles Blau-Grau (#1a1b26) */
+  --color-foreground: oklch(0.98 0.01 270);    /* Fast-Weiß für Text (#f7f9fc) */
+  --color-muted: oklch(0.8 0.02 270);          /* Hellgrau für weniger wichtigen Text (#c6c8d0) */
+  --color-primary: oklch(0.65 0.2 250);        /* Kräftiges Blau (#4d7cfe) */
+  --color-primary-hover: oklch(0.7 0.2 250);   /* Helleres Blau für Hover (#5a8bff) */
+  --color-accent: oklch(0.65 0.18 50);         /* Warmes Orange (#ff9f1c) */
+  --color-success: oklch(0.7 0.2 140);         /* Grün (#36d399) */
+  --color-error: oklch(0.65 0.2 30);           /* Rot (#ff4d4f) */
+  --color-surface: oklch(0.3 0.02 270);        /* Etwas helleres Blau-Grau für Karten (#2a2c3e) */
+  --color-border: oklch(0.4 0.02 270);         /* Mittleres Grau für Ränder (#494b59) */
+  
+  /* Focus states */
+  --color-focus: oklch(0.75 0.2 250);          /* Helleres Blau für Fokus (#6e9cff) */
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
 
-  /* Dark mode colors für bessere Zugänglichkeit */
-  --dark-background-color: #121212;
-  --dark-text-color: #f5f5f5;
-  --dark-secondary-color: #4d83c8;
-  --dark-highlight-color: #4c9aff;
+  /* Spacing and sizing */
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
 
-  /* Focus indicators */
-  --focus-outline-color: #0056b3;
-  --focus-outline-width: 3px;
-  --focus-outline-offset: 2px;
-
-  /* Schrift */
-  --font-family: "Source Sans Pro", system-ui, sans-serif;
-  --header-font-size: clamp(1.5rem, 2vw, 2rem);
-  --body-font-size: clamp(1.125rem, 1.5vw, 1.25rem);
-  --button-font-size: clamp(1rem, 1.25vw, 1.125rem);
-
-  /* Größen und Abstände */
-  --padding-small: max(10px, 0.625rem);
-  --padding-medium: max(20px, 1.25rem);
-  --padding-large: max(40px, 2.5rem);
-  --border-radius: 8px;
-
-  /* Interaktive Elemente */
-  --min-touch-target: 48px;
-  --box-shadow: 0 4px 8px rgb(0 0 0 / 25%);
-  --transition-speed: 0.3s;
-
-  /* Zusätzliche Barrierefreiheits-Variablen */
-  --line-height-body: 1.8;
-  --max-line-length: 70ch;
-  --spacing-text: 0.1em; /* Leicht erhöht für bessere Lesbarkeit */
-
-  /* Größen */
-  --size-playlist-small: 7.438rem;
-  --size-playlist-large: 10.313rem;
-
-  /* Overlay */
-  --color-overlay: rgb(0 0 0 / 60%);
-
-  /* Opacity */
-  --opacity-disabled: 0.4;
-
-  /* Z-Index */
-  --layer-above: 2;
-  --spinner-size-small: 40px;
-  --spinner-size-medium: 80px;
-  --spinner-size-large: 120px;
+  /* Typography */
+  --font-sans: "Source Sans Pro", system-ui, sans-serif;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /* Animation */
+  --transition-fast: 150ms;
+  --transition-normal: 300ms;
+  --easing-standard: cubic-bezier(0.2, 0.0, 0, 1.0);
 }
 
-/* Hilfsklassen für Kontrasttests */
-.high-contrast {
-  --text-color: #000000;
-  --background-color: #ffffff;
-  --secondary-color: #0056b3;
-}
-
-@media (prefers-reduced-motion) {
-  * {
-    transition: none !important;
-    animation: none !important;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
+/* Component tokens */
+@layer base {
+  /* Base styling for dark mode */
   :root {
-    --background-color: var(--dark-background-color);
-    --text-color: var(--dark-text-color);
-    --secondary-color: var(--dark-secondary-color);
-    --highlight-color: var(--dark-highlight-color);
+    color-scheme: dark;
+    --background: var(--color-background);
+    --foreground: var(--color-foreground);
+    --muted: var(--color-muted);
+    --primary: var(--color-primary);
+    --primary-hover: var(--color-primary-hover);
+    --accent: var(--color-accent);
+    --border: var(--color-border);
+    --surface: var(--color-surface);
+    --success: var(--color-success);
+    --error: var(--color-error);
+    --focus: var(--color-focus);
+  }
+  
+  body {
+    @apply bg-[--background] text-[--foreground] font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
-/* Basis Tailwind Layer für Custom Komponenten - aktualisiert für v4 */
-@layer components {
-  /* Moderne Komponenten mit v4-Syntax */
-  .access-button {
-    @apply cursor-pointer flex items-center justify-center min-h-12 py-2 px-6 
-               border-0 rounded-lg text-base text-white no-underline 
-               bg-[--highlight-color] shadow-md transition-all duration-300 
-               hover:scale-105 hover:bg-[--button-hover-color];
-  }
-
-  .access-button:focus-visible {
-    @apply transform-none outline-offset-2 outline-2 outline;
-    outline-color: var(--focus-outline-color);
-  }
-
-  /* Menü-spezifische Komponenten mit v4 Focus-API */
-  .menu-item {
-    @apply flex items-center gap-3 w-full p-4 rounded-lg text-base font-medium
-              transition-all duration-200 hover:bg-[--secondary-color] focus-visible:bg-[--secondary-color] 
-              focus-visible:outline focus-visible:outline-2;
-    outline-color: var(--focus-outline-color);
-  }
-
-  /* Verbesserte Fokus-Helfer für v4 */
-  .focus-ring {
-    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
-    outline-color: var(--focus-outline-color);
-  }
-}
-
-/* Utility-Klassen mit v4 Syntax */
+/* Global utility classes */
 @layer utilities {
-  .visually-hidden {
-    @apply sr-only;
-  }
-
-  /* Text-Formatierungs-Utilities mit v4 Features */
-  .text-pretty {
-    text-wrap: pretty;
-  }
-
   .text-balance {
     text-wrap: balance;
   }
-
-  /* High-contrast mode utilities */
-  .high-contrast {
-    @apply bg-white text-black;
+  
+  .text-pretty {
+    text-wrap: pretty;
   }
+}
 
-  .high-contrast-reverse {
-    @apply bg-black text-white;
+/* Component definitions */
+@layer components {
+  .btn {
+    @apply inline-flex h-12 items-center justify-center rounded-[--radius-md] 
+           px-6 py-3 font-medium transition-colors duration-[--transition-normal]
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--focus]
+           focus-visible:ring-offset-2 focus-visible:ring-offset-[--background]
+           disabled:pointer-events-none disabled:opacity-50;
+  }
+  
+  .btn-primary {
+    @apply bg-[--primary] text-[--background] hover:bg-[--primary-hover];
+  }
+  
+  .btn-accent {
+    @apply bg-[--accent] text-[--background] hover:bg-opacity-90;
+  }
+  
+  .card {
+    @apply rounded-[--radius-lg] border border-[--border] bg-[--surface] p-6 shadow;
+  }
+  
+  .input {
+    @apply h-12 rounded-[--radius-md] border border-[--border] bg-[--background]
+           px-4 text-[--foreground] transition-colors duration-[--transition-fast]
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--focus]
+           focus-visible:ring-offset-2 focus-visible:ring-offset-[--background]
+           disabled:opacity-50;
   }
 }

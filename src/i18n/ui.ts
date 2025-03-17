@@ -26,7 +26,7 @@ export const ui = {
     "difficulty.hard": "Schwer",
     "login.welcome": "Willkommen bei Melody Mind",
     "login.description":
-      "Teste dein Musikwissen in unserem interaktiven Quiz. Erkenne Songs, Alben und Künstler, sammle Punkte und werde zum Musik-Champion. Jetzt kostenlos spielen!",
+      "Tauche ein in die Welt der Musik mit unserem interaktiven Quiz! Teste dein Wissen über verschiedene Genres, von Klassik bis Hip-Hop, von Rock bis Pop. Erkenne Songs, Alben und Künstler, und entdecke verschiedene Spielmodi für abwechslungsreichen Musikspaß. Vom schnellen Blitzquiz bis zum thematischen Genrespezialisten - fordere dich selbst heraus, entdecke neue Musik und werde zum ultimativen Musik-Champion. Jetzt kostenlos spielen!",
     "login.spotify": "Mit Spotify anmelden",
     "login.github": "Mit GitHub anmelden",
     "login.google": "Mit Google anmelden",
@@ -171,7 +171,7 @@ export const ui = {
     "difficulty.hard": "Hard",
     "login.welcome": "Welcome to Melody Mind",
     "login.description":
-      "Test your music knowledge in our interactive quiz. Recognize songs, albums and artists, collect points and become the music champion. Play now for free!",
+      "Dive into the world of music with our interactive quiz! Test your knowledge across various genres, from classical to hip-hop, from rock to pop. Recognize songs, albums, and artists while exploring different game modes for diverse musical fun. From quick lightning rounds to themed genre specialists - challenge yourself, discover new music, and become the ultimate music champion. Play for free now!",
     "login.spotify": "Login with Spotify",
     "login.github": "Login with GitHub",
     "login.google": "Login with Google",
@@ -275,7 +275,7 @@ export const ui = {
     "language.it.label": "View website in Italian",
     "language.pt.label": "View website in Portuguese",
     "language.da.label": "View website in Danish",
-    "language.nl.label": "View website in Dutch", 
+    "language.nl.label": "View website in Dutch",
     "language.sv.label": "View website in Swedish",
     "language.fi.label": "View website in Finnish",
     "playlist.item.unavailable": "This content is not yet available",
@@ -315,7 +315,7 @@ export const ui = {
     "difficulty.hard": "Difícil",
     "login.welcome": "Bienvenido a Melody Mind",
     "login.description":
-      "Pon a prueba tus conocimientos musicales en nuestro quiz interactivo. Reconoce canciones, álbumes y artistas, acumula puntos y conviértete en el campeón de la música. ¡Juega gratis ahora!",
+      "¡Sumérgete en el mundo de la música con nuestro quiz interactivo! Pon a prueba tus conocimientos sobre varios géneros, desde clásica hasta hip-hop, desde rock hasta pop. Reconoce canciones, álbumes y artistas mientras exploras diferentes modos de juego para una diversión musical variada. Desde rondas rápidas hasta especialistas en géneros temáticos - desafíate a ti mismo, descubre nueva música y conviértete en el campeón definitivo de la música. ¡Juega gratis ahora!",
     "login.spotify": "Iniciar sesión con Spotify",
     "login.github": "Iniciar sesión con GitHub",
     "login.google": "Iniciar sesión con Google",
@@ -459,7 +459,7 @@ export const ui = {
     "difficulty.hard": "Difficile",
     "login.welcome": "Bienvenue sur Melody Mind",
     "login.description":
-      "Testez vos connaissances musicales dans notre quiz interactif. Reconnaissez des chansons, des albums et des artistes, accumulez des points et devenez le champion de la musique. Jouez gratuitement maintenant !",
+      "Plongez dans le monde de la musique avec notre quiz interactif ! Testez vos connaissances à travers différents genres, de la musique classique au hip-hop, du rock à la pop. Reconnaissez des chansons, des albums et des artistes tout en explorant différents modes de jeu pour une expérience musicale variée. Des sessions rapides aux spécialistes de genres thématiques - défiez-vous, découvrez de nouvelles musiques et devenez le champion ultime de la musique. Jouez gratuitement maintenant !",
     "login.spotify": "Se connecter avec Spotify",
     "login.github": "Se connecter avec GitHub",
     "login.google": "Se connecter avec Google",
@@ -603,7 +603,7 @@ export const ui = {
     "difficulty.hard": "Difficile",
     "login.welcome": "Benvenuto su Melody Mind",
     "login.description":
-      "Metti alla prova le tue conoscenze musicali nel nostro quiz interattivo. Riconosci canzoni, album e artisti, accumula punti e diventa il campione della musica. Gioca ora gratuitamente!",
+      "Immergiti nel mondo della musica con il nostro quiz interattivo! Metti alla prova le tue conoscenze su vari generi, dalla classica all'hip-hop, dal rock al pop. Riconosci canzoni, album e artisti mentre esplori diverse modalità di gioco per un divertimento musicale variegato. Dalle sessioni rapide agli specialisti di generi tematici - sfida te stesso, scopri nuova musica e diventa il campione definitivo della musica. Gioca ora gratuitamente!",
     "login.spotify": "Accedi con Spotify",
     "login.github": "Accedi con GitHub",
     "login.google": "Accedi con Google",
@@ -748,7 +748,7 @@ export const ui = {
     "difficulty.hard": "Difícil",
     "login.welcome": "Bem-vindo ao Melody Mind",
     "login.description":
-      "Teste seus conhecimentos musicais em nosso quiz interativo. Reconheça músicas, álbuns e artistas, acumule pontos e torne-se o campeão da música. Jogue agora gratuitamente!",
+      "Mergulhe no mundo da música com o nosso quiz interativo! Teste seus conhecimentos em vários gêneros, do clássico ao hip-hop, do rock ao pop. Reconheça músicas, álbuns e artistas enquanto explora diferentes modos de jogo para uma diversão musical variada. De rodadas rápidas a especialistas em gêneros temáticos - desafie-se, descubra nova música e torne-se o campeão supremo da música. Jogue gratuitamente agora!",
     "login.spotify": "Entrar com Spotify",
     "login.github": "Entrar com GitHub",
     "login.google": "Entrar com Google",
@@ -886,7 +886,7 @@ export const ui = {
     "difficulty.hard": "Svær",
     "login.welcome": "Velkommen til Melody Mind",
     "login.description":
-      "Test din musikviden i vores interaktive quiz. Genkend sange, albums og kunstnere, saml point og bliv musikmester. Spil gratis nu!",
+      "Dyk ned i musikkens verden med vores interaktive quiz! Test din viden om forskellige genrer, fra klassisk til hip-hop, fra rock til pop. Genkend sange, albummer og kunstnere, mens du udforsker forskellige spiltilstande for varieret musikalsk sjov. Fra hurtige runder til tematiske genrespecialister - udfordr dig selv, opdag ny musik og bliv den ultimative musikmester. Spil gratis nu!",
     "login.spotify": "Log ind med Spotify",
     "login.github": "Log ind med GitHub",
     "login.google": "Log ind med Google",
@@ -1023,7 +1023,7 @@ export const ui = {
     "difficulty.hard": "Moeilijk",
     "login.welcome": "Welkom bij Melody Mind",
     "login.description":
-      "Test je muziekkennis in onze interactieve quiz. Herken liedjes, albums en artiesten, verzamel punten en word de muziekkampioen. Speel nu gratis!",
+      "Duik in de wereld van muziek met onze interactieve quiz! Test je kennis over verschillende genres, van klassiek tot hip-hop, van rock tot pop. Herken liedjes, albums en artiesten terwijl je verschillende spelmodi verkent voor gevarieerd muzikaal plezier. Van snelle rondes tot thematische genrespecialisten - daag jezelf uit, ontdek nieuwe muziek en word de ultieme muziekkampioen. Speel nu gratis!",
     "login.spotify": "Inloggen met Spotify",
     "login.github": "Inloggen met GitHub",
     "login.google": "Inloggen met Google",
@@ -1160,7 +1160,7 @@ export const ui = {
     "difficulty.hard": "Svår",
     "login.welcome": "Välkommen till Melody Mind",
     "login.description":
-      "Testa dina musikkunskaper i vårt interaktiva quiz. Känn igen låtar, album och artister, samla poäng och bli musikmästare. Spela gratis nu!",
+      "Dyk ner i musikens värld med vårt interaktiva quiz! Testa dina kunskaper om olika genrer, från klassisk till hiphop, från rock till pop. Känn igen låtar, album och artister medan du utforskar olika spellägen för varierat musikaliskt nöje. Från snabba rundor till tematiska genrespecialister - utmana dig själv, upptäck ny musik och bli den ultimata musikmästaren. Spela gratis nu!",
     "login.spotify": "Logga in med Spotify",
     "login.github": "Logga in med GitHub",
     "login.google": "Logga in med Google",
@@ -1297,7 +1297,7 @@ export const ui = {
     "difficulty.hard": "Vaikea",
     "login.welcome": "Tervetuloa Melody Mindiin",
     "login.description":
-      "Testaa musiikkitietämystäsi interaktiivisessa tietovisassamme. Tunnista kappaleita, albumeita ja artisteja, kerää pisteitä ja tule musiikin mestariksi. Pelaa nyt ilmaiseksi!",
+      "Sukella musiikin maailmaan interaktiivisessa tietovisassamme! Testaa tietämystäsi eri genreistä, klassisesta hip-hopiin, rockista poppiin. Tunnista kappaleita, albumeita ja artisteja samalla kun tutustut erilaisiin pelitiloihin vaihtelevaa musiikkiviihdettä varten. Nopeista kierroksista temaattisiin genreasiantuntijoihin - haasta itsesi, löydä uutta musiikkia ja tule musiikin mestariksi. Pelaa nyt ilmaiseksi!",
     "login.spotify": "Kirjaudu Spotifylla",
     "login.github": "Kirjaudu GitHubilla",
     "login.google": "Kirjaudu Googlella",
