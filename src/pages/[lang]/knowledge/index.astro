@@ -1,0 +1,189 @@
+---
+import type { AnyCollectionEntry, KnowledgeLanguage, KnowledgeCollectionKey } from 'astro:content';
+import { getCollection } from 'astro:content';
+import KnowledgeCard from '../../../components/KnowledgeCard.astro';
+import Layout from '@layouts/Layout.astro';
+import { ui } from '../../../i18n/ui';
+import type { ImageMetadata } from 'astro';
+
+// Mark this route for static generation
+export const prerender = true;
+
+// Get static paths for all supported languages
+export async function getStaticPaths() {
+  const supportedLanguages = ['de', 'en', 'es', 'fr', 'it', 'pt', 'da', 'nl', 'sv', 'fi'] as const;
+  
+  const paths = await Promise.all(supportedLanguages.map(async (lang) => {
+    const collectionName = `knowledge-${lang}` as const;
+    const articles = await getCollection(collectionName);
+    const allKeywords = [...new Set(
+      articles.flatMap(article => article.data.keywords || [])
+    )].sort();
+
+    return {
+      params: { lang },
+      props: { articles, allKeywords }
+    };
+  }));
+
+  return paths;
+}
+
+interface Props {
+  articles: AnyCollectionEntry[];
+  allKeywords: string[];
+}
+
+const { lang } = Astro.params as { lang: KnowledgeLanguage };
+const { articles, allKeywords } = Astro.props;
+
+// Type guard to check if a language is supported in UI
+const isUiLanguage = (lang: KnowledgeLanguage): lang is keyof typeof ui => {
+  return Object.keys(ui).includes(lang);
+};
+
+// Use requested language if available in UI, otherwise fall back to English
+const uiLang = isUiLanguage(lang) ? lang : 'en';
+---
+
+<Layout title={ui[uiLang]["knowledge.title"]}>
+  <h1>{ui[uiLang]["knowledge.title"]}</h1>
+  <p class="intro-text">{ui[uiLang]["knowledge.intro"]}</p>
+  <div class="knowledge-hub">
+    <div class="controls">
+      <div class="search-box">
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder={ui[uiLang]["knowledge.search.placeholder"]}
+          class="search-input"
+        />
+      </div>
+    </div>
+
+    <div class="articles-grid" id="articlesGrid">
+      {articles.map((article) => {
+        // Handle image path
+        const imagePath = article.data.image || '/default-cover.jpg';
+        
+        // Handle date - ensure it's a valid Date object
+        const createdAt = article.data.createdAt instanceof Date 
+          ? article.data.createdAt 
+          : article.data.createdAt 
+            ? new Date(article.data.createdAt) 
+            : new Date();
+        
+        return (
+          <KnowledgeCard
+            title={article.data.title}
+            description={article.data.description}
+            image={article.data.image as ImageMetadata}
+            createdAt={createdAt}
+            slug={article.slug}
+            lang={lang}
+            keywords={article.data.keywords}
+            readingTime={article.data.readingTime}
+          />
+        );
+      })}
+    </div>
+  </div>
+</Layout> 
+
+<script>
+  let articles: HTMLElement[] = [];
+  
+  function initializeSearch() {
+    const searchInput = document.getElementById('searchInput') as HTMLInputElement;
+    const grid = document.getElementById('articlesGrid');
+    
+    if (grid) {
+      articles = Array.from(grid.children) as HTMLElement[];
+    }
+
+    searchInput?.addEventListener('input', filterArticles);
+  }
+
+  function filterArticles() {
+    const searchInput = document.getElementById('searchInput') as HTMLInputElement;
+    const searchTerm = searchInput.value.toLowerCase();
+
+    articles.forEach(article => {
+      const title = article.querySelector('h3')?.textContent?.toLowerCase() || '';
+      const description = article.querySelector('.description')?.textContent?.toLowerCase() || '';
+      const keywords = Array.from(article.querySelectorAll('.keyword'))
+        .map(keyword => keyword.textContent?.toLowerCase() || '');
+
+      const matchesSearch = title.includes(searchTerm) || 
+                          description.includes(searchTerm) ||
+                          keywords.some(k => k.includes(searchTerm));
+      
+
+      article.style.display = matchesSearch ? 'flex' : 'none';
+    });
+  }
+
+  // Initialize when the DOM is ready
+  document.addEventListener('DOMContentLoaded', initializeSearch);
+</script>
+
+<style>
+  h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--text-heading);
+  }
+
+  .intro-text {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+    color: var(--text-body);
+  }
+
+  .knowledge-hub {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .search-input,
+  .filter-select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+
+  .search-input {
+    width: 300px;
+  }
+
+  .filter-select {
+    min-width: 200px;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .controls {
+      flex-direction: column;
+    }
+
+    .search-input,
+    .filter-select {
+      width: 100%;
+    }
+  }
+</style>

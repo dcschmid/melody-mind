@@ -1,17 +1,16 @@
 import { defineConfig } from "astro/config";
 import icon from "astro-icon";
-import db from "@astrojs/db";
 import node from "@astrojs/node";
-
 import compressor from "astro-compressor";
-
 import playformCompress from "@playform/compress";
+import { remarkReadingTime } from './src/utils/remark-reading-time.mjs';
+import path from 'path';
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://melody-mind.de",
   output: "server",
-  integrations: [icon(), db(), compressor(), playformCompress()],
+  integrations: [icon(), compressor(), playformCompress()],
   adapter: node({
     mode: "standalone",
   }),
@@ -29,10 +28,28 @@ export default defineConfig({
     },
   ],
   i18n: {
-    defaultLocale: "de",
-    locales: ["de", "en", "es", "fr", "it"],
+    defaultLocale: "en",
+    locales: ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"],
     routing: {
       prefixDefaultLocale: true,
     },
   },
+  // Enable content collections
+  content: {
+    markdown: {
+      remarkPlugins: [remarkReadingTime],
+      shikiConfig: {
+        theme: 'dracula',
+        wrap: true
+      }
+    }
+  },
+  vite: {
+    resolve: {
+      alias: {
+        '@json': path.resolve('./src/json'),
+        // ...other aliases...
+      }
+    }
+  }
 });

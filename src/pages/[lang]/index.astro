@@ -43,52 +43,13 @@ const keywords = t("meta.keywords");
     <p class="description">{description}</p>
 
     <div class="buttonGroup">
-      <nav class="buttonGroup" aria-label="Login-Optionen">
-        <a
-          class="button"
-          href="/login/spotify"
-          aria-label="Mit Spotify anmelden"
-        >
-          <Icon
-            class="loginIcon"
-            name="spotify"
-            width={35}
-            height={35}
-            aria-hidden="true"
-          />
-          <span>Spotify</span>
-        </a>
-        <a class="button" href="/login/github" aria-label="Mit GitHub anmelden">
-          <Icon
-            class="loginIcon"
-            name="github"
-            width={35}
-            height={35}
-            aria-hidden="true"
-          />
-          <span>GitHub</span>
-        </a>
-        <a class="button" href="/login/google" aria-label="Mit Google anmelden">
-          <Icon
-            class="loginIcon"
-            name="google"
-            width={35}
-            height={35}
-            aria-hidden="true"
-          />
-          <span>Google</span>
-        </a>
-        <a class="button" href="/login/yahoo" aria-label="Mit Yahoo anmelden">
-          <Icon
-            class="loginIcon"
-            name="yahoo"
-            width={35}
-            height={35}
-            aria-hidden="true"
-          />
-          <span>Yahoo</span>
-        </a>
-      </nav>
+      <a 
+        class="button" 
+        href={`/${lang}/gamehome`} 
+        aria-label="Zum Spiel"
+      >
+        <span>Weiter</span>
+      </a>
     </div>
   </div>
 </Layout>

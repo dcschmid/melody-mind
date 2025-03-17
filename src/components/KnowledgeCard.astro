@@ -1,0 +1,153 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  title: string;
+  description: string;
+  image: string | ImageMetadata;
+  createdAt: Date;
+  slug: string;
+  lang: string;
+  keywords?: string[];
+  readingTime?: number;
+}
+
+const { title, description, image, createdAt, slug, lang, keywords, readingTime } = Astro.props;
+
+// Default image import
+import defaultImage from '/public/melody-mind.jpg';
+
+// Function to check if the image is a string path
+const isImagePath = (img: string | ImageMetadata): img is string => {
+  return typeof img === 'string';
+};
+
+// Determine which image to use
+const imageSource = isImagePath(image) ? defaultImage : image;
+---
+
+<article class="knowledge-card">
+  <a href={`/${lang}/knowledge/${slug}`} class="card-link">
+    <div class="image-container">
+        <img src={image as string} alt={title} width={300} height={300} />
+    </div>
+    <div class="content">
+      <h3>{title}</h3>
+      <p class="description">{description}</p>
+      {keywords && keywords.length > 0 && (
+        <div class="keywords">
+          {keywords.slice(0, 3).map((keyword) => (
+            <span class="keyword">{keyword}</span>
+          ))}
+        </div>
+      )}
+      <div class="meta">
+        <time datetime={createdAt.toISOString()}>
+          {new Date(createdAt).toLocaleDateString()}
+        </time>
+        {readingTime && (
+          <span class="reading-time">
+            {readingTime} min Lesezeit
+          </span>
+        )}
+      </div>
+    </div>
+  </a>
+</article>
+
+<style>
+  .knowledge-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+
+  .knowledge-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .knowledge-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .content {
+    padding: 1.5rem;
+  }
+
+  h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    color: #1a1a1a;
+  }
+
+  .description {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .keywords {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .keyword {
+    background: #f0f0f0;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    color: #666;
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #888;
+  }
+
+  time, .reading-time {
+    color: #888;
+  }
+
+  .reading-time {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .reading-time::before {
+    content: "•";
+    margin-right: 0.5rem;
+  }
+</style>

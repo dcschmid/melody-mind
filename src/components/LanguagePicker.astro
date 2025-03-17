@@ -8,7 +8,7 @@ const t = useTranslations(lang);
 const currentPath = Astro.url.pathname;
 const cleanPath = currentPath
   .split("/")
-  .filter((segment) => !["de", "en", "es", "fr", "it"].includes(segment))
+  .filter((segment) => !["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"].includes(segment))
   .join("/");
 
 const languages = {
@@ -36,6 +36,31 @@ const languages = {
     name: t("language.it"),
     label: t("language.it.label"),
     flag: "🇮🇹",
+  },
+  pt: {
+    name: t("language.pt"),
+    label: t("language.pt.label"),
+    flag: "🇵🇹",
+  },
+  da: {
+    name: t("language.da"),
+    label: t("language.da.label"),
+    flag: "🇩🇰",
+  },
+  nl: {
+    name: t("language.nl"),
+    label: t("language.nl.label"),
+    flag: "🇳🇱",
+  },
+  sv: {
+    name: t("language.sv"),
+    label: t("language.sv.label"),
+    flag: "🇸🇪",
+  },
+  fi: {
+    name: t("language.fi"),
+    label: t("language.fi.label"),
+    flag: "🇫🇮",
   },
 };
 ---
