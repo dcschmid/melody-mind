@@ -338,12 +338,7 @@
         },
         {
           "question": "Quel a été le classement le plus élevé atteint par l'album 'In the Wee Small Hours' de Frank Sinatra dans le Billboard 200 en 1955?",
-          "options": [
-            "Numéro 1",
-            "Numéro 3",
-            "Numéro 5",
-            "Numéro 7"
-          ],
+          "options": ["Numéro 1", "Numéro 3", "Numéro 5", "Numéro 7"],
           "correctAnswer": "Numéro 2",
           "trivia": "L'album 'In the Wee Small Hours' de Frank Sinatra a atteint la deuxième place du Billboard 200 en 1955, ce qui en fait l'un de ses projets les plus acclamés. Il est souvent considéré comme l'un des premiers albums conceptuels, abordant des thèmes de solitude et de mélancolie. L'album a également été l'un des premiers à être enregistré entièrement en stéréo, ce qui a permis d'améliorer la qualité sonore et l'expérience d'écoute. En plus de sa performance dans les classements, il a été salué par la critique et a influencé de nombreux artistes dans les décennies suivantes."
         }
@@ -374,12 +369,7 @@
         },
         {
           "question": "En quelle année l'album 'Time Out' du Dave Brubeck Quartet a-t-il été publié, marquant ainsi un tournant dans l'histoire du jazz ?",
-          "options": [
-            "1956",
-            "1958",
-            "1959",
-            "1960"
-          ],
+          "options": ["1956", "1958", "1959", "1960"],
           "correctAnswer": "1959",
           "trivia": "L'album 'Time Out' du Dave Brubeck Quartet a été publié en 1959 et est considéré comme l'un des albums de jazz les plus emblématiques de l'histoire. Il a été le premier album de jazz à atteindre un statut de disque d'or, ce qui témoigne de son immense popularité. Parmi les morceaux les plus célèbres de cet album, on trouve 'Take Five', qui a popularisé l'utilisation de mesures impaires dans le jazz. L'album a également été innovant pour son exploration de rythmes et de structures inhabituels, contribuant à élargir les horizons musicaux de nombreux auditeurs."
         },
@@ -877,12 +867,7 @@
         },
         {
           "question": "En quelle année Billie Holiday a-t-elle publié son album 'Lady in Satin', qui est souvent considéré comme l'un de ses derniers grands travaux avant sa mort?",
-          "options": [
-            "1956",
-            "1958",
-            "1960",
-            "1955"
-          ],
+          "options": ["1956", "1958", "1960", "1955"],
           "correctAnswer": "1958",
           "trivia": "L'album 'Lady in Satin' est sorti en 1958 et est souvent salué pour l'émotion brute que Billie Holiday y exprime. C'est lors de cet enregistrement que la chanteuse a collaboré avec l'orchestre de Ray Ellis, et l'album se distingue par son utilisation de cordes, un choix artistique qui a suscité des réactions contrastées. 'Lady in Satin' est considéré comme un témoignage poignant de sa carrière, marquant une époque où sa voix était en déclin en raison de problèmes de santé. Cet album comprend des morceaux emblématiques comme 'I'm a Fool to Want You', qui reflètent ses luttes personnelles, et il a été réédité plusieurs fois, continuant d'influencer des générations d'artistes."
         },
@@ -1157,12 +1142,7 @@
         },
         {
           "question": "Quel était le classement le plus élevé atteint par l'album 'With His Hot and Blue Guitar' de Johnny Cash dans le Billboard Country Albums Chart en 1957?",
-          "options": [
-            "Numéro 1",
-            "Numéro 3",
-            "Numéro 5",
-            "Numéro 7"
-          ],
+          "options": ["Numéro 1", "Numéro 3", "Numéro 5", "Numéro 7"],
           "correctAnswer": "Numéro 1",
           "trivia": "L'album 'With His Hot and Blue Guitar' de Johnny Cash a atteint le classement numéro 1 dans le Billboard Country Albums Chart en 1957. Cet album a marqué le début de la carrière solo de Cash et a été un élément clé dans l'établissement de son style unique alliant country, rockabilly et folk. Parmi les morceaux notables, on trouve 'I Walk the Line', qui a également remporté un grand succès et a contribué à la popularité de l'album. En plus de son succès commercial, cet album est souvent cité comme l'un des disques influents de l'histoire de la musique country."
         }
@@ -1299,23 +1279,13 @@
       "easy": [
         {
           "question": "Quel a été le premier single extrait de l'album 'The “Chirping” Crickets' de Buddy Holly, sorti en 1957?",
-          "options": [
-            "That'll Be the Day",
-            "Peggy Sue",
-            "Everyday",
-            "Oh Boy!"
-          ],
+          "options": ["That'll Be the Day", "Peggy Sue", "Everyday", "Oh Boy!"],
           "correctAnswer": "That'll Be the Day",
           "trivia": "Le premier single de l'album 'The “Chirping” Crickets' de Buddy Holly, sorti en 1957, est 'That'll Be the Day'. Cette chanson a été un grand succès, atteignant la première place du Billboard Hot 100. 'That'll Be the Day' a été écrite par Buddy Holly et Jerry Allison et a été enregistrée en 1956, mais elle a été publiée en tant que single en mai 1957, avant la sortie de l'album. L'album lui-même est considéré comme l'un des premiers albums de rock 'n' roll et a contribué à établir Buddy Holly comme l'une des figures emblématiques de la musique de cette époque."
         },
         {
           "question": "Quel single emblématique de Buddy Holly, extrait de l'album 'The “Chirping” Crickets', a atteint la première place des charts pop américains en 1957 ?",
-          "options": [
-            "That'll Be the Day",
-            "Peggy Sue",
-            "Oh Boy!",
-            "Rave On"
-          ],
+          "options": ["That'll Be the Day", "Peggy Sue", "Oh Boy!", "Rave On"],
           "correctAnswer": "That'll Be the Day",
           "trivia": "Le single 'That'll Be the Day' a été le premier grand succès commercial de Buddy Holly, apparaissant sur l'album 'The “Chirping” Crickets' sorti en 1957. Ce morceau a non seulement atteint la première place des charts pop américains, mais il a également contribué à établir Holly comme l'un des pionniers du rock 'n' roll. L'album lui-même est considéré comme un classique et a été influent pour de nombreux artistes. En plus de 'That'll Be the Day', l'album contient d'autres titres mémorables comme 'Peggy Sue' et 'Oh Boy!', qui ont également connu un grand succès. Buddy Holly a su capturer l'esprit de l'époque avec sa musique innovante et son style unique."
         },
@@ -1778,12 +1748,7 @@
         },
         {
           "question": "En quelle année Duke Ellington a-t-il sorti l'album 'Ellington at Newport', qui est souvent considéré comme un moment marquant de sa carrière ?",
-          "options": [
-            "1954",
-            "1956",
-            "1958",
-            "1960"
-          ],
+          "options": ["1954", "1956", "1958", "1960"],
           "correctAnswer": "1956",
           "trivia": "L'album 'Ellington at Newport' a été enregistré en 1956 lors du Newport Jazz Festival, où Duke Ellington et son orchestre ont livré une performance mémorable. Ce concert a été crucial pour relancer la carrière d'Ellington, qui avait connu des périodes difficiles. La version de 'Diminuendo and Crescendo in Blue', avec un solo de saxophone emblématique de Paul Gonsalves, a particulièrement captivé le public et a contribué à l'importance de cet enregistrement. 'Ellington at Newport' est souvent considéré comme un chef-d'œuvre du jazz et a été salué pour son énergie et son improvisation exceptionnelle."
         },
@@ -2093,12 +2058,7 @@
         },
         {
           "question": "Quel autre artiste légendaire a collaboré avec Hank Williams sur l'album 'Moanin’ the Blues' en 1952, apportant une touche unique à certaines des chansons?",
-          "options": [
-            "Johnny Cash",
-            "Ray Price",
-            "Patsy Cline",
-            "Ernest Tubb"
-          ],
+          "options": ["Johnny Cash", "Ray Price", "Patsy Cline", "Ernest Tubb"],
           "correctAnswer": "Ernest Tubb",
           "trivia": "Hank Williams a collaboré avec Ernest Tubb sur l'album 'Moanin’ the Blues', qui est sorti en 1952. Cette collaboration a été notée pour son impact sur le son du country, combinant la voix distinctive de Williams avec le style vocal et l'interprétation d'Ernest Tubb. En outre, Tubb était connu pour son influence sur la musique country et a joué un rôle clé dans le développement du honky-tonk, un sous-genre du country. L'album 'Moanin’ the Blues' a été bien reçu et a contribué à façonner la carrière de Williams, qui était déjà une figure emblématique du genre à l'époque."
         }
@@ -2235,12 +2195,7 @@
       "easy": [
         {
           "question": "En quelle année le Bill Evans Trio a-t-il commencé à promouvoir l'album 'Everybody Digs Bill Evans' lors de ses concerts ?",
-          "options": [
-            "1956",
-            "1958",
-            "1960",
-            "1955"
-          ],
+          "options": ["1956", "1958", "1960", "1955"],
           "correctAnswer": "1958",
           "trivia": "L'album 'Everybody Digs Bill Evans', sorti en 1958, a été un tournant dans la carrière du Bill Evans Trio, contribuant à leur renommée croissante. Cette œuvre a été enregistrée en mars 1958 et a rapidement été suivie de plusieurs concerts pour promouvoir l'album. À cette époque, le trio, qui comprenait également Scott LaFaro et Paul Motian, a commencé à effectuer des tournées à travers les États-Unis, attirant ainsi l'attention des amateurs de jazz. L'album a été salué pour son approche novatrice du jazz et a influencé de nombreux musiciens et groupes qui ont suivi. C'est une période charnière qui a permis au Bill Evans Trio de se faire un nom sur la scène jazz."
         },
@@ -2632,12 +2587,7 @@
         },
         {
           "question": "Quel single issu de l'album 'Bo Diddley' de 1958 a connu un succès crossover significatif en atteignant les charts pop et R&B?",
-          "options": [
-            "I'm a Man",
-            "Bo Diddley",
-            "Who Do You Love",
-            "Mona"
-          ],
+          "options": ["I'm a Man", "Bo Diddley", "Who Do You Love", "Mona"],
           "correctAnswer": "I'm a Man",
           "trivia": "Le single 'I'm a Man' de Bo Diddley, tiré de l'album 'Bo Diddley' sorti en 1958, est devenu un succès crossover notable, atteignant les charts pop et R&B. Cette chanson illustre parfaitement le style unique de Bo Diddley, qui mêle le blues et le rock avec une rythmique innovante. L'album lui-même a marqué un tournant dans la musique, influençant de nombreux artistes ultérieurs. En plus de 'I'm a Man', d'autres titres comme 'Bo Diddley' et 'Mona' ont également contribué à sa renommée, mais c'est 'I'm a Man' qui a vraiment capturé l'attention des auditeurs à l'époque. Ce succès a aidé à établir Bo Diddley comme l'un des pionniers du rock 'n' roll."
         },
@@ -2972,12 +2922,7 @@
       "medium": [
         {
           "question": "Quel morceau de l'album 'Birth of the Cool' de Miles Davis a été réinterprété par plusieurs artistes, devenant ainsi un standard du jazz, notamment par le célèbre saxophoniste John Coltrane ?",
-          "options": [
-            "Budo",
-            "Venus de Milo",
-            "Israel",
-            "Deception"
-          ],
+          "options": ["Budo", "Venus de Milo", "Israel", "Deception"],
           "correctAnswer": "Venus de Milo",
           "trivia": "Le morceau 'Venus de Milo', composé par Miles Davis, est l'une des pièces emblématiques de l'album 'Birth of the Cool' sorti en 1957. Cette composition a été réinterprétée par de nombreux artistes, dont John Coltrane, qui a su capturer sa mélodie délicate tout en y ajoutant sa propre touche unique. L'album a également marqué un tournant dans le jazz, introduisant des arrangements orchestraux et un style de cool jazz qui se distinguait des approches plus traditionnelles de l'époque. En outre, 'Venus de Milo' illustre la capacité de Miles Davis à fusionner des éléments classiques et modernes, contribuant ainsi à son statut légendaire dans le monde de la musique."
         },
@@ -3029,12 +2974,7 @@
         },
         {
           "question": "Quel a été le plus haut classement de l'album 'Birth of the Cool' de Miles Davis sur le Billboard 200 après sa sortie en 1957?",
-          "options": [
-            "2ème",
-            "5ème",
-            "12ème",
-            "15ème"
-          ],
+          "options": ["2ème", "5ème", "12ème", "15ème"],
           "correctAnswer": "12ème",
           "trivia": "L'album 'Birth of the Cool' de Miles Davis, sorti en 1957, a atteint la 12ème position sur le Billboard 200, marquant un tournant significatif dans l'histoire du jazz. Cet album a été pionnier du mouvement cool jazz, intégrant des éléments de musique classique et de jazz, et a influencé de nombreux musiciens. Avec des arrangements sophistiqués, il se distingue par la présence de célèbres musiciens tels que Gil Evans et Cannonball Adderley. Bien que l'album n'ait pas eu un succès commercial immédiat, il a gagné en reconnaissance au fil des décennies, devenant un classique au sein du genre. 'Birth of the Cool' est aujourd'hui considéré comme un chef-d'œuvre, tant sur le plan musical que culturel."
         }
@@ -3533,12 +3473,7 @@
         },
         {
           "question": "Dans quelle ville Ella Fitzgerald & Louis Armstrong ont-ils enregistré leur album 'Ella and Louis' en 1956?",
-          "options": [
-            "New York",
-            "Los Angeles",
-            "Chicago",
-            "Nashville"
-          ],
+          "options": ["New York", "Los Angeles", "Chicago", "Nashville"],
           "correctAnswer": "Los Angeles",
           "trivia": "L'album 'Ella and Louis', enregistré en 1956, a été principalement réalisé à Los Angeles. Cette ville était un centre névralgique pour les artistes de jazz et de musique populaire à cette époque. Les sessions d'enregistrement ont eu lieu dans les studios de la Verve Records, qui ont joué un rôle crucial dans la carrière de Fitzgerald. Ce projet a marqué une collaboration emblématique entre deux géants du jazz, Ella Fitzgerald et Louis Armstrong, et a été salué pour sa production de haute qualité et l'alchimie musicale entre les deux artistes. De plus, l'album a contribué à populariser le style vocal jazz qui mélangeait des éléments de swing et de blues."
         },
@@ -3767,12 +3702,7 @@
         },
         {
           "question": "Quel est le genre musical principal de l'album 'I’m Jimmy Reed' sorti en 1958 par Jimmy Reed?",
-          "options": [
-            "Jazz",
-            "Rock and Roll",
-            "Blues",
-            "Country"
-          ],
+          "options": ["Jazz", "Rock and Roll", "Blues", "Country"],
           "correctAnswer": "Blues",
           "trivia": "L'album 'I’m Jimmy Reed' de Jimmy Reed est principalement classé dans le genre du Blues, un style musical qui a profondément influencé la musique américaine. Jimmy Reed, connu pour sa voix rauque et son jeu de guitare distinctif, a été l'un des artistes les plus populaires du Chicago Blues dans les années 1950. Cet album a contribué à établir sa réputation et comprend des titres emblématiques qui ont marqué l'histoire du blues. En outre, Jimmy Reed a souvent été cité comme une source d'inspiration pour de nombreux musiciens de rock et de blues qui ont suivi."
         },
@@ -4363,12 +4293,7 @@
         },
         {
           "question": "En quelle année Miles Davis a-t-il effectué une tournée pour promouvoir son album 'Milestones'?",
-          "options": [
-            "1956",
-            "1958",
-            "1960",
-            "1957"
-          ],
+          "options": ["1956", "1958", "1960", "1957"],
           "correctAnswer": "1958",
           "trivia": "Miles Davis a effectué une tournée en 1958 pour promouvoir son album 'Milestones', qui est considéré comme un tournant dans sa carrière. Cet album, sorti la même année, marque le passage du bebop au modal jazz, un style qui sera déterminant dans l'évolution du jazz. Les concerts durant cette période ont permis à Miles de présenter ses nouvelles compositions et d'explorer des sonorités innovantes avec son groupe. Parmi les musiciens qui l'ont accompagné, on retrouve des figures emblématiques comme John Coltrane et Cannonball Adderley. Cette tournée a été essentielle pour établir la renommée de Miles Davis dans le monde du jazz."
         }
@@ -4469,12 +4394,7 @@
         },
         {
           "question": "En quelle année l'album 'Portrait in Jazz' du Bill Evans Trio a-t-il été publié?",
-          "options": [
-            "1958",
-            "1959",
-            "1960",
-            "1961"
-          ],
+          "options": ["1958", "1959", "1960", "1961"],
           "correctAnswer": "1959",
           "trivia": "L'album 'Portrait in Jazz' a été publié en 1959 et est l'un des premiers enregistrements emblématiques du Bill Evans Trio. Cet album est notable pour sa fusion de jazz modal et de standards de jazz, mettant en avant le style unique de Bill Evans au piano. Il comprend des compositions célèbres comme 'Blue in Green' et 'Autumn Leaves'. Enregistré pour le label Riverside, cet album a contribué à établir Bill Evans comme l'un des pianistes les plus influents de son époque, jouant un rôle clé dans l'évolution du jazz moderne."
         },
@@ -4575,12 +4495,7 @@
       "easy": [
         {
           "question": "En quelle année l'album 'The Atomic Mr. Basie' de Count Basie a-t-il été publié pour la première fois sur le marché?",
-          "options": [
-            "1955",
-            "1957",
-            "1960",
-            "1953"
-          ],
+          "options": ["1955", "1957", "1960", "1953"],
           "correctAnswer": "1957",
           "trivia": "L'album 'The Atomic Mr. Basie' de Count Basie a été publié en 1957 et est devenu un classique du jazz. Il a été enregistré sous le label Verve Records, qui était connu pour sa promotion d'artistes de jazz innovants. Ce disque a marqué une étape importante dans la carrière de Count Basie, mettant en avant son orchestre et son style unique. L'album a également été salué pour sa production de haute qualité et ses arrangements sophistiqués, contribuant à l'essor de la popularité du jazz à la fin des années 1950."
         },
@@ -4983,12 +4898,7 @@
         },
         {
           "question": "En quelle année l'album 'Come Fly with Me' de Frank Sinatra a-t-il été certifié disque d'or par la RIAA, marquant ainsi une étape importante dans sa carrière ?",
-          "options": [
-            "1955",
-            "1958",
-            "1960",
-            "1962"
-          ],
+          "options": ["1955", "1958", "1960", "1962"],
           "correctAnswer": "1958",
           "trivia": "L'album 'Come Fly with Me', sorti en 1958, a été un tournant majeur pour Frank Sinatra, consolidant sa position comme l'un des artistes les plus influents de son époque. En 1958, il a été certifié disque d'or par la Recording Industry Association of America (RIAA), ce qui témoigne de son immense popularité et des ventes remarquables de l'album. 'Come Fly with Me' contient plusieurs classiques qui sont devenus emblématiques, dont la chanson titre qui évoque le voyage et l'évasion. Cet album a également marqué le début de l'association de Sinatra avec des arrangements orchestraux riches, un style qui deviendra sa marque de fabrique. En somme, l'album a joué un rôle crucial dans l'établissement de Sinatra comme un artiste majeur de la musique populaire."
         }
@@ -5018,12 +4928,7 @@
         },
         {
           "question": "Quel a été le meilleur classement atteint par l'album 'Come Fly with Me' de Frank Sinatra dans le Billboard 200 en 1958?",
-          "options": [
-            "Numéro 1",
-            "Numéro 2",
-            "Numéro 3",
-            "Numéro 4"
-          ],
+          "options": ["Numéro 1", "Numéro 2", "Numéro 3", "Numéro 4"],
           "correctAnswer": "Numéro 1",
           "trivia": "L'album 'Come Fly with Me' de Frank Sinatra a atteint la première place du Billboard 200 en 1958, marquant un moment clé dans la carrière de l'artiste. Cet album est particulièrement notable car il a été l'un des premiers à incorporer des arrangements orchestraux élaborés, ce qui est devenu une signature de la musique de Sinatra. De plus, 'Come Fly with Me' a été enregistré à une époque où Sinatra cherchait à se réinventer, et son succès commercial a solidifié sa position en tant que l'un des artistes les plus influents de son époque. Avec des morceaux emblématiques tels que 'Come Fly with Me' et 'All the Way', cet album a non seulement connu un succès commercial, mais a également été salué par la critique pour son innovation musicale."
         }
@@ -5054,12 +4959,7 @@
         },
         {
           "question": "Quel musicien a collaboré avec Sonny Rollins sur l'album 'Way Out West' sorti en 1957?",
-          "options": [
-            "Max Roach",
-            "Elvin Jones",
-            "Shelly Manne",
-            "Art Blakey"
-          ],
+          "options": ["Max Roach", "Elvin Jones", "Shelly Manne", "Art Blakey"],
           "correctAnswer": "Shelly Manne",
           "trivia": "Sonny Rollins a enregistré l'album 'Way Out West' en 1957 avec le batteur Shelly Manne, qui a joué un rôle clé dans le son distinctif de cet album. Ce projet est souvent considéré comme l'un des meilleurs enregistrements de Rollins, mettant en avant son improvisation et son style unique. L'album a été enregistré en une seule session à Los Angeles et a été salué pour sa qualité musicale et son approche novatrice du jazz. 'Way Out West' contient également des compositions mémorables comme 'Wagon Wheels' et 'There Is No Greater Love', qui mettent en valeur l'interaction entre Rollins et Manne."
         },
@@ -5171,12 +5071,7 @@
         },
         {
           "question": "En quelle année Buddy Holly a-t-il effectué sa tournée promotionnelle pour l'album 'Buddy Holly'?",
-          "options": [
-            "1956",
-            "1957",
-            "1958",
-            "1959"
-          ],
+          "options": ["1956", "1957", "1958", "1959"],
           "correctAnswer": "1958",
           "trivia": "Buddy Holly a réalisé une tournée promotionnelle en 1958 pour soutenir la sortie de son album 'Buddy Holly', qui est devenu emblématique dans l'histoire du rock and roll. Cette tournée a permis à Holly de se produire dans divers clubs et salles de concert à travers les États-Unis, contribuant ainsi à sa popularité croissante. L'album 'Buddy Holly' a présenté des hits inoubliables tels que 'Peggy Sue' et 'Everyday', qui sont encore célébrés aujourd'hui. Buddy Holly a joué un rôle clé dans le développement de la musique rock, influençant de nombreux artistes qui ont suivi. Malheureusement, sa carrière a été tragiquement interrompue en 1959, ce qui rend cette période particulièrement significative."
         },
@@ -5394,12 +5289,7 @@
       "easy": [
         {
           "question": "En quelle année Johnny Cash a-t-il sorti son album 'The Fabulous Johnny Cash'?",
-          "options": [
-            "1956",
-            "1958",
-            "1960",
-            "1962"
-          ],
+          "options": ["1956", "1958", "1960", "1962"],
           "correctAnswer": "1958",
           "trivia": "L'album 'The Fabulous Johnny Cash' a été publié en 1958 et est considéré comme un tournant dans la carrière de Johnny Cash. Cet album a renforcé sa position dans le genre country et a contribué à sa popularité croissante. Il contient des chansons emblématiques comme 'Guess Things Happen That Way' et 'Oh, What a Dream'. En outre, cet album a marqué le début de l'ère où Cash allait devenir une figure centrale de la musique américaine, avec un style unique qui mélangeait country, rock et folk."
         },
@@ -5546,12 +5436,7 @@
       "medium": [
         {
           "question": "En quelle année Fats Domino a-t-il effectué une tournée marquante pour promouvoir son album 'This Is Fats'?",
-          "options": [
-            "1954",
-            "1956",
-            "1958",
-            "1960"
-          ],
+          "options": ["1954", "1956", "1958", "1960"],
           "correctAnswer": "1956",
           "trivia": "Fats Domino a réalisé une tournée significative en 1956 pour soutenir la sortie de son album 'This Is Fats', qui a contribué à solidifier sa place dans le paysage musical américain. Cet album, qui a été un succès commercial, contenait des titres emblématiques tels que 'I'm Walkin' et 'Blueberry Hill'. La tournée a permis à Fats Domino de se produire dans de nombreuses villes, élargissant ainsi son public et influençant la popularité du rock and roll. En 1956, Domino était déjà une figure établie de la musique, et sa capacité à captiver les foules lors de ses concerts a joué un rôle clé dans son succès continu."
         },
@@ -5873,12 +5758,7 @@
         },
         {
           "question": "Quel est le titre de l'une des chansons les plus populaires interprétées par Sarah Vaughan sur l'album 'At Mister Kelly’s' sorti en 1958 ?",
-          "options": [
-            "Misty",
-            "Summertime",
-            "Cry Me a River",
-            "Nature Boy"
-          ],
+          "options": ["Misty", "Summertime", "Cry Me a River", "Nature Boy"],
           "correctAnswer": "Misty",
           "trivia": "L'album 'At Mister Kelly’s' de Sarah Vaughan, enregistré en 1958, comprend plusieurs morceaux emblématiques, dont 'Misty', qui est devenu l'un de ses standards les plus appréciés. 'Misty' a été écrit par Erroll Garner en 1954, et la version de Vaughan a contribué à populariser cette chanson, souvent interprétée par d'autres artistes par la suite. L'album a été enregistré en direct au club Mister Kelly's à Chicago, un lieu de rencontre renommé pour les artistes de jazz. Sarah Vaughan, connue pour sa voix riche et son style unique, a captivé le public avec sa performance sur cet album, renforçant sa réputation comme l'une des grandes voix du jazz."
         },
@@ -6447,23 +6327,13 @@
       "easy": [
         {
           "question": "Lors d'une performance live de l'album 'Somethin’ Else' de Cannonball Adderley, quelle chanson emblématique a été souvent jouée et est devenue un classique du jazz?",
-          "options": [
-            "Autumn Leaves",
-            "Take Five",
-            "So What",
-            "Blue Bossa"
-          ],
+          "options": ["Autumn Leaves", "Take Five", "So What", "Blue Bossa"],
           "correctAnswer": "Autumn Leaves",
           "trivia": "La chanson 'Autumn Leaves' est l'un des morceaux emblématiques souvent associés à Cannonball Adderley, notamment lors de ses performances live. Cet album, 'Somethin’ Else', sorti en 1958, est considéré comme un classique du jazz et a été enregistré avec des artistes de renom, dont Miles Davis. 'Autumn Leaves' est un standard du jazz qui a été interprété par de nombreux musiciens, mais la version d'Adderley est particulièrement appréciée pour son interprétation expressive. L'album a été un moment clé dans la carrière d'Adderley, lui permettant de se faire un nom dans le monde du jazz."
         },
         {
           "question": "Quel single célèbre de l'album 'Somethin’ Else' de Cannonball Adderley a connu un grand succès commercial en 1958?",
-          "options": [
-            "Autumn Leaves",
-            "Take Five",
-            "So What",
-            "Blue in Green"
-          ],
+          "options": ["Autumn Leaves", "Take Five", "So What", "Blue in Green"],
           "correctAnswer": "Autumn Leaves",
           "trivia": "Le single 'Autumn Leaves' de l'album 'Somethin’ Else' de Cannonball Adderley a été particulièrement bien accueilli sur le plan commercial et est devenu l'un des morceaux les plus emblématiques de l'album, sorti en 1958. Cette chanson, qui est une adaptation d'une œuvre française, a permis à Adderley d'atteindre un public plus large, renforçant ainsi sa carrière. 'Somethin’ Else' a été enregistré avec une formation de jazz exceptionnelle, incluant le pianiste Bill Evans, ce qui a contribué à son succès. L'album lui-même a été un tournant pour le jazz, marquant une fusion innovante entre le jazz et d'autres styles musicaux."
         },
@@ -6575,12 +6445,7 @@
         },
         {
           "question": "Dans l'album 'Ella Fitzgerald Sings the Duke Ellington Song Book' sorti en 1957, quel style musical prédomine dans les interprétations d'Ella Fitzgerald?",
-          "options": [
-            "Jazz",
-            "Rock",
-            "Blues",
-            "Country"
-          ],
+          "options": ["Jazz", "Rock", "Blues", "Country"],
           "correctAnswer": "Jazz",
           "trivia": "L'album 'Ella Fitzgerald Sings the Duke Ellington Song Book' met en avant le talent exceptionnel d'Ella Fitzgerald dans le genre jazz, qui est la base de son œuvre. En 1957, Fitzgerald a collaboré avec le célèbre compositeur et chef d'orchestre Duke Ellington, dont les compositions sont devenues emblématiques du jazz. L'album contient des standards jazz intemporels, et Ella a su les interpréter avec une finesse et une expressivité remarquables. Ce projet a non seulement célébré la musique d'Ellington, mais a également renforcé la réputation de Fitzgerald comme l'une des plus grandes voix du jazz. En outre, cet album a été bien accueilli par la critique et a contribué à l'essor du jazz vocal dans les années 1950."
         },
@@ -6681,12 +6546,7 @@
       "easy": [
         {
           "question": "En quelle année Big Joe Turner a-t-il commencé sa tournée pour promouvoir l'album 'Rock & Roll'?",
-          "options": [
-            "1955",
-            "1957",
-            "1959",
-            "1961"
-          ],
+          "options": ["1955", "1957", "1959", "1961"],
           "correctAnswer": "1957",
           "trivia": "Big Joe Turner a lancé sa tournée en 1957 pour promouvoir son album 'Rock & Roll', qui est sorti la même année. Cet album a marqué une étape importante dans l'histoire du rhythm and blues, contribuant à populariser le genre. Turner, souvent considéré comme l'un des pionniers du rock and roll, a attiré l'attention grâce à sa voix puissante et à son style énergique sur scène. Il a également influencé de nombreux artistes, notamment Elvis Presley et Chuck Berry. La tournée de 1957 a permis à Turner de se produire dans plusieurs villes américaines, renforçant ainsi sa réputation."
         },
@@ -6833,12 +6693,7 @@
       "medium": [
         {
           "question": "Quel a été le classement le plus élevé de l'album 'Love Is the Thing' de Nat King Cole dans le Billboard 200 en 1957?",
-          "options": [
-            "Numéro 1",
-            "Numéro 5",
-            "Numéro 3",
-            "Numéro 10"
-          ],
+          "options": ["Numéro 1", "Numéro 5", "Numéro 3", "Numéro 10"],
           "correctAnswer": "Numéro 1",
           "trivia": "L'album 'Love Is the Thing' de Nat King Cole a atteint la première place du Billboard 200 en 1957, marquant ainsi un grand succès commercial pour l'artiste. Ce disque est devenu emblématique grâce à sa combinaison de ballades romantiques et de l'interprétation douce et veloutée de Nat King Cole. En plus d'être en tête des charts, l'album a également été bien accueilli par la critique, consolidant la réputation de Cole en tant que crooner de choix de l'époque. L'une des chansons les plus célèbres de cet album, 'When I Fall in Love', est souvent citée comme un classique intemporel."
         },
@@ -7043,12 +6898,7 @@
         },
         {
           "question": "En quelle année Frank Sinatra a-t-il sorti son album 'Only the Lonely', qui a été salué par la critique et a influencé le jazz vocal?",
-          "options": [
-            "1955",
-            "1957",
-            "1958",
-            "1960"
-          ],
+          "options": ["1955", "1957", "1958", "1960"],
           "correctAnswer": "1958",
           "trivia": "L'album 'Only the Lonely' de Frank Sinatra est sorti en 1958 et a reçu des critiques élogieuses pour sa production artistique et ses arrangements. Cet album a marqué un tournant dans la carrière de Sinatra, mettant en avant son interprétation émotionnelle des chansons. Il a atteint la première place dans le classement Billboard des albums pendant plusieurs semaines, solidifiant sa position comme l'un des plus grands chanteurs de jazz vocal. De plus, 'Only the Lonely' a introduit des compositions mémorables telles que 'Angel Eyes' et 'One for My Baby (and One More for the Road)', qui sont devenues des classiques du répertoire de Sinatra."
         },
@@ -7230,12 +7080,7 @@
         },
         {
           "question": "En quelle année Muddy Waters a-t-il reçu le Grammy Award pour son album 'At Newport 1960', qui a été enregistré lors du Newport Jazz Festival de 1958?",
-          "options": [
-            "1961",
-            "1963",
-            "1965",
-            "1967"
-          ],
+          "options": ["1961", "1963", "1965", "1967"],
           "correctAnswer": "1962",
           "trivia": "Muddy Waters a remporté le Grammy Award en 1962 pour 'At Newport 1960', un album qui a capturé l'essence de son concert au Newport Jazz Festival de 1958. Cet événement est souvent considéré comme un tournant dans la popularité du blues, car il a introduit un large public au son puissant et authentique de Waters. En plus du Grammy, l'album a été salué pour sa performance explosive, mettant en avant des morceaux emblématiques comme 'Got My Mojo Working'. Cet enregistrement a également contribué à établir le blues comme un genre musical respecté sur la scène jazz et rock."
         },
@@ -7511,12 +7356,7 @@
         },
         {
           "question": "En quelle année B.B. King a-t-il sorti son album 'Singin’ the Blues'?",
-          "options": [
-            "1955",
-            "1957",
-            "1960",
-            "1958"
-          ],
+          "options": ["1955", "1957", "1960", "1958"],
           "correctAnswer": "1957",
           "trivia": "L'album 'Singin’ the Blues' de B.B. King est sorti en 1957 et a marqué un tournant dans sa carrière, le propulsant vers la reconnaissance internationale. Cet album comprend des classiques tels que 'The Thrill Is Gone', qui est devenu l'un de ses morceaux les plus emblématiques. À cette époque, B.B. King était déjà un artiste établi dans le monde du blues, mais cet album a élargi son public en intégrant des éléments de jazz et de rhythm and blues. La production a été réalisée par le label Crown Records, qui a joué un rôle clé dans la diffusion de la musique blues à cette époque. 'Singin’ the Blues' reste un élément fondamental du répertoire de B.B. King et est souvent cité comme une œuvre incontournable du genre."
         },
@@ -7628,23 +7468,13 @@
         },
         {
           "question": "En quelle année l'album 'Blues & Roots' de Charles Mingus a-t-il été enregistré, bien qu'il soit sorti en 1960?",
-          "options": [
-            "1955",
-            "1959",
-            "1961",
-            "1957"
-          ],
+          "options": ["1955", "1959", "1961", "1957"],
           "correctAnswer": "1959",
           "trivia": "L'album 'Blues & Roots' de Charles Mingus a été enregistré en 1959 et publié en 1960. Cet album est apprécié pour sa fusion unique de jazz, blues et éléments de musique folklorique afro-américaine. Mingus, célèbre pour son approche innovante et sa capacité à mélanger différents styles musicaux, a utilisé cet album pour exprimer ses réflexions sur l'identité et la culture afro-américaine. 'Blues & Roots' est également notable pour ses arrangements complexes et la participation de musiciens talentueux, ce qui en fait un jalon dans l'histoire du jazz."
         },
         {
           "question": "En quelle année Charles Mingus a-t-il publié l'album 'Blues & Roots', qui reflète les luttes sociales et culturelles des Afro-Américains?",
-          "options": [
-            "1960",
-            "1959",
-            "1958",
-            "1961"
-          ],
+          "options": ["1960", "1959", "1958", "1961"],
           "correctAnswer": "1959",
           "trivia": "L'album 'Blues & Roots' de Charles Mingus a été enregistré en 1959 et publié en 1960. À cette époque, les États-Unis étaient marqués par des mouvements pour les droits civiques, et la musique jazz, incluant le travail de Mingus, servait souvent de moyen d'expression des luttes sociales des Afro-Américains. Mingus, en tant que compositeur et contrebassiste, a toujours intégré des éléments de la culture afro-américaine dans sa musique, ce qui est particulièrement évident dans cet album. 'Blues & Roots' se distingue par son mélange de blues et de racines musicales, illustrant comment le jazz peut raconter des histoires profondes et engagées."
         }
@@ -7851,12 +7681,7 @@
       "easy": [
         {
           "question": "Quel morceau inédit, enregistré par John Coltrane lors des sessions de 'Giant Steps' en 1959, n'a pas été inclus dans l'album sorti en 1960?",
-          "options": [
-            "Naima",
-            "Giant Steps",
-            "Cousin Mary",
-            "A Love Supreme"
-          ],
+          "options": ["Naima", "Giant Steps", "Cousin Mary", "A Love Supreme"],
           "correctAnswer": "Cousin Mary",
           "trivia": "Le morceau 'Cousin Mary' est une composition de John Coltrane qui a été enregistrée durant les sessions de 'Giant Steps' en 1959, mais il n'a pas été inclus dans l'album qui a été publié en 1960. Cet album est souvent considéré comme l'une des œuvres majeures du jazz moderne en raison de son approche innovante des progressions harmoniques. 'Giant Steps' a également introduit des concepts de modulation complexe, influençant de nombreux musiciens par la suite. D'autres morceaux tels que 'Naima' et 'Giant Steps' sont devenus des standards, tandis que 'Cousin Mary' a été publié plus tard dans divers compilations et albums, mais pas sur l'album original."
         },
@@ -7921,12 +7746,7 @@
       "hard": [
         {
           "question": "En quelle année l'album 'Giant Steps' de John Coltrane a-t-il été enregistré, marquant une étape importante dans l'évolution du jazz et des techniques harmoniques ?",
-          "options": [
-            "1957",
-            "1958",
-            "1959",
-            "1960"
-          ],
+          "options": ["1957", "1958", "1959", "1960"],
           "correctAnswer": "1959",
           "trivia": "L'album 'Giant Steps', enregistré par John Coltrane en 1959 et publié en 1960, est souvent considéré comme un jalon dans l'histoire du jazz. Il a introduit des concepts harmoniques révolutionnaires, notamment la fameuse 'coltrane changes', qui ont influencé des générations de musiciens. De plus, cet album est reconnu pour son approche audacieuse de la structure des accords, contrastant avec les normes de l'époque. 'Giant Steps' a également été le premier album de jazz à utiliser ces progressions d'accords complexes de manière aussi systématique, ce qui en fait une œuvre essentielle pour les amateurs de jazz et les étudiants de musique."
         },
@@ -8354,12 +8174,7 @@
       "medium": [
         {
           "question": "Quel symbole récurrent dans les paroles de l'album 'The Platters' de The Platters, sorti en 1956, reflète les thèmes de l'amour et de la nostalgie?",
-          "options": [
-            "L'étoile",
-            "Le voyage",
-            "La pluie",
-            "La danse"
-          ],
+          "options": ["L'étoile", "Le voyage", "La pluie", "La danse"],
           "correctAnswer": "L'étoile",
           "trivia": "Dans l'album 'The Platters', le symbole de l'étoile apparaît fréquemment dans les paroles, représentant l'espoir et la guidance dans les relations amoureuses. Ce choix symbolique est particulièrement significatif dans des chansons comme 'Only You', où l'étoile évoque la recherche d'un amour idéal et l'aspiration à des souvenirs heureux. En 1956, l'album a marqué un tournant dans la musique doo-wop et R&B, incorporant des éléments de romantisme qui ont touché un large public. The Platters, avec leur style vocal distinctif et leur sens des harmonies, ont su capturer les émotions de l'époque, rendant leurs chansons intemporelles et toujours appréciées."
         },
@@ -8798,12 +8613,7 @@
         },
         {
           "question": "Quel instrument à vent emblématique est particulièrement mis en avant dans l'album 'Study in Brown' de Clifford Brown & Max Roach, sorti en 1955?",
-          "options": [
-            "Trompette",
-            "Saxophone",
-            "Trombone",
-            "Flûte"
-          ],
+          "options": ["Trompette", "Saxophone", "Trombone", "Flûte"],
           "correctAnswer": "Trompette",
           "trivia": "L'album 'Study in Brown' met en avant la trompette, instrument emblématique de Clifford Brown, qui est reconnu pour sa virtuosité et sa sonorité riche. Brown, avec son style innovant, a contribué à redéfinir le jeu de la trompette dans le jazz, et cet album en est un parfait exemple. Enregistré en 1955, 'Study in Brown' présente également Max Roach à la batterie, qui utilise des techniques de percussion sophistiquées pour accompagner Brown. L'album est souvent salué pour la qualité de ses arrangements et la synergie entre les musiciens, ce qui en fait un classique du jazz hard bop."
         },
@@ -8868,12 +8678,7 @@
         },
         {
           "question": "Quelle chanson de l'album 'Study in Brown' de Clifford Brown & Max Roach, sortie en 1955, a été particulièrement saluée pour son arrangement harmonique complexe et son interaction rythmique entre les musiciens?",
-          "options": [
-            "Joy Spring",
-            "Daahoud",
-            "Wee-Dot",
-            "Sandu"
-          ],
+          "options": ["Joy Spring", "Daahoud", "Wee-Dot", "Sandu"],
           "correctAnswer": "Joy Spring",
           "trivia": "La chanson 'Joy Spring' est souvent considérée comme l'un des morceaux les plus emblématiques de l'album 'Study in Brown'. Les critiques ont particulièrement loué la manière dont Clifford Brown et Max Roach interagissent musicalement, créant une conversation dynamique entre la trompette et la batterie. Ce morceau, composé par Brown lui-même, met en avant une structure harmonique riche et des variations rythmiques qui témoignent du jazz de l'époque. En plus de son succès critique, 'Joy Spring' est devenu un standard du jazz, interprété par de nombreux artistes au fil des décennies. L'album 'Study in Brown' est un jalon du hard bop et a joué un rôle clé dans l'évolution du jazz dans les années 1950."
         },
@@ -8926,12 +8731,7 @@
         },
         {
           "question": "Dans l'album 'Velvet Moods' de Billie Holiday sorti en 1956, quel symbole récurrent dans les paroles évoque le thème de la mélancolie?",
-          "options": [
-            "La pluie",
-            "Les fleurs",
-            "Les étoiles",
-            "La mer"
-          ],
+          "options": ["La pluie", "Les fleurs", "Les étoiles", "La mer"],
           "correctAnswer": "La pluie",
           "trivia": "Dans 'Velvet Moods', Billie Holiday utilise fréquemment le symbole de la pluie pour exprimer des émotions de tristesse et de nostalgie. Par exemple, dans certaines chansons de l'album, les paroles évoquent comment la pluie peut refléter l'état d'esprit de l'artiste. Cette métaphore est particulièrement puissante dans le jazz, un genre musical où les sentiments sont souvent intensifiés par des images évocatrices. L'album, qui est un mix de ballades et de standards, montre également comment les éléments naturels peuvent servir de toile de fond à des récits personnels. En 1956, Billie Holiday est à une période charnière de sa carrière, ses paroles et son interprétation transmettent une profondeur émotionnelle qui a marqué son œuvre."
         }
@@ -9056,12 +8856,7 @@
       "medium": [
         {
           "question": "Quel célèbre artiste a samplé la chanson 'Say Man' de Bo Diddley, tirée de l'album 'Go Bo Diddley' sorti en 1959?",
-          "options": [
-            "Kanye West",
-            "The Black Eyed Peas",
-            "JAY-Z",
-            "Dr. Dre"
-          ],
+          "options": ["Kanye West", "The Black Eyed Peas", "JAY-Z", "Dr. Dre"],
           "correctAnswer": "JAY-Z",
           "trivia": "La chanson 'Say Man', présente sur l'album 'Go Bo Diddley' de 1959, a été échantillonnée par JAY-Z dans sa chanson 'Takeover'. Cet album est reconnu pour son influence majeure sur le rock et le blues, et Bo Diddley est souvent considéré comme un pionnier du rock 'n' roll. 'Say Man' est particulièrement notable pour son rythme distinctif et ses éléments de spoken-word, qui ont inspiré de nombreux artistes par la suite. En plus de JAY-Z, d'autres artistes ont également reconnu l'impact de Bo Diddley dans leurs œuvres, témoignant de son héritage durable dans la musique."
         },
@@ -9407,12 +9202,7 @@
       "medium": [
         {
           "question": "Dans quel film ou émission de télévision 'The Sermon!' de Jimmy Smith a-t-il été particulièrement mis en avant, contribuant à sa renommée dans la culture populaire?",
-          "options": [
-            "La La Land",
-            "The Sopranos",
-            "The Office",
-            "Goodfellas"
-          ],
+          "options": ["La La Land", "The Sopranos", "The Office", "Goodfellas"],
           "correctAnswer": "The Sopranos",
           "trivia": "L'album 'The Sermon!' de Jimmy Smith, sorti en 1959, a été redécouvert par de nombreuses générations grâce à sa présence dans la série 'The Sopranos'. Cette série acclamée par la critique a utilisé la musique de Smith pour souligner des moments clés, renforçant ainsi l'impact du jazz sur la culture cinématographique et télévisuelle. En plus de cela, Jimmy Smith est souvent reconnu comme l'un des pionniers de l'orgue jazz, et 'The Sermon!' est considéré comme un de ses chefs-d'œuvre. L'album a également contribué à populariser l'orgue Hammond dans le jazz, un instrument qui a depuis lors été central dans de nombreux genres musicaux. Enfin, le style innovant de Smith a influencé de nombreux artistes dans les années qui ont suivi sa sortie."
         },
@@ -9489,23 +9279,13 @@
       "easy": [
         {
           "question": "En quelle année Miles Davis a-t-il sorti l'album 'Workin’ with the Miles Davis Quintet'?",
-          "options": [
-            "1957",
-            "1959",
-            "1961",
-            "1963"
-          ],
+          "options": ["1957", "1959", "1961", "1963"],
           "correctAnswer": "1959",
           "trivia": "L'album 'Workin’ with the Miles Davis Quintet' a été publié en 1959 et est souvent considéré comme un des grands classiques du jazz. Cet album fait partie d'une série d'enregistrements réalisés par le quintette de Miles Davis, qui incluait des musiciens talentueux tels que John Coltrane et Bill Evans. Il présente un mélange de compositions originales et de standards du jazz, illustrant le style innovant de Davis à cette époque. En 1959, Miles Davis était à l'apogée de sa carrière, influençant le développement du jazz moderne avec ses explorations sonores."
         },
         {
           "question": "En quelle année Miles Davis a-t-il sorti l'album 'Workin’ with the Miles Davis Quintet', qui a marqué une étape importante dans le développement du jazz moderne?",
-          "options": [
-            "1955",
-            "1958",
-            "1959",
-            "1960"
-          ],
+          "options": ["1955", "1958", "1959", "1960"],
           "correctAnswer": "1959",
           "trivia": "L'album 'Workin’ with the Miles Davis Quintet' a été publié en 1959, une période clé pour le jazz, où Miles Davis a révolutionné le genre avec son approche innovante du bebop et du cool jazz. Cet enregistrement fait partie d'une série d'albums emblématiques réalisés avec son quintette, qui incluait des musiciens de talent comme John Coltrane et Wayne Shorter. En intégrant des éléments de la musique classique et du blues, Davis a contribué à redéfinir le jazz, le rendant accessible à un public plus large. Cet album est souvent cité comme un exemple de la virtuosité et de la créativité qui caractérisent le travail de Davis durant cette époque."
         },
@@ -9676,12 +9456,7 @@
       "hard": [
         {
           "question": "Dans l'album 'Ella Fitzgerald Sings the Irving Berlin Song Book' de 1958, quel symbole récurrent dans les paroles des chansons d'Irving Berlin représente souvent le rêve américain et l'aspiration à une vie meilleure ?",
-          "options": [
-            "La mélodie du jazz",
-            "L'étoile",
-            "Le train",
-            "La danse"
-          ],
+          "options": ["La mélodie du jazz", "L'étoile", "Le train", "La danse"],
           "correctAnswer": "L'étoile",
           "trivia": "L'étoile, souvent utilisée dans les paroles des chansons d'Irving Berlin, symbolise l'espoir et l'aspiration, des thèmes centraux dans l'œuvre de Berlin, particulièrement dans des titres comme 'Blue Skies' et 'White Christmas'. L'album 'Ella Fitzgerald Sings the Irving Berlin Song Book' est une célébration de ces thèmes et de l'héritage musical de Berlin, qui a su capturer l'essence du rêve américain à travers sa musique. En 1958, Ella Fitzgerald, avec sa voix unique et son interprétation émotive, a rendu hommage à ces idées, renforçant le lien entre les paroles et l'art visuel de l'album, qui évoque également ces aspirations. Les chansons de Berlin ont souvent été des réflexions sur le bonheur, la perte et l'espoir, ce qui en fait une belle toile de fond pour l'interprétation de Fitzgerald."
         },
@@ -9957,12 +9732,7 @@
       "easy": [
         {
           "question": "En quelle année Duke Ellington & Johnny Hodges ont-ils sorti l'album 'Back to Back: Duke Ellington and Johnny Hodges Play the Blues'?",
-          "options": [
-            "1958",
-            "1959",
-            "1960",
-            "1961"
-          ],
+          "options": ["1958", "1959", "1960", "1961"],
           "correctAnswer": "1959",
           "trivia": "L'album 'Back to Back: Duke Ellington and Johnny Hodges Play the Blues' a été publié en 1959, un moment clé dans la carrière de ces deux légendes du jazz. Duke Ellington, célèbre pour ses compositions orchestrales et son style unique, a collaboré avec Johnny Hodges, un saxophoniste alto reconnu pour son son riche et expressif. Cet album se distingue par son exploration des thèmes blues, mettant en avant l'harmonie entre les talents d'Ellington et de Hodges. En plus de leur collaboration fructueuse, ils ont tous deux joué un rôle essentiel dans le développement du jazz dans les années 30 et 40, ce qui a influencé de nombreux musiciens par la suite."
         },
@@ -9979,12 +9749,7 @@
         },
         {
           "question": "Quel instrument de musique est principalement joué par Johnny Hodges sur l'album 'Back to Back: Duke Ellington and Johnny Hodges Play the Blues' de Duke Ellington & Johnny Hodges sorti en 1959?",
-          "options": [
-            "Saxophone alto",
-            "Piano",
-            "Trompette",
-            "Contrebasse"
-          ],
+          "options": ["Saxophone alto", "Piano", "Trompette", "Contrebasse"],
           "correctAnswer": "Saxophone alto",
           "trivia": "Johnny Hodges est surtout connu pour son jeu au saxophone alto, instrument phare de son style unique. Sur l'album 'Back to Back: Duke Ellington and Johnny Hodges Play the Blues', sorti en 1959, Hodges utilise son saxophone pour interpréter des mélodies bluesy envoûtantes, illustrant son talent exceptionnel. Il a été un membre clé de l'orchestre de Duke Ellington pendant de nombreuses années, contribuant à créer une sonorité distinctive qui a marqué l'histoire du jazz. Cet album est l'une des nombreuses collaborations réussies entre Ellington et Hodges, mettant en avant leur capacité à fusionner leurs styles respectifs tout en rendant hommage à la tradition blues."
         }
@@ -10096,12 +9861,7 @@
         },
         {
           "question": "En quelle année Big Bill Broonzy a-t-il fait ses premières performances de chansons folkloriques qui ont conduit à l'album 'Big Bill Broonzy Sings Folk Songs'?",
-          "options": [
-            "1949",
-            "1956",
-            "1953",
-            "1950"
-          ],
+          "options": ["1949", "1956", "1953", "1950"],
           "correctAnswer": "1956",
           "trivia": "L'album 'Big Bill Broonzy Sings Folk Songs' a été publié en 1956, et c'est cette même année que Big Bill Broonzy a commencé à se concentrer sur le répertoire folk, notamment lors de ses concerts. Bien que Broonzy ait été actif dans le blues depuis les années 1920, sa transition vers des performances de folk a marqué un tournant dans sa carrière. En plus de son style unique de guitare et de sa voix puissante, il a su capturer l'essence des traditions folkloriques américaines, rendant cet album significatif dans la préservation de ce genre musical. Ce tournant a également coïncidé avec un regain d'intérêt pour la musique folklorique dans les années 1950."
         }
@@ -10226,12 +9986,7 @@
       "medium": [
         {
           "question": "Quel musicien de jazz renommé a collaboré avec Sonny Clark sur l'album 'Cool Struttin’' sorti en 1958?",
-          "options": [
-            "Art Davis",
-            "Donald Byrd",
-            "Lee Morgan",
-            "Elvin Jones"
-          ],
+          "options": ["Art Davis", "Donald Byrd", "Lee Morgan", "Elvin Jones"],
           "correctAnswer": "Donald Byrd",
           "trivia": "Sonny Clark a enregistré l'album 'Cool Struttin’' en 1958 avec plusieurs musiciens de jazz influents, parmi lesquels se trouvait le trompettiste Donald Byrd. Cet album, qui a été publié sous le label Blue Note, est considéré comme un classique du hard bop. Donald Byrd, qui a été un collaborateur fréquent de Clark, a apporté sa virtuosité et son style distinctif à l'album, contribuant ainsi à sa renommée. En plus de Clark et Byrd, l'album a également présenté d'autres artistes talentueux tels que le saxophoniste Wayne Shorter et le contrebassiste Sam Jones, renforçant son impact dans le monde du jazz."
         },
@@ -10517,12 +10272,7 @@
         },
         {
           "question": "En quelle année l'album 'Relaxin’ with the Miles Davis Quintet' de Miles Davis a-t-il atteint le statut de disque d'or aux États-Unis, marquant ainsi une étape importante dans sa carrière ?",
-          "options": [
-            "1959",
-            "1961",
-            "1963",
-            "1965"
-          ],
+          "options": ["1959", "1961", "1963", "1965"],
           "correctAnswer": "1961",
           "trivia": "L'album 'Relaxin’ with the Miles Davis Quintet' a été initialement publié en 1958, mais il a atteint le statut de disque d'or en 1961. Ce disque est considéré comme l'un des sommets de la carrière de Miles Davis et a contribué à établir le jazz modal comme une forme d'art respectée. En plus de son succès commercial, l'album est apprécié pour ses compositions mémorables et la performance exceptionnelle de son quintette, incluant des musiciens de renom comme John Coltrane et Red Garland. Cette réussite a également été un tournant dans la reconnaissance du jazz en tant que musique populaire, et a ouvert la voie à d'autres albums emblématiques dans le genre."
         }
@@ -10553,12 +10303,7 @@
         },
         {
           "question": "En quelle année l'album 'Ella Fitzgerald Sings the George and Ira Gershwin Song Book' d'Ella Fitzgerald a-t-il été publié?",
-          "options": [
-            "1956",
-            "1959",
-            "1961",
-            "1958"
-          ],
+          "options": ["1956", "1959", "1961", "1958"],
           "correctAnswer": "1959",
           "trivia": "L'album 'Ella Fitzgerald Sings the George and Ira Gershwin Song Book' a été publié en 1959 et représente une œuvre emblématique de la carrière d'Ella Fitzgerald. Cet album comprend des chansons célèbres écrites par le duo de compositeurs George et Ira Gershwin, dont des classiques tels que 'Summertime' et 'I Got Rhythm'. En plus de sa sortie en 1959, cet album a été bien accueilli par la critique et a contribué à solidifier la réputation d'Ella Fitzgerald en tant que l'une des plus grandes chanteuses de jazz de tous les temps. Le projet a également été enregistré avec l'orchestre de Nelson Riddle, ce qui a ajouté une touche orchestrale distinctive aux interprétations d'Ella."
         },
@@ -10740,12 +10485,7 @@
         },
         {
           "question": "Quel fut le classement le plus élevé atteint par l'album 'The Kingston Trio' de The Kingston Trio dans le Billboard 200 en 1958?",
-          "options": [
-            "1",
-            "3",
-            "5",
-            "8"
-          ],
+          "options": ["1", "3", "5", "8"],
           "correctAnswer": "1",
           "trivia": "L'album 'The Kingston Trio' a atteint la première place du Billboard 200 en 1958, marquant ainsi un tournant significatif dans la carrière du groupe. Leur style folk, combiné à des harmonies vocales raffinées, a captivé un large public, contribuant à la popularité du folk américain. Cet album a également permis de populariser des chansons emblématiques comme 'Tom Dooley', qui a eu un impact culturel considérable. En plus d'être un énorme succès commercial, cet album a été un vecteur de la renaissance de la musique folk dans les années 1960. Les Kingston Trio ont ainsi ouvert la voie à de nombreux artistes de folk qui ont suivi, consolidant leur héritage dans l'histoire de la musique."
         },
@@ -10798,12 +10538,7 @@
         },
         {
           "question": "En quelle année Erroll Garner a-t-il sorti l'album 'Concert by the Sea'?",
-          "options": [
-            "1955",
-            "1952",
-            "1960",
-            "1948"
-          ],
+          "options": ["1955", "1952", "1960", "1948"],
           "correctAnswer": "1955",
           "trivia": "L'album 'Concert by the Sea' d'Erroll Garner est sorti en 1955 et est souvent considéré comme l'un des meilleurs enregistrements de jazz en direct. Ce disque a été capturé lors d'un concert au Curran Theatre de San Francisco, et il a contribué à populariser le style unique de Garner, qui mêle le jazz classique et le swing. 'Concert by the Sea' est également célèbre pour sa qualité d'enregistrement, qui a permis de capturer l'énergie du public et l'improvisation de l'artiste. Ce concert a attiré l'attention sur Garner, qui était déjà un pianiste reconnu, et a aidé à établir sa réputation à l'échelle nationale."
         }
@@ -10963,12 +10698,7 @@
       "hard": [
         {
           "question": "En quelle année la chanson 'Fever' de Little Willie John a-t-elle été utilisée dans un événement sportif marquant, notamment lors d'un match de la NBA, contribuant à sa popularité dans la culture sportive?",
-          "options": [
-            "1954",
-            "1956",
-            "1958",
-            "1960"
-          ],
+          "options": ["1954", "1956", "1958", "1960"],
           "correctAnswer": "1956",
           "trivia": "La chanson 'Fever', interprétée par Little Willie John et sortie sur l'album éponyme en 1956, a rapidement gagné en popularité et a été adoptée dans divers événements culturels et sportifs. En 1956, elle a été utilisée lors de plusieurs matchs de la NBA, contribuant à établir un lien entre la musique et le sport, et à rendre la chanson emblématique. Ce phénomène a également été renforcé par la capacité de la chanson à évoquer des émotions intenses, ce qui la rendait idéale pour les moments clés des événements sportifs. À l'époque, 'Fever' a été reconnu non seulement pour son rythme entraînant, mais aussi pour ses paroles captivantes, qui ont su séduire le public dans un contexte bien plus large que la simple scène musicale."
         },
@@ -11032,12 +10762,7 @@
         },
         {
           "question": "En quelle année Lightnin’ Hopkins a-t-il sorti son album 'Country Blues', qui a marqué un tournant dans la popularité de la musique blues?",
-          "options": [
-            "1957",
-            "1959",
-            "1961",
-            "1963"
-          ],
+          "options": ["1957", "1959", "1961", "1963"],
           "correctAnswer": "1959",
           "trivia": "Lightnin’ Hopkins a sorti 'Country Blues' en 1959, un album qui a contribué à la popularité croissante du blues dans les années 1960. Cet album est souvent considéré comme un chef-d'œuvre de son répertoire, mettant en avant son style unique de guitare et sa voix expressive. Hopkins est reconnu pour sa capacité à capturer l'essence de la vie rurale et des luttes personnelles à travers ses chansons. En plus de 'Country Blues', il a enregistré de nombreux albums qui ont influencé des artistes de blues et de rock 'n' roll, consolidant ainsi son statut de légende dans la musique américaine."
         }
@@ -11045,12 +10770,7 @@
       "medium": [
         {
           "question": "Dans l'album 'Country Blues' de Lightnin’ Hopkins, quel symbole récurrent dans les paroles évoque souvent la lutte contre l'oppression et la recherche de liberté?",
-          "options": [
-            "La route",
-            "L'eau",
-            "Le train",
-            "Le feu"
-          ],
+          "options": ["La route", "L'eau", "Le train", "Le feu"],
           "correctAnswer": "La route",
           "trivia": "Dans 'Country Blues', Lightnin’ Hopkins utilise fréquemment le symbole de la route pour représenter la quête de liberté et d'évasion, un thème central dans le blues. Les routes évoquent non seulement le voyage physique, mais aussi le parcours émotionnel et spirituel de l'artiste. Un autre fait marquant est que l'album, sorti en 1959, reflète les luttes sociopolitiques de l'époque, en particulier dans le contexte des droits civiques aux États-Unis. De plus, Lightnin’ Hopkins, avec son style unique de guitare et ses paroles poignantes, a su capturer l'essence de la vie des Afro-Américains dans le Sud, faisant de cet album un incontournable du genre."
         },
@@ -11361,12 +11081,7 @@
       "easy": [
         {
           "question": "En quelle année Bill Haley & His Comets ont-ils sorti l'album 'Rock Around the Clock', qui a joué un rôle clé dans la popularisation du rock and roll ?",
-          "options": [
-            "1954",
-            "1956",
-            "1958",
-            "1960"
-          ],
+          "options": ["1954", "1956", "1958", "1960"],
           "correctAnswer": "1956",
           "trivia": "L'album 'Rock Around the Clock' a été publié en 1956 par Bill Haley & His Comets et est souvent considéré comme un tournant dans l'histoire de la musique rock. Le titre phare de l'album, 'Rock Around the Clock', a connu un immense succès, atteignant la première place des charts américains et devenant un hymne pour la jeunesse de l'époque. Cet album a contribué à faire connaître le rock and roll à un public plus large et a établi Bill Haley & His Comets comme l'un des pionniers du genre. En outre, la chanson a été utilisée dans le film 'Blackboard Jungle', ce qui a également aidé à propulser sa popularité."
         },
@@ -11500,12 +11215,7 @@
         },
         {
           "question": "Quel instrument Mose Allison utilise-t-il principalement dans l'album 'Back Country Suite' sorti en 1957?",
-          "options": [
-            "Saxophone",
-            "Piano",
-            "Guitare",
-            "Batterie"
-          ],
+          "options": ["Saxophone", "Piano", "Guitare", "Batterie"],
           "correctAnswer": "Piano",
           "trivia": "Dans 'Back Country Suite', Mose Allison se distingue par son utilisation du piano, qui est l'instrument principal de l'album. Cet album, sorti en 1957, illustre le style unique d'Allison, mêlant jazz, blues et éléments de musique country. En plus de son talent de pianiste, il est également reconnu pour sa voix distinctive et ses paroles poétiques. 'Back Country Suite' a été salué pour son approche novatrice, et plusieurs morceaux de l'album, tels que 'Back Country Suite' et 'The Seventh Son', sont devenus emblématiques de son répertoire. Cet album a contribué à établir Mose Allison comme une figure influente dans le monde de la musique américaine."
         }

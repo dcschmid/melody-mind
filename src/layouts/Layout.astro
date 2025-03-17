@@ -269,6 +269,7 @@ const t = useTranslations(lang);
         transform: translateX(-50%);
 
         padding: var(--padding-small) var(--padding-medium);
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
 
         font-size: var(--button-font-size);
         font-weight: bold;
@@ -276,7 +277,6 @@ const t = useTranslations(lang);
         text-decoration: none;
 
         background: var(--highlight-color);
-        border-radius: 0 0 var(--border-radius) var(--border-radius);
         box-shadow: var(--box-shadow);
 
         transition: top var(--transition-speed);
@@ -298,7 +298,6 @@ const t = useTranslations(lang);
         justify-content: space-between;
 
         margin-bottom: var(--padding-medium);
-
         border-radius: var(--border-radius);
 
         @media (width >= 768px) {
@@ -356,9 +355,9 @@ const t = useTranslations(lang);
         display: inline-block;
 
         padding: 0;
+        border: none;
 
         background: none;
-        border: none;
 
         transition: transform var(--transition-speed);
       }
@@ -371,12 +370,12 @@ const t = useTranslations(lang);
         min-width: var(--min-touch-target);
         min-height: var(--min-touch-target);
         padding: var(--padding-small);
+        border-radius: var(--border-radius);
 
         color: var(--button-text-color);
         text-decoration: none;
 
         background-color: var(--highlight-color);
-        border-radius: var(--border-radius);
         box-shadow: var(--box-shadow);
 
         transition: all var(--transition-speed);
@@ -427,6 +426,8 @@ const t = useTranslations(lang);
         // Neue Größen-Eigenschaften
         min-height: var(--min-touch-target);
         padding: var(--padding-small) var(--padding-large);
+        border: none;
+        border-radius: var(--border-radius);
 
         font-size: var(--button-font-size);
         color: var(--button-text-color);
@@ -434,8 +435,6 @@ const t = useTranslations(lang);
 
         opacity: 1;
         background-color: var(--highlight-color);
-        border: none;
-        border-radius: var(--border-radius);
         box-shadow: var(--box-shadow);
 
         transition: all var(--transition-speed);
@@ -473,9 +472,9 @@ const t = useTranslations(lang);
         height: 1px;
         margin: -1px;
         padding: 0;
+        border: 0;
 
         clip: rect(0, 0, 0, 0);
-        border: 0;
       }
 
       .menu {
@@ -513,6 +512,8 @@ const t = useTranslations(lang);
           width: 100%;
           margin-bottom: var(--padding-small);
           padding: var(--padding-medium);
+          border: none;
+          border-radius: var(--border-radius);
 
           font-size: var(--body-font-size);
           color: var(--text-color);
@@ -520,8 +521,6 @@ const t = useTranslations(lang);
           text-decoration: none;
 
           background-color: transparent;
-          border: none;
-          border-radius: var(--border-radius);
 
           transition: background-color var(--transition-speed);
 
@@ -552,13 +551,13 @@ const t = useTranslations(lang);
 
           width: 40px;
           height: 40px;
+          border: none;
+          border-radius: 50%;
 
           font-size: 2rem;
           color: var(--text-color);
 
           background-color: transparent;
-          border: none;
-          border-radius: 50%;
 
           transition: background-color var(--transition-speed);
 

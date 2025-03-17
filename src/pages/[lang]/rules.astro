@@ -29,16 +29,16 @@ const t = useTranslations(lang);
 
       <ul class="list">
         <li>
-          <strong>{t("category.difficulty.easy")}</strong>: 10 Fragen pro Runde. Perfekt, um dein Wissen
-          aufzufrischen und Spaß zu haben.
+          <strong>{t("category.difficulty.easy")}</strong>: 10 Fragen pro Runde.
+          Perfekt, um dein Wissen aufzufrischen und Spaß zu haben.
         </li>
         <li>
-          <strong>{t("category.difficulty.medium")}</strong>: 15 Fragen pro Runde. Eine Herausforderung für
-          fortgeschrittene Musikliebhaber.
+          <strong>{t("category.difficulty.medium")}</strong>: 15 Fragen pro
+          Runde. Eine Herausforderung für fortgeschrittene Musikliebhaber.
         </li>
         <li>
-          <strong>{t("category.difficulty.hard")}</strong>: 20 Fragen pro Runde. Nur für echte
-          Musikkenner!
+          <strong>{t("category.difficulty.hard")}</strong>: 20 Fragen pro Runde.
+          Nur für echte Musikkenner!
         </li>
       </ul>
 
@@ -82,8 +82,12 @@ const t = useTranslations(lang);
 
       <ul class="list">
         <li><strong>{t("category.difficulty.easy")}</strong>: Musik-Novize.</li>
-        <li><strong>{t("category.difficulty.medium")}</strong>: Musik-Meister.</li>
-        <li><strong>{t("category.difficulty.hard")}</strong>: Musik-Legende.</li>
+        <li>
+          <strong>{t("category.difficulty.medium")}</strong>: Musik-Meister.
+        </li>
+        <li>
+          <strong>{t("category.difficulty.hard")}</strong>: Musik-Legende.
+        </li>
       </ul>
     </section>
 
@@ -135,8 +139,8 @@ const t = useTranslations(lang);
 
     .rulesContainer {
       padding: var(--padding-large);
-      background-color: var(--secondary-color);
       border-radius: var(--border-radius);
+      background-color: var(--secondary-color);
       box-shadow: var(--box-shadow);
 
       @media (width <= 768px) {

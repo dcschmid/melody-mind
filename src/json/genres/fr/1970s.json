@@ -268,12 +268,7 @@
         },
         {
           "question": "Quel artiste ou groupe a affirmé que l'album 'Rumours' de Fleetwood Mac a influencé sa musique et son écriture de chansons?",
-          "options": [
-            "The Eagles",
-            "Nirvana",
-            "Taylor Swift",
-            "Coldplay"
-          ],
+          "options": ["The Eagles", "Nirvana", "Taylor Swift", "Coldplay"],
           "correctAnswer": "Taylor Swift",
           "trivia": "L'album 'Rumours' de Fleetwood Mac, sorti en 1977, a profondément influencé de nombreux artistes au fil des décennies. Taylor Swift, en particulier, a cité cet album comme une source d'inspiration pour son approche de l'écriture de chansons. 'Rumours' est reconnu pour sa production soignée et ses harmonies vocales, deux éléments que Swift a intégrés dans sa propre musique. De plus, Fleetwood Mac a réussi à capturer des émotions brutes à travers des récits personnels, un aspect que l'on retrouve également dans les œuvres de Swift. En plus de cela, l'album a remporté le Grammy Award pour l'Album de l'Année et continue d'être considéré comme l'un des meilleurs albums de tous les temps."
         }
@@ -398,12 +393,7 @@
       "medium": [
         {
           "question": "En quelle année l'album 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars' de David Bowie a-t-il été inclus dans le classement des 500 plus grands albums de tous les temps par Rolling Stone, marquant ainsi une reconnaissance académique significative ?",
-          "options": [
-            "1974",
-            "1987",
-            "2003",
-            "2012"
-          ],
+          "options": ["1974", "1987", "2003", "2012"],
           "correctAnswer": "2003",
           "trivia": "L'album 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars' de David Bowie a été inclus dans la liste des 500 plus grands albums de tous les temps par Rolling Stone en 2003, renforçant ainsi son statut culte dans la musique rock. Considéré comme un chef-d'œuvre conceptuel, cet album a exploré des thèmes de la sexualité, de l'identité et de l'extraterrestre, ce qui a eu un impact significatif sur la culture populaire et la musique. De plus, l'album a été salué pour son innovation musicale, combinant glam rock et éléments de théâtre, et a permis à David Bowie de se forger une identité artistique unique. Il est souvent cité comme une influence majeure pour de nombreux artistes contemporains."
         },
@@ -420,12 +410,7 @@
         },
         {
           "question": "Quel artiste a collaboré avec David Bowie sur l'album 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars', en jouant de la guitare sur plusieurs morceaux ?",
-          "options": [
-            "Mick Ronson",
-            "Brian Eno",
-            "Jeff Beck",
-            "Tony Visconti"
-          ],
+          "options": ["Mick Ronson", "Brian Eno", "Jeff Beck", "Tony Visconti"],
           "correctAnswer": "Mick Ronson",
           "trivia": "Mick Ronson, guitariste talentueux, a joué un rôle essentiel sur l'album 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars', sorti en 1972. Sa guitare distinctive et ses arrangements ont contribué à façonner le son glam rock qui caractérise cet album emblématique. En plus de sa contribution instrumentale, Ronson a également participé à l'écriture de certaines chansons et a joué un rôle clé dans le groupe 'The Spiders from Mars'. Cet album a marqué un tournant dans la carrière de David Bowie, le propulsant au rang de superstar internationale et influençant de nombreux artistes par la suite."
         }
@@ -491,12 +476,7 @@
         },
         {
           "question": "Quelle ville a accueilli l'un des concerts mémorables des Rolling Stones lors de leur tournée de promotion de l'album 'Exile on Main St.' en 1972?",
-          "options": [
-            "Los Angeles",
-            "New York",
-            "Londres",
-            "Paris"
-          ],
+          "options": ["Los Angeles", "New York", "Londres", "Paris"],
           "correctAnswer": "Los Angeles",
           "trivia": "Lors de la tournée de 1972 pour promouvoir 'Exile on Main St.', The Rolling Stones ont donné des concerts emblématiques, notamment à Los Angeles. Ce concert a eu lieu au Memorial Coliseum et a attiré une foule massive, marquant l'un des moments forts de la tournée. 'Exile on Main St.' est souvent considéré comme l'un des meilleurs albums de l'histoire du rock, et sa tournée a renforcé la renommée des Stones en tant que groupe de scène légendaire. En plus de Los Angeles, la tournée a également fait escale dans d'autres grandes villes comme New York et Chicago, contribuant à la mythologie du groupe."
         },
@@ -572,12 +552,7 @@
         },
         {
           "question": "Dans quel film emblématique sorti dans les années 1970 peut-on entendre une chanson de l'album 'Exile on Main St.' de The Rolling Stones, mettant en avant le thème de la rébellion et de la jeunesse ?",
-          "options": [
-            "Easy Rider",
-            "The Graduate",
-            "Woodstock",
-            "Taxi Driver"
-          ],
+          "options": ["Easy Rider", "The Graduate", "Woodstock", "Taxi Driver"],
           "correctAnswer": "Easy Rider",
           "trivia": "La chanson 'Sweet Virginia' de l'album 'Exile on Main St.' des Rolling Stones a été utilisée dans le film 'Easy Rider', sorti en 1969, qui est souvent considéré comme un symbole de la contre-culture des années 60 et 70. Ce film, réalisé par Dennis Hopper, explore des thèmes de liberté et de rébellion, qui résonnent fortement avec l'esprit de l'album des Rolling Stones. 'Exile on Main St.' est connu pour sa fusion de rock, de blues et de country, et a été enregistré principalement à Villa Nellcôte, une maison de campagne dans le sud de la France. L'album, bien que controversé à sa sortie, est aujourd'hui célébré comme l'un des chefs-d'œuvre du groupe."
         }
@@ -831,12 +806,7 @@
       "easy": [
         {
           "question": "Quel artiste célèbre a fortement inspiré la chanson 'London Calling' de The Clash, extraite de leur album éponyme sorti en 1979 ?",
-          "options": [
-            "Bob Dylan",
-            "Elvis Presley",
-            "The Beatles",
-            "The Who"
-          ],
+          "options": ["Bob Dylan", "Elvis Presley", "The Beatles", "The Who"],
           "correctAnswer": "The Who",
           "trivia": "La chanson 'London Calling' de The Clash, tirée de l'album du même nom sorti en 1979, a été influencée par le style énergique et les thèmes sociaux abordés par le groupe britannique The Who. Ce dernier est connu pour ses performances dynamiques et ses paroles engagées, ce qui a laissé une empreinte sur le punk rock. En outre, 'London Calling' aborde des sujets tels que le désespoir et la rébellion, des thèmes également présents dans la musique de The Who. L'album 'London Calling' est souvent considéré comme l'un des meilleurs albums de tous les temps et a marqué un tournant dans l'histoire de la musique punk, tout en intégrant des éléments de reggae et de ska."
         },
@@ -1438,12 +1408,7 @@
         },
         {
           "question": "Quel clip vidéo emblématique de Black Sabbath est associé à l'album 'Paranoid' sorti en 1970?",
-          "options": [
-            "Iron Man",
-            "War Pigs",
-            "Paranoid",
-            "Fairies Wear Boots"
-          ],
+          "options": ["Iron Man", "War Pigs", "Paranoid", "Fairies Wear Boots"],
           "correctAnswer": "Paranoid",
           "trivia": "Le clip vidéo de 'Paranoid' est l'un des plus célèbres de Black Sabbath, illustrant la musique intense et les thèmes sombres de l'album sorti en 1970. 'Paranoid' est souvent considéré comme l'un des morceaux les plus emblématiques du groupe, contribuant à sa popularité et à son influence sur le genre du heavy metal. L'album a été un succès commercial, atteignant la première place des charts britanniques et devenant l'un des disques les plus vendus de l'histoire du rock. En plus de 'Paranoid', d'autres chansons comme 'Iron Man' et 'War Pigs' sont également devenues des classiques, mais le clip de 'Paranoid' a particulièrement marqué l'imaginaire collectif des fans."
         }
@@ -1473,12 +1438,7 @@
         },
         {
           "question": "Quel clip musical emblématique, issu de l'album 'Paranoid' de Black Sabbath, a contribué à populariser le groupe dans les années 1970 ?",
-          "options": [
-            "Iron Man",
-            "War Pigs",
-            "Fairies Wear Boots",
-            "Paranoid"
-          ],
+          "options": ["Iron Man", "War Pigs", "Fairies Wear Boots", "Paranoid"],
           "correctAnswer": "Paranoid",
           "trivia": "Le clip de 'Paranoid', le titre éponyme de l'album 'Paranoid' sorti en 1970, est l'un des éléments visuels les plus reconnaissables de Black Sabbath. Ce morceau, qui est devenu un hymne du heavy metal, a été accompagné d'une performance live qui a captivé le public, contribuant à la notoriété du groupe à l'époque. En effet, 'Paranoid' est non seulement l'une des chansons les plus emblématiques de l'album, mais elle a également joué un rôle crucial dans l'essor du genre musical dans les années 70. L'album lui-même a été enregistré en seulement quelques jours, et il a rapidement gravi les charts, atteignant une place élevée dans les classements britanniques, marquant un tournant pour Black Sabbath dans l'histoire du rock."
         }
@@ -1555,12 +1515,7 @@
         },
         {
           "question": "Quelle chanson de l'album 'Blue' de Joni Mitchell a été reprise par plusieurs artistes, dont James Taylor et Nina Simone ?",
-          "options": [
-            "A Case of You",
-            "River",
-            "All I Want",
-            "My Old Man"
-          ],
+          "options": ["A Case of You", "River", "All I Want", "My Old Man"],
           "correctAnswer": "A Case of You",
           "trivia": "La chanson 'A Case of You', tirée de l'album 'Blue' de Joni Mitchell sorti en 1971, est l'une des plus emblématiques de son répertoire. Cette pièce a été reprise par de nombreux artistes, dont James Taylor, qui a ajouté sa propre touche au morceau, et Nina Simone, qui a également chanté cette chanson avec une interprétation unique. L'album 'Blue' est souvent salué pour sa profondeur émotionnelle et sa mélodie poignante, ce qui en fait une source d'inspiration pour d'autres musiciens. En plus de son succès critique, 'Blue' a été un moment clé dans la carrière de Joni Mitchell, marquant son évolution en tant que compositrice et interprète. La capacité de cette chanson à toucher un large éventail d'auditeurs témoigne de l'universalité des thèmes abordés par Mitchell."
         }
@@ -2327,12 +2282,7 @@
         },
         {
           "question": "Lors d'une performance live emblématique, quelle chanson de l'album 'Sticky Fingers' des Rolling Stones a été interprétée au concert de Madison Square Garden en 1971, marquant un moment fort de leur tournée ?",
-          "options": [
-            "Brown Sugar",
-            "Wild Horses",
-            "Bitch",
-            "Dead Flowers"
-          ],
+          "options": ["Brown Sugar", "Wild Horses", "Bitch", "Dead Flowers"],
           "correctAnswer": "Brown Sugar",
           "trivia": "La chanson 'Brown Sugar' a été interprétée par The Rolling Stones lors de leur concert mémorable au Madison Square Garden en 1971, représentant l'un des moments les plus marquants de leur tournée à l'époque. Ce titre, qui aborde des thèmes controversés liés à l'esclavage et à la sexualité, a connu un grand succès et est devenu l'un des classiques du groupe. L'album 'Sticky Fingers', sorti en avril 1971, a également introduit des éléments innovants dans le rock, notamment grâce à son utilisation de la slide guitar. Les performances live de 'Brown Sugar' sont particulièrement notables pour l'énergie brute et le charisme de Mick Jagger, qui a captivé le public avec sa présence scénique."
         }
@@ -2409,12 +2359,7 @@
         },
         {
           "question": "Dans quel pays Paul McCartney & Wings ont-ils enregistré leur album 'Band on the Run' en 1973, après avoir quitté les États-Unis ?",
-          "options": [
-            "France",
-            "Nigeria",
-            "Jamaïque",
-            "Canada"
-          ],
+          "options": ["France", "Nigeria", "Jamaïque", "Canada"],
           "correctAnswer": "Nigeria",
           "trivia": "L'album 'Band on the Run' de Paul McCartney & Wings a été principalement enregistré à Lagos, au Nigeria. Ce choix de lieu a été motivé par le désir de s'éloigner des contraintes de l'industrie musicale britannique et américaine. Les sessions d'enregistrement ont eu lieu dans des conditions parfois difficiles, mais ont permis au groupe de créer des morceaux emblématiques tels que 'Jet' et 'Band on the Run'. De plus, le contexte culturel vibrant du Nigeria a influencé le son et l'énergie de l'album, le rendant unique dans la discographie de McCartney. 'Band on the Run' est devenu l'un des albums les plus acclamés de Paul McCartney & Wings, atteignant des sommets dans les classements internationaux."
         }
@@ -2784,12 +2729,7 @@
         },
         {
           "question": "Quel a été le classement le plus élevé atteint par l'album 'Hunky Dory' de David Bowie dans le classement des albums britanniques en 1971?",
-          "options": [
-            "Numéro 1",
-            "Numéro 3",
-            "Numéro 5",
-            "Numéro 12"
-          ],
+          "options": ["Numéro 1", "Numéro 3", "Numéro 5", "Numéro 12"],
           "correctAnswer": "Numéro 3",
           "trivia": "L'album 'Hunky Dory' de David Bowie a atteint la troisième place des charts britanniques, un succès considérable qui a contribué à établir Bowie comme une figure majeure de la musique rock. Sorti en décembre 1971, cet album a été salué pour sa créativité et ses innovations musicales, notamment l'utilisation de divers styles allant du folk au glam rock. Parmi les titres emblématiques de l'album figure 'Changes', qui est devenu un hymne générationnel et a également bien performé dans les classements internationaux. En plus de son succès commercial, 'Hunky Dory' est souvent considéré comme l'un des meilleurs albums de tous les temps, consolidant la réputation de Bowie en tant qu'artiste avant-gardiste."
         },
@@ -3380,12 +3320,7 @@
         },
         {
           "question": "Quel a été le classement le plus élevé de l'album 'Imagine' de John Lennon dans le Billboard 200 lors de sa sortie en 1971?",
-          "options": [
-            "1er",
-            "3ème",
-            "5ème",
-            "10ème"
-          ],
+          "options": ["1er", "3ème", "5ème", "10ème"],
           "correctAnswer": "1er",
           "trivia": "L'album 'Imagine' de John Lennon, sorti en 1971, a atteint la première place du Billboard 200, marquant ainsi un immense succès commercial pour l'artiste. Ce disque emblématique a non seulement été acclamé par la critique, mais il a également duré 6 semaines en tête des charts américains. 'Imagine' est souvent considéré comme l'un des albums les plus influents de l'histoire de la musique, avec des thèmes universels de paix et d'harmonie qui ont résonné auprès d'un large public. En plus de son succès commercial, l'album a également été récompensé par plusieurs distinctions, consolidant ainsi la stature de John Lennon en tant qu'artiste solo après sa carrière avec les Beatles."
         }
@@ -3497,12 +3432,7 @@
         },
         {
           "question": "Quel artiste ou groupe a cité l'album 'Highway to Hell' d'AC/DC comme une influence majeure sur leur propre musique, notamment dans le genre hard rock?",
-          "options": [
-            "Metallica",
-            "Guns N' Roses",
-            "Nirvana",
-            "Def Leppard"
-          ],
+          "options": ["Metallica", "Guns N' Roses", "Nirvana", "Def Leppard"],
           "correctAnswer": "Guns N' Roses",
           "trivia": "L'album 'Highway to Hell' d'AC/DC, sorti en 1979, a eu un impact considérable sur de nombreux artistes du rock, en particulier dans le genre hard rock. Guns N' Roses a souvent mentionné cet album comme une source d'inspiration, et on peut sentir son influence dans leur son brut et énergique. 'Highway to Hell' a été le premier album à présenter le producteur Mutt Lange, qui a également travaillé avec d'autres grands noms du rock, contribuant ainsi à façonner le son des années 80. De plus, des titres emblématiques tels que 'Highway to Hell' continuent d'être repris et célébrés par de nombreux artistes contemporains, prouvant que l'héritage d'AC/DC perdure à travers les générations."
         }
@@ -3826,12 +3756,7 @@
       "hard": [
         {
           "question": "Quel classement a atteint l'album 'Ramones' des Ramones dans le Billboard 200 lors de sa sortie en 1976?",
-          "options": [
-            "Numéro 23",
-            "Numéro 28",
-            "Numéro 41",
-            "Numéro 50"
-          ],
+          "options": ["Numéro 23", "Numéro 28", "Numéro 41", "Numéro 50"],
           "correctAnswer": "Numéro 111",
           "trivia": "L'album 'Ramones' des Ramones, sorti en 1976, a atteint la 111e position du Billboard 200, ce qui était relativement modeste pour un album de rock à l'époque. Malgré sa performance commerciale, il a été acclamé par les critiques et est devenu un pilier du punk rock. L'album a introduit un son brut et énergique, caractérisé par des chansons courtes et percutantes, qui ont influencé de nombreux groupes futurs. Ce disque a également été reconnu pour sa production minimaliste, ce qui le distingue de nombreux autres albums de la même époque."
         },
@@ -3908,12 +3833,7 @@
       "medium": [
         {
           "question": "Lors des sessions d'enregistrement de l'album 'Blood on the Tracks' en 1975, quel musicien de renom a collaboré avec Bob Dylan en tant que producteur exécutif?",
-          "options": [
-            "David Bowie",
-            "Tom Wilson",
-            "Daniel Lanois",
-            "Lou Reed"
-          ],
+          "options": ["David Bowie", "Tom Wilson", "Daniel Lanois", "Lou Reed"],
           "correctAnswer": "Tom Wilson",
           "trivia": "Tom Wilson a été le producteur exécutif de l'album 'Blood on the Tracks', une œuvre considérée comme l'un des sommets de la carrière de Bob Dylan. Wilson, qui avait déjà travaillé avec Dylan sur des projets antérieurs, a joué un rôle clé dans le façonnement du son de l'album. 'Blood on the Tracks' a été enregistré principalement à New York et a été influencé par les expériences personnelles de Dylan, notamment sa séparation d'avec sa première épouse. L'album a reçu des critiques élogieuses et est souvent cité parmi les plus grands albums de tous les temps, renforçant ainsi l'importance de la collaboration entre Dylan et Wilson."
         },
@@ -4082,12 +4002,7 @@
         },
         {
           "question": "Dans quel morceau de l'album 'Electric Warrior' de T. Rex peut-on déceler un message caché faisant référence à la culture pop des années 70, notamment à la série télévisée 'Doctor Who'?",
-          "options": [
-            "Get It On",
-            "Jeepster",
-            "Rip Off",
-            "Cosmic Dancer"
-          ],
+          "options": ["Get It On", "Jeepster", "Rip Off", "Cosmic Dancer"],
           "correctAnswer": "Jeepster",
           "trivia": "La chanson 'Jeepster' de l'album 'Electric Warrior' contient des références subtiles qui évoquent la culture populaire de l'époque, dont une allusion à 'Doctor Who'. Cette série, qui a débuté en 1963, est emblématique de la science-fiction britannique et a eu une influence considérable sur la culture des années 70. En outre, 'Electric Warrior', sorti en 1971, est souvent considéré comme un album pivot du glam rock, un mouvement musical qui a mis en avant des éléments de spectacle et d'esthétique visuelle. La capacité de Marc Bolan, le leader de T. Rex, à intégrer des références culturelles dans ses textes a contribué à la richesse et à la complexité de ses compositions, faisant de cet album un incontournable du genre."
         }
@@ -4246,12 +4161,7 @@
         },
         {
           "question": "Quel producteur a collaboré avec Iggy Pop sur l'album 'Lust for Life' sorti en 1977?",
-          "options": [
-            "David Bowie",
-            "Brian Eno",
-            "Tony Visconti",
-            "Lou Reed"
-          ],
+          "options": ["David Bowie", "Brian Eno", "Tony Visconti", "Lou Reed"],
           "correctAnswer": "David Bowie",
           "trivia": "Iggy Pop a collaboré avec David Bowie lors de l'enregistrement de l'album 'Lust for Life'. Ce dernier, sorti en 1977, a été produit par Tony Visconti, mais Bowie a joué un rôle clé dans la composition et l'orientation artistique de l'album. 'Lust for Life' contient des titres emblématiques comme 'The Passenger' et 'Lust for Life', qui reflètent l'influence de Bowie sur le son d'Iggy Pop. En effet, Bowie et Pop ont partagé une période créative intense à la fin des années 1970, marquée par des expérimentations musicales et une exploration des thèmes de la vie et de la rédemption."
         }
@@ -5113,12 +5023,7 @@
       "hard": [
         {
           "question": "Lors de la tournée de promotion de l'album 'Selling England by the Pound' de Genesis en 1973, dans quelle ville le groupe a-t-il donné un concert mémorable, qui a été enregistré et par la suite publié en tant qu'album live ?",
-          "options": [
-            "Paris",
-            "Newcastle",
-            "Birmingham",
-            "Londres"
-          ],
+          "options": ["Paris", "Newcastle", "Birmingham", "Londres"],
           "correctAnswer": "Londres",
           "trivia": "Le concert mémorable de Genesis, qui a eu lieu à Londres en 1973, a été enregistré et a contribué à la réputation du groupe sur la scène progressive rock. 'Selling England by the Pound', sorti la même année, est souvent cité comme un des albums emblématiques du groupe, avec des titres emblématiques comme 'Dancing with the Moonlit Knight' et 'Firth of Fifth'. La tournée qui a suivi la sortie de cet album a aidé Genesis à se faire connaître au-delà du Royaume-Uni, posant les bases de leur succès international. En outre, ce concert de Londres a capturé l'énergie et l'innovation musicale qui caractérisaient le groupe à cette époque."
         },
@@ -5650,12 +5555,7 @@
         },
         {
           "question": "Quel succès crossover d'Elton John, issu de l'album 'Tumbleweed Connection' sorti en 1970, a particulièrement bien marché dans les charts américains?",
-          "options": [
-            "Your Song",
-            "Rocket Man",
-            "Country Comfort",
-            "Levon"
-          ],
+          "options": ["Your Song", "Rocket Man", "Country Comfort", "Levon"],
           "correctAnswer": "Country Comfort",
           "trivia": "Le morceau 'Country Comfort', issu de l'album 'Tumbleweed Connection' d'Elton John, a connu un grand succès en 1970 et a été particulièrement apprécié sur le marché américain. Bien que 'Your Song' soit souvent cité comme l'un des plus grands succès d'Elton John, 'Country Comfort' a réussi à se faire une place dans le cœur des fans de country rock. L'album 'Tumbleweed Connection' est connu pour son ambiance inspirée du Far West et ses influences country, ce qui a permis à ce titre de toucher un public élargi. En 1970, Elton John a commencé à établir sa réputation en tant qu'artiste crossover, mélangent le pop et le country, ce qui a contribué à son ascension fulgurante dans les charts."
         }
@@ -5780,12 +5680,7 @@
       "medium": [
         {
           "question": "Quel a été le meilleur classement de l'album 'Déjà Vu' de Crosby, Stills, Nash & Young dans le Billboard 200 en 1970?",
-          "options": [
-            "Numéro 1",
-            "Numéro 3",
-            "Numéro 5",
-            "Numéro 7"
-          ],
+          "options": ["Numéro 1", "Numéro 3", "Numéro 5", "Numéro 7"],
           "correctAnswer": "Numéro 1",
           "trivia": "L'album 'Déjà Vu' de Crosby, Stills, Nash & Young a atteint la première place du Billboard 200, occupant ce rang pendant 2 semaines consécutives en 1970. Cet album, qui a été publié en mars de cette année-là, est souvent considéré comme un chef-d'œuvre du rock des années 70 et a été acclamé pour ses harmonies vocales et ses compositions. 'Déjà Vu' a également produit des singles à succès tels que 'Woodstock' et 'Our House', qui ont contribué à son succès commercial. En plus de son impact musical, cet album est un reflet des tensions sociales et politiques de l'époque, incarnant l'esprit de la contre-culture des années 60 et 70."
         },
@@ -5862,12 +5757,7 @@
       "easy": [
         {
           "question": "Quel a été le classement le plus élevé de l'album 'Late for the Sky' de Jackson Browne dans le Billboard 200 lors de sa sortie en 1974?",
-          "options": [
-            "Numéro 3",
-            "Numéro 5",
-            "Numéro 12",
-            "Numéro 8"
-          ],
+          "options": ["Numéro 3", "Numéro 5", "Numéro 12", "Numéro 8"],
           "correctAnswer": "Numéro 3",
           "trivia": "L'album 'Late for the Sky' de Jackson Browne a atteint la troisième place du Billboard 200 après sa sortie en 1974, ce qui représente un succès commercial significatif pour l'artiste. Cet album a été acclamé par la critique et est souvent considéré comme l'un des meilleurs de Browne, contenant des morceaux emblématiques tels que 'Fountain of Sorrow' et 'Late for the Sky'. De plus, l'album a été certifié disque d'or aux États-Unis, témoignant de ses solides ventes. En 1974, Jackson Browne était déjà reconnu comme un auteur-compositeur talentueux, et cet album a consolidé sa réputation dans le paysage musical américain."
         },
@@ -5979,12 +5869,7 @@
       "easy": [
         {
           "question": "En quelle année l'album 'Quadrophenia' de The Who a-t-il été publié ?",
-          "options": [
-            "1970",
-            "1973",
-            "1975",
-            "1978"
-          ],
+          "options": ["1970", "1973", "1975", "1978"],
           "correctAnswer": "1973",
           "trivia": "L'album 'Quadrophenia', sorti en 1973, est le deuxième album-concept de The Who, après 'Tommy'. Il raconte l'histoire d'un jeune homme nommé Jimmy, qui lutte avec son identité dans la culture mod britannique des années 1960. 'Quadrophenia' est souvent salué pour sa complexité musicale et ses thèmes profonds. Cet album a également été adapté en film en 1979, renforçant encore sa popularité. En outre, il contient des morceaux emblématiques tels que '5:15' et 'Love Reign O'er Me'."
         },
@@ -6071,12 +5956,7 @@
         },
         {
           "question": "Quel single extrait de l'album 'Quadrophenia' de The Who, sorti en 1973, a réussi à atteindre le top 10 des charts britanniques tout en étant connu pour son message sur l'identité et la rébellion des jeunes?",
-          "options": [
-            "The Real Me",
-            "5:15",
-            "Love, Reign O'er Me",
-            "Drowned"
-          ],
+          "options": ["The Real Me", "5:15", "Love, Reign O'er Me", "Drowned"],
           "correctAnswer": "5:15",
           "trivia": "Le single '5:15' est l'un des morceaux phares de l'album 'Quadrophenia' de The Who, sorti en 1973. Ayant atteint la 9ème place des charts britanniques, cette chanson aborde des thèmes de désillusion et de quête d'identité, caractéristiques du mouvement des mods des années 1960. 'Quadrophenia' lui-même est un album-concept qui raconte l'histoire d'un jeune homme, Jimmy, en proie à des conflits internes et sociaux. The Who a également utilisé des techniques d'enregistrement novatrices pour capturer l'énergie brute de leurs performances, contribuant à l'impact durable de l'album dans le paysage musical. En plus de '5:15', les autres singles tels que 'Love, Reign O'er Me' ont également été bien accueillis, renforçant la réputation de l'album comme un chef-d'œuvre du rock."
         }
@@ -6352,12 +6232,7 @@
         },
         {
           "question": "Quel artiste a été fortement influencé par Al Green et son album 'Let’s Stay Together' sorti en 1972, notamment dans le domaine de la musique soul et R&B?",
-          "options": [
-            "D'Angelo",
-            "Elton John",
-            "Madonna",
-            "Kurt Cobain"
-          ],
+          "options": ["D'Angelo", "Elton John", "Madonna", "Kurt Cobain"],
           "correctAnswer": "D'Angelo",
           "trivia": "Al Green, avec son album 'Let’s Stay Together', a eu un impact profond sur de nombreux artistes de la scène musicale, en particulier dans le genre soul et R&B. D'Angelo, célèbre pour son style néo-soul, a souvent cité Al Green comme une de ses principales influences. L'album de 1972 a également été reconnu pour ses arrangements musicaux sophistiqués et ses thèmes d'amour, qui continuent de résonner chez les artistes contemporains. De plus, la voix suave et expressive d'Al Green, ainsi que ses techniques vocales, ont ouvert la voie à des chanteurs comme D'Angelo, qui a su mélanger le funk et la soul à sa propre touche moderne. 'Let’s Stay Together' est souvent considéré comme un pilier de la musique soul, ce qui en fait une référence incontournable pour les générations suivantes."
         }
@@ -6692,23 +6567,13 @@
         },
         {
           "question": "Dans quelle chanson de l'album 'Horses' de Patti Smith trouve-t-on des références aux poètes et artistes qui ont influencé sa carrière?",
-          "options": [
-            "Gloria",
-            "Land",
-            "Break It Up",
-            "Kimberly"
-          ],
+          "options": ["Gloria", "Land", "Break It Up", "Kimberly"],
           "correctAnswer": "Land",
           "trivia": "La chanson 'Land' sur l'album 'Horses' est connue pour ses nombreuses références littéraires et artistiques. Patti Smith évoque des figures influentes comme Arthur Rimbaud et les artistes du mouvement surréaliste, intégrant ainsi des messages cachés qui enrichissent l'interprétation de la chanson. L'album 'Horses', sorti en 1975, est souvent considéré comme une œuvre fondatrice du punk rock et de la poésie musicale. En combinant des éléments de rock, de punk et de performance poétique, Patti Smith a réussi à créer une œuvre emblématique qui continue d'inspirer de nombreux artistes aujourd'hui. Cette chanson, tout comme l'album, reflète son engagement artistique et son admiration pour la littérature."
         },
         {
           "question": "En quelle année Patti Smith a-t-elle sorti son album emblématique 'Horses'?",
-          "options": [
-            "1973",
-            "1975",
-            "1977",
-            "1980"
-          ],
+          "options": ["1973", "1975", "1977", "1980"],
           "correctAnswer": "1975",
           "trivia": "L'album 'Horses' de Patti Smith a été lancé en 1975 et est souvent considéré comme l'un des premiers grands albums de rock punk. Cet album a été acclamé pour son mélange unique de poétique et de musique rock, influençant de nombreux artistes. Enregistré à New York, il a été produit par John Cale, ancien membre du Velvet Underground. 'Horses' contient des chansons mémorables comme 'Gloria' et 'Land', qui mettent en avant le style avant-gardiste de Patti Smith et sa capacité à fusionner la poésie et le rock. Cet album a également marqué le début d'une carrière emblématique pour Smith, la positionnant comme une figure emblématique de la scène musicale des années 70."
         }
@@ -7171,12 +7036,7 @@
         },
         {
           "question": "Quel single extrait de l'album 'Marquee Moon' de Television a connu un succès commercial notable en 1977?",
-          "options": [
-            "See No Evil",
-            "Venus",
-            "I Want You",
-            "Blitzkrieg Bop"
-          ],
+          "options": ["See No Evil", "Venus", "I Want You", "Blitzkrieg Bop"],
           "correctAnswer": "See No Evil",
           "trivia": "Le morceau 'See No Evil' est le premier single extrait de l'album 'Marquee Moon' de Television, sorti en 1977. Ce titre a contribué à établir le groupe sur la scène du rock alternatif et a été bien accueilli par la critique, bien qu'il n'ait pas atteint les classements musicaux de manière significative. 'Marquee Moon' est souvent considéré comme l'un des albums les plus influents de la fin des années 1970, combinant des éléments de punk rock et de rock art. En plus de 'See No Evil', l'album contient d'autres morceaux mémorables comme 'Marquee Moon' et 'Prove It'. Cet album a également aidé à définir le son du CBGB, le célèbre club de New York où le groupe a souvent joué."
         }
@@ -7266,12 +7126,7 @@
       "easy": [
         {
           "question": "Quel succès commercial de l'album 'That’s the Way of the World' d'Earth, Wind & Fire a atteint la première place du classement Billboard Hot 100 en 1975 ?",
-          "options": [
-            "Shining Star",
-            "Reasons",
-            "September",
-            "Fantasy"
-          ],
+          "options": ["Shining Star", "Reasons", "September", "Fantasy"],
           "correctAnswer": "Shining Star",
           "trivia": "L'album 'That’s the Way of the World', sorti en 1975, a été un tournant majeur pour Earth, Wind & Fire, les propulsant au sommet des charts. Le single 'Shining Star' a atteint la première place du Billboard Hot 100, devenant ainsi l'un des plus grands succès du groupe. Cet album a également été certifié disque de platine, se vendant à plus d'un million d'exemplaires aux États-Unis. En plus de sa réussite commerciale, l'album a été salué pour son mélange unique de funk, soul et jazz, consolidant la réputation d'Earth, Wind & Fire en tant que pionniers de la musique des années 70."
         },
@@ -7592,12 +7447,7 @@
         },
         {
           "question": "En 1973, quel a été le meilleur classement atteint par l'album 'Aladdin Sane' de David Bowie dans le Billboard 200 américain?",
-          "options": [
-            "N° 1",
-            "N° 3",
-            "N° 5",
-            "N° 10"
-          ],
+          "options": ["N° 1", "N° 3", "N° 5", "N° 10"],
           "correctAnswer": "N° 3",
           "trivia": "L'album 'Aladdin Sane', sorti en 1973, a atteint la troisième place du Billboard 200, marquant un succès considérable pour David Bowie. Ce disque est souvent considéré comme l'un des albums emblématiques du glam rock et a été salué pour sa fusion de rock et de jazz. 'Aladdin Sane' contenait des singles notables comme 'The Jean Genie' et 'Drive-In Saturday', qui ont également bien performé dans les charts. En plus de son succès commercial, cet album a contribué à affirmer Bowie comme une icône de la culture pop des années 70, explorant des thèmes de l'identité et de l'aliénation, tout en affichant un style visuel audacieux."
         }
@@ -7734,12 +7584,7 @@
       "easy": [
         {
           "question": "En quelle année James Brown a-t-il sorti l'album 'The Payback', qui est souvent considéré comme l'un des meilleurs albums de funk de tous les temps?",
-          "options": [
-            "1971",
-            "1973",
-            "1975",
-            "1977"
-          ],
+          "options": ["1971", "1973", "1975", "1977"],
           "correctAnswer": "1973",
           "trivia": "L'album 'The Payback' de James Brown est sorti en 1973. Cet album est célèbre pour son mélange innovant de funk et de soul, et il a marqué un tournant dans la carrière de James Brown, le solidifiant comme une icône du genre. 'The Payback' contient des morceaux emblématiques comme la chanson titre, qui est souvent citée comme un hymne du funk. De plus, cet album a été enregistré dans un contexte socio-politique particulier, reflétant les luttes et les aspirations de la communauté afro-américaine dans les années 1970. En raison de son impact culturel, 'The Payback' est toujours étudié et célébré aujourd'hui."
         },
@@ -7756,12 +7601,7 @@
         },
         {
           "question": "Quel élément musical, influençant fortement l'album 'The Payback' de James Brown en 1973, est particulièrement visible dans ses grooves et ses rythmes ?",
-          "options": [
-            "Le reggae",
-            "Le jazz",
-            "La musique soul",
-            "Le rock"
-          ],
+          "options": ["Le reggae", "Le jazz", "La musique soul", "Le rock"],
           "correctAnswer": "La musique soul",
           "trivia": "L'album 'The Payback' de James Brown, sorti en 1973, est un exemple emblématique de l'influence de la musique soul sur son œuvre. James Brown a été un pionnier du genre soul, intégrant des éléments de funk, de rhythm and blues, et de gospel dans ses compositions. L'album a également été un point tournant dans sa carrière, marquant un retour triomphant après une période de désaccords contractuels. 'The Payback' est célèbre pour son groove puissant et ses rythmes entraînants, qui sont des caractéristiques fondamentales de la soul. De plus, les arrangements orchestraux et les motifs de guitare présents sur cet album illustrent son approche innovante qui a influencé de nombreux artistes dans les années qui ont suivi."
         }
@@ -8493,12 +8333,7 @@
         },
         {
           "question": "Lors d'une performance mémorable, quelle chanson de l'album 'Lola Versus Powerman and the Moneygoround, Part One' The Kinks ont-ils interprétée en direct sur la scène du BBC Television en 1970, marquant ainsi un moment clé de leur carrière ?",
-          "options": [
-            "Lola",
-            "Apeman",
-            "Moneygoround",
-            "Victoria"
-          ],
+          "options": ["Lola", "Apeman", "Moneygoround", "Victoria"],
           "correctAnswer": "Lola",
           "trivia": "La chanson 'Lola' a été interprétée par The Kinks lors d'une performance emblématique sur la scène de la BBC en 1970, ce qui a contribué à la popularité de l'album 'Lola Versus Powerman and the Moneygoround, Part One'. Ce morceau raconte l'histoire d'une rencontre avec une femme à l'identité ambiguë, ce qui a suscité l'intérêt et la controverse. L'album lui-même est considéré comme une critique satirique de l'industrie musicale de l'époque, et 'Lola' est devenu l'un des titres les plus reconnaissables du groupe. De plus, cette chanson a atteint le sommet des charts au Royaume-Uni, renforçant la place de The Kinks dans le paysage musical des années 70."
         }
@@ -8634,12 +8469,7 @@
         },
         {
           "question": "En quelle année Lynyrd Skynyrd a-t-il reçu sa première nomination aux Grammy Awards pour l'album '(Pronounced ’Lĕh-’nérd ’Skin-’nérd)'?",
-          "options": [
-            "1975",
-            "1974",
-            "1976",
-            "1973"
-          ],
+          "options": ["1975", "1974", "1976", "1973"],
           "correctAnswer": "1975",
           "trivia": "Lynyrd Skynyrd a reçu sa première nomination aux Grammy Awards en 1975 pour la chanson 'Sweet Home Alabama', tirée de leur album '(Pronounced ’Lĕh-’nérd ’Skin-’nérd)', sorti en 1973. Cet album a non seulement marqué les débuts du groupe, mais il a également établi leur réputation dans le monde du rock sudiste. 'Sweet Home Alabama' est devenu un hymne emblématique, souvent associé à la culture du sud des États-Unis, et a joué un rôle clé dans la popularisation du genre. En plus de cette nomination, l'album a atteint le top 20 du Billboard 200 et a été certifié disque d'or, consolidant ainsi l'impact durable de Lynyrd Skynyrd sur la musique rock."
         },
@@ -8868,12 +8698,7 @@
         },
         {
           "question": "En quelle année Bob Marley and The Wailers ont-ils effectué leur première tournée en Europe pour promouvoir l'album 'Catch a Fire'?",
-          "options": [
-            "1972",
-            "1973",
-            "1974",
-            "1975"
-          ],
+          "options": ["1972", "1973", "1974", "1975"],
           "correctAnswer": "1973",
           "trivia": "La première tournée européenne de Bob Marley and The Wailers pour promouvoir 'Catch a Fire' a eu lieu en 1973, marquant une étape cruciale dans l'ascension internationale du groupe. Cette tournée a permis à Marley de présenter son reggae à un public plus large, contribuant à l'essor de la musique reggae en dehors de la Jamaïque. À cette époque, 'Catch a Fire' était l'un des premiers albums de reggae à recevoir une large distribution internationale, ce qui a aidé à populariser le genre. Des concerts mémorables ont eu lieu dans des villes comme Londres et Paris, où la fusion de la musique rastafari et des influences rock a captivé les auditeurs. En plus de ses performances, la tournée a servi d'outil de promotion pour les thèmes sociaux et politiques présents dans les chansons de l'album."
         },
@@ -8926,12 +8751,7 @@
         },
         {
           "question": "Quel single célèbre de ZZ Top a été extrait de l'album 'Tres Hombres' sorti en 1973 ?",
-          "options": [
-            "La Grange",
-            "Tush",
-            "I Thank You",
-            "Cheap Sunglasses"
-          ],
+          "options": ["La Grange", "Tush", "I Thank You", "Cheap Sunglasses"],
           "correctAnswer": "La Grange",
           "trivia": "L'album 'Tres Hombres' de ZZ Top, sorti en 1973, a été un tournant dans la carrière du groupe, et 'La Grange' est l'un de ses singles les plus emblématiques. Cette chanson a été inspirée par un véritable bordel de La Grange, au Texas. 'Tres Hombres' a également marqué le début de la renommée internationale de ZZ Top, et il a été bien accueilli tant par la critique que par le public, atteignant la 8ème place sur le Billboard 200. En outre, l'album a contribué à populariser le son unique du groupe, mélangeant le blues et le rock avec des éléments de boogie."
         }
@@ -8939,12 +8759,7 @@
       "medium": [
         {
           "question": "Lors de la tournée qui a suivi la sortie de l'album 'Tres Hombres' en 1973, quel pays ZZ Top a-t-il visité pour la première fois pour donner un concert?",
-          "options": [
-            "France",
-            "Royaume-Uni",
-            "Canada",
-            "Allemagne"
-          ],
+          "options": ["France", "Royaume-Uni", "Canada", "Allemagne"],
           "correctAnswer": "Canada",
           "trivia": "ZZ Top a effectivement effectué sa première tournée internationale après la sortie de 'Tres Hombres', qui a contribué à leur renommée mondiale. En 1973, le groupe a visité le Canada, marquant une étape importante dans leur carrière. 'Tres Hombres' a été bien accueilli, notamment grâce au succès de titres comme 'La Grange' et 'Waiting for the Bus', ce qui a permis au groupe de se produire dans des lieux plus prestigieux. De plus, cette tournée a été marquée par un style de rock sudiste distinctif, qui a aidé à définir leur son. L'album lui-même a été un tournant, établissant ZZ Top comme un acteur majeur de la scène rock des années 70."
         },
@@ -9160,12 +8975,7 @@
         },
         {
           "question": "Dans quel film la chanson 'Bad Girls' de Donna Summer, tirée de l'album du même nom sorti en 1979, a-t-elle été utilisée ?",
-          "options": [
-            "Les Goonies",
-            "American Gigolo",
-            "Flashdance",
-            "Grease"
-          ],
+          "options": ["Les Goonies", "American Gigolo", "Flashdance", "Grease"],
           "correctAnswer": "American Gigolo",
           "trivia": "La chanson 'Bad Girls' de Donna Summer a été utilisée dans le film 'American Gigolo', sorti en 1980. Cet album, qui a connu un immense succès, a marqué l'apogée de la carrière de Summer et a été un pionnier dans la musique disco. 'Bad Girls' est l'un des titres emblématiques de cet album, qui a atteint la première place du Billboard 200. De plus, l'album a été reconnu pour ses thèmes audacieux et ses productions innovantes, ce qui a contribué à la popularité de Donna Summer à la fin des années 1970."
         }
@@ -9290,12 +9100,7 @@
       "medium": [
         {
           "question": "Quel artiste a collaboré avec Joy Division sur une version remixée de la chanson 'Transmission', issue de l'album 'Unknown Pleasures' en 1979 ?",
-          "options": [
-            "Kraftwerk",
-            "New Order",
-            "David Bowie",
-            "The Cure"
-          ],
+          "options": ["Kraftwerk", "New Order", "David Bowie", "The Cure"],
           "correctAnswer": "New Order",
           "trivia": "La réponse correcte est New Order, qui a été formé par les membres restants de Joy Division après la mort de Ian Curtis en 1980. Bien que 'Transmission' ait été initialement publié comme un single avant l'album 'Unknown Pleasures', les remixes et les rééditions ont souvent impliqué des collaborations au sein de la scène musicale post-punk. Joy Division, avec son son sombre et atmosphérique, a eu une influence majeure sur New Order, qui a ensuite incorporé des éléments de musique électronique dans son propre travail. Par ailleurs, 'Unknown Pleasures' est souvent cité comme un album emblématique qui a façonné le paysage musical des années 1980."
         },
@@ -10074,12 +9879,7 @@
       "easy": [
         {
           "question": "Quel musicien célèbre a collaboré avec Meat Loaf sur l'album 'Bat Out of Hell' en 1977 en tant que compositeur et producteur?",
-          "options": [
-            "Jim Steinman",
-            "David Bowie",
-            "Elton John",
-            "Brian May"
-          ],
+          "options": ["Jim Steinman", "David Bowie", "Elton John", "Brian May"],
           "correctAnswer": "Jim Steinman",
           "trivia": "La bonne réponse est Jim Steinman, qui a non seulement composé plusieurs des chansons emblématiques de l'album 'Bat Out of Hell', mais a également réalisé le projet. Steinman a joué un rôle crucial dans la création du son théâtral et grandiose qui caractérise cet album. 'Bat Out of Hell' est devenu l'un des albums les plus vendus de tous les temps, en grande partie grâce à la vision artistique de Steinman. En outre, les collaborations entre Meat Loaf et Steinman ont marqué le début d'une carrière prolifique, avec plusieurs albums à succès qui ont suivi."
         },
@@ -10096,12 +9896,7 @@
         },
         {
           "question": "Quel a été le classement le plus élevé de l'album 'Bat Out of Hell' de Meat Loaf dans le Billboard 200 aux États-Unis?",
-          "options": [
-            "Numéro 1",
-            "Numéro 3",
-            "Numéro 5",
-            "Numéro 10"
-          ],
+          "options": ["Numéro 1", "Numéro 3", "Numéro 5", "Numéro 10"],
           "correctAnswer": "Numéro 1",
           "trivia": "L'album 'Bat Out of Hell' de Meat Loaf a atteint la première place du Billboard 200 aux États-Unis, où il est resté pendant 9 semaines consécutives en 1978. Cet album emblématique, produit par Todd Rundgren, a été salué pour sa fusion unique de rock, de théâtre musical et de balades épiques. En plus de son succès commercial, 'Bat Out of Hell' est devenu l'un des albums les plus vendus de tous les temps, avec plus de 14 millions d'exemplaires vendus rien qu'aux États-Unis. Sa popularité a été renforcée par des succès tels que 'Paradise by the Dashboard Light' et 'Two Out of Three Ain't Bad', qui sont devenus des classiques du rock."
         }
@@ -10202,12 +9997,7 @@
         },
         {
           "question": "En quelle année l'album 'Parallel Lines' de Blondie a-t-il été publié, marquant un tournant dans la carrière du groupe?",
-          "options": [
-            "1976",
-            "1978",
-            "1980",
-            "1975"
-          ],
+          "options": ["1976", "1978", "1980", "1975"],
           "correctAnswer": "1978",
           "trivia": "L'album 'Parallel Lines' de Blondie est sorti en 1978 et est considéré comme un des albums emblématiques du mouvement punk et new wave. Il a propulsé le groupe sur le devant de la scène musicale avec des succès comme 'Heart of Glass' et 'One Way or Another'. 'Parallel Lines' a été très bien accueilli par la critique et a atteint la première place dans plusieurs classements, notamment aux États-Unis et au Royaume-Uni. Cet album a également contribué à populariser l'image de Debbie Harry, la chanteuse et icône du groupe, en tant que figure emblématique de la musique des années 70."
         },
@@ -10308,12 +10098,7 @@
       "easy": [
         {
           "question": "En quelle année Bob Dylan a-t-il sorti son album 'Desire'?",
-          "options": [
-            "1974",
-            "1976",
-            "1978",
-            "1980"
-          ],
+          "options": ["1974", "1976", "1978", "1980"],
           "correctAnswer": "1976",
           "trivia": "L'album 'Desire' de Bob Dylan a été publié en 1976, marquant une étape importante dans sa carrière musicale. Cet album est célèbre pour sa chanson 'Hurricane', qui raconte l'histoire de Rubin Carter, un boxeur injustement emprisonné. 'Desire' a été bien accueilli par la critique et a atteint le sommet des charts, se classant dans le top 10 aux États-Unis. Ce projet a également été notable pour l'implication de musiciens talentueux comme Scarlet Rivera, qui a joué du violon sur plusieurs morceaux. En plus de sa musique mémorable, 'Desire' est souvent célébré pour ses paroles poétiques et engagées."
         },
@@ -10681,12 +10466,7 @@
         },
         {
           "question": "Quel producteur a collaboré avec les Ramones pour l'album 'Rocket to Russia' sorti en 1977 ?",
-          "options": [
-            "Phil Spector",
-            "Teddy Riley",
-            "Ed Stasium",
-            "Brian Eno"
-          ],
+          "options": ["Phil Spector", "Teddy Riley", "Ed Stasium", "Brian Eno"],
           "correctAnswer": "Ed Stasium",
           "trivia": "L'album 'Rocket to Russia' des Ramones, publié en 1977, a été produit par Ed Stasium, qui a joué un rôle clé dans la création du son distinctif du groupe. Stasium avait déjà travaillé avec les Ramones sur leur précédent album, 'Leave Home', et sa collaboration a été déterminante pour le succès de 'Rocket to Russia'. Cet album est souvent cité comme l'un des meilleurs du groupe, avec des titres emblématiques comme 'Sheena Is a Punk Rocker' et 'Rockaway Beach'. Ed Stasium est reconnu pour sa capacité à capturer l'énergie brute des performances des Ramones, ce qui a contribué à leur renommée dans le mouvement punk."
         }
@@ -11266,12 +11046,7 @@
         },
         {
           "question": "Dans quel film célèbre, sorti en 1976, la chanson 'Chameleon' de l'album 'Head Hunters' de Herbie Hancock a-t-elle été utilisée ?",
-          "options": [
-            "Shaft",
-            "Superfly",
-            "The Getaway",
-            "The Black Gestapo"
-          ],
+          "options": ["Shaft", "Superfly", "The Getaway", "The Black Gestapo"],
           "correctAnswer": "The Getaway",
           "trivia": "La chanson 'Chameleon' de l'album 'Head Hunters' de Herbie Hancock a été intégrée à la bande sonore du film 'The Getaway', réalisé par Sam Peckinpah et sorti en 1976. Cet album, qui mélange jazz-funk et musique électronique, est souvent considéré comme un jalon dans la carrière de Hancock. 'Head Hunters' a également marqué l'un des premiers grands succès commerciaux du jazz, atteignant la première place des charts jazz américains. En utilisant des éléments de funk et de groove, Herbie Hancock a non seulement influencé le jazz moderne, mais a aussi laissé une empreinte indélébile sur la musique de film de l'époque."
         }
@@ -11478,12 +11253,7 @@
       "easy": [
         {
           "question": "Quel a été le meilleur classement atteint par l'album 'On the Beach' de Neil Young dans le Billboard 200 en 1974?",
-          "options": [
-            "Numéro 16",
-            "Numéro 4",
-            "Numéro 32",
-            "Numéro 7"
-          ],
+          "options": ["Numéro 16", "Numéro 4", "Numéro 32", "Numéro 7"],
           "correctAnswer": "Numéro 16",
           "trivia": "L'album 'On the Beach' de Neil Young, sorti en 1974, a atteint la 16ème position dans le Billboard 200, marquant un moment important dans sa carrière. Cet album est souvent considéré comme l'un des travaux les plus introspectifs de Young, avec des thèmes de désillusion et de solitude. Il inclut des morceaux emblématiques comme 'Walk On' et 'See the Sky About to Rain'. Bien qu'il n'ait pas eu le même succès commercial que certains de ses prédécesseurs, 'On the Beach' a été salué par la critique et reste un favori des fans, soulignant la capacité de Neil Young à capturer des émotions profondes et complexes à travers sa musique."
         },
@@ -11723,12 +11493,7 @@
         },
         {
           "question": "Lors de la tournée qui a suivi la sortie de l'album 'Station to Station' en 1976, dans quelle ville David Bowie a-t-il donné un concert mémorable?",
-          "options": [
-            "Los Angeles",
-            "Paris",
-            "Tokyo",
-            "Berlin"
-          ],
+          "options": ["Los Angeles", "Paris", "Tokyo", "Berlin"],
           "correctAnswer": "Los Angeles",
           "trivia": "David Bowie a effectué une tournée mondiale pour promouvoir son album 'Station to Station', qui est sorti en janvier 1976. L'un des concerts les plus mémorables de cette tournée a eu lieu à Los Angeles, où il a présenté des performances énergiques et captivantes. Ce concert a également marqué une période clé de sa carrière, alors qu'il explorait des thèmes spirituels et musicaux variés, reflétés dans l'album. 'Station to Station' est souvent considéré comme une œuvre charnière qui a ouvert la voie à ses explorations ultérieures dans le funk et la musique électronique. En plus de Los Angeles, Bowie a également joué dans d'autres grandes villes comme New York et Paris, mais le concert de Los Angeles est particulièrement noté pour son ambiance et son impact."
         },
@@ -11875,12 +11640,7 @@
         },
         {
           "question": "Quel était le meilleur classement atteint par l'album 'Night Moves' de Bob Seger & the Silver Bullet Band dans le Billboard 200 en 1976?",
-          "options": [
-            "Numéro 1",
-            "Numéro 4",
-            "Numéro 10",
-            "Numéro 7"
-          ],
+          "options": ["Numéro 1", "Numéro 4", "Numéro 10", "Numéro 7"],
           "correctAnswer": "Numéro 4",
           "trivia": "L'album 'Night Moves', sorti en 1976, a atteint la quatrième position du Billboard 200, ce qui a marqué un tournant majeur dans la carrière de Bob Seger & the Silver Bullet Band. Cet album est souvent considéré comme l'un des meilleurs de Seger, avec des titres emblématiques comme 'Night Moves' et 'Mainstreet'. En plus de son succès commercial, l'album a été salué par la critique pour sa combinaison de rock classique et de paroles introspectives. En 1977, 'Night Moves' a également été certifié disque de platine, renforçant encore sa popularité et son impact dans le paysage musical des années 70."
         },
@@ -12003,12 +11763,7 @@
         },
         {
           "question": "Quel artiste a collaboré avec Blondie sur la chanson 'Youth Nabbed as Sniper' de l'album 'Plastic Letters' sorti en 1978?",
-          "options": [
-            "David Bowie",
-            "Iggy Pop",
-            "Debbie Harry",
-            "Chris Stein"
-          ],
+          "options": ["David Bowie", "Iggy Pop", "Debbie Harry", "Chris Stein"],
           "correctAnswer": "Chris Stein",
           "trivia": "La chanson 'Youth Nabbed as Sniper', présente sur l'album 'Plastic Letters' de Blondie, a été coécrite par Chris Stein, le guitariste du groupe. Stein a joué un rôle clé dans le processus créatif de Blondie, contribuant à façonner leur son unique qui mélange punk, pop et new wave. 'Plastic Letters', sorti en 1978, marque une étape importante dans la carrière de Blondie, car il a permis au groupe de gagner en notoriété à l'international. En plus de Stein, Debbie Harry, la chanteuse emblématique du groupe, a également été une figure centrale dans l'écriture des paroles. Cet album est souvent considéré comme un tournant dans l'évolution musicale de Blondie."
         }
@@ -12133,12 +11888,7 @@
       "hard": [
         {
           "question": "Quel artiste a fait une apparition spéciale sur l'album 'Welcome to My Nightmare' d'Alice Cooper en 1975, contribuant à l'atmosphère théâtrale et cinématographique de l'œuvre ?",
-          "options": [
-            "David Bowie",
-            "Vincent Price",
-            "Lou Reed",
-            "Iggy Pop"
-          ],
+          "options": ["David Bowie", "Vincent Price", "Lou Reed", "Iggy Pop"],
           "correctAnswer": "Vincent Price",
           "trivia": "L'album 'Welcome to My Nightmare' d'Alice Cooper, sorti en 1975, a vu la participation de l'acteur et narrateur Vincent Price, qui a enregistré une narration pour le morceau \"The Black Widow\". Cette collaboration a apporté une dimension théâtrale à l'album, accentuant les thèmes sombres et macabres qui y sont explorés. Vincent Price, célèbre pour ses rôles dans des films d'horreur, a également contribué à l'atmosphère unique de l'album, renforçant l'identité artistique d'Alice Cooper. 'Welcome to My Nightmare' est souvent considéré comme un tournant dans la carrière d'Alice Cooper, mêlant musique rock et éléments de performance théâtrale."
         },

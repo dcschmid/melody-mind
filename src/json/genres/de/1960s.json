@@ -175,12 +175,7 @@
         },
         {
           "question": "In welchem Jahr wurde das berühmte Cover-Album 'Highway 61 Revisited' von Bob Dylan veröffentlicht, das eine Vielzahl von Merchandise-Artikeln inspiriert hat?",
-          "options": [
-            "1963",
-            "1965",
-            "1967",
-            "1969"
-          ],
+          "options": ["1963", "1965", "1967", "1969"],
           "correctAnswer": "1965",
           "trivia": "Bob Dylans 'Highway 61 Revisited' wurde im Jahr 1965 veröffentlicht und gilt als eines der einflussreichsten Alben der Rockgeschichte. Das Album brachte nicht nur Klassiker wie 'Like a Rolling Stone' hervor, sondern inspirierte auch eine breite Palette von Fandom- und Merchandise-Produkten, einschließlich T-Shirts, Poster und Vinyl-Reissues. Die Covergestaltung, die von einem ikonischen Foto von Dylans Gesicht geprägt ist, hat sich zu einem Symbol für die 1960er Jahre entwickelt. Zudem wird das Album oft als Wendepunkt in Dylans Karriere betrachtet, da es seinen Übergang von Folk- zu Rockmusik markiert."
         },
@@ -363,12 +358,7 @@
       "easy": [
         {
           "question": "Welches Instrument verwendeten The Beach Boys erstmals in einem ihrer Songs auf dem Album 'Pet Sounds' von 1966?",
-          "options": [
-            "Theremin",
-            "Zither",
-            "Harmonium",
-            "Saxophon"
-          ],
+          "options": ["Theremin", "Zither", "Harmonium", "Saxophon"],
           "correctAnswer": "Theremin",
           "trivia": "Auf dem Album 'Pet Sounds' verwendeten The Beach Boys das Theremin, ein elektronisches Instrument, das durch Handbewegungen im elektromagnetischen Feld gespielt wird. Insbesondere im Song 'Good Vibrations', der zwar nicht auf 'Pet Sounds' selbst, aber in der gleichen Zeit entstand, wurde das Theremin prominent eingesetzt. Dieses Instrument trug zur experimentellen Klanglandschaft des Albums bei, das oft als eines der besten Alben aller Zeiten angesehen wird. 'Pet Sounds' wurde 1966 veröffentlicht und ist bekannt für seine komplexen Harmonien und innovative Produktion, die von Brian Wilson, dem kreativen Kopf der Band, vorangetrieben wurde."
         },
@@ -714,12 +704,7 @@
       "easy": [
         {
           "question": "Welcher berühmte Künstler hat das Album 'The Velvet Underground & Nico' von The Velvet Underground & Nico aus dem Jahr 1967 in seinen späteren Arbeiten referenziert?",
-          "options": [
-            "David Bowie",
-            "Bob Dylan",
-            "Prince",
-            "Kurt Cobain"
-          ],
+          "options": ["David Bowie", "Bob Dylan", "Prince", "Kurt Cobain"],
           "correctAnswer": "David Bowie",
           "trivia": "David Bowie hat das Album 'The Velvet Underground & Nico' stark beeinflusst und in seiner Musik zahlreiche Referenzen auf die Band eingebaut. Insbesondere die stilistischen Elemente und die experimentelle Herangehensweise an Rockmusik, die in diesem Debütalbum zu finden sind, haben Bowies eigene Entwicklung als Künstler geprägt. Songs wie 'Suffragette City' zeigen die Einflüsse von The Velvet Underground, die mit ihrer avantgardistischen Ästhetik und Themenvielfalt in der Musikgeschichte einen markanten Fußabdruck hinterließen. 'The Velvet Underground & Nico' gilt als eines der einflussreichsten Alben der Rockgeschichte und hat Generationen von Musikern inspiriert."
         },
@@ -784,12 +769,7 @@
       "hard": [
         {
           "question": "Welches Musikgenre hatte einen signifikanten Einfluss auf den Klang und die Themen des Albums 'The Velvet Underground & Nico' von The Velvet Underground & Nico, das 1967 veröffentlicht wurde?",
-          "options": [
-            "Psychedelic Rock",
-            "Jazz",
-            "Folk",
-            "Rhythm and Blues"
-          ],
+          "options": ["Psychedelic Rock", "Jazz", "Folk", "Rhythm and Blues"],
           "correctAnswer": "Jazz",
           "trivia": "Der Einfluss des Jazz auf das Album 'The Velvet Underground & Nico' ist besonders durch die improvisatorischen Elemente und den experimentellen Ansatz in vielen Songs spürbar. Lou Reed und John Cale, zwei der Hauptakteure, waren stark von der Jazzmusik geprägt und integrierten diese Einflüsse in ihre Kompositionen. Zudem zeigt die Verwendung von unkonventionellen Harmonien und Strukturen im Album Parallelen zur Jazzmusik, die zur damaligen Zeit ebenfalls einen revolutionären Charakter hatte. Cale, der selbst eine Ausbildung in klassischer Musik und Jazz genossen hatte, brachte eine avantgardistische Perspektive in die Band, die sich in Tracks wie 'Heroin' und 'The Black Angel's Death Song' niederschlug. Das Album gilt als ein Meilenstein, der die Grenzen der Rockmusik erweiterte und den Weg für zahlreiche Genres ebnete."
         },
@@ -1334,12 +1314,7 @@
       "medium": [
         {
           "question": "In welchem Jahr hatte The Who ihren denkwürdigen Auftritt von 'Tommy' beim Woodstock Festival, der das Album weltweit populär machte?",
-          "options": [
-            "1968",
-            "1969",
-            "1970",
-            "1971"
-          ],
+          "options": ["1968", "1969", "1970", "1971"],
           "correctAnswer": "1969",
           "trivia": "Der Auftritt von The Who beim Woodstock Festival im Jahr 1969 gilt als einer der bedeutendsten Live-Momente der Rockgeschichte. Während des Festivals präsentierten sie eine kraftvolle Darbietung von 'Tommy', was zur Popularität des Albums maßgeblich beitrug und das Interesse an Rockoper-Formaten steigerte. 'Tommy' selbst war das erste Rockalbum, das als Konzeptalbum angesehen wurde und eine zusammenhängende Geschichte erzählte. Die Band, bestehend aus Roger Daltrey, Pete Townshend, John Entwistle und Keith Moon, war bekannt für ihre energiegeladenen Live-Performances, die das Publikum begeisterten."
         },
@@ -1661,12 +1636,7 @@
         },
         {
           "question": "In welchem Jahr traten The Byrds erstmals live mit ihrem berühmten Song 'Mr. Tambourine Man' auf?",
-          "options": [
-            "1964",
-            "1965",
-            "1966",
-            "1967"
-          ],
+          "options": ["1964", "1965", "1966", "1967"],
           "correctAnswer": "1965",
           "trivia": "The Byrds traten erstmals live mit 'Mr. Tambourine Man' im Jahr 1965 auf, kurz nach der Veröffentlichung ihres gleichnamigen Debütalbums. Der Song wurde schnell zu einem Hit und half der Band, ihren Platz in der Folk-Rock-Szene zu festigen. 'Mr. Tambourine Man' war nicht nur ein kommerzieller Erfolg, sondern beeinflusste auch viele nachfolgende Musiker und Bands. Die Kombination aus Folk-Elementen und rockigen Klängen war zu dieser Zeit neu und trug zur Popularität der Byrds bei. Ihr Auftritt in der Fernsehsendung 'The Ed Sullivan Show' im Jahr 1965 gilt als einer der denkwürdigsten Momente ihrer Karriere."
         },
@@ -1813,12 +1783,7 @@
         },
         {
           "question": "In welchem Jahr absolvierte Cream eine bedeutende Tournee, die zur Promotion ihres Albums 'Disraeli Gears' beitrug?",
-          "options": [
-            "1966",
-            "1967",
-            "1968",
-            "1969"
-          ],
+          "options": ["1966", "1967", "1968", "1969"],
           "correctAnswer": "1967",
           "trivia": "Die richtige Antwort ist 1967, als Cream eine intensive Tournee durch Großbritannien und die USA unternahm, um ihr zweites Studioalbum 'Disraeli Gears' zu promoten. Diese Tour half, die Popularität des Albums erheblich zu steigern und führte dazu, dass Songs wie 'Sunshine of Your Love' in den Fokus rückten. Cream war bekannt für ihre mitreißenden Live-Auftritte, die oft improvisierte Jam-Sessions beinhalteten. Das Album selbst gilt als eines der ersten Beispiele für Psychedelic Rock und zeigt den Einfluss von Blues und Rock, was sich auch in ihren Live-Darbietungen widerspiegelte."
         },
@@ -2140,12 +2105,7 @@
         },
         {
           "question": "Welche symbolische Farbe dominiert das Artwork des Albums 'Otis Blue: Otis Redding Sings Soul' von Otis Redding aus dem Jahr 1965 und spiegelt die Stimmung der Musik wider?",
-          "options": [
-            "Rot",
-            "Blau",
-            "Grün",
-            "Gelb"
-          ],
+          "options": ["Rot", "Blau", "Grün", "Gelb"],
           "correctAnswer": "Blau",
           "trivia": "Das Artwork von 'Otis Blue: Otis Redding Sings Soul' ist stark in Blau gehalten, was nicht nur die Titelthematik reflektiert, sondern auch eine tiefere emotionale Verbindung zur Soul-Musik herstellt. Die Farbe Blau wird oft mit Traurigkeit und Melancholie assoziiert, was die Themen von Verlust und Sehnsucht in Reddings Musik unterstreicht. Das Album, das 1965 veröffentlicht wurde, enthält einige der bekanntesten Soul-Klassiker, darunter 'I've Been Loving You Too Long' und 'Respect'. In der Zeit des Soul war das visuelle Design eines Albums ebenso wichtig wie die Musik selbst, um die Botschaften und Emotionen zu transportieren."
         }
@@ -2235,23 +2195,13 @@
       "easy": [
         {
           "question": "Welchen bemerkenswerten Chartplatz erreichte das Album 'A Love Supreme' von John Coltrane in den US Jazz-Charts nach seiner Veröffentlichung im Jahr 1965?",
-          "options": [
-            "Platz 1",
-            "Platz 5",
-            "Platz 15",
-            "Platz 3"
-          ],
+          "options": ["Platz 1", "Platz 5", "Platz 15", "Platz 3"],
           "correctAnswer": "Platz 1",
           "trivia": "'A Love Supreme' wurde 1965 veröffentlicht und erreichte in den US Jazz-Charts den beeindruckenden ersten Platz. Dieses Album gilt als eines der bedeutendsten Werke im Jazz und ist eine Hommage an Coltranes spirituelle Überzeugungen. Die vierteilige Suite, die das Album bildet, zeigt nicht nur Coltranes virtuoses Saxophonspiel, sondern auch die außergewöhnliche Musikalität seiner Begleitmusiker, darunter McCoy Tyner und Jimmy Garrison. 'A Love Supreme' hat nicht nur die Jazz-Welt geprägt, sondern auch einen bleibenden Einfluss auf viele Musikrichtungen und Künstler ausgeübt."
         },
         {
           "question": "Welcher bekannte Song aus dem Album 'A Love Supreme' von John Coltrane wurde zu einem Crossover-Erfolg in den Jazz- und Popcharts?",
-          "options": [
-            "Acknowledgement",
-            "Resolution",
-            "Pursuance",
-            "Psalm"
-          ],
+          "options": ["Acknowledgement", "Resolution", "Pursuance", "Psalm"],
           "correctAnswer": "Acknowledgement",
           "trivia": "Der Song 'Acknowledgement' ist das erste Stück des Albums 'A Love Supreme' von John Coltrane, das 1965 veröffentlicht wurde. Dieses Werk gilt als eines der bedeutendsten Alben im Jazz und gilt als Schlüsselwerk des Spiritual Jazz. 'A Love Supreme' erreichte in den Jazzcharts hohe Platzierungen und wurde von vielen Künstlern unterschiedlich interpretiert, was zu einem gewissen Crossover-Erfolg führte. John Coltranes tief spirituelle Komposition und die innovative Verwendung von Modalität trugen dazu bei, dass das Album auch außerhalb des Jazzpublikums Anerkennung fand."
         },
@@ -3111,12 +3061,7 @@
         },
         {
           "question": "In welchem Jahr wurde das Album 'Odessey and Oracle' von The Zombies veröffentlicht, das als eines der bedeutendsten Werke der Psychedelic-Rock-Ära gilt?",
-          "options": [
-            "1966",
-            "1968",
-            "1970",
-            "1972"
-          ],
+          "options": ["1966", "1968", "1970", "1972"],
           "correctAnswer": "1968",
           "trivia": "Das Album 'Odessey and Oracle' wurde im Jahr 1968 veröffentlicht und gilt als eines der Meisterwerke des Psychedelic Rock. Es wurde in den Abbey Road Studios aufgenommen und ist bekannt für seinen innovativen Einsatz von Harmonien und Arrangements. Der Song 'Time of the Season' wurde nach der Veröffentlichung des Albums ein großer Hit und trug zur internationalen Anerkennung der Band bei. Obwohl das Album zu seiner Zeit nicht sofort kommerziell erfolgreich war, wurde es später von Kritikern und Fans gleichermaßen als einflussreich anerkannt."
         }
@@ -3135,12 +3080,7 @@
         },
         {
           "question": "In welchem Jahr wurde das Album 'Odessey and Oracle' von The Zombies zum ersten Mal in einer wissenschaftlichen Publikation als einflussreiches Werk der Psychedelic-Rock-Musik erwähnt?",
-          "options": [
-            "1972",
-            "1980",
-            "1995",
-            "2001"
-          ],
+          "options": ["1972", "1980", "1995", "2001"],
           "correctAnswer": "1995",
           "trivia": "Das Album 'Odessey and Oracle' von The Zombies, das 1968 veröffentlicht wurde, gilt als eines der bedeutendsten Werke des Psychedelic Rock. In der wissenschaftlichen Literatur wurde es erstmals 1995 als Einflussfaktor für die Entwicklung des Genres gewürdigt, insbesondere in der Analyse von Musikstilen der 60er Jahre. Die Kombination von melancholischen Melodien und innovativen Arrangements hat das Album nicht nur in der Musikwelt, sondern auch in akademischen Kreisen zu einem häufigen Studienobjekt gemacht. Zu den bekanntesten Tracks gehören 'Time of the Season', der in vielen Analysen als Beispiel für den Einsatz von Harmonien und Klanglandschaften zitiert wird. Diese akademische Rezeption hat dazu beigetragen, das Erbe von The Zombies und ihrem Meisterwerk weiterhin zu festigen."
         },
@@ -3345,12 +3285,7 @@
         },
         {
           "question": "Wie viele Jahre nach seiner Veröffentlichung erreichte das Album 'Astral Weeks' von Van Morrison schließlich den Gold-Status in den USA?",
-          "options": [
-            "2 Jahre",
-            "5 Jahre",
-            "10 Jahre",
-            "20 Jahre"
-          ],
+          "options": ["2 Jahre", "5 Jahre", "10 Jahre", "20 Jahre"],
           "correctAnswer": "10 Jahre",
           "trivia": "Das Album 'Astral Weeks' von Van Morrison wurde 1968 veröffentlicht und erlangte erst 1978, also zehn Jahre später, den Gold-Status in den USA. Trotz anfänglicher gemischter Kritiken entwickelte sich das Album im Laufe der Jahre zu einem Kultklassiker, der für seine innovative Verbindung von Folk, Jazz und Blues bekannt ist. 'Astral Weeks' wird oft als eines der größten Alben aller Zeiten angesehen und hat Van Morrison einen bedeutenden Platz in der Musikgeschichte gesichert. Die Kombination von Morrison's poetischen Texten und der einzigartigen instrumentalen Begleitung hat das Album zu einem zeitlosen Werk gemacht."
         }
@@ -3696,12 +3631,7 @@
         },
         {
           "question": "In welchem Jahr veröffentlichte Nina Simone das Musikvideo für die Single 'Backlash Blues' aus ihrem Album 'Nina Simone Sings the Blues'?",
-          "options": [
-            "1965",
-            "1967",
-            "1970",
-            "1973"
-          ],
+          "options": ["1965", "1967", "1970", "1973"],
           "correctAnswer": "1967",
           "trivia": "Das Musikvideo zu 'Backlash Blues', das im Jahr 1967 veröffentlicht wurde, ist eines der wenigen visuellen Dokumente, die Nina Simones Ausdruck von sozialem Protest und emotionale Tiefe festhalten. Das Lied selbst ist inspiriert von einem Gedicht von Langston Hughes, das die Erfahrungen von Rassismus und Ungerechtigkeit thematisiert. 'Nina Simone Sings the Blues' gehört zu Simones bekanntesten Alben und spiegelt ihre Fähigkeit wider, persönliche und gesellschaftliche Themen musikalisch zu verarbeiten. In den Aufnahmen von 1967 arbeitete sie mit verschiedenen talentierten Musikern zusammen, die ihren einzigartigen Stil unterstützten und bereicherten."
         }
@@ -3873,12 +3803,7 @@
       "easy": [
         {
           "question": "Welcher Song aus dem Album 'Green River' von Creedence Clearwater Revival erreichte 1969 hohe Chartplatzierungen und gilt als Crossover-Erfolg zwischen Rock und Country?",
-          "options": [
-            "Bad Moon Rising",
-            "Green River",
-            "Commotion",
-            "Lodi"
-          ],
+          "options": ["Bad Moon Rising", "Green River", "Commotion", "Lodi"],
           "correctAnswer": "Bad Moon Rising",
           "trivia": "Der Song 'Bad Moon Rising' aus dem Album 'Green River' erreichte 1969 Platz 2 der Billboard Hot 100 Charts und ist ein klassisches Beispiel für den Crossover-Erfolg von Creedence Clearwater Revival zwischen Rock und Country. Der energiegeladene Track zeichnet sich durch eingängige Melodien und eindringliche Texte aus, die eine düstere Vorahnung vermitteln. Das Album selbst wurde am 3. August 1969 veröffentlicht und festigte die Band als eine der einflussreichsten Rockgruppen ihrer Zeit. 'Green River' enthält mehrere erfolgreiche Singles, die die Vielfalt und den Stil der Band widerspiegeln und bis heute beliebt sind."
         },
@@ -3895,12 +3820,7 @@
         },
         {
           "question": "In welchem Jahr wurde das Album 'Green River' von Creedence Clearwater Revival veröffentlicht?",
-          "options": [
-            "1967",
-            "1969",
-            "1971",
-            "1973"
-          ],
+          "options": ["1967", "1969", "1971", "1973"],
           "correctAnswer": "1969",
           "trivia": "Das Album 'Green River' wurde im August 1969 veröffentlicht und ist das dritte Studioalbum von Creedence Clearwater Revival. Es enthält einige der bekanntesten Hits der Band, darunter 'Bad Moon Rising' und 'Green River'. Der Erfolg des Albums trug maßgeblich zur Popularität der Band in den späten 1960er Jahren bei. 'Green River' erreichte in den USA Platz 2 der Billboard 200 Charts und wurde für seine Mischung aus Rock, Blues und Country gelobt. Diese stilistische Vielfalt spiegelt die Einflüsse wider, die die Band in ihrer Musik vereint hat."
         }
@@ -3954,12 +3874,7 @@
         },
         {
           "question": "In welchem Song des Albums 'Green River' von Creedence Clearwater Revival thematisiert der Text die Sehnsucht nach einer unbeschwerten Kindheit und den Verlust dieser Unschuld?",
-          "options": [
-            "Green River",
-            "Commotion",
-            "Tombstone Shadow",
-            "Lodi"
-          ],
+          "options": ["Green River", "Commotion", "Tombstone Shadow", "Lodi"],
           "correctAnswer": "Lodi",
           "trivia": "Der Song 'Lodi' behandelt die melancholische Rückkehr in die Heimatstadt des Protagonisten, der sich als gescheitert empfindet. Creedence Clearwater Revival, die mit 'Green River' im Jahr 1969 ein bedeutendes Album veröffentlichten, vermitteln in diesem Stück eine tiefe Nostalgie und das Gefühl, in der Zeit zurückzureisen. Die Stadt Lodi, Kalifornien, wird als Symbol für verlorene Träume und unerfüllte Hoffnungen dargestellt. John Fogerty, der Hauptsongwriter der Band, basierte den Text auf eigenen Erfahrungen und der Enttäuschung über die Realität, die oft im Kontrast zu den Erinnerungen an eine sorglose Kindheit steht."
         },
@@ -4433,12 +4348,7 @@
         },
         {
           "question": "In welcher bekannten TV-Serie aus den 1990er Jahren wurde ein Song aus Bob Dylans Album 'Bringing It All Back Home' prominent verwendet, um eine emotionale Szene zu untermalen?",
-          "options": [
-            "Die Sopranos",
-            "Friends",
-            "The X-Files",
-            "Twin Peaks"
-          ],
+          "options": ["Die Sopranos", "Friends", "The X-Files", "Twin Peaks"],
           "correctAnswer": "The X-Files",
           "trivia": "Der Song 'Mr. Tambourine Man' aus Bob Dylans Album 'Bringing It All Back Home' wurde in der Episode 'The Post-Modern Prometheus' der Serie 'The X-Files' verwendet. Diese Episode ist bekannt für ihre kreative Erzählweise und die Hommage an klassische Monsterfilme. 'Bringing It All Back Home', veröffentlicht 1965, markierte einen Wendepunkt in Dylans Karriere und wird oft als eines seiner einflussreichsten Werke angesehen. Die Kombination aus Folk und Rock in diesem Album spiegelte die kulturellen Umbrüche der 60er Jahre wider und beeinflusste zahlreiche Künstler und Medien, einschließlich der Musikverwendung in Fernsehsendungen."
         }
@@ -4972,12 +4882,7 @@
         },
         {
           "question": "In welchem Jahr veröffentlichten Simon & Garfunkel das ikonische Musikvideo zu ihrem Song 'The Sound of Silence', das auf dem Album 'Sounds of Silence' von 1966 basiert?",
-          "options": [
-            "1965",
-            "1966",
-            "1967",
-            "1968"
-          ],
+          "options": ["1965", "1966", "1967", "1968"],
           "correctAnswer": "1967",
           "trivia": "Das Musikvideo zu 'The Sound of Silence' wurde 1967 veröffentlicht und ist ein wichtiger visueller Ausdruck der Musik von Simon & Garfunkel. Der Song selbst stammt ursprünglich von ihrem gleichnamigen Album 'Sounds of Silence', das 1966 erschienen ist und sich zu einem Klassiker der Folk-Rock-Musik entwickelte. Das Video zeigt die beiden Künstler in einer melancholischen Umgebung, die die düstere Stimmung des Liedes verstärkt. Zudem reflektiert die Bildsprache der Zeit die gesellschaftlichen Umbrüche der 1960er Jahre, was das Gesamtwerk von Simon & Garfunkel in einen historischen Kontext einbettet."
         },
@@ -5288,12 +5193,7 @@
         },
         {
           "question": "Welche Musikrichtung hatte einen großen Einfluss auf Elvis Presley bei der Entstehung seines Albums 'From Elvis in Memphis' im Jahr 1969?",
-          "options": [
-            "Country",
-            "Jazz",
-            "Heavy Metal",
-            "Reggae"
-          ],
+          "options": ["Country", "Jazz", "Heavy Metal", "Reggae"],
           "correctAnswer": "Country",
           "trivia": "Elvis Presley ließ sich bei der Produktion seines Albums 'From Elvis in Memphis' stark von der Country-Musik inspirieren. Dies zeigt sich besonders in den Songs wie 'In the Ghetto' und 'Gentle on My Mind', die Elemente dieser Musikrichtung enthalten. Elvis hatte bereits in den 1950er Jahren seine Wurzeln im Country und Blues, was sich in seinem einzigartigen Stil widerspiegelt. Das Album wurde in den American Sound Studios in Memphis aufgenommen, wo die Fusion von Rock, Country und Soul zu einem charakteristischen Klang führte. 'From Elvis in Memphis' gilt als eines seiner besten Werke und zeigt seine musikalische Vielseitigkeit."
         },
@@ -5334,12 +5234,7 @@
         },
         {
           "question": "In welchem Jahr fanden die Aufnahmesessions für Elvis Presleys Album 'From Elvis in Memphis' statt, das als Wendepunkt in seiner Karriere gilt?",
-          "options": [
-            "1967",
-            "1968",
-            "1969",
-            "1970"
-          ],
+          "options": ["1967", "1968", "1969", "1970"],
           "correctAnswer": "1969",
           "trivia": "Die Aufnahmesessions für 'From Elvis in Memphis' fanden im Januar 1969 statt, und dieses Album markierte eine Rückkehr zu den Wurzeln von Elvis Presley, der mit diesem Werk seine Verbindung zur Musiktradition von Memphis stärkten wollte. Zu den beteiligten Musikern zählten namhafte Sessionmusiker, die die charakteristische Stilmischung aus Rock, Country und Soul prägten. Das Album wurde in den American Sound Studios aufgenommen, die für ihren innovativen Sound bekannt sind und in denen auch andere berühmte Künstler wie Dusty Springfield und Johnny Rivers aufnahmen. 'From Elvis in Memphis' wird oft als eines der besten Alben in Elvis' Diskografie betrachtet, da es sowohl kommerziellen Erfolg hatte als auch von Kritikern hoch gelobt wurde."
         }
@@ -5440,12 +5335,7 @@
         },
         {
           "question": "Wie viele Wochen hielt sich das Album 'Wheels of Fire' von Cream im Jahr 1968 in den US Billboard 200 Charts?",
-          "options": [
-            "8 Wochen",
-            "12 Wochen",
-            "15 Wochen",
-            "10 Wochen"
-          ],
+          "options": ["8 Wochen", "12 Wochen", "15 Wochen", "10 Wochen"],
           "correctAnswer": "15 Wochen",
           "trivia": "Das Album 'Wheels of Fire' von Cream, das 1968 veröffentlicht wurde, erreichte bemerkenswerte 15 Wochen in den US Billboard 200 Charts und belegte währenddessen den ersten Platz. Es war das erste Doppelalbum, das in der Geschichte der Billboard-Charts auf Platz 1 landete, was einen bedeutenden Meilenstein für die Rockmusik darstellt. 'Wheels of Fire' enthielt Hits wie 'White Room' und 'Crossroads', die bis heute als Klassiker gelten. Die Kombination aus Blues, Psychedelic Rock und experimentellen Klängen machte das Album zu einem wichtigen Werk in der Entwicklung des Genres."
         },
@@ -5464,12 +5354,7 @@
       "hard": [
         {
           "question": "In welchem Jahr erreichte das Album 'Wheels of Fire' von Cream erstmals die Spitze der US-Billboard 200 Charts?",
-          "options": [
-            "1967",
-            "1968",
-            "1969",
-            "1970"
-          ],
+          "options": ["1967", "1968", "1969", "1970"],
           "correctAnswer": "1968",
           "trivia": "Das Album 'Wheels of Fire' von Cream, das 1968 veröffentlicht wurde, erreichte im selben Jahr die Spitze der US-Billboard 200 Charts und war das erste Doppelalbum, das die Nummer eins der Charts erreichte. Es gilt als eines der bedeutendsten Werke der Rockgeschichte und enthält Klassiker wie 'White Room' und 'Crossroads'. Cream, bestehend aus Eric Clapton, Jack Bruce und Ginger Baker, verband in ihrer Musik Blues, Rock und psychedelische Elemente, was zur hohen Chartplatzierung beitrug. 'Wheels of Fire' wurde sowohl von Kritikern als auch von Fans hochgelobt und ist bis heute ein Meilenstein im Rockgenre."
         },
@@ -5533,12 +5418,7 @@
         },
         {
           "question": "In welcher bekannten TV-Serie wurde das Lied 'For Once in My Life' von Stevie Wonder, aus dem gleichnamigen Album von 1968, als Teil der Handlung verwendet?",
-          "options": [
-            "Friends",
-            "The Office",
-            "Scrubs",
-            "Grey's Anatomy"
-          ],
+          "options": ["Friends", "The Office", "Scrubs", "Grey's Anatomy"],
           "correctAnswer": "Grey's Anatomy",
           "trivia": "Das Lied 'For Once in My Life', das Stevie Wonder 1968 auf seinem gleichnamigen Album veröffentlichte, fand in der beliebten TV-Serie 'Grey's Anatomy' Verwendung. Diese Serie ist bekannt dafür, Musik als emotionalen Hintergrund zu nutzen, um dramatische Szenen zu verstärken. 'For Once in My Life' ist eine der ikonischsten Balladen von Stevie Wonder und kombiniert Soul-Elemente mit einer kraftvollen Darbietung. Das Album erreichte in den USA hohe Chartplatzierungen und trug maßgeblich zu Wonders Ruhm bei. Die Verbindung des Songs mit 'Grey's Anatomy' zeigt, wie zeitlos und einflussreich seine Musik ist."
         }
@@ -5674,12 +5554,7 @@
         },
         {
           "question": "Welches andere Musikgenre hatte einen spürbaren Einfluss auf den Sound von 'If You Can Believe Your Eyes and Ears' von The Mamas & the Papas?",
-          "options": [
-            "Folk",
-            "Jazz",
-            "Reggae",
-            "Heavy Metal"
-          ],
+          "options": ["Folk", "Jazz", "Reggae", "Heavy Metal"],
           "correctAnswer": "Folk",
           "trivia": "Der Einfluss von Folk auf den Sound von 'If You Can Believe Your Eyes and Ears' ist unverkennbar, insbesondere in den harmonischen Gesangslinien und den akustischen Arrangements. The Mamas & the Papas kombinierten Folk-Elemente mit Pop und Rock, was zu ihrem charakteristischen Klang beitrug. Besonders der Song 'California Dreamin'' ist ein gutes Beispiel für diese Fusion, da er mit seiner melancholischen Melodie und dem folkigen Einfluss einen bleibenden Eindruck hinterließ. Das Album, das 1966 veröffentlicht wurde, spielte eine entscheidende Rolle in der Entwicklung des Folk-Rock-Genres und war ein bedeutender Erfolg für die Band."
         },
@@ -5990,12 +5865,7 @@
         },
         {
           "question": "In welcher beliebten TV-Serie wurde ein Song aus Ray Charles' Album 'Modern Sounds in Country and Western Music' verwendet, um eine emotionale Szene zu untermalen?",
-          "options": [
-            "The Simpsons",
-            "Breaking Bad",
-            "The Office",
-            "Friends"
-          ],
+          "options": ["The Simpsons", "Breaking Bad", "The Office", "Friends"],
           "correctAnswer": "The Office",
           "trivia": "In der US-amerikanischen Serie 'The Office' wurde der Song 'I Can't Stop Loving You' aus Ray Charles' Album 'Modern Sounds in Country and Western Music' in einer denkwürdigen Episode verwendet. Das Album, das 1962 veröffentlicht wurde, gilt als eines der ersten, das Country-Musik mit Soul-Elementen verband. Ray Charles' einzigartige Mischung aus verschiedenen Musikstilen trug dazu bei, den Einfluss von Country auf die populäre Musik zu erweitern. 'I Can't Stop Loving You' wurde zu einem seiner bekanntesten Hits und zeigt Charles' Fähigkeit, Emotionen durch seine Musik zu vermitteln. Die Verwendung des Songs in 'The Office' verdeutlicht die anhaltende Relevanz seiner Musik in der Popkultur."
         },
@@ -6937,12 +6807,7 @@
         },
         {
           "question": "In welchem Jahr wurde das Debütalbum 'The Piper at the Gates of Dawn' von Pink Floyd veröffentlicht?",
-          "options": [
-            "1965",
-            "1967",
-            "1969",
-            "1971"
-          ],
+          "options": ["1965", "1967", "1969", "1971"],
           "correctAnswer": "1967",
           "trivia": "Das Debütalbum 'The Piper at the Gates of Dawn' von Pink Floyd wurde im Jahr 1967 veröffentlicht. Es gilt als eines der ersten psychedelischen Rockalben und wurde von dem legendären Produzenten Norman Smith aufgenommen. Die Aufnahmen fanden im Abbey Road Studio in London statt, wo die Band innovative Techniken einsetzte, um ihren charakteristischen Sound zu kreieren. Das Album enthält einige der bekanntesten frühen Songs von Pink Floyd, darunter 'Astronomy Domine' und 'Interstellar Overdrive'. Die experimentelle Herangehensweise und der Einfluss des damaligen Zeitgeistes machten das Album zu einem Meilenstein in der Musikgeschichte."
         }
@@ -6950,12 +6815,7 @@
       "medium": [
         {
           "question": "Welcher Platz wurde von Pink Floyds Album 'The Piper at the Gates of Dawn' in den britischen Albumcharts im Jahr 1967 erreicht?",
-          "options": [
-            "Platz 1",
-            "Platz 3",
-            "Platz 7",
-            "Platz 10"
-          ],
+          "options": ["Platz 1", "Platz 3", "Platz 7", "Platz 10"],
           "correctAnswer": "Platz 6",
           "trivia": "Das Debütalbum von Pink Floyd, 'The Piper at the Gates of Dawn', erreichte in den britischen Albumcharts den 6. Platz. Es wurde am 5. August 1967 veröffentlicht und gilt als eines der wegweisenden Werke des Psychedelic Rock. Der Einfluss des Albums war enorm und es stellte die musikalischen Fähigkeiten der Band, insbesondere des damaligen Frontmanns Syd Barrett, unter Beweis. Der einzigartige Klang und die experimentellen Elemente trugen maßgeblich zum Erfolg des Albums bei, das bis heute als Klassiker der Rockgeschichte angesehen wird."
         },
@@ -7336,12 +7196,7 @@
       "hard": [
         {
           "question": "Welcher Song aus dem Album 'Eli and the Thirteenth Confession' von Laura Nyro wurde erstmals live während eines Konzerts im Jahr 1969 in der New Yorker Carnegie Hall aufgeführt?",
-          "options": [
-            "Stoney End",
-            "Eli's Comin'",
-            "Poverty Train",
-            "Timer"
-          ],
+          "options": ["Stoney End", "Eli's Comin'", "Poverty Train", "Timer"],
           "correctAnswer": "Eli's Comin'",
           "trivia": "Die richtige Antwort ist 'Eli's Comin'', das während eines denkwürdigen Konzerts von Laura Nyro in der Carnegie Hall im Jahr 1969 erstmals live präsentiert wurde. Dieses Konzert fand am 22. April 1969 statt und gilt als bedeutender Moment in Nyros Karriere, da es ihre Live-Performances einem breiteren Publikum näherbrachte. 'Eli and the Thirteenth Confession' enthält eine Mischung aus verschiedenen musikalischen Stilen, darunter Soul, Jazz und Pop, und zeigt Nyros außergewöhnliches Talent als Songwriterin und Performerin. 'Eli's Comin'' wurde später von verschiedenen Künstlern gecovert, was die kulturelle Bedeutung des Songs unterstreicht."
         },
@@ -7546,12 +7401,7 @@
         },
         {
           "question": "Welches Lied aus dem Album 'Aerial Ballet' von Harry Nilsson wurde 1968 besonders durch die Coverversion von Three Dog Night international bekannt?",
-          "options": [
-            "One",
-            "Coconut",
-            "Without You",
-            "Everybody's Talkin'"
-          ],
+          "options": ["One", "Coconut", "Without You", "Everybody's Talkin'"],
           "correctAnswer": "One",
           "trivia": "Das Lied 'One' aus Harry Nilssons Album 'Aerial Ballet' erlangte große internationale Bedeutung, als die Band Three Dog Night 1969 eine Coverversion veröffentlichte, die in den USA auf Platz 5 der Billboard Hot 100 landete. Nilsson selbst war ein vielseitiger Künstler, dessen musikalischer Stil verschiedene Genres umfasste, was auch in 'Aerial Ballet' deutlich wird. Das Album, das 1968 veröffentlicht wurde, enthält eine Mischung aus Pop und Rock und zeigt Nilssons außergewöhnliche Stimme und Songwriting-Fähigkeiten. Neben 'One' schrieb Nilsson auch das bekannte Lied 'Without You', das später von verschiedenen Künstlern gecovert wurde und ebenfalls großen Erfolg hatte."
         },
@@ -7734,12 +7584,7 @@
       "easy": [
         {
           "question": "In welchem Jahr hatten The Righteous Brothers ihre erste Aufführung des ikonischen Songs 'You’ve Lost That Lovin’ Feelin’'?",
-          "options": [
-            "1964",
-            "1965",
-            "1966",
-            "1967"
-          ],
+          "options": ["1964", "1965", "1966", "1967"],
           "correctAnswer": "1965",
           "trivia": "Die erste Aufführung von 'You’ve Lost That Lovin’ Feelin’' durch The Righteous Brothers fand 1965 statt, als der Song auf ihrem gleichnamigen Album veröffentlicht wurde. Dieser Song entwickelte sich schnell zu einem ihrer größten Hits und erreichte im selben Jahr die Spitze der Billboard Hot 100. Die kraftvollen Vocals von Bill Medley und Bobby Hatfield, kombiniert mit der eindrucksvollen Produktion von Phil Spector, trugen dazu bei, dass der Song zu einem zeitlosen Klassiker wurde. 'You’ve Lost That Lovin’ Feelin’' gilt bis heute als eine der meistgecoverten Nummern der Musikgeschichte."
         },
@@ -7979,12 +7824,7 @@
         },
         {
           "question": "Welche Musikrichtung hatte einen starken Einfluss auf den Sound von The 13th Floor Elevators und ihr Album 'The Psychedelic Sounds of the 13th Floor Elevators'?",
-          "options": [
-            "Blues",
-            "Country",
-            "Jazz",
-            "Reggae"
-          ],
+          "options": ["Blues", "Country", "Jazz", "Reggae"],
           "correctAnswer": "Blues",
           "trivia": "Der Einfluss des Blues auf The 13th Floor Elevators ist in ihrem Album 'The Psychedelic Sounds of the 13th Floor Elevators' deutlich spürbar. Viele der Bandmitglieder, insbesondere Roky Erickson, waren von der Blues-Musik geprägt, was sich in den Gesangsmelodien und der Instrumentierung der Songs widerspiegelt. Der Blues war in den 1960er Jahren eine grundlegende Inspirationsquelle für viele Rockbands und half dabei, die emotionale Tiefe und den Ausdruck der Psychedelic-Rock-Szene zu formen. Das Album gilt als eines der ersten psychedelischen Rockalben und zeigt, wie der Blues mit experimentellen Klängen kombiniert wurde. Solche stilistischen Verschmelzungen trugen zur einzigartigen Identität der Band und ihrer Musik bei."
         },
@@ -8259,12 +8099,7 @@
         },
         {
           "question": "In welchem Jahr hatten The Temptations ihren ersten großen Live-Auftritt, bei dem sie Songs aus dem Album 'The Temptations Sing Smokey' präsenten?",
-          "options": [
-            "1964",
-            "1965",
-            "1966",
-            "1967"
-          ],
+          "options": ["1964", "1965", "1966", "1967"],
           "correctAnswer": "1965",
           "trivia": "Der erste große Live-Auftritt von The Temptations, bei dem sie Songs aus ihrem Album 'The Temptations Sing Smokey' präsentierten, fand 1965 statt. Dieses Album, das eine Hommage an den Songwriter Smokey Robinson ist, wurde zu einem entscheidenden Moment in der Karriere der Gruppe. Bei diesem Auftritt waren sie besonders beliebt und trugen maßgeblich zur Popularität von Motown in der Musikszene bei. Songs wie 'My Girl' und 'The Way You Do the Things You Do' wurden schnell zu ihren Markenzeichen und begeisterten das Publikum. Die perfekte Harmonisierung und die beeindruckende Bühnenpräsenz der Temptations trugen dazu bei, dass sie sich als eine der wichtigsten Motown-Gruppen etablierten."
         }
@@ -8411,12 +8246,7 @@
         },
         {
           "question": "Welche Chartplatzierung erreichte Joni Mitchells Album 'Clouds' in den Billboard 200 im Jahr 1969?",
-          "options": [
-            "Platz 14",
-            "Platz 9",
-            "Platz 22",
-            "Platz 4"
-          ],
+          "options": ["Platz 14", "Platz 9", "Platz 22", "Platz 4"],
           "correctAnswer": "Platz 22",
           "trivia": "Das Album 'Clouds' von Joni Mitchell, das 1969 veröffentlicht wurde, erreichte in den Billboard 200 die Chartplatzierung Platz 22. Dieses Album war mit seinen poetischen Texten und melancholischen Melodien ein bedeutender Schritt in der Karriere von Mitchell und half, ihren Einfluss auf die Singer-Songwriter-Bewegung zu festigen. 'Clouds' enthält einige ihrer bekanntesten Lieder, darunter 'Both Sides, Now', das später zu einem ihrer Signature Songs wurde. Die Veröffentlichung des Albums kam zu einem Zeitpunkt, als Mitchell bereits einen wachsenden Einfluss in der Musikszene hatte, und es wurde von Kritikern hochgelobt. Insbesondere die tiefgründigen Themen und die emotionale Authentizität der Songs trugen dazu bei, dass 'Clouds' als eines ihrer wichtigsten Werke angesehen wird."
         }
@@ -8904,12 +8734,7 @@
       "easy": [
         {
           "question": "Wie viele Wochen hielt sich das Album 'Going to a Go-Go' von Smokey Robinson & The Miracles im Jahr 1965 in den Billboard 200 Charts?",
-          "options": [
-            "10 Wochen",
-            "20 Wochen",
-            "15 Wochen",
-            "25 Wochen"
-          ],
+          "options": ["10 Wochen", "20 Wochen", "15 Wochen", "25 Wochen"],
           "correctAnswer": "15 Wochen",
           "trivia": "Das Album 'Going to a Go-Go' von Smokey Robinson & The Miracles verbrachte insgesamt 15 Wochen in den Billboard 200 Charts und erreichte dabei den dritten Platz. Es wurde am 18. April 1965 veröffentlicht und gilt als eines der einflussreichsten Alben der Motown-Ära. Zu den bekanntesten Songs des Albums gehört der Hit 'My Girl', der die Charts ebenfalls stürmte. Die Kombination aus eingängigen Melodien und Smokey Robinsons unverwechselbarem Gesang trug entscheidend zum Erfolg bei. 'Going to a Go-Go' ist somit nicht nur ein Meilenstein in der Karriere der Gruppe, sondern auch ein wichtiger Beitrag zur Musikgeschichte der 1960er Jahre."
         },
@@ -9032,12 +8857,7 @@
         },
         {
           "question": "In welchem Jahr arbeiteten Diana Ross & The Supremes an ihrem Album 'Reflections', das für seine Zusammenarbeit mit mehreren namhaften Songwritern bekannt ist?",
-          "options": [
-            "1966",
-            "1967",
-            "1968",
-            "1969"
-          ],
+          "options": ["1966", "1967", "1968", "1969"],
           "correctAnswer": "1968",
           "trivia": "Diana Ross & The Supremes veröffentlichten ihr Album 'Reflections' im Jahr 1968. Das Album ist besonders bemerkenswert für die Zusammenarbeit mit prominenten Songwritern wie Holland-Dozier-Holland, die maßgeblich zur Formung des Motown-Sounds beitrugen. 'Reflections' enthält Hits wie den gleichnamigen Titeltrack, der in den Billboard Hot 100 auf Platz 2 landete. Das Album markierte auch einen Wendepunkt in der Karriere der Gruppe, da es eine Mischung aus klassischen Motown-Klängen und neuen musikalischen Einflüssen bot. Diese kreative Evolution trug dazu bei, dass das Album als eines der bedeutendsten Werke der Supremes gilt."
         },
@@ -9056,12 +8876,7 @@
       "medium": [
         {
           "question": "In welchem Jahr trat Diana Ross & The Supremes in einem besonderen Live-Auftritt im Ed Sullivan Show auf, um ihr Album 'Reflections' zu fördern?",
-          "options": [
-            "1966",
-            "1968",
-            "1969",
-            "1970"
-          ],
+          "options": ["1966", "1968", "1969", "1970"],
           "correctAnswer": "1968",
           "trivia": "Diana Ross & The Supremes traten 1968 mehrfach in der Ed Sullivan Show auf, um ihr Album 'Reflections' zu bewerben. Diese Auftritte waren entscheidend für die Promotion des Albums, das einige ihrer bekanntesten Songs enthielt, darunter die Titelnummer 'Reflections'. Die Ed Sullivan Show war eine der prominentesten Plattformen für Musikacts in den USA und half, die Popularität der Gruppe weiter zu steigern. In der Zeit um die Veröffentlichung des Albums war die Gruppe auf dem Höhepunkt ihres Erfolgs und beeinflusste die Musiklandschaft nachhaltig."
         },
@@ -9698,12 +9513,7 @@
         },
         {
           "question": "Wie viele Wochen verbrachte das Album 'Reach Out' von Four Tops im Jahr 1967 in den Billboard 200 Charts, was seine wirtschaftliche Bedeutung unterstreicht?",
-          "options": [
-            "22 Wochen",
-            "14 Wochen",
-            "30 Wochen",
-            "10 Wochen"
-          ],
+          "options": ["22 Wochen", "14 Wochen", "30 Wochen", "10 Wochen"],
           "correctAnswer": "14 Wochen",
           "trivia": "Das Album 'Reach Out' von Four Tops verbrachte insgesamt 14 Wochen in den Billboard 200 Charts und erreichte dabei den 6. Platz. Diese Position belegt nicht nur den kommerziellen Erfolg des Albums, sondern zeigt auch die enorme Popularität der Four Tops in den 1960er Jahren. Die Single 'Reach Out I'll Be There' wurde ein weltweiter Hit und trug maßgeblich zur Vermarktung des Albums bei. In dieser Zeit war der Motown-Sound prägend für die Musikindustrie, und Four Tops waren eine der führenden Gruppen, die diesen Stil populär machten."
         }
@@ -9957,12 +9767,7 @@
       "easy": [
         {
           "question": "In welchem Jahr traten The Impressions zusammen mit ihrem Album 'This Is My Country' in der berühmten Apollo Theater in New York auf?",
-          "options": [
-            "1965",
-            "1967",
-            "1968",
-            "1969"
-          ],
+          "options": ["1965", "1967", "1968", "1969"],
           "correctAnswer": "1968",
           "trivia": "The Impressions traten 1968 im legendären Apollo Theater in New York auf, kurz nach der Veröffentlichung ihres Albums 'This Is My Country'. Dieses Album spiegelt den gesellschaftlichen Wandel und die politischen Themen der damaligen Zeit wider. Die Gruppe, die in den 1960er Jahren für ihren Einfluss auf die Soul-Musik bekannt war, wurde oft in diesem ikonischen Veranstaltungsort gefeiert. Der Auftritt im Apollo Theater war ein wichtiger Teil ihrer Touren und half ihnen, ihre Popularität weiter auszubauen."
         },
@@ -9979,12 +9784,7 @@
         },
         {
           "question": "In welchem Film wurde der Song 'This Is My Country' von The Impressions verwendet, der auf dem gleichnamigen Album aus dem Jahr 1968 zu finden ist?",
-          "options": [
-            "Wattstax",
-            "Superfly",
-            "Shaft",
-            "The Harder They Come"
-          ],
+          "options": ["Wattstax", "Superfly", "Shaft", "The Harder They Come"],
           "correctAnswer": "Wattstax",
           "trivia": "Der Song 'This Is My Country' von The Impressions fand Verwendung im Dokumentarfilm 'Wattstax', der 1973 veröffentlicht wurde. Dieser Film dokumentiert das Wattstax Festival, das 1972 in Los Angeles stattfand und als eine Art 'Black Woodstock' gilt. 'This Is My Country' thematisiert die Erfahrungen und den Stolz der afroamerikanischen Gemeinschaft und passt damit perfekt zur Botschaft des Festivals, das die kulturelle Identität und den sozialen Wandel feierte. Das Album 'This Is My Country' selbst spiegelt die politischen und sozialen Veränderungen der 1960er Jahre wider, in einer Zeit, in der Bürgerrechtsbewegungen an Bedeutung gewannen."
         }
@@ -10729,12 +10529,7 @@
       "hard": [
         {
           "question": "In welchem Jahr wurde das Album 'Do You Believe in Magic' von The Lovin’ Spoonful veröffentlicht, das entscheidend zur Popularität der Folk-Rock-Bewegung in den 1960er Jahren beitrug?",
-          "options": [
-            "1963",
-            "1965",
-            "1967",
-            "1969"
-          ],
+          "options": ["1963", "1965", "1967", "1969"],
           "correctAnswer": "1965",
           "trivia": "Das Album 'Do You Believe in Magic' wurde 1965 veröffentlicht und markierte den Durchbruch von The Lovin’ Spoonful in der Musikszene. Es spielte eine zentrale Rolle in der Folk-Rock-Bewegung, die in den 1960er Jahren aufkam und die amerikanische Musiklandschaft nachhaltig beeinflusste. Der Titeltrack des Albums wurde ein Hit und trug dazu bei, das Genre einem breiteren Publikum zugänglich zu machen. Zudem reflektiert das Album die kulturellen Strömungen der Zeit, die von einer Mischung aus Folk, Rock und Pop geprägt waren. Weitere bekannte Songs wie 'You Didn't Have to Be So Nice' zeigen die Vielseitigkeit der Band und deren Einfluss auf die Musikgeschichte."
         },
@@ -10776,12 +10571,7 @@
       "easy": [
         {
           "question": "Welches Bandmitglied von The Ventures war maßgeblich an der Komposition des Titelsongs 'Walk, Don’t Run' beteiligt und hatte zuvor bereits Erfahrung als Studiomusiker?",
-          "options": [
-            "Bob Bogle",
-            "Don Wilson",
-            "Mel Taylor",
-            "Howie Johnson"
-          ],
+          "options": ["Bob Bogle", "Don Wilson", "Mel Taylor", "Howie Johnson"],
           "correctAnswer": "Don Wilson",
           "trivia": "Don Wilson, einer der Gründungsmitglieder von The Ventures, spielte eine entscheidende Rolle bei der Komposition des berühmten Titelsongs 'Walk, Don’t Run', der 1960 auf dem gleichnamigen Album veröffentlicht wurde. Wilson war nicht nur Gitarrist, sondern hatte auch zuvor als Studiomusiker gearbeitet, was ihm half, den charakteristischen Sound der Band zu entwickeln. Das Album erreichte große Popularität und trug zur Etablierung von The Ventures als eine der einflussreichsten Instrumental-Rockbands der 60er Jahre bei. Außerdem ist 'Walk, Don’t Run' bekannt für seinen eingängigen Melodien und innovativen Arrangements, die die Band in der Musikszene hervorhoben."
         },
@@ -10798,12 +10588,7 @@
         },
         {
           "question": "Welcher bekannte Instrumentalhit von The Ventures war die Titelmelodie des Albums 'Walk, Don’t Run' aus dem Jahr 1960 und gilt als einer der Klassiker der Surf-Rock-Ära?",
-          "options": [
-            "Hawaii Five-O",
-            "Walk, Don’t Run",
-            "Apache",
-            "Misirlou"
-          ],
+          "options": ["Hawaii Five-O", "Walk, Don’t Run", "Apache", "Misirlou"],
           "correctAnswer": "Walk, Don’t Run",
           "trivia": "Die richtige Antwort ist 'Walk, Don’t Run', der Titeltrack des gleichnamigen Albums von The Ventures aus dem Jahr 1960. Dieser Song war ein bedeutender Erfolg und erreichte Platz 2 der Billboard Hot 100 Charts. The Ventures, bekannt für ihren Einfluss auf die Surf-Rock-Musik, haben mit diesem Instrumentalstück einen zeitlosen Klassiker geschaffen, der bis heute in der Popkultur präsent ist. Zudem war das Album ein Meilenstein für die Band, da es ihren charakteristischen Sound definierte und ihren internationalen Ruhm begründete."
         }
@@ -10822,12 +10607,7 @@
         },
         {
           "question": "Welche bekannte Komposition, die ursprünglich von Johnny Smith geschrieben wurde, interpretierten The Ventures für ihr Album 'Walk, Don’t Run' aus dem Jahr 1960 neu?",
-          "options": [
-            "Apache",
-            "Walk, Don’t Run",
-            "Sleep Walk",
-            "Misirlou"
-          ],
+          "options": ["Apache", "Walk, Don’t Run", "Sleep Walk", "Misirlou"],
           "correctAnswer": "Walk, Don’t Run",
           "trivia": "Die richtige Antwort ist 'Walk, Don’t Run', ein Instrumentalstück, das The Ventures 1960 auf ihrem gleichnamigen Album veröffentlichten. Ursprünglich wurde das Stück von Johnny Smith in den 1950er Jahren komponiert, und die Version von The Ventures machte es weltweit populär und trug maßgeblich zur Entwicklung des Surf-Rock-Genres bei. Das Album ist bekannt für seine eingängigen Melodien und die harmonischen Gitarrenarrangements, die die Band zu einer der einflussreichsten Instrumentalgruppen der Musikgeschichte machten. 'Walk, Don’t Run' erreichte hohe Chartplatzierungen und gilt bis heute als einer der Klassiker der Rockmusik."
         },
@@ -11080,12 +10860,7 @@
       "hard": [
         {
           "question": "In welchem Jahr fanden die ersten Live-Performances des Songs 'Piece of My Heart', der auf dem Album 'Cheap Thrills' von Big Brother and the Holding Company zu finden ist, statt?",
-          "options": [
-            "1966",
-            "1967",
-            "1968",
-            "1969"
-          ],
+          "options": ["1966", "1967", "1968", "1969"],
           "correctAnswer": "1967",
           "trivia": "Der Song 'Piece of My Heart' wurde erstmals 1967 von Big Brother and the Holding Company live aufgeführt, bevor er auf dem Album 'Cheap Thrills' im Jahr 1968 veröffentlicht wurde. Die Darbietung des Songs trug maßgeblich zu Janis Joplins Aufstieg als Ikone der Rockmusik bei und machte den Titel zu einem ihrer bekanntesten Hits. 'Cheap Thrills' selbst war ein bedeutendes Album in der Geschichte des Psychedelic Rock und gilt als eines der besten Alben der 1960er Jahre. Die kraftvolle Stimme Joplins und die energiegeladene Performance des gesamten Ensembles machten die Live-Interaktionen unvergesslich und verhalfen dem Album zu großem kommerziellen Erfolg."
         },
@@ -11325,12 +11100,7 @@
         },
         {
           "question": "In welchem Jahr traten Simon & Garfunkel erstmals in einem Live-Konzert auf, das die Songs ihres Albums 'Parsley, Sage, Rosemary and Thyme' präsentierte?",
-          "options": [
-            "1965",
-            "1966",
-            "1967",
-            "1968"
-          ],
+          "options": ["1965", "1966", "1967", "1968"],
           "correctAnswer": "1966",
           "trivia": "Simon & Garfunkel gaben ihr erstes bedeutendes Live-Konzert im Jahr 1966, nachdem sie mit ihrem Album 'Parsley, Sage, Rosemary and Thyme' an Popularität gewonnen hatten. Das Album, das im Oktober 1966 veröffentlicht wurde, enthält einige ihrer bekanntesten Songs, darunter 'Scarborough Fair/Canticle' und 'The 59th Street Bridge Song (Feelin' Groovy)'. Während ihrer Touren in diesem Jahr präsentierten sie ihre Musik einem breiten Publikum und trugen so zur Festigung ihres Status als Folk-Rock-Duo bei. Die Kombination aus harmonischen Stimmen und tiefgründigen Texten zog viele Fans an und machte die Live-Performances zu einem unvergesslichen Erlebnis."
         },
@@ -11829,12 +11599,7 @@
       "easy": [
         {
           "question": "Welches Musikgenre hatte einen signifikanten Einfluss auf den Sound von Fairport Convention auf dem Album 'Unhalfbricking' aus dem Jahr 1969?",
-          "options": [
-            "Blues",
-            "Country",
-            "Reggae",
-            "Jazz"
-          ],
+          "options": ["Blues", "Country", "Reggae", "Jazz"],
           "correctAnswer": "Country",
           "trivia": "Der Einfluss des Country-Genres auf das Album 'Unhalfbricking' von Fairport Convention ist besonders bemerkenswert, da die Band Elemente aus der amerikanischen Folk- und Countrymusik in ihren britischen Folk-Rock-Sound integrierte. Ein Beispiel dafür ist der Song 'Si Tu Dois Partir', der auf einem Stück von Bob Dylan basiert, einem Künstler, der stark mit der Country- und Folk-Tradition verbunden ist. Das Album gilt als Meilenstein für die Folk-Rock-Bewegung in Großbritannien und zeigt, wie Fairport Convention verschiedene musikalische Einflüsse miteinander verknüpfen konnte. Darüber hinaus trugen die innovativen Arrangements und harmonischen Gesänge zur Popularität der Band bei und brachten den Folk-Rock in eine neue Ära."
         },
@@ -12016,12 +11781,7 @@
       "hard": [
         {
           "question": "In welchem Jahr hielten The Beatles ihren letzten Live-Auftritt, während 'Abbey Road' bereits aufgenommen war?",
-          "options": [
-            "1967",
-            "1968",
-            "1969",
-            "1970"
-          ],
+          "options": ["1967", "1968", "1969", "1970"],
           "correctAnswer": "1969",
           "trivia": "Der letzte Live-Auftritt von The Beatles fand am 30. Januar 1969 auf dem Dach des Apple-Studios in London statt. Zu diesem Zeitpunkt waren die Aufnahmen für das Album 'Abbey Road' bereits in vollem Gange, und das Konzert wurde als spontane Aktion inszeniert. Es war ein ikonisches Ereignis, das sowohl die kreative Freiheit der Band als auch die Herausforderungen der Live-Performance in einer sich wandelnden Musikwelt verdeutlichte. 'Abbey Road' wurde später im September 1969 veröffentlicht und gilt als eines der besten Alben der Bandgeschichte. Diese letzte Performance markierte das Ende einer Ära, da The Beatles 1970 offiziell getrennt wurden."
         },
@@ -12343,12 +12103,7 @@
         },
         {
           "question": "In welcher beliebten TV-Serie wurde ein Song aus Nick Drakes Album 'Five Leaves Left' verwendet, der die melancholische Stimmung der Episode unterstrich?",
-          "options": [
-            "The Crown",
-            "This Is Us",
-            "The Sopranos",
-            "Skins"
-          ],
+          "options": ["The Crown", "This Is Us", "The Sopranos", "Skins"],
           "correctAnswer": "Skins",
           "trivia": "Der Song 'Fly' aus Nick Drakes Album 'Five Leaves Left' wurde in der britischen Serie 'Skins' verwendet, die für ihren eindringlichen und oft emotionalen Umgang mit den Herausforderungen des Erwachsenwerdens bekannt ist. 'Five Leaves Left', das 1969 veröffentlicht wurde, ist Drakes Debütalbum und zeichnet sich durch seine poetischen Texte und melancholische Melodien aus. Nick Drake, der zu Lebzeiten nicht die Anerkennung erhielt, die ihm gebührte, hat posthum einen enormen Einfluss auf die Musikszene gehabt, insbesondere in der Indie- und Folk-Musik. Die Verwendung seiner Musik in modernen Medien hat dazu beigetragen, sein Erbe neu zu beleben und eine neue Generation von Zuhörern zu erreichen."
         },
@@ -12378,12 +12133,7 @@
         },
         {
           "question": "In welchem Jahr wurde das Album 'Five Leaves Left' von Nick Drake erstmals in akademischen Musikanalysen als herausragendes Beispiel für die Kombination von Folk-Elementen und komplexen Harmonien hervorgehoben?",
-          "options": [
-            "1975",
-            "1982",
-            "1990",
-            "1999"
-          ],
+          "options": ["1975", "1982", "1990", "1999"],
           "correctAnswer": "1990",
           "trivia": "Das Album 'Five Leaves Left', das 1969 veröffentlicht wurde, gilt als wegweisendes Werk in der Folk-Musik und ist bekannt für seine melancholische Stimmung und komplexen Harmonien. 1990 wurde es in verschiedenen akademischen Analysen diskutiert, wobei insbesondere die innovative Verwendung von Melodien und die lyrische Tiefe hervorgehoben wurden. Nick Drakes einzigartiger Stil, der Elemente des Folk mit Jazz- und klassischen Einflüssen kombiniert, hat viele Musikwissenschaftler dazu veranlasst, das Album als bedeutenden Beitrag zur Musikgeschichte zu betrachten. Darüber hinaus hat die Rezeption des Albums im Laufe der Jahre dazu geführt, dass es posthum eine große Fangemeinde gewann, was die zeitlose Qualität von Drakes Musik unterstreicht."
         },

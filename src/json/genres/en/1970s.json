@@ -268,12 +268,7 @@
         },
         {
           "question": "Which popular song by Fleetwood Mac from the album 'Rumours' has been widely sampled and referenced in various music genres since its release in 1977?",
-          "options": [
-            "Go Your Own Way",
-            "Dreams",
-            "Don't Stop",
-            "The Chain"
-          ],
+          "options": ["Go Your Own Way", "Dreams", "Don't Stop", "The Chain"],
           "correctAnswer": "Dreams",
           "trivia": "'Dreams' by Fleetwood Mac, featured on their iconic 1977 album 'Rumours', has received extensive sampling and references in music across genres. The song's ethereal sound and poignant lyrics have made it a favorite among artists, leading to its use in tracks by contemporary musicians like The Weeknd and in popular media. 'Rumours' itself is one of the best-selling albums of all time, boasting over 40 million copies sold worldwide. Furthermore, 'Dreams' reached the number one spot on the Billboard Hot 100 chart, solidifying its status as a classic hit. The ongoing influence of 'Dreams' demonstrates Fleetwood Mac's enduring legacy in the music industry."
         }
@@ -327,12 +322,7 @@
         },
         {
           "question": "Which song from Fleetwood Mac's 'Rumours' received particular acclaim for its introspective lyrics, often interpreted as reflecting the band's tumultuous relationships?",
-          "options": [
-            "Go Your Own Way",
-            "Songbird",
-            "The Chain",
-            "Don't Stop"
-          ],
+          "options": ["Go Your Own Way", "Songbird", "The Chain", "Don't Stop"],
           "correctAnswer": "Go Your Own Way",
           "trivia": "'Go Your Own Way' is frequently noted for its candid and emotional lyrics, which many critics believe encapsulate the heartbreak and tension within Fleetwood Mac during the 'Rumours' era. Released in 1977, this track stands out as a significant representation of the band's internal struggles, particularly between Lindsey Buckingham and Stevie Nicks. The song garnered widespread acclaim, with Rolling Stone praising its raw honesty and musicality. Furthermore, the album 'Rumours' itself has been recognized as one of the best-selling albums of all time, underscoring the cultural impact of the band during this period. The combination of personal narrative and musical brilliance contributed to the song's status as a classic in rock history."
         },
@@ -480,12 +470,7 @@
       "easy": [
         {
           "question": "Which song from The Rolling Stones' album 'Exile on Main St.' has been notably used in a popular car commercial?",
-          "options": [
-            "Tumbling Dice",
-            "Sweet Virginia",
-            "Happy",
-            "Rocks Off"
-          ],
+          "options": ["Tumbling Dice", "Sweet Virginia", "Happy", "Rocks Off"],
           "correctAnswer": "Tumbling Dice",
           "trivia": "The song 'Tumbling Dice' from The Rolling Stones' 'Exile on Main St.' has found its way into various advertising campaigns, notably appearing in a prominent car commercial for the brand Chrysler. Released in 1972, 'Exile on Main St.' is often regarded as one of the band's finest works, showcasing a blend of rock, blues, and country influences. The album was recorded during a turbulent period for the band, primarily in a mansion in the south of France. 'Tumbling Dice' itself became one of the album's standout tracks, reaching significant chart success and solidifying its place in rock history. This song's enduring appeal continues to resonate, making it a favorite for both music lovers and advertisers alike."
         },
@@ -1391,12 +1376,7 @@
         },
         {
           "question": "In what year did the Eagles' album 'Hotel California' achieve the distinction of being certified Platinum by the RIAA for selling over a million copies?",
-          "options": [
-            "1977",
-            "1978",
-            "1980",
-            "1979"
-          ],
+          "options": ["1977", "1978", "1980", "1979"],
           "correctAnswer": "1977",
           "trivia": "'Hotel California' by the Eagles was certified Platinum by the Recording Industry Association of America (RIAA) in 1977, just a year after its release. This album is one of the best-selling albums of all time, having sold over 32 million copies worldwide. Not only did it dominate the charts, reaching No. 1 on the Billboard 200, but it also solidified the Eagles' status as one of the most iconic rock bands of the 1970s. The title track of the album became a cultural phenomenon, with its haunting lyrics and intricate guitar solos, further enhancing the album's legacy. The success of 'Hotel California' remains a benchmark in music history, exemplifying the blending of rock and pop influences."
         }
@@ -1438,12 +1418,7 @@
         },
         {
           "question": "Which well-known single from Black Sabbath's album 'Paranoid' reached number 4 on the UK Singles Chart in 1970?",
-          "options": [
-            "Iron Man",
-            "War Pigs",
-            "Fairies Wear Boots",
-            "Changes"
-          ],
+          "options": ["Iron Man", "War Pigs", "Fairies Wear Boots", "Changes"],
           "correctAnswer": "Iron Man",
           "trivia": "The single 'Iron Man' from Black Sabbath's iconic album 'Paranoid' climbed to number 4 on the UK Singles Chart in 1970, marking one of the band's most significant hits. The song is notable for its heavy riffs and memorable lyrics, contributing to the album's overall success. 'Paranoid' itself was released in September 1970 and is often credited with helping to define the heavy metal genre. Additionally, the album features other popular tracks such as 'War Pigs' and 'Fairies Wear Boots,' but 'Iron Man' became particularly emblematic of Black Sabbath's style. The album was recorded in a remarkably short time frame, reflecting a raw and unpolished aesthetic that resonated with fans."
         }
@@ -1486,12 +1461,7 @@
       "hard": [
         {
           "question": "Which artist or band is known for their cover version of 'Iron Man,' originally by Black Sabbath from the album 'Paranoid'?",
-          "options": [
-            "Metallica",
-            "Fear Factory",
-            "Faith No More",
-            "Megadeth"
-          ],
+          "options": ["Metallica", "Fear Factory", "Faith No More", "Megadeth"],
           "correctAnswer": "Metallica",
           "trivia": "Metallica's cover of 'Iron Man' showcases their heavy metal roots while paying homage to Black Sabbath, whose seminal album 'Paranoid' was released in 1970. Notably, Black Sabbath's 'Iron Man' has been cited as one of the most influential heavy metal songs, contributing significantly to the genre's development. The band recorded their version of 'Iron Man' for the 1998 album 'Garage Inc.', which is a compilation of cover songs that highlight their musical influences. Additionally, the success of Black Sabbath's album 'Paranoid' helped define the sound of heavy metal, making it a pivotal work in rock history. Metallica's interpretation reflects both respect for the original and their signature style, bridging generations of rock fans."
         },
@@ -1544,12 +1514,7 @@
         },
         {
           "question": "On Joni Mitchell's album 'Blue,' which song is positioned as the opening track, setting the tone for the entire record?",
-          "options": [
-            "A Case of You",
-            "My Old Man",
-            "All I Want",
-            "River"
-          ],
+          "options": ["A Case of You", "My Old Man", "All I Want", "River"],
           "correctAnswer": "All I Want",
           "trivia": "The opening track of Joni Mitchell's 'Blue' is 'All I Want,' which plays a significant role in establishing the album's emotional and thematic depth. Released in 1971, 'Blue' is often celebrated for its raw honesty and vulnerability, with 'All I Want' introducing listeners to Mitchell's poignant lyrical style. The album features a collection of songs that explore personal relationships and introspection. Notably, 'Blue' was a critical and commercial success, influencing countless artists in the folk and rock genres. The track order of the album was carefully curated, with each song flowing into the next, enhancing the overall narrative of love and loss."
         },
@@ -1603,12 +1568,7 @@
       "hard": [
         {
           "question": "Which unique instrument did Joni Mitchell incorporate into the recording of her iconic 1971 album 'Blue' to enhance its emotional depth?",
-          "options": [
-            "Cello",
-            "Harmonium",
-            "Saxophone",
-            "Banjo"
-          ],
+          "options": ["Cello", "Harmonium", "Saxophone", "Banjo"],
           "correctAnswer": "Harmonium",
           "trivia": "Joni Mitchell utilized the harmonium during the recording of 'Blue', which significantly contributed to the album's haunting and introspective sound. The instrument's rich, resonant tones complemented Mitchell's poignant lyrics and delicate melodies, creating an emotional atmosphere throughout the album. Notably, 'Blue' features a minimalist production style, primarily showcasing Mitchell's voice and guitar, with the harmonium adding a unique texture that set it apart from other contemporary works. Released in 1971, 'Blue' is often regarded as one of the greatest albums of all time, marking a pivotal moment in folk music and influencing countless artists in the years that followed. In addition to the harmonium, the album's recording process involved a small group of talented musicians, allowing for an intimate and personal sound that resonates deeply with listeners."
         },
@@ -1625,12 +1585,7 @@
         },
         {
           "question": "In what year did Joni Mitchell release her iconic album 'Blue', which was critically acclaimed for its raw emotionality and introspective lyrics?",
-          "options": [
-            "1969",
-            "1970",
-            "1971",
-            "1972"
-          ],
+          "options": ["1969", "1970", "1971", "1972"],
           "correctAnswer": "1971",
           "trivia": "Joni Mitchell released 'Blue' in 1971, a seminal album that marked a significant evolution in her songwriting and musical style. The album is often celebrated for its confessional lyrics and minimalist instrumentation, which allowed her voice to shine through. 'Blue' was also pivotal in solidifying Mitchell's status as a leading figure in the folk music scene of the early 1970s, influencing countless artists to follow. Notably, the album includes classics such as 'A Case of You' and 'River', which remain enduring favorites among fans and critics alike. Its release not only showcased Mitchell's profound talent but also helped to redefine the boundaries of singer-songwriter music."
         }
@@ -1707,12 +1662,7 @@
         },
         {
           "question": "Which chart position did Bob Marley and The Wailers' album 'Exodus' achieve on the Billboard 200 in the United States following its release in 1977?",
-          "options": [
-            "Number 5",
-            "Number 8",
-            "Number 9",
-            "Number 12"
-          ],
+          "options": ["Number 5", "Number 8", "Number 9", "Number 12"],
           "correctAnswer": "Number 8",
           "trivia": "Upon its release in 1977, 'Exodus' by Bob Marley and The Wailers reached an impressive peak position of number 8 on the Billboard 200 chart in the United States. This marked a significant moment in Marley's career, as it helped to solidify his status as a global music icon. The album is particularly renowned for its fusion of reggae with other musical influences, showcasing tracks like 'One Love' and 'Jamming' that resonated with a wide audience. Additionally, 'Exodus' was not only a commercial success but also critically acclaimed, often cited as one of the greatest albums of all time. The album's themes of love, unity, and resilience reflected the socio-political climate of the time, further enhancing its impact."
         }
@@ -1778,12 +1728,7 @@
         },
         {
           "question": "Which music genre significantly influenced the sound of Led Zeppelin's 'Houses of the Holy' album, particularly in its incorporation of funk elements?",
-          "options": [
-            "Jazz",
-            "Funk",
-            "Classical",
-            "Country"
-          ],
+          "options": ["Jazz", "Funk", "Classical", "Country"],
           "correctAnswer": "Funk",
           "trivia": "The correct answer is funk, which played a notable role in shaping the sound of Led Zeppelin's 'Houses of the Holy' released in 1973. The band experimented with funk rhythms and grooves, particularly evident in tracks like 'Dancing Days' and 'The Crunge'. This incorporation of funk elements showcased their versatility and willingness to blend various genres, expanding the traditional boundaries of rock music. Additionally, the album featured a wide array of musical influences, including reggae and blues, which further highlighted the band's eclectic style. Led Zeppelin's ability to fuse different genres helped them create a unique sound that resonated with a diverse audience."
         },
@@ -1837,12 +1782,7 @@
       "hard": [
         {
           "question": "In the album 'Houses of the Holy' by Led Zeppelin, which unconventional time signature is prominently featured in the song 'The Crunge'?",
-          "options": [
-            "5/4",
-            "7/8",
-            "6/8",
-            "9/8"
-          ],
+          "options": ["5/4", "7/8", "6/8", "9/8"],
           "correctAnswer": "7/8",
           "trivia": "'The Crunge,' a track from Led Zeppelin's 1973 album 'Houses of the Holy,' is notable for its use of a 7/8 time signature, which adds to its unique rhythmic feel. This time signature is relatively uncommon in rock music, making its inclusion a testament to the band's willingness to experiment with musical structures. Led Zeppelin, known for pushing the boundaries of rock, often incorporated diverse musical influences, and 'The Crunge' showcases their ability to blend funk elements with progressive rock. Additionally, this album marked a departure from their earlier, more blues-oriented sound, exploring different genres and styles. The song's distinctive meter contributes to its playful and danceable quality, setting it apart from the more straightforward tracks on the album."
         },
@@ -2210,12 +2150,7 @@
         },
         {
           "question": "Which influential artist credited Elton John's 'Goodbye Yellow Brick Road' as a significant inspiration for their own music style?",
-          "options": [
-            "Billy Joel",
-            "Lady Gaga",
-            "David Bowie",
-            "Bruno Mars"
-          ],
+          "options": ["Billy Joel", "Lady Gaga", "David Bowie", "Bruno Mars"],
           "correctAnswer": "Billy Joel",
           "trivia": "Billy Joel has often cited Elton John's 'Goodbye Yellow Brick Road' as a pivotal influence on his songwriting and musical approach. Released in 1973, this album showcased a blend of rock, pop, and theatrical elements that resonated with many artists of the era. Notably, the title track and songs like 'Candle in the Wind' highlighted John's ability to combine catchy melodies with poignant lyrics. The album's production, featuring the collaboration of long-time collaborator Bernie Taupin, further set a standard in pop music that inspired future generations. Joel's own work reflects this influence, as he embraced similar melodic structures and storytelling techniques in his own hits."
         }
@@ -2292,12 +2227,7 @@
         },
         {
           "question": "Which instrument, prominently featured in 'Sticky Fingers' by The Rolling Stones, was arranged by jazz musician and producer Nicky Hopkins?",
-          "options": [
-            "Cello",
-            "Piano",
-            "Saxophone",
-            "Harmonica"
-          ],
+          "options": ["Cello", "Piano", "Saxophone", "Harmonica"],
           "correctAnswer": "Piano",
           "trivia": "The piano plays a significant role in several tracks on 'Sticky Fingers,' particularly in the song 'Wild Horses,' where Nicky Hopkins' arrangement adds depth and emotional resonance. Hopkins, known for his work with various rock artists, contributed to the album by bringing a lush, textured sound that complemented the band's raw energy. His expertise in jazz and rock helped shape the distinctive sound of this iconic album. 'Sticky Fingers' is often celebrated for its blend of musical styles, and Hopkins' piano work is a prime example of that artistic fusion. Additionally, the album was released in 1971, marking a pivotal moment in The Rolling Stones' career as they transitioned into more complex musical arrangements."
         }
@@ -2327,12 +2257,7 @@
         },
         {
           "question": "Which notable music publication gave The Rolling Stones' album 'Sticky Fingers' a perfect five-star review upon its release in 1971?",
-          "options": [
-            "Rolling Stone",
-            "Billboard",
-            "NME",
-            "Pitchfork"
-          ],
+          "options": ["Rolling Stone", "Billboard", "NME", "Pitchfork"],
           "correctAnswer": "Rolling Stone",
           "trivia": "Upon its release, The Rolling Stones' 'Sticky Fingers' was met with widespread acclaim, particularly from Rolling Stone magazine, which awarded it a perfect five-star review. This album, released in April 1971, marked the band's first collaboration with producer Jimmy Miller and featured iconic tracks such as 'Brown Sugar' and 'Wild Horses.' The reception was significant as it solidified The Rolling Stones' status as rock icons during a transformative era in music history. Additionally, the album cover, designed by Andy Warhol, was revolutionary for its time, further contributing to the album's cultural impact."
         }
@@ -2363,12 +2288,7 @@
         },
         {
           "question": "Which song from the album 'Band on the Run' by Paul McCartney & Wings became a major international hit and is often associated with the band's legacy?",
-          "options": [
-            "Jet",
-            "Silly Love Songs",
-            "Live and Let Die",
-            "My Love"
-          ],
+          "options": ["Jet", "Silly Love Songs", "Live and Let Die", "My Love"],
           "correctAnswer": "Jet",
           "trivia": "The song 'Jet' from the album 'Band on the Run' became one of Paul McCartney & Wings' most successful tracks, reaching the top of the charts in multiple countries. Released in 1973, the album was a significant milestone for the band, showcasing their ability to blend rock with other genres. 'Jet' itself is notable for its catchy melody and energetic instrumentation, which contributed to its widespread popularity. The album 'Band on the Run' not only solidified McCartney's post-Beatles career but also earned critical acclaim, being regarded as one of the best albums of the decade. In the U.S., 'Jet' peaked at number 7 on the Billboard Hot 100, further enhancing the international significance of the album."
         },
@@ -2398,12 +2318,7 @@
         },
         {
           "question": "In what country did Paul McCartney & Wings record the majority of their iconic album 'Band on the Run' in 1973, which contributed to its international appeal?",
-          "options": [
-            "United States",
-            "United Kingdom",
-            "Nigeria",
-            "Canada"
-          ],
+          "options": ["United States", "United Kingdom", "Nigeria", "Canada"],
           "correctAnswer": "Nigeria",
           "trivia": "Paul McCartney & Wings recorded the majority of their acclaimed album 'Band on the Run' in Nigeria, specifically in Lagos. This location significantly influenced the album's sound and international appeal, as it immersed the band in a vibrant local music scene. The sessions took place at the renowned EMI Studios, where they faced unique challenges, including equipment issues and cultural adjustments. The album's success was bolstered by its blend of rock, pop, and world music elements, which resonated with audiences globally. 'Band on the Run' has since become one of the defining works of the 1970s music landscape."
         },
@@ -2515,12 +2430,7 @@
         },
         {
           "question": "Which song from Steely Dan's album 'Aja' has an alternate version that features an extended saxophone solo not present in the original recording?",
-          "options": [
-            "Deacon Blues",
-            "Peg",
-            "Black Cow",
-            "Josie"
-          ],
+          "options": ["Deacon Blues", "Peg", "Black Cow", "Josie"],
           "correctAnswer": "Deacon Blues",
           "trivia": "The song 'Deacon Blues' from Steely Dan's 1977 album 'Aja' has an alternate version that includes an extended saxophone solo, which showcases the band's commitment to jazz influences in their music. The original track, while already celebrated for its intricate arrangement and smooth melody, gained a fresh take with this alternative version, emphasizing the virtuosity of the musicians involved. Steely Dan, known for their meticulous studio work, often created multiple takes and variations of their songs, contributing to their unique sound. 'Aja' itself is often praised for its production quality and has been referred to as a landmark achievement in rock music. The album features a blend of rock, jazz, and pop elements, which is a hallmark of Steely Dan's style."
         },
@@ -2937,12 +2847,7 @@
       "easy": [
         {
           "question": "In what year did Aerosmith release their iconic album 'Toys in the Attic', which reflected the societal changes and youth culture of the mid-1970s?",
-          "options": [
-            "1972",
-            "1975",
-            "1978",
-            "1980"
-          ],
+          "options": ["1972", "1975", "1978", "1980"],
           "correctAnswer": "1975",
           "trivia": "Aerosmith released 'Toys in the Attic' in 1975, a pivotal year that marked significant shifts in American music and culture. During this time, rock music was at the forefront of youth expression, capturing the spirit of rebellion and freedom that defined the era. The album featured hits like 'Sweet Emotion' and 'Walk This Way', which became anthems for a generation seeking to break away from societal norms. Additionally, 'Toys in the Attic' was crucial in establishing Aerosmith's place in rock history, as it showcased their blend of hard rock and blues influences that resonated with fans. The album's success not only solidified the band's career but also reflected the changing landscape of popular music in the 1970s."
         },
@@ -3358,23 +3263,13 @@
       "hard": [
         {
           "question": "In what year was the iconic 'Imagine' album by John Lennon first released as a limited edition vinyl box set featuring exclusive artwork and merchandise?",
-          "options": [
-            "1973",
-            "1971",
-            "1975",
-            "1980"
-          ],
+          "options": ["1973", "1971", "1975", "1980"],
           "correctAnswer": "1971",
           "trivia": "'Imagine' was released in 1971 and quickly became one of John Lennon's most celebrated works, not just musically but also in terms of its message of peace and unity. The album featured the title track 'Imagine,' which has since become an anthem for peace movements around the world. In addition to its musical legacy, the album was initially released as a limited edition vinyl box set that included exclusive artwork and merchandise, appealing to devoted fans of Lennon. The cover art, featuring a simple white backdrop with bold text, was designed by Lennon and Yoko Ono, reinforcing the minimalist aesthetic that characterized much of the album's themes. This strategic release helped to cultivate a strong fandom surrounding the album, further solidifying its place in music history."
         },
         {
           "question": "Which artist famously covered the song 'Imagine' by John Lennon from the album 'Imagine' in a live performance that garnered significant media attention in the 2000s?",
-          "options": [
-            "Lady Gaga",
-            "Elton John",
-            "David Bowie",
-            "Madonna"
-          ],
+          "options": ["Lady Gaga", "Elton John", "David Bowie", "Madonna"],
           "correctAnswer": "Lady Gaga",
           "trivia": "In 2010, Lady Gaga performed a cover of 'Imagine' during a live event dedicated to the late John Lennon, showcasing her admiration for his work. This performance was part of a broader tribute to Lennon's legacy, emphasizing the song's enduring appeal and message of peace. 'Imagine' has been covered by numerous artists since its release in 1971, including notable renditions by artists like Elton John and Joan Baez. The song's universal themes continue to resonate, making it a popular choice for reinterpretation, especially during significant cultural events."
         },
@@ -3639,12 +3534,7 @@
       "easy": [
         {
           "question": "In what year did Simon & Garfunkel's album 'Bridge Over Troubled Water' reflect the growing social and political upheaval in America?",
-          "options": [
-            "1968",
-            "1970",
-            "1972",
-            "1965"
-          ],
+          "options": ["1968", "1970", "1972", "1965"],
           "correctAnswer": "1970",
           "trivia": "Released in 1970, Simon & Garfunkel's 'Bridge Over Troubled Water' emerged during a time of significant social change in the United States. The late 1960s and early 1970s were marked by the civil rights movement, anti-war protests, and cultural shifts, all of which influenced the themes of the album. 'Bridge Over Troubled Water' features songs that convey a sense of comfort and support, resonating with listeners who were experiencing uncertainty and conflict in their lives. The title track became an anthem of hope, and the album itself topped the charts, reflecting the band's profound impact on the music scene during this tumultuous period. Notably, the album won several Grammy Awards, further solidifying its cultural significance."
         },
@@ -3802,12 +3692,7 @@
         },
         {
           "question": "Which influential punk rock producer played a key role in shaping the sound of the Ramones' debut album 'Ramones' released in 1976?",
-          "options": [
-            "Brian Eno",
-            "Phil Spector",
-            "Craig Leon",
-            "Rick Rubin"
-          ],
+          "options": ["Brian Eno", "Phil Spector", "Craig Leon", "Rick Rubin"],
           "correctAnswer": "Craig Leon",
           "trivia": "Craig Leon was the producer who helped the Ramones achieve their iconic sound on their self-titled debut album 'Ramones' in 1976. Known for his work with various punk and new wave acts, Leon's production style contributed to the album's raw energy and straightforward approach, which became a defining characteristic of punk rock. This album featured influential tracks such as 'Blitzkrieg Bop' and 'I Wanna Be Your Boyfriend,' which laid the groundwork for the punk genre. The Ramones recorded the album in just a few days, a testament to their fast-paced songwriting and performance style. The album was pivotal in introducing a new wave of music that would influence countless bands in the years to come."
         },
@@ -4047,12 +3932,7 @@
         },
         {
           "question": "Which song from T. Rex's album 'Electric Warrior' was first performed live at the iconic 1971 concert at the Electric Ballroom in London?",
-          "options": [
-            "Get It On",
-            "Jeepster",
-            "Cosmic Dancer",
-            "Bang a Gong"
-          ],
+          "options": ["Get It On", "Jeepster", "Cosmic Dancer", "Bang a Gong"],
           "correctAnswer": "Get It On",
           "trivia": "The song 'Get It On' was famously first performed live by T. Rex at the Electric Ballroom in Camden, London, in 1971, shortly before the release of their album 'Electric Warrior'. This performance helped cement the band's reputation as a leading force in the glam rock movement. 'Electric Warrior' itself, released in September 1971, became one of T. Rex's most influential albums, featuring catchy hooks and innovative soundscapes. The single 'Get It On' went on to reach number one in the UK charts, showcasing the band's unique blend of rock and pop sensibilities. Notably, the song has been covered by numerous artists and remains one of T. Rex's signature tracks."
         }
@@ -4164,12 +4044,7 @@
         },
         {
           "question": "Which chart position did Van Morrison's album 'Moondance' reach on the Billboard 200 upon its release in 1970?",
-          "options": [
-            "Number 20",
-            "Number 29",
-            "Number 38",
-            "Number 22"
-          ],
+          "options": ["Number 20", "Number 29", "Number 38", "Number 22"],
           "correctAnswer": "Number 29",
           "trivia": "Upon its release in 1970, Van Morrison's 'Moondance' peaked at number 29 on the Billboard 200 chart. This album marked a significant moment in Morrison's career, showcasing a blend of jazz, pop, and folk influences. Notably, 'Moondance' also featured the hit title track, which became one of his signature songs and received substantial radio play. The album's unique sound and smooth production contributed to its long-lasting appeal, eventually being certified multi-platinum. Additionally, 'Moondance' is frequently regarded as one of the essential albums of the 1970s, solidifying Van Morrison's status as a prominent figure in the music industry."
         }
@@ -4458,12 +4333,7 @@
       "easy": [
         {
           "question": "Which song from The Velvet Underground's album 'Loaded' was frequently performed live, showcasing the band's transition to a more commercial sound?",
-          "options": [
-            "Sweet Jane",
-            "Heroin",
-            "Rock and Roll",
-            "Venus in Furs"
-          ],
+          "options": ["Sweet Jane", "Heroin", "Rock and Roll", "Venus in Furs"],
           "correctAnswer": "Sweet Jane",
           "trivia": "The song 'Sweet Jane' from The Velvet Underground's 1970 album 'Loaded' became one of the band's most iconic tracks and was a staple of their live performances. Its catchy melody and relatable lyrics helped it gain significant popularity, especially during the early 1970s. 'Sweet Jane' was not only featured on 'Loaded' but also became a highlight during concerts, where its energetic delivery resonated with audiences. The song's evolution in live settings often included variations in arrangement, showcasing the band's improvisational skills. Additionally, 'Loaded' marked a departure from the avant-garde style of their earlier work, aiming for a more accessible sound, which was exemplified in the straightforward rock vibe of 'Sweet Jane.'"
         },
@@ -4667,12 +4537,7 @@
         },
         {
           "question": "In what year did Rush first perform the epic suite '2112' from their album of the same name during a live concert?",
-          "options": [
-            "1976",
-            "1977",
-            "1975",
-            "1978"
-          ],
+          "options": ["1976", "1977", "1975", "1978"],
           "correctAnswer": "1976",
           "trivia": "Rush first performed the iconic title track '2112' live in 1976, shortly after the album's release. This progressive rock suite, which spans over 20 minutes, was pivotal in establishing the band's reputation and solidified their place in rock history. The album '2112' was released on April 1, 1976, and its themes of individuality and rebellion resonated deeply with the audience of the time. The performance of '2112' became a staple in Rush's concerts, showcasing their musicianship and storytelling abilities. This early live rendition marked a significant moment in the band's trajectory, as they began to garner a dedicated fan base."
         }
@@ -4820,12 +4685,7 @@
         },
         {
           "question": "In what year did Electric Light Orchestra release their influential album 'Out of the Blue', which reflected the societal changes and musical experimentation of the late 1970s?",
-          "options": [
-            "1974",
-            "1975",
-            "1977",
-            "1979"
-          ],
+          "options": ["1974", "1975", "1977", "1979"],
           "correctAnswer": "1977",
           "trivia": "Electric Light Orchestra released 'Out of the Blue' in 1977, a pivotal year that marked significant changes in popular music and culture. This album featured hits like 'Mr. Blue Sky' and 'Sweet Talkin' Woman', showcasing the band's unique blend of rock and orchestral elements. The late 1970s were characterized by the rise of disco and punk music, yet ELO's orchestral rock maintained a distinctive appeal, resonating with fans of various genres. Additionally, 'Out of the Blue' was one of the first albums to feature the use of the compact disc format, which revolutionized music consumption in the years to come. This album solidified ELO's place in music history as innovators during a time of great experimentation and change."
         },
@@ -4926,12 +4786,7 @@
       "easy": [
         {
           "question": "In what year did Billy Joel release his iconic album 'The Stranger', which reflected the societal changes of the 1970s?",
-          "options": [
-            "1975",
-            "1977",
-            "1979",
-            "1981"
-          ],
+          "options": ["1975", "1977", "1979", "1981"],
           "correctAnswer": "1977",
           "trivia": "Billy Joel released 'The Stranger' in 1977, a pivotal year that captured the essence of American culture during the late 1970s. This album featured themes of love, identity, and societal challenges, resonating with listeners amidst a backdrop of economic turbulence and shifting social norms. Tracks like 'Just the Way You Are' and 'Movin' Out (Anthony's Song)' became instant classics, highlighting the struggles and aspirations of the average American. The album not only solidified Joel's reputation as a top-tier songwriter but also played a significant role in his rise to fame during a time when music was evolving rapidly. 'The Stranger' remains a landmark recording that reflects the sentiments of its era."
         },
@@ -5089,12 +4944,7 @@
         },
         {
           "question": "In what year was Genesis's album 'Selling England by the Pound' released, marking a significant moment in the band's rise to fame?",
-          "options": [
-            "1971",
-            "1973",
-            "1975",
-            "1977"
-          ],
+          "options": ["1971", "1973", "1975", "1977"],
           "correctAnswer": "1973",
           "trivia": "'Selling England by the Pound' was released by Genesis in 1973, and it is considered one of their most acclaimed albums. The album's release was pivotal as it coincided with the growing popularity of progressive rock, helping to establish Genesis as a leading band in the genre. The album features themes reflecting British identity and culture, which resonated with audiences during a time of significant social change in the UK. Notably, tracks such as 'Firth of Fifth' and 'The Cinema Show' showcase the band's intricate musical compositions and lyrical depth. The album's success also led to an increased level of touring and promotional activities, which further solidified Genesis's place in rock history."
         },
@@ -5195,12 +5045,7 @@
       "medium": [
         {
           "question": "Which music genre significantly influenced The Stooges' sound on their 1970 album 'Fun House', contributing to its raw and aggressive style?",
-          "options": [
-            "Psychedelic Rock",
-            "Jazz",
-            "Blues",
-            "Garage Rock"
-          ],
+          "options": ["Psychedelic Rock", "Jazz", "Blues", "Garage Rock"],
           "correctAnswer": "Garage Rock",
           "trivia": "The Stooges' 1970 album 'Fun House' is widely recognized for its garage rock influences, which are evident in the album's raw energy and punk aesthetic. Garage rock, characterized by its simple, energetic sound and often rebellious lyrics, provided a foundational element for the band's musical identity. The Stooges, led by Iggy Pop, drew upon this genre to create a sense of immediacy and authenticity in their music, which resonated with the emerging punk scene. Additionally, the album features a blend of other genres, including blues and free jazz, which can be heard in the improvisational elements and the incorporation of saxophone. Overall, 'Fun House' serves as a pivotal moment in the evolution of garage rock, influencing countless bands in the decades that followed."
         },
@@ -5358,12 +5203,7 @@
         },
         {
           "question": "What was the estimated production cost for Queen's album 'Sheer Heart Attack' released in 1974?",
-          "options": [
-            "£40,000",
-            "£30,000",
-            "£50,000",
-            "£25,000"
-          ],
+          "options": ["£40,000", "£30,000", "£50,000", "£25,000"],
           "correctAnswer": "£40,000",
           "trivia": "The estimated production cost for Queen's album 'Sheer Heart Attack' was around £40,000, which was quite significant for a rock album during the early 1970s. Released in 1974, this album marked a pivotal point in Queen's career, showcasing their eclectic sound and cementing their place in rock history. The financial investment was reflected in the album's production quality and the band's ambitious musical arrangements. Notably, 'Sheer Heart Attack' included the hit single 'Killer Queen,' which helped propel the album into the charts, demonstrating that the financial gamble paid off. Additionally, the album's success was instrumental in establishing Queen as a major force in the music industry."
         },
@@ -5522,12 +5362,7 @@
         },
         {
           "question": "Which musical genre, known for its complex structures and improvisation, significantly influenced Yes's album 'Close to the Edge'?",
-          "options": [
-            "Blues",
-            "Jazz",
-            "Folk",
-            "Country"
-          ],
+          "options": ["Blues", "Jazz", "Folk", "Country"],
           "correctAnswer": "Jazz",
           "trivia": "Yes's album 'Close to the Edge,' released in 1972, was notably influenced by jazz, particularly in its complex arrangements and improvisational elements. The band incorporated intricate rhythms and extended song structures, reflecting the jazz genre's emphasis on musical exploration. Additionally, the band's keyboardist, Rick Wakeman, was inspired by jazz musicians, which can be heard in the album's fluid melodies and dynamic instrumentation. The influence of jazz is not just limited to 'Close to the Edge' but is a recurring theme throughout much of Yes's work, showcasing their ability to blend various musical styles into their progressive rock sound. This album is often cited as a landmark in the progressive rock genre, further solidifying Yes's reputation as pioneers of musical innovation."
         },
@@ -6049,12 +5884,7 @@
       "hard": [
         {
           "question": "Which chart position did The Who's album 'Quadrophenia' achieve on the US Billboard 200 upon its release in 1973?",
-          "options": [
-            "Top 5",
-            "Top 10",
-            "Top 20",
-            "Top 30"
-          ],
+          "options": ["Top 5", "Top 10", "Top 20", "Top 30"],
           "correctAnswer": "Top 10",
           "trivia": "'Quadrophenia' reached a peak position of number 2 on the US Billboard 200 chart, making it one of The Who's most commercially successful albums. Released on October 19, 1973, the album was a rock opera that depicted the struggles of a young mod named Jimmy. Notably, it features iconic tracks such as 'Love, Reign O'er Me' and 'The Real Me,' which contributed to its popularity. The album's critical acclaim and enduring legacy also played a significant role in its chart performance, reflecting the band's influence in the rock genre during the 1970s."
         },
@@ -6166,12 +5996,7 @@
       "hard": [
         {
           "question": "Which publication gave Roxy Music's album 'For Your Pleasure' a notably favorable review upon its release in 1973, highlighting its avant-garde approach and musical sophistication?",
-          "options": [
-            "Rolling Stone",
-            "NME",
-            "Pitchfork",
-            "The Guardian"
-          ],
+          "options": ["Rolling Stone", "NME", "Pitchfork", "The Guardian"],
           "correctAnswer": "NME",
           "trivia": "Upon its release, Roxy Music's 'For Your Pleasure' received a notably positive review from NME, which praised the album's innovative blend of glam rock and art pop. The review emphasized the band's sophisticated sound and the artistic vision of frontman Bryan Ferry, marking the album as a significant development in the glam rock genre. Released in 1973, 'For Your Pleasure' features tracks like 'Do the Strand' and 'Editions of You,' both of which showcase Roxy Music's unique style and lyrical depth. NME's endorsement helped solidify Roxy Music's reputation as pioneers in the music scene, illustrating how critical reception can influence public perception and the longevity of an album's impact."
         },
@@ -6283,12 +6108,7 @@
       "hard": [
         {
           "question": "Which of the following songs from Black Sabbath's self-titled album 'Black Sabbath' is credited with influencing the crossover success of heavy metal into mainstream rock culture?",
-          "options": [
-            "The Wizard",
-            "N.I.B.",
-            "Iron Man",
-            "Fairies Wear Boots"
-          ],
+          "options": ["The Wizard", "N.I.B.", "Iron Man", "Fairies Wear Boots"],
           "correctAnswer": "N.I.B.",
           "trivia": "'N.I.B.' is often regarded as one of the standout tracks from Black Sabbath's 1970 debut album 'Black Sabbath' and played a significant role in the genre's crossover success. Its intricate bass line, combined with Ozzy Osbourne's haunting vocals and the band's distinctive heavy sound, helped to attract a wider audience beyond traditional rock listeners. The song's dark themes and innovative musical structure laid the groundwork for what would become a hallmark of heavy metal, influencing numerous artists and bands in the years to follow. Additionally, the album itself is often cited as a pivotal moment in music history, marking the birth of heavy metal as a genre that would dominate the rock scene in the 1970s and beyond."
         },
@@ -6365,12 +6185,7 @@
       "medium": [
         {
           "question": "Which contemporary artist has cited Al Green's album 'Let’s Stay Together' as a significant influence on their own music style?",
-          "options": [
-            "John Legend",
-            "Bruno Mars",
-            "Anderson .Paak",
-            "Usher"
-          ],
+          "options": ["John Legend", "Bruno Mars", "Anderson .Paak", "Usher"],
           "correctAnswer": "John Legend",
           "trivia": "John Legend has often mentioned Al Green as a major influence in his musical career, particularly praising the soulful sound exemplified in Green's 1972 album 'Let’s Stay Together'. This album is renowned for its smooth blend of soul and R&B, featuring hits like the title track and 'Take Me to the River'. Al Green's emotive vocal style and the album's lush production have inspired numerous artists across generations. Additionally, 'Let’s Stay Together' is frequently cited for its role in shaping the sound of modern soul music, making it a touchstone for many contemporary musicians, including Legend. The impact of Green's work continues to resonate, showcasing the timeless nature of his artistry."
         },
@@ -6469,12 +6284,7 @@
         },
         {
           "question": "Which genre heavily influenced the sound of Steely Dan's debut album 'Can’t Buy a Thrill' released in 1972?",
-          "options": [
-            "Disco",
-            "Jazz",
-            "Heavy Metal",
-            "Bluegrass"
-          ],
+          "options": ["Disco", "Jazz", "Heavy Metal", "Bluegrass"],
           "correctAnswer": "Jazz",
           "trivia": "Steely Dan's debut album 'Can’t Buy a Thrill' showcases a significant influence from jazz music, which is evident in its sophisticated chord progressions and intricate melodies. The band, formed by Walter Becker and Donald Fagen, incorporated elements of jazz not only in their instrumentation but also in their songwriting style. For example, the track 'Do It Again' features a jazzy guitar solo that aligns with the genre's improvisational spirit. Steely Dan's fusion of rock, pop, and jazz helped set them apart in the early 1970s music scene, contributing to their unique sound that would define their later works."
         }
@@ -6493,12 +6303,7 @@
         },
         {
           "question": "In what year did Steely Dan's debut album 'Can’t Buy a Thrill' receive a nomination for Best New Artist at the Grammy Awards, highlighting its impact on the music industry?",
-          "options": [
-            "1973",
-            "1974",
-            "1975",
-            "1976"
-          ],
+          "options": ["1973", "1974", "1975", "1976"],
           "correctAnswer": "1974",
           "trivia": "Steely Dan's 'Can’t Buy a Thrill' was released in 1972 and became a significant debut for the band, showcasing their unique blend of rock and jazz influences. The album was nominated for Best New Artist at the 16th Annual Grammy Awards held in 1974, which helped solidify their presence in the music industry. Featuring hits like 'Do It Again' and 'Reelin' in the Years,' the album was praised for its sophisticated songwriting and production techniques. Additionally, the album's success paved the way for Steely Dan's innovative approach to music, which often included studio musicians and complex arrangements, setting them apart from their contemporaries."
         },
@@ -6773,12 +6578,7 @@
         },
         {
           "question": "In what year was the deluxe edition of Patti Smith's album 'Horses' released, which included previously unreleased tracks and additional content?",
-          "options": [
-            "2000",
-            "2005",
-            "2010",
-            "2015"
-          ],
+          "options": ["2000", "2005", "2010", "2015"],
           "correctAnswer": "2005",
           "trivia": "The deluxe edition of 'Horses' by Patti Smith was released in 2005 to commemorate the album's 30th anniversary. This edition featured previously unreleased tracks, live recordings, and a remastered version of the original album, showcasing the enduring impact of Smith's groundbreaking work. 'Horses' is often hailed as one of the greatest albums in rock history, blending elements of punk rock and poetry. Patti Smith's influence on the music scene has been substantial, and this deluxe release provided fans with deeper insight into her artistic vision and the era in which she created this iconic record."
         }
@@ -6844,12 +6644,7 @@
         },
         {
           "question": "In what city did Lou Reed primarily record his influential album 'Transformer' in 1972, which contributed significantly to the glam rock movement?",
-          "options": [
-            "London",
-            "Berlin",
-            "Los Angeles",
-            "New York City"
-          ],
+          "options": ["London", "Berlin", "Los Angeles", "New York City"],
           "correctAnswer": "New York City",
           "trivia": "Lou Reed recorded 'Transformer' in New York City, which was pivotal in shaping the album's sound and aesthetic. Released in 1972, 'Transformer' became a cornerstone of the glam rock movement, featuring contributions from notable musicians like David Bowie and Mick Ronson. The album included iconic tracks such as 'Walk on the Wild Side' and 'Perfect Day', which addressed themes of urban life and sexual identity. New York City's vibrant cultural scene during the early 1970s heavily influenced Reed's work, making it a fitting backdrop for the creation of this landmark record. The album's international impact is evident in its lasting legacy and continued influence on artists across various genres."
         },
@@ -7160,23 +6955,13 @@
         },
         {
           "question": "Which song on Television's album 'Marquee Moon' contains a hidden reference to a famous New York City landmark?",
-          "options": [
-            "See No Evil",
-            "Marquee Moon",
-            "Friction",
-            "Prove It"
-          ],
+          "options": ["See No Evil", "Marquee Moon", "Friction", "Prove It"],
           "correctAnswer": "Marquee Moon",
           "trivia": "The track 'Marquee Moon' features a hidden reference to the iconic marquee signs of New York City, which symbolize the vibrant nightlife and artistic scene of the era. Released in 1977, 'Marquee Moon' is often celebrated for its intricate guitar work and poetic lyrics, reflecting the band's experiences in the urban landscape. The album itself is regarded as a cornerstone of the post-punk movement, influencing countless artists across various genres. Notably, the album received critical acclaim and has been included in numerous 'greatest albums' lists, showcasing the enduring legacy of Television."
         },
         {
           "question": "Which single from Television's album 'Marquee Moon' achieved considerable crossover success and is often regarded as their most iconic track?",
-          "options": [
-            "See No Evil",
-            "Marquee Moon",
-            "Elevation",
-            "Prove It"
-          ],
+          "options": ["See No Evil", "Marquee Moon", "Elevation", "Prove It"],
           "correctAnswer": "Marquee Moon",
           "trivia": "The single 'Marquee Moon' from Television's 1977 album of the same name is widely recognized as their most iconic track, contributing to their crossover success in the rock music scene. The song features intricate guitar work and poetic lyrics that resonated with both critics and listeners, helping the album to achieve cult status. 'Marquee Moon' is celebrated for its innovative sound, which blends punk rock with art rock elements. The album itself did not chart highly on the Billboard charts but gained significant acclaim and influence in the years following its release, often cited as one of the greatest albums of all time. Additionally, Television's unique sound and style helped pave the way for the alternative rock genre in the late 1970s and beyond."
         }
@@ -7323,12 +7108,7 @@
         },
         {
           "question": "Which popular hip-hop artist famously sampled Earth, Wind & Fire's track from the album 'That’s the Way of the World' in one of their hit songs?",
-          "options": [
-            "Dr. Dre",
-            "Kanye West",
-            "JAY-Z",
-            "Nas"
-          ],
+          "options": ["Dr. Dre", "Kanye West", "JAY-Z", "Nas"],
           "correctAnswer": "Kanye West",
           "trivia": "Kanye West sampled Earth, Wind & Fire's 'September' from the album 'That’s the Way of the World' in his hit song 'Stronger' released in 2007. This sampling showcases the timeless influence of Earth, Wind & Fire on contemporary music, particularly in hip-hop and R&B. 'That’s the Way of the World' was a pivotal album that helped define the band's signature sound, blending elements of funk, soul, and jazz. Released in 1975, the album featured the iconic track 'Shining Star,' which topped the Billboard Hot 100. The enduring legacy of Earth, Wind & Fire's music continues to resonate across genres, a testament to their innovative artistry."
         }
@@ -7336,12 +7116,7 @@
       "hard": [
         {
           "question": "Which track from Earth, Wind & Fire's album 'That’s the Way of the World' achieved significant crossover success by reaching both the R&B and pop charts in 1975?",
-          "options": [
-            "Reasons",
-            "Shining Star",
-            "Sing a Song",
-            "All 'n All"
-          ],
+          "options": ["Reasons", "Shining Star", "Sing a Song", "All 'n All"],
           "correctAnswer": "Shining Star",
           "trivia": "The song 'Shining Star' from Earth, Wind & Fire's 1975 album 'That’s the Way of the World' was a major crossover hit, reaching No. 1 on the Billboard Hot 100 and No. 1 on the R&B charts. This remarkable achievement marked a significant moment in the band's career, showcasing their ability to blend R&B, soul, and pop elements seamlessly. Additionally, 'Shining Star' was nominated for a Grammy Award, further solidifying the album's impact on the music landscape of the time. The album itself was produced during a transformative period for the band, as they began to incorporate more complex arrangements and orchestration, which would later define their sound. Notably, 'That’s the Way of the World' is often praised for its lyrical themes of love and positivity, resonating with a wide audience across various genres."
         },
@@ -7546,12 +7321,7 @@
         },
         {
           "question": "Which notable artist recorded a cover of David Bowie's 'The Jean Genie' from the album 'Aladdin Sane' in 1980, giving the song a new twist?",
-          "options": [
-            "Iggy Pop",
-            "The Cure",
-            "Roxy Music",
-            "Mick Jagger"
-          ],
+          "options": ["Iggy Pop", "The Cure", "Roxy Music", "Mick Jagger"],
           "correctAnswer": "Iggy Pop",
           "trivia": "Iggy Pop, a close collaborator and friend of David Bowie, released a cover of 'The Jean Genie' in 1980. This song was originally featured on Bowie's 1973 album 'Aladdin Sane', where it became one of his signature tracks, showcasing a blend of rock and glam influences. The original version was notable for its catchy riff and Bowie’s dynamic vocal delivery, reflecting the vibrant music scene of the early '70s. Iggy Pop's rendition brought a punk rock edge to the classic, illustrating the song's lasting impact and versatility. Bowie's innovative approach to music and performance during this era has influenced countless artists, including Pop, who often drew inspiration from Bowie's style."
         },
@@ -7570,12 +7340,7 @@
       "hard": [
         {
           "question": "Which chart position did David Bowie's album 'Aladdin Sane' achieve on the UK Albums Chart upon its release in 1973?",
-          "options": [
-            "1st",
-            "3rd",
-            "5th",
-            "7th"
-          ],
+          "options": ["1st", "3rd", "5th", "7th"],
           "correctAnswer": "1st",
           "trivia": "Upon its release in 1973, David Bowie's 'Aladdin Sane' reached the impressive peak position of 1st on the UK Albums Chart, solidifying Bowie's status as a major figure in rock music. This album is often regarded as a pivotal work in his career, featuring iconic tracks such as 'The Jean Genie' and 'Drive-In Saturday.' 'Aladdin Sane' was also notable for its exploration of themes like mental illness and the complexities of fame, and it has been described as the 'continuation' of the Ziggy Stardust narrative. The album's success was further amplified by its striking cover art, which featured Bowie's famous lightning bolt makeup, making it an enduring symbol of 1970s glam rock."
         },
@@ -7652,12 +7417,7 @@
       "medium": [
         {
           "question": "Which chart position did Chicago's album 'Chicago II' achieve on the Billboard 200 upon its release in 1970?",
-          "options": [
-            "No. 4",
-            "No. 1",
-            "No. 3",
-            "No. 6"
-          ],
+          "options": ["No. 4", "No. 1", "No. 3", "No. 6"],
           "correctAnswer": "No. 1",
           "trivia": "'Chicago II' marked a significant milestone for the band Chicago, as it reached the top position on the Billboard 200 chart in 1970. This album is known for its blend of rock and jazz elements, showcasing the band's innovative sound. Featuring hits such as '25 or 6 to 4' and 'Make Me Smile', 'Chicago II' solidified Chicago's place in the music scene of the 1970s. The album's success was further bolstered by its orchestral arrangements and the strong musicianship of its members. It remains one of the defining works of their early career, contributing to their legacy as a pioneering band in the rock genre."
         },
@@ -7745,12 +7505,7 @@
         },
         {
           "question": "Which music genre heavily influenced the sound of James Brown's album 'The Payback' released in 1973?",
-          "options": [
-            "Jazz",
-            "Country",
-            "Rock",
-            "Funk"
-          ],
+          "options": ["Jazz", "Country", "Rock", "Funk"],
           "correctAnswer": "Funk",
           "trivia": "James Brown's album 'The Payback' is often hailed as a pivotal work in the funk genre. Released in 1973, it showcased the transition of Brown's sound towards a more rhythm-centric style, heavily emphasizing bass lines and syncopated grooves. The title track, 'The Payback,' became an anthem of funk music, reflecting Brown's signature style that blended elements of soul and rhythm and blues. Additionally, the album features intricate horn arrangements and deep grooves that would influence countless artists in the decades to follow. Brown's innovative approach on this album solidified his status as the 'Godfather of Soul' and a foundational figure in the development of funk music."
         },
@@ -7862,12 +7617,7 @@
         },
         {
           "question": "How much did it cost to produce The Beach Boys' album 'Surf’s Up' in 1971?",
-          "options": [
-            "$50,000",
-            "$100,000",
-            "$75,000",
-            "$25,000"
-          ],
+          "options": ["$50,000", "$100,000", "$75,000", "$25,000"],
           "correctAnswer": "$100,000",
           "trivia": "The production cost for The Beach Boys' album 'Surf’s Up' in 1971 was approximately $100,000. This was a significant investment for the band at the time, particularly considering the evolving music industry landscape. The album features notable tracks such as 'Surf’s Up' and 'Feel Flows', showcasing both the band's intricate vocal harmonies and innovative arrangements. Additionally, this album marked a creative peak for The Beach Boys, often seen as a response to the changing musical tastes of the early '70s. The production costs reflected not only the quality of the music but also the ambition behind the project."
         },
@@ -8060,12 +7810,7 @@
         },
         {
           "question": "In what year did Parliament's album 'Mothership Connection' achieve its peak position on the Billboard 200, reflecting the effectiveness of its release strategy?",
-          "options": [
-            "1976",
-            "1977",
-            "1975",
-            "1978"
-          ],
+          "options": ["1976", "1977", "1975", "1978"],
           "correctAnswer": "1976",
           "trivia": "Parliament's 'Mothership Connection' peaked at number 13 on the Billboard 200 chart in 1976, showcasing the album's impact and the successful marketing strategies employed by the band and their label. Released in 1975, the album was pivotal in the funk genre, introducing listeners to the concept of the 'mothership' and the elaborate mythology surrounding it. The album's promotion included vibrant performances and an innovative blend of music and theatrical elements that captured the public's imagination. Notably, 'Mothership Connection' was a significant contributor to the rise of funk music in the mainstream, influencing countless artists in the years that followed. Its release marked a turning point for Parliament, solidifying their status as icons in the music industry."
         }
@@ -8237,12 +7982,7 @@
       "medium": [
         {
           "question": "Which musical instrument played by Stevie Wonder prominently features in the track 'Superstition' from the album 'Talking Book' released in 1972?",
-          "options": [
-            "Harmonica",
-            "Clavinet",
-            "Moog synthesizer",
-            "Piano"
-          ],
+          "options": ["Harmonica", "Clavinet", "Moog synthesizer", "Piano"],
           "correctAnswer": "Clavinet",
           "trivia": "The track 'Superstition,' which is one of the standout songs from Stevie Wonder's 1972 album 'Talking Book,' prominently features the clavinet, an electric keyboard instrument known for its funky sound. This song became a defining hit for Wonder, showcasing his innovative approach to music and his ability to blend genres like funk, soul, and rock. The clavinet's catchy riff is so iconic that it has been sampled and covered by countless artists since its release. Additionally, 'Talking Book' marked a significant step in Wonder's career as he began to take more creative control over his music, contributing to both songwriting and production. The album also included other notable tracks that highlighted Wonder's multi-instrumental talents and his pioneering use of technology in music production."
         },
@@ -8272,12 +8012,7 @@
       "hard": [
         {
           "question": "In what year did Stevie Wonder release the official merchandise line associated with his album 'Talking Book', which included items like T-shirts and posters?",
-          "options": [
-            "1973",
-            "1975",
-            "1972",
-            "1974"
-          ],
+          "options": ["1973", "1975", "1972", "1974"],
           "correctAnswer": "1973",
           "trivia": "The official merchandise line for Stevie Wonder's 'Talking Book' was launched in 1973, a year after the album's release in 1972. This era marked a significant shift in how artists engaged with their fan base, as merchandise became a staple for promoting albums and enhancing fandom. 'Talking Book' not only showcased Wonder's pioneering musical style with hits like 'Superstition' and 'You Are the Sunshine of My Life', but it also reflected the growing demand for artist-branded products. The album is considered a landmark in Wonder's career, demonstrating his artistic evolution and the broader cultural movements of the time. The success of both the album and its merchandise helped solidify Wonder's status as a leading figure in the music industry."
         },
@@ -8330,12 +8065,7 @@
         },
         {
           "question": "In which famous advertising campaign was Nick Drake's song from the album 'Pink Moon' featured, significantly increasing its popularity decades after the album's release?",
-          "options": [
-            "Volkswagen",
-            "Coca-Cola",
-            "Apple",
-            "Nike"
-          ],
+          "options": ["Volkswagen", "Coca-Cola", "Apple", "Nike"],
           "correctAnswer": "Volkswagen",
           "trivia": "Nick Drake's hauntingly beautiful track 'Pink Moon' from the album of the same name was prominently featured in a Volkswagen commercial in 1999. This unexpected exposure helped to revive interest in Drake's music, which had been largely overlooked during his lifetime. The ad showcased the simplicity and elegance of the car while the song's melancholic tones perfectly complemented the visuals, creating a memorable connection. As a result, 'Pink Moon' saw a resurgence in popularity, leading to increased sales and streaming of Drake's catalog. This phenomenon highlights how advertising can play a pivotal role in the rediscovery of an artist's work, especially for those whose careers were not commercially successful during their lifespan."
         },
@@ -8458,12 +8188,7 @@
         },
         {
           "question": "Which song from The Kinks' album 'Lola Versus Powerman and the Moneygoround, Part One' was released in a different version on their 1971 compilation album 'The Kinks' Greatest Hits'? ",
-          "options": [
-            "Lola",
-            "Apeman",
-            "This Time Tomorrow",
-            "Strangers"
-          ],
+          "options": ["Lola", "Apeman", "This Time Tomorrow", "Strangers"],
           "correctAnswer": "Lola",
           "trivia": "'Lola' is one of the standout tracks from The Kinks' 1970 album 'Lola Versus Powerman and the Moneygoround, Part One', and it gained immense popularity, leading to various versions and remixes over the years. The song tells the story of a young man's encounter with a transgender woman, showcasing Ray Davies' talent for storytelling. In 1971, a different version of 'Lola' was included on their compilation album 'The Kinks' Greatest Hits', which helped to further cement its status as a classic. Notably, 'Lola' reached number 2 on the UK Singles Chart and has been covered by numerous artists. The album itself is often regarded as a concept album that critiques the music industry, making it significant in The Kinks' discography."
         }
@@ -8482,12 +8207,7 @@
         },
         {
           "question": "Which iconic song from The Kinks' album 'Lola Versus Powerman and the Moneygoround, Part One' features a distinctive music video that showcases themes of gender identity and societal norms?",
-          "options": [
-            "Sunny Afternoon",
-            "Lola",
-            "Apeman",
-            "Victoria"
-          ],
+          "options": ["Sunny Afternoon", "Lola", "Apeman", "Victoria"],
           "correctAnswer": "Lola",
           "trivia": "The song 'Lola' from The Kinks' 1970 album 'Lola Versus Powerman and the Moneygoround, Part One' is renowned for its thought-provoking lyrics that explore themes of gender identity and societal expectations. The music video for 'Lola' was notable for its portrayal of a character who blurs traditional gender lines, contributing to its lasting cultural impact. Additionally, the song reached No. 2 on the UK Singles Chart, further solidifying The Kinks' status in the music scene of the time. This album is also recognized for its satirical take on the music industry, reflecting the struggles of artists in the 1970s. The Kinks, led by Ray Davies, continued to innovate with their storytelling approach, making 'Lola' a defining track in their discography."
         },
@@ -9102,12 +8822,7 @@
         },
         {
           "question": "What was the estimated production cost for Jethro Tull's album 'Aqualung' in 1971?",
-          "options": [
-            "£20,000",
-            "£30,000",
-            "£50,000",
-            "£15,000"
-          ],
+          "options": ["£20,000", "£30,000", "£50,000", "£15,000"],
           "correctAnswer": "£30,000",
           "trivia": "The estimated production cost for Jethro Tull's 'Aqualung' in 1971 was around £30,000. This budget allowed the band to explore elaborate studio techniques and high-quality production values that were essential for the album's ambitious sound. 'Aqualung' was a pivotal release that showcased the fusion of rock and folk elements, which contributed to its lasting impact on the progressive rock genre. The album's complexity and lyrical depth required careful planning and execution, making the financial investment a critical factor in its production. Notably, 'Aqualung' went on to become one of Jethro Tull's most acclaimed works, solidifying their place in music history."
         },
@@ -9290,12 +9005,7 @@
       "medium": [
         {
           "question": "What was the highest chart position achieved by Joy Division's album 'Unknown Pleasures' in the UK Albums Chart upon its initial release in 1979?",
-          "options": [
-            "Number 18",
-            "Number 24",
-            "Number 32",
-            "Number 12"
-          ],
+          "options": ["Number 18", "Number 24", "Number 32", "Number 12"],
           "correctAnswer": "Number 24",
           "trivia": "Upon its initial release in June 1979, Joy Division's 'Unknown Pleasures' reached a peak position of number 24 on the UK Albums Chart. Although it didn't achieve immediate commercial success, the album has since become a seminal work in the post-punk genre and is often hailed as one of the greatest albums of all time. The distinctive cover art, designed by Peter Saville, and the haunting sound of the band contributed to its later acclaim. Over the years, 'Unknown Pleasures' has been certified silver by the British Phonographic Industry for sales exceeding 60,000 copies, showcasing its enduring legacy in music history."
         },
@@ -9407,12 +9117,7 @@
       "medium": [
         {
           "question": "Which artist collaborated with The Cars on the album 'The Cars' by providing backing vocals for several tracks in 1978?",
-          "options": [
-            "David Bowie",
-            "John Lennon",
-            "Daryl Hall",
-            "Paul Simon"
-          ],
+          "options": ["David Bowie", "John Lennon", "Daryl Hall", "Paul Simon"],
           "correctAnswer": "Daryl Hall",
           "trivia": "Daryl Hall, known for his work as one half of the duo Hall & Oates, provided backing vocals on several tracks on The Cars' self-titled debut album, 'The Cars'. Released in 1978, this album featured a blend of rock and new wave sounds that helped define the era. Hall's unique vocal style complemented the band's sound, particularly on tracks like 'Just What I Needed'. 'The Cars' was a commercial success and included hits that reached the top of the charts, solidifying their place in music history. The collaboration with Hall showcased the interconnected nature of music during the late 1970s, where artists often supported one another across different genres."
         },
@@ -9628,12 +9333,7 @@
         },
         {
           "question": "What notable producer collaborated with Blue Öyster Cult on their 1976 album 'Agents of Fortune'?",
-          "options": [
-            "David Bowie",
-            "Mutt Lange",
-            "T. Rex",
-            "Bruce Fairbairn"
-          ],
+          "options": ["David Bowie", "Mutt Lange", "T. Rex", "Bruce Fairbairn"],
           "correctAnswer": "Bruce Fairbairn",
           "trivia": "Bruce Fairbairn was the producer who worked with Blue Öyster Cult on their critically acclaimed album 'Agents of Fortune', released in 1976. Fairbairn was known for his ability to blend hard rock with pop sensibilities, which played a significant role in the album's success. This collaboration resulted in one of the band's most famous tracks, '(Don't Fear) The Reaper', which became a major hit. Additionally, 'Agents of Fortune' showcased a more polished sound compared to their previous work, thanks in part to Fairbairn's production techniques. The album reached number 29 on the Billboard 200 chart, solidifying Blue Öyster Cult's place in rock history."
         }
@@ -9932,12 +9632,7 @@
         },
         {
           "question": "Which influential band, known for their hard rock sound, cited Aerosmith's 1976 album 'Rocks' as a significant inspiration for their own music style?",
-          "options": [
-            "Van Halen",
-            "Guns N' Roses",
-            "Metallica",
-            "Def Leppard"
-          ],
+          "options": ["Van Halen", "Guns N' Roses", "Metallica", "Def Leppard"],
           "correctAnswer": "Guns N' Roses",
           "trivia": "Guns N' Roses, a band that emerged in the late 1980s, has often credited Aerosmith's 'Rocks' as a pivotal influence on their sound and style. The raw energy and blues-infused rock of 'Rocks' helped shape the direction of hard rock music in the years that followed its release. Tracks like 'Back in the Saddle' and 'Last Child' exemplified a gritty sound that resonated with the band members of Guns N' Roses, particularly Axl Rose and Slash. Additionally, Aerosmith's ability to blend rock with a charismatic stage presence served as a blueprint for the theatrical elements that Guns N' Roses would later incorporate into their performances. As a hallmark of the 1970s rock era, 'Rocks' remains a critical reference point for understanding the evolution of rock music."
         }
@@ -9968,12 +9663,7 @@
         },
         {
           "question": "In which year was the deluxe edition of Curtis Mayfield's album 'Super Fly' released, featuring additional tracks and remastered audio?",
-          "options": [
-            "1996",
-            "2005",
-            "2013",
-            "2018"
-          ],
+          "options": ["1996", "2005", "2013", "2018"],
           "correctAnswer": "2013",
           "trivia": "The deluxe edition of Curtis Mayfield's iconic album 'Super Fly' was released in 2013, celebrating the 40th anniversary of the original album that came out in 1972. This reissue included remastered audio and several bonus tracks, such as previously unreleased material that showcased Mayfield's innovative sound. 'Super Fly' is renowned for its blend of funk and soul, and its music played a significant role in the blaxploitation film of the same name. The album features classic tracks like 'Freddie's Dead' and 'Super Fly', which have remained influential in music history. This deluxe version allowed new generations to appreciate Mayfield's artistry and the cultural impact of 'Super Fly'."
         },
@@ -10085,12 +9775,7 @@
         },
         {
           "question": "In which popular TV show did a character famously perform the song 'Paradise by the Dashboard Light' from Meat Loaf's album 'Bat Out of Hell'?",
-          "options": [
-            "Friends",
-            "The Simpsons",
-            "Glee",
-            "The Office"
-          ],
+          "options": ["Friends", "The Simpsons", "Glee", "The Office"],
           "correctAnswer": "Glee",
           "trivia": "The song 'Paradise by the Dashboard Light' from Meat Loaf's iconic 1977 album 'Bat Out of Hell' was featured in the popular musical TV series 'Glee'. This show often paid homage to classic rock and pop songs, and Meat Loaf's powerful ballad was performed in Season 1, Episode 22, titled 'Journey to Regionals'. 'Bat Out of Hell' itself is one of the best-selling albums of all time, known for its theatrical style and rock operatic elements. Additionally, Meat Loaf's collaboration with songwriter Jim Steinman on this album helped define a genre that blended rock with dramatic storytelling, securing its place in music history."
         },
@@ -10166,12 +9851,7 @@
         },
         {
           "question": "Which artist released a notable cover version of 'You Took the Words Right Out of My Mouth', originally by Meat Loaf from the album 'Bat Out of Hell'?",
-          "options": [
-            "Celine Dion",
-            "John Legend",
-            "Gwen Stefani",
-            "Cher"
-          ],
+          "options": ["Celine Dion", "John Legend", "Gwen Stefani", "Cher"],
           "correctAnswer": "Cher",
           "trivia": "Cher's cover of 'You Took the Words Right Out of My Mouth' showcases her unique vocal style while paying homage to Meat Loaf's original track from the iconic 1977 album 'Bat Out of Hell'. This song, which features a dramatic narrative about love and longing, was a significant part of Meat Loaf's rise to fame, eventually becoming a classic rock staple. The album itself has sold over 14 million copies in the U.S. alone, making it one of the best-selling albums of all time. Cher's reinterpretation adds a contemporary flair to the song, demonstrating the lasting impact of Meat Loaf's work on future artists."
         }
@@ -10272,12 +9952,7 @@
         },
         {
           "question": "Which influential musical genre, synthesized in part by Blondie's 'Parallel Lines', foreshadowed the rise of pop-punk and new wave in the late 1970s and 1980s?",
-          "options": [
-            "Folk Rock",
-            "Disco",
-            "Punk Rock",
-            "Heavy Metal"
-          ],
+          "options": ["Folk Rock", "Disco", "Punk Rock", "Heavy Metal"],
           "correctAnswer": "Punk Rock",
           "trivia": "'Parallel Lines', released by Blondie in 1978, played an essential role in the evolution of punk rock, blending its raw energy with pop sensibilities. The album's hit singles, such as 'Heart of Glass', showcased this fusion and helped pave the way for future genres like pop-punk and new wave. Notably, 'Parallel Lines' was a commercial success, reaching the top of charts in multiple countries and solidifying Blondie's position as a key player in the music scene. The album's stylistic innovations influenced countless artists in the years to follow, demonstrating the impact of punk's rebellious spirit combined with catchy melodies. Additionally, the use of synthesizers and girl group-inspired harmonies on this album would resonate with bands throughout the 1980s, shaping the sound of pop music for decades."
         },
@@ -10389,12 +10064,7 @@
         },
         {
           "question": "Which song from Bob Dylan's album 'Desire' has been notably remixed in various versions, showcasing different artistic interpretations since its original release in 1976?",
-          "options": [
-            "Hurricane",
-            "Isis",
-            "Joey",
-            "Romance in Durango"
-          ],
+          "options": ["Hurricane", "Isis", "Joey", "Romance in Durango"],
           "correctAnswer": "Romance in Durango",
           "trivia": "The correct answer is 'Romance in Durango,' a track from Bob Dylan's 1976 album 'Desire' that has inspired multiple remixes and alternative versions over the years. The song's vibrant imagery and narrative style reflect the influence of Latin music, which Dylan incorporated to enhance its emotional depth. Notably, 'Romance in Durango' was originally inspired by the works of Mexican writer Octavio Paz, and its themes resonate with the album's overall exploration of love and loss. Various artists have interpreted this song, showcasing its versatility and the lasting impact of Dylan's storytelling. The album 'Desire' itself was a critical success and marked a significant moment in Dylan's career, further establishing his role as a cultural icon."
         },
@@ -10425,12 +10095,7 @@
       "easy": [
         {
           "question": "What unique vocal effect did Peter Frampton famously use on the song 'Do You Feel Like We Do' from his 1976 album 'Frampton Comes Alive!'?",
-          "options": [
-            "Vocoder",
-            "Auto-Tune",
-            "Talk Box",
-            "Flanger"
-          ],
+          "options": ["Vocoder", "Auto-Tune", "Talk Box", "Flanger"],
           "correctAnswer": "Talk Box",
           "trivia": "In 'Frampton Comes Alive!', Peter Frampton utilized a talk box to create the distinctive vocal effect on 'Do You Feel Like We Do.' This technique involves a tube connected to a speaker that allows the musician to shape the sound of the guitar or voice with their mouth, producing a unique, dynamic tone. The use of the talk box became one of Frampton's signature sounds and contributed to the album's massive success, which included hits that dominated the charts in the mid-1970s. 'Frampton Comes Alive!' remains one of the best-selling live albums of all time, showcasing not only Frampton's exceptional guitar skills but also his innovative approach to sound production."
         },
@@ -10577,12 +10242,7 @@
       "medium": [
         {
           "question": "Which prominent artist cited Barry White's 'Can’t Get Enough' as a major influence on their own approach to romantic ballads and production techniques?",
-          "options": [
-            "Marvin Gaye",
-            "Prince",
-            "Luther Vandross",
-            "D'Angelo"
-          ],
+          "options": ["Marvin Gaye", "Prince", "Luther Vandross", "D'Angelo"],
           "correctAnswer": "Luther Vandross",
           "trivia": "Luther Vandross, renowned for his smooth vocal style and romantic ballads, has openly acknowledged the influence of Barry White's 'Can’t Get Enough' on his music. Released in 1974, this album features lush orchestration and deep, soulful vocals that set a new standard for romantic music. Vandross, who rose to fame in the late 1970s and 1980s, often incorporated White's signature sound into his own recordings, helping to shape the contemporary R&B genre. Notably, White's ability to blend funk, soul, and orchestral elements left a lasting impact on many artists, including Vandross, who admired White's unique approach to production and songwriting. This connection highlights how 'Can’t Get Enough' not only achieved commercial success but also inspired a generation of musicians."
         },
@@ -10612,12 +10272,7 @@
       "hard": [
         {
           "question": "In what year did Barry White's album 'Can’t Get Enough' achieve its peak chart performance on the Billboard 200?",
-          "options": [
-            "1975",
-            "1974",
-            "1976",
-            "1973"
-          ],
+          "options": ["1975", "1974", "1976", "1973"],
           "correctAnswer": "1974",
           "trivia": "Barry White's album 'Can’t Get Enough' reached its peak position on the Billboard 200 in 1974, securing the number one spot. This album, released on September 11, 1974, is notable for its lush orchestration and romantic themes, which became hallmarks of White's signature style. Additionally, 'Can’t Get Enough' features the hit single 'Can't Get Enough of Your Love, Babe', which contributed significantly to its commercial success. The album's blend of soul and funk helped solidify Barry White as a leading figure in the music industry during the 1970s, influencing countless artists in the genre."
         },
@@ -10705,12 +10360,7 @@
         },
         {
           "question": "Which influential music genre significantly shaped the Ramones' sound on their 1977 album 'Rocket to Russia'?",
-          "options": [
-            "Folk Rock",
-            "Surf Rock",
-            "Glam Rock",
-            "Classic Country"
-          ],
+          "options": ["Folk Rock", "Surf Rock", "Glam Rock", "Classic Country"],
           "correctAnswer": "Surf Rock",
           "trivia": "The Ramones drew inspiration from Surf Rock, which played a crucial role in developing their distinct sound on 'Rocket to Russia'. Bands like The Beach Boys and Dick Dale were pivotal in shaping the Ramones' melodies and harmonies, incorporating elements of fast tempos and catchy riffs. Additionally, the energetic and playful nature of Surf Rock mirrored the Ramones' own style, which combined punk with a sense of fun. The album featured tracks like 'Rockaway Beach', directly reflecting these influences, as it combined surf music's upbeat vibe with punk's raw energy. Overall, the blend of these genres contributed to making 'Rocket to Russia' a landmark record in the punk rock movement."
         },
@@ -11080,12 +10730,7 @@
       "hard": [
         {
           "question": "Which renowned music publication awarded The Clash's album 'Give ’Em Enough Rope' a memorable review, highlighting its political themes and musical evolution?",
-          "options": [
-            "Rolling Stone",
-            "NME",
-            "Pitchfork",
-            "Spin"
-          ],
+          "options": ["Rolling Stone", "NME", "Pitchfork", "Spin"],
           "correctAnswer": "NME",
           "trivia": "The Clash's album 'Give ’Em Enough Rope', released in 1978, received significant attention from critics, particularly from NME (New Musical Express), which praised the album for its incisive political commentary and musical maturity. This marked a pivotal moment in the band's career, as they transitioned from their punk roots to incorporate a wider range of influences, including reggae and rockabilly. The album's lead single, 'Safe European Home', reflects their experiences and observations while on tour in Jamaica, underscoring the band's growing interest in global issues. Furthermore, 'Give ’Em Enough Rope' was seen as a response to the pressures of fame, with lyrics that scrutinized both the music industry and society at large. This critical reception helped solidify The Clash's reputation as not just a punk band, but as a significant cultural force in the late 1970s."
         },
@@ -11149,12 +10794,7 @@
         },
         {
           "question": "What was the peak position of Bad Company's self-titled album 'Bad Company' on the Billboard 200 chart in 1974?",
-          "options": [
-            "Number 1",
-            "Number 5",
-            "Number 10",
-            "Number 15"
-          ],
+          "options": ["Number 1", "Number 5", "Number 10", "Number 15"],
           "correctAnswer": "Number 1",
           "trivia": "The album 'Bad Company' by Bad Company reached the impressive peak position of number 1 on the Billboard 200 chart in 1974. This marked a significant milestone for the band, as it was their debut album, which was released on June 3, 1974. The album features some of the band's most iconic tracks, including 'Can't Get Enough' and 'Movin' On', both of which contributed to its commercial success. In addition to its chart performance, 'Bad Company' has been recognized for its blend of hard rock and blues elements, helping to define the sound of the 1970s rock era. The success of the album laid the foundation for Bad Company to become one of the most prominent rock bands of that decade."
         }
@@ -11266,12 +10906,7 @@
         },
         {
           "question": "Which genre heavily influenced Herbie Hancock's work on the album 'Head Hunters' released in 1973?",
-          "options": [
-            "Classical",
-            "Funk",
-            "Country",
-            "Blues"
-          ],
+          "options": ["Classical", "Funk", "Country", "Blues"],
           "correctAnswer": "Funk",
           "trivia": "Herbie Hancock's album 'Head Hunters' is widely recognized as a landmark in the fusion of jazz and funk music. The heavy use of syncopated rhythms and electric instrumentation on the album was inspired by the funk genre, which was rising in popularity during the early 1970s. Hancock collaborated with musicians like George Benson and the band The Headhunters, which included notable players such as Mike Clark and Paul Jackson, to create a sound that melded traditional jazz with contemporary funk elements. The track 'Chameleon' exemplifies this fusion and is often cited as one of the most influential pieces of jazz-funk. 'Head Hunters' not only showcased Hancock's innovative style but also helped to shape the direction of jazz in the coming decades."
         }
@@ -11453,12 +11088,7 @@
         },
         {
           "question": "In what year did Boston's self-titled debut album 'Boston' achieve the distinction of being the best-selling debut album in the United States at the time of its release?",
-          "options": [
-            "1974",
-            "1976",
-            "1978",
-            "1980"
-          ],
+          "options": ["1974", "1976", "1978", "1980"],
           "correctAnswer": "1976",
           "trivia": "Boston's self-titled debut album, released in 1976, became a monumental success, achieving the status of the best-selling debut album in U.S. history at that time. The album featured hit singles such as 'More Than a Feeling' and 'Peace of Mind,' which contributed to its widespread acclaim and commercial success. By the end of the 1970s, 'Boston' had sold over 17 million copies, solidifying its place in rock history. Additionally, the album held the No. 3 position on the Billboard 200 chart for several weeks, showcasing its enduring popularity. The innovative production techniques employed by Tom Scholz, the band's founder, played a crucial role in shaping the album's iconic sound."
         }
@@ -11734,12 +11364,7 @@
         },
         {
           "question": "Which popular song from David Bowie's album 'Station to Station' was released as a single in 1976 and became one of his signature tracks?",
-          "options": [
-            "Golden Years",
-            "Fame",
-            "Heroes",
-            "Young Americans"
-          ],
+          "options": ["Golden Years", "Fame", "Heroes", "Young Americans"],
           "correctAnswer": "Golden Years",
           "trivia": "'Golden Years' is a standout track from David Bowie's 1976 album 'Station to Station' and was released as a single that same year. The song reached number 10 on the Billboard Hot 100 chart, showcasing Bowie's growing popularity in the United States during this period. 'Station to Station' itself was notable for its fusion of rock, funk, and soul influences, marking a significant evolution in Bowie's musical style. The album's themes often reflect Bowie's spiritual journey and his exploration of different musical genres. 'Golden Years' remains a classic and is frequently associated with Bowie's innovative approach to music and performance."
         }
@@ -11804,12 +11429,7 @@
         },
         {
           "question": "Which notable musician collaborated with David Bowie on the album 'Station to Station', contributing significantly to its unique sound with their distinct style?",
-          "options": [
-            "Brian Eno",
-            "John Lennon",
-            "Iggy Pop",
-            "Carlos Alomar"
-          ],
+          "options": ["Brian Eno", "John Lennon", "Iggy Pop", "Carlos Alomar"],
           "correctAnswer": "Carlos Alomar",
           "trivia": "Carlos Alomar played a pivotal role in shaping the sound of David Bowie's 'Station to Station', particularly as the album's guitarist and co-producer. Known for his innovative guitar work, Alomar helped to craft the eclectic blend of rock and funk that defined the album. The collaboration between Bowie and Alomar began in the early 1970s, establishing a partnership that would influence several subsequent projects. 'Station to Station' is often noted for its spiritual themes and fusion of genres, largely due to the creative input of Alomar and other collaborators. Additionally, this album marked a significant transition in Bowie's career, showcasing his exploration of new musical landscapes."
         }
@@ -12027,12 +11647,7 @@
         },
         {
           "question": "In which year did Blondie's album 'Plastic Letters' achieve notable chart success in the UK, reaching the top 10 of the Albums Chart?",
-          "options": [
-            "1977",
-            "1978",
-            "1979",
-            "1980"
-          ],
+          "options": ["1977", "1978", "1979", "1980"],
           "correctAnswer": "1978",
           "trivia": "Blondie's album 'Plastic Letters' reached the UK Albums Chart's top 10 in 1978, marking a significant moment in the band's rise to fame. This album featured the hit single 'Denis,' which played a crucial role in propelling Blondie into the mainstream music scene. 'Plastic Letters' was also pivotal in the band's development of a distinctive sound that blended punk, new wave, and pop elements. As a follow-up to their self-titled debut, this album showcased the band's growing popularity and solidified their status in the late 1970s music era. Notably, the album's success helped pave the way for their later iconic hits, further cementing their influence in music history."
         },
@@ -12155,12 +11770,7 @@
         },
         {
           "question": "Which influential artist cited Alice Cooper's 1975 album 'Welcome to My Nightmare' as a pivotal inspiration in developing their theatrical stage presence?",
-          "options": [
-            "David Bowie",
-            "Kiss",
-            "Marilyn Manson",
-            "Rob Zombie"
-          ],
+          "options": ["David Bowie", "Kiss", "Marilyn Manson", "Rob Zombie"],
           "correctAnswer": "Kiss",
           "trivia": "Kiss has openly acknowledged the influence of Alice Cooper's 1975 album 'Welcome to My Nightmare' on their own theatrical performances. The album is often regarded as a cornerstone in the realm of shock rock, with its theatricality and elaborate stage shows setting a precedent for future artists. Alice Cooper's blend of horror elements and rock music not only reshaped the genre but also inspired bands like Kiss to incorporate similar visual spectacles into their concerts. Additionally, 'Welcome to My Nightmare' was one of the first concept albums in rock history, which further influenced many performers in the years that followed."
         }
