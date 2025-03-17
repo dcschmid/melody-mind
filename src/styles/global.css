@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme {
+  /* Light mode colors (WCAG AAA compliant) */
+  --secondary-color: #9cbce6; /* Dunkler für besseren Kontrast */
+  --highlight-color: #0050a6; /* Leicht angepasst für besseren Kontrast mit weißem Text */
+  --background-color: #f0f8ff; /* Heller für besseren Kontrast mit Text */
+  --text-color: #121212; /* Dunkler für besseren Kontrast auf hellem Hintergrund */
+  --error-color: #b00020; /* Angepasstes Rot für besseren Kontrast */
+  --button-hover-color: #003b70; /* Dunkler für bessere Unterscheidbarkeit */
+  --button-text-color: #ffffff; /* Reines Weiß für maximalen Kontrast auf dunklen Buttons */
+
+  /* Dark mode colors für bessere Zugänglichkeit */
+  --dark-background-color: #121212;
+  --dark-text-color: #f5f5f5;
+  --dark-secondary-color: #4d83c8;
+  --dark-highlight-color: #4c9aff;
+
+  /* Focus indicators */
+  --focus-outline-color: #0056b3;
+  --focus-outline-width: 3px;
+  --focus-outline-offset: 2px;
+
+  /* Schrift */
+  --font-family: "Source Sans Pro", system-ui, sans-serif;
+  --header-font-size: clamp(1.5rem, 2vw, 2rem);
+  --body-font-size: clamp(1.125rem, 1.5vw, 1.25rem);
+  --button-font-size: clamp(1rem, 1.25vw, 1.125rem);
+
+  /* Größen und Abstände */
+  --padding-small: max(10px, 0.625rem);
+  --padding-medium: max(20px, 1.25rem);
+  --padding-large: max(40px, 2.5rem);
+  --border-radius: 8px;
+
+  /* Interaktive Elemente */
+  --min-touch-target: 48px;
+  --box-shadow: 0 4px 8px rgb(0 0 0 / 25%);
+  --transition-speed: 0.3s;
+
+  /* Zusätzliche Barrierefreiheits-Variablen */
+  --line-height-body: 1.8;
+  --max-line-length: 70ch;
+  --spacing-text: 0.1em; /* Leicht erhöht für bessere Lesbarkeit */
+
+  /* Größen */
+  --size-playlist-small: 7.438rem;
+  --size-playlist-large: 10.313rem;
+
+  /* Overlay */
+  --color-overlay: rgb(0 0 0 / 60%);
+
+  /* Opacity */
+  --opacity-disabled: 0.4;
+
+  /* Z-Index */
+  --layer-above: 2;
+  --spinner-size-small: 40px;
+  --spinner-size-medium: 80px;
+  --spinner-size-large: 120px;
+}
+
+/* Hilfsklassen für Kontrasttests */
+.high-contrast {
+  --text-color: #000000;
+  --background-color: #ffffff;
+  --secondary-color: #0056b3;
+}
+
+@media (prefers-reduced-motion) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: var(--dark-background-color);
+    --text-color: var(--dark-text-color);
+    --secondary-color: var(--dark-secondary-color);
+    --highlight-color: var(--dark-highlight-color);
+  }
+}
+
+/* Basis Tailwind Layer für Custom Komponenten - aktualisiert für v4 */
+@layer components {
+  /* Moderne Komponenten mit v4-Syntax */
+  .access-button {
+    @apply cursor-pointer flex items-center justify-center min-h-12 py-2 px-6 
+               border-0 rounded-lg text-base text-white no-underline 
+               bg-[--highlight-color] shadow-md transition-all duration-300 
+               hover:scale-105 hover:bg-[--button-hover-color];
+  }
+
+  .access-button:focus-visible {
+    @apply transform-none outline-offset-2 outline-2 outline;
+    outline-color: var(--focus-outline-color);
+  }
+
+  /* Menü-spezifische Komponenten mit v4 Focus-API */
+  .menu-item {
+    @apply flex items-center gap-3 w-full p-4 rounded-lg text-base font-medium
+              transition-all duration-200 hover:bg-[--secondary-color] focus-visible:bg-[--secondary-color] 
+              focus-visible:outline focus-visible:outline-2;
+    outline-color: var(--focus-outline-color);
+  }
+
+  /* Verbesserte Fokus-Helfer für v4 */
+  .focus-ring {
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+    outline-color: var(--focus-outline-color);
+  }
+}
+
+/* Utility-Klassen mit v4 Syntax */
+@layer utilities {
+  .visually-hidden {
+    @apply sr-only;
+  }
+
+  /* Text-Formatierungs-Utilities mit v4 Features */
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* High-contrast mode utilities */
+  .high-contrast {
+    @apply bg-white text-black;
+  }
+
+  .high-contrast-reverse {
+    @apply bg-black text-white;
+  }
+}

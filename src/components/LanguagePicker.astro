@@ -2,9 +2,11 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
+// Get current language and translations
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+// Clean the current path by removing language prefixes
 const currentPath = Astro.url.pathname;
 const cleanPath = currentPath
   .split("/")
@@ -16,6 +18,7 @@ const cleanPath = currentPath
   )
   .join("/");
 
+// Available languages configuration with localized names and accessibility labels
 const languages = {
   de: {
     name: t("language.de"),
@@ -70,99 +73,156 @@ const languages = {
 };
 ---
 
+<!-- 
+  Language picker component with accessibility features:
+  - Proper ARIA attributes for screen readers
+  - Focus indicators that meet WCAG AAA requirements
+  - Keyboard navigation support
+-->
 <div
-  class="languagePicker"
+  class="flex items-center gap-2 rounded-lg focus-within:ring focus-within:ring-[--focus-outline-color] focus-within:ring-opacity-50"
   role="navigation"
   aria-label={t("language.picker.label")}
 >
-  <label for="language-select">
+  <!-- Globe icon label for the select input -->
+  <label for="language-select" class="flex items-center">
     <span class="sr-only">{t("language.change")}</span>
-    <span class="globe-icon" aria-hidden="true">🌐</span>
+    <span class="text-lg" aria-hidden="true">🌐</span>
   </label>
-  <select
-    id="language-select"
-    class="selectLanguage"
-    value={getRelativeLocaleUrl(lang, cleanPath)}
-    onchange="
-      const newLang = this.value.split('/')[1];
-      window.localStorage.setItem('preferred-language', newLang);
-      window.location.href=this.value;
-    "
-    aria-label={t("language.select.label")}
-  >
-    {
-      Object.entries(languages).map(([code, { name, label, flag }]) => {
-        const url = getRelativeLocaleUrl(code, cleanPath);
-        return (
-          <option value={url} selected={code === lang} aria-label={label}>
-            {flag} {name}
-          </option>
-        );
-      })
-    }
-  </select>
+
+  <div class="relative">
+    <!-- 
+      Custom styled select dropdown that maintains accessibility
+      while providing enhanced visual appearance
+    -->
+    <select
+      id="language-select"
+      class="appearance-none bg-[--secondary-color] border-2 border-[--highlight-color] rounded-lg
+             py-2 px-3 pr-10 w-full text-base cursor-pointer
+             transition duration-200
+             hover:bg-[--highlight-color] hover:text-white
+             focus-visible:outline focus-visible:outline-[--focus-outline-color] focus-visible:outline-offset-2
+             focus-visible:bg-[--highlight-color] focus-visible:text-white"
+      value={getRelativeLocaleUrl(lang, cleanPath)}
+      onchange="handleLanguageChange(this)"
+      aria-label={t("language.select.label")}
+    >
+      {
+        Object.entries(languages).map(([code, { name, label, flag }]) => {
+          const url = getRelativeLocaleUrl(code, cleanPath);
+          return (
+            <option
+              value={url}
+              selected={code === lang}
+              aria-label={label}
+              class="flex items-center gap-2 py-1"
+            >
+              {flag} {name}
+            </option>
+          );
+        })
+      }
+    </select>
+
+    <!-- 
+      Custom dropdown arrow with animation
+      Positioned absolutely to appear within the select element
+      while remaining purely decorative (aria-hidden)
+    -->
+    <div
+      class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[--text-color] transition-colors duration-200"
+      id="arrow-container"
+    >
+      <svg
+        id="language-arrow"
+        class="h-4 w-4 fill-current transition-transform duration-300"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        aria-hidden="true"
+      >
+        <path
+          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+        ></path>
+      </svg>
+    </div>
+  </div>
 </div>
 
-<style lang="scss">
-  .languagePicker {
-    display: flex;
-    gap: 0.5em;
-    align-items: center;
+<script>
+  /**
+   * Handles the language change when a new option is selected
+   * @param {HTMLSelectElement} selectElement - The select dropdown element
+   */
+  function handleLanguageChange(selectElement: HTMLSelectElement) {
+    // Extract language code from the URL (second segment after split)
+    const newLang = selectElement.value.split("/")[1];
+
+    // Store user's language preference for future visits
+    window.localStorage.setItem("preferred-language", newLang);
+
+    // Navigate to the translated page
+    window.location.href = selectElement.value;
   }
 
-  .globe-icon {
-    font-size: 1.2em;
-  }
+  /**
+   * Initialize the language picker with enhanced interactivity
+   */
+  function initLanguagePicker() {
+    // Get required DOM elements
+    const selectElement = document.getElementById("language-select");
+    const arrowElement = document.getElementById("language-arrow");
+    const arrowContainer = document.getElementById("arrow-container");
 
-  .selectLanguage {
-    cursor: pointer;
-
-    padding: 0.5em 2.5em 0.5em 0.5em;
-    border: 2px solid var(--highlight-color);
-    border-radius: var(--border-radius);
-
-    font-family: var(--font-family);
-    font-size: 1em;
-    line-height: 1.5;
-
-    appearance: none;
-    background-color: var(--secondary-color);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1em center;
-
-    transition: all 0.2s ease;
-
-    &:hover,
-    &:focus {
-      color: var(--background-color);
-      background-color: var(--highlight-color);
-      outline: none;
-      box-shadow:
-        0 0 0 2px var(--highlight-color),
-        0 0 0 4px rgba(var(--highlight-color-rgb), 0.3);
+    // Ensure all required elements exist
+    if (!selectElement || !arrowElement || !arrowContainer) {
+      console.warn("Language picker elements not found");
+      return;
     }
 
-    option {
-      display: flex;
-      gap: 0.5em;
-      align-items: center;
+    /**
+     * Rotates the arrow icon up when the select is focused
+     */
+    function handleFocus() {
+      arrowElement?.classList.add("rotate-180");
+      arrowContainer?.classList.add("text-white");
     }
+
+    /**
+     * Returns the arrow icon to its original position on blur
+     */
+    function handleBlur() {
+      arrowElement?.classList.remove("rotate-180");
+      arrowContainer?.classList.remove("text-white");
+    }
+
+    /**
+     * Handles mouse interactions for better desktop experience
+     */
+    function handleMouseInteraction() {
+      // For toggle behavior when clicking while already focused
+      if (document.activeElement === selectElement) {
+        arrowElement?.classList.toggle("rotate-180");
+      }
+    }
+
+    /**
+     * Handles keyboard interactions for accessibility
+     * @param {KeyboardEvent} e - The keyboard event
+     */
+    function handleKeyboardInteraction(e: KeyboardEvent) {
+      // Toggle rotation when using Enter or Space to activate the select
+      if (e.key === "Enter" || e.key === " ") {
+        arrowElement?.classList.toggle("rotate-180");
+      }
+    }
+
+    // Attach event listeners
+    selectElement.addEventListener("focus", handleFocus);
+    selectElement.addEventListener("blur", handleBlur);
+    selectElement.addEventListener("mousedown", handleMouseInteraction);
+    selectElement.addEventListener("keydown", handleKeyboardInteraction);
   }
 
-  .sr-only {
-    position: absolute;
-
-    overflow: hidden;
-
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    border: 0;
-
-    white-space: nowrap;
-
-    clip: rect(0, 0, 0, 0);
-  }
-</style>
+  // Initialize when the DOM is ready
+  document.addEventListener("DOMContentLoaded", initLanguagePicker);
+</script>
