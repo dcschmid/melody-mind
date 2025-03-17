@@ -572,12 +572,7 @@
         },
         {
           "question": "Quale influente genere musicale ha avuto un ruolo fondamentale nell'ispirare Ray Charles per la composizione dei brani presenti nell'album 'Ray Charles' del 1957?",
-          "options": [
-            "Jazz",
-            "Country",
-            "Reggae",
-            "Folk"
-          ],
+          "options": ["Jazz", "Country", "Reggae", "Folk"],
           "correctAnswer": "Jazz",
           "trivia": "Ray Charles, nell'album 'Ray Charles' del 1957, ha saputo fondere diversi generi musicali, ma il jazz è stato uno dei principali fattori di ispirazione per la sua musica. Charles, che è stato un virtuoso del pianoforte, ha assimilato l'improvvisazione jazzistica, che si riflette nel suo stile unico e innovativo. Inoltre, la sua capacità di mescolare elementi di gospel e blues con il jazz ha contribuito alla nascita di un nuovo suono, definito soul. L'album include brani che evidenziano questa fusione, come “Mess Around” e “Drown in My Own Tears”, dimostrando l'influenza duratura del jazz sulla sua carriera e sulla musica popolare in generale."
         }
@@ -632,12 +627,7 @@
       "medium": [
         {
           "question": "Quale composizione di John Coltrane dall'album 'Blue Train' del 1957 è stata campionata da numerosi artisti hip hop e jazz contemporanei?",
-          "options": [
-            "Moment's Notice",
-            "Blue Train",
-            "Locomotion",
-            "Aisha"
-          ],
+          "options": ["Moment's Notice", "Blue Train", "Locomotion", "Aisha"],
           "correctAnswer": "Blue Train",
           "trivia": "La risposta corretta è 'Blue Train', che è diventata una delle composizioni più iconiche di John Coltrane. Questo brano, che funge da titolo per l'intero album, è stato campionato e reinterpretato da vari artisti nel corso degli anni, dimostrando la sua influenza durevole nel panorama musicale. 'Blue Train' è stato registrato nel settembre del 1957 e include anche musicisti di talento come McCoy Tyner e Elvin Jones. L'album è considerato un classico del jazz e ha contribuito a definire il suono del jazz moderno, portando Coltrane a un nuovo livello di riconoscimento e apprezzamento. Inoltre, la struttura armonica e il tema melodico di 'Blue Train' sono stati fonte d'ispirazione per molti musicisti che hanno seguito le orme di Coltrane."
         },
@@ -1356,12 +1346,7 @@
         },
         {
           "question": "Quale canzone di Buddy Holly, presente nell'album 'The “Chirping” Crickets', ha ottenuto un grande successo commerciale, diventando uno dei brani più emblematici del rock and roll degli anni '50?",
-          "options": [
-            "That'll Be the Day",
-            "Peggy Sue",
-            "Everyday",
-            "Oh Boy!"
-          ],
+          "options": ["That'll Be the Day", "Peggy Sue", "Everyday", "Oh Boy!"],
           "correctAnswer": "That'll Be the Day",
           "trivia": "La canzone 'That'll Be the Day' è stata il primo grande successo di Buddy Holly e fa parte dell'album 'The “Chirping” Crickets', pubblicato nel 1957. Questo brano ha raggiunto la prima posizione nella classifica Billboard Hot 100, contribuendo in modo significativo alla sua popolarità. Holly, assieme ai Crickets, ha portato un suono innovativo che ha influenzato il panorama musicale dell'epoca. L'album è stato uno dei primi a rappresentare il rock and roll in un formato discografico completo, segnando un'importante pietra miliare nella carriera di Holly e nel genere musicale stesso."
         }
@@ -1848,12 +1833,7 @@
         },
         {
           "question": "Quale strumento musicale, suonato dal famoso trombettista Clark Terry, è stato determinante per il sound distintivo di 'Ellington at Newport' di Duke Ellington, contribuendo all'innovativa sezione di ottoni dell'album?",
-          "options": [
-            "Trombone",
-            "Sax contralto",
-            "Tromba",
-            "Flicorno"
-          ],
+          "options": ["Trombone", "Sax contralto", "Tromba", "Flicorno"],
           "correctAnswer": "Tromba",
           "trivia": "La tromba suonata da Clark Terry è stata fondamentale per il sound dell'album 'Ellington at Newport', registrato nel 1956. Questo album è considerato un punto di svolta per Duke Ellington, poiché ha catturato l'energia e l'improvvisazione di un concerto dal vivo, evidenziando le abilità uniche dei musicisti della sua orchestra. La sezione di ottoni, potenziata dalla tromba di Terry, ha creato un suono ricco e vibrante che ha distinto questo lavoro dalla produzione di studio più convenzionale. Inoltre, 'Ellington at Newport' ha avuto un impatto significativo sulla popolarità del jazz, contribuendo a riportare Ellington al centro della scena musicale dell'epoca."
         },
@@ -2012,12 +1992,7 @@
         },
         {
           "question": "Quale strumento musicale è predominante nell'album 'Moanin’ the Blues' di Hank Williams del 1952, contribuendo al suo caratteristico suono country?",
-          "options": [
-            "Piano",
-            "Chitarra acustica",
-            "Ocarina",
-            "Flauto"
-          ],
+          "options": ["Piano", "Chitarra acustica", "Ocarina", "Flauto"],
           "correctAnswer": "Chitarra acustica",
           "trivia": "Nell'album 'Moanin’ the Blues', Hank Williams utilizza principalmente la chitarra acustica, uno strumento fondamentale per il genere country. La chitarra acustica non solo accompagna le sue melodie, ma è anche protagonista in molte delle sue canzoni, aggiungendo una sonorità calda e intima. Il disco, pubblicato nel 1952, è stato registrato in un'epoca in cui la musica country stava guadagnando popolarità, e l'uso della chitarra acustica era tipico per gli artisti del tempo. Hank Williams è considerato uno dei pionieri della musica country, e il suo stile distintivo ha influenzato generazioni di musicisti. 'Moanin’ the Blues' rimane un classico esempio della sua abilità di integrare testi emotivi con una sofisticata strumentazione."
         },
@@ -2164,12 +2139,7 @@
         },
         {
           "question": "Nel contesto dell'album 'The Best of Muddy Waters' del 1958, quale simbolo ricorrente nei testi di Muddy Waters rappresenta spesso la lotta e la resilienza dell'individuo contro le avversità?",
-          "options": [
-            "Il treno",
-            "L'acqua",
-            "Il sole",
-            "La luna"
-          ],
+          "options": ["Il treno", "L'acqua", "Il sole", "La luna"],
           "correctAnswer": "Il treno",
           "trivia": "La risposta corretta è 'Il treno', un simbolo che Muddy Waters utilizza frequentemente nei suoi testi per rappresentare non solo il viaggio e la migrazione, ma anche la speranza e la libertà in mezzo alle difficoltà. Nell'album 'The Best of Muddy Waters', brani come 'Train Fare Home' evidenziano questo tema, riflettendo le esperienze di vita del musicista. Inoltre, il treno è un simbolo che ha radici profonde nella musica blues, rappresentando la transizione tra luoghi e stati d'animo. Muddy Waters, considerato il 'padre del blues elettrico', ha influenzato profondamente il panorama musicale con le sue canzoni, molte delle quali parlano di esperienze personali e collettive di lotta e resistenza."
         },
@@ -2480,12 +2450,7 @@
         },
         {
           "question": "Quale brano iconico di Sam Cooke, presente nell'album 'Sam Cooke' del 1958, è stato eseguito per la prima volta dal vivo durante un famoso concerto al Copacabana di New York?",
-          "options": [
-            "You Send Me",
-            "Chain Gang",
-            "Cupid",
-            "Wonderful World"
-          ],
+          "options": ["You Send Me", "Chain Gang", "Cupid", "Wonderful World"],
           "correctAnswer": "You Send Me",
           "trivia": "Il brano 'You Send Me' è stato il singolo di debutto di Sam Cooke e ha avuto un grande successo, raggiungendo la prima posizione nella classifica R&B. Questo brano è stato eseguito per la prima volta dal vivo al Copacabana di New York, un locale molto famoso negli anni '50, che ha ospitato numerosi artisti di fama mondiale. L'album 'Sam Cooke' ha contribuito a consolidare la sua carriera, presentando il suo stile unico che mescolava gospel e pop. Inoltre, Cooke è stato uno dei pionieri della musica soul, e 'You Send Me' è spesso considerato uno dei suoi brani più memorabili."
         },
@@ -2678,12 +2643,7 @@
         },
         {
           "question": "Quale particolare strumento a percussione, caratteristico della musica afro-cubana, è stato utilizzato da Bo Diddley nell'album 'Bo Diddley' del 1958 per creare il suo inconfondibile ritmo?",
-          "options": [
-            "Bonghi",
-            "Conga",
-            "Clavinet",
-            "Cajón"
-          ],
+          "options": ["Bonghi", "Conga", "Clavinet", "Cajón"],
           "correctAnswer": "Bonghi",
           "trivia": "Bo Diddley ha impiegato i bonghi nell'album 'Bo Diddley' del 1958, contribuendo a dare vita a un sound unico che mescola elementi del rock and roll con influenze afro-cubane. Questa scelta strumentale non solo ha enfatizzato il suo stile distintivo, ma ha anche sottolineato l'importanza delle percussioni nella musica blues e rock. I bonghi, noti per il loro suono ritmico e vivace, sono stati utilizzati nel brano iconico 'Bo Diddley', che ha avuto un impatto significativo sulla musica popolare. Inoltre, l'album è stato uno dei primi a incorporare tecniche di registrazione innovative, come l'uso di amplificatori per chitarra elettrica e un sound senza precedenti per l'epoca."
         }
@@ -2773,12 +2733,7 @@
       "hard": [
         {
           "question": "In quale popolare serie televisiva è stata utilizzata la canzone 'Moanin’' di Art Blakey & The Jazz Messengers, contribuendo a definire l'atmosfera di un episodio chiave?",
-          "options": [
-            "The Sopranos",
-            "Breaking Bad",
-            "The Wire",
-            "Mad Men"
-          ],
+          "options": ["The Sopranos", "Breaking Bad", "The Wire", "Mad Men"],
           "correctAnswer": "The Sopranos",
           "trivia": "La canzone 'Moanin’' di Art Blakey & The Jazz Messengers è stata utilizzata in un episodio della celebre serie 'The Sopranos', contribuendo a creare un'atmosfera intensa e nostalgica. Questo brano, pubblicato nel 1958, è stato un pilastro del jazz hard bop e ha avuto un impatto significativo sulla cultura musicale. 'Moanin’' è conosciuto per la sua melodia accattivante e il suo ritornello potente, che ha ispirato numerosi artisti e generi. Oltre a 'The Sopranos', l'album omonimo ha influenzato anche molti altri ambiti della musica e della cinematografia, consolidando il suo posto nella storia del jazz."
         },
@@ -2855,12 +2810,7 @@
       "medium": [
         {
           "question": "Quale strumento a fiato è stato utilizzato da Sarah Vaughan per arricchire il suono dell'album 'Sarah Vaughan' nel 1954?",
-          "options": [
-            "Flauto",
-            "Sassofono",
-            "Tromba",
-            "Clarinetto"
-          ],
+          "options": ["Flauto", "Sassofono", "Tromba", "Clarinetto"],
           "correctAnswer": "Sassofono",
           "trivia": "Nel 1954, durante la registrazione dell'album 'Sarah Vaughan', la voce di Sarah Vaughan è stata accompagnata da un arrangiamento orchestrale in cui spiccava l'uso del sassofono. Questo strumento a fiato, grazie alla sua timbrica calda e avvolgente, ha contribuito a creare un'atmosfera intima e sofisticata, caratteristica del jazz di quel periodo. L'album, prodotto da Norman Granz per la Verve Records, includeva anche altri strumenti come pianoforte e batteria, ma il sassofono ha giocato un ruolo fondamentale nell'evidenziare la vocalità unica di Vaughan. Inoltre, il sassofono era molto popolare negli anni '50 nel jazz, contribuendo a definire il suono di molti grandi artisti dell'epoca."
         },
@@ -2948,12 +2898,7 @@
         },
         {
           "question": "Quale stile musicale innovativo ha contribuito a definire il suono dell'album 'Birth of the Cool' di Miles Davis, pubblicato nel 1957?",
-          "options": [
-            "Bebop",
-            "Cool jazz",
-            "Hard bop",
-            "Free jazz"
-          ],
+          "options": ["Bebop", "Cool jazz", "Hard bop", "Free jazz"],
           "correctAnswer": "Cool jazz",
           "trivia": "La risposta corretta è 'Cool jazz'. L'album 'Birth of the Cool' è considerato una pietra miliare nel genere del cool jazz, caratterizzato da un approccio più morbido e melodico rispetto al bebop. Le sessioni di registrazione, avvenute tra il 1949 e il 1950, presentarono un ensemble innovativo che includeva strumenti come il flauto e la tuba, elementi poco comuni nel jazz dell'epoca. Miles Davis, con questo lavoro, ha segnato una transizione fondamentale nel suo stile musicale, allontanandosi dalle complessità frenetiche del bebop, per abbracciare sonorità più tranquille e sofisticate. 'Birth of the Cool' ha quindi contribuito a definire il sound del jazz negli anni '50 e oltre."
         },
@@ -3193,12 +3138,7 @@
         },
         {
           "question": "Nel 1954, quale strumento a fiato ha predominato nelle registrazioni di 'Chet Baker Sings' di Chet Baker?",
-          "options": [
-            "Sassofono",
-            "Tromba",
-            "Flauto",
-            "Clarinetto"
-          ],
+          "options": ["Sassofono", "Tromba", "Flauto", "Clarinetto"],
           "correctAnswer": "Tromba",
           "trivia": "La risposta corretta è la tromba, che è lo strumento principale di Chet Baker. Nell'album 'Chet Baker Sings', le sue abilità come trombettista si fondono con la sua voce delicata, creando un'atmosfera unica. Questo album, pubblicato nel 1954, è considerato uno dei lavori più rappresentativi della Cool Jazz e ha contribuito a definire il suono di Baker. Inoltre, le sessioni di registrazione sono state caratterizzate da un approccio intimo e diretto, che ha permesso di catturare l'essenza emotiva delle interpretazioni di Baker. Infine, la tromba di Baker ha un timbro distintivo che è stato fondamentale per il successo di quest'album."
         }
@@ -3299,12 +3239,7 @@
         },
         {
           "question": "Qual è la canzone più famosa dell'album 'Saxophone Colossus' di Sonny Rollins, pubblicato nel 1956, che ha avuto un impatto significativo sulla musica jazz a livello internazionale?",
-          "options": [
-            "St. Thomas",
-            "Blue Monk",
-            "Take Five",
-            "Giant Steps"
-          ],
+          "options": ["St. Thomas", "Blue Monk", "Take Five", "Giant Steps"],
           "correctAnswer": "St. Thomas",
           "trivia": "La canzone più famosa dell'album 'Saxophone Colossus' di Sonny Rollins è 'St. Thomas'. Questo brano, che ha radici nella musica caraibica, è diventato un classico del jazz e ha contribuito a diffondere la popolarità del saxofonista a livello internazionale. L'album, registrato nel 1956, è considerato uno dei capolavori del jazz, evidenziando l'innovativa improvvisazione di Rollins. 'St. Thomas' è particolarmente riconoscibile per il suo ritmo contagioso e la melodia accattivante, e ha ispirato numerosi musicisti nel corso degli anni. Inoltre, 'Saxophone Colossus' è stato accolto con entusiasmo dalla critica e dal pubblico, consolidando il ruolo di Sonny Rollins come uno dei più grandi saxofonisti della storia."
         },
@@ -3323,34 +3258,19 @@
       "medium": [
         {
           "question": "In quale brano dell'album 'Saxophone Colossus' del 1956, Sonny Rollins ha collaborato con il famoso trombettista Clifford Brown, noto per il suo stile innovativo?",
-          "options": [
-            "St. Thomas",
-            "Airegin",
-            "Doxy",
-            "Blue 7"
-          ],
+          "options": ["St. Thomas", "Airegin", "Doxy", "Blue 7"],
           "correctAnswer": "Airegin",
           "trivia": "La risposta corretta è 'Airegin'. Questo brano, che è uno dei punti salienti dell'album 'Saxophone Colossus', è stato composto da Sonny Rollins stesso ed è caratterizzato da un'interazione straordinaria tra sax e tromba. Anche se Clifford Brown non è presente fisicamente nell'album, la sua influenza è palpabile, poiché Rollins si ispirò al suo stile per scrivere e arrangiare 'Airegin'. 'Saxophone Colossus', registrato nel 1956, è considerato un capolavoro del jazz che ha avuto un impatto significativo sul genere, introducendo innovazioni melodiche e ritmiche. Inoltre, la sessione di registrazione ha visto la partecipazione di musicisti di alto livello, tra cui il pianista McCoy Tyner e il batterista Elvin Jones, conferendo a questo album una straordinaria qualità sonora."
         },
         {
           "question": "Quale composizione di Sonny Rollins presente nell'album 'Saxophone Colossus' del 1956 è considerata un'importante innovazione nel jazz e ha avuto un impatto duraturo sulla musica internazionale?",
-          "options": [
-            "St. Thomas",
-            "Blue 7",
-            "Airegin",
-            "The Bridge"
-          ],
+          "options": ["St. Thomas", "Blue 7", "Airegin", "The Bridge"],
           "correctAnswer": "St. Thomas",
           "trivia": "La composizione 'St. Thomas' di Sonny Rollins, inclusa nell'album 'Saxophone Colossus', è una delle sue opere più celebri e rappresenta un'importante innovazione nel jazz. Ispirata da una melodia folk delle Isole Vergini, la canzone ha contribuito a diffondere il suono del jazz a livello internazionale, influenzando molti musicisti nel corso degli anni. L'album, registrato nel 1956, ha visto la partecipazione di altri musicisti di spicco come Max Roach alla batteria e Jim Hall alla chitarra. 'Saxophone Colossus' è considerato uno dei capolavori del jazz e ha avuto un ruolo significativo nella carriera di Rollins, consolidando il suo status come uno dei saxofonisti più influenti della storia."
         },
         {
           "question": "Quale brano dell'album 'Saxophone Colossus' di Sonny Rollins ha visto diverse versioni alternative, tra cui una reinterpretazione da parte del pianista McCoy Tyner nel 1971?",
-          "options": [
-            "St. Thomas",
-            "Blue 7",
-            "The Bridge",
-            "Airegin"
-          ],
+          "options": ["St. Thomas", "Blue 7", "The Bridge", "Airegin"],
           "correctAnswer": "St. Thomas",
           "trivia": "La risposta corretta è 'St. Thomas', un brano iconico di Sonny Rollins dall'album 'Saxophone Colossus', pubblicato nel 1956. Questo pezzo è particolarmente noto per il suo ritmo vivace e le influenze caraibiche, che Rollins ha incorporato nella sua musica. 'St. Thomas' è stato reinterpretato da numerosi artisti nel corso degli anni, con McCoy Tyner che ha offerto una versione significativa nel suo album 'The Real McCoy' del 1961. Inoltre, l'album 'Saxophone Colossus' è considerato uno dei capolavori del jazz, con una formazione che include musicisti di spicco come Elvin Jones e Tommy Flanagan. Rollins ha spesso esplorato nuove direzioni musicali, rendendo i suoi brani suscettibili a vari stili e interpretazioni."
         }
@@ -3380,12 +3300,7 @@
         },
         {
           "question": "Quale brano dell'album 'Saxophone Colossus' di Sonny Rollins, pubblicato nel 1956, è stato particolarmente influente nel contribuire al successo crossover del jazz nella cultura popolare?",
-          "options": [
-            "St. Thomas",
-            "Blue 7",
-            "Airegin",
-            "God Bless the Child"
-          ],
+          "options": ["St. Thomas", "Blue 7", "Airegin", "God Bless the Child"],
           "correctAnswer": "St. Thomas",
           "trivia": "Il brano 'St. Thomas' dell'album 'Saxophone Colossus' di Sonny Rollins è stato un vero e proprio fenomeno di crossover, contribuendo a portare il jazz a un pubblico più ampio. Questo pezzo, ispirato a una melodia caraibica, ha mostrato l'abilità di Rollins nel fondere elementi jazz con influenze musicali diverse, rendendolo accessibile e popolare. L'album stesso è considerato un capolavoro del jazz e ha avuto un impatto duraturo sulla musica, con 'St. Thomas' che è diventato uno dei brani più riconoscibili di Rollins. Inoltre, nel 1956, l'album raggiunse un importante riconoscimento, contribuendo a definire il sound del jazz moderno e influenzando generazioni di musicisti."
         }
@@ -3522,23 +3437,13 @@
       "easy": [
         {
           "question": "Quale città ha ospitato le sessioni di registrazione dell'album 'Ella and Louis' di Ella Fitzgerald & Louis Armstrong nel 1956?",
-          "options": [
-            "New York",
-            "Los Angeles",
-            "Chicago",
-            "New Orleans"
-          ],
+          "options": ["New York", "Los Angeles", "Chicago", "New Orleans"],
           "correctAnswer": "Los Angeles",
           "trivia": "L'album 'Ella and Louis', registrato nel 1956, ha visto Ella Fitzgerald & Louis Armstrong riunirsi nello studio di registrazione di Los Angeles. Questa collaborazione è considerata uno dei punti culminanti del jazz vocal, unendo due leggende della musica in un progetto straordinario. Le sessioni di registrazione sono state condotte sotto la direzione del talentuoso produttore Norman Granz, che ha anche contribuito a promuovere entrambi gli artisti. 'Ella and Louis' include brani iconici come 'Dream a Little Dream of Me' e 'They Can't Take That Away from Me', che sono diventati classici del jazz. La combinazione delle voci uniche di Fitzgerald e Armstrong ha catturato l'attenzione del pubblico e ha lasciato un'impronta duratura nella storia della musica."
         },
         {
           "question": "Quale genere musicale ha influenzato fortemente il sound dell'album 'Ella and Louis' di Ella Fitzgerald & Louis Armstrong, pubblicato nel 1956?",
-          "options": [
-            "Rock and roll",
-            "Blues",
-            "Classica",
-            "Reggae"
-          ],
+          "options": ["Rock and roll", "Blues", "Classica", "Reggae"],
           "correctAnswer": "Blues",
           "trivia": "L'album 'Ella and Louis', realizzato da Ella Fitzgerald & Louis Armstrong nel 1956, è fortemente influenzato dal blues, un genere che ha le sue radici nel jazz e nella musica afroamericana. Entrambi gli artisti, Fitzgerald e Armstrong, hanno incorporato elementi di blues nelle loro interpretazioni, contribuendo a creare un'atmosfera unica nell'album. Fatti interessanti includono il fatto che Ella Fitzgerald era nota per la sua tecnica vocale impeccabile e la sua capacità di improvvisare, mentre Louis Armstrong era famoso per il suo stile innovativo alla tromba e la sua voce distintiva. Questo connubio di influenze ha reso 'Ella and Louis' un album iconico, apprezzato per la sua fusione di generi musicali."
         },
@@ -3990,12 +3895,7 @@
       "easy": [
         {
           "question": "Quale strumento musicale è particolarmente predominante nell'album 'Pithecanthropus Erectus' di Charles Mingus del 1956?",
-          "options": [
-            "Pianoforte",
-            "Sassofono",
-            "Contrabbasso",
-            "Batteria"
-          ],
+          "options": ["Pianoforte", "Sassofono", "Contrabbasso", "Batteria"],
           "correctAnswer": "Contrabbasso",
           "trivia": "Il contrabbasso è lo strumento predominante nell'album 'Pithecanthropus Erectus' di Charles Mingus, dove l'artista mostra la sua maestria nel suonarlo. Mingus non solo era un virtuoso del contrabbasso, ma anche un compositore innovativo, e questo album è considerato uno dei suoi lavori più significativi. Pubblicato nel 1956, 'Pithecanthropus Erectus' è un'opera che fonde elementi di jazz, musica classica e avanguardistica. Inoltre, il brano che dà il titolo all'album è particolarmente noto per la sua struttura unica e le complesse interazioni tra i musicisti. L'album ha avuto un impatto duraturo sullo sviluppo del jazz moderno."
         },
@@ -4433,12 +4333,7 @@
         },
         {
           "question": "In quale famoso brano dell'album 'Milestones' del 1958, Miles Davis collabora con il sassofonista John Coltrane, contribuendo a un'innovativa fusione di stili jazz?",
-          "options": [
-            "So What",
-            "Milestones",
-            "Four",
-            "Straight, No Chaser"
-          ],
+          "options": ["So What", "Milestones", "Four", "Straight, No Chaser"],
           "correctAnswer": "Milestones",
           "trivia": "La risposta corretta è 'Milestones', un brano che non solo dà il titolo all'album, ma rappresenta anche una pietra miliare nel jazz modale. Nel 1958, Miles Davis e John Coltrane collaborarono in questo pezzo, creando un sound distintivo che avrebbe influenzato generazioni di musicisti. Durante le sessioni di registrazione, Coltrane apportò la sua impronta unica, utilizzando un linguaggio melodico innovativo che si discostava dalle tradizionali progressioni armoniche. L'album 'Milestones' è considerato un punto di svolta nel jazz, rappresentando l'evoluzione del genere verso forme più sperimentali e complesse."
         }
@@ -4597,12 +4492,7 @@
         },
         {
           "question": "Quale strumento musicale è particolarmente rappresentativo dell'album 'The Atomic Mr. Basie' di Count Basie, pubblicato nel 1957?",
-          "options": [
-            "Piano",
-            "Chitarra",
-            "Batteria",
-            "Sassofono"
-          ],
+          "options": ["Piano", "Chitarra", "Batteria", "Sassofono"],
           "correctAnswer": "Piano",
           "trivia": "La risposta corretta è il piano, che è uno strumento centrale nel lavoro di Count Basie e in particolare nell'album 'The Atomic Mr. Basie'. Questo album è noto per il suo stile innovativo nel jazz, combinando arrangiamenti audaci con l'improvvisazione tipica della big band. Il piano di Basie, caratterizzato da un tocco elegante e da un approccio ritmico distintivo, è stato fondamentale per il sound dell'album. 'The Atomic Mr. Basie' include brani iconici come 'Jumpin' at the Woodside' e 'Shiny Stockings', che mettono in risalto non solo le abilità di Basie al pianoforte, ma anche l'interazione tra i musicisti della sua orchestra. Inoltre, l'album è stato uno dei primi a utilizzare tecniche di registrazione che enfatizzavano l'energia e la vitalità delle performance dal vivo."
         }
@@ -4610,12 +4500,7 @@
       "medium": [
         {
           "question": "Quale strumento musicale ha avuto un ruolo predominante nel sound distintivo dell'album 'The Atomic Mr. Basie' di Count Basie, pubblicato nel 1957?",
-          "options": [
-            "Sassofono",
-            "Piano",
-            "Tromba",
-            "Batteria"
-          ],
+          "options": ["Sassofono", "Piano", "Tromba", "Batteria"],
           "correctAnswer": "Piano",
           "trivia": "Il piano ha avuto un ruolo centrale nel sound di 'The Atomic Mr. Basie', in quanto Count Basie stesso era un pianista di eccezionale talento. Questo album è noto per la sua produzione innovativa e per l'arrangiamento di brani che hanno esaltato il pianoforte, con Basie che utilizzava tecniche di accompagnamento uniche. 'The Atomic Mr. Basie' è stato registrato in un periodo in cui il jazz stava evolvendo, incorporando nuove influenze e stili, e l'album ha contribuito a definire il suono del big band jazz degli anni '50. Famoso per tracce come \"One O'Clock Jump\" e \"Jumpin' at the Woodside\", l'album ha avuto un grande impatto sulla scena musicale dell'epoca."
         },
@@ -4749,12 +4634,7 @@
         },
         {
           "question": "Quale strumento musicale, suonato da Ray Charles stesso, ha avuto un ruolo fondamentale durante le sessioni di registrazione dell'album 'The Great Ray Charles' del 1957?",
-          "options": [
-            "Chitarra elettrica",
-            "Piano",
-            "Batteria",
-            "Sassofono"
-          ],
+          "options": ["Chitarra elettrica", "Piano", "Batteria", "Sassofono"],
           "correctAnswer": "Piano",
           "trivia": "Ray Charles ha utilizzato il piano come strumento principale durante le sessioni di registrazione per 'The Great Ray Charles'. Questo album, pubblicato nel 1957, ha segnato un'importante evoluzione nel suo stile musicale, fondendo elementi di R&B, gospel e jazz. Charles, noto per la sua abilità al pianoforte, ha scritto e arrangiato molte delle tracce presenti nell'album, collaborando con musicisti di talento come il sassofonista David 'Fathead' Newman. L'album è stato anche uno dei primi a integrare il suono della band con il suo stile vocale distintivo, contribuendo così alla nascita della musica soul. 'The Great Ray Charles' è considerato un capolavoro nella discografia di Ray Charles e ha influenzato numerosi artisti in seguito."
         }
@@ -5078,12 +4958,7 @@
       "medium": [
         {
           "question": "Quale strumento musicale distintivo utilizza Sonny Rollins nell'album 'Way Out West' del 1957, rendendo il suo stile unico nel panorama jazz dell'epoca?",
-          "options": [
-            "Piano",
-            "Sassofono tenore",
-            "Chitarra",
-            "Basso"
-          ],
+          "options": ["Piano", "Sassofono tenore", "Chitarra", "Basso"],
           "correctAnswer": "Sassofono tenore",
           "trivia": "Sonny Rollins utilizza il sassofono tenore come strumento principale nell'album 'Way Out West', il che contribuisce a definire il suo stile distintivo nel jazz. Questo album, pubblicato nel 1957, è considerato uno dei capolavori di Rollins e mette in mostra la sua abilità nel creare melodie improvvisate e complesse. In 'Way Out West', Rollins è accompagnato da musicisti di grande talento, tra cui l'iconico batterista Elvin Jones e il contrabbassista Bob Cranshaw. L'album è stato registrato in un periodo in cui Rollins stava esplorando nuove direzioni musicali, influenzato dalle sonorità del jazz hard bop. Infine, 'Way Out West' è noto anche per il suo artwork, che mostra Rollins in un paesaggio desertico, simbolizzando il suo desiderio di libertà e di espressione creativa."
         },
@@ -5171,12 +5046,7 @@
         },
         {
           "question": "Quale canzone dell'album 'Buddy Holly' è stata accompagnata da un video musicale innovativo per il suo tempo, contribuendo alla popolarità dell'artista Buddy Holly?",
-          "options": [
-            "That'll Be the Day",
-            "Everyday",
-            "Peggy Sue",
-            "Oh Boy!"
-          ],
+          "options": ["That'll Be the Day", "Everyday", "Peggy Sue", "Oh Boy!"],
           "correctAnswer": "Peggy Sue",
           "trivia": "La canzone 'Peggy Sue' dell'album 'Buddy Holly', pubblicato nel 1958, è stata accompagnata da uno dei primi video musicali appositamente realizzati. Questo brano è diventato un grande successo, raggiungendo la posizione numero 3 nella Billboard Hot 100. Buddy Holly, noto per la sua influenza nella musica rock, ha utilizzato il video per promuovere la sua musica in un periodo in cui i video musicali non erano ancora comuni. 'Peggy Sue' è oggi considerata una delle sue canzoni più iconiche e ha contribuito a solidificare la sua leggenda nel panorama musicale."
         },
@@ -5206,12 +5076,7 @@
         },
         {
           "question": "Nel video musicale di quale canzone dell'album 'Buddy Holly' del 1958, Buddy Holly si esibisce insieme a un gruppo di ballerini in uno scenario vivace e colorato, contribuendo a creare un'atmosfera giovanile e spensierata?",
-          "options": [
-            "Oh Boy!",
-            "Everyday",
-            "Maybe Baby",
-            "Peggy Sue"
-          ],
+          "options": ["Oh Boy!", "Everyday", "Maybe Baby", "Peggy Sue"],
           "correctAnswer": "Oh Boy!",
           "trivia": "La canzone 'Oh Boy!' è uno dei brani più iconici dell'album 'Buddy Holly' e, nel video musicale, Buddy Holly si presenta con un gruppo di ballerini che animano il palcoscenico. Il brano, pubblicato nel 1957 e incluso nell'album del 1958, ha avuto un grande impatto sulla cultura pop e rappresenta perfettamente lo stile distintivo di Holly. Inoltre, la canzone è nota per il suo ritornello orecchiabile e il suo ritmo vivace, che ha contribuito a definire il sound del rock and roll degli anni '50. 'Oh Boy!' è stata una delle prime canzoni a combinare elementi di rock e pop, consolidando la reputazione di Buddy Holly come pioniere nella musica moderna."
         },
@@ -5277,12 +5142,7 @@
       "easy": [
         {
           "question": "In quale film è stata utilizzata una traccia dell'album 'Thelonious Monk Trio' di Thelonious Monk, pubblicato nel 1954?",
-          "options": [
-            "Bird",
-            "La La Land",
-            "Whiplash",
-            "Round Midnight"
-          ],
+          "options": ["Bird", "La La Land", "Whiplash", "Round Midnight"],
           "correctAnswer": "Round Midnight",
           "trivia": "La risposta corretta è 'Round Midnight', un film del 1986 che celebra la vita del musicista jazz e presenta la musica di Thelonious Monk. L'album 'Thelonious Monk Trio', pubblicato nel 1954, contiene brani iconici che hanno influenzato molti artisti nel settore del jazz. Monk è noto per il suo stile unico e innovativo, e la sua musica continua ad essere utilizzata nel cinema e in programmi TV. 'Round Midnight' è particolarmente significativo poiché il protagonista è un musicista jazz, rendendo la colonna sonora, che include la musica di Monk, ancora più appropriata."
         },
@@ -5522,12 +5382,7 @@
         },
         {
           "question": "In quale anno è stato pubblicato l'album 'This Is Fats' di Fats Domino, contribuendo così alla sua fama nel panorama musicale?",
-          "options": [
-            "1955",
-            "1956",
-            "1957",
-            "1958"
-          ],
+          "options": ["1955", "1956", "1957", "1958"],
           "correctAnswer": "1956",
           "trivia": "L'album 'This Is Fats' di Fats Domino è stato pubblicato nel 1956, un anno significativo per la carriera dell'artista. Questo album ha contribuito a consolidare la sua reputazione come uno dei pionieri del rock and roll e del rhythm and blues. Tra i brani presenti, 'Ain't That a Shame' è diventato un grande successo, raggiungendo il secondo posto nella classifica pop. L'album è stato ben accolto sia dalla critica che dal pubblico, rendendo Fats Domino una figura centrale nella musica americana degli anni '50."
         },
@@ -5603,12 +5458,7 @@
         },
         {
           "question": "Quale strumento a percussione è stato utilizzato in modo distintivo da Fats Domino nell'album 'This Is Fats' del 1956, contribuendo al suo caratteristico sound R&B?",
-          "options": [
-            "Conga",
-            "Bonghi",
-            "Vibrafono",
-            "Cajón"
-          ],
+          "options": ["Conga", "Bonghi", "Vibrafono", "Cajón"],
           "correctAnswer": "Bonghi",
           "trivia": "Fats Domino ha utilizzato i bonghi in modo distintivo durante le registrazioni dell'album 'This Is Fats' nel 1956, un elemento che ha contribuito al suo caratteristico sound R&B. I bonghi, insieme al piano di Domino, hanno creato un ritmo incalzante e coinvolgente che ha caratterizzato molte delle sue canzoni. Questo album è stato fondamentale nel consolidare la sua carriera e nel portare il rock and roll nelle case americane. Inoltre, 'This Is Fats' include tracce che riflettono l'influenza del jazz e del rhythm and blues, generi che hanno fortemente influenzato la musica popolare dell'epoca. La combinazione di strumenti a percussione e melodie pianistiche ha reso il suo stile unico e immediatamente riconoscibile."
         }
@@ -5954,12 +5804,7 @@
         },
         {
           "question": "Quale celebre brano jazz, reinterpretato da Sarah Vaughan nell'album 'At Mister Kelly’s' del 1958, è stato originariamente scritto da Johnny Green e ha visto diverse versioni di artisti famosi come Billie Holiday e Ella Fitzgerald?",
-          "options": [
-            "Summertime",
-            "Misty",
-            "Body and Soul",
-            "Tenderly"
-          ],
+          "options": ["Summertime", "Misty", "Body and Soul", "Tenderly"],
           "correctAnswer": "Body and Soul",
           "trivia": "La risposta corretta è 'Body and Soul', un classico del jazz che Sarah Vaughan ha reinterpretato con la sua inconfondibile vocalità nell'album 'At Mister Kelly’s'. Questo brano, originariamente scritto da Johnny Green nel 1930, è stato interpretato da numerosi artisti nel corso degli anni, tra cui Billie Holiday ed Ella Fitzgerald, evidenziando la sua importanza nella storia del jazz. La versione di Vaughan è particolarmente nota per la sua intensità emotiva e la complessità tecnica, che mostrano le sue straordinarie doti canore. 'At Mister Kelly’s' è stato registrato dal vivo a Chicago, un contesto che ha contribuito a catturare l'energia e l'immediatezza della performance di Vaughan."
         }
@@ -6036,12 +5881,7 @@
         },
         {
           "question": "Quale compositore o genere musicale ha avuto un impatto significativo sulle opere di Duke Ellington, in particolare nell'album 'Ellington Indigos' del 1958?",
-          "options": [
-            "George Gershwin",
-            "Stravinsky",
-            "Bebop",
-            "Blues"
-          ],
+          "options": ["George Gershwin", "Stravinsky", "Bebop", "Blues"],
           "correctAnswer": "Blues",
           "trivia": "Duke Ellington ha tratto grande ispirazione dal genere del blues, che ha influenzato profondamente la sua musica, inclusa l'album 'Ellington Indigos'. Il blues è un elemento fondamentale nel jazz e ha fornito a Ellington una base emotiva per molte delle sue composizioni. Quest'album, caratterizzato da arrangiamenti sofisticati e melodie evocative, mostra chiaramente l'influenza del blues attraverso il suo uso di armonie ricche e ritmi sincopati. Inoltre, Ellington stesso ha spesso collaborato con musicisti blues, integrando le loro sonorità nel suo stile unico. 'Ellington Indigos' riflette non solo la maestria di Ellington come compositore, ma anche la sua capacità di fondere diversi generi musicali."
         }
@@ -6107,12 +5947,7 @@
         },
         {
           "question": "Quale strumento a fiato è predominante nell'arrangiamento musicale dell'album 'Songs for Distingué Lovers' di Billie Holiday, pubblicato nel 1957?",
-          "options": [
-            "Sassofono",
-            "Flauto",
-            "Tromba",
-            "Clarinetto"
-          ],
+          "options": ["Sassofono", "Flauto", "Tromba", "Clarinetto"],
           "correctAnswer": "Sassofono",
           "trivia": "L'album 'Songs for Distingué Lovers' di Billie Holiday presenta un'illustre predominanza del sassofono, strumento chiave per molte delle tracce. Questo strumento, interpretato da musicisti di talento, contribuisce a creare l'atmosfera sofisticata e malinconica che caratterizza l'intero progetto. Billie Holiday, nota per la sua voce unica e il suo stile emotivo, si avvale di arrangiamenti ricchi e complessi, in cui il sassofono gioca un ruolo centrale. La produzione dell'album è stata curata da un team di esperti, e il sassofono viene spesso utilizzato per esprimere le emozioni che Holiday stessa trasmette attraverso la sua interpretazione. Inoltre, l'album è considerato uno dei lavori più significativi della sua carriera, evidenziando la sua abilità di collaborare con musicisti di alto calibro."
         },
@@ -6153,12 +5988,7 @@
         },
         {
           "question": "In quale prestigioso locale jazz Billie Holiday ha tenuto una delle sue prime esibizioni dell'album 'Songs for Distingué Lovers' nel 1957?",
-          "options": [
-            "Cotton Club",
-            "Apollo Theater",
-            "Blue Note",
-            "Birdland"
-          ],
+          "options": ["Cotton Club", "Apollo Theater", "Blue Note", "Birdland"],
           "correctAnswer": "Birdland",
           "trivia": "Billie Holiday ha tenuto una delle sue prime esibizioni dell'album 'Songs for Distingué Lovers' al Birdland, un famoso club di jazz di New York, nel 1957. Questo locale era noto per ospitare alcuni dei più grandi nomi del jazz, e Holiday era un'artista di punta in quel periodo. L'album include brani iconici come 'All of Me' e 'Tenderly', che mettono in risalto la sua voce unica e il suo stile emotivo. Oltre a questo, 'Songs for Distingué Lovers' è stata una delle ultime registrazioni di Billie prima della sua morte nel 1959, rendendola ancor più significativa nel panorama musicale dell'epoca."
         }
@@ -6224,12 +6054,7 @@
         },
         {
           "question": "Quale strumento a fiato predominante è stato utilizzato da Count Basie negli arrangiamenti dell'album 'April in Paris' del 1956?",
-          "options": [
-            "Saxofono",
-            "Tromba",
-            "Flicorno",
-            "Clarinetto"
-          ],
+          "options": ["Saxofono", "Tromba", "Flicorno", "Clarinetto"],
           "correctAnswer": "Tromba",
           "trivia": "Nell'album 'April in Paris', Count Basie ha utilizzato in modo prominente la tromba, che è uno strumento chiave nel jazz e nelle big band. Questo album è noto per gli arrangiamenti ricchi e le sonorità calde, in cui la tromba si distingue per la sua brillantezza e capacità espressiva. Basie, famoso per il suo stile di direzione e per la qualità dei suoi musicisti, ha collaborato con trombettisti di talento come Thad Jones, che ha contribuito all'ottima riuscita delle sessioni. 'April in Paris' è stato registrato in un periodo in cui il jazz orchestrale stava guadagnando sempre più popolarità, e l'uso della tromba ha giocato un ruolo fondamentale nel definire il suono dell'album."
         },
@@ -6482,12 +6307,7 @@
       "medium": [
         {
           "question": "Quale brano dell'album 'Somethin’ Else' di Cannonball Adderley ha ispirato diverse versioni remix e reinterpretazioni nel corso degli anni?",
-          "options": [
-            "Autumn Leaves",
-            "Waltz for Debby",
-            "So What",
-            "Airegin"
-          ],
+          "options": ["Autumn Leaves", "Waltz for Debby", "So What", "Airegin"],
           "correctAnswer": "Autumn Leaves",
           "trivia": "Il brano 'Autumn Leaves', presente nell'album 'Somethin’ Else' di Cannonball Adderley del 1958, ha ispirato numerose versioni remix e reinterpretazioni da parte di vari artisti nel corso degli anni. Questo standard jazz, originariamente composto da Joseph Kosma, è stato reinterpretato da musicisti di diversi generi, attestando la sua versatilità e popolarità. L'album 'Somethin’ Else' è stato registrato in una sessione storica con una formazione eccezionale che include anche Miles Davis e Art Blakey. La combinazione di melodie indimenticabili e arrangiamenti sofisticati ha reso il lavoro di Adderley un punto di riferimento nel jazz. 'Autumn Leaves' continua a essere un brano fondamentale nel repertorio jazzistico e ha ispirato artisti contemporanei a esplorare nuove sonorità attraverso remix e versioni innovative."
         },
@@ -7149,12 +6969,7 @@
       "easy": [
         {
           "question": "Quale simbolo ricorrente nei testi di Muddy Waters, presente nell'album 'At Newport 1960', rappresenta la lotta e la resilienza degli afroamericani durante il periodo della segregazione?",
-          "options": [
-            "Il treno",
-            "Il fiume",
-            "La strada",
-            "La casa"
-          ],
+          "options": ["Il treno", "Il fiume", "La strada", "La casa"],
           "correctAnswer": "Il treno",
           "trivia": "Il treno è un simbolo ricorrente nei testi di Muddy Waters, rappresentando non solo la fuga verso la libertà ma anche il viaggio verso la speranza e una vita migliore. In 'At Newport 1960', questo simbolismo è particolarmente evidente, poiché i brani eseguiti riflettono le esperienze di vita e la lotta degli afroamericani durante il periodo della segregazione negli Stati Uniti. Oltre al treno, Waters utilizza frequentemente elementi naturali come il fiume per esprimere sentimenti di libertà e di connessione con le radici culturali. L'album, registrato dal vivo al Newport Jazz Festival nel 1960, ha avuto un impatto significativo sulla diffusione del blues e ha contribuito a portare la musica afroamericana alla ribalta."
         },
@@ -7230,12 +7045,7 @@
         },
         {
           "question": "Quale altro genere musicale ha avuto un'influenza significativa sullo stile di Muddy Waters, come dimostrato nell'album 'At Newport 1960'?",
-          "options": [
-            "Jazz",
-            "Country",
-            "Rock and Roll",
-            "Gospel"
-          ],
+          "options": ["Jazz", "Country", "Rock and Roll", "Gospel"],
           "correctAnswer": "Gospel",
           "trivia": "La risposta corretta è Gospel, un genere che ha influenzato notevolmente il blues di Muddy Waters. L'album 'At Newport 1960', registrato dal vivo durante il Newport Jazz Festival nel 1958, mostra chiaramente come Waters incorporasse elementi emotivi e spirituali tipici della musica gospel nel suo stile. Durante le performance, Muddy Waters utilizzava tecniche vocali e melodie che richiamavano le tradizioni gospel, evidenziando la connessione tra questi generi. Inoltre, l'album ha contribuito a portare il blues a un pubblico più vasto, fondendo influenze diverse che hanno segnato la musica americana. Fatti rilevanti includono il fatto che Muddy Waters è stato una figura chiave nel trasferimento del blues dal Delta al contesto urbano di Chicago, e che il suo stile ha ispirato molte generazioni di musicisti."
         },
@@ -7862,12 +7672,7 @@
         },
         {
           "question": "Quale brano dell'album 'Giant Steps' di John Coltrane è stato campionato in diverse produzioni hip hop e R&B nel corso degli anni?",
-          "options": [
-            "Naima",
-            "Giant Steps",
-            "Mr. P.C.",
-            "Cousin Mary"
-          ],
+          "options": ["Naima", "Giant Steps", "Mr. P.C.", "Cousin Mary"],
           "correctAnswer": "Giant Steps",
           "trivia": "Il brano 'Giant Steps' è uno dei pezzi più iconici di John Coltrane, pubblicato nel 1960 nell'album omonimo. Questo brano è noto per la sua complessità armonica e melodia innovativa, che lo ha reso un punto di riferimento nel jazz. Nel corso degli anni, 'Giant Steps' è stato campionato in molte produzioni musicali, in particolare nel genere hip hop e R&B, dimostrando la sua influenza duratura. Artisti come A Tribe Called Quest e Drake hanno utilizzato elementi di questo brano, evidenziando come la musica di Coltrane continui a ispirare generazioni di musicisti. Inoltre, l'album 'Giant Steps' è considerato un capolavoro del jazz moderno e ha avuto un impatto significativo sulla musica contemporanea."
         },
@@ -7932,12 +7737,7 @@
         },
         {
           "question": "Quale brano dell'album 'Giant Steps' di John Coltrane ha ricevuto una versione remix nel 1998 da parte del DJ e produttore musicale Nujabes, noto per il suo stile unico che fonde jazz e hip hop?",
-          "options": [
-            "Naima",
-            "Giant Steps",
-            "Cousin Mary",
-            "Mr. P.C."
-          ],
+          "options": ["Naima", "Giant Steps", "Cousin Mary", "Mr. P.C."],
           "correctAnswer": "Naima",
           "trivia": "Il brano 'Naima' dell'album 'Giant Steps' di John Coltrane è stato remixato da Nujabes nel 1998, portando il classico jazz in un contesto moderno e influenzando la scena hip hop. 'Giant Steps', pubblicato nel 1960, è considerato uno dei lavori più innovativi di Coltrane, famoso per le sue complesse progressioni armoniche. Nujabes, il cui vero nome era Seba Jun, è noto per il suo stile che combina melodie di jazz con ritmi hip hop, rendendo omaggio a grandi artisti come Coltrane. Inoltre, 'Naima' è uno dei brani più iconici dell'album, dedicato alla moglie del sassofonista, e ha avuto un impatto duraturo su molti artisti successivi. È interessante notare che l'album 'Giant Steps' ha rappresentato una svolta fondamentale nel jazz, spingendo oltre i confini della musica improvvisata."
         },
@@ -8248,23 +8048,13 @@
         },
         {
           "question": "Quale strumento musicale è predominante nel brano 'At Last' dell'album omonimo di Etta James, pubblicato nel 1960?",
-          "options": [
-            "Chitarra elettrica",
-            "Piano",
-            "Sassofono",
-            "Batteria"
-          ],
+          "options": ["Chitarra elettrica", "Piano", "Sassofono", "Batteria"],
           "correctAnswer": "Piano",
           "trivia": "Nel brano 'At Last' dell'album 'At Last!' del 1960, il piano svolge un ruolo fondamentale, creando un'atmosfera romantica e malinconica che ha contribuito a rendere questa canzone un classico intramontabile. Etta James, con la sua potente voce, riesce a trasmettere emozioni profonde, mentre il pianoforte accompagna delicatamente il suo canto. L'album, che ha segnato un'importante fase della carriera di James, è stato registrato in parte nel 1959 e include anche altre tracce iconiche. 'At Last!' è stato accolto con entusiasmo dalla critica e ha consolidato la reputazione di Etta James come una delle migliori interpreti di soul e blues della sua epoca."
         },
         {
           "question": "In quale anno è stata pubblicata una versione remix del brano principale dell'album 'At Last!' di Etta James, che ha contribuito a rivitalizzare l'interesse per la sua musica?",
-          "options": [
-            "1995",
-            "2003",
-            "2010",
-            "2015"
-          ],
+          "options": ["1995", "2003", "2010", "2015"],
           "correctAnswer": "2003",
           "trivia": "La risposta corretta è il 2003, anno in cui è stata pubblicata una versione remix di 'At Last!' nell'ambito di un progetto di riedizione che ha portato nuova attenzione alla musica di Etta James. Questo brano, che originariamente è stato registrato nel 1960, è diventato uno dei classici della soul music. L'album 'At Last!' ha anche visto la partecipazione di musicisti di spicco come il pianista e arrangiatore Riley Hampton, che ha contribuito al suo suono distintivo. Inoltre, il brano è stato scelto per essere utilizzato in numerosi film e programmi televisivi, aumentando ulteriormente la sua popolarità negli anni successivi."
         }
@@ -8341,12 +8131,7 @@
         },
         {
           "question": "Quale artista ha collaborato con The Platters nell'album 'The Platters' del 1956 grazie alla sua produzione musicale?",
-          "options": [
-            "Buck Ram",
-            "Sam Cooke",
-            "Ray Charles",
-            "Diana Ross"
-          ],
+          "options": ["Buck Ram", "Sam Cooke", "Ray Charles", "Diana Ross"],
           "correctAnswer": "Buck Ram",
           "trivia": "La risposta corretta è Buck Ram, che ha avuto un ruolo fondamentale nella produzione dell'album 'The Platters' del 1956. Ram era un noto produttore musicale e autore, noto per aver scritto molte delle canzoni più celebri del gruppo, tra cui 'Only You' e 'The Great Pretender'. L'album ha contribuito a lanciare la carriera di The Platters, facendoli diventare uno dei gruppi vocali più popolari degli anni '50. Durante quel periodo, The Platters hanno raggiunto il successo con una miscela di doo-wop e pop, e la loro musica ha influenzato molti artisti successivi."
         }
@@ -8787,12 +8572,7 @@
       "easy": [
         {
           "question": "In che anno è stato pubblicato l'album 'Study in Brown' di Clifford Brown & Max Roach, che ha rappresentato un'importante ripresa del jazz hard-bop?",
-          "options": [
-            "1955",
-            "1953",
-            "1957",
-            "1951"
-          ],
+          "options": ["1955", "1953", "1957", "1951"],
           "correctAnswer": "1955",
           "trivia": "L'album 'Study in Brown' di Clifford Brown & Max Roach è stato pubblicato nel 1955, segnando un momento cruciale nel revival del jazz hard-bop. Questo album è considerato uno dei lavori fondamentali del duo, mettendo in evidenza le straordinarie abilità di improvvisazione di Brown alla tromba e il virtuosismo di Roach alla batteria. Durante le sessioni di registrazione, Brown e Roach furono affiancati da musicisti di talento come il pianista Elmo Hope e il contrabbassista George Morrow. 'Study in Brown' ha contribuito a definire il suono del jazz negli anni '50, un periodo caratterizzato da una rinascita di stili musicali più complessi e ritmicamente innovativi."
         },
@@ -9394,12 +9174,7 @@
         },
         {
           "question": "Quale strumento musicale è principalmente associato all'album 'The Sermon!' di Jimmy Smith del 1959?",
-          "options": [
-            "Piano",
-            "Chitarra",
-            "Organo Hammond",
-            "Sassofono"
-          ],
+          "options": ["Piano", "Chitarra", "Organo Hammond", "Sassofono"],
           "correctAnswer": "Organo Hammond",
           "trivia": "La risposta corretta è l'organo Hammond, che è lo strumento principale utilizzato da Jimmy Smith nell'album 'The Sermon!'. Questo album, pubblicato nel 1959, è considerato una pietra miliare nel genere jazz soul e ha contribuito a rendere l'organo Hammond un elemento fondamentale nel jazz moderno. Jimmy Smith è riconosciuto come uno dei pionieri nell'uso di questo strumento, combinando elementi di jazz, blues e gospel. 'The Sermon!' è famoso non solo per le sue composizioni originali, ma anche per il suo stile innovativo e per l'energia che Smith riesce a trasmettere nelle sue performance."
         }
@@ -9663,12 +9438,7 @@
         },
         {
           "question": "In quale anno Ella Fitzgerald ha collaborato con il leggendario arrangiatore e direttore d'orchestra Nelson Riddle per l'album 'Ella Fitzgerald Sings the Irving Berlin Song Book'?",
-          "options": [
-            "1956",
-            "1958",
-            "1959",
-            "1960"
-          ],
+          "options": ["1956", "1958", "1959", "1960"],
           "correctAnswer": "1958",
           "trivia": "La risposta corretta è il 1958, anno in cui Ella Fitzgerald ha pubblicato 'Ella Fitzgerald Sings the Irving Berlin Song Book', un progetto che ha visto la collaborazione con il famoso arrangiatore Nelson Riddle. Riddle, noto per il suo lavoro con artisti di jazz e pop, ha saputo esaltare le capacità vocali di Fitzgerald con arrangiamenti sofisticati e ricchi. Questo album è considerato uno dei capolavori di Fitzgerald, non solo per la sua interpretazione delle canzoni di Irving Berlin, ma anche per il modo in cui ha unito le melodie classiche con un tocco jazz. Inoltre, l'album è stato ben accolto dalla critica e ha contribuito a consolidare ulteriormente la reputazione di Fitzgerald come una delle più grandi cantanti jazz di tutti i tempi."
         }
@@ -9769,12 +9539,7 @@
         },
         {
           "question": "Quale strumento a fiato predominante è stato utilizzato nella sezione di ottoni durante le registrazioni dell'album 'Swing Easy!' di Frank Sinatra nel 1954?",
-          "options": [
-            "Sassofono",
-            "Tromba",
-            "Trombone",
-            "Flicorno"
-          ],
+          "options": ["Sassofono", "Tromba", "Trombone", "Flicorno"],
           "correctAnswer": "Tromba",
           "trivia": "Nell'album 'Swing Easy!', Frank Sinatra ha collaborato con alcuni dei migliori musicisti jazz dell'epoca, e la tromba ha svolto un ruolo fondamentale nel creare l'atmosfera vivace e swingante delle tracce. La sezione di ottoni, in particolare, ha utilizzato intensamente la tromba, che ha contribuito a dare un carattere distintivo ai brani. L'album è stato registrato sotto l'etichetta Capitol Records e ha visto l'uso di tecniche di registrazione innovative per il tempo, come il 'multi-tracking', che ha permesso di sovrapporre diverse parti strumentali. 'Swing Easy!' è stato un grande successo e ha consolidato la reputazione di Sinatra come uno dei principali interpreti della musica swing."
         },
@@ -9910,12 +9675,7 @@
       "hard": [
         {
           "question": "Quale canzone dell'album 'Soultrane' di John Coltrane, pubblicato nel 1958, è stata oggetto di dibattiti critici per la sua innovativa struttura armonica e il suo uso audace delle tonalità?",
-          "options": [
-            "Giant Steps",
-            "Lazy Bird",
-            "Countdown",
-            "Equinox"
-          ],
+          "options": ["Giant Steps", "Lazy Bird", "Countdown", "Equinox"],
           "correctAnswer": "Lazy Bird",
           "trivia": "La canzone 'Lazy Bird' dall'album 'Soultrane' di John Coltrane ha suscitato reazioni critiche per la sua complessità armonica e l'uso non convenzionale delle progressioni. In particolare, i critici hanno notato come Coltrane abbia sperimentato con le tonalità, rendendo il brano un esempio di innovazione nel jazz. 'Soultrane', registrato nel 1958, è considerato un'opera fondamentale che ha contribuito a definire il suono del jazz moderno. Inoltre, l'album presenta collaborazioni con musicisti di spicco come McCoy Tyner e Elvin Jones, che hanno influenzato notevolmente la direzione musicale di Coltrane. Questo contesto ha reso 'Lazy Bird' un punto di riferimento per i musicisti e i critici, sottolineando l'evoluzione del jazz in quel periodo."
         },
@@ -9957,12 +9717,7 @@
       "easy": [
         {
           "question": "Quale anno segna la pubblicazione dell'album 'Back to Back: Duke Ellington and Johnny Hodges Play the Blues' di Duke Ellington & Johnny Hodges?",
-          "options": [
-            "1955",
-            "1957",
-            "1959",
-            "1961"
-          ],
+          "options": ["1955", "1957", "1959", "1961"],
           "correctAnswer": "1959",
           "trivia": "L'album 'Back to Back: Duke Ellington and Johnny Hodges Play the Blues' è stato pubblicato nel 1959, consolidando la storica collaborazione tra Duke Ellington e Johnny Hodges. Questo album è particolarmente significativo poiché riunisce due delle figure più influenti del jazz, con Hodges che era il primo sassofonista alto dell'orchestra di Ellington. Le sessioni di registrazione si sono concentrate su brani blues, un genere che entrambi gli artisti avevano profondamente esplorato nel corso delle loro carriere. Inoltre, l'album è stato ben accolto dalla critica e ha contribuito a rinnovare l'interesse per il jazz tradizionale in un periodo di sperimentazione musicale."
         },
@@ -10027,12 +9782,7 @@
       "hard": [
         {
           "question": "Quale posizione ha raggiunto l'album 'Back to Back: Duke Ellington and Johnny Hodges Play the Blues' di Duke Ellington & Johnny Hodges nella classifica dei dischi jazz più venduti negli Stati Uniti nel 1959?",
-          "options": [
-            "1º posto",
-            "5º posto",
-            "10º posto",
-            "15º posto"
-          ],
+          "options": ["1º posto", "5º posto", "10º posto", "15º posto"],
           "correctAnswer": "5º posto",
           "trivia": "L'album 'Back to Back: Duke Ellington and Johnny Hodges Play the Blues' ha raggiunto il 5º posto nella classifica dei dischi jazz più venduti negli Stati Uniti nel 1959. Questo album è significativo non solo per la collaborazione tra due dei più grandi nomi del jazz, ma anche per la sua influenza nel panorama musicale dell'epoca. Duke Ellington, un innovatore del jazz, e Johnny Hodges, un virtuoso del sassofono alto, hanno regalato al pubblico una fusione di stili che ha catturato l'attenzione sia degli appassionati di jazz che dei neofiti. L'album include brani iconici che riflettono l'evoluzione del jazz negli anni '50, un periodo di grande fermento per il genere. Inoltre, il lavoro di produzione e arrangiamento ha contribuito a rendere questo album un classico del jazz."
         },
@@ -10226,12 +9976,7 @@
       "medium": [
         {
           "question": "Qual è stata la posizione più alta raggiunta dall'album 'Cool Struttin’' di Sonny Clark nella classifica degli album jazz nel 1958?",
-          "options": [
-            "Numero 1",
-            "Numero 3",
-            "Numero 5",
-            "Numero 10"
-          ],
+          "options": ["Numero 1", "Numero 3", "Numero 5", "Numero 10"],
           "correctAnswer": "Numero 5",
           "trivia": "L'album 'Cool Struttin’' di Sonny Clark, registrato nel 1958, ha raggiunto la posizione numero 5 nella classifica degli album jazz. Questa è stata una delle vette più alte per un album di jazz in quel periodo, testimoniando l'influenza e il riconoscimento del lavoro di Clark. 'Cool Struttin’' è noto per le sue composizioni originali e per l'ottima interazione tra i musicisti, tra cui spiccano nomi come Art Farmer e Elvin Jones. L'album è stato ben accolto dalla critica e ha contribuito a consolidare la reputazione di Sonny Clark come uno dei pianisti più innovativi del jazz hard bop. Nel contesto degli anni '50, 'Cool Struttin’' rappresenta un'importante tappa nell'evoluzione del jazz moderno."
         },
@@ -10564,12 +10309,7 @@
         },
         {
           "question": "In quale anno è stato pubblicato l'album 'Ella Fitzgerald Sings the George and Ira Gershwin Song Book' di Ella Fitzgerald?",
-          "options": [
-            "1955",
-            "1959",
-            "1962",
-            "1965"
-          ],
+          "options": ["1955", "1959", "1962", "1965"],
           "correctAnswer": "1959",
           "trivia": "L'album 'Ella Fitzgerald Sings the George and Ira Gershwin Song Book' è stato pubblicato nel 1959, rappresentando un tributo ai leggendari compositori George e Ira Gershwin. Questa raccolta di canzoni classiche ha messo in mostra la straordinaria abilità vocale di Ella Fitzgerald e il suo stile unico. L'album comprende brani iconici come 'Summertime' e 'I Got Rhythm', che sono diventati dei classici nel repertorio jazz. Ella Fitzgerald, nota come la 'First Lady of Song', ha ricevuto ampi consensi per la sua interpretazione di queste opere, contribuendo a far rivivere la musica dei Gershwin per le nuove generazioni. L'album è stato accolto con entusiasmo dalla critica e dal pubblico e ha consolidato ulteriormente il suo status nel mondo della musica."
         }
@@ -10822,12 +10562,7 @@
         },
         {
           "question": "Quale brano dell'album 'Concert by the Sea' di Erroll Garner ha ricevuto diverse versioni remix e reinterpretazioni nel corso degli anni, evidenziando la sua influenza duratura nel jazz?",
-          "options": [
-            "Misty",
-            "Summertime",
-            "Autumn Leaves",
-            "Blue Moon"
-          ],
+          "options": ["Misty", "Summertime", "Autumn Leaves", "Blue Moon"],
           "correctAnswer": "Misty",
           "trivia": "Il brano 'Misty' di Erroll Garner, presente nell'album 'Concert by the Sea' del 1955, è diventato un classico del jazz e ha ispirato numerose versioni e remix nel tempo. Questo pezzo è stato composto originalmente da Garner nel 1954 e ha guadagnato popolarità grazie alla sua melodia romantica e malinconica. Oltre ad essere parte integrante dell'album, 'Misty' è stato interpretato da molti artisti, diventando un standard nel repertorio jazz e pop. L'album stesso è noto per la sua registrazione dal vivo, che cattura l'energia e l'improvvisazione tipica delle performance di Garner, consolidando la sua reputazione come uno dei pianisti più innovativi del suo tempo."
         },
@@ -11208,12 +10943,7 @@
         },
         {
           "question": "Quale canzone presente nell'album 'The Coasters' di The Coasters del 1957 è stata successivamente inclusa in una versione deluxe con tracce aggiuntive nella riedizione del 2005?",
-          "options": [
-            "Searchin'",
-            "Yakety Yak",
-            "Charlie Brown",
-            "Poison Ivy"
-          ],
+          "options": ["Searchin'", "Yakety Yak", "Charlie Brown", "Poison Ivy"],
           "correctAnswer": "Charlie Brown",
           "trivia": "La risposta corretta è 'Charlie Brown', una delle tracce più iconiche dell'album 'The Coasters'. Questa canzone, pubblicata originariamente nel 1959, è stata inclusa nella riedizione deluxe del 2005 dell'album, che ha offerto ai fan nuove tracce e versioni alternative. 'The Coasters' è un album significativo nella storia del rock and roll e ha consolidato la band come pionieri del genere. Inoltre, il brano 'Charlie Brown' è noto per il suo testo umoristico e il suo ritornello accattivante, contribuendo al successo del gruppo. La riedizione del 2005 ha permesso di rivivere l'eredità musicale di The Coasters per le nuove generazioni."
         },
@@ -11255,12 +10985,7 @@
         },
         {
           "question": "Quale simbolo ricorre nei testi delle canzoni dell'album 'He’s So Fine' di Jackie Wilson, rappresentando l'amore ideale e la bellezza?",
-          "options": [
-            "Le stelle",
-            "Il mare",
-            "Le rose",
-            "I sogni"
-          ],
+          "options": ["Le stelle", "Il mare", "Le rose", "I sogni"],
           "correctAnswer": "Le rose",
           "trivia": "Nei testi delle canzoni dell'album 'He’s So Fine', Jackie Wilson usa frequentemente il simbolo delle rose per rappresentare l'amore ideale e la bellezza. Questo simbolo è comune nella musica soul dell'epoca, poiché riflette la delicatezza e la passione dei sentimenti amorosi. L'album, pubblicato nel 1958, ha ottenuto un grande successo, contribuendo a definire il sound della musica R&B. Inoltre, 'He’s So Fine' include brani che sono diventati classici, come la title track, che ha raggiunto il numero 1 nella classifica R&B. Wilson è spesso considerato uno dei pionieri del soul, e l'uso di simboli poetici nei suoi testi ha avuto un impatto duraturo nella musica."
         },

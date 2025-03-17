@@ -69,12 +69,7 @@
         },
         {
           "question": "Durante la gira de promoción de 'The Dark Side of the Moon', ¿en qué año Pink Floyd realizó una actuación icónica en el festival de música de Knebworth?",
-          "options": [
-            "1974",
-            "1975",
-            "1976",
-            "1973"
-          ],
+          "options": ["1974", "1975", "1976", "1973"],
           "correctAnswer": "1975",
           "trivia": "La respuesta correcta es 1975. Pink Floyd realizó una actuación memorable en el festival de Knebworth, que fue parte de su gira para promocionar 'The Dark Side of the Moon', lanzado en 1973. Este álbum no solo se convirtió en un hito musical, sino que también llevó a la banda a un nivel de popularidad sin precedentes, ayudándoles a atraer multitudes masivas en sus presentaciones en vivo. La gira incluía innovaciones visuales y sonoras que complementaban la experiencia del álbum, como el uso de proyecciones de luces y efectos de sonido. Además, el álbum 'The Dark Side of the Moon' se mantuvo en las listas de éxitos durante más de 900 semanas, lo que demuestra su impacto duradero en la música y la cultura popular."
         }
@@ -268,12 +263,7 @@
         },
         {
           "question": "¿Qué famoso grupo de rock citó a Fleetwood Mac y su álbum 'Rumours' como una gran influencia en su música a finales de los años 70?",
-          "options": [
-            "The Eagles",
-            "The Rolling Stones",
-            "Nirvana",
-            "U2"
-          ],
+          "options": ["The Eagles", "The Rolling Stones", "Nirvana", "U2"],
           "correctAnswer": "The Eagles",
           "trivia": "El grupo The Eagles, conocido por su mezcla de rock y country, ha mencionado en varias ocasiones que Fleetwood Mac y su álbum 'Rumours' les influyeron significativamente en su estilo musical. 'Rumours', lanzado en 1977, es uno de los álbumes más vendidos de todos los tiempos y ha sido aclamado por su producción y composición. Este álbum no solo consolidó a Fleetwood Mac como una de las bandas más importantes de la época, sino que también dejó una marca indeleble en muchos artistas posteriores, incluyendo a The Eagles, que buscaban capturar esa esencia melódica y armoniosa. Además, 'Rumours' ganó el Grammy al Álbum del Año en 1978, destacando su impacto no solo en la industria musical, sino también en la cultura popular de la época."
         }
@@ -374,12 +364,7 @@
         },
         {
           "question": "¿En qué año fue lanzado el álbum 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars' de David Bowie?",
-          "options": [
-            "1970",
-            "1972",
-            "1974",
-            "1976"
-          ],
+          "options": ["1970", "1972", "1974", "1976"],
           "correctAnswer": "1972",
           "trivia": "El álbum 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars' de David Bowie fue lanzado en 1972, marcando un hito en la historia del rock y el glam. Este álbum conceptual presenta la historia de Ziggy Stardust, un alter ego de Bowie, quien es un ícono del rock espacial. Con canciones emblemáticas como 'Starman' y 'Suffragette City', el trabajo ayudó a establecer a Bowie como una figura central en la música de la década de 1970. La influencia de este álbum se siente aún hoy en día, inspirando a numerosos artistas y movimientos musicales a lo largo de los años."
         },
@@ -398,12 +383,7 @@
       "medium": [
         {
           "question": "¿Qué influyente artista del glam rock y la cultura pop tuvo un impacto significativo en la creación del personaje de Ziggy Stardust en el álbum 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars' de David Bowie?",
-          "options": [
-            "Marc Bolan",
-            "Iggy Pop",
-            "Lou Reed",
-            "Elton John"
-          ],
+          "options": ["Marc Bolan", "Iggy Pop", "Lou Reed", "Elton John"],
           "correctAnswer": "Marc Bolan",
           "trivia": "La respuesta correcta es Marc Bolan, quien fue el líder de la banda T. Rex y uno de los principales precursores del glam rock. David Bowie se inspiró en la estética y el enfoque musical de Bolan al desarrollar el icónico personaje de Ziggy Stardust. Este álbum, lanzado en 1972, presentó una narrativa de ciencia ficción que exploraba temas de identidad y alienación, enmarcados dentro del contexto cultural de la era. Además, la actuación y el estilo visual de Bowie fueron influenciados por la teatralidad de Bolan, lo que ayudó a definir la imagen del glam rock en esa época. La conexión entre ambos artistas es un ejemplo de cómo las influencias artísticas pueden dar forma a la música y la cultura popular."
         },
@@ -433,12 +413,7 @@
       "hard": [
         {
           "question": "¿En qué año alcanzó 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars' de David Bowie el estatus de disco de oro en los Estados Unidos?",
-          "options": [
-            "1973",
-            "1974",
-            "1975",
-            "1976"
-          ],
+          "options": ["1973", "1974", "1975", "1976"],
           "correctAnswer": "1974",
           "trivia": "El álbum 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars', lanzado en 1972, alcanzó el estatus de disco de oro en Estados Unidos en 1974, un hito significativo en la carrera de David Bowie. Este álbum no solo consolidó su estatus como un ícono del glam rock, sino que también marcó un punto de inflexión en la música popular de los años 70. Con su narrativa sobre el alter ego Ziggy Stardust, Bowie exploró temas de identidad y la cultura juvenil de la época, lo que resonó profundamente en su audiencia. Además, el álbum fue incluido en varias listas de los mejores discos de todos los tiempos, lo que refleja su impacto duradero en la música y la cultura. En el Reino Unido, el álbum había alcanzado el primer puesto en las listas de ventas, consolidando así su éxito internacional."
         },
@@ -455,12 +430,7 @@
         },
         {
           "question": "¿Cuál fue la posición más alta alcanzada por el sencillo 'Starman' de David Bowie en las listas del Reino Unido tras su lanzamiento en el álbum 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars' en 1972?",
-          "options": [
-            "Número 1",
-            "Número 5",
-            "Número 10",
-            "Número 15"
-          ],
+          "options": ["Número 1", "Número 5", "Número 10", "Número 15"],
           "correctAnswer": "Número 5",
           "trivia": "El sencillo 'Starman' de David Bowie alcanzó la posición número 5 en las listas británicas tras su lanzamiento en 1972. Este tema fue crucial para el éxito del álbum 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars', sirviendo como un puente entre el glam rock y la cultura pop de la época. 'Starman' introdujo el personaje de Ziggy Stardust al público, lo que ayudó a consolidar la identidad de Bowie como un ícono del rock. Además, el lanzamiento de este sencillo marcó un cambio significativo en la carrera de Bowie, ya que lo catapultó a la fama internacional. Este álbum, considerado uno de los mejores en la historia del rock, no solo destacó por su música, sino también por su innovador enfoque narrativo y estético."
         }
@@ -1100,12 +1070,7 @@
       "medium": [
         {
           "question": "En qué año logró 'A Night at the Opera' de Queen alcanzar el estatus de disco de platino en los Estados Unidos, un hito importante en su carrera?",
-          "options": [
-            "1976",
-            "1977",
-            "1975",
-            "1978"
-          ],
+          "options": ["1976", "1977", "1975", "1978"],
           "correctAnswer": "1976",
           "trivia": "El álbum 'A Night at the Opera' de Queen fue certificado como disco de platino en los Estados Unidos en 1976, solo un año después de su lanzamiento en 1975. Este álbum es conocido por incluir el famoso sencillo 'Bohemian Rhapsody', que no solo se convirtió en un gran éxito comercial, sino que también es considerado una de las mejores canciones de la historia del rock. 'A Night at the Opera' se destacó por su producción innovadora y su fusión de géneros, lo que ayudó a consolidar a Queen como una de las bandas más importantes de la época. Además, el álbum ha vendido más de 6 millones de copias solo en Estados Unidos, lo que subraya su impacto duradero en la música. La extraordinaria habilidad vocal de Freddie Mercury y la instrumentación compleja del álbum también jugaron un papel crucial en su éxito."
         },
@@ -1568,12 +1533,7 @@
       "medium": [
         {
           "question": "¿Qué famosa canción del álbum 'Blue' de Joni Mitchell ha sido versionada por diversos artistas, incluyendo a James Taylor y el grupo Counting Crows?",
-          "options": [
-            "A Case of You",
-            "River",
-            "All I Want",
-            "My Old Man"
-          ],
+          "options": ["A Case of You", "River", "All I Want", "My Old Man"],
           "correctAnswer": "A Case of You",
           "trivia": "La respuesta correcta es 'A Case of You', una de las canciones más icónicas de Joni Mitchell en su álbum 'Blue' lanzado en 1971. Esta canción ha sido reinterpretada por varios artistas, siendo notable la versión de James Taylor, quien la incluyó en su álbum 'Live' de 1993. 'A Case of You' destaca por su emotiva letra y complejas progresiones armónicas, características del estilo de Mitchell. Además, la canción ha sido versionada por el grupo Counting Crows, quienes aportaron su propio toque a esta obra maestra. 'Blue' es aclamado no solo por su lírica introspectiva, sino también por su influencia en la música folk y rock, estableciendo a Joni Mitchell como una figura central en la escena musical de los años 70."
         },
@@ -1895,12 +1855,7 @@
         },
         {
           "question": "¿Qué famoso artista realizó una versión cover de la canción 'Wish You Were Here' de Pink Floyd, incluida en el álbum del mismo nombre lanzado en 1975?",
-          "options": [
-            "David Bowie",
-            "Nirvana",
-            "Radiohead",
-            "Eric Clapton"
-          ],
+          "options": ["David Bowie", "Nirvana", "Radiohead", "Eric Clapton"],
           "correctAnswer": "Nirvana",
           "trivia": "La famosa banda de grunge Nirvana hizo una versión de 'Wish You Were Here' que fue incluida en su álbum 'MTV Unplugged in New York' de 1994. Esta interpretación fue muy bien recibida y ayudó a reintroducir la música de Pink Floyd a nuevas generaciones. 'Wish You Were Here', lanzado en 1975, es considerado uno de los mejores álbumes de todos los tiempos, destacando su reflexión sobre la ausencia y la alienación. Además, la canción que da título al álbum es un homenaje a Syd Barrett, exmiembro de la banda. La influencia de Pink Floyd en la música contemporánea es evidente en muchas bandas que han realizado versiones de sus canciones."
         },
@@ -1919,12 +1874,7 @@
       "medium": [
         {
           "question": "En el álbum 'Wish You Were Here' de Pink Floyd, ¿qué famoso músico colaboró en la grabación de una de las pistas al tocar el saxofón?",
-          "options": [
-            "David Bowie",
-            "Gilmour",
-            "Chris Thomas",
-            "Dick Parry"
-          ],
+          "options": ["David Bowie", "Gilmour", "Chris Thomas", "Dick Parry"],
           "correctAnswer": "Dick Parry",
           "trivia": "La colaboración de Dick Parry en el álbum 'Wish You Were Here' de Pink Floyd es un dato interesante que resalta la conexión entre músicos de la época. Parry es conocido por su interpretación del saxofón en las pistas 'Shine On You Crazy Diamond' y 'Have a Cigar'. Su contribución es notable, ya que aportó un sonido distintivo y emocional que complementa la atmósfera del álbum. Además, Parry ya había trabajado con la banda en su anterior álbum 'The Dark Side of the Moon', lo que demuestra su importancia en el ámbito musical de Pink Floyd. El álbum, lanzado en 1975, es un tributo a Syd Barrett, el exmiembro de la banda, quien luchó con problemas mentales, y la música de Parry ayuda a capturar la esencia nostálgica del proyecto."
         },
@@ -2235,12 +2185,7 @@
       "easy": [
         {
           "question": "¿Qué instrumento de cuerdas se destaca notablemente en la canción 'Wild Horses' del álbum 'Sticky Fingers' de The Rolling Stones, lanzado en 1971?",
-          "options": [
-            "Banjo",
-            "Guitarra acústica",
-            "Violín",
-            "Ukelele"
-          ],
+          "options": ["Banjo", "Guitarra acústica", "Violín", "Ukelele"],
           "correctAnswer": "Guitarra acústica",
           "trivia": "En 'Wild Horses', uno de los temas más emblemáticos del álbum 'Sticky Fingers' de The Rolling Stones, la guitarra acústica juega un papel fundamental en la creación de su atmósfera melancólica. Este álbum, lanzado en 1971, fue el primero en presentar el famoso logo de los labios y la lengua de la banda en su portada, diseñada por Andy Warhol. La producción del álbum fue notable por su uso del estudio de grabación como un instrumento en sí mismo, donde técnicas como la grabación en cinta y la superposición de pistas fueron ampliamente utilizadas. Además, el álbum incluye otros clásicos como 'Brown Sugar' y 'Can't You Hear Me Knocking', consolidando a The Rolling Stones como una de las bandas más influyentes de la historia del rock."
         },
@@ -2327,12 +2272,7 @@
         },
         {
           "question": "En qué posición alcanzó el álbum 'Sticky Fingers' de The Rolling Stones en la lista Billboard 200 tras su lanzamiento en 1971?",
-          "options": [
-            "1",
-            "3",
-            "5",
-            "2"
-          ],
+          "options": ["1", "3", "5", "2"],
           "correctAnswer": "1",
           "trivia": "El álbum 'Sticky Fingers' de The Rolling Stones debutó en la posición número 1 de la lista Billboard 200 en 1971, consolidándose como uno de los trabajos más emblemáticos de la banda. Este álbum incluye clásicos como 'Brown Sugar' y 'Wild Horses', que también alcanzaron posiciones destacadas en las listas de éxitos. 'Sticky Fingers' fue el primer álbum de estudio de la banda lanzado bajo su propio sello, Rolling Stones Records, lo que marcó un hito en su carrera. Además, la portada del álbum, diseñada por Andy Warhol, se considera un ícono en la historia del arte del rock. El impacto cultural y musical de 'Sticky Fingers' ha perdurado a lo largo de las décadas, manteniendo a The Rolling Stones en la cúspide de la música rock."
         }
@@ -2363,12 +2303,7 @@
         },
         {
           "question": "¿Cuál de las siguientes canciones del álbum 'Band on the Run' de Paul McCartney & Wings logró un notable éxito crossover en las listas de Billboard en 1974?",
-          "options": [
-            "Jet",
-            "My Love",
-            "Live and Let Die",
-            "Silly Love Songs"
-          ],
+          "options": ["Jet", "My Love", "Live and Let Die", "Silly Love Songs"],
           "correctAnswer": "Jet",
           "trivia": "La canción 'Jet' fue uno de los sencillos más exitosos del álbum 'Band on the Run' de Paul McCartney & Wings, lanzado en 1973. Alcanzó el puesto número 7 en la lista Billboard Hot 100 en 1974, lo que refleja su popularidad tanto en el ámbito del rock como en la música pop. Paul McCartney, junto con su banda Wings, experimentó un gran impacto comercial con este álbum, que vendió más de 6 millones de copias en todo el mundo. 'Band on the Run' también es notable por su mezcla de estilos musicales, incluyendo rock, pop y elementos de música folk, contribuyendo a su atractivo crossover."
         },
@@ -2409,12 +2344,7 @@
         },
         {
           "question": "Durante la gira de Paul McCartney & Wings en apoyo al álbum 'Band on the Run', ¿en qué país se llevó a cabo la primera actuación en vivo del grupo tras su lanzamiento en 1973?",
-          "options": [
-            "Reino Unido",
-            "Estados Unidos",
-            "Australia",
-            "Francia"
-          ],
+          "options": ["Reino Unido", "Estados Unidos", "Australia", "Francia"],
           "correctAnswer": "Reino Unido",
           "trivia": "La primera actuación en vivo de Paul McCartney & Wings tras el lanzamiento de 'Band on the Run' tuvo lugar en el Reino Unido. Esta presentación marcó el regreso del grupo a los escenarios después de un periodo de intensa grabación. La gira de promoción del álbum se caracterizó por su energía y la inclusión de varios éxitos de su repertorio, como 'Jet' y 'Band on the Run'. 'Band on the Run' se convirtió en uno de los álbumes más exitosos de McCartney, consolidando su estatus como solista después de The Beatles. Además, el álbum alcanzó el primer lugar en las listas de varios países, lo que contribuyó al éxito de la gira."
         }
@@ -2480,12 +2410,7 @@
         },
         {
           "question": "¿Qué famoso rapero utilizó un sample de la canción 'Deacon Blues' de Steely Dan en una de sus producciones musicales?",
-          "options": [
-            "Kendrick Lamar",
-            "Jay-Z",
-            "Dr. Dre",
-            "Nas"
-          ],
+          "options": ["Kendrick Lamar", "Jay-Z", "Dr. Dre", "Nas"],
           "correctAnswer": "Jay-Z",
           "trivia": "La respuesta correcta es Jay-Z, quien sampleó 'Deacon Blues' de Steely Dan en su canción 'Blueprint (Momma Loves Me)'. Este álbum, lanzado en 2001, es ampliamente considerado uno de los mejores en la carrera de Jay-Z. 'Aja', el álbum de Steely Dan lanzado en 1977, incluye 'Deacon Blues', una de sus canciones más emblemáticas, conocida por su compleja estructura musical y letras poéticas. Además, 'Aja' fue un hito en la fusión del jazz y el rock, y su producción de alta calidad ha influido en numerosos artistas a lo largo de los años. Steely Dan es reconocido por su uso innovador de la producción musical y sus sofisticadas letras, lo que ha llevado a que varios de sus temas sean referenciados o sampleados en diversas obras posteriores."
         },
@@ -2550,12 +2475,7 @@
         },
         {
           "question": "En el álbum 'Aja' de Steely Dan, ¿qué pista se considera clave para establecer el tono melódico y lírico del álbum, y por qué se eligió su posición en el orden de las canciones?",
-          "options": [
-            "Deacon Blues",
-            "Aja",
-            "Black Cow",
-            "Josie"
-          ],
+          "options": ["Deacon Blues", "Aja", "Black Cow", "Josie"],
           "correctAnswer": "Black Cow",
           "trivia": "La pista 'Black Cow' se ubica estratégicamente como la tercera canción del álbum 'Aja' de Steely Dan, lanzado en 1977. Esta elección no es accidental, ya que su introducción melódica y su mezcla de jazz y rock establecen un ambiente sofisticado que permea el resto del álbum. 'Black Cow' también aborda temas de relaciones complejas y desilusiones, lo que resuena con el tono general del disco. Además, el álbum fue aclamado por su producción meticulosa, con técnicas innovadoras que reflejan la evolución musical de la banda. En 'Aja', Steely Dan utilizó músicos de sesión de renombre, lo que contribuyó a la calidad sonora que caracteriza este trabajo."
         },
@@ -3065,12 +2985,7 @@
         },
         {
           "question": "¿Qué género musical influyó notablemente en el sonido de The Allman Brothers Band en su álbum 'At Fillmore East' de 1971?",
-          "options": [
-            "Jazz",
-            "Country",
-            "Blues",
-            "Hip Hop"
-          ],
+          "options": ["Jazz", "Country", "Blues", "Hip Hop"],
           "correctAnswer": "Blues",
           "trivia": "El álbum 'At Fillmore East' de The Allman Brothers Band, lanzado en 1971, presenta una fuerte influencia del blues, que es fundamental en su estilo musical. Esta influencia se puede escuchar en la interpretación emocional de los solos de guitarra y en la estructura de las canciones, que a menudo incorporan escalas y riffs típicos del blues. La banda, que se formó en 1969, fue pionera en fusionar el blues con el rock y el jazz, creando un sonido distintivo que se define como southern rock. Además, sus miembros, como Duane Allman y Gregg Allman, fueron profundamente influenciados por leyendas del blues como B.B. King y Muddy Waters, lo que se refleja en su música. 'At Fillmore East' es considerado uno de los mejores álbumes en vivo de todos los tiempos, destacando la maestría de la banda en la interpretación de piezas que combinan estos géneros."
         },
@@ -3954,12 +3869,7 @@
         },
         {
           "question": "¿Cuál fue la posición más alta alcanzada por Bob Dylan en la lista Billboard 200 con su álbum 'Blood on the Tracks' en 1975?",
-          "options": [
-            "Número 1",
-            "Número 4",
-            "Número 6",
-            "Número 10"
-          ],
+          "options": ["Número 1", "Número 4", "Número 6", "Número 10"],
           "correctAnswer": "Número 1",
           "trivia": "El álbum 'Blood on the Tracks' de Bob Dylan logró alcanzar el número 1 en la lista Billboard 200 en 1975, marcando un hito significativo en su carrera. Este álbum, que es considerado uno de los mejores trabajos de Dylan, fue lanzado en enero de 1975 y rápidamente ganó popularidad, impulsado por temas introspectivos y letras poéticas. Además, 'Blood on the Tracks' incluye clásicos como 'Tangled Up in Blue', que también tuvo un buen desempeño en las listas, alcanzando el puesto número 31 en el Billboard Hot 100. Este éxito de Dylan no solo consolidó su lugar en la historia de la música, sino que también fue un reflejo de su habilidad para conectar emocionalmente con el público a través de su arte."
         },
@@ -4305,12 +4215,7 @@
         },
         {
           "question": "¿Cuál fue la posición más alta alcanzada en las listas de Billboard 200 por el álbum 'Lust for Life' de Iggy Pop, lanzado en 1977?",
-          "options": [
-            "Número 28",
-            "Número 20",
-            "Número 40",
-            "Número 15"
-          ],
+          "options": ["Número 28", "Número 20", "Número 40", "Número 15"],
           "correctAnswer": "Número 28",
           "trivia": "El álbum 'Lust for Life' de Iggy Pop, lanzado en 1977, alcanzó el puesto número 28 en la lista Billboard 200. Este álbum es considerado uno de los más influyentes en la carrera de Iggy Pop y marcó una transición hacia un sonido más accesible y melódico, en comparación con sus trabajos anteriores. La canción 'Lust for Life', que incluye el famoso riff de guitarra, se convirtió en una de las más emblemáticas del artista y ha sido utilizada en numerosas películas y comerciales. Además, el álbum fue producido por David Bowie y Iggy Pop, lo que ayudó a darle un toque distintivo que resonó en la escena musical de finales de los años 70. La combinación de letras provocativas y ritmos pegajosos contribuyó a que el álbum se mantuviera relevante incluso décadas después de su lanzamiento."
         },
@@ -4656,12 +4561,7 @@
         },
         {
           "question": "¿En qué película de ciencia ficción se utiliza la canción '2112 Overture' de Rush, perteneciente al álbum '2112' lanzado en 1976, como parte de su banda sonora?",
-          "options": [
-            "The Matrix",
-            "I, Robot",
-            "Dune",
-            "Ready Player One"
-          ],
+          "options": ["The Matrix", "I, Robot", "Dune", "Ready Player One"],
           "correctAnswer": "Ready Player One",
           "trivia": "La canción '2112 Overture' de Rush, incluida en su icónico álbum '2112' de 1976, se presenta en la banda sonora de la película 'Ready Player One', dirigida por Steven Spielberg y estrenada en 2018. Esta película es conocida por su fuerte referencia a la cultura pop de las décadas de 1980 y 1990, y la inclusión de Rush encarna la nostalgia de esa época. '2112' es uno de los álbumes más aclamados de Rush, famoso por su temática de ciencia ficción y su complejidad musical. Además, el álbum incluye una suite de siete partes que aborda la lucha individual contra la opresión. La obra ha influido en numerosos artistas y sigue siendo un referente en la música progresiva."
         },
@@ -4749,12 +4649,7 @@
         },
         {
           "question": "En el álbum 'Abraxas' de Santana, ¿qué instrumento de percusión destaca especialmente por su uso en las composiciones y contribuye a la fusión de géneros que caracteriza la obra?",
-          "options": [
-            "Marimba",
-            "Bongos",
-            "Conga",
-            "Timbales"
-          ],
+          "options": ["Marimba", "Bongos", "Conga", "Timbales"],
           "correctAnswer": "Conga",
           "trivia": "La respuesta correcta es 'Conga'. En 'Abraxas', Santana incorpora las congas de manera prominente, interpretadas por el legendario percusionista Michael Carabello. Este instrumento es fundamental en la mezcla de rock y música latina que define el álbum, contribuyendo a su sonido característico y envolvente. 'Abraxas', lanzado en 1970, incluye temas icónicos como 'Black Magic Woman' y 'Oye Como Va', que son ejemplos perfectos de esta fusión de estilos. Además, el álbum alcanzó un gran éxito comercial, llegando al número uno en la lista Billboard 200, y es considerado una obra maestra en la historia del rock latino."
         }
@@ -4983,12 +4878,7 @@
         },
         {
           "question": "¿Qué productor influyó significativamente en el sonido del álbum 'The Stranger' de Billy Joel, lanzado en 1977, y contribuyó a su éxito comercial?",
-          "options": [
-            "Phil Ramone",
-            "David Foster",
-            "Toto",
-            "Quincy Jones"
-          ],
+          "options": ["Phil Ramone", "David Foster", "Toto", "Quincy Jones"],
           "correctAnswer": "Phil Ramone",
           "trivia": "Phil Ramone fue el productor detrás de 'The Stranger', un álbum que catapultó a Billy Joel a la fama internacional. Ramone, conocido por su trabajo con varios artistas de renombre, utilizó técnicas de grabación innovadoras que ayudaron a definir el sonido distintivo del álbum. 'The Stranger' incluye clásicos como 'Just the Way You Are' y 'Only the Good Die Young', y se considera un hito en la carrera de Joel. El álbum alcanzó el número 2 en la lista Billboard 200 y fue certificado múltiples veces platino. Además, ganó el Grammy por el Mejor Álbum de Música Pop en 1979, consolidando la colaboración entre Joel y Ramone como crucial para su desarrollo artístico."
         }
@@ -5429,12 +5319,7 @@
       "medium": [
         {
           "question": "Durante las presentaciones en vivo de 'Tapestry', ¿qué instrumento tocaba Carole King como parte de su actuación que se volvió emblemático?",
-          "options": [
-            "Piano",
-            "Guitarra eléctrica",
-            "Bajo",
-            "Batería"
-          ],
+          "options": ["Piano", "Guitarra eléctrica", "Bajo", "Batería"],
           "correctAnswer": "Piano",
           "trivia": "Carole King, en su álbum 'Tapestry' lanzado en 1971, se destacó no solo por su potente voz, sino también por su habilidad excepcional en el piano. Durante sus actuaciones en vivo, el piano se convirtió en el instrumento central que acompañaba sus emotivas interpretaciones de las canciones del álbum. 'Tapestry' incluye temas icónicos como 'You've Got a Friend' y 'It's Too Late', que son reconocidos por sus arreglos melódicos en piano. El álbum, que ganó múltiples premios Grammy, se ha mantenido como un pilar en la música pop, y las presentaciones de King ayudaron a consolidar su reputación como una artista influyente en la década de 1970."
         },
@@ -5592,12 +5477,7 @@
         },
         {
           "question": "En qué posición alcanzó el álbum 'Close to the Edge' de Yes en la lista Billboard 200 en 1972?",
-          "options": [
-            "Número 3",
-            "Número 5",
-            "Número 7",
-            "Número 10"
-          ],
+          "options": ["Número 3", "Número 5", "Número 7", "Número 10"],
           "correctAnswer": "Número 3",
           "trivia": "El álbum 'Close to the Edge' de Yes, lanzado en 1972, alcanzó el puesto número 3 en la lista Billboard 200, consolidándose como un hito en el rock progresivo. Este álbum es considerado uno de los mejores de la banda y, a menudo, se menciona entre los mejores álbumes de todos los tiempos. Además, 'Close to the Edge' fue un punto de inflexión en la música de Yes, presentando composiciones complejas y una fusión de géneros. El álbum incluye la icónica pista titular, que dura más de 18 minutos y es un ejemplo perfecto de la ambición musical de la banda. La influencia de este álbum puede escucharse en muchas obras posteriores de rock progresivo y sigue siendo un referente para los músicos actuales."
         },
@@ -5674,12 +5554,7 @@
         },
         {
           "question": "¿Cuál fue la posición más alta alcanzada por el álbum 'Tumbleweed Connection' de Elton John en la lista Billboard 200 en 1970?",
-          "options": [
-            "Número 2",
-            "Número 4",
-            "Número 8",
-            "Número 10"
-          ],
+          "options": ["Número 2", "Número 4", "Número 8", "Número 10"],
           "correctAnswer": "Número 5",
           "trivia": "El álbum 'Tumbleweed Connection' de Elton John alcanzó la posición número 5 en la lista Billboard 200 en 1970, lo que marcó un hito significativo en su carrera. Este álbum, lanzado el 30 de octubre de 1970, es conocido por su temática del viejo Oeste y su estilo de rock y country. Además, incluye clásicos como 'Burn Down the Mission' y 'Country Comfort', que también ayudaron a consolidar el estatus de Elton John como un destacado artista de la época. En ese momento, Elton estaba colaborando estrechamente con el letrista Bernie Taupin, lo que resultó en una serie de álbumes exitosos que definirían su carrera. 'Tumbleweed Connection' es considerado un álbum conceptual que refleja la narrativa y la musicalidad de los años 70."
         },
@@ -5767,12 +5642,7 @@
         },
         {
           "question": "¿En qué año fue lanzado el álbum 'Déjà Vu' de Crosby, Stills, Nash & Young?",
-          "options": [
-            "1968",
-            "1970",
-            "1972",
-            "1969"
-          ],
+          "options": ["1968", "1970", "1972", "1969"],
           "correctAnswer": "1970",
           "trivia": "El álbum 'Déjà Vu' de Crosby, Stills, Nash & Young fue lanzado en 1970 y es considerado uno de los discos más emblemáticos de la música rock de la época. Este álbum presenta una combinación única de folk rock y armonías vocales, y es el segundo trabajo del supergrupo tras su álbum debut. Incluye clásicos como 'Woodstock' y 'Teach Your Children', que han perdurado a lo largo de los años. Además, 'Déjà Vu' fue un éxito comercial, alcanzando el número 1 en la lista Billboard 200. Este álbum marcó un hito en la carrera de los artistas, consolidando su legado en la historia de la música."
         }
@@ -5862,12 +5732,7 @@
       "easy": [
         {
           "question": "En el álbum 'Late for the Sky' de Jackson Browne, ¿qué instrumento destaca en la canción titular 'Late for the Sky'?",
-          "options": [
-            "Guitarra eléctrica",
-            "Piano",
-            "Bajo",
-            "Saxo"
-          ],
+          "options": ["Guitarra eléctrica", "Piano", "Bajo", "Saxo"],
           "correctAnswer": "Piano",
           "trivia": "La canción 'Late for the Sky' de Jackson Browne presenta un prominente uso del piano, que establece el tono melancólico y reflexivo de la pieza. Este álbum, lanzado en 1974, es conocido por su producción cuidada y la profundidad lírica de Browne. El piano es un elemento clave en varias de las pistas del álbum, aportando una rica sonoridad que complementa las letras introspectivas. Además, la producción de 'Late for the Sky' fue realizada en un contexto musical donde el rock y la balada estaban en plena evolución, lo que permitió a Browne destacar con su estilo único. Este álbum es considerado uno de los mejores de su carrera y ha influido en muchos artistas posteriores."
         },
@@ -5943,12 +5808,7 @@
         },
         {
           "question": "¿Cuál de los géneros musicales influyó notablemente en el estilo lírico y melódico de Jackson Browne en su álbum 'Late for the Sky' de 1974?",
-          "options": [
-            "Blues",
-            "Folk",
-            "Reggae",
-            "Jazz"
-          ],
+          "options": ["Blues", "Folk", "Reggae", "Jazz"],
           "correctAnswer": "Folk",
           "trivia": "La influencia del folk en el trabajo de Jackson Browne es evidente en 'Late for the Sky', donde las narrativas íntimas y la emotividad de las letras reflejan las tradiciones del género. Browne, quien emergió en la escena musical de la costa oeste de Estados Unidos, se vio profundamente influenciado por artistas de folk como Bob Dylan y Joan Baez, quienes también exploraron temas de amor, pérdida y la condición humana. Este álbum, que incluye canciones emblemáticas como 'Fountain of Sorrow', destaca por su estilo melódico suave y su enfoque lírico introspectivo, características que son típicas del folk. Además, la instrumentación en el álbum a menudo presenta arreglos que recuerdan las raíces del folk, enfatizando el uso de guitarras acústicas y armonías vocales. En el contexto histórico de la década de 1970, el folk también estaba experimentando un renacimiento, lo que permitió a Browne conectar con una audiencia que buscaba autenticidad en la música."
         },
@@ -6330,12 +6190,7 @@
       "easy": [
         {
           "question": "¿Cuántas semanas permaneció el álbum 'Let’s Stay Together' de Al Green en el número uno de la lista Billboard 200 en 1972?",
-          "options": [
-            "2 semanas",
-            "5 semanas",
-            "7 semanas",
-            "10 semanas"
-          ],
+          "options": ["2 semanas", "5 semanas", "7 semanas", "10 semanas"],
           "correctAnswer": "5 semanas",
           "trivia": "El álbum 'Let’s Stay Together' de Al Green logró posicionarse en el número uno de la lista Billboard 200 durante 5 semanas en 1972. Este éxito consolidó a Al Green como uno de los artistas más prominentes del soul en esa época. Además, la canción titular del álbum, 'Let's Stay Together', se convirtió en uno de sus sencillos más icónicos, alcanzando también el primer lugar en la lista de R&B. 'Let’s Stay Together' es considerado un clásico y ha influido en numerosos artistas a lo largo de los años. Este álbum es un testimonio del talento de Al Green y su habilidad para conectar con su audiencia a través de su música emocional y apasionada."
         },
@@ -6681,12 +6536,7 @@
       "easy": [
         {
           "question": "¿Qué influyente artista del rock alternativo ha citado a Patti Smith y su álbum 'Horses' como una gran inspiración para su música?",
-          "options": [
-            "Kurt Cobain",
-            "Björk",
-            "David Bowie",
-            "Madonna"
-          ],
+          "options": ["Kurt Cobain", "Björk", "David Bowie", "Madonna"],
           "correctAnswer": "Kurt Cobain",
           "trivia": "Kurt Cobain, el icónico líder de Nirvana, mencionó en varias ocasiones que Patti Smith y su álbum 'Horses' tuvieron un profundo impacto en su enfoque musical y lírico. 'Horses', lanzado en 1975, es considerado un álbum seminal que fusiona poesía, rock y un fuerte sentido de identidad personal. Patti Smith, conocida por su estilo único y su poderosa presencia en el escenario, abrió el camino para muchos artistas posteriores en el ámbito del rock alternativo y el punk. Además, su influencia se extiende a bandas como R.E.M. y artistas como Jeff Buckley, quienes también la reconocieron como fuente de inspiración. Este álbum no solo marcó un hito en la carrera de Smith, sino que también ayudó a redefinir lo que podía ser una voz femenina en el rock."
         },
@@ -6703,12 +6553,7 @@
         },
         {
           "question": "¿Qué productor trabajó con Patti Smith en el álbum 'Horses', lanzado en 1975?",
-          "options": [
-            "John Cale",
-            "David Bowie",
-            "Brian Eno",
-            "Lou Reed"
-          ],
+          "options": ["John Cale", "David Bowie", "Brian Eno", "Lou Reed"],
           "correctAnswer": "John Cale",
           "trivia": "Patti Smith colaboró con John Cale, exmiembro de The Velvet Underground, en la producción de su álbum debut 'Horses'. Cale aportó su experiencia y conocimientos en la creación de un sonido que fusiona rock, poesía y arte, lo que ayudó a definir el estilo único del álbum. 'Horses' es conocido por su enfoque innovador y su contribución al movimiento punk y al rock alternativo de los años 70. Además, el álbum fue grabado en los estudios Electric Lady en Nueva York, un espacio fundado por Jimi Hendrix, lo que añade un contexto histórico significativo al proyecto. Este trabajo no solo sentó las bases para la carrera de Smith, sino que también influenció a numerosos artistas posteriores."
         }
@@ -7288,12 +7133,7 @@
         },
         {
           "question": "¿Cuál fue el sencillo más exitoso de Earth, Wind & Fire del álbum 'That’s the Way of the World' lanzado en 1975?",
-          "options": [
-            "Shining Star",
-            "September",
-            "Reasons",
-            "Fantasy"
-          ],
+          "options": ["Shining Star", "September", "Reasons", "Fantasy"],
           "correctAnswer": "Shining Star",
           "trivia": "El sencillo más exitoso de Earth, Wind & Fire del álbum 'That’s the Way of the World' es 'Shining Star'. Esta canción alcanzó el número uno en la lista Billboard Hot 100 en 1975, convirtiéndose en un clásico instantáneo. El álbum en su conjunto fue muy bien recibido, consolidando la reputación del grupo como uno de los más influyentes de la música funk y soul. 'That’s the Way of the World' también incluye otros éxitos como 'Reasons' y 'Happy Feelin's', que contribuyeron a su éxito comercial y crítico. Este álbum es considerado un hito en la carrera de Earth, Wind & Fire y un referente en la música de los años 70."
         }
@@ -7500,12 +7340,7 @@
       "easy": [
         {
           "question": "¿Cuál de las siguientes canciones del álbum 'Aladdin Sane' de David Bowie tuvo un impacto significativo en la escena musical de los años 70?",
-          "options": [
-            "Drive-In Saturday",
-            "Space Oddity",
-            "Changes",
-            "Heroes"
-          ],
+          "options": ["Drive-In Saturday", "Space Oddity", "Changes", "Heroes"],
           "correctAnswer": "Drive-In Saturday",
           "trivia": "La canción 'Drive-In Saturday' del álbum 'Aladdin Sane' de David Bowie, lanzado en 1973, se convirtió en un sencillo destacado que reflejó la cultura pop y la percepción del futuro en la década de 1970. Este tema, que aborda la idea de una sociedad obsesionada con el entretenimiento y el desamor, resonó con la juventud de la época. 'Aladdin Sane' es considerado uno de los discos más influyentes de Bowie, consolidando su estatus como un ícono del glam rock. Además, el álbum incluye otros éxitos como 'The Jean Genie', que también tuvo un impacto notable en las listas de popularidad. La producción innovadora y las letras provocadoras de Bowie en este trabajo ayudaron a definir la música de su tiempo y a inspirar a futuros artistas."
         },
@@ -7546,12 +7381,7 @@
         },
         {
           "question": "Durante la producción del álbum 'Aladdin Sane' de David Bowie en 1973, ¿qué estilo musical se destacó especialmente en las composiciones?",
-          "options": [
-            "Folk rock",
-            "Glam rock",
-            "Jazz fusión",
-            "Reggae"
-          ],
+          "options": ["Folk rock", "Glam rock", "Jazz fusión", "Reggae"],
           "correctAnswer": "Glam rock",
           "trivia": "El álbum 'Aladdin Sane' es considerado un hito del glam rock, un estilo que David Bowie ayudó a popularizar en la década de 1970. Este álbum, lanzado tras el éxito de 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars', incorpora elementos de rock progresivo y jazz, pero su esencia glam se manifiesta en la teatralidad y el estilo visual que Bowie promovió. Un hecho interesante es que la famosa canción 'Lady Grinning Soul' presenta influencias de jazz, lo que demuestra la versatilidad del álbum. Además, 'Aladdin Sane' es conocido por su icónica portada, que muestra a Bowie con un rayo pintado en su rostro, un símbolo del glam rock y su persona artística. En resumen, el álbum no solo consolidó la reputación de Bowie como ícono del glam, sino que también reflejó su evolución musical en un momento clave de su carrera."
         },
@@ -8224,12 +8054,7 @@
         },
         {
           "question": "¿Qué posición alcanzó el álbum 'Talking Book' de Stevie Wonder en la lista Billboard 200 tras su lanzamiento en 1972?",
-          "options": [
-            "1",
-            "5",
-            "15",
-            "10"
-          ],
+          "options": ["1", "5", "15", "10"],
           "correctAnswer": "3",
           "trivia": "El álbum 'Talking Book' de Stevie Wonder alcanzó el puesto número 3 en la lista Billboard 200 tras su lanzamiento en 1972. Este álbum es notable por su mezcla de soul, funk y pop, y fue uno de los primeros en destacar el uso del sintetizador en la música popular. 'Talking Book' incluye éxitos icónicos como 'Superstition' y 'You Are the Sunshine of My Life', que contribuyeron a su gran éxito comercial. Además, este álbum fue fundamental en la evolución de Stevie Wonder como un artista influyente en la música de la época, consolidando su estatus en la industria musical. A lo largo de los años, el álbum ha sido aclamado tanto por críticos como por fanáticos, siendo considerado uno de los mejores de su carrera."
         }
@@ -8341,12 +8166,7 @@
         },
         {
           "question": "¿Qué género musical influyó notablemente en el sonido del álbum 'Pink Moon' de Nick Drake, lanzado en 1972?",
-          "options": [
-            "Folk",
-            "Jazz",
-            "Rock and Roll",
-            "Hip Hop"
-          ],
+          "options": ["Folk", "Jazz", "Rock and Roll", "Hip Hop"],
           "correctAnswer": "Folk",
           "trivia": "El sonido del álbum 'Pink Moon' de Nick Drake, lanzado en 1972, está fuertemente influenciado por el género folk. Nick Drake es conocido por su estilo distintivo, que combina elementos de folk acústico con letras introspectivas y melancólicas. A pesar de su falta de éxito comercial durante su vida, su música ha influido en numerosos artistas de folk y rock a lo largo de los años. 'Pink Moon' es considerado un hito en la música folk, y su producción minimalista resalta la belleza de las composiciones de Drake. Además, las influencias del folk se pueden escuchar en la forma en que utiliza la guitarra y su voz suave, lo que contribuyó a su legado perdurable en la música."
         }
@@ -8447,12 +8267,7 @@
         },
         {
           "question": "¿Qué famoso músico colaboró con The Kinks en el álbum 'Lola Versus Powerman and the Moneygoround, Part One' de 1970?",
-          "options": [
-            "David Bowie",
-            "Elton John",
-            "Ray Davies",
-            "John Lennon"
-          ],
+          "options": ["David Bowie", "Elton John", "Ray Davies", "John Lennon"],
           "correctAnswer": "Ray Davies",
           "trivia": "Ray Davies, el principal compositor y vocalista de The Kinks, es una figura central en el álbum 'Lola Versus Powerman and the Moneygoround, Part One'. A pesar de que los miembros de la banda, como Dave Davies, también realizaron contribuciones, es Ray quien escribió la mayoría de las canciones, incluyendo el icónico tema 'Lola'. Este álbum, lanzado en 1970, explora temas de identidad y comercialización en la música, reflejando las experiencias de la banda en la industria musical. The Kinks se destacaron por su estilo distintivo y su capacidad para contar historias a través de la música, lo que se puede observar en este trabajo, que es un precursor de conceptos más complejos en sus discos posteriores."
         },
@@ -8645,12 +8460,7 @@
         },
         {
           "question": "¿Quién fue el productor principal del álbum '(Pronounced ’Lĕh-’nérd ’Skin-’nérd)' de Lynyrd Skynyrd, lanzado en 1973, y qué impacto tuvo su estilo en la grabación?",
-          "options": [
-            "Tom Dowd",
-            "Roger McGuinn",
-            "Al Kooper",
-            "Brian Eno"
-          ],
+          "options": ["Tom Dowd", "Roger McGuinn", "Al Kooper", "Brian Eno"],
           "correctAnswer": "Al Kooper",
           "trivia": "Al Kooper fue el productor principal del álbum '(Pronounced ’Lĕh-’nérd ’Skin-’nérd)' de Lynyrd Skynyrd, lanzado en 1973. Su influencia fue crucial, ya que Kooper, reconocido por su trabajo con bandas como Blood, Sweat & Tears y The Rolling Stones, aportó su experiencia en arreglos y producción a la mezcla de rock sureño del álbum. Además, Kooper contribuyó con su habilidad como tecladista, lo que enriqueció el sonido característico de la banda. Este álbum debut no solo ayudó a establecer a Lynyrd Skynyrd en la escena musical, sino que también definió el sonido del rock sureño en la década de los 70. Lanzado en un período de gran cambio social y político en Estados Unidos, el álbum capturó la esencia de su tiempo y sigue siendo un referente en la historia del rock."
         }
@@ -9067,12 +8877,7 @@
         },
         {
           "question": "En qué canción del álbum 'Aqualung' de Jethro Tull se puede escuchar una interpretación en vivo notable que destaca por el uso del flute en la introducción?",
-          "options": [
-            "My God",
-            "Aqualung",
-            "Locomotive Breath",
-            "Hymn 43"
-          ],
+          "options": ["My God", "Aqualung", "Locomotive Breath", "Hymn 43"],
           "correctAnswer": "Aqualung",
           "trivia": "La canción 'Aqualung' de Jethro Tull es famosa no solo por su letra profunda, sino también por su potente interpretación en vivo. La habilidad de Ian Anderson para tocar el flute, especialmente en la introducción de esta canción, ha sido un sello distintivo de las presentaciones de la banda. Durante las giras, esta interpretación se ha caracterizado por una atmósfera envolvente que resalta la complejidad musical del álbum. 'Aqualung' es considerado un clásico del rock progresivo y ha sido parte del repertorio de la banda en casi todos sus conciertos desde su lanzamiento en 1971. Además, el álbum 'Aqualung' ha vendido millones de copias y ha influido en innumerables músicos a lo largo de los años."
         },
@@ -9230,12 +9035,7 @@
         },
         {
           "question": "¿Cuál fue la posición más alta alcanzada por el álbum 'Bad Girls' de Donna Summer en la lista Billboard 200?",
-          "options": [
-            "Posición 1",
-            "Posición 3",
-            "Posición 5",
-            "Posición 7"
-          ],
+          "options": ["Posición 1", "Posición 3", "Posición 5", "Posición 7"],
           "correctAnswer": "Posición 1",
           "trivia": "El álbum 'Bad Girls' de Donna Summer, lanzado en 1979, alcanzó la posición número 1 en la lista Billboard 200, lo que marcó un hito en su carrera. Este álbum es conocido por su mezcla de disco y R&B, y fue uno de los trabajos más exitosos de Summer. Además, 'Bad Girls' produjo varios sencillos que también fueron grandes éxitos, incluyendo 'Hot Stuff' y 'Bad Girls', ambos alcanzando el número 1 en la lista Billboard Hot 100. Este éxito consolidó a Donna Summer como la 'Reina de la Disco' durante la era de los 70, un período en el que la música disco dominaba las pistas de baile y las listas de popularidad. En total, el álbum vendió millones de copias y dejó un legado duradero en la cultura musical."
         }
@@ -9266,12 +9066,7 @@
         },
         {
           "question": "¿Qué artista famoso realizó una versión cover de la canción 'Love Will Tear Us Apart', que originalmente fue grabada por Joy Division en su álbum 'Unknown Pleasures'?",
-          "options": [
-            "The Killers",
-            "Radiohead",
-            "U2",
-            "The Cure"
-          ],
+          "options": ["The Killers", "Radiohead", "U2", "The Cure"],
           "correctAnswer": "The Killers",
           "trivia": "La canción 'Love Will Tear Us Apart' es uno de los temas más emblemáticos de Joy Division, aunque no forma parte del álbum 'Unknown Pleasures', ya que fue lanzada como sencillo en 1980. Sin embargo, su impacto ha llevado a numerosas reinterpretaciones, siendo una de las más notables la realizada por The Killers en su álbum 'Sawdust' de 2007. Joy Division, con su estilo post-punk, dejó una huella indeleble en la música, y su sonido ha influido a muchos artistas contemporáneos. 'Unknown Pleasures', lanzado en 1979, es considerado un hito en la historia del rock, y su producción innovadora ha sido objeto de estudio y admiración entre músicos y críticos por igual."
         },
@@ -9442,12 +9237,7 @@
       "hard": [
         {
           "question": "En el álbum 'The Cars' de 1978, se puede observar una fusión interesante de rock con elementos de otros géneros musicales. ¿Cuál de los siguientes géneros influyó más en el sonido distintivo de The Cars durante la creación de este álbum?",
-          "options": [
-            "Funk",
-            "New Wave",
-            "Jazz",
-            "Country"
-          ],
+          "options": ["Funk", "New Wave", "Jazz", "Country"],
           "correctAnswer": "New Wave",
           "trivia": "La respuesta correcta es 'New Wave', un género que tuvo un impacto significativo en el sonido de The Cars en su álbum debut. En la década de 1970, la New Wave emergió como una respuesta al rock tradicional, incorporando influencias del punk y la música electrónica. The Cars, con su uso de sintetizadores y melodías pegajosas, se convirtió en un precursor del sonido New Wave que dominaría la década de 1980. Además, la producción del álbum estuvo a cargo de Roy Thomas Baker, conocido por su trabajo con Queen, lo que aportó un enfoque innovador a la grabación. El álbum 'The Cars' no solo alcanzó el éxito comercial, sino que también ayudó a definir el sonido de una era, fusionando rock con elementos pop y electrónicos."
         },
@@ -9862,12 +9652,7 @@
         },
         {
           "question": "¿Qué famoso músico colaboró con Aerosmith en el álbum 'Rocks' de 1976, aportando su talento en la guitarra?",
-          "options": [
-            "Joe Perry",
-            "Jimmy Page",
-            "Eric Clapton",
-            "Ted Nugent"
-          ],
+          "options": ["Joe Perry", "Jimmy Page", "Eric Clapton", "Ted Nugent"],
           "correctAnswer": "Joe Perry",
           "trivia": "En el álbum 'Rocks', Aerosmith contó con la colaboración de su propio guitarrista, Joe Perry, quien es una de las figuras clave de la banda. Este álbum, lanzado en 1976, incluye clásicos como 'Back in the Saddle' y 'Last Child'. La química entre Steven Tyler y Joe Perry ha sido fundamental en el sonido característico de Aerosmith, fusionando rock, blues y elementos de hard rock. 'Rocks' es considerado uno de los mejores álbumes de la banda y ha influido en muchas generaciones de músicos. Además, Joe Perry es conocido por su estilo de guitarra distintivo y su influencia en el rock estadounidense."
         }
@@ -10096,12 +9881,7 @@
         },
         {
           "question": "¿Qué famosa cantante colaboró con Meat Loaf en el álbum 'Bat Out of Hell' de 1977?",
-          "options": [
-            "Cher",
-            "Stevie Nicks",
-            "Ellen Foley",
-            "Tina Turner"
-          ],
+          "options": ["Cher", "Stevie Nicks", "Ellen Foley", "Tina Turner"],
           "correctAnswer": "Ellen Foley",
           "trivia": "Ellen Foley es la cantante que realizó una destacada colaboración en el álbum 'Bat Out of Hell' de Meat Loaf, lanzado en 1977. Su poderosa voz se puede escuchar en la icónica canción 'Paradise by the Dashboard Light', donde interpreta el papel de la chica en un relato de amor juvenil. Foley, quien también es conocida por su trabajo en el teatro y televisión, fue una elección inusual pero efectiva para el álbum, que fusiona rock y elementos operísticos. 'Bat Out of Hell' se convirtió en uno de los álbumes más vendidos de todos los tiempos, gracias en parte a estas colaboraciones memorables. Además, la producción del álbum estuvo a cargo de Jim Steinman, quien escribió la mayor parte del material, creando un sonido único que ha perdurado a lo largo de las décadas."
         }
@@ -10191,12 +9971,7 @@
       "easy": [
         {
           "question": "¿Qué género musical, además del punk, influyó notablemente en el sonido del álbum 'Parallel Lines' de Blondie, lanzado en 1978?",
-          "options": [
-            "Reggae",
-            "Disco",
-            "Blues",
-            "Country"
-          ],
+          "options": ["Reggae", "Disco", "Blues", "Country"],
           "correctAnswer": "Disco",
           "trivia": "El álbum 'Parallel Lines' de Blondie, lanzado en 1978, fue notable por su fusión de géneros, incluyendo una fuerte influencia del disco. Esta mezcla se puede escuchar en canciones icónicas como 'Heart of Glass', que combina elementos de punk y disco, lo que ayudó a posicionar a Blondie en la vanguardia de la música de esa época. La producción del álbum, a cargo de Mike Chapman, fue clave para lograr este sonido innovador, que resonó tanto en las pistas de baile como en las listas de éxitos. Además, 'Parallel Lines' alcanzó el número uno en las listas de álbumes de Estados Unidos y Reino Unido, consolidando a Blondie como una de las bandas más influyentes de finales de los 70. Este enfoque de mezclar géneros contribuyó a la evolución del nuevo wave y el pop, y sigue siendo un referente en la música moderna."
         },
@@ -10283,12 +10058,7 @@
         },
         {
           "question": "¿Qué influyente artista de la nueva ola citó a Blondie y su álbum 'Parallel Lines' como una de las principales inspiraciones para su propio trabajo en la década de 1980?",
-          "options": [
-            "Duran Duran",
-            "The B-52's",
-            "Madonna",
-            "Depeche Mode"
-          ],
+          "options": ["Duran Duran", "The B-52's", "Madonna", "Depeche Mode"],
           "correctAnswer": "Madonna",
           "trivia": "Madonna ha reconocido en múltiples entrevistas que Blondie, especialmente el álbum 'Parallel Lines', tuvo un impacto significativo en su estilo musical y visual. Su mezcla de punk y pop en este álbum ayudó a definir el sonido de la música de finales de los 70 y principios de los 80, inspirando a muchos artistas que siguieron. Blondie fue pionera en la incorporación de elementos de música disco y rock, lo que se puede observar en el trabajo de Madonna, quien fusionó diversos géneros en su propia música. Además, la estética y la audacia de Blondie en la presentación escénica también influyeron en la forma en que Madonna proyectó su imagen pública. 'Parallel Lines' fue un álbum que no solo dejó una marca en las listas de éxitos, sino que también sentó las bases para la evolución de la música pop en las décadas siguientes."
         }
@@ -10308,12 +10078,7 @@
       "easy": [
         {
           "question": "¿Cuál de las siguientes canciones del álbum 'Desire' de Bob Dylan ha sido remixada en varias ocasiones desde su lanzamiento en 1976?",
-          "options": [
-            "Hurricane",
-            "Joey",
-            "Isis",
-            "Romance in Durango"
-          ],
+          "options": ["Hurricane", "Joey", "Isis", "Romance in Durango"],
           "correctAnswer": "Romance in Durango",
           "trivia": "La canción 'Romance in Durango' del álbum 'Desire' de Bob Dylan ha sido remixada y versionada en varias ocasiones desde su lanzamiento en 1976. Este tema, que fusiona el folk rock con elementos de música mexicana, fue inspirador para muchos artistas y productores. Entre las versiones notables se encuentra la reinterpretación de la banda española 'Los Lobos' que mantuvo la esencia del original mientras le dio un toque contemporáneo. 'Desire', además, fue un álbum que marcó un cambio en la narrativa lírica de Dylan, explorando temas más dramáticos y personajes complejos. Este trabajo se destaca por su rica instrumentación y colaboraciones con músicos como Scarlet Rivera, quien aportó el violín distintivo en muchas de las pistas."
         },
@@ -10599,12 +10364,7 @@
         },
         {
           "question": "¿Qué posición alcanzó el álbum 'Can’t Get Enough' de Barry White en la lista Billboard 200 en 1974?",
-          "options": [
-            "Número 1",
-            "Número 5",
-            "Número 10",
-            "Número 3"
-          ],
+          "options": ["Número 1", "Número 5", "Número 10", "Número 3"],
           "correctAnswer": "Número 1",
           "trivia": "El álbum 'Can’t Get Enough' de Barry White alcanzó el puesto número 1 en la lista Billboard 200 en 1974, consolidando su estatus como un ícono del soul y la música disco. Este álbum fue esencial para definir el sonido característico de Barry White, que combinaba elementos de soul, funk y orquestaciones románticas. Además, el sencillo 'Can't Get Enough of Your Love, Babe' se convirtió en un gran éxito, alcanzando también el número 1 en la lista Billboard Hot 100. La producción del álbum, que incluía arreglos orquestales ricos y la distintiva voz profunda de White, fue fundamental para su popularidad. 'Can’t Get Enough' es considerado uno de los álbumes más emblemáticos de la década de 1970."
         }
@@ -10670,12 +10430,7 @@
         },
         {
           "question": "¿Qué famoso productor musical colaboró con los Ramones en el álbum 'Rocket to Russia' lanzado en 1977?",
-          "options": [
-            "Phil Spector",
-            "Brian Eno",
-            "Terry Date",
-            "Ed Stasium"
-          ],
+          "options": ["Phil Spector", "Brian Eno", "Terry Date", "Ed Stasium"],
           "correctAnswer": "Ed Stasium",
           "trivia": "Ed Stasium fue el productor que trabajó con los Ramones en 'Rocket to Russia', un álbum que se considera uno de los más influyentes del punk rock. Stasium, quien también había trabajado con otros artistas de la escena punk, ayudó a dar forma al sonido distintivo de la banda en este trabajo. El álbum incluye clásicos como 'Sheena Is a Punk Rocker' y 'Rockaway Beach', que se han convertido en himnos del género. Además, 'Rocket to Russia' fue fundamental para establecer a los Ramones como pioneros del punk en la década de 1970. La colaboración de Stasium fue crucial para capturar la energía cruda de las presentaciones en vivo de la banda en el estudio."
         },
@@ -10833,12 +10588,7 @@
         },
         {
           "question": "En el álbum 'My Aim Is True' de Elvis Costello, ¿qué productor fue fundamental en la creación de este icónico trabajo en 1977?",
-          "options": [
-            "Nick Lowe",
-            "Glyn Johns",
-            "Alan Parsons",
-            "John Leckie"
-          ],
+          "options": ["Nick Lowe", "Glyn Johns", "Alan Parsons", "John Leckie"],
           "correctAnswer": "Nick Lowe",
           "trivia": "El productor del álbum 'My Aim Is True' de Elvis Costello, lanzado en 1977, fue Nick Lowe, quien también era parte de la escena musical de pub rock en Inglaterra. Lowe no solo aportó su experiencia como productor, sino que también ayudó a definir el sonido distintivo del álbum, que combina elementos de rock, punk y pop. 'My Aim Is True' fue el primer álbum de estudio de Costello y recibió aclamación crítica, lo que impulsó su carrera. Un dato interesante es que el álbum incluye éxitos como 'Alison' y 'Less Than Zero', los cuales se han convertido en clásicos. Además, Nick Lowe fue un influyente músico y compositor en su propio derecho, contribuyendo a la creación de un estilo que resonaría en la música británica de finales de los 70."
         }
@@ -11056,12 +10806,7 @@
         },
         {
           "question": "¿En qué película de 1980, que se centra en la vida de un grupo de jóvenes rebeldes, se incluye una canción de The Clash del álbum 'Give ’Em Enough Rope'?",
-          "options": [
-            "Quadrophenia",
-            "The Warriors",
-            "Suburbia",
-            "Rockers"
-          ],
+          "options": ["Quadrophenia", "The Warriors", "Suburbia", "Rockers"],
           "correctAnswer": "Quadrophenia",
           "trivia": "La respuesta correcta es 'Quadrophenia', una película de 1980 que retrata la vida de los mods y rockers en Londres durante los años 60. The Clash, en su álbum 'Give ’Em Enough Rope' lanzado en 1978, incluye la canción 'Safe European Home', la cual captura el espíritu de la época. Esta película es notable no solo por su representación cultural, sino también por su banda sonora, que incluye música de varias bandas icónicas de la época, reflejando la influencia del punk y el rock. 'Give ’Em Enough Rope' es especialmente significativo ya que es el segundo álbum de estudio de The Clash y marcó su creciente popularidad en la escena musical. Además, la película ha sido considerada un clásico de culto y ha influido en generaciones de músicos y cineastas."
         },
@@ -11184,12 +10929,7 @@
         },
         {
           "question": "¿Qué género musical, además del rock, influyó notablemente en el sonido del álbum 'Bad Company' de Bad Company lanzado en 1974?",
-          "options": [
-            "Blues",
-            "Reggae",
-            "Jazz",
-            "Country"
-          ],
+          "options": ["Blues", "Reggae", "Jazz", "Country"],
           "correctAnswer": "Blues",
           "trivia": "El álbum 'Bad Company' de Bad Company, lanzado en 1974, muestra una notable influencia del blues, que se puede escuchar en la estructura melódica y en los riffs de guitarra de varias canciones. La banda, formada por miembros que habían estado en grupos de rock y blues, incorporó elementos del blues para dar profundidad a su sonido. Por ejemplo, la canción 'Ready for Love' incluye una progresión de acordes que es reminiscente de las baladas de blues. Además, el vocalista Paul Rodgers, conocido por su poderosa voz, tiene un estilo que refleja la influencia de cantantes de blues como Joe Cocker. Esta fusión de géneros ayudó a definir el estilo distintivo de Bad Company, contribuyendo a su éxito en la década de 1970."
         }
@@ -11606,12 +11346,7 @@
         },
         {
           "question": "¿En qué año realizó Steely Dan su primera gira después del lanzamiento del álbum 'Pretzel Logic'?",
-          "options": [
-            "1974",
-            "1975",
-            "1976",
-            "1977"
-          ],
+          "options": ["1974", "1975", "1976", "1977"],
           "correctAnswer": "1974",
           "trivia": "Steely Dan emprendió su primera gira en 1974, coincidiendo con el lanzamiento de su álbum 'Pretzel Logic'. Este álbum, que fue el tercero de la banda, incluye clásicos como 'Rikki Don't Lose That Number' y 'Any Major Dude Will Tell You'. A pesar de su éxito, la banda tuvo una relación complicada con las giras en sus primeros años, ya que el enfoque principal de Donald Fagen y Walter Becker estaba en la producción musical y la grabación en estudio. Con el paso del tiempo, Steely Dan se volvió más selectivo respecto a sus actuaciones en vivo, pero la gira de 1974 marcó un hito importante en su carrera, consolidando su presencia en la escena musical de los años 70."
         },
@@ -11734,12 +11469,7 @@
         },
         {
           "question": "¿Qué instrumento de viento destaca en los arreglos musicales del álbum 'Station to Station' de David Bowie, lanzado en 1976?",
-          "options": [
-            "Saxofón",
-            "Trombón",
-            "Flauta",
-            "Clarinete"
-          ],
+          "options": ["Saxofón", "Trombón", "Flauta", "Clarinete"],
           "correctAnswer": "Saxofón",
           "trivia": "En 'Station to Station', el saxofón juega un papel crucial en los arreglos musicales, destacándose especialmente en la canción 'Stay'. David Bowie colaboró con el saxofonista David Sanborn, cuyas improvisaciones aportaron un sonido distintivo al álbum. Este trabajo de Sanborn se considera uno de los elementos que ayudaron a definir el estilo ecléctico de Bowie en esta época, fusionando rock y jazz. Además, el álbum fue grabado en un período de intensa experimentación musical para Bowie, quien buscaba nuevas direcciones sonoras. 'Station to Station' no solo marcó un cambio en la música de Bowie, sino que también dejó una huella en la evolución del rock en los años 70."
         }
@@ -11829,12 +11559,7 @@
       "easy": [
         {
           "question": "¿En qué año Bob Seger & the Silver Bullet Band iniciaron la gira para promocionar su álbum 'Night Moves'?",
-          "options": [
-            "1975",
-            "1976",
-            "1977",
-            "1978"
-          ],
+          "options": ["1975", "1976", "1977", "1978"],
           "correctAnswer": "1976",
           "trivia": "Bob Seger & the Silver Bullet Band comenzaron a promocionar su álbum 'Night Moves' con una gira en 1976, justo después de su lanzamiento en octubre de ese año. Este álbum fue un gran éxito y ayudó a consolidar la carrera de Seger, convirtiéndolo en una estrella de rock. 'Night Moves' se destacó en las listas de éxitos, alcanzando el puesto número 4 en la lista Billboard 200. Durante la gira, la banda interpretó en vivo varios de los temas más populares del álbum, incluyendo la canción titular, 'Night Moves', que se convirtió en un clásico. La combinación de actuaciones enérgicas y la conexión emocional de las letras resonó fuertemente con el público de la época."
         },
@@ -12215,12 +11940,7 @@
       "medium": [
         {
           "question": "En el álbum '461 Ocean Boulevard' de Eric Clapton, ¿qué instrumento adicional, además de la guitarra, contribuyó a los arreglos musicales especiales en la canción 'I Shot the Sheriff'?",
-          "options": [
-            "Saxofón",
-            "Piano eléctrico",
-            "Trombón",
-            "Bajo acústico"
-          ],
+          "options": ["Saxofón", "Piano eléctrico", "Trombón", "Bajo acústico"],
           "correctAnswer": "Piano eléctrico",
           "trivia": "En '461 Ocean Boulevard', Eric Clapton incorporó el piano eléctrico, interpretado por el músico Dick Sims, para enriquecer los arreglos musicales de 'I Shot the Sheriff'. Este álbum, lanzado en 1974, es conocido por su fusión de rock y reggae, destacando la versión de Clapton de la famosa canción de Bob Marley. Además del piano eléctrico, la producción del álbum fue notable por su enfoque en la improvisación y el uso de técnicas de grabación en vivo que capturaron la esencia de las actuaciones de Clapton. '461 Ocean Boulevard' se convirtió en un hito en la carrera de Clapton, alcanzando el número uno en la lista Billboard 200 y solidificando su reputación como uno de los grandes guitarristas de su época."
         },
@@ -12237,12 +11957,7 @@
         },
         {
           "question": "Al escuchar '461 Ocean Boulevard', ¿cuál es uno de los géneros musicales que Eric Clapton incorpora notablemente en este álbum de 1974?",
-          "options": [
-            "Funk",
-            "Reggae",
-            "Heavy Metal",
-            "Country"
-          ],
+          "options": ["Funk", "Reggae", "Heavy Metal", "Country"],
           "correctAnswer": "Reggae",
           "trivia": "En '461 Ocean Boulevard', Eric Clapton incorpora de manera destacada el reggae, un género que se vuelve evidente en su versión de 'I Shot the Sheriff', una canción original de Bob Marley. Este álbum marcó un punto de inflexión en la carrera de Clapton, ya que buscaba distanciarse del rock más duro y abrazar estilos más relajados y melódicos. Además, la producción del álbum fue realizada en los Criteria Studios de Miami, donde Clapton experimentó con diferentes sonidos y colaboró con músicos como el baterista Yvonne Elliman. '461 Ocean Boulevard' fue un éxito comercial, alcanzando el número uno en la lista Billboard 200 en 1974, lo que consolidó aún más la versatilidad de Clapton como artista. Este álbum no solo representa un cambio en su estilo, sino también un reflejo de las influencias musicales de la época."
         }

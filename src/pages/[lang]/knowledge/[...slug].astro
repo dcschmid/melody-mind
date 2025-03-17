@@ -1,8 +1,8 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
-import { languages, ui } from '../../../i18n/ui';
-import Layout from '../../../layouts/Layout.astro';
-import type { KnowledgeCollectionKey } from '../../../content/config';
+import { getCollection, type CollectionEntry } from "astro:content";
+import { languages, ui } from "../../../i18n/ui";
+import Layout from "../../../layouts/Layout.astro";
+import type { KnowledgeCollectionKey } from "../../../content/config";
 
 export const prerender = true;
 
@@ -11,18 +11,18 @@ export async function getStaticPaths() {
     Object.keys(languages).map(async (lang) => {
       const collectionName = `knowledge-${lang}` as KnowledgeCollectionKey;
       const entries = await getCollection(collectionName);
-      return entries.map(entry => {
+      return entries.map((entry) => {
         // For [...slug] rest parameter, we need to pass the slug as a string
         // Astro will handle splitting it by '/' internally
         return {
-          params: { 
+          params: {
             lang,
-            slug: entry.slug  // Pass the slug as a string, not an array
+            slug: entry.slug, // Pass the slug as a string, not an array
           },
-          props: { entry }
+          props: { entry },
         };
       });
-    })
+    }),
   );
   return allEntries.flat();
 }
@@ -33,16 +33,16 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const { lang = 'de' } = Astro.params;
+const { lang = "de" } = Astro.params;
 const t = ui[lang as keyof typeof ui];
 
 const { Content } = await entry.render();
 
 // Format date
-const formattedDate = entry.data.createdAt 
-  ? new Intl.DateTimeFormat(lang, { 
-      dateStyle: 'long',
-      timeStyle: 'short' 
+const formattedDate = entry.data.createdAt
+  ? new Intl.DateTimeFormat(lang, {
+      dateStyle: "long",
+      timeStyle: "short",
     }).format(entry.data.createdAt)
   : null;
 
@@ -52,36 +52,44 @@ const formattedDate = entry.data.createdAt
 <Layout title={entry.data.title}>
   <article class="container mx-auto px-4 py-8 max-w-4xl">
     <header class="mb-8">
-        <div class="mb-6">
-            <img 
-              src={typeof entry.data.image === 'string' ? entry.data.image : '/melody-mind.jpg'} 
-              alt={entry.data.title}
-              class="w-full rounded-lg shadow-lg"
-            />
-        </div>
-    
+      <div class="mb-6">
+        <img
+          src={typeof entry.data.image === "string"
+            ? entry.data.image
+            : "/melody-mind.jpg"}
+          alt={entry.data.title}
+          class="w-full rounded-lg shadow-lg"
+        />
+      </div>
+
       <h1 class="text-4xl font-bold mb-4">{entry.data.title}</h1>
       <div class="text-gray-600 mb-4">
-        {formattedDate && (
-          <time datetime={entry.data.createdAt?.toISOString()}>
-            {formattedDate}
-          </time>
-        )}
-        {entry.data.readingTime && (
-          <span class="reading-time ml-4">
-            {Math.ceil(entry.data.readingTime)} min read
-          </span>
-        )}
-      </div>
-      {entry.data.keywords && entry.data.keywords.length > 0 && (
-        <div class="keywords flex flex-wrap gap-2 mb-4">
-          {entry.data.keywords.map(keyword => (
-            <span class="px-2 py-1 bg-gray-100 rounded-full text-sm">
-              {keyword}
+        {
+          formattedDate && (
+            <time datetime={entry.data.createdAt?.toISOString()}>
+              {formattedDate}
+            </time>
+          )
+        }
+        {
+          entry.data.readingTime && (
+            <span class="reading-time ml-4">
+              {Math.ceil(entry.data.readingTime)} min read
             </span>
-          ))}
-        </div>
-      )}
+          )
+        }
+      </div>
+      {
+        entry.data.keywords && entry.data.keywords.length > 0 && (
+          <div class="keywords flex flex-wrap gap-2 mb-4">
+            {entry.data.keywords.map((keyword) => (
+              <span class="px-2 py-1 bg-gray-100 rounded-full text-sm">
+                {keyword}
+              </span>
+            ))}
+          </div>
+        )
+      }
       <p class="text-xl text-gray-700">{entry.data.description}</p>
     </header>
 
@@ -93,23 +101,23 @@ const formattedDate = entry.data.createdAt
 
 <style>
   .prose {
-    --tw-prose-body: theme('colors.gray.700');
-    --tw-prose-headings: theme('colors.gray.900');
-    --tw-prose-links: theme('colors.blue.600');
+    --tw-prose-body: theme("colors.gray.700");
+    --tw-prose-headings: theme("colors.gray.900");
+    --tw-prose-links: theme("colors.blue.600");
   }
 
   /* Add responsive padding for better readability */
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     article {
-      padding-left: 2rem;
       padding-right: 2rem;
+      padding-left: 2rem;
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     article {
-      padding-left: 4rem;
       padding-right: 4rem;
+      padding-left: 4rem;
     }
   }
 </style>

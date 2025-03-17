@@ -689,12 +689,7 @@
         },
         {
           "question": "¿Qué canción del álbum 'Blue Train' de John Coltrane, lanzado en 1957, recibió una atención crítica notable por su complejidad armónica y su innovadora estructura de improvisación?",
-          "options": [
-            "Moment's Notice",
-            "Blue Train",
-            "Locomotion",
-            "Tuner"
-          ],
+          "options": ["Moment's Notice", "Blue Train", "Locomotion", "Tuner"],
           "correctAnswer": "Moment's Notice",
           "trivia": "La canción 'Moment's Notice' del álbum 'Blue Train' ha sido aclamada por críticos y músicos por su complejidad armónica y la habilidad de John Coltrane para navegar a través de sus cambios de acordes. Este tema, que presenta un enfoque novedoso hacia la forma y la improvisación en el jazz, fue interpretado como un reflejo de la transición de Coltrane hacia un estilo más libre e innovador. Además, 'Blue Train' fue uno de los primeros álbumes que mostró la evolución de Coltrane como líder y compositor, destacando su habilidad para fusionar influencias del bebop con elementos del hard bop. La crítica en su momento destacó cómo 'Moment's Notice' rompió con las convenciones de la época, proponiendo un enfoque más dinámico y expresivo en la interpretación jazzística."
         }
@@ -842,12 +837,7 @@
         },
         {
           "question": "¿En qué año fue lanzado el álbum 'Lady in Satin' de Billie Holiday, un trabajo que marcó uno de sus últimos esfuerzos en el estudio?",
-          "options": [
-            "1955",
-            "1956",
-            "1958",
-            "1960"
-          ],
+          "options": ["1955", "1956", "1958", "1960"],
           "correctAnswer": "1958",
           "trivia": "El álbum 'Lady in Satin' de Billie Holiday fue lanzado en 1958, y es considerado uno de sus trabajos más emotivos y conmovedores. Este álbum destaca por su producción orquestal, que fue a cargo de Ray Ellis, y presenta a Billie en un estado vocal que refleja sus luchas personales y emocionales. A pesar de su deteriorada salud, Holiday logró capturar la esencia de sus experiencias a través de su interpretación. 'Lady in Satin' contiene interpretaciones memorables de canciones como 'I'm a Fool to Want You', y se considera un testimonio de su legado en el jazz y la música popular. Este álbum fue uno de los últimos grabados por Billie Holiday antes de su fallecimiento en 1959, lo que añade una capa de tristeza e importancia histórica a su obra."
         },
@@ -1065,12 +1055,7 @@
       "easy": [
         {
           "question": "¿En qué año se lanzó el video musical de la canción 'Cry, Cry, Cry', incluido en el álbum 'With His Hot and Blue Guitar' de Johnny Cash?",
-          "options": [
-            "1955",
-            "1957",
-            "1960",
-            "1963"
-          ],
+          "options": ["1955", "1957", "1960", "1963"],
           "correctAnswer": "1957",
           "trivia": "El video musical de 'Cry, Cry, Cry' fue lanzado en 1957, coincidiendo con el lanzamiento del álbum 'With His Hot and Blue Guitar' de Johnny Cash. Este álbum fue un hito en la carrera de Cash, ya que fue su debut en Columbia Records y ayudó a establecer su estilo distintivo en el country. 'Cry, Cry, Cry' se convirtió en uno de los sencillos más emblemáticos de su repertorio, alcanzando el éxito en las listas de música country. Además, el álbum incluye otros éxitos notables, como 'Hey Porter' y 'I Walk the Line', lo que solidificó a Johnny Cash como una figura central en la música country de la época. Este lanzamiento marcó el inicio de una prolífica carrera para Cash, que se extendería por varias décadas."
         },
@@ -1310,23 +1295,13 @@
         },
         {
           "question": "¿En qué año lanzó Buddy Holly su álbum debut titulado 'The “Chirping” Crickets'?",
-          "options": [
-            "1956",
-            "1957",
-            "1958",
-            "1959"
-          ],
+          "options": ["1956", "1957", "1958", "1959"],
           "correctAnswer": "1957",
           "trivia": "Buddy Holly lanzó su álbum debut 'The “Chirping” Crickets' en 1957, marcando el inicio de su carrera discográfica. Este álbum es notable por incluir el clásico 'That'll Be the Day', que se convirtió en un gran éxito y ayudó a establecer a Holly como una figura clave en la música rock. La producción del álbum estuvo a cargo de Norman Petty, quien también era el ingeniero de sonido. Además, 'The “Chirping” Crickets' fue uno de los primeros álbumes en presentar una mezcla de rock and roll y elementos de country, lo que contribuyó a la evolución de estos géneros. A pesar de su corta carrera, Buddy Holly dejó un legado duradero que influenció a numerosos artistas posteriores."
         },
         {
           "question": "¿En qué año fue lanzado el álbum 'The “Chirping” Crickets' de Buddy Holly, marcando un hito en su carrera musical?",
-          "options": [
-            "1955",
-            "1957",
-            "1958",
-            "1960"
-          ],
+          "options": ["1955", "1957", "1958", "1960"],
           "correctAnswer": "1957",
           "trivia": "El álbum 'The “Chirping” Crickets' de Buddy Holly fue lanzado en 1957, convirtiéndose en el primer álbum de estudio del artista. Este lanzamiento no solo presentó al mundo su icónica voz y estilo musical, sino que también incluyó clásicos como 'That'll Be the Day' y 'Peggy Sue'. Buddy Holly fue uno de los pioneros del rock and roll, y su enfoque innovador en la composición y producción influyó en generaciones de músicos posteriores. El álbum ayudó a establecer su fama y consolidó su lugar en la historia de la música. A pesar de su corta carrera, la música de Buddy Holly sigue siendo relevante y celebrada hasta el día de hoy."
         }
@@ -1742,12 +1717,7 @@
         },
         {
           "question": "En términos de éxito comercial, ¿qué posición alcanzó el álbum 'Rock and Rollin’ with Fats Domino' de Fats Domino en la lista Billboard 200 en su año de lanzamiento?",
-          "options": [
-            "1",
-            "5",
-            "8",
-            "12"
-          ],
+          "options": ["1", "5", "8", "12"],
           "correctAnswer": "8",
           "trivia": "El álbum 'Rock and Rollin’ with Fats Domino', lanzado en 1956, alcanzó la octava posición en la lista Billboard 200, lo que refleja el gran impacto que tuvo Fats Domino en la música rock and roll de la época. Este álbum es un testimonio del talento de Domino y su capacidad para atraer a un público amplio, especialmente en un tiempo en que el rock and roll estaba en su auge. En ese año, Fats Domino también logró que varias de sus canciones se colocaran en las listas de éxitos, consolidando su estatus como uno de los pioneros del género. Su estilo único y su habilidad para fusionar el rhythm and blues con elementos del rock and roll fueron claves en su éxito comercial. Esta combinación le permitió no solo alcanzar altas posiciones en las listas, sino también establecer una base de fans duradera."
         }
@@ -1802,12 +1772,7 @@
       "medium": [
         {
           "question": "¿Cuál fue la posición más alta alcanzada por el álbum 'Ellington at Newport' de Duke Ellington en la lista de álbumes de jazz de Billboard tras su lanzamiento en 1956?",
-          "options": [
-            "1",
-            "5",
-            "10",
-            "15"
-          ],
+          "options": ["1", "5", "10", "15"],
           "correctAnswer": "1",
           "trivia": "El álbum 'Ellington at Newport' de Duke Ellington alcanzó el puesto número 1 en la lista de álbumes de jazz de Billboard en 1956. Este álbum es famoso por su energía en vivo y por capturar la actuación de Duke Ellington y su orquesta en el festival de jazz de Newport, un evento que se considera fundamental en la historia del jazz. La grabación incluye clásicos como 'Diminuendo and Crescendo in Blue', que se convirtió en un hito en la carrera de Ellington. Además, este álbum ayudó a revitalizar la carrera de Ellington en la década de 1950, llevándolo a un nuevo nivel de reconocimiento y éxito comercial. 'Ellington at Newport' no solo es un testamento del virtuosismo de Ellington como compositor y director, sino también un reflejo de la importancia del jazz en la cultura estadounidense de la época."
         },
@@ -2140,12 +2105,7 @@
         },
         {
           "question": "¿Qué famoso rapero sampleó la canción 'Hoochie Coochie Man', incluida en 'The Best of Muddy Waters' de Muddy Waters, en una de sus canciones más conocidas?",
-          "options": [
-            "Jay-Z",
-            "Kendrick Lamar",
-            "Nas",
-            "Dr. Dre"
-          ],
+          "options": ["Jay-Z", "Kendrick Lamar", "Nas", "Dr. Dre"],
           "correctAnswer": "Dr. Dre",
           "trivia": "La respuesta correcta es Dr. Dre, quien sampleó 'Hoochie Coochie Man' en su icónica canción 'The Next Episode'. 'Hoochie Coochie Man' es una de las canciones más emblemáticas de Muddy Waters, lanzada originalmente en 1954, y se ha convertido en un estándar del blues. El álbum 'The Best of Muddy Waters', lanzado en 1958, recopiló sus mejores trabajos y ayudó a consolidar su legado en la música. Muddy Waters es conocido como uno de los pioneros del blues de Chicago y su influencia se extiende a muchos géneros, incluyendo el hip hop. Su música ha sido referenciada y sampleada por numerosos artistas a lo largo de las décadas, lo que demuestra su impacto duradero en la cultura musical."
         }
@@ -2398,12 +2358,7 @@
         },
         {
           "question": "¿Qué famoso artista sampleó la canción 'Feeling Good' de Nina Simone, incluida en su álbum 'Little Girl Blue', en su propia producción musical?",
-          "options": [
-            "Kanye West",
-            "John Legend",
-            "Beyoncé",
-            "Michael Bublé"
-          ],
+          "options": ["Kanye West", "John Legend", "Beyoncé", "Michael Bublé"],
           "correctAnswer": "Michael Bublé",
           "trivia": "La canción 'Feeling Good', que aparece en el álbum 'Little Girl Blue' de Nina Simone lanzado en 1958, fue sampleada por Michael Bublé en su álbum 'It's Time' de 2005. Esta interpretación de Bublé ayudó a revivir el interés en la obra de Nina Simone, quien es conocida por su estilo único que fusiona jazz, blues y soul. 'Feeling Good' es una de las canciones más emblemáticas de Simone, y su poderosa interpretación se ha convertido en un clásico atemporal. Además, el álbum 'Little Girl Blue' es considerado un hito en la carrera de Nina Simone, marcando su transición de pianista de jazz a cantante solista. Este álbum también incluye otros temas memorables que han sido referenciados y versionados por múltiples artistas a lo largo de las décadas."
         },
@@ -2422,12 +2377,7 @@
       "hard": [
         {
           "question": "¿Qué famoso artista de hip hop sampleó la canción 'Ain't Got No, I Got Life' de Nina Simone, incluida en el álbum 'Little Girl Blue', en su exitoso sencillo de 1999?",
-          "options": [
-            "Kendrick Lamar",
-            "Nas",
-            "JAY-Z",
-            "Common"
-          ],
+          "options": ["Kendrick Lamar", "Nas", "JAY-Z", "Common"],
           "correctAnswer": "Common",
           "trivia": "La respuesta correcta es Common, quien utilizó un sample de 'Ain't Got No, I Got Life' en su canción 'The Light'. Este sencillo, lanzado en 1999, se convirtió en un gran éxito y ayudó a popularizar aún más la obra de Nina Simone entre nuevas audiencias. 'Ain't Got No, I Got Life' es una de las pistas más reconocidas de Nina Simone, lanzada originalmente en 1968, aunque su interpretación inicial se encuentra en 'Little Girl Blue'. Este álbum, que marcó el debut de Simone, combina jazz y blues con un profundo sentido de la lírica, lo que ha influido en numerosos artistas a lo largo de las décadas. La habilidad de Simone para transmitir emociones complejas a través de su música ha dejado una huella indeleble en el mundo de la música, y su trabajo continúa siendo referenciado y sampleado por artistas contemporáneos."
         },
@@ -2480,12 +2430,7 @@
         },
         {
           "question": "¿Qué artista famoso citó a Sam Cooke como una de sus principales influencias musicales y lo reconoció en varias entrevistas a lo largo de su carrera?",
-          "options": [
-            "Marvin Gaye",
-            "Otis Redding",
-            "Al Green",
-            "Ray Charles"
-          ],
+          "options": ["Marvin Gaye", "Otis Redding", "Al Green", "Ray Charles"],
           "correctAnswer": "Otis Redding",
           "trivia": "Otis Redding, conocido por su poderosa voz y su estilo emotivo, ha mencionado a Sam Cooke como una de sus principales influencias. En varias entrevistas, Redding expresó su admiración por el álbum 'Sam Cooke' de 1958, destacando cómo la interpretación de Cooke le inspiró a desarrollar su propio estilo musical. Sam Cooke fue pionero en la fusión de soul y pop, lo que abrió el camino para muchos artistas posteriores como Redding. Además, el álbum 'Sam Cooke' incluye clásicos que se han convertido en estándares del género, como 'You Send Me'. Esta influencia no solo se nota en la música, sino también en la forma en que Redding abordó la interpretación y la composición."
         },
@@ -2586,12 +2531,7 @@
       "easy": [
         {
           "question": "¿Qué canción del álbum 'Bo Diddley' de Bo Diddley ha sido utilizada en numerosas películas y programas de televisión, convirtiéndose en un clásico del rock?",
-          "options": [
-            "Mona",
-            "Bo Diddley",
-            "I’m a Man",
-            "Road Runner"
-          ],
+          "options": ["Mona", "Bo Diddley", "I’m a Man", "Road Runner"],
           "correctAnswer": "Bo Diddley",
           "trivia": "La canción 'Bo Diddley' del álbum homónimo lanzado en 1958 se ha utilizado en una amplia variedad de películas y programas de televisión, destacando su influencia en la cultura pop. Esta pista es particularmente famosa por su distintivo ritmo de 'Bo Diddley beat', que ha sido imitado por muchos artistas a lo largo de los años. Además, Bo Diddley fue una figura clave en la transición del blues al rock and roll, y su estilo único ayudó a sentar las bases de géneros musicales posteriores. La canción ha aparecido en producciones como 'The Sopranos' y 'The Simpsons', reafirmando su relevancia en la cultura contemporánea."
         },
@@ -2703,23 +2643,13 @@
       "easy": [
         {
           "question": "¿Qué famoso tema, considerado un clásico del jazz, fue compuesto por Bobby Timmons e interpretado por Art Blakey & The Jazz Messengers en su álbum 'Moanin’' de 1958?",
-          "options": [
-            "So What",
-            "Moanin’",
-            "Take Five",
-            "Blue in Green"
-          ],
+          "options": ["So What", "Moanin’", "Take Five", "Blue in Green"],
           "correctAnswer": "Moanin’",
           "trivia": "La respuesta correcta es 'Moanin’', un tema emblemático que se ha convertido en uno de los estándares más reconocidos del jazz. Este álbum, lanzado en 1958, no solo catapultó a Art Blakey & The Jazz Messengers a la fama, sino que también definió el sonido del hard bop. Bobby Timmons, el compositor de la pieza, logró capturar la esencia del jazz con su estilo rítmico y melódico distintivo. Además, la interpretación de este tema por parte de la banda es característica por su potente groove y la poderosa sección de metales, que se convirtieron en sello distintivo de Blakey. 'Moanin’' ha sido versionado por numerosos artistas a lo largo de los años, consolidando su estatus en el canon del jazz."
         },
         {
           "question": "¿Cuál es una de las citas más reconocidas de Art Blakey & The Jazz Messengers en el álbum 'Moanin’' lanzado en 1958?",
-          "options": [
-            "Moanin’",
-            "A Night in Tunisia",
-            "So What",
-            "Take Five"
-          ],
+          "options": ["Moanin’", "A Night in Tunisia", "So What", "Take Five"],
           "correctAnswer": "Moanin’",
           "trivia": "La canción 'Moanin’' es una de las composiciones más icónicas del álbum del mismo nombre, lanzado en 1958 por Art Blakey & The Jazz Messengers. Esta pieza, compuesta por el pianista Bobby Timmons, se ha convertido en un estándar del jazz y es conocida por su memorable riff de piano. La interpretación de Blakey en la batería y el estilo de sus músicos definieron un sonido que se volvió emblemático en el hard bop. Además, el álbum 'Moanin’' es considerado una obra maestra dentro del catálogo de Blue Note Records y ayudó a consolidar a Blakey como uno de los grandes innovadores en el jazz. La influencia de esta grabación se sigue sintiendo en la música jazz contemporánea."
         },
@@ -3111,12 +3041,7 @@
         },
         {
           "question": "¿Qué instrumento de viento destaca en los arreglos musicales del álbum 'The Genius of Ray Charles' de 1959, aportando una sonoridad distintiva a las composiciones?",
-          "options": [
-            "Saxofón",
-            "Trombón",
-            "Flauta",
-            "Trompeta"
-          ],
+          "options": ["Saxofón", "Trombón", "Flauta", "Trompeta"],
           "correctAnswer": "Saxofón",
           "trivia": "El saxofón es un instrumento que juega un papel crucial en los arreglos musicales del álbum 'The Genius of Ray Charles', lanzado en 1959. Ray Charles incorporó a talentosos músicos de sesión, como el saxofonista David 'Fathead' Newman, cuyas contribuciones ayudaron a definir el sonido del álbum. Este trabajo es considerado un hito en la fusión del soul y el jazz, destacando la habilidad de Charles para mezclar géneros. Además, el uso del saxofón en sus arreglos le otorgó una calidad emocional que resonó con el público, permitiéndole alcanzar el reconocimiento internacional. La producción del álbum fue un esfuerzo colaborativo que no solo exhibió el talento de Charles, sino también la destreza de los músicos que lo acompañaron."
         }
@@ -3310,12 +3235,7 @@
         },
         {
           "question": "¿En qué año fue lanzado el álbum 'Saxophone Colossus' de Sonny Rollins, que se considera una obra maestra del jazz?",
-          "options": [
-            "1954",
-            "1956",
-            "1958",
-            "1960"
-          ],
+          "options": ["1954", "1956", "1958", "1960"],
           "correctAnswer": "1956",
           "trivia": "El álbum 'Saxophone Colossus' de Sonny Rollins fue lanzado en 1956 y es ampliamente reconocido como uno de los discos más influyentes en la historia del jazz. Este álbum incluye composiciones emblemáticas como 'St. Thomas' y 'Blue 7', que muestran la maestría de Rollins en el saxofón tenor. Durante la grabación, Rollins trabajó con músicos destacados como Max Roach y Oscar Pettiford, quienes aportaron su talento a la obra. 'Saxophone Colossus' no solo consolidó la reputación de Rollins como uno de los grandes del jazz, sino que también marcó un hito en la evolución del saxofón en este género musical. La producción del álbum se llevó a cabo en Nueva York, un centro neurálgico para el desarrollo del jazz en esa época."
         }
@@ -3345,12 +3265,7 @@
         },
         {
           "question": "¿Qué famosa película utilizó una de las composiciones del álbum 'Saxophone Colossus' de Sonny Rollins como parte de su banda sonora?",
-          "options": [
-            "La La Land",
-            "Goodfellas",
-            "Bird",
-            "Inception"
-          ],
+          "options": ["La La Land", "Goodfellas", "Bird", "Inception"],
           "correctAnswer": "Bird",
           "trivia": "La respuesta correcta es 'Bird', una película biográfica de 1988 dirigida por Clint Eastwood sobre la vida del legendario saxofonista Charlie Parker. En la película, se incluyen varias piezas de jazz, entre ellas 'St. Thomas', una de las composiciones más icónicas de Sonny Rollins del álbum 'Saxophone Colossus', lanzado en 1956. Este álbum es ampliamente reconocido como uno de los pilares del jazz, y 'St. Thomas' es particularmente notable por su melodía pegajosa y su ritmo caribeño. 'Saxophone Colossus' no solo consolidó a Rollins como uno de los grandes del saxofón, sino que también ha influido en generaciones de músicos. Además, el álbum contiene otros clásicos como 'Blue 7', que también ha sido fuente de inspiración para muchos artistas en el cine y la televisión."
         }
@@ -3522,23 +3437,13 @@
       "easy": [
         {
           "question": "¿En qué año lanzaron Ella Fitzgerald & Louis Armstrong el álbum 'Ella and Louis'?",
-          "options": [
-            "1955",
-            "1956",
-            "1957",
-            "1958"
-          ],
+          "options": ["1955", "1956", "1957", "1958"],
           "correctAnswer": "1956",
           "trivia": "El álbum 'Ella and Louis' fue lanzado en 1956, marcando una colaboración histórica entre dos de los más grandes íconos del jazz, Ella Fitzgerald y Louis Armstrong. Esta grabación es conocida por combinar las dulces melodías de Ella con la distintiva trompeta y la voz rasposa de Louis. 'Ella and Louis' incluye clásicos como 'Isn't This a Lovely Day?' y 'Summertime', que se convirtieron en estándares del jazz. Además, el álbum es considerado pionero en la fusión de voces y estilos, influyendo en futuras colaboraciones en el género. La producción de este álbum fue un hito en la música, consolidando a Fitzgerald y Armstrong como leyendas del jazz."
         },
         {
           "question": "¿En qué año fue lanzado el álbum 'Ella and Louis' de Ella Fitzgerald & Louis Armstrong, que marcó un hito en la música de jazz?",
-          "options": [
-            "1955",
-            "1956",
-            "1957",
-            "1958"
-          ],
+          "options": ["1955", "1956", "1957", "1958"],
           "correctAnswer": "1956",
           "trivia": "El álbum 'Ella and Louis' fue lanzado en 1956, y fue el primer trabajo colaborativo completo entre Ella Fitzgerald y Louis Armstrong. Este disco no solo destacó por la increíble química musical entre los dos artistas, sino que también fue un hito en la forma en que se comercializaron los álbumes de jazz en aquella época. Se considera una obra maestra que ayudó a popularizar el jazz vocal y a atraer a un público más amplio. Además, el álbum incluye clásicos como 'Summertime' y 'They Can't Take That Away from Me', que se han convertido en estándares del jazz. La producción y el lanzamiento de este álbum fueron fundamentales para cimentar la reputación de Fitzgerald y Armstrong como leyendas del jazz."
         },
@@ -3767,12 +3672,7 @@
         },
         {
           "question": "¿En qué año se lanzó el álbum 'I’m Jimmy Reed' de Jimmy Reed, que ayudó a consolidar su popularidad en el género del blues?",
-          "options": [
-            "1956",
-            "1958",
-            "1960",
-            "1955"
-          ],
+          "options": ["1956", "1958", "1960", "1955"],
           "correctAnswer": "1958",
           "trivia": "El álbum 'I’m Jimmy Reed' fue lanzado en 1958 y es uno de los trabajos más reconocidos de Jimmy Reed, un influyente músico de blues. Este álbum, lanzado por el sello discográfico Vee-Jay Records, ayudó a Reed a alcanzar una mayor audiencia, gracias a su estilo distintivo que combina el blues con elementos de rock y rhythm and blues. Jimmy Reed es conocido por sus éxitos como 'Big Boss Man' y 'Ain't That Lovin' You', que también se encuentran en este álbum. Durante los años 50, Reed se convirtió en un pilar del blues, y su música sentó las bases para futuros artistas del género. Este lanzamiento marcó un hito en su carrera y contribuyó significativamente a la popularidad del blues en la música estadounidense."
         },
@@ -3848,12 +3748,7 @@
         },
         {
           "question": "¿En qué año se lanzó el videoclip de 'Big Boss Man', una de las canciones más icónicas de Jimmy Reed incluido en su álbum 'I’m Jimmy Reed'?",
-          "options": [
-            "1956",
-            "1958",
-            "1960",
-            "1962"
-          ],
+          "options": ["1956", "1958", "1960", "1962"],
           "correctAnswer": "1960",
           "trivia": "El videoclip de 'Big Boss Man' fue lanzado en 1960, aunque la canción en sí fue parte de 'I’m Jimmy Reed', el álbum que Jimmy Reed presentó en 1958. Este álbum es un ejemplo clave del estilo de blues eléctrico que caracterizó la música de Reed. 'Big Boss Man' se convirtió en un éxito, destacando la habilidad de Reed para fusionar el blues con elementos de rock and roll. La canción ha sido versionada por muchos artistas, incluyendo a Elvis Presley, lo que también habla de su impacto cultural. A través de sus videos musicales, Reed ayudó a popularizar el blues en la televisión y otros medios visuales de la época."
         }
@@ -3990,23 +3885,13 @@
       "easy": [
         {
           "question": "¿En qué año lanzó Charles Mingus su álbum 'Pithecanthropus Erectus', que ha sido influyente en el desarrollo del jazz moderno?",
-          "options": [
-            "1955",
-            "1956",
-            "1957",
-            "1958"
-          ],
+          "options": ["1955", "1956", "1957", "1958"],
           "correctAnswer": "1956",
           "trivia": "Charles Mingus lanzó su álbum 'Pithecanthropus Erectus' en 1956, marcando un hito en la fusión de jazz con otros estilos musicales. Este álbum es conocido por su complejidad armónica y por presentar una narrativa musical que refleja las tensiones sociales de la época. 'Pithecanthropus Erectus' incluye temas que abordan la lucha de la humanidad, simbolizando la evolución y la condición humana. Además, este trabajo fue uno de los primeros en incorporar elementos de jazz de vanguardia, influenciando a muchos músicos posteriores. Mingus, reconocido por su virtuosismo y su capacidad de innovación, dejó una huella indeleble en la historia del jazz con este álbum."
         },
         {
           "question": "¿En qué año lanzó Charles Mingus su influyente álbum 'Pithecanthropus Erectus'?",
-          "options": [
-            "1955",
-            "1956",
-            "1957",
-            "1958"
-          ],
+          "options": ["1955", "1956", "1957", "1958"],
           "correctAnswer": "1956",
           "trivia": "Charles Mingus lanzó 'Pithecanthropus Erectus' en 1956, un álbum que marcó un hito en el jazz moderno. Este trabajo se considera uno de los primeros ejemplos de jazz de vanguardia, combinando elementos de bebop y música clásica. La composición del álbum es notable por su estructura compleja y su enfoque innovador, así como por la inclusión de improvisación colectiva. Además, la obra se inspira en la evolución humana, reflejando tanto la lucha de la raza negra en Estados Unidos como la búsqueda de la identidad cultural. 'Pithecanthropus Erectus' fue bien recibido por la crítica y sigue siendo un referente en la discografía de Mingus y en la historia del jazz."
         },
@@ -4129,12 +4014,7 @@
         },
         {
           "question": "¿Qué estilo musical predominante en sus trabajos anteriores también se refleja en el álbum 'The Everly Brothers' de 1958?",
-          "options": [
-            "Rock and roll",
-            "Country",
-            "Blues",
-            "Jazz"
-          ],
+          "options": ["Rock and roll", "Country", "Blues", "Jazz"],
           "correctAnswer": "Country",
           "trivia": "El álbum 'The Everly Brothers' de 1958 destaca por su fuerte influencia del country, un estilo que ya había sido parte de la música de los hermanos en sus trabajos anteriores. Este álbum incluye canciones que combinan armonías vocales distintivas y melodías pegajosas, características del country, lo que ayudó a consolidar su popularidad en el género. Además, The Everly Brothers fueron pioneros en la fusión del rock and roll con el country, un enfoque que se puede escuchar en éxitos previos como 'Bye Bye Love' y 'Wake Up Little Susie'. En este sentido, el álbum representa una continuidad temática que refuerza su legado en la música estadounidense."
         }
@@ -4235,12 +4115,7 @@
         },
         {
           "question": "¿En qué año fue lanzado el álbum 'I’m John Lee Hooker' de John Lee Hooker, que ayudó a consolidar su carrera en el blues?",
-          "options": [
-            "1955",
-            "1957",
-            "1959",
-            "1961"
-          ],
+          "options": ["1955", "1957", "1959", "1961"],
           "correctAnswer": "1959",
           "trivia": "El álbum 'I’m John Lee Hooker' fue lanzado en 1959 y es considerado uno de los trabajos más emblemáticos de John Lee Hooker. Este lanzamiento ayudó a catapultar su carrera y a establecerlo como una figura central en el género del blues. En este álbum, Hooker presentó su característico estilo de guitarra y su distintiva voz, que han influido en numerosos artistas posteriores. Además, el álbum incluye clásicos como 'Boogie Chillen', que se considera uno de sus temas más representativos. Este trabajo fue crucial en la promoción del blues en la escena musical de finales de los años 50."
         },
@@ -4281,12 +4156,7 @@
         },
         {
           "question": "¿Cuál fue la posición más alta que alcanzó el álbum 'I’m John Lee Hooker' de John Lee Hooker en la lista de álbumes de R&B en 1959?",
-          "options": [
-            "Posición 4",
-            "Posición 6",
-            "Posición 1",
-            "Posición 10"
-          ],
+          "options": ["Posición 4", "Posición 6", "Posición 1", "Posición 10"],
           "correctAnswer": "Posición 1",
           "trivia": "El álbum 'I’m John Lee Hooker' de John Lee Hooker alcanzó la posición número 1 en la lista de álbumes de R&B en 1959, lo que consolidó su estatus en la escena musical. Este logro es notable porque John Lee Hooker, conocido por su estilo distintivo de blues y su influencia en el rock, logró captar la atención del público con su enfoque innovador. Además, el álbum incluye clásicos como 'Boom Boom', que se convirtió en un éxito significativo y ayudó a definir su carrera. Durante 1959, el blues estaba ganando popularidad en Estados Unidos, y Hooker se destacó por su habilidad para fusionar el blues tradicional con elementos más contemporáneos, lo que le permitió conectar con una audiencia más amplia."
         }
@@ -4480,12 +4350,7 @@
         },
         {
           "question": "¿En qué ciudad realizó el Bill Evans Trio una actuación destacada que promovió el álbum 'Portrait in Jazz' en 1959?",
-          "options": [
-            "Nueva York",
-            "Chicago",
-            "Los Ángeles",
-            "San Francisco"
-          ],
+          "options": ["Nueva York", "Chicago", "Los Ángeles", "San Francisco"],
           "correctAnswer": "Nueva York",
           "trivia": "El Bill Evans Trio, conocido por su estilo innovador de jazz, realizó una serie de presentaciones en vivo que ayudaron a promover su álbum 'Portrait in Jazz' en 1959, siendo Nueva York un punto clave para su éxito. En particular, el famoso club 'Village Vanguard' fue uno de los lugares donde el trío se destacó, atrayendo la atención de críticos y amantes del jazz. Durante este periodo, el álbum recibió elogios por su enfoque único y la interacción musical entre Evans, Scott LaFaro y Paul Motian. 'Portrait in Jazz' incluye temas icónicos que se interpretaron en estas actuaciones, como 'Waltz for Debby' y 'My Foolish Heart'. La fusión del talento del trío y el ambiente de las presentaciones en Nueva York contribuyeron significativamente a su legado en la historia del jazz."
         }
@@ -4597,12 +4462,7 @@
         },
         {
           "question": "¿Qué estilo musical caracteriza principalmente el álbum 'The Atomic Mr. Basie' de Count Basie, lanzado en 1957?",
-          "options": [
-            "Blues",
-            "Swing",
-            "Bebop",
-            "Rock and Roll"
-          ],
+          "options": ["Blues", "Swing", "Bebop", "Rock and Roll"],
           "correctAnswer": "Swing",
           "trivia": "El álbum 'The Atomic Mr. Basie', lanzado en 1957, es un claro exponente del estilo swing, que fue fundamental en la carrera de Count Basie. Este álbum es conocido por su energía vibrante y arreglos innovadores, lo que lo convierte en una obra maestra del jazz. Count Basie, un pionero del swing, reunió a talentosos músicos en esta grabación, incluyendo a figuras como Freddie Green y Walter Page. Además, el álbum incluye clásicos como 'One O'Clock Jump', que se han convertido en estándares del jazz. 'The Atomic Mr. Basie' no solo es un testimonio de la habilidad de Basie como director de orquesta, sino también de su influencia duradera en el género del jazz."
         }
@@ -4738,12 +4598,7 @@
         },
         {
           "question": "¿Qué estilo musical predominante en 'The Great Ray Charles' de 1957 ayudó a definir el sonido característico de Ray Charles y su influencia en la música gospel y el rhythm and blues?",
-          "options": [
-            "Jazz",
-            "Gospel",
-            "Rock and roll",
-            "Country"
-          ],
+          "options": ["Jazz", "Gospel", "Rock and roll", "Country"],
           "correctAnswer": "Gospel",
           "trivia": "El álbum 'The Great Ray Charles', lanzado en 1957, es un excelente ejemplo de cómo Ray Charles fusionó el gospel con el rhythm and blues, creando un sonido único que marcaría su carrera. Esta fusión no solo mostró su habilidad vocal excepcional, sino que también ayudó a popularizar el gospel en un contexto más secular. Además, el álbum incluye temas que reflejan su trasfondo religioso y su profunda conexión con la música espiritual. Ray Charles es conocido por su capacidad para interpretar el gospel de una manera que resonaba con audiencias de diversos géneros, lo que lo convirtió en un pionero de la música moderna. Este enfoque innovador le permitió influir en una generación de artistas que vendrían después."
         },
@@ -5018,12 +4873,7 @@
         },
         {
           "question": "¿Cuál de las siguientes ciudades fue la última en ser grabada durante las sesiones del álbum 'Come Fly with Me' de Frank Sinatra en 1958?",
-          "options": [
-            "Río de Janeiro",
-            "París",
-            "Nueva York",
-            "Londres"
-          ],
+          "options": ["Río de Janeiro", "París", "Nueva York", "Londres"],
           "correctAnswer": "Río de Janeiro",
           "trivia": "La respuesta correcta es 'Río de Janeiro', que fue la última ciudad representada en el álbum 'Come Fly with Me' de Frank Sinatra. Este álbum, lanzado en 1958, es conocido por su temática de viajes y presenta a Sinatra interpretando canciones que evocan diferentes destinos alrededor del mundo. La producción del álbum se realizó en un contexto de creciente popularidad del jet set, reflejando la fascinación por los viajes aéreos en la década de 1950. 'Come Fly with Me' se convirtió en un clásico y ayudó a consolidar la imagen de Sinatra como un crooner sofisticado. Además, el álbum fue bien recibido por la crítica y el público, alcanzando el puesto número 1 en la lista de álbumes de Billboard en su época."
         }
@@ -5160,12 +5010,7 @@
       "easy": [
         {
           "question": "¿Qué famoso sencillo de Buddy Holly, incluido en el álbum 'Buddy Holly' de 1958, se caracteriza por su distintivo riff de guitarra?",
-          "options": [
-            "That'll Be the Day",
-            "Peggy Sue",
-            "Oh Boy!",
-            "Everyday"
-          ],
+          "options": ["That'll Be the Day", "Peggy Sue", "Oh Boy!", "Everyday"],
           "correctAnswer": "Peggy Sue",
           "trivia": "La canción 'Peggy Sue', que es uno de los sencillos más emblemáticos de Buddy Holly, se encuentra en su álbum 'Buddy Holly' de 1958. Esta pista es conocida por su memorable riff de guitarra y su ritmo contagioso, lo que la convirtió en un gran éxito en su época. 'Peggy Sue' alcanzó el puesto número 3 en la lista Billboard Hot 100 y ha sido versionada por numerosos artistas a lo largo de los años. Buddy Holly, considerado uno de los pioneros del rock and roll, dejó una huella duradera en la música, y su estilo innovador en la producción y composición se refleja en este álbum. Además, la canción fue inspirada por la hermana de su amigo, lo que añade un toque personal a su historia."
         },
@@ -5182,12 +5027,7 @@
         },
         {
           "question": "¿Qué famosa canción de Buddy Holly del álbum 'Buddy Holly' ha sido utilizada en numerosas películas y programas de televisión, convirtiéndose en un clásico atemporal?",
-          "options": [
-            "Rave On",
-            "Everyday",
-            "Peggy Sue",
-            "That'll Be the Day"
-          ],
+          "options": ["Rave On", "Everyday", "Peggy Sue", "That'll Be the Day"],
           "correctAnswer": "That'll Be the Day",
           "trivia": "La canción 'That'll Be the Day' de Buddy Holly, incluida en el álbum 'Buddy Holly' de 1958, se ha convertido en un clásico que ha resonado en la cultura popular. Este tema ha aparecido en diversas películas y programas de televisión, incluyendo la famosa película 'The Buddy Holly Story' y la serie 'The Simpsons'. 'That'll Be the Day' fue un gran éxito en su lanzamiento y es reconocida por su influencia en el desarrollo del rock and roll. Además, la canción fue escrita por Buddy Holly y Jerry Allison, y su estilo innovador ayudó a establecer nuevos estándares en la música de la época. Este álbum es fundamental en la historia del rock, ya que Buddy Holly es considerado uno de los pioneros del género."
         }
@@ -5663,12 +5503,7 @@
       "medium": [
         {
           "question": "¿Qué instrumento de percusión fue utilizado por Miles Davis en el álbum 'Sketches of Spain', contribuyendo a la fusión de jazz y música española?",
-          "options": [
-            "Batería tradicional",
-            "Cajón",
-            "Bongos",
-            "Castañuelas"
-          ],
+          "options": ["Batería tradicional", "Cajón", "Bongos", "Castañuelas"],
           "correctAnswer": "Castañuelas",
           "trivia": "En 'Sketches of Spain', Miles Davis incorporó las castañuelas como parte de su exploración de la música española, lo que aportó un sabor auténtico y distintivo al álbum. Esta elección instrumental destaca la fusión de jazz con elementos de la música folklórica española, un enfoque innovador para su época. Además, la obra fue una colaboración con el arreglista Gil Evans, quien también utilizó diferentes técnicas de producción para crear una atmósfera única. 'Sketches of Spain' es reconocido por su uso de arreglos orquestales y la incorporación de diferentes timbres, convirtiéndose en un clásico que ha influido en muchas generaciones de músicos."
         },
@@ -5745,12 +5580,7 @@
       "easy": [
         {
           "question": "¿Qué instrumento tocó Art Pepper en el álbum 'Art Pepper Meets The Rhythm Section' lanzado en 1957?",
-          "options": [
-            "Saxofón alto",
-            "Piano",
-            "Trompeta",
-            "Bajo"
-          ],
+          "options": ["Saxofón alto", "Piano", "Trompeta", "Bajo"],
           "correctAnswer": "Saxofón alto",
           "trivia": "Art Pepper es conocido por su virtuosismo en el saxofón alto, instrumento que llevó al frente en el álbum 'Art Pepper Meets The Rhythm Section'. Este disco es notable por su enfoque en la improvisación y la interacción entre Pepper y la sección rítmica, compuesta por músicos de renombre como Red Garland y Paul Chambers. Grabado en 1957, el álbum captura la esencia del jazz de la costa oeste y refleja el estilo característico de Pepper, que combina melodía y técnica. Además, la producción del álbum se realizó en un ambiente de estudio propicio para la creatividad, lo que permitió a los músicos experimentar libremente. Este trabajo se considera un hito en la carrera de Art Pepper y en la historia del jazz en general."
         },
@@ -6188,12 +6018,7 @@
         },
         {
           "question": "¿Cuál de los destacados arreglistas colaboró con Billie Holiday en la producción del álbum 'Songs for Distingué Lovers' en 1957, aportando su estilo distintivo a las composiciones?",
-          "options": [
-            "Gil Evans",
-            "Teddy Wilson",
-            "Ray Ellis",
-            "Count Basie"
-          ],
+          "options": ["Gil Evans", "Teddy Wilson", "Ray Ellis", "Count Basie"],
           "correctAnswer": "Ray Ellis",
           "trivia": "Billie Holiday trabajó con el arreglista Ray Ellis en el álbum 'Songs for Distingué Lovers', el cual se lanzó en 1957. Ellis, conocido por su habilidad para combinar el jazz y la orquestación sinfónica, aportó un enfoque sofisticado que complementó la voz única de Holiday. Este álbum es notable no solo por su producción, sino también por la selección de canciones que incluyen clásicos de jazz y estándares. Además, la colaboración con Ellis permitió a Holiday experimentar con una sonoridad más rica y matizada, destacándose en temas como 'The End of a Love Affair' y 'My Man'. A lo largo de su carrera, Billie Holiday colaboró con varios arreglistas, pero su trabajo con Ray Ellis en este álbum es especialmente recordado por su elegancia y profundidad emocional."
         }
@@ -6469,12 +6294,7 @@
         },
         {
           "question": "¿En qué año fue lanzado el álbum 'Somethin’ Else' de Cannonball Adderley, que se considera un clásico del jazz?",
-          "options": [
-            "1956",
-            "1957",
-            "1958",
-            "1959"
-          ],
+          "options": ["1956", "1957", "1958", "1959"],
           "correctAnswer": "1958",
           "trivia": "El álbum 'Somethin’ Else' de Cannonball Adderley fue lanzado en 1958, y es ampliamente reconocido como uno de los discos más influyentes en la historia del jazz. Este trabajo no solo consolidó la reputación de Adderley como uno de los grandes saxofonistas del jazz, sino que también es notable por la participación de otros músicos destacados, como el trompetista Miles Davis y el pianista Bobby Timmons. 'Somethin’ Else' fue grabado en el estudio de Van Gelder, conocido por su excelente acústica, lo que ayudó a capturar la esencia del jazz de la época. Además, el álbum incluye composiciones memorables, como 'Autumn Leaves', que se han convertido en estándares del jazz. Esta obra maestra sigue siendo una referencia importante para músicos y aficionados al jazz en todo el mundo."
         }
@@ -6915,23 +6735,13 @@
       "easy": [
         {
           "question": "¿En qué año fue lanzado el álbum 'The Shape of Jazz to Come' de Ornette Coleman, marcando un hito en el jazz moderno?",
-          "options": [
-            "1957",
-            "1958",
-            "1959",
-            "1960"
-          ],
+          "options": ["1957", "1958", "1959", "1960"],
           "correctAnswer": "1959",
           "trivia": "El álbum 'The Shape of Jazz to Come' de Ornette Coleman fue lanzado en 1959, y es considerado una obra fundamental en la historia del jazz moderno. Este álbum introdujo un enfoque radical al jazz, alejándose de las estructuras tradicionales y promoviendo la improvisación libre. Además, fue uno de los primeros discos en presentar el concepto del 'free jazz', un estilo que desafió las convenciones de la música de la época. 'The Shape of Jazz to Come' fue lanzado bajo el sello Atlantic Records y recibió una gran atención crítica, aunque inicialmente fue controvertido entre los puristas del jazz. La influencia de este álbum ha perdurado a lo largo de las décadas, inspirando a numerosos músicos y géneros musicales."
         },
         {
           "question": "¿En qué año fue lanzado el álbum 'The Shape of Jazz to Come' de Ornette Coleman, marcando un hito en la evolución del jazz?",
-          "options": [
-            "1957",
-            "1959",
-            "1961",
-            "1963"
-          ],
+          "options": ["1957", "1959", "1961", "1963"],
           "correctAnswer": "1959",
           "trivia": "El álbum 'The Shape of Jazz to Come' de Ornette Coleman fue lanzado en 1959, siendo considerado uno de los discos más influyentes en la historia del jazz. Este trabajo introdujo el concepto de 'free jazz', desafiando las normas tradicionales de la música jazz de la época. Incluye piezas icónicas como 'Lonely Woman' y 'Congeniality', que han sido interpretadas por numerosos músicos a lo largo de los años. Coleman, junto a su cuarteto, rompió con las estructuras convencionales, lo que permitió una mayor libertad creativa en el género. Este álbum no solo destacó el virtuosismo de Coleman en el saxofón, sino que también abrió las puertas a nuevas formas de expresión musical en el jazz."
         },
@@ -7124,12 +6934,7 @@
         },
         {
           "question": "¿Qué posición alcanzó el álbum 'Only the Lonely' de Frank Sinatra en la lista Billboard 200 durante su lanzamiento en 1958?",
-          "options": [
-            "Número 1",
-            "Número 5",
-            "Número 3",
-            "Número 10"
-          ],
+          "options": ["Número 1", "Número 5", "Número 3", "Número 10"],
           "correctAnswer": "Número 1",
           "trivia": "El álbum 'Only the Lonely' de Frank Sinatra, lanzado en 1958, alcanzó la posición número 1 en la lista Billboard 200, donde se mantuvo durante un total de 10 semanas. Este álbum es considerado uno de los trabajos más emblemáticos de Sinatra, consolidando su estatus como una de las figuras más influyentes en el mundo de la música. Además, 'Only the Lonely' incluye clásicos como 'Angel Eyes' y 'One for My Baby (and One More for the Road)', que se han convertido en estándares del jazz. La producción del álbum se caracterizó por un enfoque orquestal emotivo, dirigido por Nelson Riddle, quien ayudó a crear un sonido distintivo que resonó con la audiencia de la época. En el contexto histórico, 1958 fue un año de cambios culturales significativos en Estados Unidos, y la música de Sinatra reflejó tanto la melancolía como la sofisticación de esos tiempos."
         }
@@ -7617,12 +7422,7 @@
       "easy": [
         {
           "question": "¿En qué año fue lanzado el álbum 'Blues & Roots' de Charles Mingus?",
-          "options": [
-            "1958",
-            "1959",
-            "1960",
-            "1961"
-          ],
+          "options": ["1958", "1959", "1960", "1961"],
           "correctAnswer": "1960",
           "trivia": "El álbum 'Blues & Roots' de Charles Mingus fue lanzado en 1960, aunque las grabaciones se realizaron en 1959. Este álbum es conocido por su fuerte influencia del blues y el jazz, destacando la habilidad de Mingus como compositor y bajista. 'Blues & Roots' incluye una mezcla de estilos musicales y presenta a músicos destacados de la época, como el saxofonista Eric Dolphy. Además, el álbum refleja el contexto social de la época, en el que el jazz estaba evolucionando y fusionándose con otras formas musicales. La obra de Mingus, en general, ha sido fundamental para el desarrollo del jazz moderno."
         },
@@ -7745,12 +7545,7 @@
         },
         {
           "question": "¿En qué año lanzó Dinah Washington el álbum 'What a Diff’rence a Day Makes!'?",
-          "options": [
-            "1956",
-            "1959",
-            "1961",
-            "1958"
-          ],
+          "options": ["1956", "1959", "1961", "1958"],
           "correctAnswer": "1959",
           "trivia": "El álbum 'What a Diff’rence a Day Makes!' fue lanzado por Dinah Washington en 1959 y se considera uno de sus trabajos más destacados. Este álbum incluye algunas de las interpretaciones más memorables de Washington, como la famosa canción que da título al disco. Dinah Washington, apodada 'La Reina del Blues', fusionó el jazz, el blues y el pop, lo que la llevó a alcanzar gran popularidad en la década de 1950. En 1960, su versión de la canción 'What a Diff’rence a Day Makes!' ganó un Grammy, lo que consolidó aún más su estatus en la música. Este álbum es un reflejo de su estilo vocal único y su capacidad para transmitir emociones a través de la música."
         },
@@ -7979,12 +7774,7 @@
         },
         {
           "question": "¿En qué famoso club de jazz se presentó Ella Fitzgerald durante la promoción de su álbum 'Ella Fitzgerald Sings the Rodgers and Hart Song Book' en 1956?",
-          "options": [
-            "Blue Note",
-            "Apollo Theater",
-            "Birdland",
-            "Cotton Club"
-          ],
+          "options": ["Blue Note", "Apollo Theater", "Birdland", "Cotton Club"],
           "correctAnswer": "Birdland",
           "trivia": "Ella Fitzgerald realizó presentaciones memorables en Birdland, un icónico club de jazz en Nueva York, durante la promoción de su álbum 'Ella Fitzgerald Sings the Rodgers and Hart Song Book' en 1956. Este club fue un importante punto de encuentro para los amantes del jazz y albergó a muchos de los músicos más influyentes de la época. En este álbum, Fitzgerald interpretó canciones clásicas de Richard Rodgers y Lorenz Hart, mostrando su increíble rango vocal y estilo único. Además, 'Ella Fitzgerald Sings the Rodgers and Hart Song Book' fue uno de los primeros álbumes en presentar a una artista femenina en un formato de álbum completo, lo que marcó un hito en la música. La influencia de Fitzgerald y su asociación con lugares míticos como Birdland ayudaron a fortalecer su legado en el mundo del jazz."
         },
@@ -8564,12 +8354,7 @@
         },
         {
           "question": "¿Qué instrumento es predominantemente utilizado por Little Richard en el álbum 'Little Richard', lanzado en 1958?",
-          "options": [
-            "Guitarra eléctrica",
-            "Piano",
-            "Bajo",
-            "Saxo"
-          ],
+          "options": ["Guitarra eléctrica", "Piano", "Bajo", "Saxo"],
           "correctAnswer": "Piano",
           "trivia": "En el álbum 'Little Richard' de 1958, el piano es el instrumento que predomina en las composiciones del artista. Little Richard, conocido por su estilo enérgico y su habilidad pianística, utiliza este instrumento para crear el característico sonido de rock and roll que lo hizo famoso. Este álbum incluye temas icónicos como 'Tutti Frutti', donde el piano se convierte en el motor rítmico de la canción. Little Richard es considerado uno de los pioneros del rock and roll, y su enfoque en el piano ayudó a definir el género durante la década de 1950. Además, este álbum fue parte de una serie de grabaciones que consolidaron su influencia en la música popular."
         },
@@ -9617,23 +9402,13 @@
         },
         {
           "question": "¿Qué famosa composición de jazz fue reinterpretada por Miles Davis en el álbum 'Workin’ with the Miles Davis Quintet' de 1959?",
-          "options": [
-            "Autumn Leaves",
-            "Take Five",
-            "So What",
-            "Blue in Green"
-          ],
+          "options": ["Autumn Leaves", "Take Five", "So What", "Blue in Green"],
           "correctAnswer": "Autumn Leaves",
           "trivia": "En el álbum 'Workin’ with the Miles Davis Quintet', Miles Davis interpreta la icónica composición 'Autumn Leaves', la cual fue originalmente escrita por Joseph Kosma con letra de Jacques Prevert. Esta pieza se ha convertido en un estándar del jazz y ha sido versionada por numerosos artistas a lo largo de los años. La versión de Davis destaca por su emotividad y su delicada interpretación, lo que la hizo especialmente popular entre los oyentes. Además, el álbum se considera una de las obras maestras del hard bop y muestra la maestría de Davis en la creación de ambientes sonoros únicos. 'Workin’ with the Miles Davis Quintet' también cuenta con otros músicos destacados como John Coltrane y Red Garland, que enriquecen aún más la experiencia auditiva."
         },
         {
           "question": "¿Cuál de las siguientes canciones, incluida en el álbum 'Workin’ with the Miles Davis Quintet' de 1959, es una de las más reconocidas y representativas de la obra de Miles Davis?",
-          "options": [
-            "So What",
-            "Freddie Freeloader",
-            "All Blues",
-            "Tune Up"
-          ],
+          "options": ["So What", "Freddie Freeloader", "All Blues", "Tune Up"],
           "correctAnswer": "Tune Up",
           "trivia": "La canción 'Tune Up' es una de las pistas más destacadas del álbum 'Workin’ with the Miles Davis Quintet', lanzado en 1959. Este álbum es aclamado por su calidad y por ser un ejemplo clásico del jazz modal que definió la carrera de Miles Davis. 'Tune Up' es una composición popular que muchos músicos de jazz han interpretado, y su inclusión en este álbum ayudó a consolidar la reputación de Davis como innovador en el género. Además, el álbum cuenta con la participación de renombrados músicos como John Coltrane y Bill Evans, quienes aportaron su talento al sonido distintivo de la grabación. La obra de Davis en este periodo sigue influyendo en el mundo de la música hasta hoy."
         }
@@ -9698,12 +9473,7 @@
         },
         {
           "question": "¿En qué película de 1986 se utiliza la pieza 'So What', del álbum 'Workin’ with the Miles Davis Quintet' de Miles Davis, en una escena clave que resalta la tensión y el drama del momento?",
-          "options": [
-            "Platoon",
-            "Bird",
-            "Round Midnight",
-            "Mo' Better Blues"
-          ],
+          "options": ["Platoon", "Bird", "Round Midnight", "Mo' Better Blues"],
           "correctAnswer": "Round Midnight",
           "trivia": "La pieza 'So What', que forma parte del álbum 'Workin’ with the Miles Davis Quintet', se presenta en la película 'Round Midnight' de 1986, dirigida por Bertrand Tavernier. Esta película, que explora el mundo del jazz en París durante los años 50, incluye la música de Miles Davis, quien también tuvo un cameo. 'Round Midnight' está inspirada en la vida del famoso saxofonista Bud Powell y refleja el ambiente del jazz de esa época. Además, el álbum 'Workin’ with the Miles Davis Quintet' es considerado uno de los pilares del jazz modal, destacando la conexión de la música de Davis con el cine y su impacto cultural en la sociedad de la época."
         }
@@ -9968,12 +9738,7 @@
         },
         {
           "question": "¿Qué instrumento principal toca John Coltrane en el álbum 'Soultrane', lanzado en 1958?",
-          "options": [
-            "Piano",
-            "Saxofón tenor",
-            "Bajo",
-            "Trompeta"
-          ],
+          "options": ["Piano", "Saxofón tenor", "Bajo", "Trompeta"],
           "correctAnswer": "Saxofón tenor",
           "trivia": "En 'Soultrane', John Coltrane se destaca como un virtuoso del saxofón tenor, el instrumento que se convirtió en su sello personal. Este álbum, que fue grabado en 1958, presenta un estilo de jazz que combina improvisación y lirismo, lo que resalta la maestría de Coltrane en el saxofón. Además, en la grabación participan músicos notables, como el pianista McCoy Tyner y el bajista Jimmy Garrison, quienes contribuyeron a la riqueza sonora del disco. Coltrane utilizó técnicas innovadoras de respiración y articulación, lo que le permitió explorar un rango tonal único. 'Soultrane' es considerado un hito en su carrera y un ejemplo del desarrollo del jazz en esa época."
         },
@@ -10085,12 +9850,7 @@
         },
         {
           "question": "¿Cuál es el principal estilo musical que caracteriza el álbum 'Back to Back: Duke Ellington and Johnny Hodges Play the Blues' de Duke Ellington & Johnny Hodges, lanzado en 1959?",
-          "options": [
-            "Jazz tradicional",
-            "Blues",
-            "Swing",
-            "Bebop"
-          ],
+          "options": ["Jazz tradicional", "Blues", "Swing", "Bebop"],
           "correctAnswer": "Blues",
           "trivia": "El álbum 'Back to Back: Duke Ellington and Johnny Hodges Play the Blues' se centra en el estilo musical del blues, destacando la maestría de Duke Ellington & Johnny Hodges en este género. Este trabajo es un testimonio de la profunda conexión entre el jazz y el blues, mostrando cómo ambos estilos se influyen mutuamente. Además, el álbum incluye arreglos que combinan la sofisticación del jazz con la expresividad emocional del blues. Tanto Ellington como Hodges han sido figuras fundamentales en la historia del jazz, y este álbum resalta su capacidad para reinterpretar y revitalizar el blues a través de su talento musical. Es un ejemplo perfecto de la fusión de estilos que caracterizó la música de mediados del siglo XX."
         },
@@ -10213,12 +9973,7 @@
         },
         {
           "question": "¿Qué famoso músico de folk colaboró con Big Bill Broonzy en el álbum 'Big Bill Broonzy Sings Folk Songs' lanzado en 1956?",
-          "options": [
-            "Woody Guthrie",
-            "Pete Seeger",
-            "Lead Belly",
-            "Odetta"
-          ],
+          "options": ["Woody Guthrie", "Pete Seeger", "Lead Belly", "Odetta"],
           "correctAnswer": "Pete Seeger",
           "trivia": "En el álbum 'Big Bill Broonzy Sings Folk Songs', lanzado en 1956, Big Bill Broonzy colaboró con el reconocido músico de folk Pete Seeger. Esta colaboración fue significativa, ya que unió el sonido del blues de Broonzy con las tradiciones del folk estadounidense que Seeger representaba. Big Bill Broonzy, un pionero del blues, fue conocido por su habilidad para fusionar géneros, lo que se refleja en este álbum. Además, Pete Seeger era una figura prominente en el movimiento folk y activista social, y su presencia en el álbum ayudó a llevar la música folk a una audiencia más amplia. Este trabajo conjunto resalta la importancia de las colaboraciones en la música de la época, donde artistas de diferentes géneros se unían para explorar nuevas sonoridades."
         }
@@ -10319,12 +10074,7 @@
         },
         {
           "question": "¿Qué instrumento destacado interpreta Sonny Clark en el álbum 'Cool Struttin’' de 1958?",
-          "options": [
-            "Piano",
-            "Saxofón",
-            "Bajo",
-            "Trompeta"
-          ],
+          "options": ["Piano", "Saxofón", "Bajo", "Trompeta"],
           "correctAnswer": "Piano",
           "trivia": "En el álbum 'Cool Struttin’', Sonny Clark es conocido principalmente por su excepcional habilidad al piano, que es el instrumento central en todas las pistas del disco. Este álbum, lanzado en 1958, presenta un enfoque de jazz hard bop y se destaca por su rica melodía y armonía. Clark, que fue un pianista influyente en la escena del jazz, logró crear un sonido distintivo que combina elementos de blues y bebop. Además, 'Cool Struttin’' incluye a otros músicos destacados, como el saxofonista Jackie McLean y el trompetista Lee Morgan, quienes también aportan a la instrumentación del álbum, pero es el piano de Clark el que realmente define su estilo. El trabajo de producción y la forma en que se grabaron las sesiones contribuyó a la calidez y la profundidad del sonido del álbum, lo que lo ha convertido en un clásico atemporal del jazz."
         },
@@ -10425,12 +10175,7 @@
       "easy": [
         {
           "question": "¿En qué año lanzaron The Louvin Brothers su álbum 'Tragic Songs of Life'?",
-          "options": [
-            "1955",
-            "1956",
-            "1957",
-            "1958"
-          ],
+          "options": ["1955", "1956", "1957", "1958"],
           "correctAnswer": "1956",
           "trivia": "El álbum 'Tragic Songs of Life' fue lanzado por The Louvin Brothers en 1956, marcando un hito en la música country y el estilo de armonía vocal. Este trabajo incluye temas que abordan el dolor y la pérdida, lo que le ha valido un lugar especial en la historia de la música estadounidense. En su época, los Louvin Brothers eran conocidos por su estilo distintivo que combinaba elementos de la música gospel con el country. Además, el álbum fue un gran éxito y ayudó a establecer a los hermanos como figuras prominentes en la escena musical. La influencia de 'Tragic Songs of Life' se siente aún en la música contemporánea, siendo considerado un clásico en el género."
         },
@@ -10588,12 +10333,7 @@
         },
         {
           "question": "¿Qué notable versión alternativa de una de las composiciones de 'Relaxin’ with the Miles Davis Quintet' fue posteriormente remezclada por el productor Teo Macero en la década de 1960?",
-          "options": [
-            "So What",
-            "All Blues",
-            "Four",
-            "If I Were a Bell"
-          ],
+          "options": ["So What", "All Blues", "Four", "If I Were a Bell"],
           "correctAnswer": "So What",
           "trivia": "La versión alternativa de 'So What' es una de las composiciones más emblemáticas de Miles Davis y se encuentra en el álbum 'Relaxin’ with the Miles Davis Quintet', lanzado en 1958. Esta pieza fue posteriormente remezclada por el productor Teo Macero, quien es conocido por su trabajo innovador en la edición y producción de música jazz. 'So What' es famosa por su estructura modal y su influencia en el desarrollo del jazz moderno, y ha sido interpretada por numerosos artistas a lo largo de los años. Además, el álbum 'Relaxin’ with the Miles Davis Quintet' es considerado un clásico del jazz, destacando la colaboración entre Miles Davis y grandes músicos como John Coltrane y Bill Evans. La remezcla de Teo Macero ayudó a popularizar aún más esta obra maestra dentro del repertorio de jazz."
         },
@@ -10740,12 +10480,7 @@
         },
         {
           "question": "¿En qué año se lanzó el álbum 'Ella Fitzgerald Sings the George and Ira Gershwin Song Book', que se convirtió en un referente en el fandom de Ella Fitzgerald?",
-          "options": [
-            "1957",
-            "1960",
-            "1959",
-            "1962"
-          ],
+          "options": ["1957", "1960", "1959", "1962"],
           "correctAnswer": "1959",
           "trivia": "El álbum 'Ella Fitzgerald Sings the George and Ira Gershwin Song Book' fue lanzado en 1959 y es considerado una obra maestra en la carrera de Ella Fitzgerald. Este álbum no solo resalta la impresionante habilidad vocal de Fitzgerald, sino que también rinde homenaje a los compositores George y Ira Gershwin, cuyas obras han dejado una huella indeleble en el jazz y la música popular. Además, el álbum incluye una serie de canciones que se han vuelto icónicas, como 'Summertime' y 'I Got Rhythm'. La producción fue innovadora para su época, utilizando arreglos orquestales elaborados y una atención meticulosa a la calidad del sonido. La influencia de este trabajo se ha mantenido a lo largo de los años, consolidando a Ella Fitzgerald como una de las voces más importantes de la música del siglo XX."
         },
@@ -11244,34 +10979,19 @@
       "easy": [
         {
           "question": "¿Qué estilo musical, además del rhythm and blues, influyó notablemente en las canciones del álbum 'The Coasters' de The Coasters lanzado en 1957?",
-          "options": [
-            "Gospel",
-            "Country",
-            "Jazz",
-            "Rock and Roll"
-          ],
+          "options": ["Gospel", "Country", "Jazz", "Rock and Roll"],
           "correctAnswer": "Rock and Roll",
           "trivia": "El álbum 'The Coasters' de 1957 muestra una fuerte influencia del rock and roll, un género que estaba en plena expansión en esa época. The Coasters, conocidos por su estilo alegre y humorístico, fusionaron elementos de rhythm and blues con rock and roll, lo que ayudó a definir su sonido distintivo. Canciones como 'Searchin'' y 'Young Blood' reflejan esta mezcla, atrayendo a un público más amplio y contribuyendo a la popularidad del grupo. En este contexto, el rock and roll no solo sirvió como inspiración musical, sino que también se convirtió en un vehículo para que The Coasters contaran historias a través de sus letras. Este álbum es un claro ejemplo de cómo la fusión de géneros puede crear un impacto duradero en la música popular."
         },
         {
           "question": "¿Cuál fue una de las primeras canciones interpretadas por The Coasters en su álbum 'The Coasters' lanzado en 1957?",
-          "options": [
-            "Yakety Yak",
-            "Charlie Brown",
-            "Searchin'",
-            "Poison Ivy"
-          ],
+          "options": ["Yakety Yak", "Charlie Brown", "Searchin'", "Poison Ivy"],
           "correctAnswer": "Searchin'",
           "trivia": "La canción 'Searchin'' fue una de las primeras interpretaciones de The Coasters en su álbum 'The Coasters', lanzado en 1957. Este álbum es notable por su combinación de rock and roll y humor, lo que ayudó a definir el estilo del grupo. 'Searchin'' es conocida por su ritmo pegajoso y la narrativa de la letra, que trata sobre la búsqueda de un amor perdido. El éxito de esta canción ayudó a establecer a The Coasters como pioneros en el uso de la comedia en la música. Además, el álbum alcanzó el puesto 22 en la lista Billboard 200, consolidando la popularidad del grupo en la década de 1950."
         },
         {
           "question": "¿Qué canción del álbum 'The Coasters' de The Coasters, lanzado en 1957, se convirtió en un popular himno en eventos deportivos estadounidenses?",
-          "options": [
-            "Charlie Brown",
-            "Searchin'",
-            "Yakety Yak",
-            "Poison Ivy"
-          ],
+          "options": ["Charlie Brown", "Searchin'", "Yakety Yak", "Poison Ivy"],
           "correctAnswer": "Yakety Yak",
           "trivia": "La canción 'Yakety Yak' de The Coasters, perteneciente al álbum 'The Coasters' lanzado en 1957, es ampliamente reconocida como un himno en eventos deportivos, especialmente en el ámbito del fútbol americano y el béisbol. Su ritmo pegajoso y su letra divertida han hecho que esta canción se utilice frecuentemente para animar a las multitudes. Además, 'Yakety Yak' alcanzó el número uno en la lista Billboard Hot 100 en 1958, lo que ayudó a consolidar a The Coasters como un grupo influyente en la música popular de la época. Este álbum también incluye otros éxitos como 'Charlie Brown' y 'Searchin'', pero es 'Yakety Yak' la que ha perdurado en la cultura popular y los eventos deportivos. En total, The Coasters produjeron una serie de éxitos que combinaron el rhythm and blues con un toque de humor, lo que los hizo destacar en la escena musical de los años 50."
         }
@@ -11559,12 +11279,7 @@
         },
         {
           "question": "En el álbum 'Rock Around the Clock' de Bill Haley & His Comets, ¿cuál es el instrumento musical que destaca por su uso característico en la mayoría de las pistas y contribuye a la fusión del rock con ritmos de música country?",
-          "options": [
-            "Guitarra eléctrica",
-            "Saxofón",
-            "Piano",
-            "Contrabajo"
-          ],
+          "options": ["Guitarra eléctrica", "Saxofón", "Piano", "Contrabajo"],
           "correctAnswer": "Saxofón",
           "trivia": "El saxofón es el instrumento que destaca en el álbum 'Rock Around the Clock' de Bill Haley & His Comets, siendo fundamental en la creación de su sonido característico. Este álbum, lanzado en 1956, fue pionero en la popularización del rock and roll y ayudó a establecer el saxofón como un elemento esencial dentro de este género musical. El músico que tocó el saxofón en la mayoría de las pistas fue Johnny Grande, quien aportó un estilo vibrante que resonó con el público de la época. Además, el álbum incluye la famosa pista 'Rock Around the Clock', que se convirtió en un himno generacional y fue una de las primeras canciones de rock en alcanzar el número uno en las listas de Billboard. Este contexto histórico resalta cómo el uso del saxofón ayudó a definir la sonoridad del rock and roll en sus inicios."
         },
@@ -11641,23 +11356,13 @@
         },
         {
           "question": "¿Qué instrumento musical es predominantemente utilizado por Mose Allison en el álbum 'Back Country Suite' lanzado en 1957?",
-          "options": [
-            "Guitarra eléctrica",
-            "Piano",
-            "Bajo",
-            "Saxo tenor"
-          ],
+          "options": ["Guitarra eléctrica", "Piano", "Bajo", "Saxo tenor"],
           "correctAnswer": "Piano",
           "trivia": "La respuesta correcta es el piano, que es el instrumento principal que Mose Allison utiliza en 'Back Country Suite'. Este álbum, lanzado en 1957, es una destacada representación del estilo de jazz y blues de Allison, quien es reconocido por su habilidad excepcional en el piano y su distintiva voz. Además de su faceta como pianista, el álbum incluye composiciones que reflejan su capacidad para fusionar géneros musicales. Un hecho interesante es que Mose Allison fue influenciado por el blues de Mississippi y el jazz de Nueva Orleans, lo que se traduce en su música. 'Back Country Suite' es considerado un hito en su carrera y ha influido en muchos músicos posteriores."
         },
         {
           "question": "¿Qué instrumento de cuerda destaca en los arreglos musicales del álbum 'Back Country Suite' de Mose Allison, lanzado en 1957?",
-          "options": [
-            "Guitarra acústica",
-            "Banjo",
-            "Bajo eléctrico",
-            "Violín"
-          ],
+          "options": ["Guitarra acústica", "Banjo", "Bajo eléctrico", "Violín"],
           "correctAnswer": "Bajo eléctrico",
           "trivia": "El bajo eléctrico es un elemento esencial en los arreglos musicales de 'Back Country Suite' de Mose Allison, lo que añade una base rítmica sólida y un matiz moderno al álbum. Este trabajo combina influencias del jazz, blues y el country, reflejando la versatilidad de Allison como compositor e intérprete. Además, las grabaciones del álbum se llevaron a cabo en un momento en que el uso del bajo eléctrico en el jazz estaba en aumento, lo que contribuyó a la evolución del sonido en ese género. 'Back Country Suite' se considera un hito en la carrera de Mose Allison, destacando su habilidad para fusionar estilos y crear arreglos únicos que resuenan con su distintivo enfoque musical."
         }

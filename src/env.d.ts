@@ -7,18 +7,30 @@ declare namespace App {
   }
 }
 
-declare module 'astro:content' {
+declare module "astro:content" {
   interface Render {
-    '.md': Promise<{
-      Content: import('astro').MarkdownComponent;
-      headings: import('astro').MarkdownHeading[];
+    ".md": Promise<{
+      Content: import("astro").MarkdownComponent;
+      headings: import("astro").MarkdownHeading[];
       remarkPluginFrontmatter: Record<string, any>;
     }>;
   }
 
-  type BaseSchema = import('astro/zod').z.infer<typeof import('./content/config').baseKnowledgeSchema>;
-  
-  export type KnowledgeLanguage = 'de' | 'en' | 'es' | 'fr' | 'it' | 'pt' | 'da' | 'nl' | 'sv' | 'fi';
+  type BaseSchema = import("astro/zod").z.infer<
+    typeof import("./content/config").baseKnowledgeSchema
+  >;
+
+  export type KnowledgeLanguage =
+    | "de"
+    | "en"
+    | "es"
+    | "fr"
+    | "it"
+    | "pt"
+    | "da"
+    | "nl"
+    | "sv"
+    | "fi";
   export type KnowledgeCollectionKey = `knowledge-${KnowledgeLanguage}`;
 
   export type CollectionEntry<C extends KnowledgeCollectionKey> = {
@@ -27,7 +39,7 @@ declare module 'astro:content' {
     data: BaseSchema;
     body: string;
     slug: string;
-    render(): Promise<Render['.md']>;
+    render(): Promise<Render[".md"]>;
   };
 
   export type CollectionEntries<C extends KnowledgeCollectionKey> = {

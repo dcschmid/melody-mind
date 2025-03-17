@@ -104,12 +104,7 @@
         },
         {
           "question": "En quelle année l'album 'Sgt. Pepper’s Lonely Hearts Club Band' des Beatles a-t-il été reconnu par le Grammy Hall of Fame pour sa contribution à la musique et à la culture populaire?",
-          "options": [
-            "1978",
-            "1985",
-            "1998",
-            "2003"
-          ],
+          "options": ["1978", "1985", "1998", "2003"],
           "correctAnswer": "1998",
           "trivia": "L'album 'Sgt. Pepper’s Lonely Hearts Club Band', sorti en 1967, a été salué comme un jalon dans l'histoire de la musique, combinant des éléments de rock, de pop et de musique psychédélique. En 1998, il a été intronisé au Grammy Hall of Fame, une reconnaissance qui souligne son impact durable sur la culture musicale. Cet album a également remporté quatre Grammy Awards en 1968, dont celui de l'Album de l'année, devenant ainsi l'un des premiers albums de rock à recevoir ce prix. En plus de ses innovations sonores, 'Sgt. Pepper' est souvent cité pour sa pochette emblématique, qui a inspiré des générations d'artistes visuels."
         }
@@ -491,12 +486,7 @@
         },
         {
           "question": "Quel instrument original a été utilisé par The Beatles pour la première fois lors de l'enregistrement de l'album 'Revolver' en 1966?",
-          "options": [
-            "Un sitar",
-            "Un clavecin",
-            "Un theremin",
-            "Un harmonium"
-          ],
+          "options": ["Un sitar", "Un clavecin", "Un theremin", "Un harmonium"],
           "correctAnswer": "Un sitar",
           "trivia": "Lors de l'enregistrement de l'album 'Revolver', The Beatles ont utilisé un sitar pour la première fois sur la chanson 'Love You To', interprétée par George Harrison. Cet instrument, d'origine indienne, a permis au groupe d'explorer de nouvelles sonorités et d'incorporer des éléments de musique indienne dans leur travail. 'Revolver' est souvent considéré comme un tournant pour le groupe, tant sur le plan musical que dans l'expérimentation en studio. En plus du sitar, l'album a introduit diverses techniques d'enregistrement innovantes, y compris le bouclage et les effets de réverbération."
         },
@@ -866,12 +856,7 @@
       "medium": [
         {
           "question": "Quel artiste, influencé par l'album 'The Beatles (The White Album)' sorti en 1968, a déclaré que cet album a changé sa façon de concevoir la musique?",
-          "options": [
-            "David Bowie",
-            "Elton John",
-            "Prince",
-            "Jimi Hendrix"
-          ],
+          "options": ["David Bowie", "Elton John", "Prince", "Jimi Hendrix"],
           "correctAnswer": "David Bowie",
           "trivia": "David Bowie a souvent mentionné l'impact de 'The Beatles (The White Album)' sur son travail créatif. Cet album, avec sa diversité musicale et ses expérimentations, a ouvert de nouvelles voies pour de nombreux artistes des années 70, y compris Bowie, qui a été particulièrement influencé par la chanson 'While My Guitar Gently Weeps'. Par ailleurs, 'The White Album' est reconnu pour son mélange éclectique de styles, allant du folk au rock expérimental, ce qui a encouragé des artistes à explorer des sonorités variées dans leurs propres compositions. En effet, cet album a marqué un tournant dans la musique pop et rock, inspirant des générations d'artistes à travers le monde."
         },
@@ -1650,12 +1635,7 @@
       "easy": [
         {
           "question": "En quelle année l'album 'Mr. Tambourine Man' de The Byrds a-t-il été publié, marquant ainsi un tournant dans la musique folk rock?",
-          "options": [
-            "1963",
-            "1965",
-            "1967",
-            "1969"
-          ],
+          "options": ["1963", "1965", "1967", "1969"],
           "correctAnswer": "1965",
           "trivia": "L'album 'Mr. Tambourine Man' de The Byrds est sorti en 1965 et a joué un rôle essentiel dans le développement du genre folk rock. Ce disque a notamment inclut le single éponyme, qui est devenu un grand succès et a atteint la première place du Billboard Hot 100. La chanson principale, écrite par Bob Dylan, a été adaptée par le groupe avec un son distinctif de guitare jangle. En plus de cela, l'album a été salué pour son innovation et a influencé de nombreux artistes de la scène musicale de l'époque, marquant ainsi une nouvelle ère pour la musique populaire."
         },
@@ -2257,12 +2237,7 @@
         },
         {
           "question": "En quelle année John Coltrane a-t-il sorti son célèbre album 'A Love Supreme'?",
-          "options": [
-            "1960",
-            "1965",
-            "1968",
-            "1970"
-          ],
+          "options": ["1960", "1965", "1968", "1970"],
           "correctAnswer": "1965",
           "trivia": "L'album 'A Love Supreme' de John Coltrane est sorti en 1965 et est considéré comme l'un des chefs-d'œuvre du jazz. Cet album est une suite en quatre mouvements qui exprime la spiritualité et la quête personnelle de Coltrane. En plus d'être un succès critique, 'A Love Supreme' a également été un succès commercial, atteignant des classements notables dans le monde de la musique. L'album a été enregistré en décembre 1964, mais sa sortie a eu lieu l'année suivante, marquant un tournant important dans la carrière de Coltrane et dans l'histoire du jazz."
         }
@@ -2305,12 +2280,7 @@
       "hard": [
         {
           "question": "Quel classement a atteint l'album 'A Love Supreme' de John Coltrane dans le Billboard 200 lors de sa sortie en 1965?",
-          "options": [
-            "Top 10",
-            "Top 20",
-            "Top 50",
-            "Top 100"
-          ],
+          "options": ["Top 10", "Top 20", "Top 50", "Top 100"],
           "correctAnswer": "Top 50",
           "trivia": "À sa sortie, 'A Love Supreme' de John Coltrane a atteint le classement dans le Billboard 200, s'installant dans le Top 50. Cet album emblématique, considéré comme l'une des œuvres majeures du jazz, a été enregistré en décembre 1964 et publié en 1965. Il est souvent salué pour sa profondeur spirituelle et son innovation musicale, marquant un tournant dans la carrière de Coltrane. En plus de son succès commercial, 'A Love Supreme' a également reçu des critiques élogieuses et a eu une influence durable sur le jazz et la musique en général. L'album est divisé en quatre mouvements et est inspiré par la foi personnelle de Coltrane, ce qui lui confère une signification culturelle et historique profonde."
         },
@@ -3089,12 +3059,7 @@
       "medium": [
         {
           "question": "Dans l'album 'Odessey and Oracle' de The Zombies, quel est le symbole récurrent utilisé dans les paroles et l'artwork qui évoque la notion de passage du temps et de transformation?",
-          "options": [
-            "Une horloge",
-            "Un jardin",
-            "Un train",
-            "Une fleur"
-          ],
+          "options": ["Une horloge", "Un jardin", "Un train", "Une fleur"],
           "correctAnswer": "Une fleur",
           "trivia": "La fleur est un symbole récurrent dans l'album 'Odessey and Oracle' de The Zombies, représentant la beauté éphémère et le passage du temps. Les paroles de certaines chansons, comme 'Time of the Season', évoquent le cycle de la vie et l'importance des moments présents. De plus, la couverture de l'album, réalisée par le graphiste Terry Quirk, présente une illustration colorée et psychédélique avec des éléments floraux, renforçant ainsi cette thématique. L'album, sorti en 1968, est souvent considéré comme une œuvre emblématique du rock psychédélique, à travers son exploration lyrique et visuelle des émotions humaines et des changements inévitables de la vie."
         },
@@ -3217,12 +3182,7 @@
         },
         {
           "question": "Lors de leur tournée en 1966, dans quelle ville The Rolling Stones ont-ils présenté pour la première fois des titres de leur album 'Aftermath' en concert?",
-          "options": [
-            "Londres",
-            "New York",
-            "Los Angeles",
-            "Paris"
-          ],
+          "options": ["Londres", "New York", "Los Angeles", "Paris"],
           "correctAnswer": "Londres",
           "trivia": "The Rolling Stones ont lancé leur tournée en 1966 à Londres, où ils ont interprété des morceaux de leur album 'Aftermath', sorti la même année. Cet album est marqué par une évolution vers une écriture de chansons plus personnelle et introspective, et a été le premier à présenter des compositions entièrement originales du groupe. Des titres emblématiques comme 'Paint It Black' et 'Under My Thumb' ont été joués lors de cette tournée, qui a également été marquée par une forte affluence et enthousiasme des fans. La tournée de 1966 a été cruciale pour l'établissement des Stones comme l'un des plus grands groupes de rock de l'époque."
         },
@@ -3440,12 +3400,7 @@
       "medium": [
         {
           "question": "Quel a été le classement le plus élevé de l'album 'Surrealistic Pillow' de Jefferson Airplane dans le Billboard 200 en 1967?",
-          "options": [
-            "Numéro 1",
-            "Numéro 5",
-            "Numéro 11",
-            "Numéro 20"
-          ],
+          "options": ["Numéro 1", "Numéro 5", "Numéro 11", "Numéro 20"],
           "correctAnswer": "Numéro 11",
           "trivia": "L'album 'Surrealistic Pillow', sorti en 1967, a atteint la 11e position du Billboard 200, marquant un tournant pour Jefferson Airplane et le mouvement psychédélique. Cet album a été crucial pour le groupe, grâce à des titres emblématiques tels que 'Somebody to Love' et 'White Rabbit', qui ont également performé dans les charts. 'Surrealistic Pillow' est souvent considéré comme l'un des meilleurs albums de l'époque, et il a grandement contribué à établir Jefferson Airplane comme l'un des groupes phares de la scène musicale de San Francisco durant les années 60. En plus de son succès commercial, l'album a influencé de nombreux artistes et reste une référence dans l'histoire de la musique rock."
         },
@@ -3908,12 +3863,7 @@
       "medium": [
         {
           "question": "Quel single extrait de l'album 'Green River' de Creedence Clearwater Revival a atteint le plus haut rang dans le classement Billboard Hot 100 en 1969?",
-          "options": [
-            "Bad Moon Rising",
-            "Green River",
-            "Lodi",
-            "Commotion"
-          ],
+          "options": ["Bad Moon Rising", "Green River", "Lodi", "Commotion"],
           "correctAnswer": "Bad Moon Rising",
           "trivia": "Le single 'Bad Moon Rising' a atteint la 2ème place du Billboard Hot 100 en 1969, devenant l'un des plus grands succès de Creedence Clearwater Revival. L'album 'Green River', sorti en août 1969, a été un tournant pour le groupe, consolidant leur popularité dans le rock et le country. En plus de 'Bad Moon Rising', l'album comprend d'autres titres mémorables comme 'Green River' et 'Lodi', qui ont tous contribué à établir le son distinctif du groupe, caractérisé par des rythmes entraînants et des paroles évocatrices. Creedence Clearwater Revival a su capturer l'esprit de l'époque avec des thèmes qui résonnaient auprès d'un large public, ce qui a permis à l'album d'atteindre des ventes impressionnantes."
         },
@@ -4199,12 +4149,7 @@
         },
         {
           "question": "Quel était le meilleur classement atteint par l'album 'Crosby, Stills & Nash' dans le Billboard 200 après sa sortie en 1969?",
-          "options": [
-            "N° 1",
-            "N° 3",
-            "N° 5",
-            "N° 10"
-          ],
+          "options": ["N° 1", "N° 3", "N° 5", "N° 10"],
           "correctAnswer": "N° 6",
           "trivia": "L'album 'Crosby, Stills & Nash' a été un succès commercial retentissant, atteignant la sixième position du Billboard 200 en 1969. Cela a marqué un tournant dans la carrière des artistes, car il a solidifié leur statut dans le paysage musical de l'époque. Le trio a réussi à capitaliser sur le mouvement folk-rock qui prenait de l'ampleur, et leur harmonie vocale unique a captivé un large public. En plus de son succès commercial, l'album a également été acclamé par la critique, mettant en avant des chansons mémorables comme 'Suite: Judy Blue Eyes'. De plus, il a été certifié disque d'or et a contribué à l'établissement de Crosby, Stills & Nash comme l'un des groupes emblématiques de la musique des années 60."
         }
@@ -4259,12 +4204,7 @@
       "medium": [
         {
           "question": "Quel a été le classement maximal atteint par l'album 'Their Satanic Majesties Request' des Rolling Stones dans le Billboard 200 aux États-Unis?",
-          "options": [
-            "N°1",
-            "N°3",
-            "N°5",
-            "N°10"
-          ],
+          "options": ["N°1", "N°3", "N°5", "N°10"],
           "correctAnswer": "N°3",
           "trivia": "L'album 'Their Satanic Majesties Request', sorti en 1967, a atteint la troisième position du Billboard 200 aux États-Unis, ce qui témoigne de son succès commercial. Cet album, souvent considéré comme une réponse à l'album 'Sgt. Pepper's Lonely Hearts Club Band' des Beatles, a marqué une période de créativité audacieuse pour The Rolling Stones. Bien que l'album ait reçu des critiques mitigées à l'époque, il a réussi à se vendre à plus d'un million d'exemplaires aux États-Unis, illustrant l'engouement du public pour le groupe. En plus de sa performance dans les charts, 'Their Satanic Majesties Request' a également contribué à la réputation des Rolling Stones en tant que pionniers du rock psychédélique."
         },
@@ -4294,12 +4234,7 @@
       "hard": [
         {
           "question": "Quel a été le classement le plus élevé atteint par l'album 'Their Satanic Majesties Request' de The Rolling Stones dans le Billboard 200 lors de sa sortie en 1967?",
-          "options": [
-            "1er",
-            "3ème",
-            "5ème",
-            "8ème"
-          ],
+          "options": ["1er", "3ème", "5ème", "8ème"],
           "correctAnswer": "3ème",
           "trivia": "L'album 'Their Satanic Majesties Request' des Rolling Stones a atteint la 3ème position du Billboard 200 en 1967, ce qui a marqué une étape significative dans leur carrière commerciale. Cet album, souvent considéré comme une réponse au 'Sgt. Pepper's Lonely Hearts Club Band' des Beatles, a été le premier album studio du groupe à être enregistré après leur passage à la contre-culture des années 1960. Malgré des critiques mitigées à sa sortie, il a connu un succès commercial notable, avec des titres tels que 'Ruby Tuesday' et 'She's a Rainbow' qui ont contribué à sa popularité. Ce projet a également placé les Rolling Stones dans une lumière expérimentale qui a influencé leur direction musicale dans les années suivantes."
         },
@@ -4621,12 +4556,7 @@
         },
         {
           "question": "Lors de leur tournée en 1969, Led Zeppelin a donné un concert mémorable au Royal Albert Hall à Londres. Quel mois cette performance a-t-elle eu lieu?",
-          "options": [
-            "Janvier",
-            "Février",
-            "Mars",
-            "Avril"
-          ],
+          "options": ["Janvier", "Février", "Mars", "Avril"],
           "correctAnswer": "Janvier",
           "trivia": "Led Zeppelin a offert un concert emblématique au Royal Albert Hall le 9 janvier 1970, mais il est souvent associé à l'année 1969 en raison de l'impact de leur album 'Led Zeppelin', sorti en janvier 1969. Ce concert est considéré comme l'un des moments forts de leur carrière et a contribué à établir leur réputation sur la scène musicale mondiale. D'ailleurs, la tournée de 1969 a été cruciale pour le groupe, leur permettant de se faire connaître en Europe et aux États-Unis. En effet, c'est durant cette période que leur style unique, mélangeant rock, blues et folk, a commencé à captiver un large public."
         },
@@ -4762,12 +4692,7 @@
       "hard": [
         {
           "question": "Quel a été le classement le plus élevé de l'album 'Dusty in Memphis' de Dusty Springfield dans le Billboard 200 à sa sortie en 1969?",
-          "options": [
-            "Numéro 10",
-            "Numéro 12",
-            "Numéro 14",
-            "Numéro 8"
-          ],
+          "options": ["Numéro 10", "Numéro 12", "Numéro 14", "Numéro 8"],
           "correctAnswer": "Numéro 10",
           "trivia": "L'album 'Dusty in Memphis' de Dusty Springfield a atteint la 10ème position dans le Billboard 200 après sa sortie en 1969. Cet album est souvent considéré comme l'un des meilleurs de sa carrière, et il a été salué pour son mélange de soul et de pop. La chanson emblématique 'Son of a Preacher Man', extraite de cet album, est devenue un grand succès et a contribué à la renommée de l'album. De plus, 'Dusty in Memphis' a été enregistré à Memphis, Tennessee, et a bénéficié de la production de célèbres musiciens du label Atlantic Records, ce qui lui a donné un son distinctif et influent à l'époque."
         },
@@ -6153,12 +6078,7 @@
         },
         {
           "question": "Quel producteur célèbre a collaboré avec The Stooges pour leur album éponyme 'The Stooges', sorti en 1969?",
-          "options": [
-            "Iggy Pop",
-            "John Cale",
-            "Tony Visconti",
-            "Brian Eno"
-          ],
+          "options": ["Iggy Pop", "John Cale", "Tony Visconti", "Brian Eno"],
           "correctAnswer": "John Cale",
           "trivia": "L'album 'The Stooges', sorti en 1969, a été produit par John Cale, ancien membre du Velvet Underground. Cette collaboration a joué un rôle crucial dans le son brut et énergique qui caractérise l'album. Cale, connu pour son approche avant-gardiste de la musique, a aidé à façonner l'esthétique punk naissante des Stooges. L'album présente des morceaux emblématiques tels que 'I Wanna Be Your Dog' et '1969', qui ont tous deux bénéficié du style de production innovant de Cale. En plus de sa production, John Cale a également contribué à l'enregistrement en apportant des instruments variés et en encourageant un environnement créatif et expérimental."
         }
@@ -6235,12 +6155,7 @@
         },
         {
           "question": "Quel instrument orchestral a été largement utilisé par The Moody Blues dans l'album 'Days of Future Passed' de 1967 pour créer une ambiance symphonique?",
-          "options": [
-            "Le violon",
-            "La trompette",
-            "Le saxophone",
-            "Le piano"
-          ],
+          "options": ["Le violon", "La trompette", "Le saxophone", "Le piano"],
           "correctAnswer": "Le violon",
           "trivia": "Dans l'album 'Days of Future Passed', The Moody Blues a intégré l'utilisation du violon pour enrichir leurs compositions, créant ainsi une fusion unique entre le rock et la musique classique. Cet album, qui est considéré comme l'un des premiers albums de rock symphonique, a été enregistré en 1967 et a marqué un tournant dans la carrière du groupe. Le morceau 'Nights in White Satin', un des titres phares de l'album, met en avant les arrangements orchestraux, notamment avec les violons, qui ont contribué à son succès durable. L'album a également été un précurseur dans l'utilisation d'orchestrations dans le rock, influençant de nombreux artistes par la suite."
         }
@@ -6294,12 +6209,7 @@
         },
         {
           "question": "En quelle année The Moody Blues a-t-il sorti son célèbre album 'Days of Future Passed', qui a introduit le concept d'album rock symphonique et marqué un tournant dans la carrière du groupe?",
-          "options": [
-            "1965",
-            "1967",
-            "1969",
-            "1971"
-          ],
+          "options": ["1965", "1967", "1969", "1971"],
           "correctAnswer": "1967",
           "trivia": "L'album 'Days of Future Passed' a été publié en 1967 et est souvent considéré comme l'un des premiers albums de rock progressif. Ce projet novateur a été marqué par l'intégration d'éléments orchestraux, notamment grâce à la collaboration avec le London Festival Orchestra. L'album a également été un succès commercial, atteignant la première place des charts britanniques, et a contribué à établir The Moody Blues comme un pionnier dans le genre. Ce travail a également été influencé par les mouvements culturels de l'époque, notamment le psychédélisme, et a ouvert la voie à de nombreux artistes qui ont suivi cette approche musicale."
         },
@@ -6400,12 +6310,7 @@
       "hard": [
         {
           "question": "En quelle année The Byrds a-t-il remporté le Grammy Award pour leur performance live de la chanson 'Turn! Turn! Turn!' ?",
-          "options": [
-            "1966",
-            "1967",
-            "1968",
-            "1969"
-          ],
+          "options": ["1966", "1967", "1968", "1969"],
           "correctAnswer": "1967",
           "trivia": "The Byrds a remporté le Grammy Award en 1967 pour leur performance de 'Turn! Turn! Turn!', une chanson emblématique de leur album du même nom sorti en 1965. Cette chanson est devenue un classique du rock folk et est largement considérée comme un de leurs plus grands succès. Le titre est basé sur un passage du livre de l'Ecclésiaste, et sa mélodie distincte a contribué à établir The Byrds comme des pionniers du genre folk-rock. En 1965, l'album 'Turn! Turn! Turn!' a également atteint la première place des charts américains, consolidant leur statut dans l'industrie musicale."
         },
@@ -6422,12 +6327,7 @@
         },
         {
           "question": "Quel a été le classement le plus élevé atteint par l'album 'Turn! Turn! Turn!' de The Byrds dans le Billboard 200 à sa sortie en 1965?",
-          "options": [
-            "Numéro 1",
-            "Numéro 2",
-            "Numéro 4",
-            "Numéro 6"
-          ],
+          "options": ["Numéro 1", "Numéro 2", "Numéro 4", "Numéro 6"],
           "correctAnswer": "Numéro 2",
           "trivia": "L'album 'Turn! Turn! Turn!' de The Byrds a atteint la seconde place du Billboard 200, consolidant leur statut de pionniers du folk rock dans les années 60. Sorti en décembre 1965, cet album a connu un grand succès commercial, en grande partie grâce à son single phare, 'Turn! Turn! Turn! (To Everything There Is a Season)', qui a atteint la première place du Billboard Hot 100. Cet album est également notable pour sa fusion innovante de la musique folk et du rock, caractéristique du son distinctif de The Byrds. 'Turn! Turn! Turn!' a ainsi contribué à façonner le paysage musical de l'époque, influençant de nombreux artistes par la suite."
         }
@@ -6447,12 +6347,7 @@
       "easy": [
         {
           "question": "Quel morceau emblématique de l'album 'Somethin’ Else' de Cannonball Adderley, sorti en 1958, a connu un grand succès et est souvent considéré comme un classique du jazz?",
-          "options": [
-            "Autumn Leaves",
-            "So What",
-            "Blue in Green",
-            "Take Five"
-          ],
+          "options": ["Autumn Leaves", "So What", "Blue in Green", "Take Five"],
           "correctAnswer": "Autumn Leaves",
           "trivia": "Le morceau 'Autumn Leaves', interprété par Cannonball Adderley sur l'album 'Somethin’ Else', est devenu un classique du jazz. Sorti en 1958, cet album a été enregistré avec une formation remarquable, incluant le pianiste Bill Evans et le contrebassiste Sam Jones. 'Somethin’ Else' est souvent salué pour sa mélodie émotive et ses arrangements sophistiqués, ce qui a contribué à son influence dans le monde du jazz. De plus, cet album est considéré comme un pilier de la musique jazz des années 60, inspirant de nombreux musiciens par la suite."
         },
@@ -6890,12 +6785,7 @@
         },
         {
           "question": "Quel a été le classement le plus élevé de l'album 'Animal Tracks' de The Animals dans le palmarès des albums britanniques en 1965?",
-          "options": [
-            "Numéro 1",
-            "Numéro 2",
-            "Numéro 3",
-            "Numéro 4"
-          ],
+          "options": ["Numéro 1", "Numéro 2", "Numéro 3", "Numéro 4"],
           "correctAnswer": "Numéro 2",
           "trivia": "L'album 'Animal Tracks' de The Animals a atteint la deuxième place dans le classement des albums britanniques en 1965, marquant un moment clé dans la carrière du groupe. Ce succès commercial a été alimenté par des singles populaires tels que 'We've Gotta Get Out of This Place', qui ont également rencontré un grand succès dans les charts. De plus, The Animals ont réussi à capitaliser sur le mouvement musical de l'époque, mêlant rock, blues et influences de la musique folk, ce qui a contribué à l'attrait de l'album. 'Animal Tracks' a aussi été un reflet de l'évolution de la scène musicale britannique dans les années 60, où des groupes comme The Animals ont joué un rôle majeur dans l'émergence du 'British Invasion' sur le marché américain."
         }
@@ -7043,12 +6933,7 @@
         },
         {
           "question": "Quel classement a atteint l'album 'White Light/White Heat' de The Velvet Underground dans le Billboard 200 à sa sortie en 1968?",
-          "options": [
-            "Numéro 30",
-            "Numéro 100",
-            "Numéro 70",
-            "Numéro 50"
-          ],
+          "options": ["Numéro 30", "Numéro 100", "Numéro 70", "Numéro 50"],
           "correctAnswer": "Numéro 200",
           "trivia": "L'album 'White Light/White Heat' de The Velvet Underground, sorti en 1968, a atteint la 200ème place du Billboard 200. Bien que cet album soit considéré comme un classique et une œuvre influente dans le rock alternatif et le punk, il n'a pas connu un grand succès commercial à sa sortie. En effet, 'White Light/White Heat' est célèbre pour sa sonorité avant-gardiste et ses thèmes provocateurs, ce qui a contribué à sa reconnaissance ultérieure comme un album culte. La chanson titre et 'Sister Ray' sont particulièrement notables pour leur expérimentation musicale, marquant un tournant dans la carrière du groupe."
         },
@@ -7102,12 +6987,7 @@
       "hard": [
         {
           "question": "Quel a été le classement le plus élevé atteint par l'album 'White Light/White Heat' de The Velvet Underground sur le Billboard 200 à sa sortie en 1968?",
-          "options": [
-            "33ème",
-            "60ème",
-            "49ème",
-            "75ème"
-          ],
+          "options": ["33ème", "60ème", "49ème", "75ème"],
           "correctAnswer": "49ème",
           "trivia": "L'album 'White Light/White Heat' de The Velvet Underground, sorti en janvier 1968, a atteint un classement élevé de 49ème place sur le Billboard 200. Bien que cet album ne soit pas devenu un succès commercial immédiat, il a été extrêmement influent dans le développement de la musique alternative et du rock expérimental. Le groupe, souvent considéré comme précurseur du punk rock, a introduit des thèmes audacieux et des sonorités nouvelles qui ont marqué une génération d'artistes. En dépit d'un accueil critique mitigé à sa sortie, 'White Light/White Heat' est aujourd'hui célébré comme un chef-d'œuvre essentiel du rock."
         },
@@ -7277,12 +7157,7 @@
         },
         {
           "question": "En quelle année Laura Nyro a-t-elle sorti son célèbre album 'Eli and the Thirteenth Confession'?",
-          "options": [
-            "1966",
-            "1968",
-            "1970",
-            "1965"
-          ],
+          "options": ["1966", "1968", "1970", "1965"],
           "correctAnswer": "1968",
           "trivia": "Laura Nyro a sorti 'Eli and the Thirteenth Confession' en 1968, un album qui a marqué un tournant dans sa carrière. Cet opus, souvent salué pour sa fusion innovante de genres tels que le jazz, le rock et le pop, contient des titres emblématiques comme 'Stoned Soul Picnic' et 'Eli's Comin''. Cet album a reçu des critiques élogieuses et a influencé de nombreux artistes, renforçant ainsi la réputation de Nyro comme une compositrice de talent. De plus, cet album a été reconnu pour son écriture lyrique poignante et son approche originale de la musique populaire de l'époque."
         },
@@ -7358,12 +7233,7 @@
         },
         {
           "question": "Quel artiste influent, connu pour son style de fusion entre rock et soul, a souvent cité Laura Nyro et son album 'Eli and the Thirteenth Confession' de 1968 comme une source d'inspiration majeure dans ses compositions ?",
-          "options": [
-            "Billy Joel",
-            "Joni Mitchell",
-            "Carole King",
-            "Prince"
-          ],
+          "options": ["Billy Joel", "Joni Mitchell", "Carole King", "Prince"],
           "correctAnswer": "Joni Mitchell",
           "trivia": "Joni Mitchell a souvent exprimé son admiration pour Laura Nyro, notamment pour son album 'Eli and the Thirteenth Confession', qui a eu un impact significatif sur la scène musicale des années 1960 et 1970. Nyro est reconnue pour sa capacité à fusionner des éléments de jazz, de soul et de pop, et son influence se retrouve dans le travail de nombreux artistes, y compris Mitchell. En plus de son succès commercial, 'Eli and the Thirteenth Confession' a été salué pour ses textes poétiques et son approche innovante de la structure des chansons, ce qui a ouvert la voie à des artistes féminines dans le domaine de la musique rock et folk. Laura Nyro a également inspiré de nombreux musiciens à explorer des thématiques plus profondes et personnelles dans leurs œuvres."
         }
@@ -7394,12 +7264,7 @@
         },
         {
           "question": "Quelle chanson emblématique de l'album 'Fresh Cream' de Cream, sorti en 1966, a marqué les performances du groupe sur scène ?",
-          "options": [
-            "Toad",
-            "Crossroads",
-            "I Feel Free",
-            "Spoonful"
-          ],
+          "options": ["Toad", "Crossroads", "I Feel Free", "Spoonful"],
           "correctAnswer": "I Feel Free",
           "trivia": "La chanson 'I Feel Free' est l'un des morceaux les plus mémorables de l'album 'Fresh Cream' de Cream, sorti en 1966. Ce titre a été particulièrement marquant lors des performances live du groupe, contribuant à leur réputation de musiciens innovants et énergiques. Cream, composé de Eric Clapton, Jack Bruce et Ginger Baker, a su captiver le public avec ce morceau, qui mélange rock psychédélique et blues. 'I Feel Free' a également été un des premiers singles du groupe, atteignant le succès dans les charts britanniques. Cet album a jeté les bases du rock progressif et a influencé de nombreux artistes par la suite."
         },
@@ -7440,12 +7305,7 @@
         },
         {
           "question": "Dans les paroles de quelle chanson de l'album 'Fresh Cream' de Cream, les thèmes de l'amour perdu et de la nostalgie sont particulièrement mis en avant?",
-          "options": [
-            "I Feel Free",
-            "Sleepy Time Time",
-            "N.S.U.",
-            "Dreaming"
-          ],
+          "options": ["I Feel Free", "Sleepy Time Time", "N.S.U.", "Dreaming"],
           "correctAnswer": "Sleepy Time Time",
           "trivia": "La chanson 'Sleepy Time Time', présente sur l'album 'Fresh Cream' sorti en 1966, évoque des sentiments de mélancolie et de rêve. Les paroles illustrent un voyage introspectif, où l'artiste réfléchit à des thèmes universels tels que l'amour et le passage du temps. Cream, composé de Eric Clapton, Jack Bruce et Ginger Baker, a su fusionner le blues et le rock psychédélique, créant ainsi une ambiance unique. 'Fresh Cream' est souvent cité comme l'un des premiers exemples de rock psychédélique, et l'album a été très influent dans le développement de ce genre musical."
         }
@@ -7581,12 +7441,7 @@
         },
         {
           "question": "Quel morceau de l'album 'Aerial Ballet' de Harry Nilsson, sorti en 1968, contient des éléments musicaux qui font référence à la chanson 'The Monkey Song', une œuvre antérieure de l'artiste?",
-          "options": [
-            "One",
-            "Mr. Bojangles",
-            "Cuddly Toy",
-            "Don't Forget Me"
-          ],
+          "options": ["One", "Mr. Bojangles", "Cuddly Toy", "Don't Forget Me"],
           "correctAnswer": "Cuddly Toy",
           "trivia": "La chanson 'Cuddly Toy' de l'album 'Aerial Ballet' de Harry Nilsson intègre des références musicales et stylistiques à son œuvre précédente, notamment à 'The Monkey Song'. Nilsson, reconnu pour sa capacité à mélanger des genres variés, utilise des harmonies vocales qui rappellent ses compositions antérieures. De plus, cet album est souvent considéré comme un tournant dans sa carrière, où il a commencé à explorer des thèmes plus personnels et des arrangements plus sophistiqués. En 1968, Nilsson a également été influencé par la scène musicale de Los Angeles, ce qui a contribué à forger son son distinctif qui se retrouve dans 'Aerial Ballet'."
         },
@@ -7674,12 +7529,7 @@
         },
         {
           "question": "Dans quel film culte de 1970 peut-on entendre la musique de l'album 'Hot Rats' de Frank Zappa, notamment le morceau 'Peaches en Regalia'?",
-          "options": [
-            "Easy Rider",
-            "200 Motels",
-            "Performance",
-            "Woodstock"
-          ],
+          "options": ["Easy Rider", "200 Motels", "Performance", "Woodstock"],
           "correctAnswer": "200 Motels",
           "trivia": "La musique de l'album 'Hot Rats' de Frank Zappa a été intégrée dans le film '200 Motels', qui est sorti en 1971. Ce film, qui mélange animation et prises de vue réelles, explore la vie de tournées des musiciens et la culture du rock dans les années 1970. 'Peaches en Regalia', l'un des morceaux les plus emblématiques de l'album, est souvent considéré comme un chef-d'œuvre instrumental, combinant jazz, rock et musique contemporaine. 'Hot Rats', sorti en 1969, a marqué un tournant dans la carrière de Zappa, le propulsant vers une plus grande reconnaissance en tant que compositeur et innovateur musical."
         }
@@ -7851,12 +7701,7 @@
       "easy": [
         {
           "question": "Quel a été le meilleur classement de l'album 'Blues Breakers with Eric Clapton' de John Mayall & the Bluesbreakers dans les charts britanniques lors de sa sortie en 1966 ?",
-          "options": [
-            "1ère place",
-            "3ème place",
-            "5ème place",
-            "10ème place"
-          ],
+          "options": ["1ère place", "3ème place", "5ème place", "10ème place"],
           "correctAnswer": "3ème place",
           "trivia": "L'album 'Blues Breakers with Eric Clapton' de John Mayall & the Bluesbreakers a atteint la 3ème place des charts britanniques en 1966. Cet album est souvent considéré comme l'un des disques essentiels du blues britannique et a contribué à propulser la carrière d'Eric Clapton. Il est également célèbre pour sa pochette emblématique, qui montre Clapton avec une guitare Les Paul. De plus, cet album a joué un rôle clé dans l'établissement du son blues-rock, influençant de nombreux musiciens par la suite."
         },
@@ -7873,12 +7718,7 @@
         },
         {
           "question": "Quel instrument de musique a été particulièrement mis en avant dans les arrangements de l'album 'Blues Breakers with Eric Clapton' de John Mayall & the Bluesbreakers sorti en 1966?",
-          "options": [
-            "Harmonica",
-            "Piano",
-            "Guitare électrique",
-            "Saxophone"
-          ],
+          "options": ["Harmonica", "Piano", "Guitare électrique", "Saxophone"],
           "correctAnswer": "Guitare électrique",
           "trivia": "Dans l'album 'Blues Breakers with Eric Clapton', la guitare électrique, interprétée par Eric Clapton, est un élément central des arrangements musicaux. Clapton utilise des riffs puissants et des solos inspirés du blues, ce qui a contribué à définir le son de l'album. Par ailleurs, cet album est souvent cité comme l'un des meilleurs enregistrements de blues britannique, et il a joué un rôle clé dans l'établissement de Clapton en tant que guitariste de renom. En plus de Clapton, d'autres musiciens influents ont participé à cet album, contribuant à sa richesse musicale et à son impact sur le genre."
         }
@@ -7897,23 +7737,13 @@
         },
         {
           "question": "En quelle année John Mayall & the Bluesbreakers ont-ils reçu le prix du meilleur album de blues pour 'Blues Breakers with Eric Clapton', qui a marqué un tournant dans leur carrière musicale?",
-          "options": [
-            "1967",
-            "1968",
-            "1966",
-            "1969"
-          ],
+          "options": ["1967", "1968", "1966", "1969"],
           "correctAnswer": "1968",
           "trivia": "En 1968, John Mayall & the Bluesbreakers ont été récompensés par le prix du meilleur album de blues pour 'Blues Breakers with Eric Clapton' lors des British Blues Awards. Cet album, sorti en 1966, est souvent considéré comme un jalon dans le genre blues britannique, ayant contribué à populariser le blues en Grande-Bretagne et à influencer de nombreux artistes. Eric Clapton, à l'époque membre du groupe, a joué un rôle crucial en apportant son style de guitare distinctif, ce qui a renforcé la renommée de l'album. De plus, le disque a été enregistré dans une période où le blues était en pleine renaissance, aidant à établir la réputation de Mayall en tant que figure clé de la scène musicale britannique."
         },
         {
           "question": "Quel a été le classement le plus élevé de l'album 'Blues Breakers with Eric Clapton' de John Mayall & the Bluesbreakers dans les charts britanniques lors de sa sortie en 1966 ?",
-          "options": [
-            "N°1",
-            "N°3",
-            "N°6",
-            "N°10"
-          ],
+          "options": ["N°1", "N°3", "N°6", "N°10"],
           "correctAnswer": "N°3",
           "trivia": "L'album 'Blues Breakers with Eric Clapton', sorti en 1966, a atteint la 3ème position des charts britanniques, marquant un tournant significatif dans la carrière de John Mayall & the Bluesbreakers. Cet album, souvent considéré comme l'un des meilleurs albums de blues britanniques, a non seulement propulsé Clapton sous les projecteurs, mais a également établi Mayall comme une figure centrale du blues en Grande-Bretagne. La présence d'Eric Clapton, alors membre du groupe Cream, a contribué à donner à cet album une grande visibilité, et sa virtuosité à la guitare a été largement saluée. Ce disque est également célèbre pour sa composition de blues électrique et pour avoir influencé de nombreux guitaristes à venir."
         }
@@ -8553,12 +8383,7 @@
       "easy": [
         {
           "question": "Dans l'album 'The Freewheelin’ Bob Dylan', quel symbole important de la liberté apparaît dans les paroles de la chanson 'Blowin' in the Wind'?",
-          "options": [
-            "Le vent",
-            "Un oiseau",
-            "Une route",
-            "Une rivière"
-          ],
+          "options": ["Le vent", "Un oiseau", "Une route", "Une rivière"],
           "correctAnswer": "Le vent",
           "trivia": "La chanson 'Blowin' in the Wind' de Bob Dylan, tirée de l'album 'The Freewheelin’ Bob Dylan' sorti en 1963, utilise le vent comme symbole de la liberté et de la quête des réponses aux questions sociopolitiques de son époque. Le vent représente à la fois l'idée d'une vérité insaisissable et le mouvement vers un changement. Cette chanson, devenue un hymne des droits civiques, évoque des thèmes de paix et de justice, ce qui reflète le climat social des années 1960. De plus, l'album a contribué à établir Bob Dylan comme une voix de la génération, utilisant des métaphores puissantes et des images évocatrices dans ses paroles."
         },
@@ -8610,12 +8435,7 @@
         },
         {
           "question": "En quelle année une chanson de l'album 'The Freewheelin’ Bob Dylan' a-t-elle été utilisée comme hymne lors de manifestations pour les droits civiques aux États-Unis?",
-          "options": [
-            "1963",
-            "1965",
-            "1967",
-            "1960"
-          ],
+          "options": ["1963", "1965", "1967", "1960"],
           "correctAnswer": "1963",
           "trivia": "La chanson 'Blowin' in the Wind' de l'album 'The Freewheelin’ Bob Dylan', sorti en 1963, est devenue un hymne emblématique des mouvements pour les droits civiques aux États-Unis. Cette chanson pose des questions profondes sur la paix, la liberté et les droits humains, capturant l'esprit de l'époque. Bob Dylan a écrit ce morceau alors qu'il était profondément influencé par les luttes sociales de son temps, notamment celles menées par des figures comme Martin Luther King Jr. En 1963, 'Blowin' in the Wind' a été interprétée lors de nombreuses manifestations, soulignant son impact durable sur la musique et la société."
         }
@@ -8751,12 +8571,7 @@
         },
         {
           "question": "Quel instrument à cordes, peu commun dans le rock de l'époque, a été utilisé pour les arrangements musicaux de la chanson 'Waterloo Sunset' sur l'album 'Something Else by The Kinks' de 1967 ?",
-          "options": [
-            "Le banjo",
-            "Le sitar",
-            "Le violoncelle",
-            "La mandoline"
-          ],
+          "options": ["Le banjo", "Le sitar", "Le violoncelle", "La mandoline"],
           "correctAnswer": "Le violoncelle",
           "trivia": "La chanson 'Waterloo Sunset' se distingue par son utilisation du violoncelle, un choix d'instrumentation qui apporte une texture riche et mélancolique à l'arrangement. The Kinks, sous la direction de Ray Davies, ont innové en intégrant des éléments classiques à leur musique rock, ce qui reflète une tendance plus large de l'époque vers des arrangements musicaux sophistiqués. L'album 'Something Else by The Kinks', sorti en 1967, est souvent considéré comme un tournant dans la carrière du groupe, marquant une évolution vers des thèmes plus personnels et des compositions plus élaborées. De plus, cet album a été bien accueilli par la critique et a influencé de nombreux artistes dans les décennies suivantes."
         },
@@ -9372,12 +9187,7 @@
       "easy": [
         {
           "question": "En quelle année l'album 'We’re Only in It for the Money' de The Mothers of Invention a-t-il été nominé pour un Grammy Award dans la catégorie Meilleur Album de Musique Contemporaine?",
-          "options": [
-            "1968",
-            "1969",
-            "1970",
-            "1971"
-          ],
+          "options": ["1968", "1969", "1970", "1971"],
           "correctAnswer": "1969",
           "trivia": "L'album 'We’re Only in It for the Money' de The Mothers of Invention, sorti en 1968, a été nominé pour un Grammy Award en 1969 dans la catégorie Meilleur Album de Musique Contemporaine. Cet album est souvent considéré comme un chef-d'œuvre du rock expérimental et un commentaire satirique sur la société américaine de l'époque. Notamment, il a été enregistré en grande partie à Los Angeles et présente des éléments de musique psychédélique et de musique avant-gardiste. L'album a également fait l'objet de controverses en raison de sa couverture, qui parodiait l'album 'Sgt. Pepper's Lonely Hearts Club Band' des Beatles, reflétant ainsi l'esprit contestataire des années 60."
         },
@@ -9511,12 +9321,7 @@
         },
         {
           "question": "Dans quel état Otis Redding a-t-il trouvé l'inspiration pour écrire certaines chansons de l'album 'The Dock of the Bay' sorti en 1968?",
-          "options": [
-            "Californie",
-            "Tennessee",
-            "Géorgie",
-            "New York"
-          ],
+          "options": ["Californie", "Tennessee", "Géorgie", "New York"],
           "correctAnswer": "Californie",
           "trivia": "Otis Redding a écrit plusieurs des chansons de l'album 'The Dock of the Bay' en s'inspirant de ses expériences vécues sur la côte californienne. En particulier, la chanson titre 'Sittin' On The Dock of the Bay' a été influencée par ses moments de détente près de l'eau à San Francisco. Cet album, sorti en 1968, est devenu emblématique et a marqué un tournant dans sa carrière, atteignant des sommets dans les charts. En plus de sa mélodie mémorable, l'album aborde des thèmes de solitude et de réflexion, caractéristiques des sentiments d'Otis durant cette période."
         }
@@ -10085,12 +9890,7 @@
         },
         {
           "question": "Quel artiste ou groupe a été fortement influencé par le style musical et l'image des Ronettes après la sortie de l'album 'Presenting the Fabulous Ronettes' en 1964 ?",
-          "options": [
-            "Les Beach Boys",
-            "The Supremes",
-            "The Beatles",
-            "Cher"
-          ],
+          "options": ["Les Beach Boys", "The Supremes", "The Beatles", "Cher"],
           "correctAnswer": "The Supremes",
           "trivia": "L'album 'Presenting the Fabulous Ronettes', sorti en 1964, a eu un impact considérable sur le paysage musical de l'époque. The Ronettes, avec leur son distinctif et leur style glamoureux, ont établi une norme qui a influencé de nombreux artistes, notamment The Supremes. Ces dernières ont été inspirées par le mélange unique de pop et de soul que les Ronettes ont perfectionné, contribuant ainsi à la popularisation du girl group dans les années 1960. De plus, l'album a inclus des succès tels que 'Be My Baby', qui est devenu un modèle pour d'autres groupes de filles à suivre. Les productions de Phil Spector, qui ont également marqué cet album, ont établi des techniques d'enregistrement qui ont influencé des générations d'artistes."
         },
@@ -10378,12 +10178,7 @@
       "hard": [
         {
           "question": "Quel membre des Bee Gees a révélé dans des interviews ultérieures avoir été particulièrement influencé par ses expériences d'enfance en Australie lors de l'écriture des chansons de l'album 'Bee Gees’ 1st' en 1967 ?",
-          "options": [
-            "Barry Gibb",
-            "Robin Gibb",
-            "Maurice Gibb",
-            "Andy Gibb"
-          ],
+          "options": ["Barry Gibb", "Robin Gibb", "Maurice Gibb", "Andy Gibb"],
           "correctAnswer": "Barry Gibb",
           "trivia": "Barry Gibb a souvent mentionné l'impact de son enfance en Australie sur son écriture musicale, et cela a joué un rôle crucial dans le processus créatif des Bee Gees lors de l'enregistrement de 'Bee Gees’ 1st'. Cet album a marqué le début de leur succès international et a été le premier opus du groupe, comportant des titres emblématiques comme 'New York Mining Disaster 1941'. De plus, les harmonies vocales et les arrangements élaborés qui caractérisent cet album ont été influencés par leur désir de créer une musique qui résonnait avec leurs souvenirs d'enfance et leurs origines familiales. Les Bee Gees ont également été influencés par le paysage musical des années 1960, intégrant des éléments de pop et de rock dans leur son unique."
         },
@@ -10564,12 +10359,7 @@
         },
         {
           "question": "Quel musicien célèbre a fait une apparition spéciale sur l'album 'Having a Rave Up with The Yardbirds' de The Yardbirds en 1965?",
-          "options": [
-            "Eric Clapton",
-            "Jimmy Page",
-            "Jeff Beck",
-            "Mick Jagger"
-          ],
+          "options": ["Eric Clapton", "Jimmy Page", "Jeff Beck", "Mick Jagger"],
           "correctAnswer": "Jeff Beck",
           "trivia": "L'album 'Having a Rave Up with The Yardbirds', sorti en 1965, présente une collaboration notable avec Jeff Beck, qui était à l'époque le guitariste du groupe. Beck a contribué à plusieurs morceaux de l'album, apportant son style de jeu innovant et sa virtuosité. C'est aussi durant cette période que The Yardbirds ont commencé à expérimenter des sonorités psychédéliques, ce qui a eu un impact significatif sur le rock britannique. En outre, l'album inclut des titres emblématiques tels que 'Heart Full of Soul' et 'Shapes of Things', qui témoignent de l'évolution musicale du groupe. Cette collaboration avec Jeff Beck est souvent considérée comme un moment clé dans l'histoire du rock."
         }
@@ -11184,12 +10974,7 @@
         },
         {
           "question": "Dans l'album 'Goodbye' de Cream sorti en 1969, quel symbole, souvent interprété comme une représentation de la séparation et du passage du temps, est particulièrement mis en avant dans les paroles de la chanson 'Badge'?",
-          "options": [
-            "L'étoile filante",
-            "Le papillon",
-            "Le train",
-            "La mer"
-          ],
+          "options": ["L'étoile filante", "Le papillon", "Le train", "La mer"],
           "correctAnswer": "Le train",
           "trivia": "Dans 'Badge', la métaphore du train évoque le voyage et le départ, symbolisant l'éloignement et les changements inévitables de la vie. Cream, formé par Eric Clapton, Jack Bruce et Ginger Baker, a souvent utilisé des symboles dans ses paroles pour exprimer des émotions profondes. En plus, cet album, qui a marqué la fin du groupe, démontrait une certaine nostalgie et une réflexion sur le temps qui passe, renforcée par son artwork minimaliste représentant une simple illustration. 'Goodbye' est souvent considéré comme un adieu, non seulement au public, mais aussi à l'ère du rock psychédélique de la fin des années 1960."
         }
@@ -11946,12 +11731,7 @@
       "easy": [
         {
           "question": "En quelle année l'album 'Abbey Road' de The Beatles a-t-il été publié, marquant un tournant significatif dans l'histoire de la musique populaire mondiale ?",
-          "options": [
-            "1965",
-            "1967",
-            "1969",
-            "1971"
-          ],
+          "options": ["1965", "1967", "1969", "1971"],
           "correctAnswer": "1969",
           "trivia": "L'album 'Abbey Road' a été publié en 1969 et est souvent considéré comme l'un des chefs-d'œuvre des Beatles. Il a introduit des morceaux emblématiques tels que 'Come Together' et 'Here Comes the Sun', qui ont eu un impact durable sur la musique. De plus, la pochette de l'album, montrant les membres du groupe traversant le passage piéton d'Abbey Road, est devenue une image iconique de la culture populaire. Cet album a également marqué la fin de l'ère des Beatles, car c'était leur dernier album enregistré ensemble, même si 'Let It Be' a été publié plus tard."
         },
@@ -12215,12 +11995,7 @@
       "medium": [
         {
           "question": "Lors de la tournée de promotion de l'album 'In the Court of the Crimson King' en 1969, dans quelle ville King Crimson a-t-il donné l'un de ses premiers concerts significatifs?",
-          "options": [
-            "Londres",
-            "Paris",
-            "New York",
-            "Amsterdam"
-          ],
+          "options": ["Londres", "Paris", "New York", "Amsterdam"],
           "correctAnswer": "Londres",
           "trivia": "King Crimson a donné l'un de ses premiers concerts marquants à Londres en 1969, peu après la sortie de leur album 'In the Court of the Crimson King'. Ce concert a eu lieu au célèbre lieu de la scène musicale, le 'Fillmore East', où le groupe a pu présenter ses compositions novatrices au public. L'album, souvent considéré comme l'un des piliers du rock progressif, a été bien accueilli, ce qui a aidé King Crimson à établir sa réputation. Au cours de cette tournée, le groupe a également joué des morceaux emblématiques tels que '21st Century Schizoid Man', qui sont devenus des classiques du genre. La fusion de jazz, de rock et d'éléments symphoniques dans leur musique a captivé de nombreux fans lors de ces performances."
         },
@@ -12670,12 +12445,7 @@
         },
         {
           "question": "Quel morceau de l'album 'In a Silent Way' de Miles Davis a reçu des critiques particulièrement élogieuses pour son atmosphère éthérée et innovante?",
-          "options": [
-            "Shhh/Peaceful",
-            "Bitches Brew",
-            "So What",
-            "All Blues"
-          ],
+          "options": ["Shhh/Peaceful", "Bitches Brew", "So What", "All Blues"],
           "correctAnswer": "Shhh/Peaceful",
           "trivia": "Le morceau 'Shhh/Peaceful' de l'album 'In a Silent Way' a été acclamé par les critiques pour sa composition immersive et son ambiance unique, marquant une transition vers le jazz fusion. Cet album, sorti en 1969, est souvent considéré comme l'un des premiers exemples de l'utilisation de l'électronique dans le jazz, intégrant des effets sonores et une production novatrice. En plus de Miles Davis, des musiciens de renom tels que Joe Zawinul et Wayne Shorter ont contribué à sa création, renforçant son impact sur la scène musicale. 'In a Silent Way' a également été salué pour sa structure libre et son approche expérimentale, ce qui a influencé de nombreux artistes par la suite."
         }

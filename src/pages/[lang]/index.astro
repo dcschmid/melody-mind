@@ -43,11 +43,7 @@ const keywords = t("meta.keywords");
     <p class="description">{description}</p>
 
     <div class="buttonGroup">
-      <a 
-        class="button" 
-        href={`/${lang}/gamehome`} 
-        aria-label="Zum Spiel"
-      >
+      <a class="button" href={`/${lang}/gamehome`} aria-label="Zum Spiel">
         <span>Weiter</span>
       </a>
     </div>
@@ -106,6 +102,7 @@ const keywords = t("meta.keywords");
     min-width: var(--min-touch-target);
     min-height: var(--min-touch-target);
     padding: var(--padding-small) var(--padding-large);
+    border-radius: var(--border-radius);
 
     font-size: var(--button-font-size);
     font-weight: 600;
@@ -113,7 +110,6 @@ const keywords = t("meta.keywords");
     text-decoration: none;
 
     background-color: var(--highlight-color);
-    border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 
     transition: all var(--transition-speed);

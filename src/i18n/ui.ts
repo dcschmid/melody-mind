@@ -137,7 +137,8 @@ export const ui = {
     "meta.keywords":
       "Musik Quiz, Musikspiel, Song Quiz, Künstler Quiz, Online Musikquiz, Musik Trivia, Melody Mind, Musik Ratespiel",
     "knowledge.title": "Musik-Wissensdatenbank",
-    "knowledge.intro": "Tauche ein in die faszinierende Welt der Musikgeschichte. Hier findest du spannende Artikel über verschiedene Musikepochen, Genres und deren Entwicklung. Entdecke interessante Fakten und erweitere dein Musikwissen.",
+    "knowledge.intro":
+      "Tauche ein in die faszinierende Welt der Musikgeschichte. Hier findest du spannende Artikel über verschiedene Musikepochen, Genres und deren Entwicklung. Entdecke interessante Fakten und erweitere dein Musikwissen.",
     "knowledge.search.placeholder": "Suchen...",
     "knowledge.filter.all": "Alle Keywords",
     "game.remaining": "verbleibend",
@@ -267,7 +268,8 @@ export const ui = {
     "meta.keywords":
       "Music Quiz, Music Game, Song Quiz, Artist Quiz, Online Music Quiz, Music Trivia, Melody Mind, Music Guessing Game",
     "knowledge.title": "Music Knowledge Database",
-    "knowledge.intro": "Dive into the fascinating world of music history. Here you'll find engaging articles about different music eras, genres, and their evolution. Discover interesting facts and expand your musical knowledge.",
+    "knowledge.intro":
+      "Dive into the fascinating world of music history. Here you'll find engaging articles about different music eras, genres, and their evolution. Discover interesting facts and expand your musical knowledge.",
     "knowledge.search.placeholder": "Search...",
     "knowledge.filter.all": "All Keywords",
     "game.remaining": "remaining",
@@ -397,7 +399,8 @@ export const ui = {
     "meta.keywords":
       "Quiz Musical, Juego de Música, Quiz de Canciones, Quiz de Artistas, Quiz Musical Online, Trivia Musical, Melody Mind, Juego de Adivinanzas Musicales",
     "knowledge.title": "Base de Conocimientos Musicales",
-    "knowledge.intro": "Sumérgete en el fascinante mundo de la historia de la música. Aquí encontrarás artículos interesantes sobre diferentes épocas musicales, géneros y su evolución. Descubre datos interesantes y amplía tus conocimientos musicales.",
+    "knowledge.intro":
+      "Sumérgete en el fascinante mundo de la historia de la música. Aquí encontrarás artículos interesantes sobre diferentes épocas musicales, géneros y su evolución. Descubre datos interesantes y amplía tus conocimientos musicales.",
     "knowledge.search.placeholder": "Buscar...",
     "knowledge.filter.all": "Todas las Palabras Clave",
     "game.remaining": "restante",
@@ -527,7 +530,8 @@ export const ui = {
     "meta.keywords":
       "Quiz Musical, Jeu de Musique, Quiz de Chansons, Quiz d'Artistes, Quiz Musical en Ligne, Trivia Musicale, Melody Mind, Jeu de Devinettes Musicales",
     "knowledge.title": "Base de Connaissances Musicales",
-    "knowledge.intro": "Plongez dans le monde fascinant de l'histoire de la musique. Vous trouverez ici des articles passionnants sur différentes époques musicales, genres et leur évolution. Découvrez des faits intéressants et élargissez vos connaissances musicales.",
+    "knowledge.intro":
+      "Plongez dans le monde fascinant de l'histoire de la musique. Vous trouverez ici des articles passionnants sur différentes époques musicales, genres et leur évolution. Découvrez des faits intéressants et élargissez vos connaissances musicales.",
     "knowledge.search.placeholder": "Rechercher...",
     "knowledge.filter.all": "Tous les Mots-clés",
     "game.remaining": "restant",
@@ -658,7 +662,8 @@ export const ui = {
     "meta.keywords":
       "Quiz Musicale, Gioco Musicale, Quiz Canzoni, Quiz Artisti, Quiz Musicale Online, Trivia Musicale, Melody Mind, Gioco Indovina la Musica",
     "knowledge.title": "Database delle Conoscenze Musicali",
-    "knowledge.intro": "Immergiti nel fascinante mondo della storia della musica. Qui troverai articoli interessanti su diverse epoche musicali, generi e la loro evoluzione. Scopri fatti interessanti e amplia le tue conoscenze musicali.",
+    "knowledge.intro":
+      "Immergiti nel fascinante mondo della storia della musica. Qui troverai articoli interessanti su diverse epoche musicali, generi e la loro evoluzione. Scopri fatti interessanti e amplia le tue conoscenze musicali.",
     "knowledge.search.placeholder": "Cerca...",
     "knowledge.filter.all": "Tutte le Parole Chiave",
     "game.remaining": "rimanente",
@@ -677,7 +682,8 @@ export const ui = {
     "difficulty.medium": "Médio",
     "difficulty.hard": "Difícil",
     "login.welcome": "Bem-vindo ao Melody Mind",
-    "login.description": "Teste seus conhecimentos musicais em nosso quiz interativo. Reconheça músicas, álbuns e artistas, acumule pontos e torne-se o campeão da música. Jogue agora gratuitamente!",
+    "login.description":
+      "Teste seus conhecimentos musicais em nosso quiz interativo. Reconheça músicas, álbuns e artistas, acumule pontos e torne-se o campeão da música. Jogue agora gratuitamente!",
     "login.spotify": "Entrar com Spotify",
     "login.github": "Entrar com GitHub",
     "login.google": "Entrar com Google",
@@ -686,7 +692,8 @@ export const ui = {
     "game.welcome": "Bem-vindo",
     "game.genre.list": "Seleção de Gênero",
     "game.search.label": "Buscar um gênero",
-    "game.search.description": "A lista é filtrada automaticamente durante a digitação",
+    "game.search.description":
+      "A lista é filtrada automaticamente durante a digitação",
     "game.genre.play.label": "Jogar",
     "game.genre.image": "Imagem de capa para",
     "game.no.results": "Nenhum resultado encontrado",
@@ -700,7 +707,8 @@ export const ui = {
     "category.image.alt": "Imagem de capa",
     "highscore.title": "Classificação do Melody Mind",
     "highscore.about.title": "Sobre a Classificação",
-    "highscore.about.text": "Aqui você pode ver os melhores jogadores em cada categoria e o top 10 de todos os tempos. Mostre suas habilidades e trabalhe seu caminho até o topo para garantir seu lugar no ranking. Seja você um especialista em um gênero específico ou queira se destacar em todas as categorias - sua jornada começa aqui. Boa sorte e divirta-se jogando!",
+    "highscore.about.text":
+      "Aqui você pode ver os melhores jogadores em cada categoria e o top 10 de todos os tempos. Mostre suas habilidades e trabalhe seu caminho até o topo para garantir seu lugar no ranking. Seja você um especialista em um gênero específico ou queira se destacar em todas as categorias - sua jornada começa aqui. Boa sorte e divirta-se jogando!",
     "highscore.total": "Pontuação Total",
     "highscore.total.top10": "Top 10 Jogadores de Todos os Tempos",
     "highscore.rank": "Posição",
@@ -710,7 +718,8 @@ export const ui = {
     "highscore.your.rank": "Sua Posição",
     "highscore.rank.position": "Posição {rank}",
     "user.achievements.title": "Meus Discos Conquistados",
-    "user.achievements.empty": "Você ainda não ganhou nenhum disco. Jogue algumas rodadas para ganhar conquistas!",
+    "user.achievements.empty":
+      "Você ainda não ganhou nenhum disco. Jogue algumas rodadas para ganhar conquistas!",
     "user.achievements.list.label": "Lista de discos conquistados",
     "nav.menu.open": "Abrir menu",
     "nav.menu.close": "Fechar menu",
@@ -721,14 +730,16 @@ export const ui = {
     "nav.menu.logout": "Sair",
     "nav.skip.main": "Pular para o conteúdo principal",
     "game.end.title": "Fim de Jogo!",
-    "game.end.motivation": "Muito bem! Mais algumas rodadas e você será um campeão!",
+    "game.end.motivation":
+      "Muito bem! Mais algumas rodadas e você será um campeão!",
     "game.end.score": "Pontos obtidos:",
     "game.end.newgame": "Novo Jogo",
     "game.feedback.resolution": "Resolução",
     "game.feedback.media.section": "Seção de Mídia",
     "game.feedback.audio.preview": "Prévia da Música",
     "game.feedback.subtitles": "Legendas",
-    "game.feedback.audio.unsupported": "Seu navegador não suporta reprodução de áudio.",
+    "game.feedback.audio.unsupported":
+      "Seu navegador não suporta reprodução de áudio.",
     "game.feedback.streaming.links": "Links de Streaming de Música",
     "game.feedback.listen.spotify": "Ouvir no Spotify",
     "game.feedback.listen.deezer": "Ouvir no Deezer",
@@ -785,12 +796,15 @@ export const ui = {
     "game.answer.wrong": "Errado! A resposta correta era: {answer}",
     "error.invalid.question": "Questão inválida ou sem opções disponíveis",
     "error.no.initial.question": "Nenhuma questão inicial válida encontrada",
-    "error.no.albums.found": "Nenhum álbum encontrado para a categoria {category}",
-    "meta.keywords": "Quiz Musical, Jogo de Música, Quiz de Músicas, Quiz de Artistas, Quiz Musical Online, Trivia Musical, Melody Mind, Jogo de Adivinhação Musical",
+    "error.no.albums.found":
+      "Nenhum álbum encontrado para a categoria {category}",
+    "meta.keywords":
+      "Quiz Musical, Jogo de Música, Quiz de Músicas, Quiz de Artistas, Quiz Musical Online, Trivia Musical, Melody Mind, Jogo de Adivinhação Musical",
     "knowledge.title": "Base de Conhecimento Musical",
-    "knowledge.intro": "Mergulhe no fascinante mundo da história da música. Aqui você encontrará artigos interessantes sobre diferentes épocas musicais, gêneros e sua evolução. Descubra fatos interessantes e expanda seu conhecimento musical.",
+    "knowledge.intro":
+      "Mergulhe no fascinante mundo da história da música. Aqui você encontrará artigos interessantes sobre diferentes épocas musicais, gêneros e sua evolução. Descubra fatos interessantes e expanda seu conhecimento musical.",
     "knowledge.search.placeholder": "Pesquisar...",
-    "knowledge.filter.all": "Todas as Palavras-chave"
+    "knowledge.filter.all": "Todas as Palavras-chave",
   },
   da: {
     "nav.home": "Hjem",
@@ -803,7 +817,8 @@ export const ui = {
     "difficulty.medium": "Mellem",
     "difficulty.hard": "Svær",
     "login.welcome": "Velkommen til Melody Mind",
-    "login.description": "Test din musikviden i vores interaktive quiz. Genkend sange, albums og kunstnere, saml point og bliv musikmester. Spil gratis nu!",
+    "login.description":
+      "Test din musikviden i vores interaktive quiz. Genkend sange, albums og kunstnere, saml point og bliv musikmester. Spil gratis nu!",
     "login.spotify": "Log ind med Spotify",
     "login.github": "Log ind med GitHub",
     "login.google": "Log ind med Google",
@@ -826,7 +841,8 @@ export const ui = {
     "category.image.alt": "Coverbillede",
     "highscore.title": "Melody Mind Rangliste",
     "highscore.about.title": "Om Ranglisten",
-    "highscore.about.text": "Her kan du se de bedste spillere i hver kategori og top 10 gennem tiden. Vis dine evner og arbejd dig til tops for at sikre din plads i ranglisten. Uanset om du er specialist i en bestemt genre eller vil være god i alle kategorier - din rejse begynder her. God fornøjelse!",
+    "highscore.about.text":
+      "Her kan du se de bedste spillere i hver kategori og top 10 gennem tiden. Vis dine evner og arbejd dig til tops for at sikre din plads i ranglisten. Uanset om du er specialist i en bestemt genre eller vil være god i alle kategorier - din rejse begynder her. God fornøjelse!",
     "highscore.total": "Samlet Score",
     "highscore.total.top10": "Alle Tiders Top 10 Spillere",
     "highscore.rank": "Placering",
@@ -836,7 +852,8 @@ export const ui = {
     "highscore.your.rank": "Din Placering",
     "highscore.rank.position": "Placering {rank}",
     "user.achievements.title": "Mine Vundne Plader",
-    "user.achievements.empty": "Du har endnu ikke vundet nogen plader. Spil nogle runder for at få præstationer!",
+    "user.achievements.empty":
+      "Du har endnu ikke vundet nogen plader. Spil nogle runder for at få præstationer!",
     "user.achievements.list.label": "Liste over vundne plader",
     "nav.menu.open": "Åbn menu",
     "nav.menu.close": "Luk menu",
@@ -847,14 +864,16 @@ export const ui = {
     "nav.menu.logout": "Log ud",
     "nav.skip.main": "Spring til hovedindhold",
     "game.end.title": "Spil slut!",
-    "game.end.motivation": "Godt klaret! Nogle få runder mere og du er en mester!",
+    "game.end.motivation":
+      "Godt klaret! Nogle få runder mere og du er en mester!",
     "game.end.score": "Opnåede point:",
     "game.end.newgame": "Nyt Spil",
     "game.feedback.resolution": "Opløsning",
     "game.feedback.media.section": "Mediesektion",
     "game.feedback.audio.preview": "Musikforhåndsvisning",
     "game.feedback.subtitles": "Undertekster",
-    "game.feedback.audio.unsupported": "Din browser understøtter ikke lydafspilning.",
+    "game.feedback.audio.unsupported":
+      "Din browser understøtter ikke lydafspilning.",
     "game.feedback.streaming.links": "Musik Streaming Links",
     "game.feedback.listen.spotify": "Lyt på Spotify",
     "game.feedback.listen.deezer": "Lyt på Deezer",
@@ -909,14 +928,17 @@ export const ui = {
     "game.options.label": "Svarmuligheder",
     "game.answer.correct": "Korrekt! {points} point + {bonus} bonuspoint",
     "game.answer.wrong": "Forkert! Det rigtige svar var: {answer}",
-    "error.invalid.question": "Ugyldigt spørgsmål eller ingen tilgængelige muligheder",
+    "error.invalid.question":
+      "Ugyldigt spørgsmål eller ingen tilgængelige muligheder",
     "error.no.initial.question": "Intet gyldigt startspørgsmål fundet",
     "error.no.albums.found": "Ingen albums fundet for kategorien {category}",
-    "meta.keywords": "Musik Quiz, Musikspil, Sang Quiz, Kunstner Quiz, Online Musik Quiz, Musik Trivia, Melody Mind, Musik Gættespil",
+    "meta.keywords":
+      "Musik Quiz, Musikspil, Sang Quiz, Kunstner Quiz, Online Musik Quiz, Musik Trivia, Melody Mind, Musik Gættespil",
     "knowledge.title": "Musikvidensbase",
-    "knowledge.intro": "Dyk ned i musikhistoriens fascinerende verden. Her finder du spændende artikler om forskellige musikalske epoker, genrer og deres udvikling. Opdag interessante fakta og udvid din musikalske viden.",
+    "knowledge.intro":
+      "Dyk ned i musikhistoriens fascinerende verden. Her finder du spændende artikler om forskellige musikalske epoker, genrer og deres udvikling. Opdag interessante fakta og udvid din musikalske viden.",
     "knowledge.search.placeholder": "Søg...",
-    "knowledge.filter.all": "Alle Nøgleord"
+    "knowledge.filter.all": "Alle Nøgleord",
   },
   nl: {
     "nav.home": "Home",
@@ -929,7 +951,8 @@ export const ui = {
     "difficulty.medium": "Gemiddeld",
     "difficulty.hard": "Moeilijk",
     "login.welcome": "Welkom bij Melody Mind",
-    "login.description": "Test je muziekkennis in onze interactieve quiz. Herken liedjes, albums en artiesten, verzamel punten en word de muziekkampioen. Speel nu gratis!",
+    "login.description":
+      "Test je muziekkennis in onze interactieve quiz. Herken liedjes, albums en artiesten, verzamel punten en word de muziekkampioen. Speel nu gratis!",
     "login.spotify": "Inloggen met Spotify",
     "login.github": "Inloggen met GitHub",
     "login.google": "Inloggen met Google",
@@ -938,7 +961,8 @@ export const ui = {
     "game.welcome": "Welkom",
     "game.genre.list": "Genre Selectie",
     "game.search.label": "Zoek een genre",
-    "game.search.description": "De lijst wordt automatisch gefilterd tijdens het typen",
+    "game.search.description":
+      "De lijst wordt automatisch gefilterd tijdens het typen",
     "game.genre.play.label": "Spelen",
     "game.genre.image": "Coverafbeelding voor",
     "game.no.results": "Geen resultaten gevonden",
@@ -952,7 +976,8 @@ export const ui = {
     "category.image.alt": "Coverafbeelding",
     "highscore.title": "Melody Mind Scorebord",
     "highscore.about.title": "Over het Scorebord",
-    "highscore.about.text": "Hier zie je de beste spelers in elke categorie en de top 10 aller tijden. Toon je vaardigheden en werk je naar de top om je plaats in de ranglijst te bemachtigen. Of je nu specialist bent in een bepaald genre of wilt uitblinken in alle categorieën - je reis begint hier. Veel succes en veel speelplezier!",
+    "highscore.about.text":
+      "Hier zie je de beste spelers in elke categorie en de top 10 aller tijden. Toon je vaardigheden en werk je naar de top om je plaats in de ranglijst te bemachtigen. Of je nu specialist bent in een bepaald genre of wilt uitblinken in alle categorieën - je reis begint hier. Veel succes en veel speelplezier!",
     "highscore.total": "Totale Score",
     "highscore.total.top10": "Top 10 Spelers Aller Tijden",
     "highscore.rank": "Rang",
@@ -962,7 +987,8 @@ export const ui = {
     "highscore.your.rank": "Jouw Rang",
     "highscore.rank.position": "Rang {rank}",
     "user.achievements.title": "Mijn Verdiende Platen",
-    "user.achievements.empty": "Je hebt nog geen platen gewonnen. Speel een paar rondes om prestaties te verdienen!",
+    "user.achievements.empty":
+      "Je hebt nog geen platen gewonnen. Speel een paar rondes om prestaties te verdienen!",
     "user.achievements.list.label": "Lijst van verdiende platen",
     "nav.menu.open": "Menu openen",
     "nav.menu.close": "Menu sluiten",
@@ -973,14 +999,16 @@ export const ui = {
     "nav.menu.logout": "Uitloggen",
     "nav.skip.main": "Ga naar hoofdinhoud",
     "game.end.title": "Spel afgelopen!",
-    "game.end.motivation": "Goed gedaan! Nog een paar rondes en je bent een kampioen!",
+    "game.end.motivation":
+      "Goed gedaan! Nog een paar rondes en je bent een kampioen!",
     "game.end.score": "Behaalde punten:",
     "game.end.newgame": "Nieuw Spel",
     "game.feedback.resolution": "Oplossing",
     "game.feedback.media.section": "Media Sectie",
     "game.feedback.audio.preview": "Muziekvoorbeeld",
     "game.feedback.subtitles": "Ondertitels",
-    "game.feedback.audio.unsupported": "Je browser ondersteunt geen audioweergave.",
+    "game.feedback.audio.unsupported":
+      "Je browser ondersteunt geen audioweergave.",
     "game.feedback.streaming.links": "Muziek Streaming Links",
     "game.feedback.listen.spotify": "Luister op Spotify",
     "game.feedback.listen.deezer": "Luister op Deezer",
@@ -1038,11 +1066,13 @@ export const ui = {
     "error.invalid.question": "Ongeldige vraag of geen opties beschikbaar",
     "error.no.initial.question": "Geen geldige beginvraag gevonden",
     "error.no.albums.found": "Geen albums gevonden voor categorie {category}",
-    "meta.keywords": "Muziek Quiz, Muziekspel, Lied Quiz, Artiest Quiz, Online Muziek Quiz, Muziek Trivia, Melody Mind, Muziek Raadspel",
+    "meta.keywords":
+      "Muziek Quiz, Muziekspel, Lied Quiz, Artiest Quiz, Online Muziek Quiz, Muziek Trivia, Melody Mind, Muziek Raadspel",
     "knowledge.title": "Muziekkennis Database",
-    "knowledge.intro": "Duik in de fascinerende wereld van de muziekgeschiedenis. Hier vind je interessante artikelen over verschillende muziektijdperken, genres en hun evolutie. Ontdek interessante feiten en breid je muziekkennis uit.",
+    "knowledge.intro":
+      "Duik in de fascinerende wereld van de muziekgeschiedenis. Hier vind je interessante artikelen over verschillende muziektijdperken, genres en hun evolutie. Ontdek interessante feiten en breid je muziekkennis uit.",
     "knowledge.search.placeholder": "Zoeken...",
-    "knowledge.filter.all": "Alle Trefwoorden"
+    "knowledge.filter.all": "Alle Trefwoorden",
   },
   sv: {
     "nav.home": "Hem",
@@ -1055,7 +1085,8 @@ export const ui = {
     "difficulty.medium": "Medel",
     "difficulty.hard": "Svår",
     "login.welcome": "Välkommen till Melody Mind",
-    "login.description": "Testa dina musikkunskaper i vårt interaktiva quiz. Känn igen låtar, album och artister, samla poäng och bli musikmästare. Spela gratis nu!",
+    "login.description":
+      "Testa dina musikkunskaper i vårt interaktiva quiz. Känn igen låtar, album och artister, samla poäng och bli musikmästare. Spela gratis nu!",
     "login.spotify": "Logga in med Spotify",
     "login.github": "Logga in med GitHub",
     "login.google": "Logga in med Google",
@@ -1078,7 +1109,8 @@ export const ui = {
     "category.image.alt": "Omslagsbild",
     "highscore.title": "Melody Mind Resultattavla",
     "highscore.about.title": "Om Resultattavlan",
-    "highscore.about.text": "Här kan du se de bästa spelarna i varje kategori och topp 10 genom tiderna. Visa dina färdigheter och arbeta dig till toppen för att säkra din plats i rankingen. Oavsett om du är specialist inom en viss genre eller vill utmärka dig i alla kategorier - din resa börjar här. Lycka till och ha kul medan du spelar!",
+    "highscore.about.text":
+      "Här kan du se de bästa spelarna i varje kategori och topp 10 genom tiderna. Visa dina färdigheter och arbeta dig till toppen för att säkra din plats i rankingen. Oavsett om du är specialist inom en viss genre eller vill utmärka dig i alla kategorier - din resa börjar här. Lycka till och ha kul medan du spelar!",
     "highscore.total": "Total Poäng",
     "highscore.total.top10": "Topp 10 Spelare Genom Tiderna",
     "highscore.rank": "Rangordning",
@@ -1088,7 +1120,8 @@ export const ui = {
     "highscore.your.rank": "Din Rangordning",
     "highscore.rank.position": "Plats {rank}",
     "user.achievements.title": "Mina Vunna Skivor",
-    "user.achievements.empty": "Du har inte vunnit några skivor än. Spela några rundor för att tjäna prestationer!",
+    "user.achievements.empty":
+      "Du har inte vunnit några skivor än. Spela några rundor för att tjäna prestationer!",
     "user.achievements.list.label": "Lista över vunna skivor",
     "nav.menu.open": "Öppna meny",
     "nav.menu.close": "Stäng meny",
@@ -1099,14 +1132,16 @@ export const ui = {
     "nav.menu.logout": "Logga ut",
     "nav.skip.main": "Hoppa till huvudinnehåll",
     "game.end.title": "Spelet är slut!",
-    "game.end.motivation": "Bra jobbat! Några rundor till och du är en mästare!",
+    "game.end.motivation":
+      "Bra jobbat! Några rundor till och du är en mästare!",
     "game.end.score": "Uppnådda poäng:",
     "game.end.newgame": "Nytt Spel",
     "game.feedback.resolution": "Upplösning",
     "game.feedback.media.section": "Media Sektion",
     "game.feedback.audio.preview": "Musikförhandsvisning",
     "game.feedback.subtitles": "Undertexter",
-    "game.feedback.audio.unsupported": "Din webbläsare stöder inte ljuduppspelning.",
+    "game.feedback.audio.unsupported":
+      "Din webbläsare stöder inte ljuduppspelning.",
     "game.feedback.streaming.links": "Musik Streaming Länkar",
     "game.feedback.listen.spotify": "Lyssna på Spotify",
     "game.feedback.listen.deezer": "Lyssna på Deezer",
@@ -1161,14 +1196,17 @@ export const ui = {
     "game.options.label": "Svarsalternativ",
     "game.answer.correct": "Korrekt! {points} poäng + {bonus} bonuspoäng",
     "game.answer.wrong": "Fel! Rätt svar var: {answer}",
-    "error.invalid.question": "Ogiltig fråga eller inga alternativ tillgängliga",
+    "error.invalid.question":
+      "Ogiltig fråga eller inga alternativ tillgängliga",
     "error.no.initial.question": "Ingen giltig startfråga hittades",
     "error.no.albums.found": "Inga album hittades för kategorin {category}",
-    "meta.keywords": "Musik Quiz, Musikspel, Låt Quiz, Artist Quiz, Online Musik Quiz, Musik Trivia, Melody Mind, Musik Gissningsspel",
+    "meta.keywords":
+      "Musik Quiz, Musikspel, Låt Quiz, Artist Quiz, Online Musik Quiz, Musik Trivia, Melody Mind, Musik Gissningsspel",
     "knowledge.title": "Musikkunskapsdatabas",
-    "knowledge.intro": "Dyk in i musikhistoriens fascinerande värld. Här hittar du intressanta artiklar om olika musikaliska epoker, genrer och deras utveckling. Upptäck intressanta fakta och utöka din musikaliska kunskap.",
+    "knowledge.intro":
+      "Dyk in i musikhistoriens fascinerande värld. Här hittar du intressanta artiklar om olika musikaliska epoker, genrer och deras utveckling. Upptäck intressanta fakta och utöka din musikaliska kunskap.",
     "knowledge.search.placeholder": "Sök...",
-    "knowledge.filter.all": "Alla Nyckelord"
+    "knowledge.filter.all": "Alla Nyckelord",
   },
   fi: {
     "nav.home": "Koti",
@@ -1181,7 +1219,8 @@ export const ui = {
     "difficulty.medium": "Keskitaso",
     "difficulty.hard": "Vaikea",
     "login.welcome": "Tervetuloa Melody Mindiin",
-    "login.description": "Testaa musiikkitietämystäsi interaktiivisessa tietovisassamme. Tunnista kappaleita, albumeita ja artisteja, kerää pisteitä ja tule musiikin mestariksi. Pelaa nyt ilmaiseksi!",
+    "login.description":
+      "Testaa musiikkitietämystäsi interaktiivisessa tietovisassamme. Tunnista kappaleita, albumeita ja artisteja, kerää pisteitä ja tule musiikin mestariksi. Pelaa nyt ilmaiseksi!",
     "login.spotify": "Kirjaudu Spotifylla",
     "login.github": "Kirjaudu GitHubilla",
     "login.google": "Kirjaudu Googlella",
@@ -1190,7 +1229,8 @@ export const ui = {
     "game.welcome": "Tervetuloa",
     "game.genre.list": "Genren valinta",
     "game.search.label": "Etsi genreä",
-    "game.search.description": "Lista suodattuu automaattisesti kirjoittaessasi",
+    "game.search.description":
+      "Lista suodattuu automaattisesti kirjoittaessasi",
     "game.genre.play.label": "Pelaa",
     "game.genre.image": "Kansikuva genrelle",
     "game.no.results": "Ei tuloksia",
@@ -1204,7 +1244,8 @@ export const ui = {
     "category.image.alt": "Kansikuva",
     "highscore.title": "Melody Mind Tulostaulu",
     "highscore.about.title": "Tietoa Tulostaulusta",
-    "highscore.about.text": "Täältä näet parhaat pelaajat jokaisessa kategoriassa ja kaikkien aikojen top 10. Näytä taitosi ja työskentele tiesi huipulle varmistaaksesi paikkasi rankingissa. Oletpa sitten jonkin tietyn genren asiantuntija tai haluat loistaa kaikissa kategorioissa - matkasi alkaa tästä. Onnea peliin ja pidä hauskaa!",
+    "highscore.about.text":
+      "Täältä näet parhaat pelaajat jokaisessa kategoriassa ja kaikkien aikojen top 10. Näytä taitosi ja työskentele tiesi huipulle varmistaaksesi paikkasi rankingissa. Oletpa sitten jonkin tietyn genren asiantuntija tai haluat loistaa kaikissa kategorioissa - matkasi alkaa tästä. Onnea peliin ja pidä hauskaa!",
     "highscore.total": "Kokonaispisteet",
     "highscore.total.top10": "Kaikkien aikojen Top 10 Pelaajat",
     "highscore.rank": "Sijoitus",
@@ -1214,7 +1255,8 @@ export const ui = {
     "highscore.your.rank": "Sinun Sijoituksesi",
     "highscore.rank.position": "Sija {rank}",
     "user.achievements.title": "Voittamani Levyt",
-    "user.achievements.empty": "Et ole vielä voittanut levyjä. Pelaa muutama kierros ansaitaksesi saavutuksia!",
+    "user.achievements.empty":
+      "Et ole vielä voittanut levyjä. Pelaa muutama kierros ansaitaksesi saavutuksia!",
     "user.achievements.list.label": "Lista voitetuista levyistä",
     "nav.menu.open": "Avaa valikko",
     "nav.menu.close": "Sulje valikko",
@@ -1225,7 +1267,8 @@ export const ui = {
     "nav.menu.logout": "Kirjaudu ulos",
     "nav.skip.main": "Siirry pääsisältöön",
     "game.end.title": "Peli päättyi!",
-    "game.end.motivation": "Hienosti tehty! Muutama kierros lisää ja olet mestari!",
+    "game.end.motivation":
+      "Hienosti tehty! Muutama kierros lisää ja olet mestari!",
     "game.end.score": "Saavutetut pisteet:",
     "game.end.newgame": "Uusi Peli",
     "game.feedback.resolution": "Ratkaisu",
@@ -1287,17 +1330,20 @@ export const ui = {
     "game.options.label": "Vastausvaihtoehdot",
     "game.answer.correct": "Oikein! {points} pistettä + {bonus} bonuspistettä",
     "game.answer.wrong": "Väärin! Oikea vastaus oli: {answer}",
-    "error.invalid.question": "Virheellinen kysymys tai ei vaihtoehtoja saatavilla",
+    "error.invalid.question":
+      "Virheellinen kysymys tai ei vaihtoehtoja saatavilla",
     "error.no.initial.question": "Kelvollista aloituskysymystä ei löytynyt",
     "error.no.albums.found": "Albumeita ei löytynyt kategorialle {category}",
-    "meta.keywords": "Musiikkivisa, Musiikkipeli, Kappalearvaus, Artistivisa, Online Musiikkivisa, Musiikkitrivia, Melody Mind, Musiikki Arvauspeli",
+    "meta.keywords":
+      "Musiikkivisa, Musiikkipeli, Kappalearvaus, Artistivisa, Online Musiikkivisa, Musiikkitrivia, Melody Mind, Musiikki Arvauspeli",
     "knowledge.title": "Musiikkitietokanta",
-    "knowledge.intro": "Sukella musiikin historian kiehtovaan maailmaan. Täältä löydät mielenkiintoisia artikkeleita eri musiikkikausista, -tyyleistä ja niiden kehityksestä. Löydä kiinnostavia faktoja ja laajenna musiikkitietämystäsi.",
+    "knowledge.intro":
+      "Sukella musiikin historian kiehtovaan maailmaan. Täältä löydät mielenkiintoisia artikkeleita eri musiikkikausista, -tyyleistä ja niiden kehityksestä. Löydä kiinnostavia faktoja ja laajenna musiikkitietämystäsi.",
     "knowledge.search.placeholder": "Haku...",
     "knowledge.filter.all": "Kaikki Avainsanat",
     "game.remaining": "jäljellä",
     "game.default.headline": "Peli",
     "popup.score": "Pisteet: {score}",
-    "popup.golden.lp.score": "Saavutetut pisteet: {score}"
-  }
+    "popup.golden.lp.score": "Saavutetut pisteet: {score}",
+  },
 };

@@ -11,29 +11,42 @@ export const prerender = true;
 
 // Get static paths for all supported languages
 export async function getStaticPaths() {
-  const supportedLanguages = ['de', 'en', 'es', 'fr', 'it', 'pt', 'da', 'nl', 'sv', 'fi'] as const;
-  
+  const supportedLanguages = [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt",
+    "da",
+    "nl",
+    "sv",
+    "fi",
+  ] as const;
+
   const paths = [];
-  
+
   for (const lang of supportedLanguages) {
     // Load categories based on language
     let categories;
     try {
-      categories = await import(/* @vite-ignore */ `@json/${lang}_categories.json`);
+      categories = await import(
+        /* @vite-ignore */ `@json/${lang}_categories.json`
+      );
     } catch (error) {
       // Fallback to default language if the specific language file doesn't exist
       categories = await import(/* @vite-ignore */ `@json/de_categories.json`);
     }
-    
+
     // Create a path for each category
     for (const category of categories.default) {
       paths.push({
         params: { lang, category: category.slug },
-        props: { 
+        props: {
           categories: categories.default,
           category: category,
-          lang
-        }
+          lang,
+        },
       });
     }
   }
@@ -42,7 +55,7 @@ export async function getStaticPaths() {
 }
 
 // Get props from getStaticPaths
-const {  category, lang } = Astro.props;
+const { category, lang } = Astro.props;
 const t = useTranslations(lang);
 
 interface Category {
@@ -110,7 +123,10 @@ const currentCategory = category;
         />
         <Button
           buttonText={t("category.difficulty.medium")}
-          url={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/medium`)}
+          url={getRelativeLocaleUrl(
+            lang,
+            `game-${currentCategory?.slug}/medium`,
+          )}
           aria-label={t("category.difficulty.medium.label")}
         />
         <Button
@@ -138,9 +154,9 @@ const currentCategory = category;
 
     width: 100%;
     padding: var(--padding-large);
+    border-radius: var(--border-radius);
 
     background-color: var(--secondary-color);
-    border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 
     @media (prefers-reduced-motion: no-preference) {
@@ -157,8 +173,8 @@ const currentCategory = category;
     width: 100%;
     max-width: 280px;
     height: auto;
-
     border-radius: var(--border-radius);
+
     box-shadow: var(--box-shadow);
 
     &:hover {
@@ -177,16 +193,19 @@ const currentCategory = category;
     display: flex;
     align-items: center;
     justify-content: center;
+
     width: 280px;
     height: 280px;
-    background-color: var(--background-color);
+    padding: var(--padding-medium);
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    color: var(--text-color);
+
     font-family: var(--font-family);
     font-size: var(--body-font-size);
+    color: var(--text-color);
     text-align: center;
-    padding: var(--padding-medium);
+
+    background-color: var(--background-color);
+    box-shadow: var(--box-shadow);
   }
 
   .text {

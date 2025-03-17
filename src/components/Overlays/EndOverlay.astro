@@ -112,11 +112,11 @@ const {
     width: 100%;
     max-width: min(400px, 90vw);
     padding: var(--padding-large);
+    border-radius: var(--border-radius);
 
     text-align: center;
 
     background-color: var(--secondary-color);
-    border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 
     &:focus {
@@ -194,6 +194,8 @@ const {
     min-width: var(--min-touch-target);
     min-height: var(--min-touch-target);
     padding: var(--padding-medium) var(--padding-large);
+    border: none;
+    border-radius: var(--border-radius);
 
     font-family: var(--font-family);
     font-size: var(--button-font-size);
@@ -201,8 +203,6 @@ const {
     color: var(--button-text-color);
 
     background-color: var(--highlight-color);
-    border: none;
-    border-radius: var(--border-radius);
 
     &:hover {
       background-color: var(--button-hover-color);

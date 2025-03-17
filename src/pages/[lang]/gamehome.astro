@@ -17,7 +17,9 @@ try {
     .then((module) => module.default)
     .catch(async () => {
       // Als Fallback versuche relativen Pfad
-      console.log(`Versuche relativen Pfad für ${lang}_categories.json zu laden`);
+      console.log(
+        `Versuche relativen Pfad für ${lang}_categories.json zu laden`,
+      );
       return import(`../../json/${lang}_categories.json`)
         .then((module) => module.default)
         .catch((err) => {
@@ -31,7 +33,9 @@ try {
 
 // Stelle sicher, dass categoriesList ein Array ist
 if (!Array.isArray(categoriesList)) {
-  console.warn("Kategorien wurden nicht als Array geladen, verwende leeres Array");
+  console.warn(
+    "Kategorien wurden nicht als Array geladen, verwende leeres Array",
+  );
   categoriesList = [];
 }
 
@@ -157,9 +161,9 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     max-width: var(--max-line-length);
     margin: 0 auto;
     padding: var(--padding-large);
+    border-radius: var(--border-radius);
 
     background-color: var(--background-color);
-    border-radius: var(--border-radius);
   }
 
   .search-label {
@@ -180,6 +184,8 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     width: 100%;
     max-width: 1024px;
     padding: 1rem var(--padding-medium);
+    border: 2px solid var(--text-color);
+    border-radius: var(--border-radius);
 
     font-family: var(--font-family);
     font-size: var(--body-font-size);
@@ -188,8 +194,6 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 
     appearance: none;
     background-color: var(--background-color);
-    border: 2px solid var(--text-color);
-    border-radius: var(--border-radius);
 
     &::placeholder {
       color: var(--text-color);
@@ -246,13 +250,13 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     flex-direction: column;
 
     width: 100%;
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
 
     color: var(--text-color);
     text-decoration: none;
 
     background-color: var(--secondary-color);
-    border: 2px solid transparent;
-    border-radius: var(--border-radius);
 
     transition: transform 0.2s ease-out;
 
@@ -298,13 +302,13 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
         transform: translate(-50%, -50%);
 
         padding: 1em 1.5em;
+        border-radius: var(--border-radius);
 
         font-size: var(--body-font-size);
         font-weight: 600;
         color: #fff;
 
         background: rgb(0 0 0 / 90%);
-        border-radius: var(--border-radius);
       }
     }
   }
@@ -313,6 +317,7 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     grid-column: 1 / -1;
 
     padding: var(--padding-large);
+    border-radius: var(--border-radius);
 
     font-size: var(--body-font-size);
     font-weight: 500;
@@ -320,7 +325,6 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     text-align: center;
 
     background-color: var(--secondary-color);
-    border-radius: var(--border-radius);
   }
 
   @media (forced-colors: active) {
@@ -438,6 +442,6 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 
   // Set data-unavailable-text attribute for disabled items
   document.querySelectorAll('[aria-disabled="true"]').forEach((item) => {
-    item.setAttribute('data-unavailable-text', translations.notAvailable);
+    item.setAttribute("data-unavailable-text", translations.notAvailable);
   });
 </script>

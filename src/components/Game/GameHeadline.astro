@@ -35,13 +35,13 @@ const { headline = t("game.default.headline") } = Astro.props;
     max-width: var(--max-line-length);
     margin: var(--padding-medium) auto;
     padding: var(--padding-medium);
+    border-radius: var(--border-radius);
 
     background: linear-gradient(
       90deg,
       var(--highlight-color),
       var(--secondary-color)
     );
-    border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 
     @media (prefers-reduced-motion: no-preference) {
@@ -89,18 +89,18 @@ const { headline = t("game.default.headline") } = Astro.props;
 
   .round {
     padding: calc(var(--padding-small) / 2) var(--padding-small);
+    border-radius: calc(var(--border-radius) / 2);
 
     font-weight: 700;
     color: var(--text-color);
 
     background-color: rgb(255 255 255 / 15%);
-    border-radius: calc(var(--border-radius) / 2);
   }
 
   @media (forced-colors: active) {
     .gameHeadline {
-      background: Canvas;
       border: 2px solid CanvasText;
+      background: Canvas;
     }
 
     .round {
@@ -110,8 +110,8 @@ const { headline = t("game.default.headline") } = Astro.props;
 
   @media print {
     .gameHeadline {
-      background: none;
       border: 1px solid #000;
+      background: none;
       box-shadow: none;
     }
 

@@ -3,8 +3,8 @@ import icon from "astro-icon";
 import node from "@astrojs/node";
 import compressor from "astro-compressor";
 import playformCompress from "@playform/compress";
-import { remarkReadingTime } from './src/utils/remark-reading-time.mjs';
-import path from 'path';
+import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs";
+import path from "path";
 
 // https://astro.build/config
 export default defineConfig({
@@ -39,17 +39,17 @@ export default defineConfig({
     markdown: {
       remarkPlugins: [remarkReadingTime],
       shikiConfig: {
-        theme: 'dracula',
-        wrap: true
-      }
-    }
+        theme: "dracula",
+        wrap: true,
+      },
+    },
   },
   vite: {
     resolve: {
       alias: {
-        '@json': path.resolve('./src/json'),
+        "@json": path.resolve("./src/json"),
         // ...other aliases...
-      }
-    }
-  }
+      },
+    },
+  },
 });

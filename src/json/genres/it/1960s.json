@@ -69,12 +69,7 @@
         },
         {
           "question": "Quale strumento musicale, inusuale per una rock band dell'epoca, è stato utilizzato da The Beatles nella traccia 'Within You Without You' dell'album 'Sgt. Pepper’s Lonely Hearts Club Band' del 1967?",
-          "options": [
-            "Sitar",
-            "Arpa",
-            "Theremin",
-            "Basso elettrico"
-          ],
+          "options": ["Sitar", "Arpa", "Theremin", "Basso elettrico"],
           "correctAnswer": "Sitar",
           "trivia": "Nella traccia 'Within You Without You' dell'album 'Sgt. Pepper’s Lonely Hearts Club Band', The Beatles hanno utilizzato il sitar, uno strumento tradizionale indiano, suonato da George Harrison. Questo brano rappresenta un esempio significativo dell'influenza della musica indiana sulla band e sul loro approccio innovativo alla produzione musicale. Harrison studiò il sitar con il maestro Ravi Shankar, e la sua introduzione in una canzone pop occidentale nel 1967 ha contribuito a rendere il sitar popolare tra i musicisti rock. 'Sgt. Pepper’s' è anche noto per il suo uso pionieristico di tecniche di registrazione come il loop sonoro e l'overdubbing, che hanno rivoluzionato il modo di fare musica."
         }
@@ -736,12 +731,7 @@
         },
         {
           "question": "Quale famoso marchio ha utilizzato una canzone dall'album 'The Velvet Underground & Nico' di The Velvet Underground & Nico in una sua campagna pubblicitaria?",
-          "options": [
-            "Coca-Cola",
-            "Nissan",
-            "Apple",
-            "Levi's"
-          ],
+          "options": ["Coca-Cola", "Nissan", "Apple", "Levi's"],
           "correctAnswer": "Levi's",
           "trivia": "La risposta corretta è Levi's, che ha utilizzato la canzone 'Sweet Jane' dall'album 'The Velvet Underground & Nico' in una campagna pubblicitaria negli anni '90. Questo utilizzo ha contribuito a riportare l'attenzione su un album che, sebbene inizialmente non avesse avuto un grande successo commerciale, era diventato un classico di culto. 'The Velvet Underground & Nico' è noto per il suo approccio innovativo e per aver influenzato generazioni di artisti. Inoltre, l'album è stato prodotto da Andy Warhol, che ha avuto un ruolo fondamentale nella sua promozione e nel collegamento con il mondo dell'arte e della moda."
         }
@@ -795,12 +785,7 @@
         },
         {
           "question": "Quale marchio ha utilizzato una traccia dall'album 'The Velvet Underground & Nico' di The Velvet Underground & Nico in una campagna pubblicitaria negli anni 2000?",
-          "options": [
-            "Coca-Cola",
-            "IKEA",
-            "Apple",
-            "Nike"
-          ],
+          "options": ["Coca-Cola", "IKEA", "Apple", "Nike"],
           "correctAnswer": "Apple",
           "trivia": "La risposta corretta è Apple, che ha utilizzato la canzone 'Venus in Furs' per promuovere i suoi prodotti in una campagna pubblicitaria. 'The Velvet Underground & Nico', pubblicato nel 1967, è stato pionieristico nel suo approccio musicale e nei temi trattati, influenzando innumerevoli artisti e generi. Il brano 'Venus in Furs' è noto per il suo sound distintivo e per i testi evocativi, elementi che lo hanno reso attraente per il marketing moderno. Inoltre, l'album è spesso considerato uno dei più grandi dischi di tutti i tempi, grazie alla sua innovazione e al suo impatto culturale."
         },
@@ -1473,12 +1458,7 @@
         },
         {
           "question": "Quale singolo estratto dall'album 'The Kinks Are the Village Green Preservation Society' dei The Kinks ha raggiunto la posizione più alta nelle classifiche britanniche nel 1968?",
-          "options": [
-            "Days",
-            "Victoria",
-            "Waterloo Sunset",
-            "See My Friends"
-          ],
+          "options": ["Days", "Victoria", "Waterloo Sunset", "See My Friends"],
           "correctAnswer": "Days",
           "trivia": "Il singolo 'Days' è stato l'unico brano estratto dall'album 'The Kinks Are the Village Green Preservation Society' a raggiungere una posizione significativa nelle classifiche britanniche nel 1968, arrivando fino al 2° posto. Questo brano è stato pubblicato nel 1968, diventando uno dei successi più noti della band. L'album, purtroppo, non ha riscontrato un grande successo commerciale al momento della sua uscita, ma è stato successivamente rivalutato come un capolavoro del rock britannico. 'Days' è stata scritta da Ray Davies ed è caratterizzata da melodie nostalgiche e testi evocativi, riflettendo il tema dell'album di preservare momenti e valori della vita quotidiana. La canzone ha anche visto una rinascita di popolarità grazie a numerose cover e utilizzi in film e serie televisive."
         }
@@ -1486,12 +1466,7 @@
       "hard": [
         {
           "question": "Quale brano dell'album 'The Kinks Are the Village Green Preservation Society' di The Kinks è stato utilizzato nella colonna sonora della serie TV 'The Sopranos'?",
-          "options": [
-            "Days",
-            "Waterloo Sunset",
-            "Animal Farm",
-            "Picture Book"
-          ],
+          "options": ["Days", "Waterloo Sunset", "Animal Farm", "Picture Book"],
           "correctAnswer": "Picture Book",
           "trivia": "Il brano 'Picture Book' dall'album 'The Kinks Are the Village Green Preservation Society' è stato scelto per essere inserito nella colonna sonora della celebre serie TV 'The Sopranos'. Questo album, pubblicato nel 1968, è considerato un'opera fondamentale della band britannica The Kinks e rappresenta una sorta di riflessione nostalgica sulla vita e la cultura inglese. 'Picture Book' in particolare evoca immagini di ricordi e semplicità, che si adattano perfettamente al tema della serie. Inoltre, 'The Kinks Are the Village Green Preservation Society' è stato acclamato per la sua innovativa fusione di rock e elementi di musica popolare britannica, influenzando molti artisti successivi."
         },
@@ -2001,12 +1976,7 @@
       "easy": [
         {
           "question": "Quale singolo iconico estratto dall'album 'Rubber Soul' dei The Beatles è stato particolarmente apprezzato per il suo testo profondo e la melodia innovativa?",
-          "options": [
-            "In My Life",
-            "Day Tripper",
-            "Help!",
-            "Yesterday"
-          ],
+          "options": ["In My Life", "Day Tripper", "Help!", "Yesterday"],
           "correctAnswer": "In My Life",
           "trivia": "Il singolo 'In My Life', estratto dall'album 'Rubber Soul' dei The Beatles nel 1965, è stato accolto con grande entusiasmo sia dalla critica che dal pubblico. Considerato uno dei brani più belli scritti da John Lennon, il testo riflette sulla nostalgia e i ricordi. 'Rubber Soul' segna un punto di svolta nella musica pop, introducendo temi più maturi e complessi. Inoltre, l'album ha contribuito a consolidare la reputazione dei Beatles come pionieri della musica rock e pop, influenzando innumerevoli artisti successivi. Un fatto interessante è che 'In My Life' è stato registrato con un arrangiamento di pianoforte, ma con una particolare tecnica che ha reso il suono unico."
         },
@@ -2118,12 +2088,7 @@
       "easy": [
         {
           "question": "In quale città è stato registrato l'album 'Otis Blue: Otis Redding Sings Soul' di Otis Redding nel 1965?",
-          "options": [
-            "Memphis",
-            "Nashville",
-            "New Orleans",
-            "Atlanta"
-          ],
+          "options": ["Memphis", "Nashville", "New Orleans", "Atlanta"],
           "correctAnswer": "Memphis",
           "trivia": "L'album 'Otis Blue: Otis Redding Sings Soul' è stato registrato a Memphis, Tennessee, un luogo famoso per la sua ricca tradizione musicale, in particolare nel soul e nel blues. Le sessioni di registrazione si sono svolte presso gli storici Stax Records, che hanno contribuito a plasmare il suono distintivo di Otis Redding. Questo album, pubblicato nel 1965, ha incluso alcuni dei brani più iconici dell'artista, come 'I've Been Loving You Too Long' e 'Respect'. La scelta di Memphis come location ha permesso a Redding di collaborare con musicisti di talento, tra cui la band di supporto Booker T. & the MG's, che ha avuto un ruolo fondamentale nel creare l'atmosfera unica dell'album."
         },
@@ -2749,12 +2714,7 @@
         },
         {
           "question": "Quale strumento musicale ha avuto un ruolo predominante nell'arrangiamento delle canzoni durante le performance di James Brown nell'album 'Live at the Apollo' del 1963?",
-          "options": [
-            "Saxofono",
-            "Chitarra elettrica",
-            "Piano",
-            "Tromba"
-          ],
+          "options": ["Saxofono", "Chitarra elettrica", "Piano", "Tromba"],
           "correctAnswer": "Saxofono",
           "trivia": "Nell'album 'Live at the Apollo', James Brown ha fatto un uso notevole del saxofono, che è stato uno degli strumenti chiave negli arrangiamenti delle sue canzoni. Il sassofonista Maceo Parker, che era parte della band, ha contribuito a creare un suono distintivo che ha caratterizzato l'album e ha influenzato il genere del funk. Inoltre, il saxofono ha aggiunto un elemento di improvvisazione e dinamismo che ha reso le performance dal vivo di Brown particolarmente memorabili. 'Live at the Apollo' è stato registrato il 24 ottobre 1962 e pubblicato nel 1963, diventando uno dei concerti dal vivo più acclamati della storia della musica. Questo album ha catturato non solo l'energia del pubblico, ma anche la maestria strumentale dei musicisti che accompagnavano Brown."
         },
@@ -2877,12 +2837,7 @@
         },
         {
           "question": "In quale popolare serie televisiva è stata utilizzata la musica dall'album 'Sketches of Spain' di Miles Davis per accompagnare scene significative?",
-          "options": [
-            "The Sopranos",
-            "Breaking Bad",
-            "Mad Men",
-            "The Crown"
-          ],
+          "options": ["The Sopranos", "Breaking Bad", "Mad Men", "The Crown"],
           "correctAnswer": "Mad Men",
           "trivia": "La traccia 'Concierto de Aranjuez' dall'album 'Sketches of Spain' di Miles Davis è stata utilizzata nella serie 'Mad Men', contribuendo a creare un'atmosfera nostalgica e riflessiva. 'Sketches of Spain', pubblicato nel 1960, è un'opera che unisce jazz e musica classica spagnola, e include arrangiamenti innovativi realizzati da Gil Evans. L'album è considerato uno dei capolavori di Miles Davis, non solo per la sua qualità musicale, ma anche per la sua capacità di influenzare altri media, come la televisione. Inoltre, 'Mad Men' è noto per la sua attenta selezione musicale, spesso utilizzando brani iconici per sottolineare l'emotività e il contesto delle sue scene."
         }
@@ -2959,12 +2914,7 @@
         },
         {
           "question": "Nel brano 'You Ain't Going Nowhere' dell'album 'Sweetheart of the Rodeo', quale strumento musicale ha contribuito a creare un arrangiamento particolarmente distintivo?",
-          "options": [
-            "Flauto",
-            "Pedal steel guitar",
-            "Piano",
-            "Sassofono"
-          ],
+          "options": ["Flauto", "Pedal steel guitar", "Piano", "Sassofono"],
           "correctAnswer": "Pedal steel guitar",
           "trivia": "La risposta corretta è la 'Pedal steel guitar', uno strumento che ha giocato un ruolo fondamentale nell'arrangiamento di 'You Ain't Going Nowhere', un brano iconico dell'album 'Sweetheart of the Rodeo' dei The Byrds. Questo album, pubblicato nel 1968, è considerato uno dei lavori pionieristici del genere country rock. La pedal steel guitar, suonata da Lloyd Green, conferisce al brano un'atmosfera nostalgica e autentica, contribuendo al suono distintivo che caratterizza l'intera produzione dell'album. 'Sweetheart of the Rodeo' ha anche visto la partecipazione di artisti di rilievo, come Gram Parsons, che ha avuto un'influenza significativa su questo stile musicale. Inoltre, l'album è stato uno dei primi a mescolare elementi di rock e country, aprendo la strada per molti artisti futuri."
         }
@@ -3054,12 +3004,7 @@
       "easy": [
         {
           "question": "Quale genere musicale ha influenzato maggiormente il suono psichedelico dell'album 'Odessey and Oracle' di The Zombies, pubblicato nel 1968?",
-          "options": [
-            "Blues",
-            "Jazz",
-            "Musica barocca",
-            "Country"
-          ],
+          "options": ["Blues", "Jazz", "Musica barocca", "Country"],
           "correctAnswer": "Musica barocca",
           "trivia": "La risposta corretta è 'Musica barocca'. L'album 'Odessey and Oracle' di The Zombies è noto per il suo suono psichedelico e sperimentale, che attinge a elementi della musica barocca. I arrangiamenti orchestrali e le armonie vocali intricate sono fortemente ispirati a questo genere, contribuendo a creare un'atmosfera unica. Un esempio significativo di questa influenza si può notare nella traccia 'A Rose for Emily', dove la melodia evoca chiaramente le sonorità barocche. Inoltre, l'album è stato registrato in un periodo in cui il rock psichedelico stava emergendo, e The Zombies si distinsero per la loro capacità di fondere diversi stili musicali."
         },
@@ -3416,12 +3361,7 @@
         },
         {
           "question": "Quale simbolo ricorrente nei testi delle canzoni di Jefferson Airplane nell'album 'Surrealistic Pillow' del 1967 rappresenta spesso l'esplorazione della coscienza e della percezione alterata?",
-          "options": [
-            "Fiori",
-            "Pillole",
-            "Uccelli",
-            "Specchi"
-          ],
+          "options": ["Fiori", "Pillole", "Uccelli", "Specchi"],
           "correctAnswer": "Pillole",
           "trivia": "La risposta corretta è 'Pillole'. Nell'album 'Surrealistic Pillow', Jefferson Airplane utilizza il simbolo delle pillole per evocare temi legati all'espansione della coscienza e alla cultura psichedelica degli anni '60. La canzone 'White Rabbit', ad esempio, fa riferimento in modo sottile all'uso di sostanze psicoattive, riflettendo l'interesse del periodo per l'esplorazione di stati alterati di coscienza. Inoltre, l'artwork dell'album, con i suoi colori vivaci e forme astratte, contribuisce a questo simbolismo, rappresentando una realtà distorta e onirica, tipica del surrealismo. L'album è considerato un pilastro della musica psichedelica e ha avuto un impatto significativo sulla cultura musicale dell'epoca."
         },
@@ -3579,12 +3519,7 @@
         },
         {
           "question": "In quale anno Johnny Cash ha tenuto la storica esibizione dal vivo per la registrazione dell'album 'At Folsom Prison'?",
-          "options": [
-            "1966",
-            "1968",
-            "1970",
-            "1972"
-          ],
+          "options": ["1966", "1968", "1970", "1972"],
           "correctAnswer": "1968",
           "trivia": "Johnny Cash ha effettuato la sua iconica esibizione dal vivo per l'album 'At Folsom Prison' nel 1968. Questo concerto è stato significativo non solo per la carriera di Cash, ma anche per il modo in cui ha avvicinato il pubblico al tema della giustizia penale. Durante il concerto, Cash ha eseguito brani come 'Folsom Prison Blues', che è diventata una delle sue canzoni più celebri. Inoltre, il contesto della performance, all'interno di un carcere, ha contribuito a dare all'album un'atmosfera unica e autentica, catturando l'attenzione di un vasto pubblico. 'At Folsom Prison' è stato uno dei primi album live a raggiungere grande successo commerciale, consolidando la reputazione di Cash come uno dei più grandi artisti della musica country."
         }
@@ -3731,12 +3666,7 @@
         },
         {
           "question": "Quale artista hip hop ha campionato una traccia dall'album 'Nina Simone Sings the Blues' di Nina Simone per uno dei suoi brani di successo?",
-          "options": [
-            "Kendrick Lamar",
-            "JAY-Z",
-            "Nas",
-            "Dr. Dre"
-          ],
+          "options": ["Kendrick Lamar", "JAY-Z", "Nas", "Dr. Dre"],
           "correctAnswer": "JAY-Z",
           "trivia": "JAY-Z ha campionato la canzone 'Sinnerman' di Nina Simone, una traccia iconica presente nell'album 'Nina Simone Sings the Blues' del 1967, per il suo brano '99 Problems'. Questo campionamento ha contribuito a dare nuova vita alla musica di Nina Simone, rendendola accessibile a una nuova generazione di ascoltatori. 'Nina Simone Sings the Blues' è noto per i suoi temi profondi e emotivi, riflettendo le lotte personali e sociali dell'artista. Inoltre, l'album ha ricevuto una notevole attenzione critica, consolidando la reputazione di Simone come una delle voci più potenti e influenti del suo tempo. Il suo stile unico, che fonde jazz, blues e soul, ha ispirato numerosi artisti nel corso degli anni."
         }
@@ -3930,12 +3860,7 @@
         },
         {
           "question": "Quale canzone dell'album 'Green River' di Creedence Clearwater Revival, pubblicato nel 1969, è stata particolarmente influente nel definire il sound del rock sudista?",
-          "options": [
-            "Commotion",
-            "Green River",
-            "Lodi",
-            "Tombstone Shadow"
-          ],
+          "options": ["Commotion", "Green River", "Lodi", "Tombstone Shadow"],
           "correctAnswer": "Green River",
           "trivia": "La canzone 'Green River' è stata uno dei brani di punta dell'album omonimo di Creedence Clearwater Revival, pubblicato nel 1969. Questo pezzo non solo ha raggiunto il quarto posto nella classifica Billboard Hot 100, ma ha anche contribuito a definire il caratteristico sound del rock sudista che influenzò molte band negli anni '70. L'album 'Green River' è stato il primo a includere il chitarrista solista John Fogerty, che ha scritto e prodotto gran parte della musica. Inoltre, l'album è stato ben accolto dalla critica, consolidando la reputazione della band come una delle più importanti della loro epoca."
         }
@@ -4586,12 +4511,7 @@
         },
         {
           "question": "Quale band musicale ha influenzato profondamente il suono dell'album 'Led Zeppelin' del 1969, noto per le sue sonorità rock e blues?",
-          "options": [
-            "The Rolling Stones",
-            "The Who",
-            "Cream",
-            "The Doors"
-          ],
+          "options": ["The Rolling Stones", "The Who", "Cream", "The Doors"],
           "correctAnswer": "Cream",
           "trivia": "Led Zeppelin ha tratto grande ispirazione dalla band Cream, il cui stile ha mescolato rock e blues in modo innovativo. Questo influenzò notevolmente il suono dell'album 'Led Zeppelin', contribuendo alla creazione di brani iconici come 'Dazed and Confused'. Inoltre, la band era nota per le loro performance dal vivo energetiche, che hanno ispirato anche i Led Zeppelin nel loro approccio musicale. È interessante notare che l'album ha introdotto elementi di hard rock e psichedelia, elementi che Cream aveva già esplorato, rendendo 'Led Zeppelin' un punto di riferimento importante nella musica rock degli anni '60."
         },
@@ -4820,12 +4740,7 @@
         },
         {
           "question": "Quale strumento è predominante nelle arrangiamenti orchestrali dell'album 'September of My Years' di Frank Sinatra, pubblicato nel 1965?",
-          "options": [
-            "Piano",
-            "Chitarra",
-            "Sassofono",
-            "Arpa"
-          ],
+          "options": ["Piano", "Chitarra", "Sassofono", "Arpa"],
           "correctAnswer": "Sassofono",
           "trivia": "Il sassofono è uno strumento predominante negli arrangiamenti orchestrali dell'album 'September of My Years' di Frank Sinatra. Questo album, prodotto da Gordon Jenkins, presenta una vasta gamma di strumenti che contribuiscono al suo sound nostalgico e malinconico. Il sassofono, in particolare, è utilizzato in diverse tracce per creare atmosfere emotive, evidenziando il tema del passare del tempo. Inoltre, l'album è stato ben accolto dalla critica, sottolineando l'abilità di Sinatra di trasmettere sentimenti profondi attraverso la sua musica. 'September of My Years' si distingue anche per le sue liriche riflessive e gli arrangiamenti sofisticati, tipici del lavoro di Jenkins."
         },
@@ -5065,12 +4980,7 @@
         },
         {
           "question": "In quale anno The Temptations hanno utilizzato per la prima volta il sistema di registrazione a 16 tracce per il loro album 'Cloud Nine'?",
-          "options": [
-            "1967",
-            "1968",
-            "1969",
-            "1970"
-          ],
+          "options": ["1967", "1968", "1969", "1970"],
           "correctAnswer": "1969",
           "trivia": "The Temptations hanno adottato il sistema di registrazione a 16 tracce nel 1969 per il loro innovativo album 'Cloud Nine'. Questa tecnologia ha permesso una maggiore complessità musicale e una produzione più ricca, consentendo di sovraincidere più strumenti e voci. 'Cloud Nine' è stato un punto di svolta per il gruppo, poiché ha segnato il passaggio verso sonorità più psichedeliche e influenze soul contemporanee. Inoltre, l'album ha raggiunto il primo posto nella classifica R&B e ha contribuito a definire il sound della Motown in quel periodo. La canzone principale dell'album, 'Cloud Nine', ha anche vinto un Grammy, consolidando il successo del gruppo."
         }
@@ -5277,12 +5187,7 @@
       "easy": [
         {
           "question": "Quale genere musicale ha avuto una grande influenza su Elvis Presley durante la creazione dell'album 'From Elvis in Memphis' del 1969?",
-          "options": [
-            "Blues",
-            "Jazz",
-            "Opera",
-            "Heavy Metal"
-          ],
+          "options": ["Blues", "Jazz", "Opera", "Heavy Metal"],
           "correctAnswer": "Blues",
           "trivia": "Il genere musicale che ha avuto una grande influenza su Elvis Presley durante la creazione dell'album 'From Elvis in Memphis' è il blues. Questo stile musicale ha radici profonde nella cultura afroamericana e ha contribuito a formare il suono distintivo di Elvis, che combina elementi di rock and roll e country. L'album, pubblicato nel 1969, è noto per il suo mix di generi e per le sue radici nel rock, nel pop e, appunto, nel blues. Alcuni brani dell'album, come 'In the Ghetto', mostrano chiaramente questa influenza, contribuendo a raccontare storie di vita quotidiana. Inoltre, Elvis ha spesso citato artisti blues come B.B. King e Muddy Waters come fonti di ispirazione nella sua carriera."
         },
@@ -5581,12 +5486,7 @@
       "hard": [
         {
           "question": "Quale artista ha influenzato profondamente Stevie Wonder nella composizione dell'album 'For Once in My Life' del 1968, ispirandolo a esplorare temi di amore e speranza?",
-          "options": [
-            "Sam Cooke",
-            "Ray Charles",
-            "Marvin Gaye",
-            "James Brown"
-          ],
+          "options": ["Sam Cooke", "Ray Charles", "Marvin Gaye", "James Brown"],
           "correctAnswer": "Sam Cooke",
           "trivia": "La risposta corretta è Sam Cooke, la cui musica ha avuto un impatto significativo sulla carriera di Stevie Wonder. Cooke, con il suo stile soul e le sue tematiche evocative, ha ispirato Wonder a scrivere canzoni che trattano di amore e aspirazioni, elementi centrali nell'album 'For Once in My Life'. Questo album, pubblicato nel 1968, ha segnato un momento cruciale nella carriera di Stevie, contribuendo a definire il suo suono distintivo. Inoltre, la combinazione di arrangiamenti orchestrali e testi emotivamente risonanti ha reso 'For Once in My Life' un'opera iconica nel panorama musicale dell'epoca. Wonder ha riconosciuto l'influenza di Cooke, che ha aperto la strada a una nuova generazione di artisti soul."
         },
@@ -5873,12 +5773,7 @@
         },
         {
           "question": "Quale genere musicale ha avuto un'influenza significativa sul sound distintivo dell'album 'Green Onions' di Booker T. & the M.G.’s, pubblicato nel 1962?",
-          "options": [
-            "Blues",
-            "Reggae",
-            "Classica",
-            "Heavy metal"
-          ],
+          "options": ["Blues", "Reggae", "Classica", "Heavy metal"],
           "correctAnswer": "Blues",
           "trivia": "L'album 'Green Onions' di Booker T. & the M.G.’s, rilasciato nel 1962, è fortemente influenzato dal genere blues. Questo stile musicale ha contribuito a plasmare il sound caratteristico dell'album, che combina elementi di soul e rhythm and blues, rendendolo un classico della musica strumentale. 'Green Onions', il brano principale, è stato un grande successo, raggiungendo la posizione numero 1 nella classifica R&B e la numero 3 nella Billboard Hot 100. Inoltre, la band era conosciuta per il suo approccio innovativo, che ha integrato il groove del blues con melodie orecchiabili, influenzando generazioni di musicisti."
         },
@@ -6177,12 +6072,7 @@
         },
         {
           "question": "Quale artista hip-hop ha campionato il brano 'I Wanna Be Your Dog' dei The Stooges, presente nell'album 'The Stooges' del 1969, in una delle sue canzoni più famose?",
-          "options": [
-            "Kanye West",
-            "Nas",
-            "Ludacris",
-            "Eminem"
-          ],
+          "options": ["Kanye West", "Nas", "Ludacris", "Eminem"],
           "correctAnswer": "Eminem",
           "trivia": "Eminem ha campionato 'I Wanna Be Your Dog' dei The Stooges nella sua traccia 'Guilty Conscience', pubblicata nel 1999. 'The Stooges', il primo album omonimo della band, è stato fondamentale per lo sviluppo del punk rock e ha influenzato numerosi artisti nel corso degli anni. Il brano 'I Wanna Be Your Dog' è uno dei pezzi emblematici dell'album e ha avuto un impatto duraturo, non solo nel rock ma anche nella cultura pop, venendo ripreso e reinterpretato in vari contesti musicali. Inoltre, l'album è stato prodotto da John Cale, ex membro dei Velvet Underground, contribuendo ulteriormente alla sua importanza storica."
         },
@@ -7124,12 +7014,7 @@
         },
         {
           "question": "Quale particolare effetto di distorsione è stato ampiamente utilizzato da The Velvet Underground nell'album 'White Light/White Heat' per ottenere il suono grezzo e potente caratteristico delle loro canzoni?",
-          "options": [
-            "Fuzz",
-            "Chorus",
-            "Phaser",
-            "Reverb"
-          ],
+          "options": ["Fuzz", "Chorus", "Phaser", "Reverb"],
           "correctAnswer": "Fuzz",
           "trivia": "La risposta corretta è 'Fuzz', un tipo di distorsione che ha contribuito a creare il suono abrasivo e innovativo dell'album 'White Light/White Heat' dei The Velvet Underground. Le chitarre di Lou Reed e Sterling Morrison sono state pesantemente influenzate da questo effetto, che ha aiutato a definire l'estetica musicale della band negli anni '60. Inoltre, l'album è stato registrato in modo relativamente lo-fi, il che ha ulteriormente accentuato la sensazione grezza delle tracce. 'White Light/White Heat', pubblicato nel 1968, è considerato un capolavoro del rock alternativo, e la sua produzione ha ispirato numerosi artisti futuri. La band ha utilizzato tecniche innovative per quel periodo, portando avanti un approccio sperimentale che ha segnato una rottura con le convenzioni musicali tradizionali."
         }
@@ -7230,12 +7115,7 @@
         },
         {
           "question": "Quale simbolo ricorrente nei testi delle canzoni dell'album 'Strange Days' dei The Doors rappresenta l'idea della dualità tra realtà e illusione?",
-          "options": [
-            "Il serpente",
-            "La porta",
-            "Il sogno",
-            "Il sole"
-          ],
+          "options": ["Il serpente", "La porta", "Il sogno", "Il sole"],
           "correctAnswer": "La porta",
           "trivia": "La risposta corretta è 'La porta'. Nel contesto dell'album 'Strange Days', il simbolo della porta è particolarmente significativo, poiché rappresenta una soglia tra il mondo reale e quello onirico, una tematica centrale nella poetica di Jim Morrison. I testi delle canzoni, come in 'Strange Days' e 'People Are Strange', esplorano la percezione della realtà e l'alienazione, elementi chiave della cultura degli anni '60. Inoltre, l'artwork dell'album, che presenta immagini suggestive e psichedeliche, amplifica ulteriormente questa idea di transizione tra mondi diversi, riflettendo l'atmosfera di un'epoca caratterizzata da esperimenti con la mente e la percezione."
         },
@@ -7522,12 +7402,7 @@
         },
         {
           "question": "Quale singolo di successo crossover di Harry Nilsson è stato estratto dall'album 'Aerial Ballet' del 1968?",
-          "options": [
-            "Everybody's Talkin'",
-            "Without You",
-            "Coconut",
-            "One"
-          ],
+          "options": ["Everybody's Talkin'", "Without You", "Coconut", "One"],
           "correctAnswer": "Everybody's Talkin'",
           "trivia": "La risposta corretta è 'Everybody's Talkin'', un singolo che ha raggiunto il grande successo e ha contribuito a far conoscere Harry Nilsson a un pubblico più ampio. Questa canzone è stata originariamente scritta e registrata da Fred Neil, ma la versione di Nilsson è diventata particolarmente famosa dopo essere stata utilizzata nel film 'Midnight Cowboy' del 1969. 'Aerial Ballet', l'album in cui è contenuto, ha segnato un'importante tappa nella carriera di Nilsson, grazie al suo stile eclettico che mescola pop e folk. Il brano ha raggiunto la posizione numero 6 nella Billboard Hot 100, consolidando così il suo status di successo crossover."
         }
@@ -7546,12 +7421,7 @@
         },
         {
           "question": "Qual è stato il singolo di maggior successo crossover di Harry Nilsson dall'album 'Aerial Ballet', che ha raggiunto le vette delle classifiche pop e adult contemporary?",
-          "options": [
-            "Everybody's Talkin'",
-            "One",
-            "Without You",
-            "Coconut"
-          ],
+          "options": ["Everybody's Talkin'", "One", "Without You", "Coconut"],
           "correctAnswer": "Everybody's Talkin'",
           "trivia": "La risposta corretta è 'Everybody's Talkin'', un brano che ha ottenuto un grande successo crossover per Harry Nilsson nel 1969, dopo la sua inclusione nell'album 'Aerial Ballet'. Questo brano, originariamente scritto da Fred Neil, ha raggiunto il primo posto nella classifica Billboard Hot 100, diventando uno dei pezzi più iconici di Nilsson. 'Everybody's Talkin'' è anche famoso per essere stato utilizzato nel film 'Midnight Cowboy', contribuendo ulteriormente alla sua popolarità. L'album 'Aerial Ballet' è stato un importante passo nella carriera di Nilsson, consolidando il suo stile unico e la sua capacità di mescolare generi musicali."
         },
@@ -8202,12 +8072,7 @@
       "easy": [
         {
           "question": "Quale genere musicale ha avuto un'influenza significativa sui brani dell'album 'The Temptations Sing Smokey' del 1965, contribuendo al suo sound distintivo?",
-          "options": [
-            "Blues",
-            "Gospel",
-            "Jazz",
-            "Rock and Roll"
-          ],
+          "options": ["Blues", "Gospel", "Jazz", "Rock and Roll"],
           "correctAnswer": "Gospel",
           "trivia": "L'album 'The Temptations Sing Smokey' è fortemente influenzato dal genere gospel, che ha plasmato lo stile vocale del gruppo. I membri di The Temptations, molti dei quali provenivano da contesti gospel, hanno portato questa eredità nelle loro interpretazioni, infondendo passione e intensità. Inoltre, le armonie vocali e i ritmi incalzanti dei brani, scritti da Smokey Robinson, riflettono questa influenza. L'album include classici come 'My Girl', che non solo ha raggiunto la vetta delle classifiche, ma ha anche contribuito a definire il suono della Motown. La fusione di soul e gospel ha reso i brani di The Temptations non solo orecchiabili, ma anche profondamente emotivi."
         },
@@ -8528,12 +8393,7 @@
         },
         {
           "question": "Quale strumento a fiato è stato utilizzato in modo prominente nelle sessioni di registrazione dell'album 'The Exciting Wilson Pickett' di Wilson Pickett del 1966, contribuendo a creare il caratteristico sound soul?",
-          "options": [
-            "Sassofono",
-            "Tromba",
-            "Flauto",
-            "Clarinetto"
-          ],
+          "options": ["Sassofono", "Tromba", "Flauto", "Clarinetto"],
           "correctAnswer": "Sassofono",
           "trivia": "Il sassofono è stato uno strumento chiave nelle registrazioni di 'The Exciting Wilson Pickett', contribuendo al distintivo sound soul dell'album. Le sessioni di registrazione si sono svolte presso la FAME Studios di Muscle Shoals, in Alabama, dove il sassofono, suonato da musicisti di talento come King Curtis, ha aggiunto profondità e grinta ai brani. Inoltre, l'album è stato prodotto da Jerry Wexler, famoso per il suo approccio innovativo nella combinazione di suoni R&B e soul. 'The Exciting Wilson Pickett' è considerato un punto di riferimento nella carriera di Pickett, consolidando il suo status come uno dei principali esponenti del genere soul degli anni '60."
         }
@@ -8575,12 +8435,7 @@
         },
         {
           "question": "Quale genere musicale ha fortemente influenzato Bob Dylan nell'album 'The Freewheelin’ Bob Dylan' del 1963?",
-          "options": [
-            "Blues",
-            "Jazz",
-            "Classica",
-            "Heavy Metal"
-          ],
+          "options": ["Blues", "Jazz", "Classica", "Heavy Metal"],
           "correctAnswer": "Blues",
           "trivia": "Bob Dylan ha subito una notevole influenza dal genere blues, che è evidente in molte delle sue canzoni nell'album 'The Freewheelin’ Bob Dylan'. La canzone 'Baby, I'm in the Mood for You', ad esempio, mostra chiari elementi blues nella sua struttura melodica e nei temi lirici. Inoltre, Dylan ha citato artisti blues come Robert Johnson e Muddy Waters come sue ispirazioni principali, contribuendo a modellare il suo stile. Questo album, pubblicato nel 1963, è considerato un punto di svolta nella musica folk e ha spinto molti ad esplorare le radici afroamericane della musica popolare americana."
         }
@@ -8588,12 +8443,7 @@
       "medium": [
         {
           "question": "Quale altro noto musicista ha collaborato con Bob Dylan nel processo di registrazione dell'album 'The Freewheelin’ Bob Dylan' del 1963?",
-          "options": [
-            "Johnny Cash",
-            "Pete Seeger",
-            "Joan Baez",
-            "Phil Ochs"
-          ],
+          "options": ["Johnny Cash", "Pete Seeger", "Joan Baez", "Phil Ochs"],
           "correctAnswer": "Joan Baez",
           "trivia": "Joan Baez è stata una figura fondamentale nella carriera di Bob Dylan e ha collaborato con lui durante le sessioni di registrazione di 'The Freewheelin’ Bob Dylan'. Oltre a fornire il supporto vocale in alcuni brani, Baez ha anche contribuito a portare l'attenzione su Dylan, aiutando a renderlo una figura di spicco nel movimento folk degli anni '60. L'album, pubblicato nel 1963, include celebri canzoni come 'Blowin' in the Wind' e 'Girl from the North Country', che riflettono l'impegno sociale e il talento lirico di Dylan. Inoltre, Baez ha interpretato alcune delle canzoni di Dylan nei suoi concerti, contribuendo alla loro popolarità."
         },
@@ -8879,12 +8729,7 @@
         },
         {
           "question": "Quale particolare strumento a percussione, utilizzato in diverse tracce dell'album 'Wild Honey' dei The Beach Boys, è stato impiegato per creare un suono distintivo e caldo che caratterizza la produzione dell'album?",
-          "options": [
-            "Vibrafono",
-            "Conga",
-            "Bonghi",
-            "Tamburello"
-          ],
+          "options": ["Vibrafono", "Conga", "Bonghi", "Tamburello"],
           "correctAnswer": "Bonghi",
           "trivia": "I bonghi sono stati utilizzati dai The Beach Boys durante le registrazioni di 'Wild Honey' nel 1967, contribuendo a creare un'atmosfera calda e ritmica che si riflette in brani come 'Wild Honey' e 'Darlin''. Questo album rappresenta un allontanamento dallo stile complesso dei lavori precedenti, come 'Pet Sounds', e segna un ritorno a sonorità più semplici e dirette. I bonghi, insieme ad altre percussioni, hanno permesso di esprimere un sound più influenzato dalla musica soul e R&B dell'epoca. La produzione dell'album fu guidata da Brian Wilson, il quale sperimentò con tecniche di registrazione più primitive, utilizzando registratori a nastro e un approccio più rudimentale rispetto ai suoi precedenti lavori."
         }
@@ -8926,12 +8771,7 @@
         },
         {
           "question": "Quale simbolo ricorrente nei testi delle canzoni di 'Going to a Go-Go' di Smokey Robinson & The Miracles rappresenta il desiderio di libertà e spensieratezza?",
-          "options": [
-            "Il treno",
-            "La danza",
-            "Il mare",
-            "Il viaggio"
-          ],
+          "options": ["Il treno", "La danza", "Il mare", "Il viaggio"],
           "correctAnswer": "Il viaggio",
           "trivia": "Il simbolo del 'viaggio' è presente in molte canzoni dell'album 'Going to a Go-Go' di Smokey Robinson & The Miracles, riflettendo un desiderio di libertà e avventura. Questo album, pubblicato nel 1965, è noto per i suoi testi che celebrano l'amore e la voglia di divertirsi, elementi che ben si allineano con l'idea del viaggio. Inoltre, 'Going to a Go-Go' include brani iconici come 'The Tracks of My Tears' e 'Going to a Go-Go', entrambi caratterizzati da melodie coinvolgenti che evocano un senso di movimento e spensieratezza. L'album è stato un grande successo commerciale, raggiungendo la Top 10 della Billboard 200 e contribuendo a definire il sound della Motown di quel periodo."
         }
@@ -9032,12 +8872,7 @@
         },
         {
           "question": "In quale città sono state registrate le canzoni dell'album 'Reflections' di Diana Ross & The Supremes nel 1968?",
-          "options": [
-            "Los Angeles",
-            "New York",
-            "Detroit",
-            "Chicago"
-          ],
+          "options": ["Los Angeles", "New York", "Detroit", "Chicago"],
           "correctAnswer": "Detroit",
           "trivia": "Le canzoni dell'album 'Reflections' di Diana Ross & The Supremes sono state registrate a Detroit, una città che ha avuto un ruolo cruciale nella storia della musica soul e R&B. Detroit era la sede della Motown Records, etichetta discografica di Diana Ross & The Supremes, che ha contribuito a definire il suono della musica pop americana negli anni '60. L'album, pubblicato nel 1968, include brani iconici e mostra l'evoluzione musicale del gruppo. Nel corso di quell'anno, la Motown stava già guadagnando popolarità a livello nazionale, con artisti che dominavano le classifiche di vendita e radio."
         },
@@ -9255,12 +9090,7 @@
       "easy": [
         {
           "question": "Quale stile musicale ha influenzato maggiormente i brani presenti nell'album 'Between the Buttons' dei The Rolling Stones, pubblicato nel 1967, contribuendo a una sorta di ritorno alle origini per la band?",
-          "options": [
-            "Rock and roll",
-            "Psychedelic rock",
-            "Blues",
-            "Folk"
-          ],
+          "options": ["Rock and roll", "Psychedelic rock", "Blues", "Folk"],
           "correctAnswer": "Blues",
           "trivia": "L'album 'Between the Buttons' dei The Rolling Stones è fortemente influenzato dal blues, un genere musicale che ha segnato profondamente la band fin dagli inizi. Questo lavoro del 1967 rappresenta un ritorno alle origini, con una rivisitazione di sonorità più tradizionali rispetto alle tendenze psichedeliche del periodo. Tra i brani dell'album, 'Ruby Tuesday' e 'Let's Spend the Night Together' mostrano chiaramente queste radici blues, che i Rolling Stones hanno sempre cercato di onorare. Inoltre, l'album è stato registrato in un periodo in cui la band stava esplorando diverse direzioni musicali, ma il blues rimane una costante nella loro musica. 'Between the Buttons' è quindi un perfetto esempio di come i Rolling Stones abbiano saputo coniugare innovazione e tradizione musicale."
         },
@@ -10893,12 +10723,7 @@
       "easy": [
         {
           "question": "In quale anno Johnny Cash ha pubblicato l'album dal vivo 'At San Quentin'?",
-          "options": [
-            "1965",
-            "1968",
-            "1969",
-            "1970"
-          ],
+          "options": ["1965", "1968", "1969", "1970"],
           "correctAnswer": "1969",
           "trivia": "Johnny Cash ha pubblicato 'At San Quentin' nel 1969, un album dal vivo registrato durante un concerto nella prigione di San Quentin in California. Questo album è significativo non solo per la sua musica, ma anche per il suo impatto sociale, poiché ha portato l'attenzione sulle condizioni carcerarie. Durante il concerto, Cash ha eseguito diversi brani iconici, tra cui 'Folsom Prison Blues', che riflettono le esperienze di vita e di libertà. 'At San Quentin' ha raggiunto il primo posto nella classifica Billboard Country Albums ed è considerato uno dei lavori più importanti di Cash. La performance energica e il coinvolgimento del pubblico carcerario hanno reso questa registrazione unica e memorabile nella carriera dell'artista."
         },
@@ -10950,12 +10775,7 @@
         },
         {
           "question": "Quale strumento musicale predominante accompagna le performance dal vivo di Johnny Cash nell'album 'At San Quentin' del 1969?",
-          "options": [
-            "Pianoforte",
-            "Chitarra acustica",
-            "Flauto",
-            "Batteria"
-          ],
+          "options": ["Pianoforte", "Chitarra acustica", "Flauto", "Batteria"],
           "correctAnswer": "Chitarra acustica",
           "trivia": "La risposta corretta è la chitarra acustica, che è lo strumento principale utilizzato da Johnny Cash durante le esibizioni nell'album 'At San Quentin'. Questo album, registrato dal vivo nel 1969 nel carcere di San Quentin in California, presenta un suono crudo e autentico che è caratteristico dello stile di Cash. La chitarra acustica non solo accompagna le sue canzoni, ma contribuisce anche a creare un'atmosfera intima e coinvolgente per il pubblico. Inoltre, è importante notare che l'album include brani iconici come 'Folsom Prison Blues' e 'A Boy Named Sue', che sono diventati emblematici del suo repertorio. 'At San Quentin' è considerato uno dei migliori album dal vivo della storia della musica country e ha avuto un impatto significativo sulla carriera di Cash."
         }
@@ -10963,12 +10783,7 @@
       "hard": [
         {
           "question": "Quale strumento musicale è stato particolarmente prominente nelle esibizioni dal vivo di Johnny Cash durante la registrazione dell'album 'At San Quentin' nel 1969?",
-          "options": [
-            "Piano",
-            "Flauto",
-            "Chitarra acustica",
-            "Violino"
-          ],
+          "options": ["Piano", "Flauto", "Chitarra acustica", "Violino"],
           "correctAnswer": "Chitarra acustica",
           "trivia": "La risposta corretta è la chitarra acustica, che ha giocato un ruolo fondamentale nel sound di Johnny Cash durante le sue esibizioni, in particolare nell'album 'At San Quentin'. Questo album dal vivo, registrato in una prigione californiana, ha catturato l'energia e l'emozione del pubblico e ha contribuito a cementare Cash come un'icona della musica country e rock. La chitarra acustica, suonata in modo distintivo da Cash, ha fornito una base ritmica che si è fusa perfettamente con la sua voce profonda e carismatica. 'At San Quentin' è stato un momento cruciale nella carriera di Cash, non solo per il suo successo commerciale, ma anche per il suo impatto culturale, poiché ha affrontato temi di giustizia e redenzione. Inoltre, il concerto ha visto la partecipazione di altri musicisti di spicco, ma la chitarra acustica di Cash rimane il simbolo del suo stile unico."
         },
@@ -11149,12 +10964,7 @@
         },
         {
           "question": "In che anno è stato pubblicato l'album 'Goodbye' di Cream, un'opera che rifletteva il clima sociale e culturale degli anni '60?",
-          "options": [
-            "1967",
-            "1968",
-            "1969",
-            "1970"
-          ],
+          "options": ["1967", "1968", "1969", "1970"],
           "correctAnswer": "1969",
           "trivia": "L'album 'Goodbye' di Cream è stato pubblicato nel 1969, in un periodo di grande fermento sociale e culturale. Questo periodo era caratterizzato da movimenti per i diritti civili, proteste contro la guerra del Vietnam e l'emergere della controcultura giovanile. Inoltre, il brano 'Badge', contenuto nell'album, è stato scritto in collaborazione con Eric Clapton e George Harrison, evidenziando le interconnessioni tra i musicisti dell'epoca. 'Goodbye' rappresenta anche la conclusione della carriera della band, che ha avuto un impatto significativo sulla musica rock e blues. L'album è stato ben accolto dalla critica e ha contribuito a definire il suono della fine degli anni '60."
         }
@@ -11617,12 +11427,7 @@
         },
         {
           "question": "In quale anno John Coltrane ha eseguito per la prima volta brani dall'album 'Giant Steps' in un concerto pubblico?",
-          "options": [
-            "1959",
-            "1960",
-            "1961",
-            "1962"
-          ],
+          "options": ["1959", "1960", "1961", "1962"],
           "correctAnswer": "1960",
           "trivia": "John Coltrane ha presentato per la prima volta brani dall'album 'Giant Steps' nel 1960, anno in cui è stato pubblicato. Questo album è considerato uno dei capolavori del jazz moderno e ha rivoluzionato il modo di comporre e improvvisare. Tra i brani più noti ci sono 'Giant Steps' e 'Naima', che mostrano l'innovativa armonia di Coltrane. La prima esibizione pubblica di queste composizioni ha avuto luogo in un periodo di grande fermento musicale, contribuendo a cementare la reputazione di Coltrane come uno dei più influenti musicisti jazz del XX secolo."
         }
@@ -12133,12 +11938,7 @@
       "hard": [
         {
           "question": "In quale anno l'album 'Led Zeppelin II' dei Led Zeppelin ha raggiunto il primo posto nella Billboard 200, diventando uno dei dischi più venduti della storia del rock?",
-          "options": [
-            "1968",
-            "1970",
-            "1971",
-            "1969"
-          ],
+          "options": ["1968", "1970", "1971", "1969"],
           "correctAnswer": "1969",
           "trivia": "L'album 'Led Zeppelin II' dei Led Zeppelin ha raggiunto il primo posto nella classifica Billboard 200 nel 1969, rimanendo in vetta per ben 7 settimane. Questo album è considerato uno dei lavori fondamentali della storia del rock, contribuendo a definire il sound della band, caratterizzato da potenti riff di chitarra e una fusione di blues e rock. 'Led Zeppelin II' ha venduto oltre 12 milioni di copie solo negli Stati Uniti, ottenendo il disco di platino. Inoltre, il brano 'Whole Lotta Love' è diventato un inno per il genere hard rock, consolidando ulteriormente la popolarità del gruppo. L'album ha avuto un impatto significativo sulla musica rock, influenzando numerosi artisti e generazioni successive."
         },
