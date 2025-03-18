@@ -2,13 +2,12 @@
 interface Props {
   description?: string;
   textSize?: string;
+  className?: string;
 }
 
-const { description, textSize = "text-lg" } = Astro.props as Props;
+const { description, textSize = "text-2xl", className } = Astro.props as Props;
 ---
 
-<p
-  class={`${textSize} leading-relaxed mb-10 text-pretty text-zinc-300`}
->
+<p class={`${textSize} leading-relaxed mb-10 text-pretty text-zinc-300 ${className}`}>
   {description || <slot />}
 </p>

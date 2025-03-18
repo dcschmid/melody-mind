@@ -19,20 +19,24 @@ const { headline = "", image, isDisabled = false, imageAlt = "" } = Astro.props;
   class="relative flex flex-col w-full h-full overflow-hidden bg-zinc-700 rounded-lg will-change-opacity transition-opacity duration-300 ease-in-out"
   role="listitem"
 >
-  {isDisabled && (
-    <div
-      class="absolute inset-0 z-10 flex items-center justify-center p-4 bg-black/80 text-zinc-50 text-center font-medium"
-      aria-label={t("playlist.item.unavailable")}
-      role="status"
-    >
-      <span class="sr-only">{t("playlist.item.status")}:</span>
-      {t("playlist.item.coming.soon")}
-    </div>
-  )}
+  {
+    isDisabled && (
+      <div
+        class="absolute inset-0 z-10 flex items-center justify-center p-4 bg-black/80 text-zinc-50 text-center font-medium"
+        aria-label={t("playlist.item.unavailable")}
+        role="status"
+      >
+        <span class="sr-only">{t("playlist.item.status")}:</span>
+        {t("playlist.item.coming.soon")}
+      </div>
+    )
+  }
 
   <div class="relative w-full aspect-square overflow-hidden">
     <Picture
-      class={isDisabled ? "absolute top-0 left-0 w-full h-full object-cover opacity-70 grayscale-[50%]" : "absolute top-0 left-0 w-full h-full object-cover"}
+      class={isDisabled
+        ? "absolute top-0 left-0 w-full h-full object-cover opacity-70 grayscale-[50%]"
+        : "absolute top-0 left-0 w-full h-full object-cover"}
       src={image}
       width={130}
       height={130}
@@ -44,25 +48,29 @@ const { headline = "", image, isDisabled = false, imageAlt = "" } = Astro.props;
       quality={80}
     />
   </div>
-  
-  <h2 class="headline m-0 p-4 font-sans text-base font-semibold leading-tight hyphens-auto text-zinc-50 text-center break-words">
+
+  <h2
+    class="headline m-0 p-4 font-sans text-base font-semibold leading-tight hyphens-auto text-zinc-50 text-center break-words"
+  >
     {headline}
   </h2>
 </article>
 
 <script>
   // Hover-Effekt für nicht-deaktivierte Elemente
-  document.querySelectorAll('article[role="listitem"]:not([aria-disabled="true"])').forEach(item => {
-    item.addEventListener("mouseenter", () => {
-      if (window.matchMedia("(hover: hover)").matches) {
-        item.classList.add("translate-y-[-2px]", "shadow-md");
-      }
+  document
+    .querySelectorAll('article[role="listitem"]:not([aria-disabled="true"])')
+    .forEach((item) => {
+      item.addEventListener("mouseenter", () => {
+        if (window.matchMedia("(hover: hover)").matches) {
+          item.classList.add("translate-y-[-2px]", "shadow-md");
+        }
+      });
+
+      item.addEventListener("mouseleave", () => {
+        item.classList.remove("translate-y-[-2px]", "shadow-md");
+      });
     });
-      
-    item.addEventListener("mouseleave", () => {
-      item.classList.remove("translate-y-[-2px]", "shadow-md");
-    });
-  });
 </script>
 
 <style>
@@ -78,7 +86,7 @@ const { headline = "", image, isDisabled = false, imageAlt = "" } = Astro.props;
     article[role="listitem"] {
       border: 2px solid ButtonText;
     }
-    
+
     article[aria-disabled="true"] {
       border: 2px dashed GrayText;
     }

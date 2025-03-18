@@ -1,6 +1,6 @@
 ---
 interface Props {
-  title: string;
+  title?: string;
   level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   className?: string;
 }
@@ -16,5 +16,5 @@ const Tag = level;
 <Tag
   class={`${className} font-bold tracking-wide mb-6 text-balance text-sky-500`}
 >
-  {title}
+  {title || <slot />}
 </Tag>

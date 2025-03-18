@@ -1,10 +1,11 @@
 ---
 import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
-import Button from "@components/Shared/Button.astro";
-import IntroText from "@components/Shared/IntroText.astro";
+import ButtonLink from "@components/ButtonLink.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "@utils/i18n";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
 
 // Mark this route for static generation
 export const prerender = true;
@@ -71,13 +72,13 @@ const currentCategory = category;
 ---
 
 <Layout title={`${currentCategory?.headline} Start`}>
-  <IntroText
-    headline={currentCategory?.headline + " " + t("category.selected")}
-    subline={currentCategory?.introSubline}
-  />
+
+<Headline className="text-center text-3xl md:text-4xl" title={currentCategory?.headline + " " + t("category.selected")} level="h1" />
+
+<Paragraph className="text-center" description={currentCategory?.introSubline} />
 
   <article
-    class="flex flex-col items-center gap-6 w-full p-8 md:p-6 sm:p-4 rounded-lg bg-zinc-700 shadow-lg"
+    class="flex flex-col items-center gap-6 w-full"
     data-category={currentCategory?.slug}
     aria-labelledby="difficulty-heading"
   >
@@ -105,38 +106,43 @@ const currentCategory = category;
       }
     </div>
 
-    <p class="max-w-[700px] mx-auto font-sans text-base leading-relaxed hyphens-auto text-zinc-50 text-center tracking-wide">
-      {currentCategory?.text}
-    </p>
+    <Paragraph className="text-center"  description={currentCategory?.text} />
 
     <div class="flex flex-col gap-6 items-center w-full">
-      <h2 
-        id="difficulty-heading" 
-        class="font-sans text-xl font-bold leading-relaxed text-zinc-50 text-center"
+      <Headline
+        level="h2"
       >
         {t("category.difficulty.heading")}
-      </h2>
-      
+      </Headline>
+
       <div
-        class="flex flex-wrap justify-center gap-6 w-full p-1 sm:flex-col sm:max-w-[300px] sm:w-full"
+        class="flex flex-wrap flex-col justify-center gap-6 w-full p-1 xs:flex-row"
         role="group"
         aria-label={t("category.difficulty.group")}
       >
-        <Button
-          buttonText={t("category.difficulty.easy")}
-          url={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/easy`)}
+        <ButtonLink
+          href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/easy`)}
           aria-label={t("category.difficulty.easy.label")}
-        />
-        <Button
-          buttonText={t("category.difficulty.medium")}
-          url={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/medium`)}
+        >
+        {t("category.difficulty.easy")}
+        </ButtonLink>
+       
+        <ButtonLink
+          href={getRelativeLocaleUrl(
+            lang,
+            `game-${currentCategory?.slug}/medium`,
+          )}
           aria-label={t("category.difficulty.medium.label")}
-        />
-        <Button
-          buttonText={t("category.difficulty.hard")}
-          url={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/hard`)}
+        >
+        {t("category.difficulty.medium")}
+        </ButtonLink>
+        
+        <ButtonLink
+          href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/hard`)}
           aria-label={t("category.difficulty.hard.label")}
-        />
+        >
+          {t("category.difficulty.hard")}
+        </ButtonLink>
       </div>
     </div>
   </article>
