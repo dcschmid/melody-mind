@@ -23,9 +23,11 @@ const t = useTranslations(lang);
     <div class="slot left flex gap-3 items-center flex-1 justify-center">
       <button
         class="hamburger relative flex items-center justify-center gap-2 min-h-12 min-w-12
-               py-2 px-4 rounded-lg bg-[--highlight-color] text-white
+               py-2 px-4 rounded-lg bg-sky-500 text-zinc-900 font-medium
                shadow-md transition-all duration-300
-               border-2 border-white/10"
+               border-2 border-sky-400
+               hover:bg-sky-400 hover:shadow-lg
+               focus-visible:outline focus-visible:outline-sky-300 focus-visible:outline-offset-2"
         aria-label={t("nav.menu.open")}
         aria-expanded="false"
         aria-controls="main-menu"
@@ -48,7 +50,7 @@ const t = useTranslations(lang);
           <line x1="4" y1="12" x2="20" y2="12"></line>
           <line x1="4" y1="18" x2="20" y2="18"></line>
         </svg>
-        <span class="font-medium">Menü</span>
+        <span class="font-medium">{t("nav.menu.text")}</span>
       </button>
 
       <div
@@ -61,7 +63,7 @@ const t = useTranslations(lang);
 
       <div
         id="main-menu"
-        class="fixed inset-y-0 left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-md bg-[--background-color] rounded-xl
+        class="fixed inset-y-0 left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-md bg-zinc-800 rounded-xl
                shadow-2xl -translate-y-[100%] my-4 transition-transform duration-300 ease-out pt-16 pb-8
                overflow-y-auto invisible opacity-0 data-[state=open]:translate-y-0
                data-[state=open]:visible data-[state=open]:opacity-100"
@@ -71,8 +73,8 @@ const t = useTranslations(lang);
       >
         <button
           class="close-menu absolute top-4 right-4 flex items-center justify-center w-12 h-12
-                 rounded-full bg-gray-200/30 text-current hover:bg-gray-200/50
-                 transition-colors duration-200"
+                 rounded-full bg-zinc-700 text-zinc-100 hover:bg-zinc-600
+                 transition-colors duration-200 focus-visible:outline focus-visible:outline-sky-300 focus-visible:outline-offset-2"
           aria-label={t("nav.menu.close")}
         >
           <svg
@@ -94,7 +96,7 @@ const t = useTranslations(lang);
         </button>
 
         <div class="text-center mb-6">
-          <h2 class="text-xl font-bold text-balance">Navigation</h2>
+          <h2 class="text-xl font-bold text-balance text-zinc-50">{t("nav.title")}</h2>
         </div>
 
         <ul class="flex flex-col space-y-4 px-4" role="menu">
@@ -103,8 +105,10 @@ const t = useTranslations(lang);
               href={getRelativeLocaleUrl(lang, "gamehome")}
               class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
                     font-medium no-underline transition-all
-                    duration-200 hover:bg-[--secondary-color] hover:translate-x-1 focus-visible:bg-[--secondary-color]
-                    focus-visible:outline focus-visible:outline-[--focus-outline-color]"
+                    duration-200 hover:bg-zinc-700 hover:translate-x-1 
+                    focus-visible:bg-zinc-700 focus-visible:outline 
+                    focus-visible:outline-sky-300 focus-visible:outline-offset-2
+                    text-zinc-100"
               role="menuitem"
             >
               <Icon
@@ -124,8 +128,10 @@ const t = useTranslations(lang);
                 href={getRelativeLocaleUrl(lang, "rules")}
                 class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
                       font-medium no-underline transition-all
-                      duration-200 hover:bg-[--secondary-color] hover:translate-x-1 focus-visible:bg-[--secondary-color]
-                      focus-visible:outline focus-visible:outline-[--focus-outline-color]"
+                      duration-200 hover:bg-zinc-700 hover:translate-x-1 
+                      focus-visible:bg-zinc-700 focus-visible:outline 
+                      focus-visible:outline-sky-300 focus-visible:outline-offset-2
+                      text-zinc-100"
                 role="menuitem"
               >
                 <Icon
@@ -138,21 +144,20 @@ const t = useTranslations(lang);
                 <span>{t("nav.menu.rules")}</span>
               </a>
             </li>
-
-            <div class="w-full h-px bg-gray-200/20 my-2"></div>
           </When>
 
-          <div class="w-full h-px bg-gray-200/20 my-4"></div>
+          <div class="w-full h-px bg-zinc-700 my-4"></div>
 
           <div class="px-5">
-            <h3 class="text-lg font-bold mb-4">{t("nav.donate.heading")}</h3>
+            <h3 class="text-lg font-bold mb-4 text-zinc-50">{t("nav.donate.heading")}</h3>
             <div class="flex flex-col gap-3">
               <a
                 href="https://www.paypal.me/dcschmid"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center justify-center gap-2 py-3 px-4 bg-[#0070BA] hover:bg-[#005ea6]
-                       text-white rounded-lg transition-colors duration-200 font-medium"
+                class="flex items-center justify-center gap-2 py-3 px-4 bg-blue-600 hover:bg-blue-700
+                       text-white rounded-lg transition-colors duration-200 font-medium
+                       focus-visible:outline focus-visible:outline-sky-300 focus-visible:outline-offset-2"
               >
                 <Icon
                   name="coin"
@@ -167,8 +172,9 @@ const t = useTranslations(lang);
                 href="https://www.buymeacoffee.com/dcschmid"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center justify-center gap-2 py-3 px-4 bg-[#FFDD00] hover:bg-[#ffcd00]
-                       text-[#000000] rounded-lg transition-colors duration-200 font-medium"
+                class="flex items-center justify-center gap-2 py-3 px-4 bg-amber-400 hover:bg-amber-500
+                       text-zinc-900 rounded-lg transition-colors duration-200 font-medium
+                       focus-visible:outline focus-visible:outline-sky-300 focus-visible:outline-offset-2"
               >
                 <Icon
                   name="trophy"
