@@ -158,6 +158,8 @@ export const ui = {
     "nav.donate.heading": "Unterstütze uns",
     "nav.donate.paypal": "Via PayPal spenden",
     "nav.donate.coffee": "Kaffee spendieren",
+    "nav.title": "Navigation",
+    "nav.menu.text": "Menü",
   },
   en: {
     "nav.home": "Home",
@@ -302,6 +304,8 @@ export const ui = {
     "nav.donate.heading": "Support us",
     "nav.donate.paypal": "Donate via PayPal",
     "nav.donate.coffee": "Buy me a coffee",
+    "nav.title": "Navigation",
+    "nav.menu.text": "Menu",
   },
   es: {
     "nav.home": "Inicio",
@@ -446,6 +450,8 @@ export const ui = {
     "nav.donate.heading": "Apóyanos",
     "nav.donate.paypal": "Donar por PayPal",
     "nav.donate.coffee": "Invítame a un café",
+    "nav.title": "Navegación",
+    "nav.menu.text": "Menú",
   },
   fr: {
     "nav.home": "Accueil",
@@ -590,6 +596,8 @@ export const ui = {
     "nav.donate.heading": "Nous soutenir",
     "nav.donate.paypal": "Faire un don via PayPal",
     "nav.donate.coffee": "M'offrir un café",
+    "nav.title": "Navigation",
+    "nav.menu.text": "Menu",
   },
   it: {
     "nav.home": "Home",
@@ -735,6 +743,8 @@ export const ui = {
     "nav.donate.heading": "Sostienici",
     "nav.donate.paypal": "Dona tramite PayPal",
     "nav.donate.coffee": "Offrimi un caffè",
+    "nav.title": "Navigazione",
+    "nav.menu.text": "Menu",
   },
   pt: {
     "nav.home": "Início",
@@ -870,9 +880,15 @@ export const ui = {
       "Mergulhe no fascinante mundo da história da música. Aqui você encontrará artigos interessantes sobre diferentes épocas musicais, gêneros e sua evolução. Descubra fatos interessantes e expanda seu conhecimento musical.",
     "knowledge.search.placeholder": "Pesquisar...",
     "knowledge.filter.all": "Todas as Palavras-chave",
+    "game.remaining": "restante",
+    "game.default.headline": "Jogo",
+    "popup.score": "Puntuación: {score}",
+    "popup.golden.lp.score": "Pontos obtidos: {score}",
     "nav.donate.heading": "Apoie-nos",
     "nav.donate.paypal": "Doar via PayPal",
     "nav.donate.coffee": "Compre-me um café",
+    "nav.title": "Navegação",
+    "nav.menu.text": "Menu",
   },
   da: {
     "nav.home": "Hjem",
@@ -1010,6 +1026,8 @@ export const ui = {
     "nav.donate.heading": "Støt os",
     "nav.donate.paypal": "Donér via PayPal",
     "nav.donate.coffee": "Køb mig en kaffe",
+    "nav.title": "Navigation",
+    "nav.menu.text": "Menu",
   },
   nl: {
     "nav.home": "Home",
@@ -1147,6 +1165,8 @@ export const ui = {
     "nav.donate.heading": "Steun ons",
     "nav.donate.paypal": "Doneer via PayPal",
     "nav.donate.coffee": "Trakteer me op koffie",
+    "nav.title": "Navigatie",
+    "nav.menu.text": "Menu",
   },
   sv: {
     "nav.home": "Hem",
@@ -1284,6 +1304,8 @@ export const ui = {
     "nav.donate.heading": "Stöd oss",
     "nav.donate.paypal": "Donera via PayPal",
     "nav.donate.coffee": "Bjud mig på kaffe",
+    "nav.title": "Navigation",
+    "nav.menu.text": "Meny",
   },
   fi: {
     "nav.home": "Koti",
@@ -1421,5 +1443,7 @@ export const ui = {
     "nav.donate.heading": "Tue meitä",
     "nav.donate.paypal": "Lahjoita PayPalin kautta",
     "nav.donate.coffee": "Osta minulle kahvia",
+    "nav.title": "Navigointi",
+    "nav.menu.text": "Valikko",
   },
 };
