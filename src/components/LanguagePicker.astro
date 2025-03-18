@@ -73,41 +73,26 @@ const unsortedLanguages = {
 };
 
 const languages = Object.fromEntries(
-  Object.entries(unsortedLanguages)
-    .sort(([, a], [, b]) => a.name.localeCompare(b.name))
+  Object.entries(unsortedLanguages).sort(([, a], [, b]) =>
+    a.name.localeCompare(b.name),
+  ),
 );
 ---
 
-<!-- 
-  Language picker component with accessibility features:
-  - Proper ARIA attributes for screen readers
-  - Focus indicators that meet WCAG AAA requirements
-  - Keyboard navigation support
--->
 <div
-  class="flex items-center gap-2 rounded-lg focus-within:ring focus-within:ring-[--focus-outline-color] focus-within:ring-opacity-50"
+  class="flex items-center gap-2 rounded-lg focus-within:ring focus-within:ring-sky-300 focus-within:ring-opacity-75"
   role="navigation"
   aria-label={t("language.picker.label")}
 >
-  <!-- Globe icon label for the select input -->
-  <label for="language-select" class="flex items-center">
-    <span class="sr-only">{t("language.change")}</span>
-    <span class="text-lg" aria-hidden="true">🌐</span>
-  </label>
-
   <div class="relative">
-    <!-- 
-      Custom styled select dropdown that maintains accessibility
-      while providing enhanced visual appearance
-    -->
     <select
       id="language-select"
-      class="appearance-none bg-[--secondary-color] border-2 border-[--highlight-color] rounded-lg
-             py-2 px-3 pr-10 w-full text-base cursor-pointer
+      class="appearance-none bg-sky-400 text-zinc-900 border-0 rounded-lg
+             py-2 px-3 pr-10 w-full text-base font-medium cursor-pointer
              transition duration-200
-             hover:bg-[--highlight-color] hover:text-white
-             focus-visible:outline focus-visible:outline-[--focus-outline-color] focus-visible:outline-offset-2
-             focus-visible:bg-[--highlight-color] focus-visible:text-white"
+             hover:bg-sky-300 
+             focus-visible:outline-2 focus-visible:outline-sky-200 focus-visible:outline-offset-2
+             focus-visible:bg-sky-300 disabled:opacity-50"
       value={getRelativeLocaleUrl(lang, cleanPath)}
       onchange="
         const newLang = this.value.split('/')[1];
@@ -124,7 +109,7 @@ const languages = Object.fromEntries(
               value={url}
               selected={code === lang}
               aria-label={label}
-              class="flex items-center gap-2 py-1"
+              class="flex items-center gap-2 py-1 bg-zinc-100 text-zinc-900"
             >
               {flag} {name}
             </option>
@@ -133,13 +118,8 @@ const languages = Object.fromEntries(
       }
     </select>
 
-    <!-- 
-      Custom dropdown arrow with animation
-      Positioned absolutely to appear within the select element
-      while remaining purely decorative (aria-hidden)
-    -->
     <div
-      class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[--text-color] transition-colors duration-200"
+      class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-zinc-900 transition-colors duration-200"
       id="arrow-container"
     >
       <svg

@@ -1,7 +1,7 @@
 ---
 interface Props {
   href?: string;
-  type?: 'button' | 'submit' | 'reset';
+  type?: "button" | "submit" | "reset";
   disabled?: boolean;
   ariaLabel?: string;
   class?: string;
@@ -9,10 +9,10 @@ interface Props {
 
 const {
   href,
-  type = 'button',
+  type = "button",
   disabled = false,
   ariaLabel,
-  class: extraClasses = ''
+  class: extraClasses = "",
 } = Astro.props;
 
 const baseClasses =
@@ -21,12 +21,19 @@ const baseClasses =
 const finalClasses = `${baseClasses} ${extraClasses}`.trim();
 ---
 
-{href ? (
-  <a href={href} class={finalClasses} aria-label={ariaLabel}>
-    <slot />
-  </a>
-) : (
-  <button type={type} disabled={disabled} class={finalClasses} aria-label={ariaLabel}>
-    <slot />
-  </button>
-)}
+{
+  href ? (
+    <a href={href} class={finalClasses} aria-label={ariaLabel}>
+      <slot />
+    </a>
+  ) : (
+    <button
+      type={type}
+      disabled={disabled}
+      class={finalClasses}
+      aria-label={ariaLabel}
+    >
+      <slot />
+    </button>
+  )
+}

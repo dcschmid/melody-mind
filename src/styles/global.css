@@ -2,19 +2,25 @@
 
 @theme {
   /* Dark theme WCAG AAA compliant colors */
-  --color-background: oklch(0.2 0.02 270);     /* Dunkles Blau-Grau (#1a1b26) */
-  --color-foreground: oklch(0.98 0.01 270);    /* Fast-Weiß für Text (#f7f9fc) */
-  --color-muted: oklch(0.8 0.02 270);          /* Hellgrau für weniger wichtigen Text (#c6c8d0) */
-  --color-primary: oklch(0.65 0.2 250);        /* Kräftiges Blau (#4d7cfe) */
-  --color-primary-hover: oklch(0.7 0.2 250);   /* Helleres Blau für Hover (#5a8bff) */
-  --color-accent: oklch(0.65 0.18 50);         /* Warmes Orange (#ff9f1c) */
-  --color-success: oklch(0.7 0.2 140);         /* Grün (#36d399) */
-  --color-error: oklch(0.65 0.2 30);           /* Rot (#ff4d4f) */
-  --color-surface: oklch(0.3 0.02 270);        /* Etwas helleres Blau-Grau für Karten (#2a2c3e) */
-  --color-border: oklch(0.4 0.02 270);         /* Mittleres Grau für Ränder (#494b59) */
-  
+  --color-background: oklch(0.2 0.02 270); /* Dunkles Blau-Grau (#1a1b26) */
+  --color-foreground: oklch(0.98 0.01 270); /* Fast-Weiß für Text (#f7f9fc) */
+  --color-muted: oklch(
+    0.8 0.02 270
+  ); /* Hellgrau für weniger wichtigen Text (#c6c8d0) */
+  --color-primary: oklch(0.65 0.2 250); /* Kräftiges Blau (#4d7cfe) */
+  --color-primary-hover: oklch(
+    0.7 0.2 250
+  ); /* Helleres Blau für Hover (#5a8bff) */
+  --color-accent: oklch(0.65 0.18 50); /* Warmes Orange (#ff9f1c) */
+  --color-success: oklch(0.7 0.2 140); /* Grün (#36d399) */
+  --color-error: oklch(0.65 0.2 30); /* Rot (#ff4d4f) */
+  --color-surface: oklch(
+    0.3 0.02 270
+  ); /* Etwas helleres Blau-Grau für Karten (#2a2c3e) */
+  --color-border: oklch(0.4 0.02 270); /* Mittleres Grau für Ränder (#494b59) */
+
   /* Focus states */
-  --color-focus: oklch(0.75 0.2 250);          /* Helleres Blau für Fokus (#6e9cff) */
+  --color-focus: oklch(0.75 0.2 250); /* Helleres Blau für Fokus (#6e9cff) */
   --focus-ring-width: 3px;
   --focus-ring-offset: 2px;
 
@@ -27,7 +33,7 @@
   --spacing-6: 1.5rem;
   --spacing-8: 2rem;
   --spacing-12: 3rem;
-  
+
   /* Border radius */
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
@@ -38,11 +44,11 @@
   --font-sans: "Source Sans Pro", system-ui, sans-serif;
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.75;
-  
+
   /* Animation */
   --transition-fast: 150ms;
   --transition-normal: 300ms;
-  --easing-standard: cubic-bezier(0.2, 0.0, 0, 1.0);
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
 }
 
 /* Component tokens */
@@ -62,51 +68,11 @@
     --error: var(--color-error);
     --focus: var(--color-focus);
   }
-  
+
   body {
     @apply bg-[--background] text-[--foreground] font-sans;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-}
-
-/* Global utility classes */
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  
-  .text-pretty {
-    text-wrap: pretty;
-  }
-}
-
-/* Component definitions */
-@layer components {
-  .btn {
-    @apply inline-flex h-12 items-center justify-center rounded-[--radius-md] 
-           px-6 py-3 font-medium transition-colors duration-[--transition-normal]
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--focus]
-           focus-visible:ring-offset-2 focus-visible:ring-offset-[--background]
-           disabled:pointer-events-none disabled:opacity-50;
-  }
-  
-  .btn-primary {
-    @apply bg-[--primary] text-[--background] hover:bg-[--primary-hover];
-  }
-  
-  .btn-accent {
-    @apply bg-[--accent] text-[--background] hover:bg-opacity-90;
-  }
-  
-  .card {
-    @apply rounded-[--radius-lg] border border-[--border] bg-[--surface] p-6 shadow;
-  }
-  
-  .input {
-    @apply h-12 rounded-[--radius-md] border border-[--border] bg-[--background]
-           px-4 text-[--foreground] transition-colors duration-[--transition-fast]
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--focus]
-           focus-visible:ring-offset-2 focus-visible:ring-offset-[--background]
-           disabled:opacity-50;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
   }
 }
