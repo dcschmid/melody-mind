@@ -7,150 +7,54 @@ const t = useTranslations(lang);
 ---
 
 <div
-  class="coinsContainer"
+  class="flex items-center justify-center min-w-[44px] max-w-[120px] px-4 py-2
+          bg-zinc-800 rounded-lg shadow-md text-zinc-50
+          transition-all duration-300 will-change-transform
+          hover:-translate-y-0.5 hover:shadow-lg
+          focus-within:ring focus-within:ring-sky-300 focus-within:ring-opacity-75
+          motion-safe:hover:shadow-lg"
   role="status"
-  aria-label="Gesammelte Münzen"
+  aria-label={t("coins.collected")}
   aria-live="polite"
   data-coins
 >
-  <div class="coinsDisplay">
+  <div class="flex items-center gap-2 p-0.5">
     <Icon
-      class="coinIcon"
+      class="text-amber-400 w-6 h-6 drop-shadow motion-safe:animate-bounce motion-reduce:transform-none"
       name="coin"
       width={24}
       height={24}
       aria-hidden="true"
     />
-    <span class="coinsCount" aria-atomic="true">
+    <span
+      class="font-bold font-sans tabular-nums leading-tight"
+      aria-atomic="true"
+    >
       <span class="sr-only">{t("coins.collected")}:</span>
-      <span class="count">0</span>
+      <span class="inline-block min-w-[1.5ch] text-right">0</span>
     </span>
   </div>
 </div>
 
-<style lang="scss">
-  .coinsContainer {
-    will-change: transform;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    min-width: var(--min-touch-target);
-    max-width: min(120px, 100%);
-    padding: var(--padding-small);
-    border-radius: var(--border-radius);
-
-    background-color: var(--secondary-color);
-    box-shadow: var(--box-shadow);
-
-    // Hover Effekt
-    @media (hover: hover) {
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-elevated);
-      }
-    }
-
-    @media (hover: none) {
-      touch-action: manipulation;
-
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      transition:
-        transform var(--transition-speed) ease,
-        box-shadow var(--transition-speed) ease;
-    }
-  }
-
-  .coinsDisplay {
-    display: flex;
-    gap: var(--padding-small);
-    align-items: center;
-    padding: calc(var(--padding-small) / 2);
-  }
-
-  .coinIcon {
-    will-change: transform;
-    color: var(--highlight-color);
-    backface-visibility: hidden;
-    filter: drop-shadow(0 2px 4px rgb(0 0 0 / 15%));
-
-    @media (prefers-reduced-motion: no-preference) {
-      animation: bounce 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    }
-  }
-
-  .coinsCount {
-    font-family: var(--font-family);
-    font-size: var(--body-font-size);
-    font-weight: 700;
-    font-variant-numeric: tabular-nums;
-    line-height: var(--line-height-tight);
-    color: var(--text-color);
-
-    .count {
-      display: inline-block;
-      min-width: 1.5ch;
-      text-align: right;
-    }
-  }
-
-  @keyframes bounce {
-    0%,
-    100% {
-      transform: translateY(0) translateZ(0);
-    }
-
-    50% {
-      transform: translateY(-2px) translateZ(0);
-    }
-  }
-
-  // High Contrast Mode Support
+<style>
   @media (forced-colors: active) {
-    .coinsContainer {
+    div[data-coins] {
       border: 2px solid CanvasText;
     }
 
-    .coinIcon {
-      color: LinkText;
+    [data-coins] svg {
       forced-color-adjust: none;
+      color: LinkText;
     }
   }
 
-  // Dark Mode Optimierungen
-  @media (prefers-color-scheme: dark) {
-    .coinsContainer {
-      background-color: color-mix(in srgb, var(--secondary-color) 85%, #000);
-    }
-
-    .coinIcon {
-      filter: drop-shadow(0 2px 4px rgb(0 0 0 / 30%));
-    }
-  }
-
-  // Mobile Optimierungen
-  @media (width <= 768px) {
-    .coinsContainer {
-      padding: calc(var(--padding-small) * 0.75);
-    }
-
-    .coinsCount {
-      font-size: calc(var(--body-font-size) * 0.9);
-    }
-  }
-
-  // Print Styles
   @media print {
-    .coinsContainer {
+    div[data-coins] {
       border: 1px solid #000;
       box-shadow: none;
     }
 
-    .coinIcon {
+    [data-coins] svg {
       display: none;
     }
   }

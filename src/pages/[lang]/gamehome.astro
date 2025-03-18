@@ -89,25 +89,41 @@ const getNonPlayableItems = () => {
 };
 
 const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
+
+// Neue Übersetzungs-Keys für leere Kategorien
+const emptyCategoriesHeadline = t("game.categories.empty.headline") || "Keine Genres gefunden";
+const emptyCategoriesText = t("game.categories.empty.text") || "Es wurden leider keine Kategorien gefunden. Bitte versuche es später erneut.";
 ---
 
 <Layout title={t("game.select")}>
-  <main class="gameHome" id="main-content">
+  <!-- Main content area with improved contrast and spacing -->
+  <main 
+    class="w-full max-w-4xl mx-auto p-6 md:p-8 rounded-lg bg-zinc-800 shadow-xl"
+    id="main-content"
+  >
     <IntroText
       headline={`${t("game.welcome")} ${username}`}
       subline={t("game.select")}
       headingId="welcome-heading"
     />
 
-    <section class="playlistSection" aria-labelledby="playlist-heading">
+    <!-- Genre selection section with better visibility -->
+    <section 
+      class="mt-8"
+      aria-labelledby="playlist-heading"
+    >
       <h2 id="playlist-heading" class="sr-only">{t("game.genre.list")}</h2>
 
-      <div class="searchWrapper">
+      <!-- Search input with improved accessibility and contrast -->
+      <div class="my-8 w-full">
         <label for="filter-input" class="sr-only">
           {t("game.search.label")}
         </label>
         <input
-          class="filterInput"
+          class="w-full max-w-4xl py-4 px-5 border-2 border-zinc-600 rounded-lg
+                 bg-zinc-700 text-zinc-50 text-base leading-relaxed placeholder-zinc-400
+                 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400 
+                 focus:ring-opacity-50"
           type="search"
           id="filter-input"
           placeholder={t("game.search.label")}
@@ -122,236 +138,53 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
         </span>
       </div>
 
+      <!-- Genre grid with proper spacing and accessibility -->
       <div
         id="playlist-grid"
-        class="playlistGrid"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8
+               w-full max-w-5xl mx-auto my-8 min-h-[200px]"
         role="list"
         aria-label={t("game.genre.list")}
         aria-live="polite"
       >
-        <When test={categories.length > 0}>
-          {
-            categories.map((item) => (
-              <li>
-                <When test={item.isPlayable}>
-                  <a
-                    href={`/${lang}${item.categoryUrl}`}
-                    class="playlistLink"
-                    aria-label={
-                      item.headline + " " + t("game.genre.play.label")
-                    }
-                  >
-                    <PlaylistItem
-                      headline={item.headline}
-                      image={item.imageUrl}
-                      imageAlt={t("game.genre.image") + " " + item.headline}
-                    />
-                  </a>
-                </When>
-              </li>
-            ))
-          }
-        </When>
+        {categories && categories.length > 0 ? (
+          categories.map((item) => (
+            <li class="h-full list-none">
+              {item.isPlayable && (
+                <a
+                  href={`/${lang}${item.categoryUrl}`}
+                  class="block h-full overflow-hidden rounded-lg bg-zinc-700 
+                         border-2 border-transparent transition-all duration-300
+                         hover:-translate-y-1 hover:shadow-lg
+                         focus:outline-none focus:border-sky-400 focus:ring-2 
+                         focus:ring-sky-400 focus:ring-opacity-50"
+                  aria-label={
+                    item.headline + " " + t("game.genre.play.label")
+                  }
+                >
+                  <PlaylistItem
+                    headline={item.headline}
+                    image={item.imageUrl}
+                    imageAlt={t("game.genre.image") + " " + item.headline}
+                  />
+                </a>
+              )}
+            </li>
+          ))
+        ) : (
+          <div class="col-span-full py-12 px-6 bg-zinc-700 rounded-lg text-center">
+            <h3 class="text-xl font-bold text-zinc-50 mb-3">
+              {emptyCategoriesHeadline}
+            </h3>
+            <p class="text-zinc-200">
+              {emptyCategoriesText}
+            </p>
+          </div>
+        )}
       </div>
     </section>
   </main>
 </Layout>
-<style lang="scss">
-  .gameHome {
-    max-width: var(--max-line-length);
-    margin: 0 auto;
-    padding: var(--padding-large);
-    border-radius: var(--border-radius);
-
-    background-color: var(--background-color);
-  }
-
-  .search-label {
-    display: block;
-
-    margin-bottom: 0.75rem;
-
-    font-size: var(--body-font-size);
-    font-weight: 600;
-    color: var(--text-color);
-  }
-
-  .searchWrapper {
-    margin: var(--padding-large) 0;
-  }
-
-  .filterInput {
-    width: 100%;
-    max-width: 1024px;
-    padding: 1rem var(--padding-medium);
-    border: 2px solid var(--text-color);
-    border-radius: var(--border-radius);
-
-    font-family: var(--font-family);
-    font-size: var(--body-font-size);
-    line-height: var(--line-height-body);
-    color: var(--text-color);
-
-    appearance: none;
-    background-color: var(--background-color);
-
-    &::placeholder {
-      color: var(--text-color);
-      opacity: 0.8;
-    }
-
-    &:focus-visible {
-      border-color: var(--focus-outline-color);
-      outline: var(--focus-outline-width) solid var(--focus-outline-color);
-      outline-offset: var(--focus-outline-offset);
-    }
-
-    @media (width <= 768px) {
-      font-size: 16px;
-    }
-  }
-
-  .playlistGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: var(--padding-large);
-
-    width: 100%;
-    max-width: 1200px;
-    min-height: 200px;
-    margin: var(--padding-large) auto;
-    padding: 0;
-
-    list-style: none;
-
-    > li {
-      display: list-item;
-      width: 100%;
-    }
-
-    &[aria-busy="true"] {
-      pointer-events: none;
-      opacity: 0.7;
-    }
-  }
-
-  .playlist-item {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .playlistLink,
-  .playlistItem {
-    will-change: transform;
-
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-
-    width: 100%;
-    border: 2px solid transparent;
-    border-radius: var(--border-radius);
-
-    color: var(--text-color);
-    text-decoration: none;
-
-    background-color: var(--secondary-color);
-
-    transition: transform 0.2s ease-out;
-
-    &:hover {
-      transform: translateY(-2px);
-    }
-
-    img {
-      aspect-ratio: 1;
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    .headline {
-      padding: var(--padding-medium);
-
-      font-size: var(--body-font-size);
-      font-weight: 600;
-      line-height: var(--line-height-body);
-      color: #fff;
-      text-align: center;
-
-      background-color: rgb(0 0 0 / 85%);
-    }
-
-    &:focus-visible {
-      outline: var(--focus-outline-width) solid var(--focus-outline-color);
-      outline-offset: var(--focus-outline-offset);
-    }
-
-    &[aria-disabled="true"] {
-      cursor: not-allowed;
-      opacity: 0.85;
-      background-color: var(--secondary-color);
-
-      &::after {
-        content: attr(data-unavailable-text);
-
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-        padding: 1em 1.5em;
-        border-radius: var(--border-radius);
-
-        font-size: var(--body-font-size);
-        font-weight: 600;
-        color: #fff;
-
-        background: rgb(0 0 0 / 90%);
-      }
-    }
-  }
-
-  .no-results {
-    grid-column: 1 / -1;
-
-    padding: var(--padding-large);
-    border-radius: var(--border-radius);
-
-    font-size: var(--body-font-size);
-    font-weight: 500;
-    color: var(--text-color);
-    text-align: center;
-
-    background-color: var(--secondary-color);
-  }
-
-  @media (forced-colors: active) {
-    .playlistLink,
-    .playlistItem {
-      border: 2px solid ButtonText;
-    }
-  }
-
-  @media print {
-    .filterInput,
-    .searchWrapper {
-      display: none;
-    }
-
-    .playlistGrid {
-      gap: 1rem;
-    }
-
-    .playlistLink,
-    .playlistItem {
-      break-inside: avoid;
-
-      page-break-inside: avoid;
-    }
-  }
-</style>
 
 <script>
   import { ui } from "../../i18n/ui";
@@ -381,7 +214,7 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
   const filterInput = document.getElementById(
     "filter-input",
   ) as HTMLInputElement;
-  const playlistGrid = document.querySelector(".playlistGrid");
+  const playlistGrid = document.querySelector("#playlist-grid");
 
   /**
    * Debounced filter function
@@ -402,7 +235,7 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 
     const query = filterInput.value.toLowerCase().trim();
     const playlistItems =
-      document.querySelectorAll<HTMLElement>(".playlistGrid > li");
+      document.querySelectorAll<HTMLElement>("#playlist-grid > li");
     let hasResults = false;
 
     playlistItems.forEach((item) => {
@@ -414,7 +247,7 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
       }
 
       const isVisible = headlineText.includes(query);
-      item.style.display = isVisible ? "list-item" : "none";
+      item.style.display = isVisible ? "" : "none";
       if (isVisible) hasResults = true;
     });
 
@@ -430,7 +263,7 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     if (!hasResults) {
       if (!noResultsMsg) {
         noResultsMsg = document.createElement("p");
-        noResultsMsg.className = "no-results";
+        noResultsMsg.className = "col-span-full py-8 px-6 bg-zinc-700 rounded-lg text-zinc-50 text-center font-medium no-results";
         noResultsMsg.setAttribute("role", "status");
         noResultsMsg.textContent = translations.noResults;
         playlistGrid?.appendChild(noResultsMsg);
@@ -445,3 +278,50 @@ const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
     item.setAttribute("data-unavailable-text", translations.notAvailable);
   });
 </script>
+
+<style>
+  /* High Contrast Mode Support */
+  @media (forced-colors: active) {
+    #playlist-grid a {
+      border: 2px solid ButtonText;
+    }
+  }
+
+  /* Print Styles */
+  @media print {
+    #filter-input {
+      display: none;
+    }
+
+    #playlist-grid {
+      gap: 1rem;
+    }
+
+    #playlist-grid a {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+  }
+
+  /* Disabled Item Styling */
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+    opacity: 0.85;
+    background-color: var(--secondary-color);
+    position: relative;
+  }
+
+  [aria-disabled="true"]::after {
+    content: attr(data-unavailable-text);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1em 1.5em;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.9);
+  }
+</style>
