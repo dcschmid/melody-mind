@@ -1,5 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { Picture } from "astro:assets";
 
 interface Props {
   headline: string;
@@ -12,25 +13,29 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const { headline = "", image, isDisabled = false, imageAlt = "" } = Astro.props;
-
-import { When } from "@astropub/flow";
-import { Picture } from "astro:assets";
 ---
 
-<article class="playlistItem" role="listitem">
-  <When test={isDisabled}>
+<article 
+  class="relative flex flex-col w-full h-full overflow-hidden bg-zinc-700 rounded-lg will-change-opacity
+         transition-opacity duration-300 ease-in-out"
+  role="listitem"
+>
+  {isDisabled && (
     <div
-      class="disabled"
+      class="absolute inset-0 z-10 flex items-center justify-center p-4
+             bg-black/80 text-zinc-50 text-center font-medium"
       aria-label={t("playlist.item.unavailable")}
       role="status"
     >
       <span class="sr-only">{t("playlist.item.status")}:</span>
       {t("playlist.item.coming.soon")}
     </div>
-  </When>
-  <div class="imageWrapper">
+  )}
+
+  <div class="relative w-full aspect-square overflow-hidden">
     <Picture
-      class:list={["cover", { coverDisabled: isDisabled }]}
+      class={`absolute top-0 left-0 w-full h-full object-cover 
+              ${isDisabled ? "opacity-70 grayscale-[50%]" : ""}`}
       src={image}
       width={130}
       height={130}
@@ -42,104 +47,45 @@ import { Picture } from "astro:assets";
       quality={80}
     />
   </div>
-  <h2 class="headline">{headline}</h2>
+  
+  <h2 class="headline m-0 p-4 font-sans text-base font-semibold leading-tight hyphens-auto 
+             text-zinc-50 text-center break-words">
+    {headline}
+  </h2>
 </article>
 
-<style lang="scss">
-  .playlistItem {
-    will-change: opacity;
+<script>
+  // Hover-Effekt für nicht-deaktivierte Elemente
+  document.querySelectorAll('article[role="listitem"]:not([aria-disabled="true"])')
+    .forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        if (window.matchMedia('(hover: hover)').matches) {
+          item.classList.add('translate-y-[-2px]', 'shadow-md');
+        }
+      });
+      
+      item.addEventListener('mouseleave', () => {
+        item.classList.remove('translate-y-[-2px]', 'shadow-md');
+      });
+    });
+</script>
 
-    position: relative;
-
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-
-    width: 100%;
-    height: 100%;
-    border-radius: var(--border-radius);
-
-    background-color: var(--secondary-color);
-
-    transition: opacity var(--transition-speed) ease-in-out;
-
-    &[aria-disabled="true"] {
-      opacity: var(--opacity-disabled);
-      filter: grayscale(50%);
-    }
-
-    @media (hover: hover) {
-      &:hover:not([aria-disabled="true"]) {
-        transform: translateY(-2px);
-        transition: transform 0.2s ease-in-out;
-      }
-    }
-  }
-
-  .imageWrapper {
-    position: relative;
-
-    overflow: hidden;
-
-    aspect-ratio: 1 / 1;
-    width: 100%;
-    padding-top: 0;
-    padding-top: 100%;
-
-    @media (prefers-reduced-motion: reduce) {
+<style>
+  /* Stile für Nutzer, die reduzierte Bewegung bevorzugen */
+  @media (prefers-reduced-motion: reduce) {
+    .aspect-square {
       transition: none;
     }
   }
 
-  @supports not (aspect-ratio: 1 / 1) {
-    .imageWrapper {
-      padding-top: 100%;
+  /* High Contrast Mode Support */
+  @media (forced-colors: active) {
+    article[role="listitem"] {
+      border: 2px solid ButtonText;
     }
-  }
-
-  .cover {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-  }
-
-  .disabled {
-    position: absolute;
-    z-index: var(--layer-above);
-    inset: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: var(--padding-small);
-
-    font-family: var(--font-family);
-    font-size: var(--body-font-size);
-    line-height: var(--line-height-body);
-    color: var(--button-text-color);
-    text-align: center;
-    letter-spacing: var(--spacing-text);
-
-    background-color: var(--color-overlay);
-  }
-
-  .headline {
-    margin: 0;
-    padding: var(--padding-small);
-
-    font-family: var(--font-family);
-    font-size: var(--body-font-size);
-    font-weight: 600;
-    line-height: var(--line-height-body);
-    hyphens: auto;
-    color: var(--text-color);
-    text-align: center;
-    overflow-wrap: break-word;
+    
+    article[aria-disabled="true"] {
+      border: 2px dashed GrayText;
+    }
   }
 </style>
