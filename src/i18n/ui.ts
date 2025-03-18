@@ -160,6 +160,9 @@ export const ui = {
     "nav.donate.coffee": "Kaffee spendieren",
     "nav.title": "Navigation",
     "nav.menu.text": "Menü",
+    "game.categories.empty.headline": "Keine Genres gefunden",
+    "game.categories.empty.text":
+      "Es wurden leider keine Kategorien gefunden. Bitte versuche es später erneut.",
   },
   en: {
     "nav.home": "Home",
@@ -306,6 +309,9 @@ export const ui = {
     "nav.donate.coffee": "Buy me a coffee",
     "nav.title": "Navigation",
     "nav.menu.text": "Menu",
+    "game.categories.empty.headline": "No genres found",
+    "game.categories.empty.text":
+      "Unfortunately, no categories were found. Please try again later.",
   },
   es: {
     "nav.home": "Inicio",
@@ -452,6 +458,9 @@ export const ui = {
     "nav.donate.coffee": "Invítame a un café",
     "nav.title": "Navegación",
     "nav.menu.text": "Menú",
+    "game.categories.empty.headline": "No se encontraron géneros",
+    "game.categories.empty.text":
+      "Desafortunadamente, no se encontraron categorías. Por favor, inténtalo de nuevo más tarde.",
   },
   fr: {
     "nav.home": "Accueil",
@@ -598,6 +607,9 @@ export const ui = {
     "nav.donate.coffee": "M'offrir un café",
     "nav.title": "Navigation",
     "nav.menu.text": "Menu",
+    "game.categories.empty.headline": "Aucun genre trouvé",
+    "game.categories.empty.text":
+      "Malheureusement, aucune catégorie n'a été trouvée. Veuillez réessayer plus tard.",
   },
   it: {
     "nav.home": "Home",
@@ -889,6 +901,9 @@ export const ui = {
     "nav.donate.coffee": "Compre-me um café",
     "nav.title": "Navegação",
     "nav.menu.text": "Menu",
+    "game.categories.empty.headline": "No se encontraron géneros",
+    "game.categories.empty.text":
+      "Desafortunadamente, no se encontraron categorías. Por favor, inténtalo de nuevo más tarde.",
   },
   da: {
     "nav.home": "Hjem",
@@ -1167,6 +1182,9 @@ export const ui = {
     "nav.donate.coffee": "Trakteer me op koffie",
     "nav.title": "Navigatie",
     "nav.menu.text": "Menu",
+    "game.categories.empty.headline": "No se encontraron géneros",
+    "game.categories.empty.text":
+      "Desafortunadamente, no se encontraron categorías. Por favor, inténtalo de nuevo más tarde.",
   },
   sv: {
     "nav.home": "Hem",

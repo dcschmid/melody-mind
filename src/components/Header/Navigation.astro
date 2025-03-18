@@ -96,7 +96,9 @@ const t = useTranslations(lang);
         </button>
 
         <div class="text-center mb-6">
-          <h2 class="text-xl font-bold text-balance text-zinc-50">{t("nav.title")}</h2>
+          <h2 class="text-xl font-bold text-balance text-zinc-50">
+            {t("nav.title")}
+          </h2>
         </div>
 
         <ul class="flex flex-col space-y-4 px-4" role="menu">
@@ -105,8 +107,8 @@ const t = useTranslations(lang);
               href={getRelativeLocaleUrl(lang, "gamehome")}
               class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
                     font-medium no-underline transition-all
-                    duration-200 hover:bg-zinc-700 hover:translate-x-1 
-                    focus-visible:bg-zinc-700 focus-visible:outline 
+                    duration-200 hover:bg-zinc-700 hover:translate-x-1
+                    focus-visible:bg-zinc-700 focus-visible:outline
                     focus-visible:outline-sky-300 focus-visible:outline-offset-2
                     text-zinc-100"
               role="menuitem"
@@ -128,8 +130,8 @@ const t = useTranslations(lang);
                 href={getRelativeLocaleUrl(lang, "rules")}
                 class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
                       font-medium no-underline transition-all
-                      duration-200 hover:bg-zinc-700 hover:translate-x-1 
-                      focus-visible:bg-zinc-700 focus-visible:outline 
+                      duration-200 hover:bg-zinc-700 hover:translate-x-1
+                      focus-visible:bg-zinc-700 focus-visible:outline
                       focus-visible:outline-sky-300 focus-visible:outline-offset-2
                       text-zinc-100"
                 role="menuitem"
@@ -149,7 +151,9 @@ const t = useTranslations(lang);
           <div class="w-full h-px bg-zinc-700 my-4"></div>
 
           <div class="px-5">
-            <h3 class="text-lg font-bold mb-4 text-zinc-50">{t("nav.donate.heading")}</h3>
+            <h3 class="text-lg font-bold mb-4 text-zinc-50">
+              {t("nav.donate.heading")}
+            </h3>
             <div class="flex flex-col gap-3">
               <a
                 href="https://www.paypal.me/dcschmid"
