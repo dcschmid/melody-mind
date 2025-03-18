@@ -28,7 +28,9 @@ const keywords = t("meta.keywords");
   keywords={keywords}
   showHeader={false}
 >
-  <div class="max-w-4xl w-full mx-auto px-6 py-12 flex flex-col items-center text-center">
+  <div
+    class="max-w-4xl w-full mx-auto px-6 py-12 flex flex-col items-center text-center"
+  >
     <!-- Language picker with improved position for better visibility -->
     <div class="self-center mb-6">
       <LanguagePicker />
@@ -46,14 +48,11 @@ const keywords = t("meta.keywords");
     />
 
     <Headline level="h1" title={title} />
-    
+
     <Paragraph>{description}</Paragraph>
 
     <div class="flex flex-col items-center gap-4 mt-6 w-full max-w-xs">
-      <ButtonLink 
-        href={`/${lang}/gamehome`}
-        aria-label="Zum Spiel starten"
-      >
+      <ButtonLink href={`/${lang}/gamehome`} aria-label="Zum Spiel starten">
         <span class="text-lg">Weiter</span>
       </ButtonLink>
     </div>
