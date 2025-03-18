@@ -31,7 +31,8 @@ export const ui = {
     "login.github": "Mit GitHub anmelden",
     "login.google": "Mit Google anmelden",
     "login.yahoo": "Mit Yahoo anmelden",
-    "game.select": "Entdecke die faszinierende Welt der Musik und teste dein Wissen in unseren interaktiven Musik-Quizzen. Wähle dein Lieblingsgenre und beginne deine klangvolle Reise!",
+    "game.select":
+      "Entdecke die faszinierende Welt der Musik und teste dein Wissen in unseren interaktiven Musik-Quizzen. Wähle dein Lieblingsgenre und beginne deine klangvolle Reise!",
     "game.welcome": "Willkommen bei Melody Mind",
     "game.genre.list": "Genre Auswahl",
     "game.search.label": "Suche nach einem Genre",
@@ -184,7 +185,8 @@ export const ui = {
     "login.github": "Login with GitHub",
     "login.google": "Login with Google",
     "login.yahoo": "Login with Yahoo",
-    "game.select": "Discover the fascinating world of music and test your knowledge in our interactive music quizzes. Choose your favorite genre and begin your melodious journey!",
+    "game.select":
+      "Discover the fascinating world of music and test your knowledge in our interactive music quizzes. Choose your favorite genre and begin your melodious journey!",
     "game.welcome": "Welcome to Melody Mind",
     "game.genre.list": "Genre Selection",
     "game.search.label": "Search for a genre",
@@ -336,7 +338,8 @@ export const ui = {
     "login.github": "Iniciar sesión con GitHub",
     "login.google": "Iniciar sesión con Google",
     "login.yahoo": "Iniciar sesión con Yahoo",
-    "game.select": "Descubre el fascinante mundo de la música y pon a prueba tus conocimientos en nuestros cuestionarios musicales interactivos. ¡Elige tu género favorito y comienza tu melodioso viaje!",
+    "game.select":
+      "Descubre el fascinante mundo de la música y pon a prueba tus conocimientos en nuestros cuestionarios musicales interactivos. ¡Elige tu género favorito y comienza tu melodioso viaje!",
     "game.welcome": "Bienvenido a Melody Mind",
     "game.genre.list": "Selección de género",
     "game.search.label": "Buscar un género",
@@ -488,7 +491,8 @@ export const ui = {
     "login.github": "Se connecter avec GitHub",
     "login.google": "Se connecter avec Google",
     "login.yahoo": "Se connecter avec Yahoo",
-    "game.select": "Découvrez le monde fascinant de la musique et testez vos connaissances dans nos quiz musicaux interactifs. Choisissez votre genre préféré et commencez votre voyage mélodieux !",
+    "game.select":
+      "Découvrez le monde fascinant de la musique et testez vos connaissances dans nos quiz musicaux interactifs. Choisissez votre genre préféré et commencez votre voyage mélodieux !",
     "game.welcome": "Bienvenue à Melody Mind",
     "game.genre.list": "Sélection du genre",
     "game.search.label": "Rechercher un genre",
@@ -640,7 +644,8 @@ export const ui = {
     "login.github": "Accedi con GitHub",
     "login.google": "Accedi con Google",
     "login.yahoo": "Accedi con Yahoo",
-    "game.select": "Scopri l'affascinante mondo della musica e metti alla prova le tue conoscenze nei nostri quiz musicali interattivi. Scegli il tuo genere preferito e inizia il tuo viaggio melodioso!",
+    "game.select":
+      "Scopri l'affascinante mondo della musica e metti alla prova le tue conoscenze nei nostri quiz musicali interattivi. Scegli il tuo genere preferito e inizia il tuo viaggio melodioso!",
     "game.welcome": "Benvenuti a Melody Mind",
     "game.genre.list": "Selezione del genere",
     "game.search.label": "Cerca un genere",
@@ -793,7 +798,8 @@ export const ui = {
     "login.github": "Entrar com GitHub",
     "login.google": "Entrar com Google",
     "login.yahoo": "Entrar com Yahoo",
-    "game.select": "Descubra o fascinante mundo da música e teste seus conhecimentos em nossos quizzes musicais interativos. Escolha seu gênero favorito e comece sua jornada melodiosa!",
+    "game.select":
+      "Descubra o fascinante mundo da música e teste seus conhecimentos em nossos quizzes musicais interativos. Escolha seu gênero favorito e comece sua jornada melodiosa!",
     "game.welcome": "Bem-vindo ao Melody Mind",
     "game.genre.list": "Seleção de Gênero",
     "game.search.label": "Buscar um gênero",
@@ -943,7 +949,8 @@ export const ui = {
     "login.github": "Log ind med GitHub",
     "login.google": "Log ind med Google",
     "login.yahoo": "Log ind med Yahoo",
-    "game.select": "Opdag musikens fascinerende verden og test din viden i vores interaktive musikquizzer. Vælg din yndlingsgenre og start din melodiske rejse!",
+    "game.select":
+      "Opdag musikens fascinerende verden og test din viden i vores interaktive musikquizzer. Vælg din yndlingsgenre og start din melodiske rejse!",
     "game.welcome": "Velkommen til Melody Mind",
     "game.genre.list": "Genrevalg",
     "game.search.label": "Søg efter en genre",
@@ -1088,7 +1095,8 @@ export const ui = {
     "login.github": "Inloggen met GitHub",
     "login.google": "Inloggen met Google",
     "login.yahoo": "Inloggen met Yahoo",
-    "game.select": "Ontdek de fascinerende wereld van muziek en test je kennis in onze interactieve muziekquizzen. Kies je favoriete genre en begin je melodieuze reis!",
+    "game.select":
+      "Ontdek de fascinerende wereld van muziek en test je kennis in onze interactieve muziekquizzen. Kies je favoriete genre en begin je melodieuze reis!",
     "game.welcome": "Welkom bij Melody Mind",
     "game.genre.list": "Genre Selectie",
     "game.search.label": "Zoek een genre",
@@ -1233,7 +1241,8 @@ export const ui = {
     "login.github": "Logga in med GitHub",
     "login.google": "Logga in med Google",
     "login.yahoo": "Logga in med Yahoo",
-    "game.select": "Upptäck musikens fascinerande värld och testa dina kunskaper i våra interaktiva musikquizzer. Välj din favoritgenre och påbörja din melodiska resa!",
+    "game.select":
+      "Upptäck musikens fascinerande värld och testa dina kunskaper i våra interaktiva musikquizzer. Välj din favoritgenre och påbörja din melodiska resa!",
     "game.welcome": "Välkommen till Melody Mind",
     "game.genre.list": "Genreval",
     "game.search.label": "Sök efter en genre",
@@ -1378,7 +1387,8 @@ export const ui = {
     "login.github": "Kirjaudu GitHubilla",
     "login.google": "Kirjaudu Googlella",
     "login.yahoo": "Kirjaudu Yahoolla",
-    "game.select": "Tutustu musiikin kiehtovaan maailmaan ja testaa tietojasi interaktiivisissa musiikkitietovisoissa. Valitse suosikkigenresi ja aloita melodinen matkasi!",
+    "game.select":
+      "Tutustu musiikin kiehtovaan maailmaan ja testaa tietojasi interaktiivisissa musiikkitietovisoissa. Valitse suosikkigenresi ja aloita melodinen matkasi!",
     "game.welcome": "Tervetuloa Melody Mindiin",
     "game.genre.list": "Genren valinta",
     "game.search.label": "Etsi genreä",

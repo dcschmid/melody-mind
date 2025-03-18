@@ -16,7 +16,7 @@ const {
 } = Astro.props;
 
 const baseClasses =
-  "inline-flex h-12 w-full items-center justify-center rounded-lg px-6 py-3 font-medium text-zinc-900 bg-sky-400 transition-all duration-300 hover:bg-sky-300 hover:shadow-lg hover:shadow-sky-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 active:scale-95 disabled:pointer-events-none disabled:opacity-50";
+  "inline-flex h-12 w-auto items-center justify-center rounded-lg px-6 py-3 font-bold text-zinc-900 bg-sky-400 transition-all duration-300 hover:bg-sky-300 hover:shadow-lg hover:shadow-sky-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 active:scale-95 disabled:pointer-events-none disabled:opacity-50";
 
 const finalClasses = `${baseClasses} ${extraClasses}`.trim();
 ---
