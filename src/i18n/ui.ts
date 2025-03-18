@@ -31,8 +31,8 @@ export const ui = {
     "login.github": "Mit GitHub anmelden",
     "login.google": "Mit Google anmelden",
     "login.yahoo": "Mit Yahoo anmelden",
-    "game.select": "Wähle ein Genre aus",
-    "game.welcome": "Willkommen",
+    "game.select": "Tauche ein in deine musikalische Reise!",
+    "game.welcome": "Hallo, Rhythmus-Entdecker",
     "game.genre.list": "Genre Auswahl",
     "game.search.label": "Suche nach einem Genre",
     "game.search.description":
@@ -163,6 +163,9 @@ export const ui = {
     "game.categories.empty.headline": "Keine Genres gefunden",
     "game.categories.empty.text":
       "Es wurden leider keine Kategorien gefunden. Bitte versuche es später erneut.",
+    "game.categories.no.playable.headline": "Keine spielbaren Genres",
+    "game.categories.no.playable.text":
+      "Es gibt derzeit keine spielbaren Kategorien. Bitte schau später wieder vorbei.",
   },
   en: {
     "nav.home": "Home",
@@ -181,8 +184,8 @@ export const ui = {
     "login.github": "Login with GitHub",
     "login.google": "Login with Google",
     "login.yahoo": "Login with Yahoo",
-    "game.select": "Select a genre",
-    "game.welcome": "Welcome",
+    "game.select": "Dive into your musical adventure!",
+    "game.welcome": "Hey, Melody Explorer",
     "game.genre.list": "Genre Selection",
     "game.search.label": "Search for a genre",
     "game.search.description":
@@ -312,6 +315,9 @@ export const ui = {
     "game.categories.empty.headline": "No genres found",
     "game.categories.empty.text":
       "Unfortunately, no categories were found. Please try again later.",
+    "game.categories.no.playable.headline": "No playable genres",
+    "game.categories.no.playable.text":
+      "There are currently no playable categories. Please check back later.",
   },
   es: {
     "nav.home": "Inicio",
@@ -330,8 +336,8 @@ export const ui = {
     "login.github": "Iniciar sesión con GitHub",
     "login.google": "Iniciar sesión con Google",
     "login.yahoo": "Iniciar sesión con Yahoo",
-    "game.select": "Selecciona un género",
-    "game.welcome": "Bienvenido",
+    "game.select": "¡Sumérgete en tu aventura musical!",
+    "game.welcome": "¡Hola, Explorador de Ritmos",
     "game.genre.list": "Selección de género",
     "game.search.label": "Buscar un género",
     "game.search.description":
@@ -461,6 +467,9 @@ export const ui = {
     "game.categories.empty.headline": "No se encontraron géneros",
     "game.categories.empty.text":
       "Desafortunadamente, no se encontraron categorías. Por favor, inténtalo de nuevo más tarde.",
+    "game.categories.no.playable.headline": "No hay géneros jugables",
+    "game.categories.no.playable.text":
+      "Actualmente no hay categorías jugables. Por favor, vuelve a intentarlo más tarde.",
   },
   fr: {
     "nav.home": "Accueil",
@@ -479,8 +488,8 @@ export const ui = {
     "login.github": "Se connecter avec GitHub",
     "login.google": "Se connecter avec Google",
     "login.yahoo": "Se connecter avec Yahoo",
-    "game.select": "Sélectionnez un genre",
-    "game.welcome": "Bienvenue",
+    "game.select": "Plonge dans ton aventure musicale !",
+    "game.welcome": "Salut, Explorateur de Mélodies",
     "game.genre.list": "Sélection du genre",
     "game.search.label": "Rechercher un genre",
     "game.search.description":
@@ -610,6 +619,9 @@ export const ui = {
     "game.categories.empty.headline": "Aucun genre trouvé",
     "game.categories.empty.text":
       "Malheureusement, aucune catégorie n'a été trouvée. Veuillez réessayer plus tard.",
+    "game.categories.no.playable.headline": "Aucun genre jouable",
+    "game.categories.no.playable.text":
+      "Il n'y a actuellement aucune catégorie jouable. Veuillez revenir plus tard.",
   },
   it: {
     "nav.home": "Home",
@@ -628,8 +640,8 @@ export const ui = {
     "login.github": "Accedi con GitHub",
     "login.google": "Accedi con Google",
     "login.yahoo": "Accedi con Yahoo",
-    "game.select": "Seleziona un genere",
-    "game.welcome": "Benvenuto",
+    "game.select": "Immergiti nella tua avventura musicale!",
+    "game.welcome": "Ciao, Esploratore di Melodie",
     "game.genre.list": "Selezione del genere",
     "game.search.label": "Cerca un genere",
     "game.search.description":
@@ -757,6 +769,12 @@ export const ui = {
     "nav.donate.coffee": "Offrimi un caffè",
     "nav.title": "Navigazione",
     "nav.menu.text": "Menu",
+    "game.categories.empty.headline": "No se encontraron géneros",
+    "game.categories.empty.text":
+      "Desafortunadamente, no se encontraron categorías. Por favor, inténtalo de nuevo más tarde.",
+    "game.categories.no.playable.headline": "Nessun genere giocabile",
+    "game.categories.no.playable.text":
+      "Attualmente non ci sono categorie giocabili. Per favore, riprova più tardi.",
   },
   pt: {
     "nav.home": "Início",
@@ -775,8 +793,8 @@ export const ui = {
     "login.github": "Entrar com GitHub",
     "login.google": "Entrar com Google",
     "login.yahoo": "Entrar com Yahoo",
-    "game.select": "Selecione um gênero",
-    "game.welcome": "Bem-vindo",
+    "game.select": "Mergulhe na sua aventura musical!",
+    "game.welcome": "Olá, Explorador de Ritmos",
     "game.genre.list": "Seleção de Gênero",
     "game.search.label": "Buscar um gênero",
     "game.search.description":
@@ -904,6 +922,9 @@ export const ui = {
     "game.categories.empty.headline": "No se encontraron géneros",
     "game.categories.empty.text":
       "Desafortunadamente, no se encontraron categorías. Por favor, inténtalo de nuevo más tarde.",
+    "game.categories.no.playable.headline": "Nenhum gênero jogável",
+    "game.categories.no.playable.text":
+      "Atualmente não há categorias jogáveis. Por favor, volte mais tarde.",
   },
   da: {
     "nav.home": "Hjem",
@@ -922,8 +943,8 @@ export const ui = {
     "login.github": "Log ind med GitHub",
     "login.google": "Log ind med Google",
     "login.yahoo": "Log ind med Yahoo",
-    "game.select": "Vælg en genre",
-    "game.welcome": "Velkommen",
+    "game.select": "Dyk ned i dit musikalske eventyr!",
+    "game.welcome": "Hej, Melodiopdager",
     "game.genre.list": "Genrevalg",
     "game.search.label": "Søg efter en genre",
     "game.search.description": "Listen filtreres automatisk mens du skriver",
@@ -1043,6 +1064,12 @@ export const ui = {
     "nav.donate.coffee": "Køb mig en kaffe",
     "nav.title": "Navigation",
     "nav.menu.text": "Menu",
+    "game.categories.empty.headline": "No se encontraron géneros",
+    "game.categories.empty.text":
+      "Desafortunadamente, no se encontraron categorías. Por favor, inténtalo de nuevo más tarde.",
+    "game.categories.no.playable.headline": "Ingen spilbare genrer",
+    "game.categories.no.playable.text":
+      "Der er i øjeblikket ingen spilbare kategorier. Kom venligst tilbage senere.",
   },
   nl: {
     "nav.home": "Home",
@@ -1061,8 +1088,8 @@ export const ui = {
     "login.github": "Inloggen met GitHub",
     "login.google": "Inloggen met Google",
     "login.yahoo": "Inloggen met Yahoo",
-    "game.select": "Kies een genre",
-    "game.welcome": "Welkom",
+    "game.select": "Duik in jouw muzikale avontuur!",
+    "game.welcome": "Hallo, Melodie-Ontdekker",
     "game.genre.list": "Genre Selectie",
     "game.search.label": "Zoek een genre",
     "game.search.description":
@@ -1185,6 +1212,9 @@ export const ui = {
     "game.categories.empty.headline": "No se encontraron géneros",
     "game.categories.empty.text":
       "Desafortunadamente, no se encontraron categorías. Por favor, inténtalo de nuevo más tarde.",
+    "game.categories.no.playable.headline": "Geen speelbare genres",
+    "game.categories.no.playable.text":
+      "Er zijn momenteel geen speelbare categorieën. Kom later terug.",
   },
   sv: {
     "nav.home": "Hem",
@@ -1203,8 +1233,8 @@ export const ui = {
     "login.github": "Logga in med GitHub",
     "login.google": "Logga in med Google",
     "login.yahoo": "Logga in med Yahoo",
-    "game.select": "Välj en genre",
-    "game.welcome": "Välkommen",
+    "game.select": "Dyk ner i ditt musikaliska äventyr!",
+    "game.welcome": "Hej, Melodiutforskare",
     "game.genre.list": "Genreval",
     "game.search.label": "Sök efter en genre",
     "game.search.description": "Listan filtreras automatiskt medan du skriver",
@@ -1324,6 +1354,12 @@ export const ui = {
     "nav.donate.coffee": "Bjud mig på kaffe",
     "nav.title": "Navigation",
     "nav.menu.text": "Meny",
+    "game.categories.empty.headline": "No se encontraron géneros",
+    "game.categories.empty.text":
+      "Desafortunadamente, no se encontraron categorías. Por favor, inténtalo de nuevo más tarde.",
+    "game.categories.no.playable.headline": "Inga spelbara genrer",
+    "game.categories.no.playable.text":
+      "Det finns för närvarande inga spelbara kategorier. Kom tillbaka senare.",
   },
   fi: {
     "nav.home": "Koti",
@@ -1342,8 +1378,8 @@ export const ui = {
     "login.github": "Kirjaudu GitHubilla",
     "login.google": "Kirjaudu Googlella",
     "login.yahoo": "Kirjaudu Yahoolla",
-    "game.select": "Valitse genre",
-    "game.welcome": "Tervetuloa",
+    "game.select": "Sukella musiikilliseen seikkailuusi!",
+    "game.welcome": "Hei, Melodiantutkija",
     "game.genre.list": "Genren valinta",
     "game.search.label": "Etsi genreä",
     "game.search.description":
@@ -1463,5 +1499,11 @@ export const ui = {
     "nav.donate.coffee": "Osta minulle kahvia",
     "nav.title": "Navigointi",
     "nav.menu.text": "Valikko",
+    "game.categories.empty.headline": "No se encontraron géneros",
+    "game.categories.empty.text":
+      "Desafortunadamente, no se encontraron categorías. Por favor, inténtalo de nuevo más tarde.",
+    "game.categories.no.playable.headline": "Ei pelattavia genrejä",
+    "game.categories.no.playable.text":
+      "Tällä hetkellä ei ole pelattavia kategorioita. Palaa myöhemmin.",
   },
 };

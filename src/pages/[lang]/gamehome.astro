@@ -90,14 +90,22 @@ const getNonPlayableItems = () => {
 
 const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 
+// Nur spielbare Kategorien filtern
+const playableCategories = categories.filter(item => item.isPlayable);
+
 // Neue Übersetzungs-Keys für leere Kategorien
-const emptyCategoriesHeadline = t("game.categories.empty.headline") || "Keine Genres gefunden";
-const emptyCategoriesText = t("game.categories.empty.text") || "Es wurden leider keine Kategorien gefunden. Bitte versuche es später erneut.";
+const emptyCategoriesHeadline =
+  t("game.categories.empty.headline") || "Keine Genres gefunden";
+const emptyCategoriesText =
+  t("game.categories.empty.text") ||
+  "Es wurden leider keine Kategorien gefunden. Bitte versuche es später erneut.";
+const noPlayableCategoriesHeadline = t("game.categories.no.playable.headline") || "Keine spielbaren Genres";
+const noPlayableCategoriesText = t("game.categories.no.playable.text") || "Es gibt derzeit keine spielbaren Kategorien. Bitte schau später wieder vorbei.";
 ---
 
 <Layout title={t("game.select")}>
   <!-- Main content area with improved contrast and spacing -->
-  <main 
+  <main
     class="w-full max-w-4xl mx-auto p-6 md:p-8 rounded-lg bg-zinc-800 shadow-xl"
     id="main-content"
   >
@@ -108,10 +116,7 @@ const emptyCategoriesText = t("game.categories.empty.text") || "Es wurden leider
     />
 
     <!-- Genre selection section with better visibility -->
-    <section 
-      class="mt-8"
-      aria-labelledby="playlist-heading"
-    >
+    <section class="mt-8" aria-labelledby="playlist-heading">
       <h2 id="playlist-heading" class="sr-only">{t("game.genre.list")}</h2>
 
       <!-- Search input with improved accessibility and contrast -->
@@ -122,7 +127,7 @@ const emptyCategoriesText = t("game.categories.empty.text") || "Es wurden leider
         <input
           class="w-full max-w-4xl py-4 px-5 border-2 border-zinc-600 rounded-lg
                  bg-zinc-700 text-zinc-50 text-base leading-relaxed placeholder-zinc-400
-                 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400 
+                 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400
                  focus:ring-opacity-50"
           type="search"
           id="filter-input"
@@ -147,40 +152,51 @@ const emptyCategoriesText = t("game.categories.empty.text") || "Es wurden leider
         aria-label={t("game.genre.list")}
         aria-live="polite"
       >
-        {categories && categories.length > 0 ? (
-          categories.map((item) => (
-            <li class="h-full list-none">
-              {item.isPlayable && (
-                <a
-                  href={`/${lang}${item.categoryUrl}`}
-                  class="block h-full overflow-hidden rounded-lg bg-zinc-700 
-                         border-2 border-transparent transition-all duration-300
-                         hover:-translate-y-1 hover:shadow-lg
-                         focus:outline-none focus:border-sky-400 focus:ring-2 
-                         focus:ring-sky-400 focus:ring-opacity-50"
-                  aria-label={
-                    item.headline + " " + t("game.genre.play.label")
-                  }
-                >
-                  <PlaylistItem
-                    headline={item.headline}
-                    image={item.imageUrl}
-                    imageAlt={t("game.genre.image") + " " + item.headline}
-                  />
-                </a>
-              )}
-            </li>
-          ))
-        ) : (
-          <div class="col-span-full py-12 px-6 bg-zinc-700 rounded-lg text-center">
-            <h3 class="text-xl font-bold text-zinc-50 mb-3">
-              {emptyCategoriesHeadline}
-            </h3>
-            <p class="text-zinc-200">
-              {emptyCategoriesText}
-            </p>
-          </div>
-        )}
+        {
+          categories && categories.length > 0 ? (
+            playableCategories.length > 0 ? (
+              categories.map((item) => (
+                <li class="h-full list-none">
+                  {item.isPlayable && (
+                    <a
+                      href={`/${lang}${item.categoryUrl}`}
+                      class="block h-full overflow-hidden rounded-lg bg-zinc-700 
+                           border-2 border-transparent transition-all duration-300
+                           hover:-translate-y-1 hover:shadow-lg
+                           focus:outline-none focus:border-sky-400 focus:ring-2 
+                           focus:ring-sky-400 focus:ring-opacity-50"
+                      aria-label={
+                        item.headline + " " + t("game.genre.play.label")
+                      }
+                    >
+                      <PlaylistItem
+                        headline={item.headline}
+                        image={item.imageUrl}
+                        imageAlt={t("game.genre.image") + " " + item.headline}
+                      />
+                    </a>
+                  )}
+                </li>
+              ))
+            ) : (
+              // Nachricht wenn Kategorien existieren, aber keine spielbar sind
+              <div class="col-span-full py-12 px-6 bg-zinc-700 rounded-lg text-center">
+                <h3 class="text-xl font-bold text-zinc-50 mb-3">
+                  {noPlayableCategoriesHeadline}
+                </h3>
+                <p class="text-zinc-200">{noPlayableCategoriesText}</p>
+              </div>
+            )
+          ) : (
+            // Nachricht wenn gar keine Kategorien existieren
+            <div class="col-span-full py-12 px-6 bg-zinc-700 rounded-lg text-center">
+              <h3 class="text-xl font-bold text-zinc-50 mb-3">
+                {emptyCategoriesHeadline}
+              </h3>
+              <p class="text-zinc-200">{emptyCategoriesText}</p>
+            </div>
+          )
+        }
       </div>
     </section>
   </main>
@@ -234,8 +250,9 @@ const emptyCategoriesText = t("game.categories.empty.text") || "Es wurden leider
     if (!filterInput || !playlistGrid) return;
 
     const query = filterInput.value.toLowerCase().trim();
-    const playlistItems =
-      document.querySelectorAll<HTMLElement>("#playlist-grid > li");
+    const playlistItems = document.querySelectorAll<HTMLElement>(
+      "#playlist-grid > li",
+    );
     let hasResults = false;
 
     playlistItems.forEach((item) => {
@@ -263,7 +280,8 @@ const emptyCategoriesText = t("game.categories.empty.text") || "Es wurden leider
     if (!hasResults) {
       if (!noResultsMsg) {
         noResultsMsg = document.createElement("p");
-        noResultsMsg.className = "col-span-full py-8 px-6 bg-zinc-700 rounded-lg text-zinc-50 text-center font-medium no-results";
+        noResultsMsg.className =
+          "col-span-full py-8 px-6 bg-zinc-700 rounded-lg text-zinc-50 text-center font-medium no-results";
         noResultsMsg.setAttribute("role", "status");
         noResultsMsg.textContent = translations.noResults;
         playlistGrid?.appendChild(noResultsMsg);
@@ -280,6 +298,34 @@ const emptyCategoriesText = t("game.categories.empty.text") || "Es wurden leider
 </script>
 
 <style>
+
+
+  /* Disabled Item Styling */
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+    position: relative;
+    opacity: 0.85;
+    background-color: var(--secondary-color);
+  }
+
+  [aria-disabled="true"]::after {
+    content: attr(data-unavailable-text);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 1em 1.5em;
+    border-radius: 0.5rem;
+
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+
+    background: rgb(0 0 0 / 90%);
+  }
+
   /* High Contrast Mode Support */
   @media (forced-colors: active) {
     #playlist-grid a {
@@ -299,29 +345,8 @@ const emptyCategoriesText = t("game.categories.empty.text") || "Es wurden leider
 
     #playlist-grid a {
       break-inside: avoid;
+
       page-break-inside: avoid;
     }
-  }
-
-  /* Disabled Item Styling */
-  [aria-disabled="true"] {
-    cursor: not-allowed;
-    opacity: 0.85;
-    background-color: var(--secondary-color);
-    position: relative;
-  }
-
-  [aria-disabled="true"]::after {
-    content: attr(data-unavailable-text);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 1em 1.5em;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.9);
   }
 </style>
