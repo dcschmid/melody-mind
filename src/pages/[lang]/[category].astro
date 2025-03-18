@@ -77,19 +77,19 @@ const currentCategory = category;
   />
 
   <article
-    class="category"
+    class="flex flex-col items-center gap-6 w-full p-8 md:p-6 sm:p-4 rounded-lg bg-zinc-700 shadow-lg"
     data-category={currentCategory?.slug}
     aria-labelledby="difficulty-heading"
   >
     <div
-      class="cover"
+      class="relative mx-auto"
       role="img"
       aria-label={currentCategory?.headline + " " + t("category.image.alt")}
     >
       {
         currentCategory?.imageUrl ? (
           <Picture
-            class="coverImage"
+            class="w-full max-w-[280px] h-auto rounded-lg shadow-md hover:scale-105 hover:shadow-xl transition-all duration-300 motion-safe:transform motion-reduce:transition-none"
             src={currentCategory.imageUrl}
             width={280}
             height={280}
@@ -98,21 +98,27 @@ const currentCategory = category;
             loading="eager"
           />
         ) : (
-          <div class="fallbackImage">{t("category.no_image_available")}</div>
+          <div class="flex items-center justify-center w-[280px] h-[280px] p-6 rounded-lg bg-zinc-800 shadow-md font-sans text-base text-zinc-50 text-center">
+            {t("category.no_image_available")}
+          </div>
         )
       }
     </div>
 
-    <p class="text">
+    <p class="max-w-[700px] mx-auto font-sans text-base leading-relaxed hyphens-auto text-zinc-50 text-center tracking-wide">
       {currentCategory?.text}
     </p>
 
-    <div class="difficultySection">
-      <h2 id="difficulty-heading" class="buttonHeadline">
+    <div class="flex flex-col gap-6 items-center w-full">
+      <h2 
+        id="difficulty-heading" 
+        class="font-sans text-xl font-bold leading-relaxed text-zinc-50 text-center"
+      >
         {t("category.difficulty.heading")}
       </h2>
+      
       <div
-        class="buttonGroup"
+        class="flex flex-wrap justify-center gap-6 w-full p-1 sm:flex-col sm:max-w-[300px] sm:w-full"
         role="group"
         aria-label={t("category.difficulty.group")}
       >
@@ -123,10 +129,7 @@ const currentCategory = category;
         />
         <Button
           buttonText={t("category.difficulty.medium")}
-          url={getRelativeLocaleUrl(
-            lang,
-            `game-${currentCategory?.slug}/medium`,
-          )}
+          url={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/medium`)}
           aria-label={t("category.difficulty.medium.label")}
         />
         <Button
@@ -139,150 +142,14 @@ const currentCategory = category;
   </article>
 </Layout>
 
-<style lang="scss">
-  .categoryPage {
-    max-width: var(--max-line-length);
-    margin: 0 auto;
-    padding: var(--padding-medium);
-  }
-
-  .category {
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-medium);
-    align-items: center;
-
-    width: 100%;
-    padding: var(--padding-large);
-    border-radius: var(--border-radius);
-
-    background-color: var(--secondary-color);
-    box-shadow: var(--box-shadow);
-
-    @media (prefers-reduced-motion: no-preference) {
-      transition: transform var(--transition-speed) ease-in-out;
-    }
-  }
-
-  .cover {
-    position: relative;
-    margin: 0 auto;
-  }
-
-  .coverImage {
-    width: 100%;
-    max-width: 280px;
-    height: auto;
-    border-radius: var(--border-radius);
-
-    box-shadow: var(--box-shadow);
-
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 24px rgb(0 0 0 / 30%);
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      transition:
-        transform var(--transition-speed) ease-in-out,
-        box-shadow var(--transition-speed) ease-in-out;
-    }
-  }
-
-  .fallbackImage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 280px;
-    height: 280px;
-    padding: var(--padding-medium);
-    border-radius: var(--border-radius);
-
-    font-family: var(--font-family);
-    font-size: var(--body-font-size);
-    color: var(--text-color);
-    text-align: center;
-
-    background-color: var(--background-color);
-    box-shadow: var(--box-shadow);
-  }
-
-  .text {
-    max-width: 700px;
-    margin: 0 auto;
-
-    font-family: var(--font-family);
-    font-size: var(--body-font-size);
-    line-height: var(--line-height-body);
-    hyphens: auto;
-    color: var(--text-color);
-    text-align: center;
-    letter-spacing: var(--spacing-text);
-  }
-
-  .difficultySection {
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-medium);
-    align-items: center;
-
-    width: 100%;
-  }
-
-  .buttonHeadline {
-    font-family: var(--font-family);
-    font-size: var(--header-font-size);
-    font-weight: 700;
-    line-height: var(--line-height-body);
-    color: var(--text-color);
-    text-align: center;
-  }
-
-  .buttonGroup {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--padding-medium);
-    justify-content: center;
-
-    // Verbesserte Touch-Targets
-    padding: calc(var(--padding-small) / 2);
-
-    @media (width <= 480px) {
-      flex-direction: column;
-      width: 100%;
-      max-width: 300px;
-    }
-  }
-
-  // Responsive Anpassungen
-  @media (width <= 768px) {
-    .category {
-      padding: var(--padding-medium);
-    }
-
-    .coverImage {
-      max-width: 200px;
-    }
-  }
-
-  @media (width <= 480px) {
-    .coverImage {
-      max-width: 150px;
-    }
-
-    .buttonHeadline {
-      font-size: calc(var(--header-font-size) * 0.8);
-    }
-  }
-
-  // High Contrast Mode Anpassungen
+<style>
+  /* High Contrast Mode Support */
   @media (forced-colors: active) {
-    .category {
+    article[data-category] {
       border: 2px solid CanvasText;
     }
 
-    .buttonGroup button {
+    [role="group"] :global(button) {
       border: 2px solid ButtonText;
     }
   }

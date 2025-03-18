@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+  --breakpoint-xs: 30rem;
+  
   /* Dark theme WCAG AAA compliant colors */
   --color-background: oklch(0.2 0.02 270); /* Dunkles Blau-Grau (#1a1b26) */
   --color-foreground: oklch(0.98 0.01 270); /* Fast-Weiß für Text (#f7f9fc) */

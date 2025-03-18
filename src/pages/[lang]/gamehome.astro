@@ -1,10 +1,9 @@
 ---
-import { When } from "@astropub/flow";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import PlaylistItem from "@components/PlaylistItem.astro";
 import Layout from "@layouts/Layout.astro";
-import IntroText from "@components/Shared/IntroText.astro";
-
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
 // Language settings
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -17,9 +16,7 @@ try {
     .then((module) => module.default)
     .catch(async () => {
       // Als Fallback versuche relativen Pfad
-      console.log(
-        `Versuche relativen Pfad für ${lang}_categories.json zu laden`,
-      );
+      console.log(`Versuche relativen Pfad für ${lang}_categories.json zu laden`);
       return import(`../../json/${lang}_categories.json`)
         .then((module) => module.default)
         .catch((err) => {
@@ -33,9 +30,7 @@ try {
 
 // Stelle sicher, dass categoriesList ein Array ist
 if (!Array.isArray(categoriesList)) {
-  console.warn(
-    "Kategorien wurden nicht als Array geladen, verwende leeres Array",
-  );
+  console.warn("Kategorien wurden nicht als Array geladen, verwende leeres Array");
   categoriesList = [];
 }
 
@@ -57,7 +52,6 @@ interface Category {
 
 /**
  * This function filters the categoriesList array to only include items that are playable.
- * It then randomly selects one of those items and returns it.
  */
 const getSelectedPlayableItem = (): Category[] => {
   if (!Array.isArray(categoriesList)) return [];
@@ -82,7 +76,6 @@ const getSelectedPlayableItem = (): Category[] => {
 
 /**
  * This function filters the categoriesList array to only include items that are not playable.
- * It then shuffles the array and limits it to a maximum of 5 items.
  */
 const getNonPlayableItems = () => {
   return categoriesList.filter((item: any) => !item.isPlayable);
@@ -91,44 +84,35 @@ const getNonPlayableItems = () => {
 const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
 
 // Nur spielbare Kategorien filtern
-const playableCategories = categories.filter(item => item.isPlayable);
+const playableCategories = categories.filter((item) => item.isPlayable);
 
-// Neue Übersetzungs-Keys für leere Kategorien
-const emptyCategoriesHeadline =
-  t("game.categories.empty.headline") || "Keine Genres gefunden";
-const emptyCategoriesText =
-  t("game.categories.empty.text") ||
-  "Es wurden leider keine Kategorien gefunden. Bitte versuche es später erneut.";
+// Übersetzungen für leere/keine spielbaren Kategorien
+const emptyCategoriesHeadline = t("game.categories.empty.headline") || "Keine Genres gefunden";
+const emptyCategoriesText = t("game.categories.empty.text") || "Es wurden leider keine Kategorien gefunden. Bitte versuche es später erneut.";
 const noPlayableCategoriesHeadline = t("game.categories.no.playable.headline") || "Keine spielbaren Genres";
 const noPlayableCategoriesText = t("game.categories.no.playable.text") || "Es gibt derzeit keine spielbaren Kategorien. Bitte schau später wieder vorbei.";
 ---
 
 <Layout title={t("game.select")}>
-  <!-- Main content area with improved contrast and spacing -->
-  <main
-    class="w-full max-w-4xl mx-auto p-6 md:p-8 rounded-lg bg-zinc-800 shadow-xl"
+  <div
+    class="w-full mx-auto"
     id="main-content"
   >
-    <IntroText
-      headline={`${t("game.welcome")} ${username}`}
-      subline={t("game.select")}
-      headingId="welcome-heading"
-    />
+    <Headline title={`${t("game.welcome")}`} level="h1" />
 
-    <!-- Genre selection section with better visibility -->
+    <Paragraph>
+      {t("game.select")}
+    </Paragraph>
+
     <section class="mt-8" aria-labelledby="playlist-heading">
-      <h2 id="playlist-heading" class="sr-only">{t("game.genre.list")}</h2>
+      <Headline level="h2" title={t("game.genre.list")} className="sr-only" />
 
-      <!-- Search input with improved accessibility and contrast -->
       <div class="my-8 w-full">
         <label for="filter-input" class="sr-only">
           {t("game.search.label")}
         </label>
         <input
-          class="w-full max-w-4xl py-4 px-5 border-2 border-zinc-600 rounded-lg
-                 bg-zinc-700 text-zinc-50 text-base leading-relaxed placeholder-zinc-400
-                 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400
-                 focus:ring-opacity-50"
+          class="w-full py-4 px-5 border-2 border-zinc-600 rounded-lg bg-zinc-700 text-zinc-50 text-base leading-relaxed placeholder-zinc-400 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400 focus:ring-opacity-50"
           type="search"
           id="filter-input"
           placeholder={t("game.search.label")}
@@ -143,163 +127,231 @@ const noPlayableCategoriesText = t("game.categories.no.playable.text") || "Es gi
         </span>
       </div>
 
-      <!-- Genre grid with proper spacing and accessibility -->
       <div
         id="playlist-grid"
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8
-               w-full max-w-5xl mx-auto my-8 min-h-[200px]"
+        class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 w-full max-w-5xl mx-auto my-8 min-h-[200px]"
         role="list"
         aria-label={t("game.genre.list")}
         aria-live="polite"
       >
-        {
-          categories && categories.length > 0 ? (
-            playableCategories.length > 0 ? (
-              categories.map((item) => (
+        {categories && categories.length > 0 ? (
+          playableCategories.length > 0 ? (
+            categories.map((item) => (
+              item.isPlayable && (
                 <li class="h-full list-none">
-                  {item.isPlayable && (
-                    <a
-                      href={`/${lang}${item.categoryUrl}`}
-                      class="block h-full overflow-hidden rounded-lg bg-zinc-700 
-                           border-2 border-transparent transition-all duration-300
-                           hover:-translate-y-1 hover:shadow-lg
-                           focus:outline-none focus:border-sky-400 focus:ring-2 
-                           focus:ring-sky-400 focus:ring-opacity-50"
-                      aria-label={
-                        item.headline + " " + t("game.genre.play.label")
-                      }
-                    >
-                      <PlaylistItem
-                        headline={item.headline}
-                        image={item.imageUrl}
-                        imageAlt={t("game.genre.image") + " " + item.headline}
-                      />
-                    </a>
-                  )}
+                  <a
+                    href={`/${lang}${item.categoryUrl}`}
+                    class="block h-full overflow-hidden rounded-lg bg-zinc-700 border-2 border-transparent transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400 focus:ring-opacity-50"
+                    aria-label={item.headline + " " + t("game.genre.play.label")}
+                  >
+                    <PlaylistItem
+                      headline={item.headline}
+                      image={item.imageUrl}
+                      imageAlt={t("game.genre.image") + " " + item.headline}
+                    />
+                  </a>
                 </li>
-              ))
-            ) : (
-              // Nachricht wenn Kategorien existieren, aber keine spielbar sind
-              <div class="col-span-full py-12 px-6 bg-zinc-700 rounded-lg text-center">
-                <h3 class="text-xl font-bold text-zinc-50 mb-3">
-                  {noPlayableCategoriesHeadline}
-                </h3>
-                <p class="text-zinc-200">{noPlayableCategoriesText}</p>
-              </div>
-            )
+              )
+            ))
           ) : (
-            // Nachricht wenn gar keine Kategorien existieren
             <div class="col-span-full py-12 px-6 bg-zinc-700 rounded-lg text-center">
               <h3 class="text-xl font-bold text-zinc-50 mb-3">
-                {emptyCategoriesHeadline}
+                {noPlayableCategoriesHeadline}
               </h3>
-              <p class="text-zinc-200">{emptyCategoriesText}</p>
+              <p class="text-zinc-200">{noPlayableCategoriesText}</p>
             </div>
           )
-        }
+        ) : (
+          <div class="col-span-full py-12 px-6 bg-zinc-700 rounded-lg text-center">
+            <h3 class="text-xl font-bold text-zinc-50 mb-3">
+              {emptyCategoriesHeadline}
+            </h3>
+            <p class="text-zinc-200">{emptyCategoriesText}</p>
+          </div>
+        )}
       </div>
     </section>
-  </main>
+  </div>
 </Layout>
 
 <script>
+  /**
+   * Genre Filtering and Search System
+   * 
+   * This module provides search functionality for the genre grid, allowing users
+   * to dynamically filter available music genres as they type in the search field.
+   * It includes performance optimizations such as debouncing and DOM element caching
+   * to ensure a smooth user experience even with large lists.
+   * 
+   */
+
   import { ui } from "../../i18n/ui";
   import { getLangFromUrl } from "@utils/i18n";
 
-  const lang = getLangFromUrl(new URL(window.location.href));
-  const translations = {
-    noResults: ui[lang]?.["game.no.results"] || "No results found",
-    notAvailable: ui[lang]?.["game.not.available"] || "Not available",
+  // =========================================================================
+  // CONFIGURATION AND SETUP
+  // =========================================================================
+  
+  /**
+   * Configuration constants that control the behavior of the filtering system
+   */
+  const CONFIG = {
+    DEBOUNCE_DELAY: 250,        // MS to wait before applying filter after typing
+    ANIMATION_DURATION: 150,    // MS for fade animations
+    SELECTOR: {
+      FILTER_INPUT: "#filter-input",
+      GRID: "#playlist-grid",
+      LIST_ITEM: "li",
+      HEADLINE: ".headline",
+      NO_RESULTS: ".no-results"
+    },
+    ATTRIBUTE: {
+      DISABLED: "aria-disabled"
+    }
   };
 
   /**
-   * Debounces a function to limit its execution rate.
-   * @returns {Function} A debounced version of the input function
+   * Load translations for the current language
+   * @type {Object} Dictionary of translation keys and values
    */
-  function debounce<T extends (...args: any[]) => void>(
-    func: T,
-    wait: number,
-  ): (...args: Parameters<T>) => void {
-    let timeout: ReturnType<typeof setTimeout>;
-    return (...args: Parameters<T>) => {
+  const currentLang = getLangFromUrl(new URL(window.location.href));
+  const translations = {
+    noResults: ui[currentLang]?.["game.no.results"] || "No results found",
+    notAvailable: ui[currentLang]?.["game.not.available"] || "Not available"
+  };
+
+  /**
+   * Cache for DOM elements to avoid repeated queries
+   * @type {Object} Stores references to key DOM elements
+   */
+  const elements = {
+    filterInput: document.querySelector(CONFIG.SELECTOR.FILTER_INPUT),
+    grid: document.querySelector(CONFIG.SELECTOR.GRID),
+    get items() {
+      return elements.grid?.querySelectorAll(`${CONFIG.SELECTOR.LIST_ITEM}`) || [];
+    }
+  };
+
+  // =========================================================================
+  // UTILITY FUNCTIONS
+  // =========================================================================
+  
+  /**
+   * Creates a debounced version of a function that delays execution
+   * until after the specified wait time has elapsed since the last call
+   *
+   * @param {Function} func - The function to debounce
+   * @param {number} wait - Time in milliseconds to delay execution
+   * @return {Function} A debounced version of the input function
+   */
+  function debounce(func: (...args: unknown[]) => void, wait: number) {
+    let timeout: ReturnType<typeof setTimeout> | undefined;
+    return function(this: unknown, ...args: unknown[]) {
       clearTimeout(timeout);
-      timeout = setTimeout(() => func(...args), wait);
+      timeout = setTimeout(() => func.apply(this, args), wait);
     };
   }
 
-  const filterInput = document.getElementById(
-    "filter-input",
-  ) as HTMLInputElement;
-  const playlistGrid = document.querySelector("#playlist-grid");
+  /**
+   * In-memory cache for genre item text content to improve search performance
+   * @type {WeakMap<Element, string>} Maps DOM elements to their searchable text
+   */
+  const textContentCache = new WeakMap();
+
+  // =========================================================================
+  // CORE FUNCTIONALITY
+  // =========================================================================
 
   /**
-   * Debounced filter function
+   * Initializes the genre filtering system
+   * Sets up event listeners and prepares the UI
    */
-  const debouncedFilter = debounce(filterPlaylists, 300);
-  filterInput?.addEventListener("input", debouncedFilter);
+  function initGenreFilter() {
+    if (!elements.filterInput || !elements.grid) {
+      console.warn('Filter elements not found. Genre filtering disabled.');
+      return;
+    }
 
-  /**
-   * Cache for better performance
-   */
-  const playlistItemsCache = new Map<HTMLElement, string>();
-
-  /**
-   * Filters the playlist items based on the search query and updates their visibility.
-   */
-  function filterPlaylists(_event: Event) {
-    if (!filterInput || !playlistGrid) return;
-
-    const query = filterInput.value.toLowerCase().trim();
-    const playlistItems = document.querySelectorAll<HTMLElement>(
-      "#playlist-grid > li",
+    // Setup event listeners with debounced filtering
+    const debouncedFilter = debounce(
+      filterGenres, 
+      CONFIG.DEBOUNCE_DELAY
     );
+    
+    elements.filterInput.addEventListener("input", debouncedFilter);
+    
+    // Set up disabled items with proper attributes
+    document.querySelectorAll(`[${CONFIG.ATTRIBUTE.DISABLED}="true"]`).forEach(item => {
+      item.setAttribute("data-unavailable-text", translations.notAvailable);
+    });
+  }
+
+  /**
+   * Filters the genre items based on the search query
+   * Shows/hides items according to the match and updates the UI accordingly
+   */
+  function filterGenres() {
+    if (!elements.filterInput || !elements.grid) return;
+
+    const query = (elements.filterInput as HTMLInputElement).value.toLowerCase().trim();
     let hasResults = false;
 
-    playlistItems.forEach((item) => {
-      let headlineText = playlistItemsCache.get(item);
-      if (!headlineText) {
-        headlineText =
-          item.querySelector(".headline")?.textContent?.toLowerCase() ?? "";
-        playlistItemsCache.set(item, headlineText);
+    // Filter each genre item based on the query
+    elements.items.forEach(item => {
+      // Use cached text content or retrieve and cache it
+      let itemText = textContentCache.get(item);
+      if (!itemText) {
+        itemText = item.querySelector(CONFIG.SELECTOR.HEADLINE)?.textContent?.toLowerCase() || "";
+        textContentCache.set(item, itemText);
       }
 
-      const isVisible = headlineText.includes(query);
-      item.style.display = isVisible ? "" : "none";
+      // Check if item text contains the query
+      const isVisible = itemText.includes(query);
+      (item as HTMLElement).style.display = isVisible ? "" : "none";
+      
       if (isVisible) hasResults = true;
     });
 
+    // Update the UI with a "no results" message if needed
     updateNoResultsMessage(hasResults);
   }
 
   /**
-   * Updates the visibility of playlist items based on the search query and shows/hides
-   * a "no results" message accordingly.
+   * Updates the UI to show or hide a "no results" message
+   * when the search query returns no matches
+   *
+   * @param {boolean} hasResults - Whether any genres match the current query
    */
   function updateNoResultsMessage(hasResults: boolean) {
-    let noResultsMsg = playlistGrid?.querySelector(".no-results");
+    if (!elements.grid) return;
+    
+    let noResultsMessage = elements.grid.querySelector(CONFIG.SELECTOR.NO_RESULTS);
+    
     if (!hasResults) {
-      if (!noResultsMsg) {
-        noResultsMsg = document.createElement("p");
-        noResultsMsg.className =
-          "col-span-full py-8 px-6 bg-zinc-700 rounded-lg text-zinc-50 text-center font-medium no-results";
-        noResultsMsg.setAttribute("role", "status");
-        noResultsMsg.textContent = translations.noResults;
-        playlistGrid?.appendChild(noResultsMsg);
+      // Create and display "no results" message if it doesn't exist
+      if (!noResultsMessage) {
+        noResultsMessage = document.createElement("p");
+        noResultsMessage.className = "col-span-full py-8 px-6 bg-zinc-700 rounded-lg text-zinc-50 text-center font-medium no-results";
+        noResultsMessage.setAttribute("role", "status");
+        noResultsMessage.textContent = translations.noResults;
+        elements.grid.appendChild(noResultsMessage);
       }
     } else {
-      noResultsMsg?.remove();
+      // Remove the "no results" message if results are found
+      noResultsMessage?.remove();
     }
   }
 
-  // Set data-unavailable-text attribute for disabled items
-  document.querySelectorAll('[aria-disabled="true"]').forEach((item) => {
-    item.setAttribute("data-unavailable-text", translations.notAvailable);
-  });
+  // Initialize the genre filter when the DOM is ready
+  document.addEventListener("DOMContentLoaded", initGenreFilter);
+  
+  // Immediate initialization as a fallback for when the script loads after DOM content
+  if (document.readyState !== "loading") {
+    initGenreFilter();
+  }
 </script>
 
 <style>
-
-
   /* Disabled Item Styling */
   [aria-disabled="true"] {
     cursor: not-allowed;
@@ -310,19 +362,15 @@ const noPlayableCategoriesText = t("game.categories.no.playable.text") || "Es gi
 
   [aria-disabled="true"]::after {
     content: attr(data-unavailable-text);
-
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     padding: 1em 1.5em;
     border-radius: 0.5rem;
-
     font-size: 1rem;
     font-weight: 600;
     color: #fff;
-
     background: rgb(0 0 0 / 90%);
   }
 
@@ -345,7 +393,6 @@ const noPlayableCategoriesText = t("game.categories.no.playable.text") || "Es gi
 
     #playlist-grid a {
       break-inside: avoid;
-
       page-break-inside: avoid;
     }
   }
