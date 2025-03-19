@@ -182,30 +182,40 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 
     let albums: Album[] | null = null;
     try {
-      // Ersetze die ES-Modul-Importe durch fetch-Aufrufe, um MIME-Typ-Probleme zu vermeiden
+      // Fix: Use fetch instead of dynamic import for JSON files
+      let albumsData;
+      
       try {
-        // Versuche zuerst die sprachspezifische JSON zu laden
+        // Try to load albums for the current language first
         const response = await fetch(`/json/genres/${lang}/${category}.json`);
+        
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        albums = await response.json();
+        
+        albumsData = await response.json();
       } catch (langError) {
+        // Fallback to German if the specific language file doesn't exist
         console.log(
           `No albums found for ${lang}/${category}, falling back to German`,
         );
-        // Fallback auf die deutsche Version
+        
         const fallbackResponse = await fetch(`/json/genres/de/${category}.json`);
+        
         if (!fallbackResponse.ok) {
-          throw new Error(`HTTP error! status: ${fallbackResponse.status}`);
+          throw new Error(`HTTP error for fallback! Status: ${fallbackResponse.status}`);
         }
-        albums = await fallbackResponse.json();
+        
+        albumsData = await fallbackResponse.json();
       }
+      
+      albums = albumsData;
 
       if (!albums?.length) {
         throw new Error(t("error.no.albums.found"));
       }
     } catch (error) {
+      console.error("Error loading albums:", error);
       ErrorHandler.handleApiError(
         error instanceof Error ? error : new Error(String(error)),
       );
