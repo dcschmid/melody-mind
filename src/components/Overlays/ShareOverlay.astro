@@ -9,7 +9,7 @@ const t = useTranslations(lang);
 <div class="mt-6 text-center">
   <h3 class="text-xl font-semibold text-zinc-50 mb-4">{t("share.title")}</h3>
 
-  <div 
+  <div
     id="share-buttons-container"
     class="flex flex-wrap justify-center items-center gap-3 mt-4"
     role="group"
@@ -21,17 +21,29 @@ const t = useTranslations(lang);
       class="shareButton-native hidden min-w-[48px] min-h-[48px] flex items-center justify-center gap-2 px-4 py-3 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white font-medium rounded-lg transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
       aria-label={t("share.native")}
     >
-      <Icon name="share" width={24} height={24} class="w-6 h-6" aria-hidden="true" />
+      <Icon
+        name="share"
+        width={24}
+        height={24}
+        class="w-6 h-6"
+        aria-hidden="true"
+      />
       <span class="text-base">{t("share.native.label")}</span>
     </button>
-    
+
     <!-- Twitter/X Share -->
     <button
       class="shareButton-twitter min-w-[48px] min-h-[48px] flex items-center justify-center gap-2 px-4 py-3 bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-900 text-white font-medium rounded-lg transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400"
       data-share="twitter"
       aria-label={t("share.twitter")}
     >
-      <Icon name="twitter" width={24} height={24} class="w-6 h-6" aria-hidden="true" />
+      <Icon
+        name="twitter"
+        width={24}
+        height={24}
+        class="w-6 h-6"
+        aria-hidden="true"
+      />
       <span class="text-base">X</span>
     </button>
 
@@ -41,21 +53,33 @@ const t = useTranslations(lang);
       data-share="whatsapp"
       aria-label={t("share.whatsapp")}
     >
-      <Icon name="whatsapp" width={24} height={24} class="w-6 h-6" aria-hidden="true" />
+      <Icon
+        name="whatsapp"
+        width={24}
+        height={24}
+        class="w-6 h-6"
+        aria-hidden="true"
+      />
       <span class="text-base">WhatsApp</span>
     </button>
-    
+
     <!-- Email Share -->
     <button
       class="shareButton-email min-w-[48px] min-h-[48px] flex items-center justify-center gap-2 px-4 py-3 bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white font-medium rounded-lg transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
       data-share="email"
       aria-label={t("share.email")}
     >
-      <Icon name="mail" width={24} height={24} class="w-6 h-6" aria-hidden="true" />
+      <Icon
+        name="mail"
+        width={24}
+        height={24}
+        class="w-6 h-6"
+        aria-hidden="true"
+      />
       <span class="text-base">{t("share.email.label")}</span>
     </button>
   </div>
-  
+
   <!-- Copy to Clipboard Button -->
   <div class="mt-4">
     <button
@@ -63,8 +87,16 @@ const t = useTranslations(lang);
       class="shareButton-copy inline-flex items-center justify-center gap-2 px-4 py-2 border-2 border-sky-500 hover:border-sky-400 text-sky-500 hover:text-sky-400 font-medium rounded-lg transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
       aria-label={t("share.copy")}
     >
-      <Icon name="clipboard" width={20} height={20} class="w-5 h-5" aria-hidden="true" />
-      <span class="text-base" id="copy-button-text">{t("share.copy.label")}</span>
+      <Icon
+        name="clipboard"
+        width={20}
+        height={20}
+        class="w-5 h-5"
+        aria-hidden="true"
+      />
+      <span class="text-base" id="copy-button-text"
+        >{t("share.copy.label")}</span
+      >
     </button>
   </div>
 </div>
@@ -73,7 +105,9 @@ const t = useTranslations(lang);
   /* Hover-Effekt mit Zurückfallen für ältere Browser */
   [class^="shareButton-"]:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    box-shadow:
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
 
   /* Unterstützung für High Contrast Mode */
@@ -89,7 +123,7 @@ const t = useTranslations(lang);
     [class^="shareButton-"] {
       transition: none;
     }
-    
+
     [class^="shareButton-"]:hover {
       transform: none;
     }
@@ -99,7 +133,7 @@ const t = useTranslations(lang);
 <script>
   /**
    * ShareOverlay - Client-side sharing functionality
-   * 
+   *
    * Manages sharing game results via different methods:
    * 1. Native Web Share API (if supported by the browser)
    * 2. Direct platform sharing (Twitter, WhatsApp, Email)
@@ -107,104 +141,112 @@ const t = useTranslations(lang);
    */
   import { shareScore } from "../../utils/share/shareUtils";
   import type { ShareData } from "../../utils/share/shareUtils";
-  
+
   /**
    * Initialize native Web Share API button if supported by the browser
    */
   function initializeNativeSharing(): void {
-    const nativeShareSupported = 'share' in navigator;
-    const nativeShareButton = document.getElementById('native-share-button');
-    
+    const nativeShareSupported = "share" in navigator;
+    const nativeShareButton = document.getElementById("native-share-button");
+
     if (!nativeShareSupported || !nativeShareButton) {
       return;
     }
-    
+
     // Show the native share button
-    nativeShareButton.classList.remove('hidden');
-    nativeShareButton.classList.add('flex');
-    
+    nativeShareButton.classList.remove("hidden");
+    nativeShareButton.classList.add("flex");
+
     // Set up click handler for native sharing
-    nativeShareButton.addEventListener('click', async () => {
+    nativeShareButton.addEventListener("click", async () => {
       const gameData = getGameDataFromPopup();
       if (!gameData) return;
-      
+
       try {
         const shareText = await generateShareTextFromUtils(gameData);
         await navigator.share({
-          title: 'Melody Mind Music Quiz',
-          text: shareText.split('\n\n').slice(0, -1).join('\n\n'),
-          url: window.location.href
+          title: "Melody Mind Music Quiz",
+          text: shareText.split("\n\n").slice(0, -1).join("\n\n"),
+          url: window.location.href,
         });
       } catch (err) {
-        console.warn('Error using Web Share API:', err);
+        console.warn("Error using Web Share API:", err);
       }
     });
   }
-  
+
   /**
    * Initialize copy-to-clipboard functionality
    */
   function initializeClipboardCopy(): void {
-    const copyButton = document.getElementById('copy-share-button');
-    const copyButtonText = document.getElementById('copy-button-text');
+    const copyButton = document.getElementById("copy-share-button");
+    const copyButtonText = document.getElementById("copy-button-text");
     const originalCopyText = copyButtonText?.textContent;
-    
+
     if (!copyButton || !copyButtonText || !originalCopyText) {
       return;
     }
-    
-    copyButton.addEventListener('click', async () => {
+
+    copyButton.addEventListener("click", async () => {
       const gameData = getGameDataFromPopup();
       if (!gameData) return;
-      
+
       try {
         // Generate share text directly from the utils
         const shareText = await generateShareTextFromUtils(gameData);
         const shareUrl = window.location.href;
         const fullText = `${shareText}\n\n${shareUrl}`;
-        
+
         await navigator.clipboard.writeText(fullText);
-        
+
         // Show success state
-        copyButtonText.textContent = '✓ Copied!';
-        copyButton.classList.add('bg-emerald-100', 'text-emerald-800', 'border-emerald-300');
-        
+        copyButtonText.textContent = "✓ Copied!";
+        copyButton.classList.add(
+          "bg-emerald-100",
+          "text-emerald-800",
+          "border-emerald-300",
+        );
+
         // Reset after delay
         setTimeout(() => {
           copyButtonText.textContent = originalCopyText;
-          copyButton.classList.remove('bg-emerald-100', 'text-emerald-800', 'border-emerald-300');
+          copyButton.classList.remove(
+            "bg-emerald-100",
+            "text-emerald-800",
+            "border-emerald-300",
+          );
         }, 2000);
       } catch (err) {
-        console.warn('Error copying text:', err);
-        copyButtonText.textContent = 'Copy failed';
-        
+        console.warn("Error copying text:", err);
+        copyButtonText.textContent = "Copy failed";
+
         setTimeout(() => {
           copyButtonText.textContent = originalCopyText;
         }, 2000);
       }
     });
   }
-  
+
   /**
    * Extract game data from the popup element
-   * 
+   *
    * @returns {ShareData|null} The game data or null if not available
    */
   function getGameDataFromPopup(): ShareData | null {
     const popup = document.querySelector("#endgame-popup");
     if (!popup) return null;
-    
+
     return {
       score: parseInt(popup.getAttribute("data-score") || "0"),
       category: popup.getAttribute("data-category") || "",
-      difficulty: popup.getAttribute("data-difficulty") || ""
+      difficulty: popup.getAttribute("data-difficulty") || "",
     };
   }
-  
+
   /**
    * Generate share text using the utility function
    * This creates a mock sharing to get the generated text
-   * 
+   *
    * @param {ShareData} data - The game data
    * @returns {Promise<string>} The generated share text
    */
@@ -212,44 +254,46 @@ const t = useTranslations(lang);
     // Create a temporary element to capture the text
     const originalConsoleWarn = console.warn;
     let shareText = "";
-    
+
     // Temporarily override window.open to capture the share text
     const originalWindowOpen = window.open;
-    window.open = function(url) {
+    window.open = function (url) {
       if (!url) return null as any;
-      const textMatch = decodeURIComponent(url.toString()).match(/text=([^&]+)/);
+      const textMatch = decodeURIComponent(url.toString()).match(
+        /text=([^&]+)/,
+      );
       if (textMatch && textMatch[1]) {
-        shareText = textMatch[1].replace(/\+/g, ' ');
+        shareText = textMatch[1].replace(/\+/g, " ");
       }
       return null as any;
     };
-    
+
     // Temporarily silence console warnings
     console.warn = () => {};
-    
+
     // Use the utility function to generate the share text
-    await shareScore('twitter', data);
-    
+    await shareScore("twitter", data);
+
     // Restore original functions
     window.open = originalWindowOpen;
     console.warn = originalConsoleWarn;
-    
+
     return shareText;
   }
-  
+
   /**
    * Generate share text for native sharing
    * Format: Achievement + Score + Call to action
-   * 
+   *
    * @param {ShareData} data - The game data
    * @returns {string} The formatted share text
    */
   async function generateShareTextForNative(data: ShareData): Promise<string> {
     // We'll use the utility function but remove the URL since Web Share API adds it separately
     const text = await generateShareTextFromUtils(data);
-    return text.split('\n\n').slice(0, -1).join('\n\n');
+    return text.split("\n\n").slice(0, -1).join("\n\n");
   }
-  
+
   // Initialize sharing features when the DOM is ready
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {

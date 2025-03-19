@@ -1,4 +1,4 @@
-export const languages = {
+  export const languages = {
   de: "Deutsch",
   en: "English",
   es: "Español",
@@ -949,7 +949,8 @@ export const ui = {
     "share.twitter": "Compartilhar no X/Twitter",
     "share.email": "Compartilhar por Email",
     "share.email.label": "Email",
-    "share.copy": "Copiar texto de compartilhamento para a área de transferência",
+    "share.copy":
+      "Copiar texto de compartilhamento para a área de transferência",
     "share.copy.label": "Copiar texto",
     "error.default": "Ocorreu um erro",
     "error.close": "Fechar mensagem de erro",

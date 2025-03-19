@@ -215,35 +215,35 @@ const t = useTranslations(lang);
   function initNavigationMenu(): void {
     // Get all required DOM elements
     const menuToggle = document.getElementById(
-      "menu-toggle"
+      "menu-toggle",
     ) as HTMLButtonElement | null;
     const mainMenu = document.getElementById(
-      "main-menu"
+      "main-menu",
     ) as HTMLDivElement | null;
     const menuBackdrop = document.getElementById(
-      "menu-backdrop"
+      "menu-backdrop",
     ) as HTMLDivElement | null;
     const closeButton = mainMenu?.querySelector(
-      ".close-menu"
+      ".close-menu",
     ) as HTMLButtonElement | null;
 
     // Ensure all required elements exist before proceeding
     if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
       console.warn(
-        "Navigation menu elements not found, menu functionality disabled"
+        "Navigation menu elements not found, menu functionality disabled",
       );
       return;
     }
 
     // Set up event listeners
     menuToggle.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop)
+      toggleMenu(menuToggle, mainMenu, menuBackdrop),
     );
     closeButton.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop)
+      toggleMenu(menuToggle, mainMenu, menuBackdrop),
     );
     menuBackdrop.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop)
+      toggleMenu(menuToggle, mainMenu, menuBackdrop),
     );
 
     // Close menu with Escape key
@@ -266,7 +266,7 @@ const t = useTranslations(lang);
   function toggleMenu(
     menuToggle: HTMLButtonElement,
     mainMenu: HTMLElement,
-    menuBackdrop: HTMLElement
+    menuBackdrop: HTMLElement,
   ): void {
     // Get current state and determine new state
     const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
@@ -287,7 +287,7 @@ const t = useTranslations(lang);
       // When opening: move focus to first interactive element after animation
       setTimeout(() => {
         const firstFocusableElement = mainMenu.querySelector(
-          "a[href], button:not(.close-menu), input, select, textarea, [tabindex]:not([tabindex='-1'])"
+          "a[href], button:not(.close-menu), input, select, textarea, [tabindex]:not([tabindex='-1'])",
         ) as HTMLElement;
 
         if (firstFocusableElement) {

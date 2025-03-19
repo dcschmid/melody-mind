@@ -93,42 +93,175 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
 </style>
 
 <script>
+  /**
+   * ErrorMessage Custom Element
+   * 
+   * A custom component for displaying error messages that:
+   * - Can be dismissed by clicking a close button
+   * - Automatically hides after a configurable timeout
+   * - Supports keyboard dismissal with the Escape key
+   * - Includes accessibility features for screen readers
+   */
   class ErrorMessage extends HTMLElement {
+    /** Reference to the close button element */
     private closeButton: HTMLButtonElement | null;
+    
+    /** Timer ID for the auto-hide functionality */
     private autoHideTimeout: ReturnType<typeof setTimeout> | null;
+    
+    /** Whether the component is currently being animated */
+    private isAnimating: boolean;
+    
+    /** Keyboard event handler reference for cleanup */
+    private keydownHandler: (e: KeyboardEvent) => void;
 
+    /**
+     * Initialize the error message component
+     */
     constructor() {
       super();
       this.closeButton = this.querySelector(".closeButton");
       this.autoHideTimeout = null;
-      this.init();
+      this.isAnimating = false;
+      
+      // Define keydown handler as a bound method for proper cleanup
+      this.keydownHandler = this.handleKeydown.bind(this);
+      
+      this.initialize();
     }
 
-    init() {
-      this.closeButton?.addEventListener("click", () => this.hide());
+    /**
+     * Set up event listeners and auto-hide functionality
+     */
+    private initialize(): void {
+      // Add click handler to the close button
+      if (this.closeButton) {
+        this.closeButton.addEventListener("click", () => this.hide());
+      }
 
-      const autoHideAfter = this.dataset.autoHide
-        ? parseInt(this.dataset.autoHide)
+      // Set up auto-hide functionality if specified
+      const autoHideAfter = this.dataset.autoHide 
+        ? parseInt(this.dataset.autoHide, 10) 
         : 0;
 
-      if (autoHideAfter > 0) {
+      if (autoHideAfter > 0 && !isNaN(autoHideAfter)) {
         this.autoHideTimeout = setTimeout(() => this.hide(), autoHideAfter);
       }
 
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && !this.classList.contains("hidden")) {
-          this.hide();
-        }
-      });
+      // Add keyboard support for dismissal
+      document.addEventListener("keydown", this.keydownHandler);
+      
+      // Ensure the element is initially visible for screen readers
+      if (!this.classList.contains("hidden")) {
+        this.announceToScreenReaders();
+      }
+    }
+    
+    /**
+     * Handle keyboard events for accessibility
+     * 
+     * @param {KeyboardEvent} event - The keyboard event
+     */
+    private handleKeydown(event: KeyboardEvent): void {
+      // Close the error message when Escape is pressed and message is visible
+      if (event.key === "Escape" && !this.classList.contains("hidden")) {
+        this.hide();
+      }
     }
 
-    hide() {
+    /**
+     * Hide the error message and clean up resources
+     */
+    public hide(): void {
+      // Prevent multiple hide calls during animation
+      if (this.isAnimating) return;
+      this.isAnimating = true;
+      
+      // Add hidden class to trigger CSS transition
       this.classList.add("hidden");
+      
+      // Clear any existing auto-hide timeout
       if (this.autoHideTimeout) {
         clearTimeout(this.autoHideTimeout);
+        this.autoHideTimeout = null;
+      }
+      
+      // Reset animation flag after transition completes
+      const transitionDuration = 300; // Should match CSS transition duration
+      setTimeout(() => {
+        this.isAnimating = false;
+      }, transitionDuration);
+    }
+    
+    /**
+     * Show the error message
+     */
+    public show(): void {
+      // Prevent showing during hide animation
+      if (this.isAnimating) return;
+      
+      // Remove hidden class to make the message visible
+      this.classList.remove("hidden");
+      
+      // Announce to screen readers
+      this.announceToScreenReaders();
+      
+      // Set up auto-hide if configured
+      const autoHideAfter = this.dataset.autoHide 
+        ? parseInt(this.dataset.autoHide, 10) 
+        : 0;
+        
+      if (autoHideAfter > 0 && !isNaN(autoHideAfter)) {
+        this.autoHideTimeout = setTimeout(() => this.hide(), autoHideAfter);
+      }
+    }
+    
+    /**
+     * Update message content programmatically
+     * 
+     * @param {string} message - The new error message text
+     */
+    public updateMessage(message: string): void {
+      const messageElement = this.querySelector(".errorText");
+      if (messageElement) {
+        messageElement.textContent = message;
+      }
+    }
+    
+    /**
+     * Ensure screen readers announce the error message
+     */
+    private announceToScreenReaders(): void {
+      // Update the aria-live region to ensure announcement
+      const feedbackElement = this.querySelector(".errorText");
+      if (feedbackElement) {
+        // Force a DOM update to ensure announcement
+        const currentText = feedbackElement.textContent;
+        feedbackElement.textContent = "";
+        setTimeout(() => {
+          if (feedbackElement) {
+            feedbackElement.textContent = currentText;
+          }
+        }, 10);
+      }
+    }
+    
+    /**
+     * Clean up resources when the element is removed from the DOM
+     */
+    disconnectedCallback(): void {
+      // Remove event listeners
+      document.removeEventListener("keydown", this.keydownHandler);
+      this.closeButton?.removeEventListener("click", () => this.hide());
+      
+      // Clear any pending timeouts
+      if (this.autoHideTimeout) {
+        clearTimeout(this.autoHideTimeout);
+        this.autoHideTimeout = null;
       }
     }
   }
 
+  // Register the custom element
   customElements.define("error-message", ErrorMessage);
 </script>
