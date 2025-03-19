@@ -140,14 +140,14 @@ const languages = Object.fromEntries(
 <script>
   /**
    * LanguagePicker Component Script
-   * 
+   *
    * Enhances the language selection dropdown with interactive features:
    * - Rotates the dropdown arrow when focused/clicked
    * - Manages visual feedback during interaction
    * - Persists language selection to localStorage
    * - Provides keyboard accessibility
    */
-  
+
   /**
    * Initialize the language picker with enhanced interactivity
    */
@@ -156,74 +156,78 @@ const languages = Object.fromEntries(
     private arrowElement: HTMLElement | null;
     private arrowContainer: HTMLElement | null;
     private eventHandlers: Map<string, EventListenerOrEventListenerObject>;
-    
+
     /**
      * Set up the language picker component
      */
     constructor() {
       // Get required DOM elements
-      this.selectElement = document.getElementById("language-select") as HTMLSelectElement;
+      this.selectElement = document.getElementById(
+        "language-select",
+      ) as HTMLSelectElement;
       this.arrowElement = document.getElementById("language-arrow");
       this.arrowContainer = document.getElementById("arrow-container");
       this.eventHandlers = new Map();
-      
+
       if (this.isValid()) {
         this.initialize();
       } else {
-        console.debug("Language picker initialization skipped - required elements not found");
+        console.debug(
+          "Language picker initialization skipped - required elements not found",
+        );
       }
     }
-    
+
     /**
      * Check if all required elements for the picker are available
-     * 
+     *
      * @returns {boolean} True if all required elements exist
      */
     private isValid(): boolean {
       return !!(this.selectElement && this.arrowElement && this.arrowContainer);
     }
-    
+
     /**
      * Set up event listeners and initialize component state
      */
     private initialize(): void {
       // Set up event handlers
       this.setupEventHandlers();
-      
+
       // Check if we have a preferred language in localStorage
       this.applyPreferredLanguage();
     }
-    
+
     /**
      * Attach all event handlers to the select element
      */
     private setupEventHandlers(): void {
       if (!this.selectElement) return;
-      
+
       // Define event handlers and store them for later cleanup
       const handlers: Record<string, EventListenerOrEventListenerObject> = {
         focus: this.handleFocus.bind(this),
         blur: this.handleBlur.bind(this),
         mousedown: this.handleMouseInteraction.bind(this),
         keydown: this.handleKeyboardInteraction.bind(this),
-        change: this.handleLanguageChange.bind(this)
+        change: this.handleLanguageChange.bind(this),
       };
-      
+
       // Store references for cleanup
       this.eventHandlers = new Map(Object.entries(handlers));
-      
+
       // Attach all events
       for (const [event, handler] of this.eventHandlers) {
         this.selectElement.addEventListener(event, handler);
       }
     }
-    
+
     /**
      * Apply any stored preferred language from localStorage
      */
     private applyPreferredLanguage(): void {
       try {
-        const preferredLanguage = localStorage.getItem('preferred-language');
+        const preferredLanguage = localStorage.getItem("preferred-language");
         if (preferredLanguage && this.selectElement) {
           // Find the option that corresponds to the preferred language
           const options = this.selectElement.options;
@@ -237,10 +241,13 @@ const languages = Object.fromEntries(
         }
       } catch (error) {
         // Handle potential localStorage errors (e.g., in private browsing)
-        console.debug("Failed to access localStorage for language preference:", error);
+        console.debug(
+          "Failed to access localStorage for language preference:",
+          error,
+        );
       }
     }
-    
+
     /**
      * Rotates the arrow icon up when the select is focused
      */
@@ -248,7 +255,7 @@ const languages = Object.fromEntries(
       this.arrowElement?.classList.add("rotate-180");
       this.arrowContainer?.classList.add("text-white");
     }
-    
+
     /**
      * Returns the arrow icon to its original position on blur
      */
@@ -256,10 +263,10 @@ const languages = Object.fromEntries(
       this.arrowElement?.classList.remove("rotate-180");
       this.arrowContainer?.classList.remove("text-white");
     }
-    
+
     /**
      * Handles mouse interactions for better desktop experience
-     * 
+     *
      * @param {MouseEvent} event - The mouse event
      */
     private handleMouseInteraction(event: Event): void {
@@ -268,7 +275,7 @@ const languages = Object.fromEntries(
         // Prevent default behavior for more control
         (event as MouseEvent).preventDefault();
         this.arrowElement?.classList.toggle("rotate-180");
-        
+
         // Simulate the select opening/closing
         if (this.selectElement?.size === 1) {
           this.selectElement.size = 4; // "Open" the select
@@ -278,10 +285,10 @@ const languages = Object.fromEntries(
         }
       }
     }
-    
+
     /**
      * Handles keyboard interactions for accessibility
-     * 
+     *
      * @param {KeyboardEvent} event - The keyboard event
      */
     private handleKeyboardInteraction(event: Event): void {
@@ -291,48 +298,48 @@ const languages = Object.fromEntries(
         this.arrowElement?.classList.toggle("rotate-180");
       }
     }
-    
+
     /**
      * Handles language change and persists the selection
-     * 
+     *
      * @param {Event} event - The change event
      */
     private handleLanguageChange(event: Event): void {
       const target = event.target as HTMLSelectElement;
       const newUrl = target.value;
-      
+
       try {
         // Extract language code from URL
         const langMatch = newUrl.match(/\/([a-z]{2})\//);
         if (langMatch && langMatch[1]) {
           // Store the selected language
-          localStorage.setItem('preferred-language', langMatch[1]);
+          localStorage.setItem("preferred-language", langMatch[1]);
         }
-        
+
         // Navigate to the new URL
         window.location.href = newUrl;
       } catch (error) {
         console.error("Failed to process language change:", error);
       }
     }
-    
+
     /**
      * Clean up all event listeners
      */
     public cleanup(): void {
       if (!this.selectElement) return;
-      
+
       for (const [event, handler] of this.eventHandlers) {
         this.selectElement.removeEventListener(event, handler);
       }
-      
+
       this.eventHandlers.clear();
     }
   }
-  
+
   // Create and initialize the language picker component
   let languagePicker: LanguagePicker | null = null;
-  
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
       languagePicker = new LanguagePicker();
@@ -340,7 +347,7 @@ const languages = Object.fromEntries(
   } else {
     languagePicker = new LanguagePicker();
   }
-  
+
   // Clean up when the page is navigated away from
   document.addEventListener("astro:before-swap", () => {
     languagePicker?.cleanup();

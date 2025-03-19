@@ -374,11 +374,13 @@ const {
   }
 
   /**
-     * Extract game data from the end game popup
-     *
-     * @returns {import("../../utils/share/shareUtils").ShareData|null} The extracted game data or null if popup not found
-     */
-    function getGameDataFromPopup(): import("../../utils/share/shareUtils").ShareData | null {
+   * Extract game data from the end game popup
+   *
+   * @returns {import("../../utils/share/shareUtils").ShareData|null} The extracted game data or null if popup not found
+   */
+  function getGameDataFromPopup():
+    | import("../../utils/share/shareUtils").ShareData
+    | null {
     const popup = document.querySelector("#endgame-popup");
 
     if (!popup) {
@@ -404,7 +406,10 @@ const {
   // Clean up event listeners when the component is removed
   document.addEventListener("astro:before-swap", () => {
     document.querySelectorAll("[data-share]").forEach((button) => {
-      (button as HTMLElement).removeEventListener("click", handleShareButtonClick);
+      (button as HTMLElement).removeEventListener(
+        "click",
+        handleShareButtonClick,
+      );
     });
   });
 </script>
