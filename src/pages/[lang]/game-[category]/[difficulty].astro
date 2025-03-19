@@ -184,31 +184,35 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     try {
       // Fix: Use fetch instead of dynamic import for JSON files
       let albumsData;
-      
+
       try {
         // Try to load albums for the current language first
         const response = await fetch(`/json/genres/${lang}/${category}.json`);
-        
+
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        
+
         albumsData = await response.json();
       } catch (langError) {
         // Fallback to German if the specific language file doesn't exist
         console.log(
           `No albums found for ${lang}/${category}, falling back to German`,
         );
-        
-        const fallbackResponse = await fetch(`/json/genres/de/${category}.json`);
-        
+
+        const fallbackResponse = await fetch(
+          `/json/genres/de/${category}.json`,
+        );
+
         if (!fallbackResponse.ok) {
-          throw new Error(`HTTP error for fallback! Status: ${fallbackResponse.status}`);
+          throw new Error(
+            `HTTP error for fallback! Status: ${fallbackResponse.status}`,
+          );
         }
-        
+
         albumsData = await fallbackResponse.json();
       }
-      
+
       albums = albumsData;
 
       if (!albums?.length) {
