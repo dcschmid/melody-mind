@@ -43,7 +43,10 @@ const {
     </h2>
 
     <!-- Der Motivationstext wird dynamisch gesetzt -->
-    <p id="motivation-text" class="motivationText text-zinc-300 text-lg mb-6 italic">
+    <p
+      id="motivation-text"
+      class="motivationText text-zinc-300 text-lg mb-6 italic"
+    >
     </p>
 
     <div class="scoreSection my-6">
@@ -107,12 +110,12 @@ const {
 <script>
   /**
    * EndOverlay Component Script
-   * 
+   *
    * Handles the end game modal functionality including dynamic motivation text based on score
    * and sharing capabilities.
    */
   import { shareScore } from "../../utils/share/shareUtils";
-  
+
   /**
    * Achievement thresholds for different score levels
    */
@@ -121,96 +124,138 @@ const {
     PRO: 600,
     ENTHUSIAST: 400,
     LOVER: 200,
-    EXPLORER: 0
+    EXPLORER: 0,
   };
-  
+
   /**
    * Multilingual motivational texts for different achievement levels
    */
   const MOTIVATION_TEXTS = {
     de: {
-      GENIUS: "Außergewöhnlich! 💫 Du bist ein wahres Musikgenie! 🎶 Dein tiefes Wissen und dein musikalisches Gespür sind beeindruckend. Du könntest in einer Musikquiz-Show gewinnen oder selbst Musikhistoriker sein. Teile deine bemerkenswerte Leistung und fordere andere heraus, gegen dich anzutreten!",
+      GENIUS:
+        "Außergewöhnlich! 💫 Du bist ein wahres Musikgenie! 🎶 Dein tiefes Wissen und dein musikalisches Gespür sind beeindruckend. Du könntest in einer Musikquiz-Show gewinnen oder selbst Musikhistoriker sein. Teile deine bemerkenswerte Leistung und fordere andere heraus, gegen dich anzutreten!",
       PRO: "Fantastisch! 🌟 Du bist definitiv ein Musik-Profi mit umfassendem Wissen über verschiedene Künstler und Genres. Dein Musikverständnis ist weit überdurchschnittlich. Nur wenige können mit deinem Wissen mithalten. Mach weiter so und fordere deine Freunde heraus!",
-      ENTHUSIAST: "Bemerkenswert! 👍 Als echter Musikenthusiast kennst du dich richtig gut aus. Du hast ein solides Fundament an Musikwissen aufgebaut, das dich von der Masse abhebt. Mit etwas mehr Übung könntest du bald zur Profi-Liga aufsteigen. Probiere eine weitere Runde?",
-      LOVER: "Gut gemacht! 👏 Als Musikliebhaber hast du ein ordentliches Wissen gezeigt. Du bist auf dem richtigen Weg, ein echter Musikkenner zu werden. Mit mehr Spielpraxis kannst du dein Wissen weiter ausbauen und deine Punktzahl verbessern. Bist du bereit für eine neue Herausforderung?",
-      EXPLORER: "Danke fürs Spielen! 🙏 Als Musikentdecker hast du den ersten Schritt gemacht, die faszinierende Welt der Musik zu erkunden. Jedes Spiel ist eine Gelegenheit, Neues zu lernen. Fordere dich selbst heraus, spiele weitere Runden und erweitere dein musikalisches Wissen!"
+      ENTHUSIAST:
+        "Bemerkenswert! 👍 Als echter Musikenthusiast kennst du dich richtig gut aus. Du hast ein solides Fundament an Musikwissen aufgebaut, das dich von der Masse abhebt. Mit etwas mehr Übung könntest du bald zur Profi-Liga aufsteigen. Probiere eine weitere Runde?",
+      LOVER:
+        "Gut gemacht! 👏 Als Musikliebhaber hast du ein ordentliches Wissen gezeigt. Du bist auf dem richtigen Weg, ein echter Musikkenner zu werden. Mit mehr Spielpraxis kannst du dein Wissen weiter ausbauen und deine Punktzahl verbessern. Bist du bereit für eine neue Herausforderung?",
+      EXPLORER:
+        "Danke fürs Spielen! 🙏 Als Musikentdecker hast du den ersten Schritt gemacht, die faszinierende Welt der Musik zu erkunden. Jedes Spiel ist eine Gelegenheit, Neues zu lernen. Fordere dich selbst heraus, spiele weitere Runden und erweitere dein musikalisches Wissen!",
     },
     en: {
-      GENIUS: "Extraordinary! 💫 You're a true music genius! 🎶 Your deep knowledge and musical intuition are truly impressive. You could win a music quiz show or even be a music historian. Share your remarkable achievement and challenge others to compete against you!",
+      GENIUS:
+        "Extraordinary! 💫 You're a true music genius! 🎶 Your deep knowledge and musical intuition are truly impressive. You could win a music quiz show or even be a music historian. Share your remarkable achievement and challenge others to compete against you!",
       PRO: "Fantastic! 🌟 You're definitely a music pro with extensive knowledge about various artists and genres. Your music comprehension is far above average. Few can match your knowledge. Keep it up and challenge your friends!",
-      ENTHUSIAST: "Impressive! 👍 As a genuine music enthusiast, you really know your stuff. You've built a solid foundation of music knowledge that sets you apart from the crowd. With a bit more practice, you could soon rise to the pro league. Would you like to try another round?",
-      LOVER: "Well done! 👏 As a music lover, you've shown considerable knowledge. You're on the right track to becoming a true music connoisseur. With more gameplay practice, you can expand your knowledge and improve your score. Are you ready for a new challenge?",
-      EXPLORER: "Thanks for playing! 🙏 As a music explorer, you've taken the first step in discovering the fascinating world of music. Each game is an opportunity to learn something new. Challenge yourself, play more rounds, and expand your musical knowledge!"
+      ENTHUSIAST:
+        "Impressive! 👍 As a genuine music enthusiast, you really know your stuff. You've built a solid foundation of music knowledge that sets you apart from the crowd. With a bit more practice, you could soon rise to the pro league. Would you like to try another round?",
+      LOVER:
+        "Well done! 👏 As a music lover, you've shown considerable knowledge. You're on the right track to becoming a true music connoisseur. With more gameplay practice, you can expand your knowledge and improve your score. Are you ready for a new challenge?",
+      EXPLORER:
+        "Thanks for playing! 🙏 As a music explorer, you've taken the first step in discovering the fascinating world of music. Each game is an opportunity to learn something new. Challenge yourself, play more rounds, and expand your musical knowledge!",
     },
     es: {
-      GENIUS: "¡Extraordinario! 💫 ¡Eres un verdadero genio musical! 🎶 Tu profundo conocimiento e intuición musical son realmente impresionantes. Podrías ganar un programa de preguntas musicales o incluso ser historiador de música. ¡Comparte tu notable logro y desafía a otros a competir contra ti!",
+      GENIUS:
+        "¡Extraordinario! 💫 ¡Eres un verdadero genio musical! 🎶 Tu profundo conocimiento e intuición musical son realmente impresionantes. Podrías ganar un programa de preguntas musicales o incluso ser historiador de música. ¡Comparte tu notable logro y desafía a otros a competir contra ti!",
       PRO: "¡Fantástico! 🌟 Definitivamente eres un profesional de la música con un amplio conocimiento sobre varios artistas y géneros. Tu comprensión musical está muy por encima del promedio. Pocos pueden igualar tu conocimiento. ¡Sigue así y desafía a tus amigos!",
-      ENTHUSIAST: "¡Impresionante! 👍 Como auténtico entusiasta de la música, realmente sabes de lo que hablas. Has construido una base sólida de conocimiento musical que te distingue de la multitud. Con un poco más de práctica, pronto podrías ascender a la liga profesional. ¿Te gustaría intentar otra ronda?",
-      LOVER: "¡Bien hecho! 👏 Como amante de la música, has demostrado un buen conocimiento. Estás en el camino correcto para convertirte en un verdadero conocedor de música. Con más práctica de juego, puedes expandir tu conocimiento y mejorar tu puntuación. ¿Listo para un nuevo desafío?",
-      EXPLORER: "¡Gracias por jugar! 🙏 Como explorador musical, has dado el primer paso para descubrir el fascinante mundo de la música. Cada juego es una oportunidad para aprender algo nuevo. Desafíate a ti mismo, juega más rondas y amplía tu conocimiento musical."
+      ENTHUSIAST:
+        "¡Impresionante! 👍 Como auténtico entusiasta de la música, realmente sabes de lo que hablas. Has construido una base sólida de conocimiento musical que te distingue de la multitud. Con un poco más de práctica, pronto podrías ascender a la liga profesional. ¿Te gustaría intentar otra ronda?",
+      LOVER:
+        "¡Bien hecho! 👏 Como amante de la música, has demostrado un buen conocimiento. Estás en el camino correcto para convertirte en un verdadero conocedor de música. Con más práctica de juego, puedes expandir tu conocimiento y mejorar tu puntuación. ¿Listo para un nuevo desafío?",
+      EXPLORER:
+        "¡Gracias por jugar! 🙏 Como explorador musical, has dado el primer paso para descubrir el fascinante mundo de la música. Cada juego es una oportunidad para aprender algo nuevo. Desafíate a ti mismo, juega más rondas y amplía tu conocimiento musical.",
     },
     fr: {
-      GENIUS: "Extraordinaire ! 💫 Tu es un vrai génie de la musique ! 🎶 Ta connaissance profonde et ton intuition musicale sont vraiment impressionnantes. Tu pourrais gagner un jeu télévisé musical ou même être historien de la musique. Partage ton remarquable accomplissement et défie les autres à se mesurer à toi !",
+      GENIUS:
+        "Extraordinaire ! 💫 Tu es un vrai génie de la musique ! 🎶 Ta connaissance profonde et ton intuition musicale sont vraiment impressionnantes. Tu pourrais gagner un jeu télévisé musical ou même être historien de la musique. Partage ton remarquable accomplissement et défie les autres à se mesurer à toi !",
       PRO: "Fantastique ! 🌟 Tu es définitivement un pro de la musique avec une connaissance étendue de divers artistes et genres. Ta compréhension musicale est bien au-dessus de la moyenne. Peu peuvent égaler ton savoir. Continue comme ça et défie tes amis !",
-      ENTHUSIAST: "Impressionnant ! 👍 En tant que véritable passionné de musique, tu connais vraiment ton sujet. Tu as construit une base solide de connaissances musicales qui te distingue de la foule. Avec un peu plus de pratique, tu pourrais bientôt monter en ligue professionnelle. Envie d'essayer une autre partie ?",
-      LOVER: "Bien joué ! 👏 En tant qu'amateur de musique, tu as montré de bonnes connaissances. Tu es sur la bonne voie pour devenir un véritable connaisseur musical. Avec plus de pratique de jeu, tu peux élargir tes connaissances et améliorer ton score. Prêt pour un nouveau défi ?",
-      EXPLORER: "Merci d'avoir joué ! 🙏 En tant qu'explorateur musical, tu as fait le premier pas pour découvrir le monde fascinant de la musique. Chaque partie est une occasion d'apprendre quelque chose de nouveau. Lance-toi des défis, joue davantage et élargis tes connaissances musicales !"
+      ENTHUSIAST:
+        "Impressionnant ! 👍 En tant que véritable passionné de musique, tu connais vraiment ton sujet. Tu as construit une base solide de connaissances musicales qui te distingue de la foule. Avec un peu plus de pratique, tu pourrais bientôt monter en ligue professionnelle. Envie d'essayer une autre partie ?",
+      LOVER:
+        "Bien joué ! 👏 En tant qu'amateur de musique, tu as montré de bonnes connaissances. Tu es sur la bonne voie pour devenir un véritable connaisseur musical. Avec plus de pratique de jeu, tu peux élargir tes connaissances et améliorer ton score. Prêt pour un nouveau défi ?",
+      EXPLORER:
+        "Merci d'avoir joué ! 🙏 En tant qu'explorateur musical, tu as fait le premier pas pour découvrir le monde fascinant de la musique. Chaque partie est une occasion d'apprendre quelque chose de nouveau. Lance-toi des défis, joue davantage et élargis tes connaissances musicales !",
     },
     it: {
-      GENIUS: "Straordinario! 💫 Sei un vero genio della musica! 🎶 La tua profonda conoscenza e intuizione musicale sono davvero impressionanti. Potresti vincere un quiz musicale o persino essere uno storico della musica. Condividi il tuo notevole risultato e sfida gli altri a competere con te!",
+      GENIUS:
+        "Straordinario! 💫 Sei un vero genio della musica! 🎶 La tua profonda conoscenza e intuizione musicale sono davvero impressionanti. Potresti vincere un quiz musicale o persino essere uno storico della musica. Condividi il tuo notevole risultato e sfida gli altri a competere con te!",
       PRO: "Fantastico! 🌟 Sei sicuramente un professionista della musica con una vasta conoscenza di vari artisti e generi. La tua comprensione musicale è ben al di sopra della media. Pochi possono eguagliare la tua conoscenza. Continua così e sfida i tuoi amici!",
-      ENTHUSIAST: "Impressionante! 👍 Come vero appassionato di musica, conosci davvero il tuo mestiere. Hai costruito una solida base di conoscenze musicali che ti distingue dalla massa. Con un po' più di pratica, potresti presto salire nella lega dei professionisti. Vuoi provare un altro round?",
-      LOVER: "Ben fatto! 👏 Come amante della musica, hai dimostrato una conoscenza considerevole. Sei sulla strada giusta per diventare un vero intenditore di musica. Con più pratica di gioco, puoi espandere le tue conoscenze e migliorare il tuo punteggio. Sei pronto per una nuova sfida?",
-      EXPLORER: "Grazie per aver giocato! 🙏 Come esploratore musicale, hai fatto il primo passo per scoprire il mondo affascinante della musica. Ogni partita è un'opportunità per imparare qualcosa di nuovo. Sfida te stesso, gioca più round ed espandi le tue conoscenze musicali!"
+      ENTHUSIAST:
+        "Impressionante! 👍 Come vero appassionato di musica, conosci davvero il tuo mestiere. Hai costruito una solida base di conoscenze musicali che ti distingue dalla massa. Con un po' più di pratica, potresti presto salire nella lega dei professionisti. Vuoi provare un altro round?",
+      LOVER:
+        "Ben fatto! 👏 Come amante della musica, hai dimostrato una conoscenza considerevole. Sei sulla strada giusta per diventare un vero intenditore di musica. Con più pratica di gioco, puoi espandere le tue conoscenze e migliorare il tuo punteggio. Sei pronto per una nuova sfida?",
+      EXPLORER:
+        "Grazie per aver giocato! 🙏 Come esploratore musicale, hai fatto il primo passo per scoprire il mondo affascinante della musica. Ogni partita è un'opportunità per imparare qualcosa di nuovo. Sfida te stesso, gioca più round ed espandi le tue conoscenze musicali!",
     },
     pt: {
-      GENIUS: "Extraordinário! 💫 Você é um verdadeiro gênio da música! 🎶 Seu profundo conhecimento e intuição musical são realmente impressionantes. Você poderia ganhar um quiz musical ou até mesmo ser um historiador da música. Compartilhe sua notável conquista e desafie os outros a competir com você!",
+      GENIUS:
+        "Extraordinário! 💫 Você é um verdadeiro gênio da música! 🎶 Seu profundo conhecimento e intuição musical são realmente impressionantes. Você poderia ganhar um quiz musical ou até mesmo ser um historiador da música. Compartilhe sua notável conquista e desafie os outros a competir com você!",
       PRO: "Fantástico! 🌟 Você definitivamente é um profissional da música com amplo conhecimento sobre vários artistas e gêneros. Sua compreensão musical está muito acima da média. Poucos podem igualar seu conhecimento. Continue assim e desafie seus amigos!",
-      ENTHUSIAST: "Impressionante! 👍 Como um verdadeiro entusiasta da música, você realmente conhece o assunto. Você construiu uma base sólida de conhecimento musical que o distingue da multidão. Com um pouco mais de prática, você pode em breve subir para a liga dos profissionais. Quer tentar outra rodada?",
-      LOVER: "Muito bem! 👏 Como amante da música, você demonstrou um conhecimento considerável. Você está no caminho certo para se tornar um verdadeiro conhecedor de música. Com mais prática de jogo, você pode expandir seu conhecimento e melhorar sua pontuação. Está pronto para um novo desafio?",
-      EXPLORER: "Obrigado por jogar! 🙏 Como explorador musical, você deu o primeiro passo para descobrir o fascinante mundo da música. Cada jogo é uma oportunidade para aprender algo novo. Desafie-se, jogue mais rodadas e expanda seu conhecimento musical!"
+      ENTHUSIAST:
+        "Impressionante! 👍 Como um verdadeiro entusiasta da música, você realmente conhece o assunto. Você construiu uma base sólida de conhecimento musical que o distingue da multidão. Com um pouco mais de prática, você pode em breve subir para a liga dos profissionais. Quer tentar outra rodada?",
+      LOVER:
+        "Muito bem! 👏 Como amante da música, você demonstrou um conhecimento considerável. Você está no caminho certo para se tornar um verdadeiro conhecedor de música. Com mais prática de jogo, você pode expandir seu conhecimento e melhorar sua pontuação. Está pronto para um novo desafio?",
+      EXPLORER:
+        "Obrigado por jogar! 🙏 Como explorador musical, você deu o primeiro passo para descobrir o fascinante mundo da música. Cada jogo é uma oportunidade para aprender algo novo. Desafie-se, jogue mais rodadas e expanda seu conhecimento musical!",
     },
     da: {
-      GENIUS: "Ekstraordinært! 💫 Du er et sandt musiktalent! 🎶 Din dybe viden og musikalske intuition er virkelig imponerende. Du kunne vinde en musikquiz eller endda være musikhistoriker. Del din bemærkelsesværdige præstation og udfordr andre til at konkurrere mod dig!",
+      GENIUS:
+        "Ekstraordinært! 💫 Du er et sandt musiktalent! 🎶 Din dybe viden og musikalske intuition er virkelig imponerende. Du kunne vinde en musikquiz eller endda være musikhistoriker. Del din bemærkelsesværdige præstation og udfordr andre til at konkurrere mod dig!",
       PRO: "Fantastisk! 🌟 Du er bestemt en musikekspert med omfattende viden om forskellige kunstnere og genrer. Din musikforståelse er langt over gennemsnittet. Få kan matche din viden. Bliv ved og udfordr dine venner!",
-      ENTHUSIAST: "Bemærkelsesværdigt! 👍 Som ægte musikentusiast kender du virkelig din sag. Du har opbygget et solidt fundament af musikkundskab, der adskiller dig fra mængden. Med lidt mere øvelse kan du snart stige til pro-ligaen. Vil du prøve en runde mere?",
-      LOVER: "Godt klaret! 👏 Som musikelsker har du vist betydelig viden. Du er på rette vej til at blive en ægte musikconnaisseur. Med mere spilpraksis kan du udvide din viden og forbedre din score. Er du klar til en ny udfordring?",
-      EXPLORER: "Tak for spillet! 🙏 Som musikopdager har du taget det første skridt i at opdage musikkens fascinerende verden. Hvert spil er en mulighed for at lære noget nyt. Udfordr dig selv, spil flere runder og udvid din musikkundskab!"
+      ENTHUSIAST:
+        "Bemærkelsesværdigt! 👍 Som ægte musikentusiast kender du virkelig din sag. Du har opbygget et solidt fundament af musikkundskab, der adskiller dig fra mængden. Med lidt mere øvelse kan du snart stige til pro-ligaen. Vil du prøve en runde mere?",
+      LOVER:
+        "Godt klaret! 👏 Som musikelsker har du vist betydelig viden. Du er på rette vej til at blive en ægte musikconnaisseur. Med mere spilpraksis kan du udvide din viden og forbedre din score. Er du klar til en ny udfordring?",
+      EXPLORER:
+        "Tak for spillet! 🙏 Som musikopdager har du taget det første skridt i at opdage musikkens fascinerende verden. Hvert spil er en mulighed for at lære noget nyt. Udfordr dig selv, spil flere runder og udvid din musikkundskab!",
     },
     nl: {
-      GENIUS: "Buitengewoon! 💫 Je bent een echt muzikaal genie! 🎶 Je diepgaande kennis en muzikale intuïtie zijn echt indrukwekkend. Je zou een muziekquiz kunnen winnen of zelfs een muziekgeschiedkundige kunnen zijn. Deel je opmerkelijke prestatie en daag anderen uit om tegen je te strijden!",
+      GENIUS:
+        "Buitengewoon! 💫 Je bent een echt muzikaal genie! 🎶 Je diepgaande kennis en muzikale intuïtie zijn echt indrukwekkend. Je zou een muziekquiz kunnen winnen of zelfs een muziekgeschiedkundige kunnen zijn. Deel je opmerkelijke prestatie en daag anderen uit om tegen je te strijden!",
       PRO: "Fantastisch! 🌟 Je bent zeker een muziekprofessional met uitgebreide kennis over verschillende artiesten en genres. Je muzikale begrip is ver boven het gemiddelde. Weinig mensen kunnen jouw kennis evenaren. Ga zo door en daag je vrienden uit!",
-      ENTHUSIAST: "Indrukwekkend! 👍 Als echte muziekliefhebber weet je echt waar je het over hebt. Je hebt een solide basis van muziekkennis opgebouwd die je onderscheidt van de massa. Met een beetje meer oefening kun je binnenkort naar de pro-league stijgen. Wil je nog een ronde proberen?",
-      LOVER: "Goed gedaan! 👏 Als muziekliefhebber heb je aanzienlijke kennis getoond. Je bent op de goede weg om een echte muziekkenner te worden. Met meer spelervaring kun je je kennis uitbreiden en je score verbeteren. Ben je klaar voor een nieuwe uitdaging?",
-      EXPLORER: "Bedankt voor het spelen! 🙏 Als muziekontdekker heb je de eerste stap gezet in het ontdekken van de fascinerende wereld van muziek. Elk spel is een kans om iets nieuws te leren. Daag jezelf uit, speel meer rondes en breid je muziekkennis uit!"
+      ENTHUSIAST:
+        "Indrukwekkend! 👍 Als echte muziekliefhebber weet je echt waar je het over hebt. Je hebt een solide basis van muziekkennis opgebouwd die je onderscheidt van de massa. Met een beetje meer oefening kun je binnenkort naar de pro-league stijgen. Wil je nog een ronde proberen?",
+      LOVER:
+        "Goed gedaan! 👏 Als muziekliefhebber heb je aanzienlijke kennis getoond. Je bent op de goede weg om een echte muziekkenner te worden. Met meer spelervaring kun je je kennis uitbreiden en je score verbeteren. Ben je klaar voor een nieuwe uitdaging?",
+      EXPLORER:
+        "Bedankt voor het spelen! 🙏 Als muziekontdekker heb je de eerste stap gezet in het ontdekken van de fascinerende wereld van muziek. Elk spel is een kans om iets nieuws te leren. Daag jezelf uit, speel meer rondes en breid je muziekkennis uit!",
     },
     sv: {
-      GENIUS: "Enastående! 💫 Du är ett riktigt musikgeni! 🎶 Din djupa kunskap och musikaliska intuition är verkligen imponerande. Du skulle kunna vinna en musiktävling eller till och med vara en musikhistoriker. Dela din anmärkningsvärda prestation och utmana andra att tävla mot dig!",
+      GENIUS:
+        "Enastående! 💫 Du är ett riktigt musikgeni! 🎶 Din djupa kunskap och musikaliska intuition är verkligen imponerande. Du skulle kunna vinna en musiktävling eller till och med vara en musikhistoriker. Dela din anmärkningsvärda prestation och utmana andra att tävla mot dig!",
       PRO: "Fantastiskt! 🌟 Du är definitivt en musikproffs med omfattande kunskap om olika artister och genrer. Din musikaliska förståelse är långt över genomsnittet. Få kan matcha din kunskap. Fortsätt så och utmana dina vänner!",
-      ENTHUSIAST: "Imponerande! 👍 Som en sann musikentusiast känner du verkligen till ämnet. Du har byggt en solid grund av musikkunskap som skiljer dig från mängden. Med lite mer övning kan du snart stiga till pro-ligan. Vill du prova en runda till?",
-      LOVER: "Bra gjort! 👏 Som musikälskare har du visat betydande kunskap. Du är på rätt väg att bli en riktig musikälskare. Med mer spelövning kan du utöka din kunskap och förbättra din poäng. Är du redo för en ny utmaning?",
-      EXPLORER: "Tack för att du spelade! 🙏 Som musikutforskare har du tagit det första steget i att upptäcka musikens fascinerande värld. Varje spel är en möjlighet att lära sig något nytt. Utmana dig själv, spela fler rundor och utöka din musikkunskap!"
+      ENTHUSIAST:
+        "Imponerande! 👍 Som en sann musikentusiast känner du verkligen till ämnet. Du har byggt en solid grund av musikkunskap som skiljer dig från mängden. Med lite mer övning kan du snart stiga till pro-ligan. Vill du prova en runda till?",
+      LOVER:
+        "Bra gjort! 👏 Som musikälskare har du visat betydande kunskap. Du är på rätt väg att bli en riktig musikälskare. Med mer spelövning kan du utöka din kunskap och förbättra din poäng. Är du redo för en ny utmaning?",
+      EXPLORER:
+        "Tack för att du spelade! 🙏 Som musikutforskare har du tagit det första steget i att upptäcka musikens fascinerande värld. Varje spel är en möjlighet att lära sig något nytt. Utmana dig själv, spela fler rundor och utöka din musikkunskap!",
     },
     fi: {
-      GENIUS: "Uskomaton! 💫 Olet todellinen musiikin nero! 🎶 Syvällinen tietosi ja musiikillinen intuitiosi ovat todella vaikuttavia. Voisit voittaa musiikkivisailun tai jopa olla musiikkihistorioitsija. Jaa merkittävä saavutuksesi ja haasta muut kilpailemaan kanssasi!",
+      GENIUS:
+        "Uskomaton! 💫 Olet todellinen musiikin nero! 🎶 Syvällinen tietosi ja musiikillinen intuitiosi ovat todella vaikuttavia. Voisit voittaa musiikkivisailun tai jopa olla musiikkihistorioitsija. Jaa merkittävä saavutuksesi ja haasta muut kilpailemaan kanssasi!",
       PRO: "Mahtava! 🌟 Olet ehdottomasti musiikin ammattilainen, jolla on laaja tietämys eri artisteista ja genreistä. Musiikillinen ymmärryksesi on huomattavasti keskimääräistä parempi. Harvat voivat vastata tietämykseesi. Jatka samaan malliin ja haasta ystäväsi!",
-      ENTHUSIAST: "Vaikuttavaa! 👍 Aidosti musiikkia rakastavana tiedät todella, mistä puhut. Olet rakentanut vankan perustan musiikkitietämykselle, joka erottaa sinut joukosta. Vähän enemmän harjoittelua, ja voit pian nousta ammattilaisliigaan. Haluatko kokeilla toista kierrosta?",
-      LOVER: "Hienoa! 👏 Musiikin ystävänä olet osoittanut huomattavaa tietämystä. Olet oikealla tiellä tullaksesi todelliseksi musiikin tuntijaksi. Lisää peliharjoittelua, ja voit laajentaa tietämystäsi ja parantaa pisteitäsi. Oletko valmis uuteen haasteeseen?",
-      EXPLORER: "Kiitos pelaamisesta! 🙏 Musiikkitutkijana olet ottanut ensimmäisen askeleen musiikin kiehtovan maailman löytämisessä. Jokainen peli on tilaisuus oppia jotain uutta. Haasta itsesi, pelaa lisää kierroksia ja laajenna musiikkitietämystäsi!"
-    }
+      ENTHUSIAST:
+        "Vaikuttavaa! 👍 Aidosti musiikkia rakastavana tiedät todella, mistä puhut. Olet rakentanut vankan perustan musiikkitietämykselle, joka erottaa sinut joukosta. Vähän enemmän harjoittelua, ja voit pian nousta ammattilaisliigaan. Haluatko kokeilla toista kierrosta?",
+      LOVER:
+        "Hienoa! 👏 Musiikin ystävänä olet osoittanut huomattavaa tietämystä. Olet oikealla tiellä tullaksesi todelliseksi musiikin tuntijaksi. Lisää peliharjoittelua, ja voit laajentaa tietämystäsi ja parantaa pisteitäsi. Oletko valmis uuteen haasteeseen?",
+      EXPLORER:
+        "Kiitos pelaamisesta! 🙏 Musiikkitutkijana olet ottanut ensimmäisen askeleen musiikin kiehtovan maailman löytämisessä. Jokainen peli on tilaisuus oppia jotain uutta. Haasta itsesi, pelaa lisää kierroksia ja laajenna musiikkitietämystäsi!",
+    },
   };
-  
+
   /**
    * Gets the appropriate motivation text based on score and language
-   * 
+   *
    * @param {number} score - Player's score
    * @param {string} language - Current language code
    * @returns {string} The appropriate motivation text
    */
   function getMotivationText(score: number, language: string): string {
     // Get texts for the current language or fallback to English
-    const texts = MOTIVATION_TEXTS[language as keyof typeof MOTIVATION_TEXTS] || MOTIVATION_TEXTS.en;
-    
+    const texts =
+      MOTIVATION_TEXTS[language as keyof typeof MOTIVATION_TEXTS] ||
+      MOTIVATION_TEXTS.en;
+
     // Select text based on score threshold
     if (score >= ACHIEVEMENT_THRESHOLDS.GENIUS) return texts.GENIUS;
     if (score >= ACHIEVEMENT_THRESHOLDS.PRO) return texts.PRO;
@@ -223,13 +268,13 @@ const {
    * Initialize EndOverlay with dynamic motivation text
    */
   function initializeEndOverlay(): void {
-    const popup = document.getElementById('endgame-popup');
-    
+    const popup = document.getElementById("endgame-popup");
+
     if (!popup) {
       console.debug("EndOverlay: popup element not found");
       return;
     }
-    
+
     // Set up an observer to update motivation text when the popup becomes visible
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
@@ -243,35 +288,35 @@ const {
         }
       });
     });
-    
+
     // Start observing the popup for class changes
     observer.observe(popup, { attributes: true, attributeFilter: ["class"] });
-    
+
     // Initial update in case the popup is already visible
     if (!popup.classList.contains("hidden")) {
       updateMotivationText(popup);
     }
-    
+
     // Set up sharing functionality
     initializeSharing();
   }
-  
+
   /**
    * Updates the motivation text based on current score
-   * 
+   *
    * @param {HTMLElement} popup - The popup element
    */
   function updateMotivationText(popup: HTMLElement): void {
     const scoreAttr = popup.getAttribute("data-score");
     const score = scoreAttr ? parseInt(scoreAttr) : 0;
-    
+
     const lang = document.documentElement.lang || "en";
     const motivationElement = document.getElementById("motivation-text");
-    
+
     if (motivationElement) {
       motivationElement.textContent = getMotivationText(score, lang);
     }
-    
+
     // Also update the visible score
     const scoreElement = document.getElementById("popup-score");
     if (scoreElement) {
@@ -286,7 +331,7 @@ const {
   function initializeSharing(): void {
     // Select all share buttons (elements with data-share attribute)
     const shareButtons = document.querySelectorAll<HTMLElement>("[data-share]");
-    
+
     if (!shareButtons.length) {
       console.debug("No share buttons found in EndOverlay");
       return;
@@ -300,17 +345,17 @@ const {
 
   /**
    * Handle click events on share buttons
-   * 
+   *
    * Extracts sharing platform from the button's data attribute
    * and collects game data from the popup before invoking the sharing function.
-   * 
+   *
    * @param {MouseEvent} event - The click event object
    */
   function handleShareButtonClick(event: MouseEvent): void {
     // Get the sharing platform from the button's data attribute
     const button = event.currentTarget as HTMLElement;
     const platform = button.dataset.share;
-    
+
     if (!platform) {
       console.warn("Share button clicked but no platform specified");
       return;
@@ -329,13 +374,13 @@ const {
   }
 
   /**
-   * Extract game data from the end game popup
-   * 
-   * @returns {ShareData|null} The extracted game data or null if popup not found
-   */
-  function getGameDataFromPopup(): ShareData | null {
+     * Extract game data from the end game popup
+     *
+     * @returns {import("../../utils/share/shareUtils").ShareData|null} The extracted game data or null if popup not found
+     */
+    function getGameDataFromPopup(): import("../../utils/share/shareUtils").ShareData | null {
     const popup = document.querySelector("#endgame-popup");
-    
+
     if (!popup) {
       console.error("EndOverlay: Cannot find game popup element");
       return null;
@@ -358,8 +403,9 @@ const {
 
   // Clean up event listeners when the component is removed
   document.addEventListener("astro:before-swap", () => {
-    document.querySelectorAll("[data-share]").forEach(button => {
-      button.removeEventListener("click", handleShareButtonClick);
+    document.querySelectorAll("[data-share]").forEach((button) => {
+      (button as HTMLElement).removeEventListener("click", handleShareButtonClick);
     });
   });
 </script>
+removeEventListener

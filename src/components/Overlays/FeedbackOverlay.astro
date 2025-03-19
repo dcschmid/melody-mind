@@ -162,65 +162,205 @@ const t = useTranslations(lang);
 </style>
 
 <script>
-  const overlay = document.getElementById("overlay") as HTMLElement;
-  const overlayContent = overlay.querySelector(
-    ".overlayContent",
-  ) as HTMLElement;
+  /**
+   * FeedbackOverlay Component Script
+   * 
+   * Manages the feedback overlay functionality including:
+   * - Focus management
+   * - Keyboard navigation/accessibility
+   * - Album cover display and error handling
+   * - Audio player lifecycle
+   */
 
-  // Beobachter für Klassenänderungen am Overlay
-  const observer = new MutationObserver(() => {
-    if (!overlay.classList.contains("hidden")) {
-      overlayContent.scrollTop = 0;
-      overlayContent.focus();
+  /**
+   * Initialize the FeedbackOverlay component
+   */
+  function initializeFeedbackOverlay() {
+    const overlay = document.getElementById("overlay") as HTMLElement;
+    const overlayContent = overlay?.querySelector(".overlayContent") as HTMLElement;
+    
+    if (!overlay || !overlayContent) {
+      console.debug("FeedbackOverlay: Required elements not found");
+      return;
     }
-  });
 
-  observer.observe(overlay, { attributes: true, attributeFilter: ["class"] });
+    // Set up observers and event listeners
+    setupOverlayVisibilityObserver(overlay, overlayContent);
+    setupKeyboardNavigation();
+    const coverObserver = handleAlbumCoverDisplay(overlay);
+    setupCleanupHandlers(coverObserver);
+  }
 
-  // Tastatursteuerung im Overlay (Focus Trap)
-  const focusableElements =
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  /**
+   * Sets up an observer to monitor overlay visibility changes
+   * Manages focus and scroll position when overlay becomes visible
+   * 
+   * @param {HTMLElement} overlay - The overlay container element
+   * @param {HTMLElement} overlayContent - The content container inside the overlay
+   * @returns {MutationObserver} The configured observer
+   */
+  function setupOverlayVisibilityObserver(overlay: HTMLElement, overlayContent: HTMLElement): MutationObserver {
+    const observer = new MutationObserver(() => {
+      if (!overlay.classList.contains("hidden")) {
+        // Reset scroll position and focus the content when overlay becomes visible
+        overlayContent.scrollTop = 0;
+        overlayContent.focus();
+      }
+    });
 
-  document.addEventListener("keydown", (event) => {
-    const overlay = document.getElementById("overlay");
-    if (!overlay?.classList.contains("hidden")) {
-      const content = overlay!.querySelector(".overlayContent");
-      const focusable = Array.from(
-        content?.querySelectorAll(focusableElements) || [],
-      );
-      const firstFocusable = focusable[0] as HTMLElement;
-      const lastFocusable = focusable[focusable.length - 1] as HTMLElement;
+    // Watch for class changes on the overlay element
+    observer.observe(overlay, { 
+      attributes: true, 
+      attributeFilter: ["class"] 
+    });
+
+    return observer;
+  }
+
+  /**
+   * Sets up keyboard navigation handlers for the overlay
+   * Implements a focus trap and escape key handling
+   */
+  function setupKeyboardNavigation() {
+    const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    
+    document.addEventListener("keydown", (event) => {
+      const overlay = document.getElementById("overlay");
+      // Only handle keyboard events when overlay is visible
+      if (!overlay || overlay.classList.contains("hidden")) return;
+
+      const content = overlay.querySelector(".overlayContent");
+      const focusableElements = Array.from(
+        content?.querySelectorAll(focusableSelector) || []
+      ) as HTMLElement[];
+      
+      // No focusable elements, nothing to do
+      if (focusableElements.length === 0) return;
+      
+      const firstFocusable = focusableElements[0];
+      const lastFocusable = focusableElements[focusableElements.length - 1];
 
       switch (event.key) {
         case "Escape":
+          // Close the overlay when Escape is pressed
           document.getElementById("next-round-button")?.click();
           break;
+          
         case "Tab":
+          // Create a focus trap within the overlay
           if (event.shiftKey && document.activeElement === firstFocusable) {
+            // Shift+Tab on first element goes to last element
             event.preventDefault();
             lastFocusable.focus();
-          } else if (
-            !event.shiftKey &&
-            document.activeElement === lastFocusable
-          ) {
+          } else if (!event.shiftKey && document.activeElement === lastFocusable) {
+            // Tab on last element goes to first element
             event.preventDefault();
             firstFocusable.focus();
           }
           break;
       }
+    });
+  }
+
+  /**
+   * Handles album cover display and fixes issues with cover visibility
+   * 
+   * @param {HTMLElement} overlay - The overlay container element
+   * @returns {MutationObserver} The observer handling album cover display
+   */
+  function handleAlbumCoverDisplay(overlay: HTMLElement): MutationObserver {
+    const albumCover = document.getElementById("overlay-cover") as HTMLImageElement;
+    
+    if (!albumCover) {
+      console.debug("FeedbackOverlay: Album cover element not found");
+      return new MutationObserver(() => {});
     }
-  });
+    
+    // Ensure the album cover is not hidden by removing any hidden class
+    albumCover.classList.remove("hidden");
+    
+    // Set up error handling for the album cover image
+    setupAlbumCoverErrorHandling(albumCover);
+    
+    // Define a function to check and update album cover when overlay becomes visible
+    const checkAlbumCover = () => {
+      if (!overlay.classList.contains("hidden")) {
+        // Ensure the album cover is visible
+        albumCover.style.display = "";
+        albumCover.classList.remove("hidden");
+        
+        // If src is empty or points to the current page, try to get it from overlay data
+        if (!albumCover.src || albumCover.src === window.location.href) {
+          const albumData = overlay.getAttribute("data-album-cover");
+          if (albumData) {
+            albumCover.src = albumData;
+          }
+        }
+      }
+    };
+    
+    // Create an observer to watch for overlay visibility changes
+    const coverObserver = new MutationObserver(checkAlbumCover);
+    coverObserver.observe(overlay, { 
+      attributes: true, 
+      attributeFilter: ["class"] 
+    });
+    
+    // Initial check in case the overlay is already visible
+    checkAlbumCover();
+    
+    return coverObserver;
+  }
 
-  document.addEventListener("astro:before-swap", () => {
-    observer.disconnect();
-  });
+  /**
+   * Sets up error handling for the album cover image
+   * 
+   * @param {HTMLImageElement} albumCover - The album cover image element
+   */
+  function setupAlbumCoverErrorHandling(albumCover: HTMLImageElement): void {
+    albumCover.onerror = () => {
+      console.debug("FeedbackOverlay: Error loading album cover image");
+      
+      // Set a fallback image or message when loading fails
+      albumCover.src = "/images/default-album-cover.jpg";
+      albumCover.alt = "Album cover not available";
+      
+      // Ensure the image is still visible despite the error
+      albumCover.style.display = "";
+      albumCover.classList.remove("hidden");
+    };
+  }
 
-  // Audio cleanup
-  const audioPlayer = document.getElementById(
-    "audio-preview",
-  ) as HTMLAudioElement;
-  document.addEventListener("astro:before-swap", () => {
-    audioPlayer.pause();
-    audioPlayer.src = "";
-  });
+  /**
+   * Sets up cleanup handlers for when the component is unmounted
+   * 
+   * @param {MutationObserver} coverObserver - The album cover observer to disconnect
+   */
+  function setupCleanupHandlers(coverObserver: MutationObserver): void {
+    // Get references to elements and observers that need cleanup
+    const audioPlayer = document.getElementById("audio-preview") as HTMLAudioElement;
+    const mainObserver = document.querySelector("#overlay")
+      ? new MutationObserver(() => {}) // Placeholder if original observer not available
+      : null;
+      
+    // Handle cleanup before page navigation
+    document.addEventListener("astro:before-swap", () => {
+      // Disconnect observers
+      mainObserver?.disconnect();
+      coverObserver?.disconnect();
+      
+      // Stop audio playback and clear sources
+      if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.src = "";
+      }
+    });
+  }
+
+  // Initialize the overlay when the DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeFeedbackOverlay);
+  } else {
+    initializeFeedbackOverlay();
+  }
 </script>

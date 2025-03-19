@@ -72,48 +72,50 @@ const sizeClasses = {
 <script>
   /**
    * LoadingSpinner - A class to manage loading spinner visibility and state
-   * 
+   *
    * This utility class provides methods to show/hide loading spinners and properly
    * manage their ARIA attributes for accessibility. It implements a singleton pattern
    * per spinner ID to ensure consistent state management across the application.
-   * 
+   *
    * @example
    * // Show a spinner
    * LoadingSpinner.getInstance().show();
-   * 
+   *
    * // Hide the same spinner
    * LoadingSpinner.getInstance().hide();
-   * 
+   *
    * // Use a specific spinner by ID
    * LoadingSpinner.getInstance('custom-spinner').show();
    */
   class LoadingSpinner {
     /** Reference to the spinner DOM element */
     private readonly spinner: HTMLElement | null;
-    
+
     /** Store of all spinner instances by ID for singleton pattern */
     private static instances: Map<string, LoadingSpinner> = new Map();
-    
+
     /**
      * Creates a new LoadingSpinner instance
-     * 
+     *
      * @param {string} id - The ID of the spinner element to control
      */
     constructor(id: string = "loading-spinner") {
       this.spinner = document.getElementById(id);
-      
+
       // Register this instance
       LoadingSpinner.instances.set(id, this);
-      
+
       // Log an error if spinner not found, but don't block execution
       if (!this.spinner) {
-        console.warn(`LoadingSpinner: Element with ID "${id}" not found in DOM`);
+        console.warn(
+          `LoadingSpinner: Element with ID "${id}" not found in DOM`,
+        );
       }
     }
 
     /**
      * Gets a singleton instance of LoadingSpinner for the specified ID
-     * 
+     *
      * @param {string} id - The ID of the spinner to control
      * @returns {LoadingSpinner} A spinner instance for the specified ID
      */
@@ -123,65 +125,65 @@ const sizeClasses = {
 
     /**
      * Shows the spinner and updates its accessibility attributes
-     * 
+     *
      * @returns {boolean} True if successful, false if spinner element not found
      */
     show(): boolean {
       if (!this.spinner) return false;
-      
+
       // Make visible and update accessibility
       this.spinner.classList.remove("hidden");
       this.spinner.setAttribute("aria-busy", "true");
-      
+
       return true;
     }
 
     /**
      * Hides the spinner and updates its accessibility attributes
-     * 
+     *
      * @returns {boolean} True if successful, false if spinner element not found
      */
     hide(): boolean {
       if (!this.spinner) return false;
-      
+
       // Hide and update accessibility
       this.spinner.classList.add("hidden");
       this.spinner.setAttribute("aria-busy", "false");
-      
+
       return true;
     }
 
     /**
      * Toggles the spinner visibility based on current state
-     * 
+     *
      * @returns {boolean} New visibility state (true = shown, false = hidden)
      */
     toggle(): boolean {
       if (!this.spinner) return false;
-      
+
       const isCurrentlyHidden = this.spinner.classList.contains("hidden");
       return isCurrentlyHidden ? this.show() : this.hide();
     }
-    
+
     /**
      * Checks if the spinner is currently visible
-     * 
+     *
      * @returns {boolean} True if the spinner is visible, false otherwise
      */
     isVisible(): boolean {
       return this.spinner ? !this.spinner.classList.contains("hidden") : false;
     }
-    
+
     /**
      * Shows the spinner for a specific duration, then hides it
-     * 
+     *
      * @param {number} durationMs - Duration in milliseconds to show the spinner
      * @returns {Promise<void>} Promise that resolves when spinner is hidden
      */
     async showFor(durationMs: number): Promise<void> {
       this.show();
-      
-      return new Promise(resolve => {
+
+      return new Promise((resolve) => {
         setTimeout(() => {
           this.hide();
           resolve();

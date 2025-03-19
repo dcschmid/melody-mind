@@ -18,10 +18,10 @@ const { category, difficulty } = Astro.params;
 // Dynamic import of categories based on language
 let categories;
 try {
-  categories = await import(/* @vite-ignore */ `@json/${lang}_categories.json`);
+  categories = await import(`@json/${lang}_categories.json`);
 } catch (error) {
   // Fallback to default language if the specific language file doesn't exist
-  categories = await import(/* @vite-ignore */ `@json/de_categories.json`);
+  categories = await import(`@json/de_categories.json`);
 }
 
 // No login check needed anymore
