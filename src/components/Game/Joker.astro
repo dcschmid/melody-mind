@@ -40,33 +40,6 @@ const t = useTranslations(lang);
     will-change: transform, opacity;
     backface-visibility: hidden;
   }
-
-  @media (forced-colors: active) {
-    .jokerButton {
-      border: 2px solid ButtonText;
-    }
-
-    .jokerButton:disabled {
-      border: 2px solid GrayText;
-    }
-
-    .jokerButton:focus-visible {
-      outline: 2px solid Highlight;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .jokerButton {
-      transition: none;
-    }
-  }
-
-  /* Verbesserte Touch-Targets für mobile Geräte */
-  @media (hover: none) and (pointer: coarse) {
-    .jokerButton {
-      padding: 0.75rem 1rem;
-    }
-  }
 </style>
 
 <script>

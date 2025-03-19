@@ -33,23 +33,14 @@ const t = useTranslations(lang);
         aria-controls="main-menu"
         id="menu-toggle"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="w-6 h-6"
+        <Icon
+          name="menu"
+          width={28}
+          height={28}
           aria-hidden="true"
-        >
-          <line x1="4" y1="6" x2="20" y2="6"></line>
-          <line x1="4" y1="12" x2="20" y2="12"></line>
-          <line x1="4" y1="18" x2="20" y2="18"></line>
-        </svg>
+          class="w-7 h-7"
+        />
+
         <span class="font-medium">{t("nav.menu.text")}</span>
       </button>
 
@@ -77,22 +68,13 @@ const t = useTranslations(lang);
                  transition-colors duration-200 focus-visible:outline focus-visible:outline-sky-300 focus-visible:outline-offset-2"
           aria-label={t("nav.menu.close")}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="w-7 h-7"
+          <Icon
+            name="close"
+            width={28}
+            height={28}
             aria-hidden="true"
-          >
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
+            class="w-7 h-7 text-zinc-50 fill-inherit stroke-zinc-100"
+          />
         </button>
 
         <div class="text-center mb-6">
@@ -233,35 +215,35 @@ const t = useTranslations(lang);
   function initNavigationMenu(): void {
     // Get all required DOM elements
     const menuToggle = document.getElementById(
-      "menu-toggle",
+      "menu-toggle"
     ) as HTMLButtonElement | null;
     const mainMenu = document.getElementById(
-      "main-menu",
+      "main-menu"
     ) as HTMLDivElement | null;
     const menuBackdrop = document.getElementById(
-      "menu-backdrop",
+      "menu-backdrop"
     ) as HTMLDivElement | null;
     const closeButton = mainMenu?.querySelector(
-      ".close-menu",
+      ".close-menu"
     ) as HTMLButtonElement | null;
 
     // Ensure all required elements exist before proceeding
     if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
       console.warn(
-        "Navigation menu elements not found, menu functionality disabled",
+        "Navigation menu elements not found, menu functionality disabled"
       );
       return;
     }
 
     // Set up event listeners
     menuToggle.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop),
+      toggleMenu(menuToggle, mainMenu, menuBackdrop)
     );
     closeButton.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop),
+      toggleMenu(menuToggle, mainMenu, menuBackdrop)
     );
     menuBackdrop.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop),
+      toggleMenu(menuToggle, mainMenu, menuBackdrop)
     );
 
     // Close menu with Escape key
@@ -284,7 +266,7 @@ const t = useTranslations(lang);
   function toggleMenu(
     menuToggle: HTMLButtonElement,
     mainMenu: HTMLElement,
-    menuBackdrop: HTMLElement,
+    menuBackdrop: HTMLElement
   ): void {
     // Get current state and determine new state
     const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
@@ -305,7 +287,7 @@ const t = useTranslations(lang);
       // When opening: move focus to first interactive element after animation
       setTimeout(() => {
         const firstFocusableElement = mainMenu.querySelector(
-          "a[href], button:not(.close-menu), input, select, textarea, [tabindex]:not([tabindex='-1'])",
+          "a[href], button:not(.close-menu), input, select, textarea, [tabindex]:not([tabindex='-1'])"
         ) as HTMLElement;
 
         if (firstFocusableElement) {
