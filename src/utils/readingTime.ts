@@ -1,10 +1,10 @@
 /**
  * Reading Time Calculation Utility
- * 
+ *
  * This module provides functions to estimate the time it takes to read a given text.
  * It uses language-specific word counting and reading speed adjustments to provide
  * accurate estimates across different content types and languages.
- * 
+ *
  * @module readingTime
  */
 
@@ -53,94 +53,95 @@ const DEFAULTS = {
  * Based on research about relative reading speeds in different languages
  */
 const LANGUAGE_MULTIPLIERS: Record<string, number> = {
-  en: 1.0,   // English (baseline)
-  de: 0.9,   // German (longer words)
-  es: 1.1,   // Spanish
-  fr: 1.05,  // French
-  it: 1.05,  // Italian
-  pt: 1.1,   // Portuguese
-  da: 0.95,  // Danish
-  nl: 0.95,  // Dutch
-  sv: 0.95,  // Swedish
-  fi: 0.85,  // Finnish (complex words)
+  en: 1.0, // English (baseline)
+  de: 0.9, // German (longer words)
+  es: 1.1, // Spanish
+  fr: 1.05, // French
+  it: 1.05, // Italian
+  pt: 1.1, // Portuguese
+  da: 0.95, // Danish
+  nl: 0.95, // Dutch
+  sv: 0.95, // Swedish
+  fi: 0.85, // Finnish (complex words)
 };
 
 /**
  * Calculates the estimated reading time for a given text
- * 
+ *
  * @param text - The text content to analyze
  * @param options - Optional configuration parameters
  * @returns The estimated reading time in minutes (rounded up)
  */
 export function calculateReadingTime(
   text: string,
-  options: ReadingTimeOptions = {}
+  options: ReadingTimeOptions = {},
 ): number {
   if (!text) return options.minTime || DEFAULTS.MIN_TIME;
-  
+
   const {
     wordsPerMinute = DEFAULTS.WORDS_PER_MINUTE,
     minTime = DEFAULTS.MIN_TIME,
     includeImageTime = false,
     imageTimeSeconds = DEFAULTS.IMAGE_TIME_SECONDS,
-    languageCode
+    languageCode,
   } = options;
-  
+
   // Apply language-specific reading speed adjustment
-  const adjustedWpm = languageCode && LANGUAGE_MULTIPLIERS[languageCode]
-    ? wordsPerMinute * LANGUAGE_MULTIPLIERS[languageCode]
-    : wordsPerMinute;
-  
+  const adjustedWpm =
+    languageCode && LANGUAGE_MULTIPLIERS[languageCode]
+      ? wordsPerMinute * LANGUAGE_MULTIPLIERS[languageCode]
+      : wordsPerMinute;
+
   // Count words using a regex that works across different languages
   const words = text.trim().split(/\s+/).length;
-  
+
   // Calculate base reading time
   let minutes = words / adjustedWpm;
-  
+
   // Add time for images if requested
-  if (includeImageTime && text.includes('<img')) {
+  if (includeImageTime && text.includes("<img")) {
     const imageMatches = text.match(DEFAULTS.IMAGE_REGEX) || [];
     const imageCount = imageMatches.length;
     minutes += (imageCount * imageTimeSeconds) / 60;
   }
-  
+
   // Apply minimum time and round up to nearest minute
   return Math.max(Math.ceil(minutes), minTime);
 }
 
 /**
  * Returns a detailed reading time result with formatted text
- * 
+ *
  * @param text - The text content to analyze
  * @param options - Optional configuration parameters
  * @returns A ReadingTimeResult object with minutes, formatted text, and word count
  */
 export function getReadingTime(
   text: string,
-  options: ReadingTimeOptions = {}
+  options: ReadingTimeOptions = {},
 ): ReadingTimeResult {
   if (!text) {
     return {
       minutes: options.minTime || DEFAULTS.MIN_TIME,
       text: `${options.minTime || DEFAULTS.MIN_TIME} min read`,
-      words: 0
+      words: 0,
     };
   }
   // Stellt sicher, dass readingTime definiert ist
   const words = text.trim().split(/\s+/).length;
   let images: number | undefined = undefined;
-  
-  if (options.includeImageTime && text.includes('<img')) {
+
+  if (options.includeImageTime && text.includes("<img")) {
     const imageMatches = text.match(DEFAULTS.IMAGE_REGEX) || [];
     images = imageMatches.length;
   }
-  
+
   const minutes = calculateReadingTime(text, options);
-  
+
   return {
     minutes,
     text: `${minutes} min read`,
     words,
-    ...(images !== undefined ? { images } : {})
+    ...(images !== undefined ? { images } : {}),
   };
 }
