@@ -48,8 +48,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     data-difficulty={difficulty || ""}
   />
 
-  <!-- GoldenLPOverlay removed -->
-
   <GameHeadline headline={currentCategoryData?.headline} />
 
   <ErrorMessage />
@@ -58,6 +56,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 
   <div
     id="question-container"
+    class="w-full max-w-3xl mx-auto p-6 rounded-lg bg-zinc-800 shadow-xl border border-zinc-700 text-center transition-opacity duration-500 opacity-100 data-[hidden=true]:opacity-0"
     role="main"
     aria-label={t("game.area.label")}
     data-categoryName={currentCategoryData?.headline}
@@ -65,82 +64,24 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     data-userID={user.id}
     date-difficulty={difficulty}
   >
-    <div id="question" role="heading" aria-level="2"></div>
-    <div id="options" role="radiogroup" aria-label={t("game.options.label")}>
+    <div
+      id="question"
+      class="mb-8 text-xl font-semibold text-zinc-50"
+      role="heading"
+      aria-level="2"
+    >
+    </div>
+    <div
+      id="options"
+      class="flex flex-col gap-4"
+      role="radiogroup"
+      aria-label={t("game.options.label")}
+    >
     </div>
   </div>
 
   <Joker />
 </Layout>
-
-<style is:global lang="scss">
-  #question-container {
-    max-width: 768px;
-    margin: 0 auto;
-    padding: var(--padding-medium);
-    border-radius: var(--border-radius);
-
-    text-align: center;
-
-    opacity: 1;
-    background-color: var(--secondary-color);
-    box-shadow: var(--box-shadow);
-
-    transition: opacity 0.5s ease;
-  }
-
-  #question-container.hidden {
-    opacity: 0;
-  }
-
-  #question {
-    margin-bottom: var(--padding-large);
-    font-size: 1.25rem;
-    font-weight: 600;
-  }
-
-  #options {
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-medium);
-  }
-
-  .overlay.hidden {
-    display: none;
-  }
-
-  .popup.hidden {
-    display: none;
-  }
-
-  .centerButton {
-    display: flex;
-    justify-content: center;
-    margin-top: var(--padding-large);
-  }
-
-  .centerButton .button {
-    cursor: pointer;
-
-    padding: var(--padding-small) var(--padding-medium);
-    border: none;
-    border-radius: var(--border-radius);
-
-    font-size: var(--button-font-size);
-
-    background-color: var(--highlight-color);
-    box-shadow: var(--box-shadow);
-
-    transition:
-      background-color 0.3s ease,
-      transform 0.2s ease;
-  }
-
-  .centerButton .button:hover {
-    transform: scale(1.05);
-    background-color: var(--button-hover-color);
-  }
-</style>
 
 <script>
   import { stopAudio } from "@utils/audio/audioControls";
@@ -449,3 +390,48 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     );
   }
 </script>
+
+<style is:global>
+  /* Diese Stile könnten später in utility classes umgesetzt werden */
+  .overlay.hidden {
+    @apply hidden;
+  }
+
+  .popup.hidden {
+    @apply hidden;
+  }
+
+  /* Für ältere Browser, die data-hidden noch nicht unterstützen */
+  #question-container.hidden {
+    @apply opacity-0;
+  }
+
+  /* High Contrast Mode Support */
+  @media (forced-colors: active) {
+    #question-container {
+      border: 2px solid CanvasText;
+    }
+
+    #options > button {
+      border: 1px solid ButtonText;
+    }
+
+    #question {
+      border-bottom: 1px solid CanvasText;
+    }
+  }
+
+  /* Print Styles */
+  @media print {
+    #question-container {
+      break-inside: avoid;
+      border: 1px solid #000;
+      box-shadow: none;
+    }
+
+    #options > button {
+      break-inside: avoid;
+      border: 1px solid #000;
+    }
+  }
+</style>
