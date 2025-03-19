@@ -1,124 +1,192 @@
-import { getLangFromUrl, useTranslations } from "@utils/i18n";
-import {
-  Difficulty,
-  use5050Joker,
-  createInitialJokerState,
-} from "./jokerUtils";
+import { Difficulty } from "./jokerUtils";
 
-/**
- * Interface representing DOM elements required for joker functionality
- */
 interface JokerElements {
-  jokerButton: HTMLButtonElement;
-  jokerCounter: HTMLElement;
+  jokerButton?: HTMLButtonElement | null;
+  jokerCounter?: HTMLElement | null;
 }
 
-/**
- * Configuration interface for initializing the JokerManager
- */
-interface JokerManagerConfig {
+interface JokerManagerOptions {
   difficulty: Difficulty;
   elements: JokerElements;
 }
 
-/**
- * Manages the 50:50 joker functionality in the quiz game
- */
+interface JokerState {
+  jokerCount: number;
+  jokerUsed: boolean;
+}
+
+interface Question {
+  options: any[];
+  correctAnswer: string;
+}
+
 export class JokerManager {
-  private currentJokerState;
-  private readonly maxJokers;
-  private readonly elements: JokerElements;
-  private currentQuestion: any = null;
+  private readonly difficulty: Difficulty;
+  private readonly jokerButton: HTMLButtonElement | null;
+  private readonly jokerCounter: HTMLElement | null;
+  private currentQuestion: Question | null = null;
+  private jokerState: JokerState;
+  private clickListener: ((e: MouseEvent) => void) | null = null;
 
-  /**
-   * Creates a new JokerManager instance
-   * @param {JokerManagerConfig} config - Configuration object containing difficulty and DOM elements
-   */
-  constructor({ difficulty, elements }: JokerManagerConfig) {
-    const { maxJokers, jokerState } = createInitialJokerState(difficulty);
-    this.maxJokers = maxJokers;
-    this.currentJokerState = jokerState;
-    this.elements = elements;
+  constructor(options: JokerManagerOptions) {
+    this.difficulty = options.difficulty;
+    this.jokerButton = options.elements.jokerButton || null;
+    this.jokerCounter = options.elements.jokerCounter || null;
 
-    this.updateJokerCounter();
-    this.initializeJokerButton();
+    this.jokerState = {
+      jokerCount: this.getInitialJokerCount(),
+      jokerUsed: false,
+    };
+
+    this.init();
   }
 
-  /**
-   * Updates the joker counter display in the UI
-   * @private
-   */
-  private updateJokerCounter() {
-    const lang = getLangFromUrl(
-      new URL(window.location.pathname, window.location.origin),
-    );
-    const t = useTranslations(lang);
-    this.elements.jokerCounter.textContent = `Joker: ${this.maxJokers} ${t("game.remaining")}`;
+  private init(): void {
+    console.log("JokerManager wird initialisiert...");
+    console.log("Joker Button Element:", this.jokerButton);
+
+    // Diese Funktion als Class-Property speichern, damit wir sie später entfernen können
+    this.clickListener = (e: MouseEvent) => this.handleJokerClick(e);
+
+    // Event-Listener zum Joker-Button hinzufügen
+    if (this.jokerButton) {
+      console.log("Füge Click-Event zum Joker-Button hinzu");
+      this.jokerButton.addEventListener("click", this.clickListener);
+    } else {
+      console.error("Joker Button nicht gefunden während der Initialisierung");
+    }
+
+    // Auch auf das benutzerdefinierte Event hören, das wir in Joker.astro hinzugefügt haben
+    document.addEventListener("jokerUsed", () => {
+      console.log("JokerUsed Event empfangen");
+      this.useJoker();
+    });
+
+    this.updateJokerUI();
   }
 
-  /**
-   * Handles the joker button click event
-   * Applies the 50:50 joker effect to the current question
-   * @private
-   */
-  private handleJokerClick = () => {
-    if (!this.currentQuestion) return;
+  public cleanup(): void {
+    if (this.jokerButton && this.clickListener) {
+      this.jokerButton.removeEventListener("click", this.clickListener);
+    }
+    document.removeEventListener("jokerUsed", () => this.useJoker());
+  }
 
-    this.currentJokerState = use5050Joker(
-      this.currentQuestion,
-      this.currentJokerState,
-      this.maxJokers,
-      {
-        updateButton: (disabled) => {
-          this.elements.jokerButton.disabled = disabled;
-        },
-        updateCounter: (remaining) => {
-          const lang = getLangFromUrl(
-            new URL(window.location.pathname, window.location.origin),
-          );
-          const t = useTranslations(lang);
-          this.elements.jokerCounter.textContent = `Joker: ${remaining} ${t("game.remaining")}`;
-        },
-      },
-    );
-  };
-
-  /**
-   * Initializes the joker button click event listener
-   * @private
-   */
-  private initializeJokerButton() {
-    if (this.elements.jokerButton) {
-      this.elements.jokerButton.addEventListener(
-        "click",
-        this.handleJokerClick,
-      );
+  private getInitialJokerCount(): number {
+    switch (this.difficulty) {
+      case Difficulty.EASY:
+        return 2;
+      case Difficulty.MEDIUM:
+        return 1;
+      case Difficulty.HARD:
+        return 0;
+      default:
+        return 0;
     }
   }
 
-  /**
-   * Sets the current active question
-   * @param {any} question - The current question object
-   */
-  setCurrentQuestion(question: any) {
+  private handleJokerClick(e: MouseEvent): void {
+    console.log("Joker-Button Klick erkannt");
+    e.preventDefault();
+    this.useJoker();
+  }
+
+  public setCurrentQuestion(question: Question): void {
     this.currentQuestion = question;
+    this.jokerState.jokerUsed = false;
+    this.updateJokerUI();
   }
 
-  /**
-   * Returns the current joker state
-   * @returns The current state of the joker system
-   */
-  getCurrentJokerState() {
-    return this.currentJokerState;
+  public getCurrentJokerState(): JokerState {
+    return { ...this.jokerState };
   }
 
-  /**
-   * Removes event listeners and performs cleanup
-   */
-  cleanup() {
-    this.elements.jokerButton?.removeEventListener(
-      "click",
-      this.handleJokerClick,
+  private useJoker(): void {
+    console.log("useJoker aufgerufen: ", {
+      jokerCount: this.jokerState.jokerCount,
+      jokerUsed: this.jokerState.jokerUsed,
+      currentQuestion: this.currentQuestion !== null,
+    });
+
+    if (
+      this.jokerState.jokerCount <= 0 ||
+      this.jokerState.jokerUsed ||
+      !this.currentQuestion
+    ) {
+      console.log("Joker kann nicht verwendet werden");
+      return;
+    }
+
+    this.jokerState.jokerCount--;
+    this.jokerState.jokerUsed = true;
+
+    const { options, correctAnswer } = this.currentQuestion;
+    let availableOptions = [...options];
+
+    // Korrekte Antwort aus den verfügbaren Optionen entfernen
+    const correctIndex = availableOptions.findIndex(
+      (option) => option === correctAnswer,
     );
+    if (correctIndex !== -1) {
+      availableOptions.splice(correctIndex, 1);
+    }
+
+    // Zufällig zwei Optionen löschen
+    for (let i = 0; i < 2 && availableOptions.length > 0; i++) {
+      const randomIndex = Math.floor(Math.random() * availableOptions.length);
+      const optionToRemove = availableOptions[randomIndex];
+
+      const buttons = document.querySelectorAll("#options button");
+      buttons.forEach((button) => {
+        if (button.textContent?.trim() === optionToRemove) {
+          button.setAttribute("disabled", "true");
+          button.classList.add("opacity-50", "cursor-not-allowed");
+        }
+      });
+
+      availableOptions.splice(randomIndex, 1);
+    }
+
+    this.updateJokerUI();
+
+    // Event auslösen, dass der Joker verwendet wurde
+    document.dispatchEvent(
+      new CustomEvent("jokerUsed", { detail: { jokerState: this.jokerState } }),
+    );
+  }
+
+  private updateJokerUI(): void {
+    if (this.jokerButton) {
+      const disabled =
+        this.jokerState.jokerCount <= 0 || this.jokerState.jokerUsed;
+      this.jokerButton.disabled = disabled;
+
+      if (disabled) {
+        this.jokerButton.setAttribute("disabled", "true");
+        this.jokerButton.classList.add("opacity-50", "cursor-not-allowed");
+      } else {
+        this.jokerButton.removeAttribute("disabled");
+        this.jokerButton.classList.remove("opacity-50", "cursor-not-allowed");
+      }
+    }
+
+    if (this.jokerCounter) {
+      const translations = {
+        de: `${this.jokerState.jokerCount} übrig`,
+        en: `${this.jokerState.jokerCount} remaining`,
+        es: `${this.jokerState.jokerCount} restantes`,
+        fr: `${this.jokerState.jokerCount} restants`,
+        it: `${this.jokerState.jokerCount} rimanenti`,
+        // Weitere Übersetzungen hier hinzufügen
+        // Standard-Fallback:
+        default: `${this.jokerState.jokerCount} remaining`,
+      };
+
+      const lang =
+        (document.documentElement.lang as keyof typeof translations) ||
+        "default";
+      const text = translations[lang] || translations.default;
+      this.jokerCounter.textContent = text;
+    }
   }
 }
