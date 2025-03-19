@@ -3,6 +3,11 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import { languages, ui } from "../../../i18n/ui";
 import Layout from "../../../layouts/Layout.astro";
 import type { KnowledgeCollectionKey } from "../../../content/config";
+import { Picture } from "astro:assets";
+import Headline from "@components/Headline.astro";
+import { Icon } from "astro-icon/components";
+import ButtonLink from "@components/ButtonLink.astro";
+import { calculateReadingTime } from "@utils/readingTime";
 
 export const prerender = true;
 
@@ -12,17 +17,15 @@ export async function getStaticPaths() {
       const collectionName = `knowledge-${lang}` as KnowledgeCollectionKey;
       const entries = await getCollection(collectionName);
       return entries.map((entry) => {
-        // For [...slug] rest parameter, we need to pass the slug as a string
-        // Astro will handle splitting it by '/' internally
         return {
           params: {
             lang,
-            slug: entry.slug, // Pass the slug as a string, not an array
+            slug: entry.slug,
           },
           props: { entry },
         };
       });
-    }),
+    })
   );
   return allEntries.flat();
 }
@@ -38,80 +41,230 @@ const t = ui[lang as keyof typeof ui];
 
 const { Content } = await entry.render();
 
-// Format date
+// Format date with proper localization
 const formattedDate = entry.data.createdAt
   ? new Intl.DateTimeFormat(lang, {
-      dateStyle: "long",
-      timeStyle: "short",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     }).format(entry.data.createdAt)
   : null;
 
-// Check if we have an imageKey
+// Default image if none provided
+const defaultImage = "/melody-mind.jpg";
+const imageSource =
+  typeof entry.data.image === "string" ? entry.data.image : defaultImage;
+
+// Add debug information
+const hasReadingTime = entry.data.readingTime !== undefined;
+const readingTimeValue = entry.data.readingTime;
+
+// Reading time text with proper localization and fallback
+const readingTimeText = entry.body
+  ? `${calculateReadingTime(entry.body)} ${t["knowledge.reading.time"] || "min reading time"}`
+  : null;
+
+// Determine if this article has a playable game category
+const isPlayable = entry.data.isPlayable === true;
+
+// Prepare game category link
+// Assuming the category slug matches the knowledge article slug or is derived from it
+const gameCategorySlug = entry.slug.split("/").pop();
+const gameCategoryUrl = isPlayable ? `/${lang}/${gameCategorySlug}` : null;
+
+// Get translation for play button
+const playButtonText =
+  t["knowledge.play.category"] || "Play this music category";
 ---
 
 <Layout title={entry.data.title}>
-  <article class="container mx-auto px-4 py-8 max-w-4xl">
-    <header class="mb-8">
-      <div class="mb-6">
-        <img
-          src={typeof entry.data.image === "string"
-            ? entry.data.image
-            : "/melody-mind.jpg"}
-          alt={entry.data.title}
-          class="w-full rounded-lg shadow-lg"
+  <article class="mx-auto py-8" aria-labelledby="article-title">
+    <nav class="mb-8" aria-label={t["knowledge.breadcrumb.label"]}>
+      <ol class="flex flex-wrap items-center gap-2 text-md text-zinc-400">
+        <li class="flex items-center">
+          <a
+            href={`/${lang}`}
+            class="hover:text-sky-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 rounded-sm"
+          >
+            <Icon name="home" class="h-4 w-4" aria-hidden="true" />
+            <span class="sr-only">{t?.["nav.home"] || "Home"}</span>
+          </a>
+        </li>
+        <li class="flex items-center">
+          <Icon name="chevron-right" class="h-4 w-4 mx-1" aria-hidden="true" />
+        </li>
+        <li>
+          <a
+            href={`/${lang}/knowledge`}
+            class="hover:text-sky-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 rounded-sm"
+          >
+            {t?.["knowledge.title"] || "Knowledge"}
+          </a>
+        </li>
+        <li class="flex items-center">
+          <Icon name="chevron-right" class="h-4 w-4 mx-1" aria-hidden="true" />
+        </li>
+        <li
+          class="text-zinc-50 truncate max-w-[150px] sm:max-w-xs"
+          aria-current="page"
+        >
+          {entry.data.title}
+        </li>
+      </ol>
+    </nav>
+
+    <header class="mb-10">
+      <div
+        class="mb-6 relative rounded-lg overflow-hidden aspect-video shadow-lg border border-zinc-700"
+      >
+        <Picture
+          src={imageSource}
+          alt=""
+          width={1200}
+          height={675}
+          formats={["avif", "webp"]}
+          class="w-full h-full object-cover"
+          loading="eager"
         />
       </div>
 
-      <h1 class="text-4xl font-bold mb-4">{entry.data.title}</h1>
-      <div class="text-gray-600 mb-4">
+      <Headline level="h1" title={entry.data.title} />
+
+      <div
+        class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4 text-zinc-200 text-base"
+      >
         {
           formattedDate && (
-            <time datetime={entry.data.createdAt?.toISOString()}>
-              {formattedDate}
+            <time
+              datetime={entry.data.createdAt?.toISOString()}
+              class="flex items-center gap-1.5"
+            >
+              <Icon name="calendar" class="h-5 w-5" aria-hidden="true" />
+              <span>{formattedDate}</span>
             </time>
           )
         }
+
         {
-          entry.data.readingTime && (
-            <span class="reading-time ml-4">
-              {Math.ceil(entry.data.readingTime)} min read
+          readingTimeText && (
+            <span class="flex items-center gap-1.5 text-zinc-200">
+              <Icon name="clock" class="h-5 w-5" aria-hidden="true" />
+              <span>{readingTimeText}</span>
             </span>
           )
         }
       </div>
-      {
-        entry.data.keywords && entry.data.keywords.length > 0 && (
-          <div class="keywords flex flex-wrap gap-2 mb-4">
-            {entry.data.keywords.map((keyword) => (
-              <span class="px-2 py-1 bg-gray-100 rounded-full text-sm">
-                {keyword}
-              </span>
-            ))}
-          </div>
-        )
-      }
-      <p class="text-xl text-gray-700">{entry.data.description}</p>
+
+      <div class="mt-6">
+        <p>
+          {entry.data.description}
+        </p>
+      </div>
     </header>
 
-    <div class="prose prose-lg max-w-none">
-      <Content />
+    <Content />
+
+    <!-- Music Links and Game Play Section -->
+    <div class="mt-12 border-t border-zinc-700 pt-8">
+      {
+        (entry.data.category || isPlayable) && (
+          <Headline
+            level="h2"
+            title={t["knowledge.interact.heading"] || "Listen & Play"}
+            className="mb-6"
+          />
+        )
+      }
+
+      <div class="grid grid-cols-1 gap-6">
+        <!-- Music Streaming Links Section -->
+        {
+          entry.data.category && (
+            <div class="bg-zinc-800 p-6 rounded-lg border border-zinc-700 shadow-lg">
+              <h3 class="text-xl font-medium text-zinc-100 mb-4">
+                {t["knowledge.listen.heading"]}
+              </h3>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {entry.data.category.spotifyPlaylist && (
+                  <ButtonLink
+                    href={entry.data.category.spotifyPlaylist}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon
+                      name="spotify"
+                      class="h-5 w-5 mr-2"
+                      aria-hidden="true"
+                    />
+                    <span>Spotify</span>
+                  </ButtonLink>
+                )}
+
+                {entry.data.category.deezerPlaylist && (
+                  <ButtonLink
+                    href={entry.data.category.deezerPlaylist}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon
+                      name="deezer"
+                      class="h-5 w-5 mr-2"
+                      aria-hidden="true"
+                    />
+                    <span>Deezer</span>
+                  </ButtonLink>
+                )}
+
+                {entry.data.category.appleMusicPlaylist && (
+                  <ButtonLink
+                    href={entry.data.category.appleMusicPlaylist}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon
+                      name="apple"
+                      class="h-5 w-5 mr-2"
+                      aria-hidden="true"
+                    />
+                    <span>Apple Music</span>
+                  </ButtonLink>
+                )}
+              </div>
+            </div>
+          )
+        }
+
+        <!-- Play Game Section (only if isPlayable is true) -->
+        {
+          isPlayable && gameCategoryUrl && (
+            <div class="bg-zinc-800 p-6 rounded-lg border border-zinc-700 shadow-lg">
+              <h3 class="text-xl font-medium text-zinc-100 mb-4">
+                {t["knowledge.play.heading"] || "Play this Genre"}
+              </h3>
+              <p class="text-zinc-300 mb-4">
+                {t["knowledge.play.description"] ||
+                  "Test your knowledge about this music genre in our interactive quiz!"}
+              </p>
+              <ButtonLink href={gameCategoryUrl}>
+                <Icon
+                  name="game-controller"
+                  class="h-5 w-5"
+                  aria-hidden="true"
+                />
+                <span>{playButtonText}</span>
+              </ButtonLink>
+            </div>
+          )
+        }
+      </div>
+    </div>
+
+    <div class="mt-12 flex justify-between border-t border-zinc-700 pt-8">
+      <ButtonLink href={`/${lang}/knowledge`}>
+        <Icon name="arrow-left" class="h-4 w-4 mr-2" aria-hidden="true" />
+        <span>{t["knowledge.back.to.list"]}</span>
+      </ButtonLink>
     </div>
   </article>
 </Layout>
-
-<style>
-  /* Add responsive padding for better readability */
-  @media (width >= 768px) {
-    article {
-      padding-right: 2rem;
-      padding-left: 2rem;
-    }
-  }
-
-  @media (width >= 1024px) {
-    article {
-      padding-right: 4rem;
-      padding-left: 4rem;
-    }
-  }
-</style>

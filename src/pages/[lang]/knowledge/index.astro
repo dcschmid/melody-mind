@@ -2,18 +2,18 @@
 import type {
   AnyCollectionEntry,
   KnowledgeLanguage,
-  KnowledgeCollectionKey,
 } from "astro:content";
 import { getCollection } from "astro:content";
-import KnowledgeCard from "../../../components/KnowledgeCard.astro";
+import KnowledgeCard from "@components/KnowledgeCard.astro";
 import Layout from "@layouts/Layout.astro";
 import { ui } from "../../../i18n/ui";
-import type { ImageMetadata } from "astro";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
+import { Icon } from "astro-icon/components";
+import { calculateReadingTime } from "@utils/readingTime";
 
-// Mark this route for static generation
 export const prerender = true;
 
-// Get static paths for all supported languages
 export async function getStaticPaths() {
   const supportedLanguages = [
     "de",
@@ -52,166 +52,370 @@ interface Props {
 }
 
 const { lang } = Astro.params as { lang: KnowledgeLanguage };
-const { articles, allKeywords } = Astro.props;
+const { articles } = Astro.props;
 
-// Type guard to check if a language is supported in UI
 const isUiLanguage = (lang: KnowledgeLanguage): lang is keyof typeof ui => {
   return Object.keys(ui).includes(lang);
 };
 
-// Use requested language if available in UI, otherwise fall back to English
 const uiLang = isUiLanguage(lang) ? lang : "en";
+
+// Artikel mit berechneter Lesezeit, falls diese fehlt
+const articlesWithReadingTime = articles.map(article => {
+  if (article.data.readingTime === undefined) {
+    // Berechne Lesezeit basierend auf der Artikellänge
+    const articleContent = article.body || article.data.description || '';
+    const estimatedTime = calculateReadingTime(articleContent);
+    
+    return {
+      ...article,
+      data: {
+        ...article.data,
+        readingTime: estimatedTime
+      }
+    };
+  }
+  return article;
+});
 ---
 
 <Layout title={ui[uiLang]["knowledge.title"]}>
-  <h1>{ui[uiLang]["knowledge.title"]}</h1>
-  <p class="intro-text">{ui[uiLang]["knowledge.intro"]}</p>
-  <div class="knowledge-hub">
-    <div class="controls">
-      <div class="search-box">
-        <input
-          type="text"
-          id="searchInput"
-          placeholder={ui[uiLang]["knowledge.search.placeholder"]}
-          class="search-input"
-        />
-      </div>
-    </div>
+  <div class="max-w-6xl mx-auto px-4">
+    <Headline 
+      title={ui[uiLang]["knowledge.title"]} 
+      level="h1" 
+    />
 
-    <div class="articles-grid" id="articlesGrid">
-      {
-        articles.map((article) => {
-          // Handle image path
-          const imagePath = article.data.image || "/default-cover.jpg";
+    <Paragraph 
+      description={ui[uiLang]["knowledge.intro"]} 
+    />
 
-          // Handle date - ensure it's a valid Date object
-          const createdAt =
-            article.data.createdAt instanceof Date
-              ? article.data.createdAt
-              : article.data.createdAt
-                ? new Date(article.data.createdAt)
-                : new Date();
-
-          return (
-            <KnowledgeCard
-              title={article.data.title}
-              description={article.data.description}
-              image={article.data.image as ImageMetadata}
-              createdAt={createdAt}
-              slug={article.slug}
-              lang={lang}
-              keywords={article.data.keywords}
-              readingTime={article.data.readingTime}
+    <div class="w-full">
+      <div class="flex flex-col md:flex-row gap-4 mb-8">
+        <div class="relative flex-grow">
+          <label for="searchInput" class="sr-only">
+            {ui[uiLang]["knowledge.search.placeholder"]}
+          </label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+            </div>
+            <input
+              type="search"
+              id="searchInput"
+              placeholder={ui[uiLang]["knowledge.search.placeholder"]}
+              class="w-full py-3 pl-10 pr-4 bg-zinc-700 border-2 border-zinc-600 
+                     rounded-lg text-zinc-50 placeholder-zinc-400
+                     focus:outline-none focus:border-sky-400 focus:ring-2 
+                     focus:ring-sky-400 focus:ring-opacity-50"
+              aria-controls="articlesGrid"
             />
-          );
-        })
-      }
+          </div>
+        </div>
+      </div>
+
+      <div 
+        id="articlesGrid" 
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+        role="region"
+        aria-label={ui[uiLang]["knowledge.title"]}
+      >
+        {
+          articlesWithReadingTime.length > 0 ? (
+            articlesWithReadingTime.map((article) => {
+              // Handle image path
+              const imagePath = article.data.image || "/default-cover.jpg";
+
+              // Handle date - ensure it's a valid Date object
+              const createdAt =
+                article.data.createdAt instanceof Date
+                  ? article.data.createdAt
+                  : article.data.createdAt
+                    ? new Date(article.data.createdAt)
+                    : new Date();
+
+              return (
+                <KnowledgeCard
+                  title={article.data.title}
+                  description={article.data.description}
+                  image={article.data.image as string}
+                  createdAt={createdAt}
+                  slug={article.slug}
+                  lang={lang}
+                  readingTime={article.data.readingTime}
+                />
+              );
+            })
+          ) : (
+            <div class="col-span-full flex flex-col items-center justify-center p-12 bg-zinc-700/50 rounded-lg border border-zinc-600 text-center">
+              <Icon name="info-circle" class="w-12 h-12 text-zinc-400 mb-4" aria-hidden="true" />
+              <p class="text-zinc-200 text-lg font-medium">
+                Keine Artikel gefunden
+              </p>
+            </div>
+          )
+        }
+      </div>
     </div>
   </div>
 </Layout>
 
 <script>
-  let articles: HTMLElement[] = [];
+  /**
+   * Knowledge Articles Search System
+   * ------------------------------------
+   * A high-performance article filtering system that allows users to search
+   * through knowledge articles with real-time results. Features optimized DOM 
+   * operations, intelligent caching, and accessibility support.
+   */
 
-  function initializeSearch() {
-    const searchInput = document.getElementById(
-      "searchInput",
-    ) as HTMLInputElement;
-    const grid = document.getElementById("articlesGrid");
+  /**
+   * Configuration object containing all adjustable parameters
+   */
+  const CONFIG = {
+    // DOM element selectors
+    SELECTORS: {
+      SEARCH_INPUT: '#searchInput',
+      ARTICLE_GRID: '#articlesGrid',
+      ARTICLE_TITLE: 'h3',
+      ARTICLE_DESCRIPTION: '.description', 
+      ARTICLE_KEYWORDS: '.keyword',
+      STATUS_ID: 'search-status'
+    },
+    // Performance settings
+    PERFORMANCE: {
+      DEBOUNCE_MS: 200,           // Milliseconds to wait before processing search input
+      BATCH_SIZE: 12,             // Process search in batches for smoother UX
+      ANIMATION_THRESHOLD: 50,    // Skip animations if more than this many items
+    },
+    // Attributes for accessibility
+    ACCESSIBILITY: {
+      LIVE_REGION_ROLE: 'status',
+      LIVE_REGION_POLITENESS: 'polite'
+    }
+  };
 
-    if (grid) {
-      articles = Array.from(grid.children) as HTMLElement[];
+  /**
+   * ArticleSearch class handles all search functionality for knowledge articles
+   */
+  class ArticleSearch {
+    private searchInput: HTMLInputElement | null;
+    private articleGrid: HTMLElement | null;
+    private articles: HTMLElement[];
+    private textCache: WeakMap<HTMLElement, ArticleTextContent>;
+    private statusRegion: HTMLElement | null;
+    private debounceTimer: ReturnType<typeof setTimeout> | null;
+    private isProcessing: boolean;
+
+    /**
+     * Sets up the search functionality and initializes event listeners
+     */
+    constructor() {
+      // Initialize properties
+      this.searchInput = document.querySelector(CONFIG.SELECTORS.SEARCH_INPUT);
+      this.articleGrid = document.querySelector(CONFIG.SELECTORS.ARTICLE_GRID);
+      this.articles = [];
+      this.textCache = new WeakMap();
+      this.statusRegion = null;
+      this.debounceTimer = null;
+      this.isProcessing = false;
+
+      // Initialize if DOM is ready
+      if (document.readyState !== 'loading') {
+        this.init();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => this.init());
+      }
     }
 
-    searchInput?.addEventListener("input", filterArticles);
+    /**
+     * Initializes the search system
+     */
+    private init(): void {
+      // Ensure required DOM elements exist
+      if (!this.searchInput || !this.articleGrid) {
+        console.warn('Required search elements not found. Search functionality disabled.');
+        return;
+      }
+
+      // Cache article elements for better performance
+      this.articles = Array.from(this.articleGrid.children) as HTMLElement[];
+      
+      // Setup search status region for accessibility
+      this.setupStatusRegion();
+      
+      // Pre-cache article content for faster searching
+      this.articles.forEach(article => this.cacheArticleText(article));
+
+      // Attach event listener with debounce
+      this.searchInput.addEventListener('input', () => this.handleSearchInput());
+    }
+
+    /**
+     * Sets up the live region for screen reader announcements
+     */
+    private setupStatusRegion(): void {
+      if (!this.articleGrid) return;
+
+      this.statusRegion = document.createElement('div');
+      this.statusRegion.setAttribute('role', CONFIG.ACCESSIBILITY.LIVE_REGION_ROLE);
+      this.statusRegion.setAttribute('aria-live', CONFIG.ACCESSIBILITY.LIVE_REGION_POLITENESS);
+      this.statusRegion.className = 'sr-only';
+      this.statusRegion.id = CONFIG.SELECTORS.STATUS_ID;
+      
+      this.articleGrid.parentNode?.appendChild(this.statusRegion);
+    }
+
+    /**
+     * Handles search input with debouncing for performance
+     */
+    private handleSearchInput(): void {
+      if (this.debounceTimer) {
+        clearTimeout(this.debounceTimer);
+      }
+      
+      this.debounceTimer = setTimeout(() => {
+        this.performSearch();
+        this.debounceTimer = null;
+      }, CONFIG.PERFORMANCE.DEBOUNCE_MS);
+    }
+
+    /**
+     * Performs the search operation on all articles
+     */
+    private performSearch(): void {
+      if (this.isProcessing || !this.searchInput) return;
+      
+      const query = this.searchInput.value.toLowerCase().trim();
+      
+      // If query is empty, show all articles
+      if (!query) {
+        this.showAllArticles();
+        return;
+      }
+
+      this.isProcessing = true;
+      let visibleCount = 0;
+
+      // Process in batches for smoother UX with many articles
+      if (this.articles.length > CONFIG.PERFORMANCE.BATCH_SIZE) {
+        this.processBatchedSearch(query);
+      } else {
+        // For smaller sets, process all at once
+        this.articles.forEach(article => {
+          if (this.articleMatchesQuery(article, query)) {
+            article.style.display = '';
+            visibleCount++;
+          } else {
+            article.style.display = 'none';
+          }
+        });
+        
+        this.updateSearchStatus(visibleCount, this.articles.length);
+        this.isProcessing = false;
+      }
+    }
+
+    /**
+     * Process articles in batches for better UI responsiveness
+     * @param query - The search query
+     */
+    private processBatchedSearch(query: string): void {
+      let index = 0;
+      let visibleCount = 0;
+      
+      const processNextBatch = () => {
+        const endIndex = Math.min(index + CONFIG.PERFORMANCE.BATCH_SIZE, this.articles.length);
+        
+        for (let i = index; i < endIndex; i++) {
+          if (this.articleMatchesQuery(this.articles[i], query)) {
+            this.articles[i].style.display = '';
+            visibleCount++;
+          } else {
+            this.articles[i].style.display = 'none';
+          }
+        }
+        
+        index = endIndex;
+        
+        if (index < this.articles.length) {
+          // Process next batch in next animation frame
+          requestAnimationFrame(processNextBatch);
+        } else {
+          // All batches processed
+          this.updateSearchStatus(visibleCount, this.articles.length);
+          this.isProcessing = false;
+        }
+      };
+      
+      requestAnimationFrame(processNextBatch);
+    }
+
+    /**
+     * Shows all articles (resets filter)
+     */
+    private showAllArticles(): void {
+      this.articles.forEach(article => {
+        article.style.display = '';
+      });
+      
+      this.updateSearchStatus(this.articles.length, this.articles.length);
+    }
+
+    /**
+     * Determines if an article matches the search query
+     * @param article - The article element to check
+     * @param query - The search query
+     * @returns Whether the article matches the query
+     */
+    private articleMatchesQuery(article: HTMLElement, query: string): boolean {
+      const cachedText = this.textCache.get(article);
+      if (!cachedText) return false;
+      
+      const { title, description, keywords } = cachedText;
+      
+      return title.includes(query) || 
+             description.includes(query) || 
+             keywords.some(keyword => keyword.includes(query));
+    }
+
+    /**
+     * Caches article text content for optimized searching
+     * @param article - The article element to cache
+     */
+    private cacheArticleText(article: HTMLElement): void {
+      const title = article.querySelector(CONFIG.SELECTORS.ARTICLE_TITLE)?.textContent?.toLowerCase() || '';
+      const description = article.querySelector(CONFIG.SELECTORS.ARTICLE_DESCRIPTION)?.textContent?.toLowerCase() || '';
+      const keywords = Array.from(article.querySelectorAll(CONFIG.SELECTORS.ARTICLE_KEYWORDS))
+        .map(keyword => keyword.textContent?.toLowerCase() || '');
+      
+      this.textCache.set(article, { title, description, keywords });
+    }
+
+    /**
+     * Updates the accessibility status for screen readers
+     * @param visibleCount - Number of visible articles
+     * @param totalCount - Total number of articles
+     */
+    private updateSearchStatus(visibleCount: number, totalCount: number): void {
+      if (!this.statusRegion) return;
+      
+      if (visibleCount === totalCount) {
+        this.statusRegion.textContent = '';
+      } else {
+        this.statusRegion.textContent = `${visibleCount} of ${totalCount} articles shown`;
+      }
+    }
   }
 
-  function filterArticles() {
-    const searchInput = document.getElementById(
-      "searchInput",
-    ) as HTMLInputElement;
-    const searchTerm = searchInput.value.toLowerCase();
-
-    articles.forEach((article) => {
-      const title =
-        article.querySelector("h3")?.textContent?.toLowerCase() || "";
-      const description =
-        article.querySelector(".description")?.textContent?.toLowerCase() || "";
-      const keywords = Array.from(article.querySelectorAll(".keyword")).map(
-        (keyword) => keyword.textContent?.toLowerCase() || "",
-      );
-
-      const matchesSearch =
-        title.includes(searchTerm) ||
-        description.includes(searchTerm) ||
-        keywords.some((k) => k.includes(searchTerm));
-
-      article.style.display = matchesSearch ? "flex" : "none";
-    });
+  /**
+   * Interface for cached article text content
+   */
+  interface ArticleTextContent {
+    title: string;
+    description: string;
+    keywords: string[];
   }
 
-  // Initialize when the DOM is ready
-  document.addEventListener("DOMContentLoaded", initializeSearch);
+  // Initialize the article search when the script loads
+  new ArticleSearch();
 </script>
-
-<style>
-  h1 {
-    margin-bottom: 1rem;
-    color: var(--text-heading);
-    text-align: center;
-  }
-
-  .intro-text {
-    max-width: 800px;
-    margin: 0 auto 3rem;
-
-    line-height: 1.6;
-    color: var(--text-body);
-    text-align: center;
-  }
-
-  .knowledge-hub {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-
-  .controls {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .search-input,
-  .filter-select {
-    padding: 0.5rem 1rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
-  }
-
-  .search-input {
-    width: 300px;
-  }
-
-  .filter-select {
-    min-width: 200px;
-  }
-
-  .articles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-
-  @media (width <= 768px) {
-    .controls {
-      flex-direction: column;
-    }
-
-    .search-input,
-    .filter-select {
-      width: 100%;
-    }
-  }
-</style>
