@@ -14,17 +14,25 @@ const t = useTranslations(lang);
     </header>
 
     <section class="mb-12" aria-labelledby="overview">
-      <h2 id="overview" class="text-2xl font-bold text-sky-500 mb-4">Überblick</h2>
+      <h2 id="overview" class="text-2xl font-bold text-sky-500 mb-4">
+        Überblick
+      </h2>
       <p class="text-xl text-zinc-300 mb-6">
-        Willkommen bei <strong class="text-zinc-50">MelodyMind</strong>! Dein Ziel ist es, Fragen zu
-        Liedern, Interpreten und Alben aus verschiedenen Musikrichtungen zu
-        beantworten. Wähle ein Genre aus und stelle dein Wissen auf die Probe.
-        Je mehr Fragen du richtig beantwortest, desto mehr Punkte bekommst du.
+        Willkommen bei <strong class="text-zinc-50">MelodyMind</strong>! Dein
+        Ziel ist es, Fragen zu Liedern, Interpreten und Alben aus verschiedenen
+        Musikrichtungen zu beantworten. Wähle ein Genre aus und stelle dein
+        Wissen auf die Probe. Je mehr Fragen du richtig beantwortest, desto mehr
+        Punkte bekommst du.
       </p>
     </section>
 
-    <section class="mb-12 bg-zinc-800 p-6 rounded-lg border border-zinc-700 shadow-md" aria-labelledby="difficulty-levels">
-      <h2 id="difficulty-levels" class="text-2xl font-bold text-sky-500 mb-4">Schwierigkeitsgrade</h2>
+    <section
+      class="mb-12 bg-zinc-800 p-6 rounded-lg border border-zinc-700 shadow-md"
+      aria-labelledby="difficulty-levels"
+    >
+      <h2 id="difficulty-levels" class="text-2xl font-bold text-sky-500 mb-4">
+        Schwierigkeitsgrade
+      </h2>
 
       <p class="text-xl text-zinc-300 mb-6">
         Es gibt drei Schwierigkeitsstufen, aus denen du eine auswählen kannst:
@@ -32,16 +40,18 @@ const t = useTranslations(lang);
 
       <ul class="space-y-4 mb-8 list-disc pl-5 text-zinc-300 text-xl">
         <li>
-          <strong class="text-zinc-50">{t("category.difficulty.easy")}</strong>: 10 Fragen pro Runde.
-          Perfekt, um dein Wissen aufzufrischen und Spaß zu haben.
+          <strong class="text-zinc-50">{t("category.difficulty.easy")}</strong>:
+          10 Fragen pro Runde. Perfekt, um dein Wissen aufzufrischen und Spaß zu
+          haben.
         </li>
         <li>
-          <strong class="text-zinc-50">{t("category.difficulty.medium")}</strong>: 15 Fragen pro
-          Runde. Eine Herausforderung für fortgeschrittene Musikliebhaber.
+          <strong class="text-zinc-50">{t("category.difficulty.medium")}</strong
+          >: 15 Fragen pro Runde. Eine Herausforderung für fortgeschrittene
+          Musikliebhaber.
         </li>
         <li>
-          <strong class="text-zinc-50">{t("category.difficulty.hard")}</strong>: 20 Fragen pro Runde.
-          Nur für echte Musikkenner!
+          <strong class="text-zinc-50">{t("category.difficulty.hard")}</strong>:
+          20 Fragen pro Runde. Nur für echte Musikkenner!
         </li>
       </ul>
 
@@ -52,22 +62,24 @@ const t = useTranslations(lang);
 
       <ul class="space-y-4 mb-6 list-disc pl-5 text-zinc-300 text-xl">
         <li>
-          <strong class="text-zinc-50">Musik-Novize</strong>: Alle Fragen im leichten Modus richtig
-          beantwortet.
+          <strong class="text-zinc-50">Musik-Novize</strong>: Alle Fragen im
+          leichten Modus richtig beantwortet.
         </li>
         <li>
-          <strong class="text-zinc-50">Musik-Meister</strong>: Alle Fragen im mittleren Modus richtig
-          beantwortet.
+          <strong class="text-zinc-50">Musik-Meister</strong>: Alle Fragen im
+          mittleren Modus richtig beantwortet.
         </li>
         <li>
-          <strong class="text-zinc-50">Musik-Legende</strong>: Alle Fragen im schweren Modus richtig
-          beantwortet.
+          <strong class="text-zinc-50">Musik-Legende</strong>: Alle Fragen im
+          schweren Modus richtig beantwortet.
         </li>
       </ul>
     </section>
 
     <section class="mb-12" aria-labelledby="points-system">
-      <h2 class="text-2xl font-bold text-sky-500 mb-4" id="points-system">Punktesystem</h2>
+      <h2 class="text-2xl font-bold text-sky-500 mb-4" id="points-system">
+        Punktesystem
+      </h2>
 
       <ul class="space-y-4 mb-6 list-disc pl-5 text-zinc-300 text-xl">
         <li>50 Punkte für jede richtige Antwort.</li>
@@ -75,32 +87,47 @@ const t = useTranslations(lang);
       </ul>
     </section>
 
-    <section class="mb-12 bg-zinc-800 p-6 rounded-lg border border-zinc-700 shadow-md" aria-labelledby="golden-lps">
-      <h2 class="text-2xl font-bold text-sky-500 mb-4" id="golden-lps">Goldene Schallplatten</h2>
+    <section
+      class="mb-12 bg-zinc-800 p-6 rounded-lg border border-zinc-700 shadow-md"
+      aria-labelledby="golden-lps"
+    >
+      <h2 class="text-2xl font-bold text-sky-500 mb-4" id="golden-lps">
+        Goldene Schallplatten
+      </h2>
 
       <p class="text-xl text-zinc-300 mb-6">
         Bei vollständiger richtiger Beantwortung aller Fragen einer Kategorie
-        erhältst du eine <span class="font-semibold text-amber-400">goldene Schallplatte</span>:
+        erhältst du eine <span class="font-semibold text-amber-400"
+          >goldene Schallplatte</span
+        >:
       </p>
 
       <ul class="space-y-4 mb-6 list-disc pl-5 text-zinc-300 text-xl">
-        <li><strong class="text-zinc-50">{t("category.difficulty.easy")}</strong>: Musik-Novize.</li>
         <li>
-          <strong class="text-zinc-50">{t("category.difficulty.medium")}</strong>: Musik-Meister.
+          <strong class="text-zinc-50">{t("category.difficulty.easy")}</strong>:
+          Musik-Novize.
         </li>
         <li>
-          <strong class="text-zinc-50">{t("category.difficulty.hard")}</strong>: Musik-Legende.
+          <strong class="text-zinc-50">{t("category.difficulty.medium")}</strong
+          >: Musik-Meister.
+        </li>
+        <li>
+          <strong class="text-zinc-50">{t("category.difficulty.hard")}</strong>:
+          Musik-Legende.
         </li>
       </ul>
     </section>
 
     <section class="mb-12" aria-labelledby="rankings">
-      <h2 class="text-2xl font-bold text-sky-500 mb-4" id="rankings">Ranglisten</h2>
+      <h2 class="text-2xl font-bold text-sky-500 mb-4" id="rankings">
+        Ranglisten
+      </h2>
 
       <p class="text-xl text-zinc-300 mb-6">
-        Das <strong class="text-zinc-50">Rankingsystem</strong> vergleicht dich mit anderen Spielern.
-        Die Platzierung in den <strong class="text-zinc-50">Top 10</strong> basiert auf deinen gesammelten
-        Punkten in allen Kategorien.
+        Das <strong class="text-zinc-50">Rankingsystem</strong> vergleicht dich mit
+        anderen Spielern. Die Platzierung in den <strong class="text-zinc-50"
+          >Top 10</strong
+        > basiert auf deinen gesammelten Punkten in allen Kategorien.
       </p>
 
       <ul class="space-y-4 mb-6 list-disc pl-5 text-zinc-300 text-xl">
@@ -109,24 +136,30 @@ const t = useTranslations(lang);
       </ul>
     </section>
 
-    <section class="mb-12 bg-zinc-800 p-6 rounded-lg border border-zinc-700 shadow-md" aria-labelledby="tips-tricks">
-      <h2 class="text-2xl font-bold text-sky-500 mb-4" id="tips-tricks">Tipps & Tricks</h2>
+    <section
+      class="mb-12 bg-zinc-800 p-6 rounded-lg border border-zinc-700 shadow-md"
+      aria-labelledby="tips-tricks"
+    >
+      <h2 class="text-2xl font-bold text-sky-500 mb-4" id="tips-tricks">
+        Tipps & Tricks
+      </h2>
 
       <ul class="space-y-4 mb-6 list-disc pl-5 text-zinc-300 text-xl">
         <li>
-          <strong class="text-zinc-50">Starte im leichten Modus</strong>, um ein Gefühl für das Spiel
-          zu bekommen.
+          <strong class="text-zinc-50">Starte im leichten Modus</strong>, um ein
+          Gefühl für das Spiel zu bekommen.
         </li>
         <li>
-          <strong class="text-zinc-50">Wähle deine Stärken</strong> und spiele die Genres, in denen du
-          dich sicher fühlst.
+          <strong class="text-zinc-50">Wähle deine Stärken</strong> und spiele die
+          Genres, in denen du dich sicher fühlst.
         </li>
         <li>
-          <strong class="text-zinc-50">Übe regelmäßig</strong>, um deine Punktzahl zu verbessern.
+          <strong class="text-zinc-50">Übe regelmäßig</strong>, um deine
+          Punktzahl zu verbessern.
         </li>
         <li>
-          <strong class="text-zinc-50">Genauigkeit</strong> geht vor Tempo – lies jede Frage sorgfältig
-          durch.
+          <strong class="text-zinc-50">Genauigkeit</strong> geht vor Tempo – lies
+          jede Frage sorgfältig durch.
         </li>
       </ul>
     </section>

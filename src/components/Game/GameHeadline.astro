@@ -2,135 +2,90 @@
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 interface Props {
-  headline: string | undefined;
+  headline?: string;
+  className?: string;
 }
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const { headline = t("game.default.headline") } = Astro.props;
+const { headline = t("game.default.headline"), className = "" } = Astro.props;
+
+const remainingText = t("game.remaining");
 ---
 
-<header class="gameHeadline" role="banner" aria-label="Spielinformationen">
-  <h1 class="category" id="game-category">
+<div
+  class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8 px-4 max-w-3xl mx-auto w-full"
+>
+  <h1
+    class={`text-2xl sm:text-3xl font-bold text-sky-500 text-center sm:text-left ${className}`}
+  >
     {headline}
   </h1>
-  <div class="roundInfo" aria-live="polite" role="status">
-    {t("game.current.round")}
-    <span class="round" aria-label={t("game.current.round.label")}></span>
+
+  <div class="flex items-center gap-4 text-zinc-300">
+    <div
+      class="flex gap-2 items-center justify-center"
+      aria-label={t("game.current.round.label")}
+    >
+      <span class="text-zinc-400 text-sm uppercase tracking-wide font-medium">
+        {t("game.current.round")}:
+      </span>
+      <span class="round tabular-nums text-lg font-bold text-zinc-50">0/0</span>
+    </div>
+
+    <div
+      class="hidden w-px h-6 bg-zinc-700 motion-safe:animate-pulse"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="hidden items-center gap-2 text-sm" data-remaining>
+      <span class="font-medium text-amber-400">
+        <span class="remaining-count tabular-nums">0</span>
+        {remainingText}
+      </span>
+    </div>
   </div>
-</header>
+</div>
 
-<style lang="scss">
-  .gameHeadline {
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-small);
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    max-width: var(--max-line-length);
-    margin: var(--padding-medium) auto;
-    padding: var(--padding-medium);
-    border-radius: var(--border-radius);
-
-    background: linear-gradient(
-      90deg,
-      var(--highlight-color),
-      var(--secondary-color)
-    );
-    box-shadow: var(--box-shadow);
-
-    @media (prefers-reduced-motion: no-preference) {
-      will-change: transform;
-      transition:
-        transform var(--transition-speed) ease-in-out,
-        box-shadow var(--transition-speed) ease-in-out;
-    }
-
-    @media (width <= 768px) {
-      margin: var(--padding-small) auto;
-      padding: var(--padding-small);
-    }
-  }
-
-  .category {
-    margin: 0;
-
-    font-family: var(--font-family);
-    font-size: var(--header-font-size);
-    font-weight: 900;
-    line-height: var(--line-height-tight);
-    color: var(--text-color);
-    text-align: center;
-    text-shadow: 0 1px 2px rgb(0 0 0 / 10%);
-    text-transform: uppercase;
-    letter-spacing: var(--spacing-text);
-
-    @media (width <= 768px) {
-      font-size: calc(var(--header-font-size) * 0.85);
-    }
-  }
-
-  .roundInfo {
-    display: flex;
-    gap: var(--padding-small);
-    align-items: center;
-
-    font-family: var(--font-family);
-    font-size: var(--body-font-size);
-    font-weight: 600;
-    line-height: var(--line-height-body);
-    color: var(--text-color);
-  }
-
-  .round {
-    padding: calc(var(--padding-small) / 2) var(--padding-small);
-    border-radius: calc(var(--border-radius) / 2);
-
-    font-weight: 700;
-    color: var(--text-color);
-
-    background-color: rgb(255 255 255 / 15%);
-  }
-
+<style>
+  /* High Contrast Mode Support */
   @media (forced-colors: active) {
-    .gameHeadline {
-      border: 2px solid CanvasText;
-      background: Canvas;
+    .round,
+    [data-remaining] {
+      padding: 0.25rem 0.5rem;
+      border: 1px solid CanvasText;
+    }
+  }
+
+  /* Print Style */
+  @media print {
+    h1 {
+      margin-bottom: 1rem;
+      color: #000 !important;
+      text-align: center;
     }
 
     .round {
-      border: 1px solid CurrentColor;
-    }
-  }
-
-  @media print {
-    .gameHeadline {
-      border: 1px solid #000;
-      background: none;
-      box-shadow: none;
-    }
-
-    .category,
-    .roundInfo {
-      color: #000;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .category,
-    .roundInfo {
-      text-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+      color: #000 !important;
     }
   }
 </style>
 
 <script>
-  type SupportedLanguages = "de" | "en" | "es" | "fr" | "it";
+  // Erweitert um alle unterstützten Sprachen
+  type SupportedLanguages =
+    | "de"
+    | "en"
+    | "es"
+    | "fr"
+    | "it"
+    | "pt"
+    | "da"
+    | "nl"
+    | "sv"
+    | "fi";
 
   export function updateRoundNumber(round: number) {
     const ROUND_SELECTOR = ".round" as const;
@@ -147,6 +102,11 @@ const { headline = t("game.default.headline") } = Astro.props;
       es: `Ronda actual: ${round}`,
       fr: `Tour actuel: ${round}`,
       it: `Round attuale: ${round}`,
+      pt: `Rodada atual: ${round}`,
+      da: `Nuværende runde: ${round}`,
+      nl: `Huidige ronde: ${round}`,
+      sv: `Aktuell runda: ${round}`,
+      fi: `Nykyinen kierros: ${round}`,
     };
 
     roundElement.setAttribute("aria-label", ariaLabels[lang] || ariaLabels.en);

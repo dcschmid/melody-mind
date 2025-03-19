@@ -15,122 +15,76 @@ const {
   label = t("loading.content"),
   id = "loading-spinner",
 } = Astro.props;
+
+const sizeClasses = {
+  small: "w-6 h-6 border-2",
+  medium: "w-12 h-12 border-3",
+  large: "w-16 h-16 border-4",
+};
 ---
 
 <div
-  class="spinnerContainer hidden"
+  class="hidden flex items-center justify-center min-h-12 p-4 spinnerContainer"
   id={id}
   role="status"
   aria-live="polite"
   aria-busy="false"
+  data-testid="loading-spinner"
 >
-  <div class={`spinner spinner--${size}`} aria-hidden="true"></div>
+  <div
+    class={`relative rounded-full border-zinc-700 border-t-sky-500 animate-spin motion-reduce:animate-none ${sizeClasses[size]}`}
+    aria-hidden="true"
+    data-size={size}
+  >
+    <span
+      class="absolute inset-0 rounded-full border-t-sky-500 border-transparent opacity-50 -m-[2px]"
+    ></span>
+  </div>
   <span class="sr-only">{label}</span>
 </div>
 
-<style lang="scss">
-  .spinnerContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+<style>
+  /* Kompatibilitätsklasse für JS */
+  .spinnerContainer.hidden {
+    display: none;
+  }
 
-    min-height: var(--min-touch-target);
-    padding: var(--padding-medium);
+  [data-size] {
+    animation: custom-spin 1s linear infinite;
+  }
 
-    &.hidden {
-      display: none;
+  [data-size] span {
+    animation: custom-spin 2s linear infinite;
+  }
+
+  /* High Contrast Mode Support */
+  @media (forced-colors: active) {
+    [data-size] {
+      border-color: CanvasText;
+      border-top-color: Highlight;
+    }
+
+    [data-size] span {
+      border-top-color: Highlight;
+      opacity: 0.7;
     }
   }
 
-  .spinner {
-    --spinner-width: calc(var(--spinner-size) / 12);
-
-    position: relative;
-    border: var(--spinner-width) solid var(--secondary-color);
-    border-top-color: var(--highlight-color);
-    border-radius: 50%;
-
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-    }
-
-    &::before {
-      inset: calc(var(--spinner-width) * -0.5);
-      border: var(--spinner-width) solid transparent;
-      border-top-color: var(--highlight-color);
-      opacity: 0.5;
-
-      @media (prefers-reduced-motion: no-preference) {
-        animation: spin 2s linear infinite;
-      }
-    }
-
-    &--small {
-      --spinner-size: var(--spinner-size-small);
-
-      width: var(--spinner-size);
-      height: var(--spinner-size);
-    }
-
-    &--medium {
-      --spinner-size: var(--spinner-size-medium);
-
-      width: var(--spinner-size);
-      height: var(--spinner-size);
-    }
-
-    &--large {
-      --spinner-size: var(--spinner-size-large);
-
-      width: var(--spinner-size);
-      height: var(--spinner-size);
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      animation: spin 1s linear infinite;
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      will-change: transform;
-      animation: spin 1s linear infinite;
+  @media (prefers-reduced-motion: reduce) {
+    [data-size],
+    [data-size] span {
+      animation: none;
     }
   }
 
-  @keyframes spin {
+  /* Feinere Animation-Kontrolle */
+  @keyframes custom-spin {
     from {
       transform: rotate(0deg);
     }
 
     to {
       transform: rotate(360deg);
-    }
-  }
-
-  @media (forced-colors: active) {
-    .spinner {
-      border-color: CanvasText;
-      border-top-color: Highlight;
-
-      &::before {
-        border-top-color: Highlight;
-      }
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .spinner {
-      &::before {
-        display: none;
-      }
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .spinner {
-      opacity: 0.8;
     }
   }
 </style>

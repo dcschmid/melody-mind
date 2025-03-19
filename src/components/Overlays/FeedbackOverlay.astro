@@ -8,20 +8,39 @@ const t = useTranslations(lang);
 
 <div
   id="overlay"
-  class="overlay hidden"
+  class="overlay hidden fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/90 backdrop-blur-md"
   role="dialog"
   aria-labelledby="overlay-title"
   aria-modal="true"
   aria-live="polite"
 >
-  <div class="overlayContent" role="document">
-    <h2 id="overlay-title" class="title">{t("game.feedback.resolution")}</h2>
-    <p id="feedback" class="feedback" role="status" aria-live="assertive"></p>
+  <div
+    class="overlayContent w-full max-w-[768px] max-h-[90vh] p-6 md:p-8 bg-zinc-800 border border-zinc-700 rounded-xl shadow-xl overflow-y-auto overscroll-contain scrollbar-gutter-stable"
+    role="document"
+    tabindex="-1"
+  >
+    <h2
+      id="overlay-title"
+      class="title text-2xl font-bold text-zinc-50 text-center mb-6"
+    >
+      {t("game.feedback.resolution")}
+    </h2>
 
-    <div class="mediaSection" aria-label={t("game.feedback.media.section")}>
+    <p
+      id="feedback"
+      class="feedback my-6 p-4 rounded-lg text-lg font-semibold text-center"
+      role="status"
+      aria-live="assertive"
+    >
+    </p>
+
+    <div
+      class="mediaSection flex flex-col items-center gap-4 mb-6"
+      aria-label={t("game.feedback.media.section")}
+    >
       <img
         id="overlay-cover"
-        class="albumCover"
+        class="albumCover aspect-square w-full max-w-[250px] h-auto rounded-lg object-cover shadow-md"
         src=""
         alt=""
         loading="eager"
@@ -29,7 +48,7 @@ const t = useTranslations(lang);
       />
       <audio
         id="audio-preview"
-        class="audioPlayer"
+        class="audioPlayer w-full max-w-[250px] mt-2"
         controls
         preload="metadata"
         aria-label={t("game.feedback.audio.preview")}
@@ -42,13 +61,13 @@ const t = useTranslations(lang);
     </div>
 
     <div
-      class="musicLinks"
+      class="musicLinks flex flex-wrap justify-center gap-4 my-6"
       role="group"
       aria-label={t("game.feedback.streaming.links")}
     >
       <a
         id="spotify-link"
-        class="musicButton"
+        class="musicButton inline-flex items-center justify-center min-w-[48px] min-h-[48px] p-3 bg-sky-500 hover:bg-sky-400 text-zinc-900 rounded-lg transition-colors sm:p-2"
         href="#"
         target="_blank"
         rel="noopener noreferrer"
@@ -59,7 +78,7 @@ const t = useTranslations(lang);
       </a>
       <a
         id="deezer-link"
-        class="musicButton"
+        class="musicButton inline-flex items-center justify-center min-w-[48px] min-h-[48px] p-3 bg-sky-500 hover:bg-sky-400 text-zinc-900 rounded-lg transition-colors sm:p-2"
         href="#"
         target="_blank"
         rel="noopener noreferrer"
@@ -70,7 +89,7 @@ const t = useTranslations(lang);
       </a>
       <a
         id="apple-link"
-        class="musicButton"
+        class="musicButton inline-flex items-center justify-center min-w-[48px] min-h-[48px] p-3 bg-sky-500 hover:bg-sky-400 text-zinc-900 rounded-lg transition-colors sm:p-2"
         href="#"
         target="_blank"
         rel="noopener noreferrer"
@@ -81,17 +100,17 @@ const t = useTranslations(lang);
       </a>
     </div>
 
-    <div class="infoSection" role="contentinfo">
-      <p id="overlay-artist" class="artist"></p>
-      <p id="overlay-album" class="album"></p>
-      <p id="overlay-year" class="year"></p>
-      <p id="overlay-funfact" class="funFact"></p>
+    <div class="infoSection my-6 text-center space-y-2" role="contentinfo">
+      <p id="overlay-artist" class="artist text-xl font-bold text-sky-400"></p>
+      <p id="overlay-album" class="album text-zinc-50 mt-2"></p>
+      <p id="overlay-year" class="year text-zinc-300 mt-2"></p>
+      <p id="overlay-funfact" class="funFact text-zinc-300 mt-2"></p>
     </div>
 
-    <div class="buttonWrapper">
+    <div class="buttonWrapper flex justify-center mt-6">
       <button
         id="next-round-button"
-        class="nextButton"
+        class="nextButton min-w-[48px] min-h-[48px] py-3 px-6 bg-sky-500 hover:bg-sky-400 text-zinc-900 font-semibold rounded-lg transition-colors"
         aria-label={t("game.feedback.next.round")}
       >
         {t("game.feedback.next.round")}
@@ -100,214 +119,30 @@ const t = useTranslations(lang);
   </div>
 </div>
 
-<style lang="scss">
-  .overlay {
-    position: fixed;
-    z-index: var(--layer-above);
-    inset: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: var(--padding-large);
-
-    background: rgb(0 0 0 / 90%);
-    backdrop-filter: blur(12px);
-
-    &.hidden {
-      pointer-events: none;
-      visibility: hidden;
-      opacity: 0;
-    }
-
-    &:not(.hidden) {
-      will-change: opacity;
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      transition: opacity var(--transition-speed) ease-in-out;
-    }
+<style>
+  /* Kompatibilitätsklassen für JS-Funktionen */
+  .overlay.hidden {
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
   }
 
-  .overlayContent {
-    scrollbar-gutter: stable;
-
-    overflow-y: auto;
-    overscroll-behavior: contain;
-
-    width: 100%;
-    max-width: min(768px, 90vw);
-    max-height: 90vh;
-    padding: var(--padding-large);
-    border-radius: var(--border-radius);
-
-    color: var(--text-color);
-
-    background-color: var(--secondary-color);
-    box-shadow: var(--box-shadow);
-
-    &:focus {
-      outline: var(--focus-outline-width) solid var(--focus-outline-color);
-      outline-offset: var(--focus-outline-offset);
-    }
-
-    @media (width <= 768px) {
-      padding: var(--padding-medium);
-    }
+  .feedback.correct {
+    color: #fff;
+    background-color: rgb(5 150 105); /* emerald-600 */
   }
 
-  .title {
-    margin-bottom: var(--padding-medium);
-
-    font-size: var(--header-font-size);
-    font-weight: 700;
-    color: var(--text-color);
-    text-align: center;
+  .feedback.incorrect {
+    color: #fff;
+    background-color: rgb(220 38 38); /* red-600 */
   }
 
-  .feedback {
-    margin: var(--padding-medium) 0;
-    padding: var(--padding-medium);
-    border-radius: var(--border-radius);
-
-    font-size: var(--body-font-size);
-    font-weight: 600;
-    text-align: center;
-
-    &.correct {
-      color: var(--button-text-color);
-      background-color: var(--highlight-color);
-    }
-
-    &.incorrect {
-      color: var(--button-text-color);
-      background-color: var(--error-color);
-    }
+  .overlayContent:focus {
+    outline: 2px solid rgb(56 189 248); /* sky-300 */
+    outline-offset: 2px;
   }
 
-  .mediaSection {
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-medium);
-    align-items: center;
-
-    margin-bottom: var(--padding-medium);
-  }
-
-  .albumCover {
-    aspect-ratio: 1 / 1;
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-    border-radius: var(--border-radius);
-
-    object-fit: cover;
-    box-shadow: var(--box-shadow);
-  }
-
-  .audioPlayer {
-    width: 100%;
-    max-width: 250px;
-    margin-top: var(--padding-small);
-
-    &:focus-within {
-      outline: var(--focus-outline-width) solid var(--focus-outline-color);
-      outline-offset: var(--focus-outline-offset);
-    }
-  }
-
-  .musicLinks {
-    display: flex;
-    gap: var(--padding-medium);
-    justify-content: center;
-    margin: var(--padding-medium) 0;
-
-    @media (width <= 480px) {
-      flex-wrap: wrap;
-    }
-  }
-
-  .musicButton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-width: var(--min-touch-target);
-    min-height: var(--min-touch-target);
-    padding: var(--padding-small);
-    border-radius: var(--border-radius);
-
-    color: var(--button-text-color);
-
-    background-color: var(--highlight-color);
-
-    &:hover {
-      background-color: var(--button-hover-color);
-    }
-
-    &:focus-visible {
-      outline: var(--focus-outline-width) solid var(--focus-outline-color);
-      outline-offset: var(--focus-outline-offset);
-    }
-
-    @media (width <= 480px) {
-      min-width: calc(var(--min-touch-target) * 1.2);
-      min-height: calc(var(--min-touch-target) * 1.2);
-      padding: var(--padding-medium);
-    }
-  }
-
-  .infoSection {
-    margin: var(--padding-medium) 0;
-    text-align: center;
-  }
-
-  .artist {
-    font-size: calc(var(--body-font-size) * 1.2);
-    font-weight: 700;
-    color: var(--highlight-color);
-  }
-
-  .album,
-  .year,
-  .funFact {
-    margin-top: var(--padding-small);
-    line-height: var(--line-height-body);
-  }
-
-  .nextButton {
-    cursor: pointer;
-
-    min-width: var(--min-touch-target);
-    min-height: var(--min-touch-target);
-    padding: var(--padding-medium) var(--padding-large);
-    border: none;
-    border-radius: var(--border-radius);
-
-    font-size: var(--button-font-size);
-    font-weight: 600;
-    color: var(--button-text-color);
-
-    background-color: var(--highlight-color);
-
-    &:hover {
-      background-color: var(--button-hover-color);
-    }
-
-    &:focus-visible {
-      outline: var(--focus-outline-width) solid var(--focus-outline-color);
-      outline-offset: var(--focus-outline-offset);
-    }
-  }
-
-  .buttonWrapper {
-    display: flex;
-    gap: var(--padding-medium);
-    justify-content: center;
-    margin-top: var(--padding-medium);
-  }
-
+  /* Zusätzliche Stile für Barrierefreiheit */
   @media (forced-colors: active) {
     .overlayContent {
       border: 2px solid CanvasText;
@@ -332,6 +167,7 @@ const t = useTranslations(lang);
     ".overlayContent",
   ) as HTMLElement;
 
+  // Beobachter für Klassenänderungen am Overlay
   const observer = new MutationObserver(() => {
     if (!overlay.classList.contains("hidden")) {
       overlayContent.scrollTop = 0;
@@ -341,6 +177,7 @@ const t = useTranslations(lang);
 
   observer.observe(overlay, { attributes: true, attributeFilter: ["class"] });
 
+  // Tastatursteuerung im Overlay (Focus Trap)
   const focusableElements =
     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 

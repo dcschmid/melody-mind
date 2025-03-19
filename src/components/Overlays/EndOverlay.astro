@@ -26,7 +26,7 @@ const {
 
 <div
   id={id}
-  class="popup hidden"
+  class="popup hidden fixed inset-0 z-50 flex items-center justify-center p-6 bg-zinc-900/90 backdrop-blur-md"
   role="dialog"
   aria-labelledby="popup-title"
   aria-modal="true"
@@ -34,21 +34,30 @@ const {
   data-category={category}
   data-difficulty={difficulty}
 >
-  <div class="popupContent">
-    <h2 id="popup-title" class="title">{title}</h2>
-    <p class="motivationText">{motivationText}</p>
+  <div
+    class="popupContent w-full max-w-md bg-zinc-800 border border-zinc-700 rounded-xl shadow-xl p-6 md:p-8 text-center focus:outline-2 focus:outline-sky-300 focus:outline-offset-2"
+  >
+    <h2 id="popup-title" class="title text-2xl font-bold text-sky-500 mb-6">
+      {title}
+    </h2>
 
-    <div class="scoreSection">
-      <span class="scoreLabel">{t("game.end.score")}</span>
-      <span id="popup-score" class="scoreValue">0</span>
+    <p class="motivationText text-zinc-300 text-lg mb-6 italic">
+      {motivationText}
+    </p>
+
+    <div class="scoreSection my-6">
+      <span class="scoreLabel text-zinc-300 mr-2">{t("game.end.score")}</span>
+      <span id="popup-score" class="scoreValue text-xl font-bold text-sky-400"
+        >0</span
+      >
     </div>
 
     <ShareOverlay />
 
-    <div class="buttonWrapper">
+    <div class="buttonWrapper mt-8">
       <button
         id="restart-button"
-        class="restartButton"
+        class="restartButton min-w-[48px] min-h-[48px] py-3 px-6 bg-sky-500 hover:bg-sky-400 text-zinc-900 font-semibold rounded-lg transition-colors"
         aria-label={t("game.end.newgame")}
       >
         {t("game.end.newgame")}
@@ -56,6 +65,68 @@ const {
     </div>
   </div>
 </div>
+
+<style>
+  /* JS Compatibility Classes */
+  .popup.hidden {
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  /* Pop-in Animation */
+  @keyframes pop-in {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .popup:not(.hidden) .popupContent {
+    animation: pop-in 0.3s ease-out;
+  }
+
+  /* High Contrast Support */
+  @media (forced-colors: active) {
+    .popupContent {
+      border: 2px solid CanvasText;
+    }
+
+    .restartButton {
+      border: 2px solid ButtonText;
+    }
+  }
+
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .popup:not(.hidden) .popupContent {
+      animation: none;
+    }
+  }
+
+  /* Print Styles */
+  @media print {
+    .popup {
+      position: static;
+      padding: 0;
+      background: none;
+    }
+
+    .popupContent {
+      border: 1px solid #000;
+      box-shadow: none;
+    }
+
+    .restartButton {
+      display: none;
+    }
+  }
+</style>
 
 <script>
   import { shareScore } from "../../utils/share/shareUtils";
@@ -80,170 +151,3 @@ const {
     });
   });
 </script>
-
-<style lang="scss">
-  .popup {
-    position: fixed;
-    z-index: var(--layer-above);
-    inset: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: var(--padding-medium);
-
-    background-color: rgb(31 14 22 / 90%);
-    backdrop-filter: blur(8px);
-
-    &.hidden {
-      pointer-events: none;
-      will-change: opacity, visibility;
-      visibility: hidden;
-      opacity: 0;
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      transition: opacity var(--transition-speed) ease-in-out;
-    }
-  }
-
-  .popupContent {
-    width: 100%;
-    max-width: min(400px, 90vw);
-    padding: var(--padding-large);
-    border-radius: var(--border-radius);
-
-    text-align: center;
-
-    background-color: var(--secondary-color);
-    box-shadow: var(--box-shadow);
-
-    &:focus {
-      outline: var(--focus-outline-width) solid var(--focus-outline-color);
-      outline-offset: var(--focus-outline-offset);
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      will-change: transform, opacity;
-      animation: pop-in var(--transition-speed) ease-out;
-    }
-
-    @media (width <= 768px) {
-      padding: var(--padding-medium);
-    }
-  }
-
-  @keyframes pop-in {
-    from {
-      transform: scale(0.95);
-      opacity: 0;
-    }
-
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
-  .title {
-    margin-bottom: var(--padding-medium);
-
-    font-family: var(--font-family);
-    font-size: var(--header-font-size);
-    font-weight: 700;
-    line-height: var(--line-height-body);
-    color: var(--highlight-color);
-  }
-
-  .motivationText {
-    margin-bottom: var(--padding-medium);
-
-    font-family: var(--font-family);
-    font-size: var(--body-font-size);
-    font-style: italic;
-    line-height: var(--line-height-body);
-    color: var(--text-color);
-  }
-
-  .scoreSection {
-    margin: var(--padding-medium) 0;
-  }
-
-  .scoreLabel {
-    margin-right: var(--padding-small);
-    font-family: var(--font-family);
-    font-size: var(--body-font-size);
-    color: var(--text-color);
-  }
-
-  .scoreValue {
-    font-family: var(--font-family);
-    font-size: calc(var(--body-font-size) * 1.25);
-    font-weight: 700;
-    color: var(--highlight-color);
-  }
-
-  .buttonWrapper {
-    margin-top: var(--padding-medium);
-  }
-
-  .restartButton {
-    cursor: pointer;
-
-    min-width: var(--min-touch-target);
-    min-height: var(--min-touch-target);
-    padding: var(--padding-medium) var(--padding-large);
-    border: none;
-    border-radius: var(--border-radius);
-
-    font-family: var(--font-family);
-    font-size: var(--button-font-size);
-    font-weight: 600;
-    color: var(--button-text-color);
-
-    background-color: var(--highlight-color);
-
-    &:hover {
-      background-color: var(--button-hover-color);
-    }
-
-    &:focus-visible {
-      outline: var(--focus-outline-width) solid var(--focus-outline-color);
-      outline-offset: var(--focus-outline-offset);
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      transition: background-color var(--transition-speed) ease;
-    }
-  }
-
-  // High Contrast Mode Support
-  @media (forced-colors: active) {
-    .popupContent {
-      border: 2px solid CanvasText;
-    }
-
-    .restartButton {
-      border: 2px solid ButtonText;
-    }
-  }
-
-  // Print Styles
-  @media print {
-    .popup {
-      position: static;
-      padding: 0;
-      background: none;
-    }
-
-    .popupContent {
-      border: 1px solid #000;
-      box-shadow: none;
-    }
-
-    .restartButton {
-      display: none;
-    }
-  }
-</style>
