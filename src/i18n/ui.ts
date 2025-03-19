@@ -167,6 +167,14 @@ export const ui = {
     "game.categories.no.playable.headline": "Keine spielbaren Genres",
     "game.categories.no.playable.text":
       "Es gibt derzeit keine spielbaren Kategorien. Bitte schau später wieder vorbei.",
+    "knowledge.reading.time": "min Lesezeit",
+    "knowledge.breadcrumb.label": "Navigation",
+    "knowledge.listen.heading": "Höre verwandte Musik",
+    "knowledge.back.to.list": "Zurück zur Übersicht",
+    "knowledge.interact.heading": "Anhören & Spielen",
+    "knowledge.play.heading": "Dieses Genre spielen",
+    "knowledge.play.description": "Teste dein Wissen zu diesem Musikgenre in unserem interaktiven Quiz!",
+    "knowledge.play.category": "Musikquiz starten",
   },
   en: {
     "nav.home": "Home",
@@ -320,6 +328,14 @@ export const ui = {
     "game.categories.no.playable.headline": "No playable genres",
     "game.categories.no.playable.text":
       "There are currently no playable categories. Please check back later.",
+    "knowledge.reading.time": "min read",
+    "knowledge.breadcrumb.label": "Breadcrumb navigation",
+    "knowledge.listen.heading": "Listen to Related Music",
+    "knowledge.back.to.list": "Back to Articles",
+    "knowledge.interact.heading": "Listen & Play",
+    "knowledge.play.heading": "Play this Genre",
+    "knowledge.play.description": "Test your knowledge about this music genre in our interactive quiz!",
+    "knowledge.play.category": "Start Music Quiz",
   },
   es: {
     "nav.home": "Inicio",
@@ -473,6 +489,14 @@ export const ui = {
     "game.categories.no.playable.headline": "No hay géneros jugables",
     "game.categories.no.playable.text":
       "Actualmente no hay categorías jugables. Por favor, vuelve a intentarlo más tarde.",
+    "knowledge.reading.time": "min de lectura",
+    "knowledge.breadcrumb.label": "Navegación de migas de pan",
+    "knowledge.listen.heading": "Escucha Música Relacionada",
+    "knowledge.back.to.list": "Volver a los Artículos",
+    "knowledge.interact.heading": "Escuchar & Jugar",
+    "knowledge.play.heading": "Jugar este Género",
+    "knowledge.play.description": "¡Pon a prueba tus conocimientos sobre este género musical en nuestro cuestionario interactivo!",
+    "knowledge.play.category": "Iniciar Quiz Musical",
   },
   fr: {
     "nav.home": "Accueil",
@@ -626,6 +650,14 @@ export const ui = {
     "game.categories.no.playable.headline": "Aucun genre jouable",
     "game.categories.no.playable.text":
       "Il n'y a actuellement aucune catégorie jouable. Veuillez revenir plus tard.",
+    "knowledge.reading.time": "min de lecture",
+    "knowledge.breadcrumb.label": "Navigation fil d'Ariane",
+    "knowledge.listen.heading": "Écouter de la Musique Associée",
+    "knowledge.back.to.list": "Retour aux Articles",
+    "knowledge.interact.heading": "Écouter & Jouer",
+    "knowledge.play.heading": "Jouer ce Genre",
+    "knowledge.play.description": "Testez vos connaissances sur ce genre musical dans notre quiz interactif!",
+    "knowledge.play.category": "Démarrer le Quiz Musical",
   },
   it: {
     "nav.home": "Home",
@@ -780,6 +812,14 @@ export const ui = {
     "game.categories.no.playable.headline": "Nessun genere giocabile",
     "game.categories.no.playable.text":
       "Attualmente non ci sono categorie giocabili. Per favore, riprova più tardi.",
+    "knowledge.reading.time": "min di lettura",
+    "knowledge.breadcrumb.label": "Navigazione breadcrumb",
+    "knowledge.listen.heading": "Ascolta Musica Correlata",
+    "knowledge.back.to.list": "Torna agli Articoli",
+    "knowledge.interact.heading": "Ascoltare & Giocare",
+    "knowledge.play.heading": "Gioca questo Genere",
+    "knowledge.play.description": "Metti alla prova le tue conoscenze su questo genere musicale nel nostro quiz interattivo!",
+    "knowledge.play.category": "Avvia Quiz Musicale",
   },
   pt: {
     "nav.home": "Início",
@@ -931,6 +971,14 @@ export const ui = {
     "game.categories.no.playable.headline": "Nenhum gênero jogável",
     "game.categories.no.playable.text":
       "Atualmente não há categorias jogáveis. Por favor, volte mais tarde.",
+    "knowledge.reading.time": "min de leitura",
+    "knowledge.breadcrumb.label": "Navegação breadcrumb",
+    "knowledge.listen.heading": "Ouça Música Relacionada",
+    "knowledge.back.to.list": "Voltar aos Artigos",
+    "knowledge.interact.heading": "Ouvir & Jogar",
+    "knowledge.play.heading": "Jogar este Gênero",
+    "knowledge.play.description": "Teste seus conhecimentos sobre este gênero musical em nosso quiz interativo!",
+    "knowledge.play.category": "Iniciar Quiz Musical",
   },
   da: {
     "nav.home": "Hjem",
@@ -1077,6 +1125,14 @@ export const ui = {
     "game.categories.no.playable.headline": "Ingen spilbare genrer",
     "game.categories.no.playable.text":
       "Der er i øjeblikket ingen spilbare kategorier. Kom venligst tilbage senere.",
+    "knowledge.reading.time": "min læsetid",
+    "knowledge.breadcrumb.label": "Brødkrummenavigation",
+    "knowledge.listen.heading": "Lyt til Relateret Musik",
+    "knowledge.back.to.list": "Tilbage til Artikler",
+    "knowledge.interact.heading": "Lyt & Spil",
+    "knowledge.play.heading": "Spil denne Genre",
+    "knowledge.play.description": "Test din viden om denne musikgenre i vores interaktive quiz!",
+    "knowledge.play.category": "Start Musikquiz",
   },
   nl: {
     "nav.home": "Home",
@@ -1223,6 +1279,14 @@ export const ui = {
     "game.categories.no.playable.headline": "Geen speelbare genres",
     "game.categories.no.playable.text":
       "Er zijn momenteel geen speelbare categorieën. Kom later terug.",
+    "knowledge.reading.time": "min leestijd",
+    "knowledge.breadcrumb.label": "Kruimelpadnavigatie",
+    "knowledge.listen.heading": "Luister naar Gerelateerde Muziek",
+    "knowledge.back.to.list": "Terug naar Artikelen",
+    "knowledge.interact.heading": "Luisteren & Spelen",
+    "knowledge.play.heading": "Speel dit Genre",
+    "knowledge.play.description": "Test je kennis over dit muziekgenre in onze interactieve quiz!",
+    "knowledge.play.category": "Start Muziekquiz",
   },
   sv: {
     "nav.home": "Hem",
@@ -1369,6 +1433,14 @@ export const ui = {
     "game.categories.no.playable.headline": "Inga spelbara genrer",
     "game.categories.no.playable.text":
       "Det finns för närvarande inga spelbara kategorier. Kom tillbaka senare.",
+    "knowledge.reading.time": "min lästid",
+    "knowledge.breadcrumb.label": "Brödsmulor",
+    "knowledge.listen.heading": "Lyssna på Relaterad Musik",
+    "knowledge.back.to.list": "Tillbaka till Artiklar",
+    "knowledge.interact.heading": "Lyssna & Spela",
+    "knowledge.play.heading": "Spela denna Genre",
+    "knowledge.play.description": "Testa dina kunskaper om denna musikgenre i vår interaktiva quiz!",
+    "knowledge.play.category": "Starta Musikquiz",
   },
   fi: {
     "nav.home": "Koti",
@@ -1515,5 +1587,13 @@ export const ui = {
     "game.categories.no.playable.headline": "Ei pelattavia genrejä",
     "game.categories.no.playable.text":
       "Tällä hetkellä ei ole pelattavia kategorioita. Palaa myöhemmin.",
+    "knowledge.reading.time": "min lukuaika",
+    "knowledge.breadcrumb.label": "Navigointipolku",
+    "knowledge.listen.heading": "Kuuntele Aiheeseen Liittyvää Musiikkia",
+    "knowledge.back.to.list": "Takaisin Artikkeleihin",
+    "knowledge.interact.heading": "Kuuntele & Pelaa",
+    "knowledge.play.heading": "Pelaa tätä Genreä",
+    "knowledge.play.description": "Testaa tietojasi tästä musiikkigenrestä interaktiivisessa tietovisassamme!",
+    "knowledge.play.category": "Aloita Musiikkivisa",
   },
 };

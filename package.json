@@ -41,6 +41,7 @@
   "devDependencies": {
     "@double-great/stylelint-a11y": "^3.0.4",
     "@playwright/test": "^1.51.0",
+    "@tailwindcss/typography": "^0.5.16",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.4.2",
     "@tinkoff/stylelint-config": "^5.0.0",

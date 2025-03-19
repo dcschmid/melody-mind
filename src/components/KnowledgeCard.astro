@@ -9,7 +9,6 @@ interface Props {
   createdAt: Date;
   slug: string;
   lang: string;
-  keywords?: string[];
   readingTime?: number;
 }
 
@@ -20,7 +19,6 @@ const {
   createdAt,
   slug,
   lang,
-  keywords,
   readingTime,
 } = Astro.props;
 
@@ -34,142 +32,110 @@ const isImagePath = (img: string | ImageMetadata): img is string => {
 
 // Determine which image to use
 const imageSource = isImagePath(image) ? defaultImage : image;
+
+// Format date according to user's locale
+function formatDate(date: Date, locale: string = 'en'): string {
+  try {
+    return new Intl.DateTimeFormat(locale, {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    }).format(date);
+  } catch (e) {
+    // Fallback to basic format if locale is unsupported
+    return date.toLocaleDateString('en', { 
+      year: 'numeric', month: 'short', day: 'numeric' 
+    });
+  }
+}
+
+const formattedDate = formatDate(createdAt, lang);
 ---
 
-<article class="knowledge-card">
-  <a href={`/${lang}/knowledge/${slug}`} class="card-link">
-    <div class="image-container">
-      <img src={image as string} alt={title} width={300} height={300} />
+<article class="flex flex-col h-full overflow-hidden rounded-lg bg-zinc-800 shadow-md border border-zinc-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus-within:ring-2 focus-within:ring-sky-400 focus-within:ring-opacity-70">
+  <a href={`/${lang}/knowledge/${slug}`} class="flex flex-col h-full no-underline outline-none focus:outline-none group" aria-labelledby={`article-title-${slug}`}>
+    <div class="relative w-full h-48 overflow-hidden bg-zinc-700">
+      {isImagePath(image) ? (
+        <img 
+          src={image as string} 
+          alt="" 
+          width="400" 
+          height="225"
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-105 motion-reduce:transform-none"
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        <Image 
+          src={imageSource} 
+          alt="" 
+          width={400} 
+          height={225}
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-105 motion-reduce:transform-none"
+          loading="lazy"
+          format="webp"
+          quality={80}
+        />
+      )}
     </div>
-    <div class="content">
-      <h3>{title}</h3>
-      <p class="description">{description}</p>
-      {
-        keywords && keywords.length > 0 && (
-          <div class="keywords">
-            {keywords.slice(0, 3).map((keyword) => (
-              <span class="keyword">{keyword}</span>
-            ))}
-          </div>
-        )
-      }
-      <div class="meta">
-        <time datetime={createdAt.toISOString()}>
-          {new Date(createdAt).toLocaleDateString()}
+
+    <div class="flex flex-col flex-grow p-5 gap-4">
+      <h3 id={`article-title-${slug}`} class="text-2xl font-bold  text-sky-500 leading-tight">
+        {title}
+      </h3>
+      
+      <p class="description text-lg text-zinc-200  flex-grow">
+        {description}
+      </p>
+      
+      <div class="flex items-center justify-between mt-4 text-xs text-zinc-400">
+        <time datetime={createdAt.toISOString()} class="flex items-center gap-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+          </svg>
+          <span>{formattedDate}</span>
         </time>
-        {
-          readingTime && (
-            <span class="reading-time">{readingTime} min Lesezeit</span>
-          )
-        }
+        
+        {readingTime && (
+          <span class="flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+            </svg>
+            <span>{readingTime} min</span>
+          </span>
+        )}
       </div>
     </div>
   </a>
 </article>
 
 <style>
-  .knowledge-card {
-    overflow: hidden;
-
-    border-radius: 12px;
-
-    background: #fff;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
-
-    transition:
-      transform 0.2s ease-in-out,
-      box-shadow 0.2s ease-in-out;
+  /* High Contrast Mode Support */
+  @media (forced-colors: active) {
+    article {
+      border: 2px solid CanvasText;
+    }
+    
+    article:focus-within {
+      outline: 2px solid Highlight;
+      outline-offset: 2px;
+    }
   }
-
-  .knowledge-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
-  }
-
-  .card-link {
-    display: block;
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .image-container {
-    overflow: hidden;
-    width: 100%;
-    height: 200px;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-
-  .knowledge-card:hover img {
-    transform: scale(1.05);
-  }
-
-  .content {
-    padding: 1.5rem;
-  }
-
-  h3 {
-    margin: 0 0 0.5rem;
-    font-size: 1.25rem;
-    color: #1a1a1a;
-  }
-
-  .description {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-
-    margin-bottom: 1rem;
-
-    font-size: 0.9rem;
-    color: #666;
-  }
-
-  .keywords {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .keyword {
-    padding: 0.25rem 0.75rem;
-    border-radius: 1rem;
-
-    font-size: 0.8rem;
-    color: #666;
-
-    background: #f0f0f0;
-  }
-
-  .meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    font-size: 0.8rem;
-    color: #888;
-  }
-
-  time,
-  .reading-time {
-    color: #888;
-  }
-
-  .reading-time {
-    display: flex;
-    gap: 0.25rem;
-    align-items: center;
-  }
-
-  .reading-time::before {
-    content: "•";
-    margin-right: 0.5rem;
+  
+  /* Print styles */
+  @media print {
+    article {
+      page-break-inside: avoid;
+      break-inside: avoid;
+      border: 1px solid #000;
+    }
+    
+    .description {
+      color: #000 !important;
+    }
+    
+    h3 {
+      color: #000 !important;
+    }
   }
 </style>

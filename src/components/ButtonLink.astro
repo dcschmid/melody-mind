@@ -5,6 +5,8 @@ interface Props {
   disabled?: boolean;
   ariaLabel?: string;
   class?: string;
+  target?: "_blank" | "_self" | "_parent" | "_top";
+  rel?: string;
 }
 
 const {
@@ -13,6 +15,8 @@ const {
   disabled = false,
   ariaLabel,
   class: extraClasses = "",
+  target = "_self",
+  rel,
 } = Astro.props;
 
 const baseClasses =
@@ -23,7 +27,7 @@ const finalClasses = `${baseClasses} ${extraClasses}`.trim();
 
 {
   href ? (
-    <a href={href} class={finalClasses} aria-label={ariaLabel}>
+    <a href={href} class={finalClasses} aria-label={ariaLabel} target={target} rel={rel}>
       <slot />
     </a>
   ) : (

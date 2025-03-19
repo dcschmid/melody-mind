@@ -72,10 +72,16 @@ const currentCategory = category;
 ---
 
 <Layout title={`${currentCategory?.headline} Start`}>
+  <Headline
+    className="text-center text-3xl md:text-4xl"
+    title={currentCategory?.headline + " " + t("category.selected")}
+    level="h1"
+  />
 
-<Headline className="text-center text-3xl md:text-4xl" title={currentCategory?.headline + " " + t("category.selected")} level="h1" />
-
-<Paragraph className="text-center" description={currentCategory?.introSubline} />
+  <Paragraph
+    className="text-center"
+    description={currentCategory?.introSubline}
+  />
 
   <article
     class="flex flex-col items-center gap-6 w-full"
@@ -106,12 +112,10 @@ const currentCategory = category;
       }
     </div>
 
-    <Paragraph className="text-center"  description={currentCategory?.text} />
+    <Paragraph className="text-center" description={currentCategory?.text} />
 
     <div class="flex flex-col gap-6 items-center w-full">
-      <Headline
-        level="h2"
-      >
+      <Headline level="h2">
         {t("category.difficulty.heading")}
       </Headline>
 
@@ -121,12 +125,15 @@ const currentCategory = category;
         aria-label={t("category.difficulty.group")}
       >
         <ButtonLink
-          href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/easy`)}
+          href={getRelativeLocaleUrl(
+            lang,
+            `game-${currentCategory?.slug}/easy`,
+          )}
           aria-label={t("category.difficulty.easy.label")}
         >
-        {t("category.difficulty.easy")}
+          {t("category.difficulty.easy")}
         </ButtonLink>
-       
+
         <ButtonLink
           href={getRelativeLocaleUrl(
             lang,
@@ -134,11 +141,14 @@ const currentCategory = category;
           )}
           aria-label={t("category.difficulty.medium.label")}
         >
-        {t("category.difficulty.medium")}
+          {t("category.difficulty.medium")}
         </ButtonLink>
-        
+
         <ButtonLink
-          href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/hard`)}
+          href={getRelativeLocaleUrl(
+            lang,
+            `game-${currentCategory?.slug}/hard`,
+          )}
           aria-label={t("category.difficulty.hard.label")}
         >
           {t("category.difficulty.hard")}

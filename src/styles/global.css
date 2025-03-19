@@ -2,79 +2,14 @@
 
 @theme {
   --breakpoint-xs: 30rem;
-
-  /* Dark theme WCAG AAA compliant colors */
-  --color-background: oklch(0.2 0.02 270); /* Dunkles Blau-Grau (#1a1b26) */
-  --color-foreground: oklch(0.98 0.01 270); /* Fast-Weiß für Text (#f7f9fc) */
-  --color-muted: oklch(
-    0.8 0.02 270
-  ); /* Hellgrau für weniger wichtigen Text (#c6c8d0) */
-  --color-primary: oklch(0.65 0.2 250); /* Kräftiges Blau (#4d7cfe) */
-  --color-primary-hover: oklch(
-    0.7 0.2 250
-  ); /* Helleres Blau für Hover (#5a8bff) */
-  --color-accent: oklch(0.65 0.18 50); /* Warmes Orange (#ff9f1c) */
-  --color-success: oklch(0.7 0.2 140); /* Grün (#36d399) */
-  --color-error: oklch(0.65 0.2 30); /* Rot (#ff4d4f) */
-  --color-surface: oklch(
-    0.3 0.02 270
-  ); /* Etwas helleres Blau-Grau für Karten (#2a2c3e) */
-  --color-border: oklch(0.4 0.02 270); /* Mittleres Grau für Ränder (#494b59) */
-
-  /* Focus states */
-  --color-focus: oklch(0.75 0.2 250); /* Helleres Blau für Fokus (#6e9cff) */
-  --focus-ring-width: 3px;
-  --focus-ring-offset: 2px;
-
-  /* Spacing and sizing */
-  --spacing-0: 0;
-  --spacing-1: 0.25rem;
-  --spacing-2: 0.5rem;
-  --spacing-3: 0.75rem;
-  --spacing-4: 1rem;
-  --spacing-6: 1.5rem;
-  --spacing-8: 2rem;
-  --spacing-12: 3rem;
-
-  /* Border radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-full: 9999px;
-
-  /* Typography */
-  --font-sans: "Source Sans Pro", system-ui, sans-serif;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.75;
-
-  /* Animation */
-  --transition-fast: 150ms;
-  --transition-normal: 300ms;
-  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
 }
 
-/* Component tokens */
 @layer base {
-  /* Base styling for dark mode */
-  :root {
-    color-scheme: dark;
-    --background: var(--color-background);
-    --foreground: var(--color-foreground);
-    --muted: var(--color-muted);
-    --primary: var(--color-primary);
-    --primary-hover: var(--color-primary-hover);
-    --accent: var(--color-accent);
-    --border: var(--color-border);
-    --surface: var(--color-surface);
-    --success: var(--color-success);
-    --error: var(--color-error);
-    --focus: var(--color-focus);
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-2xl md:text-4xl font-bold tracking-wide mb-6 text-balance text-sky-500;
   }
 
-  body {
-    @apply bg-[--background] text-[--foreground] font-sans;
-    font-feature-settings:
-      "rlig" 1,
-      "calt" 1;
+  p {
+    @apply text-xl md:text-2xl leading-relaxed mb-10 text-pretty text-zinc-300;
   }
 }
