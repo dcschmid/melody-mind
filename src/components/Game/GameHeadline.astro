@@ -49,53 +49,43 @@ const remainingText = t("game.remaining");
   </div>
 </div>
 
-<style>
-  /* High Contrast Mode Support */
-  @media (forced-colors: active) {
-    .round,
-    [data-remaining] {
-      padding: 0.25rem 0.5rem;
-      border: 1px solid CanvasText;
-    }
-  }
-
-  /* Print Style */
-  @media print {
-    h1 {
-      margin-bottom: 1rem;
-      color: #000 !important;
-      text-align: center;
-    }
-
-    .round {
-      color: #000 !important;
-    }
-  }
-</style>
-
 <script>
-  // Erweitert um alle unterstützten Sprachen
-  type SupportedLanguages =
-    | "de"
-    | "en"
-    | "es"
-    | "fr"
-    | "it"
-    | "pt"
-    | "da"
-    | "nl"
-    | "sv"
-    | "fi";
+  /**
+   * Defines all supported languages in the application.
+   * This type ensures that we only work with languages we have translations for.
+   * When adding a new language, update this type.
+   */
+  type SupportedLanguages = "de" | "en" | "es" | "fr" | "it" | "pt" | "da" | "nl" | "sv" | "fi";
 
-  export function updateRoundNumber(round: number) {
-    const ROUND_SELECTOR = ".round" as const;
-    const roundElement = document.querySelector(ROUND_SELECTOR);
-    if (!roundElement) return;
+  /**
+   * Updates the round number displayed in the game interface and sets appropriate accessibility attributes.
+   * 
+   * @param {number} round - The current round number to be displayed
+   * @returns {void}
+   * 
+   * @example
+   * // Update the round to show round 3
+   * updateRoundNumber(3);
+   */
+  export function updateRoundNumber(round: number): void {
+    // Constants
+    const ROUND_SELECTOR = ".round";
+    
+    // Get the element displaying the round number
+    const roundElement = document.querySelector<HTMLElement>(ROUND_SELECTOR);
+    if (!roundElement) {
+      console.warn("Round element not found. Unable to update round number.");
+      return;
+    }
 
-    const roundText = round.toString();
-    roundElement.textContent = roundText;
+    // Update the visible text content
+    roundElement.textContent = round.toString();
 
+    // Set appropriate aria-label based on the current language
     const lang = document.documentElement.lang as SupportedLanguages;
+    
+    // Mapping of languages to properly formatted round announcements
+    // These are used by screen readers to announce the current round
     const ariaLabels: Record<SupportedLanguages, string> = {
       de: `Aktuelle Runde: ${round}`,
       en: `Current round: ${round}`,
@@ -109,6 +99,31 @@ const remainingText = t("game.remaining");
       fi: `Nykyinen kierros: ${round}`,
     };
 
+    // Set the label with fallback to English if the language is not supported
     roundElement.setAttribute("aria-label", ariaLabels[lang] || ariaLabels.en);
+  }
+
+  /**
+   * Updates the remaining count display if the element exists.
+   * 
+   * @param {number} count - The remaining count to display
+   * @returns {void}
+   */
+  export function updateRemainingCount(count: number): void {
+    const remainingElement = document.querySelector<HTMLElement>("[data-remaining]");
+    const countElement = document.querySelector<HTMLElement>(".remaining-count");
+    
+    if (remainingElement && countElement) {
+      countElement.textContent = count.toString();
+      
+      // Only show if there's something to count
+      if (count > 0) {
+        remainingElement.classList.remove("hidden");
+        remainingElement.classList.add("flex");
+      } else {
+        remainingElement.classList.add("hidden");
+        remainingElement.classList.remove("flex");
+      }
+    }
   }
 </script>
