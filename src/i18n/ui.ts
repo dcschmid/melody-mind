@@ -173,7 +173,8 @@ export const ui = {
     "knowledge.back.to.list": "Zurück zur Übersicht",
     "knowledge.interact.heading": "Anhören & Spielen",
     "knowledge.play.heading": "Dieses Genre spielen",
-    "knowledge.play.description": "Teste dein Wissen zu diesem Musikgenre in unserem interaktiven Quiz!",
+    "knowledge.play.description":
+      "Teste dein Wissen zu diesem Musikgenre in unserem interaktiven Quiz!",
     "knowledge.play.category": "Musikquiz starten",
   },
   en: {
@@ -334,7 +335,8 @@ export const ui = {
     "knowledge.back.to.list": "Back to Articles",
     "knowledge.interact.heading": "Listen & Play",
     "knowledge.play.heading": "Play this Genre",
-    "knowledge.play.description": "Test your knowledge about this music genre in our interactive quiz!",
+    "knowledge.play.description":
+      "Test your knowledge about this music genre in our interactive quiz!",
     "knowledge.play.category": "Start Music Quiz",
   },
   es: {
@@ -495,7 +497,8 @@ export const ui = {
     "knowledge.back.to.list": "Volver a los Artículos",
     "knowledge.interact.heading": "Escuchar & Jugar",
     "knowledge.play.heading": "Jugar este Género",
-    "knowledge.play.description": "¡Pon a prueba tus conocimientos sobre este género musical en nuestro cuestionario interactivo!",
+    "knowledge.play.description":
+      "¡Pon a prueba tus conocimientos sobre este género musical en nuestro cuestionario interactivo!",
     "knowledge.play.category": "Iniciar Quiz Musical",
   },
   fr: {
@@ -656,7 +659,8 @@ export const ui = {
     "knowledge.back.to.list": "Retour aux Articles",
     "knowledge.interact.heading": "Écouter & Jouer",
     "knowledge.play.heading": "Jouer ce Genre",
-    "knowledge.play.description": "Testez vos connaissances sur ce genre musical dans notre quiz interactif!",
+    "knowledge.play.description":
+      "Testez vos connaissances sur ce genre musical dans notre quiz interactif!",
     "knowledge.play.category": "Démarrer le Quiz Musical",
   },
   it: {
@@ -818,7 +822,8 @@ export const ui = {
     "knowledge.back.to.list": "Torna agli Articoli",
     "knowledge.interact.heading": "Ascoltare & Giocare",
     "knowledge.play.heading": "Gioca questo Genere",
-    "knowledge.play.description": "Metti alla prova le tue conoscenze su questo genere musicale nel nostro quiz interattivo!",
+    "knowledge.play.description":
+      "Metti alla prova le tue conoscenze su questo genere musicale nel nostro quiz interattivo!",
     "knowledge.play.category": "Avvia Quiz Musicale",
   },
   pt: {
@@ -977,7 +982,8 @@ export const ui = {
     "knowledge.back.to.list": "Voltar aos Artigos",
     "knowledge.interact.heading": "Ouvir & Jogar",
     "knowledge.play.heading": "Jogar este Gênero",
-    "knowledge.play.description": "Teste seus conhecimentos sobre este gênero musical em nosso quiz interativo!",
+    "knowledge.play.description":
+      "Teste seus conhecimentos sobre este gênero musical em nosso quiz interativo!",
     "knowledge.play.category": "Iniciar Quiz Musical",
   },
   da: {
@@ -1131,7 +1137,8 @@ export const ui = {
     "knowledge.back.to.list": "Tilbage til Artikler",
     "knowledge.interact.heading": "Lyt & Spil",
     "knowledge.play.heading": "Spil denne Genre",
-    "knowledge.play.description": "Test din viden om denne musikgenre i vores interaktive quiz!",
+    "knowledge.play.description":
+      "Test din viden om denne musikgenre i vores interaktive quiz!",
     "knowledge.play.category": "Start Musikquiz",
   },
   nl: {
@@ -1285,7 +1292,8 @@ export const ui = {
     "knowledge.back.to.list": "Terug naar Artikelen",
     "knowledge.interact.heading": "Luisteren & Spelen",
     "knowledge.play.heading": "Speel dit Genre",
-    "knowledge.play.description": "Test je kennis over dit muziekgenre in onze interactieve quiz!",
+    "knowledge.play.description":
+      "Test je kennis over dit muziekgenre in onze interactieve quiz!",
     "knowledge.play.category": "Start Muziekquiz",
   },
   sv: {
@@ -1439,7 +1447,8 @@ export const ui = {
     "knowledge.back.to.list": "Tillbaka till Artiklar",
     "knowledge.interact.heading": "Lyssna & Spela",
     "knowledge.play.heading": "Spela denna Genre",
-    "knowledge.play.description": "Testa dina kunskaper om denna musikgenre i vår interaktiva quiz!",
+    "knowledge.play.description":
+      "Testa dina kunskaper om denna musikgenre i vår interaktiva quiz!",
     "knowledge.play.category": "Starta Musikquiz",
   },
   fi: {
@@ -1593,7 +1602,8 @@ export const ui = {
     "knowledge.back.to.list": "Takaisin Artikkeleihin",
     "knowledge.interact.heading": "Kuuntele & Pelaa",
     "knowledge.play.heading": "Pelaa tätä Genreä",
-    "knowledge.play.description": "Testaa tietojasi tästä musiikkigenrestä interaktiivisessa tietovisassamme!",
+    "knowledge.play.description":
+      "Testaa tietojasi tästä musiikkigenrestä interaktiivisessa tietovisassamme!",
     "knowledge.play.category": "Aloita Musiikkivisa",
   },
 };

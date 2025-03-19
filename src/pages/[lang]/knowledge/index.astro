@@ -1,8 +1,5 @@
 ---
-import type {
-  AnyCollectionEntry,
-  KnowledgeLanguage,
-} from "astro:content";
+import type { AnyCollectionEntry, KnowledgeLanguage } from "astro:content";
 import { getCollection } from "astro:content";
 import KnowledgeCard from "@components/KnowledgeCard.astro";
 import Layout from "@layouts/Layout.astro";
@@ -61,18 +58,18 @@ const isUiLanguage = (lang: KnowledgeLanguage): lang is keyof typeof ui => {
 const uiLang = isUiLanguage(lang) ? lang : "en";
 
 // Artikel mit berechneter Lesezeit, falls diese fehlt
-const articlesWithReadingTime = articles.map(article => {
+const articlesWithReadingTime = articles.map((article) => {
   if (article.data.readingTime === undefined) {
     // Berechne Lesezeit basierend auf der Artikellänge
-    const articleContent = article.body || article.data.description || '';
+    const articleContent = article.body || article.data.description || "";
     const estimatedTime = calculateReadingTime(articleContent);
-    
+
     return {
       ...article,
       data: {
         ...article.data,
-        readingTime: estimatedTime
-      }
+        readingTime: estimatedTime,
+      },
     };
   }
   return article;
@@ -81,14 +78,9 @@ const articlesWithReadingTime = articles.map(article => {
 
 <Layout title={ui[uiLang]["knowledge.title"]}>
   <div class="max-w-6xl mx-auto px-4">
-    <Headline 
-      title={ui[uiLang]["knowledge.title"]} 
-      level="h1" 
-    />
+    <Headline title={ui[uiLang]["knowledge.title"]} level="h1" />
 
-    <Paragraph 
-      description={ui[uiLang]["knowledge.intro"]} 
-    />
+    <Paragraph description={ui[uiLang]["knowledge.intro"]} />
 
     <div class="w-full">
       <div class="flex flex-col md:flex-row gap-4 mb-8">
@@ -97,15 +89,17 @@ const articlesWithReadingTime = articles.map(article => {
             {ui[uiLang]["knowledge.search.placeholder"]}
           </label>
           <div class="relative">
-            <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+            <div
+              class="absolute inset-y-0 left-3 flex items-center pointer-events-none"
+            >
             </div>
             <input
               type="search"
               id="searchInput"
               placeholder={ui[uiLang]["knowledge.search.placeholder"]}
-              class="w-full py-3 pl-10 pr-4 bg-zinc-700 border-2 border-zinc-600 
+              class="w-full py-3 pl-10 pr-4 bg-zinc-700 border-2 border-zinc-600
                      rounded-lg text-zinc-50 placeholder-zinc-400
-                     focus:outline-none focus:border-sky-400 focus:ring-2 
+                     focus:outline-none focus:border-sky-400 focus:ring-2
                      focus:ring-sky-400 focus:ring-opacity-50"
               aria-controls="articlesGrid"
             />
@@ -113,8 +107,8 @@ const articlesWithReadingTime = articles.map(article => {
         </div>
       </div>
 
-      <div 
-        id="articlesGrid" 
+      <div
+        id="articlesGrid"
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         role="region"
         aria-label={ui[uiLang]["knowledge.title"]}
@@ -147,7 +141,11 @@ const articlesWithReadingTime = articles.map(article => {
             })
           ) : (
             <div class="col-span-full flex flex-col items-center justify-center p-12 bg-zinc-700/50 rounded-lg border border-zinc-600 text-center">
-              <Icon name="info-circle" class="w-12 h-12 text-zinc-400 mb-4" aria-hidden="true" />
+              <Icon
+                name="info-circle"
+                class="w-12 h-12 text-zinc-400 mb-4"
+                aria-hidden="true"
+              />
               <p class="text-zinc-200 text-lg font-medium">
                 Keine Artikel gefunden
               </p>
@@ -164,7 +162,7 @@ const articlesWithReadingTime = articles.map(article => {
    * Knowledge Articles Search System
    * ------------------------------------
    * A high-performance article filtering system that allows users to search
-   * through knowledge articles with real-time results. Features optimized DOM 
+   * through knowledge articles with real-time results. Features optimized DOM
    * operations, intelligent caching, and accessibility support.
    */
 
@@ -174,24 +172,24 @@ const articlesWithReadingTime = articles.map(article => {
   const CONFIG = {
     // DOM element selectors
     SELECTORS: {
-      SEARCH_INPUT: '#searchInput',
-      ARTICLE_GRID: '#articlesGrid',
-      ARTICLE_TITLE: 'h3',
-      ARTICLE_DESCRIPTION: '.description', 
-      ARTICLE_KEYWORDS: '.keyword',
-      STATUS_ID: 'search-status'
+      SEARCH_INPUT: "#searchInput",
+      ARTICLE_GRID: "#articlesGrid",
+      ARTICLE_TITLE: "h3",
+      ARTICLE_DESCRIPTION: ".description",
+      ARTICLE_KEYWORDS: ".keyword",
+      STATUS_ID: "search-status",
     },
     // Performance settings
     PERFORMANCE: {
-      DEBOUNCE_MS: 200,           // Milliseconds to wait before processing search input
-      BATCH_SIZE: 12,             // Process search in batches for smoother UX
-      ANIMATION_THRESHOLD: 50,    // Skip animations if more than this many items
+      DEBOUNCE_MS: 200, // Milliseconds to wait before processing search input
+      BATCH_SIZE: 12, // Process search in batches for smoother UX
+      ANIMATION_THRESHOLD: 50, // Skip animations if more than this many items
     },
     // Attributes for accessibility
     ACCESSIBILITY: {
-      LIVE_REGION_ROLE: 'status',
-      LIVE_REGION_POLITENESS: 'polite'
-    }
+      LIVE_REGION_ROLE: "status",
+      LIVE_REGION_POLITENESS: "polite",
+    },
   };
 
   /**
@@ -220,10 +218,10 @@ const articlesWithReadingTime = articles.map(article => {
       this.isProcessing = false;
 
       // Initialize if DOM is ready
-      if (document.readyState !== 'loading') {
+      if (document.readyState !== "loading") {
         this.init();
       } else {
-        document.addEventListener('DOMContentLoaded', () => this.init());
+        document.addEventListener("DOMContentLoaded", () => this.init());
       }
     }
 
@@ -233,21 +231,25 @@ const articlesWithReadingTime = articles.map(article => {
     private init(): void {
       // Ensure required DOM elements exist
       if (!this.searchInput || !this.articleGrid) {
-        console.warn('Required search elements not found. Search functionality disabled.');
+        console.warn(
+          "Required search elements not found. Search functionality disabled.",
+        );
         return;
       }
 
       // Cache article elements for better performance
       this.articles = Array.from(this.articleGrid.children) as HTMLElement[];
-      
+
       // Setup search status region for accessibility
       this.setupStatusRegion();
-      
+
       // Pre-cache article content for faster searching
-      this.articles.forEach(article => this.cacheArticleText(article));
+      this.articles.forEach((article) => this.cacheArticleText(article));
 
       // Attach event listener with debounce
-      this.searchInput.addEventListener('input', () => this.handleSearchInput());
+      this.searchInput.addEventListener("input", () =>
+        this.handleSearchInput(),
+      );
     }
 
     /**
@@ -256,12 +258,18 @@ const articlesWithReadingTime = articles.map(article => {
     private setupStatusRegion(): void {
       if (!this.articleGrid) return;
 
-      this.statusRegion = document.createElement('div');
-      this.statusRegion.setAttribute('role', CONFIG.ACCESSIBILITY.LIVE_REGION_ROLE);
-      this.statusRegion.setAttribute('aria-live', CONFIG.ACCESSIBILITY.LIVE_REGION_POLITENESS);
-      this.statusRegion.className = 'sr-only';
+      this.statusRegion = document.createElement("div");
+      this.statusRegion.setAttribute(
+        "role",
+        CONFIG.ACCESSIBILITY.LIVE_REGION_ROLE,
+      );
+      this.statusRegion.setAttribute(
+        "aria-live",
+        CONFIG.ACCESSIBILITY.LIVE_REGION_POLITENESS,
+      );
+      this.statusRegion.className = "sr-only";
       this.statusRegion.id = CONFIG.SELECTORS.STATUS_ID;
-      
+
       this.articleGrid.parentNode?.appendChild(this.statusRegion);
     }
 
@@ -272,7 +280,7 @@ const articlesWithReadingTime = articles.map(article => {
       if (this.debounceTimer) {
         clearTimeout(this.debounceTimer);
       }
-      
+
       this.debounceTimer = setTimeout(() => {
         this.performSearch();
         this.debounceTimer = null;
@@ -284,9 +292,9 @@ const articlesWithReadingTime = articles.map(article => {
      */
     private performSearch(): void {
       if (this.isProcessing || !this.searchInput) return;
-      
+
       const query = this.searchInput.value.toLowerCase().trim();
-      
+
       // If query is empty, show all articles
       if (!query) {
         this.showAllArticles();
@@ -301,15 +309,15 @@ const articlesWithReadingTime = articles.map(article => {
         this.processBatchedSearch(query);
       } else {
         // For smaller sets, process all at once
-        this.articles.forEach(article => {
+        this.articles.forEach((article) => {
           if (this.articleMatchesQuery(article, query)) {
-            article.style.display = '';
+            article.style.display = "";
             visibleCount++;
           } else {
-            article.style.display = 'none';
+            article.style.display = "none";
           }
         });
-        
+
         this.updateSearchStatus(visibleCount, this.articles.length);
         this.isProcessing = false;
       }
@@ -322,21 +330,24 @@ const articlesWithReadingTime = articles.map(article => {
     private processBatchedSearch(query: string): void {
       let index = 0;
       let visibleCount = 0;
-      
+
       const processNextBatch = () => {
-        const endIndex = Math.min(index + CONFIG.PERFORMANCE.BATCH_SIZE, this.articles.length);
-        
+        const endIndex = Math.min(
+          index + CONFIG.PERFORMANCE.BATCH_SIZE,
+          this.articles.length,
+        );
+
         for (let i = index; i < endIndex; i++) {
           if (this.articleMatchesQuery(this.articles[i], query)) {
-            this.articles[i].style.display = '';
+            this.articles[i].style.display = "";
             visibleCount++;
           } else {
-            this.articles[i].style.display = 'none';
+            this.articles[i].style.display = "none";
           }
         }
-        
+
         index = endIndex;
-        
+
         if (index < this.articles.length) {
           // Process next batch in next animation frame
           requestAnimationFrame(processNextBatch);
@@ -346,7 +357,7 @@ const articlesWithReadingTime = articles.map(article => {
           this.isProcessing = false;
         }
       };
-      
+
       requestAnimationFrame(processNextBatch);
     }
 
@@ -354,10 +365,10 @@ const articlesWithReadingTime = articles.map(article => {
      * Shows all articles (resets filter)
      */
     private showAllArticles(): void {
-      this.articles.forEach(article => {
-        article.style.display = '';
+      this.articles.forEach((article) => {
+        article.style.display = "";
       });
-      
+
       this.updateSearchStatus(this.articles.length, this.articles.length);
     }
 
@@ -370,12 +381,14 @@ const articlesWithReadingTime = articles.map(article => {
     private articleMatchesQuery(article: HTMLElement, query: string): boolean {
       const cachedText = this.textCache.get(article);
       if (!cachedText) return false;
-      
+
       const { title, description, keywords } = cachedText;
-      
-      return title.includes(query) || 
-             description.includes(query) || 
-             keywords.some(keyword => keyword.includes(query));
+
+      return (
+        title.includes(query) ||
+        description.includes(query) ||
+        keywords.some((keyword) => keyword.includes(query))
+      );
     }
 
     /**
@@ -383,11 +396,18 @@ const articlesWithReadingTime = articles.map(article => {
      * @param article - The article element to cache
      */
     private cacheArticleText(article: HTMLElement): void {
-      const title = article.querySelector(CONFIG.SELECTORS.ARTICLE_TITLE)?.textContent?.toLowerCase() || '';
-      const description = article.querySelector(CONFIG.SELECTORS.ARTICLE_DESCRIPTION)?.textContent?.toLowerCase() || '';
-      const keywords = Array.from(article.querySelectorAll(CONFIG.SELECTORS.ARTICLE_KEYWORDS))
-        .map(keyword => keyword.textContent?.toLowerCase() || '');
-      
+      const title =
+        article
+          .querySelector(CONFIG.SELECTORS.ARTICLE_TITLE)
+          ?.textContent?.toLowerCase() || "";
+      const description =
+        article
+          .querySelector(CONFIG.SELECTORS.ARTICLE_DESCRIPTION)
+          ?.textContent?.toLowerCase() || "";
+      const keywords = Array.from(
+        article.querySelectorAll(CONFIG.SELECTORS.ARTICLE_KEYWORDS),
+      ).map((keyword) => keyword.textContent?.toLowerCase() || "");
+
       this.textCache.set(article, { title, description, keywords });
     }
 
@@ -398,9 +418,9 @@ const articlesWithReadingTime = articles.map(article => {
      */
     private updateSearchStatus(visibleCount: number, totalCount: number): void {
       if (!this.statusRegion) return;
-      
+
       if (visibleCount === totalCount) {
-        this.statusRegion.textContent = '';
+        this.statusRegion.textContent = "";
       } else {
         this.statusRegion.textContent = `${visibleCount} of ${totalCount} articles shown`;
       }

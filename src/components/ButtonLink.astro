@@ -27,7 +27,13 @@ const finalClasses = `${baseClasses} ${extraClasses}`.trim();
 
 {
   href ? (
-    <a href={href} class={finalClasses} aria-label={ariaLabel} target={target} rel={rel}>
+    <a
+      href={href}
+      class={finalClasses}
+      aria-label={ariaLabel}
+      target={target}
+      rel={rel}
+    >
       <slot />
     </a>
   ) : (
