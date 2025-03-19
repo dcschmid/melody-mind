@@ -115,7 +115,8 @@ export function loadQuestion({
     shuffledOptions.forEach((option: string) => {
       const button = document.createElement("button");
       button.textContent = option;
-      button.className = "button";
+      button.className =
+        "button inline-flex h-auto w-auto items-center justify-center rounded-lg px-6 py-3 font-bold text-lg text-zinc-900 bg-sky-400 transition-all duration-300 hover:bg-sky-300 hover:shadow-lg hover:shadow-sky-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 active:scale-95 disabled:pointer-events-none disabled:opacity-50";
       button.setAttribute("role", "radio");
       button.setAttribute("aria-checked", "false");
       button.setAttribute("aria-label", `Select answer: ${option}`);

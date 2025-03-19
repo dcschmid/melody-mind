@@ -78,7 +78,7 @@ export const ui = {
     "nav.skip.main": "Zum Hauptinhalt springen",
     "game.end.title": "Spiel beendet!",
     "game.end.motivation":
-      "Toll gemacht! Noch ein paar Runden und du bist ein Champion!",
+      "Fantastische Leistung! Dein musikalisches Wissen ist beeindruckend. Fordere dich mit einer weiteren Runde heraus und werde zur echten Musiklegende!",
     "game.end.score": "Erreichte Punkte:",
     "game.end.newgame": "Neues Spiel",
     "game.feedback.resolution": "Auflösung",
@@ -241,7 +241,7 @@ export const ui = {
     "nav.skip.main": "Skip to main content",
     "game.end.title": "Game Over!",
     "game.end.motivation":
-      "Well done! A few more rounds and you'll be a champion!",
+      "Fantastic performance! Your musical knowledge is truly impressive. Challenge yourself with another round and become a true music legend!",
     "game.end.score": "Score achieved:",
     "game.end.newgame": "New Game",
     "game.feedback.resolution": "Resolution",
@@ -399,7 +399,8 @@ export const ui = {
     "nav.menu.logout": "Cerrar sesión",
     "nav.skip.main": "Ir al contenido principal",
     "game.end.title": "¡Juego terminado!",
-    "game.end.motivation": "¡Bien hecho! ¡Unas rondas más y serás un campeón!",
+    "game.end.motivation":
+      "¡Actuación fantástica! Tu conocimiento musical es realmente impresionante. ¡Desafíate con otra ronda y conviértete en una verdadera leyenda de la música!",
     "game.end.score": "Puntos conseguidos:",
     "game.end.newgame": "Nuevo Juego",
     "game.feedback.resolution": "Resolución",
@@ -559,7 +560,7 @@ export const ui = {
     "nav.skip.main": "Aller au contenu principal",
     "game.end.title": "Partie terminée !",
     "game.end.motivation":
-      "Bien joué ! Encore quelques parties et tu seras un champion !",
+      "Performance fantastique! Tes connaissances musicales sont vraiment impressionnantes. Défie-toi avec une autre partie et deviens une véritable légende de la musique!",
     "game.end.score": "Points obtenus :",
     "game.end.newgame": "Nouvelle Partie",
     "game.feedback.resolution": "Résolution",
@@ -718,7 +719,7 @@ export const ui = {
     "nav.skip.main": "Vai al contenuto principale",
     "game.end.title": "Partita finita!",
     "game.end.motivation":
-      "Ben fatto! Ancora qualche round e sarai un campione!",
+      "Prestazione fantastica! La tua conoscenza musicale è davvero impressionante. Sfidati con un altro round e diventa una vera leggenda della musica!",
     "game.end.score": "Punteggio ottenuto:",
     "game.end.newgame": "Nuova Partita",
     "game.feedback.resolution": "Risoluzione",
@@ -878,7 +879,7 @@ export const ui = {
     "nav.skip.main": "Pular para o conteúdo principal",
     "game.end.title": "Fim de Jogo!",
     "game.end.motivation":
-      "Muito bem! Mais algumas rodadas e você será um campeão!",
+      "Desempenho fantástico! Seu conhecimento musical é realmente impressionante. Desafie-se com mais uma rodada e torne-se uma verdadeira lenda da música!",
     "game.end.score": "Pontos obtidos:",
     "game.end.newgame": "Novo Jogo",
     "game.feedback.resolution": "Resolução",
@@ -1037,7 +1038,7 @@ export const ui = {
     "nav.skip.main": "Spring til hovedindhold",
     "game.end.title": "Spil slut!",
     "game.end.motivation":
-      "Godt klaret! Nogle få runder mere og du er en mester!",
+      "Fantastisk præstation! Din musikalske viden er virkelig imponerende. Udfordr dig selv med en ny runde og bliv en sand musiklegende!",
     "game.end.score": "Opnåede point:",
     "game.end.newgame": "Nyt Spil",
     "game.feedback.resolution": "Opløsning",
@@ -1193,7 +1194,7 @@ export const ui = {
     "nav.skip.main": "Ga naar hoofdinhoud",
     "game.end.title": "Spel afgelopen!",
     "game.end.motivation":
-      "Goed gedaan! Nog een paar rondes en je bent een kampioen!",
+      "Fantastische prestatie! Je muzikale kennis is echt indrukwekkend. Daag jezelf uit met nog een ronde en word een ware muzieklegende!",
     "game.end.score": "Behaalde punten:",
     "game.end.newgame": "Nieuw Spel",
     "game.feedback.resolution": "Oplossing",
@@ -1347,7 +1348,7 @@ export const ui = {
     "nav.skip.main": "Hoppa till huvudinnehåll",
     "game.end.title": "Spelet är slut!",
     "game.end.motivation":
-      "Bra jobbat! Några rundor till och du är en mästare!",
+      "Fantastisk prestation! Din musikaliska kunskap är verkligen imponerande. Utmana dig själv med en ny runda och bli en sann musiklegend!",
     "game.end.score": "Uppnådda poäng:",
     "game.end.newgame": "Nytt Spel",
     "game.feedback.resolution": "Upplösning",
@@ -1503,7 +1504,7 @@ export const ui = {
     "nav.skip.main": "Siirry pääsisältöön",
     "game.end.title": "Peli päättyi!",
     "game.end.motivation":
-      "Hienosti tehty! Muutama kierros lisää ja olet mestari!",
+      "Fantastinen suoritus! Musiikkitietämyksesi on todella vaikuttavaa. Haasta itsesi uudella kierroksella ja tule todelliseksi musiikkilegendaksi!",
     "game.end.score": "Saavutetut pisteet:",
     "game.end.newgame": "Uusi Peli",
     "game.feedback.resolution": "Ratkaisu",

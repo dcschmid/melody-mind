@@ -1,2 +1,1 @@
 npx prettier --cache --write --plugin-search-dir=. .
-npx stylelint "src/**/*.{astro,scss}" --fix

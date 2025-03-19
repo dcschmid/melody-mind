@@ -68,3 +68,26 @@ const t = useTranslations(lang);
     }
   }
 </style>
+
+<script>
+  // Direkter Event-Listener für den Joker-Button
+  document.addEventListener("DOMContentLoaded", () => {
+    const jokerButton = document.getElementById("joker-button");
+
+    // Debug-Meldung zur Überprüfung, ob der Button gefunden wurde
+    if (jokerButton) {
+      console.log("Joker-Button gefunden:", jokerButton);
+
+      // Füge einen Click-Event-Handler direkt am Button hinzu
+      jokerButton.addEventListener("click", (e) => {
+        console.log("Joker-Button wurde geklickt");
+        // Der JokerManager sollte dieses Event bereits behandeln,
+        // aber wir stellen sicher, dass ein Klick-Event ausgelöst wird
+        const clickEvent = new Event("jokerUsed", { bubbles: true });
+        document.dispatchEvent(clickEvent);
+      });
+    } else {
+      console.error("Joker-Button nicht gefunden!");
+    }
+  });
+</script>
