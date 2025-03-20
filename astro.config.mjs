@@ -8,11 +8,13 @@ import path from "path";
 
 import tailwindcss from "@tailwindcss/vite";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://melody-mind.de",
   output: "server",
-  integrations: [icon(), compressor(), playformCompress()],
+  integrations: [icon(), compressor(), playformCompress(), sitemap()],
   adapter: node({
     mode: "standalone",
   }),
