@@ -1,7 +1,7 @@
 ---
 title: Definitiver R&B Divas Guide – Mitreißende Stimmen und emotionale Rhythmen
 description: Bist du bereit, die emotionale Kraft der R&B Divas zu entdecken? Erlebe beeindruckende Stimmen, fesselnde Rhythmen und authentische Leidenschaft – dein musikalischer Hochgenuss erwartet dich. Jetzt reinklicken!
-image: /category/female-rb-divas.jpg
+image: /category/female-r&b-divas.jpg
 createdAt: 2025-03-14
 updatedAt: 2025-03-14
 keywords:
