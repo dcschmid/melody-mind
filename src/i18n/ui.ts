@@ -155,6 +155,39 @@ export const ui = {
     "knowledge.play.category": "Musikquiz starten",
     "category.play": "Spielen",
     "play.cover.puzzle": "Cover Puzzle spielen",
+    "play.cover.puzzle.description":
+      "Im Cover Puzzle musst du Albumcover nach und nach erkennen. Je schneller du das richtige Album identifizierst, desto mehr Punkte erhältst du. Teste dein visuelles Gedächtnis für Musikcover!",
+    "podcast.page.title": "Musikpodcasts | Melody Mind",
+    "podcast.page.heading": "Faszinierende Musikpodcasts",
+    "podcast.page.description":
+      "Tauche ein in die Welt der Musik mit unseren fesselnden Podcasts. Entdecke spannende Geschichten, faszinierende Hintergründe und prägende Momente verschiedener Musikepochen - perfekt für alle, die Musik nicht nur hören, sondern auch verstehen wollen.",
+    "podcast.search.label": "Podcasts durchsuchen",
+    "podcast.search.placeholder":
+      "Nach faszinierenden Musikgeschichten suchen...",
+    "podcast.search.status.all": "Alle Podcasts werden angezeigt",
+    "podcast.search.status.one": "1 Podcast gefunden",
+    "podcast.search.status.multiple": "{count} Podcasts gefunden",
+    "podcast.no.results":
+      "Keine passenden Podcasts gefunden. Versuche es mit einem anderen Suchbegriff.",
+    "podcast.duration.error": "Dauer nicht verfügbar",
+    "podcast.play": "Abspielen",
+    "podcast.intro.title": "Einführung in Astropod",
+    "podcast.intro.description":
+      "Astropod ist eine kostenlose und quelloffene Lösung für serverlose Podcasts.",
+    "podcast.deploy.title": "Serverlosen Podcast in 2 Minuten bereitstellen",
+    "podcast.deploy.description":
+      "Erfahren Sie, wie Sie Ihren Podcast schnell bereitstellen können.",
+    "podcast.auth.title": "Benutzerauthentifizierung und Dashboard-Zugriff",
+    "podcast.auth.description":
+      "Aktivieren Sie die Authentifizierung und greifen Sie auf das Dashboard zu.",
+    "podcast.config.title": "Astropod Podcast konfigurieren",
+    "podcast.config.description":
+      "Lernen Sie, wie Sie Ihren Podcast konfigurieren.",
+    "podcast.publish.title": "Ihre erste Episode veröffentlichen",
+    "podcast.publish.description":
+      "Veröffentlichen Sie Ihre erste Episode mit Leichtigkeit.",
+    "podcast.conclusion.title": "Fazit",
+    "podcast.conclusion.description": "Zusammenfassung und nächste Schritte.",
   },
   en: {
     "nav.home": "Home",
@@ -297,6 +330,36 @@ export const ui = {
     "knowledge.play.category": "Start Music Quiz",
     "category.play": "Play",
     "play.cover.puzzle": "Play Cover Puzzle",
+    "play.cover.puzzle.description":
+      "In Cover Puzzle, you need to recognize album covers as they gradually reveal. The faster you identify the correct album, the more points you earn. Test your visual memory for music covers!",
+    "podcast.page.title": "Music Podcasts | Melody Mind",
+    "podcast.page.heading": "Captivating Music Podcasts",
+    "podcast.page.description":
+      "Dive into the world of music with our engaging podcasts. Discover exciting stories, fascinating backgrounds, and defining moments of various music eras - perfect for anyone who wants to not just listen to music, but truly understand it.",
+    "podcast.search.label": "Search podcasts",
+    "podcast.search.placeholder": "Search for fascinating music stories...",
+    "podcast.search.status.all": "All podcasts are displayed",
+    "podcast.search.status.one": "1 podcast found",
+    "podcast.search.status.multiple": "{count} podcasts found",
+    "podcast.no.results":
+      "No matching podcasts found. Try a different search term.",
+    "podcast.duration.error": "Duration unavailable",
+    "podcast.play": "Play",
+    "podcast.intro.title": "Introducing Astropod",
+    "podcast.intro.description":
+      "Astropod is a free and open-source serverless podcast solution.",
+    "podcast.deploy.title": "Deploying your serverless podcast in 2 minutes",
+    "podcast.deploy.description": "Learn how to quickly deploy your podcast.",
+    "podcast.auth.title":
+      "Setting user authentication and accessing the dashboard",
+    "podcast.auth.description":
+      "Enable authentication and access the dashboard.",
+    "podcast.config.title": "Configuring your Astropod Podcast",
+    "podcast.config.description": "Learn how to configure your podcast.",
+    "podcast.publish.title": "Publishing your first episode",
+    "podcast.publish.description": "Publish your first episode with ease.",
+    "podcast.conclusion.title": "Conclusion",
+    "podcast.conclusion.description": "Summary and next steps.",
   },
   es: {
     "nav.home": "Inicio",
@@ -437,6 +500,38 @@ export const ui = {
     "knowledge.play.category": "Iniciar Quiz Musical",
     "category.play": "Jugar",
     "play.cover.puzzle": "Jugar Cover Puzzle",
+    "play.cover.puzzle.description":
+      "En Cover Puzzle, debes reconocer portadas de álbumes a medida que se revelan gradualmente. Cuanto más rápido identifiques el álbum correcto, más puntos ganarás. ¡Pon a prueba tu memoria visual para las portadas musicales!",
+    "podcast.page.title": "Podcasts de Música | Melody Mind",
+    "podcast.page.heading": "Podcasts de Música Cautivadores",
+    "podcast.page.description":
+      "Sumérgete en el mundo de la música con nuestros podcasts cautivadores. Descubre historias emocionantes, antecedentes fascinantes y momentos definitorios de varias épocas musicales, perfectos para cualquiera que quiera no solo escuchar música, sino también entenderla.",
+    "podcast.search.label": "Buscar podcasts",
+    "podcast.search.placeholder": "Buscar historias fascinantes de música...",
+    "podcast.search.status.all": "Se muestran todos los podcasts",
+    "podcast.search.status.one": "1 podcast encontrado",
+    "podcast.search.status.multiple": "{count} podcasts encontrados",
+    "podcast.no.results":
+      "No se encontraron podcasts coincidentes. Intenta con otro término de búsqueda.",
+    "podcast.duration.error": "Duración no disponible",
+    "podcast.play": "Reproducir",
+    "podcast.intro.title": "Presentando Astropod",
+    "podcast.intro.description":
+      "Astropod es una solución de podcast sin servidor gratuita y de código abierto.",
+    "podcast.deploy.title":
+      "Despliegue de tu podcast sin servidor en 2 minutos",
+    "podcast.deploy.description":
+      "Aprende cómo desplegar rápidamente tu podcast.",
+    "podcast.auth.title":
+      "Configuración de autenticación de usuarios y acceso al panel de control",
+    "podcast.auth.description":
+      "Habilita la autenticación y accede al panel de control.",
+    "podcast.config.title": "Configurando tu Podcast Astropod",
+    "podcast.config.description": "Aprende a configurar tu podcast.",
+    "podcast.publish.title": "Publicando tu primer episodio",
+    "podcast.publish.description": "Publica tu primer episodio con facilidad.",
+    "podcast.conclusion.title": "Conclusión",
+    "podcast.conclusion.description": "Resumen y próximos pasos.",
   },
   fr: {
     "nav.home": "Accueil",
@@ -576,6 +671,39 @@ export const ui = {
     "knowledge.play.category": "Démarrer le Quiz Musical",
     "category.play": "Jouer",
     "play.cover.puzzle": "Jouer au Cover Puzzle",
+    "play.cover.puzzle.description":
+      "Dans Cover Puzzle, vous devez reconnaître les pochettes d'albums au fur et à mesure qu'elles se dévoilent. Plus vous identifiez rapidement le bon album, plus vous gagnez de points. Testez votre mémoire visuelle pour les pochettes musicales !",
+    "podcast.page.title": "Podcasts de Musique | Melody Mind",
+    "podcast.page.heading": "Podcasts de Musique Captivants",
+    "podcast.page.description":
+      "Plongez dans le monde de la musique avec nos podcasts captivants. Découvrez des histoires passionnantes, des contextes fascinants et des moments déterminants de différentes époques musicales - parfait pour tous ceux qui veulent non seulement écouter de la musique, mais aussi la comprendre.",
+    "podcast.search.label": "Rechercher des podcasts",
+    "podcast.search.placeholder":
+      "Rechercher des histoires fascinantes de musique...",
+    "podcast.search.status.all": "Tous les podcasts sont affichés",
+    "podcast.search.status.one": "1 podcast trouvé",
+    "podcast.search.status.multiple": "{count} podcasts trouvés",
+    "podcast.no.results":
+      "Aucun podcast correspondant trouvé. Essayez un autre terme de recherche.",
+    "podcast.duration.error": "Durée non disponible",
+    "podcast.play": "Lire",
+    "podcast.intro.title": "Présentation d'Astropod",
+    "podcast.intro.description":
+      "Astropod est une solution de podcast sans serveur gratuite et open-source.",
+    "podcast.deploy.title": "Déployer votre podcast sans serveur en 2 minutes",
+    "podcast.deploy.description":
+      "Apprenez à déployer rapidement votre podcast.",
+    "podcast.auth.title":
+      "Configurer l'authentification des utilisateurs et accéder au tableau de bord",
+    "podcast.auth.description":
+      "Activez l'authentification et accédez au tableau de bord.",
+    "podcast.config.title": "Configurer votre podcast Astropod",
+    "podcast.config.description": "Apprenez à configurer votre podcast.",
+    "podcast.publish.title": "Publier votre premier épisode",
+    "podcast.publish.description":
+      "Publiez votre premier épisode en toute simplicité.",
+    "podcast.conclusion.title": "Conclusion",
+    "podcast.conclusion.description": "Résumé et prochaines étapes.",
   },
   it: {
     "nav.home": "Home",
@@ -716,6 +844,38 @@ export const ui = {
     "knowledge.play.category": "Avvia Quiz Musicale",
     "category.play": "Gioca",
     "play.cover.puzzle": "Gioca a Cover Puzzle",
+    "play.cover.puzzle.description":
+      "In Cover Puzzle, devi riconoscere le copertine degli album mentre si rivelano gradualmente. Più velocemente identifichi l'album corretto, più punti guadagni. Metti alla prova la tua memoria visiva per le copertine musicali!",
+    "podcast.page.title": "Podcast di Musica | Melody Mind",
+    "podcast.page.heading": "Podcast di Musica Avvincenti",
+    "podcast.page.description":
+      "Immergiti nel mondo della musica con i nostri podcast avvincenti. Scopri storie emozionanti, contesti affascinanti e momenti decisivi di varie epoche musicali, perfetti per chiunque voglia non solo ascoltare la musica, ma anche capirla.",
+    "podcast.search.label": "Cerca podcast",
+    "podcast.search.placeholder": "Cerca storie affascinanti di musica...",
+    "podcast.search.status.all": "Tutti i podcast sono visualizzati",
+    "podcast.search.status.one": "1 podcast trovato",
+    "podcast.search.status.multiple": "{count} podcast trovati",
+    "podcast.no.results":
+      "Nessun podcast corrispondente trovato. Prova un altro termine di ricerca.",
+    "podcast.duration.error": "Durata non disponibile",
+    "podcast.play": "Riproduci",
+    "podcast.intro.title": "Introduzione ad Astropod",
+    "podcast.intro.description":
+      "Astropod è una soluzione di podcast serverless gratuita e open-source.",
+    "podcast.deploy.title": "Distribuire il tuo podcast serverless in 2 minuti",
+    "podcast.deploy.description":
+      "Scopri come distribuire rapidamente il tuo podcast.",
+    "podcast.auth.title":
+      "Impostare l'autenticazione degli utenti e accedere al dashboard",
+    "podcast.auth.description":
+      "Abilita l'autenticazione e accedi al dashboard.",
+    "podcast.config.title": "Configurare il tuo Podcast Astropod",
+    "podcast.config.description": "Scopri come configurare il tuo podcast.",
+    "podcast.publish.title": "Pubblicare il tuo primo episodio",
+    "podcast.publish.description":
+      "Pubblica il tuo primo episodio con facilità.",
+    "podcast.conclusion.title": "Conclusione",
+    "podcast.conclusion.description": "Riepilogo e prossimi passi.",
   },
   pt: {
     "nav.home": "Início",
@@ -857,6 +1017,37 @@ export const ui = {
     "knowledge.play.category": "Iniciar Quiz Musical",
     "category.play": "Jogar",
     "play.cover.puzzle": "Jogar Cover Puzzle",
+    "play.cover.puzzle.description":
+      "No Cover Puzzle, você precisa reconhecer capas de álbuns à medida que elas são reveladas gradualmente. Quanto mais rápido você identificar o álbum correto, mais pontos ganhará. Teste sua memória visual para capas de música!",
+    "podcast.page.title": "Podcasts de Música | Melody Mind",
+    "podcast.page.heading": "Podcasts de Música Cativantes",
+    "podcast.page.description":
+      "Mergulhe no mundo da música com nossos podcasts cativantes. Descubra histórias emocionantes, contextos fascinantes e momentos definidores de várias épocas musicais, perfeitos para quem quer não apenas ouvir música, mas também entendê-la.",
+    "podcast.search.label": "Buscar podcasts",
+    "podcast.search.placeholder": "Buscar histórias fascinantes de música...",
+    "podcast.search.status.all": "Todos os podcasts são exibidos",
+    "podcast.search.status.one": "1 podcast encontrado",
+    "podcast.search.status.multiple": "{count} podcasts encontrados",
+    "podcast.no.results":
+      "Nenhum podcast correspondente encontrado. Tente um termo de busca diferente.",
+    "podcast.duration.error": "Duração indisponível",
+    "podcast.play": "Reproduzir",
+    "podcast.intro.title": "Introduzindo Astropod",
+    "podcast.intro.description":
+      "Astropod é uma solução de podcast sem servidor gratuita e de código aberto.",
+    "podcast.deploy.title": "Implantando seu podcast sem servidor em 2 minutos",
+    "podcast.deploy.description":
+      "Aprenda a implantar rapidamente seu podcast.",
+    "podcast.auth.title":
+      "Configurando autenticação de usuário e acessando o painel",
+    "podcast.auth.description": "Habilite a autenticação e acesse o painel.",
+    "podcast.config.title": "Configurando seu Podcast Astropod",
+    "podcast.config.description": "Aprenda a configurar seu podcast.",
+    "podcast.publish.title": "Publicando seu primeiro episódio",
+    "podcast.publish.description":
+      "Publique seu primeiro episódio com facilidade.",
+    "podcast.conclusion.title": "Conclusão",
+    "podcast.conclusion.description": "Resumo e próximos passos.",
   },
   da: {
     "nav.home": "Hjem",
@@ -992,6 +1183,37 @@ export const ui = {
     "knowledge.play.category": "Start Musikquiz",
     "category.play": "Spil",
     "play.cover.puzzle": "Spil Cover Puzzle",
+    "play.cover.puzzle.description":
+      "I Cover Puzzle skal du genkende albumcovers, efterhånden som de gradvist afsløres. Jo hurtigere du identificerer det rigtige album, jo flere point får du. Test din visuelle hukommelse for musikcovers!",
+    "podcast.page.title": "Musikpodcasts | Melody Mind",
+    "podcast.page.heading": "Fængslende Musikpodcasts",
+    "podcast.page.description":
+      "Dyk ned i musikens verden med vores fængslende podcasts. Oplev spændende historier, fascinerende baggrunde og definerende øjeblikke fra forskellige musikepoker - perfekt for alle, der ikke kun vil lytte til musik, men også virkelig forstå den.",
+    "podcast.search.label": "Søg podcasts",
+    "podcast.search.placeholder": "Søg efter fascinerende musikhistorier...",
+    "podcast.search.status.all": "Alle podcasts vises",
+    "podcast.search.status.one": "1 podcast fundet",
+    "podcast.search.status.multiple": "{count} podcasts fundet",
+    "podcast.no.results":
+      "Ingen matchende podcasts fundet. Prøv et andet søgeord.",
+    "podcast.duration.error": "Varighed ikke tilgængelig",
+    "podcast.play": "Afspil",
+    "podcast.intro.title": "Introduktion til Astropod",
+    "podcast.intro.description":
+      "Astropod er en gratis og open-source serverløs podcastløsning.",
+    "podcast.deploy.title": "Udrulning af din serverløse podcast på 2 minutter",
+    "podcast.deploy.description":
+      "Lær hvordan du hurtigt udruller din podcast.",
+    "podcast.auth.title":
+      "Opsætning af brugergodkendelse og adgang til dashboardet",
+    "podcast.auth.description":
+      "Aktivér godkendelse og få adgang til dashboardet.",
+    "podcast.config.title": "Konfigurering af din Astropod Podcast",
+    "podcast.config.description": "Lær hvordan du konfigurerer din podcast.",
+    "podcast.publish.title": "Udgivelse af din første episode",
+    "podcast.publish.description": "Udgiv din første episode med lethed.",
+    "podcast.conclusion.title": "Konklusion",
+    "podcast.conclusion.description": "Resumé og næste skridt.",
   },
   nl: {
     "nav.home": "Home",
@@ -1127,6 +1349,37 @@ export const ui = {
     "knowledge.play.category": "Start Muziekquiz",
     "category.play": "Spelen",
     "play.cover.puzzle": "Speel Cover Puzzle",
+    "play.cover.puzzle.description":
+      "In Cover Puzzle moet je albumhoezen herkennen terwijl ze geleidelijk zichtbaar worden. Hoe sneller je het juiste album identificeert, hoe meer punten je verdient. Test je visuele geheugen voor muziekhoezen!",
+    "podcast.page.title": "Muziek Podcasts | Melody Mind",
+    "podcast.page.heading": "Boeiende Muziek Podcasts",
+    "podcast.page.description":
+      "Duik in de wereld van muziek met onze boeiende podcasts. Ontdek spannende verhalen, fascinerende achtergronden en bepalende momenten van verschillende muziektijdperken - perfect voor iedereen die niet alleen naar muziek wil luisteren, maar het ook echt wil begrijpen.",
+    "podcast.search.label": "Zoek podcasts",
+    "podcast.search.placeholder": "Zoek naar fascinerende muziekverhalen...",
+    "podcast.search.status.all": "Alle podcasts worden weergegeven",
+    "podcast.search.status.one": "1 podcast gevonden",
+    "podcast.search.status.multiple": "{count} podcasts gevonden",
+    "podcast.no.results":
+      "Geen overeenkomende podcasts gevonden. Probeer een andere zoekterm.",
+    "podcast.duration.error": "Duur niet beschikbaar",
+    "podcast.play": "Afspelen",
+    "podcast.intro.title": "Introductie van Astropod",
+    "podcast.intro.description":
+      "Astropod is een gratis en open-source serverloze podcastoplossing.",
+    "podcast.deploy.title": "Je serverloze podcast in 2 minuten implementeren",
+    "podcast.deploy.description":
+      "Leer hoe je je podcast snel kunt implementeren.",
+    "podcast.auth.title":
+      "Gebruikersauthenticatie instellen en toegang krijgen tot het dashboard",
+    "podcast.auth.description":
+      "Schakel authenticatie in en krijg toegang tot het dashboard.",
+    "podcast.config.title": "Je Astropod Podcast configureren",
+    "podcast.config.description": "Leer hoe je je podcast configureert.",
+    "podcast.publish.title": "Je eerste aflevering publiceren",
+    "podcast.publish.description": "Publiceer je eerste aflevering met gemak.",
+    "podcast.conclusion.title": "Conclusie",
+    "podcast.conclusion.description": "Samenvatting en volgende stappen.",
   },
   sv: {
     "nav.home": "Hem",
@@ -1262,6 +1515,37 @@ export const ui = {
     "knowledge.play.category": "Starta Musikquiz",
     "category.play": "Spela",
     "play.cover.puzzle": "Spela Cover Puzzle",
+    "play.cover.puzzle.description":
+      "I Cover Puzzle behöver du känna igen albumomslag medan de gradvis avslöjas. Ju snabbare du identifierar rätt album, desto fler poäng får du. Testa ditt visuella minne för musikomslag!",
+    "podcast.page.title": "Musik Podcasts | Melody Mind",
+    "podcast.page.heading": "Fängslande Musik Podcasts",
+    "podcast.page.description":
+      "Dyk in i musikens värld med våra fängslande podcasts. Upptäck spännande berättelser, fascinerande bakgrunder och definierande ögonblick från olika musikeror - perfekt för alla som inte bara vill lyssna på musik, utan verkligen förstå den.",
+    "podcast.search.label": "Sök podcasts",
+    "podcast.search.placeholder": "Sök efter fascinerande musikberättelser...",
+    "podcast.search.status.all": "Alla podcasts visas",
+    "podcast.search.status.one": "1 podcast hittades",
+    "podcast.search.status.multiple": "{count} podcasts hittades",
+    "podcast.no.results":
+      "Inga matchande podcasts hittades. Prova en annan sökterm.",
+    "podcast.duration.error": "Varaktighet inte tillgänglig",
+    "podcast.play": "Spela",
+    "podcast.intro.title": "Introduktion av Astropod",
+    "podcast.intro.description":
+      "Astropod är en gratis och öppen källkodslösning för serverlösa podcasts.",
+    "podcast.deploy.title": "Distribuera din serverlösa podcast på 2 minuter",
+    "podcast.deploy.description":
+      "Lär dig hur du snabbt distribuerar din podcast.",
+    "podcast.auth.title":
+      "Ställa in användarautentisering och komma åt instrumentpanelen",
+    "podcast.auth.description":
+      "Aktivera autentisering och få tillgång till instrumentpanelen.",
+    "podcast.config.title": "Konfigurera din Astropod Podcast",
+    "podcast.config.description": "Lär dig hur du konfigurerar din podcast.",
+    "podcast.publish.title": "Publicera ditt första avsnitt",
+    "podcast.publish.description": "Publicera ditt första avsnitt med lätthet.",
+    "podcast.conclusion.title": "Slutsats",
+    "podcast.conclusion.description": "Sammanfattning och nästa steg.",
   },
   fi: {
     "nav.home": "Koti",
@@ -1397,5 +1681,35 @@ export const ui = {
     "knowledge.play.category": "Aloita Musiikkivisa",
     "category.play": "Pelaa",
     "play.cover.puzzle": "Pelaa Cover Puzzle",
+    "play.cover.puzzle.description":
+      "Cover Puzzlessa sinun täytyy tunnistaa albumien kansia sitä mukaa kun ne paljastuvat. Mitä nopeammin tunnistat oikean albumin, sitä enemmän pisteitä saat. Testaa visuaalista muistiasi musiikkikansille!",
+    "podcast.page.title": "Musiikkipodcastit | Melody Mind",
+    "podcast.page.heading": "Kiehtovat Musiikkipodcastit",
+    "podcast.page.description":
+      "Sukella musiikin maailmaan kiehtovien podcastiemme avulla. Löydä jännittäviä tarinoita, kiehtovia taustoja ja määritteleviä hetkiä eri musiikkikausilta - täydellinen kaikille, jotka haluavat paitsi kuunnella musiikkia, myös todella ymmärtää sitä.",
+    "podcast.search.label": "Etsi podcasteja",
+    "podcast.search.placeholder": "Etsi kiehtovia musiikkitarinoita...",
+    "podcast.search.status.all": "Kaikki podcastit näytetään",
+    "podcast.search.status.one": "1 podcast löytyi",
+    "podcast.search.status.multiple": "{count} podcastia löytyi",
+    "podcast.no.results":
+      "Ei vastaavia podcasteja löytynyt. Kokeile toista hakutermiä.",
+    "podcast.duration.error": "Kesto ei saatavilla",
+    "podcast.play": "Toista",
+    "podcast.intro.title": "Esittelyssä Astropod",
+    "podcast.intro.description":
+      "Astropod on ilmainen ja avoimen lähdekoodin serveritön podcast-ratkaisu.",
+    "podcast.deploy.title": "Serverittömän podcastin käyttöönotto 2 minuutissa",
+    "podcast.deploy.description": "Opi ottamaan podcastisi nopeasti käyttöön.",
+    "podcast.auth.title":
+      "Käyttäjäntodennuksen asettaminen ja hallintapaneelin käyttö",
+    "podcast.auth.description":
+      "Ota todennus käyttöön ja käytä hallintapaneelia.",
+    "podcast.config.title": "Astropod Podcastin konfigurointi",
+    "podcast.config.description": "Opi konfiguroimaan podcastisi.",
+    "podcast.publish.title": "Ensimmäisen jakson julkaiseminen",
+    "podcast.publish.description": "Julkaise ensimmäinen jakso helposti.",
+    "podcast.conclusion.title": "Johtopäätös",
+    "podcast.conclusion.description": "Yhteenveto ja seuraavat vaiheet.",
   },
 };

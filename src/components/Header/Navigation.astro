@@ -131,6 +131,28 @@ const t = useTranslations(lang);
 
             <li role="none">
               <a
+                href={getRelativeLocaleUrl(lang, "podcasts")}
+                class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
+                      font-medium no-underline transition-all
+                      duration-200 hover:bg-zinc-700 hover:translate-x-1
+                      focus-visible:bg-zinc-700 focus-visible:outline
+                      focus-visible:outline-sky-300 focus-visible:outline-offset-2
+                      text-zinc-100"
+                role="menuitem"
+              >
+                <Icon
+                  name="microphone"
+                  width={28}
+                  height={28}
+                  aria-hidden="true"
+                  class="w-7 h-7"
+                />
+                <span>{t("podcast.page.heading")}</span>
+              </a>
+            </li>
+
+            <li role="none">
+              <a
                 href={getRelativeLocaleUrl(lang, "rules")}
                 class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
                       font-medium no-underline transition-all

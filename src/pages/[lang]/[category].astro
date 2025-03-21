@@ -115,9 +115,12 @@ const currentCategory = category;
     <Paragraph className="text-center" description={currentCategory?.text} />
 
     <div class="flex flex-col gap-6 items-center w-full">
-      <Headline level="h2">
-        {t("category.difficulty.heading")}
-      </Headline>
+      <Headline level="h2"> Music Quiz </Headline>
+
+      <Paragraph
+        className="text-center max-w-2xl mb-4"
+        description={t("knowledge.play.description")}
+      />
 
       <div
         class="flex flex-wrap flex-col justify-center gap-6 w-full p-1 xs:flex-row"
@@ -157,9 +160,12 @@ const currentCategory = category;
     </div>
 
     <div class="flex flex-col gap-6 items-center w-full mt-8">
-      <Headline level="h2">
-        Cover Puzzle
-      </Headline>
+      <Headline level="h2"> Cover Puzzle </Headline>
+
+      <Paragraph
+        className="text-center max-w-2xl mb-4"
+        description={t("play.cover.puzzle.description")}
+      />
 
       <div
         class="flex flex-wrap flex-col justify-center gap-6 w-full p-1 xs:flex-row"
