@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Rock Around the Clock - How the 1950s Accidentally Created Modern Music",
+    "image": "/category/1950s.jpg",
+    "audioPath": "/podcasts/en/1950s.m4a"
+  },
+  {
+    "title": "How the 1960s Accidentally Created Modern Music And Why Thats Terrifying",
+    "image": "/category/1960s.jpg",
+    "audioPath": "/podcasts/en/1960s.m4a"
+  },
+  {
+    "title": "The 1970s - When Music Got Its Platforms On and Never Looked Back",
+    "image": "/category/1970s.jpg",
+    "audioPath": "/podcasts/en/1970s.m4a"
+  },
+  {
+    "title": "The 1980s - When Music Got Really Weird and Somehow Changed Everything",
+    "image": "/category/1980s.jpg",
+    "audioPath": "/podcasts/en/1980s.m4a"
+  },
+  {
+    "title": "The 1990s - When Music Got Real and Reality Got Musical",
+    "image": "/category/1990s.jpg",
+    "audioPath": "/podcasts/en/1990s.m4a"
+  },
+  {
+    "title": "The 2000s - When Music Had An Existential Crisis",
+    "image": "/category/2000s.jpg",
+    "audioPath": "/podcasts/en/2000s.m4a"
+  },
+  {
+    "title": "How The 2010s Completely Broke Music And Why Thats Fantastic",
+    "image": "/category/2010s.jpg",
+    "audioPath": "/podcasts/en/2010s.m4a"
+  }
+]
