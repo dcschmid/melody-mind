@@ -2,19 +2,6 @@ import { defineCollection, type SchemaContext, z } from "astro:content";
 
 const difficultyEnum = ["easy", "medium", "hard"] as const;
 
-const categoriesSchema = z.object({
-  title: z.string(),
-  description: z.string(),
-  image: z.string().optional(),
-  difficulty: z.enum(difficultyEnum).optional(),
-  enabled: z.boolean().default(true),
-});
-
-const categoriesCollection = defineCollection({
-  type: "data",
-  schema: categoriesSchema,
-});
-
 const getKnowledgeSchema = ({ image }: SchemaContext) =>
   z.object({
     title: z.string(),
@@ -44,7 +31,6 @@ const knowledgeCollection = defineCollection({
 
 // Define collections
 export const collections = {
-  categories: categoriesCollection,
   "knowledge-de": knowledgeCollection,
   "knowledge-en": knowledgeCollection,
   "knowledge-es": knowledgeCollection,
@@ -58,7 +44,6 @@ export const collections = {
 } as const;
 
 // Type definitions
-export type CategoryData = z.infer<typeof categoriesSchema>;
 export type KnowledgeData = z.infer<ReturnType<typeof getKnowledgeSchema>>;
 export type CollectionKey = keyof typeof collections;
 export type Difficulty = (typeof difficultyEnum)[number];

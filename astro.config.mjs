@@ -38,21 +38,10 @@ export default defineConfig({
       prefixDefaultLocale: true,
     },
   },
-  // Enable content collections
-  content: {
-    markdown: {
-      remarkPlugins: [remarkReadingTime],
-      shikiConfig: {
-        theme: "dracula",
-        wrap: true,
-      },
-    },
-  },
   vite: {
     resolve: {
       alias: {
         "@json": path.resolve("./src/json"),
-        // ...other aliases...
       },
     },
 

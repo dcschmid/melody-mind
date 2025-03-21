@@ -40,7 +40,7 @@ const lang = getLangFromUrl(Astro.url);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark" />
-
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <SEO
       title={title}
       description={description}
@@ -51,6 +51,7 @@ const lang = getLangFromUrl(Astro.url);
     <script
       src="https://cdn.usefathom.com/script.js"
       data-site="RKHOWTTO"
+      data-honor-dnt="true"
       defer
       is:inline></script>
   </head>
