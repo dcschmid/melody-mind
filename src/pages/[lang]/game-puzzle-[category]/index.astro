@@ -50,7 +50,10 @@ const user = { id: "guest" };
     data-category={category}
   >
     <div class="max-w-xl mx-auto">
-      <div id="cover-puzzle" class="relative w-full aspect-square mb-6 bg-zinc-900">
+      <div
+        id="cover-puzzle"
+        class="relative w-full aspect-square mb-6 bg-zinc-900"
+      >
         <!-- Puzzle grid will be created by JavaScript -->
       </div>
 
@@ -82,9 +85,9 @@ const user = { id: "guest" };
 
   /**
    * Cover Puzzle Game - Main Script
-   * 
+   *
    * This game presents a gradually revealing album cover image.
-   * Players must identify the correct album from four options 
+   * Players must identify the correct album from four options
    * before the entire cover is revealed.
    */
 
@@ -95,17 +98,18 @@ const user = { id: "guest" };
   const t = useTranslations(lang);
 
   // Game configuration constants
-  const TOTAL_ROUNDS = 10;                // Total number of rounds to play
-  const ROUND_TIME = 60;                  // Time in seconds per round
-  const GRID_SIZE = 8;                    // Puzzle grid dimensions (8x8)
-  const BASE_POINTS = 200;                // Base points for correct answers
-  const TOTAL_PIECES = GRID_SIZE * GRID_SIZE;  // Total puzzle pieces
-  const REVEAL_INTERVAL = 850;            // Time between piece reveals (ms)
-  const PIECE_ANIMATION_DURATION = 300;   // Animation time for each piece (ms)
-  const LAST_PIECE_BUFFER = 3;            // Buffer seconds at the end of round
-  
+  const TOTAL_ROUNDS = 10; // Total number of rounds to play
+  const ROUND_TIME = 60; // Time in seconds per round
+  const GRID_SIZE = 8; // Puzzle grid dimensions (8x8)
+  const BASE_POINTS = 200; // Base points for correct answers
+  const TOTAL_PIECES = GRID_SIZE * GRID_SIZE; // Total puzzle pieces
+  const REVEAL_INTERVAL = 850; // Time between piece reveals (ms)
+  const PIECE_ANIMATION_DURATION = 300; // Animation time for each piece (ms)
+  const LAST_PIECE_BUFFER = 3; // Buffer seconds at the end of round
+
   // Calculate how many pieces to reveal per second to complete just before time ends
-  const PIECES_PER_SECOND = (TOTAL_PIECES - 1) / (ROUND_TIME - LAST_PIECE_BUFFER);
+  const PIECES_PER_SECOND =
+    (TOTAL_PIECES - 1) / (ROUND_TIME - LAST_PIECE_BUFFER);
 
   /**
    * Interface for accessing all game-related DOM elements
@@ -132,7 +136,9 @@ const user = { id: "guest" };
       timer: document.querySelector(".timer") as HTMLSpanElement,
       coverPuzzle: document.getElementById("cover-puzzle") as HTMLDivElement,
       options: document.getElementById("options") as HTMLDivElement,
-      container: document.getElementById("question-container") as HTMLDivElement,
+      container: document.getElementById(
+        "question-container",
+      ) as HTMLDivElement,
       nextRoundButton: document.getElementById(
         "next-round-button",
       ) as HTMLButtonElement,
@@ -145,13 +151,13 @@ const user = { id: "guest" };
 
   // Initialize game state
   const elements = cacheElements();
-  let score = 0;                  // Player's total score
-  let roundIndex = 0;             // Current round (0-based)
-  let correctAnswers = 0;         // Number of correct answers
-  let timeLeft = ROUND_TIME;      // Current round time remaining
-  let timerInterval: ReturnType<typeof setInterval>;  // Timer reference
-  let currentAlbum: Album | null = null;  // Current album to guess
-  let isRoundActive = false;      // Whether the round is currently active
+  let score = 0; // Player's total score
+  let roundIndex = 0; // Current round (0-based)
+  let correctAnswers = 0; // Number of correct answers
+  let timeLeft = ROUND_TIME; // Current round time remaining
+  let timerInterval: ReturnType<typeof setInterval>; // Timer reference
+  let currentAlbum: Album | null = null; // Current album to guess
+  let isRoundActive = false; // Whether the round is currently active
 
   /**
    * Creates the puzzle grid with individual pieces
@@ -159,10 +165,13 @@ const user = { id: "guest" };
    * @param imageUrl - URL of the album cover image
    * @returns Array of HTML elements representing puzzle pieces
    */
-  function createPuzzleGrid(container: HTMLElement, imageUrl: string): HTMLElement[] {
+  function createPuzzleGrid(
+    container: HTMLElement,
+    imageUrl: string,
+  ): HTMLElement[] {
     container.innerHTML = "";
     const pieces: HTMLElement[] = [];
-    const pieceSize = 100 / GRID_SIZE;  // Size as percentage of container
+    const pieceSize = 100 / GRID_SIZE; // Size as percentage of container
 
     // Create a grid of pieces, each showing a portion of the album cover
     for (let y = 0; y < GRID_SIZE; y++) {
@@ -170,20 +179,20 @@ const user = { id: "guest" };
         const piece = document.createElement("div");
         piece.className =
           "absolute bg-cover transition-all duration-300 ease-out transform hover:brightness-110";
-        
+
         // Position and size the piece
         piece.style.width = `${pieceSize}%`;
         piece.style.height = `${pieceSize}%`;
         piece.style.left = `${x * pieceSize}%`;
         piece.style.top = `${y * pieceSize}%`;
-        
+
         // Set the background to show the correct portion of the album cover
         piece.style.backgroundImage = `url(${imageUrl})`;
         piece.style.backgroundPosition = `${(x * 100) / (GRID_SIZE - 1)}% ${
           (y * 100) / (GRID_SIZE - 1)
         }%`;
         piece.style.backgroundSize = `${GRID_SIZE * 100}%`;
-        
+
         // Initially hide all pieces
         piece.style.opacity = "0";
         piece.style.filter = "brightness(0.8)";
@@ -204,8 +213,8 @@ const user = { id: "guest" };
   function revealRandomPieces(pieces: HTMLElement[], count: number): boolean {
     const hiddenPieces = pieces.filter((piece) => piece.style.opacity === "0");
     const piecesToReveal = hiddenPieces
-      .sort(() => Math.random() - 0.5)  // Shuffle the pieces
-      .slice(0, count);                 // Take only the number we need
+      .sort(() => Math.random() - 0.5) // Shuffle the pieces
+      .slice(0, count); // Take only the number we need
 
     // Reveal each piece with a slight delay for animation effect
     piecesToReveal.forEach((piece, index) => {
@@ -267,8 +276,10 @@ const user = { id: "guest" };
     const isCorrect = selectedAnswer === currentAlbum.album;
 
     // Handle button states and styling
-    const buttons = Array.from(elements.options.children) as HTMLButtonElement[];
-    buttons.forEach(button => {
+    const buttons = Array.from(
+      elements.options.children,
+    ) as HTMLButtonElement[];
+    buttons.forEach((button) => {
       if (button.dataset.answer === selectedAnswer) {
         // Style clicked button based on correctness
         button.style.backgroundColor = isCorrect ? "#059669" : "#dc2626";
@@ -291,7 +302,7 @@ const user = { id: "guest" };
       const roundScore = calculateScore(timeLeft);
       score += roundScore;
       elements.score.textContent = score.toString();
-    } 
+    }
 
     // Show feedback and next button
     elements.nextRoundButton.classList.remove("hidden");
@@ -303,20 +314,26 @@ const user = { id: "guest" };
    * @param allAlbums - Array of all albums to choose decoys from
    * @param container - DOM element to contain the options
    */
-  function createOptions(correctAlbum: Album, allAlbums: Album[], container: HTMLElement) {
+  function createOptions(
+    correctAlbum: Album,
+    allAlbums: Album[],
+    container: HTMLElement,
+  ) {
     container.innerHTML = "";
-    
+
     // Get wrong options - select random albums excluding the correct one
-    const otherAlbums = allAlbums.filter((album) => album.album !== correctAlbum.album);
+    const otherAlbums = allAlbums.filter(
+      (album) => album.album !== correctAlbum.album,
+    );
     const wrongOptions = shuffleArray(otherAlbums).slice(0, 3);
-    
+
     // Combine correct and wrong options, then shuffle
     const options = shuffleArray([correctAlbum, ...wrongOptions]);
 
     // Create buttons for each option
     options.forEach((album) => {
       const button = document.createElement("button");
-      button.className = 
+      button.className =
         "w-full p-3 bg-zinc-700 hover:bg-zinc-600 rounded-lg text-zinc-100 transition-all duration-300 text-sm sm:text-base border-2 border-transparent";
       button.textContent = `${album.artist} - ${album.album}`;
       button.dataset.answer = album.album;
@@ -360,11 +377,12 @@ const user = { id: "guest" };
     try {
       const category = elements.container.getAttribute("data-category");
       if (!category) throw new Error(t("error.no.category"));
-      
+
       try {
         // First try to load albums in the current language
         const response = await fetch(`/json/genres/${lang}/${category}.json`);
-        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        if (!response.ok)
+          throw new Error(`HTTP error! Status: ${response.status}`);
         const albumsData = await response.json();
         if (!albumsData?.length) throw new Error(t("error.no.albums.found"));
         return albumsData;
@@ -403,7 +421,10 @@ const user = { id: "guest" };
     }
 
     // Create puzzle grid and answer options
-    const pieces = createPuzzleGrid(elements.coverPuzzle, currentAlbum.coverSrc);
+    const pieces = createPuzzleGrid(
+      elements.coverPuzzle,
+      currentAlbum.coverSrc,
+    );
     createOptions(currentAlbum, albums, elements.options);
 
     // Preload the cover image before showing the puzzle
@@ -417,18 +438,23 @@ const user = { id: "guest" };
       elements.nextRoundButton.classList.add("hidden");
 
       startTimer();
-      
+
       // Set up gradual revealing of puzzle pieces as time passes
       const revealInterval = setInterval(() => {
         const timeElapsed = ROUND_TIME - timeLeft;
         const shouldReveal = Math.floor(timeElapsed * PIECES_PER_SECOND);
-        const currentlyRevealed = pieces.filter((piece: HTMLElement) => piece.style.opacity === "1").length;
-        
+        const currentlyRevealed = pieces.filter(
+          (piece: HTMLElement) => piece.style.opacity === "1",
+        ).length;
+
         // Reveal more pieces if needed based on elapsed time
-        if (shouldReveal > currentlyRevealed && currentlyRevealed < pieces.length) {
+        if (
+          shouldReveal > currentlyRevealed &&
+          currentlyRevealed < pieces.length
+        ) {
           revealRandomPieces(pieces, 1);
         }
-        
+
         // Stop revealing if all pieces are visible or time is up
         if (currentlyRevealed >= pieces.length || timeLeft <= 0) {
           clearInterval(revealInterval);
@@ -483,7 +509,8 @@ const user = { id: "guest" };
   // Option selection handler
   elements.options.addEventListener("click", (event: Event) => {
     const button = (event.target as HTMLElement).closest("button");
-    if (button && !button.style.backgroundColor) { // Only handle clicks on unanswered buttons
+    if (button && !button.style.backgroundColor) {
+      // Only handle clicks on unanswered buttons
       handleAnswer(button.dataset.answer || "");
     }
   });
@@ -503,7 +530,14 @@ const user = { id: "guest" };
   };
 
   // Initialize game if all required elements are available
-  if (elements.container && elements.coverPuzzle && elements.options && elements.score && elements.round && elements.timer) {
+  if (
+    elements.container &&
+    elements.coverPuzzle &&
+    elements.options &&
+    elements.score &&
+    elements.round &&
+    elements.timer
+  ) {
     loadNewRound();
   } else {
     console.error(t("error.missing.elements"));
@@ -512,7 +546,7 @@ const user = { id: "guest" };
 
 <style is:global>
   #cover-puzzle > div {
-    transition: all 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   button {
