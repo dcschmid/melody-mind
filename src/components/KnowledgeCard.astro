@@ -31,14 +31,19 @@ const lang_t = useTranslations(lang as "de" | "en");
 const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
 ---
 
-<article class="h-full flex flex-col overflow-hidden bg-gradient-to-b from-zinc-700 to-zinc-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
+<article
+  class="h-full flex flex-col overflow-hidden bg-gradient-to-b from-zinc-700 to-zinc-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
+>
   <a
     href={`/${lang}/knowledge/${slug}`}
     class="group h-full flex flex-col"
     aria-label={title}
   >
     <div class="relative w-full aspect-[16/9] overflow-hidden bg-zinc-800">
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-[1] opacity-30 group-hover:opacity-20 transition-opacity"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-[1] opacity-30 group-hover:opacity-20 transition-opacity"
+      >
+      </div>
       <img
         src={image}
         alt=""
@@ -53,10 +58,21 @@ const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
       <div class="flex justify-between items-center mb-2 text-sm text-zinc-400">
         <time datetime={createdAt.toISOString()}>{formattedDate}</time>
         <span class="flex items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 mr-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
           </svg>
-          {readingTime} {lang_t("knowledge.reading.time")}
+          {readingTime}
+          {lang_t("knowledge.reading.time")}
         </span>
       </div>
 
@@ -64,12 +80,16 @@ const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
         {title}
       </h3>
 
-      <p class="description text-zinc-300 mb-4 line-clamp-3 text-sm leading-relaxed">
+      <p
+        class="description text-zinc-300 mb-4 line-clamp-3 text-sm leading-relaxed"
+      >
         {description}
       </p>
 
       <div class="mt-auto">
-        <span class="inline-flex items-center text-white group-hover:text-gray-300 transition-colors font-medium">
+        <span
+          class="inline-flex items-center text-white group-hover:text-gray-300 transition-colors font-medium"
+        >
           Weiterlesen
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -82,8 +102,7 @@ const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M14 5l7 7m0 0l-7 7m7-7H3"
-            />
+              d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
           </svg>
         </span>
       </div>
