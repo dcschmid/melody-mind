@@ -1,139 +1,91 @@
 ---
-import type { ImageMetadata } from "astro";
-import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { format } from "date-fns";
+import { de, enUS as en } from "date-fns/locale";
 
 interface Props {
   title: string;
   description: string;
-  image: string | ImageMetadata;
+  image?: string;
   createdAt: Date;
   slug: string;
   lang: string;
   readingTime?: number;
 }
 
-const { title, description, image, createdAt, slug, lang, readingTime } =
-  Astro.props;
+const {
+  title,
+  description,
+  image = "/default-cover.jpg",
+  createdAt,
+  slug,
+  lang,
+  readingTime = 0,
+} = Astro.props;
 
-// Default image import
-import defaultImage from "/public/melody-mind.jpg";
+// Choose locale for date formatting
+const locales = { de, en };
+const locale = locales[lang as keyof typeof locales] || en;
 
-// Function to check if the image is a string path
-const isImagePath = (img: string | ImageMetadata): img is string => {
-  return typeof img === "string";
-};
-
-// Determine which image to use
-const imageSource = isImagePath(image) ? defaultImage : image;
-
-// Format date according to user's locale
-function formatDate(date: Date, locale: string = "en"): string {
-  try {
-    return new Intl.DateTimeFormat(locale, {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    }).format(date);
-  } catch (e) {
-    // Fallback to basic format if locale is unsupported
-    return date.toLocaleDateString("en", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-  }
-}
-
-const formattedDate = formatDate(createdAt, lang);
+const lang_t = useTranslations(lang as "de" | "en");
+const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
 ---
 
-<article
-  class="flex flex-col h-full overflow-hidden rounded-lg bg-zinc-800 shadow-md border border-zinc-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus-within:ring-2 focus-within:ring-sky-400 focus-within:ring-opacity-70"
->
+<article class="h-full flex flex-col overflow-hidden bg-gradient-to-b from-zinc-700 to-zinc-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
   <a
     href={`/${lang}/knowledge/${slug}`}
-    class="flex flex-col h-full no-underline outline-none focus:outline-none group"
-    aria-labelledby={`article-title-${slug}`}
+    class="group h-full flex flex-col"
+    aria-label={title}
   >
-    <div class="relative w-full h-48 overflow-hidden bg-zinc-700">
-      {
-        isImagePath(image) ? (
-          <img
-            src={image as string}
-            alt=""
-            width="400"
-            height="225"
-            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-105 motion-reduce:transform-none"
-            loading="lazy"
-            decoding="async"
-          />
-        ) : (
-          <Image
-            src={imageSource}
-            alt=""
-            width={400}
-            height={225}
-            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-105 motion-reduce:transform-none"
-            loading="lazy"
-            format="webp"
-            quality={80}
-          />
-        )
-      }
+    <div class="relative w-full aspect-[16/9] overflow-hidden bg-zinc-800">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-[1] opacity-30 group-hover:opacity-20 transition-opacity"></div>
+      <img
+        src={image}
+        alt=""
+        class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+        loading="lazy"
+        width="400"
+        height="225"
+      />
     </div>
 
-    <div class="flex flex-col flex-grow p-5 gap-4">
-      <h3
-        id={`article-title-${slug}`}
-        class="text-2xl font-bold text-sky-500 leading-tight line-clamp-2"
-      >
+    <div class="p-5 flex-grow flex flex-col">
+      <div class="flex justify-between items-center mb-2 text-sm text-zinc-400">
+        <time datetime={createdAt.toISOString()}>{formattedDate}</time>
+        <span class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          {readingTime} {lang_t("knowledge.reading.time")}
+        </span>
+      </div>
+
+      <h3 class="text-xl font-bold text-white mb-2 line-clamp-2">
         {title}
       </h3>
 
-      <p class="description text-lg text-zinc-200 flex-grow line-clamp-3">
+      <p class="description text-zinc-300 mb-4 line-clamp-3 text-sm leading-relaxed">
         {description}
       </p>
 
-      <div class="flex items-center justify-between text-lg text-zinc-400">
-        <time
-          datetime={createdAt.toISOString()}
-          class="flex items-center gap-1"
-        >
+      <div class="mt-auto">
+        <span class="inline-flex items-center text-white group-hover:text-gray-300 transition-colors font-medium">
+          Weiterlesen
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
+            class="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
             <path
-              fill-rule="evenodd"
-              d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-              clip-rule="evenodd"></path>
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M14 5l7 7m0 0l-7 7m7-7H3"
+            />
           </svg>
-          <span>{formattedDate}</span>
-        </time>
-
-        {
-          readingTime && (
-            <span class="flex items-center gap-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-              <span>{readingTime} min</span>
-            </span>
-          )
-        }
+        </span>
       </div>
     </div>
   </a>

@@ -13,7 +13,13 @@ interface Props {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const { headline = "", subheadline = "", image, isDisabled = false, imageAlt = "" } = Astro.props;
+const {
+  headline = "",
+  subheadline = "",
+  image,
+  isDisabled = false,
+  imageAlt = "",
+} = Astro.props;
 ---
 
 <article
@@ -28,13 +34,18 @@ const { headline = "", subheadline = "", image, isDisabled = false, imageAlt = "
         role="status"
       >
         <span class="sr-only">{t("playlist.item.status")}:</span>
-        <span class="px-4 py-2 rounded-full bg-zinc-800/80 border border-zinc-700">{t("playlist.item.coming.soon")}</span>
+        <span class="px-4 py-2 rounded-full bg-zinc-800/80 border border-zinc-700">
+          {t("playlist.item.coming.soon")}
+        </span>
       </div>
     )
   }
 
   <div class="relative w-full aspect-[16/9] overflow-hidden group">
-    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-[1] opacity-30 group-hover:opacity-20 transition-opacity"></div>
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-[1] opacity-30 group-hover:opacity-20 transition-opacity"
+    >
+    </div>
     <Picture
       class={`absolute top-0 left-0 w-full h-full object-cover transition-all duration-500 ${isDisabled ? "opacity-70 grayscale-[50%]" : "group-hover:scale-105"}`}
       src={image}
@@ -51,19 +62,21 @@ const { headline = "", subheadline = "", image, isDisabled = false, imageAlt = "
 
   <div class="p-4 flex-grow flex flex-col">
     <h2
-      class="headline m-0 font-sans text-lg font-bold leading-tight hyphens-auto text-sky-500 text-center break-words"
+      class="headline m-0 font-sans text-base font-semibold leading-tight hyphens-auto text-zinc-50 text-center break-words"
     >
       {headline}
     </h2>
-    
-    {subheadline && (
-      <div class="mt-2 relative">
-        <div class="h-px w-1/4 bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto mb-2"></div>
-        <p class="text-base text-zinc-300 text-center leading-snug">
-          {subheadline}
-        </p>
-      </div>
-    )}
+
+    {
+      subheadline && (
+        <div class="mt-2 relative">
+          <div class="h-px w-1/4 bg-gray-500 mx-auto mb-2" />
+          <p class="text-sm text-gray-300 text-center line-clamp-2 leading-snug">
+            {subheadline}
+          </p>
+        </div>
+      )
+    }
   </div>
 </article>
 
@@ -87,7 +100,8 @@ const { headline = "", subheadline = "", image, isDisabled = false, imageAlt = "
 <style>
   /* Stile für Nutzer, die reduzierte Bewegung bevorzugen */
   @media (prefers-reduced-motion: reduce) {
-    article, .group img {
+    article,
+    .group img {
       transition: none !important;
       transform: none !important;
     }

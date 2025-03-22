@@ -78,9 +78,19 @@ const articlesWithReadingTime = articles.map((article) => {
 
 <Layout title={ui[uiLang]["knowledge.title"]}>
   <div class="max-w-6xl mx-auto px-4">
-    <Headline title={ui[uiLang]["knowledge.title"]} level="h1" />
+    <div class="text-center mb-10">
+      <Headline 
+        title={ui[uiLang]["knowledge.title"]} 
+        level="h1" 
+        className="text-white font-bold text-3xl md:text-4xl"
+      />
+      <div class="h-1 w-24 bg-gray-500 rounded-full mx-auto mt-2 mb-6"></div>
 
-    <Paragraph description={ui[uiLang]["knowledge.intro"]} />
+      <Paragraph 
+        description={ui[uiLang]["knowledge.intro"]} 
+        className="max-w-2xl mx-auto text-zinc-300"
+      />
+    </div>
 
     <div class="w-full">
       <div class="flex flex-col md:flex-row gap-4 mb-8">
@@ -92,15 +102,18 @@ const articlesWithReadingTime = articles.map((article) => {
             <div
               class="absolute inset-y-0 left-3 flex items-center pointer-events-none"
             >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
             </div>
             <input
               type="search"
               id="searchInput"
               placeholder={ui[uiLang]["knowledge.search.placeholder"]}
-              class="w-full py-3 pl-10 pr-4 bg-zinc-700 border-2 border-zinc-600
-                     rounded-lg text-zinc-50 placeholder-zinc-400
-                     focus:outline-none focus:border-sky-400 focus:ring-2
-                     focus:ring-sky-400 focus:ring-opacity-50"
+              class="w-full py-3 pl-10 pr-4 bg-zinc-700/80 border-2 border-zinc-600
+                     rounded-xl text-zinc-50 placeholder-zinc-400
+                     focus:outline-none focus:border-purple-500 focus:ring-2
+                     focus:ring-purple-500/50 focus:ring-opacity-50 shadow-sm transition-all duration-300"
               aria-controls="articlesGrid"
             />
           </div>
@@ -115,7 +128,7 @@ const articlesWithReadingTime = articles.map((article) => {
       >
         {
           articlesWithReadingTime.length > 0 ? (
-            articlesWithReadingTime.map((article) => {
+            articlesWithReadingTime.map((article, index) => {
               // Handle image path
               const imagePath = article.data.image || "/default-cover.jpg";
 
@@ -128,24 +141,24 @@ const articlesWithReadingTime = articles.map((article) => {
                     : new Date();
 
               return (
-                <KnowledgeCard
-                  title={article.data.title}
-                  description={article.data.description}
-                  image={article.data.image as string}
-                  createdAt={createdAt}
-                  slug={article.slug}
-                  lang={lang}
-                  readingTime={article.data.readingTime}
-                />
+                <div class="animate-fadeIn" style={{animationDelay: `${index * 0.05}s`}}>
+                  <KnowledgeCard
+                    title={article.data.title}
+                    description={article.data.description}
+                    image={article.data.image as string}
+                    createdAt={createdAt}
+                    slug={article.slug}
+                    lang={lang}
+                    readingTime={article.data.readingTime}
+                  />
+                </div>
               );
             })
           ) : (
-            <div class="col-span-full flex flex-col items-center justify-center p-12 bg-zinc-700/50 rounded-lg border border-zinc-600 text-center">
-              <Icon
-                name="info-circle"
-                class="w-12 h-12 text-zinc-400 mb-4"
-                aria-hidden="true"
-              />
+            <div class="col-span-full flex flex-col items-center justify-center p-12 bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-xl border border-zinc-600 text-center shadow-md">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-zinc-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               <p class="text-zinc-200 text-lg font-medium">
                 Keine Artikel gefunden
               </p>
@@ -156,6 +169,33 @@ const articlesWithReadingTime = articles.map((article) => {
     </div>
   </div>
 </Layout>
+
+<style>
+  /* Animations for cards */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+  }
+  
+  /* Disable animations if user prefers reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fadeIn {
+      animation: none;
+      opacity: 1;
+    }
+  }
+</style>
 
 <script>
   /**
