@@ -18,7 +18,7 @@ const t = useTranslations(lang);
 interface Category {
   isPlayable: boolean;
   headline: string;
-  categoryUrl?: string; 
+  categoryUrl?: string;
   imageUrl: string;
   introSubline: string;
   slug: string;
@@ -30,17 +30,21 @@ interface Category {
  * First attempts to load using the alias path, then tries relative path if that fails
  * @returns {Promise<Category[]>} Array of category objects
  */
-async function loadCategoriesForLanguage(language: string): Promise<Category[]> {
+async function loadCategoriesForLanguage(
+  language: string,
+): Promise<Category[]> {
   try {
     // First try using the alias path
     return await import(`@json/${language}_categories.json`)
-      .then(module => module.default)
+      .then((module) => module.default)
       .catch(async () => {
         // Fallback to relative path if alias fails
-        console.info(`Attempting to load ${language}_categories.json using relative path`);
+        console.info(
+          `Attempting to load ${language}_categories.json using relative path`,
+        );
         return await import(`../../json/${language}_categories.json`)
-          .then(module => module.default)
-          .catch(err => {
+          .then((module) => module.default)
+          .catch((err) => {
             console.error(`Failed to load ${language}_categories.json:`, err);
             return [];
           });
@@ -60,54 +64,73 @@ const categories = Array.isArray(categoriesList) ? categoriesList : [];
  * @param item - The item to check
  * @returns Boolean indicating if item is a valid playable category
  */
-function isPlayableCategory(item: any): item is Category & { categoryUrl: string } {
+function isPlayableCategory(
+  item: any,
+): item is Category & { categoryUrl: string } {
   return (
-    item && 
-    typeof item === 'object' &&
+    item &&
+    typeof item === "object" &&
     item.isPlayable === true &&
-    typeof item.headline === 'string' &&
-    typeof item.imageUrl === 'string' &&
-    typeof item.introSubline === 'string' &&
-    typeof item.slug === 'string' &&
-    typeof item.text === 'string' &&
-    typeof item.categoryUrl === 'string' &&
+    typeof item.headline === "string" &&
+    typeof item.imageUrl === "string" &&
+    typeof item.introSubline === "string" &&
+    typeof item.slug === "string" &&
+    typeof item.text === "string" &&
+    typeof item.categoryUrl === "string" &&
     Boolean(item.categoryUrl)
   );
 }
 
 // Filter categories by playability status
 const playableCategories = categories.filter(isPlayableCategory);
-const nonPlayableCategories = categories.filter(item => item && !item.isPlayable);
+const nonPlayableCategories = categories.filter(
+  (item) => item && !item.isPlayable,
+);
 
 // Combined categories with playable ones first
 const sortedCategories = [...playableCategories, ...nonPlayableCategories];
 
 // Prepare fallback text for empty states
-const emptyCategoriesHeadline = t("game.categories.empty.headline") || "No genres found";
-const emptyCategoriesText = t("game.categories.empty.text") || 
+const emptyCategoriesHeadline =
+  t("game.categories.empty.headline") || "No genres found";
+const emptyCategoriesText =
+  t("game.categories.empty.text") ||
   "Unfortunately, no categories were found. Please try again later.";
-const noPlayableCategoriesHeadline = t("game.categories.no.playable.headline") || "No playable genres";
-const noPlayableCategoriesText = t("game.categories.no.playable.text") || 
+const noPlayableCategoriesHeadline =
+  t("game.categories.no.playable.headline") || "No playable genres";
+const noPlayableCategoriesText =
+  t("game.categories.no.playable.text") ||
   "There are currently no playable categories. Please check back later.";
 ---
 
 <Layout title={t("game.select")}>
-  <div class="w-full mx-auto" id="main-content">
-    <Headline title={`${t("game.welcome")}`} level="h1" />
-
-    <Paragraph>
-      {t("game.select")}
-    </Paragraph>
+  <div class="w-full max-w-6xl mx-auto px-4" id="main-content">
+    <div class="text-center mb-8">
+      <Headline 
+        title={`${t("game.welcome")}`} 
+        level="h1" 
+        className="text-white font-bold"
+      />
+      <div class="h-1 w-24 bg-gray-500 rounded-full mx-auto mt-2 mb-6"></div>
+      <Paragraph className="max-w-2xl mx-auto">
+        {t("game.select")}
+      </Paragraph>
+    </div>
 
     <section class="mt-8" aria-labelledby="playlist-heading">
       <Headline level="h2" title={t("game.genre.list")} className="sr-only" />
 
-      <div class="my-8 w-full">
+      <div class="my-8 w-full max-w-2xl mx-auto relative">
+        <div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
         <label for="filter-input" class="sr-only">
           {t("game.search.label")}
         </label>
         <input
-          class="w-full py-4 px-5 border-2 border-zinc-600 rounded-lg bg-zinc-700 text-zinc-50 text-base leading-relaxed placeholder-zinc-400 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400 focus:ring-opacity-50"
+          class="w-full py-4 pl-12 pr-5 border-2 border-zinc-600 rounded-xl bg-zinc-700/80 text-zinc-50 text-base leading-relaxed placeholder-zinc-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 focus:ring-opacity-50 shadow-sm transition-all duration-300"
           type="search"
           id="filter-input"
           placeholder={t("game.search.label")}
@@ -124,7 +147,7 @@ const noPlayableCategoriesText = t("game.categories.no.playable.text") ||
 
       <div
         id="playlist-grid"
-        class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 w-full max-w-5xl mx-auto my-8 min-h-[200px]"
+        class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 md:gap-8 w-full max-w-5xl mx-auto my-8 min-h-[200px]"
         role="list"
         aria-label={t("game.genre.list")}
         aria-live="polite"
@@ -133,19 +156,19 @@ const noPlayableCategoriesText = t("game.categories.no.playable.text") ||
           categories && categories.length > 0 ? (
             playableCategories.length > 0 ? (
               categories.map(
-                (item) =>
+                (item, index) =>
                   item.isPlayable && (
-                    <li class="h-full list-none">
+                    <li class="h-full list-none animate-fadeIn" style={{animationDelay: `${index * 0.05}s`}}>
                       <a
                         href={`/${lang}${item.categoryUrl}`}
-                        class="block h-full overflow-hidden rounded-lg bg-zinc-700 border-2 border-transparent transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400 focus:ring-opacity-50"
+                        class="block h-full overflow-hidden rounded-xl bg-transparent border-2 border-transparent transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400 focus:ring-opacity-50"
                         aria-label={
                           item.headline + " " + t("game.genre.play.label")
                         }
                       >
                         <PlaylistItem
                           headline={item.headline}
-                          subheadline={item.introSubline}  // Hier verwenden wir die introSubline aus der JSON-Datei
+                          subheadline={item.introSubline}
                           image={item.imageUrl}
                           imageAlt={t("game.genre.image") + " " + item.headline}
                         />
@@ -154,7 +177,7 @@ const noPlayableCategoriesText = t("game.categories.no.playable.text") ||
                   ),
               )
             ) : (
-              <div class="col-span-full py-12 px-6 bg-zinc-700 rounded-lg text-center">
+              <div class="col-span-full py-12 px-6 bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-xl text-center shadow-md">
                 <h3 class="text-xl font-bold text-zinc-50 mb-3">
                   {noPlayableCategoriesHeadline}
                 </h3>
@@ -162,7 +185,7 @@ const noPlayableCategoriesText = t("game.categories.no.playable.text") ||
               </div>
             )
           ) : (
-            <div class="col-span-full py-12 px-6 bg-zinc-700 rounded-lg text-center">
+            <div class="col-span-full py-12 px-6 bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-xl text-center shadow-md">
               <h3 class="text-xl font-bold text-zinc-50 mb-3">
                 {emptyCategoriesHeadline}
               </h3>
@@ -416,8 +439,25 @@ const noPlayableCategoriesText = t("game.categories.no.playable.text") ||
   #playlist-grid a {
     display: block;
   }
-  
+
   #playlist-grid a article > div:first-child {
-    aspect-ratio: 16/9; 
+    aspect-ratio: 16/9;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
   }
 </style>
