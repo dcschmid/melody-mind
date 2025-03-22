@@ -75,7 +75,9 @@ const currentCategory = category;
 <Layout title={`${currentCategory?.headline} Start`}>
   <div class="max-w-4xl mx-auto px-4 py-8">
     <!-- Hero section with improved contrast and accessibility -->
-    <div class="text-center mb-12 bg-gradient-to-br from-zinc-800/60 to-zinc-900/60 backdrop-blur-sm p-8 rounded-2xl shadow-xl">
+    <div
+      class="text-center mb-12 bg-gradient-to-br from-zinc-800/60 to-zinc-900/60 backdrop-blur-sm p-8 rounded-2xl shadow-xl"
+    >
       <Headline
         className="text-center text-3xl md:text-4xl font-bold text-white mb-4"
         title={currentCategory?.headline}
@@ -111,7 +113,10 @@ const currentCategory = category;
                 alt=""
                 loading="eager"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/70 to-transparent" aria-hidden="true" />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-zinc-900/70 to-transparent"
+                aria-hidden="true"
+              />
             </div>
           ) : (
             <div class="flex items-center justify-center w-full aspect-[16/9] p-6 rounded-xl bg-zinc-800 shadow-lg font-sans text-base text-zinc-50 text-center">
@@ -141,7 +146,10 @@ const currentCategory = category;
           <Icon name="music" class="h-10 w-10 text-white" />
         </div>
 
-        <Headline level="h2" className="text-center text-2xl font-bold text-white mt-6 pt-2">
+        <Headline
+          level="h2"
+          className="text-center text-2xl font-bold text-white mt-6 pt-2"
+        >
           {t("category.difficulty.heading")}
         </Headline>
 
@@ -166,7 +174,9 @@ const currentCategory = category;
               class="w-full py-5 px-6 bg-gradient-to-br from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 rounded-xl transform hover:scale-[1.03] transition-all duration-300 shadow-md hover:shadow-green-700/20 flex items-center justify-center gap-3 focus:outline-none focus:ring-4 focus:ring-green-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900"
             >
               <Icon name="play" class="h-6 w-6" />
-              <span class="text-lg font-medium">{t("category.difficulty.easy")}</span>
+              <span class="text-lg font-medium"
+                >{t("category.difficulty.easy")}</span
+              >
             </ButtonLink>
           </div>
 
@@ -180,7 +190,9 @@ const currentCategory = category;
               class="w-full py-5 px-6 bg-gradient-to-br from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 rounded-xl transform hover:scale-[1.03] transition-all duration-300 shadow-md hover:shadow-blue-700/20 flex items-center justify-center gap-3 focus:outline-none focus:ring-4 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900"
             >
               <Icon name="bolt" class="h-6 w-6" />
-              <span class="text-lg font-medium">{t("category.difficulty.medium")}</span>
+              <span class="text-lg font-medium"
+                >{t("category.difficulty.medium")}</span
+              >
             </ButtonLink>
           </div>
 
@@ -194,7 +206,9 @@ const currentCategory = category;
               class="w-full py-5 px-6 bg-gradient-to-br from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 rounded-xl transform hover:scale-[1.03] transition-all duration-300 shadow-md hover:shadow-red-700/20 flex items-center justify-center gap-3 focus:outline-none focus:ring-4 focus:ring-red-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900"
             >
               <Icon name="fire" class="h-6 w-6" />
-              <span class="text-lg font-medium">{t("category.difficulty.hard")}</span>
+              <span class="text-lg font-medium"
+                >{t("category.difficulty.hard")}</span
+              >
             </ButtonLink>
           </div>
         </div>
@@ -211,7 +225,10 @@ const currentCategory = category;
           <Icon name="image" class="h-10 w-10 text-white" />
         </div>
 
-        <Headline level="h2" className="text-center text-2xl font-bold text-white mt-6 pt-2">
+        <Headline
+          level="h2"
+          className="text-center text-2xl font-bold text-white mt-6 pt-2"
+        >
           {t("play.cover.puzzle")}
         </Headline>
 
@@ -243,7 +260,9 @@ const currentCategory = category;
     <!-- WCAG information -->
     <div class="mt-16 text-center" aria-live="polite">
       <p class="text-sm text-zinc-400 flex items-center justify-center">
-        <span class="inline-block mr-2" role="img" aria-label="Barrierefreiheit">♿</span>
+        <span class="inline-block mr-2" role="img" aria-label="Barrierefreiheit"
+          >♿</span
+        >
         <span>{t("accessibility.wcag")}</span>
       </p>
     </div>
@@ -255,12 +274,12 @@ const currentCategory = category;
   .perspective {
     perspective: 1000px;
   }
-  
+
   .perspective:hover button {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 15px 25px -12px rgba(0, 0, 0, 0.4);
   }
-  
+
   /* Respect reduced motion preferences */
   @media (prefers-reduced-motion: reduce) {
     .perspective:hover button,
@@ -283,21 +302,23 @@ const currentCategory = category;
       border: 2px solid ButtonText !important;
       forced-color-adjust: none;
     }
-    
+
     /* Ensure proper focus visibility in high contrast mode */
-    :global(a:focus-visible), :global(button:focus-visible) {
+    :global(a:focus-visible),
+    :global(button:focus-visible) {
       outline: 3px solid ButtonText !important;
       outline-offset: 3px !important;
     }
   }
 
   /* Improved focus styles for better keyboard navigation */
-  :global(a:focus-visible), :global(button:focus-visible) {
+  :global(a:focus-visible),
+  :global(button:focus-visible) {
     outline: 3px solid #a855f7 !important;
     outline-offset: 3px !important;
     transition: outline-offset 0.1s ease !important;
   }
-  
+
   /* Better link readability */
   .prose :global(a) {
     color: #c084fc !important;
@@ -305,7 +326,7 @@ const currentCategory = category;
     text-underline-offset: 3px;
     font-weight: 500;
   }
-  
+
   .prose :global(a:hover) {
     color: #d8b4fe !important;
   }

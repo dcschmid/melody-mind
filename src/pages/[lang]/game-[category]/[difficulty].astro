@@ -1,6 +1,5 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import ShowCoins from "@components/Shared/ShowCoins.astro";
 import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
 import GameHeadline from "@components/Game/GameHeadline.astro";
 import FeedbackOverlay from "@components/Overlays/FeedbackOverlay.astro";
@@ -10,6 +9,7 @@ import Joker from "@components/Game/Joker.astro";
 import ErrorMessage from "@components/Shared/ErrorMessage.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import type { Difficulty as GameDifficulty } from "@utils/game/jokerUtils";
+import { Icon } from "astro-icon/components";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -34,11 +34,7 @@ const currentCategoryData = categories.default.find(
 const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 ---
 
-<Layout title={`${currentCategoryData?.headline}`} showCoins={true}>
-  <div slot="left-headercol">
-    <ShowCoins />
-  </div>
-
+<Layout title={`${currentCategoryData?.headline}`} showCoins={false}>
   <FeedbackOverlay />
 
   <EndOverlay
@@ -48,15 +44,36 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     data-difficulty={difficulty || ""}
   />
 
-  <GameHeadline headline={currentCategoryData?.headline} />
+  <!-- Improved game header section with better visual distinction -->
+  <div class="mb-6 md:mb-8">
+    <GameHeadline headline={currentCategoryData?.headline} />
+    
+    <!-- Game info badges -->
+    <div class="flex flex-wrap justify-center items-center gap-3 mt-4" aria-live="polite">
+      <div class="inline-flex items-center px-3 py-1 rounded-xl bg-gradient-to-r from-zinc-800 to-zinc-900 shadow-sm border border-zinc-700">
+        <Icon name="difficulty" class="h-4 w-4 mr-2 text-yellow-400" aria-hidden="true" />
+        <span class="text-base font-medium text-zinc-100">
+          {t(`difficulty.${difficulty}`)}
+        </span> 
+      </div>
+      
+      <div class="inline-flex items-center px-3 py-1 rounded-xl bg-gradient-to-r from-zinc-800 to-zinc-900 shadow-sm border border-zinc-700">
+        <Icon name="coins" class="h-4 w-4 mr-2 text-amber-400" aria-hidden="true" />
+        <span class="text-base font-medium text-zinc-100">
+          <span id="coins-display" class="coinsCount">0</span>
+        </span>
+      </div>
+    </div>
+  </div>
 
   <ErrorMessage />
 
   <LoadingSpinner />
 
+  <!-- Main game container with improved styling and accessibility -->
   <div
     id="question-container"
-    class="w-full mx-auto p-6 rounded-lg bg-zinc-800 shadow-xl border border-zinc-700 text-center transition-opacity duration-500 opacity-100 data-[hidden=true]:opacity-0"
+    class="w-full max-w-3xl mx-auto p-6 md:p-8 rounded-xl bg-gradient-to-b from-zinc-800 to-zinc-900 shadow-xl border border-zinc-700 text-center transition-all duration-500 opacity-100 data-[hidden=true]:opacity-0"
     role="main"
     aria-label={t("game.area.label")}
     data-categoryName={currentCategoryData?.headline}
@@ -66,24 +83,47 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
   >
     <div
       id="question"
-      class="mb-8 text-2xl font-bold text-zinc-50"
+      class="mb-8 text-xl md:text-2xl font-bold text-white leading-relaxed"
       role="heading"
       aria-level="2"
     >
     </div>
+    
     <div
       id="options"
       class="flex flex-col gap-4"
       role="radiogroup"
       aria-label={t("game.options.label")}
     >
+      <!-- Options will be populated by JavaScript -->
     </div>
   </div>
 
-  <Joker />
+  <!-- Joker and game controls with improved accessibility -->
+  <div class="mt-6 flex justify-center">
+    <Joker />
+  </div>
+  
+  <!-- WCAG information -->
+  <div class="mt-16 text-center" aria-live="polite">
+    <p class="text-sm text-zinc-400 flex items-center justify-center">
+      <span class="inline-block mr-2" role="img" aria-label="Barrierefreiheit">♿</span>
+      <span>{t("accessibility.wcag")}</span>
+    </p>
+  </div>
 </Layout>
 
 <script>
+  /**
+   * Music Quiz Game Engine
+   * 
+   * This module provides the core functionality for the music quiz game, including:
+   * - Loading questions from appropriate language files
+   * - Handling user answers and scoring
+   * - Managing game state and progression
+   * - Visual feedback and animations
+   * - WCAG AAA compliance with screen reader support
+   */
   import { stopAudio } from "@utils/audio/audioControls";
   import { ErrorHandler } from "@utils/error/errorHandler";
   import { handleEndGame, restartGame } from "@utils/game/endGameUtils";
@@ -97,17 +137,26 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
   import type { Album } from "src/types/game";
   import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
+  // Get current language based on URL and initialize translations
   const lang = getLangFromUrl(
     new URL(window.location.pathname, window.location.origin),
   );
   const t = useTranslations(lang);
 
+  /**
+   * Configuration constants for number of rounds based on difficulty level
+   */
   const ROUNDS_PER_DIFFICULTY = {
     [Difficulty.EASY]: 10,
     [Difficulty.MEDIUM]: 15,
     [Difficulty.HARD]: 20,
   } as const;
 
+  /**
+   * Validates and normalizes the difficulty level from URL parameters
+   * @param {string|null} diff - The difficulty string from URL parameters
+   * @returns {Difficulty} A validated difficulty level (defaulting to EASY if invalid)
+   */
   const validateDifficulty = (diff: string | null): Difficulty => {
     if (diff === "easy") return Difficulty.EASY;
     if (diff === "medium") return Difficulty.MEDIUM;
@@ -115,6 +164,9 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     return Difficulty.EASY;
   };
 
+  /**
+   * Interface for DOM elements needed by the game engine
+   */
   interface GameElements {
     score: HTMLParagraphElement;
     round: HTMLParagraphElement;
@@ -131,6 +183,10 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     loadingSpinner: HTMLElement;
   }
 
+  /**
+   * Caches DOM elements to avoid repeated queries and improve performance
+   * @returns {GameElements} Object containing references to all required game DOM elements
+   */
   function cacheElements(): GameElements {
     const elements = {
       score: document.querySelector(".coinsCount") as HTMLParagraphElement,
@@ -159,30 +215,44 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     return elements;
   }
 
+  /**
+   * Main game initialization function
+   * Sets up the game state, loads questions, and handles game progression
+   * @param {GameElements} elements - Cached DOM elements required for the game
+   */
   const initializeGame = async (elements: GameElements) => {
+    // Start processing any queued operations
     QueueManager.startProcessing();
 
     if (!elements.container) {
-      console.error("Container Element nicht gefunden");
+      console.error("Game container element not found");
       return;
     }
 
+    // Extract game parameters from data attributes
     const category = elements.container.getAttribute("data-genre");
     const userId = elements.container.getAttribute("data-userID");
     const categoryName = elements.container.getAttribute("data-categoryName");
     const difficulty = elements.container.getAttribute("date-difficulty");
 
+    // Initialize game state
     let score = 0;
     let correctAnswers = 0;
     let roundIndex = 0;
     const totalRounds =
       ROUNDS_PER_DIFFICULTY[validateDifficulty(difficulty)] ??
       ROUNDS_PER_DIFFICULTY.easy;
-    elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
+    
+    // Update UI with initial round
+    if (elements.round) {
+      elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
+    }
 
+    /**
+     * Load albums data for the selected category with language fallback
+     */
     let albums: Album[] | null = null;
     try {
-      // Fix: Use fetch instead of dynamic import for JSON files
       let albumsData;
 
       try {
@@ -228,6 +298,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 
     let currentQuestion: null = null;
 
+    // Initialize joker system based on the difficulty level
     const jokerManager = new JokerManager({
       difficulty: validateDifficulty(difficulty) as Difficulty,
       elements: {
@@ -236,18 +307,27 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       },
     });
 
+    // Initialize media players for audio feedback
     const mediaElements = initializeMediaElements();
     if (!mediaElements) {
-      console.error("Media-Elemente konnten nicht initialisiert werden");
+      console.error("Media elements could not be initialized");
       return;
     }
 
+    /**
+     * Handles the player's answer, updates score, and manages game progression
+     * @param option - The player's selected answer
+     * @param correctAnswer - The correct answer for the question
+     * @param currentQuestion - The current question object
+     * @param album - The album associated with the current question
+     */
     function handleAnswerWrapper(
       option: any,
       correctAnswer: any,
       currentQuestion: { trivia: string },
       album: { coverSrc: string; artist: string; album: string; year: string },
     ) {
+      // Process the answer and update the score
       score = handleAnswer({
         option,
         correctAnswer,
@@ -268,30 +348,77 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
         },
       });
 
+      // Immediately update UI with visual feedback for correct answers
+      if (option === correctAnswer) {
+        correctAnswers++;
+        updateCoinsDisplay(score);
+      }
+
+      // Setup handler for the next round button
       elements.nextRoundButton.onclick = function () {
         stopAudio();
         elements.overlay.classList.add("hidden");
+        
         if (roundIndex < totalRounds - 1) {
+          // Load next question if rounds remain
           roundIndex++;
-          elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
+          
+          if (elements.round) {
+            elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
+          }
+          
           const newQuestion = getRandomQuestion(
             albums ?? [],
             validateDifficulty(difficulty),
             totalRounds,
           );
+          
           if (newQuestion) {
             loadNewQuestion(
               newQuestion.randomQuestion,
               newQuestion.randomAlbum,
             );
-            elements.feedback.textContent = "";
+            
+            if (elements.feedback) {
+              elements.feedback.textContent = "";
+            }
           }
         } else {
+          // End the game if all rounds are completed
           endGame();
         }
       };
     }
 
+    /**
+     * Updates the coin display with an animation for visual feedback
+     * @param {number} newScore - The new score to display
+     */
+    function updateCoinsDisplay(newScore: number) {
+      const coinsDisplay = document.getElementById('coins-display');
+      if (coinsDisplay) {
+        // Apply animation class for visual feedback
+        coinsDisplay.classList.add('coins-updated');
+        coinsDisplay.textContent = newScore.toString();
+        
+        // Announce score change for screen readers
+        const announcement = document.createElement('div');
+        announcement.setAttribute('aria-live', 'assertive');
+        announcement.classList.add('sr-only');
+        announcement.textContent = `Neuer Punktestand: ${newScore} Punkte`;
+        document.body.appendChild(announcement);
+        
+        // Remove animation class and announcement after they complete
+        setTimeout(() => {
+          coinsDisplay.classList.remove('coins-updated');
+          announcement.remove();
+        }, 1500);
+      }
+    }
+
+    /**
+     * Handles the end of game, displays summary, and saves score
+     */
     function endGame() {
       const config = {
         userId: userId || "",
@@ -313,8 +440,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
             popup.setAttribute("data-score", score.toString());
             popup.classList.remove("hidden");
           }
-        },
-        // GoldenLP popup removed
+        }
       };
 
       handleEndGame(config, ui, {
@@ -327,8 +453,14 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       });
     }
 
+    // Add event listener for restart button
     elements.restartButton?.addEventListener("click", restartGame);
 
+    /**
+     * Loads and displays a new question in the UI
+     * @param question - The question object to display
+     * @param album - The album associated with the question
+     */
     function loadNewQuestion(question: any, album: any) {
       if (!question || !question.options) {
         console.error(t("error.invalid.question"));
@@ -354,11 +486,13 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       });
     }
 
+    // Load the first question to start the game
     const initialQuestion = getRandomQuestion(
       albums,
       validateDifficulty(difficulty),
       totalRounds,
     );
+    
     if (initialQuestion?.randomQuestion && initialQuestion?.randomAlbum) {
       loadNewQuestion(
         initialQuestion.randomQuestion,
@@ -368,12 +502,14 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       console.error(t("error.no.initial.question"));
     }
 
+    // Warn before leaving if there's unsaved data
     window.addEventListener("beforeunload", (e) => {
       if (QueueManager.hasUnsavedData()) {
         e.preventDefault();
       }
     });
 
+    // Clean up resources when the page unloads
     const cleanup = () => {
       stopAudio();
       QueueManager.stopProcessing();
@@ -384,19 +520,49 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     window.addEventListener("unload", cleanup);
   };
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const elements = cacheElements();
-    if (!validateElements(elements)) {
-      console.error("Erforderliche DOM-Elemente nicht gefunden");
-      return;
-    }
-    initializeGame(elements);
-  });
+  /**
+   * Enhances accessibility for dynamically created content
+   * Adds proper ARIA labels and announcements for screen readers
+   */
+  function enhanceAccessibility() {
+    // Add descriptive labels to option buttons when they receive focus
+    document.addEventListener('focusin', (e) => {
+      const target = e.target as HTMLElement;
+      if (!target || !(target instanceof HTMLElement)) return;
+      
+      if (target.matches('#options button') && !target.getAttribute('aria-label')) {
+        const buttonText = target.textContent?.trim() || '';
+        target.setAttribute('aria-label', `Option: ${buttonText}`);
+      }
+    });
+    
+    // Use MutationObserver to track changes to the DOM for accessibility
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        const target = mutation.target as Element;
+        if (mutation.type === 'childList' && 
+            (target.id === 'question' || target.id === 'options')) {
+          // Update ARIA attributes when content changes
+          document.getElementById('question-container')?.setAttribute('aria-busy', 'false');
+        }
+      });
+    });
+    
+    // Start observing the document for changes
+    observer.observe(document.body, { 
+      childList: true, 
+      subtree: true 
+    });
+  }
 
+  /**
+   * Validates that all required DOM elements are present
+   * @param {GameElements} elements - The cached DOM elements
+   * @returns {boolean} Whether all required elements are available
+   */
   function validateElements(elements: GameElements): boolean {
     const requiredElements = [
       "score",
-      "round",
       "question",
       "options",
       "container",
@@ -406,6 +572,18 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       (key) => elements[key as keyof GameElements] !== null,
     );
   }
+
+  // Initialize the game when the DOM is ready
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = cacheElements();
+    if (!validateElements(elements)) {
+      console.error("Required DOM elements not found");
+      return;
+    }
+    
+    initializeGame(elements);
+    enhanceAccessibility();
+  });
 </script>
 
 <style is:global>
@@ -423,18 +601,43 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     @apply opacity-0;
   }
 
+  
+  /* Disabled joker styling */
+  button[disabled] {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
   /* High Contrast Mode Support */
   @media (forced-colors: active) {
     #question-container {
       border: 2px solid CanvasText;
     }
 
-    #options > button {
+    #options button {
       border: 1px solid ButtonText;
+      forced-color-adjust: none;
+    }
+    
+    #options button:focus-visible {
+      outline: 3px solid Highlight;
     }
 
     #question {
       border-bottom: 1px solid CanvasText;
+    }
+    
+    button[disabled] {
+      opacity: 0.6;
+    }
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
     }
   }
 
@@ -446,9 +649,121 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       box-shadow: none;
     }
 
-    #options > button {
+    #options button {
       break-inside: avoid;
       border: 1px solid #000;
+    }
+  }
+  
+  /* Focus styles for better keyboard navigation */
+  :focus-visible {
+    outline: 3px solid #a855f7 !important;
+    outline-offset: 3px !important;
+  }
+
+  /* Animation für Coins-Aktualisierung */
+  .coins-updated {
+    animation: coinPulse 1s ease-in-out;
+    color: #fbbf24; /* Helleres Amber für bessere Sichtbarkeit */
+  }
+  
+  @keyframes coinPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); color: #f59e0b; }
+    100% { transform: scale(1); }
+  }
+
+  /* WCAG AAA Compliant Styles */
+  
+  /* AAA-compliant font sizing and spacing */
+  #question {
+    font-size: 1.5rem; /* Large text for better readability */
+    line-height: 1.5;  /* Improved line spacing for readability */
+    margin-bottom: 1.5rem;
+  }
+  
+
+  /* Highlight selected option */
+  #options button.selected-option {
+    @apply border-purple-500 bg-purple-900/30;
+  }
+  
+
+  /* Focused state should be highly visible */
+  #options button:focus-visible {
+    @apply outline-none ring-4 ring-purple-400 ring-offset-4 ring-offset-zinc-900;
+  }
+  
+  /* Screen reader only content - completely hidden visually but available to screen readers */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  /* Skip link for keyboard users */
+  .skip-link {
+    @apply absolute left-4 top-4 bg-purple-700 text-white px-4 py-2 rounded-md 
+           transform -translate-y-20 focus:translate-y-0 transition-transform 
+           z-50 focus:outline-none focus:ring-4 focus:ring-purple-400;
+  }
+  
+  /* Enhanced animations for coin update */
+  .coins-updated {
+    animation: coinPulseAAA 1.5s ease-in-out;
+    color: #fbbf24; /* Helleres Amber für bessere Sichtbarkeit */
+  }
+  
+  @keyframes coinPulseAAA {
+    0% { transform: scale(1); text-shadow: none; }
+    15% { transform: scale(1.1); }
+    30% { transform: scale(1.25); color: #f59e0b; text-shadow: 0 0 10px rgba(245, 158, 11, 0.5); }
+    45% { transform: scale(1.1); }
+    100% { transform: scale(1); text-shadow: none; }
+  }
+  
+  /* Enhanced High Contrast Mode Support */
+  @media (forced-colors: active) {
+    #question-container {
+      border: 3px solid CanvasText;
+      background-color: Canvas;
+    }
+
+    #options button {
+      border: 2px solid ButtonText;
+      background-color: ButtonFace;
+      color: ButtonText;
+      forced-color-adjust: none;
+    }
+    
+    #options button:focus-visible {
+      outline: 3px solid Highlight;
+      outline-offset: 3px;
+    }
+    
+    #options button[data-correct="true"],
+    #options button[data-incorrect="true"] {
+      border: 2px solid ButtonText;
+      forced-color-adjust: none;
+    }
+    
+    .coins-updated {
+      outline: 2px solid Highlight;
+    }
+  }
+  
+  /* Enhanced support for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .coins-updated {
+      animation: none;
+      color: #fbbf24;
+      text-decoration: underline;
     }
   }
 </style>
