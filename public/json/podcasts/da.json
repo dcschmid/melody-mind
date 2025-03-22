@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Da Musikken Blev Farlig - 1950ernes Kulturelle Atombombe",
+    "image": "/category/1950s.jpg",
+    "audioPath": "/podcasts/da/1950s.m4a"
+  },
+  {
+    "title": "Da Musikken Mistede Sin Uskyld - 1960ernes Vanvittige Revolution",
+    "image": "/category/1960s.jpg",
+    "audioPath": "/podcasts/da/1960s.m4a"
+  },
+  {
+    "title": "70ernes Musikalske Vanvid - Da Verden Mistede Forstanden (På Den Fede Måde)",
+    "image": "/category/1970s.jpg",
+    "audioPath": "/podcasts/da/1970s.m4a"
+  },
+  {
+    "title": "80ernes Musikalske Big Bang - Fra Synthesizere til Social Revolution",
+    "image": "/category/1980s.jpg",
+    "audioPath": "/podcasts/da/1980s.m4a"
+  },
+  {
+    "title": "90ernes Musikalske Big Bang - Fra Grunge til Global Revolution",
+    "image": "/category/1990s.jpg",
+    "audioPath": "/podcasts/da/1990s.m4a"
+  },
+  {
+    "title": "2000ernes Musikalske Mareridt - Da iPods Dræbte CDen og Autotune Overtog Verden",
+    "image": "/category/2000s.jpg",
+    "audioPath": "/podcasts/da/2000s.m4a"
+  },
+  {
+    "title": "2010ernes Musikrevolution - Da Streaming Gjorde Din CDSamling Til Et Museumsstykke",
+    "image": "/category/2010s.jpg",
+    "audioPath": "/podcasts/da/2010s.m4a"
+  }
+]
