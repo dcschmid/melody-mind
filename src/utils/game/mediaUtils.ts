@@ -1,11 +1,39 @@
+/**
+ * Media Utilities for the Music Quiz Game
+ *
+ * This module provides utilities for managing media elements in the music quiz game,
+ * including audio previews, album covers, and streaming service links. It handles
+ * the initialization, updating, and management of all media-related functionality.
+ *
+ * @module mediaUtils
+ */
+
 import { stopAudio } from "../audio/audioControls";
 
 /**
+ * Supported streaming services that can be linked to in the game
+ *
+ * @enum {string}
+ */
+export enum StreamingService {
+  /** Spotify streaming service */
+  SPOTIFY = "spotify",
+  /** Deezer streaming service */
+  DEEZER = "deezer",
+  /** Apple Music streaming service */
+  APPLE = "apple",
+}
+
+/**
  * Interface representing media elements in the DOM
+ *
+ * Contains references to all the HTML elements needed for displaying
+ * and controlling media in the game interface.
+ *
  * @interface MediaElements
  */
 export interface MediaElements {
-  /** Audio preview element for playing song snippets */
+  /** Audio element for playing song previews */
   audioPreview: HTMLAudioElement;
   /** Source element for the audio preview */
   audioPreviewSource: HTMLSourceElement;
@@ -17,9 +45,13 @@ export interface MediaElements {
 
 /**
  * Interface representing an album with its media links
+ *
+ * Contains all the media-related information for an album, including
+ * preview audio, cover image, and streaming service links.
+ *
  * @interface Album
  */
-interface Album {
+export interface Album {
   /** URL for the audio preview snippet */
   preview_link?: string;
   /** URL for the album cover image */
@@ -30,109 +62,209 @@ interface Album {
   deezer_link?: string;
   /** Apple Music streaming link */
   apple_music_link?: string;
-}
-
-/**
- * Enum for supported streaming services
- * @enum {string}
- */
-export enum StreamingService {
-  SPOTIFY = "spotify",
-  DEEZER = "deezer",
-  APPLE = "apple",
+  /** Artist name (for accessibility) */
+  artist?: string;
+  /** Album title (for accessibility) */
+  album?: string;
+  /** Any additional properties */
+  [key: string]: any;
 }
 
 /**
  * Updates all media elements based on album data
+ *
+ * This function updates the audio preview, cover image, and streaming links
+ * for a given album. It first stops any currently playing audio, then updates
+ * each element with the appropriate content.
+ *
  * @param {Album} album - Album data containing links and cover
  * @param {MediaElements} elements - DOM elements for media display
  * @throws {Error} If media update fails
  */
 export function updateMedia(album: Album, elements: MediaElements): void {
   if (!elements) {
-    console.error("Keine Media-Elemente übergeben");
+    console.error("No media elements provided");
     return;
   }
 
   try {
+    // Stop any currently playing audio
     stopAudio(elements.audioPreview);
 
+    // Update audio preview and cover image
     updateAudioAndCover(album, elements);
+
+    // Update all streaming service links
     updateAllStreamingLinks(album, elements.streamingLinks);
+
+    // Set accessibility attributes
+    setAccessibilityAttributes(album, elements);
   } catch (error: unknown) {
-    console.error("Fehler beim Aktualisieren der Medien:", error);
+    console.error("Error updating media:", error);
     const errorMessage = error instanceof Error ? error.message : String(error);
-    throw new Error(`Medienaktualisierung fehlgeschlagen: ${errorMessage}`);
+    throw new Error(`Media update failed: ${errorMessage}`);
   }
 }
 
 /**
  * Updates audio preview and cover image elements
+ *
+ * This function handles updating the audio and image elements based on
+ * the available media in the album object. It shows/hides elements as needed.
+ *
  * @param {Album} album - Album data containing preview and cover links
  * @param {MediaElements} elements - DOM elements for media display
+ * @private
  */
 function updateAudioAndCover(album: Album, elements: MediaElements): void {
   const { preview_link, coverSrc } = album;
   const { audioPreview, audioPreviewSource, overlayCover } = elements;
 
+  // First reset all elements
+  audioPreview.classList.add("hidden");
+  overlayCover.classList.add("hidden");
+
+  // Update and show audio preview if available
   if (preview_link) {
     audioPreviewSource.src = preview_link;
     audioPreview.load();
     audioPreview.classList.remove("hidden");
-    overlayCover.classList.add("hidden");
-  } else if (coverSrc) {
+  }
+
+  // Update and show cover image if available
+  if (coverSrc) {
     overlayCover.src = coverSrc;
     overlayCover.classList.remove("hidden");
-    audioPreview.classList.add("hidden");
+
+    // Set alt text if artist and album info are available
+    if (album.artist && album.album) {
+      overlayCover.alt = `Album cover for ${album.album} by ${album.artist}`;
+    } else {
+      overlayCover.alt = "Album cover";
+    }
   }
 }
 
 /**
  * Updates all streaming service links
+ *
+ * Maps each streaming service to its link in the album data and updates
+ * the corresponding DOM elements.
+ *
  * @param {Album} album - Album data containing streaming links
  * @param {MediaElements['streamingLinks']} streamingLinks - Collection of streaming link elements
+ * @private
  */
 function updateAllStreamingLinks(
   album: Album,
   streamingLinks: MediaElements["streamingLinks"],
 ): void {
+  // Create a mapping of services to their URLs
   const linkMap = {
     [StreamingService.SPOTIFY]: album.spotify_link,
     [StreamingService.DEEZER]: album.deezer_link,
     [StreamingService.APPLE]: album.apple_music_link,
   };
 
+  // Update each service link
   Object.entries(linkMap).forEach(([service, url]) => {
-    updateStreamingLink(streamingLinks[service as StreamingService], url);
+    updateStreamingLink(
+      streamingLinks[service as StreamingService],
+      url,
+      album,
+    );
   });
 }
 
 /**
+ * Sets accessibility attributes for media elements
+ *
+ * Adds appropriate ARIA attributes and labels to media elements
+ * to improve accessibility for screen readers.
+ *
+ * @param {Album} album - Album data with title and artist information
+ * @param {MediaElements} elements - DOM elements to update
+ * @private
+ */
+function setAccessibilityAttributes(
+  album: Album,
+  elements: MediaElements,
+): void {
+  const { audioPreview, overlayCover } = elements;
+  const artistAndAlbum =
+    album.artist && album.album
+      ? `${album.album} by ${album.artist}`
+      : "this album";
+
+  // Add accessibility attributes to audio player
+  if (!audioPreview.hasAttribute("aria-label")) {
+    audioPreview.setAttribute(
+      "aria-label",
+      `Audio preview for ${artistAndAlbum}`,
+    );
+  }
+
+  audioPreview.setAttribute("data-artist", album.artist || "");
+  audioPreview.setAttribute("data-album", album.album || "");
+
+  // Add accessibility attributes to cover image
+  if (overlayCover && !overlayCover.classList.contains("hidden")) {
+    overlayCover.setAttribute("role", "img");
+    overlayCover.setAttribute(
+      "aria-label",
+      `Album cover for ${artistAndAlbum}`,
+    );
+  }
+}
+
+/**
  * Updates a single streaming service link
+ *
+ * Sets the URL and visibility of a streaming service link element based
+ * on whether a URL is available.
+ *
  * @param {HTMLAnchorElement} [linkElement] - The link element to update
  * @param {string} [url] - The new URL for the streaming service
+ * @param {Album} album - Album data for accessibility information
+ * @private
  */
 function updateStreamingLink(
   linkElement?: HTMLAnchorElement,
   url?: string,
+  album?: Album,
 ): void {
   if (!linkElement) return;
 
   if (url) {
     linkElement.href = url;
     linkElement.style.display = "inline-block";
+
+    // Add accessibility attributes
+    if (album?.artist && album?.album) {
+      const serviceName = linkElement.id.replace("-link", "");
+      linkElement.setAttribute(
+        "aria-label",
+        `Listen to ${album.album} by ${album.artist} on ${serviceName}`,
+      );
+    }
   } else {
     linkElement.style.display = "none";
+    linkElement.setAttribute("aria-hidden", "true");
   }
 }
 
 /**
  * Initializes and collects all media elements from the DOM
+ *
+ * This function finds and initializes all media-related elements in the DOM
+ * and returns them as a MediaElements object for use in the game.
+ *
  * @returns {MediaElements | null} Collection of media elements or null if initialization fails
  * @throws {Error} If required elements are not found in the DOM
  */
 export function initializeMediaElements(): MediaElements | null {
   try {
+    // Find all required elements in the DOM
     const audioPreview = document.getElementById(
       "audio-preview",
     ) as HTMLAudioElement;
@@ -142,6 +274,8 @@ export function initializeMediaElements(): MediaElements | null {
     const overlayCover = document.getElementById(
       "overlay-cover",
     ) as HTMLImageElement;
+
+    // Find streaming link elements
     const spotifyLink = document.getElementById(
       "spotify-link",
     ) as HTMLAnchorElement;
@@ -152,22 +286,32 @@ export function initializeMediaElements(): MediaElements | null {
       "apple-link",
     ) as HTMLAnchorElement;
 
+    // Validate required elements
     if (!audioPreview || !audioPreviewSource || !overlayCover) {
-      throw new Error("Erforderliche Media-Elemente nicht gefunden");
+      throw new Error("Required media elements not found");
     }
 
+    // Set initial accessibility attributes
+    audioPreview.setAttribute("aria-label", "Audio preview");
+    overlayCover.setAttribute("role", "img");
+    overlayCover.setAttribute("aria-label", "Album cover");
+
+    // Configure audio element
+    audioPreview.preload = "metadata";
+
+    // Return initialized media elements
     return {
       audioPreview,
       audioPreviewSource,
       overlayCover,
       streamingLinks: {
-        spotify: spotifyLink,
-        deezer: deezerLink,
-        apple: appleLink,
+        [StreamingService.SPOTIFY]: spotifyLink,
+        [StreamingService.DEEZER]: deezerLink,
+        [StreamingService.APPLE]: appleLink,
       },
     };
   } catch (error) {
-    console.error("Fehler beim Initialisieren der Media-Elemente:", error);
+    console.error("Error initializing media elements:", error);
     return null;
   }
 }
