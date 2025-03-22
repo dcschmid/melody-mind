@@ -6,6 +6,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
+import { Icon } from "astro-icon/components";
 
 // Mark this route for static generation
 export const prerender = true;
@@ -72,17 +73,18 @@ const currentCategory = category;
 ---
 
 <Layout title={`${currentCategory?.headline} Start`}>
-  <div class="max-w-4xl mx-auto px-4">
-    <div class="text-center mb-8">
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Hero section with improved contrast and accessibility -->
+    <div class="text-center mb-12 bg-gradient-to-br from-zinc-800/60 to-zinc-900/60 backdrop-blur-sm p-8 rounded-2xl shadow-xl">
       <Headline
-        className="text-center text-3xl md:text-4xl font-bold text-white"
+        className="text-center text-3xl md:text-4xl font-bold text-white mb-4"
         title={currentCategory?.headline}
         level="h1"
       />
-      <div class="h-1 w-24 bg-gray-500 rounded-full mx-auto my-4"></div>
+      <div class="h-1 w-24 bg-purple-500 rounded-full mx-auto my-4"></div>
 
       <Paragraph
-        className="text-center text-lg font-medium text-zinc-200"
+        className="text-center text-lg font-medium text-zinc-100 max-w-2xl mx-auto"
         description={currentCategory?.introSubline}
       />
     </div>
@@ -93,7 +95,7 @@ const currentCategory = category;
       aria-labelledby="difficulty-heading"
     >
       <div
-        class="relative mx-auto w-full max-w-2xl group overflow-hidden"
+        class="relative mx-auto w-full max-w-2xl group overflow-hidden rounded-xl shadow-xl"
         role="img"
         aria-label={currentCategory?.headline + " " + t("category.image.alt")}
       >
@@ -109,7 +111,7 @@ const currentCategory = category;
                 alt=""
                 loading="eager"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+              <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/70 to-transparent" aria-hidden="true" />
             </div>
           ) : (
             <div class="flex items-center justify-center w-full aspect-[16/9] p-6 rounded-xl bg-zinc-800 shadow-lg font-sans text-base text-zinc-50 text-center">
@@ -120,176 +122,106 @@ const currentCategory = category;
       </div>
 
       <div
-        class="prose prose-invert prose-zinc max-w-none px-4 py-6 bg-zinc-800/50 rounded-xl"
+        class="prose prose-invert prose-zinc max-w-none px-8 py-8 bg-zinc-800/50 rounded-xl shadow-md border border-zinc-700/30 leading-relaxed"
       >
         <Paragraph
-          className="text-center leading-relaxed"
+          className="text-zinc-100 leading-relaxed text-lg"
           description={currentCategory?.text}
         />
       </div>
 
+      <!-- Music Quiz Section -->
       <div
-        class="flex flex-col gap-8 items-center w-full mt-4 bg-zinc-800/30 rounded-xl p-6"
+        class="flex flex-col gap-8 items-center w-full mt-8 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm rounded-xl p-8 relative shadow-lg border border-zinc-700/30"
       >
-        <div class="relative w-full max-w-xl">
-          <div
-            class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full bg-purple-600 flex items-center justify-center shadow-lg border-4 border-zinc-900"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
-              ></path>
-            </svg>
-          </div>
+        <div
+          class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center shadow-lg border-4 border-zinc-900"
+          aria-hidden="true"
+        >
+          <Icon name="music" class="h-10 w-10 text-white" />
+        </div>
 
-          <Headline level="h2" className="text-center text-2xl font-bold mt-4">
-            Music Quiz
-          </Headline>
+        <Headline level="h2" className="text-center text-2xl font-bold text-white mt-6 pt-2">
+          {t("category.difficulty.heading")}
+        </Headline>
 
-          <Paragraph
-            className="text-center max-w-2xl mb-6"
-            description={t("knowledge.play.description")}
-          />
+        <Paragraph
+          className="text-center max-w-2xl mb-6 text-zinc-100"
+          description={t("knowledge.play.description")}
+        />
 
-          <div
-            class="flex flex-wrap justify-center gap-4 w-full p-1"
-            role="group"
-            aria-label={t("category.difficulty.group")}
-          >
+        <div
+          class="flex flex-wrap justify-center gap-6 w-full mt-2"
+          role="group"
+          aria-labelledby="difficulty-heading"
+        >
+          <!-- Difficulty levels as modern cards -->
+          <div class="w-full max-w-xs perspective">
             <ButtonLink
               href={getRelativeLocaleUrl(
                 lang,
                 `game-${currentCategory?.slug}/easy`,
               )}
               aria-label={t("category.difficulty.easy.label")}
-              class="flex-1 min-w-[120px] max-w-[180px] py-3 px-6 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 transform hover:scale-105 transition-all duration-300"
+              class="w-full py-5 px-6 bg-gradient-to-br from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 rounded-xl transform hover:scale-[1.03] transition-all duration-300 shadow-md hover:shadow-green-700/20 flex items-center justify-center gap-3 focus:outline-none focus:ring-4 focus:ring-green-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900"
             >
-              <span class="flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                  ></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                {t("category.difficulty.easy")}
-              </span>
+              <Icon name="play" class="h-6 w-6" />
+              <span class="text-lg font-medium">{t("category.difficulty.easy")}</span>
             </ButtonLink>
+          </div>
 
+          <div class="w-full max-w-xs perspective">
             <ButtonLink
               href={getRelativeLocaleUrl(
                 lang,
                 `game-${currentCategory?.slug}/medium`,
               )}
               aria-label={t("category.difficulty.medium.label")}
-              class="flex-1 min-w-[120px] max-w-[180px] py-3 px-6 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 transform hover:scale-105 transition-all duration-300"
+              class="w-full py-5 px-6 bg-gradient-to-br from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 rounded-xl transform hover:scale-[1.03] transition-all duration-300 shadow-md hover:shadow-blue-700/20 flex items-center justify-center gap-3 focus:outline-none focus:ring-4 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900"
             >
-              <span class="flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-                {t("category.difficulty.medium")}
-              </span>
+              <Icon name="bolt" class="h-6 w-6" />
+              <span class="text-lg font-medium">{t("category.difficulty.medium")}</span>
             </ButtonLink>
+          </div>
 
+          <div class="w-full max-w-xs perspective">
             <ButtonLink
               href={getRelativeLocaleUrl(
                 lang,
                 `game-${currentCategory?.slug}/hard`,
               )}
               aria-label={t("category.difficulty.hard.label")}
-              class="flex-1 min-w-[120px] max-w-[180px] py-3 px-6 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 transform hover:scale-105 transition-all duration-300"
+              class="w-full py-5 px-6 bg-gradient-to-br from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 rounded-xl transform hover:scale-[1.03] transition-all duration-300 shadow-md hover:shadow-red-700/20 flex items-center justify-center gap-3 focus:outline-none focus:ring-4 focus:ring-red-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900"
             >
-              <span class="flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M13 10h7l-9 11v-7H4l9-11z"></path>
-                </svg>
-                {t("category.difficulty.hard")}
-              </span>
+              <Icon name="fire" class="h-6 w-6" />
+              <span class="text-lg font-medium">{t("category.difficulty.hard")}</span>
             </ButtonLink>
           </div>
         </div>
       </div>
 
+      <!-- Cover Puzzle Section -->
       <div
-        class="flex flex-col gap-6 items-center w-full mt-4 bg-zinc-800/30 rounded-xl p-6 relative"
+        class="flex flex-col gap-6 items-center w-full mt-8 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm rounded-xl p-8 relative shadow-lg border border-zinc-700/30"
       >
         <div
-          class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full bg-indigo-600 flex items-center justify-center shadow-lg border-4 border-zinc-900"
+          class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-indigo-600 to-purple-700 flex items-center justify-center shadow-lg border-4 border-zinc-900"
+          aria-hidden="true"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-8 w-8 text-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-            ></path>
-          </svg>
+          <Icon name="image" class="h-10 w-10 text-white" />
         </div>
 
-        <Headline level="h2" className="text-center text-2xl font-bold mt-4">
-          Cover Puzzle
+        <Headline level="h2" className="text-center text-2xl font-bold text-white mt-6 pt-2">
+          {t("play.cover.puzzle")}
         </Headline>
 
         <Paragraph
-          className="text-center max-w-2xl mb-4"
+          className="text-center max-w-2xl mb-6 text-zinc-100"
           description={t("play.cover.puzzle.description")}
         />
 
         <div
-          class="flex flex-wrap justify-center gap-6 w-full p-1"
+          class="flex flex-wrap justify-center gap-6 w-full mt-2 perspective"
           role="group"
           aria-label="Cover Puzzle Game"
         >
@@ -299,46 +231,82 @@ const currentCategory = category;
               `game-puzzle-${currentCategory?.slug}`,
             )}
             aria-label={t("play.cover.puzzle")}
-            class="py-4 px-8 bg-gradient-to-br from-purple-600 to-purple-800 hover:from-purple-500 hover:to-purple-700 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+            class="py-5 px-8 bg-gradient-to-br from-purple-600 to-purple-800 hover:from-purple-500 hover:to-purple-700 rounded-xl transform hover:scale-[1.03] transition-all duration-300 shadow-lg hover:shadow-purple-900/20 flex items-center justify-center gap-3 focus:outline-none focus:ring-4 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900"
           >
-            <span class="flex items-center justify-center font-bold">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                ></path>
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              {t("play.cover.puzzle")}
-            </span>
+            <Icon name="puzzle" class="h-6 w-6" />
+            <span class="text-lg font-medium">{t("play.cover.puzzle")}</span>
           </ButtonLink>
         </div>
       </div>
     </article>
+
+    <!-- WCAG information -->
+    <div class="mt-16 text-center" aria-live="polite">
+      <p class="text-sm text-zinc-400 flex items-center justify-center">
+        <span class="inline-block mr-2" role="img" aria-label="Barrierefreiheit">♿</span>
+        <span>{t("accessibility.wcag")}</span>
+      </p>
+    </div>
   </div>
 </Layout>
 
 <style>
+  /* Enhanced 3D effect with perspective */
+  .perspective {
+    perspective: 1000px;
+  }
+  
+  .perspective:hover button {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 25px -12px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .perspective:hover button,
+    .group-hover\:scale-105,
+    .hover\:scale-\[1\.03\],
+    .transform,
+    .transition-all {
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
   /* High Contrast Mode Support */
   @media (forced-colors: active) {
     article[data-category] {
       border: 2px solid CanvasText;
     }
 
-    [role="group"] :global(button) {
-      border: 2px solid ButtonText;
+    [role="group"] :global(a) {
+      border: 2px solid ButtonText !important;
+      forced-color-adjust: none;
     }
+    
+    /* Ensure proper focus visibility in high contrast mode */
+    :global(a:focus-visible), :global(button:focus-visible) {
+      outline: 3px solid ButtonText !important;
+      outline-offset: 3px !important;
+    }
+  }
+
+  /* Improved focus styles for better keyboard navigation */
+  :global(a:focus-visible), :global(button:focus-visible) {
+    outline: 3px solid #a855f7 !important;
+    outline-offset: 3px !important;
+    transition: outline-offset 0.1s ease !important;
+  }
+  
+  /* Better link readability */
+  .prose :global(a) {
+    color: #c084fc !important;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 500;
+  }
+  
+  .prose :global(a:hover) {
+    color: #d8b4fe !important;
   }
 </style>

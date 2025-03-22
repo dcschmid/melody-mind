@@ -25,7 +25,7 @@ const {
 <article
   class:list={[
     "relative flex flex-col w-full h-full overflow-hidden rounded-xl bg-gradient-to-b from-zinc-800 to-zinc-900 will-change-transform transition-all duration-300 ease-in-out shadow-sm hover:shadow-md",
-    { "bg-opacity-80 grayscale-[30%]": isDisabled }
+    { "bg-opacity-80 grayscale-[30%]": isDisabled },
   ]}
   role="listitem"
 >
@@ -51,16 +51,18 @@ const {
       aria-hidden="true"
     >
     </div>
-    
+
     <!-- Media badge for accessibility -->
-    <span class="absolute top-2 right-2 z-[2] bg-indigo-700 text-white text-xs font-medium px-2 py-1 rounded-full">
+    <span
+      class="absolute top-2 right-2 z-[2] bg-indigo-700 text-white text-xs font-medium px-2 py-1 rounded-full"
+    >
       {isDisabled ? t("playlist.item.coming.soon") : t("category.play")}
     </span>
-    
+
     <Picture
       class:list={[
         "absolute top-0 left-0 w-full h-full object-cover transition-all duration-500",
-        isDisabled ? "opacity-70" : "group-hover:scale-105"
+        isDisabled ? "opacity-70" : "group-hover:scale-105",
       ]}
       src={image}
       width={320}
@@ -92,9 +94,9 @@ const {
       )
     }
   </div>
-  
+
   <!-- Interactive indicator that appears on hover/focus -->
-  <div 
+  <div
     class="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-purple-600 to-indigo-600 transform scale-x-0 group-hover:scale-x-100 group-focus-visible:scale-x-100 transition-transform origin-left"
     aria-hidden="true"
   >
@@ -107,22 +109,48 @@ const {
     .querySelectorAll('article[role="listitem"]:not([aria-disabled="true"])')
     .forEach((item) => {
       // Fokus-Behandlung für Tastaturzugänglichkeit
-      item.addEventListener("focus", () => {
-        item.classList.add("ring-2", "ring-purple-500", "ring-offset-2", "ring-offset-zinc-900");
-      }, true);
-      
-      item.addEventListener("blur", () => {
-        item.classList.remove("ring-2", "ring-purple-500", "ring-offset-2", "ring-offset-zinc-900");
-      }, true);
+      item.addEventListener(
+        "focus",
+        () => {
+          item.classList.add(
+            "ring-2",
+            "ring-purple-500",
+            "ring-offset-2",
+            "ring-offset-zinc-900",
+          );
+        },
+        true,
+      );
+
+      item.addEventListener(
+        "blur",
+        () => {
+          item.classList.remove(
+            "ring-2",
+            "ring-purple-500",
+            "ring-offset-2",
+            "ring-offset-zinc-900",
+          );
+        },
+        true,
+      );
 
       // Hover-Effekte nur auf Geräten, die Hover unterstützen
       if (window.matchMedia("(hover: hover)").matches) {
         item.addEventListener("mouseenter", () => {
-          item.classList.add("translate-y-[-2px]", "shadow-lg", "shadow-purple-900/10");
+          item.classList.add(
+            "translate-y-[-2px]",
+            "shadow-lg",
+            "shadow-purple-900/10",
+          );
         });
 
         item.addEventListener("mouseleave", () => {
-          item.classList.remove("translate-y-[-2px]", "shadow-lg", "shadow-purple-900/10");
+          item.classList.remove(
+            "translate-y-[-2px]",
+            "shadow-lg",
+            "shadow-purple-900/10",
+          );
         });
       }
     });
@@ -153,7 +181,7 @@ const {
       border: 2px dashed GrayText;
       opacity: 0.7;
     }
-    
+
     .from-zinc-800,
     .to-zinc-900,
     .bg-gradient-to-b,
@@ -161,7 +189,7 @@ const {
     .bg-gradient-to-t {
       background: Canvas;
     }
-    
+
     h2.headline {
       color: CanvasText;
     }
@@ -182,17 +210,17 @@ const {
     height: 100%;
     object-fit: cover;
   }
-  
+
   /* Verbesserte Lesbarkeit durch optimale Zeilenhöhe */
   .leading-relaxed {
     line-height: 1.6;
   }
-  
+
   /* Farbkontrast-Unterstützung für die Zugänglichkeit */
   .text-zinc-100 {
     color: #f4f4f5; /* Höherer Kontrast als Standard-zinc-100 */
   }
-  
+
   /* Fokus-Stile für bessere Tastaturnavigation */
   article:focus-visible {
     outline: 3px solid #a855f7 !important;
