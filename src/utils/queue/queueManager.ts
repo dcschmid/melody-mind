@@ -1,53 +1,53 @@
 /**
  * Queue Management System
- * 
+ *
  * A persistent queue system for handling deferred data saving operations,
  * particularly useful for offline scenarios. This module implements retry logic,
  * background processing, and handles failed save attempts gracefully.
- * 
+ *
  * Features:
  * - Offline-first approach with automatic retry
  * - Local storage persistence to survive page reloads
  * - Configurable retry strategy with exponential backoff
  * - Cleanup and resource management
- * 
+ *
  * @module queueManager
  */
 
 /**
  * Represents a queue item with all necessary metadata for processing and retry
- * 
+ *
  * @interface QueueItem
  */
 interface QueueItem {
   /** Unique identifier for the queue item */
   id: string;
-  
+
   /** Type of data being saved */
   type: "score" | "goldenLP";
-  
+
   /** The payload to be saved to the server */
   data: any;
-  
+
   /** Number of failed attempts to save this item */
   retryCount: number;
-  
+
   /** Timestamp of the last save attempt */
   lastAttempt: number;
 }
 
 /**
  * Options for configuring queue behavior
- * 
+ *
  * @interface QueueOptions
  */
 interface QueueOptions {
   /** Maximum number of retry attempts before giving up */
   maxRetries?: number;
-  
+
   /** Base delay between retry attempts in milliseconds */
   retryDelay?: number;
-  
+
   /** Storage key used for persisting the queue */
   storageKey?: string;
 }
@@ -55,31 +55,31 @@ interface QueueOptions {
 /**
  * Manages a persistent queue for saving game data with built-in retry logic
  * for handling offline scenarios and network failures.
- * 
+ *
  * @class QueueManager
  */
 export class QueueManager {
   /** Storage key for the queue in localStorage */
   private static readonly STORAGE_KEY = "game_save_queue";
-  
+
   /** Maximum number of retry attempts before abandoning a save operation */
   private static readonly MAX_RETRIES = 3;
-  
+
   /** Delay between retry attempts in milliseconds (increases with each retry) */
   private static readonly RETRY_DELAY = 5000;
-  
+
   /** Flag indicating if queue processing is active */
   private static isProcessing = false;
-  
+
   /** Timer reference for periodic queue processing */
   private static _interval: NodeJS.Timeout | undefined;
 
   /**
    * Adds a new item to the saving queue and starts queue processing
-   * 
+   *
    * This method is the primary entry point for adding data to be saved.
    * It creates a queue item with appropriate metadata and triggers processing.
-   * 
+   *
    * @param {string} type - Type of the queue item ("score" or "goldenLP")
    * @param {any} data - Data to be saved to the server
    * @returns {Promise<void>} A promise that resolves when the item is added to the queue
@@ -90,7 +90,7 @@ export class QueueManager {
   ): Promise<void> {
     try {
       const queue = this.getQueue();
-      
+
       // Create a new queue item with a unique ID
       const item: QueueItem = {
         id: crypto.randomUUID(),
@@ -103,10 +103,10 @@ export class QueueManager {
       // Add to queue and save to persistent storage
       queue.push(item);
       this.saveQueue(queue);
-      
+
       // Start processing the queue
       await this.processQueue();
-      
+
       console.debug(`Added item to ${type} save queue with ID: ${item.id}`);
     } catch (error) {
       console.error("Error adding item to queue:", error);
@@ -117,10 +117,10 @@ export class QueueManager {
 
   /**
    * Processes all items in the queue with retry logic
-   * 
+   *
    * This method attempts to save each item in the queue, handling
    * retries for failed items and removing successfully processed ones.
-   * 
+   *
    * @returns {Promise<void>} A promise that resolves when queue processing completes
    */
   static async processQueue(): Promise<void> {
@@ -130,7 +130,7 @@ export class QueueManager {
     try {
       this.isProcessing = true;
       const queue = this.getQueue();
-      
+
       if (queue.length === 0) {
         return;
       }
@@ -141,7 +141,9 @@ export class QueueManager {
       for (const item of queue) {
         // Skip items that have exceeded max retry attempts
         if (item.retryCount >= this.MAX_RETRIES) {
-          console.warn(`Item ${item.id} exceeded max retries and will be removed`);
+          console.warn(
+            `Item ${item.id} exceeded max retries and will be removed`,
+          );
           this.removeFromQueue(item.id);
           continue;
         }
@@ -184,7 +186,7 @@ export class QueueManager {
 
   /**
    * Saves score data to the backend API
-   * 
+   *
    * @param {any} data - Score data to be saved
    * @throws {Error} If the save operation fails
    * @returns {Promise<void>}
@@ -215,7 +217,7 @@ export class QueueManager {
 
   /**
    * Saves golden LP achievement data to the backend API
-   * 
+   *
    * @param {any} data - Golden LP data to be saved
    * @throws {Error} If the save operation fails
    * @returns {Promise<void>}
@@ -225,9 +227,9 @@ export class QueueManager {
     try {
       const response = await fetch("/api/saveUserGoldenLP", {
         method: "POST",
-        headers: { 
+        headers: {
           "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest"
+          "X-Requested-With": "XMLHttpRequest",
         },
         body: JSON.stringify(data),
       });
@@ -235,7 +237,7 @@ export class QueueManager {
       if (!response.ok) {
         const errorText = await response.text();
         throw new Error(
-          `Error saving golden LP: ${response.status} - ${errorText}`
+          `Error saving golden LP: ${response.status} - ${errorText}`,
         );
       }
     } catch (error) {
@@ -246,7 +248,7 @@ export class QueueManager {
 
   /**
    * Retrieves the current queue from local storage
-   * 
+   *
    * @returns {QueueItem[]} Array of queue items
    * @private
    */
@@ -262,7 +264,7 @@ export class QueueManager {
 
   /**
    * Saves the current queue to local storage for persistence
-   * 
+   *
    * @param {QueueItem[]} queue - Array of queue items to save
    * @private
    */
@@ -276,7 +278,7 @@ export class QueueManager {
 
   /**
    * Removes an item from the queue by its ID
-   * 
+   *
    * @param {string} id - ID of the item to remove
    * @private
    */
@@ -292,9 +294,9 @@ export class QueueManager {
 
   /**
    * Checks if there are any unsaved items in the queue
-   * 
+   *
    * Useful for warning users before they leave the page if data might be lost.
-   * 
+   *
    * @returns {boolean} True if there are unsaved items, false otherwise
    */
   static hasUnsavedData(): boolean {
@@ -303,7 +305,7 @@ export class QueueManager {
 
   /**
    * Starts background processing of the queue at regular intervals
-   * 
+   *
    * This ensures that any queued items will be attempted periodically,
    * which is especially useful when coming back online after being offline.
    */
@@ -312,19 +314,19 @@ export class QueueManager {
     if (this._interval) {
       clearInterval(this._interval);
     }
-    
+
     // Set up periodic processing
     this._interval = setInterval(() => this.processQueue(), this.RETRY_DELAY);
-    
+
     // Process once immediately
-    this.processQueue().catch(error => 
-      console.error("Error during initial queue processing:", error)
+    this.processQueue().catch((error) =>
+      console.error("Error during initial queue processing:", error),
     );
   }
 
   /**
    * Stops background processing of the queue
-   * 
+   *
    * Call this when cleaning up to prevent memory leaks.
    */
   static stopProcessing(): void {
@@ -333,12 +335,12 @@ export class QueueManager {
       this._interval = undefined;
     }
   }
-  
+
   /**
    * Clears all items from the queue
-   * 
+   *
    * This is useful for testing or when a user logs out.
-   * 
+   *
    * @returns {number} The number of items that were cleared
    */
   static clearQueue(): number {

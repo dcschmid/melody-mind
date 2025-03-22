@@ -1,9 +1,9 @@
 /**
  * Random Question Generator for Music Quiz
- * 
+ *
  * This module provides functionality for selecting random questions from a pool
  * of music-related questions while preventing duplicates within a game session.
- * 
+ *
  * @module getRandomQuestion
  */
 
@@ -68,7 +68,7 @@ interface RandomQuestionResult {
 
 /**
  * Selects a random question from the provided albums based on difficulty
- * 
+ *
  * This function maintains a session-wide record of previously used questions to
  * prevent repetition until all questions have been used or the number of rounds
  * has been completed. It also shuffles the selection to ensure randomness.
@@ -76,10 +76,10 @@ interface RandomQuestionResult {
  * @param {Album[]} albums - Array of album objects containing questions
  * @param {Difficulty} difficulty - Difficulty level of the questions to select from
  * @param {number} totalRounds - Total number of rounds in the game (for reset logic)
- * 
+ *
  * @returns {RandomQuestionResult | null} Object containing the selected question and album,
  *          or null if no suitable questions are available
- * 
+ *
  * @example
  * ```typescript
  * const result = getRandomQuestion(albums, 'medium', 10);
@@ -92,7 +92,7 @@ interface RandomQuestionResult {
 export function getRandomQuestion(
   albums: Album[],
   difficulty: Difficulty,
-  totalRounds: number
+  totalRounds: number,
 ): RandomQuestionResult | null {
   // Validate input parameters
   if (!albums || !Array.isArray(albums) || albums.length === 0) {
@@ -101,7 +101,9 @@ export function getRandomQuestion(
   }
 
   if (!difficulty || !["easy", "medium", "hard"].includes(difficulty)) {
-    console.warn(`Invalid difficulty level: ${difficulty}, defaulting to 'easy'`);
+    console.warn(
+      `Invalid difficulty level: ${difficulty}, defaulting to 'easy'`,
+    );
     difficulty = "easy";
   }
 
@@ -114,19 +116,19 @@ export function getRandomQuestion(
   try {
     // Shuffle the albums to randomize selection across different albums
     const shuffledAlbums = shuffleArray([...albums]);
-    
+
     // Create a flat list of all valid questions with their corresponding albums
     // that haven't been used yet in this game session
-    const availableQuestions = shuffledAlbums.flatMap(album => {
+    const availableQuestions = shuffledAlbums.flatMap((album) => {
       // Safely access questions for the current difficulty
       const questionsForDifficulty = album.questions[difficulty] || [];
-      
+
       // Filter out questions that have already been used
       return questionsForDifficulty
-        .filter(question => !usedQuestions.has(question.question))
-        .map(question => ({ 
-          randomQuestion: question, 
-          randomAlbum: album 
+        .filter((question) => !usedQuestions.has(question.question))
+        .map((question) => ({
+          randomQuestion: question,
+          randomAlbum: album,
         }));
     });
 
@@ -135,10 +137,10 @@ export function getRandomQuestion(
       // Select a random question from the available options
       const randomIndex = Math.floor(Math.random() * availableQuestions.length);
       const result = availableQuestions[randomIndex];
-      
+
       // Mark this question as used to avoid repetition
       usedQuestions.add(result.randomQuestion.question);
-      
+
       return result;
     } else if (usedQuestions.size > 0) {
       // If all questions have been used but we still have rounds to go,
@@ -146,7 +148,7 @@ export function getRandomQuestion(
       usedQuestions.clear();
       return getRandomQuestion(albums, difficulty, totalRounds);
     }
-    
+
     console.warn(`No questions available for difficulty: ${difficulty}`);
     return null;
   } catch (error) {
@@ -158,7 +160,7 @@ export function getRandomQuestion(
 /**
  * Resets the used questions tracking
  * Useful for starting a new game or testing
- * 
+ *
  * @example
  * ```typescript
  * // Start a new game with fresh questions
@@ -173,7 +175,7 @@ export function resetUsedQuestions(): void {
 /**
  * Returns the number of questions that have been used in the current session
  * Useful for debugging or progress tracking
- * 
+ *
  * @returns {number} Count of used questions
  */
 export function getUsedQuestionsCount(): number {
