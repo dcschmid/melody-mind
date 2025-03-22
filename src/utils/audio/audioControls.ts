@@ -1,83 +1,191 @@
 /**
- * Interface for audio control operations
- *
+ * Audio Control System
+ * 
+ * This module provides comprehensive audio management for the music quiz game.
+ * It handles audio playback, volume control, error handling, and cleanup operations
+ * through a standardized interface that ensures consistent behavior across the application.
+ * 
+ * Features:
+ * - Promise-based audio operations for proper async flow control
+ * - Thorough error handling with informative messages
+ * - Memory management with proper cleanup to prevent audio resource leaks
+ * - Support for accessibility requirements including volume control
+ * - Singleton pattern for consistent audio state management
+ * 
+ * @module audioControls
+ */
+
+/**
+ * Interface defining the audio control operations available throughout the application
+ * 
  * @interface AudioControl
- * @property {Function} stop - Stops and resets audio playback
- * @property {Function} play - Starts or resumes audio playback
- * @property {Function} pause - Pauses audio playback
- * @property {Function} setVolume - Sets audio volume (0-1)
- * @property {Function} getAudioElement - Returns the current audio element
  */
 export interface AudioControl {
-  stop: () => void;
+  /**
+   * Stops the current audio playback and resets position to the beginning
+   * @returns {Promise<void>} Promise that resolves when audio has stopped
+   */
+  stop: () => Promise<void>;
+  
+  /**
+   * Starts or resumes audio playback
+   * @param {string} [src] - Optional source URL for audio file
+   * @returns {Promise<void>} Promise that resolves when playback begins
+   * @throws {Error} If playback fails or audio element is not available
+   */
   play: (src?: string) => Promise<void>;
-  pause: () => void;
+  
+  /**
+   * Pauses the current audio playback without resetting position
+   * @returns {Promise<void>} Promise that resolves when audio is paused
+   */
+  pause: () => Promise<void>;
+  
+  /**
+   * Sets the volume level for audio playback
+   * @param {number} volume - Volume level between 0 (mute) and 1 (max)
+   * @throws {Error} If volume is outside valid range (0-1)
+   */
   setVolume: (volume: number) => void;
+  
+  /**
+   * Retrieves the current audio element for direct manipulation
+   * @returns {HTMLAudioElement | null} The current audio element or null if unavailable
+   */
   getAudioElement: () => HTMLAudioElement | null;
+  
+  /**
+   * Checks if audio is currently playing
+   * @returns {boolean} True if audio is playing, false otherwise
+   */
+  isPlaying: () => boolean;
+  
+  /**
+   * Cleans up resources and event listeners
+   * @returns {Promise<void>} Promise that resolves when cleanup is complete
+   */
+  cleanup: () => Promise<void>;
 }
 
 /**
- * Utility function to safely stop audio playback
- *
+ * Safely stops audio playback and resets playback position
+ * 
+ * This function handles common error cases and ensures audio
+ * playback is properly terminated.
+ * 
  * @param {HTMLAudioElement | null} [audioElement] - Target audio element
- * @returns {Promise<void>}
+ * @returns {Promise<void>} Promise resolving when operation completes
  */
 export async function stopAudio(
-  audioElement?: HTMLAudioElement | null,
+  audioElement?: HTMLAudioElement | null
 ): Promise<void> {
-  const audio =
-    audioElement ||
-    (document.getElementById("audio-preview") as HTMLAudioElement);
-
-  if (!audio) return;
-
   try {
-    audio.pause();
+    const audio = audioElement || 
+      document.getElementById("audio-preview") as HTMLAudioElement;
+
+    if (!audio) return;
+    
+    // Check if the audio element is actually playing before attempting to pause
+    if (!audio.paused) {
+      await new Promise<void>((resolve) => {
+        // Handle one-time ended event to resolve on completion
+        const onPause = () => {
+          audio.removeEventListener('pause', onPause);
+          resolve();
+        };
+        audio.addEventListener('pause', onPause);
+        audio.pause();
+      });
+    }
+    
+    // Reset position
     audio.currentTime = 0;
   } catch (error) {
     console.error("Failed to stop audio:", error);
+    // Continue execution despite error - this is a best-effort operation
   }
 }
 
 /**
- * Audio Controller implementation with enhanced error handling and type safety
- *
- * @class AudioController
+ * Audio Controller implementing the AudioControl interface
+ * 
+ * This class provides robust audio management with error handling and
+ * memory management for audio resources.
+ * 
  * @implements {AudioControl}
  */
 export class AudioController implements AudioControl {
   private audioElement: HTMLAudioElement | null;
-  private readonly defaultVolume = 1.0;
-
+  private readonly defaultVolume = 0.8;
+  private eventListeners: { type: string; listener: EventListener }[] = [];
+  
+  /**
+   * Creates a new AudioController instance
+   * 
+   * @param {string} audioElementId - ID of the HTML audio element to control (defaults to 'audio-preview')
+   */
   constructor(audioElementId: string = "audio-preview") {
-    this.audioElement = document.getElementById(
-      audioElementId,
-    ) as HTMLAudioElement;
+    this.audioElement = document.getElementById(audioElementId) as HTMLAudioElement;
+    
+    // Initialize audio element if found
     if (this.audioElement) {
       this.audioElement.volume = this.defaultVolume;
+      this.registerEventListeners();
+    } else {
+      console.warn('Audio element not found. Some audio functions may not work.');
     }
   }
 
   /**
-   * Returns the current audio element
+   * Registers event listeners for error handling and state management
+   * @private
+   */
+  private registerEventListeners(): void {
+    if (!this.audioElement) return;
+    
+    // Handle errors during playback
+    const errorHandler = (e: Event) => {
+      console.error("Audio playback error:", 
+        (e as ErrorEvent).message || "Unknown error");
+    };
+    
+    this.audioElement.addEventListener('error', errorHandler);
+    this.eventListeners.push({ type: 'error', listener: errorHandler });
+    
+    // Additional event listeners can be added here
+  }
+
+  /**
+   * Retrieves the current audio element
+   * @returns {HTMLAudioElement | null} The audio element or null if unavailable
    */
   getAudioElement(): HTMLAudioElement | null {
     return this.audioElement;
   }
 
   /**
-   * Stops current audio playback
+   * Checks if audio is currently playing
+   * @returns {boolean} True if audio is playing, false otherwise
    */
-  stop(): void {
-    void stopAudio(this.audioElement);
+  isPlaying(): boolean {
+    if (!this.audioElement) return false;
+    return !this.audioElement.paused;
+  }
+
+  /**
+   * Stops current audio playback
+   * @returns {Promise<void>} Promise resolving when audio is stopped
+   */
+  async stop(): Promise<void> {
+    await stopAudio(this.audioElement);
   }
 
   /**
    * Starts or resumes audio playback
-   *
+   * 
    * @param {string} [src] - Optional new audio source URL
-   * @returns {Promise<void>}
-   * @throws {Error} If playback fails or audio element is not available
+   * @returns {Promise<void>} Promise resolving when playback starts
+   * @throws {Error} If playback fails or audio element is unavailable
    */
   async play(src?: string): Promise<void> {
     if (!this.audioElement) {
@@ -85,28 +193,56 @@ export class AudioController implements AudioControl {
     }
 
     try {
+      // Set new source if provided
       if (src) {
         this.audioElement.src = src;
+        
+        // Wait for metadata to load before attempting to play
+        if (this.audioElement.readyState < 2) { // HAVE_CURRENT_DATA
+          await new Promise<void>((resolve, reject) => {
+            const onLoadedMetadata = () => {
+              this.audioElement?.removeEventListener('loadedmetadata', onLoadedMetadata);
+              resolve();
+            };
+            
+            const onError = (e: Event) => {
+              this.audioElement?.removeEventListener('error', onError);
+              reject(new Error(`Failed to load audio: ${(e as ErrorEvent).message || 'Unknown error'}`));
+            };
+            
+            this.audioElement?.addEventListener('loadedmetadata', onLoadedMetadata);
+            this.audioElement?.addEventListener('error', onError);
+          });
+        }
       }
+      
+      // Return a promise that resolves when playback starts
       await this.audioElement.play();
     } catch (error) {
       console.error("Failed to play audio:", error);
-      throw error;
+      throw new Error(`Audio playback failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   }
 
   /**
    * Pauses audio playback
+   * @returns {Promise<void>} Promise resolving when audio is paused
    */
-  pause(): void {
-    if (this.audioElement?.played) {
-      this.audioElement.pause();
+  async pause(): Promise<void> {
+    if (!this.audioElement || this.audioElement.paused) {
+      return;
+    }
+    
+    try {
+      await Promise.resolve(this.audioElement.pause());
+    } catch (error) {
+      console.error("Failed to pause audio:", error);
     }
   }
 
   /**
    * Sets audio volume
-   *
+   * 
    * @param {number} volume - Volume level (0-1)
    * @throws {Error} If volume is out of valid range
    */
@@ -119,9 +255,36 @@ export class AudioController implements AudioControl {
       this.audioElement.volume = volume;
     }
   }
+  
+  /**
+   * Cleans up resources and event listeners
+   * @returns {Promise<void>} Promise resolving when cleanup completes
+   */
+  async cleanup(): Promise<void> {
+    try {
+      // Stop any playing audio first
+      await this.stop();
+      
+      // Remove all registered event listeners
+      if (this.audioElement) {
+        this.eventListeners.forEach(({ type, listener }) => {
+          this.audioElement?.removeEventListener(type, listener);
+        });
+      }
+      
+      // Clear the event listeners array
+      this.eventListeners = [];
+      
+    } catch (error) {
+      console.error("Error during audio cleanup:", error);
+    }
+  }
 }
 
 /**
- * Singleton instance of AudioController
+ * Singleton instance of AudioController for application-wide use
+ * 
+ * Using a singleton ensures consistent audio state management throughout
+ * the application and prevents multiple audio tracks from playing simultaneously.
  */
 export const audioController = new AudioController();

@@ -2,7 +2,7 @@ import { shuffleArray } from "../share/shuffleArray";
 
 /**
  * Represents a question in the music quiz.
- * 
+ *
  * @interface Question
  */
 export interface Question {
@@ -18,7 +18,7 @@ export interface Question {
 
 /**
  * Represents an album in the music quiz.
- * 
+ *
  * @interface Album
  */
 export interface Album {
@@ -34,7 +34,7 @@ export interface Album {
 
 /**
  * DOM elements required for displaying a question.
- * 
+ *
  * @interface QuestionElements
  */
 interface QuestionElements {
@@ -50,7 +50,7 @@ interface QuestionElements {
 
 /**
  * Event handlers for question interactions.
- * 
+ *
  * @interface QuestionHandlers
  */
 interface QuestionHandlers {
@@ -59,13 +59,13 @@ interface QuestionHandlers {
     option: string,
     correctAnswer: string,
     question: Question,
-    album: Album
+    album: Album,
   ) => void;
 }
 
 /**
  * State of the joker feature for the current question.
- * 
+ *
  * @interface JokerState
  */
 interface JokerState {
@@ -75,7 +75,7 @@ interface JokerState {
 
 /**
  * Parameters required for loading and displaying a question.
- * 
+ *
  * @interface LoadQuestionParams
  */
 interface LoadQuestionParams {
@@ -93,7 +93,7 @@ interface LoadQuestionParams {
 
 /**
  * Loads and displays a question in the game interface.
- * 
+ *
  * This function handles the complete process of displaying a question to the user, including:
  * - Setting up the question text
  * - Creating and shuffling answer options
@@ -110,13 +110,14 @@ export function loadQuestion({
   handlers,
   jokerState,
 }: LoadQuestionParams): void {
-  const { questionContainer, spinner, questionElement, optionsContainer } = elements;
+  const { questionContainer, spinner, questionElement, optionsContainer } =
+    elements;
 
   // Set loading state
-  questionContainer.setAttribute('aria-busy', 'true');
+  questionContainer.setAttribute("aria-busy", "true");
   questionContainer.classList.add("hidden");
   spinner.classList.remove("hidden");
-  
+
   // Reset joker state for the new question
   jokerState.jokerUsed = false;
 
@@ -124,11 +125,11 @@ export function loadQuestion({
   setTimeout(() => {
     try {
       // Ensure question data is valid
-      if (!question || typeof question !== 'object') {
-        throw new Error('Invalid question data received');
+      if (!question || typeof question !== "object") {
+        throw new Error("Invalid question data received");
       }
 
-      const questionText = question.question || '';
+      const questionText = question.question || "";
       const options = Array.isArray(question.options) ? question.options : [];
 
       // Update question display
@@ -148,11 +149,11 @@ export function loadQuestion({
 
       // Create and append option buttons
       createOptionButtons(
-        shuffledOptions, 
-        optionsContainer, 
+        shuffledOptions,
+        optionsContainer,
         handlers.handleAnswer,
         question,
-        album
+        album,
       );
 
       // Setup keyboard navigation for accessibility
@@ -160,45 +161,46 @@ export function loadQuestion({
         optionsContainer,
         question,
         album,
-        handlers.handleAnswer
+        handlers.handleAnswer,
       );
 
       // Show question and hide spinner
       spinner.classList.add("hidden");
       questionContainer.classList.remove("hidden");
-      questionContainer.setAttribute('aria-busy', 'false');
-      
+      questionContainer.setAttribute("aria-busy", "false");
+
       // Announce question for screen readers
-      const srAnnouncement = document.createElement('div');
-      srAnnouncement.setAttribute('aria-live', 'polite');
-      srAnnouncement.classList.add('sr-only');
+      const srAnnouncement = document.createElement("div");
+      srAnnouncement.setAttribute("aria-live", "polite");
+      srAnnouncement.classList.add("sr-only");
       srAnnouncement.textContent = `Neue Frage: ${questionText}`;
       questionContainer.appendChild(srAnnouncement);
-      
+
       // Remove announcement after it's been read to prevent cluttering the DOM
       setTimeout(() => srAnnouncement.remove(), 1000);
-      
+
       // Focus first option for keyboard users (with small delay for animation)
       setTimeout(() => {
-        const firstOption = optionsContainer.querySelector('button');
+        const firstOption = optionsContainer.querySelector("button");
         if (firstOption) {
           firstOption.focus();
         }
       }, 100);
     } catch (error) {
-      console.error('Error displaying question:', error);
+      console.error("Error displaying question:", error);
       // Display an error message to the user
-      questionElement.textContent = 'Sorry, there was a problem loading the question. Please try again.';
+      questionElement.textContent =
+        "Sorry, there was a problem loading the question. Please try again.";
       spinner.classList.add("hidden");
       questionContainer.classList.remove("hidden");
-      questionContainer.setAttribute('aria-busy', 'false');
+      questionContainer.setAttribute("aria-busy", "false");
     }
   }, 500);
 }
 
 /**
  * Creates and appends option buttons to the options container.
- * 
+ *
  * @param {string[]} options - Array of answer options
  * @param {HTMLElement} container - Container element for the buttons
  * @param {Function} handleAnswer - Callback for answer selection
@@ -208,48 +210,49 @@ export function loadQuestion({
 function createOptionButtons(
   options: string[],
   container: HTMLElement,
-  handleAnswer: (option: string, correctAnswer: string, question: Question, album: Album) => void,
+  handleAnswer: (
+    option: string,
+    correctAnswer: string,
+    question: Question,
+    album: Album,
+  ) => void,
   question: Question,
-  album: Album
+  album: Album,
 ): void {
   options.forEach((option: string, index: number) => {
     const button = document.createElement("button");
     button.textContent = option;
     button.className =
       "relative w-full py-4 px-5 rounded-xl text-left text-lg font-medium bg-zinc-800 border border-zinc-600 hover:bg-zinc-700 hover:border-zinc-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900 transition-all duration-200 shadow-sm hover:shadow-md text-zinc-50";
-    
+
     // Set appropriate ARIA attributes
     button.setAttribute("role", "radio");
     button.setAttribute("aria-checked", "false");
     button.setAttribute("aria-label", `Option: ${option}`);
     button.setAttribute("data-index", index.toString());
     button.setAttribute("data-testid", `option-${index}`); // For easier testing
-    
+
     // Add structure to help with visual scanning
-    const optionNumber = document.createElement('span');
-    optionNumber.className = "inline-flex items-center justify-center w-6 h-6 mr-3 rounded-full bg-zinc-700 text-zinc-100 text-sm";
+    const optionNumber = document.createElement("span");
+    optionNumber.className =
+      "inline-flex items-center justify-center w-6 h-6 mr-3 rounded-full bg-zinc-700 text-zinc-100 text-sm";
     optionNumber.textContent = `${index + 1}`;
     button.prepend(optionNumber);
-    
+
     // Attach click handler
     button.onclick = () => {
       // Disable all buttons to prevent double clicks
-      const allButtons = container.querySelectorAll('button');
-      allButtons.forEach(btn => btn.disabled = true);
-      
+      const allButtons = container.querySelectorAll("button");
+      allButtons.forEach((btn) => (btn.disabled = true));
+
       // Mark this option as selected for screen readers
       button.setAttribute("aria-checked", "true");
-      
+
       // Add visual feedback for selection
-      button.classList.add('selected-option');
-      
+      button.classList.add("selected-option");
+
       // Call the answer handler
-      handleAnswer(
-        option, 
-        question.correctAnswer, 
-        question,
-        album
-      );
+      handleAnswer(option, question.correctAnswer, question, album);
     };
 
     // Append to container
@@ -259,11 +262,11 @@ function createOptionButtons(
 
 /**
  * Sets up keyboard navigation for question options to improve accessibility.
- * 
+ *
  * Implements keyboard controls:
  * - Arrow keys to navigate between options
  * - Enter/Space to select an option
- * 
+ *
  * @param {HTMLElement} optionsContainer - Container element for option buttons
  * @param {Question} question - Current question object
  * @param {Album} album - Current album object
@@ -273,21 +276,35 @@ function setupKeyboardNavigation(
   optionsContainer: HTMLElement,
   question: Question,
   album: Album,
-  handleAnswer: (option: string, correctAnswer: string, question: Question, album: Album) => void
+  handleAnswer: (
+    option: string,
+    correctAnswer: string,
+    question: Question,
+    album: Album,
+  ) => void,
 ): void {
   const options = Array.from(
-    optionsContainer.querySelectorAll<HTMLElement>("button")
+    optionsContainer.querySelectorAll<HTMLElement>("button"),
   );
 
   options.forEach((button, index) => {
     button.addEventListener("keydown", (e: KeyboardEvent) => {
       // Only process if it's a navigation or selection key
-      if (!["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter", " "].includes(e.key)) {
+      if (
+        ![
+          "ArrowUp",
+          "ArrowDown",
+          "ArrowLeft",
+          "ArrowRight",
+          "Enter",
+          " ",
+        ].includes(e.key)
+      ) {
         return;
       }
-      
+
       e.preventDefault(); // Prevent page scrolling
-      
+
       switch (e.key) {
         case "ArrowDown":
         case "ArrowRight":
@@ -295,14 +312,14 @@ function setupKeyboardNavigation(
           const nextIndex = (index + 1) % options.length;
           options[nextIndex].focus();
           break;
-          
+
         case "ArrowUp":
         case "ArrowLeft":
           // Navigate to previous option in a circular manner
           const prevIndex = (index - 1 + options.length) % options.length;
           options[prevIndex].focus();
           break;
-          
+
         case "Enter":
         case " ": // Space key
           // Select the current option
