@@ -523,8 +523,7 @@ export const ui = {
     "podcast.page.description":
       "Sumérgete en el mundo de la música con nuestros podcasts cautivadores. Descubre historias emocionantes, antecedentes fascinantes y momentos definitorios de varias épocas musicales, perfectos para cualquiera que quiera no solo escuchar música, sino también entenderla.",
     "podcast.search.label": "Buscar podcasts",
-    "podcast.search.placeholder":
-      "Buscar historias fascinantes de música...",
+    "podcast.search.placeholder": "Buscar historias fascinantes de música...",
     "podcast.search.status.all": "Se muestran todos los podcasts",
     "podcast.search.status.one": "1 podcast encontrado",
     "podcast.search.status.multiple": "{count} podcasts encontrados",
@@ -1270,7 +1269,8 @@ export const ui = {
     "index.start.game.label": "Start din musikalske rejse",
     "index.welcome.footnote":
       "Skabt af musikelskere til musikelskere. God fornøjelse!",
-    "accessibility.wcag": "Denne applikation stræber efter WCAG AAA-overensstemmelse.",
+    "accessibility.wcag":
+      "Denne applikation stræber efter WCAG AAA-overensstemmelse.",
   },
   nl: {
     "nav.home": "Home",
@@ -1617,7 +1617,8 @@ export const ui = {
     "index.continue": "Låt oss börja!",
     "index.start.game.label": "Påbörja din musikaliska resa",
     "index.welcome.footnote": "Skapat av musikälskare för musikälskare. Njut!",
-    "accessibility.wcag": "Denna applikation strävar efter WCAG AAA-efterlevnad.",
+    "accessibility.wcag":
+      "Denna applikation strävar efter WCAG AAA-efterlevnad.",
   },
   fi: {
     "nav.home": "Koti",
