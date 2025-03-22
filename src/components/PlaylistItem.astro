@@ -4,6 +4,7 @@ import { Picture } from "astro:assets";
 
 interface Props {
   headline: string;
+  subheadline?: string; // Optional property für die introSubline
   image: string;
   isDisabled?: boolean;
   imageAlt: string;
@@ -12,48 +13,58 @@ interface Props {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const { headline = "", image, isDisabled = false, imageAlt = "" } = Astro.props;
+const { headline = "", subheadline = "", image, isDisabled = false, imageAlt = "" } = Astro.props;
 ---
 
 <article
-  class="relative flex flex-col w-full h-full overflow-hidden bg-zinc-700 rounded-lg will-change-opacity transition-opacity duration-300 ease-in-out"
+  class="relative flex flex-col w-full h-full overflow-hidden rounded-xl bg-gradient-to-b from-zinc-700 to-zinc-800 will-change-transform transition-all duration-300 ease-in-out shadow-sm hover:shadow-md"
   role="listitem"
 >
   {
     isDisabled && (
       <div
-        class="absolute inset-0 z-10 flex items-center justify-center p-4 bg-black/80 text-zinc-50 text-center font-medium"
+        class="absolute inset-0 z-10 flex items-center justify-center p-4 bg-black/80 text-zinc-50 text-center font-medium backdrop-blur-sm"
         aria-label={t("playlist.item.unavailable")}
         role="status"
       >
         <span class="sr-only">{t("playlist.item.status")}:</span>
-        {t("playlist.item.coming.soon")}
+        <span class="px-4 py-2 rounded-full bg-zinc-800/80 border border-zinc-700">{t("playlist.item.coming.soon")}</span>
       </div>
     )
   }
 
-  <div class="relative w-full aspect-square overflow-hidden">
+  <div class="relative w-full aspect-[16/9] overflow-hidden group">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-[1] opacity-30 group-hover:opacity-20 transition-opacity"></div>
     <Picture
-      class={isDisabled
-        ? "absolute top-0 left-0 w-full h-full object-cover opacity-70 grayscale-[50%]"
-        : "absolute top-0 left-0 w-full h-full object-cover"}
+      class={`absolute top-0 left-0 w-full h-full object-cover transition-all duration-500 ${isDisabled ? "opacity-70 grayscale-[50%]" : "group-hover:scale-105"}`}
       src={image}
-      width={130}
-      height={130}
+      width={320}
+      height={180}
       formats={["avif", "webp"]}
       alt={imageAlt}
       loading="lazy"
       decoding="async"
       fetchpriority={isDisabled ? "low" : "auto"}
-      quality={80}
+      quality={85}
     />
   </div>
 
-  <h2
-    class="headline m-0 p-4 font-sans text-base font-semibold leading-tight hyphens-auto text-zinc-50 text-center break-words"
-  >
-    {headline}
-  </h2>
+  <div class="p-4 flex-grow flex flex-col">
+    <h2
+      class="headline m-0 font-sans text-lg font-bold leading-tight hyphens-auto text-sky-500 text-center break-words"
+    >
+      {headline}
+    </h2>
+    
+    {subheadline && (
+      <div class="mt-2 relative">
+        <div class="h-px w-1/4 bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto mb-2"></div>
+        <p class="text-base text-zinc-300 text-center leading-snug">
+          {subheadline}
+        </p>
+      </div>
+    )}
+  </div>
 </article>
 
 <script>
@@ -63,12 +74,12 @@ const { headline = "", image, isDisabled = false, imageAlt = "" } = Astro.props;
     .forEach((item) => {
       item.addEventListener("mouseenter", () => {
         if (window.matchMedia("(hover: hover)").matches) {
-          item.classList.add("translate-y-[-2px]", "shadow-md");
+          item.classList.add("translate-y-[-2px]", "shadow-lg");
         }
       });
 
       item.addEventListener("mouseleave", () => {
-        item.classList.remove("translate-y-[-2px]", "shadow-md");
+        item.classList.remove("translate-y-[-2px]", "shadow-lg");
       });
     });
 </script>
@@ -76,8 +87,9 @@ const { headline = "", image, isDisabled = false, imageAlt = "" } = Astro.props;
 <style>
   /* Stile für Nutzer, die reduzierte Bewegung bevorzugen */
   @media (prefers-reduced-motion: reduce) {
-    .aspect-square {
-      transition: none;
+    article, .group img {
+      transition: none !important;
+      transform: none !important;
     }
   }
 
@@ -90,5 +102,21 @@ const { headline = "", image, isDisabled = false, imageAlt = "" } = Astro.props;
     article[aria-disabled="true"] {
       border: 2px dashed GrayText;
     }
+  }
+
+  /* Unterstützung für 16:9 Aspektverhältnis */
+  .aspect-\[16\/9\] {
+    position: relative;
+    padding-bottom: 56.25%; /* 9/16 = 0.5625 */
+    height: 0;
+  }
+
+  .aspect-\[16\/9\] > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 </style>

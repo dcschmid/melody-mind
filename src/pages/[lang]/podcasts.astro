@@ -545,11 +545,20 @@ interface Podcast {
     outline-offset: 2px;
   }
 
-  /* Aspektverhältnis-Unterstützung für 16:9 */
+  /* Optimierte 16:9 Unterstützung mit moderner CSS-Syntax */
   .aspect-w-16 {
+    aspect-ratio: 16/9;
+    overflow: hidden;
     position: relative;
-    padding-bottom: 56.25%; /* 9/16 = 0.5625 */
-    height: 0;
+  }
+
+  /* Fallback für Browser ohne aspect-ratio Unterstützung */
+  @supports not (aspect-ratio: 16/9) {
+    .aspect-w-16 {
+      position: relative;
+      padding-bottom: 56.25%; /* 9/16 = 0.5625 */
+      height: 0;
+    }
   }
 
   .aspect-w-16 > * {

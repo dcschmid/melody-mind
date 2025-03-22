@@ -72,119 +72,169 @@ const currentCategory = category;
 ---
 
 <Layout title={`${currentCategory?.headline} Start`}>
-  <Headline
-    className="text-center text-3xl md:text-4xl"
-    title={currentCategory?.headline + " " + t("category.selected")}
-    level="h1"
-  />
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-8">
+      <Headline
+        className="text-center text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-500"
+        title={currentCategory?.headline}
+        level="h1"
+      />
+      <div class="h-1 w-24 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full mx-auto my-4"></div>
+      
+      <Paragraph
+        className="text-center text-lg font-medium text-zinc-200"
+        description={currentCategory?.introSubline}
+      />
+    </div>
 
-  <Paragraph
-    className="text-center"
-    description={currentCategory?.introSubline}
-  />
-
-  <article
-    class="flex flex-col items-center gap-6 w-full"
-    data-category={currentCategory?.slug}
-    aria-labelledby="difficulty-heading"
-  >
-    <div
-      class="relative mx-auto"
-      role="img"
-      aria-label={currentCategory?.headline + " " + t("category.image.alt")}
+    <article
+      class="flex flex-col items-center gap-8 w-full"
+      data-category={currentCategory?.slug}
+      aria-labelledby="difficulty-heading"
     >
-      {
-        currentCategory?.imageUrl ? (
-          <Picture
-            class="w-full max-w-[280px] h-auto rounded-lg shadow-md hover:scale-105 hover:shadow-xl transition-all duration-300 motion-safe:transform motion-reduce:transition-none"
-            src={currentCategory.imageUrl}
-            width={280}
-            height={280}
-            formats={["avif", "webp"]}
-            alt=""
-            loading="eager"
-          />
-        ) : (
-          <div class="flex items-center justify-center w-[280px] h-[280px] p-6 rounded-lg bg-zinc-800 shadow-md font-sans text-base text-zinc-50 text-center">
-            {t("category.no_image_available")}
+      <div
+        class="relative mx-auto w-full max-w-2xl group overflow-hidden"
+        role="img"
+        aria-label={currentCategory?.headline + " " + t("category.image.alt")}
+      >
+        {
+          currentCategory?.imageUrl ? (
+            <div class="w-full aspect-[16/9] overflow-hidden rounded-xl shadow-lg">
+              <Picture
+                class="w-full h-full object-cover transition-all duration-700 ease-in-out group-hover:scale-105 motion-reduce:transform-none"
+                src={currentCategory.imageUrl}
+                width={640}
+                height={360}
+                formats={["avif", "webp"]}
+                alt=""
+                loading="eager"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+            </div>
+          ) : (
+            <div class="flex items-center justify-center w-full aspect-[16/9] p-6 rounded-xl bg-zinc-800 shadow-lg font-sans text-base text-zinc-50 text-center">
+              {t("category.no_image_available")}
+            </div>
+          )
+        }
+      </div>
+
+      <div class="prose prose-invert prose-zinc max-w-none px-4 py-6 bg-zinc-800/50 rounded-xl">
+        <Paragraph className="text-center leading-relaxed" description={currentCategory?.text} />
+      </div>
+
+      <div class="flex flex-col gap-8 items-center w-full mt-4 bg-zinc-800/30 rounded-xl p-6">
+        <div class="relative w-full max-w-xl">
+          <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full bg-purple-600 flex items-center justify-center shadow-lg border-4 border-zinc-900">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+            </svg>
           </div>
-        )
-      }
-    </div>
+          
+          <Headline level="h2" className="text-center text-2xl font-bold mt-4"> Music Quiz </Headline>
 
-    <Paragraph className="text-center" description={currentCategory?.text} />
+          <Paragraph
+            className="text-center max-w-2xl mb-6"
+            description={t("knowledge.play.description")}
+          />
 
-    <div class="flex flex-col gap-6 items-center w-full">
-      <Headline level="h2"> Music Quiz </Headline>
+          <div
+            class="flex flex-wrap justify-center gap-4 w-full p-1"
+            role="group"
+            aria-label={t("category.difficulty.group")}
+          >
+            <ButtonLink
+              href={getRelativeLocaleUrl(
+                lang,
+                `game-${currentCategory?.slug}/easy`,
+              )}
+              aria-label={t("category.difficulty.easy.label")}
+              class="flex-1 min-w-[120px] max-w-[180px] py-3 px-6 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 transform hover:scale-105 transition-all duration-300"
+            >
+              <span class="flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {t("category.difficulty.easy")}
+              </span>
+            </ButtonLink>
 
-      <Paragraph
-        className="text-center max-w-2xl mb-4"
-        description={t("knowledge.play.description")}
-      />
+            <ButtonLink
+              href={getRelativeLocaleUrl(
+                lang,
+                `game-${currentCategory?.slug}/medium`,
+              )}
+              aria-label={t("category.difficulty.medium.label")}
+              class="flex-1 min-w-[120px] max-w-[180px] py-3 px-6 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 transform hover:scale-105 transition-all duration-300"
+            >
+              <span class="flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                {t("category.difficulty.medium")}
+              </span>
+            </ButtonLink>
 
-      <div
-        class="flex flex-wrap flex-col justify-center gap-6 w-full p-1 xs:flex-row"
-        role="group"
-        aria-label={t("category.difficulty.group")}
-      >
-        <ButtonLink
-          href={getRelativeLocaleUrl(
-            lang,
-            `game-${currentCategory?.slug}/easy`,
-          )}
-          aria-label={t("category.difficulty.easy.label")}
-        >
-          {t("category.difficulty.easy")}
-        </ButtonLink>
-
-        <ButtonLink
-          href={getRelativeLocaleUrl(
-            lang,
-            `game-${currentCategory?.slug}/medium`,
-          )}
-          aria-label={t("category.difficulty.medium.label")}
-        >
-          {t("category.difficulty.medium")}
-        </ButtonLink>
-
-        <ButtonLink
-          href={getRelativeLocaleUrl(
-            lang,
-            `game-${currentCategory?.slug}/hard`,
-          )}
-          aria-label={t("category.difficulty.hard.label")}
-        >
-          {t("category.difficulty.hard")}
-        </ButtonLink>
+            <ButtonLink
+              href={getRelativeLocaleUrl(
+                lang,
+                `game-${currentCategory?.slug}/hard`,
+              )}
+              aria-label={t("category.difficulty.hard.label")}
+              class="flex-1 min-w-[120px] max-w-[180px] py-3 px-6 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 transform hover:scale-105 transition-all duration-300"
+            >
+              <span class="flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10h7l-9 11v-7H4l9-11z" />
+                </svg>
+                {t("category.difficulty.hard")}
+              </span>
+            </ButtonLink>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="flex flex-col gap-6 items-center w-full mt-8">
-      <Headline level="h2"> Cover Puzzle </Headline>
+      <div class="flex flex-col gap-6 items-center w-full mt-4 bg-zinc-800/30 rounded-xl p-6 relative">
+        <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full bg-indigo-600 flex items-center justify-center shadow-lg border-4 border-zinc-900">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+        </div>
+        
+        <Headline level="h2" className="text-center text-2xl font-bold mt-4"> Cover Puzzle </Headline>
 
-      <Paragraph
-        className="text-center max-w-2xl mb-4"
-        description={t("play.cover.puzzle.description")}
-      />
+        <Paragraph
+          className="text-center max-w-2xl mb-4"
+          description={t("play.cover.puzzle.description")}
+        />
 
-      <div
-        class="flex flex-wrap flex-col justify-center gap-6 w-full p-1 xs:flex-row"
-        role="group"
-        aria-label="Cover Puzzle Game"
-      >
-        <ButtonLink
-          href={getRelativeLocaleUrl(
-            lang,
-            `game-puzzle-${currentCategory?.slug}`,
-          )}
-          aria-label={t("play.cover.puzzle")}
-          class="bg-gradient-to-br from-purple-600 to-purple-800 hover:from-purple-500 hover:to-purple-700"
+        <div
+          class="flex flex-wrap justify-center gap-6 w-full p-1"
+          role="group"
+          aria-label="Cover Puzzle Game"
         >
-          {t("category.play")} Cover Puzzle
-        </ButtonLink>
+          <ButtonLink
+            href={getRelativeLocaleUrl(
+              lang,
+              `game-puzzle-${currentCategory?.slug}`,
+            )}
+            aria-label={t("play.cover.puzzle")}
+            class="py-4 px-8 bg-gradient-to-br from-purple-600 to-purple-800 hover:from-purple-500 hover:to-purple-700 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+          >
+            <span class="flex items-center justify-center font-bold">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              {t("play.cover.puzzle")}
+            </span>
+          </ButtonLink>
+        </div>
       </div>
-    </div>
-  </article>
+    </article>
+  </div>
 </Layout>
 
 <style>
