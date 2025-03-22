@@ -189,10 +189,12 @@ export const ui = {
     "podcast.conclusion.title": "Fazit",
     "podcast.conclusion.description": "Zusammenfassung und nächste Schritte.",
     "login.welcome": "Willkommen bei Melody Mind!",
-    "login.description": "Begib dich auf eine musikalische Entdeckungsreise durch die Zeiten! Teste dein Wissen in spannenden Quizzen, erkunde faszinierende Musikgenres und tauche ein in unsere mitreißenden Podcasts. Zeige dein Können, sammle Punkte und werde zur wahren Musiklegende!",
+    "login.description":
+      "Begib dich auf eine musikalische Entdeckungsreise durch die Zeiten! Teste dein Wissen in spannenden Quizzen, erkunde faszinierende Musikgenres und tauche ein in unsere mitreißenden Podcasts. Zeige dein Können, sammle Punkte und werde zur wahren Musiklegende!",
     "index.continue": "Los geht's!",
     "index.start.game.label": "Starte deine musikalische Reise",
-    "index.welcome.footnote": "Vorbereitet von Musikliebhabern für Musikliebhaber. Viel Spaß!",
+    "index.welcome.footnote":
+      "Vorbereitet von Musikliebhabern für Musikliebhaber. Viel Spaß!",
   },
   en: {
     "nav.home": "Home",
@@ -366,10 +368,12 @@ export const ui = {
     "podcast.conclusion.title": "Conclusion",
     "podcast.conclusion.description": "Summary and next steps.",
     "login.welcome": "Welcome to Melody Mind!",
-    "login.description": "Embark on a musical journey through time! Test your knowledge in exciting quizzes, explore fascinating music genres, and dive into our captivating podcasts. Show your skills, collect points, and become a true music legend!",
+    "login.description":
+      "Embark on a musical journey through time! Test your knowledge in exciting quizzes, explore fascinating music genres, and dive into our captivating podcasts. Show your skills, collect points, and become a true music legend!",
     "index.continue": "Let's Go!",
     "index.start.game.label": "Start your musical journey",
-    "index.welcome.footnote": "Crafted by music lovers for music lovers. Enjoy!",
+    "index.welcome.footnote":
+      "Crafted by music lovers for music lovers. Enjoy!",
   },
   es: {
     "nav.home": "Inicio",
@@ -543,10 +547,12 @@ export const ui = {
     "podcast.conclusion.title": "Conclusión",
     "podcast.conclusion.description": "Resumen y próximos pasos.",
     "login.welcome": "¡Bienvenido a Melody Mind!",
-    "login.description": "¡Embárcate en un viaje musical a través del tiempo! Pon a prueba tus conocimientos en emocionantes cuestionarios, explora fascinantes géneros musicales y sumérgete en nuestros cautivadores podcasts. Demuestra tus habilidades, acumula puntos y conviértete en una verdadera leyenda de la música.",
+    "login.description":
+      "¡Embárcate en un viaje musical a través del tiempo! Pon a prueba tus conocimientos en emocionantes cuestionarios, explora fascinantes géneros musicales y sumérgete en nuestros cautivadores podcasts. Demuestra tus habilidades, acumula puntos y conviértete en una verdadera leyenda de la música.",
     "index.continue": "¡Vamos!",
     "index.start.game.label": "Comienza tu viaje musical",
-    "index.welcome.footnote": "Creado por amantes de la música para amantes de la música. ¡Disfruta!",
+    "index.welcome.footnote":
+      "Creado por amantes de la música para amantes de la música. ¡Disfruta!",
   },
   fr: {
     "nav.home": "Accueil",
@@ -720,10 +726,12 @@ export const ui = {
     "podcast.conclusion.title": "Conclusion",
     "podcast.conclusion.description": "Résumé et prochaines étapes.",
     "login.welcome": "Bienvenue à Melody Mind !",
-    "login.description": "Embarquez pour un voyage musical à travers le temps ! Testez vos connaissances dans des quiz passionnants, explorez des genres musicaux fascinants et plongez dans nos podcasts captivants. Montrez vos compétences, collectez des points et devenez une véritable légende de la musique !",
+    "login.description":
+      "Embarquez pour un voyage musical à travers le temps ! Testez vos connaissances dans des quiz passionnants, explorez des genres musicaux fascinants et plongez dans nos podcasts captivants. Montrez vos compétences, collectez des points et devenez une véritable légende de la musique !",
     "index.continue": "Allons-y !",
     "index.start.game.label": "Commencez votre voyage musical",
-    "index.welcome.footnote": "Conçu par des mélomanes pour des mélomanes. Profitez-en !",
+    "index.welcome.footnote":
+      "Conçu par des mélomanes pour des mélomanes. Profitez-en !",
   },
   it: {
     "nav.home": "Home",
@@ -897,10 +905,12 @@ export const ui = {
     "podcast.conclusion.title": "Conclusione",
     "podcast.conclusion.description": "Riepilogo e prossimi passi.",
     "login.welcome": "Benvenuto a Melody Mind!",
-    "login.description": "Intraprendi un viaggio musicale attraverso il tempo! Metti alla prova le tue conoscenze in quiz entusiasmanti, esplora affascinanti generi musicali e immergiti nei nostri avvincenti podcast. Mostra le tue abilità, raccogli punti e diventa una vera leggenda della musica!",
+    "login.description":
+      "Intraprendi un viaggio musicale attraverso il tempo! Metti alla prova le tue conoscenze in quiz entusiasmanti, esplora affascinanti generi musicali e immergiti nei nostri avvincenti podcast. Mostra le tue abilità, raccogli punti e diventa una vera leggenda della musica!",
     "index.continue": "Iniziamo!",
     "index.start.game.label": "Inizia il tuo viaggio musicale",
-    "index.welcome.footnote": "Creato da amanti della musica per amanti della musica. Buon divertimento!",
+    "index.welcome.footnote":
+      "Creato da amanti della musica per amanti della musica. Buon divertimento!",
   },
   pt: {
     "nav.home": "Início",
@@ -1074,10 +1084,12 @@ export const ui = {
     "podcast.conclusion.title": "Conclusão",
     "podcast.conclusion.description": "Resumo e próximos passos.",
     "login.welcome": "Bem-vindo ao Melody Mind!",
-    "login.description": "Embarque em uma jornada musical através do tempo! Teste seus conhecimentos em quizzes emocionantes, explore gêneros musicais fascinantes e mergulhe em nossos podcasts cativantes. Mostre suas habilidades, colete pontos e torne-se uma verdadeira lenda da música!",
+    "login.description":
+      "Embarque em uma jornada musical através do tempo! Teste seus conhecimentos em quizzes emocionantes, explore gêneros musicais fascinantes e mergulhe em nossos podcasts cativantes. Mostre suas habilidades, colete pontos e torne-se uma verdadeira lenda da música!",
     "index.continue": "Vamos lá!",
     "index.start.game.label": "Inicie sua jornada musical",
-    "index.welcome.footnote": "Feito por amantes da música para amantes da música. Aproveite!",
+    "index.welcome.footnote":
+      "Feito por amantes da música para amantes da música. Aproveite!",
   },
   da: {
     "nav.home": "Hjem",
@@ -1245,10 +1257,12 @@ export const ui = {
     "podcast.conclusion.title": "Konklusion",
     "podcast.conclusion.description": "Resumé og næste skridt.",
     "login.welcome": "Velkommen til Melody Mind!",
-    "login.description": "Begiv dig ud på en musikalsk rejse gennem tiden! Test din viden i spændende quizzer, udforsk fascinerende musikgenrer og dyk ned i vores fængslende podcasts. Vis dine evner, saml point og bliv en sand musiklegende!",
+    "login.description":
+      "Begiv dig ud på en musikalsk rejse gennem tiden! Test din viden i spændende quizzer, udforsk fascinerende musikgenrer og dyk ned i vores fængslende podcasts. Vis dine evner, saml point og bliv en sand musiklegende!",
     "index.continue": "Lad os gå!",
     "index.start.game.label": "Start din musikalske rejse",
-    "index.welcome.footnote": "Skabt af musikelskere til musikelskere. God fornøjelse!",
+    "index.welcome.footnote":
+      "Skabt af musikelskere til musikelskere. God fornøjelse!",
   },
   nl: {
     "nav.home": "Home",
@@ -1416,10 +1430,12 @@ export const ui = {
     "podcast.conclusion.title": "Conclusie",
     "podcast.conclusion.description": "Samenvatting en volgende stappen.",
     "login.welcome": "Welkom bij Melody Mind!",
-    "login.description": "Ga op een muzikale reis door de tijd! Test je kennis in spannende quizzen, verken fascinerende muziekgenres en duik in onze boeiende podcasts. Toon je vaardigheden, verzamel punten en word een ware muzieklegende!",
+    "login.description":
+      "Ga op een muzikale reis door de tijd! Test je kennis in spannende quizzen, verken fascinerende muziekgenres en duik in onze boeiende podcasts. Toon je vaardigheden, verzamel punten en word een ware muzieklegende!",
     "index.continue": "Laten we gaan!",
     "index.start.game.label": "Begin je muzikale reis",
-    "index.welcome.footnote": "Gemaakt door muziekliefhebbers voor muziekliefhebbers. Geniet ervan!",
+    "index.welcome.footnote":
+      "Gemaakt door muziekliefhebbers voor muziekliefhebbers. Geniet ervan!",
   },
   sv: {
     "nav.home": "Hem",
@@ -1587,7 +1603,8 @@ export const ui = {
     "podcast.conclusion.title": "Slutsats",
     "podcast.conclusion.description": "Sammanfattning och nästa steg.",
     "login.welcome": "Välkommen till Melody Mind!",
-    "login.description": "Ge dig ut på en musikalisk resa genom tiden! Testa dina kunskaper i spännande frågesporter, utforska fascinerande musikgenrer och fördjupa dig i våra fängslande podcasts. Visa dina färdigheter, samla poäng och bli en sann musiklegend!",
+    "login.description":
+      "Ge dig ut på en musikalisk resa genom tiden! Testa dina kunskaper i spännande frågesporter, utforska fascinerande musikgenrer och fördjupa dig i våra fängslande podcasts. Visa dina färdigheter, samla poäng och bli en sann musiklegend!",
     "index.continue": "Låt oss börja!",
     "index.start.game.label": "Påbörja din musikaliska resa",
     "index.welcome.footnote": "Skapat av musikälskare för musikälskare. Njut!",
@@ -1757,9 +1774,11 @@ export const ui = {
     "podcast.conclusion.title": "Johtopäätös",
     "podcast.conclusion.description": "Yhteenveto ja seuraavat vaiheet.",
     "login.welcome": "Tervetuloa Melody Mindiin!",
-    "login.description": "Lähde musiikilliselle matkalle ajan halki! Testaa tietojasi jännittävissä tietovisoissa, tutki kiehtovia musiikkigenrejä ja sukella mukaansatempaaviin podcasteihimme. Näytä taitosi, kerää pisteitä ja tule todelliseksi musiikkilegendaksi!",
+    "login.description":
+      "Lähde musiikilliselle matkalle ajan halki! Testaa tietojasi jännittävissä tietovisoissa, tutki kiehtovia musiikkigenrejä ja sukella mukaansatempaaviin podcasteihimme. Näytä taitosi, kerää pisteitä ja tule todelliseksi musiikkilegendaksi!",
     "index.continue": "Aloitetaan!",
     "index.start.game.label": "Aloita musiikillinen matkasi",
-    "index.welcome.footnote": "Musiikin rakastajien tekemä musiikin rakastajille. Nauti!",
+    "index.welcome.footnote":
+      "Musiikin rakastajien tekemä musiikin rakastajille. Nauti!",
   },
 };

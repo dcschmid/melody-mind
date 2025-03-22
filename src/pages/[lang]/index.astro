@@ -47,20 +47,24 @@ const keywords = t("meta.keywords");
       loading="eager"
     />
 
-    <Headline level="h1" title={title} className="text-3xl md:text-4xl font-bold mb-4" />
+    <Headline
+      level="h1"
+      title={title}
+      className="text-3xl md:text-4xl font-bold mb-4"
+    />
 
     <Paragraph className="max-w-2xl text-lg mb-8">{description}</Paragraph>
 
     <div class="flex flex-col items-center gap-4 mt-6 w-full max-w-xs">
-      <ButtonLink 
-        href={`/${lang}/gamehome`} 
+      <ButtonLink
+        href={`/${lang}/gamehome`}
         aria-label={t("index.start.game.label")}
         class="w-full py-3 px-6 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 transform hover:scale-105 transition-all duration-300"
       >
         <span class="text-lg font-medium">{t("index.continue")}</span>
       </ButtonLink>
     </div>
-    
+
     <p class="mt-8 text-sm text-zinc-400">{t("index.welcome.footnote")}</p>
   </div>
 </Layout>
