@@ -4,50 +4,21 @@ import PlaylistItem from "@components/PlaylistItem.astro";
 import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
-// Language settings
+
+/**
+ * Language and translation setup
+ * Sets the current language based on URL and loads appropriate translations
+ */
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Load categories based on language
-let categoriesList = [];
-try {
-  // Versuche erst mit Alias zu laden
-  categoriesList = await import(`@json/${lang}_categories.json`)
-    .then((module) => module.default)
-    .catch(async () => {
-      // Als Fallback versuche relativen Pfad
-      console.log(
-        `Versuche relativen Pfad für ${lang}_categories.json zu laden`,
-      );
-      return import(`../../json/${lang}_categories.json`)
-        .then((module) => module.default)
-        .catch((err) => {
-          console.error(`Konnte ${lang}_categories.json nicht laden:`, err);
-          return [];
-        });
-    });
-} catch (error) {
-  console.error(`Fehler beim Laden der Kategorien für ${lang}:`, error);
-}
-
-// Stelle sicher, dass categoriesList ein Array ist
-if (!Array.isArray(categoriesList)) {
-  console.warn(
-    "Kategorien wurden nicht als Array geladen, verwende leeres Array",
-  );
-  categoriesList = [];
-}
-
 /**
- * Set a default username since we don't have login functionality
+ * Interface defining the structure of a music category
  */
-const username = "Musikfan";
-
-/** Define the interface for the Category type */
 interface Category {
   isPlayable: boolean;
   headline: string;
-  categoryUrl?: string;
+  categoryUrl?: string; 
   imageUrl: string;
   introSubline: string;
   slug: string;
@@ -55,52 +26,69 @@ interface Category {
 }
 
 /**
- * This function filters the categoriesList array to only include items that are playable.
+ * Asynchronously loads category data with fallback mechanisms
+ * First attempts to load using the alias path, then tries relative path if that fails
+ * @returns {Promise<Category[]>} Array of category objects
  */
-const getSelectedPlayableItem = (): Category[] => {
-  if (!Array.isArray(categoriesList)) return [];
-  return categoriesList.filter(
-    (item): item is Category & { categoryUrl: string } => {
-      return (
-        typeof item === "object" &&
-        item !== null &&
-        "isPlayable" in item &&
-        "headline" in item &&
-        "imageUrl" in item &&
-        "introSubline" in item &&
-        "slug" in item &&
-        "text" in item &&
-        "categoryUrl" in item &&
-        item.isPlayable &&
-        Boolean(item.categoryUrl)
-      );
-    },
-  );
-};
+async function loadCategoriesForLanguage(language: string): Promise<Category[]> {
+  try {
+    // First try using the alias path
+    return await import(`@json/${language}_categories.json`)
+      .then(module => module.default)
+      .catch(async () => {
+        // Fallback to relative path if alias fails
+        console.info(`Attempting to load ${language}_categories.json using relative path`);
+        return await import(`../../json/${language}_categories.json`)
+          .then(module => module.default)
+          .catch(err => {
+            console.error(`Failed to load ${language}_categories.json:`, err);
+            return [];
+          });
+      });
+  } catch (error) {
+    console.error(`Error loading categories for ${language}:`, error);
+    return [];
+  }
+}
+
+// Load categories and ensure we have a valid array
+const categoriesList = await loadCategoriesForLanguage(lang);
+const categories = Array.isArray(categoriesList) ? categoriesList : [];
 
 /**
- * This function filters the categoriesList array to only include items that are not playable.
+ * Type guard that checks if an item is a valid playable category
+ * @param item - The item to check
+ * @returns Boolean indicating if item is a valid playable category
  */
-const getNonPlayableItems = () => {
-  return categoriesList.filter((item: any) => !item.isPlayable);
-};
+function isPlayableCategory(item: any): item is Category & { categoryUrl: string } {
+  return (
+    item && 
+    typeof item === 'object' &&
+    item.isPlayable === true &&
+    typeof item.headline === 'string' &&
+    typeof item.imageUrl === 'string' &&
+    typeof item.introSubline === 'string' &&
+    typeof item.slug === 'string' &&
+    typeof item.text === 'string' &&
+    typeof item.categoryUrl === 'string' &&
+    Boolean(item.categoryUrl)
+  );
+}
 
-const categories = [...getSelectedPlayableItem(), ...getNonPlayableItems()];
+// Filter categories by playability status
+const playableCategories = categories.filter(isPlayableCategory);
+const nonPlayableCategories = categories.filter(item => item && !item.isPlayable);
 
-// Nur spielbare Kategorien filtern
-const playableCategories = categories.filter((item) => item.isPlayable);
+// Combined categories with playable ones first
+const sortedCategories = [...playableCategories, ...nonPlayableCategories];
 
-// Übersetzungen für leere/keine spielbaren Kategorien
-const emptyCategoriesHeadline =
-  t("game.categories.empty.headline") || "Keine Genres gefunden";
-const emptyCategoriesText =
-  t("game.categories.empty.text") ||
-  "Es wurden leider keine Kategorien gefunden. Bitte versuche es später erneut.";
-const noPlayableCategoriesHeadline =
-  t("game.categories.no.playable.headline") || "Keine spielbaren Genres";
-const noPlayableCategoriesText =
-  t("game.categories.no.playable.text") ||
-  "Es gibt derzeit keine spielbaren Kategorien. Bitte schau später wieder vorbei.";
+// Prepare fallback text for empty states
+const emptyCategoriesHeadline = t("game.categories.empty.headline") || "No genres found";
+const emptyCategoriesText = t("game.categories.empty.text") || 
+  "Unfortunately, no categories were found. Please try again later.";
+const noPlayableCategoriesHeadline = t("game.categories.no.playable.headline") || "No playable genres";
+const noPlayableCategoriesText = t("game.categories.no.playable.text") || 
+  "There are currently no playable categories. Please check back later.";
 ---
 
 <Layout title={t("game.select")}>
@@ -136,7 +124,7 @@ const noPlayableCategoriesText =
 
       <div
         id="playlist-grid"
-        class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 w-full max-w-5xl mx-auto my-8 min-h-[200px]"
+        class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 w-full max-w-5xl mx-auto my-8 min-h-[200px]"
         role="list"
         aria-label={t("game.genre.list")}
         aria-live="polite"
@@ -157,6 +145,7 @@ const noPlayableCategoriesText =
                       >
                         <PlaylistItem
                           headline={item.headline}
+                          subheadline={item.introSubline}  // Hier verwenden wir die introSubline aus der JSON-Datei
                           image={item.imageUrl}
                           imageAlt={t("game.genre.image") + " " + item.headline}
                         />
@@ -421,5 +410,14 @@ const noPlayableCategoriesText =
 
       page-break-inside: avoid;
     }
+  }
+
+  /* 16:9 Aspektverhältnis für Genre-Karten */
+  #playlist-grid a {
+    display: block;
+  }
+  
+  #playlist-grid a article > div:first-child {
+    aspect-ratio: 16/9; 
   }
 </style>
