@@ -28,43 +28,75 @@ const keywords = t("meta.keywords");
   keywords={keywords}
   showHeader={false}
 >
-  <div
-    class="max-w-4xl w-full mx-auto px-6 py-12 flex flex-col items-center text-center"
+  <main
+    class="min-h-screen flex items-center justify-center bg-gradient-to-b from-zinc-900 to-zinc-950 text-zinc-50"
   >
-    <!-- Language picker with improved position for better visibility -->
-    <div class="self-center mb-6">
-      <LanguagePicker />
+    <div
+      class="max-w-4xl w-full mx-auto px-6 py-12 flex flex-col items-center text-center"
+    >
+      <!-- Language picker with improved position and focus styles -->
+      <div class="flex self-center mb-8 margin-auto">
+        <LanguagePicker />
+      </div>
+
+      <div class="w-full flex-center">
+        <!-- Logo with proper image optimization and accessibility -->
+        <Picture
+          class="w-full max-w-[240px] h-auto mx-auto mb-8 transition-transform duration-300 motion-safe:hover:scale-105"
+          src="/melody-mind.png"
+          width={480}
+          height={480}
+          formats={["avif", "webp"]}
+          alt="Melody Mind Logo - Musikquiz App Logo"
+          loading="eager"
+        />
+
+        <Headline
+          level="h1"
+          title={title}
+          className="text-3xl md:text-4xl font-bold mb-6 text-zinc-100"
+        />
+
+        <Paragraph className="flex text-center items-center text-lg mb-8 text-zinc-100 leading-relaxed">
+          {description}
+        </Paragraph>
+
+        <div class="flex flex-col items-center gap-5 mt-6 w-full max-w-xs mx-auto">
+          <ButtonLink
+            href={`/${lang}/gamehome`}
+            aria-label={t("index.start.game.label")}
+            class="w-full py-4 px-6 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 rounded-xl transform hover:scale-102 transition-all duration-300 shadow-lg focus:outline-none focus:ring-4 focus:ring-purple-400 focus:ring-opacity-50"
+          >
+            <span class="text-lg text-zinc-100 font-medium">{t("index.continue")}</span>
+          </ButtonLink>
+        </div>
+
+        <p class="mt-10 text-xl text-zinc-300">{t("index.welcome.footnote")}</p>
+      </div>
+      
+      <!-- WCAG AAA Hinweis -->
+      <p class="mt-6 text-xl text-zinc-200">
+        <span role="img" aria-label="Barrierefreiheit">♿</span> Diese Anwendung strebt WCAG AAA Konformität an.
+      </p>
     </div>
-
-    <!-- Logo with proper image optimization and accessibility -->
-    <Picture
-      class="w-full max-w-[320px] h-auto mx-auto mb-10 transition-transform duration-300 motion-safe:hover:scale-105"
-      src="/melody-mind.png"
-      width={480}
-      height={480}
-      formats={["avif", "webp"]}
-      alt="Melody Mind Logo - Musikquiz App Logo"
-      loading="eager"
-    />
-
-    <Headline
-      level="h1"
-      title={title}
-      className="text-3xl md:text-4xl font-bold mb-4"
-    />
-
-    <Paragraph className="max-w-2xl text-lg mb-8">{description}</Paragraph>
-
-    <div class="flex flex-col items-center gap-4 mt-6 w-full max-w-xs">
-      <ButtonLink
-        href={`/${lang}/gamehome`}
-        aria-label={t("index.start.game.label")}
-        class="w-full py-3 px-6 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 transform hover:scale-105 transition-all duration-300"
-      >
-        <span class="text-lg font-medium">{t("index.continue")}</span>
-      </ButtonLink>
-    </div>
-
-    <p class="mt-8 text-sm text-zinc-400">{t("index.welcome.footnote")}</p>
-  </div>
+  </main>
 </Layout>
+
+<style>
+  /* Verbesserte Fokus-Stile für Barrierefreiheit */
+  :global(:focus-visible) {
+    outline: 3px solid #8b5cf6 !important;
+    outline-offset: 3px !important;
+    border-radius: 0.25rem;
+  }
+  
+  /* Respektiere Nutzereinstellungen für reduzierte Bewegung */
+  @media (prefers-reduced-motion: reduce) {
+    :global(*) {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
