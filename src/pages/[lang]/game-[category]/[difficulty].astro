@@ -47,18 +47,33 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
   <!-- Improved game header section with better visual distinction -->
   <div class="mb-6 md:mb-8">
     <GameHeadline headline={currentCategoryData?.headline} />
-    
+
     <!-- Game info badges -->
-    <div class="flex flex-wrap justify-center items-center gap-3 mt-4" aria-live="polite">
-      <div class="inline-flex items-center px-3 py-1 rounded-xl bg-gradient-to-r from-zinc-800 to-zinc-900 shadow-sm border border-zinc-700">
-        <Icon name="difficulty" class="h-4 w-4 mr-2 text-yellow-400" aria-hidden="true" />
+    <div
+      class="flex flex-wrap justify-center items-center gap-3 mt-4"
+      aria-live="polite"
+    >
+      <div
+        class="inline-flex items-center px-3 py-1 rounded-xl bg-gradient-to-r from-zinc-800 to-zinc-900 shadow-sm border border-zinc-700"
+      >
+        <Icon
+          name="difficulty"
+          class="h-4 w-4 mr-2 text-yellow-400"
+          aria-hidden="true"
+        />
         <span class="text-base font-medium text-zinc-100">
           {t(`difficulty.${difficulty}`)}
-        </span> 
+        </span>
       </div>
-      
-      <div class="inline-flex items-center px-3 py-1 rounded-xl bg-gradient-to-r from-zinc-800 to-zinc-900 shadow-sm border border-zinc-700">
-        <Icon name="coins" class="h-4 w-4 mr-2 text-amber-400" aria-hidden="true" />
+
+      <div
+        class="inline-flex items-center px-3 py-1 rounded-xl bg-gradient-to-r from-zinc-800 to-zinc-900 shadow-sm border border-zinc-700"
+      >
+        <Icon
+          name="coins"
+          class="h-4 w-4 mr-2 text-amber-400"
+          aria-hidden="true"
+        />
         <span class="text-base font-medium text-zinc-100">
           <span id="coins-display" class="coinsCount">0</span>
         </span>
@@ -88,7 +103,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       aria-level="2"
     >
     </div>
-    
+
     <div
       id="options"
       class="flex flex-col gap-4"
@@ -103,11 +118,13 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
   <div class="mt-6 flex justify-center">
     <Joker />
   </div>
-  
+
   <!-- WCAG information -->
   <div class="mt-16 text-center" aria-live="polite">
     <p class="text-sm text-zinc-400 flex items-center justify-center">
-      <span class="inline-block mr-2" role="img" aria-label="Barrierefreiheit">♿</span>
+      <span class="inline-block mr-2" role="img" aria-label="Barrierefreiheit"
+        >♿</span
+      >
       <span>{t("accessibility.wcag")}</span>
     </p>
   </div>
@@ -116,7 +133,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 <script>
   /**
    * Music Quiz Game Engine
-   * 
+   *
    * This module provides the core functionality for the music quiz game, including:
    * - Loading questions from appropriate language files
    * - Handling user answers and scoring
@@ -242,7 +259,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     const totalRounds =
       ROUNDS_PER_DIFFICULTY[validateDifficulty(difficulty)] ??
       ROUNDS_PER_DIFFICULTY.easy;
-    
+
     // Update UI with initial round
     if (elements.round) {
       elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
@@ -358,27 +375,27 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       elements.nextRoundButton.onclick = function () {
         stopAudio();
         elements.overlay.classList.add("hidden");
-        
+
         if (roundIndex < totalRounds - 1) {
           // Load next question if rounds remain
           roundIndex++;
-          
+
           if (elements.round) {
             elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
           }
-          
+
           const newQuestion = getRandomQuestion(
             albums ?? [],
             validateDifficulty(difficulty),
             totalRounds,
           );
-          
+
           if (newQuestion) {
             loadNewQuestion(
               newQuestion.randomQuestion,
               newQuestion.randomAlbum,
             );
-            
+
             if (elements.feedback) {
               elements.feedback.textContent = "";
             }
@@ -395,22 +412,22 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
      * @param {number} newScore - The new score to display
      */
     function updateCoinsDisplay(newScore: number) {
-      const coinsDisplay = document.getElementById('coins-display');
+      const coinsDisplay = document.getElementById("coins-display");
       if (coinsDisplay) {
         // Apply animation class for visual feedback
-        coinsDisplay.classList.add('coins-updated');
+        coinsDisplay.classList.add("coins-updated");
         coinsDisplay.textContent = newScore.toString();
-        
+
         // Announce score change for screen readers
-        const announcement = document.createElement('div');
-        announcement.setAttribute('aria-live', 'assertive');
-        announcement.classList.add('sr-only');
+        const announcement = document.createElement("div");
+        announcement.setAttribute("aria-live", "assertive");
+        announcement.classList.add("sr-only");
         announcement.textContent = `Neuer Punktestand: ${newScore} Punkte`;
         document.body.appendChild(announcement);
-        
+
         // Remove animation class and announcement after they complete
         setTimeout(() => {
-          coinsDisplay.classList.remove('coins-updated');
+          coinsDisplay.classList.remove("coins-updated");
           announcement.remove();
         }, 1500);
       }
@@ -440,7 +457,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
             popup.setAttribute("data-score", score.toString());
             popup.classList.remove("hidden");
           }
-        }
+        },
       };
 
       handleEndGame(config, ui, {
@@ -492,7 +509,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       validateDifficulty(difficulty),
       totalRounds,
     );
-    
+
     if (initialQuestion?.randomQuestion && initialQuestion?.randomAlbum) {
       loadNewQuestion(
         initialQuestion.randomQuestion,
@@ -526,32 +543,39 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
    */
   function enhanceAccessibility() {
     // Add descriptive labels to option buttons when they receive focus
-    document.addEventListener('focusin', (e) => {
+    document.addEventListener("focusin", (e) => {
       const target = e.target as HTMLElement;
       if (!target || !(target instanceof HTMLElement)) return;
-      
-      if (target.matches('#options button') && !target.getAttribute('aria-label')) {
-        const buttonText = target.textContent?.trim() || '';
-        target.setAttribute('aria-label', `Option: ${buttonText}`);
+
+      if (
+        target.matches("#options button") &&
+        !target.getAttribute("aria-label")
+      ) {
+        const buttonText = target.textContent?.trim() || "";
+        target.setAttribute("aria-label", `Option: ${buttonText}`);
       }
     });
-    
+
     // Use MutationObserver to track changes to the DOM for accessibility
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         const target = mutation.target as Element;
-        if (mutation.type === 'childList' && 
-            (target.id === 'question' || target.id === 'options')) {
+        if (
+          mutation.type === "childList" &&
+          (target.id === "question" || target.id === "options")
+        ) {
           // Update ARIA attributes when content changes
-          document.getElementById('question-container')?.setAttribute('aria-busy', 'false');
+          document
+            .getElementById("question-container")
+            ?.setAttribute("aria-busy", "false");
         }
       });
     });
-    
+
     // Start observing the document for changes
-    observer.observe(document.body, { 
-      childList: true, 
-      subtree: true 
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
     });
   }
 
@@ -561,12 +585,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
    * @returns {boolean} Whether all required elements are available
    */
   function validateElements(elements: GameElements): boolean {
-    const requiredElements = [
-      "score",
-      "question",
-      "options",
-      "container",
-    ];
+    const requiredElements = ["score", "question", "options", "container"];
 
     return requiredElements.every(
       (key) => elements[key as keyof GameElements] !== null,
@@ -580,7 +599,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       console.error("Required DOM elements not found");
       return;
     }
-    
+
     initializeGame(elements);
     enhanceAccessibility();
   });
@@ -601,7 +620,6 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     @apply opacity-0;
   }
 
-  
   /* Disabled joker styling */
   button[disabled] {
     @apply opacity-50 cursor-not-allowed;
@@ -617,7 +635,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       border: 1px solid ButtonText;
       forced-color-adjust: none;
     }
-    
+
     #options button:focus-visible {
       outline: 3px solid Highlight;
     }
@@ -625,7 +643,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     #question {
       border-bottom: 1px solid CanvasText;
     }
-    
+
     button[disabled] {
       opacity: 0.6;
     }
@@ -633,7 +651,9 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 
   /* Respect reduced motion preferences */
   @media (prefers-reduced-motion: reduce) {
-    *, ::before, ::after {
+    *,
+    ::before,
+    ::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
@@ -654,7 +674,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       border: 1px solid #000;
     }
   }
-  
+
   /* Focus styles for better keyboard navigation */
   :focus-visible {
     outline: 3px solid #a855f7 !important;
@@ -666,34 +686,30 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     animation: coinPulse 1s ease-in-out;
     color: #fbbf24; /* Helleres Amber für bessere Sichtbarkeit */
   }
-  
+
   @keyframes coinPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.25); color: #f59e0b; }
-    100% { transform: scale(1); }
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.25);
+      color: #f59e0b;
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 
   /* WCAG AAA Compliant Styles */
-  
+
   /* AAA-compliant font sizing and spacing */
   #question {
     font-size: 1.5rem; /* Large text for better readability */
-    line-height: 1.5;  /* Improved line spacing for readability */
+    line-height: 1.5; /* Improved line spacing for readability */
     margin-bottom: 1.5rem;
   }
-  
 
-  /* Highlight selected option */
-  #options button.selected-option {
-    @apply border-purple-500 bg-purple-900/30;
-  }
-  
 
-  /* Focused state should be highly visible */
-  #options button:focus-visible {
-    @apply outline-none ring-4 ring-purple-400 ring-offset-4 ring-offset-zinc-900;
-  }
-  
   /* Screen reader only content - completely hidden visually but available to screen readers */
   .sr-only {
     position: absolute;
@@ -706,28 +722,35 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     white-space: nowrap;
     border-width: 0;
   }
-  
-  /* Skip link for keyboard users */
-  .skip-link {
-    @apply absolute left-4 top-4 bg-purple-700 text-white px-4 py-2 rounded-md 
-           transform -translate-y-20 focus:translate-y-0 transition-transform 
-           z-50 focus:outline-none focus:ring-4 focus:ring-purple-400;
-  }
-  
+
   /* Enhanced animations for coin update */
   .coins-updated {
     animation: coinPulseAAA 1.5s ease-in-out;
     color: #fbbf24; /* Helleres Amber für bessere Sichtbarkeit */
   }
-  
+
   @keyframes coinPulseAAA {
-    0% { transform: scale(1); text-shadow: none; }
-    15% { transform: scale(1.1); }
-    30% { transform: scale(1.25); color: #f59e0b; text-shadow: 0 0 10px rgba(245, 158, 11, 0.5); }
-    45% { transform: scale(1.1); }
-    100% { transform: scale(1); text-shadow: none; }
+    0% {
+      transform: scale(1);
+      text-shadow: none;
+    }
+    15% {
+      transform: scale(1.1);
+    }
+    30% {
+      transform: scale(1.25);
+      color: #f59e0b;
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+    }
+    45% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+      text-shadow: none;
+    }
   }
-  
+
   /* Enhanced High Contrast Mode Support */
   @media (forced-colors: active) {
     #question-container {
@@ -741,23 +764,23 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       color: ButtonText;
       forced-color-adjust: none;
     }
-    
+
     #options button:focus-visible {
       outline: 3px solid Highlight;
       outline-offset: 3px;
     }
-    
+
     #options button[data-correct="true"],
     #options button[data-incorrect="true"] {
       border: 2px solid ButtonText;
       forced-color-adjust: none;
     }
-    
+
     .coins-updated {
       outline: 2px solid Highlight;
     }
   }
-  
+
   /* Enhanced support for reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .coins-updated {
