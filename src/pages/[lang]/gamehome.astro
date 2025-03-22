@@ -5,7 +5,7 @@ import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 // Wir fügen den Import für Icons hinzu - passen Sie dies an Ihr verwendetes Icon-Paket an
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 
 /**
  * Language and translation setup
@@ -108,35 +108,47 @@ const noPlayableCategoriesText =
 <Layout title={t("game.select")}>
   <div class="w-full max-w-6xl mx-auto px-4 py-8" id="main-content">
     <!-- Hero section with improved contrast and accessibility -->
-    <section 
+    <section
       class="relative rounded-2xl mb-12 p-8 bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 shadow-xl overflow-hidden"
       aria-labelledby="welcome-heading"
     >
       <!-- Decorative background elements with aria-hidden -->
       <div class="absolute inset-0 opacity-10" aria-hidden="true">
-        <div class="absolute -right-20 -top-24 w-64 h-64 rounded-full bg-indigo-500"></div>
-        <div class="absolute left-10 bottom-10 w-40 h-40 rounded-full bg-purple-500"></div>
-        <div class="absolute right-1/4 top-1/2 w-32 h-32 rounded-full bg-blue-500"></div>
+        <div
+          class="absolute -right-20 -top-24 w-64 h-64 rounded-full bg-indigo-500"
+        >
+        </div>
+        <div
+          class="absolute left-10 bottom-10 w-40 h-40 rounded-full bg-purple-500"
+        >
+        </div>
+        <div
+          class="absolute right-1/4 top-1/2 w-32 h-32 rounded-full bg-blue-500"
+        >
+        </div>
       </div>
-      
+
       <div class="relative z-10 text-center">
         <Headline
           title={`${t("game.welcome")}`}
           level="h1"
           className="text-3xl md:text-4xl text-white font-bold mb-4"
         />
-        <div class="h-1 w-24 bg-purple-400 rounded-full mx-auto mt-2 mb-6"></div>
-        <Paragraph className="max-w-2xl mx-auto text-zinc-100 text-lg leading-relaxed">
+        <div class="h-1 w-24 bg-purple-400 rounded-full mx-auto mt-2 mb-6">
+        </div>
+        <Paragraph
+          className="max-w-2xl mx-auto text-zinc-100 text-lg leading-relaxed"
+        >
           {t("game.select")}
         </Paragraph>
       </div>
     </section>
 
     <section class="mt-12" aria-labelledby="playlist-heading">
-      <Headline 
-        level="h2" 
-        title={t("game.genre.list")} 
-        className="text-2xl text-center font-bold mb-4" 
+      <Headline
+        level="h2"
+        title={t("game.genre.list")}
+        className="text-2xl text-center font-bold mb-4"
       />
 
       <!-- Search input with improved accessibility and styling -->
@@ -198,7 +210,7 @@ const noPlayableCategoriesText =
                           image={item.imageUrl}
                           imageAlt={t("game.genre.image") + " " + item.headline}
                         />
-                        <div 
+                        <div
                           class="p-2 flex justify-center items-center bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium text-sm rounded-b-lg opacity-0 group-hover:opacity-100 transition-opacity"
                           aria-hidden="true"
                         >
@@ -231,7 +243,9 @@ const noPlayableCategoriesText =
     <!-- WCAG information section -->
     <div class="mt-16 text-center" aria-live="polite">
       <p class="text-sm text-zinc-400 flex items-center justify-center">
-        <span class="inline-block mr-2" role="img" aria-label="Barrierefreiheit">♿</span>
+        <span class="inline-block mr-2" role="img" aria-label="Barrierefreiheit"
+          >♿</span
+        >
         <span>{t("accessibility.wcag")}</span>
       </p>
     </div>
@@ -452,7 +466,7 @@ const noPlayableCategoriesText =
     #playlist-grid a {
       border: 2px solid ButtonText;
     }
-    
+
     input {
       border: 2px solid ButtonText;
     }
@@ -499,17 +513,17 @@ const noPlayableCategoriesText =
     animation: fadeIn 0.5s ease-out forwards;
     opacity: 0;
   }
-  
+
   /* Focus styles for better keyboard navigation */
   :focus-visible {
     outline: 3px solid #a855f7 !important;
     outline-offset: 3px !important;
   }
-  
+
   /* Respect reduced motion preferences */
   @media (prefers-reduced-motion: reduce) {
     .animate-fadeIn,
-    a, 
+    a,
     button,
     input,
     * {
