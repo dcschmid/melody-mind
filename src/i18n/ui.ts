@@ -195,6 +195,7 @@ export const ui = {
     "index.start.game.label": "Starte deine musikalische Reise",
     "index.welcome.footnote":
       "Vorbereitet von Musikliebhabern für Musikliebhaber. Viel Spaß!",
+    "accessibility.wcag": "Diese Anwendung strebt WCAG AAA Konformität an.",
   },
   en: {
     "nav.home": "Home",
@@ -374,6 +375,7 @@ export const ui = {
     "index.start.game.label": "Start your musical journey",
     "index.welcome.footnote":
       "Crafted by music lovers for music lovers. Enjoy!",
+    "accessibility.wcag": "This application aims for WCAG AAA compliance.",
   },
   es: {
     "nav.home": "Inicio",
@@ -521,7 +523,8 @@ export const ui = {
     "podcast.page.description":
       "Sumérgete en el mundo de la música con nuestros podcasts cautivadores. Descubre historias emocionantes, antecedentes fascinantes y momentos definitorios de varias épocas musicales, perfectos para cualquiera que quiera no solo escuchar música, sino también entenderla.",
     "podcast.search.label": "Buscar podcasts",
-    "podcast.search.placeholder": "Buscar historias fascinantes de música...",
+    "podcast.search.placeholder":
+      "Buscar historias fascinantes de música...",
     "podcast.search.status.all": "Se muestran todos los podcasts",
     "podcast.search.status.one": "1 podcast encontrado",
     "podcast.search.status.multiple": "{count} podcasts encontrados",
@@ -553,6 +556,7 @@ export const ui = {
     "index.start.game.label": "Comienza tu viaje musical",
     "index.welcome.footnote":
       "Creado por amantes de la música para amantes de la música. ¡Disfruta!",
+    "accessibility.wcag": "Esta aplicación aspira a cumplir con WCAG AAA.",
   },
   fr: {
     "nav.home": "Accueil",
@@ -732,6 +736,7 @@ export const ui = {
     "index.start.game.label": "Commencez votre voyage musical",
     "index.welcome.footnote":
       "Conçu par des mélomanes pour des mélomanes. Profitez-en !",
+    "accessibility.wcag": "Cette application vise la conformité WCAG AAA.",
   },
   it: {
     "nav.home": "Home",
@@ -911,6 +916,7 @@ export const ui = {
     "index.start.game.label": "Inizia il tuo viaggio musicale",
     "index.welcome.footnote":
       "Creato da amanti della musica per amanti della musica. Buon divertimento!",
+    "accessibility.wcag": "Questa applicazione mira alla conformità WCAG AAA.",
   },
   pt: {
     "nav.home": "Início",
@@ -1090,6 +1096,7 @@ export const ui = {
     "index.start.game.label": "Inicie sua jornada musical",
     "index.welcome.footnote":
       "Feito por amantes da música para amantes da música. Aproveite!",
+    "accessibility.wcag": "Esta aplicação visa a conformidade WCAG AAA.",
   },
   da: {
     "nav.home": "Hjem",
@@ -1263,6 +1270,7 @@ export const ui = {
     "index.start.game.label": "Start din musikalske rejse",
     "index.welcome.footnote":
       "Skabt af musikelskere til musikelskere. God fornøjelse!",
+    "accessibility.wcag": "Denne applikation stræber efter WCAG AAA-overensstemmelse.",
   },
   nl: {
     "nav.home": "Home",
@@ -1436,6 +1444,7 @@ export const ui = {
     "index.start.game.label": "Begin je muzikale reis",
     "index.welcome.footnote":
       "Gemaakt door muziekliefhebbers voor muziekliefhebbers. Geniet ervan!",
+    "accessibility.wcag": "Deze applicatie streeft naar WCAG AAA-conformiteit.",
   },
   sv: {
     "nav.home": "Hem",
@@ -1608,6 +1617,7 @@ export const ui = {
     "index.continue": "Låt oss börja!",
     "index.start.game.label": "Påbörja din musikaliska resa",
     "index.welcome.footnote": "Skapat av musikälskare för musikälskare. Njut!",
+    "accessibility.wcag": "Denna applikation strävar efter WCAG AAA-efterlevnad.",
   },
   fi: {
     "nav.home": "Koti",
@@ -1780,5 +1790,6 @@ export const ui = {
     "index.start.game.label": "Aloita musiikillinen matkasi",
     "index.welcome.footnote":
       "Musiikin rakastajien tekemä musiikin rakastajille. Nauti!",
+    "accessibility.wcag": "Tämä sovellus pyrkii WCAG AAA -yhteensopivuuteen.",
   },
 };

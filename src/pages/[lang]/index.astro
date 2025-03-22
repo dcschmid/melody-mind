@@ -29,7 +29,7 @@ const keywords = t("meta.keywords");
   showHeader={false}
 >
   <main
-    class="min-h-screen flex items-center justify-center bg-gradient-to-b from-zinc-900 to-zinc-950 text-zinc-50"
+    class="min-h-screen flex items-center justify-cente text-zinc-50"
   >
     <div
       class="max-w-4xl w-full mx-auto px-6 py-12 flex flex-col items-center text-center"
@@ -54,29 +54,35 @@ const keywords = t("meta.keywords");
         <Headline
           level="h1"
           title={title}
-          className="text-3xl md:text-4xl font-bold mb-6 text-zinc-100"
+          className="text-3xl md:text-4xl font-bold mb-6"
         />
 
-        <Paragraph className="flex text-center items-center text-lg mb-8 text-zinc-100 leading-relaxed">
+        <Paragraph
+          className="flex text-center items-center text-lg mb-8 text-zinc-100 leading-relaxed"
+        >
           {description}
         </Paragraph>
 
-        <div class="flex flex-col items-center gap-5 mt-6 w-full max-w-xs mx-auto">
+        <div
+          class="flex flex-col items-center gap-5 mt-6 w-full max-w-xs mx-auto"
+        >
           <ButtonLink
             href={`/${lang}/gamehome`}
             aria-label={t("index.start.game.label")}
             class="w-full py-4 px-6 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 rounded-xl transform hover:scale-102 transition-all duration-300 shadow-lg focus:outline-none focus:ring-4 focus:ring-purple-400 focus:ring-opacity-50"
           >
-            <span class="text-lg text-zinc-100 font-medium">{t("index.continue")}</span>
+            <span class="text-lg text-zinc-100 font-medium"
+              >{t("index.continue")}</span
+            >
           </ButtonLink>
         </div>
 
         <p class="mt-10 text-xl text-zinc-300">{t("index.welcome.footnote")}</p>
       </div>
-      
+
       <!-- WCAG AAA Hinweis -->
       <p class="mt-6 text-xl text-zinc-200">
-        <span role="img" aria-label="Barrierefreiheit">♿</span> Diese Anwendung strebt WCAG AAA Konformität an.
+        <span role="img" aria-label="Barrierefreiheit">♿</span> {t("accessibility.wcag")}
       </p>
     </div>
   </main>
@@ -89,7 +95,7 @@ const keywords = t("meta.keywords");
     outline-offset: 3px !important;
     border-radius: 0.25rem;
   }
-  
+
   /* Respektiere Nutzereinstellungen für reduzierte Bewegung */
   @media (prefers-reduced-motion: reduce) {
     :global(*) {
