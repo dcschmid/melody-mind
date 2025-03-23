@@ -14,7 +14,7 @@ const t = useTranslations(lang);
   <h2 id="joker-title" class="text-lg font-semibold text-sky-300 mb-1">
     {t("game.joker.options")}
   </h2>
-  
+
   <div class="relative">
     <button
       id="joker-button"
@@ -27,32 +27,47 @@ const t = useTranslations(lang);
         <Icon name="lifeline" class="w-5 h-5 mr-2" aria-hidden="true" />
         <span class="buttonText whitespace-nowrap">{t("game.joker")}</span>
       </span>
-      
+
       <!-- Visual effect for button when pressed -->
-      <span class="absolute inset-0 rounded-lg hover:shadow-inner-lg transform ease-out scale-95 hover:scale-100 transition duration-300 opacity-0 bg-white/10 hover:opacity-100 disabled:opacity-0 pointer-events-none"></span>
+      <span
+        class="absolute inset-0 rounded-lg hover:shadow-inner-lg transform ease-out scale-95 hover:scale-100 transition duration-300 opacity-0 bg-white/10 hover:opacity-100 disabled:opacity-0 pointer-events-none"
+      ></span>
     </button>
-    
+
     <!-- Ripple animation for active feedback -->
-    <span id="joker-ripple" class="joker-ripple absolute inset-0 rounded-lg pointer-events-none opacity-0 bg-sky-400/20"></span>
+    <span
+      id="joker-ripple"
+      class="joker-ripple absolute inset-0 rounded-lg pointer-events-none opacity-0 bg-sky-400/20"
+    ></span>
   </div>
-  
-  <div id="joker-count-container" class="jokerCountContainer flex items-center gap-2">
-    <span id="joker-count" class="jokerCount text-lg text-white font-medium bg-zinc-800 px-3 py-1 rounded-full border border-zinc-700 min-w-[32px] text-center" aria-live="polite">
+
+  <div
+    id="joker-count-container"
+    class="jokerCountContainer flex items-center gap-2"
+  >
+    <span
+      id="joker-count"
+      class="jokerCount text-lg text-white font-medium bg-zinc-800 px-3 py-1 rounded-full border border-zinc-700 min-w-[32px] text-center"
+      aria-live="polite"
+    >
       0
     </span>
     <span class="text-zinc-300">
       {t("game.remaining")}
     </span>
   </div>
-  
-  <div id="joker-description" class="mt-1 text-zinc-400 text-base max-w-[20rem] text-center">
+
+  <div
+    id="joker-description"
+    class="mt-1 text-zinc-400 text-base max-w-[20rem] text-center"
+  >
     {t("game.joker.description")}
   </div>
 </div>
 
 <style>
   /* Optimierte Joker-Komponente mit WCAG AAA Konformität */
-  
+
   /* Animation für den Joker-Button bei Aktivierung */
   @keyframes ripple {
     0% {
@@ -68,7 +83,7 @@ const t = useTranslations(lang);
       opacity: 0;
     }
   }
-  
+
   /* Animation für den Zähler, wenn sich der Wert ändert */
   @keyframes pulse {
     0% {
@@ -82,55 +97,55 @@ const t = useTranslations(lang);
       transform: scale(1);
     }
   }
-  
+
   /* Anwendung der Animationen */
   .joker-ripple.animate {
     animation: ripple 0.6s ease-out forwards;
   }
-  
+
   .jokerCount.updated {
     animation: pulse 0.6s ease-in-out;
   }
-  
+
   /* Verbesserter Fokus-Stil für bessere Sichtbarkeit */
   .jokerButton:focus-visible {
     outline: 3px solid rgb(56, 189, 248); /* sky-300 */
     outline-offset: 3px;
   }
-  
+
   /* Unterstützung für High Contrast Mode */
   @media (forced-colors: active) {
     .jokerContainer {
       border: 2px solid CanvasText;
       background: Canvas;
     }
-    
+
     .jokerButton {
       border: 2px solid ButtonText;
       background: ButtonFace;
       color: ButtonText;
       forced-color-adjust: none;
     }
-    
+
     .jokerButton:disabled {
       opacity: 0.5;
     }
-    
+
     .jokerCount {
       border: 1px solid CanvasText;
       background: Canvas;
       color: CanvasText;
     }
-    
+
     /* Bei Fokus im High Contrast Mode */
     .jokerButton:focus-visible {
       outline: 3px solid Highlight;
     }
   }
-  
+
   /* Unterstützung für reduzierte Bewegung */
   @media (prefers-reduced-motion: reduce) {
-    .jokerButton, 
+    .jokerButton,
     .joker-ripple,
     .jokerCount {
       transition: none !important;
@@ -138,20 +153,20 @@ const t = useTranslations(lang);
       transform: none !important;
     }
   }
-  
+
   /* Print-Stile */
   @media print {
     .jokerContainer {
       border: 1px solid #000;
       background: none !important;
     }
-    
+
     .jokerButton {
       border: 1px solid #000;
       background: none !important;
       color: #000 !important;
     }
-    
+
     .jokerCount {
       border: 1px solid #000;
       background: none !important;
@@ -169,7 +184,7 @@ const t = useTranslations(lang);
     const jokerButton = document.getElementById("joker-button");
     const jokerCount = document.getElementById("joker-count");
     const jokerRipple = document.getElementById("joker-ripple");
-    
+
     // Event-Handling für Joker-Button
     if (jokerButton) {
       // Ripple-Effekt bei Klick
@@ -179,19 +194,19 @@ const t = useTranslations(lang);
           jokerRipple.classList.remove("animate");
           void jokerRipple.offsetWidth; // Trick zum Neustarten der Animation
           jokerRipple.classList.add("animate");
-          
+
           // Screenreader-Ankündigung, wenn Joker verwendet wurde
           announceJokerUsage();
         }
-        
+
         // Joker-Event auslösen
-        const jokerEvent = new CustomEvent("jokerUsed", { 
+        const jokerEvent = new CustomEvent("jokerUsed", {
           bubbles: true,
-          detail: { jokerType: jokerButton.dataset.jokerType } 
+          detail: { jokerType: jokerButton.dataset.jokerType },
         });
         document.dispatchEvent(jokerEvent);
       });
-      
+
       // Joker-Count aktualisieren, wenn sich der Wert ändert
       const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
@@ -203,13 +218,13 @@ const t = useTranslations(lang);
           }
         });
       });
-      
+
       // Den Joker-Count für Änderungen beobachten
       if (jokerCount) {
         observer.observe(jokerCount, { childList: true });
       }
     }
-    
+
     /**
      * Ankündigung für Screenreader wenn ein Joker verwendet wird
      */
@@ -224,26 +239,26 @@ const t = useTranslations(lang);
         announcement.classList.add("sr-only");
         document.body.appendChild(announcement);
       }
-      
+
       // Hole den aktuellen Joker-Count für die Ankündigung
       const currentCount = jokerCount ? jokerCount.textContent.trim() : "0";
       const lang = document.documentElement.lang || "en";
-      
+
       // Ankündigungstexte in verschiedenen Sprachen
       const announceText = {
         de: `50:50 Joker verwendet. Noch ${currentCount} Joker verfügbar.`,
-        en: `50:50 Joker used. ${currentCount} jokers remaining.`
+        en: `50:50 Joker used. ${currentCount} jokers remaining.`,
       };
-      
+
       // Text in aktueller Sprache oder Fallback auf Englisch
       announcement.textContent = announceText[lang] || announceText.en;
-      
+
       // Entferne die Ankündigung nach einer kurzen Zeit
       setTimeout(() => {
         announcement.textContent = "";
       }, 2000);
     }
-    
+
     // Aufräumen beim Seitenwechsel
     document.addEventListener("astro:before-swap", () => {
       const announcement = document.getElementById("joker-announcement");
