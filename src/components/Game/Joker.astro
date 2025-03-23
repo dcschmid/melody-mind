@@ -177,94 +177,181 @@ const t = useTranslations(lang);
 <script>
   /**
    * Joker Component Script
-   * Verwaltet die Interaktion und visuelles Feedback der Joker-Komponente.
+   *
+   * Manages user interactions with the 50:50 joker feature, provides visual feedback
+   * through animations, and ensures accessibility through screen reader announcements.
+   *
+   * @module JokerComponent
    */
+
   document.addEventListener("DOMContentLoaded", () => {
-    // Elementreferenzen
-    const jokerButton = document.getElementById("joker-button");
-    const jokerCount = document.getElementById("joker-count");
-    const jokerRipple = document.getElementById("joker-ripple");
+    // Element references
+    const elements = {
+      button: document.getElementById("joker-button") as HTMLButtonElement,
+      counter: document.getElementById("joker-count"),
+      ripple: document.getElementById("joker-ripple")
+    };
 
-    // Event-Handling für Joker-Button
-    if (jokerButton) {
-      // Ripple-Effekt bei Klick
-      jokerButton.addEventListener("click", (e) => {
-        // Ripple-Animation aktivieren
-        if (jokerRipple && !jokerButton.disabled) {
-          jokerRipple.classList.remove("animate");
-          void jokerRipple.offsetWidth; // Trick zum Neustarten der Animation
-          jokerRipple.classList.add("animate");
+    // Early return if essential elements are missing
+    if (!elements.button) {
+      console.error("Joker button not found - component initialization aborted");
+      return;
+    }
 
-          // Screenreader-Ankündigung, wenn Joker verwendet wurde
-          announceJokerUsage();
+    /**
+     * Initializes the joker component functionality
+     * @function initJokerComponent
+     */
+    function initJokerComponent() {
+      setupButtonEvents();
+      setupCounterObserver();
+    }
+
+    /**
+     * Sets up event handlers for the joker button
+     * @function setupButtonEvents
+     */
+    function setupButtonEvents() {
+      // Apply click handler with debounce to prevent double triggering
+      let clickTimeout: ReturnType<typeof setTimeout> | null = null;
+      elements.button.addEventListener("click", (e) => {
+        // Prevent handling if already in progress or disabled
+        if (clickTimeout || elements.button.disabled) {
+          console.log("Joker click ignored - button disabled or click in progress");
+          return;
         }
 
-        // Joker-Event auslösen
+        console.log("Joker button clicked - triggering animation and events");
+        
+        // Activate ripple animation effect
+        applyRippleEffect();
+        
+        // Dispatch the custom event
+        dispatchJokerEvent();
+        
+        // Temporarily disable button to prevent double clicks
+        elements.button.disabled = true;
+        clickTimeout = setTimeout(() => {
+          // Only re-enable if not permanently disabled
+          if (!elements.button.hasAttribute("data-permanently-disabled")) {
+            elements.button.disabled = false;
+          }
+          clickTimeout = null;
+        }, 1000);
+      });
+    }
+
+    /**
+     * Applies the ripple animation effect when joker is activated
+     * @function applyRippleEffect
+     */
+    function applyRippleEffect() {
+      if (!elements.ripple) return;
+      
+      // Reset animation to ensure it plays again
+      elements.ripple.classList.remove("animate");
+      void elements.ripple.offsetWidth; // Force reflow to restart animation
+      elements.ripple.classList.add("animate");
+    }
+
+    /**
+     * Creates and dispatches the jokerUsed custom event
+     * @function dispatchJokerEvent
+     */
+    function dispatchJokerEvent() {
+      try {
+        if (!elements.button) return;
+        
         const jokerEvent = new CustomEvent("jokerUsed", {
           bubbles: true,
-          detail: { jokerType: jokerButton.dataset.jokerType },
-        });
-        document.dispatchEvent(jokerEvent);
-      });
-
-      // Joker-Count aktualisieren, wenn sich der Wert ändert
-      const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-          if (mutation.type === "childList" && jokerCount) {
-            // Visuelle Animation für Zähleränderung
-            jokerCount.classList.remove("updated");
-            void jokerCount.offsetWidth; // Trick zum Neustarten der Animation
-            jokerCount.classList.add("updated");
+          detail: {
+            jokerType: elements.button.dataset.jokerType,
+            timestamp: Date.now()
           }
         });
-      });
-
-      // Den Joker-Count für Änderungen beobachten
-      if (jokerCount) {
-        observer.observe(jokerCount, { childList: true });
+        
+        document.dispatchEvent(jokerEvent);
+        console.log("jokerUsed event dispatched successfully");
+        
+        // Make announcement for screen readers
+        announceJokerUsage();
+      } catch (error) {
+        console.error("Error dispatching jokerUsed event:", error);
       }
     }
 
     /**
-     * Ankündigung für Screenreader wenn ein Joker verwendet wird
+     * Creates and observes mutations on the joker counter element
+     * @function setupCounterObserver
+     */
+    function setupCounterObserver() {
+      if (!elements.counter) return;
+      
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === "childList" && elements.counter) {
+            // Apply animation for counter updates
+            elements.counter.classList.remove("updated");
+            void elements.counter.offsetWidth; // Force reflow to restart animation
+            elements.counter.classList.add("updated");
+            
+            console.log("Joker counter updated to:", elements.counter.textContent);
+          }
+        });
+      });
+      
+      observer.observe(elements.counter, { childList: true });
+    }
+
+    /**
+     * Creates an accessible announcement for screen readers when joker is used
+     * @function announceJokerUsage
      */
     function announceJokerUsage() {
-      // Erstelle ein Live-Region Element für die Ankündigung
+      // Create or reuse announcement element
       let announcement = document.getElementById("joker-announcement");
       if (!announcement) {
         announcement = document.createElement("div");
         announcement.id = "joker-announcement";
         announcement.setAttribute("aria-live", "assertive");
         announcement.setAttribute("aria-atomic", "true");
-        announcement.classList.add("sr-only");
+        announcement.className = "sr-only";
         document.body.appendChild(announcement);
       }
 
-      // Hole den aktuellen Joker-Count für die Ankündigung
-      const currentCount = jokerCount ? jokerCount.textContent.trim() : "0";
-      const lang = document.documentElement.lang || "en";
+      // Get current count and language for localized announcements
+      const currentCount = elements.counter?.textContent?.trim() || "0";
+      const lang = (document.documentElement.lang || "en") as "de" | "en";
 
-      // Ankündigungstexte in verschiedenen Sprachen
-      const announceText = {
+      // Localized announcement templates
+      const announcements = {
         de: `50:50 Joker verwendet. Noch ${currentCount} Joker verfügbar.`,
         en: `50:50 Joker used. ${currentCount} jokers remaining.`,
+        // Add more languages as needed
       };
 
-      // Text in aktueller Sprache oder Fallback auf Englisch
-      announcement.textContent = announceText[lang] || announceText.en;
+      // Set announcement text with fallback to English
+      announcement.textContent = announcements[lang] || announcements.en;
 
-      // Entferne die Ankündigung nach einer kurzen Zeit
+      // Clean up after sufficient time for screen readers
       setTimeout(() => {
         announcement.textContent = "";
-      }, 2000);
+      }, 3000);
     }
 
-    // Aufräumen beim Seitenwechsel
-    document.addEventListener("astro:before-swap", () => {
+    /**
+     * Handles cleanup of component resources
+     * @function cleanupJokerComponent
+     */
+    function cleanupJokerComponent() {
       const announcement = document.getElementById("joker-announcement");
-      if (announcement) {
-        announcement.remove();
-      }
-    });
+      if (announcement) announcement.remove();
+    }
+
+    // Initialize component
+    initJokerComponent();
+
+    // Set up cleanup for page navigation
+    document.addEventListener("astro:before-swap", cleanupJokerComponent);
   });
 </script>
