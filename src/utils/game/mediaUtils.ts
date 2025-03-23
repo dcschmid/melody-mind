@@ -237,7 +237,6 @@ function updateStreamingLink(
 
   if (url) {
     linkElement.href = url;
-    linkElement.style.display = "inline-block";
 
     // Add accessibility attributes
     if (album?.artist && album?.album) {

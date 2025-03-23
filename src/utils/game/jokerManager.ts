@@ -75,11 +75,11 @@ export class JokerManager {
   private getInitialJokerCount(): number {
     switch (this.difficulty) {
       case Difficulty.EASY:
-        return 2;
+        return 3;
       case Difficulty.MEDIUM:
-        return 1;
+        return 5;
       case Difficulty.HARD:
-        return 0;
+        return 7;
       default:
         return 0;
     }
@@ -140,7 +140,7 @@ export class JokerManager {
       buttons.forEach((button) => {
         if (button.textContent?.trim() === optionToRemove) {
           button.setAttribute("disabled", "true");
-          button.classList.add("opacity-50", "cursor-not-allowed");
+          button.classList.add("opacity-50", "cursor-not-allowed", "hidden");
         }
       });
 
