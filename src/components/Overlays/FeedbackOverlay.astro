@@ -26,7 +26,6 @@ const t = useTranslations(lang);
       >
         {t("game.feedback.resolution")}
       </h2>
-     
     </div>
 
     <p
@@ -51,15 +50,26 @@ const t = useTranslations(lang);
           decoding="async"
         />
       </div>
-      
-      <div class="infoSection text-left space-y-3 flex flex-col justify-between" role="contentinfo">
+
+      <div
+        class="infoSection text-left space-y-3 flex flex-col justify-between"
+        role="contentinfo"
+      >
         <div>
-          <p id="overlay-artist" class="artist text-2xl font-bold text-sky-400 mb-2"></p>
+          <p
+            id="overlay-artist"
+            class="artist text-2xl font-bold text-sky-400 mb-2"
+          >
+          </p>
           <p id="overlay-album" class="album text-xl text-zinc-50 mb-1"></p>
           <p id="overlay-year" class="year text-lg text-zinc-300"></p>
-          <p id="overlay-funfact" class="funFact text-lg text-zinc-300 mt-4 leading-relaxed"></p>
+          <p
+            id="overlay-funfact"
+            class="funFact text-lg text-zinc-300 mt-4 leading-relaxed"
+          >
+          </p>
         </div>
-        
+
         <audio
           id="audio-preview"
           class="audioPlayer w-full mt-4"
@@ -78,7 +88,7 @@ const t = useTranslations(lang);
     <h3 class="text-xl font-semibold text-zinc-50 mb-4 text-center">
       {t("game.feedback.streaming.links")}
     </h3>
-    
+
     <div
       class="musicLinks flex flex-wrap justify-center gap-4 my-6"
       role="group"
@@ -92,7 +102,13 @@ const t = useTranslations(lang);
         rel="noopener noreferrer"
         aria-label={t("game.feedback.listen.spotify")}
       >
-        <Icon name="spotify" class="mr-4" width={24} height={24} aria-hidden="true" />
+        <Icon
+          name="spotify"
+          class="mr-4"
+          width={24}
+          height={24}
+          aria-hidden="true"
+        />
         <span>Spotify</span>
       </a>
       <a
@@ -103,7 +119,13 @@ const t = useTranslations(lang);
         rel="noopener noreferrer"
         aria-label={t("game.feedback.listen.deezer")}
       >
-        <Icon name="deezer" class="mr-4" width={24} height={24} aria-hidden="true" />
+        <Icon
+          name="deezer"
+          class="mr-4"
+          width={24}
+          height={24}
+          aria-hidden="true"
+        />
         <span>Deezer</span>
       </a>
       <a
@@ -114,20 +136,26 @@ const t = useTranslations(lang);
         rel="noopener noreferrer"
         aria-label={t("game.feedback.listen.apple")}
       >
-        <Icon name="apple-music" class="mr-4" width={24} height={24} aria-hidden="true" />
+        <Icon
+          name="apple-music"
+          class="mr-4"
+          width={24}
+          height={24}
+          aria-hidden="true"
+        />
         <span>Apple Music</span>
       </a>
     </div>
-    <button 
-    id="next-round-button"
-    class="nextButton block m-auto min-w-[48px] min-h-[48px] py-2 px-4 bg-sky-600 hover:bg-sky-500 focus:bg-sky-500 text-white font-semibold rounded-lg transition-colors"
-    aria-label={t("game.feedback.next.round")}
-  >
-    <span class="flex items-center gap-2">
-      {t("game.feedback.next.round")}
-      <Icon name="arrow-right" width={20} height={20} aria-hidden="true" />
-    </span>
-  </button>
+    <button
+      id="next-round-button"
+      class="nextButton block m-auto min-w-[48px] min-h-[48px] py-2 px-4 bg-sky-600 hover:bg-sky-500 focus:bg-sky-500 text-white font-semibold rounded-lg transition-colors"
+      aria-label={t("game.feedback.next.round")}
+    >
+      <span class="flex items-center gap-2">
+        {t("game.feedback.next.round")}
+        <Icon name="arrow-right" width={20} height={20} aria-hidden="true" />
+      </span>
+    </button>
   </div>
 </div>
 
@@ -160,9 +188,11 @@ const t = useTranslations(lang);
   /* Animation für Album-Cover mit Berücksichtigung von reduced-motion */
   @media (prefers-reduced-motion: no-preference) {
     .albumCover {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
     }
-    
+
     .albumCover:hover {
       transform: scale(1.03);
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
@@ -189,7 +219,7 @@ const t = useTranslations(lang);
       outline: 3px solid Highlight;
       outline-offset: 3px;
     }
-    
+
     .feedback.correct,
     .feedback.incorrect {
       border: 2px solid CanvasText;
@@ -205,7 +235,7 @@ const t = useTranslations(lang);
       transform: none !important;
     }
   }
-  
+
   /* Unterstützung für Screenreader */
   .sr-only {
     position: absolute;
@@ -218,21 +248,25 @@ const t = useTranslations(lang);
     white-space: nowrap;
     border-width: 0;
   }
-  
+
   /* Optimierte Text-Lesbarkeit (AAA erfordert mindestens 18px für normalen Text) */
-  .artist, .album, .year, .funFact {
+  .artist,
+  .album,
+  .year,
+  .funFact {
     line-height: 1.5;
     max-width: 65ch; /* Optimale Lesbarkeit */
   }
-  
+
   /* Print-Stile */
   @media print {
     .overlayContent {
       border: 1px solid #000;
       box-shadow: none;
     }
-    
-    .musicButton, .nextButton {
+
+    .musicButton,
+    .nextButton {
       border: 1px solid #000;
       background: #fff !important;
       color: #000 !important;
@@ -270,7 +304,7 @@ const t = useTranslations(lang);
     setupKeyboardNavigation();
     const coverObserver = handleAlbumCoverDisplay(overlay);
     setupCleanupHandlers(coverObserver);
-    
+
     // Enhance accessibility announcements
     setupAccessibilityAnnouncements();
   }
@@ -281,20 +315,23 @@ const t = useTranslations(lang);
   function setupAccessibilityAnnouncements() {
     const overlay = document.getElementById("overlay");
     const feedbackElement = document.getElementById("feedback");
-    
+
     if (!overlay || !feedbackElement) return;
-    
+
     // Create a live region for screen reader announcements
     const liveRegion = document.createElement("div");
     liveRegion.setAttribute("aria-live", "assertive");
     liveRegion.setAttribute("aria-atomic", "true");
     liveRegion.classList.add("sr-only");
     overlay.appendChild(liveRegion);
-    
+
     // Monitor changes to the feedback text for announcements
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
-        if (mutation.type === "childList" || mutation.type === "characterData") {
+        if (
+          mutation.type === "childList" ||
+          mutation.type === "characterData"
+        ) {
           const feedbackText = feedbackElement.textContent?.trim();
           if (feedbackText) {
             // Announce feedback text for screen readers
@@ -303,11 +340,11 @@ const t = useTranslations(lang);
         }
       });
     });
-    
+
     observer.observe(feedbackElement, {
       childList: true,
       characterData: true,
-      subtree: true
+      subtree: true,
     });
   }
 
