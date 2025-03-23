@@ -39,7 +39,7 @@ interface Question {
 /**
  * Interface for an album object with required properties
  */
-interface Album {
+export interface Album {
   /** Path to the album cover image */
   coverSrc: string;
   /** Name of the artist */

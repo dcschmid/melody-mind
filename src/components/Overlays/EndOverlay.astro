@@ -37,20 +37,30 @@ const {
     class="popupContent w-full max-w-lg max-h-[80vh] bg-gradient-to-b from-zinc-800 to-zinc-900 border border-zinc-700 rounded-2xl shadow-2xl p-8 md:p-10 text-center overflow-y-auto overscroll-contain scrollbar-gutter-stable"
     tabindex="-1"
   >
-    <div class="achievement-badge mb-6 mx-auto w-20 h-20 flex items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-zinc-900">
+    <div
+      class="achievement-badge mb-6 mx-auto w-20 h-20 flex items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-zinc-900"
+    >
       <Icon name="trophy" width={42} height={42} aria-hidden="true" />
     </div>
-    
-    <h2 
-      id="popup-title" 
+
+    <h2
+      id="popup-title"
       class="title text-3xl font-bold text-gradient bg-gradient-to-r from-sky-300 to-indigo-400 mb-6"
     >
       {title}
     </h2>
 
     <!-- Progress Visualization -->
-    <div class="achievement-progress relative h-3 bg-zinc-700 rounded-full mb-8 overflow-hidden" role="presentation">
-      <div id="score-bar" class="absolute left-0 top-0 h-full bg-gradient-to-r from-sky-500 to-indigo-500 transition-all duration-1000 ease-out" style="width: 0%"></div>
+    <div
+      class="achievement-progress relative h-3 bg-zinc-700 rounded-full mb-8 overflow-hidden"
+      role="presentation"
+    >
+      <div
+        id="score-bar"
+        class="absolute left-0 top-0 h-full bg-gradient-to-r from-sky-500 to-indigo-500 transition-all duration-1000 ease-out"
+        style="width: 0%"
+      >
+      </div>
     </div>
 
     <!-- Der Motivationstext wird dynamisch gesetzt -->
@@ -61,16 +71,30 @@ const {
     >
     </p>
 
-    <div class="scoreSection flex justify-center items-center p-4 rounded-xl bg-zinc-800/50 border border-zinc-700 mb-8">
+    <div
+      class="scoreSection flex justify-center items-center p-4 rounded-xl bg-zinc-800/50 border border-zinc-700 mb-8"
+    >
       <div class="score-container text-center">
-        <span class="scoreLabel text-zinc-300 text-lg block mb-1">{t("game.end.score")}</span>
-        <span id="popup-score" class="scoreValue text-3xl font-bold text-white">0</span>
+        <span class="scoreLabel text-zinc-300 text-lg block mb-1"
+          >{t("game.end.score")}</span
+        >
+        <span id="popup-score" class="scoreValue text-3xl font-bold text-white"
+          >0</span
+        >
       </div>
     </div>
 
     <!-- Difficulty Badge -->
-    <div class="difficulty-badge mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-800 border border-zinc-700">
-      <Icon name="difficulty" width={20} height={20} class="text-amber-400" aria-hidden="true" />
+    <div
+      class="difficulty-badge mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-800 border border-zinc-700"
+    >
+      <Icon
+        name="difficulty"
+        width={20}
+        height={20}
+        class="text-amber-400"
+        aria-hidden="true"
+      />
       <span id="difficulty-display" class="text-zinc-200">{difficulty}</span>
     </div>
 
@@ -90,7 +114,7 @@ const {
           {t("game.end.home")}
         </span>
       </a>
-      
+
       <button
         id="restart-button"
         class="restartButton min-w-[48px] min-h-[48px] py-3 px-6 bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 focus:from-sky-500 focus:to-indigo-500 text-white font-medium rounded-xl transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
@@ -119,7 +143,7 @@ const {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  
+
   /* Animation improvements */
   @keyframes fade-in-up {
     from {
@@ -131,7 +155,7 @@ const {
       opacity: 1;
     }
   }
-  
+
   @keyframes badge-pulse {
     0% {
       transform: scale(0.95);
@@ -151,13 +175,13 @@ const {
   .popup:not(.hidden) .popupContent {
     animation: fade-in-up 0.5s ease-out;
   }
-  
+
   @media (prefers-reduced-motion: no-preference) {
     .popup:not(.hidden) .achievement-badge {
       animation: badge-pulse 2s infinite;
     }
   }
-  
+
   /* WCAG AAA Compliant Styles */
   .motivationText {
     line-height: 1.6;
@@ -165,37 +189,37 @@ const {
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   /* Accessibility improvements */
   button:focus-visible,
   a:focus-visible {
     outline: 3px solid rgb(56, 189, 248); /* sky-300 */
     outline-offset: 4px;
   }
-  
+
   /* High Contrast Mode Support */
   @media (forced-colors: active) {
     .popupContent {
       border: 3px solid CanvasText;
       background: Canvas;
     }
-    
+
     .achievement-badge {
       border: 2px solid ButtonText;
     }
-    
+
     .achievement-progress {
       border: 1px solid CanvasText;
     }
-    
+
     #score-bar {
       background: Highlight;
     }
-    
+
     .scoreSection {
       border: 2px solid CanvasText;
     }
-    
+
     .buttonWrapper button,
     .buttonWrapper a {
       border: 2px solid ButtonText;
@@ -203,13 +227,13 @@ const {
       color: ButtonText;
       forced-color-adjust: none;
     }
-    
+
     .text-gradient {
       -webkit-text-fill-color: CanvasText;
       background: none;
     }
   }
-  
+
   /* Support for reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .popup:not(.hidden) .popupContent,
@@ -219,43 +243,43 @@ const {
       transition: none !important;
     }
   }
-  
+
   /* Print styles */
   @media print {
     .popupContent {
       border: 1px solid #000;
       box-shadow: none !important;
     }
-    
+
     .buttonWrapper button,
     .buttonWrapper a {
       border: 1px solid #000;
       background: none !important;
       color: #000 !important;
     }
-    
+
     .achievement-badge {
       border: 1px solid #000;
       background: none !important;
     }
   }
-  
+
   /* Scrollbar styling */
   .popupContent::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
-  
+
   .popupContent::-webkit-scrollbar-track {
     background: rgba(39, 39, 42, 0.6); /* zinc-800 with opacity */
     border-radius: 10px;
   }
-  
+
   .popupContent::-webkit-scrollbar-thumb {
     background: rgba(82, 82, 91, 0.8); /* zinc-600 with opacity */
     border-radius: 10px;
   }
-  
+
   .popupContent::-webkit-scrollbar-thumb:hover {
     background: rgba(113, 113, 122, 0.8); /* zinc-500 with opacity */
   }
@@ -445,10 +469,10 @@ const {
         ) {
           // Update motivation text when popup is shown
           updateMotivationText(popup);
-          
+
           // Animate score bar
           animateScoreBar(popup);
-          
+
           // Announce achievement for screen readers
           announceAchievement(popup);
         }
@@ -466,23 +490,23 @@ const {
 
     // Set up sharing functionality
     initializeSharing();
-    
+
     // Improve keyboard interaction
     improveKeyboardInteraction(popup);
   }
-  
+
   /**
    * Creates an animated progress bar based on the score
-   * 
-   * @param {HTMLElement} popup - The popup element 
+   *
+   * @param {HTMLElement} popup - The popup element
    */
   function animateScoreBar(popup: HTMLElement): void {
     const scoreAttr = popup.getAttribute("data-score");
     const score = scoreAttr ? parseInt(scoreAttr) : 0;
-    
+
     // Calculate percentage of max possible score (1000)
     const percentage = Math.min(Math.max(score / 10, 5), 100); // Min 5%, max 100%
-    
+
     const scoreBar = document.getElementById("score-bar");
     if (scoreBar) {
       // Trigger animation
@@ -490,18 +514,18 @@ const {
         scoreBar.style.width = `${percentage}%`;
       }, 200);
     }
-    
+
     // Update difficulty display
     const difficultyDisplay = document.getElementById("difficulty-display");
     const difficulty = popup.getAttribute("data-difficulty") || "";
-    
+
     if (difficultyDisplay) {
       const lang = document.documentElement.lang || "en";
       const difficultyText = getDifficultyText(difficulty, lang);
       difficultyDisplay.textContent = difficultyText;
     }
   }
-  
+
   /**
    * Gets the translated difficulty text
    */
@@ -511,28 +535,30 @@ const {
       en: {
         easy: "Easy",
         medium: "Medium",
-        hard: "Hard"
+        hard: "Hard",
       },
       de: {
         easy: "Einfach",
         medium: "Mittel",
-        hard: "Schwer"
-      }
+        hard: "Schwer",
+      },
     };
-    
+
     // Get translation or fallback to English
-    return translations[lang]?.[difficulty] || 
-           translations.en[difficulty] || 
-           difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+    return (
+      translations[lang]?.[difficulty] ||
+      translations.en[difficulty] ||
+      difficulty.charAt(0).toUpperCase() + difficulty.slice(1)
+    );
   }
-  
+
   /**
    * Announces achievement level for screen readers
    */
   function announceAchievement(popup: HTMLElement): void {
     const scoreAttr = popup.getAttribute("data-score");
     const score = scoreAttr ? parseInt(scoreAttr) : 0;
-    
+
     // Create an ARIA live region for announcements
     let ariaLive = document.getElementById("achievement-announcement");
     if (!ariaLive) {
@@ -543,30 +569,32 @@ const {
       ariaLive.className = "sr-only";
       document.body.appendChild(ariaLive);
     }
-    
+
     // Get achievement level based on score
     let achievementLevel = "";
     if (score >= ACHIEVEMENT_THRESHOLDS.GENIUS) achievementLevel = "genius";
     else if (score >= ACHIEVEMENT_THRESHOLDS.PRO) achievementLevel = "pro";
-    else if (score >= ACHIEVEMENT_THRESHOLDS.ENTHUSIAST) achievementLevel = "enthusiast";
+    else if (score >= ACHIEVEMENT_THRESHOLDS.ENTHUSIAST)
+      achievementLevel = "enthusiast";
     else if (score >= ACHIEVEMENT_THRESHOLDS.LOVER) achievementLevel = "lover";
     else achievementLevel = "explorer";
-    
+
     // Get language and create announcement
     const lang = document.documentElement.lang || "en";
-    const announcement = lang === "de" 
-      ? `Spielende! Deine Punktzahl: ${score}. Erreichtes Level: ${achievementLevel}.`
-      : `Game over! Your score: ${score}. Achievement level: ${achievementLevel}.`;
-    
+    const announcement =
+      lang === "de"
+        ? `Spielende! Deine Punktzahl: ${score}. Erreichtes Level: ${achievementLevel}.`
+        : `Game over! Your score: ${score}. Achievement level: ${achievementLevel}.`;
+
     // Make the announcement
     ariaLive.textContent = announcement;
-    
+
     // Clean up after announcement is likely read
     setTimeout(() => {
       ariaLive.textContent = "";
     }, 3000);
   }
-  
+
   /**
    * Improves keyboard interaction with the popup
    */
@@ -575,25 +603,25 @@ const {
     popup.addEventListener("keydown", (e) => {
       // Skip if the popup is hidden
       if (popup.classList.contains("hidden")) return;
-      
+
       if (e.key === "Escape") {
         // Close modal on Escape
         document.getElementById("restart-button")?.click();
         return;
       }
-      
+
       if (e.key !== "Tab") return;
-      
+
       // Find all focusable elements
       const focusableElements = popup.querySelectorAll<HTMLElement>(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
       );
-      
+
       if (focusableElements.length === 0) return;
-      
+
       const firstElement = focusableElements[0];
       const lastElement = focusableElements[focusableElements.length - 1];
-      
+
       // Handle tab navigation to maintain focus trap
       if (e.shiftKey && document.activeElement === firstElement) {
         e.preventDefault();
@@ -603,11 +631,14 @@ const {
         firstElement.focus();
       }
     });
-    
+
     // Focus first element when opened
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
-        if (mutation.attributeName === "class" && !popup.classList.contains("hidden")) {
+        if (
+          mutation.attributeName === "class" &&
+          !popup.classList.contains("hidden")
+        ) {
           // Focus the popup content
           const content = popup.querySelector(".popupContent") as HTMLElement;
           if (content) {
@@ -616,7 +647,7 @@ const {
         }
       });
     });
-    
+
     observer.observe(popup, { attributes: true });
   }
 
@@ -730,7 +761,7 @@ const {
         handleShareButtonClick,
       );
     });
-    
+
     // Remove any ARIA live regions we created
     document.getElementById("achievement-announcement")?.remove();
   });
