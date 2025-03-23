@@ -1,66 +1,255 @@
 ---
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { Icon } from "astro-icon/components";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <div
-  class="jokerContainer flex flex-col items-center gap-2 my-6 p-3 isolate"
+  class="jokerContainer relative flex flex-col items-center gap-3 my-6 p-4 bg-gradient-to-b from-zinc-800/70 to-zinc-900/70 rounded-xl border border-zinc-700 shadow-md"
   role="group"
   aria-labelledby="joker-title"
 >
-  <h2 id="joker-title" class="sr-only">{t("game.joker.options")}</h2>
-  <button
-    id="joker-button"
-    class="jokerButton relative cursor-pointer flex items-center justify-center gap-2 min-w-[48px] min-h-[48px] py-2 px-4 bg-sky-500 hover:bg-sky-400 active:bg-sky-600 text-zinc-900 font-semibold rounded-lg shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
-    aria-label={t("game.joker.use")}
-    aria-describedby="joker-description"
-    data-joker-type="fifty-fifty"
-  >
-    <span class="buttonText">{t("game.joker")}</span>
-  </button>
-  <p id="joker-count" class="jokerCount text-base text-zinc-300 text-center">
-    <span class="font-bold text-sky-400">{t("game.joker")}</span>
-  </p>
-  <span id="joker-description" class="sr-only">
+  <h2 id="joker-title" class="text-lg font-semibold text-sky-300 mb-1">
+    {t("game.joker.options")}
+  </h2>
+  
+  <div class="relative">
+    <button
+      id="joker-button"
+      class="jokerButton relative cursor-pointer flex items-center justify-center gap-2 min-w-[48px] min-h-[48px] py-3 px-6 bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white font-semibold rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:shadow-xl disabled:from-zinc-600 disabled:to-zinc-700 disabled:text-zinc-400 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:shadow-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+      aria-label={t("game.joker.use")}
+      aria-describedby="joker-description joker-count"
+      data-joker-type="fifty-fifty"
+    >
+      <span class="flex items-center">
+        <Icon name="lifeline" class="w-5 h-5 mr-2" aria-hidden="true" />
+        <span class="buttonText whitespace-nowrap">{t("game.joker")}</span>
+      </span>
+      
+      <!-- Visual effect for button when pressed -->
+      <span class="absolute inset-0 rounded-lg hover:shadow-inner-lg transform ease-out scale-95 hover:scale-100 transition duration-300 opacity-0 bg-white/10 hover:opacity-100 disabled:opacity-0 pointer-events-none"></span>
+    </button>
+    
+    <!-- Ripple animation for active feedback -->
+    <span id="joker-ripple" class="joker-ripple absolute inset-0 rounded-lg pointer-events-none opacity-0 bg-sky-400/20"></span>
+  </div>
+  
+  <div id="joker-count-container" class="jokerCountContainer flex items-center gap-2">
+    <span id="joker-count" class="jokerCount text-lg text-white font-medium bg-zinc-800 px-3 py-1 rounded-full border border-zinc-700 min-w-[32px] text-center" aria-live="polite">
+      0
+    </span>
+    <span class="text-zinc-300">
+      {t("game.remaining")}
+    </span>
+  </div>
+  
+  <div id="joker-description" class="mt-1 text-zinc-400 text-base max-w-[20rem] text-center">
     {t("game.joker.description")}
-  </span>
+  </div>
 </div>
 
 <style>
-  /* Fallback für ältere Browser und JS-Unterstützung */
-  .jokerButton:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
+  /* Optimierte Joker-Komponente mit WCAG AAA Konformität */
+  
+  /* Animation für den Joker-Button bei Aktivierung */
+  @keyframes ripple {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
   }
-
-  /* Explizite will-change-Eigenschaften für Performance */
-  .jokerButton {
-    will-change: transform, opacity;
-    backface-visibility: hidden;
+  
+  /* Animation für den Zähler, wenn sich der Wert ändert */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.15);
+      background-color: rgb(14, 165, 233); /* sky-500 */
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Anwendung der Animationen */
+  .joker-ripple.animate {
+    animation: ripple 0.6s ease-out forwards;
+  }
+  
+  .jokerCount.updated {
+    animation: pulse 0.6s ease-in-out;
+  }
+  
+  /* Verbesserter Fokus-Stil für bessere Sichtbarkeit */
+  .jokerButton:focus-visible {
+    outline: 3px solid rgb(56, 189, 248); /* sky-300 */
+    outline-offset: 3px;
+  }
+  
+  /* Unterstützung für High Contrast Mode */
+  @media (forced-colors: active) {
+    .jokerContainer {
+      border: 2px solid CanvasText;
+      background: Canvas;
+    }
+    
+    .jokerButton {
+      border: 2px solid ButtonText;
+      background: ButtonFace;
+      color: ButtonText;
+      forced-color-adjust: none;
+    }
+    
+    .jokerButton:disabled {
+      opacity: 0.5;
+    }
+    
+    .jokerCount {
+      border: 1px solid CanvasText;
+      background: Canvas;
+      color: CanvasText;
+    }
+    
+    /* Bei Fokus im High Contrast Mode */
+    .jokerButton:focus-visible {
+      outline: 3px solid Highlight;
+    }
+  }
+  
+  /* Unterstützung für reduzierte Bewegung */
+  @media (prefers-reduced-motion: reduce) {
+    .jokerButton, 
+    .joker-ripple,
+    .jokerCount {
+      transition: none !important;
+      animation: none !important;
+      transform: none !important;
+    }
+  }
+  
+  /* Print-Stile */
+  @media print {
+    .jokerContainer {
+      border: 1px solid #000;
+      background: none !important;
+    }
+    
+    .jokerButton {
+      border: 1px solid #000;
+      background: none !important;
+      color: #000 !important;
+    }
+    
+    .jokerCount {
+      border: 1px solid #000;
+      background: none !important;
+    }
   }
 </style>
 
 <script>
-  // Direkter Event-Listener für den Joker-Button
+  /**
+   * Joker Component Script
+   * Verwaltet die Interaktion und visuelles Feedback der Joker-Komponente.
+   */
   document.addEventListener("DOMContentLoaded", () => {
+    // Elementreferenzen
     const jokerButton = document.getElementById("joker-button");
-
-    // Debug-Meldung zur Überprüfung, ob der Button gefunden wurde
+    const jokerCount = document.getElementById("joker-count");
+    const jokerRipple = document.getElementById("joker-ripple");
+    
+    // Event-Handling für Joker-Button
     if (jokerButton) {
-      console.log("Joker-Button gefunden:", jokerButton);
-
-      // Füge einen Click-Event-Handler direkt am Button hinzu
+      // Ripple-Effekt bei Klick
       jokerButton.addEventListener("click", (e) => {
-        console.log("Joker-Button wurde geklickt");
-        // Der JokerManager sollte dieses Event bereits behandeln,
-        // aber wir stellen sicher, dass ein Klick-Event ausgelöst wird
-        const clickEvent = new Event("jokerUsed", { bubbles: true });
-        document.dispatchEvent(clickEvent);
+        // Ripple-Animation aktivieren
+        if (jokerRipple && !jokerButton.disabled) {
+          jokerRipple.classList.remove("animate");
+          void jokerRipple.offsetWidth; // Trick zum Neustarten der Animation
+          jokerRipple.classList.add("animate");
+          
+          // Screenreader-Ankündigung, wenn Joker verwendet wurde
+          announceJokerUsage();
+        }
+        
+        // Joker-Event auslösen
+        const jokerEvent = new CustomEvent("jokerUsed", { 
+          bubbles: true,
+          detail: { jokerType: jokerButton.dataset.jokerType } 
+        });
+        document.dispatchEvent(jokerEvent);
       });
-    } else {
-      console.error("Joker-Button nicht gefunden!");
+      
+      // Joker-Count aktualisieren, wenn sich der Wert ändert
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === "childList" && jokerCount) {
+            // Visuelle Animation für Zähleränderung
+            jokerCount.classList.remove("updated");
+            void jokerCount.offsetWidth; // Trick zum Neustarten der Animation
+            jokerCount.classList.add("updated");
+          }
+        });
+      });
+      
+      // Den Joker-Count für Änderungen beobachten
+      if (jokerCount) {
+        observer.observe(jokerCount, { childList: true });
+      }
     }
+    
+    /**
+     * Ankündigung für Screenreader wenn ein Joker verwendet wird
+     */
+    function announceJokerUsage() {
+      // Erstelle ein Live-Region Element für die Ankündigung
+      let announcement = document.getElementById("joker-announcement");
+      if (!announcement) {
+        announcement = document.createElement("div");
+        announcement.id = "joker-announcement";
+        announcement.setAttribute("aria-live", "assertive");
+        announcement.setAttribute("aria-atomic", "true");
+        announcement.classList.add("sr-only");
+        document.body.appendChild(announcement);
+      }
+      
+      // Hole den aktuellen Joker-Count für die Ankündigung
+      const currentCount = jokerCount ? jokerCount.textContent.trim() : "0";
+      const lang = document.documentElement.lang || "en";
+      
+      // Ankündigungstexte in verschiedenen Sprachen
+      const announceText = {
+        de: `50:50 Joker verwendet. Noch ${currentCount} Joker verfügbar.`,
+        en: `50:50 Joker used. ${currentCount} jokers remaining.`
+      };
+      
+      // Text in aktueller Sprache oder Fallback auf Englisch
+      announcement.textContent = announceText[lang] || announceText.en;
+      
+      // Entferne die Ankündigung nach einer kurzen Zeit
+      setTimeout(() => {
+        announcement.textContent = "";
+      }, 2000);
+    }
+    
+    // Aufräumen beim Seitenwechsel
+    document.addEventListener("astro:before-swap", () => {
+      const announcement = document.getElementById("joker-announcement");
+      if (announcement) {
+        announcement.remove();
+      }
+    });
   });
 </script>
