@@ -15,6 +15,6 @@
   }
 
   p {
-    @apply text-xl md:text-2xl leading-relaxed text-pretty text-zinc-300;
+    @apply text-xl md:text-2xl leading-relaxed mb-6 text-pretty text-zinc-300;
   }
 }
