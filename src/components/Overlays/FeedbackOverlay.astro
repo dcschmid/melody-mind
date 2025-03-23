@@ -8,7 +8,7 @@ const t = useTranslations(lang);
 
 <div
   id="overlay"
-  class="overlay hidden fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/90 backdrop-blur-md"
+  class="overlay hidden fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/95 backdrop-blur-md"
   role="dialog"
   aria-labelledby="overlay-title"
   aria-modal="true"
@@ -19,47 +19,66 @@ const t = useTranslations(lang);
     role="document"
     tabindex="-1"
   >
-    <h2
-      id="overlay-title"
-      class="title text-2xl font-bold text-zinc-50 text-center mb-6"
-    >
-      {t("game.feedback.resolution")}
-    </h2>
+    <div class="flex justify-between items-center mb-6">
+      <h2
+        id="overlay-title"
+        class="title text-2xl md:text-3xl font-bold text-zinc-50 tracking-tight"
+      >
+        {t("game.feedback.resolution")}
+      </h2>
+     
+    </div>
 
     <p
       id="feedback"
-      class="feedback my-6 p-4 rounded-lg text-lg font-semibold text-center"
+      class="feedback my-6 p-5 rounded-lg text-xl font-semibold text-center leading-relaxed"
       role="status"
       aria-live="assertive"
     >
     </p>
 
     <div
-      class="mediaSection flex flex-col items-center gap-4 mb-6"
+      class="mediaSection grid md:grid-cols-2 gap-6 mb-8 items-start"
       aria-label={t("game.feedback.media.section")}
     >
-      <img
-        id="overlay-cover"
-        class="albumCover aspect-square w-full max-w-[250px] h-auto rounded-lg object-cover shadow-md"
-        src=""
-        alt=""
-        loading="eager"
-        decoding="async"
-      />
-      <audio
-        id="audio-preview"
-        class="audioPlayer w-full max-w-[250px] mt-2"
-        controls
-        preload="metadata"
-        aria-label={t("game.feedback.audio.preview")}
-      >
-        <source id="audio-preview-source" src="" type="audio/mpeg" />
-        <source id="audio-preview-source-ogg" src="" type="audio/ogg" />
-        <track kind="captions" src="" label={t("game.feedback.subtitles")} />
-        <p>{t("game.feedback.audio.unsupported")}</p>
-      </audio>
+      <div class="imageContainer flex justify-center">
+        <img
+          id="overlay-cover"
+          class="albumCover aspect-square w-full max-w-[300px] h-auto rounded-lg object-cover shadow-lg transform transition-transform hover:scale-[1.02] duration-300"
+          src=""
+          alt=""
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+      
+      <div class="infoSection text-left space-y-3 flex flex-col justify-between" role="contentinfo">
+        <div>
+          <p id="overlay-artist" class="artist text-2xl font-bold text-sky-400 mb-2"></p>
+          <p id="overlay-album" class="album text-xl text-zinc-50 mb-1"></p>
+          <p id="overlay-year" class="year text-lg text-zinc-300"></p>
+          <p id="overlay-funfact" class="funFact text-lg text-zinc-300 mt-4 leading-relaxed"></p>
+        </div>
+        
+        <audio
+          id="audio-preview"
+          class="audioPlayer w-full mt-4"
+          controls
+          preload="metadata"
+          aria-label={t("game.feedback.audio.preview")}
+        >
+          <source id="audio-preview-source" src="" type="audio/mpeg" />
+          <source id="audio-preview-source-ogg" src="" type="audio/ogg" />
+          <track kind="captions" src="" label={t("game.feedback.subtitles")} />
+          <p>{t("game.feedback.audio.unsupported")}</p>
+        </audio>
+      </div>
     </div>
 
+    <h3 class="text-xl font-semibold text-zinc-50 mb-4 text-center">
+      {t("game.feedback.streaming.links")}
+    </h3>
+    
     <div
       class="musicLinks flex flex-wrap justify-center gap-4 my-6"
       role="group"
@@ -67,55 +86,48 @@ const t = useTranslations(lang);
     >
       <a
         id="spotify-link"
-        class="musicButton inline-flex items-center justify-center min-w-[48px] min-h-[48px] p-3 bg-sky-500 hover:bg-sky-400 text-zinc-900 rounded-lg transition-colors sm:p-2"
+        class="musicButton inline-flex p-5 w-auto bg-sky-600 hover:bg-sky-500 focus:bg-sky-500 text-white font-semibold rounded-lg transition-colors"
         href="#"
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t("game.feedback.listen.spotify")}
       >
-        <Icon name="spotify" width={36} height={36} aria-hidden="true" />
-        <span class="sr-only">Spotify</span>
+        <Icon name="spotify" class="mr-4" width={24} height={24} aria-hidden="true" />
+        <span>Spotify</span>
       </a>
       <a
         id="deezer-link"
-        class="musicButton inline-flex items-center justify-center min-w-[48px] min-h-[48px] p-3 bg-sky-500 hover:bg-sky-400 text-zinc-900 rounded-lg transition-colors sm:p-2"
+        class="musicButton inline-flex p-5 w-auto bg-sky-600 hover:bg-sky-500 focus:bg-sky-500 text-white font-semibold rounded-lg transition-colors"
         href="#"
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t("game.feedback.listen.deezer")}
       >
-        <Icon name="deezer" width={36} height={36} aria-hidden="true" />
-        <span class="sr-only">Deezer</span>
+        <Icon name="deezer" class="mr-4" width={24} height={24} aria-hidden="true" />
+        <span>Deezer</span>
       </a>
       <a
         id="apple-link"
-        class="musicButton inline-flex items-center justify-center min-w-[48px] min-h-[48px] p-3 bg-sky-500 hover:bg-sky-400 text-zinc-900 rounded-lg transition-colors sm:p-2"
+        class="musicButton inline-flex p-5 w-auto bg-sky-600 hover:bg-sky-500 focus:bg-sky-500 text-white font-semibold rounded-lg transition-colors"
         href="#"
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t("game.feedback.listen.apple")}
       >
-        <Icon name="apple-music" width={36} height={36} aria-hidden="true" />
-        <span class="sr-only">Apple Music</span>
+        <Icon name="apple-music" class="mr-4" width={24} height={24} aria-hidden="true" />
+        <span>Apple Music</span>
       </a>
     </div>
-
-    <div class="infoSection my-6 text-center space-y-2" role="contentinfo">
-      <p id="overlay-artist" class="artist text-xl font-bold text-sky-400"></p>
-      <p id="overlay-album" class="album text-zinc-50 mt-2"></p>
-      <p id="overlay-year" class="year text-zinc-300 mt-2"></p>
-      <p id="overlay-funfact" class="funFact text-zinc-300 mt-2"></p>
-    </div>
-
-    <div class="buttonWrapper flex justify-center mt-6">
-      <button
-        id="next-round-button"
-        class="nextButton min-w-[48px] min-h-[48px] py-3 px-6 bg-sky-500 hover:bg-sky-400 text-zinc-900 font-semibold rounded-lg transition-colors"
-        aria-label={t("game.feedback.next.round")}
-      >
-        {t("game.feedback.next.round")}
-      </button>
-    </div>
+    <button 
+    id="next-round-button"
+    class="nextButton block m-auto min-w-[48px] min-h-[48px] py-2 px-4 bg-sky-600 hover:bg-sky-500 focus:bg-sky-500 text-white font-semibold rounded-lg transition-colors"
+    aria-label={t("game.feedback.next.round")}
+  >
+    <span class="flex items-center gap-2">
+      {t("game.feedback.next.round")}
+      <Icon name="arrow-right" width={20} height={20} aria-hidden="true" />
+    </span>
+  </button>
   </div>
 </div>
 
@@ -129,34 +141,101 @@ const t = useTranslations(lang);
 
   .feedback.correct {
     color: #fff;
-    background-color: rgb(5 150 105); /* emerald-600 */
+    background-color: rgb(4, 120, 87); /* emerald-700 für besseren Kontrast */
   }
 
   .feedback.incorrect {
     color: #fff;
-    background-color: rgb(220 38 38); /* red-600 */
+    background-color: rgb(185, 28, 28); /* red-700 für besseren Kontrast */
   }
 
-  .overlayContent:focus {
-    outline: 2px solid rgb(56 189 248); /* sky-300 */
-    outline-offset: 2px;
+  /* Verbesserte Fokus-Stile für Tastaturnutzer */
+  .overlayContent:focus,
+  button:focus-visible,
+  a:focus-visible {
+    outline: 3px solid rgb(56, 189, 248); /* sky-300 */
+    outline-offset: 3px;
+  }
+
+  /* Animation für Album-Cover mit Berücksichtigung von reduced-motion */
+  @media (prefers-reduced-motion: no-preference) {
+    .albumCover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .albumCover:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
   }
 
   /* Zusätzliche Stile für Barrierefreiheit */
   @media (forced-colors: active) {
     .overlayContent {
-      border: 2px solid CanvasText;
+      border: 3px solid CanvasText;
+      background-color: Canvas;
     }
 
     .musicButton,
     .nextButton {
       border: 2px solid ButtonText;
+      background-color: ButtonFace;
+      color: ButtonText;
+      forced-color-adjust: none;
+    }
+
+    .musicButton:focus-visible,
+    .nextButton:focus-visible {
+      outline: 3px solid Highlight;
+      outline-offset: 3px;
+    }
+    
+    .feedback.correct,
+    .feedback.incorrect {
+      border: 2px solid CanvasText;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .overlay {
-      transition: none;
+    .overlay,
+    .albumCover,
+    button,
+    a {
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+  
+  /* Unterstützung für Screenreader */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  /* Optimierte Text-Lesbarkeit (AAA erfordert mindestens 18px für normalen Text) */
+  .artist, .album, .year, .funFact {
+    line-height: 1.5;
+    max-width: 65ch; /* Optimale Lesbarkeit */
+  }
+  
+  /* Print-Stile */
+  @media print {
+    .overlayContent {
+      border: 1px solid #000;
+      box-shadow: none;
+    }
+    
+    .musicButton, .nextButton {
+      border: 1px solid #000;
+      background: #fff !important;
+      color: #000 !important;
     }
   }
 </style>
@@ -191,6 +270,45 @@ const t = useTranslations(lang);
     setupKeyboardNavigation();
     const coverObserver = handleAlbumCoverDisplay(overlay);
     setupCleanupHandlers(coverObserver);
+    
+    // Enhance accessibility announcements
+    setupAccessibilityAnnouncements();
+  }
+
+  /**
+   * Enhances accessibility by providing announcements for screen readers
+   */
+  function setupAccessibilityAnnouncements() {
+    const overlay = document.getElementById("overlay");
+    const feedbackElement = document.getElementById("feedback");
+    
+    if (!overlay || !feedbackElement) return;
+    
+    // Create a live region for screen reader announcements
+    const liveRegion = document.createElement("div");
+    liveRegion.setAttribute("aria-live", "assertive");
+    liveRegion.setAttribute("aria-atomic", "true");
+    liveRegion.classList.add("sr-only");
+    overlay.appendChild(liveRegion);
+    
+    // Monitor changes to the feedback text for announcements
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "childList" || mutation.type === "characterData") {
+          const feedbackText = feedbackElement.textContent?.trim();
+          if (feedbackText) {
+            // Announce feedback text for screen readers
+            liveRegion.textContent = feedbackText;
+          }
+        }
+      });
+    });
+    
+    observer.observe(feedbackElement, {
+      childList: true,
+      characterData: true,
+      subtree: true
+    });
   }
 
   /**
