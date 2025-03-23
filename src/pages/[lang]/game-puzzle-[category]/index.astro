@@ -6,6 +6,7 @@ import EndOverlay from "@components/Overlays/EndOverlay.astro";
 import LoadingSpinner from "@components/Game/LoadingSpinner.astro";
 import ErrorMessage from "@components/Shared/ErrorMessage.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { Icon } from "astro-icon/components";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -25,55 +26,167 @@ const currentCategoryData = categories.default.find(
 const user = { id: "guest" };
 ---
 
-<Layout title="Cover Puzzle" showCoins={true}>
-  <div slot="left-headercol">
-    <ShowCoins />
-  </div>
-
+<Layout title="Cover Puzzle" showHeader={false} showCoins={false}>
   <EndOverlay id="endgame-popup" data-score="0" data-category="Cover Puzzle" />
-  <GameHeadline headline={`${currentCategoryData?.headline} Cover Puzzle`} />
   <ErrorMessage />
   <LoadingSpinner />
 
-  <div class="flex items-center justify-center mb-4">
-    <div class="text-xl font-bold text-zinc-300">
-      Time: <span class="timer">60</span>s
-    </div>
+  <!-- Tastaturlegende für Barrierefreiheit -->
+  <div
+    class="keyboard-shortcuts sr-only"
+    aria-live="polite"
+    id="keyboard-shortcuts"
+  >
+    <h2>{t("keyboard.shortcuts")}</h2>
+    <dl>
+      <dt>{t("key.tab")}</dt>
+      <dd>{t("keyboard.navigation")}</dd>
+      <dt>{t("key.space")}</dt>
+      <dd>{t("keyboard.activate")}</dd>
+      <dt>{t("key.arrows")}</dt>
+      <dd>{t("keyboard.arrows")}</dd>
+      <dt>{t("key.numbers")}</dt>
+      <dd>{t("keyboard.numbers")}</dd>
+      <dt>{t("key.s")}</dt>
+      <dd>{t("keyboard.speed")}</dd>
+      <dt>{t("key.n")}</dt>
+      <dd>{t("keyboard.next")}</dd>
+      <dt>{t("key.h")}</dt>
+      <dd>{t("keyboard.help")}</dd>
+    </dl>
   </div>
 
-  <div
-    id="question-container"
-    class="w-full mx-auto p-6 text-center transition-opacity duration-500 opacity-100 data-[hidden=true]:opacity-0"
-    role="main"
-    aria-label={t("game.area.label")}
-    data-userID={user.id}
-    data-category={category}
-  >
-    <div class="max-w-xl mx-auto">
-      <div
-        id="cover-puzzle"
-        class="relative w-full aspect-square mb-6 bg-zinc-900"
+  <div class="game-container max-w-4xl mx-auto px-4" aria-live="polite">
+    <!-- Verbesserte Bedienleiste mit Zugänglichkeitsfunktionen -->
+    <div class="accessibility-controls flex justify-end mb-2">
+      <button
+        id="show-keyboard-shortcuts"
+        class="text-xs bg-zinc-800 hover:bg-zinc-700 text-zinc-300 px-2 py-1 rounded-md flex items-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-purple-500"
+        aria-expanded="false"
       >
-        <!-- Puzzle grid will be created by JavaScript -->
-      </div>
+        <Icon name="keyboard" class="h-4 w-4 mr-1.5" />
+        <span>{t("keyboard.shortcuts.show")}</span>
+      </button>
+    </div>
 
-      <div
-        id="options"
-        class="grid sm:grid-cols-2 gap-3 mt-6"
-        role="radiogroup"
-        aria-label={t("game.options.label")}
-      >
-      </div>
-
-      <div class="mt-6 space-y-4">
-        <button
-          id="next-round-button"
-          class="hidden px-8 py-3 bg-purple-600 hover:bg-purple-500 rounded-lg text-white font-medium transition-colors mx-auto block"
+    <!-- Game instructions -->
+    <div
+      class="game-instructions mb-6 p-4 bg-zinc-800 border border-zinc-700 rounded-lg text-left"
+    >
+      <details>
+        <summary
+          class="cursor-pointer text-zinc-200 font-medium focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-zinc-800 rounded-md p-1"
         >
-          {t("game.next")}
+          <span class="text-purple-400"
+            >{t("game.instructions.title") || "Spielanleitung"}</span
+          >
+        </summary>
+        <div class="mt-3 text-zinc-300 text-sm">
+          <p>
+            {
+              t("game.instructions.puzzle") ||
+                "Versuche das Album zu erraten, während das Cover nach und nach aufgedeckt wird. Je schneller du richtig rätst, desto mehr Punkte erhältst du."
+            }
+          </p>
+        </div>
+      </details>
+    </div>
+
+    <!-- Game status area (nur Timer und Speed-Button) -->
+    <div
+      class="flex flex-col md:flex-row items-center justify-between gap-4 mb-6"
+    >
+      <div
+        class="flex items-center justify-center gap-4 text-xl font-bold"
+        aria-live="polite"
+      >
+        <div class="flex items-center bg-zinc-800 px-4 py-2 rounded-lg">
+          <span class="sr-only"
+            >{t("game.time.remaining") || "Verbleibende Zeit:"}</span
+          >
+          <Icon name="clock" class="h-5 w-5 text-purple-400 mr-2" />
+          <span class="timer text-zinc-100">60</span>s
+        </div>
+      </div>
+      <div class="flex items-center">
+        <Icon name="coins" class="h-5 w-5 text-purple-400 mr-2" />
+        <span class="font-bold">{t("game.score") || "Punktestand"}:</span>
+        <span class="score-display text-purple-400 font-bold ml-2">0</span>
+      </div>
+      <div class="flex items-center">
+        <Icon name="hashtag" class="h-5 w-5 text-purple-400 mr-2" />
+        <span class="font-bold">{t("game.round") || "Runde"}:</span>
+        <span class="round text-purple-400 font-bold ml-2">1/10</span>
+      </div>
+      <div class="game-controls">
+        <button
+          id="game-speed-toggle"
+          class="bg-zinc-800 hover:bg-zinc-700 text-zinc-300 px-3 py-1.5 rounded-md text-sm flex items-center focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-zinc-900"
+          aria-pressed="false"
+          accesskey="s"
+        >
+          <Icon name="clock" class="h-4 w-4 mr-1.5" />
+          <span>{t("game.slower.speed") || "Langsameres Spiel"}</span>
         </button>
       </div>
     </div>
+
+    <div
+      id="question-container"
+      class="w-full mx-auto text-center transition-opacity duration-500 opacity-100 data-[hidden=true]:opacity-0"
+      role="main"
+      aria-label={t("game.area.label")}
+      data-userID={user.id}
+      data-category={category}
+    >
+      <div class="max-w-xl mx-auto">
+        <div
+          id="cover-puzzle"
+          class="relative w-full aspect-square mb-6 bg-zinc-900 rounded-lg overflow-hidden shadow-lg border border-zinc-800"
+          aria-label={t("game.puzzle.label") || "Album Cover Puzzle"}
+          role="img"
+        >
+          <!-- Puzzle grid will be created by JavaScript -->
+          <div class="sr-only" id="puzzle-description" aria-live="polite">
+            {t("game.puzzle.loading") || "Puzzle wird geladen..."}
+          </div>
+        </div>
+
+        <fieldset
+          id="options"
+          class="grid sm:grid-cols-2 gap-3 mt-6"
+          aria-label={t("game.options.label")}
+          role="radiogroup"
+        >
+          <legend class="sr-only"
+            >{
+              t("game.options.legend") || "Wähle das richtige Album aus"
+            }</legend
+          >
+        </fieldset>
+
+        <div class="mt-6 space-y-4">
+          <button
+            id="next-round-button"
+            class="hidden px-8 py-3 bg-purple-600 hover:bg-purple-500 rounded-lg text-white font-medium transition-colors mx-auto block focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-zinc-900"
+            aria-label={t("game.next.round") || "Nächste Runde starten"}
+            accesskey="n"
+          >
+            {t("game.next")}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skip to answer button für Tastaturnutzer -->
+  <div class="sr-only">
+    <button
+      id="skip-to-answers"
+      class="focus:not-sr-only focus:absolute focus:z-50 focus:p-3 focus:bg-purple-600 focus:text-white focus:left-4 focus:top-32"
+    >
+      {t("game.skip.to.answers") || "Zu den Antwortmöglichkeiten springen"}
+    </button>
   </div>
 </Layout>
 
@@ -107,6 +220,11 @@ const user = { id: "guest" };
   const PIECE_ANIMATION_DURATION = 300; // Animation time for each piece (ms)
   const LAST_PIECE_BUFFER = 3; // Buffer seconds at the end of round
 
+  // Configuration for accessibility
+  let isSlowerSpeed = false; // Toggle for slower game speed
+  const SLOWER_SPEED_FACTOR = 1.5; // Factor to slow down piece reveals
+  const SLOWER_TIME_BONUS = 15; // Additional seconds when slower speed is activated
+
   // Calculate how many pieces to reveal per second to complete just before time ends
   const PIECES_PER_SECOND =
     (TOTAL_PIECES - 1) / (ROUND_TIME - LAST_PIECE_BUFFER);
@@ -115,15 +233,20 @@ const user = { id: "guest" };
    * Interface for accessing all game-related DOM elements
    */
   interface GameElements {
-    score: HTMLParagraphElement;
-    round: HTMLParagraphElement;
+    score: HTMLSpanElement;
+    round: HTMLSpanElement;
     timer: HTMLSpanElement;
     coverPuzzle: HTMLDivElement;
-    options: HTMLDivElement;
+    options: HTMLFieldSetElement;
     container: HTMLDivElement;
     nextRoundButton: HTMLButtonElement;
     restartButton: HTMLButtonElement;
     loadingSpinner: HTMLElement;
+    gameSpeedToggle: HTMLButtonElement;
+    puzzleDescription: HTMLDivElement;
+    skipToAnswersButton: HTMLButtonElement;
+    keyboardShortcutsBtn: HTMLButtonElement;
+    keyboardShortcutsPanel: HTMLDivElement;
   }
 
   /**
@@ -131,11 +254,11 @@ const user = { id: "guest" };
    */
   function cacheElements(): GameElements {
     return {
-      score: document.querySelector(".coinsCount") as HTMLParagraphElement,
-      round: document.querySelector(".round") as HTMLParagraphElement,
+      score: document.querySelector(".score-display") as HTMLSpanElement,
+      round: document.querySelector(".round") as HTMLSpanElement,
       timer: document.querySelector(".timer") as HTMLSpanElement,
       coverPuzzle: document.getElementById("cover-puzzle") as HTMLDivElement,
-      options: document.getElementById("options") as HTMLDivElement,
+      options: document.getElementById("options") as HTMLFieldSetElement,
       container: document.getElementById(
         "question-container",
       ) as HTMLDivElement,
@@ -146,6 +269,21 @@ const user = { id: "guest" };
         "restart-button",
       ) as HTMLButtonElement,
       loadingSpinner: document.getElementById("loading-spinner") as HTMLElement,
+      gameSpeedToggle: document.getElementById(
+        "game-speed-toggle",
+      ) as HTMLButtonElement,
+      puzzleDescription: document.getElementById(
+        "puzzle-description",
+      ) as HTMLDivElement,
+      skipToAnswersButton: document.getElementById(
+        "skip-to-answers",
+      ) as HTMLButtonElement,
+      keyboardShortcutsBtn: document.getElementById(
+        "show-keyboard-shortcuts",
+      ) as HTMLButtonElement,
+      keyboardShortcutsPanel: document.getElementById(
+        "keyboard-shortcuts",
+      ) as HTMLDivElement,
     };
   }
 
@@ -158,6 +296,11 @@ const user = { id: "guest" };
   let timerInterval: ReturnType<typeof setInterval>; // Timer reference
   let currentAlbum: Album | null = null; // Current album to guess
   let isRoundActive = false; // Whether the round is currently active
+  let revealedPieces = 0; // Counter for revealed pieces
+  let currentFocusIndex = -1; // Index of currently focused answer option
+
+  // Set initial round display
+  elements.round.textContent = `1/${TOTAL_ROUNDS}`;
 
   /**
    * Creates the puzzle grid with individual pieces
@@ -179,6 +322,9 @@ const user = { id: "guest" };
         const piece = document.createElement("div");
         piece.className =
           "absolute bg-cover transition-all duration-300 ease-out transform hover:brightness-110";
+
+        // Set ARIA attributes for accessibility
+        piece.setAttribute("role", "presentation");
 
         // Position and size the piece
         piece.style.width = `${pieceSize}%`;
@@ -221,11 +367,37 @@ const user = { id: "guest" };
       setTimeout(() => {
         piece.style.opacity = "1";
         piece.style.filter = "brightness(1)";
+
+        // Update revealed pieces count
+        revealedPieces++;
+
+        // Update screen reader description on milestone percentages
+        updatePuzzleDescription(revealedPieces, TOTAL_PIECES);
       }, index * PIECE_ANIMATION_DURATION);
     });
 
     // Return true if all pieces are now revealed or will be after this batch
     return hiddenPieces.length - count <= 0;
+  }
+
+  /**
+   * Updates the puzzle description for screen readers
+   * @param revealed - Number of revealed pieces
+   * @param total - Total number of pieces
+   */
+  function updatePuzzleDescription(revealed: number, total: number) {
+    const percentage = Math.floor((revealed / total) * 100);
+
+    // Only announce at milestones to avoid too many announcements
+    if (percentage % 25 === 0 || percentage === 10 || percentage === 90) {
+      const description =
+        t("game.puzzle.revealed")?.replace(
+          "{percent}",
+          percentage.toString(),
+        ) || `${percentage}% des Albumcovers wurde aufgedeckt`;
+
+      elements.puzzleDescription.textContent = description;
+    }
   }
 
   /**
@@ -283,11 +455,20 @@ const user = { id: "guest" };
       if (button.dataset.answer === selectedAnswer) {
         // Style clicked button based on correctness
         button.style.backgroundColor = isCorrect ? "#059669" : "#dc2626";
-        button.style.borderColor = isCorrect ? "#059669" : "#dc2626";
+        button.style.borderColor = isCorrect ? "#047857" : "#b91c1c";
+
+        // Add state for screen readers
+        button.setAttribute("aria-selected", "true");
       } else if (button.dataset.answer === currentAlbum?.album && !isCorrect) {
         // Show correct answer in green if player was wrong
         button.style.backgroundColor = "#059669";
-        button.style.borderColor = "#059669";
+        button.style.borderColor = "#047857";
+
+        // Add state for screen readers
+        button.setAttribute(
+          "aria-label",
+          `${t("game.correct.answer") || "Richtige Antwort"}: ${button.textContent}`,
+        );
       }
       // Disable all buttons after answer
       button.disabled = true;
@@ -295,6 +476,12 @@ const user = { id: "guest" };
         button.style.opacity = "0.5";
       }
     });
+
+    // Update feedback for screen readers
+    elements.puzzleDescription.textContent = isCorrect
+      ? t("game.answer.correct") || "Richtig! Gut gemacht!"
+      : (t("game.answer.wrong") || "Falsch. Die richtige Antwort war: ") +
+        `${currentAlbum.artist} - ${currentAlbum.album}`;
 
     // Update feedback and score
     if (isCorrect) {
@@ -306,6 +493,7 @@ const user = { id: "guest" };
 
     // Show feedback and next button
     elements.nextRoundButton.classList.remove("hidden");
+    elements.nextRoundButton.focus();
   }
 
   /**
@@ -331,27 +519,94 @@ const user = { id: "guest" };
     const options = shuffleArray([correctAlbum, ...wrongOptions]);
 
     // Create buttons for each option
-    options.forEach((album) => {
+    options.forEach((album, index) => {
       const button = document.createElement("button");
       button.className =
-        "w-full p-3 bg-zinc-700 hover:bg-zinc-600 rounded-lg text-zinc-100 transition-all duration-300 text-sm sm:text-base border-2 border-transparent";
+        "w-full p-4 bg-zinc-800 hover:bg-zinc-700 rounded-lg text-zinc-100 transition-all duration-300 text-sm sm:text-base border-2 border-zinc-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-zinc-900";
       button.textContent = `${album.artist} - ${album.album}`;
       button.dataset.answer = album.album;
+      button.id = `answer-option-${index + 1}`;
+      button.setAttribute(
+        "aria-label",
+        `${t("game.option.choose") || "Wähle"}: ${album.artist} - ${album.album}`,
+      );
+
+      // WCAG - Setze role für Tastaturnavigation
+      button.setAttribute("role", "radio");
+      button.setAttribute("aria-checked", "false");
+
+      // Zahlen 1-4 als Accesskeys setzen
+      button.setAttribute("accesskey", (index + 1).toString());
+
+      // Füge Shortcut-Hint im Text hinzu
+      const shortcutSpan = document.createElement("span");
+      shortcutSpan.className = "sr-only";
+      shortcutSpan.textContent = ` (Drücke ${index + 1})`;
+      button.appendChild(shortcutSpan);
+
+      // First option gets focus when options appear
+      if (index === 0) {
+        button.setAttribute("tabindex", "0");
+        currentFocusIndex = 0;
+      } else {
+        button.setAttribute("tabindex", "-1");
+      }
+
       container.appendChild(button);
     });
+
+    // Announce to screen readers that options are available
+    elements.puzzleDescription.textContent =
+      t("game.options.available") ||
+      "Antwortmöglichkeiten sind jetzt verfügbar";
+  }
+
+  /**
+   * Updates the focused option with arrow key navigation
+   * @param direction - 1 for right/down, -1 for left/up
+   */
+  function moveFocus(direction: number) {
+    const options = Array.from(
+      elements.options.children,
+    ) as HTMLButtonElement[];
+
+    if (!options.length) return;
+
+    // Calculate next focus index with wrap-around
+    const newIndex =
+      (currentFocusIndex + direction + options.length) % options.length;
+
+    // Update tabindex and focus
+    options.forEach((opt, idx) => {
+      opt.setAttribute("tabindex", idx === newIndex ? "0" : "-1");
+    });
+
+    currentFocusIndex = newIndex;
+    (options[newIndex] as HTMLElement).focus();
   }
 
   /**
    * Starts the countdown timer for the current round
    */
   function startTimer() {
-    timeLeft = ROUND_TIME;
+    // Adjust time based on accessibility settings
+    timeLeft = isSlowerSpeed ? ROUND_TIME + SLOWER_TIME_BONUS : ROUND_TIME;
     elements.timer.textContent = timeLeft.toString();
     isRoundActive = true;
 
     timerInterval = setInterval(() => {
       timeLeft--;
       elements.timer.textContent = timeLeft.toString();
+
+      // Announce time warnings for accessibility
+      if (timeLeft === 30 || timeLeft === 10 || timeLeft === 5) {
+        elements.puzzleDescription.textContent =
+          t("game.time.remaining.seconds")?.replace(
+            "{seconds}",
+            timeLeft.toString(),
+          ) || `Noch ${timeLeft} Sekunden übrig`;
+      }
+
       if (timeLeft <= 0) {
         clearInterval(timerInterval);
         handleTimeout();
@@ -366,7 +621,33 @@ const user = { id: "guest" };
     if (!isRoundActive) return;
     isRoundActive = false;
     revealFullCover();
+
+    // Update for screen readers
+    elements.puzzleDescription.textContent =
+      t("game.time.up") ||
+      "Zeit ist um! Das korrekte Album war: " +
+        (currentAlbum ? `${currentAlbum.artist} - ${currentAlbum.album}` : "");
+
+    // Highlight correct answer
+    const buttons = Array.from(
+      elements.options.children,
+    ) as HTMLButtonElement[];
+
+    buttons.forEach((button) => {
+      if (button.dataset.answer === currentAlbum?.album) {
+        button.style.backgroundColor = "#059669";
+        button.style.borderColor = "#059669";
+      }
+
+      // Disable all buttons
+      button.disabled = true;
+      if (!button.style.backgroundColor) {
+        button.style.opacity = "0.5";
+      }
+    });
+
     elements.nextRoundButton.classList.remove("hidden");
+    elements.nextRoundButton.focus();
   }
 
   /**
@@ -408,6 +689,9 @@ const user = { id: "guest" };
   async function loadNewRound() {
     elements.loadingSpinner.classList.remove("hidden");
     elements.container.setAttribute("data-hidden", "true");
+
+    // Reset for the new round
+    revealedPieces = 0;
 
     // Load album data for the current category
     const albums = await loadAlbums();
@@ -504,6 +788,33 @@ const user = { id: "guest" };
     });
   }
 
+  /**
+   * Toggles keyboard shortcuts panel visibility
+   */
+  function toggleKeyboardShortcuts() {
+    const isExpanded =
+      elements.keyboardShortcutsBtn.getAttribute("aria-expanded") === "true";
+    elements.keyboardShortcutsBtn.setAttribute(
+      "aria-expanded",
+      (!isExpanded).toString(),
+    );
+
+    // Toggle visibility
+    if (isExpanded) {
+      elements.keyboardShortcutsPanel.classList.add("sr-only");
+      const spanElement = elements.keyboardShortcutsBtn.querySelector("span");
+      if (spanElement) {
+        spanElement.textContent = t("keyboard.shortcuts.show");
+      }
+    } else {
+      elements.keyboardShortcutsPanel.classList.remove("sr-only");
+      const spanElement = elements.keyboardShortcutsBtn.querySelector("span");
+      if (spanElement) {
+        spanElement.textContent = t("keyboard.shortcuts.hide");
+      }
+    }
+  }
+
   // === Event Listeners ===
 
   // Option selection handler
@@ -529,6 +840,60 @@ const user = { id: "guest" };
     }
   };
 
+  // Toggle game speed for accessibility
+  elements.gameSpeedToggle.addEventListener("click", () => {
+    isSlowerSpeed = !isSlowerSpeed;
+
+    // Update the button appearance and aria-pressed state
+    elements.gameSpeedToggle.setAttribute(
+      "aria-pressed",
+      isSlowerSpeed.toString(),
+    );
+
+    if (isSlowerSpeed) {
+      elements.gameSpeedToggle.classList.add("bg-purple-700");
+      elements.gameSpeedToggle.classList.remove("bg-zinc-800");
+      const normalSpeedSpan = elements.gameSpeedToggle.querySelector("span");
+      if (normalSpeedSpan) {
+        normalSpeedSpan.textContent =
+          t("game.normal.speed") || "Normale Geschwindigkeit";
+      }
+    } else {
+      elements.gameSpeedToggle.classList.remove("bg-purple-700");
+      elements.gameSpeedToggle.classList.add("bg-zinc-800");
+      const slowerSpeedSpan = elements.gameSpeedToggle.querySelector("span");
+      if (slowerSpeedSpan) {
+        slowerSpeedSpan.textContent =
+          t("game.slower.speed") || "Langsameres Spiel";
+      }
+    }
+
+    // If in active round, adjust remaining time
+    if (isRoundActive) {
+      clearInterval(timerInterval);
+
+      // Adjust time based on new setting
+      if (isSlowerSpeed) {
+        timeLeft += SLOWER_TIME_BONUS;
+      }
+      startTimer();
+    }
+  });
+
+  // Skip to answers button for keyboard users
+  elements.skipToAnswersButton.addEventListener("click", () => {
+    const firstOption = document.getElementById("answer-option-1");
+    if (firstOption) {
+      firstOption.focus();
+    }
+  });
+
+  // Keyboard shortcuts button
+  elements.keyboardShortcutsBtn.addEventListener(
+    "click",
+    toggleKeyboardShortcuts,
+  );
+
   // Initialize game if all required elements are available
   if (
     elements.container &&
@@ -542,14 +907,189 @@ const user = { id: "guest" };
   } else {
     console.error(t("error.missing.elements"));
   }
+
+  // Enhanced keyboard navigation
+  document.addEventListener("keydown", (event) => {
+    // Skip if in text input
+    if (
+      event.target instanceof HTMLInputElement ||
+      event.target instanceof HTMLTextAreaElement
+    ) {
+      return;
+    }
+
+    // Nur verarbeiten, wenn eine Spielrunde aktiv ist
+    if (isRoundActive) {
+      // Arrow keys for option navigation
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+        moveFocus(1);
+        event.preventDefault();
+      } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+        moveFocus(-1);
+        event.preventDefault();
+      }
+
+      // Number keys 1-4 to select answers
+      if (event.key >= "1" && event.key <= "4") {
+        const optionIndex = parseInt(event.key) - 1;
+        const options = Array.from(
+          elements.options.children,
+        ) as HTMLButtonElement[];
+
+        if (options[optionIndex] && !options[optionIndex].disabled) {
+          options[optionIndex].click();
+          event.preventDefault();
+        }
+      }
+
+      // S key for game speed toggle
+      if (event.key === "s" || event.key === "S") {
+        elements.gameSpeedToggle.click();
+        event.preventDefault();
+      }
+    }
+
+    // N key for next round
+    if (
+      (event.key === "n" || event.key === "N") &&
+      !elements.nextRoundButton.classList.contains("hidden")
+    ) {
+      elements.nextRoundButton.click();
+      event.preventDefault();
+    }
+
+    // H key to toggle keyboard shortcuts help
+    if (event.key === "h" || event.key === "H") {
+      toggleKeyboardShortcuts();
+      event.preventDefault();
+    }
+  });
 </script>
 
 <style is:global>
   #cover-puzzle > div {
     transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
   }
 
-  button {
+  /* Verbesserte Focus-Stile für WCAG AAA */
+  button:focus-visible,
+  [role="radio"]:focus-visible {
+    outline: 3px solid #a855f7;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.5);
+  }
+
+  /* Animation for correct/wrong answers */
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  [aria-selected="true"] {
+    animation: pulse 0.5s ease-in-out;
+  }
+
+  /* WCAG AAA Kontraste (7:1 Mindestverhältnis) */
+  .text-zinc-300 {
+    color: #d9d9d9; /* Verbessert von #d4d4d8 für höheren Kontrast */
+  }
+
+  .text-zinc-100 {
+    color: #ffffff; /* Maximaler Kontrast */
+  }
+
+  .bg-zinc-800 {
+    background-color: #27272a;
+  }
+
+  /* Add smooth card-hover effect */
+  #options button {
     transition: all 300ms ease-in-out;
+    transform: translateY(0);
+    position: relative; /* Hinzugefügt für fokusierte Elemente */
+  }
+
+  #options button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Visuelles Feedback für Tastaturnavigation */
+  #options button:focus-visible::before {
+    content: "▶";
+    position: absolute;
+    left: -1.5rem;
+    color: #a855f7;
+  }
+
+  /* Animation für Tastaturnavigation */
+  @keyframes focusIn {
+    from {
+      transform: scale(0.95);
+      opacity: 0.8;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  #options button:focus-visible {
+    animation: focusIn 0.2s ease-out forwards;
+    z-index: 5;
+  }
+
+  /* Tastaturkürzelpanel */
+  #keyboard-shortcuts {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: #18181b;
+    border: 2px solid #a855f7;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    max-width: 300px;
+    z-index: 50;
+  }
+
+  #keyboard-shortcuts.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  #keyboard-shortcuts h2 {
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  #keyboard-shortcuts dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 1rem;
+  }
+
+  #keyboard-shortcuts dt {
+    font-weight: 600;
+    color: #a855f7;
+  }
+
+  #keyboard-shortcuts dd {
+    color: #ffffff;
   }
 </style>
