@@ -49,7 +49,7 @@ interface Props {
 }
 
 const { lang } = Astro.params as { lang: KnowledgeLanguage };
-const { articles } = Astro.props;
+const { articles, allKeywords } = Astro.props;
 
 const isUiLanguage = (lang: KnowledgeLanguage): lang is keyof typeof ui => {
   return Object.keys(ui).includes(lang);
@@ -74,60 +74,126 @@ const articlesWithReadingTime = articles.map((article) => {
   }
   return article;
 });
+
+// Kategorisiere Artikel nach Themen für verbesserte Navigation
+const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
+  const mainKeyword = article.data.keywords?.[0] || "Allgemein";
+  if (!acc[mainKeyword]) {
+    acc[mainKeyword] = [];
+  }
+  acc[mainKeyword].push(article);
+  return acc;
+}, {} as Record<string, AnyCollectionEntry[]>);
 ---
 
 <Layout title={ui[uiLang]["knowledge.title"]}>
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="text-center mb-10">
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <div class="text-center mb-12">
       <Headline
         title={ui[uiLang]["knowledge.title"]}
         level="h1"
-        className="text-white font-bold text-3xl md:text-4xl"
+        className="text-white font-bold text-3xl md:text-4xl mb-4"
       />
-      <div class="h-1 w-24 bg-gray-500 rounded-full mx-auto mt-2 mb-6"></div>
+      <div class="h-1 w-24 bg-purple-500 rounded-full mx-auto mt-2 mb-6"></div>
 
       <Paragraph
         description={ui[uiLang]["knowledge.intro"]}
-        className="max-w-2xl mx-auto text-zinc-300"
+        className="max-w-2xl mx-auto text-zinc-100"
       />
     </div>
 
-    <div class="w-full">
-      <div class="flex flex-col md:flex-row gap-4 mb-8">
-        <div class="relative flex-grow">
-          <label for="searchInput" class="sr-only">
-            {ui[uiLang]["knowledge.search.placeholder"]}
-          </label>
-          <div class="relative">
-            <div
-              class="absolute inset-y-0 left-3 flex items-center pointer-events-none"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-zinc-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+    <div class="w-full mb-8">
+      <!-- Verbesserte Suche und Filterung mit ARIA-Unterstützung -->
+      <div 
+        class="search-filter-container bg-zinc-800/90 rounded-xl p-6 border border-zinc-700 shadow-lg mb-10"
+        role="search"
+      >
+        <h2 class="sr-only" id="search-heading">{ui[uiLang]["knowledge.search.label"] || "Artikel durchsuchen"}</h2>
+        
+        <div class="flex flex-col md:flex-row gap-4 mb-4">
+          <div class="relative flex-grow">
+            <label for="searchInput" class="sr-only">
+              {ui[uiLang]["knowledge.search.placeholder"]}
+            </label>
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-3 flex items-center pointer-events-none"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-              </svg>
+                <Icon name="search" class="h-5 w-5 text-purple-400" />
+              </div>
+              <input
+                type="search"
+                id="searchInput"
+                placeholder={ui[uiLang]["knowledge.search.placeholder"]}
+                class="w-full py-3 pl-10 pr-4 bg-zinc-800 border-2 border-zinc-600
+                       rounded-xl text-zinc-50 placeholder-zinc-300
+                       focus:outline-none focus:border-purple-500 focus:ring-3
+                       focus:ring-purple-500/50 transition-all duration-300"
+                aria-controls="articlesGrid"
+                aria-describedby="search-description"
+              />
+              <div id="search-description" class="sr-only">
+                Während der Eingabe werden die Artikel automatisch gefiltert
+              </div>
             </div>
-            <input
-              type="search"
-              id="searchInput"
-              placeholder={ui[uiLang]["knowledge.search.placeholder"]}
-              class="w-full py-3 pl-10 pr-4 bg-zinc-700/80 border-2 border-zinc-600
-                     rounded-xl text-zinc-50 placeholder-zinc-400
-                     focus:outline-none focus:border-purple-500 focus:ring-2
-                     focus:ring-purple-500/50 focus:ring-opacity-50 shadow-sm transition-all duration-300"
-              aria-controls="articlesGrid"
-            />
+          </div>
+
+          <!-- Kategorie-Filter -->
+          <div class="md:w-1/3">
+            <label for="categoryFilter" class="sr-only">Nach Kategorie filtern</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                <Icon name="filter" class="h-5 w-5 text-purple-400" />
+              </div>
+              <select
+                id="categoryFilter"
+                class="w-full py-3 pl-10 pr-4 bg-zinc-800 border-2 border-zinc-600
+                      rounded-xl text-zinc-50 appearance-none cursor-pointer
+                      focus:outline-none focus:border-purple-500 focus:ring-3
+                      focus:ring-purple-500/50 transition-all duration-300"
+                aria-label="Nach Kategorie filtern"
+              >
+                <option value="all">{ui[uiLang]["knowledge.filter.all"]}</option>
+                {allKeywords.map((keyword) => (
+                  <option value={keyword}>{keyword}</option>
+                ))}
+              </select>
+              <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                <Icon name="chevron-down" class="h-5 w-5 text-purple-400" />
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- Suchstatusanzeige für Screenreader -->
+        <div 
+          id="search-status" 
+          class="sr-only" 
+          aria-live="polite"
+        ></div>
+      </div>
+
+      <!-- Keine Ergebnisse Nachricht (anfangs ausgeblendet) -->
+      <div 
+        id="no-results" 
+        class="hidden flex flex-col items-center justify-center p-12 bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-xl border border-zinc-600 text-center shadow-md mb-10"
+        aria-live="polite"
+      >
+        <Icon name="search-no-results" class="w-16 h-16 text-zinc-300 mb-4" />
+        <p class="text-zinc-100 text-lg font-medium">
+          {ui[uiLang]["knowledge.no.results"] || "Keine Artikel gefunden"}
+        </p>
+        <button 
+          id="reset-search"
+          class="mt-4 px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800 transition-all duration-300"
+        >
+          Suche zurücksetzen
+        </button>
+      </div>
+
+      <!-- Barrierefreie Tastaturfokus-Hinweise -->
+      <div class="focus-instructions sr-only" aria-live="polite">
+        <p>Benutze die Tab-Taste, um zwischen Artikeln zu navigieren, und drücke Enter, um einen Artikel zu öffnen.</p>
       </div>
 
       <div
@@ -152,8 +218,11 @@ const articlesWithReadingTime = articles.map((article) => {
 
               return (
                 <div
-                  class="animate-fadeIn"
+                  class="animate-fadeIn knowledge-card-container"
                   style={{ animationDelay: `${index * 0.05}s` }}
+                  data-keywords={article.data.keywords?.join(" ").toLowerCase() || ""}
+                  data-title={article.data.title.toLowerCase()}
+                  data-description={article.data.description.toLowerCase()}
                 >
                   <KnowledgeCard
                     title={article.data.title}
@@ -163,38 +232,45 @@ const articlesWithReadingTime = articles.map((article) => {
                     slug={article.slug}
                     lang={lang}
                     readingTime={article.data.readingTime}
+                    keywords={article.data.keywords || []}
                   />
                 </div>
               );
             })
           ) : (
             <div class="col-span-full flex flex-col items-center justify-center p-12 bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-xl border border-zinc-600 text-center shadow-md">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-16 h-16 text-zinc-400 mb-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <p class="text-zinc-200 text-lg font-medium">
-                Keine Artikel gefunden
+              <Icon name="info" class="w-16 h-16 text-zinc-300 mb-4" />
+              <p class="text-zinc-100 text-lg font-medium">
+                {ui[uiLang]["knowledge.empty"] || "Keine Artikel gefunden"}
               </p>
             </div>
           )
         }
       </div>
     </div>
+
+    <!-- "Nach oben"-Button mit verbesserter Zugänglichkeit -->
+    <button 
+      id="back-to-top" 
+      class="fixed bottom-8 right-8 p-3 bg-purple-600 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-purple-500 focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800"
+      aria-label="Zurück zum Anfang der Seite"
+    >
+      <Icon name="arrow-up" class="h-6 w-6" />
+    </button>
   </div>
 </Layout>
 
 <style>
+  /* Verbesserter Farbkontrast für WCAG AAA (7:1) */
+  :root {
+    --text-primary: #ffffff; /* Maximaler Kontrast */
+    --text-secondary: #e2e2e7; /* Höherer Kontrast als standard zinc-300 */
+    --bg-card: #27272a; /* zinc-800 */
+    --border-card: rgba(161, 161, 170, 0.3); /* zinc-400 mit Transparenz */
+    --accent-primary: #a855f7; /* purple-500 */
+    --accent-secondary: #c084fc; /* purple-400 */
+  }
+
   /* Animations for cards */
   @keyframes fadeIn {
     from {
@@ -212,22 +288,52 @@ const articlesWithReadingTime = articles.map((article) => {
     opacity: 0;
   }
 
+  /* Enhanced keyboard focus styles for WCAG AAA */
+  :focus-visible {
+    outline: 3px solid var(--accent-primary) !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.4) !important;
+  }
+
+  /* Verbesserter Hover-Effekt */
+  .knowledge-card-container:hover {
+    transform: translateY(-4px);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  }
+
+  /* Verbesserte Back-to-Top Button Animation */
+  #back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
   /* Disable animations if user prefers reduced motion */
   @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    
     .animate-fadeIn {
-      animation: none;
       opacity: 1;
+      animation: none;
+      transform: translateY(0);
+    }
+    
+    .knowledge-card-container:hover {
+      transform: none;
     }
   }
 </style>
 
 <script>
   /**
-   * Knowledge Articles Search System
-   * ------------------------------------
-   * A high-performance article filtering system that allows users to search
-   * through knowledge articles with real-time results. Features optimized DOM
-   * operations, intelligent caching, and accessibility support.
+   * Knowledge Articles Search & Filtering System
+   * ---------------------------------------------
+   * A high-performance article filtering system optimized for WCAG AAA accessibility
+   * Features intelligent caching, keyboard navigation, and robust screen reader support.
    */
 
   /**
@@ -237,11 +343,14 @@ const articlesWithReadingTime = articles.map((article) => {
     // DOM element selectors
     SELECTORS: {
       SEARCH_INPUT: "#searchInput",
+      CATEGORY_FILTER: "#categoryFilter", 
       ARTICLE_GRID: "#articlesGrid",
-      ARTICLE_TITLE: "h3",
-      ARTICLE_DESCRIPTION: ".description",
-      ARTICLE_KEYWORDS: ".keyword",
-      STATUS_ID: "search-status",
+      ARTICLE_CARD: ".knowledge-card-container",
+      ARTICLE_LINK: "a.card-link",
+      NO_RESULTS: "#no-results",
+      SEARCH_STATUS: "#search-status",
+      RESET_SEARCH: "#reset-search",
+      BACK_TO_TOP: "#back-to-top",
     },
     // Performance settings
     PERFORMANCE: {
@@ -249,22 +358,30 @@ const articlesWithReadingTime = articles.map((article) => {
       BATCH_SIZE: 12, // Process search in batches for smoother UX
       ANIMATION_THRESHOLD: 50, // Skip animations if more than this many items
     },
-    // Attributes for accessibility
+    // Scroll settings
+    SCROLL: {
+      BACK_TO_TOP_THRESHOLD: 500, // Show back-to-top button after scrolling this much
+      SMOOTH_SCROLL_DURATION: 500, // Duration for smooth scroll in ms
+    },
+    // Accessibility settings
     ACCESSIBILITY: {
-      LIVE_REGION_ROLE: "status",
-      LIVE_REGION_POLITENESS: "polite",
+      FOCUS_AFTER_FILTER: true, // Focus on first result after filtering
+      ANNOUNCE_RESULTS: true, // Announce results count to screen readers
     },
   };
 
   /**
    * ArticleSearch class handles all search functionality for knowledge articles
    */
-  class ArticleSearch {
+  class KnowledgeCenter {
     private searchInput: HTMLInputElement | null;
+    private categoryFilter: HTMLSelectElement | null;
     private articleGrid: HTMLElement | null;
     private articles: HTMLElement[];
-    private textCache: WeakMap<HTMLElement, ArticleTextContent>;
-    private statusRegion: HTMLElement | null;
+    private noResultsEl: HTMLElement | null;
+    private searchStatusEl: HTMLElement | null;
+    private resetSearchBtn: HTMLElement | null;
+    private backToTopBtn: HTMLElement | null;
     private debounceTimer: ReturnType<typeof setTimeout> | null;
     private isProcessing: boolean;
 
@@ -274,10 +391,13 @@ const articlesWithReadingTime = articles.map((article) => {
     constructor() {
       // Initialize properties
       this.searchInput = document.querySelector(CONFIG.SELECTORS.SEARCH_INPUT);
+      this.categoryFilter = document.querySelector(CONFIG.SELECTORS.CATEGORY_FILTER);
       this.articleGrid = document.querySelector(CONFIG.SELECTORS.ARTICLE_GRID);
+      this.noResultsEl = document.querySelector(CONFIG.SELECTORS.NO_RESULTS);
+      this.searchStatusEl = document.querySelector(CONFIG.SELECTORS.SEARCH_STATUS);
+      this.resetSearchBtn = document.querySelector(CONFIG.SELECTORS.RESET_SEARCH);
+      this.backToTopBtn = document.querySelector(CONFIG.SELECTORS.BACK_TO_TOP);
       this.articles = [];
-      this.textCache = new WeakMap();
-      this.statusRegion = null;
       this.debounceTimer = null;
       this.isProcessing = false;
 
@@ -296,45 +416,100 @@ const articlesWithReadingTime = articles.map((article) => {
       // Ensure required DOM elements exist
       if (!this.searchInput || !this.articleGrid) {
         console.warn(
-          "Required search elements not found. Search functionality disabled.",
+          "Required search elements not found. Search functionality disabled."
         );
         return;
       }
 
       // Cache article elements for better performance
-      this.articles = Array.from(this.articleGrid.children) as HTMLElement[];
+      this.articles = Array.from(
+        this.articleGrid.querySelectorAll(CONFIG.SELECTORS.ARTICLE_CARD)
+      ) as HTMLElement[];
 
-      // Setup search status region for accessibility
-      this.setupStatusRegion();
-
-      // Pre-cache article content for faster searching
-      this.articles.forEach((article) => this.cacheArticleText(article));
-
-      // Attach event listener with debounce
-      this.searchInput.addEventListener("input", () =>
-        this.handleSearchInput(),
-      );
+      // Attach event listeners with debounce
+      this.searchInput.addEventListener("input", () => this.handleSearchInput());
+      
+      // Add category filter listener
+      if (this.categoryFilter) {
+        this.categoryFilter.addEventListener("change", () => this.handleSearchInput());
+      }
+      
+      // Reset search button
+      if (this.resetSearchBtn) {
+        this.resetSearchBtn.addEventListener("click", () => this.resetSearch());
+      }
+      
+      // Back to top button
+      if (this.backToTopBtn) {
+        this.initBackToTop();
+      }
+      
+      // Add keyboard navigation for cards
+      this.setupCardKeyboardNavigation();
     }
 
     /**
-     * Sets up the live region for screen reader announcements
+     * Initializes the back-to-top button functionality
      */
-    private setupStatusRegion(): void {
-      if (!this.articleGrid) return;
+    private initBackToTop(): void {
+      if (!this.backToTopBtn) return;
+      
+      // Show/hide button based on scroll position
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > CONFIG.SCROLL.BACK_TO_TOP_THRESHOLD) {
+          this.backToTopBtn?.classList.add("visible");
+        } else {
+          this.backToTopBtn?.classList.remove("visible");
+        }
+      });
+      
+      // Scroll to top when clicked
+      this.backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+        
+        // Return focus to search input for better keyboard navigation
+        setTimeout(() => {
+          this.searchInput?.focus();
+        }, CONFIG.SCROLL.SMOOTH_SCROLL_DURATION);
+      });
+    }
 
-      this.statusRegion = document.createElement("div");
-      this.statusRegion.setAttribute(
-        "role",
-        CONFIG.ACCESSIBILITY.LIVE_REGION_ROLE,
-      );
-      this.statusRegion.setAttribute(
-        "aria-live",
-        CONFIG.ACCESSIBILITY.LIVE_REGION_POLITENESS,
-      );
-      this.statusRegion.className = "sr-only";
-      this.statusRegion.id = CONFIG.SELECTORS.STATUS_ID;
-
-      this.articleGrid.parentNode?.appendChild(this.statusRegion);
+    /**
+     * Sets up keyboard navigation between article cards
+     */
+    private setupCardKeyboardNavigation(): void {
+      this.articleGrid?.addEventListener("keydown", (event) => {
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || 
+            event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+          
+          const cards = Array.from(this.articleGrid?.querySelectorAll(CONFIG.SELECTORS.ARTICLE_LINK) || []);
+          const currentIndex = cards.findIndex(card => card === document.activeElement);
+          
+          if (currentIndex === -1) return;
+          
+          let newIndex;
+          const columns = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+          
+          // Calculate new index based on arrow key and grid layout
+          if (event.key === 'ArrowRight') {
+            newIndex = (currentIndex + 1) % cards.length;
+          } else if (event.key === 'ArrowLeft') {
+            newIndex = (currentIndex - 1 + cards.length) % cards.length;
+          } else if (event.key === 'ArrowDown') {
+            newIndex = (currentIndex + columns) < cards.length ? (currentIndex + columns) : currentIndex;
+          } else if (event.key === 'ArrowUp') {
+            newIndex = (currentIndex - columns) >= 0 ? (currentIndex - columns) : currentIndex;
+          }
+          
+          if (newIndex !== undefined && cards[newIndex]) {
+            event.preventDefault();
+            (cards[newIndex] as HTMLElement).focus();
+          }
+        }
+      });
     }
 
     /**
@@ -346,68 +521,56 @@ const articlesWithReadingTime = articles.map((article) => {
       }
 
       this.debounceTimer = setTimeout(() => {
-        this.performSearch();
+        this.filterArticles();
         this.debounceTimer = null;
       }, CONFIG.PERFORMANCE.DEBOUNCE_MS);
     }
 
     /**
-     * Performs the search operation on all articles
+     * Filters articles based on search input and category selection
      */
-    private performSearch(): void {
-      if (this.isProcessing || !this.searchInput) return;
+    private filterArticles(): void {
+      if (this.isProcessing) return;
 
-      const query = this.searchInput.value.toLowerCase().trim();
-
-      // If query is empty, show all articles
-      if (!query) {
-        this.showAllArticles();
-        return;
-      }
-
+      const query = this.searchInput?.value.toLowerCase().trim() || "";
+      const selectedCategory = this.categoryFilter?.value || "all";
+      
       this.isProcessing = true;
       let visibleCount = 0;
 
       // Process in batches for smoother UX with many articles
       if (this.articles.length > CONFIG.PERFORMANCE.BATCH_SIZE) {
-        this.processBatchedSearch(query);
+        this.processBatchedFilter(query, selectedCategory);
       } else {
         // For smaller sets, process all at once
         this.articles.forEach((article) => {
-          if (this.articleMatchesQuery(article, query)) {
-            article.style.display = "";
-            visibleCount++;
-          } else {
-            article.style.display = "none";
-          }
+          const isVisible = this.articleMatchesFilters(article, query, selectedCategory);
+          article.style.display = isVisible ? "" : "none";
+          if (isVisible) visibleCount++;
         });
 
-        this.updateSearchStatus(visibleCount, this.articles.length);
+        this.updateResultsStatus(visibleCount);
         this.isProcessing = false;
       }
     }
 
     /**
      * Process articles in batches for better UI responsiveness
-     * @param query - The search query
      */
-    private processBatchedSearch(query: string): void {
+    private processBatchedFilter(query: string, category: string): void {
       let index = 0;
       let visibleCount = 0;
 
       const processNextBatch = () => {
         const endIndex = Math.min(
           index + CONFIG.PERFORMANCE.BATCH_SIZE,
-          this.articles.length,
+          this.articles.length
         );
 
         for (let i = index; i < endIndex; i++) {
-          if (this.articleMatchesQuery(this.articles[i], query)) {
-            this.articles[i].style.display = "";
-            visibleCount++;
-          } else {
-            this.articles[i].style.display = "none";
-          }
+          const isVisible = this.articleMatchesFilters(this.articles[i], query, category);
+          this.articles[i].style.display = isVisible ? "" : "none";
+          if (isVisible) visibleCount++;
         }
 
         index = endIndex;
@@ -417,7 +580,7 @@ const articlesWithReadingTime = articles.map((article) => {
           requestAnimationFrame(processNextBatch);
         } else {
           // All batches processed
-          this.updateSearchStatus(visibleCount, this.articles.length);
+          this.updateResultsStatus(visibleCount);
           this.isProcessing = false;
         }
       };
@@ -426,80 +589,88 @@ const articlesWithReadingTime = articles.map((article) => {
     }
 
     /**
-     * Shows all articles (resets filter)
+     * Check if an article matches the current search and category filters
      */
-    private showAllArticles(): void {
-      this.articles.forEach((article) => {
-        article.style.display = "";
-      });
-
-      this.updateSearchStatus(this.articles.length, this.articles.length);
+    private articleMatchesFilters(article: HTMLElement, query: string, category: string): boolean {
+      // Handle category filter
+      if (category !== "all") {
+        const keywords = article.dataset.keywords || "";
+        if (!keywords.includes(category.toLowerCase())) {
+          return false;
+        }
+      }
+      
+      // Handle search query
+      if (query) {
+        const title = article.dataset.title || "";
+        const description = article.dataset.description || "";
+        const keywords = article.dataset.keywords || "";
+        
+        return title.includes(query) || 
+               description.includes(query) || 
+               keywords.includes(query);
+      }
+      
+      return true;
     }
 
     /**
-     * Determines if an article matches the search query
-     * @param article - The article element to check
-     * @param query - The search query
-     * @returns Whether the article matches the query
+     * Updates the status display for search results
      */
-    private articleMatchesQuery(article: HTMLElement, query: string): boolean {
-      const cachedText = this.textCache.get(article);
-      if (!cachedText) return false;
-
-      const { title, description, keywords } = cachedText;
-
-      return (
-        title.includes(query) ||
-        description.includes(query) ||
-        keywords.some((keyword) => keyword.includes(query))
-      );
-    }
-
-    /**
-     * Caches article text content for optimized searching
-     * @param article - The article element to cache
-     */
-    private cacheArticleText(article: HTMLElement): void {
-      const title =
-        article
-          .querySelector(CONFIG.SELECTORS.ARTICLE_TITLE)
-          ?.textContent?.toLowerCase() || "";
-      const description =
-        article
-          .querySelector(CONFIG.SELECTORS.ARTICLE_DESCRIPTION)
-          ?.textContent?.toLowerCase() || "";
-      const keywords = Array.from(
-        article.querySelectorAll(CONFIG.SELECTORS.ARTICLE_KEYWORDS),
-      ).map((keyword) => keyword.textContent?.toLowerCase() || "");
-
-      this.textCache.set(article, { title, description, keywords });
-    }
-
-    /**
-     * Updates the accessibility status for screen readers
-     * @param visibleCount - Number of visible articles
-     * @param totalCount - Total number of articles
-     */
-    private updateSearchStatus(visibleCount: number, totalCount: number): void {
-      if (!this.statusRegion) return;
-
-      if (visibleCount === totalCount) {
-        this.statusRegion.textContent = "";
-      } else {
-        this.statusRegion.textContent = `${visibleCount} of ${totalCount} articles shown`;
+    private updateResultsStatus(visibleCount: number): void {
+      // Update status for screen readers
+      if (this.searchStatusEl) {
+        if (visibleCount === this.articles.length) {
+          this.searchStatusEl.textContent = `Alle ${visibleCount} Artikel werden angezeigt`;
+        } else {
+          this.searchStatusEl.textContent = `${visibleCount} von ${this.articles.length} Artikeln gefunden`;
+        }
+      }
+      
+      // Show no results message if needed
+      if (this.noResultsEl) {
+        if (visibleCount === 0) {
+          this.noResultsEl.classList.remove("hidden");
+        } else {
+          this.noResultsEl.classList.add("hidden");
+        }
+      }
+      
+      // Focus first result if configured
+      if (CONFIG.ACCESSIBILITY.FOCUS_AFTER_FILTER && visibleCount > 0 && 
+          (this.searchInput?.value || this.categoryFilter?.value !== "all")) {
+        const firstVisibleArticle = Array.from(this.articles).find(
+          article => article.style.display !== "none"
+        );
+        
+        if (firstVisibleArticle) {
+          const firstLink = firstVisibleArticle.querySelector(CONFIG.SELECTORS.ARTICLE_LINK) as HTMLElement;
+          if (firstLink) {
+            setTimeout(() => firstLink.focus(), 100);
+          }
+        }
       }
     }
+
+    /**
+     * Resets the search input and filters
+     */
+    private resetSearch(): void {
+      if (this.searchInput) {
+        this.searchInput.value = "";
+      }
+      
+      if (this.categoryFilter) {
+        this.categoryFilter.value = "all";
+      }
+      
+      this.filterArticles();
+      
+      // Focus back on search input
+      this.searchInput?.focus();
+    }
   }
 
-  /**
-   * Interface for cached article text content
-   */
-  interface ArticleTextContent {
-    title: string;
-    description: string;
-    keywords: string[];
-  }
-
-  // Initialize the article search when the script loads
-  new ArticleSearch();
+  // Initialize the knowledge center when the script loads
+  new KnowledgeCenter();
 </script>
