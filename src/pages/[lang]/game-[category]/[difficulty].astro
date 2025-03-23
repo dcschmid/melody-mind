@@ -34,7 +34,11 @@ const currentCategoryData = categories.default.find(
 const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 ---
 
-<Layout title={`${currentCategoryData?.headline}`} showCoins={false}>
+<Layout
+  title={`${currentCategoryData?.headline}`}
+  showHeader={false}
+  showCoins={false}
+>
   <FeedbackOverlay />
 
   <EndOverlay

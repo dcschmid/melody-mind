@@ -39,7 +39,7 @@ interface Question {
 /**
  * JokerManager handles the 50:50 joker functionality in the quiz game
  * It manages the joker state, UI updates, and handles the logic for removing wrong options
- * 
+ *
  * @class JokerManager
  */
 export class JokerManager {
@@ -164,66 +164,69 @@ export class JokerManager {
     this.jokerState.jokerUsed = true;
 
     const { options, correctAnswer } = this.currentQuestion;
-    
+
     // Process answer options and hide incorrect ones
     try {
       // Identify wrong options (all non-correct answers)
-      const wrongOptions = options.filter(option => option !== correctAnswer);
-      
+      const wrongOptions = options.filter((option) => option !== correctAnswer);
+
       // Safety check: ensure correct answer is not in wrong options
       if (wrongOptions.includes(correctAnswer)) {
         return;
       }
-      
+
       // Exit if there aren't enough wrong options to use 50:50
       if (wrongOptions.length < 2) {
         return;
       }
-      
+
       // Select random wrong options to hide (up to 2)
       let toHide = [...wrongOptions];
       if (toHide.length > 2) {
         toHide = toHide
           .sort(() => Math.random() - 0.5) // Randomize
-          .slice(0, 2);                     // Take first 2
+          .slice(0, 2); // Take first 2
       }
-      
+
       // Get the options container from the DOM
       const optionsContainer = document.getElementById("options");
       if (!optionsContainer) {
         return;
       }
-      
+
       // Find all option buttons
-      const allButtons = Array.from(optionsContainer.querySelectorAll("button"));
-      
+      const allButtons = Array.from(
+        optionsContainer.querySelectorAll("button"),
+      );
+
       // Text normalization function for better matching
       function normalizeText(text: string): string {
         return text.trim().toLowerCase().replace(/\s+/g, " ");
       }
-      
+
       // Normalize the correct answer and options to hide for comparison
       const normalizedCorrectAnswer = normalizeText(correctAnswer);
-      const normalizedToHide = toHide.map(opt => normalizeText(opt));
-      
+      const normalizedToHide = toHide.map((opt) => normalizeText(opt));
+
       // Track how many buttons were hidden
       let hiddenCount = 0;
-      
+
       // Process each button
-      allButtons.forEach(button => {
+      allButtons.forEach((button) => {
         const normalizedButtonText = normalizeText(button.textContent || "");
-        
+
         // Skip the correct answer - never hide it
         if (normalizedButtonText === normalizedCorrectAnswer) {
           return;
         }
-        
+
         // Check if this button should be hidden (fuzzy matching)
-        const shouldHide = normalizedToHide.some(hideText => 
-          normalizedButtonText.includes(hideText) || 
-          hideText.includes(normalizedButtonText)
+        const shouldHide = normalizedToHide.some(
+          (hideText) =>
+            normalizedButtonText.includes(hideText) ||
+            hideText.includes(normalizedButtonText),
         );
-        
+
         // Apply multiple hiding techniques for maximum compatibility
         if (shouldHide) {
           button.style.display = "none";
@@ -235,10 +238,14 @@ export class JokerManager {
           hiddenCount++;
         }
       });
-      
+
       // If no buttons were hidden, try alternative approach
       if (hiddenCount === 0) {
-        this.tryAlternativeHiding(allButtons, normalizedCorrectAnswer, normalizedToHide);
+        this.tryAlternativeHiding(
+          allButtons,
+          normalizedCorrectAnswer,
+          normalizedToHide,
+        );
       }
     } catch (error) {
       // Silent error handling to prevent game disruption
@@ -289,20 +296,20 @@ export class JokerManager {
   private tryAlternativeHiding(
     buttons: HTMLButtonElement[],
     normalizedCorrectAnswer: string,
-    normalizedToHide: string[]
+    normalizedToHide: string[],
   ): void {
     // Text normalization helper
     function normalizeText(text: string): string {
       return text.trim().toLowerCase().replace(/\s+/g, " ");
     }
-    
+
     // Separate buttons into correct and wrong
     const wrongButtons: HTMLButtonElement[] = [];
     let correctButton: HTMLButtonElement | null = null;
-    
-    buttons.forEach(button => {
+
+    buttons.forEach((button) => {
       const normalizedButtonText = normalizeText(button.textContent || "");
-      
+
       // Identify the correct button (with fuzzy matching)
       if (
         normalizedButtonText === normalizedCorrectAnswer ||
@@ -314,7 +321,7 @@ export class JokerManager {
         wrongButtons.push(button);
       }
     });
-    
+
     // Safety check: don't proceed if we can't identify the correct button
     if (!correctButton) {
       // If we can't tell which is correct, use a fallback approach
@@ -325,10 +332,12 @@ export class JokerManager {
       }
       return;
     }
-    
+
     // Hide 2 wrong buttons if possible
     if (wrongButtons.length >= 2) {
-      const randomizedWrongButtons = [...wrongButtons].sort(() => Math.random() - 0.5);
+      const randomizedWrongButtons = [...wrongButtons].sort(
+        () => Math.random() - 0.5,
+      );
       const buttonsToHide = randomizedWrongButtons.slice(0, 2);
       this.hideButtons(buttonsToHide);
     } else if (wrongButtons.length === 1) {
@@ -343,7 +352,7 @@ export class JokerManager {
    * @param {HTMLButtonElement[]} buttons - Buttons to hide
    */
   private hideButtons(buttons: HTMLButtonElement[]): void {
-    buttons.forEach(button => {
+    buttons.forEach((button) => {
       button.style.display = "none";
       button.style.visibility = "hidden";
       button.classList.add("hidden");
@@ -360,7 +369,8 @@ export class JokerManager {
   private updateJokerUI(): void {
     // Update joker button state
     if (this.jokerButton) {
-      const disabled = this.jokerState.jokerCount <= 0 || this.jokerState.jokerUsed;
+      const disabled =
+        this.jokerState.jokerCount <= 0 || this.jokerState.jokerUsed;
       this.jokerButton.disabled = disabled;
 
       if (disabled) {
@@ -391,7 +401,9 @@ export class JokerManager {
         default: `${this.jokerState.jokerCount} remaining`,
       };
 
-      const lang = (document.documentElement.lang as keyof typeof translations) || "default";
+      const lang =
+        (document.documentElement.lang as keyof typeof translations) ||
+        "default";
       const text = translations[lang] || translations.default;
       this.jokerCounter.textContent = text;
     }
