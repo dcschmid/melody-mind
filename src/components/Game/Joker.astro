@@ -189,12 +189,14 @@ const t = useTranslations(lang);
     const elements = {
       button: document.getElementById("joker-button") as HTMLButtonElement,
       counter: document.getElementById("joker-count"),
-      ripple: document.getElementById("joker-ripple")
+      ripple: document.getElementById("joker-ripple"),
     };
 
     // Early return if essential elements are missing
     if (!elements.button) {
-      console.error("Joker button not found - component initialization aborted");
+      console.error(
+        "Joker button not found - component initialization aborted",
+      );
       return;
     }
 
@@ -217,18 +219,20 @@ const t = useTranslations(lang);
       elements.button.addEventListener("click", (e) => {
         // Prevent handling if already in progress or disabled
         if (clickTimeout || elements.button.disabled) {
-          console.log("Joker click ignored - button disabled or click in progress");
+          console.log(
+            "Joker click ignored - button disabled or click in progress",
+          );
           return;
         }
 
         console.log("Joker button clicked - triggering animation and events");
-        
+
         // Activate ripple animation effect
         applyRippleEffect();
-        
+
         // Dispatch the custom event
         dispatchJokerEvent();
-        
+
         // Temporarily disable button to prevent double clicks
         elements.button.disabled = true;
         clickTimeout = setTimeout(() => {
@@ -247,7 +251,7 @@ const t = useTranslations(lang);
      */
     function applyRippleEffect() {
       if (!elements.ripple) return;
-      
+
       // Reset animation to ensure it plays again
       elements.ripple.classList.remove("animate");
       void elements.ripple.offsetWidth; // Force reflow to restart animation
@@ -261,18 +265,18 @@ const t = useTranslations(lang);
     function dispatchJokerEvent() {
       try {
         if (!elements.button) return;
-        
+
         const jokerEvent = new CustomEvent("jokerUsed", {
           bubbles: true,
           detail: {
             jokerType: elements.button.dataset.jokerType,
-            timestamp: Date.now()
-          }
+            timestamp: Date.now(),
+          },
         });
-        
+
         document.dispatchEvent(jokerEvent);
         console.log("jokerUsed event dispatched successfully");
-        
+
         // Make announcement for screen readers
         announceJokerUsage();
       } catch (error) {
@@ -286,7 +290,7 @@ const t = useTranslations(lang);
      */
     function setupCounterObserver() {
       if (!elements.counter) return;
-      
+
       const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
           if (mutation.type === "childList" && elements.counter) {
@@ -294,12 +298,15 @@ const t = useTranslations(lang);
             elements.counter.classList.remove("updated");
             void elements.counter.offsetWidth; // Force reflow to restart animation
             elements.counter.classList.add("updated");
-            
-            console.log("Joker counter updated to:", elements.counter.textContent);
+
+            console.log(
+              "Joker counter updated to:",
+              elements.counter.textContent,
+            );
           }
         });
       });
-      
+
       observer.observe(elements.counter, { childList: true });
     }
 
