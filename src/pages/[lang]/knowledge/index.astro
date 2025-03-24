@@ -75,15 +75,23 @@ const articlesWithReadingTime = articles.map((article) => {
   return article;
 });
 
+// Sortiere Artikel alphabetisch nach Titel
+const sortedArticles = [...articlesWithReadingTime].sort((a, b) => 
+  a.data.title.localeCompare(b.data.title, undefined, { sensitivity: 'base' })
+);
+
 // Kategorisiere Artikel nach Themen für verbesserte Navigation
-const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
-  const mainKeyword = article.data.keywords?.[0] || "Allgemein";
-  if (!acc[mainKeyword]) {
-    acc[mainKeyword] = [];
-  }
-  acc[mainKeyword].push(article);
-  return acc;
-}, {} as Record<string, AnyCollectionEntry[]>);
+const categorizedArticles = sortedArticles.reduce(
+  (acc, article) => {
+    const mainKeyword = article.data.keywords?.[0] || "Allgemein";
+    if (!acc[mainKeyword]) {
+      acc[mainKeyword] = [];
+    }
+    acc[mainKeyword].push(article);
+    return acc;
+  },
+  {} as Record<string, AnyCollectionEntry[]>,
+);
 ---
 
 <Layout title={ui[uiLang]["knowledge.title"]}>
@@ -104,12 +112,14 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
 
     <div class="w-full mb-8">
       <!-- Verbesserte Suche und Filterung mit ARIA-Unterstützung -->
-      <div 
+      <div
         class="search-filter-container bg-zinc-800/90 rounded-xl p-6 border border-zinc-700 shadow-lg mb-10"
         role="search"
       >
-        <h2 class="sr-only" id="search-heading">{ui[uiLang]["knowledge.search.label"] || "Artikel durchsuchen"}</h2>
-        
+        <h2 class="sr-only" id="search-heading">
+          {ui[uiLang]["knowledge.search.label"] || "Artikel durchsuchen"}
+        </h2>
+
         <div class="flex flex-col md:flex-row gap-4 mb-4">
           <div class="relative flex-grow">
             <label for="searchInput" class="sr-only">
@@ -140,9 +150,13 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
 
           <!-- Kategorie-Filter -->
           <div class="md:w-1/3">
-            <label for="categoryFilter" class="sr-only">Nach Kategorie filtern</label>
+            <label for="categoryFilter" class="sr-only"
+              >Nach Kategorie filtern</label
+            >
             <div class="relative">
-              <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+              <div
+                class="absolute inset-y-0 left-3 flex items-center pointer-events-none"
+              >
                 <Icon name="filter" class="h-5 w-5 text-purple-400" />
               </div>
               <select
@@ -153,12 +167,17 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
                       focus:ring-purple-500/50 transition-all duration-300"
                 aria-label="Nach Kategorie filtern"
               >
-                <option value="all">{ui[uiLang]["knowledge.filter.all"]}</option>
-                {allKeywords.map((keyword) => (
-                  <option value={keyword}>{keyword}</option>
-                ))}
+                <option value="all">{ui[uiLang]["knowledge.filter.all"]}</option
+                >
+                {
+                  allKeywords.map((keyword) => (
+                    <option value={keyword}>{keyword}</option>
+                  ))
+                }
               </select>
-              <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+              <div
+                class="absolute inset-y-0 right-3 flex items-center pointer-events-none"
+              >
                 <Icon name="chevron-down" class="h-5 w-5 text-purple-400" />
               </div>
             </div>
@@ -166,16 +185,12 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
         </div>
 
         <!-- Suchstatusanzeige für Screenreader -->
-        <div 
-          id="search-status" 
-          class="sr-only" 
-          aria-live="polite"
-        ></div>
+        <div id="search-status" class="sr-only" aria-live="polite"></div>
       </div>
 
       <!-- Keine Ergebnisse Nachricht (anfangs ausgeblendet) -->
-      <div 
-        id="no-results" 
+      <div
+        id="no-results"
         class="hidden flex flex-col items-center justify-center p-12 bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-xl border border-zinc-600 text-center shadow-md mb-10"
         aria-live="polite"
       >
@@ -183,7 +198,7 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
         <p class="text-zinc-100 text-lg font-medium">
           {ui[uiLang]["knowledge.no.results"] || "Keine Artikel gefunden"}
         </p>
-        <button 
+        <button
           id="reset-search"
           class="mt-4 px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800 transition-all duration-300"
         >
@@ -193,7 +208,10 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
 
       <!-- Barrierefreie Tastaturfokus-Hinweise -->
       <div class="focus-instructions sr-only" aria-live="polite">
-        <p>Benutze die Tab-Taste, um zwischen Artikeln zu navigieren, und drücke Enter, um einen Artikel zu öffnen.</p>
+        <p>
+          Benutze die Tab-Taste, um zwischen Artikeln zu navigieren, und drücke
+          Enter, um einen Artikel zu öffnen.
+        </p>
       </div>
 
       <div
@@ -203,8 +221,8 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
         aria-label={ui[uiLang]["knowledge.title"]}
       >
         {
-          articlesWithReadingTime.length > 0 ? (
-            articlesWithReadingTime.map((article, index) => {
+          sortedArticles.length > 0 ? (
+            sortedArticles.map((article, index) => {
               // Handle image path
               const imagePath = article.data.image || "/default-cover.jpg";
 
@@ -220,7 +238,9 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
                 <div
                   class="animate-fadeIn knowledge-card-container"
                   style={{ animationDelay: `${index * 0.05}s` }}
-                  data-keywords={article.data.keywords?.join(" ").toLowerCase() || ""}
+                  data-keywords={
+                    article.data.keywords?.join(" ").toLowerCase() || ""
+                  }
                   data-title={article.data.title.toLowerCase()}
                   data-description={article.data.description.toLowerCase()}
                 >
@@ -250,8 +270,8 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
     </div>
 
     <!-- "Nach oben"-Button mit verbesserter Zugänglichkeit -->
-    <button 
-      id="back-to-top" 
+    <button
+      id="back-to-top"
       class="fixed bottom-8 right-8 p-3 bg-purple-600 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-purple-500 focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800"
       aria-label="Zurück zum Anfang der Seite"
     >
@@ -298,7 +318,9 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
   /* Verbesserter Hover-Effekt */
   .knowledge-card-container:hover {
     transform: translateY(-4px);
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    transition:
+      transform 0.3s ease-out,
+      box-shadow 0.3s ease-out;
   }
 
   /* Verbesserte Back-to-Top Button Animation */
@@ -307,21 +329,61 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
     visibility: visible;
   }
 
+  /* Verbesserte Touch-Interaktion für mobile Geräte */
+  .knowledge-card-container {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .knowledge-card-container:active {
+    transform: scale(0.98);
+  }
+
+  /* Vergrößerter klickbarer Bereich und verbesserte mobile Zugänglichkeit */
+  .knowledge-card-container a.card-link {
+    position: static;
+  }
+  
+  .knowledge-card-container a.card-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10; /* Stellt sicher, dass der klickbare Bereich über anderen Elementen liegt */
+  }
+
+  /* Reduzierte Hover-Effekte für Touch-Geräte */
+  @media (hover: none) {
+    .knowledge-card-container:hover {
+      transform: none;
+    }
+    
+    /* Visuelles Feedback bei Berührung */
+    .knowledge-card-container:active {
+      background-color: rgba(168, 85, 247, 0.1);
+    }
+  }
+
   /* Disable animations if user prefers reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    *, ::before, ::after {
+    *,
+    ::before,
+    ::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
-    
+
     .animate-fadeIn {
       opacity: 1;
       animation: none;
       transform: translateY(0);
     }
-    
+
     .knowledge-card-container:hover {
       transform: none;
     }
@@ -343,7 +405,7 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
     // DOM element selectors
     SELECTORS: {
       SEARCH_INPUT: "#searchInput",
-      CATEGORY_FILTER: "#categoryFilter", 
+      CATEGORY_FILTER: "#categoryFilter",
       ARTICLE_GRID: "#articlesGrid",
       ARTICLE_CARD: ".knowledge-card-container",
       ARTICLE_LINK: "a.card-link",
@@ -391,11 +453,17 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
     constructor() {
       // Initialize properties
       this.searchInput = document.querySelector(CONFIG.SELECTORS.SEARCH_INPUT);
-      this.categoryFilter = document.querySelector(CONFIG.SELECTORS.CATEGORY_FILTER);
+      this.categoryFilter = document.querySelector(
+        CONFIG.SELECTORS.CATEGORY_FILTER,
+      );
       this.articleGrid = document.querySelector(CONFIG.SELECTORS.ARTICLE_GRID);
       this.noResultsEl = document.querySelector(CONFIG.SELECTORS.NO_RESULTS);
-      this.searchStatusEl = document.querySelector(CONFIG.SELECTORS.SEARCH_STATUS);
-      this.resetSearchBtn = document.querySelector(CONFIG.SELECTORS.RESET_SEARCH);
+      this.searchStatusEl = document.querySelector(
+        CONFIG.SELECTORS.SEARCH_STATUS,
+      );
+      this.resetSearchBtn = document.querySelector(
+        CONFIG.SELECTORS.RESET_SEARCH,
+      );
       this.backToTopBtn = document.querySelector(CONFIG.SELECTORS.BACK_TO_TOP);
       this.articles = [];
       this.debounceTimer = null;
@@ -416,36 +484,43 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
       // Ensure required DOM elements exist
       if (!this.searchInput || !this.articleGrid) {
         console.warn(
-          "Required search elements not found. Search functionality disabled."
+          "Required search elements not found. Search functionality disabled.",
         );
         return;
       }
 
       // Cache article elements for better performance
       this.articles = Array.from(
-        this.articleGrid.querySelectorAll(CONFIG.SELECTORS.ARTICLE_CARD)
+        this.articleGrid.querySelectorAll(CONFIG.SELECTORS.ARTICLE_CARD),
       ) as HTMLElement[];
 
       // Attach event listeners with debounce
-      this.searchInput.addEventListener("input", () => this.handleSearchInput());
-      
+      this.searchInput.addEventListener("input", () =>
+        this.handleSearchInput(),
+      );
+
       // Add category filter listener
       if (this.categoryFilter) {
-        this.categoryFilter.addEventListener("change", () => this.handleSearchInput());
+        this.categoryFilter.addEventListener("change", () =>
+          this.handleSearchInput(),
+        );
       }
-      
+
       // Reset search button
       if (this.resetSearchBtn) {
         this.resetSearchBtn.addEventListener("click", () => this.resetSearch());
       }
-      
+
       // Back to top button
       if (this.backToTopBtn) {
         this.initBackToTop();
       }
-      
+
       // Add keyboard navigation for cards
       this.setupCardKeyboardNavigation();
+      
+      // Verbesserte Touch-Interaktion für mobile Geräte
+      this.setupMobileTouchInteraction();
     }
 
     /**
@@ -453,7 +528,7 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
      */
     private initBackToTop(): void {
       if (!this.backToTopBtn) return;
-      
+
       // Show/hide button based on scroll position
       window.addEventListener("scroll", () => {
         if (window.scrollY > CONFIG.SCROLL.BACK_TO_TOP_THRESHOLD) {
@@ -462,14 +537,14 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
           this.backToTopBtn?.classList.remove("visible");
         }
       });
-      
+
       // Scroll to top when clicked
       this.backToTopBtn.addEventListener("click", () => {
         window.scrollTo({
           top: 0,
-          behavior: "smooth"
+          behavior: "smooth",
         });
-        
+
         // Return focus to search input for better keyboard navigation
         setTimeout(() => {
           this.searchInput?.focus();
@@ -482,28 +557,43 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
      */
     private setupCardKeyboardNavigation(): void {
       this.articleGrid?.addEventListener("keydown", (event) => {
-        if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || 
-            event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-          
-          const cards = Array.from(this.articleGrid?.querySelectorAll(CONFIG.SELECTORS.ARTICLE_LINK) || []);
-          const currentIndex = cards.findIndex(card => card === document.activeElement);
-          
+        if (
+          event.key === "ArrowRight" ||
+          event.key === "ArrowDown" ||
+          event.key === "ArrowLeft" ||
+          event.key === "ArrowUp"
+        ) {
+          const cards = Array.from(
+            this.articleGrid?.querySelectorAll(CONFIG.SELECTORS.ARTICLE_LINK) ||
+              [],
+          );
+          const currentIndex = cards.findIndex(
+            (card) => card === document.activeElement,
+          );
+
           if (currentIndex === -1) return;
-          
+
           let newIndex;
-          const columns = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
-          
+          const columns =
+            window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+
           // Calculate new index based on arrow key and grid layout
-          if (event.key === 'ArrowRight') {
+          if (event.key === "ArrowRight") {
             newIndex = (currentIndex + 1) % cards.length;
-          } else if (event.key === 'ArrowLeft') {
+          } else if (event.key === "ArrowLeft") {
             newIndex = (currentIndex - 1 + cards.length) % cards.length;
-          } else if (event.key === 'ArrowDown') {
-            newIndex = (currentIndex + columns) < cards.length ? (currentIndex + columns) : currentIndex;
-          } else if (event.key === 'ArrowUp') {
-            newIndex = (currentIndex - columns) >= 0 ? (currentIndex - columns) : currentIndex;
+          } else if (event.key === "ArrowDown") {
+            newIndex =
+              currentIndex + columns < cards.length
+                ? currentIndex + columns
+                : currentIndex;
+          } else if (event.key === "ArrowUp") {
+            newIndex =
+              currentIndex - columns >= 0
+                ? currentIndex - columns
+                : currentIndex;
           }
-          
+
           if (newIndex !== undefined && cards[newIndex]) {
             event.preventDefault();
             (cards[newIndex] as HTMLElement).focus();
@@ -534,7 +624,7 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
 
       const query = this.searchInput?.value.toLowerCase().trim() || "";
       const selectedCategory = this.categoryFilter?.value || "all";
-      
+
       this.isProcessing = true;
       let visibleCount = 0;
 
@@ -544,13 +634,22 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
       } else {
         // For smaller sets, process all at once
         this.articles.forEach((article) => {
-          const isVisible = this.articleMatchesFilters(article, query, selectedCategory);
+          const isVisible = this.articleMatchesFilters(
+            article,
+            query,
+            selectedCategory,
+          );
           article.style.display = isVisible ? "" : "none";
           if (isVisible) visibleCount++;
         });
 
         this.updateResultsStatus(visibleCount);
         this.isProcessing = false;
+        
+        // Nach der Filterung stellen wir sicher, dass die Touch-Interaktion noch funktioniert
+        if (visibleCount > 0) {
+          setTimeout(() => this.setupMobileTouchInteraction(), 100);
+        }
       }
     }
 
@@ -564,11 +663,15 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
       const processNextBatch = () => {
         const endIndex = Math.min(
           index + CONFIG.PERFORMANCE.BATCH_SIZE,
-          this.articles.length
+          this.articles.length,
         );
 
         for (let i = index; i < endIndex; i++) {
-          const isVisible = this.articleMatchesFilters(this.articles[i], query, category);
+          const isVisible = this.articleMatchesFilters(
+            this.articles[i],
+            query,
+            category,
+          );
           this.articles[i].style.display = isVisible ? "" : "none";
           if (isVisible) visibleCount++;
         }
@@ -591,7 +694,11 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
     /**
      * Check if an article matches the current search and category filters
      */
-    private articleMatchesFilters(article: HTMLElement, query: string, category: string): boolean {
+    private articleMatchesFilters(
+      article: HTMLElement,
+      query: string,
+      category: string,
+    ): boolean {
       // Handle category filter
       if (category !== "all") {
         const keywords = article.dataset.keywords || "";
@@ -599,18 +706,20 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
           return false;
         }
       }
-      
+
       // Handle search query
       if (query) {
         const title = article.dataset.title || "";
         const description = article.dataset.description || "";
         const keywords = article.dataset.keywords || "";
-        
-        return title.includes(query) || 
-               description.includes(query) || 
-               keywords.includes(query);
+
+        return (
+          title.includes(query) ||
+          description.includes(query) ||
+          keywords.includes(query)
+        );
       }
-      
+
       return true;
     }
 
@@ -626,7 +735,7 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
           this.searchStatusEl.textContent = `${visibleCount} von ${this.articles.length} Artikeln gefunden`;
         }
       }
-      
+
       // Show no results message if needed
       if (this.noResultsEl) {
         if (visibleCount === 0) {
@@ -635,16 +744,21 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
           this.noResultsEl.classList.add("hidden");
         }
       }
-      
+
       // Focus first result if configured
-      if (CONFIG.ACCESSIBILITY.FOCUS_AFTER_FILTER && visibleCount > 0 && 
-          (this.searchInput?.value || this.categoryFilter?.value !== "all")) {
+      if (
+        CONFIG.ACCESSIBILITY.FOCUS_AFTER_FILTER &&
+        visibleCount > 0 &&
+        (this.searchInput?.value || this.categoryFilter?.value !== "all")
+      ) {
         const firstVisibleArticle = Array.from(this.articles).find(
-          article => article.style.display !== "none"
+          (article) => article.style.display !== "none",
         );
-        
+
         if (firstVisibleArticle) {
-          const firstLink = firstVisibleArticle.querySelector(CONFIG.SELECTORS.ARTICLE_LINK) as HTMLElement;
+          const firstLink = firstVisibleArticle.querySelector(
+            CONFIG.SELECTORS.ARTICLE_LINK,
+          ) as HTMLElement;
           if (firstLink) {
             setTimeout(() => firstLink.focus(), 100);
           }
@@ -659,15 +773,43 @@ const categorizedArticles = articlesWithReadingTime.reduce((acc, article) => {
       if (this.searchInput) {
         this.searchInput.value = "";
       }
-      
+
       if (this.categoryFilter) {
         this.categoryFilter.value = "all";
       }
-      
+
       this.filterArticles();
-      
+
       // Focus back on search input
       this.searchInput?.focus();
+    }
+
+    /**
+     * Verbessert die Touch-Interaktion für mobile Geräte
+     */
+    private setupMobileTouchInteraction(): void {
+      const cards = document.querySelectorAll(".knowledge-card-container");
+      
+      cards.forEach(card => {
+        card.addEventListener("click", (event) => {
+          // Wenn das Event nicht direkt auf einem Link war, den ersten Link in der Karte klicken
+          if (!(event.target as HTMLElement).closest("a")) {
+            const link = card.querySelector("a.card-link") as HTMLElement;
+            if (link) {
+              link.click();
+            }
+          }
+        });
+        
+        // Füge Touch-Feedback hinzu
+        card.addEventListener("touchstart", () => {
+          card.classList.add("touching");
+        }, {passive: true});
+        
+        card.addEventListener("touchend", () => {
+          card.classList.remove("touching");
+        }, {passive: true});
+      });
     }
   }
 
