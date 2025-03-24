@@ -76,8 +76,8 @@ const articlesWithReadingTime = articles.map((article) => {
 });
 
 // Sortiere Artikel alphabetisch nach Titel
-const sortedArticles = [...articlesWithReadingTime].sort((a, b) => 
-  a.data.title.localeCompare(b.data.title, undefined, { sensitivity: 'base' })
+const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
+  (a.data.image || '').localeCompare((b.data.image || ''), undefined, { sensitivity: "base" }),
 );
 
 // Kategorisiere Artikel nach Themen für verbesserte Navigation
@@ -333,7 +333,9 @@ const categorizedArticles = sortedArticles.reduce(
   .knowledge-card-container {
     position: relative;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   .knowledge-card-container:active {
@@ -344,9 +346,9 @@ const categorizedArticles = sortedArticles.reduce(
   .knowledge-card-container a.card-link {
     position: static;
   }
-  
+
   .knowledge-card-container a.card-link::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -360,7 +362,7 @@ const categorizedArticles = sortedArticles.reduce(
     .knowledge-card-container:hover {
       transform: none;
     }
-    
+
     /* Visuelles Feedback bei Berührung */
     .knowledge-card-container:active {
       background-color: rgba(168, 85, 247, 0.1);
@@ -518,7 +520,7 @@ const categorizedArticles = sortedArticles.reduce(
 
       // Add keyboard navigation for cards
       this.setupCardKeyboardNavigation();
-      
+
       // Verbesserte Touch-Interaktion für mobile Geräte
       this.setupMobileTouchInteraction();
     }
@@ -645,7 +647,7 @@ const categorizedArticles = sortedArticles.reduce(
 
         this.updateResultsStatus(visibleCount);
         this.isProcessing = false;
-        
+
         // Nach der Filterung stellen wir sicher, dass die Touch-Interaktion noch funktioniert
         if (visibleCount > 0) {
           setTimeout(() => this.setupMobileTouchInteraction(), 100);
@@ -789,8 +791,8 @@ const categorizedArticles = sortedArticles.reduce(
      */
     private setupMobileTouchInteraction(): void {
       const cards = document.querySelectorAll(".knowledge-card-container");
-      
-      cards.forEach(card => {
+
+      cards.forEach((card) => {
         card.addEventListener("click", (event) => {
           // Wenn das Event nicht direkt auf einem Link war, den ersten Link in der Karte klicken
           if (!(event.target as HTMLElement).closest("a")) {
@@ -800,15 +802,23 @@ const categorizedArticles = sortedArticles.reduce(
             }
           }
         });
-        
+
         // Füge Touch-Feedback hinzu
-        card.addEventListener("touchstart", () => {
-          card.classList.add("touching");
-        }, {passive: true});
-        
-        card.addEventListener("touchend", () => {
-          card.classList.remove("touching");
-        }, {passive: true});
+        card.addEventListener(
+          "touchstart",
+          () => {
+            card.classList.add("touching");
+          },
+          { passive: true },
+        );
+
+        card.addEventListener(
+          "touchend",
+          () => {
+            card.classList.remove("touching");
+          },
+          { passive: true },
+        );
       });
     }
   }

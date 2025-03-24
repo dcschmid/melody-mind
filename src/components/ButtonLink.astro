@@ -4,7 +4,7 @@ interface Props {
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
   ariaLabel?: string;
-  class?: string;
+  className?: string;
   target?: "_blank" | "_self" | "_parent" | "_top";
   rel?: string;
 }
@@ -14,7 +14,7 @@ const {
   type = "button",
   disabled = false,
   ariaLabel,
-  class: extraClasses = "",
+  className: extraClasses = "",
   target = "_self",
   rel,
 } = Astro.props;
