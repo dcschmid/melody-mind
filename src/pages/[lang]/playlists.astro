@@ -18,8 +18,16 @@ export const prerender = true;
 export async function getStaticPaths() {
   // Define all languages supported by the application
   const supportedLanguages = [
-    "de", "en", "es", "fr", "it", 
-    "pt", "da", "nl", "sv", "fi"
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt",
+    "da",
+    "nl",
+    "sv",
+    "fi",
   ] as const;
 
   // Process data for each language
@@ -29,14 +37,17 @@ export async function getStaticPaths() {
       let playlists = [];
       try {
         const playlistData = await import(
- /* @vite-ignore */ `@json/${lang}_playlist.json`        );
+          /* @vite-ignore */ `@json/${lang}_playlist.json`
+        );
         playlists = playlistData.default;
       } catch (error) {
         // Fallback to English if language file doesn't exist
         try {
-          console.info(`No playlist data found for ${lang}, falling back to English`);
+          console.info(
+            `No playlist data found for ${lang}, falling back to English`,
+          );
           const fallbackData = await import(
-             /* @vite-ignore */ `@json/en_playlist.json`
+            /* @vite-ignore */ `@json/en_playlist.json`
           );
           playlists = fallbackData.default;
         } catch (fallbackError) {
@@ -146,298 +157,314 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
           </div>
         </div>
 
-      <!-- Search status for screen readers -->
-      <div id="search-results-status" class="sr-only" aria-live="polite"></div>
-    </div>
+        <!-- Search status for screen readers -->
+        <div id="search-results-status" class="sr-only" aria-live="polite">
+        </div>
+      </div>
 
-    <!-- No results message (initially hidden) -->
-    <div
-      id="no-results"
-      class="hidden flex flex-col items-center justify-center p-12 bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-xl border border-zinc-600 text-center shadow-md mb-10"
-      aria-live="polite"
-    >
-      <Icon name="search-no-results" class="w-16 h-16 text-zinc-300 mb-4" />
-      <p class="text-zinc-100 text-lg font-medium">
-        {t("playlist.no.results")}
-      </p>
-      <button
-        id="reset-search"
-        class="mt-4 px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800 transition-all duration-300"
+      <!-- No results message (initially hidden) -->
+      <div
+        id="no-results"
+        class="hidden flex flex-col items-center justify-center p-12 bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-xl border border-zinc-600 text-center shadow-md mb-10"
+        aria-live="polite"
       >
-        Reset search
+        <Icon name="search-no-results" class="w-16 h-16 text-zinc-300 mb-4" />
+        <p class="text-zinc-100 text-lg font-medium">
+          {t("playlist.no.results")}
+        </p>
+        <button
+          id="reset-search"
+          class="mt-4 px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800 transition-all duration-300"
+        >
+          Reset search
+        </button>
+      </div>
+
+      <!-- Playlist Grid -->
+      <div
+        id="playlist-grid"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
+        role="region"
+        aria-label={t("playlist.page.heading")}
+      >
+        {
+          sortedPlaylists.map((playlist, index) => {
+            // Extract decade for filtering
+            const decadeMatch = playlist.headline.match(/\d{4}/);
+            const decade = decadeMatch
+              ? decadeMatch[0].substring(0, 3) + "0s"
+              : "Other";
+
+            return (
+              <div
+                class="playlist-card animate-fadeIn"
+                style={{ animationDelay: `${index * 0.05}s` }}
+                data-searchable={`${playlist.headline.toLowerCase()} ${playlist.introSubline.toLowerCase()}`}
+                data-decade={decade}
+              >
+                <div class="h-full bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+                  <div class="p-0.5 bg-gradient-to-r from-purple-500 to-indigo-500" />
+
+                  <div class="relative aspect-video overflow-hidden">
+                    <img
+                      src={
+                        playlist.imageUrl ||
+                        "/images/playlists/default-cover.jpg"
+                      }
+                      alt={`Cover image for ${playlist.headline}`}
+                      class="w-full h-full object-cover"
+                      loading={index < 2 ? "eager" : "lazy"}
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/60 to-transparent" />
+                    <div class="absolute bottom-0 left-0 w-full p-4">
+                      <h2 class="text-xl font-bold text-white mb-2">
+                        {playlist.headline}
+                      </h2>
+                    </div>
+                  </div>
+
+                  <div class="p-5 space-y-4">
+                    <p class="text-zinc-200 text-sm">{playlist.introSubline}</p>
+
+                    <div class="flex flex-wrap gap-3 mt-4">
+                      {playlist.spotifyPlaylist && (
+                        <a
+                          href={playlist.spotifyPlaylist}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center gap-2 px-4 py-2 bg-[#1DB954] rounded-full text-white text-sm font-medium hover:bg-opacity-90 transition-all"
+                          aria-label={`${t("playlist.listen.spotify")} - ${playlist.headline}`}
+                        >
+                          <Icon name="spotify" class="h-4 w-4" />
+                          <span>Spotify</span>
+                        </a>
+                      )}
+
+                      {playlist.deezerPlaylist && (
+                        <a
+                          href={playlist.deezerPlaylist}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center gap-2 px-4 py-2 bg-[#FF0092] rounded-full text-white text-sm font-medium hover:bg-opacity-90 transition-all"
+                          aria-label={`${t("playlist.listen.deezer")} - ${playlist.headline}`}
+                        >
+                          <Icon name="deezer" class="h-4 w-4" />
+                          <span>Deezer</span>
+                        </a>
+                      )}
+
+                      {playlist.appleMusicPlaylist && (
+                        <a
+                          href={playlist.appleMusicPlaylist}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center gap-2 px-4 py-2 bg-[#FB233B] rounded-full text-white text-sm font-medium hover:bg-opacity-90 transition-all"
+                          aria-label={`${t("playlist.listen.apple")} - ${playlist.headline}`}
+                        >
+                          <Icon name="apple" class="h-4 w-4" />
+                          <span>Apple Music</span>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+
+      <!-- Back to top button -->
+      <button
+        id="back-to-top"
+        class="fixed bottom-8 right-8 p-3 bg-purple-600 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-purple-500 focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800"
+        aria-label="Back to top of page"
+      >
+        <Icon name="arrow-up" class="h-6 w-6" />
       </button>
     </div>
-
-    <!-- Playlist Grid -->
-    <div
-      id="playlist-grid"
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
-      role="region"
-      aria-label={t("playlist.page.heading")}
-    >
-      {sortedPlaylists.map((playlist, index) => {
-        // Extract decade for filtering
-        const decadeMatch = playlist.headline.match(/\d{4}/);
-        const decade = decadeMatch ? decadeMatch[0].substring(0, 3) + "0s" : "Other";
-        
-        return (
-          <div
-            class="playlist-card animate-fadeIn"
-            style={{ animationDelay: `${index * 0.05}s` }}
-            data-searchable={`${playlist.headline.toLowerCase()} ${playlist.introSubline.toLowerCase()}`}
-            data-decade={decade}
-          >
-            <div class="h-full bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
-              <div class="p-0.5 bg-gradient-to-r from-purple-500 to-indigo-500"></div>
-              
-              <div class="relative aspect-video overflow-hidden">
-                <img
-                  src={playlist.imageUrl || "/images/playlists/default-cover.jpg"}
-                  alt={`Cover image for ${playlist.headline}`}
-                  class="w-full h-full object-cover"
-                  loading={index < 2 ? "eager" : "lazy"}
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/60 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 w-full p-4">
-                  <h2 class="text-xl font-bold text-white mb-2">
-                    {playlist.headline}
-                  </h2>
-                </div>
-              </div>
-              
-              <div class="p-5 space-y-4">
-                <p class="text-zinc-200 text-sm">
-                  {playlist.introSubline}
-                </p>
-                
-                <div class="flex flex-wrap gap-3 mt-4">
-                  {playlist.spotifyPlaylist && (
-                    <a
-                      href={playlist.spotifyPlaylist}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="inline-flex items-center gap-2 px-4 py-2 bg-[#1DB954] rounded-full text-white text-sm font-medium hover:bg-opacity-90 transition-all"
-                      aria-label={`${t("playlist.listen.spotify")} - ${playlist.headline}`}
-                    >
-                      <Icon name="spotify" class="h-4 w-4" />
-                      <span>Spotify</span>
-                    </a>
-                  )}
-                  
-                  {playlist.deezerPlaylist && (
-                    <a
-                      href={playlist.deezerPlaylist}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="inline-flex items-center gap-2 px-4 py-2 bg-[#FF0092] rounded-full text-white text-sm font-medium hover:bg-opacity-90 transition-all"
-                      aria-label={`${t("playlist.listen.deezer")} - ${playlist.headline}`}
-                    >
-                      <Icon name="deezer" class="h-4 w-4" />
-                      <span>Deezer</span>
-                    </a>
-                  )}
-                  
-                  {playlist.appleMusicPlaylist && (
-                    <a
-                      href={playlist.appleMusicPlaylist}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="inline-flex items-center gap-2 px-4 py-2 bg-[#FB233B] rounded-full text-white text-sm font-medium hover:bg-opacity-90 transition-all"
-                      aria-label={`${t("playlist.listen.apple")} - ${playlist.headline}`}
-                    >
-                      <Icon name="apple" class="h-4 w-4" />
-                      <span>Apple Music</span>
-                    </a>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-
-    <!-- Back to top button -->
-    <button
-      id="back-to-top"
-      class="fixed bottom-8 right-8 p-3 bg-purple-600 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-purple-500 focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800"
-      aria-label="Back to top of page"
-    >
-      <Icon name="arrow-up" class="h-6 w-6" />
-    </button>
   </div>
-</Layout>
 
-<style>
-  /* Improved color contrast for WCAG AAA (7:1) */
-  :root {
-    --text-primary: #ffffff; /* Maximum contrast */
-    --text-secondary: #e2e2e7; /* Higher contrast than standard zinc-300 */
-    --bg-card: #27272a; /* zinc-800 */
-    --border-card: rgba(161, 161, 170, 0.3); /* zinc-400 with transparency */
-    --accent-primary: #a855f7; /* purple-500 */
-    --accent-secondary: #c084fc; /* purple-400 */
-  }
-
-  /* Improved focus states for keyboard navigation */
-  :focus-visible {
-    outline: 3px solid var(--accent-primary);
-    outline-offset: 3px;
-  }
-
-  /* Animations for cards */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
+  <style>
+    /* Improved color contrast for WCAG AAA (7:1) */
+    :root {
+      --text-primary: #ffffff; /* Maximum contrast */
+      --text-secondary: #e2e2e7; /* Higher contrast than standard zinc-300 */
+      --bg-card: #27272a; /* zinc-800 */
+      --border-card: rgba(161, 161, 170, 0.3); /* zinc-400 with transparency */
+      --accent-primary: #a855f7; /* purple-500 */
+      --accent-secondary: #c084fc; /* purple-400 */
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+    /* Improved focus states for keyboard navigation */
+    :focus-visible {
+      outline: 3px solid var(--accent-primary);
+      outline-offset: 3px;
     }
-  }
 
-  .animate-fadeIn {
-    animation: fadeIn 0.5s ease-out forwards;
-    opacity: 0;
-  }
-
-  /* Improved back-to-top button animation */
-  #back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  /* Disable animations if user prefers reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    ::before,
-    ::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
+    /* Animations for cards */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .animate-fadeIn {
+      animation: fadeIn 0.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    /* Improved back-to-top button animation */
+    #back-to-top.visible {
       opacity: 1;
-      animation: none;
-      transform: translateY(0);
+      visibility: visible;
     }
 
-    .playlist-card:hover {
-      transform: none !important;
-      box-shadow: none !important;
-    }
-  }
-</style>
-
-<script>
-  /**
-   * Playlist Page Manager
-   * 
-   * This script handles the interactive functionality of the playlist page:
-   * - Search and filtering system for playlists
-   * - Decade-based filtering
-   * - Accessibility for screen readers
-   * - Back-to-top button functionality
-   */
-  document.addEventListener("DOMContentLoaded", function () {
-    // Cache DOM elements for better performance
-    const searchInput = document.getElementById("playlist-search") as HTMLInputElement;
-    const decadeFilter = document.getElementById("decadeFilter") as HTMLSelectElement;
-    const playlistCards = document.querySelectorAll(".playlist-card");
-    const noResultsElement = document.getElementById("no-results");
-    const searchStatusElement = document.getElementById("search-results-status");
-    const resetSearchButton = document.getElementById("reset-search");
-    const backToTopButton = document.getElementById("back-to-top");
-
-    // Filter playlists based on search input and decade selection
-    function filterPlaylists() {
-      if (!searchInput) return;
-
-      const searchTerm = searchInput.value.toLowerCase().trim();
-      const selectedDecade = decadeFilter?.value || "all";
-
-      let visibleCount = 0;
-
-      // Filter playlist cards by search term and decade
-      playlistCards.forEach((card) => {
-        const searchable = card.getAttribute("data-searchable") || "";
-        const decade = card.getAttribute("data-decade") || "";
-
-        const matchesSearch = searchTerm === "" || searchable.includes(searchTerm);
-        const matchesDecade = selectedDecade === "all" || decade === selectedDecade;
-
-        const isVisible = matchesSearch && matchesDecade;
-
-        if (isVisible) {
-          card.classList.remove("hidden");
-          visibleCount++;
-        } else {
-          card.classList.add("hidden");
-        }
-      });
-
-      // Show/hide "No results" message
-      if (noResultsElement) {
-        noResultsElement.classList.toggle("hidden", visibleCount > 0);
+    /* Disable animations if user prefers reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      ::before,
+      ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
       }
 
-      // Update status for screen readers
-      if (searchStatusElement) {
-        if (visibleCount === 0) {
-          searchStatusElement.textContent = "No playlists found.";
-        } else if (visibleCount === 1) {
-          searchStatusElement.textContent = "1 playlist found.";
-        } else if (visibleCount === playlistCards.length) {
-          searchStatusElement.textContent = `All ${visibleCount} playlists are displayed.`;
-        } else {
-          searchStatusElement.textContent = `${visibleCount} of ${playlistCards.length} playlists found.`;
-        }
+      .animate-fadeIn {
+        opacity: 1;
+        animation: none;
+        transform: translateY(0);
+      }
+
+      .playlist-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
       }
     }
+  </style>
 
-    // Event listeners for search and filter
-    if (searchInput) {
-      searchInput.addEventListener("input", filterPlaylists);
-    }
+  <script>
+    /**
+     * Playlist Page Manager
+     *
+     * This script handles the interactive functionality of the playlist page:
+     * - Search and filtering system for playlists
+     * - Decade-based filtering
+     * - Accessibility for screen readers
+     * - Back-to-top button functionality
+     */
+    document.addEventListener("DOMContentLoaded", function () {
+      // Cache DOM elements for better performance
+      const searchInput = document.getElementById(
+        "playlist-search",
+      ) as HTMLInputElement;
+      const decadeFilter = document.getElementById(
+        "decadeFilter",
+      ) as HTMLSelectElement;
+      const playlistCards = document.querySelectorAll(".playlist-card");
+      const noResultsElement = document.getElementById("no-results");
+      const searchStatusElement = document.getElementById(
+        "search-results-status",
+      );
+      const resetSearchButton = document.getElementById("reset-search");
+      const backToTopButton = document.getElementById("back-to-top");
 
-    if (decadeFilter) {
-      decadeFilter.addEventListener("change", filterPlaylists);
-    }
+      // Filter playlists based on search input and decade selection
+      function filterPlaylists() {
+        if (!searchInput) return;
 
-    // Reset search and filters
-    if (resetSearchButton) {
-      resetSearchButton.addEventListener("click", function () {
-        if (searchInput) searchInput.value = "";
-        if (decadeFilter) decadeFilter.value = "all";
-        filterPlaylists();
-        searchInput.focus();
-      });
-    }
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        const selectedDecade = decadeFilter?.value || "all";
 
-    // Back to top button functionality
-    if (backToTopButton) {
-      window.addEventListener("scroll", function () {
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        let visibleCount = 0;
 
-        if (scrollTop > 500) {
-          backToTopButton.classList.add("visible");
-        } else {
-          backToTopButton.classList.remove("visible");
-        }
-      });
+        // Filter playlist cards by search term and decade
+        playlistCards.forEach((card) => {
+          const searchable = card.getAttribute("data-searchable") || "";
+          const decade = card.getAttribute("data-decade") || "";
 
-      backToTopButton.addEventListener("click", function () {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
+          const matchesSearch =
+            searchTerm === "" || searchable.includes(searchTerm);
+          const matchesDecade =
+            selectedDecade === "all" || decade === selectedDecade;
+
+          const isVisible = matchesSearch && matchesDecade;
+
+          if (isVisible) {
+            card.classList.remove("hidden");
+            visibleCount++;
+          } else {
+            card.classList.add("hidden");
+          }
         });
-      });
-    }
 
-    // Initialize the filter on page load
-    filterPlaylists();
-  });
-</script>
+        // Show/hide "No results" message
+        if (noResultsElement) {
+          noResultsElement.classList.toggle("hidden", visibleCount > 0);
+        }
+
+        // Update status for screen readers
+        if (searchStatusElement) {
+          if (visibleCount === 0) {
+            searchStatusElement.textContent = "No playlists found.";
+          } else if (visibleCount === 1) {
+            searchStatusElement.textContent = "1 playlist found.";
+          } else if (visibleCount === playlistCards.length) {
+            searchStatusElement.textContent = `All ${visibleCount} playlists are displayed.`;
+          } else {
+            searchStatusElement.textContent = `${visibleCount} of ${playlistCards.length} playlists found.`;
+          }
+        }
+      }
+
+      // Event listeners for search and filter
+      if (searchInput) {
+        searchInput.addEventListener("input", filterPlaylists);
+      }
+
+      if (decadeFilter) {
+        decadeFilter.addEventListener("change", filterPlaylists);
+      }
+
+      // Reset search and filters
+      if (resetSearchButton) {
+        resetSearchButton.addEventListener("click", function () {
+          if (searchInput) searchInput.value = "";
+          if (decadeFilter) decadeFilter.value = "all";
+          filterPlaylists();
+          searchInput.focus();
+        });
+      }
+
+      // Back to top button functionality
+      if (backToTopButton) {
+        window.addEventListener("scroll", function () {
+          const scrollTop =
+            window.scrollY || document.documentElement.scrollTop;
+
+          if (scrollTop > 500) {
+            backToTopButton.classList.add("visible");
+          } else {
+            backToTopButton.classList.remove("visible");
+          }
+        });
+
+        backToTopButton.addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      }
+
+      // Initialize the filter on page load
+      filterPlaylists();
+    });
+  </script>
+</Layout>
