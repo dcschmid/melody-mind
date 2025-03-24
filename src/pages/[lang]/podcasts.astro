@@ -12,9 +12,18 @@ export const prerender = true;
 // Definieren der unterstützten Sprachen und Erstellung der statischen Pfade
 export async function getStaticPaths() {
   const supportedLanguages = [
-    "de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt",
+    "da",
+    "nl",
+    "sv",
+    "fi",
   ] as const;
-  
+
   // Vorverarbeiten der Podcast-Daten für jede Sprache
   const paths = await Promise.all(
     supportedLanguages.map(async (lang) => {
@@ -28,23 +37,28 @@ export async function getStaticPaths() {
       } catch (error) {
         // Fallback auf Englisch, wenn die Sprachdatei nicht existiert
         try {
-          const fallbackData = await import(`../../../public/json/podcasts/en.json`);
+          const fallbackData = await import(
+            `../../../public/json/podcasts/en.json`
+          );
           podcasts = fallbackData.default;
         } catch (fallbackError) {
-          console.error(`Fehler beim Laden der Podcast-Daten für ${lang}:`, fallbackError);
+          console.error(
+            `Fehler beim Laden der Podcast-Daten für ${lang}:`,
+            fallbackError,
+          );
         }
       }
-      
+
       return {
         params: { lang },
-        props: { 
+        props: {
           lang,
-          podcasts 
+          podcasts,
         },
       };
-    })
+    }),
   );
-  
+
   return paths;
 }
 
@@ -70,13 +84,17 @@ const { lang, podcasts = [] } = Astro.props;
 const t = useTranslations(lang);
 
 // Alle Kategorien extrahieren (wenn vorhanden)
-const allCategories = [...new Set(
-  podcasts.map(podcast => podcast.category || t("podcast.category.uncategorized"))
-)].sort();
+const allCategories = [
+  ...new Set(
+    podcasts.map(
+      (podcast) => podcast.category || t("podcast.category.uncategorized"),
+    ),
+  ),
+].sort();
 
 // Alphabetische Sortierung der Podcasts
 const sortedPodcasts = [...podcasts].sort((a, b) =>
-  a.title.localeCompare(b.title, undefined, { sensitivity: "base" })
+  a.title.localeCompare(b.title, undefined, { sensitivity: "base" }),
 );
 ---
 
@@ -198,59 +216,45 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
       role="region"
       aria-label={t("podcast.page.heading")}
     >
-      {sortedPodcasts.map((podcast, index) => (
-        <div 
-          class="podcast-card animate-fadeIn" 
-          style={{ animationDelay: `${index * 0.05}s` }}
-          data-searchable={podcast.title.toLowerCase()}
-          data-category={podcast.category || t("podcast.category.uncategorized")}
-        >
-          <article class="h-full bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
-            <div class="p-0.5 bg-gradient-to-r from-purple-500 to-indigo-500"></div>
-            
-            <!-- AudioPlayer Component -->
-            <div class="aspect-video relative">
-              <AudioPlayer 
-                audioSrc={podcast.audioPath}
-                imageSrc={podcast.image || "/images/podcast/default-cover.jpg"}
-                imageAlt={`Cover für ${podcast.title}`}
-                title={podcast.title}
-                artist={podcast.artist || t("podcast.play")}
-              />
-            </div>
+      {
+        sortedPodcasts.map((podcast, index) => (
+          <div
+            class="podcast-card animate-fadeIn"
+            style={{ animationDelay: `${index * 0.05}s` }}
+            data-searchable={podcast.title.toLowerCase()}
+            data-category={
+              podcast.category || t("podcast.category.uncategorized")
+            }
+          >
+            <article class="h-full bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+              <div class="p-0.5 bg-gradient-to-r from-purple-500 to-indigo-500" />
 
-            <div class="p-4">
-              <h2
-                id={`podcast-title-${index}`}
-                class="text-lg font-bold text-white mb-2 line-clamp-1"
-              >
-                {podcast.title}
-              </h2>
-
-              {podcast.description && (
-                <p class="text-zinc-300 text-sm mb-3 line-clamp-2">
-                  {podcast.description}
-                </p>
-              )}
-
-              <div class="flex justify-between items-center">
-                {podcast.category && (
-                  <span class="text-xs px-2 py-1 rounded-full bg-purple-500/20 text-purple-300">
-                    {podcast.category}
-                  </span>
-                )}
-                <span class="text-xs text-zinc-400 flex items-center gap-1 ml-auto">
-                  <Icon name="clock" class="h-3 w-3 inline" />
-                  {podcast.duration || t("podcast.duration.error")}
-                </span>
+              <div class="aspect-video relative">
+                <AudioPlayer
+                  audioSrc={podcast.audioPath}
+                  imageSrc={
+                    podcast.image || "/images/podcast/default-cover.jpg"
+                  }
+                  imageAlt={`Cover für ${podcast.title}`}
+                  title={podcast.title}
+                  artist={podcast.artist || t("podcast.play")}
+                />
               </div>
-            </div>
-          </article>
-        </div>
-      ))}
+
+              <div class="p-4">
+                <h2
+                  id={`podcast-title-${index}`}
+                  class="text-lg font-bold text-white mb-2"
+                >
+                  {podcast.title}
+                </h2>
+              </div>
+            </article>
+          </div>
+        ))
+      }
     </section>
 
-    <!-- "Nach oben"-Button mit verbesserter Zugänglichkeit -->
     <button
       id="back-to-top"
       class="fixed bottom-8 right-8 p-3 bg-purple-600 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-purple-500 focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800"

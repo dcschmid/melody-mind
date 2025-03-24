@@ -19,7 +19,7 @@ const {
   accentColor = "#c084fc", // Purple-400
 } = Astro.props;
 
-// Generiere eine eindeutige ID für diesen Player
+// Generate a unique ID for this player
 const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
 ---
 
@@ -34,11 +34,11 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
         class="absolute w-full h-full object-cover top-0 left-0 transition-transform duration-500 ease-in-out group-hover:scale-105"
       />
 
-      <!-- Overlay mit Glaseffekt und Infobereich -->
+      <!-- Overlay with glass effect and info area -->
       <div
         class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-zinc-900/90 via-zinc-900/70 to-transparent pt-3 pb-3 px-4 text-white backdrop-blur-sm transition-opacity duration-300"
       >
-        <!-- Audio-Player Steuerelemente -->
+        <!-- Audio player controls -->
         <div
           id={playerId}
           class="flex items-center gap-3 w-full"
@@ -48,8 +48,8 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
         >
           <button
             class="bg-white text-zinc-800 w-10 h-10 rounded-full border-none flex items-center justify-center cursor-pointer flex-shrink-0 transition-all duration-200 relative shadow-md hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2"
-            aria-label="Audio abspielen"
-            title="Abspielen/Pausieren"
+            aria-label="Play audio"
+            title="Play/Pause"
           >
             <svg
               class="play-icon w-6 h-6 fill-current absolute transition-all"
@@ -93,8 +93,8 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
           <div class="flex items-center gap-2 relative">
             <button
               class="volume-btn bg-transparent text-white border-none p-1 cursor-pointer opacity-85 hover:opacity-100 transition-opacity flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:rounded"
-              aria-label="Lautstärke einstellen"
-              title="Lautstärke"
+              aria-label="Adjust volume"
+              title="Volume"
             >
               <svg
                 class="volume-icon w-5 h-5 fill-current absolute transition-all"
@@ -125,15 +125,15 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
                 max="1"
                 step="0.01"
                 value="1"
-                aria-label="Lautstärke anpassen"
+                aria-label="Adjust volume"
               />
             </div>
           </div>
 
-          <!-- Verstecktes Audio-Element -->
+          <!-- Hidden audio element -->
           <audio class="audio-element hidden" preload="metadata">
             <source src={audioSrc} type="audio/mpeg" />
-            <p>Dein Browser unterstützt das Audio-Element nicht.</p>
+            <p>Your browser does not support the audio element.</p>
           </audio>
         </div>
       </div>
@@ -142,7 +142,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
 </div>
 
 <style>
-  /* Notwendige Basisstyles für Funktionalität */
+  /* Necessary base styles for functionality */
   .volume-control:hover .volume-slider-container,
   .volume-slider-container:focus-within {
     width: 5rem;
@@ -179,7 +179,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
     transform: scale(1.2);
   }
 
-  /* Reduzierte Bewegungen für Barrierefreiheit */
+  /* Reduced motion for accessibility */
   @media (prefers-reduced-motion: reduce) {
     .image-with-player:hover {
       transform: none;
@@ -199,242 +199,390 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
 </style>
 
 <script define:vars={{ playerId }}>
-  // Wir verwenden eine IIFE (Immediately Invoked Function Expression), um einen isolierten Scope zu erstellen
-  (function () {
-    // Nach dem Laden des DOM initialisieren
-    document.addEventListener("DOMContentLoaded", function () {
-      initializeAudioPlayer(playerId);
-    });
-
-    // Funktion zur Initialisierung des Audio-Players
-    function initializeAudioPlayer(id) {
-      const playerElement = document.getElementById(id);
-      if (!playerElement) return;
-
-      // Elemente abrufen
-      const audioElement = playerElement.querySelector(".audio-element");
-      const playPauseBtn = playerElement.querySelector("button");
-      const playIcon = playerElement.querySelector(".play-icon");
-      const pauseIcon = playerElement.querySelector(".pause-icon");
-      const progressBar = playerElement.querySelector(".progress-bar");
-      const progressContainer = playerElement.querySelector(
-        ".progress-bar-container",
-      );
-      const waveformContainer = playerElement.querySelector(
-        ".waveform-container",
-      );
-      const currentTimeDisplay = playerElement.querySelector(".current-time");
-      const durationDisplay = playerElement.querySelector(".duration");
-      const volumeBtn = playerElement.querySelector(".volume-btn");
-      const volumeIcon = playerElement.querySelector(".volume-icon");
-      const muteIcon = playerElement.querySelector(".mute-icon");
-      const volumeSlider = playerElement.querySelector(".volume-slider");
-
-      // Farben aus den Datenattributen holen
-      const waveformColor = playerElement.dataset.waveformColor || "#a855f7";
-      const accentColor = playerElement.dataset.accentColor || "#c084fc";
-
-      // Die Audioquelle setzen
-      if (playerElement.dataset.audioSrc) {
-        audioElement.src = playerElement.dataset.audioSrc;
+  /**
+   * Modern Audio Player Implementation
+   * 
+   * A lightweight, accessible audio player with the following features:
+   * - Custom UI with play/pause controls
+   * - Progress bar with seeking functionality
+   * - Volume control with mute option
+   * - Visual waveform representation
+   * - Keyboard accessibility
+   * - Touch-friendly mobile support
+   */
+  
+  // Use an IIFE to prevent global scope pollution
+  (() => {
+    // Wait until DOM is fully loaded to ensure all elements are available
+    document.addEventListener("DOMContentLoaded", () => initializePlayer(playerId));
+    
+    /**
+     * Initialize the audio player with the given ID
+     * @param {string} id - The unique ID of the player instance
+     */
+    function initializePlayer(id) {
+      // Locate the player and its elements in the DOM
+      const player = document.getElementById(id);
+      if (!player) {
+        console.warn(`Audio player with ID "${id}" not found in the DOM`);
+        return;
       }
-
-      // Progress Bar Farbe setzen
-      progressBar.style.backgroundColor = accentColor;
-
-      // Funktion zum Formatieren der Zeit (Sekunden -> mm:ss)
+      
+      // DOM element references - cached for performance
+      const elements = {
+        audio: player.querySelector(".audio-element"),
+        playButton: player.querySelector("button"),
+        playIcon: player.querySelector(".play-icon"),
+        pauseIcon: player.querySelector(".pause-icon"),
+        progress: {
+          bar: player.querySelector(".progress-bar"),
+          container: player.querySelector(".progress-bar-container"),
+          waveform: player.querySelector(".waveform-container")
+        },
+        time: {
+          current: player.querySelector(".current-time"),
+          duration: player.querySelector(".duration")
+        },
+        volume: {
+          button: player.querySelector(".volume-btn"),
+          icon: player.querySelector(".volume-icon"),
+          muteIcon: player.querySelector(".mute-icon"),
+          slider: player.querySelector(".volume-slider")
+        }
+      };
+      
+      // Player configuration from data attributes
+      const config = {
+        waveformColor: player.dataset.waveformColor || "#a855f7",
+        accentColor: player.dataset.accentColor || "#c084fc",
+        audioSrc: player.dataset.audioSrc || ""
+      };
+      
+      // Player state management
+      const state = {
+        isPlaying: false,
+        lastVolume: 1,
+        isMuted: false,
+        seekingEnabled: true
+      };
+      
+      // Apply configuration
+      if (config.audioSrc) {
+        elements.audio.src = config.audioSrc;
+      }
+      
+      elements.progress.bar.style.backgroundColor = config.accentColor;
+      
+      /**
+       * Creates and renders the audio waveform visualization
+       * The waveform uses random heights to create a visual representation of audio
+       */
+      function renderWaveform() {
+        const segments = 40; // Number of waveform segments
+        let waveformHTML = "";
+        
+        // Generate random segment heights for visual variety
+        for (let i = 0; i < segments; i++) {
+          // Random height between 30% and 100%
+          const height = Math.floor(30 + Math.random() * 70);
+          const segmentWidth = 100 / segments;
+          
+          waveformHTML += `
+            <div style="
+              position: absolute;
+              left: ${i * segmentWidth}%;
+              width: ${segmentWidth * 0.7}%;
+              height: ${height}%;
+              background-color: ${config.waveformColor};
+              opacity: 0.7;
+              top: ${(100 - height) / 2}%;
+              border-radius: 1px;
+              z-index: 0;
+            "></div>
+          `;
+        }
+        
+        elements.progress.waveform.innerHTML = waveformHTML;
+      }
+      
+      /**
+       * Formats time in seconds to mm:ss display format
+       * @param {number} seconds - Time in seconds
+       * @return {string} Formatted time string
+       */
       function formatTime(seconds) {
+        if (isNaN(seconds) || !isFinite(seconds)) return "0:00";
+        
         const min = Math.floor(seconds / 60);
         const sec = Math.floor(seconds % 60);
         return `${min}:${sec < 10 ? "0" + sec : sec}`;
       }
-
-      // Audio-Player Zustand
-      let isPlaying = false;
-      let wasMuted = false;
-      let lastVolume = 1;
-
-      // Waveform generieren (simplere Version)
-      function generateWaveform() {
-        const waveformHeight = 6; // Höhe des Container ist 6px
-        const segments = 40; // Anzahl der Segmente
-
-        let waveformHTML = "";
-
-        for (let i = 0; i < segments; i++) {
-          // Zufällige Höhe zwischen 30% und 100%
-          const height = Math.floor(30 + Math.random() * 70);
-          const segmentWidth = 100 / segments;
-
-          waveformHTML += `
-          <div style="
-            position: absolute;
-            left: ${i * segmentWidth}%;
-            width: ${segmentWidth * 0.7}%;
-            height: ${height}%;
-            background-color: ${waveformColor};
-            opacity: 0.7;
-            top: ${(100 - height) / 2}%;
-            border-radius: 1px;
-            z-index: 0;
-          "></div>
-        `;
-        }
-
-        waveformContainer.innerHTML = waveformHTML;
-      }
-
-      // Toggle Play/Pause Funktion
-      function togglePlay() {
-        if (audioElement.paused) {
-          audioElement
-            .play()
+      
+      /**
+       * Toggles play/pause state of the audio
+       * Updates UI and accessibility attributes accordingly
+       */
+      function togglePlayback() {
+        if (elements.audio.paused) {
+          // Play audio with error handling
+          elements.audio.play()
             .then(() => {
-              isPlaying = true;
-              updatePlayPauseButton();
+              state.isPlaying = true;
+              updatePlaybackUI();
             })
-            .catch((error) => {
-              console.error("Fehler beim Abspielen:", error);
+            .catch(error => {
+              console.error("Error playing audio:", error);
+              // Provide user feedback on playback error
+              state.isPlaying = false;
+              updatePlaybackUI();
             });
         } else {
-          audioElement.pause();
-          isPlaying = false;
-          updatePlayPauseButton();
+          elements.audio.pause();
+          state.isPlaying = false;
+          updatePlaybackUI();
         }
       }
-
-      // Play/Pause Button UI aktualisieren
-      function updatePlayPauseButton() {
-        if (isPlaying) {
-          playIcon.style.opacity = "0";
-          playIcon.style.transform = "scale(0.8)";
-          pauseIcon.style.opacity = "1";
-          pauseIcon.style.transform = "scale(1)";
-          playPauseBtn.setAttribute("aria-label", "Audio pausieren");
+      
+      /**
+       * Updates play/pause button appearance and accessibility
+       * based on current playback state
+       */
+      function updatePlaybackUI() {
+        if (state.isPlaying) {
+          elements.playIcon.style.opacity = "0";
+          elements.playIcon.style.transform = "scale(0.8)";
+          elements.pauseIcon.style.opacity = "1";
+          elements.pauseIcon.style.transform = "scale(1)";
+          elements.playButton.setAttribute("aria-label", "Pause audio");
+          elements.playButton.setAttribute("title", "Pause");
         } else {
-          playIcon.style.opacity = "1";
-          playIcon.style.transform = "scale(1)";
-          pauseIcon.style.opacity = "0";
-          pauseIcon.style.transform = "scale(0.8)";
-          playPauseBtn.setAttribute("aria-label", "Audio abspielen");
+          elements.playIcon.style.opacity = "1";
+          elements.playIcon.style.transform = "scale(1)";
+          elements.pauseIcon.style.opacity = "0";
+          elements.pauseIcon.style.transform = "scale(0.8)";
+          elements.playButton.setAttribute("aria-label", "Play audio");
+          elements.playButton.setAttribute("title", "Play");
         }
       }
-
-      // Lautstärke-Button UI aktualisieren
-      function updateVolumeButton(isMuted) {
-        if (isMuted) {
-          volumeIcon.style.opacity = "0";
-          volumeIcon.style.transform = "scale(0.8)";
-          muteIcon.style.opacity = "1";
-          muteIcon.style.transform = "scale(1)";
-          volumeBtn.setAttribute("aria-label", "Ton einschalten");
+      
+      /**
+       * Updates volume button appearance and accessibility
+       * based on current volume state
+       */
+      function updateVolumeUI() {
+        if (state.isMuted || elements.audio.volume === 0) {
+          elements.volume.icon.style.opacity = "0";
+          elements.volume.icon.style.transform = "scale(0.8)";
+          elements.volume.muteIcon.style.opacity = "1";
+          elements.volume.muteIcon.style.transform = "scale(1)";
+          elements.volume.button.setAttribute("aria-label", "Unmute");
+          elements.volume.button.setAttribute("title", "Unmute");
         } else {
-          volumeIcon.style.opacity = "1";
-          volumeIcon.style.transform = "scale(1)";
-          muteIcon.style.opacity = "0";
-          muteIcon.style.transform = "scale(0.8)";
-          volumeBtn.setAttribute("aria-label", "Ton ausschalten");
+          elements.volume.icon.style.opacity = "1";
+          elements.volume.icon.style.transform = "scale(1)";
+          elements.volume.muteIcon.style.opacity = "0";
+          elements.volume.muteIcon.style.transform = "scale(0.8)";
+          elements.volume.button.setAttribute("aria-label", "Mute");
+          elements.volume.button.setAttribute("title", "Mute");
         }
       }
-
-      // Progress aktualisieren
+      
+      /**
+       * Updates progress bar and time displays
+       * Called on timeupdate event
+       */
       function updateProgress() {
-        const { currentTime, duration } = audioElement;
+        const { currentTime, duration } = elements.audio;
+        if (isNaN(duration)) return;
+        
+        // Update progress bar width
         const progressPercent = (currentTime / duration) * 100;
-        progressBar.style.width = `${progressPercent}%`;
-
-        currentTimeDisplay.textContent = formatTime(currentTime);
-        durationDisplay.textContent = formatTime(duration);
+        elements.progress.bar.style.width = `${progressPercent}%`;
+        
+        // Update time displays
+        elements.time.current.textContent = formatTime(currentTime);
+        elements.time.duration.textContent = formatTime(duration);
+        
+        // Set aria values for accessibility
+        elements.progress.container.setAttribute("aria-valuenow", Math.round(progressPercent));
+        elements.progress.container.setAttribute("aria-valuetext", 
+          `${formatTime(currentTime)} of ${formatTime(duration)}`);
       }
-
-      // Zu einer bestimmten Position springen
-      function setProgress(e) {
-        const width = progressContainer.clientWidth;
-        const clickX = e.offsetX;
-        const duration = audioElement.duration;
-        audioElement.currentTime = (clickX / width) * duration;
+      
+      /**
+       * Jumps to a specific position in the audio when progress bar is clicked
+       * @param {MouseEvent} event - Click event on progress bar
+       */
+      function seekAudio(event) {
+        if (!state.seekingEnabled) return;
+        
+        const rect = elements.progress.container.getBoundingClientRect();
+        const clickPosition = (event.clientX - rect.left) / rect.width;
+        const duration = elements.audio.duration;
+        
+        if (isNaN(duration)) return;
+        
+        elements.audio.currentTime = clickPosition * duration;
       }
-
-      // Lautstärke umschalten
+      
+      /**
+       * Toggles mute state of the audio
+       * Remembers previous volume level when muting
+       */
       function toggleMute() {
-        if (audioElement.volume === 0 || audioElement.muted) {
-          audioElement.muted = false;
-          audioElement.volume = lastVolume;
-          volumeSlider.value = lastVolume;
-          updateVolumeButton(false);
+        if (elements.audio.volume === 0 || elements.audio.muted) {
+          // Unmute
+          elements.audio.muted = false;
+          elements.audio.volume = state.lastVolume;
+          elements.volume.slider.value = state.lastVolume;
+          state.isMuted = false;
         } else {
-          lastVolume = audioElement.volume;
-          audioElement.volume = 0;
-          audioElement.muted = true;
-          volumeSlider.value = 0;
-          updateVolumeButton(true);
+          // Mute
+          state.lastVolume = elements.audio.volume;
+          elements.audio.volume = 0;
+          elements.audio.muted = true;
+          elements.volume.slider.value = 0;
+          state.isMuted = true;
+        }
+        
+        updateVolumeUI();
+      }
+      
+      /**
+       * Handles volume slider changes
+       */
+      function handleVolumeChange() {
+        const newVolume = elements.volume.slider.value;
+        elements.audio.volume = newVolume;
+        elements.audio.muted = newVolume === "0";
+        state.isMuted = newVolume === "0";
+        updateVolumeUI();
+      }
+      
+      /**
+       * Resets the player to initial state
+       * Called when audio playback ends
+       */
+      function resetPlayer() {
+        state.isPlaying = false;
+        updatePlaybackUI();
+        elements.progress.bar.style.width = "0%";
+        elements.time.current.textContent = formatTime(0);
+      }
+      
+      /**
+       * Handles keyboard navigation and controls
+       * @param {KeyboardEvent} event - Keyboard event
+       */
+      function handleKeyboardControl(event) {
+        // Only handle keyboard events when focused within this player
+        if (!event.target.closest(`#${id}`)) return;
+        
+        switch (event.code) {
+          case "Space":
+            // Only toggle play/pause if the play button is focused
+            if (event.target === elements.playButton) {
+              event.preventDefault(); // Prevent page scrolling
+              togglePlayback();
+            }
+            break;
+            
+          case "ArrowLeft":
+            // Rewind 5 seconds
+            elements.audio.currentTime = Math.max(0, elements.audio.currentTime - 5);
+            break;
+            
+          case "ArrowRight":
+            // Forward 5 seconds
+            if (!isNaN(elements.audio.duration)) {
+              elements.audio.currentTime = Math.min(
+                elements.audio.duration, 
+                elements.audio.currentTime + 5
+              );
+            }
+            break;
+            
+          case "ArrowUp":
+            // Increase volume (only when volume slider is focused)
+            if (event.target === elements.volume.slider) {
+              const newVolume = Math.min(1, parseFloat(elements.volume.slider.value) + 0.1);
+              elements.volume.slider.value = newVolume;
+              elements.audio.volume = newVolume;
+              elements.audio.muted = false;
+              state.isMuted = false;
+              updateVolumeUI();
+            }
+            break;
+            
+          case "ArrowDown":
+            // Decrease volume (only when volume slider is focused)
+            if (event.target === elements.volume.slider) {
+              const newVolume = Math.max(0, parseFloat(elements.volume.slider.value) - 0.1);
+              elements.volume.slider.value = newVolume;
+              elements.audio.volume = newVolume;
+              state.isMuted = newVolume === 0;
+              updateVolumeUI();
+            }
+            break;
+            
+          case "KeyM":
+            // Toggle mute with 'm' key
+            toggleMute();
+            break;
         }
       }
-
-      // Event-Listener hinzufügen
-      playPauseBtn.addEventListener("click", togglePlay);
-
-      audioElement.addEventListener("timeupdate", updateProgress);
-
-      audioElement.addEventListener("loadedmetadata", () => {
-        durationDisplay.textContent = formatTime(audioElement.duration);
-        currentTimeDisplay.textContent = formatTime(0);
-        generateWaveform();
-      });
-
-      audioElement.addEventListener("ended", () => {
-        isPlaying = false;
-        updatePlayPauseButton();
-        progressBar.style.width = "0%";
-        currentTimeDisplay.textContent = formatTime(0);
-      });
-
-      progressContainer.addEventListener("click", setProgress);
-
-      volumeBtn.addEventListener("click", toggleMute);
-
-      volumeSlider.addEventListener("input", () => {
-        audioElement.volume = volumeSlider.value;
-        audioElement.muted = volumeSlider.value === "0";
-        updateVolumeButton(volumeSlider.value === "0");
-      });
-
-      // Tastatursteuerung für Barrierefreiheit
-      playerElement.addEventListener("keydown", (e) => {
-        // Nur reagieren, wenn der Fokus auf einem Bedienelement ist
-        if (e.target.closest("#" + id)) {
-          if (e.code === "Space" && e.target === playPauseBtn) {
-            e.preventDefault(); // Verhindern von Scrollen bei Drücken der Leertaste
-            togglePlay();
-          } else if (e.code === "ArrowLeft") {
-            audioElement.currentTime = Math.max(
-              0,
-              audioElement.currentTime - 5,
-            );
-          } else if (e.code === "ArrowRight") {
-            audioElement.currentTime = Math.min(
-              audioElement.duration,
-              audioElement.currentTime + 5,
-            );
-          } else if (e.code === "ArrowUp" && e.target === volumeSlider) {
-            volumeSlider.value = Math.min(
-              1,
-              parseFloat(volumeSlider.value) + 0.1,
-            );
-            audioElement.volume = volumeSlider.value;
-            updateVolumeButton(volumeSlider.value === "0");
-          } else if (e.code === "ArrowDown" && e.target === volumeSlider) {
-            volumeSlider.value = Math.max(
-              0,
-              parseFloat(volumeSlider.value) - 0.1,
-            );
-            audioElement.volume = volumeSlider.value;
-            updateVolumeButton(volumeSlider.value === "0");
-          } else if (e.code === "KeyM") {
-            toggleMute();
-          }
-        }
-      });
+      
+      // Initialize ARIA attributes for accessibility
+      function initializeAccessibility() {
+        elements.progress.container.setAttribute("role", "progressbar");
+        elements.progress.container.setAttribute("aria-valuemin", "0");
+        elements.progress.container.setAttribute("aria-valuemax", "100");
+        elements.progress.container.setAttribute("aria-valuenow", "0");
+        elements.progress.container.setAttribute("aria-valuetext", "0:00 of 0:00");
+      }
+      
+      // Set up event listeners
+      function setupEventListeners() {
+        // Playback control
+        elements.playButton.addEventListener("click", togglePlayback);
+        
+        // Progress tracking and seeking
+        elements.audio.addEventListener("timeupdate", updateProgress);
+        elements.progress.container.addEventListener("click", seekAudio);
+        
+        // Metadata loading
+        elements.audio.addEventListener("loadedmetadata", () => {
+          elements.time.duration.textContent = formatTime(elements.audio.duration);
+          elements.time.current.textContent = formatTime(0);
+          renderWaveform();
+        });
+        
+        // Playback ended
+        elements.audio.addEventListener("ended", resetPlayer);
+        
+        // Volume control
+        elements.volume.button.addEventListener("click", toggleMute);
+        elements.volume.slider.addEventListener("input", handleVolumeChange);
+        
+        // Keyboard controls
+        player.addEventListener("keydown", handleKeyboardControl);
+        
+        // Error handling
+        elements.audio.addEventListener("error", (e) => {
+          console.error("Audio playback error:", e);
+          resetPlayer();
+        });
+      }
+      
+      // Initialize player components
+      initializeAccessibility();
+      setupEventListeners();
+      
+      // Pre-load duration if metadata is already available
+      if (elements.audio.readyState >= 1) {
+        elements.time.duration.textContent = formatTime(elements.audio.duration);
+        renderWaveform();
+      }
     }
   })();
 </script>
