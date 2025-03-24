@@ -246,6 +246,20 @@ export const ui = {
     "aria.shortcuts.panel": "Tastaturkürzel-Panel",
     "aria.shortcuts.list": "Liste der verfügbaren Tastenkombinationen",
     "knowledge.empty": "Keine Artikel in dieser Kategorie verfügbar",
+    "playlist.page.title": "Musik Playlists | Melody Mind",
+    "playlist.page.heading": "Entdecke unsere Musikplaylists",
+    "playlist.page.description":
+      "Tauche ein in sorgfältig kuratierte Playlists verschiedener Epochen und Genres. Perfekt zum Entdecken neuer Musik oder zum Wiedererleben deiner Lieblingsklassiker.",
+    "playlist.search.label": "Playlists durchsuchen",
+    "playlist.search.placeholder": "Nach Musikera oder Stil suchen...",
+    "playlist.filter.all": "Alle Epochen",
+    "playlist.no.results":
+      "Keine passenden Playlists gefunden. Versuche es mit einem anderen Suchbegriff.",
+    "playlist.listen.on": "Anhören auf",
+    "playlist.listen.spotify": "Auf Spotify anhören",
+    "playlist.listen.deezer": "Auf Deezer anhören",
+    "playlist.listen.apple": "Auf Apple Music anhören",
+    "playlist.decade.filter": "Nach Jahrzehnt filtern",
   },
   en: {
     "nav.home": "Home",
@@ -475,6 +489,20 @@ export const ui = {
     "aria.shortcuts.panel": "Keyboard shortcuts panel",
     "aria.shortcuts.list": "List of available keyboard shortcuts",
     "knowledge.empty": "No articles available in this category",
+    "playlist.page.title": "Music Playlists | Melody Mind",
+    "playlist.page.heading": "Discover our Music Playlists",
+    "playlist.page.description":
+      "Dive into carefully curated playlists from different eras and genres. Perfect for discovering new music or revisiting your favorite classics.",
+    "playlist.search.label": "Search playlists",
+    "playlist.search.placeholder": "Search by musical era or style...",
+    "playlist.filter.all": "All Eras",
+    "playlist.no.results":
+      "No matching playlists found. Try a different search term.",
+    "playlist.listen.on": "Listen on",
+    "playlist.listen.spotify": "Listen on Spotify",
+    "playlist.listen.deezer": "Listen on Deezer",
+    "playlist.listen.apple": "Listen on Apple Music",
+    "playlist.decade.filter": "Filter by decade",
   },
   es: {
     "nav.home": "Inicio",
@@ -706,6 +734,20 @@ export const ui = {
     "aria.shortcuts.panel": "Panel de atajos de teclado",
     "aria.shortcuts.list": "Lista de atajos de teclado disponibles",
     "knowledge.empty": "No hay artículos disponibles en esta categoría",
+    "playlist.page.title": "Listas de Reproducción | Melody Mind",
+    "playlist.page.heading": "Descubre nuestras Listas de Reproducción",
+    "playlist.page.description":
+      "Sumérgete en listas de reproducción cuidadosamente seleccionadas de diferentes épocas y géneros. Perfectas para descubrir nueva música o revisitar tus clásicos favoritos.",
+    "playlist.search.label": "Buscar listas de reproducción",
+    "playlist.search.placeholder": "Buscar por era musical o estilo...",
+    "playlist.filter.all": "Todas las Épocas",
+    "playlist.no.results":
+      "No se encontraron listas de reproducción. Intenta con otro término de búsqueda.",
+    "playlist.listen.on": "Escuchar en",
+    "playlist.listen.spotify": "Escuchar en Spotify",
+    "playlist.listen.deezer": "Escuchar en Deezer",
+    "playlist.listen.apple": "Escuchar en Apple Music",
+    "playlist.decade.filter": "Filtrar por década",
   },
   fr: {
     "nav.home": "Accueil",
@@ -937,6 +979,20 @@ export const ui = {
     "aria.shortcuts.panel": "Panneau de raccourcis clavier",
     "aria.shortcuts.list": "Liste des raccourcis clavier disponibles",
     "knowledge.empty": "Aucun article disponible dans cette catégorie",
+    "playlist.page.title": "Playlists Musicales | Melody Mind",
+    "playlist.page.heading": "Découvrez nos Playlists Musicales",
+    "playlist.page.description":
+      "Plongez dans des playlists soigneusement sélectionnées de différentes époques et genres. Parfaites pour découvrir de nouvelles musiques ou revivre vos classiques préférés.",
+    "playlist.search.label": "Rechercher des playlists",
+    "playlist.search.placeholder": "Rechercher par ère musicale ou style...",
+    "playlist.filter.all": "Toutes les Époques",
+    "playlist.no.results":
+      "Aucune playlist correspondante trouvée. Essayez un autre terme de recherche.",
+    "playlist.listen.on": "Écouter sur",
+    "playlist.listen.spotify": "Écouter sur Spotify",
+    "playlist.listen.deezer": "Écouter sur Deezer",
+    "playlist.listen.apple": "Écouter sur Apple Music",
+    "playlist.decade.filter": "Filtrer par décennie",
   },
   it: {
     "nav.home": "Home",
@@ -1168,6 +1224,20 @@ export const ui = {
     "aria.shortcuts.panel": "Pannello scorciatoie da tastiera",
     "aria.shortcuts.list": "Elenco delle scorciatoie da tastiera disponibili",
     "knowledge.empty": "Nessun articolo disponibile in questa categoria",
+    "playlist.page.title": "Playlist Musicali | Melody Mind",
+    "playlist.page.heading": "Scopri le nostre Playlist Musicali",
+    "playlist.page.description":
+      "Immergiti in playlist accuratamente selezionate di diverse epoche e generi. Perfette per scoprire nuova musica o rivisitare i tuoi classici preferiti.",
+    "playlist.search.label": "Cerca playlist",
+    "playlist.search.placeholder": "Cerca per era musicale o stile...",
+    "playlist.filter.all": "Tutte le Epoche",
+    "playlist.no.results":
+      "Nessuna playlist corrispondente trovata. Prova un termine di ricerca diverso.",
+    "playlist.listen.on": "Ascolta su",
+    "playlist.listen.spotify": "Ascolta su Spotify",
+    "playlist.listen.deezer": "Ascolta su Deezer",
+    "playlist.listen.apple": "Ascolta su Apple Music",
+    "playlist.decade.filter": "Filtra per decennio",
   },
   pt: {
     "nav.home": "Início",
@@ -1398,6 +1468,20 @@ export const ui = {
     "aria.shortcuts.panel": "Painel de atalhos de teclado",
     "aria.shortcuts.list": "Lista de atalhos de teclado disponíveis",
     "knowledge.empty": "Nenhum artigo disponível nesta categoria",
+    "playlist.page.title": "Playlists Musicais | Melody Mind",
+    "playlist.page.heading": "Descubra nossas Playlists Musicais",
+    "playlist.page.description":
+      "Mergulhe em playlists cuidadosamente selecionadas de diferentes épocas e gêneros. Perfeitas para descobrir nova música ou revisitar seus clássicos favoritos.",
+    "playlist.search.label": "Buscar playlists",
+    "playlist.search.placeholder": "Buscar por era musical ou estilo...",
+    "playlist.filter.all": "Todas as Épocas",
+    "playlist.no.results":
+      "Nenhuma playlist correspondente encontrada. Tente um termo de busca diferente.",
+    "playlist.listen.on": "Ouça no",
+    "playlist.listen.spotify": "Ouça no Spotify",
+    "playlist.listen.deezer": "Ouça no Deezer",
+    "playlist.listen.apple": "Ouça no Apple Music",
+    "playlist.decade.filter": "Filtrar por década",
   },
   da: {
     "nav.home": "Hjem",
@@ -1622,6 +1706,20 @@ export const ui = {
     "aria.shortcuts.panel": "Panel med tastaturegenveje",
     "aria.shortcuts.list": "Liste over tilgængelige tastaturegenveje",
     "knowledge.empty": "Ingen artikler tilgængelige i denne kategori",
+    "playlist.page.title": "Musikplaylister | Melody Mind",
+    "playlist.page.heading": "Udforsk vores Musikplaylister",
+    "playlist.page.description":
+      "Dyk ned i omhyggeligt kuraterede playlister fra forskellige epoker og genrer. Perfekt til at opdage ny musik eller genopleve dine yndlingsklassikere.",
+    "playlist.search.label": "Søg i playlister",
+    "playlist.search.placeholder": "Søg efter musikæra eller stil...",
+    "playlist.filter.all": "Alle Epoker",
+    "playlist.no.results":
+      "Ingen matchende playlister fundet. Prøv et andet søgeord.",
+    "playlist.listen.on": "Lyt på",
+    "playlist.listen.spotify": "Lyt på Spotify",
+    "playlist.listen.deezer": "Lyt på Deezer",
+    "playlist.listen.apple": "Lyt på Apple Music",
+    "playlist.decade.filter": "Filtrer efter årti",
   },
   nl: {
     "nav.home": "Home",
@@ -1769,7 +1867,7 @@ export const ui = {
     "podcast.page.description":
       "Duik in de wereld van muziek met onze boeiende podcasts. Ontdek spannende verhalen, fascinerende achtergronden en bepalende momenten van verschillende muziektijdperken - perfect voor iedereen die niet alleen naar muziek wil luisteren, maar het ook echt wil begrijpen.",
     "podcast.search.label": "Zoek podcasts",
-    "podcast.search.placeholder": "Zoek naar fascinerende muziekverhalen...",
+    "podcast.search.placeholder": "Zoeken naar fascinerende muziekverhalen...",
     "podcast.search.status.all": "Alle podcasts worden weergegeven",
     "podcast.search.status.one": "1 podcast gevonden",
     "podcast.search.status.multiple": "{count} podcasts gevonden",
@@ -1846,6 +1944,20 @@ export const ui = {
     "aria.shortcuts.panel": "Toetsenbordsnelkoppelingen paneel",
     "aria.shortcuts.list": "Lijst met beschikbare toetsenbordsnelkoppelingen",
     "knowledge.empty": "Geen artikelen beschikbaar in deze categorie",
+    "playlist.page.title": "Muziek Afspeellijsten | Melody Mind",
+    "playlist.page.heading": "Ontdek onze Muziek Afspeellijsten",
+    "playlist.page.description":
+      "Duik in zorgvuldig samengestelde afspeellijsten van verschillende tijdperken en genres. Perfect om nieuwe muziek te ontdekken of je favoriete klassiekers opnieuw te beleven.",
+    "playlist.search.label": "Zoek afspeellijsten",
+    "playlist.search.placeholder": "Zoeken op muziektijdperk of stijl...",
+    "playlist.filter.all": "Alle Tijdperken",
+    "playlist.no.results":
+      "Geen overeenkomende afspeellijsten gevonden. Probeer een andere zoekterm.",
+    "playlist.listen.on": "Luister op",
+    "playlist.listen.spotify": "Luister op Spotify",
+    "playlist.listen.deezer": "Luister op Deezer",
+    "playlist.listen.apple": "Luister op Apple Music",
+    "playlist.decade.filter": "Filteren op decennium",
   },
   sv: {
     "nav.home": "Hem",
@@ -2070,6 +2182,20 @@ export const ui = {
     "aria.shortcuts.panel": "Panel för tangentbordsgenvägar",
     "aria.shortcuts.list": "Lista över tillgängliga tangentbordsgenvägar",
     "knowledge.empty": "Inga artiklar tillgängliga i denna kategori",
+    "playlist.page.title": "Musikspellistor | Melody Mind",
+    "playlist.page.heading": "Upptäck våra Musikspellistor",
+    "playlist.page.description":
+      "Fördjupa dig i noggrant kurerade spellistor från olika epoker och genrer. Perfekt för att upptäcka ny musik eller återuppleva dina favoritklassiker.",
+    "playlist.search.label": "Sök spellistor",
+    "playlist.search.placeholder": "Sök efter musikepok eller stil...",
+    "playlist.filter.all": "Alla Epoker",
+    "playlist.no.results":
+      "Inga matchande spellistor hittades. Prova en annan sökterm.",
+    "playlist.listen.on": "Lyssna på",
+    "playlist.listen.spotify": "Lyssna på Spotify",
+    "playlist.listen.deezer": "Lyssna på Deezer",
+    "playlist.listen.apple": "Lyssna på Apple Music",
+    "playlist.decade.filter": "Filtrera efter årtionde",
   },
   fi: {
     "nav.home": "Koti",
@@ -2292,5 +2418,20 @@ export const ui = {
     "aria.shortcuts.panel": "Pikanäppäinpaneeli",
     "aria.shortcuts.list": "Lista käytettävissä olevista pikanäppäimistä",
     "knowledge.empty": "Ei artikkeleita saatavilla tässä kategoriassa",
+    "playlist.page.title": "Musiikkisoittolistat | Melody Mind",
+    "playlist.page.heading": "Tutustu Musiikkisoittolistoihimme",
+    "playlist.page.description":
+      "Sukella huolellisesti kuratoituihin soittolistoihin eri aikakausilta ja genreistä. Täydellinen uuden musiikin löytämiseen tai suosikkiklassikoiden uudelleenkokemiseen.",
+    "playlist.search.label": "Etsi soittolistoja",
+    "playlist.search.placeholder":
+      "Hae musiikkiaikakauden tai tyylin mukaan...",
+    "playlist.filter.all": "Kaikki Aikakaudet",
+    "playlist.no.results":
+      "Ei löytynyt sopivia soittolistoja. Kokeile toista hakutermiä.",
+    "playlist.listen.on": "Kuuntele palvelussa",
+    "playlist.listen.spotify": "Kuuntele Spotifyssa",
+    "playlist.listen.deezer": "Kuuntele Deezerissä",
+    "playlist.listen.apple": "Kuuntele Apple Musicissa",
+    "playlist.decade.filter": "Suodata vuosikymmenen mukaan",
   },
 };

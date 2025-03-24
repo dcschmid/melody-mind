@@ -72,7 +72,7 @@ interface Props {
 interface Podcast {
   title: string;
   audioPath: string;
-  image?: string;
+  image: string;
   duration?: string;
   artist?: string;
   description?: string;
@@ -94,7 +94,7 @@ const allCategories = [
 
 // Sort podcasts alphabetically by title
 const sortedPodcasts = [...podcasts].sort((a, b) =>
-  a.title.localeCompare(b.title, undefined, { sensitivity: "base" }),
+  a.image.localeCompare(b.image, undefined, { sensitivity: "base" }),
 );
 ---
 
