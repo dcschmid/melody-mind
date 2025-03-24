@@ -132,7 +132,8 @@ export const ui = {
     "knowledge.search.label": "Artikel durchsuchen",
     "knowledge.search.placeholder": "Suchen...",
     "knowledge.filter.all": "Alle Keywords",
-    "knowledge.no.results": "Keine Artikel gefunden. Versuche es mit anderen Suchbegriffen.",
+    "knowledge.no.results":
+      "Keine Artikel gefunden. Versuche es mit anderen Suchbegriffen.",
     "game.remaining": "verbleibend",
     "game.default.headline": "Spiel",
     "popup.score": "Punkte: {score}",
@@ -591,7 +592,8 @@ export const ui = {
     "knowledge.search.label": "Buscar artículos",
     "knowledge.search.placeholder": "Buscar...",
     "knowledge.filter.all": "Todas las Palabras Clave",
-    "knowledge.no.results": "No se encontraron artículos. Intenta con otros términos de búsqueda.",
+    "knowledge.no.results":
+      "No se encontraron artículos. Intenta con otros términos de búsqueda.",
     "game.remaining": "restante",
     "game.default.headline": "Juego",
     "popup.score": "Puntuación: {score}",
@@ -625,8 +627,7 @@ export const ui = {
     "podcast.page.description":
       "Sumérgete en el mundo de la música con nuestros podcasts cautivadores. Descubre historias emocionantes, antecedentes fascinantes y momentos definitorios de varias épocas musicales, perfectos para cualquiera que quiera no solo escuchar música, sino también entenderla.",
     "podcast.search.label": "Buscar podcasts",
-    "podcast.search.placeholder":
-      "Buscar historias fascinantes de música...",
+    "podcast.search.placeholder": "Buscar historias fascinantes de música...",
     "podcast.search.status.all": "Se muestran todos los podcasts",
     "podcast.search.status.one": "1 podcast encontrado",
     "podcast.search.status.multiple": "{count} podcasts encontrados",
@@ -648,8 +649,7 @@ export const ui = {
     "podcast.config.title": "Configurando tu Podcast Astropod",
     "podcast.config.description": "Aprende a configurar tu podcast.",
     "podcast.publish.title": "Publicando tu primer episodio",
-    "podcast.publish.description":
-      "Publica tu primer episodio con facilidad.",
+    "podcast.publish.description": "Publica tu primer episodio con facilidad.",
     "podcast.conclusion.title": "Conclusión",
     "podcast.conclusion.description": "Resumen y próximos pasos.",
     "login.welcome": "¡Bienvenido a Melody Mind!",
@@ -822,7 +822,8 @@ export const ui = {
     "knowledge.search.label": "Rechercher des articles",
     "knowledge.search.placeholder": "Rechercher...",
     "knowledge.filter.all": "Tous les Mots-clés",
-    "knowledge.no.results": "Aucun article trouvé. Essayez d'autres termes de recherche.",
+    "knowledge.no.results":
+      "Aucun article trouvé. Essayez d'autres termes de recherche.",
     "game.remaining": "restant",
     "game.default.headline": "Jeu",
     "popup.score": "Score : {score}",
@@ -1053,7 +1054,8 @@ export const ui = {
     "knowledge.search.label": "Cerca articoli",
     "knowledge.search.placeholder": "Cerca...",
     "knowledge.filter.all": "Tutte le Parole Chiave",
-    "knowledge.no.results": "Nessun articolo trovato. Prova con altri termini di ricerca.",
+    "knowledge.no.results":
+      "Nessun articolo trovato. Prova con altri termini di ricerca.",
     "game.remaining": "rimanente",
     "game.default.headline": "Gioco",
     "popup.score": "Punteggio: {score}",
@@ -1284,7 +1286,8 @@ export const ui = {
     "knowledge.search.label": "Pesquisar artigos",
     "knowledge.search.placeholder": "Pesquisar...",
     "knowledge.filter.all": "Todas as Palavras-chave",
-    "knowledge.no.results": "Nenhum artigo encontrado. Tente termos de pesquisa diferentes.",
+    "knowledge.no.results":
+      "Nenhum artigo encontrado. Tente termos de pesquisa diferentes.",
     "game.remaining": "restante",
     "game.default.headline": "Jogo",
     "popup.score": "Puntuación: {score}",
@@ -1735,7 +1738,8 @@ export const ui = {
     "knowledge.search.label": "Artikelen zoeken",
     "knowledge.search.placeholder": "Zoeken...",
     "knowledge.filter.all": "Alle Trefwoorden",
-    "knowledge.no.results": "Geen artikelen gevonden. Probeer andere zoektermen.",
+    "knowledge.no.results":
+      "Geen artikelen gevonden. Probeer andere zoektermen.",
     "nav.donate.heading": "Steun ons",
     "nav.donate.paypal": "Doneer via PayPal",
     "nav.donate.coffee": "Trakteer me op koffie",
@@ -1765,8 +1769,7 @@ export const ui = {
     "podcast.page.description":
       "Duik in de wereld van muziek met onze boeiende podcasts. Ontdek spannende verhalen, fascinerende achtergronden en bepalende momenten van verschillende muziektijdperken - perfect voor iedereen die niet alleen naar muziek wil luisteren, maar het ook echt wil begrijpen.",
     "podcast.search.label": "Zoek podcasts",
-    "podcast.search.placeholder":
-      "Zoek naar fascinerende muziekverhalen...",
+    "podcast.search.placeholder": "Zoek naar fascinerende muziekverhalen...",
     "podcast.search.status.all": "Alle podcasts worden weergegeven",
     "podcast.search.status.one": "1 podcast gevonden",
     "podcast.search.status.multiple": "{count} podcasts gevonden",
@@ -1959,7 +1962,8 @@ export const ui = {
     "knowledge.search.label": "Sök artiklar",
     "knowledge.search.placeholder": "Sök...",
     "knowledge.filter.all": "Alla Nyckelord",
-    "knowledge.no.results": "Inga artiklar hittades. Försök med andra söktermer.",
+    "knowledge.no.results":
+      "Inga artiklar hittades. Försök med andra söktermer.",
     "nav.donate.heading": "Stöd oss",
     "nav.donate.paypal": "Donera via PayPal",
     "nav.donate.coffee": "Bjud mig på kaffe",
@@ -1989,8 +1993,7 @@ export const ui = {
     "podcast.page.description":
       "Dyk in i musikens värld med våra fängslande podcasts. Upptäck spännande berättelser, fascinerande bakgrunder och definierande ögonblick från olika musikeror - perfekt för alla som inte bara vill lyssna på musik, utan verkligen förstå den.",
     "podcast.search.label": "Sök podcasts",
-    "podcast.search.placeholder":
-      "Sök efter fascinerande musikberättelser...",
+    "podcast.search.placeholder": "Sök efter fascinerande musikberättelser...",
     "podcast.search.status.all": "Alla podcasts visas",
     "podcast.search.status.one": "1 podcast hittades",
     "podcast.search.status.multiple": "{count} podcasts hittades",
