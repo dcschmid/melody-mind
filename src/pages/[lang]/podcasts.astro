@@ -3,6 +3,8 @@ import Layout from "@layouts/Layout.astro";
 import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
+import AudioPlayer from "@components/AudioPlayer.astro";
+import { Icon } from "astro-icon/components";
 
 const lang = Astro.params.lang ?? "de";
 const t = useTranslations(
@@ -26,589 +28,376 @@ try {
   }
 }
 
-// Keine Sortierung mehr - wir verwenden die Reihenfolge aus der JSON-Datei
-
 // Define podcast interface
 interface Podcast {
   title: string;
   audioPath: string;
   image?: string;
   duration?: string;
+  artist?: string;
+  description?: string;
+  category?: string; // Optional für Kategorisierung
 }
+
+// Alle Kategorien extrahieren (wenn vorhanden)
+const allCategories = [...new Set(podcasts.map(podcast => podcast.category || t("podcast.category.uncategorized")))].sort();
+
+// Alphabetische Sortierung der Podcasts
+const sortedPodcasts = [...podcasts].sort((a, b) =>
+  (a.image || "").localeCompare((b.image || ""), undefined, { sensitivity: "base" })
+);
 ---
 
 <Layout title={t("podcast.page.title")}>
-  <Headline
-    className="text-center text-3xl md:text-4xl mb-6"
-    title={t("podcast.page.heading")}
-    level="h1"
-  />
-
-  <Paragraph
-    className="text-center max-w-2xl mx-auto mb-4"
-    description={t("podcast.page.description")}
-  />
-
-  <div class="max-w-6xl mx-auto px-4 mb-8">
-    <div class="relative">
-      <label for="podcast-search" class="sr-only"
-        >{t("podcast.search.label")}</label
-      >
-      <input
-        type="search"
-        id="podcast-search"
-        placeholder={t("podcast.search.placeholder")}
-        class="w-full py-2 px-4 rounded-lg bg-zinc-700 text-white border border-zinc-600 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
-        aria-controls="podcast-list"
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <!-- Podcast Überschrift und Beschreibung -->
+    <div class="text-center mb-12">
+      <Headline
+        title={t("podcast.page.heading")}
+        level="h1"
+        className="text-white font-bold text-3xl md:text-4xl mb-4"
       />
-      <span
-        class="absolute right-3 top-1/2 transform -translate-y-1/2 text-zinc-400"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-            clip-rule="evenodd"></path>
-        </svg>
-      </span>
+      <div class="h-1 w-24 bg-purple-500 rounded-full mx-auto mt-2 mb-6"></div>
+      <Paragraph
+        description={t("podcast.page.description")}
+        className="max-w-2xl mx-auto text-zinc-100"
+      />
     </div>
-  </div>
 
-  <p id="search-results-status" class="sr-only" aria-live="polite">
-    {t("podcast.search.status.all")}
-  </p>
+    <!-- Suchleiste und Filter -->
+    <div
+      class="search-filter-container bg-zinc-800/90 rounded-xl p-6 border border-zinc-700 shadow-lg mb-10"
+      role="search"
+    >
+      <h2 class="sr-only" id="search-heading">
+        {t("podcast.search.label")}
+      </h2>
 
-  <section
-    class="max-w-6xl mx-auto px-4"
-    id="podcast-list"
-    aria-label="Podcast-Liste"
-  >
-    {
-      /* Responsive Grid Layout: 1 column on mobile, 2 on tablets, 3 on desktop */
-    }
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {
-        podcasts.map((podcast, index) => (
-          <div
-            class="podcast-card bg-zinc-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
-            data-searchable={`${podcast.title.toLowerCase()}`}
-          >
-            <div class="p-0.5 bg-gradient-to-r from-purple-500 to-indigo-500" />
-            {/* Cover Image with 16:9 Aspect Ratio */}
-            <div class="relative">
-              <div class="aspect-w-16">
-                {podcast.image ? (
-                  <img
-                    src={podcast.image}
-                    alt=""
-                    class="w-full h-full object-cover"
-                    aria-hidden="true"
-                  />
-                ) : (
-                  <div class="w-full h-full flex items-center justify-center bg-purple-900">
-                    <svg
-                      class="w-16 h-16 text-purple-300"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z" />
-                    </svg>
-                  </div>
-                )}
-              </div>
-
-              {/* Play Button Overlay */}
-              <button
-                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-purple-600 hover:bg-purple-500 rounded-full flex items-center justify-center text-white shadow-lg transition-colors play-button opacity-90 hover:opacity-100"
-                data-title={podcast.title}
-                data-audio={podcast.audioPath}
-                aria-label={`${podcast.title} abspielen`}
-                aria-controls={`audio-player-${index}`}
-                aria-expanded="false"
-              >
-                <svg
-                  class="play-icon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-                <svg
-                  class="pause-icon hidden"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                </svg>
-              </button>
+      <div class="flex flex-col md:flex-row gap-4 mb-4">
+        <!-- Suchfeld -->
+        <div class="relative flex-grow">
+          <label for="podcast-search" class="sr-only">
+            {t("podcast.search.placeholder")}
+          </label>
+          <div class="relative">
+            <div
+              class="absolute inset-y-0 left-3 flex items-center pointer-events-none"
+            >
+              <Icon name="search" class="h-5 w-5 text-purple-400" />
             </div>
+            <input
+              type="search"
+              id="podcast-search"
+              placeholder={t("podcast.search.placeholder")}
+              class="w-full py-3 pl-10 pr-4 bg-zinc-800 border-2 border-zinc-600
+                    rounded-xl text-zinc-50 placeholder-zinc-300
+                    focus:outline-none focus:border-purple-500 focus:ring-3
+                    focus:ring-purple-500/50 transition-all duration-300"
+              aria-controls="podcast-list"
+              aria-describedby="search-podcast-description"
+            />
+            <div id="search-podcast-description" class="sr-only">
+              Während der Eingabe werden die Podcasts automatisch gefiltert
+            </div>
+          </div>
+        </div>
 
-            <div class="p-4">
-              <div class="mb-1">
-                <h2
-                  id={`podcast-title-${index}`}
-                  class="text-lg font-bold text-white"
-                >
-                  {podcast.title}
-                </h2>
+        <!-- Kategorie-Filter, nur wenn Kategorien vorhanden sind -->
+        {allCategories.length > 1 && (
+          <div class="md:w-1/3">
+            <label for="categoryFilter" class="sr-only">Nach Kategorie filtern</label>
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-3 flex items-center pointer-events-none"
+              >
+                <Icon name="filter" class="h-5 w-5 text-purple-400" />
               </div>
-
-              <div class="podcast-player">
-                {/* Audio player initially collapsed */}
-                <div
-                  id={`audio-player-${index}`}
-                  class="audio-container mt-3 overflow-hidden transition-all duration-300 max-h-0 opacity-0"
-                >
-                  <audio
-                    class="w-full audio-player"
-                    src={podcast.audioPath}
-                    controls
-                    preload="none"
-                    aria-labelledby={`podcast-title-${index}`}
-                  >
-                    Dein Browser unterstützt das Audio-Element nicht.
-                  </audio>
-                </div>
-
-                <div class="flex justify-between items-center mt-3">
-                  <span class="text-sm text-zinc-400 podcast-duration">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4 inline mr-1"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    {podcast.duration || "Lädt..."}
-                  </span>
-                </div>
+              <select
+                id="categoryFilter"
+                class="w-full py-3 pl-10 pr-4 bg-zinc-800 border-2 border-zinc-600
+                      rounded-xl text-zinc-50 appearance-none cursor-pointer
+                      focus:outline-none focus:border-purple-500 focus:ring-3
+                      focus:ring-purple-500/50 transition-all duration-300"
+                aria-label="Nach Kategorie filtern"
+              >
+                <option value="all">{t("podcast.filter.all")}</option>
+                {
+                  allCategories.map((category) => (
+                    <option value={category}>{category}</option>
+                  ))
+                }
+              </select>
+              <div
+                class="absolute inset-y-0 right-3 flex items-center pointer-events-none"
+              >
+                <Icon name="chevron-down" class="h-5 w-5 text-purple-400" />
               </div>
             </div>
           </div>
-        ))
-      }
+        )}
+      </div>
+
+      <!-- Suchstatusanzeige für Screenreader -->
+      <div id="search-results-status" class="sr-only" aria-live="polite">
+        {t("podcast.search.status.all")}
+      </div>
     </div>
 
-    <div id="no-results" class="hidden text-center py-8">
-      <p class="text-lg text-zinc-300">{t("podcast.no.results")}</p>
+    <!-- Keine Ergebnisse Nachricht (anfangs ausgeblendet) -->
+    <div
+      id="no-results"
+      class="hidden flex flex-col items-center justify-center p-12 bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-xl border border-zinc-600 text-center shadow-md mb-10"
+      aria-live="polite"
+    >
+      <Icon name="search-no-results" class="w-16 h-16 text-zinc-300 mb-4" />
+      <p class="text-zinc-100 text-lg font-medium">
+        {t("podcast.no.results")}
+      </p>
+      <button
+        id="reset-search"
+        class="mt-4 px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800 transition-all duration-300"
+      >
+        Suche zurücksetzen
+      </button>
     </div>
-  </section>
+
+    <!-- Podcast Grid -->
+    <section
+      id="podcast-list"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+      role="region"
+      aria-label={t("podcast.page.heading")}
+    >
+      {sortedPodcasts.map((podcast, index) => (
+        <div 
+          class="podcast-card animate-fadeIn" 
+          style={{ animationDelay: `${index * 0.05}s` }}
+          data-searchable={podcast.title.toLowerCase()}
+          data-category={podcast.category || t("podcast.category.uncategorized")}
+        >
+          <article class="h-full bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+            <div class="p-0.5 bg-gradient-to-r from-purple-500 to-indigo-500"></div>
+            
+            <!-- AudioPlayer Component -->
+            <div class="aspect-video relative">
+              <AudioPlayer 
+                audioSrc={podcast.audioPath}
+                imageSrc={podcast.image || "/images/podcast/default-cover.jpg"}
+                imageAlt={`Cover für ${podcast.title}`}
+                title={podcast.title}
+                artist={podcast.artist || t("podcast.play")}
+              />
+            </div>
+
+            <div class="p-4">
+              <h2
+                id={`podcast-title-${index}`}
+                class="text-lg font-bold text-white mb-2"
+              >
+                {podcast.title}
+              </h2>
+            </div>
+          </article>
+        </div>
+      ))}
+    </section>
+
+    <!-- "Nach oben"-Button mit verbesserter Zugänglichkeit -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 p-3 bg-purple-600 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-purple-500 focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800"
+      aria-label="Zurück zum Anfang der Seite"
+    >
+      <Icon name="arrow-up" class="h-6 w-6" />
+    </button>
+  </div>
 </Layout>
+
+<style>
+  /* Verbesserter Farbkontrast für WCAG AAA (7:1) */
+  :root {
+    --text-primary: #ffffff; /* Maximaler Kontrast */
+    --text-secondary: #e2e2e7; /* Höherer Kontrast als standard zinc-300 */
+    --bg-card: #27272a; /* zinc-800 */
+    --border-card: rgba(161, 161, 170, 0.3); /* zinc-400 mit Transparenz */
+    --accent-primary: #a855f7; /* purple-500 */
+    --accent-secondary: #c084fc; /* purple-400 */
+  }
+
+  /* Verbesserte Fokus-Zustände für bessere Tastaturnavigation */
+  :focus-visible {
+    outline: 3px solid var(--accent-primary);
+    outline-offset: 3px;
+  }
+
+  /* Animations for cards */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* Verbesserter Back-to-Top Button Animation */
+  #back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Disable animations if user prefers reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    .animate-fadeIn {
+      opacity: 1;
+      animation: none;
+      transform: translateY(0);
+    }
+
+    .podcast-card article:hover {
+      transform: none !important;
+      box-shadow: none !important;
+    }
+  }
+</style>
 
 <script>
   /**
-   * Podcast page functionality
-   *
-   * This script handles:
-   * - Searching podcasts by title
-   * - In-card audio playback
-   * - Audio duration calculation and caching
-   * - Accessibility features
+   * Moderne Podcast-Seiten-Funktionalität
    */
+  document.addEventListener('DOMContentLoaded', function() {
+    // DOM-Elemente für bessere Performance zwischenspeichern
+    const searchInput = document.getElementById('podcast-search') as HTMLInputElement;
+    const categoryFilter = document.getElementById('categoryFilter') as HTMLSelectElement;
+    const podcastCards = document.querySelectorAll('.podcast-card');
+    const noResultsElement = document.getElementById('no-results');
+    const searchStatusElement = document.getElementById('search-results-status');
+    const resetSearchButton = document.getElementById('reset-search');
+    const backToTopButton = document.getElementById('back-to-top');
 
-  // Define types for better type safety
-  interface PodcastElementCache {
-    searchInput: HTMLInputElement | null;
-    podcastCards: NodeListOf<HTMLElement>;
-    noResultsElement: HTMLElement | null;
-    statusElement: HTMLElement | null;
-    playButtons: NodeListOf<HTMLButtonElement>;
-    audioPlayers: NodeListOf<HTMLAudioElement>;
-  }
+    // Such- und Filterfunktion
+    function filterPodcasts() {
+      if (!searchInput) return;
 
-  /**
-   * Cache DOM elements for better performance
-   * @returns Object containing references to frequently used DOM elements
-   */
-  function cacheElements(): PodcastElementCache {
-    return {
-      searchInput: document.getElementById(
-        "podcast-search",
-      ) as HTMLInputElement | null,
-      podcastCards: document.querySelectorAll<HTMLElement>(".podcast-card"),
-      noResultsElement: document.getElementById("no-results"),
-      statusElement: document.getElementById("search-results-status"),
-      playButtons: document.querySelectorAll<HTMLButtonElement>(".play-button"),
-      audioPlayers:
-        document.querySelectorAll<HTMLAudioElement>(".audio-player"),
-    };
-  }
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      const selectedCategory = categoryFilter?.value || 'all';
+      
+      let visibleCount = 0;
 
-  // Keep track of the currently playing audio
-  let currentlyPlaying: HTMLAudioElement | null = null;
-
-  /**
-   * Format seconds into minutes:seconds format
-   * @param seconds - Duration in seconds
-   * @returns Formatted time string (e.g. "3:45")
-   */
-  function formatTime(seconds: number): string {
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
-  }
-
-  /**
-   * Initialize play button functionality
-   * @param buttons - Collection of play buttons
-   */
-  function initializePlayButtons(elements: PodcastElementCache): void {
-    const { playButtons, audioPlayers } = elements;
-
-    playButtons.forEach((button, index) => {
-      const audioContainer = button
-        .closest(".podcast-card")
-        ?.querySelector(".audio-container") as HTMLElement;
-      const audio = audioPlayers[index];
-      const playIcon = button.querySelector(".play-icon");
-      const pauseIcon = button.querySelector(".pause-icon");
-
-      if (!audioContainer || !audio || !playIcon || !pauseIcon) return;
-
-      button.addEventListener("click", () => {
-        const isExpanded = button.getAttribute("aria-expanded") === "true";
-
-        // If another audio is playing, pause it and reset its button
-        if (currentlyPlaying && currentlyPlaying !== audio) {
-          currentlyPlaying.pause();
-
-          // Find the button for the currently playing audio and reset it
-          playButtons.forEach((btn) => {
-            if (
-              btn.getAttribute("aria-controls") ===
-              currentlyPlaying?.closest(".audio-container")?.id
-            ) {
-              btn.setAttribute("aria-expanded", "false");
-              btn.querySelector(".play-icon")?.classList.remove("hidden");
-              btn.querySelector(".pause-icon")?.classList.add("hidden");
-
-              // Collapse the audio container
-              const container = btn
-                .closest(".podcast-card")
-                ?.querySelector(".audio-container") as HTMLElement;
-              if (container) {
-                container.style.maxHeight = "0";
-                container.style.opacity = "0";
-              }
-            }
-          });
-        }
-
-        if (isExpanded) {
-          // Collapse
-          button.setAttribute("aria-expanded", "false");
-          playIcon.classList.remove("hidden");
-          pauseIcon.classList.add("hidden");
-          audioContainer.style.maxHeight = "0";
-          audioContainer.style.opacity = "0";
-          audio.pause();
-          currentlyPlaying = null;
+      // Podcast-Karten nach Suchbegriff und Kategorie filtern
+      podcastCards.forEach((card) => {
+        const searchable = card.getAttribute('data-searchable') || '';
+        const category = card.getAttribute('data-category') || '';
+        
+        const matchesSearch = searchTerm === '' || searchable.includes(searchTerm);
+        const matchesCategory = selectedCategory === 'all' || category === selectedCategory;
+        
+        const isVisible = matchesSearch && matchesCategory;
+        
+        if (isVisible) {
+          card.classList.remove('hidden');
+          visibleCount++;
         } else {
-          // Expand
-          button.setAttribute("aria-expanded", "true");
-          playIcon.classList.add("hidden");
-          pauseIcon.classList.remove("hidden");
-          audioContainer.style.maxHeight = "100px";
-          audioContainer.style.opacity = "1";
-          audio.play();
-          currentlyPlaying = audio;
+          card.classList.add('hidden');
         }
       });
 
-      // Listen for when audio ends
-      audio.addEventListener("ended", () => {
-        button.setAttribute("aria-expanded", "false");
-        playIcon.classList.remove("hidden");
-        pauseIcon.classList.add("hidden");
-        currentlyPlaying = null;
-      });
+      // "Keine Ergebnisse" Nachricht anzeigen/ausblenden
+      if (noResultsElement) {
+        noResultsElement.classList.toggle('hidden', visibleCount > 0);
+      }
 
-      // Listen for external pause
-      audio.addEventListener("pause", () => {
-        if (button.getAttribute("aria-expanded") === "true") {
-          playIcon.classList.remove("hidden");
-          pauseIcon.classList.add("hidden");
+      // Status für Screenreader aktualisieren
+      if (searchStatusElement) {
+        if (visibleCount === 0) {
+          searchStatusElement.textContent = `Keine Podcasts gefunden.`;
+        } else if (visibleCount === 1) {
+          searchStatusElement.textContent = `1 Podcast gefunden.`;
+        } else if (visibleCount === podcastCards.length) {
+          searchStatusElement.textContent = `Alle ${visibleCount} Podcasts werden angezeigt.`;
+        } else {
+          searchStatusElement.textContent = `${visibleCount} von ${podcastCards.length} Podcasts gefunden.`;
         }
-      });
-
-      // Listen for external play
-      audio.addEventListener("play", () => {
-        if (button.getAttribute("aria-expanded") === "true") {
-          playIcon.classList.add("hidden");
-          pauseIcon.classList.remove("hidden");
-        }
-      });
-    });
-  }
-
-  /**
-   * Filter podcasts based on search term
-   * @param elements - Cached DOM elements
-   */
-  function filterPodcasts(elements: PodcastElementCache): void {
-    const { searchInput, podcastCards, noResultsElement, statusElement } =
-      elements;
-
-    if (!searchInput) return;
-
-    const searchTerm = searchInput.value.toLowerCase();
-    let visibleCount = 0;
-
-    // Filter podcast cards by search term
-    podcastCards.forEach((card) => {
-      const searchable = card.dataset.searchable || "";
-      const matchesSearch =
-        searchTerm === "" || searchable.includes(searchTerm);
-
-      if (matchesSearch) {
-        card.classList.remove("hidden");
-        visibleCount++;
-      } else {
-        card.classList.add("hidden");
       }
-    });
-
-    // Update "no results" message
-    if (noResultsElement) {
-      noResultsElement.classList.toggle("hidden", visibleCount > 0);
     }
 
-    // Update ARIA live region for screen readers
-    if (statusElement) {
-      statusElement.textContent =
-        visibleCount === 1
-          ? t("podcast.search.status.one")
-          : t("podcast.search.status.multiple").replace(
-              "{count}",
-              visibleCount.toString(),
-            );
-    }
-  }
-
-  /**
-   * Advanced audio duration preloader
-   * Efficiently preloads audio durations for all podcasts
-   */
-  function preloadAudioDurations(): void {
-    const durationElements =
-      document.querySelectorAll<HTMLElement>(".podcast-duration");
-    const audioElements =
-      document.querySelectorAll<HTMLElement>(".podcast-card");
-
-    // Create a map to store durations after calculation
-    const durationCache: Map<string, string> = new Map();
-
-    // Check localStorage for previously cached durations
-    try {
-      const cachedDurations = localStorage.getItem("podcastDurations");
-      if (cachedDurations) {
-        const parsedCache = JSON.parse(cachedDurations);
-        Object.entries(parsedCache).forEach(([path, duration]) => {
-          durationCache.set(path, duration as string);
-        });
-      }
-    } catch (e) {
-      console.warn("Could not load cached durations", e);
-    }
-
-    // Process each podcast card to load its duration
-    audioElements.forEach((card, index) => {
-      const audioPath =
-        card.querySelector<HTMLButtonElement>(".play-button")?.dataset.audio;
-      if (!audioPath) return;
-
-      const durationElement =
-        card.querySelector<HTMLElement>(".podcast-duration");
-      if (!durationElement) return;
-
-      // If we already have this duration cached, use it immediately
-      if (durationCache.has(audioPath)) {
-        durationElement.textContent = durationCache.get(audioPath) ?? "";
-        return;
-      }
-
-      // Create a temporary audio element to load metadata
-      const tempAudio = new Audio();
-
-      // Use low priority fetch for better performance
-      const priority = index < 3 ? "high" : "low"; // Higher priority for visible items
-
-      // Add event listeners
-      tempAudio.addEventListener("loadedmetadata", () => {
-        const formattedTime = formatTime(tempAudio.duration);
-        durationElement.textContent = formattedTime;
-
-        // Cache the duration
-        durationCache.set(audioPath, formattedTime);
-
-        // Save to localStorage (but not too frequently)
-        debounceLocalStorageSave(durationCache);
-
-        // Clean up
-        tempAudio.remove();
-      });
-
-      tempAudio.addEventListener("error", () => {
-        durationElement.textContent = t("podcast.duration.error");
-        tempAudio.remove();
-      });
-
-      // Start loading with priority hint
-      if ("fetchPriority" in HTMLImageElement.prototype) {
-        // @ts-ignore - fetchPriority is not in the types yet
-        tempAudio.fetchPriority = priority;
-      }
-
-      tempAudio.preload = "metadata";
-      tempAudio.src = audioPath;
-    });
-  }
-
-  // Debounce the localStorage save to prevent excessive writes
-  let saveTimeout: number | null = null;
-  function debounceLocalStorageSave(durationCache: Map<string, string>): void {
-    if (saveTimeout) {
-      clearTimeout(saveTimeout);
-    }
-
-    saveTimeout = setTimeout(() => {
-      try {
-        const cacheObject = Object.fromEntries(durationCache.entries());
-        localStorage.setItem("podcastDurations", JSON.stringify(cacheObject));
-      } catch (e) {
-        console.warn("Could not save durations to cache", e);
-      }
-    }, 1000) as unknown as number;
-  }
-
-  /**
-   * Initialize all podcast page functionality
-   */
-  function initializePodcastPage(): void {
-    const elements = cacheElements();
-
-    // Initialize components
-    initializePlayButtons(elements);
-
-    // Set up event listener for search
-    const { searchInput } = elements;
-
+    // Event-Listener für Suche und Filter
     if (searchInput) {
-      searchInput.addEventListener("input", () => filterPodcasts(elements));
+      searchInput.addEventListener('input', filterPodcasts);
+    }
+    
+    if (categoryFilter) {
+      categoryFilter.addEventListener('change', filterPodcasts);
+    }
+    
+    // Suche zurücksetzen
+    if (resetSearchButton) {
+      resetSearchButton.addEventListener('click', function() {
+        if (searchInput) searchInput.value = '';
+        if (categoryFilter) categoryFilter.value = 'all';
+        filterPodcasts();
+        searchInput.focus();
+      });
     }
 
-    // Preload audio durations with efficient queueing
-    preloadAudioDurations();
+    // "Nach oben"-Button Funktionalität
+    if (backToTopButton) {
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        
+        if (scrollTop > 500) {
+          backToTopButton.classList.add('visible');
+        } else {
+          backToTopButton.classList.remove('visible');
+        }
+      });
+      
+      backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
 
-    // Initial filtering to capture any default state
-    filterPodcasts(elements);
-  }
-
-  // Translate function mock for client-side
-  function t(key: string): string {
-    const translations: { [key: string]: string } = {
-      "podcast.search.status.one": "1 Podcast gefunden",
-      "podcast.search.status.multiple": "{count} Podcasts gefunden",
-      "podcast.duration.error": "–:––",
-    };
-    return translations[key] || key;
-  }
-
-  // Execute when DOM is ready
-  document.addEventListener("DOMContentLoaded", initializePodcastPage);
+    // Preload-Strategie für Podcast-Cover
+    function setupLazyLoading() {
+      const images = document.querySelectorAll('.cover-image img');
+      const imagesToPreload = Math.min(3, images.length); // Nur die ersten Bilder vorladen
+      
+      // Erst sichtbare Bilder mit hoher Priorität laden
+      for (let i = 0; i < imagesToPreload; i++) {
+        const img = images[i] as HTMLImageElement;
+        if (img && !img.complete) {
+          img.loading = 'eager';
+        }
+      }
+      
+      // Restliche Bilder mit niedriger Priorität laden
+      for (let i = imagesToPreload; i < images.length; i++) {
+        const img = images[i] as HTMLImageElement;
+        if (img && !img.complete) {
+          img.loading = 'lazy';
+        }
+      }
+    }
+    
+    setupLazyLoading();
+  });
 </script>
-
-<style>
-  /* Verbesserte Zugänglichkeit für Fokus-Indikatoren */
-  :focus {
-    outline: 3px solid #8b5cf6;
-    outline-offset: 2px;
-  }
-
-  /* Optimierte 16:9 Unterstützung mit moderner CSS-Syntax */
-  .aspect-w-16 {
-    aspect-ratio: 16/9;
-    overflow: hidden;
-    position: relative;
-  }
-
-  /* Fallback für Browser ohne aspect-ratio Unterstützung */
-  @supports not (aspect-ratio: 16/9) {
-    .aspect-w-16 {
-      position: relative;
-      padding-bottom: 56.25%; /* 9/16 = 0.5625 */
-      height: 0;
-    }
-  }
-
-  .aspect-w-16 > * {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* Audio container transitions */
-  .audio-container {
-    transition:
-      max-height 0.3s ease,
-      opacity 0.3s ease;
-  }
-
-  /* Erhöhter Kontrast im Dunkelmodus für bessere Lesbarkeit (WCAG AAA) */
-  .podcast-card {
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .podcast-card:hover {
-    transform: translateY(-3px);
-  }
-
-  /* Zugänglicher Audio-Player mit hohem Kontrast */
-  audio {
-    border-radius: 8px;
-  }
-
-  /* Stellen Sie sicher, dass Buttons mit ausreichendem Kontrast sind */
-  audio:focus {
-    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.5);
-  }
-
-  /* Klarer Fokus-Indikator für verbesserte Tastaturnavigation */
-  button:focus-visible {
-    outline: 3px solid #8b5cf6;
-    outline-offset: 2px;
-  }
-
-  /* Stile für den No-Results-Zustand */
-  #no-results {
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-</style>

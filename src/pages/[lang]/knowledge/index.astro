@@ -77,7 +77,9 @@ const articlesWithReadingTime = articles.map((article) => {
 
 // Sortiere Artikel alphabetisch nach Titel
 const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
-  (a.data.image || '').localeCompare((b.data.image || ''), undefined, { sensitivity: "base" }),
+  (a.data.image || "").localeCompare(b.data.image || "", undefined, {
+    sensitivity: "base",
+  }),
 );
 
 // Kategorisiere Artikel nach Themen für verbesserte Navigation

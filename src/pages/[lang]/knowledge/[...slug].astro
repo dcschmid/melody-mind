@@ -75,26 +75,32 @@ const playButtonText =
 const articleSchemaData = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": entry.data.title,
-  "description": entry.data.description,
-  "datePublished": entry.data.createdAt?.toISOString(),
-  "image": imageSource,
-  "author": {
+  headline: entry.data.title,
+  description: entry.data.description,
+  datePublished: entry.data.createdAt?.toISOString(),
+  image: imageSource,
+  author: {
     "@type": "Organization",
-    "name": "Melody Mind"
-  }
+    name: "Melody Mind",
+  },
 };
 ---
 
 <Layout title={entry.data.title} description={entry.data.description}>
-  <script type="application/ld+json" set:html={JSON.stringify(articleSchemaData)} />
-  
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(articleSchemaData)}
+  />
+
   <main class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-    <article 
-      class="prose prose-lg dark:prose-invert max-w-none" 
+    <article
+      class="prose prose-lg dark:prose-invert max-w-none"
       aria-labelledby="article-title"
     >
-      <nav class="mb-8 print:hidden" aria-label={t["knowledge.breadcrumb.label"] || "Breadcrumb"}>
+      <nav
+        class="mb-8 print:hidden"
+        aria-label={t["knowledge.breadcrumb.label"] || "Breadcrumb"}
+      >
         <ol class="flex flex-wrap items-center gap-2 text-md">
           <li class="flex items-center">
             <a
@@ -144,7 +150,12 @@ const articleSchemaData = {
           />
         </div>
 
-        <Headline level="h1" title={entry.data.title} id="article-title" className="text-3xl sm:text-4xl font-bold tracking-tight" />
+        <Headline
+          level="h1"
+          title={entry.data.title}
+          id="article-title"
+          className="text-3xl sm:text-4xl font-bold tracking-tight"
+        />
 
         <div
           class="flex flex-wrap items-center gap-x-6 gap-y-3 mt-6 text-zinc-200 text-base"
@@ -171,7 +182,9 @@ const articleSchemaData = {
           }
         </div>
 
-        <div class="mt-6 bg-zinc-800/30 p-5 rounded-lg border-l-4 border-sky-500">
+        <div
+          class="mt-6 bg-zinc-800/30 p-5 rounded-lg border-l-4 border-sky-500"
+        >
           <p class="text-zinc-100 text-lg leading-relaxed">
             {entry.data.description}
           </p>
@@ -200,7 +213,11 @@ const articleSchemaData = {
             entry.data.category && (
               <div class="bg-zinc-800/80 p-6 rounded-lg border border-zinc-700 shadow-lg transition-transform hover:translate-y-[-2px]">
                 <h3 class="text-xl font-medium text-zinc-100 mb-4 flex items-center">
-                  <Icon name="headphones" class="h-5 w-5 mr-2 text-sky-400" aria-hidden="true" />
+                  <Icon
+                    name="headphones"
+                    class="h-5 w-5 mr-2 text-sky-400"
+                    aria-hidden="true"
+                  />
                   {t["knowledge.listen.heading"] || "Musik anhören"}
                 </h3>
 
@@ -265,15 +282,19 @@ const articleSchemaData = {
             isPlayable && gameCategoryUrl && (
               <div class="bg-zinc-800/80 p-6 rounded-lg border border-zinc-700 shadow-lg transition-transform hover:translate-y-[-2px]">
                 <h3 class="text-xl font-medium text-zinc-100 mb-4 flex items-center">
-                  <Icon name="game-controller" class="h-5 w-5 mr-2 text-sky-400" aria-hidden="true" />
+                  <Icon
+                    name="game-controller"
+                    class="h-5 w-5 mr-2 text-sky-400"
+                    aria-hidden="true"
+                  />
                   {t["knowledge.play.heading"] || "Dieses Genre spielen"}
                 </h3>
                 <p class="text-zinc-300 mb-4">
                   {t["knowledge.play.description"] ||
                     "Teste dein Wissen über dieses Musikgenre in unserem interaktiven Quiz!"}
                 </p>
-                <ButtonLink 
-                  href={gameCategoryUrl} 
+                <ButtonLink
+                  href={gameCategoryUrl}
                   className="w-full justify-center bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500"
                   aria-label={`${playButtonText}: ${entry.data.title}`}
                 >
@@ -290,18 +311,21 @@ const articleSchemaData = {
         </div>
       </div>
 
-      <div class="mt-12 flex justify-between border-t border-zinc-700 pt-8 print:hidden">
-        <ButtonLink 
+      <div
+        class="mt-12 flex justify-between border-t border-zinc-700 pt-8 print:hidden"
+      >
+        <ButtonLink
           href={`/${lang}/knowledge`}
           className="group"
           aria-label={t["knowledge.back.to.list"] || "Zurück zur Wissensliste"}
         >
-          <Icon 
-            name="arrow-left" 
-            class="h-4 w-4 mr-2 group-hover:translate-x-[-2px] transition-transform" 
-            aria-hidden="true" 
+          <Icon
+            name="arrow-left"
+            class="h-4 w-4 mr-2 group-hover:translate-x-[-2px] transition-transform"
+            aria-hidden="true"
           />
-          <span>{t["knowledge.back.to.list"] || "Zurück zur Wissensliste"}</span>
+          <span>{t["knowledge.back.to.list"] || "Zurück zur Wissensliste"}</span
+          >
         </ButtonLink>
       </div>
     </article>
@@ -315,17 +339,17 @@ const articleSchemaData = {
     color: rgb(56, 189, 248);
     transition: color 0.2s ease;
   }
-  
+
   .content-wrapper :global(a:hover) {
     color: rgb(125, 211, 252);
   }
-  
+
   .content-wrapper :global(a:focus-visible) {
     outline: 2px solid rgb(56, 189, 248);
     outline-offset: 2px;
     border-radius: 0.125rem;
   }
-  
+
   .content-wrapper :global(img) {
     border-radius: 0.375rem;
     max-width: 100%;
@@ -350,15 +374,15 @@ const articleSchemaData = {
     font-weight: 600;
     color: white;
   }
-  
+
   /* Verbesserte Textkontraste für AAA-Standard */
-  .content-wrapper :global(p), 
+  .content-wrapper :global(p),
   .content-wrapper :global(li) {
     color: rgb(228, 228, 231);
     line-height: 1.75;
     margin-bottom: 1.25rem;
   }
-  
+
   @media print {
     .content-wrapper :global(a) {
       text-decoration: underline;
