@@ -81,19 +81,6 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
     sensitivity: "base",
   }),
 );
-
-// Kategorisiere Artikel nach Themen für verbesserte Navigation
-const categorizedArticles = sortedArticles.reduce(
-  (acc, article) => {
-    const mainKeyword = article.data.keywords?.[0] || "Allgemein";
-    if (!acc[mainKeyword]) {
-      acc[mainKeyword] = [];
-    }
-    acc[mainKeyword].push(article);
-    return acc;
-  },
-  {} as Record<string, AnyCollectionEntry[]>,
-);
 ---
 
 <Layout title={ui[uiLang]["knowledge.title"]}>
@@ -146,41 +133,6 @@ const categorizedArticles = sortedArticles.reduce(
               />
               <div id="search-description" class="sr-only">
                 Während der Eingabe werden die Artikel automatisch gefiltert
-              </div>
-            </div>
-          </div>
-
-          <!-- Kategorie-Filter -->
-          <div class="md:w-1/3">
-            <label for="categoryFilter" class="sr-only"
-              >Nach Kategorie filtern</label
-            >
-            <div class="relative">
-              <div
-                class="absolute inset-y-0 left-3 flex items-center pointer-events-none"
-              >
-                <Icon name="filter" class="h-5 w-5 text-purple-400" />
-              </div>
-              <select
-                id="categoryFilter"
-                class="w-full py-3 pl-10 pr-4 bg-zinc-800 border-2 border-zinc-600
-                      rounded-xl text-zinc-50 appearance-none cursor-pointer
-                      focus:outline-none focus:border-purple-500 focus:ring-3
-                      focus:ring-purple-500/50 transition-all duration-300"
-                aria-label="Nach Kategorie filtern"
-              >
-                <option value="all">{ui[uiLang]["knowledge.filter.all"]}</option
-                >
-                {
-                  allKeywords.map((keyword) => (
-                    <option value={keyword}>{keyword}</option>
-                  ))
-                }
-              </select>
-              <div
-                class="absolute inset-y-0 right-3 flex items-center pointer-events-none"
-              >
-                <Icon name="chevron-down" class="h-5 w-5 text-purple-400" />
               </div>
             </div>
           </div>
