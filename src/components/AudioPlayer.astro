@@ -201,7 +201,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
 <script define:vars={{ playerId }}>
   /**
    * Modern Audio Player Implementation
-   * 
+   *
    * A lightweight, accessible audio player with the following features:
    * - Custom UI with play/pause controls
    * - Progress bar with seeking functionality
@@ -210,12 +210,14 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
    * - Keyboard accessibility
    * - Touch-friendly mobile support
    */
-  
+
   // Use an IIFE to prevent global scope pollution
   (() => {
     // Wait until DOM is fully loaded to ensure all elements are available
-    document.addEventListener("DOMContentLoaded", () => initializePlayer(playerId));
-    
+    document.addEventListener("DOMContentLoaded", () =>
+      initializePlayer(playerId),
+    );
+
     /**
      * Initialize the audio player with the given ID
      * @param {string} id - The unique ID of the player instance
@@ -227,7 +229,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
         console.warn(`Audio player with ID "${id}" not found in the DOM`);
         return;
       }
-      
+
       // DOM element references - cached for performance
       const elements = {
         audio: player.querySelector(".audio-element"),
@@ -237,42 +239,42 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
         progress: {
           bar: player.querySelector(".progress-bar"),
           container: player.querySelector(".progress-bar-container"),
-          waveform: player.querySelector(".waveform-container")
+          waveform: player.querySelector(".waveform-container"),
         },
         time: {
           current: player.querySelector(".current-time"),
-          duration: player.querySelector(".duration")
+          duration: player.querySelector(".duration"),
         },
         volume: {
           button: player.querySelector(".volume-btn"),
           icon: player.querySelector(".volume-icon"),
           muteIcon: player.querySelector(".mute-icon"),
-          slider: player.querySelector(".volume-slider")
-        }
+          slider: player.querySelector(".volume-slider"),
+        },
       };
-      
+
       // Player configuration from data attributes
       const config = {
         waveformColor: player.dataset.waveformColor || "#a855f7",
         accentColor: player.dataset.accentColor || "#c084fc",
-        audioSrc: player.dataset.audioSrc || ""
+        audioSrc: player.dataset.audioSrc || "",
       };
-      
+
       // Player state management
       const state = {
         isPlaying: false,
         lastVolume: 1,
         isMuted: false,
-        seekingEnabled: true
+        seekingEnabled: true,
       };
-      
+
       // Apply configuration
       if (config.audioSrc) {
         elements.audio.src = config.audioSrc;
       }
-      
+
       elements.progress.bar.style.backgroundColor = config.accentColor;
-      
+
       /**
        * Creates and renders the audio waveform visualization
        * The waveform uses random heights to create a visual representation of audio
@@ -280,13 +282,13 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
       function renderWaveform() {
         const segments = 40; // Number of waveform segments
         let waveformHTML = "";
-        
+
         // Generate random segment heights for visual variety
         for (let i = 0; i < segments; i++) {
           // Random height between 30% and 100%
           const height = Math.floor(30 + Math.random() * 70);
           const segmentWidth = 100 / segments;
-          
+
           waveformHTML += `
             <div style="
               position: absolute;
@@ -301,10 +303,10 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
             "></div>
           `;
         }
-        
+
         elements.progress.waveform.innerHTML = waveformHTML;
       }
-      
+
       /**
        * Formats time in seconds to mm:ss display format
        * @param {number} seconds - Time in seconds
@@ -312,12 +314,12 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
        */
       function formatTime(seconds) {
         if (isNaN(seconds) || !isFinite(seconds)) return "0:00";
-        
+
         const min = Math.floor(seconds / 60);
         const sec = Math.floor(seconds % 60);
         return `${min}:${sec < 10 ? "0" + sec : sec}`;
       }
-      
+
       /**
        * Toggles play/pause state of the audio
        * Updates UI and accessibility attributes accordingly
@@ -325,12 +327,13 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
       function togglePlayback() {
         if (elements.audio.paused) {
           // Play audio with error handling
-          elements.audio.play()
+          elements.audio
+            .play()
             .then(() => {
               state.isPlaying = true;
               updatePlaybackUI();
             })
-            .catch(error => {
+            .catch((error) => {
               console.error("Error playing audio:", error);
               // Provide user feedback on playback error
               state.isPlaying = false;
@@ -342,7 +345,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
           updatePlaybackUI();
         }
       }
-      
+
       /**
        * Updates play/pause button appearance and accessibility
        * based on current playback state
@@ -364,7 +367,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
           elements.playButton.setAttribute("title", "Play");
         }
       }
-      
+
       /**
        * Updates volume button appearance and accessibility
        * based on current volume state
@@ -386,7 +389,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
           elements.volume.button.setAttribute("title", "Mute");
         }
       }
-      
+
       /**
        * Updates progress bar and time displays
        * Called on timeupdate event
@@ -394,37 +397,42 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
       function updateProgress() {
         const { currentTime, duration } = elements.audio;
         if (isNaN(duration)) return;
-        
+
         // Update progress bar width
         const progressPercent = (currentTime / duration) * 100;
         elements.progress.bar.style.width = `${progressPercent}%`;
-        
+
         // Update time displays
         elements.time.current.textContent = formatTime(currentTime);
         elements.time.duration.textContent = formatTime(duration);
-        
+
         // Set aria values for accessibility
-        elements.progress.container.setAttribute("aria-valuenow", Math.round(progressPercent));
-        elements.progress.container.setAttribute("aria-valuetext", 
-          `${formatTime(currentTime)} of ${formatTime(duration)}`);
+        elements.progress.container.setAttribute(
+          "aria-valuenow",
+          Math.round(progressPercent),
+        );
+        elements.progress.container.setAttribute(
+          "aria-valuetext",
+          `${formatTime(currentTime)} of ${formatTime(duration)}`,
+        );
       }
-      
+
       /**
        * Jumps to a specific position in the audio when progress bar is clicked
        * @param {MouseEvent} event - Click event on progress bar
        */
       function seekAudio(event) {
         if (!state.seekingEnabled) return;
-        
+
         const rect = elements.progress.container.getBoundingClientRect();
         const clickPosition = (event.clientX - rect.left) / rect.width;
         const duration = elements.audio.duration;
-        
+
         if (isNaN(duration)) return;
-        
+
         elements.audio.currentTime = clickPosition * duration;
       }
-      
+
       /**
        * Toggles mute state of the audio
        * Remembers previous volume level when muting
@@ -444,10 +452,10 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
           elements.volume.slider.value = 0;
           state.isMuted = true;
         }
-        
+
         updateVolumeUI();
       }
-      
+
       /**
        * Handles volume slider changes
        */
@@ -458,7 +466,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
         state.isMuted = newVolume === "0";
         updateVolumeUI();
       }
-      
+
       /**
        * Resets the player to initial state
        * Called when audio playback ends
@@ -469,7 +477,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
         elements.progress.bar.style.width = "0%";
         elements.time.current.textContent = formatTime(0);
       }
-      
+
       /**
        * Handles keyboard navigation and controls
        * @param {KeyboardEvent} event - Keyboard event
@@ -477,7 +485,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
       function handleKeyboardControl(event) {
         // Only handle keyboard events when focused within this player
         if (!event.target.closest(`#${id}`)) return;
-        
+
         switch (event.code) {
           case "Space":
             // Only toggle play/pause if the play button is focused
@@ -486,26 +494,32 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
               togglePlayback();
             }
             break;
-            
+
           case "ArrowLeft":
             // Rewind 5 seconds
-            elements.audio.currentTime = Math.max(0, elements.audio.currentTime - 5);
+            elements.audio.currentTime = Math.max(
+              0,
+              elements.audio.currentTime - 5,
+            );
             break;
-            
+
           case "ArrowRight":
             // Forward 5 seconds
             if (!isNaN(elements.audio.duration)) {
               elements.audio.currentTime = Math.min(
-                elements.audio.duration, 
-                elements.audio.currentTime + 5
+                elements.audio.duration,
+                elements.audio.currentTime + 5,
               );
             }
             break;
-            
+
           case "ArrowUp":
             // Increase volume (only when volume slider is focused)
             if (event.target === elements.volume.slider) {
-              const newVolume = Math.min(1, parseFloat(elements.volume.slider.value) + 0.1);
+              const newVolume = Math.min(
+                1,
+                parseFloat(elements.volume.slider.value) + 0.1,
+              );
               elements.volume.slider.value = newVolume;
               elements.audio.volume = newVolume;
               elements.audio.muted = false;
@@ -513,74 +527,84 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
               updateVolumeUI();
             }
             break;
-            
+
           case "ArrowDown":
             // Decrease volume (only when volume slider is focused)
             if (event.target === elements.volume.slider) {
-              const newVolume = Math.max(0, parseFloat(elements.volume.slider.value) - 0.1);
+              const newVolume = Math.max(
+                0,
+                parseFloat(elements.volume.slider.value) - 0.1,
+              );
               elements.volume.slider.value = newVolume;
               elements.audio.volume = newVolume;
               state.isMuted = newVolume === 0;
               updateVolumeUI();
             }
             break;
-            
+
           case "KeyM":
             // Toggle mute with 'm' key
             toggleMute();
             break;
         }
       }
-      
+
       // Initialize ARIA attributes for accessibility
       function initializeAccessibility() {
         elements.progress.container.setAttribute("role", "progressbar");
         elements.progress.container.setAttribute("aria-valuemin", "0");
         elements.progress.container.setAttribute("aria-valuemax", "100");
         elements.progress.container.setAttribute("aria-valuenow", "0");
-        elements.progress.container.setAttribute("aria-valuetext", "0:00 of 0:00");
+        elements.progress.container.setAttribute(
+          "aria-valuetext",
+          "0:00 of 0:00",
+        );
       }
-      
+
       // Set up event listeners
       function setupEventListeners() {
         // Playback control
         elements.playButton.addEventListener("click", togglePlayback);
-        
+
         // Progress tracking and seeking
         elements.audio.addEventListener("timeupdate", updateProgress);
         elements.progress.container.addEventListener("click", seekAudio);
-        
+
         // Metadata loading
         elements.audio.addEventListener("loadedmetadata", () => {
-          elements.time.duration.textContent = formatTime(elements.audio.duration);
+          elements.time.duration.textContent = formatTime(
+            elements.audio.duration,
+          );
           elements.time.current.textContent = formatTime(0);
           renderWaveform();
         });
-        
+
         // Playback ended
         elements.audio.addEventListener("ended", resetPlayer);
-        
+
         // Volume control
         elements.volume.button.addEventListener("click", toggleMute);
         elements.volume.slider.addEventListener("input", handleVolumeChange);
-        
+
         // Keyboard controls
         player.addEventListener("keydown", handleKeyboardControl);
-        
+
         // Error handling
         elements.audio.addEventListener("error", (e) => {
           console.error("Audio playback error:", e);
           resetPlayer();
         });
       }
-      
+
       // Initialize player components
       initializeAccessibility();
       setupEventListeners();
-      
+
       // Pre-load duration if metadata is already available
       if (elements.audio.readyState >= 1) {
-        elements.time.duration.textContent = formatTime(elements.audio.duration);
+        elements.time.duration.textContent = formatTime(
+          elements.audio.duration,
+        );
         renderWaveform();
       }
     }
