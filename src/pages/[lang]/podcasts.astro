@@ -6,10 +6,10 @@ import Paragraph from "@components/Paragraph.astro";
 import AudioPlayer from "@components/AudioPlayer.astro";
 import { Icon } from "astro-icon/components";
 
-// Statische Generierung für alle unterstützten Sprachen aktivieren
+// Enable static generation for all supported languages
 export const prerender = true;
 
-// Definieren der unterstützten Sprachen und Erstellung der statischen Pfade
+// Define supported languages and generate static paths
 export async function getStaticPaths() {
   const supportedLanguages = [
     "de",
@@ -24,10 +24,10 @@ export async function getStaticPaths() {
     "fi",
   ] as const;
 
-  // Vorverarbeiten der Podcast-Daten für jede Sprache
+  // Process podcast data for each language
   const paths = await Promise.all(
     supportedLanguages.map(async (lang) => {
-      // Versuchen, die Podcast-Daten für die Sprache zu laden
+      // Try to load podcast data for the specific language
       let podcasts = [];
       try {
         const podcastData = await import(
@@ -35,7 +35,7 @@ export async function getStaticPaths() {
         );
         podcasts = podcastData.default;
       } catch (error) {
-        // Fallback auf Englisch, wenn die Sprachdatei nicht existiert
+        // Fallback to English if language file doesn't exist
         try {
           const fallbackData = await import(
             `../../../public/json/podcasts/en.json`
@@ -43,7 +43,7 @@ export async function getStaticPaths() {
           podcasts = fallbackData.default;
         } catch (fallbackError) {
           console.error(
-            `Fehler beim Laden der Podcast-Daten für ${lang}:`,
+            `Error loading podcast data for ${lang}:`,
             fallbackError,
           );
         }
@@ -62,13 +62,13 @@ export async function getStaticPaths() {
   return paths;
 }
 
-// Typdefinition für die Props
+// Type definition for props
 interface Props {
   lang: "de" | "en" | "es" | "fr" | "it" | "pt" | "da" | "nl" | "sv" | "fi";
   podcasts: Podcast[];
 }
 
-// Typdefinition für Podcast-Objekte
+// Type definition for podcast objects
 interface Podcast {
   title: string;
   audioPath: string;
@@ -79,11 +79,11 @@ interface Podcast {
   category?: string;
 }
 
-// Daten aus den Props verwenden
+// Extract data from props
 const { lang, podcasts = [] } = Astro.props;
 const t = useTranslations(lang);
 
-// Alle Kategorien extrahieren (wenn vorhanden)
+// Extract all categories (if available)
 const allCategories = [
   ...new Set(
     podcasts.map(
@@ -92,7 +92,7 @@ const allCategories = [
   ),
 ].sort();
 
-// Alphabetische Sortierung der Podcasts
+// Sort podcasts alphabetically by title
 const sortedPodcasts = [...podcasts].sort((a, b) =>
   a.title.localeCompare(b.title, undefined, { sensitivity: "base" }),
 );
@@ -100,7 +100,7 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
 
 <Layout title={t("podcast.page.title")}>
   <div class="max-w-6xl mx-auto px-4 py-8">
-    <!-- Podcast Überschrift und Beschreibung -->
+    <!-- Podcast heading and description -->
     <div class="text-center mb-12">
       <Headline
         title={t("podcast.page.heading")}
@@ -114,7 +114,7 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
       />
     </div>
 
-    <!-- Suchleiste und Filter -->
+    <!-- Search bar and filter -->
     <div
       class="search-filter-container bg-zinc-800/90 rounded-xl p-6 border border-zinc-700 shadow-lg mb-10"
       role="search"
@@ -124,7 +124,7 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
       </h2>
 
       <div class="flex flex-col md:flex-row gap-4 mb-4">
-        <!-- Suchfeld -->
+        <!-- Search field -->
         <div class="relative flex-grow">
           <label for="podcast-search" class="sr-only">
             {t("podcast.search.placeholder")}
@@ -147,17 +147,17 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
               aria-describedby="search-podcast-description"
             />
             <div id="search-podcast-description" class="sr-only">
-              Während der Eingabe werden die Podcasts automatisch gefiltert
+              Podcasts are automatically filtered as you type
             </div>
           </div>
         </div>
 
-        <!-- Kategorie-Filter, nur wenn Kategorien vorhanden sind -->
+        <!-- Category filter, only shown when categories are available -->
         {
           allCategories.length > 1 && (
             <div class="md:w-1/3">
               <label for="categoryFilter" class="sr-only">
-                Nach Kategorie filtern
+                Filter by category
               </label>
               <div class="relative">
                 <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
@@ -169,7 +169,7 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
                       rounded-xl text-zinc-50 appearance-none cursor-pointer
                       focus:outline-none focus:border-purple-500 focus:ring-3
                       focus:ring-purple-500/50 transition-all duration-300"
-                  aria-label="Nach Kategorie filtern"
+                  aria-label="Filter by category"
                 >
                   <option value="all">{t("podcast.filter.all")}</option>
                   {allCategories.map((category) => (
@@ -185,13 +185,13 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
         }
       </div>
 
-      <!-- Suchstatusanzeige für Screenreader -->
+      <!-- Search status for screen readers -->
       <div id="search-results-status" class="sr-only" aria-live="polite">
         {t("podcast.search.status.all")}
       </div>
     </div>
 
-    <!-- Keine Ergebnisse Nachricht (anfangs ausgeblendet) -->
+    <!-- No results message (initially hidden) -->
     <div
       id="no-results"
       class="hidden flex flex-col items-center justify-center p-12 bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-xl border border-zinc-600 text-center shadow-md mb-10"
@@ -205,7 +205,7 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
         id="reset-search"
         class="mt-4 px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800 transition-all duration-300"
       >
-        Suche zurücksetzen
+        Reset search
       </button>
     </div>
 
@@ -235,7 +235,7 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
                   imageSrc={
                     podcast.image || "/images/podcast/default-cover.jpg"
                   }
-                  imageAlt={`Cover für ${podcast.title}`}
+                  imageAlt={`Cover for ${podcast.title}`}
                   title={podcast.title}
                   artist={podcast.artist || t("podcast.play")}
                 />
@@ -258,7 +258,7 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
     <button
       id="back-to-top"
       class="fixed bottom-8 right-8 p-3 bg-purple-600 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-purple-500 focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800"
-      aria-label="Zurück zum Anfang der Seite"
+      aria-label="Back to top of page"
     >
       <Icon name="arrow-up" class="h-6 w-6" />
     </button>
@@ -266,17 +266,17 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
 </Layout>
 
 <style>
-  /* Verbesserter Farbkontrast für WCAG AAA (7:1) */
+  /* Improved color contrast for WCAG AAA (7:1) */
   :root {
-    --text-primary: #ffffff; /* Maximaler Kontrast */
-    --text-secondary: #e2e2e7; /* Höherer Kontrast als standard zinc-300 */
+    --text-primary: #ffffff; /* Maximum contrast */
+    --text-secondary: #e2e2e7; /* Higher contrast than standard zinc-300 */
     --bg-card: #27272a; /* zinc-800 */
-    --border-card: rgba(161, 161, 170, 0.3); /* zinc-400 mit Transparenz */
+    --border-card: rgba(161, 161, 170, 0.3); /* zinc-400 with transparency */
     --accent-primary: #a855f7; /* purple-500 */
     --accent-secondary: #c084fc; /* purple-400 */
   }
 
-  /* Verbesserte Fokus-Zustände für bessere Tastaturnavigation */
+  /* Improved focus states for keyboard navigation */
   :focus-visible {
     outline: 3px solid var(--accent-primary);
     outline-offset: 3px;
@@ -299,7 +299,7 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
     opacity: 0;
   }
 
-  /* Verbesserter Back-to-Top Button Animation */
+  /* Improved back-to-top button animation */
   #back-to-top.visible {
     opacity: 1;
     visibility: visible;
@@ -331,10 +331,13 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
 
 <script>
   /**
-   * Moderne Podcast-Seiten-Funktionalität
+   * Modern Podcast Page Functionality
+   * 
+   * Handles interactive features like search, filtering, and accessibility
+   * for the podcast listing page.
    */
   document.addEventListener("DOMContentLoaded", function () {
-    // DOM-Elemente für bessere Performance zwischenspeichern
+    // Cache DOM elements for better performance
     const searchInput = document.getElementById(
       "podcast-search",
     ) as HTMLInputElement;
@@ -349,7 +352,7 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
     const resetSearchButton = document.getElementById("reset-search");
     const backToTopButton = document.getElementById("back-to-top");
 
-    // Such- und Filterfunktion
+    // Search and filter function
     function filterPodcasts() {
       if (!searchInput) return;
 
@@ -358,7 +361,7 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
 
       let visibleCount = 0;
 
-      // Podcast-Karten nach Suchbegriff und Kategorie filtern
+      // Filter podcast cards by search term and category
       podcastCards.forEach((card) => {
         const searchable = card.getAttribute("data-searchable") || "";
         const category = card.getAttribute("data-category") || "";
@@ -378,26 +381,26 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
         }
       });
 
-      // "Keine Ergebnisse" Nachricht anzeigen/ausblenden
+      // Show/hide "No results" message
       if (noResultsElement) {
         noResultsElement.classList.toggle("hidden", visibleCount > 0);
       }
 
-      // Status für Screenreader aktualisieren
+      // Update status for screen readers
       if (searchStatusElement) {
         if (visibleCount === 0) {
-          searchStatusElement.textContent = `Keine Podcasts gefunden.`;
+          searchStatusElement.textContent = `No podcasts found.`;
         } else if (visibleCount === 1) {
-          searchStatusElement.textContent = `1 Podcast gefunden.`;
+          searchStatusElement.textContent = `1 podcast found.`;
         } else if (visibleCount === podcastCards.length) {
-          searchStatusElement.textContent = `Alle ${visibleCount} Podcasts werden angezeigt.`;
+          searchStatusElement.textContent = `All ${visibleCount} podcasts are displayed.`;
         } else {
-          searchStatusElement.textContent = `${visibleCount} von ${podcastCards.length} Podcasts gefunden.`;
+          searchStatusElement.textContent = `${visibleCount} of ${podcastCards.length} podcasts found.`;
         }
       }
     }
 
-    // Event-Listener für Suche und Filter
+    // Event listeners for search and filter
     if (searchInput) {
       searchInput.addEventListener("input", filterPodcasts);
     }
@@ -406,7 +409,7 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
       categoryFilter.addEventListener("change", filterPodcasts);
     }
 
-    // Suche zurücksetzen
+    // Reset search
     if (resetSearchButton) {
       resetSearchButton.addEventListener("click", function () {
         if (searchInput) searchInput.value = "";
@@ -416,7 +419,7 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
       });
     }
 
-    // "Nach oben"-Button Funktionalität
+    // Back to top button functionality
     if (backToTopButton) {
       window.addEventListener("scroll", function () {
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -436,12 +439,12 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
       });
     }
 
-    // Preload-Strategie für Podcast-Cover
+    // Optimized image loading strategy for podcast covers
     function setupLazyLoading() {
       const images = document.querySelectorAll(".cover-image img");
-      const imagesToPreload = Math.min(3, images.length); // Nur die ersten Bilder vorladen
+      const imagesToPreload = Math.min(3, images.length); // Only preload the first few images
 
-      // Erst sichtbare Bilder mit hoher Priorität laden
+      // Load visible images with high priority
       for (let i = 0; i < imagesToPreload; i++) {
         const img = images[i] as HTMLImageElement;
         if (img && !img.complete) {
@@ -449,7 +452,7 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
         }
       }
 
-      // Restliche Bilder mit niedriger Priorität laden
+      // Load remaining images with lower priority
       for (let i = imagesToPreload; i < images.length; i++) {
         const img = images[i] as HTMLImageElement;
         if (img && !img.complete) {

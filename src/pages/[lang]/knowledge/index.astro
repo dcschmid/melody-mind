@@ -396,298 +396,160 @@ const categorizedArticles = sortedArticles.reduce(
 <script>
   /**
    * Knowledge Articles Search & Filtering System
-   * ---------------------------------------------
-   * A high-performance article filtering system optimized for WCAG AAA accessibility
-   * Features intelligent caching, keyboard navigation, and robust screen reader support.
+   * 
+   * A high-performance article filtering system with WCAG AAA accessibility optimizations:
+   * - Efficient search with debouncing and batch processing
+   * - Keyboard navigation support for improved accessibility
+   * - Touch-friendly interactions for mobile devices
+   * - Screen reader announcements for search/filter results
    */
 
-  /**
-   * Configuration object containing all adjustable parameters
-   */
+  // Central configuration for easy maintenance and customization
   const CONFIG = {
-    // DOM element selectors
-    SELECTORS: {
-      SEARCH_INPUT: "#searchInput",
-      CATEGORY_FILTER: "#categoryFilter",
-      ARTICLE_GRID: "#articlesGrid",
-      ARTICLE_CARD: ".knowledge-card-container",
-      ARTICLE_LINK: "a.card-link",
-      NO_RESULTS: "#no-results",
-      SEARCH_STATUS: "#search-status",
-      RESET_SEARCH: "#reset-search",
-      BACK_TO_TOP: "#back-to-top",
+    selectors: {
+      searchInput: "#searchInput",
+      categoryFilter: "#categoryFilter",
+      articleGrid: "#articlesGrid",
+      articleCard: ".knowledge-card-container",
+      articleLink: "a.card-link",
+      noResults: "#no-results",
+      searchStatus: "#search-status",
+      resetSearch: "#reset-search",
+      backToTop: "#back-to-top"
     },
-    // Performance settings
-    PERFORMANCE: {
-      DEBOUNCE_MS: 200, // Milliseconds to wait before processing search input
-      BATCH_SIZE: 12, // Process search in batches for smoother UX
-      ANIMATION_THRESHOLD: 50, // Skip animations if more than this many items
+    timing: {
+      debounceMs: 200,
+      scrollDuration: 500
     },
-    // Scroll settings
-    SCROLL: {
-      BACK_TO_TOP_THRESHOLD: 500, // Show back-to-top button after scrolling this much
-      SMOOTH_SCROLL_DURATION: 500, // Duration for smooth scroll in ms
+    performance: {
+      batchSize: 12,
+      animationThreshold: 50
     },
-    // Accessibility settings
-    ACCESSIBILITY: {
-      FOCUS_AFTER_FILTER: true, // Focus on first result after filtering
-      ANNOUNCE_RESULTS: true, // Announce results count to screen readers
-    },
+    scroll: {
+      topButtonThreshold: 500
+    }
   };
 
   /**
-   * ArticleSearch class handles all search functionality for knowledge articles
+   * Initialize the knowledge center functionality when DOM is loaded
    */
-  class KnowledgeCenter {
-    private searchInput: HTMLInputElement | null;
-    private categoryFilter: HTMLSelectElement | null;
-    private articleGrid: HTMLElement | null;
-    private articles: HTMLElement[];
-    private noResultsEl: HTMLElement | null;
-    private searchStatusEl: HTMLElement | null;
-    private resetSearchBtn: HTMLElement | null;
-    private backToTopBtn: HTMLElement | null;
-    private debounceTimer: ReturnType<typeof setTimeout> | null;
-    private isProcessing: boolean;
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = {
+      searchInput: document.querySelector(CONFIG.selectors.searchInput),
+      categoryFilter: document.querySelector(CONFIG.selectors.categoryFilter),
+      articleGrid: document.querySelector(CONFIG.selectors.articleGrid),
+      noResults: document.querySelector(CONFIG.selectors.noResults),
+      searchStatus: document.querySelector(CONFIG.selectors.searchStatus),
+      resetButton: document.querySelector(CONFIG.selectors.resetSearch),
+      backToTopButton: document.querySelector(CONFIG.selectors.backToTop),
+      articles: Array.from(document.querySelectorAll(CONFIG.selectors.articleCard))
+    };
 
-    /**
-     * Sets up the search functionality and initializes event listeners
-     */
-    constructor() {
-      // Initialize properties
-      this.searchInput = document.querySelector(CONFIG.SELECTORS.SEARCH_INPUT);
-      this.categoryFilter = document.querySelector(
-        CONFIG.SELECTORS.CATEGORY_FILTER,
-      );
-      this.articleGrid = document.querySelector(CONFIG.SELECTORS.ARTICLE_GRID);
-      this.noResultsEl = document.querySelector(CONFIG.SELECTORS.NO_RESULTS);
-      this.searchStatusEl = document.querySelector(
-        CONFIG.SELECTORS.SEARCH_STATUS,
-      );
-      this.resetSearchBtn = document.querySelector(
-        CONFIG.SELECTORS.RESET_SEARCH,
-      );
-      this.backToTopBtn = document.querySelector(CONFIG.SELECTORS.BACK_TO_TOP);
-      this.articles = [];
-      this.debounceTimer = null;
-      this.isProcessing = false;
-
-      // Initialize if DOM is ready
-      if (document.readyState !== "loading") {
-        this.init();
-      } else {
-        document.addEventListener("DOMContentLoaded", () => this.init());
-      }
+    // Skip initialization if required elements are missing
+    if (!elements.searchInput || !elements.articleGrid) {
+      console.warn("Required search elements not found. Search functionality disabled.");
+      return;
     }
 
-    /**
-     * Initializes the search system
-     */
-    private init(): void {
-      // Ensure required DOM elements exist
-      if (!this.searchInput || !this.articleGrid) {
-        console.warn(
-          "Required search elements not found. Search functionality disabled.",
-        );
-        return;
-      }
+    let isProcessing = false;
+    let debounceTimer = null;
 
-      // Cache article elements for better performance
-      this.articles = Array.from(
-        this.articleGrid.querySelectorAll(CONFIG.SELECTORS.ARTICLE_CARD),
-      ) as HTMLElement[];
+    // ===== Event Listeners =====
 
-      // Attach event listeners with debounce
-      this.searchInput.addEventListener("input", () =>
-        this.handleSearchInput(),
-      );
+    // Search input with debounce for better performance
+    elements.searchInput.addEventListener("input", () => {
+      if (debounceTimer) clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        filterArticles();
+        debounceTimer = null;
+      }, CONFIG.timing.debounceMs);
+    });
 
-      // Add category filter listener
-      if (this.categoryFilter) {
-        this.categoryFilter.addEventListener("change", () =>
-          this.handleSearchInput(),
-        );
-      }
-
-      // Reset search button
-      if (this.resetSearchBtn) {
-        this.resetSearchBtn.addEventListener("click", () => this.resetSearch());
-      }
-
-      // Back to top button
-      if (this.backToTopBtn) {
-        this.initBackToTop();
-      }
-
-      // Add keyboard navigation for cards
-      this.setupCardKeyboardNavigation();
-
-      // Verbesserte Touch-Interaktion für mobile Geräte
-      this.setupMobileTouchInteraction();
+    // Category filter
+    if (elements.categoryFilter) {
+      elements.categoryFilter.addEventListener("change", filterArticles);
     }
 
-    /**
-     * Initializes the back-to-top button functionality
-     */
-    private initBackToTop(): void {
-      if (!this.backToTopBtn) return;
-
-      // Show/hide button based on scroll position
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > CONFIG.SCROLL.BACK_TO_TOP_THRESHOLD) {
-          this.backToTopBtn?.classList.add("visible");
-        } else {
-          this.backToTopBtn?.classList.remove("visible");
-        }
-      });
-
-      // Scroll to top when clicked
-      this.backToTopBtn.addEventListener("click", () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-
-        // Return focus to search input for better keyboard navigation
-        setTimeout(() => {
-          this.searchInput?.focus();
-        }, CONFIG.SCROLL.SMOOTH_SCROLL_DURATION);
+    // Reset search
+    if (elements.resetButton) {
+      elements.resetButton.addEventListener("click", () => {
+        if (elements.searchInput) elements.searchInput.value = "";
+        if (elements.categoryFilter) elements.categoryFilter.value = "all";
+        filterArticles();
+        elements.searchInput.focus();
       });
     }
 
-    /**
-     * Sets up keyboard navigation between article cards
-     */
-    private setupCardKeyboardNavigation(): void {
-      this.articleGrid?.addEventListener("keydown", (event) => {
-        if (
-          event.key === "ArrowRight" ||
-          event.key === "ArrowDown" ||
-          event.key === "ArrowLeft" ||
-          event.key === "ArrowUp"
-        ) {
-          const cards = Array.from(
-            this.articleGrid?.querySelectorAll(CONFIG.SELECTORS.ARTICLE_LINK) ||
-              [],
-          );
-          const currentIndex = cards.findIndex(
-            (card) => card === document.activeElement,
-          );
-
-          if (currentIndex === -1) return;
-
-          let newIndex;
-          const columns =
-            window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
-
-          // Calculate new index based on arrow key and grid layout
-          if (event.key === "ArrowRight") {
-            newIndex = (currentIndex + 1) % cards.length;
-          } else if (event.key === "ArrowLeft") {
-            newIndex = (currentIndex - 1 + cards.length) % cards.length;
-          } else if (event.key === "ArrowDown") {
-            newIndex =
-              currentIndex + columns < cards.length
-                ? currentIndex + columns
-                : currentIndex;
-          } else if (event.key === "ArrowUp") {
-            newIndex =
-              currentIndex - columns >= 0
-                ? currentIndex - columns
-                : currentIndex;
-          }
-
-          if (newIndex !== undefined && cards[newIndex]) {
-            event.preventDefault();
-            (cards[newIndex] as HTMLElement).focus();
-          }
-        }
-      });
+    // Back to top button
+    if (elements.backToTopButton) {
+      initBackToTopButton();
     }
 
-    /**
-     * Handles search input with debouncing for performance
-     */
-    private handleSearchInput(): void {
-      if (this.debounceTimer) {
-        clearTimeout(this.debounceTimer);
-      }
+    // Setup keyboard navigation between cards
+    initKeyboardNavigation();
 
-      this.debounceTimer = setTimeout(() => {
-        this.filterArticles();
-        this.debounceTimer = null;
-      }, CONFIG.PERFORMANCE.DEBOUNCE_MS);
-    }
+    // Setup mobile touch interaction
+    initTouchInteraction();
+
+    // ===== Core Functions =====
 
     /**
-     * Filters articles based on search input and category selection
+     * Main filtering function for articles
      */
-    private filterArticles(): void {
-      if (this.isProcessing) return;
+    function filterArticles() {
+      if (isProcessing) return;
+      isProcessing = true;
 
-      const query = this.searchInput?.value.toLowerCase().trim() || "";
-      const selectedCategory = this.categoryFilter?.value || "all";
-
-      this.isProcessing = true;
+      const query = elements.searchInput.value.toLowerCase().trim();
+      const category = elements.categoryFilter?.value || "all";
       let visibleCount = 0;
 
-      // Process in batches for smoother UX with many articles
-      if (this.articles.length > CONFIG.PERFORMANCE.BATCH_SIZE) {
-        this.processBatchedFilter(query, selectedCategory);
+      // Process in batches for large article collections (improves UI responsiveness)
+      if (elements.articles.length > CONFIG.performance.batchSize) {
+        processBatchedFilter(query, category);
       } else {
-        // For smaller sets, process all at once
-        this.articles.forEach((article) => {
-          const isVisible = this.articleMatchesFilters(
-            article,
-            query,
-            selectedCategory,
-          );
+        // Direct processing for smaller collections
+        elements.articles.forEach(article => {
+          const isVisible = articleMatchesFilters(article, query, category);
           article.style.display = isVisible ? "" : "none";
           if (isVisible) visibleCount++;
         });
 
-        this.updateResultsStatus(visibleCount);
-        this.isProcessing = false;
+        updateResultsStatus(visibleCount);
+        isProcessing = false;
 
-        // Nach der Filterung stellen wir sicher, dass die Touch-Interaktion noch funktioniert
+        // Ensure touch interaction works after filtering
         if (visibleCount > 0) {
-          setTimeout(() => this.setupMobileTouchInteraction(), 100);
+          setTimeout(initTouchInteraction, 100);
         }
       }
     }
 
     /**
-     * Process articles in batches for better UI responsiveness
+     * Process articles in batches for smoother UI with large collections
      */
-    private processBatchedFilter(query: string, category: string): void {
+    function processBatchedFilter(query, category) {
       let index = 0;
       let visibleCount = 0;
 
       const processNextBatch = () => {
-        const endIndex = Math.min(
-          index + CONFIG.PERFORMANCE.BATCH_SIZE,
-          this.articles.length,
-        );
+        const endIndex = Math.min(index + CONFIG.performance.batchSize, elements.articles.length);
 
         for (let i = index; i < endIndex; i++) {
-          const isVisible = this.articleMatchesFilters(
-            this.articles[i],
-            query,
-            category,
-          );
-          this.articles[i].style.display = isVisible ? "" : "none";
+          const isVisible = articleMatchesFilters(elements.articles[i], query, category);
+          elements.articles[i].style.display = isVisible ? "" : "none";
           if (isVisible) visibleCount++;
         }
 
         index = endIndex;
 
-        if (index < this.articles.length) {
+        if (index < elements.articles.length) {
           // Process next batch in next animation frame
           requestAnimationFrame(processNextBatch);
         } else {
           // All batches processed
-          this.updateResultsStatus(visibleCount);
-          this.isProcessing = false;
+          updateResultsStatus(visibleCount);
+          isProcessing = false;
         }
       };
 
@@ -697,12 +559,8 @@ const categorizedArticles = sortedArticles.reduce(
     /**
      * Check if an article matches the current search and category filters
      */
-    private articleMatchesFilters(
-      article: HTMLElement,
-      query: string,
-      category: string,
-    ): boolean {
-      // Handle category filter
+    function articleMatchesFilters(article, query, category) {
+      // Category filter check
       if (category !== "all") {
         const keywords = article.dataset.keywords || "";
         if (!keywords.includes(category.toLowerCase())) {
@@ -710,120 +568,133 @@ const categorizedArticles = sortedArticles.reduce(
         }
       }
 
-      // Handle search query
+      // Search query check (if query is provided)
       if (query) {
-        const title = article.dataset.title || "";
-        const description = article.dataset.description || "";
-        const keywords = article.dataset.keywords || "";
+        const searchableContent = [
+          article.dataset.title || "",
+          article.dataset.description || "",
+          article.dataset.keywords || ""
+        ].join(" ");
 
-        return (
-          title.includes(query) ||
-          description.includes(query) ||
-          keywords.includes(query)
-        );
+        return searchableContent.includes(query);
       }
 
       return true;
     }
 
     /**
-     * Updates the status display for search results
+     * Update UI and announcements based on filter results
      */
-    private updateResultsStatus(visibleCount: number): void {
-      // Update status for screen readers
-      if (this.searchStatusEl) {
-        if (visibleCount === this.articles.length) {
-          this.searchStatusEl.textContent = `Alle ${visibleCount} Artikel werden angezeigt`;
-        } else {
-          this.searchStatusEl.textContent = `${visibleCount} von ${this.articles.length} Artikeln gefunden`;
-        }
+    function updateResultsStatus(visibleCount) {
+      // Update screen reader announcements
+      if (elements.searchStatus) {
+        elements.searchStatus.textContent = visibleCount === elements.articles.length
+          ? `All ${visibleCount} articles are displayed`
+          : `${visibleCount} of ${elements.articles.length} articles found`;
       }
 
-      // Show no results message if needed
-      if (this.noResultsEl) {
-        if (visibleCount === 0) {
-          this.noResultsEl.classList.remove("hidden");
-        } else {
-          this.noResultsEl.classList.add("hidden");
-        }
+      // Show/hide no results message
+      if (elements.noResults) {
+        elements.noResults.classList.toggle("hidden", visibleCount > 0);
       }
 
-      // Focus first result if configured
-      if (
-        CONFIG.ACCESSIBILITY.FOCUS_AFTER_FILTER &&
-        visibleCount > 0 &&
-        (this.searchInput?.value || this.categoryFilter?.value !== "all")
-      ) {
-        const firstVisibleArticle = Array.from(this.articles).find(
-          (article) => article.style.display !== "none",
-        );
-
-        if (firstVisibleArticle) {
-          const firstLink = firstVisibleArticle.querySelector(
-            CONFIG.SELECTORS.ARTICLE_LINK,
-          ) as HTMLElement;
-          if (firstLink) {
-            setTimeout(() => firstLink.focus(), 100);
-          }
+      // Focus first result if filtering is active
+      if (visibleCount > 0 && 
+          (elements.searchInput.value || elements.categoryFilter?.value !== "all")) {
+        const firstVisible = elements.articles.find(a => a.style.display !== "none");
+        if (firstVisible) {
+          const firstLink = firstVisible.querySelector(CONFIG.selectors.articleLink);
+          if (firstLink) setTimeout(() => firstLink.focus(), 100);
         }
       }
     }
 
+    // ===== Helper Functions =====
+
     /**
-     * Resets the search input and filters
+     * Initialize keyboard navigation between article cards
      */
-    private resetSearch(): void {
-      if (this.searchInput) {
-        this.searchInput.value = "";
-      }
+    function initKeyboardNavigation() {
+      elements.articleGrid.addEventListener("keydown", (event) => {
+        if (!["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp"].includes(event.key)) return;
 
-      if (this.categoryFilter) {
-        this.categoryFilter.value = "all";
-      }
+        const cards = Array.from(elements.articleGrid.querySelectorAll(CONFIG.selectors.articleLink));
+        const currentIndex = cards.findIndex(card => card === document.activeElement);
+        if (currentIndex === -1) return;
 
-      this.filterArticles();
+        // Calculate grid columns based on viewport width
+        const columns = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+        let newIndex;
 
-      // Focus back on search input
-      this.searchInput?.focus();
+        // Calculate new index based on arrow key direction
+        switch (event.key) {
+          case "ArrowRight":
+            newIndex = (currentIndex + 1) % cards.length;
+            break;
+          case "ArrowLeft":
+            newIndex = (currentIndex - 1 + cards.length) % cards.length;
+            break;
+          case "ArrowDown":
+            newIndex = (currentIndex + columns < cards.length) 
+              ? currentIndex + columns 
+              : currentIndex;
+            break;
+          case "ArrowUp":
+            newIndex = (currentIndex - columns >= 0)
+              ? currentIndex - columns
+              : currentIndex;
+            break;
+        }
+
+        if (newIndex !== undefined && cards[newIndex]) {
+          event.preventDefault();
+          cards[newIndex].focus();
+        }
+      });
     }
 
     /**
-     * Verbessert die Touch-Interaktion für mobile Geräte
+     * Set up the back to top button functionality
      */
-    private setupMobileTouchInteraction(): void {
-      const cards = document.querySelectorAll(".knowledge-card-container");
+    function initBackToTopButton() {
+      // Show/hide button based on scroll position
+      window.addEventListener("scroll", () => {
+        const showButton = window.scrollY > CONFIG.scroll.topButtonThreshold;
+        elements.backToTopButton.classList.toggle("visible", showButton);
+      });
 
-      cards.forEach((card) => {
+      // Scroll to top when clicked
+      elements.backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+        // Return focus to search input for improved keyboard accessibility
+        setTimeout(() => elements.searchInput.focus(), CONFIG.timing.scrollDuration);
+      });
+    }
+
+    /**
+     * Enhance touch interaction for mobile devices
+     */
+    function initTouchInteraction() {
+      const cards = document.querySelectorAll(CONFIG.selectors.articleCard);
+
+      cards.forEach(card => {
+        // Handle touch clicks to make entire card clickable
         card.addEventListener("click", (event) => {
-          // Wenn das Event nicht direkt auf einem Link war, den ersten Link in der Karte klicken
+          // If the click wasn't directly on a link, trigger the card's link
           if (!(event.target as HTMLElement).closest("a")) {
-            const link = card.querySelector("a.card-link") as HTMLElement;
-            if (link) {
-              link.click();
-            }
+            const link = card.querySelector(CONFIG.selectors.articleLink) as HTMLElement;
+            if (link) link.click();
           }
         });
 
-        // Füge Touch-Feedback hinzu
-        card.addEventListener(
-          "touchstart",
-          () => {
-            card.classList.add("touching");
-          },
-          { passive: true },
-        );
-
-        card.addEventListener(
-          "touchend",
-          () => {
-            card.classList.remove("touching");
-          },
-          { passive: true },
-        );
+        // Add visual feedback for touch
+        card.addEventListener("touchstart", () => card.classList.add("touching"), { passive: true });
+        card.addEventListener("touchend", () => card.classList.remove("touching"), { passive: true });
       });
     }
-  }
-
-  // Initialize the knowledge center when the script loads
-  new KnowledgeCenter();
+  });
 </script>
