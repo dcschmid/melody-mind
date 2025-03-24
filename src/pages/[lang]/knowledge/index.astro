@@ -396,7 +396,7 @@ const categorizedArticles = sortedArticles.reduce(
 <script>
   /**
    * Knowledge Articles Search & Filtering System
-   * 
+   *
    * A high-performance article filtering system with WCAG AAA accessibility optimizations:
    * - Efficient search with debouncing and batch processing
    * - Keyboard navigation support for improved accessibility
@@ -415,19 +415,19 @@ const categorizedArticles = sortedArticles.reduce(
       noResults: "#no-results",
       searchStatus: "#search-status",
       resetSearch: "#reset-search",
-      backToTop: "#back-to-top"
+      backToTop: "#back-to-top",
     },
     timing: {
       debounceMs: 200,
-      scrollDuration: 500
+      scrollDuration: 500,
     },
     performance: {
       batchSize: 12,
-      animationThreshold: 50
+      animationThreshold: 50,
     },
     scroll: {
-      topButtonThreshold: 500
-    }
+      topButtonThreshold: 500,
+    },
   };
 
   /**
@@ -442,12 +442,16 @@ const categorizedArticles = sortedArticles.reduce(
       searchStatus: document.querySelector(CONFIG.selectors.searchStatus),
       resetButton: document.querySelector(CONFIG.selectors.resetSearch),
       backToTopButton: document.querySelector(CONFIG.selectors.backToTop),
-      articles: Array.from(document.querySelectorAll(CONFIG.selectors.articleCard))
+      articles: Array.from(
+        document.querySelectorAll(CONFIG.selectors.articleCard),
+      ),
     };
 
     // Skip initialization if required elements are missing
     if (!elements.searchInput || !elements.articleGrid) {
-      console.warn("Required search elements not found. Search functionality disabled.");
+      console.warn(
+        "Required search elements not found. Search functionality disabled.",
+      );
       return;
     }
 
@@ -509,7 +513,7 @@ const categorizedArticles = sortedArticles.reduce(
         processBatchedFilter(query, category);
       } else {
         // Direct processing for smaller collections
-        elements.articles.forEach(article => {
+        elements.articles.forEach((article) => {
           const isVisible = articleMatchesFilters(article, query, category);
           article.style.display = isVisible ? "" : "none";
           if (isVisible) visibleCount++;
@@ -533,10 +537,17 @@ const categorizedArticles = sortedArticles.reduce(
       let visibleCount = 0;
 
       const processNextBatch = () => {
-        const endIndex = Math.min(index + CONFIG.performance.batchSize, elements.articles.length);
+        const endIndex = Math.min(
+          index + CONFIG.performance.batchSize,
+          elements.articles.length,
+        );
 
         for (let i = index; i < endIndex; i++) {
-          const isVisible = articleMatchesFilters(elements.articles[i], query, category);
+          const isVisible = articleMatchesFilters(
+            elements.articles[i],
+            query,
+            category,
+          );
           elements.articles[i].style.display = isVisible ? "" : "none";
           if (isVisible) visibleCount++;
         }
@@ -573,7 +584,7 @@ const categorizedArticles = sortedArticles.reduce(
         const searchableContent = [
           article.dataset.title || "",
           article.dataset.description || "",
-          article.dataset.keywords || ""
+          article.dataset.keywords || "",
         ].join(" ");
 
         return searchableContent.includes(query);
@@ -588,9 +599,10 @@ const categorizedArticles = sortedArticles.reduce(
     function updateResultsStatus(visibleCount) {
       // Update screen reader announcements
       if (elements.searchStatus) {
-        elements.searchStatus.textContent = visibleCount === elements.articles.length
-          ? `All ${visibleCount} articles are displayed`
-          : `${visibleCount} of ${elements.articles.length} articles found`;
+        elements.searchStatus.textContent =
+          visibleCount === elements.articles.length
+            ? `All ${visibleCount} articles are displayed`
+            : `${visibleCount} of ${elements.articles.length} articles found`;
       }
 
       // Show/hide no results message
@@ -599,11 +611,17 @@ const categorizedArticles = sortedArticles.reduce(
       }
 
       // Focus first result if filtering is active
-      if (visibleCount > 0 && 
-          (elements.searchInput.value || elements.categoryFilter?.value !== "all")) {
-        const firstVisible = elements.articles.find(a => a.style.display !== "none");
+      if (
+        visibleCount > 0 &&
+        (elements.searchInput.value || elements.categoryFilter?.value !== "all")
+      ) {
+        const firstVisible = elements.articles.find(
+          (a) => a.style.display !== "none",
+        );
         if (firstVisible) {
-          const firstLink = firstVisible.querySelector(CONFIG.selectors.articleLink);
+          const firstLink = firstVisible.querySelector(
+            CONFIG.selectors.articleLink,
+          );
           if (firstLink) setTimeout(() => firstLink.focus(), 100);
         }
       }
@@ -616,14 +634,24 @@ const categorizedArticles = sortedArticles.reduce(
      */
     function initKeyboardNavigation() {
       elements.articleGrid.addEventListener("keydown", (event) => {
-        if (!["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp"].includes(event.key)) return;
+        if (
+          !["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp"].includes(
+            event.key,
+          )
+        )
+          return;
 
-        const cards = Array.from(elements.articleGrid.querySelectorAll(CONFIG.selectors.articleLink));
-        const currentIndex = cards.findIndex(card => card === document.activeElement);
+        const cards = Array.from(
+          elements.articleGrid.querySelectorAll(CONFIG.selectors.articleLink),
+        );
+        const currentIndex = cards.findIndex(
+          (card) => card === document.activeElement,
+        );
         if (currentIndex === -1) return;
 
         // Calculate grid columns based on viewport width
-        const columns = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+        const columns =
+          window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
         let newIndex;
 
         // Calculate new index based on arrow key direction
@@ -635,14 +663,16 @@ const categorizedArticles = sortedArticles.reduce(
             newIndex = (currentIndex - 1 + cards.length) % cards.length;
             break;
           case "ArrowDown":
-            newIndex = (currentIndex + columns < cards.length) 
-              ? currentIndex + columns 
-              : currentIndex;
+            newIndex =
+              currentIndex + columns < cards.length
+                ? currentIndex + columns
+                : currentIndex;
             break;
           case "ArrowUp":
-            newIndex = (currentIndex - columns >= 0)
-              ? currentIndex - columns
-              : currentIndex;
+            newIndex =
+              currentIndex - columns >= 0
+                ? currentIndex - columns
+                : currentIndex;
             break;
         }
 
@@ -667,11 +697,14 @@ const categorizedArticles = sortedArticles.reduce(
       elements.backToTopButton.addEventListener("click", () => {
         window.scrollTo({
           top: 0,
-          behavior: "smooth"
+          behavior: "smooth",
         });
 
         // Return focus to search input for improved keyboard accessibility
-        setTimeout(() => elements.searchInput.focus(), CONFIG.timing.scrollDuration);
+        setTimeout(
+          () => elements.searchInput.focus(),
+          CONFIG.timing.scrollDuration,
+        );
       });
     }
 
@@ -681,19 +714,29 @@ const categorizedArticles = sortedArticles.reduce(
     function initTouchInteraction() {
       const cards = document.querySelectorAll(CONFIG.selectors.articleCard);
 
-      cards.forEach(card => {
+      cards.forEach((card) => {
         // Handle touch clicks to make entire card clickable
         card.addEventListener("click", (event) => {
           // If the click wasn't directly on a link, trigger the card's link
           if (!(event.target as HTMLElement).closest("a")) {
-            const link = card.querySelector(CONFIG.selectors.articleLink) as HTMLElement;
+            const link = card.querySelector(
+              CONFIG.selectors.articleLink,
+            ) as HTMLElement;
             if (link) link.click();
           }
         });
 
         // Add visual feedback for touch
-        card.addEventListener("touchstart", () => card.classList.add("touching"), { passive: true });
-        card.addEventListener("touchend", () => card.classList.remove("touching"), { passive: true });
+        card.addEventListener(
+          "touchstart",
+          () => card.classList.add("touching"),
+          { passive: true },
+        );
+        card.addEventListener(
+          "touchend",
+          () => card.classList.remove("touching"),
+          { passive: true },
+        );
       });
     }
   });
