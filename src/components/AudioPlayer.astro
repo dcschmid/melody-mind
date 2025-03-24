@@ -16,7 +16,7 @@ const {
   title = "",
   artist = "",
   waveformColor = "#a855f7", // Purple-500
-  accentColor = "#c084fc",   // Purple-400
+  accentColor = "#c084fc", // Purple-400
 } = Astro.props;
 
 // Generiere eine eindeutige ID für diesen Player
@@ -24,20 +24,24 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
 ---
 
 <div class="w-full max-w-[500px] mx-auto relative" aria-label="Audio-Player">
-  <div class="relative w-full rounded-2xl overflow-hidden isolate shadow-lg shadow-black/20 transition-all duration-300 hover:shadow-xl hover:shadow-black/30 hover:-translate-y-1">
+  <div
+    class="relative w-full rounded-2xl overflow-hidden isolate shadow-lg shadow-black/20 transition-all duration-300 hover:shadow-xl hover:shadow-black/30 hover:-translate-y-1"
+  >
     <div class="relative w-full aspect-video overflow-hidden">
-      <img 
-        src={imageSrc} 
-        alt={imageAlt} 
+      <img
+        src={imageSrc}
+        alt={imageAlt}
         class="absolute w-full h-full object-cover top-0 left-0 transition-transform duration-500 ease-in-out group-hover:scale-105"
       />
-      
+
       <!-- Overlay mit Glaseffekt und Infobereich -->
-      <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-zinc-900/90 via-zinc-900/70 to-transparent pt-3 pb-3 px-4 text-white backdrop-blur-sm transition-opacity duration-300">        
+      <div
+        class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-zinc-900/90 via-zinc-900/70 to-transparent pt-3 pb-3 px-4 text-white backdrop-blur-sm transition-opacity duration-300"
+      >
         <!-- Audio-Player Steuerelemente -->
-        <div 
-          id={playerId} 
-          class="flex items-center gap-3 w-full" 
+        <div
+          id={playerId}
+          class="flex items-center gap-3 w-full"
           data-audio-src={audioSrc}
           data-waveform-color={waveformColor}
           data-accent-color={accentColor}
@@ -47,46 +51,79 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
             aria-label="Audio abspielen"
             title="Abspielen/Pausieren"
           >
-            <svg class="play-icon w-6 h-6 fill-current absolute transition-all" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M8 5v14l11-7z" />
+            <svg
+              class="play-icon w-6 h-6 fill-current absolute transition-all"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M8 5v14l11-7z"></path>
             </svg>
-            <svg class="pause-icon w-6 h-6 fill-current absolute opacity-0 scale-75 transition-all" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+            <svg
+              class="pause-icon w-6 h-6 fill-current absolute opacity-0 scale-75 transition-all"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
             </svg>
           </button>
-          
+
           <div class="flex-grow flex flex-col gap-1">
-            <div class="h-1.5 bg-zinc-200/20 rounded overflow-hidden relative cursor-pointer progress-bar-container">
-              <div class="progress-bar-bg absolute top-0 left-0 w-full h-full z-[1]"></div>
-              <div class="progress-bar h-full w-0 bg-purple-400 absolute z-[2] rounded transition-width duration-100 linear"></div>
-              <div class="waveform-container absolute top-0 left-0 w-full h-full z-0 opacity-70"></div>
+            <div
+              class="h-1.5 bg-zinc-200/20 rounded overflow-hidden relative cursor-pointer progress-bar-container"
+            >
+              <div
+                class="progress-bar-bg absolute top-0 left-0 w-full h-full z-[1]"
+              >
+              </div>
+              <div
+                class="progress-bar h-full w-0 bg-purple-400 absolute z-[2] rounded transition-width duration-100 linear"
+              >
+              </div>
+              <div
+                class="waveform-container absolute top-0 left-0 w-full h-full z-0 opacity-70"
+              >
+              </div>
             </div>
             <div class="flex justify-between text-xs text-zinc-300/80">
               <span class="current-time">0:00</span>
               <span class="duration">0:00</span>
             </div>
           </div>
-          
+
           <div class="flex items-center gap-2 relative">
-            <button 
+            <button
               class="volume-btn bg-transparent text-white border-none p-1 cursor-pointer opacity-85 hover:opacity-100 transition-opacity flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:rounded"
-              aria-label="Lautstärke einstellen" 
+              aria-label="Lautstärke einstellen"
               title="Lautstärke"
             >
-              <svg class="volume-icon w-5 h-5 fill-current absolute transition-all" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+              <svg
+                class="volume-icon w-5 h-5 fill-current absolute transition-all"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"
+                ></path>
               </svg>
-              <svg class="mute-icon w-5 h-5 fill-current absolute opacity-0 scale-75 transition-all" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+              <svg
+                class="mute-icon w-5 h-5 fill-current absolute opacity-0 scale-75 transition-all"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"
+                ></path>
               </svg>
             </button>
-            <div class="volume-slider-container w-0 overflow-hidden transition-[width] duration-300 h-6 flex items-center group-hover:w-20">
-              <input 
-                type="range" 
+            <div
+              class="volume-slider-container w-0 overflow-hidden transition-[width] duration-300 h-6 flex items-center group-hover:w-20"
+            >
+              <input
+                type="range"
                 class="volume-slider appearance-none w-full h-1 bg-white/30 rounded outline-none volume-slider"
-                min="0" 
-                max="1" 
-                step="0.01" 
+                min="0"
+                max="1"
+                step="0.01"
                 value="1"
                 aria-label="Lautstärke anpassen"
               />
@@ -147,82 +184,89 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
     .image-with-player:hover {
       transform: none;
     }
-    
+
     button:hover {
       transform: none !important;
     }
-    
-    .play-icon, .pause-icon, .volume-icon, .mute-icon {
+
+    .play-icon,
+    .pause-icon,
+    .volume-icon,
+    .mute-icon {
       transition: opacity 0.1s linear;
     }
   }
 </style>
 
 <script define:vars={{ playerId }}>
-// Wir verwenden eine IIFE (Immediately Invoked Function Expression), um einen isolierten Scope zu erstellen
-(function() {
-  // Nach dem Laden des DOM initialisieren
-  document.addEventListener('DOMContentLoaded', function() {
-    initializeAudioPlayer(playerId);
-  });
+  // Wir verwenden eine IIFE (Immediately Invoked Function Expression), um einen isolierten Scope zu erstellen
+  (function () {
+    // Nach dem Laden des DOM initialisieren
+    document.addEventListener("DOMContentLoaded", function () {
+      initializeAudioPlayer(playerId);
+    });
 
-  // Funktion zur Initialisierung des Audio-Players
-  function initializeAudioPlayer(id) {
-    const playerElement = document.getElementById(id);
-    if (!playerElement) return;
+    // Funktion zur Initialisierung des Audio-Players
+    function initializeAudioPlayer(id) {
+      const playerElement = document.getElementById(id);
+      if (!playerElement) return;
 
-    // Elemente abrufen
-    const audioElement = playerElement.querySelector('.audio-element');
-    const playPauseBtn = playerElement.querySelector('button');
-    const playIcon = playerElement.querySelector('.play-icon');
-    const pauseIcon = playerElement.querySelector('.pause-icon');
-    const progressBar = playerElement.querySelector('.progress-bar');
-    const progressContainer = playerElement.querySelector('.progress-bar-container');
-    const waveformContainer = playerElement.querySelector('.waveform-container');
-    const currentTimeDisplay = playerElement.querySelector('.current-time');
-    const durationDisplay = playerElement.querySelector('.duration');
-    const volumeBtn = playerElement.querySelector('.volume-btn');
-    const volumeIcon = playerElement.querySelector('.volume-icon');
-    const muteIcon = playerElement.querySelector('.mute-icon');
-    const volumeSlider = playerElement.querySelector('.volume-slider');
+      // Elemente abrufen
+      const audioElement = playerElement.querySelector(".audio-element");
+      const playPauseBtn = playerElement.querySelector("button");
+      const playIcon = playerElement.querySelector(".play-icon");
+      const pauseIcon = playerElement.querySelector(".pause-icon");
+      const progressBar = playerElement.querySelector(".progress-bar");
+      const progressContainer = playerElement.querySelector(
+        ".progress-bar-container",
+      );
+      const waveformContainer = playerElement.querySelector(
+        ".waveform-container",
+      );
+      const currentTimeDisplay = playerElement.querySelector(".current-time");
+      const durationDisplay = playerElement.querySelector(".duration");
+      const volumeBtn = playerElement.querySelector(".volume-btn");
+      const volumeIcon = playerElement.querySelector(".volume-icon");
+      const muteIcon = playerElement.querySelector(".mute-icon");
+      const volumeSlider = playerElement.querySelector(".volume-slider");
 
-    // Farben aus den Datenattributen holen
-    const waveformColor = playerElement.dataset.waveformColor || '#a855f7';
-    const accentColor = playerElement.dataset.accentColor || '#c084fc';
-    
-    // Die Audioquelle setzen
-    if (playerElement.dataset.audioSrc) {
-      audioElement.src = playerElement.dataset.audioSrc;
-    }
+      // Farben aus den Datenattributen holen
+      const waveformColor = playerElement.dataset.waveformColor || "#a855f7";
+      const accentColor = playerElement.dataset.accentColor || "#c084fc";
 
-    // Progress Bar Farbe setzen
-    progressBar.style.backgroundColor = accentColor;
+      // Die Audioquelle setzen
+      if (playerElement.dataset.audioSrc) {
+        audioElement.src = playerElement.dataset.audioSrc;
+      }
 
-    // Funktion zum Formatieren der Zeit (Sekunden -> mm:ss)
-    function formatTime(seconds) {
-      const min = Math.floor(seconds / 60);
-      const sec = Math.floor(seconds % 60);
-      return `${min}:${sec < 10 ? '0' + sec : sec}`;
-    }
+      // Progress Bar Farbe setzen
+      progressBar.style.backgroundColor = accentColor;
 
-    // Audio-Player Zustand
-    let isPlaying = false;
-    let wasMuted = false;
-    let lastVolume = 1;
+      // Funktion zum Formatieren der Zeit (Sekunden -> mm:ss)
+      function formatTime(seconds) {
+        const min = Math.floor(seconds / 60);
+        const sec = Math.floor(seconds % 60);
+        return `${min}:${sec < 10 ? "0" + sec : sec}`;
+      }
 
-    // Waveform generieren (simplere Version)
-    function generateWaveform() {
-      const waveformHeight = 6; // Höhe des Container ist 6px
-      const segments = 40;      // Anzahl der Segmente
-      
-      let waveformHTML = '';
-      
-      for (let i = 0; i < segments; i++) {
-        // Zufällige Höhe zwischen 30% und 100%
-        const height = Math.floor(30 + Math.random() * 70);
-        const segmentWidth = 100 / segments;
-        
-        waveformHTML += `
+      // Audio-Player Zustand
+      let isPlaying = false;
+      let wasMuted = false;
+      let lastVolume = 1;
+
+      // Waveform generieren (simplere Version)
+      function generateWaveform() {
+        const waveformHeight = 6; // Höhe des Container ist 6px
+        const segments = 40; // Anzahl der Segmente
+
+        let waveformHTML = "";
+
+        for (let i = 0; i < segments; i++) {
+          // Zufällige Höhe zwischen 30% und 100%
+          const height = Math.floor(30 + Math.random() * 70);
+          const segmentWidth = 100 / segments;
+
+          waveformHTML += `
           <div style="
             position: absolute;
             left: ${i * segmentWidth}%;
@@ -235,149 +279,162 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
             z-index: 0;
           "></div>
         `;
+        }
+
+        waveformContainer.innerHTML = waveformHTML;
       }
-      
-      waveformContainer.innerHTML = waveformHTML;
-    }
 
-    // Toggle Play/Pause Funktion
-    function togglePlay() {
-      if (audioElement.paused) {
-        audioElement.play()
-          .then(() => {
-            isPlaying = true;
-            updatePlayPauseButton();
-          })
-          .catch(error => {
-            console.error('Fehler beim Abspielen:', error);
-          });
-      } else {
-        audioElement.pause();
-        isPlaying = false;
-        updatePlayPauseButton();
-      }
-    }
-
-    // Play/Pause Button UI aktualisieren
-    function updatePlayPauseButton() {
-      if (isPlaying) {
-        playIcon.style.opacity = '0';
-        playIcon.style.transform = 'scale(0.8)';
-        pauseIcon.style.opacity = '1';
-        pauseIcon.style.transform = 'scale(1)';
-        playPauseBtn.setAttribute('aria-label', 'Audio pausieren');
-      } else {
-        playIcon.style.opacity = '1';
-        playIcon.style.transform = 'scale(1)';
-        pauseIcon.style.opacity = '0';
-        pauseIcon.style.transform = 'scale(0.8)';
-        playPauseBtn.setAttribute('aria-label', 'Audio abspielen');
-      }
-    }
-
-    // Lautstärke-Button UI aktualisieren
-    function updateVolumeButton(isMuted) {
-      if (isMuted) {
-        volumeIcon.style.opacity = '0';
-        volumeIcon.style.transform = 'scale(0.8)';
-        muteIcon.style.opacity = '1';
-        muteIcon.style.transform = 'scale(1)';
-        volumeBtn.setAttribute('aria-label', 'Ton einschalten');
-      } else {
-        volumeIcon.style.opacity = '1';
-        volumeIcon.style.transform = 'scale(1)';
-        muteIcon.style.opacity = '0';
-        muteIcon.style.transform = 'scale(0.8)';
-        volumeBtn.setAttribute('aria-label', 'Ton ausschalten');
-      }
-    }
-
-    // Progress aktualisieren
-    function updateProgress() {
-      const { currentTime, duration } = audioElement;
-      const progressPercent = (currentTime / duration) * 100;
-      progressBar.style.width = `${progressPercent}%`;
-      
-      currentTimeDisplay.textContent = formatTime(currentTime);
-      durationDisplay.textContent = formatTime(duration);
-    }
-
-    // Zu einer bestimmten Position springen
-    function setProgress(e) {
-      const width = progressContainer.clientWidth;
-      const clickX = e.offsetX;
-      const duration = audioElement.duration;
-      audioElement.currentTime = (clickX / width) * duration;
-    }
-
-    // Lautstärke umschalten
-    function toggleMute() {
-      if (audioElement.volume === 0 || audioElement.muted) {
-        audioElement.muted = false;
-        audioElement.volume = lastVolume;
-        volumeSlider.value = lastVolume;
-        updateVolumeButton(false);
-      } else {
-        lastVolume = audioElement.volume;
-        audioElement.volume = 0;
-        audioElement.muted = true;
-        volumeSlider.value = 0;
-        updateVolumeButton(true);
-      }
-    }
-
-    // Event-Listener hinzufügen
-    playPauseBtn.addEventListener('click', togglePlay);
-    
-    audioElement.addEventListener('timeupdate', updateProgress);
-    
-    audioElement.addEventListener('loadedmetadata', () => {
-      durationDisplay.textContent = formatTime(audioElement.duration);
-      currentTimeDisplay.textContent = formatTime(0);
-      generateWaveform();
-    });
-    
-    audioElement.addEventListener('ended', () => {
-      isPlaying = false;
-      updatePlayPauseButton();
-      progressBar.style.width = '0%';
-      currentTimeDisplay.textContent = formatTime(0);
-    });
-    
-    progressContainer.addEventListener('click', setProgress);
-    
-    volumeBtn.addEventListener('click', toggleMute);
-    
-    volumeSlider.addEventListener('input', () => {
-      audioElement.volume = volumeSlider.value;
-      audioElement.muted = volumeSlider.value === '0';
-      updateVolumeButton(volumeSlider.value === '0');
-    });
-
-    // Tastatursteuerung für Barrierefreiheit
-    playerElement.addEventListener('keydown', (e) => {
-      // Nur reagieren, wenn der Fokus auf einem Bedienelement ist
-      if (e.target.closest('#' + id)) {
-        if (e.code === 'Space' && e.target === playPauseBtn) {
-          e.preventDefault(); // Verhindern von Scrollen bei Drücken der Leertaste
-          togglePlay();
-        } else if (e.code === 'ArrowLeft') {
-          audioElement.currentTime = Math.max(0, audioElement.currentTime - 5);
-        } else if (e.code === 'ArrowRight') {
-          audioElement.currentTime = Math.min(audioElement.duration, audioElement.currentTime + 5);
-        } else if (e.code === 'ArrowUp' && e.target === volumeSlider) {
-          volumeSlider.value = Math.min(1, parseFloat(volumeSlider.value) + 0.1);
-          audioElement.volume = volumeSlider.value;
-          updateVolumeButton(volumeSlider.value === '0');
-        } else if (e.code === 'ArrowDown' && e.target === volumeSlider) {
-          volumeSlider.value = Math.max(0, parseFloat(volumeSlider.value) - 0.1);
-          audioElement.volume = volumeSlider.value;
-          updateVolumeButton(volumeSlider.value === '0');
-        } else if (e.code === 'KeyM') {
-          toggleMute();
+      // Toggle Play/Pause Funktion
+      function togglePlay() {
+        if (audioElement.paused) {
+          audioElement
+            .play()
+            .then(() => {
+              isPlaying = true;
+              updatePlayPauseButton();
+            })
+            .catch((error) => {
+              console.error("Fehler beim Abspielen:", error);
+            });
+        } else {
+          audioElement.pause();
+          isPlaying = false;
+          updatePlayPauseButton();
         }
       }
-    });
-  }
-})();
+
+      // Play/Pause Button UI aktualisieren
+      function updatePlayPauseButton() {
+        if (isPlaying) {
+          playIcon.style.opacity = "0";
+          playIcon.style.transform = "scale(0.8)";
+          pauseIcon.style.opacity = "1";
+          pauseIcon.style.transform = "scale(1)";
+          playPauseBtn.setAttribute("aria-label", "Audio pausieren");
+        } else {
+          playIcon.style.opacity = "1";
+          playIcon.style.transform = "scale(1)";
+          pauseIcon.style.opacity = "0";
+          pauseIcon.style.transform = "scale(0.8)";
+          playPauseBtn.setAttribute("aria-label", "Audio abspielen");
+        }
+      }
+
+      // Lautstärke-Button UI aktualisieren
+      function updateVolumeButton(isMuted) {
+        if (isMuted) {
+          volumeIcon.style.opacity = "0";
+          volumeIcon.style.transform = "scale(0.8)";
+          muteIcon.style.opacity = "1";
+          muteIcon.style.transform = "scale(1)";
+          volumeBtn.setAttribute("aria-label", "Ton einschalten");
+        } else {
+          volumeIcon.style.opacity = "1";
+          volumeIcon.style.transform = "scale(1)";
+          muteIcon.style.opacity = "0";
+          muteIcon.style.transform = "scale(0.8)";
+          volumeBtn.setAttribute("aria-label", "Ton ausschalten");
+        }
+      }
+
+      // Progress aktualisieren
+      function updateProgress() {
+        const { currentTime, duration } = audioElement;
+        const progressPercent = (currentTime / duration) * 100;
+        progressBar.style.width = `${progressPercent}%`;
+
+        currentTimeDisplay.textContent = formatTime(currentTime);
+        durationDisplay.textContent = formatTime(duration);
+      }
+
+      // Zu einer bestimmten Position springen
+      function setProgress(e) {
+        const width = progressContainer.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audioElement.duration;
+        audioElement.currentTime = (clickX / width) * duration;
+      }
+
+      // Lautstärke umschalten
+      function toggleMute() {
+        if (audioElement.volume === 0 || audioElement.muted) {
+          audioElement.muted = false;
+          audioElement.volume = lastVolume;
+          volumeSlider.value = lastVolume;
+          updateVolumeButton(false);
+        } else {
+          lastVolume = audioElement.volume;
+          audioElement.volume = 0;
+          audioElement.muted = true;
+          volumeSlider.value = 0;
+          updateVolumeButton(true);
+        }
+      }
+
+      // Event-Listener hinzufügen
+      playPauseBtn.addEventListener("click", togglePlay);
+
+      audioElement.addEventListener("timeupdate", updateProgress);
+
+      audioElement.addEventListener("loadedmetadata", () => {
+        durationDisplay.textContent = formatTime(audioElement.duration);
+        currentTimeDisplay.textContent = formatTime(0);
+        generateWaveform();
+      });
+
+      audioElement.addEventListener("ended", () => {
+        isPlaying = false;
+        updatePlayPauseButton();
+        progressBar.style.width = "0%";
+        currentTimeDisplay.textContent = formatTime(0);
+      });
+
+      progressContainer.addEventListener("click", setProgress);
+
+      volumeBtn.addEventListener("click", toggleMute);
+
+      volumeSlider.addEventListener("input", () => {
+        audioElement.volume = volumeSlider.value;
+        audioElement.muted = volumeSlider.value === "0";
+        updateVolumeButton(volumeSlider.value === "0");
+      });
+
+      // Tastatursteuerung für Barrierefreiheit
+      playerElement.addEventListener("keydown", (e) => {
+        // Nur reagieren, wenn der Fokus auf einem Bedienelement ist
+        if (e.target.closest("#" + id)) {
+          if (e.code === "Space" && e.target === playPauseBtn) {
+            e.preventDefault(); // Verhindern von Scrollen bei Drücken der Leertaste
+            togglePlay();
+          } else if (e.code === "ArrowLeft") {
+            audioElement.currentTime = Math.max(
+              0,
+              audioElement.currentTime - 5,
+            );
+          } else if (e.code === "ArrowRight") {
+            audioElement.currentTime = Math.min(
+              audioElement.duration,
+              audioElement.currentTime + 5,
+            );
+          } else if (e.code === "ArrowUp" && e.target === volumeSlider) {
+            volumeSlider.value = Math.min(
+              1,
+              parseFloat(volumeSlider.value) + 0.1,
+            );
+            audioElement.volume = volumeSlider.value;
+            updateVolumeButton(volumeSlider.value === "0");
+          } else if (e.code === "ArrowDown" && e.target === volumeSlider) {
+            volumeSlider.value = Math.max(
+              0,
+              parseFloat(volumeSlider.value) - 0.1,
+            );
+            audioElement.volume = volumeSlider.value;
+            updateVolumeButton(volumeSlider.value === "0");
+          } else if (e.code === "KeyM") {
+            toggleMute();
+          }
+        }
+      });
+    }
+  })();
 </script>
