@@ -55,216 +55,314 @@ const defaultImage = "/melody-mind.jpg";
 const imageSource =
   typeof entry.data.image === "string" ? entry.data.image : defaultImage;
 
-// Add debug information
-const hasReadingTime = entry.data.readingTime !== undefined;
-const readingTimeValue = entry.data.readingTime;
-
 // Reading time text with proper localization and fallback
 const readingTimeText = entry.body
-  ? `${calculateReadingTime(entry.body)} ${t["knowledge.reading.time"] || "min reading time"}`
+  ? `${calculateReadingTime(entry.body)} ${t["knowledge.reading.time"] || "min Lesezeit"}`
   : null;
 
 // Determine if this article has a playable game category
 const isPlayable = entry.data.isPlayable === true;
 
 // Prepare game category link
-// Assuming the category slug matches the knowledge article slug or is derived from it
 const gameCategorySlug = entry.slug.split("/").pop();
 const gameCategoryUrl = isPlayable ? `/${lang}/${gameCategorySlug}` : null;
 
 // Get translation for play button
 const playButtonText =
-  t["knowledge.play.category"] || "Play this music category";
+  t["knowledge.play.category"] || "Diese Musikkategorie spielen";
+
+// Structured data for article
+const articleSchemaData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": entry.data.title,
+  "description": entry.data.description,
+  "datePublished": entry.data.createdAt?.toISOString(),
+  "image": imageSource,
+  "author": {
+    "@type": "Organization",
+    "name": "Melody Mind"
+  }
+};
 ---
 
-<Layout title={entry.data.title}>
-  <article class="mx-auto py-8" aria-labelledby="article-title">
-    <nav class="mb-8" aria-label={t["knowledge.breadcrumb.label"]}>
-      <ol class="flex flex-wrap items-center gap-2 text-md text-zinc-400">
-        <li class="flex items-center">
-          <a
-            href={`/${lang}`}
-            class="hover:text-sky-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 rounded-sm"
-          >
-            <Icon name="home" class="h-4 w-4" aria-hidden="true" />
-            <span class="sr-only">{t?.["nav.home"] || "Home"}</span>
-          </a>
-        </li>
-        <li class="flex items-center">
-          <Icon name="chevron-right" class="h-4 w-4 mx-1" aria-hidden="true" />
-        </li>
-        <li>
-          <a
-            href={`/${lang}/knowledge`}
-            class="hover:text-sky-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 rounded-sm"
-          >
-            {t?.["knowledge.title"] || "Knowledge"}
-          </a>
-        </li>
-        <li class="flex items-center">
-          <Icon name="chevron-right" class="h-4 w-4 mx-1" aria-hidden="true" />
-        </li>
-        <li
-          class="text-zinc-50 truncate max-w-[150px] sm:max-w-xs"
-          aria-current="page"
-        >
-          {entry.data.title}
-        </li>
-      </ol>
-    </nav>
-
-    <header class="mb-10">
-      <div
-        class="mb-6 relative rounded-lg overflow-hidden aspect-video shadow-lg border border-zinc-700"
-      >
-        <Picture
-          src={imageSource}
-          alt=""
-          width={1200}
-          height={675}
-          formats={["avif", "webp"]}
-          class="w-full h-full object-cover"
-          loading="eager"
-        />
-      </div>
-
-      <Headline level="h1" title={entry.data.title} />
-
-      <div
-        class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4 text-zinc-200 text-base"
-      >
-        {
-          formattedDate && (
-            <time
-              datetime={entry.data.createdAt?.toISOString()}
-              class="flex items-center gap-1.5"
+<Layout title={entry.data.title} description={entry.data.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchemaData)} />
+  
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+    <article 
+      class="prose prose-lg dark:prose-invert max-w-none" 
+      aria-labelledby="article-title"
+    >
+      <nav class="mb-8 print:hidden" aria-label={t["knowledge.breadcrumb.label"] || "Breadcrumb"}>
+        <ol class="flex flex-wrap items-center gap-2 text-md">
+          <li class="flex items-center">
+            <a
+              href={`/${lang}`}
+              class="text-zinc-300 hover:text-sky-400 transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+              aria-label={t?.["nav.home"] || "Startseite"}
             >
-              <Icon name="calendar" class="h-5 w-5" aria-hidden="true" />
-              <span>{formattedDate}</span>
-            </time>
-          )
-        }
+              <Icon name="home" class="h-4 w-4" aria-hidden="true" />
+              <span class="sr-only">{t?.["nav.home"] || "Startseite"}</span>
+            </a>
+          </li>
+          <li class="flex items-center" aria-hidden="true">
+            <Icon name="chevron-right" class="h-4 w-4 mx-1 text-zinc-500" />
+          </li>
+          <li>
+            <a
+              href={`/${lang}/knowledge`}
+              class="text-zinc-300 hover:text-sky-400 transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+            >
+              {t?.["knowledge.title"] || "Wissen"}
+            </a>
+          </li>
+          <li class="flex items-center" aria-hidden="true">
+            <Icon name="chevron-right" class="h-4 w-4 mx-1 text-zinc-500" />
+          </li>
+          <li
+            class="text-zinc-50 truncate max-w-[150px] sm:max-w-xs"
+            aria-current="page"
+          >
+            {entry.data.title}
+          </li>
+        </ol>
+      </nav>
 
-        {
-          readingTimeText && (
-            <span class="flex items-center gap-1.5 text-zinc-200">
-              <Icon name="clock" class="h-5 w-5" aria-hidden="true" />
-              <span>{readingTimeText}</span>
-            </span>
-          )
-        }
-      </div>
-
-      <div class="mt-6">
-        <p>
-          {entry.data.description}
-        </p>
-      </div>
-    </header>
-
-    <Content />
-
-    <!-- Music Links and Game Play Section -->
-    <div class="mt-12 border-t border-zinc-700 pt-8">
-      {
-        (entry.data.category || isPlayable) && (
-          <Headline
-            level="h2"
-            title={t["knowledge.interact.heading"] || "Listen & Play"}
-            className="mb-6"
+      <header class="mb-10">
+        <div
+          class="mb-6 relative rounded-lg overflow-hidden aspect-video shadow-lg border border-zinc-700"
+        >
+          <Picture
+            src={imageSource}
+            width={1200}
+            height={675}
+            formats={["avif", "webp"]}
+            class="w-full h-full object-cover"
+            loading="eager"
+            alt=""
           />
-        )
-      }
+        </div>
 
-      <div class="grid grid-cols-1 gap-6">
-        <!-- Music Streaming Links Section -->
-        {
-          entry.data.category && (
-            <div class="bg-zinc-800 p-6 rounded-lg border border-zinc-700 shadow-lg">
-              <h3 class="text-xl font-medium text-zinc-100 mb-4">
-                {t["knowledge.listen.heading"]}
-              </h3>
+        <Headline level="h1" title={entry.data.title} id="article-title" className="text-3xl sm:text-4xl font-bold tracking-tight" />
 
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {entry.data.category.spotifyPlaylist && (
-                  <ButtonLink
-                    href={entry.data.category.spotifyPlaylist}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Icon
-                      name="spotify"
-                      class="h-5 w-5 mr-2"
-                      aria-hidden="true"
-                    />
-                    <span>Spotify</span>
-                  </ButtonLink>
-                )}
+        <div
+          class="flex flex-wrap items-center gap-x-6 gap-y-3 mt-6 text-zinc-200 text-base"
+        >
+          {
+            formattedDate && (
+              <time
+                datetime={entry.data.createdAt?.toISOString()}
+                class="flex items-center gap-1.5 bg-zinc-800/50 px-3 py-1 rounded-full"
+              >
+                <Icon name="calendar" class="h-5 w-5" aria-hidden="true" />
+                <span>{formattedDate}</span>
+              </time>
+            )
+          }
 
-                {entry.data.category.deezerPlaylist && (
-                  <ButtonLink
-                    href={entry.data.category.deezerPlaylist}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Icon
-                      name="deezer"
-                      class="h-5 w-5 mr-2"
-                      aria-hidden="true"
-                    />
-                    <span>Deezer</span>
-                  </ButtonLink>
-                )}
+          {
+            readingTimeText && (
+              <span class="flex items-center gap-1.5 text-zinc-200 bg-zinc-800/50 px-3 py-1 rounded-full">
+                <Icon name="clock" class="h-5 w-5" aria-hidden="true" />
+                <span>{readingTimeText}</span>
+              </span>
+            )
+          }
+        </div>
 
-                {entry.data.category.appleMusicPlaylist && (
-                  <ButtonLink
-                    href={entry.data.category.appleMusicPlaylist}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Icon
-                      name="apple"
-                      class="h-5 w-5 mr-2"
-                      aria-hidden="true"
-                    />
-                    <span>Apple Music</span>
-                  </ButtonLink>
-                )}
-              </div>
-            </div>
-          )
-        }
+        <div class="mt-6 bg-zinc-800/30 p-5 rounded-lg border-l-4 border-sky-500">
+          <p class="text-zinc-100 text-lg leading-relaxed">
+            {entry.data.description}
+          </p>
+        </div>
+      </header>
 
-        <!-- Play Game Section (only if isPlayable is true) -->
-        {
-          isPlayable && gameCategoryUrl && (
-            <div class="bg-zinc-800 p-6 rounded-lg border border-zinc-700 shadow-lg">
-              <h3 class="text-xl font-medium text-zinc-100 mb-4">
-                {t["knowledge.play.heading"] || "Play this Genre"}
-              </h3>
-              <p class="text-zinc-300 mb-4">
-                {t["knowledge.play.description"] ||
-                  "Test your knowledge about this music genre in our interactive quiz!"}
-              </p>
-              <ButtonLink href={gameCategoryUrl}>
-                <Icon
-                  name="game-controller"
-                  class="h-5 w-5"
-                  aria-hidden="true"
-                />
-                <span>{playButtonText}</span>
-              </ButtonLink>
-            </div>
-          )
-        }
+      <div class="content-wrapper relative">
+        <Content />
       </div>
-    </div>
 
-    <div class="mt-12 flex justify-between border-t border-zinc-700 pt-8">
-      <ButtonLink href={`/${lang}/knowledge`}>
-        <Icon name="arrow-left" class="h-4 w-4 mr-2" aria-hidden="true" />
-        <span>{t["knowledge.back.to.list"]}</span>
-      </ButtonLink>
-    </div>
-  </article>
+      <!-- Music Links and Game Play Section -->
+      <div class="mt-12 border-t border-zinc-700 pt-8">
+        {
+          (entry.data.category || isPlayable) && (
+            <Headline
+              level="h2"
+              title={t["knowledge.interact.heading"] || "Hören & Spielen"}
+              className="mb-6 text-2xl"
+            />
+          )
+        }
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Music Streaming Links Section -->
+          {
+            entry.data.category && (
+              <div class="bg-zinc-800/80 p-6 rounded-lg border border-zinc-700 shadow-lg transition-transform hover:translate-y-[-2px]">
+                <h3 class="text-xl font-medium text-zinc-100 mb-4 flex items-center">
+                  <Icon name="headphones" class="h-5 w-5 mr-2 text-sky-400" aria-hidden="true" />
+                  {t["knowledge.listen.heading"] || "Musik anhören"}
+                </h3>
+
+                <div class="grid grid-cols-1 gap-4">
+                  {entry.data.category.spotifyPlaylist && (
+                    <ButtonLink
+                      href={entry.data.category.spotifyPlaylist}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${entry.data.title} auf Spotify anhören`}
+                      className="w-full justify-center"
+                    >
+                      <Icon
+                        name="spotify"
+                        class="h-5 w-5 mr-2"
+                        aria-hidden="true"
+                      />
+                      <span>Spotify</span>
+                    </ButtonLink>
+                  )}
+
+                  {entry.data.category.deezerPlaylist && (
+                    <ButtonLink
+                      href={entry.data.category.deezerPlaylist}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${entry.data.title} auf Deezer anhören`}
+                      className="w-full justify-center"
+                    >
+                      <Icon
+                        name="deezer"
+                        class="h-5 w-5 mr-2"
+                        aria-hidden="true"
+                      />
+                      <span>Deezer</span>
+                    </ButtonLink>
+                  )}
+
+                  {entry.data.category.appleMusicPlaylist && (
+                    <ButtonLink
+                      href={entry.data.category.appleMusicPlaylist}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${entry.data.title} auf Apple Music anhören`}
+                      className="w-full justify-center"
+                    >
+                      <Icon
+                        name="apple"
+                        class="h-5 w-5 mr-2"
+                        aria-hidden="true"
+                      />
+                      <span>Apple Music</span>
+                    </ButtonLink>
+                  )}
+                </div>
+              </div>
+            )
+          }
+
+          <!-- Play Game Section (only if isPlayable is true) -->
+          {
+            isPlayable && gameCategoryUrl && (
+              <div class="bg-zinc-800/80 p-6 rounded-lg border border-zinc-700 shadow-lg transition-transform hover:translate-y-[-2px]">
+                <h3 class="text-xl font-medium text-zinc-100 mb-4 flex items-center">
+                  <Icon name="game-controller" class="h-5 w-5 mr-2 text-sky-400" aria-hidden="true" />
+                  {t["knowledge.play.heading"] || "Dieses Genre spielen"}
+                </h3>
+                <p class="text-zinc-300 mb-4">
+                  {t["knowledge.play.description"] ||
+                    "Teste dein Wissen über dieses Musikgenre in unserem interaktiven Quiz!"}
+                </p>
+                <ButtonLink 
+                  href={gameCategoryUrl} 
+                  className="w-full justify-center bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500"
+                  aria-label={`${playButtonText}: ${entry.data.title}`}
+                >
+                  <Icon
+                    name="game-controller"
+                    class="h-5 w-5 mr-2"
+                    aria-hidden="true"
+                  />
+                  <span>{playButtonText}</span>
+                </ButtonLink>
+              </div>
+            )
+          }
+        </div>
+      </div>
+
+      <div class="mt-12 flex justify-between border-t border-zinc-700 pt-8 print:hidden">
+        <ButtonLink 
+          href={`/${lang}/knowledge`}
+          className="group"
+          aria-label={t["knowledge.back.to.list"] || "Zurück zur Wissensliste"}
+        >
+          <Icon 
+            name="arrow-left" 
+            class="h-4 w-4 mr-2 group-hover:translate-x-[-2px] transition-transform" 
+            aria-hidden="true" 
+          />
+          <span>{t["knowledge.back.to.list"] || "Zurück zur Wissensliste"}</span>
+        </ButtonLink>
+      </div>
+    </article>
+  </main>
 </Layout>
+
+<style>
+  /* Verbesserte Kontrast- und Zugänglichkeitsanpassungen */
+  .content-wrapper :global(a) {
+    text-decoration: underline;
+    color: rgb(56, 189, 248);
+    transition: color 0.2s ease;
+  }
+  
+  .content-wrapper :global(a:hover) {
+    color: rgb(125, 211, 252);
+  }
+  
+  .content-wrapper :global(a:focus-visible) {
+    outline: 2px solid rgb(56, 189, 248);
+    outline-offset: 2px;
+    border-radius: 0.125rem;
+  }
+  
+  .content-wrapper :global(img) {
+    border-radius: 0.375rem;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Verbesserte Überschriftenabstände für bessere Lesbarkeit */
+  .content-wrapper :global(h2) {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  .content-wrapper :global(h3) {
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+    color: white;
+  }
+  
+  /* Verbesserte Textkontraste für AAA-Standard */
+  .content-wrapper :global(p), 
+  .content-wrapper :global(li) {
+    color: rgb(228, 228, 231);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+  
+  @media print {
+    .content-wrapper :global(a) {
+      text-decoration: underline;
+      color: #000;
+    }
+  }
+</style>
