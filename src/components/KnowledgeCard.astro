@@ -34,83 +34,85 @@ const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
 ---
 
 <!-- Verbessern Sie die Struktur der Karte für bessere Berührungsinteraktion -->
-<div
-  class="card h-full bg-zinc-800 rounded-xl border border-zinc-700 overflow-hidden shadow-md transition-all duration-300 relative"
+<a
+  href={`/${lang}/knowledge/${slug}`}
+  class="card-link block h-full no-underline"
+  aria-label={title}
 >
-  <!-- Bild als Background -->
-  <div class="relative aspect-video overflow-hidden">
-    <img
-      src={image}
-      alt={title}
-      loading="lazy"
-      class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-      width="640"
-      height="360"
-    />
-
-    <!-- Gradient overlay für besseren Textkontrast -->
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-60"
-    >
-    </div>
-  </div>
-
-  <div class="p-4">
-    <h3 class="text-lg font-semibold text-white mb-2">{title}</h3>
-    <p class="text-zinc-300 text-sm line-clamp-3 mb-4 description">
-      {description}
-    </p>
-
-    <div class="flex justify-between items-center mt-auto">
-      <span class="text-xs text-zinc-400 flex items-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-4 w-4 mr-1"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-        </svg>
-        {readingTime}
-        {lang_t("knowledge.reading.time")}
-      </span>
-      <span class="text-xs text-zinc-400">
-        {createdAt.toLocaleDateString()}
-      </span>
-    </div>
-  </div>
-
-  <!-- Hauptlink - umfasst die gesamte Karte -->
-  <a
-    href={`/${lang}/knowledge/${slug}`}
-    class="card-link absolute inset-0 z-10 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-zinc-800 rounded-xl overflow-hidden"
-    aria-label={title}
+  <div
+    class="card h-full bg-zinc-800 rounded-xl border border-zinc-700 overflow-hidden shadow-md transition-all duration-300 relative"
   >
-    <span class="sr-only">{title}</span>
-  </a>
-</div>
+    <!-- Bild als Background -->
+    <div class="relative aspect-video overflow-hidden">
+      <img
+        src={image}
+        alt={title}
+        loading="lazy"
+        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        width="640"
+        height="360"
+      />
+
+      <!-- Gradient overlay für besseren Textkontrast -->
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-60"
+      >
+      </div>
+    </div>
+
+    <div class="p-4">
+      <h3 class="text-lg font-semibold text-white mb-2">{title}</h3>
+      <p class="text-zinc-300 text-sm line-clamp-3 mb-4 description">
+        {description}
+      </p>
+
+      <div class="flex justify-between items-center mt-auto">
+        <span class="text-xs text-zinc-400 flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 mr-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          {readingTime}
+          {lang_t("knowledge.reading.time")}
+        </span>
+        <span class="text-xs text-zinc-400">
+          {createdAt.toLocaleDateString()}
+        </span>
+      </div>
+    </div>
+  </div>
+</a>
 
 <style>
-  /* Verbesserte mobile Berührungsrückmeldung */
-  .card-link:active + .card {
-    transform: scale(0.98);
-    background-color: #2d283e; /* Dunklerer Hintergrund beim Drücken */
+  /* Basis-Stile für den Link */
+  .card-link {
+    color: inherit;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(168, 85, 247, 0.15); /* Subtile Hervorhebung beim Tippen auf mobilen Geräten */
   }
 
-  /* Verbesserte Touchfeedback für mobile Geräte */
-  @media (hover: none) {
-    .card {
-      transform: none !important; /* Verhindert unerwünschte Hover-Effekte auf Touch-Geräten */
+  /* Hover-Effekt für Desktops */
+  @media (hover: hover) {
+    .card-link:hover .card {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      border-color: #6d28d9;
     }
+  }
 
-    .card-link:active {
-      background-color: rgba(168, 85, 247, 0.1);
-    }
+  /* Touch-Effekt für mobile Geräte */
+  .card-link:active .card {
+    transform: scale(0.98);
+    background-color: #2d283e;
   }
 
   /* High Contrast Mode Support */
@@ -119,7 +121,7 @@ const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
       border: 2px solid CanvasText;
     }
 
-    .card:focus-within {
+    .card-link:focus {
       outline: 2px solid Highlight;
       outline-offset: 2px;
     }
@@ -130,7 +132,6 @@ const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
     .card {
       break-inside: avoid;
       border: 1px solid #000;
-
       page-break-inside: avoid;
     }
 
