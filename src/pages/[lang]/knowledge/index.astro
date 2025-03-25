@@ -163,8 +163,8 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
       <!-- Accessible keyboard focus hints -->
       <div class="focus-instructions sr-only" aria-live="polite">
         <p>
-          Use the Tab key to navigate between articles, and press
-          Enter to open an article.
+          Use the Tab key to navigate between articles, and press Enter to open
+          an article.
         </p>
       </div>
 
@@ -286,7 +286,9 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
   .knowledge-card-container {
     position: relative;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
     transform: translateZ(0); /* Aktiviert Hardware-Beschleunigung */
     will-change: transform; /* Optimiert für Animation */
   }
@@ -308,12 +310,12 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
     .knowledge-card-container:hover {
       transform: none; /* Verhindert Hover-Effekte auf Touch-Geräten */
     }
-    
+
     /* Verwende Touch-spezifisches Styling */
     .knowledge-card-container {
       touch-action: manipulation; /* Optimiert für Touch-Interaktionen */
     }
-    
+
     /* Leichteres Touch-Feedback */
     .touching {
       opacity: 0.8;
@@ -385,6 +387,28 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
     .knowledge-card-container:hover {
       transform: none;
     }
+  }
+
+  /* Improved touch interaction with better scroll handling */
+  @media (hover: none) {
+    .knowledge-card-container:hover {
+      transform: none; /* Prevents hover effects on touch devices */
+    }
+    
+    /* Enable vertical scrolling */
+    .knowledge-card-container {
+      touch-action: pan-y;
+    }
+    
+    /* Simple active state feedback */
+    .knowledge-card-container:active {
+      opacity: 0.9;
+    }
+  }
+  
+  /* Remove potentially problematic styles that intercept scrolling */
+  .knowledge-card-container a.card-link::after {
+    content: none;
   }
 </style>
 
@@ -714,14 +738,14 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
         // Remove previous event listeners to avoid conflicts
         const clone = card.cloneNode(true);
         card.parentNode?.replaceChild(clone, card);
-        
+
         // Find the link in the card
         const link = clone.querySelector(CONFIG.selectors.articleLink);
-        
+
         if (link) {
           // Ensure the link is "clickable" but don't interfere with scrolling
-          link.style.pointerEvents = 'auto';
-          
+          link.style.pointerEvents = "auto";
+
           // Let the card component handle touch interactions
           // This allows us to better detect the difference between scrolling and tapping
         }
