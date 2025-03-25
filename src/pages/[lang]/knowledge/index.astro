@@ -171,7 +171,7 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
       <div
         id="articlesGrid"
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-        role="region"
+        role="list"
         aria-label={ui[uiLang]["knowledge.title"]}
       >
         {
@@ -189,8 +189,8 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
                     : new Date();
 
               return (
-                <div
-                  class="animate-fadeIn"
+                <li
+                  class="h-full list-none animate-fadeIn"
                   style={{ animationDelay: `${index * 0.05}s` }}
                   data-keywords={
                     article.data.keywords?.join(" ").toLowerCase() || ""
@@ -198,7 +198,7 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
                   data-title={article.data.title.toLowerCase()}
                   data-description={article.data.description.toLowerCase()}
                 >
-                  <a 
+                  <a
                     href={`/${lang}/knowledge/${article.slug}`}
                     class="group block h-full overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-900/20 hover:border-purple-400/50 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900"
                     aria-label={article.data.title}
@@ -213,7 +213,7 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
                       readingTime={article.data.readingTime}
                     />
                   </a>
-                </div>
+                </li>
               );
             })
           ) : (
@@ -439,6 +439,49 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
   .knowledge-card-container a.card-link::after {
     content: none;
   }
+
+  /* Simple hover effects matching gamehome approach */
+  @media (hover: hover) {
+    #articlesGrid li a:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      border-color: #6d28d9;
+    }
+  }
+
+  /* Touch-specific styles */
+  @media (hover: none) {
+    #articlesGrid li a:active {
+      opacity: 0.8;
+      background-color: rgba(168, 85, 247, 0.05);
+    }
+  }
+
+  /* Remove all the old conflicting styles */
+  .knowledge-card-container,
+  .knowledge-card-container a.card-link,
+  .knowledge-card-container a.card-link::after {
+    /* Reset any potentially conflicting styles */
+    all: unset;
+  }
+  
+  /* Disable animations if user prefers reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    .animate-fadeIn {
+      opacity: 1;
+      animation: none;
+      transform: translateY(0);
+    }
+  }
 </style>
 
 <script>
@@ -458,8 +501,7 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
       searchInput: "#searchInput",
       categoryFilter: "#categoryFilter",
       articleGrid: "#articlesGrid",
-      articleCard: ".knowledge-card-container",
-      articleLink: "a.card-link",
+      articleItems: "#articlesGrid li",
       noResults: "#no-results",
       searchStatus: "#search-status",
       resetSearch: "#reset-search",
@@ -491,7 +533,7 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
       resetButton: document.querySelector(CONFIG.selectors.resetSearch),
       backToTopButton: document.querySelector(CONFIG.selectors.backToTop),
       articles: Array.from(
-        document.querySelectorAll(CONFIG.selectors.articleCard),
+        document.querySelectorAll(CONFIG.selectors.articleItems)
       ),
     };
 
@@ -761,24 +803,8 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
      * with improved reliability and scroll vs. tap detection
      */
     function initTouchInteraction() {
-      const cards = document.querySelectorAll(CONFIG.selectors.articleCard);
-
-      cards.forEach((card) => {
-        // Remove previous event listeners to avoid conflicts
-        const clone = card.cloneNode(true);
-        card.parentNode?.replaceChild(clone, card);
-
-        // Find the link in the card
-        const link = clone.querySelector(CONFIG.selectors.articleLink);
-
-        if (link) {
-          // Ensure the link is "clickable" but don't interfere with scrolling
-          link.style.pointerEvents = "auto";
-
-          // Let the card component handle touch interactions
-          // This allows us to better detect the difference between scrolling and tapping
-        }
-      });
+      // Let the browser handle touch events naturally
+      // No custom touch handlers needed
     }
   });
 </script>

@@ -33,12 +33,12 @@ const lang_t = useTranslations(lang as "de" | "en");
 const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
 ---
 
-<!-- Simple article structure like PlaylistItem -->
+<!-- Simple article structure matching PlaylistItem approach -->
 <article 
   class="knowledge-card h-full bg-zinc-800 rounded-xl border border-zinc-700 overflow-hidden shadow-md transition-all duration-300 relative"
 >
-  <!-- Image as background -->
-  <div class="relative aspect-video overflow-hidden">
+  <!-- Image section -->
+  <div class="relative aspect-video overflow-hidden group">
     <img
       src={image}
       alt={title}
@@ -55,6 +55,7 @@ const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
     </div>
   </div>
 
+  <!-- Content section -->
   <div class="p-4">
     <h3 class="text-lg font-semibold text-white mb-2">{title}</h3>
     <p class="text-zinc-300 text-sm line-clamp-3 mb-4 description">
@@ -87,7 +88,7 @@ const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
 </article>
 
 <style>
-  /* Basic styles for the card */
+  /* Simple styles that don't interfere with parent link */
   .knowledge-card {
     color: inherit;
     display: block;
