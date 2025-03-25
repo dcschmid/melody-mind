@@ -286,6 +286,44 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
   .knowledge-card-container {
     position: relative;
     cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: translateZ(0); /* Aktiviert Hardware-Beschleunigung */
+    will-change: transform; /* Optimiert für Animation */
+  }
+
+  /* Verbesserte Touch-Interaktion - Entferne Konflikte mit KnowledgeCard */
+  .knowledge-card-container a.card-link {
+    position: relative;
+    z-index: 5;
+    display: block;
+  }
+
+  /* Entferne das after-Element, das Konflikte verursachen kann */
+  .knowledge-card-container a.card-link::after {
+    content: none;
+  }
+
+  /* Optimierte Touch-Feedback-Stile */
+  @media (hover: none) {
+    .knowledge-card-container:hover {
+      transform: none; /* Verhindert Hover-Effekte auf Touch-Geräten */
+    }
+    
+    /* Verwende Touch-spezifisches Styling */
+    .knowledge-card-container {
+      touch-action: manipulation; /* Optimiert für Touch-Interaktionen */
+    }
+    
+    /* Leichteres Touch-Feedback */
+    .touching {
+      opacity: 0.8;
+    }
+  }
+
+  /* Verbesserte Touch-Interaktion für mobile Geräte */
+  .knowledge-card-container {
+    position: relative;
+    cursor: pointer;
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
@@ -662,33 +700,46 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
 
     /**
      * Enhance touch interaction for mobile devices
+     * with improved reliability
      */
     function initTouchInteraction() {
       const cards = document.querySelectorAll(CONFIG.selectors.articleCard);
 
       cards.forEach((card) => {
-        // Handle touch clicks to make entire card clickable
-        card.addEventListener("click", (event) => {
-          // If the click wasn't directly on a link, trigger the card's link
-          if (!(event.target as HTMLElement).closest("a")) {
-            const link = card.querySelector(
-              CONFIG.selectors.articleLink,
-            ) as HTMLElement;
-            if (link) link.click();
-          }
-        });
-
-        // Add visual feedback for touch
-        card.addEventListener(
-          "touchstart",
-          () => card.classList.add("touching"),
-          { passive: true },
-        );
-        card.addEventListener(
-          "touchend",
-          () => card.classList.remove("touching"),
-          { passive: true },
-        );
+        // Entferne vorherige Event-Listener, um Konflikte zu vermeiden
+        const clone = card.cloneNode(true);
+        card.parentNode?.replaceChild(clone, card);
+        
+        // Finde den Link in der Karte
+        const link = clone.querySelector(CONFIG.selectors.articleLink);
+        
+        if (link) {
+          // Stelle sicher, dass der Link "klickbar" ist
+          link.style.pointerEvents = 'auto';
+          
+          // Verbessere die Touch-Erkennung auf der gesamten Karte
+          clone.addEventListener('touchend', (event) => {
+            event.preventDefault();
+            
+            // Verzögerung für bessere iOS-Kompatibilität
+            setTimeout(() => {
+              window.location.href = link.getAttribute('href');
+            }, 10);
+          });
+          
+          // Visuelles Feedback bei Touch
+          clone.addEventListener('touchstart', () => {
+            clone.classList.add('touching');
+          }, { passive: true });
+          
+          clone.addEventListener('touchend', () => {
+            clone.classList.remove('touching');
+          }, { passive: true });
+          
+          clone.addEventListener('touchcancel', () => {
+            clone.classList.remove('touching');
+          }, { passive: true });
+        }
       });
     }
   });
