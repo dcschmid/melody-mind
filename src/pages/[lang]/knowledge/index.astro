@@ -394,18 +394,18 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
     .knowledge-card-container:hover {
       transform: none; /* Prevents hover effects on touch devices */
     }
-    
+
     /* Enable vertical scrolling */
     .knowledge-card-container {
       touch-action: pan-y;
     }
-    
+
     /* Simple active state feedback */
     .knowledge-card-container:active {
       opacity: 0.9;
     }
   }
-  
+
   /* Remove potentially problematic styles that intercept scrolling */
   .knowledge-card-container a.card-link::after {
     content: none;
