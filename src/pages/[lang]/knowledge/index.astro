@@ -190,7 +190,7 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
 
               return (
                 <div
-                  class="animate-fadeIn knowledge-card-container"
+                  class="animate-fadeIn"
                   style={{ animationDelay: `${index * 0.05}s` }}
                   data-keywords={
                     article.data.keywords?.join(" ").toLowerCase() || ""
@@ -198,15 +198,21 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
                   data-title={article.data.title.toLowerCase()}
                   data-description={article.data.description.toLowerCase()}
                 >
-                  <KnowledgeCard
-                    title={article.data.title}
-                    description={article.data.description}
-                    image={article.data.image as string}
-                    createdAt={createdAt}
-                    slug={article.slug}
-                    lang={lang}
-                    readingTime={article.data.readingTime}
-                  />
+                  <a 
+                    href={`/${lang}/knowledge/${article.slug}`}
+                    class="group block h-full overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-900/20 hover:border-purple-400/50 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900"
+                    aria-label={article.data.title}
+                  >
+                    <KnowledgeCard
+                      title={article.data.title}
+                      description={article.data.description}
+                      image={article.data.image as string}
+                      createdAt={createdAt}
+                      slug={article.slug}
+                      lang={lang}
+                      readingTime={article.data.readingTime}
+                    />
+                  </a>
                 </div>
               );
             })
@@ -407,6 +413,29 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
   }
 
   /* Remove potentially problematic styles that intercept scrolling */
+  .knowledge-card-container a.card-link::after {
+    content: none;
+  }
+
+  /* Basic styles and animations */
+  /* Simple hover effects - copied from gamehome approach */
+  @media (hover: hover) {
+    a:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      border-color: #6d28d9;
+    }
+  }
+
+  /* Touch-specific styles */
+  @media (hover: none) {
+    a:active {
+      opacity: 0.9;
+      background-color: rgba(168, 85, 247, 0.05);
+    }
+  }
+
+  /* Remove conflicting styles */
   .knowledge-card-container a.card-link::after {
     content: none;
   }

@@ -33,116 +33,76 @@ const lang_t = useTranslations(lang as "de" | "en");
 const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
 ---
 
-<!-- Optimized structure for better touch interaction -->
-<a
-  href={`/${lang}/knowledge/${slug}`}
-  class="card-link block h-full no-underline text-white outline-none transition-colors"
-  aria-label={title}
-  tabindex="0"
-  data-card-link
+<!-- Simple article structure like PlaylistItem -->
+<article 
+  class="knowledge-card h-full bg-zinc-800 rounded-xl border border-zinc-700 overflow-hidden shadow-md transition-all duration-300 relative"
 >
-  <div
-    class="card h-full bg-zinc-800 rounded-xl border border-zinc-700 overflow-hidden shadow-md transition-all duration-300 relative"
-  >
-    <!-- Image as background -->
-    <div class="relative aspect-video overflow-hidden">
-      <img
-        src={image}
-        alt={title}
-        loading="lazy"
-        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-        width="640"
-        height="360"
-      />
+  <!-- Image as background -->
+  <div class="relative aspect-video overflow-hidden">
+    <img
+      src={image}
+      alt={title}
+      loading="lazy"
+      class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+      width="640"
+      height="360"
+    />
 
-      <!-- Gradient overlay for better text contrast -->
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-60"
-      >
-      </div>
-    </div>
-
-    <div class="p-4">
-      <h3 class="text-lg font-semibold text-white mb-2">{title}</h3>
-      <p class="text-zinc-300 text-sm line-clamp-3 mb-4 description">
-        {description}
-      </p>
-
-      <div class="flex justify-between items-center mt-auto">
-        <span class="text-xs text-zinc-400 flex items-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4 mr-1"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-          {readingTime}
-          {lang_t("knowledge.reading.time")}
-        </span>
-        <span class="text-xs text-zinc-400">
-          {createdAt.toLocaleDateString()}
-        </span>
-      </div>
+    <!-- Gradient overlay for better text contrast -->
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-60"
+    >
     </div>
   </div>
-</a>
+
+  <div class="p-4">
+    <h3 class="text-lg font-semibold text-white mb-2">{title}</h3>
+    <p class="text-zinc-300 text-sm line-clamp-3 mb-4 description">
+      {description}
+    </p>
+
+    <div class="flex justify-between items-center mt-auto">
+      <span class="text-xs text-zinc-400 flex items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4 mr-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        {readingTime}
+        {lang_t("knowledge.reading.time")}
+      </span>
+      <span class="text-xs text-zinc-400">
+        {createdAt.toLocaleDateString()}
+      </span>
+    </div>
+  </div>
+</article>
 
 <style>
-  /* Optimized styles for mobile touch interaction */
-  .card-link {
+  /* Basic styles for the card */
+  .knowledge-card {
     color: inherit;
-    text-decoration: none;
-    -webkit-tap-highlight-color: rgba(168, 85, 247, 0.2);
-    position: relative;
     display: block;
-    touch-action: pan-y; /* Allow vertical scrolling */
-  }
-
-  /* Touch display for all devices - even without hover */
-  .card-link:active .card {
-    transform: scale(0.98);
-    background-color: #2d283e;
-    border-color: #6d28d9;
-  }
-
-  /* Specific touch device optimizations */
-  @media (hover: none) {
-    .card-link {
-      cursor: pointer;
-    }
-  }
-
-  /* Additionally maintain hover effect for desktop devices */
-  @media (hover: hover) {
-    .card-link:hover .card {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      border-color: #6d28d9;
-    }
   }
 
   /* High Contrast Mode Support */
   @media (forced-colors: active) {
-    .card {
+    .knowledge-card {
       border: 2px solid CanvasText;
-    }
-
-    .card-link:focus {
-      outline: 2px solid Highlight;
-      outline-offset: 2px;
     }
   }
 
   /* Print styles */
   @media print {
-    .card {
+    .knowledge-card {
       break-inside: avoid;
       border: 1px solid #000;
       page-break-inside: avoid;
@@ -157,5 +117,3 @@ const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
     }
   }
 </style>
-
-<!-- Simplified: Remove the complex touch handling script -->
