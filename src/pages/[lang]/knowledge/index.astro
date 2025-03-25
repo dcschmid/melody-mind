@@ -100,7 +100,7 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
     </div>
 
     <div class="w-full mb-8">
-      <!-- Verbesserte Suche und Filterung mit ARIA-Unterstützung -->
+      <!-- Improved search and filtering with ARIA support -->
       <div
         class="search-filter-container bg-zinc-800/90 rounded-xl p-6 border border-zinc-700 shadow-lg mb-10"
         role="search"
@@ -142,7 +142,7 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
         <div id="search-status" class="sr-only" aria-live="polite"></div>
       </div>
 
-      <!-- Keine Ergebnisse Nachricht (anfangs ausgeblendet) -->
+      <!-- No results message (initially hidden) -->
       <div
         id="no-results"
         class="hidden flex flex-col items-center justify-center p-12 bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-xl border border-zinc-600 text-center shadow-md mb-10"
@@ -160,11 +160,11 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
         </button>
       </div>
 
-      <!-- Barrierefreie Tastaturfokus-Hinweise -->
+      <!-- Accessible keyboard focus hints -->
       <div class="focus-instructions sr-only" aria-live="polite">
         <p>
-          Benutze die Tab-Taste, um zwischen Artikeln zu navigieren, und drücke
-          Enter, um einen Artikel zu öffnen.
+          Use the Tab key to navigate between articles, and press
+          Enter to open an article.
         </p>
       </div>
 
@@ -222,11 +222,11 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
       </div>
     </div>
 
-    <!-- "Nach oben"-Button mit verbesserter Zugänglichkeit -->
+    <!-- "Back to top" button with improved accessibility -->
     <button
       id="back-to-top"
       class="fixed bottom-8 right-8 p-3 bg-purple-600 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-purple-500 focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800"
-      aria-label="Zurück zum Anfang der Seite"
+      aria-label="Back to top of page"
     >
       <Icon name="arrow-up" class="h-6 w-6" />
     </button>
@@ -234,12 +234,12 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
 </Layout>
 
 <style>
-  /* Verbesserter Farbkontrast für WCAG AAA (7:1) */
+  /* Improved color contrast for WCAG AAA (7:1) */
   :root {
-    --text-primary: #ffffff; /* Maximaler Kontrast */
-    --text-secondary: #e2e2e7; /* Höherer Kontrast als standard zinc-300 */
+    --text-primary: #ffffff; /* Maximum contrast */
+    --text-secondary: #e2e2e7; /* Higher contrast than standard zinc-300 */
     --bg-card: #27272a; /* zinc-800 */
-    --border-card: rgba(161, 161, 170, 0.3); /* zinc-400 mit Transparenz */
+    --border-card: rgba(161, 161, 170, 0.3); /* zinc-400 with transparency */
     --accent-primary: #a855f7; /* purple-500 */
     --accent-secondary: #c084fc; /* purple-400 */
   }
@@ -286,9 +286,7 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
   .knowledge-card-container {
     position: relative;
     cursor: pointer;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     transform: translateZ(0); /* Aktiviert Hardware-Beschleunigung */
     will-change: transform; /* Optimiert für Animation */
   }
@@ -310,12 +308,12 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
     .knowledge-card-container:hover {
       transform: none; /* Verhindert Hover-Effekte auf Touch-Geräten */
     }
-
+    
     /* Verwende Touch-spezifisches Styling */
     .knowledge-card-container {
       touch-action: manipulation; /* Optimiert für Touch-Interaktionen */
     }
-
+    
     /* Leichteres Touch-Feedback */
     .touching {
       opacity: 0.8;
@@ -359,6 +357,11 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
     /* Visuelles Feedback bei Berührung */
     .knowledge-card-container:active {
       background-color: rgba(168, 85, 247, 0.1);
+    }
+
+    /* Improved scroll vs. tap handling */
+    .knowledge-card-container {
+      touch-action: pan-y; /* Allow vertical scrolling */
     }
   }
 
@@ -702,57 +705,25 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
 
     /**
      * Enhance touch interaction for mobile devices
-     * with improved reliability
+     * with improved reliability and scroll vs. tap detection
      */
     function initTouchInteraction() {
       const cards = document.querySelectorAll(CONFIG.selectors.articleCard);
 
       cards.forEach((card) => {
-        // Entferne vorherige Event-Listener, um Konflikte zu vermeiden
+        // Remove previous event listeners to avoid conflicts
         const clone = card.cloneNode(true);
         card.parentNode?.replaceChild(clone, card);
-
-        // Finde den Link in der Karte
+        
+        // Find the link in the card
         const link = clone.querySelector(CONFIG.selectors.articleLink);
-
+        
         if (link) {
-          // Stelle sicher, dass der Link "klickbar" ist
-          link.style.pointerEvents = "auto";
-
-          // Verbessere die Touch-Erkennung auf der gesamten Karte
-          clone.addEventListener("touchend", (event) => {
-            event.preventDefault();
-
-            // Verzögerung für bessere iOS-Kompatibilität
-            setTimeout(() => {
-              window.location.href = link.getAttribute("href");
-            }, 10);
-          });
-
-          // Visuelles Feedback bei Touch
-          clone.addEventListener(
-            "touchstart",
-            () => {
-              clone.classList.add("touching");
-            },
-            { passive: true },
-          );
-
-          clone.addEventListener(
-            "touchend",
-            () => {
-              clone.classList.remove("touching");
-            },
-            { passive: true },
-          );
-
-          clone.addEventListener(
-            "touchcancel",
-            () => {
-              clone.classList.remove("touching");
-            },
-            { passive: true },
-          );
+          // Ensure the link is "clickable" but don't interfere with scrolling
+          link.style.pointerEvents = 'auto';
+          
+          // Let the card component handle touch interactions
+          // This allows us to better detect the difference between scrolling and tapping
         }
       });
     }

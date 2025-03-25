@@ -183,35 +183,43 @@ const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
   // Improved touch handling that distinguishes between scrolling and tapping
   document.addEventListener("DOMContentLoaded", function () {
     const cardLinks = document.querySelectorAll("[data-card-link]");
-    
-    cardLinks.forEach(link => {
+
+    cardLinks.forEach((link) => {
       let touchStartY = 0;
       let touchStartX = 0;
       let isTouchMove = false;
       const TOUCH_THRESHOLD = 10; // Pixels of movement to consider a scroll vs. a tap
-      
+
       // Record starting touch position
-      link.addEventListener("touchstart", function(e) {
-        touchStartY = e.touches[0].clientY;
-        touchStartX = e.touches[0].clientX;
-        isTouchMove = false;
-      }, { passive: true });
-      
+      link.addEventListener(
+        "touchstart",
+        function (e) {
+          touchStartY = e.touches[0].clientY;
+          touchStartX = e.touches[0].clientX;
+          isTouchMove = false;
+        },
+        { passive: true },
+      );
+
       // Detect movement to distinguish scroll from tap
-      link.addEventListener("touchmove", function(e) {
-        const touchY = e.touches[0].clientY;
-        const touchX = e.touches[0].clientX;
-        const diffY = Math.abs(touchY - touchStartY);
-        const diffX = Math.abs(touchX - touchStartX);
-        
-        // If moved more than threshold, consider it a scroll, not a tap
-        if (diffY > TOUCH_THRESHOLD || diffX > TOUCH_THRESHOLD) {
-          isTouchMove = true;
-        }
-      }, { passive: true });
-      
+      link.addEventListener(
+        "touchmove",
+        function (e) {
+          const touchY = e.touches[0].clientY;
+          const touchX = e.touches[0].clientX;
+          const diffY = Math.abs(touchY - touchStartY);
+          const diffX = Math.abs(touchX - touchStartX);
+
+          // If moved more than threshold, consider it a scroll, not a tap
+          if (diffY > TOUCH_THRESHOLD || diffX > TOUCH_THRESHOLD) {
+            isTouchMove = true;
+          }
+        },
+        { passive: true },
+      );
+
       // Only trigger navigation if it was a tap, not a scroll
-      link.addEventListener("touchend", function(e) {
+      link.addEventListener("touchend", function (e) {
         if (!isTouchMove) {
           // It was a tap, navigate to the article
           const href = this.getAttribute("href");
