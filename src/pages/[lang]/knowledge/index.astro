@@ -286,7 +286,9 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
   .knowledge-card-container {
     position: relative;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
     transform: translateZ(0); /* Aktiviert Hardware-Beschleunigung */
     will-change: transform; /* Optimiert für Animation */
   }
@@ -308,12 +310,12 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
     .knowledge-card-container:hover {
       transform: none; /* Verhindert Hover-Effekte auf Touch-Geräten */
     }
-    
+
     /* Verwende Touch-spezifisches Styling */
     .knowledge-card-container {
       touch-action: manipulation; /* Optimiert für Touch-Interaktionen */
     }
-    
+
     /* Leichteres Touch-Feedback */
     .touching {
       opacity: 0.8;
@@ -709,36 +711,48 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
         // Entferne vorherige Event-Listener, um Konflikte zu vermeiden
         const clone = card.cloneNode(true);
         card.parentNode?.replaceChild(clone, card);
-        
+
         // Finde den Link in der Karte
         const link = clone.querySelector(CONFIG.selectors.articleLink);
-        
+
         if (link) {
           // Stelle sicher, dass der Link "klickbar" ist
-          link.style.pointerEvents = 'auto';
-          
+          link.style.pointerEvents = "auto";
+
           // Verbessere die Touch-Erkennung auf der gesamten Karte
-          clone.addEventListener('touchend', (event) => {
+          clone.addEventListener("touchend", (event) => {
             event.preventDefault();
-            
+
             // Verzögerung für bessere iOS-Kompatibilität
             setTimeout(() => {
-              window.location.href = link.getAttribute('href');
+              window.location.href = link.getAttribute("href");
             }, 10);
           });
-          
+
           // Visuelles Feedback bei Touch
-          clone.addEventListener('touchstart', () => {
-            clone.classList.add('touching');
-          }, { passive: true });
-          
-          clone.addEventListener('touchend', () => {
-            clone.classList.remove('touching');
-          }, { passive: true });
-          
-          clone.addEventListener('touchcancel', () => {
-            clone.classList.remove('touching');
-          }, { passive: true });
+          clone.addEventListener(
+            "touchstart",
+            () => {
+              clone.classList.add("touching");
+            },
+            { passive: true },
+          );
+
+          clone.addEventListener(
+            "touchend",
+            () => {
+              clone.classList.remove("touching");
+            },
+            { passive: true },
+          );
+
+          clone.addEventListener(
+            "touchcancel",
+            () => {
+              clone.classList.remove("touching");
+            },
+            { passive: true },
+          );
         }
       });
     }
