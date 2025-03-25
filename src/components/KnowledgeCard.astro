@@ -33,16 +33,18 @@ const lang_t = useTranslations(lang as "de" | "en");
 const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
 ---
 
-<!-- Verbessern Sie die Struktur der Karte für bessere Berührungsinteraktion -->
+<!-- Optimized structure for better touch interaction -->
 <a
   href={`/${lang}/knowledge/${slug}`}
-  class="card-link block h-full no-underline"
+  class="card-link block h-full no-underline text-white outline-none transition-colors"
   aria-label={title}
+  tabindex="0"
+  data-card-link
 >
   <div
     class="card h-full bg-zinc-800 rounded-xl border border-zinc-700 overflow-hidden shadow-md transition-all duration-300 relative"
   >
-    <!-- Bild als Background -->
+    <!-- Image as background -->
     <div class="relative aspect-video overflow-hidden">
       <img
         src={image}
@@ -53,7 +55,7 @@ const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
         height="360"
       />
 
-      <!-- Gradient overlay für besseren Textkontrast -->
+      <!-- Gradient overlay for better text contrast -->
       <div
         class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-60"
       >
@@ -93,26 +95,53 @@ const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
 </a>
 
 <style>
-  /* Basis-Stile für den Link */
+  /* Optimized styles for mobile touch interaction */
   .card-link {
     color: inherit;
     text-decoration: none;
-    -webkit-tap-highlight-color: rgba(168, 85, 247, 0.15); /* Subtile Hervorhebung beim Tippen auf mobilen Geräten */
+    -webkit-tap-highlight-color: rgba(168, 85, 247, 0.2); /* More visible feedback on touch */
+    /* Improved touch accessibility through padding */
+    position: relative;
+    display: block;
+    will-change: transform; /* Performance optimization for animations */
+    transform: translateZ(0); /* Enable hardware acceleration */
+    touch-action: manipulation; /* Optimized for touch interactions */
   }
 
-  /* Hover-Effekt für Desktops */
+  /* Touch display for all devices - even without hover */
+  .card-link:active .card {
+    transform: scale(0.98);
+    background-color: #2d283e;
+    border-color: #6d28d9;
+  }
+
+  /* Specific touch device optimizations */
+  @media (hover: none) {
+    .card-link {
+      cursor: pointer;
+      /* Extra padding for better accessibility on mobile devices */
+      position: relative;
+    }
+    
+    /* Explicit touch target */
+    .card-link::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      z-index: 1;
+    }
+  }
+
+  /* Additionally maintain hover effect for desktop devices */
   @media (hover: hover) {
     .card-link:hover .card {
       transform: translateY(-4px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       border-color: #6d28d9;
     }
-  }
-
-  /* Touch-Effekt für mobile Geräte */
-  .card-link:active .card {
-    transform: scale(0.98);
-    background-color: #2d283e;
   }
 
   /* High Contrast Mode Support */
@@ -144,3 +173,30 @@ const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
     }
   }
 </style>
+
+<script>
+  // Touch support for mobile devices
+  document.addEventListener('DOMContentLoaded', function() {
+    const cardLinks = document.querySelectorAll('[data-card-link]');
+    
+    cardLinks.forEach(link => {
+      // Additional touch listener for iOS devices
+      link.addEventListener('touchstart', function(e) {
+        // Prevention against duplicate touch events
+        e.stopPropagation();
+      }, { passive: true });
+      
+      // Ensure the click is triggered
+      link.addEventListener('touchend', function(e) {
+        // Prevent the standard touch event from blocking the click
+        if (e.cancelable) e.preventDefault();
+        
+        // Delayed click for better compatibility
+        setTimeout(() => {
+          const href = this.getAttribute('href');
+          if (href) window.location.href = href;
+        }, 10);
+      });
+    });
+  });
+</script>
