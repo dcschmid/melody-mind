@@ -53,6 +53,7 @@ MelodyMind is an engaging and competitive music trivia game where players can te
 - Use your 50:50 Jokers wisely, especially in the harder difficulty levels.
 - Pay attention to your favorite genres for a better chance at winning.
 - Practice regularly to improve your ranking and collect more rewards!
+
 ---
 
 # From TODO-AI.md:
@@ -60,20 +61,25 @@ MelodyMind is an engaging and competitive music trivia game where players can te
 # AI Workspace
 
 ## Active Task
+
 Learn from the user about their project, get the idea of what they want to make
 
 ## Status
+
 ⏳ In Progress
 
 ## Context & Progress
+
 - Created: 2025-03-26
 - I (AI) will maintain this document as we work together
 - My current focus: Understanding and working on the active task
 
 ## Task History
+
 - Initial task: Learn from the user about their project, get the idea of what they want to make
 
 ## Notes
+
 - I'll update this file to track our progress and maintain context
 - I'll keep sections concise but informative
 - I'll update status and add key decisions/changes
