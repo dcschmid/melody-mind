@@ -23,9 +23,47 @@ type TranslationsObject = Record<LanguageCode, TranslationsForLanguage>;
  * @param url - The URL object from Astro.url
  * @returns The language code (e.g., 'en', 'de', etc.)
  */
-export function getLangFromUrl(url: URL): string {
+export function getLangFromUrl(url: URL): LanguageCode {
   const [, lang] = url.pathname.split("/");
-  return lang && lang in ui ? lang : defaultLang;
+  return isValidLanguage(lang) ? lang : defaultLang;
+}
+
+/**
+ * Type guard to check if a string is a valid language code
+ * 
+ * @param lang - String to check
+ * @returns Boolean indicating if the string is a valid language code
+ */
+function isValidLanguage(lang: string | undefined): lang is LanguageCode {
+  return Boolean(lang && lang in languages);
+}
+
+/**
+ * Determines the best language for the user based on browser settings
+ * 
+ * @returns A language code from the supported languages
+ */
+export function determineUserLanguage(): LanguageCode {
+  // For server-side rendering, return the default language
+  if (typeof navigator === "undefined") {
+    return defaultLang;
+  }
+
+  // Get browser languages
+  const browserLangs = navigator.languages || [
+    navigator.language || navigator.userLanguage || "en",
+  ];
+
+  // Find the first matching language
+  for (const browserLang of browserLangs) {
+    const langCode = browserLang.split("-")[0].toLowerCase();
+    if (isValidLanguage(langCode)) {
+      return langCode;
+    }
+  }
+
+  // Default fallback
+  return defaultLang;
 }
 
 /**
@@ -40,18 +78,15 @@ export function getLangFromUrl(url: URL): string {
  */
 export function useTranslations(lang: string) {
   return function t(
-    key: keyof (typeof ui)[typeof defaultLang] | string,
+    key: TranslationKey,
     vars?: Record<string, string | number>,
   ): string {
     // Safe type checking for translation access
-    const langTranslations = ui[lang as LanguageCode] || {};
-    const defaultTranslations = ui[defaultLang];
+    const langTranslations = (ui[lang as LanguageCode] ?? {}) as TranslationsForLanguage;
+    const defaultTranslations = ui[defaultLang] as TranslationsForLanguage;
 
     // Get translation with fallback chain: specified language → default language → key itself
-    let text =
-      langTranslations[key as keyof typeof langTranslations] ||
-      defaultTranslations[key as keyof typeof defaultTranslations] ||
-      key;
+    let text = langTranslations[key] ?? defaultTranslations[key] ?? key;
 
     // Replace variables in the translation string if provided
     if (vars) {
@@ -72,7 +107,8 @@ export function useTranslations(lang: string) {
  * @returns A properly formatted URL string for the specified language and path
  */
 export function getLocalizedURL(lang: string, path: string): string {
-  return `/${lang}${path.startsWith("/") ? path : "/" + path}`;
+  const safeLang = isValidLanguage(lang) ? lang : defaultLang;
+  return `/${safeLang}${path.startsWith("/") ? path : "/" + path}`;
 }
 
 /**
@@ -96,40 +132,19 @@ export function getRelativeLocaleUrl(locale: string, path: string): string {
  * @param key - The translation key to look up
  * @returns An object mapping language codes to their translations
  */
-export function getAllTranslations(key: string): Record<string, string> {
+export function getAllTranslations(key: TranslationKey): Record<string, string> {
   const translations: Record<string, string> = {};
 
   Object.entries(ui as TranslationsObject).forEach(
     ([lang, langTranslations]) => {
-      if (key in langTranslations) {
-        translations[lang] = langTranslations[key];
-      }
+      translations[lang] = langTranslations[key] ?? key;
     },
   );
 
   return translations;
 }
 
-/**
- * Determines if the user's browser has a preferred language that matches our supported languages
- *
- * @param browserLanguages - Array of browser languages (e.g., from navigator.languages)
- * @returns The matching language code or defaultLang if no match
- */
-export function getBrowserLanguage(
-  browserLanguages: readonly string[],
-): string {
-  // Try to match full language tags first (e.g., 'en-US', 'de-DE')
-  for (const lang of browserLanguages) {
-    const baseLang = lang.split("-")[0].toLowerCase();
-    if (baseLang in languages) {
-      return baseLang;
-    }
-  }
-
-  return defaultLang;
-}
-
-// Types for TypeScript support
+// Export types for TypeScript support
 export type UiLanguages = keyof typeof ui;
 export type UiKeys<T extends UiLanguages> = keyof (typeof ui)[T];
+export { ui, languages, defaultLang };
