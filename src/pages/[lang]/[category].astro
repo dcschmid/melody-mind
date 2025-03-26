@@ -7,6 +7,7 @@ import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
+import { extractKeywords, generateMetaDescription } from "@utils/seo";
 
 // Mark this route for static generation
 export const prerender = true;
@@ -70,9 +71,33 @@ interface Category {
 
 // No login check needed anymore
 const currentCategory = category;
+
+// Generate SEO content for the current category
+const title = `${currentCategory?.headline} ${t("category.start") || "Start"}`;
+const description = currentCategory?.introSubline || "";
+
+// Enhanced SEO content using utility functions
+const pageContent = `${title} ${description} ${currentCategory?.text || ""}`;
+
+// Generate optimized meta description and keywords
+const optimizedDescription = generateMetaDescription(pageContent);
+const keywords = extractKeywords(pageContent) || t("meta.keywords");
+
+// Additional structured data parameters for SEO
+const pageType = "website";
+const publishDate = new Date("2024-01-01");
+const modifiedDate = new Date();
 ---
 
-<Layout title={`${currentCategory?.headline} Start`}>
+<Layout 
+  title={title}
+  description={optimizedDescription}
+  keywords={keywords}
+  image={currentCategory?.imageUrl || "/social-share-categories.jpg"}
+  type={pageType}
+  publishDate={publishDate}
+  modifiedDate={modifiedDate}
+>
   <div class="max-w-4xl mx-auto px-4 py-8">
     <!-- Hero section with improved contrast and accessibility -->
     <div

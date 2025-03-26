@@ -4,6 +4,7 @@ import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
+import { extractKeywords, generateMetaDescription } from "@utils/seo";
 
 /**
  * Enable static site generation for all supported languages.
@@ -97,13 +98,37 @@ const { lang, playlists = [] } = Astro.props;
 // Use the i18n utilities for translations
 const t = useTranslations(lang);
 
+// Generate SEO content
+const title = t("playlist.page.title");
+const description = t("playlist.page.description");
+
+// Enhanced SEO content using utility functions
+const pageContent = `${title} ${description} ${playlists.map(p => `${p.headline} ${p.introSubline}`).join(' ')}`;
+
+// Generate optimized meta description and keywords
+const optimizedDescription = generateMetaDescription(pageContent);
+const keywords = extractKeywords(pageContent) || t("meta.keywords");
+
+// Additional structured data parameters for SEO
+const pageType = "website";
+const publishDate = new Date("2024-01-01");
+const modifiedDate = new Date();
+
 // Sort playlists chronologically (assuming decade in headline format like "1950s")
 const sortedPlaylists = [...playlists].sort((a, b) =>
   a.imageUrl.localeCompare(b.imageUrl, undefined, { sensitivity: "base" }),
 );
 ---
 
-<Layout title={t("playlist.page.title")}>
+<Layout 
+  title={title}
+  description={optimizedDescription}
+  keywords={keywords}
+  image="/social-share-playlists.jpg"
+  type={pageType}
+  publishDate={publishDate}
+  modifiedDate={modifiedDate}
+>
   <div class="max-w-6xl mx-auto px-4 py-8">
     <!-- Page heading and description -->
     <div class="text-center mb-12">
