@@ -103,7 +103,7 @@ const title = t("playlist.page.title");
 const description = t("playlist.page.description");
 
 // Enhanced SEO content using utility functions
-const pageContent = `${title} ${description} ${playlists.map(p => `${p.headline} ${p.introSubline}`).join(' ')}`;
+const pageContent = `${title} ${description} ${playlists.map((p) => `${p.headline} ${p.introSubline}`).join(" ")}`;
 
 // Generate optimized meta description and keywords
 const optimizedDescription = generateMetaDescription(pageContent);
@@ -120,7 +120,7 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
 );
 ---
 
-<Layout 
+<Layout
   title={title}
   description={optimizedDescription}
   keywords={keywords}

@@ -1,13 +1,13 @@
 ---
 import { getLangFromUrl } from "@utils/i18n";
-import { languages } from "../i18n/ui";  // Direkter relativer Pfad statt Alias
+import { languages } from "../i18n/ui"; // Direkter relativer Pfad statt Alias
 
 interface Props {
   title: string;
   description?: string;
   keywords?: string;
   image?: string;
-  type?: 'website' | 'article' | 'music' | 'game';
+  type?: "website" | "article" | "music" | "game";
   publishDate?: Date;
   modifiedDate?: Date;
   audioSrc?: string;
@@ -29,22 +29,22 @@ const {
 const lang = getLangFromUrl(Astro.url);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const imageURL = new URL(image, Astro.site);
-const siteUrl = Astro.site?.toString() || 'https://melodymind.app';
+const siteUrl = Astro.site?.toString() || "https://melodymind.app";
 
 // Improved URL handling for hreflang tags
-const alternateLanguages = Object.keys(languages).map(langCode => {
+const alternateLanguages = Object.keys(languages).map((langCode) => {
   // Safer method to replace language in URL path
   let path = Astro.url.pathname;
-  
+
   // If current path starts with /{lang}/, replace only that part
   const langPathRegex = new RegExp(`^/${lang}/`);
   if (langPathRegex.test(path)) {
     path = path.replace(langPathRegex, `/${langCode}/`);
   } else {
     // Fallback for different URL structures
-    path = `/${langCode}${path.startsWith('/') ? path : '/' + path}`;
+    path = `/${langCode}${path.startsWith("/") ? path : "/" + path}`;
   }
-  
+
   const url = new URL(path, Astro.site || siteUrl);
   return { langCode, url: url.toString() };
 });
@@ -60,75 +60,81 @@ interface StructuredData {
 let structuredData: StructuredData = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Melody Mind",
-  "url": siteUrl,
-  "description": description,
-  "potentialAction": {
+  name: "Melody Mind",
+  url: siteUrl,
+  description: description,
+  potentialAction: {
     "@type": "SearchAction",
-    "target": {
+    target: {
       "@type": "EntryPoint",
-      "urlTemplate": `${siteUrl}${lang}/search?q={search_term_string}`
+      urlTemplate: `${siteUrl}${lang}/search?q={search_term_string}`,
     },
-    "query-input": "required name=search_term_string"
+    "query-input": "required name=search_term_string",
   },
-  "inLanguage": lang,
-  "author": {
+  inLanguage: lang,
+  author: {
     "@type": "Organization",
-    "name": "Melody Mind Team"
-  }
+    name: "Melody Mind Team",
+  },
 };
 
 // Enhanced structured data based on page type
-if (type === 'article') {
+if (type === "article") {
   structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": title,  // Use headline for Article schema (not name)
-    "description": description,
-    "image": imageURL.toString(),
-    "datePublished": publishDate ? publishDate.toISOString() : new Date().toISOString(),
-    "dateModified": modifiedDate ? modifiedDate.toISOString() : new Date().toISOString(),
-    "author": {
+    headline: title, // Use headline for Article schema (not name)
+    description: description,
+    image: imageURL.toString(),
+    datePublished: publishDate
+      ? publishDate.toISOString()
+      : new Date().toISOString(),
+    dateModified: modifiedDate
+      ? modifiedDate.toISOString()
+      : new Date().toISOString(),
+    author: {
       "@type": "Organization",
-      "name": "Melody Mind Team"
+      name: "Melody Mind Team",
     },
-    "publisher": {
+    publisher: {
       "@type": "Organization",
-      "name": "Melody Mind",
-      "logo": {
+      name: "Melody Mind",
+      logo: {
         "@type": "ImageObject",
-        "url": new URL("/melody-mind.png", Astro.site || siteUrl).toString()
-      }
+        url: new URL("/melody-mind.png", Astro.site || siteUrl).toString(),
+      },
     },
-    "mainEntityOfPage": {
+    mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": canonicalURL.toString()
+      "@id": canonicalURL.toString(),
     },
-    "inLanguage": lang,
-    "articleSection": section
+    inLanguage: lang,
+    articleSection: section,
   };
-} else if (type === 'music') {
+} else if (type === "music") {
   structuredData = {
     "@context": "https://schema.org",
     "@type": "MusicGroup",
-    "name": title,
-    "description": description,
-    "image": imageURL.toString(),
-    "url": canonicalURL.toString(),
-    "audio": audioSrc ? new URL(audioSrc, Astro.site || siteUrl).toString() : null
+    name: title,
+    description: description,
+    image: imageURL.toString(),
+    url: canonicalURL.toString(),
+    audio: audioSrc
+      ? new URL(audioSrc, Astro.site || siteUrl).toString()
+      : null,
   };
-} else if (type === 'game') {
+} else if (type === "game") {
   structuredData = {
     "@context": "https://schema.org",
     "@type": "Game",
-    "name": "Melody Mind",
-    "description": description,
-    "genre": "Music Quiz",
-    "audience": {
+    name: "Melody Mind",
+    description: description,
+    genre: "Music Quiz",
+    audience: {
       "@type": "Audience",
-      "audienceType": "Music lovers"
+      audienceType: "Music lovers",
     },
-    "inLanguage": lang
+    inLanguage: lang,
   };
 }
 ---
@@ -146,21 +152,37 @@ if (type === 'article') {
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Hreflang Tags for Internationalization -->
-{alternateLanguages.map(({ langCode, url }) => (
-  <link rel="alternate" href={url} hreflang={langCode} />
-))}
+{
+  alternateLanguages.map(({ langCode, url }) => (
+    <link rel="alternate" href={url} hreflang={langCode} />
+  ))
+}
 <link rel="alternate" href={canonicalURL} hreflang="x-default" />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content={type === 'article' ? 'article' : 'website'} />
+<meta property="og:type" content={type === "article" ? "article" : "website"} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={`${title} | Melody Mind`} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={imageURL} />
 <meta property="og:locale" content={lang} />
 <meta property="og:site_name" content="Melody Mind" />
-{publishDate && <meta property="article:published_time" content={publishDate.toISOString()} />}
-{modifiedDate && <meta property="article:modified_time" content={modifiedDate.toISOString()} />}
+{
+  publishDate && (
+    <meta
+      property="article:published_time"
+      content={publishDate.toISOString()}
+    />
+  )
+}
+{
+  modifiedDate && (
+    <meta
+      property="article:modified_time"
+      content={modifiedDate.toISOString()}
+    />
+  )
+}
 {section && <meta property="article:section" content={section} />}
 
 <!-- Twitter -->
@@ -175,7 +197,10 @@ if (type === 'article') {
 
 <!-- Mobile App Integration -->
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta
+  name="apple-mobile-web-app-status-bar-style"
+  content="black-translucent"
+/>
 <meta name="theme-color" content="#18181b" />
 
 <!-- Performance Hints -->
