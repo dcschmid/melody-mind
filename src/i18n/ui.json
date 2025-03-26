@@ -1,0 +1,122 @@
+{
+  "de": {
+    "login.welcome": "MelodyMind",
+    "login.description": "Das ultimative Musik-Quiz",
+    "playlist.page.title": "Playlisten",
+    "playlist.page.description": "Entdecke musikalische Reisen durch die Zeit",
+    "podcast.page.title": "Podcasts",
+    "podcast.page.description": "Höre unsere Musik-Podcasts",
+    "game.select": "Wähle dein Musikgenre",
+    "game.welcome": "Willkommen bei MelodyMind",
+    "knowledge.title": "Wissensbasis",
+    "knowledge.intro": "Erfahre mehr über Musik"
+  },
+  "en": {
+    "login.welcome": "MelodyMind",
+    "login.description": "The ultimate music quiz",
+    "playlist.page.title": "Playlists",
+    "playlist.page.description": "Discover musical journeys through time",
+    "podcast.page.title": "Podcasts",
+    "podcast.page.description": "Listen to our music podcasts",
+    "game.select": "Choose your music genre",
+    "game.welcome": "Welcome to MelodyMind",
+    "knowledge.title": "Knowledge Base",
+    "knowledge.intro": "Learn more about music"
+  },
+  "es": {
+    "login.welcome": "MelodyMind",
+    "login.description": "The ultimate music quiz",
+    "playlist.page.title": "Playlists",
+    "playlist.page.description": "Discover musical journeys through time",
+    "podcast.page.title": "Podcasts",
+    "podcast.page.description": "Listen to our music podcasts",
+    "game.select": "Choose your music genre",
+    "game.welcome": "Welcome to MelodyMind",
+    "knowledge.title": "Knowledge Base",
+    "knowledge.intro": "Learn more about music"
+  },
+  "fr": {
+    "login.welcome": "MelodyMind",
+    "login.description": "The ultimate music quiz",
+    "playlist.page.title": "Playlists",
+    "playlist.page.description": "Discover musical journeys through time",
+    "podcast.page.title": "Podcasts",
+    "podcast.page.description": "Listen to our music podcasts",
+    "game.select": "Choose your music genre",
+    "game.welcome": "Welcome to MelodyMind",
+    "knowledge.title": "Knowledge Base",
+    "knowledge.intro": "Learn more about music"
+  },
+  "it": {
+    "login.welcome": "MelodyMind",
+    "login.description": "The ultimate music quiz",
+    "playlist.page.title": "Playlists",
+    "playlist.page.description": "Discover musical journeys through time",
+    "podcast.page.title": "Podcasts",
+    "podcast.page.description": "Listen to our music podcasts",
+    "game.select": "Choose your music genre",
+    "game.welcome": "Welcome to MelodyMind",
+    "knowledge.title": "Knowledge Base",
+    "knowledge.intro": "Learn more about music"
+  },
+  "pt": {
+    "login.welcome": "MelodyMind",
+    "login.description": "The ultimate music quiz",
+    "playlist.page.title": "Playlists",
+    "playlist.page.description": "Discover musical journeys through time",
+    "podcast.page.title": "Podcasts",
+    "podcast.page.description": "Listen to our music podcasts",
+    "game.select": "Choose your music genre",
+    "game.welcome": "Welcome to MelodyMind",
+    "knowledge.title": "Knowledge Base",
+    "knowledge.intro": "Learn more about music"
+  },
+  "da": {
+    "login.welcome": "MelodyMind",
+    "login.description": "The ultimate music quiz",
+    "playlist.page.title": "Playlists",
+    "playlist.page.description": "Discover musical journeys through time",
+    "podcast.page.title": "Podcasts",
+    "podcast.page.description": "Listen to our music podcasts",
+    "game.select": "Choose your music genre",
+    "game.welcome": "Welcome to MelodyMind",
+    "knowledge.title": "Knowledge Base",
+    "knowledge.intro": "Learn more about music"
+  },
+  "nl": {
+    "login.welcome": "MelodyMind",
+    "login.description": "The ultimate music quiz",
+    "playlist.page.title": "Playlists",
+    "playlist.page.description": "Discover musical journeys through time",
+    "podcast.page.title": "Podcasts",
+    "podcast.page.description": "Listen to our music podcasts",
+    "game.select": "Choose your music genre",
+    "game.welcome": "Welcome to MelodyMind",
+    "knowledge.title": "Knowledge Base",
+    "knowledge.intro": "Learn more about music"
+  },
+  "sv": {
+    "login.welcome": "MelodyMind",
+    "login.description": "The ultimate music quiz",
+    "playlist.page.title": "Playlists",
+    "playlist.page.description": "Discover musical journeys through time",
+    "podcast.page.title": "Podcasts",
+    "podcast.page.description": "Listen to our music podcasts",
+    "game.select": "Choose your music genre",
+    "game.welcome": "Welcome to MelodyMind",
+    "knowledge.title": "Knowledge Base",
+    "knowledge.intro": "Learn more about music"
+  },
+  "fi": {
+    "login.welcome": "MelodyMind",
+    "login.description": "The ultimate music quiz",
+    "playlist.page.title": "Playlists",
+    "playlist.page.description": "Discover musical journeys through time",
+    "podcast.page.title": "Podcasts",
+    "podcast.page.description": "Listen to our music podcasts",
+    "game.select": "Choose your music genre",
+    "game.welcome": "Welcome to MelodyMind",
+    "knowledge.title": "Knowledge Base",
+    "knowledge.intro": "Learn more about music"
+  }
+}

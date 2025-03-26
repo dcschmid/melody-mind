@@ -10,7 +10,11 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
-    "prepare": "husky"
+    "prepare": "husky",
+    "setup": "node scripts/setup-project.cjs",
+    "setup-fonts": "node scripts/copy-local-fonts.cjs || node scripts/setup-fonts.cjs",
+    "generate-og": "node scripts/generate-og-images.cjs",
+    "generate-og-images": "node scripts/setup-fonts.cjs && node scripts/generate-og-images.cjs"
   },
   "lint-staged": {
     "*.{js,ts,astro}": "eslint --fix",
@@ -28,6 +32,7 @@
     "astro": "^5.5.3",
     "astro-compressor": "^1.0.0",
     "astro-icon": "^1.1.5",
+    "canvas": "^3.1.0",
     "date-fns": "^4.1.0",
     "marked": "^15.0.7",
     "mdast-util-to-string": "^4.0.0",
