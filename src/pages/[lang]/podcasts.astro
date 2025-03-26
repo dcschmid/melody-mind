@@ -5,6 +5,7 @@ import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import AudioPlayer from "@components/AudioPlayer.astro";
 import { Icon } from "astro-icon/components";
+import { extractKeywords, generateMetaDescription } from "@utils/seo";
 
 // Enable static generation for all supported languages
 export const prerender = true;
@@ -79,9 +80,27 @@ interface Podcast {
   category?: string;
 }
 
-// Extract data from props
+// Extract data from props with default empty array for podcasts
 const { lang, podcasts = [] } = Astro.props;
+
+// Use the i18n utilities for translations
 const t = useTranslations(lang);
+
+// Generate SEO content
+const title = t("podcast.page.title");
+const description = t("podcast.page.description");
+
+// Enhanced SEO content using utility functions
+const pageContent = `${title} ${description} ${podcasts.map(p => `${p.title} ${p.description}`).join(' ')}`;
+
+// Generate optimized meta description and keywords
+const optimizedDescription = generateMetaDescription(pageContent);
+const keywords = extractKeywords(pageContent) || t("meta.keywords");
+
+// Additional structured data parameters for SEO
+const pageType = "website";
+const publishDate = new Date("2024-01-01");
+const modifiedDate = new Date();
 
 // Extract all categories (if available)
 const allCategories = [
@@ -98,7 +117,15 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
 );
 ---
 
-<Layout title={t("podcast.page.title")}>
+<Layout 
+  title={title}
+  description={optimizedDescription}
+  keywords={keywords}
+  image="/social-share-podcasts.jpg"
+  type={pageType}
+  publishDate={publishDate}
+  modifiedDate={modifiedDate}
+>
   <div class="max-w-6xl mx-auto px-4 py-8">
     <!-- Podcast heading and description -->
     <div class="text-center mb-12">

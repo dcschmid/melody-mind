@@ -4,7 +4,7 @@ import PlaylistItem from "@components/PlaylistItem.astro";
 import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
-// Wir fügen den Import für Icons hinzu - passen Sie dies an Ihr verwendetes Icon-Paket an
+import { extractKeywords, generateMetaDescription } from "@utils/seo";
 import { Icon } from "astro-icon/components";
 
 /**
@@ -92,6 +92,22 @@ const nonPlayableCategories = categories.filter(
 // Combined categories with playable ones first
 const sortedCategories = [...playableCategories, ...nonPlayableCategories];
 
+// Generate SEO content
+const title = t("game.select");
+const description = t("game.welcome");
+
+// Enhanced SEO content using utility functions
+const pageContent = `${title} ${description} ${sortedCategories.map(c => `${c.headline} ${c.introSubline}`).join(' ')}`;
+
+// Generate optimized meta description and keywords
+const optimizedDescription = generateMetaDescription(pageContent);
+const keywords = extractKeywords(pageContent) || t("meta.keywords");
+
+// Additional structured data parameters for SEO
+const pageType = "website";
+const publishDate = new Date("2024-01-01");
+const modifiedDate = new Date();
+
 // Prepare fallback text for empty states
 const emptyCategoriesHeadline =
   t("game.categories.empty.headline") || "No genres found";
@@ -105,7 +121,15 @@ const noPlayableCategoriesText =
   "There are currently no playable categories. Please check back later.";
 ---
 
-<Layout title={t("game.select")}>
+<Layout 
+  title={title}
+  description={optimizedDescription}
+  keywords={keywords}
+  image="/social-share-gamehome.jpg"
+  type={pageType}
+  publishDate={publishDate}
+  modifiedDate={modifiedDate}
+>
   <div class="w-full max-w-6xl mx-auto px-4 py-8" id="main-content">
     <!-- Hero section with improved contrast and accessibility -->
     <section
