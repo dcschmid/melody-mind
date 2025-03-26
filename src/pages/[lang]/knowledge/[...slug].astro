@@ -69,8 +69,12 @@ const description = entry.data.description;
 const pageContent = `${title} ${description} ${entry.body || ""}`;
 
 // Generate optimized meta description and keywords
-const optimizedDescription = generateMetaDescription(description) || description;
-const keywords = extractKeywords(pageContent) || entry.data.keywords?.join(", ") || t["meta.keywords"];
+const optimizedDescription =
+  generateMetaDescription(description) || description;
+const keywords =
+  extractKeywords(pageContent) ||
+  entry.data.keywords?.join(", ") ||
+  t["meta.keywords"];
 
 // Additional structured data parameters for SEO
 const pageType = "article"; // Artikel sollten den Typ 'article' anstelle von 'website' haben
@@ -95,7 +99,8 @@ const articleSchemaData = {
   headline: entry.data.title,
   description: optimizedDescription,
   datePublished: entry.data.createdAt?.toISOString(),
-  dateModified: entry.data.updatedAt?.toISOString() || entry.data.createdAt?.toISOString(),
+  dateModified:
+    entry.data.updatedAt?.toISOString() || entry.data.createdAt?.toISOString(),
   image: imageSource,
   author: {
     "@type": "Organization",
@@ -106,18 +111,18 @@ const articleSchemaData = {
     name: "Melody Mind",
     logo: {
       "@type": "ImageObject",
-      url: "/melody-mind.png"
-    }
+      url: "/melody-mind.png",
+    },
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": Astro.url.href
+    "@id": Astro.url.href,
   },
-  keywords: keywords
+  keywords: keywords,
 };
 ---
 
-<Layout 
+<Layout
   title={title}
   description={optimizedDescription}
   keywords={keywords}
