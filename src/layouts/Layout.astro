@@ -16,6 +16,9 @@ interface Props {
   description?: string;
   keywords?: string;
   image?: string;
+  type?: 'website' | 'article' | 'music' | 'game';
+  publishDate?: Date; 
+  modifiedDate?: Date;
   showHeader?: boolean;
   showHeaderIcons?: boolean;
   showCoins?: boolean;
@@ -26,6 +29,9 @@ const {
   description,
   keywords,
   image,
+  type = 'website',
+  publishDate,
+  modifiedDate,
   showHeader = true,
   showHeaderIcons = true,
   showCoins = false,
@@ -47,6 +53,9 @@ const lang = getLangFromUrl(Astro.url);
       description={description}
       keywords={keywords}
       image={image}
+      type={type}
+      publishDate={publishDate}
+      modifiedDate={modifiedDate}
     />
 
     <script

@@ -1,25 +1,127 @@
-import { ui, defaultLang } from "../i18n/ui";
+/**
+ * Internationalization helper functions for Melody Mind
+ * 
+ * This module provides utilities for handling multilingual content across the application,
+ * including language detection, translation lookup, and URL localization.
+ */
 
-export function getLangFromUrl(url: URL) {
-  const [, lang] = url.pathname.split("/");
-  if (lang in ui) return lang as keyof typeof ui;
+import { ui, defaultLang, languages } from '../i18n/ui';
+
+// Type definitions for UI translations
+type TranslationKey = string;
+type TranslationValue = string;
+type LanguageCode = keyof typeof languages;
+type TranslationsForLanguage = Record<TranslationKey, TranslationValue>;
+type TranslationsObject = Record<LanguageCode, TranslationsForLanguage>;
+
+/**
+ * Extracts the current language from a URL
+ *
+ * Parses the URL path (expected format: /{lang}/...) and returns the language code.
+ * Falls back to the default language if no valid language is found.
+ * 
+ * @param url - The URL object from Astro.url
+ * @returns The language code (e.g., 'en', 'de', etc.)
+ */
+export function getLangFromUrl(url: URL): string {
+  const [, lang] = url.pathname.split('/');
+  return (lang && lang in ui) ? lang : defaultLang;
+}
+
+/**
+ * Creates a translation function for the specified language
+ * 
+ * Returns a function that translates keys to strings for the given language,
+ * with fallback to the default language if a translation is missing.
+ * Supports variable interpolation in translation strings.
+ * 
+ * @param lang - The language code to use for translations
+ * @returns A function that returns translated strings
+ */
+export function useTranslations(lang: string) {
+  return function t(key: keyof typeof ui[typeof defaultLang] | string, vars?: Record<string, string | number>): string {
+    // Safe type checking for translation access
+    const langTranslations = ui[lang as LanguageCode] || {};
+    const defaultTranslations = ui[defaultLang];
+    
+    // Get translation with fallback chain: specified language → default language → key itself
+    let text = langTranslations[key as keyof typeof langTranslations] || 
+               defaultTranslations[key as keyof typeof defaultTranslations] || 
+               key;
+    
+    // Replace variables in the translation string if provided
+    if (vars) {
+      Object.entries(vars).forEach(([k, v]) => {
+        text = text.replace(new RegExp(`{${k}}`, 'g'), v.toString());
+      });
+    }
+    
+    return text;
+  };
+}
+
+/**
+ * Creates a localized URL path for a specific language
+ * 
+ * @param lang - The target language code
+ * @param path - The path to navigate to (with or without leading slash)
+ * @returns A properly formatted URL string for the specified language and path
+ */
+export function getLocalizedURL(lang: string, path: string): string {
+  return `/${lang}${path.startsWith('/') ? path : '/' + path}`;
+}
+
+/**
+ * Creates a relative URL for a specific language
+ * 
+ * Alias for getLocalizedURL for consistency with Astro's naming conventions
+ * 
+ * @param locale - The language code to use
+ * @param path - The path to navigate to
+ * @returns A properly formatted relative URL string
+ */
+export function getRelativeLocaleUrl(locale: string, path: string): string {
+  return getLocalizedURL(locale, path);
+}
+
+/**
+ * Gets translations for a specific key across all supported languages
+ * 
+ * Useful for creating language switchers and other multilingual components
+ * 
+ * @param key - The translation key to look up
+ * @returns An object mapping language codes to their translations
+ */
+export function getAllTranslations(key: string): Record<string, string> {
+  const translations: Record<string, string> = {};
+  
+  Object.entries(ui as TranslationsObject).forEach(([lang, langTranslations]) => {
+    if (key in langTranslations) {
+      translations[lang] = langTranslations[key];
+    }
+  });
+  
+  return translations;
+}
+
+/**
+ * Determines if the user's browser has a preferred language that matches our supported languages
+ * 
+ * @param browserLanguages - Array of browser languages (e.g., from navigator.languages)
+ * @returns The matching language code or defaultLang if no match
+ */
+export function getBrowserLanguage(browserLanguages: readonly string[]): string {
+  // Try to match full language tags first (e.g., 'en-US', 'de-DE')
+  for (const lang of browserLanguages) {
+    const baseLang = lang.split('-')[0].toLowerCase();
+    if (baseLang in languages) {
+      return baseLang;
+    }
+  }
+  
   return defaultLang;
 }
 
-export function useTranslations(lang: keyof typeof ui) {
-  return function t(key: string, replacements?: Record<string, string>) {
-    // Use type assertion to handle any key
-    let translation =
-      ui[lang][key as keyof (typeof ui)[typeof lang]] ||
-      ui[defaultLang][key as keyof (typeof ui)[typeof defaultLang]] ||
-      key;
-
-    if (replacements) {
-      Object.entries(replacements).forEach(([placeholder, value]) => {
-        translation = translation.replace(`{${placeholder}}`, value);
-      });
-    }
-
-    return translation;
-  };
-}
+// Types for TypeScript support
+export type UiLanguages = keyof typeof ui;
+export type UiKeys<T extends UiLanguages> = keyof typeof ui[T];

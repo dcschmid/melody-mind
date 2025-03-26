@@ -1,7 +1,8 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import { Picture } from "astro:assets";
-import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { getLangFromUrl, useTranslations, getRelativeLocaleUrl } from "@utils/i18n";
+import { extractKeywords, generateMetaDescription } from "@utils/seo";
 import LanguagePicker from "@components/LanguagePicker.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
@@ -10,22 +11,42 @@ import ButtonLink from "@components/ButtonLink.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Dynamische Weiterleitung basierend auf Browser-Sprache
+// Dynamic redirect based on browser language
 if (Astro.request.method === "GET" && !Astro.params.lang) {
   return Astro.redirect(
-    getRelativeLocaleUrl(Astro.preferredLocale || "de", "/"),
+    getRelativeLocaleUrl(Astro.preferredLocale || "en", "/"),
   );
 }
 
+// Basic page content
 const title = t("login.welcome");
 const description = t("login.description");
-const keywords = t("meta.keywords");
+
+// Enhanced SEO content using utility functions
+const pageContent = `${title} ${description} ${t("index.welcome.footnote")} 
+Melody Mind is a musical quiz game where players can test their knowledge across 
+various music genres. Choose between Easy, Medium, and Hard difficulties, 
+earn points for correct answers, and collect Golden LPs based on your performance. 
+Compete against others in genre-specific and overall rankings.`;
+
+// Generate optimized meta description and keywords
+const optimizedDescription = generateMetaDescription(pageContent);
+const keywords = extractKeywords(pageContent) || t("meta.keywords");
+
+// Additional structured data parameters for SEO
+const pageType = "website";
+const publishDate = new Date("2024-01-01");
+const modifiedDate = new Date();
 ---
 
 <Layout
   title={title}
-  description={description}
+  description={optimizedDescription}
   keywords={keywords}
+  image="/social-share-home.jpg"
+  type={pageType}
+  publishDate={publishDate}
+  modifiedDate={modifiedDate}
   showHeader={false}
 >
   <main class="min-h-screen flex items-center justify-cente text-zinc-50">
@@ -45,7 +66,7 @@ const keywords = t("meta.keywords");
           width={480}
           height={480}
           formats={["avif", "webp"]}
-          alt="Melody Mind Logo - Musikquiz App Logo"
+          alt="Melody Mind Logo - Music Quiz App Logo"
           loading="eager"
         />
 
@@ -67,7 +88,7 @@ const keywords = t("meta.keywords");
           <ButtonLink
             href={`/${lang}/gamehome`}
             aria-label={t("index.start.game.label")}
-            class="w-full py-4 px-6 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 rounded-xl transform hover:scale-102 transition-all duration-300 shadow-lg focus:outline-none focus:ring-4 focus:ring-purple-400 focus:ring-opacity-50"
+            className="w-full py-4 px-6 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 rounded-xl transform hover:scale-102 transition-all duration-300 shadow-lg focus:outline-none focus:ring-4 focus:ring-purple-400 focus:ring-opacity-50"
           >
             <span class="text-lg text-zinc-100 font-medium"
               >{t("index.continue")}</span
@@ -78,9 +99,9 @@ const keywords = t("meta.keywords");
         <p class="mt-10 text-xl text-zinc-300">{t("index.welcome.footnote")}</p>
       </div>
 
-      <!-- WCAG AAA Hinweis -->
+      <!-- WCAG AAA Notice -->
       <p class="mt-6 text-xl text-zinc-200">
-        <span role="img" aria-label="Barrierefreiheit">♿</span>
+        <span role="img" aria-label="Accessibility">♿</span>
         {t("accessibility.wcag")}
       </p>
     </div>
@@ -88,14 +109,14 @@ const keywords = t("meta.keywords");
 </Layout>
 
 <style>
-  /* Verbesserte Fokus-Stile für Barrierefreiheit */
+  /* Enhanced focus styles for accessibility */
   :global(:focus-visible) {
     outline: 3px solid #8b5cf6 !important;
     outline-offset: 3px !important;
     border-radius: 0.25rem;
   }
 
-  /* Respektiere Nutzereinstellungen für reduzierte Bewegung */
+  /* Respect user preferences for reduced motion */
   @media (prefers-reduced-motion: reduce) {
     :global(*) {
       animation-duration: 0.01ms !important;

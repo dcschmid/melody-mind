@@ -42,6 +42,7 @@ export default defineConfig({
     resolve: {
       alias: {
         "@json": path.resolve("./src/json"),
+        "@i18n": "/src/i18n",
       },
     },
 
