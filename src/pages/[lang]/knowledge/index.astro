@@ -88,7 +88,7 @@ const title = ui[uiLang]["knowledge.title"];
 const description = ui[uiLang]["knowledge.intro"];
 
 // Enhanced SEO content using utility functions
-const pageContent = `${title} ${description} ${sortedArticles.map(a => `${a.data.title} ${a.data.description}`).join(' ')}`;
+const pageContent = `${title} ${description} ${sortedArticles.map((a) => `${a.data.title} ${a.data.description}`).join(" ")}`;
 
 // Generate optimized meta description and keywords
 const optimizedDescription = generateMetaDescription(pageContent);
@@ -100,7 +100,7 @@ const publishDate = new Date("2024-01-01");
 const modifiedDate = new Date();
 ---
 
-<Layout 
+<Layout
   title={title}
   description={optimizedDescription}
   keywords={keywords}
