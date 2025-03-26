@@ -1,19 +1,136 @@
 ---
+import { getLangFromUrl } from "@utils/i18n";
+import { languages } from "../i18n/ui";  // Direkter relativer Pfad statt Alias
+
 interface Props {
   title: string;
   description?: string;
   keywords?: string;
   image?: string;
+  type?: 'website' | 'article' | 'music' | 'game';
+  publishDate?: Date;
+  modifiedDate?: Date;
+  audioSrc?: string;
+  section?: string;
 }
 
 const {
   title,
-  description = "Melody Mind - Das musikalische Ratespiel",
-  keywords = "Musik, Ratespiel, Quiz, Cover, Entertainment",
+  description = "Melody Mind - The Musical Quiz Game",
+  keywords = "Music, Quiz, Game, Cover, Entertainment",
   image = "/social-share.jpg",
+  type = "website",
+  publishDate,
+  modifiedDate,
+  audioSrc,
+  section = "game",
 } = Astro.props;
 
+const lang = getLangFromUrl(Astro.url);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(image, Astro.site);
+const siteUrl = Astro.site?.toString() || 'https://melodymind.app';
+
+// Improved URL handling for hreflang tags
+const alternateLanguages = Object.keys(languages).map(langCode => {
+  // Safer method to replace language in URL path
+  let path = Astro.url.pathname;
+  
+  // If current path starts with /{lang}/, replace only that part
+  const langPathRegex = new RegExp(`^/${lang}/`);
+  if (langPathRegex.test(path)) {
+    path = path.replace(langPathRegex, `/${langCode}/`);
+  } else {
+    // Fallback for different URL structures
+    path = `/${langCode}${path.startsWith('/') ? path : '/' + path}`;
+  }
+  
+  const url = new URL(path, Astro.site || siteUrl);
+  return { langCode, url: url.toString() };
+});
+
+// JSON-LD structured data with TypeScript type safety
+interface StructuredData {
+  "@context": string;
+  "@type": string;
+  [key: string]: any;
+}
+
+// Base website schema
+let structuredData: StructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Melody Mind",
+  "url": siteUrl,
+  "description": description,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": `${siteUrl}${lang}/search?q={search_term_string}`
+    },
+    "query-input": "required name=search_term_string"
+  },
+  "inLanguage": lang,
+  "author": {
+    "@type": "Organization",
+    "name": "Melody Mind Team"
+  }
+};
+
+// Enhanced structured data based on page type
+if (type === 'article') {
+  structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,  // Use headline for Article schema (not name)
+    "description": description,
+    "image": imageURL.toString(),
+    "datePublished": publishDate ? publishDate.toISOString() : new Date().toISOString(),
+    "dateModified": modifiedDate ? modifiedDate.toISOString() : new Date().toISOString(),
+    "author": {
+      "@type": "Organization",
+      "name": "Melody Mind Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Melody Mind",
+      "logo": {
+        "@type": "ImageObject",
+        "url": new URL("/melody-mind.png", Astro.site || siteUrl).toString()
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": canonicalURL.toString()
+    },
+    "inLanguage": lang,
+    "articleSection": section
+  };
+} else if (type === 'music') {
+  structuredData = {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": title,
+    "description": description,
+    "image": imageURL.toString(),
+    "url": canonicalURL.toString(),
+    "audio": audioSrc ? new URL(audioSrc, Astro.site || siteUrl).toString() : null
+  };
+} else if (type === 'game') {
+  structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Game",
+    "name": "Melody Mind",
+    "description": description,
+    "genre": "Music Quiz",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Music lovers"
+    },
+    "inLanguage": lang
+  };
+}
 ---
 
 <!-- Primary Meta Tags -->
@@ -21,25 +138,52 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <meta name="title" content={`${title} | Melody Mind`} />
 <meta name="description" content={description} />
 <meta name="keywords" content={keywords} />
-<meta name="author" content="Daniel Schmid" />
+<meta name="author" content="Melody Mind Team" />
 <meta name="robots" content="index, follow" />
+<meta name="language" content={lang} />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
+<!-- Hreflang Tags for Internationalization -->
+{alternateLanguages.map(({ langCode, url }) => (
+  <link rel="alternate" href={url} hreflang={langCode} />
+))}
+<link rel="alternate" href={canonicalURL} hreflang="x-default" />
+
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={type === 'article' ? 'article' : 'website'} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={`${title} | Melody Mind`} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.site)} />
+<meta property="og:image" content={imageURL} />
+<meta property="og:locale" content={lang} />
+<meta property="og:site_name" content="Melody Mind" />
+{publishDate && <meta property="article:published_time" content={publishDate.toISOString()} />}
+{modifiedDate && <meta property="article:modified_time" content={modifiedDate.toISOString()} />}
+{section && <meta property="article:section" content={section} />}
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={canonicalURL} />
 <meta property="twitter:title" content={`${title} | Melody Mind`} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.site)} />
+<meta property="twitter:image" content={imageURL} />
+<meta name="twitter:image:alt" content={`Melody Mind - ${title}`} />
+<meta name="twitter:site" content="@melodymindgame" />
+<meta name="twitter:creator" content="@melodymindgame" />
+
+<!-- Mobile App Integration -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="theme-color" content="#18181b" />
+
+<!-- Performance Hints -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+<!-- Structured Data / JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
 <!-- Favicons -->
 <link rel="icon" type="image/png" href="/favicon-96x96.png?v=2" sizes="96x96" />
