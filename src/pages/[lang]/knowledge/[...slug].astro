@@ -8,6 +8,7 @@ import Headline from "@components/Headline.astro";
 import { Icon } from "astro-icon/components";
 import ButtonLink from "@components/ButtonLink.astro";
 import { calculateReadingTime } from "@utils/readingTime";
+import { extractKeywords, generateMetaDescription } from "@utils/seo";
 
 export const prerender = true;
 
@@ -60,6 +61,22 @@ const readingTimeText = entry.body
   ? `${calculateReadingTime(entry.body)} ${t["knowledge.reading.time"] || "min Lesezeit"}`
   : null;
 
+// Generate SEO content from the article
+const title = entry.data.title;
+const description = entry.data.description;
+
+// Enhanced SEO content using utility functions
+const pageContent = `${title} ${description} ${entry.body || ""}`;
+
+// Generate optimized meta description and keywords
+const optimizedDescription = generateMetaDescription(description) || description;
+const keywords = extractKeywords(pageContent) || entry.data.keywords?.join(", ") || t["meta.keywords"];
+
+// Additional structured data parameters for SEO
+const pageType = "article"; // Artikel sollten den Typ 'article' anstelle von 'website' haben
+const publishDate = entry.data.createdAt || new Date("2024-01-01");
+const modifiedDate = entry.data.updatedAt || new Date();
+
 // Determine if this article has a playable game category
 const isPlayable = entry.data.isPlayable === true;
 
@@ -71,22 +88,44 @@ const gameCategoryUrl = isPlayable ? `/${lang}/${gameCategorySlug}` : null;
 const playButtonText =
   t["knowledge.play.category"] || "Diese Musikkategorie spielen";
 
-// Structured data for article
+// Structured data for article - erweitert für besseres SEO
 const articleSchemaData = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: entry.data.title,
-  description: entry.data.description,
+  description: optimizedDescription,
   datePublished: entry.data.createdAt?.toISOString(),
+  dateModified: entry.data.updatedAt?.toISOString() || entry.data.createdAt?.toISOString(),
   image: imageSource,
   author: {
     "@type": "Organization",
     name: "Melody Mind",
   },
+  publisher: {
+    "@type": "Organization",
+    name: "Melody Mind",
+    logo: {
+      "@type": "ImageObject",
+      url: "/melody-mind.png"
+    }
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": Astro.url.href
+  },
+  keywords: keywords
 };
 ---
 
-<Layout title={entry.data.title} description={entry.data.description}>
+<Layout 
+  title={title}
+  description={optimizedDescription}
+  keywords={keywords}
+  image={imageSource}
+  type={pageType}
+  publishDate={publishDate}
+  modifiedDate={modifiedDate}
+>
   <script
     type="application/ld+json"
     set:html={JSON.stringify(articleSchemaData)}

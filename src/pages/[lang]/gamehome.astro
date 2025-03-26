@@ -97,7 +97,7 @@ const title = t("game.select");
 const description = t("game.welcome");
 
 // Enhanced SEO content using utility functions
-const pageContent = `${title} ${description} ${sortedCategories.map(c => `${c.headline} ${c.introSubline}`).join(' ')}`;
+const pageContent = `${title} ${description} ${sortedCategories.map((c) => `${c.headline} ${c.introSubline}`).join(" ")}`;
 
 // Generate optimized meta description and keywords
 const optimizedDescription = generateMetaDescription(pageContent);
@@ -121,7 +121,7 @@ const noPlayableCategoriesText =
   "There are currently no playable categories. Please check back later.";
 ---
 
-<Layout 
+<Layout
   title={title}
   description={optimizedDescription}
   keywords={keywords}

@@ -8,6 +8,7 @@ import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
 import { calculateReadingTime } from "@utils/readingTime";
+import { extractKeywords, generateMetaDescription } from "@utils/seo";
 
 export const prerender = true;
 
@@ -81,9 +82,33 @@ const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
     sensitivity: "base",
   }),
 );
+
+// Generate SEO content
+const title = ui[uiLang]["knowledge.title"];
+const description = ui[uiLang]["knowledge.intro"];
+
+// Enhanced SEO content using utility functions
+const pageContent = `${title} ${description} ${sortedArticles.map(a => `${a.data.title} ${a.data.description}`).join(' ')}`;
+
+// Generate optimized meta description and keywords
+const optimizedDescription = generateMetaDescription(pageContent);
+const keywords = extractKeywords(pageContent) || ui[uiLang]["meta.keywords"];
+
+// Additional structured data parameters for SEO
+const pageType = "website";
+const publishDate = new Date("2024-01-01");
+const modifiedDate = new Date();
 ---
 
-<Layout title={ui[uiLang]["knowledge.title"]}>
+<Layout 
+  title={title}
+  description={optimizedDescription}
+  keywords={keywords}
+  image="/social-share-knowledge.jpg"
+  type={pageType}
+  publishDate={publishDate}
+  modifiedDate={modifiedDate}
+>
   <div class="max-w-6xl mx-auto px-4 py-8">
     <div class="text-center mb-12">
       <Headline
