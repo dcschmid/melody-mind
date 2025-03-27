@@ -32,13 +32,31 @@ export async function getStaticPaths() {
   for (const lang of supportedLanguages) {
     // Load categories based on language
     let categories;
+    let usedFallback = false;
+    
     try {
+      // Versuche zuerst, die sprachspezifische Kategoriedatei zu laden
       categories = await import(
-        /* @vite-ignore */ `@json/${lang}_categories.json`
+        /* @vite-ignore */ `../../json/${lang}_categories.json`
       );
+      console.log(`Loaded categories for language: ${lang}`);
     } catch (error) {
-      // Fallback to default language if the specific language file doesn't exist
-      categories = await import(/* @vite-ignore */ `@json/de_categories.json`);
+      console.error(`Error loading ${lang}_categories.json:`, error);
+      
+      try {
+        // Versuche einen alternativen Pfad
+        categories = await import(
+          /* @vite-ignore */ `@json/${lang}_categories.json`
+        );
+        console.log(`Loaded categories for language: ${lang} with @json alias`);
+      } catch (aliasError) {
+        console.error(`Error with alias path for ${lang}:`, aliasError);
+        
+        // Fallback to default language if the specific language file doesn't exist
+        categories = await import(/* @vite-ignore */ `../../json/en_categories.json`);
+        usedFallback = true;
+        console.log(`Using fallback English categories for ${lang}`);
+      }
     }
 
     // Create a path for each category
@@ -49,6 +67,7 @@ export async function getStaticPaths() {
           categories: categories.default,
           category: category,
           lang,
+          usedFallback
         },
       });
     }
@@ -58,7 +77,7 @@ export async function getStaticPaths() {
 }
 
 // Get props from getStaticPaths
-const { category, lang } = Astro.props;
+const { category, lang, usedFallback } = Astro.props;
 const t = useTranslations(lang);
 
 interface Category {
@@ -99,6 +118,14 @@ const modifiedDate = new Date();
   modifiedDate={modifiedDate}
 >
   <div class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Zeige Fallback-Warnung wenn nötig -->
+    {usedFallback && (
+      <div class="bg-amber-700/30 text-amber-200 p-3 rounded-lg mb-6 text-center text-sm">
+        <Icon name="warning" class="w-5 h-5 inline-block mr-2" />
+        {t("notice.fallback_content") || "Using fallback content. Some information may be displayed in English."}
+      </div>
+    )}
+    
     <!-- Hero section with improved contrast and accessibility -->
     <div
       class="text-center mb-12 bg-gradient-to-br from-zinc-800/60 to-zinc-900/60 backdrop-blur-sm p-8 rounded-2xl shadow-xl"
