@@ -51,7 +51,7 @@ export function determineUserLanguage(): LanguageCode {
 
   // Get browser languages
   const browserLangs = navigator.languages || [
-    navigator.language || navigator.userLanguage || "en",
+    navigator.language || "en",
   ];
 
   // Find the first matching language

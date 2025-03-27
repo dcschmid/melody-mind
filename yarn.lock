@@ -2078,6 +2078,11 @@ astro-icon@^1.1.5:
     "@iconify/types" "^2.0.0"
     "@iconify/utils" "^2.1.30"
 
+astro-meta-tags@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/astro-meta-tags/-/astro-meta-tags-0.3.1.tgz#334c71d7f3b1d4c28acc9892f69dab6266756efa"
+  integrity sha512-6g/SfAVTV7BsGlfWU+s/Kvo6atyn9DpfI7Dq3fE/ck3ppfg30aoeT2Uxu7UH4yla3QXAUWaJIher7fGjewf0ew==
+
 astro@*:
   version "4.16.8"
   resolved "https://registry.yarnpkg.com/astro/-/astro-4.16.8.tgz#e097a340e0949177390f8f804f267c247121a840"

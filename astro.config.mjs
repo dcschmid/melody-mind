@@ -10,11 +10,13 @@ import tailwindcss from "@tailwindcss/vite";
 
 import sitemap from "@astrojs/sitemap";
 
+import metaTags from "astro-meta-tags";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://melody-mind.de",
   output: "server",
-  integrations: [icon(), compressor(), playformCompress(), sitemap()],
+  integrations: [icon(), compressor(), playformCompress(), sitemap(), metaTags()],
   adapter: node({
     mode: "standalone",
   }),
