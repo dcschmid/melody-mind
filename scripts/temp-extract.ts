@@ -1,5 +1,5 @@
 // Temporäre Datei zur Extraktion der Übersetzungen
-      const ui = {
+const ui = {
   de: {
     "nav.home": "Startseite",
     "nav.rules": "Spielregeln",
@@ -2421,6 +2421,8 @@
     "playlist.decade.filter": "Suodata vuosikymmenen mukaan",
   },
 };
-      const fs = require('fs');
-      fs.writeFileSync('/home/daniel/projects/melody-mind/scripts/temp-translations.json', JSON.stringify(ui, null, 2));
-      
+const fs = require("fs");
+fs.writeFileSync(
+  "/home/daniel/projects/melody-mind/scripts/temp-translations.json",
+  JSON.stringify(ui, null, 2),
+);

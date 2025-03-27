@@ -30,7 +30,7 @@ export function getLangFromUrl(url: URL): LanguageCode {
 
 /**
  * Type guard to check if a string is a valid language code
- * 
+ *
  * @param lang - String to check
  * @returns Boolean indicating if the string is a valid language code
  */
@@ -40,7 +40,7 @@ function isValidLanguage(lang: string | undefined): lang is LanguageCode {
 
 /**
  * Determines the best language for the user based on browser settings
- * 
+ *
  * @returns A language code from the supported languages
  */
 export function determineUserLanguage(): LanguageCode {
@@ -50,9 +50,7 @@ export function determineUserLanguage(): LanguageCode {
   }
 
   // Get browser languages
-  const browserLangs = navigator.languages || [
-    navigator.language || "en",
-  ];
+  const browserLangs = navigator.languages || [navigator.language || "en"];
 
   // Find the first matching language
   for (const browserLang of browserLangs) {
@@ -82,7 +80,8 @@ export function useTranslations(lang: string) {
     vars?: Record<string, string | number>,
   ): string {
     // Safe type checking for translation access
-    const langTranslations = (ui[lang as LanguageCode] ?? {}) as TranslationsForLanguage;
+    const langTranslations = (ui[lang as LanguageCode] ??
+      {}) as TranslationsForLanguage;
     const defaultTranslations = ui[defaultLang] as TranslationsForLanguage;
 
     // Get translation with fallback chain: specified language → default language → key itself
@@ -132,7 +131,9 @@ export function getRelativeLocaleUrl(locale: string, path: string): string {
  * @param key - The translation key to look up
  * @returns An object mapping language codes to their translations
  */
-export function getAllTranslations(key: TranslationKey): Record<string, string> {
+export function getAllTranslations(
+  key: TranslationKey,
+): Record<string, string> {
   const translations: Record<string, string> = {};
 
   Object.entries(ui as TranslationsObject).forEach(
