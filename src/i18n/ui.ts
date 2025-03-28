@@ -194,7 +194,8 @@ export const ui = {
     "podcast.conclusion.title": "Fazit",
     "podcast.conclusion.description": "Zusammenfassung und nächste Schritte.",
     "podcast.listen.on": "Anhören auf",
-    "podcast.language.availability": "Unsere Podcasts sind ausschließlich auf Deutsch und Englisch verfügbar.",
+    "podcast.language.availability":
+      "Unsere Podcasts sind ausschließlich auf Deutsch und Englisch verfügbar.",
     "podcast.listen.heading": "Höre unsere Podcasts",
     "login.welcome": "Willkommen bei Melody Mind!",
     "login.description":
@@ -440,7 +441,8 @@ export const ui = {
     "podcast.conclusion.title": "Conclusion",
     "podcast.conclusion.description": "Summary and next steps.",
     "podcast.listen.on": "Listen on",
-    "podcast.language.availability": "Our podcasts are available exclusively in German and English.",
+    "podcast.language.availability":
+      "Our podcasts are available exclusively in German and English.",
     "podcast.listen.heading": "Listen to our Podcasts",
     "login.welcome": "Welcome to Melody Mind!",
     "login.description":
@@ -687,7 +689,8 @@ export const ui = {
     "podcast.conclusion.title": "Conclusión",
     "podcast.conclusion.description": "Resumen y próximos pasos.",
     "podcast.listen.on": "Escuchar en",
-    "podcast.language.availability": "Nuestros podcasts están disponibles exclusivamente en alemán e inglés.",
+    "podcast.language.availability":
+      "Nuestros podcasts están disponibles exclusivamente en alemán e inglés.",
     "podcast.listen.heading": "Escucha nuestros Podcasts",
     "login.welcome": "¡Bienvenido a Melody Mind!",
     "login.description":
@@ -935,7 +938,8 @@ export const ui = {
     "podcast.conclusion.title": "Conclusion",
     "podcast.conclusion.description": "Résumé et prochaines étapes.",
     "podcast.listen.on": "Écouter sur",
-    "podcast.language.availability": "Nos podcasts sont disponibles exclusivement en allemand et en anglais.",
+    "podcast.language.availability":
+      "Nos podcasts sont disponibles exclusivement en allemand et en anglais.",
     "podcast.listen.heading": "Écouter nos Podcasts",
     "login.welcome": "Bienvenue à Melody Mind !",
     "login.description":
@@ -1183,7 +1187,8 @@ export const ui = {
     "podcast.conclusion.title": "Conclusione",
     "podcast.conclusion.description": "Riepilogo e prossimi passi.",
     "podcast.listen.on": "Ascolta su",
-    "podcast.language.availability": "I nostri podcast sono disponibili esclusivamente in tedesco e inglese.",
+    "podcast.language.availability":
+      "I nostri podcast sono disponibili esclusivamente in tedesco e inglese.",
     "podcast.listen.heading": "Ascolta i nostri Podcast",
     "login.welcome": "Benvenuto a Melody Mind!",
     "login.description":
@@ -1431,7 +1436,8 @@ export const ui = {
     "podcast.conclusion.title": "Conclusão",
     "podcast.conclusion.description": "Resumo e próximos passos.",
     "podcast.listen.on": "Ouça no",
-    "podcast.language.availability": "Nossos podcasts estão disponíveis exclusivamente em alemão e inglês.",
+    "podcast.language.availability":
+      "Nossos podcasts estão disponíveis exclusivamente em alemão e inglês.",
     "podcast.listen.heading": "Ouça nossos Podcasts",
     "login.welcome": "Bem-vindo ao Melody Mind!",
     "login.description":
@@ -1671,7 +1677,8 @@ export const ui = {
     "podcast.conclusion.title": "Konklusion",
     "podcast.conclusion.description": "Resumé og næste skridt.",
     "podcast.listen.on": "Lyt på",
-    "podcast.language.availability": "Vores podcasts er udelukkende tilgængelige på tysk og engelsk.",
+    "podcast.language.availability":
+      "Vores podcasts er udelukkende tilgængelige på tysk og engelsk.",
     "podcast.listen.heading": "Lyt til vores Podcasts",
     "login.welcome": "Velkommen til Melody Mind!",
     "login.description":
@@ -1913,7 +1920,8 @@ export const ui = {
     "podcast.conclusion.title": "Conclusie",
     "podcast.conclusion.description": "Samenvatting en volgende stappen.",
     "podcast.listen.on": "Luister op",
-    "podcast.language.availability": "Onze podcasts zijn uitsluitend beschikbaar in het Duits en Engels.",
+    "podcast.language.availability":
+      "Onze podcasts zijn uitsluitend beschikbaar in het Duits en Engels.",
     "podcast.listen.heading": "Luister naar onze Podcasts",
     "login.welcome": "Welkom bij Melody Mind!",
     "login.description":
@@ -2154,7 +2162,8 @@ export const ui = {
     "podcast.conclusion.title": "Slutsats",
     "podcast.conclusion.description": "Sammanfattning och nästa steg.",
     "podcast.listen.on": "Lyssna på",
-    "podcast.language.availability": "Våra podcasts finns endast tillgängliga på tyska och engelska.",
+    "podcast.language.availability":
+      "Våra podcasts finns endast tillgängliga på tyska och engelska.",
     "podcast.listen.heading": "Lyssna på våra Podcasts",
     "login.welcome": "Välkommen till Melody Mind!",
     "login.description":
@@ -2393,7 +2402,8 @@ export const ui = {
     "podcast.conclusion.title": "Johtopäätös",
     "podcast.conclusion.description": "Yhteenveto ja seuraavat vaiheet.",
     "podcast.listen.on": "Kuuntele palvelussa",
-    "podcast.language.availability": "Podcastimme ovat saatavilla vain saksaksi ja englanniksi.",
+    "podcast.language.availability":
+      "Podcastimme ovat saatavilla vain saksaksi ja englanniksi.",
     "podcast.listen.heading": "Kuuntele podcastejamme",
     "login.welcome": "Tervetuloa Melody Mindiin!",
     "login.description":
