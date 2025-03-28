@@ -264,6 +264,8 @@ export const ui = {
     "playlist.listen.deezer": "Auf Deezer anhören",
     "playlist.listen.apple": "Auf Apple Music anhören",
     "playlist.decade.filter": "Nach Jahrzehnt filtern",
+    "footer.rights": "Alle Rechte vorbehalten",
+    "footer.donate": "Spenden",
   },
   en: {
     "nav.home": "Home",
@@ -511,6 +513,8 @@ export const ui = {
     "playlist.listen.deezer": "Listen on Deezer",
     "playlist.listen.apple": "Listen on Apple Music",
     "playlist.decade.filter": "Filter by decade",
+    "footer.rights": "All Rights Reserved",
+    "footer.donate": "Donate",
   },
   es: {
     "nav.home": "Inicio",
@@ -760,6 +764,8 @@ export const ui = {
     "playlist.listen.deezer": "Escuchar en Deezer",
     "playlist.listen.apple": "Escuchar en Apple Music",
     "playlist.decade.filter": "Filtrar por década",
+    "footer.rights": "Todos los derechos reservados",
+    "footer.donate": "Donar",
   },
   fr: {
     "nav.home": "Accueil",
@@ -1009,6 +1015,8 @@ export const ui = {
     "playlist.listen.deezer": "Écouter sur Deezer",
     "playlist.listen.apple": "Écouter sur Apple Music",
     "playlist.decade.filter": "Filtrer par décennie",
+    "footer.rights": "Tous droits réservés",
+    "footer.donate": "Faire un don",
   },
   it: {
     "nav.home": "Home",
@@ -1258,6 +1266,8 @@ export const ui = {
     "playlist.listen.deezer": "Ascolta su Deezer",
     "playlist.listen.apple": "Ascolta su Apple Music",
     "playlist.decade.filter": "Filtra per decennio",
+    "footer.rights": "Tutti i diritti riservati",
+    "footer.donate": "Dona",
   },
   pt: {
     "nav.home": "Início",
@@ -1506,6 +1516,8 @@ export const ui = {
     "playlist.listen.deezer": "Ouça no Deezer",
     "playlist.listen.apple": "Ouça no Apple Music",
     "playlist.decade.filter": "Filtrar por década",
+    "footer.rights": "Todos os direitos reservados",
+    "footer.donate": "Doar",
   },
   da: {
     "nav.home": "Hjem",
@@ -1748,6 +1760,8 @@ export const ui = {
     "playlist.listen.deezer": "Lyt på Deezer",
     "playlist.listen.apple": "Lyt på Apple Music",
     "playlist.decade.filter": "Filtrer efter årti",
+    "footer.rights": "Alle rettigheder forbeholdes",
+    "footer.donate": "Donér",
   },
   nl: {
     "nav.home": "Home",
@@ -1990,6 +2004,8 @@ export const ui = {
     "playlist.listen.deezer": "Luister op Deezer",
     "playlist.listen.apple": "Luister op Apple Music",
     "playlist.decade.filter": "Filteren op decennium",
+    "footer.rights": "Alle rechten voorbehouden",
+    "footer.donate": "Doneren",
   },
   sv: {
     "nav.home": "Hem",
@@ -2232,6 +2248,8 @@ export const ui = {
     "playlist.listen.deezer": "Lyssna på Deezer",
     "playlist.listen.apple": "Lyssna på Apple Music",
     "playlist.decade.filter": "Filtrera efter årtionde",
+    "footer.rights": "Alla rättigheter förbehållna",
+    "footer.donate": "Donera",
   },
   fi: {
     "nav.home": "Koti",
@@ -2473,5 +2491,7 @@ export const ui = {
     "playlist.listen.deezer": "Kuuntele Deezerissä",
     "playlist.listen.apple": "Kuuntele Apple Musicissa",
     "playlist.decade.filter": "Suodata vuosikymmenen mukaan",
+    "footer.rights": "Kaikki oikeudet pidätetään",
+    "footer.donate": "Lahjoita",
   },
 };

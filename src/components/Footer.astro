@@ -1,0 +1,62 @@
+---
+import { useTranslations, getLangFromUrl } from "@utils/i18n";
+import { Icon } from "astro-icon/components";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Dynamisches Jahr für Copyright
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="mt-12 py-6 border-t border-zinc-800">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+      <!-- Copyright -->
+      <div class="text-zinc-400 text-sm">
+        &copy; {currentYear} MelodyMind - {
+          t("footer.rights") || "All Rights Reserved"
+        }
+      </div>
+
+      <!-- Links Section -->
+      <div class="flex flex-wrap gap-8 justify-center md:justify-end">
+        <!-- GitHub Link -->
+        <a
+          href="https://github.com/dcschmid/melody-mind"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-zinc-400 hover:text-purple-400 transition-colors text-sm flex items-center gap-1"
+        >
+          <Icon name="github" width="16" height="16" />
+          GitHub
+        </a>
+
+        <!-- Donation Links -->
+        <div class="flex gap-4">
+          <!-- PayPal -->
+          <a
+            href="https://www.paypal.me/dcschmid"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-zinc-400 hover:text-purple-400 transition-colors text-sm flex items-center gap-1"
+          >
+            <Icon name="paypal" width="16" height="16" />
+            {t("footer.donate") || "Donate"}
+          </a>
+
+          <!-- Ko-fi -->
+          <a
+            href="https://www.buymeacoffee.com/dcschmid"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-zinc-400 hover:text-purple-400 transition-colors text-sm flex items-center gap-1"
+          >
+            <Icon name="kofi" width="16" height="16" />
+            Ko-fi
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
