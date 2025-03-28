@@ -165,7 +165,7 @@ export const ui = {
     "podcast.page.title": "Musikpodcasts | Melody Mind",
     "podcast.page.heading": "Faszinierende Musikpodcasts",
     "podcast.page.description":
-      "Tauche ein in die Welt der Musik mit unseren fesselnden Podcasts. Entdecke spannende Geschichten, faszinierende Hintergründe und prägende Momente verschiedener Musikepochen - perfekt für alle, die Musik nicht nur hören, sondern auch verstehen wollen.",
+      "Tauche ein in die Welt der Musik mit unseren fesselnden Podcasts. Entdecke spannende Geschichten, faszinierende Hintergründe und prägende Momente verschiedener Musikepochen - perfekt für alle, die Musik nicht nur hören, sondern auch verstehen wollen. Unsere Podcasts erscheinen alle 2 Wochen und sind ausschließlich auf Deutsch und Englisch verfügbar.",
     "podcast.search.label": "Podcasts durchsuchen",
     "podcast.search.placeholder":
       "Nach faszinierenden Musikgeschichten suchen...",
@@ -193,6 +193,9 @@ export const ui = {
       "Veröffentlichen Sie Ihre erste Episode mit Leichtigkeit.",
     "podcast.conclusion.title": "Fazit",
     "podcast.conclusion.description": "Zusammenfassung und nächste Schritte.",
+    "podcast.listen.on": "Anhören auf",
+    "podcast.language.availability": "Unsere Podcasts sind ausschließlich auf Deutsch und Englisch verfügbar.",
+    "podcast.listen.heading": "Höre unsere Podcasts",
     "login.welcome": "Willkommen bei Melody Mind!",
     "login.description":
       "Begib dich auf eine musikalische Entdeckungsreise durch die Zeiten! Teste dein Wissen in spannenden Quizzen, erkunde faszinierende Musikgenres und tauche ein in unsere mitreißenden Podcasts. Zeige dein Können, sammle Punkte und werde zur wahren Musiklegende!",
@@ -411,7 +414,7 @@ export const ui = {
     "podcast.page.title": "Music Podcasts | Melody Mind",
     "podcast.page.heading": "Captivating Music Podcasts",
     "podcast.page.description":
-      "Dive into the world of music with our engaging podcasts. Discover exciting stories, fascinating backgrounds, and defining moments of various music eras - perfect for anyone who wants to not just listen to music, but truly understand it.",
+      "Dive into the world of music with our engaging podcasts. Discover exciting stories, fascinating backgrounds, and defining moments of various music eras - perfect for anyone who wants to not just listen to music, but truly understand it. Our podcasts are released every 2 weeks and are available exclusively in German and English.",
     "podcast.search.label": "Search podcasts",
     "podcast.search.placeholder": "Search for fascinating music stories...",
     "podcast.search.status.all": "All podcasts are displayed",
@@ -436,6 +439,9 @@ export const ui = {
     "podcast.publish.description": "Publish your first episode with ease.",
     "podcast.conclusion.title": "Conclusion",
     "podcast.conclusion.description": "Summary and next steps.",
+    "podcast.listen.on": "Listen on",
+    "podcast.language.availability": "Our podcasts are available exclusively in German and English.",
+    "podcast.listen.heading": "Listen to our Podcasts",
     "login.welcome": "Welcome to Melody Mind!",
     "login.description":
       "Embark on a musical journey through time! Test your knowledge in exciting quizzes, explore fascinating music genres, and dive into our captivating podcasts. Show your skills, collect points, and become a true music legend!",
@@ -653,7 +659,7 @@ export const ui = {
     "podcast.page.title": "Podcasts de Música | Melody Mind",
     "podcast.page.heading": "Podcasts de Música Cautivadores",
     "podcast.page.description":
-      "Sumérgete en el mundo de la música con nuestros podcasts cautivadores. Descubre historias emocionantes, antecedentes fascinantes y momentos definitorios de varias épocas musicales, perfectos para cualquiera que quiera no solo escuchar música, sino también entenderla.",
+      "Sumérgete en el mundo de la música con nuestros podcasts cautivadores. Descubre historias emocionantes, antecedentes fascinantes y momentos definitorios de varias épocas musicales, perfectos para cualquiera que quiera no solo escuchar música, sino también entenderla. Nuestros podcasts se publican cada 2 semanas y están disponibles exclusivamente en alemán e inglés.",
     "podcast.search.label": "Buscar podcasts",
     "podcast.search.placeholder": "Buscar historias fascinantes de música...",
     "podcast.search.status.all": "Se muestran todos los podcasts",
@@ -680,6 +686,9 @@ export const ui = {
     "podcast.publish.description": "Publica tu primer episodio con facilidad.",
     "podcast.conclusion.title": "Conclusión",
     "podcast.conclusion.description": "Resumen y próximos pasos.",
+    "podcast.listen.on": "Escuchar en",
+    "podcast.language.availability": "Nuestros podcasts están disponibles exclusivamente en alemán e inglés.",
+    "podcast.listen.heading": "Escucha nuestros Podcasts",
     "login.welcome": "¡Bienvenido a Melody Mind!",
     "login.description":
       "¡Embárcate en un viaje musical a través del tiempo! Pon a prueba tus conocimientos en emocionantes cuestionarios, explora fascinantes géneros musicales y sumérgete en nuestros cautivadores podcasts. Demuestra tus habilidades, acumula puntos y conviértete en una verdadera leyenda de la música.",
@@ -897,7 +906,7 @@ export const ui = {
     "podcast.page.title": "Podcasts de Musique | Melody Mind",
     "podcast.page.heading": "Podcasts de Musique Captivants",
     "podcast.page.description":
-      "Plongez dans le monde de la musique avec nos podcasts captivants. Découvrez des histoires passionnantes, des contextes fascinants et des moments déterminants de différentes époques musicales - parfait pour tous ceux qui veulent non seulement écouter de la musique, mais aussi la comprendre.",
+      "Plongez dans le monde de la musique avec nos podcasts captivants. Découvrez des histoires passionnantes, des contextes fascinants et des moments déterminants de différentes époques musicales - parfait pour tous ceux qui veulent non seulement écouter de la musique, mais aussi la comprendre. Nos podcasts sont publiés toutes les 2 semaines et sont disponibles exclusivement en allemand et en anglais.",
     "podcast.search.label": "Rechercher des podcasts",
     "podcast.search.placeholder":
       "Rechercher des histoires fascinantes de musique...",
@@ -925,6 +934,9 @@ export const ui = {
       "Publiez votre premier épisode en toute simplicité.",
     "podcast.conclusion.title": "Conclusion",
     "podcast.conclusion.description": "Résumé et prochaines étapes.",
+    "podcast.listen.on": "Écouter sur",
+    "podcast.language.availability": "Nos podcasts sont disponibles exclusivement en allemand et en anglais.",
+    "podcast.listen.heading": "Écouter nos Podcasts",
     "login.welcome": "Bienvenue à Melody Mind !",
     "login.description":
       "Embarquez pour un voyage musical à travers le temps ! Testez vos connaissances dans des quiz passionnants, explorez des genres musicaux fascinants et plongez dans nos podcasts captivants. Montrez vos compétences, collectez des points et devenez une véritable légende de la musique !",
@@ -1143,7 +1155,7 @@ export const ui = {
     "podcast.page.title": "Podcast di Musica | Melody Mind",
     "podcast.page.heading": "Podcast di Musica Avvincenti",
     "podcast.page.description":
-      "Immergiti nel mondo della musica con i nostri podcast avvincenti. Scopri storie emozionanti, contesti affascinanti e momenti decisivi di varie epoche musicali, perfetti per chiunque voglia non solo ascoltare la musica, ma anche capirla.",
+      "Immergiti nel mondo della musica con i nostri podcast avvincenti. Scopri storie emozionanti, contesti affascinanti e momenti decisivi di varie epoche musicali, perfetti per chiunque voglia non solo ascoltare la musica, ma anche capirla. I nostri podcast vengono pubblicati ogni 2 settimane e sono disponibili esclusivamente in tedesco e inglese.",
     "podcast.search.label": "Cerca podcast",
     "podcast.search.placeholder": "Cerca storie affascinanti di musica...",
     "podcast.search.status.all": "Tutti i podcast sono visualizzati",
@@ -1170,6 +1182,9 @@ export const ui = {
       "Pubblica il tuo primo episodio con facilità.",
     "podcast.conclusion.title": "Conclusione",
     "podcast.conclusion.description": "Riepilogo e prossimi passi.",
+    "podcast.listen.on": "Ascolta su",
+    "podcast.language.availability": "I nostri podcast sono disponibili esclusivamente in tedesco e inglese.",
+    "podcast.listen.heading": "Ascolta i nostri Podcast",
     "login.welcome": "Benvenuto a Melody Mind!",
     "login.description":
       "Intraprendi un viaggio musicale attraverso il tempo! Metti alla prova le tue conoscenze in quiz entusiasmanti, esplora affascinanti generi musicali e immergiti nei nostri avvincenti podcast. Mostra le tue abilità, raccogli punti e diventa una vera leggenda della musica!",
@@ -1389,7 +1404,7 @@ export const ui = {
     "podcast.page.title": "Podcasts de Música | Melody Mind",
     "podcast.page.heading": "Podcasts de Música Cativantes",
     "podcast.page.description":
-      "Mergulhe no mundo da música com nossos podcasts cativantes. Descubra histórias emocionantes, contextos fascinantes e momentos definidores de várias épocas musicais, perfeitos para quem quer não apenas ouvir música, mas também entendê-la.",
+      "Mergulhe no mundo da música com nossos podcasts cativantes. Descubra histórias emocionantes, contextos fascinantes e momentos definidores de várias épocas musicais, perfeitos para quem quer não apenas ouvir música, mas também entendê-la. Nossos podcasts são lançados a cada 2 semanas e estão disponíveis exclusivamente em alemão e inglês.",
     "podcast.search.label": "Buscar podcasts",
     "podcast.search.placeholder": "Buscar histórias fascinantes de música...",
     "podcast.search.status.all": "Todos os podcasts são exibidos",
@@ -1415,6 +1430,9 @@ export const ui = {
       "Publique seu primeiro episódio com facilidade.",
     "podcast.conclusion.title": "Conclusão",
     "podcast.conclusion.description": "Resumo e próximos passos.",
+    "podcast.listen.on": "Ouça no",
+    "podcast.language.availability": "Nossos podcasts estão disponíveis exclusivamente em alemão e inglês.",
+    "podcast.listen.heading": "Ouça nossos Podcasts",
     "login.welcome": "Bem-vindo ao Melody Mind!",
     "login.description":
       "Embarque em uma jornada musical através do tempo! Teste seus conhecimentos em quizzes emocionantes, explore gêneros musicais fascinantes e mergulhe em nossos podcasts cativantes. Mostre suas habilidades, colete pontos e torne-se uma verdadeira lenda da música!",
@@ -1626,7 +1644,7 @@ export const ui = {
     "podcast.page.title": "Musikpodcasts | Melody Mind",
     "podcast.page.heading": "Fængslende Musikpodcasts",
     "podcast.page.description":
-      "Dyk ned i musikens verden med vores fængslende podcasts. Oplev spændende historier, fascinerende baggrunde og definerende øjeblikke fra forskellige musikepoker - perfekt for alle, der ikke kun vil lytte til musik, men også virkelig forstå den.",
+      "Dyk ned i musikens verden med vores fængslende podcasts. Oplev spændende historier, fascinerende baggrunde og definerende øjeblikke fra forskellige musikepoker - perfekt for alle, der ikke kun vil lytte til musik, men også virkelig forstå den. Vores podcasts udgives hver 2. uge og er udelukkende tilgængelige på tysk og engelsk.",
     "podcast.search.label": "Søg podcasts",
     "podcast.search.placeholder": "Søg efter fascinerende musikhistorier...",
     "podcast.search.status.all": "Alle podcasts vises",
@@ -1652,6 +1670,9 @@ export const ui = {
     "podcast.publish.description": "Udgiv din første episode med lethed.",
     "podcast.conclusion.title": "Konklusion",
     "podcast.conclusion.description": "Resumé og næste skridt.",
+    "podcast.listen.on": "Lyt på",
+    "podcast.language.availability": "Vores podcasts er udelukkende tilgængelige på tysk og engelsk.",
+    "podcast.listen.heading": "Lyt til vores Podcasts",
     "login.welcome": "Velkommen til Melody Mind!",
     "login.description":
       "Begiv dig ud på en musikalsk rejse gennem tiden! Test din viden i spændende quizzer, udforsk fascinerende musikgenrer og dyk ned i vores fængslende podcasts. Vis dine evner, saml point og bliv en sand musiklegende!",
@@ -1865,7 +1886,7 @@ export const ui = {
     "podcast.page.title": "Muziek Podcasts | Melody Mind",
     "podcast.page.heading": "Boeiende Muziek Podcasts",
     "podcast.page.description":
-      "Duik in de wereld van muziek met onze boeiende podcasts. Ontdek spannende verhalen, fascinerende achtergronden en bepalende momenten van verschillende muziektijdperken - perfect voor iedereen die niet alleen naar muziek wil luisteren, maar het ook echt wil begrijpen.",
+      "Duik in de wereld van muziek met onze boeiende podcasts. Ontdek spannende verhalen, fascinerende achtergronden en bepalende momenten van verschillende muziektijdperken - perfect voor iedereen die niet alleen naar muziek wil luisteren, maar het ook echt wil begrijpen. Onze podcasts worden elke 2 weken uitgebracht en zijn uitsluitend beschikbaar in het Duits en Engels.",
     "podcast.search.label": "Zoek podcasts",
     "podcast.search.placeholder": "Zoeken naar fascinerende muziekverhalen...",
     "podcast.search.status.all": "Alle podcasts worden weergegeven",
@@ -1891,6 +1912,9 @@ export const ui = {
     "podcast.publish.description": "Publiceer je eerste aflevering met gemak.",
     "podcast.conclusion.title": "Conclusie",
     "podcast.conclusion.description": "Samenvatting en volgende stappen.",
+    "podcast.listen.on": "Luister op",
+    "podcast.language.availability": "Onze podcasts zijn uitsluitend beschikbaar in het Duits en Engels.",
+    "podcast.listen.heading": "Luister naar onze Podcasts",
     "login.welcome": "Welkom bij Melody Mind!",
     "login.description":
       "Ga op een muzikale reis door de tijd! Test je kennis in spannende quizzen, verken fascinerende muziekgenres en duik in onze boeiende podcasts. Toon je vaardigheden, verzamel punten en word een ware muzieklegende!",
@@ -2103,7 +2127,7 @@ export const ui = {
     "podcast.page.title": "Musik Podcasts | Melody Mind",
     "podcast.page.heading": "Fängslande Musik Podcasts",
     "podcast.page.description":
-      "Dyk in i musikens värld med våra fängslande podcasts. Upptäck spännande berättelser, fascinerande bakgrunder och definierande ögonblick från olika musikeror - perfekt för alla som inte bara vill lyssna på musik, utan verkligen förstå den.",
+      "Dyk in i musikens värld med våra fängslande podcasts. Upptäck spännande berättelser, fascinerande bakgrunder och definierande ögonblick från olika musikeror - perfekt för alla som inte bara vill lyssna på musik, utan verkligen förstå den. Våra podcasts släpps varannan vecka och finns endast tillgängliga på tyska och engelska.",
     "podcast.search.label": "Sök podcasts",
     "podcast.search.placeholder": "Sök efter fascinerande musikberättelser...",
     "podcast.search.status.all": "Alla podcasts visas",
@@ -2129,6 +2153,9 @@ export const ui = {
     "podcast.publish.description": "Publicera ditt första avsnitt med lätthet.",
     "podcast.conclusion.title": "Slutsats",
     "podcast.conclusion.description": "Sammanfattning och nästa steg.",
+    "podcast.listen.on": "Lyssna på",
+    "podcast.language.availability": "Våra podcasts finns endast tillgängliga på tyska och engelska.",
+    "podcast.listen.heading": "Lyssna på våra Podcasts",
     "login.welcome": "Välkommen till Melody Mind!",
     "login.description":
       "Ge dig ut på en musikalisk resa genom tiden! Testa dina kunskaper i spännande frågesporter, utforska fascinerande musikgenrer och fördjupa dig i våra fängslande podcasts. Visa dina färdigheter, samla poäng och bli en sann musiklegend!",
@@ -2340,7 +2367,7 @@ export const ui = {
     "podcast.page.title": "Musiikkipodcastit | Melody Mind",
     "podcast.page.heading": "Kiehtovat Musiikkipodcastit",
     "podcast.page.description":
-      "Sukella musiikin maailmaan kiehtovien podcastiemme avulla. Löydä jännittäviä tarinoita, kiehtovia taustoja ja määritteleviä hetkiä eri musiikkikausilta - täydellinen kaikille, jotka haluavat paitsi kuunnella musiikkia, myös todella ymmärtää sitä.",
+      "Sukella musiikin maailmaan kiehtovien podcastiemme avulla. Löydä jännittäviä tarinoita, kiehtovia taustoja ja määritteleviä hetkiä eri musiikkikausilta - täydellinen kaikille, jotka haluavat paitsi kuunnella musiikkia, myös todella ymmärtää sitä. Podcastimme julkaistaan kahden viikon välein ja ne ovat saatavilla vain saksaksi ja englanniksi.",
     "podcast.search.label": "Etsi podcasteja",
     "podcast.search.placeholder": "Etsi kiehtovia musiikkitarinoita...",
     "podcast.search.status.all": "Kaikki podcastit näytetään",
@@ -2365,6 +2392,9 @@ export const ui = {
     "podcast.publish.description": "Julkaise ensimmäinen jakso helposti.",
     "podcast.conclusion.title": "Johtopäätös",
     "podcast.conclusion.description": "Yhteenveto ja seuraavat vaiheet.",
+    "podcast.listen.on": "Kuuntele palvelussa",
+    "podcast.language.availability": "Podcastimme ovat saatavilla vain saksaksi ja englanniksi.",
+    "podcast.listen.heading": "Kuuntele podcastejamme",
     "login.welcome": "Tervetuloa Melody Mindiin!",
     "login.description":
       "Lähde musiikilliselle matkalle ajan halki! Testaa tietojasi jännittävissä tietovisoissa, tutki kiehtovia musiikkigenrejä ja sukella mukaansatempaaviin podcasteihimme. Näytä taitosi, kerää pisteitä ja tule todelliseksi musiikkilegendaksi!",
