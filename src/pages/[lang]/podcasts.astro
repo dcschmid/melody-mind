@@ -4,6 +4,7 @@ import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import PodcastPlatformLinks from "@components/PodcastPlatformLinks.astro";
+import { extractKeywords, generateMetaDescription } from "@utils/seo";
 
 /**
  * Enable static site generation for all supported languages.
@@ -47,6 +48,13 @@ const t = useTranslations(lang);
 const title = t("podcast.page.title");
 const description = t("podcast.page.description");
 
+// Enhanced SEO content using utility functions
+const pageContent = `${title} ${description} Musikpodcasts Melody Mind Audio German English Deutsche Englische Podcasts`;
+
+// Generate optimized meta description and keywords
+const optimizedDescription = generateMetaDescription(pageContent);
+const keywords = extractKeywords(pageContent) || t("meta.keywords");
+
 // Additional structured data parameters for SEO
 const pageType = "website";
 const publishDate = new Date("2024-01-01");
@@ -55,8 +63,8 @@ const modifiedDate = new Date();
 
 <Layout
   title={title}
-  description={description}
-  keywords={t("meta.keywords")}
+  description={optimizedDescription}
+  keywords={keywords}
   image={`/og-images/social-share-podcast-${lang}.jpg`}
   type={pageType}
   publishDate={publishDate}
