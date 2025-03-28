@@ -3,15 +3,21 @@ import Layout from "@layouts/Layout.astro";
 import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
-import AudioPlayer from "@components/AudioPlayer.astro";
+import PodcastPlatformLinks from "@components/PodcastPlatformLinks.astro";
 import { Icon } from "astro-icon/components";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
+import type { PodcastLanguage } from "@data/podcast-links";
 
-// Enable static generation for all supported languages
+/**
+ * Enable static site generation for all supported languages.
+ */
 export const prerender = true;
 
-// Define supported languages and generate static paths
+/**
+ * Define supported languages and generate static paths for each language.
+ */
 export async function getStaticPaths() {
+  // Define all languages supported by the application
   const supportedLanguages = [
     "de",
     "en",
@@ -25,63 +31,18 @@ export async function getStaticPaths() {
     "fi",
   ] as const;
 
-  // Process podcast data for each language
-  const paths = await Promise.all(
-    supportedLanguages.map(async (lang) => {
-      // Try to load podcast data for the specific language
-      let podcasts = [];
-      try {
-        const podcastData = await import(
-          `../../../public/json/podcasts/${lang}.json`
-        );
-        podcasts = podcastData.default;
-      } catch (error) {
-        // Fallback to English if language file doesn't exist
-        try {
-          const fallbackData = await import(
-            `../../../public/json/podcasts/en.json`
-          );
-          podcasts = fallbackData.default;
-        } catch (fallbackError) {
-          console.error(
-            `Error loading podcast data for ${lang}:`,
-            fallbackError,
-          );
-        }
-      }
-
-      return {
-        params: { lang },
-        props: {
-          lang,
-          podcasts,
-        },
-      };
-    }),
-  );
+  // Process data for each language
+  const paths = supportedLanguages.map(lang => ({
+    params: { lang },
+    props: { lang },
+  }));
 
   return paths;
 }
 
-// Type definition for props
-interface Props {
-  lang: "de" | "en" | "es" | "fr" | "it" | "pt" | "da" | "nl" | "sv" | "fi";
-  podcasts: Podcast[];
-}
-
-// Type definition for podcast objects
-interface Podcast {
-  title: string;
-  audioPath: string;
-  image: string;
-  duration?: string;
-  artist?: string;
-  description?: string;
-  category?: string;
-}
-
-// Extract data from props with default empty array for podcasts
-const { lang, podcasts = [] } = Astro.props;
+// Extract language from props
+const { lang } = Astro.props;
+const podcastLang = ['de', 'en'].includes(lang) ? lang as PodcastLanguage : 'en';
 
 // Use the i18n utilities for translations
 const t = useTranslations(lang);
@@ -90,44 +51,23 @@ const t = useTranslations(lang);
 const title = t("podcast.page.title");
 const description = t("podcast.page.description");
 
-// Enhanced SEO content using utility functions
-const pageContent = `${title} ${description} ${podcasts.map((p) => `${p.title} ${p.description}`).join(" ")}`;
-
-// Generate optimized meta description and keywords
-const optimizedDescription = generateMetaDescription(pageContent);
-const keywords = extractKeywords(pageContent) || t("meta.keywords");
-
 // Additional structured data parameters for SEO
 const pageType = "website";
 const publishDate = new Date("2024-01-01");
 const modifiedDate = new Date();
-
-// Extract all categories (if available)
-const allCategories = [
-  ...new Set(
-    podcasts.map(
-      (podcast) => podcast.category || t("podcast.category.uncategorized"),
-    ),
-  ),
-].sort();
-
-// Sort podcasts alphabetically by title
-const sortedPodcasts = [...podcasts].sort((a, b) =>
-  a.image.localeCompare(b.image, undefined, { sensitivity: "base" }),
-);
 ---
 
 <Layout
   title={title}
-  description={optimizedDescription}
-  keywords={keywords}
+  description={description}
+  keywords={t("meta.keywords")}
   image={`/og-images/social-share-podcast-${lang}.jpg`}
   type={pageType}
   publishDate={publishDate}
   modifiedDate={modifiedDate}
 >
   <div class="max-w-6xl mx-auto px-4 py-8">
-    <!-- Podcast heading and description -->
+    <!-- Page heading and description -->
     <div class="text-center mb-12">
       <Headline
         title={t("podcast.page.heading")}
@@ -139,355 +79,39 @@ const sortedPodcasts = [...podcasts].sort((a, b) =>
         description={t("podcast.page.description")}
         className="max-w-2xl mx-auto text-zinc-100"
       />
-    </div>
-
-    <!-- Search bar and filter -->
-    <div
-      class="search-filter-container bg-zinc-800/90 rounded-xl p-6 border border-zinc-700 shadow-lg mb-10"
-      role="search"
-    >
-      <h2 class="sr-only" id="search-heading">
-        {t("podcast.search.label")}
-      </h2>
-
-      <div class="flex flex-col md:flex-row gap-4 mb-4">
-        <!-- Search field -->
-        <div class="relative flex-grow">
-          <label for="podcast-search" class="sr-only">
-            {t("podcast.search.placeholder")}
-          </label>
-          <div class="relative">
-            <div
-              class="absolute inset-y-0 left-3 flex items-center pointer-events-none"
-            >
-              <Icon name="search" class="h-5 w-5 text-purple-400" />
-            </div>
-            <input
-              type="search"
-              id="podcast-search"
-              placeholder={t("podcast.search.placeholder")}
-              class="w-full py-3 pl-10 pr-4 bg-zinc-800 border-2 border-zinc-600
-                    rounded-xl text-zinc-50 placeholder-zinc-300
-                    focus:outline-none focus:border-purple-500 focus:ring-3
-                    focus:ring-purple-500/50 transition-all duration-300"
-              aria-controls="podcast-list"
-              aria-describedby="search-podcast-description"
-            />
-            <div id="search-podcast-description" class="sr-only">
-              Podcasts are automatically filtered as you type
-            </div>
-          </div>
+      
+      <!-- Podcast Platform Links -->
+      <div class="mt-8 flex justify-center">
+        <div class="p-6 bg-zinc-800/80 backdrop-blur-sm rounded-xl border border-zinc-700/50 shadow-lg">
+          <h2 class="text-xl font-semibold text-white mb-4">{t("podcast.listen.heading")}</h2>
+          <PodcastPlatformLinks lang={podcastLang} />
         </div>
-
-        <!-- Category filter, only shown when categories are available -->
-        {
-          allCategories.length > 1 && (
-            <div class="md:w-1/3">
-              <label for="categoryFilter" class="sr-only">
-                Filter by category
-              </label>
-              <div class="relative">
-                <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-                  <Icon name="filter" class="h-5 w-5 text-purple-400" />
-                </div>
-                <select
-                  id="categoryFilter"
-                  class="w-full py-3 pl-10 pr-4 bg-zinc-800 border-2 border-zinc-600
-                      rounded-xl text-zinc-50 appearance-none cursor-pointer
-                      focus:outline-none focus:border-purple-500 focus:ring-3
-                      focus:ring-purple-500/50 transition-all duration-300"
-                  aria-label="Filter by category"
-                >
-                  <option value="all">{t("podcast.filter.all")}</option>
-                  {allCategories.map((category) => (
-                    <option value={category}>{category}</option>
-                  ))}
-                </select>
-                <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-                  <Icon name="chevron-down" class="h-5 w-5 text-purple-400" />
-                </div>
-              </div>
-            </div>
-          )
-        }
-      </div>
-
-      <!-- Search status for screen readers -->
-      <div id="search-results-status" class="sr-only" aria-live="polite">
-        {t("podcast.search.status.all")}
       </div>
     </div>
 
-    <!-- No results message (initially hidden) -->
-    <div
-      id="no-results"
-      class="hidden flex flex-col items-center justify-center p-12 bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-xl border border-zinc-600 text-center shadow-md mb-10"
-      aria-live="polite"
-    >
-      <Icon name="search-no-results" class="w-16 h-16 text-zinc-300 mb-4" />
-      <p class="text-zinc-100 text-lg font-medium">
-        {t("podcast.no.results")}
+    <!-- Podcast Episodes Section -->
+    <div class="mt-12">
+      <!-- Podcast Episodes will go here, you can add them later -->
+    </div>
+
+    <!-- WCAG information -->
+    <div class="mt-16 text-center" aria-live="polite">
+      <p class="text-sm text-zinc-400 flex items-center justify-center">
+        <span class="inline-block mr-2" role="img" aria-label="Barrierefreiheit">♿</span>
+        <span>{t("accessibility.wcag")}</span>
       </p>
-      <button
-        id="reset-search"
-        class="mt-4 px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800 transition-all duration-300"
-      >
-        Reset search
-      </button>
     </div>
-
-    <!-- Podcast Grid -->
-    <section
-      id="podcast-list"
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-      role="region"
-      aria-label={t("podcast.page.heading")}
-    >
-      {
-        sortedPodcasts.map((podcast, index) => (
-          <div
-            class="podcast-card animate-fadeIn"
-            style={{ animationDelay: `${index * 0.05}s` }}
-            data-searchable={podcast.title.toLowerCase()}
-            data-category={
-              podcast.category || t("podcast.category.uncategorized")
-            }
-          >
-            <article class="h-full bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
-              <div class="p-0.5 bg-gradient-to-r from-purple-500 to-indigo-500" />
-
-              <div class="aspect-video relative">
-                <AudioPlayer
-                  audioSrc={podcast.audioPath}
-                  imageSrc={
-                    podcast.image || "/images/podcast/default-cover.jpg"
-                  }
-                  imageAlt={`Cover for ${podcast.title}`}
-                  title={podcast.title}
-                  artist={podcast.artist || t("podcast.play")}
-                />
-              </div>
-
-              <div class="p-4">
-                <h2
-                  id={`podcast-title-${index}`}
-                  class="text-lg font-bold text-white mb-2"
-                >
-                  {podcast.title}
-                </h2>
-              </div>
-            </article>
-          </div>
-        ))
-      }
-    </section>
-
-    <button
-      id="back-to-top"
-      class="fixed bottom-8 right-8 p-3 bg-purple-600 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-purple-500 focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800"
-      aria-label="Back to top of page"
-    >
-      <Icon name="arrow-up" class="h-6 w-6" />
-    </button>
   </div>
 </Layout>
 
 <style>
-  /* Improved color contrast for WCAG AAA (7:1) */
-  :root {
-    --text-primary: #ffffff; /* Maximum contrast */
-    --text-secondary: #e2e2e7; /* Higher contrast than standard zinc-300 */
-    --bg-card: #27272a; /* zinc-800 */
-    --border-card: rgba(161, 161, 170, 0.3); /* zinc-400 with transparency */
-    --accent-primary: #a855f7; /* purple-500 */
-    --accent-secondary: #c084fc; /* purple-400 */
-  }
-
-  /* Improved focus states for keyboard navigation */
-  :focus-visible {
-    outline: 3px solid var(--accent-primary);
-    outline-offset: 3px;
-  }
-
-  /* Animations for cards */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fadeIn {
-    animation: fadeIn 0.5s ease-out forwards;
-    opacity: 0;
-  }
-
-  /* Improved back-to-top button animation */
-  #back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  /* Disable animations if user prefers reduced motion */
+  /* Enhanced styling for podcast section */
   @media (prefers-reduced-motion: reduce) {
-    *,
-    ::before,
-    ::after {
+    * {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
-
-    .animate-fadeIn {
-      opacity: 1;
-      animation: none;
-      transform: translateY(0);
-    }
-
-    .podcast-card article:hover {
-      transform: none !important;
-      box-shadow: none !important;
-    }
   }
 </style>
-
-<script>
-  /**
-   * Modern Podcast Page Functionality
-   *
-   * Handles interactive features like search, filtering, and accessibility
-   * for the podcast listing page.
-   */
-  document.addEventListener("DOMContentLoaded", function () {
-    // Cache DOM elements for better performance
-    const searchInput = document.getElementById(
-      "podcast-search",
-    ) as HTMLInputElement;
-    const categoryFilter = document.getElementById(
-      "categoryFilter",
-    ) as HTMLSelectElement;
-    const podcastCards = document.querySelectorAll(".podcast-card");
-    const noResultsElement = document.getElementById("no-results");
-    const searchStatusElement = document.getElementById(
-      "search-results-status",
-    );
-    const resetSearchButton = document.getElementById("reset-search");
-    const backToTopButton = document.getElementById("back-to-top");
-
-    // Search and filter function
-    function filterPodcasts() {
-      if (!searchInput) return;
-
-      const searchTerm = searchInput.value.toLowerCase().trim();
-      const selectedCategory = categoryFilter?.value || "all";
-
-      let visibleCount = 0;
-
-      // Filter podcast cards by search term and category
-      podcastCards.forEach((card) => {
-        const searchable = card.getAttribute("data-searchable") || "";
-        const category = card.getAttribute("data-category") || "";
-
-        const matchesSearch =
-          searchTerm === "" || searchable.includes(searchTerm);
-        const matchesCategory =
-          selectedCategory === "all" || category === selectedCategory;
-
-        const isVisible = matchesSearch && matchesCategory;
-
-        if (isVisible) {
-          card.classList.remove("hidden");
-          visibleCount++;
-        } else {
-          card.classList.add("hidden");
-        }
-      });
-
-      // Show/hide "No results" message
-      if (noResultsElement) {
-        noResultsElement.classList.toggle("hidden", visibleCount > 0);
-      }
-
-      // Update status for screen readers
-      if (searchStatusElement) {
-        if (visibleCount === 0) {
-          searchStatusElement.textContent = `No podcasts found.`;
-        } else if (visibleCount === 1) {
-          searchStatusElement.textContent = `1 podcast found.`;
-        } else if (visibleCount === podcastCards.length) {
-          searchStatusElement.textContent = `All ${visibleCount} podcasts are displayed.`;
-        } else {
-          searchStatusElement.textContent = `${visibleCount} of ${podcastCards.length} podcasts found.`;
-        }
-      }
-    }
-
-    // Event listeners for search and filter
-    if (searchInput) {
-      searchInput.addEventListener("input", filterPodcasts);
-    }
-
-    if (categoryFilter) {
-      categoryFilter.addEventListener("change", filterPodcasts);
-    }
-
-    // Reset search
-    if (resetSearchButton) {
-      resetSearchButton.addEventListener("click", function () {
-        if (searchInput) searchInput.value = "";
-        if (categoryFilter) categoryFilter.value = "all";
-        filterPodcasts();
-        searchInput.focus();
-      });
-    }
-
-    // Back to top button functionality
-    if (backToTopButton) {
-      window.addEventListener("scroll", function () {
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-        if (scrollTop > 500) {
-          backToTopButton.classList.add("visible");
-        } else {
-          backToTopButton.classList.remove("visible");
-        }
-      });
-
-      backToTopButton.addEventListener("click", function () {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      });
-    }
-
-    // Optimized image loading strategy for podcast covers
-    function setupLazyLoading() {
-      const images = document.querySelectorAll(".cover-image img");
-      const imagesToPreload = Math.min(3, images.length); // Only preload the first few images
-
-      // Load visible images with high priority
-      for (let i = 0; i < imagesToPreload; i++) {
-        const img = images[i] as HTMLImageElement;
-        if (img && !img.complete) {
-          img.loading = "eager";
-        }
-      }
-
-      // Load remaining images with lower priority
-      for (let i = imagesToPreload; i < images.length; i++) {
-        const img = images[i] as HTMLImageElement;
-        if (img && !img.complete) {
-          img.loading = "lazy";
-        }
-      }
-    }
-
-    setupLazyLoading();
-  });
-</script>
