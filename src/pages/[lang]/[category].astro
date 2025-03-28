@@ -46,12 +46,12 @@ export async function getStaticPaths() {
 
       try {
         const fallbackData = await import(
-            `../../../public/json/categories/en_categories.json`
-          );
-          categories = fallbackData.default;
-        } catch (fallbackError) {
-          // Notfall-Fallback mit leeren Kategorien
-          categories = [];
+          `../../../public/json/categories/en_categories.json`
+        );
+        categories = fallbackData.default;
+      } catch (fallbackError) {
+        // Notfall-Fallback mit leeren Kategorien
+        categories = [];
       }
     }
 

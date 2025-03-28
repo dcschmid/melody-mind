@@ -5,54 +5,80 @@ import { getPodcastLinks } from "../data/podcast-links";
 import type { PodcastLanguage } from "../data/podcast-links";
 
 interface Props {
-  lang: PodcastLanguage;
+  lang: string; // UI Sprache für Übersetzungen
+  showAllLanguages?: boolean; // Neue Option, um alle Podcast-Sprachen anzuzeigen
   className?: string;
 }
 
-const { lang, className = "" } = Astro.props;
+const { lang, showAllLanguages = false, className = "" } = Astro.props;
 const t = useTranslations(lang);
-const links = getPodcastLinks(lang);
 
-const platforms = [
-  {
-    name: "Spotify",
-    icon: "spotify",
-    url: links.spotify,
-    colorClass: "bg-[#1DB954] hover:bg-[#1ed760]"
-  },
-  {
-    name: "Apple Podcasts",
-    icon: "apple",
-    url: links.apple,
-    colorClass: "bg-[#FB233B] hover:bg-[#ff3b52]"
-  },
-  {
-    name: "Deezer",
-    icon: "deezer",
-    url: links.deezer,
-    colorClass: "bg-[#FF0092] hover:bg-[#ff33a7]"
-  },
-  {
-    name: "JellyPod",
-    icon: "podcast",
-    url: links.jellypod,
-    colorClass: "bg-[#5865F2] hover:bg-[#6b76ff]"
-  }
-];
+// Bestimme, welche Podcast-Sprachen angezeigt werden sollen
+const podcastLanguages: PodcastLanguage[] = showAllLanguages ? ["de", "en"] : [["de", "en"].includes(lang) ? lang as PodcastLanguage : "en"];
+
+// Funktion zum Erstellen der Plattform-Links pro Sprache
+function createPlatformLinks(podcastLang: PodcastLanguage) {
+  const links = getPodcastLinks(podcastLang);
+  return [
+    {
+      name: "Spotify",
+      icon: "spotify",
+      url: links.spotify,
+      colorClass: "bg-[#1DB954] hover:bg-[#1ed760]",
+    },
+    {
+      name: "Apple Podcasts",
+      icon: "apple",
+      url: links.apple,
+      colorClass: "bg-[#FB233B] hover:bg-[#ff3b52]",
+    },
+    {
+      name: "Deezer",
+      icon: "deezer",
+      url: links.deezer,
+      colorClass: "bg-[#FF0092] hover:bg-[#ff33a7]",
+    },
+    {
+      name: "JellyPod",
+      icon: "podcast",
+      url: links.jellypod,
+      colorClass: "bg-[#5865F2] hover:bg-[#6b76ff]",
+    },
+  ];
+}
+
+// Dictionary für die Anzeige der Sprachen
+const languageDisplay: Record<PodcastLanguage, string> = {
+  de: "Deutsch",
+  en: "English"
+};
 ---
 
-<div class={`podcast-platform-links flex flex-wrap gap-3 mt-4 ${className}`}>
-  {platforms.map(platform => (
-    <a
-      href={platform.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      class={`inline-flex items-center gap-2 px-4 py-2 ${platform.colorClass} rounded-full text-white text-sm font-medium transition-all`}
-      aria-label={`${t("podcast.listen.on")} ${platform.name}`}
-    >
-      <Icon name={platform.icon} class="h-4 w-4" />
-      <span>{platform.name}</span>
-    </a>
+<div class={`podcast-platform-links ${className}`}>
+  {podcastLanguages.map((podcastLang) => (
+    <div class={`podcast-language-section mb-6 ${podcastLanguages.length > 1 ? "p-4 bg-zinc-800/40 rounded-lg border border-zinc-700/50" : ""}`}>
+      {showAllLanguages && (
+        <h3 class="text-lg font-medium text-white mb-3 flex items-center gap-2">
+          <Icon name={podcastLang === "de" ? "flag-de" : "flag-us"} class="h-5 w-5" />
+          {languageDisplay[podcastLang]}
+        </h3>
+      )}
+      
+      <div class="flex flex-wrap gap-3">
+        {createPlatformLinks(podcastLang).map((platform) => (
+          <a
+            href={platform.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={`inline-flex items-center gap-2 px-4 py-2 ${platform.colorClass} rounded-full text-white text-sm font-medium transition-all`}
+            aria-label={`${t("podcast.listen.on")} ${platform.name} (${languageDisplay[podcastLang]})`}
+          >
+            <Icon name={platform.icon} class="h-4 w-4" />
+            <span>{platform.name}</span>
+          </a>
+        ))}
+      </div>
+    </div>
   ))}
 </div>
 

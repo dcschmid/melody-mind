@@ -4,9 +4,6 @@ import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import PodcastPlatformLinks from "@components/PodcastPlatformLinks.astro";
-import { Icon } from "astro-icon/components";
-import { extractKeywords, generateMetaDescription } from "@utils/seo";
-import type { PodcastLanguage } from "@data/podcast-links";
 
 /**
  * Enable static site generation for all supported languages.
@@ -32,7 +29,7 @@ export async function getStaticPaths() {
   ] as const;
 
   // Process data for each language
-  const paths = supportedLanguages.map(lang => ({
+  const paths = supportedLanguages.map((lang) => ({
     params: { lang },
     props: { lang },
   }));
@@ -42,7 +39,6 @@ export async function getStaticPaths() {
 
 // Extract language from props
 const { lang } = Astro.props;
-const podcastLang = ['de', 'en'].includes(lang) ? lang as PodcastLanguage : 'en';
 
 // Use the i18n utilities for translations
 const t = useTranslations(lang);
@@ -79,12 +75,17 @@ const modifiedDate = new Date();
         description={t("podcast.page.description")}
         className="max-w-2xl mx-auto text-zinc-100"
       />
-      
+
       <!-- Podcast Platform Links -->
       <div class="mt-8 flex justify-center">
-        <div class="p-6 bg-zinc-800/80 backdrop-blur-sm rounded-xl border border-zinc-700/50 shadow-lg">
-          <h2 class="text-xl font-semibold text-white mb-4">{t("podcast.listen.heading")}</h2>
-          <PodcastPlatformLinks lang={podcastLang} />
+        <div
+          class="p-6 bg-zinc-800/80 backdrop-blur-sm rounded-xl border border-zinc-700/50 shadow-lg"
+        >
+          <h2 class="text-xl font-semibold text-white mb-4">
+            {t("podcast.listen.heading")}
+          </h2>
+          <!-- Zeige sowohl deutsche als auch englische Podcast-Links an -->
+          <PodcastPlatformLinks lang={lang} showAllLanguages={true} />
         </div>
       </div>
     </div>
@@ -97,7 +98,9 @@ const modifiedDate = new Date();
     <!-- WCAG information -->
     <div class="mt-16 text-center" aria-live="polite">
       <p class="text-sm text-zinc-400 flex items-center justify-center">
-        <span class="inline-block mr-2" role="img" aria-label="Barrierefreiheit">♿</span>
+        <span class="inline-block mr-2" role="img" aria-label="Barrierefreiheit"
+          >♿</span
+        >
         <span>{t("accessibility.wcag")}</span>
       </p>
     </div>
