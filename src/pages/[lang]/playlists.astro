@@ -5,6 +5,7 @@ import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
+import { Picture } from "astro:assets";
 
 /**
  * Enable static site generation for all supported languages.
@@ -231,7 +232,7 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
                   <div class="p-0.5 bg-gradient-to-r from-purple-500 to-indigo-500" />
 
                   <div class="relative aspect-video overflow-hidden">
-                    <img
+                    <Picture
                       src={
                         playlist.imageUrl ||
                         "/images/playlists/default-cover.jpg"
@@ -239,6 +240,8 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
                       alt={`Cover image for ${playlist.headline}`}
                       class="w-full h-full object-cover"
                       loading={index < 2 ? "eager" : "lazy"}
+                      width={1280}
+                      height={720}
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/60 to-transparent" />
                     <div class="absolute bottom-0 left-0 w-full p-4">
