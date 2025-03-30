@@ -50,7 +50,8 @@ function createPlatformLinks(podcastLang: PodcastLanguage) {
 }
 
 // Übersetzungsschlüssel für die Anzeige der Sprachen verwenden
-const getLanguageDisplay = (podcastLang: PodcastLanguage) => t(`language.${podcastLang}`);
+const getLanguageDisplay = (podcastLang: PodcastLanguage) =>
+  t(`language.${podcastLang}`);
 ---
 
 <div class={`podcast-platform-links ${className}`}>
