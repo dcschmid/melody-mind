@@ -526,6 +526,9 @@ export const ui = {
     "difficulty.easy": "Fácil",
     "difficulty.medium": "Medio",
     "difficulty.hard": "Difícil",
+    "category.difficulty.easy": "Fácil",
+    "category.difficulty.medium": "Medio",
+    "category.difficulty.hard": "Difícil",
     "game.select":
       "Descubre el fascinante mundo de la música y pon a prueba tus conocimientos en nuestros cuestionarios musicales interactivos. ¡Elige tu género favorito y comienza tu melodioso viaje!",
     "game.welcome": "Bienvenido a Melody Mind",
@@ -777,6 +780,9 @@ export const ui = {
     "difficulty.easy": "Facile",
     "difficulty.medium": "Moyen",
     "difficulty.hard": "Difficile",
+    "category.difficulty.easy": "Facile",
+    "category.difficulty.medium": "Moyen",
+    "category.difficulty.hard": "Difficile",
     "game.select":
       "Découvrez le monde fascinant de la musique et testez vos connaissances dans nos quiz musicaux interactifs. Choisissez votre genre préféré et commencez votre voyage mélodieux !",
     "game.welcome": "Bienvenue à Melody Mind",
@@ -1028,6 +1034,9 @@ export const ui = {
     "difficulty.easy": "Facile",
     "difficulty.medium": "Medio",
     "difficulty.hard": "Difficile",
+    "category.difficulty.easy": "Facile",
+    "category.difficulty.medium": "Medio",
+    "category.difficulty.hard": "Difficile",
     "game.select":
       "Scopri l'affascinante mondo della musica e metti alla prova le tue conoscenze nei nostri quiz musicali interattivi. Scegli il tuo genere preferito e inizia il tuo viaggio melodioso!",
     "game.welcome": "Benvenuti a Melody Mind",
@@ -1279,6 +1288,9 @@ export const ui = {
     "difficulty.easy": "Fácil",
     "difficulty.medium": "Médio",
     "difficulty.hard": "Difícil",
+    "category.difficulty.easy": "Fácil",
+    "category.difficulty.medium": "Médio",
+    "category.difficulty.hard": "Difícil",
     "game.select":
       "Descubra o fascinante mundo da música e teste seus conhecimentos em nossos quizzes musicais interativos. Escolha seu gênero favorito e comece sua jornada melodiosa!",
     "game.welcome": "Bem-vindo ao Melody Mind",
@@ -1529,6 +1541,9 @@ export const ui = {
     "difficulty.easy": "Let",
     "difficulty.medium": "Mellem",
     "difficulty.hard": "Svær",
+    "category.difficulty.easy": "Let",
+    "category.difficulty.medium": "Mellem",
+    "category.difficulty.hard": "Svær",
     "game.select":
       "Opdag musikens fascinerende verden og test din viden i vores interaktive musikquizzer. Vælg din yndlingsgenre og start din melodiske rejse!",
     "game.welcome": "Velkommen til Melody Mind",
@@ -1773,6 +1788,9 @@ export const ui = {
     "difficulty.easy": "Makkelijk",
     "difficulty.medium": "Gemiddeld",
     "difficulty.hard": "Moeilijk",
+    "category.difficulty.easy": "Makkelijk",
+    "category.difficulty.medium": "Gemiddeld",
+    "category.difficulty.hard": "Moeilijk",
     "game.select":
       "Ontdek de fascinerende wereld van muziek en test je kennis in onze interactieve muziekquizzen. Kies je favoriete genre en begin je melodieuze reis!",
     "game.welcome": "Welkom bij Melody Mind",
@@ -2017,6 +2035,9 @@ export const ui = {
     "difficulty.easy": "Lätt",
     "difficulty.medium": "Medel",
     "difficulty.hard": "Svår",
+    "category.difficulty.easy": "Lätt",
+    "category.difficulty.medium": "Medel",
+    "category.difficulty.hard": "Svår",
     "game.select":
       "Upptäck musikens fascinerande värld och testa dina kunskaper i våra interaktiva musikquizzer. Välj din favoritgenre och påbörja din melodiska resa!",
     "game.welcome": "Välkommen till Melody Mind",
@@ -2261,6 +2282,9 @@ export const ui = {
     "difficulty.easy": "Helppo",
     "difficulty.medium": "Keskitaso",
     "difficulty.hard": "Vaikea",
+    "category.difficulty.easy": "Helppo",
+    "category.difficulty.medium": "Keskitaso",
+    "category.difficulty.hard": "Vaikea",
     "game.select":
       "Tutustu musiikin kiehtovaan maailmaan ja testaa tietojasi interaktiivisissa musiikkitietovisoissa. Valitse suosikkigenresi ja aloita melodinen matkasi!",
     "game.welcome": "Tervetuloa Melody Mindiin",
