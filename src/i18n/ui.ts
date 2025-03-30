@@ -2260,7 +2260,8 @@ export const ui = {
     "playlist.page.description":
       "Fördjupa dig i noggrant kurerade spellistor från olika epoker och genrer. Perfekt för att upptäcka ny musik eller återuppleva dina favoritklassiker.",
     "playlist.search.label": "Sök spellistor",
-    "playlist.search.placeholder": "Sök efter musikepok eller stil...",
+    "playlist.search.placeholder":
+      "Sök efter musikepok eller stil...",
     "playlist.filter.all": "Alla Epoker",
     "playlist.no.results":
       "Inga matchande spellistor hittades. Prova en annan sökterm.",

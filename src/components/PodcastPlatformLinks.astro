@@ -49,11 +49,8 @@ function createPlatformLinks(podcastLang: PodcastLanguage) {
   ];
 }
 
-// Dictionary für die Anzeige der Sprachen
-const languageDisplay: Record<PodcastLanguage, string> = {
-  de: "Deutsch",
-  en: "English",
-};
+// Übersetzungsschlüssel für die Anzeige der Sprachen verwenden
+const getLanguageDisplay = (podcastLang: PodcastLanguage) => t(`language.${podcastLang}`);
 ---
 
 <div class={`podcast-platform-links ${className}`}>
@@ -68,7 +65,7 @@ const languageDisplay: Record<PodcastLanguage, string> = {
               name={podcastLang === "de" ? "flag-de" : "flag-us"}
               class="h-5 w-5"
             />
-            {languageDisplay[podcastLang]}
+            {getLanguageDisplay(podcastLang)}
           </h3>
         )}
 
@@ -79,7 +76,7 @@ const languageDisplay: Record<PodcastLanguage, string> = {
               target="_blank"
               rel="noopener noreferrer"
               class={`inline-flex items-center gap-2 px-4 py-2 ${platform.colorClass} rounded-full text-white text-sm font-medium transition-all`}
-              aria-label={`${t("podcast.listen.on")} ${platform.name} (${languageDisplay[podcastLang]})`}
+              aria-label={`${t("podcast.listen.on")} ${platform.name} (${getLanguageDisplay(podcastLang)})`}
             >
               <Icon name={platform.icon} class="h-4 w-4" />
               <span>{platform.name}</span>
