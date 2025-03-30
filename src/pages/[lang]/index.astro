@@ -52,14 +52,13 @@ const modifiedDate = new Date();
     <div
       class="max-w-4xl w-full mx-auto px-6 py-12 flex flex-col items-center text-center"
     >
-
       <div class="w-full flex-center">
         <!-- Logo with proper image optimization and accessibility -->
         <Picture
-          class="w-full max-w-[240px] h-auto mx-auto mb-8 transition-transform duration-300 motion-safe:hover:scale-105"
+          class="w-full max-w-[310px] h-auto mx-auto mb-8 transition-transform duration-300 motion-safe:hover:scale-105"
           src="/social-share.jpg"
-          width={480}
-          height={480}
+          width={600}
+          height={600}
           formats={["avif", "webp"]}
           alt="Melody Mind Logo - Music Quiz App Logo"
           loading="eager"
@@ -93,12 +92,6 @@ const modifiedDate = new Date();
 
         <p class="mt-10 text-xl text-zinc-300">{t("index.welcome.footnote")}</p>
       </div>
-
-      <!-- WCAG AAA Notice -->
-      <p class="mt-6 text-xl text-zinc-200">
-        <span role="img" aria-label="Accessibility">♿</span>
-        {t("accessibility.wcag")}
-      </p>
     </div>
   </main>
 </Layout>
