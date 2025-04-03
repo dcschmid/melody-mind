@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file.
 
 ### 🚀 Features
 
-- *(knowledge-de)* Add comprehensive articles for the 1950s and 1960s music eras to enhance cultural content and user engagement
+- _(knowledge-de)_ Add comprehensive articles for the 1950s and 1960s music eras to enhance cultural content and user engagement
 - Add danish articles
 - Add english articles
 - Add english articles
@@ -23,13 +23,13 @@ All notable changes to this project will be documented in this file.
 - Add nl, pt and sv articles
 - Enhance accessibility and error handling across the application
 - Add new category image and add new playlist links
-- *(seo)* Enhance SEO for multiple pages by adding meta descriptions and keywords generation
+- _(seo)_ Enhance SEO for multiple pages by adding meta descriptions and keywords generation
 
 ### 🐛 Bug Fixes
 
 - Fixes
 - Prettier fixes
-- *(astro)* Update image paths to include language-specific variations for social sharing images in knowledge, playlists, and podcasts pages to enhance localization support
+- _(astro)_ Update image paths to include language-specific variations for social sharing images in knowledge, playlists, and podcasts pages to enhance localization support
 - Category json handling fixes
 
 ### 💼 Other
@@ -38,28 +38,28 @@ All notable changes to this project will be documented in this file.
 
 ### 🎨 Styling
 
-- *(global.css)* Add margin-bottom to paragraph elements for improved spacing in the layout
-- *(Joker.astro)* Clean up whitespace and formatting for improved readability and consistency in the code structure
-- *(knowledge/index.astro, podcasts.astro)* Format comments and code for improved readability and consistency
-- *(knowledge)* Format code for better readability and consistency in spacing and line breaks
+- _(global.css)_ Add margin-bottom to paragraph elements for improved spacing in the layout
+- _(Joker.astro)_ Clean up whitespace and formatting for improved readability and consistency in the code structure
+- _(knowledge/index.astro, podcasts.astro)_ Format comments and code for improved readability and consistency
+- _(knowledge)_ Format code for better readability and consistency in spacing and line breaks
 
 ### ⚙️ Miscellaneous Tasks
 
-- *(EndOverlay.astro)* Remove unused removeEventListener function to clean up code and improve maintainability
+- _(EndOverlay.astro)_ Remove unused removeEventListener function to clean up code and improve maintainability
 - Clean up whitespace and improve code formatting across multiple files for better readability and maintainability
 
 ## [3.0.0] - 2025-03-19
 
 ### 🚀 Features
 
-- *(overlays)* Implement social media sharing functionality
-- *(tests)* Implement GameHeadline and Joker component tests
-- *(testing)* Add test configuration and component tests
+- _(overlays)_ Implement social media sharing functionality
+- _(tests)_ Implement GameHeadline and Joker component tests
+- _(testing)_ Add test configuration and component tests
 - Multi-language Support and Localization
 - Add safety checks for share button handlers
-- *(i18n)* Add internationalization support across game components
-- *(i18n)* Add language picker component
-- *(elements-cache)* Add validation and type-safe optimization for game elements
+- _(i18n)_ Add internationalization support across game components
+- _(i18n)_ Add language picker component
+- _(elements-cache)_ Add validation and type-safe optimization for game elements
 - Add content collection
 - Integrate Tailwind CSS for improved styling and responsiveness
 
@@ -71,10 +71,10 @@ All notable changes to this project will be documented in this file.
 ### 🚜 Refactor
 
 - Improve CSS property ordering and media query syntax
-- *(game)* Extract score display logic into separate utility
+- _(game)_ Extract score display logic into separate utility
 - [**breaking**] Extract loadQuestion logic into separate utility
 - Extract handleAnswer logic into separate utility
-- *(api)* Simplify database operations in saveTotalUserPointsAndHighscore
+- _(api)_ Simplify database operations in saveTotalUserPointsAndHighscore
 - Improve game logic and DOM handling
 - Improve type safety for difficulty handling
 - Implement JokerManager class for improved joker functionality
@@ -94,47 +94,47 @@ All notable changes to this project will be documented in this file.
 
 ### 🚀 Features
 
-- *(PlaylistItem)* Verbessere Barrierefreiheit und Performance
-- *(ErrorMessage)* Verbesserte Fehlermeldungskomponente mit Auto-Hide
-- *(components)* Verbessere Zugänglichkeit und Performance der Spielkomponenten
-- *(EndOverlay)* Verbesserte Zugänglichkeit und Performance-Optimierungen
-- *(overlay)* Verbesserte Zugänglichkeit und Performance des Feedback-Overlays
+- _(PlaylistItem)_ Verbessere Barrierefreiheit und Performance
+- _(ErrorMessage)_ Verbesserte Fehlermeldungskomponente mit Auto-Hide
+- _(components)_ Verbessere Zugänglichkeit und Performance der Spielkomponenten
+- _(EndOverlay)_ Verbesserte Zugänglichkeit und Performance-Optimierungen
+- _(overlay)_ Verbesserte Zugänglichkeit und Performance des Feedback-Overlays
 
 ### 🐛 Bug Fixes
 
-- *(gamehome)* [**breaking**] Verbessere Filterfunktion und Liste-Layout
+- _(gamehome)_ [**breaking**] Verbessere Filterfunktion und Liste-Layout
 
 ### 💼 Other
 
-- *(gamehome)* Verbessere Typsicherheit und Benutzerfreundlichkeit
-- *(Button)* Cleanup
+- _(gamehome)_ Verbessere Typsicherheit und Benutzerfreundlichkeit
+- _(Button)_ Cleanup
 
 ### 🚜 Refactor
 
-- *(GameHeadline)* Verbessere Barrierefreiheit und Performance
-- *(HeaderSection)* Verbessere Performance und Zugänglichkeit der Benutzerprofilkomponente
-- *(IntroText)* Optimiere Komponenten-Styling und entferne Kommentare
-- *(LoadingSpinner)* [**breaking**] Verbessere Komponenten-Architektur und Zugänglichkeit
-- *(GoldenLPOverlay)* Verbessere Zugänglichkeit und Performance
-- *(audio)* [**breaking**] Enhance AudioController implementation and documentation
-- *(db)* Improve getGoldenLPs function and documentation
-- *(db)* [**breaking**] Improve golden LP data handling and types
-- *(ErrorHandler)* Verbessere Code-Struktur und Zugänglichkeit
-- *(game)* [**breaking**] Optimize getRandomQuestion function and improve type safety
-- *(game)* Improve error handling and type safety in game utils
-- *(game)* [**breaking**] Improve answer handling and documentation
-- *(jokerUtils)* [**breaking**] Improve type safety and documentation
-- *(utils)* [**breaking**] Enhance TypeScript documentation and type safety
-- *(utils)* Improve type safety and error handling
-- *(QueueManager)* Enhance type safety and error handling
+- _(GameHeadline)_ Verbessere Barrierefreiheit und Performance
+- _(HeaderSection)_ Verbessere Performance und Zugänglichkeit der Benutzerprofilkomponente
+- _(IntroText)_ Optimiere Komponenten-Styling und entferne Kommentare
+- _(LoadingSpinner)_ [**breaking**] Verbessere Komponenten-Architektur und Zugänglichkeit
+- _(GoldenLPOverlay)_ Verbessere Zugänglichkeit und Performance
+- _(audio)_ [**breaking**] Enhance AudioController implementation and documentation
+- _(db)_ Improve getGoldenLPs function and documentation
+- _(db)_ [**breaking**] Improve golden LP data handling and types
+- _(ErrorHandler)_ Verbessere Code-Struktur und Zugänglichkeit
+- _(game)_ [**breaking**] Optimize getRandomQuestion function and improve type safety
+- _(game)_ Improve error handling and type safety in game utils
+- _(game)_ [**breaking**] Improve answer handling and documentation
+- _(jokerUtils)_ [**breaking**] Improve type safety and documentation
+- _(utils)_ [**breaking**] Enhance TypeScript documentation and type safety
+- _(utils)_ Improve type safety and error handling
+- _(QueueManager)_ Enhance type safety and error handling
 - Enhance user points saving and round data type safety
-- *(utils)* [**breaking**] Improve shuffleArray implementation and documentation
+- _(utils)_ [**breaking**] Improve shuffleArray implementation and documentation
 
 ### 📚 Documentation
 
-- *(auth)* Improve email validation documentation
-- *(error)* Improve error handling documentation and type safety
-- *(utils)* [**breaking**] Improve getTitleBasedOnDifficulty documentation
+- _(auth)_ Improve email validation documentation
+- _(error)_ Improve error handling documentation and type safety
+- _(utils)_ [**breaking**] Improve getTitleBasedOnDifficulty documentation
 
 ## [2.11.0] - 2024-11-15
 
@@ -156,7 +156,7 @@ All notable changes to this project will be documented in this file.
 - Add viking-metal category
 - Add dark-mode and improve accessibility
 - Add fathom analytics and improve general Layout
-- *(a11y)* [**breaking**] Improve WCAG AAA compliance across components
+- _(a11y)_ [**breaking**] Improve WCAG AAA compliance across components
 
 ### 🐛 Bug Fixes
 
