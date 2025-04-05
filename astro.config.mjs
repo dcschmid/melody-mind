@@ -14,12 +14,7 @@ import metaTags from "astro-meta-tags";
 export default defineConfig({
   site: "https://melody-mind.de",
   output: "server",
-  integrations: [
-    icon(),
-    compressor(),
-    sitemap(),
-    metaTags(),
-  ],
+  integrations: [icon(), compressor(), sitemap(), metaTags()],
   adapter: node({
     mode: "standalone",
   }),
