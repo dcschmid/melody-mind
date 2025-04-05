@@ -223,28 +223,6 @@ export const ui = {
     "game.normal.speed": "Normale Geschwindigkeit",
     "game.skip.to.answers": "Zu den Antwortmöglichkeiten springen",
     "game.next": "Weiter",
-    // Tastaturkürzel und Barrierefreiheit
-    "keyboard.shortcuts": "Tastaturkürzel",
-    "keyboard.shortcuts.show": "Tastaturkürzel anzeigen",
-    "keyboard.shortcuts.hide": "Tastaturkürzel verbergen",
-    "keyboard.navigation": "Zwischen Bedienelementen navigieren",
-    "keyboard.activate": "Ausgewählten Button aktivieren",
-    "keyboard.arrows": "Zwischen Antwortoptionen wechseln",
-    "keyboard.numbers": "Antwortoptionen direkt auswählen",
-    "keyboard.speed": "Spielgeschwindigkeit umschalten",
-    "keyboard.next": "Weiter zur nächsten Runde (wenn verfügbar)",
-    "keyboard.help": "Tastaturkürzel anzeigen/verstecken",
-
-    // Tasten
-    "key.tab": "Tab",
-    "key.space": "Leertaste",
-    "key.arrows": "Pfeiltasten",
-    "key.numbers": "Nummern 1-4",
-    "key.s": "S",
-    "key.n": "N",
-    "key.h": "H",
-
-    // ARIA und Zugänglichkeit
     "aria.pressed": "Gedrückt",
     "aria.expanded": "Erweitert",
     "aria.shortcuts.panel": "Tastaturkürzel-Panel",
@@ -472,26 +450,6 @@ export const ui = {
     "game.normal.speed": "Normal speed",
     "game.skip.to.answers": "Skip to answer options",
     "game.next": "Next",
-    // Keyboard shortcuts and accessibility
-    "keyboard.shortcuts": "Keyboard Shortcuts",
-    "keyboard.shortcuts.show": "Show keyboard shortcuts",
-    "keyboard.shortcuts.hide": "Hide keyboard shortcuts",
-    "keyboard.navigation": "Navigate between controls",
-    "keyboard.activate": "Activate selected button",
-    "keyboard.arrows": "Switch between answer options",
-    "keyboard.numbers": "Select answer options directly",
-    "keyboard.speed": "Toggle game speed",
-    "keyboard.next": "Proceed to next round (when available)",
-    "keyboard.help": "Show/hide keyboard shortcuts",
-
-    // Keys
-    "key.tab": "Tab",
-    "key.space": "Spacebar",
-    "key.arrows": "Arrow keys",
-    "key.numbers": "Numbers 1-4",
-    "key.s": "S",
-    "key.n": "N",
-    "key.h": "H",
 
     // ARIA and accessibility
     "aria.pressed": "Pressed",
@@ -726,26 +684,6 @@ export const ui = {
     "game.normal.speed": "Velocidad normal",
     "game.skip.to.answers": "Saltar a las opciones de respuesta",
     "game.next": "Siguiente",
-    // Atajos de teclado y accesibilidad
-    "keyboard.shortcuts": "Atajos de Teclado",
-    "keyboard.shortcuts.show": "Mostrar atajos de teclado",
-    "keyboard.shortcuts.hide": "Ocultar atajos de teclado",
-    "keyboard.navigation": "Navegar entre controles",
-    "keyboard.activate": "Activar botón seleccionado",
-    "keyboard.arrows": "Cambiar entre opciones de respuesta",
-    "keyboard.numbers": "Seleccionar opciones de respuesta directamente",
-    "keyboard.speed": "Alternar velocidad del juego",
-    "keyboard.next": "Proceder a la siguiente ronda (cuando esté disponible)",
-    "keyboard.help": "Mostrar/ocultar atajos de teclado",
-
-    // Teclas
-    "key.tab": "Tab",
-    "key.space": "Barra espaciadora",
-    "key.arrows": "Teclas de flecha",
-    "key.numbers": "Números 1-4",
-    "key.s": "S",
-    "key.n": "N",
-    "key.h": "H",
 
     // ARIA y accesibilidad
     "aria.pressed": "Presionado",
@@ -980,26 +918,6 @@ export const ui = {
     "game.normal.speed": "Vitesse normale",
     "game.skip.to.answers": "Passer aux options de réponse",
     "game.next": "Suivant",
-    // Raccourcis clavier et accessibilité
-    "keyboard.shortcuts": "Raccourcis Clavier",
-    "keyboard.shortcuts.show": "Afficher les raccourcis clavier",
-    "keyboard.shortcuts.hide": "Masquer les raccourcis clavier",
-    "keyboard.navigation": "Naviguer entre les contrôles",
-    "keyboard.activate": "Activer le bouton sélectionné",
-    "keyboard.arrows": "Basculer entre les options de réponse",
-    "keyboard.numbers": "Sélectionner directement les options de réponse",
-    "keyboard.speed": "Basculer la vitesse du jeu",
-    "keyboard.next": "Passer au tour suivant (si disponible)",
-    "keyboard.help": "Afficher/masquer les raccourcis clavier",
-
-    // Touches
-    "key.tab": "Tab",
-    "key.space": "Barre d'espace",
-    "key.arrows": "Touches fléchées",
-    "key.numbers": "Chiffres 1-4",
-    "key.s": "S",
-    "key.n": "N",
-    "key.h": "H",
 
     // ARIA et accessibilité
     "aria.pressed": "Appuyé",
@@ -1234,27 +1152,7 @@ export const ui = {
     "game.normal.speed": "Velocità normale",
     "game.skip.to.answers": "Passa alle opzioni di risposta",
     "game.next": "Avanti",
-    // Scorciatoie da tastiera e accessibilità
-    "keyboard.shortcuts": "Scorciatoie da Tastiera",
-    "keyboard.shortcuts.show": "Mostra scorciatoie da tastiera",
-    "keyboard.shortcuts.hide": "Nascondi scorciatoie da tastiera",
-    "keyboard.navigation": "Naviga tra i controlli",
-    "keyboard.activate": "Attiva il pulsante selezionato",
-    "keyboard.arrows": "Passa tra le opzioni di risposta",
-    "keyboard.numbers": "Seleziona direttamente le opzioni di risposta",
-    "keyboard.speed": "Cambia velocità di gioco",
-    "keyboard.next": "Procedi al turno successivo (quando disponibile)",
-    "keyboard.help": "Mostra/nascondi scorciatoie da tastiera",
-
-    // Tasti
-    "key.tab": "Tab",
-    "key.space": "Barra spaziatrice",
-    "key.arrows": "Tasti freccia",
-    "key.numbers": "Numeri 1-4",
-    "key.s": "S",
-    "key.n": "N",
-    "key.h": "H",
-
+  
     // ARIA e accessibilità
     "aria.pressed": "Premuto",
     "aria.expanded": "Espanso",
@@ -1487,26 +1385,6 @@ export const ui = {
     "game.normal.speed": "Velocidade normal",
     "game.skip.to.answers": "Pular para as opções de resposta",
     "game.next": "Próximo",
-    // Atalhos de teclado e acessibilidade
-    "keyboard.shortcuts": "Atalhos de Teclado",
-    "keyboard.shortcuts.show": "Mostrar atalhos de teclado",
-    "keyboard.shortcuts.hide": "Ocultar atalhos de teclado",
-    "keyboard.navigation": "Navegar entre controles",
-    "keyboard.activate": "Ativar botão selecionado",
-    "keyboard.arrows": "Alternar entre opções de resposta",
-    "keyboard.numbers": "Selecionar opções de resposta diretamente",
-    "keyboard.speed": "Alternar velocidade do jogo",
-    "keyboard.next": "Prosseguir para próxima rodada (quando disponível)",
-    "keyboard.help": "Mostrar/ocultar atalhos de teclado",
-
-    // Teclas
-    "key.tab": "Tab",
-    "key.space": "Barra de espaço",
-    "key.arrows": "Teclas de seta",
-    "key.numbers": "Números 1-4",
-    "key.s": "S",
-    "key.n": "N",
-    "key.h": "H",
 
     // ARIA e acessibilidade
     "aria.pressed": "Pressionado",
@@ -1734,26 +1612,6 @@ export const ui = {
     "game.normal.speed": "Normal hastighed",
     "game.skip.to.answers": "Spring til svarmulighederne",
     "game.next": "Næste",
-    // Tastaturegenveje og tilgængelighed
-    "keyboard.shortcuts": "Tastaturegenveje",
-    "keyboard.shortcuts.show": "Vis tastaturegenveje",
-    "keyboard.shortcuts.hide": "Skjul tastaturegenveje",
-    "keyboard.navigation": "Naviger mellem kontroller",
-    "keyboard.activate": "Aktivér valgt knap",
-    "keyboard.arrows": "Skift mellem svarmulighederne",
-    "keyboard.numbers": "Vælg svarmuligheder direkte",
-    "keyboard.speed": "Skift spilhastighed",
-    "keyboard.next": "Fortsæt til næste runde (når tilgængelig)",
-    "keyboard.help": "Vis/skjul tastaturegenveje",
-
-    // Taster
-    "key.tab": "Tab",
-    "key.space": "Mellemrumstasten",
-    "key.arrows": "Piletaster",
-    "key.numbers": "Tal 1-4",
-    "key.s": "S",
-    "key.n": "N",
-    "key.h": "H",
 
     // ARIA og tilgængelighed
     "aria.pressed": "Trykket",
@@ -1981,26 +1839,6 @@ export const ui = {
     "game.normal.speed": "Normale snelheid",
     "game.skip.to.answers": "Ga naar antwoordopties",
     "game.next": "Volgende",
-    // Toetsenbordsnelkoppelingen en toegankelijkheid
-    "keyboard.shortcuts": "Toetsenbordsnelkoppelingen",
-    "keyboard.shortcuts.show": "Toon toetsenbordsnelkoppelingen",
-    "keyboard.shortcuts.hide": "Verberg toetsenbordsnelkoppelingen",
-    "keyboard.navigation": "Navigeer tussen besturingselementen",
-    "keyboard.activate": "Activeer geselecteerde knop",
-    "keyboard.arrows": "Schakel tussen antwoordopties",
-    "keyboard.numbers": "Selecteer antwoordopties direct",
-    "keyboard.speed": "Schakel spelsnelheid",
-    "keyboard.next": "Ga naar volgende ronde (indien beschikbaar)",
-    "keyboard.help": "Toon/verberg toetsenbordsnelkoppelingen",
-
-    // Toetsen
-    "key.tab": "Tab",
-    "key.space": "Spatiebalk",
-    "key.arrows": "Pijltoetsen",
-    "key.numbers": "Cijfers 1-4",
-    "key.s": "S",
-    "key.n": "N",
-    "key.h": "H",
 
     // ARIA en toegankelijkheid
     "aria.pressed": "Ingedrukt",
@@ -2228,26 +2066,6 @@ export const ui = {
     "game.normal.speed": "Normal hastighet",
     "game.skip.to.answers": "Hoppa till svarsalternativ",
     "game.next": "Nästa",
-    // Tangentbordsgenvägar och tillgänglighet
-    "keyboard.shortcuts": "Tangentbordsgenvägar",
-    "keyboard.shortcuts.show": "Visa tangentbordsgenvägar",
-    "keyboard.shortcuts.hide": "Dölj tangentbordsgenvägar",
-    "keyboard.navigation": "Navigera mellan kontroller",
-    "keyboard.activate": "Aktivera vald knapp",
-    "keyboard.arrows": "Växla mellan svarsalternativ",
-    "keyboard.numbers": "Välj svarsalternativ direkt",
-    "keyboard.speed": "Växla spelhastighet",
-    "keyboard.next": "Fortsätt till nästa runda (när tillgänglig)",
-    "keyboard.help": "Visa/dölj tangentbordsgenvägar",
-
-    // Tangenter
-    "key.tab": "Tab",
-    "key.space": "Mellanslag",
-    "key.arrows": "Piltangenter",
-    "key.numbers": "Siffror 1-4",
-    "key.s": "S",
-    "key.n": "N",
-    "key.h": "H",
 
     // ARIA och tillgänglighet
     "aria.pressed": "Tryckt",
@@ -2260,7 +2078,8 @@ export const ui = {
     "playlist.page.description":
       "Fördjupa dig i noggrant kurerade spellistor från olika epoker och genrer. Perfekt för att upptäcka ny musik eller återuppleva dina favoritklassiker.",
     "playlist.search.label": "Sök spellistor",
-    "playlist.search.placeholder": "Sök efter musikepok eller stil...",
+    "playlist.search.placeholder":
+      "Sök efter musikepok eller stil...",
     "playlist.filter.all": "Alla Epoker",
     "playlist.no.results":
       "Inga matchande spellistor hittades. Prova en annan sökterm.",
@@ -2473,26 +2292,6 @@ export const ui = {
     "game.normal.speed": "Normaali nopeus",
     "game.skip.to.answers": "Siirry vastausvaihtoehtoihin",
     "game.next": "Seuraava",
-    // Pikanäppäimet ja saavutettavuus
-    "keyboard.shortcuts": "Pikanäppäimet",
-    "keyboard.shortcuts.show": "Näytä pikanäppäimet",
-    "keyboard.shortcuts.hide": "Piilota pikanäppäimet",
-    "keyboard.navigation": "Navigoi kontrollien välillä",
-    "keyboard.activate": "Aktivoi valittu painike",
-    "keyboard.arrows": "Vaihda vastausvaihtoehtojen välillä",
-    "keyboard.numbers": "Valitse vastausvaihtoehdot suoraan",
-    "keyboard.speed": "Vaihda pelinopeutta",
-    "keyboard.next": "Siirry seuraavalle kierrokselle (kun saatavilla)",
-    "keyboard.help": "Näytä/piilota pikanäppäimet",
-
-    // Näppäimet
-    "key.tab": "Tab",
-    "key.space": "Välilyönti",
-    "key.arrows": "Nuolinäppäimet",
-    "key.numbers": "Numerot 1-4",
-    "key.s": "S",
-    "key.n": "N",
-    "key.h": "H",
 
     // ARIA ja saavutettavuus
     "aria.pressed": "Painettu",

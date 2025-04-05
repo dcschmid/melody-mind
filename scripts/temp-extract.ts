@@ -205,26 +205,6 @@ const ui = {
     "game.normal.speed": "Normale Geschwindigkeit",
     "game.skip.to.answers": "Zu den Antwortmöglichkeiten springen",
     "game.next": "Weiter",
-    // Tastaturkürzel und Barrierefreiheit
-    "keyboard.shortcuts": "Tastaturkürzel",
-    "keyboard.shortcuts.show": "Tastaturkürzel anzeigen",
-    "keyboard.shortcuts.hide": "Tastaturkürzel verbergen",
-    "keyboard.navigation": "Zwischen Bedienelementen navigieren",
-    "keyboard.activate": "Ausgewählten Button aktivieren",
-    "keyboard.arrows": "Zwischen Antwortoptionen wechseln",
-    "keyboard.numbers": "Antwortoptionen direkt auswählen",
-    "keyboard.speed": "Spielgeschwindigkeit umschalten",
-    "keyboard.next": "Weiter zur nächsten Runde (wenn verfügbar)",
-    "keyboard.help": "Tastaturkürzel anzeigen/verstecken",
-
-    // Tasten
-    "key.tab": "Tab",
-    "key.space": "Leertaste",
-    "key.arrows": "Pfeiltasten",
-    "key.numbers": "Nummern 1-4",
-    "key.s": "S",
-    "key.n": "N",
-    "key.h": "H",
 
     // ARIA und Zugänglichkeit
     "aria.pressed": "Gedrückt",
@@ -448,26 +428,6 @@ const ui = {
     "game.normal.speed": "Normal speed",
     "game.skip.to.answers": "Skip to answer options",
     "game.next": "Next",
-    // Keyboard shortcuts and accessibility
-    "keyboard.shortcuts": "Keyboard Shortcuts",
-    "keyboard.shortcuts.show": "Show keyboard shortcuts",
-    "keyboard.shortcuts.hide": "Hide keyboard shortcuts",
-    "keyboard.navigation": "Navigate between controls",
-    "keyboard.activate": "Activate selected button",
-    "keyboard.arrows": "Switch between answer options",
-    "keyboard.numbers": "Select answer options directly",
-    "keyboard.speed": "Toggle game speed",
-    "keyboard.next": "Proceed to next round (when available)",
-    "keyboard.help": "Show/hide keyboard shortcuts",
-
-    // Keys
-    "key.tab": "Tab",
-    "key.space": "Spacebar",
-    "key.arrows": "Arrow keys",
-    "key.numbers": "Numbers 1-4",
-    "key.s": "S",
-    "key.n": "N",
-    "key.h": "H",
 
     // ARIA and accessibility
     "aria.pressed": "Pressed",
