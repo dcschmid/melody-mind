@@ -264,59 +264,7 @@ const modifiedDate = new Date();
           </div>
         </div>
       </div>
-
-      <!-- Cover Puzzle Section -->
-      <div
-        class="flex flex-col gap-6 items-center w-full mt-8 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm rounded-xl p-8 relative shadow-lg border border-zinc-700/30"
-      >
-        <div
-          class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-indigo-600 to-purple-700 flex items-center justify-center shadow-lg border-4 border-zinc-900"
-          aria-hidden="true"
-        >
-          <Icon name="image" class="h-10 w-10 text-white" />
-        </div>
-
-        <Headline
-          level="h2"
-          className="text-center text-2xl font-bold text-white mt-6 pt-2"
-        >
-          {t("play.cover.puzzle")}
-        </Headline>
-
-        <Paragraph
-          className="text-center max-w-2xl mb-6 text-zinc-100"
-          description={t("play.cover.puzzle.description")}
-        />
-
-        <div
-          class="flex flex-wrap justify-center gap-6 w-full mt-2 perspective"
-          role="group"
-          aria-label="Cover Puzzle Game"
-        >
-          <ButtonLink
-            href={getRelativeLocaleUrl(
-              lang,
-              `game-puzzle-${currentCategory?.slug}`,
-            )}
-            aria-label={t("play.cover.puzzle")}
-            className="py-5 px-8 bg-gradient-to-br from-purple-600 to-purple-800 hover:from-purple-500 hover:to-purple-700 rounded-xl transform hover:scale-[1.03] transition-all duration-300 shadow-lg hover:shadow-purple-900/20 flex items-center justify-center gap-3 focus:outline-none focus:ring-4 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900"
-          >
-            <Icon name="puzzle" class="h-6 w-6" />
-            <span class="text-lg font-medium">{t("play.cover.puzzle")}</span>
-          </ButtonLink>
-        </div>
-      </div>
     </article>
-
-    <!-- WCAG information -->
-    <div class="mt-16 text-center" aria-live="polite">
-      <p class="text-sm text-zinc-400 flex items-center justify-center">
-        <span class="inline-block mr-2" role="img" aria-label="Barrierefreiheit"
-          >♿</span
-        >
-        <span>{t("accessibility.wcag")}</span>
-      </p>
-    </div>
   </div>
 </Layout>
 
