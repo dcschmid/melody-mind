@@ -2,8 +2,6 @@ import { defineConfig } from "astro/config";
 import icon from "astro-icon";
 import node from "@astrojs/node";
 import compressor from "astro-compressor";
-import playformCompress from "@playform/compress";
-import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs";
 import path from "path";
 
 import tailwindcss from "@tailwindcss/vite";
@@ -19,7 +17,6 @@ export default defineConfig({
   integrations: [
     icon(),
     compressor(),
-    playformCompress(),
     sitemap(),
     metaTags(),
   ],
