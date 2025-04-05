@@ -225,6 +225,59 @@ const articleSchemaData = {
             )
           }
         </div>
+        
+        <!-- Music & Game Buttons in separate div -->
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-3 text-zinc-200 text-base">
+          {entry.data.category?.spotifyPlaylist && (
+            <ButtonLink
+              href={entry.data.category.spotifyPlaylist}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${entry.data.title} auf Spotify anhören`}
+              className="rounded-full h-8 px-3 py-0 text-sm"
+            >
+              <Icon name="spotify" class="h-4 w-4 mr-1" aria-hidden="true" />
+              <span>Spotify</span>
+            </ButtonLink>
+          )}
+
+          {entry.data.category?.deezerPlaylist && (
+            <ButtonLink
+              href={entry.data.category.deezerPlaylist}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${entry.data.title} auf Deezer anhören`}
+              className="rounded-full h-8 px-3 py-0 text-sm"
+            >
+              <Icon name="deezer" class="h-4 w-4 mr-1" aria-hidden="true" />
+              <span>Deezer</span>
+            </ButtonLink>
+          )}
+
+          {entry.data.category?.appleMusicPlaylist && (
+            <ButtonLink
+              href={entry.data.category.appleMusicPlaylist}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${entry.data.title} auf Apple Music anhören`}
+              className="rounded-full h-8 px-3 py-0 text-sm"
+            >
+              <Icon name="apple" class="h-4 w-4 mr-1" aria-hidden="true" />
+              <span>Apple</span>
+            </ButtonLink>
+          )}
+
+          {isPlayable && gameCategoryUrl && (
+            <ButtonLink
+              href={gameCategoryUrl}
+              className="rounded-full h-8 px-3 py-0 text-sm bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500"
+              aria-label={`${playButtonText}: ${entry.data.title}`}
+            >
+              <Icon name="game-controller" class="h-4 w-4 mr-1" aria-hidden="true" />
+              <span>{playButtonText}</span>
+            </ButtonLink>
+          )}
+        </div>
 
         <div
           class="mt-6 bg-zinc-800/30 p-5 rounded-lg border-l-4 border-sky-500"
@@ -237,122 +290,6 @@ const articleSchemaData = {
 
       <div class="content-wrapper relative">
         <Content />
-      </div>
-
-      <!-- Music Links and Game Play Section -->
-      <div class="mt-12 border-t border-zinc-700 pt-8">
-        {
-          (entry.data.category || isPlayable) && (
-            <Headline
-              level="h2"
-              title={t["knowledge.interact.heading"] || "Hören & Spielen"}
-              className="mb-6 text-2xl"
-            />
-          )
-        }
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Music Streaming Links Section -->
-          {
-            entry.data.category && (
-              <div class="bg-zinc-800/80 p-6 rounded-lg border border-zinc-700 shadow-lg transition-transform hover:translate-y-[-2px]">
-                <h3 class="text-xl font-medium text-zinc-100 mb-4 flex items-center">
-                  <Icon
-                    name="headphones"
-                    class="h-5 w-5 mr-2 text-sky-400"
-                    aria-hidden="true"
-                  />
-                  {t["knowledge.listen.heading"] || "Musik anhören"}
-                </h3>
-
-                <div class="grid grid-cols-1 gap-4">
-                  {entry.data.category.spotifyPlaylist && (
-                    <ButtonLink
-                      href={entry.data.category.spotifyPlaylist}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${entry.data.title} auf Spotify anhören`}
-                      className="w-full justify-center"
-                    >
-                      <Icon
-                        name="spotify"
-                        class="h-5 w-5 mr-2"
-                        aria-hidden="true"
-                      />
-                      <span>Spotify</span>
-                    </ButtonLink>
-                  )}
-
-                  {entry.data.category.deezerPlaylist && (
-                    <ButtonLink
-                      href={entry.data.category.deezerPlaylist}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${entry.data.title} auf Deezer anhören`}
-                      className="w-full justify-center"
-                    >
-                      <Icon
-                        name="deezer"
-                        class="h-5 w-5 mr-2"
-                        aria-hidden="true"
-                      />
-                      <span>Deezer</span>
-                    </ButtonLink>
-                  )}
-
-                  {entry.data.category.appleMusicPlaylist && (
-                    <ButtonLink
-                      href={entry.data.category.appleMusicPlaylist}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${entry.data.title} auf Apple Music anhören`}
-                      className="w-full justify-center"
-                    >
-                      <Icon
-                        name="apple"
-                        class="h-5 w-5 mr-2"
-                        aria-hidden="true"
-                      />
-                      <span>Apple Music</span>
-                    </ButtonLink>
-                  )}
-                </div>
-              </div>
-            )
-          }
-
-          <!-- Play Game Section (only if isPlayable is true) -->
-          {
-            isPlayable && gameCategoryUrl && (
-              <div class="bg-zinc-800/80 p-6 rounded-lg border border-zinc-700 shadow-lg transition-transform hover:translate-y-[-2px]">
-                <h3 class="text-xl font-medium text-zinc-100 mb-4 flex items-center">
-                  <Icon
-                    name="game-controller"
-                    class="h-5 w-5 mr-2 text-sky-400"
-                    aria-hidden="true"
-                  />
-                  {t["knowledge.play.heading"] || "Dieses Genre spielen"}
-                </h3>
-                <p class="text-zinc-300 mb-4">
-                  {t["knowledge.play.description"] ||
-                    "Teste dein Wissen über dieses Musikgenre in unserem interaktiven Quiz!"}
-                </p>
-                <ButtonLink
-                  href={gameCategoryUrl}
-                  className="w-full justify-center bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500"
-                  aria-label={`${playButtonText}: ${entry.data.title}`}
-                >
-                  <Icon
-                    name="game-controller"
-                    class="h-5 w-5 mr-2"
-                    aria-hidden="true"
-                  />
-                  <span>{playButtonText}</span>
-                </ButtonLink>
-              </div>
-            )
-          }
-        </div>
       </div>
 
       <div
