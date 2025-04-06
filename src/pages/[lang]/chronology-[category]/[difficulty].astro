@@ -1,0 +1,983 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
+import GameHeadline from "@components/Game/GameHeadline.astro";
+import EndOverlay from "@components/Overlays/EndOverlay.astro";
+import LoadingSpinner from "@components/Game/LoadingSpinner.astro";
+import ErrorMessage from "@components/Shared/ErrorMessage.astro";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import type { Difficulty as GameDifficulty } from "@utils/game/jokerUtils";
+import { Icon } from "astro-icon/components";
+import ChronologyFeedbackOverlay from "@components/Overlays/ChronologyFeedbackOverlay.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { category, difficulty } = Astro.params;
+
+// Dynamic import of categories based on language
+let categories;
+try {
+  categories = await import(`@json/${lang}_categories.json`);
+} catch (error) {
+  // Fallback to default language if the specific language file doesn't exist
+  categories = await import(`@json/de_categories.json`);
+}
+
+// Default user for game functionality
+const user = { id: "guest" };
+
+const currentCategoryData = categories.default.find(
+  (cat: any) => cat.slug === category,
+);
+
+const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
+---
+
+<Layout
+  title={`${t("game.chronology.title")} - ${currentCategoryData?.headline}`}
+  showHeader={false}
+  showCoins={false}
+>
+  <ChronologyFeedbackOverlay />
+
+  <EndOverlay
+    id="endgame-popup"
+    data-score="0"
+    data-category={currentCategoryData?.headline || ""}
+    data-difficulty={difficulty || ""}
+  />
+
+  <!-- Verbesserte Spiel-Header-Sektion mit besserer visueller Unterscheidung -->
+  <div class="mb-6 md:mb-8">
+    <GameHeadline headline={currentCategoryData?.headline} />
+
+    <!-- Game info badges -->
+    <div
+      class="flex flex-wrap justify-center items-center gap-3 mt-4"
+      aria-live="polite"
+    >
+      <div
+        class="inline-flex items-center px-3 py-1 rounded-xl bg-gradient-to-r from-zinc-800 to-zinc-900 shadow-sm border border-zinc-700"
+      >
+        <Icon
+          name="difficulty"
+          class="h-4 w-4 mr-2 text-yellow-400"
+          aria-hidden="true"
+        />
+        <span class="text-base font-medium text-zinc-100">
+          {t(`difficulty.${difficulty}`)}
+        </span>
+      </div>
+
+      <div
+        class="inline-flex items-center px-3 py-1 rounded-xl bg-gradient-to-r from-zinc-800 to-zinc-900 shadow-sm border border-zinc-700"
+      >
+        <Icon
+          name="coins"
+          class="h-4 w-4 mr-2 text-amber-400"
+          aria-hidden="true"
+        />
+        <span class="text-base font-medium text-zinc-100">
+          <span id="coins-display" class="coinsCount">0</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <ErrorMessage />
+
+  <LoadingSpinner />
+
+  <div
+    id="chronology-container"
+    class="w-full max-w-3xl mx-auto p-6 md:p-8 rounded-xl bg-gradient-to-b from-zinc-800 to-zinc-900 shadow-xl border border-zinc-700 text-center transition-all duration-500 opacity-100 data-[hidden=true]:opacity-0"
+    role="main"
+    aria-label={t("game.chronology.area.label") || "Chronologie-Spielbereich"}
+    data-categoryName={currentCategoryData?.headline}
+    data-genre={category}
+    data-userID={user.id}
+    date-difficulty={difficulty}
+  >
+    <!-- Ehrung des Spielers/Titels als kompakter Badge -->
+    {playerTitle && (
+      <div class="mb-4 text-center">
+        <span class="inline-flex items-center text-sm px-3 py-1 rounded-xl bg-gradient-to-r from-zinc-800 to-zinc-900 shadow-sm border border-zinc-700">
+          <Icon name="trophy" class="h-4 w-4 mr-2 text-yellow-400" aria-hidden="true" />
+          <span class="text-zinc-300">{playerTitle}</span>
+        </span>
+      </div>
+    )}
+
+    <h2 
+      class="mb-6 text-xl md:text-2xl font-bold text-white leading-relaxed"
+      id="chronology-title"
+    >
+      {t("game.chronology.title") || "Musik-Chronologie"}
+    </h2>
+    
+    <p 
+      class="text-center text-zinc-300 mb-6"
+      id="chronology-description"
+    >
+      {t("game.chronology.description") || "Ordne diese Alben nach ihrem Erscheinungsjahr (ältestes zuerst)"}
+    </p>
+    
+    <div 
+      class="chronology-items space-y-3 mb-8 min-h-[300px]" 
+      id="chronology-items-container"
+      aria-live="polite"
+    >
+      <!-- Items werden per JavaScript hinzugefügt -->
+      <div class="chronology-placeholder text-center text-zinc-400">
+        <Icon name="loader" class="w-8 h-8 mx-auto animate-spin" />
+        <p class="mt-2">{t("loading.content")}</p>
+      </div>
+    </div>
+    
+    <div class="flex justify-center">
+      <button
+        id="chronology-submit"
+        class="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-full font-bold transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled
+      >
+        {t("game.submit.answer") || "Antwort überprüfen"}
+      </button>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  /**
+   * Musik-Chronologie Spielmodus
+   * 
+   * Spieler müssen Alben/Songs zeitlich korrekt einordnen
+   */
+  import { ErrorHandler } from "@utils/error/errorHandler";
+  import { handleEndGame, restartGame } from "@utils/game/endGameUtils";
+  import { QueueManager } from "@utils/queue/queueManager";
+  import { Difficulty } from "@utils/game/jokerUtils";
+  import type { Album } from "@utils/game/getRandomQuestion";
+  import { getLangFromUrl, useTranslations } from "@utils/i18n";
+  import Sortable from "sortablejs";
+  import { generateChronologyQuestion, evaluateChronologyAnswer } from "@utils/game/chronologyGameMode";
+
+  // Sprache basierend auf URL abrufen und Übersetzungen initialisieren
+  const lang = getLangFromUrl(
+    new URL(window.location.pathname, window.location.origin),
+  );
+  const t = useTranslations(lang);
+
+  /**
+   * Konfigurationskonstanten für die Anzahl der Runden basierend auf dem Schwierigkeitsgrad
+   */
+  const ROUNDS_PER_DIFFICULTY = {
+    [Difficulty.EASY]: 10,
+    [Difficulty.MEDIUM]: 15,
+    [Difficulty.HARD]: 20,
+  } as const;
+
+  /**
+   * Validiert und normalisiert den Schwierigkeitsgrad aus URL-Parametern
+   */
+  const validateDifficulty = (diff: string | null): Difficulty => {
+    if (diff === "easy") return Difficulty.EASY;
+    if (diff === "medium") return Difficulty.MEDIUM;
+    if (diff === "hard") return Difficulty.HARD;
+    return Difficulty.EASY;
+  };
+
+  /**
+   * Anzahl der zu sortierenden Elemente je nach Schwierigkeitsgrad
+   */
+  const ITEMS_PER_DIFFICULTY = {
+    [Difficulty.EASY]: 4,
+    [Difficulty.MEDIUM]: 4,
+    [Difficulty.HARD]: 4,
+  };
+
+  /**
+   * Interface für DOM-Elemente, die vom Spielcontroller benötigt werden
+   */
+  interface ChronologyGameElements {
+    itemsContainer: HTMLElement;
+    submitButton: HTMLButtonElement;
+    coinsDisplay: HTMLElement;
+    loadingSpinner: HTMLElement;
+    chronologyContainer: HTMLElement;
+    endGamePopup: HTMLElement;
+    roundElement: HTMLElement; // Für die Rundenanzeige
+  }
+
+  /**
+   * Zwischenspeichert DOM-Elemente, um wiederholte Abfragen zu vermeiden und die Leistung zu verbessern
+   */
+  function cacheElements(): ChronologyGameElements {
+    return {
+      itemsContainer: document.getElementById("chronology-items-container") as HTMLElement,
+      submitButton: document.getElementById("chronology-submit") as HTMLButtonElement,
+      coinsDisplay: document.querySelector(".coinsCount") as HTMLElement,
+      loadingSpinner: document.getElementById("loading-spinner") as HTMLElement,
+      chronologyContainer: document.getElementById("chronology-container") as HTMLElement,
+      endGamePopup: document.getElementById("endgame-popup") as HTMLElement,
+      roundElement: document.querySelector(".round") as HTMLElement,
+    };
+  }
+
+  /**
+   * Hauptklasse für die Steuerung des Chronologie-Spiels
+   */
+  class ChronologyGameController {
+    private elements: ChronologyGameElements;
+    private sortable: Sortable | null = null;
+    private albums: Album[] = [];
+    private currentQuestion: any = null;
+    private score: number = 0;
+    private roundIndex: number = 0;
+    private correctAnswers: number = 0;
+    private totalRounds: number = 10;
+    private difficulty: Difficulty;
+    private category: string;
+    private categoryName: string;
+    private userId: string;
+    
+    constructor(elements: ChronologyGameElements) {
+      this.elements = elements;
+      
+      const container = this.elements.chronologyContainer;
+      this.category = container.getAttribute("data-genre") || "";
+      this.userId = container.getAttribute("data-userID") || "guest";
+      this.categoryName = container.getAttribute("data-categoryName") || "";
+      this.difficulty = validateDifficulty(container.getAttribute("date-difficulty"));
+      
+      this.totalRounds = ROUNDS_PER_DIFFICULTY[this.difficulty] || ROUNDS_PER_DIFFICULTY.EASY;
+      
+      // Initialisiere die Rundenanzeige
+      this.updateRoundDisplay();
+      
+      this.initEventListeners();
+    }
+    
+    /**
+     * Initialisiert Event-Listener für Spielinteraktionen
+     */
+    private initEventListeners() {
+      // Submit-Button
+      this.elements.submitButton.addEventListener("click", () => this.handleSubmit());
+      
+      // Neustart-Button im Endspiel-Popup
+      const restartButton = document.getElementById("restart-button");
+      if (restartButton) {
+        restartButton.addEventListener("click", restartGame);
+      }
+    }
+    
+    /**
+     * Lädt Albumdaten für die ausgewählte Kategorie mit Sprachfallback
+     */
+    public async loadAlbums(): Promise<boolean> {
+      try {
+        let albumsData;
+
+        try {
+          // Versuche zuerst, Alben für die aktuelle Sprache zu laden
+          const response = await fetch(`/json/genres/${lang}/${this.category}.json`);
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          albumsData = await response.json();
+        } catch (langError) {
+          // Fallback auf Deutsch, wenn die spezifische Sprachdatei nicht existiert
+          console.log(
+            `No albums found for ${lang}/${this.category}, falling back to German`,
+          );
+
+          const fallbackResponse = await fetch(
+            `/json/genres/de/${this.category}.json`,
+          );
+
+          if (!fallbackResponse.ok) {
+            throw new Error(
+              `HTTP error for fallback! Status: ${fallbackResponse.status}`,
+            );
+          }
+
+          albumsData = await fallbackResponse.json();
+        }
+
+        this.albums = albumsData;
+
+        if (!this.albums?.length) {
+          throw new Error(t("error.no.albums.found"));
+        }
+        
+        return true;
+      } catch (error) {
+        console.error("Error loading albums:", error);
+        ErrorHandler.handleApiError(
+          error instanceof Error ? error : new Error(String(error)),
+        );
+        return false;
+      }
+    }
+    
+    /**
+     * Startet das Spiel und zeigt die erste Frage an
+     */
+    public async startGame() {
+      this.showLoadingSpinner(true);
+      
+      // Alben laden
+      const success = await this.loadAlbums();
+      if (!success) {
+        this.showLoadingSpinner(false);
+        return;
+      }
+      
+      // Erste Frage generieren und anzeigen
+      this.loadNextQuestion();
+      
+      this.showLoadingSpinner(false);
+    }
+    
+    /**
+     * Zeigt/verbirgt den Ladeindikator
+     */
+    private showLoadingSpinner(show: boolean) {
+      if (this.elements.loadingSpinner) {
+        if (show) {
+          this.elements.loadingSpinner.classList.remove("hidden");
+        } else {
+          this.elements.loadingSpinner.classList.add("hidden");
+        }
+      }
+    }
+    
+    /**
+     * Generiert und lädt die nächste Chronologie-Frage
+     */
+    private loadNextQuestion() {
+      // Alle Items zurücksetzen
+      if (this.elements.itemsContainer) {
+        this.elements.itemsContainer.innerHTML = "";
+      }
+      
+      // Frage für aktuellen Schwierigkeitsgrad generieren
+      this.currentQuestion = generateChronologyQuestion(
+        this.albums,
+        this.difficulty
+      );
+      
+      if (!this.currentQuestion) {
+        ErrorHandler.handleApiError(new Error("Keine gültige Chronologie-Frage konnte generiert werden"));
+        return;
+      }
+      
+      // Frage anzeigen
+      this.renderQuestion();
+      
+      // Submit-Button aktivieren
+      if (this.elements.submitButton) {
+        this.elements.submitButton.disabled = false;
+      }
+      
+      // Rundenanzeige aktualisieren
+      this.updateRoundDisplay();
+    }
+    
+    /**
+     * Rendert die Chronologie-Frage in den Container
+     */
+    private renderQuestion() {
+      if (!this.elements.itemsContainer || !this.currentQuestion) return;
+      
+      const container = this.elements.itemsContainer;
+      container.innerHTML = "";
+      
+      // Erstelle sortierbare Liste
+      const list = document.createElement("ul");
+      list.className = "chronology-list space-y-3";
+      list.setAttribute("aria-label", "Sortierbare Liste von Alben");
+      
+      // Füge Items hinzu
+      this.currentQuestion.items.forEach((item: any, index: number) => {
+        const li = document.createElement("li");
+        li.className = "chronology-item bg-zinc-900 p-4 rounded-lg border border-zinc-700 flex items-center cursor-move";
+        li.setAttribute("data-id", item.id.toString());
+        li.setAttribute("aria-grabbed", "false");
+        li.setAttribute("tabindex", "0");
+        
+        // Handle-Icon
+        const handle = document.createElement("div");
+        handle.className = "drag-handle mr-3 text-zinc-400";
+        handle.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>`;
+        handle.setAttribute("aria-hidden", "true");
+        
+        // Content
+        const content = document.createElement("div");
+        content.className = "flex-1";
+        
+        const artistName = document.createElement("div");
+        artistName.className = "font-bold text-white";
+        artistName.textContent = item.artist;
+        
+        const albumTitle = document.createElement("div");
+        albumTitle.className = "text-zinc-300";
+        albumTitle.textContent = item.title;
+        
+        content.appendChild(artistName);
+        content.appendChild(albumTitle);
+        
+        // Position number (for accessibility)
+        const position = document.createElement("div");
+        position.className = "chronology-position ml-auto text-xl font-bold text-zinc-500";
+        position.textContent = (index + 1).toString();
+        position.setAttribute("aria-hidden", "true");
+        
+        // Assemble
+        li.appendChild(handle);
+        li.appendChild(content);
+        li.appendChild(position);
+        
+        list.appendChild(li);
+      });
+      
+      container.appendChild(list);
+      
+      // Enable Sortable.js
+      this.initSortable(list);
+      
+      // Announce for screen readers
+      const announcement = document.createElement("div");
+      announcement.className = "sr-only";
+      announcement.setAttribute("aria-live", "polite");
+      announcement.textContent = `Neue Aufgabe geladen: ${this.currentQuestion.items.length} Alben in chronologische Reihenfolge bringen.`;
+      container.appendChild(announcement);
+      
+      // Remove announcement after it's been read
+      setTimeout(() => announcement.remove(), 1000);
+    }
+    
+    /**
+     * Initialisiert die Sortable.js-Funktionalität
+     */
+    private initSortable(element: HTMLElement) {
+      this.sortable = new Sortable(element, {
+        animation: 150,
+        handle: ".drag-handle",
+        ghostClass: "sortable-ghost",
+        chosenClass: "sortable-chosen",
+        dragClass: "sortable-drag",
+        onEnd: () => {
+          this.updatePositionNumbers();
+        }
+      });
+      
+      // Initial position numbers
+      this.updatePositionNumbers();
+      
+      // Add keyboard accessibility
+      this.addKeyboardSorting(element);
+    }
+    
+    /**
+     * Aktualisiert die angezeigten Positionsnummern
+     */
+    private updatePositionNumbers() {
+      if (!this.elements.itemsContainer) return;
+      
+      const items = this.elements.itemsContainer.querySelectorAll(".chronology-item");
+      items.forEach((item, index) => {
+        const position = item.querySelector(".chronology-position");
+        if (position) {
+          position.textContent = (index + 1).toString();
+        }
+      });
+    }
+    
+    /**
+     * Fügt Tastaturunterstützung für die Sortierung hinzu
+     */
+    private addKeyboardSorting(listElement: HTMLElement) {
+      let items = listElement.querySelectorAll(".chronology-item");
+      
+      // Hilfsinstruktionen für Tastaturnutzer hinzufügen
+      const keyboardInstructions = document.createElement("div");
+      keyboardInstructions.className = "keyboard-instructions text-sm text-zinc-400 mt-2 mb-4";
+      keyboardInstructions.innerHTML = `
+        <span class="sr-only">${t("game.chronology.drag.help") || "Nutze die Pfeiltasten ↑/↓ oder Drag & Drop zum Sortieren"}</span>
+        <div class="flex flex-wrap justify-center gap-2 text-xs">
+          <span class="inline-flex items-center px-2 py-1 bg-zinc-800 rounded">
+            <kbd class="px-1 py-0.5 mr-1 bg-zinc-700 rounded text-zinc-300">↑</kbd><span>${t("game.chronology.up") || "Nach oben"}</span>
+          </span>
+          <span class="inline-flex items-center px-2 py-1 bg-zinc-800 rounded">
+            <kbd class="px-1 py-0.5 mr-1 bg-zinc-700 rounded text-zinc-300">↓</kbd><span>${t("game.chronology.down") || "Nach unten"}</span>
+          </span>
+          <span class="inline-flex items-center px-2 py-1 bg-zinc-800 rounded">
+            <kbd class="px-1 py-0.5 mr-1 bg-zinc-700 rounded text-zinc-300">1-${items.length}</kbd><span>${t("game.chronology.position") || "Position"}</span>
+          </span>
+          <span class="inline-flex items-center px-2 py-1 bg-zinc-800 rounded">
+            <kbd class="px-1 py-0.5 mr-1 bg-zinc-700 rounded text-zinc-300">Home</kbd><span>${t("game.chronology.start") || "Anfang"}</span>
+          </span>
+          <span class="inline-flex items-center px-2 py-1 bg-zinc-800 rounded">
+            <kbd class="px-1 py-0.5 mr-1 bg-zinc-700 rounded text-zinc-300">End</kbd><span>${t("game.chronology.end") || "Ende"}</span>
+          </span>
+        </div>
+      `;
+      listElement.parentNode?.insertBefore(keyboardInstructions, listElement);
+      
+      // Jeden Eintrag für Tastatursteuerung vorbereiten
+      items.forEach(item => {
+        // Setze Tabindex für Fokussierbarkeit
+        item.setAttribute("tabindex", "0");
+        
+        // Füge Rollenbeschreibung für Screenreader hinzu
+        item.setAttribute("role", "listitem");
+        item.setAttribute("aria-label", `Element ${item.querySelector(".font-bold")?.textContent} - ${item.querySelector(".text-zinc-300")?.textContent}. Nutze Pfeiltasten zum Umordnen.`);
+        
+        item.addEventListener("keydown", (e) => {
+          const key = (e as KeyboardEvent).key;
+          
+          // Aktualisiere die Elementliste vor jeder Operation
+          // Dies ist entscheidend, da die DOM-Struktur sich nach Verschiebungen ändert
+          items = listElement.querySelectorAll(".chronology-item");
+          const currentIndex = Array.from(items).indexOf(item as HTMLElement);
+          
+          let newIndex = currentIndex;
+          let moved = false;
+          
+          // ARIA-Announcement vorbereiten
+          const artistName = item.querySelector(".font-bold")?.textContent || '';
+          const albumTitle = item.querySelector(".text-zinc-300")?.textContent || '';
+          const itemDescription = `${artistName} - ${albumTitle}`;
+          
+          // Verhindere Scrollen mit Pfeiltasten
+          if (["ArrowUp", "ArrowDown", "Home", "End"].includes(key)) {
+            e.preventDefault();
+          }
+          
+          // Funktion, um ein Element an einer bestimmten Position einzufügen
+          const moveToPosition = (targetIndex: number) => {
+            // Sicherheitscheck für Index-Grenzen
+            if (targetIndex < 0) targetIndex = 0;
+            if (targetIndex >= items.length) targetIndex = items.length - 1;
+            
+            if (targetIndex === currentIndex) return false; // Keine Änderung nötig
+            
+            // DOM-Element für die Zielposition
+            const targetElement = items[targetIndex] as HTMLElement;
+            
+            if (targetIndex < currentIndex) {
+              // Nach oben verschieben - vor das Zielelement einfügen
+              listElement.insertBefore(item, targetElement);
+            } else {
+              // Nach unten verschieben - nach dem Zielelement einfügen
+              const nextElement = items[targetIndex + 1] as HTMLElement;
+              if (nextElement) {
+                listElement.insertBefore(item, nextElement);
+              } else {
+                listElement.appendChild(item);
+              }
+            }
+            
+            return true;
+          };
+          
+          if (key === "ArrowUp" && currentIndex > 0) {
+            // Nach oben verschieben
+            moved = moveToPosition(currentIndex - 1);
+            newIndex = currentIndex - 1;
+          } else if (key === "ArrowDown" && currentIndex < items.length - 1) {
+            // Nach unten verschieben
+            moved = moveToPosition(currentIndex + 1);
+            newIndex = currentIndex + 1;
+          } else if (key === "Home") {
+            // An den Anfang verschieben
+            moved = moveToPosition(0);
+            newIndex = 0;
+          } else if (key === "End") {
+            // An das Ende verschieben
+            moved = moveToPosition(items.length - 1);
+            newIndex = items.length - 1;
+          } else if (/^[1-9]$/.test(key) && parseInt(key) <= items.length) {
+            // Direktes Springen zu einer Position mit Zifferntasten
+            // Index ist um 1 verschoben (Benutzer sieht 1-basierte Indizes)
+            const targetIndex = parseInt(key) - 1;
+            moved = moveToPosition(targetIndex);
+            newIndex = targetIndex;
+          }
+          
+          if (moved) {
+            // Aktualisiere Listenelemente nach der Verschiebung
+            items = listElement.querySelectorAll(".chronology-item");
+            
+            // Neupositionierung visuell anzeigen
+            this.updatePositionNumbers();
+            
+            // Fokus beibehalten und Element hervorheben
+            requestAnimationFrame(() => {
+              (item as HTMLElement).focus();
+              this.highlightElement(item as HTMLElement);
+            });
+            
+            // Screenreader-Announcement
+            const announcement = document.createElement("div");
+            announcement.className = "sr-only";
+            announcement.setAttribute("aria-live", "assertive");
+            announcement.textContent = `${itemDescription} wurde auf Position ${newIndex + 1} von ${items.length} verschoben.`;
+            document.body.appendChild(announcement);
+            
+            // Entferne das Announcement nach kurzer Zeit
+            setTimeout(() => announcement.remove(), 1000);
+          }
+        });
+        
+        // Visuelles Feedback für Tastatur-Fokus
+        item.addEventListener("focus", () => {
+          // Setze ARIA-Attribute für bessere Screenreader-Unterstützung
+          item.setAttribute("aria-grabbed", "true");
+          
+          // Visuelles Feedback
+          this.highlightElement(item as HTMLElement);
+        });
+        
+        item.addEventListener("blur", () => {
+          item.setAttribute("aria-grabbed", "false");
+          item.classList.remove("ring-2", "ring-purple-500", "ring-offset-1", "bg-purple-900/20");
+        });
+      });
+    }
+    
+    /**
+     * Hebt ein Element visuell hervor, um Fokus zu verdeutlichen
+     */
+    private highlightElement(element: HTMLElement) {
+      // Entferne Hervorhebung von allen Elementen
+      const allItems = this.elements.itemsContainer?.querySelectorAll(".chronology-item") || [];
+      allItems.forEach(item => {
+        item.classList.remove("ring-2", "ring-purple-500", "ring-offset-1", "bg-purple-900/20");
+      });
+      
+      // Hervorhebung für das fokussierte Element
+      element.classList.add("ring-2", "ring-purple-500", "ring-offset-1", "bg-purple-900/20");
+      
+      // Pulse-Animation für besseres visuelles Feedback
+      element.animate(
+        [
+          { transform: "scale(1)" },
+          { transform: "scale(1.02)" },
+          { transform: "scale(1)" }
+        ],
+        {
+          duration: 300,
+          easing: "ease-in-out"
+        }
+      );
+    }
+    
+    /**
+     * Verarbeitet die Einreichung des Spielers
+     */
+    private handleSubmit() {
+      if (!this.elements.itemsContainer || !this.currentQuestion) return;
+      
+      const items = this.elements.itemsContainer.querySelectorAll(".chronology-item");
+      const userOrder = Array.from(items).map(item => 
+        parseInt(item.getAttribute("data-id") || "0")
+      );
+      
+      const result = evaluateChronologyAnswer(userOrder, this.currentQuestion.correctOrder);
+      
+      // Punktestand aktualisieren
+      this.score += result.score;
+      this.updateCoinsDisplay(this.score);
+      
+      // Wenn perfekte Antwort
+      if (result.correctItems === result.totalItems) {
+        this.correctAnswers++;
+      }
+      
+      // Ergebnis anzeigen
+      this.showResults(result, userOrder);
+      
+      // Submit-Button deaktivieren
+      if (this.elements.submitButton) {
+        this.elements.submitButton.disabled = true;
+      }
+      
+      // Sortierbarkeit deaktivieren
+      if (this.sortable) {
+        this.sortable.option("disabled", true);
+      }
+      
+      // Nächste Runde oder Spiel beenden
+      if (this.roundIndex < this.totalRounds - 1) {
+        setTimeout(() => {
+          this.roundIndex++;
+          // Rundenanzeige wird in loadNextQuestion aktualisiert
+          this.loadNextQuestion();
+        }, 3000);
+      } else {
+        setTimeout(() => {
+          this.endGame();
+        }, 3000);
+      }
+    }
+    
+    /**
+     * Aktualisiert die Münzanzeige mit einer Animation für visuelles Feedback
+     */
+    private updateCoinsDisplay(newScore: number) {
+      if (this.elements.coinsDisplay) {
+        // Animation-Klasse für visuelles Feedback anwenden
+        this.elements.coinsDisplay.classList.add("coins-updated");
+        this.elements.coinsDisplay.textContent = newScore.toString();
+
+        // Punkteänderung für Screenreader ankündigen
+        const announcement = document.createElement("div");
+        announcement.setAttribute("aria-live", "assertive");
+        announcement.classList.add("sr-only");
+        announcement.textContent = `Neuer Punktestand: ${newScore} Punkte`;
+        document.body.appendChild(announcement);
+
+        // Animation-Klasse und Ankündigung entfernen, nachdem sie abgeschlossen sind
+        setTimeout(() => {
+          this.elements.coinsDisplay.classList.remove("coins-updated");
+          announcement.remove();
+        }, 1500);
+      }
+    }
+
+    /**
+     * Aktualisiert die Rundenanzeige
+     */
+    private updateRoundDisplay() {
+      if (this.elements.roundElement) {
+        this.elements.roundElement.textContent = `${this.roundIndex + 1}/${this.totalRounds}`;
+      }
+    }
+    
+    /**
+     * Zeigt die Ergebnisse der Chronologie-Aufgabe an
+     */
+    private showResults(result: any, userOrder: number[]) {
+      if (!this.elements.itemsContainer || !this.currentQuestion) return;
+      
+      // Korrekte/falsche Items markieren
+      const items = this.elements.itemsContainer.querySelectorAll(".chronology-item");
+      
+      items.forEach((item, index) => {
+        const id = parseInt(item.getAttribute("data-id") || "0");
+        const correctIndex = this.currentQuestion.correctOrder.indexOf(id);
+        
+        // Status-Badge hinzufügen
+        const badge = document.createElement("div");
+        badge.className = "absolute top-2 right-2 text-xs px-2 py-1 rounded-full";
+        
+        if (correctIndex === index) {
+          // Korrekte Position
+          item.classList.add("border-green-500");
+          badge.className += " bg-green-500/20 text-green-300";
+          badge.textContent = "Korrekt";
+        } else {
+          // Falsche Position
+          item.classList.add("border-red-500");
+          badge.className += " bg-red-500/20 text-red-300";
+          badge.textContent = `Sollte an Position ${correctIndex + 1} sein`;
+        }
+        
+        // Jahr anzeigen
+        const matchingItem = this.currentQuestion.items.find((i: any) => i.id === id);
+        const content = item.querySelector(".chronology-item > div:nth-child(2)");
+        if (content && matchingItem) {
+          const yearElement = document.createElement("div");
+          yearElement.className = "mt-1 text-sm font-bold";
+          yearElement.textContent = `${matchingItem.year}`;
+          content.appendChild(yearElement);
+        }
+        
+        // Positionsklasse hinzufügen
+        (item as HTMLElement).style.position = "relative";
+        item.appendChild(badge);
+      });
+      
+      // Ergebnis-Box anzeigen
+      const resultBox = document.createElement("div");
+      resultBox.className = "mt-6 p-4 rounded-lg bg-zinc-900 border border-zinc-700 text-center";
+      
+      const scoreHeading = document.createElement("h3");
+      scoreHeading.className = "text-lg font-bold";
+      scoreHeading.textContent = `Ergebnis: ${result.score} Punkte`;
+      
+      const scoreDetails = document.createElement("p");
+      scoreDetails.className = "text-zinc-300";
+      scoreDetails.textContent = `${result.correctItems} von ${result.totalItems} Alben korrekt platziert`;
+      
+      resultBox.appendChild(scoreHeading);
+      resultBox.appendChild(scoreDetails);
+      
+      this.elements.itemsContainer.appendChild(resultBox);
+    }
+    
+    /**
+     * Beendet das Spiel und zeigt die Zusammenfassung an
+     */
+    private endGame() {
+      const config = {
+        userId: this.userId,
+        categoryName: this.categoryName,
+        difficulty: this.difficulty,
+        totalRounds: this.totalRounds,
+        correctAnswers: this.correctAnswers,
+        score: this.score,
+        language: lang,
+      };
+
+      const ui = {
+        showEndgamePopup: (score: number) => {
+          if (this.elements.endGamePopup) {
+            const scoreElement = this.elements.endGamePopup.querySelector("#popup-score");
+
+            if (scoreElement) {
+              scoreElement.textContent = score.toString();
+              this.elements.endGamePopup.setAttribute("data-score", score.toString());
+              this.elements.endGamePopup.classList.remove("hidden");
+            }
+          }
+        },
+      };
+
+      handleEndGame(config, ui, {
+        onError: (error) => {
+          ErrorHandler.handleSaveError(error, "score", {
+            userId: config.userId,
+            category: config.categoryName,
+          });
+        },
+      });
+    }
+  }
+
+  // Initialisiere das Spiel, wenn das DOM bereit ist
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = cacheElements();
+    
+    // Prüfe, ob alle erforderlichen Elemente vorhanden sind
+    if (!elements.itemsContainer || !elements.submitButton || !elements.chronologyContainer) {
+      console.error("Erforderliche DOM-Elemente nicht gefunden");
+      return;
+    }
+    
+    // Erstelle und starte den Spielcontroller
+    const gameController = new ChronologyGameController(elements);
+    gameController.startGame();
+    
+    // Warne vor dem Verlassen, wenn ungespeicherte Daten vorhanden sind
+    window.addEventListener("beforeunload", (e) => {
+      if (QueueManager.hasUnsavedData()) {
+        e.preventDefault();
+      }
+    });
+  });
+</script>
+
+<style is:global>
+  /* Sortable.js Styling */
+  .sortable-ghost {
+    opacity: 0.5;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  .sortable-chosen {
+    background-color: rgba(139, 92, 246, 0.2) !important;
+  }
+  
+  .chronology-item:focus {
+    outline: 2px solid #a855f7;
+    outline-offset: 2px;
+  }
+  
+  /* Reduzierte Bewegung bevorzugt */
+  @media (prefers-reduced-motion: reduce) {
+    .sortable-ghost, .sortable-chosen, .sortable-drag {
+      transition: none !important;
+    }
+  }
+
+  /* Siehe auch die anderen Stile aus der Hauptspieldatei, die wiederverwendet werden können */
+  .overlay.hidden {
+    @apply hidden;
+  }
+
+  .popup.hidden {
+    @apply hidden;
+  }
+
+  /* Für ältere Browser, die data-hidden noch nicht unterstützen */
+  #chronology-container.hidden {
+    @apply opacity-0;
+  }
+
+  /* Disabled button styling */
+  button[disabled] {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* High Contrast Mode Support */
+  @media (forced-colors: active) {
+    #chronology-container {
+      border: 2px solid CanvasText;
+    }
+
+    .chronology-item {
+      border: 1px solid ButtonText;
+      forced-color-adjust: none;
+    }
+
+    .chronology-item:focus-visible {
+      outline: 3px solid Highlight;
+    }
+
+    button[disabled] {
+      opacity: 0.6;
+    }
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Focus styles for better keyboard navigation */
+  :focus-visible {
+    outline: 3px solid #a855f7 !important;
+    outline-offset: 3px !important;
+  }
+
+  /* Animation für Coins-Aktualisierung */
+  .coins-updated {
+    animation: coinPulse 1s ease-in-out;
+    color: #fbbf24; /* Helleres Amber für bessere Sichtbarkeit */
+  }
+
+  @keyframes coinPulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.25);
+      color: #f59e0b;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+</style>
