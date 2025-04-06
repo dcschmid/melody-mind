@@ -245,7 +245,8 @@ export const ui = {
     "footer.rights": "Alle Rechte vorbehalten",
     "footer.donate": "Spenden",
     "game.chronology.title": "Musik-Chronologie",
-    "game.chronology.description": "Ordne diese Alben nach ihrem Erscheinungsjahr (ältestes zuerst)",
+    "game.chronology.description":
+      "Ordne diese Alben nach ihrem Erscheinungsjahr (ältestes zuerst)",
     "game.chronology.area.label": "Chronologie-Spielbereich",
     "game.chronology.result": "Ergebnis",
     "game.chronology.correct": "Korrekt",
@@ -253,7 +254,8 @@ export const ui = {
     "game.chronology.score": "Ergebnis: {score} Punkte",
     "game.chronology.details": "{correct} von {total} Alben korrekt platziert",
     "game.chronology.year": "Jahr: {year}",
-    "game.chronology.drag.help": "Nutze die Pfeiltasten ↑/↓ oder Drag & Drop zum Sortieren",
+    "game.chronology.drag.help":
+      "Nutze die Pfeiltasten ↑/↓ oder Drag & Drop zum Sortieren",
     "game.submit.answer": "Antwort überprüfen",
     "game.chronology.up": "Nach oben",
     "game.chronology.down": "Nach unten",
@@ -488,7 +490,8 @@ export const ui = {
     "footer.rights": "All Rights Reserved",
     "footer.donate": "Donate",
     "game.chronology.title": "Music Chronology",
-    "game.chronology.description": "Order these albums by their release year (oldest first)",
+    "game.chronology.description":
+      "Order these albums by their release year (oldest first)",
     "game.chronology.area.label": "Chronology Game Area",
     "game.chronology.result": "Result",
     "game.chronology.correct": "Correct",
@@ -736,15 +739,18 @@ export const ui = {
     "footer.rights": "Todos los derechos reservados",
     "footer.donate": "Donar",
     "game.chronology.title": "Cronología Musical",
-    "game.chronology.description": "Ordena estos álbumes por año de lanzamiento (el más antiguo primero)",
+    "game.chronology.description":
+      "Ordena estos álbumes por año de lanzamiento (el más antiguo primero)",
     "game.chronology.area.label": "Área de Juego Cronológico",
     "game.chronology.result": "Resultado",
     "game.chronology.correct": "Correcto",
     "game.chronology.wrong": "Debería estar en la posición {position}",
     "game.chronology.score": "Puntuación: {score} puntos",
-    "game.chronology.details": "{correct} de {total} álbumes colocados correctamente",
+    "game.chronology.details":
+      "{correct} de {total} álbumes colocados correctamente",
     "game.chronology.year": "Año: {year}",
-    "game.chronology.drag.help": "Usa las teclas de flecha ↑/↓ o arrastra para reordenar",
+    "game.chronology.drag.help":
+      "Usa las teclas de flecha ↑/↓ o arrastra para reordenar",
     "game.submit.answer": "Verificar Respuesta",
   },
   fr: {
@@ -922,7 +928,8 @@ export const ui = {
     "podcast.config.title": "Configurer votre Podcast Astropod",
     "podcast.config.description": "Apprenez à configurer votre podcast.",
     "podcast.publish.title": "Publier votre premier épisode",
-    "podcast.publish.description": "Publiez votre premier épisode avec facilité.",
+    "podcast.publish.description":
+      "Publiez votre premier épisode avec facilité.",
     "podcast.conclusion.title": "Conclusion",
     "podcast.conclusion.description": "Résumé et prochaines étapes.",
     "podcast.listen.on": "Écouter sur",
@@ -978,15 +985,18 @@ export const ui = {
     "footer.rights": "Tous droits réservés",
     "footer.donate": "Faire un don",
     "game.chronology.title": "Chronologie Musicale",
-    "game.chronology.description": "Classez ces albums par année de sortie (le plus ancien en premier)",
+    "game.chronology.description":
+      "Classez ces albums par année de sortie (le plus ancien en premier)",
     "game.chronology.area.label": "Zone de Jeu Chronologique",
     "game.chronology.result": "Résultat",
     "game.chronology.correct": "Correct",
     "game.chronology.wrong": "Devrait être en position {position}",
     "game.chronology.score": "Score : {score} points",
-    "game.chronology.details": "{correct} albums sur {total} correctement placés",
+    "game.chronology.details":
+      "{correct} albums sur {total} correctement placés",
     "game.chronology.year": "Année : {year}",
-    "game.chronology.drag.help": "Utilisez les touches fléchées ↑/↓ ou glissez pour réorganiser",
+    "game.chronology.drag.help":
+      "Utilisez les touches fléchées ↑/↓ ou glissez pour réorganiser",
     "game.submit.answer": "Vérifier la Réponse",
     "game.chronology.up": "Vers le haut",
     "game.chronology.down": "Vers le bas",
@@ -1226,15 +1236,18 @@ export const ui = {
     "footer.rights": "Tutti i diritti riservati",
     "footer.donate": "Dona",
     "game.chronology.title": "Cronologia Musicale",
-    "game.chronology.description": "Ordina questi album per anno di pubblicazione (il più vecchio per primo)",
+    "game.chronology.description":
+      "Ordina questi album per anno di pubblicazione (il più vecchio per primo)",
     "game.chronology.area.label": "Area di Gioco Cronologica",
     "game.chronology.result": "Risultato",
     "game.chronology.correct": "Corretto",
     "game.chronology.wrong": "Dovrebbe essere in posizione {position}",
     "game.chronology.score": "Risultato: {score} punti",
-    "game.chronology.details": "{correct} su {total} album posizionati correttamente",
+    "game.chronology.details":
+      "{correct} su {total} album posizionati correttamente",
     "game.chronology.year": "Anno: {year}",
-    "game.chronology.drag.help": "Usa i tasti freccia ↑/↓ o trascina per riordinare",
+    "game.chronology.drag.help":
+      "Usa i tasti freccia ↑/↓ o trascina per riordinare",
     "game.submit.answer": "Verifica Risposta",
   },
   pt: {
@@ -1347,7 +1360,8 @@ export const ui = {
     "game.answer.wrong": "Errado! A resposta correta era: {answer}",
     "error.invalid.question": "Pergunta inválida ou sem opções disponíveis",
     "error.no.initial.question": "Nenhuma pergunta inicial válida encontrada",
-    "error.no.albums.found": "Nenhum álbum encontrado para a categoria {category}",
+    "error.no.albums.found":
+      "Nenhum álbum encontrado para a categoria {category}",
     "meta.keywords":
       "Quiz Musical, Jogo de Música, Quiz de Canções, Quiz de Artistas, Quiz Musical Online, Trivia Musical, Melody Mind, Jogo de Adivinhação Musical",
     "knowledge.title": "Banco de Dados de Conhecimento Musical",
@@ -1403,15 +1417,16 @@ export const ui = {
     "podcast.intro.description":
       "Astropod é uma solução de podcast sem servidor gratuita e de código aberto.",
     "podcast.deploy.title": "Implantando seu podcast sem servidor em 2 minutos",
-    "podcast.deploy.description": "Aprenda como implantar rapidamente seu podcast.",
+    "podcast.deploy.description":
+      "Aprenda como implantar rapidamente seu podcast.",
     "podcast.auth.title":
       "Configurando autenticação de usuário e acessando o painel",
-    "podcast.auth.description":
-      "Habilite a autenticação e acesse o painel.",
+    "podcast.auth.description": "Habilite a autenticação e acesse o painel.",
     "podcast.config.title": "Configurando seu Podcast Astropod",
     "podcast.config.description": "Aprenda como configurar seu podcast.",
     "podcast.publish.title": "Publicando seu primeiro episódio",
-    "podcast.publish.description": "Publique seu primeiro episódio com facilidade.",
+    "podcast.publish.description":
+      "Publique seu primeiro episódio com facilidade.",
     "podcast.conclusion.title": "Conclusão",
     "podcast.conclusion.description": "Resumo e próximos passos.",
     "podcast.listen.on": "Ouça em",
@@ -1466,15 +1481,18 @@ export const ui = {
     "footer.rights": "Todos os direitos reservados",
     "footer.donate": "Doar",
     "game.chronology.title": "Cronologia Musical",
-    "game.chronology.description": "Ordene estes álbuns por seu ano de lançamento (mais antigos primeiro)",
+    "game.chronology.description":
+      "Ordene estes álbuns por seu ano de lançamento (mais antigos primeiro)",
     "game.chronology.area.label": "Área do Jogo de Cronologia",
     "game.chronology.result": "Resultado",
     "game.chronology.correct": "Correto",
     "game.chronology.wrong": "Deveria estar na posição {position}",
     "game.chronology.score": "Resultado: {score} pontos",
-    "game.chronology.details": "{correct} de {total} álbuns corretamente posicionados",
+    "game.chronology.details":
+      "{correct} de {total} álbuns corretamente posicionados",
     "game.chronology.year": "Ano: {year}",
-    "game.chronology.drag.help": "Use as teclas de seta ↑/↓ ou arraste e solte para ordenar",
+    "game.chronology.drag.help":
+      "Use as teclas de seta ↑/↓ ou arraste e solte para ordenar",
     "game.submit.answer": "Verificar Resposta",
   },
   da: {
@@ -1495,8 +1513,7 @@ export const ui = {
     "game.welcome": "Velkommen til Melody Mind",
     "game.genre.list": "Genrevalg",
     "game.search.label": "Søg efter en genre",
-    "game.search.description":
-      "Listen filtreres automatisk under indtastning",
+    "game.search.description": "Listen filtreres automatisk under indtastning",
     "game.genre.play.label": "Spil",
     "game.genre.image": "Coverbillede til",
     "game.no.results": "Ingen resultater fundet",
@@ -1584,7 +1601,8 @@ export const ui = {
     "game.options.label": "Svarmuligheder",
     "game.answer.correct": "Korrekt! {points} point + {bonus} bonuspoint",
     "game.answer.wrong": "Forkert! Det korrekte svar var: {answer}",
-    "error.invalid.question": "Ugyldig spørgsmål eller ingen muligheder tilgængelige",
+    "error.invalid.question":
+      "Ugyldig spørgsmål eller ingen muligheder tilgængelige",
     "error.no.initial.question": "Ingen gyldigt første spørgsmål fundet",
     "error.no.albums.found": "Ingen albums fundet for kategorien {category}",
     "meta.keywords":
@@ -1641,7 +1659,8 @@ export const ui = {
     "podcast.intro.description":
       "Astropod er en gratis og open-source serverløs podcast-løsning.",
     "podcast.deploy.title": "Implementér din serverløse podcast på 2 minutter",
-    "podcast.deploy.description": "Lær hvordan du hurtigt implementerer din podcast.",
+    "podcast.deploy.description":
+      "Lær hvordan du hurtigt implementerer din podcast.",
     "podcast.auth.title":
       "Konfigurering af brugerautentificering og adgang til dashboard",
     "podcast.auth.description":
@@ -1663,7 +1682,8 @@ export const ui = {
     "index.start.game.label": "Start din musikalske rejse",
     "index.welcome.footnote":
       "Skabt af musikelskere til musikelskere. God fornøjelse!",
-    "accessibility.wcag": "Denne applikation stræber efter WCAG AAA-overholdelse.",
+    "accessibility.wcag":
+      "Denne applikation stræber efter WCAG AAA-overholdelse.",
     "game.instructions.title": "Spilinstruktioner",
     "game.instructions.puzzle":
       "Prøv at gætte albummet, mens coveret gradvist afsløres. Jo hurtigere du gætter rigtigt, jo flere point tjener du.",
@@ -1704,7 +1724,8 @@ export const ui = {
     "footer.rights": "Alle rettigheder forbeholdes",
     "footer.donate": "Donér",
     "game.chronology.title": "Musik-kronologi",
-    "game.chronology.description": "Sæt disse albums i rækkefølge efter udgivelsesår (ældste først)",
+    "game.chronology.description":
+      "Sæt disse albums i rækkefølge efter udgivelsesår (ældste først)",
     "game.chronology.area.label": "Kronologi-spilområde",
     "game.chronology.result": "Resultat",
     "game.chronology.correct": "Korrekt",
@@ -1712,7 +1733,8 @@ export const ui = {
     "game.chronology.score": "Resultat: {score} point",
     "game.chronology.details": "{correct} af {total} albums korrekt placeret",
     "game.chronology.year": "År: {year}",
-    "game.chronology.drag.help": "Brug piletasterne ↑/↓ eller træk og slip for at sortere",
+    "game.chronology.drag.help":
+      "Brug piletasterne ↑/↓ eller træk og slip for at sortere",
     "game.submit.answer": "Tjek svar",
   },
   nl: {
@@ -1833,7 +1855,8 @@ export const ui = {
     "knowledge.search.label": "Zoek artikelen",
     "knowledge.search.placeholder": "Zoeken...",
     "knowledge.filter.all": "Alle trefwoorden",
-    "knowledge.no.results": "Geen artikelen gevonden. Probeer andere zoektermen.",
+    "knowledge.no.results":
+      "Geen artikelen gevonden. Probeer andere zoektermen.",
     "game.remaining": "resterend",
     "game.default.headline": "Spel",
     "popup.score": "Score: {score}",
@@ -1942,7 +1965,8 @@ export const ui = {
     "footer.rights": "Alle rechten voorbehouden",
     "footer.donate": "Doneren",
     "game.chronology.title": "Muziek-chronologie",
-    "game.chronology.description": "Plaats deze albums in volgorde van uitgavejaar (oudste eerst)",
+    "game.chronology.description":
+      "Plaats deze albums in volgorde van uitgavejaar (oudste eerst)",
     "game.chronology.area.label": "Chronologie-spelgebied",
     "game.chronology.result": "Resultaat",
     "game.chronology.correct": "Correct",
@@ -1950,7 +1974,8 @@ export const ui = {
     "game.chronology.score": "Resultaat: {score} punten",
     "game.chronology.details": "{correct} van {total} albums correct geplaatst",
     "game.chronology.year": "Jaar: {year}",
-    "game.chronology.drag.help": "Gebruik de pijltjestoetsen ↑/↓ of sleep en laat los om te sorteren",
+    "game.chronology.drag.help":
+      "Gebruik de pijltjestoetsen ↑/↓ of sleep en laat los om te sorteren",
     "game.submit.answer": "Controleer antwoord",
   },
   sv: {
@@ -1971,8 +1996,7 @@ export const ui = {
     "game.welcome": "Välkommen till Melody Mind",
     "game.genre.list": "Genremeny",
     "game.search.label": "Sök genre",
-    "game.search.description":
-      "Listan filtreras automatiskt medan du skriver",
+    "game.search.description": "Listan filtreras automatiskt medan du skriver",
     "game.genre.play.label": "Spela",
     "game.genre.image": "Omslagsbild för genre",
     "game.no.results": "Inga sökresultat",
@@ -2060,7 +2084,8 @@ export const ui = {
     "game.options.label": "Svarsalternativ",
     "game.answer.correct": "Rätt! {points} poäng + {bonus} bonuspoäng",
     "game.answer.wrong": "Fel! Rätt svar var: {answer}",
-    "error.invalid.question": "Ogiltig fråga eller alternativ inte tillgängliga",
+    "error.invalid.question":
+      "Ogiltig fråga eller alternativ inte tillgängliga",
     "error.no.initial.question": "Ingen giltig startfråga hittades",
     "error.no.albums.found": "Inga album hittades för kategorin {category}",
     "meta.keywords":
@@ -2117,11 +2142,11 @@ export const ui = {
     "podcast.intro.description":
       "Astropod är en gratis och öppen källkodslösning för serverlösa poddar.",
     "podcast.deploy.title": "Distribuera din serverlösa podd på 2 minuter",
-    "podcast.deploy.description": "Lär dig hur du snabbt distribuerar din podd.",
+    "podcast.deploy.description":
+      "Lär dig hur du snabbt distribuerar din podd.",
     "podcast.auth.title":
       "Konfigurera användarautentisering och adminpanelåtkomst",
-    "podcast.auth.description":
-      "Aktivera autentisering och adminpanelåtkomst.",
+    "podcast.auth.description": "Aktivera autentisering och adminpanelåtkomst.",
     "podcast.config.title": "Konfigurera din Astropod-podd",
     "podcast.config.description": "Lär dig konfigurera din podd.",
     "podcast.publish.title": "Publicera ditt första avsnitt",
@@ -2137,9 +2162,9 @@ export const ui = {
       "Ge dig ut på en musikalisk resa genom tiden! Testa dina kunskaper i spännande quiz, utforska fascinerande musikgenrer och fördjupa dig i våra engagerande poddar. Visa dina färdigheter, samla poäng och bli en riktig musiklegend!",
     "index.continue": "Låt oss börja!",
     "index.start.game.label": "Börja din musikaliska resa",
-    "index.welcome.footnote":
-      "Skapad av musikälskare för musikälskare. Njut!",
-    "accessibility.wcag": "Denna applikation strävar efter att uppfylla WCAG AAA-krav.",
+    "index.welcome.footnote": "Skapad av musikälskare för musikälskare. Njut!",
+    "accessibility.wcag":
+      "Denna applikation strävar efter att uppfylla WCAG AAA-krav.",
     "game.instructions.title": "Spelinstruktioner",
     "game.instructions.puzzle":
       "Försök gissa albumet när omslaget avslöjas gradvis. Ju snabbare du gissar rätt, desto fler poäng tjänar du.",
@@ -2180,7 +2205,8 @@ export const ui = {
     "footer.rights": "Alla rättigheter förbehållna",
     "footer.donate": "Donera",
     "game.chronology.title": "Musikkronologi",
-    "game.chronology.description": "Ordna dessa album efter deras utgivningsår (äldst först)",
+    "game.chronology.description":
+      "Ordna dessa album efter deras utgivningsår (äldst först)",
     "game.chronology.area.label": "Kronologispelområde",
     "game.chronology.result": "Resultat",
     "game.chronology.correct": "Korrekt",
@@ -2188,7 +2214,8 @@ export const ui = {
     "game.chronology.score": "Resultat: {score} poäng",
     "game.chronology.details": "{correct} / {total} album korrekt placerade",
     "game.chronology.year": "År: {year}",
-    "game.chronology.drag.help": "Använd piltangenterna ↑/↓ eller dra och släpp för att ordna",
+    "game.chronology.drag.help":
+      "Använd piltangenterna ↑/↓ eller dra och släpp för att ordna",
     "game.submit.answer": "Kontrollera svar",
   },
   fi: {
@@ -2241,8 +2268,7 @@ export const ui = {
     "game.feedback.media.section": "Media-osio",
     "game.feedback.audio.preview": "Musiikkinäyte",
     "game.feedback.subtitles": "Tekstitykset",
-    "game.feedback.audio.unsupported":
-      "Selaimesi ei tue äänen toistoa.",
+    "game.feedback.audio.unsupported": "Selaimesi ei tue äänen toistoa.",
     "game.feedback.streaming.links": "Musiikin suoratoistopalvelut",
     "game.feedback.listen.spotify": "Kuuntele Spotifyssa",
     "game.feedback.listen.deezer": "Kuuntele Deezerissä",
@@ -2298,7 +2324,8 @@ export const ui = {
     "game.options.label": "Vastausvaihtoehdot",
     "game.answer.correct": "Oikein! {points} pistettä + {bonus} bonuspistettä",
     "game.answer.wrong": "Väärin! Oikea vastaus oli: {answer}",
-    "error.invalid.question": "Virheellinen kysymys tai vaihtoehtoja ei saatavilla",
+    "error.invalid.question":
+      "Virheellinen kysymys tai vaihtoehtoja ei saatavilla",
     "error.no.initial.question": "Kelvollista aloituskysymystä ei löytynyt",
     "error.no.albums.found": "Albumeita ei löytynyt kategorialle {category}",
     "meta.keywords":
@@ -2309,7 +2336,8 @@ export const ui = {
     "knowledge.search.label": "Etsi artikkeleita",
     "knowledge.search.placeholder": "Etsi...",
     "knowledge.filter.all": "Kaikki avainsanat",
-    "knowledge.no.results": "Artikkeleita ei löytynyt. Kokeile muita hakusanoja.",
+    "knowledge.no.results":
+      "Artikkeleita ei löytynyt. Kokeile muita hakusanoja.",
     "game.remaining": "jäljellä",
     "game.default.headline": "Peli",
     "popup.score": "Pisteet: {score}",
@@ -2377,7 +2405,8 @@ export const ui = {
     "index.start.game.label": "Aloita musiikillinen matkasi",
     "index.welcome.footnote":
       "Musiikin rakastajien luoma musiikin rakastajille. Nauti!",
-    "accessibility.wcag": "Tämä sovellus pyrkii täyttämään WCAG AAA-vaatimukset.",
+    "accessibility.wcag":
+      "Tämä sovellus pyrkii täyttämään WCAG AAA-vaatimukset.",
     "game.instructions.title": "Peliohjeet",
     "game.instructions.puzzle":
       "Yritä arvata albumi, kun sen kansi paljastuu vähitellen. Mitä nopeammin arvaat oikein, sitä enemmän pisteitä ansaitset.",
@@ -2418,7 +2447,8 @@ export const ui = {
     "footer.rights": "Kaikki oikeudet pidätetään",
     "footer.donate": "Lahjoita",
     "game.chronology.title": "Musiikkikronologia",
-    "game.chronology.description": "Järjestä nämä albumit julkaisuvuoden mukaan (vanhin ensin)",
+    "game.chronology.description":
+      "Järjestä nämä albumit julkaisuvuoden mukaan (vanhin ensin)",
     "game.chronology.area.label": "Kronologiapelialue",
     "game.chronology.result": "Tulos",
     "game.chronology.correct": "Oikein",
@@ -2426,7 +2456,8 @@ export const ui = {
     "game.chronology.score": "Tulos: {score} pistettä",
     "game.chronology.details": "{correct} / {total} albumia oikein sijoitettu",
     "game.chronology.year": "Vuosi: {year}",
-    "game.chronology.drag.help": "Käytä nuolinäppäimiä ↑/↓ tai vedä och pudota järjestääksesi",
+    "game.chronology.drag.help":
+      "Käytä nuolinäppäimiä ↑/↓ tai vedä och pudota järjestääksesi",
     "game.submit.answer": "Tarkista vastaus",
     "game.chronology.up": "Ylös",
     "game.chronology.down": "Alas",
