@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -112,7 +111,7 @@ La sezione “Technical Aspects” nella categoria musicale “Morning Coffee”
 
 L’analisi degli aspetti tecnici di “Morning Coffee” si apre con un esame della strutturazione timbrica e melodica dei brani. Il tessuto sonoro, infatti, si avvale di strumenti acustici quali il pianoforte, il contrabbasso e la chitarra acustica, a cui si sovrappongono delicate sonorità di strumenti a fiato e archi. L’interazione tra questi elementi è studiata con rigore, evidenziando una dizione armonica che richiama le tipicità degli stili lounge e easy listening sviluppatisi a partire dagli anni ’50 e ’60. In tale contesto, la chiarezza dell’esecuzione e la qualità interpretativa assumono un ruolo preminente, con una particolare attenzione al timbro e alla spazializzazione sonora.
 
-Sul piano armonico, la musica di “Morning Coffee” si configura come uno studio accurato dell’utilizzo delle progressioni tonali e degli effetti cromatici. Le progressioni armoniche tradizionali vengono arricchite da modulazioni inattese, che donano alla composizione una pregnanza emotiva e una complessità formale. Tale dinamica armonica è resa possibile anche grazie all’adozione di tecniche di arrangiamento che privilegiano il contrapunto e la dissonanza risolta, in linea con le tendenze musicologiche espresse negli studi di teoria musicale del secondo Novecento (si veda ad esempio Piston, 1941).  
+Sul piano armonico, la musica di “Morning Coffee” si configura come uno studio accurato dell’utilizzo delle progressioni tonali e degli effetti cromatici. Le progressioni armoniche tradizionali vengono arricchite da modulazioni inattese, che donano alla composizione una pregnanza emotiva e una complessità formale. Tale dinamica armonica è resa possibile anche grazie all’adozione di tecniche di arrangiamento che privilegiano il contrapunto e la dissonanza risolta, in linea con le tendenze musicologiche espresse negli studi di teoria musicale del secondo Novecento (si veda ad esempio Piston, 1941).
 
 La produzione dei brani, inoltre, riflette le trasformazioni tecnologiche registrate nella pratica di registrazione analogica. Durante gli anni ’60 e ’70, l’utilizzo di registrazioni su nastro magnetico ha consentito un controllo accurato delle variazioni dinàmiche e delle sfumature sonore, garantendo una resa autentica delle esecuzioni live. Gli studi di registrazione, dotati di mixer analogici e unità di equalizzazione, hanno permesso di modulare con finezza la rispondenza acustica degli strumenti, integrando le ambientazioni sonore in maniera coerente ed equilibrata. Questo processo, caratterizzato da una precisa manipolazione delle frequenze e dei panning stereo, rappresenta un pilastro fondamentale per la creazione di atmosfere intimiste tipiche del genere.
 

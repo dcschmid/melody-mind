@@ -17,10 +17,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -62,8 +61,8 @@ Les recherches en ethnomusicologie permettent de souligner que l’héritage mus
 
 En outre, la recherche comparative avec d’autres répertoires folkloriques d’Europe de l’Est permet d’identifier des traits communs et des divergences marquées. L’accès aux archives et aux témoignages d’ethnographes a ainsi permis de recouper les pratiques musicales de la Russie avec celles des pays baltes, de la Pologne ou de l’Ukraine, dévoilant un dialogue culturel qui enrichit mutuellement les patrimoines musicaux. Les échanges et les influences réciproques attestent d’un phénomène d’hybridation, où les frontières géographiques se transforment en espaces de rencontres musicales. Ce mécanisme d’influence croisée démontre que la musique traditionnelle russe ne peut être appréhendée isolément, mais doit être étudiée dans le contexte plus large de l’histoire et des interactions culturelles.
 
-Pour conclure, la musique traditionnelle russe se présente comme un ensemble de pratiques musicales aux dimensions historiques, sociales et esthétiques multiples. Elle constitue non seulement un témoignage de la vivacité culturelle d’un peuple, mais également un laboratoire d’innovation dans lequel les formes, techniques et fonctions musicales s’enrichissent mutuellement. L’étude de cet héritage offre ainsi aux chercheurs une perspective unique sur les dynamiques de la mémoire collective et sur la manière dont la musique peut façonner l’identité culturelle d’une nation.  
- 
+Pour conclure, la musique traditionnelle russe se présente comme un ensemble de pratiques musicales aux dimensions historiques, sociales et esthétiques multiples. Elle constitue non seulement un témoignage de la vivacité culturelle d’un peuple, mais également un laboratoire d’innovation dans lequel les formes, techniques et fonctions musicales s’enrichissent mutuellement. L’étude de cet héritage offre ainsi aux chercheurs une perspective unique sur les dynamiques de la mémoire collective et sur la manière dont la musique peut façonner l’identité culturelle d’une nation.
+
 (Le texte ci-dessus compte environ 5801 caractères.)
 
 ## Développement de la musique moderne

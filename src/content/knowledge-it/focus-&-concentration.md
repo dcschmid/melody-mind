@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -78,7 +77,7 @@ Successivamente, le variazioni sperimentali introdotte nel campo delle tecnologi
 
 Parallelamente, l’interesse per le dimensioni psicofisiologiche della musica ha condotto allo sviluppo di correnti che integrano principi dalla musicoterapia e dalla neuroscienza. In questo ambito, il cosiddetto “neuro-musica” si basa su studi empirici che ne evidenziano l’efficacia nella modulazione dell’attenzione e nel ridurre stati d’ansia. La ricerca accademica in questo campo, condotta da istituzioni universitarie e centri di studio internazionali, ha evidenziato come specifiche sequenze sonore e gradazioni di intensità possano stimolare aree cerebrali dedicate alla concentrazione e alla memoria operativa. Lo sviluppo di tali metodologie è frutto di un dialogo interdisciplinare che unisce le competenze della musicologia, della psicologia cognitiva e dell’ingegneria acustica.
 
-Ciascuno di questi approcci, pur differenziandosi per le tecniche compositive e le finalità espresse, condivide l’obiettivo comune di creare ambientazioni sonore che facilitino l’ingresso in uno stato di attenzione focalizzata. In aggiunta, il percorso evolutivo dalla musica minimalista a quella ambient ha permesso di delineare un continuum di stili caratterizzati da una graduale semplificazione degli elementi musicali, mirando a ridurre l’interferenza cognitiva. Tale semplificazione, pur non escludendo la complessità interna delle opere, mira a rinunciare a strutture musicali sovraccariche, favorendo piuttosto l’emergere di tessiture ipnotiche in grado di stimolare la riflessione e la meditazione. 
+Ciascuno di questi approcci, pur differenziandosi per le tecniche compositive e le finalità espresse, condivide l’obiettivo comune di creare ambientazioni sonore che facilitino l’ingresso in uno stato di attenzione focalizzata. In aggiunta, il percorso evolutivo dalla musica minimalista a quella ambient ha permesso di delineare un continuum di stili caratterizzati da una graduale semplificazione degli elementi musicali, mirando a ridurre l’interferenza cognitiva. Tale semplificazione, pur non escludendo la complessità interna delle opere, mira a rinunciare a strutture musicali sovraccariche, favorendo piuttosto l’emergere di tessiture ipnotiche in grado di stimolare la riflessione e la meditazione.
 
 In conclusione, l’evoluzione dei sottogeneri e delle variazioni nella “Focus & Concentration” rappresenta un perfetto esempio di come la musica, attraverso innovazioni tecniche e sperimentazioni estetiche, possa rispondere a bisogni culturali e cognitivi in continua trasformazione. La documentazione storica e la ricerca accademica testimoniano il percorso evolutivo di una disciplina in cui la ricerca sonica si intreccia con studi sperimentali riguardanti le percezioni dell’ascoltatore, dando luogo a un corpus di opere in cui il suono diviene strumento di concentrazione e serenità. Tale interdisciplinarità, ben documentata da studi recenti (Vincenzi, 2005; Caruso, 2010), evidenzia come la musica per la concentrazione non sia soltanto espressione artistica, ma anche un contributo significativo alla comprensione delle dinamiche cognitive e al miglioramento del benessere psicologico.
 

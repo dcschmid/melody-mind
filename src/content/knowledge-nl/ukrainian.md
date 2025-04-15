@@ -17,14 +17,13 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Inleiding
 
-De Oekraïense muziek vertegenwoordigt een rijke culturele traditie die, ondanks haar regionale wortels, diepgaande internationale invloed kent. In de late negentiende en vroege twintigste eeuw werd, met name in de context van folkloristische studies, het nationaal bewustzijn versterkt door het systematisch documenteren van traditionele melodieën en ritmes. Deze muzikale praktijk ging gepaard met de opkomst van conservatoria, waarin theoretische grondslagen werden gelegd voor een herwaardering van de volksmuziek en de harmonisatie van traditionele klanken met de Europese klassieke traditie. 
+De Oekraïense muziek vertegenwoordigt een rijke culturele traditie die, ondanks haar regionale wortels, diepgaande internationale invloed kent. In de late negentiende en vroege twintigste eeuw werd, met name in de context van folkloristische studies, het nationaal bewustzijn versterkt door het systematisch documenteren van traditionele melodieën en ritmes. Deze muzikale praktijk ging gepaard met de opkomst van conservatoria, waarin theoretische grondslagen werden gelegd voor een herwaardering van de volksmuziek en de harmonisatie van traditionele klanken met de Europese klassieke traditie.
 
 Evoluties in impressionistische en expressionistische stromingen fungeerden bovendien als katalysatoren voor innovatieve composities, waardoor nieuwe artistieke benaderingen ontstonden. Hierdoor is het geluidslandschap van Oekraïne niet louter traditioneel gebleven, maar een dynamisch forum geworden waarin historische erfenissen en internationale invloeden vervlochten zijn.
 
@@ -50,7 +49,7 @@ Samenvattend biedt de historische en culturele context van de Oekraïense muziek
 
 ## Traditionele muziek
 
-De traditionele Oekraïense muziek vormt een intrigerend en complex domein binnen de wereldmuziek, waarin muzikale expressie en culturele identiteit onlosmakelijk met elkaar verweven zijn. Vanaf de vroegmoderne periode vervulde deze muziek een centrale rol bij de vorming van een collectieve identiteit van de Oekraïense bevolking. De ontwikkeling van deze muzikale traditie kan men zien als een dynamisch proces, waarin folkloristische elementen, rituelen en historische gebeurtenissen in dialoog staan met elkaar. Deze muzikale realiteit, die door de eeuwen heen voortdurend in transitie is geweest, weerspiegelt zowel de diverse etnische invloeden als de sociale omstandigheden die de regio hebben gekenmerkt.  
+De traditionele Oekraïense muziek vormt een intrigerend en complex domein binnen de wereldmuziek, waarin muzikale expressie en culturele identiteit onlosmakelijk met elkaar verweven zijn. Vanaf de vroegmoderne periode vervulde deze muziek een centrale rol bij de vorming van een collectieve identiteit van de Oekraïense bevolking. De ontwikkeling van deze muzikale traditie kan men zien als een dynamisch proces, waarin folkloristische elementen, rituelen en historische gebeurtenissen in dialoog staan met elkaar. Deze muzikale realiteit, die door de eeuwen heen voortdurend in transitie is geweest, weerspiegelt zowel de diverse etnische invloeden als de sociale omstandigheden die de regio hebben gekenmerkt.
 
 In de vormingsjaren van de Oekraïense traditionele muziek, daterend uit de periode voorafgaand aan de moderne nationale staten, speelde de orale traditie een doorslaggevende rol. Men kan stellen dat de overdracht van kennis voornamelijk via gezongen verhalen en epische liederen plaatsvond, waarbij de zogenaamde dumy – epische balladen die heroïsche daden en historische conflicten bezongen – als een belangrijk medium dienden. Deze dumy werden doorgaans uitgevoerd door itinerante musici, die in de volksmond bekend stonden als kobzars. Zij fungeerden als levende archieven, waarin de historische en mythologische narratieven van de ketens van volksverhalen elkaar vermengden met muzikale verfijning. De rol van de kobzars was niet louter muzikaal, maar ook pedagogisch; zij waren de bewaarders van een cultuurhistorisch erfgoed dat zich mondeling van generatie op generatie voortzette.
 

@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -177,7 +176,7 @@ Posteriormente, na primeira década do século XXI, o J-Dance consolidou-se como
 
 Ademais, a articulação do J-Dance com outras esferas culturais intensificou a sua projeção enquanto fenômeno social. Nas análises contemporâneas, o gênero é percebido como um agente de coesão entre diferentes segmentos da sociedade, fomentando o diálogo entre tradições seculares e inovações tecnológicas. Assim, a investigação sobre as novas práticas performáticas e a incorporação de recursos audiovisuais em ambientes virtuais pôde revelar a complexidade inerente à dinâmica do gênero. Conforme aponta Nakamura (2012), os processos de apropriação e resignificação dos elementos do J-Dance continuam a desafiar as fronteiras entre o artesanato musical e a produção em massa, indicando que o gênero permanece em constante estado de fluxos e contrafluxos, insculpindo novas possibilidades de interação cultural e social.
 
-Em síntese, o desenvolvimento e a evolução do J-Dance configuram um campo fértil para a análise interseccional entre tecnologia, cultura e música. A trajetória histórica desse estilo ilustra como a confluência de avanços técnicos e contextos sociais pode dar origem a novas expressões artísticas que desafiam as convenções estabelecidas. Cada etapa desse percurso evidencia uma permanente dialética entre o local e o global, entre a tradição e a inovação, e entre a experiência auditiva e a performatividade. Assim, o J-Dance não somente se firmou como um estilo musical efervescente, mas também como um objeto de estudo indispensável para a compreensão dos mecanismos de transformação cultural na era digital. 
+Em síntese, o desenvolvimento e a evolução do J-Dance configuram um campo fértil para a análise interseccional entre tecnologia, cultura e música. A trajetória histórica desse estilo ilustra como a confluência de avanços técnicos e contextos sociais pode dar origem a novas expressões artísticas que desafiam as convenções estabelecidas. Cada etapa desse percurso evidencia uma permanente dialética entre o local e o global, entre a tradição e a inovação, e entre a experiência auditiva e a performatividade. Assim, o J-Dance não somente se firmou como um estilo musical efervescente, mas também como um objeto de estudo indispensável para a compreensão dos mecanismos de transformação cultural na era digital.
 
 Contagem de caracteres: 5355.
 

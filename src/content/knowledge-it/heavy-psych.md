@@ -16,16 +16,15 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-La Heavy Psych rappresenta una corrente musicale che affonda le proprie radici nella rivoluzione psichedelica degli anni Sessanta, periodo in cui il linguaggio sonoro veniva sperimentato e ridefinito in maniera radicale. Tali innovazioni si svilupparono in contesti storici e culturali articolati, in cui la fusione di elementi psichedelici, hard rock e blues contribuì a delineare un panorama sonoro iconoclasta e trasgressivo. 
+La Heavy Psych rappresenta una corrente musicale che affonda le proprie radici nella rivoluzione psichedelica degli anni Sessanta, periodo in cui il linguaggio sonoro veniva sperimentato e ridefinito in maniera radicale. Tali innovazioni si svilupparono in contesti storici e culturali articolati, in cui la fusione di elementi psichedelici, hard rock e blues contribuì a delineare un panorama sonoro iconoclasta e trasgressivo.
 
-Inoltre, la corrente in esame si contraddistingue per l'impiego di timbri distorti, lunghi assoli e una struttura compositiva che privilegia l'improvvisazione. Studi accademici evidenziano come la Heavy Psych abbia beneficiato dell'introduzione di tecnologie emergenti, quali amplificatori e effetti sonori, che permisero di esplorare nuove dimensioni espressive. 
+Inoltre, la corrente in esame si contraddistingue per l'impiego di timbri distorti, lunghi assoli e una struttura compositiva che privilegia l'improvvisazione. Studi accademici evidenziano come la Heavy Psych abbia beneficiato dell'introduzione di tecnologie emergenti, quali amplificatori e effetti sonori, che permisero di esplorare nuove dimensioni espressive.
 
 Infine, l'analisi della discografia originalistica, documentata attraverso fonti storiche e musicali, consente di comprendere come la Heavy Psych si sia affermata in parallelo a movimenti culturali che, in maniera interconnessa, hanno segnato la storia della musica internazionale.
 

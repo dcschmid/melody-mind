@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -200,7 +199,7 @@ Outro aspecto de relevância consiste em enfatizar o papel da música como agent
 
 Sob uma perspectiva epistemológica, a intersecção entre a análise histórica e a prática musical configura-se como um paradigma capaz de transformar o ambiente educacional. A conjugação de critérios rigorosos de avaliação, baseados em referências acadêmicas e em estudos musicológicos consolidados, possibilita que as playlists se tornem instrumentos dinâmicos de aprendizagem. Conforme sugerido por autores que investigam as interfaces entre teoria e prática, a integração de repertórios que dialogam com diferentes momentos históricos confere às seleções uma profundidade analítica que transcende o aspecto meramente recreativo.
 
-Em síntese, as recomendações para a curadoria de playlists no contexto “Back to School” devem ser orientadas por uma análise meticulosa que considere as transformações históricas dos gêneros musicais, as contribuições tecnológicas para a difusão das obras e a importância do rigor estético na formação dos estudantes. A conjugação de elementos teóricos e a diversidade cultural, aliadas à aplicação criteriosa de métodos comparativos, firmam a base de um repertório que reflete tanto a complexidade quanto a riqueza da experiência musical internacional. 
+Em síntese, as recomendações para a curadoria de playlists no contexto “Back to School” devem ser orientadas por uma análise meticulosa que considere as transformações históricas dos gêneros musicais, as contribuições tecnológicas para a difusão das obras e a importância do rigor estético na formação dos estudantes. A conjugação de elementos teóricos e a diversidade cultural, aliadas à aplicação criteriosa de métodos comparativos, firmam a base de um repertório que reflete tanto a complexidade quanto a riqueza da experiência musical internacional.
 
 Por conseguinte, a proposta aqui apresentada reafirma o compromisso de promover uma abordagem interdisciplinar na curadoria musical para ambientes educativos. A confluência de saberes, a precisão na análise dos elementos musicais e a valorização da pluralidade cultural constituem fundamentos essenciais para a elaboração de playlists que, ao mesmo tempo, estimulem a concentração e fomentem o debate crítico. Essa integração entre o rigor acadêmico e a experiência prática propicia uma formação musical abrangente e contextualmente relevante, estabelecendo novos horizontes para a apreciação e o estudo da música no ambiente escolar.
 

@@ -16,10 +16,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -95,7 +94,7 @@ Historialliset ja teknologiset innovaatiot ovat vaikuttaneet merkittävästi "Ba
 
 Samoin musiikkikritiikissä on korostunut tarve tunnistaa ja arvostaa paikkansapitävästi paikallisen musiikillisen perinteen muotoutuneita elementtejä, joiden vaikutus ulottuu kansainväliseen musiikkihistoriaan. Criticoiden analyysit ovat osoittaneet, kuinka kehittynyt formaalinen rakenne sitoutuu samalla epämuodollisiin esiintymistilanteisiin, jolloin välittömyys ja improvisaation reaktiivisuus nousevat esiin merkittävinä ilmiöinä. Näin ollen "Backyard BBQ" -tyylin keskeiset teokset tarjoavat jatkumon perinteestä nykyaikaisiin musiikillisiin kokeiluihin ja toimivat samalla linkkinä samankaltaisten ilmiöiden välillä eri maanosissa.
 
-Akateemisessa tutkimuksessa on huomioitu erityisesti ilmiön monikerroksellisuus: sen yhteys paikalliseen kulttuuriperintöön, improvisaatioperinteen muodostuminen sekä teknologisten muutosten vaikutukset musiikyhteisöihin. Tutkijat ovat erityisesti tarkastelleet sitä, kuinka pienissä, usein perheiden ja ystäväporukoiden järjestämissä tilaisuuksissa syntyy sellainen eluvoima, joka pyrkii ylittämään perinteisen musiikkiteorian rajoja. Näin ollen "Backyard BBQ" ei ole ainoastaan musiikillinen genre, vaan myös sosiaalinen ilmiö, jonka vaikutus näkyy laaja-alaisesti kansainvälisessä musiikkikulttuurissa ja yhteisöllisessä identiteetissä. 
+Akateemisessa tutkimuksessa on huomioitu erityisesti ilmiön monikerroksellisuus: sen yhteys paikalliseen kulttuuriperintöön, improvisaatioperinteen muodostuminen sekä teknologisten muutosten vaikutukset musiikyhteisöihin. Tutkijat ovat erityisesti tarkastelleet sitä, kuinka pienissä, usein perheiden ja ystäväporukoiden järjestämissä tilaisuuksissa syntyy sellainen eluvoima, joka pyrkii ylittämään perinteisen musiikkiteorian rajoja. Näin ollen "Backyard BBQ" ei ole ainoastaan musiikillinen genre, vaan myös sosiaalinen ilmiö, jonka vaikutus näkyy laaja-alaisesti kansainvälisessä musiikkikulttuurissa ja yhteisöllisessä identiteetissä.
 
 Lisäksi tutkimuksissa on tarkasteltu esityssanojen ja sanoitusten symboliikkaa, jotka usein heijastavat yhteisön arvoja ja identiteettiä. Näissä teoksissa esiintyvien harmonioiden ja rytmien moninaisuus korostaa sitä, miten erilaisia kulttuurisia ja historiallisia tarinoita voidaan sitoa yhteen samassa esityksessä. Tämä synteesi mahdollistaa sekä paikallisen että globaaleja aikajänteitä yhdistävien vaikutteiden havaitsemisen, ja tarjoaa siten mielenkiintoisia näkökulmia sekä teoreettisessa että käytännön analyysissä. Siten "Backyard BBQ" -kategorian tutkiminen paljastaa, kuinka intiimit musiikilliset kohtaamiset voivat muuttua laajemmiksi kulttuurisiksi ilmiöiksi.
 

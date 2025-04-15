@@ -17,16 +17,15 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Introduktionen till internationell PopRock präglas av en synkretistisk utveckling, där musikaliska element från populärmusik och rock etablerades under 1950- respektive 1960-talen. Inledningsvis manifesterade sig genren genom innovativa arrangemang och ny teknik inom inspelning, vilket möjliggjorde för kompositioner att anta en komplex harmonisk och rytmisk struktur. 
+Introduktionen till internationell PopRock präglas av en synkretistisk utveckling, där musikaliska element från populärmusik och rock etablerades under 1950- respektive 1960-talen. Inledningsvis manifesterade sig genren genom innovativa arrangemang och ny teknik inom inspelning, vilket möjliggjorde för kompositioner att anta en komplex harmonisk och rytmisk struktur.
 
-Vidare framträder centrala influenser från både amerikanska och brittiska musiktraditioner, vilka under denna period bevisligen bidrog till en global kulturell integrationsprocess. Genom medvetna stilistiska övergångar, där dynamiken mellan instrumentala och vokala inslag förfinades, utvecklades en musikalisk estetik som speglade samtidens strävan efter nyskapande och konstnärlig dialog. 
+Vidare framträder centrala influenser från både amerikanska och brittiska musiktraditioner, vilka under denna period bevisligen bidrog till en global kulturell integrationsprocess. Genom medvetna stilistiska övergångar, där dynamiken mellan instrumentala och vokala inslag förfinades, utvecklades en musikalisk estetik som speglade samtidens strävan efter nyskapande och konstnärlig dialog.
 
 Sammanfattningsvis tjänar PopRock inte enbart som ett estetiskt uttryck, utan utgör även en kritisk lins genom vilken samtida geopolitiska och kulturella förändringar kan analyseras, med en tydlig betoning på interaktion mellan tradition och innovation.
 

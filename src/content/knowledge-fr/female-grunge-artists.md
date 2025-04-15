@@ -17,10 +17,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -102,7 +101,7 @@ Parmi les artistes remarquables, l’un des cas les plus emblématiques demeure 
 
 Dans la même veine, le groupe Babes in Toyland, conduit par Kat Bjelland, incarne une démarche fortement ancrée dans la contestation. L’approche musicale du groupe, marquée par l’absence de compromis entre virtuosité et agressivité sonore, permet d’appréhender le grunge comme une réponse aux dérives de la société consumériste et aux pressions normatives de l’industrie musicale. L’utilisation d’effets de distorsion, de contrastes dynamiques et d’une structure rythmique irrégulière se révèle être le reflet d’une volonté de renouveau artistique. Par ailleurs, les compositions de Babes in Toyland, caractérisées par des mélodies d’une rare intensité, s’inscrivent dans une tradition de subversion typique du mouvement grunge contemporain.
 
-Le groupe L7 complète ce panorama en apportant une contribution singulière à la fois sur le plan esthétique et conceptuel. S’inscrivant dans le même bain sonore que ses homologues, L7 a su imposer, grâce à ses performances scéniques énergiques et à une écriture souvent provocatrice, un discours résolument féministe. Les textes des morceaux, riches en allégories et en références à la condition des femmes dans le monde moderne, témoignent d’un engagement profond qui dépasse largement le cadre de la scène musicale. En éliminant volontairement les artifices et en privilégiant un style épuré, L7 a su surprendre et séduire un public en quête d’authenticité. 
+Le groupe L7 complète ce panorama en apportant une contribution singulière à la fois sur le plan esthétique et conceptuel. S’inscrivant dans le même bain sonore que ses homologues, L7 a su imposer, grâce à ses performances scéniques énergiques et à une écriture souvent provocatrice, un discours résolument féministe. Les textes des morceaux, riches en allégories et en références à la condition des femmes dans le monde moderne, témoignent d’un engagement profond qui dépasse largement le cadre de la scène musicale. En éliminant volontairement les artifices et en privilégiant un style épuré, L7 a su surprendre et séduire un public en quête d’authenticité.
 
 D’un point de vue théorique, il est intéressant d’observer la manière dont ces artistes féminines intègrent et subvertissent les codes du grunge. En effet, si l’on se réfère aux analyses de chercheurs tels que Azerrad (1994) ou Robinson (1995), il apparaît que les innovations sonores ne sauraient être dissociées d’une composante identitaire forte. L’usage de techniques instrumentales – telles que l’amplification délibérément saturée, les effets de reverbération et l’emploi de rythmes syncopés – permet de mettre en exergue non seulement une esthétique de la dissonance, mais également un rejet assumé des standards commerciaux. Par ailleurs, ces innovations se portent en critique explicite des normes patriarcales traditionnelles, faisant ainsi émerger une voix féminine distincte et revendicatrice.
 

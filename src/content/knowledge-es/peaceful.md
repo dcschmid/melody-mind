@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -200,6 +199,6 @@ En conclusión, la propuesta examinada constituye un testimonio del compromiso d
 
 ## Conclusion
 
-El análisis de la categoría “Peaceful” evidencia la evolución de un estilo musical que, enmarcado en contextos internacionales, ha logrado fusionar elementos tradicionales y contemporáneos para generar paisajes sonoros de singular serenidad. Desde mediados del siglo XX, la incorporación de innovaciones tecnológicas y prácticas acústicas refinadas posibilitó el surgimiento de composiciones que responden a una sensibilidad global, sin menoscabar la riqueza de manifestaciones culturales autóctonas. 
+El análisis de la categoría “Peaceful” evidencia la evolución de un estilo musical que, enmarcado en contextos internacionales, ha logrado fusionar elementos tradicionales y contemporáneos para generar paisajes sonoros de singular serenidad. Desde mediados del siglo XX, la incorporación de innovaciones tecnológicas y prácticas acústicas refinadas posibilitó el surgimiento de composiciones que responden a una sensibilidad global, sin menoscabar la riqueza de manifestaciones culturales autóctonas.
 
 Asimismo, la convergencia de tendencias musicales y el diálogo intercultural han cimentado paradigmas teóricos para explicar el desarrollo de este género. En conclusión, la música “Peaceful” se configura no solo como un refugio de calma y reflexión, sino también como un espacio de resistencia estética en el que confluyen historia, técnica y arte. Este análisis reafirma la importancia de considerar los contextos históricos y las innovaciones técnicas en la interpretación de sus manifestaciones.

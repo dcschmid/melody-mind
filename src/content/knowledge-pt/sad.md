@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -88,7 +87,7 @@ A evolução dos recursos tecnológicos, imprescindíveis à prática performát
 
 Por derradeiro, a convergência entre criatividade e técnica, entre inovação e tradição, destaca-se como a marca indelével da música “Sad”. A análise integradora dos elementos harmônicos, timbrísticos, rítmicos e tecnológicos revela que o êxito na transmissão de uma aura melancólica depende da capacidade do compositor e do intérprete em equilibrar esses componentes com a sensibilidade intrínseca à experiência humana. Assim, a música “Sad” não se limita a uma simples categorização afetiva, mas manifesta uma síntese complexa de recursos e estratégias que, historicamente, têm se inter-relacionado e evoluído, reafirmando a importância de um atendimento criterioso aos processos formais e simbólicos que sustentam a arte musical.
 
-Em conclusão, o estudo dos “Key Elements and Techniques” da categoria “Sad” evidencia que a integração entre a tradição harmônica, as texturas orquestrais e os avanços tecnológicos contribui de maneira decisiva para a criação de obras com uma expressividade singular. As reflexões aqui apresentadas contribuem para a compreensão aprofundada dos mecanismos técnicos que operam na construção da atmosfera melancólica, demonstrando, assim, que a música pode transpor os limites do tempo e do espaço ao encarnar, de forma entusiástica e comnotadamente rigorosa, os sentimentos de perda, resignação e contemplação introspectiva. 
+Em conclusão, o estudo dos “Key Elements and Techniques” da categoria “Sad” evidencia que a integração entre a tradição harmônica, as texturas orquestrais e os avanços tecnológicos contribui de maneira decisiva para a criação de obras com uma expressividade singular. As reflexões aqui apresentadas contribuem para a compreensão aprofundada dos mecanismos técnicos que operam na construção da atmosfera melancólica, demonstrando, assim, que a música pode transpor os limites do tempo e do espaço ao encarnar, de forma entusiástica e comnotadamente rigorosa, os sentimentos de perda, resignação e contemplação introspectiva.
 
 Contagem total de caracteres: 5371
 
@@ -128,7 +127,7 @@ Outrossim, é pertinente analisar a influência recíproca entre as esferas erud
 
 Sob a perspectiva teórica, pesquisadores têm enfatizado a importância da tonalidade e do ritmo na delimitação da experiência sad. Conforme apontado por estudos de musicologia histórica, a escolha de modos menores e cadências que enfatizam a suspensão e resolução lenta dos acordes atua como um mecanismo intrínseco à articulação do sentimento melancólico. Citações de estudiosos como [Silva, 1999] e [Ferreira, 2005] reforçam a noção de que a musicalidade triste não somente reflete estados emocionais subjetivos, mas também dialoga com as condições históricas e sociais de cada época. Dessa forma, a partir de abordagens interdisciplinares que combinam análises harmônicas, históricas e culturais, é possível perceber que as obras emblemáticas e os artistas contemplados nesta categoria constituem um corpus narrativo que transcende os limites da mera expressão estética, configurando-se como um verdadeiro espelho das agruras da experiência humana.
 
-Em síntese, a análise das obras notáveis e dos artistas que marcaram a produção musical “sad” revela uma trajetória que perpassa desde os intricados anseios do período romântico, passando pela crua expressividade do blues e do jazz, até as manifestações contemporâneas do rock e do grunge. Cada período, ao enfatizar a maneira como a tristeza e a melancolia podem ser transmitidas musicalmente, enfoca a relação indissociável entre criatividade e sofrimento, possibilitando ao ouvinte uma conexão empática com realidades diversas. Portanto, o estudo deste espectro musical não se restringe à identificação de obras isoladas, mas propõe uma reflexão sobre como a arte se torna um meio de enfrentar, compreender e transformar as múltiplas dimensões da existência humana. 
+Em síntese, a análise das obras notáveis e dos artistas que marcaram a produção musical “sad” revela uma trajetória que perpassa desde os intricados anseios do período romântico, passando pela crua expressividade do blues e do jazz, até as manifestações contemporâneas do rock e do grunge. Cada período, ao enfatizar a maneira como a tristeza e a melancolia podem ser transmitidas musicalmente, enfoca a relação indissociável entre criatividade e sofrimento, possibilitando ao ouvinte uma conexão empática com realidades diversas. Portanto, o estudo deste espectro musical não se restringe à identificação de obras isoladas, mas propõe uma reflexão sobre como a arte se torna um meio de enfrentar, compreender e transformar as múltiplas dimensões da existência humana.
 
 Contagem de caracteres: 5358
 

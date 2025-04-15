@@ -17,14 +17,13 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-"Autumn Leaves" indtager en central plads i international musikhistorie og repræsenterer en væsentlig bro mellem europæisk og nordamerikansk musiktradition. Oprindeligt udgivet som "Les feuilles mortes" blev sangen komponeret af Joseph Kosma med tekst af Jacques Prévert i 1945, hvorefter den hurtigt opnåede udbredelse både i Europa og USA. Overgangen til en engelsk version illustrerer den kulturelle udveksling og de musikalske konvergenser, der fandt sted i kølvandet på Anden Verdenskrig. 
+"Autumn Leaves" indtager en central plads i international musikhistorie og repræsenterer en væsentlig bro mellem europæisk og nordamerikansk musiktradition. Oprindeligt udgivet som "Les feuilles mortes" blev sangen komponeret af Joseph Kosma med tekst af Jacques Prévert i 1945, hvorefter den hurtigt opnåede udbredelse både i Europa og USA. Overgangen til en engelsk version illustrerer den kulturelle udveksling og de musikalske konvergenser, der fandt sted i kølvandet på Anden Verdenskrig.
 
 Desuden demonstrerer "Autumn Leaves" jazzens udvikling med fokus på improvisation og modal harmoni, hvilket tydeligt afspejler den musikalske fornyelse i det midten af det 20. århundrede. Sangen blev blandt andet videreudviklet af prominente jazzmusikere, der integrerede dens strukturelle kompleksitet i deres fortolkninger. Derved fremstår "Autumn Leaves" som et paradigme for interkulturel inspiration og musikalsk innovation, hvis historiske kontekst fortsat inspirerer den akademiske diskurs og praktiseringen af jazz internationalt.
 

@@ -15,10 +15,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -64,7 +63,7 @@ Sammenfattende kan det konstateres, at Chicago House repræsenterer en kompleks 
 
 ## Subgenres and Variations
 
-Subgenres og variationer i Chicago House repræsenterer en kompleks og nyskabende evolution inden for elektronisk dansemusik, hvor kulturelle, teknologiske og musikalske skift genspejles i en række distinkte udtryk. Udviklingen af Chicago House, som i sin spæde fremkomst i midten af 1980’erne i USA fandt sine rødder i discoens nedgang samt den teknologiske revolution, har skabt gunstige betingelser for eksperimenter med klangteksturer, rytmiske strukturer og struktureret improvisation. Denne musikalske proces, understøttet af pionerer som Frankie Knuckles, Marshall Jefferson og Adonis, dannede fundamentet for de senere subgenrer, idet de både iværksatte en lokal og international bevægelse, der eksperimenterede med nye syntetiske lyde og alternative produktionsmetoder. 
+Subgenres og variationer i Chicago House repræsenterer en kompleks og nyskabende evolution inden for elektronisk dansemusik, hvor kulturelle, teknologiske og musikalske skift genspejles i en række distinkte udtryk. Udviklingen af Chicago House, som i sin spæde fremkomst i midten af 1980’erne i USA fandt sine rødder i discoens nedgang samt den teknologiske revolution, har skabt gunstige betingelser for eksperimenter med klangteksturer, rytmiske strukturer og struktureret improvisation. Denne musikalske proces, understøttet af pionerer som Frankie Knuckles, Marshall Jefferson og Adonis, dannede fundamentet for de senere subgenrer, idet de både iværksatte en lokal og international bevægelse, der eksperimenterede med nye syntetiske lyde og alternative produktionsmetoder.
 
 I udviklingen af Chicago House fremstår Acid House som en af de mest markante variationer. Karakteristisk for Acid House er anvendelsen af Roland TB-303 bas- og filterlinje, som skaber en psykedelisk effekt gennem resonante og ekspanderende lydbølger. Denne lydkarakteristik, der spænder over en intensitet af modulationer, illustrerer en bevægelse væk fra de mere traditionelle, symmetriske former i dansmusik, idet den åbner op for improvisatoriske og eksperimentelle udtryk. Acid House repræsenterer således ikke blot en omstrukturering af de elektroniske lydbilleder, men også en antologi over den teknologiske modernitet i musikken, hvor digitalisering og elektroniske instrumenter sammenflettes med den personlige kreativitet.
 

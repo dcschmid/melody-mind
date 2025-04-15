@@ -16,14 +16,13 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Introdução: A análise das composições musicais classificadas como “Halloween Spooky Tunes” evidencia uma interseção entre elementos oriundos do folclore tradicional e inovações estéticas surgidas no século XX. Em um contexto de profundas transformações culturais, tais obras manifestam influência tanto do simbolismo quanto do expressionismo, estabelecendo diálogo com práticas sonoras enraizadas nas tradições europeia e norte‐americana. 
+Introdução: A análise das composições musicais classificadas como “Halloween Spooky Tunes” evidencia uma interseção entre elementos oriundos do folclore tradicional e inovações estéticas surgidas no século XX. Em um contexto de profundas transformações culturais, tais obras manifestam influência tanto do simbolismo quanto do expressionismo, estabelecendo diálogo com práticas sonoras enraizadas nas tradições europeia e norte‐americana.
 
 Estudos históricos revelam que, durante as décadas de 1960 e 1970, a incorporação de recursos eletrônicos e a experimentação instrumental contribuíram decisivamente para a criação de atmosferas inquietantes e carregadas de ambivalência. Ademais, a integração de ritmos, harmonias e timbres possibilitou a edificação de cenários sonoros que, conforme salientado por SILVA (1984), reafirmaram a importância destas composições na evolução da música internacional.
 
@@ -121,7 +120,7 @@ Total de caracteres: 5359
 
 ## Global Variations
 
-A seção “Global Variations” inserida na categoria “Halloween Spooky Tunes” revela a complexa interação entre contextos culturais diversos e as manifestações musicais tipificadas pelo clima de mistério e temor que caracteriza a festividade. A proposta analítica subjacente a esta abordagem objetiva desvelar os contornos históricos, as transformações estéticas e as particularidades regionais que, interagindo de maneira dialética, configuraram repertórios musicais que transcendem fronteiras. Tais análises implicam uma articulação entre música, história e os fenômenos socioculturais que, contextualmente, legitimar-se-ão.  
+A seção “Global Variations” inserida na categoria “Halloween Spooky Tunes” revela a complexa interação entre contextos culturais diversos e as manifestações musicais tipificadas pelo clima de mistério e temor que caracteriza a festividade. A proposta analítica subjacente a esta abordagem objetiva desvelar os contornos históricos, as transformações estéticas e as particularidades regionais que, interagindo de maneira dialética, configuraram repertórios musicais que transcendem fronteiras. Tais análises implicam uma articulação entre música, história e os fenômenos socioculturais que, contextualmente, legitimar-se-ão.
 
 Historicamente, a gênese das composições associadas ao imaginário do Halloween remonta às tradições celtas e aos ritos pagãos, que, ao longo da Idade Média, processaram elementos simbólicos e musicais adaptados aos contextos litúrgicos e populares da Europa Ocidental. Nesta perspectiva, a música sacra e as cantorias folclóricas compuseram o arcabouço rítmico e melódico que, posteriormente, influenciaria a conformação de gêneros e estilos disparatados, especialmente a partir do século XIX. Ademais, as manifestações musicais estranhas, que amalgamam o erótico, o macabro e o místico, contribuíram para o desenvolvimento de sonoridades e técnicas composicionais que, por sua vez, retroalimentaram as subsequentes expressões culturais em outros continentes.
 

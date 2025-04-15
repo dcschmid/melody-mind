@@ -17,10 +17,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -168,7 +167,7 @@ Trots de teknologiska framsteg som präglade den senare delen av 1900-talet, har
 
 Under de senaste decennierna har den internationella diskursen kring Beach Day-musik fortsatt att utvecklas i samklang med globala sociala och kulturella omvälvningar. Samtidigt som den engelskspråkiga populärkulturen haft ett stort inflytande har lokala tolkningar och idéer kvarstått som viktiga bidrag till genrens mångfacetterade uttryck. Den akademiska debatten rörande hur musikaliska uttryck formas av geografi och identitet har här fått en ny dimension, då artister utanför västvärlden också anammat och transformerat de tidiga idéerna om kustnära estetik. Detta har medfört en återupptäckt av traditionella instrument och musikaliska tekniker som integrerats med modern produktionsteknik.
 
-Det är således uppenbart att utvecklingen och evolutionen av Beach Day-musik inte enbart är en fråga om tekniska framsteg, utan även om den djupa kulturella betydelsen av musiken. Genom att kontinuerligt anpassa sig till nya teknologiska, estetiska och samhälleliga förutsättningar, bevarar genren sin relevans och förmåga att påverka både lyssnare och utövare. Den internationella spridningen av denna musikaliska form demonstrerar en dynamisk samverkan mellan tradition och innovation, där varje ny era bidrar med unika inslag till den redan rika historiska väven. 
+Det är således uppenbart att utvecklingen och evolutionen av Beach Day-musik inte enbart är en fråga om tekniska framsteg, utan även om den djupa kulturella betydelsen av musiken. Genom att kontinuerligt anpassa sig till nya teknologiska, estetiska och samhälleliga förutsättningar, bevarar genren sin relevans och förmåga att påverka både lyssnare och utövare. Den internationella spridningen av denna musikaliska form demonstrerar en dynamisk samverkan mellan tradition och innovation, där varje ny era bidrar med unika inslag till den redan rika historiska väven.
 
 Sammanfattningsvis utgör Beach Day-musikens utveckling ett levande exempel på hur kultur, teknik och estetik sammanflätas i en kontinuerlig process av transformation. Genom att noggrant analysera de tidiga kaliforniska influenserna, de tekniska genomgripande förändringarna under 1980-talets digitalisering samt de globala anpassningarna, får man en djupare förståelse för hur musikaliska uttryck formas över tid. Denna evolutionära process erbjuder således både en spegel av samtida samhällstrender och en lins genom vilken vi kan betrakta den ständigt föränderliga relationen mellan människa, natur och teknik."
 

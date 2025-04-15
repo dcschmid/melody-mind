@@ -15,10 +15,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -26,7 +25,7 @@ O Speed Metal emergiu no início da década de 1980, constituindo-se como uma ve
 
 Ademais, o contexto tecnológico da época, marcado pela evolução dos equipamentos eletrônicos e pela disseminação dos métodos de gravação digital, potencializou a difusão e a sofisticação sonora do Speed Metal. A influência de bandas consagradas, que atuavam em cenários internacionais e que, embora tivessem raízes anteriores, contribuíram para a consolidação do subgênero, ilustra o caráter inovador e transformador dessa estética musical.
 
-Portanto, o estudo deste fenômeno revela uma interseção entre avanços técnicos e demandas estéticas, representando um marco na evolução da música contemporânea. 
+Portanto, o estudo deste fenômeno revela uma interseção entre avanços técnicos e demandas estéticas, representando um marco na evolução da música contemporânea.
 Caracteres: 892
 
 ## Historical Background

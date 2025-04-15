@@ -16,14 +16,13 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduktion
 
-Den internationella bluesens framväxt är intimt knuten till utvecklingen av afroamerikanska musiktraditioner under tidigt 1900-tal. Inom denna period uppträdde kvinnliga blueslegendärer i den amerikanska södern och etablerade en banbrytande stil präglad av teknisk virtuositet samt känslosam improvisation. Ma Rainey och Bessie Smith utgjorde centrala figurer vars tolkningar präglades av komplexa tonala strukturer, rytmiska innovationer och en djup emotionell närvaro, vilken speglade samtida sociala omvälvningar. 
+Den internationella bluesens framväxt är intimt knuten till utvecklingen av afroamerikanska musiktraditioner under tidigt 1900-tal. Inom denna period uppträdde kvinnliga blueslegendärer i den amerikanska södern och etablerade en banbrytande stil präglad av teknisk virtuositet samt känslosam improvisation. Ma Rainey och Bessie Smith utgjorde centrala figurer vars tolkningar präglades av komplexa tonala strukturer, rytmiska innovationer och en djup emotionell närvaro, vilken speglade samtida sociala omvälvningar.
 
 Vidare bidrog deras uttrycksfulla framträdanden till att bana väg för efterföljande musikaliska strömningar inom jazz och populärmusik, vilket illustrerar den historiska kontinuitet som råder mellan olika musikaliska epoker. Den musikologiska analysen av dessa pionjärers verk kräver en noggrann tolkning av de teoretiska parametrarna samt en förståelse för de kulturella kontexter som präglar deras debut. I kontrast till senare utvecklingar kvarstår en autenticitet i deras konstnärliga uttryck, vilken ger en ovärderlig inblick i bluesens ursprung och dess fortsatta påverkan på internationell musikhistoria.
 

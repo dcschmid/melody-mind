@@ -16,10 +16,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -71,7 +70,7 @@ Yhteenvetona voidaan todeta, että lauluntekijän musiikilliset ominaispiirteet 
 
 Songwriter-kategoria, erityisesti alagenrejen ja variaatioiden näkökulmasta, tarjoaa laajan ja moniulotteisen katsauksen yksittäisten säveltäjien ja sanoittajien vaikutusvaltaiseen rooliin kansainvälisen musiikin kentällä. Tämä osio pyrkii kartoittamaan historiallisia kehityskulkuja, jotka ovat muovanneet säveltämisen monimuotoisuutta ja edistäneet luovan ilmaisun eri muotoja. Analysoimalla subgenrejen syntyä ja niiden välisiä vaihteluita voidaan ymmärtää, kuinka kulttuuriset, teknologiset ja teoreettiset muutokset ovat yhdessä vaikuttaneet yksittäisen säveltäjän tuotantoon ja heidän vaikutukseensa maailmanlaajuisesti.
 
-Historian piirissä yksittäisten säveltäjien toimintaa on voidaan jäljittää ainakin 1900-luvun alkuun, jolloin jazzin ja folk-musiikin nousu edusti varhaista itsenäisen sanoitustyön muotoutumista. Ensimmäiset merkittävät sanailijoiden yhdistelmät, jotka yhdistivät henkilökohtaisen ilmaisun ja yhteiskunnallisen kommentaarin, vakiintuivat erityisesti Yhdysvalloissa 1950-luvun lopulla ja 1960-luvun alussa. Tämä suuntaus osoitti, että persoonaosallisuus ja tunnistettavuus olivat keskeisiä tekijöitä, joilla taiteilijat pystyivät tavoittamaan laajan yleisön sekä luomaan yhteiskunnallisia keskusteluja. 
+Historian piirissä yksittäisten säveltäjien toimintaa on voidaan jäljittää ainakin 1900-luvun alkuun, jolloin jazzin ja folk-musiikin nousu edusti varhaista itsenäisen sanoitustyön muotoutumista. Ensimmäiset merkittävät sanailijoiden yhdistelmät, jotka yhdistivät henkilökohtaisen ilmaisun ja yhteiskunnallisen kommentaarin, vakiintuivat erityisesti Yhdysvalloissa 1950-luvun lopulla ja 1960-luvun alussa. Tämä suuntaus osoitti, että persoonaosallisuus ja tunnistettavuus olivat keskeisiä tekijöitä, joilla taiteilijat pystyivät tavoittamaan laajan yleisön sekä luomaan yhteiskunnallisia keskusteluja.
 
 Ensiksi mainittujen vaikutuspiirien ohella myös eurooppalaiset ja latinalaisamerikkalaiset musiikkikulttuurit ovat rikastuttaneet lauluntekijöiden perinnettä. Eurooppalaiset säveltäjät hyödynsivät klassisen musiikin perinteitä, kun taas latinalaisamerikkalaiset artistit integroivat rytmikkään ja improvisatorisen luonteensa yhteiskunnalliseen kommenttiin. Näin muodostui globaali dialogi, jossa eri alueiden perinteet ja uudet innovaatioiden tuomat vaikutteet sulautuivat yhteen. Tämä kehityskulku oli mahdollinen osin teknologisten innovaatioiden, kuten nauhoitustekniikoiden, kehittymisen myötä, jotka mahdollistivat entistä monipuolisemman ja laadukkaamman musiikkituotannon.
 
@@ -109,7 +108,7 @@ Yhteenvetona voidaan todeta, että kansainvälisen musiikin sanoittajien keskeis
 
 ## Technical Aspects
 
-Teknisten näkökulmien tarkastelu kansainvälisessä lauluntekijätoiminnassa edellyttää syvällistä perehtyneisyyttä niin musiikilliseen teoriaan, säveltämisen prosessien historialliseen kehitykseen kuin soveltuvien teknologisten edistysaskeleiden analyysiin. Lauluntekijän työssä keskeisenä pidetään melodian, harmonia- ja rytmikehityksen monitahoista vuorovaikutusta, joka on kehittynyt useiden kulttuurihistoriallisten vaiheiden kautta. Historiallisesti voidaan erottaa useita merkittäviä ajanjaksoja, joissa musiikilliset innovaatiot ovat vaikuttaneet lauluntekijän rooliin ja menetelmiin. Varhaisessa länsimaisessa musiikkiperinteessä, keskiajalla ja renessanssikautena, laulu ja monofoniset sävellykset muodottivat säveltämisen ytimen, ja vaikka lauluntekijän käsite ei ollut vielä selkeästi määritelty, tekstit ja niiden esitysmenetelmät loivat perustan myöhemmälle taidemuodolle.  
+Teknisten näkökulmien tarkastelu kansainvälisessä lauluntekijätoiminnassa edellyttää syvällistä perehtyneisyyttä niin musiikilliseen teoriaan, säveltämisen prosessien historialliseen kehitykseen kuin soveltuvien teknologisten edistysaskeleiden analyysiin. Lauluntekijän työssä keskeisenä pidetään melodian, harmonia- ja rytmikehityksen monitahoista vuorovaikutusta, joka on kehittynyt useiden kulttuurihistoriallisten vaiheiden kautta. Historiallisesti voidaan erottaa useita merkittäviä ajanjaksoja, joissa musiikilliset innovaatiot ovat vaikuttaneet lauluntekijän rooliin ja menetelmiin. Varhaisessa länsimaisessa musiikkiperinteessä, keskiajalla ja renessanssikautena, laulu ja monofoniset sävellykset muodottivat säveltämisen ytimen, ja vaikka lauluntekijän käsite ei ollut vielä selkeästi määritelty, tekstit ja niiden esitysmenetelmät loivat perustan myöhemmälle taidemuodolle.
 
 Keskiajalla ja varhaisrenessanssissa käytetty modaalijärjestelmä määritteli sävellysten rakennetta, ja sitä vasten lauluntekijän on valittava huolellisesti käytetyt modukset vastaamaan teoksen emotionaalista sisältöä. Myöhemmin, barokin ja klassismin aikakaudella, harmonian monimutkaistuminen asetti uusia vaatimuksia säveltäjälle sekä tekstin ja musiikin synkronoinnille. Lauluntekijöiden oli sisällettävä teoksiinsa sekä melodiarikkaus että harmoninen dynamiikka, jolloin musiikin ajanoton, intensiteetin ja kontrapunktin säännöt muodostivat yhtenäisen kokonaisuuden. Tässä kehityksessä voidaan nähdä esimerkiksi Wolfgang Amadeus Mozartin ja Ludwig van Beethovenin vaikutteet, jotka vaikuttivat sekä lirikassa että sävellyksellisen rakenteen innovaatioissa.
 

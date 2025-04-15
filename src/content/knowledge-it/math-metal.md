@@ -17,14 +17,13 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Il Math Metal rappresenta una delle declinazioni più esigenti e sperimentali della musica metal internazionale. Questo sottogenere si distingue per la complessità ritmica e armonica, espressa mediante l’impiego di metriche non convenzionali e progressioni poliritmiche che ne determinano l’imprevedibilità strutturale. Studi storici dimostrano come, a partire dagli anni Novanta, artisti pionieristici abbiano integrato tecniche compositive ispirate al rock progressivo e al free jazz, creando così un contesto culturale in cui innovazione e disciplina formale si fondono. 
+Il Math Metal rappresenta una delle declinazioni più esigenti e sperimentali della musica metal internazionale. Questo sottogenere si distingue per la complessità ritmica e armonica, espressa mediante l’impiego di metriche non convenzionali e progressioni poliritmiche che ne determinano l’imprevedibilità strutturale. Studi storici dimostrano come, a partire dagli anni Novanta, artisti pionieristici abbiano integrato tecniche compositive ispirate al rock progressivo e al free jazz, creando così un contesto culturale in cui innovazione e disciplina formale si fondono.
 
 Inoltre, il clima socio-culturale di differenti aree geografiche, in particolare in Europa e in Nord America, ha facilitato l’emergere di questa corrente, la quale si caratterizza per il superamento delle convenzioni musicali tradizionali. Un’analisi approfondita dei suoi elementi costitutivi evidenzia non solo le innovazioni stilistiche, ma anche le implicazioni epistemologiche relative al rapporto tra struttura e creatività all’interno del panorama musicale contemporaneo.
 

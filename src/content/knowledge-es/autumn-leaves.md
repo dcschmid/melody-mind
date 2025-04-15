@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -112,7 +111,7 @@ Más allá de las contribuciones individuales, es fundamental analizar el impact
 
 En relación con el contexto cultural, es relevante mencionar que la constante reinvención de "Autumn Leaves" responde a la demanda de un diálogo entre géneros y épocas, lo que ha propiciado una reinterpretación continua de sus elementos fundamentales. Investigadores han apuntado que la obra actúa como un espejo de las transformaciones sociales y estéticas ocurridas a lo largo del siglo XX, desde la reconstrucción del tejido musical en el periodo de posguerra hasta la exploración de nuevas técnicas interpretativas en la segunda mitad del siglo. Esta evolución, a la que contribuyeron influyentes figuras del jazz, evidencia una intersección entre la tradición europea y la modernidad estadounidense, configurando un escenario en el que la música se convierte en vehículo de comunicación emocional y simbólica.
 
-Finalmente, la relevancia de "Autumn Leaves" se manifiesta en su capacidad para conjugar un legado histórico con innovaciones constantes en la práctica musical. La obra ha sido objeto de innumerables estudios, que la reconocen como un referente en la evolución del jazz, al mismo tiempo que se erige como una composición que trasciende los límites temporales y geográficos. En efecto, el análisis de sus interpretaciones y de las trayectorias de los artistas que la han abordado permite comprender la interacción entre tradición y experimentación, lo cual resulta fundamental para la apreciación de una obra que sigue vigorizando las relaciones entre la música, la historia y la sensibilidad contemporánea.  
+Finalmente, la relevancia de "Autumn Leaves" se manifiesta en su capacidad para conjugar un legado histórico con innovaciones constantes en la práctica musical. La obra ha sido objeto de innumerables estudios, que la reconocen como un referente en la evolución del jazz, al mismo tiempo que se erige como una composición que trasciende los límites temporales y geográficos. En efecto, el análisis de sus interpretaciones y de las trayectorias de los artistas que la han abordado permite comprender la interacción entre tradición y experimentación, lo cual resulta fundamental para la apreciación de una obra que sigue vigorizando las relaciones entre la música, la historia y la sensibilidad contemporánea.
 
 En síntesis, "Autumn Leaves" constituye un hito que, al ser abordado desde perspectivas históricas y teóricas, revela la complejidad inherente a la música como arte y como manifestación cultural. Las contribuciones de músicos emblemáticos, las variaciones interpretativas y el trasfondo sociocultural en el cual se inserta hacen de esta obra un estudio ineludible para quienes se dedican a la musicología y la historia musical. Las múltiples reinterpretaciones y el diálogo intercultural que ha generado, situándola en la confluencia de la tradición clásica y la innovación jazzística, subrayan su perdurable vigencia y su significado como paradigma del intercambio artístico global.
 

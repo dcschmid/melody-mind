@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introdução
 
@@ -120,7 +119,7 @@ Entre os anos 1970 e 1980, a infraestrutura da indústria musical passou por nov
 
 Ademais, a institucionalização dos mecanismos de proteção autoral e a criação de entidades de gestão coletiva assumiram papel central na estruturação do setor musical nacional, ao assegurar que os direitos dos criadores fossem preservados e, simultaneamente, que os recursos advindos do mercado fossem realocados para o fomento da atividade cultural. Essas iniciativas avançadas contribuíram para o fortalecimento de uma economia baseada na propriedade intelectual e na persistência de um diálogo sustentável entre o artístico e o comercial. A implantação dessas políticas públicas e privadas, orientadas para o desenvolvimento de uma infraestrutura robusta e inclusiva, foi determinante para que o setor mantivesse uma trajetória ascendente ao longo das últimas décadas.
 
-Em síntese, a análise da indústria musical e de sua infraestrutura no Brasil revela uma trajetória multifacetada, na qual os processos tecnológicos e institucionais desempenham papéis fundamentais para o desenvolvimento e a difusão dos discursos musicais. O percurso histórico da modernização do setor destaca que, além de um acúmulo de inovações técnicas, trata-se de um movimento cultural e econômico que, ao integrar aspectos teóricos e práticos, proporciona uma compreensão ampliada dos mecanismos de transmissão cultural. Assim, a evolução da infraestrutura musical evidencia a necessidade de uma abordagem interdisciplinar, que combine elementos da musicologia, da sociologia e da economia, permitindo interpretar os fundamentos que sustentam a dinâmica de um setor essencial para a identidade cultural brasileira. 
+Em síntese, a análise da indústria musical e de sua infraestrutura no Brasil revela uma trajetória multifacetada, na qual os processos tecnológicos e institucionais desempenham papéis fundamentais para o desenvolvimento e a difusão dos discursos musicais. O percurso histórico da modernização do setor destaca que, além de um acúmulo de inovações técnicas, trata-se de um movimento cultural e econômico que, ao integrar aspectos teóricos e práticos, proporciona uma compreensão ampliada dos mecanismos de transmissão cultural. Assim, a evolução da infraestrutura musical evidencia a necessidade de uma abordagem interdisciplinar, que combine elementos da musicologia, da sociologia e da economia, permitindo interpretar os fundamentos que sustentam a dinâmica de um setor essencial para a identidade cultural brasileira.
 
 Contagem de caracteres: 5388
 

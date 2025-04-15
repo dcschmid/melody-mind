@@ -16,10 +16,9 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -71,7 +70,7 @@ Der Sludge Metal, dessen Entstehung in den späten 1980er und frühen 1990er Jah
 
 Ein wesentlicher Aspekt in der Entwicklung der Subgenres ist die fundierte Verbindung zu traditionelleren Formen des Doom Metal, welcher bereits in den 1970er und 1980er Jahren gestalterische Impulse lieferte. Die dialektische Auseinandersetzung mit den melodisch getragenen, jedoch oft langsamen und getakteten Klängen des Doom Metal bildet die basisgestaltende Komponente des Sludge Metal. Diese Annäherung wird durch den mitunter roh wirkenden Einschlag des Hardcore Punk ergänzt, der vor allem in den dynamischen und intensiven Passagen zum Ausdruck kommt. Anders als in den reinen Formen des Doom Metal werden im Sludge Metal verstärkt Schichten von Verstimmungen, Übertönungen und experimentellen Klangfragmenten integriert, die eine dichte und vielschichtige akustische Umgebung konstituieren.
 
-Dabei haben sich im internationalen Repertoire mehrere Subgenres formiert, die durch unterschiedliche Schwerpunkte charakterisiert sind. So findet sich in einigen Strömungen eine Betonung auf langsame, fast lethargische Rhythmen, die als "Doomed Sludge" bezeichnet werden können und in denen sich die melancholische Stimmung des Doom Metal mit harten, dröhnenden Rhythmen verschmelzen. Andere Varianten heben stärker den Gewaltaspekt und die rohen, aggressiven Klangelemente hervor, was sich beispielsweise in schweren, stökischen Ansätzen manifestiert, die auf eine unmittelbare Wirkung beim Hörer abzielen. Diese Differenzierung erfolgte insbesondere in den Vereinigten Staaten, wo die ursprünglichen Impulse von regionalen Einflüssen geprägt waren und die kulturellen Kontexte der jeweiligen Regionen auf den musikalischen Ausdruck einwirkten. 
+Dabei haben sich im internationalen Repertoire mehrere Subgenres formiert, die durch unterschiedliche Schwerpunkte charakterisiert sind. So findet sich in einigen Strömungen eine Betonung auf langsame, fast lethargische Rhythmen, die als "Doomed Sludge" bezeichnet werden können und in denen sich die melancholische Stimmung des Doom Metal mit harten, dröhnenden Rhythmen verschmelzen. Andere Varianten heben stärker den Gewaltaspekt und die rohen, aggressiven Klangelemente hervor, was sich beispielsweise in schweren, stökischen Ansätzen manifestiert, die auf eine unmittelbare Wirkung beim Hörer abzielen. Diese Differenzierung erfolgte insbesondere in den Vereinigten Staaten, wo die ursprünglichen Impulse von regionalen Einflüssen geprägt waren und die kulturellen Kontexte der jeweiligen Regionen auf den musikalischen Ausdruck einwirkten.
 
 Auch die instrumentale Ausstattung zeigte in den verschiedenen Subgenres Unterschiede, die das Klangspektrum erweiterten. So wird der Einsatz von verzerrten E-Gitarren in besonders intensiven Schichten genutzt, während bei den langsameren Passagen häufig eine dichte, fast atmosphärische Bassarbeit zum Tragen kommt. Darüber hinaus kamen experimentelle Techniken zur Anwendung, die – teils unter Verwendung älterer Effektgeräte – die Klangfarbe manipulierten, um ein anhaltendes Gefühl der Beklemmung zu erzeugen. Die rhythmische Struktur variierte dabei von einfachen, repetitiven Mustern bis hin zu ungewöhnlichen Takten, die den Zuhörer regelmäßig aus dem gewohnten Tempo herausreißen und somit eine eindrucksvolle emotionale Dynamik entfalteten.
 

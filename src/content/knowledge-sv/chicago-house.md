@@ -17,14 +17,13 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Chicago House representerar en avgörande utvecklingsfas inom elektronisk dansmusik, vilken etablerades under mitten av 1980-talet i Chicago. Musikstilen uppstammade ur en kulturell och urban omvälvning, där innovativa teknologier såsom trummaskiner, synthesizers och samplingsutrustning utnyttjades i syfte att konstruera ny rytmisk dynamik. Denna teknologiska utveckling, i samspel med ett arv från afroamerikansk discomusik, möjliggjorde en experimentell bearbetning av både melodiska och harmoniska komponenter, vilket lade grunden för en distinkt ljudpalett. 
+Chicago House representerar en avgörande utvecklingsfas inom elektronisk dansmusik, vilken etablerades under mitten av 1980-talet i Chicago. Musikstilen uppstammade ur en kulturell och urban omvälvning, där innovativa teknologier såsom trummaskiner, synthesizers och samplingsutrustning utnyttjades i syfte att konstruera ny rytmisk dynamik. Denna teknologiska utveckling, i samspel med ett arv från afroamerikansk discomusik, möjliggjorde en experimentell bearbetning av både melodiska och harmoniska komponenter, vilket lade grunden för en distinkt ljudpalett.
 
 Pionjärer, däribland den inflytelserika Frankie Knuckles, bidrog med sitt konstnärliga uttryck och sina tekniska insikter till att definiera och bredda Chicago House som genre. Dess strukturella och texturala innovationer influerade i sin tur internationella musikscener och skapade ett paradigmskifte inom den moderna elektroniska musiken. Genom att integrera avancerade musikaliska principer med samtida dansmusiktraditioner utgör Chicago House en ofrånkomlig länk i studiet av samtida musikhistoria och teknologins inverkan på musikalisk uttrycksfullhet.
 

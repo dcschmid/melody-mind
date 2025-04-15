@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -142,7 +141,7 @@ Kansainvälisen musiikkitutkimuksen näkökulmasta speed metalia voidaan pitää
 
 ## Performance and Live Culture
 
-Speed metalin livenäyttämökulttuuri muodostaa varteenotettavan osan kansainvälisen raskaamman musiikin perinteitä. Tämä genre on kehittynyt 1980-luvun alkuvaiheessa, jolloin metallimusiikin eri alagenret alkoivat haastaa perinteisiä esitysmalleja. Tyylisuunta on tunnistettavissa erityisesti nopeina, teknisesti vaativina kitarasooloina, intensiivisinä rytmisinä ja puhtaina, läpinäkyvinä äänimalleina, mikä on lisännyt sen vetovoimaa live-esiintymisissä. 
+Speed metalin livenäyttämökulttuuri muodostaa varteenotettavan osan kansainvälisen raskaamman musiikin perinteitä. Tämä genre on kehittynyt 1980-luvun alkuvaiheessa, jolloin metallimusiikin eri alagenret alkoivat haastaa perinteisiä esitysmalleja. Tyylisuunta on tunnistettavissa erityisesti nopeina, teknisesti vaativina kitarasooloina, intensiivisinä rytmisinä ja puhtaina, läpinäkyvinä äänimalleina, mikä on lisännyt sen vetovoimaa live-esiintymisissä.
 
 Ensimmäisissä vaiheissaan speed metal omaksui vaikutteita brittiläisestä New Wave of British Heavy Metal -liikkeestä sekä Yhdysvalloista nousevista metalliryhmistä, jotka korostivat virtuoosimaisia soitto- ja lauluosuuksia. Keskeiset vaikuttajat muovasivat myös live-esitysten dynamiikkaa, sillä keikoilla korostuivat visuaaliset elementit ja yleisön osallistaminen. Tämä kehityssuunta ilmeni erityisesti Euroopassa, missä speed metalin varhaiset yhtyeet, kuten saksalainen Helloween, rantautuivat aktiivisesti näyttämölle esitellen innovatiivisia lavakonsepteja ja koreografioita.
 

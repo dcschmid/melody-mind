@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -158,11 +157,11 @@ Número de caracteres: 5359
 
 ## Performance and Live Culture
 
-A cultura das performances e o dinamismo dos concertos inserem-se de forma crucial na compreensão da estética e do ethos do Garage. Esse gênero, amplamente identificado com o espírito rebelde e descompromissado da juventude dos anos 1960, caracteriza-se pela crueza sonora e pela espontaneidade das apresentações ao vivo. A performance, em sua essência, transcende a mera execução musical, constituindo um espaço de experimentação e de subversão aos cânones estabelecidos. 
+A cultura das performances e o dinamismo dos concertos inserem-se de forma crucial na compreensão da estética e do ethos do Garage. Esse gênero, amplamente identificado com o espírito rebelde e descompromissado da juventude dos anos 1960, caracteriza-se pela crueza sonora e pela espontaneidade das apresentações ao vivo. A performance, em sua essência, transcende a mera execução musical, constituindo um espaço de experimentação e de subversão aos cânones estabelecidos.
 
 Historicamente, o Garage emergiu em um contexto cultural marcado por tensões sociais e transformações políticas, onde a música serviu tanto de protesto quanto de celebração. As apresentações ao vivo passaram a ser arenas de interação direta entre artistas e público, enfatizando a ineditismo e a improvisação que se contrapunham à sofisticação das produções de estúdios. Dessa forma, a performance se configurou como uma forma de resistência estética, comunicando de maneira visceral e autêntica sentimentos e experiências vividas pelos jovens daquele período.
 
-A estética do Garage, em suas apresentações, foi fortemente influenciada pela informalidade e pela ausência de grandes produções técnicas. Gravações live e setlists dinâmicos evidenciam a importância do ambiente performático na construção da identidade musical do gênero. Durante os concertos, os artistas recorriam a uma instrumentação fundamental e direta, evidenciando um compromisso com a autenticidade sonora e a espontaneidade interpretativa, como observa Smith (1994) em sua análise sobre a cultura do Garage. 
+A estética do Garage, em suas apresentações, foi fortemente influenciada pela informalidade e pela ausência de grandes produções técnicas. Gravações live e setlists dinâmicos evidenciam a importância do ambiente performático na construção da identidade musical do gênero. Durante os concertos, os artistas recorriam a uma instrumentação fundamental e direta, evidenciando um compromisso com a autenticidade sonora e a espontaneidade interpretativa, como observa Smith (1994) em sua análise sobre a cultura do Garage.
 
 A participação ativa do público constituía outro elemento fundamental dessa cultura performática. Diferentemente dos ambientes controlados por grandes gravadoras e plataformas midiáticas, os locais de apresentação – frequentemente pequenos bares, salões de festas ou garagens – promoviam a intimidade e a proximidade entre os intérpretes e seus ouvintes. Tal cenário proporcionava uma interação onde o improviso e o diálogo entre os músicos e a plateia enriqueciam a experiência do concerto, criando um ambiente de efervescência cultural e de resistência às estruturas convencionais da indústria musical.
 

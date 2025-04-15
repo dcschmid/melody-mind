@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -134,7 +133,7 @@ La música de tipo Garage ha constituido, desde sus orígenes, una manifestació
 
 En sus comienzos, el Garage se manifestó como un estilo musical accesible a jóvenes sin formación académica musical formal, lo que permitió a numerosas agrupaciones expresar sus inquietudes mediante un lenguaje sonoro innovador y desprovisto de artificios. La ausencia de estudios técnicos se vio compensada por una pasión desbordante y por la utilización de recursos limitados, tanto en la instrumentación como en la producción, lo que generó un efecto sonoro crudo y visceral. Esta realidad se alinea con los postulados de la teoría cultural de Adorno y Horkheimer, quienes subrayaron la importancia de la autenticidad y la espontaneidad como antítesis del consumo masivo de productos culturales estandarizados.
 
-Asimismo, la música Garage se inscribe en un marco histórico y geográfico en el que las tensiones culturales se veían intensificadas por la guerra de ideologías de la posguerra. El ambiente social, marcado por la llegada de nuevas generaciones con aspiraciones de independencia y la búsqueda de rompientes que desafiaran las normas establecidas, posibilitó el surgimiento de un discurso musical propio. Este discurso se manifestó no sólo en la producción de canciones que abordaban temáticas urbanas y existenciales, sino también en la forma en la que se concebía la estética del “hazlo tú mismo”, convirtiéndose en un referente para movimientos posteriores como el punk en la década de 1970. 
+Asimismo, la música Garage se inscribe en un marco histórico y geográfico en el que las tensiones culturales se veían intensificadas por la guerra de ideologías de la posguerra. El ambiente social, marcado por la llegada de nuevas generaciones con aspiraciones de independencia y la búsqueda de rompientes que desafiaran las normas establecidas, posibilitó el surgimiento de un discurso musical propio. Este discurso se manifestó no sólo en la producción de canciones que abordaban temáticas urbanas y existenciales, sino también en la forma en la que se concebía la estética del “hazlo tú mismo”, convirtiéndose en un referente para movimientos posteriores como el punk en la década de 1970.
 
 El legado cultural del Garage ha sido objeto de análisis en numerosos estudios musicológicos, en los que se destaca su capacidad para anticipar las tendencias de futuras subculturas. Investigaciones recientes han enfatizado que, pese a su aparente simplicidad técnica, esta corriente contaba con una estructura rítmica y melódica que invitaba a una reinterpretación artística profunda. De manera semejante, la investigación etnomusicológica ha apuntado a la relevancia de los entornos cotidianos –tanto domésticos como laborales– en la configuración de un estilo que, lejos de aspirar a imitar modelos eruditos, se enfocaba en la inmediatez y la expresividad cruda.
 

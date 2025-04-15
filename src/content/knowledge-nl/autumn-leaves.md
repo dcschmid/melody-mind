@@ -16,10 +16,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -165,7 +164,7 @@ Kortom, de integratie van media en festivals in de context van “Autumn Leaves�
 
 ## Playlists and Recommendations
 
-De playlist “Autumn Leaves” vertegenwoordigt een uniek kruispunt van internationale muzikale stromingen, dat de evolutie van het genre illustreert door een synthese van compositiestijlen, arrangementen en uitvoeringstechnieken. De compositie, oorspronkelijk gecreëerd als “Les feuilles mortes” door Joseph Kosma in samenwerking met de tekstschrijver Jacques Prévert in 1946, heeft in de daaropvolgende decennia een transformatie ondergaan tot een internationaal erkend jazzstandard. In deze context vormt de selectie binnen de playlist een academisch gefundeerde verkenning van de diverse interpretatieve en ritmische benaderingen die in de twintigste eeuw internationaal resoneerden. 
+De playlist “Autumn Leaves” vertegenwoordigt een uniek kruispunt van internationale muzikale stromingen, dat de evolutie van het genre illustreert door een synthese van compositiestijlen, arrangementen en uitvoeringstechnieken. De compositie, oorspronkelijk gecreëerd als “Les feuilles mortes” door Joseph Kosma in samenwerking met de tekstschrijver Jacques Prévert in 1946, heeft in de daaropvolgende decennia een transformatie ondergaan tot een internationaal erkend jazzstandard. In deze context vormt de selectie binnen de playlist een academisch gefundeerde verkenning van de diverse interpretatieve en ritmische benaderingen die in de twintigste eeuw internationaal resoneerden.
 
 Bovendien weerspiegelt de compilatie de invloed van uiteenlopende muzikale tradities. Zo zijn er opnamen te vinden die getuigen van de invloed van de traditionele Franse chanson, maar eveneens moderne benaderingen uit de Verenigde Staten waarin de improvisatorische elementen van de bebop en latere fusionstromingen prominent naar voren komen. Door een nauwe analyse valt op dat de arrangementstechnieken van de artiesten niet slechts beide muzikale tradities integreren, maar deze op een wijze combineren die het genre verrijkt met een dynamisch spectrum aan harmonische en melodische variaties. Dit fenomeen benadrukt de intrinsieke culturele wisselwerking, die zowel subtiel als intens is, tussen oosterse en westerse muzikale tradities.
 

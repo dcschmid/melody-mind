@@ -16,14 +16,13 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Johdanto
 
-Johdanto: Kansainvälisen musiikkihistorian kentässä naisartistit ovat muokanneet grunge-genren ilmiötä merkittävällä kriittisellä panoksellaan, vaikka tyylilajin kehitys ajoittuu 1980-luvun loppuun ja 1990-luvun alkuun. Seattle, genren kehto, tarjosi sille ainutlaatuisen kulttuurisen ympäristön, josta myös naisartistien kokeileva ja pureva lähestymistapa ammentaa. Esimerkiksi Courtney Loven johtama yhtye on osoittanut, kuinka naispuolinen näkökulma voi haastaa perinteiset sukupuoliroolit ja samalla rikastuttaa sointimaailmaa sekä melodisten ja harmonisten elementtien risteytystä.  
+Johdanto: Kansainvälisen musiikkihistorian kentässä naisartistit ovat muokanneet grunge-genren ilmiötä merkittävällä kriittisellä panoksellaan, vaikka tyylilajin kehitys ajoittuu 1980-luvun loppuun ja 1990-luvun alkuun. Seattle, genren kehto, tarjosi sille ainutlaatuisen kulttuurisen ympäristön, josta myös naisartistien kokeileva ja pureva lähestymistapa ammentaa. Esimerkiksi Courtney Loven johtama yhtye on osoittanut, kuinka naispuolinen näkökulma voi haastaa perinteiset sukupuoliroolit ja samalla rikastuttaa sointimaailmaa sekä melodisten ja harmonisten elementtien risteytystä.
 
 Lisäksi naisartistien työ liittyy läheisesti identiteetin ja vastakulttuuristen arvojen korostamiseen, mikä on synnyttänyt uusia estetiikan ja sanoitusten tulkintoja. Täten nämä artistit eivät pelkästään täydentäneet grunge-genren soundia, vaan myötävaikuttivat myös sen ideologisten ja esteettisten ulottuvuuksien monipuolistumiseen. Musiikilliset innovaatiot heijastavat kytköksissä olevien kulttuurien, teknologisen kehityksen ja yhteiskunnallisten muutosten monitahoista vuorovaikutusta, jonka vaikutukset ulottuvat edelleen globaalin musiikkikulttuurin kehitykseen.
 

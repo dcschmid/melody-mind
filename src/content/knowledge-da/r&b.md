@@ -16,10 +16,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -67,9 +66,9 @@ Afslutningsvis er det værd at understrege, at R&B’s musikalske karakteristika
 
 ## Subgenres and Variations
 
-Subgenrer og variationer inden for R&B repræsenterer en kompleks og dynamisk udvikling, der tydeligt illustrerer, hvordan musikalske udtryk bliver transformeret af samfundsmæssige, teknologiske og kulturelle strømninger. Udgangspunktet for R&B, som i midten af det 20. århundrede opstod i USA som en musikalsk strømning inspireret af blues, gospel og jazz, udgør fundamentet for en lang række subgenrer. Denne udvikling opnåede international rækkevidde og førte til en udvidet klangpalet, som både fangede autentiske følelsesmæssige udtryk og eksperimentelle lydstrukturer. Desuden kan subgenreudviklingen ses som et resultat af teknologiske innovationer såsom elektrificeringen af instrumenter og optagelsesteknologier, der gjorde det muligt at opfange og distribuere musikalske nuancer med hidtil uset præcision. 
+Subgenrer og variationer inden for R&B repræsenterer en kompleks og dynamisk udvikling, der tydeligt illustrerer, hvordan musikalske udtryk bliver transformeret af samfundsmæssige, teknologiske og kulturelle strømninger. Udgangspunktet for R&B, som i midten af det 20. århundrede opstod i USA som en musikalsk strømning inspireret af blues, gospel og jazz, udgør fundamentet for en lang række subgenrer. Denne udvikling opnåede international rækkevidde og førte til en udvidet klangpalet, som både fangede autentiske følelsesmæssige udtryk og eksperimentelle lydstrukturer. Desuden kan subgenreudviklingen ses som et resultat af teknologiske innovationer såsom elektrificeringen af instrumenter og optagelsesteknologier, der gjorde det muligt at opfange og distribuere musikalske nuancer med hidtil uset præcision.
 
-I de tidlige år af R&B blev subgenrer som doo-wop og jump blues etableret. Doo-wop, karakteriseret ved sin vokale polyfoni og komplekse harmoniarbejde, opstod i de afroamerikanske kvarterer i USA i 1940’erne og 1950’erne. Denne subgenre demonstrerede en stærk forbindelse til vokaltraditioner, der samtidig var påvirket af gospelsangens spirituelle klanglag. Jump blues, med sin fremtrædende rytmesektion og jazzinspirerede improvisationer, illustrerede en mere energisk og dansbar version af R&B. Begge subgenrer spillede en central rolle i at formidle en emotionel og rytmisk kraft, der gik forud for senere populære musikalske innovationer. 
+I de tidlige år af R&B blev subgenrer som doo-wop og jump blues etableret. Doo-wop, karakteriseret ved sin vokale polyfoni og komplekse harmoniarbejde, opstod i de afroamerikanske kvarterer i USA i 1940’erne og 1950’erne. Denne subgenre demonstrerede en stærk forbindelse til vokaltraditioner, der samtidig var påvirket af gospelsangens spirituelle klanglag. Jump blues, med sin fremtrædende rytmesektion og jazzinspirerede improvisationer, illustrerede en mere energisk og dansbar version af R&B. Begge subgenrer spillede en central rolle i at formidle en emotionel og rytmisk kraft, der gik forud for senere populære musikalske innovationer.
 
 Efterhånden som R&B udviklede sig gennem 1960’erne, blev soulmusikken en markant subgenre, som kombinerede elementer af gospel og blues med moderne popstrukturer. Denne æra var præget af en raffineret brug af harmonik og rytmik, hvilket lagde op til den senere udvikling af funk og neo-soul. Soulmusikken blev især almindeliggjort gennem store pladeselskabers udvikling, som fx Motown og Stax, der fremmede en blødere og mere mainstream-orienteret lyd. Overgangen til soulmusik involverede en udvidelse af de musikalske værktøjer med mere komplekse arrangementsstrukturer og en dybere integration af rytmiske og melodiske motiver. Den musikalske produktion i denne periode afspejlede derudover en øget eksperimenteren med studieteknikker og lydteknologi, hvilket medførte en tættere integration af elektriske instrumenter.
 

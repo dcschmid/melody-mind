@@ -17,10 +17,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -88,7 +87,7 @@ Gezien de historische diepgang en veelzijdigheid van de subgenres binnen de Cook
 
 ## Key Figures and Important Works
 
-De ontwikkeling van de cooking soundtrack kan worden gezien als een bijzondere muzikale subcategorie waarin culinaire beleving en auditieve narratieve expressie op unieke wijze samenkomen. Deze interdisciplinaire benadering vindt zijn oorsprong in de vroege tot midden twintigste eeuw, waarmee zich de basis legde voor een esthetiek die de zintuiglijke ervaring van koken transformeert tot een complex muzikaal discours. Door de vermenging van traditionele orkestrale elementen met innovatieve elektronische geluidstechnieken ontstond een klankpalet dat zowel de charme als de complexiteit van internationale eetculturen weerspiegelt. 
+De ontwikkeling van de cooking soundtrack kan worden gezien als een bijzondere muzikale subcategorie waarin culinaire beleving en auditieve narratieve expressie op unieke wijze samenkomen. Deze interdisciplinaire benadering vindt zijn oorsprong in de vroege tot midden twintigste eeuw, waarmee zich de basis legde voor een esthetiek die de zintuiglijke ervaring van koken transformeert tot een complex muzikaal discours. Door de vermenging van traditionele orkestrale elementen met innovatieve elektronische geluidstechnieken ontstond een klankpalet dat zowel de charme als de complexiteit van internationale eetculturen weerspiegelt.
 
 Een van de meest invloedrijke figuren in deze context is de Italiaanse componist Nino Rota. Zijn oeuvre, dat onlosmakelijk verbonden is met het cinematografische universum van regisseurs als Federico Fellini, kenmerkt zich door een melodieuze weergave die de sfeer van culinaire rituelen accentueert. Rota wist met zijn partituren een auditieve ruimte te creëren waarin narratieve elementen en culturele symboliek elkaar ontmoeten, hetgeen de algehele beleving van de filmische culinaire ervaring versterkt. Bovendien illustreert zijn werk hoe de dynamiek van traditionele Italiaanse muziek en filmische expressies tot een unieke en onvergetelijke esthetiek kan worden gesmolten.
 

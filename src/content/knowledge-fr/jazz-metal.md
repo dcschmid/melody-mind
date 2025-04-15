@@ -17,10 +17,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -46,8 +45,8 @@ L’impact culturel du jazz metal va au-delà des considérations purement music
 
 Le jazz metal, en consolidant ses acquis historiques et en se démarquant par un discours à la fois technique et expressif, représente un moment significatif dans l’évolution de la musique contemporaine. L’hybridation observée témoigne d’un processus cumulatif de pérennisation des traditions tout en favorisant l’émergence de nouvelles formes d’expressions artistiques. La coexistence de deux mondes a priori opposés se révèle ainsi être le reflet d’une époque où la frontière entre les genres s’amincit, laissant place à une immersion inédite dans la complexité sonore. Par ailleurs, cette convergence invite à repenser la notion même de virtuosité et à envisager des modalités d’expression musicale qui transcendent les codes établis.
 
-En définitive, l’étude historique du jazz metal permet de saisir la dynamique sous-jacente à une fusion des pratiques musicales traditionnelles avec des innovations techniques et esthétiques. Loin d’être une simple juxtaposition de styles, ce phénomène constitue une réponse créative aux mutations culturelles et technologiquement induites de la fin du XXᵉ siècle. À la fois témoin d’une époque en transformation et acteur d’un renouveau artistique, le jazz metal, par son caractère audacieux et expérimental, ouvre des perspectives nouvelles pour l’avenir de la musique contemporaine.  
- 
+En définitive, l’étude historique du jazz metal permet de saisir la dynamique sous-jacente à une fusion des pratiques musicales traditionnelles avec des innovations techniques et esthétiques. Loin d’être une simple juxtaposition de styles, ce phénomène constitue une réponse créative aux mutations culturelles et technologiquement induites de la fin du XXᵉ siècle. À la fois témoin d’une époque en transformation et acteur d’un renouveau artistique, le jazz metal, par son caractère audacieux et expérimental, ouvre des perspectives nouvelles pour l’avenir de la musique contemporaine.
+
 Nombre total de caractères (espaces compris) : 5800
 
 ## Musical Characteristics

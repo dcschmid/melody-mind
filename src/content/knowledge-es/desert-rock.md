@@ -16,10 +16,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -127,7 +126,7 @@ En resumen, los aspectos técnicos del desert rock evidencian una síntesis entr
 
 ## Cultural Significance
 
-La música Desert Rock constituye un fenómeno cultural y musical que emergió en el contexto geográfico y social del suroeste norteamericano en la última parte del siglo XX, siendo esta corriente identificada por una fusión de elementos del hard rock, el heavy metal y la psicodelia. Esta vertiente adquiere particular relevancia al constituir una respuesta estética y lírica a la vastedad y dureza del paisaje desértico, elemento esencial de su identidad. La confluencia de influencias históricas y medioambientales permitió la configuración de un estilo que, a la vez, rinde homenaje a tradiciones musicales anteriores y se aventura en la experimentación sonora. 
+La música Desert Rock constituye un fenómeno cultural y musical que emergió en el contexto geográfico y social del suroeste norteamericano en la última parte del siglo XX, siendo esta corriente identificada por una fusión de elementos del hard rock, el heavy metal y la psicodelia. Esta vertiente adquiere particular relevancia al constituir una respuesta estética y lírica a la vastedad y dureza del paisaje desértico, elemento esencial de su identidad. La confluencia de influencias históricas y medioambientales permitió la configuración de un estilo que, a la vez, rinde homenaje a tradiciones musicales anteriores y se aventura en la experimentación sonora.
 
 Los orígenes del Desert Rock se sitúan a finales de la década de 1980 y principios de los años 1990, en un contexto en el que el aislamiento espacial y la aridez del desierto de California fomentaron la creación y difusión de un estilo musical poco convencional. Las bandas pioneras, que trabajaron de manera independiente y autónoma, canalizaron en su música la sensación de vastedad y soledad, trasponiendo en acordes guitarreros y líneas de bajo rítmicas la experiencia del entorno. Asimismo, estos grupos se vieron influidos por movimientos artísticos y culturales anteriores, lo que permitió establecer una continuidad estilística que conecta la psicodelia de los años 60 y 70 con la agresividad sonora del rock de finales del siglo XX.
 

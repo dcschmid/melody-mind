@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -114,7 +113,7 @@ Historian ja musiikillisten käytäntöjen rinnakkaisessa analyysissa on huomioi
 
 Akateeminen tutkimus kansainvälisestä tangosta pyrkii jatkuvasti selventämään sen kehityskaarta ja analysoimaan niitä moninaisia vaikutteita, jotka ovat muovanneet tämän ainutlaatuisen musiikkilajityypin historiankirjoitusta. Keskeistä on huomioida, että tanssi ja sävellykset muodostavat vastasyklisen suhteen, jossa samanaikaiset muutokset heijastuvat sekä soitinvalinnoissa että soittotekniikoissa. Samalla on korostettava, että tangon kehittyminen on ollut dynaaminen prosessi, joka edellyttää sekä teoreettista että empiiristä tarkastelua. Näin ollen tangon keskeisten vaikuttajien, kuten Gardelin, Piazzollan, Pugliesen, Troilonin ja Canaron, elinkaaret tulevat esiin paitsi yksittäisinä historiallisina hetkinä myös osana laajempaa kulttuurista muutosta.
 
-Yhteenvetona voidaan todeta, että tangon kansainvälisessä historiassa on useita merkittäviä henkilöitä ja teoksia, jotka muodostavat erittäin tärkeän osan nykyistä musiikkiperinnettä. Näiden hahmojen asiantunteva analyysi paljastaa, miten historialliset ja kulttuuriset kontekstit ovat vaikuttaneet musiikilliseen dynamiikkaan ja sointien kehitykseen. Jokainen edellä mainittu vaikuttaja on jättänyt jälkensä tangon monikerroksiseen kokonaisuuteen, ja heidän työnsä kautta voidaan jäljittää jaksoja, jolloin kansainväliset musiikkiteoreettiset uudistukset ja perinteiden säilyttäminen muodostavat tieteellisen tutkimuksen ja taideteosten keskeisen ristiriidan.  
+Yhteenvetona voidaan todeta, että tangon kansainvälisessä historiassa on useita merkittäviä henkilöitä ja teoksia, jotka muodostavat erittäin tärkeän osan nykyistä musiikkiperinnettä. Näiden hahmojen asiantunteva analyysi paljastaa, miten historialliset ja kulttuuriset kontekstit ovat vaikuttaneet musiikilliseen dynamiikkaan ja sointien kehitykseen. Jokainen edellä mainittu vaikuttaja on jättänyt jälkensä tangon monikerroksiseen kokonaisuuteen, ja heidän työnsä kautta voidaan jäljittää jaksoja, jolloin kansainväliset musiikkiteoreettiset uudistukset ja perinteiden säilyttäminen muodostavat tieteellisen tutkimuksen ja taideteosten keskeisen ristiriidan.
 
 Tutkimus jatkaa tangon analysointia laaja-alaisesti, sillä sen monisyinen historia tarjoaa edelleen runsaasti sekä teoreettisia että erityistapauksiin perustuvia näkemyksiä nykyiselle kulttuurikulttuurille. Akateemiset lähestymistavat pyrkivät selventämään yhtä aikaa sointien rakennepiirteitä ja niiden yhteyksiä tanssin jännitteikkäisiin liikesarjoihin. Tällainen monitahoisuus yhdistää niin säveltäjien, kapellimestarien kuin tanssijoidenkin panoksen kansainväliseen musiikkiperinteeseen. Näin muodostuu rikas ja jatkuvasti kehittyvä tarina, jossa perinteet ja nykyaikaiset innovaatiot ovat jatkuvassa vuoropuhelussa ja joka inspiroi sekä nykypäivän että tulevien aikojen tutkijoita syventämään ymmärrystämme kansainvälisen tangon kulttuurihistoriasta.
 

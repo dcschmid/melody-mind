@@ -16,14 +16,13 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Einleitung
 
-Die Geschichte der isländischen Musik erstreckt sich über mehrere Jahrhunderte und reflektiert sowohl die geographischen Besonderheiten als auch die kulturelle Identität der Inselnation. Bereits im Mittelalter bildeten sich eigenständige mündliche Überlieferungen heraus, in denen epische Balladen und Rímur eine zentrale Rolle spielten. Mit der Siedlungs- und Unabhängigkeitsbewegung des 19. Jahrhunderts gewann die nationale Musikkultur zusätzlich an Bedeutung, indem Komponisten wie Jón Leifs traditionelle Klänge mit kunsthistorischen Ansätzen vereinten. 
+Die Geschichte der isländischen Musik erstreckt sich über mehrere Jahrhunderte und reflektiert sowohl die geographischen Besonderheiten als auch die kulturelle Identität der Inselnation. Bereits im Mittelalter bildeten sich eigenständige mündliche Überlieferungen heraus, in denen epische Balladen und Rímur eine zentrale Rolle spielten. Mit der Siedlungs- und Unabhängigkeitsbewegung des 19. Jahrhunderts gewann die nationale Musikkultur zusätzlich an Bedeutung, indem Komponisten wie Jón Leifs traditionelle Klänge mit kunsthistorischen Ansätzen vereinten.
 
 Im 20. Jahrhundert trugen technologische Neuerungen, etwa der Radioempfang und die Demokratisierung der Tonaufzeichnung, erheblich zur Internationalisierung der isländischen Musik bei. Gleichzeitig fand eine kontinuierliche Auseinandersetzung mit der eigenen Geschichte statt, die in Form von innovative Arrangements und Interpretationen der Volksmusik Ausdruck fand. Zudem führte der wachsende Austausch mit europäischen Musikströmungen zu einer Bereicherung des künstlerischen Vokabulars, wodurch die isländische Musik bis in die Gegenwart eine einzigartige Synthese aus Tradition und Moderne darstellt.
 
@@ -189,6 +188,6 @@ Abschließend lässt sich konstatieren, dass die internationalen Verbindungen de
 
 ## Aktuelle Trends und Zukunft
 
-Die aktuellen Trends in der isländischen Musikszene kennzeichnen sich durch eine faszinierende Verbindung traditioneller Volksklänge mit avantgardistischen Kompositionstechniken. Bereits seit den späten 1990er Jahren beeinflussen digitale Aufnahmetechnologien und moderne Verbreitungswege das künstlerische Schaffen sowie den internationalen Austausch. Musikerinnen und Musiker experimentieren mit modalen Skalen, polymetrischen Rhythmen und neuartig synthetisierten Klangfarben, wobei sie traditionelle Instrumente in innovative Klangwelten integrieren. 
+Die aktuellen Trends in der isländischen Musikszene kennzeichnen sich durch eine faszinierende Verbindung traditioneller Volksklänge mit avantgardistischen Kompositionstechniken. Bereits seit den späten 1990er Jahren beeinflussen digitale Aufnahmetechnologien und moderne Verbreitungswege das künstlerische Schaffen sowie den internationalen Austausch. Musikerinnen und Musiker experimentieren mit modalen Skalen, polymetrischen Rhythmen und neuartig synthetisierten Klangfarben, wobei sie traditionelle Instrumente in innovative Klangwelten integrieren.
 
 Parallel dazu fördert der globale kulturelle Dialog interdisziplinäre Kooperationen, die die Grenzen zwischen ethnomusikwissenschaftlichen Ansätzen und zeitgenössischen Kompositionen zunehmend verwischen. Zukünftige Entwicklungen dürften von hybriden Stilkonzepten und intensiven interkulturellen Projekten geprägt sein. Der fortschreitende digitale Fortschritt bewirkt zudem eine Demokratisierung der Produktion, wodurch auch bislang weniger beachtete Akteure internationale Anerkennung erlangen. Diese Tendenzen bestätigen, dass die isländische Musikszene als bedeutender Impulsgeber innerhalb der globalen Musikkultur etabliert ist.

@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introducción
 
@@ -60,9 +59,10 @@ El reencuentro y la revitalización de las prácticas musicales tradicionales en
 
 En síntesis, la música tradicional de Hawai representa no solo un patrimonio artístico, sino también un testimonio viviente de la interacción entre la historia, la cosmovisión y las prácticas cotidianas de sus habitantes. Los cánones estéticos, organizados en torno a la voz, el ritmo y el movimiento, permiten apreciar la riqueza simbólica que atraviesa cada ejecución y modalidad musical. Así, la revisión crítica y académica de sus orígenes y transformaciones resulta indispensable para la construcción de un discurso que respete la integridad cultural y cronológica de dichas manifestaciones. De este modo, las investigaciones en el ámbito de la etnomusicología continúan profundizando en los mecanismos de transmisión, transformación e innovación que han permitido que la música tradicional hawaiana se mantenga vigorizada a lo largo de los siglos, constituyéndose en un legado inestimable para futuras generaciones.
 
-Referencias:  
-- Silva, N. K. (1998). Aloha, Spirit of Aloha: A History of Hawaiian Music. Honolulu: University of Hawaiʻi Press.  
-- Kamakakuokalani, L. (1979). Hawaiian Music and Chant. Honolulu: Bishop Museum Press.  
+Referencias:
+
+- Silva, N. K. (1998). Aloha, Spirit of Aloha: A History of Hawaiian Music. Honolulu: University of Hawaiʻi Press.
+- Kamakakuokalani, L. (1979). Hawaiian Music and Chant. Honolulu: Bishop Museum Press.
 - Mehta, B. (2003). Etnomusicología y la construcción de identidad en el Pacífico. Journal of Pacific Studies, 12(3), 45–62.
 
 ## Desarrollo de la música moderna
@@ -133,7 +133,7 @@ Desde una perspectiva teórica, el análisis de la música en vivo en el context
 
 Por otro lado, es indispensable considerar el impacto de las tecnologías contemporáneas en la evolución de la música en vivo hawaiana. La incorporación de sistemas de amplificación, la grabación digital y la difusión en plataformas especializadas han permitido que los componentes de la tradición se difundan a escalas que, en épocas anteriores, habrían resultado impensables. Sin embargo, esta modernización ha requerido de un delicado equilibrio entre la adaptación de nuevas tecnologías y el respeto por los cánones históricos y culturales que han definido la expresión musical nativa. La integración de métodos técnicos modernos ha redundado, en muchos casos, en una revitalización de ciertos géneros, contribuyendo a que los eventos en vivo se conviertan en espacios de encuentro intergeneracional y en foros de debate sobre la identidad cultural.
 
-En síntesis, la música en vivo y los eventos que en ella se desarrollan representan una dimensión esencial para la comprensión del dinamismo cultural de Hawái. La evolución histórica de estas prácticas, desde sus raíces ceremoniales hasta su proyección en la contemporaneidad, refleja un proceso de constante transformación y reconfiguración, en el que los elementos tradicionales se entrelazan con innovaciones técnicas y estéticas. Así, el estudio académico de estas manifestaciones no solo contribuye a preservar un patrimonio inmaterial, sino que también revitaliza el diálogo entre tradición y modernidad, permitiendo que la historia viva de Hawái continúe resonando en cada nota musical y en cada performance en vivo. 
+En síntesis, la música en vivo y los eventos que en ella se desarrollan representan una dimensión esencial para la comprensión del dinamismo cultural de Hawái. La evolución histórica de estas prácticas, desde sus raíces ceremoniales hasta su proyección en la contemporaneidad, refleja un proceso de constante transformación y reconfiguración, en el que los elementos tradicionales se entrelazan con innovaciones técnicas y estéticas. Así, el estudio académico de estas manifestaciones no solo contribuye a preservar un patrimonio inmaterial, sino que también revitaliza el diálogo entre tradición y modernidad, permitiendo que la historia viva de Hawái continúe resonando en cada nota musical y en cada performance en vivo.
 
 (Recuento de caracteres: 5361)
 

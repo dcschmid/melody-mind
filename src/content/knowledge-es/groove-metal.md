@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -30,7 +29,7 @@ Asimismo, el análisis musicológico del groove metal posibilita dilucidar la co
 
 ## Historical Background
 
-A partir del advenimiento del thrash metal en la década de 1980 se manifestó una necesidad de renovación estilística y expresiva que encontró una de sus respuestas más contundentes en lo que hoy denominamos Groove Metal. Este subgénero, eminentemente asociado a la escena estadounidense, se caracteriza por la integración de agresividad rítmica con elementos melódicos enmarcados en patrones percusivos acentuados. En este sentido, el Groove Metal se erige como una evolución estilística que, al aprovechar la inercia del thrash, propuso un énfasis en la “groove”, o cadencia, que democratizó el acceso a estructuras rítmicas más pausadas y pesadas, contrastando con la velocidad vertiginosa de sus predecesores. 
+A partir del advenimiento del thrash metal en la década de 1980 se manifestó una necesidad de renovación estilística y expresiva que encontró una de sus respuestas más contundentes en lo que hoy denominamos Groove Metal. Este subgénero, eminentemente asociado a la escena estadounidense, se caracteriza por la integración de agresividad rítmica con elementos melódicos enmarcados en patrones percusivos acentuados. En este sentido, el Groove Metal se erige como una evolución estilística que, al aprovechar la inercia del thrash, propuso un énfasis en la “groove”, o cadencia, que democratizó el acceso a estructuras rítmicas más pausadas y pesadas, contrastando con la velocidad vertiginosa de sus predecesores.
 
 La consolidación de este estilo responde a un contexto social y tecnológico específico que propició la diversificación de las expresiones sonoras. A inicios de la década de 1990, la irrupción de innovadoras técnicas de grabación y procesos de producción digital facilitó la experimentación sonora, permitiendo la integración de líneas de bajo prominentes y riffs de guitarra afinados en registros medios que definieron el sello rítmico del Groove Metal. Asimismo, la expansión de plataformas mediáticas y la consolidación de sellos discográficos independientes favorecieron la difusión de esta propuesta, permitiendo que bandas pioneras introdujeran novedades tanto en el ámbito musical como en el discurso cultural asociado a la identidad del metal.
 

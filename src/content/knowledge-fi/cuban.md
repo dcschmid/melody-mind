@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Johdanto
 
@@ -210,12 +209,12 @@ Yhteenvetona voidaan todeta, että kuubalaisen musiikin kansainväliset yhteydet
 
 ## Nykyiset trendit ja tulevaisuus
 
-Kuuban kansainvälisen musiikin kenttä on viime vuosikymmeninä kokenut merkittäviä muutoksia, joissa perinteiset rytmimallit ja instrumentaaliset ilmaisut sulautuvat modernien sävellysten kokeiluihin.  
+Kuuban kansainvälisen musiikin kenttä on viime vuosikymmeninä kokenut merkittäviä muutoksia, joissa perinteiset rytmimallit ja instrumentaaliset ilmaisut sulautuvat modernien sävellysten kokeiluihin.
 
-Perinteinen salsa-, mambo- ja cha-cha-cha -musiikki jatkaa vaikutustaan, vaikka ajassa on siirtynyt digitaalisten ääniteknologioiden sekä kehittyneiden tuottajamenetelmien aikakaudelle.  
+Perinteinen salsa-, mambo- ja cha-cha-cha -musiikki jatkaa vaikutustaan, vaikka ajassa on siirtynyt digitaalisten ääniteknologioiden sekä kehittyneiden tuottajamenetelmien aikakaudelle.
 
-Tämän seurauksena improvisaatio ja synkretismi ovat nousseet keskeisiksi ilmiöiksi, mikä edesauttaa kulttuurien välisen vuoropuhelun syventymistä.  
+Tämän seurauksena improvisaatio ja synkretismi ovat nousseet keskeisiksi ilmiöiksi, mikä edesauttaa kulttuurien välisen vuoropuhelun syventymistä.
 
-Musiikillisessa tutkimuksessa kiinnitetään erityistä huomiota harmonisten rakenteiden kompleksisuuteen sekä rytmisten polyrhythmien analyyttiseen tarkasteluun, jotka heijastavat musikaalista innovaatiota globaalissa mittakaavassa.  
+Musiikillisessa tutkimuksessa kiinnitetään erityistä huomiota harmonisten rakenteiden kompleksisuuteen sekä rytmisten polyrhythmien analyyttiseen tarkasteluun, jotka heijastavat musikaalista innovaatiota globaalissa mittakaavassa.
 
 Lisäksi nykyaikaiset äänikäsittelymenetelmät mahdollistavat uusien sointikehitysten ja soundieksperimenttien syntymisen.

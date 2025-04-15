@@ -16,10 +16,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -47,7 +46,7 @@ Afslutningsvis er det afgørende at konstatere, at Halloween Spooky Tunes, med s
 
 ## Musical Characteristics
 
-Musikkens karakteristika under Halloween Spooky Tunes er præget af et komplekst samspil mellem harmoniske, rytmiske og timelige elementer, der tilsammen skaber en fornemmelse af uhygge og mystik. I international kontekst ses en tendens til anvendelsen af dissonante klangstrukturer og kromatiske skalaer, som medvirker til at udfordre de traditionelle harmoniske normer. Denne musikalske tilgang gør det muligt for komponister at undergrave den konventionelle opfattelse af tonalitet og skabe en lydverden, der fremkalder en stemning af uro. Dertil kommer en systematisk brug af dynamiske kontraster og uventede timelige skift, hvorfor lytteren konstant udsættes for en fornemmelse af foranderlighed og suspense. 
+Musikkens karakteristika under Halloween Spooky Tunes er præget af et komplekst samspil mellem harmoniske, rytmiske og timelige elementer, der tilsammen skaber en fornemmelse af uhygge og mystik. I international kontekst ses en tendens til anvendelsen af dissonante klangstrukturer og kromatiske skalaer, som medvirker til at udfordre de traditionelle harmoniske normer. Denne musikalske tilgang gør det muligt for komponister at undergrave den konventionelle opfattelse af tonalitet og skabe en lydverden, der fremkalder en stemning af uro. Dertil kommer en systematisk brug af dynamiske kontraster og uventede timelige skift, hvorfor lytteren konstant udsættes for en fornemmelse af foranderlighed og suspense.
 
 De tematiske udtryk i Halloween Spooky Tunes afspejler både historiske og kulturelle strømninger, der især kan spores tilbage til 1900-tallets ekspressionistiske musiktraditioner. Inspireret af esoteriske idéstrømninger og litterære symboler, benyttede komponister som Béla Bartók og Alban Berg tidlige eksperimenter med at forvrænge de konventionelle lydlandskaber. Dette betød en systematisk udforskning af tonefarver og instrumental klangtekstur, hvor både små og store instrumentale ensembler integreres i kompositionerne. Ligeledes anvendes ofte ualmindelige metriske strukturer og polyrytmiske figurer, der bryder med den monotone rytmiske forudsigelighed, således at den musikalske fortælling fremstår både kompleks og flertydig.
 

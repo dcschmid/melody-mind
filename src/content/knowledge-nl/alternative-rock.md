@@ -17,10 +17,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -52,7 +51,7 @@ Concluderend kan worden gesteld dat alternatieve rock een begrip is geworteld in
 
 ## Musical Characteristics
 
-De alternatieve rock, die haar oorsprong vindt in de undergroundcultuur van de jaren 1980, wordt gekenmerkt door een muzikale esthetiek die afwijkt van de hegemone commerciële popcultuur. Deze muziekstroming ontwikkelde zich parallel aan de opkomst van onafhankelijke platenlabels en alternatieve distributiekanalen, die een platform boden aan artiesten die niet voldeden aan de conventionele mainstreamnormen. De muzikale kenmerken van alternatieve rock reflecteren een complex samenspel tussen experimentele benaderingen van harmonie, ritmiek en timbre, hetgeen resulteert in een sonisch spectrum dat zowel intiem als grootschalig kan zijn. 
+De alternatieve rock, die haar oorsprong vindt in de undergroundcultuur van de jaren 1980, wordt gekenmerkt door een muzikale esthetiek die afwijkt van de hegemone commerciële popcultuur. Deze muziekstroming ontwikkelde zich parallel aan de opkomst van onafhankelijke platenlabels en alternatieve distributiekanalen, die een platform boden aan artiesten die niet voldeden aan de conventionele mainstreamnormen. De muzikale kenmerken van alternatieve rock reflecteren een complex samenspel tussen experimentele benaderingen van harmonie, ritmiek en timbre, hetgeen resulteert in een sonisch spectrum dat zowel intiem als grootschalig kan zijn.
 
 De harmonische structuur binnen deze muziekcategorie is vaak onconventioneel en kenmerkt zich door het gebruik van zowel dissonante als polyritmische elementen. Compositie en improvisatie zijn in veel gevallen nauw met elkaar verweven, wat bijdraagt aan een gevoel van spontaneïteit en authenticiteit. Daarnaast zien we een herinterpretatie van traditionele rockprogressies, waarbij conventionele majeur- en mineurpatronen worden uitgebreid met modale en exotische schalen. Deze muzikale keuzes geven de alternatieve rock een karakteristieke kleur, die evenveel een intellectuele als een emotionele beleving mogelijk maakt.
 

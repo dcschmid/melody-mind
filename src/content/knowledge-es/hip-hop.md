@@ -17,16 +17,15 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-El Hip Hop se erige como un fenómeno cultural surgido en la década de 1970 en los barrios marginales del Bronx, Nueva York, donde se fusionaron ritmos, poesía y danzas urbanas en un contexto de desigualdad social. Esta amalgama de expresiones artísticas, fundamentada en la improvisación lírica y el uso innovador de la percusión, constituyó una respuesta crítica a las tensiones socioeconómicas imperantes, tal como señala Rose (1994) en sus estudios. 
+El Hip Hop se erige como un fenómeno cultural surgido en la década de 1970 en los barrios marginales del Bronx, Nueva York, donde se fusionaron ritmos, poesía y danzas urbanas en un contexto de desigualdad social. Esta amalgama de expresiones artísticas, fundamentada en la improvisación lírica y el uso innovador de la percusión, constituyó una respuesta crítica a las tensiones socioeconómicas imperantes, tal como señala Rose (1994) en sus estudios.
 
-Además, el movimiento se caracteriza por su adaptabilidad, puesto que ha trascendido sus raíces locales y ha influido en escenarios internacionales, interactuando con tradiciones musicales autóctonas. Diversos análisis comparativos evidencian que las variantes estilísticas surgidas en distintos contextos culturales mantienen un diálogo constructivo, enriqueciendo la praxis global y propiciando la transformación social. 
+Además, el movimiento se caracteriza por su adaptabilidad, puesto que ha trascendido sus raíces locales y ha influido en escenarios internacionales, interactuando con tradiciones musicales autóctonas. Diversos análisis comparativos evidencian que las variantes estilísticas surgidas en distintos contextos culturales mantienen un diálogo constructivo, enriqueciendo la praxis global y propiciando la transformación social.
 
 Por consiguiente, el Hip Hop se presenta como un discurso artístico y reivindicativo, cuyo desarrollo responde a procesos históricos y teóricos rigurosamente documentados, consolidándose como una herramienta fundamental en la evolución de la cultura contemporánea.
 

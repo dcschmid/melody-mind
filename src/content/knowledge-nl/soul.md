@@ -16,10 +16,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -155,7 +154,7 @@ Samenvattend wordt de culturele significantie van soulmuziek gekenmerkt door de 
 
 ## Performance and Live Culture
 
-De live-performance en de cultuur van Soul-muziek vormen een integraal onderdeel van de historische ontwikkeling van dit genre en illustreren de samensmelting van theatrale expressie en muzikale traditie. In de beginfase van de Soul, in de jaren zestig, trokken uitvoeringen in intieme nachtclubs en kerken de nadruk op authenticiteit en emotionele intensiteit. Deze podia vormden een cruciale ruimte voor artiesten om de expressieve kracht van hun muzikale grootheden tot uiting te brengen, waarbij de symboliek van de Afro-Amerikaanse religieuze tradities en de ritmische patronen van de blues en gospel een wezenlijk element van rechtstreekse communicatie met het publiek waren.  
+De live-performance en de cultuur van Soul-muziek vormen een integraal onderdeel van de historische ontwikkeling van dit genre en illustreren de samensmelting van theatrale expressie en muzikale traditie. In de beginfase van de Soul, in de jaren zestig, trokken uitvoeringen in intieme nachtclubs en kerken de nadruk op authenticiteit en emotionele intensiteit. Deze podia vormden een cruciale ruimte voor artiesten om de expressieve kracht van hun muzikale grootheden tot uiting te brengen, waarbij de symboliek van de Afro-Amerikaanse religieuze tradities en de ritmische patronen van de blues en gospel een wezenlijk element van rechtstreekse communicatie met het publiek waren.
 
 De overgang van studio-opnamen naar live-uitvoeringen werd tevens beïnvloed door technologische vernieuwingen en de groeiende invloed van massamedia. Radiouitzendingen en televisieprogramma’s speelden een bepalende rol in de verspreiding van Soul en brachten de dynamiek van liveperformances naar een internationaal publiek. Artiesten zoals James Brown en Aretha Franklin maakten gebruik van bijzondere podiumtechnieken, waarbij improvisatie en de interactie tussen muzikanten en publiek centraal stonden. Deze interactie resulteerde in een unieke performance-esthetiek, waarbij de esthetiek van spontane expressie en visueel spektakel evenzeer belangrijk was als de muzikale inhoud.
 

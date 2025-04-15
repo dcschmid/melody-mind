@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introducción
 
@@ -168,7 +167,7 @@ El análisis comparativo permite constatar que, en cada región receptora, la re
 
 Por último, la articulación teórico-metodológica en torno a este fenómeno global requiere una revisión interdisciplinaria que aborde tanto su dimensión estética como su trascendencia cultural e histórica. En consecuencia, la integración de métodos analíticos que combinen la teoría musical, la semiótica y los estudios culturales resulta indispensable para dilucidar las múltiples capas de significado inherentes al soul femenino. Las fuentes bibliográficas y testimoniales, sometidas a rigurosos procesos de verificación, han permitido reconstruir el entramado que subyace en la influencia de estas leyendas, posicionando sus contribuciones como insignes hitos en el devenir de la música a nivel mundial.
 
-Esta exposición evidencia que la influencia global de las leyendas femeninas del soul no es meramente un fenómeno derivado de la popularidad comercial, sino que se erige como un hecho histórico y cultural que desafía la dicotomía entre lo local y lo universal. La trascendencia de sus aportaciones se refleja en la permanente interacción entre tradición e innovación, en la cual cada expresión artística es a su vez un testimonio de la dinámica evolución social y comunicativa de nuestro tiempo.  
+Esta exposición evidencia que la influencia global de las leyendas femeninas del soul no es meramente un fenómeno derivado de la popularidad comercial, sino que se erige como un hecho histórico y cultural que desafía la dicotomía entre lo local y lo universal. La trascendencia de sus aportaciones se refleja en la permanente interacción entre tradición e innovación, en la cual cada expresión artística es a su vez un testimonio de la dinámica evolución social y comunicativa de nuestro tiempo.
 
 (Caracteres: 5799)
 

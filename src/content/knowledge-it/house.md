@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -134,7 +133,7 @@ In conclusione, la House si configura come un fenomeno culturale complesso e mul
 
 ## Performance and Live Culture
 
-La musica House, emersa nella prima metà degli anni Ottanta a Chicago, rappresenta un paradigma di innovazione nell’ambito della performance dal vivo e della cultura esibizionista. La sua evoluzione, intrinsecamente legata allo sviluppo di tecnologie musicali e alle dinamiche socio-culturali delle città, ha comportato una ridefinizione delle modalità interpretative e della fruizione estetica. Le prime manifestazioni del genere, fortemente radicate negli ambienti underground e nei locali notturni, si configurarono come spazi diffusi di sperimentazione, in cui la possibilità di manipolare in tempo reale suoni e ritmi contribuiva a creare un’esperienza collettiva di intensità emotiva e trasformazione sociale (Rosario, 1987). 
+La musica House, emersa nella prima metà degli anni Ottanta a Chicago, rappresenta un paradigma di innovazione nell’ambito della performance dal vivo e della cultura esibizionista. La sua evoluzione, intrinsecamente legata allo sviluppo di tecnologie musicali e alle dinamiche socio-culturali delle città, ha comportato una ridefinizione delle modalità interpretative e della fruizione estetica. Le prime manifestazioni del genere, fortemente radicate negli ambienti underground e nei locali notturni, si configurarono come spazi diffusi di sperimentazione, in cui la possibilità di manipolare in tempo reale suoni e ritmi contribuiva a creare un’esperienza collettiva di intensità emotiva e trasformazione sociale (Rosario, 1987).
 
 Nell’analisi della performance live all’interno del contesto House, è imprescindibile considerare il ruolo cruciale dei DJ, che, grazie alla tecnica del mixaggio continuo, divennero veri e propri condottieri dell’esperienza sonora. Gli strumenti tecnologici, quali i giradischi, i mixer analogici e le prime drum machine, permisero l’elaborazione di arrangiamenti complessi e la fusione di elementi provenienti da differenti tradizioni musicali. Tali dispositivi, noti per le loro caratteristiche tecniche e per la loro idiosincrasia sonora, contribuirono a stabilire connessioni innovative tra il disco e la performance dal vivo, aprendo il campo a una rielaborazione viscerale e partecipativa della musica danzante. In questo senso, la performance non si limitava al semplice atto di trasmissione di suoni preregistrati, ma assumeva una valenza rituale e interattiva, in cui il pubblico veniva coinvolto in un processo dinamico di co-creazione dell’esperienza estetica.
 

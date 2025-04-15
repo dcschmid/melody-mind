@@ -16,14 +16,13 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Der Tango zählt zu den bedeutendsten musikalischen Ausdrucksformen des internationalen Kulturerbes und bildet ein eindrucksvolles Zeugnis des kulturellen Wandels. Seine Entstehung ist eng verknüpft mit den sozialen Umbrüchen in den Metropolen Buenos Aires und Montevideo gegen Ende des 19. Jahrhunderts, in denen europäische, afrikanische und indigene Einflüsse in einem dynamischen Wechselspiel miteinander verschmolzen. Die erste Auffassung des Tangos erfolgte in informellen Milieus, bevor sich seine Popularität auch in Salons und Theatern verbreitete. 
+Der Tango zählt zu den bedeutendsten musikalischen Ausdrucksformen des internationalen Kulturerbes und bildet ein eindrucksvolles Zeugnis des kulturellen Wandels. Seine Entstehung ist eng verknüpft mit den sozialen Umbrüchen in den Metropolen Buenos Aires und Montevideo gegen Ende des 19. Jahrhunderts, in denen europäische, afrikanische und indigene Einflüsse in einem dynamischen Wechselspiel miteinander verschmolzen. Die erste Auffassung des Tangos erfolgte in informellen Milieus, bevor sich seine Popularität auch in Salons und Theatern verbreitete.
 
 Musikwissenschaftlich wird der Tango als ein vielschichtiges Kunstwerk betrachtet, das durch charakteristische rhythmische, harmonische und melodische Elemente besticht. Die typische Besetzung mit Bandoneon, Violine und Klavier unterstreicht dabei seine originelle Klangfarbe und Ausdruckskraft. Ferner trug die Etablierung moderner Aufnahmetechniken zu einer raschen internationalen Verbreitung bei, wodurch der Tango zu einer global bedeutsamen Musikform avancierte. In seiner historischen Entwicklung spiegelt sich somit ein facettenreiches kulturelles Erbe wider.
 
@@ -111,7 +110,7 @@ Zusammenfassend lässt sich festhalten, dass der Tango durch das Wirken charisma
 
 ## Technical Aspects
 
-Die technische Analyse des Tangos erfordert ein differenziertes Verständnis der Instrumentierung, rhythmischer Strukturen und harmonischer Progressionen, die im Laufe der Entstehungsgeschichte dieses musikalischen Genres entwickelt wurden. Zentral für die Klanggestaltung des Tangos ist das Bandoneon, dessen Einführung im späten 19. Jahrhundert maßgeblich zur charakteristischen Klangfarbe beitrug. Ursprünglich als Portativinstrument in Kirchen und bei der Kirchenmusik eingesetzt, fand das Bandoneon im urbanen Kontext, insbesondere in Buenos Aires, eine neue künstlerische Bestimmung. Die Komplexität des Instruments liegt in seiner mechanischen Bauweise, bei der eine Vielzahl von Stimmzungen in mehreren Lagen zusammenwirken, um differenzierte Klangfarben zu erzeugen. In diesem Zusammenhang lassen sich sowohl präzise Artikulationsmöglichkeiten als auch dynamische Variationen realisieren, die den expressiven Charakter der tangogenen Melodieführung untermauern. 
+Die technische Analyse des Tangos erfordert ein differenziertes Verständnis der Instrumentierung, rhythmischer Strukturen und harmonischer Progressionen, die im Laufe der Entstehungsgeschichte dieses musikalischen Genres entwickelt wurden. Zentral für die Klanggestaltung des Tangos ist das Bandoneon, dessen Einführung im späten 19. Jahrhundert maßgeblich zur charakteristischen Klangfarbe beitrug. Ursprünglich als Portativinstrument in Kirchen und bei der Kirchenmusik eingesetzt, fand das Bandoneon im urbanen Kontext, insbesondere in Buenos Aires, eine neue künstlerische Bestimmung. Die Komplexität des Instruments liegt in seiner mechanischen Bauweise, bei der eine Vielzahl von Stimmzungen in mehreren Lagen zusammenwirken, um differenzierte Klangfarben zu erzeugen. In diesem Zusammenhang lassen sich sowohl präzise Artikulationsmöglichkeiten als auch dynamische Variationen realisieren, die den expressiven Charakter der tangogenen Melodieführung untermauern.
 
 Neben dem Bandoneon spielen auch Streichinstrumente und Klavier eine wesentliche Rolle in der Ensemblebesetzung, was zu einer mehrschichtigen akustischen Struktur führt. Die Streicherzeugung, die für ihre lyrische Wärme und zeitweise melancholische Klangfarben bekannt ist, ergänzt die markanten Rhythmen des Tangos. Das Klavier hingegen trägt durch rhythmische Begleitmuster und harmonische Komplexität zur Gesamtstruktur bei, indem es sowohl als Soloinstrument als auch als harmonischer Hintergrund fungiert. Die Kombination dieser Instrumente schafft ein Spannungsfeld, in dem melodische Linien, kontrapunktische Strukturen und rhythmische Akzente in einem dynamischen Zusammenspiel miteinander verwoben sind. Dieses Wechselspiel zwischen Solisten- und Ensemblepassagen bildet das technische Rückgrat der tangogenen Improvisation und Komposition.
 

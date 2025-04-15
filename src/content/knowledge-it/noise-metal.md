@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -120,7 +119,7 @@ L’approccio metodologico analitico al Noise Metal impone di considerare l’in
 
 ## Cultural Significance
 
-Il sottogenere musicale definito come noise metal rappresenta un paradigma espressivo che, sin dalle sue origini nella metà degli anni Ottanta, ha costituito una rottura rispetto alle convenzioni estetiche e sonore del metal tradizionale. La sua genesi si caratterizza per l’impiego di tecniche di distorsione estrema, sovrapposizioni caotiche e una marcata carica di dissonanza, elementi che fortemente differiscono dal virtuosismo melodico e armonico tipico di altri rami del genere. In tale contesto, l’adozione di approcci sperimentali e la fusione di sonorità industriali e no-wave hanno permesso al noise metal di affermarsi quale critica radicale all’omologazione culturale e commerciale del panorama musicale.  
+Il sottogenere musicale definito come noise metal rappresenta un paradigma espressivo che, sin dalle sue origini nella metà degli anni Ottanta, ha costituito una rottura rispetto alle convenzioni estetiche e sonore del metal tradizionale. La sua genesi si caratterizza per l’impiego di tecniche di distorsione estrema, sovrapposizioni caotiche e una marcata carica di dissonanza, elementi che fortemente differiscono dal virtuosismo melodico e armonico tipico di altri rami del genere. In tale contesto, l’adozione di approcci sperimentali e la fusione di sonorità industriali e no-wave hanno permesso al noise metal di affermarsi quale critica radicale all’omologazione culturale e commerciale del panorama musicale.
 
 Il valore culturale del noise metal risiede altresì nella sua capacità di rivelare e mettere in discussione le logiche del consenso estetico dominante. Attraverso la distruzione deliberata delle strutture convenzionali, tale sottogenere ha fornito spunti di riflessione relativi al concetto stesso di bellezza e alla percezione del suono, diventando strumento di una contestazione sociale e politica che rifletteva le ambivalenze di una società in rapido mutamento. Numerosi artisti, sebbene spesso relegati ai margini dei circuiti mediatici, hanno abbracciato questo linguaggio sonoro sperimentale per evocare tensioni esistenziali e conflitti interni, evidenziando così l’importanza della musica come specchio critico delle dinamiche culturali.
 

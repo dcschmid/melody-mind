@@ -16,14 +16,13 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Il genere Chamber Metal rappresenta un ambito di sperimentazione musicale in cui si fondono aspetti tipici della tradizione metal con la raffinatezza degli arrangiamenti da camera. Nato dagli slanci innovativi degli anni Novanta, questo sottogenere si è sviluppato in risposta alle profonde trasformazioni tecnologiche e all’apertura verso nuovi linguaggi sonori, grazie all’adozione di piattaforme digitali e di tecniche orchestrali all’avanguardia. 
+Il genere Chamber Metal rappresenta un ambito di sperimentazione musicale in cui si fondono aspetti tipici della tradizione metal con la raffinatezza degli arrangiamenti da camera. Nato dagli slanci innovativi degli anni Novanta, questo sottogenere si è sviluppato in risposta alle profonde trasformazioni tecnologiche e all’apertura verso nuovi linguaggi sonori, grazie all’adozione di piattaforme digitali e di tecniche orchestrali all’avanguardia.
 
 La contaminazione tra timbri elettrificati e strumenti acustici ha favorito la creazione di composizioni complesse, in cui l’interazione tra sezioni strumentali e voci metalliche assume ruoli paritetici. In questo contesto, il dialogo tra influenze barocche e concetti ritmici moderni testimonia la capacità del Chamber Metal di sintetizzare tradizione e innovazione, ponendosi come punto di riferimento nell’evoluzione della scena musicale internazionale.
 

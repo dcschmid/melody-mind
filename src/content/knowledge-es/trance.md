@@ -17,14 +17,13 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-La música trance se erige como una corriente medular en el entramado de la electrónica internacional, emergiendo a finales de la década de 1980 y consolidándose en los años noventa en países europeos. Su génesis se inscribe en el devenir de las innovaciones tecnológicas y en la experimentación sonora provocada por la fusión de elementos provenientes del techno y el house, que permitieron la creación de texturas musicales hipnóticas y atmosféricas. 
+La música trance se erige como una corriente medular en el entramado de la electrónica internacional, emergiendo a finales de la década de 1980 y consolidándose en los años noventa en países europeos. Su génesis se inscribe en el devenir de las innovaciones tecnológicas y en la experimentación sonora provocada por la fusión de elementos provenientes del techno y el house, que permitieron la creación de texturas musicales hipnóticas y atmosféricas.
 
 Asimismo, esta manifestación artística refleja una respuesta cultural a las transformaciones sociales y económicas de la postguerra fría, siendo un reflejo de las inquietudes y aspiraciones generacionales. Diversos estudiosos han señalado, por ejemplo, la influencia de festivales y clubes nocturnos europeos, que proporcionaron espacios para la difusión y evolución de este estilo. En consecuencia, el trance se configura no solo como un género musical, sino como un fenómeno cultural que invita al análisis multidimensional, integrando aspectos históricos, tecnológicos y socioculturales, de acuerdo con las convenciones teóricas de la musicología contemporánea.
 

@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -40,7 +39,7 @@ Dal punto di vista socio-culturale, la musica Garage rappresentò una forma di c
 
 Con riguardo agli aspetti tecnici, l’adozione di apparecchiature analogiche e l’assenza di sofisticate tecniche di post-produzione definirono il suono distintivo del Garage. I limiti imposti dall’accessibilità tecnica furono compensati da una spiccata capacità di innovazione stilistica, che trasformava ogni difetto in un elemento caratterizzante l’identità sonora. I gruppi Garage si confrontarono con un ambiente mediatico in rapido mutamento, nel quale le radio locali e i piccoli festival rappresentavano canali privilegiati per il diffondersi del genere. In questo quadro, il rapporto tra costruttore e utilizzatore dello strumento musicale si fece più diretto e personale, enfatizzando il valore dell’esperienza dal vivo e dell’interazione con il pubblico.
 
-L’influenza della musica Garage si estese ben oltre il suo periodo d’oro, diventando fonte d’ispirazione per numerosi movimenti successivi. Alcune analisi postumi, come quella di Román (1989), evidenziano come il rifiuto dei canoni estetici predominanti e l’adozione di una forma di espressione autentica abbiano posto le basi per l’evoluzione successiva del punk e di altri generi alternativi. Il  più che un semplice stadio evolutivo isolato, il Garage si configurò come una tappa fondamentale che permise l’emergere di nuove estetiche musicali in risposta alla ritualità e alla standardizzazione del mercato discografico. Questo legame di continuità ha reso il fenomeno oggetto di incessanti studi investigativi, che ne hanno apprezzato la valenza sia storica che funzionale all’interno degli studi sulla musica popolare.
+L’influenza della musica Garage si estese ben oltre il suo periodo d’oro, diventando fonte d’ispirazione per numerosi movimenti successivi. Alcune analisi postumi, come quella di Román (1989), evidenziano come il rifiuto dei canoni estetici predominanti e l’adozione di una forma di espressione autentica abbiano posto le basi per l’evoluzione successiva del punk e di altri generi alternativi. Il più che un semplice stadio evolutivo isolato, il Garage si configurò come una tappa fondamentale che permise l’emergere di nuove estetiche musicali in risposta alla ritualità e alla standardizzazione del mercato discografico. Questo legame di continuità ha reso il fenomeno oggetto di incessanti studi investigativi, che ne hanno apprezzato la valenza sia storica che funzionale all’interno degli studi sulla musica popolare.
 
 Inoltre, la dimensione geografica ha svolto un ruolo decisivo nel plasmare il carattere del Garage, evidenziando una notevole eterogeneità legata alle specificità locali. Le comunità urbane, in particolare quelle situate alle periferie delle grandi città, si distinsero per una maggiore propensione all’autoproduzione e per una sensibilità più accentuata verso le istanze di ribellione e autonomia. Tali caratteristiche si tradussero in una diversificazione delle sonorità e in un approccio sperimentale che, benché radicato in esperienze soggettive, trovò riconoscimento in ambiti accademici e critici. Il dialogo interculturale che si instaurò in questo periodo contribuì a fare del Garage un fenomeno globale, capace di attraversare confini geografici e sociologici, pur mantenendo una sua specifica universalità.
 

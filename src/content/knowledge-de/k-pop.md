@@ -16,10 +16,9 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -29,7 +28,7 @@ Im interdisziplinären Dialog zwischen ostasiatischen Wurzeln und westlichen Ein
 
 ## Historical Background
 
-Im Kontext der internationalen Musik lässt sich der historische Hintergrund des koreanischen Pop („K-Pop“) als facettenreich und von tiefgreifenden sozioökonomischen sowie kulturellen Prozessen geprägt beschreiben. Die Entwicklung dieses Musikgenres begann in einer Phase, in der Südkorea – nach einem langen Zeitraum politischer Umbrüche und wirtschaftlicher Restrukturierungen – einen kulturellen Transformationsprozess durchlief. In den späten 1980er und frühen 1990er Jahren eröffnete sich ein neues Kapitel koreanischer Populärkultur, das von zunehmender Offenheit gegenüber westlichen Musikstilen und der gleichzeitigen Bewahrung traditioneller musikalischer Elemente geprägt war. Die staatliche Wirtschaftsreform, der technische Fortschritt und eine modernisierende Gesellschaft schufen damit den Nährboden für die Entstehung eines innovativen Popphänomens, das bald weit über die nationalen Grenzen hinaus reichte. 
+Im Kontext der internationalen Musik lässt sich der historische Hintergrund des koreanischen Pop („K-Pop“) als facettenreich und von tiefgreifenden sozioökonomischen sowie kulturellen Prozessen geprägt beschreiben. Die Entwicklung dieses Musikgenres begann in einer Phase, in der Südkorea – nach einem langen Zeitraum politischer Umbrüche und wirtschaftlicher Restrukturierungen – einen kulturellen Transformationsprozess durchlief. In den späten 1980er und frühen 1990er Jahren eröffnete sich ein neues Kapitel koreanischer Populärkultur, das von zunehmender Offenheit gegenüber westlichen Musikstilen und der gleichzeitigen Bewahrung traditioneller musikalischer Elemente geprägt war. Die staatliche Wirtschaftsreform, der technische Fortschritt und eine modernisierende Gesellschaft schufen damit den Nährboden für die Entstehung eines innovativen Popphänomens, das bald weit über die nationalen Grenzen hinaus reichte.
 
 In den frühen 1990er Jahren kristallisierte sich der charakteristische Sound des K-Pop heraus, der Elemente des Pop, Rock, Jazz und Hip-Hop in einer neuen, hybriden Form miteinander verband. Einen bedeutenden Impuls lieferte hierbei die Band Seo Taiji und Boys, die 1992 mit ihrer Musik und ihrem provokativen Auftreten das etablierte System der koreanischen Popmusik herausforderten. Die innovative Verbindung westlicher Musikstile mit ostasiatischen Klangtraditionen markierte einen Wendepunkt in der Musiklandschaft Südkoreas. Dabei bediente sich die Gruppe nicht nur moderner musikalischer Techniken, sondern setzte auch auf neuartige Produktionsverfahren, die den Einsatz digitaler Technologien und Kollaborationen mit Produzenten aus unterschiedlichen Disziplinen beinhalteten. Dies führte zu einem umfassenden Paradigmenwechsel, der den Blick der Musikwissenschaftler auf die Dynamik globaler Kulturströmungen richtete.
 
@@ -133,7 +132,7 @@ Die kulturelle Bedeutung des K-Pop im internationalen Musikkontext stellt ein vi
 
 In den 1990er Jahren wurde der Grundstein für das heutige K-Pop durch die systematische Ausbildung von Künstlern gelegt. Nachwuchsgruppen wurden intensiv in modernen Tanz- und Gesangstechniken geschult, was zu einer strikten Ästhetik der Bühnenperformance führte. Dabei stand nicht allein die musikalische Darbietung im Vordergrund, sondern auch der visuelle Auftritt, der in Form kunstvoll choreographierter Bewegungsabläufe in Szene gesetzt wurde. Der gezielte Einsatz neuer Aufnahmetechnologien schuf außerdem ein klangliches Profil, das sowohl traditionelle als auch neuartige musikalische Elemente harmonisch vereinte.
 
-Im Verlauf der frühen 2000er Jahre vollzog sich eine bedeutsame international-kulturelle Expansion des K-Pop. Erste Überschneidungen des Genres mit weiteren asiatischen Märkten führten zu einer vermehrten Sichtbarkeit und Anerkennung im globalen Raum. Die Verbindung moderner digitaler Kommunikationsmittel mit innovativen Vermarktungsstrategien ermöglichte es, kulturelle Grenzen zu überwinden und ein junges, internationales Publikum anzusprechen. Diese Phase führte zu einem intensiven interkulturellen Austausch, der auf bereits etablierten musikalischen Traditionen aufbaute und zugleich Impulse für zukünftige Entwicklungen setzte. 
+Im Verlauf der frühen 2000er Jahre vollzog sich eine bedeutsame international-kulturelle Expansion des K-Pop. Erste Überschneidungen des Genres mit weiteren asiatischen Märkten führten zu einer vermehrten Sichtbarkeit und Anerkennung im globalen Raum. Die Verbindung moderner digitaler Kommunikationsmittel mit innovativen Vermarktungsstrategien ermöglichte es, kulturelle Grenzen zu überwinden und ein junges, internationales Publikum anzusprechen. Diese Phase führte zu einem intensiven interkulturellen Austausch, der auf bereits etablierten musikalischen Traditionen aufbaute und zugleich Impulse für zukünftige Entwicklungen setzte.
 
 Die so genannte Koreanische Welle, auch Hallyu genannt, beschleunigte in den späten 2000er Jahren den internationalen Erfolg des K-Pop erheblich. Staatliche Kulturbotschafterstrategien und gezielte Exportinitiativen förderten den Vertrieb südkoreanischer Medienprodukte weit über die nationalen Grenzen hinaus. In diesem Zusammenhang wurden nicht nur musikalische Inhalte, sondern auch kulturelle Werte transportiert, die das Bild Südkoreas in der Welt nachhaltig prägten. Die mediale Präsenz in internationalen Rundfunk- und Onlineformaten unterstrich den transnationalen Charakter des Genres, was zu einer verstärkten Aufnahme kultureller Diversität im internationalen Diskurs beitrug.
 

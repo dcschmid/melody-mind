@@ -17,14 +17,13 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Progressive metal emerged in the late 1980s as an international synthesis of the intricate compositional forms of progressive rock and the robust aggression of heavy metal. This genre is distinguished by its sophisticated musical architectures, polymetrical frameworks, and complex rhythmic patterns. Early pioneers such as Queensrÿche, Fates Warning, and the initial formation of Dream Theater developed a sound that combined technical prowess with innovative recording methods, signalling a new era in metallic expression. 
+Progressive metal emerged in the late 1980s as an international synthesis of the intricate compositional forms of progressive rock and the robust aggression of heavy metal. This genre is distinguished by its sophisticated musical architectures, polymetrical frameworks, and complex rhythmic patterns. Early pioneers such as Queensrÿche, Fates Warning, and the initial formation of Dream Theater developed a sound that combined technical prowess with innovative recording methods, signalling a new era in metallic expression.
 
 Moreover, the global ascendance of progressive metal reflects wider cultural and technological shifts that encouraged experimental amalgamations across musical traditions. Its evolution is closely linked to regional influences and scholarly explorations in music theory, ensuring that the genre remains a vibrant field of study and artistic endeavour.
 

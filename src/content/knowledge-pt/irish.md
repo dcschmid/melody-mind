@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introdução
 
@@ -28,7 +27,7 @@ Neste estudo, aborda-se a tradição musical irlandesa sob uma perspectiva hist�
 
 A análise contempla a utilização dos instrumentos típicos, como o violino, a flauta e o tin whistle, cuja função social transcende a mera performance musical, atuando como veículo de memória cultural e resistência identitária. Ademais, observa-se a confluência de aspectos teóricos e funcionais que fomentaram a evolução de formas melódicas específicas e padrões rítmicos intrínsecos à tradição popular.
 
-No panorama histórico, evidencia-se a interseção entre práticas artísticas e transformações tecnológicas, sobretudo a gravação do repertório no século XX, fator determinante na difusão internacional. 
+No panorama histórico, evidencia-se a interseção entre práticas artísticas e transformações tecnológicas, sobretudo a gravação do repertório no século XX, fator determinante na difusão internacional.
 Total de caracteres: 920
 
 ## Contexto histórico e cultural

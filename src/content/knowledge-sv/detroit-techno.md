@@ -17,10 +17,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -176,7 +175,7 @@ Avslutningsvis kan det konstateras att utvecklingen av Detroit techno är en pro
 
 Detroit techno utgör en centralt belägen epok inom den internationella musikhistorien och har under decennier präglat den elektroniska dansmusikens utveckling. Denna musikstil, med sina rötter i en stad präglad av industriell nedgång och social omvälvning, kom att fungera som en katalysator för ett globalt kulturellt och estetiskt paradigmskifte. Pionjärskapet inom Detroit techno kännetecknas av en kompromisslös strävan efter innovation med en djupgående teknisk och konstnärlig integrationsförmåga, vilken solidifierades under slutet av 1980-talet och början av 1990-talet.
 
-De tidiga protagonisterna, däribland Juan Atkins, Derrick May och Kevin Saunderson, etablerade en unik musikalisk vocabularium genom att väga samman avantgardistiska idéer med strikta rytmiska strukturer. Deras arbete innebar en systematisk utforskning av elektroniska ljudlandskap med hjälp av nyckfull användning av synthesizers, sequencers och trummaskiner. Genom att använda dessa teknologiska verktyg skapade de en ny estetisk dimension där repetitiva mönster och hypnotiska rytmer samverkade med den mekaniska precisionen, något som kom att prägla musikens fortsatta evolution. 
+De tidiga protagonisterna, däribland Juan Atkins, Derrick May och Kevin Saunderson, etablerade en unik musikalisk vocabularium genom att väga samman avantgardistiska idéer med strikta rytmiska strukturer. Deras arbete innebar en systematisk utforskning av elektroniska ljudlandskap med hjälp av nyckfull användning av synthesizers, sequencers och trummaskiner. Genom att använda dessa teknologiska verktyg skapade de en ny estetisk dimension där repetitiva mönster och hypnotiska rytmer samverkade med den mekaniska precisionen, något som kom att prägla musikens fortsatta evolution.
 
 Vidare framhåller den internationella spridningen av Detroit techno inte enbart en geografisk expansion, utan även ett överlämnande av idéer mellan kontinenterna. Den europeiska elektroniska scenen, med särskilt intresse för Berlin och London, tog emot Detroit technos progressiva uttryck med en öppenhet som möjliggjorde en vidareutveckling genom fusion med lokala musiktraditioner. Den transatlantiska dialogen mellan Detroit och de europeiska musikerna innebar en ömsesidig befruktning där innovationer och stilistiska experiment utbyttes, vilket resulterade i distinkta regionala tolkningar som bidrog till att definiera den globala elektroniska musikkulturen.
 

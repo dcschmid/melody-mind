@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introducción
 
@@ -82,7 +81,7 @@ Finalmente, es menester resaltar que el análisis de los estilos y técnicas voc
 
 ## Artistas destacadas
 
-A lo largo de la historia de la música country, la irrupción de las artistas femeninas constituyó un hito que transformó la estructura misma del género, asentando un modelo de autenticidad y resiliencia. Estas intérpretes, cuyas trayectorias se remontan a mediados del siglo XX, han aportado de manera sustancial no solo sus virtudes vocales, sino también una narrativa que dialoga con las luchas sociales y culturales de su tiempo. En este sentido, se enfatiza que la emergente representación femenina en el ámbito country se caracteriza por un arte que, a la vez, desafía las convenciones patriarcales y refleja la identidad del sur de Estados Unidos. 
+A lo largo de la historia de la música country, la irrupción de las artistas femeninas constituyó un hito que transformó la estructura misma del género, asentando un modelo de autenticidad y resiliencia. Estas intérpretes, cuyas trayectorias se remontan a mediados del siglo XX, han aportado de manera sustancial no solo sus virtudes vocales, sino también una narrativa que dialoga con las luchas sociales y culturales de su tiempo. En este sentido, se enfatiza que la emergente representación femenina en el ámbito country se caracteriza por un arte que, a la vez, desafía las convenciones patriarcales y refleja la identidad del sur de Estados Unidos.
 
 En el contexto histórico, es preciso señalar que figuras como Loretta Lynn, Dolly Parton y Tammy Wynette se instauraron como pioneras durante las décadas de 1960 y 1970, periodo en el cual la música country alcanzó una extraordinaria audiencia a través de la radio y la televisión. Estas artistas lograron amalgamar tradiciones musicales con innovaciones propias, explorando temáticas que abarcaban desde el empoderamiento personal hasta la crítica social. Asimismo, sus producciones se vieron marcadas por las limitaciones tecnológicas y estilísticas propias de la época, lo que enalteció la sencillez y la expresividad de cada interpretación.
 

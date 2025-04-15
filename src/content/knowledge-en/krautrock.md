@@ -15,10 +15,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -178,7 +177,7 @@ In summary, the development and evolution of Krautrock encapsulate a multifacete
 
 ## Legacy and Influence
 
-The legacy of Krautrock is a subject of enduring scholarly and musical interest, reflecting not solely on its innovations but also on its enduring influence on international music. Emerging in post-war Germany during the late 1960s, Krautrock represented an imperative cultural and aesthetic shift that was consequential in bridging the divide between experimental sound exploration and more conventional musical forms. The movement’s emphasis on improvisation, electronic experimentation, and innovative production techniques has transcended geographical boundaries, ultimately shaping genres as disparate as post-punk, ambient music, and electronic dance music. 
+The legacy of Krautrock is a subject of enduring scholarly and musical interest, reflecting not solely on its innovations but also on its enduring influence on international music. Emerging in post-war Germany during the late 1960s, Krautrock represented an imperative cultural and aesthetic shift that was consequential in bridging the divide between experimental sound exploration and more conventional musical forms. The movement’s emphasis on improvisation, electronic experimentation, and innovative production techniques has transcended geographical boundaries, ultimately shaping genres as disparate as post-punk, ambient music, and electronic dance music.
 
 Krautrock was pioneering in its incorporation of synthesiser technology and non-traditional recording techniques at a time when popular music was conventionally acoustic. Artists such as Can, Neu!, Faust, and Amon Düül II embraced the use of electronic instruments and studio experimentation, thereby heralding a transformative approach to composition and recording. Their innovative methodologies, characterised by extended instrumental passages, hypnotic rhythms, and unconventional use of feedback, offered a new paradigm that resonated with the emerging countercultural sentiments of the 1970s and beyond.
 

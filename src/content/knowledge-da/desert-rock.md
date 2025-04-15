@@ -16,14 +16,13 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Ørkenrock repræsenterer en særpræget musikalsk æstetik, der opstod i det sydvestlige USA i slutningen af 1980’erne og begyndelsen af 1990’erne. Genren udmønter sig gennem en sammensmeltning af bluesens grundtoner, minimalistiske teksturer og improvisationelle strukturer, som tilsammen skaber et lydbillede inspireret af det omgivende ørkenlandskabs øde og åbne rum. Denne musikalske retning var i høj grad et svar på en utilfredshed med mainstream rock og en søgen efter autentisk og eksperimenterende klangudfoldelse. 
+Ørkenrock repræsenterer en særpræget musikalsk æstetik, der opstod i det sydvestlige USA i slutningen af 1980’erne og begyndelsen af 1990’erne. Genren udmønter sig gennem en sammensmeltning af bluesens grundtoner, minimalistiske teksturer og improvisationelle strukturer, som tilsammen skaber et lydbillede inspireret af det omgivende ørkenlandskabs øde og åbne rum. Denne musikalske retning var i høj grad et svar på en utilfredshed med mainstream rock og en søgen efter autentisk og eksperimenterende klangudfoldelse.
 
 I et internationalt perspektiv har ørkenrock haft betydelig indflydelse på efterfølgende alternativer og subkulturelle musikudtryk. Musikalske studier fremhæver, at den gentagne rytmiske struktur og den sparse instrumentering ikke blot er kendetegnende for genren, men også modererende for en bredere æstetisk dialog. Endvidere indebærer den geografisk betingede komposition en kompleks interaktion mellem miljømæssige faktorer og musikalsk innovation, hvilket fortsat udgør genstand for omfattende analytisk forskning inden for moderne musikvidenskab.
 

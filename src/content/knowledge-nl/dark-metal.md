@@ -16,14 +16,13 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Dark Metal vertegenwoordigt een subgenre binnen de internationale metaltraditie dat zich in de late jaren tachtig ontwikkelde, waarbij invloeden van zowel black metal als death metal verzacht werden door atmosferische en experimentele elementen. Deze muzikale stroming getuigt van een evolutie die nauw verband houdt met de intensivering van esthetische expressie en structurele complexiteit, wat resulteerde in een geluid dat zowel duister als introspectief is. 
+Dark Metal vertegenwoordigt een subgenre binnen de internationale metaltraditie dat zich in de late jaren tachtig ontwikkelde, waarbij invloeden van zowel black metal als death metal verzacht werden door atmosferische en experimentele elementen. Deze muzikale stroming getuigt van een evolutie die nauw verband houdt met de intensivering van esthetische expressie en structurele complexiteit, wat resulteerde in een geluid dat zowel duister als introspectief is.
 
 Vervolgens versterkt de integratie van harmonische dissonanties en subtiele ritmische patronen de expressie van existentiële thematiek, hetgeen bijdraagt aan een betekenisvolle culturele resonantie. Dit fenomeen, dat zijn oorsprong vindt in de internationale undergroundscene, belichaamt een kritische reactie op traditionele vormen en legt de basis voor latere innovaties binnen de metalmuziek.
 

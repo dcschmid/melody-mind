@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -160,7 +159,7 @@ Di conseguenza, lo studio del Detroit Techno riveste un’importanza imprescindi
 
 ## Legacy and Influence
 
-La nascita della techno a Detroit, espressione culturale unica nel suo genere, si radica in un contesto socio-economico e tecnologico profondamente segnato dalla trasformazione industriale degli anni Ottanta. Le innovazioni sonore, realizzate da pionieri quali Juan Atkins, Derrick May e Kevin Saunderson – comunemente definiti “The Belleville Three” – si sono sviluppate in una cornice di declino industriale e di fermento giovanile, trasformando le tensioni sociali in un linguaggio musicale nuovo e d’avanguardia. In questo ambito, la fusione di elementi funk, electro e musica d’avanguardia ha dato vita a uno stile tanto rigoroso nella struttura quanto espressivo nella sintesi ritmica, riflettendo il mutamento dei paradigmi culturali del tempo.  
+La nascita della techno a Detroit, espressione culturale unica nel suo genere, si radica in un contesto socio-economico e tecnologico profondamente segnato dalla trasformazione industriale degli anni Ottanta. Le innovazioni sonore, realizzate da pionieri quali Juan Atkins, Derrick May e Kevin Saunderson – comunemente definiti “The Belleville Three” – si sono sviluppate in una cornice di declino industriale e di fermento giovanile, trasformando le tensioni sociali in un linguaggio musicale nuovo e d’avanguardia. In questo ambito, la fusione di elementi funk, electro e musica d’avanguardia ha dato vita a uno stile tanto rigoroso nella struttura quanto espressivo nella sintesi ritmica, riflettendo il mutamento dei paradigmi culturali del tempo.
 
 L’impatto culturale e musicale della Detroit Techno si fa largo anche attraverso il suo rapporto con le nuove tecnologie digitali e la diffusione dei computer come strumenti di composizione e produzione. L’utilizzo pionieristico dei sintetizzatori e dei campionatori, unitamente a interfacce informatiche ancora embrionali, ha rappresentato un punto di svolta nella storia della musica elettronica, consentendo la creazione di tessuti sonori complessi e modulabili. La precisione ritmica e la spazialità acustica proprie dei lavori dei produttori di Detroit si configurano, infatti, come un modello di riferimento per le successive generazioni di artisti e hanno influito in modo determinante sulla stratificazione dei generi elettronici emergenti nel panorama internazionale.
 

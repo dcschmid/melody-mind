@@ -16,10 +16,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -171,7 +170,7 @@ Vidare präglades den internationella utvecklingen inom "Sleep Soundly" av en di
 
 Dessutom präglades utvecklingen av "Sleep Soundly" av en ökad medvetenhet om musikkonstens roll i sociala och kulturella sammanhang. Under de senaste decennierna har en rad internationellt verksamma musiker och kompositörer sökt att integrera musikaliska element från traditionella kulturer med moderna ambienta praktiker. Detta har lett till en ömsesidig berikning mellan olika musikaliska uttryck, där exempelvis österländska modaliteter och västerländska harmoniksystem samverkade för att frambringa en global sonisk estetik. Samtidigt har den vetenskapliga diskursen kring musikens terapeutiska potential bidragit till en ökad legitimitet hos de metoder som används i denna genre.
 
-I kontrast till de tidigare musikhistoriska strömningarna kan "Sleep Soundly" idag betraktas som ett sammanvävt fenomen där tradition och innovation möts. Den internationella dialekten inom denna genre återspeglas i både de formella strukturer som definierar ljudmiljöerna och den intuitiva förståelse som ligger till grund för kompositionerna. Den utvecklade musikteoretiska diskursen har därmed bidragit till att skapa en koherent teoretisk ram, vilket i sin tur har möjliggjort en djupare förståelse för hur musiken påverkar kropp och sinne. Denna fortlöpande evolution exemplifierar hur kulturella, teknologiska och vetenskapliga element ständigt inverkar på musikens utvecklingsprocesser. 
+I kontrast till de tidigare musikhistoriska strömningarna kan "Sleep Soundly" idag betraktas som ett sammanvävt fenomen där tradition och innovation möts. Den internationella dialekten inom denna genre återspeglas i både de formella strukturer som definierar ljudmiljöerna och den intuitiva förståelse som ligger till grund för kompositionerna. Den utvecklade musikteoretiska diskursen har därmed bidragit till att skapa en koherent teoretisk ram, vilket i sin tur har möjliggjort en djupare förståelse för hur musiken påverkar kropp och sinne. Denna fortlöpande evolution exemplifierar hur kulturella, teknologiska och vetenskapliga element ständigt inverkar på musikens utvecklingsprocesser.
 
 Sammanfattningsvis representerar utvecklingen av "Sleep Soundly" en dynamisk evolution som vävs in i den internationella musikhistorien. Genom att kombinera experimentella ljudlandskap, teknologiska innovationer samt vetenskapligt underbyggda insikter har denna genre utvecklats till en unik musikalisk praktik. Den integrerade tillämpningen av både traditionella och samtida metoder har gett upphov till en estetik som framhåller ljudets transformativa potential samt bidrar till en holistisk förståelse av musikens roll i människans vardag och hälsa.
 

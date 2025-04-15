@@ -16,10 +16,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -143,7 +142,7 @@ Historically, the advent of live performance venues marked an important departur
 
 The early twentieth century witnessed a remarkable diversification in the forms and venues of musical performance. The proliferation of small-scale, intimate venues such as cafés, clubs, and salons provided fertile ground for the emergence of a wide array of musical genres, including jazz, blues, and later rock and roll. In cities such as Chicago and New Orleans, jazz performers captivated audiences with their improvisational prowess, thereby creating a vibrant and spontaneous live culture that resonated well beyond national borders. Simultaneously, European cities such as Paris became crucibles for modernist experimentation, where performers integrated elements of classical composition with avant-garde techniques, hence challenging conventional norms about rhythm, metre, and tonality in live contexts. The interplay between innovation and tradition in these live environments not only enriched the musical repertoire but also deepened the public’s engagement with music as an art form.
 
-Furthermore, radio broadcasting and the advent of recording technology in the early decades of the twentieth century had a profound impact on live performance. While such technological developments initially threatened the primacy of live concerts, they eventually served to augment the cultural significance of onstage performance. Live broadcasts of concerts and jazz sessions enabled international audiences to experience performances in real time, thereby transcending geographic constraints and fostering an increasingly interconnected musical community. It was not uncommon for audiences in remote regions to synchronise their listening to live radio transmissions of events in distant metropolises, thus reinforcing the notion that live performance was not merely a local phenomenon but an essential component of an international cultural dialogue. 
+Furthermore, radio broadcasting and the advent of recording technology in the early decades of the twentieth century had a profound impact on live performance. While such technological developments initially threatened the primacy of live concerts, they eventually served to augment the cultural significance of onstage performance. Live broadcasts of concerts and jazz sessions enabled international audiences to experience performances in real time, thereby transcending geographic constraints and fostering an increasingly interconnected musical community. It was not uncommon for audiences in remote regions to synchronise their listening to live radio transmissions of events in distant metropolises, thus reinforcing the notion that live performance was not merely a local phenomenon but an essential component of an international cultural dialogue.
 
 In addition, the post-war period witnessed a resurgence in the emphasis on live performance with festivals, outdoor concerts, and innovative theatrical presentations taking centre stage. Iconic events such as the Newport Jazz Festival in the United States and the Montreux Jazz Festival in Europe underscored the capacity of live culture to both celebrate diversity and stimulate creative collaboration among musicians from disparate backgrounds. This era also bore witness to the emergence of performance art, wherein music became intricately interwoven with other art forms such as theatre, dance, and visual arts. Such interdisciplinary collaborations served to broaden the aesthetic scope of live performance and underscore its role in mirroring the complexities of social and cultural life in an increasingly globalised world.
 

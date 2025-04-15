@@ -17,14 +17,13 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Einleitung
 
-Die schweizerische Musikszene zeichnet sich durch eine lange Tradition aus, die sowohl nationale als auch internationale Einflüsse integriert. Bereits im 19. Jahrhundert prägte die Volksmusik das kulturelle Selbstverständnis der Schweiz, während zeitgleich grenzüberschreitende Impulse aus benachbarten Regionen akustische Innovationen förderten. Insbesondere die exakte Nachbildung folkloristischer Modalitäten und rhythmischer Strukturen bezeugt die enge Verbindung zwischen Tradition und Fortschritt. 
+Die schweizerische Musikszene zeichnet sich durch eine lange Tradition aus, die sowohl nationale als auch internationale Einflüsse integriert. Bereits im 19. Jahrhundert prägte die Volksmusik das kulturelle Selbstverständnis der Schweiz, während zeitgleich grenzüberschreitende Impulse aus benachbarten Regionen akustische Innovationen förderten. Insbesondere die exakte Nachbildung folkloristischer Modalitäten und rhythmischer Strukturen bezeugt die enge Verbindung zwischen Tradition und Fortschritt.
 
 Im 20. Jahrhundert führten technologische Neuerungen, wie der Einsatz elektronischer Klanggeneratoren und die Entwicklung moderner Aufnahmetechniken, zu signifikanten Veränderungen in der Komposition sowie Interpretation. Diese Entwicklungen ermöglichten es renommierten Schweizer Künstlern, im internationalen Diskurs innovativ aufzutreten und traditionelle Elemente in zeitgenössische Musiklandschaften zu integrieren. Somit ist die Schweizer Musik als ein dynamisches Spannungsfeld zwischen bewahrtem Erbe und fortschrittlicher Experimentierfreude zu verstehen, was sie zu einem bedeutenden Bestandteil der globalen Musikkultur macht.
 
@@ -160,7 +159,7 @@ Zusammenfassend lässt sich festhalten, dass Medien und Promotion in der Musikka
 
 Im Rahmen der musikalischen Ausbildung und Förderung in der Schweiz zeichnet sich seit jeher ein facettenreiches Bild aus, das einerseits von regionalen Traditionen und andererseits von einer konsequent internationalen Ausrichtung geprägt ist. Die Institutionen, die in der Schweizer Musiklandschaft eine tragende Rolle spielen, haben sich bereits im 19. Jahrhundert einen exzellenten Ruf in der Ausbildung junger Talente erarbeitet. Traditionelle Musikkonservatorien, die sich in den Gründungsphasen der modernen Musikpädagogik etablierten, zeigten früh, inwiefern eine fundierte theoretische Ausbildung ebenso wichtig ist wie das Erlernen praktischer Fertigkeiten. Die Kombination aus einer hohen künstlerischen Qualität und einer strikten wissenschaftlichen Fundierung bildet den Kern der musikalischen Ausbildungsphilosophie in der Schweiz, welche dem internationalen Wettbewerb standhalten konnte.
 
-Die frühen Ausbildungsprogramme in den Schweizer Konservatorien konzentrierten sich zunächst auf die Vermittlung klassischer Musiktraditionen. Dabei wurde ein besonderes Augenmerk auf die Ausbildung in den Bereichen Harmonielehre, Kontrapunkt und Instrumententechnik gelegt. Die Ausbildungseinrichtungen befanden sich teils an Universitäten, teils in eigenständigen Institutionen, welche dank der staatlichen Förderung und privater Stiftungen eine breit gefächerte Infrastruktur aufbauen konnten. Parallel zur reinen Theorie fand auch eine intensive praktische Förderung statt, die es den Studierenden ermöglichte, in Orchestern und Kammermusikensembles erste internationale Erfahrungen zu sammeln. 
+Die frühen Ausbildungsprogramme in den Schweizer Konservatorien konzentrierten sich zunächst auf die Vermittlung klassischer Musiktraditionen. Dabei wurde ein besonderes Augenmerk auf die Ausbildung in den Bereichen Harmonielehre, Kontrapunkt und Instrumententechnik gelegt. Die Ausbildungseinrichtungen befanden sich teils an Universitäten, teils in eigenständigen Institutionen, welche dank der staatlichen Förderung und privater Stiftungen eine breit gefächerte Infrastruktur aufbauen konnten. Parallel zur reinen Theorie fand auch eine intensive praktische Förderung statt, die es den Studierenden ermöglichte, in Orchestern und Kammermusikensembles erste internationale Erfahrungen zu sammeln.
 
 Die Förderung von musikalischem Talent in der Schweiz profitierte zudem vom regen internationalen Austausch, der bereits zu Beginn des 20. Jahrhunderts intensiv vorangetrieben wurde. Schweizer Komponisten, Interpreten und Pädagogen pflegten Kontakte zu berühmten Persönlichkeiten der Musikszene in anderen europäischen Ländern. Dieser interkulturelle Dialog führte zu einem wechselseitigen Lernprozess, in dessen Rahmen sich nicht nur die Lehrpläne, sondern auch die Auffassung von musikalischer Bildung stetig weiterentwickelten. In diesem Kontext spielte auch die praktische Integration von fremdsprachigen Lehrmaterialien eine bedeutende Rolle, wenngleich diese stets in einer an die deutsche Fachterminologie angelehnten Form adaptiert wurden. Die Einbindung internationaler Lehrmethoden ermöglichte es den Ausbildungseinrichtungen, ein breites Spektrum an stilistischen und ästhetischen Einflüssen zu berücksichtigen.
 

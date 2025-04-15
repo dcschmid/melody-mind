@@ -17,14 +17,13 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-De internationale muziekstroming drum en bass ontwikkelde zich in de vroege jaren negentig in het Verenigd Koninkrijk en betekende een radicale vernieuwing binnen de elektronische muziek. Oorspronkelijk afgeleid van de jungle, kon de stijl zich onderscheiden door het snel wisselende ritmisch patroon en de complexe percussieve structuren. De technologische vooruitgang, met name de ontwikkeling van geavanceerde synthesisechnieken en samplingmethoden, bood een stevige basis voor deze evolutie. 
+De internationale muziekstroming drum en bass ontwikkelde zich in de vroege jaren negentig in het Verenigd Koninkrijk en betekende een radicale vernieuwing binnen de elektronische muziek. Oorspronkelijk afgeleid van de jungle, kon de stijl zich onderscheiden door het snel wisselende ritmisch patroon en de complexe percussieve structuren. De technologische vooruitgang, met name de ontwikkeling van geavanceerde synthesisechnieken en samplingmethoden, bood een stevige basis voor deze evolutie.
 
 Bovendien leidde de interactie met andere elektronische genres tot een intensivering van experimentele productiemethoden, hetgeen de esthetische en structurele eigenschappen van drum en bass verder verfijnde. De culturele context van een post-industriële samenleving en de invloed van visuele kunstvormen droegen eveneens bij aan de diversificatie van de beweging. Eveneens zorgde de internationale verspreiding, mede gestimuleerd door onafhankelijke labels en live-uitvoeringen, voor een voortdurende ontwikkeling die de hedendaagse elektronische muziek diepgaand blijft inspireren.
 

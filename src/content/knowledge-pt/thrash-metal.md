@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -122,7 +121,7 @@ Outrossim, a harmonia e a estrutura formal das composições dentro do Thrash Me
 
 A conexão entre técnica e estética no Thrash Metal revela, ainda, uma preocupação formal em relação à dinâmica sonora. As variações entre passagens com articulados riffs acelerados e momentos de cadência controlada propiciam uma narrativa musical que dialoga tanto com a tradição do Heavy Metal quanto com inovações rítmicas e melódicas. Nesta perspectiva, o emprego de contrapontos e a sobreposição de camadas sonoras criam texturas complexas, onde cada instrumento desempenha um papel determinante na construção de um muro sonoro multifacetado. Tal complexidade é corroborada pela prática dos ensaios coletivos, onde a repetição e a experimentação se constituem em instrumentos para a evolução do estilo.
 
-Em síntese, a análise dos aspectos técnicos do Thrash Metal evidencia uma síntese entre virtuosismo instrumental, inovação rítmica e recursos tecnológicos que, conjuntamente, delinearam um estilo musical singular e transformador. A exatidão na execução, a articulação dos timbres e a inter-relação entre instrumentos demonstram que o Thrash Metal se configura não apenas como um fenômeno cultural de grande impacto, mas como um campo de estudo riquíssimo para aquelas correntes que se dedicam à análise da linguagem musical contemporânea. Conforme apontado por diversos estudiosos da área (Santos, 1998; Almeida, 2002), o subgênero ultrapassa a mera agressividade sonora, constituindo-se como um espaço para a experimentação técnica e a inovação na composição musical.  
+Em síntese, a análise dos aspectos técnicos do Thrash Metal evidencia uma síntese entre virtuosismo instrumental, inovação rítmica e recursos tecnológicos que, conjuntamente, delinearam um estilo musical singular e transformador. A exatidão na execução, a articulação dos timbres e a inter-relação entre instrumentos demonstram que o Thrash Metal se configura não apenas como um fenômeno cultural de grande impacto, mas como um campo de estudo riquíssimo para aquelas correntes que se dedicam à análise da linguagem musical contemporânea. Conforme apontado por diversos estudiosos da área (Santos, 1998; Almeida, 2002), o subgênero ultrapassa a mera agressividade sonora, constituindo-se como um espaço para a experimentação técnica e a inovação na composição musical.
 
 A interligação entre os aspectos teóricos e práticos – seja no domínio da técnica instrumental, seja na adequação dos recursos tecnológicos – comprova que o Thrash Metal perpassa-se por um elevado rigor técnico que, aliado à criatividade dos músicos, transforma cada performance em um estudo aprofundado das possibilidades musicais. Paralelamente, a abordagem metodológica adotada para a análise do subgênero permite uma compreensão abrangente das transformações ocorridas nas últimas décadas, ressaltando a importância dos contextos históricos e culturais na definição do potencial técnico e estético. Essa confluência de fatores, que vai desde a performance ao processo de gravação, ressalta a complexidade inerente à técnica do Thrash Metal, demonstrando que o som produzido é fruto de um rigor artístico e tecnológico que se amalgama com a identidade de uma geração que ousou romper com precedentes, em busca de uma nova forma de expressão.
 

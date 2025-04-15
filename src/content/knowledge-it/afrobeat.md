@@ -17,18 +17,17 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-In un contesto storico e culturale segnato dalle trasformazioni postcoloniali dell’Africa occidentale, l’Afrobeat emerge come espressione musicale innovativa e portatrice di significati politici profondi. Originatosi in Nigeria alla fine degli anni Sessanta, tale genere coniuga ritmi tradizionali yorubà, influssi dell’alto vita e caratteristiche del jazz e del funk, configurando un linguaggio sonoro originale e inedito. 
+In un contesto storico e culturale segnato dalle trasformazioni postcoloniali dell’Africa occidentale, l’Afrobeat emerge come espressione musicale innovativa e portatrice di significati politici profondi. Originatosi in Nigeria alla fine degli anni Sessanta, tale genere coniuga ritmi tradizionali yorubà, influssi dell’alto vita e caratteristiche del jazz e del funk, configurando un linguaggio sonoro originale e inedito.
 
-La figura di Fela Kuti, in prima persona promotore di questa rivoluzione musicale, si affianca a quella del batterista Tony Allen, il quale, con la sua maestria ritmica, contribuisce in maniera determinante all’identità stilistica dell’Afrobeat. L’interazione tra tradizione ed innovazione si manifesta altresì attraverso l’utilizzo oculato delle tecnologie d’avanguardia dell’epoca, le quali agevolarono la registrazione e la diffusione di un genere destinato a superare i confini regionali. 
+La figura di Fela Kuti, in prima persona promotore di questa rivoluzione musicale, si affianca a quella del batterista Tony Allen, il quale, con la sua maestria ritmica, contribuisce in maniera determinante all’identità stilistica dell’Afrobeat. L’interazione tra tradizione ed innovazione si manifesta altresì attraverso l’utilizzo oculato delle tecnologie d’avanguardia dell’epoca, le quali agevolarono la registrazione e la diffusione di un genere destinato a superare i confini regionali.
 
-Infine, l’Afrobeat si configura come strumento di aggregazione e contestazione, riflettendo le dinamiche di un’epoca in cui la musica divenne veicolo di identità e resistenza. 
+Infine, l’Afrobeat si configura come strumento di aggregazione e contestazione, riflettendo le dinamiche di un’epoca in cui la musica divenne veicolo di identità e resistenza.
 
 (Caratteri: 892)
 

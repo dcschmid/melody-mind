@@ -16,10 +16,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduktion
 
@@ -151,7 +150,7 @@ I det store billede illustrerer livekoncerter og begivenheder i Tjekkiet en komp
 
 ## Medier og promovering
 
-Medier og promovering spiller en central rolle i formidlingen af tjekkisk musik og kulturelle identiteter. I særdeleshed har markedskræfterne og de statslige institutioner i den tjekkiske republik siden det 19. århundrede haft en betydelig indflydelse på, hvordan musikalske udtryk præsenteres internationalt. Denne artikel redegør for de mediekanaler og promoveringsstrategier, der har været med til at definere tjekkisk musiks rolle på den globale scene.  
+Medier og promovering spiller en central rolle i formidlingen af tjekkisk musik og kulturelle identiteter. I særdeleshed har markedskræfterne og de statslige institutioner i den tjekkiske republik siden det 19. århundrede haft en betydelig indflydelse på, hvordan musikalske udtryk præsenteres internationalt. Denne artikel redegør for de mediekanaler og promoveringsstrategier, der har været med til at definere tjekkisk musiks rolle på den globale scene.
 
 Historisk set har trykte medier haft en uvurderlig betydning for formidlingen af tjekkiske kompositioner. Fra udgivelsen af musikalske tidsskrifter og avisartikler i det 19. århundrede, der omfattede anmeldelser af værker af komponister som Antonín Dvorák og Bedřich Smetana, har medierne spillet en central rolle i at opbygge en offentlig fortælling om en særlig musikalsk national identitet. Redaktører og musikforskere anvendte præcise musikalske termer, hvilket sikrede, at diskussionerne var rodfæstede i teknisk kunnen og kulturel bevidsthed. Denne tradition har fortsat med at understøtte akademiske diskurser og bidrage til den internationale anerkendelse af tjekkisk musik.
 

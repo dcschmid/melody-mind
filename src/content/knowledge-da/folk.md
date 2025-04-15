@@ -17,14 +17,13 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-International folkemusik repræsenterer en bred musikalsk tradition, hvis historiske rødder kan spores tilbage til middelalderen og videre ind i moderne tid. Denne genre indbefatter et rigt spektrum af lokale udtryk, hvor både lyriske fortællinger og traditionelle instrumenter – såsom fele, gitarr og fløjte – spiller en central rolle. Musikalsk analyse af folkemusik involverer komplekse begreber som modal skala og rytmisk variation, der tilsammen belyser de strukturelle principper bag de udtryksfulde melodier. 
+International folkemusik repræsenterer en bred musikalsk tradition, hvis historiske rødder kan spores tilbage til middelalderen og videre ind i moderne tid. Denne genre indbefatter et rigt spektrum af lokale udtryk, hvor både lyriske fortællinger og traditionelle instrumenter – såsom fele, gitarr og fløjte – spiller en central rolle. Musikalsk analyse af folkemusik involverer komplekse begreber som modal skala og rytmisk variation, der tilsammen belyser de strukturelle principper bag de udtryksfulde melodier.
 
 Desuden afspejler studiet af international folkemusik den historiske udvikling og sammenhæng mellem kulturel identitet og musikalsk praksis. Interaktionen mellem traditionelle elementer og moderne teknologiske fremskridt, eksempelvis optagelsesteknikker og digital distribution, har desuden medført nye fortolkningsmuligheder for genrens udvikling. Derfor udgør folkemusikken et uundværligt felt inden for musikvidenskaben, idet den ved hjælp af empiriske og teoretiske metoder illustrerer, hvordan musik både bevarer og omformer kulturelle fortællinger og samfundsmæssige identiteter.
 

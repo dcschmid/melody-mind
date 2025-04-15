@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -170,7 +169,7 @@ Infine, è essenziale riconoscere l’impatto duraturo e la complessità teorica
 
 ## Legacy and Influence
 
-La nascita e l’evoluzione del genere industrial rappresentano una delle rivoluzioni più significative nel panorama musicale del tardo XX secolo, segnando un passaggio dalla tradizione musicale accademica a una sperimentazione radicale. Le origini del genere affondano le radici in movimenti artistici e culturali degli anni ’60 e ’70, in cui l’interazione tra arte performativa, musica elettronica e critica sociale contribuì a delineare un’estetica di rottura e subversione. In tale contesto, artisti e collettivi come Throbbing Gristle e Cabaret Voltaire giocarono un ruolo determinante nel definire i canoni di una musica che si faceva portatrice di una critica radicale alla società industrializzata, facendo emergere tematiche come l’alienazione e il disfacimento del tessuto sociale.  
+La nascita e l’evoluzione del genere industrial rappresentano una delle rivoluzioni più significative nel panorama musicale del tardo XX secolo, segnando un passaggio dalla tradizione musicale accademica a una sperimentazione radicale. Le origini del genere affondano le radici in movimenti artistici e culturali degli anni ’60 e ’70, in cui l’interazione tra arte performativa, musica elettronica e critica sociale contribuì a delineare un’estetica di rottura e subversione. In tale contesto, artisti e collettivi come Throbbing Gristle e Cabaret Voltaire giocarono un ruolo determinante nel definire i canoni di una musica che si faceva portatrice di una critica radicale alla società industrializzata, facendo emergere tematiche come l’alienazione e il disfacimento del tessuto sociale.
 
 Il contributo pionieristico di Throbbing Gristle, che iniziò la propria attività nel 1976, si configura come una delle pietre miliari del movimento industrial. Mediante l’adozione di apparecchiature elettroniche e registratori casalinghi, il gruppo instaurò un dialogo inedito tra il rumore meccanico e l’arte sonora, oltre a proporre una contaminazione fra musica e performance. Analogamente, Cabaret Voltaire, attivo fin dalla metà degli anni ’70, sperimentò un’ibridazione tra elementi elettronici e industriali, gettando le basi per future evoluzioni del genere anche attraverso l’uso di tecnologie emergenti. Tali esperimenti sonori si sono rivelati fondamentali per la ridefinizione del concetto tradizionale di musica, aprendo la strada a nuove interpretazioni della realtà e del rapporto tra musica ed industria.
 

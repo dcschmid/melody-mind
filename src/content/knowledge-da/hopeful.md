@@ -17,14 +17,13 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-I den internationale musikalske kontekst udgør den håbefulde retning en paradigmatisk udviklingslinje, hvor kunstneriske idealer og innovationer mødes i en harmonisk syntese. Fra det tidlige 1900-tal, idet samtidens komponister i Europa og Amerika udforskede nye ekspressive middel, fremkom den håbefulde æstetik som et modsvar til tidens politiske uro og sociale forandringer. Elektrificering og optageteknikkens indtog medførte nye muligheder for instrumentsprog og harmonisk udtryk, hvilket understøttede en global integration af musikalske former. 
+I den internationale musikalske kontekst udgør den håbefulde retning en paradigmatisk udviklingslinje, hvor kunstneriske idealer og innovationer mødes i en harmonisk syntese. Fra det tidlige 1900-tal, idet samtidens komponister i Europa og Amerika udforskede nye ekspressive middel, fremkom den håbefulde æstetik som et modsvar til tidens politiske uro og sociale forandringer. Elektrificering og optageteknikkens indtog medførte nye muligheder for instrumentsprog og harmonisk udtryk, hvilket understøttede en global integration af musikalske former.
 
 Desuden illustrerer den håbefulde retning, hvordan overlevering af musikalsk tradition og teknologisk modernitet kan sameksistere. Denne tilgang skaber en platform for interkulturel dialog, idet diverse musikalske stilarter indgår i en gensidig berigende udveksling, som fortsat influerer nutidens internationale musikscene.
 
@@ -186,6 +185,6 @@ Afslutningsvis konstituerer de contemporary expressions en integreret del af den
 
 ## Conclusion
 
-Afslutningsvis fremstår international musikhistorie som et dynamisk felt, hvor optimisme og kreativitet har udgjort centrale drivkræfter. I den moderne æra ses, hvordan innovative teknologiske fremskridt og en eksplicit tematisk orientering mod optimisme har medvirket til at forme et musikalsk landskab præget af håbefulde idealer. Desuden illustreres den historiske udvikling tydeligt ved samspillet mellem jazzens improvisatoriske frihed, gospelens spirituelle udtryk samt de eksperimentelle tendenser, der opstod i kølvandet på Anden Verdenskrigs kulturelle fornyelse. 
+Afslutningsvis fremstår international musikhistorie som et dynamisk felt, hvor optimisme og kreativitet har udgjort centrale drivkræfter. I den moderne æra ses, hvordan innovative teknologiske fremskridt og en eksplicit tematisk orientering mod optimisme har medvirket til at forme et musikalsk landskab præget af håbefulde idealer. Desuden illustreres den historiske udvikling tydeligt ved samspillet mellem jazzens improvisatoriske frihed, gospelens spirituelle udtryk samt de eksperimentelle tendenser, der opstod i kølvandet på Anden Verdenskrigs kulturelle fornyelse.
 
 Videre har den transatlantiske udveksling af musikalske koncepter bidraget til en global syntese, hvor traditionelle elementer mødes med moderne innovation. Denne integration understreger, at international musik fortsat fungerer som et vitalt udtryk for en fælles stræben mod en mere håbefuld fremtid.

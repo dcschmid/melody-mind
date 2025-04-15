@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -70,7 +69,7 @@ Yhteenvetona voidaan todeta, että stoner metalin musiikilliset ominaisuudet koo
 
 ## Subgenres and Variations
 
-Stoner metalin historiallinen kehitys on monitahoinen ja sidoksissa tiiviisti 1960-luvun psykedeeliseen rockiin sekä 1970-luvun raskaampiin rock-ilmiöihin. Ilmiön juuret ovat osittain peräisin 1960–70-lukujen kokeellisesta rockista, jolloin kitaran torvisointi, efektiyksien runsas käyttö ja improvisatoriset elementit alkoivat muovata uudenlaista äänen maailmaa. Näiden vaikutteiden myötä syntyneessä genressä yhdistyvät raskaat riffit, matala tempo ja joskus lähes hypnoottinen tunnelma, mikä loi edellytykset stoner metallin kehittymiselle myöhemmässä vaiheessa. 
+Stoner metalin historiallinen kehitys on monitahoinen ja sidoksissa tiiviisti 1960-luvun psykedeeliseen rockiin sekä 1970-luvun raskaampiin rock-ilmiöihin. Ilmiön juuret ovat osittain peräisin 1960–70-lukujen kokeellisesta rockista, jolloin kitaran torvisointi, efektiyksien runsas käyttö ja improvisatoriset elementit alkoivat muovata uudenlaista äänen maailmaa. Näiden vaikutteiden myötä syntyneessä genressä yhdistyvät raskaat riffit, matala tempo ja joskus lähes hypnoottinen tunnelma, mikä loi edellytykset stoner metallin kehittymiselle myöhemmässä vaiheessa.
 
 Ensimmäisistä merkittävistä ilmiön edustajista voidaan pitää 1980-luvun loppupuolen ja 1990-luvun alun amerikkalaisia yhtyeitä, joiden soundi muodostui eräänlaiseksi sillaksi perinteisen raskaamman rockin ja psykedeelisten kokeilujen välillä. Kyuss on tässä yhteydessä monitahoinen esimerkki, jonka vaikutus on ollut korvaava genren kehityksessä. Yhtyeen matalahiukkainen rumpukoneisto, liukkaat kitarariffit ja melankolinen tunnelma muodostivat perustan myöhemmälle stoner metalin subgenrejen kehittymiselle, jotka jatkoivat sen perinnettä uusissa, alueellisissa ja tyylillisissä tulkinnoissa.
 
@@ -86,7 +85,7 @@ Kulttuurihistoriallisesti stoner metal on edustanut eräänlaista kapinaa standa
 
 Toisaalta, genren sisällä on havaittavissa myös kapeampia eriytymisiä, joissa yksittäiset yhtyeet ovat kehittäneet omanlaisia, tunnistettavia soundeja. Näihin sisältyvät esimerkiksi modernimmin tuotetut stoner metallin edustajat, jotka saattavat tuoda mukanaan vaikutteita elektronisesta musiikista tai muista kokeellisista suuntauksista. Tällaiset ilmenemismuodot ovat osoitus siitä, kuinka genren rajoja voidaan laajentaa ja samalla säilyttää sen ytimessä oleva identiteetti. Tämä kehitys mahdollistaa sen, että useat eri musiikilliset virtaukset ja trendit voivat sulautua yhteen muodostaen uusia, hämärän ja usein intertekstuaalisia musiikillisia kokonaisuuksia.
 
-Kokonaisuudessaan stoner metallin subgenrejen ja variaatioiden tutkiminen paljastaa ainutlaatuisen kytkennän perinteisiin musiikillisiin juuriiin ja moderniin teknologiseen innovaatioon. Geografiset erot sekä kulttuuriset reseptiot ovat osaltaan muovanneet musiikin eri haaroja siten, että jokainen tulkinta heijastaa oman alueensa ja aikakautensa erityispiirteitä. Näin ollen genren sisäinen monimuotoisuus ei ole ainoastaan musiikillinen ilmiö, vaan myös kulttuurihistoriallinen ilmentymä, joka tarjosi keinon ilmaista alakulttuurien identiteettiä ja esteettisiä arvoja. 
+Kokonaisuudessaan stoner metallin subgenrejen ja variaatioiden tutkiminen paljastaa ainutlaatuisen kytkennän perinteisiin musiikillisiin juuriiin ja moderniin teknologiseen innovaatioon. Geografiset erot sekä kulttuuriset reseptiot ovat osaltaan muovanneet musiikin eri haaroja siten, että jokainen tulkinta heijastaa oman alueensa ja aikakautensa erityispiirteitä. Näin ollen genren sisäinen monimuotoisuus ei ole ainoastaan musiikillinen ilmiö, vaan myös kulttuurihistoriallinen ilmentymä, joka tarjosi keinon ilmaista alakulttuurien identiteettiä ja esteettisiä arvoja.
 
 Historiallisesti ajatellen stoner metalin kehityksessä on merkittävää ymmärtää, miten alun perin epäkonformistiseksi katsottu vaihtoehtoinen äänimaailma on pystynyt integroitumaan laajempaan kulttuuriseen keskusteluun. Näin ollen keskustelu stoner metallin variaatioista tarjoaa paitsi musiikillisen analyysin myös mahdollisuuden tarkastella yhteiskunnallisia ja teknologisia muutoksia. Tämä yhteys selittyy osittain sillä, kuinka genren edustajat ovat onnistuneet hyödyntämään käytössään ollut teknologiaa tuottaakseen innovatiivisia äänihakuisia kokonaisuuksia, jotka ylittävät asettamansa raja-arvot.
 

@@ -16,10 +16,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -145,7 +144,7 @@ Kielitieteellisen ja musiikillisen analyysin näkökulmasta on huomattava, että
 
 Historiallisia yhtäläisyyksiä voidaan havaita, kun tarkastellaan popmusiikin ja muiden tyylilajien välisiä vuorovaikutuksia. Esimerkiksi bändien ja soittajien kokeilut tuottavat usein uudenlaista kielellistä rytmiä, missä harmoniset käänteet ja rytmiset synkretismit avautuvat uudenlaisissa kulttuurisissa merkityskentissä. Näin syntyy musiikkia, joka samanaikaisesti ammentaa vaikutteita kansainvälisistä mainstream-virroista sekä vaihtoehtoisista, tietyssä mielessä itsenäisyyteen korostavista liikkeistä. Historiallisesti nämä ilmiöt ovat korreloineet yhteiskunnan multi-kulttuurisen dynamiikan kanssa, jolloin kulttuurien raja-aitojen hälventyminen on edesauttanut uudenlaisten musiikillisten tarinoiden syntyä.
 
-Tulevaisuuteen suuntautuvat tutkimukset korostavat edelleen sitä, että "happy" -musiikin cross-genre lähestymistapa tarjoaa laajoja mahdollisuuksia sekä musiikillisessa teorian kehityksessä että kulttuurisessa vuorovaikutuksessa. Teknologisten innovaatioiden ja globaalien verkostojen myötä perinteiset musiikkilajit ovat entistä tiiviimmässä vuorovaikutuksessa, mikä mahdollistaa synkretististen fenomenojen moninaisuuden ja jatkuvan kehittymisen. Näin ollen optimistisen musiikin teemoja yhdistelevä tuotanto on paitsi esteettisesti miellyttävää myös akateemisesti merkittävää, sillä se heijastaa meidän yhteiskunnassa vallitsevaa halua ylittää rajallisuuksia ja luoda uusia yhteyksiä eri kulttuurien välille.  
+Tulevaisuuteen suuntautuvat tutkimukset korostavat edelleen sitä, että "happy" -musiikin cross-genre lähestymistapa tarjoaa laajoja mahdollisuuksia sekä musiikillisessa teorian kehityksessä että kulttuurisessa vuorovaikutuksessa. Teknologisten innovaatioiden ja globaalien verkostojen myötä perinteiset musiikkilajit ovat entistä tiiviimmässä vuorovaikutuksessa, mikä mahdollistaa synkretististen fenomenojen moninaisuuden ja jatkuvan kehittymisen. Näin ollen optimistisen musiikin teemoja yhdistelevä tuotanto on paitsi esteettisesti miellyttävää myös akateemisesti merkittävää, sillä se heijastaa meidän yhteiskunnassa vallitsevaa halua ylittää rajallisuuksia ja luoda uusia yhteyksiä eri kulttuurien välille.
 
 Yhteenvetona voidaan todeta, että kansainvälisessä musiikkitutkimuksessa cross-genre ilon ilmaiseminen muodostaa mielenkiintoisen ja moniulotteisen ilmiön. Historialliset innovaatiot, teknologiset edistysaskeleet sekä kulttuurien välinen dialogi ovat mahdollistaneet sen, että ilon tematiikka on voinut levitä laajalle eri musiikkityylien välillä. Näin syntynyt synteesi heijastaa sekä perinteiden että modernin näkemyksen yhdistelmää, joka edelleen inspiroi sekä teoreetikkoja että säveltäjiä. Tämä monitahoinen kokonaisuus on osoitus siitä, että musiikillinen ilonvälitys on pysyvä ja jatkuvasti uudistuva ilmiö, joka vastaa globaaleihin kulttuurisiin muutoksiin ja tarjoaa jatkuvasti uusia näkökulmia ilon ja positiivisuuden esittämiseen.
 
@@ -215,6 +214,6 @@ Lopuksi voidaan todeta, että nykyaikainen "Happy" -musiikki edustaa ilmiötä, 
 
 Kansainvälisen musiikin ilon ja energian kehitystä on tutkittu systemaattisesti, jolloin löydökset osoittavat melodisen dynamiikan ja rytmisten vaihteluiden keskeisen roolin euforisten teosten muodostumisessa. Teknologisen kehityksen myötä modernin 1900-luvun alusta lähtien tuotannon ja levitysjärjestelmien moninaistuminen on mahdollistanut ilolaulujen ja tanssittavien kappaleiden entistä laajemman yleisön saavuttamisen. Näin ollen analyysit ovat korostaneet sekä harmonisten rakenteiden että modulaarisen tekstuurin merkitystä.
 
-Lisäksi musiikkiteoreettisessa tarkastelussa on havaittu, että modaaliset vaihtelut ja dynaamiset kontrastit vaikuttavat kuulijakokemukseen positiivisesti. Kansainvälisen musiikkikentän diskurssissa ilon teemoja voidaan tulkita myös kulttuurihistoriallisina ilmentyinä, jotka heijastavat yhteiskunnallisia muutoksia ja globaalia vuorovaikutusta. 
+Lisäksi musiikkiteoreettisessa tarkastelussa on havaittu, että modaaliset vaihtelut ja dynaamiset kontrastit vaikuttavat kuulijakokemukseen positiivisesti. Kansainvälisen musiikkikentän diskurssissa ilon teemoja voidaan tulkita myös kulttuurihistoriallisina ilmentyinä, jotka heijastavat yhteiskunnallisia muutoksia ja globaalia vuorovaikutusta.
 
 Lopuksi on todettava, että kansainvälisen musiikin monitasoiset rakenne-elementit muodostavat perustan ilon ja energian kokemukselle. Tällainen analyysi korostaa, miten perinteiset ja modernit elementit nivoutuvat yhteen muodostaen teljesäisen diskurssin, joka on historiallisesti juurtunut ja jatkuvasti kehittyvä.

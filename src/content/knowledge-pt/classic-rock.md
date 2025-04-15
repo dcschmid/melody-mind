@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -74,7 +73,7 @@ TOTAL DE CARACTERES: 5801
 
 ## Subgenres and Variations
 
-A análise dos subgêneros e variações que compõem o Classic Rock revela um campo multifacetado onde a intersecção entre influências musicais, contextos históricos e inovações tecnológicas se torna preponderante para a compreensão do fenômeno. Durante as décadas de 1960 a 1980, esse estilo consolidou uma identidade enraizada na tradição do blues, do folk e da música erudita, dando origem a distintas ramificações que, em conjunto, estabeleceram os alicerces de uma cultura musical global. A articulação entre os aspectos performáticos e a experimentação sonora reflete, assim, um movimento de constante evolução, marcado pela busca de expressividade e pela superação dos limites convencionais da técnica instrumentística e da composição.  
+A análise dos subgêneros e variações que compõem o Classic Rock revela um campo multifacetado onde a intersecção entre influências musicais, contextos históricos e inovações tecnológicas se torna preponderante para a compreensão do fenômeno. Durante as décadas de 1960 a 1980, esse estilo consolidou uma identidade enraizada na tradição do blues, do folk e da música erudita, dando origem a distintas ramificações que, em conjunto, estabeleceram os alicerces de uma cultura musical global. A articulação entre os aspectos performáticos e a experimentação sonora reflete, assim, um movimento de constante evolução, marcado pela busca de expressividade e pela superação dos limites convencionais da técnica instrumentística e da composição.
 
 Ademais, a emergência do Hard Rock, enquanto subgênero, encontra raízes nas abordagens revolucionárias de guitarristas virtuosos que incorporaram técnicas inovadoras de distorção e amplificação. Artistas que integraram esta vertente, como exemplificado por alguns dos precursores do movimento, contribuíram decisivamente para a cristalização de um som mais abrasivo e energético, o que, por sua vez, possibilitou a criação de atmosferas sonoras intensas. Tais transformações refletem não somente as mudanças tecnológicas nos equipamentos de gravação e amplificação, mas também o anseio por novas formas de expressão artística que desafiassem as estruturas musicais vigentes.
 

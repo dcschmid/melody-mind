@@ -17,10 +17,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -159,7 +158,7 @@ En somme, l'analyse de la performance et de la culture live dans le domaine goth
 
 Le mouvement musical gothique apparaît dans la fin des années 1970, dans le sillage du post-punk, et s’inscrit dans une volonté de rupture et de renouvellement esthétique. Les premières expérimentations ont révélé une recherche de sonorités sombres, caractéristiques d’un univers littéraire et artistique fortement inspiré par le romantisme et le symbolisme. Dès lors, l’accent était mis sur des ambiances mélancoliques, la réverbération des guitares et l’utilisation précoce de claviers, éléments qui allaient marquer l’identité sonore du genre.
 
-Initialement, des groupes tels que Bauhaus et Siouxsie and the Banshees, actifs dès le début des années 1980, ont posé les bases d’un style musical mêlant rigueur formelle et atmosphères inquiétantes. Il convient de noter que cette émergence a été simultanément influencée par un désir de subversion des normes esthétiques établies, en s’appuyant sur des références littéraires et historiques qui évoquaient le macabre et l’ésotérique. Par ailleurs, la scénographie et l’imagerie visuelle adoptées par ces artistes ont constitué autant d’éléments essentiels à la construction d’un discours identitaire et symbolique. 
+Initialement, des groupes tels que Bauhaus et Siouxsie and the Banshees, actifs dès le début des années 1980, ont posé les bases d’un style musical mêlant rigueur formelle et atmosphères inquiétantes. Il convient de noter que cette émergence a été simultanément influencée par un désir de subversion des normes esthétiques établies, en s’appuyant sur des références littéraires et historiques qui évoquaient le macabre et l’ésotérique. Par ailleurs, la scénographie et l’imagerie visuelle adoptées par ces artistes ont constitué autant d’éléments essentiels à la construction d’un discours identitaire et symbolique.
 
 La période subséquente, marquée par une évolution technologique significative, a favorisé l’intégration de nouveaux instruments électroniques et d’effets de traitement du son. L’apparition et la généralisation progressive de la boîte à rythmes et du synthétiseur ont permis d’enrichir les textures sonores, tout en accentuant la dimension hypnotique des compositions. Ces avancées techniques, attestées par les innovations observées dans les productions en studio, ont contribué à la consolidation d’un style musical à la fois novateur et expérimental, dont la recherche de l’ombre et du mystère se voulait résolument contemporaine.
 

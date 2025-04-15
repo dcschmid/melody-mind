@@ -17,10 +17,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -160,7 +159,7 @@ Tot slot illustreert de studie van de livecultuur binnen trance een bredere cult
 
 De ontwikkeling en evolutie van trancemuziek vormt een wezenlijk hoofdstuk binnen de internationale elektronische muziektraditie. De oorsprong van dit genre is nauw verweven met de technologische en culturele innovaties die plaatsvonden in de late jaren tachtig en vroege jaren negentig. In deze periode zorgde de doorbraak van digitale synthesizers, sequencers en samplingapparatuur voor een radicale transformatie van de elektronische muziekscene. Tegelijkertijd bood de versmelting van invloeden uit de house‐ en technoscene een vruchtbare grond waarop trancemuziek kon ontstaan, met als eerste voorbeelden grensverleggende producties die zowel minimalistisch als atmosferisch waren.
 
-In de beginjaren van de ontwikkeling speelde een internationale gemeenschap van producenten en dj’s een cruciale rol in het verkennen van de muzikale mogelijkheden die deze technologieën boden. Zo leidde de populariteit van clubs en ravefeesten tot een intensieve experimentatie met de structuur en opbouw van muzikale composities. In deze context ontwikkelden de vroege pioniers, met name in Duitsland en het Verenigd Koninkrijk, een muzikaal palet waarbij repetitieve melodische motieven en hypnotiserende ritmes centraal kwamen te staan. Deze muzikale exploratie droeg bij aan een structurele verandering waarbij de nadruk verschoven werd van puur dansbare beats naar een meer transcendent en emotioneel geladen muzikale beleving. 
+In de beginjaren van de ontwikkeling speelde een internationale gemeenschap van producenten en dj’s een cruciale rol in het verkennen van de muzikale mogelijkheden die deze technologieën boden. Zo leidde de populariteit van clubs en ravefeesten tot een intensieve experimentatie met de structuur en opbouw van muzikale composities. In deze context ontwikkelden de vroege pioniers, met name in Duitsland en het Verenigd Koninkrijk, een muzikaal palet waarbij repetitieve melodische motieven en hypnotiserende ritmes centraal kwamen te staan. Deze muzikale exploratie droeg bij aan een structurele verandering waarbij de nadruk verschoven werd van puur dansbare beats naar een meer transcendent en emotioneel geladen muzikale beleving.
 
 De technologische vooruitgang in de jaren negentig zorgde voor een verdere verfijning van de muzikale technieken binnen het genre. Digitale audiobewerkingssoftware maakte het mogelijk om geluiden met een ongekende precisie te manipuleren, hetgeen leidde tot complexere arrangementen en nauwkeurig opgebouwde soundscapes. In aanvulling hierop speelde de uitbreiding van de mogelijkheden voor live- en studioproductie een grote rol. Hierdoor ontstonden diverse subgenres en stromingen binnen de trancemuziek, elk met hun eigen karakteristieke klank en structurele kenmerken. De ontwikkeling van deze elektronische middelen vormde zodoende een belangrijke katalysator voor de creatieve verkenning en artistieke expressie binnen de internationale trance‐scene.
 

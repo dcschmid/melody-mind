@@ -17,14 +17,13 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Il genere Hard Rock, affermatosi nel corso degli anni Settanta, costituisce una sintesi complessa di tradizioni musicali che affondano le radici nel rock progressivo e nel blues, delineando una nuova estetica sonora a partire dagli anni sessanta. Tale corrente, segnata dall’introduzione innovativa dell’amplificazione elettrica e dal perfezionamento tecnico degli strumenti, ha trovato nella potenza ritmica e nella proiezione melodica la sua espressione più autentica. 
+Il genere Hard Rock, affermatosi nel corso degli anni Settanta, costituisce una sintesi complessa di tradizioni musicali che affondano le radici nel rock progressivo e nel blues, delineando una nuova estetica sonora a partire dagli anni sessanta. Tale corrente, segnata dall’introduzione innovativa dell’amplificazione elettrica e dal perfezionamento tecnico degli strumenti, ha trovato nella potenza ritmica e nella proiezione melodica la sua espressione più autentica.
 
 In questo contesto, band di rilievo internazionale, come Led Zeppelin e Deep Purple, hanno operato una trasformazione paradigmatica, consolidando una lingua musicale che si distingue per la sua intensità e complessità armonica. Inoltre, la riflessione teorico-analitica sulla struttura dei brani Hard Rock evidenzia una mobilità ritmica ad elevata articolazione, in grado di unire l’esperienza estetica a quella performativa, confermando il ruolo pionieristico di tale movimento nella storia della musica.
 

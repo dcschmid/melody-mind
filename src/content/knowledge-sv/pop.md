@@ -16,14 +16,13 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Popmusiken utgör en central kategori inom internationell musik, präglad av en dynamisk evolution som sedan mitten av 1900-talet har omdefinierat samtidens kulturella uttryck. Genrens ursprung kan spåras till populärkulturens tidiga stadier, där harmoniska strukturer, melodiös interaktion samt rytmisk innovation successivt integrerades i en formad låtstruktur. Den teknologiska utvecklingen, med förbättrade inspelningsmetoder och senare digitalisering, bidrog till att möjliggöra en bredare spridning och en ökad diversifiering av genreuttrycken. 
+Popmusiken utgör en central kategori inom internationell musik, präglad av en dynamisk evolution som sedan mitten av 1900-talet har omdefinierat samtidens kulturella uttryck. Genrens ursprung kan spåras till populärkulturens tidiga stadier, där harmoniska strukturer, melodiös interaktion samt rytmisk innovation successivt integrerades i en formad låtstruktur. Den teknologiska utvecklingen, med förbättrade inspelningsmetoder och senare digitalisering, bidrog till att möjliggöra en bredare spridning och en ökad diversifiering av genreuttrycken.
 
 Internationella artister och kulturella fenomen från varierande regioner har därmed varit avgörande för popmusikens utveckling. Vidare har den amerikanska musikscenen kombinerat element från jazzens improvisatoriska karaktär och bluesens emotionella uttryck, medan brittiska influenser bidrog till att forma en distinkt musikalisk idiomatik. Denna interaktion mellan musikteoretiska samband och teknologiska nyskapelser belyser popmusikens centrala roll i att spegla samtida samhällsförändringar och kulturell dynamik.
 

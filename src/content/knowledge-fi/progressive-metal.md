@@ -16,10 +16,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -95,9 +94,9 @@ Lopuksi voidaan todeta, että progressiivimetallin alagenrejen ja variaatioiden 
 
 ## Key Figures and Important Works
 
-Progressiivimetallin kehityshistoria ansaitsee huomattavaa musiikillista analyysiä erityisesti sen keskeisten vaikuttajien ja merkittävien teosten kautta. Ensimmäiset juuret tätä monimutkaista ja moniulotteista musiikkityyliä kohtaan voidaan jäljittää 1980-luvun puoliväliin, jolloin musiikin moniteemoisuus ja monimutkaiset rytmiset rakenteet alkoivat saada jalansijaa kansainvälisellä näyttämöllä. Tämän aikakauden teoksissa korostui vahvasti teknisesti hallittu soitannosto ja sävellysten rakenne, joka haastoi perinteiset rock- ja metallimaisemat. 
+Progressiivimetallin kehityshistoria ansaitsee huomattavaa musiikillista analyysiä erityisesti sen keskeisten vaikuttajien ja merkittävien teosten kautta. Ensimmäiset juuret tätä monimutkaista ja moniulotteista musiikkityyliä kohtaan voidaan jäljittää 1980-luvun puoliväliin, jolloin musiikin moniteemoisuus ja monimutkaiset rytmiset rakenteet alkoivat saada jalansijaa kansainvälisellä näyttämöllä. Tämän aikakauden teoksissa korostui vahvasti teknisesti hallittu soitannosto ja sävellysten rakenne, joka haastoi perinteiset rock- ja metallimaisemat.
 
-Ensimmäiset tunnusmerkit progressiivisesta lähestymistavasta ilmenevät erityisesti yhdysvaltalaisissa kokoonpanoissa, joiden vaikutus on ollut ratkaiseva subgenren kehitykselle. Yksi keskeisimmistä esimerkeistä on Dream Theater, joka perustettiin vuonna 1985 ja joka tunnetaan yhtenä progressiivimetallin kehittävästä kokonaisvaltaisesta estetiikasta. Bändin musiikillinen sanasto kattaa monimutkaiset soitinfrasoitteet, vaihtelevat rytminen painotusjärjestelmät sekä melodiset sävellykset, jotka nousevat yhteen teoreettisesti korkeatasoisen harmonian puitteissa. Dream Theaterin albumit, kuten "Images and Words" (1992), ovat muodostaneet perustan myöhemmälle kehitykselle ja vaikuttaneet laajasti genren muotoutumiseen. 
+Ensimmäiset tunnusmerkit progressiivisesta lähestymistavasta ilmenevät erityisesti yhdysvaltalaisissa kokoonpanoissa, joiden vaikutus on ollut ratkaiseva subgenren kehitykselle. Yksi keskeisimmistä esimerkeistä on Dream Theater, joka perustettiin vuonna 1985 ja joka tunnetaan yhtenä progressiivimetallin kehittävästä kokonaisvaltaisesta estetiikasta. Bändin musiikillinen sanasto kattaa monimutkaiset soitinfrasoitteet, vaihtelevat rytminen painotusjärjestelmät sekä melodiset sävellykset, jotka nousevat yhteen teoreettisesti korkeatasoisen harmonian puitteissa. Dream Theaterin albumit, kuten "Images and Words" (1992), ovat muodostaneet perustan myöhemmälle kehitykselle ja vaikuttaneet laajasti genren muotoutumiseen.
 
 Lisäksi on huomionarvoista tarkastella myös muita varhaisvaiheen toimijoita. Queensrÿche on lisäksi esimerkki yhdysvaltalaisesta bändistä, jonka tuotannossa yhdistyvät progressiivisen rockin ja metallin elementit. Heidän teoksissaan korostuvat kuvailevat sanoitukset ja konseptuaaliset kokonaisuudet, jotka käsittelevät monisyisiä teemoja niin henkilökohtaisesta identiteetistä kuin yhteiskunnallisista ilmiöistä. Näin ollen näiden yhtyeiden tuotanto muodostaa perustan myöhemmälle subgenren ekspansiolle ja teoreettiselle monimuotoisuudelle.
 

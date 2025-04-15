@@ -16,14 +16,13 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-The 'Cozy Evening' category presents an international musical experience defined by its historical richness and refined elegance. Drawing inspiration from the Western classical masterpieces of the eighteenth and nineteenth centuries—exemplified by the measured grandeur of Haydn and Beethoven—this selection also integrates influences from diverse cultural traditions. Eastern modalities, for example, contribute delicate melodic lines that evoke serene ambience, while subtle Latin American rhythms and Nordic tonalities serve to enrich the auditory tapestry. 
+The 'Cozy Evening' category presents an international musical experience defined by its historical richness and refined elegance. Drawing inspiration from the Western classical masterpieces of the eighteenth and nineteenth centuries—exemplified by the measured grandeur of Haydn and Beethoven—this selection also integrates influences from diverse cultural traditions. Eastern modalities, for example, contribute delicate melodic lines that evoke serene ambience, while subtle Latin American rhythms and Nordic tonalities serve to enrich the auditory tapestry.
 
 Moreover, the curation of these recordings adheres rigorously to historical authenticity, utilising period-appropriate instruments and performance practices. This careful integration of styles, rooted in an accurate understanding of their respective cultural and historical contexts, provides a sophisticated soundscape that is both intellectually engaging and emotionally resonant for an evening of reflective indulgence.
 

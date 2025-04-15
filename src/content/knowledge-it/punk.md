@@ -15,16 +15,15 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Il presente elaborato si propone di analizzare in maniera critica e approfondita il fenomeno musicale denominato punk, fenomeno emerso nel contesto delle trasformazioni socio-politiche degli anni Settanta e articolatosi prevalentemente in ambito anglosassone. Tale movimento, che vide protagonisti gruppi come i Sex Pistols nel Regno Unito e le Ramones negli Stati Uniti, rappresentò una reazione radicale contro le forme musicali consolidate, adottando una lingua sonora e visiva improntata alla rottura delle convenzioni estetiche. 
+Il presente elaborato si propone di analizzare in maniera critica e approfondita il fenomeno musicale denominato punk, fenomeno emerso nel contesto delle trasformazioni socio-politiche degli anni Settanta e articolatosi prevalentemente in ambito anglosassone. Tale movimento, che vide protagonisti gruppi come i Sex Pistols nel Regno Unito e le Ramones negli Stati Uniti, rappresentò una reazione radicale contro le forme musicali consolidate, adottando una lingua sonora e visiva improntata alla rottura delle convenzioni estetiche.
 
-In aggiunta, l’analisi musicologica del punk richiede una valutazione puntuale degli strumenti e delle tecniche performative, nonché del rapporto tra innovazione tecnologica e espressione artistica, nel rispetto di una rigorosa metodologia di indagine. 
+In aggiunta, l’analisi musicologica del punk richiede una valutazione puntuale degli strumenti e delle tecniche performative, nonché del rapporto tra innovazione tecnologica e espressione artistica, nel rispetto di una rigorosa metodologia di indagine.
 
 Infine, lo studio del punk evidenzia le implicazioni socio-culturali connesse alla ridefinizione dell’identità giovanile, proponendo un modello di contestazione e rinnovamento capace di influenzare in modo determinante l’evoluzione del panorama musicale internazionale.
 
@@ -158,9 +157,10 @@ Gli elementi scenici e la retorica del gesto assumono un’importanza notevole n
 
 Infine, la trasformazione della cultura live punk rappresenta un modello esemplare di come la musica possa inglobare nel proprio nucleo espressivo elementi di critica sociale e politica, pur mantenendo un rigido orientamento all’immediatezza e alla partecipazione massiva. Gli aspetti performativi, infatti, non si limitavano a un mero spettacolo, ma si esercitavano in una dimensione performativa a servizio di una narrativa controcorrente che mirava alla de-costruzione dei modelli estetici tradizionali. La valorizzazione dell’atto performativo in ambito punk continua a influenzare le espressioni artistiche contemporanee, contribuendo in modo significativo alla definizione delle nuove prospettive sulla relazione fra arte, politica e società.
 
-Bibliografia:  
-- Savage, J. (1991). Punk: Una storia della ribellione musicale.  
-- Julien, C. (2005). L’avanguardia punk: performance e identità.  
+Bibliografia:
+
+- Savage, J. (1991). Punk: Una storia della ribellione musicale.
+- Julien, C. (2005). L’avanguardia punk: performance e identità.
 
 Questa analisi si propone di esaminare, attraverso l’analisi critica e la contestualizzazione storica, il ruolo cardine della performance e della cultura live nella definizione di un’estetica punk che, pur nella sua apparente semplicità, si configura come gesto politico e sociale di grande rilievo.
 

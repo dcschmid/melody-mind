@@ -16,10 +16,9 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -47,7 +46,7 @@ Abschließend sei festzuhalten, dass das Verständnis der Emotion in der interna
 
 ## Musical Expression
 
-Die musikalische Ausdrucksweise im Bereich der entspannten Musik stellt ein Phänomen dar, das sich seit Mitte des 20. Jahrhunderts kontinuierlich entwickelt und international diversifiziert hat. In diesem Kontext liegt der Fokus auf Klangfarben, subtilen Harmonien sowie einer reduzierten dynamischen Intensität, die dem Hörer Raum zur Reflexion und inneren Ruhe eröffnet. Der Begriff „Musical Expression“ umfasst dabei nicht nur die instrumentale Darbietung, sondern auch das kompositorische und improvisatorische Gestalten, das auf multilateralen Einflüssen aus verschiedenen Kulturkreisen beruht.  
+Die musikalische Ausdrucksweise im Bereich der entspannten Musik stellt ein Phänomen dar, das sich seit Mitte des 20. Jahrhunderts kontinuierlich entwickelt und international diversifiziert hat. In diesem Kontext liegt der Fokus auf Klangfarben, subtilen Harmonien sowie einer reduzierten dynamischen Intensität, die dem Hörer Raum zur Reflexion und inneren Ruhe eröffnet. Der Begriff „Musical Expression“ umfasst dabei nicht nur die instrumentale Darbietung, sondern auch das kompositorische und improvisatorische Gestalten, das auf multilateralen Einflüssen aus verschiedenen Kulturkreisen beruht.
 
 Zentral für das Verständnis der entspannten musikalischen Ausdrucksformen ist die Entwicklung minimalistischer Kompositionsprinzipien, welche sich in den späten 1960er Jahren in Nordamerika und Europa etablierten. Komponisten wie Philip Glass und Steve Reich etablierten durch repetitive Strukturen und graduelle Veränderungen ein musikalisches Vokabular, das den Zuhörer in einen meditativen Zustand versetzt. Diese Herangehensweise, in der das Inhaltliche oft in der feinen Variation einzelner Klangsequenzen liegt, bildete die Grundlage eines musikalischen Ausdrucks, der gleichermaßen technisch präzise und emotional zurückhaltend ist.
 
@@ -189,6 +188,6 @@ Zusammenfassend lässt sich feststellen, dass Contemporary Expressions im Bereic
 
 ## Conclusion
 
-Zusammenfassend zeigt sich, dass die Kategorie „Relaxed“ im internationalen Kontext eine besondere musikalische Haltung widerspiegelt. Die Klanglandschaften dieser Stilrichtung beruhen auf behutsam arrangierten Harmonien und fein nuancierten modulatorischen Rhythmen, die dem Hörer ein Gefühl von Ausgeglichenheit und innerer Ruhe vermitteln. Dabei belegt die Integration traditioneller akustischer Instrumentierungen neben zeitgenössischen elektronischen Elementen eine gelungene Synthese, die sowohl auf kulturellen als auch historischen Entwicklungen basiert. 
+Zusammenfassend zeigt sich, dass die Kategorie „Relaxed“ im internationalen Kontext eine besondere musikalische Haltung widerspiegelt. Die Klanglandschaften dieser Stilrichtung beruhen auf behutsam arrangierten Harmonien und fein nuancierten modulatorischen Rhythmen, die dem Hörer ein Gefühl von Ausgeglichenheit und innerer Ruhe vermitteln. Dabei belegt die Integration traditioneller akustischer Instrumentierungen neben zeitgenössischen elektronischen Elementen eine gelungene Synthese, die sowohl auf kulturellen als auch historischen Entwicklungen basiert.
 
 Zudem verdeutlicht die Analyse, wie vielfältige Einflüsse aus unterschiedlichen Kulturkreisen und Epochen in den kreativen Prozess einfließen. Die gezielte Anwendung musiktheoretisch fundierter Kompositionstechniken ermöglicht es, ein klangliches Mosaik zu schaffen, das den anspruchsvollen Kriterien internationaler Musikwissenschaft gerecht wird und gleichzeitig ein breites Publikum anzieht. Insgesamt eröffnet die Betrachtung der „Relaxed“-Musik bedeutende Perspektiven auf die evolutionären Mechanismen moderner Klangkulturen.

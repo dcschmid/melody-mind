@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -130,7 +129,7 @@ Small, C. (1995). Reggae: The Rough Guide. London: Rough Guides Publishing.
 
 La musicalidad del ska constituye una manifestación cultural y artística que, desde sus inicios, ha ocupado un lugar fundamental en el imaginario social jamaicano y en la configuración de identidades colectivas en diversas geografías. Surgido a finales de la década de 1950 en Jamaica, el ska se erige como producto de una síntesis musical entre elementos del rhythm and blues estadounidense, el jazz y las tradiciones caribeñas, tales como el mento y el calipso. La amalgama de estos ritmos no sólo renovación artística en un contexto de inestabilidad política y cambio social, sino que también cumplió una función integradora en una época marcada por la búsqueda de una identidad postcolonial. En este sentido, el ska se convierte en un recurso de resistencia y afirmación cultural, contribuyendo a la cohesión social y a la redefinición de valores en plena transición hacia la modernidad.
 
-En el proceso de consolidación del ska se apreciaban claras influencias de las prácticas musicales tanto locales como internacionales que, en un diálogo dialéctico, posibilitaban la incorporación de arreglos innovadores en la instrumentación y la forma musical. En sus inicios, las grabaciones de bandas pioneras de la talla de The Skatalites y artistas como Prince Buster y Desmond Dekker, a finales de los años 50 y principios de los 60, ilustraron la capacidad de este nuevo género para articular un discurso sonoro acorde con la efervescencia sociopolítica de la Jamaica independiente. De igual manera, la cuidadosa utilización de instrumentos como la guitarra rítmica, el contrabajo y la sección de vientos hizo del ska una música en la que lo técnico dialogaba con lo emotivo, permitiendo la emergencia de un estilo caracterizado por la sincopación y un compás inconfundible en el “offbeat”. 
+En el proceso de consolidación del ska se apreciaban claras influencias de las prácticas musicales tanto locales como internacionales que, en un diálogo dialéctico, posibilitaban la incorporación de arreglos innovadores en la instrumentación y la forma musical. En sus inicios, las grabaciones de bandas pioneras de la talla de The Skatalites y artistas como Prince Buster y Desmond Dekker, a finales de los años 50 y principios de los 60, ilustraron la capacidad de este nuevo género para articular un discurso sonoro acorde con la efervescencia sociopolítica de la Jamaica independiente. De igual manera, la cuidadosa utilización de instrumentos como la guitarra rítmica, el contrabajo y la sección de vientos hizo del ska una música en la que lo técnico dialogaba con lo emotivo, permitiendo la emergencia de un estilo caracterizado por la sincopación y un compás inconfundible en el “offbeat”.
 
 El desarrollo del ska no puede ser comprendido sin atender a su trasfondo social y cultural. El fenómeno musical se erigió como una respuesta a las tensiones inherentes al proceso de emancipación jamaicana, al tiempo que reflejaba la esperanza de un futuro mejor entre los sectores sociales marginales. En este sentido, las letras de muchas composiciones se convirtieron en vehículos para denunciar la desigualdad y proponer una perspectiva de transformación, haciendo del ska un instrumento de reivindicación social. Asimismo, las actuaciones en vivo y las grabaciones difundidas a través de las nuevas tecnologías de la época facilitaron la circulación de un discurso musical que trascendió los límites geográficos de la isla, aportando a una configuración identitaria más amplia.
 

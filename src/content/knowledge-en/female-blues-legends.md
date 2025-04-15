@@ -16,14 +16,13 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Female Blues Legends epitomise a seminal epoch in international music history. Emerging predominantly during the early twentieth century, these pioneering artistes redefined the expressive potential of blues through their emotive vocal interpretations and profound lyrical narratives. In the United States, figures such as Bessie Smith and Mamie Smith inaugurated a distinctive musical vocabulary that resonated powerfully both within African-American communities and across international audiences. 
+Female Blues Legends epitomise a seminal epoch in international music history. Emerging predominantly during the early twentieth century, these pioneering artistes redefined the expressive potential of blues through their emotive vocal interpretations and profound lyrical narratives. In the United States, figures such as Bessie Smith and Mamie Smith inaugurated a distinctive musical vocabulary that resonated powerfully both within African-American communities and across international audiences.
 
 Moreover, these musicians navigated a period of significant technological and cultural transformation, utilising advancements in acoustic recording and, later, electric amplification. Their recordings, produced amid the social and economic upheavals of the interwar era, encapsulate a synthesis of personal resilience and collective aspiration. By melding innovative musical techniques with culturally reflective themes, these female luminaries forged a legacy that continues to inform and inspire contemporary scholarly discourse and artistic endeavour.
 

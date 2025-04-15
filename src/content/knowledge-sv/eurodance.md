@@ -17,14 +17,13 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Eurodance utgör en distinkt genre inom internationell dansmusik, vilken etablerades under sent 1980-tal och bekräftades i början av 1990-tal. Genren kännetecknas av en syntessens komplexitet, i vilken digitala klangfärger och strukturerade rytmer sammanflätas med innovativa samplingtekniker. Dessutom präglas eurodance av en dualistisk vokalstruktur, där energiska sångpassager samexisterar med syntetiskt förstärkta refränger, vilket tydliggör interaktionen mellan manuell prestation och elektronisk produktion. 
+Eurodance utgör en distinkt genre inom internationell dansmusik, vilken etablerades under sent 1980-tal och bekräftades i början av 1990-tal. Genren kännetecknas av en syntessens komplexitet, i vilken digitala klangfärger och strukturerade rytmer sammanflätas med innovativa samplingtekniker. Dessutom präglas eurodance av en dualistisk vokalstruktur, där energiska sångpassager samexisterar med syntetiskt förstärkta refränger, vilket tydliggör interaktionen mellan manuell prestation och elektronisk produktion.
 
 Utvecklingen av eurodance speglar de markanta teknologiska och socio-politiska omvälvningar som präglar Europa under övergångsperioden efter Berlinmurens fall. Industrialiserade studiolösningar och digitala produktionsmetoder bidrog till att möjliggöra en ny musikalisk dynamik, vilken integrerar element från techno och house. Denna kulturellt rotade syntes har gett upphov till en varaktig påverkan på den internationella dansmusikens estetik och uttrycksform, vilket fortsatt intar en central plats i den globala musikforskningen.
 

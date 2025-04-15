@@ -16,14 +16,13 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Introduktionen til kategorien Nostalgisk musik udgør en analytisk undersøgelse af internationale musikalske strømninger, der har sat varige spor i 1900‑tallets kulturelle landskab. Fokus rettes mod den æstetiske og tekniske udvikling, der fra de traditionelle analoge optagemetoder til de næsten monumentale pladeudgivelser i efterkrigstiden har formet kompositionernes udtryk. Denne tilgang underbygges af en systematisk evaluering af harmoniske strukturer, modalitet og timbral farvning, hvilket tilkendegiver de grundlæggende principper, der kendetegner perioden. 
+Introduktionen til kategorien Nostalgisk musik udgør en analytisk undersøgelse af internationale musikalske strømninger, der har sat varige spor i 1900‑tallets kulturelle landskab. Fokus rettes mod den æstetiske og tekniske udvikling, der fra de traditionelle analoge optagemetoder til de næsten monumentale pladeudgivelser i efterkrigstiden har formet kompositionernes udtryk. Denne tilgang underbygges af en systematisk evaluering af harmoniske strukturer, modalitet og timbral farvning, hvilket tilkendegiver de grundlæggende principper, der kendetegner perioden.
 
 Desuden analyseres, hvordan prominente internationale kunstnere og ensembler, aktive i tidsrummet fra 1950’erne til 1980’erne, bidrog til en musikalsk identitet baseret på både tradition og fornyelse. I forlængelse heraf belyses den indbyrdes relation mellem musikalske innovationer og den sociale transformation, der har præget generationernes kollektive erindring. Denne undersøgelse præsenterer dermed et integreret perspektiv, der forbinder fortidens musikalske traditioner med moderne, nostalgisk inspirerede tendenser.
 
@@ -75,7 +74,7 @@ Afslutningsvis er de analyserede elementer og teknikker inden for nostalgisk int
 
 ## Historical Development
 
-Historisk udvikling i musikkategorien “Nostalgic” afspejler en kompleks sammensmeltning af kulturelle, teknologiske og æstetiske strømninger, der har haft vidtrækkende konsekvenser for den internationale musikscene. Fra de første lydoptagelser i begyndelsen af det tyvende århundrede til den seneste digitale formidling har nostalgiske udtryk tjent som redskab til at bevare og genskabe fortidens musikalske fortællinger. Denne udvikling er præget af et kontinuerligt samspil mellem teknologiske fremskridt og den kollektive længsel efter fortiden, hvilket i høj grad har formet den moderne opfattelse af, hvad der betegnes som nostalgisk musik. 
+Historisk udvikling i musikkategorien “Nostalgic” afspejler en kompleks sammensmeltning af kulturelle, teknologiske og æstetiske strømninger, der har haft vidtrækkende konsekvenser for den internationale musikscene. Fra de første lydoptagelser i begyndelsen af det tyvende århundrede til den seneste digitale formidling har nostalgiske udtryk tjent som redskab til at bevare og genskabe fortidens musikalske fortællinger. Denne udvikling er præget af et kontinuerligt samspil mellem teknologiske fremskridt og den kollektive længsel efter fortiden, hvilket i høj grad har formet den moderne opfattelse af, hvad der betegnes som nostalgisk musik.
 
 I de tidlige optagelsesteknologiers frembrud, herunder fonografens introduktion i 1890’erne og videreudviklingen af optagelsesenheder i det tidlige tyvende århundrede, fandt en transformationsproces sted, som lagde grunden for international distribution og bevaring af musik. Optagelser af folkesange, salmer og populærmusik fra forskellige kulturer blev hurtigt anerkendt som værdifulde arkivalier, der frembragte en kollektiv erindring om en forgangsrig musikalsk æra. Denne tidlige fase var central for opfattelsen af musikkens evne til at fungere som et medium for følelsesmæssig og kulturel tilknytning, idet de optagede sange vidnede om hverkens identitet og samfundsmæssige tilhørsforhold.
 

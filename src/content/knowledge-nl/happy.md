@@ -16,10 +16,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -151,7 +150,7 @@ Tot slot benadrukt de huidige academische benadering dat ‘Happy’-muziek een 
 
 ## Psychological Impact
 
-De psychologische impact van vrolijke muziek vormt een boeiend onderzoeksgebied binnen de muziekpsychologie en benadrukt de nauwe verwevenheid tussen muzikale structuren en emotionele responsen. Diverse studies hebben aangetoond dat bepaalde muzikale elementen, zoals een snel tempo, een harmonieuze toonsoort en een regelmatige ritmiek, een onmiddellijke en diepgaande invloed hebben op de stemming en de gemoedstoestand van luisteraars. In internationale context heeft men gezien dat deze muzikale kenmerken, welke terug te vinden zijn in uiteenlopende culturen en historisch ontwikkelde muzikale stromingen, universele mechanismen activëren die gevoelens van vreugde en optimisme bevorderen. 
+De psychologische impact van vrolijke muziek vormt een boeiend onderzoeksgebied binnen de muziekpsychologie en benadrukt de nauwe verwevenheid tussen muzikale structuren en emotionele responsen. Diverse studies hebben aangetoond dat bepaalde muzikale elementen, zoals een snel tempo, een harmonieuze toonsoort en een regelmatige ritmiek, een onmiddellijke en diepgaande invloed hebben op de stemming en de gemoedstoestand van luisteraars. In internationale context heeft men gezien dat deze muzikale kenmerken, welke terug te vinden zijn in uiteenlopende culturen en historisch ontwikkelde muzikale stromingen, universele mechanismen activëren die gevoelens van vreugde en optimisme bevorderen.
 
 De mechanismen achter deze psychologische werking van vrolijke muziek zijn zowel complex als meervoudig. Ten eerste blijkt dat het gebruik van dur-toonsoorten gepaard gaat met een verhoogde activiteit in hersengebieden die verantwoordelijk zijn voor beloning en emotionele verwerking. Tevens correleert een snel tempo met een gestimuleerde hartslag en een verhoogd cortisolniveau, hetgeen resulteert in een lichamelijke respons die als opwekkend en energiek wordt ervaren. Verder speelt de interconnectie tussen melodische lijnen en harmonische progressies een essentiële rol in de interpretatie van muzikale emoties, zoals blijkt uit onderzoeken waarin zelfs subtiele variaties in toonhoogte en dynamiek significante effecten op de stemming teweegbrengen.
 

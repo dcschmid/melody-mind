@@ -16,14 +16,13 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduzione
 
-Nel contesto della musica latinoamericana, il panorama sviluppatosi nel corso dei secoli rivela un intreccio complesso fra tradizione indigena, influenze coloniali e innovazioni locali. Fin dall’epoca precolombiana, si osserva una ricca eredità musicale, successivamente arricchita dagli idiomi europei e africani, che hanno condotto allo sviluppo di generi emblematici come il tango argentino, la samba brasiliana e la cumbia colombiana, consolidatisi nel XIX secolo. 
+Nel contesto della musica latinoamericana, il panorama sviluppatosi nel corso dei secoli rivela un intreccio complesso fra tradizione indigena, influenze coloniali e innovazioni locali. Fin dall’epoca precolombiana, si osserva una ricca eredità musicale, successivamente arricchita dagli idiomi europei e africani, che hanno condotto allo sviluppo di generi emblematici come il tango argentino, la samba brasiliana e la cumbia colombiana, consolidatisi nel XIX secolo.
 
 L’evoluzione in questo ambito è stata ulteriormente favorita dall’introduzione di tecnologie d’avanguardia, fondamentali per la diffusione e la trasmissione delle opere di compositori e interpreti, i cui contributi hanno permesso un dialogo profondo con le culture tradizionali. In aggiunta, gli approcci musicologici moderni, basati su analisi stilistiche e documentarie, offrono una lettura interdisciplinare della scena latinoamericana, evidenziando il dinamismo e la capacità di rinnovamento presenti nei vari territori e contribuendo a una comprensione più articolata della sua ricca eredità culturale.
 
@@ -123,9 +122,10 @@ Da un punto di vista metodologico, l’analisi della musica dal vivo in America 
 
 Infine, si evince che la fruizione degli eventi dal vivo in America Latina rappresenta una testimonianza della capacità della musica di adattarsi e trasformarsi in risposta alle esigenze storiche e sociali. Oltre a fornire momenti di svago e d’intrattenimento, tali eventi si configurano come laboratori di creatività e spazi di comunicazione interculturale. Le implicazioni teoriche di questa analisi sottolineano come l’esperienza del concerto vada intesa come un vero e proprio rituale contemporaneo, in grado di sintetizzare e rinnovare le antiche tradizioni musicali pur mantenendo una forte impronta innovativa. In conclusione, l’esperienza della musica dal vivo in America Latina si erge come paradigma di sinergia artistica e culturale, in cui le attività convenzionali e gli spazi espositivi si fondono in una trama narrativa che attraversa e unisce storie, generazioni e territori.
 
-Fonti:  
-- Béhague, G. (2007). História da Bossa Nova. São Paulo: Editora 34.  
-- McGowan, C., & Pessanha, R. (2003). The Brazilian Sound: Samba, Bossa Nova, and the Popular Music of Brazil. Philadelphia: Temple University Press.  
+Fonti:
+
+- Béhague, G. (2007). História da Bossa Nova. São Paulo: Editora 34.
+- McGowan, C., & Pessanha, R. (2003). The Brazilian Sound: Samba, Bossa Nova, and the Popular Music of Brazil. Philadelphia: Temple University Press.
 - Velazco, M. (1999). Nueva Canción: La musicalización de la protesta social. Buenos Aires: Ediciones del Signo.
 
 ## Media e promozione

@@ -17,14 +17,13 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Classic rock representerar en betydelsefull epok inom internationell populärmusik med sitt genombrott under 1960- och 1970-talen. Genren vann form genom en harmonisk syntes av bluesens improvisatoriska uttrycksformer och de teknologiska innovationer som elgitarrens förstärkning möjliggjorde. Framstående ensembler från exempelvis Storbritannien och Förenta staterna utvecklade en distinkt musikalisk estetik, där experimentella arrangemang och komplex harmonik blev centrala inslag. 
+Classic rock representerar en betydelsefull epok inom internationell populärmusik med sitt genombrott under 1960- och 1970-talen. Genren vann form genom en harmonisk syntes av bluesens improvisatoriska uttrycksformer och de teknologiska innovationer som elgitarrens förstärkning möjliggjorde. Framstående ensembler från exempelvis Storbritannien och Förenta staterna utvecklade en distinkt musikalisk estetik, där experimentella arrangemang och komplex harmonik blev centrala inslag.
 
 Vidare återspeglar classic rock samtidens kulturella strömningar, där individens rebelliska uttryck och kollektivets experimentlusta stadigt utmanade rådande normer. Genom att tillämpa avancerade musikteoretiska analyser kan man identifiera intrikata rytmiska mönster och tonala moduleringar, vilka samverkade för att forma en ny musikalisk landskap. Sammantaget utgör denna epok en hörnsten i den moderna musikens utveckling och fortsätter att inspirera samtida akademisk forskning.
 

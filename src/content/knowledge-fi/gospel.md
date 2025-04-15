@@ -16,14 +16,13 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Globaalisti merkittävä gospel-musiikki on historiallisesti juurtunut Yhdysvaltoihin, missä sen perusta rakentuu afroamerikkalaisen yhteisön syvällisestä kulttuurihistoriasta ja uskonnollisista kokemuksista. 1800-luvun loppupuolella kirkolliset lauluperinteet – mukaan lukien psalmit ja liturgiset hymnit – sulautuivat modernimpaan sävellystekniikkaan, minkä seurauksena muodostui omaleimainen gospel-tyyli. 
+Globaalisti merkittävä gospel-musiikki on historiallisesti juurtunut Yhdysvaltoihin, missä sen perusta rakentuu afroamerikkalaisen yhteisön syvällisestä kulttuurihistoriasta ja uskonnollisista kokemuksista. 1800-luvun loppupuolella kirkolliset lauluperinteet – mukaan lukien psalmit ja liturgiset hymnit – sulautuivat modernimpaan sävellystekniikkaan, minkä seurauksena muodostui omaleimainen gospel-tyyli.
 
 Tämä kehitys kävi ilmi erityisesti 1900-luvun alussa, kun virallistettu äänitetekniikka mahdollisti musiikin monipuolisen dokumentoinnin ja kansainvälisen levikin. Gospelin harmoniset ja rytmiset ratkaisut sekä melodian improvisaatiomahdollisuudet mahdollistivat sen, että taiteilijat pystyivät ilmaisemaan syvällisiä hengellisiä ja kulttuurisia teemoja. Edelleen teknologian ja median kehittyessä 1900-luvun puolivälissä gospel saavutti laajemman kuulijakunnan, mikä vahvisti sen asemaa osana globaalia musiikkiperinnettä.
 

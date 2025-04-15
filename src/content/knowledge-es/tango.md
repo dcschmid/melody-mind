@@ -17,16 +17,15 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-La génesis del tango se inscribe en la confluencia de culturas en el Río de la Plata a fines del siglo XIX. El encuentro de influencias criollas, europeas y africanas dio origen a un estilo musical expresivo, inicialmente interpretado en espacios urbanos marginales de Buenos Aires y Montevideo. 
+La génesis del tango se inscribe en la confluencia de culturas en el Río de la Plata a fines del siglo XIX. El encuentro de influencias criollas, europeas y africanas dio origen a un estilo musical expresivo, inicialmente interpretado en espacios urbanos marginales de Buenos Aires y Montevideo.
 
-Asimismo, el tango se erige como una manifestación sociocultural emblemática, reflejo de procesos de modernización y migración. La evolución armónica y rítmica del género constata la fusión de tradiciones musicales autóctonas y europeas, evidenciada en composiciones de sus primeros intérpretes y compositores, cuyos aportes resultaron decisivos en la configuración del discurso musical del momento. 
+Asimismo, el tango se erige como una manifestación sociocultural emblemática, reflejo de procesos de modernización y migración. La evolución armónica y rítmica del género constata la fusión de tradiciones musicales autóctonas y europeas, evidenciada en composiciones de sus primeros intérpretes y compositores, cuyos aportes resultaron decisivos en la configuración del discurso musical del momento.
 
 En consecuencia, su estudio resulta imprescindible para comprender los entramados identitarios y culturales que han marcado la historia musical internacional.
 

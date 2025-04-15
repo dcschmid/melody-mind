@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduzione
 
@@ -202,8 +201,8 @@ In conclusione, la trattazione della rappresentazione mediatica delle DJ femmini
 
 ## Eredità e futuro
 
-Le donne DJ hanno avuto un ruolo determinante nello sviluppo della musica elettronica internazionale, contribuendo sin dagli anni Settanta al consolidamento della cultura discoteca. La loro presenza ha rappresentato un punto di svolta, favorendo l’introduzione di tecniche innovative nel mixaggio e nell’uso di tecnologie emergenti, come i lettori digitali e i sistemi di produzione audio.  
+Le donne DJ hanno avuto un ruolo determinante nello sviluppo della musica elettronica internazionale, contribuendo sin dagli anni Settanta al consolidamento della cultura discoteca. La loro presenza ha rappresentato un punto di svolta, favorendo l’introduzione di tecniche innovative nel mixaggio e nell’uso di tecnologie emergenti, come i lettori digitali e i sistemi di produzione audio.
 
-Inoltre, l'eredità di queste pionieristiche si manifesta nella crescente visibilità e partecipazione femminile nei circuiti globali. Tali contributi hanno posto le basi per un futuro in cui l’innovazione tecnica e l’inclusione sociale si integrano, rafforzando il tessuto culturale della musica elettronica.  
+Inoltre, l'eredità di queste pionieristiche si manifesta nella crescente visibilità e partecipazione femminile nei circuiti globali. Tali contributi hanno posto le basi per un futuro in cui l’innovazione tecnica e l’inclusione sociale si integrano, rafforzando il tessuto culturale della musica elettronica.
 
 Alla luce di quanto esposto, il percorso storico e l’impatto attuale delle DJ donne evidenziano come l’evoluzione della disciplina musicale si fondi su un continuo scambio tra tradizione e sperimentazione.

@@ -16,10 +16,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -89,7 +88,7 @@ Afslutningsvis kan det konstateres, at Blackened Death Metal som subgenre repræ
 
 ## Key Figures and Important Works
 
-Blackened death metal repræsenterer en yderst kompleks musikalsk udvikling, der i høj grad trækker på de to tilsyneladende modsatrettede subgenrer – den amerikanske death metal og den nordiske black metal. Denne hybridgenre fandt sin umiddelbare oprindelse i starten af 1990'erne, hvor kunstnere fra forskellige kontinerenter begyndte at eksperimentere med at fusionere de tekniske og brutale elementer fra death metal med den atmosfæriske, ofte anticlerikale æstetik, der kendetegner black metal. Denne sammensmeltning af stilarter afspejler en bevidst afvisning af gængse musikalske normer og en stræben efter at udtrykke dybtgående, ofte nihilistiske tematikker. 
+Blackened death metal repræsenterer en yderst kompleks musikalsk udvikling, der i høj grad trækker på de to tilsyneladende modsatrettede subgenrer – den amerikanske death metal og den nordiske black metal. Denne hybridgenre fandt sin umiddelbare oprindelse i starten af 1990'erne, hvor kunstnere fra forskellige kontinerenter begyndte at eksperimentere med at fusionere de tekniske og brutale elementer fra death metal med den atmosfæriske, ofte anticlerikale æstetik, der kendetegner black metal. Denne sammensmeltning af stilarter afspejler en bevidst afvisning af gængse musikalske normer og en stræben efter at udtrykke dybtgående, ofte nihilistiske tematikker.
 
 I en tidlig fase af genrens udvikling trådte et internationalt fællesskab frem med stilistisk innovation og en særlig modvilje mod mainstream-kulturens konventioner. En central aktør i denne sammenhæng er det østrigske band Belphegor, der blev dannet i begyndelsen af 1990’erne. Belphegor har gennem deres udgivelser, herunder album som "Tattoos Desecrator" (1999), observeret en markant fornyelse, idet de integrerede den harmonisk komplekse struktur, der kendetegner death metal, med de okkulte og blasfemiske elementer, som er karakteristiske for black metal. Denne symbiose har ikke blot udfordret genregrænserne, men også haft en vedvarende indflydelse på den musikalske æstetik inden for den internationale metalkultur.
 
@@ -149,7 +148,7 @@ Afslutningsvis kan det konstateres, at blackened death metal udgør et unikt eks
 
 ## Performance and Live Culture
 
-Performance og livekultur inden for blackened death metal repræsenterer en særlig og kompleks sammenblanding af æstetiske, tekniske og kulturelle elementer, der har udviklet sig i takt med den internationale extreme metaltradition. Genren, der i sin kerne forener den dissonante brutalitet fra death metal med de atmosfæriske og ofte rituelle elementer fra black metal, opstod i løbet af begyndelsen af 1990’erne og har siden da udfordret normerne for scenepræstationer og publikumsinteraktion på en måde, der afspejler både en historisk kontinuitet og en vedvarende innovation. Denne sammenblanding af genreidentiteter har givet anledning til en performancekultur, hvor rituelle ideologier, visuel æstetik og musikalsk virtuositet spiller afgørende roller. 
+Performance og livekultur inden for blackened death metal repræsenterer en særlig og kompleks sammenblanding af æstetiske, tekniske og kulturelle elementer, der har udviklet sig i takt med den internationale extreme metaltradition. Genren, der i sin kerne forener den dissonante brutalitet fra death metal med de atmosfæriske og ofte rituelle elementer fra black metal, opstod i løbet af begyndelsen af 1990’erne og har siden da udfordret normerne for scenepræstationer og publikumsinteraktion på en måde, der afspejler både en historisk kontinuitet og en vedvarende innovation. Denne sammenblanding af genreidentiteter har givet anledning til en performancekultur, hvor rituelle ideologier, visuel æstetik og musikalsk virtuositet spiller afgørende roller.
 
 Historisk set kan performanceaspektet i blackened death metal spores tilbage til banebrydende bands som Bathory og Venom i begyndelsen af 1980’erne, der lagde fundamentet for det, der skulle udvikle sig til en international scene. Bathorys banebrydende album "Under the Sign of the Black Mark" (1987) og Venoms provokerende udtryk var medvirkende til at etablere en æstetisk kodeks, hvor mørke symboler, anti-establishment budskaber og en bevidst konstrueret scenepersona tiltrækker både kontrovers og beundring. Denne æstetik lagde op til, at liveoptrædener ikke blot skulle være en gengivelse af albumproduktioner, men et selvstændigt kunstnerisk udtryk, hvor scenekunst og performancefusion mødte publikums forventninger om autenticitet og radikalitet.
 

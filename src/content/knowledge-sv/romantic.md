@@ -17,10 +17,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -186,6 +185,6 @@ Slutligen kan konstnärliga prestationer under den romantiska epoken betraktas s
 
 ## Conclusion
 
-Sammanfattningsvis visar den romantiska musikens internationella utveckling på en djupgående transformation av konstnärligt uttryck och tekniska innovationer. Under denna epok, som sträcker sig från sent 1700-tal till mitten av 1800-talet, manifesterades en stark individualism och en känsla för naturens och själens mystik. Kompositörer såsom Beethoven, Schubert och Mendelssohn utvecklade en harmonisk expansion, raffinerad modulering och komplexa tematiska strukturer som bröt mot tidigare klassiska normer.  
+Sammanfattningsvis visar den romantiska musikens internationella utveckling på en djupgående transformation av konstnärligt uttryck och tekniska innovationer. Under denna epok, som sträcker sig från sent 1700-tal till mitten av 1800-talet, manifesterades en stark individualism och en känsla för naturens och själens mystik. Kompositörer såsom Beethoven, Schubert och Mendelssohn utvecklade en harmonisk expansion, raffinerad modulering och komplexa tematiska strukturer som bröt mot tidigare klassiska normer.
 
 Vidare bidrog tekniska framsteg, särskilt inom instrumenttillverkning och notationssystem, till att möjliggöra en rikare dynamik och större uttrycksutrymme på internationell nivå. Denna period präglas av en samverkan mellan konstnärligt djup och formell precision, där den känslosamma intensiteten samspelar med rigorösa musikaliska former. Tillsammans utgör dessa aspekter en bestående grund för vidare akademisk diskussion om den romantiska musikens betydelse.

@@ -16,10 +16,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -149,9 +148,9 @@ Således kan det fastställas att livekulturen inom blackened death metal inte e
 
 ## Development and Evolution
 
-Utvecklingen och evolutionen inom genren blackened death metal utgör ett signifikant skifte inom den extrema metalscenen. Genrens uppkomst kan spåras tillbaka till slutet av 1980-talet och början av 1990-talet, då de estetiska och konceptuella strömningarna inom svart metal och dödsmetall gradvis tvågs samman. Den distinkta fusionsprocessen manifesterade sig genom en medveten sammansmältning av dödsmetalens tekniska komplexitet med de mörka, rituella uttrycken hos svart metal, vilket gav upphov till en nyskapande och provocerande konstnärlig uttrycksform. 
+Utvecklingen och evolutionen inom genren blackened death metal utgör ett signifikant skifte inom den extrema metalscenen. Genrens uppkomst kan spåras tillbaka till slutet av 1980-talet och början av 1990-talet, då de estetiska och konceptuella strömningarna inom svart metal och dödsmetall gradvis tvågs samman. Den distinkta fusionsprocessen manifesterade sig genom en medveten sammansmältning av dödsmetalens tekniska komplexitet med de mörka, rituella uttrycken hos svart metal, vilket gav upphov till en nyskapande och provocerande konstnärlig uttrycksform.
 
-I takt med att den internationella musikkulturen breddades under 1990-talets början, spelade europeiska musiker en avgörande roll i genrens utveckling. Framstående aktörer från Centraleuropa och Östeuropa bidrog med innovativa inslag, där bland annat polska ensembler använde sig av aggressiva, komplexa riff kombinerade med atmosfäriskt laddade mellansekvenser. Liknande tendenser förekom i de nordiska länderna, där en experimentell anda och kritisk hållning gentemot det etablerade befäste genrens fundament. 
+I takt med att den internationella musikkulturen breddades under 1990-talets början, spelade europeiska musiker en avgörande roll i genrens utveckling. Framstående aktörer från Centraleuropa och Östeuropa bidrog med innovativa inslag, där bland annat polska ensembler använde sig av aggressiva, komplexa riff kombinerade med atmosfäriskt laddade mellansekvenser. Liknande tendenser förekom i de nordiska länderna, där en experimentell anda och kritisk hållning gentemot det etablerade befäste genrens fundament.
 
 Under periodens teknologiska utveckling möjliggjorde introduktionen av ny inspelningsteknik och förbättrade studiomiljöer en förfining av ljudbilden, vilket i sin tur bidrog till att bredda genreuttrycken. Den teknologiska innovationen gav musikerna möjlighet att integrera råa, organiska ljud med mer bearbetade och atmosfäriska lager, och därmed skapa en unik ljudpalett. Teknologins inverkan syns tydligt i den respektive instrumenteringen, där de enkla strukturerna i tidiga inspelningar gradvis utvecklades till en hög grad av dynamik och detaljrikedom.
 

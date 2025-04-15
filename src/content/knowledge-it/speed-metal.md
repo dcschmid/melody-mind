@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -32,7 +31,7 @@ Analizzando il percorso storico del speed metal, si evidenzia una connessione st
 
 ## Historical Background
 
-La genesi dello speed metal rappresenta un capitolo fondamentale della metamorfosi del panorama musicale internazionale degli anni Ottanta, in cui si assisteva a una progressiva evoluzione della musica pesante. Tale sottogenere, nata come espressione radicale e accelerata della tradizione heavy metal, si sviluppò in un contesto storico e culturale caratterizzato da turbolenze socioeconomiche, innovazioni tecnologiche e un crescente scambio interculturale tra le diverse comunità metalofone del Nord Europa e del Nord America. La combinazione di una velocità ritmica intensa, linee di chitarra virtuosistiche e testi tematicamente orientati verso visioni futuristiche e di critica sociale costituì una rottura con le forme più classiche del rock, anticipando un nuovo concetto di virtuosismo e di sperimentazione musicale. In tale ambito, la presunta influenza della New Wave of British Heavy Metal (NWOBHM), espressa da band come Iron Maiden e Judas Priest, fu determinante per la definizione degli elementi stilistici che, progressivamente, si concretizzarono nello speed metal. 
+La genesi dello speed metal rappresenta un capitolo fondamentale della metamorfosi del panorama musicale internazionale degli anni Ottanta, in cui si assisteva a una progressiva evoluzione della musica pesante. Tale sottogenere, nata come espressione radicale e accelerata della tradizione heavy metal, si sviluppò in un contesto storico e culturale caratterizzato da turbolenze socioeconomiche, innovazioni tecnologiche e un crescente scambio interculturale tra le diverse comunità metalofone del Nord Europa e del Nord America. La combinazione di una velocità ritmica intensa, linee di chitarra virtuosistiche e testi tematicamente orientati verso visioni futuristiche e di critica sociale costituì una rottura con le forme più classiche del rock, anticipando un nuovo concetto di virtuosismo e di sperimentazione musicale. In tale ambito, la presunta influenza della New Wave of British Heavy Metal (NWOBHM), espressa da band come Iron Maiden e Judas Priest, fu determinante per la definizione degli elementi stilistici che, progressivamente, si concretizzarono nello speed metal.
 
 L’evoluzione stilistica e la contestualizzazione geografica dello speed metal devono essere analizzate in parallelo al contribuire dei mutamenti tecnologici, che hanno influito significativamente sul processo creativo e produttivo. In particolare, l’adozione di amplificatori e pedali effetti di nuova generazione, assieme all’introduzione di tecniche di registrazione d’avanguardia, consentì agli artisti di elaborare sonorità più aggressive e incisive. Tali innovazioni, insieme all’emergere di studi di registrazione all’avanguardia, facilitarono la diffusione di sonorità caratterizzate da riff incalzanti e assoli di chitarra estremamente articolati. Questo processo di trasformazione fu ulteriormente agevolato dal crescente scambio di influenze tra artisti europei e nordamericani, il quale permise una contaminazione reciproca tra le tradizioni musicali locali e ampliò i confini del genere, anticipando le esperienze più estreme e radicali di successivi sottogeneri, come il thrash metal e il power metal.
 

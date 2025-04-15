@@ -17,10 +17,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -86,7 +85,7 @@ Sammanfattningsvis utgör harmoniska strukturer, rytmisk dynamik, instrumenterin
 
 ## Historical Development
 
-Den internationella utvecklingen av upplyftande musik innefattar en komplex samverkan mellan idéströmningar, teknologiska framsteg och kulturella förändringar, vilka samtliga har bidragit till ett globalt musikarv präglat av optimistiska uttrycksformer. Under 1800-talets romantiska epok manifesterades en ökad benägenhet att uttrycka känslor och idealism genom musik. Kompositörer såsom Ludwig van Beethoven och Franz Schubert använde sig av dynamiska harmonier och modala strukturer för att väcka känslor av triumf och andlig förhöjning hos sina samtida. Denna period präglades av en upplyftande retorik som speglade samtidens filosofiska och religiösa ideal, och lade därmed grunden för en senare, mer explicit utveckling av en internationell upplyftande musiktradition. 
+Den internationella utvecklingen av upplyftande musik innefattar en komplex samverkan mellan idéströmningar, teknologiska framsteg och kulturella förändringar, vilka samtliga har bidragit till ett globalt musikarv präglat av optimistiska uttrycksformer. Under 1800-talets romantiska epok manifesterades en ökad benägenhet att uttrycka känslor och idealism genom musik. Kompositörer såsom Ludwig van Beethoven och Franz Schubert använde sig av dynamiska harmonier och modala strukturer för att väcka känslor av triumf och andlig förhöjning hos sina samtida. Denna period präglades av en upplyftande retorik som speglade samtidens filosofiska och religiösa ideal, och lade därmed grunden för en senare, mer explicit utveckling av en internationell upplyftande musiktradition.
 
 Med övergången in i modernismen under tidigt 1900-tal skedde en transformation av musikaliska uttryck, där innovativa kompositionsmetoder blandades med ny teknologi. Elektrifieringen av musikinstrument och införandet av inspelningsteknik förändrade inte enbart praktiken kring musikutövning, utan även hur musik distribuerades och upplevdes. Särskilt framträdande var den utveckling som ägde rum i USA, där influenser från afrikanska och europeiska musiktraditioner, exempelvis gospel och spirituals, sammanfogades i en dynamisk syntes. Vid denna tidpunkt utvecklades musiken till ett medel för att främja hopp och envishet i en värld präglad av sociala och ekonomiska omvälvningar, vilket ytterligare cementerade den upplyftande musikens roll som ett verktyg för personlig och kollektiv emancipation.
 

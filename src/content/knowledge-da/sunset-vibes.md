@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -126,7 +125,7 @@ Samtidig er det relevant at belyse den teknologiske innovation, der muliggør re
 
 Afslutningsvis fremstår den internationale relevans af "Sunset Vibes" som et resultat af en vedvarende interaktion mellem teknologiske fremskridt og æstetiske idealer. Denne genre demonstrerer, hvordan en kombination af avancerede produktionsværktøjer og veldefinerede musikalske teknikker kan konstituere et lydunivers, der udtrykker både nostalgi og nyskabelse. Gennem en systematisk anvendelse af signalbehandling, harmonisk udformning og spatial lydarkitektur bliver "Sunset Vibes" et eksempel på, hvordan moderne lydproduktion kan tilbyde en dybdegående, sanselig oplevelse, som både afspejler og udvider grænserne for international musikalsk innovation.
 
-(Ansvarsfuld anvendelse af tekniske processer og musikalsk analyse bidrager dermed til en forståelse af, hvordan historiske strømninger og moderne teknologi samspiller, og hvordan dette skaber et unikt udtryk, der fortsætter med at udvikle sig i takt med den internationale musikkultur.) 
+(Ansvarsfuld anvendelse af tekniske processer og musikalsk analyse bidrager dermed til en forståelse af, hvordan historiske strømninger og moderne teknologi samspiller, og hvordan dette skaber et unikt udtryk, der fortsætter med at udvikle sig i takt med den internationale musikkultur.)
 
 Tegn: 5355
 

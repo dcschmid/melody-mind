@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Johdanto
 
@@ -130,7 +129,7 @@ Yhteenvetona voidaan todeta, että naisdj:ien ikoniset albumit ja kappaleet ovat
 
 ## Kulttuurinen vaikutus
 
-Naisten rooli levittäjänaisten (DJ:t) historiassa on herättänyt yhä enemmän akateemista kiinnostusta kansainvälisessä musiikkitutkimuksessa. Kulttuurinen vaikutus, joka naispohjaisten levittäjien toiminnassa ilmenikään, heijastaa laajoja yhteiskunnallisia ja taiteellisia virtauksia. Tutkijat ovat pitkään tarkastelleet, miten genren sisäiset dynamiikat sekä globalisoituvat musiikkikentät ovat mahdollistaneet naisläheisten ilmaisuvoimien ja identiteettien esiinmarssin. 
+Naisten rooli levittäjänaisten (DJ:t) historiassa on herättänyt yhä enemmän akateemista kiinnostusta kansainvälisessä musiikkitutkimuksessa. Kulttuurinen vaikutus, joka naispohjaisten levittäjien toiminnassa ilmenikään, heijastaa laajoja yhteiskunnallisia ja taiteellisia virtauksia. Tutkijat ovat pitkään tarkastelleet, miten genren sisäiset dynamiikat sekä globalisoituvat musiikkikentät ovat mahdollistaneet naisläheisten ilmaisuvoimien ja identiteettien esiinmarssin.
 
 Kansainvälisen musiikin kentällä naisten asema levittäjinä on muuttunut merkittävästi 1980-luvulta lähtien, jolloin elektronisen tanssimusiikin nousu loi uusia tiloja kokeelliselle ja innovatiiviselle ilmaisulle. Ensimmäisten merkittävien naisdj:ien urat vietytiin aluksi usein marginaalisissa paikoissa, mikä myöhemmin johtikin tunnustuksen kasvamiseen. Tällainen kehityskulku resonoi vahvasti naisten kamppailussa tasa-arvon ja elinkeinojen muodossa, jotka historiallisesti ovat olleet muita miesten dominoimia kenttiä.
 
@@ -210,6 +209,6 @@ Yhteenvetona voidaan todeta, että naisdj:ien mediarepresentaatio kansainvälise
 
 Nais-DJ:t kansainvälisessä musiikkihistoriassa ovat muodostaneet merkittävän osan elektronisen tanssimusiikin kehitystä. 1980-luvun loppupuolella ja sitä seuranneilla vuosikymmenillä digitaalisen ääniteknologian edistyminen loi perustan uudenlaiselle äänimaailmalle, jossa naisartisteilla oli keskeinen rooli. Tutkimukset osoittavat, että tämän murroksen vaiheissa naisten rooli ei ollut pelkästään sivuasema, vaan he olivat aktiivisia innovaattoreita, jotka haastivat perinteiset musiikkikäsitykset.
 
-Historiallisesti musiikkikentän segregaatioon vaikuttanut sukupuolten erottelu on kuitenkin saanut jatkuvia haasteita tieteellisen keskustelun ja kulttuurisen diversiteetin myötä. Analyysi on paljastanut, että teknologian kehitys ja kulttuurihistoriallisten tapahtumien ajoitus ovat mahdollistaneet naissubjektiivisuuden korostamisen DJ-kentällä. 
+Historiallisesti musiikkikentän segregaatioon vaikuttanut sukupuolten erottelu on kuitenkin saanut jatkuvia haasteita tieteellisen keskustelun ja kulttuurisen diversiteetin myötä. Analyysi on paljastanut, että teknologian kehitys ja kulttuurihistoriallisten tapahtumien ajoitus ovat mahdollistaneet naissubjektiivisuuden korostamisen DJ-kentällä.
 
 Tulevaisuuden perintö edellyttää edelleen kriittistä akateemista tutkimusta sekä kulttuurista vuoropuhelua, jonka avulla voidaan varmistaa, että nais-DJ:iden vaikutus säilyy ja kehittyy globaalilla musiikkiarellä.

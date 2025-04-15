@@ -15,14 +15,13 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Brazilian music represents a fertile confluence of diverse cultural streams, rooted in the nation’s intricate historical legacy. The fusion of European harmonic structures with African rhythmic complexity and the melodic contours of indigenous traditions forged a distinctive musical paradigm. This evolution became particularly evident during the early twentieth century, when genres such as samba emerged in urban centres, articulating both joie de vivre and social commentary. 
+Brazilian music represents a fertile confluence of diverse cultural streams, rooted in the nation’s intricate historical legacy. The fusion of European harmonic structures with African rhythmic complexity and the melodic contours of indigenous traditions forged a distinctive musical paradigm. This evolution became particularly evident during the early twentieth century, when genres such as samba emerged in urban centres, articulating both joie de vivre and social commentary.
 
 Furthermore, the subsequent advent of bossa nova in the mid‑twentieth century illustrated a refined synthesis of jazz improvisation and subtle Brazilian rhythms, thereby forging robust international connections. The resultant stylistic innovations garnered global admiration, situating Brazilian music as a vibrant contributor to the world’s international musical tapestry.
 

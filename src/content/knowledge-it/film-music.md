@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -86,7 +85,7 @@ Tra le figure chiave emergenti nelle prime fasi della musica per il cinema, spic
 
 In parallelo, il contributo di Bernard Herrmann rappresenta un ulteriore punto di svolta nella storia della musica filmica. Durante la metà del secolo scorso, Herrmann si distinse per la sua sensibilità artistica e per una capacità innovativa di combinare armonie dissonanti e orchestrazioni originali, creando atmosfere psicologicamente intense. Particolarmente cruciale fu il suo impiego dell’orchestrazione per il confezionamento di ambientazioni sonore evocative, come evidenziato nelle colonne sonore di “Psycho” (1960) e “La compagnia del methane” (1951), opere che hanno lasciato un segno indelebile nella memoria collettiva del medium cinematografico. La sua metodologia analitica e sperimentale ha inoltre aperto la strada a nuove forme espressive, influenzando in modo diretto le produzioni successive e contribuendo alla definizione di una “scienza del suono” applicata al cinema.
 
-Sul versante europeo, la tradizione della musica cinematografica ha beneficiato in modo sostanziale del contributo dei compositori italiani, notabilmente Nino Rota ed Ennio Morricone. Rota, noto soprattutto per aver collaborato in maniera duratura con il regista Federico Fellini, ha saputo fondere elementi della tradizione operistica italiana con innovazioni stilistiche che si riflettono in opere quali “Il gabbiano” (1963). La sua sensibilità melodica e la capacità di sofisticare l’uso degli strumenti a fiato e delle corde hanno consentito di creare atmosfere oniriche e al contempo simboliche, ben connesse con il linguaggio visivo del cinema italiano e internazionale.  
+Sul versante europeo, la tradizione della musica cinematografica ha beneficiato in modo sostanziale del contributo dei compositori italiani, notabilmente Nino Rota ed Ennio Morricone. Rota, noto soprattutto per aver collaborato in maniera duratura con il regista Federico Fellini, ha saputo fondere elementi della tradizione operistica italiana con innovazioni stilistiche che si riflettono in opere quali “Il gabbiano” (1963). La sua sensibilità melodica e la capacità di sofisticare l’uso degli strumenti a fiato e delle corde hanno consentito di creare atmosfere oniriche e al contempo simboliche, ben connesse con il linguaggio visivo del cinema italiano e internazionale.
 
 In aggiunta, Ennio Morricone ha rappresentato una figura imprescindibile per la definizione della modernità nella musica da film. Con una carriera che si estende per diversi decenni, Morricone ha elaborato colonne sonore capaci di dialogare in modo profondo con le immagini, come evidenziato nelle opere di Sergio Leone. La sua produzione si caratterizza per l’uso di strumenti insoliti e per l’impiego di tecniche ritmiche inedite, dando vita a composizioni che spesso ridefiniscono le convenzioni del genere. Morricone ha saputo utilizzare tanto il linguaggio orchestrale tradizionale quanto risorse della musica popolare e folkloristica, creando sinergie inedite che hanno arricchito il panorama cinematografico internazionale.
 

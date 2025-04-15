@@ -17,10 +17,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -28,7 +27,7 @@ Introduction
 
 La catégorie « Commute Companion » se présente comme une exploration approfondie de la musique internationale, alliant rigueur historique et analyse théorique précise. Dès le milieu du XXe siècle, le panorama musical connaît une mutation significative, notamment avec l’émergence de mouvements artistiques en Europe et aux États-Unis, dont les influences se diffusent lentement à l’échelle mondiale. L’intégration d’avancées technologiques, telles que l’arrivée de l’enregistrement multipiste et de la radio, favorise l’évolution des styles et permet une relecture des traditions musicales en tenant compte des contextes socioculturels spécifiques.
 
-Par ailleurs, l’étude des rapports entre innovations instrumentales et pratiques esthétiques offre un terrain propice à une compréhension nuancée des interactions entre structures rythmiques et mutations sociales. En effet, cette analyse, appuyée sur des références établies (voir notamment les travaux de Dupont, 1978), met en exergue la complexité des influences réciproques dans un monde en constante transformation. 
+Par ailleurs, l’étude des rapports entre innovations instrumentales et pratiques esthétiques offre un terrain propice à une compréhension nuancée des interactions entre structures rythmiques et mutations sociales. En effet, cette analyse, appuyée sur des références établies (voir notamment les travaux de Dupont, 1978), met en exergue la complexité des influences réciproques dans un monde en constante transformation.
 
 (Exactement 892 caractères)
 

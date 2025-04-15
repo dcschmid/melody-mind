@@ -17,16 +17,15 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
 Introduktion
 
-Internationell musikhistoria framstår som ett omfattande forskningsområde där kulturella uttrycksformer analyseras utifrån strikta historiska och teoretiska perspektiv. Denna studieinriktning fokuserar på att kartlägga musikaliska fenomen inom en global ram, från den europeiska renässansens strukturerade polyfoni till de expressionistiska och postmoderna strömningarna i 1900-talets stora metropolregioner. Akademiska metoder, som historisk-kritisk analys och musikteoretisk modellering, kombineras för att belysa samband mellan teknologiska innovationer och nya kompositionsmetoder. 
+Internationell musikhistoria framstår som ett omfattande forskningsområde där kulturella uttrycksformer analyseras utifrån strikta historiska och teoretiska perspektiv. Denna studieinriktning fokuserar på att kartlägga musikaliska fenomen inom en global ram, från den europeiska renässansens strukturerade polyfoni till de expressionistiska och postmoderna strömningarna i 1900-talets stora metropolregioner. Akademiska metoder, som historisk-kritisk analys och musikteoretisk modellering, kombineras för att belysa samband mellan teknologiska innovationer och nya kompositionsmetoder.
 
 Vidare realiseras en djupgående dialog om hur interkulturella influenser, exempelvis den österländska skalans ornamentik och västerländska harmoniska strukturer, samverkar och utmanar varandra. Genom denna studie strävar vi efter en nyanserad förståelse av internationella musikfenomens utveckling, vilket bidrar till en berikad och kritiskt granskad överblick av den globala musikaliska arvet.
 

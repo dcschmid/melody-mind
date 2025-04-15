@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -192,7 +191,8 @@ En la contemporaneidad, la investigación y la interpretación de la música cl�
 
 Finalmente, es innegable que el legado de la música clásica se fundamenta en una continuidad y una ruptura simultáneas, donde cada generación reinterpretada enriquece y debate los valores heredados. Esta tensión dialéctica entre tradición e innovación constituye uno de los rasgos definitorios de toda práctica artística seria y transformadora. Así, la música clásica, en sus múltiples encarnaciones históricas y estilísticas, sigue siendo un testimonio vivo de la capacidad humana para trascender el tiempo a través del arte, proporcionando a las generaciones futuras un marco de referencia ineludible en el campo de la cultura y la creación artística.
 
-Referencias:  
-- Taruskin, R. (2005). The Oxford History of Western Music. Oxford University Press.  
-- Rosen, C. (1997). Sonata Forms. W. W. Norton & Company.  
+Referencias:
+
+- Taruskin, R. (2005). The Oxford History of Western Music. Oxford University Press.
+- Rosen, C. (1997). Sonata Forms. W. W. Norton & Company.
 - Rosenberg, C. (2010). Composing the Classical: Haydn, Mozart, and Beethoven. Cambridge University Press.

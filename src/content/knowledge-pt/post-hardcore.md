@@ -16,10 +16,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -149,7 +148,7 @@ Ainda que originário de um contexto geográfico circunscrito, o impacto do post
 
 Outrossim, a relevância do post-hardcore é evidenciada pela capacidade de estimular novas formas de intersubjetividade e de mobilização politizada. Ao romper com padrões pré-estabelecidos, tanto no que concerne à sonoridade quanto à produção textual, o gênero inaugurou uma prática estética que permitiu a comunicação de sentimentos e ideais que, de outra forma, poderiam permanecer à margem do discurso dominante. Nesse contexto, pode-se observar uma confluência de fatores – artísticos, políticos e tecnológicos – que interagem de maneira indissociável, restabelecendo a função social da música enquanto instrumento de crítica e de transformação cultural. A análise desses elementos, fundamentada em rigorosos estudos musicológicos, permite concluir que o post-hardcore representa uma das manifestações mais autênticas e instigantes de um período marcado por intensas reconfigurações culturais.
 
-Por conseguinte, a importância cultural do post-hardcore reside na sua capacidade de simbolizar uma ruptura com modelos estéticos ultrapassados, promovendo assim uma renovação não somente sonora, mas também ideológica. A sua herança perdura tanto na produção musical contemporânea quanto nas práticas de engajamento político artístico, constituindo-se em um campo fértil para investigações futuras acerca das múltiplas inter-relações entre música, cultura e sociedade. Dessa forma, o post-hardcore permanece como um exemplo paradigmático de como manifestações musicais podem funcionar como catalisadoras de transformações sociais, ao mesmo tempo que reafirmam o papel da arte como memória e instrumento de resistência. 
+Por conseguinte, a importância cultural do post-hardcore reside na sua capacidade de simbolizar uma ruptura com modelos estéticos ultrapassados, promovendo assim uma renovação não somente sonora, mas também ideológica. A sua herança perdura tanto na produção musical contemporânea quanto nas práticas de engajamento político artístico, constituindo-se em um campo fértil para investigações futuras acerca das múltiplas inter-relações entre música, cultura e sociedade. Dessa forma, o post-hardcore permanece como um exemplo paradigmático de como manifestações musicais podem funcionar como catalisadoras de transformações sociais, ao mesmo tempo que reafirmam o papel da arte como memória e instrumento de resistência.
 
 Contagem de caracteres: 5359
 

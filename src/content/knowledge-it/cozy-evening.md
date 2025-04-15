@@ -16,14 +16,13 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-La sezione "Cozy Evening" si propone di esaminare in modo approfondito il panorama musicale in cui atmosfere intime e riflessive si manifestano attraverso sonorità calde e avvolgenti. Questa tipologia, che affonda le radici nelle tradizioni europee e nordamericane, si caratterizza per la fusione di texture analogo-digitali e arrangiamenti studiati, elementi che hanno acquisito rilevanza a partire dagli anni Settanta. 
+La sezione "Cozy Evening" si propone di esaminare in modo approfondito il panorama musicale in cui atmosfere intime e riflessive si manifestano attraverso sonorità calde e avvolgenti. Questa tipologia, che affonda le radici nelle tradizioni europee e nordamericane, si caratterizza per la fusione di texture analogo-digitali e arrangiamenti studiati, elementi che hanno acquisito rilevanza a partire dagli anni Settanta.
 
 Inoltre, lo studio si concentra sull’impatto delle innovazioni tecnologiche, quali l’introduzione dei sintetizzatori analogici, strumenti infatti cruciali per modellare un’estetica sonora capace di evocare sensazioni di intimità e contemplazione. Il percorso analitico, fondato su una rigorosa ricognizione storica, integra prospettive teoriche e riferimenti critici, offrendo un contributo significativo alla comprensione delle trasformazioni estetiche e culturali.
 

@@ -16,10 +16,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -127,7 +126,7 @@ L’analisi dei criteri tecnici applicati nelle "Gaming Session" evidenzia, pert
 
 ## Cultural Significance
 
-Il presente elaborato intende analizzare, in chiave storico-musicologica, il significato culturale attribuito alle “Gaming Session”, ovvero agli ambienti sonori dedicati alle sessioni videoludiche, che hanno rappresentato un crocevia fondamentale tra innovazione tecnologica, espressione creativa e consenso culturale. Fin dagli albori dell’era videoludica, a partire dalla metà degli anni Settanta, si è assistito a una progressiva evoluzione degli elementi sonori, strettamente correlata all’innovazione delle tecnologie elettroniche e al mutamento delle dinamiche di consumo culturale. Tale fenomeno, inizialmente confinato agli ambienti degli studi di sviluppo e alle sale giochi, ha progressivamente assunto una valenza sociale e simbolica, riconoscendosi come un elemento imprescindibile della narrazione interattiva. 
+Il presente elaborato intende analizzare, in chiave storico-musicologica, il significato culturale attribuito alle “Gaming Session”, ovvero agli ambienti sonori dedicati alle sessioni videoludiche, che hanno rappresentato un crocevia fondamentale tra innovazione tecnologica, espressione creativa e consenso culturale. Fin dagli albori dell’era videoludica, a partire dalla metà degli anni Settanta, si è assistito a una progressiva evoluzione degli elementi sonori, strettamente correlata all’innovazione delle tecnologie elettroniche e al mutamento delle dinamiche di consumo culturale. Tale fenomeno, inizialmente confinato agli ambienti degli studi di sviluppo e alle sale giochi, ha progressivamente assunto una valenza sociale e simbolica, riconoscendosi come un elemento imprescindibile della narrazione interattiva.
 
 Nel corso degli anni Ottanta, l’adozione dei chip sonori e dei sintetizzatori ha permesso una prima sperimentazione nell’ambito delle composizioni video ludiche, dando vita a sonorità che, seppur caratterizzate da limitazioni tecniche, furnivano agli utenti nuove modalità di interazione attraverso un impatto emotivo immediato ed efficace. In quest’epoca, opere musicali associate a titoli iconici come "Space Invaders" (1978) e "Pac-Man" (1980) hanno contribuito a definire un linguaggio estetico in via di formazione. La produzione sonora, spesso incentrata su ritmi ipnotici e motivi ripetitivi, assumeva una duplice funzione: rafforzare l’esperienza ludica e instaurare un dialogo simbolico tra immaginazione visiva e percezione uditiva. Le composizioni si rifacevano a teorie armoniche convenzionali, ma al contempo sperimentavano strutture ritmiche innovative, segnando un passaggio cruciale nella concezione della musica come elemento integrato alla performance ludica.
 

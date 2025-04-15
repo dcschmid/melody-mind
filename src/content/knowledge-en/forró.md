@@ -17,10 +17,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -68,7 +67,7 @@ In summary, forró presents itself as an exemplary illustration of a musical gen
 
 ## Subgenres and Variations
 
-The evolution of Forró has engendered a rich tapestry of subgenres and variations, each of which reflects both the cultural and historical complexities of its origin in the Nordeste region of Brazil. Emerging in the early decades of the twentieth century, Forró initially exemplified the musical and dance traditions of rural communities, incorporating influences from European polkas and indigenous rhythms in a confluence that was both innovative and reflective of its social milieu. Over time, this authentic folk expression began to distinguish itself into discrete subgenres, each incubated by shifts in social practices, recording technologies, and the broader currents of modernisation. 
+The evolution of Forró has engendered a rich tapestry of subgenres and variations, each of which reflects both the cultural and historical complexities of its origin in the Nordeste region of Brazil. Emerging in the early decades of the twentieth century, Forró initially exemplified the musical and dance traditions of rural communities, incorporating influences from European polkas and indigenous rhythms in a confluence that was both innovative and reflective of its social milieu. Over time, this authentic folk expression began to distinguish itself into discrete subgenres, each incubated by shifts in social practices, recording technologies, and the broader currents of modernisation.
 
 In its primordial form, Forró Pé-de-Serra represents the archetypal style that laid the foundation for subsequent variations. Characterised by its acoustic instrumentation, most notably the accordion, zabumba, and triangle, this subgenre was traditionally performed in informal gatherings, where its lively yet unpolished aesthetic resonated with local audiences. Historically, its extempore nature and unmediated recordings preserved in secretive homes and cultural associations contributed to an oral tradition that has been instrumental in defining the authenticity of the genre. Moreover, the spontaneity inherent in Forró Pé-de-Serra has fostered an enduring connection between the music and the daily lives of its adherents, a testament to its roots in the community’s collective spirit.
 

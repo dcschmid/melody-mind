@@ -16,16 +16,15 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduktion
 
-Den irske musiks historie er dybt forankret i de keltiske traditioner, hvor folkemusikalske udtryk siden middelalderen har udgjort grundstenen for den nationale identitet. Traditionelle instrumenter såsom uilleann pipes og bodhrán, der udvikledes i det irske samfund, bidrager til en karakteristisk tonalitet, der understøtter en kompleks musikalitet med både modale og rytmiske nuancer. 
+Den irske musiks historie er dybt forankret i de keltiske traditioner, hvor folkemusikalske udtryk siden middelalderen har udgjort grundstenen for den nationale identitet. Traditionelle instrumenter såsom uilleann pipes og bodhrán, der udvikledes i det irske samfund, bidrager til en karakteristisk tonalitet, der understøtter en kompleks musikalitet med både modale og rytmiske nuancer.
 
-I det 20. århundrede fik den irske musik et internationalt gennembrud, hvilket blandt andet skyldtes ny teknologi inden for lydoptagelse og den kulturelle bevægelse kendt som den keltiske renæssance. Denne periode med intens fokusering på autentiske udtryk og samtidig modernisering af musikalske praksisser udgjorde et centralt vendepunkt for den internationale formidling af irske musiktraditioner. 
+I det 20. århundrede fik den irske musik et internationalt gennembrud, hvilket blandt andet skyldtes ny teknologi inden for lydoptagelse og den kulturelle bevægelse kendt som den keltiske renæssance. Denne periode med intens fokusering på autentiske udtryk og samtidig modernisering af musikalske praksisser udgjorde et centralt vendepunkt for den internationale formidling af irske musiktraditioner.
 
 Samtidig har den kulturelle udveksling mellem Irland og omverdenen medvirket til en løbende udvikling, hvor traditionelle motiver og harmoniske strukturer fortsat inspirerer moderne kompositioner og performancepraksisser. Tæl mine tegn: 893.
 

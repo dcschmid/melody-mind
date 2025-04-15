@@ -15,14 +15,13 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-De muziek, welke een essentiële rol vervult bij het samenbrengen van diverse culturele tradities tijdens een dinerpartij, vormt een intrigerend studieobject in de internationale muziekgeschiedenis. De keuze voor repertoire – variërend van klassieke sonates en symfonieën tot experimentele intermezzo’s – getuigt van een bewust streven naar harmonieuze integratie. Hierbij worden historische motieven, zoals de contrapuntische technieken uit de barokperiode en de modulaties van de romantiek, toegepast om een sfeervolle ambiance tot stand te brengen. 
+De muziek, welke een essentiële rol vervult bij het samenbrengen van diverse culturele tradities tijdens een dinerpartij, vormt een intrigerend studieobject in de internationale muziekgeschiedenis. De keuze voor repertoire – variërend van klassieke sonates en symfonieën tot experimentele intermezzo’s – getuigt van een bewust streven naar harmonieuze integratie. Hierbij worden historische motieven, zoals de contrapuntische technieken uit de barokperiode en de modulaties van de romantiek, toegepast om een sfeervolle ambiance tot stand te brengen.
 
 Voorts illustreert de assemblage van instrumenten, waaronder strijkkwartetten en complexe koperensecties, hoe technologische vernieuwingen en verfijnde uitvoeringspraktijken sinds de negentiende eeuw leidden tot een geëvolueerde benadering van live uitvoeringen. Deze interdisciplinaire synthese van muzikale tradities en culturele invloeden schetst een genuanceerd en authentiek beeld van de betekenis van muziek tijdens dergelijke formele samenkomsten.
 
@@ -90,7 +89,7 @@ De overgang naar de moderne tijd wordt treffend geïllustreerd door de impressio
 
 Naast de Europese klassieke traditie trad in de twintigste eeuw een nieuwe muzikale invloed naar voren. In de Verenigde Staten ontstond in de jaren twintig het tijdperk van de jazzy improvisatie, waarin figuren als Duke Ellington (1899–1974) een integrale rol vervulden. Ellington’s composities, die een complex samenspel vormden van blues, swing en bigbandarrangementen, werden op minder formele, doch even gekruiste dinerfeesten geprezen. Eveneens moet de invloed van Count Basie (1904–1984) worden opgemerkt, wiens dynamische begeleiding en ritmische precisie een aanzienlijk effect hadden op de muziekbeleving tijdens sociale evenementen, hetgeen de onderlinge verbondenheid van muziek en sociale rituelen verder versterkte.
 
-Naast de individuele componisten en bandleiders is de functionele rol van muziek op dinnerfeesten diep verankerd in bredere culturele en technologische ontwikkelingen. De introductie en verspreiding van fonografische technieken in de late negentiende en vroege twintigste eeuw zorgde ervoor dat een breder publiek toegang kreeg tot een divers repertoire. Deze technologische innovatie betekende dat de muziek die oorspronkelijk voor live-uitvoering was bestemd, kon worden gerepliceerd en verspreid als onderdeel van een vast cultureel geheugen. Hierdoor werden sleutelwerken die eens uitsluitend tijdens exclusieve bijeenkomsten konden worden ervaren, ook toegankelijk voor een veel groter en diverser publiek.  
+Naast de individuele componisten en bandleiders is de functionele rol van muziek op dinnerfeesten diep verankerd in bredere culturele en technologische ontwikkelingen. De introductie en verspreiding van fonografische technieken in de late negentiende en vroege twintigste eeuw zorgde ervoor dat een breder publiek toegang kreeg tot een divers repertoire. Deze technologische innovatie betekende dat de muziek die oorspronkelijk voor live-uitvoering was bestemd, kon worden gerepliceerd en verspreid als onderdeel van een vast cultureel geheugen. Hierdoor werden sleutelwerken die eens uitsluitend tijdens exclusieve bijeenkomsten konden worden ervaren, ook toegankelijk voor een veel groter en diverser publiek.
 
 De invloed van deze technologische ontwikkelingen is onmiskenbaar in de manier waarop men het repertoire voor dinerfeesten benadert. In veel hedendaagse samenlevingen worden historisch belangrijke werken vermengd met modernere uitvoeringen, hetgeen een dialoog creëert tussen traditie en innovatie. Deze kruisbestuiving weerspiegelt een continue evolutie van de muzikale esthetiek, waarbij ook invloeden uit andere delen van de wereld – zoals Latin American en Aziatische muziekstromingen – stelselmatig integreren met westerse tradities. Hoewel deze internationale kruisbestuiving pas in de tweede helft van de twintigste eeuw op grotere schaal zichtbaarheid verwierf, zijn de fundamenten duidelijk terug te voeren op de eerdere culturele dialogen die in de salons van de negentiende eeuw hun oorsprong vonden.
 

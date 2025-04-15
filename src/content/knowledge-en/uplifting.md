@@ -16,10 +16,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -185,6 +184,6 @@ In conclusion, contemporary expressions within the uplifting music category refl
 
 ## Conclusion
 
-In conclusion, the uplifting international music category epitomises both artistic innovation and cultural unity. This genre, celebrated for its buoyant tonalities and inspirational rhythmic patterns, has consistently provided solace and empowerment across global audiences. Musical works from the mid-twentieth century onward, particularly those emerging from Europe and the Americas, have harnessed technological advancements and refined compositional techniques to enhance their emotive appeal. 
+In conclusion, the uplifting international music category epitomises both artistic innovation and cultural unity. This genre, celebrated for its buoyant tonalities and inspirational rhythmic patterns, has consistently provided solace and empowerment across global audiences. Musical works from the mid-twentieth century onward, particularly those emerging from Europe and the Americas, have harnessed technological advancements and refined compositional techniques to enhance their emotive appeal.
 
 Moreover, the integration of traditional folk elements with contemporary musical sensibilities has perpetuated a rich tapestry of sonic expression that transcends geographic and cultural boundaries. In sum, uplifting music remains an enduring testament to the human spirit, reflecting historical developments while inspiring future generations with its transformative power.

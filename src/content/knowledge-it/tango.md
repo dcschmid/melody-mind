@@ -17,16 +17,15 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
 Il tango rappresenta una delle manifestazioni musicali più significative del panorama internazionale. Originatosi alla fine dell’Ottocento nelle zone popolari di Buenos Aires e Montevideo, questo genere ha saputo integrare influenze di diversa natura, da ritmi africani a sonorità europee, configurando un linguaggio espressivo e carico di simbologia. Le strutture ritmiche e melodiche, studiate con rigore, evidenziano l’interazione fra innovazione tecnica e tradizione culturale, permettendo una rappresentazione emotiva inedita.
 
-Nel corso del Novecento il tango si è evoluto in risposta alle trasformazioni sociali e artistiche, affermandosi come simbolo di identità e resistenza. L’approccio musicologico, improntato all’analisi delle sfumature dinamiche e armoniche, consente una lettura multilivello del genere. 
+Nel corso del Novecento il tango si è evoluto in risposta alle trasformazioni sociali e artistiche, affermandosi come simbolo di identità e resistenza. L’approccio musicologico, improntato all’analisi delle sfumature dinamiche e armoniche, consente una lettura multilivello del genere.
 
 L'analisi svela il vero profilo.
 

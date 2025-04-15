@@ -17,14 +17,13 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Classical music embodies a storied tradition that has evolved over several centuries and across diverse cultural milieus. Its historical continuum spans the medieval, Renaissance, Baroque, and Classical periods, each characterised by distinctive musical idioms and innovations. In the stricter sense, the term “classical” is often associated with the refined works of the late eighteenth and early nineteenth centuries, when composers such as Mozart, Haydn and Beethoven exhibited exemplary technical mastery and artistic vision. 
+Classical music embodies a storied tradition that has evolved over several centuries and across diverse cultural milieus. Its historical continuum spans the medieval, Renaissance, Baroque, and Classical periods, each characterised by distinctive musical idioms and innovations. In the stricter sense, the term “classical” is often associated with the refined works of the late eighteenth and early nineteenth centuries, when composers such as Mozart, Haydn and Beethoven exhibited exemplary technical mastery and artistic vision.
 
 Furthermore, the evolution of tonal harmony and the refinement of orchestral instruments during these epochs had an enduring influence on subsequent musical developments. Scholars continue to examine these works through rigorous musicological research, thereby elucidating the intricate relationships between compositional structure and sociopolitical context. In this manner, the international legacy of classical music remains both a subject of scholarly inquiry and an enduring source of aesthetic inspiration.
 

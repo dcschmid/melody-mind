@@ -17,14 +17,13 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Lazy Sunday -osion johdannossa tarkastellaan kansainvälisen musiikkikulttuurin ilmiöitä, joissa rento sunnuntaiaamu olemukseltaan muodostaa sekä rytmisten innovaatioiden että perinteisten musiikillisten rakenteiden yhteensulautumisen. Ilmiön juuret näkyvät osin 1990-luvun hiphopin kehityksessä, jolloin rytmisyys ja toistuva kertosäe yhdistyivät nokkelaan ilmaisutapaan. Tämä synteesi edellytti tarkkaa musiikillisten tyylisuuntien historiallisen kehityksen analyysiä, joka huomioi sekä eurooppalaiset että pohjoisamerikkalaiset musiikkiperinteet. 
+Lazy Sunday -osion johdannossa tarkastellaan kansainvälisen musiikkikulttuurin ilmiöitä, joissa rento sunnuntaiaamu olemukseltaan muodostaa sekä rytmisten innovaatioiden että perinteisten musiikillisten rakenteiden yhteensulautumisen. Ilmiön juuret näkyvät osin 1990-luvun hiphopin kehityksessä, jolloin rytmisyys ja toistuva kertosäe yhdistyivät nokkelaan ilmaisutapaan. Tämä synteesi edellytti tarkkaa musiikillisten tyylisuuntien historiallisen kehityksen analyysiä, joka huomioi sekä eurooppalaiset että pohjoisamerikkalaiset musiikkiperinteet.
 
 Lisäksi teknologinen kehitys, erityisesti digitaalisten äänitallennusmenetelmien varhaiset sovellukset, vaikutti merkittävästi äänen ja dynamiikan monimuotoistumiseen. Näin muodostui edellytykset sekä kaupallisesti menestyvien että kriittisesti tarkasteltujen esitysmuotojen syntymiselle. Analyysi paljastaa, kuinka teknologiset innovaatiot ja globaali kulttuurivaihto yhdessä loivat perustan utopistiselle sunnuntaiaamun tunnelmalle, joka edelleen inspiroi nykypäivän musiikillista kokeilua.
 
@@ -194,7 +193,7 @@ Yhteenvetona voidaan todeta, että Lazy Sunday -kategoria edustaa monitasoista k
 
 Musiikin kansainvälisessä kentässä “Lazy Sunday” -kategoria on muodostunut ilmiöksi, jonka perintö ja vaikutus näkyvät moninaisten tyylisuuntien ja kulttuurien risteyskohdassa. Käsitteen juuret ovat monisyisissä historiallisissa virtauksissa, joissa rentouden ja arjen hitaamman rytmin teemat ovat löytäneet ilmaisumuotonsa niin jazzin, bossa novan kuin lounge-musiikin piirissä. Ilmiö ei rajoitu pelkästään tiettyyn maantieteelliseen alueeseen, vaan se on levinnyt globaalisti, vaikuttaen niin länsimaisten pop- kuin kokeellisten musiikkisuuntauksien kehitykseen. Siten “Lazy Sunday” heijastaa modernin kulttuurin monikerroksellisuutta, missä musiikilliset estetiikat kietoutuvat yhteiskunnallisiin asenteisiin ja aikakauden hengenvireeseen.
 
-Historiallisesti tarkasteltuna “Lazy Sunday” –tyylin varjot ovat havaittavissa jo 1950-luvun lopulta lähtien, jolloin Yhdysvalloissa ja Euroopassa kehittyivät rentouttavan tunnelmankin edustajat. Aikaisissa ilmaisumuodoissa havaitaan vaikutteita cool jazzin ja bossa novan melodisuudessa sekä aikakauden amerikkalaisen popmusiikin hienovaraisuudessa. Näissä teoksissa hiljaisuutta ja vivahteikasta rentoutta on pidetty arvokkaina kontrasteina edeltäneeseen energiseen rock’n’rolliin, mikä loi mahdollisuuksia myöhemmälle musiikilliselle kokeilulle. Tällainen kehitys oli osaltaan seurausta teknologisista innovaatioista, kuten monikanavaäänen ja laadukkaamman äänitystekniikan käyttöönotosta, jotka mahdollistivat hienovaraisen dynamiikan maisemoinnin. 
+Historiallisesti tarkasteltuna “Lazy Sunday” –tyylin varjot ovat havaittavissa jo 1950-luvun lopulta lähtien, jolloin Yhdysvalloissa ja Euroopassa kehittyivät rentouttavan tunnelmankin edustajat. Aikaisissa ilmaisumuodoissa havaitaan vaikutteita cool jazzin ja bossa novan melodisuudessa sekä aikakauden amerikkalaisen popmusiikin hienovaraisuudessa. Näissä teoksissa hiljaisuutta ja vivahteikasta rentoutta on pidetty arvokkaina kontrasteina edeltäneeseen energiseen rock’n’rolliin, mikä loi mahdollisuuksia myöhemmälle musiikilliselle kokeilulle. Tällainen kehitys oli osaltaan seurausta teknologisista innovaatioista, kuten monikanavaäänen ja laadukkaamman äänitystekniikan käyttöönotosta, jotka mahdollistivat hienovaraisen dynamiikan maisemoinnin.
 
 Myös Yhdysvaltain ja Euroopan välisten konst- ja populaarikulttuurien vuorovaikutus on muovannut “Lazy Sunday” -ilmiötä. Eurooppalaisen bossa novan ja rennon lounge-musiikin vaikutteet nivoutuivat yhteen amerikkalaisen popmusiikin monipuolisuuteen, jolloin syntyi tyylejä, joissa rento asenne ja hienostunut soitannollisuus kohtasivat. Tällainen kehitys oli vastauksena yhteiskunnallisiin muutoksiin, joissa etsitään kaivattua vastapainoa teollistumisen ja modernisaation vallitseville nopeatempoisille rytmeille. Yhtenä esimerkkinä voidaan mainita 1960-luvun loppupuolella syntynyt trendi, jossa nuoret artisiteista hakeutuivat omaksumaan rauhallisempia ilmaisutapoja ja kokeilivat uusia äänirajoja. Näin ”Lazy Sunday” edusti vastareaktiota nopeatempoiseen elämään ja urbanisaation hektisyyteen.
 

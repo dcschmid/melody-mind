@@ -17,14 +17,13 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-El piano, instrumento emblemático de la música occidental, constituye un eje fundamental tanto en la creación como en la interpretación musical. Su origen se remonta a mediados del siglo XVIII, configurándose a partir de la evolución del clavicémbalo y del fortepiano. A partir de esa época, compositores como Mozart y Beethoven impulsaron su desarrollo técnico y expresivo, lo que facilitó la transición hacia una interpretación más dinámica y emocional. 
+El piano, instrumento emblemático de la música occidental, constituye un eje fundamental tanto en la creación como en la interpretación musical. Su origen se remonta a mediados del siglo XVIII, configurándose a partir de la evolución del clavicémbalo y del fortepiano. A partir de esa época, compositores como Mozart y Beethoven impulsaron su desarrollo técnico y expresivo, lo que facilitó la transición hacia una interpretación más dinámica y emocional.
 
 Además, el piano ha desempeñado un papel crucial en la configuración de diversos géneros internacionales. Durante el siglo XIX y principios del XX, las innovaciones en su mecanización y en las técnicas de fabricación, especialmente en el contexto europeo, permitieron una ampliación de la paleta sonora y una mayor fidelidad en la ejecución. Este proceso de evolución técnica se encuentra íntimamente relacionado con los cambios culturales y artísticos que marcaron la historia de la música, haciendo del piano no solo un instrumento, sino un auténtico reflejo de las transformaciones socioculturales de cada época.
 
@@ -36,7 +35,7 @@ Durante el siglo XVIII, el surgimiento del fortepiano marcó un hito en la evolu
 
 El periodo clásico, representado por figuras como Wolfgang Amadeus Mozart y Ludwig van Beethoven, supone un punto de inflexión en la praxis pianística. La consolidación de formas musicales como la sonata y el concierto permitió el desarrollo de una técnica cada vez más refinada y el perfeccionamiento del timbre. Las innovaciones en la mecánica del piano impulsaron la expansión de un repertorio que privilegiaba la claridad estructural y la profundidad emocional, constituyendo un puente entre el estilo galante y la expresividad romántica emergente. De igual forma, la evolución en la construcción del instrumento facilitó la adaptación de composiciones a escenarios tanto íntimos como públicos.
 
-La era romántica, comprendida entre finales del siglo XVIII y mediados del siglo XIX, acentuó la dimensión virtuosa y emotiva del piano. Compositores como Frédéric Chopin, Franz Liszt y Robert Schumann exploraron las posibilidades sonoras y expresivas del instrumento, desarrollando técnicas innovadoras que rompieron con la rigidez formal del clasicismo. La incorporación de cambios en la estructura y materiales de construcción permitió obtener registros sonoros más amplios y ricos, lo cual se reflejó en la intensidad discursiva de las obras románticas. Asimismo, este periodo evidenció el ascenso del pianista virtuoso, que combinaba destreza técnica con una interpretación profunda y personal.  
+La era romántica, comprendida entre finales del siglo XVIII y mediados del siglo XIX, acentuó la dimensión virtuosa y emotiva del piano. Compositores como Frédéric Chopin, Franz Liszt y Robert Schumann exploraron las posibilidades sonoras y expresivas del instrumento, desarrollando técnicas innovadoras que rompieron con la rigidez formal del clasicismo. La incorporación de cambios en la estructura y materiales de construcción permitió obtener registros sonoros más amplios y ricos, lo cual se reflejó en la intensidad discursiva de las obras románticas. Asimismo, este periodo evidenció el ascenso del pianista virtuoso, que combinaba destreza técnica con una interpretación profunda y personal.
 
 En el contexto de la música internacional, las influencias del piano se expandieron con la creciente interconexión entre las distintas corrientes artísticas del continente europeo y posteriormente a otros espacios geográficos. Durante el siglo XIX, el instrumento se erigió en símbolo de modernidad y progreso, siendo adoptado tanto en el ámbito del concierto como en el de la música doméstica. La textualidad composicional fue influida también por la sensibilidad oriental y las innovaciones del virtuosismo occidental, creando un diálogo intercultural en el que el piano se erige como mediador entre estilos y tradiciones. Este intercambio cultural contribuyó a la proyección del instrumento en escenarios internacionales, cimentando su relevancia en la historia musical universal.
 

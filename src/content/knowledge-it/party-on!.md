@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -166,7 +165,7 @@ In conclusione, l’evoluzione della categoria “Party On!” rappresenta un ca
 
 ## Legacy and Influence
 
-La tradizione musicale denominata “Party On!” ha rappresentato, sin dai suoi albori, una vera e propria forza motrice all’interno del panorama internazionale, influenzando in maniera sostanziale l’evoluzione dei generi musicali dedicati al ballo e alla convivialità. Tale eredità artistica trova le sue radici nel fermento discotecario degli anni Settanta, in cui la musica, grazie a ritmi incalzanti e sonorità innovative, divenne simbolo di un’epoca caratterizzata da movimenti culturali e sociali di grande rilevanza. In questo contesto, l’impatto delle tecnologie emergenti, quali i sintetizzatori analogici e le prime apparecchiature di registrazione multitraccia, si rivela determinante per la diffusione di un’estetica sonora che avrebbe definito il concetto stesso di “party music”. 
+La tradizione musicale denominata “Party On!” ha rappresentato, sin dai suoi albori, una vera e propria forza motrice all’interno del panorama internazionale, influenzando in maniera sostanziale l’evoluzione dei generi musicali dedicati al ballo e alla convivialità. Tale eredità artistica trova le sue radici nel fermento discotecario degli anni Settanta, in cui la musica, grazie a ritmi incalzanti e sonorità innovative, divenne simbolo di un’epoca caratterizzata da movimenti culturali e sociali di grande rilevanza. In questo contesto, l’impatto delle tecnologie emergenti, quali i sintetizzatori analogici e le prime apparecchiature di registrazione multitraccia, si rivela determinante per la diffusione di un’estetica sonora che avrebbe definito il concetto stesso di “party music”.
 
 Inoltre, l’analisi critica del fenomeno evidenzia un connubio tra innovazioni tecniche e sperimentazioni stilistiche che ha consentito la nascita di sottogeneri avant-garde, capaci di adattarsi e reinterpretare il linguaggio musicale delle feste. La produzione discografica degli anni Settanta e Ottanta, condizionata dalla contestualizzazione socio-politica e dalla pluralità di influenze etniche, si caratterizzò per la capacità di fondere elementi della musica funk, della soul e del pop. Con riferimento a tale processo di mescolanza, è necessario sottolineare come artisti e band, attivi esclusivamente in quel periodo, contribuissero in maniera originale alla definizione di un’estetica musicale destinata a perdurare nel tempo, senza mai perdere di vista un’evoluzione autentica e contestualizzata.
 

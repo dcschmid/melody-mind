@@ -16,10 +16,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduktion
 
@@ -209,6 +208,6 @@ Afslutningsvis kan det konstateres, at de internationale forbindelser spiller en
 
 ## Aktuelle tendenser og fremtid
 
-Den islandske musikscenes internationale udvikling udgør et paradigme for nutidens lydmæssige eksperimenter og kulturelle udtryk. Traditionelle folkemusikolsmæssige elementer, karakteriseret ved en sparsommelig melodisk struktur og tematiske referencer til Islands storslåede natur, forenes med innovative digitale teknikker. Kunstnere kombinerer akustiske instrumenter med elektroniske lydbilleder, hvilket skaber en hybridisering, der afspejler samtidens globale musikalske strømninger. 
+Den islandske musikscenes internationale udvikling udgør et paradigme for nutidens lydmæssige eksperimenter og kulturelle udtryk. Traditionelle folkemusikolsmæssige elementer, karakteriseret ved en sparsommelig melodisk struktur og tematiske referencer til Islands storslåede natur, forenes med innovative digitale teknikker. Kunstnere kombinerer akustiske instrumenter med elektroniske lydbilleder, hvilket skaber en hybridisering, der afspejler samtidens globale musikalske strømninger.
 
 Desuden omfavner udviklingen en postmoderne æstetik, hvor interventioner med minimalisme og eksperimentelle lydinstallationer udfordrer de gængse formidlingsmetoder. Denne tilgang understreger en respektfuld forankring i historisk arv, samtidigt med at den fremmer en utrættelig søgen efter nyskabende udtryksformer. Fremtidens islandske musik fremstår således som en dynamisk forhandling mellem autenticitet og innovation, der aktivt integrerer internationale tendenser og teknologiske fremskridt.

@@ -16,14 +16,13 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Energisen musiikin kansainvälisen kategorian tutkimus edellyttää tarkkaa historiallista kontekstualisointia sekä musiikillisen materiaalin teoreettista jäsentämistä. Ensimmäisenä on huomioitava, että energian käsite musiikillisessa ilmaisussa koostuu monikerroksisesta vuorovaikutuksesta rytmin, melodian ja sointien välillä. Erityisesti 1960-luvulla tapahtunut rytmisten ja harmonisten innovaatioiden kehitys loi edellytykset energiateoreettisten malleiden synnylle, joita havaitaan muun muassa progressiivisessa rokkimusiikissa. 
+Energisen musiikin kansainvälisen kategorian tutkimus edellyttää tarkkaa historiallista kontekstualisointia sekä musiikillisen materiaalin teoreettista jäsentämistä. Ensimmäisenä on huomioitava, että energian käsite musiikillisessa ilmaisussa koostuu monikerroksisesta vuorovaikutuksesta rytmin, melodian ja sointien välillä. Erityisesti 1960-luvulla tapahtunut rytmisten ja harmonisten innovaatioiden kehitys loi edellytykset energiateoreettisten malleiden synnylle, joita havaitaan muun muassa progressiivisessa rokkimusiikissa.
 
 Toiseksi, teknologisten kehitysten merkitys energisen äänenrakentamisen historiassa on kiistaton. Äänitystekniikan ja äänentoistolaitteiden modernisointi mahdollisti monikerroksisten äänimaisemien luomisen ja rytmikaavojen entistä täsmällisemmän esittämisen. Transatlanttisessa kulttuurivaihdossa eurooppalaiset ja amerikkalaiset innovaatiot sulautuivat yhdeksi, jolloin energian dynaamisuus ja intensiivinen rytmi nousivat keskeiseen rooliin.
 

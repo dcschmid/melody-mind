@@ -16,10 +16,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -115,7 +114,7 @@ Avslutningsvis är det av vikt att belysa att den tekniska utvecklingen inom pos
 
 ## Cultural Significance
 
-Post Hardcore-musiken utgör en central punkt inom den internationella musikens utveckling, och den kulturella betydelsen av denna genre kan inte överskuggas. Uppkomsten av stilen under slutet av 1980-talet och början av 1990-talet markerade ett paradigmskifte där den traditionella hardcorepunkens estetik utmanades genom införandet av komplexa musikaliska strukturer och känslomässigt laddade uttryck. Genrens utveckling präglades av ett sökande efter nya sätt att artikulera både individuell och kollektiv erfarenhet, vilket den internationella musikscenen snabbt fann stimulerande och nyskapande. 
+Post Hardcore-musiken utgör en central punkt inom den internationella musikens utveckling, och den kulturella betydelsen av denna genre kan inte överskuggas. Uppkomsten av stilen under slutet av 1980-talet och början av 1990-talet markerade ett paradigmskifte där den traditionella hardcorepunkens estetik utmanades genom införandet av komplexa musikaliska strukturer och känslomässigt laddade uttryck. Genrens utveckling präglades av ett sökande efter nya sätt att artikulera både individuell och kollektiv erfarenhet, vilket den internationella musikscenen snabbt fann stimulerande och nyskapande.
 
 I ett internationellt perspektiv kan Post Hardcore-teknikens framväxt förstås som en del av en bredare strävan att överskrida konventionella gränser i populärmusiken. Musikaliska innovatörer integrerade influenser från progressiv rock, alternativ musik och experimentell elektronik, vilket resulterade i en komplett omtolkning av de konventionella strukturerna. I denna process uppstod en dynamisk interaktion mellan tekniska framsteg och konstnärliga visioner, där användningen av okonventionella taktarter och rytmiska avvikelser bidrog till att dramatisera de känslomässiga spänningar som genren eftersträvade.
 
@@ -123,7 +122,7 @@ Utvecklingen av Post Hardcore kan även ses i ljuset av dess kulturhistoriska sa
 
 En betydande aspekt av den internationella framfarten för Post Hardcore var dess förmåga att bryta med den traditionella musikaliska dikotomin mellan teknik och känsla. Detta manifesterades genom att banden inom genren ofta kombinerade rå energi med avancerade musikaliska innovationer, där komplexa rytmiska strukturer och varierade tonala mönster bildade en harmonisk helhet. Det tekniska utforskandet möjliggjorde reformuleringar av både form och innehåll, vilket i sin tur utmanade etablerade normer och breddade den musikaliska diskursen. På så sätt utgjorde Post Hardcore en bro mellan den radikala uttrycksformen hos hardcorepunkens ursprung och den konstnärliga ambition som senare präglade modern alternativ musik.
 
-Den kulturella relevansen för Post Hardcore manifesteras även i dess påverkan på efterföljande musikaliska strömningar och på den performativa estetik som senare kom att prägla den alternativa scenen internationellt. Genom att erbjuda en plattform för undersökning av emotionell autenticitet och för att ifrågasätta de traditionella musikaliska normerna, inspirerade genren en generation musiker att vidareutveckla sina egna uttrycksformer. Detta synsätt understryker hur Post Hardcore inte enbart bidrog till musikens utveckling utan även omformade sättet att tänka kring konstnärligt skapande och publikens engagemang. 
+Den kulturella relevansen för Post Hardcore manifesteras även i dess påverkan på efterföljande musikaliska strömningar och på den performativa estetik som senare kom att prägla den alternativa scenen internationellt. Genom att erbjuda en plattform för undersökning av emotionell autenticitet och för att ifrågasätta de traditionella musikaliska normerna, inspirerade genren en generation musiker att vidareutveckla sina egna uttrycksformer. Detta synsätt understryker hur Post Hardcore inte enbart bidrog till musikens utveckling utan även omformade sättet att tänka kring konstnärligt skapande och publikens engagemang.
 
 I kontrast till konventionella musikströmningar har Post Hardcore inneburit en radikal omdefiniering av konceptet ”livemusik” och dess kulturella funktion. Genom att utmana den kommersiella musikindustrins standardiserade mönster skapas en miljö där autenticitet och experimenterande värderas högt. Detta bidrag till en större förståelse av musikens roll i samhällskritiska diskurser har inneburit att genren används som ett uttrycksmedel för att motverka det normativa och forma alternativa identiteter. Musikvetenskapliga studier har därför betonat genrens roll i att erbjuda en plattform för kritisk reflektion, där den konstnärliga processen blir en dialog mellan artistens erfarenheter och samtida sociala kontexter.
 

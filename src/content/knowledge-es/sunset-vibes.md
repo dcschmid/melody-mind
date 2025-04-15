@@ -17,14 +17,13 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-En el panorama internacional, la categoría "Sunset Vibes" se erige como una propuesta musical innovadora que fusiona la tradición con la modernidad, articulando una síntesis sonora enriquecida por influencias autóctonas y globales. Durante la década de los noventa y principios del siglo XXI, emergieron tendencias que entrelazaron armonías clásicas con innovaciones electrónicas, generando un estilo evocador que remite a la melancolía del ocaso. Asimismo, el uso de sintetizadores y secuenciadores constituyó un hito tecnológico que permitió la creación de texturas inéditas. Este análisis, fundamentado en estudios historiográficos rigurosos, invita a la reflexión sobre la transformación y continuidad de la música internacional, subrayando su impacto cultural y estético. La presente introducción establece las bases para un estudio exhaustivo. 
+En el panorama internacional, la categoría "Sunset Vibes" se erige como una propuesta musical innovadora que fusiona la tradición con la modernidad, articulando una síntesis sonora enriquecida por influencias autóctonas y globales. Durante la década de los noventa y principios del siglo XXI, emergieron tendencias que entrelazaron armonías clásicas con innovaciones electrónicas, generando un estilo evocador que remite a la melancolía del ocaso. Asimismo, el uso de sintetizadores y secuenciadores constituyó un hito tecnológico que permitió la creación de texturas inéditas. Este análisis, fundamentado en estudios historiográficos rigurosos, invita a la reflexión sobre la transformación y continuidad de la música internacional, subrayando su impacto cultural y estético. La presente introducción establece las bases para un estudio exhaustivo.
 Total de caracteres (aproximadamente): 908.
 
 ## Historical Background

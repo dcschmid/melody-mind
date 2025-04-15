@@ -16,14 +16,13 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Gitarren utgör ett centralt musikinstrument med en omfattande internationell repertoar och komplexa kulturhistoriska samband. Instrumentets utveckling kan spåras ända från senmedeltida Spanien, där tidiga former av stämmade stränginstrument användes, till den moderna akustiska och elektriska gitarrens inträde under 1900-talets början. Den teknologiska utvecklingen har inneburit betydande innovationer, såsom införandet av metallsträngar och elektrifiering, vilka möjliggjorde en breddning av dess tonala uttryck och dynamiska kapacitet. 
+Gitarren utgör ett centralt musikinstrument med en omfattande internationell repertoar och komplexa kulturhistoriska samband. Instrumentets utveckling kan spåras ända från senmedeltida Spanien, där tidiga former av stämmade stränginstrument användes, till den moderna akustiska och elektriska gitarrens inträde under 1900-talets början. Den teknologiska utvecklingen har inneburit betydande innovationer, såsom införandet av metallsträngar och elektrifiering, vilka möjliggjorde en breddning av dess tonala uttryck och dynamiska kapacitet.
 
 Vidare har gitarrens roll inom såväl klassisk som populärmusik genomgått en ständig transformation; från de rena resonanser som präglade barockens och renässansens verk till de komplexa harmoniska strukturerna som karakteriserar samtida improvisation och ensembleutforskning. Emellertid är det av vikt att beakta att instrumentets tekniska och stilistiska förändringar uppnåtts genom noggranna interaktioner mellan musikteoretiska principer och praktiska realizeringar, vilket ytterligare understryker dess betydelse i den internationella musiktraditionen.
 

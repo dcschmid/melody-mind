@@ -16,10 +16,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -103,7 +102,7 @@ In summation, the international panorama of Latin Vibes is defined by the semina
 
 ## Technical Aspects
 
-Technical Aspects of Latin Vibes encapsulate a synthesis of diverse musical modalities that have evolved from a rich interplay of indigenous rhythms, European harmonic frameworks and African polyrhythms. In examining these technical aspects, it is imperative to consider the confluence of historical trajectories and technological innovations which have shaped Latin musical expression through nuances of rhythm, harmony and production methodologies. The careful integration of traditional percussive techniques with modern recording technology has resulted in a soundscape that remains both culturally authentic and innovative in its presentation. 
+Technical Aspects of Latin Vibes encapsulate a synthesis of diverse musical modalities that have evolved from a rich interplay of indigenous rhythms, European harmonic frameworks and African polyrhythms. In examining these technical aspects, it is imperative to consider the confluence of historical trajectories and technological innovations which have shaped Latin musical expression through nuances of rhythm, harmony and production methodologies. The careful integration of traditional percussive techniques with modern recording technology has resulted in a soundscape that remains both culturally authentic and innovative in its presentation.
 
 Central to the technical framework is the underpinning rhythmic structure, which distinguishes Latin Vibes from other international genres. The contrapuntal layering of clave patterns, often practised on wooden claves or bongos, embodies a rhythmic template that is both mathematically precise and organically expressive. This structure, typically rendered through a combination of hand percussion and electronically amplified drums, lends itself to a sophisticated interplay of syncopation and cross-rhythms. Consequently, the resultant rhythmic complexity serves as an intrinsic marker of Latin musical identity, evidencing influences that date back to colonial encounters and the integration of African drumming practices in the New World.
 

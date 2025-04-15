@@ -17,10 +17,9 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Einleitung
 
@@ -208,6 +207,6 @@ Abschließend führt die Betrachtung der internationalen Verbindungen der hawaii
 
 ## Aktuelle Trends und Zukunft
 
-Aktuelle Trends der hawaiianischen Musik offenbaren eine spannende Synthese von Tradition und Innovation. In jüngster Zeit zeigt sich, dass die altbewährten Formen, wie etwa die Slack-Key-Technik und die charakteristische Melodik der Mele, in einem interkulturellen Kontext vermehrt mit modernen Klangexperimenten verschmelzen. Dieser Trend manifestiert sich vor allem durch die Integration akustischer Instrumentierung und digital gestützter Studiotechnik, wodurch ein frischer, international ansprechender Sound entsteht.  
+Aktuelle Trends der hawaiianischen Musik offenbaren eine spannende Synthese von Tradition und Innovation. In jüngster Zeit zeigt sich, dass die altbewährten Formen, wie etwa die Slack-Key-Technik und die charakteristische Melodik der Mele, in einem interkulturellen Kontext vermehrt mit modernen Klangexperimenten verschmelzen. Dieser Trend manifestiert sich vor allem durch die Integration akustischer Instrumentierung und digital gestützter Studiotechnik, wodurch ein frischer, international ansprechender Sound entsteht.
 
 Zudem bewirkt die verstärkte Zusammenarbeit zwischen Musikern aus unterschiedlichen geographischen Regionen eine nachhaltige Erweiterung des musikalischen Repertoires. Traditionelle Instrumente wie die Ukulele erleben eine Renaissance, da sie durch neuzeitliche Klangveredelung wieder an Bedeutung gewinnen. Im Blick auf zukünftige Entwicklungen legt sich der Fokus verstärkt auf die bewusste Bewahrung historischer Elemente in Kombination mit innovativen Produktionstechniken. Diese vielschichtige Entwicklung unterstreicht den internationalen Anspruch der hawaiianischen Musik und eröffnet Perspektiven, die sowohl kulturelle Identitäten als auch globale Trends maßgeblich prägen.

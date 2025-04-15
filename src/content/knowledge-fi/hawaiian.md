@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Johdanto
 
@@ -86,15 +85,15 @@ Yhteenvetona voidaan todeta, että modernin musiikin kehitys Hawaiian musiikkipe
 
 ## Merkittävät artistit ja yhtyet
 
-Hawaiilaisen musiikin historia muodostaa moniulotteisen kentän, jossa erottuvat niin perinteiset hula-tanssiperinteet kuin kehittyneet instrumentaaliset edustajat ja yhtyet. Meridianiset vaikutteet, joista ainakin latinalaisamerikkalaisia rytmejä ja länsimaista harmoniarakennetta voi erottaa, ovat tarjonneet kulttuurisesti ja musiikillisesti merkittäviä lähtökohtia edistyneelle klassisoinnille. Erityistä huomiota herättää steel guitarin kehitys, jonka rikastuttava äänimaailma on hajottanut länsimaisen musiikkirakenteen rajoja ja allanut kansainvälistä vaikutuspiiriä. 
+Hawaiilaisen musiikin historia muodostaa moniulotteisen kentän, jossa erottuvat niin perinteiset hula-tanssiperinteet kuin kehittyneet instrumentaaliset edustajat ja yhtyet. Meridianiset vaikutteet, joista ainakin latinalaisamerikkalaisia rytmejä ja länsimaista harmoniarakennetta voi erottaa, ovat tarjonneet kulttuurisesti ja musiikillisesti merkittäviä lähtökohtia edistyneelle klassisoinnille. Erityistä huomiota herättää steel guitarin kehitys, jonka rikastuttava äänimaailma on hajottanut länsimaisen musiikkirakenteen rajoja ja allanut kansainvälistä vaikutuspiiriä.
 
-Vanhojen mestarien perintö näkyy selvästi artistien toiminnassa, jotka ovat Aasian ja Tyynenmeren kulttuurien rajalla kokeneet jatkuvia muutoksia. Esimerkiksi slack-key-kitaran perinne, joka juontaa juurensa 1800-luvun jälkipuoliskolle, edustaa soinnillista improvisaatiota ja ainutlaatuista akustista herkkyyttä. Myös hula-musiikki, jossa yhdistyvät visuaalinen ja musiikillinen ilmaisu, heijastaa yhteisön tarinankerrontaa ja seremoniallista merkitystä. 
+Vanhojen mestarien perintö näkyy selvästi artistien toiminnassa, jotka ovat Aasian ja Tyynenmeren kulttuurien rajalla kokeneet jatkuvia muutoksia. Esimerkiksi slack-key-kitaran perinne, joka juontaa juurensa 1800-luvun jälkipuoliskolle, edustaa soinnillista improvisaatiota ja ainutlaatuista akustista herkkyyttä. Myös hula-musiikki, jossa yhdistyvät visuaalinen ja musiikillinen ilmaisu, heijastaa yhteisön tarinankerrontaa ja seremoniallista merkitystä.
 
 Toinen keskeinen yhtyeiden ja artistien kerros rakentuu 1900-luvun alkuvuosien aikana, jolloin teknologiset innovaatiot mahdollistivat uudenlaisen äänentoiston ja levytysmenetelmien kehittymisen. Noin 1920-luvulta lähtien levytys- ja radioyhtiöiden rooli lähteiden levittämisessä loi otollisen ympäristön pohjoislaivan musiikillisten ilmiöiden kansainväliselle levitykselle. Samanaikaisesti instrumentaaliseen ilmaisuun keskittyneet yhtyeet omaksuivat modernia soittotekniikkaa, mikä mahdollisti uudenlaisten soundien synnyn aiempaa tarkkaan määriteltyjen perinteiden rinnalla.
 
 Kansainvälisesti tunnetuksi nousseet artistit, kuten Israel Kamakawiwo’ole, ovat onnistuneet yhdistelemään perinteisiä hawaiilaisia elementtejä moderniin popmusiikkiin, jolloin hänen esityksensä ovat tavoittaneet laajan yleisön myös maailmanlaajuisesti. Tämän lisäksi merkittävät yhtyeet, joiden repertuaari inhimillisen kokemuksen syvyyksiä kuvaa intiimillä tavalla, ovat toimineet sillanrakentajina kansainvälisen musiikkikulttuurin kentällä. Musiikillinen narratiivi, jossa perinteisyys kohtaa moderniuden, on mahdollistanut uusien sovellutustapojen syntymisen, joiden vaikutus on ulottunut monille muille musiikkikulttuurin alueille.
 
-Historiallinen perinne ja alan kehittyminen ovat olleet erottamattomasti sidoksissa teknologian kehitykseen, mikä näkyy erityisesti äänitystekniikoiden ja soitinrakenteiden evoluutiossa. Aikaisemmat levytysmenetelmät, kuten 78 kierroksiset gramofonilevyt, ovat tarjonneet ensimmäisiä mahdollisuuksia työskennellä monipuolisten sovellutustapojen ja sointimaailmojen parissa. Tämän teknologisen kehityksen myötä alkuperäisen hawaiilaismusiikin säilyvyys ja autenttisuus ovat saaneet uusia muotoja, jotka ovat löytäneet tiensä kansainvälisiin musiikkipiireihin. 
+Historiallinen perinne ja alan kehittyminen ovat olleet erottamattomasti sidoksissa teknologian kehitykseen, mikä näkyy erityisesti äänitystekniikoiden ja soitinrakenteiden evoluutiossa. Aikaisemmat levytysmenetelmät, kuten 78 kierroksiset gramofonilevyt, ovat tarjonneet ensimmäisiä mahdollisuuksia työskennellä monipuolisten sovellutustapojen ja sointimaailmojen parissa. Tämän teknologisen kehityksen myötä alkuperäisen hawaiilaismusiikin säilyvyys ja autenttisuus ovat saaneet uusia muotoja, jotka ovat löytäneet tiensä kansainvälisiin musiikkipiireihin.
 
 Historiasta löytyy lukemattomia esimerkkejä artistiyhteisöistä, jotka ovat pyrkineet kehittämään ja modernisoimaan perinteisiä musiikillisia ilmiöitä kansainvälisen kulttuurivaihdon myötä. Keskeisiä hahmoja tässä kehityksessä ovat olleet muun muassa ne muusikot, jotka ovat ottaneet vaikutteita ulkomaisista musiikkikulttuureista ja soveltaneet niitä tuttujen perinteiden rinnalle luoden uusia, hybridejä muotoja. Näiden kehitysprosessien kautta hawaiilainen musiikki on saavuttanut ainutlaatuisen aseman, sillä sen soinnillinen monimuotoisuus heijastaa sekä historiallisia juuriensa syvyyttä että modernin maailman monisyisiä vaikutteita.
 

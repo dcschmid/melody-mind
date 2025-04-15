@@ -16,14 +16,13 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Die Kategorie „Spring Awakening“ repräsentiert einen Wendepunkt in der internationalen Musikgeschichte, der sich insbesondere im 20. Jahrhundert manifestierte. In jener Epoche verschmolzen traditionelle Musikstrukturen mit innovativen Klangexperimenten, sodass ein neues ästhetisches Bewusstsein entstand. Wegweisend war dabei der Einfluss europäischer und asiatischer Kompositionsprinzipien, die die Erweiterung harmonischer und rhythmischer Konzepte vorantrieben. 
+Die Kategorie „Spring Awakening“ repräsentiert einen Wendepunkt in der internationalen Musikgeschichte, der sich insbesondere im 20. Jahrhundert manifestierte. In jener Epoche verschmolzen traditionelle Musikstrukturen mit innovativen Klangexperimenten, sodass ein neues ästhetisches Bewusstsein entstand. Wegweisend war dabei der Einfluss europäischer und asiatischer Kompositionsprinzipien, die die Erweiterung harmonischer und rhythmischer Konzepte vorantrieben.
 
 Zudem bewirkten technologische Fortschritte, insbesondere in der Aufnahmetechnik, ein verändertes Hörerlebnis und eröffneten Künstlerinnen und Künstlern global neuartige Ausdrucksmöglichkeiten. Durch die Synthese klassischer Elemente mit avantgardistischen Ansätzen entstand ein facettenreiches Klangspektrum, das den interkulturellen Dialog förderte und die Musiklandschaft nachhaltig prägte. Die spannende Entwicklung in dieser Epoche fordert ein vertieftes Verständnis der musikalischen Ästhetik und der kulturellen Vielfalt.
 

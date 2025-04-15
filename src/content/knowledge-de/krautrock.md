@@ -17,14 +17,13 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Der Krautrock stellt ein bedeutendes Kapitel in der internationalen Musikgeschichte dar, dessen Wurzeln in den späten 1960er Jahren liegen. In einem kulturellen Klima, das von den Nachwirkungen des Zweiten Weltkriegs und dem Sinn für Neuerfindung geprägt war, entwickelten sich experimentelle Klangkonzepte, die traditionelle Musikstrukturen in Frage stellten. Die Bewegung zeichnete sich durch ihren interdisziplinären Ansatz aus, der sowohl improvisatorische Elemente als auch elektronische Klangerzeugung einbezog. 
+Der Krautrock stellt ein bedeutendes Kapitel in der internationalen Musikgeschichte dar, dessen Wurzeln in den späten 1960er Jahren liegen. In einem kulturellen Klima, das von den Nachwirkungen des Zweiten Weltkriegs und dem Sinn für Neuerfindung geprägt war, entwickelten sich experimentelle Klangkonzepte, die traditionelle Musikstrukturen in Frage stellten. Die Bewegung zeichnete sich durch ihren interdisziplinären Ansatz aus, der sowohl improvisatorische Elemente als auch elektronische Klangerzeugung einbezog.
 
 Zudem bot der Krautrock einen Raum, in dem Musik als Ausdruck gesellschaftlicher Umbrüche verstanden wurde. Gruppen wie Can und Faust etablierten innovative Kompositionsmethoden, während sich internationale Bezüge zugleich mit einem stark national geprägten Selbstverständnis verbanden. Dadurch wurde der Krautrock zu einem zentralen Impulsgeber in der Geschichte der zeitgenössischen Musik, der weit über die Grenzen Deutschlands hinaus Wirkung zeigte.
 
@@ -66,7 +65,7 @@ Zusammenfassend lässt sich feststellen, dass die musikwissenschaftlichen Charak
 
 ## Subgenres and Variations
 
-Der Begriff Krautrock bezeichnet eine facettenreiche Musikrichtung, die in den späten 1960er und frühen 1970er Jahren in der Bundesrepublik Deutschland ihren Ursprung fand und in vielfacher Hinsicht internationale Impulse setzte. Innerhalb dieses breiten Spektrums entwickelten sich verschiedene Subgenres, die jeweils eigene stilistische Charakteristika und innovative Ansätze in Bezug auf Komposition, Instrumentierung und Produktion hervorbrachten. Die subgenretypischen Variationen des Krautrock sind dabei als Ausdruck eines experimentellen und oftmals avantgardistischen Paradigmas zu verstehen, welches über das rein musikalische Schaffen hinaus auch als kulturelles Phänomen in Erscheinung trat. Dabei ist hervorzuheben, dass die stilistischen Entwicklungen in enger Wechselwirkung mit gesellschaftlichen Veränderungen sowie technologischen Fortschritten gesehen werden müssen. 
+Der Begriff Krautrock bezeichnet eine facettenreiche Musikrichtung, die in den späten 1960er und frühen 1970er Jahren in der Bundesrepublik Deutschland ihren Ursprung fand und in vielfacher Hinsicht internationale Impulse setzte. Innerhalb dieses breiten Spektrums entwickelten sich verschiedene Subgenres, die jeweils eigene stilistische Charakteristika und innovative Ansätze in Bezug auf Komposition, Instrumentierung und Produktion hervorbrachten. Die subgenretypischen Variationen des Krautrock sind dabei als Ausdruck eines experimentellen und oftmals avantgardistischen Paradigmas zu verstehen, welches über das rein musikalische Schaffen hinaus auch als kulturelles Phänomen in Erscheinung trat. Dabei ist hervorzuheben, dass die stilistischen Entwicklungen in enger Wechselwirkung mit gesellschaftlichen Veränderungen sowie technologischen Fortschritten gesehen werden müssen.
 
 Ein zentraler Aspekt der Subgenres im Krautrock ist die Betonung von Improvisation und experimenteller Klangkunst, welche die artistische Haltung der Musiker maßgeblich prägte. Hierbei wurden traditionelle Songstrukturen häufig zugunsten longitudinale, hypnotische Arrangements vernachlässigt, die sich durch repetitive Rhythmen und innovative Klangprozessoren auszeichnen. Der Begriff des "Motorik"-Rhythmus, der insbesondere durch die Band Neu! gebräuchlich wurde, symbolisiert dieses neuartige rhythmische Gerüst, das simultan das musikalische Fundament und zugleich eine methodische Disziplin repräsentierte. Diese Technik verhalf dem Genre zu einer eigenen Identität und beeinflusste nachfolgende Musikstile weit über nationale Grenzen hinweg.
 

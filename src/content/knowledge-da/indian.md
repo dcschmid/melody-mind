@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduktion
 
@@ -213,6 +212,6 @@ Afslutningsvis kan det konstateres, at internationale forbindelser har været en
 
 ## Aktuelle tendenser og fremtid
 
-Indiske musiktraditioner kombineres nu med globale strømninger og moderne teknologier. I takt med digital lydbehandling og avancerede optagelsesteknikker opstår nye kompositioner, hvor indiske ragastrukturer og talrige talaer integreres med vestlige harmoniske principper. Denne udvikling fremmer interkulturel dialog og åbner for en dialog mellem klassiske traditioner, såsom hindustani og carnatic, og moderne, elektronisk understøttet komposition. 
+Indiske musiktraditioner kombineres nu med globale strømninger og moderne teknologier. I takt med digital lydbehandling og avancerede optagelsesteknikker opstår nye kompositioner, hvor indiske ragastrukturer og talrige talaer integreres med vestlige harmoniske principper. Denne udvikling fremmer interkulturel dialog og åbner for en dialog mellem klassiske traditioner, såsom hindustani og carnatic, og moderne, elektronisk understøttet komposition.
 
 Desuden viser eksperimentelle projekter, at fusionen mellem improvisation og formelle kompositionsstrukturer giver anledning til innovative soniske landskaber. Denne tendens understreges af en øget efterspørgsel på international scene, hvor de ældgamle musikalske traditioner gentolkes. I fremtiden forventes yderligere integration af globale stilarter, hvilket skaber et dynamisk og vedvarende udtryk baseret på en rig musikalsk arv.

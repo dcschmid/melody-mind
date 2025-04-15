@@ -17,10 +17,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduktion
 
@@ -44,7 +43,7 @@ Dessutom är det av stor vikt att notera att teknologiska framsteg hade en avgö
 
 Vidare genomförde de musikaliska uttrycken i Brasilien ofta en dialog med samtida globala trender. Den internationella spridningen av brasiliansk musik under andra halvan av 1900-talet innebar att artister och kompositörer ständigt befann sig i en ömsesidig påverkan med musikaliska rörelser utanför landets gränser. Detta ömsesidiga utbyte var inte ensidigt, utan präglades av en dubbelriktad kommunikation där brasilianska innovatörer både lånade från och sände influenser till internationella scener. Följaktligen måste den kulturella kontexten förstås som en dialog mellan det lokala och det globala, där musikaliska idéer ständigt omformades och återuppfanns.
 
-Historiskt sett kan man således konstatera att Brasiliens musiklandskap utgör ett unikt exempel på hur musik kan fungera som en spegel av sociala och politiska omvälvningar. Genom att studera sambans, bossa novas och tropikálias utveckling får vi insikter i den komplexa samverkan mellan kulturell identitet, teknologiska innovationer och politiska förändringar. Denna utveckling ilustrerar hur geografiska omständigheter, historiska händelser och internationella influenser samverkade och därigenom formade en levande och dynamisk musiktradition. 
+Historiskt sett kan man således konstatera att Brasiliens musiklandskap utgör ett unikt exempel på hur musik kan fungera som en spegel av sociala och politiska omvälvningar. Genom att studera sambans, bossa novas och tropikálias utveckling får vi insikter i den komplexa samverkan mellan kulturell identitet, teknologiska innovationer och politiska förändringar. Denna utveckling ilustrerar hur geografiska omständigheter, historiska händelser och internationella influenser samverkade och därigenom formade en levande och dynamisk musiktradition.
 
 Sammanfattningsvis erbjuder den brasilianska musikens historiska och kulturella kontext en djupgående förståelse av hur musik kan utvecklas ur en mängd sammanflätade kulturella strömmar. Genom att analysera dessa processer framträder en tydlig bild av hur musik inte enbart är en konstform utan även en viktig del av den kulturella identiteten och det samhälleliga medvetandet. Denna samverkan av tradition, modern innovation och global interaktion fortsätter att vara en grundbult i den kulturella utvecklingen, vilket gör det nödvändigt att betrakta brasiliansk musik genom både ett historiskt och ett musikologiskt perspektiv.
 
@@ -188,6 +187,6 @@ Sammanfattningsvis visar studier av internationella kontakter inom brasiliansk m
 
 ## Aktuella trender och framtid
 
-Aktuella trender och framtida utveckling inom brasiliansk musik vittnar om en dynamik där tradition och modernitet samexisterar. Under de senaste åren har fusioner mellan sambans rytmiska grund och elektroniska kompositionstekniker blivit alltmer framträdande, vilket understöds av digital distribution via globala nätverk. Etablerade element, såsom bossa novas harmoniska strukturer, integreras med experimentella ljudlandskap i en process där innovationen speglar internationella strömningar och kulturella förhandlingar. 
+Aktuella trender och framtida utveckling inom brasiliansk musik vittnar om en dynamik där tradition och modernitet samexisterar. Under de senaste åren har fusioner mellan sambans rytmiska grund och elektroniska kompositionstekniker blivit alltmer framträdande, vilket understöds av digital distribution via globala nätverk. Etablerade element, såsom bossa novas harmoniska strukturer, integreras med experimentella ljudlandskap i en process där innovationen speglar internationella strömningar och kulturella förhandlingar.
 
 Vidare påverkar interkulturella utbyten den globala musikkulturen, där brasilianska uttrycksformer anpassas i dialog med andra världsomspännande traditioner. Denna utveckling, som underlättas av modern kommunikationsteknologi och ökad mobilitet, medför en kontinuerlig revidering av musikaliska identiteter. I kontrast till tidigare epoker präglas den samtida fasen av en intersektion mellan historiskt arv och teknologisk nyskapande, vilket öppnar nya perspektiv på framtida musikaliska synteser.

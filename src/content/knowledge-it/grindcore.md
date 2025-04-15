@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -150,7 +149,7 @@ Il rapporto tra musicista e pubblico nelle esibizioni grindcore si caratterizza 
 
 Questa particolare dinamica performativa trovava ulteriore espressione nelle implicazioni metodologiche e organizzative degli eventi dal vivo. Il grindcore, infatti, non veniva concepito come una mera esibizione musicale, ma come un rituale di aggregazione in cui il teatro socio-politico si faceva eco della cultura underground. Festival, concerti indipendenti e raduni organizzati nelle comunità locali divennero spazi privilegiati per la diffusione dei messaggi antiautoritari e la sperimentazione di forme espressive innovative. L’autonomia organizzativa di tali eventi, spesso realizzata senza il supporto delle grandi etichette discografiche, sottolineava l’importanza dell’auto-produzione e della solidarietà tra le varie realtà locali, in un contesto contraddistinto dalla necessità di rompere con le istituzioni culturali tradizionali.
 
-Nel progredire degli anni Novanta, le performance grindcore assunsero connotazioni ulteriormente sofisticate, pur mantenendo intatta la loro radicalità originaria. Le strutture esecutive vennero integrate da elementi d’arte performativa, arricchiti da scenografie che enfatizzavano il carattere disruptivo degli spettacoli. Le formazioni musicali, sempre più consce della potenza simbolica del live, impiegarono strumenti di comunicazione visiva, come proiezioni e luci coordinate, in grado di trasformare lo spazio scenico in un vero e proprio teatro politico. La sinergia tra elementi audio, visuali e performativi creò un linguaggio estetico che si configurava come una critica diretta alle convenzioni del commercio culturale e come manifesto di una ricerca identitaria radicale. 
+Nel progredire degli anni Novanta, le performance grindcore assunsero connotazioni ulteriormente sofisticate, pur mantenendo intatta la loro radicalità originaria. Le strutture esecutive vennero integrate da elementi d’arte performativa, arricchiti da scenografie che enfatizzavano il carattere disruptivo degli spettacoli. Le formazioni musicali, sempre più consce della potenza simbolica del live, impiegarono strumenti di comunicazione visiva, come proiezioni e luci coordinate, in grado di trasformare lo spazio scenico in un vero e proprio teatro politico. La sinergia tra elementi audio, visuali e performativi creò un linguaggio estetico che si configurava come una critica diretta alle convenzioni del commercio culturale e come manifesto di una ricerca identitaria radicale.
 
 Ulteriori analisi rivelano come il grindcore, nonostante le trasformazioni interne e le evoluzioni stilistiche, mantenga una coerenza nella sua identità performativa. L’uso del frammentario e del discontinuo si riflette non solo nelle composizioni musicali, ma anche nella strutturazione delle esibizioni dal vivo, dove il tempo si dilata e si comprime in maniera volutamente dissonante. Questa consapevolezza formale, unita a una solida radice ideologica, rende il grindcore un caso di studio emblematico per comprendere la relazione tra musica, performatività e politica. In aggiunta, la trasmissione dei valori attraverso le performance dal vivo non si limita ad un mero intrattenimento, bensì si configura come un atto di comunicazione radicale, in cui l’intensità dell’esperienza sonora e visiva assume una funzione critico-sociale determinante.
 

@@ -16,16 +16,15 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Bossa Nova muodostaa ainutlaatuisen ja dynaamisen kansainvälisen musiikkiperinteen ilmentymän, jolle on ominaista kehittynyt melodian ja rytmien innovatiivinen yhdistelmä. Genren syntyprosessi sijoittuu 1950‐luvun loppupuolelle Brasiliaan, missä paikallisen populaarimusiikin ja jazzin vaikutteet sulautuivat toisiinsa. Taustalla oli erityisesti kitaransoiton ja kevyen, lähes kuiskivan laulutyylin kehitys, joka erotti Bossa Novan aikaisemmista musiikkityyleistä. 
+Bossa Nova muodostaa ainutlaatuisen ja dynaamisen kansainvälisen musiikkiperinteen ilmentymän, jolle on ominaista kehittynyt melodian ja rytmien innovatiivinen yhdistelmä. Genren syntyprosessi sijoittuu 1950‐luvun loppupuolelle Brasiliaan, missä paikallisen populaarimusiikin ja jazzin vaikutteet sulautuivat toisiinsa. Taustalla oli erityisesti kitaransoiton ja kevyen, lähes kuiskivan laulutyylin kehitys, joka erotti Bossa Novan aikaisemmista musiikkityyleistä.
 
-Keskeisessä roolissa toimivat muun muassa João Gilberto, Antônio Carlos Jobim ja Vinicius de Moraes, joiden panos musikaaliseen estetiikkaan ja harmonisten suhteiden uudelleenmäärittelyyn oli ratkaiseva. Nämä vaikutteet ja innovaatiot mahdollistivat sen, että genre ei ainoastaan vakiinnuttanut asemaansa paikallisessa musiikkikentässä, vaan laajensi vaikutuspiiriään kansainväliselle areenalle. 
+Keskeisessä roolissa toimivat muun muassa João Gilberto, Antônio Carlos Jobim ja Vinicius de Moraes, joiden panos musikaaliseen estetiikkaan ja harmonisten suhteiden uudelleenmäärittelyyn oli ratkaiseva. Nämä vaikutteet ja innovaatiot mahdollistivat sen, että genre ei ainoastaan vakiinnuttanut asemaansa paikallisessa musiikkikentässä, vaan laajensi vaikutuspiiriään kansainväliselle areenalle.
 
 Lisäksi Bossa Novan kehityksessä ilmenee syvällinen vuorovaikutus eri kulttuuriperinteiden välillä, mikä on edesauttanut genren jatkuvaa taiteellista monimuotoisuutta ja kielellistä ilmaisuvoimaa.
 
@@ -53,9 +52,9 @@ Yhteenvetona voidaan todeta, että bossa nova on sekä historiallisesti että mu
 
 ## Musical Characteristics
 
-Bossa nova on merkittävä musiikkityyli, jonka kehitys juontaa juurensa 1950-luvun lopun Brasiliassa ja joka on sittemmin vaikuttanut laajalti kansainväliseen musiikkikulttuuriin. Tyylilajin musiikilliset ominaisuudet ovat synteettisiä ja kulttuurisesti moniulotteisia, ja ne ilmentävät sekä samba-rytmin että jazzin harmonisten rakenteiden yhdistelmää. Tieteellisestä näkökulmasta bossa nova edustaa uudenlaista lähestymistapaa rytmiikkaan, harmoniaan ja soittotyyliin, jolloin perinteiset rytmitaustat sulautuvat kevyeksi ilmaisuksi usein rauhallisessa ja introspektiivisessä ilmapiirissä. 
+Bossa nova on merkittävä musiikkityyli, jonka kehitys juontaa juurensa 1950-luvun lopun Brasiliassa ja joka on sittemmin vaikuttanut laajalti kansainväliseen musiikkikulttuuriin. Tyylilajin musiikilliset ominaisuudet ovat synteettisiä ja kulttuurisesti moniulotteisia, ja ne ilmentävät sekä samba-rytmin että jazzin harmonisten rakenteiden yhdistelmää. Tieteellisestä näkökulmasta bossa nova edustaa uudenlaista lähestymistapaa rytmiikkaan, harmoniaan ja soittotyyliin, jolloin perinteiset rytmitaustat sulautuvat kevyeksi ilmaisuksi usein rauhallisessa ja introspektiivisessä ilmapiirissä.
 
-Bossa novan rytmisessä rakenteessa esiintyy monia intrikaatimpia huomioita. Ensinnäkin, tyylilajin perusrytmi ammentaa vaikutteita brasilialaisesta sambasta, mutta se keskeytyy ja uudelleenmuodostuu eräänlaiseksi johdonmukaiseksi ja eleganssia korostavaksi rytmikuvaksi. Näin syntyy "pauken" tunnusomaista tiivistelmää, jossa rytmiryhmän roolit ovat tarkkaan määriteltyjä. Lisäksi rytmiset painotukset ovat pehmeämpiä ja keskustelevat toistensa kanssa, jolloin musiikillinen tilanne muodostaa dynaamisen dialogin vakiintuneen rytmikaavan sijaan. 
+Bossa novan rytmisessä rakenteessa esiintyy monia intrikaatimpia huomioita. Ensinnäkin, tyylilajin perusrytmi ammentaa vaikutteita brasilialaisesta sambasta, mutta se keskeytyy ja uudelleenmuodostuu eräänlaiseksi johdonmukaiseksi ja eleganssia korostavaksi rytmikuvaksi. Näin syntyy "pauken" tunnusomaista tiivistelmää, jossa rytmiryhmän roolit ovat tarkkaan määriteltyjä. Lisäksi rytmiset painotukset ovat pehmeämpiä ja keskustelevat toistensa kanssa, jolloin musiikillinen tilanne muodostaa dynaamisen dialogin vakiintuneen rytmikaavan sijaan.
 
 Harmonisesti bossa nova erottautuu rikkaiden ja moniulotteisten sointukulkujen kautta, jotka ammentavat jazzin vaikutteita, mutta säilyttävät samalla selkeän viittauksen brasilialaiseen kansanmusiikkiin. Harmoninen rakenne perustuu usein laajoihin sekundaareihin sointukulkuihin ja additioihin, jotka tavallisesti yhdistävät duurin ja mollin elementtejä erottuvalla tavalla. Näin syntyvä harmoninen teksti luo monikerroksisen musiikillisen kokonaisuuden, jossa melodiamaiset linjat kulkevat saumattomassa vuorovaikutuksessa monimutkaisten sointuvaikutelmien kanssa. Harmoniset kehykset muodostavat myös pohjan improvisaatioille, jotka ilmentyvät erityisesti solistien esityksissä, jolloin vuorovaikutus rytmin, harmonian ja melodisen ilmaisun välillä saa tieteellisen mielenkiinnon kohteeksi.
 

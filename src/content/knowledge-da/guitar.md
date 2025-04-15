@@ -16,10 +16,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -179,6 +178,6 @@ En anden væsentlig dimension af guitarens arv er dens evne til at fungere som e
 
 Det er vigtigt at understrege, at denne indflydelse ikke kun kan tilskrives den tekniske udvikling, men også den symbolik, instrumentet har fået i en global sammenhæng. Gennem årtierne har guitaren fungeret som en bro mellem tradition og innovation, idet den både har trukket på dybe historiske rødder og samtidig omfavnet moderne teknologiske fremskridt. Dette kulturelle og musikalske krydsfelt er tydeligt i den måde, hvorpå instrumentet har inspireret efterfølgende generationer af musikere til at eksperimentere med nye lydbilleder og kompositionsteknikker, hvilket igen har beriget den internationale musikalske diskurs.
 
-Sammenfattende kan det konstateres, at guitarens arv og indflydelse udgør en kompleks og dynamisk fortælling om globalt kulturelt skifte. Fra de tidlige former af den klassiske guitar, der blev videreudviklet af mestre som Tárrega og Segovia, til dens transformation ved hjælp af elektrificering og digital teknologi, har instrumentet konsekvent været i centrum for musikalsk innovation og kulturel udveksling. Denne historiske udvikling eksemplificerer, hvordan et instrument kan rejse ud over sin umiddelbare funktion og træde ind som et symbol på både personlig og kollektiv identitet. Desuden demonstrerer guitarens evne til at absorbere og transformere indtryk fra diverse kulturelle og musikalske traditioner dens vedvarende relevans i en verden, hvor grænser mellem genrer og nationaliteter bliver stadig mere permeable.  
- 
+Sammenfattende kan det konstateres, at guitarens arv og indflydelse udgør en kompleks og dynamisk fortælling om globalt kulturelt skifte. Fra de tidlige former af den klassiske guitar, der blev videreudviklet af mestre som Tárrega og Segovia, til dens transformation ved hjælp af elektrificering og digital teknologi, har instrumentet konsekvent været i centrum for musikalsk innovation og kulturel udveksling. Denne historiske udvikling eksemplificerer, hvordan et instrument kan rejse ud over sin umiddelbare funktion og træde ind som et symbol på både personlig og kollektiv identitet. Desuden demonstrerer guitarens evne til at absorbere og transformere indtryk fra diverse kulturelle og musikalske traditioner dens vedvarende relevans i en verden, hvor grænser mellem genrer og nationaliteter bliver stadig mere permeable.
+
 Samspillet mellem teknologisk fremskridt og kunstnerisk mod, som er tydeligt i guitarens historie, har således haft en afgørende betydning for udviklingen af moderne musik. Instrumentets multiple facetter afspejler en lang række innovationer, hvor hver ændring har bidraget til at udvide den musikalske horisont. Gennem årtierne er den internationale musikkerfaring blevet beriget af de eksperimentelle og transformative tilgange, der er blevet implementeret af guitarister verden over. Denne kunstneriske arv demonstrerer, at guitaren ikke blot er et redskab til musikalsk udfoldelse, men en levende del af den kulturelle og æstetiske bevidsthed, der fortsat inspirerer uafhængigt af tid og sted.

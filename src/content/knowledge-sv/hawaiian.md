@@ -17,16 +17,15 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduktion
 
 Introduktion
 
-Hawaiiansk musik utgör en distinkt kulturell och musikologisk tradition som härrör från de inhemska samhällenas muntliga överföringsmönster. Genom att bevara rika ritualer med ceremoniala sånger, det vill säga oli, samt den traditionella dansen hula, återspeglas en djup samhörighet mellan musik och rituell handling. Under 1800-talets senare hälft konfronterades dessa uttryck med västerländska influenser, vilket medförde en omtolkning av både instrumentala och vokala element i en ny harmonisk kontext. 
+Hawaiiansk musik utgör en distinkt kulturell och musikologisk tradition som härrör från de inhemska samhällenas muntliga överföringsmönster. Genom att bevara rika ritualer med ceremoniala sånger, det vill säga oli, samt den traditionella dansen hula, återspeglas en djup samhörighet mellan musik och rituell handling. Under 1800-talets senare hälft konfronterades dessa uttryck med västerländska influenser, vilket medförde en omtolkning av både instrumentala och vokala element i en ny harmonisk kontext.
 
 Vidare medförde tidiga teknologiska innovationer, såsom inspelningsteknikens genomslag och utvecklingen av den karakteristiska stålgitarren, en snabb internationell spridning av den hawaiianska musiktraditionen. Denna sammansmältning av ursprunglig musikalitet och importerade harmoniska system har gett upphov till en estetisk palett som fortsätter att fascinera musikkritiker och etnomusikologer globalt. I denna sammanlänkning av inhemska och västerländska uttrycksformer manifesteras både kontinuitet och förändring i genreutvecklingen.
 
@@ -186,8 +185,8 @@ Sammanfattningsvis utgör de internationella kontakterna ett dynamiskt och mång
 
 ## Aktuella trender och framtid
 
-In den internationella sammanhanget uppvisar den hawaiianska musikens utveckling tydliga tendenser där traditionella melodier och harmoniska strukturer möter modern kreativ teknik. Samtidigt sker en fortsatt renässans av klassiska instrumentala uttryck, vilket bidrar till en fördjupad analys av intervall och modala skalor som historiskt definierat den äkta hawaiianska estetiken. 
+In den internationella sammanhanget uppvisar den hawaiianska musikens utveckling tydliga tendenser där traditionella melodier och harmoniska strukturer möter modern kreativ teknik. Samtidigt sker en fortsatt renässans av klassiska instrumentala uttryck, vilket bidrar till en fördjupad analys av intervall och modala skalor som historiskt definierat den äkta hawaiianska estetiken.
 
-Vidare leder integrationen av digitala ljudtekniker och avancerade inspelningsmetoder till en ökad precision i produktionen, vilket i sin tur medför en omtolkning av musikaliska strukturer och rytmiska mönster. Denna interaktion mellan teknologisk innovation och traditionella element möjliggör en harmonisk syntes som tilltalar både konservativa lyssnare och modernismens anhängare. 
+Vidare leder integrationen av digitala ljudtekniker och avancerade inspelningsmetoder till en ökad precision i produktionen, vilket i sin tur medför en omtolkning av musikaliska strukturer och rytmiska mönster. Denna interaktion mellan teknologisk innovation och traditionella element möjliggör en harmonisk syntes som tilltalar både konservativa lyssnare och modernismens anhängare.
 
 Avslutningsvis pekar framtiden mot en stärkt global spridning där etnografiska studier och musikologiska analyser fortsätter att belysa den hawaiianska musikens komplexitet och dess roll i den internationella musikscenen.

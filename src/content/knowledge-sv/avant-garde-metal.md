@@ -16,10 +16,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -47,7 +46,7 @@ Sammanfattningsvis utgör den avantgardistiska metalens historiska bakgrund ett 
 
 ## Musical Characteristics
 
-In avantgardistisk metal manifesteras en sammansmältning av extrema soniska experiment och rigorös musiketeoretisk reflektion, vilket utgör en anmärkningsvärd utveckling inom den internationella musikhistorien. Denna stilistiska gren, med sina rötter i både den experimentella rockens och den progressiva musikens traditioner, kännetecknas av en medveten vilja att ifrågasätta och omdefiniera de etablerade normerna inom populärmusiken. I denna text belyses de centrala musikaliska egenskaperna hos avantgardistisk metal, med särskilt fokus på de strukturella, harmoniska och rytmiska innovationer som präglar genren. 
+In avantgardistisk metal manifesteras en sammansmältning av extrema soniska experiment och rigorös musiketeoretisk reflektion, vilket utgör en anmärkningsvärd utveckling inom den internationella musikhistorien. Denna stilistiska gren, med sina rötter i både den experimentella rockens och den progressiva musikens traditioner, kännetecknas av en medveten vilja att ifrågasätta och omdefiniera de etablerade normerna inom populärmusiken. I denna text belyses de centrala musikaliska egenskaperna hos avantgardistisk metal, med särskilt fokus på de strukturella, harmoniska och rytmiska innovationer som präglar genren.
 
 Historiskt sett framträdde avantgardistiska tendenser inom metal redan under sena 1980-talet, då en grupp banbrytande artister i Europa och Nordamerika började experimentera med atypiska formstrukturer och en eklektisk blandning av influenser. Musikaliska element hämtades ur avantgardistiska kompositionsprinciper, där oregelbundna taktarter, dissonanta harmonier och otraditionella instrumenteringar användes för att stimulera lyssnarens perception. Denna period präglades av en strävan efter att bryta mot den sedvanliga konventionen, en ambition som samverkade med samtidens utveckling inom samtida konst och teater. Vidare var influenser från friimprovisation och serietonalitet avgörande för utvecklingen, vilket möjliggjorde en dynamik där improvisation och strikta strukturer samexisterade.
 
@@ -161,7 +160,7 @@ Avslutningsvis kan det framhållas att forskning på performance och livekultur 
 
 Utvecklingen och evolutionen inom avant‐gardistisk metal utgör ett komplext musikaliskt fält som präglas av en sammansmältning av traditionella metalinslag med experimentella uttrycksformer hämtade från samtida konstnärliga och musikvetenskapliga strömningar. Denna genre, som började få genomslag under senare delen av 1980-talet och in på 1990-talet, kan med säkerhet ses som en reaktion mot konventionella normer inom både metall och populärmusik. Musikaliskt karaktäriseras avant‐gardistisk metal av icke‐konventionella harmonier, asymmetriska rytmiska strukturer samt en medveten strävan efter att överskrida etablerade normer. Genren synliggör därmed en kritisk hållning gentemot musikalisk formalism och en ambition att kontinuerligt söka nya uttrycksformer genom integration av influenser från samtida klassisk musik, jazz och modern experimentell musik.
 
-I ett internationellt perspektiv kan vi spåra utvecklingen av avant‐gardistisk metal till flera samtidiga kulturella och teknologiska omvälvningar. Framväxten av nya inspelningstekniker och en ökad tillgång till digital redigering under de tidiga 1990‐åren gjorde det möjligt för musiker att experimentera med lager på lager av ljud och komplexa strukturer. Samtidigt bidrog den ökade globaliseringen, samt utbyte av musikaliska idéer mellan Nordamerika och Europa, till att innovativa musikaliska koncept kunde spridas och vidareutvecklas. Denna period präglades av en medveten strävan att utmana de acoustiska normerna, där den tekniska utvecklingen skapade möjligheter till en bredare palett av ljudmässiga färger och dynamiska kontraster.  
+I ett internationellt perspektiv kan vi spåra utvecklingen av avant‐gardistisk metal till flera samtidiga kulturella och teknologiska omvälvningar. Framväxten av nya inspelningstekniker och en ökad tillgång till digital redigering under de tidiga 1990‐åren gjorde det möjligt för musiker att experimentera med lager på lager av ljud och komplexa strukturer. Samtidigt bidrog den ökade globaliseringen, samt utbyte av musikaliska idéer mellan Nordamerika och Europa, till att innovativa musikaliska koncept kunde spridas och vidareutvecklas. Denna period präglades av en medveten strävan att utmana de acoustiska normerna, där den tekniska utvecklingen skapade möjligheter till en bredare palett av ljudmässiga färger och dynamiska kontraster.
 
 Parallellt med dessa tekniska framsteg utvidgades det teoretiska ramverket kring metallmusik, varigenom musikkritiker och akademiker aktivt diskuterade genredefinitioner och musikaliska parametrar. Avant‐gardistisk metal utmärker sig genom användning av polyrytmiska strukturer och otraditionella tonskift som ofta utmanar lyssnarens förväntningar. Denna vetenskapliga diskurs om musikaliska parametrar kom därmed att influeras av samtidens strömningar inom postmodern teoretisering, där begrepp som dekonstruktion och hybriditet fick en central plats. Man kan hævda att den musikaliska experimentlusta i sin tur speglade en allmän kulturell trend av att förhålla sig skeptisk mot traditionella uttrycksformer och därigenom bana väg för nya kreativa uttrycksmedel.
 

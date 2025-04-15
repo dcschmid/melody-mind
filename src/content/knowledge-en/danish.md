@@ -17,16 +17,15 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-The Danish musical tradition has long displayed an enduring influence upon the international stage. Rooted in a rich historical milieu, Danish music seamlessly intertwines indigenous folk motifs with wider European artistic currents. 
+The Danish musical tradition has long displayed an enduring influence upon the international stage. Rooted in a rich historical milieu, Danish music seamlessly intertwines indigenous folk motifs with wider European artistic currents.
 
-In the medieval period, composers and minstrels in Denmark embraced polyphonic and modal frameworks that resonated with contemporaneous works across the continent. Moreover, the emergence of refined musical notation and the development of early instruments facilitated the integration of Danish compositions into the broader Western musical canon. 
+In the medieval period, composers and minstrels in Denmark embraced polyphonic and modal frameworks that resonated with contemporaneous works across the continent. Moreover, the emergence of refined musical notation and the development of early instruments facilitated the integration of Danish compositions into the broader Western musical canon.
 
 Furthermore, in later centuries, the assimilation of Romantic ideals and modernist innovations catalysed Danish music’s international appeal. Today, its legacy endures through rigorous scholarly research and celebrated performances, reaffirming Denmark’s pivotal role in the evolution of global musical expression.
 

@@ -16,14 +16,13 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-A categoria Horror Metal desponta como manifestação autêntica da convergência entre o terror cinematográfico e a musicalidade extrema. Emergindo no final dos anos oitenta, este subgênero incorporou temáticas macabras e estéticas perturbadoras, inspirando-se tanto no metal pesado clássico quanto em elementos sinfônicos e barrocos. A interseção entre a experimentação sonora e a narrativa sombria propiciou a criação de atmosferas arrepiantes, caracterizadas pelo emprego de escalas exóticas, timbres distorcidos e arranjos instrumentais inovadores. 
+A categoria Horror Metal desponta como manifestação autêntica da convergência entre o terror cinematográfico e a musicalidade extrema. Emergindo no final dos anos oitenta, este subgênero incorporou temáticas macabras e estéticas perturbadoras, inspirando-se tanto no metal pesado clássico quanto em elementos sinfônicos e barrocos. A interseção entre a experimentação sonora e a narrativa sombria propiciou a criação de atmosferas arrepiantes, caracterizadas pelo emprego de escalas exóticas, timbres distorcidos e arranjos instrumentais inovadores.
 
 Ademais, a influência de obras literárias e teatrais, bem como a reinterpretação de convenções musicais, consolidou uma identidade que transcende a mera agressividade instrumental. Por conseguinte, o Horror Metal estabelece um diálogo crítico entre técnica e simbolismo, refletindo as inquietações da modernidade e a busca por uma expressão estética singular que desafia paradigmas tradicionais.
 
@@ -147,7 +146,7 @@ Paralelamente, as festividades e os eventos culturais dedicados ao horror metal 
 
 Por fim, o horror metal mostra uma excepcional riqueza em termos de polifonia simbólica, ao integrar debates acerca da moralidade, da existência e da própria natureza do ser humano. Em um ambiente historicamente marcado pelas crises e incertezas do mundo contemporâneo, o gênero oferece uma perspectiva única que sintetiza a dicotomia entre a criação artística e a experiência existencial. Assim, a abordagem musical, aliada ao uso de imagens e narrativas carregadas de significado, contribui para a construção de uma linguagem estética capaz de intervir criticamente no discurso dominante.
 
-Em síntese, a relevância cultural do horror metal reside na sua capacidade de articular formas inovadoras de resistência simbólica e de reflexão crítica sobre a experiência humana. Ao integrar elementos teatrais, literários e tecnológicos, o movimento transcende os limites da música e adentra um espaço discursivo onde o terror se apresenta simultaneamente como objeto estético e como instrumento de comentário social. Tais características conferem ao horror metal uma posição singular no cenário musical internacional, ampliando a compreensão dos fenômenos culturais contemporâneos e reiterando o potencial transformador da arte. 
+Em síntese, a relevância cultural do horror metal reside na sua capacidade de articular formas inovadoras de resistência simbólica e de reflexão crítica sobre a experiência humana. Ao integrar elementos teatrais, literários e tecnológicos, o movimento transcende os limites da música e adentra um espaço discursivo onde o terror se apresenta simultaneamente como objeto estético e como instrumento de comentário social. Tais características conferem ao horror metal uma posição singular no cenário musical internacional, ampliando a compreensão dos fenômenos culturais contemporâneos e reiterando o potencial transformador da arte.
 
 Total de caracteres: 5362
 

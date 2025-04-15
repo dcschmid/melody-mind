@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -32,7 +31,7 @@ Subsecuentemente, la expansión internacional de esta propuesta musical se afian
 
 ## Historical Background
 
-El contexto histórico de la música de club constituye una amalgama de factores culturales, tecnológicos y sociales que han configurado un discurso musical de gran trascendencia a nivel internacional. Durante las décadas posteriores a la Segunda Guerra Mundial, el resurgimiento del ocio nocturno en las grandes metrópolis europeas y norteamericanas abrió paso a la emergente cultura de los clubes, espacios que se erigieron como escenarios de libertad y experimentación artística. La evolución de estos entornos se inscribe en la relación dialéctica entre innovaciones tecnológicas y transformaciones socioculturales, marcando un hito en la historia de la música y el espectáculo. 
+El contexto histórico de la música de club constituye una amalgama de factores culturales, tecnológicos y sociales que han configurado un discurso musical de gran trascendencia a nivel internacional. Durante las décadas posteriores a la Segunda Guerra Mundial, el resurgimiento del ocio nocturno en las grandes metrópolis europeas y norteamericanas abrió paso a la emergente cultura de los clubes, espacios que se erigieron como escenarios de libertad y experimentación artística. La evolución de estos entornos se inscribe en la relación dialéctica entre innovaciones tecnológicas y transformaciones socioculturales, marcando un hito en la historia de la música y el espectáculo.
 
 En la década de 1950, la emergencia de espacios de encuentro social y la efervescencia del jazz y el rhythm and blues contribuyeron a la forja de una identidad musical que, aunque distante del concepto actual de club, sentó las bases de una cultura marcada por la interacción, la improvisación y la receptividad al cambio. En determinados entornos urbanos, especialmente en Estados Unidos y en algunos núcleos europeos, se inició un proceso de integración entre música y danza que, a través de innovadoras propuestas sonoras, desembocó en la construcción de repertorios caracterizados por el dinamismo rítmico y la creación de ambientes inmersivos. Asimismo, la extensión de las tecnologías de amplificación y grabación permitió que estas expresiones artísticas se difundieran a mayor escala, generando un impacto que se infiltra en la cultura popular.
 

@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introducción
 
@@ -192,8 +191,8 @@ En conclusión, el enriquecimiento de la música mexicana a partir de sus conexi
 
 ## Tendencias actuales y futuro
 
-En la actualidad, la música mexicana se distingue por una notable fusión entre sus raíces autóctonas y las influencias de la modernidad instrumental y digital. Tradicionalmente, géneros como el mariachi, la ranchera y el son jarocho han dialogado con corrientes contemporáneas, integrando matices de la electrónica y la experimentalidad sonora, en un proceso que se intensifica con la globalización y la accesibilidad a diversas plataformas. 
+En la actualidad, la música mexicana se distingue por una notable fusión entre sus raíces autóctonas y las influencias de la modernidad instrumental y digital. Tradicionalmente, géneros como el mariachi, la ranchera y el son jarocho han dialogado con corrientes contemporáneas, integrando matices de la electrónica y la experimentalidad sonora, en un proceso que se intensifica con la globalización y la accesibilidad a diversas plataformas.
 
-Asimismo, investigaciones recientes han evidenciado que el intercambio cultural con colectivos internacionales impulsa la creación de nuevos lenguajes compositivos. Este fenómeno, analizado en estudios musicológicos actuales, se fundamenta en la convergencia de técnicas ancestrales y herramientas tecnológicas emergentes, configurando un panorama en el que la digitalización estimula la innovación. 
+Asimismo, investigaciones recientes han evidenciado que el intercambio cultural con colectivos internacionales impulsa la creación de nuevos lenguajes compositivos. Este fenómeno, analizado en estudios musicológicos actuales, se fundamenta en la convergencia de técnicas ancestrales y herramientas tecnológicas emergentes, configurando un panorama en el que la digitalización estimula la innovación.
 
 En consecuencia, se vislumbra un futuro en el que las prácticas compositivas se redefinirán mediante la integración de procesos interdisciplinarios y el fortalecimiento de la identidad cultural, lo que promete enriquecer la tradición musical mexicana en el ámbito global.

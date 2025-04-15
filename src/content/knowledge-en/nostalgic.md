@@ -17,14 +17,13 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Within the realm of international music, the nostalgic category evokes a bygone era distinguished by its stylistic innovations and deep cultural resonances. This period, spanning from the dawn of jazz in the early twentieth century to the rich tapestry of mid-century popular soundscapes, is revered not solely for its aesthetic allure but also for its historical import. 
+Within the realm of international music, the nostalgic category evokes a bygone era distinguished by its stylistic innovations and deep cultural resonances. This period, spanning from the dawn of jazz in the early twentieth century to the rich tapestry of mid-century popular soundscapes, is revered not solely for its aesthetic allure but also for its historical import.
 
 Moreover, an exploration of nostalgic music necessitates a discerning appreciation of precise musical terminologies and theoretical constructs, such as harmonic modulation and rhythmic imperatives, which neatly encapsulate the era’s creative spirit. Through rigorous musicological inquiry and contextual analysis, one may gain profound insights into a past that continues to shape the contemporary sonic landscape.
 
@@ -56,7 +55,7 @@ Furthermore, the evolution of nostalgic musical expression is profoundly intertw
 
 In parallel with these technological strides, transnational cultural exchanges played a critical role in shaping the nostalgic musical canon. In post-war Europe, for instance, composers sought solace in reinterpreting traditional folk tunes and national ballads as a means of reconstructing identity and honouring cultural memory. Similarly, in America, the nostalgia-inflected compositions of the Tin Pan Alley tradition and subsequent popular repertoire often drew upon diverse influences from African-American spirituals and European art songs, thereby engendering a rich tapestry of sound that resonated on an international scale. Such cross-cultural synthesis not only expanded the expressive range of nostalgic music but also signalled a broader historical narrative of reconciliation and collective memory.
 
-Additionally, the conceptual framework of nostalgic musical expression invites analysis from a music-theoretical perspective, whereby the structural underpinnings of such works are scrutinised and appreciated. Harmonic progressions imbued with modal inflections, for instance, frequently evoke the archaic or primitive qualities that listeners might associate with an idealised past. Similarly, the utilisation of limited instrumental timbres—often drawing on instruments of a bygone era such as the mandolin or the early piano—serves a dual purpose of both musical restraint and evocative reminiscence. In a more abstract sense, these compositional choices underscore a perennial dialogue between the historical and the emotive, where each note and phrase is imbued with the capacity to conjure memories both personal and collective. 
+Additionally, the conceptual framework of nostalgic musical expression invites analysis from a music-theoretical perspective, whereby the structural underpinnings of such works are scrutinised and appreciated. Harmonic progressions imbued with modal inflections, for instance, frequently evoke the archaic or primitive qualities that listeners might associate with an idealised past. Similarly, the utilisation of limited instrumental timbres—often drawing on instruments of a bygone era such as the mandolin or the early piano—serves a dual purpose of both musical restraint and evocative reminiscence. In a more abstract sense, these compositional choices underscore a perennial dialogue between the historical and the emotive, where each note and phrase is imbued with the capacity to conjure memories both personal and collective.
 
 Moreover, the performance practices associated with nostalgic music are no less significant than its compositional attributes. Historically informed interpretative styles, which diligently attempt to reconstruct the aesthetic and technical nuances of earlier eras, have contributed substantially to the enduring appeal of this musical genre. National and international ensembles have increasingly embraced the performance of period-specific repertoire, striving to adhere to the rigours of historical accuracy while simultaneously eliciting the emotive intensity that is so pivotal to nostalgic expression. This careful balance—between the fidelity to historical detail and the sincere conveyance of feeling—represents a poignant reminder of music's capacity to function as both an art form and a cultural artefact.
 

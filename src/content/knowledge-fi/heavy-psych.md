@@ -16,10 +16,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -85,7 +84,7 @@ Yhteenvetona voidaan todeta, että Heavy Psych on aikansa teknologisten ja kultt
 
 ## Key Figures and Important Works
 
-Heavy Psych -musiikkityylin kehitys on nähtävissä 1960-luvun loppupuolen merkittävänä kokeiluna, jossa rockmusiikin perinteisiin lisättiin psykedeelisiä elementtejä ja aggressiivista äänimaailmaa. Tyylisuuntaa leimaa sen pyrkimys yhdistää psykedeelisen improvisaation ja raskauden, mikä heijastaa aikakauden nuorisokulttuurin ja vastakulttuuriliikkeiden vaikutuksia. Musiikkianalyysin näkökulmasta Heavy Psychin kehitystyöhön osallistui lukuisia yhtyeitä, joilla oli merkittävä rooli musiikillisen ilmaisun radikaalissa uudistuksessa. Näissä kokeiluissa käytettiin aikansa kehittyneimpiä teknologisia ratkaisuja, kuten efektipedaaleja ja multi-track-nauhoituksia, joiden avulla äänimaailman monikerroksellisuus voitiin saavuttaa entistä intensiivisemmällä tavalla.  
+Heavy Psych -musiikkityylin kehitys on nähtävissä 1960-luvun loppupuolen merkittävänä kokeiluna, jossa rockmusiikin perinteisiin lisättiin psykedeelisiä elementtejä ja aggressiivista äänimaailmaa. Tyylisuuntaa leimaa sen pyrkimys yhdistää psykedeelisen improvisaation ja raskauden, mikä heijastaa aikakauden nuorisokulttuurin ja vastakulttuuriliikkeiden vaikutuksia. Musiikkianalyysin näkökulmasta Heavy Psychin kehitystyöhön osallistui lukuisia yhtyeitä, joilla oli merkittävä rooli musiikillisen ilmaisun radikaalissa uudistuksessa. Näissä kokeiluissa käytettiin aikansa kehittyneimpiä teknologisia ratkaisuja, kuten efektipedaaleja ja multi-track-nauhoituksia, joiden avulla äänimaailman monikerroksellisuus voitiin saavuttaa entistä intensiivisemmällä tavalla.
 
 Blue Cheer on yksi keskeisimmistä Heavy Psychin edustajista ja sen vaikutukset ulottuvat sekä myöhempään hard rockiin että raskaaseen metallimusiikkiin. Kalifornialainen yhtye syntyi 1960-luvun puolivälissä, ja se saavutti kansainvälistä mainetta vuonna 1968 julkaistulla albumillaan Vincebus Eruptum. Albumi esittää rohkean yhdistelmän psykedeliaa ja raskasta, murenevaa kitarasoundia, joka mullisti aikakauden musiikilliset konventiot. Blue Cheer onnistui luomaan uudenlaisen musiikillisen kokemuksen, jossa perinteinen psykedeelinen improvisaatio sulautui aggressiiviseen äänimaisemaan. Yhtyeen tuotannossa voidaan havaita systemaattinen pyrkimys rikkoa totuttuja musiikillisen ilmaisun rajoja, mikä käy ilmi sekä muotojen että äänien innovatiivisesta käytöstä.
 

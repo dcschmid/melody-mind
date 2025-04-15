@@ -17,10 +17,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -186,9 +185,9 @@ Tenslotte dient opgemerkt te worden dat de erfenis van Classic Rock wederom voor
 
 ## Legacy and Influence
 
-De erfenis en invloed van de klassieke rock vormen een cruciaal aspect binnen de internationale muziekgeschiedenis, mede door haar complexe verwevenheid met maatschappelijke veranderingen en culturele dynamieken. Deze stroming, die in de jaren zestig en zeventig tot volle bloei kwam, heeft niet alleen de muzikale taal van latere generaties bepaald, maar tevens de manier waarop hedendaagse kunst de relatie tussen muziek, technologie en maatschappij conceptualiseert, diepgaand beïnvloed. De muzikale experimenten binnen deze stroming, gekenmerkt door innovatieve arrangementen en plezierige mengvormen, leidden tot een nieuwe standaard in termen van artistieke expressie en productie. 
+De erfenis en invloed van de klassieke rock vormen een cruciaal aspect binnen de internationale muziekgeschiedenis, mede door haar complexe verwevenheid met maatschappelijke veranderingen en culturele dynamieken. Deze stroming, die in de jaren zestig en zeventig tot volle bloei kwam, heeft niet alleen de muzikale taal van latere generaties bepaald, maar tevens de manier waarop hedendaagse kunst de relatie tussen muziek, technologie en maatschappij conceptualiseert, diepgaand beïnvloed. De muzikale experimenten binnen deze stroming, gekenmerkt door innovatieve arrangementen en plezierige mengvormen, leidden tot een nieuwe standaard in termen van artistieke expressie en productie.
 
-Het oorspronkelijke concept van klassieke rock ontstond in internationale contexten waarin bands als The Beatles, The Rolling Stones, Led Zeppelin, en Pink Floyd een centrale rol vervulden in de popularisatie van het genre. Deze groepen traden op in een periode waarin de technologische ontwikkelingen in de opnametechniek en de introductie van elektrische instrumenten een radicale transformatie teweegbrachten in het muzikale landschap. Muziektheoretici wijzen erop dat dergelijke vernieuwende benaderingen de basis legden voor de ontwikkeling van nieuwe muzikale structuren en ritmische patronen, hetgeen een breedpalet aan verdere experimenten mogelijk maakte. 
+Het oorspronkelijke concept van klassieke rock ontstond in internationale contexten waarin bands als The Beatles, The Rolling Stones, Led Zeppelin, en Pink Floyd een centrale rol vervulden in de popularisatie van het genre. Deze groepen traden op in een periode waarin de technologische ontwikkelingen in de opnametechniek en de introductie van elektrische instrumenten een radicale transformatie teweegbrachten in het muzikale landschap. Muziektheoretici wijzen erop dat dergelijke vernieuwende benaderingen de basis legden voor de ontwikkeling van nieuwe muzikale structuren en ritmische patronen, hetgeen een breedpalet aan verdere experimenten mogelijk maakte.
 
 De invloed van klassieke rock is evident in zowel de muzikale als de culturele sferen. Enerzijds zorgde de introductie van complexe studio-opnames en overdubtechnieken voor een herwaardering van de mogelijkheden van het plaatmedium, wat leidde tot baanbrekende conceptalbums en thematische narratieven in de popmuziek. Anderzijds fungeerde de muziek als katalysator voor sociale veranderingen, waarbij de rebellie en individualiteit die inherent waren aan de rockstroming, bijdroegen aan een breed maatschappelijk debat over vrijheid, gelijkheid en verzet tegen de gevestigde orde. Tevens wordt de interactie tussen muziek en politiek gezien als een significant aspect, aangezien teksten en visuele representaties van de bands in veel gevallen een kritische reflectie waren op de maatschappelijke conventies van die periode.
 

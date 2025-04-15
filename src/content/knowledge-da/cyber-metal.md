@@ -17,14 +17,13 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Cyber metal repræsenterer en nyskabende syntese af traditionelle metaludtryk med digital æstetik, der understreger samtidens teknologiske fremskridt og kulturelle transformationer. Denne subgenre, der i sin tidlige fase fandt sin konkrete form i slutningen af 1980’erne og begyndelsen af 1990’erne, udnytter avanceret digital signalbehandling og synthesizere i umiddelbar dialog med forstærkede el-guitarer og trommesæt. Resultatet er en kompleks lydstruktur, der overskrider de traditionelle opfattelser af metal og skaber nye æstetiske landskaber. 
+Cyber metal repræsenterer en nyskabende syntese af traditionelle metaludtryk med digital æstetik, der understreger samtidens teknologiske fremskridt og kulturelle transformationer. Denne subgenre, der i sin tidlige fase fandt sin konkrete form i slutningen af 1980’erne og begyndelsen af 1990’erne, udnytter avanceret digital signalbehandling og synthesizere i umiddelbar dialog med forstærkede el-guitarer og trommesæt. Resultatet er en kompleks lydstruktur, der overskrider de traditionelle opfattelser af metal og skaber nye æstetiske landskaber.
 
 Desuden understøttes udviklingen af cyber metal af en international musikkultur med rødder i den industrielle og eksperimentelle metal, hvor teoretiske og æstetiske impulser krydses. Denne integration af digitale og analoge elementer muliggør en fornyet fortolkning af det ekstreme, idet den teknologiske innovation påvirker både kompositionelle strukturer og performancepraksisser. Samlet set bidrager cyber metal til en udvidet forståelse af, hvordan teknologiske fremskridt kan transformere den kunstneriske udtryksevne og definere nye musikalske paradigmer. (912 tegn)
 

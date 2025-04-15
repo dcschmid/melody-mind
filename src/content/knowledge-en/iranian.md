@@ -15,10 +15,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -70,7 +69,7 @@ The initial phase of modernisation can be traced to the 1950s and 1960s, when ad
 
 In the wake of the 1979 Revolution, the political and cultural landscape underwent profound changes that inevitably influenced musical development. Although the post-revolutionary period witnessed stringent restrictions on musical expression within Iran, a significant contingent of Iranian musicians found refuge in the diaspora. These expatriate composers and performers, primarily based in Los Angeles and Europe, inherited the avant-garde ethos of their predecessors and continued to engage with the international music scene. Their work, frequently characterised by subtle fusions of traditional modal frameworks with elements of rock, pop and electronic music, established new paradigms in modern Iranian music that were invariably informed by the international sonic landscape.
 
-During the subsequent decades, the synthesis between Iranian musical traditions and international genres has been meticulously developed. Notably, the emergence of Iranian rock and pop music, particularly from the 1980s onwards, can be viewed as a deliberate reconstitution of pre-revolutionary innovations in tandem with global musical trends. Musicians incorporated counterpoint, modal interchanges and non-Western rhythmic cyclicity in arrangements that would appeal not only to domestic audiences but also to an international public well versed in diverse musical idioms. This interplay between dialectical traditions and modern aesthetics resulted in recordings that subtly addressed identity, migration and cultural memory, whilst adhering to rigorous musical theoretical principles. 
+During the subsequent decades, the synthesis between Iranian musical traditions and international genres has been meticulously developed. Notably, the emergence of Iranian rock and pop music, particularly from the 1980s onwards, can be viewed as a deliberate reconstitution of pre-revolutionary innovations in tandem with global musical trends. Musicians incorporated counterpoint, modal interchanges and non-Western rhythmic cyclicity in arrangements that would appeal not only to domestic audiences but also to an international public well versed in diverse musical idioms. This interplay between dialectical traditions and modern aesthetics resulted in recordings that subtly addressed identity, migration and cultural memory, whilst adhering to rigorous musical theoretical principles.
 
 Furthermore, the evolution of digital recording and internet-based distribution methods during the late 1990s and early 2000s heralded a significant transformation in the production and consumption of Iranian music on the international stage. Digital synthesising, multitrack editing and non-linear production software have collectively become indispensable tools for contemporary Iranian musicians aiming to blend traditional melodic progressions with the expansive textures of ambient, electronic and experimental music. The adoption of these technologies has rendered it possible to transcend geographical and political constraints, thereby enabling a direct dialogue with global audiences. In turn, these developments have led to a reevaluation of the aesthetic and cultural significance of modern Iranian music in the context of broader international musical trends.
 

@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Johdanto
 
@@ -192,7 +191,7 @@ Toiseen maailmansotaan saakka jatkuvassa kulttuuridialogissa Turkki toimi sillan
 
 Sodan jälkeinen ajanjakso toi mukanaan uudenlaisia mahdollisuuksia globaaliin viestintään ja musiikin kaupallistumiseen. Teknologian kehittyessä radio- ja televisiolähetykset tarjosivat turkkilaisille artistseille alustaa, jolta esittäytyä maailmanlaajuisesti. Turkkilaisen popmusiikin nousu 1960-luvulla muodosti perustan kansainvälisille markkinoille suuntautuville tuotannoille, jotka säilyttivät samalla jalansijaa yksilöllisellä musiikillisella kerronnalla. Samanaikaisesti vaikutteet sekä länsimaisesta rockista että perinteisten sävellystekniikoiden uudelleentulkinnasta vahvistivat näiden esitysmuotojen omaleimaisuutta. Tällainen kansainvälinen vuorovaikutus osoitti, kuinka globaaleilla sähkömagneettisilla verkostoilla oli mahdollisuus yhdistää erilaisia kulttuurisia elementtejä monisyiseen musiikilliseen kokonaisuuteen.
 
-Edelleen kansainvälisten vaikutteiden rooli korostui 1980-luvulta eteenpäin, jolloin globalisaatio ja kulttuurisen monimuotoisuuden arvostus kasvoivat voimakkaasti. Turkissa syntyneet hybridimusiikki-ilmiöt ilmensivät sekä perinteisiä että moderneja ilmaisukeinoja, ja näitä kehitettiin aktiivisesti yhteistyössä monien kansainvälisten säveltäjien ja esittäjien kanssa. Maailmankartalle yltäneet festivaalit ja lehdistön tuomat suositukset loihtivat ennen näkemättömän verkoston yhteistyötä erilaisten musiikkigenrien välillä. Tällaiset kontaktit eivät ainoastaan edistäneet taiteellista innovointia, vaan myös rikastuttivat kansallista musiikillista identiteettiä globaaleissa merkityskentissä. 
+Edelleen kansainvälisten vaikutteiden rooli korostui 1980-luvulta eteenpäin, jolloin globalisaatio ja kulttuurisen monimuotoisuuden arvostus kasvoivat voimakkaasti. Turkissa syntyneet hybridimusiikki-ilmiöt ilmensivät sekä perinteisiä että moderneja ilmaisukeinoja, ja näitä kehitettiin aktiivisesti yhteistyössä monien kansainvälisten säveltäjien ja esittäjien kanssa. Maailmankartalle yltäneet festivaalit ja lehdistön tuomat suositukset loihtivat ennen näkemättömän verkoston yhteistyötä erilaisten musiikkigenrien välillä. Tällaiset kontaktit eivät ainoastaan edistäneet taiteellista innovointia, vaan myös rikastuttivat kansallista musiikillista identiteettiä globaaleissa merkityskentissä.
 
 Tutkimusmaailmassa on yhä ajankohtaista analysoida, kuinka turkkilainen musiikki on sopeutunut muuttuvien kansainvälisten virtausilmien edessä säilyttäen samalla omanlaisuutensa. Monet tutkimukset ovat osoittaneet, että vastaavien yhteyksien kautta päivittyvät performatiiviset ilmaisut luovat uudenlaisia näkökulmia identiteettiin ja kulttuuriseen itsetuntoon. Näin ollen kansainväliset kontakteet eivät ole pelkästään kaupallisia tai teknologisia ilmiöitä, vaan ne eivätkä myöskään voi yksiselitteisesti erottaa paikallisesta musiikillisesta perinnöstä. Kokonaisuutena voidaan todeta, että turkkilaisen musiikin kansainväliset yhteydet ovat pysyvä tutkimuskohde, jonka monipuolinen historiantaju avaa uusia ovia kulttuurienvälisten suhteiden ymmärtämiselle.
 

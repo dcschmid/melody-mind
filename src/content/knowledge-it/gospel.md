@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -106,7 +105,7 @@ Fonti e ricerche accademiche, quali gli studi di Robert Darden e quelli di Horac
 
 ## Technical Aspects
 
-Gli aspetti tecnici della musica gospel offrono un terreno di indagine complesso e articolato, in cui si intrecciano tradizioni vocali, strutture armoniche e innovazioni strumentali nate dalla coniugazione di influenze culturali e religiose. Tale analisi, approfondita in ambito accademico, si fonda sulla rigorosa osservazione delle peculiarità stilistiche che, nel corso del Novecento, hanno portato alla definizione di un genere in grado di esprimere intensi sentimenti spirituali attraverso modalità performative e compositive originali. La musica gospel, che trae le sue origini dai contesti afro-americani del Sud degli Stati Uniti, si sviluppò in un percorso storico ben definito, influenzato dalle tradizioni corali e dai ritmi sincopati che avevano precedentemente caratterizzato il canto delle comunità legate al culto religioso. 
+Gli aspetti tecnici della musica gospel offrono un terreno di indagine complesso e articolato, in cui si intrecciano tradizioni vocali, strutture armoniche e innovazioni strumentali nate dalla coniugazione di influenze culturali e religiose. Tale analisi, approfondita in ambito accademico, si fonda sulla rigorosa osservazione delle peculiarità stilistiche che, nel corso del Novecento, hanno portato alla definizione di un genere in grado di esprimere intensi sentimenti spirituali attraverso modalità performative e compositive originali. La musica gospel, che trae le sue origini dai contesti afro-americani del Sud degli Stati Uniti, si sviluppò in un percorso storico ben definito, influenzato dalle tradizioni corali e dai ritmi sincopati che avevano precedentemente caratterizzato il canto delle comunità legate al culto religioso.
 
 In particolare, sul piano strumentale la musica gospel si distingue per una scelta attenta e deliberata dei timbri, combinando strumenti tradizionali quali il pianoforte, la chitarra acustica e gli organi a canne con pratiche vocali che privilegiano l'interpretazione corale e solistica. La presenza dell'organo, considerato simbolo di liturgia e spiritualità, si affianca spesso a quella del pianoforte, il cui utilizzo si è diffuso in seguito agli sviluppi tecnologici che, a partire dagli anni Trenta, permisero l'amplificazione e la diffusione massiva del suono. Inoltre, la sezione ritmica, composta da batteria e basso, si rivelò fondamentale per conferire al genere una dinamica incalzante e ritmica, capace di enfatizzare il carattere celebrativo e partecipativo del canto gospel. Tali scelte timbriche e orchestrali rispecchiano, dunque, un'attenta ponderazione delle risorse disponibili e una ricerca costante del suono ideale in grado di evocare sensazioni di trascendenza e di comunione.
 

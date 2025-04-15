@@ -17,14 +17,13 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Introduktionen til den internationale udvikling af gothic-musik belyser den æstetiske og strukturelle fornyelse, der opstod i kølvandet på post-punkens impulser i slutningen af 1970’erne. Denne musikalske genre kendetegnes ved en kompleks anvendelse af harmoniske dissonanser og atmosfæriske klanglandskaber, hvor elektroniske elementer integreres med eksperimenterende rockstrukturer. Desuden har den visuelle æstetik og de tilknyttede kulturelle praksisser spillet en central rolle i dannelsen af et unikt udtryk, som afspejler tidens melankoli og introspektion. I modsætning til traditionelle musikalske paradigmer understreges her betydningen af teknologiske fremskridt, der gjorde det muligt at udforske nye lydlige dimensioner. Yderligere illustreres, hvordan de samfundsmæssige omvæltninger og postmoderne strømninger tilsammen har formet en kontinuerlig udviklingsproces inden for gothic-musikkulturen. 
+Introduktionen til den internationale udvikling af gothic-musik belyser den æstetiske og strukturelle fornyelse, der opstod i kølvandet på post-punkens impulser i slutningen af 1970’erne. Denne musikalske genre kendetegnes ved en kompleks anvendelse af harmoniske dissonanser og atmosfæriske klanglandskaber, hvor elektroniske elementer integreres med eksperimenterende rockstrukturer. Desuden har den visuelle æstetik og de tilknyttede kulturelle praksisser spillet en central rolle i dannelsen af et unikt udtryk, som afspejler tidens melankoli og introspektion. I modsætning til traditionelle musikalske paradigmer understreges her betydningen af teknologiske fremskridt, der gjorde det muligt at udforske nye lydlige dimensioner. Yderligere illustreres, hvordan de samfundsmæssige omvæltninger og postmoderne strømninger tilsammen har formet en kontinuerlig udviklingsproces inden for gothic-musikkulturen.
 
 Tegn: 892
 

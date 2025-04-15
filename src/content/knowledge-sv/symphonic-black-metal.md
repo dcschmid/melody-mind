@@ -15,10 +15,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -150,7 +149,7 @@ Utvecklingen och evolutionen av symfonisk black metal utgör ett betydelsefullt 
 
 I kontrast till den ursprungliga punkifierade black metal-stilen möjliggjorde en ökad tillgång till digitala inspelningstekniker och syntesizrar en fusion mellan metallens aggressiva riffar och klassiska musikaliska traditioner. Central i denna utveckling var de nordiska banden, däribland det norska Emperor, som med sina komplexa strukturer och överdådiga arrangemang bidrog till att forma det karakteristiska soundet. Dessa band introducerade flerlagrade texturer, där traditionella black metal-element kombinerades med inslag av barockens polyfoni och romantikens dramatik, något som gav upphov till en ny genre med ett expansivt ljudlandskap.
 
-Vidare representerade samarbeten mellan musiker med akademisk bakgrund och de mer experimentellt sinnade utövarna en viktig brygga mellan populärkulturella och konstnärliga uttrycksformer. Genom att införliva symfoniska arrangemang och riktiga orkestrala inslag överskreds de tidigare genrebegränsningarna, vilket möjliggjorde en rikare sonisk mångfald. Den tekniska utvecklingen, särskilt digitala inspelningsmetoder och realtidsljudbehandling, innebar att kompositionerna inte längre var bundna av analoga begränsningar, utan öppnade upp för komplexa lager av ljud och effektanvändning. 
+Vidare representerade samarbeten mellan musiker med akademisk bakgrund och de mer experimentellt sinnade utövarna en viktig brygga mellan populärkulturella och konstnärliga uttrycksformer. Genom att införliva symfoniska arrangemang och riktiga orkestrala inslag överskreds de tidigare genrebegränsningarna, vilket möjliggjorde en rikare sonisk mångfald. Den tekniska utvecklingen, särskilt digitala inspelningsmetoder och realtidsljudbehandling, innebar att kompositionerna inte längre var bundna av analoga begränsningar, utan öppnade upp för komplexa lager av ljud och effektanvändning.
 
 Utöver de tekniska innovationerna är den intertextuella dialogen med den klassiska musikhistorien central för förståelsen av genrens evolution. Flera artister integrerade motiv och harmonik som hämtats från den europeiska musikhistorien, vilket bidrog till att ge deras verk en nästan episk kvalitet. Detta syntes med de långvariga influenserna från romantikens dramatik och expressionism, där känslomässiga övertoner och tematiskt tät symbolik fick utrymme att uttryckas helt fritt inom genrens ramverk.
 

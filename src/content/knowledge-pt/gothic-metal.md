@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -42,7 +41,7 @@ A consolidação do Gothic Metal, assim, não pode ser analisada sem levar em co
 
 Não obstante, o aparato teórico que fundamenta as análises do Gothic Metal exige uma abordagem interdisciplinar, na qual o estudo da semiologia musical, da iconografia e dos discursos simbólicos se inter-relacionam para a interpretação das composições. As letras, frequentemente imbuídas de referências literárias e mitológicas, refletem uma busca por transcender o cotidiano, evidenciando a influência de correntes filosóficas que dialogam com o pessimismo romântico e com as tradições do simbolismo. Tal abordagem permite compreender o gênero como uma manifestação estética que transcende a mera categorização como subgênero do metal, posicionando-o numa esfera de significados que se articula com dimensões existenciais e metafísicas. Consequentemente, a pesquisa sobre o Gothic Metal demanda um olhar que transcenda a análise musical per se, incorporando também aspectos socioculturais e históricos capazes de decifrar as múltiplas camadas de significação presentes nas obras dos grupos que nortearam este movimento.
 
-Por fim, a relevância do Gothic Metal no panorama musical internacional deve ser considerada à luz da sua capacidade de dialogar com tradições artísticas diversas, contribuindo para o enriquecimento das discussões sobre identidade, memória e transgressão nas artes. Suas raízes, firmemente alicerçadas na tradição do heavy metal e do rock gótico, ampliaram-se ao incorporar nuances da música clássica e da poesia, criando uma sinergia que possibilitou a transgressão dos limites convencionais da comunicação musical. Em síntese, o desenvolvimento histórico do Gothic Metal representa não apenas uma evolução estilística, mas um movimento cultural que ilustra a constante busca dos artistas por expressar o inefável e o sublime, consolidando-se como uma importante referência na história contemporânea da música. 
+Por fim, a relevância do Gothic Metal no panorama musical internacional deve ser considerada à luz da sua capacidade de dialogar com tradições artísticas diversas, contribuindo para o enriquecimento das discussões sobre identidade, memória e transgressão nas artes. Suas raízes, firmemente alicerçadas na tradição do heavy metal e do rock gótico, ampliaram-se ao incorporar nuances da música clássica e da poesia, criando uma sinergia que possibilitou a transgressão dos limites convencionais da comunicação musical. Em síntese, o desenvolvimento histórico do Gothic Metal representa não apenas uma evolução estilística, mas um movimento cultural que ilustra a constante busca dos artistas por expressar o inefável e o sublime, consolidando-se como uma importante referência na história contemporânea da música.
 
 Contagem de caracteres (com todos os espaços e pontuação): 5801
 

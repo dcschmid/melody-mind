@@ -17,15 +17,14 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
 Introducción:  
-La presente sección explora, desde una perspectiva académica rigurosa, la música infantil como fenómeno cultural y pedagógico de importancia internacional. En este sentido, se evidencia que las creaciones musicales destinadas a la niñez han contribuido a la construcción de identidades culturales, estableciendo puentes entre tradiciones orales y prácticas instrumentales sistematizadas. Durante el siglo XX, compositores y pedagogos, como Zoltán Kodály en Europa, impulsaron metodologías que integraban la teoría musical en el proceso educativo, marcando un precedente en la aplicación didáctica de la música.  
+La presente sección explora, desde una perspectiva académica rigurosa, la música infantil como fenómeno cultural y pedagógico de importancia internacional. En este sentido, se evidencia que las creaciones musicales destinadas a la niñez han contribuido a la construcción de identidades culturales, estableciendo puentes entre tradiciones orales y prácticas instrumentales sistematizadas. Durante el siglo XX, compositores y pedagogos, como Zoltán Kodály en Europa, impulsaron metodologías que integraban la teoría musical en el proceso educativo, marcando un precedente en la aplicación didáctica de la música.
 
 Asimismo, el análisis crítico de los repertorios infantiles permite apreciar la convergencia entre estética y función social, en un marco en el que la musicalización transforma la experiencia formativa. La interrelación entre factores históricos, tecnológicos y culturales ha propiciado el surgimiento de propuestas innovadoras que, en la actualidad, revisten una importancia esencial en la consolidación de la educación musical.
 

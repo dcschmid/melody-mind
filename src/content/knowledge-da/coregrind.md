@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -122,9 +121,9 @@ Sammenfattende kan det konstateres, at tekniske aspekter inden for coregrind er 
 
 ## Cultural Significance
 
-I den internationale musikvidenskab repræsenterer coregrind en subkultur, der både udfordrer og fornyer opfattelsen af ekstremlyd og performativ æstetik. Denne musikalske retning, der trækker på de radikale impulser fra både grindcore og elementer af death metal, har spillet en central rolle i udformningen af undergroundkulturen fra slutningen af 1980’erne og frem. Coregrinds æstetik, karakteriseret ved kortvarige, intense sange og et ekstremt tempo sammenflettet med polyrhythmisk kompleksitet, sætter fokus på en genremæssig ekspression, hvor grænserne mellem kaos og struktur udviskes. 
+I den internationale musikvidenskab repræsenterer coregrind en subkultur, der både udfordrer og fornyer opfattelsen af ekstremlyd og performativ æstetik. Denne musikalske retning, der trækker på de radikale impulser fra både grindcore og elementer af death metal, har spillet en central rolle i udformningen af undergroundkulturen fra slutningen af 1980’erne og frem. Coregrinds æstetik, karakteriseret ved kortvarige, intense sange og et ekstremt tempo sammenflettet med polyrhythmisk kompleksitet, sætter fokus på en genremæssig ekspression, hvor grænserne mellem kaos og struktur udviskes.
 
-Historisk set opstod de tidlige impulser til coregrind i en æra, hvor det britiske grindcore-bæn (Napalm Death, etableret i 1981) og det svenske death metal miljø eksperimenterede med radikale strukturelle reformer. I modsætning til tidligere metalgenrer, som ofte søgte at skabe episk og forfinet klang, markeredes denne nye retning af en bevidst afvisning af kommercialisering og den traditionelle musiks estetik. Med et eksplicit udtryk for samtidens frustrationer og sociale konflikter blev coregrinds kortfattede, ofte næsten fragmentariske kompositioner et redskab til at kritisere den dominerende kulturelle narrativ. 
+Historisk set opstod de tidlige impulser til coregrind i en æra, hvor det britiske grindcore-bæn (Napalm Death, etableret i 1981) og det svenske death metal miljø eksperimenterede med radikale strukturelle reformer. I modsætning til tidligere metalgenrer, som ofte søgte at skabe episk og forfinet klang, markeredes denne nye retning af en bevidst afvisning af kommercialisering og den traditionelle musiks estetik. Med et eksplicit udtryk for samtidens frustrationer og sociale konflikter blev coregrinds kortfattede, ofte næsten fragmentariske kompositioner et redskab til at kritisere den dominerende kulturelle narrativ.
 
 Denne musikalske udvikling kan belønnes med en analyse af dens symbolske sproglighed og performative dimensioner. I coregrinds samspil mellem vokalens rasende skrabelyst og instrumenternes skarpe, uforudsigelige angreb afspejles en modstand mod al normalisering af voldsomhed og konformitet. Hver lyrisk interjektion og hver trommeslag bærer på en implicit kritik af både de politiske strukturer og den sociale orden, hvilket i sig selv har givet genren en særlig status som et protestmiddel. Denne relation mellem musikalsk innovation og politisk modstandsdannelse kan tydeligt observeres i samtidens undergroundscener i Europa og Nordamerika.
 

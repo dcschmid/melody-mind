@@ -16,10 +16,9 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -43,7 +42,7 @@ Zudem wurde international vermehrt das Bestreben unternommen, musikalische Erzie
 
 Die zweite Hälfte des 20. Jahrhunderts war durch den Übergang in die digitale Ära gekennzeichnet, welche auch den Bereich der Kinderlieder nachhaltig veränderte. Der Einzug von Schallplatten, Kassetten und später digitalen Medien revolutionierte die Art und Weise, wie Musik produziert, verbreitet und rezipiert wurde. Kinderlieder, die vormals regional geprägt waren, fanden durch internationale Medienlandschaften ein weltweites Publikum. Gleichzeitig stellte die Digitalisierung den Bildungssektor vor neue Herausforderungen, da der klassische Unterricht durch innovative, mediengestützte Konzepte ergänzt wurde. Diese Entwicklungen führten zu einer verstärkten Integration visueller und auditiver Medien, wodurch die multimodale Wahrnehmung bei Kindern gefördert und die frühkindliche kognitive Entwicklung unterstützt wurde.
 
-Abschließend lässt sich festhalten, dass die internationale Entwicklung von Kinderliedern in einem historischen Kontext verortet werden muss, der von einem stetigen Wandel geprägt ist. Von den frühesten mündlichen Traditionen über die systematische Erziehung in der Aufklärungszeit bis hin zum Einfluss moderner Kommunikationsmittel bilden Kinderlieder ein vielschichtiges und dynamisches Feld. Der interdisziplinäre Ansatz, der hierbei sowohl musikwissenschaftliche Analysen als auch pädagogische und kulturelle Überlegungen miteinander verbindet, ist Ausdruck des anhaltenden Bestrebens, musikalische Früherziehung als fundamentale Säule der kindlichen Entwicklung zu etablieren. Diese historische Perspektive ermöglicht es nicht nur, die evolutionären Schritte im Bereich der Kinderlieder nachvollziehbar zu gestalten, sondern auch, zukünftige Entwicklungen in einem umfassenden kulturellen und technologischen Rahmen einzuordnen. 
+Abschließend lässt sich festhalten, dass die internationale Entwicklung von Kinderliedern in einem historischen Kontext verortet werden muss, der von einem stetigen Wandel geprägt ist. Von den frühesten mündlichen Traditionen über die systematische Erziehung in der Aufklärungszeit bis hin zum Einfluss moderner Kommunikationsmittel bilden Kinderlieder ein vielschichtiges und dynamisches Feld. Der interdisziplinäre Ansatz, der hierbei sowohl musikwissenschaftliche Analysen als auch pädagogische und kulturelle Überlegungen miteinander verbindet, ist Ausdruck des anhaltenden Bestrebens, musikalische Früherziehung als fundamentale Säule der kindlichen Entwicklung zu etablieren. Diese historische Perspektive ermöglicht es nicht nur, die evolutionären Schritte im Bereich der Kinderlieder nachvollziehbar zu gestalten, sondern auch, zukünftige Entwicklungen in einem umfassenden kulturellen und technologischen Rahmen einzuordnen.
 
 Die kontinuierliche Auseinandersetzung mit den historischen Wurzeln kindlicher Musikkultur zeigt, dass Musik für Kinder weit mehr als bloße Unterhaltung darstellt; sie fungiert als Medium der Identitätsbildung, der emotionalen und intellektuellen Förderung sowie der interkulturellen Verständigung. Vor diesem Hintergrund ist die Erhaltung und Weiterentwicklung traditioneller und moderner Musikformen ein wesentlicher Beitrag zur kulturellen Kontinuität und zur Förderung einer ganzheitlichen Erziehung, die sich den Herausforderungen einer globalisierten Welt stellt.
 

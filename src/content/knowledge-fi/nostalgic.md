@@ -17,14 +17,13 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-International musiikkikulttuurissa nostalgia herättää aikakausien väliset yhteydet ja kulttuuriset identiteetit. 1900-luvun alkuvuosina jazzin ja bluesin yhteisvaikutus muodosti perustan modernille populaarimusiikille, jossa rytmin ja improvisaation elementit korostuivat. Myöhemmin 1950-luvulla rock'n'rollin energinen ilmentymä loi uudenlaisen äänimaailman, jossa kitarojen dynaaminen rooli yhdistyi transatlanttisiin vaikutteisiin. 
+International musiikkikulttuurissa nostalgia herättää aikakausien väliset yhteydet ja kulttuuriset identiteetit. 1900-luvun alkuvuosina jazzin ja bluesin yhteisvaikutus muodosti perustan modernille populaarimusiikille, jossa rytmin ja improvisaation elementit korostuivat. Myöhemmin 1950-luvulla rock'n'rollin energinen ilmentymä loi uudenlaisen äänimaailman, jossa kitarojen dynaaminen rooli yhdistyi transatlanttisiin vaikutteisiin.
 
 Lisäksi 1960– ja 1970-luvuilla kehittyneet tyylisuunnat, kuten progressiivinen rock ja soul, loivat monikerroksisia musiikillisia kertomuksia aikakausien muuttuessa. Teknologian nopea kehitys mahdollisti laadukkaiden äänitteiden tallennuksen, mikä edisti perinteiden säilymistä ja monipuolisten kulttuuristen vaikutteiden dokumentointia. Analyysimme pyrkii tarkastelemaan systemaattisesti näiden historiallisten ilmiöiden välisiä yhteyksiä sekä niiden vaikutusta nykyajan musiikillisiin tulkintoihin.
 
@@ -214,6 +213,6 @@ Yhteenvetona voidaan todeta, että "Nostalgic" osion nykyaikaiset ilmaisut edust
 
 ## Conclusion
 
-Johtopäätöksenä voidaan todeta, että kansainvälisen musiikin nostalginen ilmiö muodostaa moniulotteisen siltamaisen rakenteen, jossa historialliset perinteet ja modernismin innovaatiot nivoutuvat tiiviisti yhteen. Tutkimukset osoittavat, että erityisesti 1900-luvun puolivälistä eteenpäin kehitetyt tyylisuunnat, kuten jazz, swing ja rock’n’roll, ovat jättäneet pysyvän jäljen musiikkikenttään. Näiden tyylien estetiikka, harmoniarakenteet ja rytmianalyysit heijastavat aikansa teknologista kehitystä sekä kulttuurisia muutoksia, jotka edistivät kollektiivisen muistijäljen muodostumista. 
+Johtopäätöksenä voidaan todeta, että kansainvälisen musiikin nostalginen ilmiö muodostaa moniulotteisen siltamaisen rakenteen, jossa historialliset perinteet ja modernismin innovaatiot nivoutuvat tiiviisti yhteen. Tutkimukset osoittavat, että erityisesti 1900-luvun puolivälistä eteenpäin kehitetyt tyylisuunnat, kuten jazz, swing ja rock’n’roll, ovat jättäneet pysyvän jäljen musiikkikenttään. Näiden tyylien estetiikka, harmoniarakenteet ja rytmianalyysit heijastavat aikansa teknologista kehitystä sekä kulttuurisia muutoksia, jotka edistivät kollektiivisen muistijäljen muodostumista.
 
 Lisäksi nostalgian kokeminen toimii kulttuurisen identiteetin lähteenä, joka aktivoi sekä yksilön että yhteisön muistikuvia menneistä aikakausista. Musiikkiteoreettiset suhteet, kuten intervallien ja modulointien käyttö, tuovat esiin ajan henkiset ulottuvuudet, jolloin perinteinen erikoistuminen kohtaa modernin monitulkintaisuuden. Yhteenvetona kansainvälisen musiikin kehityskaari tarjoaa runsaasti aineistoa syvälliseen analyyttiseen pohdiskeluun sekä esteettisten kokemusten uudelleentulkintaan.

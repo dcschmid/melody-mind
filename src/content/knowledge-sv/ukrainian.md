@@ -17,10 +17,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduktion
 
@@ -124,7 +123,7 @@ I kontrast till den historiskt präglade livekulturen har den moderna eran känn
 
 Vidare spelar diasporan en oundviklig roll i spridningen och utvecklingen av den ukrainska musiken på internationella scener. I metropoler som New York och Berlin har evenemangen utformats som kulturmötesplatser där tradition möter innovation. Genom att integrera element från den autentiska folkmusiken med inslag av samtida scennärvaro omvandlas konventionella livemusikformat till dynamiska kulturella dialoger. Detta fenomen förstärks ytterligare av samverkan mellan emigranter och lokala kulturaktörer, vilket möjliggör en ökad utbyte av musikaliska idéer och en gemensam förståelse för den etnografiska historikens roll i samtida identitetsskapande.
 
-Sammanfattningsvis illustrerar de ukrainska livemusikevenemangen och de internationella evenemangens strukturer en komplex relation mellan tradition och modernitet. Den noggranna återgivningen av historiska musikkoder, exemplifierad genom användningen av autentiska instrument och välstrukturerade melodiska fraser, kombineras med innovationer inom ljudteknik och scenproduktion. Denna dualitet ligger till grund för en levande tradition som ständigt anpassar sig efter kulturella och sociala förändringar, samtidigt som den bevarar en kärna av historisk kontinuitet. Genom att förena avancerade musikteoretiska analyser med praktiska evenemangsstrukturer bidrar den ukrainska livekulturen till en djupare förståelse av musikens roll som bärande element i kulturell självmedvetenhet och identitet. 
+Sammanfattningsvis illustrerar de ukrainska livemusikevenemangen och de internationella evenemangens strukturer en komplex relation mellan tradition och modernitet. Den noggranna återgivningen av historiska musikkoder, exemplifierad genom användningen av autentiska instrument och välstrukturerade melodiska fraser, kombineras med innovationer inom ljudteknik och scenproduktion. Denna dualitet ligger till grund för en levande tradition som ständigt anpassar sig efter kulturella och sociala förändringar, samtidigt som den bevarar en kärna av historisk kontinuitet. Genom att förena avancerade musikteoretiska analyser med praktiska evenemangsstrukturer bidrar den ukrainska livekulturen till en djupare förståelse av musikens roll som bärande element i kulturell självmedvetenhet och identitet.
 
 Denna helhetsbild av livemusik och evenemang, där historiska teman förstärks genom uppdaterade tolkningsstrategier samt där scenupplevelsen integreras med teknologisk precision, erbjuder en plattform för en akademiskt nyanserad diskurs. Genom att studera de olika epokerna och de skilda regionala uttrycken kan forskare utläsa en dynamisk utveckling, där varje framträdande och arrangemang fungerar som en manifestering av den rika kulturella traditionen. I denna kontext blir livemusiken inte en statisk återgivning av det förflutna, utan en kontinuerlig process av kulturell evolution och transformation, vilket belystes både ur ett musikaliskt och etnografiskt perspektiv.
 

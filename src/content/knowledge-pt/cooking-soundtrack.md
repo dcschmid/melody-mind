@@ -15,10 +15,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -42,7 +41,7 @@ A inter-relação entre os sistemas tecnológicos e os movimentos culturais tamb
 
 Outrossim, a análise teórica da música no contexto gastronómico evidencia que a seleção sonora transcende a mera estética, constituindo-se num dispositivo técnico que amplifica as dimensões simbólicas e afetivas da experiência culinária. Ao associar ritmos e melodias a práticas alimentares tradicionalmente enraizadas, os curadores e produtores musicais utilizam uma gama de estratégias discursivas que remetem à iconografia cultural de determinados territórios. Estudos recentes apontam para a necessidade de uma abordagem interdisciplinar que contemple os aspectos semióticos, sociais e históricos do fenômeno, contribuindo para uma compreensão abrangente da forma como a música dialoga com o universo gastronómico. Dessa forma, a produção das “Cooking Soundtracks” é percebida não apenas como uma ferramenta de ambientação, mas também como um veículo que transporta significados sobre memória, identidade e pertencimento cultural.
 
-Em conclusão, o percurso histórico que culminou na consolidação da categoria “Cooking Soundtrack” revela uma trajetória dinâmica e multifacetada, permeada por transformações tecnológicas, mudanças culturais e inovações estéticas. A evolução desde as composições orquestrais dos anos 1950 até à incorporação de elementos eletrônicos e ritmos contemporâneos evidencia como a música pode transcender a sua função tradicional para assumir um papel narrativo e simbólico de significativa relevância na esfera culinária. Assim, a integração entre música e gastronomia configura-se como um testemunho da capacidade de adaptação e reinvenção dos discursos culturais, reafirmando a importância do estudo interdisciplinar no campo da musicologia. 
+Em conclusão, o percurso histórico que culminou na consolidação da categoria “Cooking Soundtrack” revela uma trajetória dinâmica e multifacetada, permeada por transformações tecnológicas, mudanças culturais e inovações estéticas. A evolução desde as composições orquestrais dos anos 1950 até à incorporação de elementos eletrônicos e ritmos contemporâneos evidencia como a música pode transcender a sua função tradicional para assumir um papel narrativo e simbólico de significativa relevância na esfera culinária. Assim, a integração entre música e gastronomia configura-se como um testemunho da capacidade de adaptação e reinvenção dos discursos culturais, reafirmando a importância do estudo interdisciplinar no campo da musicologia.
 
 (5801 caracteres)
 
@@ -141,7 +140,7 @@ Outro aspecto relevante diz respeito à sinonímia entre a experiência estétic
 
 Ademais, a análise da “cooking soundtrack” possibilita a reflexão sobre as transformações contemporâneas dos meios artísticos e tecnológicos, assim como as suas implicações para a cultura popular. A dinâmica entre inovação e tradição apresentada nesse contexto reflete a pluralidade dos discursos culturais que permeiam a sociedade atual. Por meio da análise detalhada das cores sonoras e simbólicas presentes nesses arranjos musicais, torna-se possível compreender não apenas o papel da música enquanto elemento narrativo, mas também as implicações sociais e políticas de sua difusão em um cenário de globalização acelerada. Essa compreensão amplia o debate acerca do papel da música na formação e conservação de identidades, demonstrando que a “cooking soundtrack” é, ao mesmo tempo, um produto artístico e um agente transformador no âmbito das práticas culturais contemporâneas.
 
-Em conclusão, a relevância cultural das “cooking soundtracks” reside justamente em sua capacidade de articular passado e presente, tradição e inovação, por meio de uma linguagem sonora que dialoga com a vivência da culinária. O estudo desse fenômeno proporciona uma compreensão mais ampla das relações entre música, tecnologia e identidade, ressaltando a importância da interdisciplinaridade na análise dos processos culturais. Assim, a investigação das trilhas sonoras aplicadas a contextos gastronômicos ganha contornos de uma pesquisa vital, que enriquece o entendimento das interações entre som, sabor e memória, contribuindo para a construção de saberes interligados e para a valorização das tradições culturais. 
+Em conclusão, a relevância cultural das “cooking soundtracks” reside justamente em sua capacidade de articular passado e presente, tradição e inovação, por meio de uma linguagem sonora que dialoga com a vivência da culinária. O estudo desse fenômeno proporciona uma compreensão mais ampla das relações entre música, tecnologia e identidade, ressaltando a importância da interdisciplinaridade na análise dos processos culturais. Assim, a investigação das trilhas sonoras aplicadas a contextos gastronômicos ganha contornos de uma pesquisa vital, que enriquece o entendimento das interações entre som, sabor e memória, contribuindo para a construção de saberes interligados e para a valorização das tradições culturais.
 
 Contagem de caracteres: 5382
 

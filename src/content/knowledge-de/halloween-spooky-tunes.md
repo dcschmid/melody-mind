@@ -17,10 +17,9 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -192,7 +191,7 @@ Im Zusammenhang mit der Empfehlung spuktaler Klänge wird auch auf die Bedeutung
 
 Darüber hinaus empfiehlt sich, den Empfehlungen immer eine kritische Reflexion der zugrundeliegenden künstlerischen Entscheidungen anzuhängen. Die Auswahl einzelner Stücke erfolgt auf Basis fundierter musikwissenschaftlicher Kriterien, die auf melodischen, harmonischen und rhythmischen Besonderheiten beruhen. Dies ermöglicht es, den oft komplexen Zusammenhang zwischen musikalischer Darstellung und der Erzeugung atmosphärischer Spannung zu verdeutlichen. Im Lichte dieser Betrachtungen wird deutlich, wie international geprägte Musikauswahl dazu beiträgt, kulturelle Grenzen zu überwinden und gleichzeitig einen authentischen Zugang zur «Halloween»-Thematik zu fördern.
 
-Abschließend stellt die Zusammenführung dieser internationalen Klangerlebnisse ein gelungenes Konzept dar, das sowohl konservative als auch innovative Ansätze innerhalb des Genres der Spooky Tunes berücksichtigt. Die sorgfältig kuratierte Auswahl der Playlists bietet nicht nur ein nostalgisches Eintauchen in den Wandel der musikalischen Horrorkompositionen, sondern auch eine Reflexion über die fortlaufende Entwicklung von Klangästhetiken im internationalen Raum. Die Verbindung von historischen Elementen und modernen Interpretationen schafft eine stimmungsvolle Kulisse, die den facettenreichen Charme gruseliger Musik optimal zur Geltung bringt. 
+Abschließend stellt die Zusammenführung dieser internationalen Klangerlebnisse ein gelungenes Konzept dar, das sowohl konservative als auch innovative Ansätze innerhalb des Genres der Spooky Tunes berücksichtigt. Die sorgfältig kuratierte Auswahl der Playlists bietet nicht nur ein nostalgisches Eintauchen in den Wandel der musikalischen Horrorkompositionen, sondern auch eine Reflexion über die fortlaufende Entwicklung von Klangästhetiken im internationalen Raum. Die Verbindung von historischen Elementen und modernen Interpretationen schafft eine stimmungsvolle Kulisse, die den facettenreichen Charme gruseliger Musik optimal zur Geltung bringt.
 
 Mit dieser fundierten Playlist-Auswahl wird ein akustisches Erlebnis kreiert, das den anspruchsvollen Erwartungen an zeitgenössische Musikkritik gerecht wird und zugleich die reiche historische Entwicklung des Genres würdigt. Die Mischung aus analytischer Tiefe und ästhetischer Raffinesse macht die empfohlenen Stücke zu einem unverzichtbaren Bestandteil des saisonalen Musikprogramms, welches den Hörer in die facettenreiche Welt des Schaurigen entführt.
 

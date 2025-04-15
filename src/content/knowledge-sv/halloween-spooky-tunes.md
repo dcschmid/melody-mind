@@ -17,14 +17,13 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Introduktionen till musikkategorin “Halloween Spooky Tunes” belyser hur internationella musikaliska uttryck under 1900-talets senare hälft har bidragit till en särpräglad sonoritet. Historiska studier visar att tidiga influenser från den progressiva rockens atmosfär samt postmodern experimentell musik samverkade med filmiska ljudspår för att skapa en känsla av kuslighet och mystik. I detta sammanhang är den teknologiska utvecklingen inom ljudinspelning och elektronisk manipulation central, vilket möjliggjorde en ny dimension i expressionen av rituella teman och övernaturliga motiv. 
+Introduktionen till musikkategorin “Halloween Spooky Tunes” belyser hur internationella musikaliska uttryck under 1900-talets senare hälft har bidragit till en särpräglad sonoritet. Historiska studier visar att tidiga influenser från den progressiva rockens atmosfär samt postmodern experimentell musik samverkade med filmiska ljudspår för att skapa en känsla av kuslighet och mystik. I detta sammanhang är den teknologiska utvecklingen inom ljudinspelning och elektronisk manipulation central, vilket möjliggjorde en ny dimension i expressionen av rituella teman och övernaturliga motiv.
 
 Vidare präglas denna genre av ett internationellt utbyte där europeiska och nordamerikanska kompositörer tillsammans utvecklade tematiska konventioner, vilka sanar traditionella melodiska motiv med avantgardistiska arrangemang. Genom att analysera akustiska och elektroniska särdrag erhålls insikt i de musikologiska samband som underbygger de spöklika ljudlandskapen, vilka fortsatt utmanar och berikar den samtida musikvetenskapliga diskursen.
 
@@ -62,7 +61,7 @@ Sammanfattningsvis framstår Halloween Spooky Tunes som ett dynamiskt och mångf
 
 ## Traditional Elements
 
-I international musikhistoria utgör de traditionella elementen inom Halloween Spooky Tunes en central aspekt av den kulturella estetik som präglat den skrämmande atmosfärens musikaliska uttryck. Redan under romantiken och den efterföljande modernismen utvecklades en rad specifika musikaliska tekniker och modala system som framhölls för att skapa en känsla av mystik och oro. Dessa konventioner, vilka ofta hämtade inspiration från äldre folktraditioner och kyrkliga melodier, har sedan dess influerat kompositörer över flera kontinenter och bidragit till en internationell traditionsbeständighet. 
+I international musikhistoria utgör de traditionella elementen inom Halloween Spooky Tunes en central aspekt av den kulturella estetik som präglat den skrämmande atmosfärens musikaliska uttryck. Redan under romantiken och den efterföljande modernismen utvecklades en rad specifika musikaliska tekniker och modala system som framhölls för att skapa en känsla av mystik och oro. Dessa konventioner, vilka ofta hämtade inspiration från äldre folktraditioner och kyrkliga melodier, har sedan dess influerat kompositörer över flera kontinenter och bidragit till en internationell traditionsbeständighet.
 
 Musikteoretiskt sett utgör användningen av mollskalor, kromatik och dissonanta harmoniska strukturer gravitationskärnan i de uttrycksmedel som förknippas med det skrämmande. Genom att införa tritonusintervallen och oregelbundna rytmiska mönster etablerades en auditiv teckenbild som naturligt associeras med det övernaturliga. Denna harmoniska och rytmiska komplexitet medger både en känsla av osäkerhet och en inramande av tematiska kontraster, vilket i sin tur förstärker den övergripande stämningen i musikaliska kompositioner avsedda för Halloween.
 

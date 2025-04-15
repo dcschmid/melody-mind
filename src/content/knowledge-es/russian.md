@@ -16,10 +16,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introducción
 
@@ -193,7 +192,7 @@ En el devenir de la posguerra y durante la Guerra Fría, la música rusa se conv
 
 Asimismo, en los últimos tiempos del siglo XX y principios del XXI, la globalización y la apertura de Rusia al exterior han propiciado un renovado intercambio cultural en el ámbito musical. El diálogo entre la tradición clásica y las nuevas tecnologías ha permitido la colaboración en proyectos internacionales en ámbitos tan variados como la música experimental, el jazz y la electrónica. Instituciones culturales rusas han organizado ciclos de conciertos y simposios, consolidando así redes que vinculan a académicos, intérpretes y compositores de distintas naciones. La utilización de medios digitales y la difusión a través de plataformas internacionales han contribuido a la integración de la música rusa en el panorama global, a la vez que se ha mantenido una firme apuesta por la preservación de las raíces folklóricas y clásicas. Los encuentros interdisciplinarios reúnen a especialistas en musicología y a creadores contemporáneos, permitiendo que se analice con rigor el legado histórico y las transformaciones radicales que han caracterizado la evolución del arte musical en el ámbito ruso.
 
-En conclusión, la trayectoria de la música rusa en la esfera internacional evidencia un proceso de constante interrelación entre la tradición y la innovación, en el que las fronteras culturales se han disuelto a favor de un diálogo enriquecedor. La integración de elementos autóctonos y extranjeros ha configurado una identidad musical que no solo ha influido en el desarrollo artístico de Rusia, sino que también ha tenido un impacto significativo en la formación de las tendencias globales del siglo XX y XXI. El análisis de estas conexiones internacionales permite, por tanto, comprender mejor el papel de la música rusa como agente mediador en la construcción de un discurso global en constante transformación. Las colaboraciones y los encuentros entre culturas evidencian que la música, en su universalidad, constituye un medio privilegiado para la comunicación y el entendimiento más allá de las barreras lingüísticas y ideológicas.  
+En conclusión, la trayectoria de la música rusa en la esfera internacional evidencia un proceso de constante interrelación entre la tradición y la innovación, en el que las fronteras culturales se han disuelto a favor de un diálogo enriquecedor. La integración de elementos autóctonos y extranjeros ha configurado una identidad musical que no solo ha influido en el desarrollo artístico de Rusia, sino que también ha tenido un impacto significativo en la formación de las tendencias globales del siglo XX y XXI. El análisis de estas conexiones internacionales permite, por tanto, comprender mejor el papel de la música rusa como agente mediador en la construcción de un discurso global en constante transformación. Las colaboraciones y los encuentros entre culturas evidencian que la música, en su universalidad, constituye un medio privilegiado para la comunicación y el entendimiento más allá de las barreras lingüísticas y ideológicas.
 
 Referencias bibliográficas como las de Taruskin (2005) y Morrison (1999) subrayan la complejidad de estos procesos de intercambio, mostrando que la música rusa, reconociéndose en su dualidad de herencia y vanguardia, ha sabido reinterpretar su legado en un contexto global. En la suma, el estudio de las conexiones internacionales en la música rusa permite apreciar la riqueza de un fenómeno que es, en esencia, la convergencia de diversas corrientes culturales.
 

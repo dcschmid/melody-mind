@@ -17,14 +17,13 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Die dramatische Musik stellt einen essenziellen Zweig der internationalen Musikgeschichte dar, der sich durch die intensive Vermischung von musikalischem Ausdruck und erzählerischer Dramaturgie auszeichnet. Bereits im ausgehenden 18. Jahrhundert erlangte sie an Bedeutung, als Komponisten wie Wolfgang Amadeus Mozart und Ludwig van Beethoven in ihren Werken die Tragweite menschlicher Emotionen in kunstvoll verweben konzipierten. Ihre Kompositionen, geprägt von kontrapunktischen Strukturen und motivisch verdichteten Themen, eröffneten neue Perspektiven der musikalischen Dramatisierung. 
+Die dramatische Musik stellt einen essenziellen Zweig der internationalen Musikgeschichte dar, der sich durch die intensive Vermischung von musikalischem Ausdruck und erzählerischer Dramaturgie auszeichnet. Bereits im ausgehenden 18. Jahrhundert erlangte sie an Bedeutung, als Komponisten wie Wolfgang Amadeus Mozart und Ludwig van Beethoven in ihren Werken die Tragweite menschlicher Emotionen in kunstvoll verweben konzipierten. Ihre Kompositionen, geprägt von kontrapunktischen Strukturen und motivisch verdichteten Themen, eröffneten neue Perspektiven der musikalischen Dramatisierung.
 
 Im 19. Jahrhundert erreichte die dramatische Musik einen weiteren Höhepunkt, indem sie als integraler Bestandteil des Musiktheaters und der programmmusikalischen Darstellungsformen fungierte. In diesem kulturellen Umbruch integrierten Komponisten innovative instrumentale Techniken und formale Entwicklungen, um die emotionale Intensität und strukturelle Komplexität ihrer Werke zu erhöhen. Somit prägt die dramatische Musik als interdisziplinäres Kunstmedium bis in die heutige Zeit die internationale Musiklandschaft und bietet ein faszinierendes Feld der musikwissenschaftlichen Forschung.
 

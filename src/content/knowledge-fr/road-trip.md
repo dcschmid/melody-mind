@@ -17,10 +17,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -100,8 +99,8 @@ L’analyse de ces œuvres ne saurait s’affranchir de l’examen des innovatio
 
 Enfin, il convient d’insister sur l’héritage durable de ces figures et œuvres dans la postérité musicale. Leur influence se manifeste non seulement à travers des reprises ou des hommages, mais également par la perpétuation d’un style intrinsèquement lié à une idée d’itinérance et d’exploration. De nombreux artistes contemporains, tant en Amérique qu’en Europe, revendiquent aujourd’hui cet héritage, le réinterprétant et l’adaptant aux enjeux modernes sans toutefois renoncer à la rigueur stylistique qui a caractérisé les productions des décennies précédentes. Ainsi, la tradition du road trip musical demeure un paradigme de liberté créative et d’innovation, unissant l’analyse historique aux aspirations esthétiques contemporaines.
 
-En conclusion, l’étude des figures clés et des œuvres majeures de la catégorie « Road Trip » révèle une interconnexion profonde entre l’évolution musicale et les contextes socioculturels qui l’ont inspirée. Des pionniers des années 1960 aux expérimentations européennes postérieures, chaque étape témoigne d’une recherche constante pour exprimer l’essence du voyage à travers la musique. Cette approche holistique, alliant rigueur technique et sensibilité narrative, illustre la richesse d’un genre qui continue d’influencer la scène musicale internationale.  
-  
+En conclusion, l’étude des figures clés et des œuvres majeures de la catégorie « Road Trip » révèle une interconnexion profonde entre l’évolution musicale et les contextes socioculturels qui l’ont inspirée. Des pionniers des années 1960 aux expérimentations européennes postérieures, chaque étape témoigne d’une recherche constante pour exprimer l’essence du voyage à travers la musique. Cette approche holistique, alliant rigueur technique et sensibilité narrative, illustre la richesse d’un genre qui continue d’influencer la scène musicale internationale.
+
 Total approximatif de caractères (espaces compris) : 6247
 
 ## Technical Aspects

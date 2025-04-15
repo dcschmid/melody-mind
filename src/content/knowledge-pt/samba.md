@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -163,7 +162,7 @@ Além disso, o contexto das apresentações ao vivo do samba contribuiu para a c
 
 Neste panorama, a análise dos aspectos performáticos e da cultura do vivo no samba permite compreender a importância da dimensão performática na construção permanente da identidade cultural brasileira. A experiência dos encontros musicais, caracterizada por uma sinceridade rítmica e uma expressividade plena, ressalta a resiliência e a adaptabilidade do samba frente às transformações sociais e tecnológicas. Em síntese, o estudo acadêmico voltado para a performance e a cultura ao vivo do samba evidencia que, embora os avanços tecnológicos tenham ampliado os meios de difusão do gênero, a essência da manifestação reside na interação direta, na espontaneidade e no poder de transformar o espaço público em um local de diálogo e resistência.
 
-Por conseguinte, a análise das práticas performáticas no samba revela, de maneira inequívoca, que a vivência dos encontros artísticos ao vivo é crucial para a perpetuação de uma tradição que ultrapassa o mero entretenimento, estabelecendo-se como um instrumento de afirmação social e de construção coletivista da memória cultural. Essa confluência entre a execução musical e a participação ativa do público, presente desde as primeiras rodas de samba até as grandes festividades contemporâneas, constitui o fundamento sobre o qual repousa a vitalidade e a relevância do samba no imaginário popular brasileiro. 
+Por conseguinte, a análise das práticas performáticas no samba revela, de maneira inequívoca, que a vivência dos encontros artísticos ao vivo é crucial para a perpetuação de uma tradição que ultrapassa o mero entretenimento, estabelecendo-se como um instrumento de afirmação social e de construção coletivista da memória cultural. Essa confluência entre a execução musical e a participação ativa do público, presente desde as primeiras rodas de samba até as grandes festividades contemporâneas, constitui o fundamento sobre o qual repousa a vitalidade e a relevância do samba no imaginário popular brasileiro.
 
 Contagem de caracteres (com espaços): 5389
 

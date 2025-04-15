@@ -16,10 +16,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -57,11 +56,11 @@ De culturele relevantie van indie‐pop komt tot uiting in de manier waarop de m
 
 ## Subgenres and Variations
 
-De ontwikkeling van indie-pop als muzikale categorie is in de tweede helft van de twintigste eeuw geleidelijk geëvolueerd tot een divers en complex genre, waarin uiteenlopende subgenres en variaties zich op een genuanceerde wijze manifesteren. Oorspronkelijk voortkomend uit de post-punk en new wave bewegingen in het Verenigd Koninkrijk en de Verenigde Staten, vertoont indie-pop een rijke historie aan structurele en stilistische veranderingen. De invloed van onafhankelijke platenlabels en undergroundculturen heeft ontegensprekelijk bijgedragen aan de ontwikkeling van talloze subgenres, die zich in de loop der decennia op verschillende geografische locaties en culturele contexten hebben gevormd.  
+De ontwikkeling van indie-pop als muzikale categorie is in de tweede helft van de twintigste eeuw geleidelijk geëvolueerd tot een divers en complex genre, waarin uiteenlopende subgenres en variaties zich op een genuanceerde wijze manifesteren. Oorspronkelijk voortkomend uit de post-punk en new wave bewegingen in het Verenigd Koninkrijk en de Verenigde Staten, vertoont indie-pop een rijke historie aan structurele en stilistische veranderingen. De invloed van onafhankelijke platenlabels en undergroundculturen heeft ontegensprekelijk bijgedragen aan de ontwikkeling van talloze subgenres, die zich in de loop der decennia op verschillende geografische locaties en culturele contexten hebben gevormd.
 
 Alvorens in detail in te gaan op de specifieke subgenres, dient te worden opgemerkt dat de terminologie binnen de muziekological studie van indie-pop nauwkeurig moet worden gehanteerd. Zo kent men varianten als 'twee-pop', een term die in de vroege jaren negentig in het Verenigd Koninkrijk werd geïntroduceerd. Twee-pop kenmerkt zich door een nadruk op melodieuze eenvoud en een terugkeer naar de naïeve, soms zelfs kinderlijke expressie; deze subcategorie werd mede beïnvloed door het esthetische woord ‘doe-het-zelf’, hetgeen artistieke autonomie en creativiteit symboliseerde. Tevens vond een herwaardering van 'chamber pop' plaats, een subgenre waarin men de intieme klankkleuren en complexe arrangementen van klassieke kamermuziek verwerkte in een popmuzikale context. Deze stroming, die inhoudelijk samenvloeit met variaties in arrangement en instrumentatie, vond zijn oorsprong in de latere jaren tachtig en vroege negentiger jaren, waarbij experimentele benaderingen van popstructuren centraal stonden.
 
-Tevens heeft de evolutie van 'dream pop', gekenmerkt door dromerige soundscapes en atmosferische geluidslandschappen, aan de dimensie van indie-pop bijgedragen. Binnen deze variant wordt er gebruikgemaakt van effecten zoals reverb en delay om een etherisch sonisch geheel te creëren. De historische opmaat voor deze ontwikkeling kan men vinden in de experimentele benaderingen van bands die in de jaren tachtig en negentig actief waren en zich distantieerden van gangbare popstructuren. Tevens vonden invloeden hun weg via de Amerikaanse alternatieve rock, waarbij een zekere nostalgische en introspectieve esthetiek centraal kwam te staan.  
+Tevens heeft de evolutie van 'dream pop', gekenmerkt door dromerige soundscapes en atmosferische geluidslandschappen, aan de dimensie van indie-pop bijgedragen. Binnen deze variant wordt er gebruikgemaakt van effecten zoals reverb en delay om een etherisch sonisch geheel te creëren. De historische opmaat voor deze ontwikkeling kan men vinden in de experimentele benaderingen van bands die in de jaren tachtig en negentig actief waren en zich distantieerden van gangbare popstructuren. Tevens vonden invloeden hun weg via de Amerikaanse alternatieve rock, waarbij een zekere nostalgische en introspectieve esthetiek centraal kwam te staan.
 
 Wanneer men de diversiteit binnen indie-pop verder onderzoekt, komt men bij de variaties die ontstaan uit de integratie van lo-fi productietechnieken en experimentele geluidstexturen. Deze benadering, die vaak gepaard gaat met een bewust ruwe en onvolmaakte geluidsproductie, vond zijn wortels in de onafhankelijk uitgegeven producties van undergroundartiesten. Hierbij speelde onder meer het gebruik van low-budget opnametechnologie een cruciale rol, hetgeen de nadruk legde op de authenticiteit van de expressie. Het bewuste gebruik van imperfecties in de productie verwees op een esthetische keuze die streefde naar een intiemer contact met de luisteraar. Deze ontwikkeling vond gestalte in de late jaren negentig en werd later door diverse artiesten internationaal omarmd, hetgeen de wereldwijde verspreiding van indie-pop verder heeft versneld.
 

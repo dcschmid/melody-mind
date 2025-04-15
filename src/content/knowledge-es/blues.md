@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -46,12 +45,12 @@ Por otra parte, la presencia del blues en la escena internacional ha contribuido
 
 En síntesis, el recorrido histórico del blues permite vislumbrar la complejidad de un fenómeno musical que surgió en un contexto de opresión y que, no obstante, supo transformarse en un medio de reivindicación y expresión artística. La combinación de tradiciones orales, la adaptación de elementos instrumentales y la influencia de las nuevas tecnologías se conjugan para ofrecer una narrativa sonora única, cuya vigencia trasciende el tiempo y las fronteras. Del análisis realizado se desprende que el blues, en su esencia, representa un legado ineludible que invita a profundizar en la intersección entre la historia, la cultura y la música.
 
-Finalmente, es pertinente subrayar que el estudio del blues, en calidad de fenómeno cultural e histórico, implica considerar sus múltiples aristas teóricas y contextuales, dejando ver cómo cada matiz melódico y cada pausa rítmica configuran una historia de resistencia y transformación. Tal apreciación resulta esencial para comprender de manera integral el impacto del blues en la configuración de la identidad musical contemporánea y en el desarrollo de nuevas estéticas sonoras, reafirmando su lugar como patrimonio inmaterial de la humanidad.  
-  
+Finalmente, es pertinente subrayar que el estudio del blues, en calidad de fenómeno cultural e histórico, implica considerar sus múltiples aristas teóricas y contextuales, dejando ver cómo cada matiz melódico y cada pausa rítmica configuran una historia de resistencia y transformación. Tal apreciación resulta esencial para comprender de manera integral el impacto del blues en la configuración de la identidad musical contemporánea y en el desarrollo de nuevas estéticas sonoras, reafirmando su lugar como patrimonio inmaterial de la humanidad.
+
 Referencias:  
 Komara, E. (1998). Encyclopedia of the Blues. Routledge.  
-Kubik, G. (1999). Africa and the Blues. University Press of Mississippi.  
-  
+Kubik, G. (1999). Africa and the Blues. University Press of Mississippi.
+
 Esta exposición académica del trasfondo histórico del blues se erige como un ejercicio interpretativo que invita a un análisis crítico y a la reflexión sobre la profundamente compleja y multifacética herencia musical que ha influido en la configuración de los paradigmas sonoros en la modernidad.
 
 ## Musical Characteristics
@@ -84,7 +83,7 @@ En adición, es relevante abordar otras variantes que enriquecieron la escena mu
 
 La evolución de los subgéneros del blues está intrínsecamente ligada a factores tecnológicos y socioeconómicos. El advenimiento de la electrificación de la guitarra y el desarrollo de nuevos instrumentos y equipos de grabación posibilitaron que el sonido del blues emergiera en registros hasta entonces inexplorados. En este sentido, el surgimiento del blues eléctrico marcó un antes y un después en la narrativa musical, permitiendo una difusión masiva que conectó regiones y generaciones. La tecnología no solo facilitó la transformación sonora, sino que, de igual forma, generó una ampliación en el alcance del mensaje artístico, al tiempo que impulsó la colaboración entre músicos provenientes de diversos contextos culturales. Esta interacción interdisciplinaria propició que las variaciones en el blues se enriquecieran y evolucionaran, constituyendo un testimonio de la capacidad de adaptación del género.
 
-La intersección entre la praxis musical y el contexto sociohistórico es fundamental para comprender la expansión y la incidencia de cada subgénero. Así, mientras se reconoce que el Delta Blues representa la raíz del género, el Chicago Blues asume la función de renovador y adaptador ante los nuevos marcos urbanos, y el Piedmont Blues se erige como exponente de una sofisticada articulación técnica. En contraste, las variantes texanas y de la costa oeste revelan líneas de convergencia entre las tradiciones populares y las innovaciones acústicas o electrónicas. De este modo, cada subgénero puede ser analizado no solo como una manifestación artística, sino también como un reflejo del devenir histórico y cultural de las comunidades afroamericanas. Las trasformaciones en las técnicas instrumentales, los esquemas armónicos y los recursos expresivos constituyen elementos esenciales para la interpretación de estos estilos. 
+La intersección entre la praxis musical y el contexto sociohistórico es fundamental para comprender la expansión y la incidencia de cada subgénero. Así, mientras se reconoce que el Delta Blues representa la raíz del género, el Chicago Blues asume la función de renovador y adaptador ante los nuevos marcos urbanos, y el Piedmont Blues se erige como exponente de una sofisticada articulación técnica. En contraste, las variantes texanas y de la costa oeste revelan líneas de convergencia entre las tradiciones populares y las innovaciones acústicas o electrónicas. De este modo, cada subgénero puede ser analizado no solo como una manifestación artística, sino también como un reflejo del devenir histórico y cultural de las comunidades afroamericanas. Las trasformaciones en las técnicas instrumentales, los esquemas armónicos y los recursos expresivos constituyen elementos esenciales para la interpretación de estos estilos.
 
 En conclusión, la invariabilidad del blues radica en su capacidad para mutar y adaptarse a diversos contextos socioculturales, sin perder su esencia expresiva y emotiva. Los diversos subgéneros examinados –desde el Delta Blues hasta el Chicago, Piedmont, Texas y West Coast Blues– evidencian un corpus musical en constante evolución, donde cada variante no solo dialoga con su pasado, sino que también se proyecta hacia nuevas formas de interpretación. La articulación de estos estilos a través de transformaciones técnicas y contextuales es el reflejo del dinamismo inherente al blues, lo que a su vez permite que su legado continúe influyendo en la música contemporánea a nivel global. Esta persistente capacidad de transformación es, sin duda, uno de los rasgos definitorios que asegura la trascendencia del blues, constituyendo un patrimonio musical que desafía el paso del tiempo y sigue siendo un referente crucial para el análisis musicológico moderno.
 

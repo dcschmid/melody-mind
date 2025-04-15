@@ -17,10 +17,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -120,7 +119,7 @@ De internationale popmuziek vormt een intrinsiek onderdeel van de hedendaagse cu
 
 Gedurende de late jaren vijftig ambieerden artiesten als Elvis Presley en Chuck Berry een ongekende populariteit, waarbij zij de fundamenten legden voor de opvolgende generaties. Deze pioniers van de rock-'n-roll, die in de context van de Amerikaanse samenleving opereerden, introduceerden een expressieve vorm van muzikale presentatie die later wereldwijd weerklank vond. De transitie van traditionele genres naar een meer op performance gerichte muziekstijl zorgde ervoor dat de popmuziek in staat was maatschappelijke grenzen te overschrijden, hetgeen de weg vrijmaakte voor een universele taal van emotie en ervaring.
 
-In de jaren zestig werd de internationale popscene verder geconsolideerd door bands als The Beatles en The Rolling Stones, wier muzikale experimenten en kritische teksten een significante bijdrage leverden aan de culturele emancipatie van jongere generaties. Deze ontwikkelingen vonden hun weerklank in een periode van intens maatschappelijk en politiek protest, waarin muziek als medium diende om op te roepen tot een herziening van de maatschappelijke en culturele status quo. De combinatie van innovatieve melodieën, geavanceerde harmonische structuren en de wijze waarop de teksten actuele thema’s aansneden, maakte de popmuziek tot een cruciale factor in het vormgeven van culturele representaties en identiteitsconstructies. 
+In de jaren zestig werd de internationale popscene verder geconsolideerd door bands als The Beatles en The Rolling Stones, wier muzikale experimenten en kritische teksten een significante bijdrage leverden aan de culturele emancipatie van jongere generaties. Deze ontwikkelingen vonden hun weerklank in een periode van intens maatschappelijk en politiek protest, waarin muziek als medium diende om op te roepen tot een herziening van de maatschappelijke en culturele status quo. De combinatie van innovatieve melodieën, geavanceerde harmonische structuren en de wijze waarop de teksten actuele thema’s aansneden, maakte de popmuziek tot een cruciale factor in het vormgeven van culturele representaties en identiteitsconstructies.
 
 Verder werd de internationale popmuziek in de jaren zeventig en tachtig gekenmerkt door een toenemende diversificatie qua stijlen en invloeden, waarbij artiesten uit diverse culturele achtergronden hun eigen muzikale tradities inbrachten in de mondiale mainstream. De integratie van elementen uit de soulmuziek, funk en disco was in aansluiting op technologische innovaties, zoals de opeenvolgende verfijning van elektroakustische instrumenten. Deze periode bracht een intensieve interactie met zich mee tussen technologie en kunst, hetgeen de grenzen van de muzikale expressie aanzienlijk verruimde. Tevens benadrukte de opkomst van muziekvideo’s als een visueel medium dat popmuziek een nieuwe esthetische dimensie ontleende, hetgeen op zijn beurt het ritme en de algemene perceptie verder beïnvloedde.
 

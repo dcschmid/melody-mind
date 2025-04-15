@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -54,7 +53,7 @@ Lopuksi voidaan todeta, että neo-klassisismi metalli muodostaa historiallisen j
 
 Neo-klassisessa metallissa musiikilliset piirteet noudattavat perinteisen klassisen musiikin normaaleja ja harmoniaa sekä metafyysisen, usein intensiivisen virtuositeetin ilmentymiä, jotka yhdistyvät monipuolisiin metallimusiikin elementteihin. Tämä genre on juurtunut 1980-luvun puoliväliin, jolloin yhtenäiset klassisista musiikkiperinteistä innoittuneet näyttävät kitaraoopperaesitykset ja teknisesti monimuotoiset sävellykset saavuttivat kansainvälistä huomiota. Ymmärtäessämme tämän musiikkityylin ainutlaatuisuutta, on tärkeää huomioida sen harmoniset, rytmiset ja melodiset perustekijät sekä niiden keskinäinen vuorovaikutus.
 
-Ensisijaisena tunnusmerkkinä voidaan pitää virtuositeettia edustavaa soitinpelaamista. Kitaristien, kuten Yngwie Malmsteenin (syntynyt 1963) ja muiden sen ajan edustajien soittoaidoissa ilmenee erittäin tekninen lähestymistapa, joka pohjautuu barokin ja klassismin musiikillisiin traditioihin. Tässä kontekstissa improvisaatioiden ja sävellysten monimutkaiset rakenteet vaihtelevat voimakkaasta modulaatiosta dynaamiseen kontrapunktiin, mikä tuo esiin klassisen musiikin evoluution metallimusiikkiin uudessa muodossa. Soitettavien sävellysten rakenne korostaa virtuosien kykyä hallita nopeita arpajehtauksia sekä monitasoista melodista expressiota, joka on samastettavissa renessanssin ja barokin aikakauden soitinmestareiden teoksiin. 
+Ensisijaisena tunnusmerkkinä voidaan pitää virtuositeettia edustavaa soitinpelaamista. Kitaristien, kuten Yngwie Malmsteenin (syntynyt 1963) ja muiden sen ajan edustajien soittoaidoissa ilmenee erittäin tekninen lähestymistapa, joka pohjautuu barokin ja klassismin musiikillisiin traditioihin. Tässä kontekstissa improvisaatioiden ja sävellysten monimutkaiset rakenteet vaihtelevat voimakkaasta modulaatiosta dynaamiseen kontrapunktiin, mikä tuo esiin klassisen musiikin evoluution metallimusiikkiin uudessa muodossa. Soitettavien sävellysten rakenne korostaa virtuosien kykyä hallita nopeita arpajehtauksia sekä monitasoista melodista expressiota, joka on samastettavissa renessanssin ja barokin aikakauden soitinmestareiden teoksiin.
 
 Lisäksi neo-klassisessa metallissa korostuu sävellyksellinen jäsennys, jossa perinteiset rock- ja metallielementit sulautuvat sulavasti klassisiin sointukuvioihin. Harmoniset liikkeet noudattavat usein 1800-luvun romanttisten säveltäjien, kuten Lisztin ja Paganinin, mukaisia naken ja dramatiikan elementtejä. Tämä tarkoittaa, että sävellyt sisältävät laajoja modulaatioita, arpeggioihin perustuvia sointukulkuja ja virtuoosimaisiin soitinsarjoihin piirteitä. Muusikkojen pyrkimys saavuttaa niin kutsuttu “klassinen laatu” vaatii laajaa musiikillista koulutusta ja syvällistä ymmärrystä sekä teoreettisista että historiallisista musiikillisista perinteistä. Jokainen sävellys sisältää tämän lisäksi runsaasti dynamiikkaa, kontrasteja sekä monitasoista rytmistä moninaisuutta, jotka korostavat niin melodisen kaarevuuden kuin polyrhythmisyyden merkitystä.
 

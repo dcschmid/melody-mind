@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduktion
 
@@ -204,6 +203,6 @@ Antal tegn: 5355
 
 ## Aktuelle tendenser og fremtid
 
-Inden for kategorien Swedish inden for international musik observeres nu en markant udvikling, der i høj grad afspejler integrationen af avanceret lydteknologi med kompositionelle eksperimenter. Traditionelle nordiske musikalske strukturer kombineres med globale udtryksformer, således at den historiske æstetik transformeres i lyset af nye digitale muligheder. Den akademiske diskurs omfatter en systematisk analyse af de ældre kompositionsprincipper, som danner grundlag for innovative hybridformer, der i realiteten udfordrer konventionelle paradigmer. 
+Inden for kategorien Swedish inden for international musik observeres nu en markant udvikling, der i høj grad afspejler integrationen af avanceret lydteknologi med kompositionelle eksperimenter. Traditionelle nordiske musikalske strukturer kombineres med globale udtryksformer, således at den historiske æstetik transformeres i lyset af nye digitale muligheder. Den akademiske diskurs omfatter en systematisk analyse af de ældre kompositionsprincipper, som danner grundlag for innovative hybridformer, der i realiteten udfordrer konventionelle paradigmer.
 
 Desuden demonstrerer den nutidige praksis, hvordan digital distribution og multimediel præsentation forandrer musikalske netværk, idet de åbner op for nye grænser for kulturel udveksling. Denne syntese af historisk arv og global modernitet tilbyder en robust teoretisk ramme, hvorved internationalt samarbejde styrkes gennem nøje udvalgte, velbegrundede eksperimenter. (Tegn: 892)

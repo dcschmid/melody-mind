@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Johdanto
 
@@ -158,7 +157,7 @@ Edelleen, 1990-luvulta eteenpäin kansainvälisessä musiikkimarkkinoinnissa koe
 
 Lisäksi on relevanttia pohtia kulttuurihistoriallisten kontekstien vaikutusta mediaviestinnän strategioihin. Historialliset tutkimukset osoittavat, että maailmankulttuurien moninaisuus on ennalta määrännyt sen, miten viestintästrategiat ovat kehittyneet. Kansainvälisten musiikkifestivaalien, yhteistyöprojektien ja globaalien promootiokampanjoiden kautta syntyneet ilmiöt ovat usein heijastaneet ajankohtaisia yhteiskunnallisia virtauksia, joissa esimerkiksi kulttuurienvälinen vuoropuhelu ja monikulttuurisuuden edistäminen ovat toimineet markkinoinnin ja median yhteisenä nimittäjänä. Näin ollen mediaviestinnän ja -markkinoinnin analyysi edellyttää syvällistä ymmärrystä sekä musiikkiteoreettisista että kulttuurihistoriallisista näkökulmista, joissa välineiden ja tekniikoiden kehitystä tutkitaan kriittisesti suhteessa niiden yhteiskunnalliseen kontekstiin.
 
-Kokonaisuudessaan kansainvälisessä musiikkimarkkinoinnissa mediateknologioiden ja viestintäkeinovalikoiman kehitys on kulkenut tiiviissä vuorovaikutuksessa radikaalisti muuttuvien yhteiskunnallisten arvojen sekä kaupallisten intressien kanssa. Tällainen kehityskaari edellyttää monitieteellistä lähestymistapaa, jossa historiantutkimus, musiikkiteoria ja viestintätiede yhdistyvät. Tieteenalan uudet tutkimusmenetelmät, kuten diskurssianalyysi ja digitaalisen aineiston tilastolliset menetelmät, ovat tarjonneet uusia näkökulmia siihen, kuinka markkinointiviestintä on pystynyt vastaamaan globaaleihin haasteisiin ja rakentamaan merkityksellisiä kulttuurisia kokonaisuuksia. Näin ollen kansainvälisen musiikin mediaviestinnän analyysi ei ainoastaan paljasta menneisyyden strategioiden systemaattisuutta, vaan myös valaisee tulevaisuuden potentiaalia ja kehitystrendejä. 
+Kokonaisuudessaan kansainvälisessä musiikkimarkkinoinnissa mediateknologioiden ja viestintäkeinovalikoiman kehitys on kulkenut tiiviissä vuorovaikutuksessa radikaalisti muuttuvien yhteiskunnallisten arvojen sekä kaupallisten intressien kanssa. Tällainen kehityskaari edellyttää monitieteellistä lähestymistapaa, jossa historiantutkimus, musiikkiteoria ja viestintätiede yhdistyvät. Tieteenalan uudet tutkimusmenetelmät, kuten diskurssianalyysi ja digitaalisen aineiston tilastolliset menetelmät, ovat tarjonneet uusia näkökulmia siihen, kuinka markkinointiviestintä on pystynyt vastaamaan globaaleihin haasteisiin ja rakentamaan merkityksellisiä kulttuurisia kokonaisuuksia. Näin ollen kansainvälisen musiikin mediaviestinnän analyysi ei ainoastaan paljasta menneisyyden strategioiden systemaattisuutta, vaan myös valaisee tulevaisuuden potentiaalia ja kehitystrendejä.
 
 Lopuksi voidaan todeta, että tämä historialliseen tarkasteluun pohjautuva analyysi korostaa media ja markkinointi -alojen keskinäistä yhteyttä sekä niiden merkitystä globaalin musiikkikulttuurin muovautumisessa. Asiassa on kyse syvästi kulttuurisista, teknologisista ja taloudellisista muutoksista, jotka yhdessä ovat rakentaneet pohjan nykyiselle, digitaalisen median monimuotoisuutta hyödyntävälle maailmankatsomukselle. Näin ollen on olennaista, että tulevaisuuden tutkimuksissa sekä käytännön markkinointistrategioissa otetaan huomioon menneisyyden opit ja niiden tarjoamat metodologiset lähtökohdat, jotta kansainvälisen musiikin monikerroksinen pelikenttä pystytään entistä paremmin ymmärtämään ja kehittämään.
 

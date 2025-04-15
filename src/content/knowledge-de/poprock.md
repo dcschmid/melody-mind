@@ -17,10 +17,9 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -170,7 +169,7 @@ Die 1970er-Jahre waren von einer zunehmenden Diversifizierung und einer verstär
 
 Parallel zu dieser musikalischen Blütezeit setzte sich eine kritische Auseinandersetzung mit den veränderlichen gesellschaftlichen Strukturen fort. Im Kontext der aufkommenden Jugendkulturen und der politischen Umbrüche der Dekade spiegelte der Poprock sowohl das Streben nach individueller Freiheit als auch die Suche nach kollektiven Identitäten wider. Die kulturellen Diskurse, in denen Fragen der Modernität und des postindustriellen Wandels zentral waren, fanden in den Songtexten und Performances ihren Ausdruck. Die Wechselwirkung zwischen künstlerischer Innovation und den gesellschaftlichen Rahmenbedingungen führte zu einer beständigen Transformation des Genres, das sich stets neu definierte und an die dynamischen Verhältnisse anpasste.
 
-Der technologische Fortschritt, insbesondere in den Bereichen digitaler Aufnahmetechniken und Computereinsatz, eröffnete in den 1980er-Jahren weitere Horizonte. Die Möglichkeit, Klänge digital zu manipulieren und neue Effekte zu erzeugen, ermöglichte es den Musikern, auf immer innovativere Weise melodiöse und rhythmische Konzepte zu realisieren. Gleichzeitig bewirkte die zunehmende Verbreitung von Musikfernsehsendern sowie der Ausbau internationaler Rundfunknetze eine engere Verzahnung der musikkulturellen Grenzen. Die daraus resultierende globale Reichweite trug maßgeblich dazu bei, dass der Poprock nicht nur in Nordamerika und Europa, sondern auch in anderen Regionen der Welt an Popularität gewann. 
+Der technologische Fortschritt, insbesondere in den Bereichen digitaler Aufnahmetechniken und Computereinsatz, eröffnete in den 1980er-Jahren weitere Horizonte. Die Möglichkeit, Klänge digital zu manipulieren und neue Effekte zu erzeugen, ermöglichte es den Musikern, auf immer innovativere Weise melodiöse und rhythmische Konzepte zu realisieren. Gleichzeitig bewirkte die zunehmende Verbreitung von Musikfernsehsendern sowie der Ausbau internationaler Rundfunknetze eine engere Verzahnung der musikkulturellen Grenzen. Die daraus resultierende globale Reichweite trug maßgeblich dazu bei, dass der Poprock nicht nur in Nordamerika und Europa, sondern auch in anderen Regionen der Welt an Popularität gewann.
 
 Zudem lässt sich beobachten, dass die musikalischen Entwicklungen in den 1990er-Jahren den Poprock in eine Phase der Hybridisierung überführten. Die zunehmende Vermischung mit Elementen anderer populärer Musikstile führte zu einer erweiterten stilistischen Palette, die sowohl akustische als auch elektronische Komponenten umfasste. Diese Dekade war gekennzeichnet von einem verstärkten Selbstbewusstsein der Künstler, die mit einer Vielfalt an Instrumentierungen und produktionstechnischen Neuerungen experimentierten. Die internationale Vernetzung und der digitale Austausch von musikalischen Ideen machten es möglich, dass Einflüsse aus unterschiedlichen Kulturräumen in einen Dialog traten, der dem Genre eine außerordentliche Dynamik verlieh. Gleichzeitig kristallisierte sich eine formale Sprache heraus, die den Anspruch hatte, sowohl künstlerisch anspruchsvoll als auch massentauglich zu sein.
 

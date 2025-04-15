@@ -16,10 +16,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -29,7 +28,7 @@ Verder wordt de ontwikkeling van melancholieke muziek gekenmerkt door een contin
 
 ## Understanding the Emotion
 
-Het begrip melancholie in de muziek vormt een intrigerend onderwerp dat zowel historisch als emotioneel diepgeworteld is in de internationale muzikale traditie. Dit fenomeen, dat zijn oorsprong vindt in de klassieke oudheid, heeft zich door de eeuwen heen ontwikkeld tot een belangrijk thematisch uitgangspunt binnen de Westerse en ook niet-Westerse muzikale culturen. Men kan stellen dat de melancholische emotie niet louter een uiting is van verdriet, maar tevens een middel vormt tot introspectie en existentiële reflectie. De academische benadering van melancholie in de muziek vereist een nauwkeurige analyse van onderliggende thematische elementen, waaronder de interactie tussen melodie, harmonie en ritme.  
+Het begrip melancholie in de muziek vormt een intrigerend onderwerp dat zowel historisch als emotioneel diepgeworteld is in de internationale muzikale traditie. Dit fenomeen, dat zijn oorsprong vindt in de klassieke oudheid, heeft zich door de eeuwen heen ontwikkeld tot een belangrijk thematisch uitgangspunt binnen de Westerse en ook niet-Westerse muzikale culturen. Men kan stellen dat de melancholische emotie niet louter een uiting is van verdriet, maar tevens een middel vormt tot introspectie en existentiële reflectie. De academische benadering van melancholie in de muziek vereist een nauwkeurige analyse van onderliggende thematische elementen, waaronder de interactie tussen melodie, harmonie en ritme.
 
 In de ontwikkeling van de melancholische esthetiek speelt de Romantiek een cruciale rol. Componisten als Ludwig van Beethoven, Franz Schubert en Frédéric Chopin hebben in hun oeuvre de spanning tussen vreugde en verdriet uitgedrukt, met behulp van complexe harmonische structuren en nuanceren in dynamiek. Hierbij is het belangrijk om te erkennen dat de melancholische toestand vaak samenhangt met de tonaliteit van een compositie. De keuze voor mineurtonaliteiten werd bijvoorbeeld in de late klassieke en romantische periode gezien als een manier om de tragische en reflectieve aard van menselijke ervaringen te benadrukken. Bovendien laat de muzikale analytische benadering zien dat afwegingen tussen consonantie en dissonantie een belangrijke rol spelen bij het oproepen van emotionele diepte.
 

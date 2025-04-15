@@ -16,10 +16,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -29,7 +28,7 @@ Moreover, this concept has continued to shape modern aesthetics by integrating t
 
 ## Historical Background
 
-The evolution of groove as an essential musical category is a narrative replete with both rhythmic sophistication and cultural exchange. Its genesis can be traced to the African diasporic influences that shaped the percussive foundations of much modern music. Early African rhythms, transmitted through the slave trade and integrated into the Americas, provided a driving pulse that eventually evolved into the fundamental concept of groove. Moreover, this rhythmic tradition was later refined in concert with European harmonic structures, ultimately yielding musical expressions that transcended geographical boundaries.  
+The evolution of groove as an essential musical category is a narrative replete with both rhythmic sophistication and cultural exchange. Its genesis can be traced to the African diasporic influences that shaped the percussive foundations of much modern music. Early African rhythms, transmitted through the slave trade and integrated into the Americas, provided a driving pulse that eventually evolved into the fundamental concept of groove. Moreover, this rhythmic tradition was later refined in concert with European harmonic structures, ultimately yielding musical expressions that transcended geographical boundaries.
 
 In the early decades of the twentieth century, the infusion of African rhythmic sensibilities into American jazz signalled a decisive turning point in the articulation of groove. Musicians in the United States, notably within the realms of swing and bebop, began to experiment with syncopated patterns that emphasised the heartbeat of the music. Artists such as Duke Ellington and Count Basie orchestrated intricate arrangements in which the bass and drums negotiated a subtle interplay, thus forging a sonic environment where groove became both the pulse and the connective tissue of performance. Furthermore, the advent of electric amplification in the 1940s and 1950s enabled these low-frequency elements to resonate with unprecedented clarity in live contexts.
 

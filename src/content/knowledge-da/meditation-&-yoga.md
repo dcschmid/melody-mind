@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -86,7 +85,7 @@ Afslutningsvis kan det konstateres, at subgenrer og variationer inden for medita
 
 ## Key Figures and Important Works
 
-Nedenstående afhandling fokuserer på centrale personer og vigtige værker inden for den internationale musiktradition for meditation og yoga. Denne genre, der i sin moderne form for alvor fik international gennemslagskraft i anden halvdel af det tyvende århundrede, er kendetegnet ved en syntese af østlige musiktraditioner og vestlige fortolkninger. Udviklingen af meditations- og yogamusik er derfor baseret på et historisk krydsfelt, hvor musikalske, filosofiske og religiøse impulser er blevet sammenvævet. De afgørende historiske omstændigheder omfatter primært introduktionen af indisk klassisk musik i Vesten, en udvikling ledsaget af en bredere søgen efter alternative spirituelle praksisser og en kulturel udveksling mellem Øst og Vest. 
+Nedenstående afhandling fokuserer på centrale personer og vigtige værker inden for den internationale musiktradition for meditation og yoga. Denne genre, der i sin moderne form for alvor fik international gennemslagskraft i anden halvdel af det tyvende århundrede, er kendetegnet ved en syntese af østlige musiktraditioner og vestlige fortolkninger. Udviklingen af meditations- og yogamusik er derfor baseret på et historisk krydsfelt, hvor musikalske, filosofiske og religiøse impulser er blevet sammenvævet. De afgørende historiske omstændigheder omfatter primært introduktionen af indisk klassisk musik i Vesten, en udvikling ledsaget af en bredere søgen efter alternative spirituelle praksisser og en kulturel udveksling mellem Øst og Vest.
 
 I begyndelsen af 1960’erne fremkom Ravi Shankar som en af de mest indflydelsesrige skikkelser i forbindelse med den vestlige opmærksomhed på indisk klassisk musik. Shankar, der fra en ung alder var dybt forankret i den hinduiske musiktradition, spillede en signifikant rolle i populariseringen af sitarens lyd. Denne popularisering, der blandt andet inspirerede den berømte gruppe The Beatles, illustrerer den tidlige og afgørende interkulturalitet, som prægede meditations- og yogamusik. Indiens ældgamle musikalske praksisser, med deres komplekse ragas og talstrukturer, blev dermed ikke kun et redskab til æstetisk nydelse, men også et middel til at opnå spirituel ro og indsigt.
 

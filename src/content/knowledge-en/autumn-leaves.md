@@ -17,14 +17,13 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Autumn Leaves occupies a singular place within the international music canon, its origins tracing back to mid‐20th-century Europe. Composed by Joseph Kosma with original French lyrics by Jacques Prévert circa 1945, this composition emerged from the cinematic milieu of post-war France. Its emotive harmonic structure and poignant melody inspired subsequent adaptations, ultimately attaining global prominence and becoming a revered jazz standard. 
+Autumn Leaves occupies a singular place within the international music canon, its origins tracing back to mid‐20th-century Europe. Composed by Joseph Kosma with original French lyrics by Jacques Prévert circa 1945, this composition emerged from the cinematic milieu of post-war France. Its emotive harmonic structure and poignant melody inspired subsequent adaptations, ultimately attaining global prominence and becoming a revered jazz standard.
 
 Moreover, the English reimagining, most notably orchestrated by Johnny Mercer in the early 1950s, contributed substantially to its widespread acclaim. This evolution is emblematic of the fluid transnational exchange of musical ideas during the post-war era. The piece's sophisticated chord progressions and subtle rhythmic nuances continue to galvanise musicians and scholars alike, underscoring its enduring influence on international musical discourse.
 

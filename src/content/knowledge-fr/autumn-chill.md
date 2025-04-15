@@ -17,14 +17,13 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Dans l'introduction à la catégorie musicale « Autumn Chill », il convient d'examiner les fondements théoriques et historiques qui sous-tendent cette esthétique. En effet, ce courant s’inscrit dans la tradition d’une musique feutrée et introspective, où la mélancolie de l’automne se conjugue avec des sonorités délicates et raffinées. Dès les prémices des expérimentations acoustiques du début du XXe siècle, l’aspiration à créer une atmosphère intimiste a favorisé l’émergence d’un langage sonore empreint d’influences jazzistiques, folkloriques et néoclassiques. 
+Dans l'introduction à la catégorie musicale « Autumn Chill », il convient d'examiner les fondements théoriques et historiques qui sous-tendent cette esthétique. En effet, ce courant s’inscrit dans la tradition d’une musique feutrée et introspective, où la mélancolie de l’automne se conjugue avec des sonorités délicates et raffinées. Dès les prémices des expérimentations acoustiques du début du XXe siècle, l’aspiration à créer une atmosphère intimiste a favorisé l’émergence d’un langage sonore empreint d’influences jazzistiques, folkloriques et néoclassiques.
 
 Par ailleurs, l’évolution technologique – en particulier l’avènement de l’enregistrement magnétique dans les années 1940 – a permis une diffusion élargie de ces expressions musicales. De plus, l’analyse des variables harmoniques et rythmiques révèle une complexité structurante, qui, en articulant tradition et innovation, confère au phénomène « Autumn Chill » une signature artistique propre. Cette approche souligne ainsi l’importance d’un dialogue constant entre les pratiques musicales historiques et leur modernisation.
 

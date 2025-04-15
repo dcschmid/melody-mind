@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -144,7 +143,7 @@ L’approccio performativo dei gruppi psych-rock era altresì caratterizzato da 
 
 Il contesto socio-politico degli anni Sessanta e Settanta contribuì in maniera sostanziale a orientare le scelte stilistiche e performative all’interno del genere. La ribellione contro le strutture conservatrici della società occidentale, la diffusione di ideali pacifisti e l’adozione di filosofie orientali controbilanciarono una concezione tradizionale dell’arte come mera esibizione estetica. In questo scenario, l’impegno critico e sperimentale dei musicisti psych-rock si trasformò in un’azione di rottura nei confronti degli standard sociali, permettendo l’emergere di performance che erano, al tempo stesso, momenti di resistenza e di celebrazione dell’individualismo creativo. Le performance, pertanto, non erano mai esenti da profonde implicazioni ideologiche, ma rappresentavano il crocevia fra innovazione artistica e trasformazione socio-culturale.
 
-Inoltre, l’interazione tra musicisti e pubblico nelle esibizioni dal vivo assumeva un valore comunicativo e simbolico che andava ben oltre il semplice intrattenimento. La presenza di un’energia condivisa, la capacità di coinvolgere emotivamente la platea e l’uso di simboli visivi e sonori erano elementi che consolidavano il senso di comunità e di appartenenza, tipici della scena controculturale dell’epoca. Le dinamiche di scambio interattivo, spesso caratterizzate dalla partecipazione attiva degli spettatori, rappresentavano l’evidenza di un modello performativo che rifiutava la distanza tra artista e fruitore, proponendo invece un’esperienza di comunione in cui il confine tra creatore e pubblico si dissolvava. 
+Inoltre, l’interazione tra musicisti e pubblico nelle esibizioni dal vivo assumeva un valore comunicativo e simbolico che andava ben oltre il semplice intrattenimento. La presenza di un’energia condivisa, la capacità di coinvolgere emotivamente la platea e l’uso di simboli visivi e sonori erano elementi che consolidavano il senso di comunità e di appartenenza, tipici della scena controculturale dell’epoca. Le dinamiche di scambio interattivo, spesso caratterizzate dalla partecipazione attiva degli spettatori, rappresentavano l’evidenza di un modello performativo che rifiutava la distanza tra artista e fruitore, proponendo invece un’esperienza di comunione in cui il confine tra creatore e pubblico si dissolvava.
 
 In conclusione, il panorama del Psych-Rock e la sua cultura performativa dal vivo costituiscono un esempio paradigmatico di come l’innovazione artistica possa fondersi con la trasformazione culturale e tecnologica, dando vita a una forma espressiva estremamente articolata e coinvolgente. La combinazione di elementi visivi, sonori e performativi ha contribuito a ridefinire i confini dell’arte musicale, creando uno scenario in cui la sperimentazione e l’improvvisazione diventavano strumenti essenziali per tradurre esperienze esistenziali complesse. Studi accademici e ricerche musicologiche sottolineano l’importanza di analizzare tali performance non solo come manifestazioni artistiche, ma anche come fenomeni culturali e storici che rispecchiano le radicali trasformazioni del secondo Novecento.
 

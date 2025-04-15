@@ -17,10 +17,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -198,8 +197,8 @@ In summary, contemporary expressions within the energetic music category encapsu
 
 ## Conclusion
 
-Conclusively, the international energetic music scene has continually invigorated cultural dialogues across continents. Scholarly examination demonstrates that avant‐garde rhythmic structures and sophisticated instrumentation have forged a distinctive sonic landscape that transcends conventional stylistic boundaries. 
+Conclusively, the international energetic music scene has continually invigorated cultural dialogues across continents. Scholarly examination demonstrates that avant‐garde rhythmic structures and sophisticated instrumentation have forged a distinctive sonic landscape that transcends conventional stylistic boundaries.
 
-Moreover, the advent of refined recording techniques in the mid‐twentieth century facilitated the rapid dissemination of vigorous musical expressions. This technological evolution complemented the development of concise yet powerfully expressive compositions, underscoring innovation as an indispensable element in global musical transformations. 
+Moreover, the advent of refined recording techniques in the mid‐twentieth century facilitated the rapid dissemination of vigorous musical expressions. This technological evolution complemented the development of concise yet powerfully expressive compositions, underscoring innovation as an indispensable element in global musical transformations.
 
 In summary, the energetic genre endures as a profound conduit for artistic expression, synthesising tradition with modernity and engaging both academic inquiry and popular appreciation.

@@ -17,10 +17,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -128,7 +127,7 @@ I ett bredare kulturellt sammanhang framstår horror metal som en del av en inte
 
 Vidare har den kulturella betydelsen av horror metal även en symbolisk dimension, då musiken fungerar som en ventil för samhälleligt utanförskap och marginalisering. Genom att adoptera teman som ifrågasätter normer och etablerade värderingar erbjuder genren en plattform för alternativa identiteter. Denna identitetsskapande process är inte endast estetisk, utan utgör också ett socialt uttryck av motstånd mot kommersialism och homogenisering inom populärkulturen. De scenuppträdanden som präglats av teatralitet, kostym och scenografi utgör ytterligare ett lager i förståelsen av horror metal som en konstform där konstnärlig integritet och politisk kritik sammanflätas. Denna kritik riktas inte enbart mot samtida sociala strukturer utan även mot en långvarig kulturhistoria där narrativet om det förbjudna och det skrämmande utgör en kontrast mot normsystemens stabilitet.
 
-Genom att analysera de musikaliska och kulturella drivkrafterna bakom horror metal, kan man även se hur genren påverkat en bredare diskurs om identitet och ritual. Instrumentalens roll i att skapa rituella atmosfärer, i kombination med symboliskt laddade texter, möjliggör en nästan ceremoniell lyssnarens upplevelse. Genom sin förmåga att skapa en känsla av gemenskap i subkulturella kretsar, fungerar horror metal som ett forum där medlemmar kan utforska existentiella frågor och alternativa livsvägar. Den rituella aspekten finner sin förankring i både musikaliska uttryck och scennärvaro, vilket gör att genren uppfattas som ett levande uttryck för transcendentala upplevelser. I detta avseende utgör de performativa inslagen en länk mellan det individuella psykologiska tillståndet och den kollektivt erfara kulturella identiteten. 
+Genom att analysera de musikaliska och kulturella drivkrafterna bakom horror metal, kan man även se hur genren påverkat en bredare diskurs om identitet och ritual. Instrumentalens roll i att skapa rituella atmosfärer, i kombination med symboliskt laddade texter, möjliggör en nästan ceremoniell lyssnarens upplevelse. Genom sin förmåga att skapa en känsla av gemenskap i subkulturella kretsar, fungerar horror metal som ett forum där medlemmar kan utforska existentiella frågor och alternativa livsvägar. Den rituella aspekten finner sin förankring i både musikaliska uttryck och scennärvaro, vilket gör att genren uppfattas som ett levande uttryck för transcendentala upplevelser. I detta avseende utgör de performativa inslagen en länk mellan det individuella psykologiska tillståndet och den kollektivt erfara kulturella identiteten.
 
 Sammanfattningsvis kan det fastställas att horror metal, genom sin integrering av intensiva musikaliska strukturer och djupt symboliska teman, innehar en betydande roll i den internationella musikkulturen. Genom att förena tekniska musikalitet med en rikedom i kulturella referenser erbjuder genren en djupgående analys av samtida sociala och existentiella frågor. Denna sammansmältning av konstnärliga uttrycksformer skapar en dynamisk plattform där både musikutövare och lyssnare ges möjlighet att ifrågasätta och omtolka det konventionella. Vidare fungerar horror metal som ett exempel på hur innovation och tradition kan samverka för att producera en konstnärlig form som ständigt utvecklas i samtiden. Därmed utgör genren inte endast ett musikaliskt fenomen utan även en kulturell rörelse med en betydande inverkan på internationella diskurser om identitet, ritual och samhällskritik.
 

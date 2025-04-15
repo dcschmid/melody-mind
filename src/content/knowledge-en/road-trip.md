@@ -16,14 +16,13 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-The Road Trip category in international music encapsulates the transformative influence of travel on artistic expression. Historically, the concept emerged during the latter half of the twentieth century, when musicians from diverse cultural milieus began to imbue their compositions with the liberatory ethos of the journey. In this period, American folk traditions, European avant-garde experimentation and emerging technological innovations coalesced, forging narratives that celebrated both exploration and rootedness. 
+The Road Trip category in international music encapsulates the transformative influence of travel on artistic expression. Historically, the concept emerged during the latter half of the twentieth century, when musicians from diverse cultural milieus began to imbue their compositions with the liberatory ethos of the journey. In this period, American folk traditions, European avant-garde experimentation and emerging technological innovations coalesced, forging narratives that celebrated both exploration and rootedness.
 
 Moreover, the utilisation of modern recording technologies and refined acoustic techniques enhanced the capacity for multisensory experiences, thereby broadening the expressive palette available to composers. Consequently, the road trip motif has assumed a prominent role in delineating the evolving relationships between geographical movement, cultural identity and musical innovation.
 

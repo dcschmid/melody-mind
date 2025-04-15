@@ -17,10 +17,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -30,7 +29,7 @@ Internationally, Drum and Bass subsequently garnered attention through its disse
 
 ## Historical Background
 
-Drum and Bass emerged in the early 1990s within the United Kingdom, evolving as an innovative offshoot of breakbeat Hardcore and jungle. Its development was indelibly linked to the electronic dance music scene of the late 1980s and early 1990s, a period marked by rapid technological advancements in sampling, sequencing, and production software. This genre came into prominence following the widespread adoption of affordable hardware and the increasing influence of imported dance cultures, ultimately leading to a distinct musical identity. 
+Drum and Bass emerged in the early 1990s within the United Kingdom, evolving as an innovative offshoot of breakbeat Hardcore and jungle. Its development was indelibly linked to the electronic dance music scene of the late 1980s and early 1990s, a period marked by rapid technological advancements in sampling, sequencing, and production software. This genre came into prominence following the widespread adoption of affordable hardware and the increasing influence of imported dance cultures, ultimately leading to a distinct musical identity.
 
 The initial formulations of Drum and Bass were underpinned by an amalgamation of musical influences, ranging from the aggressive breakbeats of Hardcore and rave music to the intricate rhythmic structures of funk and soul. Pioneering producers sought to harness the energetic pulse of breakbeats while incorporating deep, sub-bass lines and atmospheric soundscapes. Consequently, artists of the early era experimented with time-stretched break samples and layered percussive elements, thereby forging a sonic palette that was both innovative and rhythmically compelling.
 

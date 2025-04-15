@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -166,7 +165,7 @@ Caracteres: 5355
 
 ## Development and Evolution
 
-A evolução do folk metal representa uma síntese paradigmática entre a expressividade do heavy metal e a riqueza estética da música folclórica. Emergindo no final da década de 1980 e consolidando-se nos anos 1990, tal subgênero delineou-se a partir da convergência entre culturas tradicionais europeias e as inovações técnicas e estilísticas do metal. Assim, a integração de escalas modais, tempos irregulares e linhas melódicas derivadas do repertório folclórico reafirmou a importância de uma identidade musical que dialoga com o patrimônio histórico e cultural das regiões de origem.  
+A evolução do folk metal representa uma síntese paradigmática entre a expressividade do heavy metal e a riqueza estética da música folclórica. Emergindo no final da década de 1980 e consolidando-se nos anos 1990, tal subgênero delineou-se a partir da convergência entre culturas tradicionais europeias e as inovações técnicas e estilísticas do metal. Assim, a integração de escalas modais, tempos irregulares e linhas melódicas derivadas do repertório folclórico reafirmou a importância de uma identidade musical que dialoga com o patrimônio histórico e cultural das regiões de origem.
 
 Em termos cronológicos, o marco inicial do folk metal pode ser atribuído às iniciativas pioneiras de grupos que, ao incorporar instrumentos típicos do universo tradicional – como flautas, violinos, teclados de sonoridade orgânica e até instrumentos de sopro – romperam com a abordagem exclusivamente eletrificada das vertentes metal. A banda britânica Skyclad, formada no início dos anos 1990, insere-se nesse cenário como a primeira a fundir de maneira consciente e estruturada elementos acústicos com estruturas pesadas e agressivas do metal. Ademais, a inovação estética que marcou essa fase propiciou que narrativas épicas, mitos e lendas fossem inseridos como temas centrais nas letras e arranjos musicais, afirmando uma identidade que ecoa tradições medievais e celtas.
 

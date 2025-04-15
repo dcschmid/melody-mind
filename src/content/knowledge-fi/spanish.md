@@ -17,14 +17,13 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Johdanto
 
-Espanjalainen musiikki muodostaa rikkaan ja monikerroksisen kulttuuriperinteen, jolla on syvälliset juuret sekä kansanperiä että edistyksellisiä musiikkiteorioita hyödyntäneissä ilmaisumuodoissa. Alueen perinteisiin kuuluu muun muassa andalusialainen flamenco, jonka kehityksessä yhdistyvät maurien, romanien ja espanjalaisten alkuperäiskulttuurien vaikutteet. Flamenco sai muodollisen tunnustuksen 1800-luvun loppupuolella, mikä mahdollisti sen myöhemmän levinneisyyden kansainvälisillä näyttämöillä. 
+Espanjalainen musiikki muodostaa rikkaan ja monikerroksisen kulttuuriperinteen, jolla on syvälliset juuret sekä kansanperiä että edistyksellisiä musiikkiteorioita hyödyntäneissä ilmaisumuodoissa. Alueen perinteisiin kuuluu muun muassa andalusialainen flamenco, jonka kehityksessä yhdistyvät maurien, romanien ja espanjalaisten alkuperäiskulttuurien vaikutteet. Flamenco sai muodollisen tunnustuksen 1800-luvun loppupuolella, mikä mahdollisti sen myöhemmän levinneisyyden kansainvälisillä näyttämöillä.
 
 Lisäksi espanjalainen klassinen musiikki on tunnettu omaleimaisista sointiväreistään sekä rytmisensyvyydestään, mikä näkyy muun muassa Manuel de Fallan ja other 1900-luvun säveltäjien tuotannossa. Tieteellisesti tarkasteltuna espanjalainen musiikki tarjoaa monia tutkimuskohteita, sillä sen eri ilmiöissä korostuvat paikalliset perinteet, kulttuurinen sulautuminen ja maailmanlaajuiset vaikutteet. Näin ollen espanjalaisen musiikin historiallisen ja musiikillisen kehityksen analyysi paljastaa sen merkittävyyden kansainvälisessä musiikkikulttuurissa.
 

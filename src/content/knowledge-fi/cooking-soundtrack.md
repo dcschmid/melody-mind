@@ -16,10 +16,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -173,7 +172,7 @@ Esiintymiskulttuurin historiallinen juurtuminen ilmenee myös tilojen ja yleisö
 
 Kansainvälisessä kontekstissa on nähtävissä, että "Cooking Soundtrack" -ilmiö on hyödyntänyt laajalti eri kulttuurien musiikillisia perinteitä. Aasiassa, esimerkiksi Japanissa, on perinteinen koto-musiikki yhdistetty nykyaikaisiin rytmeihin luoden omaleimaisia, kulinaarista tunnelmaa korostavia esityksiä. Samoin Latinalaisen Amerikan festivaaleilla elävä musiikki rakentaa tapahtuman kokonaisuuden siten, että paikalliset makukokemukset ja rytmiset soinnut kommunikoivat suoraan yleisön tunteiden kanssa. Tällaiset ilmiöt ovat osoitus siitä, kuinka eri kulttuurien musiikkiesitykset rikastuttavat globaalin gastronomian kenttää ja ylläpitävät perinteisten esitysmuotojen jatkuvuutta samalla kun ne omaksuvat uusia estetiikan elementtejä.
 
-Tässä akateemisessa tarkastelussa on pyritty valottamaan "Cooking Soundtrack" -käsitteen yhteyksiä elävään esityskulttuuriin ja sen rooliin kansainvälisessä musiikkiperinteessä. Analyysi huomioi historiallisen kehityksen, teknologiset läpimurrot sekä estetiikan menetelmät, jotka ovat vaikuttaneet esitysten muotoutumiseen monikerroksisessa kokonaisuudessa. Tämä tutkimus osoittaa, että musiikillisten ja kulinaaristen ilmiöiden yhteensulautuminen edustaa vielä nyky-yhteiskunnassa pyhäkkää kokeilukenttää, jolta kumpuaa syvällisiä taiteellisia oivalluksia ja kulttuurisia uusia suuntauksia. 
+Tässä akateemisessa tarkastelussa on pyritty valottamaan "Cooking Soundtrack" -käsitteen yhteyksiä elävään esityskulttuuriin ja sen rooliin kansainvälisessä musiikkiperinteessä. Analyysi huomioi historiallisen kehityksen, teknologiset läpimurrot sekä estetiikan menetelmät, jotka ovat vaikuttaneet esitysten muotoutumiseen monikerroksisessa kokonaisuudessa. Tämä tutkimus osoittaa, että musiikillisten ja kulinaaristen ilmiöiden yhteensulautuminen edustaa vielä nyky-yhteiskunnassa pyhäkkää kokeilukenttää, jolta kumpuaa syvällisiä taiteellisia oivalluksia ja kulttuurisia uusia suuntauksia.
 
 Yhteenvetona voidaan todeta, että "Cooking Soundtrack" ei ainoastaan merkitse musiikin ja ruoan yhdistelmäkonseptia, vaan se heijastaa laajempaa muutosta performanssitaiteen kentässä. Historialliset juuret, teoreettiset perusteet ja teknologian kehitys ovat muokanneet tätä ilmiötä useiden sukupolvien aikana. Tulevaisuudessa on odotettavissa entistä dynaamisempia ja interaktiivisempia esitysmuotoja, joissa artistit ja yleisöt rakentavat yhdessä kokonaisvaltaisia elämyksiä. Näin muodostuu rikas ja moniulotteinen kulttuurinen kudelma, joka yhdistää musiikillisen ilmaisuvoiman ja kulinaarisen taiteen saumattomasti, tarjoten samalla uudistuvan näkökulman elävän kulttuurin tutkimukseen.
 

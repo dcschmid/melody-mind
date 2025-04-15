@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -124,9 +123,9 @@ Lopuksi on syytä korostaa, että gothic-musiikin vaikutus ulottuu pitkälle pel
 
 Gothicin tekniset ilmiöt muodostavat monitahoisen kokonaisuuden, joka on muotoutunut useiden vuosikymmenten mittaan kansainvälisesti merkittävänä ilmentymänä modernissa musiikkiteknologiassa. 1970-luvun loppupuolella ja 1980-luvun alussa tapahtuneet teknologiset edistysaskeleet kytkeytyvät tiiviisti Gothic-musiikin kehityshistoriaan. Erityisesti digitaalisten ääniefektien, kuten kaiku- ja delay-prosessoreiden, käyttöönotto mahdollisti synteettisten äänimaisemien luomisen, mikä korosti genren eksistentiaalisesti melankolista ja eteeristä ilmettä. Näissä prosesseissa käytetty signal processing -järjestelmä edusti modernin studioteknologian siirtymää analogisesta produktiosta kohti digitaalista aikaa.
 
-Toinen keskeinen tekijä on sähköisten instrumenttien – muun muassa syntetisaattorien ja sähkökitaroiden – tekninen kehitys. Gothic-musiikissa säröttyjä ja usein epätasaisesti jalostettuja äänimaisemia korostavat esimerkiksi kitaroissa käytetyt efektit, kuten chorus ja reverb, jotka antavat soundille ainutlaatuisen kolmiulotteisen tilan. Kellon käsiä muistuttava rytmikirjoituksen monisyisyys yhdistyy tässä vaiheessa studioteknologian uusimpiin innovaatiomenetelmiin, jolloin analytiikka ja koneoppimista hyödyntävät laitteistot alkoivat kehittää äänen teoreettisia parametreja reaaliaikaisesti. 
+Toinen keskeinen tekijä on sähköisten instrumenttien – muun muassa syntetisaattorien ja sähkökitaroiden – tekninen kehitys. Gothic-musiikissa säröttyjä ja usein epätasaisesti jalostettuja äänimaisemia korostavat esimerkiksi kitaroissa käytetyt efektit, kuten chorus ja reverb, jotka antavat soundille ainutlaatuisen kolmiulotteisen tilan. Kellon käsiä muistuttava rytmikirjoituksen monisyisyys yhdistyy tässä vaiheessa studioteknologian uusimpiin innovaatiomenetelmiin, jolloin analytiikka ja koneoppimista hyödyntävät laitteistot alkoivat kehittää äänen teoreettisia parametreja reaaliaikaisesti.
 
-Lisäksi useat Lovecraftin kaltaiset kirjalliset ja esteettiset vaikutteet heijastuvat teknisiin valintoihin. Stoalaiset instrumentaatiot kytkeytyivät lähes suoraan 1980-luvun postpunk- ja new wave -aikakauden tekniikoihin, joissa analogeihin laitteisiin perustuva raidallinen nauhoitus ja miksaustekniikat muodostivat perustan säädettyjen äänien manipulaatiolle. Tässä vaiheessa kansainväliset studiotuotannot hyödynsivät edelleen monikanavaista äänitetekniikkaa, mikä mahdollisti syvien ja monikerroksisten äänimaailmojen rakentamisen edellä mainitussa genressä. 
+Lisäksi useat Lovecraftin kaltaiset kirjalliset ja esteettiset vaikutteet heijastuvat teknisiin valintoihin. Stoalaiset instrumentaatiot kytkeytyivät lähes suoraan 1980-luvun postpunk- ja new wave -aikakauden tekniikoihin, joissa analogeihin laitteisiin perustuva raidallinen nauhoitus ja miksaustekniikat muodostivat perustan säädettyjen äänien manipulaatiolle. Tässä vaiheessa kansainväliset studiotuotannot hyödynsivät edelleen monikanavaista äänitetekniikkaa, mikä mahdollisti syvien ja monikerroksisten äänimaailmojen rakentamisen edellä mainitussa genressä.
 
 Käytännön studiotyöprosessit olivat ratkaisevan tärkeitä Gothic-musiikin teknisten ominaisuuksien määrittelyssä. Äänen jälkien ja elementtien erottelu, miksausrakenteiden huolellinen suunnittelu sekä jälkikäsittelyn tehokas käyttö tarjosivat laajan kirjo mahdollisista ilmaisutavoista. Näissä prosesseissa digitaaliset sequencerit ja sampleri-tekniikat, jotka yleistyivät 1980-luvun puolivälistä, mahdollistivat sekä toistuvien että muuttuvien ääniraitojen monimutkaisen manipulaation. Tällöin rekisteröidyt ääniraitojen sisäiset harmoniset ja rytmiset suhteet saivat uudenlaista dynamiikkaa, mikä vaikutti syvästi genren jälkikäsittelyprosessien teoreettisiin perusteisiin.
 

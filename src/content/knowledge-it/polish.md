@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduzione
 
@@ -122,7 +121,7 @@ La musica dal vivo in Polonia rappresenta un ambito di studio particolarmente in
 
 Nel contesto storico della Polonia, il periodo compreso tra il dopoguerra e la fine del regime comunista ha visto la nascita di numerosi festival e rassegne che hanno favorito la diffusione non soltanto del repertorio tradizionale, ma anche di generi emergenti. Tra questi si annovera il celebre Festival Internazionale di Canzone di Sopot, attivo sin dal 1961, che ha rappresentato una vetrina internazionale per artisti nazionali e stranieri consolidando un’interazione reciproca tra la musica pop e le correnti progressive allora in atto. Al medesimo tempo, il Jazz Jamboree, istituito alla fine degli anni ’50, ha saputo imporsi come un punto di riferimento imperdibile nel panorama del jazz mondiale, nel contesto di un regime politico spesso restrittivo nei confronti delle espressioni artistiche occidentali. La scelta di promuovere tali eventi è stata simbolica, poiché ha consentito un’apertura verso un’esperienza musicale globale che, pur mantenendo una forte radice locale, ha favorito scambi culturali di rilevanza internazionale.
 
-L’evoluzione degli eventi dal vivo in Polonia è stata anche strettamente legata all’innovazione tecnologica nel campo dell’audio e delle tecniche di amplificazione. Già negli anni ’60, l’introduzione di strumenti elettronici e sistemi di registrazione sempre più sofisticati ha permesso di migliorare la qualità delle esibizioni, contribuendo a consolidare la reputazione degli eventi come momenti di alta qualità artistica e tecnica. In questo quadro, l’attenzione alla resa sonora è divenuta un elemento imprescindibile, dato che la trasmissione delle performance live rappresentava non solo un’occasione di fruizione immediata, ma anche un’importante fonte di documentazione storica per gli studiosi di musicologia. La fusione tra tradizione e modernità ha così creato un ambiente in cui l’innovazione tecnica è stata accolto come strumento per riproporre in forma autentica il patrimonio artistico nazionale. 
+L’evoluzione degli eventi dal vivo in Polonia è stata anche strettamente legata all’innovazione tecnologica nel campo dell’audio e delle tecniche di amplificazione. Già negli anni ’60, l’introduzione di strumenti elettronici e sistemi di registrazione sempre più sofisticati ha permesso di migliorare la qualità delle esibizioni, contribuendo a consolidare la reputazione degli eventi come momenti di alta qualità artistica e tecnica. In questo quadro, l’attenzione alla resa sonora è divenuta un elemento imprescindibile, dato che la trasmissione delle performance live rappresentava non solo un’occasione di fruizione immediata, ma anche un’importante fonte di documentazione storica per gli studiosi di musicologia. La fusione tra tradizione e modernità ha così creato un ambiente in cui l’innovazione tecnica è stata accolto come strumento per riproporre in forma autentica il patrimonio artistico nazionale.
 
 Da un punto di vista performativo, gli eventi musicali dal vivo in Polonia sono stati caratterizzati da una forte componente di interazione sociale. Le esibizioni infatti hanno rappresentato non solo un’occasione di aggregazione per le diverse generazioni, ma anche un veicolo di espressione politica e culturale. Le manifestazioni pubbliche, organizzate in maniera rigorosamente pianificata, hanno permesso di instaurare un dialogo diretto tra gli artisti e il pubblico, favorendo lo sviluppo di un fenomeno partecipativo che ha rafforzato il senso di appartenenza alla collettività. In questo contesto, le live performance si sono rivelate un medium privilegiato per esprimere dissenso o speranze, in particolare durante le fasi di transizione politica, come nel caso degli anni ’80, in cui il movimento Solidarność ha visto l’impiego strategico della musica come forma di resistenza pacifica e di comunicazione collettiva.
 

@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -172,7 +171,7 @@ Yhteenvetona voidaan todeta, että post hardcore -musiikin live-esityskulttuuri 
 
 ## Development and Evolution
 
-Post hardcore -musiikin kehitys ja evoluutio kansainvälisessä kontekstissa kytkeytyy tiiviisti varhaisen hardcore-punkin perinteisiin, mutta esittää samalla innovatiivisia piirteitä, jotka ovat mahdollistaneet sen kehittymisen omaksi, itsenäiseksi ja taiteellisesti monimuotoiseksi ilmiöksi. Ensimmäiset vaikutteet itsessään juontavat juurensa 1970-luvun lopulta ja 1980-luvun alkuun, jolloin Pohjois-Amerikassa ja Isossa-Britanniassa syntyvän hardcore-punkin aggressiiviset äänimaailmat ja yhteisöllisyyttä korostavat ideologiat tarjosivat perustan myöhemmälle kokeellisuuden ja monisyisyyden nousulle. Alkuvaiheessa post hardcore -musiikki koki merkittävän muodonmuutoksen, jonka yhteydessä korostuivat tekniset innovoinnit, musiikilliset kerrostumat sekä monipuolisemmat rytmi- ja harmoniamahdollisuudet. 
+Post hardcore -musiikin kehitys ja evoluutio kansainvälisessä kontekstissa kytkeytyy tiiviisti varhaisen hardcore-punkin perinteisiin, mutta esittää samalla innovatiivisia piirteitä, jotka ovat mahdollistaneet sen kehittymisen omaksi, itsenäiseksi ja taiteellisesti monimuotoiseksi ilmiöksi. Ensimmäiset vaikutteet itsessään juontavat juurensa 1970-luvun lopulta ja 1980-luvun alkuun, jolloin Pohjois-Amerikassa ja Isossa-Britanniassa syntyvän hardcore-punkin aggressiiviset äänimaailmat ja yhteisöllisyyttä korostavat ideologiat tarjosivat perustan myöhemmälle kokeellisuuden ja monisyisyyden nousulle. Alkuvaiheessa post hardcore -musiikki koki merkittävän muodonmuutoksen, jonka yhteydessä korostuivat tekniset innovoinnit, musiikilliset kerrostumat sekä monipuolisemmat rytmi- ja harmoniamahdollisuudet.
 
 Ensiksi on huomattava, että varhaisen hardcore-punkin itseilmaisun intensiivisyys sekä suoraviivainen, usein pelkistyksellisyys kohtasivat kriittistä vastaanottoa niin sekä taiteellisesti että yleisön tasolla. Kriittisen esteettisyyden etsiessä lukuisat yhtyeet alkoivat rikkoa hardcoreaulojen perinteisiä puitteita, kokeillen esimerkiksi sävellysten monisyisyyttä ja dynaamisuuden laajentamista. Tämän kehityksen myötä, erityisesti 1980-luvun loppupuolella ja 1990-luvun alkupuolella, alkoi murros, jossa yhtyeet kuten Fugazi (Yhdysvallat) ja Quicksand (Yhdysvallat) laajensivat hardcore-punkin muusisia ulottuvuuksia intrikatussa dynamiikassa ja melodisessa monimuotoisuudessa. Näissä yhtyeissä korostui kyky yhdistää aggressiivisuus ja haavoittuvuus, mikä mahdollisti emotionaalisesti moniulotteisten teosten syntymisen.
 

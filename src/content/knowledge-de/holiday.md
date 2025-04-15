@@ -17,16 +17,15 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Die Musik des Feiertags bildet ein faszinierendes Feld interkultureller Ausdrucksformen, das seit Jahrhunderten einen signifikanten Beitrag zum internationalen Musikgeschehen leistet. In europäischen Traditionen gewannen spirituelle Kompositionen bereits im Spätmittelalter an Bedeutung, wobei kirchliche Hymnen und volkstümliche Lieder ein weitreichendes Repertoire schufen. Die kompositorischen Verfahren jener Zeit – etwa die beginnende Polyphonie – bildeten Grundlagen, die in späteren Epochen weiterentwickelt wurden. 
+Die Musik des Feiertags bildet ein faszinierendes Feld interkultureller Ausdrucksformen, das seit Jahrhunderten einen signifikanten Beitrag zum internationalen Musikgeschehen leistet. In europäischen Traditionen gewannen spirituelle Kompositionen bereits im Spätmittelalter an Bedeutung, wobei kirchliche Hymnen und volkstümliche Lieder ein weitreichendes Repertoire schufen. Die kompositorischen Verfahren jener Zeit – etwa die beginnende Polyphonie – bildeten Grundlagen, die in späteren Epochen weiterentwickelt wurden.
 
-Im Laufe der Jahrhunderte transformierte sich das Genre maßgeblich. Die Verbreitung des Buchdrucks im 15. Jahrhundert sowie der technologische Fortschritt im Bereich der Tonaufzeichnung ab dem 19. Jahrhundert ermöglichten eine rasant fortschreitende Rezeption und Variation der Feiertagsmusik. Dadurch verschmolzen nationale Eigenheiten und universelle Themen in einem facettenreichen musikalischen Diskurs. 
+Im Laufe der Jahrhunderte transformierte sich das Genre maßgeblich. Die Verbreitung des Buchdrucks im 15. Jahrhundert sowie der technologische Fortschritt im Bereich der Tonaufzeichnung ab dem 19. Jahrhundert ermöglichten eine rasant fortschreitende Rezeption und Variation der Feiertagsmusik. Dadurch verschmolzen nationale Eigenheiten und universelle Themen in einem facettenreichen musikalischen Diskurs.
 
 Zudem spiegeln die komponierten Werke sowohl religiöse Riten als auch weltliche Bräuche wider, was zu einem tiefgreifenden kulturellen Erbe führte, das in der globalen Musikgeschichte nachhaltig wirksam ist.
 
@@ -182,7 +181,7 @@ Ein wesentlicher Aspekt moderner Holiday-Playlists ist die Synthese von Traditio
 
 Die musikwissenschaftliche Analyse von Holiday-Musik offenbart, inwieweit kompositorische Entscheidungen historisch gewachsen und kontextabhängig zu beurteilen sind. Die in den ausgewählten Playlists präsentierten Werke zeugen von einer reichen Vielfalt an musikalischen Formeln, die sich in strukturellen Elementen wie Form, Takt und Dynamik manifestieren. Dabei kommt es zu einer besonderen Synthese zwischen sacraler Musik, die traditionell in der Kirche verankert ist, und folkloristischen Elementen, welche den Volksglauben und die sittliche Verbundenheit ausdrücken. Der gezielte Einsatz polyphoner Techniken erweist sich als charakteristisches Stilmerkmal, das in zahlreichen internationalen Kompositionen wiederzufinden ist und eine authentische Rezeptur für festliche Atmosphären darstellt.
 
-Die Empfehlung moderner Playlists stützt sich auf detaillierte musiktheoretische Untersuchungen, welche nicht nur den harmonischen Aufbau, sondern auch die metrische Struktur und die melodische Spannungsführung berücksichtigen. Insbesondere werden Werke hervorgehoben, deren kompositorische Ausgestaltung in engem Zusammenhang mit kulturspezifischen Ritualen steht. Ein exemplarischer Ansatz liegt in der gezielten Zusammenstellung von Chorälen, geistlichen Liedern und Instrumentalstücken, die in ihrer ursprünglichen Intention den Sinn von Festlichkeit und Besinnung transportieren. Dabei finden sich sowohl mittelalterliche Kompositionen als auch barocke Meisterwerke, die dem Hörer eine historische Reise durch die musikalische Entwicklung verschiedener Kulturen ermöglichen. 
+Die Empfehlung moderner Playlists stützt sich auf detaillierte musiktheoretische Untersuchungen, welche nicht nur den harmonischen Aufbau, sondern auch die metrische Struktur und die melodische Spannungsführung berücksichtigen. Insbesondere werden Werke hervorgehoben, deren kompositorische Ausgestaltung in engem Zusammenhang mit kulturspezifischen Ritualen steht. Ein exemplarischer Ansatz liegt in der gezielten Zusammenstellung von Chorälen, geistlichen Liedern und Instrumentalstücken, die in ihrer ursprünglichen Intention den Sinn von Festlichkeit und Besinnung transportieren. Dabei finden sich sowohl mittelalterliche Kompositionen als auch barocke Meisterwerke, die dem Hörer eine historische Reise durch die musikalische Entwicklung verschiedener Kulturen ermöglichen.
 
 Zudem ist hervorzuheben, dass internationale Musiktraditionen eine Vielzahl an Einflüssen aufweisen, die auch in der festlichen Musik zum Ausdruck kommen. Neben europäischen Elementen, die etwa durch den Einfluss der katholischen Liturgie geprägt sind, bereichern asiatische, afrikanische und lateinamerikanische Musiken das Spektrum der Holiday-Kategorie maßgeblich. Der gezielte Einbezug dieser vielfältigen kulturellen Impulse in modernen Playlists ermöglicht es, traditionelle Klänge mit globalen musikalischen Entwicklungen in Einklang zu bringen. Dadurch wird einerseits die historische Kontinuität gewahrt und andererseits ein interkultureller Dialog gefördert, der die globale Musikwelt bereichert.
 

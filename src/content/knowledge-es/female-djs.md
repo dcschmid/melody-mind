@@ -17,14 +17,13 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introducción
 
-La evolución de la música electrónica internacional ha sido enriquecida por la irrupción de disc jockeys femeninas, quienes han asumido roles fundamentales en la transformación de paradigmas sonoros tradicionalmente dominados por figuras masculinas. Desde mediados del siglo XX, y especialmente a partir de la década de 1980, estas artistas han desafiado normativas hegemónicas al integrar innovaciones tecnológicas y estéticas propias, contribuyendo a la configuración de géneros como el house y el techno. 
+La evolución de la música electrónica internacional ha sido enriquecida por la irrupción de disc jockeys femeninas, quienes han asumido roles fundamentales en la transformación de paradigmas sonoros tradicionalmente dominados por figuras masculinas. Desde mediados del siglo XX, y especialmente a partir de la década de 1980, estas artistas han desafiado normativas hegemónicas al integrar innovaciones tecnológicas y estéticas propias, contribuyendo a la configuración de géneros como el house y el techno.
 
 Asimismo, el contexto sociocultural en Europa y América del Norte facilitó que su participación se convirtiese en un elemento de cambio, promoviendo una relectura de tradiciones musicales mediante aportaciones teóricas y prácticas. Por tanto, el análisis de su influencia resulta imprescindible para comprender la evolución de la cultura musical contemporánea y el devenir de las técnicas discotequeras.
 
@@ -157,7 +156,7 @@ Finalmente, la evolución de las disc jockeys femeninas, en tanto fenómeno musi
 
 ## Influencia global
 
-La evolución histórica de las disc jockey femeninas constituye un objeto de estudio fundamental para comprender las transformaciones de la industria musical en un contexto global. Durante las décadas de 1970 y 1980, enmarcadas en la emergencia del movimiento disco y la consolidación de la cultura club, surgió un escenario en el que la innovación tecnológica y la apertura hacia nuevas identidades permitieron a las mujeres incursionar en roles tradicionalmente asignados a sus contrapartes masculinas. Este fenómeno, que hoy se analiza desde diversas aristas teóricas y metodológicas, evidencia una ruptura con prácticas establecidas que, históricamente, relegaban la participación femenina a ámbitos secundarios o meramente decorativos.  
+La evolución histórica de las disc jockey femeninas constituye un objeto de estudio fundamental para comprender las transformaciones de la industria musical en un contexto global. Durante las décadas de 1970 y 1980, enmarcadas en la emergencia del movimiento disco y la consolidación de la cultura club, surgió un escenario en el que la innovación tecnológica y la apertura hacia nuevas identidades permitieron a las mujeres incursionar en roles tradicionalmente asignados a sus contrapartes masculinas. Este fenómeno, que hoy se analiza desde diversas aristas teóricas y metodológicas, evidencia una ruptura con prácticas establecidas que, históricamente, relegaban la participación femenina a ámbitos secundarios o meramente decorativos.
 
 El advenimiento de dispositivos tecnológicos como los primeros tocadiscos especializados y los sistemas de mezcla a fines de los años setenta facilitó la experimentación y el desarrollo de técnicas únicas, que fueron asimiladas y reinterpretadas en el ámbito de los clubs internacionales. Asimismo, la irrupción de la cultura rave y el auge del surgimiento del house y techno en lugares tan diversos como Chicago, Detroit y Europa occidental permitió que nuevas corrientes sonoras se expandieran, generando un cruce de influencias y una sinergia que no tardó en dar cabida a la figura de la DJ femenina. En este contexto, artistas pioneras desafiaron convenciones al ocupar cabinas y asumir la responsabilidad tanto estilística como artística de sus actuaciones, lo que marcó un antes y un después en la narrativa de la música electrónica global.
 
@@ -171,7 +170,7 @@ En la revisión de bibliografías especializadas y análisis de fuentes primaria
 
 De igual modo, estudios realizados por centros de investigación en Europa y América Latina han profundizado en la dimensión política y social de la labor de estas disc jockey, señalando que su aparición coincidió con procesos de democratización del discurso musical y con la emergencia de nuevos modelos de producción y distribución de la cultura. La interseccionalidad de género y la capacidad de adaptación a entornos digitales han permitido que la acción de las DJ femeninas se convierta en un referente para la formación de redes de colaboración transnacional, fortaleciendo la idea de una comunidad global que se nutre de la diversidad y la innovación. En este sentido, la experiencia de estas artistas se erige como un testimonio elocuente sobre la capacidad transformadora de la música y su incesante capacidad para reinventarse en consonancia con los cambios sociotecnológicos.
 
-En conclusión, la influencia global de las disc jockey femeninas se revela como un fenómeno complejo y multidimensional que trasciende las fronteras convencionales de la música. La combinación de avances tecnológicos, políticas identitarias y una agenda cultural incluyente ha permitido que estas artistas alcancen un nivel de reconocimiento y legitimidad que impacta profundamente en la configuración de la cultura contemporánea. La contribución de las DJ femeninas, entendida en su totalidad, representa no solo la consolidación de un estilo musical, sino también la afirmación de principios de equidad y creatividad que continúan moldeando la narrativa de la historia musical a escala global.  
+En conclusión, la influencia global de las disc jockey femeninas se revela como un fenómeno complejo y multidimensional que trasciende las fronteras convencionales de la música. La combinación de avances tecnológicos, políticas identitarias y una agenda cultural incluyente ha permitido que estas artistas alcancen un nivel de reconocimiento y legitimidad que impacta profundamente en la configuración de la cultura contemporánea. La contribución de las DJ femeninas, entendida en su totalidad, representa no solo la consolidación de un estilo musical, sino también la afirmación de principios de equidad y creatividad que continúan moldeando la narrativa de la historia musical a escala global.
 
 Referencias a trabajos críticos y estudios de campo confirman que, desde sus inicios, la praxis y el discurso de estas artistas han inaugurado nuevos paradigmas en la construcción de la cultura digital y la producción musical, ofreciendo una visión innovadora que se mantiene vigente en la actualidad.
 

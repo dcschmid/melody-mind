@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introdução
 
@@ -103,7 +102,7 @@ Ademais, Sarah Vaughan se apresenta como uma interlocutora singular na história
 
 Em complemento a essas referências, a trajetória de Carmen McRae, que despontou de forma relevante a partir da década de 1950, merece menção pela ousadia de seu timbre e pela abordagem singular de seus repertórios. McRae, com seu repertório que transita entre canções tradicionais e arranjos vanguardistas, incorpora uma perspectiva contemporânea no panorama do jazz, ao mesclar elementos da tradição americana com inovações estilísticas. Sua interpretação demonstra a capacidade da voz feminina de transitar por múltiplas dimensões expressivas, marcando pedaços como "Round Midnight" e demais clássicos do jazz como peças de resistência interpretativa. No contexto dos movimentos pela modernização cultural, é possível perceber como McRae dialogava com conceitos emergentes, inserindo temas de emancipação pessoal e artístico-social que reverberaram em círculos acadêmicos e artísticos.
 
-Em síntese, o percurso histórico e evolutivo das vocalistas de jazz revela uma série de transformações que ultrapassam as fronteiras do mero desempenho musical, tornando-se um campo fecundo para investigações interdisciplinares que abarcam estudos de gênero, raça, e as relações entre tradição e modernidade. A análise crítica dos percursos de Billie Holiday, Ella Fitzgerald, Sarah Vaughan e Carmen McRae demonstra como cada uma dessas artistas, a partir de dinâmicas próprias e contextos históricos singulares, contribuíram para a construção de um corpus musical que transcende a mera execução técnica, assumindo um papel intrínseco na redefinição das práticas artísticas no jazz. Conforme enfatiza Smith (2003, p. 47), "a voz no jazz é expressão e resistência, um veículo para a articulação de identidades diversas". Dessa forma, os estudos sobre as vocalistas de jazz não apenas enriquecem a historiografia musical, mas também propiciam um olhar aprofundado sobre os processos de ressignificação cultural e transformação social promovidos por essas artistas ao longo da história. 
+Em síntese, o percurso histórico e evolutivo das vocalistas de jazz revela uma série de transformações que ultrapassam as fronteiras do mero desempenho musical, tornando-se um campo fecundo para investigações interdisciplinares que abarcam estudos de gênero, raça, e as relações entre tradição e modernidade. A análise crítica dos percursos de Billie Holiday, Ella Fitzgerald, Sarah Vaughan e Carmen McRae demonstra como cada uma dessas artistas, a partir de dinâmicas próprias e contextos históricos singulares, contribuíram para a construção de um corpus musical que transcende a mera execução técnica, assumindo um papel intrínseco na redefinição das práticas artísticas no jazz. Conforme enfatiza Smith (2003, p. 47), "a voz no jazz é expressão e resistência, um veículo para a articulação de identidades diversas". Dessa forma, os estudos sobre as vocalistas de jazz não apenas enriquecem a historiografia musical, mas também propiciam um olhar aprofundado sobre os processos de ressignificação cultural e transformação social promovidos por essas artistas ao longo da história.
 
 Contagem de caracteres: 6247
 
@@ -194,9 +193,9 @@ No âmbito da análise musicológica, destaca-se a necessidade de reconhecer as 
 
 Notoriamente, a trajetória das vocalistas de jazz esteve impregnada de tensões entre a tradição e a modernidade, com a mídia desempenhando papel ambivalente nessa dialética. Por um lado, a romantização e a simplificação das suas carreiras reforçavam estereótipos que perpetuavam uma visão limitada quanto à complexidade e à inovação em suas performances. Por outro, a própria crítica especializada, em consonância com as tendências de renovação estética do jazz, oferecia espaço para debates que ressaltavam a importância da liberdade interpretativa e da técnica refinada, abrindo caminho para discussões teóricas que hoje repercutem no campo das ciências humanas e da musicologia. Essa dualidade evidencia a pertinência de uma abordagem crítica que transite entre a revisão histórica dos contextos midiáticos e a análise contemporânea dos discursos musicais.
 
-Em síntese, a representação midiática das vocalistas de jazz femininas, ao longo do século XX, constitui um campo fértil para a reflexão sobre a interface entre comunicação, cultura e identidade. Essa abordagem revela, além dos aspectos estéticos e técnicos, a complexa relação entre os mecanismos de produção e disseminação de imagens e a formação de repertórios culturais que, incessantemente, dialogam com a construção das subjetividades. Ao considerar essas dimensões, a análise acadêmica deve, portanto, privilegiar a intersecção entre mídia, identidade de gênero e inovação musical, ampliando o entendimento tanto do fenômeno artístico quanto de seu impacto sociocultural. 
+Em síntese, a representação midiática das vocalistas de jazz femininas, ao longo do século XX, constitui um campo fértil para a reflexão sobre a interface entre comunicação, cultura e identidade. Essa abordagem revela, além dos aspectos estéticos e técnicos, a complexa relação entre os mecanismos de produção e disseminação de imagens e a formação de repertórios culturais que, incessantemente, dialogam com a construção das subjetividades. Ao considerar essas dimensões, a análise acadêmica deve, portanto, privilegiar a intersecção entre mídia, identidade de gênero e inovação musical, ampliando o entendimento tanto do fenômeno artístico quanto de seu impacto sociocultural.
 
-Referências e estudos acadêmicos que abordaram essa temática demonstram que a mídia não apenas reflete, mas também modela a percepção pública acerca das vocalistas, destacando a relevância de uma pesquisa meticulosa que atravesse os meandros históricos, tecnológicos e culturais que, em última análise, moldam o legado dessas artistas. 
+Referências e estudos acadêmicos que abordaram essa temática demonstram que a mídia não apenas reflete, mas também modela a percepção pública acerca das vocalistas, destacando a relevância de uma pesquisa meticulosa que atravesse os meandros históricos, tecnológicos e culturais que, em última análise, moldam o legado dessas artistas.
 
 Caracteres: 5801
 

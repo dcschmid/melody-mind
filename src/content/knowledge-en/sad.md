@@ -17,10 +17,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -30,7 +29,7 @@ Furthermore, the advent of recording technology in the mid-twentieth century fac
 
 ## Understanding the Emotion
 
-Understanding the emotion inherent in music classified as “Sad” demands a rigorous exploration of both its musical structure and its cultural context. Historically, composers have utilised specific intervals, tonalities and rhythmic structures to evoke melancholic sentiments, a practice evident in diverse global traditions. In European classical music, for example, the use of the minor mode, characterised by its lowered third degree, has long symbolised grief and introspection, as seen in the works of Baroque composers such as Johann Sebastian Bach whose “Passions” employed intricate counterpoint to evoke solemn reflection. 
+Understanding the emotion inherent in music classified as “Sad” demands a rigorous exploration of both its musical structure and its cultural context. Historically, composers have utilised specific intervals, tonalities and rhythmic structures to evoke melancholic sentiments, a practice evident in diverse global traditions. In European classical music, for example, the use of the minor mode, characterised by its lowered third degree, has long symbolised grief and introspection, as seen in the works of Baroque composers such as Johann Sebastian Bach whose “Passions” employed intricate counterpoint to evoke solemn reflection.
 
 Moreover, in the Romantic era, composers such as Ludwig van Beethoven and Frédéric Chopin further refined the musical language of sadness by weaving elaborate harmonic progressions with dynamic contrasts that reflect the multifaceted nature of human sorrow. Beethoven’s slow movements, exemplified in his later string quartets, and Chopin’s nocturnes exhibit an emotional complexity that transcends a mere depiction of despair, inviting listeners to explore an inner landscape of vulnerability and introspection. Consequently, these works not only reflect the cultural zeitgeist of their time but also inform contemporary interpretations of melancholic expression in music.
 
@@ -148,7 +147,7 @@ Furthermore, the evolution of the blues in the United States introduced a distin
 
 Moreover, the theoretical underpinnings of sad music have been illuminated through the analysis of musical structure and affect, particularly with regard to harmonic progression, lyrical content, and the rhythmic deployment of silence and space. Musicologists have argued that the perception of sadness is often facilitated by the utilisation of slow tempos, diminished chords, and a preponderance of minor intervals, which collectively engender a reflective, sometimes even cathartic, sonic environment. In this respect, the cultural idioms of sadness serve not solely as a reflection of emotional states but also as mediums for societal commentary and introspection. The incorporation of such sophisticated musical devices in compositions across a variety of international traditions thus speaks to an enduring human preoccupation with loss and longing.
 
-In contemporary discourse, the categorisation of music as ‘sad’ continues to be subject to complex debates regarding the nature of musical expression and the interrelationship between form and affect. Cultural critics and ethnomusicologists alike have underscored the importance of contextualising musical works within their respective historical and sociopolitical milieus. For instance, the resurgence of interest in the works of Romantic composers—whose compositions are replete with dissonant harmonies and melancholic themes—reflects a broader cultural yearning to revisit historical paradigms of emotional expression in music. Likewise, the reinterpretation of traditional musical forms within modern contexts has revitalised debates concerning the universality of melancholic experience. 
+In contemporary discourse, the categorisation of music as ‘sad’ continues to be subject to complex debates regarding the nature of musical expression and the interrelationship between form and affect. Cultural critics and ethnomusicologists alike have underscored the importance of contextualising musical works within their respective historical and sociopolitical milieus. For instance, the resurgence of interest in the works of Romantic composers—whose compositions are replete with dissonant harmonies and melancholic themes—reflects a broader cultural yearning to revisit historical paradigms of emotional expression in music. Likewise, the reinterpretation of traditional musical forms within modern contexts has revitalised debates concerning the universality of melancholic experience.
 
 In conclusion, the international landscape of sad music is characterised by a mosaic of cultural influences and historical developments, each contributing to a deeper understanding of how music functions as an expressive vehicle for sorrow. The intricate interplay of musical techniques, cultural narratives, and historical contexts reveals that the perception of sadness is not a monolithic experience but rather a richly variegated phenomenon that encapsulates both personal and collective dimensions of human existence. This multifaceted perspective underscores the indispensability of cultural and musicological inquiry in unraveling the ways in which music encapsulates the universal experience of melancholy.
 

@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -203,6 +202,6 @@ Paralelamente, a difusão do reggae colaborou para a consolidação dos discurso
 
 No contexto contemporâneo, o legado do reggae mantém-se dinâmico e em constante renovação. Ao inspirar novos artistas e movimentos musicais, o reggae reafirma sua continuidade como patrimônio imaterial da humanidade. Este processo de reinterpretação e adaptação, que se manifesta tanto em produções autorais quanto em intercâmbios culturais transnacionais, demonstra que o reggae, embora profundamente enraizado em uma realidade específica, possui uma universalidade que o torna perene e adaptável às mutações internas da sociedade. A sua capacidade de dialogar com diferentes gerações e contextos evidencia o poder transformador da música, que transcende o tempo e o espaço.
 
-Por fim, a análise crítica do legado do reggae revela a sua importância não apenas como gênero musical, mas como um fenômeno cultural multifacetado. A síntese entre técnicas de produção inovadoras, letras comprometidas e a tradição oral constitui uma herança que continua a inspirar e a mobilizar indivíduos e coletividades. Em última análise, o reggae permanece como um instrumento de resistência, um símbolo de identidade e um elo entre passado, presente e futuro, reiterando a relevância da música como agente de mudança social e cultural. 
+Por fim, a análise crítica do legado do reggae revela a sua importância não apenas como gênero musical, mas como um fenômeno cultural multifacetado. A síntese entre técnicas de produção inovadoras, letras comprometidas e a tradição oral constitui uma herança que continua a inspirar e a mobilizar indivíduos e coletividades. Em última análise, o reggae permanece como um instrumento de resistência, um símbolo de identidade e um elo entre passado, presente e futuro, reiterando a relevância da música como agente de mudança social e cultural.
 
 Total de caracteres: 5355

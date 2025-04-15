@@ -17,10 +17,9 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -190,7 +189,7 @@ Die Integration von internationalen Elementen in den deutschen Rap erfolgte unte
 
 Darüber hinaus zeigt sich, dass technologische Fortschritte einen maßgeblichen Einfluss auf die klangliche Weiterentwicklung hatten. Die Weiterentwicklung von Sampling-Techniken und digitalen Mischpulten hat die Produktion ebenso revolutioniert wie die Verbreitung neuer Musikformate. Diese technischen Entwicklungen harmonierten mit der kreativen Experimentierfreude der Künstler, die sich in innovativen Kompositionen und rhythmischen Variationen manifestierte. Die Verbindung von analoger Klangästhetik und digitalen Bearbeitungsmethoden prägte den charakteristischen Sound des Genres und eröffnete neue Dimensionen der Klanggestaltung, die ebenso analytisch wie künstlerisch erforscht wurden.
 
-Im Zuge der damit einhergehenden Professionalisierung entwickelte sich das Genre zu einem festen Bestandteil der internationalen Musiklandschaft. Internationale Kooperationen und Austauschprogramme förderten den künstlerischen Dialog und ermöglichten eine ständige Weiterentwicklung der Musikstile. Die wechselseitige Beeinflussung zwischen der deutschen Rap-Szene und internationalen Künstlerkreisen trug dazu bei, dass das Genre in einem dynamischen Spannungsfeld reifte. Gleichzeitig wurde klar, dass die eigenständigen Entwicklungen innerhalb des Genres unverzichtbare Beiträge zur globalen Wahrnehmung deutschsprachiger Musik leisteten. 
+Im Zuge der damit einhergehenden Professionalisierung entwickelte sich das Genre zu einem festen Bestandteil der internationalen Musiklandschaft. Internationale Kooperationen und Austauschprogramme förderten den künstlerischen Dialog und ermöglichten eine ständige Weiterentwicklung der Musikstile. Die wechselseitige Beeinflussung zwischen der deutschen Rap-Szene und internationalen Künstlerkreisen trug dazu bei, dass das Genre in einem dynamischen Spannungsfeld reifte. Gleichzeitig wurde klar, dass die eigenständigen Entwicklungen innerhalb des Genres unverzichtbare Beiträge zur globalen Wahrnehmung deutschsprachiger Musik leisteten.
 
 Insgesamt lässt sich konstatieren, dass die Evolution des deutschen Rap ein langwieriger Prozess war, der von frühen transatlantischen Impulsen bis hin zu einem hochdifferenzierten kulturwissenschaftlichen Diskurs reicht. Die kontinuierliche Anpassung an technologische Neuerungen, die inhaltliche Verankerung in sozialen und politischen Realitäten sowie die stetige Wechselwirkung mit internationalen Entwicklungen haben zu einem facettenreichen Musikkonstrukt geführt, das sowohl musikalisch als auch intellektuell imponiert. Diese Entwicklungen machen den deutschen Rap zu einem bedeutenden Bestandteil der internationalen Musikgeschichte, dessen Einfluss und Innovationskraft auch in Zukunft weiterwirken wird.
 

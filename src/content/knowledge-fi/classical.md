@@ -16,16 +16,15 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
 Klassinen musiikki edustaa intellektuaalisen ilmaisun ja esteettisen harkinnan kärkeä, ja sen kehitys ulottuu Euroopan kulttuurihistoriallisiin juurtiin 1600-luvulta lähtien. Barokin aikakaudella perustettiin teoreettiset ja käytännölliset periaatteet, joissa kontrapunkti, sointuanalyysi ja rytminen monimutkaisuus nousivat keskiöön. Tämä kausi loi perustan myöhemmille muusisille virtauksille, joiden ilmenemismuodot saivat laajaa kansainvälistä vaikutusvaltaa.
 
-Lisäksi klassismin ajanjaksolla, jolle voidaan määritellä ajallisesti 1750–1820, säveltäjät kuten Wolfgang Amadeus Mozart ja Ludwig van Beethoven loivat sellaista harmonista ja muodonmukaista musiikkia, joka toimi kulttuurien välisenä vuoropuheluna. Heidän teoksissaan esiintyvät selkeät muoto- ja rakenneperiaatteet korostavat sekä yhteisöllisiä että yksilöllisiä kokemuksia. 
+Lisäksi klassismin ajanjaksolla, jolle voidaan määritellä ajallisesti 1750–1820, säveltäjät kuten Wolfgang Amadeus Mozart ja Ludwig van Beethoven loivat sellaista harmonista ja muodonmukaista musiikkia, joka toimi kulttuurien välisenä vuoropuheluna. Heidän teoksissaan esiintyvät selkeät muoto- ja rakenneperiaatteet korostavat sekä yhteisöllisiä että yksilöllisiä kokemuksia.
 
 Edelleen romantiikan kynnyksellä yksilöllinen ilmaisun etsintä ja subjektiivisuus toivat mukanaan uusia sointivärejä, dynamiikan tutkimuksia ja teoreettisia lähestymistapoja, jotka edelleen vaikuttavat nykyaikaisen esitysmusiikin moninaisuuteen.
 
@@ -167,7 +166,7 @@ Yhteenvetona voidaan todeta, että klassisen musiikin kulttuurinen merkitys muod
 
 Musiikin esityskulttuuri kansainvälisessä klassisessa perinteessä on muodostunut useiden vuosisatojen kuluessa monikerroksiseksi ja syvälliseksi ilmiöksi, jossa esitysten estetiikka, teknologian kehitys ja kulttuuriset vaihtelut ovat olleet keskeisessä asemassa. Historiallisesti tarkasteltuna live-esitykset eivät rajoitu pelkästään soittotaitoon, vaan ne sisältävät aina kokonaisvaltaisen kokemuksen, joka muodostuu akustisista ominaisuuksista, tilan arkkitehtuurista sekä esittäjän ja yleisön välisestä vuorovaikutuksesta. Tämä kokonaisuus on määritellyt klassisen musiikin esityskulttuuria aina sen varhaisimmista vaiheista lähtien.
 
-1800-luvun alkupuolella Euroopan kehittyneet konserttitalot ja oopperatalot toimivat sekä kulttuurielämän keskuksina että sosiaalisen kerrostumisen näyttämöinä. Esitystilojen akustiikka ja sisustus suunniteltiin huolellisesti teatteriarkkitehdin ja akustiikan asiantuntijoiden toimesta, mikä mahdollisti esitysten saumattoman yhdistymisen tilan fyysisiin ominaisuuksiin. Keisarillisten ja kuninkaallisten tukemana taiteilijat loivat teoksia ja esityksiä, jotka edelleen määrittelivät musiikin lajityyppejä ja parlamentaarisia musiikkiperinteitä. 
+1800-luvun alkupuolella Euroopan kehittyneet konserttitalot ja oopperatalot toimivat sekä kulttuurielämän keskuksina että sosiaalisen kerrostumisen näyttämöinä. Esitystilojen akustiikka ja sisustus suunniteltiin huolellisesti teatteriarkkitehdin ja akustiikan asiantuntijoiden toimesta, mikä mahdollisti esitysten saumattoman yhdistymisen tilan fyysisiin ominaisuuksiin. Keisarillisten ja kuninkaallisten tukemana taiteilijat loivat teoksia ja esityksiä, jotka edelleen määrittelivät musiikin lajityyppejä ja parlamentaarisia musiikkiperinteitä.
 
 Klassisen musiikin esityksissä lavan rooli on perinteisesti ollut monitasoinen. Jo 1700-luvulla koulutetut kapellimestarit sekä soittajat olivat vastuussa esitysten dynaamisesta rakentamisesta ja esitystekniikoiden kehittymisestä. Näihin pyrkimyksiin kuului muun muassa ornamenttien, improvisaation ja tyylillisten efekteihin perustuvien rytmisten korostusten käyttö, jotka olivat olennaisia esitysvetovoiman ja -mielenkiinnon ylläpitämisessä. Erityisesti Itä-Euroopan ja Ranskan vaikutteet rikastuttivat tämän aikakauden esityskulttuuria, kun eri musiikilliset perinteet löysivät yhteisen sävelen suuremmassa kansainvälisessä kontekstissa.
 

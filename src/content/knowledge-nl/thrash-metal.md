@@ -17,10 +17,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -84,7 +83,7 @@ Samenvattend speelt de verschijning van subgenres en variaties binnen thrash met
 
 ## Key Figures and Important Works
 
-Thrashmetal, een subgenre van het heavymetal dat in de vroege jaren tachtig van de vorige eeuw internationale faam vergaarde, kenmerkt zich door een combinatie van agressieve tempo’s, complexe ritmes en verfijnde gitaristechnieken. De ontwikkeling van deze muziekstijl valt nauw samen met een periode van culturele en maatschappelijke transformatie waarbij jongeren een krachtige afwijzing vormden ten opzichte van de gevestigde normen. In dit opzicht hebben diverse sleutelpersonen en baanbrekende werken bijgedragen aan de definitie van het genre; hun invloed reikt tot op heden en vormt een onmisbaar onderdeel van de hedendaagse muziekanalyse. 
+Thrashmetal, een subgenre van het heavymetal dat in de vroege jaren tachtig van de vorige eeuw internationale faam vergaarde, kenmerkt zich door een combinatie van agressieve tempo’s, complexe ritmes en verfijnde gitaristechnieken. De ontwikkeling van deze muziekstijl valt nauw samen met een periode van culturele en maatschappelijke transformatie waarbij jongeren een krachtige afwijzing vormden ten opzichte van de gevestigde normen. In dit opzicht hebben diverse sleutelpersonen en baanbrekende werken bijgedragen aan de definitie van het genre; hun invloed reikt tot op heden en vormt een onmisbaar onderdeel van de hedendaagse muziekanalyse.
 
 Het ontstaan van thrashmetal kan gedeeltelijk worden herleid tot de experimentele benaderingen van bands die in de late jaren zeventig en vroege jaren tachtig werkten aan een herwaardering van de traditionele heavymetalstructuren. Metallica, opgericht in 1981 in Los Angeles, speelde hierin een cruciale rol met hun debuutalbum "Kill 'Em All" uit 1983. Dit werk werd gekenmerkt door de integratie van snelle, agressieve ritmes en complexe gitaarriffs, hetgeen een nieuwe standaard zette voor zowel instrumentale virtuositeit als compositiële innovatie. Bovendien leidden de latere albums van Metallica, waaronder "Ride the Lightning" (1984) en "Master of Puppets" (1986), tot een verdere verfijning van de muzikale esthetiek van thrashmetal. Binnen deze periode fungeerde Metallica als brug tussen de energieke impulsen van artiesten uit de jaren zeventig en de gestructureerde expressiviteit van een opkomende generatie muzikanten.
 

@@ -16,10 +16,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -183,7 +182,7 @@ Contagem: 5355 caracteres.
 
 ## Development and Evolution
 
-O desenvolvimento histórico do Rockabilly constitui um campo de estudo que permite compreender a interseção entre diversos estilos musicais e contextos socioculturais que se consolidaram na América do Norte durante a década de 1950. O surgimento deste subgênero está intrinsecamente ligado à convergência de elementos provenientes da música country e do rhythm and blues, resultando em uma síntese sonora inovadora. A análise do Rockabilly, portanto, revela não apenas a evolução estética e instrumental dos gêneros musicais preexistentes, mas também as transformações socioeconômicas e tecnológicas que marcaram a época. 
+O desenvolvimento histórico do Rockabilly constitui um campo de estudo que permite compreender a interseção entre diversos estilos musicais e contextos socioculturais que se consolidaram na América do Norte durante a década de 1950. O surgimento deste subgênero está intrinsecamente ligado à convergência de elementos provenientes da música country e do rhythm and blues, resultando em uma síntese sonora inovadora. A análise do Rockabilly, portanto, revela não apenas a evolução estética e instrumental dos gêneros musicais preexistentes, mas também as transformações socioeconômicas e tecnológicas que marcaram a época.
 
 Inicialmente, deve ser enfatizado que o contexto histórico do pós-Segunda Guerra Mundial foi determinante para a emergência de novas expressões artísticas nos Estados Unidos. Nesta conjuntura, a migração de culturas e a urbanização acelerada contribuíram para a difusão de novas práticas musicais, sobretudo entre as classes trabalhadoras. A influência do country, com suas raízes profundamente enraizadas na tradição musical rural, aliada à vitalidade expressiva do rhythm and blues, possibilitou a criação de um som híbrido, caracterizado por batidas marcantes, linhas de guitarra pulsantes e vocais emocionais. Assim, o Rockabilly se apresenta como um fenômeno de fusão e experimentação que, conforme apontado por scholars como Gillett (2007), refletiu as tensões e expectativas de uma geração em transição.
 

@@ -17,16 +17,15 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
 Introdução: O gênero post metal configura-se como objeto de estudo imprescindível na musicologia contemporânea, evidenciando a síntese complexa entre estruturas rítmicas inovadoras e paisagens sonoras densas. Surgido ao final da década de 1980, este subgênero funde elementos do metal progressivo, do sludge metal e do post rock, constituindo uma resposta artística às transformações socioculturais e tecnológicas da época. Tal abordagem promove a reflexão acerca da ambiguidade estética, bem como estimula o debate sobre a influência das experiências coletivas na criação musical. Ademais, as ações de bandas pioneiras, como Neurosis, legitimaram e expandiram os horizontes deste estilo, estabelecendo conexões entre vertentes experimentais e paradigmas tradicionais.
 
-Contudo, o estudo do post metal demanda uma análise acurada dos processos de hibridação sonora, corroborada por investigações teóricas que fundamentam sua evolução histórica. Assim, pretende-se elucidar os contornos deste movimento, ressaltando seus fundamentos metodológicos e as contribuições para a renovação da linguagem musical. 
+Contudo, o estudo do post metal demanda uma análise acurada dos processos de hibridação sonora, corroborada por investigações teóricas que fundamentam sua evolução histórica. Assim, pretende-se elucidar os contornos deste movimento, ressaltando seus fundamentos metodológicos e as contribuições para a renovação da linguagem musical.
 
 Caracteres: 892
 

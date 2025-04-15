@@ -17,16 +17,15 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Die Entstehung des J-Rock als international bedeutsame Musikrichtung ist eng mit dem kulturellen Wandel in Japan in den 1980er Jahren verknüpft. In den folgenden Dekaden entwickelte sich das Genre zu einer eigenständigen musikalischen Strömung, die sich durch eindrucksvolle Gitarrenriffs, komplexe Rhythmik und kraftvolle Gesangsdarbietungen auszeichnet. 
+Die Entstehung des J-Rock als international bedeutsame Musikrichtung ist eng mit dem kulturellen Wandel in Japan in den 1980er Jahren verknüpft. In den folgenden Dekaden entwickelte sich das Genre zu einer eigenständigen musikalischen Strömung, die sich durch eindrucksvolle Gitarrenriffs, komplexe Rhythmik und kraftvolle Gesangsdarbietungen auszeichnet.
 
-Historisch beeinflusst von der zeitgenössischen westlichen Rockmusik erlangte J-Rock zusätzliche Ausdruckskraft durch innovative Interpretationen traditioneller Klangfarben. Gruppen wie X Japan leisteten einen prägenden Beitrag, indem sie elementare Aspekte beider Kulturen asymmetrisch miteinander verbanden. Die Verschmelzung moderner sowie traditioneller Elemente führte zu einem facettenreichen musikalischen Repertoire, das international hohe Anerkennung fand. 
+Historisch beeinflusst von der zeitgenössischen westlichen Rockmusik erlangte J-Rock zusätzliche Ausdruckskraft durch innovative Interpretationen traditioneller Klangfarben. Gruppen wie X Japan leisteten einen prägenden Beitrag, indem sie elementare Aspekte beider Kulturen asymmetrisch miteinander verbanden. Die Verschmelzung moderner sowie traditioneller Elemente führte zu einem facettenreichen musikalischen Repertoire, das international hohe Anerkennung fand.
 
 Zudem trugen Aufnahmetechnologien, die sich in den 1980er und 1990er Jahren rapide entwickelten, entscheidend dazu bei, experimentelle Ansätze zu fördern. Diese technischen Neuerungen ermöglichten eine kontinuierliche Weiterentwicklung des Genres, das heute als dynamischer Zweig der globalen Musiklandschaft gilt.
 

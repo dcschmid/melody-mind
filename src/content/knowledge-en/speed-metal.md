@@ -16,10 +16,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -85,7 +84,7 @@ In summation, the subgenres and variations of speed metal epitomise the genre’
 
 ## Key Figures and Important Works
 
-The emergence of speed metal as a distinct musical style during the early 1980s is an intriguing phenomenon within the broader heavy metal landscape, and its evolution is inextricably linked to the pioneering endeavours of several key figures and seminal works. Born out of the New Wave of British Heavy Metal (NWOBHM) and nurtured by the invigorating energy of North American and continental European scenes, speed metal rapidly gained its own identity with its pressing emphasis on accelerated tempos, precision guitar work and a melodic sensibility that distinguished it from both traditional heavy metal and the forthcoming thrash metal movement. The synthesis of ferocious intensity with technical precision provided a robust foundation for speed metal's international appeal. 
+The emergence of speed metal as a distinct musical style during the early 1980s is an intriguing phenomenon within the broader heavy metal landscape, and its evolution is inextricably linked to the pioneering endeavours of several key figures and seminal works. Born out of the New Wave of British Heavy Metal (NWOBHM) and nurtured by the invigorating energy of North American and continental European scenes, speed metal rapidly gained its own identity with its pressing emphasis on accelerated tempos, precision guitar work and a melodic sensibility that distinguished it from both traditional heavy metal and the forthcoming thrash metal movement. The synthesis of ferocious intensity with technical precision provided a robust foundation for speed metal's international appeal.
 
 One cannot overstate the influence of early proto-speed metal acts such as Motörhead, whose unyielding approach and pioneering musical ethos laid significant groundwork for subsequent developments. Although commonly associated with hard rock and as precursors to thrash, Motörhead’s relentless pace and uncompromising sonic assault provided inspiration for an entire generation of musicians committed to pushing the boundaries of speed. Their seminal output in the late 1970s and early 1980s resonated well beyond the confines of the British Isles, establishing a global framework within which speed metal could flourish.
 

@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -192,5 +191,5 @@ López, A. (2020). El sonido del tiempo: Exploraciones en música minimal y ambi
 
 En conclusión, la música catalogada como “relaxed” constituye un paradigma sonoro que evoca tranquilidad y favorece estados reflexivos, ofreciendo una experiencia estética que trasciende fronteras culturales. Este género se ha desarrollado a lo largo del tiempo mediante la conjunción de tradiciones ancestrales y propuestas vanguardistas, lo que ha permitido una fusión respetuosa de fundamentos históricos y técnicos. Su evolución se relaciona estrechamente con los movimientos musicales emergentes a mediados del siglo XX, en los cuales la exploración del equilibrio tonal y la experimentación instrumental marcaron tendencias significativas.
 
-Asimismo, el análisis musicológico aplicado a este género ha revelado su influencia en la configuración de ambientes residenciales y de ocio, resaltando su potencial terapéutico y su contribución a la identidad sonora internacional. En síntesis, la propuesta “relaxed” se presenta como una experiencia integradora, única en su capacidad para enriquecer el panorama cultural global. 
+Asimismo, el análisis musicológico aplicado a este género ha revelado su influencia en la configuración de ambientes residenciales y de ocio, resaltando su potencial terapéutico y su contribución a la identidad sonora internacional. En síntesis, la propuesta “relaxed” se presenta como una experiencia integradora, única en su capacidad para enriquecer el panorama cultural global.
 (Recuento de caracteres: 892)

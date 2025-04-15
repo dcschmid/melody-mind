@@ -17,14 +17,13 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-La House est un genre musical ayant émergé à Chicago au début des années 1980, caractérisé par l’utilisation innovante de boîtes à rythmes et de synthétiseurs analogiques. Issue d’un contexte socioculturel marqué par des mutations post-disco, elle s’appuie sur des structures rythmiques répétitives et des boucles mélodiques propices à la danse. Ce phénomène musical puise ses influences dans la tradition afro-américaine et la culture underground, offrant une réinterprétation contemporaine des sonorités disco. 
+La House est un genre musical ayant émergé à Chicago au début des années 1980, caractérisé par l’utilisation innovante de boîtes à rythmes et de synthétiseurs analogiques. Issue d’un contexte socioculturel marqué par des mutations post-disco, elle s’appuie sur des structures rythmiques répétitives et des boucles mélodiques propices à la danse. Ce phénomène musical puise ses influences dans la tradition afro-américaine et la culture underground, offrant une réinterprétation contemporaine des sonorités disco.
 
 L’évolution de la House, intimement liée aux progrès technologiques tels que l’introduction de la Roland TR-808, témoigne d’un dialogue fructueux entre techniques d’enregistrement analogiques et manipulations numériques naissantes. Par ailleurs, des figures emblématiques comme le DJ Frankie Knuckles ont su imposer ce style novateur en explorant des méthodes de mixage avant-gardistes. Cette synthèse analytique met en exergue la complexité de l’interaction entre innovations techniques, évolutions esthétiques et contexte historique précis, constituant ainsi un patrimoine sonore emblématique du mouvement électronique mondial.
 

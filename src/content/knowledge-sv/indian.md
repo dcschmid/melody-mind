@@ -17,16 +17,15 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduktion
 
-Indian musiktradition kännetecknas av en lång historik med rötter i de vediska riterna, där så kallade samaveda-chantar utgör ett av de tidigaste exempelen på systematiserad ljudanvändning. Under denna period formulerades de grundläggande principerna för melodisk och rytmisk organisation, vilka senare utvecklades till det komplexa system som kallas raga och tala. 
+Indian musiktradition kännetecknas av en lång historik med rötter i de vediska riterna, där så kallade samaveda-chantar utgör ett av de tidigaste exempelen på systematiserad ljudanvändning. Under denna period formulerades de grundläggande principerna för melodisk och rytmisk organisation, vilka senare utvecklades till det komplexa system som kallas raga och tala.
 
-Vidare har de två stora klassiska traditionerna, nordindisk hindustani och sydindisk karnatisk musik, bidragit med distinkta strukturprinciper och repertoarer. Dessa traditioner har under århundradenas lopp präglats av konstnärliga innovationer, där instrument såsom sitar, sarod och tabla erhållit central betydelse. 
+Vidare har de två stora klassiska traditionerna, nordindisk hindustani och sydindisk karnatisk musik, bidragit med distinkta strukturprinciper och repertoarer. Dessa traditioner har under århundradenas lopp präglats av konstnärliga innovationer, där instrument såsom sitar, sarod och tabla erhållit central betydelse.
 
 Dessutom domineras den indiska musiken av en hierarkisk relation mellan komposition och improvisation, vilket möjliggör en djupgående uttrycksfullhet i både scenspel och ritual. Således utgör indisk musik ett betydelsefullt bidrag till den internationella musikscenen, där kulturell och estetisk komplexitet fortsätter att fascinera globalt intresserade forskare och lyssnare.
 
@@ -64,7 +63,7 @@ Sammanfattningsvis utgör den traditionella indiska musiken ett komplext och må
 
 ## Modern musikutveckling
 
-Modern musikutveckling inom den indiska musiktraditionen har under senare år präglats av en dynamisk och mångfacetterad utveckling som speglar en komplex symbios mellan traditionella rättlinjer och internationella influenser. Denna utveckling kan betraktas som en vidareutveckling av de reform- och moderniseringssträvanden som intensifierades efter Indiens självständighet 1947, då både instrumentella och vokala traditioner anpassades och förnyades i takt med att nya teknologiska och kulturella uttrycksformer gradvis etablerades. I denna kontext spelar det indiska sambandet till internationell musik en central roll, då utbyten och korsbefruktningar mellan öst och väst har bidragit till att främja en gemensam musikalisering som överskrider geografiska gränser. 
+Modern musikutveckling inom den indiska musiktraditionen har under senare år präglats av en dynamisk och mångfacetterad utveckling som speglar en komplex symbios mellan traditionella rättlinjer och internationella influenser. Denna utveckling kan betraktas som en vidareutveckling av de reform- och moderniseringssträvanden som intensifierades efter Indiens självständighet 1947, då både instrumentella och vokala traditioner anpassades och förnyades i takt med att nya teknologiska och kulturella uttrycksformer gradvis etablerades. I denna kontext spelar det indiska sambandet till internationell musik en central roll, då utbyten och korsbefruktningar mellan öst och väst har bidragit till att främja en gemensam musikalisering som överskrider geografiska gränser.
 
 Utvecklingen av den moderna indiska musiken präglas av ett djupt sammanflätat förhållande mellan den hinduiska raga-traditionen och västerländska harmoniska och rytmiska mönster, vilket har resulterat i en arsenal av kreativa innovationer. I takt med att modern inspelningsteknik och ljudförstärkning infördes under 1960- och 1970-talen, började en ny generation musiker att experimentera med sammanslagningen av traditionella ragas och västerländska instrument. Framstående musiker såsom Ustad Ravi Shankar och Ustad Ali Akbar Khan bidrog således inte enbart till att bevara och utveckla de traditionella raganarrativen, utan deras konstnärliga samarbeten med västerländska musiker, däribland den framstående violinisten Yehudi Menuhin, utgjorde en milstolpe i globaliseringen av den indiska musiken. Denna tid präglades av ett intrikat utbyte som inte bara utmanade etablerade normer utan även öppnade upp för nya soniska landskap.
 

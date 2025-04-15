@@ -17,10 +17,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -174,9 +173,9 @@ Samenvattend kan worden betoogd dat de integratie van media in festivals binnen 
 
 ## Playlists and Recommendations
 
-Autumn Chill vormt een intrigerend muzikaal concept waarin de subtiele samensmelting van akoestische klanken en elektronische nuances samenkomt in een sfeer van ingetogen reflectie. Deze esthetiek, die gepaard gaat met de melancholie van het najaar, vindt haar oorsprong in de internationale ontwikkeling van ambient- en experimentele muziekstromingen van de tweede helft van de twintigste eeuw. In academische behandelingen van deze stijl is het essentieel om de culturele en technologische veranderingen te beschouwen die bijgedragen hebben aan de evolutionaire ontwikkeling van dergelijke muzikale tradities. 
+Autumn Chill vormt een intrigerend muzikaal concept waarin de subtiele samensmelting van akoestische klanken en elektronische nuances samenkomt in een sfeer van ingetogen reflectie. Deze esthetiek, die gepaard gaat met de melancholie van het najaar, vindt haar oorsprong in de internationale ontwikkeling van ambient- en experimentele muziekstromingen van de tweede helft van de twintigste eeuw. In academische behandelingen van deze stijl is het essentieel om de culturele en technologische veranderingen te beschouwen die bijgedragen hebben aan de evolutionaire ontwikkeling van dergelijke muzikale tradities.
 
-In de internationale context hebben componisten en muzikanten in de jaren zeventig, zoals Brian Eno, een bepalende rol gespeeld in het vastleggen van de essentie van ambientmuziek. Zijn experimenten met geluidsvelden, waarbij traditionele grenzen tussen instrumentale en elektronische muziek vervaagden, vormen een belangrijk referentiepunt voor hedendaagse interpretaties van Autumn Chill. Bovendien weerspiegelt de ontwikkeling van synthesizertechnologie in die periode de technologische vooruitgang die de creatie van complexe en gelaagde klanklandschappen mogelijk maakte, wat resulteerde in een unieke luisterervaring die subtiel balanceert tussen introspectie en kosmische expansie. 
+In de internationale context hebben componisten en muzikanten in de jaren zeventig, zoals Brian Eno, een bepalende rol gespeeld in het vastleggen van de essentie van ambientmuziek. Zijn experimenten met geluidsvelden, waarbij traditionele grenzen tussen instrumentale en elektronische muziek vervaagden, vormen een belangrijk referentiepunt voor hedendaagse interpretaties van Autumn Chill. Bovendien weerspiegelt de ontwikkeling van synthesizertechnologie in die periode de technologische vooruitgang die de creatie van complexe en gelaagde klanklandschappen mogelijk maakte, wat resulteerde in een unieke luisterervaring die subtiel balanceert tussen introspectie en kosmische expansie.
 
 De samenstelling van playlists binnen de Autumn Chill-categorie beoogt luisteraars mee te voeren op een contemplatieve reis door veranderende klimatologische en culturele seizoenen. Aangeraden wordt een zorgvuldig samengestelde selectie van werken die zowel klassieke elementen als moderne experimentele geluiden bevatten. In dit opzicht biedt de selectie niet alleen een muzikale reis door verschillende genres maar ook een historisch bewustzijn, voortvloeiend uit de wisselwerking tussen traditionele akoestische instrumentatie en hedendaagse elektronica. Onder de internationale invloeden is het opmerkelijk dat elementen uit diverse culturen – van de minimalistische melodieën in Japanse ambient tot de introspectieve harmonieën in Scandinavische folkmuziek – samenkomen in een coherent artistiek spectrum.
 

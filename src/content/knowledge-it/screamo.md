@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -162,7 +161,7 @@ In conclusione, la cultura dal vivo nel genere screamo si configura come una dim
 
 La subcultura musicale nota come “screamo” si sviluppò nel contesto delle trasformazioni del punk hardcore degli anni Novanta, assimilandosi progressivamente a una forma stilistica autonoma e riconoscibile. La sua evoluzione trae origine dal fermento emotivo e critico che caratterizzò principalmente le scene locali degli Stati Uniti, in particolare lungo la costa orientale, dove la contaminazione tra aggressività sonora e introspezione lirica si rivelò innovativa dal punto di vista espressivo. Tale corrente si distinse sin dall’inizio per la sua capacità di coniugare una tecnica strumentale sofisticata ad un’intensità emotiva particolare, implicando una rielaborazione critica degli archetipi del punk e del post-hardcore.
 
-Inizialmente, il termine “screamo” derivò dall’impiego marcato di vocalizzi urlati, elemento funzionale alla trasmissione di un angoscioso tumulto interiore. Le prime manifestazioni di questo sottogenere, rappresentate da band come Orchid e Saetia, si caratterizzarono per composizioni dallo stretto rapporto con la dinamica del hardcore tradizionale, pur introducendo elementi innovativi che rifiutavano la mera aggressività sonora. L’uso deliberato di passaggi ritmici mutevoli, di tempi sincopati e di progressioni armoniche inusuali conferì al genere una dimensione artistica che invitava a riflessioni sia estetiche sia concettuali. 
+Inizialmente, il termine “screamo” derivò dall’impiego marcato di vocalizzi urlati, elemento funzionale alla trasmissione di un angoscioso tumulto interiore. Le prime manifestazioni di questo sottogenere, rappresentate da band come Orchid e Saetia, si caratterizzarono per composizioni dallo stretto rapporto con la dinamica del hardcore tradizionale, pur introducendo elementi innovativi che rifiutavano la mera aggressività sonora. L’uso deliberato di passaggi ritmici mutevoli, di tempi sincopati e di progressioni armoniche inusuali conferì al genere una dimensione artistica che invitava a riflessioni sia estetiche sia concettuali.
 
 Il contesto storico e culturale degli Stati Uniti degli anni Novanta, segnato da tensioni sociali e critiche al neoliberismo, fornì al “screamo” uno sfondo ideologico in cui le dissonanze e le risonanze del dolore personale e collettivo trovavano un canale espressivo diretto. Le piccole etichette indipendenti giocarono un ruolo fondamentale nel favorire la diffusione del genere, impiegando tecnologie analogiche quali la registrazione su cassette e la pubblicazione di fanzine, strumenti che contemporaneamente enfatizzavano l’autenticità e il carattere spartano dell’approccio DIY (do it yourself). In questo senso, il genere si sviluppò in maniera organica e interconnessa, le reti di scambio e cooperazione tra gruppi e fan contribuendo alla definizione di un’identità contraculturale nettamente oppositiva alle formule commerciali della musica mainstream.
 

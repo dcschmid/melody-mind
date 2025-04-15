@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -210,6 +209,6 @@ Contagem de caracteres (com espaços): 5437
 
 Conclui-se que a música internacional, no contexto da categoria “Happy”, representa um campo de análise onde se entrelaçam elementos culturais, estéticos e tecnológicos, os quais propiciam experiências sonoras de caráter inovador e emocionalmente envolvente. A investigação apresentada evidencia que, a partir da segunda metade do século XX, a consolidação de novas sonoridades foi decisiva para a difusão de práticas interpretativas marcadas pelo afeto e pela positividade, contribuindo para o fortalecimento de discursos artísticos alinhados com as transformações socioculturais do período.
 
-Ademais, a conjugação de influências regionais e globais permitiu a emergência de uma estética musical que fomenta a coesão social e o reconhecimento da identidade cultural. Finalmente, a análise musicológica crítica ressalta que a obra, ao incorporar essa pluralidade de referências, reafirma a relevância da “Happy” na construção de um paradigma artístico que promove bem-estar e otimismo de forma inusitada. 
+Ademais, a conjugação de influências regionais e globais permitiu a emergência de uma estética musical que fomenta a coesão social e o reconhecimento da identidade cultural. Finalmente, a análise musicológica crítica ressalta que a obra, ao incorporar essa pluralidade de referências, reafirma a relevância da “Happy” na construção de um paradigma artístico que promove bem-estar e otimismo de forma inusitada.
 
 Contagem de caracteres: 892

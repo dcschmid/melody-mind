@@ -17,14 +17,13 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Einleitung
 
-Die niederländische Musikszene fand seit dem späten 19. Jahrhundert Eingang in internationale Diskurse und prägte maßgeblich die Entwicklung kunstmusikalischer Strömungen. Bereits in der Epoche des Jugendstils und der frühen Moderne traten niederländische Komponisten als innovative Gestalter auf, deren Kompositionen klassische und avantgardistische Elemente miteinander verbanden. Ihre Werke, die sich durch eine präzise Instrumentation und eine differenzierte Harmonielehre auszeichnen, reflektieren den Spannungsbogen zwischen Tradition und Fortschritt. 
+Die niederländische Musikszene fand seit dem späten 19. Jahrhundert Eingang in internationale Diskurse und prägte maßgeblich die Entwicklung kunstmusikalischer Strömungen. Bereits in der Epoche des Jugendstils und der frühen Moderne traten niederländische Komponisten als innovative Gestalter auf, deren Kompositionen klassische und avantgardistische Elemente miteinander verbanden. Ihre Werke, die sich durch eine präzise Instrumentation und eine differenzierte Harmonielehre auszeichnen, reflektieren den Spannungsbogen zwischen Tradition und Fortschritt.
 
 Darüber hinaus stellen die historischen Entwicklungen in den Niederlanden einen bedeutenden Beitrag zur globalen Musiklandschaft dar. Der kulturelle Austausch mit europäischen Nachbarn sowie die Übernahme internationaler Impulse führten zu einer komplexen musikalischen Dynamik. Diese interdisziplinäre Wechselwirkung liefert auch heute noch wertvolle Erkenntnisse für die musikwissenschaftliche Forschung und das Verständnis zeitgenössischer Kompositionspraxis.
 

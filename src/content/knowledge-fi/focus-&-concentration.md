@@ -17,16 +17,15 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Kansainvälisen musiikin tutkimus on osoittanut, että syvällinen analyyttinen kuuntelu ja keskittymisen harjoittelu ovat olennainen osa musiikillista kokemusta ja tulkintaa. Klassisen musiikin varhaisvaiheissa, 1600-luvun alussa, teokratian ja humanismin vuorovaikutus edisti monisyistä polyfoniaa sekä kontrapunktuaalisia rakenteita, jotka edellyttivät tarkkaa havainnointia ja intensiivistä analyyttistä työtä. 
+Kansainvälisen musiikin tutkimus on osoittanut, että syvällinen analyyttinen kuuntelu ja keskittymisen harjoittelu ovat olennainen osa musiikillista kokemusta ja tulkintaa. Klassisen musiikin varhaisvaiheissa, 1600-luvun alussa, teokratian ja humanismin vuorovaikutus edisti monisyistä polyfoniaa sekä kontrapunktuaalisia rakenteita, jotka edellyttivät tarkkaa havainnointia ja intensiivistä analyyttistä työtä.
 
-Barokin ajalla säveltäjät pyrkivät ilmaisemaan tunnevoimaisia ja monitasoisia rytmisia ilmiöitä, mikä johti siihen, että musiikillinen fokusoituminen muodostui erottamattomaksi osaksi esityskulttuuria. Musiikkiajan teoriaperinteet, joiden vaikutus ulottuu kansainvälisesti, ovat edelleen keskeisessä asemassa kriittisessä analyysissä sekä musiikkikäsityksen kehityksessä. 
+Barokin ajalla säveltäjät pyrkivät ilmaisemaan tunnevoimaisia ja monitasoisia rytmisia ilmiöitä, mikä johti siihen, että musiikillinen fokusoituminen muodostui erottamattomaksi osaksi esityskulttuuria. Musiikkiajan teoriaperinteet, joiden vaikutus ulottuu kansainvälisesti, ovat edelleen keskeisessä asemassa kriittisessä analyysissä sekä musiikkikäsityksen kehityksessä.
 
 1800-luvun romantiikan ja uusinteen kehitystyössä harmoniset keinot ja melodiset innovaatioiden laajuus mahdollistivat kuulijan syventymisen musiikin monimutkaisiin rakenteisiin, mikä puolestaan vahvisti kognitiivista tarkkaavaisuutta ja intiimiä kuuntelukokemusta. Tämä perinteiden jatkuminen ja uusien ilmiöiden synteesi muodostavat keskeisen viitekehyksen musiikin keskittymistä käsittelevässä tutkimuksessa.
 

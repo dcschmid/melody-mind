@@ -16,10 +16,9 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -33,7 +32,7 @@ Historische Hintergründe zur Kategorie „Dinner Party“ in der internationale
 
 Im 19. Jahrhundert erfuhr das Konzept einer Dinner Party in Verbindung mit musikalischer Untermalung eine tiefgreifende Transformation. Die zunehmende Verbreitung von Kammermusik und das Aufkommen speziell komponierter Arrangements für salonartige Abendveranstaltungen spiegelten den sich wandelnden gesellschaftlichen Geschmack wider. In diesem Kontext spielte die Entwicklung der Musikdruckkunst eine bedeutende Rolle, da sie zur Verbreitung von Kompositionen und Ideen beitrug. Zeitgenössische Komponisten und Interpreten wurden in zunehmend urbanen Zentren, wie Paris oder Wien, zu Symbolen des kulturellen Fortschritts, während Musik als Medium der feinen Unterhaltung international an Bedeutung gewann.
 
-Mit dem Beginn des 20. Jahrhunderts erfolgte dank der technischen Innovationen eine weitere Revolution in der musikalischen Begleitung von Dinner-Partys. Die Einführung der Schallplatte und später des Radios führte dazu, dass Musik – in bearbeiteter Form – breiteren Bevölkerungsschichten zugänglich war und nicht mehr ausschließlich in exklusiven Zirkeln genossen werden konnte. Dennoch blieb die Tradition, elegante Atmosphäre mit sorgfältig ausgewählter Musik zu untermalen, bestehen. Insbesondere in den Metropolen des damaligen Westens wurden Veranstaltungen mit Live-Darbietungen sowie aufgezeichneten Musikstücken zelebriert, wobei Künstler wie Duke Ellington eine Brücke zwischen klassischer Salonmusik und jazzbasierten Elementen schlugen. 
+Mit dem Beginn des 20. Jahrhunderts erfolgte dank der technischen Innovationen eine weitere Revolution in der musikalischen Begleitung von Dinner-Partys. Die Einführung der Schallplatte und später des Radios führte dazu, dass Musik – in bearbeiteter Form – breiteren Bevölkerungsschichten zugänglich war und nicht mehr ausschließlich in exklusiven Zirkeln genossen werden konnte. Dennoch blieb die Tradition, elegante Atmosphäre mit sorgfältig ausgewählter Musik zu untermalen, bestehen. Insbesondere in den Metropolen des damaligen Westens wurden Veranstaltungen mit Live-Darbietungen sowie aufgezeichneten Musikstücken zelebriert, wobei Künstler wie Duke Ellington eine Brücke zwischen klassischer Salonmusik und jazzbasierten Elementen schlugen.
 
 Die Verflechtung internationaler Musikeinflüsse prägte das Dinner-Party-Erlebnis maßgeblich. Bereits in den 1920er und 1930er Jahren wurde in Amerika sowie in Europa eine interkulturelle Mischung beobachtet, bei der afroamerikanische Jazz-Einflüsse mit europäischen klassischen Elementen kombiniert wurden. Diese Symbiose trug dazu bei, ein neuartiges Klangerlebnis zu etablieren, das sowohl anspruchsvoll als auch unterhaltsam war. Der kulturelle Austausch zwischen verschiedenen Regionen führte zu einer stetigen Erweiterung des musikalischen Repertoires, das für Dinner-Partys in Betracht gezogen wurde.
 

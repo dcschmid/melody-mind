@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -116,7 +115,7 @@ Tutkimus perustuukin historialliseen aineistoon, jossa on huomioitu niin artisti
 
 ## Technical Aspects
 
-Folk metalin tekniset ominaisuudet muodostavat monitahoisen kokonaisuuden, jossa perinteisen kansanmusiikin piirteet yhdistyvät sähköisen metallimusiikin voimakkaaseen estetiikkaan. Äänimaailman rakentamisessa keskeisenä pidetään instrumentaation monipuolisuutta, jossa perinteiset akustiset soittimet sulautuvat sähköisten kitaroiden ja rumpujen rinnalle. Tällainen yhdistelmä vaatii huolellista teknistä toteutusta ja tarkkaa sointisuunnittelua, jotta kummankin musiikkityylin piirteet säilyvät omaleimaisina mutta kietoutuvat saumattomasti yhteen.  
+Folk metalin tekniset ominaisuudet muodostavat monitahoisen kokonaisuuden, jossa perinteisen kansanmusiikin piirteet yhdistyvät sähköisen metallimusiikin voimakkaaseen estetiikkaan. Äänimaailman rakentamisessa keskeisenä pidetään instrumentaation monipuolisuutta, jossa perinteiset akustiset soittimet sulautuvat sähköisten kitaroiden ja rumpujen rinnalle. Tällainen yhdistelmä vaatii huolellista teknistä toteutusta ja tarkkaa sointisuunnittelua, jotta kummankin musiikkityylin piirteet säilyvät omaleimaisina mutta kietoutuvat saumattomasti yhteen.
 
 Ensimmäisenä voidaan tarkastella äänitystekniikkaa ja sen kehittymistä folk metalin kontekstissa. 1980-luvun lopulta eteenpäin kehittynyt moniraitaäänitys mahdollisti monipuolisten äänikerrosten tallentamisen, jolloin erillisten akustisten soittimien ja sähköisten instrumenttien ääniraidat olivat mahdollista yhdistää ilman, että mikään osatekijä jää epäselväksi sekoituksen kokonaisuudessa. Studiotuotannossa digitaaliteknologian yleistyminen availee uusia mahdollisuuksia äänen muokkaamiseen, jolloin taustalle voidaan tuoda varjoja ja efektejä, jotka korostavat biisin tunnelmaa. Tarkkaan harkitut miksausratkaisut ovat olennainen osa folk metalin teknistä toteutusta, sillä ne hyödyntävät nykyaikaisia prosessointilaitteita, kuten monisuuntaisia taajuuskorjaimia ja kompressoreja, säilyttäen esityksessä soittavien luonnollisen dynamiikan.
 

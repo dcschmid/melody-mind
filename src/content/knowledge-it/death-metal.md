@@ -16,10 +16,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -119,9 +118,10 @@ Il contesto storico e tecnologico in cui il Death Metal ha preso forma è strett
 
 In conclusione, l’analisi tecnica del Death Metal non si limita alla mera esposizione di tecniche esecutive, bensì si estende a una riflessione sui processi di produzione e sulle innovazioni pedagogiche che hanno permesso di superare i limiti tecnici imposti dalla tradizione. Le peculiarità di accordature depresse, ritmi complessi e tecniche chitarristiche avanzate rappresentano il risultato di un’evoluzione continua, in cui il rapporto tra tecnologia e creatività ha svolto un ruolo cruciale. Tale dinamica ha non solo definito il genere, ma ha anche influenzato le pratiche musicali contemporanee, accrescendo il patrimonio culturale e tecnico del panorama musicale internazionale.
 
-Bibliografia essenziale:  
-- Walser, Robert. "Running With the Devil: Power, Gender, and Madness in Heavy Metal Music" (1993).  
-- Weinstein, Deena. "Heavy Metal: The Music and Its Culture" (1993).  
+Bibliografia essenziale:
+
+- Walser, Robert. "Running With the Devil: Power, Gender, and Madness in Heavy Metal Music" (1993).
+- Weinstein, Deena. "Heavy Metal: The Music and Its Culture" (1993).
 - Christe, Ian. "Sound of the Beast: The Complete Headbanging History of Heavy Metal" (2003).
 
 Questa disamina risulta fondamentale per comprendere come il Death Metal, sebbene radicato in una tradizione di estrema aggressività, si sia evoluto in un linguaggio tecnico sofisticato e ricco di sfumature, capace di esprimere tanto la brutalità quanto la complessità dell’essere musicale.

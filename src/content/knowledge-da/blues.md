@@ -16,14 +16,13 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Blues udgør en central musikkategori, hvis udvikling går tilbage til det sene 19. århundrede i det amerikanske dybsyd. Genrerne opstod som en sammensmeltning af afrikanske folkesange, arbejdsviser og religiøse udtryk, idet de reflekterede de socioøkonomiske forhold i den efterfølgende frigivelsesperiode. Bluesens karakteristiske kendetegn manifesteres gennem en præget anvendelse af improvisation, asymmetrisk rytmik og modal baseret tonalitet, hvilket understreger dens betydning inden for både folkloristisk og populær musik. 
+Blues udgør en central musikkategori, hvis udvikling går tilbage til det sene 19. århundrede i det amerikanske dybsyd. Genrerne opstod som en sammensmeltning af afrikanske folkesange, arbejdsviser og religiøse udtryk, idet de reflekterede de socioøkonomiske forhold i den efterfølgende frigivelsesperiode. Bluesens karakteristiske kendetegn manifesteres gennem en præget anvendelse af improvisation, asymmetrisk rytmik og modal baseret tonalitet, hvilket understreger dens betydning inden for både folkloristisk og populær musik.
 
 Desuden har denne musikform, der oprindeligt blev udviklet af afroamerikanske samfund, haft en dybtgående indflydelse på efterfølgende musikalske stilarter, herunder jazz og rock. Den musikologiske analyse af blues fremhæver særligt brugen af blue notes og call-and-response, som vidner om en konstant dialektik mellem tradition og innovation. Denne introduktion til bluesens historie og teoretiske principper danner grundlaget for en videregående forståelse af dens kulturelle betydning og internationale udbredelse.
 

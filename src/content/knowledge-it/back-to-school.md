@@ -16,10 +16,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -181,7 +180,7 @@ In conclusione, la presente dissertazione evidenzia come l’analisi accurata de
 
 ## Conclusion
 
-Il percorso didattico analizzato nella sezione "Back to School" ha evidenziato, in maniera rigorosa, la sinergia tra tradizione e innovazione all'interno della pedagogia musicale internazionale. La ricerca ha approfondito come la pratica esecutiva e compositiva si sia evoluta, tenendo conto delle radici storiche e dell'influenza delle più recenti tecnologie, il cui impatto ha ridefinito i concetti di interpretazione e sperimentazione. 
+Il percorso didattico analizzato nella sezione "Back to School" ha evidenziato, in maniera rigorosa, la sinergia tra tradizione e innovazione all'interno della pedagogia musicale internazionale. La ricerca ha approfondito come la pratica esecutiva e compositiva si sia evoluta, tenendo conto delle radici storiche e dell'influenza delle più recenti tecnologie, il cui impatto ha ridefinito i concetti di interpretazione e sperimentazione.
 
 Inoltre, la riflessione critica ha sottolineato l'importanza di un approccio interdisciplinare, capace di integrare nozioni teoriche con contestualizzazioni storiche. L’indagine si è sofferma sulla riscoperta dei canoni musicali antichi, fusi con l'adozione sistematica di metodologie innovative, che hanno facilitato un dialogo costante tra passato e presente.
 

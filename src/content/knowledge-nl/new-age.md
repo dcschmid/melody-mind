@@ -17,10 +17,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -112,7 +111,7 @@ Bovendien speelde de introductie van digitale technologieën in de jaren tachtig
 
 Daarnaast werd de rol van ruimtelijke en akoestische bewerkingstechnieken steeds belangrijker binnen de New Age-muziek. Het gebruik van reverberatie- en delay-effecten was essentieel voor het simulerende karakter van een overweldigende ruimte, hetgeen de luisterervaring intensifieerde. De toepassing van diffusietechnieken in de opnames resulteerde in subtiele klankverdelingen die een gevoel van diepte en perspectief vermogens op te roepen. Hierdoor ontstond een nauwkeurige hiërarchie in de dynamiek van de composities, waarbij de modulatie en progressie van harmonische patronen werden gevormd door zorgvuldig afgestelde frequenties en resonantiewaarden.
 
-Verder bracht de ontwikkeling van computergebaseerde opnamesystemen een paradigmaverschuiving teweeg. Met de opkomst van digitale audio workstations konden componisten in real-time bewerkingen udforsen, waarbij de flexibiliteit in het manipuleren van geluiden een belangrijke rol speelde. De computer fungeerde daarbij als een instrument op zichzelf en als een verlengstuk van de creatieve geest. Deze aanpak leidde tot nieuwe interpretaties van traditionele muziektheoretische concepten, waarin de esthetiek van minimalisme en ambient invloeden duidelijk naar voren kwam. Bovendien maakte de inzet van MIDI (Musical Instrument Digital Interface) een interoperabiliteit mogelijk die zowel de traditionele als de hedendaagse instrumenten op een geïntegreerde wijze aan elkaar koppelde. 
+Verder bracht de ontwikkeling van computergebaseerde opnamesystemen een paradigmaverschuiving teweeg. Met de opkomst van digitale audio workstations konden componisten in real-time bewerkingen udforsen, waarbij de flexibiliteit in het manipuleren van geluiden een belangrijke rol speelde. De computer fungeerde daarbij als een instrument op zichzelf en als een verlengstuk van de creatieve geest. Deze aanpak leidde tot nieuwe interpretaties van traditionele muziektheoretische concepten, waarin de esthetiek van minimalisme en ambient invloeden duidelijk naar voren kwam. Bovendien maakte de inzet van MIDI (Musical Instrument Digital Interface) een interoperabiliteit mogelijk die zowel de traditionele als de hedendaagse instrumenten op een geïntegreerde wijze aan elkaar koppelde.
 
 In de technische analyse van New Age-muziek valt tevens op dat de harmonische structuren vaak gebaseerd zijn op herhalende patronen en modulerende intervallen. Deze patronen, die als klankkleuren in een compositie worden ingezet, creëren een trance-achtige staat, welke de luisteraar uitnodigt tot contemplatie. Uit een theoretisch standpunt kan men constateren dat de complexe verwevenheid tussen ritmische patronen, melodische lijnen en de toegepaste elektronische modulaties voor een vernieuwde interpretatie van conventionele harmonische progressies heeft gezorgd. De combinatie van polyfone texturen met gedistilleerde monofone lijnen, in combinatie met diverse effecten, geeft de muziek een transcendentale dimensie die uniek is binnen de internationale muziekstromingen.
 

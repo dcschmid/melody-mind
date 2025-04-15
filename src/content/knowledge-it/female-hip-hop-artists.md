@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduzione
 
@@ -188,6 +187,6 @@ Questa disamina della rappresentazione mediatica non solo enfatizza la rilevanza
 
 ## Eredità e futuro
 
-L’eredità delle artiste femminili nell’hip hop si configura come un pilastro imprescindibile per l’evoluzione del genere a livello globale. Fin dagli anni Ottanta, artiste quali MC Lyte e Queen Latifah hanno inaugurato una nuova visione estetica e narrativa, contribuendo ad ampliare gli orizzonti espressivi e tematici della disciplina musicale. Il loro operato ha offerto spunti critici in un contesto culturalmente variegato, reinterpretando simboli e linguaggi in chiave emancipatoria. 
+L’eredità delle artiste femminili nell’hip hop si configura come un pilastro imprescindibile per l’evoluzione del genere a livello globale. Fin dagli anni Ottanta, artiste quali MC Lyte e Queen Latifah hanno inaugurato una nuova visione estetica e narrativa, contribuendo ad ampliare gli orizzonti espressivi e tematici della disciplina musicale. Il loro operato ha offerto spunti critici in un contesto culturalmente variegato, reinterpretando simboli e linguaggi in chiave emancipatoria.
 
 In aggiunta, l’impatto delle pratiche performative femminili ha tracciato percorsi innovativi, stimolando l’interesse accademico e favorendo un dibattito interdisciplinare sulla costruzione dell’identità e sull’inclusività. Tali dinamiche, debitamente analizzate in studi specializzati, rappresentano il fondamento di una prospettiva critica, capace di interpretare il presente e delineare uno scenario futuro ricco di potenzialità.

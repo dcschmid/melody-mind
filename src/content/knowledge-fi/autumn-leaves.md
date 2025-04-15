@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -208,6 +207,6 @@ Yhteenvetona voidaan todeta, että "Autumn Leaves" toimii erinomaisena esimerkki
 
 Yhteenvetona voidaan todeta, että "Autumn Leaves" -kappale on keskeinen ilmentymä kansainvälisen jazz-musiikin kehityksessä, edustaen harmonisesti monitasoista sointikuvastoa sekä melodista liukuvuutta, jotka ovat vaikuttaneet merkittävästi myöhempiin sovituksiin ja esitystapoihin. Analyysi osoittaa, että teos toimii sillanrakentajana eri kulttuurien välillä, edistäen transatlanttista vuorovaikutusta sekä harmonisten rakenteiden kansainvälistä levinneisyyttä.
 
-Kappaleen musiikilliset innovaatiot, kuten laaja improvisaatio- ja modulaatiokäytäntö, ovat kehittyneet 1940-luvulla, jolloin jazz-bigbändit alkoivat kokeilla uusia sävelkkäitä ja rytmisesti dynaamisia ratkaisuja. Lisäksi 1950– ja 1960-luvuilla teknologian kehitys toi mukanaan modernit äänittämistekniikat, jotka mahdollistivat teoksen laajemman levikin ja syvemmän vaikutusvallan. 
+Kappaleen musiikilliset innovaatiot, kuten laaja improvisaatio- ja modulaatiokäytäntö, ovat kehittyneet 1940-luvulla, jolloin jazz-bigbändit alkoivat kokeilla uusia sävelkkäitä ja rytmisesti dynaamisia ratkaisuja. Lisäksi 1950– ja 1960-luvuilla teknologian kehitys toi mukanaan modernit äänittämistekniikat, jotka mahdollistivat teoksen laajemman levikin ja syvemmän vaikutusvallan.
 
 Lopulta "Autumn Leaves" säilyttää ajattoman merkityksensä ja toimii yhä nykyajan tutkijoiden sekä esittäjien inspiraationa kansainvälisen musiikkihistorian tutkimuksessa.

@@ -17,14 +17,13 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Einleitung
 
-Die Entwicklung weiblicher Rap-Künstlerinnen stellt einen signifikanten Fortschritt in der internationalen Musiklandschaft dar. Bereits in den 1980er Jahren traten erste Pionierinnen auf, die traditionelle Geschlechterrollen hinterfragten und dem Rap neue Ausdrucksformen verliehen. Insbesondere in den 1990er Jahren erlangten Frauen in den Vereinigten Staaten und weltweit zunehmende Bedeutung, indem sie anspruchsvolle, gesellschaftskritische Texte mit komplexen rhythmischen Strukturen kombinierten. 
+Die Entwicklung weiblicher Rap-Künstlerinnen stellt einen signifikanten Fortschritt in der internationalen Musiklandschaft dar. Bereits in den 1980er Jahren traten erste Pionierinnen auf, die traditionelle Geschlechterrollen hinterfragten und dem Rap neue Ausdrucksformen verliehen. Insbesondere in den 1990er Jahren erlangten Frauen in den Vereinigten Staaten und weltweit zunehmende Bedeutung, indem sie anspruchsvolle, gesellschaftskritische Texte mit komplexen rhythmischen Strukturen kombinierten.
 
 Darüber hinaus trug die interdisziplinäre Analyse von Klangfarben, elektronischer Produktion und traditioneller Akustik zu einer präzisen Verortung dieser innovativen Strömung bei. Die Synthese von improvisatorischen Elementen und fundierten musikalischen Arrangements veranschaulicht den Wandel, den weibliche Rap-Künstlerinnen im urbanen Musikdiskurs nachhaltig bewirkten. Diese Entwicklung hat nicht nur neue Impulse in der Klangästhetik gesetzt, sondern auch den globalen Diskurs über kulturelle Identitäten maßgeblich erweitert.
 
@@ -48,7 +47,7 @@ Abschließend ist festzuhalten, dass die historische Entwicklung der Female Rapp
 
 ## Musikalische Merkmale
 
-Im Verlauf der Musikgeschichte haben sich bei den internationalen Female Rappers bestimmte musikalische Merkmale herausgebildet, die sowohl die stilistischen als auch die performativen Besonderheiten dieses Genres prägen. Bereits in den späten 1970er Jahren, als die urbane Musikszene in den Vereinigten Staaten erste rap-orientierte Elemente aufwies, wurden rhythmische Sprechgesänge als bedeutendes Ausdrucksmittel etabliert. Insbesondere die Betonung von Silben und die rhythmische Flexibilität der vokalen Darbietungen bildeten den Grundstein für den späteren, differenzierten Rap-Stil, den auch weibliche Künstlerinnen weiterentwickelten. 
+Im Verlauf der Musikgeschichte haben sich bei den internationalen Female Rappers bestimmte musikalische Merkmale herausgebildet, die sowohl die stilistischen als auch die performativen Besonderheiten dieses Genres prägen. Bereits in den späten 1970er Jahren, als die urbane Musikszene in den Vereinigten Staaten erste rap-orientierte Elemente aufwies, wurden rhythmische Sprechgesänge als bedeutendes Ausdrucksmittel etabliert. Insbesondere die Betonung von Silben und die rhythmische Flexibilität der vokalen Darbietungen bildeten den Grundstein für den späteren, differenzierten Rap-Stil, den auch weibliche Künstlerinnen weiterentwickelten.
 
 Die frühen internationalen Female Rappers traten zunächst in einem von männlich dominierten Umfeld auf, was sie dazu veranlasste, innovative lyrische und musikalische Ansätze zu verfolgen. So experimentierten sie mit erweiterten Reimschemata, die zum einen den lyrischen Inhalt vertieften und zum anderen die rhythmische Vielfalt ihrer Darbietungen unterstrichen. Ihre Texte, die häufig von persönlichen wie auch gesellschaftspolitischen Erfahrungen geprägt waren, bedienten sich einer präzisen Diktion und einer komplexen Metrik, welche den Diskurs über feministische und soziale Themen neu belebten. Dabei spielten technikbasierte Instrumentalisierungen wie die Überlagerung von synthetischen Beats und Sampling eine ebenso wichtige Rolle wie klassische Elemente der Poesie.
 

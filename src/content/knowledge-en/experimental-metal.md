@@ -16,14 +16,13 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Experimental Metal emerged in the late 1980s as a radical departure from conventional heavy metal, characterised by its embrace of unconventional structures, dissonant harmonies, and atypical rhythmic patterns. Pioneering bands, predominantly from Europe and North America, sought to challenge established norms by incorporating elements from free jazz, progressive rock, and avant-garde classical music. The genre’s evolution was significantly influenced by the contemporaneous cultural movements, which championed artistic experimentation and intellectual rigour. 
+Experimental Metal emerged in the late 1980s as a radical departure from conventional heavy metal, characterised by its embrace of unconventional structures, dissonant harmonies, and atypical rhythmic patterns. Pioneering bands, predominantly from Europe and North America, sought to challenge established norms by incorporating elements from free jazz, progressive rock, and avant-garde classical music. The genre’s evolution was significantly influenced by the contemporaneous cultural movements, which championed artistic experimentation and intellectual rigour.
 
 Moreover, experimental artists utilised emerging technologies and innovative recording techniques to redefine soundscapes, fostering a unique synthesis of sonic textures and theoretical intricacies. This international movement remains a fertile ground for scholarly inquiry, as its complex interplay of tradition and innovation continues to provoke critical debate within musicology.
 

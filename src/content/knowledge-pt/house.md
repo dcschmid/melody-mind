@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -110,7 +109,7 @@ De forma correlata, os estudos acadêmicos têm enfatizado a importância de uma
 
 Em suma, a articulação entre as figuras-chave e as obras significativas do House reflete não apenas a inovação estética e técnica do gênero, mas também seu potencial transformador no âmbito das identidades culturais e das dinâmicas sociais. A trajetória de Frankie Knuckles, Ron Hardy, Jesse Saunders, Marshall Jefferson e demais protagonistas ilustra que o House, enquanto fenômeno musical, é fruto de processos históricos interligados, nos quais a experimentação e a resistência encontram terreno fértil nas periferias urbanas. Assim, a análise acadêmica desses elementos revela a necessidade de uma abordagem que contemple simultaneamente fatores históricos, tecnológicos e socioculturais, promovendo uma compreensão holística e crítica da evolução musical contemporânea.
 
-Em conclusão, o estudo dos principais protagonistas e das obras relevantes do House permite articular uma visão abrangente acerca das transformações que o gênero impôs tanto no cenário musical quanto na esfera cultural. A confrontação crítica entre os elementos técnicos, estéticos e políticos presentes nas produções dos pioneiros do House oferece subsídios para uma compreensão mais profunda das dinâmicas de inovação que definiram os rumos da música eletrônica mundial. Dessa forma, o legado do House se configura como uma síntese dos desafios e conquistas das práticas musicais emergentes, reiterando a importância da historiografia musical na elucidação dos processos que moldaram a cultura contemporânea. 
+Em conclusão, o estudo dos principais protagonistas e das obras relevantes do House permite articular uma visão abrangente acerca das transformações que o gênero impôs tanto no cenário musical quanto na esfera cultural. A confrontação crítica entre os elementos técnicos, estéticos e políticos presentes nas produções dos pioneiros do House oferece subsídios para uma compreensão mais profunda das dinâmicas de inovação que definiram os rumos da música eletrônica mundial. Dessa forma, o legado do House se configura como uma síntese dos desafios e conquistas das práticas musicais emergentes, reiterando a importância da historiografia musical na elucidação dos processos que moldaram a cultura contemporânea.
 
 Total de caracteres: 6267
 

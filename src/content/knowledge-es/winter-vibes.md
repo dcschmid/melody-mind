@@ -17,14 +17,13 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-El estudio de las “Winter Vibes” constituye una aproximación interdisciplinaria en el ámbito musicológico, orientada a comprender la resonancia de las estéticas invernales en un contexto internacional. La configuración sonora de esta categoría se fundamenta en elementos melódicos, armónicos y rítmicos que, desde finales del siglo XIX hasta comienzos del XX, han dialogado con la escenografía gélida y la atmósfera invernal. Compositores europeos y estadounidenses, en un marco de innovaciones técnicas y tradiciones culturales diversas, exploraron texturas sonoras que se integran en un discurso estético y emotivo. 
+El estudio de las “Winter Vibes” constituye una aproximación interdisciplinaria en el ámbito musicológico, orientada a comprender la resonancia de las estéticas invernales en un contexto internacional. La configuración sonora de esta categoría se fundamenta en elementos melódicos, armónicos y rítmicos que, desde finales del siglo XIX hasta comienzos del XX, han dialogado con la escenografía gélida y la atmósfera invernal. Compositores europeos y estadounidenses, en un marco de innovaciones técnicas y tradiciones culturales diversas, exploraron texturas sonoras que se integran en un discurso estético y emotivo.
 
 De igual manera, la convergencia de corrientes artísticas y filosóficas facilitó la creación de repertorios que evocan tanto la melancolía como la esperanza. En este sentido, la aproximación teórica a “Winter Vibes” exige una revisión meticulosa de fuentes primarias y un análisis contextualizado de la evolución técnica, permitiendo dilucidar la interrelación entre la innovadora experimentación compositiva y la expresividad emocional inherente a la experiencia auditiva generada.
 

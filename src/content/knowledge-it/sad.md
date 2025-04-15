@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -138,7 +137,7 @@ Fonti e studi critici (ad es., "La Tristezza come Forma d’Arte" e "Studi sulla
 
 ## Cultural Perspectives
 
-La presente dissertazione intende esplorare, con rigore accademico, la prospettiva culturale inerente al sentimento della tristezza nella musica internazionale, analizzando le sue molteplici declinazioni e il suo impatto nell’evoluzione storica delle pratiche musicali. L’approccio qui adottato si fonda su uno studio sistematico e multidisciplinare, volto a evidenziare come il sentimento malinconico si sia trasformato da espressione individuale a elemento strutturante di movimenti culturali e artistici. In tal senso, le opere e i compositori che hanno saputo rendere con intensità e complessità il mood della tristezza, assumono un ruolo imprescindibile nella definizione di quella che possiamo definire "estetica del dolore". 
+La presente dissertazione intende esplorare, con rigore accademico, la prospettiva culturale inerente al sentimento della tristezza nella musica internazionale, analizzando le sue molteplici declinazioni e il suo impatto nell’evoluzione storica delle pratiche musicali. L’approccio qui adottato si fonda su uno studio sistematico e multidisciplinare, volto a evidenziare come il sentimento malinconico si sia trasformato da espressione individuale a elemento strutturante di movimenti culturali e artistici. In tal senso, le opere e i compositori che hanno saputo rendere con intensità e complessità il mood della tristezza, assumono un ruolo imprescindibile nella definizione di quella che possiamo definire "estetica del dolore".
 
 Nel contesto dell’Europa del XIX secolo, il sentimento malinconico si esprimeva in maniera preponderante nella musica sinfonica e nell’arte del Lamento, in cui compositori quali Schubert e Chopin svilupparono opere capaci di comunicare un profondo senso di nostalgia e solitudine. La musica romantica, infatti, si caratterizza per un’intensa espressività emotiva, che attraversa archi sonori, armonie e contrappunti, e si configura come risposta all’epoca dei grandi turbamenti sociali e ideologici. La figura del compositore-romantico si fa emblematicamente portatrice di un ideale poetico in cui il dolore esistenziale e le sofferenze intime vengono trasposti in composizioni musicali, aprendo la strada a successive riflessioni critiche sul rapporto tra arte e vita. In aggiunta, questo periodo è segnato dall’introduzione di nuove tecnologie di stampa musicale e di meccanismi di diffusione, che contribuirono a rendere accessibili al pubblico opere prima riservate a un’élite culturale.
 

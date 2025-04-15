@@ -15,16 +15,15 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Blackened Death Metal is een subgenre dat zijn oorsprong vindt in de kruisbestuiving tussen de esthetische en muzikale kenmerken van death metal en black metal. Deze hybride stijl ontstond in de vroege jaren negentig, een periode waarin de intensieve precisie van death metal – met wortels in de late jaren tachtig – en de atmosfeer van black metal – sterk beïnvloed door de Noorse scene – elkaar wederzijds begonnen te beïnvloeden. 
+Blackened Death Metal is een subgenre dat zijn oorsprong vindt in de kruisbestuiving tussen de esthetische en muzikale kenmerken van death metal en black metal. Deze hybride stijl ontstond in de vroege jaren negentig, een periode waarin de intensieve precisie van death metal – met wortels in de late jaren tachtig – en de atmosfeer van black metal – sterk beïnvloed door de Noorse scene – elkaar wederzijds begonnen te beïnvloeden.
 
-De technologische vernieuwingen in de jaren negentig, met name op het gebied van opname- en reproductietechnieken, droegen bij aan de verdere ontwikkeling en internationalisering van deze subcultuur. De globalisering en de toenemende uitwisseling van culturele invloeden vormden een vruchtbare grond voor de evolutie van dit genre, dat zowel technisch innovatief als esthetisch uitdagend is. 
+De technologische vernieuwingen in de jaren negentig, met name op het gebied van opname- en reproductietechnieken, droegen bij aan de verdere ontwikkeling en internationalisering van deze subcultuur. De globalisering en de toenemende uitwisseling van culturele invloeden vormden een vruchtbare grond voor de evolutie van dit genre, dat zowel technisch innovatief als esthetisch uitdagend is.
 
 Deze studie belicht de historische ontwikkeling van Blackened Death Metal en onderstreept daarmee de blijvende impact op de internationale muziekscene en de kritische benadering van muzikale expressie binnen deze dynamische periode.
 
@@ -168,7 +167,7 @@ Samenvattend kan worden gesteld dat de live cultuur en podiumperformance binnen 
 
 ## Development and Evolution
 
-De ontwikkeling van de subcategorie “blackened death metal” vertegenwoordigt een interessant voorbeeld van muzikale hybridevorming waarin twee extreme metaltradities samenkomen en een geheel nieuw sonisch landschap creëren. Deze stijl, die zich in de jaren negentig in internationale kring ontwikkelde, combineert de ruwe intensiteit en technische complexiteit van death metal met de donkere, atmosferische elementen en ideologische immanentie kenmerkend voor black metal. Het resultaat is een genre dat zowel muzikale als ideologische elementen overstijgt en daarmee een unieke plaats inneemt in het hedendaagse extreme metalrepertoire. 
+De ontwikkeling van de subcategorie “blackened death metal” vertegenwoordigt een interessant voorbeeld van muzikale hybridevorming waarin twee extreme metaltradities samenkomen en een geheel nieuw sonisch landschap creëren. Deze stijl, die zich in de jaren negentig in internationale kring ontwikkelde, combineert de ruwe intensiteit en technische complexiteit van death metal met de donkere, atmosferische elementen en ideologische immanentie kenmerkend voor black metal. Het resultaat is een genre dat zowel muzikale als ideologische elementen overstijgt en daarmee een unieke plaats inneemt in het hedendaagse extreme metalrepertoire.
 
 De oorsprong van death metal is geworteld in de experimentele metalbewegingen die zich eind jaren tachtig in de Verenigde Staten en West-Europa manifesteerden. Bands als Death en Morbid Angel, met hun innovatieve benadering van extreme ritmesecties, complexe gitaarpartijen en agressieve growls, legden de basis voor een sonische intensiteit die in latere ontwikkelingen in diverse regionale varianten weerklank vond. Tegelijkertijd behept de opbloei van black metal, vooral in de beginjaren van de negentiende eeuw in Scandinavië, de muziek met een mystieke sfeer en een vaak provocerende symboliek die in directe tegenstelling stond tot de hedonistische tendensen van andere metalstromingen.
 

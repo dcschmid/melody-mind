@@ -16,16 +16,15 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
 Kansainvälisen rockmusiikin juuret ulottuvat 1950-luvun Yhdysvaltoihin, missä eri tyylilajien – kuten bluesin, countryn ja rhythm & bluesin – sulautuminen loi uusia, energisiä ilmaisutapoja. Rock 'n' rollin nousu edusti musiikkikulttuurin merkittävää murrosta, sillä se haastoi perinteiset suosikkimuodot ja toi mukanaan nuoruuden kapinaan liittyvän estetiikan. Esimerkiksi Elvis Presleyn ja Chuck Berry:n ura on keskeinen osoitus siitä, miten teknologiset ja esitykselliset innovaatiot aloittivat uuden aikakauden äänimaailmassa.
 
-1960-luvulla rock saavutti entistä laajemman kansainvälisen ulottuvuuden, kun Britannian yhtyeet, kuten The Beatles ja The Rolling Stones, muovasivat genren ilmiömäiseksi kulttuurisuunnaksi. Aikakauden yhteiskunnalliset ja poliittiset muutokset heijastuivat samalla musiikin harmonisiin ja rytmisiin kokeiluihin, joihin vaikutti muun muassa stereoäänentoiston käyttöönotto. 
+1960-luvulla rock saavutti entistä laajemman kansainvälisen ulottuvuuden, kun Britannian yhtyeet, kuten The Beatles ja The Rolling Stones, muovasivat genren ilmiömäiseksi kulttuurisuunnaksi. Aikakauden yhteiskunnalliset ja poliittiset muutokset heijastuivat samalla musiikin harmonisiin ja rytmisiin kokeiluihin, joihin vaikutti muun muassa stereoäänentoiston käyttöönotto.
 
 Lisäksi rockin moninaisuus on säilynyt sen evoluution kautta, mikä edistää jatkuvaa dialogia perinteiden ja modernin ilmaisun välillä. Genren sisäinen teoreettinen rikkaus sekä virtuoosallinen instrumentaatio tarjoavat paitsi syvällistä analyysialustaa, myös inspiraatiota laajalle yleisölle.
 

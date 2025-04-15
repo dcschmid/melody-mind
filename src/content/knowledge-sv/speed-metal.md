@@ -16,14 +16,13 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Snabbmetall är en distinkt gren inom internationell tungmusik som utvecklades under tidigt 1980-tal. Denna genre kännetecknas av exceptionellt höga tempotakt, tekniskt avancerade gitarrslingor samt trumslag av hög intensitet, vilka tillsammans utgör ett paradigmskifte från den tidigare heavy metal-traditionen. Utvecklingen av snabbmetall möjliggjordes genom teknologiska framsteg inom inspelning och förstärkning, vilka underlättade en ny nivå av precision i framförandet. 
+Snabbmetall är en distinkt gren inom internationell tungmusik som utvecklades under tidigt 1980-tal. Denna genre kännetecknas av exceptionellt höga tempotakt, tekniskt avancerade gitarrslingor samt trumslag av hög intensitet, vilka tillsammans utgör ett paradigmskifte från den tidigare heavy metal-traditionen. Utvecklingen av snabbmetall möjliggjordes genom teknologiska framsteg inom inspelning och förstärkning, vilka underlättade en ny nivå av precision i framförandet.
 
 Historiskt sett präglades musikscenen av en strävan efter att tänja på de musikaliska gränserna, där internationella band med rötter i brittisk och amerikansk heavy metal utgjorde en inspirationskälla. Den snabba musikens estetiska och tekniska ideal följde en logisk utveckling gentemot samtida musikströmmar, vilka sedermera kom att påverka den globala musikindustrin. Genren erbjuder således ett intressant fält för musikvetenskaplig analys, där harmoniska strukturer och rytmiska mönster tydligt reflekterar en kulturell och teknologisk omvälvning.
 

@@ -17,20 +17,19 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Under sent 1960-tal och tidigt 1970-tal framträdde krautrock som en nydanande musikform i Västtyskland. Rörelsen, som präglades av en experimentell och improvisatorisk ansats, utmanade dåtidens konventionella musikaliska strukturer. Band som Can och Faust etablerade ett sound där minimalistiska teman sammanflätades med psykedeliska uttryck, något som gav upphov till en originell sonoritet fri från traditionella normer. 
+Under sent 1960-tal och tidigt 1970-tal framträdde krautrock som en nydanande musikform i Västtyskland. Rörelsen, som präglades av en experimentell och improvisatorisk ansats, utmanade dåtidens konventionella musikaliska strukturer. Band som Can och Faust etablerade ett sound där minimalistiska teman sammanflätades med psykedeliska uttryck, något som gav upphov till en originell sonoritet fri från traditionella normer.
 
 Vidare bidrog krautrock till en internationell dialog genom att influera samtida och senare progressiva och elektroniska musikströmningar. Denna stilistiska utveckling, som påverkades av både tekniska innovationer och en kritisk inställning till kommersiella ideal, manade till en strävan efter konstnärlig autenticitet. Kulturen kring krautrock utgör därmed en betydelsefull brygga mellan musikvetenskapliga idéer och den experimentella musikens globala spridning.
 
 ## Historical Background
 
-Historisk bakgrund för den internationella musikkategorin "Krautrock" utgör en central del i förståelsen av de nya musikaliska experimenten som manade fram en omvälvande brytning med den då rådande populära musiktraditionen i Västtyskland under sena 1960-talet och framåt. Utifrån de musikvetenskapliga perspektiven uppstår intresset för denna genre i ljuset av en period där kulturella, sociala och politiska omvälvningar präglade den eklektiska strävan efter nyskapande. Det är av vikt att betona att Krautrock inte enbart utgör ett musikaliskt begrepp utan även fungerar som en kulturell och ideologisk markör, vilken illustrerar en vilja att distansera sig från västerländska kommersiella uttryck och konventionella tolkningar av populärmusiken.  
+Historisk bakgrund för den internationella musikkategorin "Krautrock" utgör en central del i förståelsen av de nya musikaliska experimenten som manade fram en omvälvande brytning med den då rådande populära musiktraditionen i Västtyskland under sena 1960-talet och framåt. Utifrån de musikvetenskapliga perspektiven uppstår intresset för denna genre i ljuset av en period där kulturella, sociala och politiska omvälvningar präglade den eklektiska strävan efter nyskapande. Det är av vikt att betona att Krautrock inte enbart utgör ett musikaliskt begrepp utan även fungerar som en kulturell och ideologisk markör, vilken illustrerar en vilja att distansera sig från västerländska kommersiella uttryck och konventionella tolkningar av populärmusiken.
 
 Under efterkrigstiden framstod Västtyskland som ett land i snabba återuppbyggnadsprocesser, där intellektuella och konstnärliga strömningar utmanade de traditionella normerna. I detta sammanhang hade den amerikanska och brittiska rockens inflytande spelat en betydelsefull roll, vilket med tiden motiverade inhemska musiker att experimentera med strukturer, improvisation och tonala texturer utanför den etablerade schizofrenin. Samtidigt bidrog den politiska kritiken mot kommersialismen och en önskan om att övervinna kulturella begränsningar till att utmana rådande musikaliska konventioner. Genom dessa kreativa processer utvecklades en distinkt identitet som kom att definiera Krautrock som en form av progressiv och avantgardistisk rockmusik med en stark koppling till samtidens samhällskritiska strömningar.
 

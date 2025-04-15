@@ -15,16 +15,15 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
 Introduction
 
-The 'Angry' category within international music comprises a diverse spectrum of works distinguished by their deliberate expression of vehement emotion. Historically, the genre has embodied a response to socio‐political challenges, with early antecedents traceable to classical compositions by figures such as Beethoven, whose intense modulations and dynamic contrasts conveyed sentiments of profound agitation. 
+The 'Angry' category within international music comprises a diverse spectrum of works distinguished by their deliberate expression of vehement emotion. Historically, the genre has embodied a response to socio‐political challenges, with early antecedents traceable to classical compositions by figures such as Beethoven, whose intense modulations and dynamic contrasts conveyed sentiments of profound agitation.
 
 In the mid‐twentieth century, musical pioneers from various nations adopted dissonant harmonic structures, aggressive rhythmic patterns and cutting-edge recording technologies to articulate dissent and individual defiance. Such innovations, intertwined with the evolving global cultural milieu, have enabled anger to serve as a potent vehicle for both personal catharsis and societal commentary.
 

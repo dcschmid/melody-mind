@@ -16,16 +16,15 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Garage-musiikin käsite juontaa juurensa Yhdysvalloista 1960-luvun puolivälissä, jolloin nuoret yhtyeet harjoittelivat epätavallisissa tiloissa, usein autojen varjossa sijaitsevissa autotalleissa. Ilmiön kehittyminen yhteensopii ajan nuorison kokemuksen autenttisuuden ja kokeellisuuden ihanteiden kanssa. Garage-musiikki muodostaa raakoja ja matalaläpäiseviä ääniraitoja, joissa korostuvat yksinkertaiset sointukulut ja improvisoidut rytmit. 
+Garage-musiikin käsite juontaa juurensa Yhdysvalloista 1960-luvun puolivälissä, jolloin nuoret yhtyeet harjoittelivat epätavallisissa tiloissa, usein autojen varjossa sijaitsevissa autotalleissa. Ilmiön kehittyminen yhteensopii ajan nuorison kokemuksen autenttisuuden ja kokeellisuuden ihanteiden kanssa. Garage-musiikki muodostaa raakoja ja matalaläpäiseviä ääniraitoja, joissa korostuvat yksinkertaiset sointukulut ja improvisoidut rytmit.
 
-Keskustelun näkökulmasta kyseessä on kulttuurinen ilmiö, joka vastustaa kaupallistuneen musiikkiteollisuuden muotoutuneita normeja. Yhtyeet, kuten The Sonics ja The Seeds, edustavat tätä kokeellista lähestymistapaa ja eivät pelänneet rikkoa perinteisiä musiikillisia rakenteita. Samalla ilmiö heijastaa aikakauden sosiaalisia ja taloudellisia vaikutteita, jotka ohjasivat nuorisoa kohti itsenäisempää ilmaisua. 
+Keskustelun näkökulmasta kyseessä on kulttuurinen ilmiö, joka vastustaa kaupallistuneen musiikkiteollisuuden muotoutuneita normeja. Yhtyeet, kuten The Sonics ja The Seeds, edustavat tätä kokeellista lähestymistapaa ja eivät pelänneet rikkoa perinteisiä musiikillisia rakenteita. Samalla ilmiö heijastaa aikakauden sosiaalisia ja taloudellisia vaikutteita, jotka ohjasivat nuorisoa kohti itsenäisempää ilmaisua.
 
 Lisäksi garage-musiikki on vaikuttanut laajalti kansainväliseen musiikkiperinteeseen, edistäen autenttisuuden, luovuuden ja kokeellisuuden arvoja. Tämä historiallinen kehityskulku on jättänyt pysyvän jäljen musiikilliseen diskurssiin.
 

@@ -16,10 +16,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -63,7 +62,7 @@ Telkens meer werd duidelijk dat muzikale expressie in de Romantiek niet louter e
 
 ## Key Elements and Techniques
 
-De romantische periode, ruwweg gesitueerd tussen het begin van de 19e eeuw en het begin van de 20e eeuw, wordt gekenmerkt door een intense expressiviteit en een vernieuwend gebruik van muzikale elementen en technieken. Centraal in deze periode staat het streven naar het uitdrukken van diepe emoties en individuele beleving, hetgeen resulteerde in composities die zowel in hun thematiek als in hun structuur afwijken van de klassieke norm. De muzikale taal werd doordrenkt met symboliek, waarbij componisten als Hector Berlioz, Richard Wagner, Franz Liszt, Robert Schumann en Frédéric Chopin de grenzen verlegden van de conventionele harmonie en contrapuntische methoden. 
+De romantische periode, ruwweg gesitueerd tussen het begin van de 19e eeuw en het begin van de 20e eeuw, wordt gekenmerkt door een intense expressiviteit en een vernieuwend gebruik van muzikale elementen en technieken. Centraal in deze periode staat het streven naar het uitdrukken van diepe emoties en individuele beleving, hetgeen resulteerde in composities die zowel in hun thematiek als in hun structuur afwijken van de klassieke norm. De muzikale taal werd doordrenkt met symboliek, waarbij componisten als Hector Berlioz, Richard Wagner, Franz Liszt, Robert Schumann en Frédéric Chopin de grenzen verlegden van de conventionele harmonie en contrapuntische methoden.
 
 De harmonische verkenningen tijdens de romantiek worden gekenmerkt door een uitgebreid gebruik van chromatiek en onverwachte modulaties. Deze ontwikkeling vormde een reactie op de rigide tonale structuren van de klassieke periode, en trad in een nieuwe fase van expressieve complexiteit. Componisten suchten naar harmonische ‘kleuren’ die een emotionele lading konden verstrekken: dissonanties werden aangewend als middelen om spanning te creëren, welke vervolgens leidde tot verrassende resoluties. Tevens speelde heterofonie, het combineren van verschillende melodische lijnen met subtiele verschillen, een rol in de harmonische textuur van sommige composities, waardoor een gelaagde en dynamische klankstructuur ontstond.
 
@@ -103,7 +102,7 @@ Samenvattend markeert de historische ontwikkeling van de Romantische muziekperio
 
 ## Notable Works and Artists
 
-De Romantiek, welke zich hoofdzakelijk uitstrekte over de eerste decennia van de negentiende eeuw tot het begin van de twintigste eeuw, kenmerkt zich door een intensivering van de individuele expressie en een vernieuwende benadering van muzikale tradities. Binnen dit complex spectrum van artistieke ontwikkeling hebben komponisten en muzikanten een oeuvre nagelaten dat zich kenmerkt door zowel de uitbreiding van harmonische en thematische mogelijkheden als de integratie van nationale en folkloristische elementen in hun composities. In deze context wordt het kunstlied in de werken van Franz Schubert beschouwd als een mijlpaal dankzij de verfijnde synthese van poëzie en muziek, wat de basis legde voor de ontwikkeling van de symfonische en kamer-muziekvormen in de latere periode van de Romantiek.  
+De Romantiek, welke zich hoofdzakelijk uitstrekte over de eerste decennia van de negentiende eeuw tot het begin van de twintigste eeuw, kenmerkt zich door een intensivering van de individuele expressie en een vernieuwende benadering van muzikale tradities. Binnen dit complex spectrum van artistieke ontwikkeling hebben komponisten en muzikanten een oeuvre nagelaten dat zich kenmerkt door zowel de uitbreiding van harmonische en thematische mogelijkheden als de integratie van nationale en folkloristische elementen in hun composities. In deze context wordt het kunstlied in de werken van Franz Schubert beschouwd als een mijlpaal dankzij de verfijnde synthese van poëzie en muziek, wat de basis legde voor de ontwikkeling van de symfonische en kamer-muziekvormen in de latere periode van de Romantiek.
 
 In de loop van deze periode werd het gebruik van harmonieën, ritmes en muzikale vormen aanzienlijk vernieuwd. Ludwig van Beethoven, wiens late werken vaak tot de inspiratiebron voor de Romantische esthetiek worden gerekend, overbrugde in wezen de overgang tussen de klassieke en romantische idealen. Zijn negende symfonie, met de integratie van vocale elementen in een symfonisch kader, getuigt van de ambitie om muzikale taal te verbinden met universele idealen en heeft een blijvende invloed uitgeoefend op tussentijdse en toekomstige generaties. Opmerkelijk is de wijze waarop Beethoven een emotioneel en ideëel wereldbeeld wist te verbeelden, hetgeen de daaropvolgende kunstenaars aanspoorde tot een zoektocht naar authenticiteit en het overschrijden van formele conventies.
 

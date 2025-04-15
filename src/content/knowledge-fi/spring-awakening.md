@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -50,7 +49,7 @@ Yhteenvetona voidaan todeta, että Spring Awakening on paljon muutakin kuin pelk
 
 ## Musical Characteristics
 
-Musiikkikategorian “Spring Awakening” analyysi pohjautuu sen monipuoliseen musiikilliseen ilmaisuihin, jotka ovat muodostuneet tiiviissä vuorovaikutuksessa teatterin, populaarimusiikin ja rockin perinteiden kanssa. Tämä ilmiö on erityisesti varautunut modernin musikaalielokuvan ja teatterin kentälle, jolloin luovuus ja musiikillinen kokeellisuus ovat muodostaneet keskeiset identiteetin piirteet. Analyysi voidaan jäsentää useisiin osa-alueisiin, kuten melodiseen kehitykseen, rytmiseen monimuotoisuuteen, harmonisen kielen käytännön ilmaisuun sekä sanoitustekstien ja musiikillisten elementtien vuoropuheluun. 
+Musiikkikategorian “Spring Awakening” analyysi pohjautuu sen monipuoliseen musiikilliseen ilmaisuihin, jotka ovat muodostuneet tiiviissä vuorovaikutuksessa teatterin, populaarimusiikin ja rockin perinteiden kanssa. Tämä ilmiö on erityisesti varautunut modernin musikaalielokuvan ja teatterin kentälle, jolloin luovuus ja musiikillinen kokeellisuus ovat muodostaneet keskeiset identiteetin piirteet. Analyysi voidaan jäsentää useisiin osa-alueisiin, kuten melodiseen kehitykseen, rytmiseen monimuotoisuuteen, harmonisen kielen käytännön ilmaisuun sekä sanoitustekstien ja musiikillisten elementtien vuoropuheluun.
 
 Melodian osalta “Spring Awakening” korostaa niin lyyrisiä kuin dynaamisia piirteitä. Teoksen tutkimuksissa on havaittu, että melodiset linjat pyrkivät tasapainottamaan perinteisiä teatterimelodioiden elementtejä modernimman rock-musiikin improvisatoriseen luonteeseen. Tämä yhteensulautuminen takaa, että teoksen kokonaisvaltainen ilmaisu – vaikka juuret ovat eräänlaisessa konservatiivisessa musikaalisuudessa – palvelee progressiivista taiteellista etsintää. Samalla melodiassa on havaittavissa systemaattisia variaatioita, jotka ilmenevät toistuvina teemoina ja niiden kehityksenä, mikä tarjoaa kuulijalle mahdollisuuden eri tasojen ymmärtämiseen.
 

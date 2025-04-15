@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -144,7 +143,7 @@ La revolución tecnológica, iniciada a mediados del siglo XX y consolidada en e
 
 Por otra parte, la recepción cultural del género “Autumn Chill” enfatiza la necesidad de una aproximación multidisciplinaria que incluya tanto la musicología analítica como la semiótica. Las composiciones que se insertan en este subgénero no solamente actúan como vehículos de expresión emotiva, sino que también invitan a reflexionar sobre la relación entre el oyente y el tiempo, la memoria y la identidad. De esta manera, se consolidan vínculos entre el espacio acustico y las experiencias personales, estableciendo un diálogo que trasciende la mera apreciación estética y que demanda una interpretación crítica. Esta perspectiva resulta especialmente relevante cuando se abordan cuestiones vinculadas a la psicología de la percepción musical y a la forma en la que el oyente construye narrativas internas a partir de la información sonora.
 
-La integración de elementos visuales y sonoros en las modernas interpretaciones de “Autumn Chill” constituye otro aspecto relevante en el análisis actual. La interacción entre música, imágenes e instalaciones artísticas ha permitido brindar nuevas dimensiones a la experiencia auditiva, generándose sinergias que potencian la carga emocional de las composiciones. En contextos exhibicionales y de performance, la combinación de recursos multimedia enfatiza el carácter efímero y mutable del tiempo, reclamando a la imprevisibilidad de la existencia cotidiana. Esta multidimensionalidad en la puesta en escena del género se encuentra en diálogo constante con las propuestas de la música contemporánea, cuya trascendencia se amplifica mediante la interrelación de lenguajes artísticos diversos. 
+La integración de elementos visuales y sonoros en las modernas interpretaciones de “Autumn Chill” constituye otro aspecto relevante en el análisis actual. La interacción entre música, imágenes e instalaciones artísticas ha permitido brindar nuevas dimensiones a la experiencia auditiva, generándose sinergias que potencian la carga emocional de las composiciones. En contextos exhibicionales y de performance, la combinación de recursos multimedia enfatiza el carácter efímero y mutable del tiempo, reclamando a la imprevisibilidad de la existencia cotidiana. Esta multidimensionalidad en la puesta en escena del género se encuentra en diálogo constante con las propuestas de la música contemporánea, cuya trascendencia se amplifica mediante la interrelación de lenguajes artísticos diversos.
 
 Asimismo, resulta imprescindible abordar el impacto que las nuevas tecnologías tienen sobre la difusión y recepción del género “Autumn Chill”. La proliferación de plataformas digitales y de redes sociales ha permitido que las composiciones lleguen a un público cada vez más amplio, facilitando el intercambio entre creadores y receptores de la música. De igual forma, la digitalización ha propiciado la emergencia de comunidades virtuales que comparten una identidad cultural a partir de la música ambiental y la estética otoñal, lo que se traduce en una dinámica colaborativa de creación y apreciación. Este fenómeno, estudiado en recientes investigaciones académicas, evidencia la capacidad de la tecnología para transformar las estrategias de producción y difusión en el ámbito musical.
 

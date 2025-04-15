@@ -16,10 +16,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -129,7 +128,7 @@ Naast de prominente artiesten trachtte rockabilly als cultureel fenomeen diverse
 
 De muzikale structuur van rockabilly, gekenmerkt door een krachtige baslijn, twangende gitaren en soms spaarzame, maar doeltreffende percussie, weerspiegelt tevens de voortdurende zoektocht naar een nieuwe, authentieke expressie in de muziek. De instrumentale technieken en ritmische patronen, die voortkwamen uit een combinatie van blues en country, werden door latere generaties min of meer overgenomen en aangepast, wat de manier waarop muziek werd benaderd op internationaal niveau radicaal veranderde. Deze muzikale vernieuwing beïnvloedde eveneens de opbouw van latere genres, zoals rock-'n-roll en zelfs hedendaagse alternatieve vormen van rock, en vormde de basis voor een bredere culturele revolutie waarin traditie en innovatie hand in hand gingen.
 
-De relevante culturele context waarin rockabilly ontstond, kan tevens worden verklaard door de impact van economisch herstel en technologische vooruitgang, die de verspreiding van nieuwe muziekstijlen aanzienlijk bevorderden. De opkomst van elektrische instrumenten en verbeterde opnametechnologieën in de jaren vijftig maakte het mogelijk dat de rauwe energie en spontaniteit van liveconcerten ook in studioproducties kon worden vastgelegd. Deze technische vooruitgang bood een platform voor experimentele en grensoverschrijdende muzikale producties, waarbij de subtiele wisselwerking tussen traditionele volksmuziek en invloeden uit de zwarte muziektraditie duidelijk naar voren kwam. De toegankelijkheid van de radio als massamedium versterkte deze ontwikkelingen, waardoor rockabilly niet slechts een lokaal fenomeen bleef, maar internationale weerklank vond. 
+De relevante culturele context waarin rockabilly ontstond, kan tevens worden verklaard door de impact van economisch herstel en technologische vooruitgang, die de verspreiding van nieuwe muziekstijlen aanzienlijk bevorderden. De opkomst van elektrische instrumenten en verbeterde opnametechnologieën in de jaren vijftig maakte het mogelijk dat de rauwe energie en spontaniteit van liveconcerten ook in studioproducties kon worden vastgelegd. Deze technische vooruitgang bood een platform voor experimentele en grensoverschrijdende muzikale producties, waarbij de subtiele wisselwerking tussen traditionele volksmuziek en invloeden uit de zwarte muziektraditie duidelijk naar voren kwam. De toegankelijkheid van de radio als massamedium versterkte deze ontwikkelingen, waardoor rockabilly niet slechts een lokaal fenomeen bleef, maar internationale weerklank vond.
 
 Hoewel rockabilly in eerste instantie in de Verenigde Staten werd geconstrueerd, is het fenomeen onmiskenbaar wereldwijd geëvolueerd. In Europa bijvoorbeeld vond het genre resonantie in de context van naoorlogse wederopbouw, waarbij jongeren en muziekliefhebbers trouw bleven aan de rebellie en de energie van de oorspronkelijke rockabilly-beweging. Het genre fungeerde als een culturele brug, die niet alleen artistieke vernieuwing symboliseerde, maar tevens de universele zoektocht naar individuele expressie en autonomie in een veranderende wereld illustreerde. In dit opzicht vertegenwoordigt rockabilly een blijvend monument van muzikale experimentele moed en dient het als een referentiepunt voor latere, ambitieuze muzikale bewerkingen.
 

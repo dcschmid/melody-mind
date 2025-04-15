@@ -16,14 +16,13 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Samban utgör en central musikgenre vars utveckling kan spåras tillbaka till de afro-brasilianska samhällena i Rio de Janeiros favelor under början av 1900-talet. Genom en sammansmältning av afrikanska trumrytmer, religiösa ceremonier och europeiska melodiska influenser utgjorde samban en ny musikalisk syntes med distinkta polyrytmiska strukturer och komplexa harmoniska samband. Denna stilbildning påverkades starkt av den samtida urbaniseringens dynamik samt de tekniska framsteg som möjliggjorde förstärkning och inspelning av de traditionella uttrycksformerna. 
+Samban utgör en central musikgenre vars utveckling kan spåras tillbaka till de afro-brasilianska samhällena i Rio de Janeiros favelor under början av 1900-talet. Genom en sammansmältning av afrikanska trumrytmer, religiösa ceremonier och europeiska melodiska influenser utgjorde samban en ny musikalisk syntes med distinkta polyrytmiska strukturer och komplexa harmoniska samband. Denna stilbildning påverkades starkt av den samtida urbaniseringens dynamik samt de tekniska framsteg som möjliggjorde förstärkning och inspelning av de traditionella uttrycksformerna.
 
 Vidare har samban utvecklats till ett globalt kulturellt fenomen som, i sin internationella spridning, kommit att symbolisera Brazilian identitet och motståndskraft. De grundläggande musikaliska elementen, såsom aksentuerade taktarter och överlagda rytmiska mönster, illustrerar en stark koppling till de afrikanska musiktraditionerna. Dessutom har sambans utveckling främjats genom en kontinuerlig interaktion mellan tradition och modernitet, vilket framhäver de historiska rötternas betydelse i den ständigt föränderliga globala musikvärlden.
 

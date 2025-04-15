@@ -17,10 +17,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Inleiding
 
@@ -176,7 +175,7 @@ Samenvattend vormt de combinatie van academisch onderwijs en gestructureerde ond
 
 De Mexicaanse muziek kent sinds haar ontstaan een dynamische interactie met internationale invloeden, hetgeen een intrinsiek onderdeel vormt van haar culturele en muzikale identiteit. Vanaf de koloniale periode werd de inheemse muzikale traditie getransformeerd door Europese invloeden, waarbij Spaanse melodieën, harmonieën en instrumentale technieken betekenisvolle accenten verleenden aan de lokale muziek. Deze kruisbestuiving werd verder versterkt door de introductie van nieuwe instrumenten, zoals de gitaar en de viool, die de muzikale structuur en de uitvoeringspraktijken op unieke wijze hervormden. Bovendien werd deze culturele synthese gekenmerkt door een voortdurende onderhandeling tussen behoud van inheemse ritmes en het integreren van Europese muzikale conventies.
 
-In de negentiende eeuw breidde de Mexicaanse muziek verder haar internationale verbindingen uit, mede door de politieke en sociale veranderingen die het land doormaakte. De invloed van de romantiek uit Europa werd hieronder niet onbenoemd gelaten, hetgeen tot uiting kwam in composities die zowel een emotionele diepgang als een complexe harmonische structuur toonden. Tegelijkertijd zorgde de culturele uitwisseling met de Verenigde Staten voor de introductie van nieuwe muzikale genres, die weer in hun beurt het muzikale palet verrijkten. De transactie van muzikale ideeën was in deze periode subtiel en wederkerig, waarbij componisten en uitvoerders de neiging vertoonden om zowel traditionele als vernieuwende elementen in hun werk op te nemen. 
+In de negentiende eeuw breidde de Mexicaanse muziek verder haar internationale verbindingen uit, mede door de politieke en sociale veranderingen die het land doormaakte. De invloed van de romantiek uit Europa werd hieronder niet onbenoemd gelaten, hetgeen tot uiting kwam in composities die zowel een emotionele diepgang als een complexe harmonische structuur toonden. Tegelijkertijd zorgde de culturele uitwisseling met de Verenigde Staten voor de introductie van nieuwe muzikale genres, die weer in hun beurt het muzikale palet verrijkten. De transactie van muzikale ideeën was in deze periode subtiel en wederkerig, waarbij componisten en uitvoerders de neiging vertoonden om zowel traditionele als vernieuwende elementen in hun werk op te nemen.
 
 Verder speelt het tijdperk van de industriële revolutie, dat aan de ene kant technologische vooruitgang en verslaggeving van muzikale evenementen mogelijk maakte, een cruciale rol in het vestigen van internationale verbindingen binnen de Mexicaanse muziekscene. Door de opkomst van opnames en later de radio, werden regionale stijlen zoals mariachi, corrido en ranchera niet alleen binnen Mexica's landsgrenzen verspreid, maar ook internationaal herkend. Opmerkelijk is dat componisten, zoals bijvoorbeeld Manuel Ponce, zich actief lieten inspireren door Europese compositietradities, hetgeen resulteerde in werken die de traditionele Mexicaanse muzikale elementen combineerden met academische, westerse compositietechnieken. In deze periode werd de musique de salon net zo geacht als volksmuziek, hetgeen de complexiteit van de culturele uitwisseling weerspiegelde.
 

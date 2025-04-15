@@ -17,16 +17,15 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Coregrind utgör en internationellt anerkänd undergenre inom extrem metal, vilken utvecklades i kölvattnet av 1980-talets experimentella rörelser och förstärktes under 1990-talets början. Genren karakteriseras av en syntes av hårdrockens aggressiva intensitet och grindcorets minutiösa, snabba takter, vilket medför en unik musikalisk komplexitet. 
+Coregrind utgör en internationellt anerkänd undergenre inom extrem metal, vilken utvecklades i kölvattnet av 1980-talets experimentella rörelser och förstärktes under 1990-talets början. Genren karakteriseras av en syntes av hårdrockens aggressiva intensitet och grindcorets minutiösa, snabba takter, vilket medför en unik musikalisk komplexitet.
 
-Under genrens framväxt påverkades den av banbrytande band från olika kontinenter, där exempelvis brittiska grupper integrerade radikala politiska och sociala budskap med tekniskt avancerade rytmiska mönster. Denna internationella samverkan förstärktes genom parallella utvecklingsprocesser i Nordamerika och Europa, där musikaliska influenser och teknologiska innovationer bidrog till en ständigt föränderlig estetik. 
+Under genrens framväxt påverkades den av banbrytande band från olika kontinenter, där exempelvis brittiska grupper integrerade radikala politiska och sociala budskap med tekniskt avancerade rytmiska mönster. Denna internationella samverkan förstärktes genom parallella utvecklingsprocesser i Nordamerika och Europa, där musikaliska influenser och teknologiska innovationer bidrog till en ständigt föränderlig estetik.
 
 Sammantaget erbjuder studiet av Coregrind en fascinerande inblick i hur globalt utbyte, kulturella strömningar samt tekniska framsteg samverkade för att forma en genre präglad av rigorös disciplin och experimentell nyskapande kraft.
 

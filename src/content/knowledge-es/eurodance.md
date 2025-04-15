@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -95,7 +94,7 @@ En conclusión, el estudio del Eurodance desde una perspectiva académica exige 
 
 ## Technical Aspects
 
-A lo largo de la década de 1990 se consolida la Eurodance como un subgénero fundamental dentro de la música electrónica, caracterizado por la combinación de elementos sintéticos y rítmicos que facilitan la creación de una atmósfera bailable. En los contextos culturales de Europa, la irrupción de nuevas tecnologías y la sistematización del uso de instrumentos electrónicos permitieron una producción musical que transciende barreras culturales y geográficas. Es menester recordar que la evolución técnica de este estilo se sustenta en innovaciones previas, en particular las desarrolladas en la música disco y el Hi-NRG, que abrieron caminos al uso intensivo de sintetizadores y cajas de ritmos programables, configurando un discurso sonoro propio del periodo y su geografía. 
+A lo largo de la década de 1990 se consolida la Eurodance como un subgénero fundamental dentro de la música electrónica, caracterizado por la combinación de elementos sintéticos y rítmicos que facilitan la creación de una atmósfera bailable. En los contextos culturales de Europa, la irrupción de nuevas tecnologías y la sistematización del uso de instrumentos electrónicos permitieron una producción musical que transciende barreras culturales y geográficas. Es menester recordar que la evolución técnica de este estilo se sustenta en innovaciones previas, en particular las desarrolladas en la música disco y el Hi-NRG, que abrieron caminos al uso intensivo de sintetizadores y cajas de ritmos programables, configurando un discurso sonoro propio del periodo y su geografía.
 
 En lo que respecta a la instrumentación, la Eurodance se caracteriza por la utilización prominente de sintetizadores analógicos y digitales, secuenciadores electrónicos y máquinas de ritmos, lo que posibilitó la creación de líneas melódicas sencillas pero pegajosas y bases percusivas enérgicas. Asimismo, la incorporación de samples y loops, procedentes de otros géneros musicales, confiere a la música un grado adicional de versatilidad y riqueza textural. La integración de voces procesadas a través de efectos de reverberación y ecualización destaca por la claridad del mensaje, en tanto que se busca un equilibrio entre la melodía y el ritmo. Estas características técnicas permiten dar lugar a producciones que, sin perder complejidad, se orientan hacia la inmediatez en la experiencia auditiva y en la respuesta emocional del público.
 

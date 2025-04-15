@@ -16,14 +16,13 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Horror metalens æstetik og strukturelle kompleksitet udgør et væsentligt emne i studiet af international populærmusik. Genren, der opstod i løbet af det tidlige 1980-tal, trækker på mørke, narrative elementer og en gotisk stemning, som til dels er inspireret af samtidskulturelle strømninger og æstetiske eksperimenter. Musikalsk set kendetegnes horror metal af anvendelsen af forvrængede elektriske guitarer, dystre baslinjer og uortodokse perkusivteknikker, der tilsammen fremkalder en foruroligende atmosfære. 
+Horror metalens æstetik og strukturelle kompleksitet udgør et væsentligt emne i studiet af international populærmusik. Genren, der opstod i løbet af det tidlige 1980-tal, trækker på mørke, narrative elementer og en gotisk stemning, som til dels er inspireret af samtidskulturelle strømninger og æstetiske eksperimenter. Musikalsk set kendetegnes horror metal af anvendelsen af forvrængede elektriske guitarer, dystre baslinjer og uortodokse perkusivteknikker, der tilsammen fremkalder en foruroligende atmosfære.
 
 Desuden afspejler genrens tematiske indhold en fascination af det overnaturlige og det groteske, hvilket samtidigt illustrerer en kritisk modreaktion mod mainstreamkulturen. I international kontekst har pionerer inden for horror metal arbejdet med at udvide de traditionelle grænser for musikkritik og -produktion. Yderligere understreges betydningen af teknologiske fremskridt, der i samspil med musikteoretiske innovationer har medvirket til at udvikle en ny æra inden for den mørke musikkultur, hvor visuelle og narrative elementer integreres i en holistisk æstetisk fremtoning.
 

@@ -16,10 +16,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -107,11 +106,11 @@ En conclusion, l’analyse des artistes et groupes notables de la musique indien
 
 ## Industrie musicale et infrastructure
 
-L’industrie musicale indienne constitue un domaine d’étude remarquable, tant pour ses innovations que pour son système d’infrastructures qui s’est développé en parallèle avec les transformations socio-économiques et technologiques du sous-continent. Dès l’ère coloniale, ces structures prirent forme, marquant une transition progressive de pratiques artisanales vers des mécanismes de production et de diffusion à grande échelle. À l’heure où la musique servait d’outil de cohésion identitaire et de revendication culturelle, l’implantation de technologies occidentales, telles que le phonographe et, ultérieurement, le disque vinyle, permit d’enregistrer et de diffuser des répertoires traditionnels ainsi que des compositions novatrices.  
+L’industrie musicale indienne constitue un domaine d’étude remarquable, tant pour ses innovations que pour son système d’infrastructures qui s’est développé en parallèle avec les transformations socio-économiques et technologiques du sous-continent. Dès l’ère coloniale, ces structures prirent forme, marquant une transition progressive de pratiques artisanales vers des mécanismes de production et de diffusion à grande échelle. À l’heure où la musique servait d’outil de cohésion identitaire et de revendication culturelle, l’implantation de technologies occidentales, telles que le phonographe et, ultérieurement, le disque vinyle, permit d’enregistrer et de diffuser des répertoires traditionnels ainsi que des compositions novatrices.
 
-Au cœur de cette évolution se trouve la naissance d’un secteur industriel organisé, notamment dès le début du XXe siècle, où l’enregistrement musical s’affirma comme une réalité économique et culturelle. Dès 1900, certains studios rudimentaires furent créés pour immortaliser des formes musicales régionales. Cette période fut également marquée par l’adoption des technologies d’enregistrement importées du monde occidental, lesquelles furent adaptées aux spécificités locales pour répondre aux besoins d’un vaste public multiculturel. Ainsi, les infrastructures se développèrent progressivement, favorisant l’émergence d’un marché florissant et diversifié.  
+Au cœur de cette évolution se trouve la naissance d’un secteur industriel organisé, notamment dès le début du XXe siècle, où l’enregistrement musical s’affirma comme une réalité économique et culturelle. Dès 1900, certains studios rudimentaires furent créés pour immortaliser des formes musicales régionales. Cette période fut également marquée par l’adoption des technologies d’enregistrement importées du monde occidental, lesquelles furent adaptées aux spécificités locales pour répondre aux besoins d’un vaste public multiculturel. Ainsi, les infrastructures se développèrent progressivement, favorisant l’émergence d’un marché florissant et diversifié.
 
-Par ailleurs, l’essor du cinéma indien, en particulier à partir des années 1930, joua un rôle déterminant dans la structuration de l’industrie musicale. L’émergence de Bollywood, véritable phénomène national, permit d’amplifier l’impact des enregistrements sonores et visuels. Dans ce contexte, la musique servit de vecteur essentiel pour la narration cinématographique, en intégrant des éléments de musique classique indienne, de folk et de traditions régionales. Les studios de cinéma, désormais équipés de technologies modernes, devinrent des centres névralgiques de production, et leurs collaborations avec des compositeurs et interprètes consolidèrent la synergie entre l’image et le son.  
+Par ailleurs, l’essor du cinéma indien, en particulier à partir des années 1930, joua un rôle déterminant dans la structuration de l’industrie musicale. L’émergence de Bollywood, véritable phénomène national, permit d’amplifier l’impact des enregistrements sonores et visuels. Dans ce contexte, la musique servit de vecteur essentiel pour la narration cinématographique, en intégrant des éléments de musique classique indienne, de folk et de traditions régionales. Les studios de cinéma, désormais équipés de technologies modernes, devinrent des centres névralgiques de production, et leurs collaborations avec des compositeurs et interprètes consolidèrent la synergie entre l’image et le son.
 
 En outre, la création de réseaux de diffusion publique, notamment avec la fondation de l’All India Radio en 1936, souligna l’importance d’une infrastructure de communication adaptée aux défis d’un vaste territoire. La radiodiffusion permit la diffusion massive de répertoires musicaux, facilitant ainsi la rencontre entre cultures diverses et l’enracinement des pratiques musicales dans le quotidien des auditeurs. En parallèle, les maisons de disques se développèrent pour répondre à une demande croissante tant sur le plan national qu’international, ce qui incita à une standardisation progressive des méthodes d’enregistrement et de production. Cette phase de structuration industrielle plaça la musique indienne sur la scène mondiale, tout en préservant une identité multiple et riche en héritages historiques.
 

@@ -15,10 +15,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -36,7 +35,7 @@ Alkuvaiheen sertanejo-musiikki syntyi suullisen perinteen ja paikkaansa ottaneid
 
 1900-luvun alkupuolella, kun Brasilia modernisoitui ja uusi teknologia alkoi vaikuttaa kommunikaatioon, sertanejo-musiikin perinteet alkoivat saada uusia muodonmuutoksia. Radiossa lähetetyt ohjelmat ja levytysratkaisut mahdollistivat perinteen siirtymisen paikallisesta yhteisöstä laajempiin kulttuuripiireihin. Tällaiset teknologiset innovaatiot edesauttoivat sen kansainvälistymistä, sillä musiikin tallenteet ja lähetykset ympäri maailman esittelivät genren piirteitä globaalille yleisölle. Näin kehityksen alkuvaiheessa olleet kansanmusiikin perinteet löysivät uusia tulkintoja, jotka vastasivat modernin yhteiskunnan tarpeita ja mahdollistivat yhteydenpidon eri kulttuurien välillä.
 
-Käännekohtana 1960- ja 1970-luvuilla sertanejo-musiikissa voitiin havaita ilmiö, jossa perinteiset juuret alkoivat sulautua nykyaikaisiin musiikillisiin innovaatioihin. Tällä aikakaudella säveltäjät ja esittäjät hakivat uusia keinoja harmonisoida perinteen rikkaus modernin teknologian mahdollisuuksiin. Kehittynyt äänituotantotekniikka mahdollisti entistä monipuolisempien äänimaailmojen syntymisen, samalla kun perinteiset teemat – luonnon, rakkauden ja kotiseudun kuvaus – säilyttivät keskeisen paikkansa sanoituksissa. Näin varhaisen sertanejo-musiikin autenttisuus kohtasi nykyaikaiset, kaupallistamiseen tähtäävät tuotantomallit, mikä loi mielenkiintoisen paradoksin perinteen ja uudistumisen välille. 
+Käännekohtana 1960- ja 1970-luvuilla sertanejo-musiikissa voitiin havaita ilmiö, jossa perinteiset juuret alkoivat sulautua nykyaikaisiin musiikillisiin innovaatioihin. Tällä aikakaudella säveltäjät ja esittäjät hakivat uusia keinoja harmonisoida perinteen rikkaus modernin teknologian mahdollisuuksiin. Kehittynyt äänituotantotekniikka mahdollisti entistä monipuolisempien äänimaailmojen syntymisen, samalla kun perinteiset teemat – luonnon, rakkauden ja kotiseudun kuvaus – säilyttivät keskeisen paikkansa sanoituksissa. Näin varhaisen sertanejo-musiikin autenttisuus kohtasi nykyaikaiset, kaupallistamiseen tähtäävät tuotantomallit, mikä loi mielenkiintoisen paradoksin perinteen ja uudistumisen välille.
 
 Musiikkiteoreettisesti tarkasteltuna sertanejo-musiikin rakenne tarjoaa monipuolisen kentän harmonioiden, rytmien ja melodisten frasien analysoinnille. Tutkimukset ovat osoittaneet, että genren peruserot perustuvat selkeisiin modaalisiin ja melodisiin piirteisiin, jotka ovat yhteydessä sekä eurooppalaisiin että intiaanisille musiikkiperinteille. Näiden rakenteellisten elementtien synteesi on seurauksena syntynyt ainutlaatuinen ilmiö, jossa perinteinen kansanmusiikki kohtaa modernin pop- ja rock-musiikin vaikutteet. Tällainen yhteensulautuminen on mahdollistanut sertanejo-musiikin lähentymisen kansainvälisiin musiikkikenttiin, jolloin osa perinteisistä sävelkerronnan menetelmistä on siirtynyt osaksi laajemmin ymmärrettyä globaalia musiikkisanastoa.
 

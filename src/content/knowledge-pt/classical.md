@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -150,7 +149,7 @@ Em síntese, a música clássica permanece como um instrumento formador de consc
 
 Ademais, é imperioso reconhecer que a música clássica, ao transitar pelas diversas fases da história, adapta-se às mudanças paradigmáticas e reflete, de maneira indelével, a evolução dos pensamentos sociais e artísticos. O entrelaçamento entre tradição e inovação, visível no legado deixado por compositores consagrados e por práticas pedagógicas e performáticas atuais, evidencia uma continuidade que reforça a importância do estudo e da preservação desse acervo. Dessa maneira, a música clássica não só enriquece o panorama cultural de diversas sociedades, como também se apresenta como um objeto de análise indispensável para a compreensão das dinâmicas históricas e culturais que moldaram o mundo moderno.
 
-Por fim, a importância da música clássica transcende a simples apreciação auditiva, constituindo-se em uma fonte de conhecimento e inspiração para as artes e para o pensamento crítico. A estipulação de tradições formais e a dialética entre o clássico e o inovador permanecem elementos centrais para a formação do discurso musical e para a crítica estética contemporânea. Portanto, o reconhecimento de seu valor cultural e histórico é imprescindível para qualquer análise abrangente do desenvolvimento das manifestações artísticas e para a compreensão das inter-relações entre música, sociedade e poder. 
+Por fim, a importância da música clássica transcende a simples apreciação auditiva, constituindo-se em uma fonte de conhecimento e inspiração para as artes e para o pensamento crítico. A estipulação de tradições formais e a dialética entre o clássico e o inovador permanecem elementos centrais para a formação do discurso musical e para a crítica estética contemporânea. Portanto, o reconhecimento de seu valor cultural e histórico é imprescindível para qualquer análise abrangente do desenvolvimento das manifestações artísticas e para a compreensão das inter-relações entre música, sociedade e poder.
 
 Contagem de caracteres (com espaços): 5361
 

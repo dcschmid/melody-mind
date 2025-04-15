@@ -16,10 +16,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduzione
 
@@ -189,8 +188,8 @@ Pertanto, l’analisi delle connessioni internazionali nella musica brasiliana r
 
 ## Tendenze attuali e futuro
 
-La scena musicale brasiliana, radicata in una tradizione secolare che ha saputo fondere ritmi indigeni, samba, bossa nova e musica popolare, si trova oggi in una fase di profonda trasformazione. Le ricerche recenti evidenziano come il dialogo tra tradizione e innovazione, supportato dall’adozione di tecnologie digitali e nuove modalità di diffusione, stia ridefinendo il panorama sonoro nazionale e internazionale. 
+La scena musicale brasiliana, radicata in una tradizione secolare che ha saputo fondere ritmi indigeni, samba, bossa nova e musica popolare, si trova oggi in una fase di profonda trasformazione. Le ricerche recenti evidenziano come il dialogo tra tradizione e innovazione, supportato dall’adozione di tecnologie digitali e nuove modalità di diffusione, stia ridefinendo il panorama sonoro nazionale e internazionale.
 
-Inoltre, studi accademici sottolineano l’importanza della contestualizzazione storica degli artisti e dei movimenti culturali, i quali hanno sempre rappresentato il motore delle rinnovate sperimentazioni. Le pratiche performative si integrano con metodologie di produzione che, pur rispettando l’eredità musicale (PMB, per esempio, ha avuto un ruolo determinante dagli anni ’60 in poi), introducono elementi di fusione e sperimentazione sonora. 
+Inoltre, studi accademici sottolineano l’importanza della contestualizzazione storica degli artisti e dei movimenti culturali, i quali hanno sempre rappresentato il motore delle rinnovate sperimentazioni. Le pratiche performative si integrano con metodologie di produzione che, pur rispettando l’eredità musicale (PMB, per esempio, ha avuto un ruolo determinante dagli anni ’60 in poi), introducono elementi di fusione e sperimentazione sonora.
 
 Guardando al futuro, l’analisi critica invita a considerare il potenziale sinergico tra tradizione e innovazione, evidenziando come interventi accademici e pratiche performative possano, nel lungo periodo, guidare l’evoluzione della musica brasiliana in chiave globale.

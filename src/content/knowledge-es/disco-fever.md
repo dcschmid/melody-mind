@@ -17,16 +17,15 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
 El fenómeno Disco Fever, que irrumpió a mediados de la década de 1970, constituyó una respuesta musical a profundos cambios socioculturales y tecnológicos, manifestándose con fuerza en Estados Unidos y Europa. Este estilo, que se enriqueció a partir de la tradición del soul y de la incipiente experimentación electrónica, se consolidó gracias al auge de la discoteca y al perfeccionamiento de la tecnología sonora, permitiendo una experiencia auditiva sin precedentes. Investigaciones académicas contemporáneas destacan la dimensión performativa y estética del disco, evidenciando la simbiosis entre música y ambiente en locales emblemáticos.
 
-Asimismo, el análisis de esta corriente revela la intersección entre el arte, la política y el entretenimiento, mostrando cómo el contexto urbano y la globalización incipiente promovieron el diálogo entre géneros y culturas. En consecuencia, Disco Fever se erige como un paradigma de transformación técnica y cultural, cuyos efectos perduran en la historiografía musical internacional.  
+Asimismo, el análisis de esta corriente revela la intersección entre el arte, la política y el entretenimiento, mostrando cómo el contexto urbano y la globalización incipiente promovieron el diálogo entre géneros y culturas. En consecuencia, Disco Fever se erige como un paradigma de transformación técnica y cultural, cuyos efectos perduran en la historiografía musical internacional.
 
 (El texto tiene 894 caracteres.)
 

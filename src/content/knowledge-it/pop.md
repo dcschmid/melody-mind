@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -88,7 +87,7 @@ In conclusione, l’analisi dei sottogeneri e delle varianti all’interno del p
 
 ## Key Figures and Important Works
 
-La presente disamina si propone di analizzare, in una prospettiva storica e musicologica, le figure chiave e le opere fondamentali che hanno caratterizzato l’evoluzione della musica pop a livello internazionale. L’analisi si fonda su un approccio metodologico rigoroso, che integra fonti primarie e secondarie, e pone l’accento tanto sugli aspetti stilistici e performativi quanto sul contesto socio-culturale che ha reso possibile lo sviluppo di questo genere. Il termine “pop”, abbreviazione di “popular”, si riferisce a una categoria musicale che ha saputo attraversare e trasformare il panorama artistico dal secondo dopoguerra ai giorni nostri, segnando un passaggio fondamentale nelle dinamiche della produzione e distribuzione culturale. In questa prospettiva, l’analisi si concentrerà su una serie di momenti storici e sui protagonisti rappresentativi, evidenziando come innovazioni tecnologiche, strategie comunicative e contesti socio-politici abbiano intersecato la produzione di opere di indiscutibile rilevanza.  
+La presente disamina si propone di analizzare, in una prospettiva storica e musicologica, le figure chiave e le opere fondamentali che hanno caratterizzato l’evoluzione della musica pop a livello internazionale. L’analisi si fonda su un approccio metodologico rigoroso, che integra fonti primarie e secondarie, e pone l’accento tanto sugli aspetti stilistici e performativi quanto sul contesto socio-culturale che ha reso possibile lo sviluppo di questo genere. Il termine “pop”, abbreviazione di “popular”, si riferisce a una categoria musicale che ha saputo attraversare e trasformare il panorama artistico dal secondo dopoguerra ai giorni nostri, segnando un passaggio fondamentale nelle dinamiche della produzione e distribuzione culturale. In questa prospettiva, l’analisi si concentrerà su una serie di momenti storici e sui protagonisti rappresentativi, evidenziando come innovazioni tecnologiche, strategie comunicative e contesti socio-politici abbiano intersecato la produzione di opere di indiscutibile rilevanza.
 
 Nei primi decenni della seconda metà del XX secolo, le trasformazioni tecnologiche – quali l’introduzione del vinile e della radio come mezzi di diffusione – hanno avuto un impatto sostanziale sulla diffusione del linguaggio musicale pop. In questo contesto, figure come Elvis Presley e Chuck Berry hanno rappresentato dei veri e propri catalizzatori del cambiamento, introducendo elementi tipici del rock and roll che in seguito si saranno fusi con sonorità più orecchiabili e tematiche di natura universale. Tale sinergia, che si fonda sulla contaminazione tra tradizione blues e innovazioni ritmiche, ha permesso l’emergere di canzoni caratterizzate da strutture armoniche semplici ma d’effetto, capaci di creare un forte legame emotivo con il pubblico. L’opera di questi protagonisti ha definito i parametri estetici e performativi che, in seguito, sarebbero stati ripresi e reinterpretati dalle successive generazioni di artisti pop.
 

@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -48,7 +47,7 @@ Yhteenvetona voidaan todeta, että pianon kehityshistoria on tiiviisti sidoksiss
 
 ## Musical Characteristics
 
-Pianon kursorinen kehitys ja sen ainutlaatuinen sointimaailma ovat muovanneet kansainvälisen musiikkiperimän historiassa merkittävällä tavalla. Instrumentin edustama harmonis-historiallinen kehitys ulottuu varhaisilta 1700-luvulta eteenpäin, jolloin sellaiset virtaukset kuin klassismin nousu vaikuttivat sen rakenteellisiin ja akustisiin ominaisuuksiin. Aikansa edistykselliset pienois- ja jousisoittimet loivat otollisen taustan pianon innovaatiolle, mikä edesauttoi instrumentin transformaatiota teatraalisen ja konserttimusiikin keskeiseksi soittimeksi. Pianon kehityksessä on merkittävää huomioida niin tekniset kuin estetiikan kysymykset, jotka ovat tarjonneet pohjan myöhemmille musiikillisille kokeiluille. 
+Pianon kursorinen kehitys ja sen ainutlaatuinen sointimaailma ovat muovanneet kansainvälisen musiikkiperimän historiassa merkittävällä tavalla. Instrumentin edustama harmonis-historiallinen kehitys ulottuu varhaisilta 1700-luvulta eteenpäin, jolloin sellaiset virtaukset kuin klassismin nousu vaikuttivat sen rakenteellisiin ja akustisiin ominaisuuksiin. Aikansa edistykselliset pienois- ja jousisoittimet loivat otollisen taustan pianon innovaatiolle, mikä edesauttoi instrumentin transformaatiota teatraalisen ja konserttimusiikin keskeiseksi soittimeksi. Pianon kehityksessä on merkittävää huomioida niin tekniset kuin estetiikan kysymykset, jotka ovat tarjonneet pohjan myöhemmille musiikillisille kokeiluille.
 
 Instrumentin mekaaniset ja aikanaan kehitetyistä pyörimis- ja vasarakonsepteista juontuvat ainutlaatuiset sointivärin mahdollisuudet mahdollistavat säveltäjien laajat ilmaisukeinot. Ne ovat vaatineet tarkkaa säätelyä sekä virtuoosin että soittotaitojen tasolla, mikä näkyy mm. klassismin ajan sävellysten teossuunnitelmissa. Täysin tarkkaan mekaaniseen rakenteeseen perustuva koskettimisto on monisyisen dynaamisuuden lähde, joka ilmentää instrumentin polykromaattisia ja timbrisia piirteitä. Näin ollen pianon äänenmuodostus voidaan nähdä eräänlaisena teknisena dialogina säveltäjän, soittajan ja rakenteellisten ominaisuuksien välillä.
 

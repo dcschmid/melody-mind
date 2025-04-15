@@ -17,10 +17,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -84,7 +83,7 @@ Daarbij dient opgemerkt te worden dat de uiteenlopende subgenres en variaties bi
 
 Integreer men de invloed van deze technologische en culturele context in de analyse, zodoende wordt duidelijk dat de verschillende variaties binnen het krautrock niet louter een product zijn van muzikale experimentatie, maar eveneens een weerspiegeling van maatschappelijke dynamiek en technologische vooruitgang. Het fundamentele streven van de artiesten was het doorbreken van traditionele structuren ten gunste van een experimentele en vooruitstrevende identiteit. Dit streven resulteerde in een muzikaal landschap dat, ondanks de unieke regionale wortels, een universele aantrekkingskracht ontwikkelde door zijn innovatieve klankconcepten en revolutionaire ritmische benaderingen.
 
-Bovendien heeft de dialoog tussen de verschillende subgenres binnen het krautrock geleid tot een verweven netwerk van invloed en wederzijdse inspiratie. Zo dragen zowel motorische als elektronische varianten bij aan een dieper begrip van de mogelijkheden binnen muzikale compositie en uitvoering, hetgeen uiteindelijk resulteert in een gevarieerde maar samenhangende artistieke traditie. De wisselwerking tussen individuele expressie en collectieve innovatie binnen krautrock blijft een uitbundige bron van academische belangstelling en muzikaal theoretische verkenning. 
+Bovendien heeft de dialoog tussen de verschillende subgenres binnen het krautrock geleid tot een verweven netwerk van invloed en wederzijdse inspiratie. Zo dragen zowel motorische als elektronische varianten bij aan een dieper begrip van de mogelijkheden binnen muzikale compositie en uitvoering, hetgeen uiteindelijk resulteert in een gevarieerde maar samenhangende artistieke traditie. De wisselwerking tussen individuele expressie en collectieve innovatie binnen krautrock blijft een uitbundige bron van academische belangstelling en muzikaal theoretische verkenning.
 
 Samenvattend kan worden gesteld dat de subgenres en variaties binnen het krautrock een complexe symbiose vormen tussen artistieke vernieuwing, technische innovatie en culturele transformatie. Elk subgenre levert een unieke bijdrage aan het geheel, waarbij de motorieke ritmes, elektronische experimenten en improvisatorische benaderingen gezamenlijk een rijk en gelaagd muzikaal landschap scheppen. Verdere studie van deze variaties biedt diepgaand inzicht in de manieren waarop muzikale identiteit kan evolueren in reactie op veranderende technologische en maatschappelijke omstandigheden, hetgeen centraal staat in de hedendaagse muziekwetenschappelijke discussie.
 

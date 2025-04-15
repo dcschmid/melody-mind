@@ -16,10 +16,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introdução
 
@@ -67,7 +66,7 @@ A influência das tradições orais e a transmissão intergeracional desempenham
 
 Por conseguinte, a inter-relação entre forma, função e contextualização na música tradicional indiana revela camadas de significado que vão além da estética sonora. A integração de elementos filosóficos, religiosos e rituais confere à música uma dimensão que atua como veículo de expressão cultural e identitária. Em consequência, o estudo da tradição indiana resulta não só numa análise estilística, mas também numa reflexão sobre os modos de existência e organização do conhecimento na sociedade indiana. Essa convergência entre o micro – a expressão musical – e o macro – os valores sociais e espirituais – configura uma riqueza interpretativa que desafia abordagens reducionistas e incentiva o diálogo interdisciplinar entre musicólogos, historiadores e antropólogos.
 
-Em síntese, a análise da música tradicional indiana revela um acervo cultural de imensa relevância histórica e estética. Por meio da investigação de seus contextos históricos, práticas pedagógicas e repertórios teóricos, constata-se que o sistema musical indiano representa não apenas um conjunto de técnicas e normas, mas uma tradição que dialoga intimamente com as dimensões espirituais e socioculturais do subcontinente. Dessa forma, o estudo dessa tradição oferece subsídios fundamentais para a compreensão dos processos de formação cultural e de identidade, constituindo um campo fértil para pesquisas futuras. 
+Em síntese, a análise da música tradicional indiana revela um acervo cultural de imensa relevância histórica e estética. Por meio da investigação de seus contextos históricos, práticas pedagógicas e repertórios teóricos, constata-se que o sistema musical indiano representa não apenas um conjunto de técnicas e normas, mas uma tradição que dialoga intimamente com as dimensões espirituais e socioculturais do subcontinente. Dessa forma, o estudo dessa tradição oferece subsídios fundamentais para a compreensão dos processos de formação cultural e de identidade, constituindo um campo fértil para pesquisas futuras.
 
 Total de caracteres: 5801
 

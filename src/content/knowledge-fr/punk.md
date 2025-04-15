@@ -17,10 +17,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -140,7 +139,7 @@ Historiquement, le punk voit le jour en Grande-Bretagne et aux États-Unis au mi
 
 Sur le plan théorique, le punk se distingue par une approche radicale de la création musicale. Les artistes adoptent une posture qui refuse la virtuosité technique en faveur d’une énergie brute et d’une expressivité sincère. Ce positionnement se traduit par des structures harmoniques souvent simplifiées, des arrangements instrumentaux rudimentaires et une production volontairement dépouillée. La dimension sonore est ainsi subordonnée à une charge émotionnelle et contestataire qui ne cherche pas à satisfaire les exigences passées de la virtuosité classique, mais plutôt à provoquer une réaction immédiate chez l’auditeur, tout en reflétant une réalité socio-politique complexe.
 
-Sur le plan social, l’impact du punk s’étend bien au-delà des simples performances musicales. Il représente une dimension de contestation culturelle qui s’inscrit dans une volonté de redéfinir les codes sociaux et esthétiques. La scène punk est ainsi perçue comme un espace d’expérimentation identitaire où se conjuguent résistance, marginalité et affirmation d’un groupe social en quête de reconnaissance. En outre, la mise en scène du rejet des conventions se manifeste également dans l’esthétique vestimentaire et dans l’acte même de la performance, dimensions que des auteurs ont étudiées dans le cadre de la sociologie de la musique et des mouvements populaires. 
+Sur le plan social, l’impact du punk s’étend bien au-delà des simples performances musicales. Il représente une dimension de contestation culturelle qui s’inscrit dans une volonté de redéfinir les codes sociaux et esthétiques. La scène punk est ainsi perçue comme un espace d’expérimentation identitaire où se conjuguent résistance, marginalité et affirmation d’un groupe social en quête de reconnaissance. En outre, la mise en scène du rejet des conventions se manifeste également dans l’esthétique vestimentaire et dans l’acte même de la performance, dimensions que des auteurs ont étudiées dans le cadre de la sociologie de la musique et des mouvements populaires.
 
 D’un point de vue critique, le punk a contribué à ouvrir des espaces de dialogue sur la notion d’« art contestataire ». Plusieurs études, telles celles menées par des musicologues et sociologues spécialisés, soulignent que le mouvement punk a permis de remettre en question la légitimité des institutions culturelles traditionnelles. Il incarne ainsi une critique essentielle par rapport aux discours officiels et aux représentations médiatiques dominantes. La dialectique entre l’expression individuelle et la fonction collective de ce mouvement témoigne de la capacité du punk à s’imposer en tant que vecteur de transformation des mentalités. Cette remise en cause des hiérarchies culturelles et des normes canonisées trouve ses racines dans une volonté de redéfinir la place de l’artiste dans une société en pleine mutation.
 

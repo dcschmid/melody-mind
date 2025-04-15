@@ -16,10 +16,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -183,8 +182,8 @@ Afslutningsvis står de internationale "Christmas Classics" som et fremragende e
 
 ## Conclusion
 
-Afslutningsvis illustrerer denne undersøgelse af internationale juleklassikere, hvordan musicale traditioner og historiske kontekster gensidigt påvirker udviklingen af repertoiret. Den foreliggende analyse bygger på en stringent opdeling af periodernes indbyrdes relationer samt anvendelsen af præcis musikalsk terminologi, idet der henvises til centrale værker og komponisters bidrag, eksempelvis den harmoniske struktur i 'Silent Night'.  
+Afslutningsvis illustrerer denne undersøgelse af internationale juleklassikere, hvordan musicale traditioner og historiske kontekster gensidigt påvirker udviklingen af repertoiret. Den foreliggende analyse bygger på en stringent opdeling af periodernes indbyrdes relationer samt anvendelsen af præcis musikalsk terminologi, idet der henvises til centrale værker og komponisters bidrag, eksempelvis den harmoniske struktur i 'Silent Night'.
 
-Desuden fremhæves sammenkoblingen mellem teknologiske fremskridt og ny fortolkning af ældre kompositioner, således at den moderne distribution af musik har medvirket til en globalisering, hvor traditionelle elementer fortsat vægtes højt. Det akademiske perspektiv illustrerer, at de musikalske principper, herunder modale skift og stilistisk variation, har udvist en robust udvikling, der trods for kulturelle forskelle er gennemgribende internationalt.  
+Desuden fremhæves sammenkoblingen mellem teknologiske fremskridt og ny fortolkning af ældre kompositioner, således at den moderne distribution af musik har medvirket til en globalisering, hvor traditionelle elementer fortsat vægtes højt. Det akademiske perspektiv illustrerer, at de musikalske principper, herunder modale skift og stilistisk variation, har udvist en robust udvikling, der trods for kulturelle forskelle er gennemgribende internationalt.
 
 Samlet set understreger denne analyse vigtigheden af en tværfaglig tilgang, der kombinerer historisk metodologi med detaljeret musikteoretisk indsigt, og som dermed bidrager til en nuanceret fortolkning af den julemusikalske arv.
