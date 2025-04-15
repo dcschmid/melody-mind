@@ -17,14 +17,13 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-La presente introducción al Acoustic Metal se fundamenta en un análisis riguroso de sus orígenes, donde se amalgaman la tradición instrumental acústica y la estética del metal. Este subgénero, cuya consolidación comenzó a vislumbrarse en las décadas de los ochenta y noventa, supone una síntesis en la que se integran elementos armónicos propios de la música tradicional con la agresividad rítmica y sonora que caracteriza al metal. 
+La presente introducción al Acoustic Metal se fundamenta en un análisis riguroso de sus orígenes, donde se amalgaman la tradición instrumental acústica y la estética del metal. Este subgénero, cuya consolidación comenzó a vislumbrarse en las décadas de los ochenta y noventa, supone una síntesis en la que se integran elementos armónicos propios de la música tradicional con la agresividad rítmica y sonora que caracteriza al metal.
 
 Asimismo, la evolución en la tecnología de amplificación y la adaptación de instrumentos acústicos posibilitaron la experimentación con nuevas texturas timbrísticas. Dichos procesos se enmarcan en un contexto histórico de profundas transformaciones culturales y musicales en el ámbito internacional, donde la convergencia entre lo acústico y lo electrizante facilita un diálogo entre lo ancestral y lo contemporáneo. Este análisis resulta imprescindible para comprender la dinámica evolutiva y la globalización de este fenómeno musical.
 

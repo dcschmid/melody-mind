@@ -15,10 +15,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduktion
 
@@ -196,6 +195,6 @@ Afslutningsvis må det anerkendes, at den internationale medierepræsentation af
 
 ## Arv og fremtid
 
-Den internationale diskussion om arv og fremtid inden for kvindelige rock‐metal vokalisters univers anerkender både de historiske bidrag og den nutidige fornyelse. I 1980’erne banede pionerer, blandt andre Doro Pesch, nye veje gennem en sammensmeltning af dynamisk vokalteknik og eksperimenterende intonationsmønstre, der inddrog modale og pentatoniske skalaer. Denne æra udgjorde fundamentet for en æstetisk og teknisk norm, som fortsat influerer den globale musikalske scene. 
+Den internationale diskussion om arv og fremtid inden for kvindelige rock‐metal vokalisters univers anerkender både de historiske bidrag og den nutidige fornyelse. I 1980’erne banede pionerer, blandt andre Doro Pesch, nye veje gennem en sammensmeltning af dynamisk vokalteknik og eksperimenterende intonationsmønstre, der inddrog modale og pentatoniske skalaer. Denne æra udgjorde fundamentet for en æstetisk og teknisk norm, som fortsat influerer den globale musikalske scene.
 
 Nuværende kunstnere udviser en kreativ assimilation af avantgardistiske elementer med en gensidig respekt for genretraditionen. Integration af digital lydteknologi med live-performance udvider de musikalske udtryk, således at arv og innovation sammenvæves i en dynamisk diskurs, der både bevarer historisk præcision og åbner op for fremtidens kunstneriske potentialer.

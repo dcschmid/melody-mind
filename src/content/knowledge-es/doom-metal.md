@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -86,7 +85,7 @@ Finalmente, es pertinente establecer que el estudio de los subgéneros y variaci
 
 ## Key Figures and Important Works
 
-La evolución del doom metal se configura como un fenómeno musical complejo, en el que convergen aspectos históricos, estéticos y técnicos que configuran su identidad. Surgido a partir del heavy metal de finales de la década de 1960 y principios de los años setenta, este subgénero se caracteriza por una atmósfera lúgubre, tempos lentos y estructuras armónicas basadas en progresiones menores. La agrupación Black Sabbath, formada en 1968 en Birmingham y considerada pionera en la instauración de las sonoridades doom, constituye el punto neurálgico a partir del cual se desarrollaron posteriores propuestas musicales que, enriqueciendo el panorama, han consolidado la estética propia del doom metal. 
+La evolución del doom metal se configura como un fenómeno musical complejo, en el que convergen aspectos históricos, estéticos y técnicos que configuran su identidad. Surgido a partir del heavy metal de finales de la década de 1960 y principios de los años setenta, este subgénero se caracteriza por una atmósfera lúgubre, tempos lentos y estructuras armónicas basadas en progresiones menores. La agrupación Black Sabbath, formada en 1968 en Birmingham y considerada pionera en la instauración de las sonoridades doom, constituye el punto neurálgico a partir del cual se desarrollaron posteriores propuestas musicales que, enriqueciendo el panorama, han consolidado la estética propia del doom metal.
 
 La influencia de Black Sabbath se erige en múltiples dimensiones, no sólo como precursor del sonido pesado, sino también como institutriz de una filosofía lírica centrada en la oscuridad y el fatalismo. Igualmente, la integración de elementos psicodélicos y blues en sus composiciones aporta una complejidad armónica que ha sido objeto de análisis en estudios musicológicos contemporáneos. Asimismo, la performance en vivo y la utilización de técnicas instrumentales innovadoras por parte de la agrupación han marcado un precedente en cuanto a la exploración de texturas sonoras que trascienden la mera amplificación de guitarras y baterías.
 

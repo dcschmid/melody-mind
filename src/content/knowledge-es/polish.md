@@ -17,14 +17,13 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introducción
 
-La música polaca constituye un campo de estudio que invita a un análisis riguroso de sus raíces y evoluciones, desde el período renacentista hasta la era contemporánea. Durante el siglo XVII se evidenció la influencia de la polifonía sacra y de las danzas campesinas, cuya integración sentó las bases para la construcción de una identidad sonora propia. En el siglo XIX, la erudición musical alcanzó nuevos horizontes con la irrupción de compositores como Fryderyk Chopin, cuyas composiciones no solo consolidaron el virtuosismo pianístico, sino que también instauraron un diálogo entre la tradición folklórica y la concertística europea. 
+La música polaca constituye un campo de estudio que invita a un análisis riguroso de sus raíces y evoluciones, desde el período renacentista hasta la era contemporánea. Durante el siglo XVII se evidenció la influencia de la polifonía sacra y de las danzas campesinas, cuya integración sentó las bases para la construcción de una identidad sonora propia. En el siglo XIX, la erudición musical alcanzó nuevos horizontes con la irrupción de compositores como Fryderyk Chopin, cuyas composiciones no solo consolidaron el virtuosismo pianístico, sino que también instauraron un diálogo entre la tradición folklórica y la concertística europea.
 
 Asimismo, el advenimiento de innovaciones tecnológicas en el siglo XX propició transformaciones significativas, permitiendo reinterpretaciones que reflejaron tanto la contemporaneidad como la persistente herencia cultural nacional. La presente introducción se orienta a la exploración teórica y empírica de dicho legado, enfatizando las interrelaciones entre estética, historia y técnica interpretativa en el contexto internacional de la música.
 

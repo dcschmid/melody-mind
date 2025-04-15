@@ -17,14 +17,13 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Introducción: El post metal constituye una vertiente musical que ha emergido en el ámbito internacional a finales de la década de 1980, consolidándose a lo largo de los años 1990 como un estilo innovador. Esta corriente integra elementos del metal tradicional con estructuras compositivas expansivas y atmósferas sonoras que trascienden la mera agresividad rítmica, permitiendo la configuración de un discurso estético complejo. 
+Introducción: El post metal constituye una vertiente musical que ha emergido en el ámbito internacional a finales de la década de 1980, consolidándose a lo largo de los años 1990 como un estilo innovador. Esta corriente integra elementos del metal tradicional con estructuras compositivas expansivas y atmósferas sonoras que trascienden la mera agresividad rítmica, permitiendo la configuración de un discurso estético complejo.
 
 En este sentido, bandas pioneras de diversos contextos geográficos influyeron en la evolución del género, estableciendo un diálogo entre la tradición sonora y la experimentación tecnológica. Asimismo, el empleo de técnicas de producción avanzadas facilitó la creación de paisajes acústicos que enfatizan la ambigüedad y la densidad emocional. En definitiva, el post metal se erige como un proceso dinámico y en constante transformación, evidenciando la convergencia entre innovación y raíces musicales tradicionales.
 

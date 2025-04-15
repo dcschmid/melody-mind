@@ -16,10 +16,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -135,7 +134,7 @@ Sammenfattende viser den kulturhistoriske og musikvidenskabelige analyse, at mus
 
 ## Performance and Live Culture
 
-Performance og levende kultur inden for international musik har gennem historien udgjort en essentiel drivkraft bag individers fysiske engagement og træningsmotivation. Denne sammenhæng mellem scenekunst og kropslig aktivitet kan spores tilbage til midten af det 20. århundrede, hvor de første store koncerter og liveoptrædener opnåede global opmærksomhed. Særligt i perioden fra 1950’erne og frem spillede nye performanceformer en central rolle i at forme publikums opfattelse af musikalsk energi og dynamik. Det var en tid, hvor innovative scener og uforudsigelige performanceelementer understøttede et øget fokus på fysisk udtryk og derigennem en naturlig forbindelse til idéen om træningsmotivation.  
+Performance og levende kultur inden for international musik har gennem historien udgjort en essentiel drivkraft bag individers fysiske engagement og træningsmotivation. Denne sammenhæng mellem scenekunst og kropslig aktivitet kan spores tilbage til midten af det 20. århundrede, hvor de første store koncerter og liveoptrædener opnåede global opmærksomhed. Særligt i perioden fra 1950’erne og frem spillede nye performanceformer en central rolle i at forme publikums opfattelse af musikalsk energi og dynamik. Det var en tid, hvor innovative scener og uforudsigelige performanceelementer understøttede et øget fokus på fysisk udtryk og derigennem en naturlig forbindelse til idéen om træningsmotivation.
 
 I kølvandet på denne udvikling fremkom der et stærkt narrativ, hvori liveoptrædener fungerede som både kulturelle og æstetiske pejlemærker. I takt med at teknologiske fremskridt såsom forstærkning og multimedieinstallationer blev integreret i livekoncerter, opstod en ny hybridform af performance, der lagde vægt på synkronisering af musikalske og visuelle elementer. Denne synergi blev særlig tydelig under liveoptrædener med artister fra den internationale musikscene, hvor den nøjagtige koreografi og den dynamiske sceneopbygning skabte en næsten rituelt karakter for publikum. Sådanne forestillinger blev anset som katalysatorer for både individuel og kollektiv energi, idet de stimulerede både auditive og kinæstetiske sanser.
 

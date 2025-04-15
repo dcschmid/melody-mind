@@ -17,10 +17,9 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -168,7 +167,7 @@ Zusammenfassend lässt sich feststellen, dass die Live-Performance und die damit
 
 ## Development and Evolution
 
-Im Laufe des 20. Jahrhunderts entwickelte sich das musikalische Genre „Lazy Sunday“ als Ausdruck einer spezifischen kulturellen Haltung, die Entspannung, Besonnenheit und einen gewissen Nonchalance verkörpert. Die Ursprünge dieser ästhetischen Strömung lassen sich in den gesellschaftlichen Umbrüchen der 1960er Jahre verorten, einer Zeit, in der traditionelle Werte wiederholt hinterfragt wurden und neue Lebensentwürfe an Bedeutung gewannen. Insbesondere im internationalen Musikgeschehen prägten der wachsende Einfluss von Jazz, Bossa Nova und später auch elektronische Elemente den charakteristischen Sound, der sich mühelos mit den kulturellen Veränderungen jener Zeit verband. Neue Aufnahmetechnologien und verbesserte Studioprozesse trugen dazu bei, dass Kompositionen subtilere Arrangements und fein abgestimmte Klangfarben hervorbringen konnten. 
+Im Laufe des 20. Jahrhunderts entwickelte sich das musikalische Genre „Lazy Sunday“ als Ausdruck einer spezifischen kulturellen Haltung, die Entspannung, Besonnenheit und einen gewissen Nonchalance verkörpert. Die Ursprünge dieser ästhetischen Strömung lassen sich in den gesellschaftlichen Umbrüchen der 1960er Jahre verorten, einer Zeit, in der traditionelle Werte wiederholt hinterfragt wurden und neue Lebensentwürfe an Bedeutung gewannen. Insbesondere im internationalen Musikgeschehen prägten der wachsende Einfluss von Jazz, Bossa Nova und später auch elektronische Elemente den charakteristischen Sound, der sich mühelos mit den kulturellen Veränderungen jener Zeit verband. Neue Aufnahmetechnologien und verbesserte Studioprozesse trugen dazu bei, dass Kompositionen subtilere Arrangements und fein abgestimmte Klangfarben hervorbringen konnten.
 
 Die frühe Phase der Entwicklung von „Lazy Sunday“ nahm in den späten 1960er und frühen 1970er Jahren ihren Anfang. In dieser Periode fanden experimentelle Klangforschung und die Suche nach entspannten musikalischen Ausdrucksformen verstärkt Anwendung. In zahlreichen internationalen Metropolen wie New York, Paris und Rio de Janeiro bildeten sich Netzwerke von Musikern und Produzenten, die sich intensiv mit jazzigen Harmonien und sanften Rhythmen auseinandersetzten. Insbesondere in Brasilien, wo die Bossa Nova bereits Mitte der 1950er Jahre etabliert war, flossen typische Elemente dieser Stilrichtung in die neuen Kompositionen ein. Musiker, die sich in ihrem Schaffen von der improvisierten Jazztradition leiten ließen, integrierten diskret arrangierte Streicherpassagen und akustische Gitarrenriffs, um eine entspannte Atmosphäre zu erzeugen. Diese stilistische Verbindung zwischen Jazzimprovisation und melodischer Zurückhaltung war maßgeblich dafür verantwortlich, dass das Genre „Lazy Sunday“ als eigenständige Form internationaler Musik wahrgenommen wurde.
 

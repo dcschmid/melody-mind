@@ -17,10 +17,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -128,7 +127,7 @@ Avslutningsvis visar undersökningen av de tekniska aspekterna inom Cantopop på
 
 ## Cultural Significance
 
-In utvecklingen av internationell populärmusik under senare delen av 1900-talet framstår Cantopop som ett betydelsefullt fenomen med djupa kulturella och estetiska implikationer. Ursprungligen centralt beläget i Hongkong, presenterade denna musikgenre en innovativ syntes av västerländska musikalika influenser och traditionella kinesiska element, vilket resulterade i en ny och nydanande form av populärmusik. Denna sammanflätning möjliggjordes genom de socioekonomiska omvälvningarna under 1960- och 1970-talen, då Hongkong snabbt transformeras från en kolonial stad till en global metropol med omfattande kulturellt utbyte. 
+In utvecklingen av internationell populärmusik under senare delen av 1900-talet framstår Cantopop som ett betydelsefullt fenomen med djupa kulturella och estetiska implikationer. Ursprungligen centralt beläget i Hongkong, presenterade denna musikgenre en innovativ syntes av västerländska musikalika influenser och traditionella kinesiska element, vilket resulterade i en ny och nydanande form av populärmusik. Denna sammanflätning möjliggjordes genom de socioekonomiska omvälvningarna under 1960- och 1970-talen, då Hongkong snabbt transformeras från en kolonial stad till en global metropol med omfattande kulturellt utbyte.
 
 Under 1970-talets senare hälft och in under 1980-talet började Cantopop vinna mark internationellt, delvis på grund av den teknologiska utvecklingens påverkan på medieutbudet. Den snabba spridningen av radio och senare videoklippformatet bidrog till att musikaliska verk presenterades för en breddad publik både inom och utanför Asien. Musikaliskt karakteriseras Cantopop av en sofistikerad integration av harmonik och melodik som präglas av västerländsk tonalitet i kombination med känslomässiga och litterära texter inspirerade av klassisk kinesisk poesi. Detta medförde att både musikteoretiska begrepp som tonalitet, modala system och harmoniska progressioner analyserades och anpassades för att passa en urbana, global publik.
 
@@ -162,7 +161,7 @@ Avslutningsvis kan det hävdas att liveframträdanden inom Cantopop representera
 
 ## Development and Evolution
 
-Cantopop, en förkortning av "Cantonese pop", utgör en distinkt musikkategori vars utveckling präglats av en komplex samverkan mellan kulturella, teknologiska och sociopolitiska faktorer. Ursprungligen märktes tidiga influenser av västerländskt populärmusik samt traditionella kinesiska musikaliska uttrycksformer under efterkrigstiden, en period då Hongkong genomgick snabba moderniseringar. Den initiala fasen av Cantopops utveckling kännetecknades av en hybridisering där traditionella kinesiska tonala strukturer kombinerades med västerländska harmoniska progressioner, vilket gav upphov till en unik stil med djupa rötter i den kantonesiska språktraditionen. 
+Cantopop, en förkortning av "Cantonese pop", utgör en distinkt musikkategori vars utveckling präglats av en komplex samverkan mellan kulturella, teknologiska och sociopolitiska faktorer. Ursprungligen märktes tidiga influenser av västerländskt populärmusik samt traditionella kinesiska musikaliska uttrycksformer under efterkrigstiden, en period då Hongkong genomgick snabba moderniseringar. Den initiala fasen av Cantopops utveckling kännetecknades av en hybridisering där traditionella kinesiska tonala strukturer kombinerades med västerländska harmoniska progressioner, vilket gav upphov till en unik stil med djupa rötter i den kantonesiska språktraditionen.
 
 Under 1960- och 1970-talen inträdde en era av ökad kommersialisering, där den föråldrade skolans inflytande mötte en växande urban publik. Många aktörer inom den tidiga scenen nådde genomslag, och deras musikaliska uttryck präglades av melodiska linjer inspirerade av amerikansk soul och rock'n'roll, samtidigt som de bevarade subtila nyanser från traditionell kantonesisk musik. Denna period kännetecknades av en nära dialog mellan lokala kompositörer och utländska arrangörer, vilket möjliggjorde en kreativ fusion som kom att definiera Cantopops estetiska parametervärden. Vidare utvecklades den tekniska infrastrukturen i Hongkong i snabbt tempo, vilket, i kombination med tillgången till modern inspelningsteknik, bidrog väsentligt till spridningen av en renare och mer dynamisk ljudbild.
 

@@ -16,14 +16,13 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Post metal udgør en særskilt undergenre inden for metal, der internationalt tog form i midten af 1990’erne. Genren repræsenterer en sammensmeltning af eksperimentelle og progressivt orienterede elementer, hvor man afviger radikalt fra traditionelle, riff-baserede strukturer. Musikalsk manifesterer post metal sig gennem omfattende brug af dynamiske kontraster, teksturelle lag og gradvise opbygninger, der illustrerer en æstetisk modvilje mod konventionelle, verse-omkvæd-strukturer. 
+Post metal udgør en særskilt undergenre inden for metal, der internationalt tog form i midten af 1990’erne. Genren repræsenterer en sammensmeltning af eksperimentelle og progressivt orienterede elementer, hvor man afviger radikalt fra traditionelle, riff-baserede strukturer. Musikalsk manifesterer post metal sig gennem omfattende brug af dynamiske kontraster, teksturelle lag og gradvise opbygninger, der illustrerer en æstetisk modvilje mod konventionelle, verse-omkvæd-strukturer.
 
 Desuden integrerer post metal aspekter af ambient og minimalistisk musik, hvilket understøtter en udvikling mod et mere atmosfærisk og introspektivt udtryk. Digitale teknologier og studieteknikker spiller en central rolle i denne udviklingsproces og muliggør en rigere klangfarve. Denne genre repræsenterer dermed en innovativ tilgang, hvor musikalske eksperimenter redefinerer de gængse normer for performance og æstetik i den internationale metaltradition.
 

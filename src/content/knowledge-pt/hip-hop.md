@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -158,7 +157,7 @@ Total de caracteres: 5355
 
 ## Performance and Live Culture
 
-A cultura do hip hop encarna, desde as suas origens na década de 1970, um conjunto complexo e multifacetado de práticas performáticas que se desenvolveram em resposta a contextos sociais, políticos e culturais específicos. Inicialmente emergindo no Bronx, na cidade de Nova Iorque, o movimento apresentou-se como forma de expressão das comunidades marginalizadas, onde as performances em espaço aberto – conhecidas como festas de rua ou “block parties” – desempenharam papel fundamental na consolidação dos valores estéticos e identitários do gênero (Rose, 1994). Ademais, tais performances evidenciam a intersecção entre arte, política e prática social, demonstrando como o hip hop se firmou como instrumento de resistência e empoderamento. 
+A cultura do hip hop encarna, desde as suas origens na década de 1970, um conjunto complexo e multifacetado de práticas performáticas que se desenvolveram em resposta a contextos sociais, políticos e culturais específicos. Inicialmente emergindo no Bronx, na cidade de Nova Iorque, o movimento apresentou-se como forma de expressão das comunidades marginalizadas, onde as performances em espaço aberto – conhecidas como festas de rua ou “block parties” – desempenharam papel fundamental na consolidação dos valores estéticos e identitários do gênero (Rose, 1994). Ademais, tais performances evidenciam a intersecção entre arte, política e prática social, demonstrando como o hip hop se firmou como instrumento de resistência e empoderamento.
 
 No que tange à performance no hip hop, verifica-se uma essencialidade relacionada à improvisação e à presença cênica. Os elementos performáticos incluem os bailes de dança, as batalhas de MCs (mestres de cerimônia) e os “breaks”, os quais se articulam de maneira interdisciplinar para criar uma experiência dinâmica e interativa. A improvisação, característica intrínseca às batalhas de rimas (freestyle), revela não apenas a agilidade mental dos intérpretes, mas também a habilidade de provocar e responder a estímulos de forma imediata, conferindo ao evento uma energia efêmera e singular. Concomitantemente, a elementar presença física dos dançarinos de break, combinada com as conduções rítmicas dos DJs, enfatiza a importância da corporeidade e da mobilidade na construção da performance, estabelecendo uma conexão visceral com o público presente.
 

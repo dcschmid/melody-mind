@@ -17,10 +17,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Inleiding
 
@@ -104,7 +103,7 @@ Samenvattend benadrukt deze beschouwing dat de opmerkelijke artiesten en bands u
 
 De ontwikkeling van de muziekindustrie en de bijbehorende infrastructuur in Iran vertoont een fascinerende wisselwerking tussen traditionele muzikale erfenissen en moderniseringsprocessen, die zich over meerdere decennia bestrijkt. Deze wisselwerking werd in de eerste helft van de twintigste eeuw mede gevormd door de hervormingen van de Pahlavi-dynastie, die een herstructurering van culturele en technologische voorzieningen beoogde. Deze periode kenmerkte zich door een georganiseerde benadering van radio-uitzendingen en de introductie van commerciële opnametechnologieën in een land met een rijke muzikale traditie.
 
-In de jaren dertig en veertig werd de infrastructuur voor muziekproductie in Iran geleidelijk uitgebreid, waarbij zowel nationale radiostations als platenmaatschappijen een cruciale rol speelden in de verspreiding van muzikale werken. De staatszenders, zoals Radio Tehran, initieerden een beleid dat gericht was op het documenteren en populariseren van de traditionele radif en andere klassieke vormen, maar tegelijkertijd openstond voor westerse invloeden. Het resultaat hiervan was een intrigerende synthese van oud met nieuw, waarin hedendaagse technieken werden gebruikt om de rijke muzikale tradities te behouden en te herinterpreteren. 
+In de jaren dertig en veertig werd de infrastructuur voor muziekproductie in Iran geleidelijk uitgebreid, waarbij zowel nationale radiostations als platenmaatschappijen een cruciale rol speelden in de verspreiding van muzikale werken. De staatszenders, zoals Radio Tehran, initieerden een beleid dat gericht was op het documenteren en populariseren van de traditionele radif en andere klassieke vormen, maar tegelijkertijd openstond voor westerse invloeden. Het resultaat hiervan was een intrigerende synthese van oud met nieuw, waarin hedendaagse technieken werden gebruikt om de rijke muzikale tradities te behouden en te herinterpreteren.
 
 Bovendien zorgde de opkomst van de filmindustrie in de jaren vijftig voor een verdere professionalisering van de muziekproductie en distributie. Muziek werd integraal onderdeel van de cinematografische werkvorm, wat leidde tot een intensieve samenwerking tussen componisten, uitvoerende muzikanten en productiehuizen. Deze samenwerking resulteerde in de ontwikkeling van een industriële muzikale infrastructuur waarin de technische middelen voor opname, editing en distributie systematisch werden benaderd. In dit proces werden zowel traditionele als moderne vormen van muziekproductie met elkaar verweven, hetgeen een structurele ontwikkeling van de muziekindustrie in Iran markeerde.
 
@@ -188,6 +187,6 @@ De historische en hedendaagse interacties tussen Iraanse muziek en international
 
 ## Huidige trends en toekomst
 
-De hedendaagse Iraanse muziek evolueert binnen een internationaal kader waarin traditioneel erfgoed en moderne innovaties op unieke wijze verweven worden. Hedendaagse artiesten integreren authentieke melodische en ritmische patronen met hedendaagse compositietechnieken, zodat een expressieve synthese ontstaat die de mondiale muziekwereld weet te inspireren. Daarbij dragen digitale productietechnologieën en online platformen bij aan de verspreiding van deze hybride klanken, hetgeen de culturele dialoog tussen Iran en de rest van de wereld versterkt. 
+De hedendaagse Iraanse muziek evolueert binnen een internationaal kader waarin traditioneel erfgoed en moderne innovaties op unieke wijze verweven worden. Hedendaagse artiesten integreren authentieke melodische en ritmische patronen met hedendaagse compositietechnieken, zodat een expressieve synthese ontstaat die de mondiale muziekwereld weet te inspireren. Daarbij dragen digitale productietechnologieën en online platformen bij aan de verspreiding van deze hybride klanken, hetgeen de culturele dialoog tussen Iran en de rest van de wereld versterkt.
 
 Voorts stimuleert deze ontwikkeling een herwaardering van oude modale systemen, waarbij traditionele instrumenten en technieken innovatieve toepassingen vinden in hedendaagse composities. Het resultaat is een voortdurende kruisbestuiving, die niet alleen de nationale identiteit herdefinieert, maar eveneens bijdraagt aan een mondiale muzikale convergentie die haar stempel drukt op het toekomstige muzikale landschap.

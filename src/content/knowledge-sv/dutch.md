@@ -16,10 +16,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduktion
 
@@ -155,7 +154,7 @@ Sammanfattningsvis kan konstateras att integrationen av nya medieteknologier med
 
 ## Utbildning och stöd
 
-Utbildning och stöd utgör fundamentala byggstenar i den internationella musikpraktiken och har under lång tid präglat den nederländska musikscenens utveckling. Sedan tidigt 1800-tal har Nederländerna inrättat institutioner med syfte att förmedla såväl teoretisk musikvetenskap som praktiska färdigheter, varvid dessa institutioners anläggning bidragit till landets internationella anseende inom musikfältet. Utvecklingen av konservatorier i Nederländerna återspeglar en medveten satsning på att införa rigorösa akademiska undervisningsmetoder och tematiska kurser som kopplar samman musikaliska traditioner med samtida innovation. 
+Utbildning och stöd utgör fundamentala byggstenar i den internationella musikpraktiken och har under lång tid präglat den nederländska musikscenens utveckling. Sedan tidigt 1800-tal har Nederländerna inrättat institutioner med syfte att förmedla såväl teoretisk musikvetenskap som praktiska färdigheter, varvid dessa institutioners anläggning bidragit till landets internationella anseende inom musikfältet. Utvecklingen av konservatorier i Nederländerna återspeglar en medveten satsning på att införa rigorösa akademiska undervisningsmetoder och tematiska kurser som kopplar samman musikaliska traditioner med samtida innovation.
 
 Historiskt sett kan man identifiera en nischad utveckling av musikundervisning i Nederländerna från det tidiga konservatoriets grundläggning vid Haag (Koninklijk Conservatorium, 1824), där en tydlig agenda för att integrera europeisk klassicism med inhemsk kultur snabbt etablerades. Vidare fick etableringen av Conservatorium van Amsterdam år 1884 en betydande roll genom att erbjuda en bredare undervisningsplattform som samverkade med internationella trender och nr modernistiska uttrycksformer. Dessa institutioner lade grunden för ett utbildningssystem där både traditionella musikteorier och praktiska tekniker stod i centrum för kursutbudet.
 
@@ -165,7 +164,7 @@ Akademisk diskurs kring musikpedagogik i Nederländerna präglas av en stringent
 
 Vid sidan av traditionell musikutbildning har Nederländerna kommit att uppvisa ett omfattande system för stöd till praktiserande musiker. Staten och regionala myndigheter har historiskt sett investerat i projekt som syftat till att främja både klassisk musik samt nutida musikgenrer, vilket har resulterat i etableringen av stipendieprogram, kreativa residens och mentorsystem. Dessa initiativ har haft en särskilt betydelsefull roll under efterkrigstiden då kulturella investeringar och internationellt samarbete var av avgörande betydelse för att återuppbygga och vidareutveckla kultursektorn. Parallellt med dessa statliga satsningar har även privata och ideella organisationer bidragit med resurser och stödstrukturer gentemot lokala och internationellt verksamma artister.
 
-Internationellt har Nederländernas utbildnings- och stödsystem agerat som en katalysator för musikaliska samarbeten, vilket manifesterats i förmedlade utbyten mellan studenter samt pedagoger från skilda delar av världen. Genom partnerskap med institutioner i Centraleuropa och övriga världen har forskningsprojekt och konsertserier möjliggjorts, vilket ytterligare har förstärkt den nederländska musikundervisningens rykte på den internationella arenan. Den kulturella utbytestraditionen har även överförts till praktisk scenkonst där internationellt erkända ensembler och solister regelbundet framträder både nationellt och utomlands. 
+Internationellt har Nederländernas utbildnings- och stödsystem agerat som en katalysator för musikaliska samarbeten, vilket manifesterats i förmedlade utbyten mellan studenter samt pedagoger från skilda delar av världen. Genom partnerskap med institutioner i Centraleuropa och övriga världen har forskningsprojekt och konsertserier möjliggjorts, vilket ytterligare har förstärkt den nederländska musikundervisningens rykte på den internationella arenan. Den kulturella utbytestraditionen har även överförts till praktisk scenkonst där internationellt erkända ensembler och solister regelbundet framträder både nationellt och utomlands.
 
 Den nederländska modellen för musikpedagogik utmärks även av en holistisk syn på musik som kulturellt fenomen med djupgående samhälleliga och historiska dimensioner. Det nationella stödsystemet värdesätter inte enbart den estetiska och tekniska aspekten utan inkluderar även studier i musikens historiska kontexter, etnografiska rötter samt sociokulturella interaktioner. Genom att manövrera inom dessa discipliner strävar programmen efter att erbjuda en bred analytisk förståelse, vilken är ovärderlig i arbetet med att bevara och utveckla både traditionella och samtida musikgenrer.
 

@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -32,9 +31,9 @@ Contagem de caracteres: 1025
 
 ## Historical Background
 
-A categoria musical “Beach Day” insere-se num contexto histórico multifacetado que reflete, sobretudo, as confluências entre as transformações culturais do pós-guerra, o desenvolvimento das tecnologias de gravação e a emergência de uma estética associada ao lazer e à manifestação juvenil. O seu percurso, desde as primeiras manifestações que se desenvolveram nas décadas de 1950 e 1960 até à consolidação de práticas simbólicas estéticas, caracteriza-se por uma inter-relação complexa entre fatores sociopolíticos, econômicos e culturais. Em especial, esse cenário é influenciado pelo auge da cultura de massa norte-americana, cuja difusão global promoveu a criação de uma identidade musical pautada pelo ambiente marítimo, pela liberdade e pelo otimismo que caracterizavam os tempos. 
+A categoria musical “Beach Day” insere-se num contexto histórico multifacetado que reflete, sobretudo, as confluências entre as transformações culturais do pós-guerra, o desenvolvimento das tecnologias de gravação e a emergência de uma estética associada ao lazer e à manifestação juvenil. O seu percurso, desde as primeiras manifestações que se desenvolveram nas décadas de 1950 e 1960 até à consolidação de práticas simbólicas estéticas, caracteriza-se por uma inter-relação complexa entre fatores sociopolíticos, econômicos e culturais. Em especial, esse cenário é influenciado pelo auge da cultura de massa norte-americana, cuja difusão global promoveu a criação de uma identidade musical pautada pelo ambiente marítimo, pela liberdade e pelo otimismo que caracterizavam os tempos.
 
-Inicialmente, é imperativo destacar que o surgimento das temáticas associadas ao "dia de praia" deve ser interpretado à luz dos processos históricos de modernização e urbanização ocorridos no período do pós-Segunda Guerra Mundial. A consolidação de meios tecnológicos, como a gravação multipista e o desenvolvimento dos equipamentos de radiodifusão, permitiu a difusão de produções musicais que refletiam a nova estética do lazer. Ademais, a expansão do mercado de consumo e a influência dos discursos midiáticos favoreceram a construção de um imaginário coletivo que idealizava a intimidade costeira enquanto espaço de liberdade e de experimentação social. 
+Inicialmente, é imperativo destacar que o surgimento das temáticas associadas ao "dia de praia" deve ser interpretado à luz dos processos históricos de modernização e urbanização ocorridos no período do pós-Segunda Guerra Mundial. A consolidação de meios tecnológicos, como a gravação multipista e o desenvolvimento dos equipamentos de radiodifusão, permitiu a difusão de produções musicais que refletiam a nova estética do lazer. Ademais, a expansão do mercado de consumo e a influência dos discursos midiáticos favoreceram a construção de um imaginário coletivo que idealizava a intimidade costeira enquanto espaço de liberdade e de experimentação social.
 
 A transformação das paisagens sonoras, sobretudo nos Estados Unidos, deve ser atribuída, em parte, à atuação de grupos musicais que, de forma inovadora, propuseram arranjos instrumentais com ênfase em guitarras ressonantes, harmonias vocais singulares e batidas rítmicas envolventes. Um exemplo paradigmático é o grupo "The Beach Boys", cuja trajetória, consolidada a partir de 1961, foi determinante para estabelecer os fundamentos de um estilo que transcende a mera representação da experiência litorânea, tornando-se uma referência internacional na cultura do “beach day”. A partir dessa perspectiva, os arranjos e as práticas performáticas desses artistas revelam uma articulação constante entre técnica musical e a construção simbólica da paisagem costeira, o que, por sua vez, moldou o imaginário coletivo acerca da liberdade, da jovialidade e da experimentação sonora.
 

@@ -16,10 +16,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -179,9 +178,9 @@ Enfin, il apparaît essentiel de souligner que l’expansion de la musique Indie
 
 ## Legacy and Influence
 
-La musique dite « indie » constitue une scène musicale indépendante dont l’héritage transcende la sphère de la simple production alternative pour s’inscrire dans une trajectoire historique riche et complexe. L’émergence de ce courant, dont les origines remontent aux dernières décennies du XXe siècle, s’inscrit dans le contexte d’une rupture manifeste avec les infrastructures de l’industrie musicale grand public. Dès les années 1980, des artistes et groupes issus de divers horizons, notamment au Royaume-Uni, aux États-Unis et en France, se sont engagés dans une démarche d’autonomie esthétique et financière, privilégiant la liberté de création face aux impératifs commerciaux. En outre, cette indépendance se manifeste tant par la réutilisation de moyens de production alternatifs que par l’adoption d’une approche DIY (« do it yourself ») qui sera ultérieurement théorisée dans diverses études académiques.  
+La musique dite « indie » constitue une scène musicale indépendante dont l’héritage transcende la sphère de la simple production alternative pour s’inscrire dans une trajectoire historique riche et complexe. L’émergence de ce courant, dont les origines remontent aux dernières décennies du XXe siècle, s’inscrit dans le contexte d’une rupture manifeste avec les infrastructures de l’industrie musicale grand public. Dès les années 1980, des artistes et groupes issus de divers horizons, notamment au Royaume-Uni, aux États-Unis et en France, se sont engagés dans une démarche d’autonomie esthétique et financière, privilégiant la liberté de création face aux impératifs commerciaux. En outre, cette indépendance se manifeste tant par la réutilisation de moyens de production alternatifs que par l’adoption d’une approche DIY (« do it yourself ») qui sera ultérieurement théorisée dans diverses études académiques.
 
-Les transformations technologiques ont joué un rôle déterminant dans la structuration du mouvement indie. La démocratisation de supports tels que le compact disque, puis plus tard d’Internet, a permis aux artistes d’accéder à des canaux de diffusion innovants et de contourner les contraintes traditionnelles des maisons de disques. À cette époque, le recours aux studios d’enregistrement amateurs et aux petits labels indépendants a favorisé l’éclosion d’un répertoire sonore éclectique, mêlant influences post-punk, new wave et rock alternatif. Les innovations techniques offertes par le développement des logiciels de montage et des instruments électroniques ont, quant à elles, ouvert de nouvelles perspectives créatives, donnant naissance à des productions hybrides où se conjuguent modernité et références ancrées dans des pratiques musicales antérieures.  
+Les transformations technologiques ont joué un rôle déterminant dans la structuration du mouvement indie. La démocratisation de supports tels que le compact disque, puis plus tard d’Internet, a permis aux artistes d’accéder à des canaux de diffusion innovants et de contourner les contraintes traditionnelles des maisons de disques. À cette époque, le recours aux studios d’enregistrement amateurs et aux petits labels indépendants a favorisé l’éclosion d’un répertoire sonore éclectique, mêlant influences post-punk, new wave et rock alternatif. Les innovations techniques offertes par le développement des logiciels de montage et des instruments électroniques ont, quant à elles, ouvert de nouvelles perspectives créatives, donnant naissance à des productions hybrides où se conjuguent modernité et références ancrées dans des pratiques musicales antérieures.
 
 Au-delà des aspects technico-esthétiques, l’héritage culturel et social du mouvement indie se révèle à travers une volonté affirmée de contester les normes établies. Les artistes adoptant cette orientation ont souvent revendiqué une autonomie idéologique, prônant une réappropriation du rôle de l’artiste en tant qu’acteur critique. Par ailleurs, la diffusion de ce mode de production a engendré des réseaux de solidarité et d’échange interrégional, favorisant la circulation d’idées et la mise en place de festivals et de scènes alternatives. L’influence de cette démarche s’est notamment faite ressentir dans l’évolution des pratiques collectives de concert et dans la redéfinition du rapport entre l’artiste, son œuvre et le public. De telles innovations ont participé à la mutation des relations interpersonnelles dans le domaine musical, incitant à une plus grande proximité entre le créateur et l’auditeur.
 

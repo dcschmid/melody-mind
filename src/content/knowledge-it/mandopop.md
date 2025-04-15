@@ -17,14 +17,13 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Il Mandopop rappresenta una manifestazione distintiva della musica popolare in lingua mandarino, la cui evoluzione è intimamente legata alle trasformazioni socioculturali di Taiwan e della Cina continentale. L’apparizione del genere, favorita dall’espansione dei mezzi di comunicazione e dall’industrializzazione discografica degli anni Settanta e Ottanta, si inserisce in un contesto di intensi scambi culturali e di riforme socio-politiche. 
+Il Mandopop rappresenta una manifestazione distintiva della musica popolare in lingua mandarino, la cui evoluzione è intimamente legata alle trasformazioni socioculturali di Taiwan e della Cina continentale. L’apparizione del genere, favorita dall’espansione dei mezzi di comunicazione e dall’industrializzazione discografica degli anni Settanta e Ottanta, si inserisce in un contesto di intensi scambi culturali e di riforme socio-politiche.
 
 Inoltre, il Mandopop si configura come un laboratorio di sperimentazioni stilistiche in cui elementi della tradizione musicale cinese vengono conciliati con strutture armoniche moderne. Le opere dei principali interpreti, capaci di superare i confini nazionali, testimoniano come il genere abbia contribuito a ridefinire i paradigmi della musica pop internazionale, fondendo innovazione tecnica e rispetto per le radici culturali.
 

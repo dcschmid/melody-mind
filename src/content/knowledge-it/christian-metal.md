@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -156,7 +155,7 @@ In conclusione, lo studio della performance e della cultura dal vivo nel metal c
 
 ## Development and Evolution
 
-La storia dell’evoluzione del Metal cristiano si configura come una narrazione complessa, in cui s’intrecciano aspetti culturali, teologici e musicali in una dimensione globale che ha saputo reinterpretare i codici della musica pesante. Tale fenomeno ebbe origine negli anni ottanta, periodo caratterizzato da profondi mutamenti sia nell’ambito del rock che in quello della musica sacra, e si sviluppò in un contesto in cui la sperimentazione sonora e l’esigenza di esprimere un messaggio di fede si fusero in maniera innovativa. In questo arco temporale, il Metal cristiano si distinse per la sua capacità di dialogare con le strutture simboliche e retoriche del genere heavy metal, pur rimanendo fedele a una visione del mondo intrisa di valori spirituali conciliabili con la critica sociale.  
+La storia dell’evoluzione del Metal cristiano si configura come una narrazione complessa, in cui s’intrecciano aspetti culturali, teologici e musicali in una dimensione globale che ha saputo reinterpretare i codici della musica pesante. Tale fenomeno ebbe origine negli anni ottanta, periodo caratterizzato da profondi mutamenti sia nell’ambito del rock che in quello della musica sacra, e si sviluppò in un contesto in cui la sperimentazione sonora e l’esigenza di esprimere un messaggio di fede si fusero in maniera innovativa. In questo arco temporale, il Metal cristiano si distinse per la sua capacità di dialogare con le strutture simboliche e retoriche del genere heavy metal, pur rimanendo fedele a una visione del mondo intrisa di valori spirituali conciliabili con la critica sociale.
 
 Surgevano gruppi come i Resurrection Band negli Stati Uniti, che nel 1978 anticipavano sinergie musicali innovative e teologicamente cariche. La loro proposta, pur rivolta a un pubblico maggiormente orientato verso il rock, si contraddistingueva per un linguaggio musicale aggressivo, in cui la ritmica incalzante e i riff martellanti si accompagnavano a testi di riflessione e di speranza cristiana. In parallelo, in una cornice internazionale sempre più interconnessa grazie alle comunicazioni e all’espansione di reti discografiche indipendenti, altri artisti, principalmente in Europa, iniziarono una personale ricerca stilistica. Tali iniziative musicali posero le basi per il successivo consolidamento di un genere che, pur riconoscendo le proprie radici nella tradizione del rock, adottava paradigmi ideologici e sonori propri.
 

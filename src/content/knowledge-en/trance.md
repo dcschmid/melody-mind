@@ -17,14 +17,13 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Trance is a distinct genre of electronic dance music that emerged in the early 1990s, principally in continental Europe. Its evolution was underpinned by advancements in synthesiser technology, digital sequencing and the burgeoning practice of remix culture. Pioneering productions from the period skilfully fused elements of techno, acid house and ambient music, thereby fostering a hypnotic aesthetic that set the stage for subsequent international developments. 
+Trance is a distinct genre of electronic dance music that emerged in the early 1990s, principally in continental Europe. Its evolution was underpinned by advancements in synthesiser technology, digital sequencing and the burgeoning practice of remix culture. Pioneering productions from the period skilfully fused elements of techno, acid house and ambient music, thereby fostering a hypnotic aesthetic that set the stage for subsequent international developments.
 
 Moreover, the genre’s international resonance was augmented by its embrace of progressive musical structures and pulsating rhythmic patterns that transcended traditional club boundaries. In this regard, trance serves not only as a sonic tapestry but also as a cultural phenomenon that encapsulated the innovative spirit of its era. Its historical trajectory remains a subject of scholarly interest, reflecting broader technological and artistic advancements that continue to influence contemporary music.
 

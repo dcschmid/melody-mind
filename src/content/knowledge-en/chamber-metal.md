@@ -17,10 +17,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -86,7 +85,7 @@ In summary, the subgenres and variations of chamber metal underscore the genre�
 
 ## Key Figures and Important Works
 
-Chamber Metal, as a subgenre, represents an intriguing intersection between the austere elegance of classical chamber music and the audacious intensity of metal. Emerging in the late twentieth century, this distinctive style evolved as a response to both the grandiose tendencies of symphonic metal and the stark minimalism of traditional chamber compositions. In its pursuit of an intimate yet dynamic soundscape, Chamber Metal artists deliberately incorporate the refined instrumentation associated with chamber ensembles—strings, woodwinds, and occasionally brass—alongside the distorted electric guitars, forceful percussion, and ambient synthesiser effects emblematic of metal. This synthesis not only challenges conventional genre boundaries but also fosters a unique auditory experience replete with rich harmonic interplay and intricate contrapuntal textures. 
+Chamber Metal, as a subgenre, represents an intriguing intersection between the austere elegance of classical chamber music and the audacious intensity of metal. Emerging in the late twentieth century, this distinctive style evolved as a response to both the grandiose tendencies of symphonic metal and the stark minimalism of traditional chamber compositions. In its pursuit of an intimate yet dynamic soundscape, Chamber Metal artists deliberately incorporate the refined instrumentation associated with chamber ensembles—strings, woodwinds, and occasionally brass—alongside the distorted electric guitars, forceful percussion, and ambient synthesiser effects emblematic of metal. This synthesis not only challenges conventional genre boundaries but also fosters a unique auditory experience replete with rich harmonic interplay and intricate contrapuntal textures.
 
 Historically, Chamber Metal has been closely linked to the broader trend within international metal of re-engaging with classical traditions during the 1990s and early 2000s. It was during this period that progressive and avant-garde tendencies in metal began to embrace a more elaborate and nuanced orchestration. A confluence of factors, including advancements in recording technology, increased accessibility to acoustic instruments, and a resurgence of interest in early music aesthetics, collectively paved the way for compositional experiments which bridged two divergent musical worlds. Musicians ventured beyond the confines of standard rock ensembles, seeking instead inspiration from the polyphonic structures and formal discipline inherent in the works of Classical and Romantic composers. Such an approach ultimately redefined the sonic parameters of metal, imbuing it with a level of sophistication hitherto unseen in the genre.
 

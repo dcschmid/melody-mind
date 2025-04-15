@@ -17,10 +17,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -186,7 +185,7 @@ I ljuset av den internationella musikhistorien framstår hard rock inte bara som
 
 ## Legacy and Influence
 
-Legacy and Influence inom internationell hard rock utgör ett paradigmskifte inom populärmusikens utveckling, vilket tillskrivs en kombination av teknisk virtuositet, instrumentell innovation samt en distinkt användning av dynamik och fixation på råa, kraftfulla tonala uttryck. Genom att etablera en unik blandning av bluesinfluenser och experimentella element under 1960- och 1970-talet, bidrog denna genre till att utmana konventionella musikaliska normer och därmed bana väg för efterkommande rörelser. Framträdande band såsom Led Zeppelin, Deep Purple, AC/DC och Black Sabbath har alla säkerställt att deras tekniska innovationer och sceniska prestationer erbjuder en solid grund för förståelsen av den internationella musikscenens utveckling under senare decennier. 
+Legacy and Influence inom internationell hard rock utgör ett paradigmskifte inom populärmusikens utveckling, vilket tillskrivs en kombination av teknisk virtuositet, instrumentell innovation samt en distinkt användning av dynamik och fixation på råa, kraftfulla tonala uttryck. Genom att etablera en unik blandning av bluesinfluenser och experimentella element under 1960- och 1970-talet, bidrog denna genre till att utmana konventionella musikaliska normer och därmed bana väg för efterkommande rörelser. Framträdande band såsom Led Zeppelin, Deep Purple, AC/DC och Black Sabbath har alla säkerställt att deras tekniska innovationer och sceniska prestationer erbjuder en solid grund för förståelsen av den internationella musikscenens utveckling under senare decennier.
 
 Det är av vikt att notera att hard rockens tekniska utveckling skedde parallellt med utvecklingen av både inspelningsteknik och förstärkningsteknik under 1960-talets senare hälft. Användningen av distorsion, feedback och övertonigt sound, som karaktärsdrag för den hårda rocken, bidrog till att etablera en ny dimension av ljudproduktion. Detta var inte enbart en teknisk bedrift utan även en estetisk ambition att fånga en rå och omedelbar musikalisk upplevelse. Vidare präglades soundet av en noggrant avvägd blandning av melodi, rytmiska innovationer och dynamiska kontraster, vilket medförde en djup musikalisk komplexitet trots genrebetoningen på den direkta känslan.
 

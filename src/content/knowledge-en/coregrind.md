@@ -16,10 +16,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -173,7 +172,7 @@ Subsequently, as the decade progressed into the early 1990s, Coregrind began to 
 
 Furthermore, the interplay between Coregrind and other international music movements has contributed significantly to its evolution. Progressive bands in regions such as Scandinavia and the United States began to integrate elements of experimental rock and technical death metal into their compositions, providing a novel interpretative lens that refined the rhythmic and textural complexity of the music. Although these additions were met with mixed critical reception initially, they eventually broadened the genre’s appeal and underscored its capacity for constant reinvention. Consequently, Coregrind became emblematic not only of musical extremity but also of a broader, transnational dialogue that reverberated across diverse cultural landscapes.
 
-In its subsequent evolution, Coregrind adapted to the rapidly-changing cultural milieu of the late twentieth and early twenty-first centuries. As globalisation intensified and digital communication became ubiquitous, the genre absorbed a variety of influences from disparate musical cultures, affirming its internationalist aspirations. Bands and collectives from diverse geographical backgrounds have since sought to balance the raw, uncompromising roots of Coregrind with new sonic possibilities engendered by modern production techniques and cross-cultural collaborations. This phase of evolution is distinguished by an increasingly reflective aesthetic that retains its foundational ferocity while also acknowledging broader social and musical narratives spanning continents. 
+In its subsequent evolution, Coregrind adapted to the rapidly-changing cultural milieu of the late twentieth and early twenty-first centuries. As globalisation intensified and digital communication became ubiquitous, the genre absorbed a variety of influences from disparate musical cultures, affirming its internationalist aspirations. Bands and collectives from diverse geographical backgrounds have since sought to balance the raw, uncompromising roots of Coregrind with new sonic possibilities engendered by modern production techniques and cross-cultural collaborations. This phase of evolution is distinguished by an increasingly reflective aesthetic that retains its foundational ferocity while also acknowledging broader social and musical narratives spanning continents.
 
 In conclusion, the development and evolution of Coregrind represents a rich interplay of historical, cultural and technological factors. The genre’s roots in the harsh sonic terrains of late 20th-century underground movements were continually reinterpreted through successive waves of innovation and challenge. By integrating a rigorously uncompromising visual and auditory identity with an openness to global interactions, Coregrind has solidified its position as a seminal facet of international extreme music. It stands as a testament to the enduring influence of early pioneers and the capacity of artistic communities to transform discontent into a dynamic, transnational creative practice.
 

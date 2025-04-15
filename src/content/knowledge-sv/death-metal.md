@@ -16,10 +16,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -139,7 +138,7 @@ Slutligen utgör Death Metal ett unikt kulturfenomen där musikteoretiska innova
 
 ## Performance and Live Culture
 
-Inom death metalens performancekultur framträder en särskilt dynamisk och teaterpräglad föreställningstradition, vilken bidrog till att forma genrens egenartiga identitet under sent 1980-tal och vidare in i 1990-talets globala musikarena. Denna utveckling sammanfaller med en bredare kulturell trend inom undergroundscenen, där scenuppträdanden inte enbart var framträdanden av musikaliskt innehåll, utan även uttryck för en existentiell motreaktion mot etablerade normer. Genom att integrera visuella element, kostymer och scenografi utvecklades liveframträdanden till komplexa riter, vilka stärkte samspelet mellan artist och publik. 
+Inom death metalens performancekultur framträder en särskilt dynamisk och teaterpräglad föreställningstradition, vilken bidrog till att forma genrens egenartiga identitet under sent 1980-tal och vidare in i 1990-talets globala musikarena. Denna utveckling sammanfaller med en bredare kulturell trend inom undergroundscenen, där scenuppträdanden inte enbart var framträdanden av musikaliskt innehåll, utan även uttryck för en existentiell motreaktion mot etablerade normer. Genom att integrera visuella element, kostymer och scenografi utvecklades liveframträdanden till komplexa riter, vilka stärkte samspelet mellan artist och publik.
 
 Historiskt sett kan man identifiera flera viktiga etapper i death metalens performancehistoria. Under den tidiga fasen på 1980-talet, då pionjärband såsom Death och Possessed introducerade den tekniskt avancerade gitarrteknik och komplexa rytmer som senare kom att definiera genren, var liveuppträdandena utformade på ett sätt som både utmanade och tilltalade en växande internationell publik. Koncertmiljöerna i dessa sammanhang präglades av låg belysning, sparsamt med visuella hjälpmedel samt en stark betoning på intensiteten i den akustiska presentationen, vilket var avsiktligt utformat för att förstärka de dystra teman som stod i centrum för genren.
 

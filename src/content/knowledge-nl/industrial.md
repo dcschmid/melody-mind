@@ -16,10 +16,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -69,7 +68,7 @@ De ontwikkeling van diverse subgenres binnen de categorie industrial muziek illu
 
 Aanvankelijk werd de term ‘industrial’ gekoppeld aan groepen als Throbbing Gristle, wier gebruik van onconventionele geluidseffecten en samengevoegde media aanleiding gaf tot de definitive esthetiek en ideologie die de beweging later kenmerkten. Deze vroege fase resulteerde in een esthetische isolatie waarbij de nadruk lag op de materiaaliteit en mechanische klanktexturen van industriële omgevingen. In deze context ondergingen de oorspronkelijke geluidsexperimenten een paradigmawisseling wanneer de belangstelling voor industriële geluiden zich verspreidde naar de discografische praktijk, wat een nieuwe dimensie gaf aan het begrip ‘muzikale performance’.
 
-Gedurende de jaren tachtig werden verschillende subgenres gearticuleerd, elk met hun eigen specifieke kenmerken en ideologische grondslagen. Een belangrijke variatie binnen deze periode is het ontstaan van industriële rock. Deze subcategorie, waarin rockinvloeden en traditionele bandformaties werden geïntegreerd met de experimentele technieken van de vroege industriële muziek, vertegenwoordigde een cruciale brug tussen de conventionele rockesthetiek en avant-gardistische geluidsexperimenten. In tegenstelling tot de oorspronkelijke, soms minimalistische industriële composities, kenmerken deze werken zich door een zwaardere, meer ritmisch gedreven structuur en een grotere mate van toegankelijkheid voor een breder publiek. 
+Gedurende de jaren tachtig werden verschillende subgenres gearticuleerd, elk met hun eigen specifieke kenmerken en ideologische grondslagen. Een belangrijke variatie binnen deze periode is het ontstaan van industriële rock. Deze subcategorie, waarin rockinvloeden en traditionele bandformaties werden geïntegreerd met de experimentele technieken van de vroege industriële muziek, vertegenwoordigde een cruciale brug tussen de conventionele rockesthetiek en avant-gardistische geluidsexperimenten. In tegenstelling tot de oorspronkelijke, soms minimalistische industriële composities, kenmerken deze werken zich door een zwaardere, meer ritmisch gedreven structuur en een grotere mate van toegankelijkheid voor een breder publiek.
 
 Parallel aan industriële rock werd in delen van Europa een stroming geïdentificeerd die samenviel met de opkomst van elektronische body music (EBM). Deze subgenre, die in de late jaren tachtig tot vroege jaren negentig zijn uiterste ontwikkeling vond, maakt intensief gebruik van digitale synthesizers en drumcomputers. Het elektronische karakter van EBM vertaalt zich in repetitieve, dansbare ritmes en een retoriek die zowel confronterend als hypnotiserend is. Belangrijk is dat deze muzikale variatie niet louter weerspiegelt hoe technologische innovaties werden ingezet, maar tevens de veranderende maatschappelijke percepties over lichaam, mechaniek en individualiteit in de postmoderne tijd vertegenwoordigt.
 

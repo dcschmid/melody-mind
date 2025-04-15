@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -44,7 +43,7 @@ Outrossim, cumpre salientar que, do ponto de vista musicológico, as emoções e
 
 Nesse ínterim, a influência das inovações tecnológicas deve ser considerada com rigor cronológico. A adoção progressiva de novos meios de captação e reprodução sonora, desde o fonógrafo até os sistemas digitais contemporâneos, alterou significativamente a forma como as emoções são transmitidas e percebidas. Estudos recentes, como os de Katz (2012), evidenciam que as mudanças tecnológicas podem potencializar o caráter evocativo de uma gravação, uma vez que o processo de mediação sonora contribui para a construção de uma ambientação temporal que transporta o ouvinte a momentos específicos da história. Assim, o fenômeno nostálgico encontra na convergência entre técnica e emoção um campo fértil para a análise, em que os dispositivos de mediação não apenas reproduzem, mas também reinterpretam o legado musical.
 
-Em síntese, a análise da emoção na música nostálgica configura-se como uma via de investigação que articula dimensões históricas, semânticas e tecnológicas. Por meio de uma abordagem que valoriza tanto a estrutura formal quanto os contextos socio-históricos, é possível compreender como a nostalgia opera enquanto sentimento coletivo e individual, fomentada por marcos tecnológicos e culturais precisos. A partir dessa perspectiva, a música transcende a mera sequência de notas e ritmos, assumindo o papel de depositária de memórias transformadoras. Conforme salientam as pesquisas de Taruskin (2005), a capacidade da música de evocar o passado reside justamente na sua propriedade de ser vetor de experiências sensoriais e cognitivas, permitindo assim que o ouvinte experimente de forma íntima os resquícios de tempos idos e os anseios pelo que foi e permanece. 
+Em síntese, a análise da emoção na música nostálgica configura-se como uma via de investigação que articula dimensões históricas, semânticas e tecnológicas. Por meio de uma abordagem que valoriza tanto a estrutura formal quanto os contextos socio-históricos, é possível compreender como a nostalgia opera enquanto sentimento coletivo e individual, fomentada por marcos tecnológicos e culturais precisos. A partir dessa perspectiva, a música transcende a mera sequência de notas e ritmos, assumindo o papel de depositária de memórias transformadoras. Conforme salientam as pesquisas de Taruskin (2005), a capacidade da música de evocar o passado reside justamente na sua propriedade de ser vetor de experiências sensoriais e cognitivas, permitindo assim que o ouvinte experimente de forma íntima os resquícios de tempos idos e os anseios pelo que foi e permanece.
 
 Contagem de caracteres: 5362
 
@@ -156,7 +155,7 @@ Em contraposição, é imprescindível considerar que a nostálgica rememoraçã
 
 Outrossim, o fenômeno nostálgico na música internacional demonstra uma resiliência que se manifesta na reinvenção dos formatos e na constante atualização dos repertórios clássicos. O ressurgimento de gravadoras independentes e a valorização dos arquivos sonoros por parte de instituições culturais contemporâneas são evidências dessa dinâmica. Além de promover a preservação da herança musical, essas iniciativas propiciam novas interpretações e ressignificações, transformando o passado em um elemento dinâmico e provocativo dentro do panorama cultural atual. Essa continuidade histórica revela o quanto a construção identitária e a memória afetiva se entrelaçam com os processos de inovação, constituindo um campo fértil para a reflexão teórica e crítica.
 
-Em conclusão, a perspectiva cultural acerca do musical “Nostalgic” demanda uma abordagem analítica que une os parâmetros históricos à reinterpret ação contemporânea dos repertórios e das práticas performáticas. A complexa relação entre a memória cultural e a técnica musical ressalta, de forma inequívoca, a importância dos diálogos entre passado e presente na configuração de identidades artísticas. Estudos acadêmicos rigorosos e embasados em referências teóricas consagradas permitem uma compreensão aprofundada das múltiplas dimensões envolvidas nesse fenômeno, enriquecendo o debate sobre as transformações das práticas musicais e sua relevância no contexto global. 
+Em conclusão, a perspectiva cultural acerca do musical “Nostalgic” demanda uma abordagem analítica que une os parâmetros históricos à reinterpret ação contemporânea dos repertórios e das práticas performáticas. A complexa relação entre a memória cultural e a técnica musical ressalta, de forma inequívoca, a importância dos diálogos entre passado e presente na configuração de identidades artísticas. Estudos acadêmicos rigorosos e embasados em referências teóricas consagradas permitem uma compreensão aprofundada das múltiplas dimensões envolvidas nesse fenômeno, enriquecendo o debate sobre as transformações das práticas musicais e sua relevância no contexto global.
 
 Total de caracteres: 5355
 

@@ -17,10 +17,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -120,7 +119,7 @@ Samenvattend illustreert de progressieve metal niet alleen een muzikale revoluti
 
 ## Cultural Significance
 
-De progressieve metal, die in de vroege jaren tachtig opkwam als een muzikale fusie tussen de technische virtuositeit van progressieve rock en de ruwe kracht van heavy metal, vertegenwoordigt een belangrijke culturele en muzikale innovatie. Deze stroming werd gekenmerkt door een bewust streven naar artistieke verfijning en technologische vernieuwing, waarbij muzikale composities niet louter ter vermaak waren bedoeld, maar ook als een platform fungeerden voor intellectuele en emotionele exploratie. Door het complexe samenspel van ritmes, harmonieën en contrapuntische structuren illustreerde progressieve metal een nieuwe benadering van muzikale narratieven, die afweek van de traditionele vorm van pop en rock. 
+De progressieve metal, die in de vroege jaren tachtig opkwam als een muzikale fusie tussen de technische virtuositeit van progressieve rock en de ruwe kracht van heavy metal, vertegenwoordigt een belangrijke culturele en muzikale innovatie. Deze stroming werd gekenmerkt door een bewust streven naar artistieke verfijning en technologische vernieuwing, waarbij muzikale composities niet louter ter vermaak waren bedoeld, maar ook als een platform fungeerden voor intellectuele en emotionele exploratie. Door het complexe samenspel van ritmes, harmonieën en contrapuntische structuren illustreerde progressieve metal een nieuwe benadering van muzikale narratieven, die afweek van de traditionele vorm van pop en rock.
 
 In internationale context ontwikkelde progressieve metal zich als een subgenre dat zich voortdurend wilde onderscheiden door zijn integratie van diverse muzikale elementen, zoals klassiek geïnspireerde symfonieën, jazzimprovisaties en experimentele elektronische invloeden. Kunstenaars als Dream Theater, Fates Warning en Queensrÿche, die in deze periode actief werden, vormden het fundament van een nieuwe esthetiek waarin virtuositeit en thematische diepgang centraal stonden. Deze groepen combineerden technische precisie met een diepgaande interesse in filosofische en existentiële thema’s, hetgeen een breed publiek aansprak dat op zoek was naar meer dan louter ritmische en melodische opwinding.
 
@@ -174,7 +173,7 @@ Tot slot getuigt de ontwikkeling van progressive metal van een voortdurende dial
 
 ## Legacy and Influence
 
-Het genre progressive metal heeft sinds het ontstaan in de jaren tachtig een onmiskenbare erfenis en invloed ontwikkeld op zowel de internationale muziekscene als op andere subgenres binnen de rockmuziek. In deze context dient aandacht te worden besteed aan de integratie van complexe muzikale structuren, virtuositeit en thematisch gefundeerde narratieven die kenmerkend zijn voor dit genre. De evolutie hiervan kan worden teruggevoerd op de invloeden van progressieve rock uit de jaren zestig en zeventig, waarbij bands als Pink Floyd en King Crimson als voorlopers dienden.  
+Het genre progressive metal heeft sinds het ontstaan in de jaren tachtig een onmiskenbare erfenis en invloed ontwikkeld op zowel de internationale muziekscene als op andere subgenres binnen de rockmuziek. In deze context dient aandacht te worden besteed aan de integratie van complexe muzikale structuren, virtuositeit en thematisch gefundeerde narratieven die kenmerkend zijn voor dit genre. De evolutie hiervan kan worden teruggevoerd op de invloeden van progressieve rock uit de jaren zestig en zeventig, waarbij bands als Pink Floyd en King Crimson als voorlopers dienden.
 
 De invloed van progressieve rock op het ontstaan van progressive metal manifesteerde zich in de adoptie van onconventionele maatsoorten, uitgebreide composities en een voorliefde voor technische beheersing. Muzikanten zoals Dream Theater, Fates Warning en Queensrÿche, die in de jaren tachtig en negentig internationaal erkenning verwierven, hebben door hun vernieuwende benaderingen en virtuoze uitvoeringen het muzikale discours aanzienlijk beïnvloed. Deze bands hebben niet alleen technische verfijning nagestreefd, maar ook een narratieve en conceptuele rijkdom in hun werk geïntegreerd, hetgeen heeft bijgedragen aan de ontwikkeling van een uniek muzikaal landschap.
 

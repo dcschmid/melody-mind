@@ -17,10 +17,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -84,7 +83,7 @@ In conclusion, the diverse subgenres and variations within Dark Metal not only e
 
 ## Key Figures and Important Works
 
-The evolution of Dark Metal as a musical style is indelibly marked by a series of pivotal figures and seminal works that have shaped its evolution over the decades. Emerging in the late 1980s and early 1990s, Dark Metal amalgamated influences gleaned from early black metal, doom metal, and a strong undercurrent of atmospheric, melancholic aesthetics. The genre’s foundation was laid predominantly in Northern Europe, where a confluence of cultural isolation, folklore, and a desire to explore the extreme facets of human emotion gave birth to its distinctive sound and thematic content. 
+The evolution of Dark Metal as a musical style is indelibly marked by a series of pivotal figures and seminal works that have shaped its evolution over the decades. Emerging in the late 1980s and early 1990s, Dark Metal amalgamated influences gleaned from early black metal, doom metal, and a strong undercurrent of atmospheric, melancholic aesthetics. The genre’s foundation was laid predominantly in Northern Europe, where a confluence of cultural isolation, folklore, and a desire to explore the extreme facets of human emotion gave birth to its distinctive sound and thematic content.
 
 Among the most influential pioneers in this domain is Bathory, whose 1987 album Under the Sign of the Black Mark proved to be a watershed moment in establishing the sonorous and ritualistic elements that would come to define Dark Metal. Bathory’s work introduced raw production techniques, tremolo picking and a deliberate usage of ambient soundscapes that evoked the bleakness of winter and the mysticism of ancient legends. Moreover, the band’s integration of both aggressive and melodic passages created a duality that resonated with an audience seeking depth beyond traditional heavy metal conventions. Bathory’s contributions are frequently accorded a canonical status, as they provided both a template and an inspiration for subsequent artists who would further refine the genre.
 

@@ -17,14 +17,13 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Die Musikrichtung Hip-Hop entstand in den frühen 1970er Jahren in der afroamerikanischen und hispanischen Gemeinschaft der Bronx, New York. Innovative Klanggestaltungen basierend auf rhythmischen Breakbeats, scratchenden Plattenspielern und improvisatorischen Elementen bildeten den Grundstock eines bislang unbekannten musikalischen Ausdrucks. In einem urbanen Milieu, das von sozialen Ungleichheiten und konfliktreichen Lebensumständen geprägt war, spiegelte diese neuartige Klangästhetik ein kritisches Bewusstsein für zeitgenössische Realitäten wider. 
+Die Musikrichtung Hip-Hop entstand in den frühen 1970er Jahren in der afroamerikanischen und hispanischen Gemeinschaft der Bronx, New York. Innovative Klanggestaltungen basierend auf rhythmischen Breakbeats, scratchenden Plattenspielern und improvisatorischen Elementen bildeten den Grundstock eines bislang unbekannten musikalischen Ausdrucks. In einem urbanen Milieu, das von sozialen Ungleichheiten und konfliktreichen Lebensumständen geprägt war, spiegelte diese neuartige Klangästhetik ein kritisches Bewusstsein für zeitgenössische Realitäten wider.
 
 Mit der fortschreitenden technischen Entwicklung und der Verbreitung moderner Plattentechnologie gelang es Hip-Hop, rasch internationale Relevanz zu erlangen. In den folgenden Dekaden wurden musiktheoretische Diskurse durch den interkulturellen Austausch erweitert, sodass sich regionale Variationen aus eigenen kulturhistorischen Impulsen herausbildeten. Die globale Adaption dieser Musikform verdeutlicht den nachhaltigen Einfluss von Hip-Hop und unterstreicht den steten Dialog zwischen kultureller Identität und technologischem Fortschritt.
 

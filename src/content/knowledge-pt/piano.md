@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -56,7 +55,7 @@ Historicamente, a evolução do piano evidencia uma progressão que reflete as m
 
 No que concerne aos aspectos sonoros, o timbre do piano revela uma complexidade derivada do encontro entre ressonância de sua caixa harmônica e a precisão dos martelos que, ao impactarem as cordas, produzem uma sonoridade rica e multifacetada. A harmonia gerada é modulada tanto pelos diferentes tipos de pedaleiras quanto pelas variações na intensidade do ataque, o que permite a execução de texturas contrapontísticas e a sobreposição de linhas melódicas, contribuindo para uma polifonia densa e articulada. Assim, a acabada conjugação entre técnica de execução e a qualidade de construção física do instrumento culmina em uma experiência sonora que se submete à análise dos princípios acústicos e ergonômicos, ressaltando a interação intrínseca entre o músico e o mecanismo instrumentário.
 
-A análise dos elementos estruturais do piano demanda uma abordagem que contemple tanto o estudo da mecânica interna quanto a apreciação estética proporcionada pela sonoridade. Nesse sentido, o teclado, que dispõe de aproximadamente oitenta e oito teclas na maioria dos exemplares modernos, é uma interface que traduz, de forma direta, a intenção expressiva do intérprete. Estudos musicológicos têm sistematizado o impacto da organização tonal e a relação entre a dinâmica de execução e a formação de timbres, os quais se revelam fundamentais para compreender a evolução das práticas performáticas, sobretudo em obras que demandam um profundo domínio técnico e interpretativo. 
+A análise dos elementos estruturais do piano demanda uma abordagem que contemple tanto o estudo da mecânica interna quanto a apreciação estética proporcionada pela sonoridade. Nesse sentido, o teclado, que dispõe de aproximadamente oitenta e oito teclas na maioria dos exemplares modernos, é uma interface que traduz, de forma direta, a intenção expressiva do intérprete. Estudos musicológicos têm sistematizado o impacto da organização tonal e a relação entre a dinâmica de execução e a formação de timbres, os quais se revelam fundamentais para compreender a evolução das práticas performáticas, sobretudo em obras que demandam um profundo domínio técnico e interpretativo.
 
 Além disso, a configuração do mecanismo de repetição, introduzido gradualmente a partir das inovações do período napoleônico, fomenta uma articulação rítmica que se adapta a uma vasta gama de estilos musicais. Essa inovação técnica possibilitou a reprodução de efeitos de legato e de controles dinâmicos que exigem não somente a precisão dos dedos, mas também uma conexão heurística entre o planejado e o imediato, evidenciando o aparato temporário e físico do executar. Tal recurso, fundamental para a coesão interpretativa de peças complexas, reflete a simbiose entre o desenvolvimento tecnológico e as exigências estéticas e emocionais inerentes à prática musical.
 
@@ -198,6 +197,6 @@ Do ponto de vista pedagógico, o legado do piano estende-se à formação de ger
 
 Outrossim, o impacto cultural do piano se revela na integração de múltiplas dimensões artísticas, notadamente na interação com a dança, o teatro e as artes visuais. Essa interseção favoreceu a formulação de projetos interdisciplinares nos quais o instrumento serviu de catalisador para a experimentação estética e para a criação de performances que desafiavam convenções sociais e artísticas. Em muitos casos, a pluralidade de influências e de contextos históricos sublinhou a capacidade do piano de adaptar-se às demandas de uma sociedade em permanente transformação, tornando-se, assim, um ícone da continuidade e da renovação no universo cultural internacional.
 
-Em síntese, o legado e a influência do piano perpassam dimensões que transcendem a mera materialidade instrumental, contribuindo para a consolidação de paradigmas musicais e para a disseminação de práticas estéticas diversificadas. A sua evolução técnica e pedagógica, aliada à riqueza de repertórios e à amplitude interpretativa, atesta a importância deste instrumento na história da música mundial, servindo tanto como símbolo de tradição quanto como veículo de inovação. Na perspectiva acadêmica, é imperativo reconhecer que o piano – enquanto objeto de estudo e expressão artística – permanece, com sua versatilidade e capacidade transformadora, um componente insubstituível na tarefa de compreender os processos de ressignificação e de reinvenção musical que marcaram os períodos históricos e que continuam a influenciar o panorama contemporâneo. 
+Em síntese, o legado e a influência do piano perpassam dimensões que transcendem a mera materialidade instrumental, contribuindo para a consolidação de paradigmas musicais e para a disseminação de práticas estéticas diversificadas. A sua evolução técnica e pedagógica, aliada à riqueza de repertórios e à amplitude interpretativa, atesta a importância deste instrumento na história da música mundial, servindo tanto como símbolo de tradição quanto como veículo de inovação. Na perspectiva acadêmica, é imperativo reconhecer que o piano – enquanto objeto de estudo e expressão artística – permanece, com sua versatilidade e capacidade transformadora, um componente insubstituível na tarefa de compreender os processos de ressignificação e de reinvenção musical que marcaram os períodos históricos e que continuam a influenciar o panorama contemporâneo.
 
 Quantidade de caracteres (contando espaços): 5356

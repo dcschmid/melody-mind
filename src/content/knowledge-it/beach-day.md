@@ -16,16 +16,15 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-L'analisi della categoria musicale "Beach Day" si fonda su un accurato inquadramento storico-teorico, volto a delineare l’evoluzione dei generi legati alle esperienze costiere e balneari. In particolare, si evidenzia come nel corso degli anni Sessanta si sia configurato un paradigma musicale esemplificato da pratiche interpretative che, in ambito surf rock e tradizioni locali, hanno fornito una risposta estetica e funzionale alle esigenze di un pubblico in fermento. 
+L'analisi della categoria musicale "Beach Day" si fonda su un accurato inquadramento storico-teorico, volto a delineare l’evoluzione dei generi legati alle esperienze costiere e balneari. In particolare, si evidenzia come nel corso degli anni Sessanta si sia configurato un paradigma musicale esemplificato da pratiche interpretative che, in ambito surf rock e tradizioni locali, hanno fornito una risposta estetica e funzionale alle esigenze di un pubblico in fermento.
 
-In aggiunta, è possibile notare come la strutturazione melodica e ritmica, mutuata da modelli culturali specifici, si sia intersecata con l’innovazione tecnologica, rendendo accessibili nuovi strumenti esecutivi e di registrazione. Tale interazione, inoltre, ha permesso l’elaborazione di composizioni che rispecchiano il vissuto esistenziale e l’identità territoriale delle comunità costiere. 
+In aggiunta, è possibile notare come la strutturazione melodica e ritmica, mutuata da modelli culturali specifici, si sia intersecata con l’innovazione tecnologica, rendendo accessibili nuovi strumenti esecutivi e di registrazione. Tale interazione, inoltre, ha permesso l’elaborazione di composizioni che rispecchiano il vissuto esistenziale e l’identità territoriale delle comunità costiere.
 
 Infine, l’approccio critico adottato in questo studio intende offrire una prospettiva multidimensionale, in grado di cogliere le complesse dinamiche di un fenomeno di considerevole rilevanza nel panorama musicale internazionale.
 

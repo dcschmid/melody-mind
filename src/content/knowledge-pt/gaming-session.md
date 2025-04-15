@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -150,7 +149,7 @@ Neste sentido, a análise semiótica das performances durante as “Gaming Sessi
 
 Outro aspecto relevante a ser considerado diz respeito às transformações impostas pela globalização e pelo intercâmbio cultural que, a partir do final do século XX, contribuíram para a expansão do alcance das “Gaming Sessions”. Nesse cenário, a internacionalização dos eventos ao vivo proporcionou a convergência de estilos e práticas interpretativas oriundas de diferentes tradições musicais, reforçando a noção de que a performance é, antes de tudo, um fenômeno cultural multifacetado. Além disso, a disseminação da internet e das plataformas digitais acentuou a circulação de experiências e a construção de comunidades virtuais, nas quais os participantes não apenas recebem, mas também colaboram ativamente para a produção de significados e novas formas performáticas. A integração desses elementos, portanto, reforça a importância de se considerar o contexto global como um fator imprescindível para a análise das práticas de performance ao vivo no ambiente dos jogos.
 
-Por fim, a confluência entre performance musical e cultura dos jogos configura um campo de investigação que desafia as fronteiras tradicionais da musicologia e das ciências culturais. Em síntese, a interação entre a execução ao vivo e os processos multimídia revela a complexidade de uma prática que se transforma continuamente, acompanhando as inovações tecnológicas e as mudanças nos hábitos culturais. Dessa forma, o estudo das “Gaming Sessions” permite não apenas o resgate de uma trajetória histórica interligada a experiências artísticas inovadoras, mas também a identificação de tendências que poderão moldar o futuro das performances musicais em ambientes interativos. Conforme apontado por eleitores teóricos, a performance ao vivo no contexto dos jogos emerge como um fenômeno que transcende a mera técnica interpretativa para se constituir num espaço de diálogo entre passado, presente e futuro.  
+Por fim, a confluência entre performance musical e cultura dos jogos configura um campo de investigação que desafia as fronteiras tradicionais da musicologia e das ciências culturais. Em síntese, a interação entre a execução ao vivo e os processos multimídia revela a complexidade de uma prática que se transforma continuamente, acompanhando as inovações tecnológicas e as mudanças nos hábitos culturais. Dessa forma, o estudo das “Gaming Sessions” permite não apenas o resgate de uma trajetória histórica interligada a experiências artísticas inovadoras, mas também a identificação de tendências que poderão moldar o futuro das performances musicais em ambientes interativos. Conforme apontado por eleitores teóricos, a performance ao vivo no contexto dos jogos emerge como um fenômeno que transcende a mera técnica interpretativa para se constituir num espaço de diálogo entre passado, presente e futuro.
 
 Em conclusão, é imperativo reconhecer a complexidade e a riqueza das “Gaming Sessions” enquanto manifestação cultural contemporânea. A convergência de tecnologia, tradição e inovação, somada à interatividade inerente aos jogos eletrónicos, atua como catalisadora de novas experiências performáticas. Dessa maneira, o contínuo diálogo entre a música e o universo digital não só amplia os horizontes das práticas artísticas, mas também reafirma o caráter dinâmico e evolutivo da cultura ao vivo. Diante dos desafios e das potencialidades observadas, a análise acadêmica das performances musicais você se revela em constante transformação, demandando abordagens teóricas que incorporem a complexidade das interações tecnológicas e culturais. Assim, a “Gaming Session” desponta como um campo privilegiado para o estudo da cultura performática global, cuja relevância se mantém e se renova a cada nova experiência ao vivo.
 

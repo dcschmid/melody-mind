@@ -16,14 +16,13 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-De sectie ‘Backyard BBQ’ belicht een mondiaal fenomeen dat de ontmoeting van traditionele muzikale motieven en hedendaagse improvisatietechnieken binnen informele settings onderzoekt. Deze muzikale benadering kenmerkt zich door een spontane samensmelting van uiteenlopende stijlen, waarbij invloeden uit de blues, de country en de rock op een organische wijze worden geïntegreerd. 
+De sectie ‘Backyard BBQ’ belicht een mondiaal fenomeen dat de ontmoeting van traditionele muzikale motieven en hedendaagse improvisatietechnieken binnen informele settings onderzoekt. Deze muzikale benadering kenmerkt zich door een spontane samensmelting van uiteenlopende stijlen, waarbij invloeden uit de blues, de country en de rock op een organische wijze worden geïntegreerd.
 
 Historisch gezien vindt men de wortels van dit fenomenologische geheel in de ontwikkeling van regionale volksmuziek, die zich in verschillende internationale contexten heeft ontwikkeld. Zo draagt een nadruk op ritmiek, melodische verfijning en harmonische interacties bij aan het ontstaan van innovatieve uitvoeringen, die enerzijds de traditie eren en anderzijds ruimte bieden aan creatieve vernieuwing. Deze wisselwerking tussen erfgoed en innovatie vormt de kern van het ‘Backyard BBQ’-paradigma en illustreert de rijkdom aan muzikale expressie binnen een mondiale culturele arena.
 

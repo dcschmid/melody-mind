@@ -16,10 +16,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -31,7 +30,7 @@ Les recherches contemporaines, notamment celles de Dupont (2005), soulignent la 
 
 ## Cultural Significance
 
-La célébration de la Saint-Valentin a laissé une empreinte indélébile sur la musique internationale, se révélant comme un vecteur puissant de l’expression de l’amour et des émotions. Dès le Moyen Âge, dans la tradition troubadouresque en Occitanie, des poètes et musiciens ont développé un répertoire empreint de lyrisme et de raffinement, invitant à la contemplation et à l’exaltation des sentiments amoureux. Ces premières expressions musicales, intimement liées à la poésie courtoise, posèrent les bases d’une tradition qui traversera les siècles et se métamorphosera au gré des contextes sociaux et culturels. 
+La célébration de la Saint-Valentin a laissé une empreinte indélébile sur la musique internationale, se révélant comme un vecteur puissant de l’expression de l’amour et des émotions. Dès le Moyen Âge, dans la tradition troubadouresque en Occitanie, des poètes et musiciens ont développé un répertoire empreint de lyrisme et de raffinement, invitant à la contemplation et à l’exaltation des sentiments amoureux. Ces premières expressions musicales, intimement liées à la poésie courtoise, posèrent les bases d’une tradition qui traversera les siècles et se métamorphosera au gré des contextes sociaux et culturels.
 
 Au cours de la Renaissance, l’évolution de la musique vocale et instrumentale permit de redéfinir le discours amoureux. Les madrigaux et chansons polyphoniques véhiculèrent, par leur complexité harmonique, une intensité émotionnelle nouvelle, soulignant le lien entre la virtuosité musicale et la profondeur des sentiments. Les compositeurs de cette époque, tout en respectant les codes esthétiques hérités du Moyen Âge, innovèrent en intégrant des dimensions narratives qui permettaient de symboliser la dualité entre passion charnelle et amour platonique. Dans ce contexte, la Saint-Valentin se mua en un prétexte à la célébration de la beauté de l’amour, comme le notent divers chercheurs qui évoquent « l’union sublime de l’art et de l’émotion » (Carpentier, 1997).
 
@@ -85,7 +84,7 @@ En conclusion, l’étude des « éléments traditionnels » dans le cadre de la
 
 ## Historical Evolution
 
-La musique associée à la célébration de la Saint-Valentin constitue un domaine d’étude particulièrement riche, révélant une évolution historique qui mêle traditions orales, réinterprétations artistiques et innovations technologiques. Dès l’Antiquité, les symboles de l’amour et de la dévotion inspirèrent la création de composantes musicales destinées à évoquer la passion et le mystère de l’affection. Ce phénomène se retrouve dans la mythologie gréco-romaine, où les récits d’Éros et de Psyché se déclinent en œuvres musicales liturgiques et profanes, établissant ainsi les prémices d’un répertoire affectif qui, au fil du temps, va se préciser et se diversifier.  
+La musique associée à la célébration de la Saint-Valentin constitue un domaine d’étude particulièrement riche, révélant une évolution historique qui mêle traditions orales, réinterprétations artistiques et innovations technologiques. Dès l’Antiquité, les symboles de l’amour et de la dévotion inspirèrent la création de composantes musicales destinées à évoquer la passion et le mystère de l’affection. Ce phénomène se retrouve dans la mythologie gréco-romaine, où les récits d’Éros et de Psyché se déclinent en œuvres musicales liturgiques et profanes, établissant ainsi les prémices d’un répertoire affectif qui, au fil du temps, va se préciser et se diversifier.
 
 Au Moyen Âge, la tradition des troubadours et des trouvères apporte une dimension nouvelle à la musique sentimentale. Ces artistes itinérants, actifs entre le XIIe et le XIVe siècle, composent des chansons d’amour destinées à exprimer à la fois l’admiration et la douleur de l’amour courtois. Par l’usage raffiné de la langue vernaculaire et l’intégration de formes poétiques strictement codifiées, ils offrent une interprétation musicale de l’amour qui se distingue par sa profondeur lyrique et sa capacité à saisir l’éphémérité des sentiments. Cette période voit la conjugaison de motifs mélodieux simples et de structures harmoniques alors primitives, témoignant d’un besoin universel d’expression du cœur et de l’âme humaine.
 

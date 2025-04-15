@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -48,7 +47,7 @@ I forlængelse af denne transformation fungerede Krautrock som en platform for g
 
 Desuden er det væsentligt at fremhæve, at Krautrockens betydning strakte sig ud over de umiddelbare grænser for den tyske musikindustri. Ved at sætte spørgsmålstegn ved konventionelle musikalske normer og ved at omfavne en åben eksperimentalisme formåede kunstnere i denne bevægelse at påvirke og inspirere en bredere international kontekst. De metodologiske tilgange, der kendetegnede denne genre, med dens blanding af improvisation, repetition og teknologisk innovation, blev senere adopteret og videreudviklet af kunstnere på tværs af kontinenter. Denne transnationale udveksling af musikalske idéer understregede, at Krautrock ikke blot var et lokalt fænomen, men en essentiel del af den globale udvikling inden for moderne musik.
 
-Afslutningsvis kan det konstateres, at Krautrockens historiske baggrund er et vidnesbyrd om en revolutionerende æra inden for musik, hvor radikale idéer og teknologiske fremskridt gik hånd i hånd. Bevægelsen formåede at bryde med fortidens konventionelle forestillinger om musikalsk struktur og i stedet åbne op for en eksperimentel praksis, der fortsat inspirerer moderne musikalske udtryk. Denne æstetiske innovation, der kombinerede avantgardistiske elementer med teknologisk opfindsomhed, forbliver en central reference i studiet af global musikhistorie og en uundværlig del af den internationale musikalske diskurs. 
+Afslutningsvis kan det konstateres, at Krautrockens historiske baggrund er et vidnesbyrd om en revolutionerende æra inden for musik, hvor radikale idéer og teknologiske fremskridt gik hånd i hånd. Bevægelsen formåede at bryde med fortidens konventionelle forestillinger om musikalsk struktur og i stedet åbne op for en eksperimentel praksis, der fortsat inspirerer moderne musikalske udtryk. Denne æstetiske innovation, der kombinerede avantgardistiske elementer med teknologisk opfindsomhed, forbliver en central reference i studiet af global musikhistorie og en uundværlig del af den internationale musikalske diskurs.
 
 (5804 tegn)
 

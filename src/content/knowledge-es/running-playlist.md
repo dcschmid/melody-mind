@@ -16,10 +16,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -147,8 +146,9 @@ Desde una perspectiva teórica, es indispensable analizar las prácticas de perf
 
 En conclusión, la performance y la cultura del espectáculo musical constituyen un campo de estudio que refleja la evolución de las prácticas artísticas y la interacción entre la tecnología, la sociedad y la creación musical. La consolidación de espacios interpretativos—desde los íntimos clubes de jazz hasta los colosales festivales internacionales—denota el carácter mutable y resiliente de las expresiones en vivo. Además, el análisis de estas prácticas evidencia la manera en que la experiencia performativa articula discursos de identidad, memoria y resistencia en contextos histórico-culturales específicos. Así, la evolución de la performance en la música internacional se revela como una narrativa compleja, en la que la fusión de tradición e innovación conforma la riqueza del espectáculo en vivo, invitando a futuras indagaciones que profundicen en la intersección entre arte y cultura en el escenario global.
 
-Referencias:  
-- Schechner, R. (1988). La performance como forma de acción teatral. Ediciones Cátedra.  
+Referencias:
+
+- Schechner, R. (1988). La performance como forma de acción teatral. Ediciones Cátedra.
 - DeNora, T. (2000). Music in Everyday Life. Cambridge University Press.
 
 ## Development and Evolution

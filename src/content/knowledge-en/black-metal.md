@@ -15,14 +15,13 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Black Metal is a distinctive music category that emerged in the early 1980s, principally in Scandinavia, yet its international ramifications have since expanded considerably. This subgenre is defined by its austere production values, extreme tonalities and an ideological commitment to anti-commercial sentiments. Its early proponents, inspired by the raw energy of thrash and death metal, sought to challenge prevailing musical conventions through the deliberate utilisation of lo‐fi recording techniques and theatrical imagery. 
+Black Metal is a distinctive music category that emerged in the early 1980s, principally in Scandinavia, yet its international ramifications have since expanded considerably. This subgenre is defined by its austere production values, extreme tonalities and an ideological commitment to anti-commercial sentiments. Its early proponents, inspired by the raw energy of thrash and death metal, sought to challenge prevailing musical conventions through the deliberate utilisation of lo‐fi recording techniques and theatrical imagery.
 
 Furthermore, Black Metal’s evolution reflects broader cultural and artistic movements that characterised the late twentieth century. Its progression was deeply intertwined with the sociopolitical climate and an exploration of metaphysical themes, thereby establishing a profound interrelation between musical innovation and historical context. In this fashion, Black Metal continues to inform and influence contemporary international musical narratives.
 

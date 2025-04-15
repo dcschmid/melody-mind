@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Johdanto
 
@@ -190,7 +189,7 @@ Yhteenvetona voidaan todeta, että naisvokalistien historiallinen vaikutus kansa
 
 ## Mediarepresentaatio
 
-Mediarepresentaation kentällä kansainvälisen musiikin alalla naisen lauluikoniikan historiallinen kehitys muodostaa monisyisen ilmiön, joka kietoo yhteen sekä musiikillisen ilmaisun teknologiset edistysaskeleet että kulttuurihistorialliset muutokset. Varhaisista radiolähetyksistä lähtien naisyhtyeiden ja sooloartistien esiintymät ovat heijastaneet yhteiskunnan muuttuvia arvoja ja sukupuoliroolien uudelleenmäärittelyä. Keskeisenä elementtinä tässä kehityksessä on ollut median rooli rakentaa tiettyjä stereotypioita ja samaan aikaan haastaa vallitsevia normeja, mikä näkyy erityisen voimakkaasti 1900-luvun alkupuolelta lähtien. 
+Mediarepresentaation kentällä kansainvälisen musiikin alalla naisen lauluikoniikan historiallinen kehitys muodostaa monisyisen ilmiön, joka kietoo yhteen sekä musiikillisen ilmaisun teknologiset edistysaskeleet että kulttuurihistorialliset muutokset. Varhaisista radiolähetyksistä lähtien naisyhtyeiden ja sooloartistien esiintymät ovat heijastaneet yhteiskunnan muuttuvia arvoja ja sukupuoliroolien uudelleenmäärittelyä. Keskeisenä elementtinä tässä kehityksessä on ollut median rooli rakentaa tiettyjä stereotypioita ja samaan aikaan haastaa vallitsevia normeja, mikä näkyy erityisen voimakkaasti 1900-luvun alkupuolelta lähtien.
 
 Ensimmäiset kansainvälisesti tunnetut naisen lauluikonit, kuten ranskalainen Edith Piaf ja amerikkalainen Billie Holiday, nousivat esiin aikana, jolloin radiotekniikka ja levytysmenetelmät tarjosivat aiempaa laajemman yleisön mahdollisuuden kokea musiikkia. Piafin tapa yhdistää syvällinen emotionaalisuus ja autenttinen esitystapa vei hänet suosituksi paitsi ranskankielisessä kulttuuripiirissä myös kansainvälisesti. Samoin Holiday’n innovatiivinen, imperfektiota korostava lauluääni ja hänen kykynsä ilmaista henkilökohtaisia kokemuksia olivat edelläkävijäroolissa, jolloin transatlanttiset musiikkimarkkinat alkoivat muodostua. Näissä artistillisissa projekteissa median tarjoamat teknologiset resurssit toimivat katalysaattorina uudenlaisten äänen ilmaisutapojen kehittymiselle, mikä edelleen vahvisti naisten asemaa mediassa.
 

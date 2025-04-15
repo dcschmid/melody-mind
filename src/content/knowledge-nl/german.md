@@ -16,10 +16,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -53,7 +52,7 @@ In de Renaissance kwam er een verdere uitwerking van polyfone technieken, waarbi
 
 Binnen de barokperiode worden de reeds gevestigde polyfone technieken verder uitgebreid door inwerking van de basso continuo en de opkomst van expressieve ornamentatie. Duitse componisten als Johann Sebastian Bach hebben hierbij een onmiskenbare invloed gehad op de internationale muziekpraktijk. Bach’s fuga’s en cantates demonstreren de verfijnde beheersing van contrapunt en modulatie, waarin complexe harmonische verhoudingen en de integratie van motieven op een systeemmatige wijze werden gerealiseerd. Deze karakteristieke eigenschappen herinneren aan een blijvende zoektocht naar een synthese van structuur en emotie, hetgeen in de internationale muzieksfeer min of meer dezelfde weerklank vindt.
 
-De overgang naar de klassieke periode, waarin componisten als Carl Philipp Emanuel Bach actief waren, markeert een kritieke fase waarin de nadruk verschoof van complexe polyfonie naar een meer expresieve en emotioneel geladen monodie. Dit proces leidde tot de ontwikkeling van vormelementen zoals sonatevorm en symfonische structuur. Duitse componisten speelden hierbij een essentiële rol in de internationale evolutie van deze muzikale vormen; de fijngevoelige omgang met dynamiek, tempo en textuur weerspiegelt een diepgewortelde interesse in de menselijke expressie en de wetenschappelijke benadering van muzikale vormanalyses. 
+De overgang naar de klassieke periode, waarin componisten als Carl Philipp Emanuel Bach actief waren, markeert een kritieke fase waarin de nadruk verschoof van complexe polyfonie naar een meer expresieve en emotioneel geladen monodie. Dit proces leidde tot de ontwikkeling van vormelementen zoals sonatevorm en symfonische structuur. Duitse componisten speelden hierbij een essentiële rol in de internationale evolutie van deze muzikale vormen; de fijngevoelige omgang met dynamiek, tempo en textuur weerspiegelt een diepgewortelde interesse in de menselijke expressie en de wetenschappelijke benadering van muzikale vormanalyses.
 
 Het romantische tijdperk in de Duitse muziekgeschiedenis vormt een belangrijk keerpunt waarin nationale identiteit en persoonlijke expressie prominent naar voren komen. Componisten als Ludwig van Beethoven, Richard Wagner, Robert Schumann en Johannes Brahms transformeerden de muzikale structuur door middel van dramatische thematische ontwikkeling en het gebruik van leitmotieven. Met name Wagner’s concept van het opera-drama, waarin muzikale motieven doorlopend worden herhaald en getransformeerd, heeft niet alleen een invloedrijke stempel gedrukt op de Duitse muziek, maar daarbuiten ook op andere internationale stromingen. De harmonie, orkestratie en structurele innovaties van deze componisten hebben bijgedragen aan een esthetische vernieuwing die in bredere zin als universeel en tijdloos kan worden beschouwd.
 

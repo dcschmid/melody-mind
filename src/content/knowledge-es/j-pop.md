@@ -17,14 +17,13 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-La evolución del J-Pop se inscribe en un contexto de profunda transformación cultural de Japón, evidenciando la interacción entre tradiciones musicales autóctonas e influencias occidentales. Durante las décadas de 1970 y 1980, las innovaciones tecnológicas y la expansión del mercado discográfico propiciaron una revolución en la producción y difusión del género. La incorporación de elementos procedentes del rock, del funk y de la electrónica permitió construir un lenguaje musical propio, en el que convergían estéticas niponas tradicionales y tendencias internacionales. 
+La evolución del J-Pop se inscribe en un contexto de profunda transformación cultural de Japón, evidenciando la interacción entre tradiciones musicales autóctonas e influencias occidentales. Durante las décadas de 1970 y 1980, las innovaciones tecnológicas y la expansión del mercado discográfico propiciaron una revolución en la producción y difusión del género. La incorporación de elementos procedentes del rock, del funk y de la electrónica permitió construir un lenguaje musical propio, en el que convergían estéticas niponas tradicionales y tendencias internacionales.
 
 En la década de 1990 se consolidó una fase de internacionalización caracterizada por la diversificación estilística y un mayor protagonismo mediático. Investigaciones académicas recientes resaltan que, a partir del cambio de milenio, el J-Pop ha seguido adaptándose a las transformaciones socioculturales y tecnológicas, consolidándose como un referente permanente en el panorama musical global.
 
@@ -60,7 +59,7 @@ El impacto de las innovaciones tecnológicas no puede subestimarse en el desarro
 
 El fenómeno del J-Pop también se caracteriza por su estrecha vinculación con la cultura popular nipona. La estética visual, los videoclips y las coreografías, elementos con frecuencia inseparables de los lanzamientos musicales, constituyen una extensión del discurso artístico. Este binomio entre imagen y sonido ha permitido que el género se proyecte en mercados internacionales, elevando la difusión de prácticas culturales japonesas a través de plataformas mediáticas globalizadas. En consecuencia, el análisis de sus características musicales debe incluir una consideración de las dimensiones visuales y performáticas, que, en conjunto, definen la experiencia total del espectador. Dicho enfoque interdisciplinario enriquece la comprensión integral del fenómeno y permite identificar sus manifestaciones más emblemáticas a partir de una perspectiva holística.
 
-Por último, es preciso reconocer las contribuciones de compositores y productores que han marcado hitos en la trayectoria del J-Pop. Personalidades como Tetsuya Komuro, cuya influencia en la década de 1990 fue decisiva, han sabido integrar tradiciones musicales nacionales con tendencias internacionales, generando un lenguaje musical propio que ha resonado en múltiples generaciones. Esta interacción entre el pasado y el presente se traduce en propuestas estéticas que innovan sin olvidar la herencia cultural de la que provienen. En este sentido, el análisis academico del género debe abordar las transformaciones estilísticas en un marco cronológico riguroso, respetando la secuencia histórica de innovaciones y adaptaciones. 
+Por último, es preciso reconocer las contribuciones de compositores y productores que han marcado hitos en la trayectoria del J-Pop. Personalidades como Tetsuya Komuro, cuya influencia en la década de 1990 fue decisiva, han sabido integrar tradiciones musicales nacionales con tendencias internacionales, generando un lenguaje musical propio que ha resonado en múltiples generaciones. Esta interacción entre el pasado y el presente se traduce en propuestas estéticas que innovan sin olvidar la herencia cultural de la que provienen. En este sentido, el análisis academico del género debe abordar las transformaciones estilísticas en un marco cronológico riguroso, respetando la secuencia histórica de innovaciones y adaptaciones.
 
 En síntesis, el J-Pop se configura como un campo de estudio que combina complejidad técnica con una sensibilidad literaria y audiovisual. Elaborado a partir de una serie de transformaciones culturales y tecnológicas propias de las últimas décadas, el género se constituye en una amalgama de influencias y recursos que lo hacen único. La evolución estilística, el rigor en la producción y el apego a tradiciones adaptadas al contexto global son aspectos que, en conjunto, permiten comprender de manera profunda las características musicales de este fenómeno. Tal análisis no solo enriquece la perspectiva musicológica, sino que también subraya la importancia de considerar el diálogo entre la tradición y la modernidad, proporcionando una visión integral que abarca tanto lo técnico como lo expresivo.
 

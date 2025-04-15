@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -50,7 +49,7 @@ Ademais, a análise das implicações sociais e culturais do blues revela que es
 
 Não obstante, o reconhecimento internacional do blues nas décadas seguintes evidenciou sua relevância como patrimônio cultural imaterial, o que motivou a instituição de políticas públicas e a inserção de estudiosos que buscaram resgatar a autenticidade dos registros históricos presentes nas diversas regiões do sul dos Estados Unidos. Essa perspectiva de valorização reforça a necessidade de se preservar o acesso a conteúdos orais, partituras e gravações que, porventura, corram o risco de se perder na amnésia da modernidade. Nesse sentido, iniciativas acadêmicas, museológicas e editoriais passaram a adotar uma postura interdisciplinar, combinando metodologias da etnomusicologia, história oral e estudos culturais para oferecer uma leitura mais aprofundada dos processos históricos que moldaram o blues (Southern, 1997). Essa convergência metodológica demonstra, por conseguinte, como os discursos contemporâneos podem contribuir para a preservação da memória musical, garantindo que as vozes dos protagonistas originários não sejam silenciadas ou distorcidas com o passar do tempo.
 
-Em síntese, o panorama histórico e cultural do blues representa um campo fértil para investigações que almejam compreender não apenas a evolução de um gênero musical, mas também as interações entre práticas artísticas e transformações sociais. A abordagem crítica e multidisciplinar permite evidenciar que o blues é, acima de tudo, uma manifestação humana que dialoga com os dilemas, emoções e aspirações de uma sociedade marcada por tensões e contradições. Os registros históricos, as análises teóricas e as evidências empíricas sugerem que o blues não pode ser compreendido de forma estanque, mas sim como resultado de uma longa trajetória de resistências, adaptações e inovações que ainda hoje reverberam na prática musical global. Assim, ao considerar o blues como protagonista da história musical, reafirma-se o compromisso de resgatar, compreender e valorizar este patrimônio inestimável que, desde suas origens humildes, perpetua a memória dos anseios e lutas de um povo. 
+Em síntese, o panorama histórico e cultural do blues representa um campo fértil para investigações que almejam compreender não apenas a evolução de um gênero musical, mas também as interações entre práticas artísticas e transformações sociais. A abordagem crítica e multidisciplinar permite evidenciar que o blues é, acima de tudo, uma manifestação humana que dialoga com os dilemas, emoções e aspirações de uma sociedade marcada por tensões e contradições. Os registros históricos, as análises teóricas e as evidências empíricas sugerem que o blues não pode ser compreendido de forma estanque, mas sim como resultado de uma longa trajetória de resistências, adaptações e inovações que ainda hoje reverberam na prática musical global. Assim, ao considerar o blues como protagonista da história musical, reafirma-se o compromisso de resgatar, compreender e valorizar este patrimônio inestimável que, desde suas origens humildes, perpetua a memória dos anseios e lutas de um povo.
 
 Número de caracteres: 5801
 

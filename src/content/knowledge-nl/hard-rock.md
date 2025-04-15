@@ -17,10 +17,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -50,7 +49,7 @@ Ten slotte is het essentieel te erkennen dat de evolutie van de hardrock niet sl
 
 De ontwikkeling van de hardrock als muziekcategorie kan men beschouwen als een complex samenspel van muzikale en culturele factoren, dat vooral in de internationale muziekscene van de jaren zestig en zeventig aanleiding vond. Muzikaal wordt hardrock gekenmerkt door een synthese van krachtige elektrische gitaarpartijen, intens ritmisch spel en een robuuste percussie. Deze elementen komen samen in composities waarin zowel de melodische lijnen als de harmonische progressies doelbewust worden opgebouwd om een gevoel van energie en onstuimigheid over te brengen. Belangrijke technische innovaties––zoals de toepassing van versterkers en effectenpedalen––speelden een cruciale rol in het creëren van de unieke, doorzettende klank die kenmerkend is voor deze stijl.
 
-De prominente rol van de elektrische gitaar in het hardrockrepertoire verdient bijzondere aandacht, aangezien het instrument fungeert als primair middel tot expressieve articulatie binnen het genre. Door het gebruik van overdrive, feedback en verfijnde toonmanipulatie kon men een geluidsbeeld realiseren dat zowel agressief als dynamisch was. Verder gaat het om een bewerking van muzikale vormen die hun oorsprong vinden in het bluesgenre, waarbij de gitaar vaak als spreekbuis fungeert voor zowel virtuoze solo’s als krachtige riffstructuren. Dit mechanisme, geworteld in muzikale experimenten van bands als Led Zeppelin, Deep Purple en Black Sabbath, werd door latere generaties muzikaal verder ontwikkeld en verfijnd. 
+De prominente rol van de elektrische gitaar in het hardrockrepertoire verdient bijzondere aandacht, aangezien het instrument fungeert als primair middel tot expressieve articulatie binnen het genre. Door het gebruik van overdrive, feedback en verfijnde toonmanipulatie kon men een geluidsbeeld realiseren dat zowel agressief als dynamisch was. Verder gaat het om een bewerking van muzikale vormen die hun oorsprong vinden in het bluesgenre, waarbij de gitaar vaak als spreekbuis fungeert voor zowel virtuoze solo’s als krachtige riffstructuren. Dit mechanisme, geworteld in muzikale experimenten van bands als Led Zeppelin, Deep Purple en Black Sabbath, werd door latere generaties muzikaal verder ontwikkeld en verfijnd.
 
 Naast de prominente rol van de elektrische gitaar speelt het ritmische fundament een even centrale rol in de muzikale structuur van hardrock. Het samenspel tussen basgitaar en trommels vormt een solide basis waarop complexe ritmische patronen en syncopische accenten worden geïmproviseerd en uitvergroot. In deze context ontstaat een dynamische spanning tussen de puls van de percussie en de aspiraties van de solomelodieën die door gitaaristen worden uitgedrukt. Dergelijke interacties vereisen een hoog niveau van muzikaal inzicht en technische beheersing, hetgeen de esthetische waarde van het genre ten goede komt. Bovendien weerspiegelt dit ritmische fundament de invloed van zowel traditionele blues als progressieve vormen, wat bijdraagt aan de complexiteit en diepte van de composities.
 

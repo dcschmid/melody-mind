@@ -17,10 +17,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Inleiding
 
@@ -160,7 +159,7 @@ Tot slot kan worden betoogd dat de media- en promotiestructuur van Braziliaanse 
 
 Binnen de muziekcategorie “Brazilian” vormt de sectie 'Opleiding en ondersteuning' een essentieel onderdeel van de bredere internationale benadering van muzikale educatie en ontwikkeling. Deze sectie richt zich op de systematische methoden die zowel individuele muzikanten als collectieve culturele entiteiten ondersteunen bij het verwerven van specialistische kennis omtrent Braziliaanse ritmiek, harmonieleer en improvisatietechnieken. In deze context staat de academische ondersteuning centraal en wordt er aandacht besteed aan de historische evolutie van educatieve programma’s, die zich in verschillende perioden en binnen uiteenlopende institutionele kaders hebben ontwikkeld.
 
-De academische benadering van Braziliaanse muziek is nauw verbonden met het streven naar een integrale vorming die zowel de theoretische als de praktische aspecten van de muzikale kunst omvat. Gedurende de tweede helft van de twintigste eeuw vormden gespecialiseerde muziekinstellingen en conservatoria in Brazilië en elders in de wereld de pijlers van onderwijskundige hervormingen, gericht op de binomiale relatie van traditie en innovatie. Hierbij werd gestreefd naar een methodologische verankering in zowel regionale volksmuziek als in internationale muziektheorieën, zodat de dynamiek tussen een lokaal erfgoed en mondiale muzikale ontwikkelingen optimaal kon worden benut. 
+De academische benadering van Braziliaanse muziek is nauw verbonden met het streven naar een integrale vorming die zowel de theoretische als de praktische aspecten van de muzikale kunst omvat. Gedurende de tweede helft van de twintigste eeuw vormden gespecialiseerde muziekinstellingen en conservatoria in Brazilië en elders in de wereld de pijlers van onderwijskundige hervormingen, gericht op de binomiale relatie van traditie en innovatie. Hierbij werd gestreefd naar een methodologische verankering in zowel regionale volksmuziek als in internationale muziektheorieën, zodat de dynamiek tussen een lokaal erfgoed en mondiale muzikale ontwikkelingen optimaal kon worden benut.
 
 Indien men de historische voortgang bestudeert, valt op dat educatieve programma’s gericht op Braziliaanse muziek voortkwamen uit de culturele herwaarderingen die tijdens periodes van politieke en economische verandering plaatsvonden. Onder invloed van socioculturele heroplevingen, zoals de opkomst van de Bossa Nova in de jaren zestig en de herwaardering van traditionele Samba, werden onderwijsinitiatieven opgezet die een diepgaande analyse vergden van de complexe ritmische structuren en harmonische peculiariteiten die kenmerkend zijn voor deze tradities. Tevens werd in die periode een intensieve samenwerking nagestreefd tussen academische instellingen en culturele organisaties, waarbij workshops, seminars en conferenties een cruciaal instrument vormden voor het uitwisselen van kennis en ervaring.
 

@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduktion
 
@@ -186,6 +185,6 @@ I konklusion omfatter de internationale forbindelser i russisk musik en kompleks
 
 ## Aktuelle tendenser og fremtid
 
-I den aktuelle færdsel inden for russisk international musik manifestere sig en kompleks interaktion mellem historiske traditioner og nutidig innovation. Nutidens komponister og musikalske performere trækker på den rige arv fra russisk avantgarde og ekspressionisme, mens de søger at integrere eksperimentelle kompositoriske teknikker med moderne digitale muligheder. Denne syntese af det traditionelle med det eksperimentelle afspejles i udformningen af nye lydlandskaber, hvor algoritmiske processer og elektroakustiske eksperimenter muliggør en fornyet æstetik. 
+I den aktuelle færdsel inden for russisk international musik manifestere sig en kompleks interaktion mellem historiske traditioner og nutidig innovation. Nutidens komponister og musikalske performere trækker på den rige arv fra russisk avantgarde og ekspressionisme, mens de søger at integrere eksperimentelle kompositoriske teknikker med moderne digitale muligheder. Denne syntese af det traditionelle med det eksperimentelle afspejles i udformningen af nye lydlandskaber, hvor algoritmiske processer og elektroakustiske eksperimenter muliggør en fornyet æstetik.
 
 Desuden fører den globale udveksling af kulturelle impulser til, at russiske kunstnere indgår i en international dialog, der desuden omfatter anvendelsen af avancerede medier til at udfolde intertekstuelle forbindelser mellem diverse musikalske discipliner. Denne udviklingslinje peger mod en fremtid, hvor innovation og respekt for kulturelle rødder harmonisk forenes.

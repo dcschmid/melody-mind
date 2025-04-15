@@ -16,14 +16,13 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Coregrind-musiikki muodostaa kansainvälisessä äärimusiikin kentässä merkittävän kokeellisen ilmenemismuodon, jonka juuret ulottuvat 1980-luvun loppupuolen radikaalisiin ilmiöihin. Ensimmäiset Coregrindin edustajat yhdistivät intensiivisen rytmisyyden ja minimalistisesti rakennettujen teostensa karkeuden, mikä heijastaa aikakauden extreme-musiikissa vallinneita kokeellisia suuntauksia. Musiikilliselta rakenteeltaan tyyli hyödyntää hyvin toistuvia rytmisiä kuvioita ja tiukkaa harmonista yksinkertaisuutta, samalla kun sen soundi korostaa analogisten äänilähteiden autenttisuutta ja karkeutta.  
+Coregrind-musiikki muodostaa kansainvälisessä äärimusiikin kentässä merkittävän kokeellisen ilmenemismuodon, jonka juuret ulottuvat 1980-luvun loppupuolen radikaalisiin ilmiöihin. Ensimmäiset Coregrindin edustajat yhdistivät intensiivisen rytmisyyden ja minimalistisesti rakennettujen teostensa karkeuden, mikä heijastaa aikakauden extreme-musiikissa vallinneita kokeellisia suuntauksia. Musiikilliselta rakenteeltaan tyyli hyödyntää hyvin toistuvia rytmisiä kuvioita ja tiukkaa harmonista yksinkertaisuutta, samalla kun sen soundi korostaa analogisten äänilähteiden autenttisuutta ja karkeutta.
 
 Historiallisesti Coregrind on vaikuttanut sekä eurooppalaisessa että laajemmassa kansainvälisessä kontekstissa, jossa sen ajatusmaailmaa leimaavat yhteiskunnalliset kriittisyys ja eksistentiaaliset pohdinnat. Tämän tyylin teoreettiset perusolettamukset pohjautuvat modernismin purkautumiseen, mikä ilmentyy sekä tekstuaalisissa että äänellisesti radikaaleissa kokeiluissa. Lisäksi teknologisen kehityksen myötä Coregrindin äänimaailma on saanut uusia ulottuvuuksia, mutta sen perimmäinen ekspressiivinen voima säilyy vertaansa vailla, edustaen siten autenttista ja ajatuksia provosoivaa ilmaisumuotoa.
 

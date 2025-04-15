@@ -17,14 +17,13 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Der Jazz Metal bildet eine faszinierende Synthese aus improvisatorischen Elementen des Jazz und der Intensität des Heavy Metal. Die Entstehung dieses Genres wird international überwiegend in den späten 1980er und frühen 1990er Jahren verortet, als Musiker begannen, unkonventionelle Harmoniefolgen und komplexe Rhythmen miteinander zu verbinden. Dabei wurden Elemente der Jazzfusion mit der Energie und Lautstärke des Metal kombiniert, was in transatlantischen musikalischen Experimenten mündete. 
+Der Jazz Metal bildet eine faszinierende Synthese aus improvisatorischen Elementen des Jazz und der Intensität des Heavy Metal. Die Entstehung dieses Genres wird international überwiegend in den späten 1980er und frühen 1990er Jahren verortet, als Musiker begannen, unkonventionelle Harmoniefolgen und komplexe Rhythmen miteinander zu verbinden. Dabei wurden Elemente der Jazzfusion mit der Energie und Lautstärke des Metal kombiniert, was in transatlantischen musikalischen Experimenten mündete.
 
 Zudem eröffnete der technologische Fortschritt, insbesondere im Bereich der Effektgeräte und Verstärkertechnik, neue klangliche Dimensionen, die den genreübergreifenden Austausch zusätzlich beförderten. Im internationalen Kontext trug diese Interaktion maßgeblich zur Entwicklung eines eigenständigen musikalischen Diskurses bei. Die kritische Auseinandersetzung mit rhythmischer Komplexität, modaler Improvisation und orchestraler Klangstruktur prägt den Jazz Metal bis in die Gegenwart.
 

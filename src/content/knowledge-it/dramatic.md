@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -170,7 +169,7 @@ Nel complesso, la musica drammatica si erge a strumento privilegiato per l’esp
 
 La musica contemporanea drammatica rappresenta un ambito di studio che incarna la complessità espressiva e la polifonia dei linguaggi musicali moderni. Tale espressione si caratterizza per un’interazione dinamica tra innovazioni tecnologiche, riferimenti tradizionali e sperimentazioni che, unitamente, ne hanno definito l’evoluzione dal secondo Novecento ad oggi. In questa analisi, si evidenzia come i cambiamenti socio-culturali abbiano favorito l’emergere di composizioni che, pur attingendo al patrimonio estetico e storico della musica colta, propongano una visione critica e articolata della realtà contemporanea.
 
-Nel contesto internazionale, la drammaticità in musica si manifesta attraverso l’adozione di tecniche compositive innovative, volte a trasmettere emozioni intense e narrazioni complesse. A tal fine, in Europa si è assistito, a partire dagli anni ’60 e ’70, all’affermarsi di nuovi linguaggi armonici e ritmici che hanno permesso agli autori di esplorare concetti di tensione e risoluzione in chiave non tradizionale. Questi sviluppi hanno condotto alla formazione di correnti musicali che, pur mantenendo un forte legame con le radici della musica classica, integrano elementi del teatro e della performance. 
+Nel contesto internazionale, la drammaticità in musica si manifesta attraverso l’adozione di tecniche compositive innovative, volte a trasmettere emozioni intense e narrazioni complesse. A tal fine, in Europa si è assistito, a partire dagli anni ’60 e ’70, all’affermarsi di nuovi linguaggi armonici e ritmici che hanno permesso agli autori di esplorare concetti di tensione e risoluzione in chiave non tradizionale. Questi sviluppi hanno condotto alla formazione di correnti musicali che, pur mantenendo un forte legame con le radici della musica classica, integrano elementi del teatro e della performance.
 
 Parallelamente, in Nord America, l’influenza delle correnti artistiche del postmodernismo ha permesso la creazione di opere che si configurano come veri e propri momenti di riflessione esistenziale. Autori e compositori hanno utilizzato il medium musicale per dialogare con il pubblico, instaurando un rapporto di empatia e introspezione. In tale contesto, la drammaticità si esprime nella capacità di tradurre il caos esistenziale e le tensioni sociali in strutture sonore complesse, dove l’uso della dissonanza e del contrasto dinamico risulta fondamentale.
 

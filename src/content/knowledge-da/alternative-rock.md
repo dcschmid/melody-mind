@@ -16,14 +16,13 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Alternativ rock opstod i løbet af 1980’erne som en reaktion mod den kommercielle rockindustri og formede dermed en ny musikalsk æstetik. Genren inkorporerede elementer fra punk, new wave og post-punk, hvor eksperimenterende kompositionsteknikker og atypiske arrangementer spillede en central rolle. Denne musikalske innovation var ikke blot et udtryk for individualisme, men også en måde at udtrykke kulturel kritik på, idet den udfordrede gængse normer for lyd og genre. 
+Alternativ rock opstod i løbet af 1980’erne som en reaktion mod den kommercielle rockindustri og formede dermed en ny musikalsk æstetik. Genren inkorporerede elementer fra punk, new wave og post-punk, hvor eksperimenterende kompositionsteknikker og atypiske arrangementer spillede en central rolle. Denne musikalske innovation var ikke blot et udtryk for individualisme, men også en måde at udtrykke kulturel kritik på, idet den udfordrede gængse normer for lyd og genre.
 
 Internationale strømninger bidrog i betydelig grad til alternativ rocks udvikling. Bands fra både Nordamerika og Europa prædikerede en alternativ musikalsk tilgang, der samlede uafhængige produktioner og eksperimentelle lydlandskaber. Desuden var samspillet mellem traditionelle og elektroniske instrumenter med til at definere genrens karakteristiske lyd. Dette paradigmeskifte afspejler et bredere kulturelt og æstetisk opgør, som fortsat influerer den globale musikscene og udgør et centralt kapitel i musikhistorien.
 

@@ -16,10 +16,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -41,7 +40,7 @@ Romanikens utbredning var djupt rotad i en växande nationalromantik och en str�
 
 Övergången till modernismen i början av 1900-talet markerade ytterligare en omvälvning i den musikaliska landskapets utveckling. Kompositörer som Arnold Schönberg och Alban Berg utforskade nya harmoniska strukturer, vilket ifrågasatte traditionella tonalitetsprinciper. Den atonala musikens framväxt förde med sig en radikal brytning med tidigare musiktraditioner, där experimentella metoder och en förnyad syn på musikalisk organisation stod i centrum. I denna kontext utvecklades även serieteorier och andra avancerade kompositionstekniska metoder, vilka ifrågasatte gränserna mellan konventionell och avantgardistisk musik. Denna period präglades av en intensiv forskning kring musikens teoretiska grunder och en parallell utveckling av nya estetiska ideal som påverkade den internationella musikscenen.
 
-Avslutningsvis är det väsentligt att förstå hur tysk musik under århundradena har fungerat som en katalysator för internationella musikaliska utbyten och kulturella möten. Genom noggranna studier av de olika perioderna och de specifika utvecklingarna inom repertoaren kan vi i dagens musikvetenskap belysa en rik och dynamisk historia. Övergångar mellan olika musikaliska epoker skedde aldrig isolerat, utan i en ständigt pågående dialog med samtidens kultur- och samhällsutveckling. Den tyska musikens påverkan på den internationella arenan kan därmed ses som en reflektion av tidens intellektuella och konstnärliga strömningar, vilka fortsatt inspirerar samtida forskning och tolkning. 
+Avslutningsvis är det väsentligt att förstå hur tysk musik under århundradena har fungerat som en katalysator för internationella musikaliska utbyten och kulturella möten. Genom noggranna studier av de olika perioderna och de specifika utvecklingarna inom repertoaren kan vi i dagens musikvetenskap belysa en rik och dynamisk historia. Övergångar mellan olika musikaliska epoker skedde aldrig isolerat, utan i en ständigt pågående dialog med samtidens kultur- och samhällsutveckling. Den tyska musikens påverkan på den internationella arenan kan därmed ses som en reflektion av tidens intellektuella och konstnärliga strömningar, vilka fortsatt inspirerar samtida forskning och tolkning.
 
 Genom att analysera dessa utvecklingslinjer erhåller vi en djupare förståelse för hur teknologiska framsteg, politiska omvälvningar och kulturella utbyten gemensamt har format det musikaliska landskapet. Varje epok innebar unika förändringar och nyskapande inslag, vilka tillsammans bidragit till en komplex väv av musikaliska idéer och uttrycksformer. Således utgör studiet av tysk musik inte bara en retrospektiv betraktelse av historien, utan även en levande diskussion om framtidens musikaliska möjligheter. Detta helhetsperspektiv gör det möjligt att inte bara bevara kunskapen om tidigare tiders musikaliska uttryck, utan även att ifrågasätta och utveckla de estetiska grunderna för kommande generationer.
 

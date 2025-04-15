@@ -17,14 +17,13 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Au seuil d’une redécouverte contemporaine des pratiques méditatives, la musique associée au yoga apparaît comme un vecteur essentiel d’harmonie et de bien-être. Dès l’Antiquité, notamment dans la tradition indienne, les formes musicales destinées à accompagner la méditation ont instauré une atmosphère féconde propice à l’introspection. Les instruments traditionnels, tels que le sitar et le tambura, témoignent d’un héritage ancestral dont la ‘sonorité drone’ favorise la concentration et la relaxation.  
+Au seuil d’une redécouverte contemporaine des pratiques méditatives, la musique associée au yoga apparaît comme un vecteur essentiel d’harmonie et de bien-être. Dès l’Antiquité, notamment dans la tradition indienne, les formes musicales destinées à accompagner la méditation ont instauré une atmosphère féconde propice à l’introspection. Les instruments traditionnels, tels que le sitar et le tambura, témoignent d’un héritage ancestral dont la ‘sonorité drone’ favorise la concentration et la relaxation.
 
 Par ailleurs, les échanges culturels entre l’Orient et l’Occident au cours des siècles ont permis d’enrichir ce corpus musical par l’introduction de motifs inspirés des musiques sacralisées européennes. De plus, la recherche en musicologie contemporaine met en avant l’importance des structures rythmées et harmoniques dans la création de paysages sonores intérieurs, essentiels à une pratique méditative authentique.
 
@@ -96,7 +95,7 @@ La deuxième moitié du XXe siècle fut également marquée par l’émergence d
 
 En outre, l’institutionnalisation de la pratique du yoga en Occident, dans les années 1970 et 1980, amena une recrudescence de productions musicales spécifiquement dédiées à la méditation. Des compositeurs, en s’appuyant sur des archives documentées de chants rituels et de mantras, développèrent des œuvres intégrant tantôt des enregistrements de sons naturels, tantôt des arrangements orchestraux inspirés du rituel. Cette démarche, à la fois esthétique et scientifique, permit l’émergence de collaborations interdisciplinaires associant musicologues, spécialistes du son et praticiens de la méditation. Dès lors, la musique méditative et le yoga furent envisagés non seulement comme des pratiques spirituelles, mais également comme des disciplines pouvant contribuer à la compréhension des mécanismes psychophysiologiques induits par le son.
 
-Ainsi, l’évolution de la musique associée à la méditation et au yoga se doit d’être appréhendée comme un processus historique riche et polyphonique. Les figures historiques et les œuvres marquantes, depuis les chants védiques jusqu’aux interprétations contemporaines, illustrent la continuité d’un héritage spirituel et musical. Par la rigueur de leur engagement et l’innovation de leur langage sonore, ces acteurs ont permis la perpétuation d’un savoir ancestral, au service de la recherche intérieure et du bien-être collectif. En somme, l’étude de ces contributions majeures révèle combien la musique, en tant qu’instrument de méditation, constitue un point de convergence entre tradition et modernité, entre l’effort technique et la quête de transcendance. 
+Ainsi, l’évolution de la musique associée à la méditation et au yoga se doit d’être appréhendée comme un processus historique riche et polyphonique. Les figures historiques et les œuvres marquantes, depuis les chants védiques jusqu’aux interprétations contemporaines, illustrent la continuité d’un héritage spirituel et musical. Par la rigueur de leur engagement et l’innovation de leur langage sonore, ces acteurs ont permis la perpétuation d’un savoir ancestral, au service de la recherche intérieure et du bien-être collectif. En somme, l’étude de ces contributions majeures révèle combien la musique, en tant qu’instrument de méditation, constitue un point de convergence entre tradition et modernité, entre l’effort technique et la quête de transcendance.
 
 Nombre de caractères (espaces compris) : 6247
 

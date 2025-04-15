@@ -17,10 +17,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -144,7 +143,7 @@ Avslutningsvis kan det konstateras att garagemusikens internationella kulturella
 
 ## Performance and Live Culture
 
-In samband med den musikaliska utvecklingen under mitten av 1900-talet framträdde garage som en distinkt form av rockmusik, vilken präglades av en rå och ofiltrerad energikänsla. Denna musikstil, som med sitt ursprung i de amerikanska förorterna och småstäderna utmanade konventionella uppfattningar om musikproduktion och framförandets estetik, etablerade ett unikt scenkonstnärligt uttryck genom sina liveframträdanden. Den omedelbara och direkta kommunikationen mellan musiker och publik utgjorde en central del av genrens identitet, vilket bidrog till en dynamik där autenticitet och spontanitet stod i fokus. 
+In samband med den musikaliska utvecklingen under mitten av 1900-talet framträdde garage som en distinkt form av rockmusik, vilken präglades av en rå och ofiltrerad energikänsla. Denna musikstil, som med sitt ursprung i de amerikanska förorterna och småstäderna utmanade konventionella uppfattningar om musikproduktion och framförandets estetik, etablerade ett unikt scenkonstnärligt uttryck genom sina liveframträdanden. Den omedelbara och direkta kommunikationen mellan musiker och publik utgjorde en central del av genrens identitet, vilket bidrog till en dynamik där autenticitet och spontanitet stod i fokus.
 
 I de tidiga faserna av garagekulturens utveckling framkom en rad exempel på hur liveframträdanden kunde fungera både som plats för konstnärlig uttryck och socialt motstånd mot de rådande normerna. Band som The Sonics och The Kingsmen, vilka båda etablerade sin närvaro under 1960-talets andra hälft, bidrog med en framtoning som utmanade den tidens polerade estetik inom mainstreamrock. Deras scenuppträdanden präglades av kraftfull improvisation, dissocierad från den tidens vanliga studiomiljöer, och förlitade sig på en äkta interaktion med åskådarna. Detta fenomen manifesterade sig i en performance-kultur där det oförutsägbara och umgängliga tolkades som en nödvändig del av det konstnärliga uttrycket.
 

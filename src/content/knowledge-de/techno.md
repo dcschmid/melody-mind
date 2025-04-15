@@ -17,16 +17,15 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Die Entstehung des Techno markiert einen einschneidenden Wendepunkt in der internationalen Musiklandschaft dar. In den frühen 1980er Jahren kristallisierte sich dieser Musikstil als Synthese aus elektronischer Klangforschung und innovativer Studiotechnik heraus. 
+Die Entstehung des Techno markiert einen einschneidenden Wendepunkt in der internationalen Musiklandschaft dar. In den frühen 1980er Jahren kristallisierte sich dieser Musikstil als Synthese aus elektronischer Klangforschung und innovativer Studiotechnik heraus.
 
-Darüber hinaus verschmolz der Techno kontinuierlich musikwissenschaftliche Experimentierfreude mit dem Streben nach technologischen Neuerungen. 
+Darüber hinaus verschmolz der Techno kontinuierlich musikwissenschaftliche Experimentierfreude mit dem Streben nach technologischen Neuerungen.
 
 Der Einsatz von digitalen Sequencern, Synthesizern und weiteren elektronischen Instrumenten ermöglichte die Überwindung traditioneller Musikstrukturen. Infolgedessen avancierte der Techno zu einem internationalen kulturellen Phänomen, dessen facettenreicher Charakter und theoretische Fundierung bis heute gewürdigt werden.
 

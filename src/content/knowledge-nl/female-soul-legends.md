@@ -17,14 +17,13 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Inleiding
 
-De categorie ‘Female Soul Legends’ presenteert een diepgravende verkenning van de muzikale bijdragen van vrouwelijke zangers binnen de internationale soultraditie. Opgeboren in de context van de Afro-Amerikaanse gemeenschappen in de jaren vijftig en zestig, ontvouwde deze kunstvorm zich als een krachtige maatschappelijke uitdrukking, waarin de intieme en dynamische vocale uitvoering centraal staat. Invloeden van de gospel en blues vormden daarbij de technische en muzikale basis, terwijl een intertekstualiteit met jazz aanleiding gaf tot een vernieuwde muzikale synthese. 
+De categorie ‘Female Soul Legends’ presenteert een diepgravende verkenning van de muzikale bijdragen van vrouwelijke zangers binnen de internationale soultraditie. Opgeboren in de context van de Afro-Amerikaanse gemeenschappen in de jaren vijftig en zestig, ontvouwde deze kunstvorm zich als een krachtige maatschappelijke uitdrukking, waarin de intieme en dynamische vocale uitvoering centraal staat. Invloeden van de gospel en blues vormden daarbij de technische en muzikale basis, terwijl een intertekstualiteit met jazz aanleiding gaf tot een vernieuwde muzikale synthese.
 
 Bovendien hebben vooruitgang in opnameapparatuur en productietechnieken de reproductie van authentieke klankkleuren mogelijk gemaakt, waardoor de nuance en emotionele diepgang van deze legendarische interpretaties op wereldschaal werden onderstreept. Deze historische convergentie van traditionele elementen en moderne technologie heeft de culturele erfenis van de soulmuziek blijvend verrijkt en vormt een essentiële referentie voor hedendaagse muziekonderzoeken.
 

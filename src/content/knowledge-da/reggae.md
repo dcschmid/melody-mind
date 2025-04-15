@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -156,7 +155,7 @@ Afslutningsvis tjener reggaeens livekultur som et betydningsfuldt kulturhistoris
 
 ## Development and Evolution
 
-Reggaeæstetikken repræsenterer en kompleks og dybfølt udviklingsproces, der udspillede sig inden for en specifik socio-kulturel og politisk kontekst i Jamaica i 1960’erne og 1970’erne. Denne musikalske genre er et produkt af en lang række historiske, teknologiske og kulturelle påvirkninger, som samlede elementer fra tidligere jamaicanske musiktraditioner såsom mento, ska og rocksteady. Overgangsperioden fra rocksteady til reggae markerer et afgørende vendepunkt, idet musikkens tempo og rytmiske struktur undergik subtile, men markante transformationer. Den karakteristiske betoning af anden og fjerde slag i takten – ofte omtalt med den musikologiske term "skank" – samt en fremtrædende og melodisk kontrapunktisk basgang udviklede sig gradvist som en essentiel del af reggaerytmiske identiteter. 
+Reggaeæstetikken repræsenterer en kompleks og dybfølt udviklingsproces, der udspillede sig inden for en specifik socio-kulturel og politisk kontekst i Jamaica i 1960’erne og 1970’erne. Denne musikalske genre er et produkt af en lang række historiske, teknologiske og kulturelle påvirkninger, som samlede elementer fra tidligere jamaicanske musiktraditioner såsom mento, ska og rocksteady. Overgangsperioden fra rocksteady til reggae markerer et afgørende vendepunkt, idet musikkens tempo og rytmiske struktur undergik subtile, men markante transformationer. Den karakteristiske betoning af anden og fjerde slag i takten – ofte omtalt med den musikologiske term "skank" – samt en fremtrædende og melodisk kontrapunktisk basgang udviklede sig gradvist som en essentiel del af reggaerytmiske identiteter.
 
 I løbet af midten af 1960’erne blev jamaicanske musikere inspireret af både lokale og internationale strømninger, herunder amerikansk rhythm and blues samt soul, hvilket førte til en hybridisering af musikalske konventioner. Denne tidlige eksperimentation med rytme og klang blev forfinet af musikere, der skabte en unik lyd, som efterhånden udviklede sig til den karakteristiske reggaeform i slutningen af 1960’erne. Ændringerne i tempo og betoning af rytmiske elementer afspejlede en samfundsmæssig og kulturel transformation, hvilket lagde grunden til en musikalsk æra præget af et stærkt narrativ om modstand og identitet. Samtidig spillede landets socioøkonomiske forhold og den politiske uro en uundværlig rolle, idet musikken blev et redskab til at udtrykke både nød og håb i en tid med omfattende forandringer.
 

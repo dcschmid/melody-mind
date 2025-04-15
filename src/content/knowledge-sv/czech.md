@@ -17,10 +17,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduktion
 
@@ -182,6 +181,6 @@ Sammanfattningsvis illustrerar en historiskt grundad analys av internationella k
 
 ## Aktuella trender och framtid
 
-Aktuella musikaliska trender inom den tjeckiska musikscenen präglas av en subtil fusion mellan digitala produktionsmetoder och traditionella folkliga uttrycksformer. Akademiska analyser visar att innovativa ljudlandskap, med inslag av elektronisk klangbildning, i allt högre grad samexisterar med harmoniska konstruktioner hämtade ur tjeckisk musikhistoria. Den resulterande syntesen ger upphov till kompositioner där subtila variationer av modala system och rytmiska mönster förstärker det estetiska djupet. 
+Aktuella musikaliska trender inom den tjeckiska musikscenen präglas av en subtil fusion mellan digitala produktionsmetoder och traditionella folkliga uttrycksformer. Akademiska analyser visar att innovativa ljudlandskap, med inslag av elektronisk klangbildning, i allt högre grad samexisterar med harmoniska konstruktioner hämtade ur tjeckisk musikhistoria. Den resulterande syntesen ger upphov till kompositioner där subtila variationer av modala system och rytmiska mönster förstärker det estetiska djupet.
 
 Vidare medför den ökade globaliseringen ett aktivt utbyte med internationella akter, vilket resulterar i en dynamisk interaktion mellan minimalism och postmodern känsla. Denna utveckling, som vilar på en solid teoretisk grund, illustrerar hur tradition och nymodighet ständigt omförhandlar gränserna för musikaliskt uttryck. Framöver förväntas en fortsatt expansion av dessa fenomen, där teknologiska innovationer och en medveten historisk referenssammanhang formar en ny era inom den internationella musikforskningen.

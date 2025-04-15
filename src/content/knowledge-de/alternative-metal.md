@@ -17,10 +17,9 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -106,7 +105,7 @@ Zusammenfassend lässt sich feststellen, dass das Alternative Metal als internat
 
 ## Technical Aspects
 
-Im Rahmen der internationalen Musikkultur zeichnet sich Alternative Metal als ein facettenreiches Genre aus, das in den späten 1980er und frühen 1990er Jahren entstand. Technisch betrachtet vereint diese Musikrichtung Elemente traditioneller Heavy-Metal-Strukturen mit Einflüssen des Alternative Rock. Die Integration dissonanter Gitarrenriffs, unkonventioneller Songstrukturen und komplexer Rhythmiken belegt eine bewusste Abkehr von rein kommerziellen Formaten hin zu experimentelleren Klanglandschaften. Bereits in den frühen Entwicklungsjahren wurden analoge Aufnahmeverfahren und dann schrittweise digitale Technologien genutzt, um den charakteristischen, dynamischen Sound einzufangen. 
+Im Rahmen der internationalen Musikkultur zeichnet sich Alternative Metal als ein facettenreiches Genre aus, das in den späten 1980er und frühen 1990er Jahren entstand. Technisch betrachtet vereint diese Musikrichtung Elemente traditioneller Heavy-Metal-Strukturen mit Einflüssen des Alternative Rock. Die Integration dissonanter Gitarrenriffs, unkonventioneller Songstrukturen und komplexer Rhythmiken belegt eine bewusste Abkehr von rein kommerziellen Formaten hin zu experimentelleren Klanglandschaften. Bereits in den frühen Entwicklungsjahren wurden analoge Aufnahmeverfahren und dann schrittweise digitale Technologien genutzt, um den charakteristischen, dynamischen Sound einzufangen.
 
 Die elektrische Gitarre stellt in diesem Genre ein zentrales Instrument dar, wobei Techniken wie Palm Muting, Tremolo-Picking und Der Einsatz von Effekten wie Distortion und Flanger die Klangfarbe maßgeblich beeinflussen. Gitarristen verzichteten häufig auf traditionelle Akkordfolgen und setzten stattdessen auf polyphone Linien, welche die harmonische Komplexität steigerten. Die Tuningvarianten reichten von Standardstimmung bis hin zu tieferen Einstellungen, was zur Verstärkung der dunklen, druckvollen Atmosphären beitrug. Die experimentellen Ansätze im Gitarrenspiel führten zu einer neuen Dimension der Klanggestaltung, die als signifikantes Merkmal des Alternative Metal gilt.
 

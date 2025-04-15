@@ -16,10 +16,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -43,7 +42,7 @@ Vaikka blues-musiikki juontaa historiansa yksinomaan afroamerikkalaisista yhteis
 
 Historiallisesti tarkasteltuna bluesin levittäminen oli osin seurausta ääniteteknologian, massaviestinnän ja kulttuurisen vaihdon kiihtymisestä 1900-luvun alussa. Maailmankaupan, kaupallisten äänityslaitteiden ja radiolähetysten nopeat edistysaskeleet edesauttoivat sen leviämistä ja vaikutteiden vastaanottamista laajemmassa mittakaavassa. Tämä monella kulttuurilla yhteinen prosessi toi esiin musiikillisen kielen, joka ylitti kansalliset ja etniset rajat. Blues ei näin ollen jää pelkäksi Yhdysvaltojen ilmiöksi, vaan siitä on tullut globaali kieli, joka on rikastuttanut kansainvälisen musiikkikentän melodista moninaisuutta.
 
-Lisäksi on huomionarvoista se, että blues-musiikin historiassa esiintyneiden ilmiöiden tutkimus on edistänyt parempaa ymmärrystä myös afroamerikkalaisesta kulttuuriperinnöstä. Filosofiset ja sosiaaliset näkökulmat ovat osaltaan muokkaaneet musiikkitieteellistä keskustelua niistä näkökohdista, jotka liittyvät identiteetin rakentumiseen, kulttuurisen muistin säilyttämiseen ja yhteiskuntakehityksen ilmentymiseen. Näin blues-musiikki toimii sekä esteettisenä että kulttuurihistoriallisena artefaktina, joka tarjoaa syvällisiä näkökulmia maan historiassa tapahtuneiden suurten muutosten ymmärtämiseen ja tulkintaan.  
+Lisäksi on huomionarvoista se, että blues-musiikin historiassa esiintyneiden ilmiöiden tutkimus on edistänyt parempaa ymmärrystä myös afroamerikkalaisesta kulttuuriperinnöstä. Filosofiset ja sosiaaliset näkökulmat ovat osaltaan muokkaaneet musiikkitieteellistä keskustelua niistä näkökohdista, jotka liittyvät identiteetin rakentumiseen, kulttuurisen muistin säilyttämiseen ja yhteiskuntakehityksen ilmentymiseen. Näin blues-musiikki toimii sekä esteettisenä että kulttuurihistoriallisena artefaktina, joka tarjoaa syvällisiä näkökulmia maan historiassa tapahtuneiden suurten muutosten ymmärtämiseen ja tulkintaan.
 
 Lopuksi voidaan todeta, että bluesin historiallinen tausta kuvastaa moniulotteista kulttuurista ilmiötä, jonka juuret ovat syvällä Meren rannikkoseudun, Mississippi-joen varrella eletyssä arjessa ja vaikeuksien keskellä. Bluesin kehittyminen osoittaa, kuinka musiikki voi toimia sekä henkilökohtaisen että yhteisöllisen kokemuksen ilmentämisen välineenä, ja samalla se avaa näkökulmia laajempiin sosiaalisiin ja taloudellisiin prosesseihin. Kriittinen arviointi paljastaa, että vaikka bluesin instrumentaalinen ja melodinen kieli on yksinkertaiselta vaikuttava, sen sisältämät kulttuuriset ja historialliset merkitykset ovat äärimmäisen moniulotteisia ja ulottuvat paljon sen alkuperäisten sanoitusten ja sävellysten pintaa syvemmälle. Näin omaa blues-musiikkia, yhdessä sen jälkeisten vaikutteiden kanssa, voidaan pitää keskeisenä osana kansainvälisen musiikkikulttuurin kehitystä, joka edelleen inspiroi sekä tutkijoita että muusikoita ympäri maailmaa.
 

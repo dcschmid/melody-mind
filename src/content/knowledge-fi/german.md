@@ -17,16 +17,15 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Saksalainen musiikki muodostaa merkittävän osan länsimaisen musiikkiperinteen kehityshistoriaa. Varhaisilta keskiajalta lähtien saksalaisen musiikkikulttuurin muovautuminen on perustunut huolellisesti muotoiltuihin teoreettisiin periaatteisiin sekä käytännön sovelluksiin. Tämä perinne on edustanut symbioosia monimutkaisten harmonisten ja kontrapunktuaalisten tekstuurien välillä, mikä on yhä todisteena sen vaikutuksesta kansainväliseen musiikin teologiaan. 
+Saksalainen musiikki muodostaa merkittävän osan länsimaisen musiikkiperinteen kehityshistoriaa. Varhaisilta keskiajalta lähtien saksalaisen musiikkikulttuurin muovautuminen on perustunut huolellisesti muotoiltuihin teoreettisiin periaatteisiin sekä käytännön sovelluksiin. Tämä perinne on edustanut symbioosia monimutkaisten harmonisten ja kontrapunktuaalisten tekstuurien välillä, mikä on yhä todisteena sen vaikutuksesta kansainväliseen musiikin teologiaan.
 
-Lisäksi saksalaisen musiikkiperinteen historiassa on nähtävissä harmonian ja rytmin kehityskulku, joka ulottuu barokin, klassismin ja romantiikan aikakausiin. Näiden tyylisuuntien aikana muotoutuneet innovatiiviset oopperatekniikat ja orkesterisovitukset puolustavat ajallisesti kestäviä pedagogisia ja esityksellisiä perinteitä. Myös instrumentaalisten kokoonpanojen teknologinen kehitys on edistänyt monipuolisten soittimien synnyn sekä dynamiikan varteenottoa. 
+Lisäksi saksalaisen musiikkiperinteen historiassa on nähtävissä harmonian ja rytmin kehityskulku, joka ulottuu barokin, klassismin ja romantiikan aikakausiin. Näiden tyylisuuntien aikana muotoutuneet innovatiiviset oopperatekniikat ja orkesterisovitukset puolustavat ajallisesti kestäviä pedagogisia ja esityksellisiä perinteitä. Myös instrumentaalisten kokoonpanojen teknologinen kehitys on edistänyt monipuolisten soittimien synnyn sekä dynamiikan varteenottoa.
 
 Saksalainen musiikki toimii yhä keskeisenä referenssinä, jonka kautta ymmärretään kulttuurihistoriallisten, tyylillisten ja teknologisten ilmiöiden vuorovaikutussuhteita. Näin se edelleen rikastuttaa tiedollista ja esteettistä keskustelua kansainvälisessä musiikkitieteessä.
 
@@ -200,7 +199,7 @@ Lopuksi voidaan todeta, että saksalaisen kansainvälisen musiikin kehityshistor
 
 ## Legacy and Influence
 
-German musiikkiperinnön ja vaikutuksen tutkimus paljastaa rikkaan ja moniulotteisen kehityskaaren, joka ulottuu keskiajan kirkkomusiikista nykyajan kokeellisiin soundeihin. Saksalainen musiikkiperinne on muodostunut vuosisatojen jatkuvassa kehityksessä, ja se on vaikuttanut sekä länsimaisen klassisen musiikin että nykyaikaisten kokeellisten ilmaisumuotojen synnyn kannalta. Musiikillisella termistöllä ilmaistuna kyseessä on niin harmonisen rakenteen, kontrapunktin kuin sonaatin kehitykseen vaikuttanut työ, jonka perintö näkyy edelleen globalisoituneessa musiikkikulttuurissa.  
+German musiikkiperinnön ja vaikutuksen tutkimus paljastaa rikkaan ja moniulotteisen kehityskaaren, joka ulottuu keskiajan kirkkomusiikista nykyajan kokeellisiin soundeihin. Saksalainen musiikkiperinne on muodostunut vuosisatojen jatkuvassa kehityksessä, ja se on vaikuttanut sekä länsimaisen klassisen musiikin että nykyaikaisten kokeellisten ilmaisumuotojen synnyn kannalta. Musiikillisella termistöllä ilmaistuna kyseessä on niin harmonisen rakenteen, kontrapunktin kuin sonaatin kehitykseen vaikuttanut työ, jonka perintö näkyy edelleen globalisoituneessa musiikkikulttuurissa.
 
 Myös varhaisella universiteettien kulttuurihistoriallisella keskustelulla on ollut merkittävä rooli saksalaisen musiikin perinnön muodostumisessa. Keskiajan kouluissa ja kirkollisissa yhteyksissä syntynyt polyfoninen musiikki loi pohjan myöhemmälle taiteelliselle ekspressiolle, jota edustavat muun muassa renessanssin ja barokin mestarit. Näiden kehitysvaiheiden kautta periodicistiset ja modaaliset rakenteet siirtyivät monimutkaisempaan harmoniaan ja sointiväreihin, jotka ovat vaikuttaneet myöhempien aikojen säveltäjiin.
 

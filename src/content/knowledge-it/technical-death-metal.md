@@ -17,16 +17,15 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
 Il Technical Death Metal, evoluzione del death metal tradizionale, ha radici consolidate nel contesto musicale degli anni Novanta. Tale corrente, caratterizzata da un elevato grado di complessità armonica e ritmica, si è affermata in ambito internazionale, con sviluppi predominanti in Europa settentrionale e negli Stati Uniti. L’analisi musicologica rivela come la progressione delle tecniche compositive abbia consentito la creazione di strutture musicali innovative e virtuose.
 
-Nel discorso accademico si evidenzia l’influenza delle correnti progressive e del jazz, che hanno arricchito le sonorità con elementi poliritmici e modulazioni armoniche sofisticate. Gli studiosi sottolineano l’importanza di un approccio metodico nello studio delle dinamiche sonore, elemento imprescindibile per comprendere la complessità di questo genere. 
+Nel discorso accademico si evidenzia l’influenza delle correnti progressive e del jazz, che hanno arricchito le sonorità con elementi poliritmici e modulazioni armoniche sofisticate. Gli studiosi sottolineano l’importanza di un approccio metodico nello studio delle dinamiche sonore, elemento imprescindibile per comprendere la complessità di questo genere.
 
 Infine, il contributo delle tecnologie di registrazione e produzione ha ampliato le possibilità di sperimentazione, configurando il Technical Death Metal quale autentico laboratorio acustico, in cui precisione tecnica e innovazione culturale si fondono in una sinergia espressiva e intellettuale.
 

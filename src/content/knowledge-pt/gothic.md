@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -168,7 +167,7 @@ Por outro lado, a análise dos elementos performáticos no contexto gótico tamb
 
 Por fim, a intersecção entre performance e cultura ao vivo no campo do gótico destaca a importância das práticas artísticas para a configuração de identidades e da memória coletiva. As apresentações, imbuídas de simbolismos complexos e linguagens híbridas, tornaram-se catalisadoras de transformações sociais e estéticas, capazes de transcender o âmbito do entretenimento e assumir um papel formativo na elaboração de discursos culturais. Estudos acadêmicos inegam que, ao promover a integração dos elementos performáticos com as tecnologias emergentes e as demandas sociais contemporâneas, o movimento gótico consolidou-se como um fenômeno cultural multifacetado e dinâmico, cuja relevância persiste na contemporaneidade.
 
-Em síntese, a performance e a cultura ao vivo no contexto gótico revelam uma dimensão profunda e significativa do movimento, na qual os elementos estéticos, tecnológicos e socioculturais se entrelaçam para produzir experiências artísticas memoráveis e inovadoras. A análise acadêmica deste fenômeno oferece subsídios valiosos para a compreensão das transformações culturais e dos processos de construção de identidades no cenário musical global, revelando a complexidade e a riqueza da prática performática. 
+Em síntese, a performance e a cultura ao vivo no contexto gótico revelam uma dimensão profunda e significativa do movimento, na qual os elementos estéticos, tecnológicos e socioculturais se entrelaçam para produzir experiências artísticas memoráveis e inovadoras. A análise acadêmica deste fenômeno oferece subsídios valiosos para a compreensão das transformações culturais e dos processos de construção de identidades no cenário musical global, revelando a complexidade e a riqueza da prática performática.
 
 Contagem de caracteres: 5370
 

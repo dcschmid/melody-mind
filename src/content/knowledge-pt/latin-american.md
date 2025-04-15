@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introdução
 
@@ -44,7 +43,7 @@ A análise dos repertórios musicais revela, ainda, a presença de uma densa car
 
 A confluência de tradições e a constante renovação das práticas musicais evidenciam, portanto, que a música latino-americana possui uma riqueza interpretativa que transcende a mera soma de influências. Este dinamismo, sublinhado por processos migratórios e transformações tecnológicas, permite que tradições aparentemente díspares coexistam e se interpenetrem, oferecendo multifacetadas leituras sobre a identidade cultural. Destaca-se, assim, que cada estilo, desde as composições tradicionais indígenas até as inovações dos movimentos de contracultura, inscreve-se em um continuum histórico que ultrapassa os limites temporais e geográficos.
 
-Em síntese, o panorama histórico e cultural da música latino-americana é marcado por um profundo sincretismo, resultado das interações entre diferentes tradições e pela constante reconfiguração das práticas musicais. Tal cenário revela não apenas a capacidade de transformação da cultura, mas também a sua resiliência e adaptabilidade frente aos desafios impostos pelos processos de modernização e globalização. De forma conclusiva, a relevância da música na construção das identidades regionais e na promoção do diálogo intercultural permanece como um legado duradouro, reafirmando a importância do estudo acadêmico nesse campo. 
+Em síntese, o panorama histórico e cultural da música latino-americana é marcado por um profundo sincretismo, resultado das interações entre diferentes tradições e pela constante reconfiguração das práticas musicais. Tal cenário revela não apenas a capacidade de transformação da cultura, mas também a sua resiliência e adaptabilidade frente aos desafios impostos pelos processos de modernização e globalização. De forma conclusiva, a relevância da música na construção das identidades regionais e na promoção do diálogo intercultural permanece como um legado duradouro, reafirmando a importância do estudo acadêmico nesse campo.
 
 Caracteres contados: 5801
 
@@ -164,7 +163,7 @@ Caracteres: 5362
 
 ## Educação e apoio
 
-A educação e o apoio à música latino-americana configuram-se como elementos fundamentais para a preservação e a difusão de um legado cultural singular, que se distanciou das práticas musicais eurocêntricas e desenvolveu raízes próprias, profundamente imbricadas nas realidades sociais dos países da América Latina. Desde o final do século XIX, observa-se que a formação musical passou a integrar currículos escolares e institucionais em diversas regiões, incentivando a valorização dos ritmos e das práticas tradicionais. Ademais, a consolidação de políticas públicas no campo cultural contribuiu para a criação de espaços de ensino, pesquisa e difusão, que corroboram o fortalecimento da identidade latino-americana. 
+A educação e o apoio à música latino-americana configuram-se como elementos fundamentais para a preservação e a difusão de um legado cultural singular, que se distanciou das práticas musicais eurocêntricas e desenvolveu raízes próprias, profundamente imbricadas nas realidades sociais dos países da América Latina. Desde o final do século XIX, observa-se que a formação musical passou a integrar currículos escolares e institucionais em diversas regiões, incentivando a valorização dos ritmos e das práticas tradicionais. Ademais, a consolidação de políticas públicas no campo cultural contribuiu para a criação de espaços de ensino, pesquisa e difusão, que corroboram o fortalecimento da identidade latino-americana.
 
 Historicamente, o ensino da música na América Latina foi permeado por contextos políticos e sociais complexos, nos quais a busca por autonomia cultural foi um imperativo. Durante a década de 1930, exemplificada pela obra de compositores e intérpretes de raiz popular, os programas pedagógicos passaram a investigar, sistematicamente, manifestações como o samba, a milonga, o tango e a cueca, enfatizando a importância do conhecimento teórico e prático dos ritmos autóctones. Concomitantemente, as transformações tecnológicas, tais como a introdução dos discos gravados e das rádios, ampliaram o alcance dos ensinamentos, propiciando a difusão de repertórios que, até então, restringiam-se a contextos locais. Desta forma, a educação musical não apenas promovia o acesso a manifestações artísticas tipicamente latino-americanas, mas também colaborava para a construção de uma memória coletiva.
 
@@ -176,7 +175,7 @@ Em relação ao contexto teórico, a música latino-americana tem sido objeto de
 
 Não obstante, os desafios contemporâneos convocam uma reflexão crítica sobre a sustentabilidade dos programas educacionais em música. A globalização impõe demandas de atualização constante, exigindo dos educadores uma postura inovadora e interdisciplinar, que contemple tanto as tecnologias digitais quanto as práticas tradicionais. Os investimentos em infraestrutura, formação continuada e mobilização social têm se mostrado essenciais para assegurar a perenidade dos valores culturais/identitários, que se manifestam na diversidade rítmica e melódica dos inúmeros países latino-americanos. Portanto, a articulação entre a educação formal e os projetos de extensão comunitária emerge como estratégia fundamental para a perpetuação e o desenvolvimento da música regional, fortalecendo os vínculos sócio-culturais e incentivando o protagonismo dos agentes culturais locais.
 
-Em síntese, a história da educação e do apoio à música latino-americana revela um processo contínuo de reivindicação identitária e inovação pedagógica. Com base em políticas públicas consistentes e na luta por reconhecimento institucional, os educadores têm contribuído para a valorização de uma cultura musical original, que incorpora tradições ancestrais e ressignificações modernas. Dessa forma, o contínuo investimento em ensino e apoio à cultura revela-se como instrumento indispensável para a preservação dos valores musicais que, ao longo dos séculos, moldaram a trajetória histórica e social do continente. 
+Em síntese, a história da educação e do apoio à música latino-americana revela um processo contínuo de reivindicação identitária e inovação pedagógica. Com base em políticas públicas consistentes e na luta por reconhecimento institucional, os educadores têm contribuído para a valorização de uma cultura musical original, que incorpora tradições ancestrais e ressignificações modernas. Dessa forma, o contínuo investimento em ensino e apoio à cultura revela-se como instrumento indispensável para a preservação dos valores musicais que, ao longo dos séculos, moldaram a trajetória histórica e social do continente.
 
 Contagem de caracteres: 5355
 

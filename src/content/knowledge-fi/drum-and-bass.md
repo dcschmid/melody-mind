@@ -16,10 +16,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -69,7 +68,7 @@ Musiikillinen rakenne drum and bassissa nojautuu usein systemaattiseen toistoon 
 
 Edelleen tyylilajin kehittymisessä on nähtävissä vahva vuorovaikutus muiden elektronisen musiikin alagenrejen kanssa. Esimerkiksi breakbeat ja jungle ovat toimineet sekä inspiraationa että teknisenä lähtökohtana drum and bassin muodostamiselle. Molemmissa genressä on korostunut improvisoidun rytmikentän ja kokeellisten sound design -ratkaisujen merkitys, mikä on osaltaan vaikuttanut siihen, että drum and bassissa vallitsee sekä tekninen tarkkuus että luova vapaus. Näiden vaikutteiden seurauksena kappaleissa esiintyy usein ristiriitaisia elementtejä, jotka antavat tilaa erilaisten äänimaisemien ja rytmisten kerrosten rinnakkaiselle kehittymiselle. Historiallisesti tämä kehityssuunta on ollut seurausta sekä teknologisten laitteiden parannuksista että popkulttuuristen ilmiöiden mukailemisesta, minkä seurauksena musiikki on löytänyt tiensä yhä laajempaan kansainväliseen kuulijakuntaan.
 
-Teknologisten innovaatioiden vaikutus musiikin tuotantoon näkyy myös siinä, miten digitaalinen tuottaminen on mahdollistanut samanaikaisen moniraitaisten äänien synkronoinnin. Tämä on johtanut niin sanotun “cut-up” -estetiikan omaksumiseen, jossa kappaleiden rakennetta murretaan ja uudelleen järjestellään. Samalla musiikilliset rakenteet pysyvät kuitenkin intuitiivisesti tunnistettavina, koska rytminen johdonmukaisuus ja bassolinjojen motiivinen jatkuvuus tuovat mukanaan strukturoitua loogisuutta. Tällainen äänikäsittelyn filosofia korostaa modernin musiikin muka-illan ennennäkemättömiä mahdollisuuksia, joissa teknologian tuomat edut ovat samoittain menetys myös perinteisen musiikinteon lineaarisesta aikakäsityksestä. 
+Teknologisten innovaatioiden vaikutus musiikin tuotantoon näkyy myös siinä, miten digitaalinen tuottaminen on mahdollistanut samanaikaisen moniraitaisten äänien synkronoinnin. Tämä on johtanut niin sanotun “cut-up” -estetiikan omaksumiseen, jossa kappaleiden rakennetta murretaan ja uudelleen järjestellään. Samalla musiikilliset rakenteet pysyvät kuitenkin intuitiivisesti tunnistettavina, koska rytminen johdonmukaisuus ja bassolinjojen motiivinen jatkuvuus tuovat mukanaan strukturoitua loogisuutta. Tällainen äänikäsittelyn filosofia korostaa modernin musiikin muka-illan ennennäkemättömiä mahdollisuuksia, joissa teknologian tuomat edut ovat samoittain menetys myös perinteisen musiikinteon lineaarisesta aikakäsityksestä.
 
 Drum and bassin moniulotteisuus on syvällinen ilmiö, jossa taiteellinen ilmaisu kohtaa teknologian mahdollisuudet. Tämä musiikkityyli on sittemmin kehittynyt globaaliksi ilmiöksi, jolle on tunnusomaista jatkuva kehityksen ja kokeilun henki. Analysoitaessa kappaleiden rakennetta on olennaista huomata, että sekä rytminen monikerroksellisuus että äänimaailman tekninen hienosäätö edellyttävät sekä teoreettista syvyyttä että käytännön muotoilua, mikä tekee drum and bassista sekä haastavan että kiehtovan tutkimuskohteen. Näin ollen genren analyysi tarjoaa laajan näkökulman siihen, miten modernit tuotantotekniikat, perinteisten rytmisten elementtien uudelleentulkinta ja kulttuurihistoriallisten vaikutteiden integraatio vaikuttavat elektronisen musiikin evoluutioon.
 
@@ -113,7 +112,7 @@ Kokonaisuudessaan voidaan todeta, että Goldien, LTJ Bukemin, Roni Sizen ja Phot
 
 ## Technical Aspects
 
-Drum and Bass -tyylilaji muodostaa teknisessä analyysissään monikerroksisen ja monitahoisen kokonaisuuden, joka yhdistää elektronisen rumpukoneiden, synteettisoinnin ja digitaalisen äänikäsittelyn innovatiiviset sovellukset. Genren kehitys voidaan jäljittää 1990-luvun alkuun, jolloin Britannian urbaanissa kulttuurissa syntyi ensimmäiset kokeilut monitasoisen ja erittäin dynaamisen rytmikuvion rakentamiseksi. Teknisten edistysaskelten kautta luotu äänimaailma yhdistää analogisten laitteiden lämpimän timbran ja digitaalisten prosessoreiden tarkkuuden, joita hyödynnetään luodessa muuttuvia ja usein haastavia rytmikuvioita. 
+Drum and Bass -tyylilaji muodostaa teknisessä analyysissään monikerroksisen ja monitahoisen kokonaisuuden, joka yhdistää elektronisen rumpukoneiden, synteettisoinnin ja digitaalisen äänikäsittelyn innovatiiviset sovellukset. Genren kehitys voidaan jäljittää 1990-luvun alkuun, jolloin Britannian urbaanissa kulttuurissa syntyi ensimmäiset kokeilut monitasoisen ja erittäin dynaamisen rytmikuvion rakentamiseksi. Teknisten edistysaskelten kautta luotu äänimaailma yhdistää analogisten laitteiden lämpimän timbran ja digitaalisten prosessoreiden tarkkuuden, joita hyödynnetään luodessa muuttuvia ja usein haastavia rytmikuvioita.
 
 Varhaisessa vaiheessa Drum and Bassin teknisiä ratkaisuja ohjasivat pääasiassa analogiset näytteidenkeräys- ja muokkausmenetelmät, joita jatkokehitettiin digitaalisen äänikäsittelyn myötä. Näytteiden ottaminen levytyksistä ja muista lähdemateriaaleista muodosti perustan erikoisten ja sattumanvaraisia rytmipesiä varten. Aikaisessa kontekstissa käytettyjen laitteiden, kuten Akai S900 -näytteenottimen ja muiden varhaisten synteettisten työasemien mahdollistama äänen manipulointi tarjosi artistiikseen uudenlaisen ulottuvuuden. Näiden laitteiden tekninen toteutus edellytti tarkkaa kypäräpedagogista ymmärrystä sekä äänen purevista että jälkikäsittelyn menetelmistä.
 

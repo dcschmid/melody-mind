@@ -17,14 +17,13 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-La música New Age constituye un fenómeno musical que emergió durante la segunda mitad del siglo XX, integrando de manera sinérgica influencias del ambient, el minimalismo y sonoridades orientales. Este estilo se caracteriza por su intención terapéutica y meditativa, orientada a la creación de paisajes sonoros que propician la introspección y la reconexión con dimensiones espiritual y ecológica. Su consolidación se produjo en un contexto de experimentación estética y de la proliferación de nuevas tecnologías digitales que ampliaron los recursos compositivos de los intérpretes. 
+La música New Age constituye un fenómeno musical que emergió durante la segunda mitad del siglo XX, integrando de manera sinérgica influencias del ambient, el minimalismo y sonoridades orientales. Este estilo se caracteriza por su intención terapéutica y meditativa, orientada a la creación de paisajes sonoros que propician la introspección y la reconexión con dimensiones espiritual y ecológica. Su consolidación se produjo en un contexto de experimentación estética y de la proliferación de nuevas tecnologías digitales que ampliaron los recursos compositivos de los intérpretes.
 
 Asimismo, la vertiente filosófica del movimiento encontró respaldo en corrientes culturales y artísticas que promovían la integración de saberes tradicionales con las innovaciones contemporáneas, configurándose como una respuesta a las inquietudes existenciales propias de la sociedad postindustrial.
 

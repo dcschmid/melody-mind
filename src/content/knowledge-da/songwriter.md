@@ -16,14 +16,13 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Songwriter-kategorien repræsenterer en essentiel dimension af den internationale musikalske praksis, idet den kombinerer tekstlig fortælling med kompositorisk innovation. Fra middelalderens trubadurtraditioner til den romantiske epokes lyriske udtryk har komponister og tekstforfattere systematisk udforsket samspillet mellem ord og musik. 
+Songwriter-kategorien repræsenterer en essentiel dimension af den internationale musikalske praksis, idet den kombinerer tekstlig fortælling med kompositorisk innovation. Fra middelalderens trubadurtraditioner til den romantiske epokes lyriske udtryk har komponister og tekstforfattere systematisk udforsket samspillet mellem ord og musik.
 
 I international kontekst medvirker både vestlige og ikke-vestlige musiktraditioner til en kumulativ udvikling af harmonisk og melodisk kompleksitet. Historiske og sociokulturelle faktorer har i høj grad præget udviklingen af sangskrivning, hvor æstetiske idealer og musikteoretiske principper danner grundlag for både analyse og kreativ praksis. Desuden illustrerer krydskulturelle udvekslinger, hvordan teknologiske fremskridt og globalisering i høj grad har transformeret den kunstneriske proces bag moderne kompositionsteknikker.
 

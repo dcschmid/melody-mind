@@ -17,16 +17,15 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
 Sambamusiikki on keskeinen osa Brasilian kansainvälistä musiikkiperinnettä. Sen kehittyminen ajoittuu 1800-luvun puoliväliin, jolloin afrikkalaiset rytmit ja eurooppalaiset sointuperinteet sulautuivat toisiinsa. Näin syntynyt ilmiö muodostaa monikerroksisen ja dynaamisen rakenteen, joka heijastaa kulttuurien vuoropuhelua ja alueellista moninaisuutta.
 
-Historiallisesti samba on saanut vaikutteita sosiaalisista liikkeistä, joissa yhteisöllisyys ja vapaamielisyys ovat keskeisiä elementtejä. Rytmikaavioiden ja improvisaation periaatteet ovat säilyneet ajan saatossa, vahvistaen esitysten dynaamisuutta. 
+Historiallisesti samba on saanut vaikutteita sosiaalisista liikkeistä, joissa yhteisöllisyys ja vapaamielisyys ovat keskeisiä elementtejä. Rytmikaavioiden ja improvisaation periaatteet ovat säilyneet ajan saatossa, vahvistaen esitysten dynaamisuutta.
 
 Musiikkiteoreettisesti samba perustuu vahvoihin rytmisrakenteisiin sekä monipuoliseen perkussioon, jossa pandeiro ja reco-reco ovat merkittäviä soittimia. Lisäksi melodiset linjaukset ja harmoniset ratkaisumallit muodostavat perustan, jonka avulla eri soittajat voivat toteuttaa yhteisen musiikillisen kerronnan.
 

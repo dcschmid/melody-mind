@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -160,7 +159,7 @@ På den kulturelle scene fungerede liveoptrædener som en platform, hvor sociale
 
 Desuden bidrog livekoncerter og tv-optrædener væsentligt til den internationale udbredelse af Cantopop. Gennem velkoordinerede sceneshows formåede kunstnere at nå ud til et bredere publikum, hvilket medførte, at genren hurtigt fandt fodfæste på det internationale marked. Klassiske liveoptrædener, der blandt andet blev præsenteret i internationale musikkoncerter, fungerede som en prototype for global performancekunst inden for populærmusikken. Dette internationale element blev understøttet af Hongkongs medieinfrastruktur, der fra 1980'erne af spillede en central rolle i markedsføringen af Cantopop på verdensplan, hvilket medførte en bredere kulturel udveksling.
 
-I modsætning til mange andre popgenrer var Cantopops performancekultur ofte karakteriseret ved en høj grad af æstetisk raffinement og politisk undertekst. På trods af de kommercielle ambitioner formåede kunstnerne at indarbejde subtile samfundskritiske elementer i deres optrædener, hvilket gav publikum anledning til refleksion over forhold som identitet, tilhørsforhold og social forandring. Denne dobbelte karakter – både underholdende og meningsfuld – cementerede Canarypop som en genre, der overskred de rent musikalske rammer og i stedet formåede at skabe et rum for kulturel dialog og kritisk debat. 
+I modsætning til mange andre popgenrer var Cantopops performancekultur ofte karakteriseret ved en høj grad af æstetisk raffinement og politisk undertekst. På trods af de kommercielle ambitioner formåede kunstnerne at indarbejde subtile samfundskritiske elementer i deres optrædener, hvilket gav publikum anledning til refleksion over forhold som identitet, tilhørsforhold og social forandring. Denne dobbelte karakter – både underholdende og meningsfuld – cementerede Canarypop som en genre, der overskred de rent musikalske rammer og i stedet formåede at skabe et rum for kulturel dialog og kritisk debat.
 
 Afslutningsvis udgør performance og livekultur et centralt aspekt af Cantopops historie og identitet. Gennem en symbiose af æstetik, narrative lag og teknologisk innovation formåede Cantopop at etablere en performancekultur, som ikke blot var til genkendelse i Hongkong, men også på den internationale scene. Denne kulturelle praksis, der integrerer både traditionelle og moderne elementer, vidner om en vedvarende dynamik i den globale musikalske udvikling. Cantopops evne til at formidle komplekse følelsesudtryk og sociale kommentarer gennem liveoptrædener forbliver således en central del af genrens arv og fortsatte betydning i den internationale musikverden.
 

@@ -17,14 +17,13 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Experimental Metal stelt een genre voor dat sinds de jaren tachtig internationale belangstelling geniet door de radicale benadering van traditionele muzikale conventies. Dit muzikale landschap, waarin traditionele metalconcepten opzettelijk worden doorbroken, maakt gebruik van complexe ritmische structuren, onconventionele harmonieën en experimentele klanktexturen. Diverse Europese en Noord-Amerikaanse artiesten, die in die periode internationale erkenning genoten, hebben met hun innovatieve benadering bijgedragen aan de definitie van deze subcategorie. 
+Experimental Metal stelt een genre voor dat sinds de jaren tachtig internationale belangstelling geniet door de radicale benadering van traditionele muzikale conventies. Dit muzikale landschap, waarin traditionele metalconcepten opzettelijk worden doorbroken, maakt gebruik van complexe ritmische structuren, onconventionele harmonieën en experimentele klanktexturen. Diverse Europese en Noord-Amerikaanse artiesten, die in die periode internationale erkenning genoten, hebben met hun innovatieve benadering bijgedragen aan de definitie van deze subcategorie.
 
 Verder heeft de introductie van digitale opname- en mixtechnologie in de late jaren tachtig en vroege jaren negentig een cruciale rol gespeeld in de ontwikkeling van het genre. Deze technologische vooruitgang stelde componisten in staat om gelaagde en onconventionele klanklandschappen te realiseren, waarbij traditionele instrumentatie werd uitgebreid met elektronische elementen. De voortdurende evolutie van Experimental Metal getuigt van een diepgewortelde artistieke zoektocht en illustreert de wisselwerking tussen culturele diversiteit en muzikale vernieuwing.
 

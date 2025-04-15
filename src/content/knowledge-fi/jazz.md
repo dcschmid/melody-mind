@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -98,7 +97,7 @@ Myöhemmin 1940– ja 1950-luvuilla syntynyt be-bop-ilmiö edusti radikaalia mur
 
 1700-luvun lopun ja 1800-luvun alkuun juurtuneiden perinteiden rinnalle modernisessa jazzissa nousi myöhemmin myös Miles Davis, joka edusti uudenlaista lähestymistapaa sekä sävellykseen että improvisaatioon. Davisin ura ulottuu monen genrerajan yli, ja hänen merkittäviä albumiaan kuten Kind of Blue pidetään yhä keskeisinä referensseinä modal-improvisaation ja monikanavaisen musiikillisen näkemyksen kehittämisessä. Hänen metodinsa, joissa yksittäisten soitinten välinen vuoropuhelu korostuu, ovat mahdollistaneet jokaiselle soittajalle yksilöllisen äänen löytämisen yhtenäisen kokoonpanon puitteissa. Miles Davisin teokset ovat inspiroineet lukuisten soittajien ja säveltäjien tutkimuksia sekä aiheuttaneet uusia tulkinta- ja esitystapoja, jotka ovat vaikuttaneet kansainväliseen musiikkidiskurssiin merkittävästi. Hänen vaikutuksensa näkyy viisikymmentävuosisadan loppuun saakka, jolloin nykyaikainen jazz jatkaa edelleen hänen kynnyksellään aloittamia kokeellisia projekteja.
 
-Lisäksi John Coltrane nousi 1950-luvun loppupuolella yhdeksi modernin jazzen keskeisistä ilmiöistä. Coltrane korosti improvisaation hengellisyyttä ja mantraa, joka resonoi laajasti sekä esittämisessä että säveltämisessä. Hänen soittotekniikassaan esiintyvät monimutkaiset modulaatiot ja kehitetty sävellystekniikka ovat myöhemmin muodostaneet eräänlaisia teoreettisia malleja modernin jazzin analyysiin. Coltranein luoma soundimaailma edusti pyrkimystä vangita sekä henkilökohtainen että kollektiivinen henkisyys, mikä mahdollisti uusien musiikillisten mittaustapojen syntymisen. Hänen teostensa kautta voidaan ymmärtää, kuinka jazz toimi sekä yhteiskunnallisena kommenttina että henkilökohtaisen ilmaisun välineenä radikaaleistoimintansa ja symbolisten ristiriitojen keskellä. 
+Lisäksi John Coltrane nousi 1950-luvun loppupuolella yhdeksi modernin jazzen keskeisistä ilmiöistä. Coltrane korosti improvisaation hengellisyyttä ja mantraa, joka resonoi laajasti sekä esittämisessä että säveltämisessä. Hänen soittotekniikassaan esiintyvät monimutkaiset modulaatiot ja kehitetty sävellystekniikka ovat myöhemmin muodostaneet eräänlaisia teoreettisia malleja modernin jazzin analyysiin. Coltranein luoma soundimaailma edusti pyrkimystä vangita sekä henkilökohtainen että kollektiivinen henkisyys, mikä mahdollisti uusien musiikillisten mittaustapojen syntymisen. Hänen teostensa kautta voidaan ymmärtää, kuinka jazz toimi sekä yhteiskunnallisena kommenttina että henkilökohtaisen ilmaisun välineenä radikaaleistoimintansa ja symbolisten ristiriitojen keskellä.
 
 Kansainvälinen jazzin kehitys on aina ollut dynaamisten vuorovaikutusten tulosta, joissa keskeiset henkilöt ovat toimineet sekä kapellimestarina että hänen omien taiteellisten visioidensa ilmentäjinä. Jokainen mainittu muusikko on antanut oman panoksensa evoluutioprosessiin, joka on pienentänyt etäisyyksiä eri kulttuurien välillä ja jättänyt pysyvän jäljen musiikilliseen perintöön. Jazz on siten muodostunut monitasoiseksi ilmiöksi, jossa historialliset, tekniset ja sosiaaliset elementit yhdistyvät autenttisena ilmaisuna yhteiskunnan jatkuvista muutoksista. Aiemmat ajanjaksot ja modernimmat kokeilut nivoutuvat yhteen muodostaen kontinuumin, joka edelleen haastaa tutkijoita ymmärtämään musiikin ja ajan välisen suhteen.
 

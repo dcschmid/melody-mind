@@ -17,14 +17,13 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Der Beginn eines neuen Schuljahres symbolisiert in der internationalen Musikszene weit mehr als den bloßen Wiedereinstieg in den akademischen Alltag. Vielmehr steht er stellvertretend für einen kreativen Aufbruch, der zugleich historische und kulturwissenschaftliche Dimensionen eröffnet. Bereits im späten 19. Jahrhundert erlangte die Verbindung von Musik und Bildung an Bedeutung, als Komponisten europäischer Konservatorien kunsthistorische Impulse entwickelten, die über regionale Grenzen hinauswirkten und so den künstlerischen Diskurs bereicherten. 
+Der Beginn eines neuen Schuljahres symbolisiert in der internationalen Musikszene weit mehr als den bloßen Wiedereinstieg in den akademischen Alltag. Vielmehr steht er stellvertretend für einen kreativen Aufbruch, der zugleich historische und kulturwissenschaftliche Dimensionen eröffnet. Bereits im späten 19. Jahrhundert erlangte die Verbindung von Musik und Bildung an Bedeutung, als Komponisten europäischer Konservatorien kunsthistorische Impulse entwickelten, die über regionale Grenzen hinauswirkten und so den künstlerischen Diskurs bereicherten.
 
 Parallel dazu vermochte der aufkommende Rundfunk sowie die Einführung moderner Tonaufnahmetechnologien im frühen 20. Jahrhundert, insbesondere in den Vereinigten Staaten, innovative Klangstrukturen zu propagieren. So beeinflusste der Jazz seit den 1920er-Jahren das internationale Musikgeschehen nachhaltig, indem er improvisatorische Elemente und komplexe harmonische Zusammenhänge etablierte. Diese facettenreiche Entwicklung veranschaulicht, wie sich traditionelle und progressive Ansätze in globalen Musiktraditionen kunstvoll ergänzen und den kulturellen Schulalltag wissenschaftlich reflektieren.
 

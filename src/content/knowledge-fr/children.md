@@ -15,15 +15,14 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
 Introduction
-La musique dédiée à l'enfance constitue un domaine d'étude particulièrement riche, alliant tradition et innovation dans une perspective historique internationale. Dès l'Antiquité, certains rituels et jeux intégraient des éléments musicaux destinés à éveiller la sensibilité des jeunes esprits. Au fil des siècles, notamment durant la Renaissance, la transmission orale s'est progressivement institutionnalisée grâce aux premiers recueils pédagogiques qui ont favorisé la diffusion d'un répertoire adapté. 
+La musique dédiée à l'enfance constitue un domaine d'étude particulièrement riche, alliant tradition et innovation dans une perspective historique internationale. Dès l'Antiquité, certains rituels et jeux intégraient des éléments musicaux destinés à éveiller la sensibilité des jeunes esprits. Au fil des siècles, notamment durant la Renaissance, la transmission orale s'est progressivement institutionnalisée grâce aux premiers recueils pédagogiques qui ont favorisé la diffusion d'un répertoire adapté.
 
 Par ailleurs, l'analyse des pratiques musicales infantiles révèle une interaction complexe entre savoir théorique et expression artistique, illustrant l'évolution des techniques de notation et des dispositifs de diffusion. En outre, l'étude rigoureuse des documents manuscrits et des enregistrements analogiques permet de dégager, par une approche interdisciplinaire, les liens entre traditions locales et courants internationaux. Ainsi, la musique pour enfants apparaît comme un vecteur culturel essentiel, perpétuant des codes et des valeurs fondamentales à l'éducation musicale.
 

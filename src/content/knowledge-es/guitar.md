@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -127,7 +126,7 @@ En el contexto de la Europa renacentista, la guitarra se inscribe en una tradici
 Durante el Barroco, la guitarra experimentó una evolución significativa en su forma y función, dotándose de una estructura que permitía explorar nuevas posibilidades armónicas. En esta etapa, la técnica guitarrística se consolidó a través de composiciones y transcripciones que demostraban una creciente complejidad y un refinamiento en el virtuosismo. La notable influencia italiana y la difusión en la corte española contribuyeron a que este instrumento se situara en el epicentro de las innovaciones artísticas. Además, la guitarra fue empleada en contextos tanto seculares como eclesiásticos, lo que le permitió ampliar su campo de articulación simbólica en la sociedad europea.
 
 Con la llegada del Romanticismo, la guitarra adquirió una connotación profundamente emotiva, especialmente en el ámbito hispánico. La exaltación de los sentimientos individuales y la celebración de la identidad cultural se tradujeron en composiciones que integraban elementos de la tradición folclórica. Las configuraciones modales, el empleo de escalas menores y la rítmica sincopada se convirtieron en rasgos distintivos de la música guitarrística, reflejando la dualidad entre la melancolía y la pasión característica de la época. La figura de compositores como Fernando Sor y Mauro Giuliani destacó por su capacidad para fundir la erudición clásica con la sensibilidad romántica, creando un corpus de obras que perdura como referente.
- 
+
 Asimismo, en el siglo XIX se gestó una revolución en la técnica y la concepción interpretativa de la guitarra clásica. El virtuoso Andrés Segovia, entre otros precursores, desempeñó un papel determinante en la elevación del instrumento a la categoría de solista en escenarios internacionales. Gracias a sus interpretaciones y a la adaptación del repertorio orquestal, la guitarra trascendió las fronteras de la música popular, consolidándose como un objeto de estudio en las academias de música. En este mismo periodo, se evidenció una interacción fecunda entre la técnica clásica y la influencia de ritmos autóctonos, lo que favoreció la integración de elementos de la música flamenca y andaluza en el imaginario cultural.
 
 A partir del siglo XX, la globalización y los procesos de modernización tecnológica propiciaron la difusión de la guitarra en ámbitos tan disímiles como el jazz, el rock y la música étnica. Esta expansión fue acompañada de una evolución en los métodos de enseñanza y la producción de instrumentos, que pasaron a ser confeccionados con materiales y técnicas innovadoras. En consecuencia, la guitarra se erige no solo como un símbolo de tradición, sino también como un emblema de modernidad e hibridación cultural. La incorporación de elementos electrónicos y la experimentación con nuevos timbres abrieron caminos inéditos en la práctica musical, sin despojándose de su arraigada conexión con la expresión popular y la lírica intimista.

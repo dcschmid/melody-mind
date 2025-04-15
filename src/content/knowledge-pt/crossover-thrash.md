@@ -16,10 +16,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -103,7 +102,7 @@ Em consonância com a abordagem teórica, a análise do impacto das obras import
 
 Por conseguinte, a relevância dos “key figures and important works” no crossover thrash revela-se desde a integração de influências musicais díspares até a articulação de um projeto cultural que, em grande medida, desafiou as definições convencionais de gênero musical. A utilização de escalas modais, padrões rítmicos acelerados e técnicas vocais abrasivas contribuiu para a construção de um som que, além de inovador, se configura como uma crítica às estruturas homogenizadoras da indústria musical. Nesse sentido, a trajetória de bandas como Suicidal Tendencies e D.R.I. assume uma dimensão emblemática, na medida em que elas se inscreveram em um movimento de resistência que, ao mesmo tempo em que dialogava com as contingências locais, reverberou em contextos internacionais.
 
-Em síntese, a investigação dos principais agentes e das obras crucialmente significativas dentro do crossover thrash permite compreender a dinâmica de um movimento que, embora inserido no seio das contradições socioculturais dos anos oitenta, ultrapassa as fronteiras do mero entretenimento. A partir de uma análise que envolve aspectos musicológicos, tecnológicos e políticos, torna-se possível perceber como os elementos constituintes desse gênero se articulam para formar uma síntese sonora inovadora. Tal perspectiva contribui não só para o enriquecimento do debate acadêmico, mas também para a valorização de uma vertente musical que, historicamente, representa um momento decisivo na evolução das práticas artísticas de contracultura. 
+Em síntese, a investigação dos principais agentes e das obras crucialmente significativas dentro do crossover thrash permite compreender a dinâmica de um movimento que, embora inserido no seio das contradições socioculturais dos anos oitenta, ultrapassa as fronteiras do mero entretenimento. A partir de uma análise que envolve aspectos musicológicos, tecnológicos e políticos, torna-se possível perceber como os elementos constituintes desse gênero se articulam para formar uma síntese sonora inovadora. Tal perspectiva contribui não só para o enriquecimento do debate acadêmico, mas também para a valorização de uma vertente musical que, historicamente, representa um momento decisivo na evolução das práticas artísticas de contracultura.
 
 Número de caracteres: 6275
 

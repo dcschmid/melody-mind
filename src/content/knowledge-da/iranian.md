@@ -17,14 +17,13 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduktion
 
-Iransk musik udgør en betydningsfuld del af den internationale musikalske arv og karakteriseres ved sin rige modaltradition og mikrotonale skalaer. Traditionen trækker på ældgamle persiske rødder, hvor den traditionelle radif repræsenterer et komplekst system af musikalske mønstre, der har udviklet sig over århundreder. 
+Iransk musik udgør en betydningsfuld del af den internationale musikalske arv og karakteriseres ved sin rige modaltradition og mikrotonale skalaer. Traditionen trækker på ældgamle persiske rødder, hvor den traditionelle radif repræsenterer et komplekst system af musikalske mønstre, der har udviklet sig over århundreder.
 
 Yderligere har de musikalske udtryk fået indflydelse af kulturelle udvekslinger med nabolande, hvilket tydeliggør en kontinuerlig dialog mellem østlige og vestlige traditioner. Denne kulturelle symbiose afspejles i kompositioner og improvised former, som stræber efter at formidle en dybt rodfæstet æstetik, som både er spirituel og strukturelt veldefineret.
 
@@ -190,8 +189,8 @@ Afslutningsvis kan det konstateres, at de internationale forbindelser i iransk m
 
 ## Aktuelle tendenser og fremtid
 
-I den internationale musikscene spiller iransk musik en central rolle i krydsfeltet mellem tradition og nyskabelse. Traditionelle modaliteter, såsom mikrotonal skala og raga-lignende strukturer, integreres med moderne kompositoriske teknikker. Denne syntese understøttes af avanceret digital teknologi, som muliggør præcise musikalske eksperimenter og omhyggelig manipulation af lyd. 
+I den internationale musikscene spiller iransk musik en central rolle i krydsfeltet mellem tradition og nyskabelse. Traditionelle modaliteter, såsom mikrotonal skala og raga-lignende strukturer, integreres med moderne kompositoriske teknikker. Denne syntese understøttes af avanceret digital teknologi, som muliggør præcise musikalske eksperimenter og omhyggelig manipulation af lyd.
 
-Yderligere observeres en tendens til øget interaktion mellem klassiske iranske udtryksformer og vestlige musikalske discipliner. Denne udvikling afspejler en globalisering af musikalsk udveksling, hvor kulturelle kontekster bevares samtidigt med en åbenhed over for nye æstetiske impulser. Desuden har digital distribution og sociale medier medvirket til, at unge kunstnere opnår international anerkendelse, hvilket baner vejen for en videre fremdrift i retning af æstetisk hybriditet. 
+Yderligere observeres en tendens til øget interaktion mellem klassiske iranske udtryksformer og vestlige musikalske discipliner. Denne udvikling afspejler en globalisering af musikalsk udveksling, hvor kulturelle kontekster bevares samtidigt med en åbenhed over for nye æstetiske impulser. Desuden har digital distribution og sociale medier medvirket til, at unge kunstnere opnår international anerkendelse, hvilket baner vejen for en videre fremdrift i retning af æstetisk hybriditet.
 
 Sammenfattende fremstiller den aktuelle udvikling en fremtid, hvor grænser mellem musiktraditioner udviskes, og hvor iransk musik fortsat udvikles i takt med et stadigt mere globale publikum. (893 tegn)

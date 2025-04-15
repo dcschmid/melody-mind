@@ -16,10 +16,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -169,7 +168,7 @@ Sammanfattningsvis utgör math metal ett exempel på hur internationell musik ka
 
 ## Legacy and Influence
 
-Legacy och inflytande inom math metal utgör ett centralt ämne i studiet av samtida progressiv och extrem metalmusik. Denna subgenre, som kännetecknas av sina komplicerade taktstrukturer, atypiska metriska system och en sofistikerad användning av polyrhythmik, har över tid utvecklats till en betydande inspirationskälla för en rad efterföljande musikaliska uttrycksformer. Genrematiken innefattar såväl en tekniskt avancerad instrumental hantverksskicklighet som en djupgående teoretisk analys av musikalisk form, vilket bidragit till en nyanserad förståelse av musikteoretiska samband inom metal. Denna kulturella och musikvetenskapliga utveckling kan spåras genom en rad framstående internationella aktörer och innovationer, vilka utmanat och berikat den etablerade musikaliska diskursen. 
+Legacy och inflytande inom math metal utgör ett centralt ämne i studiet av samtida progressiv och extrem metalmusik. Denna subgenre, som kännetecknas av sina komplicerade taktstrukturer, atypiska metriska system och en sofistikerad användning av polyrhythmik, har över tid utvecklats till en betydande inspirationskälla för en rad efterföljande musikaliska uttrycksformer. Genrematiken innefattar såväl en tekniskt avancerad instrumental hantverksskicklighet som en djupgående teoretisk analys av musikalisk form, vilket bidragit till en nyanserad förståelse av musikteoretiska samband inom metal. Denna kulturella och musikvetenskapliga utveckling kan spåras genom en rad framstående internationella aktörer och innovationer, vilka utmanat och berikat den etablerade musikaliska diskursen.
 
 Under 1980-talets senare del och 1990-talets början framträdde math metal som ett uttrycksmedel där traditionella rytmiska strukturer medvetet omarbetades. Genren influerades av progressiva element som tidigare etablerats av artister inom progressiv rock och jazzfusion, där komplexa taktarter och oväntade förändringar i dynamik och harmonik var centrala. Musikaliska föregångare från den internationella scenen, såsom den svenska bandet Meshuggah, bidrog med banbrytande tekniska lösningar och en ny syn på rytmisk komplexitet. Dessa innovationer återspeglades även i det europeiska och nordamerikanska musikkontexten, där experimentella band utmanade de konventionella normerna för hur metalmusik strukturerades. Dessutom utvecklades en intersubjektiv dialog mellan musikvetenskap och praktiserande musiker, vilket resulterade i en ökad teoretisk förståelse för den förvrängda taktisk struktur som utmärker genren.
 

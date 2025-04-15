@@ -16,10 +16,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -49,13 +48,13 @@ In summary, the heavy psych movement stands as a testament to a period of musica
 
 ## Musical Characteristics
 
-Heavy Psych is a musical category that emerged prominently in the late 1960s and early 1970s, and its characteristics epitomise an amalgamation of the era’s experimental impulses and the technological innovations of the time. The genre evolved within an international context, drawing on influences from American, British and continental European traditions. It embraced sonic expansiveness and incorporated a variety of production techniques that were both avant‐garde and rooted in the psychedelic revolution. This period witnessed the utilisation of advanced analogue technologies, such as fuzz and wah pedal effects, which have since become emblematic of the heavy psych sound. 
+Heavy Psych is a musical category that emerged prominently in the late 1960s and early 1970s, and its characteristics epitomise an amalgamation of the era’s experimental impulses and the technological innovations of the time. The genre evolved within an international context, drawing on influences from American, British and continental European traditions. It embraced sonic expansiveness and incorporated a variety of production techniques that were both avant‐garde and rooted in the psychedelic revolution. This period witnessed the utilisation of advanced analogue technologies, such as fuzz and wah pedal effects, which have since become emblematic of the heavy psych sound.
 
 The instrumentation deployed within Heavy Psych remains a subject of rigorous musicological inquiry. Central to its musical lexicon is the electric guitar, which is frequently treated with layers of distortion and reverb to create a dense, immersive atmosphere. Guitarists often employed modal scales drawn from Eastern as well as Western musical traditions, enabling them to construct lengthy, improvisatory passages that challenged conventional compositional norms. Moreover, the bass and drum sections maintained a foundation that was deceptively straightforward, yet flexible enough to accommodate sudden shifts in dynamics and rhythmic structure. The interplay between intricate lead passages and spacious, rhythmically driven backdrops lends the genre its distinctive duality of complexity and drive.
 
 Vocally, Heavy Psych tends to eschew the conventional verse-chorus structure, preferring instead an approach in which the voice serves as another instrument within a broader tapestry of sound. In some instances, vocal timbres are treated with extensive effects that render them ethereal and removed, thereby aligning the human element with the overarching sonic atmosphere. The resultant effect is one of transcendence, in which lyrics are often oblique, imbued with themes of mysticism, existential inquiry and the psychedelic experience. This lyrical ambiguity is reinforced by the improvisational nature of the genre, where the lines between structured composition and spontaneous creation often blur.
 
-Rhythmically, Heavy Psych explores unorthodox time signatures and irregular accents that diverge from mainstream popular music practices. Drummers in particular have been acclaimed for their inventive stroke patterns and use of polyrhythmic structures, contributing to the genre’s disconcerting yet enthralling groove. In many seminal recordings, the percussion section oscillates between rudimentary backbeats and intricate, syncopated patterns, thereby enhancing both the hypnotic quality and the atmospheric density of the music. These rhythmic innovations are not merely technical novelties; rather, they reflect a conceptual shift towards realising music as an immersive, all-encompassing experience. 
+Rhythmically, Heavy Psych explores unorthodox time signatures and irregular accents that diverge from mainstream popular music practices. Drummers in particular have been acclaimed for their inventive stroke patterns and use of polyrhythmic structures, contributing to the genre’s disconcerting yet enthralling groove. In many seminal recordings, the percussion section oscillates between rudimentary backbeats and intricate, syncopated patterns, thereby enhancing both the hypnotic quality and the atmospheric density of the music. These rhythmic innovations are not merely technical novelties; rather, they reflect a conceptual shift towards realising music as an immersive, all-encompassing experience.
 
 Harmonic experimentation is another defining aspect of Heavy Psych. Musicians have often dispensed with traditional tonal hierarchies to explore alternative modes and chordal clusters, which create a sense of suspended tonality and unearthly ambience. The resultant harmonic structures frequently evoke meditative states, as listeners are invited to explore sonic landscapes that resist immediate cognitive categorisation. Such approaches to harmony are frequently interwoven with long instrumental segments that allow for the gradual evolution of sonic themes. The amalgamation of such harmonies with unconventional scales and tunings further contributes to the genre’s unique aesthetic, whereby dissonance and consonance engage in a dynamic, ongoing dialogue.
 

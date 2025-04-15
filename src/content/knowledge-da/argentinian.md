@@ -16,14 +16,13 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduktion
 
-Argentinsk musik har igennem historiens løb udgjort en central aktør i den internationale musikudveksling. Særligt tangoens frembrud i Buenos Aires omkring 1890 markerer en nyskabende periode, hvor komplekse rytmiske strukturer og virtuos instrumentalbrug kombineres med etablerede europæiske harmonier og afro-argentinske impulser. Denne genreudvikling blev et kulturelt fænomen, idet den både anerkendte og transformerede traditionelle musikalske konventioner. 
+Argentinsk musik har igennem historiens løb udgjort en central aktør i den internationale musikudveksling. Særligt tangoens frembrud i Buenos Aires omkring 1890 markerer en nyskabende periode, hvor komplekse rytmiske strukturer og virtuos instrumentalbrug kombineres med etablerede europæiske harmonier og afro-argentinske impulser. Denne genreudvikling blev et kulturelt fænomen, idet den både anerkendte og transformerede traditionelle musikalske konventioner.
 
 Yderligere afspejler den argentinske musikalske udvikling et samspil mellem sociale og kulturelle strømninger, der har formået at integrere lokale traditoner med globale tendenser. Ved at forene improvisation med stringent komposition illustreres en konstant dynamik, som fortsat inspirerer moderne internationale musikalske udtryk.
 

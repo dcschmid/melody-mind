@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -68,7 +67,7 @@ No século XIX, a consolidação do movimento romântico redimensionou a compree
 
 Na contemporaneidade, a expressão melancólica mantém-se como um dispositivo estético de relevância, perpassando diversas tradições musicais globais. Ainda que a instrumentação e as tecnologias de produção sonora tenham sofrido revoluções significativas, os princípios que norteiam a articulação emocional permanecem notoriamente similares. A persistência da modulação tonal, das dissonâncias intencionais e dos ritmos cadenciados corrobora a ideia de que a melancolia é um elemento inerente à condição humana, adaptando-se às linguagens e aos contextos culturais emergentes. Essa continuidade histórica ressalta a perene capacidade da música de traduzir o sofrimento, a introspecção e a inevitabilidade da passagem do tempo, atuando como um elo entre o passado e o presente (Cardoso, 2003).
 
-Portanto, a investigação da expressão melancólica na música transcende a mera análise formal e abrange dimensões existenciais e históricas que se revelam essenciais para a compreensão do discurso musical. Em síntese, a trajetória dessa manifestação revela uma continuidade que, embora adaptada a distintas épocas e técnicas composicionais, mantém a sua essência na representação dos sentimentos humanos. Assim, seja no canto monofônico medieval, na polifonia renascentista, na riqueza expressiva barroca, no equilíbrio clássico ou na profundidade romântica, a melancolia se apresenta como um aspecto indelével da musicalidade universal, reiterando o papel formativo da música na experiência humana.  
+Portanto, a investigação da expressão melancólica na música transcende a mera análise formal e abrange dimensões existenciais e históricas que se revelam essenciais para a compreensão do discurso musical. Em síntese, a trajetória dessa manifestação revela uma continuidade que, embora adaptada a distintas épocas e técnicas composicionais, mantém a sua essência na representação dos sentimentos humanos. Assim, seja no canto monofônico medieval, na polifonia renascentista, na riqueza expressiva barroca, no equilíbrio clássico ou na profundidade romântica, a melancolia se apresenta como um aspecto indelével da musicalidade universal, reiterando o papel formativo da música na experiência humana.
 
 Em conclusão, o estudo da expressão melancólica constitui não apenas uma investigação dos recursos técnicos e formis, mas também uma reflexão sobre o impacto cultural e existencial da música. Ao integrar análises teóricas com uma contextualização histórica rigorosa, entende-se que a melancolia, enquanto dispositivo estético, é capaz de transcender as barreiras temporais e comunicar a universalidade do sentir humano. Essa investigação reafirma a importância de se considerar a dimensão emotiva e contextual da música para a plena compreensão de seu papel transformador na história das artes.
 
@@ -154,7 +153,7 @@ Em síntese, as aplicações intergênero do caráter melancólico representam u
 
 Ainda, ao utilizar a terminologia musicológica, cumpre destacar que a “modalidade melancólica” pode ser investigada por meio dos estudos relacionais entre forma, harmonia e timbre, aspectos estes que, em contextos intergênero, se reformulam para responder a novas demandas expressivas. Conforme salientam teóricos como Adorno (1975) e Eagleton (1983), a música melancólica está intrinsecamente ligada à condição humana e ao espaço discursivo, funcionando como um espelho que reflete as contradições da modernidade e as tensões entre o individual e o coletivo. Assim, o estudo intergênero da melancolia exige uma abordagem sistêmica que considere os elementos históricos e teóricos constitutivos de cada re-significação.
 
-Por fim, a interseção de gêneros na construção de narrativas melancólicas destaca a importância de se reconhecer a melancolia enquanto categoria estética e cultural multifacetada. A articulação entre a tradição clássica e as inovações contemporâneas ilustra como os compositores e intérpretes têm, ao longo dos tempos, utilizado a melancolia para expressar inquietações pessoais, coletivas e existenciais, reafirmando seu papel enquanto instrumento de crítica social e de reconstrução identitária. Essa dinâmica revela não apenas a versatilidade da música, mas também a sua capacidade inata de refletir e transformar as experiências humanas. 
+Por fim, a interseção de gêneros na construção de narrativas melancólicas destaca a importância de se reconhecer a melancolia enquanto categoria estética e cultural multifacetada. A articulação entre a tradição clássica e as inovações contemporâneas ilustra como os compositores e intérpretes têm, ao longo dos tempos, utilizado a melancolia para expressar inquietações pessoais, coletivas e existenciais, reafirmando seu papel enquanto instrumento de crítica social e de reconstrução identitária. Essa dinâmica revela não apenas a versatilidade da música, mas também a sua capacidade inata de refletir e transformar as experiências humanas.
 
 Contagem de caracteres: 5381.
 

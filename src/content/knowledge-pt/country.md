@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -178,7 +177,7 @@ Contagem de caracteres: 5360
 
 ## Development and Evolution
 
-A evolução histórica da música country constitui-se em um processo multifacetado, imbricado pelas transformações sociais, políticas e tecnológicas ocorridas nas últimas décadas do século XIX e ao longo do século XX. Inicialmente, os elementos que dariam origem a este gênero musical manifestaram-se no contexto das comunidades rurais dos Apalaches, em que as tradições orais e a herança folclórica de imigrantes europeus encontraram solo fértil para a expressão cultural autóctone. As canções narrativas, fundamentadas em temas cotidianos e na vivência do trabalho agrícola, conjugavam ritmos, escalas modais e técnicas de improviso heranças da música tradicional celta, inglesa e escocesa, elementos estes que, mais tarde, seriam reinterpretados e incorporados na matriz sonora do country. 
+A evolução histórica da música country constitui-se em um processo multifacetado, imbricado pelas transformações sociais, políticas e tecnológicas ocorridas nas últimas décadas do século XIX e ao longo do século XX. Inicialmente, os elementos que dariam origem a este gênero musical manifestaram-se no contexto das comunidades rurais dos Apalaches, em que as tradições orais e a herança folclórica de imigrantes europeus encontraram solo fértil para a expressão cultural autóctone. As canções narrativas, fundamentadas em temas cotidianos e na vivência do trabalho agrícola, conjugavam ritmos, escalas modais e técnicas de improviso heranças da música tradicional celta, inglesa e escocesa, elementos estes que, mais tarde, seriam reinterpretados e incorporados na matriz sonora do country.
 
 A partir da década de 1920, o advento das novas tecnologias de gravação e radiodifusão propiciou uma transformação sem precedentes na disseminação da música country. A popularização dos discos de fonógrafo e, posteriormente, do rádio, contribuiu para a consolidação de artistas pioneiros como Jimmie Rodgers e o grupo conhecido como The Carter Family, cuja produção discográfica registrou e difundiu um repertório que sintetizava a experiência de vida no campo e os anseios da classe trabalhadora. Neste período, a gravação das primeiras canções country permitiu que os aspectos regionais se tornassem universais, conduzindo a um diálogo entre a autenticidade das raízes folclóricas e as exigências do mercado emergente.
 
@@ -192,7 +191,7 @@ O desenvolvimento e a evolução do country, todavia, não se restringem à mera
 
 Ademais, o processo de digitalização das mídias musicais a partir da virada do milênio introduziu novas perspectivas no campo do country, promovendo uma redistribuição dos espaços de produção, distribuição e consumo musical. A internet e as plataformas digitais passaram a desempenhar um papel crucial na disseminação e na popularização de diversas vertentes do gênero, possibilitando que artistas regionais alcançassem um público global sem as limitações impostas anteriormente pelos grandes conglomerados da indústria discográfica. Este fenômeno, analisado por estudiosos como Thompson (2010) e Scott (2015), evidencia a continuidade do dinamismo inerente à música country, a qual, por meio de adaptações tecnológicas, permanece fiel às suas raízes enquanto incorpora elementos inovadores que dialogam com os desafios contemporâneos.
 
-Em síntese, a evolução do country revela um percurso histórico de constante renovação, no qual a interação entre inovação tecnológica e tradição cultural delineou múltiplas fases de transformações estilísticas e temáticas. Através da análise dos marcos históricos – que vão desde as origens folclóricas dos Apalaches até os fenômenos midiáticos do século XXI – pode-se inferir que a música country, enquanto expressão artística, permanece um reflexo da complexa tapeçaria social dos Estados Unidos. Assim, a academia tem se debruçado sobre o estudo das inter-relações entre os elementos musicais, culturais e históricos que, em conjunto, configuram a trajetória desse gênero tão marcante e emblemático. 
+Em síntese, a evolução do country revela um percurso histórico de constante renovação, no qual a interação entre inovação tecnológica e tradição cultural delineou múltiplas fases de transformações estilísticas e temáticas. Através da análise dos marcos históricos – que vão desde as origens folclóricas dos Apalaches até os fenômenos midiáticos do século XXI – pode-se inferir que a música country, enquanto expressão artística, permanece um reflexo da complexa tapeçaria social dos Estados Unidos. Assim, a academia tem se debruçado sobre o estudo das inter-relações entre os elementos musicais, culturais e históricos que, em conjunto, configuram a trajetória desse gênero tão marcante e emblemático.
 
 Contagem de caracteres: 5355
 

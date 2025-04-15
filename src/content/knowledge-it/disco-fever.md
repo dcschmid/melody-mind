@@ -17,14 +17,13 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Il fenomeno "Disco Fever" rappresenta un capitolo fondamentale nella storia della musica internazionale, emergendo dalla convergenza di fattori sociali, tecnologici e culturali che hanno caratterizzato la fine degli anni Sessanta e l'inizio degli anni Settanta. In questo periodo, le innovazioni nelle tecnologie di registrazione e la crescente diffusione dei sistemi stereo contribuirono a definire un nuovo suono, contraddistinto da ritmi sincopati e linee di basso prominenti, elementi che furono progressivamente perfezionati in studi specializzati. 
+Il fenomeno "Disco Fever" rappresenta un capitolo fondamentale nella storia della musica internazionale, emergendo dalla convergenza di fattori sociali, tecnologici e culturali che hanno caratterizzato la fine degli anni Sessanta e l'inizio degli anni Settanta. In questo periodo, le innovazioni nelle tecnologie di registrazione e la crescente diffusione dei sistemi stereo contribuirono a definire un nuovo suono, contraddistinto da ritmi sincopati e linee di basso prominenti, elementi che furono progressivamente perfezionati in studi specializzati.
 
 Inoltre, il genere si sviluppò in un contesto in cui le trasformazioni socio-politiche favorirono l’apertura verso stili musicali internazionali, permettendo agli artisti, rigorosamente attivi in quegli anni, di sperimentare con arrangiamenti orchestrali ed elettronici. Tale evoluzione, corroborata da un’attenta analisi critica, sottolinea come la musica disco abbia fornito una forma espressiva in grado di interpretare e riflettere i mutamenti culturali, stabilendo un ponte tra tradizione e innovazione.
 

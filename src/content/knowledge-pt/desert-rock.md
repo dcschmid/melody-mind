@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -158,7 +157,7 @@ Ademais, é imperioso destacar a relevância de uma abordagem performática que 
 
 Em síntese, o estudo da performance e da live culture no Desert Rock permite compreender a complexidade dos mecanismos que integram espaço, som e comunidade. Este fenômeno, marcado por sua historicidade e pela interação singular entre artista e ambiente, oferece subsídios teóricos valiosos para a compreensão do desenvolvimento de práticas musicais que valorizam a autenticidade e a experimentação. O legado deste movimento reside, sobretudo, na capacidade de transcender limitações formais, promovendo experiências que incorporam o efêmero, o improvisado e o simbólico.
 
-Portanto, o Desert Rock consolida-se como um importante caso de estudo para a musicologia, evidenciando a relevância de contextos performáticos que dialogam de forma intrínseca com as condições ambientais e culturais locais. A análise histórica e estética deste movimento permite estabelecer paralelos com outras tradições musicais que investem na performance ao vivo como forma de resistência e expressão identitária. A preservação da memória desses encontros, a partir da criteriosa observação das tecnologias, dos instrumentos e das interações sociais, constitui uma contribuição inestimável à historiografia musical contemporânea. 
+Portanto, o Desert Rock consolida-se como um importante caso de estudo para a musicologia, evidenciando a relevância de contextos performáticos que dialogam de forma intrínseca com as condições ambientais e culturais locais. A análise histórica e estética deste movimento permite estabelecer paralelos com outras tradições musicais que investem na performance ao vivo como forma de resistência e expressão identitária. A preservação da memória desses encontros, a partir da criteriosa observação das tecnologias, dos instrumentos e das interações sociais, constitui uma contribuição inestimável à historiografia musical contemporânea.
 
 Contagem de caracteres: 5355
 
@@ -180,7 +179,7 @@ No campo das análises musicológicas, o Desert Rock apresenta um interesse sing
 
 Ademais, a interseção entre a estética visual e a prática musical contribui para a consolidação de uma identidade cultural própria entre os adeptos do Desert Rock. A iconografia associada às paisagens áridas e às imagens quase místicas dos desertos norte-americanos atua como uma extensão dos próprios discursos musicais, reforçando a busca por uma experiência transcendente que ultrapassa os limites da convencionalidade sonora. Dessa forma, o gênero não se resume apenas a um conjunto de características instrumentais, mas apresenta uma dimensão estética e conceitual que dialoga com outras manifestações artísticas contemporâneas.
 
-Em síntese, o desenvolvimento e a evolução do Desert Rock constituem um processo multifacetado que integra aspectos técnicos, culturais e sociais em seu percurso histórico. A consolidação do subgênero a partir das condições ambientais e tecnológicas específicas do sudoeste norte-americano evidencia uma articulação complexa entre tradição e inovação. Como resultado, o Desert Rock permanece, até os dias atuais, como um campo fértil para a experimentação e para a expressão artística, demonstrando a capacidade de adaptação e de diálogo permanente com outras correntes musicais e culturais. 
+Em síntese, o desenvolvimento e a evolução do Desert Rock constituem um processo multifacetado que integra aspectos técnicos, culturais e sociais em seu percurso histórico. A consolidação do subgênero a partir das condições ambientais e tecnológicas específicas do sudoeste norte-americano evidencia uma articulação complexa entre tradição e inovação. Como resultado, o Desert Rock permanece, até os dias atuais, como um campo fértil para a experimentação e para a expressão artística, demonstrando a capacidade de adaptação e de diálogo permanente com outras correntes musicais e culturais.
 
 (Contagem de caracteres: 5416)
 

@@ -17,10 +17,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -150,7 +149,7 @@ Furthermore, the evolution of live power-pop performances was inextricably linke
 
 The communal aspect of live performance in power-pop cannot be overstated, as the phenomenon often served as a form of social commentary and unification. Concerts functioned as communal gatherings, wherein the exchange of cultural and musical ideas fostered a sense of collective identity. Audiences engaged with the music not merely as passive recipients but as active participants whose enthusiasm and intellectual engagement were integral to the performance. This reciprocal relationship, sustained over countless live appearances across international borders, served to reaffirm power-pop’s position as a genre that was both musically accessible and intellectually stimulating.
 
-In recent decades, festivals and multi-venue tours have afforded power-pop acts the opportunity to reach audiences on a grander scale while still retaining the intimate interaction that characterised its early live performances. Celebrated acts within the genre have continued to adapt their live incarnations by incorporating digital sound processing and enhanced visual aesthetics, thereby maintaining a delicate balance between innovation and tradition. Consequently, modern power-pop performances continue to echo the foundations laid in previous decades, ensuring that the legacy of a genre celebrated for its melodic sophistication and spirited dynamism endures across generations. 
+In recent decades, festivals and multi-venue tours have afforded power-pop acts the opportunity to reach audiences on a grander scale while still retaining the intimate interaction that characterised its early live performances. Celebrated acts within the genre have continued to adapt their live incarnations by incorporating digital sound processing and enhanced visual aesthetics, thereby maintaining a delicate balance between innovation and tradition. Consequently, modern power-pop performances continue to echo the foundations laid in previous decades, ensuring that the legacy of a genre celebrated for its melodic sophistication and spirited dynamism endures across generations.
 
 This enduring relationship between performance and audience, underscored by a commitment to both technical precision and emotional engagement, has cemented power-pop’s reputation as a live phenomenon of international acclaim. The ongoing evolution of performance practices – from the modest club nights of the 1970s to the elaborate international tours of today – exemplifies a musical tradition that is both rooted in historical precedent and invigorated by modern innovation.
 

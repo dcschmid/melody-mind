@@ -16,10 +16,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -153,7 +152,7 @@ Samenvattend kan worden gesteld dat de samba, als live performancekunst, een com
 
 ## Development and Evolution
 
-De ontwikkeling en evolutie van samba is onlosmakelijk verbonden met de complexe culturele en sociale dynamieken die op het Braziliaanse grondgebied aanwezig waren in de late negentiende en vroege twintigste eeuw. Oorspronkelijk ontstond samba binnen de Afro-Braziliaanse gemeenschappen, waarbij ritmische patronen en dansbewegingen, afgeleid van traditionele Afrikaanse muziek, werden vermengd met inheemse Braziliaanse en Europese elementen. Deze kruisbestuiving resulteerde in een muzikale taal die zowel het lijden als de vreugde van een onderdrukte bevolkingsgroep weerspiegelde, en die in de loop der tijd uitgroeide tot een essentieel onderdeel van de nationale identiteit. 
+De ontwikkeling en evolutie van samba is onlosmakelijk verbonden met de complexe culturele en sociale dynamieken die op het Braziliaanse grondgebied aanwezig waren in de late negentiende en vroege twintigste eeuw. Oorspronkelijk ontstond samba binnen de Afro-Braziliaanse gemeenschappen, waarbij ritmische patronen en dansbewegingen, afgeleid van traditionele Afrikaanse muziek, werden vermengd met inheemse Braziliaanse en Europese elementen. Deze kruisbestuiving resulteerde in een muzikale taal die zowel het lijden als de vreugde van een onderdrukte bevolkingsgroep weerspiegelde, en die in de loop der tijd uitgroeide tot een essentieel onderdeel van de nationale identiteit.
 
 De eerste concrete vormen van samba vonden hun intrede in de late negentiende eeuw, met name in de context van de gefragmenteerde slavengemeenschappen en de daaropvolgende emancipatie van zwarte burgers. Met de urbanisatie en de groei van Rio de Janeiro als cultureel centrum werden de oorspronkelijke ritmes en dansvormen onderhevig aan versnelling en professionalisering. Daarbij richtten artiesten zich op het verlevendigen van traditionele onbekwame ritmes door nieuwe instrumentaties en orkestraties te integreren, wat leidde tot de ontwikkeling van vormen zoals de “samba de roda” en later de “samba-enredo”. Deze evoluties werden nauwgezet gedocumenteerd in straatfestivals en carnavalsvieringen, waarin de spontane expressie van de gemeenschap een platform kreeg en tegelijkertijd een continuïteit van culturele erfgoed veiligstelde.
 

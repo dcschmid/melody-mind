@@ -16,10 +16,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -29,7 +28,7 @@ Vidare exemplifieras denna utveckling genom en progressiv integration av ensembl
 
 ## Historical Background
 
-Historiska sammanhang kring internationell musik för middagsbjudningar utgör en fascinerande och komplex utvecklingslinje, vilken speglar förändringar i både sociala hierarkier, kulturella normer och teknologiska innovationer. Under 1700-talets Europa framträdde exempelvis de aristokratiska salongerna, där nyckelpersoner inom musiklivet samlades för att lyssna på levande framföranden av samtida kompositörer. Dessa sammankomster, ofta präglade av eleganta intellektuella samtal, blev nav för musikkutbyte och kulturell förädling. I synnerhet illustrerar den franska hovkulturen hur musikaliska evenemang kunde fungera som ett medium för att signalera status och bredda deltagarnas kulturella horisonter. 
+Historiska sammanhang kring internationell musik för middagsbjudningar utgör en fascinerande och komplex utvecklingslinje, vilken speglar förändringar i både sociala hierarkier, kulturella normer och teknologiska innovationer. Under 1700-talets Europa framträdde exempelvis de aristokratiska salongerna, där nyckelpersoner inom musiklivet samlades för att lyssna på levande framföranden av samtida kompositörer. Dessa sammankomster, ofta präglade av eleganta intellektuella samtal, blev nav för musikkutbyte och kulturell förädling. I synnerhet illustrerar den franska hovkulturen hur musikaliska evenemang kunde fungera som ett medium för att signalera status och bredda deltagarnas kulturella horisonter.
 
 Utvecklingen av instrumentala tekniker och den notabla progressionen inom kompositionsstilar under denna period bidrog ytterligare till de estetiska krav som ställdes på musik vid middagsbjudningar. Det föreligger en tydlig evolution från renässansens polyfona strukturer till den mer uttrycksfulla sentbarockens återkommande motiv och känslomässiga dynamik. I kontrast till tidigare tiders simpla musikalitet, karakteriserades denna era av en gradvis övergång mot en rikare harmonisk palett och en mer sofistikerad formstruktur, vilket i sin tur bidrog till den övergripande estetiska upplevelsen vid sociala sammankomster. Denna utveckling kan inte ses isolerat, utan måste förstås utifrån de samtida kulturella och teknologiska omvälvningar som förändrade både produktion och konsumtion av musik.
 
@@ -177,7 +176,7 @@ Sammanfattningsvis kan det fastställas att den internationella middagsmusikens 
 
 ## Legacy and Influence
 
-Legacy och inflytande inom kategorin Dinner Party representerar ett komplext och tvärvetenskapligt ämnesområde som integrerar musikvetenskapliga, sociokulturella samt historiska perspektiv. I den internationella musiktraditionen har middagsfester, eller salonkonserter, fungerat som arena för både estetiska uttryck och politiska samt sociala diskurser, och fenomenet sträcker sig över flera epoker och geografiska regioner. Redan under 1700- och 1800-talet utvecklades den europeiska salongtraditionen i Frankrike och Tyskland, där aristokrati och väletablerade intellektuella kretsar samlades kring piano- och kammarensembler, och där den musikaliska kommunikationen bidrog till att forma en offentlig smak och konstnärlig självförståelse. 
+Legacy och inflytande inom kategorin Dinner Party representerar ett komplext och tvärvetenskapligt ämnesområde som integrerar musikvetenskapliga, sociokulturella samt historiska perspektiv. I den internationella musiktraditionen har middagsfester, eller salonkonserter, fungerat som arena för både estetiska uttryck och politiska samt sociala diskurser, och fenomenet sträcker sig över flera epoker och geografiska regioner. Redan under 1700- och 1800-talet utvecklades den europeiska salongtraditionen i Frankrike och Tyskland, där aristokrati och väletablerade intellektuella kretsar samlades kring piano- och kammarensembler, och där den musikaliska kommunikationen bidrog till att forma en offentlig smak och konstnärlig självförståelse.
 
 Historiskt sett har middagsfester utgjort en plattform för att främja musikaliska stilar som klassicismen och den tidiga romantiken, vilka båda präglades av en strävan efter att balansera teknisk virtuositet med emotionell uttrycksfullhet. Den internationellt kända kompositören Wolfgang Amadeus Mozart, verksam under den senare delen av 1700-talet, använde salongkonserter för att introducera sin musik till en bredare publik, medan Ludwig van Beethoven under tidigt 1800-tal omdefinierade begreppet konsertens offentliga karaktär och därmed indirekt påverkat middagsfestens signifikans som kulturell mötesplats. Detta utbyte av musikaliska idéer, ofta understött av den tidstypiska sociala etiketten, illustrerar hur Dinner Party inte enbart var en trivsam tillställning utan även en arena för interkulturell dialog och konstnärlig utveckling.
 

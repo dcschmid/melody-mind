@@ -16,14 +16,13 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Deutschrock emerged in West Germany during the early 1970s as a distinct musical phenomenon that combined innovative rock instrumentation with a reflective lyrical sensibility. Influenced by the progressive and art rock movements of the period, the genre embraced newly developed amplification techniques and studio recording technologies to articulate contemporary social and political concerns. Its evolution was firmly rooted in the cultural context of post-war Germany, where musicians sought to redefine their national identity through experimental sonic expressions. 
+Deutschrock emerged in West Germany during the early 1970s as a distinct musical phenomenon that combined innovative rock instrumentation with a reflective lyrical sensibility. Influenced by the progressive and art rock movements of the period, the genre embraced newly developed amplification techniques and studio recording technologies to articulate contemporary social and political concerns. Its evolution was firmly rooted in the cultural context of post-war Germany, where musicians sought to redefine their national identity through experimental sonic expressions.
 
 Furthermore, Deutschrock quickly garnered international attention as it integrated diverse stylistic elements, ranging from electronic inflections to conventional rock frameworks. This synthesis of creative impulses not only reflected the transformative zeitgeist of the era but also laid the groundwork for future explorations within the global rock milieu, thereby ensuring its enduring legacy in music history.
 

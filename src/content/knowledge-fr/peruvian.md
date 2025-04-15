@@ -17,10 +17,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -70,7 +69,7 @@ Nombre de caractères (espaces inclus) : 5801
 
 ## Développement de la musique moderne
 
-Le développement de la musique moderne au Pérou constitue une trajectoire culturelle d’une richesse inégalée, révélant une synthèse complexe d’influences ancestrales et de mutations contemporaines. Dans un contexte de profondes transformations politiques, sociales et technologiques qui se sont accélérées dès le début du XXe siècle, la scène musicale péruvienne a su intégrer des idiomes traditionnels andins, afro-péruviens et hispaniques pour forger une identité sonore en perpétuelle évolution. Cette épistémologie musicale, en phase avec les courants modernistes européens et nord-américains, témoigne d’un dialogue constant entre modernité et respect du patrimoine.  
+Le développement de la musique moderne au Pérou constitue une trajectoire culturelle d’une richesse inégalée, révélant une synthèse complexe d’influences ancestrales et de mutations contemporaines. Dans un contexte de profondes transformations politiques, sociales et technologiques qui se sont accélérées dès le début du XXe siècle, la scène musicale péruvienne a su intégrer des idiomes traditionnels andins, afro-péruviens et hispaniques pour forger une identité sonore en perpétuelle évolution. Cette épistémologie musicale, en phase avec les courants modernistes européens et nord-américains, témoigne d’un dialogue constant entre modernité et respect du patrimoine.
 
 Les prémices de la musique moderne péruvienne se situent dans la période post-coloniale, où la rencontre entre musiques indigènes et traditions importées d’Espagne a engendré des pratiques hybrides. Dès les années 1920, l’introduction de technologies d’enregistrement a ouvert la voie à une captation plus fidèle et reproductible des tonalités locales. En conséquence, l’essor des radios régionales et des premiers disques a permis une diffusion accrue - tant dans les centres urbains que dans les campagnes andines - des sonorités mêlant instruments traditionnels tels que la quena et le charango à des harmonies importées des courants occidentaux. Par ailleurs, l’évolution de la pratique musicale a été intimement liée aux dynamiques éducatives et institutionnelles, notamment avec la création d’écoles de musique où l’on enseignait aussi bien la théorie musicale européenne que les répertoires autochtones.
 
@@ -82,7 +81,7 @@ Considérer le développement de la musique moderne au Pérou requiert égalemen
 
 En outre, l’essor des technologies numériques à partir des années 1990 a inauguré une nouvelle ère pour la diffusion et l’archivage de la musique péruvienne. La facilité d’accès aux enregistrements et la multiplication des canaux de communication ont permis d’élargir le public, renforçant ainsi la portée internationale d’un répertoire autrefois cantonné à un espace géographique restreint. Les études récentes consacrées aux musiques du monde mettent en lumière l’importance de la numérisation, qui offre un double avantage : la conservation du patrimoine sonore et la redéfinition des modes de production artistique. Ainsi, la modernité technologique rencontre la tradition musicale dans une symbiose riche en possibilités créatives, un phénomène qui trouve écho dans la critique musicologique contemporaine.
 
-Pour conclure, il apparaît que le développement de la musique moderne au Pérou s’inscrit dans un continuum historique où se conjuguent influences indigènes, corrections européennes et innovations technologiques. En intégrant les héritages du passé à des expressions novatrices, les musiciens péruviens ont su créer un corpus musical dynamique et pluriel, témoignant de la capacité d’adaptation et de transformation de leur identité culturelle. Comme le soulignent plusieurs chercheurs – voir par exemple l’analyse de Rigoberto Paredes (1998) –, la musique péruvienne moderne incarne une parfaite alchimie entre tradition et modernité, offrant ainsi une lecture plurielle de la réalité sociale et artistique d’un pays en constante mutation.  
+Pour conclure, il apparaît que le développement de la musique moderne au Pérou s’inscrit dans un continuum historique où se conjuguent influences indigènes, corrections européennes et innovations technologiques. En intégrant les héritages du passé à des expressions novatrices, les musiciens péruviens ont su créer un corpus musical dynamique et pluriel, témoignant de la capacité d’adaptation et de transformation de leur identité culturelle. Comme le soulignent plusieurs chercheurs – voir par exemple l’analyse de Rigoberto Paredes (1998) –, la musique péruvienne moderne incarne une parfaite alchimie entre tradition et modernité, offrant ainsi une lecture plurielle de la réalité sociale et artistique d’un pays en constante mutation.
 
 (Exactement 5801 caractères)
 

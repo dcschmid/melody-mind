@@ -17,16 +17,15 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Medititations- och yogamusik utgör en internationell genre som kännetecknas av en djup förankring i både antika traditioner och modern musikvetenskaplig praxis. Genren är internationellt perspektivrik med influenser från exempelvis indisk raga och tibetanska klangtraditioner, vilka redan från antiken betonade en harmonisk samklang mellan musikaliska element och andlig meditation. 
+Medititations- och yogamusik utgör en internationell genre som kännetecknas av en djup förankring i både antika traditioner och modern musikvetenskaplig praxis. Genren är internationellt perspektivrik med influenser från exempelvis indisk raga och tibetanska klangtraditioner, vilka redan från antiken betonade en harmonisk samklang mellan musikaliska element och andlig meditation.
 
-Under 1900-talets mitt övergick denna tradition i en ny era då västerländska kompositörer, inspirerade av indiska musikteorier, inkorporerade ragaens modala system och alternera klangfärger i sina verk. Detta ledde till att metoder för improvisation och tonala skikt utvecklades med avsikt att underlätta meditativa tillstånd och inre dialog. 
+Under 1900-talets mitt övergick denna tradition i en ny era då västerländska kompositörer, inspirerade av indiska musikteorier, inkorporerade ragaens modala system och alternera klangfärger i sina verk. Detta ledde till att metoder för improvisation och tonala skikt utvecklades med avsikt att underlätta meditativa tillstånd och inre dialog.
 
 Vidare har teknologiska framsteg bidragit till att digitalisera och sprida den meditationsinriktade musiken globalt. Genom ljudteknikens utveckling möjliggjordes högkvalitativa inspelningar som bevarat traditionella klanger samt experimentell produktion, vilket resulterade i en genre med stor variation och djup.
 

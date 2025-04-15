@@ -17,14 +17,13 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Acoustic Metal utgör en nischad subgenre inom internationell metalmusik med utgångspunkt i den akustiska instrumentalismens möjligheter. Genren har sina rötter i de experimentella rörelserna under sena 1960-talet och tidiga 1970-talet, där fusionen mellan traditionella akustiska uttryck och metalens aggressiva estetik förstärktes. Under 1980-talet konsoliderades uttrycket ytterligare, då representative ensembler systematiskt integrerade akustiska inslag i syfte att utmana konventionella elektriska strukturer. 
+Acoustic Metal utgör en nischad subgenre inom internationell metalmusik med utgångspunkt i den akustiska instrumentalismens möjligheter. Genren har sina rötter i de experimentella rörelserna under sena 1960-talet och tidiga 1970-talet, där fusionen mellan traditionella akustiska uttryck och metalens aggressiva estetik förstärktes. Under 1980-talet konsoliderades uttrycket ytterligare, då representative ensembler systematiskt integrerade akustiska inslag i syfte att utmana konventionella elektriska strukturer.
 
 I detta sammanhang framträder komposition och instrumentering som centrala begrepp, då harmoniska strukturer och melodiska linjer omformas genom anpassning till metalens karakteristiska rytmiska mönster. Vidare uppvisar genren ett intellektuellt djup genom att medvetet ifrågasätta rådande normer och därigenom etablera en dialog mellan traditionella musikaliska resonanser och samtida kulturella strömningar. Denna interdisciplinära strävan möjliggör en rik och dynamisk interaktion mellan territoriella identiteter och historiskt betingade musikaliska uttryck.
 

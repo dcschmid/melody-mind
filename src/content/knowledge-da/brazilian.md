@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduktion
 
@@ -194,6 +193,6 @@ Samlet set demonstrerer de internationale forbindelser i brasiliansk musik et ri
 
 ## Aktuelle tendenser og fremtid
 
-Den brasilianske internationale musikscene udviser en kompleks syntese af traditionelle rytmiske strukturer og nutidige harmoniske eksperimenter. I takt med globaliseringens udbredelse opstår interkulturelle udvekslinger, hvor elementer fra samba og bossa nova fusioneres med vestligt inspireret klassisk komposition. Denne udvikling understøttes af digital lydteknologi, som tilvejebringer en præcis redigering af musikalske udtryk og faciliterer innovative fremstillingsmetoder. 
+Den brasilianske internationale musikscene udviser en kompleks syntese af traditionelle rytmiske strukturer og nutidige harmoniske eksperimenter. I takt med globaliseringens udbredelse opstår interkulturelle udvekslinger, hvor elementer fra samba og bossa nova fusioneres med vestligt inspireret klassisk komposition. Denne udvikling understøttes af digital lydteknologi, som tilvejebringer en præcis redigering af musikalske udtryk og faciliterer innovative fremstillingsmetoder.
 
 Yderligere observeres en tendens til, at nye kompositioner inddrager historisk bevidsthed og etisk refleksion over kulturel identitet. Traditionelle instrumenter, eksempelvis berimbau og cavaquinho, integreres i samspil med elektroniske lydsignaturer, hvilket skaber en unik dialog mellem fortidens rødder og samtidens teknologiske muligheder. Dermed manifesterer den brasilianske musik sin evne til konstant at revitalisere arv og tradition, idet den imødekommer fremtidens krav om både autenticitet og innovation.

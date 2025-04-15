@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -50,7 +49,7 @@ Samlet set repræsenterer ambient-musikken en særlig grænseflade mellem kunst,
 
 ## Musical Characteristics
 
-Ambientmusikkens karakteristika udgør et væsentligt emne inden for studiet af samtidslydlandskaber og elektronisk musik. Udtrykket "ambient" opstod i slutningen af det 20. århundrede og er uløseligt forbundet med intentionen om at skabe en lydramme, der både indkapsler og forstærker lytterens omgivende miljø. Denne musikalske genre er karakteriseret ved sin atmosfæriske kvalitet og anvendelsen af langsom, næsten meditativ variation. Den studerede harmoni og afholdenhed af traditionelle melodiske strukturer understreger en æstetisk bevidsthed om lydens potentiale til at forme rum og tid.  
+Ambientmusikkens karakteristika udgør et væsentligt emne inden for studiet af samtidslydlandskaber og elektronisk musik. Udtrykket "ambient" opstod i slutningen af det 20. århundrede og er uløseligt forbundet med intentionen om at skabe en lydramme, der både indkapsler og forstærker lytterens omgivende miljø. Denne musikalske genre er karakteriseret ved sin atmosfæriske kvalitet og anvendelsen af langsom, næsten meditativ variation. Den studerede harmoni og afholdenhed af traditionelle melodiske strukturer understreger en æstetisk bevidsthed om lydens potentiale til at forme rum og tid.
 
 I ambientmusikkens udvikling er en af de mest markante træk den evidensbaserede anvendelse af synthesizerteknologi og signalbehandlingsudstyr. Det teknologiske fremskridt, særligt fra 1970’erne og frem, har muliggjort manipulation af lyd på et niveau, der tillader kompositioner at opnå en næsten transcendental virkning. Denne transformation af klangfarver og teksturer sker gennem anvendelsen af langvarige fade-ins, delay- og reverbeffekter samt lagdelte lydspor, der sammen bidrager til en dyb og rumlig oplevelse. I denne sammenhæng udgør den systematiske tilgang til digital behandling og sampling en væsentlig del af den musikalske konstruktion, hvor den eksperimentelle udnyttelse af elektroniske lyde inviterer til refleksion over forholdet mellem menneskelig perception og det akustiske univers.
 

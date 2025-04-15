@@ -16,14 +16,13 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Einleitung
 
-Die irische Musik verkörpert eine facettenreiche Tradition, die tief in der kulturellen Identität der Insel verwurzelt ist. Historisch lassen sich bereits im 18. Jahrhundert erste musikalische Formen nachweisen, welche in ländlichen Gemeinden und später in städtischen Zentren eigenständig ausgeprägt wurden. Diese Entwicklung führte zu einer charakteristischen Klangästhetik, in der die Improvisation ebenso wie die sorgfältige Notation eine zentrale Rolle spielen. 
+Die irische Musik verkörpert eine facettenreiche Tradition, die tief in der kulturellen Identität der Insel verwurzelt ist. Historisch lassen sich bereits im 18. Jahrhundert erste musikalische Formen nachweisen, welche in ländlichen Gemeinden und später in städtischen Zentren eigenständig ausgeprägt wurden. Diese Entwicklung führte zu einer charakteristischen Klangästhetik, in der die Improvisation ebenso wie die sorgfältige Notation eine zentrale Rolle spielen.
 
 Zudem manifestierten sich Einflüsse keltischer Mythologie und katholischer Liturgik, die den musikalischen Ausdruck nachhaltig prägten. Die fortwährende Wiederentdeckung und heutige Neubewertung traditioneller Modalitäten resultierten in einem interkulturellen Austausch, der die irische Musik auch auf internationaler Ebene relevant machte. Insgesamt bietet diese Musiktradition ein exemplarisches Beispiel für die Synthese aus historischem Erbe und innovativer Interpretation.
 
@@ -212,6 +211,6 @@ Insgesamt eröffnet der Ausblick auf weitere internationale Kooperationen die Pe
 
 ## Aktuelle Trends und Zukunft
 
-Aktuelle Trends und Zukunft in der irischen Musik spiegeln eine dynamische Synthese von Tradition und Moderne wider. Die keltisch geprägte Melodik sowie die traditionelle Instrumentierung mit Geige, Flöte und Bodhrán werden fortwährend durch den gezielten Einsatz elektronischer Klangbearbeitung ergänzt. Im internationalen Kontext vermischen sich alte musikalische Strukturen mit zeitgenössischen Innovationen, was zu einer facettenreichen Klangvielfalt führt. Der interkulturelle Austausch durch Kooperationen zwischen irischen und global agierenden Musikerinnen und Musikern stärkt das Profil dieser Musikrichtung nachhaltig und fördert experimentelle Ansätze. 
+Aktuelle Trends und Zukunft in der irischen Musik spiegeln eine dynamische Synthese von Tradition und Moderne wider. Die keltisch geprägte Melodik sowie die traditionelle Instrumentierung mit Geige, Flöte und Bodhrán werden fortwährend durch den gezielten Einsatz elektronischer Klangbearbeitung ergänzt. Im internationalen Kontext vermischen sich alte musikalische Strukturen mit zeitgenössischen Innovationen, was zu einer facettenreichen Klangvielfalt führt. Der interkulturelle Austausch durch Kooperationen zwischen irischen und global agierenden Musikerinnen und Musikern stärkt das Profil dieser Musikrichtung nachhaltig und fördert experimentelle Ansätze.
 
 Darüber hinaus findet sich in zahlreichen Projekten der Versuch, traditionelle Formen in ein neues Licht zu rücken, ohne den historischen Ursprung zu verlieren. Hierdurch wird der Weg für eine künftige Entwicklung geebnet, die sowohl das Erbe der keltischen Kultur wahrt als auch modernen ästhetischen Ansprüchen gerecht wird. Diese Entwicklung unterstreicht die Relevanz und Anpassungsfähigkeit der irischen Musik in einem globalisierten Kulturmarkt.

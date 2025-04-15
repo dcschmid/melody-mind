@@ -17,14 +17,13 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Die melancholische Musik umfasst ein facettenreiches internationales Repertoire, das sich durch eine besondere Ausdruckskraft und eine tiefe emotionale Dimension auszeichnet. In der europäischen Klassik etwa finden sich eindrucksvolle Beispiele in den Werken von Komponisten der Romantik, deren kompositorische Sprache von introspektiven Melodien und nuancierten Harmonien geprägt ist. Der Einsatz dissonanter Klangfarben und subtiler Dynamik unterstreicht dabei den Ausdruck innerer Zerrissenheit und sentimentaler Sehnsucht. 
+Die melancholische Musik umfasst ein facettenreiches internationales Repertoire, das sich durch eine besondere Ausdruckskraft und eine tiefe emotionale Dimension auszeichnet. In der europäischen Klassik etwa finden sich eindrucksvolle Beispiele in den Werken von Komponisten der Romantik, deren kompositorische Sprache von introspektiven Melodien und nuancierten Harmonien geprägt ist. Der Einsatz dissonanter Klangfarben und subtiler Dynamik unterstreicht dabei den Ausdruck innerer Zerrissenheit und sentimentaler Sehnsucht.
 
 Darüber hinaus lässt sich der Einfluss melancholischer Tendenzen in verschiedenen Musiktraditionen weltweit nachweisen. Im frühen 20. Jahrhundert manifestierte sich diese Stimmung beispielsweise im Blues, dessen improvisatorische Elemente und harmonische Strukturen eine melancholische Grundstimmung transportierten. Zudem tragen auch moderne Interpreten und Kompositionen dazu bei, das Erbe vergangener Epochen in neue kulturelle Kontexte zu übertragen. Insgesamt bildet die melancholische Musik ein verbindendes Element, das zeitliche und geografische Grenzen überwindet und in internationaler Perspektive weiterhin ein bedeutendes künstlerisches Ausdrucksmedium darstellt.
 

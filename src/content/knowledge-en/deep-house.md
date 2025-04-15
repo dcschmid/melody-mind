@@ -17,10 +17,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -122,7 +121,7 @@ A further technical facet of Deep House production is the meticulous approach to
 
 In examining the evolution of Deep House, it is imperative to recognise the cultural and historical contexts that have consistently informed its technical parameters. Early innovators, working within the constraints and opportunities of emerging music technology, demonstrated an uncompromising commitment to both technical excellence and creative expression. Over successive decades, Deep House has been influenced by the continuous refinement of production techniques and the advent of new digital tools, yet it remains firmly anchored in the pedagogic traditions of sound engineering and musical theory. This historical continuity ensures that, despite shifts in production aesthetics, the genre retains its intrinsic identity as a sophisticated and enduring art form.
 
-The technical aspects of Deep House represent an amalgamation of innovation, precision, and artistic nuance. Through the strategic deployment of synthesiser technology, rhythmic programming, harmonic structuring, and spatial imaging, Deep House has evolved into a genre that is as intellectually engaging as it is sonically profound. Each element of production is interwoven with the others, yielding a comprehensive sonic tableau that is both historically grounded and forward-looking. Consequently, the genre continues to influence global musical paradigms, serving as a testament to the ingenuity and adaptability of its technical infrastructure. 
+The technical aspects of Deep House represent an amalgamation of innovation, precision, and artistic nuance. Through the strategic deployment of synthesiser technology, rhythmic programming, harmonic structuring, and spatial imaging, Deep House has evolved into a genre that is as intellectually engaging as it is sonically profound. Each element of production is interwoven with the others, yielding a comprehensive sonic tableau that is both historically grounded and forward-looking. Consequently, the genre continues to influence global musical paradigms, serving as a testament to the ingenuity and adaptability of its technical infrastructure.
 
 Moreover, the deliberate melding of technological prowess with creative vision has rendered Deep House a genre that is perpetually relevant. As international producers continue to integrate contemporary advancements in digital audio processing, the core technical principles established in its formative years endure as a guiding framework. This sustained commitment to quality and innovation forms the bedrock upon which Deep House remains a distinct and captivating strand within the broader tapestry of modern electronic music.
 

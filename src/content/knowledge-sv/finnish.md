@@ -17,10 +17,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduktion
 
@@ -132,9 +131,9 @@ Avslutningsvis måste effekterna av dessa utvecklingsfaser betraktas i ljuset av
 
 ## Media och marknadsföring
 
-Media och marknadsföring utgör en central aspekt av den internationella musikkulturen, där den finländska musikscenen har framträtt som ett exempel på hur mediala strategier och marknadsföringskoncept kan samspela med musikaliska uttryck. I en kontext präglad av intersections mellan kulturell identitet och teknisk innovation, fungerar mediebevakningen som en katalysator för hur musik når ut till bredare, internationella publikgrupper. Detta fenomen blir särskilt intressant när man studerar historiska paradigmskiften där den mediala infrastrukturen, från radio och tryckta medier till digital distribution, omformade marknadsföringsstrategier för musikutövande aktörer. 
+Media och marknadsföring utgör en central aspekt av den internationella musikkulturen, där den finländska musikscenen har framträtt som ett exempel på hur mediala strategier och marknadsföringskoncept kan samspela med musikaliska uttryck. I en kontext präglad av intersections mellan kulturell identitet och teknisk innovation, fungerar mediebevakningen som en katalysator för hur musik når ut till bredare, internationella publikgrupper. Detta fenomen blir särskilt intressant när man studerar historiska paradigmskiften där den mediala infrastrukturen, från radio och tryckta medier till digital distribution, omformade marknadsföringsstrategier för musikutövande aktörer.
 
-Historiskt sett bidrog inrättandet av offentliga sändningsorgan, såsom det finländska Yleisradio (Yle) 1926, till att forma en nationell medieverklæring med internationella ambitioner. Under den tidiga perioden av radio- och senare televisionsutbredning etablerades nya kanaler för kommunikation, vilket i sin tur påverkade hur musikaliska fenomen dokumenterades och populariserades. Genom att anamma nya medieteknologier under efterkrigstiden utvecklades marknadsföringsstrategier som integrerade audiovisuella element, vilket möjliggjorde en bredare spridning av musikaliskt material och därigenom främjade internationell exponering av finländska musikaktörer. 
+Historiskt sett bidrog inrättandet av offentliga sändningsorgan, såsom det finländska Yleisradio (Yle) 1926, till att forma en nationell medieverklæring med internationella ambitioner. Under den tidiga perioden av radio- och senare televisionsutbredning etablerades nya kanaler för kommunikation, vilket i sin tur påverkade hur musikaliska fenomen dokumenterades och populariserades. Genom att anamma nya medieteknologier under efterkrigstiden utvecklades marknadsföringsstrategier som integrerade audiovisuella element, vilket möjliggjorde en bredare spridning av musikaliskt material och därigenom främjade internationell exponering av finländska musikaktörer.
 
 Den kulturella och tekniska utvecklingen inom medielandskapet medförde en förändring i den sättning genom vilken musik konsumerades och upplevdes internationellt. Utöver de traditionella distributionskanalerna började man under digitaliseringens gryning på 1990-talet utnyttja internetbaserade plattformar, där särskilt finländska artister på senare år har dragit nytta av global tillgänglighet. Denna övergång innebar en omförhandling av marknadsföringspraxis, där digitala nätverk och sociala mediers framväxt satte sin prägel på hur musikkulturella uttryck och mediarepresentation konstruerades. I detta sammanhang synliggörs vikten av att betrakta teknologisk utveckling inte enbart som en mekanisk innovation utan som en integrerad del av den kulturella och kommersiella strategin.
 
@@ -142,7 +141,7 @@ Med utgångspunkt i en noggrann terminologianalys identifieras en rad medierelat
 
 I kontrast till de tidigare traditionella medieformerna har den moderna digitala eran medfört en dynamik där den interaktiva dialogen mellan artist och publik blivit central. Digitala plattformar möjliggör att marknadsföringsstrategier kan anpassas i realtid till den internationella marknadens krav och preferenser. Denna flexibilitet har även haft betydelse för utvecklingen av musikteoretiska resonemang där den estetiska autonomin hos musikutövarna får uttryck genom självständiga marknadsföringsinitiativ, vilka samtidigt integrerar internationella trender och dynamiker utan att kompromissa med den finländska kulturidentiteten.
 
-Vidare har studiet av internationella mediestrategier i ett finländskt perspektiv visat på betydelsen av kulturella intersektioner där både lokala traditioner och globala influenser samspelar. Användningen av modern teknik har möjliggjort samtidig visning och distribution av kulturellt material på ett sätt som tidigare inte var möjligt. Denna samtidiga anpassning av medier och marknadsföring har inte enbart medfört en breddning av den internationella publikens perspektiv, utan även bidragit till en ökad förståelse för de komplexa processer genom vilka musikaliska identiteter konstrueras och omförhandlas. 
+Vidare har studiet av internationella mediestrategier i ett finländskt perspektiv visat på betydelsen av kulturella intersektioner där både lokala traditioner och globala influenser samspelar. Användningen av modern teknik har möjliggjort samtidig visning och distribution av kulturellt material på ett sätt som tidigare inte var möjligt. Denna samtidiga anpassning av medier och marknadsföring har inte enbart medfört en breddning av den internationella publikens perspektiv, utan även bidragit till en ökad förståelse för de komplexa processer genom vilka musikaliska identiteter konstrueras och omförhandlas.
 
 Historiska exempel på detta fenomen kan observeras i hur internationella evenemang och festivaler, understödda av både traditionella och digitala mediekanaler, fungerat som nav i den kulturella utbytet mellan Finland och övriga världen. Genom att sammanföra aktörer från olika musikaliska discipliner och geografiska områden, har sådana evenemang blivit symboler för den samtida kulturella integrationen. Marknadsföringskampanjer under dessa perioder har ofta utformats med en medvetenhet om den globala publikens preferenser, vilket i sin tur har bidragit till att stärka den finländska musikens internationella ställning.
 

@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -70,7 +69,7 @@ Afslutningsvis kan konstateres, at Afrobeat repræsenterer en unik integration a
 
 ## Subgenres and Variations
 
-Subgenrer og Variationer i Afrobeat repræsenterer en kompleks og dynamisk udvikling, hvor grundelementerne i den oprindelige stil under Fela Kuti gradvist er blevet omformet og indlejret i nye kulturelle og musikalske kontekster. Afrobeat, som i sin fulde udvikling kombinerer jazz, funk, traditionel vestafrikansk rytmik og politisk bevidsthed, har efterladt sig et varigt aftryk på international musik. Denne stilformerede udgangspunkt for en bred vifte af subgenrer, som hver især spiller en rolle i at videreføre arven fra de tidlige eksperimenter med elektrificeret afrikansk folkemusik og centrifugale rytmer, der blev populært i 1960’erne og 1970’erne. 
+Subgenrer og Variationer i Afrobeat repræsenterer en kompleks og dynamisk udvikling, hvor grundelementerne i den oprindelige stil under Fela Kuti gradvist er blevet omformet og indlejret i nye kulturelle og musikalske kontekster. Afrobeat, som i sin fulde udvikling kombinerer jazz, funk, traditionel vestafrikansk rytmik og politisk bevidsthed, har efterladt sig et varigt aftryk på international musik. Denne stilformerede udgangspunkt for en bred vifte af subgenrer, som hver især spiller en rolle i at videreføre arven fra de tidlige eksperimenter med elektrificeret afrikansk folkemusik og centrifugale rytmer, der blev populært i 1960’erne og 1970’erne.
 
 I de tidlige faser af afrobeat var det især Fela Kuti og hans band Africa ’70, der fastlagde den karakteristiske struktur med komplekse trommerytmer, langtrukne instrumentaludfoldelser og en behersket anvendelse af blæseinstrumenter. Under den historiske kontekst, hvor vestafrikanske samfund stod over for politiske og sociale transformationer, blev musikken et middel til protest og modstand, hvilket i sig selv dannede grundlaget for senere subgenrer. Over tid blev afrobeat’s rytmiske og harmoniske elementer adapteret af andre kunstnere, både inden for og uden for Afrika. Denne udvikling afspejlede den internationale interesse og den gensidige påvirkning mellem forskellige musikalske traditioner, idet afrobeat positionerede sig som en vital komponent i den globale musikscene.
 

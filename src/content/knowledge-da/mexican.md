@@ -16,10 +16,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduktion
 
@@ -123,7 +122,7 @@ Afslutningsvis kan det konstaters, at opbygningen af en sofistikeret og moderne 
 
 ## Livekoncerter og begivenheder
 
-Livekoncerter og begivenheder har gennem historien udgjort en central komponent i formidlingen og udviklingen af mexicansk musik, idet disse forestillinger både har fastholdt traditioner og fungeret som platforme for fornyelse. Fra det tidlige 20. århundrede, hvor optrædener med mariachi, ranchera og andre folkemusikgenrer blev præsenteret på landsbyfester og lokale samlingssteder, har livekoncerter dannet grundlaget for en formidling, der kontinuerligt binder det historiske med den samtidskunstneriske udvikling. Denne forbindelse mellem fortid og nutid understreges af en oprigtig æstetisk respekt og den dybt forankrede betydning, som det kulturelle udtryk besidder i den mexicanske identitetsdannelse. Endvidere har livebegivenheder været medvirkende til at cementere mexicansk musik på den internationale scene, idet publikum både lokalt og globalt har opnået indsigt i de unikke musikalske elementer, der præger denne genre. 
+Livekoncerter og begivenheder har gennem historien udgjort en central komponent i formidlingen og udviklingen af mexicansk musik, idet disse forestillinger både har fastholdt traditioner og fungeret som platforme for fornyelse. Fra det tidlige 20. århundrede, hvor optrædener med mariachi, ranchera og andre folkemusikgenrer blev præsenteret på landsbyfester og lokale samlingssteder, har livekoncerter dannet grundlaget for en formidling, der kontinuerligt binder det historiske med den samtidskunstneriske udvikling. Denne forbindelse mellem fortid og nutid understreges af en oprigtig æstetisk respekt og den dybt forankrede betydning, som det kulturelle udtryk besidder i den mexicanske identitetsdannelse. Endvidere har livebegivenheder været medvirkende til at cementere mexicansk musik på den internationale scene, idet publikum både lokalt og globalt har opnået indsigt i de unikke musikalske elementer, der præger denne genre.
 
 I midten af det 20. århundrede fandt en markant udvidelse sted i form af organiserede begivenheder, der lagde fundamentet for et internationalt dialogforum. Festivalen Internacional Cervantino, etableret i 1972 i Guanajuato, repræsenterer et historisk vendepunkt hvor tradition møder innovation. Denne institution har fungeret som et krydsfelt for forskellige kunstarter; den indsamlede udøvere og komponister både fra den mexicanske landes kulturarv og fra resten af verden. Ved at integrere klassiske opførelser med samtidige eksperimenter har festivalen bidraget til at skabe et bilingvist udtryk, som i høj grad har inspireret efterfølgende generationer. Tilsvarende har andre arrangementer, opstået i kølvandet på økonomiske og teknologiske fremskridt, udfordret og udvidet den oprindelige musikalske praksis.
 

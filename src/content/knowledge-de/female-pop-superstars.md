@@ -17,10 +17,9 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Einleitung
 
@@ -206,6 +205,6 @@ Zusammenfassend lässt sich feststellen, dass die mediale Darstellung weiblicher
 
 ## Vermächtnis und Zukunft
 
-Das Vermächtnis internationaler Female Pop Superstars ist eng mit der Transformation popmusikalischer Ausdrucksformen verknüpft. Künstlerinnen wie Madonna und Whitney Houston prägten in den 1980er und 1990er Jahren mit innovativen Produktionstechniken und außergewöhnlichen vokalen Leistungen das globale Musikgeschehen nachhaltig. Ihre künstlerischen Konzepte verbanden traditionelle Gesangstechniken mit modernen Synthesemethoden, was den Weg für eine neue Ära in der Popmusik ebnete. 
+Das Vermächtnis internationaler Female Pop Superstars ist eng mit der Transformation popmusikalischer Ausdrucksformen verknüpft. Künstlerinnen wie Madonna und Whitney Houston prägten in den 1980er und 1990er Jahren mit innovativen Produktionstechniken und außergewöhnlichen vokalen Leistungen das globale Musikgeschehen nachhaltig. Ihre künstlerischen Konzepte verbanden traditionelle Gesangstechniken mit modernen Synthesemethoden, was den Weg für eine neue Ära in der Popmusik ebnete.
 
 Darüber hinaus übt ihr Schaffen bis heute einen prägenden Einfluss auf nachfolgende Generationen aus. Die intertextuelle Verarbeitung ihrer Werke in zeitgenössischen Interpretationen und die Rezeption in musiktheoretischen Diskursen zeugen von einer fortwährenden Aktualität, die den fortlaufenden kulturellen und technologischen Wandel reflektiert. Somit erscheint die Zukunft internationaler Popmusik als dialektischer Prozess, in dem innovative Impulse und historisches Erbe in wechselseitiger Dynamik weiterwirken.

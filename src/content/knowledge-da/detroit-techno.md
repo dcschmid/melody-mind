@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -194,7 +193,7 @@ Overgangen fra de tidlige år i Detroit til den internationale udbredelse af tec
 
 I modsætning til mange andre musikkategorier, der har rødder i populärkulturens ustabile dynamik, formåede Detroit Techno at fastholde en vis grad af musikalsk integritet gennem årtier. Den teknologiske udvikling med digitaliseringens indtog og udvidelsen af elektroniske instrumenter medførte en konstant fornyelse af lydlandskaberne. Denne fornyelse bidrog til, at efterfølgende generationer af kunstnere fik en rig inspirationskilde, hvor de kunne trække på de tidlige eksperimentelle metoder, men samtidig tilpasse udtryksformen til moderne æstetik og publikumsforventninger. Derfor har genrets grundlæggende principper været medvirkende til opretholdelsen af en vital musikalsk tradition, der går på tværs af kulturelle og geografiske skel.
 
-Yderligere kan man anføre, at Detroit Techno’s legacy har bidraget til den globale debat om digitalisering og kunstnerisk frihed. I akademiske kredse er genren blevet analyseret gennem perspektiver, der spænder fra postmoderne kulturkritik til teknologisk determinisme. Denne dobbelte analyse gør det muligt at forstå, hvordan musikkens narrative omformning af både lyd og identitet finder sit udspring i en periode, hvor grænserne mellem maskine og menneske begyndte at blive slørede. Det er således muligt at konstatere, at det musikalske udtryk i Detroit Techno repræsenterer et mikrokosmos af samtidens sociale og teknologiske konflikter. 
+Yderligere kan man anføre, at Detroit Techno’s legacy har bidraget til den globale debat om digitalisering og kunstnerisk frihed. I akademiske kredse er genren blevet analyseret gennem perspektiver, der spænder fra postmoderne kulturkritik til teknologisk determinisme. Denne dobbelte analyse gør det muligt at forstå, hvordan musikkens narrative omformning af både lyd og identitet finder sit udspring i en periode, hvor grænserne mellem maskine og menneske begyndte at blive slørede. Det er således muligt at konstatere, at det musikalske udtryk i Detroit Techno repræsenterer et mikrokosmos af samtidens sociale og teknologiske konflikter.
 
 Samtidig har den æstetiske indflydelse fra Detroit Techno haft en markant virkning på andre musikalske genrer, hvor især overdreven brug af modulære synthesizere og sequencere har inspireret produktionsteknikker i ambient og trance. Ved at fokusere på texture og repetitiv dynamik har mange internationale kunstnere formået at transformere de grundlæggende elementer i Detroit Techno til nye udtryksformer, der transcenderer genregrænser. Denne krydsbefrugtning ses tydeligt i den musikalske udvikling i byer som Berlin, Amsterdam og London, hvor technoens elementer har interageret med andre musiktraditioner og dermed skabt et globalt netværk af lydpolitisk dialog.
 

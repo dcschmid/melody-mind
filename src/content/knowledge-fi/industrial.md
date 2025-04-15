@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -108,10 +107,10 @@ Teollisen musiikin keskeinen teoreettinen kehys pohjautuu kriittiseen suhtautumi
 
 Kokonaisvaltaisen historiallisen kehityskulun ymmärtämiseksi on tarpeen huomioida, että industrial-musiikki on jatkuvasti ollut sekä kokeellinen että kritisoiva ilmiö. Yhtä tärkeää kuin yksittäisten yhtyeiden ja artistien panoksen arviointi on myös tarkastella genreä laajemmassa kulttuurisosiologisessa kontekstissa. Kansainvälisen musiikkikentän moninaisuus on mahdollistanut sen, että industrial-musiikki on voinut elää rinnakkain muiden kokeellisten ja elektroakustisten äänimaailmojen kanssa, samalla säilyttäen oman identiteettinsä ja metodologiansa. Erityisesti kylmän sodan aikaiset poliittiset jännitteet ja teknologisen kehityksen tuomat murrokset loivat suotuisan maaperän teollisen ilmaisuvoiman ja kriittisen yhteiskuntakuvauksen muodostumiselle.
 
-Yhteenvetona voidaan todeta, että industrial-musiikin kehitys on ollut monitasoinen prosessi, joka on kumpuissa monet laajat taiteelliset, kulttuuriset ja teknologiset virtaukset. Throbbing Gristle ja Einstürzende Neubauten muodostavat peruspilarit, joiden kautta genre on voinut kehittyä ja laajentua useiden kansainvälisten vaikuttajien kautta. Skinny Puppyn kaltaiset yhtyeet ovat jatkaneet tätä perinnettä yhdistämällä teknologian, performanssitaiteen ja yhteiskunnallisen kritiikin uudella tavalla. Näin ollen teollisen musiikin historia on olennainen osa modernin musiikin kokonaiskuvaa, joka tarjoaa jatkuvasti uusia näkökulmia sekä esteettisiin että teoreettisiin kysymyksiin.  
- 
-Tutkimusten ja analyysien myötä voidaan yhä paremmin ymmärtää, kuinka industrial-musiikki heijastaa ja haastaa aikaa, jossa se syntyi. Tämä musiikkikategoria ei ainoastaan rikkinyt perinteisiä musiikillisia normeja, vaan myös auttoi laajentamaan käsityksiämme siitä, mitä taiteen ja äänen yhdistelmä voi ilmentää modernin ajan kontekstissa. Avara peili kollektiivista tietoisuutta ja yhteiskunnallista keskustelua, industrial-musiikki tarjoaa ajankohtaisia teemoja sekä yksilöllisen että kollektiivisen kriittisen ajattelun kannalta.  
- 
+Yhteenvetona voidaan todeta, että industrial-musiikin kehitys on ollut monitasoinen prosessi, joka on kumpuissa monet laajat taiteelliset, kulttuuriset ja teknologiset virtaukset. Throbbing Gristle ja Einstürzende Neubauten muodostavat peruspilarit, joiden kautta genre on voinut kehittyä ja laajentua useiden kansainvälisten vaikuttajien kautta. Skinny Puppyn kaltaiset yhtyeet ovat jatkaneet tätä perinnettä yhdistämällä teknologian, performanssitaiteen ja yhteiskunnallisen kritiikin uudella tavalla. Näin ollen teollisen musiikin historia on olennainen osa modernin musiikin kokonaiskuvaa, joka tarjoaa jatkuvasti uusia näkökulmia sekä esteettisiin että teoreettisiin kysymyksiin.
+
+Tutkimusten ja analyysien myötä voidaan yhä paremmin ymmärtää, kuinka industrial-musiikki heijastaa ja haastaa aikaa, jossa se syntyi. Tämä musiikkikategoria ei ainoastaan rikkinyt perinteisiä musiikillisia normeja, vaan myös auttoi laajentamaan käsityksiämme siitä, mitä taiteen ja äänen yhdistelmä voi ilmentää modernin ajan kontekstissa. Avara peili kollektiivista tietoisuutta ja yhteiskunnallista keskustelua, industrial-musiikki tarjoaa ajankohtaisia teemoja sekä yksilöllisen että kollektiivisen kriittisen ajattelun kannalta.
+
 Tällaisessa akateemisessa tarkastelussa on olennaista huomioida myös teknologian ja median rooli, joka on mahdollistanut teollisten äänimaisemien levittämisen globaalisti. Menetelmällinen kokeilunhalu ja jatkuva pyrkimys rikkoa esteettisiä rajoja ovat edelleen voimissaan, mikä tekee industrial-musiikista ainutlaatuisen ja inspiroivan kohteen sekä teoreetikoille että tekijöille. Näin ollen sen vaikutus ulottuu pitkälle musiikin perinteisten rajojen ulkopuolelle, tarjoten jatkuvasti uusia haasteita ja mahdollisuuksia tuleville tutkimuksille ja esityksille.
 
 ## Technical Aspects
@@ -178,7 +177,7 @@ Lopuksi on huomattava, että industrial-musiikin performance- ja livekulttuuri m
 
 ## Development and Evolution
 
-Industrial-musiikin kehitys ja evoluutio on monitahoinen prosessi, joka ulottuu 1970-luvun puolivälistä nykypäivään. Tämän musiikkityylin syntyssä voidaan havaita useiden taiteellisten ja teknologisten virtauksien yhteisvaikutus, mikä muodosti perustan myöhemmälle kehitykselle. Tärkeimpiä vaikuttajia olivat kokeilevat  taiteilijat, joiden pyrkimyksenä oli rikkoa perinteisiä musiikillisia konventioita ja tutkia teollistumisen, nykyaikaisuuden ja yhteiskunnallisten muutosten vaikutuksia soinnin ja rytmin kautta. Industrial-musiikki on näin ollen esimerkillinen kulttuurihistoriallinen ilmiö, jonka kehitystä voidaan tarkastella paitsi musiikkiteoreettisesti, myös teknologisen kehityksen ja yhteiskunnallisten virtauksien kautta.
+Industrial-musiikin kehitys ja evoluutio on monitahoinen prosessi, joka ulottuu 1970-luvun puolivälistä nykypäivään. Tämän musiikkityylin syntyssä voidaan havaita useiden taiteellisten ja teknologisten virtauksien yhteisvaikutus, mikä muodosti perustan myöhemmälle kehitykselle. Tärkeimpiä vaikuttajia olivat kokeilevat taiteilijat, joiden pyrkimyksenä oli rikkoa perinteisiä musiikillisia konventioita ja tutkia teollistumisen, nykyaikaisuuden ja yhteiskunnallisten muutosten vaikutuksia soinnin ja rytmin kautta. Industrial-musiikki on näin ollen esimerkillinen kulttuurihistoriallinen ilmiö, jonka kehitystä voidaan tarkastella paitsi musiikkiteoreettisesti, myös teknologisen kehityksen ja yhteiskunnallisten virtauksien kautta.
 
 Ensimmäiset industrial-musiikin ilmenemismuodot juontavat juurensa elokuviin ja performanssitaiteen kokeiluihin 1960-luvun lopulla ja 1970-luvun alussa. Varhaiset kokeilut Englannissa ja Yhdysvalloissa haastivat totutun pop- ja rock-musiikin muotoja ja sisälsivät elementtejä avantgardismista sekä kokeellisesta äänitaiteesta. Tällöin syntyi perustavanlaatuisia ajatusmalleja, joissa korostettiin teollisuuden, koneellisuuden ja sodankäynnin kaltaisten yhteiskunnallisten ilmiöiden vaikutusta musiikilliseen ilmaisuun. Pioneerimaiset joukot, kuten Throbbing Gristle, ottivat tavallisesti käyttöönään minimisoidut melodiat, toistuvat rytmikaavat sekä törkeän, usein disonanttisena koettavan äänimaiseman, jotka toimivat kriittisenä kommenttina modernin teollistumisen seurauksista.
 

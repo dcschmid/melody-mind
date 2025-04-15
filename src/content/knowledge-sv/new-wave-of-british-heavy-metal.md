@@ -16,10 +16,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -29,8 +28,8 @@ Kulturellt uppstod NWOBHM mitt i en era präglad av samhällsomvälvningar och t
 
 ## Historical Background
 
-Den nya vågen av brittisk heavy metal, som under perioden sent 1970-tal och början av 1980-talet inträdde i den internationella musikscenen, utgör ett centralt kapitel i den moderna musikhistorien. Denna rörelse, som ofta benämns med det engelska uttrycket New Wave of British Heavy Metal, var ett direkt svar på den tidigare era av progressiv rock och hårdrock samt en reaktion mot de ekonomiska och sociala omvälvningarna i det brittiska samhället. De musikaliska uttrycken under denna period präglades av en återgång till råare, mer energiska uttrycksformer som simultant upprätthöll teknisk skicklighet och en experimentell ande.  
- 
+Den nya vågen av brittisk heavy metal, som under perioden sent 1970-tal och början av 1980-talet inträdde i den internationella musikscenen, utgör ett centralt kapitel i den moderna musikhistorien. Denna rörelse, som ofta benämns med det engelska uttrycket New Wave of British Heavy Metal, var ett direkt svar på den tidigare era av progressiv rock och hårdrock samt en reaktion mot de ekonomiska och sociala omvälvningarna i det brittiska samhället. De musikaliska uttrycken under denna period präglades av en återgång till råare, mer energiska uttrycksformer som simultant upprätthöll teknisk skicklighet och en experimentell ande.
+
 Under decenniernas andra hälft började en ny generation brittiska musiker att utmana den etablerade musikindustrins normer. I denna epok koncentrerade sig artisterna på att utveckla en mer direkt och aggressiv ljudpalett genom att kombinera influenser från bluesrock, psykedelisk musik samt den framväxande punkrörelsen. Denna sammansmältning resulterade i en stilistisk förnyelse som uttalade sig både genom instrumentala solon och i den melodiska strukturen i låtarna. Trots de lokala genealogiska rötterna gick rörelsen snart bortom nationella gränser och kom att påverka även internationella musikscenarier, vilket bidrog till en bredare acceptance av den brittiska heavy metal-traditionen.
 
 Den socioekonomiska kontexten under den aktuella perioden hade en betydande inverkan på utvecklingen av den nya vågen. Storbritanniens industriella nedgång och den påföljande arbetslösheten gav grogrund för en ungdomskultur som sökte efter alternativa uttrycksformer. Denna folkliga motkultur manifesterades inte enbart i textinnehåll och scenframträdanden utan också i den tekniska utvecklingen av instrument och inspelningsteknik. Den digitala revolutionens initiala faser medförde att musikerna kunde experimentera med nya ljudlandskap, vilka snabbt blev centrala i utformningen av en distinkt estetisk profil. Parallellt med detta skedde en återgång till en mer ”hands-on” produktion där studiotekniker och ingenjörer arbetade nära artisterna för att säkerställa att den råa energin i liveframträdandena också förmedlades på inspelningarna.

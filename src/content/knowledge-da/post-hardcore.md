@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -126,9 +125,9 @@ Endvidere har det internationale perspektiv bidraget til, at post hardcore liges
 
 ## Cultural Significance
 
-Post-hardcore repræsenterer en udvikling inden for den alternative musikscene, som i international kontekst har markeret sig som et særskilt udtryk med dybtgående kulturelle implikationer. Genren opstod som en videreudvikling af hardcorepunkens æstetik og ideologi i midten af 1980‑tallet, primært i USA, hvor bands eksperimenterede med udvidede musikalske strukturer og udtryksformer. Denne fornyede tilgang medførte en intensivering af både den emotionelle udtryksevne og den kunstneriske kompleksitet, hvilket gjorde post‑hardcore til en signifikant drivkraft i udviklingen af alternative musikalske diskurser. 
+Post-hardcore repræsenterer en udvikling inden for den alternative musikscene, som i international kontekst har markeret sig som et særskilt udtryk med dybtgående kulturelle implikationer. Genren opstod som en videreudvikling af hardcorepunkens æstetik og ideologi i midten af 1980‑tallet, primært i USA, hvor bands eksperimenterede med udvidede musikalske strukturer og udtryksformer. Denne fornyede tilgang medførte en intensivering af både den emotionelle udtryksevne og den kunstneriske kompleksitet, hvilket gjorde post‑hardcore til en signifikant drivkraft i udviklingen af alternative musikalske diskurser.
 
-Fænomenerne inden for post‑hardcore har medført en omlægning af konventionelle musikalske normer; her integreres elementer af dynamisk modulation og variabel metrumstruktur, som afspejler en høj grad af musikalsk refleksion og eksperimenteren. Den harmoniske kompleksitet, som kendetegner genren, manifesterer sig gennem uforudsigelige akkordprogressioner og et ekspansivt lydlandskab, der udfordrer lytteren på både det æstetiske og intellektuelle plan. Tekstligt udtryk er ligeledes centraliseret som et narrativt element, hvor teksterne ofte bærer en dybdegående samfundskritik og refleksion over personlige og kollektive erfaringer. 
+Fænomenerne inden for post‑hardcore har medført en omlægning af konventionelle musikalske normer; her integreres elementer af dynamisk modulation og variabel metrumstruktur, som afspejler en høj grad af musikalsk refleksion og eksperimenteren. Den harmoniske kompleksitet, som kendetegner genren, manifesterer sig gennem uforudsigelige akkordprogressioner og et ekspansivt lydlandskab, der udfordrer lytteren på både det æstetiske og intellektuelle plan. Tekstligt udtryk er ligeledes centraliseret som et narrativt element, hvor teksterne ofte bærer en dybdegående samfundskritik og refleksion over personlige og kollektive erfaringer.
 
 Internationale musikalske strømninger har været med til at forme post‑hardcore som et kulturelt fænomen med global resonans. Især bandet Fugazi fra Washington, D.C. spillede en afgørende rolle i formidlingen af genrens ethos, idet de kombinerede en kompromisløs etik med en eksperimenterende tilgang til komposition og liveoptræden. Fugazis betoning af DIY-princippet og et uafhængigt modspil til de kommercielle musikindustriers konventioner skabte en platform for en ny generation kunstnere, der både søgte musikalsk autenticitet og etisk integritet. På samme tid inkorporerede europæiske bands elementer fra deres egen kulturelle baggrund, hvilket resulterede i en række subgenrer, der yderligere finjusterede post‑hardcore’s musikalske udsnit, harmonisk kompleksitet og lyriske tematikker.
 

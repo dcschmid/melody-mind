@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -156,7 +155,7 @@ Live-esitysten merkitys kasvoi erityisesti 1980-luvulla, jolloin teknologian keh
 
 Kulttuurinen konteksti vaikutti olennaisesti New Age -live-esitysten sisällön kehitykseen. Kansainvälisen musiikkikulttuurin kentällä esiintymiskulttuuri otti vaikutteita itämaisista ja alkuperäiskansojen perinteistä, jotka korostivat sekä yksilön että yhteisön yhteyttämistä kosmoksen syvien ja monitahoisten energioiden ympärille. Näiden perinteiden vaikutus näkyi esitysten rakenteissa, joissa improvisaatioiden vapaus ja rytmin sekä harmonian avoin tulkinta loivat mahdollisuuksia kokea musiikillista tilaa uudella tavalla. Samalla esiintyjiä kannustettiin tutkimaan omaa kehoaan ja hengellisiä kokemuksiaan, mikä johti performanssien jatkuvaan uudistumiseen ja kokeilunhaluun.
 
-Myös moninaisten esitystilojen ja tapahtumien kehitys on ollut keskeinen osa New Age -musiikin live-kulttuuria. Festivaalit ja tempaustilaisuudet tarjosivat alustoja, joilla artistit saattoivat esitellä esityksiään sekä vaihtaa ajatuksiaan ja kokemuksiaan laajemman kansainvälisen yleisön kanssa. Näissä kokonaisuuksissa esiintymispaikkojen sijaan hyödynnettiin usein luonnonmaiseman ominaisuuksia, jolloin musiikin ja ympäristön välinen suhde korostui entisestään. Tällaiset tapahtumat mahdollistivat intiimimmän vuorovaikutuksen yleisön ja esiintyjien välillä, ja niissä korostui kokonaisvaltainen kokemuksellisuus, jossa visuaaliset, akustiset ja fyysiset elementit sulautuivat yhteen. 
+Myös moninaisten esitystilojen ja tapahtumien kehitys on ollut keskeinen osa New Age -musiikin live-kulttuuria. Festivaalit ja tempaustilaisuudet tarjosivat alustoja, joilla artistit saattoivat esitellä esityksiään sekä vaihtaa ajatuksiaan ja kokemuksiaan laajemman kansainvälisen yleisön kanssa. Näissä kokonaisuuksissa esiintymispaikkojen sijaan hyödynnettiin usein luonnonmaiseman ominaisuuksia, jolloin musiikin ja ympäristön välinen suhde korostui entisestään. Tällaiset tapahtumat mahdollistivat intiimimmän vuorovaikutuksen yleisön ja esiintyjien välillä, ja niissä korostui kokonaisvaltainen kokemuksellisuus, jossa visuaaliset, akustiset ja fyysiset elementit sulautuivat yhteen.
 
 Lisäksi esiintymiskulttuuriin kietoutui vahvasti pienimuotoisten kollektiivien ja yksittäisten näyttelijöiden pyrkimys uusia ilmaisukeinoja kohtaan. Näyttelyissä ja performance-esityksissä yhdistyivät musiikillinen improvisaatio, tanssi ja teatterileikkeily, mikä korosti performanssillistamisen ja installaatioiden merkitystä taidekentällä. Tällaiset kokeilut olivat usein sidoksissa syvempiin metafyysisiin ja estetiikkaa koskeviin pohdintoihin, joissa tavoiteltiin kokonaisvaltaista harmonian ja sisäisen rauhan tilaa. Näin esiintyjät loivat saumattoman yhteyden teorian ja käytännön välille, osoittaen, että esitysidettämyksessä teknologia ja ihmiskeho voivat yhdessä rakentaa ainutlaatuisia aistimuskokemuksia.
 
@@ -202,6 +201,6 @@ Toinen merkittävä vaikutusalue liittyy musiikkiteknologian kehityksen interakt
 
 Kulttuurihistoriallisessa kontekstissa New Age -musiikin perintö näkyy erityisesti sen pyrkimyksessä ylittää musiikilliset ja ideologiset rajat. Musiikkiantojensa universaalius ei ainoastaan tarjoa esteettistä nautintoa, vaan myös välittää henkisiä ja eettisiä viestejä, joiden kautta kuulijat voivat kokea yhteyttä laajempiin kosmisuuksiin. Tällainen lähestymistapa on jättänyt jälkensä moniin myöhempiin musiikkisuuntauksiin, joista monet korostavat itsensä ilmaisun vapautta ja kielellisesti monimuotoista symboliikkaa.
 
-Yhteenvetona voidaan todeta, että New Age -musiikin perintö ja vaikutus ulottuvat syvälle nykyaikaiseen musiikkikulttuuriin. Musiikillinen estetiikka, joka yhdistää teknologian, henkisyyden ja kulttuurisen rikkauden, on jatkanut kehittymistään ajan ja teknologisten innovaatioiden muuttuessa. Tämä transformaatioprosessi on vaikuttanut globaalien musiikkisuuntien kehitykseen ja rohkaissut säveltäjiä tutkimaan uusia harmonisia ja rytmisia ilmaisumuotoja. 
+Yhteenvetona voidaan todeta, että New Age -musiikin perintö ja vaikutus ulottuvat syvälle nykyaikaiseen musiikkikulttuuriin. Musiikillinen estetiikka, joka yhdistää teknologian, henkisyyden ja kulttuurisen rikkauden, on jatkanut kehittymistään ajan ja teknologisten innovaatioiden muuttuessa. Tämä transformaatioprosessi on vaikuttanut globaalien musiikkisuuntien kehitykseen ja rohkaissut säveltäjiä tutkimaan uusia harmonisia ja rytmisia ilmaisumuotoja.
 
 Edellä mainittuja ilmiöitä voidaan pitää New Age -musiikin keskeisinä perintötekijöinä, jotka ovat vahvistaneet sen asemaa kansainvälisesti monitahoisena ja dynaamisena musiikillisena virtana. Näin perinteen ja vaikutusten analyysi avaa ovia syvempään ymmärrykseen siitä, kuinka musiikki voi toimia yksilön sisäisen maailman sekä yhteiskunnallisten muutosten peilinä. Musiikkitieteellinen tutkimus jatkaa näiden ilmiöiden avalle purkamista monimutkaisten rakenteiden ja kulttuuristen merkitysten kautta, mikä edelleen rikastuttaa globaalia musiikkiperinnettä.

@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -156,7 +155,7 @@ Yhteenvetona voidaan todeta, että kansainvälisen pelimusiikin kulttuurinen mer
 
 Gaming Session -esityskulttuurin ja livenäyttämisen tutkimus tarjoaa poikkeuksellisen mielenkiintoisen näkökulman kansainvälisen musiikkikulttuurin ja digitaalisen median risteyskohdassa tapahtuvaan kulttuuriseen kehitykseen. Historiallisesti tapahtumat, joissa videopelien ääni- ja esityskulttuuri sulautuvat osaksi laajempaa performatiivista traditiota, ovat muodostaneet oman ainutlaatuisen ilmiönsä, jonka juuret ulottuvat 1970-luvun arcade-aikaan ja elektronisen musiikin ensimmäisiin innovatiivisiin kokeiluihin. Erityisesti 1980- ja 1990-luvuilla, jolloin digitaalisten pelien ja synthesizer-teknologian kehitys mahdollisti entistä monipuolisemman äänimaailman, esiintyi niiden suoranaiset vaikutuskanavat myös live-esiintymiskulttuurissa.
 
-Ensimmäiset kansainväliset ilmiöt, joissa pelimusiikin esitysmuotoja soitettiin livenä, saivat alkunsa niiden alueiden kehittyneestä elektronisen musiikin traditionaalisesta esityskulttuurista, joissa performanssitaiteen ja konsertin muotoja kokeiltiin polveilemaan toisiaan kohti uusia ilmaisumalleja. Tämä kehitys näkyi muun muassa Japanissa, Yhdysvalloissa ja Euroopassa, joissa aikaisina vuosikymmeninä kehittyneet keinoelektroniset instrumentit ja monitasoinen äänisuunnittelu muodostivat perustan myöhemmälle vuorovaikutteisille live-sessioille. Näissä tapahtumissa hyödynnettiin uuden teknologian mahdollisuuksia, jolloin digitaalinen äänituotanto yhdistyi perinteisiin orkesterimenoihin ja improvisaation elementteihin. 
+Ensimmäiset kansainväliset ilmiöt, joissa pelimusiikin esitysmuotoja soitettiin livenä, saivat alkunsa niiden alueiden kehittyneestä elektronisen musiikin traditionaalisesta esityskulttuurista, joissa performanssitaiteen ja konsertin muotoja kokeiltiin polveilemaan toisiaan kohti uusia ilmaisumalleja. Tämä kehitys näkyi muun muassa Japanissa, Yhdysvalloissa ja Euroopassa, joissa aikaisina vuosikymmeninä kehittyneet keinoelektroniset instrumentit ja monitasoinen äänisuunnittelu muodostivat perustan myöhemmälle vuorovaikutteisille live-sessioille. Näissä tapahtumissa hyödynnettiin uuden teknologian mahdollisuuksia, jolloin digitaalinen äänituotanto yhdistyi perinteisiin orkesterimenoihin ja improvisaation elementteihin.
 
 Suoritusperinteen osalta erityisen merkittävä käännekohta nähtiin 2000-luvun alussa, jolloin live-esitykset ja kollaasi-tyyppiset konsertit nousivat uusiksi populaarikulttuurin ilmiöiksi. Esimerkkinä voidaan mainita vuonna 2005 syntynyt Video Games Live -konserttisarja, joka yhdisti pelimusiikin teemoja ympäri maailmaa esiintyvien orkestereiden kanssa. Tällaiset tapahtumat rikkoivat perinteisiä genrerajoja ja loivat uusia tulkintoja, joissa live-esitysten rooli muuttui interaktiiviseksi kokemukseksi yleisölle. Erityisesti korostettavaa on se, että tällaiset tapahtumat antoivat vastauksia mahdollisuuksiin, joissa digitaalinen ja akustinen esitystaito yhdistyivät saumattomasti tuoden esiin uudenlaista performatiivista estetiikkaa.
 

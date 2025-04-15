@@ -17,10 +17,9 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -168,7 +167,7 @@ Zusammenfassend lässt sich feststellen, dass Performance und Live Culture in de
 
 ## Development and Evolution
 
-Die Entwicklung und Evolution der House-Musik stellt einen bemerkenswerten Prozess dar, der im Verlauf der späten 1970er und frühen 1980er Jahre seinen Ausgang nahm. Zu Beginn war die Variante der House-Musik eng mit der urbanen Clubszene in den Vereinigten Staaten verbunden, insbesondere im Raum Chicago. In den verrauchten Nachtlokalen, vornehmlich in discothekenähnlichen Einrichtungen, experimentierten aufstrebende DJs mit elektronischen Klangerzeugnissen, die sie aus diversen Quellen adaptierten. Dabei führten technische Neuerungen in der Tontechnik zu innovativen Produktionsmethoden, die sowohl rhythmisch als auch harmonisch radikal von den konventionellen Diskothekensounds abwichen. 
+Die Entwicklung und Evolution der House-Musik stellt einen bemerkenswerten Prozess dar, der im Verlauf der späten 1970er und frühen 1980er Jahre seinen Ausgang nahm. Zu Beginn war die Variante der House-Musik eng mit der urbanen Clubszene in den Vereinigten Staaten verbunden, insbesondere im Raum Chicago. In den verrauchten Nachtlokalen, vornehmlich in discothekenähnlichen Einrichtungen, experimentierten aufstrebende DJs mit elektronischen Klangerzeugnissen, die sie aus diversen Quellen adaptierten. Dabei führten technische Neuerungen in der Tontechnik zu innovativen Produktionsmethoden, die sowohl rhythmisch als auch harmonisch radikal von den konventionellen Diskothekensounds abwichen.
 
 Die stilistische Ausdifferenzierung setzte ein, als Musiker und Produzenten begannen, elektronische Instrumente gezielt einzusetzen. Überdies wurde das damalige Klangspektrum durch die Anwendung von Sequenzer-Technologien und Drum-Machines erweitert. In dieser Phase prägten rhythmische Muster und pulsierende Basslinien das musikalische Prinzip. Hierbei waren es die präzise angeordneten Percussion-Elemente, welche die tänzerische Dynamik maßgeblich beeinflussten. Gleichzeitig eröffneten sich vielfältige Möglichkeiten, durch Wiederholung hypnotische Klanglandschaften zu kreieren, die das Publikum in den Bann zogen.
 

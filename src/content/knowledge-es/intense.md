@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -198,6 +197,6 @@ Total de caracteres: 5359.
 
 ## Conclusion
 
-En conclusión, el análisis de la categoría “Intense” en el ámbito musical internacional evidencia una convergencia entre la búsqueda expresiva y el rigor estructural que ha marcado su evolución histórica. Desde mediados del siglo XX, particularmente en el contexto de la posguerra europea, esta vertiente se manifestó a través de composiciones en las que la disonancia planificada y las dinámicas contrastantes se erigen como elementos fundamentales. La integración cuidadosa de innovaciones tecnológicas, que posibilitaron nuevas texturas sonoras, fortaleció la relación entre la experimentación y la representación de conflictos internos y sociales.  
+En conclusión, el análisis de la categoría “Intense” en el ámbito musical internacional evidencia una convergencia entre la búsqueda expresiva y el rigor estructural que ha marcado su evolución histórica. Desde mediados del siglo XX, particularmente en el contexto de la posguerra europea, esta vertiente se manifestó a través de composiciones en las que la disonancia planificada y las dinámicas contrastantes se erigen como elementos fundamentales. La integración cuidadosa de innovaciones tecnológicas, que posibilitaron nuevas texturas sonoras, fortaleció la relación entre la experimentación y la representación de conflictos internos y sociales.
 
 Asimismo, la aplicación de enfoques teóricos rigurosos permitió descifrar la compleja retórica musical, donde la intensificación de matices y la ruptura deliberada de paradigmas establecidos evidencian una profunda reflexión estética. En síntesis, el estudio de estas manifestaciones intensas no solo enriquece la comprensión de una época convulsa, sino que también ofrece una valiosa referencia para la investigación contemporánea en musicología.

@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introducción
 
@@ -203,6 +202,6 @@ Por último, se destaca que la representación mediática de las vocalistas feme
 
 ## Legado y futuro
 
-El legado de las vocalistas femeninas ha trascendido fronteras y épocas, constituyendo un pilar fundamental en la evolución de la música internacional. A través de un análisis riguroso, se aprecia cómo estas intérpretes han fusionado elementos técnicos y expresivos, estableciendo diálogos entre la tradición y la innovación. Su labor ha facilitado la creación y transformación de géneros musicales, permitiendo que se recontextualicen estilos propios de diversas épocas y regiones. 
+El legado de las vocalistas femeninas ha trascendido fronteras y épocas, constituyendo un pilar fundamental en la evolución de la música internacional. A través de un análisis riguroso, se aprecia cómo estas intérpretes han fusionado elementos técnicos y expresivos, estableciendo diálogos entre la tradición y la innovación. Su labor ha facilitado la creación y transformación de géneros musicales, permitiendo que se recontextualicen estilos propios de diversas épocas y regiones.
 
 Asimismo, el futuro se perfila como un terreno fértil para la convergencia interdisciplinaria, en el que la integración de tecnologías digitales y metodologías analíticas seguirá ampliando el panorama sonoro. En este sentido, las voceras actuales se apoyan en un legado documentado con precisión académica y enmarcado en referentes históricos, lo que les otorga herramientas esenciales para la construcción de nuevas estéticas. Esta sinergia entre pasado y futuro reafirma la importancia de estudiar las dinámicas de la música a través de una perspectiva crítica y contextualizada.

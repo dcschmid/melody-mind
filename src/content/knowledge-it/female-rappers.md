@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduzione
 
@@ -30,9 +29,9 @@ Il loro operato, supportato dalla diffusione dei primi supporti mediatici digita
 
 ## Sviluppo storico
 
-Il rap femminile rappresenta un capitolo fondamentale nella storia della musica contemporanea, in quanto ha contribuito a riplasmare il panorama culturale e a ridefinire le dinamiche di genere all’interno di un genere inizialmente dominato da figure maschili. L’emergere delle artiste rap in un contesto socio-politico caratterizzato da trasformazioni radicali ha permesso la messa in luce di tematiche di emancipazione, identità e resistenza. Le prime voci femminili del genere hanno operato in un ambiente circoscritto, dove la marginalità sociale e la lotta contro gli stereotipi imposti dalla società si intrecciavano con l’espres­sività linguistica e ritmica tipica del rap.  
+Il rap femminile rappresenta un capitolo fondamentale nella storia della musica contemporanea, in quanto ha contribuito a riplasmare il panorama culturale e a ridefinire le dinamiche di genere all’interno di un genere inizialmente dominato da figure maschili. L’emergere delle artiste rap in un contesto socio-politico caratterizzato da trasformazioni radicali ha permesso la messa in luce di tematiche di emancipazione, identità e resistenza. Le prime voci femminili del genere hanno operato in un ambiente circoscritto, dove la marginalità sociale e la lotta contro gli stereotipi imposti dalla società si intrecciavano con l’espres­sività linguistica e ritmica tipica del rap.
 
-Nel corso degli anni ottanta, il movimento hip hop trasmesso dalle periferie degli Stati Uniti ha offerto uno spazio di espressione a cui numerose artiste hanno potuto contribuire con testi impegnati e ironici analisi sociali. Tra le figure pionieristiche vi è MC Sha-Rock, la quale, operando in un’epoca di sperimentazioni musicali e di aggressiva competitività, ha posto le basi per una narrativa femminile autonoma e critica. La sua partecipazione al movimento “old school” si inserisce in un contesto in cui il rap si stava rapidamente evolvendo in un linguaggio comunicativo in grado di incarnare, attraverso il ritmo e la parola, le istanze di una generazione in lotta per il riconoscimento.  
+Nel corso degli anni ottanta, il movimento hip hop trasmesso dalle periferie degli Stati Uniti ha offerto uno spazio di espressione a cui numerose artiste hanno potuto contribuire con testi impegnati e ironici analisi sociali. Tra le figure pionieristiche vi è MC Sha-Rock, la quale, operando in un’epoca di sperimentazioni musicali e di aggressiva competitività, ha posto le basi per una narrativa femminile autonoma e critica. La sua partecipazione al movimento “old school” si inserisce in un contesto in cui il rap si stava rapidamente evolvendo in un linguaggio comunicativo in grado di incarnare, attraverso il ritmo e la parola, le istanze di una generazione in lotta per il riconoscimento.
 
 La seconda ondata del rap femminile, consolidatasi negli anni novanta, ha visto emergere artiste quali Queen Latifah e MC Lyte, le quali hanno saputo trasformare il rap in un mezzo per la critica sociale e per l’affermazione di un’identità di genere autonoma. Queen Latifah, con testi che giunsero a intrecciare dimensioni politiche, sociali e di genere, ha ampliato l’orizzonte espressivo del rap, conferendogli una nuova valenza simbolica e politica. Allo stesso tempo, MC Lyte ha utilizzato il mezzo della musica per mettere in discussione i meccanismi di esclusione e per rimarcare l’importanza della consapevolezza femminile in un ambito altrimenti dominato dalla mascolinità. Queste artiste hanno contribuito, in maniera determinante, a ridefinire la percezione del rap, spingendo il genere verso una pluralità di voci e di prospettive.
 

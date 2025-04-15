@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Johdanto
 
@@ -30,7 +29,7 @@ Alankomaiden musiikkiperinnöllä on merkittävä asema kansainvälisen musiikki
 
 ## Historiallinen ja kulttuurinen konteksti
 
-Historiallisessa ja kulttuurisessa kontekstissa hollantilainen musiikki on muodostunut merkittäväksi osaksi kansainvälistä musiikkiperinnettä, jonka kehityskaari ulottuu myöhäisrenessanssista aina nykyaikaan saakka. Hollannin maantieteellinen sijainti Euroopan sydämessä sekä siihen kohdistuneet poliittiset, taloudelliset ja uskonnolliset vaikutteet ovat muokanneet maan musiikkikulttuuria merkittävästi. Erityisesti 1500– ja 1600-luvuilla, jolloin reformation ja humanismin vaikutteet ulottuivat laajalle, syntyi edellytykset uudenlaiselle musiikilliselle ajattelulle, joka vaikutti muun muassa katolisen ja protestanttisen musiikin kehitykseen Euroopassa. 
+Historiallisessa ja kulttuurisessa kontekstissa hollantilainen musiikki on muodostunut merkittäväksi osaksi kansainvälistä musiikkiperinnettä, jonka kehityskaari ulottuu myöhäisrenessanssista aina nykyaikaan saakka. Hollannin maantieteellinen sijainti Euroopan sydämessä sekä siihen kohdistuneet poliittiset, taloudelliset ja uskonnolliset vaikutteet ovat muokanneet maan musiikkikulttuuria merkittävästi. Erityisesti 1500– ja 1600-luvuilla, jolloin reformation ja humanismin vaikutteet ulottuivat laajalle, syntyi edellytykset uudenlaiselle musiikilliselle ajattelulle, joka vaikutti muun muassa katolisen ja protestanttisen musiikin kehitykseen Euroopassa.
 
 Renessanssin ja aikaisen barokin murroksessa Hollannin alueella vaikuttivat henkilöt kuten Jan Pieterszoon Sweelinck, jonka musiikillinen perintö resonoi kansainvälisesti. Sweelinckin teokset edustavat siirtymävaihetta monofonisesta renessanssista polyfonisen ja pianiston edeltämäksi luokka- ja urkumusiikiksi. Hänen vaikutuksensa näkyy erityisesti myöhemmässä kantaatellisessa perinteessä, jossa yhdistyvät struktuurin hallinta ja melodinen ilmaisu. Lisäksi hollantilaiset soitinrakentajat sekä kirkkomusiikin esittäjät omaksuivat ja kehittivät aikansa uusimpia ideoita, mikä mahdollisti instrumentaalimusiikin monipuolistumisen ja vahvisti maan asemaa kansainvälisessä kulttuuritarjonnassa.
 

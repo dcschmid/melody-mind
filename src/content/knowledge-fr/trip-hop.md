@@ -17,10 +17,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -92,7 +91,7 @@ Parmi les figures emblématiques du trip-hop, Massive Attack occupe une place pr
 
 En parallèle, Portishead se distingue par une approche résolument cinématographique et introspective. L’album « Dummy », publié en 1994, s’inscrit dans une démarche qui conjugue l’utilisation de samples, des arrangements orchestraux et une voix féminine empreinte d’émotion. L’esthétique sonore du groupe, marquée par des atmosphères lugubres et mystérieuses, a largement contribué à redéfinir les contours du trip-hop. Par son engagement artistique, Portishead propose une méditation sur la fragilité des rapports humains, tout en mettant en exergue l’importance de la narration sonore, ce qui se traduit par une composition musicale détaillée et souvent minimaliste.
 
-Un autre acteur majeur de ce mouvement est Tricky, dont la contribution personnelle est indissociable de l’évolution du trip-hop. Après avoir collaboré étroitement avec Massive Attack, il entreprend une carrière solo qui se distingue par un caractère autobiographique et confessional. L’album « Maxinquaye », sorti en 1995, se révèle être une œuvre singulière qui explore les recoins de la psyché à travers une instrumentation dépouillée et un usage raffiné des samples. En empruntant des sonorités qui évoquent à la fois la musique électronique, le hip-hop et le rock alternatif, Tricky parvient à instaurer une atmosphère suffocante et subjuguante, qui lui permet de questionner les normes sociales et culturelles de son époque. 
+Un autre acteur majeur de ce mouvement est Tricky, dont la contribution personnelle est indissociable de l’évolution du trip-hop. Après avoir collaboré étroitement avec Massive Attack, il entreprend une carrière solo qui se distingue par un caractère autobiographique et confessional. L’album « Maxinquaye », sorti en 1995, se révèle être une œuvre singulière qui explore les recoins de la psyché à travers une instrumentation dépouillée et un usage raffiné des samples. En empruntant des sonorités qui évoquent à la fois la musique électronique, le hip-hop et le rock alternatif, Tricky parvient à instaurer une atmosphère suffocante et subjuguante, qui lui permet de questionner les normes sociales et culturelles de son époque.
 
 De surcroît, l’influence du trip-hop dépasse largement les frontières de son lieu d’origine et du temps, en exerçant une résonance sur une scène musicale internationale. En effet, ce genre a inspiré de nombreux artistes et compositeurs qui, en traversant divers territoires stylistiques, ont su intégrer les codes du trip-hop dans des contextes allant du post-rock à l’ambient. Par ailleurs, l’évolution du numérique et des technologies d’enregistrement a permis à d’autres artistes émergents de renouveler constamment les formes d’expression du trip-hop, en expérimentant avec des outils de production innovants. Cette dynamique d’innovation perpétuelle a consolidé le trip-hop comme un laboratoire sonore en constante mutation, capable de dialoguer avec des courants contemporains aussi divers qu’insoupçonnés.
 

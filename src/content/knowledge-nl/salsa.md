@@ -17,14 +17,13 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Salsa vormt een dynamisch en veelzijdig genre binnen de internationale muziekcultuur, dat in de tweede helft van de twintigste eeuw tot volle ontwikkeling kwam. De oorsprong is te zoeken in een rijke interculturele uitwisseling, waarin Afro-Cubaanse ritmes een prominente rol speelden. Invloeden zoals de rumba, mambo en cha-cha-cha, die reeds in de jaren vijftig in Cuba werden geconcipieerd, werden in een nieuw artistiek kader geplaatst door artiesten in de diaspora. 
+Salsa vormt een dynamisch en veelzijdig genre binnen de internationale muziekcultuur, dat in de tweede helft van de twintigste eeuw tot volle ontwikkeling kwam. De oorsprong is te zoeken in een rijke interculturele uitwisseling, waarin Afro-Cubaanse ritmes een prominente rol speelden. Invloeden zoals de rumba, mambo en cha-cha-cha, die reeds in de jaren vijftig in Cuba werden geconcipieerd, werden in een nieuw artistiek kader geplaatst door artiesten in de diaspora.
 
 De centrering van de ontwikkeling in New York, waar Puerto Ricaanse en Cubaanse muzikanten hun muzikale erfgoed combineerden, leidde tot een opvallende synthese van traditie en moderne technologische innovaties. De invoering van elektrische versterking en moderne opnameapparatuur zorgde voor een vernieuwd geluid dat dansbaarheid en complexiteit in harmonische structuur succesvol verenigde. Tevens verbindt het genre elementen van jazz en swing, hetgeen de universele aantrekkingskracht van salsa verder versterkt.
 
@@ -72,7 +71,7 @@ Verder is het relevant te vermelden dat in de decennia die volgden, met name in 
 
 De evolutie van de verschillende subgenres impliceert tevens een herwaardering van de muzikale identiteit binnen de salsa. Enerzijds wordt er in de salsa dura een bewuste terugkeer naar de ritmische en instrumentale kern van de oorspronkelijke Cubaanse muziekgetrouwheid nagestreefd. Anderzijds getuigt de salsa romántica van een creatieve aanpassing aan veranderende maatschappelijke behoeften, waarbij het emotionele en verhalende aspect van de muziek naar voren kwam. Deze dualiteit illustreert de veelzijdigheid van salsa als muziekcategorie, aangezien zij zowel trouw blijft aan haar wortels als haar vermogen toont om zich flexibel aan te passen aan nieuwe culturele en commerciële paradigma’s.
 
-Niet alleen de muzikale elementen zijn onderhevig geweest aan verfijning, maar ook de technologische ontwikkelingen hebben een aanzienlijke invloed gehad op de variaties van salsa. In de opkomst van elektronica en de verbeterde beschikbaarheid van opnameapparatuur zagen we een verschuiving in de productie- en consumptieprocessen. Deze technologische vernieuwingen maakten het mogelijk om nieuwe, gedetailleerdere klanklagen te realiseren en leidden tot vernieuwde opnametechnieken die het creatieve spectrum verder openden. In dit opzicht kan worden gesteld dat de digitale revolutie een katalysator is geweest voor de verdere diversificatie van de salsa, door zowel traditionele instrumentatielagen als nieuwe elektronische elementen harmonisch te integreren. 
+Niet alleen de muzikale elementen zijn onderhevig geweest aan verfijning, maar ook de technologische ontwikkelingen hebben een aanzienlijke invloed gehad op de variaties van salsa. In de opkomst van elektronica en de verbeterde beschikbaarheid van opnameapparatuur zagen we een verschuiving in de productie- en consumptieprocessen. Deze technologische vernieuwingen maakten het mogelijk om nieuwe, gedetailleerdere klanklagen te realiseren en leidden tot vernieuwde opnametechnieken die het creatieve spectrum verder openden. In dit opzicht kan worden gesteld dat de digitale revolutie een katalysator is geweest voor de verdere diversificatie van de salsa, door zowel traditionele instrumentatielagen als nieuwe elektronische elementen harmonisch te integreren.
 
 Het is tevens noodzakelijk te benadrukken dat de geografische spreiding van salsamuziek eveneens bepalend is geweest voor de ontwikkeling van haar subcategorieën. In Noord-Amerika, met name in metropolen als New York, vond een intense kruisbestuiving plaats tussen immigranten uit verschillende Caribische landen en de lokale muziekinstellingen. Deze smeltkroes van invloeden resulteerde in een verscheidenheid aan interpretaties en heeft bijgedragen aan de opkomst van variaties die zowel de traditionele als de innovatieve praktijken weerspiegelen. De interregionale dialoog, waarin traditionele ritmes en hedendaagse arrangementen samenkwamen, leidde tot een krachtige synthese die de internationale populariteit van de salsa versterkte.
 

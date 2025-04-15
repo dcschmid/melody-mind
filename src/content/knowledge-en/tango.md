@@ -16,16 +16,15 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Originating in the late nineteenth century along the Río de la Plata in Argentina and Uruguay, tango emerged as a distinctive musical genre that synthesised diverse cultural influences from African, European and Creole traditions. Its development was marked by the intermingling of rhythmic complexity and emotive melodic structures, which conferred upon it an unparalleled capacity for expression. 
+Originating in the late nineteenth century along the Río de la Plata in Argentina and Uruguay, tango emerged as a distinctive musical genre that synthesised diverse cultural influences from African, European and Creole traditions. Its development was marked by the intermingling of rhythmic complexity and emotive melodic structures, which conferred upon it an unparalleled capacity for expression.
 
-In the early decades of the twentieth century, tango garnered heightened international acclaim through the pioneering interpretations of artists such as Carlos Gardel. His refined vocal technique and interpretative subtlety captivated audiences, while advancements in recording technology further facilitated the dissemination of its signature musical form beyond its regional confines. 
+In the early decades of the twentieth century, tango garnered heightened international acclaim through the pioneering interpretations of artists such as Carlos Gardel. His refined vocal technique and interpretative subtlety captivated audiences, while advancements in recording technology further facilitated the dissemination of its signature musical form beyond its regional confines.
 
 Contemporary musicological scholarship continues to analyse tango’s intricate harmonic framework and its interrelation with broader cultural movements, ensuring that the genre’s rich legacy is preserved and appreciated within an international context.
 

@@ -17,16 +17,15 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Il Dark Metal rappresenta un filone distintivo all’interno della scena musicale internazionale, caratterizzato da una particolare fusione di elementi estetici e sonori che ne esalta l’impatto emotivo. Il genere, fondato su armonie dissonanti e su una drammatizzazione narrativa, si configura come una sintesi tra tradizione e innovazione, richiamando l’alone di mistero e introspezione.  
+Il Dark Metal rappresenta un filone distintivo all’interno della scena musicale internazionale, caratterizzato da una particolare fusione di elementi estetici e sonori che ne esalta l’impatto emotivo. Il genere, fondato su armonie dissonanti e su una drammatizzazione narrativa, si configura come una sintesi tra tradizione e innovazione, richiamando l’alone di mistero e introspezione.
 
-Le origini del Dark Metal si collocano nel contesto degli anni Ottanta, periodo in cui le sperimentazioni tecnologiche e le rivolte culturali influenzarono fortemente l’evoluzione degli stili musicali. In tale cornice, la contaminazione fra motivi del black metal e toni cupi, abbinata all’uso di strumenti e tecniche di registrazione innovative, contribuì a delineare un’identità sonora peculiare e riconoscibile.  
+Le origini del Dark Metal si collocano nel contesto degli anni Ottanta, periodo in cui le sperimentazioni tecnologiche e le rivolte culturali influenzarono fortemente l’evoluzione degli stili musicali. In tale cornice, la contaminazione fra motivi del black metal e toni cupi, abbinata all’uso di strumenti e tecniche di registrazione innovative, contribuì a delineare un’identità sonora peculiare e riconoscibile.
 
 Inoltre, l’approccio metodologico rigoroso e l’attenzione alle componenti simboliche hanno permesso al Dark Metal di assumere una valenza quasi filosofica, riflettendo le complessità esistenziali dei contemporanei.
 

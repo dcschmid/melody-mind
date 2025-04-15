@@ -16,10 +16,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Johdanto
 
@@ -193,8 +192,8 @@ Lisäksi voidaan todeta, että naislaulajien saavutukset on linkitetty läheises
 
 Musiikillisen analyysin näkökulmasta voidaan todeta, että naisten tulkintojen harmoniset ja rytmiset rakenteet muodostavat rikkaan tekstuurin, josta nykypäivän musiikinteoriassa löytyy edelleen sovellettavia periaatteita. Blues­‑musiikin kaava – edistyksellisistä kromaattisista intervalleista ja pentatonisista skaaloista lähtien – luo perustan, joka haastaa perinteiset musiikkimallit ja avaa uusia tapoja ilmaista tunteellisia ja kognitiivisia ilmiöitä. Naisten esittämät muunnelmat ovat siten tulleet osaksi laajempaa musiikillista kontekstia, jossa innovaatio ja perinteen kunnioittaminen kulkevat käsi kädessä. Tämä estetiikan ja teorian yhdistelmä mahdollistaa tarkastelun, jossa sointien ja melodisten linjojen merkitys tulee ymmärretyksi sekä historiallisena että synkronisena ilmiönä.
 
-Yhteenvetona voidaan todeta, että naisten blues‑legendojen maailmankatsomuksellinen ja teknologinen vaikutus ei rajoitu ainoastaan musiikilliseen kehitykseen, vaan se on vaikuttanut syvällisesti myös kulttuuriseen keskusteluun ja taiteelliseen itsetutkiskeluun. Heidän uransa aikana esittämänsä omaleimaiset tavat käsitellä henkilökohtaisuutta, yhteisöllisyyttä ja vastarintaa ovat avanneet uusia näkökulmia niin musiikintutkimuksessa kuin globaaleissakin kulttuurikeskusteluissa. Näin naisten ainutlaatuiset tulkinnat ovat muodostaneet siltoja, jotka yhdistävät kansainväliset musiikkiperinteet ja rikastuttavat ymmärrystämme kulttuurisesti monimuotoisesta taiteellisesta ilmiöstä.  
- 
+Yhteenvetona voidaan todeta, että naisten blues‑legendojen maailmankatsomuksellinen ja teknologinen vaikutus ei rajoitu ainoastaan musiikilliseen kehitykseen, vaan se on vaikuttanut syvällisesti myös kulttuuriseen keskusteluun ja taiteelliseen itsetutkiskeluun. Heidän uransa aikana esittämänsä omaleimaiset tavat käsitellä henkilökohtaisuutta, yhteisöllisyyttä ja vastarintaa ovat avanneet uusia näkökulmia niin musiikintutkimuksessa kuin globaaleissakin kulttuurikeskusteluissa. Näin naisten ainutlaatuiset tulkinnat ovat muodostaneet siltoja, jotka yhdistävät kansainväliset musiikkiperinteet ja rikastuttavat ymmärrystämme kulttuurisesti monimuotoisesta taiteellisesta ilmiöstä.
+
 Tutkimuksellisesti voidaan korostaa, että kyseiset blues‑legendat ovat olleet sekä ajassa edelläkävijöitä että jälkivaikuttajiaan nykyajan moninaiselle musiikkimaailmalle. Heidän perintönsä näkyy niin teoreettisissa lähestymistavoissa kuin käytännön esityksissä, joissa yhteiskunnallinen kommentaari ja esteettinen innovaatio ovat tiiviisti kietoutuneet yhteen. Tämä monitahoinen vaikutus heijastaa sitä, kuinka merkittävä rooli yksilöllä voi olla kansainvälisen kulttuuriperimän muovaamisessa ja sen jatkuvassa uudelleen tulkinnassa. Naisten tulkinnat jäävät siten pysyväksi osaksi niitä narrativeja, jotka ovat määrittäneet 1900‑luvun musiikkihistoriaa ja muodostaneet perustan nykyajan globaaleille musiikkisuuntauksille.
 
 ## Mediarepresentaatio

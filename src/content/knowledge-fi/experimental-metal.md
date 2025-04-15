@@ -16,10 +16,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -117,7 +116,7 @@ Tärkeimpänä tutkimuksen näkökulmana pysyy kuitenkin ajatus, että kokeellin
 
 ## Technical Aspects
 
-Experimental metallimusiikki edustaa musiikkialan ilmiötä, jossa jäykät perinteiset rakenteet ja oletetut konventiot haastetaan systemaattisesti uusilla teknisillä lähestymistavoilla. Tyylilajin tekninen ulottuvuus perustuu äärimmäiseen sointikehitykseen, monimutkaisiin rytmikaavoihin ja harmonisiin kokeiluihin, jotka ovat kehittyneet 1980-luvun loppupuolelta kansainvälisen musiikkikehityksen seurauksena. Keskeistä on se, miten soittimien äänenmuodostus ja -manipulaatio ovat muodostuneet sekä perinteisen soitinvalikoiman että elektronisten laitteiden integroinnin yhteydessä synteettiseksi kokonaisuudeksi.  
+Experimental metallimusiikki edustaa musiikkialan ilmiötä, jossa jäykät perinteiset rakenteet ja oletetut konventiot haastetaan systemaattisesti uusilla teknisillä lähestymistavoilla. Tyylilajin tekninen ulottuvuus perustuu äärimmäiseen sointikehitykseen, monimutkaisiin rytmikaavoihin ja harmonisiin kokeiluihin, jotka ovat kehittyneet 1980-luvun loppupuolelta kansainvälisen musiikkikehityksen seurauksena. Keskeistä on se, miten soittimien äänenmuodostus ja -manipulaatio ovat muodostuneet sekä perinteisen soitinvalikoiman että elektronisten laitteiden integroinnin yhteydessä synteettiseksi kokonaisuudeksi.
 
 Musiikillinen materialismi ja soundien kerrostuminen ovat keskeisiä käsitteitä, joiden avulla voidaan analysoida genreä teknisenä kokonaisuutena. Instrumentaation moninaisuus mahdollistaa erilaisten äänimaailmojen rakentamisen, joissa sähkökitaroiden ja -bassoiden rooli on yhdistettynä rytmissä käytettyihin perkussio- ja sähköisten elementtien tekstuureihin. Esimerkiksi rytmien modulointi ja epäsäännölliset mittarytmit ovat tulleet merkittäviksi elementeiksi, joita käytettäessä perinteinen 4/4-tahtilaji hylätään monien bändien ohjelmistossa. Tekniset ratkaisut edellyttävät analyysia sekä soittimien fyysisestä konfiguraatiosta että äänentuotantoprosesseista, joita acceleratorit ja digitaaliset ääniprosessorit ovat mahdollistaneet.
 

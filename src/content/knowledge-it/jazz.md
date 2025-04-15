@@ -17,14 +17,13 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Il jazz rappresenta un fenomeno musicale di notevole rilevanza, il cui sviluppo inizia agli albori del Novecento nelle comunità afroamericane del Sud degli Stati Uniti, in particolare a New Orleans. Questa espressione artistica, caratterizzata da una marcata improvvisazione e da una fusione di elementi ritmici e armonici, trae origine dall’incontro sincretico di tradizioni musicali africane, europee e creole, configurando un linguaggio espressivo originale ed estremamente dinamico. 
+Il jazz rappresenta un fenomeno musicale di notevole rilevanza, il cui sviluppo inizia agli albori del Novecento nelle comunità afroamericane del Sud degli Stati Uniti, in particolare a New Orleans. Questa espressione artistica, caratterizzata da una marcata improvvisazione e da una fusione di elementi ritmici e armonici, trae origine dall’incontro sincretico di tradizioni musicali africane, europee e creole, configurando un linguaggio espressivo originale ed estremamente dinamico.
 
 Nel corso degli anni, il jazz evolve da manifestazione marginale a linguaggio universale, favorita dall’introduzione della registrazione sonora e dalle trasmissioni radiofoniche. L’analisi delle strutture modulanti e dei pattern ritmici rivela la complessità di un genere in continuo divenire, che ha saputo instaurare un dialogo permanente fra tradizione e innovazione, influenzando profondamente la scena musicale internazionale.
 

@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introdução
 
@@ -70,7 +69,7 @@ Contagem de caracteres: 5801
 
 ## Desenvolvimento da música moderna
 
-O desenvolvimento da música moderna na França configura-se como um fenômeno multifacetado, no qual convergem inovações musicais, transformações sociais e avanços tecnológicos. A partir do final do século XIX até as primeiras décadas do século XX, observa-se uma ruptura gradual com as convenções do período romântico, dando lugar a novas estéticas musicais que abrangeram desde a experimentação harmônica até a reorganização dos processos composicionais. Este cenário de efervescência cultural propiciou o surgimento do impressionismo, que se consolidou como uma das principais correntes inovadoras do período e redefiniu os parâmetros da expressão sonora. 
+O desenvolvimento da música moderna na França configura-se como um fenômeno multifacetado, no qual convergem inovações musicais, transformações sociais e avanços tecnológicos. A partir do final do século XIX até as primeiras décadas do século XX, observa-se uma ruptura gradual com as convenções do período romântico, dando lugar a novas estéticas musicais que abrangeram desde a experimentação harmônica até a reorganização dos processos composicionais. Este cenário de efervescência cultural propiciou o surgimento do impressionismo, que se consolidou como uma das principais correntes inovadoras do período e redefiniu os parâmetros da expressão sonora.
 
 No contexto do impressionismo, compositores como Claude Debussy e Maurice Ravel desempenharam papéis fundamentais. Debussy, com obras como "Prélude à l'après-midi d'un faune" (1894), introduziu uma abordagem harmônica e timbral que valorizava a sugestão e a nuance, rompendo com as estruturas tradicionais da tonalidade. Ravel, por sua vez, explorou novas formas de orquestração e ritmos, evidenciando a busca por uma musicalidade que refletisse, ao mesmo tempo, a riqueza sensorial francesa e as influências das culturas orientais. Ademais, tais inovações abriram caminho para que a música se configurasse como uma arte em constante reinvenção, onde a busca pela originalidade se tornou crucial para a identidade estética da modernidade.
 

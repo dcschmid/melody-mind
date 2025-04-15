@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -47,7 +46,7 @@ Do mesmo modo, a utilização de tecnologias inovadoras desempenhou papel determ
 
 Em consonância com tais perspectivas, a pesquisa sobre a “emoção” no âmbito musical requer a consideração de fatores de ordem cultural e social. As estéticas “Dreamy”, imbuídas de referências ao surrealismo e à literatura dos sonhos, dialogam com tendências artísticas que, desde o modernismo, têm procurado transcender os limites da representação objetiva. Nesse sentido, a prática musical torna-se veículo de uma simbologia que remete à dialética entre o consciente e o inconsciente, reiterando a importância dos estudos psicanalíticos e fenomenológicos na interpretação dos significados imbuídos nas obras. A articulação dos estudos musicais com as ciências humanas possibilita uma abordagem holística, em que as emoções não são apenas reações fisiológicas, mas também constructos culturais. Assim, a análise integradora, alicerçada em diversos referenciais teóricos, revela a complexidade dos processos cognitivos e afetivos que se desenvolvem durante a escuta.
 
-Por fim, a discussão acerca da emoção no contexto “Dreamy” evidencia a relevância dos estudos interdisciplinares, os quais permitem sintetizar os múltiplos elementos que compõem o fenômeno musical. Observa-se que a compreensão do caráter etéreo e da profundidade emocional implica a superação de abordagens reducionistas e a valorização de uma análise que integra a dimensão histórica, a inovação tecnológica e os discursos culturais. Assim, a investigação sobre a “emoção” ultrapassa os limites da simples experiência auditiva, configurando-se como objeto de estudo que interroga as relações entre arte, tecnologia e identidade. Destarte, a síntese dos elementos apresentados corrobora a hipótese de que a “emoção”, na sua multifacetada natureza, é um constructo insubstituível na interpretação das transformações musicais contemporâneas (SILVA, 2015; MOREIRA, 2018). 
+Por fim, a discussão acerca da emoção no contexto “Dreamy” evidencia a relevância dos estudos interdisciplinares, os quais permitem sintetizar os múltiplos elementos que compõem o fenômeno musical. Observa-se que a compreensão do caráter etéreo e da profundidade emocional implica a superação de abordagens reducionistas e a valorização de uma análise que integra a dimensão histórica, a inovação tecnológica e os discursos culturais. Assim, a investigação sobre a “emoção” ultrapassa os limites da simples experiência auditiva, configurando-se como objeto de estudo que interroga as relações entre arte, tecnologia e identidade. Destarte, a síntese dos elementos apresentados corrobora a hipótese de que a “emoção”, na sua multifacetada natureza, é um constructo insubstituível na interpretação das transformações musicais contemporâneas (SILVA, 2015; MOREIRA, 2018).
 
 Contagem de caracteres (com espaços): 5361
 
@@ -123,7 +122,7 @@ Outrossim, a análise crítica revela que as produções marcadas pela designaç
 
 Por conseguinte, torna-se imprescindível reconhecer que a construção histórica do panorama “dreamy” resulta de uma confluência de fatores: a revolução tecnológica no campo dos equipamentos de estúdio, a experimentação artística e as transformações culturais que permearam as últimas décadas do século XX. Cada obra e cada artista mencionados, seja na esfera britânica, norte-americana ou em outros contextos geográficos, incorpora em si uma resposta complexa a um momento histórico específico, articulado com as tendências de renovação e contestação. Assim, a trajetória evolutiva da estética “dreamy” revela não apenas a transformação dos dispositivos de criação musical, mas também a persistente busca pela materialização do inefável, pela tradução de estados anímicos e pela construção de mundos sonoros capazes de transcender a realidade cotidiana.
 
-Em síntese, a categoria “Dreamy” reafirma a capacidade da música de se situar como espaço de resistência e inovação, ao mesmo tempo em que perpassa dimensões emocionais e intelectuais em sua forma de ser e de se fazer. A análise dessas obras e dos seus respectivos artistas demonstra que a interlocução entre técnica e subjetividade não apenas redesenha os contornos da experiência musical, mas também se propõe a um diálogo contínuo com os paradigmas históricos e culturais. Tal fenômeno constitui objeto de estudo imprescindível para a musicologia contemporânea, que, ao examinar minuciosamente as trajetórias destas manifestações, evidencia a riqueza e a complexidade inerentes ao campo da criação musical. 
+Em síntese, a categoria “Dreamy” reafirma a capacidade da música de se situar como espaço de resistência e inovação, ao mesmo tempo em que perpassa dimensões emocionais e intelectuais em sua forma de ser e de se fazer. A análise dessas obras e dos seus respectivos artistas demonstra que a interlocução entre técnica e subjetividade não apenas redesenha os contornos da experiência musical, mas também se propõe a um diálogo contínuo com os paradigmas históricos e culturais. Tal fenômeno constitui objeto de estudo imprescindível para a musicologia contemporânea, que, ao examinar minuciosamente as trajetórias destas manifestações, evidencia a riqueza e a complexidade inerentes ao campo da criação musical.
 
 Total de caracteres: 5359
 
@@ -181,7 +180,7 @@ De modo correlato, a estética onírica tem sido objeto de estudos interdiscipli
 
 Em síntese, a obtenção de benefícios terapêuticos e reflexivos por meio da música onírica passa pela combinação de fatores técnicos, históricos e culturais que interagem de formas complexas e interdependentes. O uso de elementos minimalistas, a manipulação de timbres e a criação de atmosferas sonoras densas culminam em uma vibração que canaliza os estados emocionais para níveis profundos de percepção sensorial. Tais efeitos, que se perpetuam na história da arte musical, demonstram a relevância de uma abordagem analítica que contemple tanto os aspectos formais quanto os impactos existenciais da experiência auditiva.
 
-Finalmente, ao se analisar o impacto psicológico da sonoridade onírica, constata-se que a música transcende seu caráter estético para assumir um papel formativo na constituição emocional dos indivíduos. A associação entre técnica e sensibilidade, entre o racional e o irracional, evidencia a necessidade de uma abordagem multidisciplinar que contemple as nuance do processo psicofisiológico. Tal perspectiva convida pesquisadores e ouvintes a revalorizar a influência transformadora da música, reafirmando sua capacidade de moldar estados de espírito e incentivar uma reconexão com dimensões mais profundas do ser. 
+Finalmente, ao se analisar o impacto psicológico da sonoridade onírica, constata-se que a música transcende seu caráter estético para assumir um papel formativo na constituição emocional dos indivíduos. A associação entre técnica e sensibilidade, entre o racional e o irracional, evidencia a necessidade de uma abordagem multidisciplinar que contemple as nuance do processo psicofisiológico. Tal perspectiva convida pesquisadores e ouvintes a revalorizar a influência transformadora da música, reafirmando sua capacidade de moldar estados de espírito e incentivar uma reconexão com dimensões mais profundas do ser.
 
 Total de caracteres: 5396
 

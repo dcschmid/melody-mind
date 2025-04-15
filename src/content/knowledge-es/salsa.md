@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -174,7 +173,7 @@ Finalmente, la característica polisemia de la salsa se manifiesta en su capacid
 
 ## Legacy and Influence
 
-La salsa, como manifestación artística, constituye una síntesis compleja entre las tradiciones musicales afrocaribeñas y las innovaciones culturales surgidas en el transcurso del siglo XX. Su legado se fundamenta en la intersección de ritmos, danzas y estructuras armónicas que se consolidaron desde las décadas de 1960 y 1970, especialmente en el contexto urbano de Nueva York, donde convergieron músicos de origen cubano, puertorriqueño y de otras latitudes del Caribe. La convergencia de estos aportes dio lugar a una propuesta sonora que, a la vez que respetaba las raíces ancestrales, incorporaba una frescura interpretativa y composicional, constituyendo así un medio para la afirmación de identidades y la resistencia cultural en contextos de marginalidad.  
+La salsa, como manifestación artística, constituye una síntesis compleja entre las tradiciones musicales afrocaribeñas y las innovaciones culturales surgidas en el transcurso del siglo XX. Su legado se fundamenta en la intersección de ritmos, danzas y estructuras armónicas que se consolidaron desde las décadas de 1960 y 1970, especialmente en el contexto urbano de Nueva York, donde convergieron músicos de origen cubano, puertorriqueño y de otras latitudes del Caribe. La convergencia de estos aportes dio lugar a una propuesta sonora que, a la vez que respetaba las raíces ancestrales, incorporaba una frescura interpretativa y composicional, constituyendo así un medio para la afirmación de identidades y la resistencia cultural en contextos de marginalidad.
 
 En este sentido, la influencia de la salsa trasciende su origen geográfico y cronológico. La irrupción del sello discográfico Fania, fundado en 1964, marcó un antes y un después en la promoción y difusión del género. Este acontecimiento no solo potenció la visibilidad de artistas como Héctor Lavoe, Willie Colón y Rubén Blades, sino que también innovó en la producción musical, configurando estrategias de grabación e interpretación que dialogaban con las tendencias contemporáneas en la tecnología sonora, sin perder de vista las raíces afroantillanas. Asimismo, la interacción con elementos del jazz, la música clásica y las prácticas improvisatorias, evidenció una capacidad sinérgica para integrar diversas corrientes en un discurso musical coherente y original.
 
@@ -182,7 +181,7 @@ La repercusión internacional de la salsa se manifestó en su adopción y transf
 
 El legado de la salsa es también evidente en su capacidad para actuar como vehículo de inclusión cultural y transformación social. En contextos en los que la marginalidad y la desigualdad eran predominantes, el género ofreció un espacio de expresión colectiva, convirtiéndose en elemento unificador en barrios y comunidades históricamente relegadas. Este fenómeno socioestético se ha visto reflejado en la incorporación de la salsa en festivales, universidades y centros culturales, donde se estudia no solo su estructura rítmica y melódica, sino también su significación en la construcción de memorias e identidades colectivas. La música, entendida en este marco, se transfiere desde su dimensión estética a un espacio de articulación política y reivindicación social.
 
-Desde el ámbito académico, el análisis de la salsa invita a repensar las fronteras entre lo tradicional y lo moderno, así como a cuestionar la dinámica de las influencias transnacionales. Investigadores de la musicología han destacado la importancia de concebir la salsa como producto de procesos históricos interconectados, en los que confluyen diálogos entre oriente y occidente. Las metodologías aplicadas en estudios etnomusicológicos y en análisis semióticos han permitido evidenciar la complejidad estructural del género, haciendo hincapié en aspectos como la polirritmia, la improvisación y la organización formal, elementos que han subrayado la capacidad del género para transitar entre la música popular y la música estudiada.  
+Desde el ámbito académico, el análisis de la salsa invita a repensar las fronteras entre lo tradicional y lo moderno, así como a cuestionar la dinámica de las influencias transnacionales. Investigadores de la musicología han destacado la importancia de concebir la salsa como producto de procesos históricos interconectados, en los que confluyen diálogos entre oriente y occidente. Las metodologías aplicadas en estudios etnomusicológicos y en análisis semióticos han permitido evidenciar la complejidad estructural del género, haciendo hincapié en aspectos como la polirritmia, la improvisación y la organización formal, elementos que han subrayado la capacidad del género para transitar entre la música popular y la música estudiada.
 
 Además, es esencial destacar la función pedagógica que la salsa ha asumido dentro del ámbito de la educación musical. A través de programas formales e informales, tanto en academias como en talleres comunitarios, se ha promovido la formación de músicos y bailarines que han contribuido a la renovación del género. Este proceso formativo se integra en una construcción de saberes que reconoce la importancia de la oralidad, la práctica y la transmisión intergeneracional. La incorporación de estos elementos en el currículo académico ha permitido que la salsa se consolide no solo como expresión artística, sino también como herramienta didáctica para el estudio de la identidad y la cultura latinoamericana.
 

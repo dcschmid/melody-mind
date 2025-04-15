@@ -17,16 +17,15 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
 Die klassische Musik stellt einen zentralen Pfeiler der internationalen Musikkultur dar. Seit dem späten Mittelalter formte sich in Europa ein differenziertes Musikverständnis heraus, das sich durch die kunstvolle Verbindung von Komposition und Aufführung auszeichnete. Im Verlauf der Renaissance und des Barock erlebte die musikalische Ausdrucksweise fundamentale Neuerungen, wobei die Einführung der Notenschrift sowie die systematische Harmonielehre das Fundament für eine ausgefeilte Polyphonie legten.
 
-Darüber hinaus beeinflussten wechselseitige kulturelle Strömungen und philosophische Diskurse die Entstehung innovativer Kompositionspraktiken. Komponisten wie Johann Sebastian Bach und Ludwig van Beethoven prägten ihre jeweiligen Epochen maßgeblich, indem sie traditionelle Formen neu interpretierten und mittels komplexer Techniken den Ausdruck der Musik erweiterten. 
+Darüber hinaus beeinflussten wechselseitige kulturelle Strömungen und philosophische Diskurse die Entstehung innovativer Kompositionspraktiken. Komponisten wie Johann Sebastian Bach und Ludwig van Beethoven prägten ihre jeweiligen Epochen maßgeblich, indem sie traditionelle Formen neu interpretierten und mittels komplexer Techniken den Ausdruck der Musik erweiterten.
 
 In dieser Kategorie wird ein fundierter Einblick in die historischen, theoretischen und ästhetischen Dimensionen der klassischen Musik geboten, der die Verflechtung von künstlerischer Tradition und kultureller Innovation detailliert darstellt.
 

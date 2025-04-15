@@ -16,10 +16,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -165,7 +164,7 @@ Enfin, il est essentiel de considérer l’impact de la culture live du classic 
 
 ## Development and Evolution
 
-Le Classic Rock s’inscrit dans une longue évolution musicale dont les origines remontent aux années 1960, période charnière de renouvellement des codes musicaux occidentaux. Dès lors, les influences du rhythm and blues, du rock and roll et du folk se conjuguaient dans un brassage novateur qui aboutissait à la constitution d’un répertoire alternatif. Dans ce contexte, l’usage accru de l’amplification électrique, couplé à l’innovation technologique des guitares à effets, permit aux musiciens d’expérimenter des sonorités inédites, tout en posant les jalons d’une révolution instrumentale.  
+Le Classic Rock s’inscrit dans une longue évolution musicale dont les origines remontent aux années 1960, période charnière de renouvellement des codes musicaux occidentaux. Dès lors, les influences du rhythm and blues, du rock and roll et du folk se conjuguaient dans un brassage novateur qui aboutissait à la constitution d’un répertoire alternatif. Dans ce contexte, l’usage accru de l’amplification électrique, couplé à l’innovation technologique des guitares à effets, permit aux musiciens d’expérimenter des sonorités inédites, tout en posant les jalons d’une révolution instrumentale.
 
 Au début des années 1960, la scène musicale britannique fut le terreau fertile de cette mutation. Des formations telles que The Beatles et The Rolling Stones, en redéfinissant le rock dans ses formes les plus pures, contribuèrent à la consolidation d’une identité sonore qui s’appuierait sur la virtuosité instrumentale autant que sur des textes évocateurs d’un monde en pleine mutation. Ces groupes intégrèrent dans leur répertoire des éléments de blues et de rhythm and blues, favorisant ainsi la rencontre entre traditions amérindiennes et innovations sonores européennes. L’enregistrement en studio, profitant d’avancées techniques telles que le multicanal, permit également de complexifier la texture des pièces, offrant une profondeur nouvelle à la narration musicale.
 

@@ -17,14 +17,13 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-De muziekcategorie Sleep Soundly omvat internationale muzikale tradities die rust en sereniteit beogen te realiseren. In diverse culturen, van de volksliederen van Oost-Azië tot de zachte melodieën van Mediterrane schlafliederen, vinden we een rijke historie waarin kalmerende klanken een centrale rol spelen. Deze muziek heeft zich door de eeuwen heen ontwikkeld, waarbij vroege akoestische instrumenten zoals de lier of fluit werden ingezet om een gevoel van veiligheid en ontspanning te creëren.  
+De muziekcategorie Sleep Soundly omvat internationale muzikale tradities die rust en sereniteit beogen te realiseren. In diverse culturen, van de volksliederen van Oost-Azië tot de zachte melodieën van Mediterrane schlafliederen, vinden we een rijke historie waarin kalmerende klanken een centrale rol spelen. Deze muziek heeft zich door de eeuwen heen ontwikkeld, waarbij vroege akoestische instrumenten zoals de lier of fluit werden ingezet om een gevoel van veiligheid en ontspanning te creëren.
 
 Technologische innovaties in de twintigste eeuw, waaronder de opkomst van elektrische opnameapparatuur, hebben bijgedragen aan de verdere diffusie van deze kalmerende klanken. Tevens hebben culturele bewegingen, die een herwaardering van tradities en authentieke geluiden in de hand werkten, de evolutie van dit muzikale genre aanzienlijk beïnvloed. Sleep Soundly vertegenwoordigt zodoende een voortgaande dialoog tussen historische tradities en moderne interpretaties, welke de universele behoefte aan rust weerspiegelen.
 
@@ -32,7 +31,7 @@ Technologische innovaties in de twintigste eeuw, waaronder de opkomst van elektr
 
 De muzikale traditie die bedoeld is om een rustgevende gemoedstoestand te bewerkstelligen en daarmee bijdraagt aan een gezonde slaap, kent een rijke en complexe geschiedenis die teruggaat tot verschillende culturele en technologische innovaties op internationaal niveau. Al in de oudheid werd een muzikale esthetiek nagestreefd die de luisteraar in een staat van contemplatie mocht brengen. Deze traditie vindt haar oorsprong in de rituele en ceremoniële muziek van oude beschavingen, waarin klank en stilte met elkaar in harmonie werden gebracht. In deze context dienten onder meer de gregoriaanse gezangen en islamitische meditatieve klanken als vroege voorbeelden van slaapbevorderende muzikale praktijken.
 
-Vanaf de middeleeuwen ontwikkelde zich een traditie waarin zachte melodieën en langzame ritmes werden ingezet om een kalmerende werking te bereiken, hetgeen eveneens nauw werd verbonden met de ontwikkeling van de liturgische muziek. In diverse Europese culturen werden koorstukken en solistische composities gecreëerd die de luisteraar een gevoel van sereniteit en trance wilden laten ervaren. Deze muzikale uitingen, gekenmerkt door repetitieve motieven en een focus op zowel klankkleur als dynamische subtiliteit, vormen een belangrijk uitgangspunt voor de latere evolutie van slaapgerelateerde muziekvormen. 
+Vanaf de middeleeuwen ontwikkelde zich een traditie waarin zachte melodieën en langzame ritmes werden ingezet om een kalmerende werking te bereiken, hetgeen eveneens nauw werd verbonden met de ontwikkeling van de liturgische muziek. In diverse Europese culturen werden koorstukken en solistische composities gecreëerd die de luisteraar een gevoel van sereniteit en trance wilden laten ervaren. Deze muzikale uitingen, gekenmerkt door repetitieve motieven en een focus op zowel klankkleur als dynamische subtiliteit, vormen een belangrijk uitgangspunt voor de latere evolutie van slaapgerelateerde muziekvormen.
 
 In de overgang naar de vroegmoderne periode werden de artistieke ambities verder uitgebreid. Componisten zoals Erik Satie, ook al behoorden zij tot een latere traditie, leenden conceptuele elementen uit deze stiltemeditaties. Satie’s bescheiden en herhalende composities, waarin hij stiltes en korte muzikale frases subtiel afwisselde, droegen bij aan een esthetiek die later in de twintigste eeuw weer opgepakt werd. Deze composities belichaamden eveneens de zoektocht naar een muzikale interface die zowel emotioneel als fysiologisch rustgevend werkte, een streven dat in latere decennia verregaande invloed zou uitoefenen op de ontwikkeling van slaapbevorderende muziek.
 

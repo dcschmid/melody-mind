@@ -17,16 +17,15 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-L'analisi storica del blues evidenzia la sua origine nelle comunità afroamericane del Delta del Mississippi, un percorso espressivo nato nel tardo XIX secolo in seguito alle trasformazioni sociali post-emancipazione. Tale genere musicale si sviluppò in un contesto culturalmente complesso, in cui la trasmissione orale e l’improvvisazione costituivano pilastri fondamentali. 
+L'analisi storica del blues evidenzia la sua origine nelle comunità afroamericane del Delta del Mississippi, un percorso espressivo nato nel tardo XIX secolo in seguito alle trasformazioni sociali post-emancipazione. Tale genere musicale si sviluppò in un contesto culturalmente complesso, in cui la trasmissione orale e l’improvvisazione costituivano pilastri fondamentali.
 
-Il blues, attraverso l’utilizzo caratteristico della scala pentatonica e la fusione di ritmi sincopati, segnò una rottura rispetto alle forme musicali tradizionali, anticipando l’emergere di altri stili quali il jazz, il rhythm and blues e, successivamente, il rock. Le tecniche esecutive, basate su dinamiche espressive e modulazioni melodiche, evidenziano un’eredità che dialoga con il dilagare delle culture popolari americane nel corso del Novecento. 
+Il blues, attraverso l’utilizzo caratteristico della scala pentatonica e la fusione di ritmi sincopati, segnò una rottura rispetto alle forme musicali tradizionali, anticipando l’emergere di altri stili quali il jazz, il rhythm and blues e, successivamente, il rock. Le tecniche esecutive, basate su dinamiche espressive e modulazioni melodiche, evidenziano un’eredità che dialoga con il dilagare delle culture popolari americane nel corso del Novecento.
 
 Infine, la rilevanza del blues risiede nella capacità di coniugare elementi tecnici e narrativi, offrendo un fedele specchio delle tensioni socio-economiche e delle rivendicazioni identitarie che hanno caratterizzato l’esperienza storica degli Stati Uniti.
 
@@ -144,7 +143,7 @@ La cultura dal vivo nel contesto del Blues assume un ruolo fondamentale nella tr
 
 Nel corso degli anni ’20 e ’30, il Blues si orientò gradualmente verso spazi più strutturati, pur mantenendo il carattere dei raduni popolari. Le esibizioni pubbliche si svolgevano in teatri minori e sale da ballo, dove la presenza di un pubblico pagante introduceva nuove dinamiche performative. I solisti, come Son House e Robert Johnson, divennero protagonisti itineranti, capaci di catturare l’attenzione grazie a una tecnica esecutiva che coniugava virtuosismo e intensità drammatica. In questo contesto, la diretta comunicazione con il pubblico si configurava come un elemento essenziale del racconto esperienziale del Blues.
 
-L’evoluzione delle tecnologie di amplificazione e registrazione, pur essendo in seguito a un processo innovativo, ebbe un impatto notevole sulla performance dal vivo, modificando in maniera sostanziale la percezione del suono e l’interazione scenica. Sebbene nelle prime epoche le esibizioni fossero quasi interamente analoghe, l’introduzione di microfoni e sistemi di amplificazione nelle sale da concerto e nei club degli anni ’40 e ’50 innovò il panorama esecutivo, consentendo una maggiore diffusione del genere a livello internazionale. Tale progresso tecnologico facilitò un dialogo simbolico tra il tradizionale ambiente del juke joint e le modernità dell’industria discografica, creando un ponte tra il folklore e la cultura d’intrattenimento commerciale. 
+L’evoluzione delle tecnologie di amplificazione e registrazione, pur essendo in seguito a un processo innovativo, ebbe un impatto notevole sulla performance dal vivo, modificando in maniera sostanziale la percezione del suono e l’interazione scenica. Sebbene nelle prime epoche le esibizioni fossero quasi interamente analoghe, l’introduzione di microfoni e sistemi di amplificazione nelle sale da concerto e nei club degli anni ’40 e ’50 innovò il panorama esecutivo, consentendo una maggiore diffusione del genere a livello internazionale. Tale progresso tecnologico facilitò un dialogo simbolico tra il tradizionale ambiente del juke joint e le modernità dell’industria discografica, creando un ponte tra il folklore e la cultura d’intrattenimento commerciale.
 
 Inoltre, la rivalità tra autenticità e innovazione si rifletteva nelle scelte stilistiche dei performers che, pur adottando tecnologie emergenti, cercavano di preservare gli elementi essenziali che caratterizzavano il Blues tradizionale. I musicisti esigevano, infatti, che ogni interpretazione rispecchiasse il vissuto e le tradizioni della comunità da cui provenivano. Le performance si configuravano così come momenti di ritualità in cui il palcoscenico diventava luogo di memoria collettiva e trasmissione di conoscenze ancestrali. L’approccio interattivo, inteso non solo come mero atto esecutivo ma anche come scambio culturale, enfatizzava il legame inestricabile tra l’artista e il suo pubblico.
 

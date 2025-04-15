@@ -17,14 +17,13 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduzione
 
-La musica colombiana rappresenta un ambito di studio fondamentale per comprendere la complessità culturale e storica della regione. Fin dai secoli coloniali si assiste alla contaminazione tra tradizioni indigene, spagnole e africane, che ha dato origine a un ricco patrimonio espressivo. 
+La musica colombiana rappresenta un ambito di studio fondamentale per comprendere la complessità culturale e storica della regione. Fin dai secoli coloniali si assiste alla contaminazione tra tradizioni indigene, spagnole e africane, che ha dato origine a un ricco patrimonio espressivo.
 
 Analizzando i principali generi, quali cumbia, vallenato e bambuco, emerge come questi abbiano svolto un ruolo determinante nel delineare l'identità musicale nazionale e nel promuovere un dialogo interculturale. La cumbia, ad esempio, con le sue radici rituali, si è evoluta nel corso dei secoli, riflettendo la molteplice stratificazione sociale ed etnica della Colombia.
 

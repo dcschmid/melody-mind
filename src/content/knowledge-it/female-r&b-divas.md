@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduzione
 
@@ -124,9 +123,9 @@ Infine, la ricezione critica e il riscontro di pubblico ottenuti da tali album s
 
 ## Impatto culturale
 
-L’evoluzione delle Female R&B Divas rappresenta un fenomeno musicale e un movimento culturale di notevole importanza, in quanto ha influito in maniera decisiva sia sullo sviluppo del genere rhythm and blues sia sulla ridefinizione degli stereotipi di genere nella società contemporanea. La presenza di artiste di tale categoria ha permesso, sin dagli anni Settanta, di instaurare un dialogo fra l’eredità dei canti tradizionali afroamericani e le nuove tendenze musicali, favorendo un’interazione complessa, in cui la dimensione performativa assumeva il ruolo di strumento di liberazione e affermazione di identità. Le interpretazioni vocali e le scelte stilistiche delle diva hanno infatti saputo sintetizzare un discorso critico, volto a mettere in luce tematiche quali la marginalizzazione, l’identità etnica, la parità di genere e la resilienza individuale.  
+L’evoluzione delle Female R&B Divas rappresenta un fenomeno musicale e un movimento culturale di notevole importanza, in quanto ha influito in maniera decisiva sia sullo sviluppo del genere rhythm and blues sia sulla ridefinizione degli stereotipi di genere nella società contemporanea. La presenza di artiste di tale categoria ha permesso, sin dagli anni Settanta, di instaurare un dialogo fra l’eredità dei canti tradizionali afroamericani e le nuove tendenze musicali, favorendo un’interazione complessa, in cui la dimensione performativa assumeva il ruolo di strumento di liberazione e affermazione di identità. Le interpretazioni vocali e le scelte stilistiche delle diva hanno infatti saputo sintetizzare un discorso critico, volto a mettere in luce tematiche quali la marginalizzazione, l’identità etnica, la parità di genere e la resilienza individuale.
 
-Questa analisi si fonda su una prospettiva storica rigorosa, che colloca l’innesco del movimento delle Female R&B Divas in un contesto ben definito. Negli anni Sessanta e Settanta, in concomitanza con le lotte per i diritti civili e le rivoluzioni sociali, si affermarono figure fondanti quali Aretha Franklin, la cui attività artistica ridefinì i canoni della musica soul e contribuì alla diffusione di un linguaggio musicale che andava ben oltre le convenzioni del tempo. Le esperienze vissute dalle artiste di quel periodo evidenziarono come la musica potesse costituire una risposta creativa e politica alle ingiustizie sociali, favorendo la nascita di un’identità culturale condivisa e rappresentativa, che si radicava tanto nella sfera intima quanto in quella pubblica.  
+Questa analisi si fonda su una prospettiva storica rigorosa, che colloca l’innesco del movimento delle Female R&B Divas in un contesto ben definito. Negli anni Sessanta e Settanta, in concomitanza con le lotte per i diritti civili e le rivoluzioni sociali, si affermarono figure fondanti quali Aretha Franklin, la cui attività artistica ridefinì i canoni della musica soul e contribuì alla diffusione di un linguaggio musicale che andava ben oltre le convenzioni del tempo. Le esperienze vissute dalle artiste di quel periodo evidenziarono come la musica potesse costituire una risposta creativa e politica alle ingiustizie sociali, favorendo la nascita di un’identità culturale condivisa e rappresentativa, che si radicava tanto nella sfera intima quanto in quella pubblica.
 
 L’influenza delle Female R&B Divas si estende anche agli anni Ottanta e Novanta, periodi durante i quali il panorama musicale internazionale vide l’emergere di nuove figure che, pur attingendo alla tradizione dei predecessori, introdussero elementi di innovazione stilistica e tecnologica. Le tecniche di registrazione divennero sempre più sofisticate e la diffusione dei mass media contribuì a rendere omnipresenti le esibizioni di artiste come Whitney Houston e Mariah Carey, le quali, tramite l’uso sapiente di registrazioni multitraccia e studi di produzione all’avanguardia, riuscivano a trasmettere un’intensità emotiva quasi palpabile. Queste innovazioni tecniche, unite a performance dal timbro vocale inconfondibile, permisero la ridefinizione del concetto di diva in chiave moderna, indicando una progressione che poneva in primo piano l’importanza del messaggio emotivo e la capacità di influenzare le dinamiche sociali.
 

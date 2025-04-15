@@ -17,10 +17,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -192,6 +191,6 @@ In conclusion, the international connections of Mexican music encapsulate a mult
 
 ## Current Trends and Future
 
-Recent trends in international Mexican music have witnessed a substantial synthesis of traditional elements with contemporary global influences. The evolution of digital platforms has significantly bolstered the reach of regional sounds, allowing genres such as mariachi and norteño to be reimagined through innovative interpretative techniques. Moreover, advanced recording technologies and streaming services have engendered unprecedented artistic collaborations, thereby enabling musicians to interweave historical motifs with modern methodologies. 
+Recent trends in international Mexican music have witnessed a substantial synthesis of traditional elements with contemporary global influences. The evolution of digital platforms has significantly bolstered the reach of regional sounds, allowing genres such as mariachi and norteño to be reimagined through innovative interpretative techniques. Moreover, advanced recording technologies and streaming services have engendered unprecedented artistic collaborations, thereby enabling musicians to interweave historical motifs with modern methodologies.
 
 Looking prospectively, industry experts envisage a future characterised by the convergence of cultural narratives and intricate rhythmic structures that honour Mexico’s musical heritage whilst adapting to international standards. Scholarly discourse advocates that these emergent practices will yield novel soundscapes, ultimately enriching global musical repertoires and perpetuating the cross-cultural fertilisation of ideas.

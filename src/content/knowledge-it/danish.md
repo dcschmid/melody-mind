@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduzione
 
@@ -76,7 +75,7 @@ A partire dagli anni ’50 e ’60, l’arrivo del jazz e delle prime influenze 
 
 In questo contesto, la figura di Per Nørgård emerge come uno degli esponenti più influenti della composizione contemporanea. Attivo dagli anni ’60, l’ideazione di sistemi formali complessi, quali il cosiddetto "concetto di corrispondenza", rappresentò un tentativo metodico di conciliare ordine e caos, traendo ispirazione da impulsi sia matematici che poetici. Il suo contributo ha segnato una svolta progressiva, dimostrando come la centralità del pensiero analitico potesse integrarsi con una ricerca espressiva, capace di superare i limiti del linguaggio musicale tradizionale.
 
-Parallelamente, il panorama della musica jazz danese si arricchì grazie all’apporto di figure come Niels-Henning Ørsted Pedersen, il cui virtuosismo al contrabbasso ha arricchito il dibattito musicale internazionale. Le sale da concerto e i club di Copenaghen ospitarono numerosi eventi che permisero alla scena jazz di esprimersi in modo libero e dinamico; la sinergia tra musicisti danesi e internazionali favorì uno scambio culturale profondo, evidenziando come le pratiche improvvisative potessero dialogare con le strutture compositive classiche. 
+Parallelamente, il panorama della musica jazz danese si arricchì grazie all’apporto di figure come Niels-Henning Ørsted Pedersen, il cui virtuosismo al contrabbasso ha arricchito il dibattito musicale internazionale. Le sale da concerto e i club di Copenaghen ospitarono numerosi eventi che permisero alla scena jazz di esprimersi in modo libero e dinamico; la sinergia tra musicisti danesi e internazionali favorì uno scambio culturale profondo, evidenziando come le pratiche improvvisative potessero dialogare con le strutture compositive classiche.
 
 Il periodo compreso tra gli anni ’70 e ’80 vide un ulteriore ampliamento delle prospettive artistiche in Danimarca. L’avvento delle tecnologie elettriche e successive innovazioni digitali trasformò radicalmente la produzione musicale, consentendo agli artisti di sperimentare nuove modalità di sintesi sonora. Tale transizione tecnologica, però, non implicò la rottura completa con il passato, ma piuttosto una reinterpretazione dei canoni classici alla luce di nuove opportunità espressive. In questo periodo, compositori e artisti contemporanei si confrontarono con il problema della “continuità culturale”, integrando pratiche tradizionali con strumenti elettronici e ambientazioni teatrali.
 

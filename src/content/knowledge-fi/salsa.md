@@ -16,16 +16,15 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Salssa on merkittävä kansainvälisen latinalaisamerikkalaisen musiikin tyylilaji, jonka juuret ulottuvat 1900‑luvun puoliväliin. Sen kehityksessä yhdistyvät Afro‐kuubalaiset rytmit, Puerto ricolaiset melodiset linjaukset sekä pohjoisamerikkalaisen jazzin harmoninen moninaisuus, mikä ilmenee muun muassa synkopaattisissa rytmeissä ja kontrapunktuaalisissa sovituksissa. Ensimmäiset vaikutteet saivat alkunsa New Yorkin Latin‑yhteisöissä, joissa improvisaatiota ja intertekstuaalisia viittauksia hyödynnettiin innovatiivisesti. 
+Salssa on merkittävä kansainvälisen latinalaisamerikkalaisen musiikin tyylilaji, jonka juuret ulottuvat 1900‑luvun puoliväliin. Sen kehityksessä yhdistyvät Afro‐kuubalaiset rytmit, Puerto ricolaiset melodiset linjaukset sekä pohjoisamerikkalaisen jazzin harmoninen moninaisuus, mikä ilmenee muun muassa synkopaattisissa rytmeissä ja kontrapunktuaalisissa sovituksissa. Ensimmäiset vaikutteet saivat alkunsa New Yorkin Latin‑yhteisöissä, joissa improvisaatiota ja intertekstuaalisia viittauksia hyödynnettiin innovatiivisesti.
 
-Lisäksi salssan kehittymiseen vaikuttivat modernit äänitallennustekniikat, jotka mahdollistivat perinteisten soittimien – kuten timbalien, kongojen ja bongojen – rikastavan äänimaailman levittämisen laajemmin. Tässä yhteydessä harmoniarakenteiden monimutkaisuus ja rytmisten fraasien vaihtelevuus tarjoavat akateemisesti mielenkiintoisen tutkimuskohteen, jossa perinteiset musiikkiteoreettiset mallit kohtaavat nykyaikaiset sovituskeinot. 
+Lisäksi salssan kehittymiseen vaikuttivat modernit äänitallennustekniikat, jotka mahdollistivat perinteisten soittimien – kuten timbalien, kongojen ja bongojen – rikastavan äänimaailman levittämisen laajemmin. Tässä yhteydessä harmoniarakenteiden monimutkaisuus ja rytmisten fraasien vaihtelevuus tarjoavat akateemisesti mielenkiintoisen tutkimuskohteen, jossa perinteiset musiikkiteoreettiset mallit kohtaavat nykyaikaiset sovituskeinot.
 
 Näin ollen salssa edustaa kulttuurien välisen vuoropuhelun tulosta, jonka kehittyminen ei ainoastaan kuvasta menneisyyden perinteitä, vaan se myös luo edellytykset uusien, globaalien musiikillisten ilmiöiden syntymiselle.
 

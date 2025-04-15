@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -137,7 +136,7 @@ Entretanto, o caráter global das variações na música festiva evidencia a nec
 
 Sob a perspectiva teórica, os estudos contemporâneos em etnomusicologia e em ciências sociais destacam a relevância dos contextos históricos e dos processos de mediação simbólica para a compreensão das variações globais na música de celebração. Pesquisadores como Nigel Farrell (1999) e Susan McClary (2002) ressaltam que a música festiva deve ser analisada não apenas como um objeto estético, mas como uma prática social que traduz identidades, memórias coletivas e processos de transformação cultural. Dessa maneira, a análise acadêmica nesse campo requer a integração de métodos interdisciplinares, que considerem tanto a análise formal dos elementos musicais quanto o exame das condições históricas e dos discursos institucionais que legitimam determinadas interpretações.
 
-Em síntese, a variação global na música festiva é resultado de uma complexa trama histórica que envolve inovações tecnológicas, encontros transculturais e a reinterpretação contínua das tradições musicais. A abordagem acadêmica desse fenômeno requero o acompanhamento dos desenvolvimentos históricos e a crítica dos processos de hibridização que, mesmo mediados por instigações religiosas e políticas, revelam a universalidade do anseio humano por celebração e expressão simbólica. Portanto, a música festiva, em sua multiplicidade de formas e estilos, permanece como um campo fértil para investigações que aliam análise técnica e compromisso ético com a preservação da memória cultural. 
+Em síntese, a variação global na música festiva é resultado de uma complexa trama histórica que envolve inovações tecnológicas, encontros transculturais e a reinterpretação contínua das tradições musicais. A abordagem acadêmica desse fenômeno requero o acompanhamento dos desenvolvimentos históricos e a crítica dos processos de hibridização que, mesmo mediados por instigações religiosas e políticas, revelam a universalidade do anseio humano por celebração e expressão simbólica. Portanto, a música festiva, em sua multiplicidade de formas e estilos, permanece como um campo fértil para investigações que aliam análise técnica e compromisso ético com a preservação da memória cultural.
 
 Contagem de caracteres: 5358
 
@@ -157,7 +156,7 @@ Além disso, a influência dos movimentos sociais e das transformações políti
 
 Além do aspecto social, a modernidade também se evidenciifica pelo recurso à multidisciplinaridade na produção e interpretação musical das festividades. Segundo estudos recentes (Medeiros & Fonseca, 2018), a incorporação de elementos visuais e performáticos, aliados a técnicas de gravação digital, tem enriquecido a experiência estética do público, promovendo uma interação que transcende o simples ato de ouvir. Os concertos e apresentações ao vivo tornaram-se verdadeiros rituais performáticos, onde o espaço-tempo é ressignificado e a musicalidade se funde a outras linguagens artísticas, como a dança e as artes visuais. Essa convergência estimula um ambiente de constante reinvenção, onde a tradição dialoga com a contemporaneidade de forma integrada e harmoniosa.
 
-Em conclusão, a interpretação moderna da música festiva representa um campo de estudo repleto de complexidades e contraposições que, ao mesmo tempo, reafirmam a importância da tradição e celebram as inovações do presente. O movimento investigado evidencia que a globalização, a revolução digital e os processos de mudança social convergem para oferecer novas possibilidades interpretativas, as quais ampliam as fronteiras do discurso musical acadêmico e prático. Assim, torna-se indispensável que futuras pesquisas aprofundem a análise das inter-relações entre os diversos elementos que compõem essa rica tapeçaria cultural, de modo a fomentar uma compreensão mais abrangente e inclusiva dos fenômenos musicais atuais. 
+Em conclusão, a interpretação moderna da música festiva representa um campo de estudo repleto de complexidades e contraposições que, ao mesmo tempo, reafirmam a importância da tradição e celebram as inovações do presente. O movimento investigado evidencia que a globalização, a revolução digital e os processos de mudança social convergem para oferecer novas possibilidades interpretativas, as quais ampliam as fronteiras do discurso musical acadêmico e prático. Assim, torna-se indispensável que futuras pesquisas aprofundem a análise das inter-relações entre os diversos elementos que compõem essa rica tapeçaria cultural, de modo a fomentar uma compreensão mais abrangente e inclusiva dos fenômenos musicais atuais.
 
 Contagem de caracteres: 5379
 

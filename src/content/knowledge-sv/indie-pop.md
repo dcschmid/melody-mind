@@ -17,10 +17,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -80,7 +79,7 @@ Det internationella utbytet av musikaliska idéer har ytterligare breddat landsk
 
 Sammantaget kan variationerna inom indie-pop förstås som exempel på en bred och mångfacetterad kulturell och musikalisk evolution där subgenrer såsom twee-pop, jangle-pop och noise-pop exemplifierar utvecklingen av distinkta estetiska identiteter. Musikaliska innovationer inom dessa subgenrer har inte enbart bidragit till en omdefinition av genrebegreppet utan även förstärkt diskussioner kring autenticitetsideal, teknologiska nyvinningar och kulturella förändringsprocesser. I en internationell kontext innebär denna utveckling att indie-pop inte längre kan betraktas som en homogen genre, utan snarare som ett komplext nätverk av influerande och samverkande subgenrer.
 
-Genom att analysera dessa variationer belyses det sätt på vilket moderna musikaliska uttrycksformer kontinuerligt omförhandlar sina interna strukturer och samtidigt tar del av globala kulturella strömmar. Den vetenskapliga diskursen kring indie-pop visar att musikaliska innovationer ofta är resultatet av en medveten strävan att utmana etablerade normer samtidigt som de anknyter till ett historiskt arv. I detta sammanhang fungerar subgenrerna som katalysatorer för att bryta ned gränser mellan tradition och nymodighet, vilket i sin tur möjliggör en ständigt pågående dialog om musikens roll i det samtida kulturuttrycket. 
+Genom att analysera dessa variationer belyses det sätt på vilket moderna musikaliska uttrycksformer kontinuerligt omförhandlar sina interna strukturer och samtidigt tar del av globala kulturella strömmar. Den vetenskapliga diskursen kring indie-pop visar att musikaliska innovationer ofta är resultatet av en medveten strävan att utmana etablerade normer samtidigt som de anknyter till ett historiskt arv. I detta sammanhang fungerar subgenrerna som katalysatorer för att bryta ned gränser mellan tradition och nymodighet, vilket i sin tur möjliggör en ständigt pågående dialog om musikens roll i det samtida kulturuttrycket.
 
 Avslutningsvis framstår den internationella indie-popscenen som en arena där kulturella, teknologiska och ideologiska influenser samverkar för att skapa en varierad och dynamisk musikalisk verklighet. Den komplexa interaktionen mellan subgenrerna visar att den musikologiska utvecklingen inte enbart är en linjär process, utan en mångdimensionell resa där varje estetiskt uttryck både hämtar från det förflutna och blickar framåt mot framtida innovativa möjligheter.
 

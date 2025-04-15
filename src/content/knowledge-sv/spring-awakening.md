@@ -16,14 +16,13 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Inledningen av kategorin Spring Awakening inleds med en granskning av en kritisk period inom internationell musikhistoria, där konventionella uttrycksformer utmanades av nyskapande tolkningar. Under perioden, med rötter i slutet av 1960-talet och framträdande in i början av 1980-talet, manifesterades en dynamisk sammansmältning mellan traditionella harmoniska strukturer och experimentella ljudmassor. Denna evolution präglades av en ökad integration av ny musikteknologi, där exempelvis syntesmetoder bidrog till utvecklingen av unika soniska landskap. 
+Inledningen av kategorin Spring Awakening inleds med en granskning av en kritisk period inom internationell musikhistoria, där konventionella uttrycksformer utmanades av nyskapande tolkningar. Under perioden, med rötter i slutet av 1960-talet och framträdande in i början av 1980-talet, manifesterades en dynamisk sammansmältning mellan traditionella harmoniska strukturer och experimentella ljudmassor. Denna evolution präglades av en ökad integration av ny musikteknologi, där exempelvis syntesmetoder bidrog till utvecklingen av unika soniska landskap.
 
 Vidare ägnades särskild uppmärksamhet åt den akademiska diskursen kring musikalisk innovation, där kompositörer och utövande musiker från västvärlden reformerade tidigare normer genom sin experimentella ansats. Kombinationen av teknisk utveckling och estetisk sökande resulterade i ett paradigmskifte, vilket utgör en väsentlig aspekt av den internationella musikens moderna identitet. Detta fenomen illustrerar en fortlöpande strävan efter att överskrida och omdefiniera etablerade musikaliska gränser.
 

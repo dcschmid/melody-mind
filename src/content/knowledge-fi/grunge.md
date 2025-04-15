@@ -16,14 +16,13 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Grunge on kansainvälisesti merkittävä ilmiö, joka nousi 1980-luvun loppupuolella Yhdysvaltain Seattle‐alueella. Genren tunnusmerkkeihin kuuluvat häiriötekijöiden käyttö kitarasoinnissa, rinnakkaisen melodian ja rytmimallien kehitys sekä sanoituksissa ilmenevä eksistentiaalinen pohdinta. Musiikillisessa analyysissä korostuvat progressiivisen harmonian ja epäkonventionaalisten sointukulkujen tutkimus, mikä erottaa grungen perinteisestä rockmusiikista. 
+Grunge on kansainvälisesti merkittävä ilmiö, joka nousi 1980-luvun loppupuolella Yhdysvaltain Seattle‐alueella. Genren tunnusmerkkeihin kuuluvat häiriötekijöiden käyttö kitarasoinnissa, rinnakkaisen melodian ja rytmimallien kehitys sekä sanoituksissa ilmenevä eksistentiaalinen pohdinta. Musiikillisessa analyysissä korostuvat progressiivisen harmonian ja epäkonventionaalisten sointukulkujen tutkimus, mikä erottaa grungen perinteisestä rockmusiikista.
 
 Edelleen grunge heijastaa laajempia kulttuurihistoriallisia virtauksia, sillä se syntyi vastakulttuuristen ilmiöiden ja yhteiskunnallisten ristiriitojen keskellä. Alkuvaiheen yhtyeet hyödyntivät studioteknologian kehittymistä, mutta säilyttivät autenttisuuden ja analogisen äänimaailman vivahteet. Näin ollen genren kehitystä tulee tarkastella sekä musiikillisen ilmaisun että yhteiskunnallisen kontekstin näkökulmasta.
 

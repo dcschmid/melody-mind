@@ -17,10 +17,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -170,9 +169,9 @@ Avslutningsvis är det väsentligt att betona hur de teknologiska innovationer s
 
 ## Legacy and Influence
 
-Legacy and Influence inom kategorin synth-pop utgör ett centralt kapitel i studiet av samtida populärmusik, där de teknologiska innovationerna har haft genomgripande effekter på både musikproduktion och kulturella uttrycksformer. Framväxten av elektroniska klanger och syntetiska texturer under 1970- och 1980-talen innebar en revolution för det musikaliska landskapet, vilket tidigare generationer inte kunnat föreställa sig. I denna kontext kan man identifiera en tydlig koppling till de tekniska framsteg som möjliggjorde en ny era av ljudexperiment, där analog och digital syntesteknik tillsammans med automatiserade trummaskiner bidrog till att definiera en ny musikstil. Dessutom har den internationella spridningen resulterat i en mångfacetterad och global dialog kring musikaliska uttryck, där innovativa aktörer har omvandlat de traditionella produktionsmetoderna. 
+Legacy and Influence inom kategorin synth-pop utgör ett centralt kapitel i studiet av samtida populärmusik, där de teknologiska innovationerna har haft genomgripande effekter på både musikproduktion och kulturella uttrycksformer. Framväxten av elektroniska klanger och syntetiska texturer under 1970- och 1980-talen innebar en revolution för det musikaliska landskapet, vilket tidigare generationer inte kunnat föreställa sig. I denna kontext kan man identifiera en tydlig koppling till de tekniska framsteg som möjliggjorde en ny era av ljudexperiment, där analog och digital syntesteknik tillsammans med automatiserade trummaskiner bidrog till att definiera en ny musikstil. Dessutom har den internationella spridningen resulterat i en mångfacetterad och global dialog kring musikaliska uttryck, där innovativa aktörer har omvandlat de traditionella produktionsmetoderna.
 
-Vidare utmärker sig den internationella synth-popens påverkan genom dess utmaning av etablerade genregränser, vilket lett till en ökad acceptans för experimentella former i den bredare populärkulturen. Flera banbrytande artister och band, verksamma under den aktuella perioden, har genom sina verk introducerat avancerade ljudidéer och produktionstekniker. Genom att integrera ny teknologi har dessa utövare lyckats skapa musikaliska landskap som både är konceptuellt innovativa och estetiskt sammanhängande. Genom att analysera verkens strukturella aspekter framträder en tydlig insyn i hur harmoniska och rytmiska element bearbetats för att generera en ny dimension av emotionell och intellektuell resonans. 
+Vidare utmärker sig den internationella synth-popens påverkan genom dess utmaning av etablerade genregränser, vilket lett till en ökad acceptans för experimentella former i den bredare populärkulturen. Flera banbrytande artister och band, verksamma under den aktuella perioden, har genom sina verk introducerat avancerade ljudidéer och produktionstekniker. Genom att integrera ny teknologi har dessa utövare lyckats skapa musikaliska landskap som både är konceptuellt innovativa och estetiskt sammanhängande. Genom att analysera verkens strukturella aspekter framträder en tydlig insyn i hur harmoniska och rytmiska element bearbetats för att generera en ny dimension av emotionell och intellektuell resonans.
 
 Historiskt sett har synth-pop också bidragit till en omdefiniering av bildspråk och visuella uttryckssätt inom musikkonsten, där scenframträdanden ofta återspeglade den teknologins estetiska ideal. Samtidigt har dessa visuella komponenter fungerat som symboler för en modernitet som utmanade konventionella kulturella normer. Den internationella karaktären av synth-pop möjliggjorde vidare spridning av idéerna via radiokanaler, musiktidningar och senare digitala plattformar, vilket underlättade en interkulturell utbyte mellan olika musiktraditioner. Med tanke på den tidsmässiga kontexten är det väsentligt att notera att den tekniska förnyelsen inte enbart berodde på slumpmässiga experiment utan var ett medvetet svar på den samtidens efterfrågan på nyskapande uttrycksformer.
 

@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -198,6 +197,6 @@ Ao aprofundar a análise, evidencia-se que o Mandopop desempenhou um papel ambiv
 
 Ademais, a importância do Mandopop na construção e difusão de narrativas identitárias não pode ser descurada. Conforme enfatizam acadêmicos como Chang (1998) e Huang (2003), a música pop em mandarim assumiu um protagonismo que ultrapassa os limites da esfera privada e adentra o universo público, ao fomentar um sentimento coletivo de pertencimento e/densificação cultural. Essa dinâmica legislada pelo campo da produção midiática e pelo discurso cultural expressa não somente uma estética singular, mas atua como interlocutora de uma herança imaterial que fortalece as raízes históricas e identitárias dos povos chineses. Tal fenômeno é corroborado por pesquisas que elucidam como a narrativa do Mandopop reflete as transformações sociais ocorridas em períodos de transição, significando, portanto, uma herança que se perpetua através das gerações.
 
-Em suma, o Mandopop representa uma interface complexa entre tradição e modernidade, cujo legado e influência se manifestam tanto na reconfiguração de práticas musicais quanto na consolidação de uma identidade cultural robusta e dinâmica. Através da incorporação de inovações tecnológicas e do diálogo constante com tendências globais, este gênero permaneceu relevante ao mesmo tempo em que cumpriu a função simbólica de um emblema identitário para diversas comunidades chinesas. Dessa forma, a análise acadêmica do Mandopop revela uma trajetória rica e multifacetada, que evidencia a importância de se compreender a música não apenas como um objeto artístico, mas como um agente transformador na construção das narrativas culturais contemporâneas. 
+Em suma, o Mandopop representa uma interface complexa entre tradição e modernidade, cujo legado e influência se manifestam tanto na reconfiguração de práticas musicais quanto na consolidação de uma identidade cultural robusta e dinâmica. Através da incorporação de inovações tecnológicas e do diálogo constante com tendências globais, este gênero permaneceu relevante ao mesmo tempo em que cumpriu a função simbólica de um emblema identitário para diversas comunidades chinesas. Dessa forma, a análise acadêmica do Mandopop revela uma trajetória rica e multifacetada, que evidencia a importância de se compreender a música não apenas como um objeto artístico, mas como um agente transformador na construção das narrativas culturais contemporâneas.
 
 Contagem de caracteres: 5358.

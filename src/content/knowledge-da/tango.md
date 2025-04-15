@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -96,7 +95,7 @@ En af de mest betydningsfulde skikkelser i tangohistorien er Carlos Gardel, hvis
 
 En anden central skikkelse er Aníbal Troilo, som i perioden mellem 1930 og 1960 repræsenterede en guldalder for instrumental tango. Troilos innovative tilgang til bandoneonens muligheder og hans evne til at udnytte den komplekse polyfoniske struktur i tangoens kompositioner har haft en vedvarende betydning. Hans værker var præget af en dyb følelsesmæssig resonans, hvilket gjorde hans arrangementer både teknisk udfordrende og følelsesmæssigt rørende. Troilos arbejde indeholder en klar integration af improvisation og streng kompositorisk forberedelse, hvilket gør hans partiture til et studieobjekt også for den akademiske musikforskning. Han forfinede balancen mellem de traditionelle rytmiske elementer og den ekspressive dynamik, som karakteriserer tangoen, og hans samarbejde med prominente sangere og orkestre har skabt en bro mellem de populære og de mere eksperimentelle udtryk inden for genren.
 
-Astor Piazzolla er uden tvivl en af de mest kontroversielle, men også nyskabende figurer, der radikalt omdefinerede tangoen med sin introduktion af "nuevo tango". I modsætning til de traditionelle og ofte sentimentale træk, der kendetegnede ældre tangoværker, fusionerede Piazzolla traditionelle rytmikker med elementer fra klassisk musik og jazz. Dette resulterede i værker med en mere kompleks harmonik og en udvidet instrumentering, hvor brugen af elektriske instrumenter og utraditionelle klangfarver indgik naturligt. Hans kompositioner, såsom "Libertango" og "Adiós Nonino", repræsenterer en revolution inden for tangoens sprog og har haft en vedvarende indflydelse ikke kun på genrens udvikling, men også på opfattelsen af, hvordan moderne musikalske traditioner kan transformeres. Piazzollas tilgang udfordrede både musikalske og kulturelle normer og skabte en platform for en mere eksperimentel udforskning af tangos musikalske potentiale. 
+Astor Piazzolla er uden tvivl en af de mest kontroversielle, men også nyskabende figurer, der radikalt omdefinerede tangoen med sin introduktion af "nuevo tango". I modsætning til de traditionelle og ofte sentimentale træk, der kendetegnede ældre tangoværker, fusionerede Piazzolla traditionelle rytmikker med elementer fra klassisk musik og jazz. Dette resulterede i værker med en mere kompleks harmonik og en udvidet instrumentering, hvor brugen af elektriske instrumenter og utraditionelle klangfarver indgik naturligt. Hans kompositioner, såsom "Libertango" og "Adiós Nonino", repræsenterer en revolution inden for tangoens sprog og har haft en vedvarende indflydelse ikke kun på genrens udvikling, men også på opfattelsen af, hvordan moderne musikalske traditioner kan transformeres. Piazzollas tilgang udfordrede både musikalske og kulturelle normer og skabte en platform for en mere eksperimentel udforskning af tangos musikalske potentiale.
 
 Det er også relevant at nævne de instrumentale innovationer, som blandt andet bandoneonens udvikling har medført. Dette instrument, som har sin oprindelse i det 19. århundrede, opnåede en central rolle i tangoens musikalske tekstur og blev hurtigt et symbol på øens melankoli og passion. Kunstnere som Roena de Belen og andre virtuoser demonstrerede, hvordan bandoneonens ekspressive fæller og staccato-linjer kunne understøtte både melodisk og rytmisk kompleksitet i et ensemble. Samspillet mellem instrumenterne, herunder kontrabasen, klaveret og strygerelementerne, skabte en rig palet af kontraster, som tilføjede tangoen en lyrisk dybde og harmonisk kompleksitet.
 

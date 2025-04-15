@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -194,6 +193,6 @@ Samtidig har den kritiske og teoretiske diskurs om synth-pop været central for 
 
 Historisk set fremstår synth-pop ikke blot som en musikalsk revolution, men også som et kulturelt fænomen, der afspejler en bredere tendens mod individualisering og teknologisk modernitet. I takt med at genren spreder sig globalt, kan man observere et vedvarende engagement i at videreudvikle dens musikalske sprog. I flere europæiske og nordamerikanske lande blev denne udvikling yderligere understøttet af et kulturelt miljø, præget af en stærk interesse for avantgardistiske udtryk og eksperimentelle tilgange til kunstnerisk skabelse. Denne kulturelle dynamik har tilmed inspireret senere generationer af musikere til at udforske grænserne for, hvad elektronisk musik kan udtrykke, både æstetisk og konceptuelt.
 
-Afslutningsvis er det vigtigt at understrege, at synth-pop har haft en uudslettelig indflydelse på international musikkultur. Gennem sin evne til at omfavne og integrere nye teknologier har genren givet anledning til en æra, hvor musikalsk eksperimentation og kommerciel succes ikke var gensidigt uforenelige. Den transformative effekt af synthesizere og elektroniske instrumenter har redefineret image, performance og produktion inden for populærmusik og fortsætter med at understøtte udviklingen af samtidsmusik. Samtlige disse faktorer udgør tilsammen en solid arv, som fortsat influerer den globale musikalske scene og rækker langt ud over den oprindelige kontekst, hvor synth-pop opstod.  
+Afslutningsvis er det vigtigt at understrege, at synth-pop har haft en uudslettelig indflydelse på international musikkultur. Gennem sin evne til at omfavne og integrere nye teknologier har genren givet anledning til en æra, hvor musikalsk eksperimentation og kommerciel succes ikke var gensidigt uforenelige. Den transformative effekt af synthesizere og elektroniske instrumenter har redefineret image, performance og produktion inden for populærmusik og fortsætter med at understøtte udviklingen af samtidsmusik. Samtlige disse faktorer udgør tilsammen en solid arv, som fortsat influerer den globale musikalske scene og rækker langt ud over den oprindelige kontekst, hvor synth-pop opstod.
 
 Denne vedvarende relevans illustrerer den transformative kapacitet ved musikalsk innovation og understreger betydningen af at betragte kulturelle og teknologiske skift som gensidigt forstærkende i deres indflydelse på musikkens udvikling. Gennem denne sindrige kombination af æstetik og teknik fortsætter synth-pop med at inspirere til nye fortolkninger og videreudviklinger, hvilket bidrager til en rig og mangfoldig musikalsk arv, der nu og i fremtiden vil blive belyst i både akademiske og kulturelle diskurser.

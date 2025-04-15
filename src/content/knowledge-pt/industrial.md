@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -151,7 +150,7 @@ Ademais, a análise da performance na música industrial revela uma profunda con
 
 Em síntese, a performance e a cultura ao vivo no cenário da música industrial constituem uma dimensão crucial para a compreensão das estratégias artísticas de crítica social e política. A convergência entre tecnologia, performance cênica e dispositivos simbólicos permite que os artistas deste gênero reiterem a importância do espetáculo como forma de resistência e renovação estética. Tal perspectiva é corroborada por uma abordagem teórica que reconhece a complexidade semiótica e a multifuncionalidade dos eventos ao vivo, nos quais cada elemento performático contribui para a reinterpretação dos códigos da modernidade. Consequentemente, a estética industrial não se limita à proposição musical, mas se expande para um campo de experimentações que desafiam os limites do espaço performático e estabelecem novas relações entre som, corpo e significado.
 
-A relevância histórico-cultural das execuções ao vivo na música industrial reside, portanto, na capacidade destes espetáculos de transcender as fronteiras do esteticismo convencional, propiciando experiências que interrogam e reformulam as estruturas sociais. O diálogo entre o insólito e o tecnológico, aliado à crítica dos mecanismos de produção e consumo, torna evidente que a performance industrial se configura como manifestação artística de elevada densidade simbólica e teórica. Dessa maneira, a análise destas práticas ao vivo fornece subsídios fundamentais para uma compreensão abrangente dos processos de construção de identidade e resistência na contemporaneidade, reafirmando a importância dos espaços performáticos enquanto loci de transformação e subversão cultural. 
+A relevância histórico-cultural das execuções ao vivo na música industrial reside, portanto, na capacidade destes espetáculos de transcender as fronteiras do esteticismo convencional, propiciando experiências que interrogam e reformulam as estruturas sociais. O diálogo entre o insólito e o tecnológico, aliado à crítica dos mecanismos de produção e consumo, torna evidente que a performance industrial se configura como manifestação artística de elevada densidade simbólica e teórica. Dessa maneira, a análise destas práticas ao vivo fornece subsídios fundamentais para uma compreensão abrangente dos processos de construção de identidade e resistência na contemporaneidade, reafirmando a importância dos espaços performáticos enquanto loci de transformação e subversão cultural.
 
 Contagem de caracteres: 5359
 

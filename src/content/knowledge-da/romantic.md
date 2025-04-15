@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -184,7 +183,7 @@ Afslutningsvis må det understreges, at den romantiske musiks indvirkning på de
 
 I den romantiske periode, som strakte sig fra begyndelsen af det 19. århundrede frem til omkring år 1910, oplevede musikken en hidtil uset ekspansion af følelsesmæssig og formmæssig udtryksevne, hvilket i høj grad blev manifesteret i samtidens musikalske udtryk. Denne æra, der prægede den internationale musikscene, viste en markant bevægelse væk fra de strengere klassicismesynspunkter og mod en mere individuel og subjektiv fortolkning af musikkens potentiale. Det var en tid, hvor kompositionerne i stigende grad reflekterede kunstnerens eget sindstilstand og personlige oplevelser, hvilket blev tydeligt i de komplekse harmoniske strukturer og innovative orkestreringer, der karakteriserede samtidsudtrykkene.
 
-Med udgangspunkt i en international kontekst frembragte komponister som Frédéric Chopin, Franz Liszt, Hector Berlioz, Robert Schumann og Richard Wagner værker, der rummede en dybt forankret romantisk æstetik. Chopins klaverkompositioner, præget af en intim og melankolsk tone, udtrykte en personlig dialog, hvor den tekniske virtuositet gik hånd i hånd med en følelse af sårbarhed. Samtidig eksperimenterede Liszt med programmusik og symfoniske diklamationer, idet han formåede at skabe musik, der kunne omsætte fortællinger og stemninger til lydbilleder gennem innovative klangfarvekombinationer og dynamiske kontraster. Denne tendens blev desuden videreudviklet af Berlioz, hvis dramatiske og ekspressive værker skabte en helt ny opladning af den orkestrale forestillingsform. 
+Med udgangspunkt i en international kontekst frembragte komponister som Frédéric Chopin, Franz Liszt, Hector Berlioz, Robert Schumann og Richard Wagner værker, der rummede en dybt forankret romantisk æstetik. Chopins klaverkompositioner, præget af en intim og melankolsk tone, udtrykte en personlig dialog, hvor den tekniske virtuositet gik hånd i hånd med en følelse af sårbarhed. Samtidig eksperimenterede Liszt med programmusik og symfoniske diklamationer, idet han formåede at skabe musik, der kunne omsætte fortællinger og stemninger til lydbilleder gennem innovative klangfarvekombinationer og dynamiske kontraster. Denne tendens blev desuden videreudviklet af Berlioz, hvis dramatiske og ekspressive værker skabte en helt ny opladning af den orkestrale forestillingsform.
 
 I modsætning til tidligere tiders musikalske normativa blev den romantiske periode også kendetegnet ved en ny forståelse af musikkens dramaturgi. Komponisterne engagerede sig ofte i en intertekstuel dialog, hvor de trådte i kontakt med litteraturen og billedkunsten, hvilket førte til en gensidig inspirationsudveksling. Wagner introducerede for eksempel sin idé om musikdramaet, hvor musikkens symbolske kraft blev blandet med teaterkunstens narrative elementer. Hans anvendelse af leitmotivteknikken, som fungerer som et musikalsk kendetegn for bestemte karakterer eller motiver, skabte en dybdegående måde at forbinde musikalske temaer med den dramatiske fortælling. Dette markerede et betydeligt brud med tidligere konventioner, idet musikkens form nu blev et redskab til at understrege det narrative indhold, snarere end blot at akkompagnere det.
 

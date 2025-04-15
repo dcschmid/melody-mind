@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introdução
 
@@ -131,7 +130,7 @@ Com o advento da perestroika e, posteriormente, o colapso soviético em 1991, o 
 
 Atualmente, a indústria musical russa demonstra uma complexa interação entre legado e inovação. Por intermédio da manutenção de estruturas herdadas do período soviético e da incorporação de práticas contemporâneas, o setor tem se adaptado aos desafios impostos pela globalização e pela digitalização. Essa convivência dialética evidencia, entre outros elementos, a resiliência de uma tradição que, mesmo reconfigurada, mantém vínculos com seus alicerces históricos. Ademais, a arquitetura dos eventos musicais e a intervenção estatal em determinados momentos ainda se fazem presentes, evidenciando a persistência de um modelo que privilegia a difusão cultural de forma organizada e centralizada.
 
-Em síntese, a análise da indústria musical e de sua infraestrutura no contexto russo reflete um processo histórico complexo e multifacetado. A articulação entre políticas estatais, inovações tecnológicas e tradições culturais contribuiu para a construção de um sistema que, ao mesmo tempo em que operava mecanismos de controle ideológico, promovia a difusão de uma rica herança musical. A compreensão desse processo demanda uma abordagem que integre os aspectos técnicos, históricos e socioculturais, a fim de proporcionar uma avaliação holística e rigorosa da produção musical russa em suas diferentes fases de transformação. 
+Em síntese, a análise da indústria musical e de sua infraestrutura no contexto russo reflete um processo histórico complexo e multifacetado. A articulação entre políticas estatais, inovações tecnológicas e tradições culturais contribuiu para a construção de um sistema que, ao mesmo tempo em que operava mecanismos de controle ideológico, promovia a difusão de uma rica herança musical. A compreensão desse processo demanda uma abordagem que integre os aspectos técnicos, históricos e socioculturais, a fim de proporcionar uma avaliação holística e rigorosa da produção musical russa em suas diferentes fases de transformação.
 
 Contando rigorosamente, o presente texto alcança 5355 caracteres.
 
@@ -211,7 +210,7 @@ Total de caracteres: 5355
 
 ## Tendências atuais e futuro
 
-Na contemporaneidade, as tendências musicais russas revelam um dinamismo que articula a herança folclórica e a experimentação sonora, configurando um cenário singular de convergência entre tradição e modernidade. Esse movimento, impulsionado pela ampliação dos recursos tecnológicos digitais, tem permitido a emergência de produções inovadoras e a reconfiguração dos métodos de difusão musical, bem como o resgate crítico dos elementos advindos do legado soviético, impondo uma releitura que dialoga com o contexto social contemporâneo.  
+Na contemporaneidade, as tendências musicais russas revelam um dinamismo que articula a herança folclórica e a experimentação sonora, configurando um cenário singular de convergência entre tradição e modernidade. Esse movimento, impulsionado pela ampliação dos recursos tecnológicos digitais, tem permitido a emergência de produções inovadoras e a reconfiguração dos métodos de difusão musical, bem como o resgate crítico dos elementos advindos do legado soviético, impondo uma releitura que dialoga com o contexto social contemporâneo.
 
 Ademais, os artistas russos atuais demonstram uma capacidade ímpar de transitar entre a identidade cultural tradicional e as demandas de um mercado globalizado, evidenciando a complexa interação entre tecnologia e herança histórica. Assim, os estudos musicológicos têm abordado essa fenomenologia, postergando análises que projetam um futuro repleto de possibilidades, em que a música nacional se reinventa sem abandonar suas raízes.
 

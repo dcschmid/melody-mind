@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -174,7 +173,7 @@ De igual maneira, o fenômeno dos “ídolos” – jovens artistas amplamente d
 
 Posteriormente, na década de 1990, a ascensão de novos artistas e o amadurecimento dos processos criativos reforçaram a transição do J-Pop para um fenômeno de caráter internacional. Artistas contemporâneos, como Hikaru Utada e Ayumi Hamasaki, atuaram na interface entre o tradicional e o moderno, mesclando influências orientais e ocidentais em composições que transitavam com fluidez entre baladas, pop dançante e arranjos eletrônicos. Essa fase é marcante por uma intensificação da globalização, onde a indústria japonesa passa a adotar estratégias de exportação cultural, adaptando seus produtos às demandas de mercados estrangeiros sem desvirtuar a identidade nacional. Por conseguinte, o diálogo entre as tradições musicais nipônicas e as tendências internacionais fomenta uma reinterpretação constante dos elementos da cultura popular, refletindo a complexidade das relações entre o local e o global.
 
-Em síntese, o desenvolvimento e a evolução do J-Pop constituem um processo multifacetado, permeado por transformações tecnológicas, estratégicas e culturais que evidenciam a capacidade de adaptação da indústria musical japonesa. Em cada etapa desse percurso, observa-se a continuidade e a ruptura: continuidade na valorização de elementos da tradição cultural, e ruptura na incorporação de inovações que expandiram os horizontes interpretativos e comerciais da música. Assim, o estudo do J-Pop revela-se indispensável para uma compreensão aprofundada não somente das práticas musicais, mas também dos significados simbólicos atribuídos ao entretenimento e à identidade cultural no Japão contemporâneo. Conforme apontam autores como Morita (2001) e Yano (2007), esse diálogo entre passado e futuro é o que torna o J-Pop uma janela privilegiada para a análise da modernidade global. 
+Em síntese, o desenvolvimento e a evolução do J-Pop constituem um processo multifacetado, permeado por transformações tecnológicas, estratégicas e culturais que evidenciam a capacidade de adaptação da indústria musical japonesa. Em cada etapa desse percurso, observa-se a continuidade e a ruptura: continuidade na valorização de elementos da tradição cultural, e ruptura na incorporação de inovações que expandiram os horizontes interpretativos e comerciais da música. Assim, o estudo do J-Pop revela-se indispensável para uma compreensão aprofundada não somente das práticas musicais, mas também dos significados simbólicos atribuídos ao entretenimento e à identidade cultural no Japão contemporâneo. Conforme apontam autores como Morita (2001) e Yano (2007), esse diálogo entre passado e futuro é o que torna o J-Pop uma janela privilegiada para a análise da modernidade global.
 
 Contagem de caracteres: 5357
 

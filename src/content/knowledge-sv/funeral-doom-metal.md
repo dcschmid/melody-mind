@@ -16,14 +16,13 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Funeral Doom Metal är en distinkt undergenre inom heavy metal, vilken under tidigt 1990-tal utvecklades ur en internationell sammansmältning av traditionell doom metal och element av ambient musik. Genrens särprägel utmynnar i en extraordinärt långsam takt, minimala melodiska variationer och en genomgripande atmosfär där förlängda, repetitiva gitarriff samspelar med trumma vilket skapar en känsla av fördröjd tid och existentiell reflektion. 
+Funeral Doom Metal är en distinkt undergenre inom heavy metal, vilken under tidigt 1990-tal utvecklades ur en internationell sammansmältning av traditionell doom metal och element av ambient musik. Genrens särprägel utmynnar i en extraordinärt långsam takt, minimala melodiska variationer och en genomgripande atmosfär där förlängda, repetitiva gitarriff samspelar med trumma vilket skapar en känsla av fördröjd tid och existentiell reflektion.
 
 Musikteoretiskt präglas konsten av ett exploaterande användande av dova, ofta lågt stämda tonarter, vilket tillåter en djupgående forskning av ljudlandskapets möjligheter. Teknologiska innovationer under 1990-talets senare etapp möjliggjorde en ytterligare förstärkning av den dynamiska rymden, och den internationella spridningen bidrog till att genren etablerades som en betydelsefull konstnärlig riktning. Vidare samverkar kulturella och samhälleliga influenser med generaontologiska diskurser, vilket resulterar i en komplex och tidlös estetik.
 

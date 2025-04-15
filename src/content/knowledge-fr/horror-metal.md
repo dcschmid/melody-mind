@@ -17,14 +17,13 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-L’Horror Metal constitue un sous-genre musical apparu à la fin des années 1980, imprégné d’une esthétique macabre et théâtrale. S’inscrivant dans la continuité du heavy metal traditionnel, il intègre des éléments d’esthétique gothique tout en explorant des thématiques cinématographiques et littéraires liées aux récits d’horreur. Ce mouvement, dont les premières manifestations se développent en Allemagne et au Royaume-Uni, se déploie dans un contexte de profonds bouleversements culturels et sociaux. 
+L’Horror Metal constitue un sous-genre musical apparu à la fin des années 1980, imprégné d’une esthétique macabre et théâtrale. S’inscrivant dans la continuité du heavy metal traditionnel, il intègre des éléments d’esthétique gothique tout en explorant des thématiques cinématographiques et littéraires liées aux récits d’horreur. Ce mouvement, dont les premières manifestations se développent en Allemagne et au Royaume-Uni, se déploie dans un contexte de profonds bouleversements culturels et sociaux.
 
 La complexité de ses structures harmoniques, associée à l’usage de sonorités dissonantes et de techniques instrumentales innovantes, reflète une volonté d’explorer l’obscurité de l’inconscient collectif. Par ailleurs, la mise en scène théâtrale et la virtuosité des interprétations confèrent au genre une dimension narrative particulièrement aboutie, faisant de l’Horror Metal un objet d’étude incontournable pour la musicologie contemporaine.
 

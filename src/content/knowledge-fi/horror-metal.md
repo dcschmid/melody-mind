@@ -15,10 +15,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -32,7 +31,7 @@ Horror Metal -alagenren historiallinen kehitys voidaan jäljittää 1970-luvun l
 
 Ensimmäiset merkit genren itsenäistymisestä ilmestyivät 1980-luvun alkupuolella Euroopassa. Pohjoismaiden metalliskeneillä, erityisesti Tanskassa ja Ruotsissa, muodostui alustoja, joissa horror metalin estetiikka alkoi saada muotonsa. Näiden maiden yhtyeet hyödyntivät aikanaan sattuneita vaikutteita sekä klassisesta kotimaisesta tarinankerronnasta että kansainvälisestä kauhuelokuvien kentästä. Amerikkalaisessa metallimaisemassa romantisoitu synkkyys ja arvoituksellisuus alkoivat ilmetä järkevästi myös Googlen helposti saataville sitä vastoin kehitetyn melodisen raskasmetallin rinnalla. Näissä vaiheissa syntyi edellytykset musiikkiteoreettisesti monipuoliselle ja sisällöltään syvälliselle genrelle, joka yhdistää sekä sävellysteknisesti että lyriikoiden niveauilta kammottavan kauhun elementtejä.
 
-Tärkeä kehitysvaihe koetti 1980-luvun puolivälissä, jolloin artistien pyrkimys erottautua valtavirtamusiikista ilmeni rohkeina ei-konventionaalisina valintoina sekä instrumentaalisessa ilmaisussa että lavastuksessa. Tällaiset yhtyeet hyödynsivät teatraalisia elementtejä lavalla, minkä seurauksena esiintyjien pukeutumisessa ja visuaalisessa esityksessä korostuivat goottilaiset ja vampyyristiset motiivit. Musiikillisesti tämä ilmenemismuoto painotti usein moniäänistä kitarasovitusta, monimutkaisia rytmikaavioita sekä synkkyyttä korostavia äänikuvia. Tässä vaiheessa koneistotekniikan ja äänitysstudioiden kehitys mahdollisti uudenlaisten tuotekonseptien toteuttamisen, sillä ääniteknologian innovaatioiden myötä pimeys ja kauhun tunnelma voitiin äänittää entistä autenttisemmin. Erityisen merkittävä kehitysaskel oli digitaalisen äänitekniikan ja jälkikäsittelyn yleistyminen, mikä mahdollisti moniulotteisen äänimaailman rakentamisen. 
+Tärkeä kehitysvaihe koetti 1980-luvun puolivälissä, jolloin artistien pyrkimys erottautua valtavirtamusiikista ilmeni rohkeina ei-konventionaalisina valintoina sekä instrumentaalisessa ilmaisussa että lavastuksessa. Tällaiset yhtyeet hyödynsivät teatraalisia elementtejä lavalla, minkä seurauksena esiintyjien pukeutumisessa ja visuaalisessa esityksessä korostuivat goottilaiset ja vampyyristiset motiivit. Musiikillisesti tämä ilmenemismuoto painotti usein moniäänistä kitarasovitusta, monimutkaisia rytmikaavioita sekä synkkyyttä korostavia äänikuvia. Tässä vaiheessa koneistotekniikan ja äänitysstudioiden kehitys mahdollisti uudenlaisten tuotekonseptien toteuttamisen, sillä ääniteknologian innovaatioiden myötä pimeys ja kauhun tunnelma voitiin äänittää entistä autenttisemmin. Erityisen merkittävä kehitysaskel oli digitaalisen äänitekniikan ja jälkikäsittelyn yleistyminen, mikä mahdollisti moniulotteisen äänimaailman rakentamisen.
 
 Horror Metalin teemoja on muovanneet myös kirjallisuuden ja elokuvataiteen vaikutteet, joiden juuret ulottuvat kauhugenren klassikoihin. Tässä suhteessa kirjailijoiden kuten Edgar Allan Poon ja H. P. Lovecraftin teokset ovat synnyttäneet ikonisia motiiveja, joista myöhemmät bändit ovat ammentaneet inspiraatiota. Samoin kansainvälisesti menestyneet kauhuelokuvit tuotettiin 1970-luvulla, jolloin niiden visuaalinen ja kerronnallinen kerronta loi pohjaa uudenlaisen subkulttuurin kehittymiselle. Elokuvataiteen realistiset ja usein groteskit esitystavat sekä niiden kyky herättää psykologista jännitystä ja pelkoa toimivat vertaistodistuksena siihen, miten erikoistuneet metalliyhtyeet ovat pyrkineet tavoittamaan kuulijoissaan samankaltaisia tunnekokemuksia. Näin muodostui synteesi teatterillisista ja audiovisuaalisista vaikutteista, joka on edelleen genren määrittäminenä keskeisessä asemassa.
 

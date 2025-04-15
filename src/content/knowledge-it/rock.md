@@ -16,16 +16,15 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
 La genesi del rock si configura come un processo evolutivo di grande complessità, in cui tradizioni musicali plurime si intrecciano in un percorso storico articolato. Le radici del genere affondano nel blues, nel country e nel rhythm and blues, prefigurando l’emergere di un’identità sonora nel secondo Novecento. I primi decenni hanno costituito un crogiolo di influenze, in cui le innovazioni tecniche e le trasformazioni socio-culturali hanno favorito il sorgere di un linguaggio musicale rivoluzionario.
 
-A partire dagli anni Sessanta, il fenomeno rock si estende a livello globale, grazie all’impulso innovativo di formazioni emblematiche quali i Beatles e i Rolling Stones, la cui attività ha integrato elementi transatlantici e sperimentazioni sonore. In aggiunta, il contesto sociopolitico dell’epoca ha permesso al rock di assumere una valenza simbolica, rendendolo strumento di critica e rinnovamento. 
+A partire dagli anni Sessanta, il fenomeno rock si estende a livello globale, grazie all’impulso innovativo di formazioni emblematiche quali i Beatles e i Rolling Stones, la cui attività ha integrato elementi transatlantici e sperimentazioni sonore. In aggiunta, il contesto sociopolitico dell’epoca ha permesso al rock di assumere una valenza simbolica, rendendolo strumento di critica e rinnovamento.
 
 Il presente studio si propone di esaminare, con un approccio multidisciplinare, le dinamiche evolutive alla base di tale linguaggio, evidenziando l’interazione tra radici tradizionali e innovazioni tecnologiche.
 

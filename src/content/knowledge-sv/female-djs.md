@@ -17,10 +17,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduktion
 
@@ -136,9 +135,9 @@ På så sätt kan kvinnliga DJs betraktas som både banbrytande innovatörer och
 
 ## Evolution och trender
 
-Den internationella utvecklingen av kvinnliga DJs utgör ett centralt ämne inom modern musikhistoria och visar på en komplex samverkan mellan teknologiska innovationer, sociala förändringar och musikaliska trender. Under 1970-talets discoera präglades scenen av en breddad publik, där kvinnliga artister i vissa sammanhang började utmana konventionella könsroller trots en övervägande mansdominerad miljö. Denna tid präglades av att vinylskivor och mixerbord utgjorde de primära teknologiska verktygen, vilka tillsammans med ett framväxande nattklubbsfenomen gav utrymme för kreativa uttryck. Likaså vart den kulturella kontexten avgörande, där discofenomenets demokratiserande kraft bidrog till att utmana traditionella normer, vilket bidrog till en ökad medvetenhet om genreöverskridande experiment. 
+Den internationella utvecklingen av kvinnliga DJs utgör ett centralt ämne inom modern musikhistoria och visar på en komplex samverkan mellan teknologiska innovationer, sociala förändringar och musikaliska trender. Under 1970-talets discoera präglades scenen av en breddad publik, där kvinnliga artister i vissa sammanhang började utmana konventionella könsroller trots en övervägande mansdominerad miljö. Denna tid präglades av att vinylskivor och mixerbord utgjorde de primära teknologiska verktygen, vilka tillsammans med ett framväxande nattklubbsfenomen gav utrymme för kreativa uttryck. Likaså vart den kulturella kontexten avgörande, där discofenomenets demokratiserande kraft bidrog till att utmana traditionella normer, vilket bidrog till en ökad medvetenhet om genreöverskridande experiment.
 
-Under 1980-talet intensifierades gränsöverskridandet inom elektronisk dansmusik, vilket medförde att kvinnliga DJs assimilerade nya teknologier såsom samplingsutrustning och tidiga former av digital sekvensering. Globaliseringen av dansmusikscenen gjorde att centrala musikaliska nav i Europa, såsom Berlin, London och Amsterdam, också började fungera som nav för kvinnliga DJs. Den ökade digitaliseringen möjliggjorde en simultan interaktion med strömmade ljudbilder och en mosaik av musikaliska influenser, där de tekniska rustningarna långsamt omvandlades från analoga till mer digitala plattformar. I kontrast till tidigare decennier förblev dock könsbaserade fördomar en bestående utmaning, vilken både förstärktes och ifrågasattes i takt med den ökade internationaliseringen inom musikvärlden. 
+Under 1980-talet intensifierades gränsöverskridandet inom elektronisk dansmusik, vilket medförde att kvinnliga DJs assimilerade nya teknologier såsom samplingsutrustning och tidiga former av digital sekvensering. Globaliseringen av dansmusikscenen gjorde att centrala musikaliska nav i Europa, såsom Berlin, London och Amsterdam, också började fungera som nav för kvinnliga DJs. Den ökade digitaliseringen möjliggjorde en simultan interaktion med strömmade ljudbilder och en mosaik av musikaliska influenser, där de tekniska rustningarna långsamt omvandlades från analoga till mer digitala plattformar. I kontrast till tidigare decennier förblev dock könsbaserade fördomar en bestående utmaning, vilken både förstärktes och ifrågasattes i takt med den ökade internationaliseringen inom musikvärlden.
 
 Under 1990-talet skedde en markant utveckling då ravekulturen och framväxten av teknon och housemusiken integrerade innovativa produktionstekniker samt inträdet av nya medier. I denna period började kvinnliga DJs att inte bara agera som utövande musiker utan även i roller som producenter och arrangörer, vilket i sin tur accentuerade de kreativa möjligheterna och utmaningarna. Det digitala skiftet tydliggjordes genom en övergång från vinyl till CD-baserade system, vilket medförde en ökad flexibilitet och exakthet i den live-musikaliska framställningen. Samtidigt markerade subkulturella rörelser och motkulturella evenemang som raves och underground-fester en plattform där kvinnor kunde utöva sin musikaliska identitet i en miljö fri från mainstreamens begränsningar. Den pågående teknologiska utvecklingen under detta årtionde bidrog således till en dynamisk parallax där performance och produktion går hand i hand med en aktiv ifrågasättande av rådande normer.
 

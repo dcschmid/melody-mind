@@ -17,10 +17,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -122,7 +121,7 @@ En outre, le recours systématique à des effets modulants constitue une autre d
 
 D’un point de vue instrumental, le psych-rock s’appuie sur l’intégration d’éléments provenant de diverses pratiques musicales. Par exemple, l’utilisation de l’orgue Hammond, dont la sonorité distincte confère une profondeur particulière aux ambiances, se combine souvent à des lignes de guitare volontairement saturées. De plus, l’incorporation de synthétiseurs analogiques, apparus dans leur configuration rudimentaire durant la fin des années 1960, participe à la création d’un univers sonore souvent décrit comme envoûtant et diffuse. Les capacités d’improvisation des interprètes, soutenues par l’utilisation de pédales de modulation ou de dispositifs de boucle, ont permis de redéfinir le rapport entre virtuosité instrumentale et expérience auditive collective.
 
-En complément, il convient de mentionner l’importance du rôle du studio d’enregistrement dans la structuration du son psychédélique. Les ingénieurs du son, à l’instar de figures renommées qui collaborèrent avec des groupes emblématiques, ont contribué à l’élaboration d’un vocabulaire technique propre à ce style. Par exemple, l’emploi d’enregistrements multi-canaux et la superposition de pistes ont offert une dimension spatialisée au son, permettant de reproduire en salle d’écoute une acoustique complexe et immersive. Il en résulte une architecture sonore qui transcende la simple performance instrumentale pour se convertir en une expérience quasi-cinématographique. 
+En complément, il convient de mentionner l’importance du rôle du studio d’enregistrement dans la structuration du son psychédélique. Les ingénieurs du son, à l’instar de figures renommées qui collaborèrent avec des groupes emblématiques, ont contribué à l’élaboration d’un vocabulaire technique propre à ce style. Par exemple, l’emploi d’enregistrements multi-canaux et la superposition de pistes ont offert une dimension spatialisée au son, permettant de reproduire en salle d’écoute une acoustique complexe et immersive. Il en résulte une architecture sonore qui transcende la simple performance instrumentale pour se convertir en une expérience quasi-cinématographique.
 
 Enfin, l'évolution technologique, en particulier le recours aux équipements analogiques, rappelle que le psych-rock trouve ses racines dans des innovations matérielles spécifiques à son époque. Les amplificateurs à lampes, prisés pour leur capacité à générer une saturation harmonieuse, et les dispositifs de modification de la bande magnétique, demeurent des références indispensables dans l’analyse technique du genre. En somme, la fusion entre matérialité technique et recherche esthétique illustre l’apport majeur de la technique dans la constitution et la perpétuation du psych-rock.
 

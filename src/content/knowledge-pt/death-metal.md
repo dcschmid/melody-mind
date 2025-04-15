@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -34,11 +33,11 @@ Total de caracteres: 1040
 
 ## Historical Background
 
-A emergência do death metal deve ser compreendida a partir de um contexto histórico que remonta à efervescência dos movimentos extremos do heavy metal nas décadas de 1980 e 1990. Inicialmente, os gêneros musicais que, de forma dissidente, romperam com as convenções estéticas do metal tradicional, contribuíram para a consolidação de uma estética sonora e performática agressiva. A manifestação do death metal deve ser analisada à luz dos processos culturais que envolveram a contracultura, o discurso de rebeldia e a crítica às normas estabelecidas, o que imergiu o estilo num cenário de buscada identidade musical e de contestação cultural.  
+A emergência do death metal deve ser compreendida a partir de um contexto histórico que remonta à efervescência dos movimentos extremos do heavy metal nas décadas de 1980 e 1990. Inicialmente, os gêneros musicais que, de forma dissidente, romperam com as convenções estéticas do metal tradicional, contribuíram para a consolidação de uma estética sonora e performática agressiva. A manifestação do death metal deve ser analisada à luz dos processos culturais que envolveram a contracultura, o discurso de rebeldia e a crítica às normas estabelecidas, o que imergiu o estilo num cenário de buscada identidade musical e de contestação cultural.
 
 O surgimento do death metal está intimamente associado ao desenvolvimento dos subgêneros extremos, como o thrash metal e o black metal, em que elementos de velocidade, agressividade e virtuosismo instrumental foram intensificados. Ademais, a pesquisa sobre os primórdios dessa vertente evidencia que bandas pioneiras norte-americanas contribuíram decisivamente para a definição de um estilo marcado por vocais guturais, riffs complexos e linhas de baixo densas, os quais se tornaram elementos centrais na estética musical. Estudos recentes enfatizam que a radicalidade das temáticas exploradas, frequentemente remetendo à morte, violência e escuridão, foi um mecanismo de afirmação identitária e de ruptura com os valores hegemônicos.
 
-Em paralelo com essa evolução sonora, a consolidação do death metal também esteve relacionada aos avanços tecnológicos e às transformações no processo produtivo musical. Com o advento da gravação digital e a maior disponibilidade de equipamentos de alta fidelidade, foi possível a produção de sonoridades mais densas e caóticas, que se afastaram da clareza sonora das produções convencionais. Assim, o aprimoramento técnico possibilitou aos músicos explorar texturas e paisagens sonoras inéditas, culminando em produções que refletiam a complexidade dos arranjos e a experimentação dos timbres extremos.  
+Em paralelo com essa evolução sonora, a consolidação do death metal também esteve relacionada aos avanços tecnológicos e às transformações no processo produtivo musical. Com o advento da gravação digital e a maior disponibilidade de equipamentos de alta fidelidade, foi possível a produção de sonoridades mais densas e caóticas, que se afastaram da clareza sonora das produções convencionais. Assim, o aprimoramento técnico possibilitou aos músicos explorar texturas e paisagens sonoras inéditas, culminando em produções que refletiam a complexidade dos arranjos e a experimentação dos timbres extremos.
 
 É imperativo ressaltar que a formação de núcleos sólidos dedicados ao death metal ocorreu inicialmente nos Estados Unidos, onde bandas como Possessed, cuja trajetória teve seu início em 1983, e Death, com o lançamento de Scream Bloody Gore em 1987, foram fundamentais na cristalização dos elementos característicos do estilo. A partir dessas iniciativas, os componentes teóricos e práticos do gênero foram disseminados de maneira progressiva, infligindo impacto não somente no cenário norte-americano, mas também provocando repercussão em contextos internacionais. Tais bandas não apenas contribuíram para a evolução musical, mas também estimularam debates acadêmicos e culturais sobre os limites da expressão artística e da violência simbólica nas letras e performances.
 

@@ -17,10 +17,9 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Einleitung
 
@@ -184,7 +183,7 @@ Zusammenfassend lässt sich feststellen, dass die Ausbildung und Förderung im B
 
 ## Internationale Verbindungen
 
-Die internationalen Verbindungen der französischen Musik markieren ein bedeutsames Kapitel in der kulturgeschichtlichen Entwicklung Europas. Bereits im späten 19. Jahrhundert, als Frankreich als ein Zentrum künstlerischer Innovation galt, wurde eine wechselseitige Beeinflussung zwischen nationalen und außereuropäischen Strömungen offensichtlich. Sowohl Komponisten als auch Interpreten suchten ihre Inspiration in fremden Klangwelten, wobei sie deren Besonderheiten in die eigene musikalische Ausdrucksweise integrierten. Diese transkulturellen Impulse trugen entscheidend dazu bei, den musikalischen Horizont Frankreichs kontinuierlich zu erweitern. 
+Die internationalen Verbindungen der französischen Musik markieren ein bedeutsames Kapitel in der kulturgeschichtlichen Entwicklung Europas. Bereits im späten 19. Jahrhundert, als Frankreich als ein Zentrum künstlerischer Innovation galt, wurde eine wechselseitige Beeinflussung zwischen nationalen und außereuropäischen Strömungen offensichtlich. Sowohl Komponisten als auch Interpreten suchten ihre Inspiration in fremden Klangwelten, wobei sie deren Besonderheiten in die eigene musikalische Ausdrucksweise integrierten. Diese transkulturellen Impulse trugen entscheidend dazu bei, den musikalischen Horizont Frankreichs kontinuierlich zu erweitern.
 
 Im frühen 20. Jahrhundert erlebte Frankreich durch den Einfluss amerikanischer Jazzmusiker eine fundamentale Erneuerung der musikalischen Ästhetik. Insbesondere in den Zentren des Pariser Nachtlebens wurden improvisatorische Elemente und rhythmische Akzente eingeführt, die sich in der Entwicklung eigener Jazzvarianten niederschlugen. Die Interaktion mit amerikanischen Musikern ermöglichte es, traditionelle französische Formen zu modernisieren, ohne dabei den unmittelbaren kulturellen Bezug zu verlieren. Ebenso boten diese interregionalen Begegnungen eine Plattform für einen intensiven Austausch von Ideen, der in zahlreichen Kollaborationen resultierte.
 

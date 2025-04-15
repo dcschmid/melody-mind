@@ -16,16 +16,15 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Johdanto kansainväliseen musiikkiin tarjoaa systemaattisen näkökulman globaalien kulttuurien vuorovaikutukseen, joka on muokannut musiikillista kehityskaarta vuosisatojen ajan. Antiikin, keskiajan ja renessanssin aikana syntyneiden teoreettisten painotusten lisäksi barokin monimutkaiset harmoniset rakenteet muodostavat perustan sittemmin kehittyville sävellystyyliasetelmille. 
+Johdanto kansainväliseen musiikkiin tarjoaa systemaattisen näkökulman globaalien kulttuurien vuorovaikutukseen, joka on muokannut musiikillista kehityskaarta vuosisatojen ajan. Antiikin, keskiajan ja renessanssin aikana syntyneiden teoreettisten painotusten lisäksi barokin monimutkaiset harmoniset rakenteet muodostavat perustan sittemmin kehittyville sävellystyyliasetelmille.
 
-Lisäksi eri mantereiden musiikkiperinteiden välinen tiedonvaihto on ollut ratkaisevaa musiikillisen evoluution kannalta. Esimerkiksi itämaisten rytmien ja melodisten kuvioiden sulautuminen eurooppalaisiin sävellyskäytäntöihin sai alkunsa 1800-luvun puolivälistä, jolloin teollistumisen ja kansainvälisten näyttelyiden myötä kulttuurienvälinen kontakti lisääntyi merkittävästi. 
+Lisäksi eri mantereiden musiikkiperinteiden välinen tiedonvaihto on ollut ratkaisevaa musiikillisen evoluution kannalta. Esimerkiksi itämaisten rytmien ja melodisten kuvioiden sulautuminen eurooppalaisiin sävellyskäytäntöihin sai alkunsa 1800-luvun puolivälistä, jolloin teollistumisen ja kansainvälisten näyttelyiden myötä kulttuurienvälinen kontakti lisääntyi merkittävästi.
 
 Lopuksi teknologisten innovaatioiden, kuten varhaisten äänityslaitteiden ja radiotekniikan, käyttöönotto 1900-luvun alussa vaikutti ratkaisevasti kansainvälisen musiikin levikkäisyyteen ja monimuotoisuuteen sekä tarjosi uusia tutkimusmenetelmiä ei-länsimaisen musiikin systemaattiselle analyysille.
 

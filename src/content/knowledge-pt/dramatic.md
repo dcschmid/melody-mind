@@ -17,14 +17,13 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Introdução à música dramática internacional revela o entrelaçamento de tradições estéticas e expressões teatrais, constituindo-se como campo de estudos semântico e historiográfico de relevância incontestável. A manifestação dramática, alicerçada em recursos harmônicos e melódicos, reflete os estados de espírito e os conflitos existenciais que marcaram períodos de intensas transformações culturais e tecnológicas. Compositores e intérpretes, imbuídos do anseio por transpor os limites formais, utilizaram dissonâncias e contrapontos para evocar o trágico e o sublime, articulando uma linguagem sonora capaz de dialogar com as raízes do teatro clássico. 
+Introdução à música dramática internacional revela o entrelaçamento de tradições estéticas e expressões teatrais, constituindo-se como campo de estudos semântico e historiográfico de relevância incontestável. A manifestação dramática, alicerçada em recursos harmônicos e melódicos, reflete os estados de espírito e os conflitos existenciais que marcaram períodos de intensas transformações culturais e tecnológicas. Compositores e intérpretes, imbuídos do anseio por transpor os limites formais, utilizaram dissonâncias e contrapontos para evocar o trágico e o sublime, articulando uma linguagem sonora capaz de dialogar com as raízes do teatro clássico.
 
 Ademais, a análise minuciosa dos elementos composicionais evidencia a convergência entre o legado histórico da tradição ocidental e as inovações próprias da modernidade. Neste sentido, investiga-se como a dialética entre o antigo e o contemporâneo fomenta uma expressividade que transcende os moldes convencionais, enfatizando a dimensão dramática como veículo de experiências culturais e estéticas.
 

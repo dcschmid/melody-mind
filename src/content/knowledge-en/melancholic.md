@@ -17,10 +17,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -194,6 +193,6 @@ In summation, the contemporary expressions of the melancholic genre epitomise an
 
 ## Conclusion
 
-In conclusion, the melancholic musical tradition stands as a profound testament to the enduring interplay between human introspection and artistic expression on an international scale. Rooted in medieval laments and further refined during the Renaissance and Romantic eras, this genre has continually evolved, drawing upon a rich heritage of modal harmonies and delicate counterpoint. Early European compositions, often performed in courtly and religious settings, exemplified the intricate emotional landscapes that later influenced global musical narratives. 
+In conclusion, the melancholic musical tradition stands as a profound testament to the enduring interplay between human introspection and artistic expression on an international scale. Rooted in medieval laments and further refined during the Renaissance and Romantic eras, this genre has continually evolved, drawing upon a rich heritage of modal harmonies and delicate counterpoint. Early European compositions, often performed in courtly and religious settings, exemplified the intricate emotional landscapes that later influenced global musical narratives.
 
 Moreover, as recording technology advanced during the twentieth century, melancholic music found renewed expression in diverse cultural contexts. Contemporary interpretations, informed by both historical lexicons and modern sensibilities, have ensured that the nuanced interplay of sorrow and beauty remains central to an international musical discourse, preserving a legacy that resonates across epochs and geographies.

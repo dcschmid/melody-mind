@@ -17,10 +17,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -140,7 +139,7 @@ Samenvattend kan gesteld worden dat death metal als muziekcategorie een intriger
 
 Performance en live-cultuur binnen de death metal vormen een complex en veelgelaagd fenomeen, dat in de internationale muziekscène sinds de jaren tachtig een bijzondere plaats inneemt. De live-uitingen kenmerken zich door een intensiteit en fysieke betrokkenheid die de muzikale ervaring ver buiten de opname-studio tilt. Deze intensiteit werd in de beginjaren al duidelijk zichtbaar bij bands als Death uit de Verenigde Staten, die een radicale breuk met eerdere heavy metaltradities voor ogen hadden. Tevens markeerden bands als Obituary en Morbid Angel een nieuw tijdperk waarin virtuositeit en theatraal spektakel gezamenlijk de kern van de performance vormden.
 
-De perceptie van de live performance in death metal is in sterke mate afhankelijk van de culturele en technologische context waarin deze vorm kreeg. In de beginperiode, waar versterkte geluidsinstallaties en opkomende lichttechnologieën een prominente rol speelden, werden concerten gekenmerkt door een rauwe en ongeslepen klank, die evenzeer de artistieke visie als de technische beperkingen weerspiegelde. De auditieve beleving werd hierbij versterkt door expliciete visuele elementen, waarvoor vaak gebruik werd gemaakt van theatrale kostuums, podiumdecors en projecties. Deze visuele en akoestische integratie droeg bij aan het creëren van een unieke atmosfeer, die de grenzen tussen muziek, performancekunst en ritueel vervaagde. 
+De perceptie van de live performance in death metal is in sterke mate afhankelijk van de culturele en technologische context waarin deze vorm kreeg. In de beginperiode, waar versterkte geluidsinstallaties en opkomende lichttechnologieën een prominente rol speelden, werden concerten gekenmerkt door een rauwe en ongeslepen klank, die evenzeer de artistieke visie als de technische beperkingen weerspiegelde. De auditieve beleving werd hierbij versterkt door expliciete visuele elementen, waarvoor vaak gebruik werd gemaakt van theatrale kostuums, podiumdecors en projecties. Deze visuele en akoestische integratie droeg bij aan het creëren van een unieke atmosfeer, die de grenzen tussen muziek, performancekunst en ritueel vervaagde.
 
 Bovendien speelt de internationale verspreiding van death metal een cruciale rol in de ontwikkeling van live-cultuur. In Europa, met name in Scandinavië en West-Europa, ontwikkelden bands tijdens de jaren negentig en begin jaren 2000 eigen performance-codes die zich onderscheidden van hun Amerikaanse tegenhangers. Europese bands werd vaak een meer gestructureerde podiumaanpak toegeschreven, waarbij de choreografie en de interactie met het publiek centraal stonden. Deze regionale variaties konden mede worden verklaard door de culturele assimilatie van elementen uit klassieke theatertradities en de verfijning van scène-esthetiek. Eveneens zorgde de ontwikkeling van gespecialiseerde concertzalen en metalfestivals voor een intensivering van de live-ervaring, waarin technologische innovaties als LED-verlichting en complexe geluidssystemen als essentiële instrumenten werden ingezet om de muzikale expressie te versterken.
 

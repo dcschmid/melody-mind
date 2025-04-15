@@ -17,18 +17,17 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-O Funeral Doom Metal caracteriza-se, sobretudo, pelo emprego de tempos deliberadamente lentos, produção sonora densa e atmosferas carregadas de melancolia. Surgido a partir das raízes do doom metal, este subgênero consolidou-se durante a década de 1990, com manifestações significativas na Europa e na América do Norte, onde o contexto cultural e tecnológico propiciou experimentações inovadoras nas técnicas de gravação. 
+O Funeral Doom Metal caracteriza-se, sobretudo, pelo emprego de tempos deliberadamente lentos, produção sonora densa e atmosferas carregadas de melancolia. Surgido a partir das raízes do doom metal, este subgênero consolidou-se durante a década de 1990, com manifestações significativas na Europa e na América do Norte, onde o contexto cultural e tecnológico propiciou experimentações inovadoras nas técnicas de gravação.
 
-Ademais, a estética do Funeral Doom Metal denuncia uma profunda intersecção entre práticas rituais e a musicalidade contemporânea, evidenciada na utilização de guitarras com distorções marcantes, linhas melódicas ornamentais e vocais etéreos, os quais se articulam para evocar uma sensação de inexorável fatalidade. 
+Ademais, a estética do Funeral Doom Metal denuncia uma profunda intersecção entre práticas rituais e a musicalidade contemporânea, evidenciada na utilização de guitarras com distorções marcantes, linhas melódicas ornamentais e vocais etéreos, os quais se articulam para evocar uma sensação de inexorável fatalidade.
 
-A partir de uma abordagem musicológica crítica, entende-se que o subgênero dialoga com correntes artísticas experimentais, corroborando a relevância de seus elementos simbólicos e sonoros na representação da efemeridade existencial. 
+A partir de uma abordagem musicológica crítica, entende-se que o subgênero dialoga com correntes artísticas experimentais, corroborando a relevância de seus elementos simbólicos e sonoros na representação da efemeridade existencial.
 
 Contagem de caracteres: 892
 

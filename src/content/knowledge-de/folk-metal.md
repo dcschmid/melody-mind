@@ -16,16 +16,15 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Folk Metal stellt eine hybride Musikrichtung dar, die Elemente traditioneller Volksmusik mit den dynamischen Strukturen des Heavy Metal verbindet. Die internationale Entstehung dieses Genres ist eng verknüpft mit der Entwicklung der Metal-Szene in den frühen 1990er Jahren. Dabei experimentierten Künstler mit der Integration folkloristischer Melodiestrukturen, modaler Harmonien und unkonventioneller Instrumentierungen. 
+Folk Metal stellt eine hybride Musikrichtung dar, die Elemente traditioneller Volksmusik mit den dynamischen Strukturen des Heavy Metal verbindet. Die internationale Entstehung dieses Genres ist eng verknüpft mit der Entwicklung der Metal-Szene in den frühen 1990er Jahren. Dabei experimentierten Künstler mit der Integration folkloristischer Melodiestrukturen, modaler Harmonien und unkonventioneller Instrumentierungen.
 
-Zudem werden regionaltypische Klänge und mittelalterliche Musiktraditionen in modernen Interpretationen wiederaufgenommen. Erste internationale Projekte, wie die britische Band Skyclad, trugen maßgeblich zur Definition des Genres bei. Mit dem Einsatz traditioneller Instrumente und rhythmischer Gestaltungsmuster gelingt es den Musikern, historische Klänge in zeitgenössische Klangwelten zu transformieren. 
+Zudem werden regionaltypische Klänge und mittelalterliche Musiktraditionen in modernen Interpretationen wiederaufgenommen. Erste internationale Projekte, wie die britische Band Skyclad, trugen maßgeblich zur Definition des Genres bei. Mit dem Einsatz traditioneller Instrumente und rhythmischer Gestaltungsmuster gelingt es den Musikern, historische Klänge in zeitgenössische Klangwelten zu transformieren.
 
 Darüber hinaus spiegelt Folk Metal einen kulturhistorischen Dialog zwischen Vergangenheit und Gegenwart wider, der sowohl die Bewahrung als auch die Neuerfindung musikalischer Traditionen zum Ziel hat. Die akribische Verbindung von archaischen Elementen und modernen Metal-Strukturen prägt die Identität dieses facettenreichen Genres.
 

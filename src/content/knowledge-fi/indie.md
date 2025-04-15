@@ -16,10 +16,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -219,6 +218,6 @@ Myös genrejen väliset rajat ovat hälvenneet indie-musiikissa, mikä on edist�
 
 Vastakohtana kaupallisen musiikkiteollisuuden homogeenisuudelle indie-musiikki on tarjonnut vaihtoehtoisen sekä esteettisesti että sosiaalisesti sitoutuneen narratiivin. Indie-musiikin ilmiö on tukenut myös kritiikistä saatua yhteiskunnallista keskustelua, jossa korostuvat pienemmän mittakaavan paikalliset tuotantomuodot ja globaali vastakkainen taloudellinen dynamiikka. Tällaiset näkökulmat ovat herättäneet huomattavaa akateemista mielenkiintoa, jolloin tutkimuksessa on pyritty selvittämään syvällisiä yhteyksiä taiteellisten tuotantorakenteiden ja kulttuuristen identiteettien välillä. Näin ollen indie-musiikki on muodostunut keskeiseksi ilmiöksi, jonka vaikutus näkyy niin maailmanlaajuisena kuin paikallisena kulttuurimuutoksena.
 
-Historiallisesti tarkasteltuna indie-musiikin perintö on jatkuvasti uudelleenmäärittyvä käsite, joka heijastaa taiteellisen lahjakkuuden, kokeellisuuden sekä itsenäisyyden vuorovaikutusta. Tämä ilmiö jatkaa kehittymistään osana globaalia kulttuurimaisemaa, jossa sen perusperiaatteet – omavaraisuus, liberaali taiteellinen ilmaisuvapaus ja jatkuva kokeilunhalu – säilyvät edelleen keskeisinä viitearvoina. Siten indie-musiikki edustaa merkittävää kulttuurista ilmiötä, jonka vaikutus heijastuu laajasti kansainväliseen musiikkipolitiikkaan ja taiteelliseen tuotantoon. 
+Historiallisesti tarkasteltuna indie-musiikin perintö on jatkuvasti uudelleenmäärittyvä käsite, joka heijastaa taiteellisen lahjakkuuden, kokeellisuuden sekä itsenäisyyden vuorovaikutusta. Tämä ilmiö jatkaa kehittymistään osana globaalia kulttuurimaisemaa, jossa sen perusperiaatteet – omavaraisuus, liberaali taiteellinen ilmaisuvapaus ja jatkuva kokeilunhalu – säilyvät edelleen keskeisinä viitearvoina. Siten indie-musiikki edustaa merkittävää kulttuurista ilmiötä, jonka vaikutus heijastuu laajasti kansainväliseen musiikkipolitiikkaan ja taiteelliseen tuotantoon.
 
 Lopuksi voidaan todeta, että indie-musiikin perinnöllä ja vaikutuksilla on laaja globaali ulottuvuus, joka motivoi sekä nykytaiteilijoita että akademista tutkimusta uusien pelikenttien kartoittamiseen. Tämä kehitys on kietoutunut yhteen ajan teknologisten ja yhteiskunnallisten muutosten kanssa, mikä tekee indie-musiikista ajattoman ja jatkuvasti uudistuvan ilmiön. Samalla indie on onnistunut säilyttämään alkuperäisen itsenäisen hengen tuoden samalla uusia näkökulmia sekä monipuolista kritiikkiä musiikin teoriaan ja käytäntöön.

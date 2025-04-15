@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -162,7 +161,7 @@ Em síntese, a abordagem das interpretações modernas de músicas associadas ao
 
 Por fim, destaca-se que a relevância do estudo das interpretações modernas transcende o caráter meramente festivo, assumindo um papel crucial na compreensão das manifestações culturais contemporâneas. O diálogo entre as dimensões afetiva, tecnológica e performática configura um campo fértil para investigações futuras, imprescindíveis para a elucidacão dos processos de significação e transformação das práticas musicais. Assim, a música do Dia dos Namorados, enquanto objeto de estudo, oferece contribuições significativas para o entendimento das complexas relações entre cultura, sociedade e tecnologia.
 
-Em conclusão, o panorama das interpretações modernas das canções de amor e das baladas românticas reflete uma confluência de tradições e inovações que, em última instância, promovem uma reinterpretação dos discursos afetivos. A análise aqui exposta fundamenta-se em uma perspectiva histórica rigorosa, que privilegia a conexão entre o desenvolvimento tecnológico, a performance interpretativa e a ressignificação cultural. Tal abordagem, ao integrar diversas dimensões teóricas, contribui de forma contundente para o enriquecimento do debate acadêmico acerca da música internacional na celebração dos afetos. 
+Em conclusão, o panorama das interpretações modernas das canções de amor e das baladas românticas reflete uma confluência de tradições e inovações que, em última instância, promovem uma reinterpretação dos discursos afetivos. A análise aqui exposta fundamenta-se em uma perspectiva histórica rigorosa, que privilegia a conexão entre o desenvolvimento tecnológico, a performance interpretativa e a ressignificação cultural. Tal abordagem, ao integrar diversas dimensões teóricas, contribui de forma contundente para o enriquecimento do debate acadêmico acerca da música internacional na celebração dos afetos.
 
 Contagem de caracteres: 5370
 
@@ -202,7 +201,7 @@ Contagem de caracteres: 5377
 
 ## Conclusion
 
-Na conclusão desta análise da influência musical associada ao Dia dos Namorados, evidencia-se a convergência entre manifestações culturais e inovações tecnológicas no processo de produção sonora. A intersecção dos discursos românticos e dos contextos históricos ressalta a complexidade subjacente às práticas artísticas internacionais, conforme corrobora a bibliografia especializada (cf. Almeida, 2010). 
+Na conclusão desta análise da influência musical associada ao Dia dos Namorados, evidencia-se a convergência entre manifestações culturais e inovações tecnológicas no processo de produção sonora. A intersecção dos discursos românticos e dos contextos históricos ressalta a complexidade subjacente às práticas artísticas internacionais, conforme corrobora a bibliografia especializada (cf. Almeida, 2010).
 
 Ademais, salienta-se que as composições alusivas ao amor se articulam em múltiplas dimensões, integrando elementos harmônicos e melódicos que refletem a interioridade das tradições musicais. Este diálogo entre tradição e modernidade revela nuances essenciais na construção de identidades culturais, demonstrando a perene relevância da música no imaginário social. Assim, a análise propicia uma visão abrangente e fundamentada dos processos de significação no âmbito musical.
 

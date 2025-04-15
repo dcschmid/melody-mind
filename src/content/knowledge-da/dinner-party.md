@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -30,7 +29,7 @@ Samtidig er det væsentligt at påpege, at implementeringen af tidlige optagetek
 
 ## Historical Background
 
-Historisk set har dørselskabets musikalske baggrund udviklet sig i tæt samspil med ændringer i sociale hierarkier, kulturelle idealer og teknologiske fremskridt. I den internationale musiktradition har middagsselskabets æstetik gennemgået markante transformationer, idet musikkens funktion har ændret sig fra at understøtte rituelle og ceremonielle begivenheder til at medvirke til intime sociale sammenkomster. Denne udvikling finder sine rødder i både europæiske hofmiljøer og lignende traditioner i andre dele af verden, hvor musikken altid har tjent som et vigtig redskab for at fremme kommunikation, identitet og fællesskab. 
+Historisk set har dørselskabets musikalske baggrund udviklet sig i tæt samspil med ændringer i sociale hierarkier, kulturelle idealer og teknologiske fremskridt. I den internationale musiktradition har middagsselskabets æstetik gennemgået markante transformationer, idet musikkens funktion har ændret sig fra at understøtte rituelle og ceremonielle begivenheder til at medvirke til intime sociale sammenkomster. Denne udvikling finder sine rødder i både europæiske hofmiljøer og lignende traditioner i andre dele af verden, hvor musikken altid har tjent som et vigtig redskab for at fremme kommunikation, identitet og fællesskab.
 
 I middelalderen og renæssancen fungerede festlige banketter og højtidelige middage som samlingspunkter, hvor dannede musikere fremførte kompositioner, der både understregede festens formelle karakter og den overdådige gæstfrihed. I adskillige europæiske kontekster var det almindeligt, at musikalske intermezzi blev indlagt mellem taler og måltider. De musikalske former, der blev benyttet, var ofte påvirket af den sakrale musiktradition, men med en tydelig stræben efter at integrere elementer af profan kunst med det æstetiske og intellektuelle. Desuden opstod der parallelle traditioner i Mellemøsten, hvor hofmusikken spillede en central rolle i de overdådige banketter, og udtrykte en lignende sammensmeltning af religiøse og verdslige elementer.
 

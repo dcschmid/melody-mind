@@ -17,10 +17,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduktion
 
@@ -30,7 +29,7 @@ Vidare har den teknologiska utvecklingen, exempelvis införandet av syntetiska l
 
 ## Historisk utveckling
 
-Historisk utveckling inom den internationella musikgenren R&B, med särskilt fokus på kvinnliga artisters framväxt, utgör ett betydelsefullt kapitel i musikhistorien. Redan under 1940- och 1950-talet framträdde afroamerikanska sångerskor som banade väg för en ny musikalisk estetik, där gospelens intensiva uttryck och bluesens rytmiska synkoperade figurer smälte samman med element från jazz och folkmusik. Dessa tidiga pionjärer lade grunden för en utveckling som kom att definiera en hel era, där kvinnliga R&B-divor kom att uppnå en central roll både i utformningen av musikaliska uttryck och i kamp mot rådande könsnormer. 
+Historisk utveckling inom den internationella musikgenren R&B, med särskilt fokus på kvinnliga artisters framväxt, utgör ett betydelsefullt kapitel i musikhistorien. Redan under 1940- och 1950-talet framträdde afroamerikanska sångerskor som banade väg för en ny musikalisk estetik, där gospelens intensiva uttryck och bluesens rytmiska synkoperade figurer smälte samman med element från jazz och folkmusik. Dessa tidiga pionjärer lade grunden för en utveckling som kom att definiera en hel era, där kvinnliga R&B-divor kom att uppnå en central roll både i utformningen av musikaliska uttryck och i kamp mot rådande könsnormer.
 
 Under 1960-talet nådde denna utveckling en ny höjd då medborgarrättsrörelsen och en bredare samhällelig medvetenhet om ras- och könsfrågor bidrog till att ge kvinnliga artister en plattform för att uttrycka politiska och emotionella dimensioner genom sin musik. Exempelvis manifesterades detta hos sångerskor som Aretha Franklin, vars kraftfulla tolkningar av soulmusik både speglade personliga erfarenheter och sociala omvälvningar. Franklin, ofta benämnd som "soulens drottning", kom att bli en symbol för självständighet och konstnärligt fackmannaskap genom sin noggranna användning av dynamik, frasering och känsloladdade vokala uttryck. Dessa musikaliska egenskaper studerades ingående i musikteoretiska sammanhang och analyserades ur ett perspektiv som kombinerade både harmonisk innovation och rytmisk komplexitet.
 
@@ -100,7 +99,7 @@ Sammanfattningsvis illustrerar framväxten och utvecklingen av internationella F
 
 ## Ikoniska album och låtar
 
-Ikoniska album och låtar inom kategorin Female R&B Divas utgör en central del av den internationella musikens utveckling under andra hälften av 1900-talet och in i 2000-talet. Dessa verk fungerar icke enbart som estetiska uttryck utan även som kulturella dokumentationer av samtidens sociala och politiska stämningar. Analysen av dessa album och låtar möjliggör därmed en djupare förståelse av hur musikaliska innovationer samverkade med samtida identitetsskapande processer, där kvinnliga artisters uttrycksformer framhölls som både subversiva och normkritiska. 
+Ikoniska album och låtar inom kategorin Female R&B Divas utgör en central del av den internationella musikens utveckling under andra hälften av 1900-talet och in i 2000-talet. Dessa verk fungerar icke enbart som estetiska uttryck utan även som kulturella dokumentationer av samtidens sociala och politiska stämningar. Analysen av dessa album och låtar möjliggör därmed en djupare förståelse av hur musikaliska innovationer samverkade med samtida identitetsskapande processer, där kvinnliga artisters uttrycksformer framhölls som både subversiva och normkritiska.
 
 De tidiga exemplen på ikoniska verk inom R&B, med inflytelserika artister såsom Aretha Franklin, utgör en viktig utgångspunkt för vidare utveckling. Franklin, vars röst och musikalitet kom att prägla en hel generation, var aktiv under 1960- och 1970-talen och bidrog med album där både gospelinfluenser och urban soul integrerades. Genom sin tolkning av så kallade standards i samtiden lyckades hon simultant utmana rådande könsnormer och etablera ett unikt musikaliskt idiom. Denna epok, där de tekniska möjligheterna med multitrackinspelningar och frigjord kreativitet tillät nya uttrycksformer, var fundamentet för den vidare utvecklingen inom R&B-genren.
 

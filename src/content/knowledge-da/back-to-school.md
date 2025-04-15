@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -34,7 +33,7 @@ I den internationale musikalske diskurs udgør og understøtter temaet "Back to 
 
 Historisk set har den internationale musikscene oplevet betydelige udviklinger, der afspejler skiftende kulturelle paradigmer i forbindelse med uddannelsesmæssige fornyelser. I Europa og Nordamerika repræsenterer oplysningstidens rationalisme og den efterfølgende romantiske æstetik en tidlig manifestation af den intellektuelle forbindelse mellem musik og læring. Den akademiske institution, hvor der i sin struktur allerede fremgik en systematisk tilgang til musikalsk dannelse, fungerede som en inkubator for både teoretiske og praktiske tilgange til musikken. Denne proces blev understøttet af en nyfunden interesse for antikkens idealer og en kritisk undersøgelse af musikens fundamentale strukturer, hvor begreber som tonalitet, modulationsprincipper og polyfoni fik en central plads i den europæiske musikteori.
 
-I det 20. århundrede bidrog internasjonal udveksling til en uddybning af musikkens pædagogiske funktioner i relation til den akademiske kalender. Efter Anden Verdenskrig foretog mange lande en grundig evaluering af kulturpolitiske prioriteringer, hvori musikkens rolle i opdragelse og dannelse ofte blev anset som essentiel. Med den teknologiske udviklings indtog radio- og senere tv-mediet nye metoder til distribution af musikalske værker, hvilket medførte en bredere tilgængelighed af både klassisk og populær musik i uddannelsessystemet. Denne demokratisering af musikalsk formidling understøttede den kulturelle diversifikation, som blev udnyttet i forbindelse med "Back to School"-initiativer, hvor elevens dannelse i høj grad blev forbundet med kulturel og æstetisk bevidsthed. 
+I det 20. århundrede bidrog internasjonal udveksling til en uddybning af musikkens pædagogiske funktioner i relation til den akademiske kalender. Efter Anden Verdenskrig foretog mange lande en grundig evaluering af kulturpolitiske prioriteringer, hvori musikkens rolle i opdragelse og dannelse ofte blev anset som essentiel. Med den teknologiske udviklings indtog radio- og senere tv-mediet nye metoder til distribution af musikalske værker, hvilket medførte en bredere tilgængelighed af både klassisk og populær musik i uddannelsessystemet. Denne demokratisering af musikalsk formidling understøttede den kulturelle diversifikation, som blev udnyttet i forbindelse med "Back to School"-initiativer, hvor elevens dannelse i høj grad blev forbundet med kulturel og æstetisk bevidsthed.
 
 Samtidig med den teknologiske udvikling i midten af det 20. århundrede erfarede den internationale musikalske kultur en fornyet interesse for nordiske og middelhavsbaserede musiktraditioner, som alle kom til udtryk i pædagogiske programmer på universiteter og konservatorier. Disse institution påtog sig en metodisk opgave i at documentere og videreformidle både ældre musiktraditioner og samtidige eksperimentelle tendenser. Denne bevægelse, præget af en omhyggelig redigering af repertoiret, lagde grundlaget for et tværfagligt samspil mellem musikalsk forskning, historie og kritisk teori. I denne kontekst anvendte man analytiske redskaber såsom harmonisk analyse, formevaluering og performativ kritisk diskurs, hvormed de enkelte musikværkers formål og deres pædagogiske relevans kunne klarlægges.
 
@@ -190,8 +189,8 @@ Sammenfattende understreger denne akademiske redegørelse, at en grundigt kurate
 
 ## Conclusion
 
-Afslutningsvis udgør den internationale musiks mangfoldighed og komplicerede udviklingsforløb et centralt emne i musikkategorien "Back to School". Den moderne musikvidenskab har gennem årtier fokuseret på at afdække, hvordan oplysningstidens kompositoriske principper og den romantiske periods ekspressive udtryk harmoniseres med teknologiske innovationer, herunder elektrificering af instrumenter og udvikling af transskriptionsmetoder. 
+Afslutningsvis udgør den internationale musiks mangfoldighed og komplicerede udviklingsforløb et centralt emne i musikkategorien "Back to School". Den moderne musikvidenskab har gennem årtier fokuseret på at afdække, hvordan oplysningstidens kompositoriske principper og den romantiske periods ekspressive udtryk harmoniseres med teknologiske innovationer, herunder elektrificering af instrumenter og udvikling af transskriptionsmetoder.
 
-Yderligere afspejler den historiske progression en tæt sammenhæng mellem teoretisk analyse og praktisk udførelse, hvor udtryksfulde melodilinjer og komplekse harmoniske strukturer danner grundlaget for musikalsk fornyelse. Denne udvikling understreger, at moderne musikpædagogik bygger på en dyb kulturel arv og systematisk empirisk forskning. 
+Yderligere afspejler den historiske progression en tæt sammenhæng mellem teoretisk analyse og praktisk udførelse, hvor udtryksfulde melodilinjer og komplekse harmoniske strukturer danner grundlaget for musikalsk fornyelse. Denne udvikling understreger, at moderne musikpædagogik bygger på en dyb kulturel arv og systematisk empirisk forskning.
 
 Samlet illustrerer den internationale musiks fænomenologi, at kontinuitet og fornyelse håndteres i et dynamisk samspil, hvilket beriger den akademiske diskurs og inspirerer til yderligere refleksion.

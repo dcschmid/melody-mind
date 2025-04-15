@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -34,7 +33,7 @@ Lastenlaulujen ja nuorison musiikillisen ilmaisun juuret ulottuvat kauas histori
 
 Varhaisen moderniin aikaan siirryttäessä, erityisesti 1700– ja 1800-luvuilla, lastenlaulut alkoivat saada myös virallista tukea kasvatus- ja koulutusjärjestelmissä. Valistusajattelun innoittamina varhaiset pedagogiset kokeilut yhdistivät musiikkia ja lasten kehitystä tavalla, joka puolestaan vahvisti lastenlaulujen asemaa osana kansallista kulttuuriperinnettä. Tämä kehitys johti siihen, että lastenlaulujen sisältöjä alettiin systemaattisesti dokumentoida ja analysoida, mikä synnytti ensimmäisiä metodologisia lähestymistapoja musiikkipedagogiikassa.
 
-Romantiikan ajanjaksolla, joka oli monien taiteenaloilla uudistuksen ja yksilöllisyyden korostamisen aikaa, myös lastenlaulujen tutkimus ja käyttö saivat uusia ulottuvuuksia. Tämä aika tunnetaan erityisesti siitä, että säveltäjät ja kulttuurivaikuttajat näkivät nuorison musiikillisen kasvun osana kokonaisvaltaista kulttuurista kehitystä. Musiikkiteoria ja sävellystekniikat, jotka ottivat vaikutteita kansanlauluperinteistä, auttoivat luomaan uusia nuoriso- ja lastenlaulujen muotoja, jotka myöhemmin omaksuttiin laajalti koulutussuunnitelmiin ja kansalliseen kulttuuripolitiikkaan. 
+Romantiikan ajanjaksolla, joka oli monien taiteenaloilla uudistuksen ja yksilöllisyyden korostamisen aikaa, myös lastenlaulujen tutkimus ja käyttö saivat uusia ulottuvuuksia. Tämä aika tunnetaan erityisesti siitä, että säveltäjät ja kulttuurivaikuttajat näkivät nuorison musiikillisen kasvun osana kokonaisvaltaista kulttuurista kehitystä. Musiikkiteoria ja sävellystekniikat, jotka ottivat vaikutteita kansanlauluperinteistä, auttoivat luomaan uusia nuoriso- ja lastenlaulujen muotoja, jotka myöhemmin omaksuttiin laajalti koulutussuunnitelmiin ja kansalliseen kulttuuripolitiikkaan.
 
 1900-luvun alussa teknologiset innovaatiot, kuten äänitystekniikan kehitys ja myöhemmin radio- ja televisiolähetykset, vaikuttivat merkittävästi lastenlaulujen levikkiin ja muokkaukseen. Äänilevyjen ja radiokanavien yleistyminen mahdollisti lastenlaulujen esittämisen laajemmalle yleisölle, minkä seurauksena lauluja alkoi käyttää myös kasvatusteknisissä kokeiluissa ja terveyden edistämisen ohjelmissa. Tällainen digitaalisten ja massamedian muutos loi edellytykset uusille sävellyksellisille muodoille, joissa perinteiset elementit yhdistyivät modernin median tarjoamiin mahdollisuuksiin.
 
@@ -142,7 +141,7 @@ Lastenmusiikin pedagogiset ominaisuudet ovat aina herättäneet runsaasti tietee
 
 Muodollisia tutkimuksia on syntynyt erityisesti 1900-luvun ensimmäisen puoliskon aikana, jolloin antropologit ja musikologit keskittyivät analysoimaan lasten lauluja niiden kieliopillisten ja soinnillisten elementtien kautta. Tällöin on havaittu, että vaikka lasten rytmit ja sävelkulut ovat usein yksinkertaisia, niiden rakenteelliset ominaisuudet ovat merkittävästi yhteydessä alueellisiin musiikillisiin traditioihin. Euroopan kansanmusiikki on tarjonnut lukuisia esimerkkejä siitä, kuinka alueelliset identiteetit ovat muotoutuneet laajempien kulttuuristen virtauksien seurauksena, kun taas toisilla mantereilla, esimerkiksi Afrikassa ja Aasiassa, laulu on ollut keskeinen keino siirtää kolmiulotteista tietoa ja arvoja perheen ja yhteisön kesken.
 
-Lisäksi on huomionarvoista, että lasten musiikkia on usein hyödynnetty osana laajempaa sosiaalista rakenteita, joissa musikaalisuus on ladattu semanttisia merkityksiä koskien kasvatusta ja moraalista ohjausta. Tällaisessa kulttuurisessa kontekstissa kehtolaulujen ja leikkilaulujen kerronnallinen rakenne on tarjonnut ymmärrettävän rakenteen, joka ohjaa lapsia matemaattisten suhteiden ja kielellisen rytmin avulla. Samalla musiikilliset elementit, kuten tempo, melodia ja harmonia, ovat toimineet sekä emotionaalisten että kognitiivisten prosessien synnyttäjinä, jotka edesauttavat lapsen kokonaisvaltaista kehitystä. 
+Lisäksi on huomionarvoista, että lasten musiikkia on usein hyödynnetty osana laajempaa sosiaalista rakenteita, joissa musikaalisuus on ladattu semanttisia merkityksiä koskien kasvatusta ja moraalista ohjausta. Tällaisessa kulttuurisessa kontekstissa kehtolaulujen ja leikkilaulujen kerronnallinen rakenne on tarjonnut ymmärrettävän rakenteen, joka ohjaa lapsia matemaattisten suhteiden ja kielellisen rytmin avulla. Samalla musiikilliset elementit, kuten tempo, melodia ja harmonia, ovat toimineet sekä emotionaalisten että kognitiivisten prosessien synnyttäjinä, jotka edesauttavat lapsen kokonaisvaltaista kehitystä.
 
 Kulttuurisesti merkityksellisiksi muodostuneet lasten kappaleet ovat usein heijastaneet laajempia yhteiskunnallisia muutoksia, joita on tarkasteltu niin literaarisissa kuin sosiaalikulttuurisissakin tutkimuksissa. Esimerkiksi toisen maailmansodan jälkeisessä Euroopassa lasten musiikissa esiintyi vahva identiteetin ja uudelleenrakentamisen teema, jossa lempeät melodiset linjat ja ytimekkäät sanoitukset toimivat haavoittuvista kokemuksista selviytymisen keinoina. Tässä yhteydessä on tärkeää huomioida, että musiikilliset innovaatiot, jotka ajohtuivat analogisten äänitysteknologioiden kehityksen myötä, mahdollistivat uudenlaisten lasten kappaleiden dokumentoinnin ja levittämisen, mikä edelleen edisti kansainvälisen musiikillisen vuorovaikutuksen syntyä.
 

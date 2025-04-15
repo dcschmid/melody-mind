@@ -16,16 +16,15 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Melankolinen musiikki muodostaa erikoislaatuisen osuuden kansainvälisestä musiikkiperinteestä ja se ilmentää syviä emotionaalisia kokemuksia, joita ovat inhimillinen suru, kaipaus ja menetys. Sen ilmentymät ovat näkyneet lukuisissa historiallisissa musiikkityyleissä, joissa teoreettinen analyysi sekä armonia- ja sävellajikäsitteet ovat olleet keskeisiä. 
+Melankolinen musiikki muodostaa erikoislaatuisen osuuden kansainvälisestä musiikkiperinteestä ja se ilmentää syviä emotionaalisia kokemuksia, joita ovat inhimillinen suru, kaipaus ja menetys. Sen ilmentymät ovat näkyneet lukuisissa historiallisissa musiikkityyleissä, joissa teoreettinen analyysi sekä armonia- ja sävellajikäsitteet ovat olleet keskeisiä.
 
-Eurooppalaisessa musiikkiperinteessä myöhäisromantiikan kausi on edustanut surun ilmaisuvoimaa, jolloin säveltäjät hyödynsivät minorisävellajeja ja rikkaita modulointitekniikoita tuodakseen esiin eksistentiaalisia teemoja. Lisäksi 1900-luvun alussa Yhdysvalloissa kehittynyt blues-musiikki käytti synkronisia harmonioita ja tyypillisiä asteikoita, jotka loivat perustan myöhemmälle evoluutiolle muun muassa soulin ja funkin kehityksessä. 
+Eurooppalaisessa musiikkiperinteessä myöhäisromantiikan kausi on edustanut surun ilmaisuvoimaa, jolloin säveltäjät hyödynsivät minorisävellajeja ja rikkaita modulointitekniikoita tuodakseen esiin eksistentiaalisia teemoja. Lisäksi 1900-luvun alussa Yhdysvalloissa kehittynyt blues-musiikki käytti synkronisia harmonioita ja tyypillisiä asteikoita, jotka loivat perustan myöhemmälle evoluutiolle muun muassa soulin ja funkin kehityksessä.
 
 Historiallisesti surun teemat ovat heijastaneet myös filosofisia virtauksia, joita voidaan jäljittää niin renessanssin humanistisiin ajattelutapoihin kuin modernin kulttuurianalyysin ilmiöihin. Tämä monitasoinen kehitys antaa analyyttisen välineen tarkastella länsimaisen sävellykspotentiaalin kulttuurisia ja musiikiteoreettisia ulottuvuuksia.
 
@@ -153,7 +152,7 @@ Surun kategorian moninaisuus ylittää ongelmallisesti kapean musiikillisen ilma
 
 Yhteenvetona voidaan todeta, että surun ilmentäminen kansainvälisessä musiikissa on laaja-alaista ja moniulotteista. Historiallisesti surua on ilmaistu bluesin ja folk-musiikin kautta, jatkien ilmiön edustamista myös klassisessa ja elektronisessa musiikissa. Kunkin genren teknologiset ja kulttuuriset erityispiirteet ovat muovanneet sitä, minkälaisia emotionaalisia ja harmonisia ratkaisuja surun esittämiseksi on käytetty. Näin muodostunut ristikkäisgenreinen sovellusmahdollisuus on paitsi rikastuttanut musiikillista ilmaisua myös tarjonnut syvällisen kehyksen tunteiden käsittelylle eri kulttuurien keskuudessa.
 
-Tieteellisessä tarkastelussa surun ilmiö taipuu analysoitavaksi sekä musiikkiteoreettisen että kulttuurihistoriallisen lähestymistavan kautta. Molemmat näkökulmat täydentävät toisiaan, jolloin voidaan ymmärtää, kuinka teknologiset innovaatiot ja perinteiset ilmaisukeinot ovat vuorovaikutuksessa. Tämän vuoropuhelun kautta on mahdollista tunnistaa niitä rakenneosia, jotka ovat sittemmin toimineet mallina emotionaalisen intensiteetin välittämisessä eri genrerajojen yli.  
+Tieteellisessä tarkastelussa surun ilmiö taipuu analysoitavaksi sekä musiikkiteoreettisen että kulttuurihistoriallisen lähestymistavan kautta. Molemmat näkökulmat täydentävät toisiaan, jolloin voidaan ymmärtää, kuinka teknologiset innovaatiot ja perinteiset ilmaisukeinot ovat vuorovaikutuksessa. Tämän vuoropuhelun kautta on mahdollista tunnistaa niitä rakenneosia, jotka ovat sittemmin toimineet mallina emotionaalisen intensiteetin välittämisessä eri genrerajojen yli.
 
 Tutkimus jatkuu, sillä surun ilmentämisen monitahoisuus vaatii jatkuvaa analyyttistä innostusta ja filosofista pohdintaa. Näin ollen tämä genreiden yli ulottuva musiikillinen ilmiö pysyy merkityksellisenä kriittisenä peilinä yhteiskunnan tunne-elämän ja kulttuurisen moninaisuuden ymmärtämiseksi.
 

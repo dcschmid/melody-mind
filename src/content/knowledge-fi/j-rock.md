@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -80,7 +79,7 @@ Yhteenvetona voidaan todeta, että J-Rock-musiikki muodostaa rikkaan ja monitaho
 
 J-Rockin monimuotoisuus kansainvälisen musiikin kentällä on pitkään herättänyt akateemista mielenkiintoa, sillä sen sisäiset alalajit heijastavat sekä historiallisia että kulttuurisia kehityskulkuja Japanin yhteiskunnassa. Subgenres and Variations -kategoria tarkastelee J-Rockin eriytymistä sen alkuvaiheista lähtien aina nykyisiin moninaisiin ilmiöihin asti. Tutkimuksessa on keskeistä analysoida, miten eri alalajeilla on muodostunut omat identiteettinsä vastaamaan sekä paikallisia makukriteereitä että globaalin musiikkimarkkinan vaatimuksia, ja miten teknologisten innovaatioiden vaikutus on muovannut ääntä sekä performanssia.
 
-Varhaisvaiheen J-Rockin juuret ovat sidoksissa länsimaisen rock-musiikin tuonteen Japanin kulttuuripiireihin 1960-luvun lopulla ja 1970-luvun alussa. Tuolloin rockmusiikki levisi Japanissa suhteellisen vapaalla otteella, mikä taas loi perustan myöhemmälle subgenreiden kehittymiselle. Ensimmäiset alueelliset eroavaisuudet ilmenivät muodossa, jossa koreografioiden, kitarariffien ja toiminnan intensiivisyyden suhde lopulta synnytti omanlaisen estetiikan. Näin syntyi pohja myöhemmälle visuaalisen ilmeen korostamiselle, joka myöhemmin löysi ilmentymän muun muassa Visual Kei -liikkeessä. 
+Varhaisvaiheen J-Rockin juuret ovat sidoksissa länsimaisen rock-musiikin tuonteen Japanin kulttuuripiireihin 1960-luvun lopulla ja 1970-luvun alussa. Tuolloin rockmusiikki levisi Japanissa suhteellisen vapaalla otteella, mikä taas loi perustan myöhemmälle subgenreiden kehittymiselle. Ensimmäiset alueelliset eroavaisuudet ilmenivät muodossa, jossa koreografioiden, kitarariffien ja toiminnan intensiivisyyden suhde lopulta synnytti omanlaisen estetiikan. Näin syntyi pohja myöhemmälle visuaalisen ilmeen korostamiselle, joka myöhemmin löysi ilmentymän muun muassa Visual Kei -liikkeessä.
 
 Visual Kei -ilmiö sai alkunsa 1980-luvun lopulla ja kehittyi 1990-luvun alussa, jolloin sen yhtenäiset piirteet – kuten näyttävä lavapukeutuminen, teatraalinen esiintyminen ja musikaalinen eklektisyys – pääsivät loistamaan kansainvälisillä markkinoilla. Liikkeen mahdollista kehitystä edistivät teknisen äänituotannon innovaatiot, mitä olivat muun muassa moniraitaäänitykset sekä digitaalisten efektien käyttöönotto. Aikakauden bändit pystyivät sovittamaan yhteen aggressiiviset kitarasoolot ja melodiset pop-vaikutteet muodostaen samalla ikimuistoisia soundeja, jotka resonanssina vaikuttivat myös länsimaiseen rock-perinteeseen. Samanaikaisesti Visual Kei -tyylin visuaalinen puoli herätti laajalti kiinnostusta sekä musiikkikulttuurin kriitikoissa että populaarikulttuurissa.
 

@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -178,7 +177,7 @@ De forma complementar, a análise da recepção historiográfica da música rom�
 
 Ademais, o impacto psicológico da música romântica estende-se à esfera intersubjetiva, integrando elementos que transcendem a mera apreciação estética e revelam dimensões de simbolismo e rituais de memória coletiva. A materialização desses efeitos pode ser observada em estudos que investigam a resposta emocional decorrente da exposição a obras musicais, nos quais se evidenciam mudanças comportamentais e cognitivas associadas à estimulação dos centros límbicos do cérebro. Tais estudos, ao correlacionarem a ativação neural com a modulação de estados de espírito, reforçam a perspectiva de que a música romântica, por meio de sua capacidade de evocar imagens e sentimentos intensos, atua como um meio de comunicação que dialoga intrinsecamente com a psique humana.
 
-Em conclusão, a análise do impacto psicológico das composições românticas evidencia a confluência de fatores teóricos, históricos e culturais que, combinados, propiciam uma compreensão aprofundada dos mecanismos pelos quais a música atua sobre o emocional. A partir do emprego criterioso das progressões harmônicas, dos contrastes dinâmicos e da expressividade indeterminada dos timbres, os compositores românticos foram capazes de construir obras que transcendem a materialidade sonora para alcançar dimensões simbólicas e existenciais. Portanto, o estudo desse impacto não apenas enriquece o discurso musicológico, mas também contribui para a compreensão das inter-relações entre arte, cultura e subjetividade, reafirmando a importância do romantismo enquanto movimento de profunda transformação estética e psicológica. 
+Em conclusão, a análise do impacto psicológico das composições românticas evidencia a confluência de fatores teóricos, históricos e culturais que, combinados, propiciam uma compreensão aprofundada dos mecanismos pelos quais a música atua sobre o emocional. A partir do emprego criterioso das progressões harmônicas, dos contrastes dinâmicos e da expressividade indeterminada dos timbres, os compositores românticos foram capazes de construir obras que transcendem a materialidade sonora para alcançar dimensões simbólicas e existenciais. Portanto, o estudo desse impacto não apenas enriquece o discurso musicológico, mas também contribui para a compreensão das inter-relações entre arte, cultura e subjetividade, reafirmando a importância do romantismo enquanto movimento de profunda transformação estética e psicológica.
 
 Contagem: 5355 caracteres
 

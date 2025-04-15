@@ -16,14 +16,13 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Den internationella musikaliska sfären har under senare år bevittnat en framväxt av underkategorin After Work Chill, vilken särskilt kännetecknas av en harmonisk syntes av loungemusik och elektroniska sonor. Genom en medveten integration av downtempo-beats och subtila ambienta texturer ges utrymme för reflektion och avkoppling efter arbetsdagens intensiva krav. 
+Den internationella musikaliska sfären har under senare år bevittnat en framväxt av underkategorin After Work Chill, vilken särskilt kännetecknas av en harmonisk syntes av loungemusik och elektroniska sonor. Genom en medveten integration av downtempo-beats och subtila ambienta texturer ges utrymme för reflektion och avkoppling efter arbetsdagens intensiva krav.
 
 Historiskt kan denna genre spåras tillbaka till de experimentella strömningar som uppstod i samband med elektronisk musiktekniks genombrott under 1980-talet. I ett globalt perspektiv återspeglar utvecklingen en kulturell dialog mellan traditionella melodiska strukturer och modern digital produktion, där influenser från globala lounge- och downtempostilar sammanförs med nyproduktion. Dessutom illustrerar detta fenomen en kontinuerlig anpassning av musikaliska uttryck efter samtida sociala och teknologiska omvälvningar.
 

@@ -16,16 +16,15 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Einleitung
 
-Die "Indian"-Musik, welche in ihrer Vielfalt und Geschichte eine herausragende Stellung im internationalen Kontext einnimmt, ist geprägt durch komplexe Klangstrukturen sowie tief verwurzelte kulturhistorische Traditionen. Bereits im antiken Indien wurde mit systematisch entwickelten Ragas und Talas ein geordnetes Klangfundament geschaffen, das bis in die Gegenwart fortwirkt. 
+Die "Indian"-Musik, welche in ihrer Vielfalt und Geschichte eine herausragende Stellung im internationalen Kontext einnimmt, ist geprägt durch komplexe Klangstrukturen sowie tief verwurzelte kulturhistorische Traditionen. Bereits im antiken Indien wurde mit systematisch entwickelten Ragas und Talas ein geordnetes Klangfundament geschaffen, das bis in die Gegenwart fortwirkt.
 
-Im Laufe der Jahrhunderte bewährte sich dieser musikalische Erbe, indem er sich im Spannungsfeld von religiösen und gesellschaftlichen Entwicklungen immer wieder neu interpretieren ließ. Besonders der Austausch zwischen der nordindischen Hindustani- und der südindischen Karnatischen Musik offenbarte eine wissenschaftliche Präzision und strukturelle Komplexität, die in der Musikwissenschaft bis heute Beachtung findet. 
+Im Laufe der Jahrhunderte bewährte sich dieser musikalische Erbe, indem er sich im Spannungsfeld von religiösen und gesellschaftlichen Entwicklungen immer wieder neu interpretieren ließ. Besonders der Austausch zwischen der nordindischen Hindustani- und der südindischen Karnatischen Musik offenbarte eine wissenschaftliche Präzision und strukturelle Komplexität, die in der Musikwissenschaft bis heute Beachtung findet.
 
 Seit der Kolonialzeit gewann die "Indian"-Musik auch international an Bedeutung, wobei die weltweite Rezeption den interkulturellen Dialog förderte. Somit steht sie als lebendiger Beleg einer reichen, fachspezifisch fundierten Musikhistorie, die den globalen Musikdiskurs nachhaltig prägt.
 

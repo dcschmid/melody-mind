@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -66,7 +65,7 @@ A seção de “Musical Characteristics” do Alternative Rock demanda uma anál
 
 Historicamente, o Alternative Rock emerge como resposta à hegemonia dos estilos então dominantes, como o pop comercial e o hard rock dos anos setenta, ganhando identidade própria à medida que bandas e artistas passaram a incorporar influências do pós-punk, do new wave e do indie rock. A trajetória deste gênero inicia-se com o surgimento de grupos experimentais em meados da década de 1980, cuja abordagem estética distinguia-se pela ênfase na autenticidade e na originalidade, afastando-se da padronização de estruturas convencionais. Ademais, a utilização de técnicas de gravação alternativas, que ao mesmo tempo exploravam a fidelidade sonora e promoviam experimentações com efeitos eletrônicos e distorções propositalmente dissonantes, reforçava a narrativa contracultural que permeava o movimento.
 
-Do ponto de vista instrumentacional, o Alternative Rock caracteriza-se pela diversidade dos timbres e dos arranjos, avançando na proposição de uma sonoridade rica e heterogênea. Os arranjos frequentemente combinam guitarras elétricas com timbres limpos e sobrepostos a camadas de efeitos modulados, resultando em paisagens sonoras que variam entre o minimalismo abrasador e o exuberantismo decadente. A bateria, ao mesmo tempo pulsante e experimental, e os baixos com linhas complexas, colaboram para a criação de uma estrutura rítmica que rompe com o convencional, desafiando os padrões comerciais. 
+Do ponto de vista instrumentacional, o Alternative Rock caracteriza-se pela diversidade dos timbres e dos arranjos, avançando na proposição de uma sonoridade rica e heterogênea. Os arranjos frequentemente combinam guitarras elétricas com timbres limpos e sobrepostos a camadas de efeitos modulados, resultando em paisagens sonoras que variam entre o minimalismo abrasador e o exuberantismo decadente. A bateria, ao mesmo tempo pulsante e experimental, e os baixos com linhas complexas, colaboram para a criação de uma estrutura rítmica que rompe com o convencional, desafiando os padrões comerciais.
 
 Em termos harmônicos e melódicos, a prática composicional do Alternative Rock é marcada pela utilização de escalas modais e estruturas não convencionais, que frequentemente fogem à tonalidade maior ou menor predominante em outras vertentes musicais. Tais escolhas permitem uma expressividade singular, na qual acordes dissonantes, progressões inesperadas e variações rítmicas se fazem presentes, provocando uma sensação de ambiguidade emocional e intelectual. Este movimento musical se vale de uma abordagem dialética entre o rigor técnico e a espontaneidade interpretativa, dando espaço à improvisação e à reinvenção constante das referências sonoras.
 

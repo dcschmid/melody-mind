@@ -16,10 +16,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introdução
 
@@ -197,7 +196,7 @@ Em uma análise comparativa, observa-se que os intercâmbios internacionais atua
 
 Outrossim, é imprescindível considerar a importância das instituições musicais e dos mecanismos de transmissão do conhecimento, que contribuíram para a internacionalização dos compositores tchecos. A fundação de conservatórios e a promoção de intercâmbios acadêmicos fortaleceram a presença dos músicos tchecos nos grandes centros culturais europeus. A residência de mestres estrangeiros e a publicação de tratados teóricos propiciaram a circulação de inovações musicais, gerando um impacto duradouro sobre as práticas composicionais e interpretativas. À medida que as fronteiras se diluíram no cenário contemporâneo, as conexões internacionais assumiram um caráter que transcende a mera importação de influências, instaurando um diálogo dinâmico e recíproco, capaz de reinterpretar as tradições e renovar o repertório coletivo.
 
-Por fim, a análise das conexões internacionais na música tcheca revela uma trajetória marcada pela convergência de diferentes influências e pela capacidade de se adaptar e incorporar inovações sem perder a identidade cultural autêntica. O legado dos compositores tchecos, como Smetana, Dvořák e Janáček, evidencia um percurso de luta e superação que resultou em uma tradição musical reconhecida e respeitada tanto no âmbito nacional quanto no internacional. Conquanto a busca por uma linguagem musical própria tivesse origem em contextos históricos e sociais específicos, ela foi continuamente enriquecida pelo intercâmbio com outras culturas musicais, evidenciando a universalidade e a vitalidade da arte sonora como meio de comunicação e integração entre os povos. 
+Por fim, a análise das conexões internacionais na música tcheca revela uma trajetória marcada pela convergência de diferentes influências e pela capacidade de se adaptar e incorporar inovações sem perder a identidade cultural autêntica. O legado dos compositores tchecos, como Smetana, Dvořák e Janáček, evidencia um percurso de luta e superação que resultou em uma tradição musical reconhecida e respeitada tanto no âmbito nacional quanto no internacional. Conquanto a busca por uma linguagem musical própria tivesse origem em contextos históricos e sociais específicos, ela foi continuamente enriquecida pelo intercâmbio com outras culturas musicais, evidenciando a universalidade e a vitalidade da arte sonora como meio de comunicação e integração entre os povos.
 
 Em síntese, a trajetória da música tcheca demonstra que as conexões internacionais não constituíram obstáculos, mas sim motores de crescimento e inovação, responsáveis por impulsionar um dos mais vibrantes movimentos musicais da Europa Central, cuja influência se reverbera até os dias contemporâneos.
 

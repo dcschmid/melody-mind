@@ -17,14 +17,13 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Die Kategorie „Road Trip“ in der internationalen Musik zeichnet sich durch eine facettenreiche und traditionsbewusste Geschichte aus. Ursprünglich etablierten sich in den 1960er Jahren in den Vereinigten Staaten und Großbritannien innovative Klangkonzepte, die das Bild endloser Straßen und weiten Horizonts musikalisch untermalten. Künstler wie Bob Dylan und Vertreter der britischen Invasion prägten mit poetisch-melodischen Kompositionen und rhythmisch vielschichtigen Arrangements die musikalische Landschaft jener Epoche. 
+Die Kategorie „Road Trip“ in der internationalen Musik zeichnet sich durch eine facettenreiche und traditionsbewusste Geschichte aus. Ursprünglich etablierten sich in den 1960er Jahren in den Vereinigten Staaten und Großbritannien innovative Klangkonzepte, die das Bild endloser Straßen und weiten Horizonts musikalisch untermalten. Künstler wie Bob Dylan und Vertreter der britischen Invasion prägten mit poetisch-melodischen Kompositionen und rhythmisch vielschichtigen Arrangements die musikalische Landschaft jener Epoche.
 
 Im weiteren Verlauf des 20. Jahrhunderts fanden sich in diesem Genre zunehmend Einflüsse des Folk, Rocks und Jazz, wodurch improvisatorische Elemente und der gezielte Einsatz von Harmonik in den Vordergrund rückten. Ferner verband sich das Motiv des Reisens mit kulturellen Identitäten, was zur Entstehung klanglicher Räume führte, die sowohl regional als auch international an Attraktivität gewannen. Die enge Verknüpfung von musikalischer Innovation und kultureller Reiselust verleiht der Kategorie „Road Trip“ ihren charakteristischen, atmosphärischen Reiz.
 

@@ -17,14 +17,13 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Sertanejo repræsenterer en væsentlig musikalsk retning med dybe rødder i det brasilianske landligs kultur og folkloristiske traditioner. I begyndelsen af det 20. århundrede udviklede der sig en stilart, hvor akustiske instrumenter såsom guitar og violin blev anvendt til at gengive lokale fortællinger og melodiske strukturer. Denne musikalske form understreges af harmoniske progressioner og komplekse rytmiske modeller, som afspejler en sammensmeltning af tradition og innovation. 
+Sertanejo repræsenterer en væsentlig musikalsk retning med dybe rødder i det brasilianske landligs kultur og folkloristiske traditioner. I begyndelsen af det 20. århundrede udviklede der sig en stilart, hvor akustiske instrumenter såsom guitar og violin blev anvendt til at gengive lokale fortællinger og melodiske strukturer. Denne musikalske form understreges af harmoniske progressioner og komplekse rytmiske modeller, som afspejler en sammensmeltning af tradition og innovation.
 
 Desuden illustrerer sertanejo en dynamisk kulturel udveksling, hvor den oprindelige identitet bevares på trods af påvirkninger fra internationale tendenser. Fremskridt inden for lydoptagelsesteknologi og distribution har yderligere fremmet genrens udvikling og global anerkendelse. Gennem tiden har genrets evolution ikke blot ændret udtryksformer, men også skabt en kontinuerlig dialog mellem æstetiske idealer og tekniske muligheder, hvilket tydeliggør sertanejos vedvarende betydning på den internationale musikscene.
 

@@ -17,14 +17,13 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introducción
 
-La música suiza constituye un campo de estudio complejo que ha evolucionado a partir de interacciones culturales y lingüísticas diversas. Este fenómeno se enmarca en un contexto histórico plurilingüe, donde conviven tradiciones germánicas, latinas y romanches. La integración de ritmos folklóricos con el desarrollo de la música clásica europea constituye uno de los rasgos distintivos de este acervo cultural. 
+La música suiza constituye un campo de estudio complejo que ha evolucionado a partir de interacciones culturales y lingüísticas diversas. Este fenómeno se enmarca en un contexto histórico plurilingüe, donde conviven tradiciones germánicas, latinas y romanches. La integración de ritmos folklóricos con el desarrollo de la música clásica europea constituye uno de los rasgos distintivos de este acervo cultural.
 
 Además, la influencia de corrientes internacionales en periodos específicos, como el Renacimiento y la era moderna, facilitó la adopción de innovaciones tecnológicas relevantes. Estos avances impulsaron la sistematización del análisis tonal y formal, lo cual permitió la consolidación de estructuras compositivas propias. Asimismo, estudios recientes destacan la trascendencia de compositores suizos que, en el marco de un rigor académico, han contribuido a la evolución del discurso musical internacional.
 

@@ -17,10 +17,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -156,8 +155,8 @@ De surcroît, l’héritage du soul féminin se traduit par la transmission d’
 
 En synthèse, l’évolution et les tendances des légendes du soul féminin représentent un processus historique complexe et intimement lié aux mutations sociales et technologiques du XXe siècle. Loin de se cantonner à une simple narration chronologique, l’analyse académique de ce mouvement invite à une réflexion sur les intersections entre musique, identité et émancipation, en soulignant l’importance des dynamiques culturelles dans la transformation des pratiques musicales. Par leur capacité à transcender les barrières et à incarner des messages de résilience, ces artistes demeurent, jusqu’à aujourd’hui, des symboles impérissables d’un art qui se veut à la fois universel et profondément personnel.
 
-Ainsi, à la lumière d’une approche historique rigoureuse et pluridisciplinaire, il apparaît clairement que le soul féminin ne saurait être réduit à des modes passagères : il s’agit d’un répertoire en évolution constante, conduit par des voix uniques et d’une expressivité sans pareille, qui continuent de nourrir et de façonner la culture musicale mondiale.  
-  
+Ainsi, à la lumière d’une approche historique rigoureuse et pluridisciplinaire, il apparaît clairement que le soul féminin ne saurait être réduit à des modes passagères : il s’agit d’un répertoire en évolution constante, conduit par des voix uniques et d’une expressivité sans pareille, qui continuent de nourrir et de façonner la culture musicale mondiale.
+
 (5801 caractères)
 
 ## Influence mondiale

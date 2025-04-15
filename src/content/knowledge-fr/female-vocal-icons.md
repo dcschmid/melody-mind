@@ -17,10 +17,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -128,7 +127,7 @@ Enfin, il apparaît que les albums et chansons emblématiques des icônes vocale
 
 ## Impact culturel
 
-L’impact culturel des icônes vocales féminines constitue un champ d’investigation riche et complexe, qui s’inscrit au cœur des dynamiques socioculturelles et musicales du XXe siècle. En effet, ces figures – dont l’influence s’est étendue bien au-delà des frontières musicales – ont su transcender les normes artistiques et sociales de leur époque. L’analyse de leurs contributions offre ainsi une réflexion approfondie sur la manière dont la voix féminine a façonné et continue d’influencer la scène musicale internationale, dans un contexte marqué par de profonds bouleversements historiques et technologiques. 
+L’impact culturel des icônes vocales féminines constitue un champ d’investigation riche et complexe, qui s’inscrit au cœur des dynamiques socioculturelles et musicales du XXe siècle. En effet, ces figures – dont l’influence s’est étendue bien au-delà des frontières musicales – ont su transcender les normes artistiques et sociales de leur époque. L’analyse de leurs contributions offre ainsi une réflexion approfondie sur la manière dont la voix féminine a façonné et continue d’influencer la scène musicale internationale, dans un contexte marqué par de profonds bouleversements historiques et technologiques.
 
 Au tournant des années 1930 et 1940, des artistes telles que Billie Holiday et Ella Fitzgerald émergèrent dans un contexte de ségrégation raciale et sociale aux États-Unis. Ces chanteuses, par leur timbre expressif et leur maîtrise technique, ont non seulement redéfini les codes du jazz, mais ont également participé à un discours musical politiquement chargé. Leur parcours témoigne d’un engagement qui allait bien au-delà de la simple performance scénique, s’inscrivant dans une lutte plus vaste pour la reconnaissance de l’identité et de la dignité personnelle des minorités. Par ailleurs, leur influence s’est rapidement diffusée, créant un élan durable dans le monde entier et posant les jalons d’une esthétique vocale novatrice.
 

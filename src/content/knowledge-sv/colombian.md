@@ -16,14 +16,13 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduktion
 
-Colombiansk musik utgör ett unikt uttryck för en mångfacetterad kulturell och historisk utveckling, där inhemska traditioner sammansmälter med influenser från spanska koloniala möten. Under 1500-talets ankomst av européer inbjöds nya musikaliska strukturer som senare kom att samverka med ursprungsbefolkningens rytmiska värden. Under 1800- och 1900-talen intensifierades denna process, då teknologiska framsteg såsom radio och inspelningsutrustning möjliggjorde en bredare spridning av musikaliska uttryck. 
+Colombiansk musik utgör ett unikt uttryck för en mångfacetterad kulturell och historisk utveckling, där inhemska traditioner sammansmälter med influenser från spanska koloniala möten. Under 1500-talets ankomst av européer inbjöds nya musikaliska strukturer som senare kom att samverka med ursprungsbefolkningens rytmiska värden. Under 1800- och 1900-talen intensifierades denna process, då teknologiska framsteg såsom radio och inspelningsutrustning möjliggjorde en bredare spridning av musikaliska uttryck.
 
 Vidare har stilar som cumbia, vallenato och senare salsa fått internationellt erkännande, vilket både speglar en lokal utveckling och en global dialog. Forskning visar att denna dualitet, mellan tradition och modernitet, möjliggjorde ett kreativt utbyte med andra musikaliska kulturer, samtidigt som den bibehöll en stark identitet. Därigenom utgör studiet av colombiansk musik ett viktigt analytiskt verktyg för att förstå hur teknologiska innovationer och kulturella förändringar samverkar över tid.
 

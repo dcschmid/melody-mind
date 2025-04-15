@@ -17,14 +17,13 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-German music has long been a cornerstone of the international musical tradition, possessing a heritage that spans from the medieval Minnesangs and sacred Gregorian chants to the sophisticated innovations of the Enlightenment and beyond. Its evolution has reflected broader cultural and societal shifts, with early developments characterised by refined polyphony and the burgeoning influence of the Renaissance in sacred and secular compositions.  
+German music has long been a cornerstone of the international musical tradition, possessing a heritage that spans from the medieval Minnesangs and sacred Gregorian chants to the sophisticated innovations of the Enlightenment and beyond. Its evolution has reflected broader cultural and societal shifts, with early developments characterised by refined polyphony and the burgeoning influence of the Renaissance in sacred and secular compositions.
 
 Throughout the Baroque period, figures such as Johann Sebastian Bach excelled in complex counterpoint, profoundly influencing the architecture of Western music. Moreover, the Classical and Romantic eras witnessed the ascent of composers like Beethoven, whose oeuvre transcended national boundaries to shape the global musical lexicon. In addition, the advent of modernist techniques in the twentieth century further underlined German music's pivotal role in redefining contemporary musical narratives.
 

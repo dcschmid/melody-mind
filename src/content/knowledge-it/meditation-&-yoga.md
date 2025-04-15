@@ -17,16 +17,15 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-La tradizione musicale collegata alla meditazione e allo yoga rappresenta un ambito di studio che, sin dal XVI secolo, si è configurato come espressione di un pensiero spirituale e terapeutico. In ambito internazionale, la produzione sonore ha saputo integrare strumenti acustici e tecniche vocali, rispecchiando rituali antichi e pratiche devozionali. 
+La tradizione musicale collegata alla meditazione e allo yoga rappresenta un ambito di studio che, sin dal XVI secolo, si è configurato come espressione di un pensiero spirituale e terapeutico. In ambito internazionale, la produzione sonore ha saputo integrare strumenti acustici e tecniche vocali, rispecchiando rituali antichi e pratiche devozionali.
 
-L’analisi dei testi musicali e delle esecuzioni, elaborata mediante metodi filologici e fonetici, evidenzia una sinergia tra suono e meditazione, in cui l’impiego di strumenti come il sitar o il tamburo tradizionale ha assunto rilevanza simbolica e terapeutica. 
+L’analisi dei testi musicali e delle esecuzioni, elaborata mediante metodi filologici e fonetici, evidenzia una sinergia tra suono e meditazione, in cui l’impiego di strumenti come il sitar o il tamburo tradizionale ha assunto rilevanza simbolica e terapeutica.
 
 Inoltre, lo studio delle trasmissioni orali e scritte rivela come tali pratiche abbiano favorito un processo di interculturalità e di contaminazione artistica, testimoniando l’evoluzione degli stili musicali all’interno di contesti socio-religiosi affini.
 

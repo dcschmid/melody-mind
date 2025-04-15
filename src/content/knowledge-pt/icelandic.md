@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introdução
 
@@ -70,7 +69,7 @@ Ainda no tocante à tradição instrumental, observa-se que, historicamente, a m
 
 De maneira complementar, a análise dos conteúdos temáticos evidencia que a música tradicional islandesa não se restringe a meras narrativas históricas. Ao contrário, caracteriza-se por uma abordagem intrincada que dialoga com o folclore e com as crenças ancestrais. As composições frequentemente abordam temas como os mitos dos elfos, das bruxas e dos deuses, imbuídos de um simbolismo que ultrapassa os limites da cronologia e se funda na experiência existencial do povo. A conjugação desses elementos produz uma musicalidade singular, que serve tanto para a construção da identidade coletiva quanto para o fortalecimento do vínculo entre a tradição e a modernidade.
 
-Em síntese, a música tradicional islandesa revela-se como um fenômeno cultural de complexidade ímpar, cuja investigação demanda uma abordagem interdisciplinar e uma escuta atenta das nuances históricas e musicais. A análise meticulosa dos rímur, acompanhada da contextualização socioeconômica e da avaliação comparativa com outras tradições europeias, contribui para a valorização de um patrimônio cultural que atravessa os séculos. Na medida em que se constata a permanência de práticas ancestrais adaptadas às exigências contemporâneas, evidencia-se a resiliência e a riqueza deste legado, que permanece um elo fundamental da identidade islandesa. 
+Em síntese, a música tradicional islandesa revela-se como um fenômeno cultural de complexidade ímpar, cuja investigação demanda uma abordagem interdisciplinar e uma escuta atenta das nuances históricas e musicais. A análise meticulosa dos rímur, acompanhada da contextualização socioeconômica e da avaliação comparativa com outras tradições europeias, contribui para a valorização de um patrimônio cultural que atravessa os séculos. Na medida em que se constata a permanência de práticas ancestrais adaptadas às exigências contemporâneas, evidencia-se a resiliência e a riqueza deste legado, que permanece um elo fundamental da identidade islandesa.
 
 Contagem de caracteres: 5801
 
@@ -90,7 +89,7 @@ Nesse mesmo movimento de renovação estética, os festivais e as iniciativas cu
 
 Em adição, a interdisciplinaridade vem ocupando lugar preponderante no campo da música islandesa contemporânea. A convergência entre som, imagem e performance é observada tanto nas experimentações teatrais quanto nos projetos audiovisuais, que propiciam novas formas de se experienciar e compreender a arte musical. Essa integração de linguagens artísticas evidencia a amplitude do pensamento criativo e a vontade de romper com os limites impostos pelos formatos tradicionais, refletindo uma postura vanguardista que tem repercussão em outros campos artísticos. A interação entre diferentes mídias revela a capacidade dos artistas islandeses de dialogar com diversas tradições culturais e tecnológicas, promovendo uma síntese inovadora que caracteriza o espírito da modernidade na Islândia (cf. Einarsson, 2007).
 
-Por fim, cumpre destacar que o desenvolvimento da música moderna na Islândia está indissociavelmente ligado a um processo de constante reinvenção e de diálogo entre o local e o global. A contínua interação entre as práticas musicais tradicionais e as inovações tecnológicas, somada a um ambiente propício à experimentação, permitiu a emergência de um repertório diversificado e de profundo conteúdo simbólico. Essa trajetória, marcada por fases de intensa renovação e por uma forte consciência identitária, coloca a Islândia em posição de destaque no cenário mundial, como exemplo de como a modularidade entre passado e presente pode resultar em uma expressão artística genuinamente contemporânea. Assim, o estudo da música islandesa moderna revela um panorama complexo e multifacetado, no qual a tradição é simultaneamente preservada e transfigurada pelas demandas do novo. 
+Por fim, cumpre destacar que o desenvolvimento da música moderna na Islândia está indissociavelmente ligado a um processo de constante reinvenção e de diálogo entre o local e o global. A contínua interação entre as práticas musicais tradicionais e as inovações tecnológicas, somada a um ambiente propício à experimentação, permitiu a emergência de um repertório diversificado e de profundo conteúdo simbólico. Essa trajetória, marcada por fases de intensa renovação e por uma forte consciência identitária, coloca a Islândia em posição de destaque no cenário mundial, como exemplo de como a modularidade entre passado e presente pode resultar em uma expressão artística genuinamente contemporânea. Assim, o estudo da música islandesa moderna revela um panorama complexo e multifacetado, no qual a tradição é simultaneamente preservada e transfigurada pelas demandas do novo.
 
 Contagem total de caracteres: 5801
 

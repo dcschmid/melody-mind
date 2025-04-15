@@ -17,10 +17,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -30,7 +29,7 @@ Moreover, Math Metal continually evolved as its practitioners integrated element
 
 ## Historical Background
 
-The emergence of math metal as a distinct subgenre can be traced to a confluence of musical innovations during the late twentieth century. Its genesis occurred at a time when heavy metal was undergoing extensive internal differentiation and experimentation, particularly during the late 1980s and early 1990s. In this period, bands across Europe and North America began to challenge the conventional structures of metal by incorporating irregular time signatures, complex rhythmic patterns and dissonant harmonies. This developmental phase was underscored by a broader cultural shift within the metal community that espoused technical virtuosity and conceptual ingenuity. 
+The emergence of math metal as a distinct subgenre can be traced to a confluence of musical innovations during the late twentieth century. Its genesis occurred at a time when heavy metal was undergoing extensive internal differentiation and experimentation, particularly during the late 1980s and early 1990s. In this period, bands across Europe and North America began to challenge the conventional structures of metal by incorporating irregular time signatures, complex rhythmic patterns and dissonant harmonies. This developmental phase was underscored by a broader cultural shift within the metal community that espoused technical virtuosity and conceptual ingenuity.
 
 During the preceding decades, progressive rock and jazz fusion had already demonstrated that rhythmic complexity and unconventional harmonic progressions could be musically cohesive and intellectually rewarding. In particular, the experimental approaches of early progressive ensembles in the 1970s established a framework within which later metal musicians would explore intricate rhythmic compartments. Moreover, the emergent influence of math rock, with its emphasis on deconstructed song forms and idiosyncratic time signatures, provided an additional reservoir of ideas. Notably, these antecedents were not isolated influences; rather, they coalesced harmoniously with the intense sonic palette of metal to lay the foundational ethos of what would later be termed math metal.
 
@@ -172,7 +171,7 @@ In conclusion, the development and evolution of Math Metal is a narrative marked
 
 ## Legacy and Influence
 
-Math Metal, as a distinctive subgenre of heavy metal, has indisputably left a profound legacy on the international musical landscape. Emerging during the late 1980s and early 1990s, this genre evolved in parallel with progressive rock, hardcore punk, and extreme metal, thereby fostering a synthesis of intricate rhythmic schemes, unconventional time signatures and an overall technical precision that set it apart from its contemporaries. The early proponents of Math Metal, whose experimental endeavours in rhythm and meter eschewed conventional musical structures, laid the groundwork for what would eventually influence a host of subsequent experimental and progressive movements. 
+Math Metal, as a distinctive subgenre of heavy metal, has indisputably left a profound legacy on the international musical landscape. Emerging during the late 1980s and early 1990s, this genre evolved in parallel with progressive rock, hardcore punk, and extreme metal, thereby fostering a synthesis of intricate rhythmic schemes, unconventional time signatures and an overall technical precision that set it apart from its contemporaries. The early proponents of Math Metal, whose experimental endeavours in rhythm and meter eschewed conventional musical structures, laid the groundwork for what would eventually influence a host of subsequent experimental and progressive movements.
 
 The intricate dissection of rhythmic patterns and the utilisation of asymmetrical structures have since been emblematic of the genre's aesthetic, contributing enduring ideas that have permeated modern metal subcultures. Pioneering groups such as Atheist and Cynic, who were active during the formative years of the movement, introduced a measured and intellectual approach to songwriting that married technical expertise with a sense of academic rigour. These seminal bands, with their emphasis on polyrhythms and contrapuntal guitar work, have been widely acknowledged for their role in challenging the limits of musical convention and broadening the boundaries of heavy metal expression.
 

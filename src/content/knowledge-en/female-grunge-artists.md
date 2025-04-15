@@ -17,10 +17,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -136,7 +135,7 @@ Furthermore, the lyrical content of female-led grunge bands often explored theme
 
 Historically, the emergence of female figures in the grunge scene contributed significantly to the diversification of alternative music at an international level. The interplay between the grunge ethos and the burgeoning feminist discourse of the period catalysed an environment in which previously marginalised voices could articulate their experiences with unprecedented candour. As these artists navigated the complexities of a predominantly male-dominated industry, their perseverance and creative ingenuity led to the gradual reconfiguration of musical aesthetics and industry practices. This period of cultural reawakening was marked by a dynamic interplay of rebellion and introspection, encapsulating the zeitgeist of a generation in search of authenticity.
 
-Moreover, the lasting legacy of female grunge artists is observable in the continued evolution of indie and alternative rock scenes across the globe. Contemporary musicians frequently cite the uncompromising artistic vision demonstrated by these pioneers as a fundamental influence in their development. The call for creative autonomy and artistic integrity, first voiced through the visceral sounds of grunge, persists as a defining characteristic of many modern musical endeavours. In this way, the pioneering spirit of early female grunge artistes has percolated through successive generations, reaffirming the enduring relevance of their contributions. 
+Moreover, the lasting legacy of female grunge artists is observable in the continued evolution of indie and alternative rock scenes across the globe. Contemporary musicians frequently cite the uncompromising artistic vision demonstrated by these pioneers as a fundamental influence in their development. The call for creative autonomy and artistic integrity, first voiced through the visceral sounds of grunge, persists as a defining characteristic of many modern musical endeavours. In this way, the pioneering spirit of early female grunge artistes has percolated through successive generations, reaffirming the enduring relevance of their contributions.
 
 The transnational impact of female grunge artists is further evidenced by their ability to bridge cultural divides. Their music, imbued with both a local authenticity and a universal appeal, resonated with diverse audiences irrespective of geographical or cultural boundaries. This international resonance was facilitated by the advent of independent record labels and the utilisation of emerging digital platforms during the latter stages of the grunge movement, thereby enabling a more expansive dissemination of their work. Their creative narratives, which intertwined personal vulnerability with collective defiance, have since reached and inspired a myriad of global subcultures.
 

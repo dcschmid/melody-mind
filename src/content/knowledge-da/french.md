@@ -16,10 +16,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduktion
 
@@ -131,7 +130,7 @@ I det 20. århundrede oplevede den franske musikscene en radikal fremgangsmåde,
 
 Det er essentielt at bemærke, at den teknologiske udvikling i løbet af det 20. og 21. århundrede har haft en dybtgående indvirkning på livekoncertoplevelsen. Med introduktionen af forstærkningsudstyr, lys- og lyddesign samt avanceret sceneteknologi har de franske koncerter udviklet sig til spektakulære begivenheder, der overskrider de traditionelle rammer for en musikforestilling. Disse teknologiske innovationer har ikke alene udvidet de æstetiske muligheder, men også hjulpet kunstnere med at skabe et mere umiddelbart kontaktpunkt til publikum, hvilket er en væsentlig faktor i den moderne opfattelse af international musik. Denne samhørighed mellem teknologi og æstetik har desuden gjort det muligt for musikere at udforske grænserne for lyd og rum, hvilket har ført til en fornyet forståelse af, hvordan livekoncerter kan konstrueres og opleves.
 
-I fortsættelsen af moderniseringen ses en tendens til, at livekoncerter ikke blot er præstationer, men snarere interaktive oplevelser, hvor publikum indgår som en aktiv del af den musikalske proces. Dette narrative skift ansporer en kontinuerlig dialog mellem kunstner og tilhørere, og det akademiske studie af koncerters virkning har her fået et fornyet fokus. Forskelle i koncertsammensætning, akustiske forhold og publikumsdeltagelse analyseres nøje for at forstå, hvordan disse faktorer påvirker både den individuelle og kollektive modtagelse af musikken. Denne tilgang har desuden bidraget til en dybere teoretisk forståelse af musikalsk performance, der fortsat inspirerer til videreudviklinger inden for feltet. 
+I fortsættelsen af moderniseringen ses en tendens til, at livekoncerter ikke blot er præstationer, men snarere interaktive oplevelser, hvor publikum indgår som en aktiv del af den musikalske proces. Dette narrative skift ansporer en kontinuerlig dialog mellem kunstner og tilhørere, og det akademiske studie af koncerters virkning har her fået et fornyet fokus. Forskelle i koncertsammensætning, akustiske forhold og publikumsdeltagelse analyseres nøje for at forstå, hvordan disse faktorer påvirker både den individuelle og kollektive modtagelse af musikken. Denne tilgang har desuden bidraget til en dybere teoretisk forståelse af musikalsk performance, der fortsat inspirerer til videreudviklinger inden for feltet.
 
 Det internationale perspektiv på livekoncerter og begivenheder i den franske musikscene understøttes af en lang række kulturelle udvekslinger. Allerede i oplysningstiden var der en betydelig udveksling af musikalske idéer mellem Frankrig og nabolande, og i det 19. og 20. århundrede blev Paris i særdeleshed et mødested for kunstnere fra hele verden. Denne kosmopolitiske tilgang har sikret, at den franske musik har bevaret sin relevans og sit innovative drive i en stadig foranderlig global kontekst. Overgangen fra de tidligere hoforienterede koncerter til de moderne, teknologisk understøttede liveforestillinger viser samtidig, hvordan den franske musiktradition formår at værne om sin historiske arv, selv under væsentlige samfundsmæssige og teknologiske forandringer.
 

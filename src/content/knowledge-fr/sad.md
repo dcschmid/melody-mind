@@ -17,10 +17,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -80,7 +79,7 @@ Par ailleurs, l’instrumentation occupe une place centrale dans la préservatio
 
 Les structures formelles, bien que parfois empruntées aux conventions du classicisme ou du romantisme, se voient adaptées pour laisser place à une liberté d’expression propre à la musique triste. La forme sonate ou la variation, par leur développement thématique, offrent un cadre dans lequel se mêlent l’invention mélodique et l’expansion harmonique, contribuant ainsi à une narration musicale intense et personnelle. Dans cette perspective, l’interaction entre le leitmotiv et la répétition, qu’elle soit percevable dans une symphonie ou dans une pièce de piano solo, instaure un sentiment de réflexion et de nostalgie, rappelant à la fois l’individualisme de l’artiste et l’universalité des émotions humaines.
 
-Enfin, il convient de souligner l’importance du contexte culturel et social dans l’évolution et la réception de la musique mélancolique. Historiquement, les périodes de crise ou de transition sociale, telles que les révolutions industrielles ou les conflits majeurs, ont souvent favorisé l’émergence de compositions exprimant la douleur, le doute et la résignation. La réflexivité de la musique triste se nourrit ainsi des bouleversements de son temps et s’inscrit dans une dynamique de recherche identitaire et existentielle. En outre, l’exposition médiatique via l’enregistrement et la diffusion a permis de normaliser et de valoriser ces expressions émotionnelles, faisant de la mélancolie un vecteur de communication universel, transcendant les barrières culturelles et linguistiques. 
+Enfin, il convient de souligner l’importance du contexte culturel et social dans l’évolution et la réception de la musique mélancolique. Historiquement, les périodes de crise ou de transition sociale, telles que les révolutions industrielles ou les conflits majeurs, ont souvent favorisé l’émergence de compositions exprimant la douleur, le doute et la résignation. La réflexivité de la musique triste se nourrit ainsi des bouleversements de son temps et s’inscrit dans une dynamique de recherche identitaire et existentielle. En outre, l’exposition médiatique via l’enregistrement et la diffusion a permis de normaliser et de valoriser ces expressions émotionnelles, faisant de la mélancolie un vecteur de communication universel, transcendant les barrières culturelles et linguistiques.
 
 De surcroît, l’étude des techniques et des éléments compositoires de la musique « Sad » offre un éclairage particulièrement pertinent sur l’évolution des codes esthétiques et des pratiques interprétatives. Les analyses comparatives entre les œuvres de différentes époques permettent de déceler des continuités ainsi que des ruptures susceptibles d’enrichir la compréhension des processus créatifs. En outre, l’emploi de méthodes d’analyse formelle et harmonique contribue à révèler les mécanismes subtils par lesquels la musique parvient à susciter des réponses émotionnelles intenses. Ainsi, la musique triste se présente comme un terrain propice aux investigations multidisciplinaires, mêlant musicologie, histoire culturelle et théorie esthétique, et incitant à une réflexion approfondie sur la condition humaine.
 

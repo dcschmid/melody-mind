@@ -16,10 +16,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -171,7 +170,7 @@ De tidlige eksperimenter med Viking Metal kan spores til svenske og norske bands
 
 I videreudviklingen af specifikke musikalske karakteristika opstod en æstetik, der ikke alene fokuserede på de gamle sagn og legender, men også lagde vægt på anvendelsen af traditionelle instrumenter og melodiske strukturer inspireret af folkemusik. Denne udvikling skete parallelt med en fornyet interesse for historiske og etnografiske metoder i musikalske studier, hvor akademikere begyndte at analysere sammenhængen mellem lyd og fortælling. Den musikalske konstruktion blev ofte præget af brugen af æresbetonede korstykker, intermitterende brug af folkede instrumenter samt lange instrumentale passager, der tilsammen skabte en atmosfære af episk fortælling. I denne periode opstod en række subtyper inden for genren, hvor enkelte bands trak på forskellige aspekter af den nordiske fortid og skabte musik, der både var dramatisk og historisk bevidst.
 
-En væsentlig faktor i genrens udvikling var også den teknologiske og industrielle udvikling, som muliggjorde nye kompositionelle og produceringsmæssige metoder. Analog optagelsesteknologi og efterfølgende digitalisering havde stor indflydelse på lydkvaliteten og den måde, hvorpå musikken blev struktureret. Instrumenteringen blev ofte understøttet af en bevidst brug af samspillet mellem akustiske og elektriske klangfarver, hvilket i høj grad bidrog til den karakteristiske “epos”-følelse, der kendetegner Viking Metal. Denne teknologiske udvikling understøttede den kunstneriske ambition om at skabe lydlandskaber, der både var monumentale og autentiske, idet de besad en tæt tilknytning til de rituelle og mytiske elementer i den nordiske kultur. 
+En væsentlig faktor i genrens udvikling var også den teknologiske og industrielle udvikling, som muliggjorde nye kompositionelle og produceringsmæssige metoder. Analog optagelsesteknologi og efterfølgende digitalisering havde stor indflydelse på lydkvaliteten og den måde, hvorpå musikken blev struktureret. Instrumenteringen blev ofte understøttet af en bevidst brug af samspillet mellem akustiske og elektriske klangfarver, hvilket i høj grad bidrog til den karakteristiske “epos”-følelse, der kendetegner Viking Metal. Denne teknologiske udvikling understøttede den kunstneriske ambition om at skabe lydlandskaber, der både var monumentale og autentiske, idet de besad en tæt tilknytning til de rituelle og mytiske elementer i den nordiske kultur.
 
 Med hensyn til den internationale udbredelse har Viking Metal i løbet af 1990’erne og begyndelsen af 2000’erne erfaret en gradvis anerkendelse, der strakte sig ud over de oprindelige nordiske grænser. Bands fra Central- og Østeuropa samt Vestlandet begyndte at adoptere og videreudvikle de konventioner, som den nordiske scene havde etableret. Denne internationale spredning har medført, at genren nu fremstår som en dynamisk del af den globale metalkultur, hvor musikalsk identitet, kulturel forankring og eksperimentel lydproduktion mødes. Det tværkulturelle møde har givet anledning til nye fortolkninger og innovationer, der både ærer den historiske arv og samtidigt imødekommer en moderne lytterbase, der værdsætter kompleksiteten i musikalsk fortælling.
 

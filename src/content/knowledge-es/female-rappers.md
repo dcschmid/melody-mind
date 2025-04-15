@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introducción
 
@@ -142,8 +141,8 @@ En este sentido, el análisis de la trayectoria de las artistas rap es indispens
 
 La consolidación del rap como forma de expresión artística ha permitido que las contribuciones de las raperas sean reconocidas, no solo en el ámbito musical, sino también en la academia y en la comunicación social. Investigadores y especialistas en estudios culturales han destacado la importancia de contextualizar las obras de este colectivo en marcos teóricos como la teoría feminista, el poscolonialismo y la crítica cultural, reconocimientos que han contribuido a fomentar un análisis multidimensional del fenómeno rap. Esta aproximación inter e interdisciplinaria ha permitido dilucidar las complejidades inherentes a la construcción de discursos identitarios y a la reflexión sobre el poder, desafíos que han sido fundamentales para la emergencia de nuevas corrientes en la música y en la cultura popular.
 
-En conclusión, el impacto cultural de las raperas trasciende la mera dimensión musical, puesto que su influencia se extiende a la transformación de estructuras sociales, al cuestionamiento de modelos de representación y a la construcción de una cultura más inclusiva. Las aportaciones de estas artistas han sido decisivas para ampliar el espectro del discurso crítico en la música, generando nuevos marcos de interpretación en donde el género, la raza y la identidad se entrelazan para ofrecer perspectivas renovadas en la interpretación de la realidad social. Así, el estudio de estas intérpretes se convierte en una herramienta esencial para comprender las dinámicas de poder y cambio en la sociedad contemporánea, destacando la capacidad de la música para inducir procesos de transformación y empoderamiento.  
-  
+En conclusión, el impacto cultural de las raperas trasciende la mera dimensión musical, puesto que su influencia se extiende a la transformación de estructuras sociales, al cuestionamiento de modelos de representación y a la construcción de una cultura más inclusiva. Las aportaciones de estas artistas han sido decisivas para ampliar el espectro del discurso crítico en la música, generando nuevos marcos de interpretación en donde el género, la raza y la identidad se entrelazan para ofrecer perspectivas renovadas en la interpretación de la realidad social. Así, el estudio de estas intérpretes se convierte en una herramienta esencial para comprender las dinámicas de poder y cambio en la sociedad contemporánea, destacando la capacidad de la música para inducir procesos de transformación y empoderamiento.
+
 En definitiva, el análisis histórico y cultural de las raperas evidencia una convergencia de factores artísticos y sociales que han permitido a este colectivo filosófico-musical desafiar paradigmas establecidos y promover una reflexión profunda acerca del rol de la mujer en la cultura de masas. La riqueza expresiva y la diversidad de enfoques presentados en sus producciones evidencian una constante evolución que ha marcado pautas en la configuración del discurso musical global. Dado lo expuesto, resulta imperativo continuar promoviendo estudios académicos que profundicen en las contribuciones de estas artistas, las cuales, sin duda, han constituido una de las expresiones más dinámicas y reveladoras de las transformaciones culturales de las últimas décadas.
 
 ## Evolución y tendencias

@@ -16,16 +16,15 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Club-musiikki edustaa globaalia ilmiötä, jonka historialliset juuret ulottuvat 1970-luvun discon rytmeihin Yhdysvalloissa. Ensimmäiset diskoon perustuvat kokeilut saivat alkunsa innovatiivisten äänentoistojärjestelmien ja analogisten äänitystekniikoiden avulla, minkä jälkeen ilmiö levisi Eurooppaan, erityisesti Berliinin ja Lontoon klubikulttuureihin. 
+Club-musiikki edustaa globaalia ilmiötä, jonka historialliset juuret ulottuvat 1970-luvun discon rytmeihin Yhdysvalloissa. Ensimmäiset diskoon perustuvat kokeilut saivat alkunsa innovatiivisten äänentoistojärjestelmien ja analogisten äänitystekniikoiden avulla, minkä jälkeen ilmiö levisi Eurooppaan, erityisesti Berliinin ja Lontoon klubikulttuureihin.
 
-1980-luvulla tapahtuneet kehityskulut johtivat house- ja techno-tyylien nousuun, jolloin digitaalisten instrumenttien ja syntetisaattorien mahdollisuudet korostuivat. Näissä musiikillisesti ja teknologisesti innovaatiosta lähteneissä virtauksissa yhdistyvät tiiviisti rytmiset, harmoniset ja melodiset elementit, jotka ovat edelleen keskeisiä nykypäivän klubimusiikissa. 
+1980-luvulla tapahtuneet kehityskulut johtivat house- ja techno-tyylien nousuun, jolloin digitaalisten instrumenttien ja syntetisaattorien mahdollisuudet korostuivat. Näissä musiikillisesti ja teknologisesti innovaatiosta lähteneissä virtauksissa yhdistyvät tiiviisti rytmiset, harmoniset ja melodiset elementit, jotka ovat edelleen keskeisiä nykypäivän klubimusiikissa.
 
 Kulttuurihistoriallisena ilmiönä klubimusiikki heijastaa laajempia yhteiskunnallisia ja taloudellisia virtauksia, mikä tekee siitä jatkuvasti muuttuvan ja kansainvälisesti merkittävän musiikkityylin.
 

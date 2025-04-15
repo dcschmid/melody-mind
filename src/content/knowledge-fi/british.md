@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -106,7 +105,7 @@ Modernissa musiikkitutkimuksessa on olennaista ymmärtää, kuinka tämä rikas 
 
 Kulturellisesti Britannian musiikkiperinteen keskeisyyttä määrittää sen kyky säilyttää yhteys nykytaiteen ja -kulttuurin ilmiöihin. Esimerkiksi 1980-luvun aikana Britannian uuden aallon bändit, kuten Joy Division ja The Smiths, ovat vaikuttaneet edelleen myöhempien sukupolvien musiikillisiin ilmaisutapoihin. Näiden bändien tuotannot herättävät akateemisissa tutkimuksissa kiinnostusta niiden mielenterveyteen, kulttuuriseen identiteettiin sekä yhteiskunnallisiin ulottuvuuksiin liittyvien tutkimusten kautta. Tällaisten ilmiöiden analyysi osoittaa, kuinka musiikki toimii sekä esteettisenä että sosialistisesti merkittävänä ilmiönä.
 
-Kokonaisuudessaan Britannian musiikkiperinteen kehitys heijastaa moniaulotteista vuoropuhelua perinteiden, teknologisten innovaatioiden ja kulttuuristen muutosten välillä. Keskeisten hahmojen, kuten Henry Purcellin, Benjamin Brittenin, The Beatlesin, The Rolling Stonesin ja Pink Floydin, tuotannot tarjoavat lukuisia näkökulmia musiikin teoreettisiin, teknisiin ja kulttuurisiin kysymyksiin. Näiden teosten akateeminen analyysi edellyttää sekä historiallista kontekstualisointia että nykyaikaisten teorioiden huomioimista, jolloin saadaan kokonaisvaltainen ymmärrys Britannian merkityksestä maailman musiikkipaletissa.  
+Kokonaisuudessaan Britannian musiikkiperinteen kehitys heijastaa moniaulotteista vuoropuhelua perinteiden, teknologisten innovaatioiden ja kulttuuristen muutosten välillä. Keskeisten hahmojen, kuten Henry Purcellin, Benjamin Brittenin, The Beatlesin, The Rolling Stonesin ja Pink Floydin, tuotannot tarjoavat lukuisia näkökulmia musiikin teoreettisiin, teknisiin ja kulttuurisiin kysymyksiin. Näiden teosten akateeminen analyysi edellyttää sekä historiallista kontekstualisointia että nykyaikaisten teorioiden huomioimista, jolloin saadaan kokonaisvaltainen ymmärrys Britannian merkityksestä maailman musiikkipaletissa.
 
 Lisäksi musiikkianalyysin metodologisen kehityksen myötä on tullut selvää, ettei yksittäistä musiikkityyliä voida tarkastella erillään sen laajemmasta kulttuurisesta ja teknologisesta kontekstista. Tämä pätee niin barokin ajan mestareihin kuin modernin populaarimusiikin edustajiinkin, joiden jälki on osaltaan määritellyt nykyajan monimuotoisia musiikillisia ilmiöitä. Näin ollen tutkijoiden on tärkeää jatkaa interdisiplinaarista yhteistyötä ja vahvistaa musiikillisen tutkimuksen metodologista pohjaa, jotta voidaan saavuttaa syvempi ymmärrys historiallisten tuotantojen merkityksestä ja vaikutuksesta nykypäivän globaalille musiikkimaisemalle.
 

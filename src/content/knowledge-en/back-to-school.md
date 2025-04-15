@@ -16,10 +16,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -173,7 +172,7 @@ Furthermore, the modern age has seen the incorporation of electronic ambient mus
 
 In curating playlists for an academic context, it is imperative to consider not only the genre-specific characteristics but also the broader socio-cultural and historical contexts of the compositions. The arrangement of such playlists ought to maintain a deliberate balance, ensuring that the intricate nuances of historical forms are preserved whilst embracing the eclecticism intrinsic to international musical traditions. Transitions between diverse musical styles must be managed with an ear for continuity and smooth gradations, thus supporting the listener in sustaining a steady level of concentration. As such, the playlists are envisioned not solely as background entertainment, but rather as carefully orchestrated sequences that reflect a deep understanding of both musical form and scholarly necessity.
 
-Moreover, educators and students alike may benefit from engaging with playlists that incorporate a range of historical contexts—from the meticulously structured forms of early Western classical music to the improvisational and richly symbolic modalities of non-Western traditions. This breadth encourages a broader comprehension of musical evolution and the varied ways in which music informs, challenges and enriches the academic experience. In doing so, the ‘Back to School’ playlists become an embodiment of cultural synthesis, harmonising diverse historical influences under a unified auditory framework. 
+Moreover, educators and students alike may benefit from engaging with playlists that incorporate a range of historical contexts—from the meticulously structured forms of early Western classical music to the improvisational and richly symbolic modalities of non-Western traditions. This breadth encourages a broader comprehension of musical evolution and the varied ways in which music informs, challenges and enriches the academic experience. In doing so, the ‘Back to School’ playlists become an embodiment of cultural synthesis, harmonising diverse historical influences under a unified auditory framework.
 
 In conclusion, the recommendations for ‘Back to School’ playlists draw on a rich tapestry of international music that spans centuries and cultural boundaries. The carefully curated sequences are designed not only to enhance concentration and academic performance but also to foster an appreciation for the intricate interplay between historical context and musical form. By recognising the transformative power of carefully selected music, both educators and students are provided with a resource that elevates the academic environment. This integration of musical tradition and modern digital accessibility remains a testament to the enduring capacity of music to inspire intellectual growth and cultural enquiry.
 

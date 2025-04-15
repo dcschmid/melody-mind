@@ -17,14 +17,13 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Le mouvement « Disco Fever » a émergé au début des années 1970, reflétant une profonde mutation de la scène musicale internationale. Ce phénomène s’inscrit dans un contexte historique marqué par l’effervescence des clubs et discothèques, favorisant l’expérimentation rythmique et harmonique. La fusion entre funk, soul et pop, soutenue par l’évolution rapide des technologies d’enregistrement, a permis l’essor d’un genre à la fois novateur et fédérateur. 
+Le mouvement « Disco Fever » a émergé au début des années 1970, reflétant une profonde mutation de la scène musicale internationale. Ce phénomène s’inscrit dans un contexte historique marqué par l’effervescence des clubs et discothèques, favorisant l’expérimentation rythmique et harmonique. La fusion entre funk, soul et pop, soutenue par l’évolution rapide des technologies d’enregistrement, a permis l’essor d’un genre à la fois novateur et fédérateur.
 
 Par ailleurs, l’analyse musicale de cette période requiert une approche interdisciplinaire, combinant des références théoriques et historiques rigoureuses. Les innovations tant sur le plan stylistique que sur celui de la production démontrent l’ingéniosité des artistes de l’époque, qui, en conjuguant influences régionales et internationales, ont établi des fondations durables pour la musique contemporaine.
 

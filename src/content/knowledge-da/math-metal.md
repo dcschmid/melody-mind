@@ -16,10 +16,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -165,7 +164,7 @@ Math Metal repræsenterer en signifikant udviklingsgren inden for den internatio
 
 Indflydelsen fra progressive musiktraditioner og teknisk orienteret death metal var tydelig i udviklingen af Math Metal, idet kunstnere søgte at skabe et innovativt musikalsk udtryk, der udfordrede de gængse normer inden for rytme og form. Parallelt med fremkomsten af andre avancerede metalgenrer blev musikalske sætningsstrukturer og harmoniske eksperimenter centrale elementer, som gjorde det muligt at skabe musikalske narrativer med en næsten algoritmisk præcision. Denne tidlige fase var præget af en intens søgen efter nye virkemidler, hvor den eksplicitte matematiske og tekniske tilgang fungerede som en afvigende kontrast til den mere traditionelle, rytmisk forudsigelige metal.
 
-I modsætning til den konventionelle anvendelse af 4/4-takt, blev Math Metal præget af en konstant udforskning af atypiske taktarter og komplekse metrumsstrukturer. Denne udvikling af hidtil usete rytmiske mønstre medførte, at sammenspillet mellem instrumenterne opnåede en ny dimension af polyrytmisme og syncopation. I denne sammenhæng blev den tekniske virtuositet hos guitarister og trommere særligt fremtrædende, da musikerne ofte måtte mestre både hurtige, komplekse løb og uregelmæssige rytmiske skifter, der krævede en minutiøs forståelse for musikalsk timing og præcision. 
+I modsætning til den konventionelle anvendelse af 4/4-takt, blev Math Metal præget af en konstant udforskning af atypiske taktarter og komplekse metrumsstrukturer. Denne udvikling af hidtil usete rytmiske mønstre medførte, at sammenspillet mellem instrumenterne opnåede en ny dimension af polyrytmisme og syncopation. I denne sammenhæng blev den tekniske virtuositet hos guitarister og trommere særligt fremtrædende, da musikerne ofte måtte mestre både hurtige, komplekse løb og uregelmæssige rytmiske skifter, der krævede en minutiøs forståelse for musikalsk timing og præcision.
 
 Yderligere kan det konstateres, at Math Metal blev en platform for interkulturelle musikalske udvekslinger, hvor europæiske, nordamerikanske og asiatiske musikere bidrog til en global udveksling af idéer. Eksempelvis oplevede den tekniske metalscene i USA og Europa en betydelig udviklingsproces, der lagde vægt på den tidlige anvendelse af avancerede lydteknologier og optageteknikker. Den teknologiske udvikling, herunder digitalisering af optagelsesudstyr og forbedrede effektsystemer, spillede en afgørende rolle i genres formidling, idet disse fremskridt i høj grad understøttede de komplekse multi-tracks og overdubninger, der var nødvendige for at realisere de musikalske visioner.
 

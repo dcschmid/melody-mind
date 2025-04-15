@@ -16,10 +16,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -95,7 +94,7 @@ Vidare är det av vikt att notera hur den radikala estetik som präglar noise me
 
 Medan de tidiga verken innebar ett radikalt uppbrott med konventionella musikaliska former, har utvecklingen inom noise metal även präglats av en medveten dialog med andra musikaliska discipliner. Exempelvis har samarbeten med avantgardistiska musiker, kompositörer och experimentella konstnärer bidragit till att bredda genrens uttrycksrepertoar. Denna intertextualitet innebörd att noise metal inte bara betraktas som en undergenre till metal, utan också som en del av en större konstnärlig rörelse som ifrågasätter gränserna mellan olika konstnärliga uttrycksformer. Musikteoretiska analyser betonar hur dynamiken i verken ofta bygger på en dialektik mellan ordning och kaos, där de repetitiva strukturerna fungerar som en kontrast mot de oväntade brusinslagen.
 
-Likaså är det väsentligt att analysera hur noise metals estetik har influerat och blivit influerad av samtidens tekniska innovationer. Den snabba utvecklingen av digital inspelningsteknik, samplingsmetoder och effektpedaler under 1980-talet möjliggjorde en ny nivå av manipulation av ljudmaterial. Den tekniska utvecklingen gav upphov till en rad nyskapande produktionstekniker som i hög grad bidrog till att definiera genrens karaktäristiska estetik, där förvrängning och elektronisk behandling av signaler blev centrala arbetssätt. Dessa tekniska framsteg utmanade den traditionella uppfattningen om verklighet och representation i musiken, och betraktades därför som en direkt reaktion mot den kommersiella produktionens homogenisering. 
+Likaså är det väsentligt att analysera hur noise metals estetik har influerat och blivit influerad av samtidens tekniska innovationer. Den snabba utvecklingen av digital inspelningsteknik, samplingsmetoder och effektpedaler under 1980-talet möjliggjorde en ny nivå av manipulation av ljudmaterial. Den tekniska utvecklingen gav upphov till en rad nyskapande produktionstekniker som i hög grad bidrog till att definiera genrens karaktäristiska estetik, där förvrängning och elektronisk behandling av signaler blev centrala arbetssätt. Dessa tekniska framsteg utmanade den traditionella uppfattningen om verklighet och representation i musiken, och betraktades därför som en direkt reaktion mot den kommersiella produktionens homogenisering.
 
 Även om noise metal genomgått flera transformationsprocesser sedan sina tidiga dagar, kvarstår de centrala tematiska och musikaliska idéerna i kärnan. Betydande musikologiska studier har visat att fusionen mellan metalens aggressiva drivkraft och experimentell lågmäldhet med brusets abstrakta uttryck fungerar som en katalysator för litterära och filosofiska reflektioner kring tid, rymd och teknologi. Det är inte ovanligt att kritiker och teoretiker pekar på hur de tonala strukturerna i verken ofta är konstruerade för att provocera fram en ny medvetenhet hos lyssnaren, där den acoustiska upplevelsen blir en arena för existentiell reflektion. Dessa insikter understryker hur noise metal med sina djupt rotade kulturhistoriska sammanhang framstår som ett uttryck för samtidens komplexa förhållningssätt till förändring och oordning.
 

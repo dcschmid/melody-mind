@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -174,7 +173,7 @@ Il panorama musicale contemporaneo si caratterizza per una pluralità di tendenz
 
 Inoltre, la fusione di elementi provenienti da tradizioni musicali disparate ha consentito lo sviluppo di espressioni artistiche che, pur con notori elementi di continuità con il passato, incarnano una rivoluzione formale e concettuale. La riscoperta dell’immediato e l’integrazione di tecnologie innovative hanno rappresentato strumenti essenziali per la produzione sonora intensa, in grado di trasmettere sensazioni di profonda emozione e complessità concettuale. Questi orientamenti si sono manifestati in ambiti quali la musica elettroacustica, la sperimentazione dal vivo e la performance, le quali, attraverso l’uso di sintetizzatori e tecnologie digitali, hanno ridefinito i confini della creazione musicale.
 
-Il contributo dei compositori europei, in particolare, si è rivelato fondamentale per l’evoluzione di questa corrente. Notabili sono le opere di figure come Luigi Nono e Bruno Maderna, i cui lavori, pur radicati nelle istituzioni della musica d’avanguardia, hanno saputo interpretare in chiave intensa e spesso drammatica quelle inquietudini esistenziali e politiche che hanno caratterizzato il ventunesimo secolo. L'approccio accademico alla musica di Nono, ad esempio, si fonda su una rigorosa analisi formale e su una riflessione etica, contribuendo a una narrazione storica che interpela il pubblico a riflettere sulle tensioni sociali e sui cambiamenti globali. 
+Il contributo dei compositori europei, in particolare, si è rivelato fondamentale per l’evoluzione di questa corrente. Notabili sono le opere di figure come Luigi Nono e Bruno Maderna, i cui lavori, pur radicati nelle istituzioni della musica d’avanguardia, hanno saputo interpretare in chiave intensa e spesso drammatica quelle inquietudini esistenziali e politiche che hanno caratterizzato il ventunesimo secolo. L'approccio accademico alla musica di Nono, ad esempio, si fonda su una rigorosa analisi formale e su una riflessione etica, contribuendo a una narrazione storica che interpela il pubblico a riflettere sulle tensioni sociali e sui cambiamenti globali.
 
 Parallelamente al contesto europeo, anche negli Stati Uniti si è concretizzato un percorso di intensità espressiva che ha profondamente influenzato la scena internazionale. Le opere di compositori come Steve Reich e Philip Glass, benché operanti in un contesto di grande apertura sperimentale, si sono sviluppate sulla base di principi metodologici che prevedevano una costante ricerca della ripetizione ritmica e del minimalismo. Tali pratiche hanno consentito un dialogo costante tra la dimensione ritmica e quella melodica, contribuendo alla possibilità di una ricezione estetica che, pur apparendo sommessa, possiede un forte impatto emotivo e intellettuale. In questo modo, la fusione di tecniche compositive tradizionali e innovazioni tecnologiche ha fornito ai musicologi elementi preziosi per decifrare la complessità strutturale di tali composizioni.
 

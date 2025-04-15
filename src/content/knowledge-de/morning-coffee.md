@@ -17,14 +17,13 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Die Kategorie „Morning Coffee“ kontextualisiert einen musikalischen Genussmoment, der international in vielfältigen Kulturkreisen verankert ist. In einem historischen Kontext erscheinen sanfte Kompositionen als elementarer Bestandteil des morgendlichen Rituals, wobei bereits im späten 19. Jahrhundert erste akustische Experimente die Darstellung idyllischer Klanglandschaften ermöglichten. Europäische und nordamerikanische Komponisten entwickelten in wechselvoller Tradition fein abgestimmte Dynamiken und ausgewogene Harmonieverhältnisse, um den Übergang zwischen Nacht und Tag klanglich zu illustrieren. 
+Die Kategorie „Morning Coffee“ kontextualisiert einen musikalischen Genussmoment, der international in vielfältigen Kulturkreisen verankert ist. In einem historischen Kontext erscheinen sanfte Kompositionen als elementarer Bestandteil des morgendlichen Rituals, wobei bereits im späten 19. Jahrhundert erste akustische Experimente die Darstellung idyllischer Klanglandschaften ermöglichten. Europäische und nordamerikanische Komponisten entwickelten in wechselvoller Tradition fein abgestimmte Dynamiken und ausgewogene Harmonieverhältnisse, um den Übergang zwischen Nacht und Tag klanglich zu illustrieren.
 
 Zudem eröffnen Entwicklungen in der akustischen Aufzeichnungstechnologie einen zusätzlichen Interpretationsrahmen, der die Entstehung neuer Klangbilder begünstigte. Die wechselseitige Beeinflussung von musikalischer Ästhetik und technologischer Innovation trug dazu bei, dass das Genre – geprägt von interkulturellen Strömungen – nicht nur als rein akustisches Erlebnis, sondern auch als Ausdruck gesellschaftlicher Sinnhaftigkeit verstanden werden kann.
 

@@ -16,10 +16,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -107,7 +106,7 @@ A lo largo de las últimas décadas, el Melodic Death Metal se ha revelado como 
 
 En un análisis técnico, la instrumentación en el Melodic Death Metal se destaca por la prominencia de la guitarra eléctrica, la cual se beneficia de la utilización de afinaciones alternativas y la aplicación rigurosa de técnicas como el palm mute. Este enfoque se articula con la presencia marcada de solos virtuosos que alternan escalas menores, modos dórica y ocasionalmente segmentos cromáticos, aportando una dimensión melódica a la agresividad característica del death metal tradicional. En consecuencia, la dicotomía entre ritmos sincopados y fragmentaciones armónicas se vuelve el sustento sobre el cual se edifican las composiciones, consiguiendo resonar tanto en entornos en directo como en producciones de estudio.
 
-Asimismo, la sección rítmica juega un papel determinante en la consolidación del sonido emblemático del género. La batería, impulsada por dobles bombos y síncopas precisas, funciona en sinergia con el bajo, que a su vez recurre a técnicas de punteo para reforzar la estructura armónica. Esta interrelación técnica es fruto de un cuidadoso proceso de arreglo, en el que cada elemento se dispone para enfatizar tanto la fuerza percusiva como la complejidad melódica, estableciendo un equilibrio entre agresividad y virtuosismo técnico.  
+Asimismo, la sección rítmica juega un papel determinante en la consolidación del sonido emblemático del género. La batería, impulsada por dobles bombos y síncopas precisas, funciona en sinergia con el bajo, que a su vez recurre a técnicas de punteo para reforzar la estructura armónica. Esta interrelación técnica es fruto de un cuidadoso proceso de arreglo, en el que cada elemento se dispone para enfatizar tanto la fuerza percusiva como la complejidad melódica, estableciendo un equilibrio entre agresividad y virtuosismo técnico.
 
 El aspecto armónico no es menos relevante; la escritura de progresiones y la implementación de contrapuntos enriquecen la dimensión compositiva. Los compositores de Melodic Death Metal, a la imagen de bandas fundadoras como In Flames, Dark Tranquillity y At The Gates, han sabido conjugar influencias del thrash y del death metal tradicional con un enfoque melódico más estructurado. Esta fusión de elementos ha permitido que cada pieza sea objeto de análisis técnico en función de su economía sonora, la precisión de la ejecución y el rigor en la utilización de escalas, modos y arpegios que configuran líneas melódicas tanto incisivas como líricas.
 

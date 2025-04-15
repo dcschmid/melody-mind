@@ -17,14 +17,13 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Within the global sphere of music, Halloween Spooky Tunes represent a fascinating intersection of tradition and innovation. Emerging from ancient Celtic rituals, these compositions evolved through the medieval and Renaissance periods, with early iterations incorporating modal harmonies and carefully constructed dissonances to evoke an atmosphere of mystery and unease. This early framework was further refined across Europe, where the influences of folkloric myth and societal superstitions imbued musical works with an unmistakable sense of the eerie. 
+Within the global sphere of music, Halloween Spooky Tunes represent a fascinating intersection of tradition and innovation. Emerging from ancient Celtic rituals, these compositions evolved through the medieval and Renaissance periods, with early iterations incorporating modal harmonies and carefully constructed dissonances to evoke an atmosphere of mystery and unease. This early framework was further refined across Europe, where the influences of folkloric myth and societal superstitions imbued musical works with an unmistakable sense of the eerie.
 
 Moreover, the subsequent advent of advanced musical technologies during the late nineteenth and early twentieth centuries enabled composers, particularly in continental Europe and North America, to experiment with novel instrumentation and electronic effects. Consequently, such advancements deepened the textural complexity and conceptual breadth of spooky tunes, affirming their role as a unique facet of international music history.
 

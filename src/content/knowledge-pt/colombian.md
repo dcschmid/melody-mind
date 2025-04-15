@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introdução
 
@@ -50,7 +49,7 @@ Além dos gêneros tradicionais, as transformações tecnológicas desempenharam
 
 Em contraste, a retomada do interesse pela preservação do legado musical nas últimas décadas ganha relevância no debate acadêmico. A redescoberta e a revalorização das tradições orais e dos gêneros populares têm sido objeto de investigações minuciosas que se preocupam em resgatar os elementos de identidade que sustentam a coesão social. Essa tendência é fortemente respaldada por estudos etnográficos e musicológicos, os quais enfatizam a necessidade de se contemplar o diálogo entre passado e presente para a compreensão plena da atualidade musical colombiana.
 
-Por derradeiro, a música colombiana se apresenta como um campo de estudo paradigmático, em que sua análise demanda a articulação entre elementos históricos, socioculturais e tecnológicos. A complexidade de suas origens e a pluralidade de vozes que a compõem revelam uma trajetória repleta de contradições, conflitos e sinergias. Ao transcender o mero registro de estilos e ritmos, o estudo da música colombiana impõe uma reflexão profunda acerca da formação discursiva e simbólica de uma nação, evidenciando que a arte musical é, de fato, um espelho das dinâmicas sociais e históricas que moldam o presente e o futuro. 
+Por derradeiro, a música colombiana se apresenta como um campo de estudo paradigmático, em que sua análise demanda a articulação entre elementos históricos, socioculturais e tecnológicos. A complexidade de suas origens e a pluralidade de vozes que a compõem revelam uma trajetória repleta de contradições, conflitos e sinergias. Ao transcender o mero registro de estilos e ritmos, o estudo da música colombiana impõe uma reflexão profunda acerca da formação discursiva e simbólica de uma nação, evidenciando que a arte musical é, de fato, um espelho das dinâmicas sociais e históricas que moldam o presente e o futuro.
 
 Total de caracteres: 5808
 
@@ -68,7 +67,7 @@ No que tange à historiografia musical, observa-se que os processos de moderniza
 
 Ademais, é fundamental destacar a relevância dos instrumentos musicais na constituição dos timbres característicos dos diversos gêneros. Instrumentos de percussão, como os tambores, aliam-se a sopros nativos – destacando-se as gaitas – e a cordofones, cuja execução técnica e expressividade melódica se revelam essenciais para a autenticidade dos ritmos. A análise dos timbres, ritmos e formas melódicas aponta para um processo contínuo de adaptação e transformação, que se faz presente tanto na performance quanto na transmissão oral do conhecimento musical. Dessa forma, a musicologia contemporânea enfatiza que tais elementos constitutivos configuram um sistema simbólico de comunicação, no qual os ritmos e melodias assumem significados que transcendem a mera execução instrumental (RAMÍREZ, 2003).
 
-Em síntese, a música tradicional colombiana é uma manifestação cultural cuja complexidade se revela em múltiplas camadas históricas, sociais e estéticas. A fusão de elementos indígenas, africanos e europeus, junto à influência de processos históricos de resistência e aculturação, criou um acervo musical que se distingue pela diversidade e originalidade. As expressões rítmicas e instrumentais, articuladas conforme a configuração geográfica e os contextos específicos de cada região, evidenciam a capacidade de adaptação e renovação inerente à tradição musical. Por conseguinte, a análise da música tradicional na Colômbia oferece uma oportunidade valiosa para compreender os mecanismos de construção identitária, bem como para reconhecer a importância dos processos culturais na definição dos espaços sociais e simbólicos. 
+Em síntese, a música tradicional colombiana é uma manifestação cultural cuja complexidade se revela em múltiplas camadas históricas, sociais e estéticas. A fusão de elementos indígenas, africanos e europeus, junto à influência de processos históricos de resistência e aculturação, criou um acervo musical que se distingue pela diversidade e originalidade. As expressões rítmicas e instrumentais, articuladas conforme a configuração geográfica e os contextos específicos de cada região, evidenciam a capacidade de adaptação e renovação inerente à tradição musical. Por conseguinte, a análise da música tradicional na Colômbia oferece uma oportunidade valiosa para compreender os mecanismos de construção identitária, bem como para reconhecer a importância dos processos culturais na definição dos espaços sociais e simbólicos.
 
 Em adição, a investigação etnomusicológica acerca das raízes e transformações da música tradicional colombiana tem proporcionado uma compreensão aprofundada dos mecanismos pelos quais as práticas musicais se perpetuam e se reinventam ao longo do tempo. A conjugação de elementos históricos e técnicos, aliados a uma abordagem metodológica que privilegia a escuta atenta e a análise contextual, tem enriquecido o conhecimento sobre os múltiplos caminhos de resistência e integração cultural presentes no território colombiano. Assim, a tradição musical configura não apenas um patrimônio imaterial de inestimável valor, mas também um campo dinâmico, onde o passado dialoga com as demandas contemporâneas por reconhecimento e valorização da diversidade cultural.
 

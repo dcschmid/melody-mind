@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -70,7 +69,7 @@ En conclusión, las características musicales del heavy metal configuran un ent
 
 El heavy metal, movimiento musical surgido a finales de la década de 1960 y consolidado en los años 70, constituye un fundamento para el estudio de subgéneros y variaciones que han evolucionado a lo largo de las últimas décadas. Esta categoría se caracteriza por la intensidad sonora, las estructuras armónicas complejas y la virtuosidad instrumental, aspectos que han permitido la proliferación de múltiples corrientes dentro del espectro metalero. En este contexto, resulta imprescindible analizar tanto el contexto histórico como los fundamentos teóricos que han concurrido en la gestación de estas expresiones musicales.
 
-En sus inicios, el heavy metal se configuró a partir de los aportes de bandas pioneras como Black Sabbath, Deep Purple y Led Zeppelin, quienes inauguraron un estilo caracterizado por riffs potentes y letras que abordaban temáticas oscuras. La tradición enraizada en estos grupos posibilitó el desarrollo posterior de subgéneros distintivos, cada uno con matices estilísticos que reflejaban innovaciones técnicas y cambios culturales. Asimismo, la evolución tecnológica, evidenciada en el uso progresivo de amplificadores y efectos electrónicos, jugó un papel crucial en la transformación sonora de la propuesta metalera. 
+En sus inicios, el heavy metal se configuró a partir de los aportes de bandas pioneras como Black Sabbath, Deep Purple y Led Zeppelin, quienes inauguraron un estilo caracterizado por riffs potentes y letras que abordaban temáticas oscuras. La tradición enraizada en estos grupos posibilitó el desarrollo posterior de subgéneros distintivos, cada uno con matices estilísticos que reflejaban innovaciones técnicas y cambios culturales. Asimismo, la evolución tecnológica, evidenciada en el uso progresivo de amplificadores y efectos electrónicos, jugó un papel crucial en la transformación sonora de la propuesta metalera.
 
 El surgimiento del thrash metal a principios de la década de 1980 supuso una respuesta a la búsqueda de velocidades y ritmos más agresivos, conservando la dureza y la complejidad armónica pero incorporando elementos del punk. Bandas como Metallica, Slayer y Exodus, cuya actividad se consolidó en este periodo, exploraron estructuras rítmicas aceleradas y riffs incisivos que marcaron una clara ruptura con convenciones tradicionales de la época. Este subgénero demostró una notable resistencia y capacidad de supervivencia, ya que, a lo largo de las décadas, su evolución ha sido objeto de análisis académico en relación con la sociología de la música y la innovación instrumental.
 

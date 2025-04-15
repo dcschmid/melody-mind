@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -48,7 +47,7 @@ In conclusione, l'eredità storica del movimento indie si configura in una traie
 
 ## Musical Characteristics
 
-Il movimento musicale definito "indie" ha radici che affondano nella tradizione delle produzioni indipendenti degli anni Ottanta e Novanta, in particolare nel contesto anglosassone, ma con risonanze significative anche nel panorama europeo. La definizione stessa di "indie" si riferisce originariamente al distacco dalle grandi etichette discografiche, privilegiando un’autonomia creativa e una produzione artistica che si oppone ai canoni del mercato mainstream. Nel corso degli anni, questo genere ha evidenziato una molteplicità di approcci stilistici e tematici che ne hanno arricchito il tessuto espressivo e ne hanno fatto oggetto di analisi accademiche approfondite. 
+Il movimento musicale definito "indie" ha radici che affondano nella tradizione delle produzioni indipendenti degli anni Ottanta e Novanta, in particolare nel contesto anglosassone, ma con risonanze significative anche nel panorama europeo. La definizione stessa di "indie" si riferisce originariamente al distacco dalle grandi etichette discografiche, privilegiando un’autonomia creativa e una produzione artistica che si oppone ai canoni del mercato mainstream. Nel corso degli anni, questo genere ha evidenziato una molteplicità di approcci stilistici e tematici che ne hanno arricchito il tessuto espressivo e ne hanno fatto oggetto di analisi accademiche approfondite.
 
 L’analisi delle caratteristiche musicali dell’indie evidenzia innanzitutto una predilezione per sonorità autentiche, spesso caratterizzate da una produzione minimale e da arrangiamenti che privilegiano l’elemento espressivo del testo. Le formulazioni armoniche e melodiche si contraddistinguono per l’impiego di strutture non convenzionali, in cui l’uso di dissonanze e di progressioni insolite diventa un mezzo per trasmettere emozioni complesse e per esprimere una visione critica rispetto alla musica commercialmente strutturata. In questo senso, la musica indie rifiuta la standardizzazione, tendendo a sperimentare forme espressive che attingono sia alla tradizione popolare sia a influenze provenienti da correnti più accademiche, quali il post-punk e il rock alternativo.
 

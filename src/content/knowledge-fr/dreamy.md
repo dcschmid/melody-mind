@@ -16,10 +16,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -85,7 +84,7 @@ En conclusion, l’ensemble des techniques et éléments constitutifs du genre �
 
 ## Historical Development
 
-L’évolution historique de la musique « dreamy » s’inscrit dans une dynamique d’expérimentation sonore et de métamorphose esthétique qui puise ses sources dans plusieurs courants artistiques et socio-culturels. Ce courant, de par son empreinte particulièrement évocatrice, témoigne d’une recherche d’un son « onirique » et d’une immersion dans une temporalité suspendue. Ainsi, l’analyse de son développement suppose d’appréhender les interactions complexes entre les innovations technologiques, les influences psychédéliques et les révolutions culturelles. Dès lors, il apparaît que le caractère introspectif et la texture acoustique diffuse de ce genre correspondent à une volonté de dépasser les contraintes narratives conventionnelles pour privilégier une immersion sensorielle.  
+L’évolution historique de la musique « dreamy » s’inscrit dans une dynamique d’expérimentation sonore et de métamorphose esthétique qui puise ses sources dans plusieurs courants artistiques et socio-culturels. Ce courant, de par son empreinte particulièrement évocatrice, témoigne d’une recherche d’un son « onirique » et d’une immersion dans une temporalité suspendue. Ainsi, l’analyse de son développement suppose d’appréhender les interactions complexes entre les innovations technologiques, les influences psychédéliques et les révolutions culturelles. Dès lors, il apparaît que le caractère introspectif et la texture acoustique diffuse de ce genre correspondent à une volonté de dépasser les contraintes narratives conventionnelles pour privilégier une immersion sensorielle.
 
 Les prémices de cette esthétique peuvent être retracés jusqu’aux expérimentations menées dans les années 1960, où certains groupes pionniers, notamment aux États-Unis et au Royaume-Uni, exploitent les potentialités des techniques de studio. À cette époque, des artistes comme The Velvet Underground ont amorcé une approche de la musique moins axée sur la structure traditionnelle pour révéler des sonorités qui éveillent la sensibilité et l’imagination. Parallèlement, l’émergence de l’électronique expérimentale et l’utilisation novatrice des réverbérations et des délais ont contribué à créer des atmosphères propices à l’évocation du rêve. Ces innovations préfigurent une esthétique qui se caractérisera ultérieurement par une impression de flottement temporel et de spatialisation diffuse.
 
@@ -195,6 +194,6 @@ En résumé, la catégorie « Dreamy » dans sa dimension contemporaine fait l�
 
 ## Conclusion
 
-La conclusion de cette étude illustre une appréhension approfondie et historiquement ancrée du courant musical « Dreamy ». Dès l’émergence des premières expérimentations sonores dans les années 1970, notamment en Europe et en Amérique du Nord, cette esthétique a su instaurer une atmosphère onirique et mélancolique tout en intégrant des innovations technologiques issues des pratiques d'enregistrement et de mixage. L’analyse révèle ainsi comment des artistes pionniers, conformes aux contraintes de leur époque, ont su élaborer des textures musicales subtiles, où se mêlent des influences classiques et des procédés contemporains.  
+La conclusion de cette étude illustre une appréhension approfondie et historiquement ancrée du courant musical « Dreamy ». Dès l’émergence des premières expérimentations sonores dans les années 1970, notamment en Europe et en Amérique du Nord, cette esthétique a su instaurer une atmosphère onirique et mélancolique tout en intégrant des innovations technologiques issues des pratiques d'enregistrement et de mixage. L’analyse révèle ainsi comment des artistes pionniers, conformes aux contraintes de leur époque, ont su élaborer des textures musicales subtiles, où se mêlent des influences classiques et des procédés contemporains.
 
 Par ailleurs, l’interaction entre la vision esthétique et l’évolution des techniques de production confère à ce genre une dimension à la fois intemporelle et résolument moderne. En mobilisant les références culturelles et les avancées théoriques, cette synthèse démontre que la musique « Dreamy » constitue non seulement un phénomène artistique majeur, mais également un objet d’étude essentiel pour comprendre les mutations de la production musicale internationale.

@@ -17,14 +17,13 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-La musique techno constitue un champ d’étude majeur dont l’émergence s’inscrit dans une évolution historique complexe. Apparue au début des années 1980 à Detroit, dans un contexte urbain en mutation et marqué par des bouleversements socio-économiques, elle se distingue par l’emploi innovant des synthétiseurs et des boîtes à rythmes. Des pionniers tels que Juan Atkins, Derrick May et Kevin Saunderson ont, dès lors, posé les bases d’une esthétique novatrice rompant avec les formes traditionnelles de la soul et du funk. 
+La musique techno constitue un champ d’étude majeur dont l’émergence s’inscrit dans une évolution historique complexe. Apparue au début des années 1980 à Detroit, dans un contexte urbain en mutation et marqué par des bouleversements socio-économiques, elle se distingue par l’emploi innovant des synthétiseurs et des boîtes à rythmes. Des pionniers tels que Juan Atkins, Derrick May et Kevin Saunderson ont, dès lors, posé les bases d’une esthétique novatrice rompant avec les formes traditionnelles de la soul et du funk.
 
 Par ailleurs, sa réception et son développement en Europe, particulièrement dans les régions industrielles, ont contribué à sa diffusion et à l’enrichissement de ses codes musicologiques. En outre, les études théoriques contemporaines insistent sur le rôle déterminant des technologies numériques dans l’évolution de cette expression artistique. Ainsi, la techno s’impose comme un vecteur d’innovation, reflétant l’entrelacs de progrès technique et de transformation culturelle. (892 caractères)
 

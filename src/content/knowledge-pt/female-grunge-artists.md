@@ -17,10 +17,9 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introdução
 
@@ -34,7 +33,7 @@ Total de caracteres: 892
 
 ## Desenvolvimento histórico
 
-A cena grunge, que emergiu no final da década de 1980 em Seattle, caracteriza-se pela convergência de elementos do punk, do heavy metal e do rock alternativo, inscrevendo-se em um contexto de transgressão estética e contestação dos valores mainstream. Historicamente, esse movimento foi inicialmente moldado por músicos masculinos, porém, a trajetória não pode ser dissociada da atuação de artistas femininas que, apesar de marginalizadas pela narrativa dominante, contribuíram de maneira decisiva para a construção de uma identidade sonora e política própria. Assim, a presença de vocalistas e instrumentistas do sexo feminino subverteu paradigmas, introduzindo novas perspectivas que alicerçaram discussões acerca de gênero e autenticidade no universo musical. 
+A cena grunge, que emergiu no final da década de 1980 em Seattle, caracteriza-se pela convergência de elementos do punk, do heavy metal e do rock alternativo, inscrevendo-se em um contexto de transgressão estética e contestação dos valores mainstream. Historicamente, esse movimento foi inicialmente moldado por músicos masculinos, porém, a trajetória não pode ser dissociada da atuação de artistas femininas que, apesar de marginalizadas pela narrativa dominante, contribuíram de maneira decisiva para a construção de uma identidade sonora e política própria. Assim, a presença de vocalistas e instrumentistas do sexo feminino subverteu paradigmas, introduzindo novas perspectivas que alicerçaram discussões acerca de gênero e autenticidade no universo musical.
 
 As raízes do grunge encontram-se em contextos sociais e culturais complexos, marcados por incertezas econômicas e pela efervescência contracultural das metrópoles norte-americanas dos anos 1980. Neste ambiente, o isolamento geográfico e a distancia dos circuitos de mídia convencionais favoreceram uma experimentação estética que, ao ser associada a uma postura "anti-show business", possibilitou o surgimento de artistas dispostos a se afastar dos moldes pré-estabelecidos. Nesse sentido, a inclusão de mulheres nesse cenário revolucionou as práticas musicais, incorpando uma sensibilidade que dialogava, de forma disruptiva, com as discursividades feministas emergentes – notadamente as que se concentraram na crítica à objetificação e à marginalização das mulheres – e antecipando, em certa medida, o movimento riot grrrl. Segundo Azerrad (1994), a presença feminina no grunge não apenas ampliou o leque de significados atribuídos a um gênero musical já carregado de simbolismo subversivo, como também impôs uma nova leitura quanto à relação entre autenticidade e performance.
 
@@ -168,7 +167,7 @@ Ainda que a trajetória dos “female grunge artists” tenha sido permeada por 
 
 Por conseguinte, o estudo da evolução e das tendências dos artistas grunge femininos demanda uma abordagem holística e integrada, que leve em conta tanto os fatores históricos quanto os componentes estéticos e tecnológicos das produções musicais. A análise dos discursos e das práticas performáticas evidencia a maneira pela qual essas artistas contribuíram para a desconstrução de narrativas pré-estabelecidas, ao mesmo tempo em que instigaram novas perspectivas sobre o papel da mulher na história do rock alternativo. Em síntese, a trajetória das mulheres no grunge emerge como um estudo de caso emblemático, no qual se entrelaçam elementos de contestação política, reafirmação identitária e renovação estética.
 
-Em conclusão, ao examinar a trajetória dos “female grunge artists”, constata-se que os processos históricos e culturais que impulsionaram o surgimento e a consolidação desse movimento não podem ser reduzidos a uma simples narrativa musical. A complexidade inerente a esse fenômeno requer o reconhecimento da pluralidade de experiências e da intersecção entre os discursos artísticos e os contextos sociopolíticos da época. Assim, o legado dessas artistas permanece como um ponto de referência para o estudo da evolução dos gêneros musicais e para a compreensão das transformações que desafiam continuamente as normatividades estabelecidas. 
+Em conclusão, ao examinar a trajetória dos “female grunge artists”, constata-se que os processos históricos e culturais que impulsionaram o surgimento e a consolidação desse movimento não podem ser reduzidos a uma simples narrativa musical. A complexidade inerente a esse fenômeno requer o reconhecimento da pluralidade de experiências e da intersecção entre os discursos artísticos e os contextos sociopolíticos da época. Assim, o legado dessas artistas permanece como um ponto de referência para o estudo da evolução dos gêneros musicais e para a compreensão das transformações que desafiam continuamente as normatividades estabelecidas.
 
 Total de caracteres: 5842
 

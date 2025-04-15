@@ -17,10 +17,9 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -48,9 +47,9 @@ In sintesi, la tematica “Rainy Day” rappresenta un filone narrativo di grand
 
 ## Musical Characteristics
 
-Il genere musicale "Rainy Day" rappresenta una categoria espressiva particolarmente raffinata, in cui l’emotività e la riflessione si fondono in uno stile sonoro caratterizzato da delicate sfumature timbriche e strutture armoniche complesse. Dal punto di vista storico, tale categoria si configura come una risposta sia all’evoluzione estetica degli ambienti sonori che all’intensificarsi di una sensibilità introspectiva, riscontrabile nella musica europea e internazionale a partire dalla metà del XX secolo. Le influenze si possono ricondurre a sviluppi concettuali e tecnici che, integrando elementi di musica classica, jazz e tradizioni popolari, hanno fornito il terreno fertile per la nascita di una sonorità particolarmente evocativa e meditativa. 
+Il genere musicale "Rainy Day" rappresenta una categoria espressiva particolarmente raffinata, in cui l’emotività e la riflessione si fondono in uno stile sonoro caratterizzato da delicate sfumature timbriche e strutture armoniche complesse. Dal punto di vista storico, tale categoria si configura come una risposta sia all’evoluzione estetica degli ambienti sonori che all’intensificarsi di una sensibilità introspectiva, riscontrabile nella musica europea e internazionale a partire dalla metà del XX secolo. Le influenze si possono ricondurre a sviluppi concettuali e tecnici che, integrando elementi di musica classica, jazz e tradizioni popolari, hanno fornito il terreno fertile per la nascita di una sonorità particolarmente evocativa e meditativa.
 
-L’analisi della struttura armonica del "Rainy Day" rivela l’uso frequente di progressioni modali e cromatiche, nonché l’impiego di dispositivi accordali che enfatizzano una sensazione di sospensione e ambiguità emotiva. Tali progressioni sono progettate per trasmettere la malinconia e la riflessione che caratterizzano il genere, sostenendo al contempo una fluidità tematica e una libertà interpretativa. L’impiego dei dissonanze risolte in maniera non convenzionale permette di creare tensione ed equilibrio, offrendo al contempo un tessuto sonoro che si presta a una interpretazione personale da parte dell’ascoltatore e dell’interprete. 
+L’analisi della struttura armonica del "Rainy Day" rivela l’uso frequente di progressioni modali e cromatiche, nonché l’impiego di dispositivi accordali che enfatizzano una sensazione di sospensione e ambiguità emotiva. Tali progressioni sono progettate per trasmettere la malinconia e la riflessione che caratterizzano il genere, sostenendo al contempo una fluidità tematica e una libertà interpretativa. L’impiego dei dissonanze risolte in maniera non convenzionale permette di creare tensione ed equilibrio, offrendo al contempo un tessuto sonoro che si presta a una interpretazione personale da parte dell’ascoltatore e dell’interprete.
 
 Il ritmo, elemento fondamentale nella definizione della categoria, si esprime attraverso tempi lenti e misurati, strutturati in maniera tale da suggerire il fluire costante delle gocce di pioggia. In particolare, si osserva l’adozione di schemi ritmici regolari ma non ipnotici, che permettono una modulazione delicata del dinamismo l’insieme del brano. La pulsazione ritmica, spesso sostenuta da strumenti a percussione morbidi e ovattati, contribuisce a instaurare un’atmosfera intimista, in cui il tempo sembra dilatarsi e fondersi con l’esperienza emotiva del momento.
 

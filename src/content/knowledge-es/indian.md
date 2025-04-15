@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introducción
 
@@ -78,10 +77,10 @@ Por otra parte, es importante destacar que el desarrollo de la música moderna e
 
 Finalmente, la evolución de la música moderna en la India se erige como ejemplo paradigmático de la capacidad de adaptación y resiliencia cultural. La convergencia de influencias, sumada a la continua reinvención de tradicionales esquemas sonoros, ha generado un corpus musical que resulta, a su vez, innovador y respetuoso de su herencia. Con ello, se evidencia una articulación entre el pasado y el presente que resguarda la identidad musical, mientras se abren espacios hacia la exploración de nuevos horizontes creativos. Resulta evidente, por tanto, que la música india moderna no solo es producto de procesos históricos y tecnológicos, sino que también constituye un ámbito fértil para la investigación académica, el intercambio cultural y el diálogo intercultural, aspectos que continúan siendo objeto de estudio en la musicología contemporánea.
 
-  
-Referencias:  
-- Datta, A. (1985). Historia de la música india: Tradición y modernidad. Nueva Delhi: Publicaciones Académicas Indias.  
-- Dehejia, V. (1991). Música y sociedad en la India contemporánea. Mumbai: Ediciones del Horizonte.  
+Referencias:
+
+- Datta, A. (1985). Historia de la música india: Tradición y modernidad. Nueva Delhi: Publicaciones Académicas Indias.
+- Dehejia, V. (1991). Música y sociedad en la India contemporánea. Mumbai: Ediciones del Horizonte.
 - Mukerji, R. (1972). Innovación y tradición en el escenario musical indio. Kolkata: Editorial Cultural del Este.
 
 ## Artistas y bandas destacados
@@ -118,8 +117,8 @@ La tecnología continuó ejerciendo una influencia decisiva a lo largo de las d�
 
 Con el advenimiento del Internet en los albores del siglo XXI, la industria musical india pasó por una profunda metamorfosis. El surgimiento de plataformas digitales y redes sociales transformó los canales de difusión y comercialización, permitiendo a los artistas, tanto de tradición como aquellos provenientes de la industria cinematográfica, alcanzar audiencias internacionales. Este cambio tecnológico no solo facilitó el acceso a registros históricos y grabaciones clásicas, sino que también propició el surgimiento de nuevos géneros y estilos a partir de la fusión y reinterpretación de elementos tradicionales. De este modo, la infraestructura de la industria se adaptó dinámicamente a las nuevas exigencias, manteniendo una continuidad en la valoración de la identidad musical nacional.
 
-En consecuencia, la evolución de la industria musical y su infraestructura en la India se ha caracterizado por una interacción permanente entre tradición y modernidad. La incorporación gradual de tecnologías foráneas, la consolidación de instituciones dedicadas a la preservación y difusión del patrimonio musical y la emergencia de nuevos canales de distribución han forjado un ecosistema que permite la coexistencia de múltiples discursos y prácticas expresivas. Tal transformación ha sido objeto de análisis en diversas publicaciones académicas, en las cuales se enfatiza la importancia de comprender las dinámicas históricas que han permitido el florecimiento de una industria que, sin olvidar sus raíces, se adapta a las tendencias globales contemporáneas.  
- 
+En consecuencia, la evolución de la industria musical y su infraestructura en la India se ha caracterizado por una interacción permanente entre tradición y modernidad. La incorporación gradual de tecnologías foráneas, la consolidación de instituciones dedicadas a la preservación y difusión del patrimonio musical y la emergencia de nuevos canales de distribución han forjado un ecosistema que permite la coexistencia de múltiples discursos y prácticas expresivas. Tal transformación ha sido objeto de análisis en diversas publicaciones académicas, en las cuales se enfatiza la importancia de comprender las dinámicas históricas que han permitido el florecimiento de una industria que, sin olvidar sus raíces, se adapta a las tendencias globales contemporáneas.
+
 En síntesis, la reconfiguración de la infraestructura musical en la India constituye un reflejo de las complejidades culturales y tecnológicas del país. Cada etapa histórica—desde la transmisión oral tradicional hasta la integración de las plataformas digitales—ha aportado significativas innovaciones en la manera de producir, transmitir y conservar la musicalidad que define a la nación. Esta polifonía de influencias y procesos interrelacionados continúa siendo un objeto de estudio en la musicología contemporánea, pues ilustra la interacción entre política cultural, desarrollo tecnológico y tradición artística en una sociedad en constante transformación.
 
 ## Música en vivo y eventos

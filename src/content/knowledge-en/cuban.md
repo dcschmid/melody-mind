@@ -17,10 +17,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -198,6 +197,6 @@ In conclusion, the distinctive international connections of Cuban music undersco
 
 ## Current Trends and Future
 
-Recent trends in Cuban music have fostered a renewed global appreciation for traditional genres such as son, danzón, and guaracha, whilst incorporating innovative elements from jazz, electronic, and global pop traditions. Contemporary artists skilfully blend acoustic textures with digital soundscapes, revisiting historical motifs to create compositions that appeal to both the connoisseur and the younger audience. 
+Recent trends in Cuban music have fostered a renewed global appreciation for traditional genres such as son, danzón, and guaracha, whilst incorporating innovative elements from jazz, electronic, and global pop traditions. Contemporary artists skilfully blend acoustic textures with digital soundscapes, revisiting historical motifs to create compositions that appeal to both the connoisseur and the younger audience.
 
 Moreover, emerging Cuban musicians, grounded in rigorous musicological practices, are exploring the confluence of Afro-Cuban rhythms with advanced musical technology. This synthesis not only preserves the nation’s rich cultural heritage but also paves the way for a promising future in the international music scene, where evolving stylistic boundaries are continually redefined.

@@ -17,10 +17,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -166,7 +165,7 @@ Genom att befästa denna interdisciplinära förståelse kan vi både teoretiskt
 
 ## Contemporary Expressions
 
-Contemporary Expressions inom kategorin Peaceful utgör ett betydelsefullt område inom internationell musikkultur, med en komplex sammansmältning av teknologiska innovationer, idéströmningar och estetiska ideal. Denna utveckling, som till stor del kan spåras tillbaka till senare delen av 1900-talet, präglas av en medveten strävan efter att skapa musikaliska rum där lyssnaren ges möjlighet till reflektion och inre lugn. Genom att integrera traditionella instrument och digitala nyanser har kompositörer och utövare internationellt lyckats förnya begreppet musikalisk fridfullhet, vilket speglar en global kulturell dialog och en vilja att överbrygga gränser mellan oc ﻿  kulturella och estetiska konventioner.
+Contemporary Expressions inom kategorin Peaceful utgör ett betydelsefullt område inom internationell musikkultur, med en komplex sammansmältning av teknologiska innovationer, idéströmningar och estetiska ideal. Denna utveckling, som till stor del kan spåras tillbaka till senare delen av 1900-talet, präglas av en medveten strävan efter att skapa musikaliska rum där lyssnaren ges möjlighet till reflektion och inre lugn. Genom att integrera traditionella instrument och digitala nyanser har kompositörer och utövare internationellt lyckats förnya begreppet musikalisk fridfullhet, vilket speglar en global kulturell dialog och en vilja att överbrygga gränser mellan oc ﻿ kulturella och estetiska konventioner.
 
 Under början av 1970-talet uppstod ett antal rörelser som bidrog till att definiera den fridfulla musikens inriktning. I synnerhet kan den engelska producenten Brian Enos banbrytande verk Ambient 1: Music for Airports (1978) ses som en vändpunkt där ambientens koncept utvecklades i en riktning som betonade kontinuitet, minimalistiska harmonier och långsamma texturförändringar. Samtidigt etablerades minimalismens principer av amerikanska kompositörer som Steve Reich och Philip Glass, vars repetitiva strukturer kombinerades med subtil variation och ett fokus på den meditativa aspekten av musik. Trots sina olika geografiska och kulturella utgångspunkter sammanföll dessa rörelser i sina estetiska ambitioner att erbjuda en ”akustisk palliative” effekt som kunde motverka samtidens hastighet och övermättnad av sensoriska intryck.
 
@@ -180,6 +179,6 @@ Sammantaget vittnar de samtida uttrycken för fridfull musik om en medveten str�
 
 ## Conclusion
 
-I sammanfattning visar den internationella utvecklingen av fridfull musik en mångfacetterad och djupgående resonans med kulturella och historiska strömningar. Redan under medeltiden kunde man urskilja spår av en reflekterande andlighet i gregorianska sånger, vilka genom sin monofoniska struktur lade grunden för en fridfull akustik. Vidare bevarade östasiatiska musikkulturer en harmonisk balans och subtil dynamik, vilket syns tydligt i användandet av pentatoniska skalaarrangemang och minimalistiska ornamentala utsmyckningar. 
+I sammanfattning visar den internationella utvecklingen av fridfull musik en mångfacetterad och djupgående resonans med kulturella och historiska strömningar. Redan under medeltiden kunde man urskilja spår av en reflekterande andlighet i gregorianska sånger, vilka genom sin monofoniska struktur lade grunden för en fridfull akustik. Vidare bevarade östasiatiska musikkulturer en harmonisk balans och subtil dynamik, vilket syns tydligt i användandet av pentatoniska skalaarrangemang och minimalistiska ornamentala utsmyckningar.
 
 Dessutom har de tidiga modernistiska kompositörerna i Europa, med exempelvis verk anknutna till impressionistiska och expressionistiska strömningar, betonat harmonisk kompleksitet i strävan efter en meditativ lyssningsupplevelse. I kontrast framstår samma behov av introspektion i nutida global musik, där digitala ljudlandskap frammanar lugnande resonanser. Sammanfattningsvis utgör den fridfulla musiken en bro mellan tradition och innovation, där historiskt betingade uttryckssätt kontinuerligt utvecklas i en globalt sammanflätad kulturell dialog.

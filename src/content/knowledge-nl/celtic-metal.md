@@ -16,10 +16,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -109,7 +108,7 @@ Ten slotte vormt de synthese van traditionele en moderne elementen in Celtic Met
 
 ## Cultural Significance
 
-Celtic Metal vervult een unieke positie binnen het internationale muzikale landschap en belichaamt een synthese van traditionele Keltische elementen met de esthetiek van de hedendaagse metalmuziek. Deze subcategorie, die in de vroege jaren negentig zijn oorsprong vond in Ierland en aangrenzende regio’s, is niet louter een muzikale fusie, maar tevens een culturele uitdrukking die diepgeworteld is in het erfgoed en de mythologie van de Keltische wereld. De combinatie van ruwe elektrische gitaarriffs, krachtige drums en melodieuze intermezzo’s, waarin traditionele instrumenten zoals de tinwhistle, de bodhrán en de fiddle geïntegreerd worden, weerspiegelt zowel innovatie als een streven naar authenticiteit. Hierdoor fungeert Celtic Metal als een medium dat culturele identiteit herdefinieert en de historische narratieven van een eeuwenoud volk in de hedendaagse muziek verankert. 
+Celtic Metal vervult een unieke positie binnen het internationale muzikale landschap en belichaamt een synthese van traditionele Keltische elementen met de esthetiek van de hedendaagse metalmuziek. Deze subcategorie, die in de vroege jaren negentig zijn oorsprong vond in Ierland en aangrenzende regio’s, is niet louter een muzikale fusie, maar tevens een culturele uitdrukking die diepgeworteld is in het erfgoed en de mythologie van de Keltische wereld. De combinatie van ruwe elektrische gitaarriffs, krachtige drums en melodieuze intermezzo’s, waarin traditionele instrumenten zoals de tinwhistle, de bodhrán en de fiddle geïntegreerd worden, weerspiegelt zowel innovatie als een streven naar authenticiteit. Hierdoor fungeert Celtic Metal als een medium dat culturele identiteit herdefinieert en de historische narratieven van een eeuwenoud volk in de hedendaagse muziek verankert.
 
 Historisch gezien ontstond de belangstelling voor Keltische cultuur in een tijd waarin de mondiale muziekmarkt in een stroomversnelling kwam. Met de opkomst van bands als Cruachan, die haar formation in 1992 formeel neerzette, vond een herleving plaats van vergeten mythen, legendes en folkloristische motieven, die in eerdere decennia slechts marginaal werden belicht op het toneel van de zware metalmuziek. Bovendien vormde de ontwikkeling van folk metal, geïllustreerd door Britse pioniers als Skyclad, een fundamentele aanzet voor de exploratie van volksmuzikale elementen binnen een harde muzikale context. Deze historische ontwikkeling, die nauw verweven is met de politieke en culturele heropleving van Keltische identiteiten in Europa, toont de intrinsieke drang van samenlevingen om hun collectieve geschiedenis en mythologische voorstellingen te herwaarderen en in een hedendaags jasje te gieten.
 

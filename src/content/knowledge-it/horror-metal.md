@@ -17,14 +17,13 @@ locale: it
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Il genere horror metal rappresenta una declinazione specifica del metal, fondamento di una narrazione sonora intrisa di elementi macabri e inquietanti, strettamente legati alle dinamiche culturali e tecnologiche dell’ultimo quarto del XX secolo. Esso affonda le proprie radici nel contesto oscuro e sperimentale degli anni Ottanta, periodo in cui gruppi pionieristici come King Diamond e Mercyful Fate hanno saputo integrare sonorità dissonanti, arrangiamenti orchestrali e testi ispirati alle atmosfere gotiche, creando un linguaggio espressivo inedito. 
+Il genere horror metal rappresenta una declinazione specifica del metal, fondamento di una narrazione sonora intrisa di elementi macabri e inquietanti, strettamente legati alle dinamiche culturali e tecnologiche dell’ultimo quarto del XX secolo. Esso affonda le proprie radici nel contesto oscuro e sperimentale degli anni Ottanta, periodo in cui gruppi pionieristici come King Diamond e Mercyful Fate hanno saputo integrare sonorità dissonanti, arrangiamenti orchestrali e testi ispirati alle atmosfere gotiche, creando un linguaggio espressivo inedito.
 
 Inoltre, l’interazione tra le arti musicali e la cinematografia dell’orrore ha consolidato un’estetica drammatica, in cui la teatralità e il simbolismo macabro rivestono un ruolo essenziale. Tale convergenza, analizzata con rigore metodologico nell’ambito della musicologia, evidenzia come le innovazioni tecnologiche e i mutamenti socio-culturali abbiano favorito l’evoluzione di un sottogenere complesso, capace di influenzare in modo decisivo il panorama internazionale del metal.
 

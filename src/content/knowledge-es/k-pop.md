@@ -16,10 +16,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -189,7 +188,7 @@ El auge y la consolidación del K-Pop constituyen un fenómeno cultural y musica
 
 A partir de los inicios de la modernización musical en Corea del Sur, el K-Pop ha adoptado una estrategia de integración de diversos elementos estilísticos y tecnológicos. Durante las décadas de 1990 y 2000, compañías discográficas como SM Entertainment, YG Entertainment y JYP Entertainment establecieron un modelo de producción meticuloso en el que la coreografía, la estética visual y la técnica vocal se erigieron como pilares fundamentales. Asimismo, la práctica de entrenamiento intensivo y el énfasis en la imagen han contribuido a la construcción de ídolos que, a través del entretenimiento empolvado y el rigor técnico, han logrado capturar la atención de audiencias internacionales. Este fenómeno, además de impulsar la economía del entretenimiento, reveló una sinergia con los avances tecnológicos, destacando el rol de Internet y las redes sociales en la promoción y difusión masiva del género.
 
-El impacto del K-Pop trasciende la mera esfera musical, influyendo en ámbitos tan variados como la moda, la estética visual y las dinámicas comunicativas. La aparición de plataformas digitales, especialmente a partir de mediados del siglo XXI, facilitó el acceso a contenido cultural surcoreano y posibilitó la conformación de comunidades de fans globales, quienes han ejercido una notable influencia en los discursos sobre identidad y pertenencia. Por otra parte, la convergencia de tecnologías audiovisuales en la producción de videoclips y espectáculos en vivo ha establecido nuevos estándares en la calidad y la creatividad de las obras musicales, marcando una ruta que inspira a diversas propuestas musicales contemporáneas a nivel mundial.  
+El impacto del K-Pop trasciende la mera esfera musical, influyendo en ámbitos tan variados como la moda, la estética visual y las dinámicas comunicativas. La aparición de plataformas digitales, especialmente a partir de mediados del siglo XXI, facilitó el acceso a contenido cultural surcoreano y posibilitó la conformación de comunidades de fans globales, quienes han ejercido una notable influencia en los discursos sobre identidad y pertenencia. Por otra parte, la convergencia de tecnologías audiovisuales en la producción de videoclips y espectáculos en vivo ha establecido nuevos estándares en la calidad y la creatividad de las obras musicales, marcando una ruta que inspira a diversas propuestas musicales contemporáneas a nivel mundial.
 
 De igual forma, la influencia del K-Pop se ha evidenciado en estudios académicos y análisis culturales que destacan su papel en la difusión de valores y costumbres de la cultura surcoreana. Investigaciones en el campo de la musicología y los estudios culturales han subrayado la capacidad del género para transmitir estéticas híbridas que conjugan tradición y modernidad, impulsando debates sobre la apropiación cultural y la construcción de identidades transnacionales. En este sentido, las producciones musicales coreanas se han convertido en un referente de la globalización cultural, posibilitando que los conceptos de modernidad, tradición y tecnología se integren en un discurso mediático y discursivo que trasciende las barreras lingüísticas y geográficas.
 

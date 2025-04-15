@@ -16,14 +16,13 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduktion
 
-Den irländska musikkulturen utgör ett enastående exempel på hur tradition och internationella influenser samverkar inom ramen för en global musikhistoria. Under 1800-talets senare halva utvecklades den folkliga musiken i Irland med en övergång från muntligt överförda traditioner till mer formaliserad notering och inspelning, vilket möjliggjordes genom tillkomsten av analoga inspelningstekniker. Traditionella dansformer såsom jigs, reels och hornpipes kombineras med harmoniska strukturer som introducerades med den musikteoretiska moderniseringens intåg. 
+Den irländska musikkulturen utgör ett enastående exempel på hur tradition och internationella influenser samverkar inom ramen för en global musikhistoria. Under 1800-talets senare halva utvecklades den folkliga musiken i Irland med en övergång från muntligt överförda traditioner till mer formaliserad notering och inspelning, vilket möjliggjordes genom tillkomsten av analoga inspelningstekniker. Traditionella dansformer såsom jigs, reels och hornpipes kombineras med harmoniska strukturer som introducerades med den musikteoretiska moderniseringens intåg.
 
 Vidare influerades den irländska musiken av samtida strömningar från brittisk och amerikansk musik, vilka banade väg för en kulturell dialog under internationella festivalers tidevarv. Denna samverkan med andra musikaliska traditioner bidrog till en fortsatt utveckling som både bevarade det folkliga arvet och samtidigt anpassade sig till nya musikaliska paradigmer, vilket utgör ett centralt studieobjekt inom modern musikvetenskap.
 
@@ -147,7 +146,7 @@ Sammanfattningsvis framstår den irländska musikens resa genom medielandskap oc
 
 ## Utbildning och stöd
 
-Utbildning och stöd inom den irländska musiktraditionen utgör en central del av den internationella musikkulturen och har under århundraden tjänat som en bärande pelare för bevarandet av nationell identitet och kulturellt arv. Redan under 1700- och 1800-talen utvecklades informella utbildningssystem där muntlig tradition och praktisk färdighet överfördes från generation till generation, vilket gav upphov till en rik och varierad repertoar. Denna dynamik mellan pedagogisk transmission och folkliga uttryck har sedan dess vidareutvecklats och formaliserats genom institutionella åtgärder, där utbildningsprogram och kulturella stödinstitutioner spelar avgörande roller. 
+Utbildning och stöd inom den irländska musiktraditionen utgör en central del av den internationella musikkulturen och har under århundraden tjänat som en bärande pelare för bevarandet av nationell identitet och kulturellt arv. Redan under 1700- och 1800-talen utvecklades informella utbildningssystem där muntlig tradition och praktisk färdighet överfördes från generation till generation, vilket gav upphov till en rik och varierad repertoar. Denna dynamik mellan pedagogisk transmission och folkliga uttryck har sedan dess vidareutvecklats och formaliserats genom institutionella åtgärder, där utbildningsprogram och kulturella stödinstitutioner spelar avgörande roller.
 
 Historiskt sett präglades den irländska musikundervisningen av en stark betoning på improvisation, ornamentik och en nära anknytning till poetik och dans. Under 1900-talets första hälft började ett antal reformatoriska idéer kring formell undervisning integreras i den annars muntliga traditionen. Akademiska institutioner såsom University College Dublin och andra universitet vidtog initiativ för att dokumentera och analysera traditionell musik genom systematiska studier av melodilinjer, rytmiska strukturer och modala skalor. Detta ledde till att en modern musikkritik etablerades, med ackompanjemang av vetenskapliga studier och publicering av fältanteckningar, vilket i sin tur influerade utformningen av dagens undervisningsmodeller.
 

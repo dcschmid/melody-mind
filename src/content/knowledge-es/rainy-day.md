@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -94,7 +93,7 @@ En un contexto internacional, la influencia de la bossa nova introdujo matices d
 
 Asimismo, la narrativa musical de “Rainy Day” encontró nuevamente un punto de inflexión en la escena europea, donde compositores y artistas reinterpretaron estas tonalidades con una sensibilidad particular. En Francia, por ejemplo, la canción “Les feuilles mortes” interpretada por Yves Montand y otros exponentes se erigió como un himno de la melancolía invernal, cargado de simbolismo y lirismo. La alternancia de arreglos orquestales y la incorporación de elementos del chanson française facilitaron una experiencia musical que dialogaba con el clima y la poesía de cada rincón. Este paradigma propició, a su vez, un acercamiento entre las tradiciones del jazz y las tendencias artísticas propias del continente europeo, reflejando la universalidad del sentimiento melancólico asociado a los días de lluvia.
 
-La crítica musicológica ha abordado, en diversas ocasiones, la trascendencia de “Rainy Day” como un espacio de reflexión y resguardo de la sensibilidad humana. Estudios contemporáneos han puesto de relieve la capacidad de este repertorio para servir de vehículo a la expresión de la nostalgia y la interioridad, ofreciendo así un contrapunto a las dinámicas rápidas y superficiales de otros géneros musicales. En este contexto, es posible identificar una línea argumental que recorre desde las primeras innovaciones en el jazz hasta la consolidación de propuestas experimentales en el ámbito de la música clásica contemporánea y las tendencias minimalistas. Las investigaciones de autores como F. Martos (1998) y L. Rodríguez (2004) destacan, asimismo, la importancia de analizar las interrelaciones entre la técnica instrumental y la construcción de atmósferas sublimes en la obra. 
+La crítica musicológica ha abordado, en diversas ocasiones, la trascendencia de “Rainy Day” como un espacio de reflexión y resguardo de la sensibilidad humana. Estudios contemporáneos han puesto de relieve la capacidad de este repertorio para servir de vehículo a la expresión de la nostalgia y la interioridad, ofreciendo así un contrapunto a las dinámicas rápidas y superficiales de otros géneros musicales. En este contexto, es posible identificar una línea argumental que recorre desde las primeras innovaciones en el jazz hasta la consolidación de propuestas experimentales en el ámbito de la música clásica contemporánea y las tendencias minimalistas. Las investigaciones de autores como F. Martos (1998) y L. Rodríguez (2004) destacan, asimismo, la importancia de analizar las interrelaciones entre la técnica instrumental y la construcción de atmósferas sublimes en la obra.
 
 Finalmente, resulta indispensable reconocer que la música “Rainy Day” ha dejado una impronta perdurable en el imaginario cultural, emergiendo no solo como un pasatiempo sonoro, sino como un medio imprescindible de reflexión estética. Se evidencia, por tanto, la necesidad de profundizar en estudios comparativos y análisis interdisciplinarios que aborden las complejas interacciones entre forma, contenido y contexto histórico. La integración de perspectivas teóricas y empíricas en el estudio de este corpus permite comprender, de manera más amplia, las narrativas emocionales que han marcado la evolución de la cultura musical en el ámbito internacional. Así, la identificación de figuras clave y obras fundamentales no solo enriquece el conocimiento académico, sino que también invita a una apreciación renovada de los vastos matices que constituyen la experiencia sonora de los días lluviosos.
 

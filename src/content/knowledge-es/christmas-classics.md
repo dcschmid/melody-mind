@@ -17,10 +17,9 @@ locale: es
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -166,9 +165,9 @@ En conclusión, la integración de los medios y festivales en la difusión de �
 
 ## Playlists and Recommendations
 
-La presente sección de "Playlists and Recommendations" se centra en el análisis de los clásicos navideños, una categoría musical que ha trascendido épocas y fronteras, conformándose como un corpus sonoro de innegable trascendencia histórica y cultural. La tradición de la música navideña se remonta a la Edad Media, cuando los cantos litúrgicos y los himnos religiosos marcaban el inicio de una celebración recogida de profundos significados teológicos y sociales. Dichas composiciones, inicial y primordialmente en latín, emanaban de las comunidades eclesiásticas europeas, y luego evolucionaron en distintos contextos culturales, de manera que su resonancia fue adecuándose al gusto y necesidades interpretativas de cada época. 
+La presente sección de "Playlists and Recommendations" se centra en el análisis de los clásicos navideños, una categoría musical que ha trascendido épocas y fronteras, conformándose como un corpus sonoro de innegable trascendencia histórica y cultural. La tradición de la música navideña se remonta a la Edad Media, cuando los cantos litúrgicos y los himnos religiosos marcaban el inicio de una celebración recogida de profundos significados teológicos y sociales. Dichas composiciones, inicial y primordialmente en latín, emanaban de las comunidades eclesiásticas europeas, y luego evolucionaron en distintos contextos culturales, de manera que su resonancia fue adecuándose al gusto y necesidades interpretativas de cada época.
 
-Al adentrarse en el periodo renacentista, se evidencia que la polifonía tomó un rol preponderante en la reformulación del repertorio navideño. Compositores de la talla de Giovanni Pierluigi da Palestrina y Orlando di Lasso integraron elementos estilísticos propios de la madurez musical renacentista, amalgamando la devoción religiosa con la precisión técnica de la escritura coral. A pesar de que sus obras estaban dirigidas principalmente a un público erudito y al ámbito litúrgico, el éxito de estas composiciones radicó en su capacidad para expresar la solemnidad y el júbilo inherentes a la festividad, constituyendo pilares que influirían en posteriores manifestaciones musicales en la temporada invernal. 
+Al adentrarse en el periodo renacentista, se evidencia que la polifonía tomó un rol preponderante en la reformulación del repertorio navideño. Compositores de la talla de Giovanni Pierluigi da Palestrina y Orlando di Lasso integraron elementos estilísticos propios de la madurez musical renacentista, amalgamando la devoción religiosa con la precisión técnica de la escritura coral. A pesar de que sus obras estaban dirigidas principalmente a un público erudito y al ámbito litúrgico, el éxito de estas composiciones radicó en su capacidad para expresar la solemnidad y el júbilo inherentes a la festividad, constituyendo pilares que influirían en posteriores manifestaciones musicales en la temporada invernal.
 
 Avanzando hacia el Barroco, es posible observar la transformación de la música navideña a través del empleo de nuevos recursos instrumentales y la incorporación de elementos operísticos. Durante el reinado de Luis XIV y en el seno de la corte francesa, la magnificencia instrumental se convirtió en una característica distintiva de las obras dedicadas a la Navidad, motivo de festividades que amalgamaban el rigor del contrapunto con la expresividad emocional. En este contexto, compositores como Johann Sebastian Bach interpretaron, dentro de su amplio espectro musical, piezas de carácter festivo y devocional que, a través de su compleja orquestación y forma, invitaron a la reflexión sobre la trascendencia de la temporada. Asimismo, la tradición de los conciertos y recitales navideños se consolidó durante este periodo, reflejando un diálogo simbólico entre la música sacra y la música profana.
 

@@ -17,10 +17,9 @@ locale: nl
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -52,7 +51,7 @@ De muzikale kenmerken van Horror Metal vormen een intrigerend onderzoeksgebied b
 
 Ten eerste is de harmonie binnen Horror Metal opmerkelijk door het gebruik van zowel traditionele als atypische modaliteiten die een beklemmende sfeer oproepen. Componisten van dit subgenre maken vaak gebruik van de mineurtoonsoort, welke inherent een melancholische en soms sombere klankkleur biedt. In aanvulling daarop wordt de dissonantie strategisch ingezet om spanning en onbehagen te verwekken, hetgeen cruciaal is voor de narratieve inhoud van de muziek. Verder is het gebruik van intervallen zoals de verminderde kwint een terugkerend motief dat, als het zorgvuldig wordt geïntegreerd in de compositie, een gevoel van dreiging versterkt dat kenmerkend is voor horror-esthetiek.
 
-Daarnaast speelt ritmiek een prominente rol in de muzikale structuur van Horror Metal. De percussieve patronen vertonen vaak een ongebruikelijke cadans, waarbij succesvolle onderbrekingen en syncopaties bijdragen aan een onregelmatige en onvoorspelbare flow van de muziek. Deze ritmische onregelmatigheden zijn niet louter decoratief; zij dragen actief bij aan het versterkte gevoel van desoriëntatie bij de luisteraar. In bepaalde composities komt men bovendien complexe polyritmes en variabele tempowisselingen tegen die zowel technische virtuositeit als theatrale expressie vergen van de uitvoerende muzikanten. 
+Daarnaast speelt ritmiek een prominente rol in de muzikale structuur van Horror Metal. De percussieve patronen vertonen vaak een ongebruikelijke cadans, waarbij succesvolle onderbrekingen en syncopaties bijdragen aan een onregelmatige en onvoorspelbare flow van de muziek. Deze ritmische onregelmatigheden zijn niet louter decoratief; zij dragen actief bij aan het versterkte gevoel van desoriëntatie bij de luisteraar. In bepaalde composities komt men bovendien complexe polyritmes en variabele tempowisselingen tegen die zowel technische virtuositeit als theatrale expressie vergen van de uitvoerende muzikanten.
 
 Pur sang instrumentatie binnen Horror Metal wijkt op diverse wijzen af van conventionele rock- en metalarrangementen. Gitaarpartijen worden vaak gekenmerkt door zwaar gedistorteerde klanken die in combinatie met tremolo-picking en legato-loops een hypnotiserend effect bewerkstelligen. Daarnaast is er een duidelijke tendens tot het gebruik van non-traditionele instrumenten, zoals synthesizers en strijkers, die een atmosfeer van gotische grandeur en filmische spanning oproepen. Het geluidsbeeld wordt verder gelaagd door de aanwezigheid van achtergrondeffecten als herhalende echo’s en reverberaties, welke de akoestische ruimte verruimen en de zintuiglijke beleving intensiveren.
 

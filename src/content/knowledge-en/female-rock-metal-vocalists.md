@@ -17,10 +17,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -68,7 +67,7 @@ In summary, the musical characteristics of female rock‐metal vocalists are dis
 
 ## Vocal Styles and Techniques
 
-Female rock‐metal vocalists have long been celebrated for their distinctive vocal techniques and dynamic performance styles, which have evolved alongside the genre over the past four decades. Their methods merge an impressive command of technical ability with an emotive, theatrical approach, underscoring the interplay between classical training and modern innovations. A careful examination of these techniques reveals a rich tapestry of influences that span the traditional opera and bel canto practices to the more recently developed extremes of metal vocalisation, each contributing to a unique international legacy. 
+Female rock‐metal vocalists have long been celebrated for their distinctive vocal techniques and dynamic performance styles, which have evolved alongside the genre over the past four decades. Their methods merge an impressive command of technical ability with an emotive, theatrical approach, underscoring the interplay between classical training and modern innovations. A careful examination of these techniques reveals a rich tapestry of influences that span the traditional opera and bel canto practices to the more recently developed extremes of metal vocalisation, each contributing to a unique international legacy.
 
 Historically, early female vocalists in the rock and metal milieu encountered a milieu where musical expectations were sharply defined by male counterparts. Despite the challenges, pioneering artists such as Doro Pesch in the early 1980s forged a path that underscored the viability of integrating operatic refinement with the raw intensity of hard rock and heavy metal. Their robust, projecting voices served not only to deliver lyrical narratives but also to command the attention of an increasingly diverse audience. In doing so, they laid the groundwork for a generation of artists who embraced both melody and aggression as integral components of their vocal expression.
 

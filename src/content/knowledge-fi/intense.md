@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -210,6 +209,6 @@ Yhteenvetona intensiivisen musiikkikokemuksen nykyaikaiset ilmaisumuodot voidaan
 
 ## Conclusion
 
-Johtopäätöksenä voidaan todeta, että kansainvälisen musiikin kentässä intensiivinen kategoria edustaa syvällistä kulttuurihistoriallista dialogia, jossa perinteiset ja modernit elementit nivoutuvat yhteen. Käsittely on akateemisesti monikerroksellista, sillä 1900-luvun jälkipuoliskon teknologiset innovaatiot ja avantgardistiset kokeilut ovat radikaalisti vaikuttaneet esitysten rakentumiseen. Esimerkiksi 1960– ja 1970-lukujen modernismin aallon myötä kehittyneet harmoniset ja rytmiset kokeilut muodostavat perustan intensiivisille teoksille, joissa dynaamisuus ja kontrasti nousevat keskeisiksi tekijöiksi. Lisäksi musiikilliset teorian analyysit osoittavat, että näiden teosten kompleksisuus haastaa perinteiset melodiset malliset. 
+Johtopäätöksenä voidaan todeta, että kansainvälisen musiikin kentässä intensiivinen kategoria edustaa syvällistä kulttuurihistoriallista dialogia, jossa perinteiset ja modernit elementit nivoutuvat yhteen. Käsittely on akateemisesti monikerroksellista, sillä 1900-luvun jälkipuoliskon teknologiset innovaatiot ja avantgardistiset kokeilut ovat radikaalisti vaikuttaneet esitysten rakentumiseen. Esimerkiksi 1960– ja 1970-lukujen modernismin aallon myötä kehittyneet harmoniset ja rytmiset kokeilut muodostavat perustan intensiivisille teoksille, joissa dynaamisuus ja kontrasti nousevat keskeisiksi tekijöiksi. Lisäksi musiikilliset teorian analyysit osoittavat, että näiden teosten kompleksisuus haastaa perinteiset melodiset malliset.
 
 Kokonaisuudessaan intensiivisen musiikin kehitys on monimuotoinen prosessi, jossa kansainvälinen vuorovaikutus ja kulttuurierojen yhteentyönty kiteytyvät teoreettisiksi ja performatiivisiksi ilmiöiksi. Tämä analyysi avaa uusia näkökulmia musiikkitieteen sekä kulttuuritutkimuksen rajapinnoissa.

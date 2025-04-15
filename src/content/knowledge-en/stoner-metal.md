@@ -17,10 +17,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -148,7 +147,7 @@ In conclusion, the cultural significance of stoner metal transcends its raw, imp
 
 ## Performance and Live Culture
 
-Stoner metal, as a subgenre of heavy metal, has long been celebrated for its distinctive live performance culture that encapsulates both the sonic intensity and the ritualistic ambience inherent to its musical philosophy. Rooted in the late 1980s and early 1990s, this style emerged from the confluence of desert rock influences and traditional heavy metal tropes, establishing a unique cultural milieu that was as much about the ethos of live performance as it was about the music itself. The live encounter with stoner metal is characterised by an immersive environment wherein the audience is invited into a shared experience that blurs the boundaries between performer and listener. Moreover, the performance space often transforms into a sanctum, replete with atmospheric lighting, unconventional stage designs, and a palpable sense of community. 
+Stoner metal, as a subgenre of heavy metal, has long been celebrated for its distinctive live performance culture that encapsulates both the sonic intensity and the ritualistic ambience inherent to its musical philosophy. Rooted in the late 1980s and early 1990s, this style emerged from the confluence of desert rock influences and traditional heavy metal tropes, establishing a unique cultural milieu that was as much about the ethos of live performance as it was about the music itself. The live encounter with stoner metal is characterised by an immersive environment wherein the audience is invited into a shared experience that blurs the boundaries between performer and listener. Moreover, the performance space often transforms into a sanctum, replete with atmospheric lighting, unconventional stage designs, and a palpable sense of community.
 
 The historical evolution of live culture within stoner metal is marked by its geographical origins. Bands such as Kyuss and Fu Manchu, seminal figures in the development of the genre, originally cultivated their reputations within the arid landscapes of Southern California, where the liminal space between nature and the built environment provided a fertile backdrop for their performances. These pioneering groups capitalised on the open, expansive venues available in this region, which permitted an experimentation with sound dynamics and stage presence not easily replicated in more traditional concert halls. In addition, the physical environment often contributed to the mystique of a live performance, where natural acoustics and the interplay of ambient outdoor sounds became integral components of the overall auditory experience.
 

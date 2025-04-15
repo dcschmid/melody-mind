@@ -17,14 +17,13 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-Inledningsvis betraktas kategorin "Lazy Sunday" som ett internt fält inom internationell musik, där estetiska och harmoniska egenskaper understryker en subtil dynamik. Denna musikaliska inriktning har utvecklats genom inflytande från både tonala innovationer och strukturella experiment, vilka kan härledas till mittseklets modernisering av populärmusiken. Vidare illustrerar studier av genreutvecklingen hur kosmopolitiska nätverk och kulturella utbyten förutsatte spridningen av stilistiska ideal över nationsgränser. 
+Inledningsvis betraktas kategorin "Lazy Sunday" som ett internt fält inom internationell musik, där estetiska och harmoniska egenskaper understryker en subtil dynamik. Denna musikaliska inriktning har utvecklats genom inflytande från både tonala innovationer och strukturella experiment, vilka kan härledas till mittseklets modernisering av populärmusiken. Vidare illustrerar studier av genreutvecklingen hur kosmopolitiska nätverk och kulturella utbyten förutsatte spridningen av stilistiska ideal över nationsgränser.
 
 Historiska analyser visar att övergången från traditionellt ackordbaserat material till mer improvisatoriskt innehåll sammanföll med en bredare globalisering av musikproduktionsmetoder. Dessutom har teknologiska framsteg, såsom inspelningsteknikens evolution, möjliggjort en utforskning av detaljrika materialstrukturer, vilka i sin tur reflekterar den samtidiga sammansmältningen av musikalisk praxis och konstnärliga ideal. Sammanfattningsvis utgör "Lazy Sunday" en litterär- och musikvetenskaplig modell, vars komplexitet både präglar och utmanar framtida teoretiska tolkningar av internationell musik.
 

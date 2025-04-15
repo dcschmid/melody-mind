@@ -16,10 +16,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -89,7 +88,7 @@ Afslutningsvis kan det konstateres, at subgenrer og variationer inden for Nu Met
 
 ## Key Figures and Important Works
 
-Nu-metal repræsenterer en markant musikalsk bevægelse, der opstod i midten af 1990’erne og hurtigt spredte sig over internationale grænser. Denne genre udmærker sig ved at fusionere elementer fra heavy metal med impulser fra andre musikalske stilarter såsom hiphop, alternative rock og industrial. Udviklingen af nu-metal må ses i lyset af en tid med kulturel forandring og øget globalisering, hvor unge søgte nye udtryksformer for både musikalsk og social identitet. Samtidig reflekterer genrets æstetik en tid præget af teknologisk innovation, der har muliggjort sammensmeltningen af forskellige lyduniverser. 
+Nu-metal repræsenterer en markant musikalsk bevægelse, der opstod i midten af 1990’erne og hurtigt spredte sig over internationale grænser. Denne genre udmærker sig ved at fusionere elementer fra heavy metal med impulser fra andre musikalske stilarter såsom hiphop, alternative rock og industrial. Udviklingen af nu-metal må ses i lyset af en tid med kulturel forandring og øget globalisering, hvor unge søgte nye udtryksformer for både musikalsk og social identitet. Samtidig reflekterer genrets æstetik en tid præget af teknologisk innovation, der har muliggjort sammensmeltningen af forskellige lyduniverser.
 
 I den tidlige fase af nu-metal’ens udvikling indtrådte banden Korn, som med deres selvtitulerede debutalbum fra 1994 blev en central aktør i genrens historie. Korn udviste en nyskabende tilgang ved at integrere tunge, nedstemte guitarriff og dissonante klangstrukturer med en intens, ofte følelsesladet vokalstil. Bandets anvendelse af uortodokse rytmiske mønstre og lavmælt basgang adskilte dem fra samtidens traditionelle metalgrupper. Denne musikalske eksperimenteren afspejlede en bredere tendens inden for genren, hvor genregrænser bevidst blev udvisket. Korn blev således et vigtigt referencepunkt for efterfølgende kunstnere, der søgte at udfordre de konventionelle normer inden for metalmusikken.
 

@@ -16,10 +16,9 @@ locale: fr
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -29,7 +28,7 @@ Par ailleurs, l’ambient metal illustre la portée des échanges culturels inte
 
 ## Historical Background
 
-Le metal ambiant constitue une manifestation sonore singulière ayant émergé en parallèle des évolutions musicales des années 1990, mêlant les caractéristiques esthétiques du metal traditionnel à l’exploration atmosphérique inhérente à la musique ambiante. Cette fusion résulte d’un dialogue complexe entre l’héritage du metal, dont les racines se trouvent dans les mouvements underground des années 1980, et l’expérimentation électronique dominant la scène musicale contemporaine. En outre, le metal ambiant se caractérise par une volonté de transcender les structures musicales classiques pour instaurer un environnement sonore immersif, propice à une expérience auditive contemplative. Ainsi, il revêt une importance historique et théorique considérable, en tant que point de convergence des pratiques artistiques diversifiées. 
+Le metal ambiant constitue une manifestation sonore singulière ayant émergé en parallèle des évolutions musicales des années 1990, mêlant les caractéristiques esthétiques du metal traditionnel à l’exploration atmosphérique inhérente à la musique ambiante. Cette fusion résulte d’un dialogue complexe entre l’héritage du metal, dont les racines se trouvent dans les mouvements underground des années 1980, et l’expérimentation électronique dominant la scène musicale contemporaine. En outre, le metal ambiant se caractérise par une volonté de transcender les structures musicales classiques pour instaurer un environnement sonore immersif, propice à une expérience auditive contemplative. Ainsi, il revêt une importance historique et théorique considérable, en tant que point de convergence des pratiques artistiques diversifiées.
 
 Les prémices du metal ambiant se situent dans le contexte d’une scène metal en pleine mutation, principalement aux alentours du début des années 1990, quand les groupes pionniers explorèrent les limites du son et de la forme. Le développement de techniques d’enregistrement avancées, associées à l’essor des instruments électroniques, permit aux artistes d’expérimenter de nouveaux modes d’expression sonore. De plus, l’émergence d’une esthétique orientée vers le “mood” et la texture a favorisé l’intégration de séquences synthétiques et d’effets de réverbération dans le paysage sonore metal, conférant au genre une dimension plus introspective et planante. Cette période fut d’ailleurs marquée par un intérêt croissant pour les expérimentations interdisciplinaires, mêlant influences de la musique ambient, du post-rock et du doom metal, dont l’influence se révéla essentielle dans la construction de l’esthétique du metal ambiant.
 

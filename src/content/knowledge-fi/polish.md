@@ -15,10 +15,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Johdanto
 
@@ -190,7 +189,7 @@ Jo varhaisimmissa historiallisissa vaiheissa Puolan musiikillinen ilmapiiri alti
 
 19. vuosisadalla Puolan musiikki saavutti uuden merkityksen kansainvälisenä ilmiönä erityisesti siksi, että romanttinen ajattelutapa valtasi Euroopan musiikkimaailman. Frédéric Chopinin kotimaassa synnyttänyt pianomusiikki ja sen esitellessä omintakeista herkkyyttään sekä virtuoosamaisia elementtejä, toimivat siltana Puolan perinteen ja muina eurooppalaisina klassismin virtauksina. Chopin onnistui sulauttamaan perinteisiä kansanmotiiveja ja intiimejä sävyjä laajempiin romanttisiin yhtälöihin, minkä seurauksena hänen teoksensa saavuttivat nopean kansainvälisen suosion. Tämän lisäksi hänen julkaistut sävellyksensä ja niiden levitys painotyyppeihin perustuvien tekniikoiden avulla edistivät muiden eurooppalaisten säveltäjien ja tulkitsijoiden kiinnostusta Puolan kulttuuriperintöä kohtaan.
 
-Kansainvälisten yhteyksien syventäminen ei rajoittunut yksinomaan säveltäviin ilmiöihin, vaan myös esittäviin taiteilijoihin ja niiden esitystapoihin. Puolan kansallisessa oopperassa, erityisesti Stanisław Moniuszkon teoksessa Halka, yhdistyivät perinteiset kansanmotiivit ja klassisista estetiikasta juontavat rakennusperiaatteet. Tämä yhdistelmä herätti kiinnostusta paitsi kotimaisessa yleisössä, myös kansainvälisissä piireissä, joissa oopperateatterit alkoivat sisällyttää tällaisia teemoja omaan ohjelmistoonsa. Moniuszkon tuotantoa ja sen vastaanottoa analysoitaessa korostuu se, miten kansalliset teemat voivat nousea esiin laajemman eurooppalaisen kulttuuridiskursuksen kautta, jolloin ne toimivat eräänlaisena käänteentekevänä vaikutteena. 
+Kansainvälisten yhteyksien syventäminen ei rajoittunut yksinomaan säveltäviin ilmiöihin, vaan myös esittäviin taiteilijoihin ja niiden esitystapoihin. Puolan kansallisessa oopperassa, erityisesti Stanisław Moniuszkon teoksessa Halka, yhdistyivät perinteiset kansanmotiivit ja klassisista estetiikasta juontavat rakennusperiaatteet. Tämä yhdistelmä herätti kiinnostusta paitsi kotimaisessa yleisössä, myös kansainvälisissä piireissä, joissa oopperateatterit alkoivat sisällyttää tällaisia teemoja omaan ohjelmistoonsa. Moniuszkon tuotantoa ja sen vastaanottoa analysoitaessa korostuu se, miten kansalliset teemat voivat nousea esiin laajemman eurooppalaisen kulttuuridiskursuksen kautta, jolloin ne toimivat eräänlaisena käänteentekevänä vaikutteena.
 
 Toinen merkittävä kansainvälinen vaikuttaja oli Karol Szymanowski, joka omaksi tunnuksekseen ansaitsi modernin soitin- ja sävellystyylin kehittämisen. Hänen teoksissaan – joiden rakenne ja melodinen kieli ovat vertailukelpoisia muun muassa ranskalaisten impressionististen virtauksien kanssa – heijastuu samaoikean etsimys kansallisesta identiteetistä. Szymanowskin teoksissa esiintyvät eklektiset vaikutteet pohjoisafrikkalaisesta musiikista, perinteisestä slaavilaisesta folkloristisuudesta sekä eurooppalaisista modernismin virtauksista ovat osoitus siitä, miten Puolan säveltäjät integratoivat kansainvälisiä elementtejä omiin teoksissaan. Hänen tuotantonsa analyysi paljastaa keskinäisen vuorovaikutuksen monisyisyyden, missä aikakausien ja kulttuurien rajat hälvenevät samalla kun uusi esteettinen kokonaisuus muotoutuu.
 

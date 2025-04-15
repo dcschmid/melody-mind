@@ -16,10 +16,9 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -45,7 +44,7 @@ Sammanfattningsvis visar den historiska utvecklingen av workout motivation att m
 
 ## Musical Characteristics
 
-Musikens uttrycksfulla dynamik inom kategorin träningsmotivation har historiskt utformats av en komplex samverkan mellan tekniska innovationer, musikaliska strukturer och kulturella kontexter. De internationella strömningar som präglar denna genre kännetecknas av en tät relation mellan rytm, harmonisk enkelhet samt en uttrycksfull energi, vilken genom tiderna har anpassats till de krav som ställts inför fysiskt arbete och den psykofysiologiska responsen under aktiv träning. I denna analys framträder hur transformationen av musikaliska ideal, från de tidiga elektroniska experimenten till moderna digitala produktionstekniker, möjliggjort en övergång där repetition, takt och energisk progression spelar avgörande roller. 
+Musikens uttrycksfulla dynamik inom kategorin träningsmotivation har historiskt utformats av en komplex samverkan mellan tekniska innovationer, musikaliska strukturer och kulturella kontexter. De internationella strömningar som präglar denna genre kännetecknas av en tät relation mellan rytm, harmonisk enkelhet samt en uttrycksfull energi, vilken genom tiderna har anpassats till de krav som ställts inför fysiskt arbete och den psykofysiologiska responsen under aktiv träning. I denna analys framträder hur transformationen av musikaliska ideal, från de tidiga elektroniska experimenten till moderna digitala produktionstekniker, möjliggjort en övergång där repetition, takt och energisk progression spelar avgörande roller.
 
 Under 1960- och 1970-talen observerades en tidig utveckling av rytmiska drivkrafter i populärmusiken, där de internationella musikscenernas experiment i elektroniska ljudlandskap medförde centrala principer för senare träningsstilar. I denna period präglades framför allt fusionen av funk, soul och tidiga former av elektroniska beats, vilka t.ex. förstärktes genom användningen av trummaskiner och synthesizers. Dessa verktyg möjliggjorde inte enbart en ökad frekvens av repetitiva mönster, utan också en utarbetad dynamik som kunde styra och intensifiera lyssnarens kognitiva processer vid fysisk aktivitet. Denna tekniska utveckling utgjorde grunden till en tidigare förståelse av musikens potential att modulera kroppens prestationsförmåga.
 

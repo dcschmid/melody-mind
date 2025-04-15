@@ -16,16 +16,15 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
 Power metal -kategoria edustaa kansainvälisen metallimusiikin ilmiötä, jonka kehityksessä historialliset ja kulttuuriset tekijät ovat olleet ratkaisevassa asemassa. Alkuperäistutkimukset osoittavat, että tämän tyylilajin juuret juontavat varhaisen 1980-luvun Eurooppaan, erityisesti Saksan metalliskeneen, jossa innovatiiviset sähkökitaratekniikat ja rytmianalyysin edistysaskeleet muodostivat perustan lajin kehitykselle.
 
-Lisäksi power metalin ilmiöön vaikuttivat muiden metallisukupolvien, kuten Uuden Brittiläisen metallin, elementit, mikä takasi monipuolisen harmonisen rakenteen ja melodisen sointimaailman. Historiallisesti merkittävä virstanpylväs on Helloween-yhtyeen teoksissa havaittavissa oleva tekninen virtuositeetti sekä teemaattisesti rikkaat kertomukset, jotka nivovat yhteen musiikilliset ja kirjalliset perinteet. Tämän lisäksi rytmiset kontrastit ja modulaatiot ovat jatkaneet käyttäjälähtöistä kehitystyötä, mikä mahdollisti power metalin laajentumisen globaaliksi ilmiöksi. 
+Lisäksi power metalin ilmiöön vaikuttivat muiden metallisukupolvien, kuten Uuden Brittiläisen metallin, elementit, mikä takasi monipuolisen harmonisen rakenteen ja melodisen sointimaailman. Historiallisesti merkittävä virstanpylväs on Helloween-yhtyeen teoksissa havaittavissa oleva tekninen virtuositeetti sekä teemaattisesti rikkaat kertomukset, jotka nivovat yhteen musiikilliset ja kirjalliset perinteet. Tämän lisäksi rytmiset kontrastit ja modulaatiot ovat jatkaneet käyttäjälähtöistä kehitystyötä, mikä mahdollisti power metalin laajentumisen globaaliksi ilmiöksi.
 
 Näin ollen power metal ulottuu sekä teoreettisen analyysin että kulttuurihistoriallisen tutkimuksen näkökulmasta monisyiseksi ja dynaamiseksi genreksi.
 

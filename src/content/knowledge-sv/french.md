@@ -16,14 +16,13 @@ locale: sv
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduktion
 
-Den franska musiktraditionen omfattar en mångfald uttrycksformer vars utveckling speglar de estetiska paradigmen och socio-kulturella förutsättningarna under varierande epoker. Under barockens framväxt var Jean-Baptiste Lully en central gestalt, vars rigorösa formalism och dramatiska effekt bidrog till att etablera en distinkt stil som följdes av samtidens kompositörer. I den klassiska perioden vidareutvecklades musikaliska normer med tydliga kopplingar till den europeiska konstmusikens ideal, vilket bland annat skedde genom verk av Luigi Cherubini som återklang i internationella miljöer. 
+Den franska musiktraditionen omfattar en mångfald uttrycksformer vars utveckling speglar de estetiska paradigmen och socio-kulturella förutsättningarna under varierande epoker. Under barockens framväxt var Jean-Baptiste Lully en central gestalt, vars rigorösa formalism och dramatiska effekt bidrog till att etablera en distinkt stil som följdes av samtidens kompositörer. I den klassiska perioden vidareutvecklades musikaliska normer med tydliga kopplingar till den europeiska konstmusikens ideal, vilket bland annat skedde genom verk av Luigi Cherubini som återklang i internationella miljöer.
 
 Övergången till romantiken medförde en expansion av harmoniska strukturer och tematiska ambitioner, vilket tydligt illustreras i verken av Hector Berlioz. Under senare delen av 1800-talet och början av 1900-talet demonstrerade Claude Debussy, genom sina impressionistiska influenser, en vidareutveckling av den franska musikstilen. Genom dessa övergångar och innovationer framstår den franska musikens betydelse i ett globalt sammanhang.
 

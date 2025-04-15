@@ -17,10 +17,9 @@ locale: de
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -88,7 +87,7 @@ Zusammenfassend erscheint es als bedeutsam, die Vielfalt und die tiefgreifende K
 
 ## Key Figures and Important Works
 
-Im Kontext der internationalen Musikentwicklung der späten 1960er und frühen 1970er Jahre nahm das Genre „Heavy Psych“ eine besondere Stellung ein, indem es Elemente des psychedelischen Rock mit einem intensiveren, fast schon roh wirkenden Klang verband. Die Entstehung dieser Stilrichtung ist untrennbar verbunden mit den damaligen Experimenten an der Gitarre, der Erweiterung des Frequenzspektrums und der intensiven Nutzung elektronischer Effekte. Dabei agierten Musikerinnen und Musiker als Pioniere, die die Grenzen konventioneller Rockmusik immer weiter ausdehnten und auf diese Weise den Weg für eine subversive, internationale Klangästhetik ebneten. Zentral war dabei nicht allein die technische Innovation, sondern auch die experimentelle Haltung, die in zahlreichen wegweisenden Aufnahmetechniken und Live-Performances zum Ausdruck kam. 
+Im Kontext der internationalen Musikentwicklung der späten 1960er und frühen 1970er Jahre nahm das Genre „Heavy Psych“ eine besondere Stellung ein, indem es Elemente des psychedelischen Rock mit einem intensiveren, fast schon roh wirkenden Klang verband. Die Entstehung dieser Stilrichtung ist untrennbar verbunden mit den damaligen Experimenten an der Gitarre, der Erweiterung des Frequenzspektrums und der intensiven Nutzung elektronischer Effekte. Dabei agierten Musikerinnen und Musiker als Pioniere, die die Grenzen konventioneller Rockmusik immer weiter ausdehnten und auf diese Weise den Weg für eine subversive, internationale Klangästhetik ebneten. Zentral war dabei nicht allein die technische Innovation, sondern auch die experimentelle Haltung, die in zahlreichen wegweisenden Aufnahmetechniken und Live-Performances zum Ausdruck kam.
 
 Bereits früh legten wegweisende Bands den Grundstein für die Entwicklung des Heavy Psych. Eine der prägenden Formationen war Blue Cheer, deren Debütalbum „Vincebus Eruptum“ (1968) als eines der ersten Werke gilt, welches gänzlich den experimentellen, heavy und psychedelischen Ansatz umsetzte. Der massive Gitarrensound, der hyperbolische Einsatz von Verzerrung sowie die dynamische Rhythmik machten diesen Klang zu einem Ritual der musikalischen Befreiung, der sich sowohl von der sanfteren Ästhetik des psychedelischen Surrealismus als auch von der strukturierten Herangehensweise traditioneller Rockmusik radikal unterschied. Diese Entwicklungen spiegelten das Zeitalter des gesellschaftlichen Umbruchs wider, in dem künstlerische Freiheiten oft als Ausdruck eines neu entdeckten individuellen und kollektiven Bewusstseins galten.
 

@@ -17,18 +17,17 @@ locale: pt
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
 
-
 ## Introduction
 
-A música classificada como relaxada desponta como fenômeno de significativa relevância no panorama internacional, representando uma interface complexa entre tradição e inovação. Este estilo, cujas raízes remontam às experimentações midiáticas da segunda metade do século XX, deve sua consolidação à conjunção entre avanços tecnológicos precisos e uma postura artística que privilegia a contemplação e a suavidade sonora. 
+A música classificada como relaxada desponta como fenômeno de significativa relevância no panorama internacional, representando uma interface complexa entre tradição e inovação. Este estilo, cujas raízes remontam às experimentações midiáticas da segunda metade do século XX, deve sua consolidação à conjunção entre avanços tecnológicos precisos e uma postura artística que privilegia a contemplação e a suavidade sonora.
 
-No contexto histórico, observa-se a incorporação de elementos do minimalismo e da harmonia modal, os quais inspiraram sequências melódicas voltadas à introspecção. Ademais, a cultura lusófona assimilou essas tendências, articulando-as com práticas musicais tradicionais e modernas que promovem experiências imersivas e sensoriais. 
+No contexto histórico, observa-se a incorporação de elementos do minimalismo e da harmonia modal, os quais inspiraram sequências melódicas voltadas à introspecção. Ademais, a cultura lusófona assimilou essas tendências, articulando-as com práticas musicais tradicionais e modernas que promovem experiências imersivas e sensoriais.
 
-Assim, a análise acadêmica deste gênero evidencia a importância de suas contribuições na evolução dos processos composicionais, estabelecendo diálogos com correntes artísticas consagradas (SILVA, 1998; COSTA, 2003). 
+Assim, a análise acadêmica deste gênero evidencia a importância de suas contribuições na evolução dos processos composicionais, estabelecendo diálogos com correntes artísticas consagradas (SILVA, 1998; COSTA, 2003).
 
 Caracteres: 892
 

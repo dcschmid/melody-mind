@@ -17,10 +17,9 @@ locale: da
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -182,7 +181,7 @@ Afslutningsvis kan det konstateres, at Latin Vibes repræsenterer en unik syntes
 
 ## Legacy and Influence
 
-Legacy and Influence inden for Latin Vibes repræsenterer en dybtgående og flerfacetteret arv, der med udgangspunkt i Latinamerikas rige musiktraditioner har haft betydelig betydning for den internationale musikkultur. Udviklingen af denne musikalske æstetik kan spores tilbage til tidlige rytmiske traditioner i det caribiske og sydamerikanske område, hvor autentiske folkloristiske udtryk gradvist fusionerede med europæiske musikalske konventioner. Denne proces førte til opståen af nye former for komposition og improvisation, hvilket noterbart satte spor både i klassisk komposition og i moderne populærmusik.  
+Legacy and Influence inden for Latin Vibes repræsenterer en dybtgående og flerfacetteret arv, der med udgangspunkt i Latinamerikas rige musiktraditioner har haft betydelig betydning for den internationale musikkultur. Udviklingen af denne musikalske æstetik kan spores tilbage til tidlige rytmiske traditioner i det caribiske og sydamerikanske område, hvor autentiske folkloristiske udtryk gradvist fusionerede med europæiske musikalske konventioner. Denne proces førte til opståen af nye former for komposition og improvisation, hvilket noterbart satte spor både i klassisk komposition og i moderne populærmusik.
 
 De musikalske idéer og den rytmiske kompleksitet, som karakteriserer Latin Vibes, udviklede sig i en geografisk region præget af kulturel diversitet og historiske omvæltninger. I takt med at grundlæggende elementer fra afrikanske, europæiske og oprindelige musiktraditioner blandede sig, skabte de en unik harmonisk og rytmisk syntese. Denne sammensmeltning fandt udtryk i både den instrumentale og vokale musik, som til dels var kendetegnet ved polyrytmiske strukturer og karakteristiske synkoperede takter. Som følge heraf blev der etableret et solidt fundament for senere innovationer inden for latinamerikansk musik, der med sikkerhed har påvirket internationale musikalske strømninger.
 

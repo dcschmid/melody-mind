@@ -17,10 +17,9 @@ locale: en
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -108,7 +107,7 @@ In addition to their musical contributions, the cultural and visual aesthetics a
 
 Moreover, the discographies of these seminal bands offer a comprehensive catalogue from which one may trace the evolution and diversification of Classic Heavy Metal over several decades. Each album and single contributes to an intricate tapestry of sounds that, when viewed collectively, delineates a narrative of innovation, resistance and creative reinvention. Scholars have noted that the period spanning the late 1960s to the mid-1980s not only witnessed the crystallisation of the genre's distinctive stylistic traits but also engendered a sustained artistic conversation that continues to reverberate within contemporary music. This dialogue is emblematic of a constantly evolving tradition that remains relevant owing to its foundational commitment to artistic exploration.
 
-In synthesising the contributions of these key figures, it becomes evident that Classic Heavy Metal represents a singular phenomenon in the annals of music history. The international dimensions of its influence, as well as the enduring impact of its progenitors and their seminal works, affirm the genre’s indispensability to the broader tapestry of modern musical innovation. The interplay between technical mastery, thematic profundity and cultural resonance remains a defining hallmark of a musical movement that has indelibly transformed both the art form and its audience. 
+In synthesising the contributions of these key figures, it becomes evident that Classic Heavy Metal represents a singular phenomenon in the annals of music history. The international dimensions of its influence, as well as the enduring impact of its progenitors and their seminal works, affirm the genre’s indispensability to the broader tapestry of modern musical innovation. The interplay between technical mastery, thematic profundity and cultural resonance remains a defining hallmark of a musical movement that has indelibly transformed both the art form and its audience.
 
 In conclusion, the legacy of Classic Heavy Metal is incumbent upon the enduring contributions of bands such as Black Sabbath, Judas Priest, Iron Maiden and Accept. Their innovative approaches to composition, recording and performance underscored a period of dynamic transformation that irrevocably altered the musical landscape. The enduring relevance of their work continues to inspire new generations of musicians and scholars alike, ensuring that the profound narratives and technical refinements pioneered during this formative era remain a vital and celebrated aspect of international musical heritage.
 

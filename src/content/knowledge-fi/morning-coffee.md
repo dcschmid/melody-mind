@@ -17,10 +17,9 @@ locale: fi
 category:
   spotifyPlaylist: ""
   deezerPlaylist: ""
-  appleMusicPlaylist: "" 
+  appleMusicPlaylist: ""
 isPlayable: false
 ---
-
 
 ## Introduction
 
@@ -156,7 +155,7 @@ Lopuksi voidaan todeta, että Morning Coffee -kategoria muodostaa merkittävän 
 
 ## Performance and Live Culture
 
-Performance- ja livekulttuuriperinteen kehitys kansainvälisen musiikin kentällä muodostaa monitahoisen kokonaisuuden, jossa instrumentaalinen virtuoosuus ja improvisatorinen ilmaisu nivoutuvat yhteen tilallisen vuorovaikutuksen kanssa. Kategoria "Morning Coffee" tuo esiin kevyen, rentouttavan ilmapiirin, jossa musiikillinen dialogi edistää sekä esiintyjien että yleisön välistä kommunikaatiota. Tämä ilmiö heijastaa laajempaa kulttuurihistoriallista kehitystä, jossa musiikki on toiminut sosiaalisen rituaalin ja tilallisen kokemuksen välineenä. 
+Performance- ja livekulttuuriperinteen kehitys kansainvälisen musiikin kentällä muodostaa monitahoisen kokonaisuuden, jossa instrumentaalinen virtuoosuus ja improvisatorinen ilmaisu nivoutuvat yhteen tilallisen vuorovaikutuksen kanssa. Kategoria "Morning Coffee" tuo esiin kevyen, rentouttavan ilmapiirin, jossa musiikillinen dialogi edistää sekä esiintyjien että yleisön välistä kommunikaatiota. Tämä ilmiö heijastaa laajempaa kulttuurihistoriallista kehitystä, jossa musiikki on toiminut sosiaalisen rituaalin ja tilallisen kokemuksen välineenä.
 
 Ensimmäiset merkittävät ilmentymät live-esiintymisestä ja tilallisen vuorovaikutuksen kokemuksesta voidaan jäljittää Euroopan kahvilakulttuurin nousuun 1600–1700-luvuilla. Tällöin esimerkiksi Pariisin ja Wienin elävä keskustelu sekä oppineiden kokoontumispaikat suosivat musiikillista ilmaisua, mikä loi edellytykset improvisoiduille pienkonsertteille. Näissä esityksissä käy ilmi, että musiikki ei ollut ainoastaan taiteen esittämistä, vaan myös sosiaalisen identiteetin ja yhteisöllisyyden rakentamista. Tällaiset tapahtumat tarjosivat yleisölle mahdollisuuden kokea musiikki intiimissä ympäristössä, jossa akustiset ominaisuudet ja tilankäyttö vaikuttivat esiintymiskokemukseen.
 
@@ -174,7 +173,7 @@ Yhteenvetona voidaan todeta, että kansainvälisen musiikin live-esiintymispohja
 
 ## Development and Evolution
 
-Musiikkikategorian "Morning Coffee" kehitystä ja evoluutiota voidaan tarkastella laajasta kulttuurihistoriasta käsin, jolloin sen monisyinen kehityspolku valaisee kansainvälisen musiikin monimuotoisuutta ja historiallista juurtuneisuutta. Tähän sointimaailmaan ovat vaikuttaneet lukuisat kansainväliset virtaukset, joiden yhteisvaikutus on synnyttänyt lempeän, kahvitunnelmaa muistuttavan äänimaailman. Musiikillisessa termistössä voidaan puhua niin harmonisten rakenteiden moninaisuudesta kuin rytmisten ja melodisten elementtien hienovaraisesta tasapainosta, jossa jazzin, bossa novan ja popmusiikin piirteet ovat sulautuneet yhteen. 
+Musiikkikategorian "Morning Coffee" kehitystä ja evoluutiota voidaan tarkastella laajasta kulttuurihistoriasta käsin, jolloin sen monisyinen kehityspolku valaisee kansainvälisen musiikin monimuotoisuutta ja historiallista juurtuneisuutta. Tähän sointimaailmaan ovat vaikuttaneet lukuisat kansainväliset virtaukset, joiden yhteisvaikutus on synnyttänyt lempeän, kahvitunnelmaa muistuttavan äänimaailman. Musiikillisessa termistössä voidaan puhua niin harmonisten rakenteiden moninaisuudesta kuin rytmisten ja melodisten elementtien hienovaraisesta tasapainosta, jossa jazzin, bossa novan ja popmusiikin piirteet ovat sulautuneet yhteen.
 
 Ensimmäinen keskeinen kehitysvaihe voidaan jäljittää 1950-luvun loppuun ja 1960-luvun alkuun, jolloin maailmanlaajuisesti koettiin rauhallisempien pop- ja jazzpiirteiden nousu osana laajempaa kulttuurista murrosta. Näinä vuosikymmeninä löysivät musiikin harrastajat uusia kuuntelukokemuksia muun muassa Parīsin kahviloiden intiimissä tunnelmassa sekä New Yorkin kehittyvästä jazzsceneistä. Samalla myös bossa nova, joka syntyi Brasiliassa 1950-luvun loppupuolella ja levisi nopeasti Eurooppaan ja Pohjois-Amerikkaan, vaikutti merkittävästi musiikin tyylilliseen muotoutumiseen. Antonio Carlos Jobimin ja João Gilberton teokset, joita voidaan sitoa tähän kehityslinjaan, edustavat niiden musiikillisten innovaatioiden huippua, joiden perusajatukset ovat edelleen tunnistettavissa "Morning Coffee" -kategorian taustalla.
 
