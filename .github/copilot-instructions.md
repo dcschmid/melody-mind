@@ -1,86 +1,155 @@
-This is a context for AI editor/agent about the project. It's generated with a tool Airul (https://github.com/mitkury/airul) out of 2 sources. Feel free to edit .airul.json to change the sources and configure editors. Run `airul gen` to update the context after making changes to .airul.json or the sources. Remember to update TODO-AI.md after major changes in the project, keeping track of completed tasks and new developments.
+# MelodyMind - GitHub Copilot Instructions
 
-# From README.md:
+This file provides general instructions for GitHub Copilot when working with the MelodyMind project.
 
-# 🎵 MelodyMind - The Ultimate Music Trivia Challenge 🎶
+## Project Overview
 
 MelodyMind is an engaging and competitive music trivia game where players can test their knowledge across various music genres. Whether you're a rock enthusiast, pop aficionado, or jazz expert, this game offers a thrilling experience with multiple categories and rounds.
 
-## 🚀 Key Features:
+## Key Features
 
-- Multiple Difficulty Levels: Choose between Easy, Medium, and Hard modes:
-  - Easy: 10 questions per round
-  - Medium: 15 questions per round
-  - Hard: 20 questions per round
-- Point System: Earn 50 points for every correct answer. The total score varies based on difficulty:
-  - Easy: Maximum 500 points
-  - Medium: Maximum 750 points
-  - Hard: Maximum 1000 points
-- Speed Bonus: Answer quickly to earn extra points! The faster you answer, the more bonus points you receive:
-  - Answer within 10 seconds: +50 bonus points
-  - Answer within 15 seconds: +25 bonus points
-- 50:50 Joker: Limited use based on difficulty:
-  - Easy: 3 Jokers
-  - Medium: 5 Jokers
-  - Hard: 10 Jokers
-  - Use the 50:50 Joker to eliminate two wrong answers and increase your chances of success.
-- Golden LPs: Unlock special rewards based on your performance:
-  - Musik-Novice: For completing all questions in Easy mode
-  - Musik-Master: For completing all questions in Medium mode
-  - Musik-Legend: For completing all questions in Hard mode
-- Rankings: Compete against others and climb the Top 10 Leaderboards based on your scores. Check out your position in genre-specific and overall rankings.
-- Music Genres: Select from a variety of music genres and prove your expertise in each category.
+- **Multiple Difficulty Levels**: Easy (10 questions), Medium (15 questions), Hard (20 questions)
+- **Point System**: 50 points per correct answer (max 500/750/1000 points based on difficulty)
+- **Speed Bonus**: +50 points (within 10s), +25 points (within 15s)
+- **50:50 Joker**: Eliminates two wrong answers (3/5/10 uses based on difficulty)
+- **Diverse Music Genres**: Multiple categories for varied interests
 
-## 💡 How to Play:
+## Game Mechanics
 
-1. Select your favorite music genre.
-2. Choose a difficulty level and start answering trivia questions.
-3. For every correct answer, you’ll earn points. The harder the difficulty, the more questions you face!
-4. At the end of each round, you’ll see your score and have the chance to unlock special Golden LPs if you answer all questions correctly.
-5. Track your position on the leaderboards and aim to become a Music Legend.
+- Players select a music genre and difficulty level
+- Questions are presented one by one with multiple-choice answers
+- The timer affects the speed bonus points
+- Jokers can be used to eliminate incorrect options
+- Scores are calculated based on correct answers and speed
+- Results are displayed at the end of each round
+- Special achievements are awarded for perfect scores
 
-## 🔧 Technologies Used:
+## Coding Standards
 
-- Astro.js: For building the static and dynamic pages of the application.
-- TypeScript: To ensure type safety and provide better developer experience.
-- Astro DB: For managing game data, user profiles, and leaderboards.
-- HTML5 & CSS3: For designing the user interface and styling the game.
-- JSON: For managing question data and game configurations.
+- Use TypeScript for all new code
+- Follow Astro.js component patterns
+- Maintain responsive design for all UI elements
+- Add JSDoc comments to all functions and components
+- Use semantic HTML elements
+- Follow accessibility best practices (WCAG)
+- Implement proper error handling
+- Use meaningful variable and function names
 
-## 🎯 Tips for Success:
+## Architectural Guidelines
 
-- Start with Easy mode to get comfortable, then work your way up to Hard.
-- Use your 50:50 Jokers wisely, especially in the harder difficulty levels.
-- Pay attention to your favorite genres for a better chance at winning.
-- Practice regularly to improve your ranking and collect more rewards!
+- Use Astro components for page structure
+- Keep game logic in dedicated utility files
+- Store data models in separate TypeScript interfaces
+- Use client-side scripts minimally for interactivity
+- Leverage Astro islands for interactive components
+- Implement proper state management
 
----
+## File Structure
 
-# From TODO-AI.md:
+- `/src/pages/` - All page components
+- `/src/components/` - Reusable UI components
+- `/src/layouts/` - Page layout templates
+- `/src/utils/` - Utility functions and game logic
+- `/src/styles/` - Global CSS and styling utilities
+- `/src/data/` - Question data and static content
+- `/src/types/` - TypeScript interfaces and types
+- `/public/` - Static assets like images and fonts
 
-# AI Workspace
+## Data Models
 
-## Active Task
+### Question Format
 
-Learn from the user about their project, get the idea of what they want to make
+```typescript
+interface Question {
+  id: string;
+  text: string;
+  options: string[];
+  correctAnswer: number;
+  difficulty: "easy" | "medium" | "hard";
+  genre: string;
+  explanation?: string;
+}
+```
 
-## Status
+### User Score Format
 
-⏳ In Progress
+```typescript
+interface UserScore {
+  userId: string;
+  username: string;
+  score: number;
+  correctAnswers: number;
+  totalQuestions: number;
+  difficulty: "easy" | "medium" | "hard";
+  genre: string;
+  completedAt: Date;
+  achievements: string[];
+}
+```
 
-## Context & Progress
+## UI Components
 
-- Created: 2025-03-26
-- I (AI) will maintain this document as we work together
-- My current focus: Understanding and working on the active task
+- **QuestionCard**: Displays the current question and options
+- **Timer**: Shows remaining time for speed bonus
+- **ScoreDisplay**: Shows current score and stats
+- **JokerButton**: Activates the 50:50 feature
+- **ResultsOverlay**: Displays end-of-round results
+- **GenreSelector**: For choosing music categories
+- **DifficultyPicker**: For selecting difficulty level
 
-## Task History
+## Styling Guidelines
 
-- Initial task: Learn from the user about their project, get the idea of what they want to make
+- Use Tailwind CSS for all styling needs - prioritize Tailwind utility classes over custom CSS
+- Follow the Tailwind utility-first workflow and avoid custom CSS when possible
+- Use a consistent color scheme through Tailwind's configuration (purple, pink, dark background)
+- Implement responsive design using Tailwind's responsive modifiers (sm:, md:, lg:, xl:)
+- Leverage Tailwind's design system for spacing, typography, and colors
+- Use Tailwind's dark mode utilities for theme switching
+- For complex components, use Tailwind's @apply directive only when necessary
+- Follow accessibility guidelines for contrast and readability
+- Implement transitions using Tailwind's transition utilities
+- Extend the Tailwind theme in tailwind.config.js rather than using custom values
 
-## Notes
+## Performance Considerations
 
-- I'll update this file to track our progress and maintain context
-- I'll keep sections concise but informative
-- I'll update status and add key decisions/changes
-- I'll add new tasks as they come up
+- Optimize Tailwind's output with proper PurgeCSS configuration
+- Optimize image assets
+- Minimize JavaScript bundle size
+- Implement code splitting
+- Use efficient rendering strategies
+- Cache static assets appropriately
+- Optimize database queries
+- Use Tailwind's JIT mode for development
+
+## Accessibility Guidelines
+
+- Follow WCAG AAA guidelines for all content and interactions
+- Ensure color contrast ratios meet AAA standards (7:1 for normal text, 4.5:1 for large text)
+- Provide proper focus indicators for all interactive elements
+- Implement keyboard navigation for all features
+- Use appropriate ARIA attributes when necessary
+- Ensure all content is screen reader friendly
+- Support various input methods (keyboard, mouse, touch)
+- Add descriptive alt text to all images
+- Use semantic HTML elements to convey structure
+- Maintain a logical tab order for all interactive elements
+- Provide text alternatives for non-text content
+
+## Testing Strategy
+
+- Write unit tests for game logic
+- Create component tests for UI elements
+- Implement integration tests for key user flows
+- Use mock data for testing scenarios
+- Ensure cross-browser compatibility
+- Conduct accessibility audits against WCAG AAA standards
+- Test with screen readers and assistive technologies
+
+## Best Practices
+
+- Follow the principle of least privilege
+- Implement proper error boundaries
+- Use defensive coding practices
+- Document complex logic with comments
+- Follow Git workflow best practices
+- Keep dependencies up to date
