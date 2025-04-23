@@ -127,7 +127,3 @@ lastFocus.focus();
   padding: 10px;
 }
 ```
-
-```
-
-```

@@ -19,8 +19,12 @@ const {
   rel,
 } = Astro.props;
 
+// Ensure proper rel attribute for external links
+const isExternal = target === "_blank";
+const finalRel = isExternal ? `noopener noreferrer ${rel || ""}`.trim() : rel;
+
 const baseClasses =
-  "inline-flex h-12 w-auto items-center justify-center rounded-lg px-6 py-3 font-bold text-zinc-900 bg-sky-400 transition-all duration-300 hover:bg-sky-300 hover:shadow-lg hover:shadow-sky-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 active:scale-95 disabled:pointer-events-none disabled:opacity-50";
+  "inline-flex min-h-[48px] min-w-[48px] items-center justify-center rounded-lg px-6 py-3 font-bold text-white bg-sky-700 transition-all duration-300 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 active:scale-95 disabled:pointer-events-none disabled:opacity-50";
 
 const finalClasses = `${baseClasses} ${extraClasses}`.trim();
 ---
@@ -30,11 +34,12 @@ const finalClasses = `${baseClasses} ${extraClasses}`.trim();
     <a
       href={href}
       class={finalClasses}
-      aria-label={ariaLabel}
+      aria-label={`${ariaLabel}${isExternal ? " (opens in new tab)" : ""}`}
       target={target}
-      rel={rel}
+      rel={finalRel}
     >
       <slot />
+      {isExternal && <span class="sr-only"> (opens in new tab)</span>}
     </a>
   ) : (
     <button

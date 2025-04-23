@@ -23,7 +23,11 @@ const {
 const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
 ---
 
-<div class="w-full max-w-[500px] mx-auto relative" aria-label="Audio-Player">
+<div
+  class="w-full max-w-[500px] mx-auto relative"
+  role="region"
+  aria-label="Audio player"
+>
   <div
     class="relative w-full rounded-2xl overflow-hidden isolate shadow-lg shadow-black/20 transition-all duration-300 hover:shadow-xl hover:shadow-black/30 hover:-translate-y-1"
   >
@@ -47,7 +51,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
           data-accent-color={accentColor}
         >
           <button
-            class="bg-white text-zinc-800 w-10 h-10 rounded-full border-none flex items-center justify-center cursor-pointer flex-shrink-0 transition-all duration-200 relative shadow-md hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2"
+            class="bg-white text-zinc-800 w-12 h-12 rounded-full border-none flex items-center justify-center cursor-pointer flex-shrink-0 transition-all duration-200 relative shadow-md hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2"
             aria-label="Play audio"
             title="Play/Pause"
           >
@@ -55,6 +59,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
               class="play-icon w-6 h-6 fill-current absolute transition-all"
               viewBox="0 0 24 24"
               aria-hidden="true"
+              focusable="false"
             >
               <path d="M8 5v14l11-7z"></path>
             </svg>
@@ -62,6 +67,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
               class="pause-icon w-6 h-6 fill-current absolute opacity-0 scale-75 transition-all"
               viewBox="0 0 24 24"
               aria-hidden="true"
+              focusable="false"
             >
               <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
             </svg>
@@ -70,6 +76,13 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
           <div class="flex-grow flex flex-col gap-1">
             <div
               class="h-1.5 bg-zinc-200/20 rounded overflow-hidden relative cursor-pointer progress-bar-container"
+              role="progressbar"
+              aria-label="Audio progress"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+              aria-valuetext="0:00 of 0:00"
+              tabindex="0"
             >
               <div
                 class="progress-bar-bg absolute top-0 left-0 w-full h-full z-[1]"
@@ -81,18 +94,19 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
               </div>
               <div
                 class="waveform-container absolute top-0 left-0 w-full h-full z-0 opacity-70"
+                aria-hidden="true"
               >
               </div>
             </div>
             <div class="flex justify-between text-xs text-zinc-300/80">
-              <span class="current-time">0:00</span>
+              <span class="current-time" aria-live="polite">0:00</span>
               <span class="duration">0:00</span>
             </div>
           </div>
 
           <div class="flex items-center gap-2 relative">
             <button
-              class="volume-btn bg-transparent text-white border-none p-1 cursor-pointer opacity-85 hover:opacity-100 transition-opacity flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:rounded"
+              class="volume-btn bg-transparent text-white border-none p-2 cursor-pointer opacity-85 hover:opacity-100 transition-opacity flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:rounded min-w-[44px] min-h-[44px]"
               aria-label="Adjust volume"
               title="Volume"
             >
@@ -100,6 +114,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
                 class="volume-icon w-5 h-5 fill-current absolute transition-all"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
+                focusable="false"
               >
                 <path
                   d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"
@@ -109,9 +124,10 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
                 class="mute-icon w-5 h-5 fill-current absolute opacity-0 scale-75 transition-all"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
+                focusable="false"
               >
                 <path
-                  d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"
+                  d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0 c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"
                 ></path>
               </svg>
             </button>
@@ -125,7 +141,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
                 max="1"
                 step="0.01"
                 value="1"
-                aria-label="Adjust volume"
+                aria-label="Adjust volume level"
               />
             </div>
           </div>
@@ -136,6 +152,15 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
             <p>Your browser does not support the audio element.</p>
           </audio>
         </div>
+
+        {
+          (title || artist) && (
+            <div class="track-info mt-2 text-sm">
+              {title && <div class="font-medium">{title}</div>}
+              {artist && <div class="opacity-80">{artist}</div>}
+            </div>
+          )
+        }
       </div>
     </div>
   </div>
@@ -551,14 +576,30 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
 
       // Initialize ARIA attributes for accessibility
       function initializeAccessibility() {
-        elements.progress.container.setAttribute("role", "progressbar");
-        elements.progress.container.setAttribute("aria-valuemin", "0");
-        elements.progress.container.setAttribute("aria-valuemax", "100");
-        elements.progress.container.setAttribute("aria-valuenow", "0");
-        elements.progress.container.setAttribute(
-          "aria-valuetext",
-          "0:00 of 0:00",
-        );
+        // Remove redundant code since we've added these attributes directly in the HTML
+        // Focus management for keyboard users
+        elements.progress.container.addEventListener("focus", () => {
+          elements.progress.container.classList.add(
+            "ring-2",
+            "ring-white",
+            "ring-offset-1",
+          );
+        });
+
+        elements.progress.container.addEventListener("blur", () => {
+          elements.progress.container.classList.remove(
+            "ring-2",
+            "ring-white",
+            "ring-offset-1",
+          );
+        });
+
+        // Add a live region for screen readers to announce player status
+        const statusRegion = document.createElement("div");
+        statusRegion.setAttribute("aria-live", "polite");
+        statusRegion.setAttribute("class", "sr-only");
+        statusRegion.setAttribute("id", `${playerId}-status`);
+        player.appendChild(statusRegion);
       }
 
       // Set up event listeners
@@ -593,6 +634,57 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
         elements.audio.addEventListener("error", (e) => {
           console.error("Audio playback error:", e);
           resetPlayer();
+        });
+
+        // Enhance keyboard handling for progress bar
+        elements.progress.container.addEventListener("keydown", (e) => {
+          if (e.code === "ArrowLeft" || e.code === "ArrowRight") {
+            e.preventDefault();
+            const duration = elements.audio.duration;
+            if (isNaN(duration)) return;
+
+            // Move 5% of the track length in either direction
+            const moveAmount = duration * 0.05;
+            if (e.code === "ArrowLeft") {
+              elements.audio.currentTime = Math.max(
+                0,
+                elements.audio.currentTime - moveAmount,
+              );
+            } else {
+              elements.audio.currentTime = Math.min(
+                duration,
+                elements.audio.currentTime + moveAmount,
+              );
+            }
+
+            // Announce the change to screen readers
+            const statusRegion = document.getElementById(`${playerId}-status`);
+            if (statusRegion) {
+              statusRegion.textContent = `Moved to ${formatTime(elements.audio.currentTime)} of ${formatTime(duration)}`;
+            }
+          }
+        });
+
+        // Announce status changes for screen readers
+        elements.audio.addEventListener("play", () => {
+          const statusRegion = document.getElementById(`${playerId}-status`);
+          if (statusRegion) {
+            statusRegion.textContent = "Playing audio";
+          }
+        });
+
+        elements.audio.addEventListener("pause", () => {
+          const statusRegion = document.getElementById(`${playerId}-status`);
+          if (statusRegion) {
+            statusRegion.textContent = "Audio paused";
+          }
+        });
+
+        elements.audio.addEventListener("ended", () => {
+          const statusRegion = document.getElementById(`${playerId}-status`);
+          if (statusRegion) {
+            statusRegion.textContent = "Audio playback ended";
+          }
         });
       }
 
