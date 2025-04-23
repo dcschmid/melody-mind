@@ -33,7 +33,7 @@ interface Category {
  * @returns {Promise<Category[]>} Array of category objects
  */
 async function loadCategoriesForLanguage(
-  language: string
+  language: string,
 ): Promise<Category[]> {
   try {
     // First try using the alias path
@@ -42,7 +42,7 @@ async function loadCategoriesForLanguage(
       .catch(async () => {
         // Fallback to relative path if alias fails
         console.info(
-          `Attempting to load ${language}_categories.json using relative path`
+          `Attempting to load ${language}_categories.json using relative path`,
         );
         return await import(`../../json/${language}_categories.json`)
           .then((module) => module.default)
@@ -67,7 +67,7 @@ const categories = Array.isArray(categoriesList) ? categoriesList : [];
  * @returns Boolean indicating if item is a valid playable category
  */
 function isPlayableCategory(
-  item: any
+  item: any,
 ): item is Category & { categoryUrl: string } {
   return (
     item &&
@@ -86,7 +86,7 @@ function isPlayableCategory(
 // Filter categories by playability status
 const playableCategories = categories.filter(isPlayableCategory);
 const nonPlayableCategories = categories.filter(
-  (item) => item && !item.isPlayable
+  (item) => item && !item.isPlayable,
 );
 
 // Combined categories with playable ones first
@@ -239,7 +239,7 @@ const noPlayableCategoriesText =
                         {t("category.play")} →
                       </div>
                     </li>
-                  )
+                  ),
               )
             ) : (
               <div class="col-span-full py-12 px-6 bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-xl text-center shadow-md border border-zinc-700">
@@ -310,11 +310,18 @@ const noPlayableCategoriesText =
    */
   const currentLang = getLangFromUrl(new URL(window.location.href));
   const translations = {
-    noResults: (ui[currentLang] as Record<string, string>)?.["game.no.results"] || "No results found",
-    notAvailable: (ui[currentLang] as Record<string, string>)?.["game.not.available"] || "Not available",
+    noResults:
+      (ui[currentLang] as Record<string, string>)?.["game.no.results"] ||
+      "No results found",
+    notAvailable:
+      (ui[currentLang] as Record<string, string>)?.["game.not.available"] ||
+      "Not available",
     resultsCount:
-      (ui[currentLang] as Record<string, string>)?.["game.results.count"] || "{count} genres found",
-    clearSearch: (ui[currentLang] as Record<string, string>)?.["game.search.clear"] || "Clear search",
+      (ui[currentLang] as Record<string, string>)?.["game.results.count"] ||
+      "{count} genres found",
+    clearSearch:
+      (ui[currentLang] as Record<string, string>)?.["game.search.clear"] ||
+      "Clear search",
   };
 
   /**
@@ -413,7 +420,7 @@ const noPlayableCategoriesText =
     // Add initial ARIA status for screen readers
     const initialCount = elements.items.length;
     announceToScreenReader(
-      translations.resultsCount.replace("{count}", initialCount.toString())
+      translations.resultsCount.replace("{count}", initialCount.toString()),
     );
   }
 
@@ -475,7 +482,7 @@ const noPlayableCategoriesText =
     } else if (event.key === CONFIG.KEY_CODES.ENTER) {
       // On Enter, move focus to first visible result if available
       const firstVisibleItem = Array.from(elements.items).find(
-        (item) => (item as HTMLElement).style.display !== "none"
+        (item) => (item as HTMLElement).style.display !== "none",
       );
 
       if (firstVisibleItem) {
@@ -536,7 +543,7 @@ const noPlayableCategoriesText =
 
     // Announce results to screen readers
     announceToScreenReader(
-      translations.resultsCount.replace("{count}", visibleCount.toString())
+      translations.resultsCount.replace("{count}", visibleCount.toString()),
     );
   }
 
@@ -550,7 +557,7 @@ const noPlayableCategoriesText =
     if (!elements.grid) return;
 
     let noResultsMessage = elements.grid.querySelector(
-      CONFIG.SELECTOR.NO_RESULTS
+      CONFIG.SELECTOR.NO_RESULTS,
     );
 
     if (!hasResults) {
