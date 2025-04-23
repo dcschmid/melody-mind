@@ -1,7 +1,30 @@
 ---
+/**
+ * @component SkipLink
+ * @description An accessibility component that allows keyboard users to bypass repetitive navigation
+ * and quickly access the main content. This component is initially hidden visually but appears when
+ * focused, following WCAG AAA compliance standards.
+ *
+ * Features:
+ * - High contrast visual appearance when focused
+ * - Proper focus management
+ * - Keyboard accessibility optimized
+ * - Performance-optimized transitions
+ * - High contrast mode support
+ * - Reduced motion support
+ *
+ * @prop {string} targetId - The ID of the element to skip to (default: "main-content")
+ *
+ * @example
+ * <SkipLink targetId="quiz-content" />
+ */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 interface Props {
+  /**
+   * The ID of the element to target when the skip link is activated
+   * @default "main-content"
+   */
   targetId?: string;
 }
 
@@ -12,11 +35,165 @@ const t = useTranslations(lang);
 
 <a
   href={"#" + targetId}
-  class="absolute z-50 -top-20 left-1/2 -translate-x-1/2 px-6 py-2
+  class="skipLink absolute z-50 -top-20 left-1/2 -translate-x-1/2 px-6 py-2
          rounded-b-lg text-white bg-[--highlight-color]
-         font-bold no-underline shadow-md transition-all duration-300
+         font-bold no-underline shadow-md will-change-transform
          focus-visible:top-0 focus-visible:outline focus-visible:outline-[--focus-outline-color]
-         focus-visible:outline-offset-2 hover:bg-[--button-hover-color]"
+         focus-visible:outline-offset-2 hover:bg-[--button-hover-color]
+         min-w-[200px] text-center text-base"
+  data-skip-link
+  aria-label={t("nav.skip.main")}
 >
   {t("nav.skip.main")}
 </a>
+
+<style>
+  /**
+   * Skip Link Styles with enhanced accessibility
+   * - GPU acceleration for smoother animations
+   * - High contrast support
+   * - Focus styles meeting WCAG AAA 7:1 contrast requirements
+   */
+  .skipLink {
+    /* GPU acceleration for better performance */
+    transform: translate(-50%, 0) translateZ(0);
+    transition:
+      top 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 0.2s ease-in-out;
+    /* Ensure proper touch target size */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Ensure proper contrast for focus state */
+  .skipLink:focus-visible {
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.15),
+      0 0 0 3px rgba(255, 255, 255, 0.5);
+    outline-width: 3px;
+  }
+
+  /* High Contrast Mode Support */
+  @media (forced-colors: active) {
+    .skipLink {
+      border: 2px solid ButtonText;
+      background-color: ButtonFace !important;
+      color: ButtonText !important;
+      forced-color-adjust: none;
+    }
+
+    .skipLink:focus-visible {
+      outline: 3px solid Highlight !important;
+      background-color: Highlight !important;
+      color: HighlightText !important;
+    }
+  }
+
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .skipLink {
+      transition-duration: 0.05s !important;
+    }
+  }
+</style>
+
+<script>
+  /**
+   * SkipLink Enhancement Script
+   *
+   * Improves the skip link behavior with:
+   * - Focus management for the target element
+   * - Proper keyboard navigation
+   * - Announcements for screen readers
+   */
+  class SkipLinkEnhancer {
+    /** The skip link element */
+    private skipLink: HTMLAnchorElement | null;
+
+    /**
+     * Initialize the enhancer
+     */
+    constructor() {
+      this.skipLink = document.querySelector("[data-skip-link]");
+      this.setupEventListeners();
+    }
+
+    /**
+     * Set up event listeners for the skip link
+     */
+    private setupEventListeners(): void {
+      if (!this.skipLink) return;
+
+      // Add click handler with proper focus management
+      this.skipLink.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const targetId = this.skipLink?.getAttribute("href")?.substring(1);
+        if (!targetId) return;
+
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          // Set tabindex to make non-interactive elements focusable
+          if (!targetElement.getAttribute("tabindex")) {
+            targetElement.setAttribute("tabindex", "-1");
+          }
+
+          // Focus the target and scroll into view
+          targetElement.focus({ preventScroll: true });
+          targetElement.scrollIntoView({
+            behavior: this.prefersReducedMotion() ? "auto" : "smooth",
+          });
+
+          // Announce to screen readers
+          this.announceToScreenReader(`Skipped to ${targetId}`);
+        }
+      });
+
+      // Monitor for page changes in SPA context
+      document.addEventListener("astro:page-load", () => {
+        // Re-acquire skip link reference after page changes
+        this.skipLink = document.querySelector("[data-skip-link]");
+        this.setupEventListeners();
+      });
+    }
+
+    /**
+     * Check if user prefers reduced motion
+     * @returns {boolean} True if reduced motion is preferred
+     */
+    private prefersReducedMotion(): boolean {
+      return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    }
+
+    /**
+     * Announce a message to screen readers
+     * @param {string} message - The message to announce
+     */
+    private announceToScreenReader(message: string): void {
+      const announcer = document.createElement("div");
+      announcer.setAttribute("aria-live", "assertive");
+      announcer.setAttribute("aria-atomic", "true");
+      announcer.className = "sr-only";
+      announcer.textContent = message;
+
+      document.body.appendChild(announcer);
+
+      // Remove after announcement is likely complete
+      setTimeout(() => {
+        if (document.body.contains(announcer)) {
+          document.body.removeChild(announcer);
+        }
+      }, 3000);
+    }
+  }
+
+  // Initialize enhancer when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => new SkipLinkEnhancer());
+  } else {
+    new SkipLinkEnhancer();
+  }
+</script>
