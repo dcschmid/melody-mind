@@ -1,4 +1,17 @@
 ---
+/**
+ * @component EndOverlay
+ * @description A modal overlay that displays end-game results with score visualization, motivational text,
+ * and achievement feedback. Implements WCAG AAA accessibility standards and optimized performance.
+ *
+ * Features:
+ * - Score visualization with animated progress bar
+ * - Dynamic motivational text based on score and language
+ * - Sharing capabilities for social media
+ * - Full keyboard navigation with focus trap
+ * - Screen reader announcements for game results
+ * - Optimized animations with reduced motion support
+ */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import ShareOverlay from "./ShareOverlay.astro";
 import { Icon } from "astro-icon/components";
@@ -28,15 +41,21 @@ const {
   class="popup hidden fixed inset-0 z-50 flex items-center justify-center p-6 bg-zinc-900/95 backdrop-blur-md"
   role="dialog"
   aria-labelledby="popup-title"
+  aria-describedby="popup-description"
   aria-modal="true"
   data-score={initialScore}
   data-category={category}
   data-difficulty={difficulty}
 >
+  <!-- Overlay backdrop for click-to-close functionality -->
+  <div id="overlay-backdrop" class="absolute inset-0" aria-hidden="true"></div>
+
   <div
     class="popupContent w-full max-w-lg max-h-[80vh] bg-gradient-to-b from-zinc-800 to-zinc-900 border border-zinc-700 rounded-2xl shadow-2xl p-8 md:p-10 text-center overflow-y-auto overscroll-contain scrollbar-gutter-stable"
     tabindex="-1"
+    role="document"
   >
+    <!-- Achievement badge with trophy icon -->
     <div
       class="achievement-badge mb-6 mx-auto w-20 h-20 flex items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-zinc-900"
     >
@@ -50,20 +69,41 @@ const {
       {title}
     </h2>
 
-    <!-- Progress Visualization -->
+    <!-- Hidden description for screen readers -->
+    <p id="popup-description" class="sr-only">
+      {
+        t("game.end.screenReaderDescription") ||
+          "Game results showing your score and achievement level."
+      }
+    </p>
+
+    <!-- Status announcer for screen readers -->
+    <div
+      id="achievement-announcement"
+      aria-live="polite"
+      aria-atomic="true"
+      class="sr-only"
+    >
+    </div>
+
+    <!-- Progress Visualization with improved ARIA -->
     <div
       class="achievement-progress relative h-3 bg-zinc-700 rounded-full mb-8 overflow-hidden"
-      role="presentation"
+      role="progressbar"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="0"
+      aria-label={t("game.end.scoreProgress") || "Score progress"}
     >
       <div
         id="score-bar"
-        class="absolute left-0 top-0 h-full bg-gradient-to-r from-sky-500 to-indigo-500 transition-all duration-1000 ease-out"
+        class="absolute left-0 top-0 h-full bg-gradient-to-r from-sky-500 to-indigo-500 transform-gpu will-change-transform transition-all duration-1000 ease-out"
         style="width: 0%"
       >
       </div>
     </div>
 
-    <!-- Der Motivationstext wird dynamisch gesetzt -->
+    <!-- Dynamic motivation text -->
     <p
       id="motivation-text"
       class="motivationText text-zinc-100 text-lg mb-8 leading-relaxed"
@@ -98,7 +138,7 @@ const {
       <span id="difficulty-display" class="text-zinc-200">{difficulty}</span>
     </div>
 
-    <!-- Improved Share Section -->
+    <!-- Share Section -->
     <div class="share-section mb-8">
       <ShareOverlay />
     </div>
@@ -130,28 +170,29 @@ const {
 </div>
 
 <style>
-  /* JS Compatibility Classes */
+  /* Base visibility classes - essential for JS compatibility */
   .popup.hidden {
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
   }
 
-  /* Text gradient */
+  /* Text gradient with fallback */
   .text-gradient {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: rgb(56, 189, 248); /* Fallback color for older browsers */
   }
 
-  /* Animation improvements */
+  /* Performance-optimized animations using transform and opacity */
   @keyframes fade-in-up {
     from {
-      transform: translateY(20px);
+      transform: translateY(20px) scale(0.98);
       opacity: 0;
     }
     to {
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
       opacity: 1;
     }
   }
@@ -171,18 +212,20 @@ const {
     }
   }
 
-  /* Apply animations when popup is visible */
+  /* GPU-accelerated animations with will-change for better performance */
   .popup:not(.hidden) .popupContent {
+    will-change: transform, opacity;
     animation: fade-in-up 0.5s ease-out;
   }
 
   @media (prefers-reduced-motion: no-preference) {
     .popup:not(.hidden) .achievement-badge {
+      will-change: transform, box-shadow;
       animation: badge-pulse 2s infinite;
     }
   }
 
-  /* WCAG AAA Compliant Styles */
+  /* WCAG AAA Compliant Styles with enhanced readability */
   .motivationText {
     line-height: 1.6;
     max-width: 65ch;
@@ -190,11 +233,12 @@ const {
     margin-right: auto;
   }
 
-  /* Accessibility improvements */
+  /* Improved focus styles for better keyboard visibility */
   button:focus-visible,
   a:focus-visible {
     outline: 3px solid rgb(56, 189, 248); /* sky-300 */
     outline-offset: 4px;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); /* Additional focus indicator */
   }
 
   /* High Contrast Mode Support */
@@ -242,6 +286,11 @@ const {
       animation: none !important;
       transition: none !important;
     }
+
+    .popup.hidden,
+    .popup:not(.hidden) {
+      transition: opacity 0.01ms !important;
+    }
   }
 
   /* Print styles */
@@ -264,24 +313,29 @@ const {
     }
   }
 
-  /* Scrollbar styling */
+  /* Scrollbar styling with improved contrast */
   .popupContent::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
 
   .popupContent::-webkit-scrollbar-track {
-    background: rgba(39, 39, 42, 0.6); /* zinc-800 with opacity */
+    background: rgba(39, 39, 42, 0.8); /* Improved contrast for zinc-800 */
     border-radius: 10px;
   }
 
   .popupContent::-webkit-scrollbar-thumb {
-    background: rgba(82, 82, 91, 0.8); /* zinc-600 with opacity */
+    background: rgba(
+      113,
+      113,
+      122,
+      0.9
+    ); /* zinc-500 with higher opacity for better contrast */
     border-radius: 10px;
   }
 
   .popupContent::-webkit-scrollbar-thumb:hover {
-    background: rgba(113, 113, 122, 0.8); /* zinc-500 with opacity */
+    background: rgba(161, 161, 170, 0.95); /* zinc-400 with higher opacity */
   }
 
   /* Improve focus indication when scrolling */
@@ -295,13 +349,17 @@ const {
   /**
    * EndOverlay Component Script
    *
-   * Handles the end game modal functionality including dynamic motivation text based on score
-   * and sharing capabilities.
+   * Manages the end game modal functionality including dynamic motivation text based on score,
+   * focus management, keyboard navigation, animation, and sharing capabilities.
+   *
+   * This component follows WCAG AAA accessibility standards and implements optimized
+   * performance practices for smooth animations and minimal resource usage.
    */
   import { shareScore } from "../../utils/share/shareUtils";
 
   /**
    * Achievement thresholds for different score levels
+   * @constant {Object} ACHIEVEMENT_THRESHOLDS
    */
   const ACHIEVEMENT_THRESHOLDS = {
     GENIUS: 800,
@@ -313,6 +371,7 @@ const {
 
   /**
    * Multilingual motivational texts for different achievement levels
+   * @constant {Object} MOTIVATION_TEXTS
    */
   const MOTIVATION_TEXTS = {
     de: {
@@ -428,28 +487,40 @@ const {
   };
 
   /**
-   * Gets the appropriate motivation text based on score and language
-   *
-   * @param {number} score - Player's score
-   * @param {string} language - Current language code
-   * @returns {string} The appropriate motivation text
+   * Document ready state handler
+   * Initializes the component when DOM is fully loaded
    */
-  function getMotivationText(score: number, language: string): string {
-    // Get texts for the current language or fallback to English
-    const texts =
-      MOTIVATION_TEXTS[language as keyof typeof MOTIVATION_TEXTS] ||
-      MOTIVATION_TEXTS.en;
-
-    // Select text based on score threshold
-    if (score >= ACHIEVEMENT_THRESHOLDS.GENIUS) return texts.GENIUS;
-    if (score >= ACHIEVEMENT_THRESHOLDS.PRO) return texts.PRO;
-    if (score >= ACHIEVEMENT_THRESHOLDS.ENTHUSIAST) return texts.ENTHUSIAST;
-    if (score >= ACHIEVEMENT_THRESHOLDS.LOVER) return texts.LOVER;
-    return texts.EXPLORER;
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeEndOverlay);
+  } else {
+    initializeEndOverlay();
   }
 
   /**
-   * Initialize EndOverlay with dynamic motivation text
+   * Clean up event listeners when the component is removed
+   * Prevents memory leaks and improves performance
+   */
+  document.addEventListener("astro:before-swap", () => {
+    // Remove share button event listeners
+    document.querySelectorAll("[data-share]").forEach((button) => {
+      (button as HTMLElement).removeEventListener(
+        "click",
+        handleShareButtonClick
+      );
+    });
+
+    // Remove any ARIA live regions we created
+    document.getElementById("achievement-announcement")?.remove();
+
+    // Cancel any ongoing animations
+    window.cancelAnimationFrame(
+      Number(document.documentElement.dataset.endOverlayAnimationId || 0)
+    );
+  });
+
+  /**
+   * Initialize EndOverlay with dynamic motivation text and accessibility features
+   * Sets up event listeners, observers, and accessibility features
    */
   function initializeEndOverlay(): void {
     const popup = document.getElementById("endgame-popup");
@@ -459,22 +530,45 @@ const {
       return;
     }
 
+    // Store reference to last focused element before opening
+    let lastFocusedElement: HTMLElement | null = null;
+
     // Set up an observer to update motivation text when the popup becomes visible
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (
           mutation.type === "attributes" &&
-          mutation.attributeName === "class" &&
-          !popup.classList.contains("hidden")
+          mutation.attributeName === "class"
         ) {
-          // Update motivation text when popup is shown
-          updateMotivationText(popup);
+          const isVisible = !popup.classList.contains("hidden");
 
-          // Animate score bar
-          animateScoreBar(popup);
+          // Manage focus when popup visibility changes
+          if (isVisible) {
+            // Store current focus before opening
+            lastFocusedElement = document.activeElement as HTMLElement;
 
-          // Announce achievement for screen readers
-          announceAchievement(popup);
+            // Update motivation text when popup is shown
+            updateMotivationText(popup);
+
+            // Animate score bar with requestAnimationFrame for better performance
+            animateScoreBarWithRAF(popup);
+
+            // Announce achievement for screen readers
+            announceAchievement(popup);
+
+            // Set initial focus inside modal
+            focusFirstElement(popup);
+
+            // Prevent background scrolling
+            document.body.style.overflow = "hidden";
+          } else if (lastFocusedElement) {
+            // Return focus when closing
+            setTimeout(() => {
+              lastFocusedElement?.focus();
+              // Re-enable scrolling
+              document.body.style.overflow = "";
+            }, 100);
+          }
         }
       });
     });
@@ -485,35 +579,205 @@ const {
     // Initial update in case the popup is already visible
     if (!popup.classList.contains("hidden")) {
       updateMotivationText(popup);
-      animateScoreBar(popup);
+      animateScoreBarWithRAF(popup);
     }
 
     // Set up sharing functionality
     initializeSharing();
 
-    // Improve keyboard interaction
-    improveKeyboardInteraction(popup);
+    // Set up click handlers
+    setupClickHandlers(popup, lastFocusedElement);
+
+    // Set up keyboard interactions
+    setupKeyboardInteractions(popup);
   }
 
   /**
-   * Creates an animated progress bar based on the score
+   * Sets up click handlers for backdrop and buttons
+   *
+   * @param {HTMLElement} popup - The popup element
+   * @param {HTMLElement|null} lastFocusedElement - Reference to the element that had focus before opening
+   */
+  function setupClickHandlers(
+    popup: HTMLElement,
+    lastFocusedElement: HTMLElement | null
+  ): void {
+    // Handle backdrop clicks to close modal
+    const backdrop = document.getElementById("overlay-backdrop");
+    if (backdrop) {
+      backdrop.addEventListener("click", () => {
+        hidePopup(popup, lastFocusedElement);
+      });
+    }
+
+    // Handle restart button clicks
+    const restartButton = document.getElementById("restart-button");
+    if (restartButton) {
+      restartButton.addEventListener("click", () => {
+        hidePopup(popup, lastFocusedElement);
+      });
+    }
+  }
+
+  /**
+   * Hides the popup and restores focus
+   *
+   * @param {HTMLElement} popup - The popup element
+   * @param {HTMLElement|null} elementToFocus - The element to focus after closing
+   */
+  function hidePopup(
+    popup: HTMLElement,
+    elementToFocus: HTMLElement | null
+  ): void {
+    popup.classList.add("hidden");
+
+    // Re-enable scrolling
+    document.body.style.overflow = "";
+
+    // Return focus when closing
+    if (elementToFocus?.focus) {
+      setTimeout(() => elementToFocus.focus(), 100);
+    }
+  }
+
+  /**
+   * Sets up keyboard interactions for accessibility
+   * Implements focus trap and keyboard shortcuts
    *
    * @param {HTMLElement} popup - The popup element
    */
-  function animateScoreBar(popup: HTMLElement): void {
+  function setupKeyboardInteractions(popup: HTMLElement): void {
+    // Trap focus within the modal
+    popup.addEventListener("keydown", (e) => {
+      // Skip if the popup is hidden
+      if (popup.classList.contains("hidden")) return;
+
+      if (e.key === "Escape") {
+        // Close modal on Escape
+        document.getElementById("restart-button")?.click();
+        return;
+      }
+
+      if (e.key !== "Tab") return;
+
+      // Find all focusable elements
+      const focusableElements = getFocusableElements(popup);
+
+      if (focusableElements.length === 0) return;
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      // Handle tab navigation to maintain focus trap
+      if (e.shiftKey && document.activeElement === firstElement) {
+        e.preventDefault();
+        lastElement.focus();
+      } else if (!e.shiftKey && document.activeElement === lastElement) {
+        e.preventDefault();
+        firstElement.focus();
+      }
+    });
+  }
+
+  /**
+   * Gets all focusable elements within the modal
+   *
+   * @param {HTMLElement} container - The container element
+   * @returns {HTMLElement[]} Array of focusable elements
+   */
+  function getFocusableElements(container: HTMLElement): HTMLElement[] {
+    // Select all potentially focusable elements
+    const selector =
+      "button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), " +
+      'textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+    const elements = Array.from(
+      container.querySelectorAll<HTMLElement>(selector)
+    );
+
+    // Filter out hidden elements
+    return elements.filter((el) => {
+      const style = window.getComputedStyle(el);
+      return (
+        style.display !== "none" &&
+        style.visibility !== "hidden" &&
+        el.offsetWidth > 0 &&
+        el.offsetHeight > 0
+      );
+    });
+  }
+
+  /**
+   * Sets focus to the first focusable element in the modal
+   *
+   * @param {HTMLElement} popup - The popup element
+   */
+  function focusFirstElement(popup: HTMLElement): void {
+    // Short delay to ensure DOM is ready
+    setTimeout(() => {
+      const focusableElements = getFocusableElements(popup);
+      if (focusableElements.length > 0) {
+        focusableElements[0].focus();
+      } else {
+        // If no focusable elements, focus the popup itself
+        popup.setAttribute("tabindex", "-1");
+        popup.focus();
+      }
+    }, 100);
+  }
+
+  /**
+   * Creates an animated progress bar based on the score using requestAnimationFrame
+   * for improved performance
+   *
+   * @param {HTMLElement} popup - The popup element
+   */
+  function animateScoreBarWithRAF(popup: HTMLElement): void {
     const scoreAttr = popup.getAttribute("data-score");
     const score = scoreAttr ? parseInt(scoreAttr) : 0;
 
     // Calculate percentage of max possible score (1000)
-    const percentage = Math.min(Math.max(score / 10, 5), 100); // Min 5%, max 100%
+    const targetPercentage = Math.min(Math.max(score / 10, 5), 100); // Min 5%, max 100%
 
+    // Get progress bar elements
     const scoreBar = document.getElementById("score-bar");
-    if (scoreBar) {
-      // Trigger animation
-      setTimeout(() => {
-        scoreBar.style.width = `${percentage}%`;
-      }, 200);
-    }
+    const progressContainer = document.querySelector(".achievement-progress");
+
+    if (!scoreBar || !progressContainer) return;
+
+    // Update ARIA properties for accessibility
+    progressContainer.setAttribute(
+      "aria-valuenow",
+      targetPercentage.toString()
+    );
+
+    // Start at 0%
+    let currentPercentage = 0;
+
+    // For smooth animation, gradually increase the percentage
+    const animateProgressBar = (timestamp: number) => {
+      // Increment by small amount each frame for smooth animation
+      currentPercentage += (targetPercentage - currentPercentage) * 0.05;
+
+      // If we're close enough to target, snap to it
+      if (Math.abs(targetPercentage - currentPercentage) < 0.5) {
+        currentPercentage = targetPercentage;
+      }
+
+      // Apply the current percentage
+      scoreBar.style.width = `${currentPercentage}%`;
+
+      // Continue animation if not reached target
+      if (currentPercentage < targetPercentage) {
+        const animationId = requestAnimationFrame(animateProgressBar);
+        // Store animation ID for potential cleanup
+        document.documentElement.dataset.endOverlayAnimationId =
+          animationId.toString();
+      }
+    };
+
+    // Start animation
+    requestAnimationFrame(animateProgressBar);
 
     // Update difficulty display
     const difficultyDisplay = document.getElementById("difficulty-display");
@@ -524,10 +788,51 @@ const {
       const difficultyText = getDifficultyText(difficulty, lang);
       difficultyDisplay.textContent = difficultyText;
     }
+
+    // Also update the visible score with digit-by-digit animation
+    animateScoreCounter(score);
+  }
+
+  /**
+   * Animates the score counter digit by digit for a more engaging effect
+   *
+   * @param {number} targetScore - The final score to display
+   */
+  function animateScoreCounter(targetScore: number): void {
+    const scoreElement = document.getElementById("popup-score");
+    if (!scoreElement) return;
+
+    let currentScore = 0;
+    const duration = 1500; // ms
+    const startTime = performance.now();
+
+    const updateScore = (timestamp: number) => {
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Use easeOutQuad for smooth animation
+      const easeProgress = 1 - (1 - progress) * (1 - progress);
+      currentScore = Math.floor(easeProgress * targetScore);
+
+      scoreElement.textContent = currentScore.toString();
+
+      if (progress < 1) {
+        requestAnimationFrame(updateScore);
+      } else {
+        // Ensure final score is exactly correct
+        scoreElement.textContent = targetScore.toString();
+      }
+    };
+
+    requestAnimationFrame(updateScore);
   }
 
   /**
    * Gets the translated difficulty text
+   *
+   * @param {string} difficulty - The difficulty level
+   * @param {string} lang - The current language code
+   * @returns {string} Translated difficulty text
    */
   function getDifficultyText(difficulty: string, lang: string): string {
     // Simple translation mapping
@@ -554,21 +859,17 @@ const {
 
   /**
    * Announces achievement level for screen readers
+   *
+   * @param {HTMLElement} popup - The popup element
    */
   function announceAchievement(popup: HTMLElement): void {
     const scoreAttr = popup.getAttribute("data-score");
     const score = scoreAttr ? parseInt(scoreAttr) : 0;
 
-    // Create an ARIA live region for announcements
+    // Use existing announcement element
     let ariaLive = document.getElementById("achievement-announcement");
-    if (!ariaLive) {
-      ariaLive = document.createElement("div");
-      ariaLive.id = "achievement-announcement";
-      ariaLive.setAttribute("aria-live", "assertive");
-      ariaLive.setAttribute("aria-atomic", "true");
-      ariaLive.className = "sr-only";
-      document.body.appendChild(ariaLive);
-    }
+
+    if (!ariaLive) return;
 
     // Get achievement level based on score
     let achievementLevel = "";
@@ -592,63 +893,7 @@ const {
     // Clean up after announcement is likely read
     setTimeout(() => {
       ariaLive.textContent = "";
-    }, 3000);
-  }
-
-  /**
-   * Improves keyboard interaction with the popup
-   */
-  function improveKeyboardInteraction(popup: HTMLElement): void {
-    // Trap focus within the modal
-    popup.addEventListener("keydown", (e) => {
-      // Skip if the popup is hidden
-      if (popup.classList.contains("hidden")) return;
-
-      if (e.key === "Escape") {
-        // Close modal on Escape
-        document.getElementById("restart-button")?.click();
-        return;
-      }
-
-      if (e.key !== "Tab") return;
-
-      // Find all focusable elements
-      const focusableElements = popup.querySelectorAll<HTMLElement>(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
-      );
-
-      if (focusableElements.length === 0) return;
-
-      const firstElement = focusableElements[0];
-      const lastElement = focusableElements[focusableElements.length - 1];
-
-      // Handle tab navigation to maintain focus trap
-      if (e.shiftKey && document.activeElement === firstElement) {
-        e.preventDefault();
-        lastElement.focus();
-      } else if (!e.shiftKey && document.activeElement === lastElement) {
-        e.preventDefault();
-        firstElement.focus();
-      }
-    });
-
-    // Focus first element when opened
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (
-          mutation.attributeName === "class" &&
-          !popup.classList.contains("hidden")
-        ) {
-          // Focus the popup content
-          const content = popup.querySelector(".popupContent") as HTMLElement;
-          if (content) {
-            setTimeout(() => content.focus(), 100);
-          }
-        }
-      });
-    });
-
-    observer.observe(popup, { attributes: true });
+    }, 5000); // Extended time to ensure screen readers have time to announce
   }
 
   /**
@@ -666,17 +911,32 @@ const {
     if (motivationElement) {
       motivationElement.textContent = getMotivationText(score, lang);
     }
+  }
 
-    // Also update the visible score
-    const scoreElement = document.getElementById("popup-score");
-    if (scoreElement) {
-      scoreElement.textContent = score.toString();
-    }
+  /**
+   * Gets the appropriate motivation text based on score and language
+   *
+   * @param {number} score - Player's score
+   * @param {string} language - Current language code
+   * @returns {string} The appropriate motivation text
+   */
+  function getMotivationText(score: number, language: string): string {
+    // Get texts for the current language or fallback to English
+    const texts =
+      MOTIVATION_TEXTS[language as keyof typeof MOTIVATION_TEXTS] ||
+      MOTIVATION_TEXTS.en;
+
+    // Select text based on score threshold
+    if (score >= ACHIEVEMENT_THRESHOLDS.GENIUS) return texts.GENIUS;
+    if (score >= ACHIEVEMENT_THRESHOLDS.PRO) return texts.PRO;
+    if (score >= ACHIEVEMENT_THRESHOLDS.ENTHUSIAST) return texts.ENTHUSIAST;
+    if (score >= ACHIEVEMENT_THRESHOLDS.LOVER) return texts.LOVER;
+    return texts.EXPLORER;
   }
 
   /**
    * Initialize sharing functionality for the End Overlay
-   * (Rest of the sharing functionality remains the same as before)
+   * Sets up event handlers for share buttons
    */
   function initializeSharing(): void {
     // Select all share buttons (elements with data-share attribute)
@@ -695,9 +955,6 @@ const {
 
   /**
    * Handle click events on share buttons
-   *
-   * Extracts sharing platform from the button's data attribute
-   * and collects game data from the popup before invoking the sharing function.
    *
    * @param {MouseEvent} event - The click event object
    */
@@ -726,7 +983,7 @@ const {
   /**
    * Extract game data from the end game popup
    *
-   * @returns {import("../../utils/share/shareUtils").ShareData|null} The extracted game data or null if popup not found
+   * @returns {import("../../utils/share/shareUtils").ShareData|null} The extracted game data
    */
   function getGameDataFromPopup():
     | import("../../utils/share/shareUtils").ShareData
@@ -745,24 +1002,4 @@ const {
 
     return { score, category, difficulty };
   }
-
-  // Initialize the overlay when the DOM is fully loaded
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initializeEndOverlay);
-  } else {
-    initializeEndOverlay();
-  }
-
-  // Clean up event listeners when the component is removed
-  document.addEventListener("astro:before-swap", () => {
-    document.querySelectorAll("[data-share]").forEach((button) => {
-      (button as HTMLElement).removeEventListener(
-        "click",
-        handleShareButtonClick,
-      );
-    });
-
-    // Remove any ARIA live regions we created
-    document.getElementById("achievement-announcement")?.remove();
-  });
 </script>
