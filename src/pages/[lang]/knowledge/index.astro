@@ -38,7 +38,7 @@ export async function getStaticPaths() {
         params: { lang },
         props: { articles, allKeywords },
       };
-    })
+    }),
   );
 
   return paths;
@@ -80,7 +80,7 @@ const articlesWithReadingTime = articles.map((article) => {
 const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
   (a.data.image || "").localeCompare(b.data.image || "", undefined, {
     sensitivity: "base",
-  })
+  }),
 );
 
 // Generate SEO content
@@ -545,14 +545,14 @@ const modifiedDate = new Date();
       resetButton: document.querySelector(CONFIG.selectors.resetSearch),
       backToTopButton: document.querySelector(CONFIG.selectors.backToTop),
       articles: Array.from(
-        document.querySelectorAll(CONFIG.selectors.articleItems)
+        document.querySelectorAll(CONFIG.selectors.articleItems),
       ),
     };
 
     // Skip initialization if required elements are missing
     if (!elements.searchInput || !elements.articleGrid) {
       console.warn(
-        "Required search elements not found. Search functionality disabled."
+        "Required search elements not found. Search functionality disabled.",
       );
       return;
     }
@@ -641,14 +641,14 @@ const modifiedDate = new Date();
       const processNextBatch = () => {
         const endIndex = Math.min(
           index + CONFIG.performance.batchSize,
-          elements.articles.length
+          elements.articles.length,
         );
 
         for (let i = index; i < endIndex; i++) {
           const isVisible = articleMatchesFilters(
             elements.articles[i],
             query,
-            category
+            category,
           );
           elements.articles[i].style.display = isVisible ? "" : "none";
           if (isVisible) visibleCount++;
@@ -718,11 +718,11 @@ const modifiedDate = new Date();
         (elements.searchInput.value || elements.categoryFilter?.value !== "all")
       ) {
         const firstVisible = elements.articles.find(
-          (a) => a.style.display !== "none"
+          (a) => a.style.display !== "none",
         );
         if (firstVisible) {
           const firstLink = firstVisible.querySelector(
-            CONFIG.selectors.articleLink
+            CONFIG.selectors.articleLink,
           );
           if (firstLink) setTimeout(() => firstLink.focus(), 100);
         }
@@ -738,16 +738,16 @@ const modifiedDate = new Date();
       elements.articleGrid.addEventListener("keydown", (event) => {
         if (
           !["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp"].includes(
-            event.key
+            event.key,
           )
         )
           return;
 
         const cards = Array.from(
-          elements.articleGrid.querySelectorAll(CONFIG.selectors.articleLink)
+          elements.articleGrid.querySelectorAll(CONFIG.selectors.articleLink),
         );
         const currentIndex = cards.findIndex(
-          (card) => card === document.activeElement
+          (card) => card === document.activeElement,
         );
         if (currentIndex === -1) return;
 
@@ -805,7 +805,7 @@ const modifiedDate = new Date();
         // Return focus to search input for improved keyboard accessibility
         setTimeout(
           () => elements.searchInput.focus(),
-          CONFIG.timing.scrollDuration
+          CONFIG.timing.scrollDuration,
         );
       });
     }

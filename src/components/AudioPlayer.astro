@@ -268,7 +268,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
   (() => {
     // Wait until DOM is fully loaded to ensure all elements are available
     document.addEventListener("DOMContentLoaded", () =>
-      initializePlayer(playerId)
+      initializePlayer(playerId),
     );
 
     /**
@@ -478,11 +478,11 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
         // Set aria values for accessibility
         elements.progress.container.setAttribute(
           "aria-valuenow",
-          Math.round(progressPercent)
+          Math.round(progressPercent),
         );
         elements.progress.container.setAttribute(
           "aria-valuetext",
-          `${formatTime(currentTime)} of ${formatTime(duration)}`
+          `${formatTime(currentTime)} of ${formatTime(duration)}`,
         );
       }
 
@@ -574,7 +574,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
             // Rewind 5 seconds
             elements.audio.currentTime = Math.max(
               0,
-              elements.audio.currentTime - 5
+              elements.audio.currentTime - 5,
             );
             break;
 
@@ -583,7 +583,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
             if (!isNaN(elements.audio.duration)) {
               elements.audio.currentTime = Math.min(
                 elements.audio.duration,
-                elements.audio.currentTime + 5
+                elements.audio.currentTime + 5,
               );
             }
             break;
@@ -593,7 +593,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
             if (event.target === elements.volume.slider) {
               const newVolume = Math.min(
                 1,
-                parseFloat(elements.volume.slider.value) + 0.1
+                parseFloat(elements.volume.slider.value) + 0.1,
               );
               elements.volume.slider.value = newVolume;
               elements.audio.volume = newVolume;
@@ -608,7 +608,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
             if (event.target === elements.volume.slider) {
               const newVolume = Math.max(
                 0,
-                parseFloat(elements.volume.slider.value) - 0.1
+                parseFloat(elements.volume.slider.value) - 0.1,
               );
               elements.volume.slider.value = newVolume;
               elements.audio.volume = newVolume;
@@ -635,7 +635,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
           elements.progress.container.classList.add(
             "ring-2",
             "ring-white",
-            "ring-offset-1"
+            "ring-offset-1",
           );
         });
 
@@ -643,7 +643,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
           elements.progress.container.classList.remove(
             "ring-2",
             "ring-white",
-            "ring-offset-1"
+            "ring-offset-1",
           );
         });
 
@@ -670,7 +670,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
         // Metadata loading
         elements.audio.addEventListener("loadedmetadata", () => {
           elements.time.duration.textContent = formatTime(
-            elements.audio.duration
+            elements.audio.duration,
           );
           elements.time.current.textContent = formatTime(0);
           renderWaveform();
@@ -704,12 +704,12 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
             if (e.code === "ArrowLeft") {
               elements.audio.currentTime = Math.max(
                 0,
-                elements.audio.currentTime - moveAmount
+                elements.audio.currentTime - moveAmount,
               );
             } else {
               elements.audio.currentTime = Math.min(
                 duration,
-                elements.audio.currentTime + moveAmount
+                elements.audio.currentTime + moveAmount,
               );
             }
 
@@ -751,7 +751,7 @@ const playerId = `audio-player-${Math.random().toString(36).substring(2, 10)}`;
       // Pre-load duration if metadata is already available
       if (elements.audio.readyState >= 1) {
         elements.time.duration.textContent = formatTime(
-          elements.audio.duration
+          elements.audio.duration,
         );
         renderWaveform();
       }
