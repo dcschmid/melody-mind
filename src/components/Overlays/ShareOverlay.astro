@@ -260,14 +260,14 @@ const t = useTranslations(lang);
    */
   function cacheElements(): void {
     elements.nativeShareButton = document.getElementById(
-      "native-share-button"
+      "native-share-button",
     ) as HTMLButtonElement;
     elements.copyButton = document.getElementById(
-      "copy-share-button"
+      "copy-share-button",
     ) as HTMLButtonElement;
     elements.copyButtonText = document.getElementById("copy-button-text");
     elements.statusAnnouncer = document.getElementById(
-      "share-status-announcer"
+      "share-status-announcer",
     );
     elements.shareButtons =
       document.querySelectorAll<HTMLButtonElement>("[data-share]");
@@ -407,7 +407,7 @@ const t = useTranslations(lang);
         button.classList.add(
           "bg-emerald-100",
           "text-emerald-800",
-          "border-emerald-300"
+          "border-emerald-300",
         );
 
         // Announce success to screen readers
@@ -421,7 +421,7 @@ const t = useTranslations(lang);
           button.classList.remove(
             "bg-emerald-100",
             "text-emerald-800",
-            "border-emerald-300"
+            "border-emerald-300",
           );
           // Re-enable button after reset
           button.removeAttribute("disabled");
@@ -500,7 +500,7 @@ const t = useTranslations(lang);
     window.open = function (url) {
       if (!url) return null as any;
       const textMatch = decodeURIComponent(url.toString()).match(
-        /text=([^&]+)/
+        /text=([^&]+)/,
       );
       if (textMatch && textMatch[1]) {
         shareText = textMatch[1].replace(/\+/g, " ");

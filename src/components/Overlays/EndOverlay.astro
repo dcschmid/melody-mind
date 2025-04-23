@@ -505,7 +505,7 @@ const {
     document.querySelectorAll("[data-share]").forEach((button) => {
       (button as HTMLElement).removeEventListener(
         "click",
-        handleShareButtonClick
+        handleShareButtonClick,
       );
     });
 
@@ -514,7 +514,7 @@ const {
 
     // Cancel any ongoing animations
     window.cancelAnimationFrame(
-      Number(document.documentElement.dataset.endOverlayAnimationId || 0)
+      Number(document.documentElement.dataset.endOverlayAnimationId || 0),
     );
   });
 
@@ -600,7 +600,7 @@ const {
    */
   function setupClickHandlers(
     popup: HTMLElement,
-    lastFocusedElement: HTMLElement | null
+    lastFocusedElement: HTMLElement | null,
   ): void {
     // Handle backdrop clicks to close modal
     const backdrop = document.getElementById("overlay-backdrop");
@@ -627,7 +627,7 @@ const {
    */
   function hidePopup(
     popup: HTMLElement,
-    elementToFocus: HTMLElement | null
+    elementToFocus: HTMLElement | null,
   ): void {
     popup.classList.add("hidden");
 
@@ -692,7 +692,7 @@ const {
       'textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
     const elements = Array.from(
-      container.querySelectorAll<HTMLElement>(selector)
+      container.querySelectorAll<HTMLElement>(selector),
     );
 
     // Filter out hidden elements
@@ -748,7 +748,7 @@ const {
     // Update ARIA properties for accessibility
     progressContainer.setAttribute(
       "aria-valuenow",
-      targetPercentage.toString()
+      targetPercentage.toString(),
     );
 
     // Start at 0%

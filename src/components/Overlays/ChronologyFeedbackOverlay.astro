@@ -102,7 +102,7 @@ const t = useTranslations(lang);
    */
   // Import translation function for client-side usage
   import { getLangFromUrl, useTranslations } from "@utils/i18n";
-  
+
   const lang = getLangFromUrl(new URL(window.location.href));
   const t = useTranslations(lang);
 
@@ -114,22 +114,22 @@ const t = useTranslations(lang);
   function initFeedbackOverlay(): void {
     // Get DOM elements
     const overlay = document.getElementById(
-      "chronology-feedback-overlay"
+      "chronology-feedback-overlay",
     ) as HTMLDivElement;
     const closeButton = document.getElementById(
-      "close-feedback-overlay"
+      "close-feedback-overlay",
     ) as HTMLButtonElement;
     const backdrop = document.getElementById(
-      "overlay-backdrop"
+      "overlay-backdrop",
     ) as HTMLDivElement;
     const continueButton = document.getElementById(
-      "chronology-continue-button"
+      "chronology-continue-button",
     ) as HTMLButtonElement;
     const endButton = document.getElementById(
-      "chronology-end-button"
+      "chronology-end-button",
     ) as HTMLButtonElement;
     const statusAnnouncer = document.getElementById(
-      "feedback-status"
+      "feedback-status",
     ) as HTMLDivElement;
 
     if (
@@ -257,7 +257,7 @@ const t = useTranslations(lang);
      */
     function updateFeedbackContent(
       isCorrect: boolean,
-      correctOrder?: string[]
+      correctOrder?: string[],
     ): void {
       const feedbackContent = document.getElementById("feedback-content");
       if (!feedbackContent) return;
@@ -348,7 +348,7 @@ const t = useTranslations(lang);
 
       // Convert NodeList to Array and filter out hidden elements
       return Array.from(
-        container.querySelectorAll<HTMLElement>(selector)
+        container.querySelectorAll<HTMLElement>(selector),
       ).filter((el) => {
         // Check if element is visible and not aria-hidden
         return (
