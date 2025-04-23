@@ -1,15 +1,66 @@
 ---
+/**
+ * Footer Component
+ *
+ * Provides site-wide footer with copyright information, source code link,
+ * and donation options. Implements full accessibility and internationalization.
+ *
+ * @component
+ * @implements {WCAG AAA compliance}
+ */
 import { useTranslations, getLangFromUrl } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 
+// Get current language for i18n
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Dynamisches Jahr für Copyright
+// Dynamic year for copyright notice
 const currentYear = new Date().getFullYear();
+
+/**
+ * External link properties for consistency and accessibility
+ */
+const externalLinkProps = {
+  target: "_blank",
+  rel: "noopener noreferrer",
+  // Add common attributes for WCAG AAA compliance
+};
+
+/**
+ * Link data for maintainability
+ */
+const links = [
+  {
+    href: "https://github.com/dcschmid/melody-mind",
+    icon: "github",
+    label: "GitHub",
+    ariaLabel: "View MelodyMind source code on GitHub",
+  },
+  {
+    href: "https://www.paypal.me/dcschmid",
+    icon: "paypal",
+    label: t("footer.donate") || "Donate",
+    ariaLabel: t("footer.donate_aria") || "Donate via PayPal",
+  },
+  {
+    href: "https://www.buymeacoffee.com/dcschmid",
+    icon: "kofi",
+    label: "Ko-fi",
+    ariaLabel: "Support MelodyMind on Ko-fi",
+  },
+];
+
+// Base classes for all footer links to ensure consistency and accessibility
+const linkClasses =
+  "text-zinc-400 hover:text-purple-300 transition-colors text-sm flex items-center gap-2 py-2 px-3 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 min-h-[44px] min-w-[44px]";
 ---
 
-<footer class="mt-12 py-6 border-t border-zinc-800">
+<footer
+  class="mt-12 py-8 border-t border-zinc-800"
+  role="contentinfo"
+  aria-label="Site footer"
+>
   <div class="max-w-6xl mx-auto px-4">
     <div class="flex flex-col md:flex-row justify-between items-center gap-6">
       <!-- Copyright -->
@@ -20,43 +71,64 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <!-- Links Section -->
-      <div class="flex flex-wrap gap-8 justify-center md:justify-end">
+      <nav
+        aria-label="Footer links"
+        class="flex flex-wrap gap-4 justify-center md:justify-end"
+      >
         <!-- GitHub Link -->
         <a
-          href="https://github.com/dcschmid/melody-mind"
+          href={links[0].href}
           target="_blank"
           rel="noopener noreferrer"
-          class="text-zinc-400 hover:text-purple-400 transition-colors text-sm flex items-center gap-1"
+          class={linkClasses}
+          aria-label={links[0].ariaLabel}
         >
-          <Icon name="github" width="16" height="16" />
-          GitHub
+          <Icon
+            name={links[0].icon}
+            width="20"
+            height="20"
+            aria-hidden="true"
+            focusable="false"
+          />
+          <span>{links[0].label}</span>
+          <span class="sr-only">(opens in a new tab)</span>
         </a>
 
         <!-- Donation Links -->
-        <div class="flex gap-4">
-          <!-- PayPal -->
-          <a
-            href="https://www.paypal.me/dcschmid"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-zinc-400 hover:text-purple-400 transition-colors text-sm flex items-center gap-1"
-          >
-            <Icon name="paypal" width="16" height="16" />
-            {t("footer.donate") || "Donate"}
-          </a>
-
-          <!-- Ko-fi -->
-          <a
-            href="https://www.buymeacoffee.com/dcschmid"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-zinc-400 hover:text-purple-400 transition-colors text-sm flex items-center gap-1"
-          >
-            <Icon name="kofi" width="16" height="16" />
-            Ko-fi
-          </a>
+        <div class="flex gap-4" role="group" aria-label="Donation options">
+          {
+            links.slice(1).map((link) => (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={linkClasses}
+                aria-label={link.ariaLabel}
+              >
+                <Icon
+                  name={link.icon}
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                  focusable="false"
+                />
+                <span>{link.label}</span>
+                <span class="sr-only">(opens in a new tab)</span>
+              </a>
+            ))
+          }
         </div>
-      </div>
+      </nav>
     </div>
   </div>
 </footer>
+
+<style>
+  /* Additional accessible styles with reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    a,
+    button {
+      transition-duration: 0.001ms !important;
+    }
+  }
+</style>

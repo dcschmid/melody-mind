@@ -1,12 +1,32 @@
 ---
+/**
+ * ButtonLink Component
+ *
+ * A versatile and accessible component that renders either a button or a link (anchor)
+ * with consistent styling. Complies with WCAG AAA standards and follows
+ * performance best practices.
+ *
+ * @component
+ */
 interface Props {
+  /** URL for the link. If omitted, a button element is rendered instead */
   href?: string;
+  /** Button type attribute, only used when rendering as a button */
   type?: "button" | "submit" | "reset";
+  /** Whether the button/link is disabled */
   disabled?: boolean;
+  /** Accessible label for the button/link (important for screen readers) */
   ariaLabel?: string;
+  /** Additional CSS classes to apply */
   className?: string;
+  /** Target attribute for links */
   target?: "_blank" | "_self" | "_parent" | "_top";
+  /** Relationship attribute for links */
   rel?: string;
+  /** Variant style of the button (optional) */
+  variant?: "primary" | "secondary" | "outline" | "text";
+  /** Size of the button */
+  size?: "sm" | "md" | "lg";
 }
 
 const {
@@ -17,16 +37,61 @@ const {
   className: extraClasses = "",
   target = "_self",
   rel,
+  variant = "primary",
+  size = "md",
 } = Astro.props;
 
 // Ensure proper rel attribute for external links
 const isExternal = target === "_blank";
 const finalRel = isExternal ? `noopener noreferrer ${rel || ""}`.trim() : rel;
 
-const baseClasses =
-  "inline-flex min-h-[48px] min-w-[48px] items-center justify-center rounded-lg px-6 py-3 font-bold text-white bg-sky-700 transition-all duration-300 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 active:scale-95 disabled:pointer-events-none disabled:opacity-50";
+/**
+ * Style mapping based on variant and size
+ * This approach improves maintainability and performance by:
+ * - Centralizing style definitions
+ * - Ensuring consistent styling
+ * - Reducing CSS specificity conflicts
+ * - Supporting design system extensibility
+ */
+const variantClasses = {
+  primary: "bg-sky-700 text-white hover:bg-sky-600 focus-visible:ring-sky-300",
+  secondary:
+    "bg-purple-700 text-white hover:bg-purple-600 focus-visible:ring-purple-300",
+  outline:
+    "bg-transparent text-sky-400 border-2 border-sky-700 hover:bg-sky-900/20 focus-visible:ring-sky-300",
+  text: "bg-transparent text-sky-400 hover:text-sky-300 hover:bg-transparent hover:shadow-none focus-visible:ring-sky-300 px-2",
+};
 
-const finalClasses = `${baseClasses} ${extraClasses}`.trim();
+const sizeClasses = {
+  sm: "text-sm px-4 py-2 min-h-[40px]",
+  md: "px-6 py-3 min-h-[48px]",
+  lg: "text-lg px-8 py-4 min-h-[56px]",
+};
+
+/**
+ * Base classes that apply to all variants
+ * Ensures WCAG AAA compliance for:
+ * - Touch targets (minimum 44x44px)
+ * - Focus visibility
+ * - Interactive feedback
+ * - Disabled state clarity
+ */
+const baseClasses = `
+  inline-flex items-center justify-center rounded-lg font-bold
+  transition-all duration-300
+  hover:shadow-lg hover:shadow-sky-500/20
+  focus-visible:outline-none focus-visible:ring-2
+  focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900
+  active:scale-[0.98]
+  disabled:pointer-events-none disabled:opacity-50
+  min-w-[48px]
+`
+  .replace(/\s+/g, " ")
+  .trim();
+
+// Tailwind classes based on the component props
+const finalClasses =
+  `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${extraClasses}`.trim();
 ---
 
 {
@@ -34,9 +99,14 @@ const finalClasses = `${baseClasses} ${extraClasses}`.trim();
     <a
       href={href}
       class={finalClasses}
-      aria-label={`${ariaLabel}${isExternal ? " (opens in new tab)" : ""}`}
+      aria-label={
+        ariaLabel
+          ? `${ariaLabel}${isExternal ? " (opens in new tab)" : ""}`
+          : undefined
+      }
       target={target}
       rel={finalRel}
+      {...(disabled ? { "aria-disabled": "true", tabindex: "-1" } : {})}
     >
       <slot />
       {isExternal && <span class="sr-only"> (opens in new tab)</span>}

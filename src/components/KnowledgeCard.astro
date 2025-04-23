@@ -1,4 +1,18 @@
 ---
+/**
+ * KnowledgeCard Component
+ * 
+ * An aesthetically enhanced and fully accessible card component for displaying
+ * music knowledge articles, including image, title, description, and metadata.
+ * Designed for MelodyMind's music history and educational content.
+ * 
+ * This component is dual-purpose:
+ * 1. As a standalone card with its own link (when articleUrl is provided)
+ * 2. Inside a parent link element (when articleUrl is not provided)
+ * 
+ * @component
+ * @implements {WCAG AAA compliance}
+ */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { format } from "date-fns";
 import { de, enUS as en } from "date-fns/locale";
@@ -6,13 +20,22 @@ import { de, enUS as en } from "date-fns/locale";
 export const prerender = true;
 
 interface Props {
+  /** Title of the knowledge article */
   title: string;
+  /** Brief description or excerpt of the article */
   description: string;
+  /** Path to the article's cover image (uses default if not provided) */
   image?: string;
+  /** Date when the article was created/published */
   createdAt: Date;
+  /** URL slug for the article link */
   slug: string;
+  /** Language code (en/de) for localization */
   lang: string;
+  /** Estimated reading time in minutes */
   readingTime?: number;
+  /** Complete URL to the article (optional - if omitted, component will be a non-linking card) */
+  articleUrl?: string;
 }
 
 const {
@@ -23,6 +46,7 @@ const {
   slug,
   lang,
   readingTime = 0,
+  articleUrl,
 } = Astro.props;
 
 // Choose locale for date formatting
@@ -31,70 +55,271 @@ const locale = locales[lang as keyof typeof locales] || en;
 
 const lang_t = useTranslations(lang as "de" | "en");
 const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
+
+// Use articleUrl if provided, otherwise let the parent handle the link
+const hasOwnLink = !!articleUrl;
+
+// Generate a unique ID for this card for aria-labelledby
+const cardId = `card-title-${slug}`;
+
+// Format reading time for better appearance and accessibility
+const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}`;
+
+/**
+ * Extract category and main title from a combined title string
+ * Supports both pipe (|) and hyphen (-) as separators
+ * @param {string} title The full title that might contain a separator
+ * @returns {{category: string, mainTitle: string}} The separated parts
+ */
+function extractTitleParts(title: string): {category: string, mainTitle: string} {
+  // Check for both | and - separators
+  if (title.includes('|')) {
+    const parts = title.split('|');
+    return {
+      category: parts[0].trim(),
+      mainTitle: parts.slice(1).join('|').trim() // Handle if there are multiple | characters
+    };
+  } else if (title.includes(' - ')) {
+    const parts = title.split(' - ');
+    return {
+      category: parts[0].trim(),
+      mainTitle: parts.slice(1).join(' - ').trim() // Handle if there are multiple - characters
+    };
+  } else {
+    // No separator found, return original as both values
+    return {
+      category: title,
+      mainTitle: title
+    };
+  }
+}
+
+// Extract category and main title
+const { category, mainTitle } = extractTitleParts(title);
 ---
 
-<article class="h-full">
-  <!-- Image container -->
-  <div class="relative aspect-video overflow-hidden group">
-    <img
-      src={image}
-      alt={title}
-      loading="lazy"
-      class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-      width="640"
-      height="360"
-    />
-
-    <!-- Gradient overlay for better text contrast -->
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-60"
+<article 
+  class="h-full flex flex-col bg-zinc-900 rounded-xl overflow-hidden border-2 border-purple-700/60 shadow-lg shadow-purple-900/20 transition-all duration-300 hover:shadow-xl hover:border-purple-500 hover:shadow-purple-900/30"
+  data-testid="knowledge-card"
+>
+  {hasOwnLink ? (
+    <a 
+      href={articleUrl} 
+      class="group flex flex-col h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 rounded-xl overflow-hidden"
+      aria-labelledby={cardId}
     >
-    </div>
-  </div>
+      <div class="knowledge-card-content h-full relative">
+        <!-- Decorative border top accent (purely visual) -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700" aria-hidden="true"></div>
+        
+        <!-- Image container with enhanced visual effects -->
+        <div class="relative aspect-video overflow-hidden">
+          <img
+            src={image}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-focus-visible:scale-105"
+            width="640"
+            height="360"
+            fetchpriority="low"
+          />
 
-  <!-- Content section -->
-  <div class="p-4">
-    <h3 class="text-lg font-semibold text-white mb-2">{title}</h3>
-    <p class="text-zinc-300 text-sm line-clamp-3 mb-4">
-      {description}
-    </p>
+          <!-- Enhanced gradient overlay with better visual depth -->
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-900/75 to-transparent opacity-90 group-hover:opacity-85 transition-opacity duration-300"
+            aria-hidden="true"
+          >
+          </div>
+          
+          <!-- Music era indicator badge for category identification -->
+          <div class="absolute top-3 right-3 px-2.5 py-1.5 bg-purple-700 text-white text-sm font-medium rounded-md shadow-md z-10">
+            <span>{category}</span>
+          </div>
+        </div>
 
-    <div class="flex justify-between items-center mt-auto">
-      <span class="text-xs text-zinc-400 flex items-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-4 w-4 mr-1"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+        <!-- Content section with improved layout and typography -->
+        <div class="p-5 flex-grow flex flex-col">
+          <h3 
+            id={cardId}
+            class="text-2xl font-bold text-white mb-3 line-clamp-2"
+          >
+            {mainTitle}
+          </h3>
+          
+          <p class="text-base text-zinc-100 leading-relaxed line-clamp-3 mb-5">
+            {description}
+          </p>
+
+          <!-- Enhanced metadata with improved visual styling -->
+          <div class="flex justify-between items-center mt-auto pt-3 border-t border-zinc-700/50">
+            <span 
+              class="text-base text-zinc-200 flex items-center" 
+              aria-label={formattedReadingTime}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 mr-1.5 text-purple-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>{readingTime} {lang_t("knowledge.reading.time")}</span>
+            </span>
+            
+            <time 
+              datetime={createdAt.toISOString()} 
+              class="text-base text-zinc-200 flex items-center"
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                class="h-5 w-5 mr-1.5 text-purple-400" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round" 
+                  stroke-width="2" 
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+              {formattedDate}
+            </time>
+          </div>
+        </div>
+      </div>
+      {hasOwnLink && <span class="sr-only">(opens article page)</span>}
+    </a>
+  ) : (
+    <div class="knowledge-card-content h-full relative">
+      <!-- Decorative border top accent (purely visual) -->
+      <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700" aria-hidden="true"></div>
+      
+      <!-- Image container with enhanced visual effects -->
+      <div class="relative aspect-video overflow-hidden">
+        <img
+          src={image}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          class="w-full h-full object-cover"
+          width="640"
+          height="360"
+          fetchpriority="low"
+        />
+
+        <!-- Enhanced gradient overlay -->
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-900/75 to-transparent opacity-90"
+          aria-hidden="true"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-        </svg>
-        {readingTime}
-        {lang_t("knowledge.reading.time")}
-      </span>
-      <span class="text-xs text-zinc-400">
-        {createdAt.toLocaleDateString()}
-      </span>
+        </div>
+        
+        <!-- Music era indicator badge for category identification -->
+        <div class="absolute top-3 right-3 px-2.5 py-1.5 bg-purple-700 text-white text-sm font-medium rounded-md shadow-md z-10">
+          <span>{category}</span>
+        </div>
+      </div>
+
+      <!-- Content section with improved layout and typography -->
+      <div class="p-5 flex-grow flex flex-col">
+        <h3 
+          id={cardId}
+          class="text-2xl font-bold text-white mb-3 line-clamp-2"
+        >
+          {mainTitle}
+        </h3>
+        
+        <p class="text-base text-zinc-100 leading-relaxed line-clamp-3 mb-5">
+          {description}
+        </p>
+
+        <!-- Enhanced metadata with improved visual styling -->
+        <div class="flex justify-between items-center mt-auto pt-3 border-t border-zinc-700/50">
+          <span 
+            class="text-base text-zinc-200 flex items-center" 
+            aria-label={formattedReadingTime}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-1.5 text-purple-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span>{readingTime} {lang_t("knowledge.reading.time")}</span>
+          </span>
+          
+          <time 
+            datetime={createdAt.toISOString()} 
+            class="text-base text-zinc-200 flex items-center"
+          >
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              class="h-5 w-5 mr-1.5 text-purple-400" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                stroke-width="2" 
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+              />
+            </svg>
+            {formattedDate}
+          </time>
+        </div>
+      </div>
     </div>
-  </div>
+  )}
 </article>
 
 <style>
-  /* Minimal styling to avoid conflicts */
+  /* Base styles with improved aesthetics */
   article {
     color: inherit;
     display: block;
+    transform: translateZ(0); /* Hardware acceleration */
+    will-change: transform, box-shadow; /* Optimize animations */
+    isolation: isolate; /* Create stacking context */
+    position: relative;
+  }
+  
+  /* Add a glowing effect on hover for enhanced visibility */
+  article:hover {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
   }
 
-  /* High Contrast Mode Support */
+  /* High Contrast Mode Support with better visibility */
   @media (forced-colors: active) {
     article {
-      border: 2px solid CanvasText;
+      border: 3px solid CanvasText;
+      forced-color-adjust: none;
+      outline: 1px solid transparent; /* Creates a gap between borders in high contrast mode */
     }
   }
 
@@ -103,6 +328,40 @@ const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
     article {
       break-inside: avoid;
       page-break-inside: avoid;
+      color: black;
+      background: white;
+      border: 1px solid #000;
+    }
+    
+    .knowledge-card-content img {
+      max-height: 3in;
+    }
+    
+    .knowledge-card-content p {
+      color: black;
+    }
+  }
+
+  /* Support for reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    article, 
+    article *,
+    .group-hover\:scale-105,
+    .group-focus-visible\:scale-105 {
+      transition-duration: 0.001ms !important;
+      animation-duration: 0.001ms !important;
+      transform: none !important;
+    }
+  }
+  
+  /* Font size adjustment for better readability */
+  @media (max-width: 640px) {
+    h3 {
+      font-size: 1.5rem !important;
+    }
+    
+    p, time, span {
+      font-size: 1rem !important;
     }
   }
 </style>
