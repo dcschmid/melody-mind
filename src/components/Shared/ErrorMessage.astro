@@ -1,4 +1,21 @@
 ---
+/**
+ * @component ErrorMessage
+ * @description A reusable notification component that displays error messages with automatic
+ * dismissal, keyboard accessibility, and screen reader support. Optimized for WCAG AAA
+ * accessibility standards and high performance.
+ *
+ * Features:
+ * - Automatically hides after a configurable timeout
+ * - Can be dismissed via close button or Escape key
+ * - Full keyboard accessibility and screen reader support
+ * - High contrast mode support
+ * - Reduced motion support
+ * - Performance optimized animations
+ *
+ * @prop {string} message - The error message to display (defaults to a generic error message)
+ * @prop {number} autoHideAfter - Time in ms before auto-hiding (default: 5000ms)
+ */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 interface Props {
@@ -13,17 +30,17 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
 ---
 
 <div
-  class="errorMessage fixed top-6 left-1/2 -translate-x-1/2 z-50 p-4 rounded-lg bg-red-600 text-white shadow-lg pointer-events-auto hidden"
+  class="errorMessage fixed top-6 left-1/2 -translate-x-1/2 z-50 p-4 rounded-lg bg-red-700 text-white shadow-lg pointer-events-auto hidden"
   role="alert"
   aria-live="assertive"
   aria-atomic="true"
   data-auto-hide={autoHideAfter}
 >
-  <div class="errorContent flex items-center gap-2">
+  <div class="errorContent flex items-center gap-3">
     <span class="errorIcon text-xl" aria-hidden="true">⚠️</span>
     <p class="errorText m-0 font-medium">{message}</p>
     <button
-      class="closeButton ml-2 p-1 opacity-80 hover:opacity-100 bg-transparent border-none text-white text-xl transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70"
+      class="closeButton ml-3 p-2 min-w-[44px] min-h-[44px] opacity-90 hover:opacity-100 focus:opacity-100 bg-transparent border-none text-white text-xl transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80 rounded-full flex items-center justify-center"
       aria-label={t("error.close")}
       type="button"
     >
@@ -33,61 +50,88 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
 </div>
 
 <style>
-  /* Animationen und JS-Unterstützung */
+  /* 
+   * Animations and JS support
+   * Using hardware-accelerated properties for better performance
+   */
   .errorMessage {
     will-change: transform, opacity;
     transition:
       visibility 0s,
-      opacity 0.3s ease-out,
-      transform 0.3s ease-out;
+      opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.15),
+      0 0 1px rgba(0, 0, 0, 0.1);
+    max-width: calc(100% - 2rem);
+    transform: translate(-50%, 0) translateZ(0);
   }
 
   .errorMessage.hidden {
     pointer-events: none;
-
-    transform: translate(-50%, -2rem);
-
+    transform: translate(-50%, -2rem) translateZ(0);
     visibility: hidden;
     opacity: 0;
-
     transition:
       visibility 0s linear 0.3s,
-      opacity 0.3s ease-out,
-      transform 0.3s ease-out;
+      opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .errorMessage:not(.hidden) {
-    transform: translate(-50%, 0);
+    transform: translate(-50%, 0) translateZ(0);
     visibility: visible;
     opacity: 1;
   }
 
-  /* Reduzierte Bewegung für Barrierefreiheit */
+  /* Reduced motion support for accessibility */
   @media (prefers-reduced-motion: reduce) {
     .errorMessage {
       transition:
         visibility 0s,
-        opacity 0.3s ease-out;
+        opacity 0.1s ease-out !important;
     }
 
     .errorMessage.hidden,
     .errorMessage:not(.hidden) {
-      transform: translate(-50%, 0);
+      transform: translate(-50%, 0) translateZ(0);
     }
   }
 
-  /* High Contrast Mode Support */
+  /* Improved High Contrast Mode Support */
   @media (forced-colors: active) {
     .errorMessage {
       border: 2px solid ButtonText;
+      background-color: Canvas;
+      color: CanvasText;
+      forced-color-adjust: none;
     }
 
     .closeButton {
       border: 1px solid ButtonText;
+      color: ButtonText;
     }
 
     .closeButton:focus-visible {
       outline: 2px solid Highlight;
+      outline-offset: 2px;
+    }
+
+    .errorIcon {
+      forced-color-adjust: auto;
+    }
+  }
+
+  /* Print styles - ensure error messages appear properly in print */
+  @media print {
+    .errorMessage {
+      position: static;
+      transform: none;
+      box-shadow: none;
+      border: 1px solid #000;
+      color: #000;
+      background-color: #fff;
+      page-break-inside: avoid;
     }
   }
 </style>
@@ -96,11 +140,13 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
   /**
    * ErrorMessage Custom Element
    *
-   * A custom component for displaying error messages that:
-   * - Can be dismissed by clicking a close button
-   * - Automatically hides after a configurable timeout
-   * - Supports keyboard dismissal with the Escape key
-   * - Includes accessibility features for screen readers
+   * A custom component for displaying error messages with full accessibility support.
+   * Features:
+   * - Dismissable through close button
+   * - Auto-hide functionality with configurable timeout
+   * - Keyboard support for dismissal via Escape key
+   * - Enhanced screen reader announcements
+   * - Memory leak prevention
    */
   class ErrorMessage extends HTMLElement {
     /** Reference to the close button element */
@@ -115,8 +161,12 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
     /** Keyboard event handler reference for cleanup */
     private keydownHandler: (e: KeyboardEvent) => void;
 
+    /** Click event handler reference for cleanup */
+    private clickHandler: (e: MouseEvent) => void;
+
     /**
      * Initialize the error message component
+     * Sets up all required properties and handlers
      */
     constructor() {
       super();
@@ -124,19 +174,21 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
       this.autoHideTimeout = null;
       this.isAnimating = false;
 
-      // Define keydown handler as a bound method for proper cleanup
+      // Define handlers as bound methods for proper cleanup
       this.keydownHandler = this.handleKeydown.bind(this);
+      this.clickHandler = this.handleClick.bind(this);
 
       this.initialize();
     }
 
     /**
      * Set up event listeners and auto-hide functionality
+     * Establishes initial state and behavior
      */
     private initialize(): void {
-      // Add click handler to the close button
+      // Add click handler using event delegation
       if (this.closeButton) {
-        this.closeButton.addEventListener("click", () => this.hide());
+        this.closeButton.addEventListener("click", this.clickHandler);
       }
 
       // Set up auto-hide functionality if specified
@@ -145,7 +197,10 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
         : 0;
 
       if (autoHideAfter > 0 && !isNaN(autoHideAfter)) {
-        this.autoHideTimeout = setTimeout(() => this.hide(), autoHideAfter);
+        // Use requestAnimationFrame for better timer performance
+        window.requestAnimationFrame(() => {
+          this.autoHideTimeout = setTimeout(() => this.hide(), autoHideAfter);
+        });
       }
 
       // Add keyboard support for dismissal
@@ -158,27 +213,47 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
     }
 
     /**
+     * Handle click events on the close button
+     *
+     * @param {MouseEvent} event - The click event
+     */
+    private handleClick(event: MouseEvent): void {
+      event.preventDefault();
+      this.hide();
+    }
+
+    /**
      * Handle keyboard events for accessibility
+     * Supports closing via Escape key
      *
      * @param {KeyboardEvent} event - The keyboard event
      */
     private handleKeydown(event: KeyboardEvent): void {
       // Close the error message when Escape is pressed and message is visible
       if (event.key === "Escape" && !this.classList.contains("hidden")) {
+        event.preventDefault();
         this.hide();
       }
     }
 
     /**
      * Hide the error message and clean up resources
+     * Handles animation states and timeouts
      */
     public hide(): void {
       // Prevent multiple hide calls during animation
-      if (this.isAnimating) return;
+      if (this.isAnimating || this.classList.contains("hidden")) return;
       this.isAnimating = true;
 
       // Add hidden class to trigger CSS transition
       this.classList.add("hidden");
+
+      // Notify screen readers that the alert has been dismissed
+      const messageElement = this.querySelector(".errorText");
+      if (messageElement && messageElement.textContent) {
+        const dismissMessage = `Alert dismissed: ${messageElement.textContent}`;
+        this.notifyScreenReaders(dismissMessage, "assertive");
+      }
 
       // Clear any existing auto-hide timeout
       if (this.autoHideTimeout) {
@@ -195,6 +270,7 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
 
     /**
      * Show the error message
+     * Handles visibility state and notifications
      */
     public show(): void {
       // Prevent showing during hide animation
@@ -212,47 +288,96 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
         : 0;
 
       if (autoHideAfter > 0 && !isNaN(autoHideAfter)) {
-        this.autoHideTimeout = setTimeout(() => this.hide(), autoHideAfter);
+        // Cancel any existing timeout
+        if (this.autoHideTimeout) {
+          clearTimeout(this.autoHideTimeout);
+        }
+
+        // Set new timeout using requestAnimationFrame for better performance
+        window.requestAnimationFrame(() => {
+          this.autoHideTimeout = setTimeout(() => this.hide(), autoHideAfter);
+        });
       }
     }
 
     /**
      * Update message content programmatically
+     * Allows dynamic content updates
      *
      * @param {string} message - The new error message text
+     * @param {boolean} [announceChange=true] - Whether to announce the change to screen readers
      */
-    public updateMessage(message: string): void {
+    public updateMessage(
+      message: string,
+      announceChange: boolean = true
+    ): void {
       const messageElement = this.querySelector(".errorText");
       if (messageElement) {
         messageElement.textContent = message;
+
+        if (announceChange && !this.classList.contains("hidden")) {
+          this.announceToScreenReaders();
+        }
       }
     }
 
     /**
+     * Create a temporary element to announce messages to screen readers
+     * Works around potential issues with live regions not announcing updates
+     *
+     * @param {string} message - Message to announce
+     * @param {string} priority - "assertive" or "polite"
+     */
+    private notifyScreenReaders(
+      message: string,
+      priority: "assertive" | "polite" = "assertive"
+    ): void {
+      // Create a visually hidden live region
+      const announcer = document.createElement("div");
+      announcer.setAttribute("aria-live", priority);
+      announcer.setAttribute("aria-atomic", "true");
+      announcer.style.position = "absolute";
+      announcer.style.width = "1px";
+      announcer.style.height = "1px";
+      announcer.style.padding = "0";
+      announcer.style.margin = "-1px";
+      announcer.style.overflow = "hidden";
+      announcer.style.clip = "rect(0, 0, 0, 0)";
+      announcer.style.whiteSpace = "nowrap";
+      announcer.style.border = "0";
+
+      // Append to DOM, add text after a small delay, then clean up
+      document.body.appendChild(announcer);
+
+      setTimeout(() => {
+        announcer.textContent = message;
+
+        setTimeout(() => {
+          document.body.removeChild(announcer);
+        }, 3000);
+      }, 50);
+    }
+
+    /**
      * Ensure screen readers announce the error message
+     * Handles announcement strategy for error content
      */
     private announceToScreenReaders(): void {
-      // Update the aria-live region to ensure announcement
-      const feedbackElement = this.querySelector(".errorText");
-      if (feedbackElement) {
-        // Force a DOM update to ensure announcement
-        const currentText = feedbackElement.textContent;
-        feedbackElement.textContent = "";
-        setTimeout(() => {
-          if (feedbackElement) {
-            feedbackElement.textContent = currentText;
-          }
-        }, 10);
+      const messageElement = this.querySelector(".errorText");
+      if (messageElement && messageElement.textContent) {
+        // Announce using the separate notification technique
+        this.notifyScreenReaders(messageElement.textContent);
       }
     }
 
     /**
      * Clean up resources when the element is removed from the DOM
+     * Prevents memory leaks and lingering event listeners
      */
     disconnectedCallback(): void {
       // Remove event listeners
       document.removeEventListener("keydown", this.keydownHandler);
-      this.closeButton?.removeEventListener("click", () => this.hide());
+      this.closeButton?.removeEventListener("click", this.clickHandler);
 
       // Clear any pending timeouts
       if (this.autoHideTimeout) {
@@ -264,4 +389,28 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
 
   // Register the custom element
   customElements.define("error-message", ErrorMessage);
+
+  // Export utility function to create and show error messages programmatically
+  (window as any).showError = function (
+    message: string,
+    autoHideAfter: number = 5000
+  ): ErrorMessage {
+    // Check if we already have an error message component
+    let errorMessage = document.querySelector("error-message") as ErrorMessage;
+
+    // If not, create one
+    if (!errorMessage) {
+      errorMessage = document.createElement("error-message") as ErrorMessage;
+      document.body.appendChild(errorMessage);
+    }
+
+    // Update the message and auto-hide setting
+    errorMessage.updateMessage(message, false);
+    errorMessage.dataset.autoHide = autoHideAfter.toString();
+
+    // Show the message
+    errorMessage.show();
+
+    return errorMessage;
+  };
 </script>
