@@ -33,12 +33,14 @@
   "files.associations": {
     "*.astro": "astro"
   },
+  "chat.promptFiles": true,
+  "chat.promptFilesDirectories": [".github/prompts"],
   "github.copilot.chat.reviewSelection.instructions": [
     {
       "text": "Resolve all TODO tasks."
     },
     {
-      "file": ".copilot-review-instructions.md"
+      "file": "../.copilot-review-instructions.md"
     }
   ],
   "github.copilot.chat.testGeneration.instructions": [
@@ -49,7 +51,23 @@
       "text": "Follow WCAG AAA standards when testing accessibility features."
     },
     {
-      "file": "/home/daniel/projects/melody-mind/.copilot-test-instructions.md"
+      "file": "../.copilot-test-instructions.md"
+    }
+  ],
+  "github.copilot.chat.pullRequestDescriptionGeneration.instructions": [
+    {
+      "text": "Follow the MelodyMind project PR conventions with type prefixes."
+    },
+    {
+      "text": "Include an accessibility checklist in all PRs."
+    },
+    {
+      "file": "../.copilot-pull-request-description-instructions.md"
+    }
+  ],
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "file": "../.copilot-commit-message-instructions.md"
     }
   ]
 }
