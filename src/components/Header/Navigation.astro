@@ -17,7 +17,7 @@ const t = useTranslations(lang);
 <header role="banner" class="flex flex-row justify-between md-6 rounded-lg">
   <LanguagePicker />
   <nav
-    aria-label="Hauptnavigation"
+    aria-label={t("nav.ariaLabel") || "Main navigation"}
     class="flex flex-wrap gap-3 items-center justify-between"
   >
     <div class="slot left flex gap-3 items-center flex-1 justify-center">
@@ -41,7 +41,9 @@ const t = useTranslations(lang);
           class="w-7 h-7"
         />
 
-        <span class="font-medium">{t("nav.menu.text")}</span>
+        <span class="font-medium sr-only sm:not-sr-only"
+          >{t("nav.menu.text")}</span
+        >
       </button>
 
       <div
@@ -60,7 +62,7 @@ const t = useTranslations(lang);
                data-[state=open]:visible data-[state=open]:opacity-100"
         role="dialog"
         aria-modal="true"
-        aria-labelledby="menu-toggle"
+        aria-labelledby="menu-title"
       >
         <button
           class="close-menu absolute top-4 right-4 flex items-center justify-center w-12 h-12
@@ -78,9 +80,21 @@ const t = useTranslations(lang);
         </button>
 
         <div class="text-center mb-6">
-          <h2 class="text-xl font-bold text-balance text-zinc-50">
+          <h2
+            id="menu-title"
+            class="text-xl font-bold text-balance text-zinc-50"
+          >
             {t("nav.title")}
           </h2>
+        </div>
+
+        <!-- Status announcer for screen readers -->
+        <div
+          aria-live="polite"
+          aria-atomic="true"
+          class="sr-only"
+          id="menu-status-announcer"
+        >
         </div>
 
         <ul class="flex flex-col space-y-4 px-4" role="menu">
@@ -189,6 +203,7 @@ const t = useTranslations(lang);
                 class="flex items-center justify-center gap-2 py-3 px-4 bg-blue-600 hover:bg-blue-700
                        text-white rounded-lg transition-colors duration-200 font-medium
                        focus-visible:outline focus-visible:outline-sky-300 focus-visible:outline-offset-2"
+                aria-label={`${t("nav.donate.paypal")} (${t("nav.openNewWindow")})`}
               >
                 <Icon
                   name="paypal"
@@ -206,6 +221,7 @@ const t = useTranslations(lang);
                 class="flex items-center justify-center gap-2 py-3 px-4 bg-amber-400 hover:bg-amber-500
                        text-zinc-900 rounded-lg transition-colors duration-200 font-medium
                        focus-visible:outline focus-visible:outline-sky-300 focus-visible:outline-offset-2"
+                aria-label={`${t("nav.donate.coffee")} (${t("nav.openNewWindow")})`}
               >
                 <Icon
                   name="coffee-cup"
@@ -238,35 +254,38 @@ const t = useTranslations(lang);
   function initNavigationMenu(): void {
     // Get all required DOM elements
     const menuToggle = document.getElementById(
-      "menu-toggle",
+      "menu-toggle"
     ) as HTMLButtonElement | null;
     const mainMenu = document.getElementById(
-      "main-menu",
+      "main-menu"
     ) as HTMLDivElement | null;
     const menuBackdrop = document.getElementById(
-      "menu-backdrop",
+      "menu-backdrop"
     ) as HTMLDivElement | null;
     const closeButton = mainMenu?.querySelector(
-      ".close-menu",
+      ".close-menu"
     ) as HTMLButtonElement | null;
+    const statusAnnouncer = document.getElementById(
+      "menu-status-announcer"
+    ) as HTMLDivElement | null;
 
     // Ensure all required elements exist before proceeding
     if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
       console.warn(
-        "Navigation menu elements not found, menu functionality disabled",
+        "Navigation menu elements not found, menu functionality disabled"
       );
       return;
     }
 
     // Set up event listeners
     menuToggle.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop),
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
     );
     closeButton.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop),
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
     );
     menuBackdrop.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop),
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
     );
 
     // Close menu with Escape key
@@ -275,9 +294,12 @@ const t = useTranslations(lang);
         e.key === "Escape" &&
         mainMenu.getAttribute("data-state") === "open"
       ) {
-        toggleMenu(menuToggle, mainMenu, menuBackdrop);
+        toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer);
       }
     });
+
+    // Set up focus trap in the menu
+    setupFocusTrap(mainMenu);
   }
 
   /**
@@ -285,11 +307,13 @@ const t = useTranslations(lang);
    * @param {HTMLButtonElement} menuToggle - The button that controls the menu
    * @param {HTMLElement} mainMenu - The main menu container
    * @param {HTMLElement} menuBackdrop - The backdrop overlay element
+   * @param {HTMLElement} statusAnnouncer - Element for screen reader announcements
    */
   function toggleMenu(
     menuToggle: HTMLButtonElement,
     mainMenu: HTMLElement,
     menuBackdrop: HTMLElement,
+    statusAnnouncer?: HTMLElement | null
   ): void {
     // Get current state and determine new state
     const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
@@ -305,14 +329,20 @@ const t = useTranslations(lang);
     // Prevent scrolling when menu is open
     document.body.setAttribute("data-menu-open", String(newState));
 
+    // Announce state change to screen readers
+    if (statusAnnouncer) {
+      const menuTitle =
+        document.getElementById("menu-title")?.textContent || "Menu";
+      statusAnnouncer.textContent = newState
+        ? `${menuTitle} geöffnet`
+        : `${menuTitle} geschlossen`;
+    }
+
     // Implement proper focus management
     if (newState) {
       // When opening: move focus to first interactive element after animation
       setTimeout(() => {
-        const firstFocusableElement = mainMenu.querySelector(
-          "a[href], button:not(.close-menu), input, select, textarea, [tabindex]:not([tabindex='-1'])",
-        ) as HTMLElement;
-
+        const firstFocusableElement = getFirstFocusableElement(mainMenu);
         if (firstFocusableElement) {
           firstFocusableElement.focus();
         }
@@ -321,5 +351,63 @@ const t = useTranslations(lang);
       // When closing: return focus to the toggle button
       menuToggle.focus();
     }
+  }
+
+  /**
+   * Sets up a focus trap within the menu element
+   * @param {HTMLElement} menuElement - The menu element to trap focus within
+   */
+  function setupFocusTrap(menuElement: HTMLElement): void {
+    menuElement.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (
+        e.key !== "Tab" ||
+        menuElement.getAttribute("data-state") !== "open"
+      ) {
+        return;
+      }
+
+      const focusableElements = getFocusableElements(menuElement);
+      if (focusableElements.length === 0) return;
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      // If shifting tab and on the first element, go to the last element
+      if (e.shiftKey && document.activeElement === firstElement) {
+        e.preventDefault();
+        lastElement.focus();
+      }
+      // If tab and on the last element, circle back to first element
+      else if (!e.shiftKey && document.activeElement === lastElement) {
+        e.preventDefault();
+        firstElement.focus();
+      }
+    });
+  }
+
+  /**
+   * Gets all focusable elements within a container
+   * @param {HTMLElement} container - The container to search within
+   * @returns {Array<HTMLElement>} Array of focusable elements
+   */
+  function getFocusableElements(container: HTMLElement): Array<HTMLElement> {
+    const selector =
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    const elements = Array.from(
+      container.querySelectorAll<HTMLElement>(selector)
+    );
+    return elements.filter((el) => el.offsetParent !== null); // Filter out hidden elements
+  }
+
+  /**
+   * Gets the first focusable element within a container
+   * @param {HTMLElement} container - The container to search within
+   * @returns {HTMLElement | null} The first focusable element or null if none found
+   */
+  function getFirstFocusableElement(
+    container: HTMLElement
+  ): HTMLElement | null {
+    const focusableElements = getFocusableElements(container);
+    return focusableElements.length > 0 ? focusableElements[0] : null;
   }
 </script>
