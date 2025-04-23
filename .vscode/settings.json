@@ -10,7 +10,6 @@
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
-  "github.copilot.editor.enableAutoCompletions": true,
   "github.copilot.enable": {
     "*": true,
     "plaintext": true,
@@ -33,5 +32,24 @@
   },
   "files.associations": {
     "*.astro": "astro"
-  }
+  },
+  "github.copilot.chat.reviewSelection.instructions": [
+    {
+      "text": "Resolve all TODO tasks."
+    },
+    {
+      "file": ".copilot-review-instructions.md"
+    }
+  ],
+  "github.copilot.chat.testGeneration.instructions": [
+    {
+      "text": "Use Vitest for all component testing in the MelodyMind project."
+    },
+    {
+      "text": "Follow WCAG AAA standards when testing accessibility features."
+    },
+    {
+      "file": "/home/daniel/projects/melody-mind/.copilot-test-instructions.md"
+    }
+  ]
 }
