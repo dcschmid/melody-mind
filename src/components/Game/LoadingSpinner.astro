@@ -1,10 +1,24 @@
 ---
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
+/**
+ * LoadingSpinner Component Properties
+ *
+ * @interface Props
+ * @property {('small'|'medium'|'large')} [size='large'] - Size variant for the spinner
+ * @property {string} [label] - Text label displayed next to the spinner
+ * @property {string} [id='loading-spinner'] - Unique identifier for this spinner instance
+ * @property {string} [loadingStartText] - Text announced to screen readers when loading starts
+ * @property {string} [loadingEndText] - Text announced to screen readers when loading completes
+ */
 interface Props {
   size?: "small" | "medium" | "large";
   label?: string;
   id?: string;
+  /** Text announced to screen readers when loading begins */
+  loadingStartText?: string;
+  /** Text announced to screen readers when loading ends */
+  loadingEndText?: string;
 }
 
 const lang = getLangFromUrl(Astro.url);
@@ -14,68 +28,102 @@ const {
   size = "large",
   label = t("loading.content"),
   id = "loading-spinner",
+  loadingStartText = t("loading.started"),
+  loadingEndText = t("loading.completed"),
 } = Astro.props;
 
+/**
+ * Size class mapping for different spinner dimensions
+ * Each size defines width, height, and border thickness
+ */
 const sizeClasses = {
   small: "w-6 h-6 border-2",
   medium: "w-12 h-12 border-3",
   large: "w-16 h-16 border-4",
 };
+
+// Enhanced contrast colors for better visibility (WCAG AAA standard)
+const primaryColor = "border-t-sky-600"; // Darker blue for better contrast
+const secondaryColor = "border-zinc-800"; // Darker gray for background
 ---
 
+<!-- 
+  LoadingSpinner component
+  - Hidden by default, shown via JavaScript
+  - Includes accessibility features for screen readers
+  - Supports motion reduction preferences
+  - Optimized for performance with GPU acceleration
+-->
 <div
-  class="hidden flex items-center justify-center min-h-12 p-4 spinnerContainer"
+  class="items-center justify-center min-h-12 p-4 spinnerContainer hidden"
   id={id}
   role="status"
   aria-live="polite"
   aria-busy="false"
   data-testid="loading-spinner"
+  data-loading-start={loadingStartText}
+  data-loading-end={loadingEndText}
 >
+  <!-- Animated spinner circle -->
   <div
-    class={`relative rounded-full border-zinc-700 border-t-sky-500 animate-spin motion-reduce:animate-none ${sizeClasses[size]}`}
+    class:list={[
+      "relative rounded-full",
+      secondaryColor,
+      primaryColor,
+      `animate-spin will-change-transform ${sizeClasses[size]}`,
+      "motion-safe:animate-spin motion-reduce:animate-none",
+    ]}
     aria-hidden="true"
     data-size={size}
   >
-    <span
-      class="absolute inset-0 rounded-full border-t-sky-500 border-transparent opacity-50 -m-[2px]"
-    ></span>
+    <!-- Screen reader text for the spinner -->
+    <span class="sr-only">{label}</span>
   </div>
-  <span class="sr-only">{label}</span>
+  <!-- Visible text label -->
+  <div class="ml-3 text-lg font-medium" aria-hidden="true">
+    {label}
+  </div>
+  <!-- Live region for screen reader announcements -->
+  <div class="sr-only" aria-live="assertive" id={`${id}-announcement`}></div>
 </div>
 
 <style>
-  /* Kompatibilitätsklasse für JS */
+  /**
+   * Custom compatibility styling for JavaScript manipulation
+   * This ensures the hidden class actually hides the element
+   * even when other display properties are present
+   */
   .spinnerContainer.hidden {
     display: none;
   }
 
+  /**
+   * Performance optimization for animations
+   * Apply GPU acceleration to improve animation smoothness
+   * especially on mobile devices
+   */
   [data-size] {
-    animation: custom-spin 1s linear infinite;
+    transform: translateZ(0); /* Enable GPU acceleration */
   }
 
-  [data-size] span {
-    animation: custom-spin 2s linear infinite;
-  }
-
-  /* Feinere Animation-Kontrolle */
-  @keyframes custom-spin {
-    from {
-      transform: rotate(0deg);
-    }
-
-    to {
-      transform: rotate(360deg);
+  /**
+   * Accessibility enhancement for users who prefer reduced motion
+   * This respects user preferences beyond Tailwind's motion-safe utilities
+   */
+  @media (prefers-reduced-motion: reduce) {
+    [data-size] {
+      animation: none !important;
     }
   }
 </style>
 
 <script>
   /**
-   * LoadingSpinner - A class to manage loading spinner visibility and state
+   * LoadingSpinner - A class to manage the visibility and state of loading indicators
    *
-   * This utility class provides methods to show/hide loading spinners and properly
-   * manage their ARIA attributes for accessibility. It implements a singleton pattern
-   * per spinner ID to ensure consistent state management across the application.
+   * This utility class provides methods for showing/hiding loading indicators and properly
+   * managing their ARIA attributes for accessibility. It implements a singleton pattern
+   * per spinner ID to ensure consistent state management throughout the application.
    *
    * @example
    * // Show a spinner
@@ -90,8 +138,14 @@ const sizeClasses = {
   class LoadingSpinner {
     /** Reference to the spinner DOM element */
     private readonly spinner: HTMLElement | null;
+    /** Reference to the announcement element for screen readers */
+    private readonly announcement: HTMLElement | null;
+    /** Text announced when loading starts */
+    private readonly loadingStartText: string;
+    /** Text announced when loading ends */
+    private readonly loadingEndText: string;
 
-    /** Store of all spinner instances by ID for singleton pattern */
+    /** Storage for all spinner instances by ID for singleton pattern */
     private static instances: Map<string, LoadingSpinner> = new Map();
 
     /**
@@ -101,20 +155,26 @@ const sizeClasses = {
      */
     constructor(id: string = "loading-spinner") {
       this.spinner = document.getElementById(id);
+      this.announcement = document.getElementById(`${id}-announcement`);
+
+      // Load announcement texts from data attributes
+      this.loadingStartText =
+        this.spinner?.dataset.loadingStart || "Loading started";
+      this.loadingEndText =
+        this.spinner?.dataset.loadingEnd || "Loading completed";
 
       // Register this instance
       LoadingSpinner.instances.set(id, this);
 
-      // Log an error if spinner not found, but don't block execution
       if (!this.spinner) {
         console.warn(
-          `LoadingSpinner: Element with ID "${id}" not found in DOM`,
+          `LoadingSpinner: Element with ID "${id}" not found in the DOM`
         );
       }
     }
 
     /**
-     * Gets a singleton instance of LoadingSpinner for the specified ID
+     * Returns a singleton instance of LoadingSpinner for the specified ID
      *
      * @param {string} id - The ID of the spinner to control
      * @returns {LoadingSpinner} A spinner instance for the specified ID
@@ -126,7 +186,7 @@ const sizeClasses = {
     /**
      * Shows the spinner and updates its accessibility attributes
      *
-     * @returns {boolean} True if successful, false if spinner element not found
+     * @returns {boolean} True on success, false if spinner element not found
      */
     show(): boolean {
       if (!this.spinner) return false;
@@ -135,13 +195,18 @@ const sizeClasses = {
       this.spinner.classList.remove("hidden");
       this.spinner.setAttribute("aria-busy", "true");
 
+      // Announce for screen readers
+      if (this.announcement) {
+        this.announcement.textContent = this.loadingStartText;
+      }
+
       return true;
     }
 
     /**
      * Hides the spinner and updates its accessibility attributes
      *
-     * @returns {boolean} True if successful, false if spinner element not found
+     * @returns {boolean} True on success, false if spinner element not found
      */
     hide(): boolean {
       if (!this.spinner) return false;
@@ -150,13 +215,18 @@ const sizeClasses = {
       this.spinner.classList.add("hidden");
       this.spinner.setAttribute("aria-busy", "false");
 
+      // Announce for screen readers
+      if (this.announcement) {
+        this.announcement.textContent = this.loadingEndText;
+      }
+
       return true;
     }
 
     /**
-     * Toggles the spinner visibility based on current state
+     * Toggles spinner visibility based on current state
      *
-     * @returns {boolean} New visibility state (true = shown, false = hidden)
+     * @returns {boolean} New visibility state (true = visible, false = hidden)
      */
     toggle(): boolean {
       if (!this.spinner) return false;
@@ -168,17 +238,17 @@ const sizeClasses = {
     /**
      * Checks if the spinner is currently visible
      *
-     * @returns {boolean} True if the spinner is visible, false otherwise
+     * @returns {boolean} True if the spinner is visible, otherwise false
      */
     isVisible(): boolean {
       return this.spinner ? !this.spinner.classList.contains("hidden") : false;
     }
 
     /**
-     * Shows the spinner for a specific duration, then hides it
+     * Shows the spinner for a specified duration then hides it
      *
      * @param {number} durationMs - Duration in milliseconds to show the spinner
-     * @returns {Promise<void>} Promise that resolves when spinner is hidden
+     * @returns {Promise<void>} Promise that resolves when the spinner is hidden
      */
     async showFor(durationMs: number): Promise<void> {
       this.show();
@@ -192,7 +262,7 @@ const sizeClasses = {
     }
   }
 
-  // Expose the LoadingSpinner to the global scope for use in other scripts
+  // Make LoadingSpinner class available in the global scope
   declare global {
     interface Window {
       LoadingSpinner: typeof LoadingSpinner;
@@ -200,4 +270,17 @@ const sizeClasses = {
   }
 
   window.LoadingSpinner = LoadingSpinner;
+
+  // Handle page transitions
+  document.addEventListener("astro:page-load", () => {
+    // Hide any visible spinners on page change
+    document
+      .querySelectorAll('[role="status"][aria-busy="true"]')
+      .forEach((el) => {
+        const id = el.id;
+        if (id) {
+          LoadingSpinner.getInstance(id).hide();
+        }
+      });
+  });
 </script>

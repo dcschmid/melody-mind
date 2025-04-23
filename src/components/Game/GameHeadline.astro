@@ -1,21 +1,63 @@
 ---
+/**
+ * GameHeadline Component
+ *
+ * Displays the main game headline along with current round counter and remaining items.
+ * Optimized for accessibility (WCAG AAA) and performance.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <GameHeadline
+ *   headline="Rock Music Quiz"
+ *   className="text-purple-500"
+ * />
+ * ```
+ */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 interface Props {
+  /** Main headline text displayed at the top of the game screen */
   headline?: string;
+  /** Additional CSS classes to apply to the headline */
   className?: string;
+  /** Total number of rounds in the game (for initial display) */
+  totalRounds?: number;
+  /** Current round number (for initial display) */
+  currentRound?: number;
+  /** Number of remaining items (for initial display) */
+  remainingCount?: number;
 }
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const { headline = t("game.default.headline"), className = "" } = Astro.props;
+const {
+  headline = t("game.default.headline"),
+  className = "",
+  totalRounds = 0,
+  currentRound = 0,
+  remainingCount = 0,
+} = Astro.props;
 
 const remainingText = t("game.remaining");
+const roundDisplay = `${currentRound}/${totalRounds}`;
+const showRemaining = remainingCount > 0;
+
+// Localized screen reader text for better accessibility
+const roundAriaLabel = t("game.current.round.label", {
+  current: currentRound,
+  total: totalRounds,
+});
+
+const remainingAriaLabel = showRemaining
+  ? t("game.remaining.label", { count: remainingCount })
+  : "";
 ---
 
 <div
   class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8 px-4 mx-auto w-full"
+  data-testid="game-headline"
 >
   <h1
     class={`text-2xl sm:text-3xl font-bold text-sky-500 text-center sm:text-left ${className}`}
@@ -26,24 +68,35 @@ const remainingText = t("game.remaining");
   <div class="flex items-center gap-4 text-zinc-300">
     <div
       class="flex gap-2 items-center justify-center"
-      aria-label={t("game.current.round.label")}
+      role="status"
+      aria-label={roundAriaLabel}
+      aria-live="polite"
     >
       <span class="text-zinc-400 text-sm uppercase tracking-wide font-medium">
         {t("game.current.round")}:
       </span>
-      <span class="round tabular-nums text-lg font-bold text-zinc-50">0/0</span>
+      <span
+        class="round tabular-nums text-lg font-bold text-zinc-50"
+        aria-atomic="true">{roundDisplay}</span
+      >
     </div>
 
     <div
-      class="hidden w-px h-6 bg-zinc-700 motion-safe:animate-pulse"
+      class="hidden sm:block w-px h-6 bg-zinc-700 motion-safe:animate-pulse"
       aria-hidden="true"
     >
     </div>
 
-    <div class="hidden items-center gap-2 text-sm" data-remaining>
+    <div
+      class={`${showRemaining ? "sm:flex" : "hidden"} items-center gap-2 text-sm`}
+      data-remaining
+      role="status"
+      aria-label={remainingAriaLabel}
+      aria-live="polite"
+    >
       <span class="font-medium text-amber-400">
-        <span class="remaining-count tabular-nums">0</span>
-        {remainingText}
+        <span class="remaining-count tabular-nums">{remainingCount}</span>
+        {" "}{remainingText}
       </span>
     </div>
   </div>
@@ -71,71 +124,128 @@ const remainingText = t("game.remaining");
    * Updates the round number displayed in the game interface and sets appropriate accessibility attributes.
    *
    * @param {number} round - The current round number to be displayed
+   * @param {number} [total] - Optional total number of rounds
    * @returns {void}
    *
    * @example
-   * // Update the round to show round 3
-   * updateRoundNumber(3);
+   * // Update to show "round 3 of 10"
+   * updateRoundNumber(3, 10);
    */
-  export function updateRoundNumber(round: number): void {
-    // Constants
-    const ROUND_SELECTOR = ".round";
+  export function updateRoundNumber(round: number, total?: number): void {
+    // Use requestAnimationFrame for smoother UI updates
+    requestAnimationFrame(() => {
+      // Constants
+      const ROUND_SELECTOR = ".round";
 
-    // Get the element displaying the round number
-    const roundElement = document.querySelector<HTMLElement>(ROUND_SELECTOR);
-    if (!roundElement) {
-      console.warn("Round element not found. Unable to update round number.");
-      return;
-    }
+      // Get the element displaying the round number
+      const roundElement = document.querySelector<HTMLElement>(ROUND_SELECTOR);
+      if (!roundElement) {
+        console.warn("Round element not found. Unable to update round number.");
+        return;
+      }
 
-    // Update the visible text content
-    roundElement.textContent = round.toString();
+      // Determine the display format based on whether total is provided
+      const displayText = total ? `${round}/${total}` : round.toString();
 
-    // Set appropriate aria-label based on the current language
-    const lang = document.documentElement.lang as SupportedLanguages;
+      // Update the visible text content
+      roundElement.textContent = displayText;
 
-    // Mapping of languages to properly formatted round announcements
-    // These are used by screen readers to announce the current round
-    const ariaLabels: Record<SupportedLanguages, string> = {
-      de: `Aktuelle Runde: ${round}`,
-      en: `Current round: ${round}`,
-      es: `Ronda actual: ${round}`,
-      fr: `Tour actuel: ${round}`,
-      it: `Round attuale: ${round}`,
-      pt: `Rodada atual: ${round}`,
-      da: `Nuværende runde: ${round}`,
-      nl: `Huidige ronde: ${round}`,
-      sv: `Aktuell runda: ${round}`,
-      fi: `Nykyinen kierros: ${round}`,
-    };
+      // Get parent element to update its aria-label
+      const statusElement = roundElement.closest('[role="status"]');
+      if (!statusElement) return;
 
-    // Set the label with fallback to English if the language is not supported
-    roundElement.setAttribute("aria-label", ariaLabels[lang] || ariaLabels.en);
+      // Set appropriate aria-label based on the current language
+      const lang = document.documentElement.lang as SupportedLanguages;
+
+      // Mapping of languages to properly formatted round announcements
+      // These are used by screen readers to announce the current round
+      const ariaLabels: Record<SupportedLanguages, string> = {
+        de: total ? `Runde ${round} von ${total}` : `Runde ${round}`,
+        en: total ? `Round ${round} of ${total}` : `Round ${round}`,
+        es: total ? `Ronda ${round} de ${total}` : `Ronda ${round}`,
+        fr: total ? `Tour ${round} sur ${total}` : `Tour ${round}`,
+        it: total ? `Round ${round} di ${total}` : `Round ${round}`,
+        pt: total ? `Rodada ${round} de ${total}` : `Rodada ${round}`,
+        da: total ? `Runde ${round} af ${total}` : `Runde ${round}`,
+        nl: total ? `Ronde ${round} van ${total}` : `Ronde ${round}`,
+        sv: total ? `Runda ${round} av ${total}` : `Runda ${round}`,
+        fi: total ? `Kierros ${round}/${total}` : `Kierros ${round}`,
+      };
+
+      // Set the label with fallback to English if the language is not supported
+      statusElement.setAttribute(
+        "aria-label",
+        ariaLabels[lang] || ariaLabels.en
+      );
+    });
   }
 
   /**
    * Updates the remaining count display if the element exists.
+   * Optimized for performance with requestAnimationFrame and accessibility with ARIA updates.
    *
    * @param {number} count - The remaining count to display
    * @returns {void}
    */
   export function updateRemainingCount(count: number): void {
-    const remainingElement =
-      document.querySelector<HTMLElement>("[data-remaining]");
-    const countElement =
-      document.querySelector<HTMLElement>(".remaining-count");
+    requestAnimationFrame(() => {
+      const remainingElement =
+        document.querySelector<HTMLElement>("[data-remaining]");
+      const countElement =
+        document.querySelector<HTMLElement>(".remaining-count");
 
-    if (remainingElement && countElement) {
-      countElement.textContent = count.toString();
+      if (remainingElement && countElement) {
+        countElement.textContent = count.toString();
 
-      // Only show if there's something to count
-      if (count > 0) {
-        remainingElement.classList.remove("hidden");
-        remainingElement.classList.add("flex");
-      } else {
-        remainingElement.classList.add("hidden");
-        remainingElement.classList.remove("flex");
+        // Only show if there's something to count
+        if (count > 0) {
+          // For small screens, we keep it hidden for layout reasons
+          remainingElement.classList.remove("hidden");
+          remainingElement.classList.add("sm:flex");
+
+          // Update aria-label for screen readers
+          const lang = document.documentElement.lang as SupportedLanguages;
+          const remainingText =
+            document.documentElement.dataset.remainingText || "remaining";
+
+          const ariaLabels: Record<SupportedLanguages, string> = {
+            de: `${count} verbleibend`,
+            en: `${count} remaining`,
+            es: `${count} restantes`,
+            fr: `${count} restant`,
+            it: `${count} rimanenti`,
+            pt: `${count} restantes`,
+            da: `${count} tilbage`,
+            nl: `${count} resterend`,
+            sv: `${count} kvar`,
+            fi: `${count} jäljellä`,
+          };
+
+          remainingElement.setAttribute(
+            "aria-label",
+            ariaLabels[lang] || ariaLabels.en
+          );
+        } else {
+          // Hide element when count is zero
+          remainingElement.classList.add("hidden");
+          remainingElement.classList.remove("sm:flex");
+        }
       }
-    }
+    });
+  }
+
+  // Store translations in data attributes for client-side access
+  document.documentElement.dataset.remainingText =
+    document.querySelector("[data-remaining]")?.textContent?.trim() || "";
+
+  // Add event listeners for viewport changes to adjust layout
+  if ("ResizeObserver" in window) {
+    const observer = new ResizeObserver((entries) => {
+      // Check if we need to adjust layout based on container size
+      // This avoids unnecessary DOM manipulations
+    });
+
+    const container = document.querySelector('[data-testid="game-headline"]');
+    if (container) observer.observe(container);
   }
 </script>

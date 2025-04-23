@@ -33,7 +33,7 @@ interface Category {
  * @returns {Promise<Category[]>} Array of category objects
  */
 async function loadCategoriesForLanguage(
-  language: string
+  language: string,
 ): Promise<Category[]> {
   try {
     // First try using the alias path
@@ -42,7 +42,7 @@ async function loadCategoriesForLanguage(
       .catch(async () => {
         // Fallback to relative path if alias fails
         console.info(
-          `Attempting to load ${language}_categories.json using relative path`
+          `Attempting to load ${language}_categories.json using relative path`,
         );
         return await import(`../../json/${language}_categories.json`)
           .then((module) => module.default)
@@ -67,7 +67,7 @@ const categories = Array.isArray(categoriesList) ? categoriesList : [];
  * @returns Boolean indicating if item is a valid playable category
  */
 function isPlayableCategory(
-  item: any
+  item: any,
 ): item is Category & { categoryUrl: string } {
   return (
     item &&
@@ -86,7 +86,7 @@ function isPlayableCategory(
 // Filter categories by playability status
 const playableCategories = categories.filter(isPlayableCategory);
 const nonPlayableCategories = categories.filter(
-  (item) => item && !item.isPlayable
+  (item) => item && !item.isPlayable,
 );
 
 // Combined categories with playable ones first
@@ -239,7 +239,7 @@ const noPlayableCategoriesText =
                         {t("category.play")} →
                       </div>
                     </li>
-                  )
+                  ),
               )
             ) : (
               <div class="col-span-full py-12 px-6 bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-xl text-center shadow-md border border-zinc-700">
@@ -421,7 +421,7 @@ const noPlayableCategoriesText =
     if (!elements.grid) return;
 
     let noResultsMessage = elements.grid.querySelector(
-      CONFIG.SELECTOR.NO_RESULTS
+      CONFIG.SELECTOR.NO_RESULTS,
     );
 
     if (!hasResults) {

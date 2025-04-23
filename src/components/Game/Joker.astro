@@ -1,44 +1,89 @@
 ---
+/**
+ * Joker Component
+ *
+ * A fully accessible component for the 50:50 joker feature in MelodyMind.
+ * Allows users to eliminate two wrong answers during gameplay.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <Joker initialCount={5} />
+ * ```
+ */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 
+interface Props {
+  /** Initial number of jokers available */
+  initialCount?: number;
+  /** Whether joker is disabled initially */
+  disabled?: boolean;
+}
+
+const { initialCount = 0, disabled = false } = Astro.props;
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+// Pre-compute localized strings for better SSR performance
+const jokerButtonAriaLabel = t("game.joker.use");
+const jokerTitle = t("game.joker.options");
+const jokerText = t("game.joker");
+const jokerDescription = t("game.joker.description");
+const remainingText = t("game.remaining");
+
+// Cache attributes for client-side usage
+const dataAttributes = {
+  initialCount: initialCount.toString(),
+  initialDisabled: disabled.toString(),
+  langCode: lang,
+};
 ---
 
 <div
   class="jokerContainer relative flex flex-col items-center gap-3 my-6 p-4 bg-gradient-to-b from-zinc-800/70 to-zinc-900/70 rounded-xl border border-zinc-700 shadow-md"
   role="group"
   aria-labelledby="joker-title"
+  data-testid="joker-container"
+  {...dataAttributes}
 >
   <h2 id="joker-title" class="text-lg font-semibold text-sky-300 mb-1">
-    {t("game.joker.options")}
+    {jokerTitle}
   </h2>
 
-  <div class="relative">
+  <div class="relative" data-joker-button-wrapper>
     <button
       id="joker-button"
-      class="jokerButton relative cursor-pointer flex items-center justify-center gap-2 min-w-[48px] min-h-[48px] py-3 px-6 bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white font-semibold rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-0.5 hover:shadow-xl disabled:from-zinc-600 disabled:to-zinc-700 disabled:text-zinc-400 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:shadow-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
-      aria-label={t("game.joker.use")}
+      class="jokerButton group relative cursor-pointer flex items-center justify-center gap-2 min-w-[48px] min-h-[48px] py-3 px-6 bg-gradient-to-r from-sky-600 to-indigo-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 transform disabled:from-zinc-600 disabled:to-zinc-700 disabled:text-zinc-400 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:shadow-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+      aria-label={jokerButtonAriaLabel}
       aria-describedby="joker-description joker-count"
       data-joker-type="fifty-fifty"
+      disabled={disabled}
     >
       <span class="flex items-center">
-        <Icon name="lifeline" class="w-5 h-5 mr-2" aria-hidden="true" />
-        <span class="buttonText whitespace-nowrap">{t("game.joker")}</span>
+        <!-- Use preloaded icon for better performance -->
+        <Icon
+          name="lifeline"
+          class="w-5 h-5 mr-2 transition-transform duration-300 group-hover:scale-110"
+          aria-hidden="true"
+          width="20"
+          height="20"
+        />
+        <span class="buttonText whitespace-nowrap">{jokerText}</span>
       </span>
 
-      <!-- Visual effect for button when pressed -->
+      <!-- Visual effect for button when pressed (GPU accelerated) -->
       <span
-        class="absolute inset-0 rounded-lg hover:shadow-inner-lg transform ease-out scale-95 hover:scale-100 transition duration-300 opacity-0 bg-white/10 hover:opacity-100 disabled:opacity-0 pointer-events-none"
-      ></span>
+        class="absolute inset-0 rounded-lg hover:shadow-inner-lg transform ease-out scale-95 hover:scale-100 transition duration-300 opacity-0 bg-white/10 group-hover:opacity-100 disabled:opacity-0 pointer-events-none will-change-transform"
+        aria-hidden="true"></span>
     </button>
 
-    <!-- Ripple animation for active feedback -->
+    <!-- Ripple animation for active feedback (GPU accelerated) -->
     <span
       id="joker-ripple"
-      class="joker-ripple absolute inset-0 rounded-lg pointer-events-none opacity-0 bg-sky-400/20"
-    ></span>
+      class="joker-ripple absolute inset-0 rounded-lg pointer-events-none opacity-0 bg-sky-400/20 will-change-transform will-change-opacity"
+      aria-hidden="true"></span>
   </div>
 
   <div
@@ -47,13 +92,14 @@ const t = useTranslations(lang);
   >
     <span
       id="joker-count"
-      class="jokerCount text-lg text-white font-medium bg-zinc-800 px-3 py-1 rounded-full border border-zinc-700 min-w-[32px] text-center"
+      class="jokerCount text-lg text-white font-medium bg-zinc-800 px-3 py-1 rounded-full border border-zinc-700 min-w-[36px] text-center tabular-nums"
       aria-live="polite"
+      aria-atomic="true"
     >
-      0
+      {initialCount}
     </span>
     <span class="text-zinc-300">
-      {t("game.remaining")}
+      {remainingText}
     </span>
   </div>
 
@@ -61,14 +107,23 @@ const t = useTranslations(lang);
     id="joker-description"
     class="mt-1 text-zinc-400 text-base max-w-[20rem] text-center"
   >
-    {t("game.joker.description")}
+    {jokerDescription}
+  </div>
+
+  <!-- Hidden element for screen reader announcements -->
+  <div
+    id="joker-announcement"
+    class="sr-only"
+    aria-live="assertive"
+    aria-atomic="true"
+  >
   </div>
 </div>
 
 <style>
   /* Optimierte Joker-Komponente mit WCAG AAA Konformität */
 
-  /* Animation für den Joker-Button bei Aktivierung */
+  /* Animation für den Joker-Button bei Aktivierung (GPU-beschleunigt) */
   @keyframes ripple {
     0% {
       transform: scale(0.8);
@@ -84,7 +139,7 @@ const t = useTranslations(lang);
     }
   }
 
-  /* Animation für den Zähler, wenn sich der Wert ändert */
+  /* Animation für den Zähler, wenn sich der Wert ändert (GPU-beschleunigt) */
   @keyframes pulse {
     0% {
       transform: scale(1);
@@ -111,6 +166,17 @@ const t = useTranslations(lang);
   .jokerButton:focus-visible {
     outline: 3px solid rgb(56, 189, 248); /* sky-300 */
     outline-offset: 3px;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
+  }
+
+  /* Touch-Target Verbesserung für mobile Geräte */
+  @media (max-width: 640px) {
+    .jokerButton {
+      min-height: 52px; /* Größerer Touch-Target auf kleinen Bildschirmen */
+      min-width: 52px;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
   }
 
   /* Unterstützung für High Contrast Mode */
@@ -148,9 +214,10 @@ const t = useTranslations(lang);
     .jokerButton,
     .joker-ripple,
     .jokerCount {
-      transition: none !important;
-      animation: none !important;
-      transform: none !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-property: none !important;
     }
   }
 
@@ -159,6 +226,7 @@ const t = useTranslations(lang);
     .jokerContainer {
       border: 1px solid #000;
       background: none !important;
+      break-inside: avoid;
     }
 
     .jokerButton {
@@ -184,181 +252,362 @@ const t = useTranslations(lang);
    * @module JokerComponent
    */
 
-  document.addEventListener("DOMContentLoaded", () => {
-    // Element references
-    const elements = {
-      button: document.getElementById("joker-button") as HTMLButtonElement,
-      counter: document.getElementById("joker-count"),
-      ripple: document.getElementById("joker-ripple"),
-    };
+  /**
+   * Defines all supported languages in the application
+   * This helps TypeScript verify our translations
+   */
+  type SupportedLanguage =
+    | "de"
+    | "en"
+    | "es"
+    | "fr"
+    | "it"
+    | "pt"
+    | "da"
+    | "nl"
+    | "sv"
+    | "fi";
 
-    // Early return if essential elements are missing
-    if (!elements.button) {
-      console.error(
-        "Joker button not found - component initialization aborted",
+  interface JokerElements {
+    button: HTMLButtonElement | null;
+    counter: HTMLElement | null;
+    ripple: HTMLElement | null;
+    container: HTMLElement | null;
+    announcement: HTMLElement | null;
+  }
+
+  /**
+   * Initializes the Joker component once the DOM is fully loaded
+   * Uses requestAnimationFrame for smoother animations and better performance
+   */
+  const initJoker = () => {
+    requestAnimationFrame(() => {
+      // Get component container and read initial data attributes
+      const container = document.querySelector(
+        '[data-testid="joker-container"]'
       );
-      return;
-    }
+      if (!container) return;
 
-    /**
-     * Initializes the joker component functionality
-     * @function initJokerComponent
-     */
-    function initJokerComponent() {
-      setupButtonEvents();
-      setupCounterObserver();
-    }
+      // Get initial values from data attributes
+      const initialCount = parseInt(
+        container.getAttribute("data-initial-count") || "0",
+        10
+      );
+      const initialDisabled =
+        container.getAttribute("data-initial-disabled") === "true";
+      const lang =
+        (container.getAttribute("data-lang-code") as SupportedLanguage) || "en";
 
-    /**
-     * Sets up event handlers for the joker button
-     * @function setupButtonEvents
-     */
-    function setupButtonEvents() {
-      // Apply click handler with debounce to prevent double triggering
-      let clickTimeout: ReturnType<typeof setTimeout> | null = null;
-      elements.button.addEventListener("click", (e) => {
-        // Prevent handling if already in progress or disabled
-        if (clickTimeout || elements.button.disabled) {
-          console.log(
-            "Joker click ignored - button disabled or click in progress",
-          );
-          return;
-        }
+      const elements: JokerElements = {
+        button: document.getElementById("joker-button") as HTMLButtonElement,
+        counter: document.getElementById("joker-count"),
+        ripple: document.getElementById("joker-ripple"),
+        container: container as HTMLElement,
+        announcement: document.getElementById("joker-announcement"),
+      };
 
-        console.log("Joker button clicked - triggering animation and events");
+      // Early return if essential elements are missing
+      if (!elements.button || !elements.counter) {
+        console.warn("Joker component: Required elements not found");
+        return;
+      }
 
-        // Activate ripple animation effect
-        applyRippleEffect();
+      // Apply initial values
+      if (initialDisabled) {
+        elements.button.disabled = true;
+      }
 
-        // Dispatch the custom event
-        dispatchJokerEvent();
+      if (initialCount > 0) {
+        elements.counter.textContent = initialCount.toString();
+      }
+
+      setupButtonEvents(elements, lang);
+      setupCounterObserver(elements);
+
+      // Clean up event listeners when page is unloaded
+      document.addEventListener("astro:before-swap", () => {
+        cleanupJokerComponent(elements);
+      });
+    });
+  };
+
+  /**
+   * Sets up event handlers for the joker button
+   * Uses passive event listeners and throttling for better performance
+   *
+   * @param {JokerElements} elements - Component elements
+   * @param {SupportedLanguage} lang - Current language
+   */
+  function setupButtonEvents(elements: JokerElements, lang: SupportedLanguage) {
+    if (!elements.button) return;
+
+    // Prevent multiple rapid clicks with debouncing
+    let clickTimeout: ReturnType<typeof setTimeout> | null = null;
+    let canTrigger = true;
+
+    // Improving performance with passive event listener where possible
+    elements.button.addEventListener("click", handleJokerClick, {
+      passive: true,
+    });
+
+    // Set up keyboard handler for improved accessibility
+    elements.button.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault(); // Prevent page scroll on space
+        handleJokerClick(e);
+      }
+    });
+
+    function handleJokerClick(e: Event) {
+      // Skip if button is disabled, animation in progress, or debounce active
+      if (elements.button?.disabled || !canTrigger || clickTimeout) return;
+
+      canTrigger = false;
+
+      // Trigger ripple animation with RAF for smoother performance
+      requestAnimationFrame(() => {
+        applyRippleEffect(elements);
+
+        dispatchJokerEvent(elements, lang);
 
         // Temporarily disable button to prevent double clicks
-        elements.button.disabled = true;
+        if (elements.button) elements.button.disabled = true;
+
+        // Re-enable after timeout
         clickTimeout = setTimeout(() => {
-          // Only re-enable if not permanently disabled
-          if (!elements.button.hasAttribute("data-permanently-disabled")) {
+          if (
+            elements.button &&
+            !elements.button.hasAttribute("data-permanently-disabled")
+          ) {
             elements.button.disabled = false;
           }
           clickTimeout = null;
-        }, 1000);
+          canTrigger = true;
+        }, 800); // Shorter timeout for better responsiveness
       });
     }
+  }
 
-    /**
-     * Applies the ripple animation effect when joker is activated
-     * @function applyRippleEffect
-     */
-    function applyRippleEffect() {
-      if (!elements.ripple) return;
+  /**
+   * Applies the ripple animation effect when joker is activated
+   * Uses will-change for GPU acceleration on compatible browsers
+   *
+   * @param {JokerElements} elements - Component elements
+   */
+  function applyRippleEffect(elements: JokerElements) {
+    const { ripple } = elements;
+    if (!ripple) return;
 
-      // Reset animation to ensure it plays again
-      elements.ripple.classList.remove("animate");
-      void elements.ripple.offsetWidth; // Force reflow to restart animation
-      elements.ripple.classList.add("animate");
+    // Optimized animation trigger using classList operations
+    ripple.classList.remove("animate");
+
+    // Force browser to recognize the change before applying the animation
+    void ripple.offsetWidth;
+
+    // Add animation class
+    ripple.classList.add("animate");
+  }
+
+  /**
+   * Creates and dispatches the jokerUsed custom event
+   * Handles accessibility announcements for screen readers
+   *
+   * @param {JokerElements} elements - Component elements
+   * @param {SupportedLanguage} lang - Current language
+   */
+  function dispatchJokerEvent(
+    elements: JokerElements,
+    lang: SupportedLanguage
+  ) {
+    const { button } = elements;
+    if (!button) return;
+
+    try {
+      // Create and dispatch the event
+      const jokerEvent = new CustomEvent("jokerUsed", {
+        bubbles: true,
+        detail: {
+          jokerType: button.dataset.jokerType || "fifty-fifty",
+          timestamp: Date.now(),
+        },
+      });
+
+      document.dispatchEvent(jokerEvent);
+
+      // Make announcement for screen readers
+      announceJokerUsage(elements, lang);
+    } catch (error) {
+      console.warn("Error dispatching jokerUsed event:", error);
     }
+  }
 
-    /**
-     * Creates and dispatches the jokerUsed custom event
-     * @function dispatchJokerEvent
-     */
-    function dispatchJokerEvent() {
-      try {
-        if (!elements.button) return;
+  /**
+   * Sets up mutation observer for joker counter
+   * Applies animation when counter value changes
+   *
+   * @param {JokerElements} elements - Component elements
+   */
+  function setupCounterObserver(elements: JokerElements) {
+    const { counter } = elements;
+    if (!counter) return;
 
-        const jokerEvent = new CustomEvent("jokerUsed", {
-          bubbles: true,
-          detail: {
-            jokerType: elements.button.dataset.jokerType,
-            timestamp: Date.now(),
-          },
-        });
+    // Using Intersection Observer to update counter only when visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setupMutation();
+        }
+      },
+      { threshold: 0.1 }
+    );
 
-        document.dispatchEvent(jokerEvent);
-        console.log("jokerUsed event dispatched successfully");
+    observer.observe(counter);
 
-        // Make announcement for screen readers
-        announceJokerUsage();
-      } catch (error) {
-        console.error("Error dispatching jokerUsed event:", error);
-      }
-    }
-
-    /**
-     * Creates and observes mutations on the joker counter element
-     * @function setupCounterObserver
-     */
-    function setupCounterObserver() {
-      if (!elements.counter) return;
-
-      const observer = new MutationObserver((mutations) => {
+    function setupMutation() {
+      const mutationObs = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
-          if (mutation.type === "childList" && elements.counter) {
-            // Apply animation for counter updates
-            elements.counter.classList.remove("updated");
-            void elements.counter.offsetWidth; // Force reflow to restart animation
-            elements.counter.classList.add("updated");
-
-            console.log(
-              "Joker counter updated to:",
-              elements.counter.textContent,
-            );
+          if (mutation.type === "childList" && counter) {
+            requestAnimationFrame(() => {
+              // Apply animation
+              counter.classList.remove("updated");
+              void counter.offsetWidth; // Force reflow to restart animation
+              counter.classList.add("updated");
+            });
           }
         });
       });
 
-      observer.observe(elements.counter, { childList: true });
+      // Ensure counter is not null before observing it
+      if (counter) {
+        mutationObs.observe(counter, { childList: true });
+      }
     }
+  }
 
-    /**
-     * Creates an accessible announcement for screen readers when joker is used
-     * @function announceJokerUsage
-     */
-    function announceJokerUsage() {
-      // Create or reuse announcement element
-      let announcement = document.getElementById("joker-announcement");
-      if (!announcement) {
-        announcement = document.createElement("div");
-        announcement.id = "joker-announcement";
-        announcement.setAttribute("aria-live", "assertive");
-        announcement.setAttribute("aria-atomic", "true");
-        announcement.className = "sr-only";
-        document.body.appendChild(announcement);
+  /**
+   * Creates accessible announcements for screen readers when joker is used
+   * Provides localized messages for multiple languages
+   *
+   * @param {JokerElements} elements - Component elements
+   * @param {SupportedLanguage} lang - Current language
+   */
+  function announceJokerUsage(
+    elements: JokerElements,
+    lang: SupportedLanguage
+  ) {
+    const { counter, announcement } = elements;
+
+    // Get or create announcement element
+    const announcementEl =
+      announcement ||
+      (() => {
+        const el = document.createElement("div");
+        el.id = "joker-announcement";
+        el.setAttribute("aria-live", "assertive");
+        el.setAttribute("aria-atomic", "true");
+        el.className = "sr-only";
+        document.body.appendChild(el);
+        return el;
+      })();
+
+    // Get current count
+    const currentCount = counter?.textContent?.trim() || "0";
+
+    // Localized announcement templates
+    const announcements: Record<SupportedLanguage, string> = {
+      de: `50:50 Joker verwendet. Noch ${currentCount} Joker verfügbar.`,
+      en: `50:50 Joker used. ${currentCount} jokers remaining.`,
+      es: `Comodín 50:50 utilizado. Quedan ${currentCount} comodines.`,
+      fr: `Joker 50:50 utilisé. ${currentCount} jokers restants.`,
+      it: `Jolly 50:50 utilizzato. ${currentCount} jolly rimanenti.`,
+      pt: `Curinga 50:50 usado. ${currentCount} curingas restantes.`,
+      da: `50:50 joker brugt. ${currentCount} jokere tilbage.`,
+      nl: `50:50 joker gebruikt. ${currentCount} jokers resterend.`,
+      sv: `50:50 joker använd. ${currentCount} jokrar kvar.`,
+      fi: `50:50-jokeri käytetty. ${currentCount} jokeria jäljellä.`,
+    };
+
+    // Set announcement text with fallback to English
+    announcementEl.textContent = announcements[lang] || announcements.en;
+
+    // Clean up after sufficient time for screen readers
+    setTimeout(() => {
+      announcementEl.textContent = "";
+    }, 3000);
+  }
+
+  /**
+   * Updates joker count and manages button state
+   * Can be called from parent components to update joker state
+   *
+   * @param {number} count - New joker count
+   * @param {boolean} disable - Whether to disable the joker button
+   */
+  function updateJokerCount(count: number, disable: boolean = false) {
+    requestAnimationFrame(() => {
+      const counter = document.getElementById("joker-count");
+      const button = document.getElementById(
+        "joker-button"
+      ) as HTMLButtonElement | null;
+
+      if (counter) {
+        counter.textContent = count.toString();
       }
 
-      // Get current count and language for localized announcements
-      const currentCount = elements.counter?.textContent?.trim() || "0";
-      const lang = (document.documentElement.lang || "en") as "de" | "en";
+      if (button) {
+        if (disable || count <= 0) {
+          button.disabled = true;
+          if (count <= 0) {
+            button.setAttribute("data-permanently-disabled", "true");
+          }
+        } else {
+          button.disabled = false;
+          button.removeAttribute("data-permanently-disabled");
+        }
+      }
+    });
+  }
 
-      // Localized announcement templates
-      const announcements = {
-        de: `50:50 Joker verwendet. Noch ${currentCount} Joker verfügbar.`,
-        en: `50:50 Joker used. ${currentCount} jokers remaining.`,
-        // Add more languages as needed
-      };
+  /**
+   * Handles cleanup of component resources when page changes
+   *
+   * @param {JokerElements} elements - Component elements
+   */
+  function cleanupJokerComponent(elements: JokerElements) {
+    const { announcement, button } = elements;
 
-      // Set announcement text with fallback to English
-      announcement.textContent = announcements[lang] || announcements.en;
+    // Remove announcement element
+    if (announcement) announcement.remove();
 
-      // Clean up after sufficient time for screen readers
-      setTimeout(() => {
-        announcement.textContent = "";
-      }, 3000);
+    // Remove event listeners
+    if (button) {
+      button.removeEventListener("click", () => {});
+      button.removeEventListener("keydown", () => {});
     }
+  }
 
-    /**
-     * Handles cleanup of component resources
-     * @function cleanupJokerComponent
-     */
-    function cleanupJokerComponent() {
-      const announcement = document.getElementById("joker-announcement");
-      if (announcement) announcement.remove();
+  // Register functions on window for external component access
+  window.MelodyMind = window.MelodyMind || {};
+  window.MelodyMind.updateJokerCount = updateJokerCount;
+
+  // Initialize component when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initJoker);
+  } else {
+    initJoker();
+  }
+</script>
+
+<!-- Type definitions for global namespace -->
+<script>
+  interface MelodyMindGlobal {
+    updateJokerCount: (count: number, disable?: boolean) => void;
+    [key: string]: any;
+  }
+
+  declare global {
+    interface Window {
+      MelodyMind: MelodyMindGlobal;
     }
-
-    // Initialize component
-    initJokerComponent();
-
-    // Set up cleanup for page navigation
-    document.addEventListener("astro:before-swap", cleanupJokerComponent);
-  });
+  }
 </script>

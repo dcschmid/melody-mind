@@ -41,8 +41,8 @@ const cleanPath = currentPath
   .filter(
     (segment) =>
       !["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"].includes(
-        segment
-      )
+        segment,
+      ),
   )
   .join("/");
 
@@ -112,8 +112,8 @@ const unsortedLanguages = {
  */
 const languages = Object.fromEntries(
   Object.entries(unsortedLanguages).sort(([, a], [, b]) =>
-    a.name.localeCompare(b.name)
-  )
+    a.name.localeCompare(b.name),
+  ),
 );
 ---
 
@@ -246,7 +246,7 @@ const languages = Object.fromEntries(
     constructor() {
       // Get required DOM elements with appropriate type casting
       this.selectElement = document.getElementById(
-        "language-select"
+        "language-select",
       ) as HTMLSelectElement;
       this.arrowElement = document.getElementById("language-arrow");
       this.arrowContainer = document.getElementById("arrow-container");
@@ -257,7 +257,7 @@ const languages = Object.fromEntries(
         this.initialize();
       } else {
         console.debug(
-          "Language picker initialization skipped - required elements not found"
+          "Language picker initialization skipped - required elements not found",
         );
       }
     }
@@ -331,7 +331,7 @@ const languages = Object.fromEntries(
         // Handle potential localStorage errors (e.g., in private browsing)
         console.debug(
           "Failed to access localStorage for language preference:",
-          error
+          error,
         );
       }
     }
@@ -407,7 +407,7 @@ const languages = Object.fromEntries(
           this.selectElement?.getAttribute("aria-expanded") === "true";
         this.selectElement?.setAttribute(
           "aria-expanded",
-          expanded ? "false" : "true"
+          expanded ? "false" : "true",
         );
 
         // Announce state change to screen readers via aria-live region
