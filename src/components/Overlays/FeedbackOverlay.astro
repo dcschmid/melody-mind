@@ -417,7 +417,7 @@ const t = useTranslations(lang);
   function initializeFeedbackOverlay(): void {
     const overlay = document.getElementById("overlay") as HTMLElement;
     const overlayContent = overlay?.querySelector(
-      ".overlayContent"
+      ".overlayContent",
     ) as HTMLElement;
     const overlayBackdrop = document.getElementById("overlay-backdrop");
     const closeButton = document.getElementById("close-overlay-button");
@@ -457,7 +457,7 @@ const t = useTranslations(lang);
    */
   function setupOverlayVisibilityHandling(
     overlay: HTMLElement,
-    overlayContent: HTMLElement
+    overlayContent: HTMLElement,
   ): void {
     // Create an observer to monitor class changes on the overlay
     const observer = new MutationObserver((mutations) => {
@@ -481,7 +481,7 @@ const t = useTranslations(lang);
             // Set initial focus to the close button for accessibility
             setTimeout(() => {
               const closeButton = document.getElementById(
-                "close-overlay-button"
+                "close-overlay-button",
               );
               if (closeButton) closeButton.focus();
             }, 100);
@@ -515,14 +515,14 @@ const t = useTranslations(lang);
    */
   function showOverlayWithAnimation(
     overlay: HTMLElement,
-    overlayContent: HTMLElement
+    overlayContent: HTMLElement,
   ): void {
     // Reset scroll position
     overlayContent.scrollTop = 0;
 
     // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (prefersReducedMotion) {
@@ -572,7 +572,7 @@ const t = useTranslations(lang);
     const overlay = document.getElementById("overlay");
     const feedbackElement = document.getElementById("feedback");
     const statusAnnouncer = document.getElementById(
-      "feedback-status-announcer"
+      "feedback-status-announcer",
     );
 
     if (!overlay || !feedbackElement || !statusAnnouncer) return;
@@ -693,7 +693,7 @@ const t = useTranslations(lang);
 
     // Get all potentially focusable elements
     const elements = Array.from(
-      container.querySelectorAll<HTMLElement>(focusableSelector)
+      container.querySelectorAll<HTMLElement>(focusableSelector),
     );
 
     // Filter out hidden elements
@@ -717,7 +717,7 @@ const t = useTranslations(lang);
    */
   function handleAlbumCoverDisplay(overlay: HTMLElement): MutationObserver {
     const albumCover = document.getElementById(
-      "overlay-cover"
+      "overlay-cover",
     ) as HTMLImageElement;
 
     if (!albumCover) {
@@ -805,7 +805,7 @@ const t = useTranslations(lang);
   function setupCleanupHandlers(coverObserver: MutationObserver): void {
     // Get references to elements and observers that need cleanup
     const audioPlayer = document.getElementById(
-      "audio-preview"
+      "audio-preview",
     ) as HTMLAudioElement;
 
     const observers: MutationObserver[] = [];
