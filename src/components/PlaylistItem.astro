@@ -185,7 +185,7 @@ const Element = isDisabled ? "article" : "a";
   function initializePlaylistItems() {
     // Target only interactive playlist items (non-disabled)
     const items = document.querySelectorAll(
-      'article[role="listitem"]:not([aria-disabled="true"])'
+      'article[role="listitem"]:not([aria-disabled="true"])',
     );
 
     items.forEach((item) => {
@@ -211,10 +211,10 @@ const Element = isDisabled ? "article" : "a";
           "ring-2",
           "ring-purple-500",
           "ring-offset-2",
-          "ring-offset-zinc-900"
+          "ring-offset-zinc-900",
         );
       },
-      { passive: true } // Performance optimization
+      { passive: true }, // Performance optimization
     );
 
     element.addEventListener(
@@ -224,10 +224,10 @@ const Element = isDisabled ? "article" : "a";
           "ring-2",
           "ring-purple-500",
           "ring-offset-2",
-          "ring-offset-zinc-900"
+          "ring-offset-zinc-900",
         );
       },
-      { passive: true } // Performance optimization
+      { passive: true }, // Performance optimization
     );
   }
 
@@ -242,10 +242,10 @@ const Element = isDisabled ? "article" : "a";
         element.classList.add(
           "translate-y-[-2px]",
           "shadow-lg",
-          "shadow-purple-900/10"
+          "shadow-purple-900/10",
         );
       },
-      { passive: true }
+      { passive: true },
     );
 
     element.addEventListener(
@@ -254,10 +254,10 @@ const Element = isDisabled ? "article" : "a";
         element.classList.remove(
           "translate-y-[-2px]",
           "shadow-lg",
-          "shadow-purple-900/10"
+          "shadow-purple-900/10",
         );
       },
-      { passive: true }
+      { passive: true },
     );
   }
 
