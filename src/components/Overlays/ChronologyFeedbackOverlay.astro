@@ -1,4 +1,10 @@
 ---
+/**
+ * @component ChronologyFeedbackOverlay
+ * @description A modal overlay that displays feedback after each round in the Chronology game mode.
+ * Implements WCAG AAA accessibility standards and optimized performance.
+ * @see /src/pages/games/chronology.astro - Main game component that controls this overlay
+ */
 import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
@@ -12,31 +18,68 @@ const t = useTranslations(lang);
   role="dialog"
   aria-modal="true"
   aria-labelledby="feedback-title"
+  aria-describedby="feedback-content"
+  tabindex="-1"
 >
+  <!-- Use a div with inset-0 to create a click target for closing the modal -->
+  <div id="overlay-backdrop" class="absolute inset-0" aria-hidden="true"></div>
+
   <div
-    class="bg-zinc-900 border border-zinc-700 rounded-xl max-w-xl w-full mx-4 p-6 shadow-2xl"
+    class="bg-zinc-900 border border-zinc-700 rounded-xl max-w-xl w-full mx-4 p-6 shadow-2xl relative"
+    role="document"
   >
+    <!-- Close button - positioned at the top right -->
+    <button
+      id="close-feedback-overlay"
+      class="absolute right-4 top-4 flex items-center justify-center w-12 h-12 rounded-full bg-zinc-800 hover:bg-zinc-700 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
+      aria-label={t("general.close") || "Close"}
+      type="button"
+    >
+      <Icon
+        name="close"
+        width={24}
+        height={24}
+        aria-hidden="true"
+        class="w-6 h-6 text-zinc-200"
+      />
+    </button>
+
     <h2
       id="feedback-title"
-      class="text-xl md:text-2xl font-bold text-center mb-4"
+      class="text-xl md:text-2xl font-bold text-center mb-4 text-zinc-100"
     >
       {t("game.chronology.result") || "Ergebnis"}
     </h2>
 
-    <div id="feedback-content" class="text-center mb-6">
-      <!-- Inhalt wird dynamisch hinzugefügt -->
+    <!-- Status announcer for screen readers -->
+    <div
+      id="feedback-status"
+      aria-live="polite"
+      aria-atomic="true"
+      class="sr-only"
+    >
+    </div>
+
+    <div
+      id="feedback-content"
+      class="text-center mb-6 text-zinc-200 min-h-24"
+      aria-live="polite"
+    >
+      <!-- Content will be dynamically added here -->
     </div>
 
     <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
       <button
         id="chronology-continue-button"
-        class="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-full font-bold transition-all hover:scale-105"
+        class="px-6 py-3 bg-gradient-to-r from-purple-700 to-indigo-700 text-white rounded-full font-bold transition-transform duration-200 hover:scale-105 min-h-[3rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
+        type="button"
       >
         {t("game.next.round") || "Nächste Runde"}
       </button>
       <button
         id="chronology-end-button"
-        class="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full font-bold transition-all hover:scale-105 hidden"
+        class="px-6 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-full font-bold transition-transform duration-200 hover:scale-105 min-h-[3rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 hidden"
+        type="button"
       >
         {t("game.end.title") || "Spiel beenden"}
       </button>
@@ -45,6 +88,304 @@ const t = useTranslations(lang);
 </div>
 
 <script>
-  // Diese Komponente wird durch den Chronologie-Spielmodus gesteuert
-  // und zeigt Feedback nach jeder Runde an
+  /**
+   * Controller for the Chronology Feedback Overlay
+   *
+   * This script manages the accessibility and interaction for the feedback overlay
+   * that appears after each round in the Chronology game mode.
+   *
+   * Features:
+   * - Focus trap for keyboard navigation
+   * - Screen reader announcements
+   * - Keyboard shortcuts (Escape to close)
+   * - Focus management when opening/closing the modal
+   */
+  // Import translation function for client-side usage
+  import { getLangFromUrl, useTranslations } from "@utils/i18n";
+  
+  const lang = getLangFromUrl(new URL(window.location.href));
+  const t = useTranslations(lang);
+
+  document.addEventListener("DOMContentLoaded", initFeedbackOverlay);
+
+  /**
+   * Initializes the feedback overlay functionality
+   */
+  function initFeedbackOverlay(): void {
+    // Get DOM elements
+    const overlay = document.getElementById(
+      "chronology-feedback-overlay"
+    ) as HTMLDivElement;
+    const closeButton = document.getElementById(
+      "close-feedback-overlay"
+    ) as HTMLButtonElement;
+    const backdrop = document.getElementById(
+      "overlay-backdrop"
+    ) as HTMLDivElement;
+    const continueButton = document.getElementById(
+      "chronology-continue-button"
+    ) as HTMLButtonElement;
+    const endButton = document.getElementById(
+      "chronology-end-button"
+    ) as HTMLButtonElement;
+    const statusAnnouncer = document.getElementById(
+      "feedback-status"
+    ) as HTMLDivElement;
+
+    if (
+      !overlay ||
+      !closeButton ||
+      !backdrop ||
+      !continueButton ||
+      !endButton
+    ) {
+      console.warn("Chronology feedback overlay elements not found");
+      return;
+    }
+
+    // Store reference to the element that had focus before opening the modal
+    let previouslyFocused: HTMLElement | null = null;
+
+    // Set up the global event handlers for showing/hiding the overlay
+    if (typeof window !== "undefined") {
+      // Custom event for showing the feedback overlay
+      window.addEventListener("showChronologyFeedback", (e: Event) => {
+        const event = e as CustomEvent;
+        const { isCorrect, isLastRound, correctOrder } = event.detail || {};
+
+        showOverlay();
+        updateFeedbackContent(isCorrect, correctOrder);
+
+        // Show or hide the end button based on whether this is the last round
+        if (isLastRound) {
+          endButton.classList.remove("hidden");
+        } else {
+          endButton.classList.add("hidden");
+        }
+
+        // Announce to screen readers
+        statusAnnouncer.textContent = isCorrect
+          ? t("game.chronology.correct") || "Richtig!"
+          : t("game.chronology.incorrect") || "Falsch!";
+      });
+
+      // Set up event listeners for closing the modal
+      closeButton.addEventListener("click", hideOverlay);
+      backdrop.addEventListener("click", hideOverlay);
+      continueButton.addEventListener("click", () => {
+        hideOverlay();
+        // Dispatch custom event to notify the game to continue
+        window.dispatchEvent(new CustomEvent("chronologyContinue"));
+      });
+      endButton.addEventListener("click", () => {
+        hideOverlay();
+        // Dispatch custom event to notify the game to end
+        window.dispatchEvent(new CustomEvent("chronologyEnd"));
+      });
+
+      // Close on Escape key press
+      document.addEventListener("keydown", (e: KeyboardEvent) => {
+        if (e.key === "Escape" && !overlay.classList.contains("hidden")) {
+          hideOverlay();
+        }
+      });
+
+      // Set up focus trap for keyboard navigation
+      setupFocusTrap(overlay);
+    }
+
+    /**
+     * Shows the feedback overlay and manages focus
+     */
+    function showOverlay(): void {
+      // Store the currently focused element to restore focus when closing
+      previouslyFocused = document.activeElement as HTMLElement;
+
+      // Show the overlay with improved animation performance
+      overlay.classList.remove("hidden");
+      // Use requestAnimationFrame for smoother animation
+      requestAnimationFrame(() => {
+        overlay.style.opacity = "0";
+        overlay.style.transform = "translateY(-20px) scale(0.95)";
+        overlay.style.display = "flex";
+
+        requestAnimationFrame(() => {
+          overlay.style.transition =
+            "opacity 200ms ease-out, transform 200ms ease-out";
+          overlay.style.opacity = "1";
+          overlay.style.transform = "translateY(0) scale(1)";
+        });
+      });
+
+      // Prevent scrolling of the body
+      document.body.style.overflow = "hidden";
+
+      // Focus the first interactive element (close button)
+      setTimeout(() => {
+        closeButton.focus();
+      }, 100);
+    }
+
+    /**
+     * Hides the feedback overlay and restores focus
+     */
+    function hideOverlay(): void {
+      // Animate hiding with requestAnimationFrame for performance
+      overlay.style.opacity = "0";
+      overlay.style.transform = "translateY(-20px) scale(0.95)";
+
+      // Wait for animation to finish before hiding
+      setTimeout(() => {
+        overlay.classList.add("hidden");
+        overlay.style.transition = "";
+        overlay.style.transform = "";
+
+        // Re-enable scrolling
+        document.body.style.overflow = "";
+
+        // Restore focus to the element that was focused before opening
+        if (previouslyFocused && previouslyFocused.focus) {
+          previouslyFocused.focus();
+        }
+      }, 200);
+    }
+
+    /**
+     * Updates the feedback content based on the result
+     * @param {boolean} isCorrect - Whether the user's answer was correct
+     * @param {string[]} correctOrder - The correct order of items
+     */
+    function updateFeedbackContent(
+      isCorrect: boolean,
+      correctOrder?: string[]
+    ): void {
+      const feedbackContent = document.getElementById("feedback-content");
+      if (!feedbackContent) return;
+
+      // Clear previous content
+      feedbackContent.innerHTML = "";
+
+      // Create feedback message with proper contrast
+      const messageEl = document.createElement("p");
+      messageEl.className = "text-xl mb-4 font-bold";
+
+      if (isCorrect) {
+        messageEl.textContent = t("game.chronology.correct") || "Richtig!";
+        messageEl.className += " text-emerald-400";
+      } else {
+        messageEl.textContent = t("game.chronology.incorrect") || "Falsch!";
+        messageEl.className += " text-rose-500";
+      }
+
+      feedbackContent.appendChild(messageEl);
+
+      // Add correct order information if available
+      if (correctOrder && correctOrder.length > 0) {
+        const orderHeading = document.createElement("p");
+        orderHeading.className = "text-lg mb-2 text-zinc-300";
+        orderHeading.textContent =
+          t("game.chronology.correct_order") || "Richtige Reihenfolge:";
+        feedbackContent.appendChild(orderHeading);
+
+        // Create an ordered list for the correct sequence
+        const orderList = document.createElement("ol");
+        orderList.className =
+          "list-decimal list-inside text-left max-w-md mx-auto";
+
+        correctOrder.forEach((item) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = item;
+          listItem.className = "text-zinc-300 mb-1 py-1";
+          orderList.appendChild(listItem);
+        });
+
+        feedbackContent.appendChild(orderList);
+      }
+    }
+
+    /**
+     * Sets up a focus trap within the modal element for keyboard accessibility
+     * @param {HTMLElement} element - The modal container element
+     */
+    function setupFocusTrap(element: HTMLElement): void {
+      element.addEventListener("keydown", (e: KeyboardEvent) => {
+        // Only trap focus when the modal is visible
+        if (element.classList.contains("hidden")) return;
+
+        if (e.key !== "Tab") return;
+
+        // Get all focusable elements within the modal
+        const focusableElements = getFocusableElements(element);
+
+        // No focusable elements found
+        if (focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        // Shift+Tab on first element should wrap to last element
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        }
+        // Tab on last element should wrap to first element
+        else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      });
+    }
+
+    /**
+     * Gets all focusable elements within a container
+     * @param {HTMLElement} container - The container element
+     * @returns {HTMLElement[]} - Array of focusable elements
+     */
+    function getFocusableElements(container: HTMLElement): HTMLElement[] {
+      // Selector for all potentially focusable elements
+      const selector =
+        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+      // Convert NodeList to Array and filter out hidden elements
+      return Array.from(
+        container.querySelectorAll<HTMLElement>(selector)
+      ).filter((el) => {
+        // Check if element is visible and not aria-hidden
+        return (
+          el.offsetWidth > 0 &&
+          el.offsetHeight > 0 &&
+          el.getAttribute("aria-hidden") !== "true"
+        );
+      });
+    }
+  }
+
+  // Use event delegation for dynamically added content
+  document.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+
+    // Check if the clicked element is or is within one of our buttons
+    const isContinueButton = target.closest("#chronology-continue-button");
+    const isEndButton = target.closest("#chronology-end-button");
+
+    if (isContinueButton) {
+      window.dispatchEvent(new CustomEvent("chronologyContinue"));
+    } else if (isEndButton) {
+      window.dispatchEvent(new CustomEvent("chronologyEnd"));
+    }
+  });
+
+  // Support for reduced motion preferences
+  if (typeof window !== "undefined" && window.matchMedia) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      // Apply instant transitions for users who prefer reduced motion
+      const style = document.createElement("style");
+      style.textContent = `
+        #chronology-feedback-overlay {
+          transition-duration: 0.01ms !important;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  }
 </script>
