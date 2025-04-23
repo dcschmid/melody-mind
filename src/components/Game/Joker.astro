@@ -284,14 +284,14 @@ const dataAttributes = {
     requestAnimationFrame(() => {
       // Get component container and read initial data attributes
       const container = document.querySelector(
-        '[data-testid="joker-container"]'
+        '[data-testid="joker-container"]',
       );
       if (!container) return;
 
       // Get initial values from data attributes
       const initialCount = parseInt(
         container.getAttribute("data-initial-count") || "0",
-        10
+        10,
       );
       const initialDisabled =
         container.getAttribute("data-initial-disabled") === "true";
@@ -417,7 +417,7 @@ const dataAttributes = {
    */
   function dispatchJokerEvent(
     elements: JokerElements,
-    lang: SupportedLanguage
+    lang: SupportedLanguage,
   ) {
     const { button } = elements;
     if (!button) return;
@@ -458,7 +458,7 @@ const dataAttributes = {
           setupMutation();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     observer.observe(counter);
@@ -493,7 +493,7 @@ const dataAttributes = {
    */
   function announceJokerUsage(
     elements: JokerElements,
-    lang: SupportedLanguage
+    lang: SupportedLanguage,
   ) {
     const { counter, announcement } = elements;
 
@@ -547,7 +547,7 @@ const dataAttributes = {
     requestAnimationFrame(() => {
       const counter = document.getElementById("joker-count");
       const button = document.getElementById(
-        "joker-button"
+        "joker-button",
       ) as HTMLButtonElement | null;
 
       if (counter) {

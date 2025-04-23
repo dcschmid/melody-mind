@@ -175,7 +175,7 @@ const remainingAriaLabel = showRemaining
       // Set the label with fallback to English if the language is not supported
       statusElement.setAttribute(
         "aria-label",
-        ariaLabels[lang] || ariaLabels.en
+        ariaLabels[lang] || ariaLabels.en,
       );
     });
   }
@@ -223,7 +223,7 @@ const remainingAriaLabel = showRemaining
 
           remainingElement.setAttribute(
             "aria-label",
-            ariaLabels[lang] || ariaLabels.en
+            ariaLabels[lang] || ariaLabels.en,
           );
         } else {
           // Hide element when count is zero
