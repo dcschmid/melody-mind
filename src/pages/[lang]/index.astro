@@ -32,7 +32,7 @@ const t = useTranslations(lang);
  */
 if (Astro.request.method === "GET" && !Astro.params.lang) {
   return Astro.redirect(
-    getRelativeLocaleUrl(Astro.preferredLocale || "en", "/")
+    getRelativeLocaleUrl(Astro.preferredLocale || "en", "/"),
   );
 }
 
@@ -203,7 +203,7 @@ const imageHeight = 600;
               }
             });
           },
-          { rootMargin: "0px", threshold: 0.1 }
+          { rootMargin: "0px", threshold: 0.1 },
         );
 
         // Observe animatable elements
@@ -212,6 +212,6 @@ const imageHeight = 600;
         });
       });
     },
-    { passive: true }
+    { passive: true },
   ); // Performance optimization with passive listener
 </script>
