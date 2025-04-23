@@ -230,7 +230,7 @@ const { initialCount = 0 } = Astro.props;
       // Listen for custom coin update events
       document.addEventListener(
         "melody-mind:update-coins",
-        this.handleCoinUpdate.bind(this)
+        this.handleCoinUpdate.bind(this),
       );
     }
 
@@ -358,7 +358,7 @@ const { initialCount = 0 } = Astro.props;
           {
             duration: 600,
             easing: "ease-out",
-          }
+          },
         );
       }
     }
@@ -383,7 +383,7 @@ const { initialCount = 0 } = Astro.props;
       // Remove event listeners
       document.removeEventListener(
         "melody-mind:update-coins",
-        this.handleCoinUpdate.bind(this)
+        this.handleCoinUpdate.bind(this),
       );
     }
   }
@@ -423,7 +423,7 @@ const { initialCount = 0 } = Astro.props;
     document.dispatchEvent(
       new CustomEvent("melody-mind:update-coins", {
         detail: { count },
-      })
+      }),
     );
   };
 </script>

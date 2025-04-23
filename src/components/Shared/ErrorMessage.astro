@@ -309,7 +309,7 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
      */
     public updateMessage(
       message: string,
-      announceChange: boolean = true
+      announceChange: boolean = true,
     ): void {
       const messageElement = this.querySelector(".errorText");
       if (messageElement) {
@@ -330,7 +330,7 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
      */
     private notifyScreenReaders(
       message: string,
-      priority: "assertive" | "polite" = "assertive"
+      priority: "assertive" | "polite" = "assertive",
     ): void {
       // Create a visually hidden live region
       const announcer = document.createElement("div");
@@ -393,7 +393,7 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
   // Export utility function to create and show error messages programmatically
   (window as any).showError = function (
     message: string,
-    autoHideAfter: number = 5000
+    autoHideAfter: number = 5000,
   ): ErrorMessage {
     // Check if we already have an error message component
     let errorMessage = document.querySelector("error-message") as ErrorMessage;
