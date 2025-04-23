@@ -13,8 +13,8 @@ const cleanPath = currentPath
   .filter(
     (segment) =>
       !["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"].includes(
-        segment,
-      ),
+        segment
+      )
   )
   .join("/");
 
@@ -74,8 +74,8 @@ const unsortedLanguages = {
 
 const languages = Object.fromEntries(
   Object.entries(unsortedLanguages).sort(([, a], [, b]) =>
-    a.name.localeCompare(b.name),
-  ),
+    a.name.localeCompare(b.name)
+  )
 );
 ---
 
@@ -87,13 +87,15 @@ const languages = Object.fromEntries(
   <div class="relative">
     <select
       id="language-select"
-      class="appearance-none bg-sky-400 text-zinc-900 border-0 rounded-lg
+      class="appearance-none bg-sky-600 text-white border-0 rounded-lg
              py-2 px-3 pr-10 w-full text-base font-medium cursor-pointer
+             min-h-[44px] min-w-[44px]
              transition duration-200
-             hover:bg-sky-300
+             hover:bg-sky-700
              focus-visible:outline-2 focus-visible:outline-sky-200 focus-visible:outline-offset-2
-             focus-visible:bg-sky-300 disabled:opacity-50"
+             focus-visible:bg-sky-700 disabled:opacity-50"
       value={getRelativeLocaleUrl(lang, cleanPath)}
+      aria-expanded="false"
       onchange="
         const newLang = this.value.split('/')[1];
         window.localStorage.setItem('preferred-language', newLang);
@@ -129,11 +131,15 @@ const languages = Object.fromEntries(
         viewBox="0 0 20 20"
         aria-hidden="true"
       >
+        <title>Dropdown Arrow</title>
         <path
           d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
         ></path>
       </svg>
     </div>
+  </div>
+  <div class="sr-only" id="language-status" aria-live="polite">
+    {t("language.selected", { language: languages[lang].name })}
   </div>
 </div>
 
@@ -163,7 +169,7 @@ const languages = Object.fromEntries(
     constructor() {
       // Get required DOM elements
       this.selectElement = document.getElementById(
-        "language-select",
+        "language-select"
       ) as HTMLSelectElement;
       this.arrowElement = document.getElementById("language-arrow");
       this.arrowContainer = document.getElementById("arrow-container");
@@ -173,7 +179,7 @@ const languages = Object.fromEntries(
         this.initialize();
       } else {
         console.debug(
-          "Language picker initialization skipped - required elements not found",
+          "Language picker initialization skipped - required elements not found"
         );
       }
     }
@@ -243,7 +249,7 @@ const languages = Object.fromEntries(
         // Handle potential localStorage errors (e.g., in private browsing)
         console.debug(
           "Failed to access localStorage for language preference:",
-          error,
+          error
         );
       }
     }
@@ -279,9 +285,11 @@ const languages = Object.fromEntries(
         // Simulate the select opening/closing
         if (this.selectElement?.size === 1) {
           this.selectElement.size = 4; // "Open" the select
+          this.selectElement.setAttribute("aria-expanded", "true");
         } else {
           this.selectElement!.size = 1; // "Close" the select
           this.selectElement?.blur();
+          this.selectElement?.setAttribute("aria-expanded", "false");
         }
       }
     }
@@ -296,6 +304,26 @@ const languages = Object.fromEntries(
       // Toggle rotation when using Enter or Space to activate the select
       if (keyEvent.key === "Enter" || keyEvent.key === " ") {
         this.arrowElement?.classList.toggle("rotate-180");
+
+        // Aktualisiere aria-expanded Status für Screenreader
+        const expanded =
+          this.selectElement?.getAttribute("aria-expanded") === "true";
+        this.selectElement?.setAttribute(
+          "aria-expanded",
+          expanded ? "false" : "true"
+        );
+
+        // Aktualisiere den Statustext für Screenreader
+        const statusElement = document.getElementById("language-status");
+        if (statusElement && this.selectElement) {
+          const selectedOption =
+            this.selectElement.options[this.selectElement.selectedIndex];
+          if (expanded) {
+            statusElement.textContent = "Sprachauswahl geschlossen";
+          } else {
+            statusElement.textContent = "Sprachauswahl geöffnet";
+          }
+        }
       }
     }
 
