@@ -261,7 +261,7 @@ const preloadedResources = [
        */
       function updateThemePreference() {
         const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
+          "(prefers-color-scheme: dark)",
         ).matches;
         document.body.dataset.theme = prefersDark ? "dark" : "light";
       }
