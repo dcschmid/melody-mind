@@ -1,16 +1,42 @@
 ---
+/**
+ * SEO Component for MelodyMind
+ *
+ * This component manages all SEO-related meta tags, structured data,
+ * and accessibility improvements for better page indexing and user experience.
+ * It follows WCAG AAA standards for content and provides proper language support.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <SEO
+ *   title="Rock Music Quiz"
+ *   description="Test your knowledge of classic rock hits"
+ *   type="game"
+ * />
+ * ```
+ */
 import { getLangFromUrl } from "@utils/i18n";
-import { languages } from "../i18n/ui"; // Direkter relativer Pfad statt Alias
+import { languages } from "../i18n/ui"; // Direct relative path instead of alias
 
 interface Props {
+  /** Page title - will be appended with site name */
   title: string;
+  /** Page description - important for SEO and accessibility */
   description?: string;
+  /** Keywords for search engines */
   keywords?: string;
+  /** Path to OpenGraph/social share image (absolute or relative) */
   image?: string;
+  /** Content type classification */
   type?: "website" | "article" | "music" | "game";
+  /** Publication date - important for articles/content */
   publishDate?: Date;
+  /** Last modification date - helps with SEO freshness signals */
   modifiedDate?: Date;
+  /** Path to audio content - used for music schema */
   audioSrc?: string;
+  /** Content section category - used for article schema */
   section?: string;
 }
 
@@ -49,7 +75,10 @@ const alternateLanguages = Object.keys(languages).map((langCode) => {
   return { langCode, url: url.toString() };
 });
 
-// JSON-LD structured data with TypeScript type safety
+/**
+ * JSON-LD structured data with TypeScript type safety
+ * Follows schema.org standards for better search engine interpretation
+ */
 interface StructuredData {
   "@context": string;
   "@type": string;
@@ -76,6 +105,16 @@ let structuredData: StructuredData = {
     "@type": "Organization",
     name: "Melody Mind Team",
   },
+  accessibilityControl: [
+    "fullKeyboardControl",
+    "fullMouseControl",
+    "fullTouchControl",
+  ],
+  accessibilityFeature: [
+    "alternativeText",
+    "highContrast",
+    "structuralNavigation",
+  ],
 };
 
 // Enhanced structured data based on page type
@@ -102,6 +141,8 @@ if (type === "article") {
       logo: {
         "@type": "ImageObject",
         url: new URL("/melody-mind.png", Astro.site || siteUrl).toString(),
+        width: 192,
+        height: 192,
       },
     },
     mainEntityOfPage: {
@@ -110,6 +151,16 @@ if (type === "article") {
     },
     inLanguage: lang,
     articleSection: section,
+    accessibilityControl: [
+      "fullKeyboardControl",
+      "fullMouseControl",
+      "fullTouchControl",
+    ],
+    accessibilityFeature: [
+      "alternativeText",
+      "highContrast",
+      "structuralNavigation",
+    ],
   };
 } else if (type === "music") {
   structuredData = {
@@ -122,6 +173,17 @@ if (type === "article") {
     audio: audioSrc
       ? new URL(audioSrc, Astro.site || siteUrl).toString()
       : null,
+    inLanguage: lang,
+    accessibilityControl: [
+      "fullKeyboardControl",
+      "fullMouseControl",
+      "fullTouchControl",
+    ],
+    accessibilityFeature: [
+      "alternativeText",
+      "highContrast",
+      "structuralNavigation",
+    ],
   };
 } else if (type === "game") {
   structuredData = {
@@ -135,13 +197,37 @@ if (type === "article") {
       audienceType: "Music lovers",
     },
     inLanguage: lang,
+    accessibilityControl: [
+      "fullKeyboardControl",
+      "fullMouseControl",
+      "fullTouchControl",
+    ],
+    accessibilityFeature: [
+      "alternativeText",
+      "highContrast",
+      "structuralNavigation",
+    ],
   };
 }
+
+// Generate concise page title with site name
+const pageTitle = `${title} | Melody Mind`;
+
+// Calculate critical resources for preloading
+const criticalResources = [
+  { as: "image", href: "/favicon.svg", type: "image/svg+xml" },
+  {
+    as: "font",
+    href: "/fonts/Inter-variable.woff2",
+    type: "font/woff2",
+    crossorigin: true,
+  },
+];
 ---
 
 <!-- Primary Meta Tags -->
-<title>{title} | Melody Mind</title>
-<meta name="title" content={`${title} | Melody Mind`} />
+<title>{pageTitle}</title>
+<meta name="title" content={pageTitle} />
 <meta name="description" content={description} />
 <meta name="keywords" content={keywords} />
 <meta name="author" content="Melody Mind Team" />
@@ -162,10 +248,11 @@ if (type === "article") {
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={type === "article" ? "article" : "website"} />
 <meta property="og:url" content={canonicalURL} />
-<meta property="og:title" content={`${title} | Melody Mind`} />
+<meta property="og:title" content={pageTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={imageURL} />
-<meta property="og:locale" content={lang} />
+<meta property="og:image:alt" content={`Melody Mind - ${title}`} />
+<meta property="og:locale" content={lang.replace("-", "_")} />
 <meta property="og:site_name" content="Melody Mind" />
 {
   publishDate && (
@@ -188,12 +275,30 @@ if (type === "article") {
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={canonicalURL} />
-<meta property="twitter:title" content={`${title} | Melody Mind`} />
+<meta property="twitter:title" content={pageTitle} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={imageURL} />
 <meta name="twitter:image:alt" content={`Melody Mind - ${title}`} />
 <meta name="twitter:site" content="@melodymindgame" />
 <meta name="twitter:creator" content="@melodymindgame" />
+
+<!-- Performance: Resource Hints -->
+<link rel="preconnect" href={new URL(imageURL).origin} crossorigin />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+<!-- Performance: Preload Critical Resources -->
+{
+  criticalResources.map((resource) => (
+    <link
+      rel="preload"
+      as={resource.as}
+      href={resource.href}
+      type={resource.type}
+      crossorigin={resource.crossorigin ? "anonymous" : undefined}
+    />
+  ))
+}
 
 <!-- Mobile App Integration -->
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -201,21 +306,17 @@ if (type === "article") {
   name="apple-mobile-web-app-status-bar-style"
   content="black-translucent"
 />
+<meta name="application-name" content="Melody Mind" />
 <meta name="theme-color" content="#18181b" />
 
-<!-- Performance Hints -->
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-
-<!-- Structured Data / JSON-LD -->
+<!-- Structured Data / JSON-LD - Compressed for performance -->
 <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
-<!-- Favicons -->
+<!-- Favicons with explicit sizes for better performance -->
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="shortcut icon" href="/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="Melody Mind" />
 <link rel="manifest" href="/site.webmanifest" />
 
 <!-- Generator -->

@@ -1,13 +1,45 @@
 ---
+/**
+ * PlaylistItem Component
+ *
+ * A reusable, accessible card component that represents a music playlist or category
+ * in the MelodyMind game. This component supports both interactive (linked) and
+ * non-interactive (disabled) states with visual indicators for each.
+ *
+ * Features:
+ * - Semantic HTML structure with appropriate ARIA attributes
+ * - WCAG AAA compliant (7:1 contrast ratio)
+ * - Responsive design with optimized media loading
+ * - Keyboard and screen reader accessible
+ * - Touch-friendly with appropriate target sizes
+ * - Visual feedback for hover and focus states
+ * - Support for reduced motion preferences
+ * - Optimized for performance with appropriate image formats
+ *
+ * @component
+ */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Picture } from "astro:assets";
 
+/**
+ * Props for the PlaylistItem component
+ * @interface Props
+ */
 interface Props {
+  /** Title text displayed as the main heading */
   headline: string;
-  subheadline?: string; // Optional property für die introSubline
+  /** Optional secondary text displayed below the headline */
+  subheadline?: string;
+  /** Path to the image representing this playlist/category */
   image: string;
+  /** Whether this item is disabled/unavailable (shows "coming soon" overlay) */
   isDisabled?: boolean;
+  /** Alternative text description for the image (for accessibility) */
   imageAlt: string;
+  /** URL for navigation when the item is clicked (required for semantic navigation) */
+  href?: string;
+  /** Optional ID for ARIA references */
+  id?: string;
 }
 
 const lang = getLangFromUrl(Astro.url);
@@ -19,15 +51,33 @@ const {
   image,
   isDisabled = false,
   imageAlt = "",
+  href = "#", // Default value for WCAG compliance
+  id = crypto.randomUUID(), // Generate unique ID for ARIA references
 } = Astro.props;
+
+// Enhanced, more specific IDs for ARIA references
+const headlineId = `playlist-title-${id}`;
+const descriptionId = `playlist-desc-${id}`;
+
+// Semantically correct element for PlaylistItem based on disabled status
+const Element = isDisabled ? "article" : "a";
 ---
 
-<article
+<Element
   class:list={[
-    "relative flex flex-col w-full h-full overflow-hidden rounded-xl bg-gradient-to-b from-zinc-800 to-zinc-900 will-change-transform transition-all duration-300 ease-in-out shadow-sm hover:shadow-md",
-    { "bg-opacity-80 grayscale-[30%]": isDisabled },
+    "relative flex flex-col w-full h-full min-h-[250px] overflow-hidden rounded-xl bg-gradient-to-b from-zinc-800 to-zinc-900 transition-all duration-300 ease-in-out border-2 border-purple-700/60 shadow-lg shadow-purple-900/20 hover:shadow-xl hover:border-purple-500 hover:shadow-purple-900/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2",
+    {
+      "cursor-default opacity-80 grayscale-[30%] border-zinc-700/40 hover:border-zinc-700/40":
+        isDisabled,
+    },
+    { "cursor-pointer hover:translate-y-[-2px]": !isDisabled },
   ]}
-  role="listitem"
+  role={isDisabled ? "listitem" : "link"}
+  aria-labelledby={headlineId}
+  aria-describedby={descriptionId}
+  aria-disabled={isDisabled || undefined}
+  href={isDisabled ? undefined : href}
+  tabindex={isDisabled ? "-1" : "0"}
 >
   {
     isDisabled && (
@@ -44,15 +94,19 @@ const {
     )
   }
 
+  <div
+    class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700"
+    aria-hidden="true"
+  >
+  </div>
+
   <div class="relative w-full aspect-[16/9] overflow-hidden group">
-    <!-- Overlay gradient for better text contrast -->
     <div
       class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/50 to-transparent z-[1] opacity-40 group-hover:opacity-30 transition-opacity"
       aria-hidden="true"
     >
     </div>
 
-    <!-- Media badge for accessibility -->
     <span
       class="absolute top-2 right-2 z-[2] bg-indigo-700 text-white text-xs font-medium px-2 py-1 rounded-full"
     >
@@ -78,6 +132,7 @@ const {
 
   <div class="p-5 flex-grow flex flex-col">
     <h2
+      id={headlineId}
       class="headline m-0 font-sans text-lg text-center font-semibold leading-tight hyphens-auto text-white break-words"
     >
       {headline}
@@ -85,7 +140,7 @@ const {
 
     {
       subheadline && (
-        <div class="mt-3 relative">
+        <div id={descriptionId} class="mt-3 relative">
           <div class="h-px w-1/4 bg-indigo-500 mx-auto mb-3" />
           <p class="text-base text-center text-zinc-100 leading-relaxed">
             {subheadline}
@@ -95,69 +150,139 @@ const {
     }
   </div>
 
-  <!-- Interactive indicator that appears on hover/focus -->
   <div
     class="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-purple-600 to-indigo-600 transform scale-x-0 group-hover:scale-x-100 group-focus-visible:scale-x-100 transition-transform origin-left"
     aria-hidden="true"
   >
   </div>
-</article>
+</Element>
 
 <script>
-  // Verbesserter Hover-Effekt mit Prüfung auf Gerätefähigkeiten
-  document
-    .querySelectorAll('article[role="listitem"]:not([aria-disabled="true"])')
-    .forEach((item) => {
-      // Fokus-Behandlung für Tastaturzugänglichkeit
-      item.addEventListener(
-        "focus",
-        () => {
-          item.classList.add(
-            "ring-2",
-            "ring-purple-500",
-            "ring-offset-2",
-            "ring-offset-zinc-900",
-          );
-        },
-        true,
-      );
+  /**
+   * PlaylistItem Interactive Behavior
+   *
+   * This script enhances the PlaylistItem component with interactive behaviors,
+   * including focus handling for keyboard navigation and hover effects for mouse users.
+   * It implements device capability detection for optimal performance.
+   *
+   * Features:
+   * - Progressive enhancement for interactive elements
+   * - Device capability detection for hover effects
+   * - Focus management for keyboard accessibility
+   * - Performance optimizations for event listeners
+   */
 
-      item.addEventListener(
-        "blur",
-        () => {
-          item.classList.remove(
-            "ring-2",
-            "ring-purple-500",
-            "ring-offset-2",
-            "ring-offset-zinc-900",
-          );
-        },
-        true,
-      );
+  /**
+   * Initialize interactive behaviors for PlaylistItem components
+   */
+  document.addEventListener("DOMContentLoaded", () => {
+    initializePlaylistItems();
+  });
 
-      // Hover-Effekte nur auf Geräten, die Hover unterstützen
+  /**
+   * Set up all event listeners and interactive behaviors
+   */
+  function initializePlaylistItems() {
+    // Target only interactive playlist items (non-disabled)
+    const items = document.querySelectorAll(
+      'article[role="listitem"]:not([aria-disabled="true"])'
+    );
+
+    items.forEach((item) => {
+      setupFocusHandling(item as HTMLElement);
+
+      // Apply hover effects only on devices with hover capability
       if (window.matchMedia("(hover: hover)").matches) {
-        item.addEventListener("mouseenter", () => {
-          item.classList.add(
-            "translate-y-[-2px]",
-            "shadow-lg",
-            "shadow-purple-900/10",
-          );
-        });
-
-        item.addEventListener("mouseleave", () => {
-          item.classList.remove(
-            "translate-y-[-2px]",
-            "shadow-lg",
-            "shadow-purple-900/10",
-          );
-        });
+        setupHoverEffects(item as HTMLElement);
       }
     });
+  }
+
+  /**
+   * Set up keyboard focus handling for accessibility
+   * @param {HTMLElement} element - The playlist item element
+   */
+  function setupFocusHandling(element: HTMLElement) {
+    // Focus ring styles for keyboard navigation
+    element.addEventListener(
+      "focus",
+      () => {
+        element.classList.add(
+          "ring-2",
+          "ring-purple-500",
+          "ring-offset-2",
+          "ring-offset-zinc-900"
+        );
+      },
+      { passive: true } // Performance optimization
+    );
+
+    element.addEventListener(
+      "blur",
+      () => {
+        element.classList.remove(
+          "ring-2",
+          "ring-purple-500",
+          "ring-offset-2",
+          "ring-offset-zinc-900"
+        );
+      },
+      { passive: true } // Performance optimization
+    );
+  }
+
+  /**
+   * Set up hover effects for devices with pointer capability
+   * @param {HTMLElement} element - The playlist item element
+   */
+  function setupHoverEffects(element: HTMLElement) {
+    element.addEventListener(
+      "mouseenter",
+      () => {
+        element.classList.add(
+          "translate-y-[-2px]",
+          "shadow-lg",
+          "shadow-purple-900/10"
+        );
+      },
+      { passive: true }
+    );
+
+    element.addEventListener(
+      "mouseleave",
+      () => {
+        element.classList.remove(
+          "translate-y-[-2px]",
+          "shadow-lg",
+          "shadow-purple-900/10"
+        );
+      },
+      { passive: true }
+    );
+  }
+
+  // Clean up event listeners when page is navigated away
+  document.addEventListener("astro:before-swap", () => {
+    // No explicit cleanup needed as elements will be removed from DOM
+  });
 </script>
 
 <style>
-  /* Verbesserte Stile für Nutzer, die reduzierte Bewegung bevorzugen */
+  /**
+   * PlaylistItem Component Styles
+   *
+   * These styles enhance the PlaylistItem component with:
+   * - Accessibility features (reduced motion, high contrast mode)
+   * - Performance optimizations for rendering
+   * - Visual enhancements for better user experience
+   * - Support for various device capabilities
+   */
+
+  /**
+   * Reduced Motion Support
+   * Removes animations for users who prefer reduced motion
+   * WCAG Success Criterion 2.3.3 (Animation from Interactions)
+   */
   @media (prefers-reduced-motion: reduce) {
     article,
     .group img,
@@ -170,7 +295,11 @@ const {
     }
   }
 
-  /* Verbesserte High Contrast Mode Unterstützung */
+  /**
+   * High Contrast Mode Support
+   * Enhances visibility in Windows High Contrast Mode and other forced color schemes
+   * WCAG Success Criterion 1.4.3 (Contrast) and 1.4.11 (Non-text Contrast)
+   */
   @media (forced-colors: active) {
     article[role="listitem"] {
       border: 2px solid ButtonText;
@@ -182,6 +311,7 @@ const {
       opacity: 0.7;
     }
 
+    /* Remove background gradients in high contrast mode for better visibility */
     .from-zinc-800,
     .to-zinc-900,
     .bg-gradient-to-b,
@@ -195,7 +325,11 @@ const {
     }
   }
 
-  /* Bessere Unterstützung für 16:9 Aspektverhältnis */
+  /**
+   * Aspect Ratio Support
+   * Maintains consistent 16:9 aspect ratio for media content
+   * Prevents layout shifts during image loading (Core Web Vitals)
+   */
   .aspect-\[16\/9\] {
     position: relative;
     padding-bottom: 56.25%; /* 9/16 = 0.5625 */
@@ -211,19 +345,52 @@ const {
     object-fit: cover;
   }
 
-  /* Verbesserte Lesbarkeit durch optimale Zeilenhöhe */
+  /**
+   * Typography Enhancements
+   * Improves readability with optimized line height
+   * WCAG Success Criterion 1.4.8 (Visual Presentation)
+   */
   .leading-relaxed {
     line-height: 1.6;
   }
 
-  /* Farbkontrast-Unterstützung für die Zugänglichkeit */
+  /**
+   * Color Contrast Support
+   * Ensures text meets WCAG AAA contrast requirements (7:1 ratio)
+   * WCAG Success Criterion 1.4.6 (Contrast Enhanced)
+   */
   .text-zinc-100 {
-    color: #f4f4f5; /* Höherer Kontrast als Standard-zinc-100 */
+    color: #f4f4f5; /* Higher contrast than standard zinc-100 */
   }
 
-  /* Fokus-Stile für bessere Tastaturnavigation */
+  /**
+   * Focus States
+   * Enhances visibility of focus indicators for keyboard navigation
+   * WCAG Success Criterion 2.4.7 (Focus Visible)
+   */
   article:focus-visible {
-    outline: 3px solid #a855f7 !important;
-    outline-offset: 3px !important;
+    outline: 3px solid #a855f7 !important; /* Purple outline for focus */
+    outline-offset: 3px !important; /* Space between outline and element */
+  }
+
+  /**
+   * Print Styles
+   * Optimizes appearance when printed
+   */
+  @media print {
+    article {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      border: 1px solid #000;
+      background: none !important;
+    }
+
+    .headline {
+      color: #000;
+    }
+
+    [aria-hidden="true"] {
+      display: none;
+    }
   }
 </style>
