@@ -227,7 +227,7 @@ export const ui = {
     "aria.expanded": "Erweitert",
     "aria.shortcuts.panel": "Tastaturkürzel-Panel",
     "aria.shortcuts.list": "Liste der verfügbaren Tastenkombinationen",
-    "knowledge.empty": "Keine Artikel in dieser Kategorie verfügbar",
+    "knowledge.empty": "Keine Artikel für diese Sprache gefunden",
     "playlist.page.title": "Musik Playlists | Melody Mind",
     "playlist.page.heading": "Entdecke unsere Musikplaylists",
     "playlist.page.description":
@@ -262,6 +262,21 @@ export const ui = {
     "game.chronology.position": "Position",
     "game.chronology.start": "Anfang",
     "game.chronology.end": "Ende",
+    "common.back.to.top": "Zurück nach oben",
+    "knowledge.articles.heading": "Wissensartikel",
+    "knowledge.search.heading": "Artikel durchsuchen",
+    "knowledge.search.label":
+      "Suche nach Titel, Beschreibung oder Stichwörtern",
+    "knowledge.search.placeholder": "Artikel durchsuchen...",
+    "knowledge.search.description":
+      "Artikel werden automatisch während der Eingabe gefiltert",
+    "knowledge.search.reset": "Suche zurücksetzen",
+    "knowledge.search.reset.text": "Zurücksetzen",
+    "knowledge.no.results.help":
+      "Versuche andere Suchbegriffe oder setze die Suche zurück",
+    "knowledge.keyboard.instructions":
+      "Verwende die Pfeiltasten zur Navigation zwischen Artikeln. Drücke Enter, um einen Artikel zu öffnen.",
+    "difficulty.level": "Schwierigkeitsgrad",
   },
   en: {
     "nav.home": "Home",
@@ -472,7 +487,7 @@ export const ui = {
     "aria.expanded": "Expanded",
     "aria.shortcuts.panel": "Keyboard shortcuts panel",
     "aria.shortcuts.list": "List of available keyboard shortcuts",
-    "knowledge.empty": "No articles available in this category",
+    "knowledge.empty": "No articles found for this language",
     "playlist.page.title": "Music Playlists | Melody Mind",
     "playlist.page.heading": "Discover our Music Playlists",
     "playlist.page.description":
@@ -506,6 +521,19 @@ export const ui = {
     "game.chronology.position": "Position",
     "game.chronology.start": "Start",
     "game.chronology.end": "End",
+    "common.back.to.top": "Back to top",
+    "knowledge.articles.heading": "Knowledge Articles",
+    "knowledge.search.heading": "Search Articles",
+    "knowledge.search.label": "Search by title, description or keywords",
+    "knowledge.search.placeholder": "Search articles...",
+    "knowledge.search.description":
+      "Articles will filter automatically as you type",
+    "knowledge.search.reset": "Reset search",
+    "knowledge.search.reset.text": "Reset",
+    "knowledge.no.results.help":
+      "Try different search terms or reset your search",
+    "knowledge.keyboard.instructions":
+      "Use arrow keys to navigate between articles. Press Enter to open an article.",
   },
   es: {
     "nav.home": "Inicio",
@@ -752,6 +780,25 @@ export const ui = {
     "game.chronology.drag.help":
       "Usa las teclas de flecha ↑/↓ o arrastra para reordenar",
     "game.submit.answer": "Verificar Respuesta",
+    "game.chronology.up": "Arriba",
+    "game.chronology.down": "Abajo",
+    "game.chronology.position": "Posición",
+    "game.chronology.start": "Inicio",
+    "game.chronology.end": "Fin",
+    "common.back.to.top": "Volver arriba",
+    "knowledge.articles.heading": "Artículos de Conocimiento",
+    "knowledge.search.heading": "Buscar Artículos",
+    "knowledge.search.label": "Buscar por título, descripción o palabras clave",
+    "knowledge.search.placeholder": "Buscar artículos...",
+    "knowledge.search.description":
+      "Los artículos se filtrarán automáticamente mientras escribes",
+    "knowledge.search.reset": "Reiniciar búsqueda",
+    "knowledge.search.reset.text": "Reiniciar",
+    "knowledge.no.results.help":
+      "Prueba diferentes términos de búsqueda o reinicia tu búsqueda",
+    "knowledge.keyboard.instructions":
+      "Usa las teclas de flecha para navegar entre artículos. Presiona Enter para abrir un artículo.",
+    "knowledge.empty": "No hay artículos disponibles en este idioma",
   },
   fr: {
     "nav.home": "Accueil",
@@ -998,11 +1045,25 @@ export const ui = {
     "game.chronology.drag.help":
       "Utilisez les touches fléchées ↑/↓ ou glissez pour réorganiser",
     "game.submit.answer": "Vérifier la Réponse",
-    "game.chronology.up": "Vers le haut",
-    "game.chronology.down": "Vers le bas",
+    "game.chronology.up": "En haut",
+    "game.chronology.down": "En bas",
     "game.chronology.position": "Position",
     "game.chronology.start": "Début",
     "game.chronology.end": "Fin",
+    "common.back.to.top": "Retour en haut",
+    "knowledge.articles.heading": "Articles de Connaissance",
+    "knowledge.search.heading": "Rechercher des Articles",
+    "knowledge.search.label": "Rechercher par titre, description ou mots-clés",
+    "knowledge.search.placeholder": "Rechercher des articles...",
+    "knowledge.search.description":
+      "Les articles seront filtrés automatiquement pendant que vous tapez",
+    "knowledge.search.reset": "Réinitialiser la recherche",
+    "knowledge.search.reset.text": "Réinitialiser",
+    "knowledge.no.results.help":
+      "Essayez d'autres termes de recherche ou réinitialisez votre recherche",
+    "knowledge.keyboard.instructions":
+      "Utilisez les touches fléchées pour naviguer entre les articles. Appuyez sur Entrée pour ouvrir un article.",
+    "knowledge.empty": "Aucun article disponible dans cette langue",
   },
   it: {
     "nav.home": "Home",
@@ -1189,7 +1250,7 @@ export const ui = {
     "podcast.listen.heading": "Ascolta i nostri Podcast",
     "login.welcome": "Benvenuto a Melody Mind!",
     "login.description":
-      "Intraprendi un viaggio musicale attraverso il tempo! Metti alla prova le tue conoscenze in quiz entusiasmanti, esplora affascinanti generi musicali e immergiti nei nostri avvincenti podcast. Mostra le tue abilità, raccogli punti e diventa una vera leggenda della musica!",
+      "Intraprendi un viaggio musicale attraverso il tempo! Metti alla prova le tue conoscenze in quiz entusiasmanti, esplora affascinanti generi musicali och immergiti nei nostri avvincenti podcast. Mostra le tue abilità, raccogli punti och diventa una vera leggenda della musica!",
     "index.continue": "Iniziamo!",
     "index.start.game.label": "Inizia il tuo viaggio musicale",
     "index.welcome.footnote":
@@ -1249,6 +1310,25 @@ export const ui = {
     "game.chronology.drag.help":
       "Usa i tasti freccia ↑/↓ o trascina per riordinare",
     "game.submit.answer": "Verifica Risposta",
+    "game.chronology.up": "Su",
+    "game.chronology.down": "Giù",
+    "game.chronology.position": "Posizione",
+    "game.chronology.start": "Inizio",
+    "game.chronology.end": "Fine",
+    "common.back.to.top": "Torna in alto",
+    "knowledge.articles.heading": "Articoli di Conoscenza",
+    "knowledge.search.heading": "Cerca Articoli",
+    "knowledge.search.label": "Cerca per titolo, descrizione o parole chiave",
+    "knowledge.search.placeholder": "Cerca articoli...",
+    "knowledge.search.description":
+      "Gli articoli si filtreranno automaticamente mentre scrivi",
+    "knowledge.search.reset": "Reimposta ricerca",
+    "knowledge.search.reset.text": "Reimposta",
+    "knowledge.no.results.help":
+      "Prova termini di ricerca diversi o reimposta la tua ricerca",
+    "knowledge.keyboard.instructions":
+      "Utilizza i tasti freccia per navigare tra gli articoli. Premi Invio per aprire un articolo.",
+    "knowledge.empty": "Nessun articolo disponibile in questa lingua",
   },
   pt: {
     "nav.home": "Início",
@@ -1435,7 +1515,7 @@ export const ui = {
     "podcast.listen.heading": "Ouça nossos Podcasts",
     "login.welcome": "Bem-vindo ao Melody Mind!",
     "login.description":
-      "Embarque em uma jornada musical através do tempo! Teste seus conhecimentos em quizzes emocionantes, explore gêneros musicais fascinantes e mergulhe em nossos podcasts cativantes. Mostre suas habilidades, acumule pontos e torne-se uma verdadeira lenda da música!",
+      "Embarque em uma jornada musical através do tempo! Teste seus conhecimentos em quizzes emocionantes, explore gêneros musicais fascinantes och mergulhe em nossos podcasts cativantes. Mostre suas habilidades, acumule pontos och torne-se uma verdadeira lenda da música!",
     "index.continue": "Vamos lá!",
     "index.start.game.label": "Inicie sua jornada musical",
     "index.welcome.footnote":
@@ -1494,6 +1574,26 @@ export const ui = {
     "game.chronology.drag.help":
       "Use as teclas de seta ↑/↓ ou arraste e solte para ordenar",
     "game.submit.answer": "Verificar Resposta",
+    "game.chronology.up": "Para cima",
+    "game.chronology.down": "Para baixo",
+    "game.chronology.position": "Posição",
+    "game.chronology.start": "Início",
+    "game.chronology.end": "Fim",
+    "common.back.to.top": "Voltar ao topo",
+    "knowledge.articles.heading": "Artigos de Conhecimento",
+    "knowledge.search.heading": "Pesquisar Artigos",
+    "knowledge.search.label":
+      "Pesquisar por título, descrição ou palavras-chave",
+    "knowledge.search.placeholder": "Pesquisar artigos...",
+    "knowledge.search.description":
+      "Os artigos serão filtrados automaticamente enquanto você digita",
+    "knowledge.search.reset": "Redefinir pesquisa",
+    "knowledge.search.reset.text": "Redefinir",
+    "knowledge.no.results.help":
+      "Tente termos de pesquisa diferentes ou redefina sua pesquisa",
+    "knowledge.keyboard.instructions":
+      "Use as teclas de seta para navegar entre os artigos. Pressione Enter para abrir um artigo.",
+    "knowledge.empty": "Nenhum artigo disponível neste idioma",
   },
   da: {
     "nav.home": "Hjem",
@@ -1713,6 +1813,7 @@ export const ui = {
       "Dyk ned i omhyggeligt kuraterede playlister fra forskellige epoker og genrer. Perfekt til at opdage ny musik eller genbesøge dine yndlingsklassikere.",
     "playlist.search.label": "Søg i playlister",
     "playlist.search.placeholder": "Søg efter musikæra eller stil...",
+    "playlist.search.placeholder": "Søg efter musikæra eller stil...",
     "playlist.filter.all": "Alle epoker",
     "playlist.no.results":
       "Ingen matchende playlister fundet. Prøv et andet søgeord.",
@@ -1736,6 +1837,24 @@ export const ui = {
     "game.chronology.drag.help":
       "Brug piletasterne ↑/↓ eller træk og slip for at sortere",
     "game.submit.answer": "Tjek svar",
+    "game.chronology.up": "Op",
+    "game.chronology.down": "Ned",
+    "game.chronology.position": "Position",
+    "game.chronology.start": "Start",
+    "game.chronology.end": "Slut",
+    "common.back.to.top": "Tilbage til toppen",
+    "knowledge.articles.heading": "Vidensartikler",
+    "knowledge.search.heading": "Søg Artikler",
+    "knowledge.search.label": "Søg efter titel, beskrivelse eller nøgleord",
+    "knowledge.search.placeholder": "Søg artikler...",
+    "knowledge.search.description":
+      "Artikler filtreres automatisk, mens du skriver",
+    "knowledge.search.reset": "Nulstil søgning",
+    "knowledge.search.reset.text": "Nulstil",
+    "knowledge.no.results.help": "Prøv andre søgeord eller nulstil din søgning",
+    "knowledge.keyboard.instructions":
+      "Brug piletasterne til at navigere mellem artikler. Tryk på Enter for at åbne en artikel.",
+    "knowledge.empty": "Ingen artikler tilgængelige på dette sprog",
   },
   nl: {
     "nav.home": "Home",
@@ -1977,6 +2096,25 @@ export const ui = {
     "game.chronology.drag.help":
       "Gebruik de pijltjestoetsen ↑/↓ of sleep en laat los om te sorteren",
     "game.submit.answer": "Controleer antwoord",
+    "game.chronology.up": "Omhoog",
+    "game.chronology.down": "Omlaag",
+    "game.chronology.position": "Positie",
+    "game.chronology.start": "Begin",
+    "game.chronology.end": "Einde",
+    "common.back.to.top": "Terug naar boven",
+    "knowledge.articles.heading": "Kennisartikelen",
+    "knowledge.search.heading": "Artikelen Zoeken",
+    "knowledge.search.label": "Zoeken op titel, beschrijving of trefwoorden",
+    "knowledge.search.placeholder": "Artikelen zoeken...",
+    "knowledge.search.description":
+      "Artikelen worden automatisch gefilterd tijdens het typen",
+    "knowledge.search.reset": "Zoekopdracht resetten",
+    "knowledge.search.reset.text": "Resetten",
+    "knowledge.no.results.help":
+      "Probeer andere zoektermen of reset je zoekopdracht",
+    "knowledge.keyboard.instructions":
+      "Gebruik pijltjestoetsen om tussen artikelen te navigeren. Druk op Enter om een artikel te openen.",
+    "knowledge.empty": "Geen artikelen beschikbaar in deze taal",
   },
   sv: {
     "nav.home": "Hem",
@@ -2217,6 +2355,25 @@ export const ui = {
     "game.chronology.drag.help":
       "Använd piltangenterna ↑/↓ eller dra och släpp för att ordna",
     "game.submit.answer": "Kontrollera svar",
+    "game.chronology.up": "Upp",
+    "game.chronology.down": "Ner",
+    "game.chronology.position": "Position",
+    "game.chronology.start": "Början",
+    "game.chronology.end": "Slut",
+    "common.back.to.top": "Tillbaka till toppen",
+    "knowledge.articles.heading": "Kunskapsartiklar",
+    "knowledge.search.heading": "Sök Artiklar",
+    "knowledge.search.label": "Sök på titel, beskrivning eller nyckelord",
+    "knowledge.search.placeholder": "Sök artiklar...",
+    "knowledge.search.description":
+      "Artiklar filtreras automatiskt medan du skriver",
+    "knowledge.search.reset": "Återställ sökning",
+    "knowledge.search.reset.text": "Återställ",
+    "knowledge.no.results.help":
+      "Prova andra söktermer eller återställ din sökning",
+    "knowledge.keyboard.instructions":
+      "Använd piltangenterna för att navigera mellan artiklar. Tryck på Enter för att öppna en artikel.",
+    "knowledge.empty": "Inga artiklar tillgängliga på detta språk",
   },
   fi: {
     "nav.home": "Etusivu",
@@ -2464,5 +2621,19 @@ export const ui = {
     "game.chronology.position": "Sijainti",
     "game.chronology.start": "Alku",
     "game.chronology.end": "Loppu",
+    "common.back.to.top": "Takaisin ylös",
+    "knowledge.articles.heading": "Tietoartikkelit",
+    "knowledge.search.heading": "Hae artikkeleita",
+    "knowledge.search.label":
+      "Hae otsikon, kuvauksen tai avainsanojen perusteella",
+    "knowledge.search.placeholder": "Hae artikkeleita...",
+    "knowledge.search.description":
+      "Artikkelit suodattuvat automaattisesti kirjoittaessasi",
+    "knowledge.search.reset": "Nollaa haku",
+    "knowledge.search.reset.text": "Nollaa",
+    "knowledge.no.results.help": "Kokeile eri hakusanoja tai nollaa hakusi",
+    "knowledge.keyboard.instructions":
+      "Käytä nuolinäppäimiä navigoidaksesi artikkelien välillä. Paina Enter avataksesi artikkelin.",
+    "knowledge.empty": "Tällä kielellä ei ole saatavilla artikkeleita",
   },
 };

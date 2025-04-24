@@ -36,6 +36,10 @@ interface Props {
   readingTime?: number;
   /** Complete URL to the article (optional - if omitted, component will be a non-linking card) */
   articleUrl?: string;
+  /** Comma-separated keywords for searchability */
+  keywords?: string;
+  /** Index for animation delay calculation */
+  index?: number;
 }
 
 const {
@@ -47,6 +51,8 @@ const {
   lang,
   readingTime = 0,
   articleUrl,
+  keywords,
+  index = 0,
 } = Astro.props;
 
 // Choose locale for date formatting
@@ -60,7 +66,7 @@ const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
 const hasOwnLink = !!articleUrl;
 
 // Generate a unique ID for this card for aria-labelledby
-const cardId = `card-title-${slug}`;
+const cardId = `card-title-${slug}-${index}`;
 
 // Format reading time for better appearance and accessibility
 const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}`;
@@ -99,8 +105,11 @@ const { category, mainTitle } = extractTitleParts(title);
 ---
 
 <article 
-  class="h-full flex flex-col bg-zinc-900 rounded-xl overflow-hidden border-2 border-purple-700/60 shadow-lg shadow-purple-900/20 transition-all duration-300 hover:shadow-xl hover:border-purple-500 hover:shadow-purple-900/30"
+  class="h-full flex flex-col bg-zinc-900 rounded-xl overflow-hidden border-2 border-purple-700/60 shadow-lg shadow-purple-900/20 transition-all duration-300 hover:shadow-xl hover:border-purple-500 hover:shadow-purple-900/30 knowledge-card"
   data-testid="knowledge-card"
+  data-title={title}
+  data-description={description}
+  data-keywords={keywords}
 >
   {hasOwnLink ? (
     <a 
