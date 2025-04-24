@@ -21,17 +21,21 @@ try {
   categories = await import(`@json/${lang}_categories.json`);
 } catch (error) {
   // Fallback to default language if the specific language file doesn't exist
-  categories = await import(`@json/de_categories.json`);
+  categories = await import(`@json/en_categories.json`);
 }
 
-// No login check needed anymore
-const user = { id: "guest" }; // Default user for game functionality
+// Default user for game functionality
+const user = { id: "guest" };
 
+// Find current category data for display and metadata
 const currentCategoryData = categories.default.find(
-  (cat: any) => cat.slug === category,
+  (cat: any) => cat.slug === category
 );
 
 const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
+
+// Generate optimized meta description for SEO
+const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${currentCategoryData?.headline || ""} ${t("game.meta.description.suffix") || "im Schwierigkeitsgrad"} ${t(`difficulty.${difficulty}`) || difficulty}`;
 ---
 
 <Layout
@@ -160,7 +164,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 
   // Get current language based on URL and initialize translations
   const lang = getLangFromUrl(
-    new URL(window.location.pathname, window.location.origin),
+    new URL(window.location.pathname, window.location.origin)
   );
   const t = useTranslations(lang);
 
@@ -216,19 +220,19 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       question: document.getElementById("question") as HTMLParagraphElement,
       options: document.getElementById("options") as HTMLDivElement,
       container: document.getElementById(
-        "question-container",
+        "question-container"
       ) as HTMLDivElement,
       overlayCover: document.getElementById(
-        "overlay-cover",
+        "overlay-cover"
       ) as HTMLImageElement,
       overlay: document.getElementById("overlay") as HTMLDivElement,
       jokerButton: document.getElementById("joker-button") as HTMLButtonElement,
       jokerCounter: document.getElementById("joker-count") as HTMLElement,
       nextRoundButton: document.getElementById(
-        "next-round-button",
+        "next-round-button"
       ) as HTMLButtonElement,
       restartButton: document.getElementById(
-        "restart-button",
+        "restart-button"
       ) as HTMLButtonElement,
       loadingSpinner: document.getElementById("loading-spinner") as HTMLElement,
     };
@@ -288,16 +292,16 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       } catch (langError) {
         // Fallback to German if the specific language file doesn't exist
         console.log(
-          `No albums found for ${lang}/${category}, falling back to German`,
+          `No albums found for ${lang}/${category}, falling back to German`
         );
 
         const fallbackResponse = await fetch(
-          `/json/genres/de/${category}.json`,
+          `/json/genres/de/${category}.json`
         );
 
         if (!fallbackResponse.ok) {
           throw new Error(
-            `HTTP error for fallback! Status: ${fallbackResponse.status}`,
+            `HTTP error for fallback! Status: ${fallbackResponse.status}`
           );
         }
 
@@ -312,7 +316,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     } catch (error) {
       console.error("Error loading albums:", error);
       ErrorHandler.handleApiError(
-        error instanceof Error ? error : new Error(String(error)),
+        error instanceof Error ? error : new Error(String(error))
       );
       return;
     }
@@ -346,7 +350,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       option: any,
       correctAnswer: any,
       currentQuestion: { trivia: string },
-      album: { coverSrc: string; artist: string; album: string; year: string },
+      album: { coverSrc: string; artist: string; album: string; year: string }
     ) {
       // Process the answer and update the score
       score = handleAnswer({
@@ -391,13 +395,13 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
           const newQuestion = getRandomQuestion(
             albums ?? [],
             validateDifficulty(difficulty),
-            totalRounds,
+            totalRounds
           );
 
           if (newQuestion) {
             loadNewQuestion(
               newQuestion.randomQuestion,
-              newQuestion.randomAlbum,
+              newQuestion.randomAlbum
             );
 
             if (elements.feedback) {
@@ -511,13 +515,13 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     const initialQuestion = getRandomQuestion(
       albums,
       validateDifficulty(difficulty),
-      totalRounds,
+      totalRounds
     );
 
     if (initialQuestion?.randomQuestion && initialQuestion?.randomAlbum) {
       loadNewQuestion(
         initialQuestion.randomQuestion,
-        initialQuestion.randomAlbum,
+        initialQuestion.randomAlbum
       );
     } else {
       console.error(t("error.no.initial.question"));
@@ -592,7 +596,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     const requiredElements = ["score", "question", "options", "container"];
 
     return requiredElements.every(
-      (key) => elements[key as keyof GameElements] !== null,
+      (key) => elements[key as keyof GameElements] !== null
     );
   }
 
