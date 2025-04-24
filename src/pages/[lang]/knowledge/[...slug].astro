@@ -27,7 +27,7 @@ export async function getStaticPaths() {
           props: { entry },
         };
       });
-    })
+    }),
   );
   return allEntries.flat();
 }
