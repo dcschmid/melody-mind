@@ -14,7 +14,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const { category, difficulty } = Astro.params;
 
-// Dynamic import of categories based on language
+// Dynamic import of categories based on language with optimized error handling
 let categories;
 try {
   categories = await import(`@json/${lang}_categories.json`);
@@ -26,11 +26,16 @@ try {
 // Default user for game functionality
 const user = { id: "guest" };
 
+// Find current category data to use in page metadata and title
 const currentCategoryData = categories.default.find(
-  (cat: any) => cat.slug === category,
+  (cat: any) => cat.slug === category
 );
 
+// Get custom player title based on difficulty for personalized experience
 const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
+
+// Generate SEO-friendly meta description that includes game mode and category
+const metaDescription = `${t("game.chronology.meta.description") || "Musik-Chronologie Spiel:"} ${currentCategoryData?.headline || ""} ${t("game.meta.difficulty") || "im Schwierigkeitsgrad"} ${t(`difficulty.${difficulty}`) || difficulty}`;
 ---
 
 <Layout
@@ -172,7 +177,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 
   // Sprache basierend auf URL abrufen und Übersetzungen initialisieren
   const lang = getLangFromUrl(
-    new URL(window.location.pathname, window.location.origin),
+    new URL(window.location.pathname, window.location.origin)
   );
   const t = useTranslations(lang);
 
@@ -223,15 +228,15 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
   function cacheElements(): ChronologyGameElements {
     return {
       itemsContainer: document.getElementById(
-        "chronology-items-container",
+        "chronology-items-container"
       ) as HTMLElement,
       submitButton: document.getElementById(
-        "chronology-submit",
+        "chronology-submit"
       ) as HTMLButtonElement,
       coinsDisplay: document.querySelector(".coinsCount") as HTMLElement,
       loadingSpinner: document.getElementById("loading-spinner") as HTMLElement,
       chronologyContainer: document.getElementById(
-        "chronology-container",
+        "chronology-container"
       ) as HTMLElement,
       endGamePopup: document.getElementById("endgame-popup") as HTMLElement,
       roundElement: document.querySelector(".round") as HTMLElement,
@@ -263,7 +268,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       this.userId = container.getAttribute("data-userID") || "guest";
       this.categoryName = container.getAttribute("data-categoryName") || "";
       this.difficulty = validateDifficulty(
-        container.getAttribute("date-difficulty"),
+        container.getAttribute("date-difficulty")
       );
 
       this.totalRounds =
@@ -281,7 +286,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
     private initEventListeners() {
       // Submit-Button
       this.elements.submitButton.addEventListener("click", () =>
-        this.handleSubmit(),
+        this.handleSubmit()
       );
 
       // Neustart-Button im Endspiel-Popup
@@ -301,7 +306,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
         try {
           // Versuche zuerst, Alben für die aktuelle Sprache zu laden
           const response = await fetch(
-            `/json/genres/${lang}/${this.category}.json`,
+            `/json/genres/${lang}/${this.category}.json`
           );
 
           if (!response.ok) {
@@ -312,16 +317,16 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
         } catch (langError) {
           // Fallback auf Deutsch, wenn die spezifische Sprachdatei nicht existiert
           console.log(
-            `No albums found for ${lang}/${this.category}, falling back to German`,
+            `No albums found for ${lang}/${this.category}, falling back to German`
           );
 
           const fallbackResponse = await fetch(
-            `/json/genres/de/${this.category}.json`,
+            `/json/genres/de/${this.category}.json`
           );
 
           if (!fallbackResponse.ok) {
             throw new Error(
-              `HTTP error for fallback! Status: ${fallbackResponse.status}`,
+              `HTTP error for fallback! Status: ${fallbackResponse.status}`
             );
           }
 
@@ -338,7 +343,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       } catch (error) {
         console.error("Error loading albums:", error);
         ErrorHandler.handleApiError(
-          error instanceof Error ? error : new Error(String(error)),
+          error instanceof Error ? error : new Error(String(error))
         );
         return false;
       }
@@ -388,12 +393,12 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       // Frage für aktuellen Schwierigkeitsgrad generieren
       this.currentQuestion = generateChronologyQuestion(
         this.albums,
-        this.difficulty,
+        this.difficulty
       );
 
       if (!this.currentQuestion) {
         ErrorHandler.handleApiError(
-          new Error("Keine gültige Chronologie-Frage konnte generiert werden"),
+          new Error("Keine gültige Chronologie-Frage konnte generiert werden")
         );
         return;
       }
@@ -564,7 +569,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
         item.setAttribute("role", "listitem");
         item.setAttribute(
           "aria-label",
-          `Element ${item.querySelector(".font-bold")?.textContent} - ${item.querySelector(".text-zinc-300")?.textContent}. Nutze Pfeiltasten zum Umordnen.`,
+          `Element ${item.querySelector(".font-bold")?.textContent} - ${item.querySelector(".text-zinc-300")?.textContent}. Nutze Pfeiltasten zum Umordnen.`
         );
 
         item.addEventListener("keydown", (e) => {
@@ -681,7 +686,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
             "ring-2",
             "ring-purple-500",
             "ring-offset-1",
-            "bg-purple-900/20",
+            "bg-purple-900/20"
           );
         });
       });
@@ -700,7 +705,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
           "ring-2",
           "ring-purple-500",
           "ring-offset-1",
-          "bg-purple-900/20",
+          "bg-purple-900/20"
         );
       });
 
@@ -709,7 +714,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
         "ring-2",
         "ring-purple-500",
         "ring-offset-1",
-        "bg-purple-900/20",
+        "bg-purple-900/20"
       );
 
       // Pulse-Animation für besseres visuelles Feedback
@@ -722,7 +727,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
         {
           duration: 300,
           easing: "ease-in-out",
-        },
+        }
       );
     }
 
@@ -735,12 +740,12 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
       const items =
         this.elements.itemsContainer.querySelectorAll(".chronology-item");
       const userOrder = Array.from(items).map((item) =>
-        parseInt(item.getAttribute("data-id") || "0"),
+        parseInt(item.getAttribute("data-id") || "0")
       );
 
       const result = evaluateChronologyAnswer(
         userOrder,
-        this.currentQuestion.correctOrder,
+        this.currentQuestion.correctOrder
       );
 
       // Punktestand aktualisieren
@@ -845,10 +850,10 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 
         // Jahr anzeigen
         const matchingItem = this.currentQuestion.items.find(
-          (i: any) => i.id === id,
+          (i: any) => i.id === id
         );
         const content = item.querySelector(
-          ".chronology-item > div:nth-child(2)",
+          ".chronology-item > div:nth-child(2)"
         );
         if (content && matchingItem) {
           const yearElement = document.createElement("div");
@@ -905,7 +910,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
               scoreElement.textContent = score.toString();
               this.elements.endGamePopup.setAttribute(
                 "data-score",
-                score.toString(),
+                score.toString()
               );
               this.elements.endGamePopup.classList.remove("hidden");
             }
