@@ -48,7 +48,7 @@ export async function getStaticPaths() {
         // Fallback to English if language file doesn't exist
         try {
           console.info(
-            `No playlist data found for ${lang}, falling back to English`
+            `No playlist data found for ${lang}, falling back to English`,
           );
           const fallbackData = await import(
             /* @vite-ignore */ `../../json/en_playlist.json`
@@ -57,7 +57,7 @@ export async function getStaticPaths() {
         } catch (fallbackError) {
           console.error(
             `Error loading playlist data for ${lang}:`,
-            fallbackError
+            fallbackError,
           );
         }
       }
@@ -69,7 +69,7 @@ export async function getStaticPaths() {
           playlists,
         },
       };
-    })
+    }),
   );
 
   return paths;
@@ -119,7 +119,7 @@ const modifiedDate = new Date();
 
 // Sort playlists chronologically (assuming decade in headline format like "1950s")
 const sortedPlaylists = [...playlists].sort((a, b) =>
-  a.imageUrl.localeCompare(b.imageUrl, undefined, { sensitivity: "base" })
+  a.imageUrl.localeCompare(b.imageUrl, undefined, { sensitivity: "base" }),
 );
 ---
 
@@ -285,7 +285,7 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
                     <h3 class="text-xl md:text-2xl font-bold text-white mb-2">
                       {playlist.headline}
                     </h3>
-                    <div class="h-0.5 w-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full mb-3"></div>
+                    <div class="h-0.5 w-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full mb-3" />
                     <p class="text-zinc-50 text-base">
                       {playlist.introSubline}
                     </p>
@@ -465,15 +465,15 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
     document.addEventListener("DOMContentLoaded", function () {
       // Cache DOM elements for better performance
       const searchInput = document.getElementById(
-        "playlist-search"
+        "playlist-search",
       ) as HTMLInputElement;
       const decadeFilter = document.getElementById(
-        "decadeFilter"
+        "decadeFilter",
       ) as HTMLSelectElement;
       const playlistCards = document.querySelectorAll(".playlist-card");
       const noResultsElement = document.getElementById("no-results");
       const searchStatusElement = document.getElementById(
-        "search-results-status"
+        "search-results-status",
       );
       const resetSearchButton = document.getElementById("reset-search");
       const backToTopButton = document.getElementById("back-to-top");
@@ -613,7 +613,7 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
           ([entry]) => {
             backToTopButton.classList.toggle("visible", !entry.isIntersecting);
           },
-          { threshold: 0, rootMargin: "-200px 0px 0px 0px" }
+          { threshold: 0, rootMargin: "-200px 0px 0px 0px" },
         );
 
         // Observe the page header to show/hide button
