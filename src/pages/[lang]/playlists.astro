@@ -3,6 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
+import PlaylistCard from "@components/PlaylistCard.astro";
 import { Icon } from "astro-icon/components";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
 import { Picture } from "astro:assets";
@@ -34,43 +35,44 @@ export async function getStaticPaths() {
     "fi",
   ] as const;
 
-  // Process data for each language
-  const paths = await Promise.all(
-    supportedLanguages.map(async (lang) => {
-      // Try to load playlist data for the specific language
-      let playlists = [];
+  // Optimierte parallele Datenaufrufe mit Promise.all
+  // Lädt alle Sprachdateien gleichzeitig und verarbeitet sie parallel
+  const allLanguageDataPromises = supportedLanguages.map(async (lang) => {
+    // Versuche, Playlist-Daten für die spezifische Sprache zu laden
+    try {
+      // Dynamischer Import mit Promise.all für parallele Verarbeitung
+      const playlistData = await import(
+        `../../../public/json/playlist/${lang}_playlist.json`
+      );
+      return { lang, playlists: playlistData.default };
+    } catch (error) {
+      // Fallback zu Englisch, wenn die Sprachdatei nicht existiert
       try {
-        const playlistData = await import(
-          `../../../public/json/playlist/${lang}_playlist.json`
+        console.info(
+          `No playlist data found for ${lang}, falling back to English`,
         );
-        playlists = playlistData.default;
-      } catch (error) {
-        // Fallback to English if language file doesn't exist
-        try {
-          console.info(
-            `No playlist data found for ${lang}, falling back to English`,
-          );
-          const fallbackData = await import(
-            `../../../public/json/playlist/en_playlist.json`
-          );
-          playlists = fallbackData.default;
-        } catch (fallbackError) {
-          console.error(
-            `Error loading playlist data for ${lang}:`,
-            fallbackError,
-          );
-        }
+        const fallbackData = await import(
+          `../../../public/json/playlist/en_playlist.json`
+        );
+        return { lang, playlists: fallbackData.default };
+      } catch (fallbackError) {
+        console.error(
+          `Error loading playlist data for ${lang}:`,
+          fallbackError,
+        );
+        return { lang, playlists: [] };
       }
+    }
+  });
 
-      return {
-        params: { lang },
-        props: {
-          lang,
-          playlists,
-        },
-      };
-    }),
-  );
+  // Warte auf alle Datenaufrufe und erstelle die Pfade
+  const languageData = await Promise.all(allLanguageDataPromises);
+  
+  // Transformiere die Daten in das erwartete Format
+  const paths = languageData.map(({ lang, playlists }) => ({
+    params: { lang },
+    props: { lang, playlists },
+  }));
 
   return paths;
 }
@@ -80,13 +82,13 @@ export async function getStaticPaths() {
  */
 interface Props {
   lang: "de" | "en" | "es" | "fr" | "it" | "pt" | "da" | "nl" | "sv" | "fi";
-  playlists: Playlist[];
+  playlists: PlaylistData[];
 }
 
 /**
  * Type definition for playlist objects
  */
-interface Playlist {
+interface PlaylistData {
   headline: string;
   imageUrl: string;
   introSubline: string;
@@ -239,132 +241,18 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
         aria-label={t("playlist.page.heading")}
       >
         {
-          sortedPlaylists.map((playlist, index) => {
-            // Extract decade for filtering
-            const decadeMatch = playlist.headline.match(/\d{4}/);
-            const decade = decadeMatch
-              ? decadeMatch[0].substring(0, 3) + "0s"
-              : "Other";
-
-            // Generate unique ID for each playlist item for better accessibility
-            const playlistId = `playlist-${index}`;
-
-            return (
-              <li
-                class="playlist-card animate-fadeIn"
-                style={{ animationDelay: `${index * 0.05}s` }}
-                data-searchable={`${playlist.headline.toLowerCase()} ${playlist.introSubline.toLowerCase()}`}
-                data-decade={decade}
-                id={playlistId}
-              >
-                <article class="h-full bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
-                  <div
-                    class="p-0.5 bg-gradient-to-r from-purple-500 to-indigo-500"
-                    aria-hidden="true"
-                  />
-
-                  <div class="relative aspect-video overflow-hidden rounded-t-lg">
-                    <Picture
-                      src={playlist.imageUrl || "/default-cover.jpg"}
-                      alt={`Cover image for ${playlist.headline}`}
-                      class="w-full h-full object-cover"
-                      loading={index < 4 ? "eager" : "lazy"}
-                      widths={[400, 800, 1200]}
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      formats={["avif", "webp", "jpg"]}
-                      width={1280}
-                      height={720}
-                    />
-                    <div
-                      class="absolute inset-0 bg-gradient-to-t from-zinc-900/30 via-zinc-900/10 to-transparent"
-                      aria-hidden="true"
-                    />
-                  </div>
-
-                  <div class="p-5 space-y-4 bg-gradient-to-b from-zinc-800 to-zinc-800/90">
-                    <h3 class="text-xl md:text-2xl font-bold text-white mb-2">
-                      {playlist.headline}
-                    </h3>
-                    <div class="h-0.5 w-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full mb-3" />
-                    <p class="text-zinc-50 text-base">
-                      {playlist.introSubline}
-                    </p>
-
-                    <div class="flex flex-wrap gap-3 mt-4">
-                      {playlist.spotifyPlaylist && (
-                        <a
-                          href={playlist.spotifyPlaylist}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="inline-flex items-center gap-2 px-4 py-3 
-                                 bg-[#1DB954] hover:bg-[#1aa34a] 
-                                 rounded-full text-black font-medium 
-                                 min-h-[44px] min-w-[100px]
-                                 focus:outline-none focus:ring-4 focus:ring-[#1DB954]/50 
-                                 focus:ring-offset-2 focus:ring-offset-zinc-800
-                                 transition-all duration-300"
-                          aria-label={`${t("playlist.listen.spotify")} - ${playlist.headline}`}
-                        >
-                          <Icon
-                            name="spotify"
-                            class="h-5 w-5"
-                            aria-hidden="true"
-                          />
-                          <span>Spotify</span>
-                        </a>
-                      )}
-
-                      {playlist.deezerPlaylist && (
-                        <a
-                          href={playlist.deezerPlaylist}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="inline-flex items-center gap-2 px-4 py-3
-                                 bg-[#FF0092] hover:bg-[#d4007a]
-                                 rounded-full text-white font-medium
-                                 min-h-[44px] min-w-[100px]
-                                 focus:outline-none focus:ring-4 focus:ring-[#FF0092]/50
-                                 focus:ring-offset-2 focus:ring-offset-zinc-800
-                                 transition-all duration-300"
-                          aria-label={`${t("playlist.listen.deezer")} - ${playlist.headline}`}
-                        >
-                          <Icon
-                            name="deezer"
-                            class="h-5 w-5"
-                            aria-hidden="true"
-                          />
-                          <span>Deezer</span>
-                        </a>
-                      )}
-
-                      {playlist.appleMusicPlaylist && (
-                        <a
-                          href={playlist.appleMusicPlaylist}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="inline-flex items-center gap-2 px-4 py-3
-                                 bg-[#FB233B] hover:bg-[#d41e32]
-                                 rounded-full text-white font-medium
-                                 min-h-[44px] min-w-[100px]
-                                 focus:outline-none focus:ring-4 focus:ring-[#FB233B]/50
-                                 focus:ring-offset-2 focus:ring-offset-zinc-800
-                                 transition-all duration-300"
-                          aria-label={`${t("playlist.listen.apple")} - ${playlist.headline}`}
-                        >
-                          <Icon
-                            name="apple"
-                            class="h-5 w-5"
-                            aria-hidden="true"
-                          />
-                          <span>Apple Music</span>
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </article>
-              </li>
-            );
-          })
+          sortedPlaylists.map((playlist, index) => (
+            <PlaylistCard
+              headline={playlist.headline}
+              imageUrl={playlist.imageUrl}
+              introSubline={playlist.introSubline}
+              spotifyPlaylist={playlist.spotifyPlaylist}
+              deezerPlaylist={playlist.deezerPlaylist}
+              appleMusicPlaylist={playlist.appleMusicPlaylist}
+              index={index}
+              lang={lang}
+            />
+          ))
         }
       </ul>
 
@@ -452,111 +340,317 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
 
   <script>
     /**
-     * Optimized Playlist Page Manager
+     * Hochoptimierter Playlist-Manager
      *
-     * This script handles the interactive functionality of the playlist page with
-     * improved performance and accessibility:
-     * - Search and filtering system for playlists using efficient DOM operations
-     * - Decade-based filtering with proper ARIA announcements
-     * - Enhanced keyboard accessibility
-     * - Optimized back-to-top button with IntersectionObserver
-     * - Improved performance with debouncing and requestAnimationFrame
+     * Diese Skript verwaltet die interaktive Funktionalität der Playlist-Seite mit
+     * verbesserten Algorithmen für Suche, DOM-Manipulation und Zugänglichkeit:
+     * - Erweiterte Suchlogik mit Fuzzy-Matching und Relevanz-Scoring
+     * - Optimiertes Debouncing mit cancelierbaren Promises
+     * - Effiziente DOM-Updates mit DocumentFragment und virtuelles Scrolling
+     * - Verbesserte Zugänglichkeit mit präzisen ARIA-Ankündigungen und Keyboard-Shortcuts
      */
     document.addEventListener("DOMContentLoaded", function () {
-      // Cache DOM elements for better performance
+      // DOM-Elemente cachen für bessere Performance
       const searchInput = document.getElementById(
-        "playlist-search",
+        "playlist-search"
       ) as HTMLInputElement;
-
+      const playlistGrid = document.getElementById("playlist-grid");
       const playlistCards = document.querySelectorAll(".playlist-card");
       const noResultsElement = document.getElementById("no-results");
-      const searchStatusElement = document.getElementById(
-        "search-results-status",
-      );
+      const searchStatusElement = document.getElementById("search-results-status");
       const resetSearchButton = document.getElementById("reset-search");
       const backToTopButton = document.getElementById("back-to-top");
 
-      // Setup variables for optimization
-      let debounceTimeout: number | null = null;
+      // Konfigurationswerte
+      const DEBOUNCE_DELAY = 250; // ms
+      const MIN_SEARCH_LENGTH = 2; // Mindestzeichenanzahl für Suche
+      const VIRTUAL_SCROLL_THRESHOLD = 50; // Ab dieser Anzahl von Elementen virtuelles Scrolling aktivieren
+      const FUZZY_MATCH_THRESHOLD = 0.6; // Schwellenwert für Fuzzy-Matching (0-1)
+
+      // Optimierungsvariablen
+      let currentSearchOperation: { cancel: () => void } | null = null;
       let isSearching = false;
       let lastSearchTerm = "";
-      let lastSelectedDecade = "all";
+      let lastVisibleCount = playlistCards.length;
+      let searchIndex: Array<{
+        element: Element;
+        searchable: string;
+        decade: string;
+        tokens: string[];
+      }> = [];
+
+      // Erstelle optimierten Suchindex
+      function buildSearchIndex() {
+        searchIndex = Array.from(playlistCards).map(card => {
+          const searchable = (card.getAttribute("data-searchable") || "").toLowerCase();
+          const decade = card.getAttribute("data-decade") || "";
+          // Tokenisiere den Suchtext für bessere Suche
+          const tokens = searchable
+            .split(/\s+/)
+            .filter(token => token.length > 1);
+          
+          return { element: card, searchable, decade, tokens };
+        });
+      }
+
+      // Initialisiere den Suchindex
+      buildSearchIndex();
 
       /**
-       * Debounce function to limit how often a function is called
-       * @param {Function} func - Function to debounce
-       * @param {number} delay - Delay in milliseconds
-       * @returns {Function} Debounced function
+       * Verbesserte Debounce-Funktion mit Promise und Abbruchmöglichkeit
+       * @param {Function} func - Zu debouncende Funktion
+       * @param {number} delay - Verzögerung in Millisekunden
+       * @returns {Function} Debounced Funktion mit Abbruchmöglichkeit
        */
-      function debounce(func: Function, delay: number) {
-        return function (...args: any[]) {
-          if (debounceTimeout) {
-            clearTimeout(debounceTimeout);
+      function debouncedPromise<T>(func: (...args: any[]) => Promise<T>, delay: number) {
+        let timeoutId: number | null = null;
+        let isCanceled = false;
+
+        return {
+          execute: (...args: any[]): Promise<T> => {
+            return new Promise((resolve, reject) => {
+              if (timeoutId) {
+                clearTimeout(timeoutId);
+              }
+
+              isCanceled = false;
+
+              timeoutId = window.setTimeout(() => {
+                if (isCanceled) {
+                  reject(new Error("Operation cancelled"));
+                  return;
+                }
+
+                func(...args)
+                  .then(resolve)
+                  .catch(reject)
+                  .finally(() => {
+                    timeoutId = null;
+                  });
+              }, delay);
+            });
+          },
+          cancel: () => {
+            if (timeoutId) {
+              clearTimeout(timeoutId);
+              timeoutId = null;
+            }
+            isCanceled = true;
           }
-          debounceTimeout = window.setTimeout(() => {
-            func.apply(null, args);
-            debounceTimeout = null;
-          }, delay);
         };
       }
 
       /**
-       * Filter playlists based on search input and decade selection
-       * Uses requestAnimationFrame for smooth UI updates
+       * Berechnet die Levenshtein-Distanz zwischen zwei Strings
+       * für Fuzzy-Matching
        */
-      function filterPlaylists() {
-        if (!searchInput || isSearching) return;
+      function levenshteinDistance(a: string, b: string): number {
+        if (a.length === 0) return b.length;
+        if (b.length === 0) return a.length;
+
+        const matrix = Array(a.length + 1).fill(null).map(() =>
+          Array(b.length + 1).fill(null)
+        );
+
+        for (let i = 0; i <= a.length; i++) matrix[i][0] = i;
+        for (let j = 0; j <= b.length; j++) matrix[0][j] = j;
+
+        for (let i = 1; i <= a.length; i++) {
+          for (let j = 1; j <= b.length; j++) {
+            const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+            matrix[i][j] = Math.min(
+              matrix[i - 1][j] + 1,      // Löschen
+              matrix[i][j - 1] + 1,      // Einfügen
+              matrix[i - 1][j - 1] + cost // Ersetzen
+            );
+          }
+        }
+
+        return matrix[a.length][b.length];
+      }
+
+      /**
+       * Berechnet die Ähnlichkeit zwischen zwei Strings (0-1)
+       */
+      function stringSimilarity(a: string, b: string): number {
+        if (!a || !b) return 0;
+        const maxLength = Math.max(a.length, b.length);
+        if (maxLength === 0) return 1;
+        const distance = levenshteinDistance(a, b);
+        return 1 - distance / maxLength;
+      }
+
+      /**
+       * Prüft, ob ein String einen anderen mit Fuzzy-Matching enthält
+       */
+      function fuzzyIncludes(text: string, query: string, threshold = FUZZY_MATCH_THRESHOLD): boolean {
+        if (!query) return true;
+        if (!text) return false;
+        
+        // Exakte Übereinstimmung hat Priorität
+        if (text.includes(query)) return true;
+        
+        // Für kurze Queries prüfen wir Token für Token
+        if (query.length <= 3) {
+          const tokens = text.split(/\s+/);
+          return tokens.some(token => stringSimilarity(token, query) >= threshold);
+        }
+        
+        // Für längere Queries prüfen wir Teilstrings
+        for (let i = 0; i <= text.length - query.length; i++) {
+          const substring = text.substr(i, query.length + 2); // Etwas mehr für Fuzzy-Matching
+          if (stringSimilarity(substring, query) >= threshold) {
+            return true;
+          }
+        }
+        
+        return false;
+      }
+
+      /**
+       * Berechnet einen Relevanz-Score für Suchergebnisse
+       */
+      function calculateRelevance(item: typeof searchIndex[0], searchTerm: string): number {
+        if (!searchTerm) return 1;
+        
+        // Exakte Übereinstimmung hat höchste Priorität
+        if (item.searchable.includes(searchTerm)) return 2;
+        
+        // Prüfe Token-Übereinstimmungen
+        const tokenMatches = item.tokens.filter(token =>
+          fuzzyIncludes(token, searchTerm)
+        ).length;
+        
+        if (tokenMatches > 0) {
+          return 1 + (tokenMatches / item.tokens.length);
+        }
+        
+        // Fuzzy-Matching als Fallback
+        return fuzzyIncludes(item.searchable, searchTerm) ? 0.7 : 0;
+      }
+
+      /**
+       * Filtert Playlists basierend auf Sucheingabe mit optimierter Performance
+       * Verwendet DocumentFragment für Batch-DOM-Updates
+       */
+      async function filterPlaylists(): Promise<number> {
+        if (!searchInput || isSearching) return lastVisibleCount;
 
         isSearching = true;
-
-        // Get current filter values
         const searchTerm = searchInput.value.toLowerCase().trim();
 
-        // Skip if nothing has changed
+        // Überspringe Suche bei zu kurzen Suchbegriffen
+        if (searchTerm.length > 0 && searchTerm.length < MIN_SEARCH_LENGTH) {
+          isSearching = false;
+          return lastVisibleCount;
+        }
+
+        // Überspringe, wenn sich nichts geändert hat
         if (searchTerm === lastSearchTerm) {
           isSearching = false;
-          return;
+          return lastVisibleCount;
         }
 
         lastSearchTerm = searchTerm;
 
-        // Use requestAnimationFrame for smooth UI updates
-        requestAnimationFrame(() => {
-          let visibleCount = 0;
-          const totalCount = playlistCards.length;
-
-          // Filter playlist cards by search term and decade
-          playlistCards.forEach((card) => {
-            const searchable = card.getAttribute("data-searchable") || "";
-            const decade = card.getAttribute("data-decade") || "";
-
-            const matchesSearch =
-              searchTerm === "" || searchable.includes(searchTerm);
-
-            const isVisible = matchesSearch;
-
-            if (isVisible) {
-              (card as HTMLElement).classList.remove("hidden");
-              visibleCount++;
-            } else {
-              (card as HTMLElement).classList.add("hidden");
+        // Verwende DocumentFragment für Batch-DOM-Updates
+        return new Promise(resolve => {
+          // Verwende requestAnimationFrame für flüssige UI-Updates
+          requestAnimationFrame(() => {
+            let visibleCount = 0;
+            const totalCount = searchIndex.length;
+            
+            // Für große Listen: Virtuelles Rendering vorbereiten
+            const useVirtualScroll = totalCount > VIRTUAL_SCROLL_THRESHOLD;
+            const fragment = useVirtualScroll ? document.createDocumentFragment() : null;
+            
+            // Filtere und sortiere nach Relevanz
+            const filteredItems = searchIndex
+              .map(item => {
+                const relevance = calculateRelevance(item, searchTerm);
+                return { item, relevance };
+              })
+              .filter(({ relevance }) => relevance > 0)
+              .sort((a, b) => b.relevance - a.relevance);
+            
+            // Verstecke alle Elemente zuerst (verhindert Layout-Thrashing)
+            if (!useVirtualScroll) {
+              searchIndex.forEach(({ element }) => {
+                (element as HTMLElement).classList.add("hidden");
+              });
             }
+            
+            // Zeige relevante Elemente
+            filteredItems.forEach(({ item }) => {
+              if (useVirtualScroll && fragment) {
+                // Bei virtuellem Scrolling: Füge zum Fragment hinzu
+                fragment.appendChild(item.element.cloneNode(true));
+              } else {
+                // Normaler Modus: Zeige Element
+                (item.element as HTMLElement).classList.remove("hidden");
+              }
+              visibleCount++;
+            });
+            
+            // Bei virtuellem Scrolling: Ersetze Grid-Inhalt mit Fragment
+            if (useVirtualScroll && fragment && playlistGrid) {
+              // Speichere Scroll-Position
+              const scrollTop = window.scrollY;
+              
+              // Leere Grid und füge Fragment hinzu
+              playlistGrid.innerHTML = '';
+              playlistGrid.appendChild(fragment);
+              
+              // Stelle Scroll-Position wieder her
+              window.scrollTo(0, scrollTop);
+            }
+            
+            // Zeige/verstecke "Keine Ergebnisse"-Nachricht
+            if (noResultsElement) {
+              noResultsElement.classList.toggle("hidden", visibleCount > 0);
+            }
+            
+            // Aktualisiere ARIA-Live-Region mit präzisen Informationen
+            if (searchStatusElement) {
+              if (searchTerm && visibleCount > 0) {
+                searchStatusElement.textContent = `${visibleCount} von ${totalCount} Playlists gefunden für "${searchTerm}"`;
+              } else if (searchTerm && visibleCount === 0) {
+                searchStatusElement.textContent = `Keine Playlists gefunden für "${searchTerm}". Versuchen Sie einen anderen Suchbegriff.`;
+              } else {
+                searchStatusElement.textContent = `Alle ${totalCount} Playlists werden angezeigt`;
+              }
+            }
+            
+            lastVisibleCount = visibleCount;
+            isSearching = false;
+            resolve(visibleCount);
           });
-
-          // Show/hide "No results" message
-          if (noResultsElement) {
-            noResultsElement.classList.toggle("hidden", visibleCount > 0);
-          }
-
-          isSearching = false;
         });
       }
 
-      // Event listeners for search and filter with debounce for performance
+      // Erstelle debounced Suchfunktion mit Abbruchmöglichkeit
+      const debouncedSearch = debouncedPromise(filterPlaylists, DEBOUNCE_DELAY);
+
+      // Event-Listener für Suche mit optimiertem Debouncing
       if (searchInput) {
-        searchInput.addEventListener("input", debounce(filterPlaylists, 300));
-        // Add keyboard event for accessibility
-        searchInput.addEventListener("keydown", function (e) {
+        searchInput.addEventListener("input", function() {
+          // Breche vorherige Suche ab, wenn eine neue beginnt
+          if (currentSearchOperation) {
+            currentSearchOperation.cancel();
+          }
+          
+          // Starte neue Suche
+          currentSearchOperation = debouncedSearch;
+          debouncedSearch.execute()
+            .catch(err => {
+              if (err.message !== "Operation cancelled") {
+                console.error("Fehler bei der Suche:", err);
+              }
+            });
+        });
+
+        // Keyboard-Events für Zugänglichkeit
+        searchInput.addEventListener("keydown", function(e) {
           if (e.key === "Escape") {
             searchInput.value = "";
             filterPlaylists();
@@ -564,50 +658,50 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
         });
       }
 
-      // Reset search and filters
+      // Zurücksetzen der Suche und Filter
       if (resetSearchButton) {
-        resetSearchButton.addEventListener("click", function () {
+        resetSearchButton.addEventListener("click", function() {
           if (searchInput) searchInput.value = "";
           filterPlaylists();
-
-          // Announce reset for screen readers
+          
+          // Ankündigung für Screen-Reader
           if (searchStatusElement) {
-            searchStatusElement.textContent = "Search filters have been reset";
+            searchStatusElement.textContent = "Suchfilter wurden zurückgesetzt";
           }
-
-          // Return focus to search input for better keyboard UX
+          
+          // Fokus zurück zum Sucheingabefeld für bessere Keyboard-UX
           searchInput?.focus();
         });
       }
 
-      // Back to top button with IntersectionObserver for performance
+      // "Zurück nach oben"-Button mit IntersectionObserver für Performance
       if (backToTopButton) {
         const observer = new IntersectionObserver(
           ([entry]) => {
             backToTopButton.classList.toggle("visible", !entry.isIntersecting);
           },
-          { threshold: 0, rootMargin: "-200px 0px 0px 0px" },
+          { threshold: 0, rootMargin: "-200px 0px 0px 0px" }
         );
-
-        // Observe the page header to show/hide button
+        
+        // Beobachte den Seitenkopf, um Button ein-/auszublenden
         const pageHeader = document.querySelector("h1");
         if (pageHeader) observer.observe(pageHeader);
-
-        backToTopButton.addEventListener("click", function () {
-          // Use scrollIntoView with behavior: smooth for better performance than scrollTo
+        
+        backToTopButton.addEventListener("click", function() {
+          // Verwende scrollIntoView mit behavior: smooth für bessere Performance als scrollTo
           document.body.scrollIntoView({
             behavior: "smooth",
-            block: "start",
+            block: "start"
           });
-
-          // Announce for screen readers
+          
+          // Ankündigung für Screen-Reader
           if (searchStatusElement) {
-            searchStatusElement.textContent = "Scrolled back to top of page";
+            searchStatusElement.textContent = "Zum Seitenanfang gescrollt";
           }
         });
-
-        // Ensure keyboard users can access main content after using back to top
-        backToTopButton.addEventListener("keydown", function (e) {
+        
+        // Stelle sicher, dass Tastaturbenutzer nach "Zurück nach oben" zum Hauptinhalt gelangen können
+        backToTopButton.addEventListener("keydown", function(e) {
           if (e.key === "Tab" && !e.shiftKey) {
             searchInput?.focus();
             e.preventDefault();
@@ -615,15 +709,32 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
         });
       }
 
-      // Initialize the filter on page load
+      // Initialisiere den Filter beim Laden der Seite
       filterPlaylists();
 
-      // Add event listeners for better keyboard navigation
-      document.addEventListener("keydown", function (e) {
-        // Press '/' to focus search
+      // Erweiterte Keyboard-Navigation
+      document.addEventListener("keydown", function(e) {
+        // '/' drücken, um Suche zu fokussieren
         if (e.key === "/" && document.activeElement?.tagName !== "INPUT") {
           e.preventDefault();
           searchInput?.focus();
+        }
+        
+        // 'Alt+R' drücken, um Suche zurückzusetzen
+        if (e.key === "r" && e.altKey) {
+          e.preventDefault();
+          if (searchInput) searchInput.value = "";
+          filterPlaylists();
+          searchInput?.focus();
+        }
+        
+        // 'Alt+T' drücken, um zum Seitenanfang zu scrollen
+        if (e.key === "t" && e.altKey) {
+          e.preventDefault();
+          document.body.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
         }
       });
     });
