@@ -67,7 +67,7 @@ export async function getStaticPaths() {
 
   // Warte auf alle Datenaufrufe und erstelle die Pfade
   const languageData = await Promise.all(allLanguageDataPromises);
-  
+
   // Transformiere die Daten in das erwartete Format
   const paths = languageData.map(({ lang, playlists }) => ({
     params: { lang },
@@ -352,12 +352,14 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
     document.addEventListener("DOMContentLoaded", function () {
       // DOM-Elemente cachen für bessere Performance
       const searchInput = document.getElementById(
-        "playlist-search"
+        "playlist-search",
       ) as HTMLInputElement;
       const playlistGrid = document.getElementById("playlist-grid");
       const playlistCards = document.querySelectorAll(".playlist-card");
       const noResultsElement = document.getElementById("no-results");
-      const searchStatusElement = document.getElementById("search-results-status");
+      const searchStatusElement = document.getElementById(
+        "search-results-status",
+      );
       const resetSearchButton = document.getElementById("reset-search");
       const backToTopButton = document.getElementById("back-to-top");
 
@@ -381,14 +383,16 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
 
       // Erstelle optimierten Suchindex
       function buildSearchIndex() {
-        searchIndex = Array.from(playlistCards).map(card => {
-          const searchable = (card.getAttribute("data-searchable") || "").toLowerCase();
+        searchIndex = Array.from(playlistCards).map((card) => {
+          const searchable = (
+            card.getAttribute("data-searchable") || ""
+          ).toLowerCase();
           const decade = card.getAttribute("data-decade") || "";
           // Tokenisiere den Suchtext für bessere Suche
           const tokens = searchable
             .split(/\s+/)
-            .filter(token => token.length > 1);
-          
+            .filter((token) => token.length > 1);
+
           return { element: card, searchable, decade, tokens };
         });
       }
@@ -402,7 +406,10 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
        * @param {number} delay - Verzögerung in Millisekunden
        * @returns {Function} Debounced Funktion mit Abbruchmöglichkeit
        */
-      function debouncedPromise<T>(func: (...args: any[]) => Promise<T>, delay: number) {
+      function debouncedPromise<T>(
+        func: (...args: any[]) => Promise<T>,
+        delay: number,
+      ) {
         let timeoutId: number | null = null;
         let isCanceled = false;
 
@@ -436,7 +443,7 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
               timeoutId = null;
             }
             isCanceled = true;
-          }
+          },
         };
       }
 
@@ -448,9 +455,9 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
         if (a.length === 0) return b.length;
         if (b.length === 0) return a.length;
 
-        const matrix = Array(a.length + 1).fill(null).map(() =>
-          Array(b.length + 1).fill(null)
-        );
+        const matrix = Array(a.length + 1)
+          .fill(null)
+          .map(() => Array(b.length + 1).fill(null));
 
         for (let i = 0; i <= a.length; i++) matrix[i][0] = i;
         for (let j = 0; j <= b.length; j++) matrix[0][j] = j;
@@ -459,9 +466,9 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
           for (let j = 1; j <= b.length; j++) {
             const cost = a[i - 1] === b[j - 1] ? 0 : 1;
             matrix[i][j] = Math.min(
-              matrix[i - 1][j] + 1,      // Löschen
-              matrix[i][j - 1] + 1,      // Einfügen
-              matrix[i - 1][j - 1] + cost // Ersetzen
+              matrix[i - 1][j] + 1, // Löschen
+              matrix[i][j - 1] + 1, // Einfügen
+              matrix[i - 1][j - 1] + cost, // Ersetzen
             );
           }
         }
@@ -483,19 +490,25 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
       /**
        * Prüft, ob ein String einen anderen mit Fuzzy-Matching enthält
        */
-      function fuzzyIncludes(text: string, query: string, threshold = FUZZY_MATCH_THRESHOLD): boolean {
+      function fuzzyIncludes(
+        text: string,
+        query: string,
+        threshold = FUZZY_MATCH_THRESHOLD,
+      ): boolean {
         if (!query) return true;
         if (!text) return false;
-        
+
         // Exakte Übereinstimmung hat Priorität
         if (text.includes(query)) return true;
-        
+
         // Für kurze Queries prüfen wir Token für Token
         if (query.length <= 3) {
           const tokens = text.split(/\s+/);
-          return tokens.some(token => stringSimilarity(token, query) >= threshold);
+          return tokens.some(
+            (token) => stringSimilarity(token, query) >= threshold,
+          );
         }
-        
+
         // Für längere Queries prüfen wir Teilstrings
         for (let i = 0; i <= text.length - query.length; i++) {
           const substring = text.substr(i, query.length + 2); // Etwas mehr für Fuzzy-Matching
@@ -503,28 +516,31 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
             return true;
           }
         }
-        
+
         return false;
       }
 
       /**
        * Berechnet einen Relevanz-Score für Suchergebnisse
        */
-      function calculateRelevance(item: typeof searchIndex[0], searchTerm: string): number {
+      function calculateRelevance(
+        item: (typeof searchIndex)[0],
+        searchTerm: string,
+      ): number {
         if (!searchTerm) return 1;
-        
+
         // Exakte Übereinstimmung hat höchste Priorität
         if (item.searchable.includes(searchTerm)) return 2;
-        
+
         // Prüfe Token-Übereinstimmungen
-        const tokenMatches = item.tokens.filter(token =>
-          fuzzyIncludes(token, searchTerm)
+        const tokenMatches = item.tokens.filter((token) =>
+          fuzzyIncludes(token, searchTerm),
         ).length;
-        
+
         if (tokenMatches > 0) {
-          return 1 + (tokenMatches / item.tokens.length);
+          return 1 + tokenMatches / item.tokens.length;
         }
-        
+
         // Fuzzy-Matching als Fallback
         return fuzzyIncludes(item.searchable, searchTerm) ? 0.7 : 0;
       }
@@ -554,32 +570,34 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
         lastSearchTerm = searchTerm;
 
         // Verwende DocumentFragment für Batch-DOM-Updates
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
           // Verwende requestAnimationFrame für flüssige UI-Updates
           requestAnimationFrame(() => {
             let visibleCount = 0;
             const totalCount = searchIndex.length;
-            
+
             // Für große Listen: Virtuelles Rendering vorbereiten
             const useVirtualScroll = totalCount > VIRTUAL_SCROLL_THRESHOLD;
-            const fragment = useVirtualScroll ? document.createDocumentFragment() : null;
-            
+            const fragment = useVirtualScroll
+              ? document.createDocumentFragment()
+              : null;
+
             // Filtere und sortiere nach Relevanz
             const filteredItems = searchIndex
-              .map(item => {
+              .map((item) => {
                 const relevance = calculateRelevance(item, searchTerm);
                 return { item, relevance };
               })
               .filter(({ relevance }) => relevance > 0)
               .sort((a, b) => b.relevance - a.relevance);
-            
+
             // Verstecke alle Elemente zuerst (verhindert Layout-Thrashing)
             if (!useVirtualScroll) {
               searchIndex.forEach(({ element }) => {
                 (element as HTMLElement).classList.add("hidden");
               });
             }
-            
+
             // Zeige relevante Elemente
             filteredItems.forEach(({ item }) => {
               if (useVirtualScroll && fragment) {
@@ -591,25 +609,25 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
               }
               visibleCount++;
             });
-            
+
             // Bei virtuellem Scrolling: Ersetze Grid-Inhalt mit Fragment
             if (useVirtualScroll && fragment && playlistGrid) {
               // Speichere Scroll-Position
               const scrollTop = window.scrollY;
-              
+
               // Leere Grid und füge Fragment hinzu
-              playlistGrid.innerHTML = '';
+              playlistGrid.innerHTML = "";
               playlistGrid.appendChild(fragment);
-              
+
               // Stelle Scroll-Position wieder her
               window.scrollTo(0, scrollTop);
             }
-            
+
             // Zeige/verstecke "Keine Ergebnisse"-Nachricht
             if (noResultsElement) {
               noResultsElement.classList.toggle("hidden", visibleCount > 0);
             }
-            
+
             // Aktualisiere ARIA-Live-Region mit präzisen Informationen
             if (searchStatusElement) {
               if (searchTerm && visibleCount > 0) {
@@ -620,7 +638,7 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
                 searchStatusElement.textContent = `Alle ${totalCount} Playlists werden angezeigt`;
               }
             }
-            
+
             lastVisibleCount = visibleCount;
             isSearching = false;
             resolve(visibleCount);
@@ -633,24 +651,23 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
 
       // Event-Listener für Suche mit optimiertem Debouncing
       if (searchInput) {
-        searchInput.addEventListener("input", function() {
+        searchInput.addEventListener("input", function () {
           // Breche vorherige Suche ab, wenn eine neue beginnt
           if (currentSearchOperation) {
             currentSearchOperation.cancel();
           }
-          
+
           // Starte neue Suche
           currentSearchOperation = debouncedSearch;
-          debouncedSearch.execute()
-            .catch(err => {
-              if (err.message !== "Operation cancelled") {
-                console.error("Fehler bei der Suche:", err);
-              }
-            });
+          debouncedSearch.execute().catch((err) => {
+            if (err.message !== "Operation cancelled") {
+              console.error("Fehler bei der Suche:", err);
+            }
+          });
         });
 
         // Keyboard-Events für Zugänglichkeit
-        searchInput.addEventListener("keydown", function(e) {
+        searchInput.addEventListener("keydown", function (e) {
           if (e.key === "Escape") {
             searchInput.value = "";
             filterPlaylists();
@@ -660,15 +677,15 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
 
       // Zurücksetzen der Suche und Filter
       if (resetSearchButton) {
-        resetSearchButton.addEventListener("click", function() {
+        resetSearchButton.addEventListener("click", function () {
           if (searchInput) searchInput.value = "";
           filterPlaylists();
-          
+
           // Ankündigung für Screen-Reader
           if (searchStatusElement) {
             searchStatusElement.textContent = "Suchfilter wurden zurückgesetzt";
           }
-          
+
           // Fokus zurück zum Sucheingabefeld für bessere Keyboard-UX
           searchInput?.focus();
         });
@@ -680,28 +697,28 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
           ([entry]) => {
             backToTopButton.classList.toggle("visible", !entry.isIntersecting);
           },
-          { threshold: 0, rootMargin: "-200px 0px 0px 0px" }
+          { threshold: 0, rootMargin: "-200px 0px 0px 0px" },
         );
-        
+
         // Beobachte den Seitenkopf, um Button ein-/auszublenden
         const pageHeader = document.querySelector("h1");
         if (pageHeader) observer.observe(pageHeader);
-        
-        backToTopButton.addEventListener("click", function() {
+
+        backToTopButton.addEventListener("click", function () {
           // Verwende scrollIntoView mit behavior: smooth für bessere Performance als scrollTo
           document.body.scrollIntoView({
             behavior: "smooth",
-            block: "start"
+            block: "start",
           });
-          
+
           // Ankündigung für Screen-Reader
           if (searchStatusElement) {
             searchStatusElement.textContent = "Zum Seitenanfang gescrollt";
           }
         });
-        
+
         // Stelle sicher, dass Tastaturbenutzer nach "Zurück nach oben" zum Hauptinhalt gelangen können
-        backToTopButton.addEventListener("keydown", function(e) {
+        backToTopButton.addEventListener("keydown", function (e) {
           if (e.key === "Tab" && !e.shiftKey) {
             searchInput?.focus();
             e.preventDefault();
@@ -713,13 +730,13 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
       filterPlaylists();
 
       // Erweiterte Keyboard-Navigation
-      document.addEventListener("keydown", function(e) {
+      document.addEventListener("keydown", function (e) {
         // '/' drücken, um Suche zu fokussieren
         if (e.key === "/" && document.activeElement?.tagName !== "INPUT") {
           e.preventDefault();
           searchInput?.focus();
         }
-        
+
         // 'Alt+R' drücken, um Suche zurückzusetzen
         if (e.key === "r" && e.altKey) {
           e.preventDefault();
@@ -727,13 +744,13 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
           filterPlaylists();
           searchInput?.focus();
         }
-        
+
         // 'Alt+T' drücken, um zum Seitenanfang zu scrollen
         if (e.key === "t" && e.altKey) {
           e.preventDefault();
           document.body.scrollIntoView({
             behavior: "smooth",
-            block: "start"
+            block: "start",
           });
         }
       });
