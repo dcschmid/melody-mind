@@ -169,7 +169,9 @@ const hasStreamingLinks =
               class="h-5 w-5 md:h-6 md:w-6"
               aria-hidden="true"
             />
-            <span itemprop="name" class="font-bold">Spotify</span>
+            <span itemprop="name" class="font-bold">
+              Spotify
+            </span>
             <meta itemprop="url" content={spotifyPlaylist} />
           </a>
         )
@@ -202,7 +204,9 @@ const hasStreamingLinks =
               class="h-5 w-5 md:h-6 md:w-6"
               aria-hidden="true"
             />
-            <span itemprop="name" class="font-bold">Deezer</span>
+            <span itemprop="name" class="font-bold">
+              Deezer
+            </span>
             <meta itemprop="url" content={deezerPlaylist} />
           </a>
         )
@@ -235,7 +239,9 @@ const hasStreamingLinks =
               class="h-5 w-5 md:h-6 md:w-6"
               aria-hidden="true"
             />
-            <span itemprop="name" class="font-bold">Apple Music</span>
+            <span itemprop="name" class="font-bold">
+              Apple Music
+            </span>
             <meta itemprop="url" content={appleMusicPlaylist} />
           </a>
         )
@@ -429,20 +435,25 @@ const hasStreamingLinks =
   .text-white {
     color: #ffffff; /* Maximaler Kontrast */
   }
-  
+
   /* Verbesserte Hintergrundkontraste für WCAG AAA */
   article {
     --bg-card: #18181b; /* Dunklerer Hintergrund für besseren Kontrast */
-    --border-color: rgba(255, 255, 255, 0.2); /* Hellerer Rand für besseren Kontrast */
+    --border-color: rgba(
+      255,
+      255,
+      255,
+      0.2
+    ); /* Hellerer Rand für besseren Kontrast */
     background-color: var(--bg-card);
     border-color: var(--border-color);
   }
-  
+
   /* Verbesserte Zeilenabstände für bessere Lesbarkeit */
   .leading-relaxed {
     line-height: 1.8;
   }
-  
+
   /* Verbesserte Textabstände */
   .tracking-wide {
     letter-spacing: 0.025em;
