@@ -126,28 +126,37 @@ function getDecadeFromHeadline(headline: string): string {
   if (yearMatch) {
     return yearMatch[1].substring(0, 3) + "0s";
   }
-  
+
   // Suche nach Jahrzehnten im Format "1960s", "60er", "Sixties" usw.
   const decadePatterns = [
-    { pattern: /\b(\d{2})(?:er|s)\b/i, transform: (match: string) => {
-      const decade = parseInt(match);
-      return (decade < 30 ? "20" : "19") + match + "0s";
-    }},
-    { pattern: /\b(19\d0)(?:er|s)\b/i, transform: (match: string) => match + "s" },
-    { pattern: /\b(20\d0)(?:er|s)\b/i, transform: (match: string) => match + "s" },
+    {
+      pattern: /\b(\d{2})(?:er|s)\b/i,
+      transform: (match: string) => {
+        const decade = parseInt(match);
+        return (decade < 30 ? "20" : "19") + match + "0s";
+      },
+    },
+    {
+      pattern: /\b(19\d0)(?:er|s)\b/i,
+      transform: (match: string) => match + "s",
+    },
+    {
+      pattern: /\b(20\d0)(?:er|s)\b/i,
+      transform: (match: string) => match + "s",
+    },
     { pattern: /\bsixties\b/i, transform: () => "1960s" },
     { pattern: /\bseventies\b/i, transform: () => "1970s" },
     { pattern: /\beighties\b/i, transform: () => "1980s" },
-    { pattern: /\bnineties\b/i, transform: () => "1990s" }
+    { pattern: /\bnineties\b/i, transform: () => "1990s" },
   ];
-  
+
   for (const { pattern, transform } of decadePatterns) {
     const match = headline.match(pattern);
     if (match) {
       return transform(match[1]);
     }
   }
-  
+
   return "Other";
 }
 
@@ -169,76 +178,90 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
   modifiedDate={modifiedDate}
 >
   <!-- Strukturierte Daten für SEO -->
-  <script type="application/ld+json" set:html={JSON.stringify([
-    // BreadcrumbList Schema
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": `${Astro.site}${lang}`
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": title,
-          "item": `${Astro.site}${lang}/playlists`
-        }
-      ]
-    },
-    // ItemList Schema für die Playlist-Sammlung
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "numberOfItems": sortedPlaylists.length,
-      "itemListOrder": "Ascending",
-      "itemListElement": sortedPlaylists.map((playlist, index) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "item": {
-          "@type": "MusicPlaylist",
-          "name": playlist.headline,
-          "description": playlist.introSubline,
-          "image": playlist.imageUrl.startsWith("http") ? playlist.imageUrl : `${Astro.site}${playlist.imageUrl.replace(/^\//, '')}`,
-          "url": `${Astro.site}${lang}/playlists#playlist-${index}`,
-          "numTracks": playlist.spotifyPlaylist ? 1 : 0,
-          "provider": [
-            playlist.spotifyPlaylist ? { "@type": "MusicService", "name": "Spotify" } : null,
-            playlist.deezerPlaylist ? { "@type": "MusicService", "name": "Deezer" } : null,
-            playlist.appleMusicPlaylist ? { "@type": "MusicService", "name": "Apple Music" } : null
-          ].filter(Boolean)
-        }
-      }))
-    },
-    // Zusätzliches WebPage Schema für verbesserte Sichtbarkeit
-    {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": title,
-      "description": optimizedDescription,
-      "url": `${Astro.site}${lang}/playlists`,
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Melody Mind",
-        "url": `${Astro.site}`
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify([
+      // BreadcrumbList Schema
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: `${Astro.site}${lang}`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: title,
+            item: `${Astro.site}${lang}/playlists`,
+          },
+        ],
       },
-      "datePublished": publishDate.toISOString(),
-      "dateModified": modifiedDate.toISOString(),
-      "inLanguage": lang,
-      "mainEntity": {
+      // ItemList Schema für die Playlist-Sammlung
+      {
+        "@context": "https://schema.org",
         "@type": "ItemList",
-        "itemListElement": sortedPlaylists.map((_, index) => ({
+        numberOfItems: sortedPlaylists.length,
+        itemListOrder: "Ascending",
+        itemListElement: sortedPlaylists.map((playlist, index) => ({
           "@type": "ListItem",
-          "position": index + 1,
-          "url": `${Astro.site}${lang}/playlists#playlist-${index}`
-        }))
-      }
-    }
-  ])} />
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12" style="contain: content;">
+          position: index + 1,
+          item: {
+            "@type": "MusicPlaylist",
+            name: playlist.headline,
+            description: playlist.introSubline,
+            image: playlist.imageUrl.startsWith("http")
+              ? playlist.imageUrl
+              : `${Astro.site}${playlist.imageUrl.replace(/^\//, "")}`,
+            url: `${Astro.site}${lang}/playlists#playlist-${index}`,
+            numTracks: playlist.spotifyPlaylist ? 1 : 0,
+            provider: [
+              playlist.spotifyPlaylist
+                ? { "@type": "MusicService", name: "Spotify" }
+                : null,
+              playlist.deezerPlaylist
+                ? { "@type": "MusicService", name: "Deezer" }
+                : null,
+              playlist.appleMusicPlaylist
+                ? { "@type": "MusicService", name: "Apple Music" }
+                : null,
+            ].filter(Boolean),
+          },
+        })),
+      },
+      // Zusätzliches WebPage Schema für verbesserte Sichtbarkeit
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: title,
+        description: optimizedDescription,
+        url: `${Astro.site}${lang}/playlists`,
+        isPartOf: {
+          "@type": "WebSite",
+          name: "Melody Mind",
+          url: `${Astro.site}`,
+        },
+        datePublished: publishDate.toISOString(),
+        dateModified: modifiedDate.toISOString(),
+        inLanguage: lang,
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: sortedPlaylists.map((_, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            url: `${Astro.site}${lang}/playlists#playlist-${index}`,
+          })),
+        },
+      },
+    ])}
+  />
+  <main
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12"
+    style="contain: content;"
+  >
     <!-- Page heading and description -->
     <div class="text-center mb-8 sm:mb-10 lg:mb-12">
       <Headline
@@ -246,7 +269,10 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         level="h1"
         className="text-white font-bold text-3xl sm:text-4xl lg:text-5xl mb-4"
       />
-      <div class="h-1 w-16 sm:w-24 bg-purple-500 rounded-full mx-auto mt-2 mb-4 sm:mb-6"></div>
+      <div
+        class="h-1 w-16 sm:w-24 bg-purple-500 rounded-full mx-auto mt-2 mb-4 sm:mb-6"
+      >
+      </div>
       <Paragraph
         description={t("playlist.page.description")}
         className="max-w-xl sm:max-w-2xl mx-auto text-zinc-100 text-base sm:text-lg"
@@ -363,19 +389,23 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
               data-decade={getDecadeFromHeadline(playlist.headline)}
               data-index={index}
               id={`playlist-${index}`}
-              style={{ animationDelay: `${index * 0.05}s`, contain: "content", transform: "translateZ(0)" }}
+              style={{
+                animationDelay: `${index * 0.05}s`,
+                contain: "content",
+                transform: "translateZ(0)",
+              }}
             >
               <meta itemprop="position" content={`${index + 1}`} />
               <PlaylistCard
-                  headline={playlist.headline}
-                  imageUrl={playlist.imageUrl}
-                  introSubline={playlist.introSubline}
-                  spotifyPlaylist={playlist.spotifyPlaylist}
-                  deezerPlaylist={playlist.deezerPlaylist}
-                  appleMusicPlaylist={playlist.appleMusicPlaylist}
-                  index={index}
-                  lang={lang}
-                />
+                headline={playlist.headline}
+                imageUrl={playlist.imageUrl}
+                introSubline={playlist.introSubline}
+                spotifyPlaylist={playlist.spotifyPlaylist}
+                deezerPlaylist={playlist.deezerPlaylist}
+                appleMusicPlaylist={playlist.appleMusicPlaylist}
+                index={index}
+                lang={lang}
+              />
             </li>
           ))
         }
@@ -392,7 +422,11 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         aria-label={t("back.to.top") || "Back to top of page"}
         style="transform: translateZ(0);"
       >
-        <Icon name="arrow-up" class="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
+        <Icon
+          name="arrow-up"
+          class="h-5 w-5 sm:h-6 sm:w-6"
+          aria-hidden="true"
+        />
       </button>
     </div>
   </main>
@@ -491,7 +525,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       .playlist-card {
         contain: content;
       }
-      
+
       /* Verbesserte Touch-Targets für mobile Geräte */
       button,
       input[type="search"],
@@ -499,7 +533,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         min-height: var(--touch-target-size);
         min-width: var(--touch-target-size);
       }
-      
+
       /* Optimierte Abstände für Touch-Geräte */
       .gap-2 {
         gap: 0.625rem !important; /* 10px */
@@ -554,20 +588,20 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       }
     }
   </style>
-  
+
   <style is:global>
     /* Verbesserte Fokus-Stile für Tastaturbenutzer */
     .user-is-tabbing :focus:not(:focus-visible) {
       outline: none;
       box-shadow: none;
     }
-    
+
     .user-is-tabbing :focus-visible {
       outline: 3px solid var(--accent-primary);
       outline-offset: 3px;
       box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.5);
     }
-    
+
     /* Verbesserte Screenreader-Unterstützung */
     .sr-only {
       position: absolute;
@@ -580,7 +614,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       white-space: nowrap;
       border-width: 0;
     }
-    
+
     .sr-only.focus:not-sr-only {
       position: fixed;
       width: auto;
@@ -589,16 +623,18 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       clip: auto;
       white-space: normal;
     }
-    
+
     /* Optimierte Rendering-Performance */
-    img, video {
+    img,
+    video {
       image-rendering: high-quality;
       backface-visibility: hidden;
     }
-    
+
     /* Verbesserte Touch-Feedback */
     @media (hover: none) {
-      button:active, a:active {
+      button:active,
+      a:active {
         transform: scale(0.97);
         transition: transform 0.1s ease-out;
       }
@@ -636,7 +672,9 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       const VIRTUAL_SCROLL_THRESHOLD = 50; // Ab dieser Anzahl von Elementen virtuelles Scrolling aktivieren
       const FUZZY_MATCH_THRESHOLD = 0.6; // Schwellenwert für Fuzzy-Matching (0-1)
       const TOUCH_FEEDBACK_DURATION = 300; // ms
-      const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const REDUCED_MOTION = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
       const IS_TOUCH_DEVICE = window.matchMedia("(hover: none)").matches;
 
       // Optimierungsvariablen
@@ -682,18 +720,22 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
                 const card = entry.target as HTMLElement;
-                
+
                 // Verzögere die Animation leicht für einen Kaskaden-Effekt
-                setTimeout(() => {
-                  card.classList.add("animate-fadeIn");
-                  
-                  // Entferne Loading-Shimmer, wenn vorhanden
-                  const shimmerElements = card.querySelectorAll(".loading-shimmer");
-                  shimmerElements.forEach(el => {
-                    (el as HTMLElement).classList.remove("loading-shimmer");
-                  });
-                }, parseInt(card.dataset.index || "0") * 50);
-                
+                setTimeout(
+                  () => {
+                    card.classList.add("animate-fadeIn");
+
+                    // Entferne Loading-Shimmer, wenn vorhanden
+                    const shimmerElements =
+                      card.querySelectorAll(".loading-shimmer");
+                    shimmerElements.forEach((el) => {
+                      (el as HTMLElement).classList.remove("loading-shimmer");
+                    });
+                  },
+                  parseInt(card.dataset.index || "0") * 50,
+                );
+
                 cardObserver.unobserve(card);
               }
             });
@@ -701,17 +743,17 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
           {
             rootMargin: "100px",
             threshold: 0.1,
-          }
+          },
         );
 
         // Füge Loading-Shimmer zu Bildern hinzu und beobachte Karten
-        playlistCards.forEach(card => {
+        playlistCards.forEach((card) => {
           // Füge initial Loading-Shimmer hinzu
           const imageContainer = card.querySelector(".aspect-video");
           if (imageContainer && !REDUCED_MOTION) {
             imageContainer.classList.add("loading-shimmer");
           }
-          
+
           // Beobachte für Intersection
           cardObserver.observe(card);
         });
@@ -732,34 +774,49 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         if (!IS_TOUCH_DEVICE) return;
 
         // Füge Touch-Feedback für alle interaktiven Elemente hinzu
-        const interactiveElements = document.querySelectorAll('button, a, input[type="search"]');
-        
-        interactiveElements.forEach(el => {
-          el.addEventListener("touchstart", () => {
-            if (REDUCED_MOTION) return;
-            
-            (el as HTMLElement).style.transition = `transform ${TOUCH_FEEDBACK_DURATION}ms cubic-bezier(0.19, 1, 0.22, 1)`;
-            (el as HTMLElement).style.transform = "scale(0.97)";
-            
-            // Haptisches Feedback, wenn verfügbar
-            if ('vibrate' in navigator) {
-              try {
-                navigator.vibrate(10);
-              } catch (e) {
-                // Ignoriere Fehler, falls Vibration nicht unterstützt wird
+        const interactiveElements = document.querySelectorAll(
+          'button, a, input[type="search"]',
+        );
+
+        interactiveElements.forEach((el) => {
+          el.addEventListener(
+            "touchstart",
+            () => {
+              if (REDUCED_MOTION) return;
+
+              (el as HTMLElement).style.transition =
+                `transform ${TOUCH_FEEDBACK_DURATION}ms cubic-bezier(0.19, 1, 0.22, 1)`;
+              (el as HTMLElement).style.transform = "scale(0.97)";
+
+              // Haptisches Feedback, wenn verfügbar
+              if ("vibrate" in navigator) {
+                try {
+                  navigator.vibrate(10);
+                } catch (e) {
+                  // Ignoriere Fehler, falls Vibration nicht unterstützt wird
+                }
               }
-            }
-          }, { passive: true });
+            },
+            { passive: true },
+          );
 
-          el.addEventListener("touchend", () => {
-            if (REDUCED_MOTION) return;
-            (el as HTMLElement).style.transform = "";
-          }, { passive: true });
+          el.addEventListener(
+            "touchend",
+            () => {
+              if (REDUCED_MOTION) return;
+              (el as HTMLElement).style.transform = "";
+            },
+            { passive: true },
+          );
 
-          el.addEventListener("touchcancel", () => {
-            if (REDUCED_MOTION) return;
-            (el as HTMLElement).style.transform = "";
-          }, { passive: true });
+          el.addEventListener(
+            "touchcancel",
+            () => {
+              if (REDUCED_MOTION) return;
+              (el as HTMLElement).style.transform = "";
+            },
+            { passive: true },
+          );
         });
       }
 
@@ -1043,16 +1100,18 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         // Touch-spezifische Optimierungen
         if (IS_TOUCH_DEVICE) {
           // Optimiere für mobile Keyboards
-          searchInput.addEventListener("focus", function() {
+          searchInput.addEventListener("focus", function () {
             // Scrolle zum Suchfeld, wenn es fokussiert wird
             setTimeout(() => {
-              searchInput.scrollIntoView({ behavior: REDUCED_MOTION ? "auto" : "smooth", block: "center" });
+              searchInput.scrollIntoView({
+                behavior: REDUCED_MOTION ? "auto" : "smooth",
+                block: "center",
+              });
             }, 100);
           });
         }
-
       }
-      
+
       // Zurücksetzen der Suche und Filter
       if (resetSearchButton) {
         resetSearchButton.addEventListener("click", function () {
@@ -1066,9 +1125,9 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
 
           // Fokus zurück zum Sucheingabefeld für bessere Keyboard-UX
           searchInput?.focus();
-          
+
           // Haptisches Feedback, wenn verfügbar
-          if (IS_TOUCH_DEVICE && 'vibrate' in navigator) {
+          if (IS_TOUCH_DEVICE && "vibrate" in navigator) {
             try {
               navigator.vibrate(15);
             } catch (e) {
@@ -1102,9 +1161,9 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
           if (searchStatusElement) {
             searchStatusElement.textContent = "Zum Seitenanfang gescrollt";
           }
-          
+
           // Haptisches Feedback, wenn verfügbar
-          if (IS_TOUCH_DEVICE && 'vibrate' in navigator) {
+          if (IS_TOUCH_DEVICE && "vibrate" in navigator) {
             try {
               navigator.vibrate(15);
             } catch (e) {
@@ -1129,66 +1188,74 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       function optimizeScrollingPerformance() {
         // Verwende passive Event-Listener für Touch-Events
         const scrollOptions = { passive: true };
-        
+
         document.addEventListener("touchstart", () => {}, scrollOptions);
         document.addEventListener("touchmove", () => {}, scrollOptions);
         document.addEventListener("touchend", () => {}, scrollOptions);
-        
+
         // Optimiere content-visibility beim Scrollen
-        if ('contentVisibility' in document.documentElement.style) {
+        if ("contentVisibility" in document.documentElement.style) {
           let scrollTimeout: number;
           let lastScrollY = window.scrollY;
           let ticking = false;
-          
-          window.addEventListener("scroll", () => {
-            lastScrollY = window.scrollY;
-            
-            if (!ticking) {
-              window.requestAnimationFrame(() => {
-                // Optimiere nur, wenn wir schnell scrollen
-                const isRapidScrolling = Math.abs(lastScrollY - window.scrollY) > 50;
-                
-                if (isRapidScrolling && playlistGrid) {
-                  // Während schnellem Scrollen: Reduziere Rendering-Last
-                  playlistGrid.style.contentVisibility = "auto";
-                  
-                  if (scrollTimeout) {
-                    clearTimeout(scrollTimeout);
-                  }
-                  
-                  scrollTimeout = window.setTimeout(() => {
-                    // Stelle content-visibility nach dem Scrollen wieder her
-                    if (playlistGrid) {
-                      playlistGrid.style.contentVisibility = "";
+
+          window.addEventListener(
+            "scroll",
+            () => {
+              lastScrollY = window.scrollY;
+
+              if (!ticking) {
+                window.requestAnimationFrame(() => {
+                  // Optimiere nur, wenn wir schnell scrollen
+                  const isRapidScrolling =
+                    Math.abs(lastScrollY - window.scrollY) > 50;
+
+                  if (isRapidScrolling && playlistGrid) {
+                    // Während schnellem Scrollen: Reduziere Rendering-Last
+                    playlistGrid.style.contentVisibility = "auto";
+
+                    if (scrollTimeout) {
+                      clearTimeout(scrollTimeout);
                     }
-                  }, 150);
-                }
-                
-                ticking = false;
-              });
-              
-              ticking = true;
-            }
-          }, { passive: true });
+
+                    scrollTimeout = window.setTimeout(() => {
+                      // Stelle content-visibility nach dem Scrollen wieder her
+                      if (playlistGrid) {
+                        playlistGrid.style.contentVisibility = "";
+                      }
+                    }, 150);
+                  }
+
+                  ticking = false;
+                });
+
+                ticking = true;
+              }
+            },
+            { passive: true },
+          );
         }
-        
+
         // Optimiere Bilder basierend auf Verbindungsqualität
         const connection = (navigator as any).connection;
-        const isSlowConnection = connection &&
+        const isSlowConnection =
+          connection &&
           (connection.saveData ||
-           connection.effectiveType === 'slow-2g' ||
-           connection.effectiveType === '2g' ||
-           connection.downlink < 0.5);
-        
+            connection.effectiveType === "slow-2g" ||
+            connection.effectiveType === "2g" ||
+            connection.downlink < 0.5);
+
         if (isSlowConnection) {
           // Reduziere Bildqualität bei langsamen Verbindungen
-          document.querySelectorAll('img').forEach(img => {
-            if (!img.getAttribute('loading')) img.setAttribute('loading', 'lazy');
-            if (img.getAttribute('fetchpriority') !== 'high') img.setAttribute('fetchpriority', 'low');
+          document.querySelectorAll("img").forEach((img) => {
+            if (!img.getAttribute("loading"))
+              img.setAttribute("loading", "lazy");
+            if (img.getAttribute("fetchpriority") !== "high")
+              img.setAttribute("fetchpriority", "low");
           });
         }
       }
-      
+
       // Initialisiere Scrolling-Optimierungen
       optimizeScrollingPerformance();
 
@@ -1199,45 +1266,52 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         // Verbessere ARIA-Labels für Screen Reader
         playlistCards.forEach((card, index) => {
           const cardElement = card as HTMLElement;
-          const headline = cardElement.querySelector("h2")?.textContent || `Playlist ${index + 1}`;
+          const headline =
+            cardElement.querySelector("h2")?.textContent ||
+            `Playlist ${index + 1}`;
           const streamingLinks = cardElement.querySelectorAll("a[href]");
-          
+
           // Füge zusätzliche ARIA-Beschreibungen hinzu
-          streamingLinks.forEach(link => {
-            const serviceName = link.querySelector("span")?.textContent || "Streaming-Dienst";
-            (link as HTMLElement).setAttribute("aria-roledescription", `${serviceName} für ${headline}`);
+          streamingLinks.forEach((link) => {
+            const serviceName =
+              link.querySelector("span")?.textContent || "Streaming-Dienst";
+            (link as HTMLElement).setAttribute(
+              "aria-roledescription",
+              `${serviceName} für ${headline}`,
+            );
           });
         });
-        
+
         // Verbessere Statusmeldungen für Screen Reader
         if (searchStatusElement) {
           // Stelle sicher, dass Statusmeldungen korrekt angekündigt werden
           searchStatusElement.setAttribute("aria-live", "polite");
           searchStatusElement.setAttribute("aria-atomic", "true");
         }
-        
+
         // Füge Skip-Link für Tastaturbenutzer hinzu
-        const skipLink = document.createElement('a');
-        skipLink.href = '#playlist-grid';
-        skipLink.className = 'sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:p-4 focus:bg-purple-700 focus:text-white focus:rounded-md';
-        skipLink.textContent = 'Zum Inhalt springen';
-        skipLink.setAttribute('tabindex', '0');
+        const skipLink = document.createElement("a");
+        skipLink.href = "#playlist-grid";
+        skipLink.className =
+          "sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:p-4 focus:bg-purple-700 focus:text-white focus:rounded-md";
+        skipLink.textContent = "Zum Inhalt springen";
+        skipLink.setAttribute("tabindex", "0");
         document.body.insertBefore(skipLink, document.body.firstChild);
-        
+
         // Verbessere Fokus-Management
-        document.addEventListener('keydown', (e) => {
+        document.addEventListener("keydown", (e) => {
           // Verbessere Tab-Navigation
-          if (e.key === 'Tab') {
-            document.body.classList.add('user-is-tabbing');
+          if (e.key === "Tab") {
+            document.body.classList.add("user-is-tabbing");
           }
         });
-        
+
         // Entferne Klasse, wenn Maus verwendet wird
-        document.addEventListener('mousedown', () => {
-          document.body.classList.remove('user-is-tabbing');
+        document.addEventListener("mousedown", () => {
+          document.body.classList.remove("user-is-tabbing");
         });
       }
-      
+
       // Initialisiere erweiterte Accessibility
       enhanceAccessibility();
 

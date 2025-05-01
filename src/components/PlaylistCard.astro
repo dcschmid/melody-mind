@@ -82,7 +82,10 @@ const hasStreamingLinks =
   >
   </div>
 
-  <div class="relative aspect-video overflow-hidden rounded-t-lg" style="contain: layout size;">
+  <div
+    class="relative aspect-video overflow-hidden rounded-t-lg"
+    style="contain: layout size;"
+  >
     <Picture
       src={imageUrl || "/default-cover.jpg"}
       alt={`Playlist-Cover für "${headline}" - ${introSubline}`}
@@ -270,18 +273,19 @@ const hasStreamingLinks =
     const VIEWPORT_MARGIN = "200px";
     const HOVER_DELAY = 100; // ms
     const PREFETCH_TIMEOUT = 2000; // ms
-    
+
     // Netzwerkbasierte Optimierungen
     const connection = (navigator as any).connection;
-    const isSlowConnection = connection &&
+    const isSlowConnection =
+      connection &&
       (connection.saveData ||
-       connection.effectiveType === 'slow-2g' ||
-       connection.effectiveType === '2g' ||
-       connection.downlink < 0.5);
-    
+        connection.effectiveType === "slow-2g" ||
+        connection.effectiveType === "2g" ||
+        connection.downlink < 0.5);
+
     // Reduziere Prefetching bei langsamen Verbindungen
     const shouldPrefetch = !isSlowConnection;
-    
+
     // Prefetch-Cache, um doppelte Prefetches zu vermeiden
     const prefetchedUrls = new Set<string>();
 
@@ -307,7 +311,7 @@ const hasStreamingLinks =
       {
         rootMargin: VIEWPORT_MARGIN,
         threshold: 0.1,
-      }
+      },
     );
 
     // Füge Hover-Listener und Observer für alle Prefetch-Links hinzu
@@ -341,7 +345,7 @@ const hasStreamingLinks =
       if (prefetchedUrls.has(url) || !shouldPrefetch) return;
 
       // Überprüfe Netzwerkstatus
-      if ('onLine' in navigator && !navigator.onLine) return;
+      if ("onLine" in navigator && !navigator.onLine) return;
 
       // Markiere als prefetched
       prefetchedUrls.add(url);
@@ -383,27 +387,36 @@ const hasStreamingLinks =
     document.addEventListener("astro:before-swap", () => {
       observer.disconnect();
     });
-    
+
     // Optimiere Bilder basierend auf Verbindungsqualität
     if (isSlowConnection) {
-      document.querySelectorAll('img').forEach(img => {
-        if (!img.getAttribute('loading')) img.setAttribute('loading', 'lazy');
-        if (img.getAttribute('fetchpriority') !== 'high') img.setAttribute('fetchpriority', 'low');
+      document.querySelectorAll("img").forEach((img) => {
+        if (!img.getAttribute("loading")) img.setAttribute("loading", "lazy");
+        if (img.getAttribute("fetchpriority") !== "high")
+          img.setAttribute("fetchpriority", "low");
       });
     }
-    
+
     // Verbesserte Touch-Feedback für mobile Geräte
-    if (window.matchMedia('(hover: none)').matches) {
-      document.querySelectorAll('a[role="button"]').forEach(button => {
-        button.addEventListener('touchstart', () => {
-          (button as HTMLElement).style.transform = 'scale(0.97)';
-        }, { passive: true });
-        
-        button.addEventListener('touchend', () => {
-          setTimeout(() => {
-            (button as HTMLElement).style.transform = '';
-          }, 100);
-        }, { passive: true });
+    if (window.matchMedia("(hover: none)").matches) {
+      document.querySelectorAll('a[role="button"]').forEach((button) => {
+        button.addEventListener(
+          "touchstart",
+          () => {
+            (button as HTMLElement).style.transform = "scale(0.97)";
+          },
+          { passive: true },
+        );
+
+        button.addEventListener(
+          "touchend",
+          () => {
+            setTimeout(() => {
+              (button as HTMLElement).style.transform = "";
+            }, 100);
+          },
+          { passive: true },
+        );
       });
     }
   });
@@ -530,7 +543,7 @@ const hasStreamingLinks =
       transform: translateZ(0); /* Hardware-Beschleunigung aktivieren */
     }
   }
-  
+
   /* Verbesserte Touch-Targets für mobile Geräte */
   @media (max-width: 640px) {
     a[role="button"] {
@@ -539,7 +552,7 @@ const hasStreamingLinks =
       padding: 0.75rem 1rem;
     }
   }
-  
+
   /* Optimierte Rendering-Performance */
   .will-change-transform {
     backface-visibility: hidden;
