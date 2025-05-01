@@ -46,7 +46,7 @@ const {
   deezerPlaylist,
   appleMusicPlaylist,
   index,
-  lang
+  lang,
 } = Astro.props as PlaylistCardProps;
 
 // Use the i18n utilities for translations
@@ -54,9 +54,7 @@ const t = useTranslations(lang);
 
 // Extract decade for filtering
 const decadeMatch = headline.match(/\d{4}/);
-const decade = decadeMatch
-  ? decadeMatch[0].substring(0, 3) + "0s"
-  : "Other";
+const decade = decadeMatch ? decadeMatch[0].substring(0, 3) + "0s" : "Other";
 
 // Generate unique ID for each playlist item for better accessibility
 const playlistId = `playlist-${index}`;
@@ -67,7 +65,8 @@ const loadingStrategy = isPriority ? "eager" : "lazy";
 const fetchPriority = isPriority ? "high" : "auto";
 
 // Determine if the card has any streaming service links
-const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylist;
+const hasStreamingLinks =
+  spotifyPlaylist || deezerPlaylist || appleMusicPlaylist;
 ---
 
 <li
@@ -77,11 +76,14 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
   data-decade={decade}
   id={playlistId}
 >
-  <article class="h-full bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+  <article
+    class="h-full bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]"
+  >
     <div
       class="p-0.5 bg-gradient-to-r from-purple-500 to-indigo-500"
       aria-hidden="true"
-    />
+    >
+    </div>
 
     <div class="relative aspect-video overflow-hidden rounded-t-lg">
       <Picture
@@ -100,90 +102,88 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
       <div
         class="absolute inset-0 bg-gradient-to-t from-zinc-900/30 via-zinc-900/10 to-transparent"
         aria-hidden="true"
-      />
+      >
+      </div>
     </div>
 
     <div class="p-5 space-y-4 bg-gradient-to-b from-zinc-800 to-zinc-800/90">
       <h3 class="text-xl md:text-2xl font-bold text-white mb-2">
         {headline}
       </h3>
-      <div class="h-0.5 w-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full mb-3" />
+      <div
+        class="h-0.5 w-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full mb-3"
+      >
+      </div>
       <p class="text-zinc-50 text-base">
         {introSubline}
       </p>
 
       <div class="flex flex-wrap gap-3 mt-4">
-        {spotifyPlaylist && (
-          <a
-            href={spotifyPlaylist}
-            target="_blank"
-            rel="noopener noreferrer prefetch"
-            class="inline-flex items-center gap-2 px-4 py-3 
+        {
+          spotifyPlaylist && (
+            <a
+              href={spotifyPlaylist}
+              target="_blank"
+              rel="noopener noreferrer prefetch"
+              class="inline-flex items-center gap-2 px-4 py-3 
                    bg-[#1DB954] hover:bg-[#1aa34a] 
                    rounded-full text-black font-medium 
                    min-h-[44px] min-w-[100px]
                    focus:outline-none focus:ring-4 focus:ring-[#1DB954]/50 
                    focus:ring-offset-2 focus:ring-offset-zinc-800
                    transition-all duration-300"
-            aria-label={`${t("playlist.listen.spotify")} - ${headline}`}
-            data-prefetch={isPriority ? "viewport" : "hover"}
-          >
-            <Icon
-              name="spotify"
-              class="h-5 w-5"
-              aria-hidden="true"
-            />
-            <span>Spotify</span>
-          </a>
-        )}
+              aria-label={`${t("playlist.listen.spotify")} - ${headline}`}
+              data-prefetch={isPriority ? "viewport" : "hover"}
+            >
+              <Icon name="spotify" class="h-5 w-5" aria-hidden="true" />
+              <span>Spotify</span>
+            </a>
+          )
+        }
 
-        {deezerPlaylist && (
-          <a
-            href={deezerPlaylist}
-            target="_blank"
-            rel="noopener noreferrer prefetch"
-            class="inline-flex items-center gap-2 px-4 py-3
+        {
+          deezerPlaylist && (
+            <a
+              href={deezerPlaylist}
+              target="_blank"
+              rel="noopener noreferrer prefetch"
+              class="inline-flex items-center gap-2 px-4 py-3
                    bg-[#FF0092] hover:bg-[#d4007a]
                    rounded-full text-white font-medium
                    min-h-[44px] min-w-[100px]
                    focus:outline-none focus:ring-4 focus:ring-[#FF0092]/50
                    focus:ring-offset-2 focus:ring-offset-zinc-800
                    transition-all duration-300"
-            aria-label={`${t("playlist.listen.deezer")} - ${headline}`}
-            data-prefetch={isPriority ? "viewport" : "hover"}
-          >
-            <Icon
-              name="deezer"
-              class="h-5 w-5"
-              aria-hidden="true"
-            />
-            <span>Deezer</span>
-          </a>
-        )}
+              aria-label={`${t("playlist.listen.deezer")} - ${headline}`}
+              data-prefetch={isPriority ? "viewport" : "hover"}
+            >
+              <Icon name="deezer" class="h-5 w-5" aria-hidden="true" />
+              <span>Deezer</span>
+            </a>
+          )
+        }
 
-        {appleMusicPlaylist && (
-          <a
-            href={appleMusicPlaylist}
-            target="_blank"
-            rel="noopener noreferrer prefetch"
-            class="inline-flex items-center gap-2 px-4 py-3
+        {
+          appleMusicPlaylist && (
+            <a
+              href={appleMusicPlaylist}
+              target="_blank"
+              rel="noopener noreferrer prefetch"
+              class="inline-flex items-center gap-2 px-4 py-3
                    bg-[#FB233B] hover:bg-[#d41e32]
                    rounded-full text-white font-medium
                    min-h-[44px] min-w-[100px]
                    focus:outline-none focus:ring-4 focus:ring-[#FB233B]/50
                    focus:ring-offset-2 focus:ring-offset-zinc-800
                    transition-all duration-300"
-            aria-label={`${t("playlist.listen.apple")} - ${headline}`}
-            data-prefetch={isPriority ? "viewport" : "hover"}
-          >
-            <Icon
-              name="apple"
-              class="h-5 w-5"
-              aria-hidden="true"
-            />
-            <span>Apple Music</span>
-          </a>
-        )}
+              aria-label={`${t("playlist.listen.apple")} - ${headline}`}
+              data-prefetch={isPriority ? "viewport" : "hover"}
+            >
+              <Icon name="apple" class="h-5 w-5" aria-hidden="true" />
+              <span>Apple Music</span>
+            </a>
+          )
+        }
       </div>
     </div>
   </article>
@@ -192,34 +192,34 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
 <script>
   /**
    * Intelligentes Prefetching für Playlist-Links
-   * 
+   *
    * Dieses Script implementiert ein fortschrittliches Prefetching-System für externe Links:
    * - Viewport-basiertes Prefetching für sichtbare Elemente
    * - Hover-basiertes Prefetching für nicht-sichtbare Elemente
    * - Priorisierung basierend auf Viewport-Sichtbarkeit
    * - Ressourcenschonendes Laden durch Intersection Observer
    */
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     // Konfigurationswerte
-    const VIEWPORT_MARGIN = '200px';
+    const VIEWPORT_MARGIN = "200px";
     const HOVER_DELAY = 100; // ms
     const PREFETCH_TIMEOUT = 2000; // ms
 
     // Prefetch-Cache, um doppelte Prefetches zu vermeiden
     const prefetchedUrls = new Set<string>();
-    
+
     // Sammle alle Links mit Prefetch-Attributen
-    const prefetchLinks = document.querySelectorAll('a[data-prefetch]');
-    
+    const prefetchLinks = document.querySelectorAll("a[data-prefetch]");
+
     // Erstelle einen Intersection Observer für viewport-basiertes Prefetching
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const link = entry.target as HTMLAnchorElement;
             const prefetchType = link.dataset.prefetch;
-            
-            if (prefetchType === 'viewport') {
+
+            if (prefetchType === "viewport") {
               prefetchLink(link.href);
               // Beobachtung beenden, nachdem der Link prefetched wurde
               observer.unobserve(link);
@@ -229,49 +229,49 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
       },
       {
         rootMargin: VIEWPORT_MARGIN,
-        threshold: 0.1
-      }
+        threshold: 0.1,
+      },
     );
-    
+
     // Füge Hover-Listener und Observer für alle Prefetch-Links hinzu
-    prefetchLinks.forEach(link => {
+    prefetchLinks.forEach((link) => {
       const prefetchType = (link as HTMLElement).dataset.prefetch;
-      
+
       // Viewport-basiertes Prefetching
       observer.observe(link);
-      
+
       // Hover-basiertes Prefetching
-      if (prefetchType === 'hover') {
+      if (prefetchType === "hover") {
         let hoverTimer: number;
-        
-        link.addEventListener('mouseenter', () => {
+
+        link.addEventListener("mouseenter", () => {
           hoverTimer = window.setTimeout(() => {
             prefetchLink((link as HTMLAnchorElement).href);
           }, HOVER_DELAY);
         });
-        
-        link.addEventListener('mouseleave', () => {
+
+        link.addEventListener("mouseleave", () => {
           clearTimeout(hoverTimer);
         });
       }
     });
-    
+
     /**
      * Prefetcht einen Link mit Timeout und Caching
      */
     function prefetchLink(url: string): void {
       // Überspringe, wenn bereits prefetched
       if (prefetchedUrls.has(url)) return;
-      
+
       // Markiere als prefetched
       prefetchedUrls.add(url);
-      
+
       // Erstelle einen Link-Prefetch mit Timeout
-      const linkElem = document.createElement('link');
-      linkElem.rel = 'prefetch';
+      const linkElem = document.createElement("link");
+      linkElem.rel = "prefetch";
       linkElem.href = url;
-      linkElem.as = 'document';
-      
+      linkElem.as = "document";
+
       // Setze Timeout für den Prefetch
       const prefetchTimeout = setTimeout(() => {
         // Entferne das Element, wenn der Prefetch zu lange dauert
@@ -279,12 +279,12 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
           document.head.removeChild(linkElem);
         }
       }, PREFETCH_TIMEOUT);
-      
+
       // Cleanup nach erfolgreichem Laden
       linkElem.onload = () => {
         clearTimeout(prefetchTimeout);
       };
-      
+
       // Cleanup bei Fehler
       linkElem.onerror = () => {
         clearTimeout(prefetchTimeout);
@@ -294,13 +294,13 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
         // Entferne aus Cache, damit später erneut versucht werden kann
         prefetchedUrls.delete(url);
       };
-      
+
       // Füge zum Dokument hinzu
       document.head.appendChild(linkElem);
     }
-    
+
     // Cleanup beim Verlassen der Seite
-    document.addEventListener('astro:before-swap', () => {
+    document.addEventListener("astro:before-swap", () => {
       observer.disconnect();
     });
   });
@@ -311,7 +311,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
   .text-zinc-50 {
     color: #fafafa; /* Höherer Kontrast als Standard zinc-50 */
   }
-  
+
   /* Optimierte Animation für bessere Performance */
   @keyframes fadeIn {
     from {
@@ -323,13 +323,13 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
       transform: translateY(0);
     }
   }
-  
+
   .animate-fadeIn {
     animation: fadeIn 0.5s ease-out forwards;
     opacity: 0;
     will-change: opacity, transform;
   }
-  
+
   /* Reduzierte Bewegung für Barrierefreiheit */
   @media (prefers-reduced-motion: reduce) {
     .animate-fadeIn {
@@ -337,12 +337,12 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
       opacity: 1;
       transform: none;
     }
-    
+
     article:hover {
       transform: none !important;
     }
   }
-  
+
   /* Optimierte Bildcontainer für Content Layout Shift (CLS) Vermeidung */
   .aspect-video {
     aspect-ratio: 16/9;
