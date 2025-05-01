@@ -41,23 +41,23 @@ export async function getStaticPaths() {
       let playlists = [];
       try {
         const playlistData = await import(
-          /* @vite-ignore */ `@json/${lang}_playlist.json`
+          /* @vite-ignore */ `../../json/${lang}_playlist.json`
         );
         playlists = playlistData.default;
       } catch (error) {
         // Fallback to English if language file doesn't exist
         try {
           console.info(
-            `No playlist data found for ${lang}, falling back to English`,
+            `No playlist data found for ${lang}, falling back to English`
           );
           const fallbackData = await import(
-            /* @vite-ignore */ `@json/en_playlist.json`
+            /* @vite-ignore */ `../../json/en_playlist.json`
           );
           playlists = fallbackData.default;
         } catch (fallbackError) {
           console.error(
             `Error loading playlist data for ${lang}:`,
-            fallbackError,
+            fallbackError
           );
         }
       }
@@ -69,7 +69,7 @@ export async function getStaticPaths() {
           playlists,
         },
       };
-    }),
+    })
   );
 
   return paths;
@@ -119,7 +119,7 @@ const modifiedDate = new Date();
 
 // Sort playlists chronologically (assuming decade in headline format like "1950s")
 const sortedPlaylists = [...playlists].sort((a, b) =>
-  a.imageUrl.localeCompare(b.imageUrl, undefined, { sensitivity: "base" }),
+  a.imageUrl.localeCompare(b.imageUrl, undefined, { sensitivity: "base" })
 );
 ---
 
@@ -186,44 +186,6 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
                 t("playlist.search.live.description") ||
                   "Results are filtered automatically as you type"
               }
-            </div>
-          </div>
-        </div>
-
-        <!-- Decade filter dropdown (new) -->
-        <div class="relative">
-          <label for="decadeFilter" class="sr-only">
-            {t("playlist.filter.by.decade") || "Filter by decade"}
-          </label>
-          <div class="relative">
-            <select
-              id="decadeFilter"
-              class="appearance-none w-full md:w-44 py-3 pl-4 pr-10 bg-zinc-800 border-2 border-zinc-600
-                     rounded-xl text-zinc-50
-                     focus:outline-none focus:border-purple-500 focus:ring-3
-                     focus:ring-purple-500/50 transition-all duration-300"
-              aria-controls="playlist-grid"
-            >
-              <option value="all"
-                >{t("playlist.filter.all.decades") || "All decades"}</option
-              >
-              <option value="1950s">1950s</option>
-              <option value="1960s">1960s</option>
-              <option value="1970s">1970s</option>
-              <option value="1980s">1980s</option>
-              <option value="1990s">1990s</option>
-              <option value="2000s">2000s</option>
-              <option value="2010s">2010s</option>
-              <option value="2020s">2020s</option>
-              <option value="Other"
-                >{t("playlist.filter.other") || "Other"}</option
-              >
-            </select>
-            <div
-              class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3"
-              aria-hidden="true"
-            >
-              <Icon name="chevron-down" class="h-4 w-4 text-purple-400" />
             </div>
           </div>
         </div>
@@ -301,7 +263,7 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
                     aria-hidden="true"
                   />
 
-                  <div class="relative aspect-video overflow-hidden">
+                  <div class="relative aspect-video overflow-hidden rounded-t-lg">
                     <Picture
                       src={playlist.imageUrl || "/default-cover.jpg"}
                       alt={`Cover image for ${playlist.headline}`}
@@ -314,17 +276,16 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
                       height={720}
                     />
                     <div
-                      class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/60 to-transparent"
+                      class="absolute inset-0 bg-gradient-to-t from-zinc-900/30 via-zinc-900/10 to-transparent"
                       aria-hidden="true"
                     />
-                    <div class="absolute bottom-0 left-0 w-full p-4">
-                      <h3 class="text-xl md:text-2xl font-bold text-white mb-2">
-                        {playlist.headline}
-                      </h3>
-                    </div>
                   </div>
 
-                  <div class="p-5 space-y-4">
+                  <div class="p-5 space-y-4 bg-gradient-to-b from-zinc-800 to-zinc-800/90">
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-2">
+                      {playlist.headline}
+                    </h3>
+                    <div class="h-0.5 w-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full mb-3"></div>
                     <p class="text-zinc-50 text-base">
                       {playlist.introSubline}
                     </p>
@@ -504,15 +465,15 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
     document.addEventListener("DOMContentLoaded", function () {
       // Cache DOM elements for better performance
       const searchInput = document.getElementById(
-        "playlist-search",
+        "playlist-search"
       ) as HTMLInputElement;
       const decadeFilter = document.getElementById(
-        "decadeFilter",
+        "decadeFilter"
       ) as HTMLSelectElement;
       const playlistCards = document.querySelectorAll(".playlist-card");
       const noResultsElement = document.getElementById("no-results");
       const searchStatusElement = document.getElementById(
-        "search-results-status",
+        "search-results-status"
       );
       const resetSearchButton = document.getElementById("reset-search");
       const backToTopButton = document.getElementById("back-to-top");
@@ -652,7 +613,7 @@ const sortedPlaylists = [...playlists].sort((a, b) =>
           ([entry]) => {
             backToTopButton.classList.toggle("visible", !entry.isIntersecting);
           },
-          { threshold: 0, rootMargin: "-200px 0px 0px 0px" },
+          { threshold: 0, rootMargin: "-200px 0px 0px 0px" }
         );
 
         // Observe the page header to show/hide button
