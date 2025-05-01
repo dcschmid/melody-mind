@@ -49,7 +49,7 @@ export async function getStaticPaths() {
       // Fallback zu Englisch, wenn die Sprachdatei nicht existiert
       try {
         console.info(
-          `No playlist data found for ${lang}, falling back to English`,
+          `No playlist data found for ${lang}, falling back to English`
         );
         const fallbackData = await import(
           `../../../public/json/playlist/en_playlist.json`
@@ -58,7 +58,7 @@ export async function getStaticPaths() {
       } catch (fallbackError) {
         console.error(
           `Error loading playlist data for ${lang}:`,
-          fallbackError,
+          fallbackError
         );
         return { lang, playlists: [] };
       }
@@ -259,37 +259,43 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
     ])}
   />
   <main
-    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12"
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14"
     style="contain: content;"
+    id="main-content"
   >
+    <!-- Skip-Link-Ziel für Tastaturnavigation -->
+    <div id="skip-link-target" tabindex="-1" class="sr-only">
+      Hauptinhalt beginnt hier
+    </div>
     <!-- Page heading and description -->
-    <div class="text-center mb-8 sm:mb-10 lg:mb-12">
+    <div class="text-center mb-10 sm:mb-12 lg:mb-14">
       <Headline
         title={t("playlist.page.heading")}
         level="h1"
-        className="text-white font-bold text-3xl sm:text-4xl lg:text-5xl mb-4"
+        className="text-white font-bold text-3xl sm:text-4xl lg:text-5xl mb-5 leading-tight tracking-wide"
       />
       <div
-        class="h-1 w-16 sm:w-24 bg-purple-500 rounded-full mx-auto mt-2 mb-4 sm:mb-6"
+        class="h-1.5 w-20 sm:w-28 bg-purple-400 rounded-full mx-auto mt-3 mb-5 sm:mb-7"
+        aria-hidden="true"
       >
       </div>
       <Paragraph
         description={t("playlist.page.description")}
-        className="max-w-xl sm:max-w-2xl mx-auto text-zinc-100 text-base sm:text-lg"
+        className="max-w-xl sm:max-w-2xl mx-auto text-white text-lg sm:text-xl lg:text-2xl leading-relaxed tracking-wide"
       />
     </div>
 
     <!-- Search and filter section -->
     <div
-      class="search-filter-container bg-zinc-800/90 rounded-xl p-4 sm:p-6 lg:p-8 border border-zinc-700 shadow-lg mb-8 sm:mb-10"
+      class="search-filter-container bg-zinc-900 rounded-xl p-5 sm:p-7 lg:p-9 border border-zinc-600 shadow-lg mb-10 sm:mb-12"
       role="search"
       aria-labelledby="search-heading"
     >
-      <h2 id="search-heading" class="sr-only">
+      <h2 id="search-heading" class="sr-only font-bold text-xl mb-4">
         {t("playlist.search.label")}
       </h2>
 
-      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 sm:mb-6">
+      <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 mb-5 sm:mb-7">
         <!-- Search field -->
         <div class="relative flex-grow">
           <label for="playlist-search" class="sr-only">
@@ -297,23 +303,24 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
           </label>
           <div class="relative">
             <div
-              class="absolute inset-y-0 left-3 flex items-center pointer-events-none"
+              class="absolute inset-y-0 left-4 flex items-center pointer-events-none"
               aria-hidden="true"
             >
-              <Icon name="search" class="h-5 w-5 text-purple-400" />
+              <Icon name="search" class="h-6 w-6 text-purple-300" />
             </div>
             <input
               type="search"
               id="playlist-search"
               placeholder={t("playlist.search.placeholder")}
-              class="w-full py-3 pl-10 pr-4 bg-zinc-800 border-2 border-zinc-600
-                    rounded-xl text-zinc-50 placeholder-zinc-400
-                    focus:outline-none focus:border-purple-500 focus:ring-3
-                    focus:ring-purple-500/50 transition-all duration-200 ease-out
-                    text-base sm:text-lg touch-manipulation min-h-[52px]
-                    hover:border-zinc-500 active:border-purple-500"
+              class="w-full py-4 pl-12 pr-5 bg-zinc-800 border-3 border-zinc-500
+                    rounded-xl text-white placeholder-zinc-300
+                    focus:outline-none focus:border-purple-400 focus:ring-4
+                    focus:ring-purple-400/70 transition-all duration-200 ease-out
+                    text-lg sm:text-xl touch-manipulation min-h-[60px]
+                    hover:border-zinc-400 active:border-purple-400"
               aria-controls="playlist-grid"
               aria-describedby="search-playlist-description"
+              aria-label={t("playlist.search.label") || "Playlists durchsuchen"}
               autocomplete="off"
               enterkeyhint="search"
             />
@@ -340,30 +347,30 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       <!-- No results message (initially hidden) -->
       <div
         id="no-results"
-        class="hidden flex flex-col items-center justify-center p-6 sm:p-10 lg:p-12 bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-xl border border-zinc-600 text-center shadow-md mb-6 sm:mb-10"
+        class="hidden flex flex-col items-center justify-center p-8 sm:p-10 lg:p-12 bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-xl border border-zinc-500 text-center shadow-md mb-8 sm:mb-10"
         aria-live="polite"
         role="status"
       >
         <Icon
           name="search-no-results"
-          class="w-12 h-12 sm:w-16 sm:h-16 text-zinc-300 mb-3 sm:mb-4"
+          class="w-14 h-14 sm:w-18 sm:h-18 text-zinc-200 mb-4 sm:mb-5"
           aria-hidden="true"
         />
-        <h2 class="text-zinc-100 text-lg sm:text-xl font-medium mb-2">
+        <h2 class="text-white text-xl sm:text-2xl font-bold mb-3 tracking-wide">
           {t("playlist.no.results.heading") || "No playlists found"}
         </h2>
-        <p class="text-zinc-300 mb-3 sm:mb-4 text-base sm:text-lg">
+        <p class="text-white mb-4 sm:mb-5 text-lg sm:text-xl leading-relaxed">
           {t("playlist.no.results")}
         </p>
         <button
           id="reset-search"
-          class="mt-2 px-5 sm:px-6 py-3 bg-purple-700 hover:bg-purple-600 active:bg-purple-800 text-white rounded-lg
-                 min-h-[52px] min-w-[140px] font-medium text-base sm:text-lg
-                 focus:outline-none focus:ring-4 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800
+          class="mt-3 px-6 sm:px-7 py-4 bg-purple-700 hover:bg-purple-600 active:bg-purple-800 text-white rounded-lg
+                 min-h-[60px] min-w-[170px] font-bold text-lg sm:text-xl
+                 focus:outline-none focus:ring-4 focus:ring-purple-400/70 focus:ring-offset-4 focus:ring-offset-zinc-900
                  transition-colors transition-transform duration-200 ease-out touch-manipulation
                  active:scale-95 active:translate-y-[1px]"
           aria-label={t("playlist.reset.search.button") ||
-            "Reset search filters"}
+            "Suchfilter zurücksetzen"}
         >
           {t("playlist.reset.search") || "Reset search"}
         </button>
@@ -372,8 +379,11 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       <!-- Playlist Grid -->
       <ul
         id="playlist-grid"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 contain-layout will-change-contents"
+        class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 contain-layout will-change-contents"
         aria-label={t("playlist.page.heading")}
+        aria-live="polite"
+        aria-relevant="additions removals"
+        aria-atomic="false"
         itemscope
         itemtype="https://schema.org/ItemList"
         style="content-visibility: auto; contain-intrinsic-size: auto 500px; transform: translateZ(0);"
@@ -389,6 +399,8 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
               data-decade={getDecadeFromHeadline(playlist.headline)}
               data-index={index}
               id={`playlist-${index}`}
+              aria-posinset={index + 1}
+              aria-setsize={sortedPlaylists.length}
               style={{
                 animationDelay: `${index * 0.05}s`,
                 contain: "content",
@@ -414,17 +426,17 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       <!-- Back to top button -->
       <button
         id="back-to-top"
-        class="fixed bottom-4 sm:bottom-6 lg:bottom-8 right-4 sm:right-6 lg:right-8 p-3 sm:p-4 bg-purple-700 text-white rounded-full shadow-lg opacity-0 invisible
+        class="fixed bottom-6 sm:bottom-8 lg:bottom-10 right-6 sm:right-8 lg:right-10 p-4 sm:p-5 bg-purple-700 text-white rounded-full shadow-lg opacity-0 invisible
                transition-all duration-200 ease-out hover:bg-purple-600 active:bg-purple-800
-               min-w-[56px] min-h-[56px] sm:min-w-[60px] sm:min-h-[60px] flex items-center justify-center
-               focus:outline-none focus:ring-4 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800
+               min-w-[64px] min-h-[64px] sm:min-w-[72px] sm:min-h-[72px] flex items-center justify-center
+               focus:outline-none focus:ring-4 focus:ring-purple-400/70 focus:ring-offset-4 focus:ring-offset-zinc-900
                touch-manipulation z-50 active:scale-95 active:translate-y-[1px]"
-        aria-label={t("back.to.top") || "Back to top of page"}
+        aria-label={t("back.to.top") || "Zurück zum Seitenanfang"}
         style="transform: translateZ(0);"
       >
         <Icon
           name="arrow-up"
-          class="h-5 w-5 sm:h-6 sm:w-6"
+          class="h-6 w-6 sm:h-7 sm:w-7"
           aria-hidden="true"
         />
       </button>
@@ -435,18 +447,55 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
     /* Improved color contrast for WCAG AAA (7:1) */
     :root {
       --text-primary: #ffffff; /* Maximum contrast */
-      --text-secondary: #e2e2e7; /* Higher contrast than standard zinc-300 */
-      --bg-card: #27272a; /* zinc-800 */
-      --border-card: rgba(161, 161, 170, 0.3); /* zinc-400 with transparency */
-      --accent-primary: #9333ea; /* purple-600 - darker for better contrast */
-      --accent-secondary: #a855f7; /* purple-500 */
-      --touch-target-size: 44px; /* Minimum touch target size */
+      --text-secondary: #f8f8ff; /* Higher contrast than standard zinc-300 */
+      --bg-card: #18181b; /* zinc-900 - darker for better contrast */
+      --border-card: rgba(212, 212, 216, 0.4); /* zinc-300 with transparency */
+      --accent-primary: #8b5cf6; /* purple-500 - optimized for contrast */
+      --accent-secondary: #a78bfa; /* purple-400 */
+      --touch-target-size: 48px; /* Increased minimum touch target size */
+      --focus-ring-width: 4px; /* Increased focus ring width */
+      --focus-ring-offset: 4px; /* Increased focus ring offset */
+    }
+
+    /* Verbesserte Unterstützung für hohen Kontrast (WCAG AAA) */
+    @media (forced-colors: active), (prefers-contrast: more) {
+      :root {
+        --accent-primary: SelectedItem;
+        --accent-secondary: SelectedItemText;
+        --border-card: ButtonBorder;
+      }
+
+      /* Verbesserte Sichtbarkeit für Elemente im hohen Kontrast-Modus */
+      .playlist-card {
+        border: 2px solid ButtonBorder !important;
+        outline: 1px solid transparent;
+      }
+
+      /* Verbesserte Fokus-Indikatoren für hohen Kontrast */
+      :focus-visible {
+        outline: 3px solid SelectedItem !important;
+        outline-offset: 4px !important;
+      }
+
+      /* Verbesserte Button-Kontraste */
+      button,
+      a[role="button"],
+      input[type="search"] {
+        border: 2px solid ButtonBorder !important;
+      }
+
+      /* Verbesserte Icon-Sichtbarkeit */
+      svg {
+        fill: currentColor !important;
+        stroke: currentColor !important;
+        forced-color-adjust: none;
+      }
     }
 
     /* Improved focus states for keyboard navigation */
     :focus-visible {
-      outline: 3px solid var(--accent-primary);
-      outline-offset: 3px;
+      outline: var(--focus-ring-width) solid var(--accent-primary);
+      outline-offset: var(--focus-ring-offset);
     }
 
     /* Animations for cards */
@@ -540,6 +589,53 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       }
     }
 
+    /* Verbesserte Unterstützung für Textvergrößerung (WCAG AAA) */
+    @media (min-resolution: 1dppx) {
+      html {
+        /* Erlaubt Textvergrößerung ohne Verlust von Inhalten */
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+    }
+
+    /* Optimierungen für Textvergrößerung bis 200% */
+    @media screen and (max-width: 640px),
+      (min-width: 641px) and (max-width: 1024px) and (min-resolution: 1dppx) {
+      /* Verbesserte Lesbarkeit bei vergrößertem Text */
+      .text-base {
+        font-size: max(1rem, 16px);
+        line-height: 1.8;
+      }
+
+      .text-lg {
+        font-size: max(1.125rem, 18px);
+        line-height: 1.8;
+      }
+
+      .text-xl {
+        font-size: max(1.25rem, 20px);
+        line-height: 1.8;
+      }
+
+      /* Verbesserte Abstände für vergrößerten Text */
+      .p-5,
+      .p-6 {
+        padding: max(1.25rem, 20px);
+      }
+
+      /* Flexiblere Layouts für vergrößerten Text */
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      /* Verbesserte Button-Größen für vergrößerten Text */
+      button,
+      a[role="button"] {
+        padding-left: max(1rem, 16px);
+        padding-right: max(1rem, 16px);
+      }
+    }
+
     /* Improved touch feedback */
     @media (hover: none) {
       button:active,
@@ -549,7 +645,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       }
     }
 
-    /* Disable animations if user prefers reduced motion */
+    /* Verbesserte Unterstützung für reduzierte Bewegung (WCAG AAA) */
     @media (prefers-reduced-motion: reduce) {
       *,
       ::before,
@@ -586,6 +682,29 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       html {
         scroll-behavior: auto !important;
       }
+
+      /* Verbesserte statische Fokus-Indikatoren für reduzierte Bewegung */
+      :focus {
+        outline: 4px solid var(--accent-primary) !important;
+        outline-offset: 4px !important;
+      }
+
+      /* Statische Alternativen für Hover-Effekte */
+      .playlist-card:focus-within {
+        border-color: var(--accent-primary) !important;
+        box-shadow: 0 0 0 2px var(--accent-primary) !important;
+      }
+
+      /* Verbesserte Kontraste für Benutzer mit reduzierter Bewegung */
+      button,
+      a[role="button"] {
+        border: 2px solid transparent;
+      }
+
+      button:focus,
+      a[role="button"]:focus {
+        border-color: white !important;
+      }
     }
   </style>
 
@@ -597,9 +716,9 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
     }
 
     .user-is-tabbing :focus-visible {
-      outline: 3px solid var(--accent-primary);
-      outline-offset: 3px;
-      box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.5);
+      outline: var(--focus-ring-width) solid var(--accent-primary);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: 0 0 0 var(--focus-ring-width) rgba(139, 92, 246, 0.5);
     }
 
     /* Verbesserte Screenreader-Unterstützung */
@@ -615,13 +734,29 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       border-width: 0;
     }
 
-    .sr-only.focus:not-sr-only {
+    /* Verbesserte Skip-Links für Tastaturbenutzer */
+    .sr-only.focus:not-sr-only,
+    .sr-only:focus-visible {
       position: fixed;
+      top: 1rem;
+      left: 1rem;
       width: auto;
       height: auto;
+      padding: 1rem 1.5rem;
+      background-color: var(--accent-primary);
+      color: white;
+      font-weight: bold;
+      font-size: 1.125rem;
+      line-height: 1.5;
+      text-align: center;
       overflow: visible;
       clip: auto;
       white-space: normal;
+      z-index: 9999;
+      border-radius: 0.5rem;
+      box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
 
     /* Optimierte Rendering-Performance */
@@ -655,13 +790,13 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
     document.addEventListener("DOMContentLoaded", function () {
       // DOM-Elemente cachen für bessere Performance
       const searchInput = document.getElementById(
-        "playlist-search",
+        "playlist-search"
       ) as HTMLInputElement;
       const playlistGrid = document.getElementById("playlist-grid");
       const playlistCards = document.querySelectorAll(".playlist-card");
       const noResultsElement = document.getElementById("no-results");
       const searchStatusElement = document.getElementById(
-        "search-results-status",
+        "search-results-status"
       );
       const resetSearchButton = document.getElementById("reset-search");
       const backToTopButton = document.getElementById("back-to-top");
@@ -673,7 +808,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       const FUZZY_MATCH_THRESHOLD = 0.6; // Schwellenwert für Fuzzy-Matching (0-1)
       const TOUCH_FEEDBACK_DURATION = 300; // ms
       const REDUCED_MOTION = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
+        "(prefers-reduced-motion: reduce)"
       ).matches;
       const IS_TOUCH_DEVICE = window.matchMedia("(hover: none)").matches;
 
@@ -733,7 +868,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
                       (el as HTMLElement).classList.remove("loading-shimmer");
                     });
                   },
-                  parseInt(card.dataset.index || "0") * 50,
+                  parseInt(card.dataset.index || "0") * 50
                 );
 
                 cardObserver.unobserve(card);
@@ -743,7 +878,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
           {
             rootMargin: "100px",
             threshold: 0.1,
-          },
+          }
         );
 
         // Füge Loading-Shimmer zu Bildern hinzu und beobachte Karten
@@ -775,7 +910,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
 
         // Füge Touch-Feedback für alle interaktiven Elemente hinzu
         const interactiveElements = document.querySelectorAll(
-          'button, a, input[type="search"]',
+          'button, a, input[type="search"]'
         );
 
         interactiveElements.forEach((el) => {
@@ -797,7 +932,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
                 }
               }
             },
-            { passive: true },
+            { passive: true }
           );
 
           el.addEventListener(
@@ -806,7 +941,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
               if (REDUCED_MOTION) return;
               (el as HTMLElement).style.transform = "";
             },
-            { passive: true },
+            { passive: true }
           );
 
           el.addEventListener(
@@ -815,7 +950,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
               if (REDUCED_MOTION) return;
               (el as HTMLElement).style.transform = "";
             },
-            { passive: true },
+            { passive: true }
           );
         });
       }
@@ -831,7 +966,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
        */
       function debouncedPromise<T>(
         func: (...args: any[]) => Promise<T>,
-        delay: number,
+        delay: number
       ) {
         let timeoutId: number | null = null;
         let isCanceled = false;
@@ -891,7 +1026,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
             matrix[i][j] = Math.min(
               matrix[i - 1][j] + 1, // Löschen
               matrix[i][j - 1] + 1, // Einfügen
-              matrix[i - 1][j - 1] + cost, // Ersetzen
+              matrix[i - 1][j - 1] + cost // Ersetzen
             );
           }
         }
@@ -916,7 +1051,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       function fuzzyIncludes(
         text: string,
         query: string,
-        threshold = FUZZY_MATCH_THRESHOLD,
+        threshold = FUZZY_MATCH_THRESHOLD
       ): boolean {
         if (!query) return true;
         if (!text) return false;
@@ -928,7 +1063,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         if (query.length <= 3) {
           const tokens = text.split(/\s+/);
           return tokens.some(
-            (token) => stringSimilarity(token, query) >= threshold,
+            (token) => stringSimilarity(token, query) >= threshold
           );
         }
 
@@ -948,7 +1083,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
        */
       function calculateRelevance(
         item: (typeof searchIndex)[0],
-        searchTerm: string,
+        searchTerm: string
       ): number {
         if (!searchTerm) return 1;
 
@@ -957,7 +1092,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
 
         // Prüfe Token-Übereinstimmungen
         const tokenMatches = item.tokens.filter((token) =>
-          fuzzyIncludes(token, searchTerm),
+          fuzzyIncludes(token, searchTerm)
         ).length;
 
         if (tokenMatches > 0) {
@@ -1143,7 +1278,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
           ([entry]) => {
             backToTopButton.classList.toggle("visible", !entry.isIntersecting);
           },
-          { threshold: 0, rootMargin: "-200px 0px 0px 0px" },
+          { threshold: 0, rootMargin: "-200px 0px 0px 0px" }
         );
 
         // Beobachte den Seitenkopf, um Button ein-/auszublenden
@@ -1232,7 +1367,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
                 ticking = true;
               }
             },
-            { passive: true },
+            { passive: true }
           );
         }
 
@@ -1277,7 +1412,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
               link.querySelector("span")?.textContent || "Streaming-Dienst";
             (link as HTMLElement).setAttribute(
               "aria-roledescription",
-              `${serviceName} für ${headline}`,
+              `${serviceName} für ${headline}`
             );
           });
         });
@@ -1289,14 +1424,31 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
           searchStatusElement.setAttribute("aria-atomic", "true");
         }
 
-        // Füge Skip-Link für Tastaturbenutzer hinzu
+        // Füge verbesserte Skip-Links für Tastaturbenutzer hinzu
         const skipLink = document.createElement("a");
-        skipLink.href = "#playlist-grid";
+        skipLink.href = "#skip-link-target";
         skipLink.className =
-          "sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:p-4 focus:bg-purple-700 focus:text-white focus:rounded-md";
-        skipLink.textContent = "Zum Inhalt springen";
+          "sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:p-4 focus:bg-purple-600 focus:text-white focus:rounded-lg focus:font-bold focus:text-lg focus:shadow-lg";
+        skipLink.textContent = "Zum Hauptinhalt springen";
         skipLink.setAttribute("tabindex", "0");
+        skipLink.setAttribute(
+          "aria-label",
+          "Zum Hauptinhalt springen, Umgeht die Navigation"
+        );
         document.body.insertBefore(skipLink, document.body.firstChild);
+
+        // Füge zusätzlichen Skip-Link für Suche hinzu
+        const searchSkipLink = document.createElement("a");
+        searchSkipLink.href = "#playlist-search";
+        searchSkipLink.className =
+          "sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-64 focus:z-50 focus:p-4 focus:bg-purple-600 focus:text-white focus:rounded-lg focus:font-bold focus:text-lg focus:shadow-lg";
+        searchSkipLink.textContent = "Zur Suche springen";
+        searchSkipLink.setAttribute("tabindex", "0");
+        searchSkipLink.setAttribute(
+          "aria-label",
+          "Direkt zur Playlist-Suche springen"
+        );
+        document.body.insertBefore(searchSkipLink, skipLink.nextSibling);
 
         // Verbessere Fokus-Management
         document.addEventListener("keydown", (e) => {
@@ -1318,31 +1470,103 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       // Initialisiere den Filter beim Laden der Seite
       filterPlaylists();
 
-      // Erweiterte Keyboard-Navigation
-      document.addEventListener("keydown", function (e) {
-        // '/' drücken, um Suche zu fokussieren
-        if (e.key === "/" && document.activeElement?.tagName !== "INPUT") {
-          e.preventDefault();
-          searchInput?.focus();
-        }
+      /**
+       * Erweiterte Keyboard-Navigation mit WCAG AAA Konformität
+       * - Verbesserte Tastaturkürzel für Screenreader-Kompatibilität
+       * - Zusätzliche Shortcuts für verbesserte Zugänglichkeit
+       * - Dokumentierte Tastaturkürzel für Benutzer
+       */
+      function enhanceKeyboardNavigation() {
+        // Erstelle ein verstecktes Element für Screenreader, das Tastaturkürzel erklärt
+        const keyboardHelpElement = document.createElement("div");
+        keyboardHelpElement.id = "keyboard-shortcuts-help";
+        keyboardHelpElement.className = "sr-only";
+        keyboardHelpElement.setAttribute("aria-live", "polite");
+        keyboardHelpElement.innerHTML = `
+          <h2>Tastaturkürzel für diese Seite:</h2>
+          <ul>
+            <li>Taste / (Schrägstrich): Suchfeld fokussieren</li>
+            <li>Alt + R: Suchfilter zurücksetzen</li>
+            <li>Alt + T: Zum Seitenanfang scrollen</li>
+            <li>Alt + P: Erste Playlist fokussieren</li>
+            <li>Escape: Suchfeld leeren</li>
+          </ul>
+        `;
+        document.body.appendChild(keyboardHelpElement);
 
-        // 'Alt+R' drücken, um Suche zurückzusetzen
-        if (e.key === "r" && e.altKey) {
-          e.preventDefault();
-          if (searchInput) searchInput.value = "";
-          filterPlaylists();
-          searchInput?.focus();
-        }
+        // Füge Tastaturkürzel-Listener hinzu
+        document.addEventListener("keydown", function (e) {
+          // '/' drücken, um Suche zu fokussieren
+          if (e.key === "/" && document.activeElement?.tagName !== "INPUT") {
+            e.preventDefault();
+            searchInput?.focus();
 
-        // 'Alt+T' drücken, um zum Seitenanfang zu scrollen
-        if (e.key === "t" && e.altKey) {
-          e.preventDefault();
-          document.body.scrollIntoView({
-            behavior: REDUCED_MOTION ? "auto" : "smooth",
-            block: "start",
-          });
-        }
-      });
+            // Ankündigung für Screenreader
+            if (searchStatusElement) {
+              searchStatusElement.textContent =
+                "Suchfeld fokussiert. Geben Sie Ihren Suchbegriff ein.";
+            }
+          }
+
+          // 'Alt+R' drücken, um Suche zurückzusetzen
+          if (e.key === "r" && e.altKey) {
+            e.preventDefault();
+            if (searchInput) searchInput.value = "";
+            filterPlaylists();
+            searchInput?.focus();
+
+            // Ankündigung für Screenreader
+            if (searchStatusElement) {
+              searchStatusElement.textContent =
+                "Suchfilter wurden zurückgesetzt.";
+            }
+          }
+
+          // 'Alt+T' drücken, um zum Seitenanfang zu scrollen
+          if (e.key === "t" && e.altKey) {
+            e.preventDefault();
+            document.body.scrollIntoView({
+              behavior: REDUCED_MOTION ? "auto" : "smooth",
+              block: "start",
+            });
+
+            // Ankündigung für Screenreader
+            if (searchStatusElement) {
+              searchStatusElement.textContent = "Zum Seitenanfang gescrollt.";
+            }
+          }
+
+          // 'Alt+P' drücken, um erste Playlist zu fokussieren
+          if (e.key === "p" && e.altKey) {
+            e.preventDefault();
+            const firstPlaylistLink =
+              document.querySelector(".playlist-card a");
+            if (firstPlaylistLink) {
+              (firstPlaylistLink as HTMLElement).focus();
+
+              // Ankündigung für Screenreader
+              if (searchStatusElement) {
+                searchStatusElement.textContent =
+                  "Erste Playlist fokussiert. Verwenden Sie Tab, um durch die Playlists zu navigieren.";
+              }
+            }
+          }
+
+          // 'Alt+H' drücken, um Tastaturkürzel anzuzeigen/anzukündigen
+          if (e.key === "h" && e.altKey) {
+            e.preventDefault();
+
+            // Ankündigung für Screenreader
+            if (searchStatusElement) {
+              searchStatusElement.textContent =
+                "Tastaturkürzel: / für Suche, Alt+R zum Zurücksetzen, Alt+T für Seitenanfang, Alt+P für erste Playlist, Escape zum Leeren des Suchfelds.";
+            }
+          }
+        });
+      }
+
+      // Initialisiere erweiterte Tastaturnavigation
+      enhanceKeyboardNavigation();
     });
   </script>
 </Layout>
