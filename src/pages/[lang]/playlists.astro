@@ -49,7 +49,7 @@ export async function getStaticPaths() {
       // Fallback zu Englisch, wenn die Sprachdatei nicht existiert
       try {
         console.info(
-          `No playlist data found for ${lang}, falling back to English`
+          `No playlist data found for ${lang}, falling back to English`,
         );
         const fallbackData = await import(
           `../../../public/json/playlist/en_playlist.json`
@@ -58,7 +58,7 @@ export async function getStaticPaths() {
       } catch (fallbackError) {
         console.error(
           `Error loading playlist data for ${lang}:`,
-          fallbackError
+          fallbackError,
         );
         return { lang, playlists: [] };
       }
@@ -790,13 +790,13 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
     document.addEventListener("DOMContentLoaded", function () {
       // DOM-Elemente cachen für bessere Performance
       const searchInput = document.getElementById(
-        "playlist-search"
+        "playlist-search",
       ) as HTMLInputElement;
       const playlistGrid = document.getElementById("playlist-grid");
       const playlistCards = document.querySelectorAll(".playlist-card");
       const noResultsElement = document.getElementById("no-results");
       const searchStatusElement = document.getElementById(
-        "search-results-status"
+        "search-results-status",
       );
       const resetSearchButton = document.getElementById("reset-search");
       const backToTopButton = document.getElementById("back-to-top");
@@ -808,7 +808,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       const FUZZY_MATCH_THRESHOLD = 0.6; // Schwellenwert für Fuzzy-Matching (0-1)
       const TOUCH_FEEDBACK_DURATION = 300; // ms
       const REDUCED_MOTION = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
+        "(prefers-reduced-motion: reduce)",
       ).matches;
       const IS_TOUCH_DEVICE = window.matchMedia("(hover: none)").matches;
 
@@ -868,7 +868,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
                       (el as HTMLElement).classList.remove("loading-shimmer");
                     });
                   },
-                  parseInt(card.dataset.index || "0") * 50
+                  parseInt(card.dataset.index || "0") * 50,
                 );
 
                 cardObserver.unobserve(card);
@@ -878,7 +878,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
           {
             rootMargin: "100px",
             threshold: 0.1,
-          }
+          },
         );
 
         // Füge Loading-Shimmer zu Bildern hinzu und beobachte Karten
@@ -910,7 +910,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
 
         // Füge Touch-Feedback für alle interaktiven Elemente hinzu
         const interactiveElements = document.querySelectorAll(
-          'button, a, input[type="search"]'
+          'button, a, input[type="search"]',
         );
 
         interactiveElements.forEach((el) => {
@@ -932,7 +932,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
                 }
               }
             },
-            { passive: true }
+            { passive: true },
           );
 
           el.addEventListener(
@@ -941,7 +941,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
               if (REDUCED_MOTION) return;
               (el as HTMLElement).style.transform = "";
             },
-            { passive: true }
+            { passive: true },
           );
 
           el.addEventListener(
@@ -950,7 +950,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
               if (REDUCED_MOTION) return;
               (el as HTMLElement).style.transform = "";
             },
-            { passive: true }
+            { passive: true },
           );
         });
       }
@@ -966,7 +966,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
        */
       function debouncedPromise<T>(
         func: (...args: any[]) => Promise<T>,
-        delay: number
+        delay: number,
       ) {
         let timeoutId: number | null = null;
         let isCanceled = false;
@@ -1026,7 +1026,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
             matrix[i][j] = Math.min(
               matrix[i - 1][j] + 1, // Löschen
               matrix[i][j - 1] + 1, // Einfügen
-              matrix[i - 1][j - 1] + cost // Ersetzen
+              matrix[i - 1][j - 1] + cost, // Ersetzen
             );
           }
         }
@@ -1051,7 +1051,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       function fuzzyIncludes(
         text: string,
         query: string,
-        threshold = FUZZY_MATCH_THRESHOLD
+        threshold = FUZZY_MATCH_THRESHOLD,
       ): boolean {
         if (!query) return true;
         if (!text) return false;
@@ -1063,7 +1063,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         if (query.length <= 3) {
           const tokens = text.split(/\s+/);
           return tokens.some(
-            (token) => stringSimilarity(token, query) >= threshold
+            (token) => stringSimilarity(token, query) >= threshold,
           );
         }
 
@@ -1083,7 +1083,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
        */
       function calculateRelevance(
         item: (typeof searchIndex)[0],
-        searchTerm: string
+        searchTerm: string,
       ): number {
         if (!searchTerm) return 1;
 
@@ -1092,7 +1092,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
 
         // Prüfe Token-Übereinstimmungen
         const tokenMatches = item.tokens.filter((token) =>
-          fuzzyIncludes(token, searchTerm)
+          fuzzyIncludes(token, searchTerm),
         ).length;
 
         if (tokenMatches > 0) {
@@ -1278,7 +1278,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
           ([entry]) => {
             backToTopButton.classList.toggle("visible", !entry.isIntersecting);
           },
-          { threshold: 0, rootMargin: "-200px 0px 0px 0px" }
+          { threshold: 0, rootMargin: "-200px 0px 0px 0px" },
         );
 
         // Beobachte den Seitenkopf, um Button ein-/auszublenden
@@ -1367,7 +1367,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
                 ticking = true;
               }
             },
-            { passive: true }
+            { passive: true },
           );
         }
 
@@ -1412,7 +1412,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
               link.querySelector("span")?.textContent || "Streaming-Dienst";
             (link as HTMLElement).setAttribute(
               "aria-roledescription",
-              `${serviceName} für ${headline}`
+              `${serviceName} für ${headline}`,
             );
           });
         });
@@ -1433,7 +1433,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         skipLink.setAttribute("tabindex", "0");
         skipLink.setAttribute(
           "aria-label",
-          "Zum Hauptinhalt springen, Umgeht die Navigation"
+          "Zum Hauptinhalt springen, Umgeht die Navigation",
         );
         document.body.insertBefore(skipLink, document.body.firstChild);
 
@@ -1446,7 +1446,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         searchSkipLink.setAttribute("tabindex", "0");
         searchSkipLink.setAttribute(
           "aria-label",
-          "Direkt zur Playlist-Suche springen"
+          "Direkt zur Playlist-Suche springen",
         );
         document.body.insertBefore(searchSkipLink, skipLink.nextSibling);
 
