@@ -69,125 +69,190 @@ const hasStreamingLinks =
   spotifyPlaylist || deezerPlaylist || appleMusicPlaylist;
 ---
 
-<li
-  class="playlist-card animate-fadeIn"
-  style={{ animationDelay: `${index * 0.05}s` }}
-  data-searchable={`${headline.toLowerCase()} ${introSubline.toLowerCase()}`}
-  data-decade={decade}
-  id={playlistId}
+<article
+  class="h-full bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-transform transition-shadow duration-300 ease-out will-change-transform hover:shadow-xl hover:translate-y-[-5px] focus-within:ring-4 focus-within:ring-purple-500/50"
+  itemscope
+  itemtype="https://schema.org/MusicPlaylist"
+  aria-labelledby={`playlist-title-${index}`}
+  style="contain: content; transform: translateZ(0);"
 >
-  <article
-    class="h-full bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]"
+  <div
+    class="p-0.5 bg-gradient-to-r from-purple-500 to-indigo-500"
+    aria-hidden="true"
   >
+  </div>
+
+  <div class="relative aspect-video overflow-hidden rounded-t-lg" style="contain: layout size;">
+    <Picture
+      src={imageUrl || "/default-cover.jpg"}
+      alt={`Playlist-Cover für "${headline}" - ${introSubline}`}
+      class="w-full h-full object-cover"
+      loading={loadingStrategy}
+      widths={[320, 480, 640, 768, 1024]}
+      sizes="(max-width: 640px) calc(100vw - 2rem), (max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) calc(50vw - 3rem), calc(33vw - 3rem)"
+      formats={["avif", "webp", "jpg"]}
+      width={1280}
+      height={720}
+      priority={isPriority}
+      fetchpriority={fetchPriority}
+      itemprop="image"
+      style="image-rendering: high-quality; color-rendering: optimizeQuality; transform: translateZ(0);"
+      decoding="async"
+      aria-describedby={`playlist-desc-${index}`}
+    />
     <div
-      class="p-0.5 bg-gradient-to-r from-purple-500 to-indigo-500"
+      class="absolute inset-0 bg-gradient-to-t from-zinc-900/30 via-zinc-900/10 to-transparent"
       aria-hidden="true"
     >
     </div>
+  </div>
 
-    <div class="relative aspect-video overflow-hidden rounded-t-lg">
-      <Picture
-        src={imageUrl || "/default-cover.jpg"}
-        alt={`Cover image for ${headline}`}
-        class="w-full h-full object-cover"
-        loading={loadingStrategy}
-        widths={[480, 768, 1024]}
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 500px"
-        formats={["avif", "webp", "jpg"]}
-        width={1280}
-        height={720}
-        priority={isPriority}
-        fetchpriority={fetchPriority}
-      />
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-zinc-900/30 via-zinc-900/10 to-transparent"
-        aria-hidden="true"
-      >
-      </div>
+  <div
+    class="p-4 md:p-5 space-y-3 md:space-y-4 bg-gradient-to-b from-zinc-800 to-zinc-800/90"
+  >
+    <h2
+      class="text-lg md:text-xl lg:text-2xl font-bold text-white mb-1 md:mb-2"
+      id={`playlist-title-${index}`}
+      itemprop="name"
+    >
+      {headline}
+    </h2>
+    <div
+      class="h-0.5 w-12 md:w-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full mb-2 md:mb-3"
+      aria-hidden="true"
+    >
     </div>
+    <p
+      class="text-zinc-50 text-sm md:text-base"
+      id={`playlist-desc-${index}`}
+      itemprop="description"
+    >
+      {introSubline}
+    </p>
 
-    <div class="p-5 space-y-4 bg-gradient-to-b from-zinc-800 to-zinc-800/90">
-      <h3 class="text-xl md:text-2xl font-bold text-white mb-2">
-        {headline}
-      </h3>
-      <div
-        class="h-0.5 w-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full mb-3"
-      >
-      </div>
-      <p class="text-zinc-50 text-base">
-        {introSubline}
-      </p>
+    <div
+      class="flex flex-wrap gap-2 md:gap-3 mt-3 md:mt-4"
+      role="group"
+      aria-label={t("playlist.streaming.options")}
+      itemprop="potentialAction"
+      itemscope
+      itemtype="https://schema.org/ListenAction"
+    >
+      {
+        spotifyPlaylist && (
+          <a
+            href={spotifyPlaylist}
+            target="_blank"
+            rel="noopener noreferrer prefetch"
+            class="inline-flex items-center justify-center gap-1 md:gap-2 px-3 md:px-4 py-2 md:py-3
+                 bg-[#1DB954] hover:bg-[#1aa34a] active:bg-[#158f3e]
+                 rounded-full text-black font-medium
+                 min-h-[48px] md:min-h-[52px] min-w-[100px] md:min-w-[120px]
+                 text-xs md:text-sm lg:text-base
+                 focus:outline-none focus:ring-4 focus:ring-[#1DB954]/50
+                 focus:ring-offset-2 focus:ring-offset-zinc-800
+                 transition-colors transition-transform duration-200 ease-out
+                 touch-manipulation active:scale-95 active:translate-y-[1px]"
+            aria-label={`${t("playlist.listen.spotify")} - ${headline}`}
+            data-prefetch={isPriority ? "viewport" : "hover"}
+            itemprop="target"
+            itemscope
+            itemtype="https://schema.org/EntryPoint"
+            role="button"
+          >
+            <Icon
+              name="spotify"
+              class="h-4 w-4 md:h-5 md:w-5"
+              aria-hidden="true"
+            />
+            <span itemprop="name">Spotify</span>
+            <meta itemprop="url" content={spotifyPlaylist} />
+          </a>
+        )
+      }
 
-      <div class="flex flex-wrap gap-3 mt-4">
-        {
-          spotifyPlaylist && (
-            <a
-              href={spotifyPlaylist}
-              target="_blank"
-              rel="noopener noreferrer prefetch"
-              class="inline-flex items-center gap-2 px-4 py-3 
-                   bg-[#1DB954] hover:bg-[#1aa34a] 
-                   rounded-full text-black font-medium 
-                   min-h-[44px] min-w-[100px]
-                   focus:outline-none focus:ring-4 focus:ring-[#1DB954]/50 
-                   focus:ring-offset-2 focus:ring-offset-zinc-800
-                   transition-all duration-300"
-              aria-label={`${t("playlist.listen.spotify")} - ${headline}`}
-              data-prefetch={isPriority ? "viewport" : "hover"}
-            >
-              <Icon name="spotify" class="h-5 w-5" aria-hidden="true" />
-              <span>Spotify</span>
-            </a>
-          )
-        }
+      {
+        deezerPlaylist && (
+          <a
+            href={deezerPlaylist}
+            target="_blank"
+            rel="noopener noreferrer prefetch"
+            class="inline-flex items-center justify-center gap-1 md:gap-2 px-3 md:px-4 py-2 md:py-3
+                 bg-[#FF0092] hover:bg-[#d4007a] active:bg-[#b30067]
+                 rounded-full text-white font-medium
+                 min-h-[48px] md:min-h-[52px] min-w-[100px] md:min-w-[120px]
+                 text-xs md:text-sm lg:text-base
+                 focus:outline-none focus:ring-4 focus:ring-[#FF0092]/50
+                 focus:ring-offset-2 focus:ring-offset-zinc-800
+                 transition-colors transition-transform duration-200 ease-out
+                 touch-manipulation active:scale-95 active:translate-y-[1px]"
+            aria-label={`${t("playlist.listen.deezer")} - ${headline}`}
+            data-prefetch={isPriority ? "viewport" : "hover"}
+            itemprop="target"
+            itemscope
+            itemtype="https://schema.org/EntryPoint"
+            role="button"
+          >
+            <Icon
+              name="deezer"
+              class="h-4 w-4 md:h-5 md:w-5"
+              aria-hidden="true"
+            />
+            <span itemprop="name">Deezer</span>
+            <meta itemprop="url" content={deezerPlaylist} />
+          </a>
+        )
+      }
 
-        {
-          deezerPlaylist && (
-            <a
-              href={deezerPlaylist}
-              target="_blank"
-              rel="noopener noreferrer prefetch"
-              class="inline-flex items-center gap-2 px-4 py-3
-                   bg-[#FF0092] hover:bg-[#d4007a]
-                   rounded-full text-white font-medium
-                   min-h-[44px] min-w-[100px]
-                   focus:outline-none focus:ring-4 focus:ring-[#FF0092]/50
-                   focus:ring-offset-2 focus:ring-offset-zinc-800
-                   transition-all duration-300"
-              aria-label={`${t("playlist.listen.deezer")} - ${headline}`}
-              data-prefetch={isPriority ? "viewport" : "hover"}
-            >
-              <Icon name="deezer" class="h-5 w-5" aria-hidden="true" />
-              <span>Deezer</span>
-            </a>
-          )
-        }
-
-        {
-          appleMusicPlaylist && (
-            <a
-              href={appleMusicPlaylist}
-              target="_blank"
-              rel="noopener noreferrer prefetch"
-              class="inline-flex items-center gap-2 px-4 py-3
-                   bg-[#FB233B] hover:bg-[#d41e32]
-                   rounded-full text-white font-medium
-                   min-h-[44px] min-w-[100px]
-                   focus:outline-none focus:ring-4 focus:ring-[#FB233B]/50
-                   focus:ring-offset-2 focus:ring-offset-zinc-800
-                   transition-all duration-300"
-              aria-label={`${t("playlist.listen.apple")} - ${headline}`}
-              data-prefetch={isPriority ? "viewport" : "hover"}
-            >
-              <Icon name="apple" class="h-5 w-5" aria-hidden="true" />
-              <span>Apple Music</span>
-            </a>
-          )
-        }
-      </div>
+      {
+        appleMusicPlaylist && (
+          <a
+            href={appleMusicPlaylist}
+            target="_blank"
+            rel="noopener noreferrer prefetch"
+            class="inline-flex items-center justify-center gap-1 md:gap-2 px-3 md:px-4 py-2 md:py-3
+                 bg-[#FB233B] hover:bg-[#d41e32] active:bg-[#b01929]
+                 rounded-full text-white font-medium
+                 min-h-[48px] md:min-h-[52px] min-w-[100px] md:min-w-[120px]
+                 text-xs md:text-sm lg:text-base
+                 focus:outline-none focus:ring-4 focus:ring-[#FB233B]/50
+                 focus:ring-offset-2 focus:ring-offset-zinc-800
+                 transition-colors transition-transform duration-200 ease-out
+                 touch-manipulation active:scale-95 active:translate-y-[1px]"
+            aria-label={`${t("playlist.listen.apple")} - ${headline}`}
+            data-prefetch={isPriority ? "viewport" : "hover"}
+            itemprop="target"
+            itemscope
+            itemtype="https://schema.org/EntryPoint"
+            role="button"
+          >
+            <Icon
+              name="apple"
+              class="h-4 w-4 md:h-5 md:w-5"
+              aria-hidden="true"
+            />
+            <span itemprop="name">Apple Music</span>
+            <meta itemprop="url" content={appleMusicPlaylist} />
+          </a>
+        )
+      }
     </div>
-  </article>
-</li>
+  </div>
+  {
+    /* Versteckte Metadaten für SEO und strukturierte Daten */
+    hasStreamingLinks && (
+      <div class="hidden" aria-hidden="true">
+        <meta itemprop="numTracks" content="10+" />
+        <meta itemprop="genre" content={decade} />
+        <meta
+          itemprop="datePublished"
+          content={new Date().toISOString().split("T")[0]}
+        />
+        <meta itemprop="author" content="Melody Mind" />
+      </div>
+    )
+  }
+</article>
 
 <script>
   /**
@@ -198,13 +263,25 @@ const hasStreamingLinks =
    * - Hover-basiertes Prefetching für nicht-sichtbare Elemente
    * - Priorisierung basierend auf Viewport-Sichtbarkeit
    * - Ressourcenschonendes Laden durch Intersection Observer
+   * - Optimierte Netzwerknutzung mit Navigator.connection API
    */
   document.addEventListener("DOMContentLoaded", () => {
     // Konfigurationswerte
     const VIEWPORT_MARGIN = "200px";
     const HOVER_DELAY = 100; // ms
     const PREFETCH_TIMEOUT = 2000; // ms
-
+    
+    // Netzwerkbasierte Optimierungen
+    const connection = (navigator as any).connection;
+    const isSlowConnection = connection &&
+      (connection.saveData ||
+       connection.effectiveType === 'slow-2g' ||
+       connection.effectiveType === '2g' ||
+       connection.downlink < 0.5);
+    
+    // Reduziere Prefetching bei langsamen Verbindungen
+    const shouldPrefetch = !isSlowConnection;
+    
     // Prefetch-Cache, um doppelte Prefetches zu vermeiden
     const prefetchedUrls = new Set<string>();
 
@@ -230,7 +307,7 @@ const hasStreamingLinks =
       {
         rootMargin: VIEWPORT_MARGIN,
         threshold: 0.1,
-      },
+      }
     );
 
     // Füge Hover-Listener und Observer für alle Prefetch-Links hinzu
@@ -260,8 +337,11 @@ const hasStreamingLinks =
      * Prefetcht einen Link mit Timeout und Caching
      */
     function prefetchLink(url: string): void {
-      // Überspringe, wenn bereits prefetched
-      if (prefetchedUrls.has(url)) return;
+      // Überspringe, wenn bereits prefetched oder langsame Verbindung
+      if (prefetchedUrls.has(url) || !shouldPrefetch) return;
+
+      // Überprüfe Netzwerkstatus
+      if ('onLine' in navigator && !navigator.onLine) return;
 
       // Markiere als prefetched
       prefetchedUrls.add(url);
@@ -303,6 +383,29 @@ const hasStreamingLinks =
     document.addEventListener("astro:before-swap", () => {
       observer.disconnect();
     });
+    
+    // Optimiere Bilder basierend auf Verbindungsqualität
+    if (isSlowConnection) {
+      document.querySelectorAll('img').forEach(img => {
+        if (!img.getAttribute('loading')) img.setAttribute('loading', 'lazy');
+        if (img.getAttribute('fetchpriority') !== 'high') img.setAttribute('fetchpriority', 'low');
+      });
+    }
+    
+    // Verbesserte Touch-Feedback für mobile Geräte
+    if (window.matchMedia('(hover: none)').matches) {
+      document.querySelectorAll('a[role="button"]').forEach(button => {
+        button.addEventListener('touchstart', () => {
+          (button as HTMLElement).style.transform = 'scale(0.97)';
+        }, { passive: true });
+        
+        button.addEventListener('touchend', () => {
+          setTimeout(() => {
+            (button as HTMLElement).style.transform = '';
+          }, 100);
+        }, { passive: true });
+      });
+    }
   });
 </script>
 
@@ -314,38 +417,133 @@ const hasStreamingLinks =
 
   /* Optimierte Animation für bessere Performance */
   @keyframes fadeIn {
-    from {
+    0% {
       opacity: 0;
       transform: translateY(10px);
     }
-    to {
+    60% {
+      opacity: 0.8;
+    }
+    100% {
       opacity: 1;
       transform: translateY(0);
     }
   }
 
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
   .animate-fadeIn {
-    animation: fadeIn 0.5s ease-out forwards;
+    animation: fadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     opacity: 0;
     will-change: opacity, transform;
+    contain: content;
+  }
+
+  /* Progressive Loading Animation */
+  .loading-shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    will-change: background-position;
+  }
+
+  /* Verbesserte Textbegrenzung für Überschriften und Beschreibungen */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Touch-Optimierung für mobile Geräte */
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Verbesserte Focus-States für Tastaturnavigation */
+  article:focus-visible {
+    outline: 3px solid #a855f7;
+    outline-offset: 3px;
   }
 
   /* Reduzierte Bewegung für Barrierefreiheit */
   @media (prefers-reduced-motion: reduce) {
     .animate-fadeIn {
-      animation: none;
+      animation: none !important;
       opacity: 1;
       transform: none;
     }
 
-    article:hover {
+    article:hover,
+    a:active {
       transform: none !important;
+      scale: none !important;
+    }
+
+    .loading-shimmer {
+      animation: none !important;
+      background: rgba(255, 255, 255, 0.05);
     }
   }
 
   /* Optimierte Bildcontainer für Content Layout Shift (CLS) Vermeidung */
   .aspect-video {
     aspect-ratio: 16/9;
-    contain: layout size;
+    contain: layout size style;
+    transform: translateZ(0); /* Hardware-Beschleunigung aktivieren */
+  }
+
+  /* Lazy-Loading Optimierungen */
+  @media (prefers-reduced-data: reduce) {
+    img {
+      content-visibility: auto;
+    }
+  }
+
+  /* Optimierte Scrolling-Performance */
+  @supports (content-visibility: auto) {
+    article {
+      content-visibility: auto;
+      contain-intrinsic-size: 0 500px;
+      transform: translateZ(0); /* Hardware-Beschleunigung aktivieren */
+    }
+  }
+  
+  /* Verbesserte Touch-Targets für mobile Geräte */
+  @media (max-width: 640px) {
+    a[role="button"] {
+      min-height: 52px; /* Größere Touch-Targets auf mobilen Geräten */
+      min-width: 110px;
+      padding: 0.75rem 1rem;
+    }
+  }
+  
+  /* Optimierte Rendering-Performance */
+  .will-change-transform {
+    backface-visibility: hidden;
+    perspective: 1000px;
+    transform: translate3d(0, 0, 0);
   }
 </style>
