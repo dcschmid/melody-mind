@@ -70,10 +70,11 @@ const hasStreamingLinks =
 ---
 
 <article
-  class="h-full bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-transform transition-shadow duration-300 ease-out will-change-transform hover:shadow-xl hover:translate-y-[-5px] focus-within:ring-4 focus-within:ring-purple-500/50"
+  class="h-full bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-transform transition-shadow duration-300 ease-out will-change-transform hover:shadow-xl hover:translate-y-[-5px] focus-within:ring-4 focus-within:ring-purple-500/70"
   itemscope
   itemtype="https://schema.org/MusicPlaylist"
   aria-labelledby={`playlist-title-${index}`}
+  aria-describedby={`playlist-desc-${index}`}
   style="contain: content; transform: translateZ(0);"
 >
   <div
@@ -91,8 +92,8 @@ const hasStreamingLinks =
       alt={`Playlist-Cover für "${headline}" - ${introSubline}`}
       class="w-full h-full object-cover"
       loading={loadingStrategy}
-      widths={[320, 480, 640, 768, 1024]}
-      sizes="(max-width: 640px) calc(100vw - 2rem), (max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) calc(50vw - 3rem), calc(33vw - 3rem)"
+      widths={[320, 480, 640, 768, 1024, 1280]}
+      sizes="(max-width: 480px) calc(100vw - 2rem), (max-width: 640px) calc(100vw - 2.5rem), (max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) calc(50vw - 3rem), (max-width: 1280px) calc(33vw - 3rem), calc(33vw - 4rem)"
       formats={["avif", "webp", "jpg"]}
       width={1280}
       height={720}
@@ -111,22 +112,22 @@ const hasStreamingLinks =
   </div>
 
   <div
-    class="p-4 md:p-5 space-y-3 md:space-y-4 bg-gradient-to-b from-zinc-800 to-zinc-800/90"
+    class="p-5 md:p-6 space-y-4 md:space-y-5 bg-gradient-to-b from-zinc-900 to-zinc-900/95"
   >
     <h2
-      class="text-lg md:text-xl lg:text-2xl font-bold text-white mb-1 md:mb-2"
+      class="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 md:mb-3 leading-tight"
       id={`playlist-title-${index}`}
       itemprop="name"
     >
       {headline}
     </h2>
     <div
-      class="h-0.5 w-12 md:w-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full mb-2 md:mb-3"
+      class="h-1 w-16 md:w-20 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full mb-3 md:mb-4"
       aria-hidden="true"
     >
     </div>
     <p
-      class="text-zinc-50 text-sm md:text-base"
+      class="text-white text-base md:text-lg lg:text-xl leading-relaxed md:leading-relaxed"
       id={`playlist-desc-${index}`}
       itemprop="description"
     >
@@ -134,7 +135,7 @@ const hasStreamingLinks =
     </p>
 
     <div
-      class="flex flex-wrap gap-2 md:gap-3 mt-3 md:mt-4"
+      class="flex flex-wrap gap-3 md:gap-4 mt-4 md:mt-5"
       role="group"
       aria-label={t("playlist.streaming.options")}
       itemprop="potentialAction"
@@ -147,13 +148,13 @@ const hasStreamingLinks =
             href={spotifyPlaylist}
             target="_blank"
             rel="noopener noreferrer prefetch"
-            class="inline-flex items-center justify-center gap-1 md:gap-2 px-3 md:px-4 py-2 md:py-3
-                 bg-[#1DB954] hover:bg-[#1aa34a] active:bg-[#158f3e]
-                 rounded-full text-black font-medium
-                 min-h-[48px] md:min-h-[52px] min-w-[100px] md:min-w-[120px]
-                 text-xs md:text-sm lg:text-base
-                 focus:outline-none focus:ring-4 focus:ring-[#1DB954]/50
-                 focus:ring-offset-2 focus:ring-offset-zinc-800
+            class="inline-flex items-center justify-center gap-2 md:gap-3 px-4 md:px-5 py-3 md:py-4
+                 bg-[#0A5D2C] hover:bg-[#084823] active:bg-[#063619]
+                 rounded-full text-white font-bold
+                 min-h-[56px] md:min-h-[60px] min-w-[130px] md:min-w-[150px]
+                 text-base md:text-lg lg:text-xl
+                 focus:outline-none focus:ring-4 focus:ring-[#0A5D2C]/70
+                 focus:ring-offset-4 focus:ring-offset-zinc-900
                  transition-colors transition-transform duration-200 ease-out
                  touch-manipulation active:scale-95 active:translate-y-[1px]"
             aria-label={`${t("playlist.listen.spotify")} - ${headline}`}
@@ -165,10 +166,10 @@ const hasStreamingLinks =
           >
             <Icon
               name="spotify"
-              class="h-4 w-4 md:h-5 md:w-5"
+              class="h-5 w-5 md:h-6 md:w-6"
               aria-hidden="true"
             />
-            <span itemprop="name">Spotify</span>
+            <span itemprop="name" class="font-bold">Spotify</span>
             <meta itemprop="url" content={spotifyPlaylist} />
           </a>
         )
@@ -180,13 +181,13 @@ const hasStreamingLinks =
             href={deezerPlaylist}
             target="_blank"
             rel="noopener noreferrer prefetch"
-            class="inline-flex items-center justify-center gap-1 md:gap-2 px-3 md:px-4 py-2 md:py-3
-                 bg-[#FF0092] hover:bg-[#d4007a] active:bg-[#b30067]
-                 rounded-full text-white font-medium
-                 min-h-[48px] md:min-h-[52px] min-w-[100px] md:min-w-[120px]
-                 text-xs md:text-sm lg:text-base
-                 focus:outline-none focus:ring-4 focus:ring-[#FF0092]/50
-                 focus:ring-offset-2 focus:ring-offset-zinc-800
+            class="inline-flex items-center justify-center gap-2 md:gap-3 px-4 md:px-5 py-3 md:py-4
+                 bg-[#9A0058] hover:bg-[#7D0047] active:bg-[#6B003D]
+                 rounded-full text-white font-bold
+                 min-h-[56px] md:min-h-[60px] min-w-[130px] md:min-w-[150px]
+                 text-base md:text-lg lg:text-xl
+                 focus:outline-none focus:ring-4 focus:ring-[#9A0058]/70
+                 focus:ring-offset-4 focus:ring-offset-zinc-900
                  transition-colors transition-transform duration-200 ease-out
                  touch-manipulation active:scale-95 active:translate-y-[1px]"
             aria-label={`${t("playlist.listen.deezer")} - ${headline}`}
@@ -198,10 +199,10 @@ const hasStreamingLinks =
           >
             <Icon
               name="deezer"
-              class="h-4 w-4 md:h-5 md:w-5"
+              class="h-5 w-5 md:h-6 md:w-6"
               aria-hidden="true"
             />
-            <span itemprop="name">Deezer</span>
+            <span itemprop="name" class="font-bold">Deezer</span>
             <meta itemprop="url" content={deezerPlaylist} />
           </a>
         )
@@ -213,13 +214,13 @@ const hasStreamingLinks =
             href={appleMusicPlaylist}
             target="_blank"
             rel="noopener noreferrer prefetch"
-            class="inline-flex items-center justify-center gap-1 md:gap-2 px-3 md:px-4 py-2 md:py-3
-                 bg-[#FB233B] hover:bg-[#d41e32] active:bg-[#b01929]
-                 rounded-full text-white font-medium
-                 min-h-[48px] md:min-h-[52px] min-w-[100px] md:min-w-[120px]
-                 text-xs md:text-sm lg:text-base
-                 focus:outline-none focus:ring-4 focus:ring-[#FB233B]/50
-                 focus:ring-offset-2 focus:ring-offset-zinc-800
+            class="inline-flex items-center justify-center gap-2 md:gap-3 px-4 md:px-5 py-3 md:py-4
+                 bg-[#9E1625] hover:bg-[#7D111D] active:bg-[#6B0F19]
+                 rounded-full text-white font-bold
+                 min-h-[56px] md:min-h-[60px] min-w-[130px] md:min-w-[150px]
+                 text-base md:text-lg lg:text-xl
+                 focus:outline-none focus:ring-4 focus:ring-[#9E1625]/70
+                 focus:ring-offset-4 focus:ring-offset-zinc-900
                  transition-colors transition-transform duration-200 ease-out
                  touch-manipulation active:scale-95 active:translate-y-[1px]"
             aria-label={`${t("playlist.listen.apple")} - ${headline}`}
@@ -231,10 +232,10 @@ const hasStreamingLinks =
           >
             <Icon
               name="apple"
-              class="h-4 w-4 md:h-5 md:w-5"
+              class="h-5 w-5 md:h-6 md:w-6"
               aria-hidden="true"
             />
-            <span itemprop="name">Apple Music</span>
+            <span itemprop="name" class="font-bold">Apple Music</span>
             <meta itemprop="url" content={appleMusicPlaylist} />
           </a>
         )
@@ -424,8 +425,27 @@ const hasStreamingLinks =
 
 <style>
   /* Verbesserte Farbkontraste für WCAG AAA (7:1) */
-  .text-zinc-50 {
-    color: #fafafa; /* Höherer Kontrast als Standard zinc-50 */
+  .text-zinc-50,
+  .text-white {
+    color: #ffffff; /* Maximaler Kontrast */
+  }
+  
+  /* Verbesserte Hintergrundkontraste für WCAG AAA */
+  article {
+    --bg-card: #18181b; /* Dunklerer Hintergrund für besseren Kontrast */
+    --border-color: rgba(255, 255, 255, 0.2); /* Hellerer Rand für besseren Kontrast */
+    background-color: var(--bg-card);
+    border-color: var(--border-color);
+  }
+  
+  /* Verbesserte Zeilenabstände für bessere Lesbarkeit */
+  .leading-relaxed {
+    line-height: 1.8;
+  }
+  
+  /* Verbesserte Textabstände */
+  .tracking-wide {
+    letter-spacing: 0.025em;
   }
 
   /* Optimierte Animation für bessere Performance */
@@ -497,7 +517,8 @@ const hasStreamingLinks =
 
   /* Verbesserte Focus-States für Tastaturnavigation */
   article:focus-visible {
-    outline: 3px solid #a855f7;
+    outline: 4px solid #a855f7;
+    outline-offset: 3px;
     outline-offset: 3px;
   }
 
