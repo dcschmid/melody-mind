@@ -1,0 +1,403 @@
+---
+/**
+ * TableOfContents.astro
+ * An accessible component that creates a dropdown menu with a table of contents.
+ * Automatically extracts h2 and h3 headings from the content.
+ *
+ * @component
+ * @accessibility WCAG AAA compliant with proper keyboard navigation, focus management and ARIA attributes
+ */
+
+/**
+ * Interface for heading objects extracted from content
+ * @interface Heading
+ */
+interface Heading {
+  /** The heading level (2 for h2, 3 for h3) */
+  depth: number;
+  /** The slug ID for the heading */
+  slug: string;
+  /** The heading text content */
+  text: string;
+}
+
+/**
+ * Props interface for the TableOfContents component
+ * @interface Props
+ */
+interface Props {
+  /** Array of heading objects extracted from content */
+  headings: Heading[];
+  /** Optional custom title for the table of contents */
+  title?: string;
+  /** Optional language code for localization */
+  lang?: string;
+}
+
+const {
+  headings = [],
+  title = "Inhaltsverzeichnis",
+  lang = "de",
+} = Astro.props;
+
+// Filter to only include h2 and h3 headings
+const filteredHeadings = headings.filter(
+  (heading) => heading.depth === 2 || heading.depth === 3
+);
+
+// Check if there are any headings to display
+const hasHeadings = filteredHeadings.length > 0;
+
+// Translations for accessibility
+const translations = {
+  de: {
+    toggleLabel: "Inhaltsverzeichnis anzeigen oder ausblenden",
+    expanded: "Erweitert",
+    collapsed: "Eingeklappt",
+    tocLabel: "Inhaltsverzeichnis",
+    skipLink: "Zum Hauptinhalt springen",
+  },
+  en: {
+    toggleLabel: "Toggle table of contents",
+    expanded: "Expanded",
+    collapsed: "Collapsed",
+    tocLabel: "Table of contents",
+    skipLink: "Skip to main content",
+  },
+  es: {
+    toggleLabel: "Mostrar u ocultar tabla de contenidos",
+    expanded: "Expandido",
+    collapsed: "Contraído",
+    tocLabel: "Tabla de contenidos",
+    skipLink: "Saltar al contenido principal",
+  },
+  fr: {
+    toggleLabel: "Afficher ou masquer la table des matières",
+    expanded: "Développé",
+    collapsed: "Réduit",
+    tocLabel: "Table des matières",
+    skipLink: "Passer au contenu principal",
+  },
+  it: {
+    toggleLabel: "Mostra o nascondi indice",
+    expanded: "Espanso",
+    collapsed: "Compresso",
+    tocLabel: "Indice dei contenuti",
+    skipLink: "Passa al contenuto principale",
+  },
+  pt: {
+    toggleLabel: "Mostrar ou ocultar índice",
+    expanded: "Expandido",
+    collapsed: "Recolhido",
+    tocLabel: "Índice",
+    skipLink: "Pular para o conteúdo principal",
+  },
+  nl: {
+    toggleLabel: "Inhoudsopgave tonen of verbergen",
+    expanded: "Uitgevouwen",
+    collapsed: "Ingeklapt",
+    tocLabel: "Inhoudsopgave",
+    skipLink: "Naar hoofdinhoud springen",
+  },
+  da: {
+    toggleLabel: "Vis eller skjul indholdsfortegnelse",
+    expanded: "Udvidet",
+    collapsed: "Sammenfoldet",
+    tocLabel: "Indholdsfortegnelse",
+    skipLink: "Spring til hovedindhold",
+  },
+  sv: {
+    toggleLabel: "Visa eller dölj innehållsförteckning",
+    expanded: "Utökad",
+    collapsed: "Ihopfälld",
+    tocLabel: "Innehållsförteckning",
+    skipLink: "Hoppa till huvudinnehåll",
+  },
+  fi: {
+    toggleLabel: "Näytä tai piilota sisällysluettelo",
+    expanded: "Laajennettu",
+    collapsed: "Tiivistetty",
+    tocLabel: "Sisällysluettelo",
+    skipLink: "Siirry pääsisältöön",
+  },
+};
+
+// Use German as the default language if the specified language is not supported
+const t = translations[lang as keyof typeof translations] || translations.de;
+---
+
+{
+  hasHeadings && (
+    <div class="toc-container my-6 mb-10 print:hidden">
+      <div class="relative">
+        <button
+          id="toc-toggle"
+          aria-expanded="false"
+          aria-controls="toc-content"
+          aria-label={t.toggleLabel}
+          class="flex w-full items-center justify-between rounded-xl bg-zinc-800 px-6 py-4 text-left text-lg font-medium text-white shadow-md transition-colors hover:bg-zinc-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 border border-zinc-700/30"
+        >
+          <span class="flex items-center gap-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 text-sky-400"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span>{title}</span>
+          </span>
+          <span class="toc-state sr-only">{t.collapsed}</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="toc-icon h-5 w-5 transform transition-transform duration-200"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+
+        <div
+          id="toc-content"
+          aria-labelledby="toc-toggle"
+          class="toc-content mt-2 hidden overflow-hidden rounded-xl bg-zinc-800/80 shadow-lg backdrop-blur-sm border border-zinc-700/30"
+        >
+          <nav aria-label={t.tocLabel} class="p-4">
+            <a
+              href="#article-content"
+              class="mb-4 block text-sm text-sky-400 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+            >
+              {t.skipLink}
+            </a>
+            <ul class="space-y-2 max-h-[60vh] overflow-y-auto pr-2">
+              {filteredHeadings.map((heading) => (
+                <li class={`${heading.depth === 3 ? "ml-4" : ""}`}>
+                  <a
+                    href={`#${heading.slug}`}
+                    class={`block rounded-lg px-3 py-2 text-${heading.depth === 2 ? "base font-medium" : "sm"} text-zinc-200 transition-colors hover:bg-zinc-700 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900`}
+                  >
+                    {heading.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+<script>
+  /**
+   * JavaScript functionality for the dropdown table of contents
+   * - Handles toggle functionality
+   * - Manages keyboard accessibility
+   * - Sets up proper focus management
+   * - Handles translations for screen readers
+   */
+  document.addEventListener("DOMContentLoaded", () => {
+    const tocToggle = document.getElementById("toc-toggle");
+    const tocContent = document.getElementById("toc-content");
+    const tocIcon = document.querySelector(".toc-icon");
+    const tocState = document.querySelector(".toc-state");
+
+    if (!tocToggle || !tocContent || !tocIcon || !tocState) return;
+
+    /**
+     * Toggles the table of contents dropdown visibility
+     * - Updates ARIA attributes for accessibility
+     * - Updates visual state (icon rotation, text)
+     * - Handles screen reader announcements
+     */
+    function toggleToc() {
+      if (!tocToggle || !tocContent || !tocIcon || !tocState) return;
+
+      const isExpanded = tocToggle.getAttribute("aria-expanded") === "true";
+      const newState = !isExpanded;
+
+      // Update ARIA attributes
+      tocToggle.setAttribute("aria-expanded", newState.toString());
+
+      // Update visual state
+      if (newState) {
+        tocContent.classList.remove("hidden");
+        tocIcon.classList.add("rotate-180");
+        tocState.textContent =
+          tocState.getAttribute("data-expanded") || "Erweitert";
+      } else {
+        tocContent.classList.add("hidden");
+        tocIcon.classList.remove("rotate-180");
+        tocState.textContent =
+          tocState.getAttribute("data-collapsed") || "Eingeklappt";
+      }
+    }
+
+    // Set up click event listener
+    if (tocToggle) {
+      tocToggle.addEventListener("click", toggleToc);
+
+      // Set up keyboard event listeners (Space/Enter)
+      tocToggle.addEventListener("keydown", (e) => {
+        if (e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          toggleToc();
+        }
+      });
+    }
+
+    // Set up event listeners for links in the table of contents
+    // for proper focus management when clicking on links
+    const tocLinks = tocContent ? tocContent.querySelectorAll("a") : [];
+    tocLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        // Set focus on the heading that is being jumped to
+        setTimeout(() => {
+          const targetId = link.getAttribute("href")?.substring(1);
+          if (targetId && targetId !== "article-content") {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+              targetElement.setAttribute("tabindex", "-1");
+              targetElement.focus();
+
+              // Event listener to remove tabindex after leaving the element
+              targetElement.addEventListener(
+                "blur",
+                () => {
+                  targetElement.removeAttribute("tabindex");
+                },
+                { once: true }
+              );
+            }
+          }
+        }, 100);
+      });
+    });
+
+    // Set up translations for screen readers based on document language
+    const lang = document.documentElement.lang || "de";
+    let expandedText = "Erweitert"; // Default in German
+    let collapsedText = "Eingeklappt"; // Default in German
+
+    // Set translations based on language
+    switch (lang) {
+      case "en":
+        expandedText = "Expanded";
+        collapsedText = "Collapsed";
+        break;
+      case "es":
+        expandedText = "Expandido";
+        collapsedText = "Contraído";
+        break;
+      case "fr":
+        expandedText = "Développé";
+        collapsedText = "Réduit";
+        break;
+      case "it":
+        expandedText = "Espanso";
+        collapsedText = "Compresso";
+        break;
+      case "pt":
+        expandedText = "Expandido";
+        collapsedText = "Recolhido";
+        break;
+      case "nl":
+        expandedText = "Uitgevouwen";
+        collapsedText = "Ingeklapt";
+        break;
+      case "da":
+        expandedText = "Udvidet";
+        collapsedText = "Sammenfoldet";
+        break;
+      case "sv":
+        expandedText = "Utökad";
+        collapsedText = "Ihopfälld";
+        break;
+      case "fi":
+        expandedText = "Laajennettu";
+        collapsedText = "Tiivistetty";
+        break;
+      default:
+        // Default values in German remain
+        break;
+    }
+
+    if (tocState) {
+      tocState.setAttribute("data-expanded", expandedText);
+      tocState.setAttribute("data-collapsed", collapsedText);
+      tocState.textContent = collapsedText;
+    }
+  });
+</script>
+
+<style>
+  /* Additional styles for animation and accessibility */
+  .toc-content {
+    max-height: 0;
+    transition:
+      max-height 0.3s ease-out,
+      opacity 0.2s ease-out;
+    opacity: 0;
+  }
+
+  .toc-content:not(.hidden) {
+    max-height: 80vh;
+    overflow-y: auto;
+    opacity: 1;
+  }
+
+  /* High contrast for accessibility (minimum 7:1 ratio for WCAG AAA) */
+  .toc-container a:focus-visible {
+    outline: 2px solid #38bdf8;
+    outline-offset: 2px;
+  }
+
+  /* Scrollbar styling for better visibility */
+  .toc-content::-webkit-scrollbar,
+  .toc-content ul::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .toc-content::-webkit-scrollbar-track,
+  .toc-content ul::-webkit-scrollbar-track {
+    background: rgba(39, 39, 42, 0.5);
+    border-radius: 8px;
+  }
+
+  .toc-content::-webkit-scrollbar-thumb,
+  .toc-content ul::-webkit-scrollbar-thumb {
+    background: rgba(56, 189, 248, 0.5);
+    border-radius: 8px;
+  }
+
+  .toc-content::-webkit-scrollbar-thumb:hover,
+  .toc-content ul::-webkit-scrollbar-thumb:hover {
+    background: rgba(56, 189, 248, 0.7);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .toc-content ul {
+      max-height: 50vh;
+    }
+  }
+
+  /* Focus styles for better visibility */
+  .toc-container a:focus,
+  .toc-container button:focus {
+    outline: 2px solid #38bdf8;
+    outline-offset: 2px;
+  }
+</style>
