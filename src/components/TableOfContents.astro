@@ -42,7 +42,7 @@ const {
 
 // Filter to only include h2 and h3 headings
 const filteredHeadings = headings.filter(
-  (heading) => heading.depth === 2 || heading.depth === 3
+  (heading) => heading.depth === 2 || heading.depth === 3,
 );
 
 // Check if there are any headings to display
@@ -278,7 +278,7 @@ const t = translations[lang as keyof typeof translations] || translations.de;
                 () => {
                   targetElement.removeAttribute("tabindex");
                 },
-                { once: true }
+                { once: true },
               );
             }
           }
