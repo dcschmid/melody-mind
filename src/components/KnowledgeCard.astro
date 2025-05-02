@@ -104,18 +104,20 @@ function extractTitleParts(title: string): {category: string, mainTitle: string}
 const { category, mainTitle } = extractTitleParts(title);
 ---
 
-<article 
+<article
   class="h-full flex flex-col bg-zinc-900 rounded-xl overflow-hidden border-2 border-purple-700/60 shadow-lg shadow-purple-900/20 transition-all duration-300 hover:shadow-xl hover:border-purple-500 hover:shadow-purple-900/30 knowledge-card"
   data-testid="knowledge-card"
   data-title={title}
   data-description={description}
   data-keywords={keywords}
+  aria-labelledby={cardId}
 >
   {hasOwnLink ? (
     <a 
       href={articleUrl} 
-      class="group flex flex-col h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 rounded-xl overflow-hidden"
+      class="group flex flex-col h-full focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-purple-400 focus-visible:ring-offset-3 focus-visible:ring-offset-zinc-900 rounded-xl overflow-hidden"
       aria-labelledby={cardId}
+      aria-describedby={`${cardId}-desc`}
     >
       <div class="knowledge-card-content h-full relative">
         <!-- Decorative border top accent (purely visual) -->
@@ -125,7 +127,7 @@ const { category, mainTitle } = extractTitleParts(title);
         <div class="relative aspect-video overflow-hidden">
           <img
             src={image}
-            alt={title}
+            alt=""
             loading="lazy"
             decoding="async"
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-focus-visible:scale-105 lazy-image"
@@ -142,7 +144,7 @@ const { category, mainTitle } = extractTitleParts(title);
           </div>
           
           <!-- Music era indicator badge for category identification -->
-          <div class="absolute top-3 right-3 px-2.5 py-1.5 bg-purple-700 text-white text-sm font-medium rounded-md shadow-md z-10">
+          <div class="absolute top-3 right-3 px-3 py-2 bg-purple-800 text-white text-sm font-medium rounded-md shadow-md z-10">
             <span>{category}</span>
           </div>
         </div>
@@ -151,12 +153,12 @@ const { category, mainTitle } = extractTitleParts(title);
         <div class="p-5 flex-grow flex flex-col">
           <h3 
             id={cardId}
-            class="text-2xl font-bold text-white mb-3 line-clamp-2"
+            class="text-2xl font-bold text-white mb-3 line-clamp-2 tracking-wide"
           >
             {mainTitle}
           </h3>
           
-          <p class="text-base text-zinc-100 leading-relaxed line-clamp-3 mb-5">
+          <p id={`${cardId}-desc`} class="text-base text-zinc-100 leading-relaxed line-clamp-3 mb-5">
             {description}
           </p>
 
@@ -220,7 +222,7 @@ const { category, mainTitle } = extractTitleParts(title);
       <div class="relative aspect-video overflow-hidden">
         <img
           src={image}
-          alt={title}
+          alt=""
           loading="lazy"
           decoding="async"
           class="w-full h-full object-cover lazy-image"
@@ -237,7 +239,7 @@ const { category, mainTitle } = extractTitleParts(title);
         </div>
         
         <!-- Music era indicator badge for category identification -->
-        <div class="absolute top-3 right-3 px-2.5 py-1.5 bg-purple-700 text-white text-sm font-medium rounded-md shadow-md z-10">
+        <div class="absolute top-3 right-3 px-3 py-2 bg-purple-800 text-white text-sm font-medium rounded-md shadow-md z-10">
           <span>{category}</span>
         </div>
       </div>
@@ -246,12 +248,12 @@ const { category, mainTitle } = extractTitleParts(title);
       <div class="p-5 flex-grow flex flex-col">
         <h3 
           id={cardId}
-          class="text-2xl font-bold text-white mb-3 line-clamp-2"
+          class="text-2xl font-bold text-white mb-3 line-clamp-2 tracking-wide"
         >
           {mainTitle}
         </h3>
         
-        <p class="text-base text-zinc-100 leading-relaxed line-clamp-3 mb-5">
+        <p id={`${cardId}-desc`} class="text-base text-zinc-100 leading-relaxed line-clamp-3 mb-5">
           {description}
         </p>
 
@@ -332,9 +334,9 @@ const { category, mainTitle } = extractTitleParts(title);
   
   /* Improved focus styles for keyboard navigation */
   a:focus-visible {
-    outline: 3px solid #a855f7 !important;
-    outline-offset: 3px !important;
-    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.4) !important;
+    outline: 4px solid #f0abfc !important;
+    outline-offset: 4px !important;
+    box-shadow: 0 0 0 4px rgba(240, 171, 252, 0.5) !important;
   }
 
   /* High Contrast Mode Support with better visibility */
@@ -346,7 +348,7 @@ const { category, mainTitle } = extractTitleParts(title);
     }
     
     a:focus-visible {
-      outline: 3px solid CanvasText !important;
+      outline: 4px solid CanvasText !important;
     }
   }
 
@@ -385,10 +387,12 @@ const { category, mainTitle } = extractTitleParts(title);
   @media (max-width: 640px) {
     h3 {
       font-size: 1.5rem !important;
+      line-height: 1.4 !important;
     }
     
     p, time, span {
-      font-size: 1rem !important;
+      font-size: 1.125rem !important;
+      line-height: 1.6 !important;
     }
   }
 </style>

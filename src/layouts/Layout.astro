@@ -51,6 +51,7 @@ import SkipLink from "@components/Shared/SkipLink.astro";
 import Footer from "@components/Footer.astro";
 import { getLangFromUrl } from "@utils/i18n";
 import "../styles/global.css";
+import "../styles/wcag-aaa.css";
 
 interface Props {
   /**
@@ -285,5 +286,8 @@ const preloadedResources = [
         .matchMedia("(prefers-color-scheme: dark)")
         .addEventListener("change", updateThemePreference);
     </script>
+
+    <!-- WCAG AAA Enhancements Script -->
+    <script src="/scripts/wcag-aaa-enhancements.js" defer></script>
   </body>
 </html>

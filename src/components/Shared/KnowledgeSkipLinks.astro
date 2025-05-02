@@ -1,0 +1,232 @@
+---
+/**
+ * @component KnowledgeSkipLinks
+ * @description Erweiterte Skip-Links speziell für die Knowledge-Seite, die es Tastaturnutzern ermöglichen,
+ * direkt zum Suchfeld oder zu den Artikeln zu springen. Diese Komponente folgt den WCAG AAA Standards.
+ *
+ * Features:
+ * - Mehrere Sprungziele für verbesserte Navigation
+ * - Hoher Kontrast bei Fokussierung
+ * - Optimierte Tastaturbedienung
+ * - Unterstützung für High Contrast Mode
+ * - Unterstützung für Reduced Motion
+ *
+ * @example
+ * <KnowledgeSkipLinks />
+ */
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="knowledge-skip-links">
+  <a
+    href="#search-heading"
+    class="skipLink absolute z-50 -top-20 left-1/4 -translate-x-1/2 px-6 py-2
+           rounded-b-lg text-white bg-purple-700
+           font-bold no-underline shadow-md will-change-transform
+           focus-visible:top-0 focus-visible:outline focus-visible:outline-purple-400
+           focus-visible:outline-offset-2 hover:bg-purple-600
+           min-w-[200px] text-center text-base"
+    data-skip-link="search"
+    aria-label={t("knowledge.skip.search") || "Skip to search"}
+  >
+    {t("knowledge.skip.search") || "Skip to search"}
+  </a>
+
+  <a
+    href="#articles-heading"
+    class="skipLink absolute z-50 -top-20 left-3/4 -translate-x-1/2 px-6 py-2
+           rounded-b-lg text-white bg-purple-700
+           font-bold no-underline shadow-md will-change-transform
+           focus-visible:top-0 focus-visible:outline focus-visible:outline-purple-400
+           focus-visible:outline-offset-2 hover:bg-purple-600
+           min-w-[200px] text-center text-base"
+    data-skip-link="articles"
+    aria-label={t("knowledge.skip.articles") || "Skip to articles"}
+  >
+    {t("knowledge.skip.articles") || "Skip to articles"}
+  </a>
+</div>
+
+<style>
+  /**
+   * Skip Link Styles mit verbesserter Zugänglichkeit
+   * - GPU-Beschleunigung für flüssigere Animationen
+   * - High Contrast Mode Unterstützung
+   * - Fokus-Stile, die den WCAG AAA 7:1 Kontrastanforderungen entsprechen
+   */
+  .skipLink {
+    /* GPU-Beschleunigung für bessere Performance */
+    transform: translate(-50%, 0) translateZ(0);
+    transition:
+      top 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 0.2s ease-in-out;
+    /* Sicherstellen einer angemessenen Touch-Zielfläche */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Sicherstellen eines angemessenen Kontrasts für den Fokus-Zustand */
+  .skipLink:focus-visible {
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.15),
+      0 0 0 3px rgba(255, 255, 255, 0.5);
+    outline-width: 3px;
+  }
+
+  /* High Contrast Mode Unterstützung */
+  @media (forced-colors: active) {
+    .skipLink {
+      border: 2px solid ButtonText;
+      background-color: ButtonFace !important;
+      color: ButtonText !important;
+      forced-color-adjust: none;
+    }
+
+    .skipLink:focus-visible {
+      outline: 3px solid Highlight !important;
+      background-color: Highlight !important;
+      color: HighlightText !important;
+    }
+  }
+
+  /* Reduced Motion Unterstützung */
+  @media (prefers-reduced-motion: reduce) {
+    .skipLink {
+      transition-duration: 0.05s !important;
+    }
+  }
+</style>
+
+<script>
+  /**
+   * KnowledgeSkipLinks Enhancement Script
+   *
+   * Verbessert das Verhalten der Skip-Links mit:
+   * - Fokus-Management für das Zielelement
+   * - Korrekte Tastaturnavigation
+   * - Ankündigungen für Screenreader
+   */
+  class KnowledgeSkipLinksEnhancer {
+    /** Die Skip-Link-Elemente */
+    private skipLinks: NodeListOf<HTMLAnchorElement>;
+
+    /**
+     * Initialisiert den Enhancer
+     */
+    constructor() {
+      this.skipLinks = document.querySelectorAll("[data-skip-link]");
+      this.setupEventListeners();
+    }
+
+    /**
+     * Richtet Event-Listener für die Skip-Links ein
+     */
+    private setupEventListeners(): void {
+      if (!this.skipLinks.length) return;
+
+      // Füge Click-Handler mit korrektem Fokus-Management hinzu
+      this.skipLinks.forEach((skipLink) => {
+        skipLink.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const targetId = skipLink.getAttribute("href")?.substring(1);
+          if (!targetId) return;
+
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+            // Setze tabindex, um nicht-interaktive Elemente fokussierbar zu machen
+            if (!targetElement.getAttribute("tabindex")) {
+              targetElement.setAttribute("tabindex", "-1");
+            }
+
+            // Fokussiere das Ziel und scrolle es ins Sichtfeld
+            targetElement.focus({ preventScroll: true });
+            targetElement.scrollIntoView({
+              behavior: this.prefersReducedMotion() ? "auto" : "smooth",
+            });
+
+            // Spezielle Behandlung für bestimmte Ziele
+            const skipType = skipLink.getAttribute("data-skip-link");
+            if (skipType === "search") {
+              // Fokussiere das Suchfeld
+              const searchInput = document.getElementById("searchInput");
+              if (searchInput) {
+                searchInput.focus();
+                this.announceToScreenReader("Skipped to search field");
+              }
+            } else if (skipType === "articles") {
+              // Fokussiere den ersten Artikel
+              const firstArticle = document.querySelector("#articlesGrid li a");
+              if (firstArticle instanceof HTMLElement) {
+                firstArticle.focus();
+                this.announceToScreenReader("Skipped to articles");
+              } else {
+                // Wenn kein Artikel gefunden wurde, fokussiere den Artikel-Container
+                const articlesGrid = document.getElementById("articlesGrid");
+                if (articlesGrid) {
+                  articlesGrid.focus();
+                  this.announceToScreenReader("Skipped to articles section");
+                }
+              }
+            } else {
+              // Standardverhalten für andere Skip-Links
+              this.announceToScreenReader(`Skipped to ${targetId}`);
+            }
+          }
+        });
+      });
+
+      // Überwache Seitenänderungen im SPA-Kontext
+      document.addEventListener("astro:page-load", () => {
+        // Skip-Link-Referenzen nach Seitenänderungen neu erfassen
+        this.skipLinks = document.querySelectorAll("[data-skip-link]");
+        this.setupEventListeners();
+      });
+    }
+
+    /**
+     * Prüft, ob der Benutzer Reduced Motion bevorzugt
+     * @returns {boolean} True, wenn Reduced Motion bevorzugt wird
+     */
+    private prefersReducedMotion(): boolean {
+      return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    }
+
+    /**
+     * Kündigt eine Nachricht für Screenreader an
+     * @param {string} message - Die anzukündigende Nachricht
+     */
+    private announceToScreenReader(message: string): void {
+      const announcer = document.createElement("div");
+      announcer.setAttribute("aria-live", "assertive");
+      announcer.setAttribute("aria-atomic", "true");
+      announcer.className = "sr-only";
+      announcer.textContent = message;
+
+      document.body.appendChild(announcer);
+
+      // Entferne nach wahrscheinlichem Abschluss der Ankündigung
+      setTimeout(() => {
+        if (document.body.contains(announcer)) {
+          document.body.removeChild(announcer);
+        }
+      }, 3000);
+    }
+  }
+
+  // Initialisiere Enhancer, wenn DOM bereit ist
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => new KnowledgeSkipLinksEnhancer(),
+    );
+  } else {
+    new KnowledgeSkipLinksEnhancer();
+  }
+</script>
