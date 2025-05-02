@@ -30,7 +30,6 @@ import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
 import { calculateReadingTime } from "@utils/readingTime";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
-import KnowledgeSkipLinks from "@components/Shared/KnowledgeSkipLinks.astro";
 
 // Mark this route for static generation (SSG)
 export const prerender = true;
@@ -243,7 +242,6 @@ const articlesStructuredData = sortedArticles.map((article) => {
   modifiedDate={modifiedDate}
 >
   <main class="max-w-6xl mx-auto px-4 py-8" id="main-content">
-    <KnowledgeSkipLinks />
     <!-- Breadcrumbs navigation with structured data -->
     <nav aria-label="Breadcrumb" class="mb-6">
       <ol class="flex flex-wrap items-center text-base text-zinc-300 space-x-2">
