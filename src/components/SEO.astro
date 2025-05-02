@@ -280,9 +280,17 @@ const criticalResources = [
 {section && <meta property="article:section" content={section} />}
 
 <!-- Music-specific OpenGraph tags -->
-{ogMusic?.creator && <meta property="og:music:creator" content={ogMusic.creator} />}
+{
+  ogMusic?.creator && (
+    <meta property="og:music:creator" content={ogMusic.creator} />
+  )
+}
 {ogMusic?.album && <meta property="og:music:album" content={ogMusic.album} />}
-{ogMusic?.musician && <meta property="og:music:musician" content={ogMusic.musician} />}
+{
+  ogMusic?.musician && (
+    <meta property="og:music:musician" content={ogMusic.musician} />
+  )
+}
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
