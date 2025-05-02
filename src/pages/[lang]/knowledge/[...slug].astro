@@ -105,7 +105,9 @@ const playButtonText =
   t["knowledge.play.category"] || "Diese Musikkategorie spielen";
 
 // Wortanzahl berechnen
-const wordCount = entry.body ? entry.body.split(/\s+/).filter(Boolean).length : 0;
+const wordCount = entry.body
+  ? entry.body.split(/\s+/).filter(Boolean).length
+  : 0;
 
 // Lesezeit in ISO 8601 Duration Format (PT{X}M für X Minuten)
 const readingTimeMinutes = entry.body ? calculateReadingTime(entry.body) : 0;
@@ -114,13 +116,13 @@ const timeRequiredISO = `PT${readingTimeMinutes}M`;
 // Schwierigkeitsgrad in educationalLevel umwandeln
 const getEducationalLevel = (difficulty?: string): string => {
   if (!difficulty) return "beginner";
-  
+
   const difficultyMap: Record<string, string> = {
     easy: "beginner",
     medium: "intermediate",
-    hard: "advanced"
+    hard: "advanced",
   };
-  
+
   return difficultyMap[difficulty.toLowerCase()] || "beginner";
 };
 
@@ -141,7 +143,7 @@ const articleSchemaData = {
     caption: `${entry.data.title} - Titelbild`,
     contentUrl: imageSource,
     encodingFormat: "image/jpeg",
-    representativeOfPage: true
+    representativeOfPage: true,
   },
   author: {
     "@type": "Organization",
@@ -170,124 +172,156 @@ const articleSchemaData = {
   numTracks: 0, // Standardwert, da keine Tracks-Information verfügbar ist
   musicBy: {
     "@type": "Organization",
-    "name": "Melody Mind"
+    name: "Melody Mind",
   },
   // CreativeWork-spezifische Eigenschaften
   copyrightYear: new Date().getFullYear(),
   license: "https://creativecommons.org/licenses/by-nc/4.0/",
   isFamilyFriendly: true,
-  teaches: keywords.split(",").map(kw => kw.trim()).join(", "),
+  teaches: keywords
+    .split(",")
+    .map((kw) => kw.trim())
+    .join(", "),
   inLanguage: lang,
   isAccessibleForFree: true,
   audience: "Musikinteressierte und Lernende aller Altersgruppen",
   educationalLevel: "beginner", // Standardwert
   // Potentielle Aktionen für Playlist-Links
   potentialAction: [
-    ...(entry.data.category?.spotifyPlaylist ? [{
-      "@type": "ListenAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": entry.data.category.spotifyPlaylist,
-        "actionPlatform": "https://spotify.com"
-      },
-      "name": `${entry.data.title} auf Spotify anhören`
-    }] : []),
-    ...(entry.data.category?.deezerPlaylist ? [{
-      "@type": "ListenAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": entry.data.category.deezerPlaylist,
-        "actionPlatform": "https://deezer.com"
-      },
-      "name": `${entry.data.title} auf Deezer anhören`
-    }] : []),
-    ...(entry.data.category?.appleMusicPlaylist ? [{
-      "@type": "ListenAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": entry.data.category.appleMusicPlaylist,
-        "actionPlatform": "https://music.apple.com"
-      },
-      "name": `${entry.data.title} auf Apple Music anhören`
-    }] : [])
+    ...(entry.data.category?.spotifyPlaylist
+      ? [
+          {
+            "@type": "ListenAction",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: entry.data.category.spotifyPlaylist,
+              actionPlatform: "https://spotify.com",
+            },
+            name: `${entry.data.title} auf Spotify anhören`,
+          },
+        ]
+      : []),
+    ...(entry.data.category?.deezerPlaylist
+      ? [
+          {
+            "@type": "ListenAction",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: entry.data.category.deezerPlaylist,
+              actionPlatform: "https://deezer.com",
+            },
+            name: `${entry.data.title} auf Deezer anhören`,
+          },
+        ]
+      : []),
+    ...(entry.data.category?.appleMusicPlaylist
+      ? [
+          {
+            "@type": "ListenAction",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: entry.data.category.appleMusicPlaylist,
+              actionPlatform: "https://music.apple.com",
+            },
+            name: `${entry.data.title} auf Apple Music anhören`,
+          },
+        ]
+      : []),
   ],
   // Strukturierte AudioObject-Typen für Playlists
   audio: [
-    ...(entry.data.category?.spotifyPlaylist ? [{
-      "@type": "AudioObject",
-      "contentUrl": entry.data.category.spotifyPlaylist,
-      "encodingFormat": "audio/mpeg",
-      "name": `${entry.data.title} - Spotify Playlist`,
-      "description": `Spotify Playlist für ${entry.data.title}`,
-      "uploadDate": entry.data.createdAt?.toISOString() || new Date().toISOString(),
-      "duration": "PT0H0M0S", // Platzhalter, da die genaue Dauer nicht bekannt ist
-      "potentialAction": {
-        "@type": "ListenAction",
-        "target": entry.data.category.spotifyPlaylist
-      }
-    }] : []),
-    ...(entry.data.category?.deezerPlaylist ? [{
-      "@type": "AudioObject",
-      "contentUrl": entry.data.category.deezerPlaylist,
-      "encodingFormat": "audio/mpeg",
-      "name": `${entry.data.title} - Deezer Playlist`,
-      "description": `Deezer Playlist für ${entry.data.title}`,
-      "uploadDate": entry.data.createdAt?.toISOString() || new Date().toISOString(),
-      "duration": "PT0H0M0S", // Platzhalter, da die genaue Dauer nicht bekannt ist
-      "potentialAction": {
-        "@type": "ListenAction",
-        "target": entry.data.category.deezerPlaylist
-      }
-    }] : []),
-    ...(entry.data.category?.appleMusicPlaylist ? [{
-      "@type": "AudioObject",
-      "contentUrl": entry.data.category.appleMusicPlaylist,
-      "encodingFormat": "audio/mpeg",
-      "name": `${entry.data.title} - Apple Music Playlist`,
-      "description": `Apple Music Playlist für ${entry.data.title}`,
-      "uploadDate": entry.data.createdAt?.toISOString() || new Date().toISOString(),
-      "duration": "PT0H0M0S", // Platzhalter, da die genaue Dauer nicht bekannt ist
-      "potentialAction": {
-        "@type": "ListenAction",
-        "target": entry.data.category.appleMusicPlaylist
-      }
-    }] : [])
+    ...(entry.data.category?.spotifyPlaylist
+      ? [
+          {
+            "@type": "AudioObject",
+            contentUrl: entry.data.category.spotifyPlaylist,
+            encodingFormat: "audio/mpeg",
+            name: `${entry.data.title} - Spotify Playlist`,
+            description: `Spotify Playlist für ${entry.data.title}`,
+            uploadDate:
+              entry.data.createdAt?.toISOString() || new Date().toISOString(),
+            duration: "PT0H0M0S", // Platzhalter, da die genaue Dauer nicht bekannt ist
+            potentialAction: {
+              "@type": "ListenAction",
+              target: entry.data.category.spotifyPlaylist,
+            },
+          },
+        ]
+      : []),
+    ...(entry.data.category?.deezerPlaylist
+      ? [
+          {
+            "@type": "AudioObject",
+            contentUrl: entry.data.category.deezerPlaylist,
+            encodingFormat: "audio/mpeg",
+            name: `${entry.data.title} - Deezer Playlist`,
+            description: `Deezer Playlist für ${entry.data.title}`,
+            uploadDate:
+              entry.data.createdAt?.toISOString() || new Date().toISOString(),
+            duration: "PT0H0M0S", // Platzhalter, da die genaue Dauer nicht bekannt ist
+            potentialAction: {
+              "@type": "ListenAction",
+              target: entry.data.category.deezerPlaylist,
+            },
+          },
+        ]
+      : []),
+    ...(entry.data.category?.appleMusicPlaylist
+      ? [
+          {
+            "@type": "AudioObject",
+            contentUrl: entry.data.category.appleMusicPlaylist,
+            encodingFormat: "audio/mpeg",
+            name: `${entry.data.title} - Apple Music Playlist`,
+            description: `Apple Music Playlist für ${entry.data.title}`,
+            uploadDate:
+              entry.data.createdAt?.toISOString() || new Date().toISOString(),
+            duration: "PT0H0M0S", // Platzhalter, da die genaue Dauer nicht bekannt ist
+            potentialAction: {
+              "@type": "ListenAction",
+              target: entry.data.category.appleMusicPlaylist,
+            },
+          },
+        ]
+      : []),
   ],
   // GameItem wenn isPlayable true ist
-  ...(isPlayable && gameCategoryUrl ? {
-    "gameItem": {
-      "@type": "Game",
-      "name": `${entry.data.title} - Musikspiel`,
-      "url": new URL(gameCategoryUrl, Astro.url.origin).href,
-      "gamePlatform": "Web Browser",
-      "applicationCategory": "Game",
-      "genre": "Music Game"
-    }
-  } : {}),
+  ...(isPlayable && gameCategoryUrl
+    ? {
+        gameItem: {
+          "@type": "Game",
+          name: `${entry.data.title} - Musikspiel`,
+          url: new URL(gameCategoryUrl, Astro.url.origin).href,
+          gamePlatform: "Web Browser",
+          applicationCategory: "Game",
+          genre: "Music Game",
+        },
+      }
+    : {}),
   // BreadcrumbList Schema für die Breadcrumb-Navigation
   breadcrumb: {
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": t?.["nav.home"] || "Startseite",
-        "item": new URL(`/${lang}`, Astro.url.origin).href
+        position: 1,
+        name: t?.["nav.home"] || "Startseite",
+        item: new URL(`/${lang}`, Astro.url.origin).href,
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": t?.["knowledge.title"] || "Wissen",
-        "item": new URL(`/${lang}/knowledge`, Astro.url.origin).href
+        position: 2,
+        name: t?.["knowledge.title"] || "Wissen",
+        item: new URL(`/${lang}/knowledge`, Astro.url.origin).href,
       },
       {
         "@type": "ListItem",
-        "position": 3,
-        "name": entry.data.title,
-        "item": Astro.url.href
-      }
-    ]
-  }
+        position: 3,
+        name: entry.data.title,
+        item: Astro.url.href,
+      },
+    ],
+  },
 };
 ---
 
@@ -302,7 +336,7 @@ const articleSchemaData = {
   ogMusic={{
     creator: "Melody Mind",
     album: entry.data.title,
-    musician: "Melody Mind"
+    musician: "Melody Mind",
   }}
 >
   <script
@@ -315,133 +349,155 @@ const articleSchemaData = {
       class="prose prose-lg dark:prose-invert max-w-none"
       aria-labelledby="article-title"
     >
-<nav
-  class="mb-8 print:hidden"
-  aria-label={t["knowledge.breadcrumb.label"] || "Breadcrumb"}
->
-  <ol class="flex flex-wrap items-center gap-2 text-md">
-    <li class="flex items-center">
-      <a
-        href={`/${lang}`}
-        class="flex items-center gap-1 text-zinc-400 hover:text-sky-400 transition-colors rounded-lg px-2 py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
-        aria-label={t?.["nav.home"] || "Startseite"}
+      <nav
+        class="mb-8 print:hidden"
+        aria-label={t["knowledge.breadcrumb.label"] || "Breadcrumb"}
       >
-        <Icon name="home" class="h-4 w-4" aria-hidden="true" />
-        <span class="sr-only">{t?.["nav.home"] || "Startseite"}</span>
-      </a>
-    </li>
-    <li class="flex items-center" aria-hidden="true">
-      <Icon name="chevron-right" class="h-4 w-4 mx-1 text-zinc-500" />
-    </li>
-    <li>
-      <a
-        href={`/${lang}/knowledge`}
-        class="flex items-center gap-1 text-zinc-400 hover:text-sky-400 transition-colors rounded-lg px-2 py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
-      >
-        {t?.["knowledge.title"] || "Wissen"}
-      </a>
-    </li>
-    <li class="flex items-center" aria-hidden="true">
-      <Icon name="chevron-right" class="h-4 w-4 mx-1 text-zinc-500" />
-    </li>
-    <li
-      class="text-zinc-50 truncate max-w-[150px] sm:max-w-xs px-2 py-1 rounded-lg bg-zinc-800/30"
-      aria-current="page"
-    >
-      {entry.data.title}
-    </li>
-  </ol>
-</nav>
+        <ol class="flex flex-wrap items-center gap-2 text-md">
+          <li class="flex items-center">
+            <a
+              href={`/${lang}`}
+              class="flex items-center gap-1 text-zinc-400 hover:text-sky-400 transition-colors rounded-lg px-2 py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+              aria-label={t?.["nav.home"] || "Startseite"}
+            >
+              <Icon name="home" class="h-4 w-4" aria-hidden="true" />
+              <span class="sr-only">{t?.["nav.home"] || "Startseite"}</span>
+            </a>
+          </li>
+          <li class="flex items-center" aria-hidden="true">
+            <Icon name="chevron-right" class="h-4 w-4 mx-1 text-zinc-500" />
+          </li>
+          <li>
+            <a
+              href={`/${lang}/knowledge`}
+              class="flex items-center gap-1 text-zinc-400 hover:text-sky-400 transition-colors rounded-lg px-2 py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+            >
+              {t?.["knowledge.title"] || "Wissen"}
+            </a>
+          </li>
+          <li class="flex items-center" aria-hidden="true">
+            <Icon name="chevron-right" class="h-4 w-4 mx-1 text-zinc-500" />
+          </li>
+          <li
+            class="text-zinc-50 truncate max-w-[150px] sm:max-w-xs px-2 py-1 rounded-lg bg-zinc-800/30"
+            aria-current="page"
+          >
+            {entry.data.title}
+          </li>
+        </ol>
+      </nav>
 
-<header class="relative mb-12">
-  <!-- Hero Image Container -->
-  <div class="relative mb-8 rounded-2xl overflow-hidden aspect-video shadow-xl ring-1 ring-zinc-700/50">
-    <Picture
-      src={imageSource}
-      width={1200}
-      height={675}
-      formats={["avif", "webp"]}
-      class="w-full h-full object-cover"
-      loading="eager"
-      fetchpriority="high"
-      alt={`Titelbild zum Artikel "${entry.data.title}" - Musikwissen auf Melody Mind - ${entry.data.description?.substring(0, 50)}...`}
-      decoding="async"
-      sizes="(min-width: 1280px) 1200px, (min-width: 768px) 100vw, 100vw"
-    />
-  </div>
-
-  <!-- Title and Meta Container -->
-  <div class="relative space-y-6">
-    <Headline
-      level="h1"
-      title={entry.data.title}
-      id="article-title"
-      className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white"
-    />
-
-    <!-- Meta Information -->
-    <div class="flex flex-wrap items-center gap-4">
-      {formattedDate && (
-        <time
-          datetime={entry.data.createdAt?.toISOString()}
-          class="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-800 text-zinc-200"
+      <header class="relative mb-12">
+        <!-- Hero Image Container -->
+        <div
+          class="relative mb-8 rounded-2xl overflow-hidden aspect-video shadow-xl ring-1 ring-zinc-700/50"
         >
-          <Icon name="calendar" class="h-5 w-5 text-sky-400" aria-hidden="true" />
-          <span>{formattedDate}</span>
-        </time>
-      )}
+          <Picture
+            src={imageSource}
+            width={1200}
+            height={675}
+            formats={["avif", "webp"]}
+            class="w-full h-full object-cover"
+            loading="eager"
+            fetchpriority="high"
+            alt={`Titelbild zum Artikel "${entry.data.title}" - Musikwissen auf Melody Mind - ${entry.data.description?.substring(0, 50)}...`}
+            decoding="async"
+            sizes="(min-width: 1280px) 1200px, (min-width: 768px) 100vw, 100vw"
+          />
+        </div>
 
-      {readingTimeText && (
-        <span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-800 text-zinc-200">
-          <Icon name="clock" class="h-5 w-5 text-sky-400" aria-hidden="true" />
-          <span>{readingTimeText}</span>
-        </span>
-      )}
-    </div>
+        <!-- Title and Meta Container -->
+        <div class="relative space-y-6">
+          <Headline
+            level="h1"
+            title={entry.data.title}
+            id="article-title"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white"
+          />
 
-    <!-- Music & Game Buttons -->
-    <div class="flex flex-wrap items-center gap-4">
-      {entry.data.category && (
-        <MusicButtons
-          category={entry.data.category}
-          title={entry.data.title}
-        />
-      )}
+          <!-- Meta Information -->
+          <div class="flex flex-wrap items-center gap-4">
+            {
+              formattedDate && (
+                <time
+                  datetime={entry.data.createdAt?.toISOString()}
+                  class="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-800 text-zinc-200"
+                >
+                  <Icon
+                    name="calendar"
+                    class="h-5 w-5 text-sky-400"
+                    aria-hidden="true"
+                  />
+                  <span>{formattedDate}</span>
+                </time>
+              )
+            }
 
-      {isPlayable && gameCategoryUrl && (
-        <ButtonLink
-          href={gameCategoryUrl}
-          className="group flex items-center min-w-[120px] h-12 px-4 py-2 rounded-xl text-sm font-medium bg-blue-600 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 hover:bg-blue-500"
-          aria-label={`${playButtonText}: ${entry.data.title}`}
+            {
+              readingTimeText && (
+                <span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-800 text-zinc-200">
+                  <Icon
+                    name="clock"
+                    class="h-5 w-5 text-sky-400"
+                    aria-hidden="true"
+                  />
+                  <span>{readingTimeText}</span>
+                </span>
+              )
+            }
+          </div>
+
+          <!-- Music & Game Buttons -->
+          <div class="flex flex-wrap items-center gap-4">
+            {
+              entry.data.category && (
+                <MusicButtons
+                  category={entry.data.category}
+                  title={entry.data.title}
+                />
+              )
+            }
+
+            {
+              isPlayable && gameCategoryUrl && (
+                <ButtonLink
+                  href={gameCategoryUrl}
+                  className="group flex items-center min-w-[120px] h-12 px-4 py-2 rounded-xl text-sm font-medium bg-blue-600 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 hover:bg-blue-500"
+                  aria-label={`${playButtonText}: ${entry.data.title}`}
+                >
+                  <span class="flex items-center gap-2">
+                    <Icon
+                      name="game-controller"
+                      class="h-5 w-5"
+                      aria-hidden="true"
+                    />
+                    <span class="font-medium">{playButtonText}</span>
+                  </span>
+                </ButtonLink>
+              )
+            }
+          </div>
+
+          <!-- Description Box -->
+          <div class="mt-8 p-6 rounded-2xl bg-zinc-800 shadow-lg">
+            <p class="text-lg text-zinc-100 leading-relaxed">
+              {entry.data.description}
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <div class="content-wrapper relative">
+        <div
+          role="region"
+          aria-label={"Hauptinhalt"}
+          class="prose prose-lg dark:prose-invert max-w-none prose-headings:scroll-mt-20"
         >
-          <span class="flex items-center gap-2">
-            <Icon name="game-controller" class="h-5 w-5" aria-hidden="true" />
-            <span class="font-medium">{playButtonText}</span>
-          </span>
-        </ButtonLink>
-      )}
-    </div>
-
-    <!-- Description Box -->
-    <div class="mt-8 p-6 rounded-2xl bg-zinc-800 shadow-lg">
-      <p class="text-lg text-zinc-100 leading-relaxed">
-        {entry.data.description}
-      </p>
-    </div>
-  </div>
-</header>
-
-<div class="content-wrapper relative">
-  <div
-    role="region"
-    aria-label={"Hauptinhalt"}
-    class="prose prose-lg dark:prose-invert max-w-none prose-headings:scroll-mt-20"
-  >
-    <div>
-      <Content />
-    </div>
-  </div>
-</div>
+          <div>
+            <Content />
+          </div>
+        </div>
+      </div>
 
       <!-- Back navigation with improved accessibility -->
       <div
@@ -545,4 +601,3 @@ const articleSchemaData = {
     }
   }
 </style>
-

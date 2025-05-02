@@ -15,34 +15,40 @@ import ButtonLink from "./ButtonLink.astro";
 
 const buttons = [
   {
-    type: 'spotify',
+    type: "spotify",
     url: category?.spotifyPlaylist,
-    label: 'Spotify',
-    styles: 'bg-[#0A5D2C] hover:bg-[#084823] active:bg-[#063619] focus-visible:ring-[#0A5D2C]/70',
+    label: "Spotify",
+    styles:
+      "bg-[#0A5D2C] hover:bg-[#084823] active:bg-[#063619] focus-visible:ring-[#0A5D2C]/70",
   },
   {
-    type: 'deezer',
+    type: "deezer",
     url: category?.deezerPlaylist,
-    label: 'Deezer',
-    styles: 'bg-[#9A0058] hover:bg-[#7D0047] active:bg-[#6B003D] focus-visible:ring-[#9A0058]/70',
+    label: "Deezer",
+    styles:
+      "bg-[#9A0058] hover:bg-[#7D0047] active:bg-[#6B003D] focus-visible:ring-[#9A0058]/70",
   },
   {
-    type: 'apple',
+    type: "apple",
     url: category?.appleMusicPlaylist,
-    label: 'Apple',
-    styles: 'bg-[#9E1625] hover:bg-[#7D111D] active:bg-[#6B0F19] focus-visible:ring-[#9E1625]/70',
+    label: "Apple",
+    styles:
+      "bg-[#9E1625] hover:bg-[#7D111D] active:bg-[#6B0F19] focus-visible:ring-[#9E1625]/70",
   },
 ] as const;
 ---
 
 <div class="flex flex-wrap gap-3">
-  {buttons.map(({ type, url, label, styles }) => url && (
-    <ButtonLink
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`${title} auf ${label} anhören - Öffnet in neuem Tab`}
-      className={`
+  {
+    buttons.map(
+      ({ type, url, label, styles }) =>
+        url && (
+          <ButtonLink
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${title} auf ${label} anhören - Öffnet in neuem Tab`}
+            className={`
         inline-flex items-center justify-center gap-2
         min-w-[120px] h-12 px-4 py-2
         rounded-xl text-sm font-medium text-white
@@ -53,9 +59,11 @@ const buttons = [
         touch-manipulation
         ${styles}
       `}
-    >
-      <Icon name={type} class="h-5 w-5" aria-hidden="true" />
-      <span>{label}</span>
-    </ButtonLink>
-  ))}
+          >
+            <Icon name={type} class="h-5 w-5" aria-hidden="true" />
+            <span>{label}</span>
+          </ButtonLink>
+        ),
+    )
+  }
 </div>
