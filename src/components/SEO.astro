@@ -38,6 +38,12 @@ interface Props {
   audioSrc?: string;
   /** Content section category - used for article schema */
   section?: string;
+  /** Music-specific OpenGraph meta tags */
+  ogMusic?: {
+    creator?: string;
+    album?: string;
+    musician?: string;
+  };
 }
 
 const {
@@ -50,6 +56,7 @@ const {
   modifiedDate,
   audioSrc,
   section = "game",
+  ogMusic,
 } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
@@ -271,6 +278,11 @@ const criticalResources = [
   )
 }
 {section && <meta property="article:section" content={section} />}
+
+<!-- Music-specific OpenGraph tags -->
+{ogMusic?.creator && <meta property="og:music:creator" content={ogMusic.creator} />}
+{ogMusic?.album && <meta property="og:music:album" content={ogMusic.album} />}
+{ogMusic?.musician && <meta property="og:music:musician" content={ogMusic.musician} />}
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />

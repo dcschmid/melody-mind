@@ -106,6 +106,15 @@ interface Props {
    * @default false
    */
   showCoins?: boolean;
+
+  /**
+   * Music-specific OpenGraph meta tags
+   */
+  ogMusic?: {
+    creator?: string;
+    album?: string;
+    musician?: string;
+  };
 }
 
 const {
@@ -119,6 +128,7 @@ const {
   showHeader = true,
   showHeaderIcons = true,
   showCoins = false,
+  ogMusic,
 } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
@@ -174,6 +184,7 @@ const preloadedResources = [
       type={type}
       publishDate={publishDate}
       modifiedDate={modifiedDate}
+      ogMusic={ogMusic}
     />
 
     <!-- Analytics with performance and privacy optimizations -->
