@@ -27,6 +27,8 @@ interface Props {
   variant?: "primary" | "secondary" | "outline" | "text";
   /** Size of the button */
   size?: "sm" | "md" | "lg";
+  /** Inline style attribute (for custom styling) */
+  style?: string;
 }
 
 const {
@@ -39,6 +41,7 @@ const {
   rel,
   variant = "primary",
   size = "md",
+  style,
 } = Astro.props;
 
 // Ensure proper rel attribute for external links
@@ -106,6 +109,7 @@ const finalClasses =
       }
       target={target}
       rel={finalRel}
+      style={style}
       {...(disabled ? { "aria-disabled": "true", tabindex: "-1" } : {})}
     >
       <slot />
@@ -117,8 +121,21 @@ const finalClasses =
       disabled={disabled}
       class={finalClasses}
       aria-label={ariaLabel}
+      style={style}
     >
       <slot />
     </button>
   )
 }
+
+<style>
+  a, button {
+    will-change: transform;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    a, button {
+      transition: transform 0.2s ease;
+    }
+  }
+</style>

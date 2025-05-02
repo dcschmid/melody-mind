@@ -7,6 +7,7 @@ import { Picture } from "astro:assets";
 import Headline from "@components/Headline.astro";
 import { Icon } from "astro-icon/components";
 import ButtonLink from "@components/ButtonLink.astro";
+import MusicButtons from "../../../components/MusicButtons.astro";
 import { calculateReadingTime } from "@utils/readingTime";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
 
@@ -32,7 +33,16 @@ export async function getStaticPaths() {
   return allEntries.flat();
 }
 
-type KnowledgeEntry = CollectionEntry<`knowledge-${keyof typeof languages}`>;
+type KnowledgeEntry = CollectionEntry<`knowledge-${keyof typeof languages}`> & {
+  data: {
+    category?: {
+      spotifyPlaylist?: string;
+      deezerPlaylist?: string;
+      appleMusicPlaylist?: string;
+    };
+    isPlayable?: boolean;
+  };
+};
 interface Props {
   entry: KnowledgeEntry;
 }
@@ -94,16 +104,45 @@ const gameCategoryUrl = isPlayable ? `/${lang}/${gameCategorySlug}` : null;
 const playButtonText =
   t["knowledge.play.category"] || "Diese Musikkategorie spielen";
 
+// Wortanzahl berechnen
+const wordCount = entry.body ? entry.body.split(/\s+/).filter(Boolean).length : 0;
+
+// Lesezeit in ISO 8601 Duration Format (PT{X}M für X Minuten)
+const readingTimeMinutes = entry.body ? calculateReadingTime(entry.body) : 0;
+const timeRequiredISO = `PT${readingTimeMinutes}M`;
+
+// Schwierigkeitsgrad in educationalLevel umwandeln
+const getEducationalLevel = (difficulty?: string): string => {
+  if (!difficulty) return "beginner";
+  
+  const difficultyMap: Record<string, string> = {
+    easy: "beginner",
+    medium: "intermediate",
+    hard: "advanced"
+  };
+  
+  return difficultyMap[difficulty.toLowerCase()] || "beginner";
+};
+
 // Structured data for article - erweitert für besseres SEO
 const articleSchemaData = {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": ["Article", "MusicGroup", "CreativeWork"],
   headline: entry.data.title,
   description: optimizedDescription,
   datePublished: entry.data.createdAt?.toISOString(),
   dateModified:
     entry.data.updatedAt?.toISOString() || entry.data.createdAt?.toISOString(),
-  image: imageSource,
+  image: {
+    "@type": "ImageObject",
+    url: imageSource,
+    width: 1200,
+    height: 675,
+    caption: `${entry.data.title} - Titelbild`,
+    contentUrl: imageSource,
+    encodingFormat: "image/jpeg",
+    representativeOfPage: true
+  },
   author: {
     "@type": "Organization",
     name: "Melody Mind",
@@ -121,6 +160,134 @@ const articleSchemaData = {
     "@id": Astro.url.href,
   },
   keywords: keywords,
+  // Neue Eigenschaften
+  wordCount: wordCount,
+  articleBody: entry.body || "",
+  timeRequired: timeRequiredISO,
+  // MusicGroup-spezifische Eigenschaften
+  genre: keywords.split(",")[0].trim(), // Erstes Keyword als Genre
+  musicReleaseFormat: "Digital",
+  numTracks: 0, // Standardwert, da keine Tracks-Information verfügbar ist
+  musicBy: {
+    "@type": "Organization",
+    "name": "Melody Mind"
+  },
+  // CreativeWork-spezifische Eigenschaften
+  copyrightYear: new Date().getFullYear(),
+  license: "https://creativecommons.org/licenses/by-nc/4.0/",
+  isFamilyFriendly: true,
+  teaches: keywords.split(",").map(kw => kw.trim()).join(", "),
+  inLanguage: lang,
+  isAccessibleForFree: true,
+  audience: "Musikinteressierte und Lernende aller Altersgruppen",
+  educationalLevel: "beginner", // Standardwert
+  // Potentielle Aktionen für Playlist-Links
+  potentialAction: [
+    ...(entry.data.category?.spotifyPlaylist ? [{
+      "@type": "ListenAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": entry.data.category.spotifyPlaylist,
+        "actionPlatform": "https://spotify.com"
+      },
+      "name": `${entry.data.title} auf Spotify anhören`
+    }] : []),
+    ...(entry.data.category?.deezerPlaylist ? [{
+      "@type": "ListenAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": entry.data.category.deezerPlaylist,
+        "actionPlatform": "https://deezer.com"
+      },
+      "name": `${entry.data.title} auf Deezer anhören`
+    }] : []),
+    ...(entry.data.category?.appleMusicPlaylist ? [{
+      "@type": "ListenAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": entry.data.category.appleMusicPlaylist,
+        "actionPlatform": "https://music.apple.com"
+      },
+      "name": `${entry.data.title} auf Apple Music anhören`
+    }] : [])
+  ],
+  // Strukturierte AudioObject-Typen für Playlists
+  audio: [
+    ...(entry.data.category?.spotifyPlaylist ? [{
+      "@type": "AudioObject",
+      "contentUrl": entry.data.category.spotifyPlaylist,
+      "encodingFormat": "audio/mpeg",
+      "name": `${entry.data.title} - Spotify Playlist`,
+      "description": `Spotify Playlist für ${entry.data.title}`,
+      "uploadDate": entry.data.createdAt?.toISOString() || new Date().toISOString(),
+      "duration": "PT0H0M0S", // Platzhalter, da die genaue Dauer nicht bekannt ist
+      "potentialAction": {
+        "@type": "ListenAction",
+        "target": entry.data.category.spotifyPlaylist
+      }
+    }] : []),
+    ...(entry.data.category?.deezerPlaylist ? [{
+      "@type": "AudioObject",
+      "contentUrl": entry.data.category.deezerPlaylist,
+      "encodingFormat": "audio/mpeg",
+      "name": `${entry.data.title} - Deezer Playlist`,
+      "description": `Deezer Playlist für ${entry.data.title}`,
+      "uploadDate": entry.data.createdAt?.toISOString() || new Date().toISOString(),
+      "duration": "PT0H0M0S", // Platzhalter, da die genaue Dauer nicht bekannt ist
+      "potentialAction": {
+        "@type": "ListenAction",
+        "target": entry.data.category.deezerPlaylist
+      }
+    }] : []),
+    ...(entry.data.category?.appleMusicPlaylist ? [{
+      "@type": "AudioObject",
+      "contentUrl": entry.data.category.appleMusicPlaylist,
+      "encodingFormat": "audio/mpeg",
+      "name": `${entry.data.title} - Apple Music Playlist`,
+      "description": `Apple Music Playlist für ${entry.data.title}`,
+      "uploadDate": entry.data.createdAt?.toISOString() || new Date().toISOString(),
+      "duration": "PT0H0M0S", // Platzhalter, da die genaue Dauer nicht bekannt ist
+      "potentialAction": {
+        "@type": "ListenAction",
+        "target": entry.data.category.appleMusicPlaylist
+      }
+    }] : [])
+  ],
+  // GameItem wenn isPlayable true ist
+  ...(isPlayable && gameCategoryUrl ? {
+    "gameItem": {
+      "@type": "Game",
+      "name": `${entry.data.title} - Musikspiel`,
+      "url": new URL(gameCategoryUrl, Astro.url.origin).href,
+      "gamePlatform": "Web Browser",
+      "applicationCategory": "Game",
+      "genre": "Music Game"
+    }
+  } : {}),
+  // BreadcrumbList Schema für die Breadcrumb-Navigation
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": t?.["nav.home"] || "Startseite",
+        "item": new URL(`/${lang}`, Astro.url.origin).href
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": t?.["knowledge.title"] || "Wissen",
+        "item": new URL(`/${lang}/knowledge`, Astro.url.origin).href
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": entry.data.title,
+        "item": Astro.url.href
+      }
+    ]
+  }
 };
 ---
 
@@ -132,6 +299,11 @@ const articleSchemaData = {
   type={pageType}
   publishDate={publishDate}
   modifiedDate={modifiedDate}
+  ogMusic={{
+    creator: "Melody Mind",
+    album: entry.data.title,
+    musician: "Melody Mind"
+  }}
 >
   <script
     type="application/ld+json"
@@ -143,179 +315,133 @@ const articleSchemaData = {
       class="prose prose-lg dark:prose-invert max-w-none"
       aria-labelledby="article-title"
     >
-      <nav
-        class="mb-8 print:hidden"
-        aria-label={t["knowledge.breadcrumb.label"] || "Breadcrumb"}
+<nav
+  class="mb-8 print:hidden"
+  aria-label={t["knowledge.breadcrumb.label"] || "Breadcrumb"}
+>
+  <ol class="flex flex-wrap items-center gap-2 text-md">
+    <li class="flex items-center">
+      <a
+        href={`/${lang}`}
+        class="flex items-center gap-1 text-zinc-400 hover:text-sky-400 transition-colors rounded-lg px-2 py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+        aria-label={t?.["nav.home"] || "Startseite"}
       >
-        <ol class="flex flex-wrap items-center gap-2 text-md">
-          <li class="flex items-center">
-            <a
-              href={`/${lang}`}
-              class="text-zinc-300 hover:text-sky-400 transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
-              aria-label={t?.["nav.home"] || "Startseite"}
-            >
-              <Icon name="home" class="h-4 w-4" aria-hidden="true" />
-              <span class="sr-only">{t?.["nav.home"] || "Startseite"}</span>
-            </a>
-          </li>
-          <li class="flex items-center" aria-hidden="true">
-            <Icon name="chevron-right" class="h-4 w-4 mx-1 text-zinc-500" />
-          </li>
-          <li>
-            <a
-              href={`/${lang}/knowledge`}
-              class="text-zinc-300 hover:text-sky-400 transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
-            >
-              {t?.["knowledge.title"] || "Wissen"}
-            </a>
-          </li>
-          <li class="flex items-center" aria-hidden="true">
-            <Icon name="chevron-right" class="h-4 w-4 mx-1 text-zinc-500" />
-          </li>
-          <li
-            class="text-zinc-50 truncate max-w-[150px] sm:max-w-xs"
-            aria-current="page"
-          >
-            {entry.data.title}
-          </li>
-        </ol>
-      </nav>
+        <Icon name="home" class="h-4 w-4" aria-hidden="true" />
+        <span class="sr-only">{t?.["nav.home"] || "Startseite"}</span>
+      </a>
+    </li>
+    <li class="flex items-center" aria-hidden="true">
+      <Icon name="chevron-right" class="h-4 w-4 mx-1 text-zinc-500" />
+    </li>
+    <li>
+      <a
+        href={`/${lang}/knowledge`}
+        class="flex items-center gap-1 text-zinc-400 hover:text-sky-400 transition-colors rounded-lg px-2 py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+      >
+        {t?.["knowledge.title"] || "Wissen"}
+      </a>
+    </li>
+    <li class="flex items-center" aria-hidden="true">
+      <Icon name="chevron-right" class="h-4 w-4 mx-1 text-zinc-500" />
+    </li>
+    <li
+      class="text-zinc-50 truncate max-w-[150px] sm:max-w-xs px-2 py-1 rounded-lg bg-zinc-800/30"
+      aria-current="page"
+    >
+      {entry.data.title}
+    </li>
+  </ol>
+</nav>
 
-      <header class="mb-10">
-        <div
-          class="mb-6 relative rounded-lg overflow-hidden aspect-video shadow-lg border border-zinc-700"
+<header class="relative mb-12">
+  <!-- Hero Image Container -->
+  <div class="relative mb-8 rounded-2xl overflow-hidden aspect-video shadow-xl ring-1 ring-zinc-700/50">
+    <Picture
+      src={imageSource}
+      width={1200}
+      height={675}
+      formats={["avif", "webp"]}
+      class="w-full h-full object-cover"
+      loading="eager"
+      fetchpriority="high"
+      alt={`Titelbild zum Artikel "${entry.data.title}" - Musikwissen auf Melody Mind - ${entry.data.description?.substring(0, 50)}...`}
+      decoding="async"
+      sizes="(min-width: 1280px) 1200px, (min-width: 768px) 100vw, 100vw"
+    />
+  </div>
+
+  <!-- Title and Meta Container -->
+  <div class="relative space-y-6">
+    <Headline
+      level="h1"
+      title={entry.data.title}
+      id="article-title"
+      className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white"
+    />
+
+    <!-- Meta Information -->
+    <div class="flex flex-wrap items-center gap-4">
+      {formattedDate && (
+        <time
+          datetime={entry.data.createdAt?.toISOString()}
+          class="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-800 text-zinc-200"
         >
-          <Picture
-            src={imageSource}
-            width={1200}
-            height={675}
-            formats={["avif", "webp"]}
-            class="w-full h-full object-cover"
-            loading="eager"
-            alt={`${entry.data.title} - ${t.knowledge?.featured?.image || "Titelbild"}`}
-            decoding="async"
-          />
-        </div>
+          <Icon name="calendar" class="h-5 w-5 text-sky-400" aria-hidden="true" />
+          <span>{formattedDate}</span>
+        </time>
+      )}
 
-        <Headline
-          level="h1"
+      {readingTimeText && (
+        <span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-800 text-zinc-200">
+          <Icon name="clock" class="h-5 w-5 text-sky-400" aria-hidden="true" />
+          <span>{readingTimeText}</span>
+        </span>
+      )}
+    </div>
+
+    <!-- Music & Game Buttons -->
+    <div class="flex flex-wrap items-center gap-4">
+      {entry.data.category && (
+        <MusicButtons
+          category={entry.data.category}
           title={entry.data.title}
-          id="article-title"
-          className="text-3xl sm:text-4xl font-bold tracking-tight"
         />
+      )}
 
-        <div
-          class="flex flex-wrap items-center gap-x-6 gap-y-3 mt-6 text-zinc-200 text-base"
+      {isPlayable && gameCategoryUrl && (
+        <ButtonLink
+          href={gameCategoryUrl}
+          className="group flex items-center min-w-[120px] h-12 px-4 py-2 rounded-xl text-sm font-medium bg-blue-600 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 hover:bg-blue-500"
+          aria-label={`${playButtonText}: ${entry.data.title}`}
         >
-          {
-            formattedDate && (
-              <time
-                datetime={entry.data.createdAt?.toISOString()}
-                class="flex items-center gap-1.5 bg-zinc-800/50 px-3 py-1 rounded-full"
-              >
-                <Icon name="calendar" class="h-5 w-5" aria-hidden="true" />
-                <span>{formattedDate}</span>
-              </time>
-            )
-          }
+          <span class="flex items-center gap-2">
+            <Icon name="game-controller" class="h-5 w-5" aria-hidden="true" />
+            <span class="font-medium">{playButtonText}</span>
+          </span>
+        </ButtonLink>
+      )}
+    </div>
 
-          {
-            readingTimeText && (
-              <span class="flex items-center gap-1.5 text-zinc-200 bg-zinc-800/50 px-3 py-1 rounded-full">
-                <Icon name="clock" class="h-5 w-5" aria-hidden="true" />
-                <span>{readingTimeText}</span>
-              </span>
-            )
-          }
-        </div>
+    <!-- Description Box -->
+    <div class="mt-8 p-6 rounded-2xl bg-zinc-800 shadow-lg">
+      <p class="text-lg text-zinc-100 leading-relaxed">
+        {entry.data.description}
+      </p>
+    </div>
+  </div>
+</header>
 
-        <!-- Music & Game Buttons in separate div -->
-        <div
-          class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-3 text-zinc-200 text-base"
-        >
-          {
-            entry.data.category?.spotifyPlaylist && (
-              <ButtonLink
-                href={entry.data.category.spotifyPlaylist}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${entry.data.title} auf Spotify anhören`}
-                className="rounded-full h-10 min-w-[88px] px-3 py-1 text-sm transition-transform hover:scale-105 focus:scale-105"
-              >
-                <Icon name="spotify" class="h-4 w-4 mr-1" aria-hidden="true" />
-                <span>Spotify</span>
-              </ButtonLink>
-            )
-          }
-
-          {
-            entry.data.category?.deezerPlaylist && (
-              <ButtonLink
-                href={entry.data.category.deezerPlaylist}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${entry.data.title} auf Deezer anhören`}
-                className="rounded-full h-10 min-w-[88px] px-3 py-1 text-sm transition-transform hover:scale-105 focus:scale-105"
-              >
-                <Icon name="deezer" class="h-4 w-4 mr-1" aria-hidden="true" />
-                <span>Deezer</span>
-              </ButtonLink>
-            )
-          }
-
-          {
-            entry.data.category?.appleMusicPlaylist && (
-              <ButtonLink
-                href={entry.data.category.appleMusicPlaylist}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${entry.data.title} auf Apple Music anhören`}
-                className="rounded-full h-10 min-w-[88px] px-3 py-1 text-sm transition-transform hover:scale-105 focus:scale-105"
-              >
-                <Icon name="apple" class="h-4 w-4 mr-1" aria-hidden="true" />
-                <span>Apple</span>
-              </ButtonLink>
-            )
-          }
-
-          {
-            isPlayable && gameCategoryUrl && (
-              <ButtonLink
-                href={gameCategoryUrl}
-                className="rounded-full h-10 min-w-[88px] px-3 py-1 text-sm transition-transform hover:scale-105 focus:scale-105"
-                aria-label={`${playButtonText}: ${entry.data.title}`}
-              >
-                <Icon
-                  name="game-controller"
-                  class="h-4 w-4 mr-1"
-                  aria-hidden="true"
-                />
-                <span>{playButtonText}</span>
-              </ButtonLink>
-            )
-          }
-        </div>
-
-        <div
-          class="mt-6 bg-zinc-800/30 p-5 rounded-lg border-l-4 border-sky-500"
-          role="region"
-          aria-label={t["knowledge.description"] || "Beschreibung"}
-        >
-          <p class="text-zinc-100 text-lg leading-relaxed">
-            {entry.data.description}
-          </p>
-        </div>
-      </header>
-
-      <div class="content-wrapper relative">
-        <!-- Main article content with improved accessibility -->
-        <div
-          role="region"
-          aria-label={t["knowledge.main.content"] || "Hauptinhalt"}
-        >
-          <Content />
-        </div>
-      </div>
+<div class="content-wrapper relative">
+  <div
+    role="region"
+    aria-label={"Hauptinhalt"}
+    class="prose prose-lg dark:prose-invert max-w-none prose-headings:scroll-mt-20"
+  >
+    <div>
+      <Content />
+    </div>
+  </div>
+</div>
 
       <!-- Back navigation with improved accessibility -->
       <div
@@ -340,141 +466,83 @@ const articleSchemaData = {
 </Layout>
 
 <style>
-  /* Enhanced contrast and accessibility adjustments - WCAG AAA compliant */
+  .content-wrapper :global(h2),
+  .content-wrapper :global(h3) {
+    color: rgb(255, 255, 255);
+    line-height: 1.3;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-wrapper :global(h2) {
+    font-size: 1.875rem;
+    font-weight: 700;
+  }
+
+  .content-wrapper :global(h3) {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .content-wrapper :global(p) {
+    color: rgb(226, 232, 240);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    max-width: 70ch;
+  }
+
   .content-wrapper :global(a) {
+    color: rgb(56, 189, 248);
     text-decoration: underline;
-    text-decoration-thickness: 0.1em;
-    text-underline-offset: 0.15em;
-    color: rgb(56, 189, 248); /* High contrast blue */
-    transition:
-      color 0.2s ease,
-      text-decoration-thickness 0.2s ease;
-    border-radius: 0.125rem;
+    text-underline-offset: 0.2em;
+    transition: color 0.2s ease;
   }
 
   .content-wrapper :global(a:hover) {
     color: rgb(125, 211, 252);
-    text-decoration-thickness: 0.15em;
   }
 
   .content-wrapper :global(a:focus-visible) {
-    outline: 3px solid rgb(56, 189, 248);
-    outline-offset: 3px;
-    text-decoration-thickness: 0.15em;
+    outline: 2px solid rgb(56, 189, 248);
+    outline-offset: 4px;
+    border-radius: 2px;
   }
 
-  /* Optimized image styles with proper aspect ratio preservation */
-  .content-wrapper :global(img) {
-    border-radius: 0.375rem;
-    max-width: 100%;
-    height: auto;
-    display: block; /* Prevents layout shifts */
-    margin-left: auto;
-    margin-right: auto;
+  .content-wrapper :global(blockquote) {
+    border-left: 4px solid rgb(56, 189, 248);
+    margin: 2rem 0;
+    padding: 1rem 1.5rem;
+    color: rgb(226, 232, 240);
   }
 
-  /* Enhanced heading contrast and spacing for better readability */
-  .content-wrapper :global(h2) {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-size: 1.75rem;
-    line-height: 2.25rem;
-    font-weight: 700;
-    color: rgb(255, 255, 255); /* Pure white for maximum contrast */
-  }
-
-  .content-wrapper :global(h3) {
-    margin-top: 1.75rem;
-    margin-bottom: 0.75rem;
-    font-size: 1.5rem;
-    line-height: 2rem;
-    font-weight: 600;
-    color: rgb(255, 255, 255); /* Pure white for maximum contrast */
-  }
-
-  /* Enhanced text contrast for AAA-standard (min 7:1 ratio) */
-  .content-wrapper :global(p),
-  .content-wrapper :global(li) {
-    color: rgb(240, 240, 245); /* Lighter text for better contrast */
-    line-height: 1.8; /* Improved line height for readability */
-    margin-bottom: 1.25rem;
-  }
-
-  /* Improved list styles for better visual hierarchy */
   .content-wrapper :global(ul),
   .content-wrapper :global(ol) {
+    list-style-position: outside;
     padding-left: 1.5rem;
     margin-bottom: 1.5rem;
   }
 
   .content-wrapper :global(li) {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    color: rgb(226, 232, 240);
   }
 
-  /* Improved table styles for better readability */
-  .content-wrapper :global(table) {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1.5rem;
+  .content-wrapper :global(li::marker) {
+    color: rgb(56, 189, 248);
   }
 
-  .content-wrapper :global(th),
-  .content-wrapper :global(td) {
-    border: 1px solid rgb(82, 82, 91);
-    padding: 0.75rem;
-    text-align: left;
-  }
-
-  .content-wrapper :global(th) {
-    background-color: rgb(39, 39, 42);
-    color: rgb(255, 255, 255);
-  }
-
-  /* Code block styles with proper contrast */
-  .content-wrapper :global(pre) {
-    background-color: rgb(39, 39, 42);
-    border-radius: 0.375rem;
-    padding: 1rem;
-    overflow-x: auto;
-    margin-bottom: 1.5rem;
-  }
-
-  .content-wrapper :global(code) {
-    font-family:
-      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 0.9em;
-  }
-
-  /* Print styles optimization */
-  @media print {
+  /* High contrast mode adjustments */
+  @media (forced-colors: active) {
     .content-wrapper :global(a) {
       text-decoration: underline;
-      color: #000;
-    }
-
-    .content-wrapper :global(p),
-    .content-wrapper :global(li) {
-      color: #000;
-    }
-
-    .content-wrapper :global(h2),
-    .content-wrapper :global(h3) {
-      color: #000;
-      break-after: avoid;
-    }
-
-    /* Avoid page breaks inside important elements */
-    .content-wrapper :global(pre),
-    .content-wrapper :global(blockquote),
-    .content-wrapper :global(table) {
-      break-inside: avoid;
     }
   }
 
-  /* Reduced motion preferences for accessibility */
-  @media (prefers-reduced-motion: reduce) {
-    .content-wrapper :global(a) {
-      transition: none;
+  /* Print styles */
+  @media print {
+    .content-wrapper :global(*) {
+      color: black !important;
     }
   }
 </style>
+
