@@ -358,41 +358,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /**
-   * Implementiert Skip-Links für bessere Keyboard-Navigation
-   */
-  function implementSkipLinks() {
-    // Erstelle Skip-Link zum Suchfeld
-    const skipToSearch = document.createElement("a");
-    skipToSearch.href = "#search-heading";
-    skipToSearch.className = "skip-link sr-only sr-only-focusable";
-    skipToSearch.textContent = "Skip to search";
-    skipToSearch.addEventListener("click", function (event) {
-      event.preventDefault();
-      searchInput?.focus();
-    });
-
-    // Erstelle Skip-Link zu den Artikeln
-    const skipToArticles = document.createElement("a");
-    skipToArticles.href = "#articles-heading";
-    skipToArticles.className = "skip-link sr-only sr-only-focusable";
-    skipToArticles.textContent = "Skip to articles";
-    skipToArticles.addEventListener("click", function (event) {
-      event.preventDefault();
-      const firstArticle = articlesGrid?.querySelector("li a");
-      if (firstArticle) {
-        firstArticle.focus();
-      } else {
-        articlesGrid?.focus();
-      }
-    });
-
-    // Füge Skip-Links zum Dokument hinzu
-    const header = document.querySelector("header") || document.body.firstChild;
-    document.body.insertBefore(skipToArticles, header);
-    document.body.insertBefore(skipToSearch, header);
-  }
-
-  /**
    * Kündigt eine Änderung über die ARIA-Live-Region an
    * @param {string} message - Die Nachricht, die angekündigt werden soll
    */
