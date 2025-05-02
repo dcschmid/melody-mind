@@ -30,6 +30,7 @@ import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
 import { calculateReadingTime } from "@utils/readingTime";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
+import KnowledgeSkipLinks from "@components/Shared/KnowledgeSkipLinks.astro";
 
 // Mark this route for static generation (SSG)
 export const prerender = true;
@@ -241,17 +242,18 @@ const articlesStructuredData = sortedArticles.map((article) => {
   publishDate={publishDate}
   modifiedDate={modifiedDate}
 >
-  <main class="max-w-6xl mx-auto px-4 py-8">
+  <main class="max-w-6xl mx-auto px-4 py-8" id="main-content">
+    <KnowledgeSkipLinks />
     <!-- Breadcrumbs navigation with structured data -->
     <nav aria-label="Breadcrumb" class="mb-6">
-      <ol class="flex flex-wrap items-center text-sm text-zinc-300 space-x-2">
+      <ol class="flex flex-wrap items-center text-base text-zinc-300 space-x-2">
         <li class="flex items-center">
           <a
             href={`/${lang}/`}
-            class="hover:text-purple-400 focus:text-purple-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 rounded px-1 py-0.5 transition-colors"
+            class="hover:text-purple-400 focus:text-purple-400 focus:outline-none focus-visible:ring-3 focus-visible:ring-purple-500 focus-visible:ring-offset-3 focus-visible:ring-offset-zinc-900 rounded px-2 py-1 transition-colors"
             aria-label={ui[uiLang]["nav.home"] || "Home"}
           >
-            <Icon name="home" class="h-4 w-4" aria-hidden="true" />
+            <Icon name="home" class="h-5 w-5" aria-hidden="true" />
             <span class="sr-only">{ui[uiLang]["nav.home"] || "Home"}</span>
           </a>
           <span class="mx-2" aria-hidden="true">/</span>
@@ -267,7 +269,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
       <Headline
         title={ui[uiLang]["knowledge.title"]}
         level="h1"
-        className="text-white font-bold text-3xl md:text-4xl mb-4"
+        className="text-white font-bold text-3xl md:text-4xl mb-4 tracking-wide"
         id="page-heading"
       />
       <div
@@ -278,18 +280,18 @@ const articlesStructuredData = sortedArticles.map((article) => {
 
       <Paragraph
         description={ui[uiLang]["knowledge.intro"]}
-        className="max-w-2xl mx-auto text-zinc-100"
+        className="max-w-2xl mx-auto text-zinc-100 text-xl leading-relaxed"
       />
     </header>
 
     <div class="w-full mb-8">
       <!-- Improved search and filtering with enhanced ARIA support -->
       <section
-        class="search-filter-container bg-zinc-800/90 rounded-xl p-6 border border-zinc-700 shadow-lg mb-10"
+        class="search-filter-container bg-zinc-800/90 rounded-xl p-8 border-2 border-zinc-600 shadow-lg mb-10"
         role="search"
         aria-labelledby="search-heading"
       >
-        <h2 class="text-white text-xl font-medium mb-4" id="search-heading">
+        <h2 class="text-white text-2xl font-medium mb-6" id="search-heading">
           {ui[uiLang]["knowledge.search.heading"] || "Search Articles"}
         </h2>
 
@@ -306,16 +308,16 @@ const articlesStructuredData = sortedArticles.map((article) => {
                 class="absolute inset-y-0 left-3 flex items-center pointer-events-none"
                 aria-hidden="true"
               >
-                <Icon name="search" class="h-5 w-5 text-purple-400" />
+                <Icon name="search" class="h-6 w-6 text-purple-400" />
               </div>
               <input
                 type="search"
                 id="searchInput"
                 placeholder={ui[uiLang]["knowledge.search.placeholder"] ||
                   "Search articles..."}
-                class="w-full py-3 pl-10 pr-4 bg-zinc-800 border-2 border-zinc-600
-                       rounded-xl text-zinc-50 placeholder-zinc-400
-                       focus:outline-none focus:border-purple-500 focus:ring-3
+                class="w-full py-4 pl-12 pr-4 bg-zinc-800 border-2 border-zinc-600
+                       rounded-xl text-zinc-50 placeholder-zinc-400 text-lg
+                       focus:outline-none focus:border-purple-500 focus:ring-4
                        focus:ring-purple-500/50 transition-all duration-300"
                 aria-controls="articlesGrid"
                 aria-describedby="search-description"
@@ -333,12 +335,12 @@ const articlesStructuredData = sortedArticles.map((article) => {
           <!-- Reset button for search field - Enhanced accessibility -->
           <button
             id="reset-search-inline"
-            class="py-3 px-6 bg-zinc-700 hover:bg-zinc-600 focus:bg-zinc-600 text-zinc-100 rounded-xl focus:outline-none focus:ring-3 focus:ring-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2"
+            class="py-4 px-8 bg-zinc-700 hover:bg-zinc-600 focus:bg-zinc-600 text-zinc-100 rounded-xl focus:outline-none focus:ring-4 focus:ring-purple-500/50 transition-all duration-300 flex items-center justify-center gap-3 text-lg font-medium"
             aria-label={ui[uiLang]["knowledge.search.reset"] || "Reset search"}
             type="button"
             aria-controls="articlesGrid"
           >
-            <Icon name="close" class="h-5 w-5" aria-hidden="true" />
+            <Icon name="close" class="h-6 w-6" aria-hidden="true" />
             <span>{ui[uiLang]["knowledge.search.reset.text"] || "Reset"}</span>
           </button>
         </div>
@@ -365,14 +367,14 @@ const articlesStructuredData = sortedArticles.map((article) => {
         <div class="flex flex-col items-center justify-center p-12">
           <Icon
             name="search-no-results"
-            class="w-16 h-16 text-zinc-300 mb-4"
+            class="w-20 h-20 text-zinc-300 mb-6"
             aria-hidden="true"
             role="presentation"
           />
-          <h2 class="text-zinc-100 text-xl font-medium">
+          <h2 class="text-zinc-100 text-2xl font-medium">
             {ui[uiLang]["knowledge.no.results"] || "No articles found"}
           </h2>
-          <p class="text-zinc-300 mt-2 mb-4">
+          <p class="text-zinc-300 mt-3 mb-6 text-xl">
             {
               ui[uiLang]["knowledge.no.results.help"] ||
                 "Try different search terms or reset your search"
@@ -380,12 +382,12 @@ const articlesStructuredData = sortedArticles.map((article) => {
           </p>
           <button
             id="reset-search"
-            class="mt-2 px-6 py-3 bg-purple-600 hover:bg-purple-500 focus:bg-purple-500 text-white rounded-lg focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800 transition-all duration-300 flex items-center gap-2"
+            class="mt-3 px-8 py-4 bg-purple-600 hover:bg-purple-500 focus:bg-purple-500 text-white rounded-lg focus:outline-none focus:ring-4 focus:ring-purple-500/50 focus:ring-offset-3 focus:ring-offset-zinc-800 transition-all duration-300 flex items-center gap-3 text-lg font-medium"
             aria-label="Reset search"
             type="button"
             aria-controls="articlesGrid"
           >
-            <Icon name="refresh" class="h-5 w-5" aria-hidden="true" />
+            <Icon name="refresh" class="h-6 w-6" aria-hidden="true" />
             <span>Reset Search</span>
           </button>
         </div>
@@ -415,7 +417,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
 
         <ul
           id="articlesGrid"
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
           aria-labelledby="articles-heading"
         >
           {
@@ -457,10 +459,10 @@ const articlesStructuredData = sortedArticles.map((article) => {
                 <div class="flex flex-col items-center justify-center p-12 bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-xl border border-zinc-600 text-center shadow-md">
                   <Icon
                     name="info"
-                    class="w-16 h-16 text-zinc-300 mb-4"
+                    class="w-20 h-20 text-zinc-300 mb-6"
                     aria-hidden="true"
                   />
-                  <p class="text-zinc-100 text-lg font-medium">
+                  <p class="text-zinc-100 text-2xl font-medium">
                     {ui[uiLang]["knowledge.empty"] ||
                       "No articles found for this language"}
                   </p>
@@ -475,13 +477,13 @@ const articlesStructuredData = sortedArticles.map((article) => {
     <!-- "Back to top" button with enhanced accessibility -->
     <button
       id="back-to-top"
-      class="fixed bottom-8 right-8 p-3 bg-purple-600 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-purple-500 focus:bg-purple-500 focus:outline-none focus:ring-3 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-zinc-800 z-10"
+      class="fixed bottom-8 right-8 p-4 bg-purple-600 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-purple-500 focus:bg-purple-500 focus:outline-none focus:ring-4 focus:ring-purple-500/50 focus:ring-offset-3 focus:ring-offset-zinc-800 z-10"
       aria-label={ui[uiLang]["common.back.to.top"] || "Back to top"}
       type="button"
       aria-controls="page-heading"
       aria-hidden="true"
     >
-      <Icon name="arrow-up" class="h-6 w-6" aria-hidden="true" />
+      <Icon name="arrow-up" class="h-8 w-8" aria-hidden="true" />
       <span class="sr-only"
         >{ui[uiLang]["common.back.to.top"] || "Back to top"}</span
       >
