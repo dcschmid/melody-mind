@@ -125,10 +125,10 @@ const { category, mainTitle } = extractTitleParts(title);
         <div class="relative aspect-video overflow-hidden">
           <img
             src={image}
-            alt=""
+            alt={title}
             loading="lazy"
             decoding="async"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-focus-visible:scale-105"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-focus-visible:scale-105 lazy-image"
             width="640"
             height="360"
             fetchpriority="low"
@@ -220,10 +220,10 @@ const { category, mainTitle } = extractTitleParts(title);
       <div class="relative aspect-video overflow-hidden">
         <img
           src={image}
-          alt=""
+          alt={title}
           loading="lazy"
           decoding="async"
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover lazy-image"
           width="640"
           height="360"
           fetchpriority="low"
@@ -323,12 +323,30 @@ const { category, mainTitle } = extractTitleParts(title);
     box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
   }
 
+  /* Optimized image loading with blur-up technique */
+  .lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    background-color: rgba(161, 161, 170, 0.1); /* Light placeholder */
+  }
+  
+  /* Improved focus styles for keyboard navigation */
+  a:focus-visible {
+    outline: 3px solid #a855f7 !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.4) !important;
+  }
+
   /* High Contrast Mode Support with better visibility */
   @media (forced-colors: active) {
     article {
       border: 3px solid CanvasText;
       forced-color-adjust: none;
       outline: 1px solid transparent; /* Creates a gap between borders in high contrast mode */
+    }
+    
+    a:focus-visible {
+      outline: 3px solid CanvasText !important;
     }
   }
 
@@ -353,7 +371,7 @@ const { category, mainTitle } = extractTitleParts(title);
 
   /* Support for reduced motion preferences */
   @media (prefers-reduced-motion: reduce) {
-    article, 
+    article,
     article *,
     .group-hover\:scale-105,
     .group-focus-visible\:scale-105 {
