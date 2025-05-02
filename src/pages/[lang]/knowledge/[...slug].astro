@@ -8,6 +8,7 @@ import Headline from "@components/Headline.astro";
 import { Icon } from "astro-icon/components";
 import ButtonLink from "@components/ButtonLink.astro";
 import MusicButtons from "../../../components/MusicButtons.astro";
+import TableOfContents from "../../../components/TableOfContents.astro";
 import { calculateReadingTime } from "@utils/readingTime";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
 
@@ -52,7 +53,7 @@ const { lang = "de" } = Astro.params;
 const t = ui[lang as keyof typeof ui];
 
 // Optimize content rendering by deferring until needed
-const { Content } = await entry.render();
+const { Content, headings } = await entry.render();
 
 // Format date with proper localization
 const formattedDate = entry.data.createdAt
@@ -487,7 +488,16 @@ const articleSchemaData = {
         </div>
       </header>
 
-      <div class="content-wrapper relative">
+      <!-- Inhaltsverzeichnis als Dropdown -->
+      <div class="toc-wrapper relative z-10 mb-8">
+        <TableOfContents
+          headings={headings}
+          title={lang === "de" ? "Inhaltsverzeichnis" : "Table of Contents"}
+          lang={lang}
+        />
+      </div>
+
+      <div id="article-content" class="content-wrapper relative mt-4">
         <div
           role="region"
           aria-label={"Hauptinhalt"}
