@@ -1,6 +1,6 @@
 ---
-title: Faszination Czech | Eine klangvolle Entdeckung
-description: Neugierig auf den pulsierenden Klang Tschechiens? Entdecken Sie einzigartige Instrumentalklänge, historische Einflüsse und regionale Kultur – tauchen Sie ein in die Welt der Czech Musik und erleben Sie faszinierende Traditionen.
+title: Klangwelten Tschechiens - Von Dvořák bis zur Moderne
+description: Tauchen Sie ein in die faszinierende Musikwelt Tschechiens! Entdecken Sie meisterhafte Kompositionen, mitreißende Rhythmen und die kulturelle Seele einer Nation, deren Melodien die Welt erobert haben. Von klassischen Meisterwerken über traditionelle Volksmusik bis zu modernen Sounds – erleben Sie eine musikalische Reise durch die Jahrhunderte.
 image: /category/czech.jpg
 createdAt: 2025-04-12
 updatedAt: 2025-04-12
@@ -15,9 +15,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/132Gbf9CcfAqodREL3pqI2?si=Kbog46v6QCCSMshpVD8NQA"
+  deezerPlaylist: "https://dzr.page.link/eADcAqsz6UYCp4oG6"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-czech-collection/pl.u-JPAZK6NCL2NZeJZ"
 isPlayable: false
 ---
 

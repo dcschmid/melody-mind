@@ -71,37 +71,6 @@ const cardId = `card-title-${slug}-${index}`;
 // Format reading time for better appearance and accessibility
 const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}`;
 
-/**
- * Extract category and main title from a combined title string
- * Supports both pipe (|) and hyphen (-) as separators
- * @param {string} title The full title that might contain a separator
- * @returns {{category: string, mainTitle: string}} The separated parts
- */
-function extractTitleParts(title: string): {category: string, mainTitle: string} {
-  // Check for both | and - separators
-  if (title.includes('|')) {
-    const parts = title.split('|');
-    return {
-      category: parts[0].trim(),
-      mainTitle: parts.slice(1).join('|').trim() // Handle if there are multiple | characters
-    };
-  } else if (title.includes(' - ')) {
-    const parts = title.split(' - ');
-    return {
-      category: parts[0].trim(),
-      mainTitle: parts.slice(1).join(' - ').trim() // Handle if there are multiple - characters
-    };
-  } else {
-    // No separator found, return original as both values
-    return {
-      category: title,
-      mainTitle: title
-    };
-  }
-}
-
-// Extract category and main title
-const { category, mainTitle } = extractTitleParts(title);
 ---
 
 <article
@@ -124,7 +93,7 @@ const { category, mainTitle } = extractTitleParts(title);
         <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700" aria-hidden="true"></div>
         
         <!-- Image container with enhanced visual effects -->
-        <div class="relative aspect-video overflow-hidden">
+        <div class="relative aspect-[16/9] overflow-hidden">
           <img
             src={image}
             alt=""
@@ -135,35 +104,23 @@ const { category, mainTitle } = extractTitleParts(title);
             height="360"
             fetchpriority="low"
           />
-
-          <!-- Enhanced gradient overlay with better visual depth -->
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-900/75 to-transparent opacity-90 group-hover:opacity-85 transition-opacity duration-300"
-            aria-hidden="true"
-          >
-          </div>
-          
-          <!-- Music era indicator badge for category identification -->
-          <div class="absolute top-3 right-3 px-3 py-2 bg-purple-800 text-white text-sm font-medium rounded-md shadow-md z-10">
-            <span>{category}</span>
-          </div>
         </div>
 
         <!-- Content section with improved layout and typography -->
-        <div class="p-5 flex-grow flex flex-col">
+        <div class="pt-4 px-5 pb-3 flex-grow flex flex-col justify-start">
           <h3 
             id={cardId}
-            class="text-2xl font-bold text-white mb-3 line-clamp-2 tracking-wide"
+            class="text-2xl font-bold text-white mb-3 tracking-wide"
           >
-            {mainTitle}
+            {title}
           </h3>
           
-          <p id={`${cardId}-desc`} class="text-base text-zinc-100 leading-relaxed line-clamp-3 mb-5">
+          <p id={`${cardId}-desc`} class="text-base text-zinc-100 leading-relaxed mb-4">
             {description}
           </p>
 
           <!-- Enhanced metadata with improved visual styling -->
-          <div class="flex justify-between items-center mt-auto pt-3 border-t border-zinc-700/50">
+          <div class="flex justify-between items-center mt-4 pt-3 border-t border-zinc-700/50">
             <span 
               class="text-base text-zinc-200 flex items-center" 
               aria-label={formattedReadingTime}
@@ -219,7 +176,7 @@ const { category, mainTitle } = extractTitleParts(title);
       <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700" aria-hidden="true"></div>
       
       <!-- Image container with enhanced visual effects -->
-      <div class="relative aspect-video overflow-hidden">
+      <div class="relative aspect-[16/9] overflow-hidden">
         <img
           src={image}
           alt=""
@@ -235,30 +192,24 @@ const { category, mainTitle } = extractTitleParts(title);
         <div
           class="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-900/75 to-transparent opacity-90"
           aria-hidden="true"
-        >
-        </div>
-        
-        <!-- Music era indicator badge for category identification -->
-        <div class="absolute top-3 right-3 px-3 py-2 bg-purple-800 text-white text-sm font-medium rounded-md shadow-md z-10">
-          <span>{category}</span>
-        </div>
+        ></div>
       </div>
 
       <!-- Content section with improved layout and typography -->
-      <div class="p-5 flex-grow flex flex-col">
+      <div class="pt-4 px-5 pb-3 flex-grow flex flex-col justify-start">
         <h3 
           id={cardId}
           class="text-2xl font-bold text-white mb-3 line-clamp-2 tracking-wide"
         >
-          {mainTitle}
+          {title}
         </h3>
         
-        <p id={`${cardId}-desc`} class="text-base text-zinc-100 leading-relaxed line-clamp-3 mb-5">
+        <p id={`${cardId}-desc`} class="text-base text-zinc-100 leading-relaxed line-clamp-3 mb-4">
           {description}
         </p>
 
         <!-- Enhanced metadata with improved visual styling -->
-        <div class="flex justify-between items-center mt-auto pt-3 border-t border-zinc-700/50">
+        <div class="flex justify-between items-center mt-4 pt-3 border-t border-zinc-700/50">
           <span 
             class="text-base text-zinc-200 flex items-center" 
             aria-label={formattedReadingTime}
