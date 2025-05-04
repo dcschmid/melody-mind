@@ -1,6 +1,6 @@
 ---
-title: Faszination Cuban | Eine klangvolle Entdeckung
-description: Entdecken Sie die reiche Geschichte und den einzigartigen Rhythmus der Cuban-Musik - erfahren Sie, wie traditionelle Klänge und moderne Einflüsse ein kulturelles Erbe formen. Tauchen Sie jetzt ein in die Welt der Musik.
+title: Rhythmen Kubas - Die pulsierende Seele der Karibik
+description: Tauchen Sie ein in den mitreißenden Zauber kubanischer Rhythmen! Entdecken Sie, wie afrikanische Trommeln, spanische Gitarren und karibisches Lebensgefühl zu einer der leidenschaftlichsten Musiktraditionen der Welt verschmolzen. Lassen Sie sich von Son, Mambo und Salsa verzaubern!
 image: /category/cuban.jpg
 createdAt: 2025-04-12
 updatedAt: 2025-04-12
@@ -14,9 +14,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/3t2lOnMCChYTHeU2Xr4lgp?si=lBuXoWVaR7WDbi-D8msKZg"
+  deezerPlaylist: "https://dzr.page.link/hYBzv1bQFnYszid78"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-cuban-collection/pl.u-aZb0px6C1xpM8zM"
 isPlayable: false
 ---
 

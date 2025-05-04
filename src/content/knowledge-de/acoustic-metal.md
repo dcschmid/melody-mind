@@ -1,6 +1,6 @@
 ---
-title: Klangwunder Acoustic Metal | Wenn Sound auf Performance trifft
-description: Bereit Acoustic Metal neu zu erleben? Entdecken Sie, wie traditionelle Akustik und moderne Metal-Performance faszinierende Klangwelten erschaffen – erfahren Sie historische Einflüsse, zeitlose Künstler und innovative Subgenres | Jetzt eintauchen!
+title: Acoustic Metal - Die kraftvolle Fusion aus Härte und Finesse - Wo Saiten die Seele berühren
+description: Tauchen Sie ein in die faszinierende Welt des Acoustic Metal, wo rohe Kraft auf akustische Präzision trifft. Entdecken Sie bahnbrechende Künstler, die mit akustischen Gitarren und Streichern metallische Intensität erzeugen – eine einzigartige Klangreise durch Geschichte, Technik und emotionale Tiefe. Lassen Sie sich von dieser außergewöhnlichen Verschmelzung begeistern!
 image: /category/acoustic-metal.jpg
 createdAt: 2025-04-05
 updatedAt: 2025-04-05
@@ -15,9 +15,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/5npbRciBqpj9NkuxFOgibb?si=ZzDQkvsbQ02DwH93XOy_lQ"
+  deezerPlaylist: "https://dzr.page.link/AEZoHsNBjFWvTgZc9"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-acoustic-metal-collection/pl.u-76oN0y3TvedXrZX"
 isPlayable: false
 ---
 
