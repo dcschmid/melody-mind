@@ -1,6 +1,6 @@
 ---
-title: Faszination Danish – Eine klangvolle Entdeckung
-description: Bist du bereit, die faszinierende Welt der dänischen Musik zu erkunden? Erlebe eindrucksvolle Klanglandschaften, kulturelle Einflüsse und historische Wurzeln - entdecke Vielfalt und Innovation. Jetzt mehr erfahren!
+title: "Nordische Klangwelten: Die magische Musikszene Dänemarks"
+description: "Tauche ein in die faszinierende Musiklandschaft Dänemarks! Von epischen Volksmelodien über Jazz-Innovationen bis hin zu modernem Pop-Rock – entdecke mit uns die vielfältigen Klangfarben, die dieses skandinavische Land zu einem musikalischen Juwel machen. Eine Klangreise, die dich begeistern wird!"
 image: /category/danish.jpg
 createdAt: 2025-04-12
 updatedAt: 2025-04-12
@@ -14,9 +14,9 @@ keywords:
 author: MelodyMind
 locale: de
 category:
-  spotifyPlaylist: ""
-  deezerPlaylist: ""
-  appleMusicPlaylist: ""
+  spotifyPlaylist: "https://open.spotify.com/playlist/6mssTp5jnZzgwgHlnmWUzy?si=SkeSi8a6QlaAMAMNqTRXEA"
+  deezerPlaylist: "https://dzr.page.link/TFFNornd9rPjtmeP7"
+  appleMusicPlaylist: "https://music.apple.com/de/playlist/top-danish-collection/pl.u-JPAZKaJFL2NZeJZ"
 isPlayable: false
 ---
 
