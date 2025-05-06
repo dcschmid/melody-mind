@@ -1,0 +1,33 @@
+---
+/**
+ * Verify Email Page für MelodyMind
+ *
+ * Diese Seite verarbeitet die E-Mail-Verifizierung, wenn ein Benutzer auf den
+ * Bestätigungslink in seiner E-Mail klickt. Sie verwendet das AuthLayout und
+ * die EmailVerification-Komponente.
+ *
+ * Sie ist nach WCAG AAA Standards optimiert.
+ */
+import AuthLayout from "@components/auth/AuthLayout.astro";
+import EmailVerification from "@components/auth/EmailVerification.astro";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Token aus der URL extrahieren
+const url = new URL(Astro.request.url);
+const token = url.searchParams.get("token");
+
+// Wenn kein Token vorhanden ist, zur Login-Seite weiterleiten
+if (!token) {
+  return Astro.redirect("/auth/login");
+}
+---
+
+<AuthLayout
+  title={t("auth.email_verification.title")}
+  description="Bestätige deine E-Mail-Adresse für dein Melody Mind-Konto."
+>
+  <EmailVerification token={token} />
+</AuthLayout>

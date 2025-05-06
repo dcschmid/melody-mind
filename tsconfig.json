@@ -2,6 +2,11 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "paths": {
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
@@ -9,5 +14,11 @@
       "@json/*": ["src/json/*"],
       "@data/*": ["src/data"]
     }
-  }
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifiers": true
+  },
+  "include": ["src/**/*", "db/**/*"],
+  "exclude": ["node_modules"]
 }

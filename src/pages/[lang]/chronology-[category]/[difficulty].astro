@@ -9,10 +9,17 @@ import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import type { Difficulty as GameDifficulty } from "@utils/game/jokerUtils";
 import { Icon } from "astro-icon/components";
 import ChronologyFeedbackOverlay from "@components/Overlays/ChronologyFeedbackOverlay.astro";
+import { requireAuth } from "../../../middleware/auth.js";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const { category, difficulty } = Astro.params;
+
+// Auth-Check: Prüfe, ob der Benutzer angemeldet ist
+const authResult = await requireAuth(Astro.request);
+if (!authResult.authenticated && authResult.redirectToLogin) {
+  return authResult.redirectToLogin;
+}
 
 // Dynamic import of categories based on language with optimized error handling
 let categories;

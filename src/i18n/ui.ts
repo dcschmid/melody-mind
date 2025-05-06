@@ -15,6 +15,131 @@ export const defaultLang = "de";
 
 export const ui = {
   de: {
+    // Auth-Komponenten
+    "auth.login.title": "Anmelden",
+    "auth.register.title": "Registrieren",
+    "auth.login.email": "E-Mail-Adresse",
+    "auth.login.email.placeholder": "Deine E-Mail-Adresse",
+    "auth.login.password": "Passwort",
+    "auth.login.password.placeholder": "Dein Passwort",
+    "auth.login.remember": "Angemeldet bleiben",
+    "auth.login.forgot_password": "Passwort vergessen?",
+    "auth.login.success": "Anmeldung erfolgreich",
+    "auth.login.error": "Fehler bei der Anmeldung",
+    "auth.toggle.login": "Zum Login wechseln",
+    "auth.toggle.register": "Zur Registrierung wechseln",
+    "auth.login.submit": "Anmelden",
+    "auth.register.submit": "Registrieren",
+    "auth.form.submit": "Absenden",
+    "auth.form.loading": "Wird verarbeitet...",
+    "auth.tabs.login": "Anmelden",
+    "auth.tabs.register": "Registrieren",
+    "auth.validation.processing": "Eingaben werden überprüft...",
+    "auth.form.error.general": "Ein Fehler ist aufgetreten",
+    "auth.form.success": "Erfolgreich!",
+
+    "auth.register.name": "Vollständiger Name",
+    "auth.register.email": "E-Mail-Adresse",
+    "auth.register.email.placeholder": "Deine E-Mail-Adresse",
+    "auth.register.username": "Benutzername",
+    "auth.register.username.placeholder": "Wähle einen Benutzernamen",
+    "auth.register.password": "Passwort",
+    "auth.register.password.placeholder": "Erstelle ein sicheres Passwort",
+    "auth.register.password_confirm": "Passwort bestätigen",
+    "auth.register.password_confirm.placeholder": "Passwort erneut eingeben",
+    "auth.register.terms": "Ich akzeptiere die Nutzungsbedingungen",
+    "auth.register.success": "Registrierung erfolgreich",
+    "auth.register.error": "Fehler bei der Registrierung",
+
+    "auth.password_reset.title": "Passwort zurücksetzen",
+    "auth.password_reset.submit": "Link zum Zurücksetzen senden",
+    "auth.password_reset.email": "E-Mail-Adresse",
+    "auth.password_reset.email.placeholder":
+      "Deine registrierte E-Mail-Adresse",
+    "auth.password_reset.back_to_login": "Zurück zur Anmeldung",
+    "auth.password_reset.login": "Anmelden",
+    "auth.password_reset.success":
+      "Ein Link zum Zurücksetzen wurde an deine E-Mail-Adresse gesendet",
+    "auth.password_reset.error":
+      "Fehler beim Senden des Links zum Zurücksetzen",
+    "auth.password_reset.new_password": "Neues Passwort",
+    "auth.password_reset.confirm_password": "Neues Passwort bestätigen",
+    "auth.password_reset.change_submit": "Passwort ändern",
+
+    "auth.email_verification.title": "E-Mail-Verifizierung",
+    "auth.email_verification.message":
+      "Wir haben einen Verifizierungslink an deine E-Mail-Adresse gesendet",
+    "auth.email_verification.check_inbox": "Bitte überprüfe deinen Posteingang",
+    "auth.email_verification.resend": "Verifizierungslink erneut senden",
+    "auth.email_verification.success": "E-Mail erfolgreich verifiziert",
+    "auth.email_verification.error": "Fehler bei der E-Mail-Verifizierung",
+
+    // Passwortvalidierung
+    "auth.password.requirements": "Passwortanforderungen:",
+    "auth.password.min_length": "Passwort muss mindestens 8 Zeichen lang sein",
+    "auth.password.uppercase":
+      "Passwort muss mindestens einen Großbuchstaben enthalten",
+    "auth.password.lowercase":
+      "Passwort muss mindestens einen Kleinbuchstaben enthalten",
+    "auth.password.number": "Passwort muss mindestens eine Zahl enthalten",
+    "auth.password.special":
+      "Passwort muss mindestens ein Sonderzeichen enthalten",
+    "auth.password.no_common":
+      "Passwort darf kein häufig verwendetes Passwort sein",
+    "auth.password.no_repeats":
+      "Passwort darf keine wiederholten Zeichen enthalten",
+    "auth.password.no_sequences":
+      "Passwort darf keine einfachen Sequenzen enthalten",
+    "auth.password.match": "Passwörter müssen übereinstimmen",
+    "auth.password.strength": "Passwortstärke",
+    "auth.password.strength.weak": "Schwach",
+    "auth.password.strength.medium": "Mittel",
+    "auth.password.strength.strong": "Stark",
+    "auth.password.strength.very_strong": "Sehr stark",
+
+    // Formularvalidierung
+    "auth.form.required": "Dieses Feld ist erforderlich",
+    "auth.form.email_invalid": "Bitte gib eine gültige E-Mail-Adresse ein",
+    "auth.form.min_length":
+      "Dieses Feld muss mindestens {length} Zeichen lang sein",
+    "auth.form.max_length":
+      "Dieses Feld darf nicht länger als {length} Zeichen sein",
+    "auth.form.invalid": "Dieses Feld ist ungültig",
+
+    // Zugänglichkeit
+    "auth.accessibility.loading": "Wird geladen, bitte warten",
+    "auth.accessibility.error": "Fehler: {message}",
+    "auth.accessibility.required_field": "Pflichtfeld",
+    "auth.accessibility.password_toggle": "Passwort anzeigen/verbergen",
+    "auth.accessibility.password_requirements":
+      "Passwortanforderungen anzeigen/verbergen",
+    "auth.accessibility.form": "Anmeldeformular",
+    "auth.accessibility.close_modal": "Fenster schließen",
+
+    // API-Fehlermeldungen
+    "auth.api.network_error":
+      "Netzwerkfehler. Bitte überprüfe deine Verbindung",
+    "auth.api.server_error": "Serverfehler. Bitte versuche es später erneut",
+    "auth.api.invalid_credentials": "Ungültige Anmeldedaten",
+    "auth.api.account_exists":
+      "Ein Konto mit dieser E-Mail-Adresse existiert bereits",
+    "auth.api.email_not_found": "Kein Konto mit dieser E-Mail-Adresse gefunden",
+    "auth.api.too_many_requests":
+      "Zu viele Versuche. Bitte versuche es später erneut",
+
+    // Service-Fehlermeldungen
+    "auth.service.session_expired":
+      "Deine Sitzung ist abgelaufen. Bitte melde dich erneut an",
+    "auth.service.unauthorized": "Nicht autorisiert. Bitte melde dich an",
+    "auth.service.account_locked":
+      "Dein Konto wurde gesperrt. Bitte kontaktiere den Support",
+    "auth.service.permission_denied":
+      "Berechtigung für diese Aktion verweigert",
+    "auth.service.invalid_credentials":
+      "Ungültige Anmeldedaten. Bitte überprüfe deine E-Mail und dein Passwort.",
+    "auth.service.too_many_attempts":
+      "Zu viele Anmeldeversuche. Bitte warte einen Moment und versuche es dann erneut.",
+
     "nav.home": "Startseite",
     "nav.rules": "Spielregeln",
     "category.no_image_available": "Kein Bild verfügbar",
@@ -52,6 +177,8 @@ export const ui = {
     "nav.menu.highscores": "Bestenliste",
     "nav.menu.profile": "Profil",
     "nav.menu.logout": "Abmelden",
+    "nav.logout.text": "Abmelden",
+    "nav.logout.label": "Von der Anwendung abmelden",
     "nav.skip.main": "Zum Hauptinhalt springen",
     "game.end.title": "Spiel beendet!",
     "game.end.motivation":
@@ -265,9 +392,6 @@ export const ui = {
     "common.back.to.top": "Zurück nach oben",
     "knowledge.articles.heading": "Wissensartikel",
     "knowledge.search.heading": "Artikel durchsuchen",
-    "knowledge.search.label":
-      "Suche nach Titel, Beschreibung oder Stichwörtern",
-    "knowledge.search.placeholder": "Artikel durchsuchen...",
     "knowledge.search.description":
       "Artikel werden automatisch während der Eingabe gefiltert",
     "knowledge.search.reset": "Suche zurücksetzen",
@@ -279,6 +403,21 @@ export const ui = {
     "difficulty.level": "Schwierigkeitsgrad",
   },
   en: {
+    // Auth-Komponenten
+    "auth.login.title": "Login",
+    "auth.register.title": "Register",
+    "auth.toggle.login": "Switch to login",
+    "auth.toggle.register": "Switch to registration",
+    "auth.login.submit": "Login",
+    "auth.register.submit": "Register",
+    "auth.form.submit": "Submit",
+    "auth.form.loading": "Processing...",
+    "auth.tabs.login": "Login",
+    "auth.tabs.register": "Register",
+    "auth.validation.processing": "Validating input...",
+    "auth.form.error.general": "An error has occurred",
+    "auth.form.success": "Success!",
+
     "nav.home": "Home",
     "nav.rules": "Rules",
     "category.no_image_available": "No image available",
@@ -316,6 +455,8 @@ export const ui = {
     "nav.menu.highscores": "Highscores",
     "nav.menu.profile": "Profile",
     "nav.menu.logout": "Logout",
+    "nav.logout.text": "Logout",
+    "nav.logout.label": "Logout from the application",
     "nav.skip.main": "Skip to main content",
     "game.end.title": "Game Over!",
     "game.end.motivation":
@@ -524,8 +665,6 @@ export const ui = {
     "common.back.to.top": "Back to top",
     "knowledge.articles.heading": "Knowledge Articles",
     "knowledge.search.heading": "Search Articles",
-    "knowledge.search.label": "Search by title, description or keywords",
-    "knowledge.search.placeholder": "Search articles...",
     "knowledge.search.description":
       "Articles will filter automatically as you type",
     "knowledge.search.reset": "Reset search",
@@ -534,8 +673,141 @@ export const ui = {
       "Try different search terms or reset your search",
     "knowledge.keyboard.instructions":
       "Use arrow keys to navigate between articles. Press Enter to open an article.",
+
+    // Service-Fehlermeldungen
+    "auth.service.session_expired":
+      "Your session has expired. Please log in again",
+    "auth.service.unauthorized": "Unauthorized. Please log in",
+    "auth.service.account_locked":
+      "Your account has been locked. Please contact support",
+    "auth.service.permission_denied": "Permission denied for this action",
+    "auth.service.invalid_credentials":
+      "Invalid credentials. Please check your email and password.",
+    "auth.service.too_many_attempts":
+      "Too many login attempts. Please wait a moment before trying again.",
   },
   es: {
+    // Auth-Komponenten
+    "auth.login.title": "Iniciar sesión",
+    "auth.register.title": "Registrarse",
+    "auth.toggle.login": "Cambiar a inicio de sesión",
+    "auth.toggle.register": "Cambiar a registro",
+    "auth.login.submit": "Iniciar sesión",
+    "auth.register.submit": "Registrarse",
+    "auth.form.submit": "Enviar",
+    "auth.form.loading": "Procesando...",
+    "auth.tabs.login": "Iniciar sesión",
+    "auth.tabs.register": "Registrarse",
+    "auth.validation.processing": "Validando datos...",
+    "auth.form.error.general": "Ha ocurrido un error",
+    "auth.form.success": "¡Éxito!",
+
+    "auth.login.email": "Correo electrónico",
+    "auth.login.email.placeholder": "Introduce tu correo electrónico",
+    "auth.login.password": "Contraseña",
+    "auth.login.password.placeholder": "Introduce tu contraseña",
+    "auth.login.remember": "Recordarme",
+    "auth.login.forgot_password": "¿Olvidaste tu contraseña?",
+    "auth.login.success": "Inicio de sesión exitoso",
+    "auth.login.error": "Error al iniciar sesión",
+
+    "auth.register.name": "Nombre completo",
+    "auth.register.email": "Correo electrónico",
+    "auth.register.email.placeholder": "Introduce tu correo electrónico",
+    "auth.register.username": "Nombre de usuario",
+    "auth.register.username.placeholder": "Elige un nombre de usuario",
+    "auth.register.password": "Contraseña",
+    "auth.register.password.placeholder": "Crea una contraseña segura",
+    "auth.register.confirm_password": "Confirmar contraseña",
+    "auth.register.password_confirm.placeholder":
+      "Vuelve a introducir tu contraseña",
+    "auth.register.terms": "Acepto los términos y condiciones",
+    "auth.register.success": "Registro exitoso",
+    "auth.register.error": "Error al registrarse",
+
+    "auth.password_reset.title": "Restablecer contraseña",
+    "auth.password_reset.submit": "Enviar enlace de restablecimiento",
+    "auth.password_reset.email": "Correo electrónico",
+    "auth.password_reset.email.placeholder":
+      "Introduce tu correo electrónico registrado",
+    "auth.password_reset.back_to_login": "Volver al inicio de sesión",
+    "auth.password_reset.login": "Iniciar sesión",
+    "auth.password_reset.success":
+      "Se ha enviado un enlace de restablecimiento a tu correo electrónico",
+    "auth.password_reset.error":
+      "Error al enviar el enlace de restablecimiento",
+    "auth.password_reset.new_password": "Nueva contraseña",
+    "auth.password_reset.confirm_password": "Confirmar nueva contraseña",
+    "auth.password_reset.change_submit": "Cambiar contraseña",
+
+    "auth.email_verification.title": "Verificación de correo electrónico",
+    "auth.email_verification.message":
+      "Hemos enviado un enlace de verificación a tu correo electrónico",
+    "auth.email_verification.check_inbox":
+      "Por favor, revisa tu bandeja de entrada",
+    "auth.email_verification.resend": "Reenviar enlace de verificación",
+    "auth.email_verification.success":
+      "Correo electrónico verificado correctamente",
+    "auth.email_verification.error": "Error al verificar el correo electrónico",
+
+    // Passwortvalidierung
+    "auth.password.requirements": "Requisitos de contraseña:",
+    "auth.password.min_length":
+      "La contraseña debe tener al menos 8 caracteres",
+    "auth.password.require_number":
+      "La contraseña debe contener al menos un número",
+    "auth.password.require_uppercase":
+      "La contraseña debe contener al menos una letra mayúscula",
+    "auth.password.require_lowercase":
+      "La contraseña debe contener al menos una letra minúscula",
+    "auth.password.require_special":
+      "La contraseña debe contener al menos un carácter especial",
+    "auth.password.match": "Las contraseñas deben coincidir",
+    "auth.password.strength.weak": "Débil",
+    "auth.password.strength.medium": "Media",
+    "auth.password.strength.strong": "Fuerte",
+
+    // Formularvalidierung
+    "auth.form.required": "Este campo es obligatorio",
+    "auth.form.email_invalid":
+      "Por favor, introduce un correo electrónico válido",
+    "auth.form.min_length":
+      "Este campo debe tener al menos {length} caracteres",
+    "auth.form.max_length":
+      "Este campo no puede tener más de {length} caracteres",
+    "auth.form.invalid": "Este campo no es válido",
+
+    // Zugänglichkeit
+    "auth.accessibility.loading": "Cargando, por favor espera",
+    "auth.accessibility.error": "Error: {message}",
+    "auth.accessibility.required_field": "Campo obligatorio",
+    "auth.accessibility.toggle_password": "Mostrar/ocultar contraseña",
+    "auth.accessibility.close_modal": "Cerrar ventana",
+
+    // API-Fehlermeldungen
+    "auth.api.network_error": "Error de red. Por favor, comprueba tu conexión",
+    "auth.api.server_error":
+      "Error del servidor. Por favor, inténtalo de nuevo más tarde",
+    "auth.api.invalid_credentials": "Credenciales inválidas",
+    "auth.api.account_exists":
+      "Ya existe una cuenta con este correo electrónico",
+    "auth.api.email_not_found":
+      "No se encontró ninguna cuenta con este correo electrónico",
+    "auth.api.too_many_requests":
+      "Demasiados intentos. Por favor, inténtalo de nuevo más tarde",
+
+    // Service-Fehlermeldungen
+    "auth.service.session_expired":
+      "Tu sesión ha expirado. Por favor, inicia sesión de nuevo",
+    "auth.service.unauthorized": "No autorizado. Por favor, inicia sesión",
+    "auth.service.account_locked":
+      "Tu cuenta ha sido bloqueada. Por favor, contacta con soporte",
+    "auth.service.permission_denied": "Permiso denegado para esta acción",
+    "auth.service.invalid_credentials":
+      "Credenciales inválidas. Por favor, verifica tu correo y contraseña.",
+    "auth.service.too_many_attempts":
+      "Demasiados intentos de inicio de sesión. Por favor, espera un momento antes de intentarlo de nuevo.",
+
     "nav.home": "Inicio",
     "nav.rules": "Reglas",
     "category.no_image_available": "Imagen no disponible",
@@ -788,8 +1060,6 @@ export const ui = {
     "common.back.to.top": "Volver arriba",
     "knowledge.articles.heading": "Artículos de Conocimiento",
     "knowledge.search.heading": "Buscar Artículos",
-    "knowledge.search.label": "Buscar por título, descripción o palabras clave",
-    "knowledge.search.placeholder": "Buscar artículos...",
     "knowledge.search.description":
       "Los artículos se filtrarán automáticamente mientras escribes",
     "knowledge.search.reset": "Reiniciar búsqueda",
@@ -798,9 +1068,127 @@ export const ui = {
       "Prueba diferentes términos de búsqueda o reinicia tu búsqueda",
     "knowledge.keyboard.instructions":
       "Usa las teclas de flecha para navegar entre artículos. Presiona Enter para abrir un artículo.",
-    "knowledge.empty": "No hay artículos disponibles en este idioma",
   },
   fr: {
+    // Auth-Komponenten
+    "auth.login.title": "Connexion",
+    "auth.register.title": "Inscription",
+    "auth.toggle.login": "Passer à la connexion",
+    "auth.toggle.register": "Passer à l'inscription",
+    "auth.login.submit": "Se connecter",
+    "auth.register.submit": "S'inscrire",
+    "auth.form.submit": "Soumettre",
+    "auth.form.loading": "Traitement en cours...",
+    "auth.tabs.login": "Connexion",
+    "auth.tabs.register": "Inscription",
+    "auth.validation.processing": "Validation des données...",
+    "auth.form.error.general": "Une erreur est survenue",
+    "auth.form.success": "Succès !",
+
+    "auth.login.email": "Adresse e-mail",
+    "auth.login.email.placeholder": "Saisissez votre adresse e-mail",
+    "auth.login.password": "Mot de passe",
+    "auth.login.password.placeholder": "Saisissez votre mot de passe",
+    "auth.login.remember": "Se souvenir de moi",
+    "auth.login.forgot_password": "Mot de passe oublié ?",
+    "auth.login.success": "Connexion réussie",
+    "auth.login.error": "Erreur lors de la connexion",
+
+    "auth.register.name": "Nom complet",
+    "auth.register.email": "Adresse e-mail",
+    "auth.register.email.placeholder": "Saisissez votre adresse e-mail",
+    "auth.register.username": "Nom d'utilisateur",
+    "auth.register.username.placeholder": "Choisissez un nom d'utilisateur",
+    "auth.register.password": "Mot de passe",
+    "auth.register.password.placeholder": "Créez un mot de passe sécurisé",
+    "auth.register.confirm_password": "Confirmer le mot de passe",
+    "auth.register.password_confirm.placeholder":
+      "Saisissez à nouveau votre mot de passe",
+    "auth.register.terms": "J'accepte les conditions d'utilisation",
+    "auth.register.success": "Inscription réussie",
+    "auth.register.error": "Erreur lors de l'inscription",
+
+    "auth.password_reset.title": "Réinitialiser le mot de passe",
+    "auth.password_reset.submit": "Envoyer le lien de réinitialisation",
+    "auth.password_reset.email": "Adresse e-mail",
+    "auth.password_reset.email.placeholder":
+      "Saisissez votre adresse e-mail enregistrée",
+    "auth.password_reset.back_to_login": "Retour à la connexion",
+    "auth.password_reset.login": "Se connecter",
+    "auth.password_reset.success":
+      "Un lien de réinitialisation a été envoyé à votre adresse e-mail",
+    "auth.password_reset.error":
+      "Erreur lors de l'envoi du lien de réinitialisation",
+    "auth.password_reset.new_password": "Nouveau mot de passe",
+    "auth.password_reset.confirm_password": "Confirmer le nouveau mot de passe",
+    "auth.password_reset.change_submit": "Changer le mot de passe",
+
+    "auth.email_verification.title": "Vérification de l'adresse e-mail",
+    "auth.email_verification.message":
+      "Nous avons envoyé un lien de vérification à votre adresse e-mail",
+    "auth.email_verification.check_inbox":
+      "Veuillez vérifier votre boîte de réception",
+    "auth.email_verification.resend": "Renvoyer le lien de vérification",
+    "auth.email_verification.success": "Adresse e-mail vérifiée avec succès",
+    "auth.email_verification.error":
+      "Erreur lors de la vérification de l'adresse e-mail",
+
+    // Passwortvalidierung
+    "auth.password.requirements": "Exigences du mot de passe :",
+    "auth.password.min_length":
+      "Le mot de passe doit contenir au moins 8 caractères",
+    "auth.password.require_number":
+      "Le mot de passe doit contenir au moins un chiffre",
+    "auth.password.require_uppercase":
+      "Le mot de passe doit contenir au moins une lettre majuscule",
+    "auth.password.require_lowercase":
+      "Le mot de passe doit contenir au moins une lettre minuscule",
+    "auth.password.require_special":
+      "Le mot de passe doit contenir au moins un caractère spécial",
+    "auth.password.match": "Les mots de passe doivent correspondre",
+    "auth.password.strength.weak": "Faible",
+    "auth.password.strength.medium": "Moyen",
+    "auth.password.strength.strong": "Fort",
+
+    // Formularvalidierung
+    "auth.form.required": "Ce champ est obligatoire",
+    "auth.form.email_invalid": "Veuillez saisir une adresse e-mail valide",
+    "auth.form.min_length":
+      "Ce champ doit contenir au moins {length} caractères",
+    "auth.form.max_length":
+      "Ce champ ne peut pas contenir plus de {length} caractères",
+    "auth.form.invalid": "Ce champ n'est pas valide",
+
+    // Zugänglichkeit
+    "auth.accessibility.loading": "Chargement, veuillez patienter",
+    "auth.accessibility.error": "Erreur : {message}",
+    "auth.accessibility.required_field": "Champ obligatoire",
+    "auth.accessibility.toggle_password": "Afficher/masquer le mot de passe",
+    "auth.accessibility.close_modal": "Fermer la fenêtre",
+
+    // API-Fehlermeldungen
+    "auth.api.network_error":
+      "Erreur réseau. Veuillez vérifier votre connexion",
+    "auth.api.server_error": "Erreur serveur. Veuillez réessayer plus tard",
+    "auth.api.invalid_credentials": "Identifiants invalides",
+    "auth.api.account_exists":
+      "Un compte avec cette adresse e-mail existe déjà",
+    "auth.api.email_not_found": "Aucun compte trouvé avec cette adresse e-mail",
+    "auth.api.too_many_requests":
+      "Trop de tentatives. Veuillez réessayer plus tard",
+
+    // Service-Fehlermeldungen
+    "auth.service.session_expired":
+      "Votre session a expiré. Veuillez vous reconnecter",
+    "auth.service.unauthorized": "Non autorisé. Veuillez vous connecter",
+    "auth.service.account_locked":
+      "Votre compte a été verrouillé. Veuillez contacter le support",
+    "auth.service.permission_denied": "Permission refusée pour cette action",
+    "auth.service.invalid_credentials":
+      "Identifiants invalides. Veuillez vérifier votre e-mail et mot de passe.",
+    "auth.service.too_many_attempts":
+      "Trop de tentatives de connexion. Veuillez patienter un moment avant de réessayer.",
+
     "nav.home": "Accueil",
     "nav.rules": "Règles",
     "category.no_image_available": "Aucune image disponible",
@@ -1053,8 +1441,6 @@ export const ui = {
     "common.back.to.top": "Retour en haut",
     "knowledge.articles.heading": "Articles de Connaissance",
     "knowledge.search.heading": "Rechercher des Articles",
-    "knowledge.search.label": "Rechercher par titre, description ou mots-clés",
-    "knowledge.search.placeholder": "Rechercher des articles...",
     "knowledge.search.description":
       "Les articles seront filtrés automatiquement pendant que vous tapez",
     "knowledge.search.reset": "Réinitialiser la recherche",
@@ -1063,9 +1449,122 @@ export const ui = {
       "Essayez d'autres termes de recherche ou réinitialisez votre recherche",
     "knowledge.keyboard.instructions":
       "Utilisez les touches fléchées pour naviguer entre les articles. Appuyez sur Entrée pour ouvrir un article.",
-    "knowledge.empty": "Aucun article disponible dans cette langue",
   },
   it: {
+    // Auth-Komponenten
+    "auth.login.title": "Accedi",
+    "auth.register.title": "Registrati",
+    "auth.toggle.login": "Passa al login",
+    "auth.toggle.register": "Passa alla registrazione",
+    "auth.login.submit": "Accedi",
+    "auth.register.submit": "Registrati",
+    "auth.form.submit": "Invia",
+    "auth.form.loading": "Elaborazione in corso...",
+    "auth.tabs.login": "Accedi",
+    "auth.tabs.register": "Registrati",
+    "auth.validation.processing": "Verifica dei dati in corso...",
+    "auth.form.error.general": "Si è verificato un errore",
+    "auth.form.success": "Operazione riuscita!",
+
+    "auth.login.email": "Indirizzo email",
+    "auth.login.email.placeholder": "Inserisci il tuo indirizzo email",
+    "auth.login.password": "Password",
+    "auth.login.password.placeholder": "Inserisci la tua password",
+    "auth.login.remember": "Ricordami",
+    "auth.login.forgot_password": "Password dimenticata?",
+    "auth.login.success": "Accesso effettuato con successo",
+    "auth.login.error": "Errore durante l'accesso",
+
+    "auth.register.name": "Nome completo",
+    "auth.register.email": "Indirizzo email",
+    "auth.register.email.placeholder": "Inserisci il tuo indirizzo email",
+    "auth.register.username": "Nome utente",
+    "auth.register.username.placeholder": "Scegli un nome utente",
+    "auth.register.password": "Password",
+    "auth.register.password.placeholder": "Crea una password sicura",
+    "auth.register.confirm_password": "Conferma password",
+    "auth.register.password_confirm.placeholder":
+      "Inserisci nuovamente la password",
+    "auth.register.terms": "Accetto i termini e le condizioni",
+    "auth.register.success": "Registrazione completata con successo",
+    "auth.register.error": "Errore durante la registrazione",
+
+    "auth.password_reset.title": "Reimposta password",
+    "auth.password_reset.submit": "Invia link di reimpostazione",
+    "auth.password_reset.email": "Indirizzo email",
+    "auth.password_reset.email.placeholder":
+      "Inserisci l'indirizzo email registrato",
+    "auth.password_reset.back_to_login": "Torna al login",
+    "auth.password_reset.login": "Accedi",
+    "auth.password_reset.success":
+      "Un link di reimpostazione è stato inviato al tuo indirizzo email",
+    "auth.password_reset.error":
+      "Errore durante l'invio del link di reimpostazione",
+    "auth.password_reset.new_password": "Nuova password",
+    "auth.password_reset.confirm_password": "Conferma nuova password",
+    "auth.password_reset.change_submit": "Cambia password",
+
+    "auth.email_verification.title": "Verifica email",
+    "auth.email_verification.message":
+      "Abbiamo inviato un link di verifica al tuo indirizzo email",
+    "auth.email_verification.check_inbox":
+      "Per favore, controlla la tua casella di posta",
+    "auth.email_verification.resend": "Rinvia link di verifica",
+    "auth.email_verification.success": "Email verificata con successo",
+    "auth.email_verification.error": "Errore durante la verifica dell'email",
+
+    // Passwortvalidierung
+    "auth.password.requirements": "Requisiti della password:",
+    "auth.password.min_length": "La password deve contenere almeno 8 caratteri",
+    "auth.password.require_number":
+      "La password deve contenere almeno un numero",
+    "auth.password.require_uppercase":
+      "La password deve contenere almeno una lettera maiuscola",
+    "auth.password.require_lowercase":
+      "La password deve contenere almeno una lettera minuscola",
+    "auth.password.require_special":
+      "La password deve contenere almeno un carattere speciale",
+    "auth.password.match": "Le password devono corrispondere",
+    "auth.password.strength.weak": "Debole",
+    "auth.password.strength.medium": "Media",
+    "auth.password.strength.strong": "Forte",
+
+    // Formularvalidierung
+    "auth.form.required": "Questo campo è obbligatorio",
+    "auth.form.email_invalid": "Inserisci un indirizzo email valido",
+    "auth.form.min_length":
+      "Questo campo deve contenere almeno {length} caratteri",
+    "auth.form.max_length":
+      "Questo campo non può contenere più di {length} caratteri",
+    "auth.form.invalid": "Questo campo non è valido",
+
+    // Zugänglichkeit
+    "auth.accessibility.loading": "Caricamento in corso, attendere prego",
+    "auth.accessibility.error": "Errore: {message}",
+    "auth.accessibility.required_field": "Campo obbligatorio",
+    "auth.accessibility.toggle_password": "Mostra/nascondi password",
+    "auth.accessibility.close_modal": "Chiudi finestra",
+
+    // API-Fehlermeldungen
+    "auth.api.network_error": "Errore di rete. Controlla la tua connessione",
+    "auth.api.server_error": "Errore del server. Riprova più tardi",
+    "auth.api.invalid_credentials": "Credenziali non valide",
+    "auth.api.account_exists": "Esiste già un account con questa email",
+    "auth.api.email_not_found": "Nessun account trovato con questa email",
+    "auth.api.too_many_requests": "Troppi tentativi. Riprova più tardi",
+
+    // Service-Fehlermeldungen
+    "auth.service.session_expired":
+      "La tua sessione è scaduta. Effettua nuovamente l'accesso",
+    "auth.service.unauthorized": "Non autorizzato. Effettua l'accesso",
+    "auth.service.account_locked":
+      "Il tuo account è stato bloccato. Contatta l'assistenza",
+    "auth.service.permission_denied": "Permesso negato per questa azione",
+    "auth.service.invalid_credentials":
+      "Credenziali non valide. Controlla la tua email e password.",
+    "auth.service.too_many_attempts":
+      "Troppi tentativi di accesso. Attendi un momento prima di riprovare.",
+
     "nav.home": "Home",
     "nav.rules": "Regole",
     "category.no_image_available": "Nessuna immagine disponibile",
@@ -1318,8 +1817,6 @@ export const ui = {
     "common.back.to.top": "Torna in alto",
     "knowledge.articles.heading": "Articoli di Conoscenza",
     "knowledge.search.heading": "Cerca Articoli",
-    "knowledge.search.label": "Cerca per titolo, descrizione o parole chiave",
-    "knowledge.search.placeholder": "Cerca articoli...",
     "knowledge.search.description":
       "Gli articoli si filtreranno automaticamente mentre scrivi",
     "knowledge.search.reset": "Reimposta ricerca",
@@ -1328,9 +1825,119 @@ export const ui = {
       "Prova termini di ricerca diversi o reimposta la tua ricerca",
     "knowledge.keyboard.instructions":
       "Utilizza i tasti freccia per navigare tra gli articoli. Premi Invio per aprire un articolo.",
-    "knowledge.empty": "Nessun articolo disponibile in questa lingua",
   },
   pt: {
+    // Auth-Komponenten
+    "auth.login.title": "Entrar",
+    "auth.register.title": "Registrar",
+    "auth.toggle.login": "Mudar para login",
+    "auth.toggle.register": "Mudar para registro",
+    "auth.login.submit": "Entrar",
+    "auth.register.submit": "Registrar",
+    "auth.form.submit": "Enviar",
+    "auth.form.loading": "Processando...",
+    "auth.tabs.login": "Entrar",
+    "auth.tabs.register": "Registrar",
+    "auth.validation.processing": "Validando dados...",
+    "auth.form.error.general": "Ocorreu um erro",
+    "auth.form.success": "Sucesso!",
+
+    "auth.login.email": "E-mail",
+    "auth.login.email.placeholder": "Digite seu e-mail",
+    "auth.login.password": "Senha",
+    "auth.login.password.placeholder": "Digite sua senha",
+    "auth.login.remember": "Lembrar-me",
+    "auth.login.forgot_password": "Esqueceu sua senha?",
+    "auth.login.success": "Login realizado com sucesso",
+    "auth.login.error": "Erro ao fazer login",
+
+    "auth.register.name": "Nome completo",
+    "auth.register.email": "E-mail",
+    "auth.register.email.placeholder": "Digite seu e-mail",
+    "auth.register.username": "Nome de usuário",
+    "auth.register.username.placeholder": "Escolha um nome de usuário",
+    "auth.register.password": "Senha",
+    "auth.register.password.placeholder": "Crie uma senha segura",
+    "auth.register.confirm_password": "Confirmar senha",
+    "auth.register.password_confirm.placeholder": "Digite sua senha novamente",
+    "auth.register.terms": "Eu aceito os termos e condições",
+    "auth.register.success": "Registro realizado com sucesso",
+    "auth.register.error": "Erro ao registrar",
+
+    "auth.password_reset.title": "Redefinir senha",
+    "auth.password_reset.submit": "Enviar link de redefinição",
+    "auth.password_reset.email": "E-mail",
+    "auth.password_reset.email.placeholder": "Digite seu e-mail cadastrado",
+    "auth.password_reset.back_to_login": "Voltar para o login",
+    "auth.password_reset.login": "Entrar",
+    "auth.password_reset.success":
+      "Um link de redefinição foi enviado para seu e-mail",
+    "auth.password_reset.error": "Erro ao enviar o link de redefinição",
+    "auth.password_reset.new_password": "Nova senha",
+    "auth.password_reset.confirm_password": "Confirmar nova senha",
+    "auth.password_reset.change_submit": "Alterar senha",
+
+    "auth.email_verification.title": "Verificação de e-mail",
+    "auth.email_verification.message":
+      "Enviamos um link de verificação para seu e-mail",
+    "auth.email_verification.check_inbox":
+      "Por favor, verifique sua caixa de entrada",
+    "auth.email_verification.resend": "Reenviar link de verificação",
+    "auth.email_verification.success": "E-mail verificado com sucesso",
+    "auth.email_verification.error": "Erro ao verificar o e-mail",
+
+    // Passwortvalidierung
+    "auth.password.requirements": "Requisitos da senha:",
+    "auth.password.min_length": "A senha deve ter pelo menos 8 caracteres",
+    "auth.password.require_number": "A senha deve conter pelo menos um número",
+    "auth.password.require_uppercase":
+      "A senha deve conter pelo menos uma letra maiúscula",
+    "auth.password.require_lowercase":
+      "A senha deve conter pelo menos uma letra minúscula",
+    "auth.password.require_special":
+      "A senha deve conter pelo menos um caractere especial",
+    "auth.password.match": "As senhas devem corresponder",
+    "auth.password.strength.weak": "Fraca",
+    "auth.password.strength.medium": "Média",
+    "auth.password.strength.strong": "Forte",
+
+    // Formularvalidierung
+    "auth.form.required": "Este campo é obrigatório",
+    "auth.form.email_invalid": "Por favor, insira um e-mail válido",
+    "auth.form.min_length":
+      "Este campo deve ter pelo menos {length} caracteres",
+    "auth.form.max_length":
+      "Este campo não pode ter mais de {length} caracteres",
+    "auth.form.invalid": "Este campo não é válido",
+
+    // Zugänglichkeit
+    "auth.accessibility.loading": "Carregando, por favor aguarde",
+    "auth.accessibility.error": "Erro: {message}",
+    "auth.accessibility.required_field": "Campo obrigatório",
+    "auth.accessibility.toggle_password": "Mostrar/ocultar senha",
+    "auth.accessibility.close_modal": "Fechar janela",
+
+    // API-Fehlermeldungen
+    "auth.api.network_error": "Erro de rede. Verifique sua conexão",
+    "auth.api.server_error": "Erro do servidor. Tente novamente mais tarde",
+    "auth.api.invalid_credentials": "Credenciais inválidas",
+    "auth.api.account_exists": "Já existe uma conta com este e-mail",
+    "auth.api.email_not_found": "Nenhuma conta encontrada com este e-mail",
+    "auth.api.too_many_requests":
+      "Muitas tentativas. Tente novamente mais tarde",
+
+    // Service-Fehlermeldungen
+    "auth.service.session_expired":
+      "Sua sessão expirou. Por favor, faça login novamente",
+    "auth.service.unauthorized": "Não autorizado. Por favor, faça login",
+    "auth.service.account_locked":
+      "Sua conta foi bloqueada. Entre em contato com o suporte",
+    "auth.service.permission_denied": "Permissão negada para esta ação",
+    "auth.service.invalid_credentials":
+      "Credenciais inválidas. Verifique seu e-mail e senha.",
+    "auth.service.too_many_attempts":
+      "Muitas tentativas de login. Aguarde um momento antes de tentar novamente.",
+
     "nav.home": "Início",
     "nav.rules": "Regras",
     "category.no_image_available": "Nenhuma imagem disponível",
@@ -1582,9 +2189,6 @@ export const ui = {
     "common.back.to.top": "Voltar ao topo",
     "knowledge.articles.heading": "Artigos de Conhecimento",
     "knowledge.search.heading": "Pesquisar Artigos",
-    "knowledge.search.label":
-      "Pesquisar por título, descrição ou palavras-chave",
-    "knowledge.search.placeholder": "Pesquisar artigos...",
     "knowledge.search.description":
       "Os artigos serão filtrados automaticamente enquanto você digita",
     "knowledge.search.reset": "Redefinir pesquisa",
@@ -1593,9 +2197,116 @@ export const ui = {
       "Tente termos de pesquisa diferentes ou redefina sua pesquisa",
     "knowledge.keyboard.instructions":
       "Use as teclas de seta para navegar entre os artigos. Pressione Enter para abrir um artigo.",
-    "knowledge.empty": "Nenhum artigo disponível neste idioma",
   },
   da: {
+    // Auth-Komponenten
+    "auth.login.title": "Log ind",
+    "auth.register.title": "Tilmeld",
+    "auth.toggle.login": "Skift til login",
+    "auth.toggle.register": "Skift til registrering",
+    "auth.login.submit": "Log ind",
+    "auth.register.submit": "Tilmeld",
+    "auth.form.submit": "Send",
+    "auth.form.loading": "Behandler...",
+    "auth.tabs.login": "Log ind",
+    "auth.tabs.register": "Tilmeld",
+    "auth.validation.processing": "Validerer input...",
+    "auth.form.error.general": "Der er opstået en fejl",
+    "auth.form.success": "Succes!",
+
+    "auth.login.email": "E-mail",
+    "auth.login.email.placeholder": "Indtast din e-mail",
+    "auth.login.password": "Adgangskode",
+    "auth.login.password.placeholder": "Indtast din adgangskode",
+    "auth.login.remember": "Husk mig",
+    "auth.login.forgot_password": "Glemt adgangskode?",
+    "auth.login.success": "Login succesfuldt",
+    "auth.login.error": "Fejl ved login",
+
+    "auth.register.name": "Fulde navn",
+    "auth.register.email": "E-mail",
+    "auth.register.email.placeholder": "Indtast din e-mail",
+    "auth.register.username": "Brugernavn",
+    "auth.register.username.placeholder": "Vælg et brugernavn",
+    "auth.register.password": "Adgangskode",
+    "auth.register.password.placeholder": "Opret en sikker adgangskode",
+    "auth.register.confirm_password": "Bekræft adgangskode",
+    "auth.register.password_confirm.placeholder":
+      "Indtast din adgangskode igen",
+    "auth.register.terms": "Jeg accepterer vilkår og betingelser",
+    "auth.register.success": "Registrering succesfuld",
+    "auth.register.error": "Fejl ved registrering",
+
+    "auth.password_reset.title": "Nulstil adgangskode",
+    "auth.password_reset.submit": "Send nulstillingslink",
+    "auth.password_reset.email": "E-mail",
+    "auth.password_reset.email.placeholder": "Indtast din registrerede e-mail",
+    "auth.password_reset.back_to_login": "Tilbage til login",
+    "auth.password_reset.login": "Log ind",
+    "auth.password_reset.success":
+      "Et nulstillingslink er blevet sendt til din e-mail",
+    "auth.password_reset.error": "Fejl ved afsendelse af nulstillingslink",
+    "auth.password_reset.new_password": "Ny adgangskode",
+    "auth.password_reset.confirm_password": "Bekræft ny adgangskode",
+    "auth.password_reset.change_submit": "Skift adgangskode",
+
+    "auth.email_verification.title": "E-mail-verifikation",
+    "auth.email_verification.message":
+      "Vi har sendt et verifikationslink til din e-mail",
+    "auth.email_verification.check_inbox": "Tjek venligst din indbakke",
+    "auth.email_verification.resend": "Send verifikationslink igen",
+    "auth.email_verification.success": "E-mail verificeret succesfuldt",
+    "auth.email_verification.error": "Fejl ved verificering af e-mail",
+
+    // Passwortvalidierung
+    "auth.password.requirements": "Krav til adgangskode:",
+    "auth.password.min_length": "Adgangskoden skal være mindst 8 tegn",
+    "auth.password.require_number": "Adgangskoden skal indeholde mindst ét tal",
+    "auth.password.require_uppercase":
+      "Adgangskoden skal indeholde mindst ét stort bogstav",
+    "auth.password.require_lowercase":
+      "Adgangskoden skal indeholde mindst ét lille bogstav",
+    "auth.password.require_special":
+      "Adgangskoden skal indeholde mindst ét specialtegn",
+    "auth.password.match": "Adgangskoderne skal matche",
+    "auth.password.strength.weak": "Svag",
+    "auth.password.strength.medium": "Medium",
+    "auth.password.strength.strong": "Stærk",
+
+    // Formularvalidierung
+    "auth.form.required": "Dette felt er påkrævet",
+    "auth.form.email_invalid": "Indtast venligst en gyldig e-mail",
+    "auth.form.min_length": "Dette felt skal indeholde mindst {length} tegn",
+    "auth.form.max_length":
+      "Dette felt må ikke indeholde mere end {length} tegn",
+    "auth.form.invalid": "Dette felt er ikke gyldigt",
+
+    // Zugänglichkeit
+    "auth.accessibility.loading": "Indlæser, vent venligst",
+    "auth.accessibility.error": "Fejl: {message}",
+    "auth.accessibility.required_field": "Påkrævet felt",
+    "auth.accessibility.toggle_password": "Vis/skjul adgangskode",
+    "auth.accessibility.close_modal": "Luk vindue",
+
+    // API-Fehlermeldungen
+    "auth.api.network_error": "Netværksfejl. Tjek venligst din forbindelse",
+    "auth.api.server_error": "Serverfejl. Prøv igen senere",
+    "auth.api.invalid_credentials": "Ugyldige legitimationsoplysninger",
+    "auth.api.account_exists": "Der findes allerede en konto med denne e-mail",
+    "auth.api.email_not_found": "Ingen konto fundet med denne e-mail",
+    "auth.api.too_many_requests": "For mange forsøg. Prøv igen senere",
+
+    // Service-Fehlermeldungen
+    "auth.service.session_expired":
+      "Din session er udløbet. Log venligst ind igen",
+    "auth.service.unauthorized": "Uautoriseret. Log venligst ind",
+    "auth.service.account_locked": "Din konto er blevet låst. Kontakt support",
+    "auth.service.permission_denied": "Tilladelse nægtet til denne handling",
+    "auth.service.invalid_credentials":
+      "Ugyldige loginoplysninger. Tjek venligst din e-mail og adgangskode.",
+    "auth.service.too_many_attempts":
+      "For mange loginforsøg. Vent venligst et øjeblik før du prøver igen.",
+
     "nav.home": "Hjem",
     "nav.rules": "Regler",
     "category.no_image_available": "Intet billede tilgængeligt",
@@ -1813,7 +2524,6 @@ export const ui = {
       "Dyk ned i omhyggeligt kuraterede playlister fra forskellige epoker og genrer. Perfekt til at opdage ny musik eller genbesøge dine yndlingsklassikere.",
     "playlist.search.label": "Søg i playlister",
     "playlist.search.placeholder": "Søg efter musikæra eller stil...",
-    "playlist.search.placeholder": "Søg efter musikæra eller stil...",
     "playlist.filter.all": "Alle epoker",
     "playlist.no.results":
       "Ingen matchende playlister fundet. Prøv et andet søgeord.",
@@ -1845,8 +2555,6 @@ export const ui = {
     "common.back.to.top": "Tilbage til toppen",
     "knowledge.articles.heading": "Vidensartikler",
     "knowledge.search.heading": "Søg Artikler",
-    "knowledge.search.label": "Søg efter titel, beskrivelse eller nøgleord",
-    "knowledge.search.placeholder": "Søg artikler...",
     "knowledge.search.description":
       "Artikler filtreres automatisk, mens du skriver",
     "knowledge.search.reset": "Nulstil søgning",
@@ -1854,9 +2562,118 @@ export const ui = {
     "knowledge.no.results.help": "Prøv andre søgeord eller nulstil din søgning",
     "knowledge.keyboard.instructions":
       "Brug piletasterne til at navigere mellem artikler. Tryk på Enter for at åbne en artikel.",
-    "knowledge.empty": "Ingen artikler tilgængelige på dette sprog",
   },
   nl: {
+    // Auth-Komponenten
+    "auth.login.title": "Inloggen",
+    "auth.register.title": "Registreren",
+    "auth.toggle.login": "Naar inloggen",
+    "auth.toggle.register": "Naar registratie",
+    "auth.login.submit": "Inloggen",
+    "auth.register.submit": "Registreren",
+    "auth.form.submit": "Verzenden",
+    "auth.form.loading": "Verwerken...",
+    "auth.tabs.login": "Inloggen",
+    "auth.tabs.register": "Registreren",
+    "auth.validation.processing": "Gegevens worden gevalideerd...",
+    "auth.form.error.general": "Er is een fout opgetreden",
+    "auth.form.success": "Gelukt!",
+
+    "auth.login.email": "E-mailadres",
+    "auth.login.email.placeholder": "Voer je e-mailadres in",
+    "auth.login.password": "Wachtwoord",
+    "auth.login.password.placeholder": "Voer je wachtwoord in",
+    "auth.login.remember": "Onthoud mij",
+    "auth.login.forgot_password": "Wachtwoord vergeten?",
+    "auth.login.success": "Succesvol ingelogd",
+    "auth.login.error": "Fout bij inloggen",
+
+    "auth.register.name": "Volledige naam",
+    "auth.register.email": "E-mailadres",
+    "auth.register.email.placeholder": "Voer je e-mailadres in",
+    "auth.register.username": "Gebruikersnaam",
+    "auth.register.username.placeholder": "Kies een gebruikersnaam",
+    "auth.register.password": "Wachtwoord",
+    "auth.register.password.placeholder": "Maak een veilig wachtwoord aan",
+    "auth.register.confirm_password": "Bevestig wachtwoord",
+    "auth.register.password_confirm.placeholder":
+      "Voer je wachtwoord nogmaals in",
+    "auth.register.terms": "Ik ga akkoord met de voorwaarden",
+    "auth.register.success": "Registratie succesvol",
+    "auth.register.error": "Fout bij registreren",
+
+    "auth.password_reset.title": "Wachtwoord resetten",
+    "auth.password_reset.submit": "Reset link versturen",
+    "auth.password_reset.email": "E-mailadres",
+    "auth.password_reset.email.placeholder":
+      "Voer je geregistreerde e-mailadres in",
+    "auth.password_reset.back_to_login": "Terug naar inloggen",
+    "auth.password_reset.login": "Inloggen",
+    "auth.password_reset.success":
+      "Een reset link is naar je e-mailadres verstuurd",
+    "auth.password_reset.error": "Fout bij versturen van reset link",
+    "auth.password_reset.new_password": "Nieuw wachtwoord",
+    "auth.password_reset.confirm_password": "Bevestig nieuw wachtwoord",
+    "auth.password_reset.change_submit": "Wachtwoord wijzigen",
+
+    "auth.email_verification.title": "E-mailverificatie",
+    "auth.email_verification.message":
+      "We hebben een verificatielink naar je e-mailadres gestuurd",
+    "auth.email_verification.check_inbox": "Controleer je inbox",
+    "auth.email_verification.resend": "Verificatielink opnieuw versturen",
+    "auth.email_verification.success": "E-mail succesvol geverifieerd",
+    "auth.email_verification.error": "Fout bij verificatie van e-mail",
+
+    // Passwortvalidierung
+    "auth.password.requirements": "Wachtwoordvereisten:",
+    "auth.password.min_length": "Wachtwoord moet minimaal 8 tekens bevatten",
+    "auth.password.require_number":
+      "Wachtwoord moet minimaal één cijfer bevatten",
+    "auth.password.require_uppercase":
+      "Wachtwoord moet minimaal één hoofdletter bevatten",
+    "auth.password.require_lowercase":
+      "Wachtwoord moet minimaal één kleine letter bevatten",
+    "auth.password.require_special":
+      "Wachtwoord moet minimaal één speciaal teken bevatten",
+    "auth.password.match": "Wachtwoorden moeten overeenkomen",
+    "auth.password.strength.weak": "Zwak",
+    "auth.password.strength.medium": "Gemiddeld",
+    "auth.password.strength.strong": "Sterk",
+
+    // Formularvalidierung
+    "auth.form.required": "Dit veld is verplicht",
+    "auth.form.email_invalid": "Voer een geldig e-mailadres in",
+    "auth.form.min_length": "Dit veld moet minimaal {length} tekens bevatten",
+    "auth.form.max_length":
+      "Dit veld mag niet meer dan {length} tekens bevatten",
+    "auth.form.invalid": "Dit veld is ongeldig",
+
+    // Zugänglichkeit
+    "auth.accessibility.loading": "Laden, even geduld",
+    "auth.accessibility.error": "Fout: {message}",
+    "auth.accessibility.required_field": "Verplicht veld",
+    "auth.accessibility.toggle_password": "Wachtwoord tonen/verbergen",
+    "auth.accessibility.close_modal": "Venster sluiten",
+
+    // API-Fehlermeldungen
+    "auth.api.network_error": "Netwerkfout. Controleer je verbinding",
+    "auth.api.server_error": "Serverfout. Probeer het later opnieuw",
+    "auth.api.invalid_credentials": "Ongeldige inloggegevens",
+    "auth.api.account_exists": "Er bestaat al een account met dit e-mailadres",
+    "auth.api.email_not_found": "Geen account gevonden met dit e-mailadres",
+    "auth.api.too_many_requests": "Te veel pogingen. Probeer het later opnieuw",
+
+    // Service-Fehlermeldungen
+    "auth.service.session_expired": "Je sessie is verlopen. Log opnieuw in",
+    "auth.service.unauthorized": "Niet geautoriseerd. Log in",
+    "auth.service.account_locked":
+      "Je account is vergrendeld. Neem contact op met support",
+    "auth.service.permission_denied": "Geen toestemming voor deze actie",
+    "auth.service.invalid_credentials":
+      "Ongeldige inloggegevens. Controleer je e-mail en wachtwoord.",
+    "auth.service.too_many_attempts":
+      "Te veel inlogpogingen. Wacht even voordat je het opnieuw probeert.",
+
     "nav.home": "Home",
     "nav.rules": "Regels",
     "category.no_image_available": "Geen afbeelding beschikbaar",
@@ -2104,19 +2921,120 @@ export const ui = {
     "common.back.to.top": "Terug naar boven",
     "knowledge.articles.heading": "Kennisartikelen",
     "knowledge.search.heading": "Artikelen Zoeken",
-    "knowledge.search.label": "Zoeken op titel, beschrijving of trefwoorden",
-    "knowledge.search.placeholder": "Artikelen zoeken...",
     "knowledge.search.description":
       "Artikelen worden automatisch gefilterd tijdens het typen",
     "knowledge.search.reset": "Zoekopdracht resetten",
     "knowledge.search.reset.text": "Resetten",
-    "knowledge.no.results.help":
-      "Probeer andere zoektermen of reset je zoekopdracht",
-    "knowledge.keyboard.instructions":
-      "Gebruik pijltjestoetsen om tussen artikelen te navigeren. Druk op Enter om een artikel te openen.",
-    "knowledge.empty": "Geen artikelen beschikbaar in deze taal",
   },
   sv: {
+    // Auth-Komponenten
+    "auth.login.title": "Logga in",
+    "auth.register.title": "Registrera",
+    "auth.toggle.login": "Byt till inloggning",
+    "auth.toggle.register": "Byt till registrering",
+    "auth.login.submit": "Logga in",
+    "auth.register.submit": "Registrera",
+    "auth.form.submit": "Skicka",
+    "auth.form.loading": "Bearbetar...",
+    "auth.tabs.login": "Logga in",
+    "auth.tabs.register": "Registrera",
+    "auth.validation.processing": "Validerar uppgifter...",
+    "auth.form.error.general": "Ett fel har inträffat",
+    "auth.form.success": "Klart!",
+
+    "auth.login.email": "E-postadress",
+    "auth.login.email.placeholder": "Ange din e-postadress",
+    "auth.login.password": "Lösenord",
+    "auth.login.password.placeholder": "Ange ditt lösenord",
+    "auth.login.remember": "Kom ihåg mig",
+    "auth.login.forgot_password": "Glömt lösenord?",
+    "auth.login.success": "Inloggning lyckades",
+    "auth.login.error": "Fel vid inloggning",
+
+    "auth.register.name": "Fullständigt namn",
+    "auth.register.email": "E-postadress",
+    "auth.register.email.placeholder": "Ange din e-postadress",
+    "auth.register.username": "Användarnamn",
+    "auth.register.username.placeholder": "Välj ett användarnamn",
+    "auth.register.password": "Lösenord",
+    "auth.register.password.placeholder": "Skapa ett säkert lösenord",
+    "auth.register.confirm_password": "Bekräfta lösenord",
+    "auth.register.password_confirm.placeholder": "Ange ditt lösenord igen",
+    "auth.register.terms": "Jag godkänner villkoren",
+    "auth.register.success": "Registrering lyckades",
+    "auth.register.error": "Fel vid registrering",
+
+    "auth.password_reset.title": "Återställ lösenord",
+    "auth.password_reset.submit": "Skicka återställningslänk",
+    "auth.password_reset.email": "E-postadress",
+    "auth.password_reset.email.placeholder":
+      "Ange din registrerade e-postadress",
+    "auth.password_reset.back_to_login": "Tillbaka till inloggning",
+    "auth.password_reset.login": "Logga in",
+    "auth.password_reset.success":
+      "En återställningslänk har skickats till din e-post",
+    "auth.password_reset.error": "Fel vid skickande av återställningslänk",
+    "auth.password_reset.new_password": "Nytt lösenord",
+    "auth.password_reset.confirm_password": "Bekräfta nytt lösenord",
+    "auth.password_reset.change_submit": "Ändra lösenord",
+
+    "auth.email_verification.title": "E-postverifiering",
+    "auth.email_verification.message":
+      "Vi har skickat en verifieringslänk till din e-post",
+    "auth.email_verification.check_inbox": "Vänligen kontrollera din inkorg",
+    "auth.email_verification.resend": "Skicka verifieringslänk igen",
+    "auth.email_verification.success": "E-post verifierad",
+    "auth.email_verification.error": "Fel vid verifiering av e-post",
+
+    // Passwortvalidierung
+    "auth.password.requirements": "Lösenordskrav:",
+    "auth.password.min_length": "Lösenordet måste innehålla minst 8 tecken",
+    "auth.password.require_number":
+      "Lösenordet måste innehålla minst en siffra",
+    "auth.password.require_uppercase":
+      "Lösenordet måste innehålla minst en stor bokstav",
+    "auth.password.require_lowercase":
+      "Lösenordet måste innehålla minst en liten bokstav",
+    "auth.password.require_special":
+      "Lösenordet måste innehålla minst ett specialtecken",
+    "auth.password.match": "Lösenorden måste matcha",
+    "auth.password.strength.weak": "Svagt",
+    "auth.password.strength.medium": "Medel",
+    "auth.password.strength.strong": "Starkt",
+
+    // Formularvalidierung
+    "auth.form.required": "Detta fält är obligatoriskt",
+    "auth.form.email_invalid": "Ange en giltig e-postadress",
+    "auth.form.min_length": "Detta fält måste innehålla minst {length} tecken",
+    "auth.form.max_length":
+      "Detta fält får inte innehålla mer än {length} tecken",
+    "auth.form.invalid": "Detta fält är ogiltigt",
+
+    // Zugänglichkeit
+    "auth.accessibility.loading": "Laddar, vänligen vänta",
+    "auth.accessibility.error": "Fel: {message}",
+    "auth.accessibility.required_field": "Obligatoriskt fält",
+    "auth.accessibility.toggle_password": "Visa/dölj lösenord",
+    "auth.accessibility.close_modal": "Stäng fönster",
+
+    // API-Fehlermeldungen
+    "auth.api.network_error": "Nätverksfel. Kontrollera din anslutning",
+    "auth.api.server_error": "Serverfel. Försök igen senare",
+    "auth.api.invalid_credentials": "Ogiltiga inloggningsuppgifter",
+    "auth.api.account_exists": "Det finns redan ett konto med denna e-post",
+    "auth.api.email_not_found": "Inget konto hittades med denna e-post",
+    "auth.api.too_many_requests": "För många försök. Försök igen senare",
+
+    // Service-Fehlermeldungen
+    "auth.service.session_expired": "Din session har gått ut. Logga in igen",
+    "auth.service.unauthorized": "Obehörig. Logga in",
+    "auth.service.account_locked": "Ditt konto har låsts. Kontakta support",
+    "auth.service.permission_denied": "Åtkomst nekad för denna åtgärd",
+    "auth.service.invalid_credentials":
+      "Ogiltiga inloggningsuppgifter. Kontrollera din e-post och lösenord.",
+    "auth.service.too_many_attempts":
+      "För många inloggningsförsök. Vänta en stund innan du försöker igen.",
+
     "nav.home": "Hem",
     "nav.rules": "Regler",
     "category.no_image_available": "Ingen bild tillgänglig",
@@ -2363,19 +3281,123 @@ export const ui = {
     "common.back.to.top": "Tillbaka till toppen",
     "knowledge.articles.heading": "Kunskapsartiklar",
     "knowledge.search.heading": "Sök Artiklar",
-    "knowledge.search.label": "Sök på titel, beskrivning eller nyckelord",
-    "knowledge.search.placeholder": "Sök artiklar...",
     "knowledge.search.description":
       "Artiklar filtreras automatiskt medan du skriver",
     "knowledge.search.reset": "Återställ sökning",
     "knowledge.search.reset.text": "Återställ",
-    "knowledge.no.results.help":
-      "Prova andra söktermer eller återställ din sökning",
-    "knowledge.keyboard.instructions":
-      "Använd piltangenterna för att navigera mellan artiklar. Tryck på Enter för att öppna en artikel.",
-    "knowledge.empty": "Inga artiklar tillgängliga på detta språk",
   },
   fi: {
+    // Auth-Komponenten
+    "auth.login.title": "Kirjaudu",
+    "auth.register.title": "Rekisteröidy",
+    "auth.toggle.login": "Vaihda kirjautumiseen",
+    "auth.toggle.register": "Vaihda rekisteröitymiseen",
+    "auth.login.submit": "Kirjaudu",
+    "auth.register.submit": "Rekisteröidy",
+    "auth.form.submit": "Lähetä",
+    "auth.form.loading": "Käsitellään...",
+    "auth.tabs.login": "Kirjaudu",
+    "auth.tabs.register": "Rekisteröidy",
+    "auth.validation.processing": "Tarkistetaan tietoja...",
+    "auth.form.error.general": "Tapahtui virhe",
+    "auth.form.success": "Onnistui!",
+
+    "auth.login.email": "Sähköpostiosoite",
+    "auth.login.email.placeholder": "Syötä sähköpostiosoitteesi",
+    "auth.login.password": "Salasana",
+    "auth.login.password.placeholder": "Syötä salasanasi",
+    "auth.login.remember": "Muista minut",
+    "auth.login.forgot_password": "Unohditko salasanasi?",
+    "auth.login.success": "Kirjautuminen onnistui",
+    "auth.login.error": "Virhe kirjautumisessa",
+
+    "auth.register.name": "Koko nimi",
+    "auth.register.email": "Sähköpostiosoite",
+    "auth.register.email.placeholder": "Syötä sähköpostiosoitteesi",
+    "auth.register.username": "Käyttäjänimi",
+    "auth.register.username.placeholder": "Valitse käyttäjänimi",
+    "auth.register.password": "Salasana",
+    "auth.register.password.placeholder": "Luo turvallinen salasana",
+    "auth.register.confirm_password": "Vahvista salasana",
+    "auth.register.password_confirm.placeholder": "Syötä salasanasi uudelleen",
+    "auth.register.terms": "Hyväksyn käyttöehdot",
+    "auth.register.success": "Rekisteröityminen onnistui",
+    "auth.register.error": "Virhe rekisteröitymisessä",
+
+    "auth.password_reset.title": "Nollaa salasana",
+    "auth.password_reset.submit": "Lähetä nollauslinkki",
+    "auth.password_reset.email": "Sähköpostiosoite",
+    "auth.password_reset.email.placeholder":
+      "Syötä rekisteröity sähköpostiosoitteesi",
+    "auth.password_reset.back_to_login": "Takaisin kirjautumiseen",
+    "auth.password_reset.login": "Kirjaudu",
+    "auth.password_reset.success": "Nollauslinkki on lähetetty sähköpostiisi",
+    "auth.password_reset.error": "Virhe nollauslinkin lähettämisessä",
+    "auth.password_reset.new_password": "Uusi salasana",
+    "auth.password_reset.confirm_password": "Vahvista uusi salasana",
+    "auth.password_reset.change_submit": "Vaihda salasana",
+
+    "auth.email_verification.title": "Sähköpostin vahvistus",
+    "auth.email_verification.message":
+      "Olemme lähettäneet vahvistuslinkin sähköpostiisi",
+    "auth.email_verification.check_inbox": "Tarkista saapuneet-kansio",
+    "auth.email_verification.resend": "Lähetä vahvistuslinkki uudelleen",
+    "auth.email_verification.success": "Sähköposti vahvistettu onnistuneesti",
+    "auth.email_verification.error": "Virhe sähköpostin vahvistamisessa",
+
+    // Passwortvalidierung
+    "auth.password.requirements": "Salasanavaatimukset:",
+    "auth.password.min_length": "Salasanan on oltava vähintään 8 merkkiä pitkä",
+    "auth.password.require_number":
+      "Salasanan on sisällettävä vähintään yksi numero",
+    "auth.password.require_uppercase":
+      "Salasanan on sisällettävä vähintään yksi iso kirjain",
+    "auth.password.require_lowercase":
+      "Salasanan on sisällettävä vähintään yksi pieni kirjain",
+    "auth.password.require_special":
+      "Salasanan on sisällettävä vähintään yksi erikoismerkki",
+    "auth.password.match": "Salasanojen on täsmättävä",
+    "auth.password.strength.weak": "Heikko",
+    "auth.password.strength.medium": "Keskitaso",
+    "auth.password.strength.strong": "Vahva",
+
+    // Formularvalidierung
+    "auth.form.required": "Tämä kenttä on pakollinen",
+    "auth.form.email_invalid": "Syötä kelvollinen sähköpostiosoite",
+    "auth.form.min_length":
+      "Tämän kentän on oltava vähintään {length} merkkiä pitkä",
+    "auth.form.max_length":
+      "Tämä kenttä ei saa olla yli {length} merkkiä pitkä",
+    "auth.form.invalid": "Tämä kenttä on virheellinen",
+
+    // Zugänglichkeit
+    "auth.accessibility.loading": "Ladataan, odota hetki",
+    "auth.accessibility.error": "Virhe: {message}",
+    "auth.accessibility.required_field": "Pakollinen kenttä",
+    "auth.accessibility.toggle_password": "Näytä/piilota salasana",
+    "auth.accessibility.close_modal": "Sulje ikkuna",
+
+    // API-Fehlermeldungen
+    "auth.api.network_error": "Verkkovirhe. Tarkista yhteytesi",
+    "auth.api.server_error": "Palvelinvirhe. Yritä myöhemmin uudelleen",
+    "auth.api.invalid_credentials": "Virheelliset kirjautumistiedot",
+    "auth.api.account_exists": "Tällä sähköpostiosoitteella on jo tili",
+    "auth.api.email_not_found": "Tällä sähköpostiosoitteella ei löydy tiliä",
+    "auth.api.too_many_requests":
+      "Liian monta yritystä. Yritä myöhemmin uudelleen",
+
+    // Service-Fehlermeldungen
+    "auth.service.session_expired":
+      "Istuntosi on vanhentunut. Kirjaudu sisään uudelleen",
+    "auth.service.unauthorized": "Ei valtuuksia. Kirjaudu sisään",
+    "auth.service.account_locked":
+      "Tilisi on lukittu. Ota yhteyttä asiakaspalveluun",
+    "auth.service.permission_denied": "Ei käyttöoikeutta tähän toimintoon",
+    "auth.service.invalid_credentials":
+      "Virheelliset kirjautumistiedot. Tarkista sähköpostisi ja salasanasi.",
+    "auth.service.too_many_attempts":
+      "Liian monta kirjautumisyritystä. Odota hetki ennen kuin yrität uudelleen.",
+
     "nav.home": "Etusivu",
     "nav.rules": "Säännöt",
     "category.no_image_available": "Kuvaa ei saatavilla",
@@ -2624,16 +3646,9 @@ export const ui = {
     "common.back.to.top": "Takaisin ylös",
     "knowledge.articles.heading": "Tietoartikkelit",
     "knowledge.search.heading": "Hae artikkeleita",
-    "knowledge.search.label":
-      "Hae otsikon, kuvauksen tai avainsanojen perusteella",
-    "knowledge.search.placeholder": "Hae artikkeleita...",
     "knowledge.search.description":
       "Artikkelit suodattuvat automaattisesti kirjoittaessasi",
     "knowledge.search.reset": "Nollaa haku",
     "knowledge.search.reset.text": "Nollaa",
-    "knowledge.no.results.help": "Kokeile eri hakusanoja tai nollaa hakusi",
-    "knowledge.keyboard.instructions":
-      "Käytä nuolinäppäimiä navigoidaksesi artikkelien välillä. Paina Enter avataksesi artikkelin.",
-    "knowledge.empty": "Tällä kielellä ei ole saatavilla artikkeleita",
   },
 };
