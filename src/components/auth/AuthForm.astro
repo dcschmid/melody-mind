@@ -583,7 +583,7 @@ const translations = {
   const loginSubmitText = document.getElementById("loginSubmitText");
   const loginLoadingSpinner = document.getElementById("loginLoadingSpinner");
   const toggleLoginPasswordButton = document.getElementById(
-    "toggleLoginPassword"
+    "toggleLoginPassword",
   );
 
   // Registration Form Elements
@@ -591,24 +591,24 @@ const translations = {
   const registerUsernameInput = document.getElementById("registerUsername");
   const registerPasswordInput = document.getElementById("registerPassword");
   const registerPasswordConfirmInput = document.getElementById(
-    "registerPasswordConfirm"
+    "registerPasswordConfirm",
   );
   const registerEmailError = document.getElementById("registerEmailError");
   const registerPasswordError = document.getElementById(
-    "registerPasswordError"
+    "registerPasswordError",
   );
   const registerPasswordConfirmError = document.getElementById(
-    "registerPasswordConfirmError"
+    "registerPasswordConfirmError",
   );
   const registerSubmitText = document.getElementById("registerSubmitText");
   const registerLoadingSpinner = document.getElementById(
-    "registerLoadingSpinner"
+    "registerLoadingSpinner",
   );
   const toggleRegisterPasswordButton = document.getElementById(
-    "toggleRegisterPassword"
+    "toggleRegisterPassword",
   );
   const toggleRegisterPasswordConfirmButton = document.getElementById(
-    "toggleRegisterPasswordConfirm"
+    "toggleRegisterPasswordConfirm",
   );
 
   // Password Requirements Elements
@@ -886,7 +886,7 @@ const translations = {
         : "Password strength: ";
     strengthText.setAttribute(
       "aria-label",
-      strengthLabel + strengthText.textContent
+      strengthLabel + strengthText.textContent,
     );
   }
 
@@ -963,12 +963,12 @@ const translations = {
       toggleRequirementsButton.getAttribute("aria-expanded") === "true";
     toggleRequirementsButton.setAttribute(
       "aria-expanded",
-      isExpanded ? "false" : "true"
+      isExpanded ? "false" : "true",
     );
     passwordRequirements.classList.toggle("hidden");
     passwordRequirements.setAttribute(
       "aria-hidden",
-      isExpanded ? "true" : "false"
+      isExpanded ? "true" : "false",
     );
 
     if (!isExpanded) {
@@ -980,7 +980,7 @@ const translations = {
   registerPasswordInput.addEventListener("input", updatePasswordRequirements);
   registerPasswordConfirmInput.addEventListener(
     "input",
-    updatePasswordRequirements
+    updatePasswordRequirements,
   );
 
   /**
@@ -1269,7 +1269,7 @@ const translations = {
    * Applies reduced-motion class to document when user has this preference enabled
    */
   const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
+    "(prefers-reduced-motion: reduce)",
   ).matches;
   if (prefersReducedMotion) {
     document.documentElement.classList.add("reduced-motion");

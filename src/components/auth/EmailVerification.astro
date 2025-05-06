@@ -120,7 +120,7 @@ const t = useTranslations(lang);
       // API call to verify email with multilingual route
       const currentLang = document.documentElement.lang || "de";
       const response = await fetch(
-        `/${currentLang}/api/auth/verify-email?token=${encodeURIComponent(token)}`
+        `/${currentLang}/api/auth/verify-email?token=${encodeURIComponent(token)}`,
       );
       const data = await response.json();
 
