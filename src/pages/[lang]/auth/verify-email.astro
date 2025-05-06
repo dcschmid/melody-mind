@@ -1,33 +1,42 @@
 ---
 /**
- * Verify Email Page für MelodyMind
+ * Email Verification Page for MelodyMind
  *
- * Diese Seite verarbeitet die E-Mail-Verifizierung, wenn ein Benutzer auf den
- * Bestätigungslink in seiner E-Mail klickt. Sie verwendet das AuthLayout und
- * die EmailVerification-Komponente.
+ * This page handles email verification when a user clicks on the confirmation
+ * link in their email. It uses the Layout component and the EmailVerification
+ * component to render the verification interface.
  *
- * Sie ist nach WCAG AAA Standards optimiert.
+ * The page extracts the verification token from the URL query parameters.
+ * If no token is present, the user is redirected to the login page.
+ *
+ * The page is optimized according to WCAG AAA standards for maximum accessibility.
+ *
+ * @file Processes email verification tokens and renders verification UI
+ * @see EmailVerification.astro - Component that handles the verification logic
+ * @see Layout.astro - Main layout component used for consistent page structure
  */
-import AuthLayout from "@components/auth/AuthLayout.astro";
 import EmailVerification from "@components/auth/EmailVerification.astro";
+import Layout from "@layouts/Layout.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
+// Extract language from URL for internationalization
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations(lang as string);
 
-// Token aus der URL extrahieren
+// Extract verification token from URL query parameters
 const url = new URL(Astro.request.url);
 const token = url.searchParams.get("token");
 
-// Wenn kein Token vorhanden ist, zur Login-Seite weiterleiten
+// Redirect to login page if no token is provided
 if (!token) {
   return Astro.redirect("/auth/login");
 }
 ---
 
-<AuthLayout
+<Layout
   title={t("auth.email_verification.title")}
-  description="Bestätige deine E-Mail-Adresse für dein Melody Mind-Konto."
+  description={t("auth.email_verification.description") ||
+    "Verify your email address for your Melody Mind account."}
 >
   <EmailVerification token={token} />
-</AuthLayout>
+</Layout>

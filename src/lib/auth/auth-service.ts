@@ -9,7 +9,6 @@ import {
   updatePassword,
   type User,
   type NewUser,
-  type UserWithPassword,
 } from "./db.js";
 import {
   generateTokenPair,
@@ -28,7 +27,7 @@ import {
 } from "./rate-limit.js";
 import { generateCsrfToken, type CsrfToken } from "./csrf.js";
 
-// Typ für Login-Ergebnisse
+// Type for login results
 export type LoginResult = {
   success: boolean;
   user?: User;
@@ -39,7 +38,7 @@ export type LoginResult = {
   resetTime?: number;
 };
 
-// Typ für Registrierungsergebnisse
+// Type for registration results
 export type RegisterResult = {
   success: boolean;
   user?: User;
@@ -47,7 +46,7 @@ export type RegisterResult = {
   validationErrors?: string[];
 };
 
-// Typ für Passwort-Reset-Ergebnisse
+// Type for password reset results
 export type PasswordResetResult = {
   success: boolean;
   error?: string;
@@ -55,32 +54,32 @@ export type PasswordResetResult = {
 };
 
 /**
- * AuthService-Klasse, die alle Authentifizierungsfunktionen zusammenfasst
+ * AuthService class that encapsulates all authentication functions
  */
 export class AuthService {
   /**
-   * Meldet einen Benutzer an
+   * Logs in a user
    */
   async login(
     email: string,
     password: string,
     ip: string,
   ): Promise<LoginResult> {
-    // Prüfe Rate-Limiting
+    // Check rate limiting
     if (isRateLimited(ip)) {
       return {
         success: false,
         error: "auth.service.too_many_attempts",
         rateLimited: true,
-        resetTime: 15 * 60 * 1000, // 15 Minuten in Millisekunden
+        resetTime: 15 * 60 * 1000, // 15 minutes in milliseconds
       };
     }
 
     try {
-      // Benutzer anhand der E-Mail-Adresse suchen
+      // Find user by email address
       const user = await getUserByEmail(email);
       if (!user) {
-        // Fehlgeschlagenen Anmeldeversuch registrieren
+        // Register failed login attempt
         recordFailedLoginAttempt(ip);
         return {
           success: false,
@@ -88,10 +87,10 @@ export class AuthService {
         };
       }
 
-      // Passwort überprüfen
+      // Verify password
       const isPasswordValid = await verifyPassword(user, password);
       if (!isPasswordValid) {
-        // Fehlgeschlagenen Anmeldeversuch registrieren
+        // Register failed login attempt
         recordFailedLoginAttempt(ip);
         return {
           success: false,
@@ -99,18 +98,18 @@ export class AuthService {
         };
       }
 
-      // E-Mail-Verifizierung ist jetzt optional
+      // Email verification is now optional
 
-      // Rate-Limit zurücksetzen
+      // Reset rate limit
       resetRateLimit(ip);
 
-      // Tokens generieren
+      // Generate tokens
       const tokens = generateTokenPair(user);
 
-      // CSRF-Token generieren
+      // Generate CSRF token
       const csrfToken = generateCsrfToken();
 
-      // Benutzer ohne Passwort-Hash zurückgeben
+      // Return user without password hash
       const { passwordHash, ...userWithoutPassword } = user;
 
       return {
@@ -120,7 +119,7 @@ export class AuthService {
         csrfToken,
       };
     } catch (error) {
-      console.error("Fehler bei der Benutzeranmeldung:", error);
+      console.error("Error during user login:", error);
       return {
         success: false,
         error: "auth.api.general_error",
@@ -129,11 +128,11 @@ export class AuthService {
   }
 
   /**
-   * Registriert einen neuen Benutzer
+   * Registers a new user
    */
   async register(userData: NewUser): Promise<RegisterResult> {
     try {
-      // Passwort validieren
+      // Validate password
       const passwordValidation = validatePassword(userData.password);
       if (!passwordValidation.valid) {
         return {
@@ -143,7 +142,7 @@ export class AuthService {
         };
       }
 
-      // Prüfen, ob der Benutzer bereits existiert
+      // Check if user already exists
       const existingUser = await getUserByEmail(userData.email);
       if (existingUser) {
         return {
@@ -152,17 +151,17 @@ export class AuthService {
         };
       }
 
-      // Neuen Benutzer erstellen
+      // Create new user
       const newUser = await createUser(userData);
 
-      // E-Mail-Verifizierungstoken generieren
+      // Generate email verification token
       const verificationToken = await generateEmailVerificationToken(
         newUser.id,
       );
 
-      // In einer echten Anwendung würde hier eine E-Mail mit dem Verifizierungslink gesendet werden
+      // In a real application, an email with the verification link would be sent here
       console.log(
-        `Verifizierungslink: https://example.com/verify-email?token=${verificationToken}`,
+        `Verification link: https://example.com/verify-email?token=${verificationToken}`,
       );
 
       return {
@@ -170,7 +169,7 @@ export class AuthService {
         user: newUser,
       };
     } catch (error) {
-      console.error("Fehler bei der Benutzerregistrierung:", error);
+      console.error("Error during user registration:", error);
       return {
         success: false,
         error: "auth.api.general_error",
@@ -179,19 +178,19 @@ export class AuthService {
   }
 
   /**
-   * Verifiziert die E-Mail-Adresse eines Benutzers
+   * Verifies a user's email address
    */
   async verifyUserEmail(token: string): Promise<boolean> {
     try {
       return await verifyEmail(token);
     } catch (error) {
-      console.error("Fehler bei der E-Mail-Verifizierung:", error);
+      console.error("Error during email verification:", error);
       return false;
     }
   }
 
   /**
-   * Fordert einen Passwort-Reset an
+   * Requests a password reset
    */
   async requestPasswordReset(email: string): Promise<boolean> {
     try {
@@ -200,27 +199,27 @@ export class AuthService {
         return false;
       }
 
-      // In einer echten Anwendung würde hier eine E-Mail mit dem Reset-Link gesendet werden
+      // In a real application, an email with the reset link would be sent here
       console.log(
-        `Passwort-Reset-Link: https://example.com/reset-password?token=${resetToken}`,
+        `Password reset link: https://example.com/reset-password?token=${resetToken}`,
       );
 
       return true;
     } catch (error) {
-      console.error("Fehler bei der Passwort-Reset-Anforderung:", error);
+      console.error("Error during password reset request:", error);
       return false;
     }
   }
 
   /**
-   * Setzt das Passwort mit einem Reset-Token zurück
+   * Resets the password using a reset token
    */
   async resetUserPassword(
     token: string,
     newPassword: string,
   ): Promise<PasswordResetResult> {
     try {
-      // Passwort validieren
+      // Validate password
       const passwordValidation = validatePassword(newPassword);
       if (!passwordValidation.valid) {
         return {
@@ -242,7 +241,7 @@ export class AuthService {
         success: true,
       };
     } catch (error) {
-      console.error("Fehler beim Zurücksetzen des Passworts:", error);
+      console.error("Error during password reset:", error);
       return {
         success: false,
         error: "auth.api.general_error",
@@ -251,7 +250,7 @@ export class AuthService {
   }
 
   /**
-   * Ändert das Passwort eines angemeldeten Benutzers
+   * Changes the password of a logged-in user
    */
   async changePassword(
     userId: string,
@@ -259,18 +258,17 @@ export class AuthService {
     newPassword: string,
   ): Promise<PasswordResetResult> {
     try {
-      // Passwort validieren
+      // Validate password
       const passwordValidation = validatePassword(newPassword);
       if (!passwordValidation.valid) {
         return {
           success: false,
-          error:
-            "Das neue Passwort erfüllt nicht die Sicherheitsanforderungen.",
+          error: "The new password does not meet the security requirements.",
           validationErrors: passwordValidation.errors,
         };
       }
 
-      // Benutzer und aktuelles Passwort überprüfen
+      // Verify user and current password
       const user = await getUserByEmail(userId);
       if (!user) {
         return {
@@ -287,7 +285,7 @@ export class AuthService {
         };
       }
 
-      // Passwort ändern
+      // Change password
       const success = await updatePassword(userId, newPassword);
       if (!success) {
         return {
@@ -300,7 +298,7 @@ export class AuthService {
         success: true,
       };
     } catch (error) {
-      console.error("Fehler beim Ändern des Passworts:", error);
+      console.error("Error during password change:", error);
       return {
         success: false,
         error: "auth.api.general_error",
@@ -309,14 +307,14 @@ export class AuthService {
   }
 
   /**
-   * Verifiziert ein Access-Token
+   * Verifies an access token
    */
   verifyToken(token: string): boolean {
     return verifyAccessToken(token) !== null;
   }
 
   /**
-   * Erneuert ein Access-Token mit einem Refresh-Token
+   * Refreshes an access token using a refresh token
    */
   async refreshToken(
     refreshToken: string,
@@ -330,7 +328,7 @@ export class AuthService {
         };
       }
 
-      // Benutzer überprüfen
+      // Verify user
       const user = await getUserByEmail(payload.email);
       if (!user) {
         return {
@@ -339,7 +337,7 @@ export class AuthService {
         };
       }
 
-      // Neues Access-Token generieren
+      // Generate new access token
       const accessToken = generateTokenPair(user).accessToken;
 
       return {
@@ -347,7 +345,7 @@ export class AuthService {
         accessToken,
       };
     } catch (error) {
-      console.error("Fehler beim Erneuern des Tokens:", error);
+      console.error("Error during token refresh:", error);
       return {
         success: false,
         error: "auth.api.general_error",
@@ -356,5 +354,5 @@ export class AuthService {
   }
 }
 
-// Exportiere eine Instanz des AuthService
+// Export an instance of AuthService
 export const authService = new AuthService();

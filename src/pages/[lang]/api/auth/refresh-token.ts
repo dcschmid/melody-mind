@@ -1,18 +1,37 @@
+/**
+ * Authentication Token Refresh API Endpoint
+ *
+ * This endpoint handles the refresh token mechanism in the MelodyMind application.
+ * It validates the refresh token from cookies and issues a new access token.
+ *
+ * @module auth/refresh-token
+ */
 import type { APIRoute } from "astro";
 import { authService } from "../../../../lib/auth/auth-service.js";
-import { getLangFromUrl, useTranslations } from "../../../../utils/i18n.js";
+import { useTranslations } from "../../../../utils/i18n.js";
 
+/**
+ * POST handler for token refresh endpoint
+ *
+ * @function POST
+ * @async
+ * @param {Object} context - The Astro API route context
+ * @param {Request} context.request - The HTTP request object
+ * @param {Object} context.params - URL parameters, including language code
+ * @returns {Promise<Response>} HTTP response with new access token or error
+ */
 export const POST: APIRoute = async ({ request, params }) => {
-  // Extrahiere die Sprache aus den URL-Parametern
+  // Extract language from URL parameters
   const lang = params.lang as string;
   const t = useTranslations(lang);
 
   try {
-    // Extrahiere das Refresh-Token aus dem Cookie
+    // Extract refresh token from cookie
     const cookies = request.headers.get("cookie") || "";
     const refreshTokenMatch = cookies.match(/refresh_token=([^;]+)/);
 
     if (!refreshTokenMatch || !refreshTokenMatch[1]) {
+      // Return 401 Unauthorized if no refresh token is present
       return new Response(
         JSON.stringify({
           success: false,
@@ -29,10 +48,11 @@ export const POST: APIRoute = async ({ request, params }) => {
 
     const refreshToken = refreshTokenMatch[1];
 
-    // Erneuere das Access-Token
+    // Renew the access token
     const result = await authService.refreshToken(refreshToken);
 
     if (!result.success) {
+      // Return 401 Unauthorized if token refresh fails
       return new Response(
         JSON.stringify({
           success: false,
@@ -47,9 +67,10 @@ export const POST: APIRoute = async ({ request, params }) => {
       );
     }
 
-    // Setze das neue Access-Token als Cookie
-    const accessTokenExpiry = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 Stunden
+    // Set the new access token as a cookie
+    const accessTokenExpiry = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
 
+    // Return successful response with new access token cookie
     return new Response(
       JSON.stringify({
         success: true,
@@ -64,7 +85,8 @@ export const POST: APIRoute = async ({ request, params }) => {
       },
     );
   } catch (error) {
-    console.error("Fehler beim Erneuern des Tokens:", error);
+    // Handle unexpected errors with 500 response
+    console.error("Error while renewing token:", error);
 
     return new Response(
       JSON.stringify({

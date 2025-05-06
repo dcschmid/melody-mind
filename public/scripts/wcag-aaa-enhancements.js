@@ -1,19 +1,19 @@
 /**
  * WCAG AAA Enhancements Script
  *
- * Dieses Skript implementiert erweiterte Zugänglichkeitsfunktionen für die Knowledge-Seite,
- * um die WCAG AAA Standards zu erfüllen. Es enthält:
+ * This script implements advanced accessibility features for the Knowledge page
+ * to meet WCAG AAA standards. It includes:
  *
- * 1. Focus Trap für das Suchfeld
- * 2. Erweiterte Tastatur-Shortcuts
- * 3. Verbesserte ARIA-Live-Regions
- * 4. Erweiterte Keyboard-Navigation
- * 5. Verbesserte ARIA-Live-Regions
- * 6. Erweiterte Keyboard-Navigation
+ * 1. Focus trap for the search field
+ * 2. Advanced keyboard shortcuts
+ * 3. Enhanced ARIA live regions
+ * 4. Advanced keyboard navigation
+ * 5. Enhanced ARIA live regions
+ * 6. Advanced keyboard navigation
  */
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Elemente für die Focus Trap
+  // Elements for the focus trap
   const searchInput = document.getElementById("searchInput");
   const resetSearchButton = document.getElementById("reset-search-inline");
   const articlesGrid = document.getElementById("articlesGrid");
@@ -21,32 +21,32 @@ document.addEventListener("DOMContentLoaded", function () {
   const noResults = document.getElementById("no-results");
   const backToTopButton = document.getElementById("back-to-top");
 
-  // Elemente für die Keyboard-Navigation
+  // Elements for keyboard navigation
   const allCards = Array.from(document.querySelectorAll(".knowledge-card"));
   let currentFocusIndex = -1;
 
-  // Implementiere Focus Trap für das Suchfeld
+  // Implement focus trap for the search field
   implementFocusTrap();
 
-  // Implementiere erweiterte Tastatur-Shortcuts
+  // Implement advanced keyboard shortcuts
   implementKeyboardShortcuts();
 
-  // Implementiere erweiterte Keyboard-Navigation
+  // Implement advanced keyboard navigation
   implementKeyboardNavigation();
 
-  // Verbessere ARIA-Live-Regions
+  // Enhance ARIA live regions
   enhanceAriaLiveRegions();
 
-  // Implementiere Skip-Links
+  // Implement skip links
   implementSkipLinks();
 
   /**
-   * Implementiert eine Focus Trap für das Suchfeld
+   * Implements a focus trap for the search field
    */
   function implementFocusTrap() {
     if (!searchInput || !resetSearchButton) return;
 
-    // Füge Event-Listener für Tab-Taste hinzu
+    // Add event listener for tab key
     searchInput.addEventListener("keydown", function (event) {
       if (event.key === "Tab" && !event.shiftKey) {
         event.preventDefault();
@@ -61,12 +61,12 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Verbessere Suchfeld-Interaktion
+    // Improve search field interaction
     searchInput.addEventListener("input", function () {
       const searchTerm = this.value.trim().toLowerCase();
       const matchCount = filterArticles(searchTerm);
 
-      // Aktualisiere ARIA-Live-Region
+      // Update ARIA live region
       if (searchTerm) {
         if (matchCount === 0) {
           searchStatus.textContent = `No articles found for "${searchTerm}"`;
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Reset-Button-Funktionalität
+    // Reset button functionality
     resetSearchButton.addEventListener("click", function () {
       searchInput.value = "";
       searchInput.focus();
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
       noResults.classList.add("hidden");
     });
 
-    // Zweiter Reset-Button (in der "No Results"-Nachricht)
+    // Second reset button (in the "No Results" message)
     const resetSearchNoResults = document.getElementById("reset-search");
     if (resetSearchNoResults) {
       resetSearchNoResults.addEventListener("click", function () {
@@ -104,9 +104,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /**
-   * Filtert Artikel basierend auf dem Suchbegriff
-   * @param {string} searchTerm - Der Suchbegriff
-   * @returns {number} - Die Anzahl der gefundenen Artikel
+   * Filters articles based on the search term
+   * @param {string} searchTerm - The search term
+   * @returns {number} - The number of matching articles
    */
   function filterArticles(searchTerm) {
     if (!articlesGrid) return 0;
@@ -139,25 +139,25 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /**
-   * Implementiert erweiterte Tastatur-Shortcuts
+   * Implements advanced keyboard shortcuts
    */
   function implementKeyboardShortcuts() {
     document.addEventListener("keydown", function (event) {
-      // Alt + S: Fokus auf Suchfeld setzen
+      // Alt + S: Focus on search field
       if (event.altKey && event.key === "s" && searchInput) {
         event.preventDefault();
         searchInput.focus();
         announceChange("Search field focused");
       }
 
-      // Alt + R: Suche zurücksetzen
+      // Alt + R: Reset search
       if (event.altKey && event.key === "r" && resetSearchButton) {
         event.preventDefault();
         resetSearchButton.click();
         announceChange("Search reset");
       }
 
-      // Alt + T: Zum Seitenanfang scrollen
+      // Alt + T: Scroll to top of page
       if (event.altKey && event.key === "t") {
         event.preventDefault();
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
         announceChange("Scrolled to top of page");
       }
 
-      // Alt + B: Zum Seitenende scrollen
+      // Alt + B: Scroll to bottom of page
       if (event.altKey && event.key === "b") {
         event.preventDefault();
         window.scrollTo({
@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
         announceChange("Scrolled to bottom of page");
       }
 
-      // Escape: Suche zurücksetzen und Fokus entfernen
+      // Escape: Reset search and remove focus
       if (event.key === "Escape" && document.activeElement === searchInput) {
         event.preventDefault();
         searchInput.value = "";
@@ -189,13 +189,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /**
-   * Implementiert erweiterte Keyboard-Navigation für die Artikel-Karten
+   * Implements advanced keyboard navigation for article cards
    */
   function implementKeyboardNavigation() {
     if (!articlesGrid) return;
 
     document.addEventListener("keydown", function (event) {
-      // Nur wenn der Fokus nicht auf einem Eingabefeld liegt
+      // Only if focus is not on an input field
       if (
         document.activeElement.tagName === "INPUT" ||
         document.activeElement.tagName === "TEXTAREA"
@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (visibleCards.length === 0) return;
 
-      // Finde den aktuellen Fokus-Index
+      // Find the current focus index
       currentFocusIndex = visibleCards.findIndex((card) =>
         card.contains(document.activeElement),
       );
@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
           break;
         case "ArrowDown":
           event.preventDefault();
-          // Anzahl der Karten pro Zeile bestimmen (basierend auf CSS Grid)
+          // Determine number of cards per row (based on CSS Grid)
           const cardsPerRow =
             getComputedStyle(articlesGrid).gridTemplateColumns.split(
               " ",
@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
           break;
         case "ArrowUp":
           event.preventDefault();
-          // Anzahl der Karten pro Zeile bestimmen (basierend auf CSS Grid)
+          // Determine number of cards per row (based on CSS Grid)
           const cardsPerRowUp =
             getComputedStyle(articlesGrid).gridTemplateColumns.split(
               " ",
@@ -270,35 +270,35 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /**
-   * Navigiert zwischen den Karten
-   * @param {number} direction - Die Richtung der Navigation (1 = vorwärts, -1 = rückwärts)
-   * @param {Array} visibleCards - Die sichtbaren Karten
+   * Navigates between cards
+   * @param {number} direction - The direction of navigation (1 = forward, -1 = backward)
+   * @param {Array} visibleCards - The visible cards
    */
   function navigateCards(direction, visibleCards) {
     if (visibleCards.length === 0) return;
 
-    // Wenn kein Element fokussiert ist, starte bei -1 oder am Ende
+    // If no element is focused, start at -1 or at the end
     if (currentFocusIndex === -1) {
       currentFocusIndex = direction > 0 ? -1 : visibleCards.length;
     }
 
-    // Berechne den neuen Index
+    // Calculate the new index
     let newIndex = currentFocusIndex + direction;
 
-    // Stelle sicher, dass der Index im gültigen Bereich liegt
+    // Ensure the index is within valid range
     if (newIndex < 0) {
       newIndex = visibleCards.length - 1;
     } else if (newIndex >= visibleCards.length) {
       newIndex = 0;
     }
 
-    // Fokussiere die neue Karte
+    // Focus the new card
     const cardToFocus =
       visibleCards[newIndex].querySelector("a") || visibleCards[newIndex];
     cardToFocus.focus();
     currentFocusIndex = newIndex;
 
-    // Scrolle die Karte ins Sichtfeld, falls nötig
+    // Scroll the card into view if necessary
     const cardRect = visibleCards[newIndex].getBoundingClientRect();
     const isInView =
       cardRect.top >= 0 &&
@@ -313,15 +313,15 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    // Aktualisiere ARIA-Live-Region
+    // Update ARIA live region
     announceChange(`Card ${newIndex + 1} of ${visibleCards.length} focused`);
   }
 
   /**
-   * Verbessert ARIA-Live-Regions für dynamische Updates
+   * Enhances ARIA live regions for dynamic updates
    */
   function enhanceAriaLiveRegions() {
-    // Erstelle eine globale ARIA-Live-Region für Ankündigungen
+    // Create a global ARIA live region for announcements
     const globalAnnouncer = document.createElement("div");
     globalAnnouncer.id = "global-announcer";
     globalAnnouncer.className = "sr-only";
@@ -329,12 +329,12 @@ document.addEventListener("DOMContentLoaded", function () {
     globalAnnouncer.setAttribute("aria-atomic", "true");
     document.body.appendChild(globalAnnouncer);
 
-    // Verbessere die bestehende ARIA-Live-Region für Suchergebnisse
+    // Enhance the existing ARIA live region for search results
     if (searchStatus) {
       searchStatus.setAttribute("aria-live", "assertive");
     }
 
-    // Füge Event-Listener für Scroll-Events hinzu, um den "Back to Top"-Button zu steuern
+    // Add event listener for scroll events to control the "Back to Top" button
     window.addEventListener("scroll", function () {
       if (!backToTopButton) return;
 
@@ -349,7 +349,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Füge Event-Listener für den "Back to Top"-Button hinzu
+    // Add event listener for the "Back to Top" button
     if (backToTopButton) {
       backToTopButton.addEventListener("click", function () {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -360,8 +360,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /**
-   * Kündigt eine Änderung über die ARIA-Live-Region an
-   * @param {string} message - Die Nachricht, die angekündigt werden soll
+   * Announces a change via the ARIA live region
+   * @param {string} message - The message to announce
    */
   function announceChange(message) {
     const announcer = document.getElementById("global-announcer");

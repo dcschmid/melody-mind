@@ -1,8 +1,26 @@
-import { turso } from "../../turso";
+/**
+ * Authentication Database Module
+ *
+ * This module handles all database operations related to user authentication for the MelodyMind application.
+ * It includes functions for user creation, verification, password management, and token generation.
+ *
+ * The module uses bcrypt for secure password hashing and UUID for generating unique tokens.
+ * All database operations are performed using the Turso database client.
+ */
+import { turso } from "../../turso.js";
 import { v4 as uuidv4 } from "uuid";
 import bcrypt from "bcryptjs";
 
-// Benutzertypen
+/**
+ * Represents a user in the system
+ * @typedef {Object} User
+ * @property {string} id - Unique identifier for the user
+ * @property {string} email - User's email address
+ * @property {string|null} username - User's optional username
+ * @property {boolean} emailVerified - Whether the user's email has been verified
+ * @property {Date} createdAt - When the user account was created
+ * @property {Date} updatedAt - When the user account was last updated
+ */
 export type User = {
   id: string;
   email: string;
@@ -12,23 +30,44 @@ export type User = {
   updatedAt: Date;
 };
 
+/**
+ * Extends the User type to include password hash
+ * @typedef {User & {passwordHash: string}} UserWithPassword
+ */
 export type UserWithPassword = User & {
   passwordHash: string;
 };
 
+/**
+ * Data structure for creating a new user
+ * @typedef {Object} NewUser
+ * @property {string} email - User's email address
+ * @property {string} password - User's plain text password (will be hashed before storage)
+ * @property {string} [username] - Optional username
+ */
 export type NewUser = {
   email: string;
   password: string;
   username?: string;
 };
 
-// Konstanten für Sicherheitseinstellungen
+// Security configuration constants
 const BCRYPT_SALT_ROUNDS = 12;
 const VERIFICATION_TOKEN_EXPIRES_HOURS = 24;
 const RESET_TOKEN_EXPIRES_HOURS = 1;
 
 /**
- * Erstellt einen neuen Benutzer in der Datenbank
+ * Creates a new user in the database
+ *
+ * This function:
+ * 1. Generates a unique ID for the user
+ * 2. Hashes the password using bcrypt
+ * 3. Creates a verification token for email confirmation
+ * 4. Inserts the user record into the database
+ *
+ * @param {NewUser} user - The user data to create
+ * @returns {Promise<User>} The created user object (without password)
+ * @throws {Error} If the user creation fails
  */
 export async function createUser(user: NewUser): Promise<User> {
   const id = uuidv4();
@@ -83,7 +122,10 @@ export async function createUser(user: NewUser): Promise<User> {
 }
 
 /**
- * Findet einen Benutzer anhand seiner E-Mail-Adresse
+ * Finds a user by their email address
+ *
+ * @param {string} email - The email address to search for (case-insensitive)
+ * @returns {Promise<UserWithPassword|null>} The user with password hash if found, null otherwise
  */
 export async function getUserByEmail(
   email: string,
@@ -124,7 +166,10 @@ export async function getUserByEmail(
 }
 
 /**
- * Findet einen Benutzer anhand seines Benutzernamens
+ * Finds a user by their username
+ *
+ * @param {string} username - The username to search for
+ * @returns {Promise<UserWithPassword|null>} The user with password hash if found, null otherwise
  */
 export async function getUserByUsername(
   username: string,
@@ -165,7 +210,11 @@ export async function getUserByUsername(
 }
 
 /**
- * Überprüft, ob das eingegebene Passwort mit dem gespeicherten Hash übereinstimmt
+ * Verifies if the provided password matches the stored hash for a user
+ *
+ * @param {UserWithPassword} user - The user object containing the password hash
+ * @param {string} password - The plain text password to verify
+ * @returns {Promise<boolean>} True if the password matches, false otherwise
  */
 export async function verifyPassword(
   user: UserWithPassword,
@@ -175,7 +224,13 @@ export async function verifyPassword(
 }
 
 /**
- * Generiert einen Verifizierungstoken für die E-Mail-Bestätigung
+ * Generates an email verification token for a user
+ *
+ * This token is used in the email verification process and expires after
+ * the configured time period (VERIFICATION_TOKEN_EXPIRES_HOURS).
+ *
+ * @param {string} userId - The ID of the user to generate a token for
+ * @returns {Promise<string>} The generated verification token
  */
 export async function generateEmailVerificationToken(
   userId: string,
@@ -203,7 +258,13 @@ export async function generateEmailVerificationToken(
 }
 
 /**
- * Verifiziert die E-Mail-Adresse eines Benutzers mit dem gegebenen Token
+ * Verifies a user's email using a verification token
+ *
+ * This function marks the user's email as verified if the token is valid and not expired.
+ * It also removes the verification token after successful verification.
+ *
+ * @param {string} token - The verification token to validate
+ * @returns {Promise<boolean>} True if verification was successful, false otherwise
  */
 export async function verifyEmail(token: string): Promise<boolean> {
   const query = `
@@ -227,7 +288,13 @@ export async function verifyEmail(token: string): Promise<boolean> {
 }
 
 /**
- * Generiert einen Token für das Zurücksetzen des Passworts
+ * Generates a password reset token for a user
+ *
+ * This token allows a user to reset their password and expires after
+ * the configured time period (RESET_TOKEN_EXPIRES_HOURS).
+ *
+ * @param {string} email - The email address of the user requesting a password reset
+ * @returns {Promise<string|null>} The generated reset token, or null if user not found
  */
 export async function generatePasswordResetToken(
   email: string,
@@ -261,7 +328,16 @@ export async function generatePasswordResetToken(
 }
 
 /**
- * Setzt das Passwort mit dem gegebenen Reset-Token zurück
+ * Resets a user's password using a valid reset token
+ *
+ * This function:
+ * 1. Verifies the reset token is valid and not expired
+ * 2. Hashes the new password
+ * 3. Updates the user's password and removes the reset token
+ *
+ * @param {string} token - The password reset token
+ * @param {string} newPassword - The new password to set
+ * @returns {Promise<boolean>} True if password reset was successful, false otherwise
  */
 export async function resetPassword(
   token: string,
@@ -290,7 +366,14 @@ export async function resetPassword(
 }
 
 /**
- * Aktualisiert das Passwort eines Benutzers
+ * Updates a user's password directly (when already authenticated)
+ *
+ * This function is typically used when a user is already logged in and wants
+ * to change their password, unlike resetPassword which is for forgotten passwords.
+ *
+ * @param {string} userId - The ID of the user whose password to update
+ * @param {string} newPassword - The new password to set
+ * @returns {Promise<boolean>} True if password update was successful, false otherwise
  */
 export async function updatePassword(
   userId: string,

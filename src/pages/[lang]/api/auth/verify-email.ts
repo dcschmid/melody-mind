@@ -1,17 +1,37 @@
+/**
+ * API Route: Email Verification Endpoint
+ *
+ * This endpoint handles the email verification process for user accounts.
+ * It processes verification tokens sent to users via email and updates
+ * their account status upon successful verification.
+ *
+ * Route: GET /[lang]/api/auth/verify-email
+ *
+ * URL Parameters:
+ * - lang: The language code for i18n translations
+ *
+ * Query Parameters:
+ * - token: The verification token sent to the user's email
+ *
+ * Response:
+ * - 200: Email successfully verified
+ * - 400: Invalid or missing token
+ * - 500: Server error during verification process
+ */
 import type { APIRoute } from "astro";
 import { authService } from "../../../../lib/auth/auth-service.js";
-import { getLangFromUrl, useTranslations } from "../../../../utils/i18n.js";
+import { useTranslations } from "../../../../utils/i18n.js";
 
 export const GET: APIRoute = async ({ request, url, params }) => {
-  // Extrahiere die Sprache aus den URL-Parametern
+  // Extract language from URL parameters
   const lang = params.lang as string;
   const t = useTranslations(lang);
 
   try {
-    // Extrahiere den Token aus den URL-Parametern
+    // Extract the verification token from the query parameters
     const token = url.searchParams.get("token");
 
-    // Validiere die Eingabe
+    // Validate the input
     if (!token) {
       return new Response(
         JSON.stringify({
@@ -27,7 +47,7 @@ export const GET: APIRoute = async ({ request, url, params }) => {
       );
     }
 
-    // Verifiziere die E-Mail-Adresse
+    // Verify the email address using the auth service
     const success = await authService.verifyUserEmail(token);
 
     if (!success) {
@@ -45,7 +65,7 @@ export const GET: APIRoute = async ({ request, url, params }) => {
       );
     }
 
-    // Erfolgreiche E-Mail-Verifizierung
+    // Email verification successful
     return new Response(
       JSON.stringify({
         success: true,
@@ -59,7 +79,7 @@ export const GET: APIRoute = async ({ request, url, params }) => {
       },
     );
   } catch (error) {
-    console.error("Fehler bei der E-Mail-Verifizierung:", error);
+    console.error("Error during email verification:", error);
 
     return new Response(
       JSON.stringify({
