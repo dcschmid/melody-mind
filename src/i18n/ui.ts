@@ -42,13 +42,19 @@ export const ui = {
     "auth.form.loading_text": "Wird geladen...",
     "auth.form.send_reset_link": "Zurücksetzen-Link senden",
     "auth.form.password_required": "Passwort ist erforderlich",
-    "auth.form.password_requirements": "Das Passwort erfüllt nicht alle Anforderungen",
-    "auth.form.password_confirm_required": "Passwortbestätigung ist erforderlich",
+    "auth.form.password_requirements":
+      "Das Passwort erfüllt nicht alle Anforderungen",
+    "auth.form.password_confirm_required":
+      "Passwortbestätigung ist erforderlich",
     "auth.form.passwords_not_match": "Die Passwörter stimmen nicht überein",
-    "auth.password_reset.success_message": "Wenn ein Konto mit dieser E-Mail-Adresse existiert, wurde eine E-Mail mit Anweisungen zum Zurücksetzen des Passworts gesendet.",
-    "auth.password_reset.error_message": "Ein Fehler ist aufgetreten. Bitte versuche es später erneut.",
-    "auth.password_reset.complete_success": "Passwort erfolgreich zurückgesetzt. Du kannst dich jetzt mit deinem neuen Passwort anmelden.",
-    "auth.password_reset.complete_error": "Passwort-Reset fehlgeschlagen. Bitte überprüfe deine Eingaben oder fordere einen neuen Reset-Link an.",
+    "auth.password_reset.success_message":
+      "Wenn ein Konto mit dieser E-Mail-Adresse existiert, wurde eine E-Mail mit Anweisungen zum Zurücksetzen des Passworts gesendet.",
+    "auth.password_reset.error_message":
+      "Ein Fehler ist aufgetreten. Bitte versuche es später erneut.",
+    "auth.password_reset.complete_success":
+      "Passwort erfolgreich zurückgesetzt. Du kannst dich jetzt mit deinem neuen Passwort anmelden.",
+    "auth.password_reset.complete_error":
+      "Passwort-Reset fehlgeschlagen. Bitte überprüfe deine Eingaben oder fordere einen neuen Reset-Link an.",
 
     "auth.register.name": "Vollständiger Name",
     "auth.register.email": "E-Mail-Adresse",
@@ -412,7 +418,7 @@ export const ui = {
       "Versuche andere Suchbegriffe oder setze die Suche zurück",
     "knowledge.keyboard.instructions":
       "Verwende die Pfeiltasten zur Navigation zwischen Artikeln. Drücke Enter, um einen Artikel zu öffnen.",
-    "difficulty.level": "Schwierigkeitsgrad"
+    "difficulty.level": "Schwierigkeitsgrad",
   },
   en: {
     // Auth-Komponenten
@@ -434,13 +440,18 @@ export const ui = {
     "auth.form.loading_text": "Loading...",
     "auth.form.send_reset_link": "Send Reset Link",
     "auth.form.password_required": "Password is required",
-    "auth.form.password_requirements": "Password does not meet all requirements",
+    "auth.form.password_requirements":
+      "Password does not meet all requirements",
     "auth.form.password_confirm_required": "Password confirmation is required",
     "auth.form.passwords_not_match": "Passwords do not match",
-    "auth.password_reset.success_message": "If an account with this email exists, we've sent instructions to reset your password.",
-    "auth.password_reset.error_message": "An error occurred. Please try again later.",
-    "auth.password_reset.complete_success": "Password successfully reset. You can now log in with your new password.",
-    "auth.password_reset.complete_error": "Password reset failed. Please check your inputs or request a new reset link.",
+    "auth.password_reset.success_message":
+      "If an account with this email exists, we've sent instructions to reset your password.",
+    "auth.password_reset.error_message":
+      "An error occurred. Please try again later.",
+    "auth.password_reset.complete_success":
+      "Password successfully reset. You can now log in with your new password.",
+    "auth.password_reset.complete_error":
+      "Password reset failed. Please check your inputs or request a new reset link.",
 
     "nav.home": "Home",
     "nav.rules": "Rules",
@@ -730,13 +741,19 @@ export const ui = {
     "auth.form.loading_text": "Cargando...",
     "auth.form.send_reset_link": "Enviar enlace de restablecimiento",
     "auth.form.password_required": "Se requiere contraseña",
-    "auth.form.password_requirements": "La contraseña no cumple con todos los requisitos",
-    "auth.form.password_confirm_required": "Se requiere confirmación de contraseña",
+    "auth.form.password_requirements":
+      "La contraseña no cumple con todos los requisitos",
+    "auth.form.password_confirm_required":
+      "Se requiere confirmación de contraseña",
     "auth.form.passwords_not_match": "Las contraseñas no coinciden",
-    "auth.password_reset.success_message": "Si existe una cuenta con este correo electrónico, hemos enviado instrucciones para restablecer tu contraseña.",
-    "auth.password_reset.error_message": "Ha ocurrido un error. Por favor, inténtalo de nuevo más tarde.",
-    "auth.password_reset.complete_success": "Contraseña restablecida con éxito. Ahora puedes iniciar sesión con tu nueva contraseña.",
-    "auth.password_reset.complete_error": "Error al restablecer la contraseña. Por favor, verifica tus datos o solicita un nuevo enlace de restablecimiento.",
+    "auth.password_reset.success_message":
+      "Si existe una cuenta con este correo electrónico, hemos enviado instrucciones para restablecer tu contraseña.",
+    "auth.password_reset.error_message":
+      "Ha ocurrido un error. Por favor, inténtalo de nuevo más tarde.",
+    "auth.password_reset.complete_success":
+      "Contraseña restablecida con éxito. Ahora puedes iniciar sesión con tu nueva contraseña.",
+    "auth.password_reset.complete_error":
+      "Error al restablecer la contraseña. Por favor, verifica tus datos o solicita un nuevo enlace de restablecimiento.",
 
     "auth.login.email": "Correo electrónico",
     "auth.login.email.placeholder": "Introduce tu correo electrónico",
@@ -1125,13 +1142,19 @@ export const ui = {
     "auth.form.loading_text": "Chargement...",
     "auth.form.send_reset_link": "Envoyer le lien de réinitialisation",
     "auth.form.password_required": "Le mot de passe est requis",
-    "auth.form.password_requirements": "Le mot de passe ne répond pas à toutes les exigences",
-    "auth.form.password_confirm_required": "La confirmation du mot de passe est requise",
+    "auth.form.password_requirements":
+      "Le mot de passe ne répond pas à toutes les exigences",
+    "auth.form.password_confirm_required":
+      "La confirmation du mot de passe est requise",
     "auth.form.passwords_not_match": "Les mots de passe ne correspondent pas",
-    "auth.password_reset.success_message": "Si un compte existe avec cette adresse e-mail, nous avons envoyé des instructions pour réinitialiser votre mot de passe.",
-    "auth.password_reset.error_message": "Une erreur s'est produite. Veuillez réessayer plus tard.",
-    "auth.password_reset.complete_success": "Mot de passe réinitialisé avec succès. Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.",
-    "auth.password_reset.complete_error": "Échec de la réinitialisation du mot de passe. Veuillez vérifier vos informations ou demander un nouveau lien de réinitialisation.",
+    "auth.password_reset.success_message":
+      "Si un compte existe avec cette adresse e-mail, nous avons envoyé des instructions pour réinitialiser votre mot de passe.",
+    "auth.password_reset.error_message":
+      "Une erreur s'est produite. Veuillez réessayer plus tard.",
+    "auth.password_reset.complete_success":
+      "Mot de passe réinitialisé avec succès. Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.",
+    "auth.password_reset.complete_error":
+      "Échec de la réinitialisation du mot de passe. Veuillez vérifier vos informations ou demander un nouveau lien de réinitialisation.",
 
     "auth.login.email": "Adresse e-mail",
     "auth.login.email.placeholder": "Saisissez votre adresse e-mail",
@@ -1518,13 +1541,19 @@ export const ui = {
     "auth.form.loading_text": "Caricamento...",
     "auth.form.send_reset_link": "Invia link di reimpostazione",
     "auth.form.password_required": "La password è obbligatoria",
-    "auth.form.password_requirements": "La password non soddisfa tutti i requisiti",
-    "auth.form.password_confirm_required": "La conferma della password è obbligatoria",
+    "auth.form.password_requirements":
+      "La password non soddisfa tutti i requisiti",
+    "auth.form.password_confirm_required":
+      "La conferma della password è obbligatoria",
     "auth.form.passwords_not_match": "Le password non corrispondono",
-    "auth.password_reset.success_message": "Se esiste un account con questa email, abbiamo inviato le istruzioni per reimpostare la password.",
-    "auth.password_reset.error_message": "Si è verificato un errore. Riprova più tardi.",
-    "auth.password_reset.complete_success": "Password reimpostata con successo. Ora puoi accedere con la tua nuova password.",
-    "auth.password_reset.complete_error": "Reimpostazione della password fallita. Verifica i tuoi dati o richiedi un nuovo link di reimpostazione.",
+    "auth.password_reset.success_message":
+      "Se esiste un account con questa email, abbiamo inviato le istruzioni per reimpostare la password.",
+    "auth.password_reset.error_message":
+      "Si è verificato un errore. Riprova più tardi.",
+    "auth.password_reset.complete_success":
+      "Password reimpostata con successo. Ora puoi accedere con la tua nuova password.",
+    "auth.password_reset.complete_error":
+      "Reimpostazione della password fallita. Verifica i tuoi dati o richiedi un nuovo link di reimpostazione.",
 
     "auth.login.email": "Indirizzo email",
     "auth.login.email.placeholder": "Inserisci il tuo indirizzo email",
@@ -1906,13 +1935,19 @@ export const ui = {
     "auth.form.loading_text": "Carregando...",
     "auth.form.send_reset_link": "Enviar link de redefinição",
     "auth.form.password_required": "A senha é obrigatória",
-    "auth.form.password_requirements": "A senha não atende a todos os requisitos",
-    "auth.form.password_confirm_required": "A confirmação da senha é obrigatória",
+    "auth.form.password_requirements":
+      "A senha não atende a todos os requisitos",
+    "auth.form.password_confirm_required":
+      "A confirmação da senha é obrigatória",
     "auth.form.passwords_not_match": "As senhas não coincidem",
-    "auth.password_reset.success_message": "Se existir uma conta com este e-mail, enviamos instruções para redefinir sua senha.",
-    "auth.password_reset.error_message": "Ocorreu um erro. Por favor, tente novamente mais tarde.",
-    "auth.password_reset.complete_success": "Senha redefinida com sucesso. Agora você pode entrar com sua nova senha.",
-    "auth.password_reset.complete_error": "Falha na redefinição da senha. Verifique suas informações ou solicite um novo link de redefinição.",
+    "auth.password_reset.success_message":
+      "Se existir uma conta com este e-mail, enviamos instruções para redefinir sua senha.",
+    "auth.password_reset.error_message":
+      "Ocorreu um erro. Por favor, tente novamente mais tarde.",
+    "auth.password_reset.complete_success":
+      "Senha redefinida com sucesso. Agora você pode entrar com sua nova senha.",
+    "auth.password_reset.complete_error":
+      "Falha na redefinição da senha. Verifique suas informações ou solicite um novo link de redefinição.",
 
     "auth.login.email": "E-mail",
     "auth.login.email.placeholder": "Digite seu e-mail",
@@ -2291,12 +2326,17 @@ export const ui = {
     "auth.form.send_reset_link": "Send nulstillingslink",
     "auth.form.password_required": "Adgangskode er påkrævet",
     "auth.form.password_requirements": "Adgangskoden opfylder ikke alle krav",
-    "auth.form.password_confirm_required": "Bekræftelse af adgangskode er påkrævet",
+    "auth.form.password_confirm_required":
+      "Bekræftelse af adgangskode er påkrævet",
     "auth.form.passwords_not_match": "Adgangskoderne stemmer ikke overens",
-    "auth.password_reset.success_message": "Hvis der findes en konto med denne e-mail, har vi sendt instruktioner til at nulstille din adgangskode.",
-    "auth.password_reset.error_message": "Der opstod en fejl. Prøv igen senere.",
-    "auth.password_reset.complete_success": "Adgangskode nulstillet med succes. Du kan nu logge ind med din nye adgangskode.",
-    "auth.password_reset.complete_error": "Nulstilling af adgangskode mislykkedes. Kontroller dine oplysninger eller anmod om et nyt nulstillingslink.",
+    "auth.password_reset.success_message":
+      "Hvis der findes en konto med denne e-mail, har vi sendt instruktioner til at nulstille din adgangskode.",
+    "auth.password_reset.error_message":
+      "Der opstod en fejl. Prøv igen senere.",
+    "auth.password_reset.complete_success":
+      "Adgangskode nulstillet med succes. Du kan nu logge ind med din nye adgangskode.",
+    "auth.password_reset.complete_error":
+      "Nulstilling af adgangskode mislykkedes. Kontroller dine oplysninger eller anmod om et nyt nulstillingslink.",
 
     "auth.login.email": "E-mail",
     "auth.login.email.placeholder": "Indtast din e-mail",
@@ -2667,13 +2707,18 @@ export const ui = {
     "auth.form.loading_text": "Laden...",
     "auth.form.send_reset_link": "Resetlink verzenden",
     "auth.form.password_required": "Wachtwoord is vereist",
-    "auth.form.password_requirements": "Wachtwoord voldoet niet aan alle vereisten",
+    "auth.form.password_requirements":
+      "Wachtwoord voldoet niet aan alle vereisten",
     "auth.form.password_confirm_required": "Wachtwoordbevestiging is vereist",
     "auth.form.passwords_not_match": "Wachtwoorden komen niet overeen",
-    "auth.password_reset.success_message": "Als er een account bestaat met dit e-mailadres, hebben we instructies verzonden om je wachtwoord opnieuw in te stellen.",
-    "auth.password_reset.error_message": "Er is een fout opgetreden. Probeer het later opnieuw.",
-    "auth.password_reset.complete_success": "Wachtwoord succesvol gereset. Je kunt nu inloggen met je nieuwe wachtwoord.",
-    "auth.password_reset.complete_error": "Wachtwoordreset mislukt. Controleer je gegevens of vraag een nieuwe resetlink aan.",
+    "auth.password_reset.success_message":
+      "Als er een account bestaat met dit e-mailadres, hebben we instructies verzonden om je wachtwoord opnieuw in te stellen.",
+    "auth.password_reset.error_message":
+      "Er is een fout opgetreden. Probeer het later opnieuw.",
+    "auth.password_reset.complete_success":
+      "Wachtwoord succesvol gereset. Je kunt nu inloggen met je nieuwe wachtwoord.",
+    "auth.password_reset.complete_error":
+      "Wachtwoordreset mislukt. Controleer je gegevens of vraag een nieuwe resetlink aan.",
 
     "auth.login.email": "E-mailadres",
     "auth.login.email.placeholder": "Voer je e-mailadres in",
@@ -3045,10 +3090,14 @@ export const ui = {
     "auth.form.password_requirements": "Lösenordet uppfyller inte alla krav",
     "auth.form.password_confirm_required": "Lösenordsbekräftelse krävs",
     "auth.form.passwords_not_match": "Lösenorden matchar inte",
-    "auth.password_reset.success_message": "Om det finns ett konto med denna e-postadress har vi skickat instruktioner för att återställa ditt lösenord.",
-    "auth.password_reset.error_message": "Ett fel har uppstått. Försök igen senare.",
-    "auth.password_reset.complete_success": "Lösenordet har återställts. Du kan nu logga in med ditt nya lösenord.",
-    "auth.password_reset.complete_error": "Lösenordsåterställning misslyckades. Kontrollera dina uppgifter eller begär en ny återställningslänk.",
+    "auth.password_reset.success_message":
+      "Om det finns ett konto med denna e-postadress har vi skickat instruktioner för att återställa ditt lösenord.",
+    "auth.password_reset.error_message":
+      "Ett fel har uppstått. Försök igen senare.",
+    "auth.password_reset.complete_success":
+      "Lösenordet har återställts. Du kan nu logga in med ditt nya lösenord.",
+    "auth.password_reset.complete_error":
+      "Lösenordsåterställning misslyckades. Kontrollera dina uppgifter eller begär en ny återställningslänk.",
 
     "auth.login.email": "E-postadress",
     "auth.login.email.placeholder": "Ange din e-postadress",
@@ -3758,12 +3807,11 @@ export const ui = {
       "Artikkelit suodattuvat automaattisesti kirjoittaessasi",
     "knowledge.search.reset": "Nollaa haku",
     "knowledge.search.reset.text": "Nollaa",
-    "knowledge.no.results.help":
-      "Kokeile eri hakusanoja tai nollaa haku",
+    "knowledge.no.results.help": "Kokeile eri hakusanoja tai nollaa haku",
     "knowledge.keyboard.instructions":
       "Käytä nuolinäppäimiä navigoidaksesi artikkeleiden välillä. Paina Enter avataksesi artikkelin.",
     "difficulty.level": "Vaikeustaso",
-    
+
     // Neue Übersetzungsschlüssel für Finnisch
     "auth.form.email_required": "Sähköpostiosoite vaaditaan",
     "auth.form.email_invalid_short": "Virheellinen sähköpostiosoite",
@@ -3773,10 +3821,13 @@ export const ui = {
     "auth.form.password_requirements": "Salasana ei täytä kaikkia vaatimuksia",
     "auth.form.password_confirm_required": "Salasanan vahvistus vaaditaan",
     "auth.form.passwords_not_match": "Salasanat eivät täsmää",
-    "auth.password_reset.success_message": "Jos tällä sähköpostiosoitteella on tili, olemme lähettäneet ohjeet salasanan palauttamiseksi.",
-    "auth.password_reset.error_message": "Tapahtui virhe. Yritä myöhemmin uudelleen.",
-    "auth.password_reset.complete_success": "Salasana palautettu onnistuneesti. Voit nyt kirjautua sisään uudella salasanallasi.",
-    "auth.password_reset.complete_error": "Salasanan palautus epäonnistui. Tarkista syöttämäsi tiedot tai pyydä uusi palautuslinkki."
+    "auth.password_reset.success_message":
+      "Jos tällä sähköpostiosoitteella on tili, olemme lähettäneet ohjeet salasanan palauttamiseksi.",
+    "auth.password_reset.error_message":
+      "Tapahtui virhe. Yritä myöhemmin uudelleen.",
+    "auth.password_reset.complete_success":
+      "Salasana palautettu onnistuneesti. Voit nyt kirjautua sisään uudella salasanallasi.",
+    "auth.password_reset.complete_error":
+      "Salasanan palautus epäonnistui. Tarkista syöttämäsi tiedot tai pyydä uusi palautuslinkki.",
   },
-  
 };
