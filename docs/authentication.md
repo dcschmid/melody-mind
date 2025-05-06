@@ -1,60 +1,60 @@
-# Authentifizierungssystem für Melody Mind
+# Authentication System for Melody Mind
 
-Diese Dokumentation beschreibt das implementierte Authentifizierungssystem für Melody Mind, das auf Astro und Turso DB basiert.
+This documentation describes the implemented authentication system for Melody Mind, which is based on Astro and Turso DB.
 
-## Überblick
+## Overview
 
-Das Authentifizierungssystem bietet folgende Funktionen:
+The authentication system provides the following features:
 
-- Benutzerregistrierung mit E-Mail und Passwort
-- Sichere Passwortvalidierung und -speicherung
-- E-Mail-Verifizierung
-- Anmeldung mit E-Mail und Passwort
-- Session-Management mit JWT (JSON Web Tokens)
-- Passwort-Reset-Funktionalität
-- CSRF-Schutz
-- Rate-Limiting für Login-Versuche
-- Middleware für geschützte Routen
-- Rollenbasierte Zugriffssteuerung
+- User registration with email and password
+- Secure password validation and storage
+- Email verification
+- Login with email and password
+- Session management with JWT (JSON Web Tokens)
+- Password reset functionality
+- CSRF protection
+- Rate limiting for login attempts
+- Middleware for protected routes
+- Role-based access control
 
-## Architektur
+## Architecture
 
-Das Authentifizierungssystem besteht aus mehreren Komponenten:
+The authentication system consists of several components:
 
-1. **Datenbankschicht**: Implementiert in `src/lib/auth/db.ts`, bietet grundlegende Funktionen für Benutzeroperationen.
-2. **JWT-Handling**: Implementiert in `src/lib/auth/jwt.ts`, verwaltet die Generierung und Validierung von JWT-Tokens.
-3. **CSRF-Schutz**: Implementiert in `src/lib/auth/csrf.ts`, bietet Schutz vor Cross-Site Request Forgery.
-4. **Rate-Limiting**: Implementiert in `src/lib/auth/rate-limit.ts`, schützt vor Brute-Force-Angriffen.
-5. **Passwortvalidierung**: Implementiert in `src/lib/auth/password-validation.ts`, stellt sicher, dass Passwörter den Sicherheitsanforderungen entsprechen.
-6. **Middleware**: Implementiert in `src/lib/auth/middleware.ts`, bietet Funktionen zum Schutz von Routen.
-7. **Auth-Service**: Implementiert in `src/lib/auth/auth-service.ts`, fasst alle Authentifizierungsfunktionen zusammen.
-8. **API-Endpoints**: Implementiert in `src/pages/api/auth/`, bieten REST-Schnittstellen für Authentifizierungsoperationen.
+1. **Database Layer**: Implemented in `src/lib/auth/db.ts`, provides basic functions for user operations.
+2. **JWT Handling**: Implemented in `src/lib/auth/jwt.ts`, manages generation and validation of JWT tokens.
+3. **CSRF Protection**: Implemented in `src/lib/auth/csrf.ts`, provides protection against Cross-Site Request Forgery.
+4. **Rate Limiting**: Implemented in `src/lib/auth/rate-limit.ts`, protects against brute force attacks.
+5. **Password Validation**: Implemented in `src/lib/auth/password-validation.ts`, ensures passwords meet security requirements.
+6. **Middleware**: Implemented in `src/lib/auth/middleware.ts`, provides functions to protect routes.
+7. **Auth Service**: Implemented in `src/lib/auth/auth-service.ts`, combines all authentication functions.
+8. **API Endpoints**: Implemented in `src/pages/api/auth/`, provide REST interfaces for authentication operations.
 
-## Datenmodell
+## Data Model
 
-Das Authentifizierungssystem verwendet die `users`-Tabelle in der Turso-Datenbank mit folgenden Feldern:
+The authentication system uses the `users` table in the Turso database with the following fields:
 
-- `id`: Primärschlüssel, UUID als String
-- `email`: E-Mail-Adresse des Benutzers (unique)
-- `password_hash`: Bcrypt-gehashtes Passwort
-- `username`: Optionaler Benutzername
-- `email_verified`: Status der E-Mail-Verifizierung
-- `verification_token`: Token für die E-Mail-Verifizierung
-- `verification_token_expires_at`: Ablaufzeit des Verifizierungstokens
-- `reset_token`: Token für das Zurücksetzen des Passworts
-- `reset_token_expires_at`: Ablaufzeit des Reset-Tokens
-- `created_at`: Erstellungszeitpunkt
-- `updated_at`: Letzter Aktualisierungszeitpunkt
+- `id`: Primary key, UUID as string
+- `email`: User's email address (unique)
+- `password_hash`: Bcrypt-hashed password
+- `username`: Optional username
+- `email_verified`: Email verification status
+- `verification_token`: Token for email verification
+- `verification_token_expires_at`: Expiration time of the verification token
+- `reset_token`: Token for password reset
+- `reset_token_expires_at`: Expiration time of the reset token
+- `created_at`: Creation timestamp
+- `updated_at`: Last update timestamp
 
-## API-Endpoints
+## API Endpoints
 
-Das Authentifizierungssystem bietet folgende API-Endpoints:
+The authentication system provides the following API endpoints:
 
 ### POST /api/auth/register
 
-Registriert einen neuen Benutzer.
+Registers a new user.
 
-**Request-Body:**
+**Request Body:**
 
 ```json
 {
@@ -64,7 +64,7 @@ Registriert einen neuen Benutzer.
 }
 ```
 
-**Erfolgreiche Antwort (201):**
+**Successful Response (201):**
 
 ```json
 {
@@ -77,15 +77,15 @@ Registriert einen neuen Benutzer.
     "createdAt": "2025-05-05T18:00:00.000Z",
     "updatedAt": "2025-05-05T18:00:00.000Z"
   },
-  "message": "Registrierung erfolgreich. Bitte überprüfe dein E-Mail-Postfach, um deine E-Mail-Adresse zu bestätigen."
+  "message": "Registration successful. Please check your email to confirm your email address."
 }
 ```
 
 ### POST /api/auth/login
 
-Meldet einen Benutzer an.
+Logs in a user.
 
-**Request-Body:**
+**Request Body:**
 
 ```json
 {
@@ -94,7 +94,7 @@ Meldet einen Benutzer an.
 }
 ```
 
-**Erfolgreiche Antwort (200):**
+**Successful Response (200):**
 
 ```json
 {
@@ -111,32 +111,32 @@ Meldet einen Benutzer an.
 }
 ```
 
-Die Antwort setzt auch folgende Cookies:
+The response also sets the following cookies:
 
-- `access_token`: JWT-Token für die Authentifizierung (HttpOnly)
-- `refresh_token`: Token zum Erneuern des Access-Tokens (HttpOnly)
-- `csrf_token`: Token zum Schutz vor CSRF-Angriffen
+- `access_token`: JWT token for authentication (HttpOnly)
+- `refresh_token`: Token to renew the access token (HttpOnly)
+- `csrf_token`: Token to protect against CSRF attacks
 
 ### POST /api/auth/logout
 
-Meldet einen Benutzer ab.
+Logs out a user.
 
-**Erfolgreiche Antwort (200):**
+**Successful Response (200):**
 
 ```json
 {
   "success": true,
-  "message": "Erfolgreich abgemeldet"
+  "message": "Successfully logged out"
 }
 ```
 
-Die Antwort löscht auch die Authentifizierungs-Cookies.
+The response also deletes the authentication cookies.
 
 ### POST /api/auth/reset-password
 
-Fordert einen Passwort-Reset an.
+Requests a password reset.
 
-**Request-Body:**
+**Request Body:**
 
 ```json
 {
@@ -144,20 +144,20 @@ Fordert einen Passwort-Reset an.
 }
 ```
 
-**Erfolgreiche Antwort (200):**
+**Successful Response (200):**
 
 ```json
 {
   "success": true,
-  "message": "Wenn ein Konto mit dieser E-Mail-Adresse existiert, wurde eine E-Mail mit Anweisungen zum Zurücksetzen des Passworts gesendet."
+  "message": "If an account with this email exists, an email with instructions to reset your password has been sent."
 }
 ```
 
 ### PUT /api/auth/reset-password
 
-Setzt das Passwort mit einem Reset-Token zurück.
+Resets the password using a reset token.
 
-**Request-Body:**
+**Request Body:**
 
 ```json
 {
@@ -166,50 +166,50 @@ Setzt das Passwort mit einem Reset-Token zurück.
 }
 ```
 
-**Erfolgreiche Antwort (200):**
+**Successful Response (200):**
 
 ```json
 {
   "success": true,
-  "message": "Passwort erfolgreich zurückgesetzt. Du kannst dich jetzt mit deinem neuen Passwort anmelden."
+  "message": "Password successfully reset. You can now log in with your new password."
 }
 ```
 
 ### GET /api/auth/verify-email
 
-Verifiziert die E-Mail-Adresse eines Benutzers.
+Verifies a user's email address.
 
-**Query-Parameter:**
+**Query Parameters:**
 
-- `token`: Verifizierungstoken
+- `token`: Verification token
 
-**Erfolgreiche Antwort (200):**
+**Successful Response (200):**
 
 ```json
 {
   "success": true,
-  "message": "E-Mail-Adresse erfolgreich verifiziert. Du kannst dich jetzt anmelden."
+  "message": "Email address successfully verified. You can now log in."
 }
 ```
 
 ### POST /api/auth/refresh-token
 
-Erneuert das Access-Token mit einem Refresh-Token.
+Renews the access token using a refresh token.
 
-**Erfolgreiche Antwort (200):**
+**Successful Response (200):**
 
 ```json
 {
   "success": true,
-  "message": "Token erfolgreich erneuert"
+  "message": "Token successfully renewed"
 }
 ```
 
-Die Antwort setzt auch ein neues `access_token`-Cookie.
+The response also sets a new `access_token` cookie.
 
-## Geschützte Routen
+## Protected Routes
 
-Um eine Route zu schützen, verwende die `protectRoute`-Middleware:
+To protect a route, use the `protectRoute` middleware:
 
 ```typescript
 import { protectRoute } from "../../lib/auth/middleware";
@@ -232,68 +232,68 @@ export const GET: APIRoute = async ({ request }) => {
     );
   }
 
-  // Geschützte Logik hier...
+  // Protected logic here...
 };
 ```
 
-Für rollenbasierte Zugriffssteuerung:
+For role-based access control:
 
 ```typescript
 const authResult = await protectRoute(request, "admin");
 ```
 
-## Sicherheitsaspekte
+## Security Aspects
 
-### Passwort-Hashing
+### Password Hashing
 
-Passwörter werden mit bcrypt gehasht, einem sicheren und bewährten Algorithmus für Passwort-Hashing. Der Salt-Faktor ist auf 12 gesetzt, was einen guten Kompromiss zwischen Sicherheit und Performance darstellt.
+Passwords are hashed using bcrypt, a secure and proven algorithm for password hashing. The salt factor is set to 12, which represents a good compromise between security and performance.
 
-### Passwortvalidierung
+### Password Validation
 
-Die Passwortvalidierung stellt sicher, dass Passwörter den folgenden Anforderungen entsprechen:
+The password validation ensures that passwords meet the following requirements:
 
-- Mindestlänge von 8 Zeichen
-- Mindestens ein Großbuchstabe
-- Mindestens ein Kleinbuchstabe
-- Mindestens eine Zahl
-- Mindestens ein Sonderzeichen
-- Keine häufig verwendeten Passwörter
-- Keine dreifachen Wiederholungen desselben Zeichens
-- Keine einfachen Sequenzen
+- Minimum length of 8 characters
+- At least one uppercase letter
+- At least one lowercase letter
+- At least one number
+- At least one special character
+- No commonly used passwords
+- No triple repetitions of the same character
+- No simple sequences
 
-### Token-Sicherheit
+### Token Security
 
-- JWT-Tokens haben eine begrenzte Gültigkeitsdauer (24 Stunden für Access-Tokens, 7 Tage für Refresh-Tokens).
-- Verifizierungs- und Reset-Tokens sind UUIDs mit begrenzter Gültigkeitsdauer (24 Stunden für Verifizierungstokens, 1 Stunde für Reset-Tokens).
+- JWT tokens have a limited validity period (24 hours for access tokens, 7 days for refresh tokens).
+- Verification and reset tokens are UUIDs with limited validity (24 hours for verification tokens, 1 hour for reset tokens).
 
-### CSRF-Schutz
+### CSRF Protection
 
-Der CSRF-Schutz verwendet einen doppelten Token-Ansatz:
+The CSRF protection uses a double token approach:
 
-- Ein Token im Cookie (`csrf_token`)
-- Derselbe Token im Header (`x-csrf-token`)
+- A token in the cookie (`csrf_token`)
+- The same token in the header (`x-csrf-token`)
 
-Alle Mutationsanfragen (POST, PUT, DELETE) müssen ein gültiges CSRF-Token im Header enthalten.
+All mutation requests (POST, PUT, DELETE) must include a valid CSRF token in the header.
 
-### Rate-Limiting
+### Rate Limiting
 
-Das Rate-Limiting für Login-Versuche begrenzt die Anzahl der fehlgeschlagenen Anmeldeversuche auf 5 innerhalb von 15 Minuten. Nach Überschreitung des Limits wird die IP-Adresse für 1 Stunde gesperrt.
+Rate limiting for login attempts limits the number of failed login attempts to 5 within 15 minutes. After exceeding the limit, the IP address is blocked for 1 hour.
 
-## Umgebungsvariablen
+## Environment Variables
 
-Das Authentifizierungssystem verwendet folgende Umgebungsvariablen:
+The authentication system uses the following environment variables:
 
-- `TURSO_DATABASE_URL`: URL der Turso-Datenbank
-- `TURSO_AUTH_TOKEN`: Authentifizierungstoken für die Turso-Datenbank
-- `JWT_SECRET`: Geheimer Schlüssel für JWT-Tokens
-- `CSRF_SECRET`: Geheimer Schlüssel für CSRF-Tokens
+- `TURSO_DATABASE_URL`: URL of the Turso database
+- `TURSO_AUTH_TOKEN`: Authentication token for the Turso database
+- `JWT_SECRET`: Secret key for JWT tokens
+- `CSRF_SECRET`: Secret key for CSRF tokens
 
 ## Best Practices
 
-1. **Sichere Passwörter**: Verwende die Passwortvalidierung, um sicherzustellen, dass Benutzer sichere Passwörter wählen.
-2. **E-Mail-Verifizierung**: Aktiviere die E-Mail-Verifizierung, um sicherzustellen, dass Benutzer Zugriff auf die angegebene E-Mail-Adresse haben.
-3. **HTTPS**: Verwende immer HTTPS für die Übertragung von Authentifizierungsdaten.
-4. **Session-Management**: Implementiere sicheres Session-Management mit kurzen Session-Timeouts.
-5. **Logging**: Protokolliere Authentifizierungsereignisse für Audit-Zwecke.
-6. **Fehlerbehandlung**: Gib keine detaillierten Fehlerinformationen preis, die von Angreifern ausgenutzt werden könnten.
-7. **Regelmäßige Updates**: Halte alle Abhängigkeiten auf dem neuesten Stand, um bekannte Sicherheitslücken zu vermeiden.
+1. **Secure Passwords**: Use password validation to ensure users choose secure passwords.
+2. **Email Verification**: Enable email verification to ensure users have access to the provided email address.
+3. **HTTPS**: Always use HTTPS for transmitting authentication data.
+4. **Session Management**: Implement secure session management with short session timeouts.
+5. **Logging**: Log authentication events for audit purposes.
+6. **Error Handling**: Do not disclose detailed error information that could be exploited by attackers.
+7. **Regular Updates**: Keep all dependencies up to date to avoid known security vulnerabilities.

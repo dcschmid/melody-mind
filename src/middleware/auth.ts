@@ -1,53 +1,52 @@
 import { verifyAccessToken } from "../lib/auth/jwt.js";
-import type { JwtPayload } from "../lib/auth/jwt.js";
 
 /**
- * Prüft, ob ein gültiger JWT-Token in den Cookies vorhanden ist
- * und leitet bei fehlendem Token zur Login-Seite um
+ * Checks if a valid JWT token is present in the cookies
+ * and redirects to the login page if no token is found
  *
- * @param request - Die Astro-Request
- * @param redirectUrl - Die URL, zu der nach erfolgreicher Anmeldung zurückgeleitet werden soll
- * @returns Ein Objekt mit dem Authentifizierungsstatus und ggf. dem Benutzer
+ * @param request - The Astro request
+ * @param redirectUrl - The URL to redirect to after successful login
+ * @returns An object with the authentication status and possibly the user information
  */
 export async function requireAuth(request: Request): Promise<{
   authenticated: boolean;
   user?: { id: string; email: string };
   redirectToLogin?: Response;
 }> {
-  // Cookie-Header aus der Anfrage extrahieren
+  // Extract cookie header from the request
   const cookieHeader = request.headers.get("cookie");
 
   if (!cookieHeader) {
-    // Kein Cookie vorhanden, zur Login-Seite umleiten
+    // No cookie present, redirect to login page
     return {
       authenticated: false,
       redirectToLogin: createLoginRedirect(request.url),
     };
   }
 
-  // Access-Token aus den Cookies extrahieren
+  // Extract access token from cookies
   const accessToken = extractCookieValue(cookieHeader, "access_token");
 
   if (!accessToken) {
-    // Kein Access-Token vorhanden, zur Login-Seite umleiten
+    // No access token present, redirect to login page
     return {
       authenticated: false,
       redirectToLogin: createLoginRedirect(request.url),
     };
   }
 
-  // Token verifizieren
+  // Verify token
   const payload = verifyAccessToken(accessToken);
 
   if (!payload || !payload.userId) {
-    // Ungültiges oder abgelaufenes Token, zur Login-Seite umleiten
+    // Invalid or expired token, redirect to login page
     return {
       authenticated: false,
       redirectToLogin: createLoginRedirect(request.url),
     };
   }
 
-  // Authentifizierung erfolgreich
+  // Authentication successful
   return {
     authenticated: true,
     user: {
@@ -58,7 +57,7 @@ export async function requireAuth(request: Request): Promise<{
 }
 
 /**
- * Extrahiert den Wert eines bestimmten Cookies aus dem Cookie-Header
+ * Extracts the value of a specific cookie from the cookie header
  */
 function extractCookieValue(
   cookieHeader: string,
@@ -77,11 +76,11 @@ function extractCookieValue(
 }
 
 /**
- * Erstellt eine Redirect-Response zur Login-Seite mit der aktuellen URL als Redirect-Parameter
+ * Creates a redirect response to the login page with the current URL as a redirect parameter
  */
 function createLoginRedirect(currentUrl: string): Response {
   const url = new URL(currentUrl);
-  const lang = url.pathname.split("/")[1] || "de"; // Extrahiere die Sprache aus der URL oder verwende 'de' als Fallback
+  const lang = url.pathname.split("/")[1] || "de"; // Extract language from URL or use 'de' as fallback
   const redirectParam = encodeURIComponent(url.pathname);
 
   return new Response(null, {

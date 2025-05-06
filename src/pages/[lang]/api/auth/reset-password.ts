@@ -1,19 +1,44 @@
 import type { APIRoute } from "astro";
 import { authService } from "../../../../lib/auth/auth-service.js";
-import { getLangFromUrl, useTranslations } from "../../../../utils/i18n.js";
+import { useTranslations } from "../../../../utils/i18n.js";
 
-// Anforderung eines Passwort-Resets
+/**
+ * Password Reset API Endpoints
+ *
+ * This file implements two API routes for password reset functionality:
+ * 1. POST: Request a password reset (sends a reset link via email)
+ * 2. PUT: Complete a password reset (sets the new password using a valid token)
+ *
+ * These endpoints follow security best practices:
+ * - Same response for existing and non-existing email addresses
+ * - Rate limiting (implemented in auth service)
+ * - Token validation and expiration
+ * - Password complexity validation
+ */
+
+/**
+ * POST endpoint to request a password reset
+ *
+ * Accepts a JSON payload with an email address and sends a password
+ * reset link if the account exists. Always returns success for security
+ * reasons (to prevent email enumeration attacks).
+ *
+ * @param {Object} context - The Astro API context
+ * @param {Request} context.request - The HTTP request object
+ * @param {Object} context.params - URL parameters including language code
+ * @returns {Response} JSON response with success/error message
+ */
 export const POST: APIRoute = async ({ request, params }) => {
-  // Extrahiere die Sprache aus den URL-Parametern
+  // Extract language from URL parameters
   const lang = params.lang as string;
   const t = useTranslations(lang);
 
   try {
-    // Extrahiere die E-Mail-Adresse aus dem Request-Body
+    // Extract email address from request body
     const body = await request.json();
     const { email } = body;
 
-    // Validiere die Eingabe
+    // Validate input
     if (!email) {
       return new Response(
         JSON.stringify({
@@ -29,11 +54,11 @@ export const POST: APIRoute = async ({ request, params }) => {
       );
     }
 
-    // Fordere einen Passwort-Reset an
+    // Request password reset (sends email if account exists)
     const success = await authService.requestPasswordReset(email);
 
-    // Gib immer eine erfolgreiche Antwort zurück, um keine Informationen über existierende
-    // E-Mail-Adressen preiszugeben (Sicherheitsmaßnahme)
+    // Always return success to prevent email enumeration attacks
+    // (security measure: don't disclose whether an email exists in the system)
     return new Response(
       JSON.stringify({
         success: true,
@@ -47,7 +72,7 @@ export const POST: APIRoute = async ({ request, params }) => {
       },
     );
   } catch (error) {
-    console.error("Fehler bei der Passwort-Reset-Anforderung:", error);
+    console.error("Password reset request error:", error);
 
     return new Response(
       JSON.stringify({
@@ -64,18 +89,28 @@ export const POST: APIRoute = async ({ request, params }) => {
   }
 };
 
-// Durchführung eines Passwort-Resets
+/**
+ * PUT endpoint to complete a password reset
+ *
+ * Accepts a JSON payload with a reset token and new password.
+ * Validates the token and password requirements before updating.
+ *
+ * @param {Object} context - The Astro API context
+ * @param {Request} context.request - The HTTP request object
+ * @param {Object} context.params - URL parameters including language code
+ * @returns {Response} JSON response indicating success or detailed error information
+ */
 export const PUT: APIRoute = async ({ request, params }) => {
-  // Extrahiere die Sprache aus den URL-Parametern
+  // Extract language from URL parameters
   const lang = params.lang as string;
   const t = useTranslations(lang);
 
   try {
-    // Extrahiere den Token und das neue Passwort aus dem Request-Body
+    // Extract token and new password from request body
     const body = await request.json();
     const { token, newPassword } = body;
 
-    // Validiere die Eingaben
+    // Validate input
     if (!token || !newPassword) {
       return new Response(
         JSON.stringify({
@@ -91,11 +126,11 @@ export const PUT: APIRoute = async ({ request, params }) => {
       );
     }
 
-    // Setze das Passwort zurück
+    // Reset the password using provided token
     const result = await authService.resetUserPassword(token, newPassword);
 
     if (!result.success) {
-      // Bei Validierungsfehlern einen 400-Status zurückgeben
+      // Return validation errors with 400 status
       return new Response(
         JSON.stringify({
           success: false,
@@ -111,7 +146,7 @@ export const PUT: APIRoute = async ({ request, params }) => {
       );
     }
 
-    // Erfolgreiche Passwort-Zurücksetzung
+    // Successful password reset
     return new Response(
       JSON.stringify({
         success: true,
@@ -125,7 +160,7 @@ export const PUT: APIRoute = async ({ request, params }) => {
       },
     );
   } catch (error) {
-    console.error("Fehler beim Zurücksetzen des Passworts:", error);
+    console.error("Password reset execution error:", error);
 
     return new Response(
       JSON.stringify({

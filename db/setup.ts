@@ -10,8 +10,11 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
- * Führt einzelne SQL-Anweisungen aus einem SQL-String aus
- * @param sql SQL-String mit mehreren Anweisungen
+ * Executes individual SQL statements from a SQL string
+ * Handles multi-line statements, comments, and special SQL constructs like triggers
+ *
+ * @param sql SQL string containing multiple statements
+ * @returns Promise that resolves when all statements have been executed
  */
 async function executeSqlStatements(sql: string): Promise<void> {
   // First combine multi-line statements and remove comments
@@ -137,24 +140,28 @@ async function executeSqlStatements(sql: string): Promise<void> {
 }
 
 /**
- * Führt alle SQL-Migrationsdateien im Verzeichnis db/migrations aus
+ * Runs all SQL migration files from the db/migrations directory
+ * Tracks applied migrations in a migrations table to avoid duplicate execution
+ * Executes migrations in alphabetical order (based on filename)
+ *
+ * @returns Promise that resolves when all migrations have been applied
  */
 async function runMigrations() {
-  console.log("Starte Datenbankmigrationen...");
+  console.log("Starting database migrations...");
 
-  // Lese alle Migrationsdateien
+  // Read all migration files
   const migrationsDir = path.join(__dirname, "migrations");
   const migrationFiles = fs
     .readdirSync(migrationsDir)
     .filter((file) => file.endsWith(".sql"))
-    .sort(); // Sortieren, um die Reihenfolge sicherzustellen
+    .sort(); // Sort to ensure consistent order
 
   if (migrationFiles.length === 0) {
-    console.log("Keine Migrationsdateien gefunden.");
+    console.log("No migration files found.");
     return;
   }
 
-  // Erstelle migrations-Tabelle, falls sie nicht existiert
+  // Create migrations table if it doesn't exist
   await turso.execute({
     sql: `
       CREATE TABLE IF NOT EXISTS migrations (
@@ -165,52 +172,52 @@ async function runMigrations() {
     `,
   });
 
-  // Hole bereits angewendete Migrationen
+  // Get already applied migrations
   const result = await turso.execute({
     sql: "SELECT name FROM migrations",
   });
 
   const appliedMigrations = new Set(result.rows?.map((row) => row.name));
 
-  // Führe jede Migration aus, die noch nicht angewendet wurde
+  // Execute each migration that hasn't been applied yet
   for (const file of migrationFiles) {
     if (appliedMigrations.has(file)) {
-      console.log(`Migration ${file} wurde bereits angewendet.`);
+      console.log(`Migration ${file} has already been applied.`);
       continue;
     }
 
-    console.log(`Führe Migration ${file} aus...`);
+    console.log(`Executing migration ${file}...`);
 
     const migrationPath = path.join(migrationsDir, file);
     const migrationSql = fs.readFileSync(migrationPath, "utf-8");
 
     try {
-      // Führe die SQL-Anweisungen einzeln aus
+      // Execute SQL statements individually
       await executeSqlStatements(migrationSql);
 
-      // Speichere die Migration als angewendet
+      // Mark migration as applied
       await turso.execute({
         sql: "INSERT INTO migrations (name) VALUES (?)",
         args: [file],
       });
 
-      console.log(`Migration ${file} erfolgreich angewendet.`);
+      console.log(`Migration ${file} successfully applied.`);
     } catch (error) {
-      console.error(`Fehler bei Migration ${file}:`, error);
+      console.error(`Error during migration ${file}:`, error);
       throw error;
     }
   }
 
-  console.log("Alle Migrationen wurden erfolgreich angewendet.");
+  console.log("All migrations have been successfully applied.");
 }
 
-// Führe die Migrationen aus
+// Execute migrations
 runMigrations()
   .then(() => {
-    console.log("Datenbanksetup abgeschlossen.");
+    console.log("Database setup completed.");
     process.exit(0);
   })
   .catch((error) => {
-    console.error("Fehler beim Datenbanksetup:", error);
+    console.error("Error during database setup:", error);
     process.exit(1);
   });

@@ -1,21 +1,27 @@
 ---
 /**
- * Login Page für MelodyMind
+ * Login Page for MelodyMind
  *
- * Diese Seite zeigt das kombinierte Auth-Formular im Login-Modus an und verwendet das Layout.
- * Sie ist nach WCAG AAA Standards optimiert.
+ * This page displays the combined auth form in login mode and uses the main layout.
+ * It is optimized according to WCAG AAA standards for maximum accessibility.
+ *
+ * The page handles user authentication and provides a seamless login experience
+ * with appropriate form validation and error handling.
  */
 import AuthForm from "@components/auth/AuthForm.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import Layout from "@layouts/Layout.astro";
 
+// Extract language code from the current URL for internationalization
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+// Initialize translation function with the extracted language - ensure lang is a string
+const t = useTranslations(lang.toString());
 ---
 
 <Layout
   title={t("auth.login.title")}
-  description="Melde dich bei Melody Mind an, um deine musikalische Reise fortzusetzen."
+  description="Sign in to Melody Mind to continue your musical journey."
 >
+  {/* Render the auth form component in login mode */}
   <AuthForm initialMode="login" />
 </Layout>

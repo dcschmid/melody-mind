@@ -1,19 +1,35 @@
 ---
+/**
+ * @file Navigation.astro
+ * @description Main navigation component for the MelodyMind application
+ * This component handles the responsive navigation menu, language picker,
+ * and authentication-aware navigation links with full accessibility support.
+ */
 import { Icon } from "astro-icon/components";
 import { When } from "@astropub/flow";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import LanguagePicker from "@components/LanguagePicker.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
+/**
+ * Props interface for the Navigation component
+ * @interface Props
+ * @property {boolean} [showHeaderIcons=true] - Whether to display the header icons in the navigation menu
+ */
 interface Props {
   showHeaderIcons?: boolean;
 }
 
 const { showHeaderIcons = true } = Astro.props;
-const lang = getLangFromUrl(Astro.url);
+const lang = getLangFromUrl(Astro.url) as string;
 const t = useTranslations(lang);
+
+// Check if user is authenticated by looking for the access_token cookie
+const accessToken = Astro.cookies.get("access_token");
+const isAuthenticated = !!accessToken?.value;
 ---
 
+<!-- Main header with navigation and language picker -->
 <header role="banner" class="flex flex-row justify-between md-6 rounded-lg">
   <LanguagePicker />
   <nav
@@ -21,6 +37,7 @@ const t = useTranslations(lang);
     class="flex flex-wrap gap-3 items-center justify-between"
   >
     <div class="slot left flex gap-3 items-center flex-1 justify-center">
+      <!-- Menu toggle button with accessibility attributes -->
       <button
         class="hamburger relative flex items-center justify-center gap-2 min-h-12 min-w-12
                py-2 px-4 rounded-lg bg-sky-500 text-zinc-900 font-medium
@@ -46,6 +63,7 @@ const t = useTranslations(lang);
         >
       </button>
 
+      <!-- Menu backdrop overlay - shown when menu is open -->
       <div
         id="menu-backdrop"
         class="fixed inset-0 z-30 bg-black/70 backdrop-blur-sm invisible opacity-0 transition-opacity duration-300
@@ -54,6 +72,7 @@ const t = useTranslations(lang);
       >
       </div>
 
+      <!-- Main navigation menu with accessibility support -->
       <div
         id="main-menu"
         class="fixed inset-y-0 left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-md bg-zinc-800 rounded-xl
@@ -64,6 +83,7 @@ const t = useTranslations(lang);
         aria-modal="true"
         aria-labelledby="menu-title"
       >
+        <!-- Close button for the menu -->
         <button
           class="close-menu absolute top-4 right-4 flex items-center justify-center w-12 h-12
                  rounded-full bg-zinc-700 text-zinc-100 hover:bg-zinc-600
@@ -79,6 +99,7 @@ const t = useTranslations(lang);
           />
         </button>
 
+        <!-- Menu title -->
         <div class="text-center mb-6">
           <h2
             id="menu-title"
@@ -88,7 +109,7 @@ const t = useTranslations(lang);
           </h2>
         </div>
 
-        <!-- Status announcer for screen readers -->
+        <!-- Status announcer for screen readers - updates when menu opens/closes -->
         <div
           aria-live="polite"
           aria-atomic="true"
@@ -97,7 +118,9 @@ const t = useTranslations(lang);
         >
         </div>
 
+        <!-- Navigation menu items -->
         <ul class="flex flex-col space-y-4 px-4" role="menu">
+          <!-- Home link -->
           <li role="none">
             <a
               href={getRelativeLocaleUrl(lang, "gamehome")}
@@ -120,7 +143,9 @@ const t = useTranslations(lang);
             </a>
           </li>
 
+          <!-- Conditional menu items based on showHeaderIcons prop -->
           <When test={showHeaderIcons}>
+            <!-- Knowledge link -->
             <li role="none">
               <a
                 href={getRelativeLocaleUrl(lang, "knowledge")}
@@ -143,7 +168,7 @@ const t = useTranslations(lang);
               </a>
             </li>
 
-            <!-- Add new Playlists link here -->
+            <!-- Playlists link -->
             <li role="none">
               <a
                 href={getRelativeLocaleUrl(lang, "playlists")}
@@ -166,6 +191,7 @@ const t = useTranslations(lang);
               </a>
             </li>
 
+            <!-- Rules link -->
             <li role="none">
               <a
                 href={getRelativeLocaleUrl(lang, "rules")}
@@ -189,13 +215,42 @@ const t = useTranslations(lang);
             </li>
           </When>
 
+          <!-- Divider -->
           <div class="w-full h-px bg-zinc-700 my-4"></div>
 
+          <!-- Conditional logout button - only visible when authenticated -->
+          <When test={isAuthenticated}>
+            <li role="none">
+              <button
+                id="logout-button"
+                class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
+                      font-medium no-underline transition-all
+                      duration-200 hover:bg-zinc-700 hover:translate-x-1
+                      focus-visible:bg-zinc-700 focus-visible:outline
+                      focus-visible:outline-sky-300 focus-visible:outline-offset-2
+                      text-zinc-100"
+                role="menuitem"
+                aria-label={t("nav.logout.label")}
+              >
+                <Icon
+                  name="logout"
+                  width={28}
+                  height={28}
+                  aria-hidden="true"
+                  class="w-7 h-7"
+                />
+                <span>{t("nav.menu.logout")}</span>
+              </button>
+            </li>
+          </When>
+
+          <!-- Donation section -->
           <div class="px-5">
             <h3 class="text-lg font-bold mb-4 text-zinc-50">
               {t("nav.donate.heading")}
             </h3>
             <div class="flex flex-col gap-3">
+              <!-- PayPal donation link -->
               <a
                 href="https://www.paypal.me/dcschmid"
                 target="_blank"
@@ -214,6 +269,7 @@ const t = useTranslations(lang);
                 />
                 <span>{t("nav.donate.paypal")}</span>
               </a>
+              <!-- Buy Me a Coffee donation link -->
               <a
                 href="https://www.buymeacoffee.com/dcschmid"
                 target="_blank"
@@ -243,49 +299,61 @@ const t = useTranslations(lang);
 <script>
   /**
    * Navigation Menu Controller
+   *
    * Manages the opening, closing and accessibility of the main navigation menu.
    * Implements WCAG AAA compliant focus management and keyboard interactions.
+   * Features include:
+   * - Focus trapping within the menu for keyboard users
+   * - Screen reader announcements via aria-live regions
+   * - Proper ARIA attribute management
+   * - Support for Escape key to close the menu
+   * - Touch interface support via the backdrop
+   * - Proper focus restoration after menu closes
    */
   document.addEventListener("DOMContentLoaded", initNavigationMenu);
 
   /**
    * Initializes the navigation menu and sets up all necessary event listeners
+   * This is the main entry point for the navigation functionality
    */
   function initNavigationMenu(): void {
     // Get all required DOM elements
     const menuToggle = document.getElementById(
-      "menu-toggle",
+      "menu-toggle"
     ) as HTMLButtonElement | null;
     const mainMenu = document.getElementById(
-      "main-menu",
+      "main-menu"
     ) as HTMLDivElement | null;
     const menuBackdrop = document.getElementById(
-      "menu-backdrop",
+      "menu-backdrop"
     ) as HTMLDivElement | null;
     const closeButton = mainMenu?.querySelector(
-      ".close-menu",
+      ".close-menu"
     ) as HTMLButtonElement | null;
     const statusAnnouncer = document.getElementById(
-      "menu-status-announcer",
+      "menu-status-announcer"
     ) as HTMLDivElement | null;
 
     // Ensure all required elements exist before proceeding
     if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
       console.warn(
-        "Navigation menu elements not found, menu functionality disabled",
+        "Navigation menu elements not found, menu functionality disabled"
       );
       return;
     }
 
+    // Initialize logout button functionality
+    initLogoutButton();
+
     // Set up event listeners
     menuToggle.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer),
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
     );
     closeButton.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer),
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
     );
     menuBackdrop.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer),
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
     );
 
     // Close menu with Escape key
@@ -304,6 +372,8 @@ const t = useTranslations(lang);
 
   /**
    * Toggles the menu state between open and closed
+   * Updates ARIA attributes, visual state, and manages focus
+   *
    * @param {HTMLButtonElement} menuToggle - The button that controls the menu
    * @param {HTMLElement} mainMenu - The main menu container
    * @param {HTMLElement} menuBackdrop - The backdrop overlay element
@@ -313,7 +383,7 @@ const t = useTranslations(lang);
     menuToggle: HTMLButtonElement,
     mainMenu: HTMLElement,
     menuBackdrop: HTMLElement,
-    statusAnnouncer?: HTMLElement | null,
+    statusAnnouncer?: HTMLElement | null
   ): void {
     // Get current state and determine new state
     const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
@@ -355,6 +425,8 @@ const t = useTranslations(lang);
 
   /**
    * Sets up a focus trap within the menu element
+   * Ensures keyboard users can't accidentally navigate outside the menu
+   *
    * @param {HTMLElement} menuElement - The menu element to trap focus within
    */
   function setupFocusTrap(menuElement: HTMLElement): void {
@@ -387,6 +459,8 @@ const t = useTranslations(lang);
 
   /**
    * Gets all focusable elements within a container
+   * Identifies elements that can receive keyboard focus
+   *
    * @param {HTMLElement} container - The container to search within
    * @returns {Array<HTMLElement>} Array of focusable elements
    */
@@ -394,20 +468,59 @@ const t = useTranslations(lang);
     const selector =
       'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
     const elements = Array.from(
-      container.querySelectorAll<HTMLElement>(selector),
+      container.querySelectorAll<HTMLElement>(selector)
     );
     return elements.filter((el) => el.offsetParent !== null); // Filter out hidden elements
   }
 
   /**
    * Gets the first focusable element within a container
+   *
    * @param {HTMLElement} container - The container to search within
    * @returns {HTMLElement | null} The first focusable element or null if none found
    */
   function getFirstFocusableElement(
-    container: HTMLElement,
+    container: HTMLElement
   ): HTMLElement | null {
     const focusableElements = getFocusableElements(container);
     return focusableElements.length > 0 ? focusableElements[0] : null;
+  }
+
+  /**
+   * Handles the logout process when the logout button is clicked
+   * Sends a POST request to the logout API and redirects to the login page on success
+   */
+  function initLogoutButton(): void {
+    const logoutButton = document.getElementById("logout-button");
+    if (!logoutButton) return;
+
+    logoutButton.addEventListener("click", async () => {
+      try {
+        // Get the current language from the URL
+        const currentPath = window.location.pathname;
+        const langMatch = currentPath.match(/^\/([a-z]{2})\//);
+        const lang = langMatch ? langMatch[1] : "de"; // Default to 'de' if no language found
+
+        // Send POST request to logout API
+        const response = await fetch(`/${lang}/api/auth/logout`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "same-origin", // Include cookies in the request
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          // Redirect to login page on successful logout
+          window.location.href = `/${lang}/auth/login`;
+        } else {
+          console.error("Logout failed:", data.error);
+        }
+      } catch (error) {
+        console.error("Error during logout:", error);
+      }
+    });
   }
 </script>

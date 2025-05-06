@@ -1,19 +1,34 @@
-import type { APIRoute } from "astro";
-import { getLangFromUrl, useTranslations } from "../../../../utils/i18n.js";
+/**
+ * @file Logout API Route
+ * @description Handles user logout functionality by clearing authentication cookies
+ * @module auth/logout
+ */
 
-export const POST: APIRoute = async ({ request, params, cookies }) => {
-  // Extrahiere die Sprache aus den URL-Parametern
+import type { APIRoute } from "astro";
+import { useTranslations } from "../../../../utils/i18n.js";
+
+/**
+ * POST handler for user logout
+ *
+ * @param {Object} options - The Astro API route options
+ * @param {Request} options.request - The incoming request object
+ * @param {Object} options.params - URL parameters including language code
+ * @param {Object} options.cookies - Cookie management utilities
+ * @returns {Response} JSON response indicating logout success or failure
+ */
+export const POST: APIRoute = async ({ params }) => {
+  // Extract language from URL parameters
   const lang = params.lang as string;
   const t = useTranslations(lang);
 
   try {
-    // Lösche die Authentifizierungs-Cookies
-    const accessTokenExpiry = new Date(0); // Setze das Ablaufdatum in die Vergangenheit
+    // Clear authentication cookies by setting expiration date in the past
+    const accessTokenExpiry = new Date(0);
 
     return new Response(
       JSON.stringify({
         success: true,
-        message: "Erfolgreich abgemeldet",
+        message: "Successfully logged out",
       }),
       {
         status: 200,
@@ -24,7 +39,7 @@ export const POST: APIRoute = async ({ request, params, cookies }) => {
       },
     );
   } catch (error) {
-    console.error("Fehler beim Abmelden:", error);
+    console.error("Error during logout:", error);
 
     return new Response(
       JSON.stringify({

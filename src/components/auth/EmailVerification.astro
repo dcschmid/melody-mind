@@ -1,10 +1,10 @@
 ---
 /**
- * EmailVerification Component für MelodyMind
+ * EmailVerification Component for MelodyMind
  *
- * Diese Komponente zeigt eine Bestätigungsseite für die E-Mail-Verifizierung an.
- * Sie wird angezeigt, wenn ein Benutzer auf den Bestätigungslink in seiner E-Mail klickt.
- * Die Komponente ist nach WCAG AAA Standards optimiert.
+ * This component displays a confirmation page for email verification.
+ * It is shown when a user clicks the confirmation link in their email.
+ * The component is optimized according to WCAG AAA standards.
  *
  * @component
  * @example
@@ -15,12 +15,12 @@
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 interface Props {
-  /** Verifizierungstoken aus der URL */
+  /** Verification token from the URL */
   token: string;
 }
 
 const { token } = Astro.props;
-const lang = getLangFromUrl(Astro.url);
+const lang = getLangFromUrl(Astro.url) as string;
 const t = useTranslations(lang);
 ---
 
@@ -96,7 +96,11 @@ const t = useTranslations(lang);
 </div>
 
 <script define:vars={{ token }}>
-  // Funktion zum Anzeigen des entsprechenden Status
+  /**
+   * Display the appropriate state for email verification
+   *
+   * @param {string} state - The state to display: 'loading', 'success', or 'error'
+   */
   function showState(state) {
     document.getElementById("loadingState").classList.add("hidden");
     document.getElementById("successState").classList.add("hidden");
@@ -105,35 +109,40 @@ const t = useTranslations(lang);
     document.getElementById(state + "State").classList.remove("hidden");
   }
 
-  // Funktion zum Verifizieren der E-Mail-Adresse
+  /**
+   * Verify the email address with the provided token
+   *
+   * This function makes an API call to the server to verify the email token.
+   * It handles the response and updates the UI accordingly.
+   */
   async function verifyEmail() {
     try {
-      // API-Aufruf zur E-Mail-Verifizierung mit mehrsprachiger Route
+      // API call to verify email with multilingual route
       const currentLang = document.documentElement.lang || "de";
       const response = await fetch(
-        `/${currentLang}/api/auth/verify-email?token=${encodeURIComponent(token)}`,
+        `/${currentLang}/api/auth/verify-email?token=${encodeURIComponent(token)}`
       );
       const data = await response.json();
 
       if (response.ok) {
-        // Erfolgreiche Verifizierung
+        // Successful verification
         showState("success");
       } else {
-        // Fehler bei der Verifizierung
+        // Error during verification
         showState("error");
       }
     } catch (error) {
-      // Netzwerkfehler oder andere Probleme
+      // Network error or other issues
       showState("error");
     }
   }
 
-  // Verifiziere die E-Mail-Adresse beim Laden der Seite
+  // Verify email address when the page loads
   document.addEventListener("DOMContentLoaded", verifyEmail);
 </script>
 
 <style>
-  /* Verbesserte Kontrastverhältnisse für WCAG AAA */
+  /* Improved contrast ratios for WCAG AAA */
   .auth-form-container {
     background-color: #27272a;
     border-radius: 0.5rem;
@@ -143,13 +152,13 @@ const t = useTranslations(lang);
     margin: 0 auto;
   }
 
-  /* Verbesserte Fokus-Stile für Tastaturnavigation */
+  /* Enhanced focus styles for keyboard navigation */
   a:focus {
     outline: 3px solid #f0abfc;
     outline-offset: 3px;
   }
 
-  /* Animation für Ladevorgang */
+  /* Animation for loading state */
   @keyframes spin {
     to {
       transform: rotate(360deg);

@@ -1,18 +1,36 @@
+/**
+ * API Route for user registration in the MelodyMind application.
+ * This endpoint handles new user registration by validating input data
+ * and using the authentication service to create user accounts.
+ *
+ * @file User registration API endpoint
+ * @module auth/register
+ */
 import type { APIRoute } from "astro";
 import { authService } from "../../../../lib/auth/auth-service.js";
-import { getLangFromUrl, useTranslations } from "../../../../utils/i18n.js";
+import { useTranslations } from "../../../../utils/i18n.js";
 
+/**
+ * POST handler for user registration.
+ * Processes registration requests by validating the provided email,
+ * password, and username, then creates a new user account if the data is valid.
+ *
+ * @param {Object} context - Astro API route context
+ * @param {Request} context.request - The HTTP request object
+ * @param {Object} context.params - URL parameters including language code
+ * @returns {Response} JSON response indicating success or error details
+ */
 export const POST: APIRoute = async ({ request, params }) => {
-  // Extrahiere die Sprache aus den URL-Parametern
+  // Extract language from URL parameters
   const lang = params.lang as string;
   const t = useTranslations(lang);
 
   try {
-    // Extrahiere die Registrierungsdaten aus dem Request-Body
+    // Extract registration data from request body
     const body = await request.json();
     const { email, password, username } = body;
 
-    // Validiere die Eingaben
+    // Validate required inputs
     if (!email || !password) {
       return new Response(
         JSON.stringify({
@@ -28,7 +46,7 @@ export const POST: APIRoute = async ({ request, params }) => {
       );
     }
 
-    // Führe die Registrierung durch
+    // Perform user registration through auth service
     const result = await authService.register({
       email,
       password,
@@ -36,7 +54,7 @@ export const POST: APIRoute = async ({ request, params }) => {
     });
 
     if (!result.success) {
-      // Bei Validierungsfehlern einen 400-Status zurückgeben
+      // Return validation errors with 400 status code
       return new Response(
         JSON.stringify({
           success: false,
@@ -52,7 +70,7 @@ export const POST: APIRoute = async ({ request, params }) => {
       );
     }
 
-    // Erfolgreiche Registrierung
+    // Successful registration - return 201 Created status
     return new Response(
       JSON.stringify({
         success: true,
@@ -67,8 +85,9 @@ export const POST: APIRoute = async ({ request, params }) => {
       },
     );
   } catch (error) {
-    console.error("Fehler bei der Registrierung:", error);
+    console.error("Registration error:", error);
 
+    // Handle unexpected errors with 500 status code
     return new Response(
       JSON.stringify({
         success: false,

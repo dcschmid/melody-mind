@@ -1,10 +1,20 @@
 ---
 /**
- * AuthForm Component für MelodyMind
+ * AuthForm Component for MelodyMind
  *
- * Diese Komponente kombiniert Login- und Registrierungsformular in einer einzigen Komponente
- * mit animiertem Übergang zwischen den Modi. Sie ist vollständig responsiv und
- * nach WCAG AAA Standards optimiert.
+ * This component combines login and registration forms into a single component
+ * with animated transitions between modes. It is fully responsive and
+ * optimized according to WCAG AAA standards.
+ *
+ * Features:
+ * - Tab-based switching between login and registration
+ * - Client-side form validation
+ * - Password strength meter
+ * - Password visibility toggle
+ * - Comprehensive password requirements checking
+ * - Responsive design for all screen sizes
+ * - WCAG AAA compliant accessibility
+ * - Reduced motion support
  *
  * @component
  * @example
@@ -15,7 +25,7 @@
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 interface Props {
-  /** Initialer Modus der Komponente: "login" oder "register" */
+  /** Initial mode of the component: "login" or "register" */
   initialMode?: "login" | "register";
 }
 
@@ -23,14 +33,16 @@ const { initialMode = "login" } = Astro.props;
 const lang = String(getLangFromUrl(Astro.url));
 const t = useTranslations(lang);
 
-// Übersetzungen für Client-seitiges JavaScript bereitstellen
+// Provide translations for client-side JavaScript
 const translations = {
   invalidCredentials: t("auth.service.invalid_credentials"),
   tooManyAttempts: t("auth.service.too_many_attempts"),
 };
 ---
 
+<!-- Main auth form container -->
 <div class="auth-form-container">
+  <!-- Error message display area -->
   <div
     id="formError"
     class="hidden mb-4 p-3 bg-red-900/50 border border-red-700 text-white rounded-md"
@@ -38,6 +50,7 @@ const translations = {
     aria-live="assertive"
   >
   </div>
+  <!-- Success message display area -->
   <div
     id="formSuccess"
     class="hidden mb-4 p-3 bg-green-900/50 border border-green-700 text-white rounded-md"
@@ -46,6 +59,7 @@ const translations = {
   >
   </div>
 
+  <!-- Tab navigation for switching between login and registration -->
   <div class="auth-tabs mb-6">
     <button
       id="loginTab"
@@ -68,7 +82,7 @@ const translations = {
   </div>
 
   <div class="auth-forms-container">
-    <!-- Login Formular -->
+    <!-- Login Form -->
     <form
       id="loginForm"
       class={`auth-form ${initialMode === "login" ? "active" : ""}`}
@@ -79,6 +93,7 @@ const translations = {
     >
       <h2 id="loginFormHeading" class="sr-only">{t("auth.login.title")}</h2>
 
+      <!-- Email field for login -->
       <div class="mb-4">
         <label for="loginEmail" class="block text-sm font-medium mb-2">
           {t("auth.login.email")}
@@ -101,6 +116,7 @@ const translations = {
         </div>
       </div>
 
+      <!-- Password field for login with reset link -->
       <div class="mb-4">
         <div class="flex items-center justify-between mb-2">
           <label for="loginPassword" class="block text-sm font-medium">
@@ -126,6 +142,7 @@ const translations = {
             placeholder={t("auth.login.password.placeholder")}
             aria-required="true"
           />
+          <!-- Password visibility toggle button -->
           <button
             type="button"
             id="toggleLoginPassword"
@@ -174,6 +191,7 @@ const translations = {
         </div>
       </div>
 
+      <!-- Login submit button with loading state -->
       <div>
         <button
           type="submit"
@@ -205,7 +223,7 @@ const translations = {
       </div>
     </form>
 
-    <!-- Registrierungsformular -->
+    <!-- Registration Form -->
     <form
       id="registerForm"
       class={`auth-form ${initialMode === "register" ? "active" : ""}`}
@@ -218,6 +236,7 @@ const translations = {
         {t("auth.register.title")}
       </h2>
 
+      <!-- Email field for registration -->
       <div class="mb-4">
         <label for="registerEmail" class="block text-sm font-medium mb-2">
           {t("auth.register.email")}
@@ -240,6 +259,7 @@ const translations = {
         </div>
       </div>
 
+      <!-- Username field (optional) -->
       <div class="mb-4">
         <label for="registerUsername" class="block text-sm font-medium mb-2">
           {t("auth.register.username")}
@@ -256,6 +276,7 @@ const translations = {
         </div>
       </div>
 
+      <!-- Password field for registration -->
       <div class="mb-4">
         <label for="registerPassword" class="block text-sm font-medium mb-2">
           {t("auth.register.password")}
@@ -273,6 +294,7 @@ const translations = {
             placeholder={t("auth.register.password.placeholder")}
             aria-required="true"
           />
+          <!-- Password visibility toggle button -->
           <button
             type="button"
             id="toggleRegisterPassword"
@@ -324,6 +346,7 @@ const translations = {
         </div>
       </div>
 
+      <!-- Password confirmation field -->
       <div class="mb-4">
         <label
           for="registerPasswordConfirm"
@@ -344,6 +367,7 @@ const translations = {
             placeholder={t("auth.register.password_confirm.placeholder")}
             aria-required="true"
           />
+          <!-- Password visibility toggle button -->
           <button
             type="button"
             id="toggleRegisterPasswordConfirm"
@@ -395,7 +419,7 @@ const translations = {
         </div>
       </div>
 
-      <!-- Passwortanforderungen und Stärkeanzeige -->
+      <!-- Password requirements and strength indicator -->
       <div class="mb-4">
         <button
           type="button"
@@ -430,6 +454,7 @@ const translations = {
           <h3 class="text-sm font-medium mb-2">
             {t("auth.password.requirements")}
           </h3>
+          <!-- Password requirement checklist -->
           <ul class="text-sm space-y-1 ml-5 list-disc">
             <li id="req-length" class="text-red-400">
               {t("auth.password.min_length")}
@@ -460,6 +485,7 @@ const translations = {
             </li>
           </ul>
 
+          <!-- Password strength meter -->
           <div class="mt-3">
             <p class="text-sm mb-1">{t("auth.password.strength")}</p>
             <div class="w-full bg-zinc-700 rounded-full h-2.5">
@@ -477,6 +503,7 @@ const translations = {
         </div>
       </div>
 
+      <!-- Registration submit button with loading state -->
       <div>
         <button
           type="submit"
@@ -511,7 +538,10 @@ const translations = {
 </div>
 
 <script define:vars={{ translations }}>
-  // Liste häufig verwendeter Passwörter (gekürzt)
+  /**
+   * List of common passwords (shortened)
+   * Used to prevent users from setting easily guessable passwords
+   */
   const COMMON_PASSWORDS = [
     "password",
     "password123",
@@ -539,13 +569,13 @@ const translations = {
     "starwars",
   ];
 
-  // DOM-Elemente
+  // DOM Elements
   const loginTab = document.getElementById("loginTab");
   const registerTab = document.getElementById("registerTab");
   const loginForm = document.getElementById("loginForm");
   const registerForm = document.getElementById("registerForm");
 
-  // Login-Formular-Elemente
+  // Login Form Elements
   const loginEmailInput = document.getElementById("loginEmail");
   const loginPasswordInput = document.getElementById("loginPassword");
   const loginEmailError = document.getElementById("loginEmailError");
@@ -553,42 +583,42 @@ const translations = {
   const loginSubmitText = document.getElementById("loginSubmitText");
   const loginLoadingSpinner = document.getElementById("loginLoadingSpinner");
   const toggleLoginPasswordButton = document.getElementById(
-    "toggleLoginPassword",
+    "toggleLoginPassword"
   );
 
-  // Registrierungs-Formular-Elemente
+  // Registration Form Elements
   const registerEmailInput = document.getElementById("registerEmail");
   const registerUsernameInput = document.getElementById("registerUsername");
   const registerPasswordInput = document.getElementById("registerPassword");
   const registerPasswordConfirmInput = document.getElementById(
-    "registerPasswordConfirm",
+    "registerPasswordConfirm"
   );
   const registerEmailError = document.getElementById("registerEmailError");
   const registerPasswordError = document.getElementById(
-    "registerPasswordError",
+    "registerPasswordError"
   );
   const registerPasswordConfirmError = document.getElementById(
-    "registerPasswordConfirmError",
+    "registerPasswordConfirmError"
   );
   const registerSubmitText = document.getElementById("registerSubmitText");
   const registerLoadingSpinner = document.getElementById(
-    "registerLoadingSpinner",
+    "registerLoadingSpinner"
   );
   const toggleRegisterPasswordButton = document.getElementById(
-    "toggleRegisterPassword",
+    "toggleRegisterPassword"
   );
   const toggleRegisterPasswordConfirmButton = document.getElementById(
-    "toggleRegisterPasswordConfirm",
+    "toggleRegisterPasswordConfirm"
   );
 
-  // Passwortanforderungen
+  // Password Requirements Elements
   const toggleRequirementsButton =
     document.getElementById("toggleRequirements");
   const passwordRequirements = document.getElementById("passwordRequirements");
   const passwordStrength = document.getElementById("passwordStrength");
   const strengthText = document.getElementById("strengthText");
 
-  // Passwortanforderungen
+  // Password Requirement Checklist Elements
   const reqLength = document.getElementById("req-length");
   const reqUppercase = document.getElementById("req-uppercase");
   const reqLowercase = document.getElementById("req-lowercase");
@@ -599,11 +629,14 @@ const translations = {
   const reqSequences = document.getElementById("req-sequences");
   const reqMatch = document.getElementById("req-match");
 
-  // Gemeinsame Elemente
+  // Common Elements
   const formError = document.getElementById("formError");
   const formSuccess = document.getElementById("formSuccess");
 
-  // Hilfsfunktion zum Anzeigen von Fehlermeldungen
+  /**
+   * Displays an error message in the form error container
+   * @param {string} message - The error message to display
+   */
   function showError(message) {
     if (formError) {
       formError.textContent = message;
@@ -611,7 +644,9 @@ const translations = {
     }
   }
 
-  // Tab-Wechsel-Funktionalität
+  /**
+   * Tab-switching functionality - Handles switching between login and register forms
+   */
   loginTab.addEventListener("click", () => {
     switchTab("login");
   });
@@ -620,15 +655,19 @@ const translations = {
     switchTab("register");
   });
 
+  /**
+   * Switches the active tab and form between login and registration
+   * @param {string} mode - The mode to switch to ("login" or "register")
+   */
   function switchTab(mode) {
-    // Tabs aktualisieren
+    // Update tabs
     if (mode === "login") {
       loginTab.classList.add("active");
       registerTab.classList.remove("active");
       loginTab.setAttribute("aria-selected", "true");
       registerTab.setAttribute("aria-selected", "false");
 
-      // Formulare aktualisieren mit Animation
+      // Update forms with animation
       loginForm.classList.add("active");
       registerForm.classList.remove("active");
       loginForm.setAttribute("aria-hidden", "false");
@@ -639,66 +678,74 @@ const translations = {
       loginTab.setAttribute("aria-selected", "false");
       registerTab.setAttribute("aria-selected", "true");
 
-      // Formulare aktualisieren mit Animation
+      // Update forms with animation
       loginForm.classList.remove("active");
       registerForm.classList.add("active");
       loginForm.setAttribute("aria-hidden", "true");
       registerForm.setAttribute("aria-hidden", "false");
     }
 
-    // Fehler zurücksetzen
+    // Reset errors
     formError.textContent = "";
     formError.classList.add("hidden");
     formSuccess.textContent = "";
     formSuccess.classList.add("hidden");
   }
 
-  // E-Mail-Validierung
+  /**
+   * Email validation using regex
+   * @param {string} email - The email to validate
+   * @returns {boolean} - True if the email is valid, false otherwise
+   */
   function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
 
-  // Passwort-Validierung
+  /**
+   * Comprehensive password validation checking multiple criteria
+   * @param {string} password - The password to validate
+   * @returns {Object} - Object containing validation result and any errors
+   */
   function validatePassword(password) {
     const errors = [];
 
-    // Prüfe die Mindestlänge
+    // Check minimum length
     if (password.length < 8) {
       errors.push("min_length");
     }
 
-    // Prüfe auf Großbuchstaben
+    // Check for uppercase letters
     if (!/[A-Z]/.test(password)) {
       errors.push("uppercase");
     }
 
-    // Prüfe auf Kleinbuchstaben
+    // Check for lowercase letters
     if (!/[a-z]/.test(password)) {
       errors.push("lowercase");
     }
 
-    // Prüfe auf Zahlen
+    // Check for numbers
     if (!/[0-9]/.test(password)) {
       errors.push("number");
     }
 
-    // Prüfe auf Sonderzeichen
+    // Check for special characters
     if (!/[^A-Za-z0-9]/.test(password)) {
       errors.push("special");
     }
 
-    // Prüfe auf häufig verwendete Passwörter
+    // Check for common passwords
     if (COMMON_PASSWORDS.includes(password.toLowerCase())) {
       errors.push("common");
     }
 
-    // Prüfe auf Wiederholungen
+    // Check for repeating characters
     if (/(.)\1{2,}/.test(password)) {
       errors.push("repeats");
     }
 
-    // Prüfe auf Sequenzen
+    // Check for common sequences
     const sequences = ["123456", "abcdef", "qwerty", "asdfgh"];
     let hasSequence = false;
     for (const seq of sequences) {
@@ -721,26 +768,30 @@ const translations = {
     };
   }
 
-  // Berechnet die Stärke eines Passworts (0-100)
+  /**
+   * Calculates password strength score (0-100)
+   * @param {string} password - The password to evaluate
+   * @returns {number} - Strength score between 0-100
+   */
   function calculatePasswordStrength(password) {
     let strength = 0;
 
-    // Länge
+    // Length - up to 40 points for length (max 10 characters)
     strength += Math.min(password.length * 4, 40);
 
-    // Komplexität
+    // Complexity - up to 40 points for different character types
     if (/[A-Z]/.test(password)) strength += 10;
     if (/[a-z]/.test(password)) strength += 10;
     if (/[0-9]/.test(password)) strength += 10;
     if (/[^A-Za-z0-9]/.test(password)) strength += 10;
 
-    // Abzüge für häufig verwendete Passwörter
+    // Penalties for common passwords
     if (COMMON_PASSWORDS.includes(password.toLowerCase())) strength -= 30;
 
-    // Abzüge für Wiederholungen
+    // Penalties for repeating characters
     if (/(.)\1{2,}/.test(password)) strength -= 10;
 
-    // Abzüge für Sequenzen
+    // Penalties for common sequences
     const sequences = ["123456", "abcdef", "qwerty", "asdfgh"];
     for (const seq of sequences) {
       for (let i = 0; i < seq.length - 2; i++) {
@@ -752,19 +803,22 @@ const translations = {
       }
     }
 
-    // Begrenze die Stärke auf 0-100
+    // Limit strength to 0-100 range
     return Math.max(0, Math.min(100, strength));
   }
 
-  // Aktualisiert die Passwortanforderungen und Stärkeanzeige
+  /**
+   * Updates the password requirements checklist and strength meter UI
+   * based on the current password values
+   */
   function updatePasswordRequirements() {
     const password = registerPasswordInput.value;
     const passwordConfirm = registerPasswordConfirmInput.value;
 
-    // Validiere das Passwort
+    // Validate the password
     const { errors } = validatePassword(password);
 
-    // Aktualisiere die Anforderungen
+    // Update requirements in the UI
     reqLength.className = errors.includes("min_length")
       ? "text-red-400"
       : "text-green-400";
@@ -790,7 +844,7 @@ const translations = {
       ? "text-red-400"
       : "text-green-400";
 
-    // Überprüfe, ob die Passwörter übereinstimmen
+    // Check if passwords match
     if (password && passwordConfirm) {
       reqMatch.className =
         password === passwordConfirm ? "text-green-400" : "text-red-400";
@@ -798,11 +852,11 @@ const translations = {
       reqMatch.className = "text-red-400";
     }
 
-    // Berechne die Passwortstärke
+    // Calculate password strength
     const strength = calculatePasswordStrength(password);
     passwordStrength.style.width = `${strength}%`;
 
-    // Aktualisiere die Farbe und den Text basierend auf der Stärke
+    // Update color and text based on strength
     if (strength < 30) {
       passwordStrength.className = "bg-red-500 h-2.5 rounded-full";
       strengthText.className = "text-xs mt-1 text-red-400";
@@ -825,18 +879,18 @@ const translations = {
         document.documentElement.lang === "de" ? "Sehr stark" : "Very Strong";
     }
 
-    // Aktualisiere die ARIA-Attribute für Screenreader
+    // Update ARIA attributes for screen readers
     const strengthLabel =
       document.documentElement.lang === "de"
         ? "Passwortstärke: "
         : "Password strength: ";
     strengthText.setAttribute(
       "aria-label",
-      strengthLabel + strengthText.textContent,
+      strengthLabel + strengthText.textContent
     );
   }
 
-  // Passwort anzeigen/verbergen für Login
+  // Password visibility toggle for login
   toggleLoginPasswordButton.addEventListener("click", () => {
     if (loginPasswordInput.type === "password") {
       loginPasswordInput.type = "text";
@@ -858,7 +912,7 @@ const translations = {
     loginPasswordInput.focus();
   });
 
-  // Passwort anzeigen/verbergen für Registrierung
+  // Password visibility toggle for registration
   toggleRegisterPasswordButton.addEventListener("click", () => {
     if (registerPasswordInput.type === "password") {
       registerPasswordInput.type = "text";
@@ -901,18 +955,20 @@ const translations = {
     registerPasswordConfirmInput.focus();
   });
 
-  // Passwortanforderungen anzeigen/verbergen
+  /**
+   * Toggle password requirements visibility
+   */
   toggleRequirementsButton.addEventListener("click", () => {
     const isExpanded =
       toggleRequirementsButton.getAttribute("aria-expanded") === "true";
     toggleRequirementsButton.setAttribute(
       "aria-expanded",
-      isExpanded ? "false" : "true",
+      isExpanded ? "false" : "true"
     );
     passwordRequirements.classList.toggle("hidden");
     passwordRequirements.setAttribute(
       "aria-hidden",
-      isExpanded ? "true" : "false",
+      isExpanded ? "true" : "false"
     );
 
     if (!isExpanded) {
@@ -920,19 +976,21 @@ const translations = {
     }
   });
 
-  // Aktualisiere die Passwortanforderungen bei Eingabe
+  // Update password requirements on input
   registerPasswordInput.addEventListener("input", updatePasswordRequirements);
   registerPasswordConfirmInput.addEventListener(
     "input",
-    updatePasswordRequirements,
+    updatePasswordRequirements
   );
 
-  // Login-Formular-Validierung
+  /**
+   * Login form submission handler with validation
+   */
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     let isValid = true;
 
-    // Zurücksetzen der Fehleranzeigen
+    // Reset error displays
     loginEmailError.textContent = "";
     loginEmailError.classList.add("hidden");
     loginPasswordError.textContent = "";
@@ -940,7 +998,7 @@ const translations = {
     formError.textContent = "";
     formError.classList.add("hidden");
 
-    // E-Mail-Validierung
+    // Email validation
     if (!loginEmailInput.value) {
       loginEmailError.textContent =
         document.documentElement.lang === "de"
@@ -957,7 +1015,7 @@ const translations = {
       isValid = false;
     }
 
-    // Passwort-Validierung
+    // Password validation
     if (!loginPasswordInput.value) {
       loginPasswordError.textContent =
         document.documentElement.lang === "de"
@@ -971,13 +1029,13 @@ const translations = {
       return;
     }
 
-    // Anzeigen des Ladezustands
+    // Show loading state
     loginSubmitText.textContent =
       document.documentElement.lang === "de" ? "Wird geladen..." : "Loading...";
     loginLoadingSpinner.classList.remove("hidden");
 
     try {
-      // API-Aufruf zum Anmelden mit mehrsprachiger Route
+      // API call to log in with multilingual route
       const currentLang = document.documentElement.lang || "de";
       const response = await fetch(`/${currentLang}/api/auth/login`, {
         method: "POST",
@@ -993,12 +1051,12 @@ const translations = {
       const data = await response.json();
 
       if (response.ok) {
-        // Erfolgreiche Anmeldung - Weiterleitung zur Startseite
+        // Successful login - redirect to home page
         window.location.href = `/${document.documentElement.lang}`;
       } else {
-        // Fehler bei der Anmeldung
+        // Login error handling
         if (response.status === 401) {
-          // Verwende die bereitgestellte Übersetzung
+          // Use provided translation
           showError(translations.invalidCredentials);
           return;
         }
@@ -1007,7 +1065,7 @@ const translations = {
           showError(translations.tooManyAttempts);
           return;
         }
-        // Andere Fehlerbehandlung
+        // Other error handling
         formError.textContent =
           data.error ||
           (document.documentElement.lang === "de"
@@ -1016,26 +1074,28 @@ const translations = {
         formError.classList.remove("hidden");
       }
     } catch (error) {
-      // Netzwerkfehler oder andere Probleme
+      // Network errors or other issues
       formError.textContent =
         document.documentElement.lang === "de"
           ? "Ein Fehler ist aufgetreten. Bitte versuche es später erneut."
           : "An error occurred. Please try again later.";
       formError.classList.remove("hidden");
     } finally {
-      // Zurücksetzen des Ladezustands
+      // Reset loading state
       loginSubmitText.textContent =
         document.documentElement.lang === "de" ? "Anmelden" : "Log In";
       loginLoadingSpinner.classList.add("hidden");
     }
   });
 
-  // Registrierungs-Formular-Validierung
+  /**
+   * Registration form submission handler with validation
+   */
   registerForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     let isValid = true;
 
-    // Zurücksetzen der Fehleranzeigen
+    // Reset error displays
     registerEmailError.textContent = "";
     registerEmailError.classList.add("hidden");
     registerPasswordError.textContent = "";
@@ -1047,7 +1107,7 @@ const translations = {
     formSuccess.textContent = "";
     formSuccess.classList.add("hidden");
 
-    // E-Mail-Validierung
+    // Email validation
     if (!registerEmailInput.value) {
       registerEmailError.textContent =
         document.documentElement.lang === "de"
@@ -1064,7 +1124,7 @@ const translations = {
       isValid = false;
     }
 
-    // Passwort-Validierung
+    // Password validation
     if (!registerPasswordInput.value) {
       registerPasswordError.textContent =
         document.documentElement.lang === "de"
@@ -1084,7 +1144,7 @@ const translations = {
       }
     }
 
-    // Passwortbestätigung
+    // Password confirmation
     if (!registerPasswordConfirmInput.value) {
       registerPasswordConfirmError.textContent =
         document.documentElement.lang === "de"
@@ -1107,13 +1167,13 @@ const translations = {
       return;
     }
 
-    // Anzeigen des Ladezustands
+    // Show loading state
     registerSubmitText.textContent =
       document.documentElement.lang === "de" ? "Wird geladen..." : "Loading...";
     registerLoadingSpinner.classList.remove("hidden");
 
     try {
-      // API-Aufruf zum Registrieren mit mehrsprachiger Route
+      // API call to register with multilingual route
       const currentLang = document.documentElement.lang || "de";
       const response = await fetch(`/${currentLang}/api/auth/register`, {
         method: "POST",
@@ -1130,7 +1190,7 @@ const translations = {
       const data = await response.json();
 
       if (response.ok) {
-        // Erfolgreiche Registrierung
+        // Successful registration
         formSuccess.textContent =
           data.message ||
           (document.documentElement.lang === "de"
@@ -1138,13 +1198,13 @@ const translations = {
             : "Registration successful! Please check your email to verify your email address.");
         formSuccess.classList.remove("hidden");
 
-        // Formular zurücksetzen
+        // Reset form
         registerForm.reset();
 
-        // Passwortanforderungen zurücksetzen
+        // Reset password requirements
         updatePasswordRequirements();
       } else {
-        // Fehler bei der Registrierung
+        // Registration error handling
         formError.textContent =
           data.error ||
           (document.documentElement.lang === "de"
@@ -1153,21 +1213,23 @@ const translations = {
         formError.classList.remove("hidden");
       }
     } catch (error) {
-      // Netzwerkfehler oder andere Probleme
+      // Network errors or other issues
       formError.textContent =
         document.documentElement.lang === "de"
           ? "Ein Fehler ist aufgetreten. Bitte versuche es später erneut."
           : "An error occurred. Please try again later.";
       formError.classList.remove("hidden");
     } finally {
-      // Zurücksetzen des Ladezustands
+      // Reset loading state
       registerSubmitText.textContent =
         document.documentElement.lang === "de" ? "Registrieren" : "Register";
       registerLoadingSpinner.classList.add("hidden");
     }
   });
 
-  // Verbesserte Tastaturnavigation
+  /**
+   * Improved keyboard navigation for login form
+   */
   loginForm.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && e.target === loginPasswordInput) {
       e.preventDefault();
@@ -1175,6 +1237,9 @@ const translations = {
     }
   });
 
+  /**
+   * Improved keyboard navigation for registration form
+   */
   registerForm.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && e.target === registerPasswordConfirmInput) {
       e.preventDefault();
@@ -1182,7 +1247,9 @@ const translations = {
     }
   });
 
-  // Tastaturnavigation für Tabs
+  /**
+   * Keyboard navigation for tabs
+   */
   loginTab.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -1197,9 +1264,12 @@ const translations = {
     }
   });
 
-  // Reduzierte Bewegung für Benutzer, die dies in ihren Systemeinstellungen aktiviert haben
+  /**
+   * Reduced motion detection for accessibility
+   * Applies reduced-motion class to document when user has this preference enabled
+   */
   const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
+    "(prefers-reduced-motion: reduce)"
   ).matches;
   if (prefersReducedMotion) {
     document.documentElement.classList.add("reduced-motion");
@@ -1207,7 +1277,7 @@ const translations = {
 </script>
 
 <style>
-  /* Verbesserte Kontrastverhältnisse für WCAG AAA */
+  /* Enhanced contrast ratios for WCAG AAA */
   .auth-form-container {
     background-color: #27272a;
     border-radius: 0.5rem;
@@ -1217,7 +1287,7 @@ const translations = {
     width: 100%;
   }
 
-  /* Tab-Styling */
+  /* Tab styling */
   .auth-tabs {
     display: flex;
     border-bottom: 2px solid #3f3f46;
@@ -1247,13 +1317,13 @@ const translations = {
     border-bottom-color: #f0abfc;
   }
 
-  /* Formular-Container für Animation */
+  /* Form container for animation */
   .auth-forms-container {
     position: relative;
     overflow: hidden;
   }
 
-  /* Formular-Styling mit Animation */
+  /* Form styling with animation */
   .auth-form {
     opacity: 0;
     transform: translateX(20px);
@@ -1270,32 +1340,32 @@ const translations = {
     pointer-events: all;
   }
 
-  /* Reduzierte Bewegung für Benutzer, die dies bevorzugen */
+  /* Reduced motion for users who prefer this */
   :global(.reduced-motion) .auth-form {
     transition: opacity 0.1s ease-in-out;
     transform: none;
   }
 
-  /* Verbesserte Fokus-Stile für Tastaturnavigation */
+  /* Enhanced focus styles for keyboard navigation */
   input:focus,
   button:focus {
     outline: 3px solid #f0abfc;
     outline-offset: 1px;
   }
 
-  /* Fehlerstatusstile */
+  /* Error status styles */
   input:invalid:not(:focus) {
     border-color: #f87171;
   }
 
-  /* Responsive Design */
+  /* Responsive design */
   @media (max-width: 640px) {
     .auth-form-container {
       padding: 1.5rem;
     }
   }
 
-  /* Animation für Ladevorgang */
+  /* Animation for loading spinner */
   @keyframes spin {
     to {
       transform: rotate(360deg);

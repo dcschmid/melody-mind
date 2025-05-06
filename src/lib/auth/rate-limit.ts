@@ -1,28 +1,30 @@
-// In-Memory-Speicher für Rate-Limiting
-// In einer Produktionsumgebung sollte ein persistenter Speicher wie Redis verwendet werden
+// In-memory storage for rate limiting
+// In a production environment, a persistent store like Redis should be used
 const loginAttempts: Record<string, { count: number; resetTime: number }> = {};
 
-// Konstanten für Rate-Limiting-Einstellungen
-const MAX_LOGIN_ATTEMPTS = 5; // Maximale Anzahl von Anmeldeversuchen
-const LOGIN_WINDOW_MS = 15 * 60 * 1000; // 15 Minuten in Millisekunden
-const IP_BLOCK_DURATION_MS = 60 * 60 * 1000; // 1 Stunde in Millisekunden
+// Constants for rate limiting settings
+const MAX_LOGIN_ATTEMPTS = 5; // Maximum number of login attempts
+const LOGIN_WINDOW_MS = 15 * 60 * 1000; // 15 minutes in milliseconds
+const IP_BLOCK_DURATION_MS = 60 * 60 * 1000; // 1 hour in milliseconds
 
 /**
- * Prüft, ob eine IP-Adresse das Rate-Limit überschritten hat
+ * Checks if an IP address has exceeded the rate limit
+ * @param ip - The IP address to check
+ * @returns Boolean indicating if the IP is rate limited
  */
 export function isRateLimited(ip: string): boolean {
   const now = Date.now();
 
-  // Bereinige abgelaufene Einträge
+  // Clean up expired entries
   cleanupExpiredEntries();
 
-  // Wenn die IP nicht im Speicher ist, ist sie nicht limitiert
+  // If the IP is not in memory, it's not limited
   if (!loginAttempts[ip]) {
     return false;
   }
 
-  // Wenn die Reset-Zeit in der Zukunft liegt und die maximale Anzahl von Versuchen erreicht ist,
-  // ist die IP limitiert
+  // If the reset time is in the future and the maximum number of attempts has been reached,
+  // the IP is limited
   return (
     loginAttempts[ip].resetTime > now &&
     loginAttempts[ip].count >= MAX_LOGIN_ATTEMPTS
@@ -30,13 +32,14 @@ export function isRateLimited(ip: string): boolean {
 }
 
 /**
- * Registriert einen fehlgeschlagenen Anmeldeversuch für eine IP-Adresse
+ * Records a failed login attempt for an IP address
+ * @param ip - The IP address to record the failed attempt for
  */
 export function recordFailedLoginAttempt(ip: string): void {
   const now = Date.now();
 
-  // Wenn die IP nicht im Speicher ist oder die Reset-Zeit abgelaufen ist,
-  // erstelle einen neuen Eintrag
+  // If the IP is not in memory or the reset time has expired,
+  // create a new entry
   if (!loginAttempts[ip] || loginAttempts[ip].resetTime <= now) {
     loginAttempts[ip] = {
       count: 1,
@@ -45,24 +48,27 @@ export function recordFailedLoginAttempt(ip: string): void {
     return;
   }
 
-  // Erhöhe die Anzahl der Versuche
+  // Increase the attempt count
   loginAttempts[ip].count += 1;
 
-  // Wenn die maximale Anzahl von Versuchen erreicht ist, verlängere die Sperrzeit
+  // If the maximum number of attempts has been reached, extend the block duration
   if (loginAttempts[ip].count >= MAX_LOGIN_ATTEMPTS) {
     loginAttempts[ip].resetTime = now + IP_BLOCK_DURATION_MS;
   }
 }
 
 /**
- * Setzt das Rate-Limit für eine IP-Adresse zurück (z.B. nach erfolgreicher Anmeldung)
+ * Resets the rate limit for an IP address (e.g., after successful login)
+ * @param ip - The IP address to reset
  */
 export function resetRateLimit(ip: string): void {
   delete loginAttempts[ip];
 }
 
 /**
- * Gibt die verbleibende Zeit bis zum Zurücksetzen des Rate-Limits zurück
+ * Returns the remaining time until the rate limit reset
+ * @param ip - The IP address to check
+ * @returns Time in milliseconds until the reset
  */
 export function getRateLimitResetTime(ip: string): number {
   if (!loginAttempts[ip]) {
@@ -76,7 +82,9 @@ export function getRateLimitResetTime(ip: string): number {
 }
 
 /**
- * Gibt die Anzahl der verbleibenden Anmeldeversuche zurück
+ * Returns the number of remaining login attempts
+ * @param ip - The IP address to check
+ * @returns Number of remaining login attempts
  */
 export function getRemainingLoginAttempts(ip: string): number {
   if (!loginAttempts[ip]) {
@@ -87,7 +95,7 @@ export function getRemainingLoginAttempts(ip: string): number {
 }
 
 /**
- * Bereinigt abgelaufene Einträge aus dem Speicher
+ * Cleans up expired entries from memory
  */
 function cleanupExpiredEntries(): void {
   const now = Date.now();
@@ -100,15 +108,17 @@ function cleanupExpiredEntries(): void {
 }
 
 /**
- * Middleware-Funktion für Rate-Limiting
- * Diese Funktion sollte in API-Routen für die Anmeldung verwendet werden
+ * Middleware function for rate limiting
+ * This function should be used in API routes for login
+ * @param request - The incoming HTTP request
+ * @returns Object with limited status and optional reset time
  */
 export function rateLimitMiddleware(request: Request): {
   limited: boolean;
   resetTime?: number;
 } {
-  // In einer echten Anwendung würde die IP-Adresse aus dem Request extrahiert werden
-  // Hier verwenden wir die IP aus dem X-Forwarded-For-Header oder die Remote-Adresse
+  // In a real application, the IP address would be extracted from the request
+  // Here we use the IP from the X-Forwarded-For header or the remote address
   const ip =
     request.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
     "unknown-ip";

@@ -1,12 +1,12 @@
 import jwt from "jsonwebtoken";
-import type { User } from "./db";
+import type { User } from "./db.js";
 
-// Konstanten für JWT-Einstellungen
-const JWT_SECRET = process.env.JWT_SECRET || "melody-mind-jwt-secret"; // In Produktion sollte dies eine sichere Umgebungsvariable sein
-const JWT_EXPIRES_IN = "24h"; // Token läuft nach 24 Stunden ab
-const JWT_REFRESH_EXPIRES_IN = "7d"; // Refresh-Token läuft nach 7 Tagen ab
+// Constants for JWT settings
+const JWT_SECRET = process.env.JWT_SECRET || "melody-mind-jwt-secret"; // In production, this should be a secure environment variable
+const JWT_EXPIRES_IN = "24h"; // Token expires after 24 hours
+const JWT_REFRESH_EXPIRES_IN = "7d"; // Refresh token expires after 7 days
 
-// Typen für JWT-Tokens
+// Types for JWT tokens
 export type JwtPayload = {
   userId: string;
   email: string;
@@ -20,7 +20,10 @@ export type TokenPair = {
 };
 
 /**
- * Generiert ein JWT-Token für einen Benutzer
+ * Generates a JWT token for a user
+ *
+ * @param user - The user object containing id and email
+ * @returns A signed JWT access token
  */
 export function generateAccessToken(user: User): string {
   const payload: JwtPayload = {
@@ -34,7 +37,10 @@ export function generateAccessToken(user: User): string {
 }
 
 /**
- * Generiert ein Refresh-Token für einen Benutzer
+ * Generates a refresh token for a user
+ *
+ * @param user - The user object containing id and email
+ * @returns A signed JWT refresh token
  */
 export function generateRefreshToken(user: User): string {
   const payload: JwtPayload = {
@@ -48,7 +54,10 @@ export function generateRefreshToken(user: User): string {
 }
 
 /**
- * Generiert ein Token-Paar (Access-Token und Refresh-Token)
+ * Generates a token pair (access token and refresh token)
+ *
+ * @param user - The user object containing id and email
+ * @returns An object containing both access and refresh tokens
  */
 export function generateTokenPair(user: User): TokenPair {
   return {
@@ -58,7 +67,10 @@ export function generateTokenPair(user: User): TokenPair {
 }
 
 /**
- * Verifiziert ein JWT-Token und gibt die Payload zurück
+ * Verifies a JWT token and returns the payload
+ *
+ * @param token - The JWT access token to verify
+ * @returns The decoded payload if valid, null otherwise
  */
 export function verifyAccessToken(token: string): JwtPayload | null {
   try {
@@ -70,7 +82,10 @@ export function verifyAccessToken(token: string): JwtPayload | null {
 }
 
 /**
- * Verifiziert ein Refresh-Token und gibt die Payload zurück
+ * Verifies a refresh token and returns the payload
+ *
+ * @param token - The JWT refresh token to verify
+ * @returns The decoded payload if valid, null otherwise
  */
 export function verifyRefreshToken(token: string): JwtPayload | null {
   try {
@@ -82,7 +97,10 @@ export function verifyRefreshToken(token: string): JwtPayload | null {
 }
 
 /**
- * Erneuert ein Access-Token mit einem gültigen Refresh-Token
+ * Renews an access token using a valid refresh token
+ *
+ * @param refreshToken - The refresh token to use for renewal
+ * @returns A new access token if successful, null otherwise
  */
 export async function refreshAccessToken(
   refreshToken: string,
@@ -92,8 +110,8 @@ export async function refreshAccessToken(
     return null;
   }
 
-  // Hier könnte eine Datenbankabfrage erfolgen, um zu prüfen, ob der Refresh-Token noch gültig ist
-  // und nicht widerrufen wurde. Für dieses Beispiel wird dies übersprungen.
+  // Here, a database query could be performed to check if the refresh token
+  // is still valid and hasn't been revoked. For this example, this step is skipped.
 
   const newPayload: JwtPayload = {
     userId: payload.userId,
@@ -106,7 +124,10 @@ export async function refreshAccessToken(
 }
 
 /**
- * Überprüft, ob ein Token gültig ist und gibt einen Boolean zurück
+ * Checks if a token is valid and returns a boolean
+ *
+ * @param token - The JWT token to check
+ * @returns True if the token is valid, false otherwise
  */
 export async function isAuthenticated(token: string): Promise<boolean> {
   try {
