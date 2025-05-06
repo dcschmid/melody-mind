@@ -1,0 +1,21 @@
+---
+/**
+ * Login Page für MelodyMind
+ *
+ * Diese Seite zeigt das kombinierte Auth-Formular im Login-Modus an und verwendet das Layout.
+ * Sie ist nach WCAG AAA Standards optimiert.
+ */
+import AuthForm from "@components/auth/AuthForm.astro";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import Layout from "@layouts/Layout.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout
+  title={t("auth.login.title")}
+  description="Melde dich bei Melody Mind an, um deine musikalische Reise fortzusetzen."
+>
+  <AuthForm initialMode="login" />
+</Layout>

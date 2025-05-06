@@ -1,0 +1,158 @@
+---
+/**
+ * EmailVerification Component für MelodyMind
+ *
+ * Diese Komponente zeigt eine Bestätigungsseite für die E-Mail-Verifizierung an.
+ * Sie wird angezeigt, wenn ein Benutzer auf den Bestätigungslink in seiner E-Mail klickt.
+ * Die Komponente ist nach WCAG AAA Standards optimiert.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <EmailVerification token="verification-token" />
+ * ```
+ */
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+
+interface Props {
+  /** Verifizierungstoken aus der URL */
+  token: string;
+}
+
+const { token } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="auth-form-container">
+  <div id="loadingState" class="text-center py-8">
+    <div
+      class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500 mb-4"
+    >
+    </div>
+    <p class="text-lg">{t("loading.content")}</p>
+  </div>
+
+  <div id="successState" class="text-center py-8 hidden">
+    <div
+      class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-900/30 border-2 border-green-500 mb-4"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        class="w-8 h-8 text-green-400"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4.5 12.75l6 6 9-13.5"></path>
+      </svg>
+    </div>
+    <h1 class="text-2xl font-bold mb-4">
+      {t("auth.email_verification.title")}
+    </h1>
+    <p class="text-lg mb-6">{t("auth.email_verification.message")}</p>
+    <a
+      href={`/${lang}/auth/login`}
+      class="inline-block py-3 px-6 bg-purple-600 hover:bg-purple-700 text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 focus:ring-offset-zinc-900 transition-colors"
+    >
+      {t("auth.email_verification.login")}
+    </a>
+  </div>
+
+  <div id="errorState" class="text-center py-8 hidden">
+    <div
+      class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-900/30 border-2 border-red-500 mb-4"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        class="w-8 h-8 text-red-400"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
+        ></path>
+      </svg>
+    </div>
+    <h1 class="text-2xl font-bold mb-4">
+      {t("auth.email_verification.title")}
+    </h1>
+    <p class="text-lg mb-6">{t("auth.email_verification.error")}</p>
+    <a
+      href={`/${lang}/auth/login`}
+      class="inline-block py-3 px-6 bg-purple-600 hover:bg-purple-700 text-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 focus:ring-offset-zinc-900 transition-colors"
+    >
+      {t("auth.email_verification.login")}
+    </a>
+  </div>
+</div>
+
+<script define:vars={{ token }}>
+  // Funktion zum Anzeigen des entsprechenden Status
+  function showState(state) {
+    document.getElementById("loadingState").classList.add("hidden");
+    document.getElementById("successState").classList.add("hidden");
+    document.getElementById("errorState").classList.add("hidden");
+
+    document.getElementById(state + "State").classList.remove("hidden");
+  }
+
+  // Funktion zum Verifizieren der E-Mail-Adresse
+  async function verifyEmail() {
+    try {
+      // API-Aufruf zur E-Mail-Verifizierung mit mehrsprachiger Route
+      const currentLang = document.documentElement.lang || "de";
+      const response = await fetch(
+        `/${currentLang}/api/auth/verify-email?token=${encodeURIComponent(token)}`,
+      );
+      const data = await response.json();
+
+      if (response.ok) {
+        // Erfolgreiche Verifizierung
+        showState("success");
+      } else {
+        // Fehler bei der Verifizierung
+        showState("error");
+      }
+    } catch (error) {
+      // Netzwerkfehler oder andere Probleme
+      showState("error");
+    }
+  }
+
+  // Verifiziere die E-Mail-Adresse beim Laden der Seite
+  document.addEventListener("DOMContentLoaded", verifyEmail);
+</script>
+
+<style>
+  /* Verbesserte Kontrastverhältnisse für WCAG AAA */
+  .auth-form-container {
+    background-color: #27272a;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    max-width: 32rem;
+    margin: 0 auto;
+  }
+
+  /* Verbesserte Fokus-Stile für Tastaturnavigation */
+  a:focus {
+    outline: 3px solid #f0abfc;
+    outline-offset: 3px;
+  }
+
+  /* Animation für Ladevorgang */
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>

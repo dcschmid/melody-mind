@@ -1,0 +1,1304 @@
+---
+/**
+ * AuthForm Component für MelodyMind
+ *
+ * Diese Komponente kombiniert Login- und Registrierungsformular in einer einzigen Komponente
+ * mit animiertem Übergang zwischen den Modi. Sie ist vollständig responsiv und
+ * nach WCAG AAA Standards optimiert.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <AuthForm initialMode="login" />
+ * ```
+ */
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+
+interface Props {
+  /** Initialer Modus der Komponente: "login" oder "register" */
+  initialMode?: "login" | "register";
+}
+
+const { initialMode = "login" } = Astro.props;
+const lang = String(getLangFromUrl(Astro.url));
+const t = useTranslations(lang);
+
+// Übersetzungen für Client-seitiges JavaScript bereitstellen
+const translations = {
+  invalidCredentials: t("auth.service.invalid_credentials"),
+  tooManyAttempts: t("auth.service.too_many_attempts"),
+};
+---
+
+<div class="auth-form-container">
+  <div
+    id="formError"
+    class="hidden mb-4 p-3 bg-red-900/50 border border-red-700 text-white rounded-md"
+    role="alert"
+    aria-live="assertive"
+  >
+  </div>
+  <div
+    id="formSuccess"
+    class="hidden mb-4 p-3 bg-green-900/50 border border-green-700 text-white rounded-md"
+    role="alert"
+    aria-live="assertive"
+  >
+  </div>
+
+  <div class="auth-tabs mb-6">
+    <button
+      id="loginTab"
+      class={`auth-tab ${initialMode === "login" ? "active" : ""}`}
+      aria-selected={initialMode === "login" ? "true" : "false"}
+      role="tab"
+      aria-controls="loginForm"
+    >
+      {t("auth.login.title")}
+    </button>
+    <button
+      id="registerTab"
+      class={`auth-tab ${initialMode === "register" ? "active" : ""}`}
+      aria-selected={initialMode === "register" ? "true" : "false"}
+      role="tab"
+      aria-controls="registerForm"
+    >
+      {t("auth.register.title")}
+    </button>
+  </div>
+
+  <div class="auth-forms-container">
+    <!-- Login Formular -->
+    <form
+      id="loginForm"
+      class={`auth-form ${initialMode === "login" ? "active" : ""}`}
+      novalidate
+      aria-labelledby="loginFormHeading"
+      role="tabpanel"
+      aria-hidden={initialMode === "login" ? "false" : "true"}
+    >
+      <h2 id="loginFormHeading" class="sr-only">{t("auth.login.title")}</h2>
+
+      <div class="mb-4">
+        <label for="loginEmail" class="block text-sm font-medium mb-2">
+          {t("auth.login.email")}
+          <span class="text-red-400" aria-hidden="true">*</span>
+          <span class="sr-only">{t("auth.form.required")}</span>
+        </label>
+        <div class="relative">
+          <input
+            type="email"
+            id="loginEmail"
+            name="email"
+            autocomplete="email"
+            required
+            class="w-full px-4 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+            placeholder={t("auth.login.email.placeholder")}
+            aria-required="true"
+          />
+          <div id="loginEmailError" class="text-red-400 text-sm mt-1 hidden">
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <div class="flex items-center justify-between mb-2">
+          <label for="loginPassword" class="block text-sm font-medium">
+            {t("auth.login.password")}
+            <span class="text-red-400" aria-hidden="true">*</span>
+            <span class="sr-only">{t("auth.form.required")}</span>
+          </label>
+          <a
+            href={`/${String(lang)}/auth/reset-password`}
+            class="text-sm text-purple-300 hover:text-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 rounded-md px-2 py-1"
+          >
+            {t("auth.login.forgot_password")}
+          </a>
+        </div>
+        <div class="relative">
+          <input
+            type="password"
+            id="loginPassword"
+            name="password"
+            autocomplete="current-password"
+            required
+            class="w-full px-4 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+            placeholder={t("auth.login.password.placeholder")}
+            aria-required="true"
+          />
+          <button
+            type="button"
+            id="toggleLoginPassword"
+            class="absolute inset-y-0 right-0 flex items-center px-3 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 rounded-md"
+            aria-label={t("auth.accessibility.password_toggle")}
+          >
+            <span class="show-password">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </span>
+            <span class="hide-password hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <div id="loginPasswordError" class="text-red-400 text-sm mt-1 hidden">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button
+          type="submit"
+          class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 focus:ring-offset-zinc-900 transition-colors"
+        >
+          <span id="loginSubmitText">{t("auth.login.submit")}</span>
+          <span id="loginLoadingSpinner" class="hidden">
+            <svg
+              class="animate-spin ml-2 h-4 w-4 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </form>
+
+    <!-- Registrierungsformular -->
+    <form
+      id="registerForm"
+      class={`auth-form ${initialMode === "register" ? "active" : ""}`}
+      novalidate
+      aria-labelledby="registerFormHeading"
+      role="tabpanel"
+      aria-hidden={initialMode === "register" ? "false" : "true"}
+    >
+      <h2 id="registerFormHeading" class="sr-only">
+        {t("auth.register.title")}
+      </h2>
+
+      <div class="mb-4">
+        <label for="registerEmail" class="block text-sm font-medium mb-2">
+          {t("auth.register.email")}
+          <span class="text-red-400" aria-hidden="true">*</span>
+          <span class="sr-only">{t("auth.form.required")}</span>
+        </label>
+        <div class="relative">
+          <input
+            type="email"
+            id="registerEmail"
+            name="email"
+            autocomplete="email"
+            required
+            class="w-full px-4 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+            placeholder={t("auth.register.email.placeholder")}
+            aria-required="true"
+          />
+          <div id="registerEmailError" class="text-red-400 text-sm mt-1 hidden">
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="registerUsername" class="block text-sm font-medium mb-2">
+          {t("auth.register.username")}
+        </label>
+        <div class="relative">
+          <input
+            type="text"
+            id="registerUsername"
+            name="username"
+            autocomplete="username"
+            class="w-full px-4 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+            placeholder={t("auth.register.username.placeholder")}
+          />
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="registerPassword" class="block text-sm font-medium mb-2">
+          {t("auth.register.password")}
+          <span class="text-red-400" aria-hidden="true">*</span>
+          <span class="sr-only">{t("auth.form.required")}</span>
+        </label>
+        <div class="relative">
+          <input
+            type="password"
+            id="registerPassword"
+            name="password"
+            autocomplete="new-password"
+            required
+            class="w-full px-4 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+            placeholder={t("auth.register.password.placeholder")}
+            aria-required="true"
+          />
+          <button
+            type="button"
+            id="toggleRegisterPassword"
+            class="absolute inset-y-0 right-0 flex items-center px-3 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 rounded-md"
+            aria-label={t("auth.accessibility.password_toggle")}
+          >
+            <span class="show-password">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </span>
+            <span class="hide-password hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <div
+            id="registerPasswordError"
+            class="text-red-400 text-sm mt-1 hidden"
+          >
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label
+          for="registerPasswordConfirm"
+          class="block text-sm font-medium mb-2"
+        >
+          {t("auth.register.password_confirm")}
+          <span class="text-red-400" aria-hidden="true">*</span>
+          <span class="sr-only">{t("auth.form.required")}</span>
+        </label>
+        <div class="relative">
+          <input
+            type="password"
+            id="registerPasswordConfirm"
+            name="passwordConfirm"
+            autocomplete="new-password"
+            required
+            class="w-full px-4 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+            placeholder={t("auth.register.password_confirm.placeholder")}
+            aria-required="true"
+          />
+          <button
+            type="button"
+            id="toggleRegisterPasswordConfirm"
+            class="absolute inset-y-0 right-0 flex items-center px-3 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 rounded-md"
+            aria-label={t("auth.accessibility.password_toggle")}
+          >
+            <span class="show-password">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </span>
+            <span class="hide-password hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"
+                ></path>
+              </svg>
+            </span>
+          </button>
+          <div
+            id="registerPasswordConfirmError"
+            class="text-red-400 text-sm mt-1 hidden"
+          >
+          </div>
+        </div>
+      </div>
+
+      <!-- Passwortanforderungen und Stärkeanzeige -->
+      <div class="mb-4">
+        <button
+          type="button"
+          id="toggleRequirements"
+          class="text-sm text-purple-300 hover:text-purple-200 flex items-center focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 rounded-md px-2 py-1"
+          aria-expanded="false"
+          aria-controls="passwordRequirements"
+          aria-label={t("auth.accessibility.password_requirements")}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-4 h-4 mr-1"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+            ></path>
+          </svg>
+          {t("auth.password.requirements")}
+        </button>
+
+        <div
+          id="passwordRequirements"
+          class="mt-3 p-3 bg-zinc-800 rounded-md border border-zinc-700 hidden"
+          aria-hidden="true"
+        >
+          <h3 class="text-sm font-medium mb-2">
+            {t("auth.password.requirements")}
+          </h3>
+          <ul class="text-sm space-y-1 ml-5 list-disc">
+            <li id="req-length" class="text-red-400">
+              {t("auth.password.min_length")}
+            </li>
+            <li id="req-uppercase" class="text-red-400">
+              {t("auth.password.uppercase")}
+            </li>
+            <li id="req-lowercase" class="text-red-400">
+              {t("auth.password.lowercase")}
+            </li>
+            <li id="req-number" class="text-red-400">
+              {t("auth.password.number")}
+            </li>
+            <li id="req-special" class="text-red-400">
+              {t("auth.password.special")}
+            </li>
+            <li id="req-common" class="text-red-400">
+              {t("auth.password.no_common")}
+            </li>
+            <li id="req-repeats" class="text-red-400">
+              {t("auth.password.no_repeats")}
+            </li>
+            <li id="req-sequences" class="text-red-400">
+              {t("auth.password.no_sequences")}
+            </li>
+            <li id="req-match" class="text-red-400">
+              {t("auth.password.match")}
+            </li>
+          </ul>
+
+          <div class="mt-3">
+            <p class="text-sm mb-1">{t("auth.password.strength")}</p>
+            <div class="w-full bg-zinc-700 rounded-full h-2.5">
+              <div
+                id="passwordStrength"
+                class="bg-red-500 h-2.5 rounded-full"
+                style="width: 0%"
+              >
+              </div>
+            </div>
+            <p id="strengthText" class="text-xs mt-1 text-red-400">
+              {t("auth.password.strength.weak")}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button
+          type="submit"
+          class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 focus:ring-offset-zinc-900 transition-colors"
+        >
+          <span id="registerSubmitText">{t("auth.register.submit")}</span>
+          <span id="registerLoadingSpinner" class="hidden">
+            <svg
+              class="animate-spin ml-2 h-4 w-4 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script define:vars={{ translations }}>
+  // Liste häufig verwendeter Passwörter (gekürzt)
+  const COMMON_PASSWORDS = [
+    "password",
+    "password123",
+    "123456",
+    "12345678",
+    "qwerty",
+    "admin",
+    "welcome",
+    "letmein",
+    "monkey",
+    "abc123",
+    "football",
+    "iloveyou",
+    "trustno1",
+    "sunshine",
+    "master",
+    "welcome1",
+    "shadow",
+    "ashley",
+    "baseball",
+    "access",
+    "michael",
+    "superman",
+    "batman",
+    "starwars",
+  ];
+
+  // DOM-Elemente
+  const loginTab = document.getElementById("loginTab");
+  const registerTab = document.getElementById("registerTab");
+  const loginForm = document.getElementById("loginForm");
+  const registerForm = document.getElementById("registerForm");
+
+  // Login-Formular-Elemente
+  const loginEmailInput = document.getElementById("loginEmail");
+  const loginPasswordInput = document.getElementById("loginPassword");
+  const loginEmailError = document.getElementById("loginEmailError");
+  const loginPasswordError = document.getElementById("loginPasswordError");
+  const loginSubmitText = document.getElementById("loginSubmitText");
+  const loginLoadingSpinner = document.getElementById("loginLoadingSpinner");
+  const toggleLoginPasswordButton = document.getElementById(
+    "toggleLoginPassword",
+  );
+
+  // Registrierungs-Formular-Elemente
+  const registerEmailInput = document.getElementById("registerEmail");
+  const registerUsernameInput = document.getElementById("registerUsername");
+  const registerPasswordInput = document.getElementById("registerPassword");
+  const registerPasswordConfirmInput = document.getElementById(
+    "registerPasswordConfirm",
+  );
+  const registerEmailError = document.getElementById("registerEmailError");
+  const registerPasswordError = document.getElementById(
+    "registerPasswordError",
+  );
+  const registerPasswordConfirmError = document.getElementById(
+    "registerPasswordConfirmError",
+  );
+  const registerSubmitText = document.getElementById("registerSubmitText");
+  const registerLoadingSpinner = document.getElementById(
+    "registerLoadingSpinner",
+  );
+  const toggleRegisterPasswordButton = document.getElementById(
+    "toggleRegisterPassword",
+  );
+  const toggleRegisterPasswordConfirmButton = document.getElementById(
+    "toggleRegisterPasswordConfirm",
+  );
+
+  // Passwortanforderungen
+  const toggleRequirementsButton =
+    document.getElementById("toggleRequirements");
+  const passwordRequirements = document.getElementById("passwordRequirements");
+  const passwordStrength = document.getElementById("passwordStrength");
+  const strengthText = document.getElementById("strengthText");
+
+  // Passwortanforderungen
+  const reqLength = document.getElementById("req-length");
+  const reqUppercase = document.getElementById("req-uppercase");
+  const reqLowercase = document.getElementById("req-lowercase");
+  const reqNumber = document.getElementById("req-number");
+  const reqSpecial = document.getElementById("req-special");
+  const reqCommon = document.getElementById("req-common");
+  const reqRepeats = document.getElementById("req-repeats");
+  const reqSequences = document.getElementById("req-sequences");
+  const reqMatch = document.getElementById("req-match");
+
+  // Gemeinsame Elemente
+  const formError = document.getElementById("formError");
+  const formSuccess = document.getElementById("formSuccess");
+
+  // Hilfsfunktion zum Anzeigen von Fehlermeldungen
+  function showError(message) {
+    if (formError) {
+      formError.textContent = message;
+      formError.classList.remove("hidden");
+    }
+  }
+
+  // Tab-Wechsel-Funktionalität
+  loginTab.addEventListener("click", () => {
+    switchTab("login");
+  });
+
+  registerTab.addEventListener("click", () => {
+    switchTab("register");
+  });
+
+  function switchTab(mode) {
+    // Tabs aktualisieren
+    if (mode === "login") {
+      loginTab.classList.add("active");
+      registerTab.classList.remove("active");
+      loginTab.setAttribute("aria-selected", "true");
+      registerTab.setAttribute("aria-selected", "false");
+
+      // Formulare aktualisieren mit Animation
+      loginForm.classList.add("active");
+      registerForm.classList.remove("active");
+      loginForm.setAttribute("aria-hidden", "false");
+      registerForm.setAttribute("aria-hidden", "true");
+    } else {
+      loginTab.classList.remove("active");
+      registerTab.classList.add("active");
+      loginTab.setAttribute("aria-selected", "false");
+      registerTab.setAttribute("aria-selected", "true");
+
+      // Formulare aktualisieren mit Animation
+      loginForm.classList.remove("active");
+      registerForm.classList.add("active");
+      loginForm.setAttribute("aria-hidden", "true");
+      registerForm.setAttribute("aria-hidden", "false");
+    }
+
+    // Fehler zurücksetzen
+    formError.textContent = "";
+    formError.classList.add("hidden");
+    formSuccess.textContent = "";
+    formSuccess.classList.add("hidden");
+  }
+
+  // E-Mail-Validierung
+  function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  // Passwort-Validierung
+  function validatePassword(password) {
+    const errors = [];
+
+    // Prüfe die Mindestlänge
+    if (password.length < 8) {
+      errors.push("min_length");
+    }
+
+    // Prüfe auf Großbuchstaben
+    if (!/[A-Z]/.test(password)) {
+      errors.push("uppercase");
+    }
+
+    // Prüfe auf Kleinbuchstaben
+    if (!/[a-z]/.test(password)) {
+      errors.push("lowercase");
+    }
+
+    // Prüfe auf Zahlen
+    if (!/[0-9]/.test(password)) {
+      errors.push("number");
+    }
+
+    // Prüfe auf Sonderzeichen
+    if (!/[^A-Za-z0-9]/.test(password)) {
+      errors.push("special");
+    }
+
+    // Prüfe auf häufig verwendete Passwörter
+    if (COMMON_PASSWORDS.includes(password.toLowerCase())) {
+      errors.push("common");
+    }
+
+    // Prüfe auf Wiederholungen
+    if (/(.)\1{2,}/.test(password)) {
+      errors.push("repeats");
+    }
+
+    // Prüfe auf Sequenzen
+    const sequences = ["123456", "abcdef", "qwerty", "asdfgh"];
+    let hasSequence = false;
+    for (const seq of sequences) {
+      for (let i = 0; i < seq.length - 2; i++) {
+        const subSeq = seq.substring(i, i + 3);
+        if (password.toLowerCase().includes(subSeq)) {
+          hasSequence = true;
+          break;
+        }
+      }
+      if (hasSequence) {
+        errors.push("sequences");
+        break;
+      }
+    }
+
+    return {
+      valid: errors.length === 0,
+      errors,
+    };
+  }
+
+  // Berechnet die Stärke eines Passworts (0-100)
+  function calculatePasswordStrength(password) {
+    let strength = 0;
+
+    // Länge
+    strength += Math.min(password.length * 4, 40);
+
+    // Komplexität
+    if (/[A-Z]/.test(password)) strength += 10;
+    if (/[a-z]/.test(password)) strength += 10;
+    if (/[0-9]/.test(password)) strength += 10;
+    if (/[^A-Za-z0-9]/.test(password)) strength += 10;
+
+    // Abzüge für häufig verwendete Passwörter
+    if (COMMON_PASSWORDS.includes(password.toLowerCase())) strength -= 30;
+
+    // Abzüge für Wiederholungen
+    if (/(.)\1{2,}/.test(password)) strength -= 10;
+
+    // Abzüge für Sequenzen
+    const sequences = ["123456", "abcdef", "qwerty", "asdfgh"];
+    for (const seq of sequences) {
+      for (let i = 0; i < seq.length - 2; i++) {
+        const subSeq = seq.substring(i, i + 3);
+        if (password.toLowerCase().includes(subSeq)) {
+          strength -= 10;
+          break;
+        }
+      }
+    }
+
+    // Begrenze die Stärke auf 0-100
+    return Math.max(0, Math.min(100, strength));
+  }
+
+  // Aktualisiert die Passwortanforderungen und Stärkeanzeige
+  function updatePasswordRequirements() {
+    const password = registerPasswordInput.value;
+    const passwordConfirm = registerPasswordConfirmInput.value;
+
+    // Validiere das Passwort
+    const { errors } = validatePassword(password);
+
+    // Aktualisiere die Anforderungen
+    reqLength.className = errors.includes("min_length")
+      ? "text-red-400"
+      : "text-green-400";
+    reqUppercase.className = errors.includes("uppercase")
+      ? "text-red-400"
+      : "text-green-400";
+    reqLowercase.className = errors.includes("lowercase")
+      ? "text-red-400"
+      : "text-green-400";
+    reqNumber.className = errors.includes("number")
+      ? "text-red-400"
+      : "text-green-400";
+    reqSpecial.className = errors.includes("special")
+      ? "text-red-400"
+      : "text-green-400";
+    reqCommon.className = errors.includes("common")
+      ? "text-red-400"
+      : "text-green-400";
+    reqRepeats.className = errors.includes("repeats")
+      ? "text-red-400"
+      : "text-green-400";
+    reqSequences.className = errors.includes("sequences")
+      ? "text-red-400"
+      : "text-green-400";
+
+    // Überprüfe, ob die Passwörter übereinstimmen
+    if (password && passwordConfirm) {
+      reqMatch.className =
+        password === passwordConfirm ? "text-green-400" : "text-red-400";
+    } else {
+      reqMatch.className = "text-red-400";
+    }
+
+    // Berechne die Passwortstärke
+    const strength = calculatePasswordStrength(password);
+    passwordStrength.style.width = `${strength}%`;
+
+    // Aktualisiere die Farbe und den Text basierend auf der Stärke
+    if (strength < 30) {
+      passwordStrength.className = "bg-red-500 h-2.5 rounded-full";
+      strengthText.className = "text-xs mt-1 text-red-400";
+      strengthText.textContent =
+        document.documentElement.lang === "de" ? "Schwach" : "Weak";
+    } else if (strength < 60) {
+      passwordStrength.className = "bg-yellow-500 h-2.5 rounded-full";
+      strengthText.className = "text-xs mt-1 text-yellow-400";
+      strengthText.textContent =
+        document.documentElement.lang === "de" ? "Mittel" : "Medium";
+    } else if (strength < 80) {
+      passwordStrength.className = "bg-green-500 h-2.5 rounded-full";
+      strengthText.className = "text-xs mt-1 text-green-400";
+      strengthText.textContent =
+        document.documentElement.lang === "de" ? "Stark" : "Strong";
+    } else {
+      passwordStrength.className = "bg-blue-500 h-2.5 rounded-full";
+      strengthText.className = "text-xs mt-1 text-blue-400";
+      strengthText.textContent =
+        document.documentElement.lang === "de" ? "Sehr stark" : "Very Strong";
+    }
+
+    // Aktualisiere die ARIA-Attribute für Screenreader
+    const strengthLabel =
+      document.documentElement.lang === "de"
+        ? "Passwortstärke: "
+        : "Password strength: ";
+    strengthText.setAttribute(
+      "aria-label",
+      strengthLabel + strengthText.textContent,
+    );
+  }
+
+  // Passwort anzeigen/verbergen für Login
+  toggleLoginPasswordButton.addEventListener("click", () => {
+    if (loginPasswordInput.type === "password") {
+      loginPasswordInput.type = "text";
+      toggleLoginPasswordButton
+        .querySelector(".show-password")
+        ?.classList.add("hidden");
+      toggleLoginPasswordButton
+        .querySelector(".hide-password")
+        ?.classList.remove("hidden");
+    } else {
+      loginPasswordInput.type = "password";
+      toggleLoginPasswordButton
+        .querySelector(".show-password")
+        ?.classList.remove("hidden");
+      toggleLoginPasswordButton
+        .querySelector(".hide-password")
+        ?.classList.add("hidden");
+    }
+    loginPasswordInput.focus();
+  });
+
+  // Passwort anzeigen/verbergen für Registrierung
+  toggleRegisterPasswordButton.addEventListener("click", () => {
+    if (registerPasswordInput.type === "password") {
+      registerPasswordInput.type = "text";
+      toggleRegisterPasswordButton
+        .querySelector(".show-password")
+        ?.classList.add("hidden");
+      toggleRegisterPasswordButton
+        .querySelector(".hide-password")
+        ?.classList.remove("hidden");
+    } else {
+      registerPasswordInput.type = "password";
+      toggleRegisterPasswordButton
+        .querySelector(".show-password")
+        ?.classList.remove("hidden");
+      toggleRegisterPasswordButton
+        .querySelector(".hide-password")
+        ?.classList.add("hidden");
+    }
+    registerPasswordInput.focus();
+  });
+
+  toggleRegisterPasswordConfirmButton.addEventListener("click", () => {
+    if (registerPasswordConfirmInput.type === "password") {
+      registerPasswordConfirmInput.type = "text";
+      toggleRegisterPasswordConfirmButton
+        .querySelector(".show-password")
+        ?.classList.add("hidden");
+      toggleRegisterPasswordConfirmButton
+        .querySelector(".hide-password")
+        ?.classList.remove("hidden");
+    } else {
+      registerPasswordConfirmInput.type = "password";
+      toggleRegisterPasswordConfirmButton
+        .querySelector(".show-password")
+        ?.classList.remove("hidden");
+      toggleRegisterPasswordConfirmButton
+        .querySelector(".hide-password")
+        ?.classList.add("hidden");
+    }
+    registerPasswordConfirmInput.focus();
+  });
+
+  // Passwortanforderungen anzeigen/verbergen
+  toggleRequirementsButton.addEventListener("click", () => {
+    const isExpanded =
+      toggleRequirementsButton.getAttribute("aria-expanded") === "true";
+    toggleRequirementsButton.setAttribute(
+      "aria-expanded",
+      isExpanded ? "false" : "true",
+    );
+    passwordRequirements.classList.toggle("hidden");
+    passwordRequirements.setAttribute(
+      "aria-hidden",
+      isExpanded ? "true" : "false",
+    );
+
+    if (!isExpanded) {
+      updatePasswordRequirements();
+    }
+  });
+
+  // Aktualisiere die Passwortanforderungen bei Eingabe
+  registerPasswordInput.addEventListener("input", updatePasswordRequirements);
+  registerPasswordConfirmInput.addEventListener(
+    "input",
+    updatePasswordRequirements,
+  );
+
+  // Login-Formular-Validierung
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let isValid = true;
+
+    // Zurücksetzen der Fehleranzeigen
+    loginEmailError.textContent = "";
+    loginEmailError.classList.add("hidden");
+    loginPasswordError.textContent = "";
+    loginPasswordError.classList.add("hidden");
+    formError.textContent = "";
+    formError.classList.add("hidden");
+
+    // E-Mail-Validierung
+    if (!loginEmailInput.value) {
+      loginEmailError.textContent =
+        document.documentElement.lang === "de"
+          ? "E-Mail-Adresse ist erforderlich"
+          : "Email address is required";
+      loginEmailError.classList.remove("hidden");
+      isValid = false;
+    } else if (!validateEmail(loginEmailInput.value)) {
+      loginEmailError.textContent =
+        document.documentElement.lang === "de"
+          ? "Ungültige E-Mail-Adresse"
+          : "Invalid email address";
+      loginEmailError.classList.remove("hidden");
+      isValid = false;
+    }
+
+    // Passwort-Validierung
+    if (!loginPasswordInput.value) {
+      loginPasswordError.textContent =
+        document.documentElement.lang === "de"
+          ? "Passwort ist erforderlich"
+          : "Password is required";
+      loginPasswordError.classList.remove("hidden");
+      isValid = false;
+    }
+
+    if (!isValid) {
+      return;
+    }
+
+    // Anzeigen des Ladezustands
+    loginSubmitText.textContent =
+      document.documentElement.lang === "de" ? "Wird geladen..." : "Loading...";
+    loginLoadingSpinner.classList.remove("hidden");
+
+    try {
+      // API-Aufruf zum Anmelden mit mehrsprachiger Route
+      const currentLang = document.documentElement.lang || "de";
+      const response = await fetch(`/${currentLang}/api/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: loginEmailInput.value,
+          password: loginPasswordInput.value,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Erfolgreiche Anmeldung - Weiterleitung zur Startseite
+        window.location.href = `/${document.documentElement.lang}`;
+      } else {
+        // Fehler bei der Anmeldung
+        if (response.status === 401) {
+          // Verwende die bereitgestellte Übersetzung
+          showError(translations.invalidCredentials);
+          return;
+        }
+        if (response.status === 429) {
+          // Rate limit exceeded
+          showError(translations.tooManyAttempts);
+          return;
+        }
+        // Andere Fehlerbehandlung
+        formError.textContent =
+          data.error ||
+          (document.documentElement.lang === "de"
+            ? "Anmeldung fehlgeschlagen. Bitte überprüfe deine Eingaben."
+            : "Login failed. Please check your credentials.");
+        formError.classList.remove("hidden");
+      }
+    } catch (error) {
+      // Netzwerkfehler oder andere Probleme
+      formError.textContent =
+        document.documentElement.lang === "de"
+          ? "Ein Fehler ist aufgetreten. Bitte versuche es später erneut."
+          : "An error occurred. Please try again later.";
+      formError.classList.remove("hidden");
+    } finally {
+      // Zurücksetzen des Ladezustands
+      loginSubmitText.textContent =
+        document.documentElement.lang === "de" ? "Anmelden" : "Log In";
+      loginLoadingSpinner.classList.add("hidden");
+    }
+  });
+
+  // Registrierungs-Formular-Validierung
+  registerForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let isValid = true;
+
+    // Zurücksetzen der Fehleranzeigen
+    registerEmailError.textContent = "";
+    registerEmailError.classList.add("hidden");
+    registerPasswordError.textContent = "";
+    registerPasswordError.classList.add("hidden");
+    registerPasswordConfirmError.textContent = "";
+    registerPasswordConfirmError.classList.add("hidden");
+    formError.textContent = "";
+    formError.classList.add("hidden");
+    formSuccess.textContent = "";
+    formSuccess.classList.add("hidden");
+
+    // E-Mail-Validierung
+    if (!registerEmailInput.value) {
+      registerEmailError.textContent =
+        document.documentElement.lang === "de"
+          ? "E-Mail-Adresse ist erforderlich"
+          : "Email address is required";
+      registerEmailError.classList.remove("hidden");
+      isValid = false;
+    } else if (!validateEmail(registerEmailInput.value)) {
+      registerEmailError.textContent =
+        document.documentElement.lang === "de"
+          ? "Ungültige E-Mail-Adresse"
+          : "Invalid email address";
+      registerEmailError.classList.remove("hidden");
+      isValid = false;
+    }
+
+    // Passwort-Validierung
+    if (!registerPasswordInput.value) {
+      registerPasswordError.textContent =
+        document.documentElement.lang === "de"
+          ? "Passwort ist erforderlich"
+          : "Password is required";
+      registerPasswordError.classList.remove("hidden");
+      isValid = false;
+    } else {
+      const { valid, errors } = validatePassword(registerPasswordInput.value);
+      if (!valid) {
+        registerPasswordError.textContent =
+          document.documentElement.lang === "de"
+            ? "Das Passwort erfüllt nicht alle Anforderungen"
+            : "Password does not meet all requirements";
+        registerPasswordError.classList.remove("hidden");
+        isValid = false;
+      }
+    }
+
+    // Passwortbestätigung
+    if (!registerPasswordConfirmInput.value) {
+      registerPasswordConfirmError.textContent =
+        document.documentElement.lang === "de"
+          ? "Passwortbestätigung ist erforderlich"
+          : "Password confirmation is required";
+      registerPasswordConfirmError.classList.remove("hidden");
+      isValid = false;
+    } else if (
+      registerPasswordInput.value !== registerPasswordConfirmInput.value
+    ) {
+      registerPasswordConfirmError.textContent =
+        document.documentElement.lang === "de"
+          ? "Die Passwörter stimmen nicht überein"
+          : "Passwords do not match";
+      registerPasswordConfirmError.classList.remove("hidden");
+      isValid = false;
+    }
+
+    if (!isValid) {
+      return;
+    }
+
+    // Anzeigen des Ladezustands
+    registerSubmitText.textContent =
+      document.documentElement.lang === "de" ? "Wird geladen..." : "Loading...";
+    registerLoadingSpinner.classList.remove("hidden");
+
+    try {
+      // API-Aufruf zum Registrieren mit mehrsprachiger Route
+      const currentLang = document.documentElement.lang || "de";
+      const response = await fetch(`/${currentLang}/api/auth/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: registerEmailInput.value,
+          username: registerUsernameInput.value || undefined,
+          password: registerPasswordInput.value,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Erfolgreiche Registrierung
+        formSuccess.textContent =
+          data.message ||
+          (document.documentElement.lang === "de"
+            ? "Registrierung erfolgreich! Bitte überprüfe dein E-Mail-Postfach, um deine E-Mail-Adresse zu bestätigen."
+            : "Registration successful! Please check your email to verify your email address.");
+        formSuccess.classList.remove("hidden");
+
+        // Formular zurücksetzen
+        registerForm.reset();
+
+        // Passwortanforderungen zurücksetzen
+        updatePasswordRequirements();
+      } else {
+        // Fehler bei der Registrierung
+        formError.textContent =
+          data.error ||
+          (document.documentElement.lang === "de"
+            ? "Registrierung fehlgeschlagen. Bitte überprüfe deine Eingaben."
+            : "Registration failed. Please check your inputs.");
+        formError.classList.remove("hidden");
+      }
+    } catch (error) {
+      // Netzwerkfehler oder andere Probleme
+      formError.textContent =
+        document.documentElement.lang === "de"
+          ? "Ein Fehler ist aufgetreten. Bitte versuche es später erneut."
+          : "An error occurred. Please try again later.";
+      formError.classList.remove("hidden");
+    } finally {
+      // Zurücksetzen des Ladezustands
+      registerSubmitText.textContent =
+        document.documentElement.lang === "de" ? "Registrieren" : "Register";
+      registerLoadingSpinner.classList.add("hidden");
+    }
+  });
+
+  // Verbesserte Tastaturnavigation
+  loginForm.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && e.target === loginPasswordInput) {
+      e.preventDefault();
+      loginForm.dispatchEvent(new Event("submit"));
+    }
+  });
+
+  registerForm.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && e.target === registerPasswordConfirmInput) {
+      e.preventDefault();
+      registerForm.dispatchEvent(new Event("submit"));
+    }
+  });
+
+  // Tastaturnavigation für Tabs
+  loginTab.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      switchTab("login");
+    }
+  });
+
+  registerTab.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      switchTab("register");
+    }
+  });
+
+  // Reduzierte Bewegung für Benutzer, die dies in ihren Systemeinstellungen aktiviert haben
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+  if (prefersReducedMotion) {
+    document.documentElement.classList.add("reduced-motion");
+  }
+</script>
+
+<style>
+  /* Verbesserte Kontrastverhältnisse für WCAG AAA */
+  .auth-form-container {
+    background-color: #27272a;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Tab-Styling */
+  .auth-tabs {
+    display: flex;
+    border-bottom: 2px solid #3f3f46;
+    margin-bottom: 1.5rem;
+  }
+
+  .auth-tab {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    font-weight: 500;
+    color: #a1a1aa;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .auth-tab:hover {
+    color: #f0abfc;
+  }
+
+  .auth-tab.active {
+    color: #f0abfc;
+    border-bottom-color: #f0abfc;
+  }
+
+  /* Formular-Container für Animation */
+  .auth-forms-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Formular-Styling mit Animation */
+  .auth-form {
+    opacity: 0;
+    transform: translateX(20px);
+    position: absolute;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+  }
+
+  .auth-form.active {
+    opacity: 1;
+    transform: translateX(0);
+    position: relative;
+    pointer-events: all;
+  }
+
+  /* Reduzierte Bewegung für Benutzer, die dies bevorzugen */
+  :global(.reduced-motion) .auth-form {
+    transition: opacity 0.1s ease-in-out;
+    transform: none;
+  }
+
+  /* Verbesserte Fokus-Stile für Tastaturnavigation */
+  input:focus,
+  button:focus {
+    outline: 3px solid #f0abfc;
+    outline-offset: 1px;
+  }
+
+  /* Fehlerstatusstile */
+  input:invalid:not(:focus) {
+    border-color: #f87171;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 640px) {
+    .auth-form-container {
+      padding: 1.5rem;
+    }
+  }
+
+  /* Animation für Ladevorgang */
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
