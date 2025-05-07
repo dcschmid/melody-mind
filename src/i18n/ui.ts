@@ -16,6 +16,9 @@ export const defaultLang = "de";
 export const ui = {
   de: {
     // Auth-Komponenten
+    "auth.required.title": "Anmeldung erforderlich",
+    "auth.required.description":
+      "Bitte melde dich an, um auf diesen Bereich zuzugreifen",
     "auth.login.title": "Anmelden",
     "auth.register.title": "Registrieren",
     "auth.login.email": "E-Mail-Adresse",
@@ -422,6 +425,8 @@ export const ui = {
   },
   en: {
     // Auth-Komponenten
+    "auth.required.title": "Authentication Required",
+    "auth.required.description": "Please log in to access this area",
     "auth.login.title": "Login",
     "auth.register.title": "Register",
     "auth.toggle.login": "Switch to login",
@@ -452,6 +457,30 @@ export const ui = {
       "Password successfully reset. You can now log in with your new password.",
     "auth.password_reset.complete_error":
       "Password reset failed. Please check your inputs or request a new reset link.",
+
+    // Password requirements
+    "auth.password.requirements": "Password requirements:",
+    "auth.password.min_length": "Password must be at least 8 characters long",
+    "auth.password.uppercase":
+      "Password must contain at least one uppercase letter",
+    "auth.password.lowercase":
+      "Password must contain at least one lowercase letter",
+    "auth.password.number": "Password must contain at least one number",
+    "auth.password.special":
+      "Password must contain at least one special character",
+    "auth.password.no_common": "Password must not be a commonly used password",
+    "auth.password.no_repeats": "Password must not contain repeated characters",
+    "auth.password.no_sequences": "Password must not contain simple sequences",
+    "auth.password.match": "Passwords must match",
+    "auth.password.strength": "Password strength",
+    "auth.password.strength.weak": "Weak",
+    "auth.password.strength.medium": "Medium",
+    "auth.password.strength.strong": "Strong",
+
+    // Accessibility
+    "auth.accessibility.password_toggle": "Show/hide password",
+    "auth.accessibility.password_requirements":
+      "Show/hide password requirements",
 
     "nav.home": "Home",
     "nav.rules": "Rules",
@@ -723,6 +752,9 @@ export const ui = {
   },
   es: {
     // Auth-Komponenten
+    "auth.required.title": "Autenticación requerida",
+    "auth.required.description":
+      "Por favor, inicia sesión para acceder a esta área",
     "auth.login.title": "Iniciar sesión",
     "auth.register.title": "Registrarse",
     "auth.toggle.login": "Cambiar a inicio de sesión",
@@ -1124,6 +1156,9 @@ export const ui = {
   },
   fr: {
     // Auth-Komponenten
+    "auth.required.title": "Authentification requise",
+    "auth.required.description":
+      "Veuillez vous connecter pour accéder à cette zone",
     "auth.login.title": "Connexion",
     "auth.register.title": "Inscription",
     "auth.toggle.login": "Passer à la connexion",
@@ -1388,9 +1423,9 @@ export const ui = {
     "nav.donate.coffee": "M'offrir un café",
     "nav.title": "Navigation",
     "nav.menu.text": "Menu",
-    "game.categories.empty.headline": "No se encontraron géneros",
+    "game.categories.empty.headline": "Aucun genre trouvé",
     "game.categories.empty.text":
-      "Desafortunadamente, no se encontraron categorías. Por favor, inténtalo de nuevo más tarde.",
+      "Malheureusement, aucune catégorie n'a été trouvée. Veuillez réessayer plus tard.",
     "game.categories.no.playable.headline": "Aucun genre jouable",
     "game.categories.no.playable.text":
       "Il n'y a actuellement aucune catégorie jouable. Veuillez revenir plus tard.",
@@ -1523,6 +1558,9 @@ export const ui = {
   },
   it: {
     // Auth-Komponenten
+    "auth.required.title": "Autenticazione richiesta",
+    "auth.required.description":
+      "Per favore accedi per visualizzare quest'area",
     "auth.login.title": "Accedi",
     "auth.register.title": "Registrati",
     "auth.toggle.login": "Passa al login",
@@ -1783,9 +1821,9 @@ export const ui = {
     "nav.donate.coffee": "Offrimi un caffè",
     "nav.title": "Navigazione",
     "nav.menu.text": "Menu",
-    "game.categories.empty.headline": "No se encontraron géneros",
+    "game.categories.empty.headline": "Nessun genere trovato",
     "game.categories.empty.text":
-      "Desafortunadamente, no se encontraron categorías. Por favor, inténtalo de nuevo más tarde.",
+      "Purtroppo non sono state trovate categorie. Riprova più tardi.",
     "game.categories.no.playable.headline": "Nessun genere giocabile",
     "game.categories.no.playable.text":
       "Attualmente non ci sono categorie giocabili. Per favore, riprova più tardi.",
@@ -1838,7 +1876,7 @@ export const ui = {
     "podcast.listen.heading": "Ascolta i nostri Podcast",
     "login.welcome": "Benvenuto a Melody Mind!",
     "login.description":
-      "Intraprendi un viaggio musicale attraverso il tempo! Metti alla prova le tue conoscenze in quiz entusiasmanti, esplora affascinanti generi musicali och immergiti nei nostri avvincenti podcast. Mostra le tue abilità, raccogli punti och diventa una vera leggenda della musica!",
+      "Intraprendi un viaggio musicale attraverso il tempo! Metti alla prova le tue conoscenze in quiz entusiasmanti, esplora affascinanti generi musicali e immergiti nei nostri avvincenti podcast. Mostra le tue abilità, raccogli punti e diventa una vera leggenda della musica!",
     "index.continue": "Iniziamo!",
     "index.start.game.label": "Inizia il tuo viaggio musicale",
     "index.welcome.footnote":
@@ -1917,6 +1955,8 @@ export const ui = {
   },
   pt: {
     // Auth-Komponenten
+    "auth.required.title": "Autenticação necessária",
+    "auth.required.description": "Por favor, faça login para acessar esta área",
     "auth.login.title": "Entrar",
     "auth.register.title": "Registrar",
     "auth.toggle.login": "Mudar para login",
@@ -2085,7 +2125,7 @@ export const ui = {
     "nav.skip.main": "Pular para o conteúdo principal",
     "game.end.title": "Fim de Jogo!",
     "game.end.motivation":
-      "Desempenho fantástico! 🎉 Seu conhecimento musical é realmente impressionante. Desafie-se com outra rodada och torne-se uma verdadeira lenda da música! 🎵",
+      "Desempenho fantástico! 🎉 Seu conhecimento musical é realmente impressionante. Desafie-se com outra rodada e torne-se uma verdadeira lenda da música! 🎵",
     "game.end.score": "Pontos obtidos:",
     "game.end.newgame": "Novo Jogo",
     "game.end.share": "Compartilhe seu sucesso!",
@@ -2229,7 +2269,7 @@ export const ui = {
     "podcast.listen.heading": "Ouça nossos Podcasts",
     "login.welcome": "Bem-vindo ao Melody Mind!",
     "login.description":
-      "Embarque em uma jornada musical através do tempo! Teste seus conhecimentos em quizzes emocionantes, explore gêneros musicais fascinantes och mergulhe em nossos podcasts cativantes. Mostre suas habilidades, acumule pontos och torne-se uma verdadeira lenda da música!",
+      "Embarque em uma jornada musical através do tempo! Teste seus conhecimentos em quizzes emocionantes, explore gêneros musicais fascinantes e mergulhe em nossos podcasts cativantes. Mostre suas habilidades, acumule pontos e torne-se uma verdadeira lenda da música!",
     "index.continue": "Vamos lá!",
     "index.start.game.label": "Inicie sua jornada musical",
     "index.welcome.footnote":
@@ -2307,6 +2347,9 @@ export const ui = {
   },
   da: {
     // Auth-Komponenten
+    "auth.required.title": "Login påkrævet",
+    "auth.required.description":
+      "Log venligst ind for at få adgang til dette område",
     "auth.login.title": "Log ind",
     "auth.register.title": "Tilmeld",
     "auth.toggle.login": "Skift til login",
@@ -2689,6 +2732,8 @@ export const ui = {
   },
   nl: {
     // Auth-Komponenten
+    "auth.required.title": "Inloggen vereist",
+    "auth.required.description": "Log in om toegang te krijgen tot dit gebied",
     "auth.login.title": "Inloggen",
     "auth.register.title": "Registreren",
     "auth.toggle.login": "Naar inloggen",
@@ -2934,6 +2979,11 @@ export const ui = {
     "knowledge.filter.all": "Alle trefwoorden",
     "knowledge.no.results":
       "Geen artikelen gevonden. Probeer andere zoektermen.",
+    "knowledge.no.results.help":
+      "Probeer andere zoektermen of reset je zoekopdracht",
+    "knowledge.keyboard.instructions":
+      "Gebruik de pijltjestoetsen om tussen artikelen te navigeren. Druk op Enter om een artikel te openen.",
+    "knowledge.empty": "Geen artikelen beschikbaar in deze categorie",
     "game.remaining": "resterend",
     "game.default.headline": "Spel",
     "popup.score": "Score: {score}",
@@ -3069,6 +3119,9 @@ export const ui = {
   },
   sv: {
     // Auth-Komponenten
+    "auth.required.title": "Inloggning krävs",
+    "auth.required.description":
+      "Vänligen logga in för att komma åt detta område",
     "auth.login.title": "Logga in",
     "auth.register.title": "Registrera",
     "auth.toggle.login": "Byt till inloggning",
@@ -3442,9 +3495,14 @@ export const ui = {
       "Artiklar filtreras automatiskt medan du skriver",
     "knowledge.search.reset": "Återställ sökning",
     "knowledge.search.reset.text": "Återställ",
+    "knowledge.no.results.help":
+      "Prova andra sökord eller återställ din sökning",
+    "difficulty.level": "Svårighetsgrad",
   },
   fi: {
     // Auth-Komponenten
+    "auth.required.title": "Kirjautuminen vaaditaan",
+    "auth.required.description": "Kirjaudu sisään päästäksesi tälle alueelle",
     "auth.login.title": "Kirjaudu",
     "auth.register.title": "Rekisteröidy",
     "auth.toggle.login": "Vaihda kirjautumiseen",

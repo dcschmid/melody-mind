@@ -1037,6 +1037,12 @@ const translations = {
     try {
       // API call to log in with multilingual route
       const currentLang = document.documentElement.lang || "de";
+
+      // Get redirect URL from current page if available
+      const redirectUrl =
+        new URLSearchParams(window.location.search).get("redirect") ||
+        window.location.pathname;
+
       const response = await fetch(`/${currentLang}/api/auth/login`, {
         method: "POST",
         headers: {
@@ -1045,14 +1051,19 @@ const translations = {
         body: JSON.stringify({
           email: loginEmailInput.value,
           password: loginPasswordInput.value,
+          redirectUrl: redirectUrl, // Pass the redirect URL to the server
         }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        // Successful login - redirect to home page
-        window.location.href = `/${document.documentElement.lang}`;
+        // Successful login - redirect to the original page or the one specified in the response
+        const redirectTo =
+          data.redirectUrl ||
+          redirectUrl ||
+          `/${document.documentElement.lang}`;
+        window.location.href = redirectTo;
       } else {
         // Login error handling
         if (response.status === 401) {
@@ -1175,6 +1186,12 @@ const translations = {
     try {
       // API call to register with multilingual route
       const currentLang = document.documentElement.lang || "de";
+
+      // Get redirect URL from current page if available
+      const redirectUrl =
+        new URLSearchParams(window.location.search).get("redirect") ||
+        window.location.pathname;
+
       const response = await fetch(`/${currentLang}/api/auth/register`, {
         method: "POST",
         headers: {
@@ -1184,6 +1201,7 @@ const translations = {
           email: registerEmailInput.value,
           username: registerUsernameInput.value || undefined,
           password: registerPasswordInput.value,
+          redirectUrl: redirectUrl, // Pass the redirect URL to the server
         }),
       });
 
@@ -1274,6 +1292,29 @@ const translations = {
   if (prefersReducedMotion) {
     document.documentElement.classList.add("reduced-motion");
   }
+
+  /**
+   * Store the current URL for redirection after authentication
+   * This ensures users return to the page they were on before authenticating
+   */
+  document.addEventListener("DOMContentLoaded", () => {
+    // Store the current URL path for redirection after authentication
+    // This is accessible via window.location in the form submission handlers
+
+    // If there's already a redirect parameter in the URL, we keep it
+    // Otherwise we use the current path as the redirect target
+    if (!new URLSearchParams(window.location.search).has("redirect")) {
+      // For accessibility, announce that the user will be redirected back to this page after login
+      const redirectAnnouncement = document.createElement("div");
+      redirectAnnouncement.className = "sr-only";
+      redirectAnnouncement.setAttribute("aria-live", "polite");
+      redirectAnnouncement.textContent =
+        document.documentElement.lang === "de"
+          ? "Nach erfolgreicher Anmeldung werden Sie auf diese Seite zurückgeleitet."
+          : "After successful login, you will be redirected back to this page.";
+      document.body.appendChild(redirectAnnouncement);
+    }
+  });
 </script>
 
 <style>
