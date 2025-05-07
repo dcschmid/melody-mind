@@ -7,9 +7,9 @@
  * @module endGameUtils
  */
 
-import { getCurrentLanguage } from "@utils/languageUtils";
-import { stopAudio } from "../audio/audioControls";
-import { getLangFromUrl, useTranslations } from "@utils/i18n";
+// Import types and utilities
+import type { GameResultData } from "../../pages/[lang]/api/game/save-result.ts";
+import { getLangFromUrl, useTranslations } from "../../utils/i18n.ts";
 
 /**
  * Configuration parameters for ending a game session
@@ -83,6 +83,70 @@ export interface EndGameUI {
  * @param {EndGameCallbacks} [callbacks] - Optional callback functions
  * @returns {Promise<void>}
  */
+/**
+ * Saves the game result to the database
+ *
+ * @param {EndGameConfig} config - Configuration object containing game end state
+ * @returns {Promise<void>}
+ */
+/**
+ * Speichert das Spielergebnis über die API
+ *
+ * @param {EndGameConfig} config - Konfigurationsobjekt mit dem Spielendstatus
+ * @returns {Promise<string>} - Der Spielmodus (quiz oder chronology)
+ */
+async function saveGameResult(config: EndGameConfig): Promise<string> {
+  try {
+    // Erstelle das Datenpaket für die API
+    const gameData: GameResultData = {
+      userId: config.userId,
+      categoryName: config.categoryName,
+      difficulty: config.difficulty,
+      score: config.score,
+      correctAnswers: config.correctAnswers,
+      totalRounds: config.totalRounds,
+    };
+
+    // Verwende den sprachspezifischen API-Pfad
+    const response = await fetch(`/${config.language}/api/game/save-result`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(gameData),
+    });
+
+    if (!response.ok) {
+      // Verbesserte Fehlerbehandlung
+      try {
+        const errorData = await response.json();
+        throw new Error(
+          errorData.message || "Fehler beim Speichern des Spielergebnisses",
+        );
+      } catch (jsonError) {
+        // Falls die Antwort kein gültiges JSON ist
+        throw new Error(
+          `Fehler beim Speichern des Spielergebnisses: ${response.status} ${response.statusText}`,
+        );
+      }
+    }
+
+    // Robustere JSON-Verarbeitung
+    let result;
+    try {
+      result = await response.json();
+    } catch (jsonError) {
+      console.error("JSON Parse Error:", jsonError);
+      throw new Error("Ungültiges JSON-Format in der Server-Antwort");
+    }
+    return result.gameMode;
+  } catch (error) {
+    console.error("Fehler beim Speichern des Spielergebnisses:", error);
+    // Bestimme den Spielmodus basierend auf dem URL-Pfad als Fallback
+    return window.location.pathname.includes("/game-") ? "quiz" : "chronology";
+  }
+}
+
 export async function handleEndGame(
   config: EndGameConfig,
   ui: EndGameUI,
@@ -103,6 +167,11 @@ export async function handleEndGame(
       totalRounds: config.totalRounds,
       achievementRate: `${achievementRate}%`,
     });
+
+    // Save game result to the database via API
+    // Der API-Endpunkt kümmert sich jetzt um alle Datenbankoperationen
+    // (Spielergebnis, Benutzerstatistiken und Highscore)
+    await saveGameResult(config);
 
     // Display the end game popup with score
     ui.showEndgamePopup(config.score);
@@ -129,13 +198,11 @@ export async function handleEndGame(
  * @returns {void}
  */
 export function showEndgamePopup(score: number): void {
-  // Stop any playing audio to ensure a clean game end
-  stopAudio();
-
   // Get current language for localized messages
   const url = new URL(window.location.pathname, window.location.origin);
   const lang = getLangFromUrl(url);
-  const t = useTranslations(lang);
+  // Explicitly cast lang to string to satisfy TypeScript
+  const t = useTranslations(String(lang));
 
   // Find and update the score display elements
   const scoreElement = document.getElementById("popup-score");
@@ -169,10 +236,12 @@ export function showEndgamePopup(score: number): void {
  */
 export function restartGame(): void {
   // Get the current language to maintain language settings during navigation
-  const currentLanguage = getCurrentLanguage();
+  const currentLanguage = getLangFromUrl(
+    new URL(window.location.pathname, window.location.origin),
+  );
 
   // Redirect to game home page
-  window.location.href = `/${currentLanguage}/gamehome`;
+  window.location.href = `/${String(currentLanguage)}/gamehome`;
 }
 
 /**
@@ -190,7 +259,8 @@ export function formatScoreForSharing(
 ): string {
   const url = new URL(window.location.pathname, window.location.origin);
   const lang = getLangFromUrl(url);
-  const t = useTranslations(lang);
+  // Explicitly cast lang to string to satisfy TypeScript
+  const t = useTranslations(lang as string);
 
   // Create a user-friendly sharing message
   return `${t("game.share.message", { score: score.toString(), category, difficulty })} - Melody Mind`;
