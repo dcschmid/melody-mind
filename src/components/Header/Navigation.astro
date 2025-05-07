@@ -318,25 +318,25 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
   function initNavigationMenu(): void {
     // Get all required DOM elements
     const menuToggle = document.getElementById(
-      "menu-toggle"
+      "menu-toggle",
     ) as HTMLButtonElement | null;
     const mainMenu = document.getElementById(
-      "main-menu"
+      "main-menu",
     ) as HTMLDivElement | null;
     const menuBackdrop = document.getElementById(
-      "menu-backdrop"
+      "menu-backdrop",
     ) as HTMLDivElement | null;
     const closeButton = mainMenu?.querySelector(
-      ".close-menu"
+      ".close-menu",
     ) as HTMLButtonElement | null;
     const statusAnnouncer = document.getElementById(
-      "menu-status-announcer"
+      "menu-status-announcer",
     ) as HTMLDivElement | null;
 
     // Ensure all required elements exist before proceeding
     if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
       console.warn(
-        "Navigation menu elements not found, menu functionality disabled"
+        "Navigation menu elements not found, menu functionality disabled",
       );
       return;
     }
@@ -346,13 +346,13 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
 
     // Set up event listeners
     menuToggle.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer),
     );
     closeButton.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer),
     );
     menuBackdrop.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer),
     );
 
     // Close menu with Escape key
@@ -382,7 +382,7 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
     menuToggle: HTMLButtonElement,
     mainMenu: HTMLElement,
     menuBackdrop: HTMLElement,
-    statusAnnouncer?: HTMLElement | null
+    statusAnnouncer?: HTMLElement | null,
   ): void {
     // Get current state and determine new state
     const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
@@ -467,7 +467,7 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
     const selector =
       'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
     const elements = Array.from(
-      container.querySelectorAll<HTMLElement>(selector)
+      container.querySelectorAll<HTMLElement>(selector),
     );
     return elements.filter((el) => el.offsetParent !== null); // Filter out hidden elements
   }
@@ -479,67 +479,69 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
    * @returns {HTMLElement | null} The first focusable element or null if none found
    */
   function getFirstFocusableElement(
-    container: HTMLElement
+    container: HTMLElement,
   ): HTMLElement | null {
     const focusableElements = getFocusableElements(container);
     return focusableElements.length > 0 ? focusableElements[0] : null;
   }
 
- /**
-  * Prüft, ob ein bestimmter Schlüssel im localStorage existiert
-  * @param {string} key - Der zu prüfende Schlüssel
-  * @returns {boolean} - true wenn der Schlüssel existiert und einen Wert hat, sonst false
-  */
- function checkLocalStorage(key: string): boolean {
-   try {
-     const value = localStorage.getItem(key);
-     return value !== null;
-   } catch (error) {
-     console.error('Fehler beim Zugriff auf localStorage:', error);
-     return false;
-   }
- }
+  /**
+   * Prüft, ob ein bestimmter Schlüssel im localStorage existiert
+   * @param {string} key - Der zu prüfende Schlüssel
+   * @returns {boolean} - true wenn der Schlüssel existiert und einen Wert hat, sonst false
+   */
+  function checkLocalStorage(key: string): boolean {
+    try {
+      const value = localStorage.getItem(key);
+      return value !== null;
+    } catch (error) {
+      console.error("Fehler beim Zugriff auf localStorage:", error);
+      return false;
+    }
+  }
 
- /**
-  * Sicheres Entfernen eines Schlüssels aus dem localStorage mit Fehlerbehandlung
-  * @param {string} key - Der zu entfernende Schlüssel
-  * @returns {boolean} - true wenn erfolgreich, false wenn fehlgeschlagen
-  */
- function removeLocalStorage(key: string): boolean {
-   try {
-     localStorage.removeItem(key);
-     return true;
-   } catch (error) {
-     console.error("Fehler beim Entfernen aus localStorage:", error);
-     return false;
-   }
- }
+  /**
+   * Sicheres Entfernen eines Schlüssels aus dem localStorage mit Fehlerbehandlung
+   * @param {string} key - Der zu entfernende Schlüssel
+   * @returns {boolean} - true wenn erfolgreich, false wenn fehlgeschlagen
+   */
+  function removeLocalStorage(key: string): boolean {
+    try {
+      localStorage.removeItem(key);
+      return true;
+    } catch (error) {
+      console.error("Fehler beim Entfernen aus localStorage:", error);
+      return false;
+    }
+  }
 
- /**
-  * Prüft, ob der Benutzer authentifiziert ist
-  * @returns {boolean} - true wenn der Benutzer authentifiziert ist, sonst false
-  */
- function isUserAuthenticated(): boolean {
-   return checkLocalStorage('auth_status') &&
-          localStorage.getItem('auth_status') === 'authenticated';
- }
+  /**
+   * Prüft, ob der Benutzer authentifiziert ist
+   * @returns {boolean} - true wenn der Benutzer authentifiziert ist, sonst false
+   */
+  function isUserAuthenticated(): boolean {
+    return (
+      checkLocalStorage("auth_status") &&
+      localStorage.getItem("auth_status") === "authenticated"
+    );
+  }
 
- /**
-  * Aktualisiert die Sichtbarkeit des Logout-Buttons basierend auf dem Authentifizierungsstatus
-  */
- function updateLogoutButtonVisibility(): void {
-   const logoutContainer = document.getElementById('logout-container');
-   if (!logoutContainer) return;
-   
-   const isAuthenticated = isUserAuthenticated();
-   console.log('Auth Status in Navigation:', isAuthenticated);
-   
-   if (isAuthenticated) {
-     logoutContainer.classList.remove('hidden');
-   } else {
-     logoutContainer.classList.add('hidden');
-   }
- }
+  /**
+   * Aktualisiert die Sichtbarkeit des Logout-Buttons basierend auf dem Authentifizierungsstatus
+   */
+  function updateLogoutButtonVisibility(): void {
+    const logoutContainer = document.getElementById("logout-container");
+    if (!logoutContainer) return;
+
+    const isAuthenticated = isUserAuthenticated();
+    console.log("Auth Status in Navigation:", isAuthenticated);
+
+    if (isAuthenticated) {
+      logoutContainer.classList.remove("hidden");
+    } else {
+      logoutContainer.classList.add("hidden");
+    }
+  }
 
   /**
    * Handles the logout process when the logout button is clicked
@@ -550,7 +552,7 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
     const logoutButton = document.getElementById("logout-button");
     const logoutContainer = document.getElementById("logout-container");
     if (!logoutButton || !logoutContainer) return;
-    
+
     // Überprüfe den Authentifizierungsstatus und aktualisiere die Sichtbarkeit
     updateLogoutButtonVisibility();
 
@@ -598,24 +600,24 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
       }
     });
   }
-  
+
   // Authentifizierungsstatus beim Laden der Seite prüfen
-  document.addEventListener('DOMContentLoaded', () => {
-    console.log('Navigation: DOMContentLoaded - Prüfe Auth-Status');
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("Navigation: DOMContentLoaded - Prüfe Auth-Status");
     updateLogoutButtonVisibility();
   });
-  
+
   // Auf Authentifizierungsänderungen reagieren
-  window.addEventListener('auth:login', () => {
-    console.log('Navigation: auth:login Event empfangen');
+  window.addEventListener("auth:login", () => {
+    console.log("Navigation: auth:login Event empfangen");
     updateLogoutButtonVisibility();
   });
-  
-  window.addEventListener('auth:logout', () => {
-    console.log('Navigation: auth:logout Event empfangen');
+
+  window.addEventListener("auth:logout", () => {
+    console.log("Navigation: auth:logout Event empfangen");
     updateLogoutButtonVisibility();
   });
-  
+
   // Regelmäßige Überprüfung des Auth-Status
   setInterval(() => {
     updateLogoutButtonVisibility();

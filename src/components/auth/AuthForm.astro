@@ -1064,30 +1064,30 @@ const translations = {
             ? "Anmeldung erfolgreich!"
             : "Login successful!";
         formSuccess.classList.remove("hidden");
-        
+
         // Set cookies and update UI state
         if (data.user) {
           // Update any UI elements that should reflect logged-in state
           document.body.classList.add("user-authenticated");
           document.body.dataset.userId = data.user.id;
         }
-        
+
         // Dispatch auth:login event for other components to react
         const authEvent = new CustomEvent("auth:login", {
           detail: {
             user: data.user,
-            token: data.token
+            token: data.token,
           },
-          bubbles: true
+          bubbles: true,
         });
         document.dispatchEvent(authEvent);
-        
+
         // Get redirect destination
         const redirectTo =
           data.redirectUrl ||
           redirectUrl ||
           `/${document.documentElement.lang}`;
-          
+
         // Add small delay to ensure event is processed before redirect
         setTimeout(() => {
           try {
@@ -1095,11 +1095,12 @@ const translations = {
           } catch (redirectError) {
             // Handle case where redirect might fail
             console.error("Redirect failed:", redirectError);
-            
+
             // Update UI to indicate successful login without redirect
-            formSuccess.textContent = document.documentElement.lang === "de"
-              ? "Anmeldung erfolgreich! Sie können diese Seite jetzt schließen oder aktualisieren."
-              : "Login successful! You can now close or refresh this page.";
+            formSuccess.textContent =
+              document.documentElement.lang === "de"
+                ? "Anmeldung erfolgreich! Sie können diese Seite jetzt schließen oder aktualisieren."
+                : "Login successful! You can now close or refresh this page.";
           }
         }, 300); // 300ms delay to ensure event processing
       } else {
