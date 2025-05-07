@@ -8,6 +8,6 @@ export const turso = createClient({
 });
 
 // Füge eine Prüfung hinzu, um sicherzustellen, dass dieser Code nur serverseitig ausgeführt wird
-if (typeof window !== 'undefined') {
-  console.error('turso.js sollte nur auf der Serverseite importiert werden!');
+if (typeof window !== "undefined") {
+  console.error("turso.js sollte nur auf der Serverseite importiert werden!");
 }
