@@ -1058,12 +1058,50 @@ const translations = {
       const data = await response.json();
 
       if (response.ok) {
-        // Successful login - redirect to the original page or the one specified in the response
+        // Successful login - update UI state first
+        formSuccess.textContent =
+          document.documentElement.lang === "de"
+            ? "Anmeldung erfolgreich!"
+            : "Login successful!";
+        formSuccess.classList.remove("hidden");
+        
+        // Set cookies and update UI state
+        if (data.user) {
+          // Update any UI elements that should reflect logged-in state
+          document.body.classList.add("user-authenticated");
+          document.body.dataset.userId = data.user.id;
+        }
+        
+        // Dispatch auth:login event for other components to react
+        const authEvent = new CustomEvent("auth:login", {
+          detail: {
+            user: data.user,
+            token: data.token
+          },
+          bubbles: true
+        });
+        document.dispatchEvent(authEvent);
+        
+        // Get redirect destination
         const redirectTo =
           data.redirectUrl ||
           redirectUrl ||
           `/${document.documentElement.lang}`;
-        window.location.href = redirectTo;
+          
+        // Add small delay to ensure event is processed before redirect
+        setTimeout(() => {
+          try {
+            window.location.href = redirectTo;
+          } catch (redirectError) {
+            // Handle case where redirect might fail
+            console.error("Redirect failed:", redirectError);
+            
+            // Update UI to indicate successful login without redirect
+            formSuccess.textContent = document.documentElement.lang === "de"
+              ? "Anmeldung erfolgreich! Sie können diese Seite jetzt schließen oder aktualisieren."
+              : "Login successful! You can now close or refresh this page.";
+          }
+        }, 300); // 300ms delay to ensure event processing
       } else {
         // Login error handling
         if (response.status === 401) {
