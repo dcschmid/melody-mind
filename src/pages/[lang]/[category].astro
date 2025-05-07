@@ -274,12 +274,13 @@ const modifiedDate = new Date();
         >
           {t("auth.required.title") || "Anmeldung erforderlich"}
         </Headline>
-        
+
         <Paragraph
           className="text-center max-w-2xl mb-6 text-zinc-100"
-          description={t("auth.required.description") || "Bitte melde dich an oder registriere dich, um die Spielmodi zu nutzen."}
+          description={t("auth.required.description") ||
+            "Bitte melde dich an oder registriere dich, um die Spielmodi zu nutzen."}
         />
-        
+
         <div class="w-full max-w-md mx-auto">
           <AuthForm initialMode="login" />
         </div>
@@ -468,7 +469,7 @@ const modifiedDate = new Date();
             const value = localStorage.getItem(key);
             return value !== null;
           } catch (error) {
-            console.error('Fehler beim Zugriff auf localStorage:', error);
+            console.error("Fehler beim Zugriff auf localStorage:", error);
             return false;
           }
         }
@@ -484,7 +485,7 @@ const modifiedDate = new Date();
             localStorage.setItem(key, value);
             return true;
           } catch (error) {
-            console.error('Fehler beim Setzen von localStorage:', error);
+            console.error("Fehler beim Setzen von localStorage:", error);
             return false;
           }
         }
@@ -499,7 +500,7 @@ const modifiedDate = new Date();
             localStorage.removeItem(key);
             return true;
           } catch (error) {
-            console.error('Fehler beim Entfernen aus localStorage:', error);
+            console.error("Fehler beim Entfernen aus localStorage:", error);
             return false;
           }
         }
@@ -509,21 +510,24 @@ const modifiedDate = new Date();
          * @param {HTMLElement} element - Das zu aktualisierende Element
          * @param {boolean} isVisible - Ob das Element sichtbar sein soll
          */
-        function updateAriaVisibility(element: HTMLElement | null, isVisible: boolean): void {
+        function updateAriaVisibility(
+          element: HTMLElement | null,
+          isVisible: boolean,
+        ): void {
           if (!element) return;
-          
-          element.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
-          
+
+          element.setAttribute("aria-hidden", isVisible ? "false" : "true");
+
           // Wenn das Element sichtbar ist, Tab-Navigation ermöglichen, sonst deaktivieren
           const focusableElements = element.querySelectorAll(
-            'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+            'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
           );
-          
+
           focusableElements.forEach((el) => {
             if (isVisible) {
-              (el as HTMLElement).removeAttribute('tabindex');
+              (el as HTMLElement).removeAttribute("tabindex");
             } else {
-              (el as HTMLElement).setAttribute('tabindex', '-1');
+              (el as HTMLElement).setAttribute("tabindex", "-1");
             }
           });
         }
@@ -545,16 +549,17 @@ const modifiedDate = new Date();
          */
         function isUserAuthenticated(): boolean {
           // Primäre Methode: auth_status im localStorage prüfen
-          const isAuthenticated = checkLocalStorage('auth_status') &&
-                                 localStorage.getItem('auth_status') === 'authenticated';
-          
+          const isAuthenticated =
+            checkLocalStorage("auth_status") &&
+            localStorage.getItem("auth_status") === "authenticated";
+
           // Debug-Ausgabe
-          console.log('Auth Debug:', {
-            localAuthStatus: localStorage.getItem('auth_status'),
+          console.log("Auth Debug:", {
+            localAuthStatus: localStorage.getItem("auth_status"),
             isAuthenticated,
-            authStatusExists: checkLocalStorage('auth_status')
+            authStatusExists: checkLocalStorage("auth_status"),
           });
-          
+
           return isAuthenticated;
         }
 
@@ -563,31 +568,34 @@ const modifiedDate = new Date();
          * @param {HTMLElement} element - Das zu aktualisierende Element
          * @param {boolean} show - Ob das Element angezeigt werden soll
          */
-        function updateSectionVisibility(element: HTMLElement | null, show: boolean): void {
+        function updateSectionVisibility(
+          element: HTMLElement | null,
+          show: boolean,
+        ): void {
           if (!element) return;
-          
+
           if (show) {
             // Zuerst display und visibility setzen, dann Opacity ändern für sanften Übergang
-            element.classList.remove('hidden'); // Tailwind-Klasse für display: none entfernen
-            element.style.visibility = 'visible';
-            
+            element.classList.remove("hidden"); // Tailwind-Klasse für display: none entfernen
+            element.style.visibility = "visible";
+
             // Kurze Verzögerung, damit display: none vollständig entfernt wird, bevor Opacity geändert wird
             setTimeout(() => {
-              element.classList.remove('opacity-0');
-              element.classList.add('opacity-100');
+              element.classList.remove("opacity-0");
+              element.classList.add("opacity-100");
               updateAriaVisibility(element, true);
             }, 10);
           } else {
             // Zuerst Opacity ändern, dann nach Übergang unsichtbar machen
-            element.classList.add('opacity-0');
-            element.classList.remove('opacity-100');
+            element.classList.add("opacity-0");
+            element.classList.remove("opacity-100");
             updateAriaVisibility(element, false);
-            
+
             // Warten auf Abschluss der Transition, bevor visibility und display geändert werden
             setTimeout(() => {
-              if (element.classList.contains('opacity-0')) {
-                element.style.visibility = 'hidden';
-                element.classList.add('hidden'); // Tailwind-Klasse für display: none hinzufügen
+              if (element.classList.contains("opacity-0")) {
+                element.style.visibility = "hidden";
+                element.classList.add("hidden"); // Tailwind-Klasse für display: none hinzufügen
               }
             }, 300); // Entspricht der Transition-Dauer in CSS
           }
@@ -601,169 +609,178 @@ const modifiedDate = new Date();
         function checkAuthStatus(): void {
           // Authentifizierungsstatus prüfen
           const isLoggedIn = isUserAuthenticated();
-          
+
           // Elemente basierend auf dem Authentifizierungsstatus anzeigen/ausblenden
-          const authSection = document.getElementById('auth-section');
-          const quizSection = document.getElementById('quiz-section');
-          const chronologySection = document.getElementById('chronology-section');
-          
+          const authSection = document.getElementById("auth-section");
+          const quizSection = document.getElementById("quiz-section");
+          const chronologySection =
+            document.getElementById("chronology-section");
+
           if (isLoggedIn) {
             // Benutzer ist eingeloggt - Spielmodi anzeigen, Auth-Form ausblenden
             updateSectionVisibility(authSection, false);
             updateSectionVisibility(quizSection, true);
             updateSectionVisibility(chronologySection, true);
-            
+
             // Authentifizierungsstatus im localStorage speichern
-            setLocalStorage('auth_status', 'authenticated');
-            
+            setLocalStorage("auth_status", "authenticated");
+
             // Benutzerstatus-Event auslösen für andere Komponenten
-            window.dispatchEvent(new CustomEvent('auth:status-change', {
-              detail: { isAuthenticated: true }
-            }));
+            window.dispatchEvent(
+              new CustomEvent("auth:status-change", {
+                detail: { isAuthenticated: true },
+              }),
+            );
           } else {
             // Benutzer ist nicht eingeloggt - Auth-Form anzeigen, Spielmodi ausblenden
             updateSectionVisibility(authSection, true);
             updateSectionVisibility(quizSection, false);
             updateSectionVisibility(chronologySection, false);
-            
+
             // Authentifizierungsstatus im localStorage löschen
-            removeLocalStorage('auth_status');
-            
+            removeLocalStorage("auth_status");
+
             // Benutzerstatus-Event auslösen für andere Komponenten
-            window.dispatchEvent(new CustomEvent('auth:status-change', {
-              detail: { isAuthenticated: false }
-            }));
+            window.dispatchEvent(
+              new CustomEvent("auth:status-change", {
+                detail: { isAuthenticated: false },
+              }),
+            );
           }
         }
 
         // Authentifizierungsstatus beim Laden der Seite prüfen
         // Initialisierungsfunktion für die Seite
         function initializePage(): void {
-          console.log('Initialisiere Seite...');
-          
+          console.log("Initialisiere Seite...");
+
           // Ladezustand für alle Sektionen hinzufügen
-          const sections = ['auth-section', 'quiz-section', 'chronology-section'];
-          sections.forEach(id => {
+          const sections = [
+            "auth-section",
+            "quiz-section",
+            "chronology-section",
+          ];
+          sections.forEach((id) => {
             const section = document.getElementById(id);
             if (section) {
               // Sektionen sind initial unsichtbar
-              section.classList.add('opacity-0');
-              section.classList.remove('opacity-100');
-              section.style.visibility = 'hidden';
+              section.classList.add("opacity-0");
+              section.classList.remove("opacity-100");
+              section.style.visibility = "hidden";
               console.log(`Sektion ${id} initialisiert`);
             } else {
               console.warn(`Sektion ${id} nicht gefunden`);
             }
           });
-          
+
           // Auth-Status sofort prüfen
-          console.log('Prüfe Auth-Status...');
+          console.log("Prüfe Auth-Status...");
           checkAuthStatus();
-          
+
           // Und nach kurzer Verzögerung erneut prüfen (für den Fall, dass Cookies verzögert geladen werden)
           setTimeout(() => {
-            console.log('Erneute Auth-Status-Prüfung nach Verzögerung...');
+            console.log("Erneute Auth-Status-Prüfung nach Verzögerung...");
             checkAuthStatus();
           }, 500);
         }
 
         // Seite initialisieren, wenn DOM geladen ist
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', () => {
-            console.log('DOMContentLoaded ausgelöst');
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", () => {
+            console.log("DOMContentLoaded ausgelöst");
             initializePage();
           });
         } else {
           // Falls DOMContentLoaded bereits ausgelöst wurde
-          console.log('DOM bereits geladen, initialisiere sofort');
+          console.log("DOM bereits geladen, initialisiere sofort");
           initializePage();
         }
-        
+
         // Authentifizierungsstatus bei Änderungen an den Cookies prüfen
-        document.addEventListener('visibilitychange', () => {
-          if (document.visibilityState === 'visible') {
+        document.addEventListener("visibilitychange", () => {
+          if (document.visibilityState === "visible") {
             checkAuthStatus();
           }
         });
 
         // Event-Listener für erfolgreiche Anmeldung/Abmeldung
-        window.addEventListener('auth:login', (event) => {
-          console.log('auth:login Event empfangen', event);
+        window.addEventListener("auth:login", (event) => {
+          console.log("auth:login Event empfangen", event);
           // Bei erfolgreicher Anmeldung den Status im localStorage speichern
-          setLocalStorage('auth_status', 'authenticated');
+          setLocalStorage("auth_status", "authenticated");
           checkAuthStatus();
         });
-        
-        document.addEventListener('auth:login', (event) => {
-          console.log('auth:login Event auf document empfangen', event);
+
+        document.addEventListener("auth:login", (event) => {
+          console.log("auth:login Event auf document empfangen", event);
           // Bei erfolgreicher Anmeldung den Status im localStorage speichern
-          setLocalStorage('auth_status', 'authenticated');
+          setLocalStorage("auth_status", "authenticated");
           checkAuthStatus();
         });
-        
-        window.addEventListener('auth:logout', (event) => {
-          console.log('auth:logout Event empfangen', event);
+
+        window.addEventListener("auth:logout", (event) => {
+          console.log("auth:logout Event empfangen", event);
           // Bei Abmeldung den Status aus dem localStorage entfernen
-          removeLocalStorage('auth_status');
+          removeLocalStorage("auth_status");
           checkAuthStatus();
         });
-        
-        document.addEventListener('auth:logout', (event) => {
-          console.log('auth:logout Event auf document empfangen', event);
+
+        document.addEventListener("auth:logout", (event) => {
+          console.log("auth:logout Event auf document empfangen", event);
           // Bei Abmeldung den Status aus dem localStorage entfernen
-          removeLocalStorage('auth_status');
+          removeLocalStorage("auth_status");
           checkAuthStatus();
         });
-        
+
         // Regelmäßige Überprüfung des Auth-Status (als Alternative zu cookieStore API)
         // Verbesserte Cookie-Überwachung mit Debouncing
         let previousCookieValue = document.cookie;
         let cookieCheckTimeout: number | null = null;
-        
+
         function debouncedCookieCheck() {
           if (cookieCheckTimeout) {
             clearTimeout(cookieCheckTimeout);
           }
-          
+
           cookieCheckTimeout = setTimeout(() => {
             if (document.cookie !== previousCookieValue) {
-              console.log('Cookie-Änderung erkannt', {
+              console.log("Cookie-Änderung erkannt", {
                 previous: previousCookieValue,
-                current: document.cookie
+                current: document.cookie,
               });
               previousCookieValue = document.cookie;
               checkAuthStatus();
             }
           }, 300) as unknown as number;
         }
-        
+
         // Cookie-Änderungen alle 500ms prüfen
         setInterval(debouncedCookieCheck, 500);
-        
+
         // Manuelle Authentifizierungsprüfung ermöglichen
         // TypeScript-kompatible Zuweisung zum window-Objekt
-        (window as any)['checkAuthManually'] = function() {
-          console.log('Manuelle Authentifizierungsprüfung...');
+        (window as any)["checkAuthManually"] = function () {
+          console.log("Manuelle Authentifizierungsprüfung...");
           checkAuthStatus();
           return isUserAuthenticated();
         };
-        
+
         // Hilfsfunktion zum Überprüfen des Auth-Status
-        (window as any)['checkAuth'] = function() {
+        (window as any)["checkAuth"] = function () {
           const status = isUserAuthenticated();
-          console.log('Aktueller Auth-Status:', status);
+          console.log("Aktueller Auth-Status:", status);
           return status;
         };
-        
+
         // Hilfsfunktion zum manuellen Setzen des Auth-Status
-        (window as any)['forceAuth'] = function(status: boolean) {
+        (window as any)["forceAuth"] = function (status: boolean) {
           if (status) {
-            setLocalStorage('auth_status', 'authenticated');
+            setLocalStorage("auth_status", "authenticated");
             console.log('Auth-Status manuell auf "authenticated" gesetzt');
             checkAuthStatus();
           } else {
-            removeLocalStorage('auth_status');
-            console.log('Auth-Status manuell zurückgesetzt');
+            removeLocalStorage("auth_status");
+            console.log("Auth-Status manuell zurückgesetzt");
             checkAuthStatus();
           }
           return isUserAuthenticated();
@@ -826,12 +843,12 @@ const modifiedDate = new Date();
     transition: opacity 0.3s ease-in-out;
     /* Visibility wird jetzt dynamisch per JavaScript gesetzt */
   }
-  
+
   /* Verbesserte Sichtbarkeitssteuerung mit expliziten Zuständen */
   .opacity-0 {
     opacity: 0 !important;
   }
-  
+
   .opacity-100 {
     opacity: 1 !important;
   }
