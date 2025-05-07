@@ -31,6 +31,7 @@ import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
 import AuthForm from "@components/auth/AuthForm.astro";
+// Keine serverseitige Authentifizierung mehr nötig, da wir clientseitig prüfen
 
 // Mark this route for static generation (SSG)
 export const prerender = true;
@@ -104,9 +105,9 @@ export async function getStaticPaths() {
 const { category, lang, usedFallback } = Astro.props;
 const t = useTranslations(lang);
 
-// Prüfen, ob der Benutzer eingeloggt ist
-// In einer echten Anwendung würde dies durch eine Authentifizierungsprüfung ersetzt werden
-const isLoggedIn = Astro.cookies.has('session');
+// Bei SSG können wir keine serverseitige Authentifizierung durchführen
+// Stattdessen setzen wir isLoggedIn initial auf false und prüfen den Status clientseitig
+const isLoggedIn = false; // Wird clientseitig überschrieben
 
 /**
  * Category interface definition
@@ -259,37 +260,38 @@ const modifiedDate = new Date();
         />
       </div>
 
-      <!-- Auth Form - Nur anzeigen, wenn der Benutzer nicht eingeloggt ist -->
-      {!isLoggedIn && (
-        <section
-          class="flex flex-col gap-8 items-center w-full mt-8 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm rounded-xl p-8 relative shadow-lg border border-zinc-700/30"
-          aria-labelledby="auth-heading"
+      <!-- Auth Form - Sichtbarkeit wird durch JavaScript gesteuert -->
+      <section
+        id="auth-section"
+        class="flex flex-col gap-8 items-center w-full mt-8 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm rounded-xl p-8 relative shadow-lg border border-zinc-700/30 opacity-0 transition-opacity duration-300"
+        aria-labelledby="auth-heading"
+        aria-hidden="true"
+      >
+        <Headline
+          level="h2"
+          id="auth-heading"
+          className="text-center text-2xl font-bold text-white mb-6"
         >
-          <Headline
-            level="h2"
-            id="auth-heading"
-            className="text-center text-2xl font-bold text-white mb-6"
-          >
-            {t("auth.required.title") || "Anmeldung erforderlich"}
-          </Headline>
-          
-          <Paragraph
-            className="text-center max-w-2xl mb-6 text-zinc-100"
-            description={t("auth.required.description") || "Bitte melde dich an oder registriere dich, um die Spielmodi zu nutzen."}
-          />
-          
-          <div class="w-full max-w-md mx-auto">
-            <AuthForm initialMode="login" />
-          </div>
-        </section>
-      )}
+          {t("auth.required.title") || "Anmeldung erforderlich"}
+        </Headline>
+        
+        <Paragraph
+          className="text-center max-w-2xl mb-6 text-zinc-100"
+          description={t("auth.required.description") || "Bitte melde dich an oder registriere dich, um die Spielmodi zu nutzen."}
+        />
+        
+        <div class="w-full max-w-md mx-auto">
+          <AuthForm initialMode="login" />
+        </div>
+      </section>
 
-      <!-- Music Quiz Section - Enhanced with semantic structure and accessibility improvements -->
-      {isLoggedIn && (
-        <section
-          class="flex flex-col gap-8 items-center w-full mt-8 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm rounded-xl p-8 relative shadow-lg border border-zinc-700/30"
-          aria-labelledby="quiz-heading"
-        >
+      <!-- Music Quiz Section - Sichtbarkeit wird durch JavaScript gesteuert -->
+      <section
+        id="quiz-section"
+        class="flex flex-col gap-8 items-center w-full mt-8 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm rounded-xl p-8 relative shadow-lg border border-zinc-700/30 opacity-0 transition-opacity duration-300"
+        aria-labelledby="quiz-heading"
+        aria-hidden="true"
+      >
         <div
           class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center shadow-lg border-4 border-zinc-900"
           aria-hidden="true"
@@ -365,14 +367,14 @@ const modifiedDate = new Date();
           </div>
         </div>
       </section>
-      )}
 
-      <!-- Music Chronology Game Section - Enhanced with semantic structure -->
-      {isLoggedIn && (
-        <section
-          class="flex flex-col gap-8 items-center w-full mt-12 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm rounded-xl p-8 relative shadow-lg border border-zinc-700/30"
-          aria-labelledby="chronology-heading"
-        >
+      <!-- Music Chronology Game Section - Sichtbarkeit wird durch JavaScript gesteuert -->
+      <section
+        id="chronology-section"
+        class="flex flex-col gap-8 items-center w-full mt-12 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm rounded-xl p-8 relative shadow-lg border border-zinc-700/30 opacity-0 transition-opacity duration-300"
+        aria-labelledby="chronology-heading"
+        aria-hidden="true"
+      >
         <div
           class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center shadow-lg border-4 border-zinc-900"
           aria-hidden="true"
@@ -448,7 +450,325 @@ const modifiedDate = new Date();
           </div>
         </div>
       </section>
-      )}
+
+      <!-- Client-side script für die Authentifizierungsprüfung -->
+      <script>
+        /**
+         * Funktion zum Extrahieren eines Cookie-Werts anhand des Namens
+         * @param {string} cookieName - Name des Cookies
+         * @returns {string|null} - Cookie-Wert oder null, wenn nicht gefunden
+         */
+        /**
+         * Prüft, ob ein bestimmter Schlüssel im localStorage existiert
+         * @param {string} key - Der zu prüfende Schlüssel
+         * @returns {boolean} - true wenn der Schlüssel existiert und einen Wert hat, sonst false
+         */
+        function checkLocalStorage(key: string): boolean {
+          try {
+            const value = localStorage.getItem(key);
+            return value !== null;
+          } catch (error) {
+            console.error('Fehler beim Zugriff auf localStorage:', error);
+            return false;
+          }
+        }
+
+        /**
+         * Setzt einen Wert im localStorage mit Fehlerbehandlung
+         * @param {string} key - Der Schlüssel
+         * @param {string} value - Der zu speichernde Wert
+         * @returns {boolean} - true wenn erfolgreich, false wenn fehlgeschlagen
+         */
+        function setLocalStorage(key: string, value: string): boolean {
+          try {
+            localStorage.setItem(key, value);
+            return true;
+          } catch (error) {
+            console.error('Fehler beim Setzen von localStorage:', error);
+            return false;
+          }
+        }
+
+        /**
+         * Entfernt einen Schlüssel aus dem localStorage mit Fehlerbehandlung
+         * @param {string} key - Der zu entfernende Schlüssel
+         * @returns {boolean} - true wenn erfolgreich, false wenn fehlgeschlagen
+         */
+        function removeLocalStorage(key: string): boolean {
+          try {
+            localStorage.removeItem(key);
+            return true;
+          } catch (error) {
+            console.error('Fehler beim Entfernen aus localStorage:', error);
+            return false;
+          }
+        }
+
+        /**
+         * Funktion zur Aktualisierung der ARIA-Attribute basierend auf Sichtbarkeit
+         * @param {HTMLElement} element - Das zu aktualisierende Element
+         * @param {boolean} isVisible - Ob das Element sichtbar sein soll
+         */
+        function updateAriaVisibility(element: HTMLElement | null, isVisible: boolean): void {
+          if (!element) return;
+          
+          element.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
+          
+          // Wenn das Element sichtbar ist, Tab-Navigation ermöglichen, sonst deaktivieren
+          const focusableElements = element.querySelectorAll(
+            'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+          );
+          
+          focusableElements.forEach((el) => {
+            if (isVisible) {
+              (el as HTMLElement).removeAttribute('tabindex');
+            } else {
+              (el as HTMLElement).setAttribute('tabindex', '-1');
+            }
+          });
+        }
+
+        /**
+         * Funktion zur Prüfung des Authentifizierungsstatus
+         * Überprüft das Vorhandensein des access_token Cookies
+         * und aktualisiert die UI entsprechend
+         */
+        /**
+         * Prüft, ob der Benutzer eingeloggt ist, basierend auf mehreren Kriterien
+         * @returns {boolean} - true wenn eingeloggt, false wenn nicht
+         */
+        /**
+         * Prüft, ob der Benutzer authentifiziert ist
+         * Da das access_token Cookie HttpOnly ist, können wir es nicht direkt lesen
+         * Stattdessen verwenden wir den auth_status im localStorage
+         * @returns {boolean} - true wenn der Benutzer authentifiziert ist, sonst false
+         */
+        function isUserAuthenticated(): boolean {
+          // Primäre Methode: auth_status im localStorage prüfen
+          const isAuthenticated = checkLocalStorage('auth_status') &&
+                                 localStorage.getItem('auth_status') === 'authenticated';
+          
+          // Debug-Ausgabe
+          console.log('Auth Debug:', {
+            localAuthStatus: localStorage.getItem('auth_status'),
+            isAuthenticated,
+            authStatusExists: checkLocalStorage('auth_status')
+          });
+          
+          return isAuthenticated;
+        }
+
+        /**
+         * Aktualisiert die Sichtbarkeit einer Sektion mit Übergangseffekt
+         * @param {HTMLElement} element - Das zu aktualisierende Element
+         * @param {boolean} show - Ob das Element angezeigt werden soll
+         */
+        function updateSectionVisibility(element: HTMLElement | null, show: boolean): void {
+          if (!element) return;
+          
+          if (show) {
+            // Zuerst display und visibility setzen, dann Opacity ändern für sanften Übergang
+            element.classList.remove('hidden'); // Tailwind-Klasse für display: none entfernen
+            element.style.visibility = 'visible';
+            
+            // Kurze Verzögerung, damit display: none vollständig entfernt wird, bevor Opacity geändert wird
+            setTimeout(() => {
+              element.classList.remove('opacity-0');
+              element.classList.add('opacity-100');
+              updateAriaVisibility(element, true);
+            }, 10);
+          } else {
+            // Zuerst Opacity ändern, dann nach Übergang unsichtbar machen
+            element.classList.add('opacity-0');
+            element.classList.remove('opacity-100');
+            updateAriaVisibility(element, false);
+            
+            // Warten auf Abschluss der Transition, bevor visibility und display geändert werden
+            setTimeout(() => {
+              if (element.classList.contains('opacity-0')) {
+                element.style.visibility = 'hidden';
+                element.classList.add('hidden'); // Tailwind-Klasse für display: none hinzufügen
+              }
+            }, 300); // Entspricht der Transition-Dauer in CSS
+          }
+        }
+
+        /**
+         * Funktion zur Prüfung des Authentifizierungsstatus
+         * Überprüft das Vorhandensein des access_token Cookies
+         * und aktualisiert die UI entsprechend
+         */
+        function checkAuthStatus(): void {
+          // Authentifizierungsstatus prüfen
+          const isLoggedIn = isUserAuthenticated();
+          
+          // Elemente basierend auf dem Authentifizierungsstatus anzeigen/ausblenden
+          const authSection = document.getElementById('auth-section');
+          const quizSection = document.getElementById('quiz-section');
+          const chronologySection = document.getElementById('chronology-section');
+          
+          if (isLoggedIn) {
+            // Benutzer ist eingeloggt - Spielmodi anzeigen, Auth-Form ausblenden
+            updateSectionVisibility(authSection, false);
+            updateSectionVisibility(quizSection, true);
+            updateSectionVisibility(chronologySection, true);
+            
+            // Authentifizierungsstatus im localStorage speichern
+            setLocalStorage('auth_status', 'authenticated');
+            
+            // Benutzerstatus-Event auslösen für andere Komponenten
+            window.dispatchEvent(new CustomEvent('auth:status-change', {
+              detail: { isAuthenticated: true }
+            }));
+          } else {
+            // Benutzer ist nicht eingeloggt - Auth-Form anzeigen, Spielmodi ausblenden
+            updateSectionVisibility(authSection, true);
+            updateSectionVisibility(quizSection, false);
+            updateSectionVisibility(chronologySection, false);
+            
+            // Authentifizierungsstatus im localStorage löschen
+            removeLocalStorage('auth_status');
+            
+            // Benutzerstatus-Event auslösen für andere Komponenten
+            window.dispatchEvent(new CustomEvent('auth:status-change', {
+              detail: { isAuthenticated: false }
+            }));
+          }
+        }
+
+        // Authentifizierungsstatus beim Laden der Seite prüfen
+        // Initialisierungsfunktion für die Seite
+        function initializePage(): void {
+          console.log('Initialisiere Seite...');
+          
+          // Ladezustand für alle Sektionen hinzufügen
+          const sections = ['auth-section', 'quiz-section', 'chronology-section'];
+          sections.forEach(id => {
+            const section = document.getElementById(id);
+            if (section) {
+              // Sektionen sind initial unsichtbar
+              section.classList.add('opacity-0');
+              section.classList.remove('opacity-100');
+              section.style.visibility = 'hidden';
+              console.log(`Sektion ${id} initialisiert`);
+            } else {
+              console.warn(`Sektion ${id} nicht gefunden`);
+            }
+          });
+          
+          // Auth-Status sofort prüfen
+          console.log('Prüfe Auth-Status...');
+          checkAuthStatus();
+          
+          // Und nach kurzer Verzögerung erneut prüfen (für den Fall, dass Cookies verzögert geladen werden)
+          setTimeout(() => {
+            console.log('Erneute Auth-Status-Prüfung nach Verzögerung...');
+            checkAuthStatus();
+          }, 500);
+        }
+
+        // Seite initialisieren, wenn DOM geladen ist
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOMContentLoaded ausgelöst');
+            initializePage();
+          });
+        } else {
+          // Falls DOMContentLoaded bereits ausgelöst wurde
+          console.log('DOM bereits geladen, initialisiere sofort');
+          initializePage();
+        }
+        
+        // Authentifizierungsstatus bei Änderungen an den Cookies prüfen
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'visible') {
+            checkAuthStatus();
+          }
+        });
+
+        // Event-Listener für erfolgreiche Anmeldung/Abmeldung
+        window.addEventListener('auth:login', (event) => {
+          console.log('auth:login Event empfangen', event);
+          // Bei erfolgreicher Anmeldung den Status im localStorage speichern
+          setLocalStorage('auth_status', 'authenticated');
+          checkAuthStatus();
+        });
+        
+        document.addEventListener('auth:login', (event) => {
+          console.log('auth:login Event auf document empfangen', event);
+          // Bei erfolgreicher Anmeldung den Status im localStorage speichern
+          setLocalStorage('auth_status', 'authenticated');
+          checkAuthStatus();
+        });
+        
+        window.addEventListener('auth:logout', (event) => {
+          console.log('auth:logout Event empfangen', event);
+          // Bei Abmeldung den Status aus dem localStorage entfernen
+          removeLocalStorage('auth_status');
+          checkAuthStatus();
+        });
+        
+        document.addEventListener('auth:logout', (event) => {
+          console.log('auth:logout Event auf document empfangen', event);
+          // Bei Abmeldung den Status aus dem localStorage entfernen
+          removeLocalStorage('auth_status');
+          checkAuthStatus();
+        });
+        
+        // Regelmäßige Überprüfung des Auth-Status (als Alternative zu cookieStore API)
+        // Verbesserte Cookie-Überwachung mit Debouncing
+        let previousCookieValue = document.cookie;
+        let cookieCheckTimeout: number | null = null;
+        
+        function debouncedCookieCheck() {
+          if (cookieCheckTimeout) {
+            clearTimeout(cookieCheckTimeout);
+          }
+          
+          cookieCheckTimeout = setTimeout(() => {
+            if (document.cookie !== previousCookieValue) {
+              console.log('Cookie-Änderung erkannt', {
+                previous: previousCookieValue,
+                current: document.cookie
+              });
+              previousCookieValue = document.cookie;
+              checkAuthStatus();
+            }
+          }, 300) as unknown as number;
+        }
+        
+        // Cookie-Änderungen alle 500ms prüfen
+        setInterval(debouncedCookieCheck, 500);
+        
+        // Manuelle Authentifizierungsprüfung ermöglichen
+        // TypeScript-kompatible Zuweisung zum window-Objekt
+        (window as any)['checkAuthManually'] = function() {
+          console.log('Manuelle Authentifizierungsprüfung...');
+          checkAuthStatus();
+          return isUserAuthenticated();
+        };
+        
+        // Hilfsfunktion zum Überprüfen des Auth-Status
+        (window as any)['checkAuth'] = function() {
+          const status = isUserAuthenticated();
+          console.log('Aktueller Auth-Status:', status);
+          return status;
+        };
+        
+        // Hilfsfunktion zum manuellen Setzen des Auth-Status
+        (window as any)['forceAuth'] = function(status: boolean) {
+          if (status) {
+            setLocalStorage('auth_status', 'authenticated');
+            console.log('Auth-Status manuell auf "authenticated" gesetzt');
+            checkAuthStatus();
+          } else {
+            removeLocalStorage('auth_status');
+            console.log('Auth-Status manuell zurückgesetzt');
+            checkAuthStatus();
+          }
+          return isUserAuthenticated();
+        };
+      </script>
     </article>
   </div>
 </Layout>
@@ -456,13 +776,14 @@ const modifiedDate = new Date();
 <style>
   /**
    * Advanced CSS optimizations for performance and accessibility
-   * 
+   *
    * Features:
    * 1. Hardware-accelerated animations with will-change
    * 2. Reduced motion support for accessibility
    * 3. High contrast mode support
    * 4. Optimized focus styles for keyboard navigation
    * 5. Touch-friendly target sizes (min 44x44px)
+   * 6. Smooth opacity transitions for section visibility
    */
 
   /* Enhanced 3D effect with perspective - optimized for performance */
@@ -496,6 +817,23 @@ const modifiedDate = new Date();
       transform: none !important;
       transition: none !important;
     }
+  }
+
+  /* Smooth transitions for section visibility */
+  #auth-section,
+  #quiz-section,
+  #chronology-section {
+    transition: opacity 0.3s ease-in-out;
+    /* Visibility wird jetzt dynamisch per JavaScript gesetzt */
+  }
+  
+  /* Verbesserte Sichtbarkeitssteuerung mit expliziten Zuständen */
+  .opacity-0 {
+    opacity: 0 !important;
+  }
+  
+  .opacity-100 {
+    opacity: 1 !important;
   }
 
   /* High Contrast Mode Support for assistive technologies */
