@@ -30,6 +30,7 @@ import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
+import AuthForm from "@components/auth/AuthForm.astro";
 
 // Mark this route for static generation (SSG)
 export const prerender = true;
@@ -102,6 +103,10 @@ export async function getStaticPaths() {
 // Get props from getStaticPaths
 const { category, lang, usedFallback } = Astro.props;
 const t = useTranslations(lang);
+
+// Prüfen, ob der Benutzer eingeloggt ist
+// In einer echten Anwendung würde dies durch eine Authentifizierungsprüfung ersetzt werden
+const isLoggedIn = Astro.cookies.has('session');
 
 /**
  * Category interface definition
@@ -254,11 +259,37 @@ const modifiedDate = new Date();
         />
       </div>
 
+      <!-- Auth Form - Nur anzeigen, wenn der Benutzer nicht eingeloggt ist -->
+      {!isLoggedIn && (
+        <section
+          class="flex flex-col gap-8 items-center w-full mt-8 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm rounded-xl p-8 relative shadow-lg border border-zinc-700/30"
+          aria-labelledby="auth-heading"
+        >
+          <Headline
+            level="h2"
+            id="auth-heading"
+            className="text-center text-2xl font-bold text-white mb-6"
+          >
+            {t("auth.required.title") || "Anmeldung erforderlich"}
+          </Headline>
+          
+          <Paragraph
+            className="text-center max-w-2xl mb-6 text-zinc-100"
+            description={t("auth.required.description") || "Bitte melde dich an oder registriere dich, um die Spielmodi zu nutzen."}
+          />
+          
+          <div class="w-full max-w-md mx-auto">
+            <AuthForm initialMode="login" />
+          </div>
+        </section>
+      )}
+
       <!-- Music Quiz Section - Enhanced with semantic structure and accessibility improvements -->
-      <section
-        class="flex flex-col gap-8 items-center w-full mt-8 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm rounded-xl p-8 relative shadow-lg border border-zinc-700/30"
-        aria-labelledby="quiz-heading"
-      >
+      {isLoggedIn && (
+        <section
+          class="flex flex-col gap-8 items-center w-full mt-8 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm rounded-xl p-8 relative shadow-lg border border-zinc-700/30"
+          aria-labelledby="quiz-heading"
+        >
         <div
           class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center shadow-lg border-4 border-zinc-900"
           aria-hidden="true"
@@ -334,12 +365,14 @@ const modifiedDate = new Date();
           </div>
         </div>
       </section>
+      )}
 
       <!-- Music Chronology Game Section - Enhanced with semantic structure -->
-      <section
-        class="flex flex-col gap-8 items-center w-full mt-12 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm rounded-xl p-8 relative shadow-lg border border-zinc-700/30"
-        aria-labelledby="chronology-heading"
-      >
+      {isLoggedIn && (
+        <section
+          class="flex flex-col gap-8 items-center w-full mt-12 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm rounded-xl p-8 relative shadow-lg border border-zinc-700/30"
+          aria-labelledby="chronology-heading"
+        >
         <div
           class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center shadow-lg border-4 border-zinc-900"
           aria-hidden="true"
@@ -415,6 +448,7 @@ const modifiedDate = new Date();
           </div>
         </div>
       </section>
+      )}
     </article>
   </div>
 </Layout>
