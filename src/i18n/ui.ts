@@ -422,6 +422,32 @@ export const ui = {
     "knowledge.keyboard.instructions":
       "Verwende die Pfeiltasten zur Navigation zwischen Artikeln. Drücke Enter, um einen Artikel zu öffnen.",
     "difficulty.level": "Schwierigkeitsgrad",
+
+    // Profilseite
+    "profile.title": "Mein Profil",
+    "profile.description":
+      "Verwalte deine persönlichen Informationen und sieh dir deine Spielstatistiken an",
+    "profile.loading": "Profildaten werden geladen...",
+    "profile.error": "Fehler beim Laden der Profildaten",
+    "profile.auth.required":
+      "Du musst angemeldet sein, um dein Profil anzuzeigen",
+    "profile.user.info": "Benutzerinformationen",
+    "profile.user.since": "Mitglied seit",
+    "profile.stats.title": "Spielstatistiken",
+    "profile.stats.quiz": "Quiz",
+    "profile.stats.chronology": "Chronologie",
+    "profile.stats.total.score": "Gesamtpunktzahl",
+    "profile.stats.games.played": "Gespielte Spiele",
+    "profile.stats.highest.score": "Höchste Punktzahl",
+    "profile.recent.games": "Letzte Spielergebnisse",
+    "profile.recent.games.empty": "Du hast noch keine Spiele gespielt",
+    "profile.recent.game.mode": "Spielmodus",
+    "profile.recent.game.category": "Kategorie",
+    "profile.recent.game.difficulty": "Schwierigkeit",
+    "profile.recent.game.score": "Punktzahl",
+    "profile.recent.game.date": "Datum",
+    "profile.nav.aria": "Navigering till användarprofil",
+    "profile.nav.link": "Gå till profil",
   },
   en: {
     // Auth-Komponenten
@@ -749,6 +775,31 @@ export const ui = {
       "Invalid credentials. Please check your email and password.",
     "auth.service.too_many_attempts":
       "Too many login attempts. Please wait a moment before trying again.",
+
+    // Profile page
+    "profile.title": "My Profile",
+    "profile.description":
+      "Manage your personal information and view your game statistics",
+    "profile.loading": "Loading profile data...",
+    "profile.error": "Error loading profile data",
+    "profile.auth.required": "You must be logged in to view your profile",
+    "profile.user.info": "User Information",
+    "profile.user.since": "Member since",
+    "profile.stats.title": "Game Statistics",
+    "profile.stats.quiz": "Quiz",
+    "profile.stats.chronology": "Chronology",
+    "profile.stats.total.score": "Total Score",
+    "profile.stats.games.played": "Games Played",
+    "profile.stats.highest.score": "Highest Score",
+    "profile.recent.games": "Recent Game Results",
+    "profile.recent.games.empty": "You haven't played any games yet",
+    "profile.recent.game.mode": "Game Mode",
+    "profile.recent.game.category": "Category",
+    "profile.recent.game.difficulty": "Difficulty",
+    "profile.recent.game.score": "Score",
+    "profile.recent.game.date": "Date",
+    "profile.nav.aria": "User profile navigation",
+    "profile.nav.link": "Go to profile",
   },
   es: {
     // Auth-Komponenten
@@ -1153,6 +1204,31 @@ export const ui = {
       "Prueba diferentes términos de búsqueda o reinicia tu búsqueda",
     "knowledge.keyboard.instructions":
       "Usa las teclas de flecha para navegar entre artículos. Presiona Enter para abrir un artículo.",
+
+    // Página de perfil
+    "profile.title": "Mi Perfil",
+    "profile.description":
+      "Administra tu información personal y visualiza tus estadísticas de juego",
+    "profile.loading": "Cargando datos del perfil...",
+    "profile.error": "Error al cargar los datos del perfil",
+    "profile.auth.required": "Debes iniciar sesión para ver tu perfil",
+    "profile.user.info": "Información del Usuario",
+    "profile.user.since": "Miembro desde",
+    "profile.stats.title": "Estadísticas de Juego",
+    "profile.stats.quiz": "Quiz",
+    "profile.stats.chronology": "Cronología",
+    "profile.stats.total.score": "Puntuación Total",
+    "profile.stats.games.played": "Partidas Jugadas",
+    "profile.stats.highest.score": "Puntuación Más Alta",
+    "profile.recent.games": "Resultados de Juegos Recientes",
+    "profile.recent.games.empty": "Aún no has jugado ninguna partida",
+    "profile.recent.game.mode": "Modo de Juego",
+    "profile.recent.game.category": "Categoría",
+    "profile.recent.game.difficulty": "Dificultad",
+    "profile.recent.game.score": "Puntuación",
+    "profile.recent.game.date": "Fecha",
+    "profile.nav.aria": "Navegación al perfil de usuario",
+    "profile.nav.link": "Ir al perfil",
   },
   fr: {
     // Auth-Komponenten
@@ -1555,6 +1631,31 @@ export const ui = {
       "Essayez d'autres termes de recherche ou réinitialisez votre recherche",
     "knowledge.keyboard.instructions":
       "Utilisez les touches fléchées pour naviguer entre les articles. Appuyez sur Entrée pour ouvrir un article.",
+
+    // Page de profil
+    "profile.title": "Mon Profil",
+    "profile.description":
+      "Gérez vos informations personnelles et consultez vos statistiques de jeu",
+    "profile.loading": "Chargement des données du profil...",
+    "profile.error": "Erreur lors du chargement des données du profil",
+    "profile.auth.required": "Vous devez être connecté pour voir votre profil",
+    "profile.user.info": "Informations Utilisateur",
+    "profile.user.since": "Membre depuis",
+    "profile.stats.title": "Statistiques de Jeu",
+    "profile.stats.quiz": "Quiz",
+    "profile.stats.chronology": "Chronologie",
+    "profile.stats.total.score": "Score Total",
+    "profile.stats.games.played": "Parties Jouées",
+    "profile.stats.highest.score": "Meilleur Score",
+    "profile.recent.games": "Résultats de Jeux Récents",
+    "profile.recent.games.empty": "Vous n'avez pas encore joué de parties",
+    "profile.recent.game.mode": "Mode de Jeu",
+    "profile.recent.game.category": "Catégorie",
+    "profile.recent.game.difficulty": "Difficulté",
+    "profile.recent.game.score": "Score",
+    "profile.recent.game.date": "Date",
+    "profile.nav.aria": "Navigation vers le profil utilisateur",
+    "profile.nav.link": "Aller au profil",
   },
   it: {
     // Auth-Komponenten
@@ -1952,6 +2053,32 @@ export const ui = {
       "Prova termini di ricerca diversi o reimposta la tua ricerca",
     "knowledge.keyboard.instructions":
       "Utilizza i tasti freccia per navigare tra gli articoli. Premi Invio per aprire un articolo.",
+
+    // Pagina del profilo
+    "profile.title": "Il Mio Profilo",
+    "profile.description":
+      "Gestisci le tue informazioni personali e visualizza le tue statistiche di gioco",
+    "profile.loading": "Caricamento dati del profilo...",
+    "profile.error": "Errore durante il caricamento dei dati del profilo",
+    "profile.auth.required":
+      "Devi essere loggato per visualizzare il tuo profilo",
+    "profile.user.info": "Informazioni Utente",
+    "profile.user.since": "Membro dal",
+    "profile.stats.title": "Statistiche di Gioco",
+    "profile.stats.quiz": "Quiz",
+    "profile.stats.chronology": "Cronologia",
+    "profile.stats.total.score": "Punteggio Totale",
+    "profile.stats.games.played": "Partite Giocate",
+    "profile.stats.highest.score": "Punteggio Più Alto",
+    "profile.recent.games": "Risultati Recenti",
+    "profile.recent.games.empty": "Non hai ancora giocato nessuna partita",
+    "profile.recent.game.mode": "Modalità di Gioco",
+    "profile.recent.game.category": "Categoria",
+    "profile.recent.game.difficulty": "Difficoltà",
+    "profile.recent.game.score": "Punteggio",
+    "profile.recent.game.date": "Data",
+    "profile.nav.aria": "Navigazione al profilo utente",
+    "profile.nav.link": "Vai al profilo",
   },
   pt: {
     // Auth-Komponenten
@@ -2344,6 +2471,31 @@ export const ui = {
       "Tente termos de pesquisa diferentes ou redefina sua pesquisa",
     "knowledge.keyboard.instructions":
       "Use as teclas de seta para navegar entre os artigos. Pressione Enter para abrir um artigo.",
+
+    // Página de perfil
+    "profile.title": "Meu Perfil",
+    "profile.description":
+      "Gerencie suas informações pessoais e veja suas estatísticas de jogo",
+    "profile.loading": "Carregando dados do perfil...",
+    "profile.error": "Erro ao carregar dados do perfil",
+    "profile.auth.required": "Você precisa estar logado para ver seu perfil",
+    "profile.user.info": "Informações do Usuário",
+    "profile.user.since": "Membro desde",
+    "profile.stats.title": "Estatísticas de Jogo",
+    "profile.stats.quiz": "Quiz",
+    "profile.stats.chronology": "Cronologia",
+    "profile.stats.total.score": "Pontuação Total",
+    "profile.stats.games.played": "Jogos Jogados",
+    "profile.stats.highest.score": "Maior Pontuação",
+    "profile.recent.games": "Resultados Recentes",
+    "profile.recent.games.empty": "Você ainda não jogou nenhum jogo",
+    "profile.recent.game.mode": "Modo de Jogo",
+    "profile.recent.game.category": "Categoria",
+    "profile.recent.game.difficulty": "Dificuldade",
+    "profile.recent.game.score": "Pontuação",
+    "profile.recent.game.date": "Data",
+    "profile.nav.aria": "Navegação para o perfil do usuário",
+    "profile.nav.link": "Ir para o perfil",
   },
   da: {
     // Auth-Komponenten
@@ -2729,6 +2881,31 @@ export const ui = {
     "knowledge.no.results.help": "Prøv andre søgeord eller nulstil din søgning",
     "knowledge.keyboard.instructions":
       "Brug piletasterne til at navigere mellem artikler. Tryk på Enter for at åbne en artikel.",
+
+    // Profilside
+    "profile.title": "Min Profil",
+    "profile.description":
+      "Administrer dine personlige oplysninger og se dine spilstatistikker",
+    "profile.loading": "Indlæser profildata...",
+    "profile.error": "Fejl ved indlæsning af profildata",
+    "profile.auth.required": "Du skal være logget ind for at se din profil",
+    "profile.user.info": "Brugeroplysninger",
+    "profile.user.since": "Medlem siden",
+    "profile.stats.title": "Spilstatistikker",
+    "profile.stats.quiz": "Quiz",
+    "profile.stats.chronology": "Kronologi",
+    "profile.stats.total.score": "Samlet score",
+    "profile.stats.games.played": "Spil spillet",
+    "profile.stats.highest.score": "Højeste score",
+    "profile.recent.games": "Seneste spilresultater",
+    "profile.recent.games.empty": "Du har ikke spillet nogen spil endnu",
+    "profile.recent.game.mode": "Spiltilstand",
+    "profile.recent.game.category": "Kategori",
+    "profile.recent.game.difficulty": "Sværhedsgrad",
+    "profile.recent.game.score": "Score",
+    "profile.recent.game.date": "Dato",
+    "profile.nav.aria": "Navigation til brugerprofil",
+    "profile.nav.link": "Gå til profil",
   },
   nl: {
     // Auth-Komponenten
@@ -3074,7 +3251,6 @@ export const ui = {
     "aria.expanded": "Uitgevouwen",
     "aria.shortcuts.panel": "Sneltoetsen paneel",
     "aria.shortcuts.list": "Lijst van beschikbare sneltoetsen",
-    "knowledge.empty": "Geen artikelen beschikbaar in deze categorie",
     "playlist.page.title": "Muziek afspeellijsten | Melody Mind",
     "playlist.page.heading": "Ontdek onze muziek afspeellijsten",
     "playlist.page.description":
@@ -3116,6 +3292,31 @@ export const ui = {
       "Artikelen worden automatisch gefilterd tijdens het typen",
     "knowledge.search.reset": "Zoekopdracht resetten",
     "knowledge.search.reset.text": "Resetten",
+
+    // Profielpagina
+    "profile.title": "Mijn Profiel",
+    "profile.description":
+      "Beheer je persoonlijke informatie en bekijk je spelstatistieken",
+    "profile.loading": "Profielgegevens laden...",
+    "profile.error": "Fout bij het laden van profielgegevens",
+    "profile.auth.required": "Je moet ingelogd zijn om je profiel te bekijken",
+    "profile.user.info": "Gebruikersinformatie",
+    "profile.user.since": "Lid sinds",
+    "profile.stats.title": "Spelstatistieken",
+    "profile.stats.quiz": "Quiz",
+    "profile.stats.chronology": "Chronologie",
+    "profile.stats.total.score": "Totale score",
+    "profile.stats.games.played": "Gespeelde spellen",
+    "profile.stats.highest.score": "Hoogste score",
+    "profile.recent.games": "Recente spelresultaten",
+    "profile.recent.games.empty": "Je hebt nog geen spellen gespeeld",
+    "profile.recent.game.mode": "Spelmodus",
+    "profile.recent.game.category": "Categorie",
+    "profile.recent.game.difficulty": "Moeilijkheidsgraad",
+    "profile.recent.game.score": "Score",
+    "profile.recent.game.date": "Datum",
+    "profile.nav.aria": "Navigatie naar gebruikersprofiel",
+    "profile.nav.link": "Naar profiel",
   },
   sv: {
     // Auth-Komponenten
@@ -3498,8 +3699,34 @@ export const ui = {
     "knowledge.no.results.help":
       "Prova andra sökord eller återställ din sökning",
     "difficulty.level": "Svårighetsgrad",
+
+    // Profilsida
+    "profile.title": "Min Profil",
+    "profile.description":
+      "Hantera din personliga information och se din spelstatistik",
+    "profile.loading": "Laddar profildata...",
+    "profile.error": "Fel vid laddning av profildata",
+    "profile.auth.required": "Du måste vara inloggad för att se din profil",
+    "profile.user.info": "Användarinformation",
+    "profile.user.since": "Medlem sedan",
+    "profile.stats.title": "Spelstatistik",
+    "profile.stats.quiz": "Quiz",
+    "profile.stats.chronology": "Kronologi",
+    "profile.stats.total.score": "Total poäng",
+    "profile.stats.games.played": "Spelade spel",
+    "profile.stats.highest.score": "Högsta poäng",
+    "profile.recent.games": "Senaste spelresultat",
+    "profile.recent.games.empty": "Du har inte spelat några spel än",
+    "profile.recent.game.mode": "Spelläge",
+    "profile.recent.game.category": "Kategori",
+    "profile.recent.game.difficulty": "Svårighetsgrad",
+    "profile.recent.game.score": "Poäng",
+    "profile.recent.game.date": "Datum",
   },
   fi: {
+    "profile.nav.aria": "Navigointi käyttäjäprofiiliin",
+    "profile.nav.link": "Siirry profiiliin",
+
     // Auth-Komponenten
     "auth.required.title": "Kirjautuminen vaaditaan",
     "auth.required.description": "Kirjaudu sisään päästäksesi tälle alueelle",
@@ -3869,6 +4096,30 @@ export const ui = {
     "knowledge.keyboard.instructions":
       "Käytä nuolinäppäimiä navigoidaksesi artikkeleiden välillä. Paina Enter avataksesi artikkelin.",
     "difficulty.level": "Vaikeustaso",
+
+    // Profiilisivu
+    "profile.title": "Oma Profiili",
+    "profile.description":
+      "Hallitse henkilökohtaisia tietojasi ja tarkastele pelitilastojasi",
+    "profile.loading": "Ladataan profiilitietoja...",
+    "profile.error": "Virhe profiilitietojen lataamisessa",
+    "profile.auth.required":
+      "Sinun täytyy kirjautua sisään nähdäksesi profiilisi",
+    "profile.user.info": "Käyttäjätiedot",
+    "profile.user.since": "Jäsen alkaen",
+    "profile.stats.title": "Pelitilastot",
+    "profile.stats.quiz": "Tietovisa",
+    "profile.stats.chronology": "Kronologia",
+    "profile.stats.total.score": "Kokonaispisteet",
+    "profile.stats.games.played": "Pelatut pelit",
+    "profile.stats.highest.score": "Korkein pistemäärä",
+    "profile.recent.games": "Viimeisimmät pelitulokset",
+    "profile.recent.games.empty": "Et ole vielä pelannut yhtään peliä",
+    "profile.recent.game.mode": "Pelitila",
+    "profile.recent.game.category": "Kategoria",
+    "profile.recent.game.difficulty": "Vaikeustaso",
+    "profile.recent.game.score": "Pisteet",
+    "profile.recent.game.date": "Päivämäärä",
 
     // Neue Übersetzungsschlüssel für Finnisch
     "auth.form.email_required": "Sähköpostiosoite vaaditaan",

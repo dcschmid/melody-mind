@@ -1,0 +1,441 @@
+---
+/**
+ * User Profile Page
+ *
+ * This page displays the user profile with personal information,
+ * game statistics, and recent game results.
+ *
+ * Features:
+ * - Display of user information (name, email, creation date)
+ * - Statistics for quiz and chronology game modes
+ * - List of recent game results
+ * - Responsive design with Tailwind CSS
+ * - WCAG AAA compliant
+ *
+ * URL: /[lang]/profile
+ */
+import Layout from "@layouts/Layout.astro";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { Icon } from "astro-icon/components";
+import { formatDate } from "@utils/dateUtils";
+import { requireAuth } from "src/middleware/auth";
+
+// Interface for user profile data
+interface UserProfile {
+  user: {
+    username: string;
+    email: string;
+    createdAt: string;
+  };
+  stats: {
+    quiz: {
+      totalScore: number;
+      gamesPlayed: number;
+      highestScore: number;
+    };
+    chronology: {
+      totalScore: number;
+      gamesPlayed: number;
+      highestScore: number;
+    };
+  };
+  recentGames: Array<{
+    gameMode: "quiz" | "chronology";
+    score: number;
+    category: string;
+    difficulty: "easy" | "medium" | "hard";
+    createdAt: string;
+  }>;
+}
+
+// Get language from URL and initialize translations
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(String(lang));
+
+// Auth check: Verify if the user is logged in
+const authResult = await requireAuth(Astro.request);
+if (!authResult.authenticated && authResult.redirectToLogin) {
+  return authResult.redirectToLogin;
+}
+
+// Extract user ID from auth context
+const userId = authResult.user?.id || "guest";
+
+// Default values for user data
+let profileData: UserProfile | null = null;
+let isLoading = true;
+let error: string | null = null;
+
+// Fetch user data from API endpoint
+try {
+  // Pass user ID as parameter
+  const response = await fetch(
+    `${Astro.url.origin}/${String(lang)}/api/user/profile?userId=${userId}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include", // Important: Send cookies
+    }
+  );
+
+  const data = await response.json();
+
+  if (data.success) {
+    profileData = data.profile;
+  } else {
+    error = data.error || t("profile.error");
+  }
+} catch (err) {
+  console.error("Error fetching profile data:", err);
+  error = t("profile.error");
+} finally {
+  isLoading = false;
+}
+
+// Format the date for display
+const formatUserDate = (dateString: string): string => {
+  try {
+    return formatDate(dateString, String(lang));
+  } catch (err) {
+    return dateString;
+  }
+};
+
+// Game mode names for display
+const gameModeNames = {
+  quiz: t("profile.stats.quiz"),
+  chronology: t("profile.stats.chronology"),
+};
+
+// Difficulty level names for display
+const difficultyNames = {
+  easy: t("difficulty.easy"),
+  medium: t("difficulty.medium"),
+  hard: t("difficulty.hard"),
+};
+---
+
+<Layout
+  title={t("profile.title")}
+  description={t("profile.description")}
+  type="website"
+>
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold text-white mb-8 text-center">
+      {t("profile.title")}
+    </h1>
+
+    {
+      isLoading && (
+        <div
+          class="flex justify-center items-center min-h-[300px]"
+          aria-live="polite"
+        >
+          <div class="text-center">
+            <Icon
+              name="loader"
+              class="w-10 h-10 mx-auto animate-spin text-purple-400"
+              aria-hidden="true"
+            />
+            <p class="mt-4 text-lg text-zinc-300">{t("profile.loading")}</p>
+          </div>
+        </div>
+      )
+    }
+
+    {
+      error && (
+        <div
+          class="bg-red-900/30 border border-red-700 text-white p-4 rounded-lg mb-8"
+          role="alert"
+        >
+          <p class="font-medium">{error}</p>
+          <p class="mt-2">{t("profile.auth.required")}</p>
+        </div>
+      )
+    }
+
+    {
+      profileData && (
+        <div class="space-y-10">
+          <section
+            class="bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-xl p-6 border border-zinc-700 shadow-lg"
+            aria-labelledby="user-info-heading"
+          >
+            <h2
+              id="user-info-heading"
+              class="text-2xl font-bold text-white mb-4"
+            >
+              {t("profile.user.info")}
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <div class="flex items-center">
+                  <Icon
+                    name="user"
+                    class="w-5 h-5 text-purple-400 mr-2"
+                    aria-hidden="true"
+                  />
+                  <span class="text-zinc-400 mr-2">
+                    {t("auth.register.username")}:
+                  </span>
+                  <span class="text-white font-medium">
+                    {profileData.user.username}
+                  </span>
+                </div>
+
+                <div class="flex items-center">
+                  <Icon
+                    name="mail"
+                    class="w-5 h-5 text-purple-400 mr-2"
+                    aria-hidden="true"
+                  />
+                  <span class="text-zinc-400 mr-2">
+                    {t("auth.login.email")}:
+                  </span>
+                  <span class="text-white font-medium">
+                    {profileData.user.email}
+                  </span>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex items-center">
+                  <Icon
+                    name="calendar"
+                    class="w-5 h-5 text-purple-400 mr-2"
+                    aria-hidden="true"
+                  />
+                  <span class="text-zinc-400 mr-2">
+                    {t("profile.user.since")}:
+                  </span>
+                  <span class="text-white font-medium">
+                    {formatUserDate(profileData.user.createdAt)}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section
+            class="bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-xl p-6 border border-zinc-700 shadow-lg"
+            aria-labelledby="stats-heading"
+          >
+            <h2 id="stats-heading" class="text-2xl font-bold text-white mb-6">
+              {t("profile.stats.title")}
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="bg-zinc-900/50 p-5 rounded-lg border border-zinc-700">
+                <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                  <Icon
+                    name="quiz"
+                    class="w-6 h-6 text-yellow-400 mr-2"
+                    aria-hidden="true"
+                  />
+                  {t("profile.stats.quiz")}
+                </h3>
+
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <span class="text-zinc-300">
+                      {t("profile.stats.total.score")}
+                    </span>
+                    <span class="text-white font-bold text-lg">
+                      {profileData.stats.quiz.totalScore}
+                    </span>
+                  </div>
+
+                  <div class="flex justify-between items-center">
+                    <span class="text-zinc-300">
+                      {t("profile.stats.games.played")}
+                    </span>
+                    <span class="text-white font-bold text-lg">
+                      {profileData.stats.quiz.gamesPlayed}
+                    </span>
+                  </div>
+
+                  <div class="flex justify-between items-center">
+                    <span class="text-zinc-300">
+                      {t("profile.stats.highest.score")}
+                    </span>
+                    <span class="text-white font-bold text-lg">
+                      {profileData.stats.quiz.highestScore}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-zinc-900/50 p-5 rounded-lg border border-zinc-700">
+                <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                  <Icon
+                    name="chronology"
+                    class="w-6 h-6 text-blue-400 mr-2"
+                    aria-hidden="true"
+                  />
+                  {t("profile.stats.chronology")}
+                </h3>
+
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <span class="text-zinc-300">
+                      {t("profile.stats.total.score")}
+                    </span>
+                    <span class="text-white font-bold text-lg">
+                      {profileData.stats.chronology.totalScore}
+                    </span>
+                  </div>
+
+                  <div class="flex justify-between items-center">
+                    <span class="text-zinc-300">
+                      {t("profile.stats.games.played")}
+                    </span>
+                    <span class="text-white font-bold text-lg">
+                      {profileData.stats.chronology.gamesPlayed}
+                    </span>
+                  </div>
+
+                  <div class="flex justify-between items-center">
+                    <span class="text-zinc-300">
+                      {t("profile.stats.highest.score")}
+                    </span>
+                    <span class="text-white font-bold text-lg">
+                      {profileData.stats.chronology.highestScore}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section
+            class="bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-xl p-6 border border-zinc-700 shadow-lg"
+            aria-labelledby="recent-games-heading"
+          >
+            <h2
+              id="recent-games-heading"
+              class="text-2xl font-bold text-white mb-6"
+            >
+              {t("profile.recent.games")}
+            </h2>
+
+            {profileData.recentGames.length === 0 ? (
+              <p class="text-zinc-400 text-center py-8">
+                {t("profile.recent.games.empty")}
+              </p>
+            ) : (
+              <div class="overflow-x-auto">
+                <table
+                  class="w-full border-collapse"
+                  aria-describedby="recent-games-heading"
+                >
+                  <thead>
+                    <tr class="border-b border-zinc-700">
+                      <th
+                        scope="col"
+                        class="text-left py-3 px-4 text-zinc-300 font-medium"
+                      >
+                        {t("profile.recent.game.mode")}
+                      </th>
+                      <th
+                        scope="col"
+                        class="text-left py-3 px-4 text-zinc-300 font-medium"
+                      >
+                        {t("profile.recent.game.category")}
+                      </th>
+                      <th
+                        scope="col"
+                        class="text-left py-3 px-4 text-zinc-300 font-medium"
+                      >
+                        {t("profile.recent.game.difficulty")}
+                      </th>
+                      <th
+                        scope="col"
+                        class="text-right py-3 px-4 text-zinc-300 font-medium"
+                      >
+                        {t("profile.recent.game.score")}
+                      </th>
+                      <th
+                        scope="col"
+                        class="text-right py-3 px-4 text-zinc-300 font-medium"
+                      >
+                        {t("profile.recent.game.date")}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {profileData.recentGames.map(
+                      (game: {
+                        gameMode: "quiz" | "chronology";
+                        score: number;
+                        category: string;
+                        difficulty: "easy" | "medium" | "hard";
+                        createdAt: string;
+                      }) => (
+                        <tr class="border-b border-zinc-800 hover:bg-zinc-800/50 transition-colors">
+                          <td class="py-3 px-4">
+                            <span
+                              class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${game.gameMode === "quiz" ? "bg-yellow-900/30 text-yellow-300" : "bg-blue-900/30 text-blue-300"}`}
+                            >
+                              {gameModeNames[
+                                game.gameMode as keyof typeof gameModeNames
+                              ] || game.gameMode}
+                            </span>
+                          </td>
+                          <td class="py-3 px-4 text-white">{game.category}</td>
+                          <td class="py-3 px-4">
+                            <span
+                              class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+                          ${
+                            game.difficulty === "easy"
+                              ? "bg-green-900/30 text-green-300"
+                              : game.difficulty === "medium"
+                                ? "bg-orange-900/30 text-orange-300"
+                                : "bg-red-900/30 text-red-300"
+                          }`}
+                            >
+                              {difficultyNames[
+                                game.difficulty as keyof typeof difficultyNames
+                              ] || game.difficulty}
+                            </span>
+                          </td>
+                          <td class="py-3 px-4 text-right font-bold text-white">
+                            {game.score}
+                          </td>
+                          <td class="py-3 px-4 text-right text-zinc-300">
+                            {formatUserDate(game.createdAt)}
+                          </td>
+                        </tr>
+                      )
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </section>
+        </div>
+      )
+    }
+  </div>
+</Layout>
+
+<script>
+  // Helper function for formatting dates
+  function formatDateClient(dateString: string, locale: string): string {
+    try {
+      const date = new Date(dateString);
+      return new Intl.DateTimeFormat(locale, {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      }).format(date);
+    } catch (err) {
+      console.error("Error formatting date:", err);
+      return dateString;
+    }
+  }
+</script>
