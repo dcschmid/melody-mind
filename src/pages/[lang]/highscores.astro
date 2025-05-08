@@ -1,0 +1,654 @@
+---
+/**
+ * Highscores Page
+ *
+ * This page displays the top scores across different game modes and categories.
+ * Users can filter scores by game mode and category.
+ *
+ * Features:
+ * - Display of top scores for quiz and chronology game modes
+ * - Filtering by game mode and category
+ * - Responsive design with Tailwind CSS
+ * - WCAG AAA compliant
+ *
+ * URL: /[lang]/highscores
+ */
+import Layout from "@layouts/Layout.astro";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { Icon } from "astro-icon/components";
+import { formatDate } from "@utils/dateUtils";
+
+// Interface for highscore entry
+interface HighscoreEntry {
+  id: string;
+  username: string;
+  gameMode: "quiz" | "chronology";
+  score: number;
+  category: string;
+  createdAt: string;
+}
+
+// Get language from URL and initialize translations
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(String(lang));
+
+// Default values
+let highscores: HighscoreEntry[] = [];
+let isLoading = true;
+let error: string | null = null;
+
+// Get filter parameters from URL
+const url = Astro.url;
+const searchParams = url.searchParams;
+const selectedGameMode = searchParams.get("gameMode");
+const selectedCategory = searchParams.get("category");
+
+// Build API URL with filters
+let apiUrl = `${Astro.url.origin}/${String(lang)}/api/scores/highscores`;
+const apiParams = new URLSearchParams();
+
+if (selectedGameMode) {
+  apiParams.append("gameMode", selectedGameMode);
+}
+
+if (selectedCategory) {
+  apiParams.append("category", selectedCategory);
+}
+
+if (apiParams.toString()) {
+  apiUrl += `?${apiParams.toString()}`;
+}
+
+// Fetch highscores data from API endpoint with filters
+try {
+  const response = await fetch(apiUrl, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const data = await response.json();
+
+  if (data.success) {
+    highscores = data.highscores;
+  } else {
+    error = data.error || t("highscores.error");
+  }
+} catch (err) {
+  console.error("Error fetching highscores data:", err);
+  error = t("highscores.error");
+} finally {
+  isLoading = false;
+}
+
+// Format the date for display
+const formatHighscoreDate = (dateString: string): string => {
+  try {
+    return formatDate(dateString, String(lang));
+  } catch (err) {
+    return dateString;
+  }
+};
+
+// Get unique categories from highscores for filter dropdown
+const categories = [...new Set(highscores.map((score) => score.category))];
+
+// Game mode names for display
+const gameModeNames = {
+  quiz: t("profile.stats.quiz"),
+  chronology: t("profile.stats.chronology"),
+};
+---
+
+<Layout
+  title={t("highscores.title") || "Highscores"}
+  description={t("highscores.description") ||
+    "View the top scores across different game modes and categories"}
+  type="website"
+>
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold text-white mb-8 text-center">
+      {t("highscores.title") || "Highscores"}
+    </h1>
+
+    {
+      isLoading && (
+        <div
+          class="flex justify-center items-center min-h-[300px]"
+          aria-live="polite"
+        >
+          <div class="text-center">
+            <Icon
+              name="loader"
+              class="w-10 h-10 mx-auto animate-spin text-purple-400"
+              aria-hidden="true"
+            />
+            <p class="mt-4 text-lg text-zinc-300">
+              {t("highscores.loading") || "Loading highscores..."}
+            </p>
+          </div>
+        </div>
+      )
+    }
+
+    {
+      error && (
+        <div
+          class="bg-red-900/30 border border-red-700 text-white p-4 rounded-lg mb-8"
+          role="alert"
+        >
+          <p class="font-medium">{error}</p>
+        </div>
+      )
+    }
+
+    {
+      !isLoading && !error && (
+        <div class="space-y-10">
+          <section
+            class="bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-xl p-6 border border-zinc-700 shadow-lg"
+            aria-labelledby="filter-heading"
+          >
+            <h2 id="filter-heading" class="text-2xl font-bold text-white mb-4">
+              {t("highscores.filter.title") || "Filter Highscores"}
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="game-mode-filter" class="block text-zinc-300 mb-2">
+                  {t("highscores.filter.game.mode") || "Game Mode"}
+                </label>
+                <select
+                  id="game-mode-filter"
+                  class="w-full bg-zinc-900 border border-zinc-600 rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+                >
+                  <option value="" selected={!selectedGameMode}>
+                    {t("highscores.filter.all") || "All Game Modes"}
+                  </option>
+                  <option value="quiz" selected={selectedGameMode === "quiz"}>
+                    {t("profile.stats.quiz") || "Quiz"}
+                  </option>
+                  <option
+                    value="chronology"
+                    selected={selectedGameMode === "chronology"}
+                  >
+                    {t("profile.stats.chronology") || "Chronology"}
+                  </option>
+                </select>
+              </div>
+
+              <div>
+                <label for="category-search" class="block text-zinc-300 mb-2">
+                  {t("highscores.filter.category") || "Category"}
+                </label>
+                <div class="relative">
+                  <button
+                    type="button"
+                    id="category-dropdown-button"
+                    class="flex items-center justify-between w-full bg-zinc-900 border border-zinc-600 rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                    aria-controls="category-dropdown-options"
+                  >
+                    <span id="selected-category">
+                      {selectedCategory
+                        ? categories.find((cat) => cat === selectedCategory) ||
+                          selectedCategory
+                        : t("highscores.filter.all") || "All Categories"}
+                    </span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-zinc-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+
+                  <select
+                    id="category-filter"
+                    class="sr-only"
+                    aria-hidden="true"
+                  >
+                    <option value="" selected={!selectedCategory}>
+                      {t("highscores.filter.all") || "All Categories"}
+                    </option>
+                    {categories.map((category) => (
+                      <option
+                        value={category}
+                        selected={selectedCategory === category}
+                      >
+                        {category}
+                      </option>
+                    ))}
+                  </select>
+
+                  <div
+                    id="category-dropdown-options"
+                    class="absolute z-10 w-full mt-1 bg-zinc-800 border border-zinc-600 rounded-lg shadow-lg hidden"
+                    role="listbox"
+                    aria-labelledby="category-dropdown-button"
+                  >
+                    <div class="p-2 border-b border-zinc-700">
+                      <div class="relative">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5 text-zinc-400 absolute left-3 top-1/2 transform -translate-y-1/2"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          aria-hidden="true"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                        <input
+                          type="text"
+                          id="category-search"
+                          class="w-full bg-zinc-900 border border-zinc-700 rounded-md py-2 pl-10 pr-3 text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                          placeholder={
+                            t("highscores.filter.search") ||
+                            "Search categories..."
+                          }
+                          aria-label={
+                            t("highscores.filter.search") || "Search categories"
+                          }
+                        />
+                      </div>
+                    </div>
+
+                    <ul
+                      class="max-h-60 overflow-y-auto py-1"
+                      role="listbox"
+                      aria-labelledby="category-dropdown-button"
+                    >
+                      <li
+                        class="px-3 py-2 cursor-pointer hover:bg-zinc-700 text-white flex items-center"
+                        role="option"
+                        data-value=""
+                        aria-selected={!selectedCategory ? "true" : "false"}
+                      >
+                        <span class="ml-2">
+                          {t("highscores.filter.all") || "All Categories"}
+                        </span>
+                      </li>
+                      {categories.map((category) => (
+                        <li
+                          class="px-3 py-2 cursor-pointer hover:bg-zinc-700 text-white flex items-center"
+                          role="option"
+                          data-value={category}
+                          aria-selected={
+                            selectedCategory === category ? "true" : "false"
+                          }
+                        >
+                          <span class="ml-2">{category}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div
+                      id="no-categories-found"
+                      class="px-3 py-2 text-zinc-400 hidden"
+                    >
+                      {t("highscores.filter.no.results") ||
+                        "No categories found"}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section
+            class="bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-xl p-6 border border-zinc-700 shadow-lg"
+            aria-labelledby="highscores-heading"
+          >
+            <h2
+              id="highscores-heading"
+              class="text-2xl font-bold text-white mb-6"
+            >
+              {t("highscores.table.title") || "Top Scores"}
+            </h2>
+
+            {highscores.length === 0 ? (
+              <p class="text-zinc-400 text-center py-8">
+                {t("highscores.empty") || "No highscores found"}
+              </p>
+            ) : (
+              <div class="overflow-x-auto">
+                <table
+                  class="w-full border-collapse"
+                  aria-describedby="highscores-heading"
+                >
+                  <thead>
+                    <tr class="border-b border-zinc-700">
+                      <th
+                        scope="col"
+                        class="text-left py-3 px-4 text-zinc-300 font-medium"
+                      >
+                        {t("highscores.table.rank") || "Rank"}
+                      </th>
+                      <th
+                        scope="col"
+                        class="text-left py-3 px-4 text-zinc-300 font-medium"
+                      >
+                        {t("highscores.table.player") || "Player"}
+                      </th>
+                      <th
+                        scope="col"
+                        class="text-left py-3 px-4 text-zinc-300 font-medium"
+                      >
+                        {t("highscores.table.game.mode") || "Game Mode"}
+                      </th>
+                      <th
+                        scope="col"
+                        class="text-left py-3 px-4 text-zinc-300 font-medium"
+                      >
+                        {t("highscores.table.category") || "Category"}
+                      </th>
+                      <th
+                        scope="col"
+                        class="text-right py-3 px-4 text-zinc-300 font-medium"
+                      >
+                        {t("highscores.table.score") || "Score"}
+                      </th>
+                      <th
+                        scope="col"
+                        class="text-right py-3 px-4 text-zinc-300 font-medium"
+                      >
+                        {t("highscores.table.date") || "Date"}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {highscores.map((score, index) => (
+                      <tr class="border-b border-zinc-800 hover:bg-zinc-800/50 transition-colors">
+                        <td class="py-3 px-4 font-bold">{index + 1}</td>
+                        <td class="py-3 px-4 text-white">{score.username}</td>
+                        <td class="py-3 px-4">
+                          <span
+                            class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${score.gameMode === "quiz" ? "bg-yellow-900/30 text-yellow-300" : "bg-blue-900/30 text-blue-300"}`}
+                          >
+                            {gameModeNames[
+                              score.gameMode as keyof typeof gameModeNames
+                            ] || score.gameMode}
+                          </span>
+                        </td>
+                        <td class="py-3 px-4 text-white">{score.category}</td>
+                        <td class="py-3 px-4 text-right font-bold text-white">
+                          {score.score}
+                        </td>
+                        <td class="py-3 px-4 text-right text-zinc-300">
+                          {formatHighscoreDate(score.createdAt)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </section>
+        </div>
+      )
+    }
+  </div>
+</Layout>
+
+<script>
+  // Enhanced filter functionality for highscores with searchable dropdown
+  document.addEventListener("DOMContentLoaded", () => {
+    const gameModeFilter = document.getElementById(
+      "game-mode-filter"
+    ) as HTMLSelectElement;
+    const categoryFilter = document.getElementById(
+      "category-filter"
+    ) as HTMLSelectElement;
+    const categoryDropdownButton = document.getElementById(
+      "category-dropdown-button"
+    ) as HTMLButtonElement;
+    const categoryDropdownOptions = document.getElementById(
+      "category-dropdown-options"
+    ) as HTMLDivElement;
+    const categorySearch = document.getElementById(
+      "category-search"
+    ) as HTMLInputElement;
+    const selectedCategoryText = document.getElementById(
+      "selected-category"
+    ) as HTMLSpanElement;
+    const noCategoriesFound = document.getElementById(
+      "no-categories-found"
+    ) as HTMLDivElement;
+
+    if (
+      !gameModeFilter ||
+      !categoryFilter ||
+      !categoryDropdownButton ||
+      !categoryDropdownOptions ||
+      !categorySearch
+    )
+      return;
+
+    // Toggle dropdown visibility
+    categoryDropdownButton.addEventListener("click", () => {
+      const isExpanded =
+        categoryDropdownButton.getAttribute("aria-expanded") === "true";
+      categoryDropdownButton.setAttribute(
+        "aria-expanded",
+        (!isExpanded).toString()
+      );
+      categoryDropdownOptions.classList.toggle("hidden");
+
+      if (!isExpanded) {
+        // Focus search input when opening dropdown
+        setTimeout(() => categorySearch.focus(), 100);
+      }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", (event) => {
+      if (
+        !categoryDropdownButton.contains(event.target as Node) &&
+        !categoryDropdownOptions.contains(event.target as Node)
+      ) {
+        categoryDropdownButton.setAttribute("aria-expanded", "false");
+        categoryDropdownOptions.classList.add("hidden");
+      }
+    });
+
+    // Handle category option selection
+    const categoryOptions =
+      categoryDropdownOptions.querySelectorAll('li[role="option"]');
+    categoryOptions.forEach((option) => {
+      option.addEventListener("click", () => {
+        const value = option.getAttribute("data-value") || "";
+        const text = option.textContent?.trim() || "";
+
+        // Update the hidden select value
+        categoryFilter.value = value;
+
+        // Update the visible button text
+        selectedCategoryText.textContent = text;
+
+        // Update aria-selected state
+        categoryOptions.forEach((opt) =>
+          opt.setAttribute("aria-selected", "false")
+        );
+        option.setAttribute("aria-selected", "true");
+
+        // Close the dropdown
+        categoryDropdownButton.setAttribute("aria-expanded", "false");
+        categoryDropdownOptions.classList.add("hidden");
+
+        // Trigger filter update
+        updateHighscores();
+      });
+    });
+
+    // Filter dropdown options based on search input
+    categorySearch.addEventListener("input", () => {
+      const searchTerm = categorySearch.value.toLowerCase();
+      let hasVisibleOptions = false;
+
+      categoryOptions.forEach((option) => {
+        const text = option.textContent?.toLowerCase() || "";
+        const isAll = option.getAttribute("data-value") === ""; // "All Categories" option
+
+        if (text.includes(searchTerm) || isAll) {
+          (option as HTMLElement).style.display = "";
+          hasVisibleOptions = true;
+        } else {
+          (option as HTMLElement).style.display = "none";
+        }
+      });
+
+      // Show/hide "No results" message
+      noCategoriesFound.classList.toggle("hidden", hasVisibleOptions);
+    });
+
+    // Handle keyboard navigation in dropdown
+    categoryDropdownOptions.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        categoryDropdownButton.setAttribute("aria-expanded", "false");
+        categoryDropdownOptions.classList.add("hidden");
+        categoryDropdownButton.focus();
+      } else if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        e.preventDefault();
+
+        const visibleOptions = Array.from(categoryOptions).filter(
+          (opt) => (opt as HTMLElement).style.display !== "none"
+        );
+
+        if (visibleOptions.length === 0) return;
+
+        const currentFocusedIndex = visibleOptions.findIndex(
+          (opt) => opt === document.activeElement
+        );
+        let nextIndex;
+
+        if (e.key === "ArrowDown") {
+          nextIndex =
+            currentFocusedIndex < visibleOptions.length - 1
+              ? currentFocusedIndex + 1
+              : 0;
+        } else {
+          nextIndex =
+            currentFocusedIndex > 0
+              ? currentFocusedIndex - 1
+              : visibleOptions.length - 1;
+        }
+
+        (visibleOptions[nextIndex] as HTMLElement).focus();
+      } else if (
+        e.key === "Enter" &&
+        document.activeElement !== categorySearch
+      ) {
+        e.preventDefault();
+        (document.activeElement as HTMLElement).click();
+      }
+    });
+
+    // Function to update highscores based on filters
+    const updateHighscores = async () => {
+      const gameMode = gameModeFilter.value;
+      const category = categoryFilter.value;
+
+      // Build query parameters
+      const params = new URLSearchParams();
+      if (gameMode) params.append("gameMode", gameMode);
+      if (category) params.append("category", category);
+
+      // Get current language from URL
+      const lang = window.location.pathname.split("/")[1];
+
+      try {
+        // Show loading state
+        const tableSection = document.querySelector(
+          '[aria-labelledby="highscores-heading"]'
+        );
+        if (tableSection) {
+          tableSection.innerHTML = `
+            <h2 id="highscores-heading" class="text-2xl font-bold text-white mb-6">
+              ${document.getElementById("highscores-heading")?.textContent || "Top Scores"}
+            </h2>
+            <div class="flex justify-center items-center min-h-[200px]">
+              <div class="text-center">
+                <svg class="w-10 h-10 mx-auto animate-spin text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <p class="mt-4 text-lg text-zinc-300">Loading highscores...</p>
+              </div>
+            </div>
+          `;
+        }
+
+        // Fetch filtered highscores
+        const response = await fetch(
+          `/${lang}/api/scores/highscores?${params.toString()}`
+        );
+        const data = await response.json();
+
+        if (!data.success) {
+          throw new Error(data.error || "Failed to load highscores");
+        }
+
+        // Reload the page with the new filters to update the server-rendered content
+        window.location.href = `/${lang}/highscores?${params.toString()}`;
+      } catch (error) {
+        console.error("Error updating highscores:", error);
+        // Show error message
+        const tableSection = document.querySelector(
+          '[aria-labelledby="highscores-heading"]'
+        );
+        if (tableSection) {
+          tableSection.innerHTML = `
+            <h2 id="highscores-heading" class="text-2xl font-bold text-white mb-6">
+              ${document.getElementById("highscores-heading")?.textContent || "Top Scores"}
+            </h2>
+            <div class="bg-red-900/30 border border-red-700 text-white p-4 rounded-lg">
+              <p class="font-medium">Error loading highscores</p>
+            </div>
+          `;
+        }
+      }
+    };
+
+    // Add event listener to game mode filter
+    gameModeFilter.addEventListener("change", updateHighscores);
+
+    // Set initial filter values from URL params if present
+    const urlParams = new URLSearchParams(window.location.search);
+    const gameModeParam = urlParams.get("gameMode");
+    const categoryParam = urlParams.get("category");
+
+    if (gameModeParam) {
+      gameModeFilter.value = gameModeParam;
+    }
+
+    if (categoryParam) {
+      categoryFilter.value = categoryParam;
+
+      // Update the visible button text with the selected category
+      const selectedOption = Array.from(categoryOptions).find(
+        (opt) => opt.getAttribute("data-value") === categoryParam
+      );
+
+      if (selectedOption) {
+        selectedCategoryText.textContent =
+          selectedOption.textContent?.trim() || "";
+        categoryOptions.forEach((opt) =>
+          opt.setAttribute("aria-selected", "false")
+        );
+        selectedOption.setAttribute("aria-selected", "true");
+      }
+    }
+  });
+</script>

@@ -38,7 +38,6 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
     class="flex flex-wrap gap-3 items-center justify-between"
   >
     <div class="slot left flex gap-3 items-center flex-1 justify-center">
-      <!-- Menu toggle button with accessibility attributes -->
       <button
         class="hamburger relative flex items-center justify-center gap-2 min-h-12 min-w-12
                py-2 px-4 rounded-lg bg-sky-500 text-zinc-900 font-medium
@@ -64,7 +63,6 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
         >
       </button>
 
-      <!-- Menu backdrop overlay - shown when menu is open -->
       <div
         id="menu-backdrop"
         class="fixed inset-0 z-30 bg-black/70 backdrop-blur-sm invisible opacity-0 transition-opacity duration-300
@@ -73,7 +71,6 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
       >
       </div>
 
-      <!-- Main navigation menu with accessibility support -->
       <div
         id="main-menu"
         class="fixed inset-y-0 left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-md bg-zinc-800 rounded-xl
@@ -84,7 +81,6 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
         aria-modal="true"
         aria-labelledby="menu-title"
       >
-        <!-- Close button for the menu -->
         <button
           class="close-menu absolute top-4 right-4 flex items-center justify-center w-12 h-12
                  rounded-full bg-zinc-700 text-zinc-100 hover:bg-zinc-600
@@ -212,6 +208,29 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
                   class="w-7 h-7"
                 />
                 <span>{t("nav.menu.rules")}</span>
+              </a>
+            </li>
+
+            <!-- Highscores link -->
+            <li role="none">
+              <a
+                href={getRelativeLocaleUrl(lang, "highscores")}
+                class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
+                      font-medium no-underline transition-all
+                      duration-200 hover:bg-zinc-700 hover:translate-x-1
+                      focus-visible:bg-zinc-700 focus-visible:outline
+                      focus-visible:outline-sky-300 focus-visible:outline-offset-2
+                      text-zinc-100"
+                role="menuitem"
+              >
+                <Icon
+                  name="trophy"
+                  width={28}
+                  height={28}
+                  aria-hidden="true"
+                  class="w-7 h-7"
+                />
+                <span>{t("nav.menu.highscores")}</span>
               </a>
             </li>
           </When>
