@@ -406,25 +406,25 @@ const gameModeNames = {
   // Enhanced filter functionality for highscores with searchable dropdown
   document.addEventListener("DOMContentLoaded", () => {
     const gameModeFilter = document.getElementById(
-      "game-mode-filter"
+      "game-mode-filter",
     ) as HTMLSelectElement;
     const categoryFilter = document.getElementById(
-      "category-filter"
+      "category-filter",
     ) as HTMLSelectElement;
     const categoryDropdownButton = document.getElementById(
-      "category-dropdown-button"
+      "category-dropdown-button",
     ) as HTMLButtonElement;
     const categoryDropdownOptions = document.getElementById(
-      "category-dropdown-options"
+      "category-dropdown-options",
     ) as HTMLDivElement;
     const categorySearch = document.getElementById(
-      "category-search"
+      "category-search",
     ) as HTMLInputElement;
     const selectedCategoryText = document.getElementById(
-      "selected-category"
+      "selected-category",
     ) as HTMLSpanElement;
     const noCategoriesFound = document.getElementById(
-      "no-categories-found"
+      "no-categories-found",
     ) as HTMLDivElement;
 
     if (
@@ -442,7 +442,7 @@ const gameModeNames = {
         categoryDropdownButton.getAttribute("aria-expanded") === "true";
       categoryDropdownButton.setAttribute(
         "aria-expanded",
-        (!isExpanded).toString()
+        (!isExpanded).toString(),
       );
       categoryDropdownOptions.classList.toggle("hidden");
 
@@ -479,7 +479,7 @@ const gameModeNames = {
 
         // Update aria-selected state
         categoryOptions.forEach((opt) =>
-          opt.setAttribute("aria-selected", "false")
+          opt.setAttribute("aria-selected", "false"),
         );
         option.setAttribute("aria-selected", "true");
 
@@ -523,13 +523,13 @@ const gameModeNames = {
         e.preventDefault();
 
         const visibleOptions = Array.from(categoryOptions).filter(
-          (opt) => (opt as HTMLElement).style.display !== "none"
+          (opt) => (opt as HTMLElement).style.display !== "none",
         );
 
         if (visibleOptions.length === 0) return;
 
         const currentFocusedIndex = visibleOptions.findIndex(
-          (opt) => opt === document.activeElement
+          (opt) => opt === document.activeElement,
         );
         let nextIndex;
 
@@ -571,7 +571,7 @@ const gameModeNames = {
       try {
         // Show loading state
         const tableSection = document.querySelector(
-          '[aria-labelledby="highscores-heading"]'
+          '[aria-labelledby="highscores-heading"]',
         );
         if (tableSection) {
           tableSection.innerHTML = `
@@ -592,7 +592,7 @@ const gameModeNames = {
 
         // Fetch filtered highscores
         const response = await fetch(
-          `/${lang}/api/scores/highscores?${params.toString()}`
+          `/${lang}/api/scores/highscores?${params.toString()}`,
         );
         const data = await response.json();
 
@@ -606,7 +606,7 @@ const gameModeNames = {
         console.error("Error updating highscores:", error);
         // Show error message
         const tableSection = document.querySelector(
-          '[aria-labelledby="highscores-heading"]'
+          '[aria-labelledby="highscores-heading"]',
         );
         if (tableSection) {
           tableSection.innerHTML = `
@@ -638,14 +638,14 @@ const gameModeNames = {
 
       // Update the visible button text with the selected category
       const selectedOption = Array.from(categoryOptions).find(
-        (opt) => opt.getAttribute("data-value") === categoryParam
+        (opt) => opt.getAttribute("data-value") === categoryParam,
       );
 
       if (selectedOption) {
         selectedCategoryText.textContent =
           selectedOption.textContent?.trim() || "";
         categoryOptions.forEach((opt) =>
-          opt.setAttribute("aria-selected", "false")
+          opt.setAttribute("aria-selected", "false"),
         );
         selectedOption.setAttribute("aria-selected", "true");
       }
