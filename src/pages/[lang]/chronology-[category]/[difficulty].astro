@@ -11,7 +11,7 @@ import { Icon } from "astro-icon/components";
 import ChronologyFeedbackOverlay from "@components/Overlays/ChronologyFeedbackOverlay.astro";
 import { requireAuth } from "../../../middleware/auth.js";
 
-const lang = getLangFromUrl(Astro.url);
+const lang = getLangFromUrl(Astro.url) as string;
 const t = useTranslations(lang);
 const { category, difficulty } = Astro.params;
 
@@ -189,7 +189,7 @@ console.log(
   // Sprache basierend auf URL abrufen und Übersetzungen initialisieren
   const lang = getLangFromUrl(
     new URL(window.location.pathname, window.location.origin),
-  );
+  ) as string;
   const t = useTranslations(lang);
 
   /**

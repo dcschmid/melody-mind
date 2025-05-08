@@ -219,6 +219,30 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
           <!-- Divider -->
           <div class="w-full h-px bg-zinc-700 my-4"></div>
 
+          <!-- Profile link - only shown when authenticated -->
+          <li role="none" id="profile-container" class="hidden">
+            <a
+              href={getRelativeLocaleUrl(lang, "profile")}
+              class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
+                    font-medium no-underline transition-all
+                    duration-200 hover:bg-zinc-700 hover:translate-x-1
+                    focus-visible:bg-zinc-700 focus-visible:outline
+                    focus-visible:outline-sky-300 focus-visible:outline-offset-2
+                    text-zinc-100"
+              role="menuitem"
+              aria-label={t("profile.nav.aria")}
+            >
+              <Icon
+                name="user"
+                width={28}
+                height={28}
+                aria-hidden="true"
+                class="w-7 h-7"
+              />
+              <span>{t("profile.nav.link")}</span>
+            </a>
+          </li>
+
           <!-- Logout button - initially hidden, shown dynamically when authenticated -->
           <li role="none" id="logout-container" class="hidden">
             <button
@@ -527,19 +551,23 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
   }
 
   /**
-   * Aktualisiert die Sichtbarkeit des Logout-Buttons basierend auf dem Authentifizierungsstatus
+   * Aktualisiert die Sichtbarkeit der authentifizierungsabhängigen Elemente
+   * basierend auf dem Authentifizierungsstatus
    */
   function updateLogoutButtonVisibility(): void {
     const logoutContainer = document.getElementById("logout-container");
-    if (!logoutContainer) return;
+    const profileContainer = document.getElementById("profile-container");
+    if (!logoutContainer || !profileContainer) return;
 
     const isAuthenticated = isUserAuthenticated();
     console.log("Auth Status in Navigation:", isAuthenticated);
 
     if (isAuthenticated) {
       logoutContainer.classList.remove("hidden");
+      profileContainer.classList.remove("hidden");
     } else {
       logoutContainer.classList.add("hidden");
+      profileContainer.classList.add("hidden");
     }
   }
 
