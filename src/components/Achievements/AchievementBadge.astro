@@ -1,0 +1,99 @@
+---
+/**
+ * Achievement Badge Component
+ *
+ * This component displays a badge for new achievements in the navigation.
+ */
+
+import { useTranslations } from "../../utils/i18n.ts";
+
+interface Props {
+  /** Language code for translations */
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<span
+  id="achievement-badge"
+  class="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-5 h-5 text-xs font-bold flex items-center justify-center opacity-0 scale-0 transition-all duration-300 pointer-events-none"
+  aria-label={t("achievements.badge.new")}
+  role="status"
+>
+  <span class="badge-count">0</span>
+</span>
+
+<script>
+  import { subscribeToAchievementEvents } from "../../utils/achievements/achievementEvents.ts";
+  import type { AchievementEvent } from "../../types/achievement.ts";
+
+  // DOM elements
+  const badgeElement = document.getElementById("achievement-badge");
+
+  // Retrieve number of new achievements from localStorage
+  let newAchievementsCount = parseInt(
+    localStorage.getItem("new-achievements-count") || "0",
+    10
+  );
+
+  // Update badge
+  function updateBadge() {
+    if (badgeElement) {
+      const countElement = badgeElement.querySelector(".badge-count");
+      if (countElement) {
+        countElement.textContent = newAchievementsCount.toString();
+      }
+
+      // Show or hide badge
+      if (newAchievementsCount > 0) {
+        badgeElement.classList.add("opacity-100", "scale-100");
+        badgeElement.setAttribute("aria-hidden", "false");
+      } else {
+        badgeElement.classList.remove("opacity-100", "scale-100");
+        badgeElement.setAttribute("aria-hidden", "true");
+      }
+    }
+  }
+
+  // Event listener for achievement events
+  const unsubscribe = subscribeToAchievementEvents(
+    (event: AchievementEvent) => {
+      if (event.type === "achievement_unlocked") {
+        // Increase count of new achievements
+        newAchievementsCount++;
+
+        // Save to localStorage
+        localStorage.setItem(
+          "new-achievements-count",
+          newAchievementsCount.toString()
+        );
+
+        // Update badge
+        updateBadge();
+      }
+    }
+  );
+
+  // Reset badge when achievement page is visited
+  document.addEventListener("DOMContentLoaded", () => {
+    // Check if we're on the achievements page
+    const isAchievementPage =
+      window.location.pathname.includes("/achievements");
+
+    if (isAchievementPage) {
+      // Reset badge
+      newAchievementsCount = 0;
+      localStorage.setItem("new-achievements-count", "0");
+    }
+
+    // Initially update badge
+    updateBadge();
+  });
+
+  // Remove event listener when unloading the page
+  document.addEventListener("beforeunload", () => {
+    unsubscribe();
+  });
+</script>

@@ -1,0 +1,254 @@
+---
+/**
+ * Achievement Notification Component
+ *
+ * This component displays a notification when an achievement is unlocked.
+ * It appears dynamically and disappears after a specified time.
+ */
+
+import { useTranslations } from "../../utils/i18n.ts";
+
+interface Props {
+  /** Language code for translations */
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div
+  id="achievement-notification"
+  class="fixed bottom-8 right-8 bg-[color:var(--color-background-secondary,#2a2a2a)] text-[color:var(--color-text-primary,#ffffff)] rounded-lg shadow-lg p-4 max-w-96 z-50 translate-y-[150%] opacity-0 transition-all duration-300 ease-out overflow-hidden sm:max-w-sm md:max-w-md"
+  role="alert"
+  aria-live="polite"
+>
+  <div class="flex items-start gap-4 relative">
+    <div
+      class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-[color:var(--color-accent,#ffd700)] text-[color:var(--color-text-inverse,#000000)] rounded-full p-2"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="8" r="7"></circle>
+        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+      </svg>
+    </div>
+    <div class="flex-grow pr-6">
+      <h3 id="achievement-title" class="m-0 mb-1 text-lg font-semibold">
+        {t("achievements.notification.unlocked")}
+      </h3>
+      <p id="achievement-description" class="m-0 text-sm opacity-90">
+        {t("achievements.notification.progress")}
+      </p>
+    </div>
+    <button
+      id="achievement-close"
+      class="absolute top-0 right-0 bg-transparent border-none text-[color:var(--color-text-secondary,#cccccc)] w-6 h-6 flex items-center justify-center cursor-pointer p-0 transition-colors duration-200 hover:text-[color:var(--color-text-primary,#ffffff)] focus:text-[color:var(--color-text-primary,#ffffff)] focus:outline-none"
+      aria-label={t("achievements.notification.close")}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+  <div
+    id="achievement-category"
+    class="mt-3 py-1 text-center font-semibold text-xs tracking-wider uppercase"
+  >
+  </div>
+</div>
+
+<!-- Audio for achievement notification -->
+<audio id="achievement-sound" preload="none">
+  <source src="/sounds/achievement-unlocked.mp3" type="audio/mpeg" />
+  <source src="/sounds/achievement-unlocked.ogg" type="audio/ogg" />
+  <track
+    kind="captions"
+    src="/sounds/achievement-unlocked-captions.vtt"
+    srclang="de"
+    label="Deutsch"
+    default
+  />
+</audio>
+
+<script>
+  import { subscribeToAchievementEvents } from "../../utils/achievements/achievementEvents.ts";
+  import type { AchievementEvent } from "../../types/achievement.ts";
+
+  // DOM elements
+  const notificationElement = document.getElementById(
+    "achievement-notification"
+  );
+  const titleElement = document.getElementById("achievement-title");
+  const descriptionElement = document.getElementById("achievement-description");
+  const categoryElement = document.getElementById("achievement-category");
+  const closeButton = document.getElementById("achievement-close");
+  const achievementSound = document.getElementById(
+    "achievement-sound"
+  ) as HTMLAudioElement;
+
+  // Check user settings for sound
+  const soundEnabled =
+    localStorage.getItem("achievement-sound-enabled") !== "false";
+
+  // Timeout for hiding the notification
+  let hideTimeout: number | null = null;
+
+  // Event listener for achievement events
+  const unsubscribe = subscribeToAchievementEvents(
+    (event: AchievementEvent) => {
+      if (event.type === "achievement_unlocked") {
+        // Set notification text
+        if (titleElement) {
+          titleElement.textContent = event.achievement.name;
+        }
+        if (descriptionElement) {
+          descriptionElement.textContent = event.achievement.description;
+        }
+        if (categoryElement && event.achievement.category) {
+          categoryElement.textContent =
+            event.achievement.category.code.toUpperCase();
+          categoryElement.className = `achievement-notification-category category-${event.achievement.category.code}`;
+        }
+
+        // Play sound if enabled
+        if (soundEnabled && achievementSound) {
+          try {
+            achievementSound.currentTime = 0;
+            achievementSound.play().catch((err) => {
+              console.warn("Could not play achievement sound:", err);
+            });
+          } catch (err) {
+            console.warn("Error playing achievement sound:", err);
+          }
+        }
+
+        // Show notification
+        if (notificationElement) {
+          notificationElement.classList.add("translate-y-0", "opacity-100");
+          notificationElement.classList.add("animate-pulse");
+
+          // Clear previous timeout if exists
+          if (hideTimeout !== null) {
+            window.clearTimeout(hideTimeout);
+          }
+
+          // Set timeout to hide notification
+          hideTimeout = window.setTimeout(() => {
+            notificationElement.classList.remove("animate-pulse");
+
+            // Short delay before complete hide
+            setTimeout(() => {
+              notificationElement.classList.remove(
+                "translate-y-0",
+                "opacity-100"
+              );
+            }, 300);
+          }, 6000); // Show for 6 seconds
+        }
+      }
+    }
+  );
+
+  // Close button event listener
+  if (closeButton) {
+    closeButton.addEventListener("click", () => {
+      if (notificationElement) {
+        notificationElement.classList.remove("animate-pulse");
+
+        // Short delay before complete hide
+        setTimeout(() => {
+          notificationElement.classList.remove("translate-y-0", "opacity-100");
+        }, 300);
+
+        // Clear timeout
+        if (hideTimeout !== null) {
+          window.clearTimeout(hideTimeout);
+          hideTimeout = null;
+        }
+      }
+    });
+  }
+
+  // Remove event listeners when page unloads
+  document.addEventListener("beforeunload", () => {
+    unsubscribe();
+    if (hideTimeout !== null) {
+      window.clearTimeout(hideTimeout);
+    }
+  });
+</script>
+
+<style>
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+    }
+  }
+
+  .animate-pulse {
+    animation: pulse 2s ease-in-out;
+  }
+
+  .category-bronze {
+    @apply bg-[color:var(--color-bronze,#cd7f32)];
+  }
+
+  .category-silver {
+    @apply bg-[color:var(--color-silver,#c0c0c0)];
+  }
+
+  .category-gold {
+    @apply bg-[color:var(--color-gold,#ffd700)];
+  }
+
+  .category-platinum {
+    @apply bg-[color:var(--color-platinum,#e5e4e2)];
+  }
+
+  .category-diamond {
+    @apply bg-[color:var(--color-diamond,#b9f2ff)];
+  }
+
+  @media (max-width: 640px) {
+    #achievement-notification {
+      @appy max-w-none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #achievement-notification {
+      @apply transition-none;
+    }
+
+    .animate-pulse {
+      animation: none;
+    }
+  }
+</style>

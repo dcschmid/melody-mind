@@ -12,7 +12,7 @@ import type { Difficulty as GameDifficulty } from "@utils/game/jokerUtils";
 import { Icon } from "astro-icon/components";
 import { requireAuth } from "../../../middleware/auth.js";
 
-const lang = getLangFromUrl(Astro.url);
+const lang = String(getLangFromUrl(Astro.url));
 const t = useTranslations(lang);
 const { category, difficulty } = Astro.params;
 
@@ -36,7 +36,7 @@ const user = { id: authResult.user?.id || "guest" };
 
 // Find current category data for display and metadata
 const currentCategoryData = categories.default.find(
-  (cat: any) => cat.slug === category,
+  (cat: any) => cat.slug === category
 );
 
 const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
@@ -109,7 +109,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
     data-categoryName={currentCategoryData?.headline}
     data-genre={category}
     data-userID={user.id}
-    date-difficulty={difficulty}
+    data-difficulty={difficulty}
   >
     <div
       id="question"
@@ -149,16 +149,20 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
   /**
    * Music Quiz Game Engine
    *
-   * This module provides the core functionality for the music quiz game, including:
-   * - Loading questions from appropriate language files
-   * - Handling user answers and scoring
-   * - Managing game state and progression
-   * - Visual feedback and animations
-   * - WCAG AAA compliance with screen reader support
+   * This module provides the core functionality for the music trivia game, including:
+   * - Loading questions from language-specific files with fallback mechanisms
+   * - Managing user interactions and scoring logic
+   * - Tracking game state and progress through multiple rounds
+   * - Providing audio-visual feedback for user actions
+   * - Ensuring WCAG AAA compliance with full screen reader support
+   * - Supporting achievement tracking and seasonal events
+   *
+   * @module MelodyMindGameEngine
    */
   import { stopAudio } from "@utils/audio/audioControls";
   import { ErrorHandler } from "@utils/error/errorHandler";
   import { handleEndGame, restartGame } from "@utils/game/endGameUtils";
+  import { initAchievementEventSystem } from "../../../utils/achievements/achievementEvents.js";
   import { getRandomQuestion } from "@utils/game/getRandomQuestion";
   import { initializeMediaElements } from "@utils/game/mediaUtils";
   import { QueueManager } from "@utils/queue/queueManager";
@@ -169,14 +173,18 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
   import type { Album } from "@utils/game/getRandomQuestion";
   import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
-  // Get current language based on URL and initialize translations
+  /**
+   * Retrieves current language based on URL and initializes translations
+   * @constant {string} lang - Two-letter language code extracted from URL
+   */
   const lang = getLangFromUrl(
-    new URL(window.location.pathname, window.location.origin),
+    new URL(window.location.pathname, window.location.origin)
   );
   const t = useTranslations(lang);
 
   /**
    * Configuration constants for number of rounds based on difficulty level
+   * @constant {Object} ROUNDS_PER_DIFFICULTY - Maps difficulty levels to question counts
    */
   const ROUNDS_PER_DIFFICULTY = {
     [Difficulty.EASY]: 10,
@@ -186,6 +194,8 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
 
   /**
    * Validates and normalizes the difficulty level from URL parameters
+   * Ensures the game always has a valid difficulty setting even with invalid input
+   *
    * @param {string|null} diff - The difficulty string from URL parameters
    * @returns {Difficulty} A validated difficulty level (defaulting to EASY if invalid)
    */
@@ -198,6 +208,9 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
 
   /**
    * Interface for DOM elements needed by the game engine
+   * Provides type safety for DOM element references used throughout the game
+   *
+   * @interface GameElements
    */
   interface GameElements {
     score: HTMLParagraphElement;
@@ -217,6 +230,8 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
 
   /**
    * Caches DOM elements to avoid repeated queries and improve performance
+   * This pattern reduces DOM lookups and improves rendering efficiency
+   *
    * @returns {GameElements} Object containing references to all required game DOM elements
    */
   function cacheElements(): GameElements {
@@ -227,19 +242,19 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
       question: document.getElementById("question") as HTMLParagraphElement,
       options: document.getElementById("options") as HTMLDivElement,
       container: document.getElementById(
-        "question-container",
+        "question-container"
       ) as HTMLDivElement,
       overlayCover: document.getElementById(
-        "overlay-cover",
+        "overlay-cover"
       ) as HTMLImageElement,
       overlay: document.getElementById("overlay") as HTMLDivElement,
       jokerButton: document.getElementById("joker-button") as HTMLButtonElement,
       jokerCounter: document.getElementById("joker-count") as HTMLElement,
       nextRoundButton: document.getElementById(
-        "next-round-button",
+        "next-round-button"
       ) as HTMLButtonElement,
       restartButton: document.getElementById(
-        "restart-button",
+        "restart-button"
       ) as HTMLButtonElement,
       loadingSpinner: document.getElementById("loading-spinner") as HTMLElement,
     };
@@ -250,9 +265,19 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
   /**
    * Main game initialization function
    * Sets up the game state, loads questions, and handles game progression
+   *
+   * @async
    * @param {GameElements} elements - Cached DOM elements required for the game
    */
   const initializeGame = async (elements: GameElements) => {
+    // Initialize Achievement Event System
+    try {
+      initAchievementEventSystem();
+      console.log("Achievement Event System initialized for Game Mode");
+    } catch (error) {
+      console.error("Error initializing Achievement Event System:", error);
+    }
+
     // Start processing any queued operations
     QueueManager.startProcessing();
 
@@ -261,13 +286,33 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
       return;
     }
 
-    // Extract game parameters from data attributes
+    /**
+     * Extract game parameters from data attributes
+     * These attributes control game configuration and player identification
+     */
     const category = elements.container.getAttribute("data-genre");
     const userId = elements.container.getAttribute("data-userID");
     const categoryName = elements.container.getAttribute("data-categoryName");
-    const difficulty = elements.container.getAttribute("date-difficulty");
+    const difficulty = elements.container.getAttribute("data-difficulty");
 
-    // Initialize game state
+    /**
+     * Check for seasonal events based on current date
+     * This enables special achievements and themed content
+     */
+    const currentDate = new Date();
+    const month = currentDate.getMonth() + 1; // 1-12
+
+    // Examples of seasonal event detection
+    if (month === 12) {
+      window.currentEventId = "winter_2025";
+    } else if (month >= 6 && month <= 8) {
+      window.currentEventId = "summer_2025";
+    }
+
+    /**
+     * Initialize game state variables
+     * These track the player's progress and performance
+     */
     let score = 0;
     let correctAnswers = 0;
     let roundIndex = 0;
@@ -282,6 +327,9 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
 
     /**
      * Load albums data for the selected category with language fallback
+     * Attempts to load in the user's language first, then falls back to German
+     *
+     * @type {Album[] | null} albums - Collection of album data for questions
      */
     let albums: Album[] | null = null;
     try {
@@ -299,16 +347,16 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
       } catch (langError) {
         // Fallback to German if the specific language file doesn't exist
         console.log(
-          `No albums found for ${lang}/${category}, falling back to German`,
+          `No albums found for ${lang}/${category}, falling back to German`
         );
 
         const fallbackResponse = await fetch(
-          `/json/genres/de/${category}.json`,
+          `/json/genres/de/${category}.json`
         );
 
         if (!fallbackResponse.ok) {
           throw new Error(
-            `HTTP error for fallback! Status: ${fallbackResponse.status}`,
+            `HTTP error for fallback! Status: ${fallbackResponse.status}`
           );
         }
 
@@ -323,14 +371,17 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
     } catch (error) {
       console.error("Error loading albums:", error);
       ErrorHandler.handleApiError(
-        error instanceof Error ? error : new Error(String(error)),
+        error instanceof Error ? error : new Error(String(error))
       );
       return;
     }
 
     let currentQuestion: null = null;
 
-    // Initialize joker system based on the difficulty level
+    /**
+     * Initialize joker system based on the difficulty level
+     * The joker allows players to eliminate incorrect answers
+     */
     const jokerManager = new JokerManager({
       difficulty: validateDifficulty(difficulty) as Difficulty,
       elements: {
@@ -339,7 +390,10 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
       },
     });
 
-    // Initialize media players for audio feedback
+    /**
+     * Initialize media players for audio feedback
+     * Provides sound effects for correct/incorrect answers
+     */
     const mediaElements = initializeMediaElements();
     if (!mediaElements) {
       console.error("Media elements could not be initialized");
@@ -348,17 +402,25 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
 
     /**
      * Handles the player's answer, updates score, and manages game progression
-     * @param option - The player's selected answer
-     * @param correctAnswer - The correct answer for the question
-     * @param currentQuestion - The current question object
-     * @param album - The album associated with the current question
+     * Tracks performance for achievement system and provides feedback
+     *
+     * @param {any} option - The player's selected answer
+     * @param {any} correctAnswer - The correct answer for the question
+     * @param {object} currentQuestion - The current question object
+     * @param {object} album - The album associated with the current question
      */
     function handleAnswerWrapper(
       option: any,
       correctAnswer: any,
       currentQuestion: { trivia: string },
-      album: { coverSrc: string; artist: string; album: string; year: string },
+      album: { coverSrc: string; artist: string; album: string; year: string }
     ) {
+      // Save answer time for achievement tracking and validate
+      const answerTime = Date.now() - (window.questionStartTime || Date.now());
+      // Ensure time is positive and realistic (max 60 seconds)
+      window.lastAnswerTime = Math.min(Math.max(0, answerTime), 60000);
+      window.lastAnswerCorrect = option === correctAnswer;
+
       // Process the answer and update the score
       score = handleAnswer({
         option,
@@ -386,7 +448,10 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
         updateCoinsDisplay(score);
       }
 
-      // Setup handler for the next round button
+      /**
+       * Setup handler for the next round button
+       * Controls game flow between questions and at game end
+       */
       elements.nextRoundButton.onclick = function () {
         stopAudio();
         elements.overlay.classList.add("hidden");
@@ -402,13 +467,13 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
           const newQuestion = getRandomQuestion(
             albums ?? [],
             validateDifficulty(difficulty),
-            totalRounds,
+            totalRounds
           );
 
           if (newQuestion) {
             loadNewQuestion(
               newQuestion.randomQuestion,
-              newQuestion.randomAlbum,
+              newQuestion.randomAlbum
             );
 
             if (elements.feedback) {
@@ -424,6 +489,8 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
 
     /**
      * Updates the coin display with an animation for visual feedback
+     * Provides both visual and auditory feedback for screen readers
+     *
      * @param {number} newScore - The new score to display
      */
     function updateCoinsDisplay(newScore: number) {
@@ -437,7 +504,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
         const announcement = document.createElement("div");
         announcement.setAttribute("aria-live", "assertive");
         announcement.classList.add("sr-only");
-        announcement.textContent = `Neuer Punktestand: ${newScore} Punkte`;
+        announcement.textContent = `New score: ${newScore} points`;
         document.body.appendChild(announcement);
 
         // Remove animation class and announcement after they complete
@@ -450,6 +517,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
 
     /**
      * Handles the end of game, displays summary, and saves score
+     * Triggers achievement checks and displays final results
      */
     function endGame() {
       const config = {
@@ -460,6 +528,22 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
         correctAnswers,
         score,
         language: lang,
+
+        // Extended properties for achievement tracking
+        genreId: category || "", // Category/genre ID for genre_explorer
+        lastAnswerTime:
+          typeof window.lastAnswerTime === "number"
+            ? window.lastAnswerTime
+            : undefined, // Last answer time for quick_answer
+        lastAnswerCorrect:
+          typeof window.lastAnswerCorrect === "boolean"
+            ? window.lastAnswerCorrect
+            : undefined, // Whether the last answer was correct
+        eventId: window.currentEventId || undefined, // Event ID for seasonal_event
+
+        // Debug flag for achievement tests
+        debugAchievements: true,
+        endOfSession: true, // End of game session for game_series
       };
 
       const ui = {
@@ -490,14 +574,19 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
 
     /**
      * Loads and displays a new question in the UI
-     * @param question - The question object to display
-     * @param album - The album associated with the question
+     * Handles the transition between questions including animations
+     *
+     * @param {object} question - The question object to display
+     * @param {object} album - The album associated with the question
      */
     function loadNewQuestion(question: any, album: any) {
       if (!question || !question.options) {
         console.error(t("error.invalid.question"));
         return;
       }
+
+      // Save start time for achievement tracking
+      window.questionStartTime = Date.now();
 
       currentQuestion = question;
       jokerManager.setCurrentQuestion(question);
@@ -518,30 +607,39 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
       });
     }
 
-    // Load the first question to start the game
+    /**
+     * Load the first question to start the game
+     * Initializes the game with the first random question
+     */
     const initialQuestion = getRandomQuestion(
       albums,
       validateDifficulty(difficulty),
-      totalRounds,
+      totalRounds
     );
 
     if (initialQuestion?.randomQuestion && initialQuestion?.randomAlbum) {
       loadNewQuestion(
         initialQuestion.randomQuestion,
-        initialQuestion.randomAlbum,
+        initialQuestion.randomAlbum
       );
     } else {
       console.error(t("error.no.initial.question"));
     }
 
-    // Warn before leaving if there's unsaved data
+    /**
+     * Warn before leaving if there's unsaved data
+     * Prevents accidental data loss when navigating away
+     */
     window.addEventListener("beforeunload", (e) => {
       if (QueueManager.hasUnsavedData()) {
         e.preventDefault();
       }
     });
 
-    // Clean up resources when the page unloads
+    /**
+     * Clean up resources when the page unloads
+     * Ensures proper resource management and prevents memory leaks
+     */
     const cleanup = () => {
       stopAudio();
       QueueManager.stopProcessing();
@@ -555,6 +653,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
   /**
    * Enhances accessibility for dynamically created content
    * Adds proper ARIA labels and announcements for screen readers
+   * Ensures the game is fully accessible to all users
    */
   function enhanceAccessibility() {
     // Add descriptive labels to option buttons when they receive focus
@@ -571,7 +670,10 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
       }
     });
 
-    // Use MutationObserver to track changes to the DOM for accessibility
+    /**
+     * Use MutationObserver to track changes to the DOM for accessibility
+     * Updates ARIA attributes when content changes dynamically
+     */
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         const target = mutation.target as Element;
@@ -596,6 +698,8 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
 
   /**
    * Validates that all required DOM elements are present
+   * Ensures the game can run properly before initialization
+   *
    * @param {GameElements} elements - The cached DOM elements
    * @returns {boolean} Whether all required elements are available
    */
@@ -603,11 +707,14 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
     const requiredElements = ["score", "question", "options", "container"];
 
     return requiredElements.every(
-      (key) => elements[key as keyof GameElements] !== null,
+      (key) => elements[key as keyof GameElements] !== null
     );
   }
 
-  // Initialize the game when the DOM is ready
+  /**
+   * Initialize the game when the DOM is ready
+   * Main entry point for game initialization
+   */
   document.addEventListener("DOMContentLoaded", () => {
     const elements = cacheElements();
     if (!validateElements(elements)) {

@@ -10,6 +10,7 @@ import { When } from "@astropub/flow";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import LanguagePicker from "@components/LanguagePicker.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import AchievementBadge from "../Achievements/AchievementBadge.astro";
 
 /**
  * Props interface for the Navigation component
@@ -24,10 +25,10 @@ const { showHeaderIcons = true } = Astro.props;
 const lang = getLangFromUrl(Astro.url) as string;
 const t = useTranslations(lang);
 
-// Wir können den Authentifizierungsstatus nicht mehr serverseitig überprüfen,
-// da wir jetzt localStorage verwenden. Stattdessen setzen wir initial auf false
-// und aktualisieren den Status clientseitig.
-const isAuthenticated = false; // Wird clientseitig überschrieben
+// We can no longer check the authentication status server-side,
+// as we now use localStorage. Instead, we initially set it to false
+// and update the status client-side.
+const isAuthenticated = false; // Will be overwritten client-side
 ---
 
 <!-- Main header with navigation and language picker -->
@@ -233,6 +234,33 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
                 <span>{t("nav.menu.highscores")}</span>
               </a>
             </li>
+
+            <!-- Achievements link -->
+            <li role="none">
+              <a
+                href={getRelativeLocaleUrl(lang, "achievements")}
+                class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
+                      font-medium no-underline transition-all
+                      duration-200 hover:bg-zinc-700 hover:translate-x-1
+                      focus-visible:bg-zinc-700 focus-visible:outline
+                      focus-visible:outline-sky-300 focus-visible:outline-offset-2
+                      text-zinc-100"
+                role="menuitem"
+                aria-label={t("achievements.nav.aria")}
+              >
+                <div class="relative">
+                  <Icon
+                    name="award"
+                    width={28}
+                    height={28}
+                    aria-hidden="true"
+                    class="w-7 h-7"
+                  />
+                  <AchievementBadge lang={lang} />
+                </div>
+                <span>{t("achievements.nav.link")}</span>
+              </a>
+            </li>
           </When>
 
           <!-- Divider -->
@@ -361,25 +389,25 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
   function initNavigationMenu(): void {
     // Get all required DOM elements
     const menuToggle = document.getElementById(
-      "menu-toggle",
+      "menu-toggle"
     ) as HTMLButtonElement | null;
     const mainMenu = document.getElementById(
-      "main-menu",
+      "main-menu"
     ) as HTMLDivElement | null;
     const menuBackdrop = document.getElementById(
-      "menu-backdrop",
+      "menu-backdrop"
     ) as HTMLDivElement | null;
     const closeButton = mainMenu?.querySelector(
-      ".close-menu",
+      ".close-menu"
     ) as HTMLButtonElement | null;
     const statusAnnouncer = document.getElementById(
-      "menu-status-announcer",
+      "menu-status-announcer"
     ) as HTMLDivElement | null;
 
     // Ensure all required elements exist before proceeding
     if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
       console.warn(
-        "Navigation menu elements not found, menu functionality disabled",
+        "Navigation menu elements not found, menu functionality disabled"
       );
       return;
     }
@@ -389,13 +417,13 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
 
     // Set up event listeners
     menuToggle.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer),
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
     );
     closeButton.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer),
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
     );
     menuBackdrop.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer),
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
     );
 
     // Close menu with Escape key
@@ -425,7 +453,7 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
     menuToggle: HTMLButtonElement,
     mainMenu: HTMLElement,
     menuBackdrop: HTMLElement,
-    statusAnnouncer?: HTMLElement | null,
+    statusAnnouncer?: HTMLElement | null
   ): void {
     // Get current state and determine new state
     const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
@@ -446,8 +474,8 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
       const menuTitle =
         document.getElementById("menu-title")?.textContent || "Menu";
       statusAnnouncer.textContent = newState
-        ? `${menuTitle} geöffnet`
-        : `${menuTitle} geschlossen`;
+        ? `${menuTitle} opened`
+        : `${menuTitle} closed`;
     }
 
     // Implement proper focus management
@@ -510,7 +538,7 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
     const selector =
       'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
     const elements = Array.from(
-      container.querySelectorAll<HTMLElement>(selector),
+      container.querySelectorAll<HTMLElement>(selector)
     );
     return elements.filter((el) => el.offsetParent !== null); // Filter out hidden elements
   }
@@ -522,45 +550,45 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
    * @returns {HTMLElement | null} The first focusable element or null if none found
    */
   function getFirstFocusableElement(
-    container: HTMLElement,
+    container: HTMLElement
   ): HTMLElement | null {
     const focusableElements = getFocusableElements(container);
     return focusableElements.length > 0 ? focusableElements[0] : null;
   }
 
   /**
-   * Prüft, ob ein bestimmter Schlüssel im localStorage existiert
-   * @param {string} key - Der zu prüfende Schlüssel
-   * @returns {boolean} - true wenn der Schlüssel existiert und einen Wert hat, sonst false
+   * Checks if a specific key exists in localStorage
+   * @param {string} key - The key to check
+   * @returns {boolean} - true if the key exists and has a value, false otherwise
    */
   function checkLocalStorage(key: string): boolean {
     try {
       const value = localStorage.getItem(key);
       return value !== null;
     } catch (error) {
-      console.error("Fehler beim Zugriff auf localStorage:", error);
+      console.error("Error accessing localStorage:", error);
       return false;
     }
   }
 
   /**
-   * Sicheres Entfernen eines Schlüssels aus dem localStorage mit Fehlerbehandlung
-   * @param {string} key - Der zu entfernende Schlüssel
-   * @returns {boolean} - true wenn erfolgreich, false wenn fehlgeschlagen
+   * Safely removes a key from localStorage with error handling
+   * @param {string} key - The key to remove
+   * @returns {boolean} - true if successful, false if failed
    */
   function removeLocalStorage(key: string): boolean {
     try {
       localStorage.removeItem(key);
       return true;
     } catch (error) {
-      console.error("Fehler beim Entfernen aus localStorage:", error);
+      console.error("Error removing from localStorage:", error);
       return false;
     }
   }
 
   /**
-   * Prüft, ob der Benutzer authentifiziert ist
-   * @returns {boolean} - true wenn der Benutzer authentifiziert ist, sonst false
+   * Checks if the user is authenticated
+   * @returns {boolean} - true if the user is authenticated, false otherwise
    */
   function isUserAuthenticated(): boolean {
     return (
@@ -570,8 +598,8 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
   }
 
   /**
-   * Aktualisiert die Sichtbarkeit der authentifizierungsabhängigen Elemente
-   * basierend auf dem Authentifizierungsstatus
+   * Updates the visibility of authentication-dependent elements
+   * based on the authentication status
    */
   function updateLogoutButtonVisibility(): void {
     const logoutContainer = document.getElementById("logout-container");
@@ -600,7 +628,7 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
     const logoutContainer = document.getElementById("logout-container");
     if (!logoutButton || !logoutContainer) return;
 
-    // Überprüfe den Authentifizierungsstatus und aktualisiere die Sichtbarkeit
+    // Check authentication status and update visibility
     updateLogoutButtonVisibility();
 
     logoutButton.addEventListener("click", async () => {
@@ -610,16 +638,16 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
         const langMatch = currentPath.match(/^\/([a-z]{2})\//);
         const lang = langMatch ? langMatch[1] : "de"; // Default to 'de' if no language found
 
-        // 1. Entferne den Authentifizierungsstatus aus dem localStorage
+        // 1. Remove authentication status from localStorage
         removeLocalStorage("auth_status");
 
-        // 2. Löse das auth:logout-Event aus, damit andere Komponenten reagieren können
+        // 2. Trigger auth:logout event so other components can react
         const logoutEvent = new CustomEvent("auth:logout", {
           bubbles: true,
         });
         document.dispatchEvent(logoutEvent);
 
-        // 3. Sende POST-Anfrage an die Logout-API
+        // 3. Send POST request to the logout API
         const response = await fetch(`/${lang}/api/auth/logout`, {
           method: "POST",
           headers: {
@@ -631,16 +659,16 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
         const data = await response.json();
 
         if (data.success) {
-          // 4. Leite zur gamehome-Seite weiter
+          // 4. Redirect to the gamehome page
           window.location.href = `/${lang}/gamehome`;
         } else {
           console.error("Logout failed:", data.error);
-          // Auch bei Fehler zur gamehome-Seite weiterleiten, da der Client-Status bereits zurückgesetzt wurde
+          // Also redirect to gamehome page on error, as client state has already been reset
           window.location.href = `/${lang}/gamehome`;
         }
       } catch (error) {
         console.error("Error during logout:", error);
-        // Bei Fehlern trotzdem zur gamehome-Seite weiterleiten
+        // Even on errors, redirect to the gamehome page
         const langMatch = window.location.pathname.match(/^\/([a-z]{2})\//);
         const lang = langMatch ? langMatch[1] : "de";
         window.location.href = `/${lang}/gamehome`;
@@ -648,24 +676,24 @@ const isAuthenticated = false; // Wird clientseitig überschrieben
     });
   }
 
-  // Authentifizierungsstatus beim Laden der Seite prüfen
+  // Check authentication status when the page loads
   document.addEventListener("DOMContentLoaded", () => {
-    console.log("Navigation: DOMContentLoaded - Prüfe Auth-Status");
+    console.log("Navigation: DOMContentLoaded - Checking auth status");
     updateLogoutButtonVisibility();
   });
 
-  // Auf Authentifizierungsänderungen reagieren
+  // React to authentication changes
   window.addEventListener("auth:login", () => {
-    console.log("Navigation: auth:login Event empfangen");
+    console.log("Navigation: auth:login event received");
     updateLogoutButtonVisibility();
   });
 
   window.addEventListener("auth:logout", () => {
-    console.log("Navigation: auth:logout Event empfangen");
+    console.log("Navigation: auth:logout event received");
     updateLogoutButtonVisibility();
   });
 
-  // Regelmäßige Überprüfung des Auth-Status
+  // Regularly check authentication status
   setInterval(() => {
     updateLogoutButtonVisibility();
   }, 2000);
