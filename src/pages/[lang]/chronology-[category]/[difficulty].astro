@@ -35,7 +35,7 @@ const user = { id: authResult.user?.id || "guest" };
 
 // Find current category data to use in page metadata and title
 const currentCategoryData = categories.default.find(
-  (cat: any) => cat.slug === category
+  (cat: any) => cat.slug === category,
 );
 
 // Get custom player title based on difficulty for personalized experience
@@ -45,7 +45,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 const metaDescription = `${t("game.chronology.meta.description") || "Musik-Chronologie Spiel:"} ${currentCategoryData?.headline || ""} ${t("game.meta.difficulty") || "im Schwierigkeitsgrad"} ${t(`difficulty.${difficulty}`) || difficulty}`;
 
 console.log(
-  `User ${user.id} is playing Chronology in category ${category} with difficulty ${difficulty}`
+  `User ${user.id} is playing Chronology in category ${category} with difficulty ${difficulty}`,
 );
 ---
 
@@ -189,7 +189,7 @@ console.log(
    * Get current language from URL and initialize translations
    */
   const lang = getLangFromUrl(
-    new URL(window.location.pathname, window.location.origin)
+    new URL(window.location.pathname, window.location.origin),
   ) as string;
   const t = useTranslations(lang);
 
@@ -246,15 +246,15 @@ console.log(
   function cacheElements(): ChronologyGameElements {
     return {
       itemsContainer: document.getElementById(
-        "chronology-items-container"
+        "chronology-items-container",
       ) as HTMLElement,
       submitButton: document.getElementById(
-        "chronology-submit"
+        "chronology-submit",
       ) as HTMLButtonElement,
       coinsDisplay: document.querySelector(".coinsCount") as HTMLElement,
       loadingSpinner: document.getElementById("loading-spinner") as HTMLElement,
       chronologyContainer: document.getElementById(
-        "chronology-container"
+        "chronology-container",
       ) as HTMLElement,
       endGamePopup: document.getElementById("endgame-popup") as HTMLElement,
       roundElement: document.querySelector(".round") as HTMLElement,
@@ -292,7 +292,7 @@ console.log(
       this.userId = container.getAttribute("data-userID") || "guest";
       this.categoryName = container.getAttribute("data-categoryName") || "";
       this.difficulty = validateDifficulty(
-        container.getAttribute("date-difficulty")
+        container.getAttribute("date-difficulty"),
       );
 
       this.totalRounds =
@@ -331,7 +331,7 @@ console.log(
     private initEventListeners() {
       // Submit button
       this.elements.submitButton.addEventListener("click", () =>
-        this.handleSubmit()
+        this.handleSubmit(),
       );
 
       // Restart button in endgame popup
@@ -353,7 +353,7 @@ console.log(
         try {
           // Versuche zuerst, Alben für die aktuelle Sprache zu laden
           const response = await fetch(
-            `/json/genres/${lang}/${this.category}.json`
+            `/json/genres/${lang}/${this.category}.json`,
           );
 
           if (!response.ok) {
@@ -364,16 +364,16 @@ console.log(
         } catch (langError) {
           // Fallback auf Deutsch, wenn die spezifische Sprachdatei nicht existiert
           console.log(
-            `No albums found for ${lang}/${this.category}, falling back to German`
+            `No albums found for ${lang}/${this.category}, falling back to German`,
           );
 
           const fallbackResponse = await fetch(
-            `/json/genres/de/${this.category}.json`
+            `/json/genres/de/${this.category}.json`,
           );
 
           if (!fallbackResponse.ok) {
             throw new Error(
-              `HTTP error for fallback! Status: ${fallbackResponse.status}`
+              `HTTP error for fallback! Status: ${fallbackResponse.status}`,
             );
           }
 
@@ -390,7 +390,7 @@ console.log(
       } catch (error) {
         console.error("Error loading albums:", error);
         ErrorHandler.handleApiError(
-          error instanceof Error ? error : new Error(String(error))
+          error instanceof Error ? error : new Error(String(error)),
         );
         return false;
       }
@@ -452,12 +452,12 @@ console.log(
       // Frage für aktuellen Schwierigkeitsgrad generieren
       this.currentQuestion = generateChronologyQuestion(
         this.albums,
-        this.difficulty
+        this.difficulty,
       );
 
       if (!this.currentQuestion) {
         ErrorHandler.handleApiError(
-          new Error("Keine gültige Chronologie-Frage konnte generiert werden")
+          new Error("Keine gültige Chronologie-Frage konnte generiert werden"),
         );
         return;
       }
@@ -634,7 +634,7 @@ console.log(
         item.setAttribute("role", "listitem");
         item.setAttribute(
           "aria-label",
-          `Element ${item.querySelector(".font-bold")?.textContent} - ${item.querySelector(".text-zinc-300")?.textContent}. Nutze Pfeiltasten zum Umordnen.`
+          `Element ${item.querySelector(".font-bold")?.textContent} - ${item.querySelector(".text-zinc-300")?.textContent}. Nutze Pfeiltasten zum Umordnen.`,
         );
 
         item.addEventListener("keydown", (e) => {
@@ -751,7 +751,7 @@ console.log(
             "ring-2",
             "ring-purple-500",
             "ring-offset-1",
-            "bg-purple-900/20"
+            "bg-purple-900/20",
           );
         });
       });
@@ -772,7 +772,7 @@ console.log(
           "ring-2",
           "ring-purple-500",
           "ring-offset-1",
-          "bg-purple-900/20"
+          "bg-purple-900/20",
         );
       });
 
@@ -781,7 +781,7 @@ console.log(
         "ring-2",
         "ring-purple-500",
         "ring-offset-1",
-        "bg-purple-900/20"
+        "bg-purple-900/20",
       );
 
       // Pulse-Animation für besseres visuelles Feedback
@@ -794,7 +794,7 @@ console.log(
         {
           duration: 300,
           easing: "ease-in-out",
-        }
+        },
       );
     }
 
@@ -812,12 +812,12 @@ console.log(
       const items =
         this.elements.itemsContainer.querySelectorAll(".chronology-item");
       const userOrder = Array.from(items).map((item) =>
-        parseInt(item.getAttribute("data-id") || "0")
+        parseInt(item.getAttribute("data-id") || "0"),
       );
 
       const result = evaluateChronologyAnswer(
         userOrder,
-        this.currentQuestion.correctOrder
+        this.currentQuestion.correctOrder,
       );
 
       // Punktestand aktualisieren
@@ -930,10 +930,10 @@ console.log(
 
         // Jahr anzeigen
         const matchingItem = this.currentQuestion.items.find(
-          (i: any) => i.id === id
+          (i: any) => i.id === id,
         );
         const content = item.querySelector(
-          ".chronology-item > div:nth-child(2)"
+          ".chronology-item > div:nth-child(2)",
         );
         if (content && matchingItem) {
           const yearElement = document.createElement("div");
@@ -1006,7 +1006,7 @@ console.log(
               scoreElement.textContent = score.toString();
               this.elements.endGamePopup.setAttribute(
                 "data-score",
-                score.toString()
+                score.toString(),
               );
               this.elements.endGamePopup.classList.remove("hidden");
             }

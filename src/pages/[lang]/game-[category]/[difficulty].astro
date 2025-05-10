@@ -36,7 +36,7 @@ const user = { id: authResult.user?.id || "guest" };
 
 // Find current category data for display and metadata
 const currentCategoryData = categories.default.find(
-  (cat: any) => cat.slug === category
+  (cat: any) => cat.slug === category,
 );
 
 const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
@@ -178,7 +178,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
    * @constant {string} lang - Two-letter language code extracted from URL
    */
   const lang = getLangFromUrl(
-    new URL(window.location.pathname, window.location.origin)
+    new URL(window.location.pathname, window.location.origin),
   );
   const t = useTranslations(lang);
 
@@ -242,19 +242,19 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
       question: document.getElementById("question") as HTMLParagraphElement,
       options: document.getElementById("options") as HTMLDivElement,
       container: document.getElementById(
-        "question-container"
+        "question-container",
       ) as HTMLDivElement,
       overlayCover: document.getElementById(
-        "overlay-cover"
+        "overlay-cover",
       ) as HTMLImageElement,
       overlay: document.getElementById("overlay") as HTMLDivElement,
       jokerButton: document.getElementById("joker-button") as HTMLButtonElement,
       jokerCounter: document.getElementById("joker-count") as HTMLElement,
       nextRoundButton: document.getElementById(
-        "next-round-button"
+        "next-round-button",
       ) as HTMLButtonElement,
       restartButton: document.getElementById(
-        "restart-button"
+        "restart-button",
       ) as HTMLButtonElement,
       loadingSpinner: document.getElementById("loading-spinner") as HTMLElement,
     };
@@ -347,16 +347,16 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
       } catch (langError) {
         // Fallback to German if the specific language file doesn't exist
         console.log(
-          `No albums found for ${lang}/${category}, falling back to German`
+          `No albums found for ${lang}/${category}, falling back to German`,
         );
 
         const fallbackResponse = await fetch(
-          `/json/genres/de/${category}.json`
+          `/json/genres/de/${category}.json`,
         );
 
         if (!fallbackResponse.ok) {
           throw new Error(
-            `HTTP error for fallback! Status: ${fallbackResponse.status}`
+            `HTTP error for fallback! Status: ${fallbackResponse.status}`,
           );
         }
 
@@ -371,7 +371,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
     } catch (error) {
       console.error("Error loading albums:", error);
       ErrorHandler.handleApiError(
-        error instanceof Error ? error : new Error(String(error))
+        error instanceof Error ? error : new Error(String(error)),
       );
       return;
     }
@@ -413,7 +413,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
       option: any,
       correctAnswer: any,
       currentQuestion: { trivia: string },
-      album: { coverSrc: string; artist: string; album: string; year: string }
+      album: { coverSrc: string; artist: string; album: string; year: string },
     ) {
       // Save answer time for achievement tracking and validate
       const answerTime = Date.now() - (window.questionStartTime || Date.now());
@@ -467,13 +467,13 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
           const newQuestion = getRandomQuestion(
             albums ?? [],
             validateDifficulty(difficulty),
-            totalRounds
+            totalRounds,
           );
 
           if (newQuestion) {
             loadNewQuestion(
               newQuestion.randomQuestion,
-              newQuestion.randomAlbum
+              newQuestion.randomAlbum,
             );
 
             if (elements.feedback) {
@@ -614,13 +614,13 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
     const initialQuestion = getRandomQuestion(
       albums,
       validateDifficulty(difficulty),
-      totalRounds
+      totalRounds,
     );
 
     if (initialQuestion?.randomQuestion && initialQuestion?.randomAlbum) {
       loadNewQuestion(
         initialQuestion.randomQuestion,
-        initialQuestion.randomAlbum
+        initialQuestion.randomAlbum,
       );
     } else {
       console.error(t("error.no.initial.question"));
@@ -707,7 +707,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
     const requiredElements = ["score", "question", "options", "container"];
 
     return requiredElements.every(
-      (key) => elements[key as keyof GameElements] !== null
+      (key) => elements[key as keyof GameElements] !== null,
     );
   }
 

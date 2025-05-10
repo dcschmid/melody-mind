@@ -80,10 +80,10 @@ const categoryOptions = [
   // Filter functionality
   document.addEventListener("DOMContentLoaded", () => {
     const statusFilter = document.getElementById(
-      "status-filter"
+      "status-filter",
     ) as HTMLSelectElement;
     const categoryFilter = document.getElementById(
-      "category-filter"
+      "category-filter",
     ) as HTMLSelectElement;
     const achievementCards = document.querySelectorAll(".achievement-card");
 
@@ -99,7 +99,7 @@ const categoryOptions = [
         // Apply status filter
         if (statusValue !== "all") {
           const cardStatus = cardElement.classList.contains(
-            `achievement-${statusValue}`
+            `achievement-${statusValue}`,
           );
           if (!cardStatus) {
             showCard = false;
@@ -122,7 +122,7 @@ const categoryOptions = [
       document.querySelectorAll(".achievement-category").forEach((category) => {
         const categoryElement = category as HTMLElement;
         const visibleCards = categoryElement.querySelectorAll(
-          '.achievement-card[style=""]'
+          '.achievement-card[style=""]',
         ).length;
         categoryElement.style.display = visibleCards > 0 ? "" : "none";
       });
