@@ -16,7 +16,7 @@ import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import ShareOverlay from "./ShareOverlay.astro";
 import { Icon } from "astro-icon/components";
 
-const lang = getLangFromUrl(Astro.url);
+const lang = String(getLangFromUrl(Astro.url));
 const t = useTranslations(lang);
 
 interface Props {
@@ -138,12 +138,25 @@ const {
       <span id="difficulty-display" class="text-zinc-200">{difficulty}</span>
     </div>
 
+    <!-- Achievement Section -->
+    <div id="achievements-section" class="achievements-section mb-8">
+      <h3 class="text-xl font-semibold text-zinc-100 mb-4">
+        {t("achievements.unlocked") || "Achievements Unlocked"}
+      </h3>
+      <div
+        id="unlocked-achievements"
+        class="flex flex-wrap justify-center gap-4"
+      >
+        <!-- Achievements will be populated by JavaScript -->
+      </div>
+    </div>
+
     <!-- Share Section -->
     <div class="share-section mb-8">
       <ShareOverlay />
     </div>
 
-    <div class="buttonWrapper flex justify-center gap-4">
+    <div class="buttonWrapper flex flex-wrap justify-center gap-4">
       <a
         href="/"
         class="homeButton min-w-[48px] min-h-[48px] py-3 px-6 bg-zinc-700 hover:bg-zinc-600 focus:bg-zinc-600 text-white font-medium rounded-xl transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
@@ -343,6 +356,44 @@ const {
     outline: 3px solid rgb(56, 189, 248); /* sky-300 */
     outline-offset: 3px;
   }
+
+  /* Achievement section styles - converted to Tailwind in the HTML */
+  /* These custom properties will remain for color definitions */
+  :root {
+    --color-bronze: #cd7f32;
+    --color-silver: #c0c0c0;
+    --color-gold: #ffd700;
+    --color-platinum: #e5e4e2;
+    --color-diamond: #b9f2ff;
+  }
+
+  /* Animation for newly unlocked achievements */
+  @keyframes achievement-pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 15px rgba(251, 191, 36, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(251, 191, 36, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .achievement-item {
+      animation: achievement-pulse 2s infinite;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .achievement-item {
+      animation: none !important;
+    }
+  }
 </style>
 
 <script>
@@ -355,7 +406,9 @@ const {
    * This component follows WCAG AAA accessibility standards and implements optimized
    * performance practices for smooth animations and minimal resource usage.
    */
-  import { shareScore } from "../../utils/share/shareUtils";
+  import { shareScore } from "../../utils/share/shareUtils.js";
+  import { subscribeToAchievementEvents } from "../../utils/achievements/achievementEvents.js";
+  import type { AchievementEvent } from "../../types/achievement.js";
 
   /**
    * Achievement thresholds for different score levels
@@ -500,12 +553,26 @@ const {
    * Clean up event listeners when the component is removed
    * Prevents memory leaks and improves performance
    */
+  // Global array to store unlocked achievements
+  let globalUnlockedAchievements: any[] = [];
+
+  // Check if we have stored achievements in sessionStorage
+  try {
+    const storedAchievements = sessionStorage.getItem("unlockedAchievements");
+    if (storedAchievements) {
+      globalUnlockedAchievements = JSON.parse(storedAchievements);
+      console.log("Loaded stored achievements:", globalUnlockedAchievements);
+    }
+  } catch (e) {
+    console.error("Error loading stored achievements:", e);
+  }
+
   document.addEventListener("astro:before-swap", () => {
     // Remove share button event listeners
     document.querySelectorAll("[data-share]").forEach((button) => {
       (button as HTMLElement).removeEventListener(
         "click",
-        handleShareButtonClick,
+        handleShareButtonClick
       );
     });
 
@@ -514,8 +581,16 @@ const {
 
     // Cancel any ongoing animations
     window.cancelAnimationFrame(
-      Number(document.documentElement.dataset.endOverlayAnimationId || 0),
+      Number(document.documentElement.dataset.endOverlayAnimationId || 0)
     );
+
+    // Clear achievement storage when navigating away
+    try {
+      sessionStorage.removeItem("unlockedAchievements");
+      globalUnlockedAchievements = [];
+    } catch (e) {
+      console.error("Error clearing stored achievements:", e);
+    }
   });
 
   /**
@@ -523,12 +598,46 @@ const {
    * Sets up event listeners, observers, and accessibility features
    */
   function initializeEndOverlay(): void {
-    const popup = document.getElementById("endgame-popup");
+    // Suche nach dem Popup-Element mit der Klasse "popup"
+    const popup = document.querySelector(".popup") as HTMLElement;
 
     if (!popup) {
       console.debug("EndOverlay: popup element not found");
       return;
     }
+
+    // Verstecke den Achievement-Bereich beim Initialisieren
+    const achievementsSection = document.getElementById("achievements-section");
+    if (achievementsSection) {
+      achievementsSection.style.display = "none";
+    }
+
+    // Subscribe to achievement events
+    const unsubscribe = subscribeToAchievementEvents(
+      (event: AchievementEvent) => {
+        console.log("Achievement event received:", event);
+
+        if (event.type === "achievement_unlocked") {
+          // Store the unlocked achievement
+          globalUnlockedAchievements.push(event.achievement);
+
+          // Store in sessionStorage for persistence
+          try {
+            sessionStorage.setItem(
+              "unlockedAchievements",
+              JSON.stringify(globalUnlockedAchievements)
+            );
+          } catch (e) {
+            console.error("Error storing achievements:", e);
+          }
+
+          // If the popup is already visible, update the achievements section
+          if (!popup.classList.contains("hidden")) {
+            updateAchievementsSection(globalUnlockedAchievements);
+          }
+        }
+      }
+    );
 
     // Store reference to last focused element before opening
     let lastFocusedElement: HTMLElement | null = null;
@@ -552,6 +661,13 @@ const {
 
             // Animate score bar with requestAnimationFrame for better performance
             animateScoreBarWithRAF(popup);
+
+            // Update achievements section
+            console.log(
+              "Checking for achievements to display:",
+              globalUnlockedAchievements
+            );
+            updateAchievementsSection(globalUnlockedAchievements);
 
             // Announce achievement for screen readers
             announceAchievement(popup);
@@ -600,7 +716,7 @@ const {
    */
   function setupClickHandlers(
     popup: HTMLElement,
-    lastFocusedElement: HTMLElement | null,
+    lastFocusedElement: HTMLElement | null
   ): void {
     // Handle backdrop clicks to close modal
     const backdrop = document.getElementById("overlay-backdrop");
@@ -627,7 +743,7 @@ const {
    */
   function hidePopup(
     popup: HTMLElement,
-    elementToFocus: HTMLElement | null,
+    elementToFocus: HTMLElement | null
   ): void {
     popup.classList.add("hidden");
 
@@ -692,7 +808,7 @@ const {
       'textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
     const elements = Array.from(
-      container.querySelectorAll<HTMLElement>(selector),
+      container.querySelectorAll<HTMLElement>(selector)
     );
 
     // Filter out hidden elements
@@ -748,7 +864,7 @@ const {
     // Update ARIA properties for accessibility
     progressContainer.setAttribute(
       "aria-valuenow",
-      targetPercentage.toString(),
+      targetPercentage.toString()
     );
 
     // Start at 0%
@@ -986,9 +1102,9 @@ const {
    * @returns {import("../../utils/share/shareUtils").ShareData|null} The extracted game data
    */
   function getGameDataFromPopup():
-    | import("../../utils/share/shareUtils").ShareData
+    | import("../../utils/share/shareUtils.js").ShareData
     | null {
-    const popup = document.querySelector("#endgame-popup");
+    const popup = document.querySelector(".popup") as HTMLElement;
 
     if (!popup) {
       console.error("EndOverlay: Cannot find game popup element");
@@ -1001,5 +1117,124 @@ const {
     const difficulty = popup.getAttribute("data-difficulty") || "";
 
     return { score, category, difficulty };
+  }
+
+  /**
+   * Updates the achievements section with unlocked achievements
+   *
+   * @param {Array} achievements - Array of unlocked achievements
+   */
+  function updateAchievementsSection(achievements: any[]): void {
+    console.log("Updating achievements section with:", achievements);
+
+    const achievementsSection = document.getElementById("achievements-section");
+    const unlockedAchievementsContainer = document.getElementById(
+      "unlocked-achievements"
+    );
+
+    if (!achievementsSection || !unlockedAchievementsContainer) {
+      console.error("Achievement section elements not found");
+      return;
+    }
+
+    // Hide the section if no achievements exist
+    if (!achievements || achievements.length === 0) {
+      console.debug("No achievements to display");
+      achievementsSection.style.display = "none";
+      return;
+    }
+
+    // Show the section if achievements exist
+    achievementsSection.style.display = "block";
+
+    // Clear existing achievements
+    unlockedAchievementsContainer.innerHTML = "";
+
+    // Add each achievement
+    achievements.forEach((achievement) => {
+      // Get category class based on achievement
+      const categoryCode = achievement.category
+        ? achievement.category.code
+        : "bronze";
+
+      // Determine the background color class based on category
+      let bgColorClass = "bg-[#cd7f32]"; // Default bronze
+      switch (categoryCode) {
+        case "silver":
+          bgColorClass = "bg-[#c0c0c0]";
+          break;
+        case "gold":
+          bgColorClass = "bg-[#ffd700]";
+          break;
+        case "platinum":
+          bgColorClass = "bg-[#e5e4e2]";
+          break;
+        case "diamond":
+          bgColorClass = "bg-[#b9f2ff]";
+          break;
+      }
+
+      const achievementElement = document.createElement("div");
+      achievementElement.className =
+        "achievement-item bg-zinc-800 border border-zinc-700 rounded-lg p-4 flex flex-col items-center max-w-[180px] transition-transform duration-200 hover:-translate-y-1";
+
+      // Create icon container with category-based color
+      const iconContainer = document.createElement("div");
+      iconContainer.className = `w-12 h-12 rounded-full flex items-center justify-center mb-2 text-black ${bgColorClass}`;
+
+      // Create icon or placeholder
+      const iconElement = document.createElement("div");
+      iconElement.className = "text-2xl";
+
+      // Try to use the achievement type for a more specific icon
+      if (achievement.type) {
+        switch (achievement.type) {
+          case "genre_explorer":
+            iconElement.innerHTML = "🔍";
+            break;
+          case "quick_answer":
+            iconElement.innerHTML = "⚡";
+            break;
+          case "game_series":
+            iconElement.innerHTML = "🎮";
+            break;
+          case "seasonal_event":
+            iconElement.innerHTML = "🌟";
+            break;
+          default:
+            iconElement.innerHTML = "🏆";
+        }
+      } else {
+        iconElement.innerHTML = "🏆"; // Default icon
+      }
+
+      iconContainer.appendChild(iconElement);
+
+      // Create achievement name
+      const nameElement = document.createElement("h4");
+      nameElement.className =
+        "text-sm font-semibold text-zinc-100 text-center mb-1";
+      nameElement.textContent = achievement.name || "Achievement";
+
+      // Create achievement description
+      const descElement = document.createElement("p");
+      descElement.className = "text-xs text-zinc-300 text-center";
+      descElement.textContent = achievement.description || "";
+
+      // Assemble the achievement item
+      achievementElement.appendChild(iconContainer);
+      achievementElement.appendChild(nameElement);
+      achievementElement.appendChild(descElement);
+
+      // Add to container
+      unlockedAchievementsContainer.appendChild(achievementElement);
+    });
+
+    // Log for debugging
+    console.log(
+      "Achievement section updated with",
+      achievements.length,
+      "achievements"
+    );
   }
 </script>

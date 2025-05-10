@@ -35,7 +35,7 @@ const user = { id: authResult.user?.id || "guest" };
 
 // Find current category data to use in page metadata and title
 const currentCategoryData = categories.default.find(
-  (cat: any) => cat.slug === category,
+  (cat: any) => cat.slug === category
 );
 
 // Get custom player title based on difficulty for personalized experience
@@ -45,7 +45,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 const metaDescription = `${t("game.chronology.meta.description") || "Musik-Chronologie Spiel:"} ${currentCategoryData?.headline || ""} ${t("game.meta.difficulty") || "im Schwierigkeitsgrad"} ${t(`difficulty.${difficulty}`) || difficulty}`;
 
 console.log(
-  `User ${user.id} is playing Chronology in category ${category} with difficulty ${difficulty}`,
+  `User ${user.id} is playing Chronology in category ${category} with difficulty ${difficulty}`
 );
 ---
 
@@ -63,7 +63,6 @@ console.log(
     data-difficulty={difficulty || ""}
   />
 
-  <!-- Verbesserte Spiel-Header-Sektion mit besserer visueller Unterscheidung -->
   <div class="mb-6 md:mb-8">
     <GameHeadline headline={currentCategoryData?.headline} />
 
@@ -114,7 +113,6 @@ console.log(
     data-userID={user.id}
     date-difficulty={difficulty}
   >
-    <!-- Ehrung des Spielers/Titels als kompakter Badge -->
     {
       playerTitle && (
         <div class="mb-4 text-center">
@@ -170,9 +168,10 @@ console.log(
 
 <script>
   /**
-   * Musik-Chronologie Spielmodus
+   * Music Chronology Game Mode
    *
-   * Spieler müssen Alben/Songs zeitlich korrekt einordnen
+   * This game mode challenges players to correctly order albums/songs chronologically.
+   * Players receive points based on accuracy of their ordering and are rewarded for perfectly ordered sequences.
    */
   import { ErrorHandler } from "@utils/error/errorHandler";
   import { handleEndGame, restartGame } from "@utils/game/endGameUtils";
@@ -186,14 +185,17 @@ console.log(
     evaluateChronologyAnswer,
   } from "@utils/game/chronologyGameMode";
 
-  // Sprache basierend auf URL abrufen und Übersetzungen initialisieren
+  /**
+   * Get current language from URL and initialize translations
+   */
   const lang = getLangFromUrl(
-    new URL(window.location.pathname, window.location.origin),
+    new URL(window.location.pathname, window.location.origin)
   ) as string;
   const t = useTranslations(lang);
 
   /**
-   * Konfigurationskonstanten für die Anzahl der Runden basierend auf dem Schwierigkeitsgrad
+   * Configuration constants for number of rounds based on difficulty level
+   * Easy: 10 rounds, Medium: 15 rounds, Hard: 20 rounds
    */
   const ROUNDS_PER_DIFFICULTY = {
     [Difficulty.EASY]: 10,
@@ -202,7 +204,9 @@ console.log(
   } as const;
 
   /**
-   * Validiert und normalisiert den Schwierigkeitsgrad aus URL-Parametern
+   * Validates and normalizes the difficulty level from URL parameters
+   * @param {string|null} diff - The difficulty string from URL
+   * @returns {Difficulty} Normalized difficulty enum value
    */
   const validateDifficulty = (diff: string | null): Difficulty => {
     if (diff === "easy") return Difficulty.EASY;
@@ -212,7 +216,8 @@ console.log(
   };
 
   /**
-   * Anzahl der zu sortierenden Elemente je nach Schwierigkeitsgrad
+   * Number of items to be sorted per difficulty level
+   * This determines how many albums will be presented for chronological ordering
    */
   const ITEMS_PER_DIFFICULTY = {
     [Difficulty.EASY]: 4,
@@ -221,7 +226,8 @@ console.log(
   };
 
   /**
-   * Interface für DOM-Elemente, die vom Spielcontroller benötigt werden
+   * Interface for DOM elements required by the game controller
+   * Centralizes element references to improve code organization and performance
    */
   interface ChronologyGameElements {
     itemsContainer: HTMLElement;
@@ -230,24 +236,25 @@ console.log(
     loadingSpinner: HTMLElement;
     chronologyContainer: HTMLElement;
     endGamePopup: HTMLElement;
-    roundElement: HTMLElement; // Für die Rundenanzeige
+    roundElement: HTMLElement; // For displaying current round
   }
 
   /**
-   * Zwischenspeichert DOM-Elemente, um wiederholte Abfragen zu vermeiden und die Leistung zu verbessern
+   * Caches DOM elements to avoid repeated queries and improve performance
+   * @returns {ChronologyGameElements} Object containing all required DOM elements
    */
   function cacheElements(): ChronologyGameElements {
     return {
       itemsContainer: document.getElementById(
-        "chronology-items-container",
+        "chronology-items-container"
       ) as HTMLElement,
       submitButton: document.getElementById(
-        "chronology-submit",
+        "chronology-submit"
       ) as HTMLButtonElement,
       coinsDisplay: document.querySelector(".coinsCount") as HTMLElement,
       loadingSpinner: document.getElementById("loading-spinner") as HTMLElement,
       chronologyContainer: document.getElementById(
-        "chronology-container",
+        "chronology-container"
       ) as HTMLElement,
       endGamePopup: document.getElementById("endgame-popup") as HTMLElement,
       roundElement: document.querySelector(".round") as HTMLElement,
@@ -255,7 +262,8 @@ console.log(
   }
 
   /**
-   * Hauptklasse für die Steuerung des Chronologie-Spiels
+   * Main controller class for the Chronology game
+   * Handles game initialization, state management, user interactions, and scoring
    */
   class ChronologyGameController {
     private elements: ChronologyGameElements;
@@ -271,6 +279,11 @@ console.log(
     private categoryName: string;
     private userId: string;
 
+    /**
+     * Constructor initializes the game controller with required DOM elements
+     * and sets up game parameters based on URL and container attributes
+     * @param {ChronologyGameElements} elements - Cached DOM elements
+     */
     constructor(elements: ChronologyGameElements) {
       this.elements = elements;
 
@@ -279,28 +292,49 @@ console.log(
       this.userId = container.getAttribute("data-userID") || "guest";
       this.categoryName = container.getAttribute("data-categoryName") || "";
       this.difficulty = validateDifficulty(
-        container.getAttribute("date-difficulty"),
+        container.getAttribute("date-difficulty")
       );
 
       this.totalRounds =
         ROUNDS_PER_DIFFICULTY[this.difficulty] || ROUNDS_PER_DIFFICULTY.EASY;
 
-      // Initialisiere die Rundenanzeige
+      // Initialize round display
       this.updateRoundDisplay();
+
+      // Check for seasonal events
+      this.checkForSeasonalEvent();
 
       this.initEventListeners();
     }
 
     /**
-     * Initialisiert Event-Listener für Spielinteraktionen
+     * Checks if there is an active seasonal event based on current date
+     * Used for seasonal achievements and special game features
+     */
+    private checkForSeasonalEvent() {
+      // This could come from an API call or configuration
+      const currentDate = new Date();
+      const month = currentDate.getMonth() + 1; // 1-12
+
+      // Example of seasonal events
+      if (month === 12) {
+        ChronologyGameController.currentEventId = "winter_2025";
+      } else if (month >= 6 && month <= 8) {
+        ChronologyGameController.currentEventId = "summer_2025";
+      }
+    }
+
+    /**
+     * Initializes event listeners for game interactions
+     * Sets up handlers for button clicks and game restart
      */
     private initEventListeners() {
-      // Submit-Button
+      // Submit button
       this.elements.submitButton.addEventListener("click", () =>
-        this.handleSubmit(),
+        this.handleSubmit()
       );
 
-      // Neustart-Button im Endspiel-Popup
+      // Restart button in endgame popup
       const restartButton = document.getElementById("restart-button");
       if (restartButton) {
         restartButton.addEventListener("click", restartGame);
@@ -308,7 +342,9 @@ console.log(
     }
 
     /**
-     * Lädt Albumdaten für die ausgewählte Kategorie mit Sprachfallback
+     * Loads album data for the selected category with language fallback
+     * Attempts to load data for current language, falls back to German if unavailable
+     * @returns {Promise<boolean>} True if album data was successfully loaded
      */
     public async loadAlbums(): Promise<boolean> {
       try {
@@ -317,7 +353,7 @@ console.log(
         try {
           // Versuche zuerst, Alben für die aktuelle Sprache zu laden
           const response = await fetch(
-            `/json/genres/${lang}/${this.category}.json`,
+            `/json/genres/${lang}/${this.category}.json`
           );
 
           if (!response.ok) {
@@ -328,16 +364,16 @@ console.log(
         } catch (langError) {
           // Fallback auf Deutsch, wenn die spezifische Sprachdatei nicht existiert
           console.log(
-            `No albums found for ${lang}/${this.category}, falling back to German`,
+            `No albums found for ${lang}/${this.category}, falling back to German`
           );
 
           const fallbackResponse = await fetch(
-            `/json/genres/de/${this.category}.json`,
+            `/json/genres/de/${this.category}.json`
           );
 
           if (!fallbackResponse.ok) {
             throw new Error(
-              `HTTP error for fallback! Status: ${fallbackResponse.status}`,
+              `HTTP error for fallback! Status: ${fallbackResponse.status}`
             );
           }
 
@@ -354,14 +390,15 @@ console.log(
       } catch (error) {
         console.error("Error loading albums:", error);
         ErrorHandler.handleApiError(
-          error instanceof Error ? error : new Error(String(error)),
+          error instanceof Error ? error : new Error(String(error))
         );
         return false;
       }
     }
 
     /**
-     * Startet das Spiel und zeigt die erste Frage an
+     * Starts the game and displays the first question
+     * Shows loading spinner during initialization
      */
     public async startGame() {
       this.showLoadingSpinner(true);
@@ -380,7 +417,8 @@ console.log(
     }
 
     /**
-     * Zeigt/verbirgt den Ladeindikator
+     * Shows/hides the loading spinner
+     * @param {boolean} show - Whether to show or hide the spinner
      */
     private showLoadingSpinner(show: boolean) {
       if (this.elements.loadingSpinner) {
@@ -393,7 +431,14 @@ console.log(
     }
 
     /**
-     * Generiert und lädt die nächste Chronologie-Frage
+     * Tracking variable for achievement timing
+     * Measures time taken to answer questions for speed bonuses
+     */
+    private questionStartTime: number = 0;
+
+    /**
+     * Generates and loads the next chronology question
+     * Resets the container, initializes question timer, and renders the question
      */
     private loadNextQuestion() {
       // Alle Items zurücksetzen
@@ -401,15 +446,18 @@ console.log(
         this.elements.itemsContainer.innerHTML = "";
       }
 
+      // Startzeit für Achievement-Tracking speichern
+      this.questionStartTime = Date.now();
+
       // Frage für aktuellen Schwierigkeitsgrad generieren
       this.currentQuestion = generateChronologyQuestion(
         this.albums,
-        this.difficulty,
+        this.difficulty
       );
 
       if (!this.currentQuestion) {
         ErrorHandler.handleApiError(
-          new Error("Keine gültige Chronologie-Frage konnte generiert werden"),
+          new Error("Keine gültige Chronologie-Frage konnte generiert werden")
         );
         return;
       }
@@ -427,7 +475,8 @@ console.log(
     }
 
     /**
-     * Rendert die Chronologie-Frage in den Container
+     * Renders the chronology question in the container
+     * Creates sortable list items representing albums to be ordered
      */
     private renderQuestion() {
       if (!this.elements.itemsContainer || !this.currentQuestion) return;
@@ -502,7 +551,9 @@ console.log(
     }
 
     /**
-     * Initialisiert die Sortable.js-Funktionalität
+     * Initializes the Sortable.js functionality
+     * Sets up drag and drop ordering with proper accessibility
+     * @param {HTMLElement} element - The container element for sortable items
      */
     private initSortable(element: HTMLElement) {
       this.sortable = new Sortable(element, {
@@ -524,7 +575,8 @@ console.log(
     }
 
     /**
-     * Aktualisiert die angezeigten Positionsnummern
+     * Updates the displayed position numbers
+     * Called after drag operations to maintain visual position indicators
      */
     private updatePositionNumbers() {
       if (!this.elements.itemsContainer) return;
@@ -540,7 +592,9 @@ console.log(
     }
 
     /**
-     * Fügt Tastaturunterstützung für die Sortierung hinzu
+     * Adds keyboard support for sorting
+     * Enables accessibility for users who navigate with keyboard
+     * @param {HTMLElement} listElement - The container for sortable items
      */
     private addKeyboardSorting(listElement: HTMLElement) {
       let items = listElement.querySelectorAll(".chronology-item");
@@ -580,7 +634,7 @@ console.log(
         item.setAttribute("role", "listitem");
         item.setAttribute(
           "aria-label",
-          `Element ${item.querySelector(".font-bold")?.textContent} - ${item.querySelector(".text-zinc-300")?.textContent}. Nutze Pfeiltasten zum Umordnen.`,
+          `Element ${item.querySelector(".font-bold")?.textContent} - ${item.querySelector(".text-zinc-300")?.textContent}. Nutze Pfeiltasten zum Umordnen.`
         );
 
         item.addEventListener("keydown", (e) => {
@@ -697,14 +751,16 @@ console.log(
             "ring-2",
             "ring-purple-500",
             "ring-offset-1",
-            "bg-purple-900/20",
+            "bg-purple-900/20"
           );
         });
       });
     }
 
     /**
-     * Hebt ein Element visuell hervor, um Fokus zu verdeutlichen
+     * Visually highlights an element to indicate focus
+     * Provides visual feedback for keyboard navigation
+     * @param {HTMLElement} element - The element to highlight
      */
     private highlightElement(element: HTMLElement) {
       // Entferne Hervorhebung von allen Elementen
@@ -716,7 +772,7 @@ console.log(
           "ring-2",
           "ring-purple-500",
           "ring-offset-1",
-          "bg-purple-900/20",
+          "bg-purple-900/20"
         );
       });
 
@@ -725,7 +781,7 @@ console.log(
         "ring-2",
         "ring-purple-500",
         "ring-offset-1",
-        "bg-purple-900/20",
+        "bg-purple-900/20"
       );
 
       // Pulse-Animation für besseres visuelles Feedback
@@ -738,25 +794,30 @@ console.log(
         {
           duration: 300,
           easing: "ease-in-out",
-        },
+        }
       );
     }
 
     /**
-     * Verarbeitet die Einreichung des Spielers
+     * Processes the player's submission
+     * Evaluates answer, updates score, and handles game progression
      */
     private handleSubmit() {
       if (!this.elements.itemsContainer || !this.currentQuestion) return;
 
+      // Antwortzeit für Achievement-Tracking speichern
+      const answerTime = Date.now() - this.questionStartTime;
+      this.lastAnswerTime = answerTime;
+
       const items =
         this.elements.itemsContainer.querySelectorAll(".chronology-item");
       const userOrder = Array.from(items).map((item) =>
-        parseInt(item.getAttribute("data-id") || "0"),
+        parseInt(item.getAttribute("data-id") || "0")
       );
 
       const result = evaluateChronologyAnswer(
         userOrder,
-        this.currentQuestion.correctOrder,
+        this.currentQuestion.correctOrder
       );
 
       // Punktestand aktualisieren
@@ -766,6 +827,9 @@ console.log(
       // Wenn perfekte Antwort
       if (result.correctItems === result.totalItems) {
         this.correctAnswers++;
+        this.lastAnswerCorrect = true;
+      } else {
+        this.lastAnswerCorrect = false;
       }
 
       // Ergebnis anzeigen
@@ -796,7 +860,8 @@ console.log(
     }
 
     /**
-     * Aktualisiert die Münzanzeige mit einer Animation für visuelles Feedback
+     * Updates the coin display with animation for visual feedback
+     * @param {number} newScore - The updated score to display
      */
     private updateCoinsDisplay(newScore: number) {
       if (this.elements.coinsDisplay) {
@@ -820,7 +885,8 @@ console.log(
     }
 
     /**
-     * Aktualisiert die Rundenanzeige
+     * Updates the round display
+     * Shows current round number and total rounds
      */
     private updateRoundDisplay() {
       if (this.elements.roundElement) {
@@ -829,7 +895,10 @@ console.log(
     }
 
     /**
-     * Zeigt die Ergebnisse der Chronologie-Aufgabe an
+     * Displays the results of the chronology task
+     * Shows correct/incorrect positions and year information
+     * @param {any} result - The evaluation result
+     * @param {number[]} userOrder - The order submitted by the user
      */
     private showResults(result: any, userOrder: number[]) {
       if (!this.elements.itemsContainer || !this.currentQuestion) return;
@@ -861,10 +930,10 @@ console.log(
 
         // Jahr anzeigen
         const matchingItem = this.currentQuestion.items.find(
-          (i: any) => i.id === id,
+          (i: any) => i.id === id
         );
         const content = item.querySelector(
-          ".chronology-item > div:nth-child(2)",
+          ".chronology-item > div:nth-child(2)"
         );
         if (content && matchingItem) {
           const yearElement = document.createElement("div");
@@ -898,7 +967,16 @@ console.log(
     }
 
     /**
-     * Beendet das Spiel und zeigt die Zusammenfassung an
+     * Variables for achievement tracking
+     * Used to track game performance for awarding achievements
+     */
+    private lastAnswerTime: number = 0;
+    private lastAnswerCorrect: boolean = false;
+    private static currentEventId?: string;
+
+    /**
+     * Ends the game and shows the summary
+     * Calculates final score and triggers achievement evaluation
      */
     private endGame() {
       const config = {
@@ -909,6 +987,13 @@ console.log(
         correctAnswers: this.correctAnswers,
         score: this.score,
         language: lang,
+
+        // Erweiterte Eigenschaften für Achievement-Tracking
+        genreId: this.category, // Kategorie/Genre-ID für genre_explorer
+        lastAnswerTime: this.lastAnswerTime, // Letzte Antwortzeit für quick_answer
+        lastAnswerCorrect: this.lastAnswerCorrect, // Ob die letzte Antwort korrekt war
+        eventId: ChronologyGameController.currentEventId, // Event-ID für seasonal_event
+        endOfSession: true, // Ende der Spielsitzung für game_series
       };
 
       const ui = {
@@ -921,7 +1006,7 @@ console.log(
               scoreElement.textContent = score.toString();
               this.elements.endGamePopup.setAttribute(
                 "data-score",
-                score.toString(),
+                score.toString()
               );
               this.elements.endGamePopup.classList.remove("hidden");
             }
@@ -940,25 +1025,40 @@ console.log(
     }
   }
 
-  // Initialisiere das Spiel, wenn das DOM bereit ist
-  document.addEventListener("DOMContentLoaded", () => {
+  /**
+   * Initialize the game when the DOM is ready
+   * Creates game controller instance and starts the game
+   */
+  document.addEventListener("DOMContentLoaded", async () => {
     const elements = cacheElements();
 
-    // Prüfe, ob alle erforderlichen Elemente vorhanden sind
+    // Check if all required elements are present
     if (
       !elements.itemsContainer ||
       !elements.submitButton ||
       !elements.chronologyContainer
     ) {
-      console.error("Erforderliche DOM-Elemente nicht gefunden");
+      console.error("Required DOM elements not found");
       return;
     }
 
-    // Erstelle und starte den Spielcontroller
+    // Initialize achievement event system
+    try {
+      // Dynamic import for the achievement system
+      const achievementModule = await import(
+        "../../../utils/achievements/achievementEvents.js"
+      );
+      achievementModule.initAchievementEventSystem();
+      console.log("Achievement event system initialized for game mode");
+    } catch (error) {
+      console.error("Error initializing achievement event system:", error);
+    }
+
+    // Create and start the game controller
     const gameController = new ChronologyGameController(elements);
     gameController.startGame();
 
-    // Warne vor dem Verlassen, wenn ungespeicherte Daten vorhanden sind
+    // Warn before leaving if there is unsaved data
     window.addEventListener("beforeunload", (e) => {
       if (QueueManager.hasUnsavedData()) {
         e.preventDefault();

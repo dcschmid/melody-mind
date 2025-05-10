@@ -1,0 +1,168 @@
+---
+/**
+ * Achievement Filter Component
+ *
+ * This component enables filtering achievements by status and category.
+ */
+
+import { useTranslations } from "../../utils/i18n.ts";
+
+interface Props {
+  /** Language code for translations */
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Filter options
+const statusOptions = [
+  { value: "all", label: t("achievements.filter.all") },
+  { value: "unlocked", label: t("achievements.status.unlocked") },
+  { value: "in-progress", label: t("achievements.status.in_progress") },
+  { value: "locked", label: t("achievements.status.locked") },
+];
+
+const categoryOptions = [
+  { value: "all", label: t("achievements.filter.all_categories") },
+  { value: "bronze", label: t("achievements.category.bronze") },
+  { value: "silver", label: t("achievements.category.silver") },
+  { value: "gold", label: t("achievements.category.gold") },
+  { value: "platinum", label: t("achievements.category.platinum") },
+  { value: "diamond", label: t("achievements.category.diamond") },
+  { value: "time", label: t("achievements.category.time") },
+];
+---
+
+<div class="bg-gray-800 rounded-lg p-6 mb-8" data-testid="achievement-filter">
+  <h2 class="text-xl mt-0 mb-4">{t("achievements.filter.title")}</h2>
+
+  <div class="flex flex-wrap gap-6 md:flex-row">
+    <div class="flex-1 min-w-[200px]">
+      <label for="status-filter" class="block mb-2 font-medium"
+        >{t("achievements.filter.status")}</label
+      >
+      <select
+        id="status-filter"
+        class="w-full py-3 px-3 rounded bg-gray-700 text-white border border-gray-600 text-base appearance-none bg-no-repeat pr-10 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+        style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpolyline points=%226 9 12 15 18 9%22%3E%3C/polyline%3E%3C/svg%3E'); background-position: right 0.75rem center; background-size: 1rem;"
+        aria-label={t("achievements.filter.status.aria")}
+      >
+        {
+          statusOptions.map((option) => (
+            <option value={option.value}>{option.label}</option>
+          ))
+        }
+      </select>
+    </div>
+
+    <div class="flex-1 min-w-[200px]">
+      <label for="category-filter" class="block mb-2 font-medium"
+        >{t("achievements.filter.category")}</label
+      >
+      <select
+        id="category-filter"
+        class="w-full py-3 px-3 rounded bg-gray-700 text-white border border-gray-600 text-base appearance-none bg-no-repeat pr-10 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+        style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpolyline points=%226 9 12 15 18 9%22%3E%3C/polyline%3E%3C/svg%3E'); background-position: right 0.75rem center; background-size: 1rem;"
+        aria-label={t("achievements.filter.category.aria")}
+      >
+        {
+          categoryOptions.map((option) => (
+            <option value={option.value}>{option.label}</option>
+          ))
+        }
+      </select>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Filter functionality
+  document.addEventListener("DOMContentLoaded", () => {
+    const statusFilter = document.getElementById(
+      "status-filter"
+    ) as HTMLSelectElement;
+    const categoryFilter = document.getElementById(
+      "category-filter"
+    ) as HTMLSelectElement;
+    const achievementCards = document.querySelectorAll(".achievement-card");
+
+    // Function to filter achievements
+    function filterAchievements() {
+      const statusValue = statusFilter.value;
+      const categoryValue = categoryFilter.value;
+
+      achievementCards.forEach((card) => {
+        const cardElement = card as HTMLElement;
+        let showCard = true;
+
+        // Apply status filter
+        if (statusValue !== "all") {
+          const cardStatus = cardElement.classList.contains(
+            `achievement-${statusValue}`
+          );
+          if (!cardStatus) {
+            showCard = false;
+          }
+        }
+
+        // Apply category filter
+        if (categoryValue !== "all" && showCard) {
+          const cardCategory = cardElement.getAttribute("data-category");
+          if (cardCategory !== categoryValue) {
+            showCard = false;
+          }
+        }
+
+        // Show or hide card
+        cardElement.style.display = showCard ? "" : "none";
+      });
+
+      // Hide empty categories
+      document.querySelectorAll(".achievement-category").forEach((category) => {
+        const categoryElement = category as HTMLElement;
+        const visibleCards = categoryElement.querySelectorAll(
+          '.achievement-card[style=""]'
+        ).length;
+        categoryElement.style.display = visibleCards > 0 ? "" : "none";
+      });
+
+      // Dispatch event to inform other components
+      const event = new CustomEvent("achievements-filtered", {
+        detail: {
+          status: statusValue,
+          category: categoryValue,
+        },
+      });
+      document.dispatchEvent(event);
+    }
+
+    // Event listeners for filter changes
+    statusFilter.addEventListener("change", filterAchievements);
+    categoryFilter.addEventListener("change", filterAchievements);
+
+    // Set URL parameters for filters
+    const urlParams = new URLSearchParams(window.location.search);
+    const statusParam = urlParams.get("status");
+    const categoryParam = urlParams.get("category");
+
+    if (
+      statusParam &&
+      statusFilter.querySelector(`option[value="${statusParam}"]`)
+    ) {
+      statusFilter.value = statusParam;
+    }
+
+    if (
+      categoryParam &&
+      categoryFilter.querySelector(`option[value="${categoryParam}"]`)
+    ) {
+      categoryFilter.value = categoryParam;
+    }
+
+    // Initial filtering if URL parameters exist
+    if (statusParam || categoryParam) {
+      filterAchievements();
+    }
+  });
+</script>

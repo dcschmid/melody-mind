@@ -15,7 +15,7 @@
     "setup-fonts": "node scripts/copy-local-fonts.cjs || node scripts/setup-fonts.cjs",
     "generate-og": "node scripts/generate-og-images.cjs",
     "generate-og-images": "node scripts/setup-fonts.cjs && node scripts/generate-og-images.cjs",
-    "db:setup": "node --loader ts-node/esm db/setup.ts"
+    "db:setup": "node db-setup-wrapper.mjs"
   },
   "lint-staged": {
     "*.{js,ts,astro}": "eslint --fix",
@@ -60,6 +60,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
     "postcss-html": "^1.8.0",
+    "postcss-markdown": "^1.3.0",
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "sass": "^1.87.0",

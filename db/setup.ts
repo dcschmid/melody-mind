@@ -1,30 +1,53 @@
+/**
+ * Database Setup Script for MelodyMind
+ * 
+ * This module handles database initialization and migration for the MelodyMind application.
+ * It sets up the database schema by executing SQL migrations in order and tracks
+ * applied migrations to prevent duplicate execution.
+ * 
+ * Features:
+ * - Loads environment variables from .env file
+ * - Executes SQL migration files in alphabetical order
+ * - Tracks applied migrations in a 'migrations' table
+ * - Handles SQL statements, including multi-line statements and special constructs
+ * - Executes statements in a specific order (drops, tables, indexes, triggers, others)
+ */
 import { config } from "dotenv";
-config(); // Load .env file
+config(); // Load environment variables from .env file
 
-import { turso } from "../src/turso.js"; // Note the .js extension for ESM
+import { turso } from "../src/turso.js"; // Import the Turso database client with .js extension for ESM
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
-// Use import.meta.url for __dirname equivalent in ESM
+// Create __dirname equivalent for ESM modules since it's not available by default
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
  * Executes individual SQL statements from a SQL string
- * Handles multi-line statements, comments, and special SQL constructs like triggers
+ * 
+ * This function parses a SQL file into individual statements and executes them
+ * in a specific order for proper database initialization.
+ * 
+ * Features:
+ * - Handles multi-line statements
+ * - Preserves SQL trigger definitions
+ * - Removes SQL comments
+ * - Executes statements in a logical order (drops, tables, indexes, triggers, others)
+ * - Provides error handling with descriptive messages
  *
- * @param sql SQL string containing multiple statements
+ * @param sql - SQL string containing multiple statements
  * @returns Promise that resolves when all statements have been executed
  */
 async function executeSqlStatements(sql: string): Promise<void> {
-  // First combine multi-line statements and remove comments
+  // Parse and combine multi-line statements while removing comments
   const lines = sql.split("\n");
   let combinedSql = "";
   let inTrigger = false;
   let currentStatement = "";
 
   for (const line of lines) {
-    // Remove inline comments (but keep -- in trigger definitions)
+    // Remove inline comments (but preserve comments within trigger definitions)
     const cleanedLine = !inTrigger ? line.replace(/--.*$/, "") : line;
 
     if (cleanedLine.trim().toUpperCase().startsWith("CREATE TRIGGER")) {
@@ -50,33 +73,27 @@ async function executeSqlStatements(sql: string): Promise<void> {
     combinedSql += currentStatement + "\n";
   }
 
-  // Split into statements
+  // Split the combined SQL into individual statements for execution
   const statements = combinedSql
     .split("\n")
     .map((stmt) => stmt.trim())
     .filter((stmt) => stmt.length > 0 && stmt !== ";");
 
-  // Group statements by type
+  // Group statements by type for ordered execution
   const drops = statements.filter((s) => s.toUpperCase().startsWith("DROP"));
-  const tables = statements.filter((s) =>
-    s.toUpperCase().startsWith("CREATE TABLE"),
-  );
-  const indexes = statements.filter((s) =>
-    s.toUpperCase().startsWith("CREATE INDEX"),
-  );
-  const triggers = statements.filter((s) =>
-    s.toUpperCase().startsWith("CREATE TRIGGER"),
-  );
+  const tables = statements.filter((s) => s.toUpperCase().startsWith("CREATE TABLE"));
+  const indexes = statements.filter((s) => s.toUpperCase().startsWith("CREATE INDEX"));
+  const triggers = statements.filter((s) => s.toUpperCase().startsWith("CREATE TRIGGER"));
   const others = statements.filter(
     (s) =>
       !s.toUpperCase().startsWith("DROP") &&
       !s.toUpperCase().startsWith("CREATE TABLE") &&
       !s.toUpperCase().startsWith("CREATE INDEX") &&
-      !s.toUpperCase().startsWith("CREATE TRIGGER"),
+      !s.toUpperCase().startsWith("CREATE TRIGGER")
   );
 
-  // Execute in order: drops, tables, indexes, triggers, others
-  console.log("Dropping existing objects...");
+  // Execute statements in proper order
+  console.log("Dropping obsolete objects...");
   for (const stmt of drops) {
     try {
       await turso.execute({ sql: stmt });
@@ -110,9 +127,15 @@ async function executeSqlStatements(sql: string): Promise<void> {
     try {
       await turso.execute({ sql: stmt });
     } catch (error: any) {
-      console.error(`Error executing: ${stmt}`);
-      console.error("Error details:", error?.message || String(error));
-      throw error;
+      const errorMsg = error?.message || String(error);
+      // Ignore errors when index already exists
+      if (errorMsg.includes("already exists")) {
+        console.log(`Info: Index in statement "${stmt}" already exists, skipping.`);
+      } else {
+        console.error(`Error executing: ${stmt}`);
+        console.error("Error details:", errorMsg);
+        throw error;
+      }
     }
   }
 

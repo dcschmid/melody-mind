@@ -1,0 +1,155 @@
+---
+/**
+ * Achievement Card Component
+ *
+ * This component displays a single achievement with all its details.
+ */
+
+import { useTranslations } from "../../utils/i18n.ts";
+import type { LocalizedAchievement } from "../../types/achievement.ts";
+
+interface Props {
+  /** The achievement to be displayed */
+  achievement: LocalizedAchievement;
+  /** Language code for translations */
+  lang: string;
+}
+
+const { achievement, lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Calculate progress percentage
+const progressPercentage = achievement.progressPercentage;
+
+// Determine the achievement status
+const status = achievement.status;
+---
+
+<div
+  class={`bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-transform transition-shadow flex flex-col h-full ${
+    status === "locked" ? "opacity-70 grayscale-[80%]" : ""
+  } ${status === "in-progress" ? "border-2 border-blue-500" : ""} ${
+    status === "unlocked" ? "border-2 border-green-500" : ""
+  }`}
+  data-testid="achievement-card"
+  data-category={achievement.category?.code}
+>
+  <div
+    class="bg-gray-700 p-6 flex justify-center items-center h-[100px] relative"
+  >
+    {
+      achievement.iconPath ? (
+        <img
+          src={achievement.iconPath}
+          alt={achievement.name}
+          width="64"
+          height="64"
+          loading="lazy"
+        />
+      ) : (
+        <div class="w-16 h-16 bg-gray-600 rounded-full flex justify-center items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="8" r="7" />
+            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+          </svg>
+        </div>
+      )
+    }
+    {
+      status === "unlocked" && (
+        <div
+          class="absolute top-2 right-2 bg-green-500 text-white rounded-full w-6 h-6 flex justify-center items-center"
+          aria-hidden="true"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
+        </div>
+      )
+    }
+  </div>
+  <div class="p-6 flex-grow flex flex-col">
+    <h3 class="text-xl mb-2">{achievement.name}</h3>
+    <p class="text-gray-300 mb-4 text-sm flex-grow">
+      {achievement.description}
+    </p>
+    <div class="flex justify-between mb-4 text-sm">
+      <span class="text-yellow-400 font-semibold">
+        {
+          t("achievements.points", {
+            points: achievement.category?.points ?? 0,
+          })
+        }
+      </span>
+      <span class="text-gray-400" title={t("achievements.rarity.tooltip")}>
+        {
+          t("achievements.rarity", {
+            percentage: achievement.rarityPercentage.toFixed(2),
+          })
+        }
+      </span>
+    </div>
+    <div class="mt-auto">
+      <div
+        class="h-2 bg-gray-600 rounded overflow-hidden mb-2"
+        role="progressbar"
+        aria-valuenow={progressPercentage}
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        <div
+          class={`h-full ${status === "unlocked" ? "bg-green-500" : "bg-blue-500"}`}
+          style={`width: ${progressPercentage}%`}
+        >
+        </div>
+      </div>
+      <div class="flex justify-between items-center flex-wrap gap-1">
+        <span class="text-gray-400 text-sm">
+          {t("achievements.progress", { progress: progressPercentage })}
+        </span>
+        {
+          achievement.status === "unlocked" &&
+            achievement.userProgress?.unlockedAt && (
+              <span class="text-green-500 text-sm">
+                {t("achievements.unlocked_at", {
+                  date: new Date(
+                    achievement.userProgress.unlockedAt
+                  ).toLocaleDateString(lang),
+                })}
+              </span>
+            )
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @media (prefers-reduced-motion: reduce) {
+    .transition-transform,
+    .transition-shadow {
+      transition: none !important;
+    }
+  }
+</style>
