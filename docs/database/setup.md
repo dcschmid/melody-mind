@@ -18,7 +18,7 @@ function detectEnvironment() {
     const isAstroContext = typeof import.meta !== 'undefined' &&
                           import.meta &&
                           typeof (import.meta as any).env !== 'undefined';
-    
+
     return isAstroContext;
   } catch (error) {
     // Wenn import.meta nicht verfügbar ist, sind wir in einem Node.js-Kontext
@@ -28,7 +28,7 @@ function detectEnvironment() {
 
 export function getDatabaseConfig(): DatabaseConfig {
   const isAstroContext = detectEnvironment();
-  
+
   if (isAstroContext) {
     // Astro-Kontext: Verwende import.meta.env
     const env = (import.meta as any).env;
@@ -54,26 +54,27 @@ Der `db-setup-wrapper.mjs` dient als Einstiegspunkt für die Datenbankeinrichtun
 
 ```js
 // Wrapper-Skript, das die neuere register()-API verwendet
-import { register } from 'node:module';
-import { pathToFileURL } from 'node:url';
-import { fileURLToPath } from 'node:url';
-import { dirname } from 'node:path';
-import { config } from 'dotenv';
+import { register } from "node:module";
+import { pathToFileURL } from "node:url";
+import { fileURLToPath } from "node:url";
+import { dirname } from "node:path";
+import { config } from "dotenv";
 
 // Lade Umgebungsvariablen
 config();
 
 // Registriere ts-node für ESM
-register('ts-node/esm', pathToFileURL('./'));
+register("ts-node/esm", pathToFileURL("./"));
 
 // Importiere und führe das Setup-Skript aus
-import('./db/setup.ts').catch(err => {
-  console.error('Fehler beim Ausführen des Setup-Skripts:', err);
+import("./db/setup.ts").catch((err) => {
+  console.error("Fehler beim Ausführen des Setup-Skripts:", err);
   process.exit(1);
 });
 ```
 
 Dieser Wrapper:
+
 - Lädt Umgebungsvariablen aus der `.env`-Datei
 - Registriert ts-node für ESM, um TypeScript-Dateien direkt ausführen zu können
 - Importiert und führt das eigentliche Setup-Skript aus
@@ -105,6 +106,7 @@ Bei der Erstellung neuer Migrationen sollten folgende Formatierungsrichtlinien b
 ```
 
 2. **Gruppierung von Anweisungen nach Typ**:
+
    - DROP-Anweisungen zuerst
    - CREATE TABLE-Anweisungen
    - CREATE INDEX-Anweisungen
@@ -127,7 +129,7 @@ CREATE TABLE IF NOT EXISTS users (
   id TEXT PRIMARY KEY NOT NULL,
   username TEXT UNIQUE NOT NULL,
   email TEXT UNIQUE NOT NULL,
-  
+
   CONSTRAINT valid_email CHECK (email LIKE '%@%.%')
 );
 ```
@@ -143,12 +145,14 @@ FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 Migrationsdateien sollten nach folgendem Schema organisiert werden:
 
 1. **Dateinamenkonvention**:
+
    - Numerisches Präfix für die Reihenfolge (z.B. `001_`, `002_`)
    - Beschreibender Name in Kleinbuchstaben mit Unterstrichen
    - `.sql`-Erweiterung
    - Beispiel: `003_add_user_preferences.sql`
 
 2. **Inhaltliche Struktur**:
+
    - Kommentarheader mit Beschreibung
    - DROP-Anweisungen (falls erforderlich)
    - Schema-Änderungen (CREATE/ALTER TABLE)
@@ -158,6 +162,7 @@ Migrationsdateien sollten nach folgendem Schema organisiert werden:
    - Übersetzungen und lokalisierte Inhalte
 
 3. **Atomare Migrationen**:
+
    - Jede Migration sollte einen einzelnen, zusammenhängenden Zweck erfüllen
    - Komplexe Änderungen sollten in mehrere Migrationen aufgeteilt werden
 
@@ -177,7 +182,7 @@ CREATE TABLE IF NOT EXISTS user_preferences (
   theme TEXT NOT NULL DEFAULT 'light',
   language TEXT NOT NULL DEFAULT 'en',
   notifications_enabled BOOLEAN NOT NULL DEFAULT true,
-  
+
   PRIMARY KEY (user_id),
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
@@ -203,6 +208,7 @@ ON CONFLICT (user_id) DO NOTHING;
 **Symptom**: Fehlermeldung "Fehler: TURSO_DATABASE_URL ist nicht konfiguriert"
 
 **Lösung**:
+
 1. Überprüfen Sie, ob eine `.env`-Datei im Projektroot existiert
 2. Stellen Sie sicher, dass die Datei die folgenden Variablen enthält:
 
@@ -218,6 +224,7 @@ TURSO_AUTH_TOKEN=your-auth-token
 **Symptom**: Fehlermeldung "Error executing: [SQL statement]"
 
 **Lösung**:
+
 1. Überprüfen Sie die SQL-Syntax in der Migrationsdatei
 2. Stellen Sie sicher, dass alle referenzierten Tabellen und Spalten existieren
 3. Prüfen Sie, ob die Migration bereits teilweise angewendet wurde
@@ -232,12 +239,15 @@ DELETE FROM migrations WHERE name = 'problematic_migration.sql';
 **Symptom**: Fehlermeldung "Cannot read properties of undefined (reading 'env')"
 
 **Lösung**:
+
 1. Überprüfen Sie, ob die Datei nur serverseitig importiert wird
 2. Fügen Sie eine Prüfung hinzu, um clientseitige Importe zu verhindern:
 
 ```js
 if (typeof window !== "undefined") {
-  console.error("Diese Datei sollte nur auf der Serverseite importiert werden!");
+  console.error(
+    "Diese Datei sollte nur auf der Serverseite importiert werden!",
+  );
 }
 ```
 
@@ -246,6 +256,7 @@ if (typeof window !== "undefined") {
 **Symptom**: Fehlermeldung "Cannot find module" oder "TS2307"
 
 **Lösung**:
+
 1. Überprüfen Sie die `tsconfig.json`-Konfiguration
 2. Stellen Sie sicher, dass alle Pfade korrekt sind
 3. Verwenden Sie die richtige Erweiterung beim Import (.js für ESM)

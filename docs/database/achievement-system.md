@@ -1,6 +1,7 @@
 # Achievement System Database Design
 
 ## Overview
+
 Dieses Dokument beschreibt die Datenbankstruktur für das Achievement-System von Melody Mind.
 
 ## Schema
@@ -29,7 +30,7 @@ CREATE TABLE achievement_categories (
     points INTEGER NOT NULL,
     icon_path TEXT NOT NULL,
     sort_order INTEGER NOT NULL,
-    
+
     CONSTRAINT valid_category_code CHECK (code IN ('bronze', 'silver', 'gold', 'platinum'))
 );
 
@@ -42,7 +43,7 @@ CREATE TABLE achievements (
     condition_value INTEGER NOT NULL,
     rarity_percentage DECIMAL(5,2) DEFAULT 0.00,
     icon_path TEXT,
-    
+
     FOREIGN KEY (category_id) REFERENCES achievement_categories(id) ON DELETE CASCADE
 );
 
@@ -52,7 +53,7 @@ CREATE TABLE achievement_translations (
     language TEXT NOT NULL,
     name TEXT NOT NULL,
     description TEXT NOT NULL,
-    
+
     PRIMARY KEY (achievement_id, language),
     FOREIGN KEY (achievement_id) REFERENCES achievements(id) ON DELETE CASCADE
 );
@@ -63,7 +64,7 @@ CREATE TABLE user_achievements (
     achievement_id TEXT NOT NULL,
     current_progress INTEGER NOT NULL DEFAULT 0,
     unlocked_at TIMESTAMP,
-    
+
     PRIMARY KEY (user_id, achievement_id),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (achievement_id) REFERENCES achievements(id) ON DELETE CASCADE
@@ -96,7 +97,7 @@ INSERT INTO achievement_translations (achievement_id, language, name, descriptio
 ('ach_score_1000', 'de', '1000 Punkte gesamt', 'Sammle insgesamt 1000 Punkte über alle Spiele');
 
 -- Englische Übersetzungen
-INSERT INTO achievement_translations (achievement_id, language, name, description) VALUES 
+INSERT INTO achievement_translations (achievement_id, language, name, description) VALUES
 ('ach_games_50', 'en', '50 Games Played', 'Play 50 games in any mode'),
 ('ach_perfect_5', 'en', '5 Perfect Games', 'Achieve maximum score in 5 games'),
 ('ach_score_1000', 'en', '1000 Total Points', 'Accumulate 1000 points across all games');
@@ -107,11 +108,11 @@ INSERT INTO achievement_translations (achievement_id, language, name, descriptio
 Die `rarity_percentage` wird regelmäßig über einen Cronjob aktualisiert:
 
 ```sql
-UPDATE achievements a 
+UPDATE achievements a
 SET rarity_percentage = (
     SELECT ROUND(
-        (COUNT(CASE WHEN ua.unlocked_at IS NOT NULL THEN 1 END)::DECIMAL / 
-         COUNT(DISTINCT ua.user_id) * 100), 
+        (COUNT(CASE WHEN ua.unlocked_at IS NOT NULL THEN 1 END)::DECIMAL /
+         COUNT(DISTINCT ua.user_id) * 100),
         2
     )
     FROM user_achievements ua
@@ -122,6 +123,7 @@ SET rarity_percentage = (
 ## Indizierung und Performance
 
 Die gewählten Indizes optimieren:
+
 - Abfragen nach Achievements pro Kategorie
 - Sprachspezifische Achievement-Anzeige
 - Benutzer-Achievement-Status
@@ -131,11 +133,13 @@ Die gewählten Indizes optimieren:
 ## Nächste Schritte
 
 1. Erstellen der entsprechenden API-Endpunkte für:
+
    - Achievement-Liste mit Fortschritt
    - Achievement-Freischaltung
    - Achievement-Statistiken
 
 2. Implementieren des Achievement-Tracking-Systems für:
+
    - Spielzähler
    - Perfekte Spiele
    - Gesamtpunktzahl

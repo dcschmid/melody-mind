@@ -35,7 +35,7 @@ const t = useTranslations(lang);
   // Retrieve number of new achievements from localStorage
   let newAchievementsCount = parseInt(
     localStorage.getItem("new-achievements-count") || "0",
-    10
+    10,
   );
 
   // Update badge
@@ -67,13 +67,13 @@ const t = useTranslations(lang);
         // Save to localStorage
         localStorage.setItem(
           "new-achievements-count",
-          newAchievementsCount.toString()
+          newAchievementsCount.toString(),
         );
 
         // Update badge
         updateBadge();
       }
-    }
+    },
   );
 
   // Reset badge when achievement page is visited

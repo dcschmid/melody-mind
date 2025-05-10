@@ -1,10 +1,10 @@
 /**
  * Database Setup Script for MelodyMind
- * 
+ *
  * This module handles database initialization and migration for the MelodyMind application.
  * It sets up the database schema by executing SQL migrations in order and tracks
  * applied migrations to prevent duplicate execution.
- * 
+ *
  * Features:
  * - Loads environment variables from .env file
  * - Executes SQL migration files in alphabetical order
@@ -25,10 +25,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
  * Executes individual SQL statements from a SQL string
- * 
+ *
  * This function parses a SQL file into individual statements and executes them
  * in a specific order for proper database initialization.
- * 
+ *
  * Features:
  * - Handles multi-line statements
  * - Preserves SQL trigger definitions
@@ -81,15 +81,21 @@ async function executeSqlStatements(sql: string): Promise<void> {
 
   // Group statements by type for ordered execution
   const drops = statements.filter((s) => s.toUpperCase().startsWith("DROP"));
-  const tables = statements.filter((s) => s.toUpperCase().startsWith("CREATE TABLE"));
-  const indexes = statements.filter((s) => s.toUpperCase().startsWith("CREATE INDEX"));
-  const triggers = statements.filter((s) => s.toUpperCase().startsWith("CREATE TRIGGER"));
+  const tables = statements.filter((s) =>
+    s.toUpperCase().startsWith("CREATE TABLE"),
+  );
+  const indexes = statements.filter((s) =>
+    s.toUpperCase().startsWith("CREATE INDEX"),
+  );
+  const triggers = statements.filter((s) =>
+    s.toUpperCase().startsWith("CREATE TRIGGER"),
+  );
   const others = statements.filter(
     (s) =>
       !s.toUpperCase().startsWith("DROP") &&
       !s.toUpperCase().startsWith("CREATE TABLE") &&
       !s.toUpperCase().startsWith("CREATE INDEX") &&
-      !s.toUpperCase().startsWith("CREATE TRIGGER")
+      !s.toUpperCase().startsWith("CREATE TRIGGER"),
   );
 
   // Execute statements in proper order
@@ -130,7 +136,9 @@ async function executeSqlStatements(sql: string): Promise<void> {
       const errorMsg = error?.message || String(error);
       // Ignore errors when index already exists
       if (errorMsg.includes("already exists")) {
-        console.log(`Info: Index in statement "${stmt}" already exists, skipping.`);
+        console.log(
+          `Info: Index in statement "${stmt}" already exists, skipping.`,
+        );
       } else {
         console.error(`Error executing: ${stmt}`);
         console.error("Error details:", errorMsg);

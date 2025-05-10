@@ -572,7 +572,7 @@ const {
     document.querySelectorAll("[data-share]").forEach((button) => {
       (button as HTMLElement).removeEventListener(
         "click",
-        handleShareButtonClick
+        handleShareButtonClick,
       );
     });
 
@@ -581,7 +581,7 @@ const {
 
     // Cancel any ongoing animations
     window.cancelAnimationFrame(
-      Number(document.documentElement.dataset.endOverlayAnimationId || 0)
+      Number(document.documentElement.dataset.endOverlayAnimationId || 0),
     );
 
     // Clear achievement storage when navigating away
@@ -625,7 +625,7 @@ const {
           try {
             sessionStorage.setItem(
               "unlockedAchievements",
-              JSON.stringify(globalUnlockedAchievements)
+              JSON.stringify(globalUnlockedAchievements),
             );
           } catch (e) {
             console.error("Error storing achievements:", e);
@@ -636,7 +636,7 @@ const {
             updateAchievementsSection(globalUnlockedAchievements);
           }
         }
-      }
+      },
     );
 
     // Store reference to last focused element before opening
@@ -665,7 +665,7 @@ const {
             // Update achievements section
             console.log(
               "Checking for achievements to display:",
-              globalUnlockedAchievements
+              globalUnlockedAchievements,
             );
             updateAchievementsSection(globalUnlockedAchievements);
 
@@ -716,7 +716,7 @@ const {
    */
   function setupClickHandlers(
     popup: HTMLElement,
-    lastFocusedElement: HTMLElement | null
+    lastFocusedElement: HTMLElement | null,
   ): void {
     // Handle backdrop clicks to close modal
     const backdrop = document.getElementById("overlay-backdrop");
@@ -743,7 +743,7 @@ const {
    */
   function hidePopup(
     popup: HTMLElement,
-    elementToFocus: HTMLElement | null
+    elementToFocus: HTMLElement | null,
   ): void {
     popup.classList.add("hidden");
 
@@ -808,7 +808,7 @@ const {
       'textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
     const elements = Array.from(
-      container.querySelectorAll<HTMLElement>(selector)
+      container.querySelectorAll<HTMLElement>(selector),
     );
 
     // Filter out hidden elements
@@ -864,7 +864,7 @@ const {
     // Update ARIA properties for accessibility
     progressContainer.setAttribute(
       "aria-valuenow",
-      targetPercentage.toString()
+      targetPercentage.toString(),
     );
 
     // Start at 0%
@@ -1129,7 +1129,7 @@ const {
 
     const achievementsSection = document.getElementById("achievements-section");
     const unlockedAchievementsContainer = document.getElementById(
-      "unlocked-achievements"
+      "unlocked-achievements",
     );
 
     if (!achievementsSection || !unlockedAchievementsContainer) {
@@ -1234,7 +1234,7 @@ const {
     console.log(
       "Achievement section updated with",
       achievements.length,
-      "achievements"
+      "achievements",
     );
   }
 </script>

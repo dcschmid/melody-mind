@@ -97,14 +97,14 @@ const t = useTranslations(lang);
 
   // DOM elements
   const notificationElement = document.getElementById(
-    "achievement-notification"
+    "achievement-notification",
   );
   const titleElement = document.getElementById("achievement-title");
   const descriptionElement = document.getElementById("achievement-description");
   const categoryElement = document.getElementById("achievement-category");
   const closeButton = document.getElementById("achievement-close");
   const achievementSound = document.getElementById(
-    "achievement-sound"
+    "achievement-sound",
   ) as HTMLAudioElement;
 
   // Check user settings for sound
@@ -161,13 +161,13 @@ const t = useTranslations(lang);
             setTimeout(() => {
               notificationElement.classList.remove(
                 "translate-y-0",
-                "opacity-100"
+                "opacity-100",
               );
             }, 300);
           }, 6000); // Show for 6 seconds
         }
       }
-    }
+    },
   );
 
   // Close button event listener

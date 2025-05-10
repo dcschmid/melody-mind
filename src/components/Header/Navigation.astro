@@ -389,25 +389,25 @@ const isAuthenticated = false; // Will be overwritten client-side
   function initNavigationMenu(): void {
     // Get all required DOM elements
     const menuToggle = document.getElementById(
-      "menu-toggle"
+      "menu-toggle",
     ) as HTMLButtonElement | null;
     const mainMenu = document.getElementById(
-      "main-menu"
+      "main-menu",
     ) as HTMLDivElement | null;
     const menuBackdrop = document.getElementById(
-      "menu-backdrop"
+      "menu-backdrop",
     ) as HTMLDivElement | null;
     const closeButton = mainMenu?.querySelector(
-      ".close-menu"
+      ".close-menu",
     ) as HTMLButtonElement | null;
     const statusAnnouncer = document.getElementById(
-      "menu-status-announcer"
+      "menu-status-announcer",
     ) as HTMLDivElement | null;
 
     // Ensure all required elements exist before proceeding
     if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
       console.warn(
-        "Navigation menu elements not found, menu functionality disabled"
+        "Navigation menu elements not found, menu functionality disabled",
       );
       return;
     }
@@ -417,13 +417,13 @@ const isAuthenticated = false; // Will be overwritten client-side
 
     // Set up event listeners
     menuToggle.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer),
     );
     closeButton.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer),
     );
     menuBackdrop.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer),
     );
 
     // Close menu with Escape key
@@ -453,7 +453,7 @@ const isAuthenticated = false; // Will be overwritten client-side
     menuToggle: HTMLButtonElement,
     mainMenu: HTMLElement,
     menuBackdrop: HTMLElement,
-    statusAnnouncer?: HTMLElement | null
+    statusAnnouncer?: HTMLElement | null,
   ): void {
     // Get current state and determine new state
     const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
@@ -538,7 +538,7 @@ const isAuthenticated = false; // Will be overwritten client-side
     const selector =
       'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
     const elements = Array.from(
-      container.querySelectorAll<HTMLElement>(selector)
+      container.querySelectorAll<HTMLElement>(selector),
     );
     return elements.filter((el) => el.offsetParent !== null); // Filter out hidden elements
   }
@@ -550,7 +550,7 @@ const isAuthenticated = false; // Will be overwritten client-side
    * @returns {HTMLElement | null} The first focusable element or null if none found
    */
   function getFirstFocusableElement(
-    container: HTMLElement
+    container: HTMLElement,
   ): HTMLElement | null {
     const focusableElements = getFocusableElements(container);
     return focusableElements.length > 0 ? focusableElements[0] : null;
