@@ -1,8 +1,7 @@
 export default {
   // Autentiseringskomponenter
   "auth.required.title": "Inloggning krävs",
-  "auth.required.description":
-    "Logga in för att komma åt det här området",
+  "auth.required.description": "Logga in för att komma åt det här området",
   "auth.login.title": "Logga in",
   "auth.register.title": "Registrera",
   "auth.login.email": "E-postadress",
@@ -29,15 +28,12 @@ export default {
   "auth.form.loading_text": "Laddar...",
   "auth.form.send_reset_link": "Skicka återställningslänk",
   "auth.form.password_required": "Lösenord krävs",
-  "auth.form.password_requirements":
-    "Lösenordet uppfyller inte alla krav",
-  "auth.form.password_confirm_required":
-    "Lösenordsbekräftelse krävs",
+  "auth.form.password_requirements": "Lösenordet uppfyller inte alla krav",
+  "auth.form.password_confirm_required": "Lösenordsbekräftelse krävs",
   "auth.form.passwords_not_match": "Lösenorden matchar inte",
   "auth.password_reset.success_message":
     "Om ett konto finns med denna e-postadress har ett e-postmeddelande med instruktioner för lösenordsåterställning skickats.",
-  "auth.password_reset.error_message":
-    "Ett fel uppstod. Försök igen senare.",
+  "auth.password_reset.error_message": "Ett fel uppstod. Försök igen senare.",
   "auth.password_reset.complete_success":
     "Lösenordet har återställts. Du kan nu logga in med ditt nya lösenord.",
   "auth.password_reset.complete_error":
@@ -80,19 +76,14 @@ export default {
   // Lösenordsvalidering
   "auth.password.requirements": "Lösenordskrav:",
   "auth.password.min_length": "Lösenordet måste vara minst 8 tecken långt",
-  "auth.password.uppercase":
-    "Lösenordet måste innehålla minst en stor bokstav",
+  "auth.password.uppercase": "Lösenordet måste innehålla minst en stor bokstav",
   "auth.password.lowercase":
     "Lösenordet måste innehålla minst en liten bokstav",
   "auth.password.number": "Lösenordet måste innehålla minst en siffta",
-  "auth.password.special":
-    "Lösenordet måste innehålla minst ett specialtecken",
-  "auth.password.no_common":
-    "Lösenordet får inte vara ett vanligt lösenord",
-  "auth.password.no_repeats":
-    "Lösenordet får inte innehålla upprepade tecken",
-  "auth.password.no_sequences":
-    "Lösenordet får inte innehålla enkla sekvenser",
+  "auth.password.special": "Lösenordet måste innehålla minst ett specialtecken",
+  "auth.password.no_common": "Lösenordet får inte vara ett vanligt lösenord",
+  "auth.password.no_repeats": "Lösenordet får inte innehålla upprepade tecken",
+  "auth.password.no_sequences": "Lösenordet får inte innehålla enkla sekvenser",
   "auth.password.match": "Lösenorden måste matcha",
   "auth.password.strength": "Lösenordsstyrka",
   "auth.password.strength.weak": "Svagt",
@@ -103,10 +94,8 @@ export default {
   // Formulärvalidering
   "auth.form.required": "Detta fält är obligatoriskt",
   "auth.form.email_invalid": "Ange en giltig e-postadress",
-  "auth.form.min_length":
-    "Detta fält måste vara minst {length} tecken långt",
-  "auth.form.max_length":
-    "Detta fält får inte överstiga {length} tecken",
+  "auth.form.min_length": "Detta fält måste vara minst {length} tecken långt",
+  "auth.form.max_length": "Detta fält får inte överstiga {length} tecken",
   "auth.form.invalid": "Detta fält är ogiltigt",
 
   // Tillgänglighet
@@ -114,8 +103,7 @@ export default {
   "auth.accessibility.error": "Fel: {message}",
   "auth.accessibility.required_field": "Obligatoriskt fält",
   "auth.accessibility.password_toggle": "Visa/dölj lösenord",
-  "auth.accessibility.password_requirements":
-    "Visa/dölj lösenordskrav",
+  "auth.accessibility.password_requirements": "Visa/dölj lösenordskrav",
   "auth.accessibility.form": "Inloggningsformulär",
   "auth.accessibility.close_modal": "Stäng fönster",
 
@@ -128,11 +116,9 @@ export default {
   "auth.api.too_many_requests": "För många försök. Försök igen senare",
 
   // Tjänstefelmeddelanden
-  "auth.service.session_expired":
-    "Din session har gått ut. Logga in igen",
+  "auth.service.session_expired": "Din session har gått ut. Logga in igen",
   "auth.service.unauthorized": "Obehörig. Logga in",
-  "auth.service.account_locked":
-    "Ditt konto har låsts. Kontakta support",
+  "auth.service.account_locked": "Ditt konto har låsts. Kontakta support",
   "auth.service.permission_denied": "Åtkomst nekad för denna åtgärd",
   "auth.service.invalid_credentials":
     "Ogiltiga inloggningsuppgifter. Kontrollera din e-postadress och ditt lösenord.",
@@ -153,8 +139,7 @@ export default {
   "game.welcome": "Välkommen till Melody Mind",
   "game.genre.list": "Genreval",
   "game.search.label": "Sök efter en genre",
-  "game.search.description":
-    "Listan filtreras automatiskt när du skriver",
+  "game.search.description": "Listan filtreras automatiskt när du skriver",
   "game.genre.play.label": "spela",
   "game.genre.image": "Omslagsbild för",
   "game.no.results": "Inga resultat hittades",
@@ -245,13 +230,11 @@ export default {
   "playlist.item.coming.soon": "Kommer snart",
   "game.area.label": "Spelområde",
   "game.options.label": "Svarsalternativ",
-  "game.answer.correct":
-    "Rätt! {points} poäng + {bonus} bonuspoäng",
+  "game.answer.correct": "Rätt! {points} poäng + {bonus} bonuspoäng",
   "game.answer.wrong": "Fel! Rätt svar var: {answer}",
   "error.invalid.question": "Ogiltig fråga eller inga alternativ tillgängliga",
   "error.no.initial.question": "Ingen giltig startfråga hittades",
-  "error.no.albums.found":
-    "Inga album hittades för kategori {category}",
+  "error.no.albums.found": "Inga album hittades för kategori {category}",
   "meta.keywords":
     "Musikquiz, Musikspel, Låtquiz, Artistquiz, Online Musikquiz, Musik Trivia, Melody Mind, Musikgissningsspel",
   "knowledge.title": "Musikkunskapsbas",
@@ -260,8 +243,7 @@ export default {
   "knowledge.search.label": "Sök artiklar",
   "knowledge.search.placeholder": "Sök...",
   "knowledge.filter.all": "Alla nyckelord",
-  "knowledge.no.results":
-    "Inga artiklar hittades. Prova andra söktermer.",
+  "knowledge.no.results": "Inga artiklar hittades. Prova andra söktermer.",
   "game.remaining": "kvar",
   "game.default.headline": "Spel",
   "popup.score": "Poäng: {score}",
@@ -307,8 +289,7 @@ export default {
   "podcast.intro.description":
     "Astropod är en gratis och öppen källkodslösning för serverlösa poddar.",
   "podcast.deploy.title": "Distribuera Serverlös Podd på 2 Minuter",
-  "podcast.deploy.description":
-    "Lär dig hur du snabbt distribuerar din podd.",
+  "podcast.deploy.description": "Lär dig hur du snabbt distribuerar din podd.",
   "podcast.auth.title":
     "Användarautentisering och Åtkomst till Instrumentpanelen",
   "podcast.auth.description":
@@ -340,11 +321,9 @@ export default {
   "game.puzzle.loading": "Laddar pussel...",
   "game.options.legend": "Välj rätt album",
   "game.next.round": "Starta Nästa Omgång",
-  "game.puzzle.revealed":
-    "{percent}% av albumomslaget har avslöjats",
+  "game.puzzle.revealed": "{percent}% av albumomslaget har avslöjats",
   "game.option.choose": "Välj",
-  "game.options.available":
-    "Svarsalternativ är nu tillgängliga",
+  "game.options.available": "Svarsalternativ är nu tillgängliga",
   "game.time.remaining.seconds": "{seconds} sekunder kvar",
   "game.time.up": "Tiden är ute! Rätt album var:",
   "game.correct.answer": "Rätt Svar",
@@ -381,8 +360,7 @@ export default {
   "game.chronology.correct": "Korrekt",
   "game.chronology.wrong": "Borde vara på position {position}",
   "game.chronology.score": "Poäng: {score} poäng",
-  "game.chronology.details":
-    "{correct} av {total} album placerade korrekt",
+  "game.chronology.details": "{correct} av {total} album placerade korrekt",
   "game.chronology.year": "År: {year}",
   "game.chronology.drag.help":
     "Använd piltangenterna ↑/↓ eller dra och släpp för att sortera",
@@ -411,8 +389,7 @@ export default {
     "Hantera din personliga information och se din spelstatistik",
   "profile.loading": "Laddar profildata...",
   "profile.error": "Fel vid laddning av profildata",
-  "profile.auth.required":
-    "Du måste vara inloggad för att se din profil",
+  "profile.auth.required": "Du måste vara inloggad för att se din profil",
   "profile.user.info": "Användarinformation",
   "profile.user.since": "Medlem sedan",
   "profile.stats.title": "Spelstatistik",
@@ -487,10 +464,8 @@ export default {
   "achievements.sort.name_desc": "Namn (Ö-A)",
   "achievements.sort.progress_asc": "Framsteg (stigande)",
   "achievements.sort.progress_desc": "Framsteg (fallande)",
-  "achievements.sort.unlocked_at_asc":
-    "Upplåsningsdatum (äldsta först)",
-  "achievements.sort.unlocked_at_desc":
-    "Upplåsningsdatum (nyaste först)",
+  "achievements.sort.unlocked_at_asc": "Upplåsningsdatum (äldsta först)",
+  "achievements.sort.unlocked_at_desc": "Upplåsningsdatum (nyaste först)",
   "achievements.sort.points_asc": "Poäng (stigande)",
   "achievements.sort.points_desc": "Poäng (fallande)",
   "achievements.sort.rarity_asc": "Sällsynthet (vanligaste först)",

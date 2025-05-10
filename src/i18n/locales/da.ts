@@ -1,7 +1,8 @@
 export default {
   // Godkendelseskomponenter
   "auth.required.title": "Login påkrævet",
-  "auth.required.description": "Log venligst ind for at få adgang til dette område",
+  "auth.required.description":
+    "Log venligst ind for at få adgang til dette område",
   "auth.login.title": "Login",
   "auth.register.title": "Registrer",
   "auth.login.email": "E-mailadresse",
@@ -28,8 +29,7 @@ export default {
   "auth.form.loading_text": "Indlæser...",
   "auth.form.send_reset_link": "Send nulstillingslink",
   "auth.form.password_required": "Adgangskode er påkrævet",
-  "auth.form.password_requirements":
-    "Adgangskoden opfylder ikke alle krav",
+  "auth.form.password_requirements": "Adgangskoden opfylder ikke alle krav",
   "auth.form.password_confirm_required":
     "Bekræftelse af adgangskode er påkrævet",
   "auth.form.passwords_not_match": "Adgangskoderne stemmer ikke overens",
@@ -61,8 +61,7 @@ export default {
   "auth.password_reset.email.placeholder": "Din registrerede e-mailadresse",
   "auth.password_reset.back_to_login": "Tilbage til Login",
   "auth.password_reset.login": "Login",
-  "auth.password_reset.success":
-    "Et nulstillingslink er sendt til din e-mail",
+  "auth.password_reset.success": "Et nulstillingslink er sendt til din e-mail",
   "auth.password_reset.error": "Fejl ved afsendelse af nulstillingslink",
   "auth.password_reset.new_password": "Ny adgangskode",
   "auth.password_reset.confirm_password": "Bekræft ny adgangskode",
@@ -78,19 +77,16 @@ export default {
 
   // Adgangskodevalidering
   "auth.password.requirements": "Adgangskodekrav:",
-  "auth.password.min_length":
-    "Adgangskoden skal være mindst 8 tegn lang",
+  "auth.password.min_length": "Adgangskoden skal være mindst 8 tegn lang",
   "auth.password.uppercase":
     "Adgangskoden skal indeholde mindst ét stort bogstav",
   "auth.password.lowercase":
     "Adgangskoden skal indeholde mindst ét lille bogstav",
   "auth.password.number": "Adgangskoden skal indeholde mindst ét tal",
-  "auth.password.special":
-    "Adgangskoden skal indeholde mindst ét specialtegn",
+  "auth.password.special": "Adgangskoden skal indeholde mindst ét specialtegn",
   "auth.password.no_common":
     "Adgangskoden må ikke være en almindelig adgangskode",
-  "auth.password.no_repeats":
-    "Adgangskoden må ikke indeholde gentagne tegn",
+  "auth.password.no_repeats": "Adgangskoden må ikke indeholde gentagne tegn",
   "auth.password.no_sequences":
     "Adgangskoden må ikke indeholde simple sekvenser",
   "auth.password.match": "Adgangskoderne skal stemme overens",
@@ -103,10 +99,8 @@ export default {
   // Formularvalidering
   "auth.form.required": "Dette felt er påkrævet",
   "auth.form.email_invalid": "Indtast venligst en gyldig e-mailadresse",
-  "auth.form.min_length":
-    "Dette felt skal være mindst {length} tegn langt",
-  "auth.form.max_length":
-    "Dette felt må ikke overstige {length} tegn",
+  "auth.form.min_length": "Dette felt skal være mindst {length} tegn langt",
+  "auth.form.max_length": "Dette felt må ikke overstige {length} tegn",
   "auth.form.invalid": "Dette felt er ugyldigt",
 
   // Tilgængelighed
@@ -114,20 +108,17 @@ export default {
   "auth.accessibility.error": "Fejl: {message}",
   "auth.accessibility.required_field": "Påkrævet felt",
   "auth.accessibility.password_toggle": "Vis/skjul adgangskode",
-  "auth.accessibility.password_requirements":
-    "Vis/skjul adgangskodekrav",
+  "auth.accessibility.password_requirements": "Vis/skjul adgangskodekrav",
   "auth.accessibility.form": "Loginformular",
   "auth.accessibility.close_modal": "Luk vindue",
 
   // API-fejlmeddelelser
-  "auth.api.network_error":
-    "Netværksfejl. Tjek venligst din forbindelse",
+  "auth.api.network_error": "Netværksfejl. Tjek venligst din forbindelse",
   "auth.api.server_error": "Serverfejl. Prøv venligst igen senere",
   "auth.api.invalid_credentials": "Ugyldige legitimationsoplysninger",
   "auth.api.account_exists": "Der findes allerede en konto med denne e-mail",
   "auth.api.email_not_found": "Ingen konto fundet med denne e-mail",
-  "auth.api.too_many_requests":
-    "For mange forsøg. Prøv venligst igen senere",
+  "auth.api.too_many_requests": "For mange forsøg. Prøv venligst igen senere",
 
   // Servicefejlmeddelelser
   "auth.service.session_expired":
@@ -155,8 +146,7 @@ export default {
   "game.welcome": "Velkommen til Melody Mind",
   "game.genre.list": "Genrevalg",
   "game.search.label": "Søg efter en genre",
-  "game.search.description":
-    "Listen filtreres automatisk, mens du skriver",
+  "game.search.description": "Listen filtreres automatisk, mens du skriver",
   "game.genre.play.label": "spil",
   "game.genre.image": "Coverbillede for",
   "game.no.results": "Ingen resultater fundet",
@@ -247,13 +237,12 @@ export default {
   "playlist.item.coming.soon": "Kommer snart",
   "game.area.label": "Spilområde",
   "game.options.label": "Svarmuligheder",
-  "game.answer.correct":
-    "Korrekt! {points} point + {bonus} bonuspoint",
+  "game.answer.correct": "Korrekt! {points} point + {bonus} bonuspoint",
   "game.answer.wrong": "Forkert! Det rigtige svar var: {answer}",
-  "error.invalid.question": "Ugyldigt spørgsmål eller ingen muligheder tilgængelige",
+  "error.invalid.question":
+    "Ugyldigt spørgsmål eller ingen muligheder tilgængelige",
   "error.no.initial.question": "Intet gyldigt startspørgsmål fundet",
-  "error.no.albums.found":
-    "Ingen album fundet for kategorien {category}",
+  "error.no.albums.found": "Ingen album fundet for kategorien {category}",
   "meta.keywords":
     "Musikquiz, Musikspil, Sangquiz, Kunstnerquiz, Online Musikquiz, Musik Trivia, Melody Mind, Musikgættespil",
   "knowledge.title": "Musikvidensbase",
@@ -262,8 +251,7 @@ export default {
   "knowledge.search.label": "Søg i artikler",
   "knowledge.search.placeholder": "Søg...",
   "knowledge.filter.all": "Alle nøgleord",
-  "knowledge.no.results":
-    "Ingen artikler fundet. Prøv andre søgetermer.",
+  "knowledge.no.results": "Ingen artikler fundet. Prøv andre søgetermer.",
   "game.remaining": "tilbage",
   "game.default.headline": "Spil",
   "popup.score": "Score: {score}",
@@ -311,8 +299,7 @@ export default {
   "podcast.deploy.title": "Implementer Serverløs Podcast på 2 Minutter",
   "podcast.deploy.description":
     "Lær, hvordan du hurtigt implementerer din podcast.",
-  "podcast.auth.title":
-    "Brugergodkendelse og Adgang til Dashboard",
+  "podcast.auth.title": "Brugergodkendelse og Adgang til Dashboard",
   "podcast.auth.description":
     "Aktiver godkendelse og få adgang til dashboardet.",
   "podcast.config.title": "Konfigurer Astropod Podcast",
@@ -342,11 +329,9 @@ export default {
   "game.puzzle.loading": "Indlæser puslespil...",
   "game.options.legend": "Vælg det korrekte album",
   "game.next.round": "Start Næste Runde",
-  "game.puzzle.revealed":
-    "{percent}% af albumcoveret er blevet afsløret",
+  "game.puzzle.revealed": "{percent}% af albumcoveret er blevet afsløret",
   "game.option.choose": "Vælg",
-  "game.options.available":
-    "Svarmuligheder er nu tilgængelige",
+  "game.options.available": "Svarmuligheder er nu tilgængelige",
   "game.time.remaining.seconds": "{seconds} sekunder tilbage",
   "game.time.up": "Tiden er udløbet! Det korrekte album var:",
   "game.correct.answer": "Korrekt Svar",
@@ -383,8 +368,7 @@ export default {
   "game.chronology.correct": "Korrekt",
   "game.chronology.wrong": "Skulle være på position {position}",
   "game.chronology.score": "Score: {score} point",
-  "game.chronology.details":
-    "{correct} ud af {total} album placeret korrekt",
+  "game.chronology.details": "{correct} ud af {total} album placeret korrekt",
   "game.chronology.year": "År: {year}",
   "game.chronology.drag.help":
     "Brug piletasterne ↑/↓ eller træk og slip for at sortere",
@@ -413,8 +397,7 @@ export default {
     "Administrer dine personlige oplysninger og se dine spilstatistikker",
   "profile.loading": "Indlæser profildata...",
   "profile.error": "Fejl ved indlæsning af profildata",
-  "profile.auth.required":
-    "Du skal være logget ind for at se din profil",
+  "profile.auth.required": "Du skal være logget ind for at se din profil",
   "profile.user.info": "Brugeroplysninger",
   "profile.user.since": "Medlem siden",
   "profile.stats.title": "Spilstatistikker",
@@ -489,10 +472,8 @@ export default {
   "achievements.sort.name_desc": "Navn (Z-A)",
   "achievements.sort.progress_asc": "Fremskridt (stigende)",
   "achievements.sort.progress_desc": "Fremskridt (faldende)",
-  "achievements.sort.unlocked_at_asc":
-    "Oplåsningsdato (ældste først)",
-  "achievements.sort.unlocked_at_desc":
-    "Oplåsningsdato (nyeste først)",
+  "achievements.sort.unlocked_at_asc": "Oplåsningsdato (ældste først)",
+  "achievements.sort.unlocked_at_desc": "Oplåsningsdato (nyeste først)",
   "achievements.sort.points_asc": "Point (stigende)",
   "achievements.sort.points_desc": "Point (faldende)",
   "achievements.sort.rarity_asc": "Sjældenhed (mest almindelige først)",

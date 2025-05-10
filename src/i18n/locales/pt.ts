@@ -28,10 +28,8 @@ export default {
   "auth.form.loading_text": "Carregando...",
   "auth.form.send_reset_link": "Enviar Link de Redefinição",
   "auth.form.password_required": "A senha é obrigatória",
-  "auth.form.password_requirements":
-    "A senha não atende a todos os requisitos",
-  "auth.form.password_confirm_required":
-    "A confirmação da senha é obrigatória",
+  "auth.form.password_requirements": "A senha não atende a todos os requisitos",
+  "auth.form.password_confirm_required": "A confirmação da senha é obrigatória",
   "auth.form.passwords_not_match": "As senhas não coincidem",
   "auth.password_reset.success_message":
     "Se existir uma conta com este endereço de email, um email com instruções de redefinição de senha foi enviado.",
@@ -71,7 +69,8 @@ export default {
   "auth.email_verification.title": "Verificação de Email",
   "auth.email_verification.message":
     "Enviamos um link de verificação para o seu endereço de email",
-  "auth.email_verification.check_inbox": "Por favor, verifique sua caixa de entrada",
+  "auth.email_verification.check_inbox":
+    "Por favor, verifique sua caixa de entrada",
   "auth.email_verification.resend": "Reenviar link de verificação",
   "auth.email_verification.success": "Email verificado com sucesso",
   "auth.email_verification.error": "Falha na verificação do email",
@@ -87,10 +86,8 @@ export default {
   "auth.password.special":
     "A senha deve conter pelo menos um caractere especial",
   "auth.password.no_common": "A senha não deve ser uma senha comum",
-  "auth.password.no_repeats":
-    "A senha não deve conter caracteres repetidos",
-  "auth.password.no_sequences":
-    "A senha não deve conter sequências simples",
+  "auth.password.no_repeats": "A senha não deve conter caracteres repetidos",
+  "auth.password.no_sequences": "A senha não deve conter sequências simples",
   "auth.password.match": "As senhas devem coincidir",
   "auth.password.strength": "Força da senha",
   "auth.password.strength.weak": "Fraca",
@@ -101,10 +98,8 @@ export default {
   // Validação de Formulário
   "auth.form.required": "Este campo é obrigatório",
   "auth.form.email_invalid": "Por favor, insira um endereço de email válido",
-  "auth.form.min_length":
-    "Este campo deve ter pelo menos {length} caracteres",
-  "auth.form.max_length":
-    "Este campo não deve exceder {length} caracteres",
+  "auth.form.min_length": "Este campo deve ter pelo menos {length} caracteres",
+  "auth.form.max_length": "Este campo não deve exceder {length} caracteres",
   "auth.form.invalid": "Este campo é inválido",
 
   // Acessibilidade
@@ -118,8 +113,7 @@ export default {
   "auth.accessibility.close_modal": "Fechar janela",
 
   // Mensagens de Erro da API
-  "auth.api.network_error":
-    "Erro de rede. Por favor, verifique sua conexão",
+  "auth.api.network_error": "Erro de rede. Por favor, verifique sua conexão",
   "auth.api.server_error":
     "Erro no servidor. Por favor, tente novamente mais tarde",
   "auth.api.invalid_credentials": "Credenciais inválidas",
@@ -246,8 +240,7 @@ export default {
   "playlist.item.coming.soon": "Em breve",
   "game.area.label": "Área do Jogo",
   "game.options.label": "Opções de Resposta",
-  "game.answer.correct":
-    "Correto! {points} pontos + {bonus} pontos bônus",
+  "game.answer.correct": "Correto! {points} pontos + {bonus} pontos bônus",
   "game.answer.wrong": "Errado! A resposta correta era: {answer}",
   "error.invalid.question": "Pergunta inválida ou nenhuma opção disponível",
   "error.no.initial.question": "Nenhuma pergunta inicial válida encontrada",
@@ -296,7 +289,8 @@ export default {
   "podcast.page.description":
     "Mergulhe no mundo da música com nossos podcasts cativantes. Descubra histórias emocionantes, bastidores fascinantes e momentos marcantes de várias eras musicais - perfeito para quem não quer apenas ouvir música, mas também entendê-la. Nossos podcasts são lançados a cada 2 semanas e estão disponíveis exclusivamente em alemão e inglês.",
   "podcast.search.label": "Pesquisar Podcasts",
-  "podcast.search.placeholder": "Pesquisar por histórias musicais fascinantes...",
+  "podcast.search.placeholder":
+    "Pesquisar por histórias musicais fascinantes...",
   "podcast.search.status.all": "Mostrando todos os podcasts",
   "podcast.search.status.one": "1 podcast encontrado",
   "podcast.search.status.multiple": "{count} podcasts encontrados",
@@ -317,7 +311,8 @@ export default {
   "podcast.config.title": "Configurar Podcast Astropod",
   "podcast.config.description": "Aprenda como configurar seu podcast.",
   "podcast.publish.title": "Publicar Seu Primeiro Episódio",
-  "podcast.publish.description": "Publique seu primeiro episódio com facilidade.",
+  "podcast.publish.description":
+    "Publique seu primeiro episódio com facilidade.",
   "podcast.conclusion.title": "Conclusão",
   "podcast.conclusion.description": "Resumo e próximos passos.",
   "podcast.listen.on": "Ouvir em",
@@ -331,8 +326,7 @@ export default {
   "index.start.game.label": "Comece sua jornada musical",
   "index.welcome.footnote":
     "Preparado por amantes da música para amantes da música. Aproveite!",
-  "accessibility.wcag":
-    "Esta aplicação visa a conformidade WCAG AAA.",
+  "accessibility.wcag": "Esta aplicação visa a conformidade WCAG AAA.",
   "game.instructions.title": "Instruções do Jogo",
   "game.instructions.puzzle":
     "Tente adivinhar o álbum enquanto a capa é revelada gradualmente. Quanto mais rápido você adivinhar corretamente, mais pontos você ganha.",
@@ -341,11 +335,9 @@ export default {
   "game.puzzle.loading": "Carregando quebra-cabeça...",
   "game.options.legend": "Selecione o álbum correto",
   "game.next.round": "Iniciar Próxima Rodada",
-  "game.puzzle.revealed":
-    "{percent}% da capa do álbum foi revelada",
+  "game.puzzle.revealed": "{percent}% da capa do álbum foi revelada",
   "game.option.choose": "Escolher",
-  "game.options.available":
-    "As opções de resposta estão agora disponíveis",
+  "game.options.available": "As opções de resposta estão agora disponíveis",
   "game.time.remaining.seconds": "{seconds} segundos restantes",
   "game.time.up": "Tempo esgotado! O álbum correto era:",
   "game.correct.answer": "Resposta Correta",
@@ -412,8 +404,7 @@ export default {
     "Gerencie suas informações pessoais e veja suas estatísticas de jogo",
   "profile.loading": "Carregando dados do perfil...",
   "profile.error": "Erro ao carregar dados do perfil",
-  "profile.auth.required":
-    "Você deve estar logado para ver seu perfil",
+  "profile.auth.required": "Você deve estar logado para ver seu perfil",
   "profile.user.info": "Informações do Usuário",
   "profile.user.since": "Membro desde",
   "profile.stats.title": "Estatísticas do Jogo",

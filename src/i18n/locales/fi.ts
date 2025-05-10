@@ -1,8 +1,7 @@
 export default {
   // Todennuskomponentit
   "auth.required.title": "Kirjautuminen vaaditaan",
-  "auth.required.description":
-    "Kirjaudu sisään päästäksesi tälle alueelle",
+  "auth.required.description": "Kirjaudu sisään päästäksesi tälle alueelle",
   "auth.login.title": "Kirjaudu sisään",
   "auth.register.title": "Rekisteröidy",
   "auth.login.email": "Sähköpostiosoite",
@@ -29,10 +28,8 @@ export default {
   "auth.form.loading_text": "Ladataan...",
   "auth.form.send_reset_link": "Lähetä nollauslinkki",
   "auth.form.password_required": "Salasana vaaditaan",
-  "auth.form.password_requirements":
-    "Salasana ei täytä kaikkia vaatimuksia",
-  "auth.form.password_confirm_required":
-    "Salasanan vahvistus vaaditaan",
+  "auth.form.password_requirements": "Salasana ei täytä kaikkia vaatimuksia",
+  "auth.form.password_confirm_required": "Salasanan vahvistus vaaditaan",
   "auth.form.passwords_not_match": "Salasanat eivät täsmää",
   "auth.password_reset.success_message":
     "Jos tällä sähköpostiosoitteella on tili, salasanan nollausohjeet on lähetetty sähköpostitse.",
@@ -59,12 +56,10 @@ export default {
   "auth.password_reset.title": "Nollaa salasana",
   "auth.password_reset.submit": "Lähetä nollauslinkki",
   "auth.password_reset.email": "Sähköpostiosoite",
-  "auth.password_reset.email.placeholder":
-    "Rekisteröity sähköpostiosoitteesi",
+  "auth.password_reset.email.placeholder": "Rekisteröity sähköpostiosoitteesi",
   "auth.password_reset.back_to_login": "Takaisin Kirjaudu sisään -näkymään",
   "auth.password_reset.login": "Kirjaudu sisään",
-  "auth.password_reset.success":
-    "Nollauslinkki on lähetetty sähköpostiisi",
+  "auth.password_reset.success": "Nollauslinkki on lähetetty sähköpostiisi",
   "auth.password_reset.error": "Virhe nollauslinkin lähettämisessä",
   "auth.password_reset.new_password": "Uusi salasana",
   "auth.password_reset.confirm_password": "Vahvista uusi salasana",
@@ -88,10 +83,8 @@ export default {
   "auth.password.number": "Salasanan on sisällettävä vähintään yksi numero",
   "auth.password.special":
     "Salasanan on sisällettävä vähintään yksi erikoismerkki",
-  "auth.password.no_common":
-    "Salasana ei saa olla yleisesti käytetty salasana",
-  "auth.password.no_repeats":
-    "Salasana ei saa sisältää toistuvia merkkejä",
+  "auth.password.no_common": "Salasana ei saa olla yleisesti käytetty salasana",
+  "auth.password.no_repeats": "Salasana ei saa sisältää toistuvia merkkejä",
   "auth.password.no_sequences":
     "Salasana ei saa sisältää yksinkertaisia sarjoja",
   "auth.password.match": "Salasanojen on täsmättävä",
@@ -106,8 +99,7 @@ export default {
   "auth.form.email_invalid": "Anna kelvollinen sähköpostiosoite",
   "auth.form.min_length":
     "Tämän kentän on oltava vähintään {length} merkkiä pitkä",
-  "auth.form.max_length":
-    "Tämä kenttä ei saa ylittää {length} merkkiä",
+  "auth.form.max_length": "Tämä kenttä ei saa ylittää {length} merkkiä",
   "auth.form.invalid": "Tämä kenttä on virheellinen",
 
   // Saavutettavuus
@@ -133,8 +125,7 @@ export default {
   "auth.service.session_expired":
     "Istuntosi on vanhentunut. Kirjaudu sisään uudelleen",
   "auth.service.unauthorized": "Luvaton. Kirjaudu sisään",
-  "auth.service.account_locked":
-    "Tilisi on lukittu. Ota yhteyttä tukeen",
+  "auth.service.account_locked": "Tilisi on lukittu. Ota yhteyttä tukeen",
   "auth.service.permission_denied": "Lupa tähän toimintoon evätty",
   "auth.service.invalid_credentials":
     "Virheelliset tunnistetiedot. Tarkista sähköpostiosoitteesi ja salasanasi.",
@@ -192,8 +183,7 @@ export default {
   "game.feedback.media.section": "Mediaosio",
   "game.feedback.audio.preview": "Musiikin esikatselu",
   "game.feedback.subtitles": "Tekstitykset",
-  "game.feedback.audio.unsupported":
-    "Selaimesi ei tue äänentoistoa.",
+  "game.feedback.audio.unsupported": "Selaimesi ei tue äänentoistoa.",
   "game.feedback.streaming.links": "Musiikin suoratoistolinkit",
   "game.feedback.listen.spotify": "Kuuntele Spotifyssa",
   "game.feedback.listen.deezer": "Kuuntele Deezerissä",
@@ -247,13 +237,12 @@ export default {
   "playlist.item.coming.soon": "Tulossa pian",
   "game.area.label": "Pelialue",
   "game.options.label": "Vastausvaihtoehdot",
-  "game.answer.correct":
-    "Oikein! {points} pistettä + {bonus} bonuspistettä",
+  "game.answer.correct": "Oikein! {points} pistettä + {bonus} bonuspistettä",
   "game.answer.wrong": "Väärin! Oikea vastaus oli: {answer}",
-  "error.invalid.question": "Virheellinen kysymys tai ei vaihtoehtoja saatavilla",
+  "error.invalid.question":
+    "Virheellinen kysymys tai ei vaihtoehtoja saatavilla",
   "error.no.initial.question": "Kelvollista alkukysymystä ei löytynyt",
-  "error.no.albums.found":
-    "Albumeita ei löytynyt kategorialle {category}",
+  "error.no.albums.found": "Albumeita ei löytynyt kategorialle {category}",
   "meta.keywords":
     "Musiikkivisa, Musiikkipeli, Laulutietovisa, Artistivisa, Online Musiikkivisa, Musiikkitrivia, Melody Mind, Musiikin arvauspeli",
   "knowledge.title": "Musiikkitietokanta",
@@ -262,8 +251,7 @@ export default {
   "knowledge.search.label": "Etsi artikkeleita",
   "knowledge.search.placeholder": "Etsi...",
   "knowledge.filter.all": "Kaikki avainsanat",
-  "knowledge.no.results":
-    "Artikkeleita ei löytynyt. Kokeile eri hakusanoja.",
+  "knowledge.no.results": "Artikkeleita ei löytynyt. Kokeile eri hakusanoja.",
   "game.remaining": "jäljellä",
   "game.default.headline": "Peli",
   "popup.score": "Pisteet: {score}",
@@ -311,10 +299,8 @@ export default {
   "podcast.deploy.title": "Ota Serveritön Podcast Käyttöön 2 Minuutissa",
   "podcast.deploy.description":
     "Opi, kuinka otat podcastisi nopeasti käyttöön.",
-  "podcast.auth.title":
-    "Käyttäjän Todennus ja Kojelaudan Käyttöoikeus",
-  "podcast.auth.description":
-    "Ota todennus käyttöön ja käytä kojelautaa.",
+  "podcast.auth.title": "Käyttäjän Todennus ja Kojelaudan Käyttöoikeus",
+  "podcast.auth.description": "Ota todennus käyttöön ja käytä kojelautaa.",
   "podcast.config.title": "Määritä Astropod Podcast",
   "podcast.config.description": "Opi, kuinka määrität podcastisi.",
   "podcast.publish.title": "Julkaise Ensimmäinen Jaksosi",
@@ -332,8 +318,7 @@ export default {
   "index.start.game.label": "Aloita musiikillinen matkasi",
   "index.welcome.footnote":
     "Musiikin ystävien valmistama musiikin ystäville. Nauti!",
-  "accessibility.wcag":
-    "Tämä sovellus pyrkii WCAG AAA -yhteensopivuuteen.",
+  "accessibility.wcag": "Tämä sovellus pyrkii WCAG AAA -yhteensopivuuteen.",
   "game.instructions.title": "Pelin Ohjeet",
   "game.instructions.puzzle":
     "Yritä arvata albumi, kun kansikuva paljastuu vähitellen. Mitä nopeammin arvaat oikein, sitä enemmän pisteitä saat.",
@@ -342,11 +327,9 @@ export default {
   "game.puzzle.loading": "Ladataan palapeliä...",
   "game.options.legend": "Valitse oikea albumi",
   "game.next.round": "Aloita Seuraava Kierros",
-  "game.puzzle.revealed":
-    "{percent}% albuminkannesta on paljastettu",
+  "game.puzzle.revealed": "{percent}% albuminkannesta on paljastettu",
   "game.option.choose": "Valitse",
-  "game.options.available":
-    "Vastausvaihtoehdot ovat nyt saatavilla",
+  "game.options.available": "Vastausvaihtoehdot ovat nyt saatavilla",
   "game.time.remaining.seconds": "{seconds} sekuntia jäljellä",
   "game.time.up": "Aika loppui! Oikea albumi oli:",
   "game.correct.answer": "Oikea Vastaus",
@@ -383,8 +366,7 @@ export default {
   "game.chronology.correct": "Oikein",
   "game.chronology.wrong": "Pitäisi olla paikassa {position}",
   "game.chronology.score": "Pisteet: {score} pistettä",
-  "game.chronology.details":
-    "{correct} / {total} albumia sijoitettu oikein",
+  "game.chronology.details": "{correct} / {total} albumia sijoitettu oikein",
   "game.chronology.year": "Vuosi: {year}",
   "game.chronology.drag.help":
     "Käytä nuolinäppäimiä ↑/↓ tai vedä ja pudota lajitellaksesi",
@@ -401,8 +383,7 @@ export default {
     "Artikkelit suodatetaan automaattisesti kirjoittaessasi",
   "knowledge.search.reset": "Nollaa Haku",
   "knowledge.search.reset.text": "Nollaa",
-  "knowledge.no.results.help":
-    "Kokeile eri hakusanoja tai nollaa haku",
+  "knowledge.no.results.help": "Kokeile eri hakusanoja tai nollaa haku",
   "knowledge.keyboard.instructions":
     "Käytä nuolinäppäimiä navigoidaksesi artikkeleiden välillä. Paina Enter avataksesi artikkelin.",
   "difficulty.level": "Vaikeustaso",
@@ -489,10 +470,8 @@ export default {
   "achievements.sort.name_desc": "Nimi (Ö-A)",
   "achievements.sort.progress_asc": "Edistyminen (nouseva)",
   "achievements.sort.progress_desc": "Edistyminen (laskeva)",
-  "achievements.sort.unlocked_at_asc":
-    "Avauspäivämäärä (vanhimmat ensin)",
-  "achievements.sort.unlocked_at_desc":
-    "Avauspäivämäärä (uusimmat ensin)",
+  "achievements.sort.unlocked_at_asc": "Avauspäivämäärä (vanhimmat ensin)",
+  "achievements.sort.unlocked_at_desc": "Avauspäivämäärä (uusimmat ensin)",
   "achievements.sort.points_asc": "Pisteet (nouseva)",
   "achievements.sort.points_desc": "Pisteet (laskeva)",
   "achievements.sort.rarity_asc": "Harvinaisuus (yleisimmät ensin)",

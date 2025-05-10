@@ -31,8 +31,7 @@ export default {
   "auth.form.password_required": "Passwort ist erforderlich",
   "auth.form.password_requirements":
     "Das Passwort erfüllt nicht alle Anforderungen",
-  "auth.form.password_confirm_required":
-    "Passwortbestätigung ist erforderlich",
+  "auth.form.password_confirm_required": "Passwortbestätigung ist erforderlich",
   "auth.form.passwords_not_match": "Die Passwörter stimmen nicht überein",
   "auth.password_reset.success_message":
     "Wenn ein Konto mit dieser E-Mail-Adresse existiert, wurde eine E-Mail mit Anweisungen zum Zurücksetzen des Passworts gesendet.",
@@ -59,14 +58,12 @@ export default {
   "auth.password_reset.title": "Passwort zurücksetzen",
   "auth.password_reset.submit": "Link zum Zurücksetzen senden",
   "auth.password_reset.email": "E-Mail-Adresse",
-  "auth.password_reset.email.placeholder":
-    "Deine registrierte E-Mail-Adresse",
+  "auth.password_reset.email.placeholder": "Deine registrierte E-Mail-Adresse",
   "auth.password_reset.back_to_login": "Zurück zur Anmeldung",
   "auth.password_reset.login": "Anmelden",
   "auth.password_reset.success":
     "Ein Link zum Zurücksetzen wurde an deine E-Mail-Adresse gesendet",
-  "auth.password_reset.error":
-    "Fehler beim Senden des Links zum Zurücksetzen",
+  "auth.password_reset.error": "Fehler beim Senden des Links zum Zurücksetzen",
   "auth.password_reset.new_password": "Neues Passwort",
   "auth.password_reset.confirm_password": "Neues Passwort bestätigen",
   "auth.password_reset.change_submit": "Passwort ändern",
@@ -122,8 +119,7 @@ export default {
   "auth.accessibility.close_modal": "Fenster schließen",
 
   // API-Fehlermeldungen
-  "auth.api.network_error":
-    "Netzwerkfehler. Bitte überprüfe deine Verbindung",
+  "auth.api.network_error": "Netzwerkfehler. Bitte überprüfe deine Verbindung",
   "auth.api.server_error": "Serverfehler. Bitte versuche es später erneut",
   "auth.api.invalid_credentials": "Ungültige Anmeldedaten",
   "auth.api.account_exists":
@@ -138,8 +134,7 @@ export default {
   "auth.service.unauthorized": "Nicht autorisiert. Bitte melde dich an",
   "auth.service.account_locked":
     "Dein Konto wurde gesperrt. Bitte kontaktiere den Support",
-  "auth.service.permission_denied":
-    "Berechtigung für diese Aktion verweigert",
+  "auth.service.permission_denied": "Berechtigung für diese Aktion verweigert",
   "auth.service.invalid_credentials":
     "Ungültige Anmeldedaten. Bitte überprüfe deine E-Mail und dein Passwort.",
   "auth.service.too_many_attempts":
@@ -476,8 +471,7 @@ export default {
   "achievements.points": "Punkte: {points}",
   "achievements.rarity": "Seltenheit: {percentage}%",
   "achievements.notification.unlocked": "Achievement freigeschaltet!",
-  "achievements.notification.progress":
-    "Achievement-Fortschritt aktualisiert!",
+  "achievements.notification.progress": "Achievement-Fortschritt aktualisiert!",
   "achievements.filter.title": "Achievements filtern",
   "achievements.filter.status": "Status",
   "achievements.filter.category": "Kategorie",
