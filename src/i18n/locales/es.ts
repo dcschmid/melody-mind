@@ -24,9 +24,9 @@ export default {
   "auth.validation.processing": "Validando entradas...",
   "auth.form.error.general": "Ocurrió un error",
   "auth.form.success": "¡Éxito!",
-  "auth.form.email_required": "La dirección de correo electrónico es obligatoria",
-  "auth.form.email_invalid_short":
-    "Dirección de correo electrónico no válida",
+  "auth.form.email_required":
+    "La dirección de correo electrónico es obligatoria",
+  "auth.form.email_invalid_short": "Dirección de correo electrónico no válida",
   "auth.form.loading_text": "Cargando...",
   "auth.form.send_reset_link": "Enviar enlace de restablecimiento",
   "auth.form.password_required": "La contraseña es obligatoria",
@@ -52,7 +52,8 @@ export default {
   "auth.register.password": "Contraseña",
   "auth.register.password.placeholder": "Crea una contraseña segura",
   "auth.register.password_confirm": "Confirmar contraseña",
-  "auth.register.password_confirm.placeholder": "Vuelve a introducir la contraseña",
+  "auth.register.password_confirm.placeholder":
+    "Vuelve a introducir la contraseña",
   "auth.register.terms": "Acepto los términos de servicio",
   "auth.register.success": "Registro exitoso",
   "auth.register.error": "Error en el registro",
@@ -66,8 +67,7 @@ export default {
   "auth.password_reset.login": "Iniciar sesión",
   "auth.password_reset.success":
     "Se ha enviado un enlace de restablecimiento a tu correo electrónico",
-  "auth.password_reset.error":
-    "Error al enviar el enlace de restablecimiento",
+  "auth.password_reset.error": "Error al enviar el enlace de restablecimiento",
   "auth.password_reset.new_password": "Nueva contraseña",
   "auth.password_reset.confirm_password": "Confirmar nueva contraseña",
   "auth.password_reset.change_submit": "Cambiar contraseña",
@@ -77,17 +77,14 @@ export default {
     "Hemos enviado un enlace de verificación a tu dirección de correo electrónico",
   "auth.email_verification.check_inbox":
     "Por favor, revisa tu bandeja de entrada",
-  "auth.email_verification.resend":
-    "Reenviar enlace de verificación",
-  "auth.email_verification.success":
-    "Correo electrónico verificado con éxito",
+  "auth.email_verification.resend": "Reenviar enlace de verificación",
+  "auth.email_verification.success": "Correo electrónico verificado con éxito",
   "auth.email_verification.error":
     "Error en la verificación del correo electrónico",
 
   // Validación de contraseña
   "auth.password.requirements": "Requisitos de la contraseña:",
-  "auth.password.min_length":
-    "La contraseña debe tener al menos 8 caracteres",
+  "auth.password.min_length": "La contraseña debe tener al menos 8 caracteres",
   "auth.password.uppercase":
     "La contraseña debe contener al menos una letra mayúscula",
   "auth.password.lowercase":
@@ -95,8 +92,7 @@ export default {
   "auth.password.number": "La contraseña debe contener al menos un número",
   "auth.password.special":
     "La contraseña debe contener al menos un carácter especial",
-  "auth.password.no_common":
-    "La contraseña no debe ser una contraseña común",
+  "auth.password.no_common": "La contraseña no debe ser una contraseña común",
   "auth.password.no_repeats":
     "La contraseña no debe contener caracteres repetidos",
   "auth.password.no_sequences":
@@ -112,10 +108,8 @@ export default {
   "auth.form.required": "Este campo es obligatorio",
   "auth.form.email_invalid":
     "Por favor, introduce una dirección de correo electrónico válida",
-  "auth.form.min_length":
-    "Este campo debe tener al menos {length} caracteres",
-  "auth.form.max_length":
-    "Este campo no debe exceder los {length} caracteres",
+  "auth.form.min_length": "Este campo debe tener al menos {length} caracteres",
+  "auth.form.max_length": "Este campo no debe exceder los {length} caracteres",
   "auth.form.invalid": "Este campo no es válido",
 
   // Accesibilidad
@@ -129,13 +123,11 @@ export default {
   "auth.accessibility.close_modal": "Cerrar ventana",
 
   // Mensajes de error de la API
-  "auth.api.network_error":
-    "Error de red. Por favor, comprueba tu conexión",
+  "auth.api.network_error": "Error de red. Por favor, comprueba tu conexión",
   "auth.api.server_error":
     "Error del servidor. Por favor, inténtalo de nuevo más tarde",
   "auth.api.invalid_credentials": "Credenciales no válidas",
-  "auth.api.account_exists":
-    "Ya existe una cuenta con este correo electrónico",
+  "auth.api.account_exists": "Ya existe una cuenta con este correo electrónico",
   "auth.api.email_not_found":
     "No se encontró ninguna cuenta con este correo electrónico",
   "auth.api.too_many_requests":
@@ -344,8 +336,7 @@ export default {
   "index.start.game.label": "Comienza tu viaje musical",
   "index.welcome.footnote":
     "Preparado por amantes de la música para amantes de la música. ¡Disfruta!",
-  "accessibility.wcag":
-    "Esta aplicación aspira a la conformidad WCAG AAA.",
+  "accessibility.wcag": "Esta aplicación aspira a la conformidad WCAG AAA.",
   "game.instructions.title": "Instrucciones del Juego",
   "game.instructions.puzzle":
     "Intenta adivinar el álbum a medida que la portada se revela gradualmente. Cuanto más rápido adivines correctamente, más puntos obtendrás.",
@@ -424,8 +415,7 @@ export default {
     "Gestiona tu información personal y consulta tus estadísticas de juego",
   "profile.loading": "Cargando datos del perfil...",
   "profile.error": "Error al cargar los datos del perfil",
-  "profile.auth.required":
-    "Debes iniciar sesión para ver tu perfil",
+  "profile.auth.required": "Debes iniciar sesión para ver tu perfil",
   "profile.user.info": "Información del Usuario",
   "profile.user.since": "Miembro desde",
   "profile.stats.title": "Estadísticas del Juego",

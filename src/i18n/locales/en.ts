@@ -81,7 +81,8 @@ export default {
   "auth.password.lowercase":
     "Password must contain at least one lowercase letter",
   "auth.password.number": "Password must contain at least one number",
-  "auth.password.special": "Password must contain at least one special character",
+  "auth.password.special":
+    "Password must contain at least one special character",
   "auth.password.no_common": "Password must not be a common password",
   "auth.password.no_repeats": "Password must not contain repeated characters",
   "auth.password.no_sequences": "Password must not contain simple sequences",
@@ -95,7 +96,8 @@ export default {
   // Form Validation
   "auth.form.required": "This field is required",
   "auth.form.email_invalid": "Please enter a valid email address",
-  "auth.form.min_length": "This field must be at least {length} characters long",
+  "auth.form.min_length":
+    "This field must be at least {length} characters long",
   "auth.form.max_length": "This field must not exceed {length} characters",
   "auth.form.invalid": "This field is invalid",
 
@@ -104,8 +106,7 @@ export default {
   "auth.accessibility.error": "Error: {message}",
   "auth.accessibility.required_field": "Required field",
   "auth.accessibility.password_toggle": "Show/hide password",
-  "auth.accessibility.password_requirements":
-    "Show/hide password requirements",
+  "auth.accessibility.password_requirements": "Show/hide password requirements",
   "auth.accessibility.form": "Login form",
   "auth.accessibility.close_modal": "Close window",
 
@@ -118,7 +119,8 @@ export default {
   "auth.api.too_many_requests": "Too many attempts. Please try again later",
 
   // Service Error Messages
-  "auth.service.session_expired": "Your session has expired. Please log in again",
+  "auth.service.session_expired":
+    "Your session has expired. Please log in again",
   "auth.service.unauthorized": "Unauthorized. Please log in",
   "auth.service.account_locked":
     "Your account has been locked. Please contact support",
@@ -292,11 +294,9 @@ export default {
   "podcast.intro.description":
     "Astropod is a free and open-source solution for serverless podcasts.",
   "podcast.deploy.title": "Deploy Serverless Podcast in 2 Minutes",
-  "podcast.deploy.description":
-    "Learn how to quickly deploy your podcast.",
+  "podcast.deploy.description": "Learn how to quickly deploy your podcast.",
   "podcast.auth.title": "User Authentication and Dashboard Access",
-  "podcast.auth.description":
-    "Enable authentication and access the dashboard.",
+  "podcast.auth.description": "Enable authentication and access the dashboard.",
   "podcast.config.title": "Configure Astropod Podcast",
   "podcast.config.description": "Learn how to configure your podcast.",
   "podcast.publish.title": "Publish Your First Episode",
@@ -312,10 +312,8 @@ export default {
     "Embark on a musical journey of discovery through the ages! Test your knowledge in exciting quizzes, explore fascinating music genres, and dive into our captivating podcasts. Show off your skills, collect points, and become a true music legend!",
   "index.continue": "Let's go!",
   "index.start.game.label": "Start your musical journey",
-  "index.welcome.footnote":
-    "Prepared by music lovers for music lovers. Enjoy!",
-  "accessibility.wcag":
-    "This application aims for WCAG AAA conformance.",
+  "index.welcome.footnote": "Prepared by music lovers for music lovers. Enjoy!",
+  "accessibility.wcag": "This application aims for WCAG AAA conformance.",
   "game.instructions.title": "Game Instructions",
   "game.instructions.puzzle":
     "Try to guess the album as the cover is gradually revealed. The faster you guess correctly, the more points you get.",
@@ -365,8 +363,7 @@ export default {
   "game.chronology.score": "Score: {score} points",
   "game.chronology.details": "{correct} of {total} albums placed correctly",
   "game.chronology.year": "Year: {year}",
-  "game.chronology.drag.help":
-    "Use arrow keys ↑/↓ or drag & drop to sort",
+  "game.chronology.drag.help": "Use arrow keys ↑/↓ or drag & drop to sort",
   "game.submit.answer": "Check Answer",
   "game.chronology.up": "Up",
   "game.chronology.down": "Down",
@@ -380,8 +377,7 @@ export default {
     "Articles are automatically filtered as you type",
   "knowledge.search.reset": "Reset Search",
   "knowledge.search.reset.text": "Reset",
-  "knowledge.no.results.help":
-    "Try different search terms or reset the search",
+  "knowledge.no.results.help": "Try different search terms or reset the search",
   "knowledge.keyboard.instructions":
     "Use arrow keys to navigate between articles. Press Enter to open an article.",
   "difficulty.level": "Difficulty Level",

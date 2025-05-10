@@ -59,8 +59,7 @@ export default {
   "auth.password_reset.title": "Réinitialiser le mot de passe",
   "auth.password_reset.submit": "Envoyer le lien de réinitialisation",
   "auth.password_reset.email": "Adresse e-mail",
-  "auth.password_reset.email.placeholder":
-    "Votre adresse e-mail enregistrée",
+  "auth.password_reset.email.placeholder": "Votre adresse e-mail enregistrée",
   "auth.password_reset.back_to_login": "Retour à la connexion",
   "auth.password_reset.login": "Connexion",
   "auth.password_reset.success":
@@ -109,8 +108,7 @@ export default {
   "auth.form.email_invalid": "Veuillez entrer une adresse e-mail valide",
   "auth.form.min_length":
     "Ce champ doit comporter au moins {length} caractères",
-  "auth.form.max_length":
-    "Ce champ ne doit pas dépasser {length} caractères",
+  "auth.form.max_length": "Ce champ ne doit pas dépasser {length} caractères",
   "auth.form.invalid": "Ce champ est invalide",
 
   // Accessibilité
@@ -124,10 +122,8 @@ export default {
   "auth.accessibility.close_modal": "Fermer la fenêtre",
 
   // Messages d'erreur de l'API
-  "auth.api.network_error":
-    "Erreur réseau. Veuillez vérifier votre connexion",
-  "auth.api.server_error":
-    "Erreur du serveur. Veuillez réessayer plus tard",
+  "auth.api.network_error": "Erreur réseau. Veuillez vérifier votre connexion",
+  "auth.api.server_error": "Erreur du serveur. Veuillez réessayer plus tard",
   "auth.api.invalid_credentials": "Identifiants invalides",
   "auth.api.account_exists": "Un compte avec cet e-mail existe déjà",
   "auth.api.email_not_found": "Aucun compte trouvé avec cet e-mail",
@@ -140,8 +136,7 @@ export default {
   "auth.service.unauthorized": "Non autorisé. Veuillez vous connecter",
   "auth.service.account_locked":
     "Votre compte a été verrouillé. Veuillez contacter le support",
-  "auth.service.permission_denied":
-    "Autorisation refusée pour cette action",
+  "auth.service.permission_denied": "Autorisation refusée pour cette action",
   "auth.service.invalid_credentials":
     "Identifiants invalides. Veuillez vérifier votre e-mail et votre mot de passe.",
   "auth.service.too_many_attempts":
@@ -253,13 +248,11 @@ export default {
   "playlist.item.coming.soon": "Bientôt disponible",
   "game.area.label": "Zone de jeu",
   "game.options.label": "Options de réponse",
-  "game.answer.correct":
-    "Correct ! {points} points + {bonus} points bonus",
+  "game.answer.correct": "Correct ! {points} points + {bonus} points bonus",
   "game.answer.wrong": "Faux ! La bonne réponse était : {answer}",
   "error.invalid.question": "Question invalide ou aucune option disponible",
   "error.no.initial.question": "Aucune question initiale valide trouvée",
-  "error.no.albums.found":
-    "Aucun album trouvé pour la catégorie {category}",
+  "error.no.albums.found": "Aucun album trouvé pour la catégorie {category}",
   "meta.keywords":
     "Quiz musical, Jeu musical, Quiz de chansons, Quiz d'artistes, Quiz musical en ligne, Trivia musical, Melody Mind, Jeu de devinettes musicales",
   "knowledge.title": "Base de connaissances musicales",
@@ -316,8 +309,7 @@ export default {
   "podcast.intro.description":
     "Astropod est une solution gratuite et open-source pour les podcasts sans serveur.",
   "podcast.deploy.title": "Déployer un Podcast sans Serveur en 2 Minutes",
-  "podcast.deploy.description":
-    "Apprenez à déployer rapidement votre podcast.",
+  "podcast.deploy.description": "Apprenez à déployer rapidement votre podcast.",
   "podcast.auth.title":
     "Authentification des Utilisateurs et Accès au Tableau de Bord",
   "podcast.auth.description":
@@ -339,8 +331,7 @@ export default {
   "index.start.game.label": "Commencez votre voyage musical",
   "index.welcome.footnote":
     "Préparé par des mélomanes pour des mélomanes. Profitez-en !",
-  "accessibility.wcag":
-    "Cette application vise la conformité WCAG AAA.",
+  "accessibility.wcag": "Cette application vise la conformité WCAG AAA.",
   "game.instructions.title": "Instructions du Jeu",
   "game.instructions.puzzle":
     "Essayez de deviner l'album au fur et à mesure que la pochette est révélée. Plus vite vous devinez correctement, plus vous gagnez de points.",
@@ -349,8 +340,7 @@ export default {
   "game.puzzle.loading": "Chargement du puzzle...",
   "game.options.legend": "Sélectionnez le bon album",
   "game.next.round": "Commencer la Prochaine Manche",
-  "game.puzzle.revealed":
-    "{percent}% de la pochette de l'album a été révélée",
+  "game.puzzle.revealed": "{percent}% de la pochette de l'album a été révélée",
   "game.option.choose": "Choisir",
   "game.options.available":
     "Les options de réponse sont maintenant disponibles",
@@ -390,8 +380,7 @@ export default {
   "game.chronology.correct": "Correct",
   "game.chronology.wrong": "Devrait être à la position {position}",
   "game.chronology.score": "Score : {score} points",
-  "game.chronology.details":
-    "{correct} sur {total} albums placés correctement",
+  "game.chronology.details": "{correct} sur {total} albums placés correctement",
   "game.chronology.year": "Année : {year}",
   "game.chronology.drag.help":
     "Utilisez les touches fléchées ↑/↓ ou le glisser-déposer pour trier",
@@ -420,8 +409,7 @@ export default {
     "Gérez vos informations personnelles et consultez vos statistiques de jeu",
   "profile.loading": "Chargement des données du profil...",
   "profile.error": "Erreur lors du chargement des données du profil",
-  "profile.auth.required":
-    "Vous devez être connecté pour voir votre profil",
+  "profile.auth.required": "Vous devez être connecté pour voir votre profil",
   "profile.user.info": "Informations de l'Utilisateur",
   "profile.user.since": "Membre depuis",
   "profile.stats.title": "Statistiques du Jeu",
@@ -447,8 +435,7 @@ export default {
     "Consultez les meilleurs scores dans différents modes de jeu et catégories",
   "highscores.loading": "Chargement des meilleurs scores...",
   "highscores.error": "Erreur lors du chargement des meilleurs scores",
-  "highscores.empty":
-    "Aucune entrée trouvée dans les meilleurs scores",
+  "highscores.empty": "Aucune entrée trouvée dans les meilleurs scores",
   "highscores.filter.title": "Filtrer les Meilleurs Scores",
   "highscores.filter.game.mode": "Mode de Jeu",
   "highscores.filter.category": "Catégorie",

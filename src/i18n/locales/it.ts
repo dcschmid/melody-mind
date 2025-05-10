@@ -1,8 +1,7 @@
 export default {
   // Componenti di autenticazione
   "auth.required.title": "Accesso richiesto",
-  "auth.required.description":
-    "Effettua l'accesso per accedere a quest'area",
+  "auth.required.description": "Effettua l'accesso per accedere a quest'area",
   "auth.login.title": "Accedi",
   "auth.register.title": "Registrati",
   "auth.login.email": "Indirizzo email",
@@ -59,8 +58,7 @@ export default {
   "auth.password_reset.title": "Reimposta password",
   "auth.password_reset.submit": "Invia link di reimpostazione",
   "auth.password_reset.email": "Indirizzo email",
-  "auth.password_reset.email.placeholder":
-    "Il tuo indirizzo email registrato",
+  "auth.password_reset.email.placeholder": "Il tuo indirizzo email registrato",
   "auth.password_reset.back_to_login": "Torna ad Accedi",
   "auth.password_reset.login": "Accedi",
   "auth.password_reset.success":
@@ -81,7 +79,8 @@ export default {
 
   // Validazione password
   "auth.password.requirements": "Requisiti password:",
-  "auth.password.min_length": "La password deve essere lunga almeno 8 caratteri",
+  "auth.password.min_length":
+    "La password deve essere lunga almeno 8 caratteri",
   "auth.password.uppercase":
     "La password deve contenere almeno una lettera maiuscola",
   "auth.password.lowercase":
@@ -89,8 +88,7 @@ export default {
   "auth.password.number": "La password deve contenere almeno un numero",
   "auth.password.special":
     "La password deve contenere almeno un carattere speciale",
-  "auth.password.no_common":
-    "La password non deve essere una password comune",
+  "auth.password.no_common": "La password non deve essere una password comune",
   "auth.password.no_repeats":
     "La password non deve contenere caratteri ripetuti",
   "auth.password.no_sequences":
@@ -107,8 +105,7 @@ export default {
   "auth.form.email_invalid": "Inserisci un indirizzo email valido",
   "auth.form.min_length":
     "Questo campo deve essere lungo almeno {length} caratteri",
-  "auth.form.max_length":
-    "Questo campo non deve superare i {length} caratteri",
+  "auth.form.max_length": "Questo campo non deve superare i {length} caratteri",
   "auth.form.invalid": "Questo campo non è valido",
 
   // Accessibilità
@@ -122,8 +119,7 @@ export default {
   "auth.accessibility.close_modal": "Chiudi finestra",
 
   // Messaggi di errore API
-  "auth.api.network_error":
-    "Errore di rete. Controlla la tua connessione",
+  "auth.api.network_error": "Errore di rete. Controlla la tua connessione",
   "auth.api.server_error": "Errore del server. Riprova più tardi",
   "auth.api.invalid_credentials": "Credenziali non valide",
   "auth.api.account_exists": "Esiste già un account con questa email",
@@ -248,13 +244,11 @@ export default {
   "playlist.item.coming.soon": "Prossimamente",
   "game.area.label": "Area di gioco",
   "game.options.label": "Opzioni di risposta",
-  "game.answer.correct":
-    "Corretto! {points} punti + {bonus} punti bonus",
+  "game.answer.correct": "Corretto! {points} punti + {bonus} punti bonus",
   "game.answer.wrong": "Sbagliato! La risposta corretta era: {answer}",
   "error.invalid.question": "Domanda non valida o nessuna opzione disponibile",
   "error.no.initial.question": "Nessuna domanda iniziale valida trovata",
-  "error.no.albums.found":
-    "Nessun album trovato per la categoria {category}",
+  "error.no.albums.found": "Nessun album trovato per la categoria {category}",
   "meta.keywords":
     "Quiz musicale, Gioco musicale, Quiz canzoni, Quiz artisti, Quiz musicale online, Trivia musicale, Melody Mind, Gioco di indovinelli musicali",
   "knowledge.title": "Base di conoscenza musicale",
@@ -312,8 +306,7 @@ export default {
   "podcast.deploy.title": "Distribuisci Podcast Serverless in 2 Minuti",
   "podcast.deploy.description":
     "Scopri come distribuire rapidamente il tuo podcast.",
-  "podcast.auth.title":
-    "Autenticazione Utente e Accesso alla Dashboard",
+  "podcast.auth.title": "Autenticazione Utente e Accesso alla Dashboard",
   "podcast.auth.description":
     "Abilita l'autenticazione e accedi alla dashboard.",
   "podcast.config.title": "Configura Podcast Astropod",
@@ -333,8 +326,7 @@ export default {
   "index.start.game.label": "Inizia il tuo viaggio musicale",
   "index.welcome.footnote":
     "Preparato da amanti della musica per amanti della musica. Divertiti!",
-  "accessibility.wcag":
-    "Questa applicazione mira alla conformità WCAG AAA.",
+  "accessibility.wcag": "Questa applicazione mira alla conformità WCAG AAA.",
   "game.instructions.title": "Istruzioni del Gioco",
   "game.instructions.puzzle":
     "Cerca di indovinare l'album mentre la copertina viene gradualmente rivelata. Più velocemente indovini correttamente, più punti ottieni.",
@@ -346,8 +338,7 @@ export default {
   "game.puzzle.revealed":
     "È stato rivelato il {percent}% della copertina dell'album",
   "game.option.choose": "Scegli",
-  "game.options.available":
-    "Le opzioni di risposta sono ora disponibili",
+  "game.options.available": "Le opzioni di risposta sono ora disponibili",
   "game.time.remaining.seconds": "{seconds} secondi rimanenti",
   "game.time.up": "Tempo scaduto! L'album corretto era:",
   "game.correct.answer": "Risposta Corretta",
@@ -441,8 +432,7 @@ export default {
     "Visualizza i punteggi migliori in diverse modalità di gioco e categorie",
   "highscores.loading": "Caricamento punteggi migliori...",
   "highscores.error": "Errore durante il caricamento dei punteggi migliori",
-  "highscores.empty":
-    "Nessuna voce trovata nei punteggi migliori",
+  "highscores.empty": "Nessuna voce trovata nei punteggi migliori",
   "highscores.filter.title": "Filtra Punteggi Migliori",
   "highscores.filter.game.mode": "Modalità di Gioco",
   "highscores.filter.category": "Categoria",
@@ -478,8 +468,7 @@ export default {
   "achievements.points": "Punti: {points}",
   "achievements.rarity": "Rarità: {percentage}%",
   "achievements.notification.unlocked": "Achievement sbloccato!",
-  "achievements.notification.progress":
-    "Progresso achievement aggiornato!",
+  "achievements.notification.progress": "Progresso achievement aggiornato!",
   "achievements.filter.title": "Filtra Achievement",
   "achievements.filter.status": "Stato",
   "achievements.filter.category": "Categoria",
@@ -492,10 +481,8 @@ export default {
   "achievements.sort.name_desc": "Nome (Z-A)",
   "achievements.sort.progress_asc": "Progresso (crescente)",
   "achievements.sort.progress_desc": "Progresso (decrescente)",
-  "achievements.sort.unlocked_at_asc":
-    "Data Sblocco (più vecchi prima)",
-  "achievements.sort.unlocked_at_desc":
-    "Data Sblocco (più recenti prima)",
+  "achievements.sort.unlocked_at_asc": "Data Sblocco (più vecchi prima)",
+  "achievements.sort.unlocked_at_desc": "Data Sblocco (più recenti prima)",
   "achievements.sort.points_asc": "Punti (crescenti)",
   "achievements.sort.points_desc": "Punti (decrescenti)",
   "achievements.sort.rarity_asc": "Rarità (più comuni prima)",

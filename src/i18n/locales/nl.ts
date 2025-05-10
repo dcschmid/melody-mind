@@ -1,8 +1,7 @@
 export default {
   // Authenticatiecomponenten
   "auth.required.title": "Inloggen vereist",
-  "auth.required.description":
-    "Log in om toegang te krijgen tot dit gedeelte",
+  "auth.required.description": "Log in om toegang te krijgen tot dit gedeelte",
   "auth.login.title": "Inloggen",
   "auth.register.title": "Registreren",
   "auth.login.email": "E-mailadres",
@@ -31,8 +30,7 @@ export default {
   "auth.form.password_required": "Wachtwoord is vereist",
   "auth.form.password_requirements":
     "Wachtwoord voldoet niet aan alle vereisten",
-  "auth.form.password_confirm_required":
-    "Wachtwoordbevestiging is vereist",
+  "auth.form.password_confirm_required": "Wachtwoordbevestiging is vereist",
   "auth.form.passwords_not_match": "Wachtwoorden komen niet overeen",
   "auth.password_reset.success_message":
     "Als er een account bestaat met dit e-mailadres, is er een e-mail met instructies voor het opnieuw instellen van het wachtwoord verzonden.",
@@ -51,7 +49,8 @@ export default {
   "auth.register.password": "Wachtwoord",
   "auth.register.password.placeholder": "Maak een veilig wachtwoord",
   "auth.register.password_confirm": "Bevestig wachtwoord",
-  "auth.register.password_confirm.placeholder": "Voer het wachtwoord opnieuw in",
+  "auth.register.password_confirm.placeholder":
+    "Voer het wachtwoord opnieuw in",
   "auth.register.terms": "Ik accepteer de servicevoorwaarden",
   "auth.register.success": "Registratie succesvol",
   "auth.register.error": "Registratie mislukt",
@@ -79,8 +78,7 @@ export default {
 
   // Wachtwoordvalidatie
   "auth.password.requirements": "Wachtwoordvereisten:",
-  "auth.password.min_length":
-    "Wachtwoord moet minimaal 8 tekens lang zijn",
+  "auth.password.min_length": "Wachtwoord moet minimaal 8 tekens lang zijn",
   "auth.password.uppercase":
     "Wachtwoord moet minimaal één hoofdletter bevatten",
   "auth.password.lowercase":
@@ -90,8 +88,7 @@ export default {
     "Wachtwoord moet minimaal één speciaal teken bevatten",
   "auth.password.no_common":
     "Wachtwoord mag geen algemeen gebruikt wachtwoord zijn",
-  "auth.password.no_repeats":
-    "Wachtwoord mag geen herhaalde tekens bevatten",
+  "auth.password.no_repeats": "Wachtwoord mag geen herhaalde tekens bevatten",
   "auth.password.no_sequences":
     "Wachtwoord mag geen eenvoudige reeksen bevatten",
   "auth.password.match": "Wachtwoorden moeten overeenkomen",
@@ -104,10 +101,8 @@ export default {
   // Formuliervalidatie
   "auth.form.required": "Dit veld is vereist",
   "auth.form.email_invalid": "Voer een geldig e-mailadres in",
-  "auth.form.min_length":
-    "Dit veld moet minimaal {length} tekens lang zijn",
-  "auth.form.max_length":
-    "Dit veld mag niet langer zijn dan {length} tekens",
+  "auth.form.min_length": "Dit veld moet minimaal {length} tekens lang zijn",
+  "auth.form.max_length": "Dit veld mag niet langer zijn dan {length} tekens",
   "auth.form.invalid": "Dit veld is ongeldig",
 
   // Toegankelijkheid
@@ -121,23 +116,19 @@ export default {
   "auth.accessibility.close_modal": "Venster sluiten",
 
   // API-foutmeldingen
-  "auth.api.network_error":
-    "Netwerkfout. Controleer uw verbinding",
+  "auth.api.network_error": "Netwerkfout. Controleer uw verbinding",
   "auth.api.server_error": "Serverfout. Probeer het later opnieuw",
   "auth.api.invalid_credentials": "Ongeldige inloggegevens",
   "auth.api.account_exists": "Er bestaat al een account met dit e-mailadres",
   "auth.api.email_not_found": "Geen account gevonden met dit e-mailadres",
-  "auth.api.too_many_requests":
-    "Te veel pogingen. Probeer het later opnieuw",
+  "auth.api.too_many_requests": "Te veel pogingen. Probeer het later opnieuw",
 
   // Servicefoutmeldingen
-  "auth.service.session_expired":
-    "Uw sessie is verlopen. Log opnieuw in",
+  "auth.service.session_expired": "Uw sessie is verlopen. Log opnieuw in",
   "auth.service.unauthorized": "Niet geautoriseerd. Log in",
   "auth.service.account_locked":
     "Uw account is vergrendeld. Neem contact op met de ondersteuning",
-  "auth.service.permission_denied":
-    "Toestemming geweigerd voor deze actie",
+  "auth.service.permission_denied": "Toestemming geweigerd voor deze actie",
   "auth.service.invalid_credentials":
     "Ongeldige inloggegevens. Controleer uw e-mailadres en wachtwoord.",
   "auth.service.too_many_attempts":
@@ -249,13 +240,11 @@ export default {
   "playlist.item.coming.soon": "Binnenkort beschikbaar",
   "game.area.label": "Spelgebied",
   "game.options.label": "Antwoordopties",
-  "game.answer.correct":
-    "Correct! {points} punten + {bonus} bonuspunten",
+  "game.answer.correct": "Correct! {points} punten + {bonus} bonuspunten",
   "game.answer.wrong": "Fout! Het juiste antwoord was: {answer}",
   "error.invalid.question": "Ongeldige vraag of geen opties beschikbaar",
   "error.no.initial.question": "Geen geldige startvraag gevonden",
-  "error.no.albums.found":
-    "Geen albums gevonden voor categorie {category}",
+  "error.no.albums.found": "Geen albums gevonden voor categorie {category}",
   "meta.keywords":
     "Muziekquiz, Muziekspel, Liedjesquiz, Artiestenquiz, Online Muziekquiz, Muziektrivia, Melody Mind, Muziekraadspel",
   "knowledge.title": "Muziekkennisbank",
@@ -264,8 +253,7 @@ export default {
   "knowledge.search.label": "Artikelen doorzoeken",
   "knowledge.search.placeholder": "Zoeken...",
   "knowledge.filter.all": "Alle trefwoorden",
-  "knowledge.no.results":
-    "Geen artikelen gevonden. Probeer andere zoektermen.",
+  "knowledge.no.results": "Geen artikelen gevonden. Probeer andere zoektermen.",
   "game.remaining": "resterend",
   "game.default.headline": "Spel",
   "popup.score": "Score: {score}",
@@ -299,8 +287,7 @@ export default {
   "podcast.page.description":
     "Duik in de wereld van muziek met onze boeiende podcasts. Ontdek spannende verhalen, fascinerende achtergronden en bepalende momenten uit verschillende muziektijdperken - perfect voor iedereen die muziek niet alleen wil horen, maar ook wil begrijpen. Onze podcasts verschijnen elke 2 weken en zijn uitsluitend beschikbaar in het Duits en Engels.",
   "podcast.search.label": "Podcasts doorzoeken",
-  "podcast.search.placeholder":
-    "Zoeken naar fascinerende muziekverhalen...",
+  "podcast.search.placeholder": "Zoeken naar fascinerende muziekverhalen...",
   "podcast.search.status.all": "Alle podcasts worden weergegeven",
   "podcast.search.status.one": "1 podcast gevonden",
   "podcast.search.status.multiple": "{count} podcasts gevonden",
@@ -314,8 +301,7 @@ export default {
   "podcast.deploy.title": "Implementeer Serverloze Podcast in 2 Minuten",
   "podcast.deploy.description":
     "Leer hoe u snel uw podcast kunt implementeren.",
-  "podcast.auth.title":
-    "Gebruikersauthenticatie en Dashboardtoegang",
+  "podcast.auth.title": "Gebruikersauthenticatie en Dashboardtoegang",
   "podcast.auth.description":
     "Schakel authenticatie in en krijg toegang tot het dashboard.",
   "podcast.config.title": "Configureer Astropod Podcast",
@@ -335,8 +321,7 @@ export default {
   "index.start.game.label": "Begin je muzikale reis",
   "index.welcome.footnote":
     "Voorbereid door muziekliefhebbers voor muziekliefhebbers. Veel plezier!",
-  "accessibility.wcag":
-    "Deze applicatie streeft naar WCAG AAA-conformiteit.",
+  "accessibility.wcag": "Deze applicatie streeft naar WCAG AAA-conformiteit.",
   "game.instructions.title": "Spelinstructies",
   "game.instructions.puzzle":
     "Probeer het album te raden terwijl de hoes geleidelijk wordt onthuld. Hoe sneller je correct raadt, hoe meer punten je krijgt.",
@@ -345,11 +330,9 @@ export default {
   "game.puzzle.loading": "Puzzel laden...",
   "game.options.legend": "Selecteer het juiste album",
   "game.next.round": "Start Volgende Ronde",
-  "game.puzzle.revealed":
-    "{percent}% van de albumhoes is onthuld",
+  "game.puzzle.revealed": "{percent}% van de albumhoes is onthuld",
   "game.option.choose": "Kies",
-  "game.options.available":
-    "Antwoordopties zijn nu beschikbaar",
+  "game.options.available": "Antwoordopties zijn nu beschikbaar",
   "game.time.remaining.seconds": "{seconds} seconden resterend",
   "game.time.up": "Tijd is om! Het juiste album was:",
   "game.correct.answer": "Correct Antwoord",
@@ -416,8 +399,7 @@ export default {
     "Beheer uw persoonlijke informatie en bekijk uw spelstatistieken",
   "profile.loading": "Profielgegevens laden...",
   "profile.error": "Fout bij het laden van profielgegevens",
-  "profile.auth.required":
-    "U moet ingelogd zijn om uw profiel te bekijken",
+  "profile.auth.required": "U moet ingelogd zijn om uw profiel te bekijken",
   "profile.user.info": "Gebruikersinformatie",
   "profile.user.since": "Lid sinds",
   "profile.stats.title": "Spelstatistieken",
@@ -479,8 +461,7 @@ export default {
   "achievements.points": "Punten: {points}",
   "achievements.rarity": "Zeldzaamheid: {percentage}%",
   "achievements.notification.unlocked": "Prestatie ontgrendeld!",
-  "achievements.notification.progress":
-    "Prestatievoortgang bijgewerkt!",
+  "achievements.notification.progress": "Prestatievoortgang bijgewerkt!",
   "achievements.filter.title": "Filter Prestaties",
   "achievements.filter.status": "Status",
   "achievements.filter.category": "Categorie",
@@ -493,10 +474,8 @@ export default {
   "achievements.sort.name_desc": "Naam (Z-A)",
   "achievements.sort.progress_asc": "Voortgang (oplopend)",
   "achievements.sort.progress_desc": "Voortgang (aflopend)",
-  "achievements.sort.unlocked_at_asc":
-    "Ontgrendeldatum (oudste eerst)",
-  "achievements.sort.unlocked_at_desc":
-    "Ontgrendeldatum (nieuwste eerst)",
+  "achievements.sort.unlocked_at_asc": "Ontgrendeldatum (oudste eerst)",
+  "achievements.sort.unlocked_at_desc": "Ontgrendeldatum (nieuwste eerst)",
   "achievements.sort.points_asc": "Punten (oplopend)",
   "achievements.sort.points_desc": "Punten (aflopend)",
   "achievements.sort.rarity_asc": "Zeldzaamheid (meest voorkomend eerst)",
