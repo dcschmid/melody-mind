@@ -7,9 +7,6 @@
     "typescriptreact" // Enable .tsx
   ],
   "eslint.useFlatConfig": true,
-  "eslint.options": {
-    "overrideConfigFile": "eslint.config.js"
-  },
   "prettier.documentSelectors": ["**/*.astro"],
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"

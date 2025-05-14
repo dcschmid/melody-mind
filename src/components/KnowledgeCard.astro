@@ -1,15 +1,15 @@
 ---
 /**
  * KnowledgeCard Component
- * 
+ *
  * An aesthetically enhanced and fully accessible card component for displaying
  * music knowledge articles, including image, title, description, and metadata.
  * Designed for MelodyMind's music history and educational content.
- * 
+ *
  * This component is dual-purpose:
  * 1. As a standalone card with its own link (when articleUrl is provided)
  * 2. Inside a parent link element (when articleUrl is not provided)
- * 
+ *
  * @component
  * @implements {WCAG AAA compliance}
  */
@@ -70,7 +70,6 @@ const cardId = `card-title-${slug}-${index}`;
 
 // Format reading time for better appearance and accessibility
 const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}`;
-
 ---
 
 <article
@@ -81,48 +80,144 @@ const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}
   data-keywords={keywords}
   aria-labelledby={cardId}
 >
-  {hasOwnLink ? (
-    <a 
-      href={articleUrl} 
-      class="group flex flex-col h-full focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-purple-400 focus-visible:ring-offset-3 focus-visible:ring-offset-zinc-900 rounded-xl overflow-hidden"
-      aria-labelledby={cardId}
-      aria-describedby={`${cardId}-desc`}
-    >
+  {
+    hasOwnLink ? (
+      <a
+        href={articleUrl}
+        class="group flex flex-col h-full focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-purple-400 focus-visible:ring-offset-3 focus-visible:ring-offset-zinc-900 rounded-xl overflow-hidden"
+        aria-labelledby={cardId}
+        aria-describedby={`${cardId}-desc`}
+      >
+        <div class="knowledge-card-content h-full relative">
+          <div
+            class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700"
+            aria-hidden="true"
+          />
+
+          <div class="relative aspect-[16/9] overflow-hidden">
+            <img
+              src={image}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-focus-visible:scale-105 lazy-image"
+              width="640"
+              height="360"
+              fetchpriority="low"
+            />
+          </div>
+
+          <div class="pt-4 px-5 pb-3 flex-grow flex flex-col justify-start">
+            <h3
+              id={cardId}
+              class="text-2xl font-bold text-white mb-3 tracking-wide"
+            >
+              {title}
+            </h3>
+
+            <p
+              id={`${cardId}-desc`}
+              class="text-base text-zinc-100 leading-relaxed mb-4"
+            >
+              {description}
+            </p>
+
+            <div class="flex justify-between items-center mt-4 pt-3 border-t border-zinc-700/50">
+              <span
+                class="text-base text-zinc-200 flex items-center"
+                aria-label={formattedReadingTime}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 mr-1.5 text-purple-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span>
+                  {readingTime} {lang_t("knowledge.reading.time")}
+                </span>
+              </span>
+
+              <time
+                datetime={createdAt.toISOString()}
+                class="text-base text-zinc-200 flex items-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 mr-1.5 text-purple-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+                {formattedDate}
+              </time>
+            </div>
+          </div>
+        </div>
+        {hasOwnLink && <span class="sr-only">(opens article page)</span>}
+      </a>
+    ) : (
       <div class="knowledge-card-content h-full relative">
-        <!-- Decorative border top accent (purely visual) -->
-        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700" aria-hidden="true"></div>
-        
-        <!-- Image container with enhanced visual effects -->
+        <div
+          class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700"
+          aria-hidden="true"
+        />
+
         <div class="relative aspect-[16/9] overflow-hidden">
           <img
             src={image}
             alt=""
             loading="lazy"
             decoding="async"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-focus-visible:scale-105 lazy-image"
+            class="w-full h-full object-cover lazy-image"
             width="640"
             height="360"
             fetchpriority="low"
           />
+          s{" "}
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-900/75 to-transparent opacity-90"
+            aria-hidden="true"
+          />
         </div>
 
-        <!-- Content section with improved layout and typography -->
         <div class="pt-4 px-5 pb-3 flex-grow flex flex-col justify-start">
-          <h3 
+          <h3
             id={cardId}
-            class="text-2xl font-bold text-white mb-3 tracking-wide"
+            class="text-2xl font-bold text-white mb-3 line-clamp-2 tracking-wide"
           >
             {title}
           </h3>
-          
-          <p id={`${cardId}-desc`} class="text-base text-zinc-100 leading-relaxed mb-4">
+
+          <p
+            id={`${cardId}-desc`}
+            class="text-base text-zinc-100 leading-relaxed line-clamp-3 mb-4"
+          >
             {description}
           </p>
 
-          <!-- Enhanced metadata with improved visual styling -->
           <div class="flex justify-between items-center mt-4 pt-3 border-t border-zinc-700/50">
-            <span 
-              class="text-base text-zinc-200 flex items-center" 
+            <span
+              class="text-base text-zinc-200 flex items-center"
               aria-label={formattedReadingTime}
             >
               <svg
@@ -138,28 +233,31 @@ const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
               </svg>
-              <span>{readingTime} {lang_t("knowledge.reading.time")}</span>
+              <span>
+                {readingTime} {lang_t("knowledge.reading.time")}
+              </span>
             </span>
-            
-            <time 
-              datetime={createdAt.toISOString()} 
+
+            <time
+              datetime={createdAt.toISOString()}
               class="text-base text-zinc-200 flex items-center"
             >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                class="h-5 w-5 mr-1.5 text-purple-400" 
-                fill="none" 
-                viewBox="0 0 24 24" 
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 mr-1.5 text-purple-400"
+                fill="none"
+                viewBox="0 0 24 24"
                 stroke="currentColor"
                 aria-hidden="true"
                 focusable="false"
               >
-                <path 
-                  stroke-linecap="round" 
-                  stroke-linejoin="round" 
-                  stroke-width="2" 
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
                   d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                 />
               </svg>
@@ -168,96 +266,8 @@ const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}
           </div>
         </div>
       </div>
-      {hasOwnLink && <span class="sr-only">(opens article page)</span>}
-    </a>
-  ) : (
-    <div class="knowledge-card-content h-full relative">
-      <!-- Decorative border top accent (purely visual) -->
-      <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700" aria-hidden="true"></div>
-      
-      <!-- Image container with enhanced visual effects -->
-      <div class="relative aspect-[16/9] overflow-hidden">
-        <img
-          src={image}
-          alt=""
-          loading="lazy"
-          decoding="async"
-          class="w-full h-full object-cover lazy-image"
-          width="640"
-          height="360"
-          fetchpriority="low"
-        />
-
-        <!-- Enhanced gradient overlay -->
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-900/75 to-transparent opacity-90"
-          aria-hidden="true"
-        ></div>
-      </div>
-
-      <!-- Content section with improved layout and typography -->
-      <div class="pt-4 px-5 pb-3 flex-grow flex flex-col justify-start">
-        <h3 
-          id={cardId}
-          class="text-2xl font-bold text-white mb-3 line-clamp-2 tracking-wide"
-        >
-          {title}
-        </h3>
-        
-        <p id={`${cardId}-desc`} class="text-base text-zinc-100 leading-relaxed line-clamp-3 mb-4">
-          {description}
-        </p>
-
-        <!-- Enhanced metadata with improved visual styling -->
-        <div class="flex justify-between items-center mt-4 pt-3 border-t border-zinc-700/50">
-          <span 
-            class="text-base text-zinc-200 flex items-center" 
-            aria-label={formattedReadingTime}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 mr-1.5 text-purple-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <span>{readingTime} {lang_t("knowledge.reading.time")}</span>
-          </span>
-          
-          <time 
-            datetime={createdAt.toISOString()} 
-            class="text-base text-zinc-200 flex items-center"
-          >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              class="h-5 w-5 mr-1.5 text-purple-400" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <path 
-                stroke-linecap="round" 
-                stroke-linejoin="round" 
-                stroke-width="2" 
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
-            {formattedDate}
-          </time>
-        </div>
-      </div>
-    </div>
-  )}
+    )
+  }
 </article>
 
 <style>
@@ -270,7 +280,7 @@ const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}
     isolation: isolate; /* Create stacking context */
     position: relative;
   }
-  
+
   /* Add a glowing effect on hover for enhanced visibility */
   article:hover {
     box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
@@ -282,7 +292,7 @@ const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}
     transition: opacity 0.3s ease-in-out;
     background-color: rgba(161, 161, 170, 0.1); /* Light placeholder */
   }
-  
+
   /* Improved focus styles for keyboard navigation */
   a:focus-visible {
     outline: 4px solid #f0abfc !important;
@@ -297,7 +307,7 @@ const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}
       forced-color-adjust: none;
       outline: 1px solid transparent; /* Creates a gap between borders in high contrast mode */
     }
-    
+
     a:focus-visible {
       outline: 4px solid CanvasText !important;
     }
@@ -312,11 +322,11 @@ const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}
       background: white;
       border: 1px solid #000;
     }
-    
+
     .knowledge-card-content img {
       max-height: 3in;
     }
-    
+
     .knowledge-card-content p {
       color: black;
     }
@@ -333,15 +343,17 @@ const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}
       transform: none !important;
     }
   }
-  
+
   /* Font size adjustment for better readability */
   @media (max-width: 640px) {
     h3 {
       font-size: 1.5rem !important;
       line-height: 1.4 !important;
     }
-    
-    p, time, span {
+
+    p,
+    time,
+    span {
       font-size: 1.125rem !important;
       line-height: 1.6 !important;
     }

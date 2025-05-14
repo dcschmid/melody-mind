@@ -27,6 +27,8 @@ MelodyMind is an engaging and competitive music trivia game where players can te
 ## Coding Standards
 
 - Use TypeScript for all new code
+- Ensure script sections in Astro components are always written in TypeScript
+- Convert existing JavaScript scripts to TypeScript when necessary
 - Follow Astro.js component patterns
 - Maintain responsive design for all UI elements
 - Add JSDoc comments to all functions and components
@@ -34,6 +36,7 @@ MelodyMind is an engaging and competitive music trivia game where players can te
 - Follow accessibility best practices (WCAG)
 - Implement proper error handling
 - Use meaningful variable and function names
+- **All documentation must be written in English**, regardless of the user interface language
 
 ## Architectural Guidelines
 
@@ -137,10 +140,12 @@ interface UserScore {
 
 ## Testing Strategy
 
-- Write unit tests for game logic
-- Create component tests for UI elements
-- Implement integration tests for key user flows
-- Use mock data for testing scenarios
+**Note: Please do not write any tests at this time. Test implementation will be handled separately at a later stage.**
+
+- ~~Write unit tests for game logic~~
+- ~~Create component tests for UI elements~~
+- ~~Implement integration tests for key user flows~~
+- ~~Use mock data for testing scenarios~~
 - Ensure cross-browser compatibility
 - Conduct accessibility audits against WCAG AAA standards
 - Test with screen readers and assistive technologies
@@ -153,3 +158,15 @@ interface UserScore {
 - Document complex logic with comments
 - Follow Git workflow best practices
 - Keep dependencies up to date
+
+## Documentation Guidelines
+
+- All documentation must be written in English, regardless of the UI language
+- Use clear and concise language
+- Add comprehensive JSDoc comments to all functions and components
+- Document parameters, return values, and potential errors
+- Provide usage examples for complex functionality
+- Keep documentation up-to-date when code changes
+- Include type information in all documentation
+- Document accessibility considerations for UI components
+- Create Markdown files for major features and components
