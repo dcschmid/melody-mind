@@ -1,4 +1,4 @@
-import { languages } from "../i18n/ui";
+import { languages } from "../i18n/ui.js";
 
 const LANGUAGE_STORAGE_KEY = "preferred-language";
 

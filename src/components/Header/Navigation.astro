@@ -648,7 +648,7 @@ const isAuthenticated = false; // Will be overwritten client-side
         document.dispatchEvent(logoutEvent);
 
         // 3. Send POST request to the logout API
-        const response = await fetch(`/${lang}/api/auth/logout`, {
+        const response = await fetch(`/${String(lang)}/api/auth/logout`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -660,11 +660,11 @@ const isAuthenticated = false; // Will be overwritten client-side
 
         if (data.success) {
           // 4. Redirect to the gamehome page
-          window.location.href = `/${lang}/gamehome`;
+          window.location.href = `/${String(lang)}/gamehome`;
         } else {
           console.error("Logout failed:", data.error);
           // Also redirect to gamehome page on error, as client state has already been reset
-          window.location.href = `/${lang}/gamehome`;
+          window.location.href = `/${String(lang)}/gamehome`;
         }
       } catch (error) {
         console.error("Error during logout:", error);

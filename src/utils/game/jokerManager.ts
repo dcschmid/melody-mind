@@ -32,7 +32,7 @@ interface JokerState {
  * @interface Question
  */
 interface Question {
-  options: any[];
+  options: string[];
   correctAnswer: string;
 }
 

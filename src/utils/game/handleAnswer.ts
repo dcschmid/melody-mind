@@ -8,6 +8,7 @@ import { getRandomQuestion } from "./getRandomQuestion";
 import type { MediaElements } from "./mediaUtils";
 import { updateMedia } from "./mediaUtils";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import type { Album, Question } from "../../types/game";
 
 /**
  * Configuration interface for the answer handler

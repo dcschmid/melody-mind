@@ -24,7 +24,7 @@ interface Props {
 }
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations(String(lang));
 
 const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
 ---
