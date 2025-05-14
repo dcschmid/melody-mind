@@ -7,7 +7,7 @@
  * @module getRandomQuestion
  */
 
-import { shuffleArray } from "@utils/share/shuffleArray";
+import { shuffleArray } from "../share/shuffleArray";
 
 /**
  * Set to track questions that have already been used during the current game session
@@ -119,14 +119,14 @@ export function getRandomQuestion(
 
     // Create a flat list of all valid questions with their corresponding albums
     // that haven't been used yet in this game session
-    const availableQuestions = shuffledAlbums.flatMap((album) => {
+    const availableQuestions = shuffledAlbums.flatMap((album: Album) => {
       // Safely access questions for the current difficulty
       const questionsForDifficulty = album.questions[difficulty] || [];
 
       // Filter out questions that have already been used
       return questionsForDifficulty
-        .filter((question) => !usedQuestions.has(question.question))
-        .map((question) => ({
+        .filter((question: Question) => !usedQuestions.has(question.question))
+        .map((question: Question) => ({
           randomQuestion: question,
           randomAlbum: album,
         }));

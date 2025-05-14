@@ -59,7 +59,7 @@ const {
   ogMusic,
 } = Astro.props;
 
-const lang = getLangFromUrl(Astro.url);
+const lang = String(getLangFromUrl(Astro.url));
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const imageURL = new URL(image, Astro.site);
 const siteUrl = Astro.site?.toString() || "https://melodymind.app";
@@ -70,7 +70,7 @@ const alternateLanguages = Object.keys(languages).map((langCode) => {
   let path = Astro.url.pathname;
 
   // If current path starts with /{lang}/, replace only that part
-  const langPathRegex = new RegExp(`^/${lang}/`);
+  const langPathRegex = new RegExp(`^/${String(lang)}/`);
   if (langPathRegex.test(path)) {
     path = path.replace(langPathRegex, `/${langCode}/`);
   } else {
@@ -103,11 +103,11 @@ let structuredData: StructuredData = {
     "@type": "SearchAction",
     target: {
       "@type": "EntryPoint",
-      urlTemplate: `${siteUrl}${lang}/search?q={search_term_string}`,
+      urlTemplate: `${siteUrl}${String(lang)}/search?q={search_term_string}`,
     },
     "query-input": "required name=search_term_string",
   },
-  inLanguage: lang,
+  inLanguage: String(lang),
   author: {
     "@type": "Organization",
     name: "Melody Mind Team",
@@ -156,7 +156,7 @@ if (type === "article") {
       "@type": "WebPage",
       "@id": canonicalURL.toString(),
     },
-    inLanguage: lang,
+    inLanguage: String(lang),
     articleSection: section,
     accessibilityControl: [
       "fullKeyboardControl",
@@ -180,7 +180,7 @@ if (type === "article") {
     audio: audioSrc
       ? new URL(audioSrc, Astro.site || siteUrl).toString()
       : null,
-    inLanguage: lang,
+    inLanguage: String(lang),
     accessibilityControl: [
       "fullKeyboardControl",
       "fullMouseControl",
@@ -203,7 +203,7 @@ if (type === "article") {
       "@type": "Audience",
       audienceType: "Music lovers",
     },
-    inLanguage: lang,
+    inLanguage: String(lang),
     accessibilityControl: [
       "fullKeyboardControl",
       "fullMouseControl",
@@ -239,7 +239,7 @@ const criticalResources = [
 <meta name="keywords" content={keywords} />
 <meta name="author" content="Melody Mind Team" />
 <meta name="robots" content="index, follow" />
-<meta name="language" content={lang} />
+<meta name="language" content={String(lang)} />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -259,7 +259,7 @@ const criticalResources = [
 <meta property="og:description" content={description} />
 <meta property="og:image" content={imageURL} />
 <meta property="og:image:alt" content={`Melody Mind - ${title}`} />
-<meta property="og:locale" content={lang.replace("-", "_")} />
+<meta property="og:locale" content={String(lang).replace("-", "_")} />
 <meta property="og:site_name" content="Melody Mind" />
 {
   publishDate && (

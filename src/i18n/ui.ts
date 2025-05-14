@@ -6,16 +6,16 @@
  */
 
 // Import all language locale files
-import de from "./locales/de.ts"; // German
-import en from "./locales/en.ts"; // English
-import es from "./locales/es.ts"; // Spanish
-import fr from "./locales/fr.ts"; // French
-import it from "./locales/it.ts"; // Italian
-import pt from "./locales/pt.ts"; // Portuguese
-import da from "./locales/da.ts"; // Danish
-import nl from "./locales/nl.ts"; // Dutch
-import sv from "./locales/sv.ts"; // Swedish
-import fi from "./locales/fi.ts"; // Finnish
+import de from "./locales/de"; // German
+import en from "./locales/en"; // English
+import es from "./locales/es"; // Spanish
+import fr from "./locales/fr"; // French
+import it from "./locales/it"; // Italian
+import pt from "./locales/pt"; // Portuguese
+import da from "./locales/da"; // Danish
+import nl from "./locales/nl"; // Dutch
+import sv from "./locales/sv"; // Swedish
+import fi from "./locales/fi"; // Finnish
 
 /**
  * @constant languages

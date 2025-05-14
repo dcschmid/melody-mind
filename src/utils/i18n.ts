@@ -34,8 +34,10 @@ export function getLangFromUrl(url: URL): LanguageCode {
  * @param lang - String to check
  * @returns Boolean indicating if the string is a valid language code
  */
-function isValidLanguage(lang: string | undefined): lang is LanguageCode {
-  return Boolean(lang && lang in languages);
+function isValidLanguage(
+  lang: string | undefined,
+): lang is keyof typeof languages {
+  return Boolean(lang && Object.prototype.hasOwnProperty.call(languages, lang));
 }
 
 /**

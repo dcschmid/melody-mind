@@ -1,16 +1,16 @@
 import { updateScoreDisplay } from "./scoreUtils";
-import { updateMedia } from "./mediaUtils";
+import { updateMedia, type MediaElements } from "./mediaUtils";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 /**
  * Interface representing media-related elements of an album
- * @interface MediaElements
+ * @interface AlbumMedia
  * @property {string} coverSrc - URL of the album cover image
  * @property {string} artist - Name of the artist
  * @property {string} album - Name of the album
  * @property {string} year - Release year of the album
  */
-interface MediaElements {
+interface AlbumMedia {
   coverSrc: string;
   artist: string;
   album: string;
@@ -40,13 +40,13 @@ interface HandleAnswerConfig {
   option: string;
   correctAnswer: string;
   currentQuestion: { trivia: string };
-  album: MediaElements;
+  album: AlbumMedia;
   elements: {
     feedbackElement: HTMLParagraphElement;
     scoreElement: HTMLParagraphElement;
     overlayCover: HTMLImageElement;
     overlay: HTMLDivElement;
-    mediaElements?: any;
+    mediaElements?: MediaElements;
   };
   state: {
     score: number;

@@ -13,7 +13,7 @@ import { Icon } from "astro-icon/components";
 
 // Get current language for i18n
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations(String(lang));
 
 // Dynamic year for copyright notice
 const currentYear = new Date().getFullYear();

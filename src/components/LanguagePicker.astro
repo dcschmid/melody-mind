@@ -29,7 +29,7 @@ import { getLangFromUrl, useTranslations } from "@utils/i18n";
 
 // Get current language and translations
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations(String(lang));
 
 /**
  * Clean the current path by removing language prefixes
@@ -142,7 +142,7 @@ const languages = Object.fromEntries(
              hover:bg-sky-700
              focus-visible:outline-2 focus-visible:outline-sky-200 focus-visible:outline-offset-2
              focus-visible:bg-sky-700 disabled:opacity-50"
-      value={getRelativeLocaleUrl(lang, cleanPath)}
+      value={getRelativeLocaleUrl(String(lang), cleanPath)}
       aria-expanded="false"
       onchange="
         const newLang = this.value.split('/')[1];
@@ -204,7 +204,7 @@ const languages = Object.fromEntries(
   */
   }
   <div class="sr-only" id="language-status" aria-live="polite">
-    {t("language.selected", { language: languages[lang].name })}
+    {t("language.selected", { language: languages[String(lang)].name })}
   </div>
 </div>
 

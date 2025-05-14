@@ -592,7 +592,7 @@ const gameModeNames = {
 
         // Fetch filtered highscores
         const response = await fetch(
-          `/${lang}/api/scores/highscores?${params.toString()}`,
+          `/${String(lang)}/api/scores/highscores?${params.toString()}`,
         );
         const data = await response.json();
 
@@ -601,7 +601,7 @@ const gameModeNames = {
         }
 
         // Reload the page with the new filters to update the server-rendered content
-        window.location.href = `/${lang}/highscores?${params.toString()}`;
+        window.location.href = `/${String(lang)}/highscores?${params.toString()}`;
       } catch (error) {
         console.error("Error updating highscores:", error);
         // Show error message

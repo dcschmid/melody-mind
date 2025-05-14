@@ -11,8 +11,8 @@ import { Icon } from "astro-icon/components";
  * Language and translation setup
  * Sets the current language based on URL and loads appropriate translations
  */
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const lang = String(getLangFromUrl(Astro.url));
+const t = useTranslations(String(lang));
 
 /**
  * Interface defining the structure of a music category
@@ -125,7 +125,7 @@ const noPlayableCategoriesText =
   title={title}
   description={optimizedDescription}
   keywords={keywords}
-  image={`/og-images/social-share-gamehome-${lang}.jpg`}
+  image={`/og-images/social-share-gamehome-${String(lang)}.jpg`}
   type={pageType}
   publishDate={publishDate}
   modifiedDate={modifiedDate}
@@ -226,7 +226,7 @@ const noPlayableCategoriesText =
                         subheadline={item.introSubline}
                         image={item.imageUrl}
                         imageAlt={t("game.genre.image") + " " + item.headline}
-                        href={`/${lang}${item.categoryUrl}`}
+                        href={`/${String(lang)}${item.categoryUrl}`}
                         isDisabled={!item.isPlayable}
                         aria-label={
                           item.headline + " " + t("game.genre.play.label")

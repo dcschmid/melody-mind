@@ -42,7 +42,7 @@ const currentCategoryData = categories.default.find(
 const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 
 // Generate optimized meta description for SEO
-const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${currentCategoryData?.headline || ""} ${t("game.meta.description.suffix") || "im Schwierigkeitsgrad"} ${t(`difficulty.${difficulty}`) || difficulty}`;
+const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${currentCategoryData?.headline || ""} ${t("game.meta.description.suffix") || "im Schwierigkeitsgrad"} ${t(`difficulty.${String(difficulty)}`) || String(difficulty)}`;
 ---
 
 <Layout
@@ -56,7 +56,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
     id="endgame-popup"
     data-score="0"
     data-category={currentCategoryData?.headline || ""}
-    data-difficulty={difficulty || ""}
+    data-difficulty={String(difficulty) || ""}
   />
 
   <!-- Improved game header section with better visual distinction -->
@@ -77,7 +77,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
           aria-hidden="true"
         />
         <span class="text-base font-medium text-zinc-100">
-          {t(`difficulty.${difficulty}`)}
+          {t(`difficulty.${String(difficulty)}`)}
         </span>
       </div>
 
@@ -107,9 +107,9 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
     role="main"
     aria-label={t("game.area.label")}
     data-categoryName={currentCategoryData?.headline}
-    data-genre={category}
+    data-genre={String(category)}
     data-userID={user.id}
-    data-difficulty={difficulty}
+    data-difficulty={String(difficulty)}
   >
     <div
       id="question"
@@ -337,7 +337,9 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
 
       try {
         // Try to load albums for the current language first
-        const response = await fetch(`/json/genres/${lang}/${category}.json`);
+        const response = await fetch(
+          `/json/genres/${String(lang)}/${String(category)}.json`,
+        );
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);

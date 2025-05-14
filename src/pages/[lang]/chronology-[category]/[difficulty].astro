@@ -353,7 +353,7 @@ console.log(
         try {
           // Versuche zuerst, Alben für die aktuelle Sprache zu laden
           const response = await fetch(
-            `/json/genres/${lang}/${this.category}.json`,
+            `/json/genres/${String(lang)}/${this.category}.json`,
           );
 
           if (!response.ok) {

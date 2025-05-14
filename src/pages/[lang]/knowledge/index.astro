@@ -247,7 +247,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
       <ol class="flex flex-wrap items-center text-base text-zinc-300 space-x-2">
         <li class="flex items-center">
           <a
-            href={`/${lang}/`}
+            href={`/${String(lang)}/`}
             class="hover:text-purple-400 focus:text-purple-400 focus:outline-none focus-visible:ring-3 focus-visible:ring-purple-500 focus-visible:ring-offset-3 focus-visible:ring-offset-zinc-900 rounded px-2 py-1 transition-colors"
             aria-label={ui[uiLang]["nav.home"] || "Home"}
           >
@@ -445,7 +445,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
                       slug={article.slug}
                       lang={lang}
                       readingTime={article.data.readingTime}
-                      articleUrl={`/${lang}/knowledge/${article.slug}`}
+                      articleUrl={`/${String(lang)}/knowledge/${article.slug}`}
                       keywords={article.data.keywords?.join(", ")}
                       index={index}
                     />

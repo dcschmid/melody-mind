@@ -24,7 +24,7 @@ import ButtonLink from "@components/ButtonLink.astro";
 
 // Extract language from URL and set up translations
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations(String(lang));
 
 /**
  * Dynamic redirect based on browser language preference
@@ -67,7 +67,7 @@ const imageHeight = 600;
   title={title}
   description={optimizedDescription}
   keywords={keywords}
-  image={`/og-images/social-share-home-${lang}.jpg`}
+  image={`/og-images/social-share-home-${String(lang)}.jpg`}
   type={pageType}
   publishDate={publishDate}
   modifiedDate={modifiedDate}
@@ -124,7 +124,7 @@ const imageHeight = 600;
           class="flex flex-col items-center gap-5 mt-6 w-full max-w-xs mx-auto"
         >
           <ButtonLink
-            href={`/${lang}/gamehome`}
+            href={`/${String(lang)}/gamehome`}
             aria-label={t("index.start.game.label")}
             className="w-full min-h-[56px] py-4 px-6 bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-600 hover:to-indigo-600 rounded-xl transform hover:scale-[1.02] transition-all duration-300 shadow-lg focus:outline-none focus:ring-4 focus:ring-purple-300 focus:ring-opacity-80 text-lg text-white font-medium flex items-center justify-center"
           >
