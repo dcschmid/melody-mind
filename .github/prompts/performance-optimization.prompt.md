@@ -13,14 +13,14 @@ If not specified, ask for:
 
 ## Areas to Examine
 
-- **Astro Rendering**: Proper use of SSR vs. SSG vs. client islands
-- **Client-side JavaScript**: Bundle size, minimal interactivity, execution time
+- **Astro Rendering**: Optimal use of SSR vs. SSG rendering strategies
+- **Vanilla JavaScript**: Script optimization, minimal bundle size, efficient execution
 - **Asset Optimization**: Images, fonts, audio files
-- **Network Performance**: API calls, data loading, caching
-- **Animation Performance**: Frame rates, GPU acceleration
-- **Resource Usage**: Memory leaks, CPU usage
+- **Network Performance**: API calls, data loading, caching, HTTP/2, preloading
+- **Animation Performance**: Frame rates, GPU acceleration, CSS optimizations
+- **Resource Usage**: Memory management, CPU usage, event listeners
 - **Tailwind Optimization**: Utility class usage, PurgeCSS configuration
-- **Island Architecture**: Proper use of client directives (client:load, client:visible, etc.)
+- **Web Vitals**: LCP, FID, CLS, INP optimization strategies
 
 ## Analysis Structure
 
@@ -43,14 +43,16 @@ If not specified, ask for:
 - Largest contentful paint: 2.4s
 - Main bundle size: 428KB
 - Image assets: 1.2MB total
+- INP (Interaction to Next Paint): 180ms
 
 ### Identified Bottlenecks
 
 1. Large uncompressed images for genre backgrounds
-2. Excessive script execution for quiz timer updates
+2. Inefficient timer implementation using setInterval
 3. All questions loaded at once rather than progressively
 4. Unused Tailwind utilities increasing CSS bundle size
 5. Unoptimized animations causing jank on mobile devices
+6. Blocking script execution affecting initial page load
 
 ### Optimization Recommendations
 
@@ -66,25 +68,27 @@ If not specified, ask for:
 <img src="/images/rock-background.png" alt="Rock Music" />
 
 <!-- After -->
---- import {Image} from 'astro:assets'; import rockBackground from '../assets/rock-background.png';
+---
+import { Image } from 'astro:assets';
+import rockBackground from '../assets/rock-background.png';
 ---
 
 <Image
   src={rockBackground}
   widths={[400, 800]}
   sizes="(max-width: 800px) 400px, 800px"
-  formats={["webp", "jpg"]}
+  formats={["webp", "avif", "jpg"]} 
   alt="Rock Music"
   loading="lazy"
 />
 ```
-````
 
 #### 2. Optimize Script Execution
 
-- Use efficient timer implementations
-- Implement partial hydration with client directives
-- Use requestAnimationFrame for smooth animations
+- Use efficient timer implementations with requestAnimationFrame
+- Add type="module" to scripts for better optimization
+- Apply proper event cleanup to prevent memory leaks
+- Implement passive event listeners for touch events
 
 ```astro
 <!-- Before -->
@@ -104,13 +108,13 @@ If not specified, ask for:
 <!-- After -->
 <div class="timer" id="quiz-timer">30s</div>
 
-<script>
+<script type="module">
   const timerEl = document.getElementById("quiz-timer");
   let time = 30;
   let lastTimestamp = 0;
-  let animationId: number;
+  let animationId;
 
-  function updateTimer(timestamp: number) {
+  function updateTimer(timestamp) {
     if (!lastTimestamp) lastTimestamp = timestamp;
 
     const elapsed = timestamp - lastTimestamp;
@@ -138,6 +142,11 @@ If not specified, ask for:
   document.addEventListener("astro:page-load", () => {
     cancelAnimationFrame(animationId);
   });
+  
+  // Cleanup when component unmounts
+  document.addEventListener("astro:before-swap", () => {
+    cancelAnimationFrame(animationId);
+  });
 
   function endQuiz() {
     // Quiz ending logic
@@ -147,40 +156,61 @@ If not specified, ask for:
 
 #### 3. Progressive Data Loading
 
-- Use Astro's partial hydration to load initial content statically
-- Load first 5 questions with page, fetch remaining in background
+- Implement dynamic imports for code splitting
+- Use native fetch with priority hints
+- Load initial questions statically, fetch remaining in background
 - Implement data prefetching for the next question
 
 ```typescript
 // utils/questionLoader.ts
-export async function loadQuestions(genre: string, difficulty: string) {
+export async function loadQuestions(genre, difficulty) {
   // Initial load for first 5 questions (server-side or static)
-  const initialQuestions = await fetch(
+  const initialQuestionsResponse = await fetch(
     `/api/questions/${genre}/${difficulty}?limit=5`,
-  ).then((r) => r.json());
+    { priority: "high" } // Prioritize this request
+  );
+  
+  const initialQuestions = await initialQuestionsResponse.json();
 
   // Background fetch for remaining questions
-  let remainingQuestions: Question[] = [];
+  let remainingQuestions = [];
+  let remainingQuestionsLoaded = false;
 
   const loadRemaining = async () => {
-    remainingQuestions = await fetch(
-      `/api/questions/${genre}/${difficulty}?skip=5`,
-    ).then((r) => r.json());
+    try {
+      const response = await fetch(
+        `/api/questions/${genre}/${difficulty}?skip=5`,
+        { priority: "low" } // Deprioritize this request
+      );
+      
+      remainingQuestions = await response.json();
+      remainingQuestionsLoaded = true;
+      
+      // Notify any listeners that remaining questions are available
+      document.dispatchEvent(new CustomEvent('questions-loaded'));
+    } catch (error) {
+      console.error('Failed to load remaining questions:', error);
+    }
   };
 
   // Start loading in background after component mounts
   if (typeof window !== "undefined") {
-    // Use requestIdleCallback where available, or setTimeout as fallback
-    const requestIdleCallback =
-      window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
-
-    requestIdleCallback(() => {
-      loadRemaining();
-    });
+    // Try to use modern browser APIs for performance
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(() => loadRemaining(), { timeout: 2000 });
+    } else if ('requestAnimationFrame' in window) {
+      // Fallback to RAF for older browsers
+      setTimeout(() => {
+        requestAnimationFrame(loadRemaining);
+      }, 100);
+    } else {
+      // Ultimate fallback
+      setTimeout(loadRemaining, 200);
+    }
   }
 
   // Function to get a question by index (combines both arrays)
-  const getQuestion = (index: number) => {
+  const getQuestion = (index) => {
     if (index < initialQuestions.length) {
       return initialQuestions[index];
     } else {
@@ -188,32 +218,65 @@ export async function loadQuestions(genre: string, difficulty: string) {
     }
   };
 
-  return { initialQuestions, getQuestion };
+  // Check if all questions are loaded
+  const areAllQuestionsLoaded = () => remainingQuestionsLoaded;
+
+  return { 
+    initialQuestions, 
+    getQuestion, 
+    areAllQuestionsLoaded,
+    // Returns a promise that resolves when all questions are loaded
+    waitForAllQuestions: () => {
+      return new Promise(resolve => {
+        if (remainingQuestionsLoaded) {
+          resolve();
+        } else {
+          document.addEventListener('questions-loaded', () => resolve(), { once: true });
+        }
+      });
+    }
+  };
 }
 ```
 
 #### 4. Tailwind Optimization
 
 - Configure PurgeCSS content paths correctly in tailwind.config.mjs
-- Use JIT mode in development
-- Extract common utility patterns into components
+- Use modern plugins for responsive typography 
+- Extract common utility patterns into CSS variables for consistency
 
 ```js
 // tailwind.config.mjs - optimized configuration
 export default {
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  content: ["./src/**/*.{astro,html,js,ts}"],
   theme: {
-    // Theme customizations
+    extend: {
+      // Use modern color science
+      colors: {
+        // Using modern oklch color space for better visuals across displays
+        'brand': {
+          DEFAULT: 'oklch(65% 0.2 250)',
+          'light': 'oklch(85% 0.2 250)',
+          'dark': 'oklch(45% 0.2 250)',
+        }
+      },
+    }
   },
-  plugins: [],
+  future: {
+    hoverOnlyWhenSupported: true, // Better touch device support
+  },
+  plugins: [
+    // Add only plugins you actually use
+  ],
 };
 ```
 
 #### 5. Animation Optimization
 
-- Use CSS transforms instead of position/size properties
+- Use modern CSS animations with transforms 
 - Enable GPU acceleration with will-change for critical animations
 - Use reduced motion media query for accessibility
+- Implement progressive enhancement for animations
 
 ```css
 /* Before */
@@ -223,15 +286,32 @@ export default {
 }
 
 /* After */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .card-enter {
-  opacity: 0;
-  transform: translateX(-100px);
+  animation: slideIn 0.3s ease-out forwards;
   will-change: transform, opacity;
+}
+
+/* Only animate if the user doesn't prefer reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  .card-enter {
+    animation-duration: 0.3s;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .card-enter {
-    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms;
   }
 }
 ```
@@ -240,32 +320,114 @@ export default {
 
 - Use appropriate rendering strategies (SSG for static content)
 - Implement View Transitions API for smooth page transitions
-- Use client directives strategically:
-  - `client:idle` for non-critical interactive elements
-  - `client:visible` for below-fold interactive elements
-  - `client:media` for device-specific interactions
+- Use script type="module" for better code optimizations
+- Add preload hints for critical assets
 
 ```astro
 ---
 // Select optimal rendering mode based on content type
 export const prerender = true; // For static pages
+
+// Preload critical resources
+const criticalAssets = [
+  {
+    rel: 'preload',
+    href: '/fonts/game-font.woff2',
+    as: 'font',
+    type: 'font/woff2',
+    crossorigin: 'anonymous'
+  },
+  {
+    rel: 'preload',
+    href: '/images/logo.webp',
+    as: 'image',
+    type: 'image/webp'
+  }
+];
 ---
 
-<!-- Non-critical UI with deferred hydration -->
-<GameStats client:idle />
+<html lang="en">
+  <head>
+    <!-- Add preload hints for critical assets -->
+    {criticalAssets.map(asset => (
+      <link {...asset} />
+    ))}
+    
+    <!-- Modern JS module -->
+    <script type="module" src="/scripts/critical.js"></script>
+  </head>
+  <body>
+    <!-- View transitions for smooth page transitions -->
+    <main transition:animate="slide">
+      <!-- Page content -->
+    </main>
+    
+    <!-- Defer non-critical scripts -->
+    <script type="module" src="/scripts/non-critical.js" defer></script>
+  </body>
+</html>
+```
 
-<!-- Below-fold content that hydrates when visible -->
-<LeaderBoard client:visible />
+#### 7. Modern Web API Optimizations
 
-<!-- Different experiences for mobile vs. desktop -->
-<MobileControls client:media="(max-width: 768px)" />
-<DesktopControls client:media="(min-width: 769px)" />
+- Use Intersection Observer for lazy loading
+- Implement Content-Visibility for off-screen content 
+- Add priority hints to fetch requests
+- Take advantage of browser caching with proper cache headers
+
+```astro
+<div class="game-grid">
+  {gameItems.map((item, index) => (
+    <div 
+      class="game-item" 
+      style={index > 10 ? "content-visibility: auto;" : ""}
+      data-index={index}
+    >
+      <!-- Item content -->
+    </div>
+  ))}
+</div>
+
+<script type="module">
+  // Use Intersection Observer for lazy loading
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const item = entry.target;
+        // Load data or images
+        loadItemContent(item.dataset.index);
+        // Stop observing once loaded
+        observer.unobserve(item);
+      }
+    });
+  }, {
+    rootMargin: '200px', // Load items before they come into view
+    threshold: 0.01
+  });
+
+  // Observe all game items
+  document.querySelectorAll('.game-item').forEach(item => {
+    observer.observe(item);
+  });
+
+  // Cleanup
+  document.addEventListener('astro:before-swap', () => {
+    observer.disconnect();
+  });
+
+  async function loadItemContent(index) {
+    // Implementation details...
+  }
+</script>
 ```
 
 ### Expected Improvements
 
-- First contentful paint: 1.8s → 0.9s
-- Time to interactive: 3.2s → 1.6s
-- Bundle size: 428KB → 275KB
+- First contentful paint: 1.8s → 0.8s 
+- Time to interactive: 3.2s → 1.4s
+- Bundle size: 428KB → 240KB
+- INP (Interaction to Next Paint): 180ms → 80ms
 - Smooth 60fps animations on mobile devices
-- 40% reduction in total page weight
+- 45% reduction in total page weight
+- 70% improvement in Core Web Vitals scores
+````
