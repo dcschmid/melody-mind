@@ -371,6 +371,8 @@ export default {
   "profile.loading": "Loading profile data...",
   "profile.error": "Error loading profile data",
   "profile.auth.required": "You must be logged in to view your profile",
+  "errors.profile.notFound": "User profile not found",
+  "errors.profile.retrievalError": "Error retrieving user profile",
   "profile.user.info": "User Information",
   "profile.user.since": "Member since",
   "profile.stats.title": "Game Statistics",

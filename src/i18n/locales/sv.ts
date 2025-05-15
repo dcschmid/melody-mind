@@ -372,6 +372,8 @@ export default {
   "profile.loading": "Laddar profildata...",
   "profile.error": "Fel vid laddning av profildata",
   "profile.auth.required": "Du måste vara inloggad för att se din profil",
+  "errors.profile.notFound": "Användarprofil hittades inte",
+  "errors.profile.retrievalError": "Fel vid hämtning av användarprofil",
   "profile.user.info": "Användarinformation",
   "profile.user.since": "Medlem sedan",
   "profile.stats.title": "Spelstatistik",

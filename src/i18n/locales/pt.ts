@@ -379,6 +379,8 @@ export default {
   "profile.loading": "Carregando dados do perfil...",
   "profile.error": "Erro ao carregar dados do perfil",
   "profile.auth.required": "Você deve estar logado para ver seu perfil",
+  "errors.profile.notFound": "Perfil de usuário não encontrado",
+  "errors.profile.retrievalError": "Erro ao recuperar o perfil do usuário",
   "profile.user.info": "Informações do Usuário",
   "profile.user.since": "Membro desde",
   "profile.stats.title": "Estatísticas do Jogo",

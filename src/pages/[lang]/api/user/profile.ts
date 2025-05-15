@@ -22,6 +22,8 @@
  * - 401: Unauthorized (missing or invalid user ID)
  * - 404: User profile not found
  * - 500: Server error during data retrieval
+ *
+ * @since 1.0.0
  */
 import type { APIRoute } from "astro";
 
@@ -29,9 +31,33 @@ import { turso } from "../../../../turso.ts";
 import { useTranslations } from "../../../../utils/i18n.ts";
 
 /**
+ * Branded UserId type for better type safety and to prevent
+ * accidentally using other string values where a UserId is required
+ *
+ * @category Types
+ */
+type UserId = string & { readonly __brand: unique symbol };
+
+/**
+ * Valid game modes supported by the application
+ *
+ * @category Types
+ */
+type GameMode = "quiz" | "chronology";
+
+/**
+ * Difficulty levels available in the game
+ *
+ * @category Types
+ */
+type DifficultyLevel = "easy" | "medium" | "hard";
+
+/**
  * User Profile Response Interface
  *
  * Defines the structure of the data returned by the profile endpoint
+ *
+ * @category API Responses
  */
 interface UserProfile {
   /**
@@ -53,42 +79,269 @@ interface UserProfile {
     /**
      * Quiz mode statistics
      */
-    quiz: {
-      /** Cumulative score across all quiz games */
-      totalScore: number;
-      /** Total number of quiz games played */
-      gamesPlayed: number;
-      /** Highest score achieved in a single quiz game */
-      highestScore: number;
-    };
+    quiz: GameModeStats;
     /**
      * Chronology mode statistics
      */
-    chronology: {
-      /** Cumulative score across all chronology games */
-      totalScore: number;
-      /** Total number of chronology games played */
-      gamesPlayed: number;
-      /** Highest score achieved in a single chronology game */
-      highestScore: number;
-    };
+    chronology: GameModeStats;
   };
   /**
    * Array of recent game results limited to 5 entries
    * Ordered by creation date (newest first)
    */
-  recentGames: Array<{
-    /** Type of game played (quiz or chronology) */
-    gameMode: "quiz" | "chronology";
-    /** Total points earned in this game */
-    score: number;
-    /** Music category or genre played */
-    category: string;
-    /** Difficulty level of the game */
-    difficulty: "easy" | "medium" | "hard";
-    /** ISO 8601 formatted date when the game was completed */
-    createdAt: string;
-  }>;
+  recentGames: Array<GameResult>;
+}
+
+/**
+ * Statistics for a specific game mode
+ *
+ * @category Game Data
+ */
+interface GameModeStats {
+  /** Cumulative score across all games of this mode */
+  totalScore: number;
+  /** Total number of games played in this mode */
+  gamesPlayed: number;
+  /** Highest score achieved in a single game of this mode */
+  highestScore: number;
+}
+
+/**
+ * Individual game result information
+ *
+ * @category Game Data
+ */
+interface GameResult {
+  /** Type of game played */
+  gameMode: GameMode;
+  /** Total points earned in this game */
+  score: number;
+  /** Music category or genre played */
+  category: string;
+  /** Difficulty level of the game */
+  difficulty: DifficultyLevel;
+  /** ISO 8601 formatted date when the game was completed */
+  createdAt: string;
+}
+
+/**
+ * API response structure for successful profile retrieval
+ *
+ * @category API Responses
+ */
+interface SuccessResponse {
+  success: true;
+  profile: UserProfile;
+}
+
+/**
+ * API response structure for error cases
+ *
+ * @category API Responses
+ */
+interface ErrorResponse {
+  success: false;
+  error: string;
+}
+
+/**
+ * Custom error class for profile-related errors
+ *
+ * @category Errors
+ */
+class ProfileError extends Error {
+  /**
+   * Creates a new ProfileError instance
+   *
+   * @param {string} message - Error message
+   * @param {number} statusCode - HTTP status code to return
+   */
+  constructor(
+    message: string,
+    public readonly statusCode: number = 500
+  ) {
+    super(message);
+    this.name = "ProfileError";
+  }
+}
+
+/**
+ * Type guard for checking if a value is a valid UserId
+ *
+ * @param {string | null} value - The value to check
+ * @returns {boolean} Whether the value is a valid user ID
+ *
+ * @category Type Guards
+ */
+function isValidUserId(value: string | null): value is string {
+  return value !== null && value !== "" && value !== "guest";
+}
+
+/**
+ * Type guard for checking ProfileError instances
+ *
+ * @param {unknown} error - Error to check
+ * @returns {boolean} Whether the error is a ProfileError
+ *
+ * @category Type Guards
+ */
+function isProfileError(error: unknown): error is ProfileError {
+  return error instanceof ProfileError;
+}
+
+/**
+ * Fetches basic user information from the database
+ *
+ * @param {UserId} userId - User ID to fetch information for
+ * @param {Function} t - Translation function
+ * @returns {Promise<Record<string, unknown>>} User information row
+ * @throws {ProfileError} If user not found
+ */
+async function fetchUserInfo(userId: UserId, t: Function): Promise<Record<string, unknown>> {
+  const userResult = await turso.execute({
+    sql: `
+      SELECT username, email, created_at
+      FROM users
+      WHERE id = ?
+    `,
+    args: [userId],
+  });
+
+  // Return 404 if user not found
+  if (!userResult.rows || userResult.rows.length === 0) {
+    throw new ProfileError(t("errors.profile.notFound"), 404);
+  }
+
+  return userResult.rows[0];
+}
+
+/**
+ * Fetches and processes game statistics for a user
+ *
+ * @param {UserId} userId - User ID to fetch statistics for
+ * @returns {Promise<Record<GameMode, GameModeStats>>} Processed game statistics
+ */
+async function fetchGameStats(userId: UserId): Promise<Record<GameMode, GameModeStats>> {
+  // Initialize default statistics values
+  const stats: Record<GameMode, GameModeStats> = {
+    quiz: {
+      totalScore: 0,
+      gamesPlayed: 0,
+      highestScore: 0,
+    },
+    chronology: {
+      totalScore: 0,
+      gamesPlayed: 0,
+      highestScore: 0,
+    },
+  };
+
+  const statsResult = await turso.execute({
+    sql: `
+      SELECT 
+        game_mode, 
+        total_score, 
+        games_played, 
+        highest_score
+      FROM user_mode_stats
+      WHERE user_id = ?
+    `,
+    args: [userId],
+  });
+
+  // Populate statistics from database results
+  if (statsResult.rows && statsResult.rows.length > 0) {
+    for (const row of statsResult.rows) {
+      const gameMode = row.game_mode as GameMode;
+      if (gameMode === "quiz" || gameMode === "chronology") {
+        stats[gameMode] = {
+          totalScore: Number(row.total_score),
+          gamesPlayed: Number(row.games_played),
+          highestScore: Number(row.highest_score),
+        };
+      }
+    }
+  }
+
+  return stats;
+}
+
+/**
+ * Fetches recent game results for a user
+ *
+ * @param {UserId} userId - User ID to fetch recent games for
+ * @returns {Promise<Array<GameResult>>} Recent game results
+ */
+async function fetchRecentGames(userId: UserId): Promise<Array<GameResult>> {
+  const recentGamesResult = await turso.execute({
+    sql: `
+      SELECT 
+        game_mode, 
+        score, 
+        category, 
+        difficulty, 
+        created_at
+      FROM game_results
+      WHERE user_id = ?
+      ORDER BY created_at DESC
+      LIMIT 5
+    `,
+    args: [userId],
+  });
+
+  // Transform game results into the required format
+  return recentGamesResult.rows
+    ? recentGamesResult.rows.map((row) => ({
+        gameMode: row.game_mode as GameMode,
+        score: Number(row.score),
+        category: row.category as string,
+        difficulty: row.difficulty as DifficultyLevel,
+        createdAt: row.created_at as string,
+      }))
+    : [];
+}
+
+/**
+ * Creates a success response with user profile data
+ *
+ * @param {UserProfile} profile - User profile data
+ * @returns {Response} HTTP response with JSON data
+ */
+function createSuccessResponse(profile: UserProfile): Response {
+  return new Response(
+    JSON.stringify({
+      success: true,
+      profile,
+    } satisfies SuccessResponse),
+    {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+}
+
+/**
+ * Creates an error response
+ *
+ * @param {string} message - Error message
+ * @param {number} statusCode - HTTP status code
+ * @returns {Response} HTTP response with error details
+ */
+function createErrorResponse(message: string, statusCode: number): Response {
+  return new Response(
+    JSON.stringify({
+      success: false,
+      error: message,
+    } satisfies ErrorResponse),
+    {
+      status: statusCode,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 }
 
 /**
@@ -108,123 +361,22 @@ export const GET: APIRoute = async ({ request, params }) => {
   const t = useTranslations(lang);
 
   try {
-    // Extract user ID from the URL query parameters
+    // Extract and validate user ID from the URL query parameters
     const url = new URL(request.url);
-    const userId = url.searchParams.get("userId") || "guest";
+    const userIdRaw = url.searchParams.get("userId");
 
-    // Return unauthorized error if the user is a guest
-    if (userId === "guest") {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: t("auth.service.unauthorized"),
-        }),
-        {
-          status: 401,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+    if (!isValidUserId(userIdRaw)) {
+      throw new ProfileError(t("auth.service.unauthorized"), 401);
     }
 
-    // Retrieve basic user information from the database
-    const userResult = await turso.execute({
-      sql: `
-        SELECT username, email, created_at
-        FROM users
-        WHERE id = ?
-      `,
-      args: [userId],
-    });
+    const userId = userIdRaw as UserId;
 
-    // Return 404 if user not found
-    if (!userResult.rows || userResult.rows.length === 0) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: "User profile not found",
-        }),
-        {
-          status: 404,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-    }
-
-    const userRow = userResult.rows[0];
-
-    // Retrieve game performance statistics for both game modes
-    const statsResult = await turso.execute({
-      sql: `
-        SELECT 
-          game_mode, 
-          total_score, 
-          games_played, 
-          highest_score
-        FROM user_mode_stats
-        WHERE user_id = ?
-      `,
-      args: [userId],
-    });
-
-    // Initialize default statistics values
-    const stats = {
-      quiz: {
-        totalScore: 0,
-        gamesPlayed: 0,
-        highestScore: 0,
-      },
-      chronology: {
-        totalScore: 0,
-        gamesPlayed: 0,
-        highestScore: 0,
-      },
-    };
-
-    // Populate statistics from database results
-    if (statsResult.rows && statsResult.rows.length > 0) {
-      for (const row of statsResult.rows) {
-        const gameMode = row.game_mode as string;
-        if (gameMode === "quiz" || gameMode === "chronology") {
-          stats[gameMode] = {
-            totalScore: Number(row.total_score),
-            gamesPlayed: Number(row.games_played),
-            highestScore: Number(row.highest_score),
-          };
-        }
-      }
-    }
-
-    // Retrieve the 5 most recent game results
-    const recentGamesResult = await turso.execute({
-      sql: `
-        SELECT 
-          game_mode, 
-          score, 
-          category, 
-          difficulty, 
-          created_at
-        FROM game_results
-        WHERE user_id = ?
-        ORDER BY created_at DESC
-        LIMIT 5
-      `,
-      args: [userId],
-    });
-
-    // Transform game results into the required format
-    const recentGames = recentGamesResult.rows
-      ? recentGamesResult.rows.map((row) => ({
-          gameMode: row.game_mode as "quiz" | "chronology",
-          score: Number(row.score),
-          category: row.category as string,
-          difficulty: row.difficulty as "easy" | "medium" | "hard",
-          createdAt: row.created_at as string,
-        }))
-      : [];
+    // Fetch all required user data in parallel
+    const [userRow, stats, recentGames] = await Promise.all([
+      fetchUserInfo(userId, t),
+      fetchGameStats(userId),
+      fetchRecentGames(userId),
+    ]);
 
     // Assemble the complete user profile response
     const userProfile: UserProfile = {
@@ -237,34 +389,15 @@ export const GET: APIRoute = async ({ request, params }) => {
       recentGames,
     };
 
-    // Return the complete profile with 200 status
-    return new Response(
-      JSON.stringify({
-        success: true,
-        profile: userProfile,
-      }),
-      {
-        status: 200,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-  } catch (error) {
+    return createSuccessResponse(userProfile);
+  } catch (error: unknown) {
+    // Handle known error types
+    if (isProfileError(error)) {
+      return createErrorResponse(error.message, error.statusCode);
+    }
+
     // Log error for debugging and return 500 response
     console.error("Error retrieving user profile:", error);
-
-    return new Response(
-      JSON.stringify({
-        success: false,
-        error: "Error retrieving user profile",
-      }),
-      {
-        status: 500,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    return createErrorResponse(t("errors.profile.retrievalError"), 500);
   }
 };
