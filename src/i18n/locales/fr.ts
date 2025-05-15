@@ -486,4 +486,22 @@ export default {
   // Confirmation de réinitialisation du mot de passe
   "auth.password_reset_confirm.success":
     "Mot de passe réinitialisé avec succès. Vous pouvez maintenant vous connecter avec votre nouveau mot de passe",
+
+  // Validation et erreurs des résultats de jeu
+  "errors.gameResult.validation.invalidData": "Format de données invalide",
+  "errors.gameResult.validation.missingUserId": "ID utilisateur requis",
+  "errors.gameResult.validation.missingCategory": "Nom de catégorie requis",
+  "errors.gameResult.validation.missingDifficulty": "Niveau de difficulté requis",
+  "errors.gameResult.validation.invalidDifficulty": "Niveau de difficulté invalide",
+  "errors.gameResult.validation.invalidScore": "Le score doit être un nombre",
+  "errors.gameResult.validation.invalidCorrectAnswers":
+    "Les réponses correctes doivent être un nombre",
+  "errors.gameResult.validation.invalidTotalRounds": "Le nombre total de tours doit être un nombre",
+  "errors.gameResult.database.saveFailed": "Échec de l'enregistrement du résultat du jeu",
+  "errors.gameResult.log.database": "Erreur de base de données :",
+  "errors.gameResult.log.dailyActivity":
+    "Erreur lors de la mise à jour de l'activité quotidienne :",
+  "errors.gameResult.log.achievements": "Erreur lors du traitement des succès :",
+  "errors.gameResult.log.api": "Erreur d'API :",
+  "errors.gameResult.log.unknown": "Erreur inconnue",
 };

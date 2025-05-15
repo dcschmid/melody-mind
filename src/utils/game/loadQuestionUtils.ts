@@ -1,5 +1,3 @@
-import { shuffleArray } from "../share/shuffleArray";
-
 /**
  * Represents a question in the music quiz.
  *
@@ -130,8 +128,13 @@ export function loadQuestion({
       questionElement.textContent = questionText;
       optionsContainer.innerHTML = "";
 
-      // Create shuffled options array for randomized display
-      const shuffledOptions = shuffleArray([...options]);
+      // Create shuffled options array using a synchronous Fisher-Yates shuffle algorithm
+      // instead of the asynchronous shuffleArray function
+      const shuffledOptions = [...options];
+      for (let i = shuffledOptions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
+      }
 
       // Set accessibility attributes
       questionContainer.setAttribute("role", "main");

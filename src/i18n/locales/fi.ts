@@ -475,4 +475,20 @@ export default {
   // Salasanan nollauksen vahvistus
   "auth.password_reset_confirm.success":
     "Salasana nollattu onnistuneesti. Voit nyt kirjautua sisään uudella salasanallasi",
+
+  // Pelituloksen validointi ja virheet
+  "errors.gameResult.validation.invalidData": "Virheellinen tietomuoto",
+  "errors.gameResult.validation.missingUserId": "Käyttäjätunnus vaaditaan",
+  "errors.gameResult.validation.missingCategory": "Kategorian nimi vaaditaan",
+  "errors.gameResult.validation.missingDifficulty": "Vaikeustaso vaaditaan",
+  "errors.gameResult.validation.invalidDifficulty": "Virheellinen vaikeustaso",
+  "errors.gameResult.validation.invalidScore": "Pisteiden on oltava numero",
+  "errors.gameResult.validation.invalidCorrectAnswers": "Oikeiden vastausten on oltava numero",
+  "errors.gameResult.validation.invalidTotalRounds": "Kierrosten kokonaismäärän on oltava numero",
+  "errors.gameResult.database.saveFailed": "Pelituloksen tallentaminen epäonnistui",
+  "errors.gameResult.log.database": "Tietokantavirhe:",
+  "errors.gameResult.log.dailyActivity": "Virhe päivittäisen aktiivisuuden päivityksessä:",
+  "errors.gameResult.log.achievements": "Virhe saavutusten käsittelyssä:",
+  "errors.gameResult.log.api": "API-virhe:",
+  "errors.gameResult.log.unknown": "Tuntematon virhe",
 };

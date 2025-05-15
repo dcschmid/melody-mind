@@ -482,4 +482,20 @@ export default {
   // Confirmação de redefinição de senha
   "auth.password_reset_confirm.success":
     "Senha redefinida com sucesso. Agora você pode fazer login com sua nova senha",
+
+  // Validação e erros de resultados do jogo
+  "errors.gameResult.validation.invalidData": "Formato de dados inválido",
+  "errors.gameResult.validation.missingUserId": "ID do usuário é obrigatório",
+  "errors.gameResult.validation.missingCategory": "Nome da categoria é obrigatório",
+  "errors.gameResult.validation.missingDifficulty": "Nível de dificuldade é obrigatório",
+  "errors.gameResult.validation.invalidDifficulty": "Nível de dificuldade inválido",
+  "errors.gameResult.validation.invalidScore": "A pontuação deve ser um número",
+  "errors.gameResult.validation.invalidCorrectAnswers": "Respostas corretas devem ser um número",
+  "errors.gameResult.validation.invalidTotalRounds": "Total de rodadas deve ser um número",
+  "errors.gameResult.database.saveFailed": "Falha ao salvar o resultado do jogo",
+  "errors.gameResult.log.database": "Erro de banco de dados:",
+  "errors.gameResult.log.dailyActivity": "Erro ao atualizar atividade diária:",
+  "errors.gameResult.log.achievements": "Erro ao processar conquistas:",
+  "errors.gameResult.log.api": "Erro de API:",
+  "errors.gameResult.log.unknown": "Erro desconhecido",
 };

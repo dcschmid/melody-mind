@@ -471,4 +471,20 @@ export default {
   // Bekräftelse på lösenordsåterställning
   "auth.password_reset_confirm.success":
     "Lösenordet har återställts. Du kan nu logga in med ditt nya lösenord",
+
+  // Validering och fel för spelresultat
+  "errors.gameResult.validation.invalidData": "Ogiltigt dataformat",
+  "errors.gameResult.validation.missingUserId": "Användar-ID krävs",
+  "errors.gameResult.validation.missingCategory": "Kategorinamn krävs",
+  "errors.gameResult.validation.missingDifficulty": "Svårighetsnivå krävs",
+  "errors.gameResult.validation.invalidDifficulty": "Ogiltig svårighetsnivå",
+  "errors.gameResult.validation.invalidScore": "Poäng måste vara ett nummer",
+  "errors.gameResult.validation.invalidCorrectAnswers": "Korrekta svar måste vara ett nummer",
+  "errors.gameResult.validation.invalidTotalRounds": "Totalt antal rundor måste vara ett nummer",
+  "errors.gameResult.database.saveFailed": "Kunde inte spara spelresultatet",
+  "errors.gameResult.log.database": "Databasfel:",
+  "errors.gameResult.log.dailyActivity": "Fel vid uppdatering av daglig aktivitet:",
+  "errors.gameResult.log.achievements": "Fel vid bearbetning av prestationer:",
+  "errors.gameResult.log.api": "API-fel:",
+  "errors.gameResult.log.unknown": "Okänt fel",
 };
