@@ -4,6 +4,72 @@ import { authService } from "../../../../lib/auth/auth-service.js";
 import { useTranslations } from "../../../../utils/i18n.js";
 
 /**
+ * Language code supported by the application
+ */
+type SupportedLanguage = string & { readonly __brand: unique symbol };
+
+/**
+ * Structure for password reset request payload
+ */
+interface PasswordResetRequestPayload {
+  /** User's email address */
+  email: string;
+}
+
+/**
+ * Structure for password reset completion payload
+ */
+interface PasswordResetCompletionPayload {
+  /** Password reset token */
+  token: string;
+  /** New password to set */
+  newPassword: string;
+}
+
+/**
+ * API success response structure
+ */
+interface ApiSuccessResponse {
+  /** Indicates whether the operation was successful */
+  success: true;
+  /** Success message to display to the user */
+  message: string;
+}
+
+/**
+ * API error response structure
+ */
+interface ApiErrorResponse {
+  /** Indicates whether the operation was successful */
+  success: false;
+  /** Error message to display to the user */
+  error: string;
+  /** Optional validation errors for specific fields */
+  validationErrors?: string[];
+}
+
+/**
+ * Type union for all possible API responses
+ */
+type ApiResponse = ApiSuccessResponse | ApiErrorResponse;
+
+/**
+ * Creates a standardized API response
+ *
+ * @param {ApiResponse} response - The response data
+ * @param {number} status - HTTP status code
+ * @returns {Response} A properly formatted Response object
+ */
+function createApiResponse(response: ApiResponse, status: number): Response {
+  return new Response(JSON.stringify(response), {
+    status,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+}
+
+/**
  * Password Reset API Endpoints
  *
  * This file implements two API routes for password reset functionality:
@@ -28,64 +94,58 @@ import { useTranslations } from "../../../../utils/i18n.js";
  * @param {Request} context.request - The HTTP request object
  * @param {Object} context.params - URL parameters including language code
  * @returns {Response} JSON response with success/error message
+ *
+ * @example
+ * // Example client-side usage:
+ * const response = await fetch('/api/auth/reset-password', {
+ *   method: 'POST',
+ *   headers: { 'Content-Type': 'application/json' },
+ *   body: JSON.stringify({ email: 'user@example.com' })
+ * });
+ * const result = await response.json();
  */
 export const POST: APIRoute = async ({ request, params }) => {
   // Extract language from URL parameters
-  const lang = params.lang as string;
+  const lang = params.lang as SupportedLanguage;
   const t = useTranslations(lang);
 
   try {
     // Extract email address from request body
-    const body = await request.json();
+    const body = (await request.json()) as Partial<PasswordResetRequestPayload>;
     const { email } = body;
 
     // Validate input
     if (!email) {
-      return new Response(
-        JSON.stringify({
+      return createApiResponse(
+        {
           success: false,
           error: t("auth.form.required"),
-        }),
-        {
-          status: 400,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+        },
+        400
       );
     }
 
     // Request password reset (sends email if account exists)
-    const success = await authService.requestPasswordReset(email);
+    await authService.requestPasswordReset(email);
 
     // Always return success to prevent email enumeration attacks
     // (security measure: don't disclose whether an email exists in the system)
-    return new Response(
-      JSON.stringify({
+    return createApiResponse(
+      {
         success: true,
         message: t("auth.password_reset.success"),
-      }),
-      {
-        status: 200,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
+      },
+      200
     );
   } catch (error) {
-    console.error("Password reset request error:", error);
+    console.error(t("auth.log.reset_request_error"), error);
 
-    return new Response(
-      JSON.stringify({
+    return createApiResponse(
+      {
         success: false,
         error: t("auth.form.error"),
-      }),
-      {
-        status: 500,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
+      },
+      500
     );
   }
 };
@@ -100,30 +160,37 @@ export const POST: APIRoute = async ({ request, params }) => {
  * @param {Request} context.request - The HTTP request object
  * @param {Object} context.params - URL parameters including language code
  * @returns {Response} JSON response indicating success or detailed error information
+ *
+ * @example
+ * // Example client-side usage:
+ * const response = await fetch('/api/auth/reset-password', {
+ *   method: 'PUT',
+ *   headers: { 'Content-Type': 'application/json' },
+ *   body: JSON.stringify({
+ *     token: 'valid-reset-token',
+ *     newPassword: 'Secure-P@ssw0rd'
+ *   })
+ * });
+ * const result = await response.json();
  */
 export const PUT: APIRoute = async ({ request, params }) => {
   // Extract language from URL parameters
-  const lang = params.lang as string;
+  const lang = params.lang as SupportedLanguage;
   const t = useTranslations(lang);
 
   try {
     // Extract token and new password from request body
-    const body = await request.json();
+    const body = (await request.json()) as Partial<PasswordResetCompletionPayload>;
     const { token, newPassword } = body;
 
     // Validate input
     if (!token || !newPassword) {
-      return new Response(
-        JSON.stringify({
+      return createApiResponse(
+        {
           success: false,
           error: t("auth.form.required"),
-        }),
-        {
-          status: 400,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+        },
+        400
       );
     }
 
@@ -132,48 +199,33 @@ export const PUT: APIRoute = async ({ request, params }) => {
 
     if (!result.success) {
       // Return validation errors with 400 status
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: result.error,
-          validationErrors: result.validationErrors,
-        }),
+      return createApiResponse(
         {
-          status: 400,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+          success: false,
+          error: result.error || t("auth.form.error"),
+          validationErrors: result.validationErrors,
+        },
+        400
       );
     }
 
     // Successful password reset
-    return new Response(
-      JSON.stringify({
+    return createApiResponse(
+      {
         success: true,
         message: t("auth.password_reset_confirm.success"),
-      }),
-      {
-        status: 200,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
+      },
+      200
     );
   } catch (error) {
-    console.error("Password reset execution error:", error);
+    console.error(t("auth.log.reset_execution_error"), error);
 
-    return new Response(
-      JSON.stringify({
+    return createApiResponse(
+      {
         success: false,
         error: t("auth.form.error"),
-      }),
-      {
-        status: 500,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
+      },
+      500
     );
   }
 };

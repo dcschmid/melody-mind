@@ -11,6 +11,7 @@ export default {
   "auth.login.remember": "Angemeldet bleiben",
   "auth.login.forgot_password": "Passwort vergessen?",
   "auth.login.success": "Anmeldung erfolgreich",
+  "auth.logout.success": "Erfolgreich abgemeldet",
   "auth.login.error": "Fehler bei der Anmeldung",
   "auth.toggle.login": "Zum Login wechseln",
   "auth.toggle.register": "Zur Registrierung wechseln",
@@ -478,4 +479,12 @@ export default {
     "Fehler beim Freischalten des Achievements. Bitte versuche es später erneut",
   "errors.achievements.invalidId": "Ungültige Achievement-ID: Leere oder fehlende ID",
   "errors.achievements.unknownError": "Unbekannter Fehler beim Freischalten",
+
+  // Logging-Nachrichten
+  "auth.log.reset_request_error": "Fehler bei der Anfrage zum Zurücksetzen des Passworts:",
+  "auth.log.reset_execution_error": "Fehler bei der Ausführung des Passwort-Zurücksetzens:",
+
+  // Passwort-Zurücksetzen-Bestätigung
+  "auth.password_reset_confirm.success":
+    "Passwort erfolgreich zurückgesetzt. Du kannst dich jetzt mit deinem neuen Passwort anmelden",
 };
