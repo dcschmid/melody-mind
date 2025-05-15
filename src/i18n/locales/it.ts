@@ -456,4 +456,15 @@ export default {
   "achievements.sort.points_desc": "Punti (decrescenti)",
   "achievements.sort.rarity_asc": "Rarità (più comuni prima)",
   "achievements.sort.rarity_desc": "Rarità (più rari prima)",
+
+  // Messaggi di errore API
+  "errors.auth.unauthorized": "Devi essere loggato per accedere a questa funzionalità",
+  "errors.invalidRequest": "Richiesta non valida: {error}",
+  "errors.invalidParameters": "Parametri non validi forniti",
+  "errors.achievements.check":
+    "Errore durante il controllo dei risultati. Si prega di riprovare più tardi",
+  "errors.achievements.log": "Errore durante il controllo dei risultati:",
+  "errors.achievements.fetch": "Errore durante il recupero dei risultati. Riprova più tardi",
+  "errors.achievements.update": "Errore durante l'aggiornamento dei risultati. Riprova più tardi",
+  "errors.achievements.unlock": "Errore durante lo sblocco del risultato. Riprova più tardi",
 };

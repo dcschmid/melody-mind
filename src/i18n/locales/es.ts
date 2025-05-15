@@ -1,3 +1,4 @@
+// filepath: /home/daniel/projects/melody-mind/src/i18n/locales/es.ts
 export default {
   // Componentes de autenticación
   "auth.required.title": "Se requiere iniciar sesión",
@@ -461,4 +462,18 @@ export default {
   "achievements.sort.points_desc": "Puntos (descendente)",
   "achievements.sort.rarity_asc": "Rareza (más comunes primero)",
   "achievements.sort.rarity_desc": "Rareza (más raros primero)",
+
+  // Mensajes de error de API
+  "errors.auth.unauthorized": "Debes iniciar sesión para acceder a esta función",
+  "errors.invalidRequest": "Solicitud inválida: {error}",
+  "errors.invalidParameters": "Parámetros inválidos proporcionados",
+  "errors.achievements.check":
+    "Error al verificar los logros. Por favor, inténtalo de nuevo más tarde",
+  "errors.achievements.log": "Error al verificar los logros:",
+  "errors.achievements.fetch":
+    "Error al recuperar los logros. Por favor, inténtalo de nuevo más tarde",
+  "errors.achievements.update":
+    "Error al actualizar los logros. Por favor, inténtalo de nuevo más tarde",
+  "errors.achievements.unlock":
+    "Error al desbloquear el logro. Por favor, inténtalo de nuevo más tarde",
 };

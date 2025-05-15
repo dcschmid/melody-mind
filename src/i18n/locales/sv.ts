@@ -449,4 +449,14 @@ export default {
   "achievements.sort.points_desc": "Poäng (fallande)",
   "achievements.sort.rarity_asc": "Sällsynthet (vanligaste först)",
   "achievements.sort.rarity_desc": "Sällsynthet (sällsyntaste först)",
+
+  // API felmeddelanden
+  "errors.auth.unauthorized": "Du måste vara inloggad för att få tillgång till denna funktion",
+  "errors.invalidRequest": "Ogiltig begäran: {error}",
+  "errors.invalidParameters": "Ogiltiga parametrar angivna",
+  "errors.achievements.check": "Fel vid kontroll av prestationer. Försök igen senare",
+  "errors.achievements.log": "Fel vid kontroll av prestationer:",
+  "errors.achievements.fetch": "Fel vid hämtning av prestationer. Försök igen senare",
+  "errors.achievements.update": "Fel vid uppdatering av prestationer. Försök igen senare",
+  "errors.achievements.unlock": "Fel vid upplåsning av prestation. Försök igen senare",
 };
