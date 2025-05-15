@@ -1,14 +1,19 @@
 # Datenbankeinrichtung für Melody Mind
 
-Diese Dokumentation beschreibt die Datenbankeinrichtung für das Melody Mind-Projekt, einschließlich der Architektur, Best Practices für Migrationen und Troubleshooting-Tipps.
+Diese Dokumentation beschreibt die Datenbankeinrichtung für das Melody Mind-Projekt, einschließlich
+der Architektur, Best Practices für Migrationen und Troubleshooting-Tipps.
 
 ## 1. Überblick über die neue Datenbankeinrichtungsarchitektur
 
-Die Datenbankeinrichtung von Melody Mind verwendet eine modulare Architektur, die sowohl in Node.js- als auch in Astro-Kontexten funktioniert. Diese Architektur besteht aus mehreren Schlüsselkomponenten, die zusammenarbeiten, um eine robuste und wartbare Datenbankinfrastruktur zu gewährleisten.
+Die Datenbankeinrichtung von Melody Mind verwendet eine modulare Architektur, die sowohl in Node.js-
+als auch in Astro-Kontexten funktioniert. Diese Architektur besteht aus mehreren
+Schlüsselkomponenten, die zusammenarbeiten, um eine robuste und wartbare Datenbankinfrastruktur zu
+gewährleisten.
 
 ### 1.1 Umgebungsvariablen-Handling in Node.js und Astro
 
-Ein zentrales Feature der Architektur ist die einheitliche Behandlung von Umgebungsvariablen über verschiedene Ausführungskontexte hinweg:
+Ein zentrales Feature der Architektur ist die einheitliche Behandlung von Umgebungsvariablen über
+verschiedene Ausführungskontexte hinweg:
 
 ```js
 // Aus src/config/database.ts
@@ -46,11 +51,14 @@ export function getDatabaseConfig(): DatabaseConfig {
 }
 ```
 
-Diese Implementierung ermöglicht es, dieselbe Konfigurationslogik sowohl in serverseitigen Node.js-Skripten als auch in Astro-Komponenten zu verwenden, was die Codeduplizierung reduziert und die Wartbarkeit verbessert.
+Diese Implementierung ermöglicht es, dieselbe Konfigurationslogik sowohl in serverseitigen
+Node.js-Skripten als auch in Astro-Komponenten zu verwenden, was die Codeduplizierung reduziert und
+die Wartbarkeit verbessert.
 
 ### 1.2 Verwendung von db-setup-wrapper.mjs
 
-Der `db-setup-wrapper.mjs` dient als Einstiegspunkt für die Datenbankeinrichtung und löst mehrere Herausforderungen:
+Der `db-setup-wrapper.mjs` dient als Einstiegspunkt für die Datenbankeinrichtung und löst mehrere
+Herausforderungen:
 
 ```js
 // Wrapper-Skript, das die neuere register()-API verwendet
@@ -90,7 +98,8 @@ Die Konfigurationsdateien sind wie folgt strukturiert:
 - **src/turso.ts**: Datenbankverbindungskonfiguration
 - **db/migrations/**: Verzeichnis mit SQL-Migrationsdateien
 
-Diese Struktur trennt Bedenken und ermöglicht eine einfache Wartung und Erweiterung der Datenbankfunktionalität.
+Diese Struktur trennt Bedenken und ermöglicht eine einfache Wartung und Erweiterung der
+Datenbankfunktionalität.
 
 ## 2. Best Practices für zukünftige Migrationen
 
@@ -245,9 +254,7 @@ DELETE FROM migrations WHERE name = 'problematic_migration.sql';
 
 ```js
 if (typeof window !== "undefined") {
-  console.error(
-    "Diese Datei sollte nur auf der Serverseite importiert werden!",
-  );
+  console.error("Diese Datei sollte nur auf der Serverseite importiert werden!");
 }
 ```
 
@@ -264,7 +271,8 @@ if (typeof window !== "undefined") {
 
 ### 3.2 Überprüfung einer erfolgreichen Einrichtung
 
-Um zu überprüfen, ob die Datenbankeinrichtung erfolgreich war, können Sie folgende Schritte durchführen:
+Um zu überprüfen, ob die Datenbankeinrichtung erfolgreich war, können Sie folgende Schritte
+durchführen:
 
 1. **Überprüfen der Migrationstabelle**:
 
@@ -316,4 +324,7 @@ Wenn alle diese Überprüfungen erfolgreich sind, wurde die Datenbankeinrichtung
 
 ## Zusammenfassung
 
-Die neue Datenbankeinrichtungsarchitektur von Melody Mind bietet eine robuste, wartbare und kontextübergreifende Lösung für die Datenbankverbindung und -migration. Durch die Befolgung der beschriebenen Best Practices und Troubleshooting-Tipps können zukünftige Datenbankänderungen effizient und zuverlässig implementiert werden.
+Die neue Datenbankeinrichtungsarchitektur von Melody Mind bietet eine robuste, wartbare und
+kontextübergreifende Lösung für die Datenbankverbindung und -migration. Durch die Befolgung der
+beschriebenen Best Practices und Troubleshooting-Tipps können zukünftige Datenbankänderungen
+effizient und zuverlässig implementiert werden.

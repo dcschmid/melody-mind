@@ -43,18 +43,7 @@ export const prerender = true;
  */
 export async function getStaticPaths() {
   // Define all supported languages as a constant array for type safety
-  const supportedLanguages = [
-    "de",
-    "en",
-    "es",
-    "fr",
-    "it",
-    "pt",
-    "da",
-    "nl",
-    "sv",
-    "fi",
-  ] as const;
+  const supportedLanguages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"] as const;
 
   const paths = [];
 
@@ -65,18 +54,14 @@ export async function getStaticPaths() {
 
     try {
       // Try to load language-specific categories first
-      const categoryData = await import(
-        `../../../public/json/categories/${lang}_categories.json`
-      );
+      const categoryData = await import(`../../../public/json/categories/${lang}_categories.json`);
       categories = categoryData.default;
     } catch (error) {
       // Fallback to English if language-specific file doesn't exist
       usedFallback = true;
 
       try {
-        const fallbackData = await import(
-          `../../../public/json/categories/en_categories.json`
-        );
+        const fallbackData = await import(`../../../public/json/categories/en_categories.json`);
         categories = fallbackData.default;
       } catch (fallbackError) {
         // Emergency fallback with empty categories if even English fails
@@ -142,31 +127,25 @@ const modifiedDate = new Date();
 ---
 
 <Layout
-  title={title}
+  {title}
   description={optimizedDescription}
-  keywords={keywords}
+  {keywords}
   image={currentCategory?.imageUrl || "/social-share-categories.jpg"}
   type={pageType}
-  publishDate={publishDate}
-  modifiedDate={modifiedDate}
+  {publishDate}
+  {modifiedDate}
 >
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    {
-      /* Fallback Warning - Enhanced for screen readers with proper ARIA attributes */
-    }
+  <div class="mx-auto max-w-4xl px-4 py-8">
+    {/* Fallback Warning - Enhanced for screen readers with proper ARIA attributes */}
     {
       usedFallback && (
         <div
-          class="bg-amber-700/30 border border-amber-600/30 text-amber-100 p-4 rounded-lg mb-6 shadow-inner"
+          class="mb-6 rounded-lg border border-amber-600/30 bg-amber-700/30 p-4 text-amber-100 shadow-inner"
           role="alert"
           aria-live="polite"
         >
           <div class="flex items-center gap-3">
-            <Icon
-              name="warning"
-              class="w-5 h-5 flex-shrink-0"
-              aria-hidden="true"
-            />
+            <Icon name="warning" class="h-5 w-5 flex-shrink-0" aria-hidden="true" />
             <span class="font-medium">
               {t("notice.fallback_content") ||
                 "Using fallback content. Some information may be displayed in English."}
@@ -178,40 +157,34 @@ const modifiedDate = new Date();
 
     <!-- Hero section with improved contrast and accessibility -->
     <header
-      class="text-center mb-12 bg-gradient-to-br from-zinc-800/60 to-zinc-900/60 backdrop-blur-sm p-8 rounded-2xl shadow-xl"
+      class="mb-12 rounded-2xl bg-gradient-to-br from-zinc-800/60 to-zinc-900/60 p-8 text-center shadow-xl backdrop-blur-sm"
     >
       <Headline
-        className="text-center text-3xl md:text-4xl font-bold text-white mb-4"
+        className="mb-4 text-center text-3xl font-bold text-white md:text-4xl"
         title={currentCategory?.headline}
         level="h1"
         id="category-heading"
       />
-      <div
-        class="h-1 w-24 bg-purple-500 rounded-full mx-auto my-4"
-        aria-hidden="true"
-      >
-      </div>
+      <div class="mx-auto my-4 h-1 w-24 rounded-full bg-purple-500" aria-hidden="true"></div>
 
       <Paragraph
-        className="text-center text-lg font-medium text-zinc-100 max-w-2xl mx-auto"
+        className="mx-auto max-w-2xl text-center text-lg font-medium text-zinc-100"
         description={currentCategory?.introSubline}
       />
     </header>
 
     <article
-      class="flex flex-col items-center gap-8 w-full"
+      class="flex w-full flex-col items-center gap-8"
       data-category={currentCategory?.slug}
       aria-labelledby="category-heading"
     >
       <!-- Category image section with optimized responsive pictures -->
-      <div
-        class="relative mx-auto w-full max-w-2xl overflow-hidden rounded-xl shadow-xl"
-      >
+      <div class="relative mx-auto w-full max-w-2xl overflow-hidden rounded-xl shadow-xl">
         {
           currentCategory?.imageUrl ? (
-            <div class="w-full aspect-[16/9] overflow-hidden rounded-xl shadow-lg">
+            <div class="aspect-[16/9] w-full overflow-hidden rounded-xl shadow-lg">
               <Picture
-                class="w-full h-full object-cover"
+                class="h-full w-full object-cover"
                 src={currentCategory.imageUrl}
                 widths={[320, 640, 960, 1280]}
                 sizes="(max-width: 640px) 320px, (max-width: 1024px) 640px, (max-width: 1280px) 960px, 1280px"
@@ -229,21 +202,13 @@ const modifiedDate = new Date();
             </div>
           ) : (
             <div
-              class="flex items-center justify-center w-full aspect-[16/9] p-6 rounded-xl bg-zinc-800 shadow-lg font-sans text-base text-zinc-100 text-center"
+              class="flex aspect-[16/9] w-full items-center justify-center rounded-xl bg-zinc-800 p-6 text-center font-sans text-base text-zinc-100 shadow-lg"
               role="img"
-              aria-label={
-                t("category.no_image_available") || "No image available"
-              }
+              aria-label={t("category.no_image_available") || "No image available"}
             >
               <div class="flex items-center gap-3">
-                <Icon
-                  name="image"
-                  class="h-8 w-8 text-zinc-400"
-                  aria-hidden="true"
-                />
-                <span>
-                  {t("category.no_image_available") || "No image available"}
-                </span>
+                <Icon name="image" class="h-8 w-8 text-zinc-400" aria-hidden="true" />
+                <span>{t("category.no_image_available") || "No image available"}</span>
               </div>
             </div>
           )
@@ -252,10 +217,10 @@ const modifiedDate = new Date();
 
       <!-- Category description with enhanced readability -->
       <div
-        class="prose prose-invert prose-zinc max-w-none w-full px-6 sm:px-8 py-6 sm:py-8 bg-zinc-800/50 rounded-xl shadow-md border border-zinc-700/30 leading-relaxed"
+        class="prose prose-invert prose-zinc w-full max-w-none rounded-xl border border-zinc-700/30 bg-zinc-800/50 px-6 py-6 leading-relaxed shadow-md sm:px-8 sm:py-8"
       >
         <Paragraph
-          className="text-zinc-100 leading-relaxed text-base sm:text-lg"
+          className="text-base leading-relaxed text-zinc-100 sm:text-lg"
           description={currentCategory?.text}
         />
       </div>
@@ -263,25 +228,25 @@ const modifiedDate = new Date();
       <!-- Auth Form - Sichtbarkeit wird durch JavaScript gesteuert -->
       <section
         id="auth-section"
-        class="flex flex-col gap-8 items-center w-full mt-8 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm rounded-xl p-8 relative shadow-lg border border-zinc-700/30 opacity-0 transition-opacity duration-300"
+        class="relative mt-8 flex w-full flex-col items-center gap-8 rounded-xl border border-zinc-700/30 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 p-8 opacity-0 shadow-lg backdrop-blur-sm transition-opacity duration-300"
         aria-labelledby="auth-heading"
         aria-hidden="true"
       >
         <Headline
           level="h2"
           id="auth-heading"
-          className="text-center text-2xl font-bold text-white mb-6"
+          className="mb-6 text-center text-2xl font-bold text-white"
         >
           {t("auth.required.title") || "Anmeldung erforderlich"}
         </Headline>
 
         <Paragraph
-          className="text-center max-w-2xl mb-6 text-zinc-100"
+          className="mb-6 max-w-2xl text-center text-zinc-100"
           description={t("auth.required.description") ||
             "Bitte melde dich an oder registriere dich, um die Spielmodi zu nutzen."}
         />
 
-        <div class="w-full max-w-md mx-auto">
+        <div class="mx-auto w-full max-w-md">
           <AuthForm initialMode="login" />
         </div>
       </section>
@@ -289,12 +254,12 @@ const modifiedDate = new Date();
       <!-- Music Quiz Section - Sichtbarkeit wird durch JavaScript gesteuert -->
       <section
         id="quiz-section"
-        class="flex flex-col gap-8 items-center w-full mt-8 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm rounded-xl p-8 relative shadow-lg border border-zinc-700/30 opacity-0 transition-opacity duration-300"
+        class="relative mt-8 flex w-full flex-col items-center gap-8 rounded-xl border border-zinc-700/30 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 p-8 opacity-0 shadow-lg backdrop-blur-sm transition-opacity duration-300"
         aria-labelledby="quiz-heading"
         aria-hidden="true"
       >
         <div
-          class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center shadow-lg border-4 border-zinc-900"
+          class="absolute -top-10 left-1/2 flex h-20 w-20 -translate-x-1/2 transform items-center justify-center rounded-full border-4 border-zinc-900 bg-gradient-to-br from-purple-600 to-indigo-700 shadow-lg"
           aria-hidden="true"
         >
           <Icon name="music" class="h-10 w-10 text-white" />
@@ -303,67 +268,52 @@ const modifiedDate = new Date();
         <Headline
           level="h2"
           id="quiz-heading"
-          className="text-center text-2xl font-bold text-white mt-6 pt-2"
+          className="mt-6 pt-2 text-center text-2xl font-bold text-white"
         >
           {t("category.difficulty.heading")}
         </Headline>
 
         <Paragraph
-          className="text-center max-w-2xl mb-6 text-zinc-100"
+          className="mb-6 max-w-2xl text-center text-zinc-100"
           description={t("knowledge.play.description")}
         />
 
         <div
-          class="flex flex-wrap justify-center gap-4 sm:gap-6 w-full mt-2"
+          class="mt-2 flex w-full flex-wrap justify-center gap-4 sm:gap-6"
           role="group"
           aria-labelledby="quiz-heading"
         >
           <!-- Difficulty levels with improved accessibility -->
-          <div class="w-full max-w-xs perspective">
+          <div class="perspective w-full max-w-xs">
             <ButtonLink
-              href={getRelativeLocaleUrl(
-                lang,
-                `game-${currentCategory?.slug}/easy`,
-              )}
+              href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/easy`)}
               aria-label={`${t("category.difficulty.easy")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="w-full py-5 px-6 bg-gradient-to-br from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 rounded-xl transform hover:scale-[1.03] transition-all duration-300 shadow-md hover:shadow-green-700/20 flex items-center justify-center gap-3 focus:outline-none focus:ring-4 focus:ring-green-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900"
+              className="flex w-full transform items-center justify-center gap-3 rounded-xl bg-gradient-to-br from-green-600 to-green-700 px-6 py-5 shadow-md transition-all duration-300 hover:scale-[1.03] hover:from-green-500 hover:to-green-600 hover:shadow-green-700/20 focus:ring-4 focus:ring-green-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
             >
               <Icon name="play" class="h-6 w-6" aria-hidden="true" />
-              <span class="text-lg font-medium"
-                >{t("category.difficulty.easy")}</span
-              >
+              <span class="text-lg font-medium">{t("category.difficulty.easy")}</span>
             </ButtonLink>
           </div>
 
-          <div class="w-full max-w-xs perspective">
+          <div class="perspective w-full max-w-xs">
             <ButtonLink
-              href={getRelativeLocaleUrl(
-                lang,
-                `game-${currentCategory?.slug}/medium`,
-              )}
+              href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/medium`)}
               aria-label={`${t("category.difficulty.medium")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="w-full py-5 px-6 bg-gradient-to-br from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 rounded-xl transform hover:scale-[1.03] transition-all duration-300 shadow-md hover:shadow-blue-700/20 flex items-center justify-center gap-3 focus:outline-none focus:ring-4 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900"
+              className="flex w-full transform items-center justify-center gap-3 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 px-6 py-5 shadow-md transition-all duration-300 hover:scale-[1.03] hover:from-blue-500 hover:to-blue-600 hover:shadow-blue-700/20 focus:ring-4 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
             >
               <Icon name="bolt" class="h-6 w-6" aria-hidden="true" />
-              <span class="text-lg font-medium"
-                >{t("category.difficulty.medium")}</span
-              >
+              <span class="text-lg font-medium">{t("category.difficulty.medium")}</span>
             </ButtonLink>
           </div>
 
-          <div class="w-full max-w-xs perspective">
+          <div class="perspective w-full max-w-xs">
             <ButtonLink
-              href={getRelativeLocaleUrl(
-                lang,
-                `game-${currentCategory?.slug}/hard`,
-              )}
+              href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/hard`)}
               aria-label={`${t("category.difficulty.hard")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="w-full py-5 px-6 bg-gradient-to-br from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 rounded-xl transform hover:scale-[1.03] transition-all duration-300 shadow-md hover:shadow-red-700/20 flex items-center justify-center gap-3 focus:outline-none focus:ring-4 focus:ring-red-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900"
+              className="flex w-full transform items-center justify-center gap-3 rounded-xl bg-gradient-to-br from-red-600 to-red-700 px-6 py-5 shadow-md transition-all duration-300 hover:scale-[1.03] hover:from-red-500 hover:to-red-600 hover:shadow-red-700/20 focus:ring-4 focus:ring-red-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
             >
               <Icon name="fire" class="h-6 w-6" aria-hidden="true" />
-              <span class="text-lg font-medium"
-                >{t("category.difficulty.hard")}</span
-              >
+              <span class="text-lg font-medium">{t("category.difficulty.hard")}</span>
             </ButtonLink>
           </div>
         </div>
@@ -372,12 +322,12 @@ const modifiedDate = new Date();
       <!-- Music Chronology Game Section - Sichtbarkeit wird durch JavaScript gesteuert -->
       <section
         id="chronology-section"
-        class="flex flex-col gap-8 items-center w-full mt-12 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 backdrop-blur-sm rounded-xl p-8 relative shadow-lg border border-zinc-700/30 opacity-0 transition-opacity duration-300"
+        class="relative mt-12 flex w-full flex-col items-center gap-8 rounded-xl border border-zinc-700/30 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 p-8 opacity-0 shadow-lg backdrop-blur-sm transition-opacity duration-300"
         aria-labelledby="chronology-heading"
         aria-hidden="true"
       >
         <div
-          class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center shadow-lg border-4 border-zinc-900"
+          class="absolute -top-10 left-1/2 flex h-20 w-20 -translate-x-1/2 transform items-center justify-center rounded-full border-4 border-zinc-900 bg-gradient-to-br from-indigo-500 to-indigo-700 shadow-lg"
           aria-hidden="true"
         >
           <Icon name="clock-history" class="h-10 w-10 text-white" />
@@ -386,67 +336,52 @@ const modifiedDate = new Date();
         <Headline
           level="h2"
           id="chronology-heading"
-          className="text-center text-2xl font-bold text-white mt-6 pt-2"
+          className="mt-6 pt-2 text-center text-2xl font-bold text-white"
         >
           {t("game.chronology.title")}
         </Headline>
 
         <Paragraph
-          className="text-center max-w-2xl mb-6 text-zinc-100"
+          className="mb-6 max-w-2xl text-center text-zinc-100"
           description={t("game.chronology.description")}
         />
 
         <div
-          class="flex flex-wrap justify-center gap-4 sm:gap-6 w-full mt-2"
+          class="mt-2 flex w-full flex-wrap justify-center gap-4 sm:gap-6"
           role="group"
           aria-labelledby="chronology-heading"
         >
           <!-- Difficulty levels with improved accessibility -->
-          <div class="w-full max-w-xs perspective">
+          <div class="perspective w-full max-w-xs">
             <ButtonLink
-              href={getRelativeLocaleUrl(
-                lang,
-                `chronology-${currentCategory?.slug}/easy`,
-              )}
+              href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/easy`)}
               aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.easy")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="w-full py-5 px-6 bg-gradient-to-br from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 rounded-xl transform hover:scale-[1.03] transition-all duration-300 shadow-md hover:shadow-green-700/20 flex items-center justify-center gap-3 focus:outline-none focus:ring-4 focus:ring-green-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900"
+              className="flex w-full transform items-center justify-center gap-3 rounded-xl bg-gradient-to-br from-green-600 to-green-700 px-6 py-5 shadow-md transition-all duration-300 hover:scale-[1.03] hover:from-green-500 hover:to-green-600 hover:shadow-green-700/20 focus:ring-4 focus:ring-green-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
             >
               <Icon name="play" class="h-6 w-6" aria-hidden="true" />
-              <span class="text-lg font-medium"
-                >{t("category.difficulty.easy")}</span
-              >
+              <span class="text-lg font-medium">{t("category.difficulty.easy")}</span>
             </ButtonLink>
           </div>
 
-          <div class="w-full max-w-xs perspective">
+          <div class="perspective w-full max-w-xs">
             <ButtonLink
-              href={getRelativeLocaleUrl(
-                lang,
-                `chronology-${currentCategory?.slug}/medium`,
-              )}
+              href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/medium`)}
               aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.medium")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="w-full py-5 px-6 bg-gradient-to-br from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 rounded-xl transform hover:scale-[1.03] transition-all duration-300 shadow-md hover:shadow-blue-700/20 flex items-center justify-center gap-3 focus:outline-none focus:ring-4 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900"
+              className="flex w-full transform items-center justify-center gap-3 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 px-6 py-5 shadow-md transition-all duration-300 hover:scale-[1.03] hover:from-blue-500 hover:to-blue-600 hover:shadow-blue-700/20 focus:ring-4 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
             >
               <Icon name="bolt" class="h-6 w-6" aria-hidden="true" />
-              <span class="text-lg font-medium"
-                >{t("category.difficulty.medium")}</span
-              >
+              <span class="text-lg font-medium">{t("category.difficulty.medium")}</span>
             </ButtonLink>
           </div>
 
-          <div class="w-full max-w-xs perspective">
+          <div class="perspective w-full max-w-xs">
             <ButtonLink
-              href={getRelativeLocaleUrl(
-                lang,
-                `chronology-${currentCategory?.slug}/hard`,
-              )}
+              href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/hard`)}
               aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.hard")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="w-full py-5 px-6 bg-gradient-to-br from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 rounded-xl transform hover:scale-[1.03] transition-all duration-300 shadow-md hover:shadow-red-700/20 flex items-center justify-center gap-3 focus:outline-none focus:ring-4 focus:ring-red-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900"
+              className="flex w-full transform items-center justify-center gap-3 rounded-xl bg-gradient-to-br from-red-600 to-red-700 px-6 py-5 shadow-md transition-all duration-300 hover:scale-[1.03] hover:from-red-500 hover:to-red-600 hover:shadow-red-700/20 focus:ring-4 focus:ring-red-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
             >
               <Icon name="fire" class="h-6 w-6" aria-hidden="true" />
-              <span class="text-lg font-medium"
-                >{t("category.difficulty.hard")}</span
-              >
+              <span class="text-lg font-medium">{t("category.difficulty.hard")}</span>
             </ButtonLink>
           </div>
         </div>
@@ -510,17 +445,16 @@ const modifiedDate = new Date();
          * @param {HTMLElement} element - Das zu aktualisierende Element
          * @param {boolean} isVisible - Ob das Element sichtbar sein soll
          */
-        function updateAriaVisibility(
-          element: HTMLElement | null,
-          isVisible: boolean,
-        ): void {
-          if (!element) return;
+        function updateAriaVisibility(element: HTMLElement | null, isVisible: boolean): void {
+          if (!element) {
+            return;
+          }
 
           element.setAttribute("aria-hidden", isVisible ? "false" : "true");
 
           // Wenn das Element sichtbar ist, Tab-Navigation ermöglichen, sonst deaktivieren
           const focusableElements = element.querySelectorAll(
-            'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
+            'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
           );
 
           focusableElements.forEach((el) => {
@@ -568,11 +502,10 @@ const modifiedDate = new Date();
          * @param {HTMLElement} element - Das zu aktualisierende Element
          * @param {boolean} show - Ob das Element angezeigt werden soll
          */
-        function updateSectionVisibility(
-          element: HTMLElement | null,
-          show: boolean,
-        ): void {
-          if (!element) return;
+        function updateSectionVisibility(element: HTMLElement | null, show: boolean): void {
+          if (!element) {
+            return;
+          }
 
           if (show) {
             // Zuerst display und visibility setzen, dann Opacity ändern für sanften Übergang
@@ -613,8 +546,7 @@ const modifiedDate = new Date();
           // Elemente basierend auf dem Authentifizierungsstatus anzeigen/ausblenden
           const authSection = document.getElementById("auth-section");
           const quizSection = document.getElementById("quiz-section");
-          const chronologySection =
-            document.getElementById("chronology-section");
+          const chronologySection = document.getElementById("chronology-section");
 
           if (isLoggedIn) {
             // Benutzer ist eingeloggt - Spielmodi anzeigen, Auth-Form ausblenden
@@ -629,7 +561,7 @@ const modifiedDate = new Date();
             window.dispatchEvent(
               new CustomEvent("auth:status-change", {
                 detail: { isAuthenticated: true },
-              }),
+              })
             );
           } else {
             // Benutzer ist nicht eingeloggt - Auth-Form anzeigen, Spielmodi ausblenden
@@ -644,7 +576,7 @@ const modifiedDate = new Date();
             window.dispatchEvent(
               new CustomEvent("auth:status-change", {
                 detail: { isAuthenticated: false },
-              }),
+              })
             );
           }
         }
@@ -655,11 +587,7 @@ const modifiedDate = new Date();
           console.log("Initialisiere Seite...");
 
           // Ladezustand für alle Sektionen hinzufügen
-          const sections = [
-            "auth-section",
-            "quiz-section",
-            "chronology-section",
-          ];
+          const sections = ["auth-section", "quiz-section", "chronology-section"];
           sections.forEach((id) => {
             const section = document.getElementById(id);
             if (section) {

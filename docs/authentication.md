@@ -1,6 +1,7 @@
 # Authentication System for Melody Mind
 
-This documentation describes the implemented authentication system for Melody Mind, which is based on Astro and Turso DB.
+This documentation describes the implemented authentication system for Melody Mind, which is based
+on Astro and Turso DB.
 
 ## Overview
 
@@ -21,14 +22,22 @@ The authentication system provides the following features:
 
 The authentication system consists of several components:
 
-1. **Database Layer**: Implemented in `src/lib/auth/db.ts`, provides basic functions for user operations.
-2. **JWT Handling**: Implemented in `src/lib/auth/jwt.ts`, manages generation and validation of JWT tokens.
-3. **CSRF Protection**: Implemented in `src/lib/auth/csrf.ts`, provides protection against Cross-Site Request Forgery.
-4. **Rate Limiting**: Implemented in `src/lib/auth/rate-limit.ts`, protects against brute force attacks.
-5. **Password Validation**: Implemented in `src/lib/auth/password-validation.ts`, ensures passwords meet security requirements.
-6. **Middleware**: Implemented in `src/lib/auth/middleware.ts`, provides functions to protect routes.
-7. **Auth Service**: Implemented in `src/lib/auth/auth-service.ts`, combines all authentication functions.
-8. **API Endpoints**: Implemented in `src/pages/api/auth/`, provide REST interfaces for authentication operations.
+1. **Database Layer**: Implemented in `src/lib/auth/db.ts`, provides basic functions for user
+   operations.
+2. **JWT Handling**: Implemented in `src/lib/auth/jwt.ts`, manages generation and validation of JWT
+   tokens.
+3. **CSRF Protection**: Implemented in `src/lib/auth/csrf.ts`, provides protection against
+   Cross-Site Request Forgery.
+4. **Rate Limiting**: Implemented in `src/lib/auth/rate-limit.ts`, protects against brute force
+   attacks.
+5. **Password Validation**: Implemented in `src/lib/auth/password-validation.ts`, ensures passwords
+   meet security requirements.
+6. **Middleware**: Implemented in `src/lib/auth/middleware.ts`, provides functions to protect
+   routes.
+7. **Auth Service**: Implemented in `src/lib/auth/auth-service.ts`, combines all authentication
+   functions.
+8. **API Endpoints**: Implemented in `src/pages/api/auth/`, provide REST interfaces for
+   authentication operations.
 
 ## Data Model
 
@@ -228,7 +237,7 @@ export const GET: APIRoute = async ({ request }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   }
 
@@ -246,7 +255,8 @@ const authResult = await protectRoute(request, "admin");
 
 ### Password Hashing
 
-Passwords are hashed using bcrypt, a secure and proven algorithm for password hashing. The salt factor is set to 12, which represents a good compromise between security and performance.
+Passwords are hashed using bcrypt, a secure and proven algorithm for password hashing. The salt
+factor is set to 12, which represents a good compromise between security and performance.
 
 ### Password Validation
 
@@ -264,7 +274,8 @@ The password validation ensures that passwords meet the following requirements:
 ### Token Security
 
 - JWT tokens have a limited validity period (24 hours for access tokens, 7 days for refresh tokens).
-- Verification and reset tokens are UUIDs with limited validity (24 hours for verification tokens, 1 hour for reset tokens).
+- Verification and reset tokens are UUIDs with limited validity (24 hours for verification tokens, 1
+  hour for reset tokens).
 
 ### CSRF Protection
 
@@ -277,7 +288,8 @@ All mutation requests (POST, PUT, DELETE) must include a valid CSRF token in the
 
 ### Rate Limiting
 
-Rate limiting for login attempts limits the number of failed login attempts to 5 within 15 minutes. After exceeding the limit, the IP address is blocked for 1 hour.
+Rate limiting for login attempts limits the number of failed login attempts to 5 within 15 minutes.
+After exceeding the limit, the IP address is blocked for 1 hour.
 
 ## Environment Variables
 
@@ -291,9 +303,11 @@ The authentication system uses the following environment variables:
 ## Best Practices
 
 1. **Secure Passwords**: Use password validation to ensure users choose secure passwords.
-2. **Email Verification**: Enable email verification to ensure users have access to the provided email address.
+2. **Email Verification**: Enable email verification to ensure users have access to the provided
+   email address.
 3. **HTTPS**: Always use HTTPS for transmitting authentication data.
 4. **Session Management**: Implement secure session management with short session timeouts.
 5. **Logging**: Log authentication events for audit purposes.
-6. **Error Handling**: Do not disclose detailed error information that could be exploited by attackers.
+6. **Error Handling**: Do not disclose detailed error information that could be exploited by
+   attackers.
 7. **Regular Updates**: Keep all dependencies up to date to avoid known security vulnerabilities.

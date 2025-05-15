@@ -19,6 +19,7 @@
  * - 500: Server error during verification process
  */
 import type { APIRoute } from "astro";
+
 import { authService } from "../../../../lib/auth/auth-service.js";
 import { useTranslations } from "../../../../utils/i18n.js";
 
@@ -43,7 +44,7 @@ export const GET: APIRoute = async ({ request, url, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
@@ -61,7 +62,7 @@ export const GET: APIRoute = async ({ request, url, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
@@ -76,7 +77,7 @@ export const GET: APIRoute = async ({ request, url, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   } catch (error) {
     console.error("Error during email verification:", error);
@@ -91,7 +92,7 @@ export const GET: APIRoute = async ({ request, url, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   }
 };

@@ -12,11 +12,8 @@ import type {
   AchievementCheckResult,
 } from "../types/achievement.ts";
 import type { GameState } from "../types/game.ts";
-import {
-  updateDailyActivity,
-  getUserStreak,
-  getDailyActivity,
-} from "./userStreakService.ts";
+
+import { updateDailyActivity, getUserStreak, getDailyActivity } from "./userStreakService.ts";
 
 /**
  * Retrieves all available achievements
@@ -24,9 +21,7 @@ import {
  * @param language - Language code for translations
  * @returns Array of achievements with translations
  */
-export async function getAllAchievements(
-  language: string,
-): Promise<Achievement[]> {
+export async function getAllAchievements(language: string): Promise<Achievement[]> {
   const sql = `
     SELECT 
       a.id, 
@@ -97,7 +92,7 @@ export async function getAllAchievements(
  */
 export async function getUserAchievements(
   userId: string,
-  language: string,
+  language: string
 ): Promise<LocalizedAchievement[]> {
   // Fallback language (German as default, since it's the app's standard language)
   const fallbackLanguage = "de";
@@ -141,14 +136,9 @@ export async function getUserAchievements(
   }
 
   return result.rows.map((row: any) => {
-    const currentProgress = row.currentProgress
-      ? Number(row.currentProgress)
-      : 0;
+    const currentProgress = row.currentProgress ? Number(row.currentProgress) : 0;
     const conditionValue = Number(row.conditionValue);
-    const progressPercentage = Math.min(
-      Math.round((currentProgress / conditionValue) * 100),
-      100,
-    );
+    const progressPercentage = Math.min(Math.round((currentProgress / conditionValue) * 100), 100);
 
     let status: "locked" | "in-progress" | "unlocked" = "locked";
     if (row.unlockedAt) {
@@ -158,8 +148,7 @@ export async function getUserAchievements(
     }
 
     // Use the requested translation if available, otherwise the fallback translation
-    const name =
-      row.requested_name || row.fallback_name || `Achievement ${row.code}`;
+    const name = row.requested_name || row.fallback_name || `Achievement ${row.code}`;
     const description =
       row.requested_description ||
       row.fallback_description ||
@@ -207,7 +196,7 @@ export async function getUserAchievements(
 export async function updateAchievementProgress(
   userId: string,
   achievementId: string,
-  progress: number,
+  progress: number
 ): Promise<UserAchievement> {
   // Check if the achievement already exists
   const checkSql = `
@@ -281,7 +270,7 @@ export async function updateAchievementProgress(
  */
 export async function unlockAchievement(
   userId: string,
-  achievementId: string,
+  achievementId: string
 ): Promise<UserAchievement> {
   // Retrieve achievement details
   const achievementSql = `
@@ -356,7 +345,7 @@ export async function unlockAchievement(
 export async function checkAchievementsAfterGame(
   userId: string,
   gameState: GameState,
-  isPerfectGame: boolean,
+  isPerfectGame: boolean
 ): Promise<AchievementCheckResult> {
   const unlockedAchievements: Achievement[] = [];
   const updatedAchievements: Achievement[] = [];
@@ -401,8 +390,7 @@ export async function checkAchievementsAfterGame(
   });
 
   const perfectGamesCount =
-    Number(perfectGamesResult.rows?.[0]?.perfect_games_count || 0) +
-    (isPerfectGame ? 1 : 0);
+    Number(perfectGamesResult.rows?.[0]?.perfect_games_count || 0) + (isPerfectGame ? 1 : 0);
 
   // Update daily activity and check streak
   const dailyActivity = await updateDailyActivity(userId);
@@ -442,9 +430,7 @@ export async function checkAchievementsAfterGame(
       rarityPercentage: 0,
     };
 
-    const currentProgress = row.currentProgress
-      ? Number(row.currentProgress)
-      : 0;
+    const currentProgress = row.currentProgress ? Number(row.currentProgress) : 0;
     const unlockedAt = row.unlockedAt as string | null;
 
     // If already unlocked, skip
@@ -487,11 +473,7 @@ export async function checkAchievementsAfterGame(
 
     // If progress has changed, update
     if (newProgress !== currentProgress) {
-      const userAchievement = await updateAchievementProgress(
-        userId,
-        achievement.id,
-        newProgress,
-      );
+      const userAchievement = await updateAchievementProgress(userId, achievement.id, newProgress);
 
       achievement.userProgress = userAchievement;
       updatedAchievements.push(achievement);

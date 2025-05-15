@@ -12,13 +12,9 @@
  * @param locale - The language for formatting (e.g. 'de', 'en')
  * @returns Formatted date as string
  */
-export function formatDate(
-  dateString: string | Date,
-  locale: string = "de",
-): string {
+export function formatDate(dateString: string | Date, locale: string = "de"): string {
   try {
-    const date =
-      typeof dateString === "string" ? new Date(dateString) : dateString;
+    const date = typeof dateString === "string" ? new Date(dateString) : dateString;
 
     // Check if the date is valid
     if (isNaN(date.getTime())) {
@@ -46,13 +42,9 @@ export function formatDate(
  * @param locale - The language for formatting (e.g. 'de', 'en')
  * @returns Formatted relative date as string
  */
-export function formatRelativeDate(
-  dateString: string | Date,
-  locale: string = "de",
-): string {
+export function formatRelativeDate(dateString: string | Date, locale: string = "de"): string {
   try {
-    const date =
-      typeof dateString === "string" ? new Date(dateString) : dateString;
+    const date = typeof dateString === "string" ? new Date(dateString) : dateString;
 
     // Check if the date is valid
     if (isNaN(date.getTime())) {
@@ -91,13 +83,9 @@ export function formatRelativeDate(
  * @param locale - The language for formatting (e.g. 'de', 'en')
  * @returns Formatted short date as string
  */
-export function formatShortDate(
-  dateString: string | Date,
-  locale: string = "de",
-): string {
+export function formatShortDate(dateString: string | Date, locale: string = "de"): string {
   try {
-    const date =
-      typeof dateString === "string" ? new Date(dateString) : dateString;
+    const date = typeof dateString === "string" ? new Date(dateString) : dateString;
 
     // Check if the date is valid
     if (isNaN(date.getTime())) {

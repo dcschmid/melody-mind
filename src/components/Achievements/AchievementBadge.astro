@@ -18,7 +18,7 @@ const t = useTranslations(lang);
 
 <span
   id="achievement-badge"
-  class="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-5 h-5 text-xs font-bold flex items-center justify-center opacity-0 scale-0 transition-all duration-300 pointer-events-none"
+  class="pointer-events-none absolute -top-1 -right-1 flex h-5 w-5 scale-0 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white opacity-0 transition-all duration-300"
   aria-label={t("achievements.badge.new")}
   role="status"
 >
@@ -26,17 +26,14 @@ const t = useTranslations(lang);
 </span>
 
 <script>
-  import { subscribeToAchievementEvents } from "../../utils/achievements/achievementEvents.ts";
   import type { AchievementEvent } from "../../types/achievement.ts";
+  import { subscribeToAchievementEvents } from "../../utils/achievements/achievementEvents.ts";
 
   // DOM elements
   const badgeElement = document.getElementById("achievement-badge");
 
   // Retrieve number of new achievements from localStorage
-  let newAchievementsCount = parseInt(
-    localStorage.getItem("new-achievements-count") || "0",
-    10,
-  );
+  let newAchievementsCount = parseInt(localStorage.getItem("new-achievements-count") || "0", 10);
 
   // Update badge
   function updateBadge() {
@@ -58,29 +55,23 @@ const t = useTranslations(lang);
   }
 
   // Event listener for achievement events
-  const unsubscribe = subscribeToAchievementEvents(
-    (event: AchievementEvent) => {
-      if (event.type === "achievement_unlocked") {
-        // Increase count of new achievements
-        newAchievementsCount++;
+  const unsubscribe = subscribeToAchievementEvents((event: AchievementEvent) => {
+    if (event.type === "achievement_unlocked") {
+      // Increase count of new achievements
+      newAchievementsCount++;
 
-        // Save to localStorage
-        localStorage.setItem(
-          "new-achievements-count",
-          newAchievementsCount.toString(),
-        );
+      // Save to localStorage
+      localStorage.setItem("new-achievements-count", newAchievementsCount.toString());
 
-        // Update badge
-        updateBadge();
-      }
-    },
-  );
+      // Update badge
+      updateBadge();
+    }
+  });
 
   // Reset badge when achievement page is visited
   document.addEventListener("DOMContentLoaded", () => {
     // Check if we're on the achievements page
-    const isAchievementPage =
-      window.location.pathname.includes("/achievements");
+    const isAchievementPage = window.location.pathname.includes("/achievements");
 
     if (isAchievementPage) {
       // Reset badge

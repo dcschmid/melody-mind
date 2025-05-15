@@ -32,9 +32,7 @@ export interface DailyActivity {
  * @param userId - ID of the user
  * @returns Promise with the updated daily activity
  */
-export async function updateDailyActivity(
-  userId: string,
-): Promise<DailyActivity> {
+export async function updateDailyActivity(userId: string): Promise<DailyActivity> {
   const today = new Date().toISOString().split("T")[0]; // Format: YYYY-MM-DD
   const now = new Date().toISOString();
 
@@ -100,10 +98,7 @@ export async function updateDailyActivity(
  * @param today - Today's date in YYYY-MM-DD format
  * @returns Promise with the updated streak
  */
-async function updateUserStreak(
-  userId: string,
-  today: string,
-): Promise<UserStreak> {
+async function updateUserStreak(userId: string, today: string): Promise<UserStreak> {
   // Retrieve user streak
   const streakSql = `
     SELECT * FROM user_streaks 
@@ -226,7 +221,7 @@ export async function getUserStreak(userId: string): Promise<UserStreak> {
  */
 export async function getDailyActivity(
   userId: string,
-  date?: string,
+  date?: string
 ): Promise<DailyActivity | null> {
   const activityDate = date || new Date().toISOString().split("T")[0];
 

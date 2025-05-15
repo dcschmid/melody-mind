@@ -56,25 +56,16 @@ const linkClasses =
   "text-zinc-400 hover:text-purple-300 transition-colors text-sm flex items-center gap-2 py-2 px-3 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 min-h-[44px] min-w-[44px]";
 ---
 
-<footer
-  class="mt-12 py-8 border-t border-zinc-800"
-  role="contentinfo"
-  aria-label="Site footer"
->
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<footer class="mt-12 border-t border-zinc-800 py-8" role="contentinfo" aria-label="Site footer">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="flex flex-col items-center justify-between gap-6 md:flex-row">
       <!-- Copyright -->
-      <div class="text-zinc-400 text-sm">
-        &copy; {currentYear} MelodyMind - {
-          t("footer.rights") || "All Rights Reserved"
-        }
+      <div class="text-sm text-zinc-400">
+        &copy; {currentYear} MelodyMind - {t("footer.rights") || "All Rights Reserved"}
       </div>
 
       <!-- Links Section -->
-      <nav
-        aria-label="Footer links"
-        class="flex flex-wrap gap-4 justify-center md:justify-end"
-      >
+      <nav aria-label="Footer links" class="flex flex-wrap justify-center gap-4 md:justify-end">
         <!-- GitHub Link -->
         <a
           href={links[0].href}
@@ -83,13 +74,7 @@ const linkClasses =
           class={linkClasses}
           aria-label={links[0].ariaLabel}
         >
-          <Icon
-            name={links[0].icon}
-            width="20"
-            height="20"
-            aria-hidden="true"
-            focusable="false"
-          />
+          <Icon name={links[0].icon} width="20" height="20" aria-hidden="true" focusable="false" />
           <span>{links[0].label}</span>
           <span class="sr-only">(opens in a new tab)</span>
         </a>

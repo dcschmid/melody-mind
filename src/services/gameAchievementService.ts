@@ -5,14 +5,12 @@
  * It provides functions to check and update achievements after games.
  */
 
+import type { LocalizedAchievement, AchievementConditionType } from "../types/achievement.js";
 import type { GameState } from "../types/game.js";
-import { checkAchievementsAfterGame } from "./achievementService.js";
-import { checkExtendedAchievements } from "./achievementExtensionService.js";
 import { triggerAchievementUnlocked } from "../utils/achievements/achievementEvents.js";
-import type {
-  LocalizedAchievement,
-  AchievementConditionType,
-} from "../types/achievement.js";
+
+import { checkExtendedAchievements } from "./achievementExtensionService.js";
+import { checkAchievementsAfterGame } from "./achievementService.js";
 
 /**
  * Checks achievements after a game and triggers events for unlocked achievements
@@ -25,27 +23,20 @@ import type {
 export async function processAchievementsAfterGame(
   userId: string,
   gameState: GameState,
-  language: string,
+  language: string
 ): Promise<void> {
   try {
     // Check if it was a perfect game
     const isPerfectGame = isPerfectGameScore(gameState);
 
     // Check standard achievements
-    const result = await checkAchievementsAfterGame(
-      userId,
-      gameState,
-      isPerfectGame,
-    );
+    const result = await checkAchievementsAfterGame(userId, gameState, isPerfectGame);
 
     // Check extended achievements
     // We use the extended properties of the GameState interface
 
     // Debug output for troubleshooting
-    console.log(
-      "GameState for achievement check:",
-      JSON.stringify(gameState, null, 2),
-    );
+    console.log("GameState for achievement check:", JSON.stringify(gameState, null, 2));
 
     // If debug flag is set, we add a test achievement
     if (gameState.debugAchievements) {
@@ -58,13 +49,9 @@ export async function processAchievementsAfterGame(
     // For quick_answer: Answer time and correctness from GameState
     // Ensure that the values have the correct type
     const answerTimeMs =
-      typeof gameState.lastAnswerTime === "number"
-        ? gameState.lastAnswerTime
-        : undefined;
+      typeof gameState.lastAnswerTime === "number" ? gameState.lastAnswerTime : undefined;
     const isCorrectAnswer =
-      typeof gameState.lastAnswerCorrect === "boolean"
-        ? gameState.lastAnswerCorrect
-        : undefined;
+      typeof gameState.lastAnswerCorrect === "boolean" ? gameState.lastAnswerCorrect : undefined;
 
     // For seasonal_event: Event ID from GameState
     const eventId = gameState.eventId || undefined;
@@ -102,7 +89,7 @@ export async function processAchievementsAfterGame(
       const unlockedAchievements = await fetchLocalizedAchievements(
         userId,
         allUnlockedAchievements.map((a) => a.id),
-        language,
+        language
       );
 
       // Trigger events
@@ -114,10 +101,9 @@ export async function processAchievementsAfterGame(
       // If debug flag is set, we add a test achievement
       if (gameState.debugAchievements) {
         const testAchievement = {
-          id: "test-achievement-" + Date.now(),
+          id: `test-achievement-${Date.now()}`,
           name: "Test Achievement",
-          description:
-            "This is a test achievement that was automatically triggered",
+          description: "This is a test achievement that was automatically triggered",
           type: "genre_explorer",
           category: {
             code: "bronze",
@@ -128,10 +114,7 @@ export async function processAchievementsAfterGame(
           unlockedAt: new Date().toISOString(),
         };
 
-        console.log(
-          "Triggering debug achievement event:",
-          testAchievement.name,
-        );
+        console.log("Triggering debug achievement event:", testAchievement.name);
         triggerAchievementUnlocked(testAchievement as any);
       }
     }
@@ -162,7 +145,7 @@ function isPerfectGameScore(gameState: GameState): boolean {
 async function fetchLocalizedAchievements(
   userId: string,
   achievementIds: string[],
-  language: string,
+  language: string
 ): Promise<LocalizedAchievement[]> {
   try {
     // Instead of using the API, we fetch the achievements directly from the database
@@ -258,7 +241,7 @@ export async function updateStatsAndCheckAchievements(
   gameState: GameState,
   gameMode: "quiz" | "chronology",
   category: string,
-  language: string,
+  language: string
 ): Promise<void> {
   try {
     // API request to update game statistics
@@ -267,10 +250,7 @@ export async function updateStatsAndCheckAchievements(
     // Check achievements and trigger events
     await processAchievementsAfterGame(userId, gameState, language);
   } catch (error) {
-    console.error(
-      "Error updating statistics and checking achievements:",
-      error,
-    );
+    console.error("Error updating statistics and checking achievements:", error);
   }
 }
 

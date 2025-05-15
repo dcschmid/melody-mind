@@ -33,8 +33,7 @@ export default {
   "auth.form.passwords_not_match": "Passwords do not match",
   "auth.password_reset.success_message":
     "If an account exists with this email address, an email with password reset instructions has been sent.",
-  "auth.password_reset.error_message":
-    "An error occurred. Please try again later.",
+  "auth.password_reset.error_message": "An error occurred. Please try again later.",
   "auth.password_reset.complete_success":
     "Password successfully reset. You can now log in with your new password.",
   "auth.password_reset.complete_error":
@@ -66,8 +65,7 @@ export default {
   "auth.password_reset.change_submit": "Change Password",
 
   "auth.email_verification.title": "Email Verification",
-  "auth.email_verification.message":
-    "We have sent a verification link to your email address",
+  "auth.email_verification.message": "We have sent a verification link to your email address",
   "auth.email_verification.check_inbox": "Please check your inbox",
   "auth.email_verification.resend": "Resend verification link",
   "auth.email_verification.success": "Email verified successfully",
@@ -76,13 +74,10 @@ export default {
   // Password Validation
   "auth.password.requirements": "Password requirements:",
   "auth.password.min_length": "Password must be at least 8 characters long",
-  "auth.password.uppercase":
-    "Password must contain at least one uppercase letter",
-  "auth.password.lowercase":
-    "Password must contain at least one lowercase letter",
+  "auth.password.uppercase": "Password must contain at least one uppercase letter",
+  "auth.password.lowercase": "Password must contain at least one lowercase letter",
   "auth.password.number": "Password must contain at least one number",
-  "auth.password.special":
-    "Password must contain at least one special character",
+  "auth.password.special": "Password must contain at least one special character",
   "auth.password.no_common": "Password must not be a common password",
   "auth.password.no_repeats": "Password must not contain repeated characters",
   "auth.password.no_sequences": "Password must not contain simple sequences",
@@ -96,8 +91,7 @@ export default {
   // Form Validation
   "auth.form.required": "This field is required",
   "auth.form.email_invalid": "Please enter a valid email address",
-  "auth.form.min_length":
-    "This field must be at least {length} characters long",
+  "auth.form.min_length": "This field must be at least {length} characters long",
   "auth.form.max_length": "This field must not exceed {length} characters",
   "auth.form.invalid": "This field is invalid",
 
@@ -119,16 +113,12 @@ export default {
   "auth.api.too_many_requests": "Too many attempts. Please try again later",
 
   // Service Error Messages
-  "auth.service.session_expired":
-    "Your session has expired. Please log in again",
+  "auth.service.session_expired": "Your session has expired. Please log in again",
   "auth.service.unauthorized": "Unauthorized. Please log in",
-  "auth.service.account_locked":
-    "Your account has been locked. Please contact support",
+  "auth.service.account_locked": "Your account has been locked. Please contact support",
   "auth.service.permission_denied": "Permission denied for this action",
-  "auth.service.invalid_credentials":
-    "Invalid credentials. Please check your email and password.",
-  "auth.service.too_many_attempts":
-    "Too many login attempts. Please wait a moment and try again.",
+  "auth.service.invalid_credentials": "Invalid credentials. Please check your email and password.",
+  "auth.service.too_many_attempts": "Too many login attempts. Please wait a moment and try again.",
 
   "nav.home": "Homepage",
   "nav.rules": "Game Rules",
@@ -180,8 +170,7 @@ export default {
   "game.feedback.media.section": "Media Section",
   "game.feedback.audio.preview": "Music Preview",
   "game.feedback.subtitles": "Subtitles",
-  "game.feedback.audio.unsupported":
-    "Your browser does not support audio playback.",
+  "game.feedback.audio.unsupported": "Your browser does not support audio playback.",
   "game.feedback.streaming.links": "Music Streaming Links",
   "game.feedback.listen.spotify": "Listen on Spotify",
   "game.feedback.listen.deezer": "Listen on Deezer",
@@ -259,8 +248,7 @@ export default {
   "nav.title": "Navigation",
   "nav.menu.text": "Menu",
   "game.categories.empty.headline": "No Genres Found",
-  "game.categories.empty.text":
-    "Unfortunately, no categories were found. Please try again later.",
+  "game.categories.empty.text": "Unfortunately, no categories were found. Please try again later.",
   "game.categories.no.playable.headline": "No Playable Genres",
   "game.categories.no.playable.text":
     "There are currently no playable categories. Please check back later.",
@@ -270,8 +258,7 @@ export default {
   "knowledge.back.to.list": "Back to Overview",
   "knowledge.interact.heading": "Listen & Play",
   "knowledge.play.heading": "Play This Genre",
-  "knowledge.play.description":
-    "Test your knowledge of this music genre in our interactive quiz!",
+  "knowledge.play.description": "Test your knowledge of this music genre in our interactive quiz!",
   "knowledge.play.category": "Start Music Quiz",
   "category.play": "Play",
   "play.cover.puzzle": "Play Cover Puzzle",
@@ -286,8 +273,7 @@ export default {
   "podcast.search.status.all": "Showing all podcasts",
   "podcast.search.status.one": "1 podcast found",
   "podcast.search.status.multiple": "{count} podcasts found",
-  "podcast.no.results":
-    "No matching podcasts found. Try a different search term.",
+  "podcast.no.results": "No matching podcasts found. Try a different search term.",
   "podcast.duration.error": "Duration not available",
   "podcast.play": "Play",
   "podcast.intro.title": "Introduction to Astropod",
@@ -304,8 +290,7 @@ export default {
   "podcast.conclusion.title": "Conclusion",
   "podcast.conclusion.description": "Summary and next steps.",
   "podcast.listen.on": "Listen on",
-  "podcast.language.availability":
-    "Our podcasts are exclusively available in German and English.",
+  "podcast.language.availability": "Our podcasts are exclusively available in German and English.",
   "podcast.listen.heading": "Listen to Our Podcasts",
   "login.welcome": "Welcome to Melody Mind!",
   "login.description":
@@ -344,8 +329,7 @@ export default {
   "playlist.search.label": "Search Playlists",
   "playlist.search.placeholder": "Search by artist or style...",
   "playlist.filter.all": "All Eras",
-  "playlist.no.results":
-    "No matching playlists found. Try a different search term.",
+  "playlist.no.results": "No matching playlists found. Try a different search term.",
   "playlist.listen.on": "Listen on",
   "playlist.listen.spotify": "Listen on Spotify",
   "playlist.listen.deezer": "Listen on Deezer",
@@ -354,8 +338,7 @@ export default {
   "footer.rights": "All rights reserved",
   "footer.donate": "Donate",
   "game.chronology.title": "Music Chronology",
-  "game.chronology.description":
-    "Arrange these albums by their release year (oldest first)",
+  "game.chronology.description": "Arrange these albums by their release year (oldest first)",
   "game.chronology.area.label": "Chronology Game Area",
   "game.chronology.result": "Result",
   "game.chronology.correct": "Correct",
@@ -373,8 +356,7 @@ export default {
   "common.back.to.top": "Back to top",
   "knowledge.articles.heading": "Knowledge Articles",
   "knowledge.search.heading": "Search Articles",
-  "knowledge.search.description":
-    "Articles are automatically filtered as you type",
+  "knowledge.search.description": "Articles are automatically filtered as you type",
   "knowledge.search.reset": "Reset Search",
   "knowledge.search.reset.text": "Reset",
   "knowledge.no.results.help": "Try different search terms or reset the search",
@@ -384,8 +366,7 @@ export default {
 
   // Profile Page
   "profile.title": "My Profile",
-  "profile.description":
-    "Manage your personal information and view your game statistics",
+  "profile.description": "Manage your personal information and view your game statistics",
   "profile.loading": "Loading profile data...",
   "profile.error": "Error loading profile data",
   "profile.auth.required": "You must be logged in to view your profile",
@@ -410,8 +391,7 @@ export default {
 
   // Highscores Page
   "highscores.title": "Highscores",
-  "highscores.description":
-    "View the top scores in different game modes and categories",
+  "highscores.description": "View the top scores in different game modes and categories",
   "highscores.loading": "Loading highscores...",
   "highscores.error": "Error loading highscores",
   "highscores.empty": "No entries found in the highscores",
@@ -431,8 +411,7 @@ export default {
 
   // Achievement System
   "achievements.title": "Achievements",
-  "achievements.description":
-    "Discover and unlock achievements to track your progress",
+  "achievements.description": "Discover and unlock achievements to track your progress",
   "achievements.loading": "Loading achievements...",
   "achievements.error": "Error loading achievements",
   "achievements.empty": "No achievements found",

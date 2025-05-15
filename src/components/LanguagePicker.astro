@@ -39,10 +39,7 @@ const currentPath = Astro.url.pathname;
 const cleanPath = currentPath
   .split("/")
   .filter(
-    (segment) =>
-      !["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"].includes(
-        segment,
-      ),
+    (segment) => !["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"].includes(segment)
   )
   .join("/");
 
@@ -111,14 +108,12 @@ const unsortedLanguages = {
  * This ensures a consistent presentation order across different language interfaces
  */
 const languages = Object.fromEntries(
-  Object.entries(unsortedLanguages).sort(([, a], [, b]) =>
-    a.name.localeCompare(b.name),
-  ),
+  Object.entries(unsortedLanguages).sort(([, a], [, b]) => a.name.localeCompare(b.name))
 );
 ---
 
 <div
-  class="flex items-center gap-2 rounded-lg focus-within:ring focus-within:ring-sky-300 focus-within:ring-opacity-75"
+  class="focus-within:ring-opacity-75 flex items-center gap-2 rounded-lg focus-within:ring focus-within:ring-sky-300"
   role="navigation"
   aria-label={t("language.picker.label")}
 >
@@ -135,13 +130,7 @@ const languages = Object.fromEntries(
     }
     <select
       id="language-select"
-      class="appearance-none bg-sky-600 text-white border-0 rounded-lg
-             py-2 px-3 pr-10 w-full text-base font-medium cursor-pointer
-             min-h-[44px] min-w-[44px]
-             transition duration-200
-             hover:bg-sky-700
-             focus-visible:outline-2 focus-visible:outline-sky-200 focus-visible:outline-offset-2
-             focus-visible:bg-sky-700 disabled:opacity-50"
+      class="min-h-[44px] w-full min-w-[44px] cursor-pointer appearance-none rounded-lg border-0 bg-sky-600 px-3 py-2 pr-10 text-base font-medium text-white transition duration-200 hover:bg-sky-700 focus-visible:bg-sky-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-200 disabled:opacity-50"
       value={getRelativeLocaleUrl(String(lang), cleanPath)}
       aria-expanded="false"
       onchange="
@@ -160,7 +149,7 @@ const languages = Object.fromEntries(
               value={url}
               selected={code === lang}
               aria-label={label}
-              class="flex items-center gap-2 py-1 bg-zinc-100 text-zinc-900"
+              class="flex items-center gap-2 bg-zinc-100 py-1 text-zinc-900"
             >
               {flag} {name}
             </option>
@@ -245,9 +234,7 @@ const languages = Object.fromEntries(
      */
     constructor() {
       // Get required DOM elements with appropriate type casting
-      this.selectElement = document.getElementById(
-        "language-select",
-      ) as HTMLSelectElement;
+      this.selectElement = document.getElementById("language-select") as HTMLSelectElement;
       this.arrowElement = document.getElementById("language-arrow");
       this.arrowContainer = document.getElementById("arrow-container");
       this.eventHandlers = new Map();
@@ -256,9 +243,7 @@ const languages = Object.fromEntries(
       if (this.isValid()) {
         this.initialize();
       } else {
-        console.debug(
-          "Language picker initialization skipped - required elements not found",
-        );
+        console.debug("Language picker initialization skipped - required elements not found");
       }
     }
 
@@ -289,7 +274,9 @@ const languages = Object.fromEntries(
      * Stores references for later cleanup to prevent memory leaks
      */
     private setupEventHandlers(): void {
-      if (!this.selectElement) return;
+      if (!this.selectElement) {
+        return;
+      }
 
       // Define event handlers with proper binding to maintain 'this' context
       const handlers: Record<string, EventListenerOrEventListenerObject> = {
@@ -329,10 +316,7 @@ const languages = Object.fromEntries(
         }
       } catch (error) {
         // Handle potential localStorage errors (e.g., in private browsing)
-        console.debug(
-          "Failed to access localStorage for language preference:",
-          error,
-        );
+        console.debug("Failed to access localStorage for language preference:", error);
       }
     }
 
@@ -403,18 +387,13 @@ const languages = Object.fromEntries(
         this.arrowElement?.classList.toggle("rotate-180");
 
         // Update ARIA expanded state for screen readers
-        const expanded =
-          this.selectElement?.getAttribute("aria-expanded") === "true";
-        this.selectElement?.setAttribute(
-          "aria-expanded",
-          expanded ? "false" : "true",
-        );
+        const expanded = this.selectElement?.getAttribute("aria-expanded") === "true";
+        this.selectElement?.setAttribute("aria-expanded", expanded ? "false" : "true");
 
         // Announce state change to screen readers via aria-live region
         const statusElement = document.getElementById("language-status");
         if (statusElement && this.selectElement) {
-          const selectedOption =
-            this.selectElement.options[this.selectElement.selectedIndex];
+          const selectedOption = this.selectElement.options[this.selectElement.selectedIndex];
 
           // Update status message based on expanded state
           if (expanded) {
@@ -457,7 +436,9 @@ const languages = Object.fromEntries(
      * Called when the component is destroyed or page is navigated away
      */
     public cleanup(): void {
-      if (!this.selectElement) return;
+      if (!this.selectElement) {
+        return;
+      }
 
       // Remove all registered event listeners
       for (const [event, handler] of this.eventHandlers) {

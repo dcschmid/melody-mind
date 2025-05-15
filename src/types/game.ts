@@ -111,7 +111,7 @@ export interface QuestionHandlers {
     option: string,
     correctAnswer: string,
     question: { trivia: string },
-    album: Album,
+    album: Album
   ) => void;
 
   /**

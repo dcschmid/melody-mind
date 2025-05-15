@@ -1,7 +1,7 @@
+import { csrfProtection } from "./csrf.js";
+import { getUserByEmail } from "./db.js";
 import { verifyAccessToken } from "./jwt.js";
 import type { JwtPayload } from "./jwt.js";
-import { getUserByEmail } from "./db.js";
-import { csrfProtection } from "./csrf.js";
 import { rateLimitMiddleware } from "./rate-limit.js";
 
 /**
@@ -24,9 +24,7 @@ export type AuthContext = {
  * @param request - The incoming request object
  * @returns AuthContext containing authentication status and user information if successful
  */
-export async function authenticateRequest(
-  request: Request,
-): Promise<AuthContext> {
+export async function authenticateRequest(request: Request): Promise<AuthContext> {
   // Extract token from Authorization header
   const authHeader = request.headers.get("authorization");
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -71,7 +69,7 @@ export async function authenticateRequest(
  * @returns Object containing authorization status and context information
  */
 export async function requireAuth(
-  request: Request,
+  request: Request
 ): Promise<{ authorized: boolean; context?: AuthContext; error?: string }> {
   const authContext = await authenticateRequest(request);
 
@@ -138,7 +136,5 @@ export async function protectRoute(request: Request): Promise<{
  * @returns The client's IP address as a string
  */
 export function getClientIp(request: Request): string {
-  return (
-    request.headers.get("x-forwarded-for")?.split(",")[0].trim() || "unknown-ip"
-  );
+  return request.headers.get("x-forwarded-for")?.split(",")[0].trim() || "unknown-ip";
 }

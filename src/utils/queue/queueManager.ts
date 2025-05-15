@@ -84,10 +84,7 @@ export class QueueManager {
    * @param {any} data - Data to be saved to the server
    * @returns {Promise<void>} A promise that resolves when the item is added to the queue
    */
-  static async addToQueue(
-    type: "score" | "goldenLP",
-    data: any,
-  ): Promise<void> {
+  static async addToQueue(type: "score" | "goldenLP", data: any): Promise<void> {
     try {
       const queue = this.getQueue();
 
@@ -125,7 +122,9 @@ export class QueueManager {
    */
   static async processQueue(): Promise<void> {
     // Prevent concurrent processing of the queue
-    if (this.isProcessing) return;
+    if (this.isProcessing) {
+      return;
+    }
 
     try {
       this.isProcessing = true;
@@ -141,9 +140,7 @@ export class QueueManager {
       for (const item of queue) {
         // Skip items that have exceeded max retry attempts
         if (item.retryCount >= this.MAX_RETRIES) {
-          console.warn(
-            `Item ${item.id} exceeded max retries and will be removed`,
-          );
+          console.warn(`Item ${item.id} exceeded max retries and will be removed`);
           this.removeFromQueue(item.id);
           continue;
         }
@@ -171,10 +168,7 @@ export class QueueManager {
           item.lastAttempt = Date.now();
           this.saveQueue(queue);
 
-          console.warn(
-            `Error saving data (attempt ${item.retryCount}):`,
-            error,
-          );
+          console.warn(`Error saving data (attempt ${item.retryCount}):`, error);
         }
       }
     } catch (error) {
@@ -205,9 +199,7 @@ export class QueueManager {
 
       if (!response.ok) {
         const errorText = await response.text();
-        throw new Error(
-          `Error saving score: ${response.status} - ${errorText}`,
-        );
+        throw new Error(`Error saving score: ${response.status} - ${errorText}`);
       }
     } catch (error) {
       console.error("[QueueManager] Score save error:", error);
@@ -236,9 +228,7 @@ export class QueueManager {
 
       if (!response.ok) {
         const errorText = await response.text();
-        throw new Error(
-          `Error saving golden LP: ${response.status} - ${errorText}`,
-        );
+        throw new Error(`Error saving golden LP: ${response.status} - ${errorText}`);
       }
     } catch (error) {
       console.error("[QueueManager] Golden LP save error:", error);
@@ -320,7 +310,7 @@ export class QueueManager {
 
     // Process once immediately
     this.processQueue().catch((error) =>
-      console.error("Error during initial queue processing:", error),
+      console.error("Error during initial queue processing:", error)
     );
   }
 

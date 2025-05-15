@@ -1,8 +1,7 @@
 export default {
   // Auth-Komponenten
   "auth.required.title": "Anmeldung erforderlich",
-  "auth.required.description":
-    "Bitte melde dich an, um auf diesen Bereich zuzugreifen",
+  "auth.required.description": "Bitte melde dich an, um auf diesen Bereich zuzugreifen",
   "auth.login.title": "Anmelden",
   "auth.register.title": "Registrieren",
   "auth.login.email": "E-Mail-Adresse",
@@ -29,8 +28,7 @@ export default {
   "auth.form.loading_text": "Wird geladen...",
   "auth.form.send_reset_link": "Zurücksetzen-Link senden",
   "auth.form.password_required": "Passwort ist erforderlich",
-  "auth.form.password_requirements":
-    "Das Passwort erfüllt nicht alle Anforderungen",
+  "auth.form.password_requirements": "Das Passwort erfüllt nicht alle Anforderungen",
   "auth.form.password_confirm_required": "Passwortbestätigung ist erforderlich",
   "auth.form.passwords_not_match": "Die Passwörter stimmen nicht überein",
   "auth.password_reset.success_message":
@@ -61,8 +59,7 @@ export default {
   "auth.password_reset.email.placeholder": "Deine registrierte E-Mail-Adresse",
   "auth.password_reset.back_to_login": "Zurück zur Anmeldung",
   "auth.password_reset.login": "Anmelden",
-  "auth.password_reset.success":
-    "Ein Link zum Zurücksetzen wurde an deine E-Mail-Adresse gesendet",
+  "auth.password_reset.success": "Ein Link zum Zurücksetzen wurde an deine E-Mail-Adresse gesendet",
   "auth.password_reset.error": "Fehler beim Senden des Links zum Zurücksetzen",
   "auth.password_reset.new_password": "Neues Passwort",
   "auth.password_reset.confirm_password": "Neues Passwort bestätigen",
@@ -79,19 +76,13 @@ export default {
   // Passwortvalidierung
   "auth.password.requirements": "Passwortanforderungen:",
   "auth.password.min_length": "Passwort muss mindestens 8 Zeichen lang sein",
-  "auth.password.uppercase":
-    "Passwort muss mindestens einen Großbuchstaben enthalten",
-  "auth.password.lowercase":
-    "Passwort muss mindestens einen Kleinbuchstaben enthalten",
+  "auth.password.uppercase": "Passwort muss mindestens einen Großbuchstaben enthalten",
+  "auth.password.lowercase": "Passwort muss mindestens einen Kleinbuchstaben enthalten",
   "auth.password.number": "Passwort muss mindestens eine Zahl enthalten",
-  "auth.password.special":
-    "Passwort muss mindestens ein Sonderzeichen enthalten",
-  "auth.password.no_common":
-    "Passwort darf kein häufig verwendetes Passwort sein",
-  "auth.password.no_repeats":
-    "Passwort darf keine wiederholten Zeichen enthalten",
-  "auth.password.no_sequences":
-    "Passwort darf keine einfachen Sequenzen enthalten",
+  "auth.password.special": "Passwort muss mindestens ein Sonderzeichen enthalten",
+  "auth.password.no_common": "Passwort darf kein häufig verwendetes Passwort sein",
+  "auth.password.no_repeats": "Passwort darf keine wiederholten Zeichen enthalten",
+  "auth.password.no_sequences": "Passwort darf keine einfachen Sequenzen enthalten",
   "auth.password.match": "Passwörter müssen übereinstimmen",
   "auth.password.strength": "Passwortstärke",
   "auth.password.strength.weak": "Schwach",
@@ -102,10 +93,8 @@ export default {
   // Formularvalidierung
   "auth.form.required": "Dieses Feld ist erforderlich",
   "auth.form.email_invalid": "Bitte gib eine gültige E-Mail-Adresse ein",
-  "auth.form.min_length":
-    "Dieses Feld muss mindestens {length} Zeichen lang sein",
-  "auth.form.max_length":
-    "Dieses Feld darf nicht länger als {length} Zeichen sein",
+  "auth.form.min_length": "Dieses Feld muss mindestens {length} Zeichen lang sein",
+  "auth.form.max_length": "Dieses Feld darf nicht länger als {length} Zeichen sein",
   "auth.form.invalid": "Dieses Feld ist ungültig",
 
   // Zugänglichkeit
@@ -113,8 +102,7 @@ export default {
   "auth.accessibility.error": "Fehler: {message}",
   "auth.accessibility.required_field": "Pflichtfeld",
   "auth.accessibility.password_toggle": "Passwort anzeigen/verbergen",
-  "auth.accessibility.password_requirements":
-    "Passwortanforderungen anzeigen/verbergen",
+  "auth.accessibility.password_requirements": "Passwortanforderungen anzeigen/verbergen",
   "auth.accessibility.form": "Anmeldeformular",
   "auth.accessibility.close_modal": "Fenster schließen",
 
@@ -122,18 +110,14 @@ export default {
   "auth.api.network_error": "Netzwerkfehler. Bitte überprüfe deine Verbindung",
   "auth.api.server_error": "Serverfehler. Bitte versuche es später erneut",
   "auth.api.invalid_credentials": "Ungültige Anmeldedaten",
-  "auth.api.account_exists":
-    "Ein Konto mit dieser E-Mail-Adresse existiert bereits",
+  "auth.api.account_exists": "Ein Konto mit dieser E-Mail-Adresse existiert bereits",
   "auth.api.email_not_found": "Kein Konto mit dieser E-Mail-Adresse gefunden",
-  "auth.api.too_many_requests":
-    "Zu viele Versuche. Bitte versuche es später erneut",
+  "auth.api.too_many_requests": "Zu viele Versuche. Bitte versuche es später erneut",
 
   // Service-Fehlermeldungen
-  "auth.service.session_expired":
-    "Deine Sitzung ist abgelaufen. Bitte melde dich erneut an",
+  "auth.service.session_expired": "Deine Sitzung ist abgelaufen. Bitte melde dich erneut an",
   "auth.service.unauthorized": "Nicht autorisiert. Bitte melde dich an",
-  "auth.service.account_locked":
-    "Dein Konto wurde gesperrt. Bitte kontaktiere den Support",
+  "auth.service.account_locked": "Dein Konto wurde gesperrt. Bitte kontaktiere den Support",
   "auth.service.permission_denied": "Berechtigung für diese Aktion verweigert",
   "auth.service.invalid_credentials":
     "Ungültige Anmeldedaten. Bitte überprüfe deine E-Mail und dein Passwort.",
@@ -154,8 +138,7 @@ export default {
   "game.welcome": "Willkommen bei Melody Mind",
   "game.genre.list": "Genre Auswahl",
   "game.search.label": "Suche nach einem Genre",
-  "game.search.description":
-    "Die Liste wird während der Eingabe automatisch gefiltert",
+  "game.search.description": "Die Liste wird während der Eingabe automatisch gefiltert",
   "game.genre.play.label": "spielen",
   "game.genre.image": "Cover-Bild für",
   "game.no.results": "Keine Ergebnisse gefunden",
@@ -191,8 +174,7 @@ export default {
   "game.feedback.media.section": "Medien-Bereich",
   "game.feedback.audio.preview": "Musik-Vorschau",
   "game.feedback.subtitles": "Untertitel",
-  "game.feedback.audio.unsupported":
-    "Dein Browser unterstützt keine Audio-Wiedergabe.",
+  "game.feedback.audio.unsupported": "Dein Browser unterstützt keine Audio-Wiedergabe.",
   "game.feedback.streaming.links": "Musik-Streaming Links",
   "game.feedback.listen.spotify": "Auf Spotify anhören",
   "game.feedback.listen.deezer": "Auf Deezer anhören",
@@ -259,8 +241,7 @@ export default {
   "knowledge.search.label": "Artikel durchsuchen",
   "knowledge.search.placeholder": "Suchen...",
   "knowledge.filter.all": "Alle Keywords",
-  "knowledge.no.results":
-    "Keine Artikel gefunden. Versuche es mit anderen Suchbegriffen.",
+  "knowledge.no.results": "Keine Artikel gefunden. Versuche es mit anderen Suchbegriffen.",
   "game.remaining": "verbleibend",
   "game.default.headline": "Spiel",
   "popup.score": "Punkte: {score}",
@@ -294,8 +275,7 @@ export default {
   "podcast.page.description":
     "Tauche ein in die Welt der Musik mit unseren fesselnden Podcasts. Entdecke spannende Geschichten, faszinierende Hintergründe und prägende Momente verschiedener Musikepochen - perfekt für alle, die Musik nicht nur hören, sondern auch verstehen wollen. Unsere Podcasts erscheinen alle 2 Wochen und sind ausschließlich auf Deutsch und Englisch verfügbar.",
   "podcast.search.label": "Podcasts durchsuchen",
-  "podcast.search.placeholder":
-    "Nach faszinierenden Musikgeschichten suchen...",
+  "podcast.search.placeholder": "Nach faszinierenden Musikgeschichten suchen...",
   "podcast.search.status.all": "Alle Podcasts werden angezeigt",
   "podcast.search.status.one": "1 Podcast gefunden",
   "podcast.search.status.multiple": "{count} Podcasts gefunden",
@@ -307,17 +287,14 @@ export default {
   "podcast.intro.description":
     "Astropod ist eine kostenlose und quelloffene Lösung für serverlose Podcasts.",
   "podcast.deploy.title": "Serverlosen Podcast in 2 Minuten bereitstellen",
-  "podcast.deploy.description":
-    "Erfahren Sie, wie Sie Ihren Podcast schnell bereitstellen können.",
+  "podcast.deploy.description": "Erfahren Sie, wie Sie Ihren Podcast schnell bereitstellen können.",
   "podcast.auth.title": "Benutzerauthentifizierung und Dashboard-Zugriff",
   "podcast.auth.description":
     "Aktivieren Sie die Authentifizierung und greifen Sie auf das Dashboard zu.",
   "podcast.config.title": "Astropod Podcast konfigurieren",
-  "podcast.config.description":
-    "Lernen Sie, wie Sie Ihren Podcast konfigurieren.",
+  "podcast.config.description": "Lernen Sie, wie Sie Ihren Podcast konfigurieren.",
   "podcast.publish.title": "Ihre erste Episode veröffentlichen",
-  "podcast.publish.description":
-    "Veröffentlichen Sie Ihre erste Episode mit Leichtigkeit.",
+  "podcast.publish.description": "Veröffentlichen Sie Ihre erste Episode mit Leichtigkeit.",
   "podcast.conclusion.title": "Fazit",
   "podcast.conclusion.description": "Zusammenfassung und nächste Schritte.",
   "podcast.listen.on": "Anhören auf",
@@ -329,8 +306,7 @@ export default {
     "Begib dich auf eine musikalische Entdeckungsreise durch die Zeiten! Teste dein Wissen in spannenden Quizzen, erkunde faszinierende Musikgenres und tauche ein in unsere mitreißenden Podcasts. Zeige dein Können, sammle Punkte und werde zur wahren Musiklegende!",
   "index.continue": "Los geht's!",
   "index.start.game.label": "Starte deine musikalische Reise",
-  "index.welcome.footnote":
-    "Vorbereitet von Musikliebhabern für Musikliebhaber. Viel Spaß!",
+  "index.welcome.footnote": "Vorbereitet von Musikliebhabern für Musikliebhaber. Viel Spaß!",
   "accessibility.wcag": "Diese Anwendung strebt WCAG AAA Konformität an.",
   "game.instructions.title": "Spielanleitung",
   "game.instructions.puzzle":
@@ -372,8 +348,7 @@ export default {
   "footer.rights": "Alle Rechte vorbehalten",
   "footer.donate": "Spenden",
   "game.chronology.title": "Musik-Chronologie",
-  "game.chronology.description":
-    "Ordne diese Alben nach ihrem Erscheinungsjahr (ältestes zuerst)",
+  "game.chronology.description": "Ordne diese Alben nach ihrem Erscheinungsjahr (ältestes zuerst)",
   "game.chronology.area.label": "Chronologie-Spielbereich",
   "game.chronology.result": "Ergebnis",
   "game.chronology.correct": "Korrekt",
@@ -381,8 +356,7 @@ export default {
   "game.chronology.score": "Ergebnis: {score} Punkte",
   "game.chronology.details": "{correct} von {total} Alben korrekt platziert",
   "game.chronology.year": "Jahr: {year}",
-  "game.chronology.drag.help":
-    "Nutze die Pfeiltasten ↑/↓ oder Drag & Drop zum Sortieren",
+  "game.chronology.drag.help": "Nutze die Pfeiltasten ↑/↓ oder Drag & Drop zum Sortieren",
   "game.submit.answer": "Antwort überprüfen",
   "game.chronology.up": "Nach oben",
   "game.chronology.down": "Nach unten",
@@ -392,12 +366,10 @@ export default {
   "common.back.to.top": "Zurück nach oben",
   "knowledge.articles.heading": "Wissensartikel",
   "knowledge.search.heading": "Artikel durchsuchen",
-  "knowledge.search.description":
-    "Artikel werden automatisch während der Eingabe gefiltert",
+  "knowledge.search.description": "Artikel werden automatisch während der Eingabe gefiltert",
   "knowledge.search.reset": "Suche zurücksetzen",
   "knowledge.search.reset.text": "Zurücksetzen",
-  "knowledge.no.results.help":
-    "Versuche andere Suchbegriffe oder setze die Suche zurück",
+  "knowledge.no.results.help": "Versuche andere Suchbegriffe oder setze die Suche zurück",
   "knowledge.keyboard.instructions":
     "Verwende die Pfeiltasten zur Navigation zwischen Artikeln. Drücke Enter, um einen Artikel zu öffnen.",
   "difficulty.level": "Schwierigkeitsgrad",
@@ -408,8 +380,7 @@ export default {
     "Verwalte deine persönlichen Informationen und sieh dir deine Spielstatistiken an",
   "profile.loading": "Profildaten werden geladen...",
   "profile.error": "Fehler beim Laden der Profildaten",
-  "profile.auth.required":
-    "Du musst angemeldet sein, um dein Profil anzuzeigen",
+  "profile.auth.required": "Du musst angemeldet sein, um dein Profil anzuzeigen",
   "profile.user.info": "Benutzerinformationen",
   "profile.user.since": "Mitglied seit",
   "profile.stats.title": "Spielstatistiken",

@@ -27,7 +27,7 @@ export interface ChronologyItem {
  */
 export function generateChronologyQuestion(
   albums: Album[],
-  difficulty: Difficulty,
+  difficulty: Difficulty
 ): ChronologyQuestion | null {
   if (!albums || albums.length < 3) {
     console.error("Not enough albums for chronology mode");
@@ -38,9 +38,7 @@ export function generateChronologyQuestion(
   const itemCount = 4;
 
   // Alben mit gültigem Jahr filtern
-  const validAlbums = albums.filter(
-    (album) => album.year && !isNaN(parseInt(album.year)),
-  );
+  const validAlbums = albums.filter((album) => album.year && !isNaN(parseInt(album.year)));
 
   if (validAlbums.length < itemCount) {
     console.error("Not enough albums with valid years");
@@ -48,9 +46,7 @@ export function generateChronologyQuestion(
   }
 
   // Zufällige Auswahl von Alben
-  const selectedAlbums = [...validAlbums]
-    .sort(() => 0.5 - Math.random())
-    .slice(0, itemCount);
+  const selectedAlbums = [...validAlbums].sort(() => 0.5 - Math.random()).slice(0, itemCount);
 
   // Items erstellen und echte Reihenfolge merken
   const items: ChronologyItem[] = selectedAlbums.map((album, index) => ({
@@ -62,9 +58,7 @@ export function generateChronologyQuestion(
   }));
 
   // Korrekte Reihenfolge (aufsteigend nach Jahr)
-  const correctOrder = [...items]
-    .sort((a, b) => a.year - b.year)
-    .map((item) => item.id);
+  const correctOrder = [...items].sort((a, b) => a.year - b.year).map((item) => item.id);
 
   // Items in zufälliger Reihenfolge zurückgeben
   return {
@@ -83,7 +77,7 @@ export function generateChronologyQuestion(
  */
 export function evaluateChronologyAnswer(
   userOrder: number[],
-  correctOrder: number[],
+  correctOrder: number[]
 ): { score: number; correctItems: number; totalItems: number } {
   if (!userOrder || !correctOrder || userOrder.length !== correctOrder.length) {
     return { score: 0, correctItems: 0, totalItems: correctOrder.length };

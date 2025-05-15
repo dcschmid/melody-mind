@@ -157,7 +157,7 @@ function updateAudioAndCover(album: Album, elements: MediaElements): void {
  */
 function updateAllStreamingLinks(
   album: Album,
-  streamingLinks: MediaElements["streamingLinks"],
+  streamingLinks: MediaElements["streamingLinks"]
 ): void {
   // Create a mapping of services to their URLs
   const linkMap = {
@@ -168,11 +168,7 @@ function updateAllStreamingLinks(
 
   // Update each service link
   Object.entries(linkMap).forEach(([service, url]) => {
-    updateStreamingLink(
-      streamingLinks[service as StreamingService],
-      url,
-      album,
-    );
+    updateStreamingLink(streamingLinks[service as StreamingService], url, album);
   });
 }
 
@@ -186,22 +182,14 @@ function updateAllStreamingLinks(
  * @param {MediaElements} elements - DOM elements to update
  * @private
  */
-function setAccessibilityAttributes(
-  album: Album,
-  elements: MediaElements,
-): void {
+function setAccessibilityAttributes(album: Album, elements: MediaElements): void {
   const { audioPreview, overlayCover } = elements;
   const artistAndAlbum =
-    album.artist && album.album
-      ? `${album.album} by ${album.artist}`
-      : "this album";
+    album.artist && album.album ? `${album.album} by ${album.artist}` : "this album";
 
   // Add accessibility attributes to audio player
   if (!audioPreview.hasAttribute("aria-label")) {
-    audioPreview.setAttribute(
-      "aria-label",
-      `Audio preview for ${artistAndAlbum}`,
-    );
+    audioPreview.setAttribute("aria-label", `Audio preview for ${artistAndAlbum}`);
   }
 
   audioPreview.setAttribute("data-artist", album.artist || "");
@@ -210,10 +198,7 @@ function setAccessibilityAttributes(
   // Add accessibility attributes to cover image
   if (overlayCover && !overlayCover.classList.contains("hidden")) {
     overlayCover.setAttribute("role", "img");
-    overlayCover.setAttribute(
-      "aria-label",
-      `Album cover for ${artistAndAlbum}`,
-    );
+    overlayCover.setAttribute("aria-label", `Album cover for ${artistAndAlbum}`);
   }
 }
 
@@ -228,12 +213,10 @@ function setAccessibilityAttributes(
  * @param {Album} album - Album data for accessibility information
  * @private
  */
-function updateStreamingLink(
-  linkElement?: HTMLAnchorElement,
-  url?: string,
-  album?: Album,
-): void {
-  if (!linkElement) return;
+function updateStreamingLink(linkElement?: HTMLAnchorElement, url?: string, album?: Album): void {
+  if (!linkElement) {
+    return;
+  }
 
   if (url) {
     linkElement.href = url;
@@ -243,7 +226,7 @@ function updateStreamingLink(
       const serviceName = linkElement.id.replace("-link", "");
       linkElement.setAttribute(
         "aria-label",
-        `Listen to ${album.album} by ${album.artist} on ${serviceName}`,
+        `Listen to ${album.album} by ${album.artist} on ${serviceName}`
       );
     }
   } else {
@@ -264,26 +247,14 @@ function updateStreamingLink(
 export function initializeMediaElements(): MediaElements | null {
   try {
     // Find all required elements in the DOM
-    const audioPreview = document.getElementById(
-      "audio-preview",
-    ) as HTMLAudioElement;
-    const audioPreviewSource = document.getElementById(
-      "audio-preview-source",
-    ) as HTMLSourceElement;
-    const overlayCover = document.getElementById(
-      "overlay-cover",
-    ) as HTMLImageElement;
+    const audioPreview = document.getElementById("audio-preview") as HTMLAudioElement;
+    const audioPreviewSource = document.getElementById("audio-preview-source") as HTMLSourceElement;
+    const overlayCover = document.getElementById("overlay-cover") as HTMLImageElement;
 
     // Find streaming link elements
-    const spotifyLink = document.getElementById(
-      "spotify-link",
-    ) as HTMLAnchorElement;
-    const deezerLink = document.getElementById(
-      "deezer-link",
-    ) as HTMLAnchorElement;
-    const appleLink = document.getElementById(
-      "apple-link",
-    ) as HTMLAnchorElement;
+    const spotifyLink = document.getElementById("spotify-link") as HTMLAnchorElement;
+    const deezerLink = document.getElementById("deezer-link") as HTMLAnchorElement;
+    const appleLink = document.getElementById("apple-link") as HTMLAnchorElement;
 
     // Validate required elements
     if (!audioPreview || !audioPreviewSource || !overlayCover) {

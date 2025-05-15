@@ -7,11 +7,12 @@
  * - user_mode_stats: keeps track of cumulative user statistics by game mode
  * - highscores: tracks high scores for leaderboard purposes
  */
-import { turso } from "../../../../turso.ts";
-import { nanoid } from "nanoid";
 import type { APIRoute } from "astro";
+import { nanoid } from "nanoid";
+
 import { processAchievementsAfterGame } from "../../../../services/gameAchievementService.ts";
 import { updateDailyActivity } from "../../../../services/userStreakService.ts";
+import { turso } from "../../../../turso.ts";
 import type { GameState } from "../../../../types/game.ts";
 
 /**
@@ -68,12 +69,7 @@ export const POST: APIRoute = async ({ request, params }) => {
     console.log("Received game result data:", JSON.stringify(data, null, 2));
 
     // Validate the input data
-    if (
-      !data.userId ||
-      !data.categoryName ||
-      !data.difficulty ||
-      typeof data.score !== "number"
-    ) {
+    if (!data.userId || !data.categoryName || !data.difficulty || typeof data.score !== "number") {
       return new Response(
         JSON.stringify({
           success: false,
@@ -82,7 +78,7 @@ export const POST: APIRoute = async ({ request, params }) => {
         {
           status: 400,
           headers: { "Content-Type": "application/json" },
-        },
+        }
       );
     }
 
@@ -105,14 +101,7 @@ export const POST: APIRoute = async ({ request, params }) => {
           difficulty
         ) VALUES (?, ?, ?, ?, ?, ?)
       `,
-      args: [
-        id,
-        data.userId,
-        gameMode,
-        data.score,
-        data.categoryName,
-        data.difficulty,
-      ],
+      args: [id, data.userId, gameMode, data.score, data.categoryName, data.difficulty],
     });
 
     // Update user statistics for the game mode
@@ -135,14 +124,9 @@ export const POST: APIRoute = async ({ request, params }) => {
             name: data.categoryName,
           }
         : undefined,
-      lastAnswerTime:
-        typeof data.lastAnswerTime === "number"
-          ? data.lastAnswerTime
-          : undefined,
+      lastAnswerTime: typeof data.lastAnswerTime === "number" ? data.lastAnswerTime : undefined,
       lastAnswerCorrect:
-        typeof data.lastAnswerCorrect === "boolean"
-          ? data.lastAnswerCorrect
-          : undefined,
+        typeof data.lastAnswerCorrect === "boolean" ? data.lastAnswerCorrect : undefined,
       eventId: data.eventId || undefined,
       endOfSession: data.endOfSession === true,
       debugAchievements: data.debugAchievements === true,
@@ -151,13 +135,13 @@ export const POST: APIRoute = async ({ request, params }) => {
     // Update the user's daily activity
     // This is done asynchronously to avoid delaying the response
     updateDailyActivity(data.userId).catch((error) =>
-      console.error("Error updating daily activity:", error),
+      console.error("Error updating daily activity:", error)
     );
 
     // Check and update achievements
     // This is done asynchronously to avoid delaying the response
     processAchievementsAfterGame(data.userId, gameState, lang).catch((error) =>
-      console.error("Error processing achievements:", error),
+      console.error("Error processing achievements:", error)
     );
 
     return new Response(
@@ -169,7 +153,7 @@ export const POST: APIRoute = async ({ request, params }) => {
       {
         status: 200,
         headers: { "Content-Type": "application/json" },
-      },
+      }
     );
   } catch (error) {
     console.error("API Error:", error);
@@ -181,7 +165,7 @@ export const POST: APIRoute = async ({ request, params }) => {
       {
         status: 500,
         headers: { "Content-Type": "application/json" },
-      },
+      }
     );
   }
 };
@@ -198,11 +182,7 @@ export const POST: APIRoute = async ({ request, params }) => {
  * @param {number} score - Score achieved in this game
  * @returns {Promise<void>}
  */
-async function updateUserModeStats(
-  userId: string,
-  gameMode: string,
-  score: number,
-): Promise<void> {
+async function updateUserModeStats(userId: string, gameMode: string, score: number): Promise<void> {
   // Check if a record already exists for this user and game mode
   const existingStats = await turso.execute({
     sql: `
@@ -258,7 +238,7 @@ async function saveHighscore(
   userId: string,
   gameMode: string,
   score: number,
-  category: string,
+  category: string
 ): Promise<void> {
   // Generate a unique ID for the highscore
   const id = nanoid();

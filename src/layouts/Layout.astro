@@ -135,58 +135,34 @@ const {
 const lang = getLangFromUrl(Astro.url);
 
 // Preloaded critical resources for performance
-const preloadedResources = [
-  { href: "https://cdn.usefathom.com", crossorigin: "", as: "script" },
-];
+const preloadedResources = [{ href: "https://cdn.usefathom.com", crossorigin: "", as: "script" }];
 ---
 
 <!doctype html>
-<html lang={String(lang)} class="box-border m-0 h-full scroll-smooth" dir="ltr">
+<html lang={String(lang)} class="m-0 box-border h-full scroll-smooth" dir="ltr">
   <head>
     <!-- Character set and viewport configuration for mobile optimization -->
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
     <!-- Color scheme and theme color for browser UI -->
     <meta name="color-scheme" content="dark light" />
     <meta name="theme-color" content="#18181b" />
     <!-- zinc-900 -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
     <!-- Resource hints for performance -->
     {
       preloadedResources.map((resource) => (
-        <link
-          rel="preconnect"
-          href={resource.href}
-          crossorigin={resource.crossorigin}
-        />
+        <link rel="preconnect" href={resource.href} crossorigin={resource.crossorigin} />
       ))
     }
 
     <!-- Structured data and SEO -->
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <meta
-      name="google-site-verification"
-      content="ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M"
-    />
-    <SEO
-      title={title}
-      description={description}
-      keywords={keywords}
-      image={image}
-      type={type}
-      publishDate={publishDate}
-      modifiedDate={modifiedDate}
-      ogMusic={ogMusic}
-    />
+    <meta name="google-site-verification" content="ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M" />
+    <SEO {title} {description} {keywords} {image} {type} {publishDate} {modifiedDate} {ogMusic} />
 
     <!-- Analytics with performance and privacy optimizations -->
     <script
@@ -201,9 +177,7 @@ const preloadedResources = [
     <meta name="view-transition" content="same-origin" />
   </head>
   <body
-    class="w-full max-w-6xl mx-auto p-3 md:p-6 text-base leading-7 tracking-wide
-           text-wrap bg-zinc-900 text-zinc-50 min-h-screen flex flex-col antialiased
-           motion-safe:scroll-smooth"
+    class="mx-auto flex min-h-screen w-full max-w-6xl flex-col bg-zinc-900 p-3 text-base leading-7 tracking-wide text-wrap text-zinc-50 antialiased motion-safe:scroll-smooth md:p-6"
     data-theme="dark"
   >
     <!-- Skip link for keyboard navigation -->
@@ -212,7 +186,7 @@ const preloadedResources = [
     <!-- Conditional header/navigation based on page type -->
     <When test={showHeader && !showCoins}>
       <header role="banner">
-        <Navigation showHeaderIcons={showHeaderIcons} />
+        <Navigation {showHeaderIcons} />
       </header>
     </When>
 
@@ -225,7 +199,7 @@ const preloadedResources = [
     <!-- Main content area -->
     <main
       id="main-content"
-      class="max-w-full mx-auto py-6 px-0 text-base leading-relaxed text-pretty flex-grow"
+      class="mx-auto max-w-full flex-grow px-0 py-6 text-base leading-relaxed text-pretty"
       tabindex="-1"
     >
       <slot />
@@ -271,9 +245,7 @@ const preloadedResources = [
        * Handle theme switching between light/dark modes
        */
       function updateThemePreference() {
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)",
-        ).matches;
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
         document.body.dataset.theme = prefersDark ? "dark" : "light";
       }
 

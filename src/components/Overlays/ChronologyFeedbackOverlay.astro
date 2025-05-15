@@ -14,7 +14,7 @@ const t = useTranslations(lang);
 
 <div
   id="chronology-feedback-overlay"
-  class="fixed inset-0 flex items-center justify-center z-50 bg-black/80 hidden"
+  class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/80"
   role="dialog"
   aria-modal="true"
   aria-labelledby="feedback-title"
@@ -25,60 +25,41 @@ const t = useTranslations(lang);
   <div id="overlay-backdrop" class="absolute inset-0" aria-hidden="true"></div>
 
   <div
-    class="bg-zinc-900 border border-zinc-700 rounded-xl max-w-xl w-full mx-4 p-6 shadow-2xl relative"
+    class="relative mx-4 w-full max-w-xl rounded-xl border border-zinc-700 bg-zinc-900 p-6 shadow-2xl"
     role="document"
   >
     <!-- Close button - positioned at the top right -->
     <button
       id="close-feedback-overlay"
-      class="absolute right-4 top-4 flex items-center justify-center w-12 h-12 rounded-full bg-zinc-800 hover:bg-zinc-700 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
+      class="absolute top-4 right-4 flex h-12 w-12 items-center justify-center rounded-full bg-zinc-800 transition-colors hover:bg-zinc-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
       aria-label={t("general.close") || "Close"}
       type="button"
     >
-      <Icon
-        name="close"
-        width={24}
-        height={24}
-        aria-hidden="true"
-        class="w-6 h-6 text-zinc-200"
-      />
+      <Icon name="close" width={24} height={24} aria-hidden="true" class="h-6 w-6 text-zinc-200" />
     </button>
 
-    <h2
-      id="feedback-title"
-      class="text-xl md:text-2xl font-bold text-center mb-4 text-zinc-100"
-    >
+    <h2 id="feedback-title" class="mb-4 text-center text-xl font-bold text-zinc-100 md:text-2xl">
       {t("game.chronology.result") || "Ergebnis"}
     </h2>
 
     <!-- Status announcer for screen readers -->
-    <div
-      id="feedback-status"
-      aria-live="polite"
-      aria-atomic="true"
-      class="sr-only"
-    >
-    </div>
+    <div id="feedback-status" aria-live="polite" aria-atomic="true" class="sr-only"></div>
 
-    <div
-      id="feedback-content"
-      class="text-center mb-6 text-zinc-200 min-h-24"
-      aria-live="polite"
-    >
+    <div id="feedback-content" class="mb-6 min-h-24 text-center text-zinc-200" aria-live="polite">
       <!-- Content will be dynamically added here -->
     </div>
 
-    <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
       <button
         id="chronology-continue-button"
-        class="px-6 py-3 bg-gradient-to-r from-purple-700 to-indigo-700 text-white rounded-full font-bold transition-transform duration-200 hover:scale-105 min-h-[3rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
+        class="min-h-[3rem] rounded-full bg-gradient-to-r from-purple-700 to-indigo-700 px-6 py-3 font-bold text-white transition-transform duration-200 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
         type="button"
       >
         {t("game.next.round") || "Nächste Runde"}
       </button>
       <button
         id="chronology-end-button"
-        class="px-6 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-full font-bold transition-transform duration-200 hover:scale-105 min-h-[3rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 hidden"
+        class="hidden min-h-[3rem] rounded-full bg-gradient-to-r from-amber-600 to-orange-600 px-6 py-3 font-bold text-white transition-transform duration-200 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
         type="button"
       >
         {t("game.end.title") || "Spiel beenden"}
@@ -113,32 +94,16 @@ const t = useTranslations(lang);
    */
   function initFeedbackOverlay(): void {
     // Get DOM elements
-    const overlay = document.getElementById(
-      "chronology-feedback-overlay",
-    ) as HTMLDivElement;
-    const closeButton = document.getElementById(
-      "close-feedback-overlay",
-    ) as HTMLButtonElement;
-    const backdrop = document.getElementById(
-      "overlay-backdrop",
-    ) as HTMLDivElement;
+    const overlay = document.getElementById("chronology-feedback-overlay") as HTMLDivElement;
+    const closeButton = document.getElementById("close-feedback-overlay") as HTMLButtonElement;
+    const backdrop = document.getElementById("overlay-backdrop") as HTMLDivElement;
     const continueButton = document.getElementById(
-      "chronology-continue-button",
+      "chronology-continue-button"
     ) as HTMLButtonElement;
-    const endButton = document.getElementById(
-      "chronology-end-button",
-    ) as HTMLButtonElement;
-    const statusAnnouncer = document.getElementById(
-      "feedback-status",
-    ) as HTMLDivElement;
+    const endButton = document.getElementById("chronology-end-button") as HTMLButtonElement;
+    const statusAnnouncer = document.getElementById("feedback-status") as HTMLDivElement;
 
-    if (
-      !overlay ||
-      !closeButton ||
-      !backdrop ||
-      !continueButton ||
-      !endButton
-    ) {
+    if (!overlay || !closeButton || !backdrop || !continueButton || !endButton) {
       console.warn("Chronology feedback overlay elements not found");
       return;
     }
@@ -210,8 +175,7 @@ const t = useTranslations(lang);
         overlay.style.display = "flex";
 
         requestAnimationFrame(() => {
-          overlay.style.transition =
-            "opacity 200ms ease-out, transform 200ms ease-out";
+          overlay.style.transition = "opacity 200ms ease-out, transform 200ms ease-out";
           overlay.style.opacity = "1";
           overlay.style.transform = "translateY(0) scale(1)";
         });
@@ -255,12 +219,11 @@ const t = useTranslations(lang);
      * @param {boolean} isCorrect - Whether the user's answer was correct
      * @param {string[]} correctOrder - The correct order of items
      */
-    function updateFeedbackContent(
-      isCorrect: boolean,
-      correctOrder?: string[],
-    ): void {
+    function updateFeedbackContent(isCorrect: boolean, correctOrder?: string[]): void {
       const feedbackContent = document.getElementById("feedback-content");
-      if (!feedbackContent) return;
+      if (!feedbackContent) {
+        return;
+      }
 
       // Clear previous content
       feedbackContent.innerHTML = "";
@@ -283,14 +246,12 @@ const t = useTranslations(lang);
       if (correctOrder && correctOrder.length > 0) {
         const orderHeading = document.createElement("p");
         orderHeading.className = "text-lg mb-2 text-zinc-300";
-        orderHeading.textContent =
-          t("game.chronology.correct_order") || "Richtige Reihenfolge:";
+        orderHeading.textContent = t("game.chronology.correct_order") || "Richtige Reihenfolge:";
         feedbackContent.appendChild(orderHeading);
 
         // Create an ordered list for the correct sequence
         const orderList = document.createElement("ol");
-        orderList.className =
-          "list-decimal list-inside text-left max-w-md mx-auto";
+        orderList.className = "list-decimal list-inside text-left max-w-md mx-auto";
 
         correctOrder.forEach((item) => {
           const listItem = document.createElement("li");
@@ -310,15 +271,21 @@ const t = useTranslations(lang);
     function setupFocusTrap(element: HTMLElement): void {
       element.addEventListener("keydown", (e: KeyboardEvent) => {
         // Only trap focus when the modal is visible
-        if (element.classList.contains("hidden")) return;
+        if (element.classList.contains("hidden")) {
+          return;
+        }
 
-        if (e.key !== "Tab") return;
+        if (e.key !== "Tab") {
+          return;
+        }
 
         // Get all focusable elements within the modal
         const focusableElements = getFocusableElements(element);
 
         // No focusable elements found
-        if (focusableElements.length === 0) return;
+        if (focusableElements.length === 0) {
+          return;
+        }
 
         const firstElement = focusableElements[0];
         const lastElement = focusableElements[focusableElements.length - 1];
@@ -347,14 +314,10 @@ const t = useTranslations(lang);
         'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
       // Convert NodeList to Array and filter out hidden elements
-      return Array.from(
-        container.querySelectorAll<HTMLElement>(selector),
-      ).filter((el) => {
+      return Array.from(container.querySelectorAll<HTMLElement>(selector)).filter((el) => {
         // Check if element is visible and not aria-hidden
         return (
-          el.offsetWidth > 0 &&
-          el.offsetHeight > 0 &&
-          el.getAttribute("aria-hidden") !== "true"
+          el.offsetWidth > 0 && el.offsetHeight > 0 && el.getAttribute("aria-hidden") !== "true"
         );
       });
     }

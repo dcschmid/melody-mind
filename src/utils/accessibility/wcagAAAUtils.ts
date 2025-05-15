@@ -40,10 +40,7 @@ export interface ContrastRatio {
  * @param options - Erweiterte Optionen für die Fokus-Verwaltung
  * @returns {boolean} - true, wenn der Fokus erfolgreich gesetzt wurde
  */
-export function focusElement(
-  elementId: string,
-  options: FocusOptions = {},
-): boolean {
+export function focusElement(elementId: string, options: FocusOptions = {}): boolean {
   const {
     preventScroll = false,
     announceToScreenReader = true,
@@ -57,7 +54,7 @@ export function focusElement(
 
   if (!element) {
     console.warn(
-      `Element mit ID "${elementId}" konnte nicht fokussiert werden, da es nicht existiert.`,
+      `Element mit ID "${elementId}" konnte nicht fokussiert werden, da es nicht existiert.`
     );
     return false;
   }
@@ -97,15 +94,8 @@ export function focusElement(
  * @param message - Die Nachricht, die angekündigt werden soll
  * @param options - Optionen für die Ankündigung
  */
-export function announceToScreenReader(
-  message: string,
-  options: AnnouncementOptions = {},
-): void {
-  const {
-    politeness = "assertive",
-    duration = 500,
-    clearAfter = true,
-  } = options;
+export function announceToScreenReader(message: string, options: AnnouncementOptions = {}): void {
+  const { politeness = "assertive", duration = 500, clearAfter = true } = options;
 
   // Suche vorhandenen Announcer oder erstelle neuen
   let announcer = document.getElementById("sr-announcer");
@@ -165,10 +155,7 @@ export function announceToScreenReader(
  * @param background - Hintergrundfarbe (Hexcode oder RGB-String)
  * @returns Kontrastverhältnis und Compliance-Informationen
  */
-export function calculateContrastRatio(
-  foreground: string,
-  background: string,
-): ContrastRatio {
+export function calculateContrastRatio(foreground: string, background: string): ContrastRatio {
   // Konvertiere Farben zu RGB-Arrays
   const getRGB = (color: string): number[] => {
     // Hexcode (z.B. #FFFFFF oder #FFF)
@@ -190,11 +177,7 @@ export function calculateContrastRatio(
     // RGB-Format (z.B. rgb(255, 255, 255))
     const rgbMatch = color.match(/rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/);
     if (rgbMatch) {
-      return [
-        parseInt(rgbMatch[1], 10),
-        parseInt(rgbMatch[2], 10),
-        parseInt(rgbMatch[3], 10),
-      ];
+      return [parseInt(rgbMatch[1], 10), parseInt(rgbMatch[2], 10), parseInt(rgbMatch[3], 10)];
     }
 
     // Standardfarbe, wenn keine Übereinstimmung
@@ -205,9 +188,7 @@ export function calculateContrastRatio(
   const calculateLuminance = (rgb: number[]): number => {
     const [r, g, b] = rgb.map((value) => {
       const sRGB = value / 255;
-      return sRGB <= 0.03928
-        ? sRGB / 12.92
-        : Math.pow((sRGB + 0.055) / 1.055, 2.4);
+      return sRGB <= 0.03928 ? sRGB / 12.92 : Math.pow((sRGB + 0.055) / 1.055, 2.4);
     });
 
     return 0.2126 * r + 0.7152 * g + 0.0722 * b;
@@ -290,12 +271,10 @@ export function validateAriaAttributes(element: HTMLElement): {
           !element.hasAttribute("aria-label") &&
           !element.hasAttribute("aria-labelledby") &&
           element.tagName === "INPUT" &&
-          !["button", "submit", "reset"].includes(
-            (element as HTMLInputElement).type,
-          )
+          !["button", "submit", "reset"].includes((element as HTMLInputElement).type)
         ) {
           errors.push(
-            "Formular-Element benötigt zugängliches Label (aria-label oder aria-labelledby).",
+            "Formular-Element benötigt zugängliches Label (aria-label oder aria-labelledby)."
           );
         }
       }
@@ -306,7 +285,7 @@ export function validateAriaAttributes(element: HTMLElement): {
         !element.hasAttribute("aria-describedby")
       ) {
         warnings.push(
-          "Überprüfe, ob das Element eine zusätzliche Beschreibung benötigt (aria-describedby).",
+          "Überprüfe, ob das Element eine zusätzliche Beschreibung benötigt (aria-describedby)."
         );
       }
     }
@@ -326,7 +305,7 @@ export function validateAriaAttributes(element: HTMLElement): {
         // Manche Attribute sind optional, abhängig vom Kontext
         if (attr === "aria-pressed" && role === "button") {
           warnings.push(
-            `Die Rolle "button" könnte das Attribut "${attr}" benötigen, falls es ein Toggle-Button ist.`,
+            `Die Rolle "button" könnte das Attribut "${attr}" benötigen, falls es ein Toggle-Button ist.`
           );
         } else {
           errors.push(`Die Rolle "${role}" erfordert das Attribut "${attr}".`);
@@ -336,20 +315,16 @@ export function validateAriaAttributes(element: HTMLElement): {
   }
 
   // Prüfe, ob referenzierte IDs existieren
-  ["aria-labelledby", "aria-describedby", "aria-controls", "aria-owns"].forEach(
-    (attr) => {
-      if (element.hasAttribute(attr)) {
-        const ids = element.getAttribute(attr)!.split(/\s+/);
-        ids.forEach((id) => {
-          if (!document.getElementById(id)) {
-            errors.push(
-              `Das Attribut "${attr}" verweist auf eine nicht existierende ID: "${id}".`,
-            );
-          }
-        });
-      }
-    },
-  );
+  ["aria-labelledby", "aria-describedby", "aria-controls", "aria-owns"].forEach((attr) => {
+    if (element.hasAttribute(attr)) {
+      const ids = element.getAttribute(attr)!.split(/\s+/);
+      ids.forEach((id) => {
+        if (!document.getElementById(id)) {
+          errors.push(`Das Attribut "${attr}" verweist auf eine nicht existierende ID: "${id}".`);
+        }
+      });
+    }
+  });
 
   return { isValid: errors.length === 0, errors, warnings };
 }
@@ -376,21 +351,25 @@ export function useKeyboardSupport(options: {
 
   useEffect(() => {
     const container = document.getElementById("keyboard-navigation-container");
-    if (!container) return;
+    if (!container) {
+      return;
+    }
 
     const handleKeyDown = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement;
-      if (!target || !container.contains(target)) return;
+      if (!target || !container.contains(target)) {
+        return;
+      }
 
       const focusableElements = Array.from(
-        container.querySelectorAll<HTMLElement>(focusableSelector),
+        container.querySelectorAll<HTMLElement>(focusableSelector)
       ).filter((el) => el.offsetWidth > 0 && el.offsetHeight > 0); // Nur sichtbare Elemente
 
-      if (focusableElements.length === 0) return;
+      if (focusableElements.length === 0) {
+        return;
+      }
 
-      const currentIndex = focusableElements.indexOf(
-        document.activeElement as HTMLElement,
-      );
+      const currentIndex = focusableElements.indexOf(document.activeElement as HTMLElement);
 
       let nextIndex = -1;
 
@@ -443,10 +422,7 @@ export function useKeyboardSupport(options: {
       } else if (event.key === "End") {
         event.preventDefault();
         nextIndex = focusableElements.length - 1;
-      } else if (
-        (event.key === "Enter" || event.key === " ") &&
-        onEnterOrSpace
-      ) {
+      } else if ((event.key === "Enter" || event.key === " ") && onEnterOrSpace) {
         event.preventDefault();
         onEnterOrSpace(target);
         return;
@@ -466,13 +442,7 @@ export function useKeyboardSupport(options: {
     return () => {
       container.removeEventListener("keydown", handleKeyDown);
     };
-  }, [
-    focusableSelector,
-    onKeyNavigation,
-    onEnterOrSpace,
-    wrapNavigation,
-    orientation,
-  ]);
+  }, [focusableSelector, onKeyNavigation, onEnterOrSpace, wrapNavigation, orientation]);
 }
 
 /**
@@ -611,7 +581,7 @@ export function createAccessibleHelpDialog(options: {
 export function enhanceTextContrast(targetContrast: number = 7.0): void {
   // Alle Textelemente finden
   const textElements = document.querySelectorAll(
-    "p, h1, h2, h3, h4, h5, h6, span, a, button, label, input, textarea, select",
+    "p, h1, h2, h3, h4, h5, h6, span, a, button, label, input, textarea, select"
   );
 
   textElements.forEach((element) => {
@@ -629,20 +599,12 @@ export function enhanceTextContrast(targetContrast: number = 7.0): void {
       if (isLightColor(foregroundColor)) {
         newColor = lightenColor(
           foregroundColor,
-          findContrastAdjustment(
-            foregroundColor,
-            backgroundColor,
-            targetContrast,
-          ),
+          findContrastAdjustment(foregroundColor, backgroundColor, targetContrast)
         );
       } else {
         newColor = darkenColor(
           foregroundColor,
-          findContrastAdjustment(
-            foregroundColor,
-            backgroundColor,
-            targetContrast,
-          ),
+          findContrastAdjustment(foregroundColor, backgroundColor, targetContrast)
         );
       }
 
@@ -663,10 +625,7 @@ function findEffectiveBackgroundColor(element: HTMLElement): string {
     const style = window.getComputedStyle(current);
     backgroundColor = style.backgroundColor;
 
-    if (
-      backgroundColor === "transparent" ||
-      backgroundColor === "rgba(0, 0, 0, 0)"
-    ) {
+    if (backgroundColor === "transparent" || backgroundColor === "rgba(0, 0, 0, 0)") {
       current = current.parentElement as HTMLElement;
     }
   }
@@ -685,7 +644,9 @@ function getRGBFromColor(color: string): number[] {
   canvas.height = 1;
   const ctx = canvas.getContext("2d");
 
-  if (!ctx) return [0, 0, 0];
+  if (!ctx) {
+    return [0, 0, 0];
+  }
 
   ctx.fillStyle = color;
   ctx.fillRect(0, 0, 1, 1);
@@ -707,7 +668,7 @@ function darkenColor(color: string, amount: number): string {
 function findContrastAdjustment(
   foreground: string,
   background: string,
-  targetContrast: number,
+  targetContrast: number
 ): number {
   let adjustment = 0;
   let currentContrast = calculateContrastRatio(foreground, background).ratio;
@@ -721,9 +682,7 @@ function findContrastAdjustment(
     currentContrast = calculateContrastRatio(newColor, background).ratio;
 
     if (adjustment >= 200) {
-      console.warn(
-        "Maximum color adjustment reached but target contrast not achieved",
-      );
+      console.warn("Maximum color adjustment reached but target contrast not achieved");
       break;
     }
   }
@@ -748,7 +707,7 @@ export function validateHeadingStructure(): {
   // Überprüfe ob mindestens eine Überschrift vorhanden ist
   if (headings.length === 0) {
     errors.push(
-      "Keine Überschriften gefunden. Dokumente sollten eine Überschriftenstruktur haben.",
+      "Keine Überschriften gefunden. Dokumente sollten eine Überschriftenstruktur haben."
     );
     return { isValid: false, errors, warnings };
   }
@@ -757,11 +716,11 @@ export function validateHeadingStructure(): {
   const h1Elements = document.querySelectorAll("h1");
   if (h1Elements.length === 0) {
     errors.push(
-      "Keine <h1> gefunden. Jedes Dokument sollte genau eine primäre <h1>-Überschrift haben.",
+      "Keine <h1> gefunden. Jedes Dokument sollte genau eine primäre <h1>-Überschrift haben."
     );
   } else if (h1Elements.length > 1) {
     warnings.push(
-      `${h1Elements.length} <h1>-Elemente gefunden. Es sollte nur eine primäre <h1>-Überschrift geben.`,
+      `${h1Elements.length} <h1>-Elemente gefunden. Es sollte nur eine primäre <h1>-Überschrift geben.`
     );
   }
 
@@ -772,21 +731,17 @@ export function validateHeadingStructure(): {
     const currentLevel = parseInt(heading.tagName.substring(1), 10);
 
     if (index === 0 && currentLevel !== 1) {
-      warnings.push(
-        `Die erste Überschrift ist <h${currentLevel}>, sollte aber <h1> sein.`,
-      );
+      warnings.push(`Die erste Überschrift ist <h${currentLevel}>, sollte aber <h1> sein.`);
     }
 
     if (previousLevel > 0 && currentLevel - previousLevel > 1) {
-      errors.push(
-        `Überschriftenebene übersprungen: <h${previousLevel}> zu <h${currentLevel}>.`,
-      );
+      errors.push(`Überschriftenebene übersprungen: <h${previousLevel}> zu <h${currentLevel}>.`);
     }
 
     // Überprüfe Inhalt
     if (heading.textContent?.trim() === "") {
       errors.push(
-        `Leere Überschrift <h${currentLevel}> gefunden. Überschriften sollten Text enthalten.`,
+        `Leere Überschrift <h${currentLevel}> gefunden. Überschriften sollten Text enthalten.`
       );
     }
 
@@ -808,8 +763,7 @@ export function validateHeadingStructure(): {
 export function useAccessibilityPreferences() {
   // Standardeinstellungen
   const defaultPreferences = {
-    reducedMotion: window.matchMedia("(prefers-reduced-motion: reduce)")
-      .matches,
+    reducedMotion: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
     highContrast: window.matchMedia("(prefers-contrast: more)").matches,
     largeText: false,
     lineSpacing: "normal",
@@ -845,10 +799,7 @@ export function useAccessibilityPreferences() {
     }
 
     // Zeilenabstand anpassen
-    document.documentElement.style.setProperty(
-      "--line-spacing",
-      preferences.lineSpacing,
-    );
+    document.documentElement.style.setProperty("--line-spacing", preferences.lineSpacing);
 
     // Alternative Textanzeige (einfacherer Text)
     if (preferences.alternativeText) {
@@ -865,10 +816,7 @@ export function useAccessibilityPreferences() {
     }
 
     // Speichern der Einstellungen im localStorage
-    localStorage.setItem(
-      "accessibilityPreferences",
-      JSON.stringify(preferences),
-    );
+    localStorage.setItem("accessibilityPreferences", JSON.stringify(preferences));
   }, [preferences]);
 
   // Einstellungen beim ersten Laden aus localStorage wiederherstellen
@@ -878,17 +826,12 @@ export function useAccessibilityPreferences() {
       try {
         setPreferences(JSON.parse(savedPreferences));
       } catch (error) {
-        console.error(
-          "Fehler beim Laden der Barrierefreiheitseinstellungen:",
-          error,
-        );
+        console.error("Fehler beim Laden der Barrierefreiheitseinstellungen:", error);
       }
     }
 
     // Medienabfrage Listener für Systemeinstellungen
-    const motionMediaQuery = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    );
+    const motionMediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     const contrastMediaQuery = window.matchMedia("(prefers-contrast: more)");
 
     const handleMotionPreferenceChange = (e: MediaQueryListEvent) => {
@@ -900,20 +843,11 @@ export function useAccessibilityPreferences() {
     };
 
     motionMediaQuery.addEventListener("change", handleMotionPreferenceChange);
-    contrastMediaQuery.addEventListener(
-      "change",
-      handleContrastPreferenceChange,
-    );
+    contrastMediaQuery.addEventListener("change", handleContrastPreferenceChange);
 
     return () => {
-      motionMediaQuery.removeEventListener(
-        "change",
-        handleMotionPreferenceChange,
-      );
-      contrastMediaQuery.removeEventListener(
-        "change",
-        handleContrastPreferenceChange,
-      );
+      motionMediaQuery.removeEventListener("change", handleMotionPreferenceChange);
+      contrastMediaQuery.removeEventListener("change", handleContrastPreferenceChange);
     };
   }, []);
 

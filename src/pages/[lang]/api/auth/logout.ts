@@ -5,6 +5,7 @@
  */
 
 import type { APIRoute } from "astro";
+
 import { useTranslations } from "../../../../utils/i18n.js";
 
 /**
@@ -36,7 +37,7 @@ export const POST: APIRoute = async ({ params }) => {
           "Content-Type": "application/json",
           "Set-Cookie": `access_token=; HttpOnly; Secure; SameSite=Strict; Path=/; Expires=${accessTokenExpiry.toUTCString()}`,
         },
-      },
+      }
     );
   } catch (error) {
     console.error("Error during logout:", error);
@@ -51,7 +52,7 @@ export const POST: APIRoute = async ({ params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   }
 };

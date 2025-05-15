@@ -11,11 +11,7 @@
  */
 import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
-import {
-  getLangFromUrl,
-  useTranslations,
-  getRelativeLocaleUrl,
-} from "@utils/i18n";
+import { getLangFromUrl, useTranslations, getRelativeLocaleUrl } from "@utils/i18n";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
 import LanguagePicker from "@components/LanguagePicker.astro";
 import Headline from "@components/Headline.astro";
@@ -31,9 +27,7 @@ const t = useTranslations(String(lang));
  * Ensures users land on their preferred language version
  */
 if (Astro.request.method === "GET" && !Astro.params.lang) {
-  return Astro.redirect(
-    getRelativeLocaleUrl(Astro.preferredLocale || "en", "/"),
-  );
+  return Astro.redirect(getRelativeLocaleUrl(Astro.preferredLocale || "en", "/"));
 }
 
 // Basic page content setup
@@ -64,69 +58,58 @@ const imageHeight = 600;
 ---
 
 <Layout
-  title={title}
+  {title}
   description={optimizedDescription}
-  keywords={keywords}
+  {keywords}
   image={`/og-images/social-share-home-${String(lang)}.jpg`}
   type={pageType}
-  publishDate={publishDate}
-  modifiedDate={modifiedDate}
+  {publishDate}
+  {modifiedDate}
 >
   {/* Skip to content link for keyboard navigation accessibility */}
   <a
     href="#main-content"
-    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-purple-700 focus:text-white focus:font-medium focus:rounded focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-purple-700"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded focus:bg-purple-700 focus:px-4 focus:py-2 focus:font-medium focus:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-purple-700 focus:outline-none"
   >
     {t("accessibility.skip.to.content")}
   </a>
 
   <main
     id="main-content"
-    class="min-h-screen flex items-center justify-center text-zinc-50"
+    class="flex min-h-screen items-center justify-center text-zinc-50"
     tabindex="-1"
   >
-    <div
-      class="max-w-4xl w-full mx-auto px-6 py-12 flex flex-col items-center text-center"
-    >
-      <div class="w-full flex flex-col items-center">
+    <div class="mx-auto flex w-full max-w-4xl flex-col items-center px-6 py-12 text-center">
+      <div class="flex w-full flex-col items-center">
         {/* Logo with comprehensive image optimization and accessibility */}
-        <div
-          class="w-full max-w-[310px] mx-auto mb-8 aspect-square relative"
-          aria-hidden="true"
-        >
+        <div class="relative mx-auto mb-8 aspect-square w-full max-w-[310px]" aria-hidden="true">
           <img
             src="/melody-mind.png"
             width={imageWidth}
             height={imageHeight}
             alt="Melody Mind Logo - Music Quiz App Logo"
             loading="eager"
-            class="w-full h-auto transition-transform duration-300 motion-safe:hover:scale-105"
+            class="h-auto w-full transition-transform duration-300 motion-safe:hover:scale-105"
             fetchpriority="high"
           />
         </div>
 
         {/* Semantic heading with proper hierarchy */}
-        <Headline
-          level="h1"
-          title={title}
-          className="text-3xl md:text-4xl font-bold mb-6 text-white"
-        />
+        <Headline level="h1" {title} className="mb-6 text-3xl font-bold text-white md:text-4xl" />
 
         {/* Description with enhanced contrast for AAA compliance */}
         <Paragraph
-          className="flex text-center items-center text-lg mb-8 text-white leading-relaxed max-w-2xl"
+          className="mb-8 flex max-w-2xl items-center text-center text-lg leading-relaxed text-white"
         >
           {description}
         </Paragraph>
 
         {/* Accessible button container with increased touch targets */}
-        <div
-          class="flex flex-col items-center gap-5 mt-6 w-full max-w-xs mx-auto"
-        >
+        <div class="mx-auto mt-6 flex w-full max-w-xs flex-col items-center gap-5">
           <ButtonLink
             href={`/${String(lang)}/gamehome`}
             aria-label={t("index.start.game.label")}
-            className="w-full min-h-[56px] py-4 px-6 bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-600 hover:to-indigo-600 rounded-xl transform hover:scale-[1.02] transition-all duration-300 shadow-lg focus:outline-none focus:ring-4 focus:ring-purple-300 focus:ring-opacity-80 text-lg text-white font-medium flex items-center justify-center"
+            className="focus:ring-opacity-80 flex min-h-[56px] w-full transform items-center justify-center rounded-xl bg-gradient-to-r from-purple-700 to-indigo-700 px-6 py-4 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:from-purple-600 hover:to-indigo-600 focus:ring-4 focus:ring-purple-300 focus:outline-none"
           >
             <span>{t("index.continue")}</span>
           </ButtonLink>
@@ -188,8 +171,7 @@ const imageHeight = 600;
     "DOMContentLoaded",
     () => {
       // Use requestIdleCallback for non-critical operations
-      const idleCallback =
-        window.requestIdleCallback || ((cb) => setTimeout(cb, 50));
+      const idleCallback = window.requestIdleCallback || ((cb) => setTimeout(cb, 50));
 
       idleCallback(() => {
         // Register intersection observer for animation elements
@@ -203,7 +185,7 @@ const imageHeight = 600;
               }
             });
           },
-          { rootMargin: "0px", threshold: 0.1 },
+          { rootMargin: "0px", threshold: 0.1 }
         );
 
         // Observe animatable elements
@@ -212,6 +194,6 @@ const imageHeight = 600;
         });
       });
     },
-    { passive: true },
+    { passive: true }
   ); // Performance optimization with passive listener
 </script>

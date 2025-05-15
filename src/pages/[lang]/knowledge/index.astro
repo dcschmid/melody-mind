@@ -41,18 +41,7 @@ export const prerender = true;
  */
 export async function getStaticPaths() {
   // Define all supported languages for type safety
-  const supportedLanguages = [
-    "de",
-    "en",
-    "es",
-    "fr",
-    "it",
-    "pt",
-    "da",
-    "nl",
-    "sv",
-    "fi",
-  ] as const;
+  const supportedLanguages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"] as const;
 
   // Process each language to generate static paths
   const paths = await Promise.all(
@@ -69,7 +58,7 @@ export async function getStaticPaths() {
         params: { lang },
         props: { articles, allKeywords },
       };
-    }),
+    })
   );
 
   return paths;
@@ -120,7 +109,7 @@ const articlesWithReadingTime = articles.map((article) => {
 const sortedArticles = [...articlesWithReadingTime].sort((a, b) =>
   (a.data.image || "").localeCompare(b.data.image || "", undefined, {
     sensitivity: "base",
-  }),
+  })
 );
 
 // Generate SEO content
@@ -144,111 +133,125 @@ const collectionPageStructuredData = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "@id": `${Astro.site}${lang}/knowledge/`,
-  "name": title,
-  "description": optimizedDescription,
-  "inLanguage": lang,
-  "datePublished": publishDate.toISOString(),
-  "dateModified": modifiedDate.toISOString(),
-  "isPartOf": {
+  name: title,
+  description: optimizedDescription,
+  inLanguage: lang,
+  datePublished: publishDate.toISOString(),
+  dateModified: modifiedDate.toISOString(),
+  isPartOf: {
     "@type": "WebSite",
     "@id": `${Astro.site}`,
-    "name": "Melody Mind",
-    "url": Astro.site?.toString() || "https://melodymind.app"
+    name: "Melody Mind",
+    url: Astro.site?.toString() || "https://melodymind.app",
   },
-  "hasPart": {
+  hasPart: {
     "@type": "ItemList",
-    "itemListElement": sortedArticles.map((article, index) => ({
+    itemListElement: sortedArticles.map((article, index) => ({
       "@type": "ListItem",
-      "position": index + 1,
-      "item": {
+      position: index + 1,
+      item: {
         "@type": "Article",
         "@id": `${Astro.site}${lang}/knowledge/${article.slug}`,
-        "headline": article.data.title,
-        "description": article.data.description,
-        "image": article.data.image ? `${Astro.site}${article.data.image.startsWith('/') ? article.data.image : '/' + article.data.image}` : `${Astro.site}/default-cover.jpg`,
-        "datePublished": article.data.createdAt instanceof Date ? article.data.createdAt.toISOString() : new Date().toISOString(),
-        "dateModified": article.data.updatedAt instanceof Date ? article.data.updatedAt.toISOString() : new Date().toISOString(),
-        "author": {
+        headline: article.data.title,
+        description: article.data.description,
+        image: article.data.image
+          ? `${Astro.site}${article.data.image.startsWith("/") ? article.data.image : `/${article.data.image}`}`
+          : `${Astro.site}/default-cover.jpg`,
+        datePublished:
+          article.data.createdAt instanceof Date
+            ? article.data.createdAt.toISOString()
+            : new Date().toISOString(),
+        dateModified:
+          article.data.updatedAt instanceof Date
+            ? article.data.updatedAt.toISOString()
+            : new Date().toISOString(),
+        author: {
           "@type": "Organization",
-          "name": "Melody Mind Team"
+          name: "Melody Mind Team",
         },
-        "publisher": {
+        publisher: {
           "@type": "Organization",
-          "name": "Melody Mind",
-          "logo": {
+          name: "Melody Mind",
+          logo: {
             "@type": "ImageObject",
-            "url": `${Astro.site}/melody-mind.png`,
-            "width": 192,
-            "height": 192
-          }
+            url: `${Astro.site}/melody-mind.png`,
+            width: 192,
+            height: 192,
+          },
         },
-        "inLanguage": lang,
-        "mainEntityOfPage": {
+        inLanguage: lang,
+        mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": `${Astro.site}${lang}/knowledge/${article.slug}`
-        }
-      }
-    }))
-  }
+          "@id": `${Astro.site}${lang}/knowledge/${article.slug}`,
+        },
+      },
+    })),
+  },
 };
 
 // Generate article structured data for each article
 const articlesStructuredData = sortedArticles.map((article) => {
-  const createdAt = article.data.createdAt instanceof Date
-    ? article.data.createdAt
-    : article.data.createdAt
-      ? new Date(article.data.createdAt)
-      : new Date();
-      
+  const createdAt =
+    article.data.createdAt instanceof Date
+      ? article.data.createdAt
+      : article.data.createdAt
+        ? new Date(article.data.createdAt)
+        : new Date();
+
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": `${Astro.site}${lang}/knowledge/${article.slug}`,
-    "headline": article.data.title,
-    "description": article.data.description,
-    "image": article.data.image ? `${Astro.site}${article.data.image.startsWith('/') ? article.data.image : '/' + article.data.image}` : `${Astro.site}/default-cover.jpg`,
-    "datePublished": createdAt.toISOString(),
-    "dateModified": article.data.updatedAt instanceof Date ? article.data.updatedAt.toISOString() : createdAt.toISOString(),
-    "author": {
+    headline: article.data.title,
+    description: article.data.description,
+    image: article.data.image
+      ? `${Astro.site}${article.data.image.startsWith("/") ? article.data.image : `/${article.data.image}`}`
+      : `${Astro.site}/default-cover.jpg`,
+    datePublished: createdAt.toISOString(),
+    dateModified:
+      article.data.updatedAt instanceof Date
+        ? article.data.updatedAt.toISOString()
+        : createdAt.toISOString(),
+    author: {
       "@type": "Organization",
-      "name": "Melody Mind Team"
+      name: "Melody Mind Team",
     },
-    "publisher": {
+    publisher: {
       "@type": "Organization",
-      "name": "Melody Mind",
-      "logo": {
+      name: "Melody Mind",
+      logo: {
         "@type": "ImageObject",
-        "url": `${Astro.site}/melody-mind.png`,
-        "width": 192,
-        "height": 192
-      }
+        url: `${Astro.site}/melody-mind.png`,
+        width: 192,
+        height: 192,
+      },
     },
-    "inLanguage": lang,
-    "mainEntityOfPage": {
+    inLanguage: lang,
+    mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${Astro.site}${lang}/knowledge/${article.slug}`
-    }
+      "@id": `${Astro.site}${lang}/knowledge/${article.slug}`,
+    },
   };
 });
 ---
 
 <Layout
-  title={title}
+  {title}
   description={optimizedDescription}
-  keywords={keywords}
+  {keywords}
   image={`/og-images/social-share-knowledge-${lang}.jpg`}
   type={pageType}
-  publishDate={publishDate}
-  modifiedDate={modifiedDate}
+  {publishDate}
+  {modifiedDate}
 >
-  <main class="max-w-6xl mx-auto px-4 py-8" id="main-content">
+  <main class="mx-auto max-w-6xl px-4 py-8" id="main-content">
     <!-- Breadcrumbs navigation with structured data -->
     <nav aria-label="Breadcrumb" class="mb-6">
-      <ol class="flex flex-wrap items-center text-base text-zinc-300 space-x-2">
+      <ol class="flex flex-wrap items-center space-x-2 text-base text-zinc-300">
         <li class="flex items-center">
           <a
             href={`/${String(lang)}/`}
-            class="hover:text-purple-400 focus:text-purple-400 focus:outline-none focus-visible:ring-3 focus-visible:ring-purple-500 focus-visible:ring-offset-3 focus-visible:ring-offset-zinc-900 rounded px-2 py-1 transition-colors"
+            class="rounded px-2 py-1 transition-colors hover:text-purple-400 focus:text-purple-400 focus:outline-none focus-visible:ring-3 focus-visible:ring-purple-500 focus-visible:ring-offset-3 focus-visible:ring-offset-zinc-900"
             aria-label={ui[uiLang]["nav.home"] || "Home"}
           >
             <Icon name="home" class="h-5 w-5" aria-hidden="true" />
@@ -256,54 +259,47 @@ const articlesStructuredData = sortedArticles.map((article) => {
           </a>
           <span class="mx-2" aria-hidden="true">/</span>
         </li>
-        <li class="text-purple-400 font-medium" aria-current="page">
+        <li class="font-medium text-purple-400" aria-current="page">
           {ui[uiLang]["knowledge.title"] || "Knowledge"}
         </li>
       </ol>
     </nav>
 
     <!-- Page header with improved semantic structure -->
-    <header class="text-center mb-12">
+    <header class="mb-12 text-center">
       <Headline
         title={ui[uiLang]["knowledge.title"]}
         level="h1"
-        className="text-white font-bold text-3xl md:text-4xl mb-4 tracking-wide"
+        className="mb-4 text-3xl font-bold tracking-wide text-white md:text-4xl"
         id="page-heading"
       />
-      <div
-        class="h-1 w-24 bg-purple-500 rounded-full mx-auto mt-2 mb-6"
-        aria-hidden="true"
-      >
-      </div>
+      <div class="mx-auto mt-2 mb-6 h-1 w-24 rounded-full bg-purple-500" aria-hidden="true"></div>
 
       <Paragraph
         description={ui[uiLang]["knowledge.intro"]}
-        className="max-w-2xl mx-auto text-zinc-100 text-xl leading-relaxed"
+        className="mx-auto max-w-2xl text-xl leading-relaxed text-zinc-100"
       />
     </header>
 
-    <div class="w-full mb-8">
+    <div class="mb-8 w-full">
       <!-- Improved search and filtering with enhanced ARIA support -->
       <section
-        class="search-filter-container bg-zinc-800/90 rounded-xl p-8 border-2 border-zinc-600 shadow-lg mb-10"
+        class="search-filter-container mb-10 rounded-xl border-2 border-zinc-600 bg-zinc-800/90 p-8 shadow-lg"
         role="search"
         aria-labelledby="search-heading"
       >
-        <h2 class="text-white text-2xl font-medium mb-6" id="search-heading">
+        <h2 class="mb-6 text-2xl font-medium text-white" id="search-heading">
           {ui[uiLang]["knowledge.search.heading"] || "Search Articles"}
         </h2>
 
-        <div class="flex flex-col md:flex-row gap-4 mb-4">
+        <div class="mb-4 flex flex-col gap-4 md:flex-row">
           <div class="relative flex-grow">
             <label for="searchInput" class="sr-only">
-              {
-                ui[uiLang]["knowledge.search.label"] ||
-                  "Search by title, description or keywords"
-              }
+              {ui[uiLang]["knowledge.search.label"] || "Search by title, description or keywords"}
             </label>
             <div class="relative">
               <div
-                class="absolute inset-y-0 left-3 flex items-center pointer-events-none"
+                class="pointer-events-none absolute inset-y-0 left-3 flex items-center"
                 aria-hidden="true"
               >
                 <Icon name="search" class="h-6 w-6 text-purple-400" />
@@ -311,12 +307,8 @@ const articlesStructuredData = sortedArticles.map((article) => {
               <input
                 type="search"
                 id="searchInput"
-                placeholder={ui[uiLang]["knowledge.search.placeholder"] ||
-                  "Search articles..."}
-                class="w-full py-4 pl-12 pr-4 bg-zinc-800 border-2 border-zinc-600
-                       rounded-xl text-zinc-50 placeholder-zinc-400 text-lg
-                       focus:outline-none focus:border-purple-500 focus:ring-4
-                       focus:ring-purple-500/50 transition-all duration-300"
+                placeholder={ui[uiLang]["knowledge.search.placeholder"] || "Search articles..."}
+                class="w-full rounded-xl border-2 border-zinc-600 bg-zinc-800 py-4 pr-4 pl-12 text-lg text-zinc-50 placeholder-zinc-400 transition-all duration-300 focus:border-purple-500 focus:ring-4 focus:ring-purple-500/50 focus:outline-none"
                 aria-controls="articlesGrid"
                 aria-describedby="search-description"
                 role="searchbox"
@@ -333,7 +325,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
           <!-- Reset button for search field - Enhanced accessibility -->
           <button
             id="reset-search-inline"
-            class="py-4 px-8 bg-zinc-700 hover:bg-zinc-600 focus:bg-zinc-600 text-zinc-100 rounded-xl focus:outline-none focus:ring-4 focus:ring-purple-500/50 transition-all duration-300 flex items-center justify-center gap-3 text-lg font-medium"
+            class="flex items-center justify-center gap-3 rounded-xl bg-zinc-700 px-8 py-4 text-lg font-medium text-zinc-100 transition-all duration-300 hover:bg-zinc-600 focus:bg-zinc-600 focus:ring-4 focus:ring-purple-500/50 focus:outline-none"
             aria-label={ui[uiLang]["knowledge.search.reset"] || "Reset search"}
             type="button"
             aria-controls="articlesGrid"
@@ -344,20 +336,14 @@ const articlesStructuredData = sortedArticles.map((article) => {
         </div>
 
         <!-- Search status information for screen readers - Enhanced -->
-        <div
-          id="search-status"
-          class="sr-only"
-          aria-live="polite"
-          aria-atomic="true"
-          role="status"
-        >
+        <div id="search-status" class="sr-only" aria-live="polite" aria-atomic="true" role="status">
         </div>
       </section>
 
       <!-- No results message (initially hidden) - Improved for accessibility -->
       <div
         id="no-results"
-        class="hidden transform-gpu bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-xl border border-zinc-600 text-center shadow-md mb-10"
+        class="mb-10 hidden transform-gpu rounded-xl border border-zinc-600 bg-gradient-to-br from-zinc-700 to-zinc-800 text-center shadow-md"
         role="status"
         aria-live="assertive"
         aria-atomic="true"
@@ -365,14 +351,14 @@ const articlesStructuredData = sortedArticles.map((article) => {
         <div class="flex flex-col items-center justify-center p-12">
           <Icon
             name="search-no-results"
-            class="w-20 h-20 text-zinc-300 mb-6"
+            class="mb-6 h-20 w-20 text-zinc-300"
             aria-hidden="true"
             role="presentation"
           />
-          <h2 class="text-zinc-100 text-2xl font-medium">
+          <h2 class="text-2xl font-medium text-zinc-100">
             {ui[uiLang]["knowledge.no.results"] || "No articles found"}
           </h2>
-          <p class="text-zinc-300 mt-3 mb-6 text-xl">
+          <p class="mt-3 mb-6 text-xl text-zinc-300">
             {
               ui[uiLang]["knowledge.no.results.help"] ||
                 "Try different search terms or reset your search"
@@ -380,7 +366,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
           </p>
           <button
             id="reset-search"
-            class="mt-3 px-8 py-4 bg-purple-600 hover:bg-purple-500 focus:bg-purple-500 text-white rounded-lg focus:outline-none focus:ring-4 focus:ring-purple-500/50 focus:ring-offset-3 focus:ring-offset-zinc-800 transition-all duration-300 flex items-center gap-3 text-lg font-medium"
+            class="mt-3 flex items-center gap-3 rounded-lg bg-purple-600 px-8 py-4 text-lg font-medium text-white transition-all duration-300 hover:bg-purple-500 focus:bg-purple-500 focus:ring-4 focus:ring-purple-500/50 focus:ring-offset-3 focus:ring-offset-zinc-800 focus:outline-none"
             aria-label="Reset search"
             type="button"
             aria-controls="articlesGrid"
@@ -415,7 +401,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
 
         <ul
           id="articlesGrid"
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
+          class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-10 lg:grid-cols-3"
           aria-labelledby="articles-heading"
         >
           {
@@ -434,7 +420,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
 
                 return (
                   <li
-                    class="list-none animate-fadeIn"
+                    class="animate-fadeIn list-none"
                     style={`animation-delay: ${Math.min(index * 50, 500)}ms`}
                   >
                     <KnowledgeCard
@@ -454,15 +440,10 @@ const articlesStructuredData = sortedArticles.map((article) => {
               })
             ) : (
               <li class="col-span-full">
-                <div class="flex flex-col items-center justify-center p-12 bg-gradient-to-br from-zinc-700 to-zinc-800 rounded-xl border border-zinc-600 text-center shadow-md">
-                  <Icon
-                    name="info"
-                    class="w-20 h-20 text-zinc-300 mb-6"
-                    aria-hidden="true"
-                  />
-                  <p class="text-zinc-100 text-2xl font-medium">
-                    {ui[uiLang]["knowledge.empty"] ||
-                      "No articles found for this language"}
+                <div class="flex flex-col items-center justify-center rounded-xl border border-zinc-600 bg-gradient-to-br from-zinc-700 to-zinc-800 p-12 text-center shadow-md">
+                  <Icon name="info" class="mb-6 h-20 w-20 text-zinc-300" aria-hidden="true" />
+                  <p class="text-2xl font-medium text-zinc-100">
+                    {ui[uiLang]["knowledge.empty"] || "No articles found for this language"}
                   </p>
                 </div>
               </li>
@@ -475,74 +456,78 @@ const articlesStructuredData = sortedArticles.map((article) => {
     <!-- "Back to top" button with enhanced accessibility -->
     <button
       id="back-to-top"
-      class="fixed bottom-8 right-8 p-4 bg-purple-600 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-purple-500 focus:bg-purple-500 focus:outline-none focus:ring-4 focus:ring-purple-500/50 focus:ring-offset-3 focus:ring-offset-zinc-800 z-10"
+      class="invisible fixed right-8 bottom-8 z-10 rounded-full bg-purple-600 p-4 text-white opacity-0 shadow-lg transition-all duration-300 hover:bg-purple-500 focus:bg-purple-500 focus:ring-4 focus:ring-purple-500/50 focus:ring-offset-3 focus:ring-offset-zinc-800 focus:outline-none"
       aria-label={ui[uiLang]["common.back.to.top"] || "Back to top"}
       type="button"
       aria-controls="page-heading"
       aria-hidden="true"
     >
       <Icon name="arrow-up" class="h-8 w-8" aria-hidden="true" />
-      <span class="sr-only"
-        >{ui[uiLang]["common.back.to.top"] || "Back to top"}</span
-      >
+      <span class="sr-only">{ui[uiLang]["common.back.to.top"] || "Back to top"}</span>
     </button>
   </main>
 
   <!-- Structured Data for CollectionPage -->
   <script type="application/ld+json" set:html={JSON.stringify(collectionPageStructuredData)} />
-  
+
   <!-- Structured Data for Articles -->
-  {articlesStructuredData.map((articleData) => (
-    <script type="application/ld+json" set:html={JSON.stringify(articleData)} />
-  ))}
+  {
+    articlesStructuredData.map((articleData) => (
+      <script type="application/ld+json" set:html={JSON.stringify(articleData)} />
+    ))
+  }
 
   <!-- Breadcrumb Structured Data -->
-  <script type="application/ld+json">
-    {JSON.stringify({
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-      "itemListElement": [
+      itemListElement: [
         {
           "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": `${Astro.site}${lang}/`
+          position: 1,
+          name: "Home",
+          item: `${Astro.site}${lang}/`,
         },
         {
           "@type": "ListItem",
-          "position": 2,
-          "name": ui[uiLang]["knowledge.title"] || "Knowledge",
-          "item": `${Astro.site}${lang}/knowledge/`
-        }
-      ]
+          position: 2,
+          name: ui[uiLang]["knowledge.title"] || "Knowledge",
+          item: `${Astro.site}${lang}/knowledge/`,
+        },
+      ],
     })}
-  </script>
+  />
 
   <!-- Optimized Image Loading Script -->
   <script>
     // Use Intersection Observer for lazy loading images
-    document.addEventListener('DOMContentLoaded', () => {
-      const lazyImages = document.querySelectorAll('.lazy-image');
-      
-      if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const img = entry.target as HTMLImageElement;
-              img.style.opacity = '1';
-              imageObserver.unobserve(img); // Stop observing once loaded
-            }
-          });
-        }, {
-          rootMargin: '50px 0px', // Load images a bit before they enter viewport
-          threshold: 0.01
-        });
-        
-        lazyImages.forEach(img => imageObserver.observe(img));
+    document.addEventListener("DOMContentLoaded", () => {
+      const lazyImages = document.querySelectorAll(".lazy-image");
+
+      if ("IntersectionObserver" in window) {
+        const imageObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const img = entry.target as HTMLImageElement;
+                img.style.opacity = "1";
+                imageObserver.unobserve(img); // Stop observing once loaded
+              }
+            });
+          },
+          {
+            rootMargin: "50px 0px", // Load images a bit before they enter viewport
+            threshold: 0.01,
+          }
+        );
+
+        lazyImages.forEach((img) => imageObserver.observe(img));
       } else {
         // Fallback for browsers that don't support Intersection Observer
-        lazyImages.forEach(img => {
-          (img as HTMLImageElement).style.opacity = '1';
+        lazyImages.forEach((img) => {
+          (img as HTMLImageElement).style.opacity = "1";
         });
       }
     });
@@ -550,219 +535,227 @@ const articlesStructuredData = sortedArticles.map((article) => {
 
   <!-- Optimized Search Function -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener("DOMContentLoaded", () => {
       // Cache DOM elements to avoid repeated queries
-      const searchInput = document.getElementById('searchInput') as HTMLInputElement;
-      const articlesGrid = document.getElementById('articlesGrid');
-      const noResults = document.getElementById('no-results');
-      const searchStatus = document.getElementById('search-status');
-      const resetButtons = document.querySelectorAll('#reset-search, #reset-search-inline');
-      
-      if (!searchInput || !articlesGrid || !noResults || !searchStatus) return;
-      
+      const searchInput = document.getElementById("searchInput") as HTMLInputElement;
+      const articlesGrid = document.getElementById("articlesGrid");
+      const noResults = document.getElementById("no-results");
+      const searchStatus = document.getElementById("search-status");
+      const resetButtons = document.querySelectorAll("#reset-search, #reset-search-inline");
+
+      if (!searchInput || !articlesGrid || !noResults || !searchStatus) {
+        return;
+      }
+
       // Cache all article elements for faster access
-      const allArticles = Array.from(articlesGrid.querySelectorAll('li'));
+      const allArticles = Array.from(articlesGrid.querySelectorAll("li"));
       const totalArticles = allArticles.length;
-      
+
       // Define types for article data
       type ArticleData = {
         element: HTMLElement;
         searchText: string;
       };
-      
+
       // Create a Map for faster lookups during search
       const articleDataMap = new Map<HTMLElement, ArticleData>();
-      
+
       // Pre-process article data once
-      allArticles.forEach(article => {
+      allArticles.forEach((article) => {
         const card = article.querySelector('[data-testid="knowledge-card"]');
         if (card) {
-          const title = card.getAttribute('data-title') || '';
-          const description = card.getAttribute('data-description') || '';
-          const keywords = card.getAttribute('data-keywords') || '';
-          
+          const title = card.getAttribute("data-title") || "";
+          const description = card.getAttribute("data-description") || "";
+          const keywords = card.getAttribute("data-keywords") || "";
+
           // Store pre-processed lowercase text for faster comparison
           articleDataMap.set(article as HTMLElement, {
             element: article as HTMLElement,
-            searchText: `${title} ${description} ${keywords}`.toLowerCase()
+            searchText: `${title} ${description} ${keywords}`.toLowerCase(),
           });
         }
       });
-      
+
       // Debounce function to limit search frequency
       function debounce<F extends (...args: any[]) => any>(func: F, wait = 300) {
         let timeout: ReturnType<typeof setTimeout> | undefined;
         return function executedFunction(...args: Parameters<F>) {
           const later = () => {
-            if (timeout) clearTimeout(timeout);
+            if (timeout) {
+              clearTimeout(timeout);
+            }
             func(...args);
           };
-          if (timeout) clearTimeout(timeout);
+          if (timeout) {
+            clearTimeout(timeout);
+          }
           timeout = setTimeout(later, wait);
         };
       }
-      
+
       // Optimized search function with batch processing
       const performSearch = debounce((searchTerm: string) => {
         // Use requestAnimationFrame for smoother UI updates
         requestAnimationFrame(() => {
           const term = searchTerm.toLowerCase().trim();
-          
+
           // Skip processing if search term is empty
           if (!term) {
-            allArticles.forEach(article => {
-              (article as HTMLElement).style.display = '';
+            allArticles.forEach((article) => {
+              (article as HTMLElement).style.display = "";
             });
-            noResults.classList.add('hidden');
+            noResults.classList.add("hidden");
             updateSearchStatus(totalArticles);
             return;
           }
-          
+
           let visibleCount = 0;
-          
+
           // Process in smaller batches for better responsiveness
           const batchSize = 10;
           const batches = Math.ceil(articleDataMap.size / batchSize);
-          
+
           function processBatch(batchIndex: number) {
             if (batchIndex >= batches) {
               // All batches processed, update UI
               if (noResults) {
                 if (visibleCount === 0) {
-                  noResults.classList.remove('hidden');
+                  noResults.classList.remove("hidden");
                 } else {
-                  noResults.classList.add('hidden');
+                  noResults.classList.add("hidden");
                 }
               }
-              
+
               updateSearchStatus(visibleCount);
               return;
             }
-            
+
             const start = batchIndex * batchSize;
             const end = Math.min(start + batchSize, articleDataMap.size);
-            
+
             // Process current batch
             Array.from(articleDataMap.entries())
               .slice(start, end)
               .forEach(([article, data]) => {
                 const isMatch = data.searchText.includes(term);
-                article.style.display = isMatch ? '' : 'none';
-                if (isMatch) visibleCount++;
+                article.style.display = isMatch ? "" : "none";
+                if (isMatch) {
+                  visibleCount++;
+                }
               });
-            
+
             // Schedule next batch
             requestAnimationFrame(() => {
               processBatch(batchIndex + 1);
             });
           }
-          
+
           // Start batch processing
           processBatch(0);
         });
       }, 250);
-      
+
       // Update screen reader status
       function updateSearchStatus(count: number) {
-        const message = count === 1
-          ? '1 article found'
-          : `${count} articles found`;
-        
+        const message = count === 1 ? "1 article found" : `${count} articles found`;
+
         if (searchStatus) {
           searchStatus.textContent = message;
         }
       }
-      
+
       // Event listeners
-      searchInput.addEventListener('input', (e) => {
+      searchInput.addEventListener("input", (e) => {
         const target = e.target as HTMLInputElement;
         if (target) {
           performSearch(target.value);
         }
       });
-      
-      resetButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          searchInput.value = '';
-          performSearch('');
+
+      resetButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          searchInput.value = "";
+          performSearch("");
           searchInput.focus();
         });
       });
-      
+
       // Initialize with empty search to ensure proper state
-      performSearch('');
-      
+      performSearch("");
+
       // Keyboard navigation for articles
-      document.addEventListener('keydown', (e) => {
+      document.addEventListener("keydown", (e) => {
         // Only handle arrow keys when focus is within the articles grid
-        if (!articlesGrid.contains(document.activeElement)) return;
-        
+        if (!articlesGrid.contains(document.activeElement)) {
+          return;
+        }
+
         const visibleArticles = allArticles.filter(
-          article => (article as HTMLElement).style.display !== 'none'
+          (article) => (article as HTMLElement).style.display !== "none"
         );
-        
-        if (visibleArticles.length === 0) return;
-        
-        const currentIndex = visibleArticles.findIndex(
-          article => article.contains(document.activeElement as Node)
+
+        if (visibleArticles.length === 0) {
+          return;
+        }
+
+        const currentIndex = visibleArticles.findIndex((article) =>
+          article.contains(document.activeElement as Node)
         );
-        
-        if (currentIndex === -1) return;
-        
+
+        if (currentIndex === -1) {
+          return;
+        }
+
         let nextIndex: number;
-        
+
         switch (e.key) {
-          case 'ArrowRight':
+          case "ArrowRight":
             nextIndex = (currentIndex + 1) % visibleArticles.length;
             e.preventDefault();
             break;
-          case 'ArrowLeft':
+          case "ArrowLeft":
             nextIndex = (currentIndex - 1 + visibleArticles.length) % visibleArticles.length;
             e.preventDefault();
             break;
-          case 'ArrowDown':
+          case "ArrowDown":
             // Move to the article below (assuming 3 columns)
-            nextIndex = (currentIndex + 3) < visibleArticles.length
-              ? currentIndex + 3
-              : currentIndex;
+            nextIndex = currentIndex + 3 < visibleArticles.length ? currentIndex + 3 : currentIndex;
             e.preventDefault();
             break;
-          case 'ArrowUp':
+          case "ArrowUp":
             // Move to the article above (assuming 3 columns)
-            nextIndex = (currentIndex - 3) >= 0
-              ? currentIndex - 3
-              : currentIndex;
+            nextIndex = currentIndex - 3 >= 0 ? currentIndex - 3 : currentIndex;
             e.preventDefault();
             break;
           default:
             return;
         }
-        
+
         // Focus the link in the next article
         const nextArticle = visibleArticles[nextIndex];
-        const focusableElement = nextArticle.querySelector('a') || nextArticle;
-        if (focusableElement && 'focus' in focusableElement) {
+        const focusableElement = nextArticle.querySelector("a") || nextArticle;
+        if (focusableElement && "focus" in focusableElement) {
           (focusableElement as HTMLElement).focus();
         }
       });
-      
+
       // Back to top button functionality
-      const backToTopButton = document.getElementById('back-to-top');
+      const backToTopButton = document.getElementById("back-to-top");
       if (backToTopButton) {
         // Show/hide button based on scroll position
-        window.addEventListener('scroll', () => {
+        window.addEventListener("scroll", () => {
           if (window.scrollY > 300) {
-            backToTopButton.classList.remove('opacity-0', 'invisible');
+            backToTopButton.classList.remove("opacity-0", "invisible");
           } else {
-            backToTopButton.classList.add('opacity-0', 'invisible');
+            backToTopButton.classList.add("opacity-0", "invisible");
           }
         });
-        
+
         // Scroll to top when clicked
-        backToTopButton.addEventListener('click', () => {
+        backToTopButton.addEventListener("click", () => {
           window.scrollTo({
             top: 0,
-            behavior: 'smooth'
+            behavior: "smooth",
           });
         });
       }
@@ -1095,57 +1088,39 @@ const articlesStructuredData = sortedArticles.map((article) => {
   function initializeKnowledgeCenter() {
     // Cache DOM elements for better performance
     const elements: DOMElements = {
-      searchInput: document.querySelector(
-        CONFIG.selectors.searchInput,
-      ) as HTMLInputElement,
-      articleGrid: document.querySelector(
-        CONFIG.selectors.articleGrid,
-      ) as HTMLElement,
-      noResults: document.querySelector(
-        CONFIG.selectors.noResults,
-      ) as HTMLElement,
-      searchStatus: document.querySelector(
-        CONFIG.selectors.searchStatus,
-      ) as HTMLElement,
-      resetButton: document.querySelector(
-        CONFIG.selectors.resetSearch,
-      ) as HTMLElement,
-      resetButtonInline: document.querySelector(
-        CONFIG.selectors.resetSearchInline,
-      ) as HTMLElement,
-      backToTopButton: document.querySelector(
-        CONFIG.selectors.backToTop,
-      ) as HTMLElement,
+      searchInput: document.querySelector(CONFIG.selectors.searchInput) as HTMLInputElement,
+      articleGrid: document.querySelector(CONFIG.selectors.articleGrid) as HTMLElement,
+      noResults: document.querySelector(CONFIG.selectors.noResults) as HTMLElement,
+      searchStatus: document.querySelector(CONFIG.selectors.searchStatus) as HTMLElement,
+      resetButton: document.querySelector(CONFIG.selectors.resetSearch) as HTMLElement,
+      resetButtonInline: document.querySelector(CONFIG.selectors.resetSearchInline) as HTMLElement,
+      backToTopButton: document.querySelector(CONFIG.selectors.backToTop) as HTMLElement,
       articles: Array.from(
-        document.querySelectorAll(CONFIG.selectors.articleItems),
+        document.querySelectorAll(CONFIG.selectors.articleItems)
       ) as HTMLElement[],
     };
 
     // Skip initialization if required elements are missing
     if (!elements.searchInput || !elements.articleGrid) {
-      console.warn(
-        "Required elements not found. Knowledge center features disabled.",
-      );
+      console.warn("Required elements not found. Knowledge center features disabled.");
       return;
     }
 
     // Initialize state variables
     let isProcessing = false;
     let debounceTimer: number | null = null;
-    let totalArticles = elements.articles.length;
+    const totalArticles = elements.articles.length;
 
     // Store indexable content for faster searching
-    const searchableContent: KnowledgeCard[] = elements.articles.map(
-      (article) => {
-        const card = article.querySelector(".knowledge-card") as HTMLElement;
-        return {
-          element: article,
-          title: (card?.dataset?.title || "").toLowerCase(),
-          description: (card?.dataset?.description || "").toLowerCase(),
-          keywords: (card?.dataset?.keywords || "").toLowerCase(),
-        };
-      },
-    );
+    const searchableContent: KnowledgeCard[] = elements.articles.map((article) => {
+      const card = article.querySelector('[data-testid="knowledge-card"]') as HTMLElement;
+      return {
+        element: article,
+        title: (card?.dataset?.title || "").toLowerCase(),
+        description: (card?.dataset?.description || "").toLowerCase(),
+        keywords: (card?.dataset?.keywords || "").toLowerCase(),
+      };
+    });
 
     // Set up event listeners
     initEventListeners();
@@ -1169,7 +1144,9 @@ const articlesStructuredData = sortedArticles.map((article) => {
     function initEventListeners() {
       // Search input with efficient debounce
       elements.searchInput?.addEventListener("input", () => {
-        if (debounceTimer) window.cancelAnimationFrame(debounceTimer);
+        if (debounceTimer) {
+          window.cancelAnimationFrame(debounceTimer);
+        }
 
         debounceTimer = window.requestAnimationFrame(() => {
           debounceTimer = window.requestAnimationFrame(() => {
@@ -1207,7 +1184,9 @@ const articlesStructuredData = sortedArticles.map((article) => {
      * Main filtering function for articles with performance optimizations
      */
     function filterArticles() {
-      if (isProcessing) return;
+      if (isProcessing) {
+        return;
+      }
       isProcessing = true;
 
       const query = elements.searchInput?.value.toLowerCase().trim() || "";
@@ -1258,7 +1237,9 @@ const articlesStructuredData = sortedArticles.map((article) => {
           item.keywords.includes(query);
 
         (item.element as HTMLElement).style.display = matches ? "" : "none";
-        if (matches) visibleCount++;
+        if (matches) {
+          visibleCount++;
+        }
       });
 
       // Update UI and announcements
@@ -1281,8 +1262,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
         // Process as many items as possible within our frame budget
         while (
           index < totalArticles &&
-          performance.now() - batchStartTime <
-            CONFIG.performance.frameThreshold &&
+          performance.now() - batchStartTime < CONFIG.performance.frameThreshold &&
           batchCount < CONFIG.performance.batchSize
         ) {
           const item = searchableContent[index];
@@ -1294,7 +1274,9 @@ const articlesStructuredData = sortedArticles.map((article) => {
             item.keywords.includes(query);
 
           (item.element as HTMLElement).style.display = matches ? "" : "none";
-          if (matches) visibleCount++;
+          if (matches) {
+            visibleCount++;
+          }
 
           index++;
           batchCount++;
@@ -1310,9 +1292,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
 
           // Performance logging in development
           if (import.meta.env?.DEV) {
-            console.log(
-              `Search completed in ${performance.now() - startTime}ms`,
-            );
+            console.log(`Search completed in ${performance.now() - startTime}ms`);
           }
         }
       };
@@ -1355,10 +1335,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
         if (visibleCount === 0) {
           // When no results, focus the no results message
           if (elements.noResults) {
-            setTimeout(
-              () => elements.noResults?.setAttribute("tabindex", "-1"),
-              100,
-            );
+            setTimeout(() => elements.noResults?.setAttribute("tabindex", "-1"), 100);
             setTimeout(() => {
               if (elements.noResults instanceof HTMLElement) {
                 elements.noResults.focus();
@@ -1368,7 +1345,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
         } else if (visibleCount < totalArticles) {
           // When filtered, announce result count for screen readers
           const firstVisible = elements.articles.find(
-            (a) => (a as HTMLElement).style.display !== "none",
+            (a) => (a as HTMLElement).style.display !== "none"
           );
           // Don't auto-focus, just announce for screen readers
           // Let users navigate naturally
@@ -1380,11 +1357,15 @@ const articlesStructuredData = sortedArticles.map((article) => {
      * Set up the back to top button with performance optimizations
      */
     function initBackToTopButton() {
-      if (!elements.backToTopButton) return;
+      if (!elements.backToTopButton) {
+        return;
+      }
 
       let isScrolling = false;
       const scrollHandler = () => {
-        if (isScrolling) return;
+        if (isScrolling) {
+          return;
+        }
         isScrolling = true;
 
         window.requestAnimationFrame(() => {
@@ -1418,61 +1399,53 @@ const articlesStructuredData = sortedArticles.map((article) => {
      * Set up keyboard navigation for articles with arrow keys
      */
     function initKeyboardNavigation() {
-      elements.articleGrid?.addEventListener(
-        "keydown",
-        (event: KeyboardEvent) => {
-          // Only handle arrow keys
-          if (
-            !["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp"].includes(
-              event.key,
-            )
-          )
-            return;
+      elements.articleGrid?.addEventListener("keydown", (event: KeyboardEvent) => {
+        // Only handle arrow keys
+        if (!["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp"].includes(event.key)) {
+          return;
+        }
 
-          // Focus handling
-          const visibleLinks = [
-            ...document.querySelectorAll(
-              `${CONFIG.selectors.articleItems}:not([style*="display: none"]) a`,
-            ),
-          ] as HTMLElement[];
-          if (!visibleLinks.length) return;
+        // Focus handling
+        const visibleLinks = [
+          ...document.querySelectorAll(
+            `${CONFIG.selectors.articleItems}:not([style*="display: none"]) a`
+          ),
+        ] as HTMLElement[];
+        if (!visibleLinks.length) {
+          return;
+        }
 
-          const currentIndex = visibleLinks.findIndex(
-            (link) => link === document.activeElement,
-          );
-          if (currentIndex === -1) return;
+        const currentIndex = visibleLinks.findIndex((link) => link === document.activeElement);
+        if (currentIndex === -1) {
+          return;
+        }
 
-          // Determine number of columns based on viewport width
-          const columns =
-            window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
-          let targetIndex = currentIndex;
+        // Determine number of columns based on viewport width
+        const columns = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+        let targetIndex = currentIndex;
 
-          // Calculate new target based on arrow key
-          switch (event.key) {
-            case "ArrowRight":
-              targetIndex = Math.min(currentIndex + 1, visibleLinks.length - 1);
-              break;
-            case "ArrowLeft":
-              targetIndex = Math.max(currentIndex - 1, 0);
-              break;
-            case "ArrowDown":
-              targetIndex = Math.min(
-                currentIndex + columns,
-                visibleLinks.length - 1,
-              );
-              break;
-            case "ArrowUp":
-              targetIndex = Math.max(currentIndex - columns, 0);
-              break;
-          }
+        // Calculate new target based on arrow key
+        switch (event.key) {
+          case "ArrowRight":
+            targetIndex = Math.min(currentIndex + 1, visibleLinks.length - 1);
+            break;
+          case "ArrowLeft":
+            targetIndex = Math.max(currentIndex - 1, 0);
+            break;
+          case "ArrowDown":
+            targetIndex = Math.min(currentIndex + columns, visibleLinks.length - 1);
+            break;
+          case "ArrowUp":
+            targetIndex = Math.max(currentIndex - columns, 0);
+            break;
+        }
 
-          // Move focus if changed
-          if (targetIndex !== currentIndex && visibleLinks[targetIndex]) {
-            event.preventDefault();
-            visibleLinks[targetIndex].focus();
-          }
-        },
-      );
+        // Move focus if changed
+        if (targetIndex !== currentIndex && visibleLinks[targetIndex]) {
+          event.preventDefault();
+          visibleLinks[targetIndex].focus();
+        }
+      });
     }
   }
 </script>

@@ -59,10 +59,7 @@ export async function requireAuth(request: Request): Promise<{
 /**
  * Extracts the value of a specific cookie from the cookie header
  */
-function extractCookieValue(
-  cookieHeader: string,
-  cookieName: string,
-): string | null {
+function extractCookieValue(cookieHeader: string, cookieName: string): string | null {
   const cookies = cookieHeader.split(";");
 
   for (const cookie of cookies) {

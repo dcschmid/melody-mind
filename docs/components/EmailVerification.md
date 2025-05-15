@@ -2,7 +2,10 @@
 
 ## Overview
 
-The `EmailVerification` component handles the email verification process for new user accounts in MelodyMind. This component is displayed when a user clicks the confirmation link sent to their email after registration. It shows different states (loading, success, or error) based on the verification result.
+The `EmailVerification` component handles the email verification process for new user accounts in
+MelodyMind. This component is displayed when a user clicks the confirmation link sent to their email
+after registration. It shows different states (loading, success, or error) based on the verification
+result.
 
 ![Email Verification Component States](../images/email-verification-states.png)
 
@@ -32,7 +35,8 @@ The component handles three distinct states during the email verification proces
 2. **Success State**: Shown when the email is successfully verified
 3. **Error State**: Displayed when verification fails (invalid/expired token)
 
-Each state includes accessible status messages and appropriate ARIA attributes for screen reader announcements.
+Each state includes accessible status messages and appropriate ARIA attributes for screen reader
+announcements.
 
 ## Accessibility (WCAG AAA)
 

@@ -106,21 +106,18 @@ const gameModeNames = {
     "View the top scores across different game modes and categories"}
   type="website"
 >
-  <div class="max-w-4xl mx-auto">
-    <h1 class="text-3xl font-bold text-white mb-8 text-center">
+  <div class="mx-auto max-w-4xl">
+    <h1 class="mb-8 text-center text-3xl font-bold text-white">
       {t("highscores.title") || "Highscores"}
     </h1>
 
     {
       isLoading && (
-        <div
-          class="flex justify-center items-center min-h-[300px]"
-          aria-live="polite"
-        >
+        <div class="flex min-h-[300px] items-center justify-center" aria-live="polite">
           <div class="text-center">
             <Icon
               name="loader"
-              class="w-10 h-10 mx-auto animate-spin text-purple-400"
+              class="mx-auto h-10 w-10 animate-spin text-purple-400"
               aria-hidden="true"
             />
             <p class="mt-4 text-lg text-zinc-300">
@@ -134,7 +131,7 @@ const gameModeNames = {
     {
       error && (
         <div
-          class="bg-red-900/30 border border-red-700 text-white p-4 rounded-lg mb-8"
+          class="mb-8 rounded-lg border border-red-700 bg-red-900/30 p-4 text-white"
           role="alert"
         >
           <p class="font-medium">{error}</p>
@@ -146,21 +143,21 @@ const gameModeNames = {
       !isLoading && !error && (
         <div class="space-y-10">
           <section
-            class="bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-xl p-6 border border-zinc-700 shadow-lg"
+            class="rounded-xl border border-zinc-700 bg-gradient-to-b from-zinc-800 to-zinc-900 p-6 shadow-lg"
             aria-labelledby="filter-heading"
           >
-            <h2 id="filter-heading" class="text-2xl font-bold text-white mb-4">
+            <h2 id="filter-heading" class="mb-4 text-2xl font-bold text-white">
               {t("highscores.filter.title") || "Filter Highscores"}
             </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div>
-                <label for="game-mode-filter" class="block text-zinc-300 mb-2">
+                <label for="game-mode-filter" class="mb-2 block text-zinc-300">
                   {t("highscores.filter.game.mode") || "Game Mode"}
                 </label>
                 <select
                   id="game-mode-filter"
-                  class="w-full bg-zinc-900 border border-zinc-600 rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+                  class="w-full rounded-lg border border-zinc-600 bg-zinc-900 p-3 text-white focus:ring-2 focus:ring-purple-400 focus:outline-none"
                 >
                   <option value="" selected={!selectedGameMode}>
                     {t("highscores.filter.all") || "All Game Modes"}
@@ -168,32 +165,28 @@ const gameModeNames = {
                   <option value="quiz" selected={selectedGameMode === "quiz"}>
                     {t("profile.stats.quiz") || "Quiz"}
                   </option>
-                  <option
-                    value="chronology"
-                    selected={selectedGameMode === "chronology"}
-                  >
+                  <option value="chronology" selected={selectedGameMode === "chronology"}>
                     {t("profile.stats.chronology") || "Chronology"}
                   </option>
                 </select>
               </div>
 
               <div>
-                <label for="category-search" class="block text-zinc-300 mb-2">
+                <label for="category-search" class="mb-2 block text-zinc-300">
                   {t("highscores.filter.category") || "Category"}
                 </label>
                 <div class="relative">
                   <button
                     type="button"
                     id="category-dropdown-button"
-                    class="flex items-center justify-between w-full bg-zinc-900 border border-zinc-600 rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+                    class="flex w-full items-center justify-between rounded-lg border border-zinc-600 bg-zinc-900 p-3 text-white focus:ring-2 focus:ring-purple-400 focus:outline-none"
                     aria-haspopup="listbox"
                     aria-expanded="false"
                     aria-controls="category-dropdown-options"
                   >
                     <span id="selected-category">
                       {selectedCategory
-                        ? categories.find((cat) => cat === selectedCategory) ||
-                          selectedCategory
+                        ? categories.find((cat) => cat === selectedCategory) || selectedCategory
                         : t("highscores.filter.all") || "All Categories"}
                     </span>
                     <svg
@@ -211,19 +204,12 @@ const gameModeNames = {
                     </svg>
                   </button>
 
-                  <select
-                    id="category-filter"
-                    class="sr-only"
-                    aria-hidden="true"
-                  >
+                  <select id="category-filter" class="sr-only" aria-hidden="true">
                     <option value="" selected={!selectedCategory}>
                       {t("highscores.filter.all") || "All Categories"}
                     </option>
                     {categories.map((category) => (
-                      <option
-                        value={category}
-                        selected={selectedCategory === category}
-                      >
+                      <option value={category} selected={selectedCategory === category}>
                         {category}
                       </option>
                     ))}
@@ -231,15 +217,15 @@ const gameModeNames = {
 
                   <div
                     id="category-dropdown-options"
-                    class="absolute z-10 w-full mt-1 bg-zinc-800 border border-zinc-600 rounded-lg shadow-lg hidden"
+                    class="absolute z-10 mt-1 hidden w-full rounded-lg border border-zinc-600 bg-zinc-800 shadow-lg"
                     role="listbox"
                     aria-labelledby="category-dropdown-button"
                   >
-                    <div class="p-2 border-b border-zinc-700">
+                    <div class="border-b border-zinc-700 p-2">
                       <div class="relative">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          class="h-5 w-5 text-zinc-400 absolute left-3 top-1/2 transform -translate-y-1/2"
+                          class="absolute top-1/2 left-3 h-5 w-5 -translate-y-1/2 transform text-zinc-400"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                           aria-hidden="true"
@@ -253,14 +239,9 @@ const gameModeNames = {
                         <input
                           type="text"
                           id="category-search"
-                          class="w-full bg-zinc-900 border border-zinc-700 rounded-md py-2 pl-10 pr-3 text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
-                          placeholder={
-                            t("highscores.filter.search") ||
-                            "Search categories..."
-                          }
-                          aria-label={
-                            t("highscores.filter.search") || "Search categories"
-                          }
+                          class="w-full rounded-md border border-zinc-700 bg-zinc-900 py-2 pr-3 pl-10 text-white placeholder-zinc-400 focus:border-transparent focus:ring-2 focus:ring-purple-400 focus:outline-none"
+                          placeholder={t("highscores.filter.search") || "Search categories..."}
+                          aria-label={t("highscores.filter.search") || "Search categories"}
                         />
                       </div>
                     </div>
@@ -271,35 +252,27 @@ const gameModeNames = {
                       aria-labelledby="category-dropdown-button"
                     >
                       <li
-                        class="px-3 py-2 cursor-pointer hover:bg-zinc-700 text-white flex items-center"
+                        class="flex cursor-pointer items-center px-3 py-2 text-white hover:bg-zinc-700"
                         role="option"
                         data-value=""
                         aria-selected={!selectedCategory ? "true" : "false"}
                       >
-                        <span class="ml-2">
-                          {t("highscores.filter.all") || "All Categories"}
-                        </span>
+                        <span class="ml-2">{t("highscores.filter.all") || "All Categories"}</span>
                       </li>
                       {categories.map((category) => (
                         <li
-                          class="px-3 py-2 cursor-pointer hover:bg-zinc-700 text-white flex items-center"
+                          class="flex cursor-pointer items-center px-3 py-2 text-white hover:bg-zinc-700"
                           role="option"
                           data-value={category}
-                          aria-selected={
-                            selectedCategory === category ? "true" : "false"
-                          }
+                          aria-selected={selectedCategory === category ? "true" : "false"}
                         >
                           <span class="ml-2">{category}</span>
                         </li>
                       ))}
                     </ul>
 
-                    <div
-                      id="no-categories-found"
-                      class="px-3 py-2 text-zinc-400 hidden"
-                    >
-                      {t("highscores.filter.no.results") ||
-                        "No categories found"}
+                    <div id="no-categories-found" class="hidden px-3 py-2 text-zinc-400">
+                      {t("highscores.filter.no.results") || "No categories found"}
                     </div>
                   </div>
                 </div>
@@ -308,85 +281,58 @@ const gameModeNames = {
           </section>
 
           <section
-            class="bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-xl p-6 border border-zinc-700 shadow-lg"
+            class="rounded-xl border border-zinc-700 bg-gradient-to-b from-zinc-800 to-zinc-900 p-6 shadow-lg"
             aria-labelledby="highscores-heading"
           >
-            <h2
-              id="highscores-heading"
-              class="text-2xl font-bold text-white mb-6"
-            >
+            <h2 id="highscores-heading" class="mb-6 text-2xl font-bold text-white">
               {t("highscores.table.title") || "Top Scores"}
             </h2>
 
             {highscores.length === 0 ? (
-              <p class="text-zinc-400 text-center py-8">
+              <p class="py-8 text-center text-zinc-400">
                 {t("highscores.empty") || "No highscores found"}
               </p>
             ) : (
               <div class="overflow-x-auto">
-                <table
-                  class="w-full border-collapse"
-                  aria-describedby="highscores-heading"
-                >
+                <table class="w-full border-collapse" aria-describedby="highscores-heading">
                   <thead>
                     <tr class="border-b border-zinc-700">
-                      <th
-                        scope="col"
-                        class="text-left py-3 px-4 text-zinc-300 font-medium"
-                      >
+                      <th scope="col" class="px-4 py-3 text-left font-medium text-zinc-300">
                         {t("highscores.table.rank") || "Rank"}
                       </th>
-                      <th
-                        scope="col"
-                        class="text-left py-3 px-4 text-zinc-300 font-medium"
-                      >
+                      <th scope="col" class="px-4 py-3 text-left font-medium text-zinc-300">
                         {t("highscores.table.player") || "Player"}
                       </th>
-                      <th
-                        scope="col"
-                        class="text-left py-3 px-4 text-zinc-300 font-medium"
-                      >
+                      <th scope="col" class="px-4 py-3 text-left font-medium text-zinc-300">
                         {t("highscores.table.game.mode") || "Game Mode"}
                       </th>
-                      <th
-                        scope="col"
-                        class="text-left py-3 px-4 text-zinc-300 font-medium"
-                      >
+                      <th scope="col" class="px-4 py-3 text-left font-medium text-zinc-300">
                         {t("highscores.table.category") || "Category"}
                       </th>
-                      <th
-                        scope="col"
-                        class="text-right py-3 px-4 text-zinc-300 font-medium"
-                      >
+                      <th scope="col" class="px-4 py-3 text-right font-medium text-zinc-300">
                         {t("highscores.table.score") || "Score"}
                       </th>
-                      <th
-                        scope="col"
-                        class="text-right py-3 px-4 text-zinc-300 font-medium"
-                      >
+                      <th scope="col" class="px-4 py-3 text-right font-medium text-zinc-300">
                         {t("highscores.table.date") || "Date"}
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     {highscores.map((score, index) => (
-                      <tr class="border-b border-zinc-800 hover:bg-zinc-800/50 transition-colors">
-                        <td class="py-3 px-4 font-bold">{index + 1}</td>
-                        <td class="py-3 px-4 text-white">{score.username}</td>
-                        <td class="py-3 px-4">
+                      <tr class="border-b border-zinc-800 transition-colors hover:bg-zinc-800/50">
+                        <td class="px-4 py-3 font-bold">{index + 1}</td>
+                        <td class="px-4 py-3 text-white">{score.username}</td>
+                        <td class="px-4 py-3">
                           <span
-                            class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${score.gameMode === "quiz" ? "bg-yellow-900/30 text-yellow-300" : "bg-blue-900/30 text-blue-300"}`}
+                            class={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${score.gameMode === "quiz" ? "bg-yellow-900/30 text-yellow-300" : "bg-blue-900/30 text-blue-300"}`}
                           >
-                            {gameModeNames[
-                              score.gameMode as keyof typeof gameModeNames
-                            ] || score.gameMode}
+                            {gameModeNames[score.gameMode as keyof typeof gameModeNames] ||
+                              score.gameMode}
                           </span>
                         </td>
-                        <td class="py-3 px-4 text-white">{score.category}</td>
-                        <td class="py-3 px-4 text-right font-bold text-white">
-                          {score.score}
-                        </td>
-                        <td class="py-3 px-4 text-right text-zinc-300">
+                        <td class="px-4 py-3 text-white">{score.category}</td>
+                        <td class="px-4 py-3 text-right font-bold text-white">{score.score}</td>
+                        <td class="px-4 py-3 text-right text-zinc-300">
                           {formatHighscoreDate(score.createdAt)}
                         </td>
                       </tr>
@@ -405,27 +351,17 @@ const gameModeNames = {
 <script>
   // Enhanced filter functionality for highscores with searchable dropdown
   document.addEventListener("DOMContentLoaded", () => {
-    const gameModeFilter = document.getElementById(
-      "game-mode-filter",
-    ) as HTMLSelectElement;
-    const categoryFilter = document.getElementById(
-      "category-filter",
-    ) as HTMLSelectElement;
+    const gameModeFilter = document.getElementById("game-mode-filter") as HTMLSelectElement;
+    const categoryFilter = document.getElementById("category-filter") as HTMLSelectElement;
     const categoryDropdownButton = document.getElementById(
-      "category-dropdown-button",
+      "category-dropdown-button"
     ) as HTMLButtonElement;
     const categoryDropdownOptions = document.getElementById(
-      "category-dropdown-options",
+      "category-dropdown-options"
     ) as HTMLDivElement;
-    const categorySearch = document.getElementById(
-      "category-search",
-    ) as HTMLInputElement;
-    const selectedCategoryText = document.getElementById(
-      "selected-category",
-    ) as HTMLSpanElement;
-    const noCategoriesFound = document.getElementById(
-      "no-categories-found",
-    ) as HTMLDivElement;
+    const categorySearch = document.getElementById("category-search") as HTMLInputElement;
+    const selectedCategoryText = document.getElementById("selected-category") as HTMLSpanElement;
+    const noCategoriesFound = document.getElementById("no-categories-found") as HTMLDivElement;
 
     if (
       !gameModeFilter ||
@@ -433,17 +369,14 @@ const gameModeNames = {
       !categoryDropdownButton ||
       !categoryDropdownOptions ||
       !categorySearch
-    )
+    ) {
       return;
+    }
 
     // Toggle dropdown visibility
     categoryDropdownButton.addEventListener("click", () => {
-      const isExpanded =
-        categoryDropdownButton.getAttribute("aria-expanded") === "true";
-      categoryDropdownButton.setAttribute(
-        "aria-expanded",
-        (!isExpanded).toString(),
-      );
+      const isExpanded = categoryDropdownButton.getAttribute("aria-expanded") === "true";
+      categoryDropdownButton.setAttribute("aria-expanded", (!isExpanded).toString());
       categoryDropdownOptions.classList.toggle("hidden");
 
       if (!isExpanded) {
@@ -464,8 +397,7 @@ const gameModeNames = {
     });
 
     // Handle category option selection
-    const categoryOptions =
-      categoryDropdownOptions.querySelectorAll('li[role="option"]');
+    const categoryOptions = categoryDropdownOptions.querySelectorAll('li[role="option"]');
     categoryOptions.forEach((option) => {
       option.addEventListener("click", () => {
         const value = option.getAttribute("data-value") || "";
@@ -478,9 +410,7 @@ const gameModeNames = {
         selectedCategoryText.textContent = text;
 
         // Update aria-selected state
-        categoryOptions.forEach((opt) =>
-          opt.setAttribute("aria-selected", "false"),
-        );
+        categoryOptions.forEach((opt) => opt.setAttribute("aria-selected", "false"));
         option.setAttribute("aria-selected", "true");
 
         // Close the dropdown
@@ -523,33 +453,26 @@ const gameModeNames = {
         e.preventDefault();
 
         const visibleOptions = Array.from(categoryOptions).filter(
-          (opt) => (opt as HTMLElement).style.display !== "none",
+          (opt) => (opt as HTMLElement).style.display !== "none"
         );
 
-        if (visibleOptions.length === 0) return;
+        if (visibleOptions.length === 0) {
+          return;
+        }
 
         const currentFocusedIndex = visibleOptions.findIndex(
-          (opt) => opt === document.activeElement,
+          (opt) => opt === document.activeElement
         );
         let nextIndex;
 
         if (e.key === "ArrowDown") {
-          nextIndex =
-            currentFocusedIndex < visibleOptions.length - 1
-              ? currentFocusedIndex + 1
-              : 0;
+          nextIndex = currentFocusedIndex < visibleOptions.length - 1 ? currentFocusedIndex + 1 : 0;
         } else {
-          nextIndex =
-            currentFocusedIndex > 0
-              ? currentFocusedIndex - 1
-              : visibleOptions.length - 1;
+          nextIndex = currentFocusedIndex > 0 ? currentFocusedIndex - 1 : visibleOptions.length - 1;
         }
 
         (visibleOptions[nextIndex] as HTMLElement).focus();
-      } else if (
-        e.key === "Enter" &&
-        document.activeElement !== categorySearch
-      ) {
+      } else if (e.key === "Enter" && document.activeElement !== categorySearch) {
         e.preventDefault();
         (document.activeElement as HTMLElement).click();
       }
@@ -562,17 +485,19 @@ const gameModeNames = {
 
       // Build query parameters
       const params = new URLSearchParams();
-      if (gameMode) params.append("gameMode", gameMode);
-      if (category) params.append("category", category);
+      if (gameMode) {
+        params.append("gameMode", gameMode);
+      }
+      if (category) {
+        params.append("category", category);
+      }
 
       // Get current language from URL
       const lang = window.location.pathname.split("/")[1];
 
       try {
         // Show loading state
-        const tableSection = document.querySelector(
-          '[aria-labelledby="highscores-heading"]',
-        );
+        const tableSection = document.querySelector('[aria-labelledby="highscores-heading"]');
         if (tableSection) {
           tableSection.innerHTML = `
             <h2 id="highscores-heading" class="text-2xl font-bold text-white mb-6">
@@ -591,9 +516,7 @@ const gameModeNames = {
         }
 
         // Fetch filtered highscores
-        const response = await fetch(
-          `/${String(lang)}/api/scores/highscores?${params.toString()}`,
-        );
+        const response = await fetch(`/${String(lang)}/api/scores/highscores?${params.toString()}`);
         const data = await response.json();
 
         if (!data.success) {
@@ -605,9 +528,7 @@ const gameModeNames = {
       } catch (error) {
         console.error("Error updating highscores:", error);
         // Show error message
-        const tableSection = document.querySelector(
-          '[aria-labelledby="highscores-heading"]',
-        );
+        const tableSection = document.querySelector('[aria-labelledby="highscores-heading"]');
         if (tableSection) {
           tableSection.innerHTML = `
             <h2 id="highscores-heading" class="text-2xl font-bold text-white mb-6">
@@ -638,15 +559,12 @@ const gameModeNames = {
 
       // Update the visible button text with the selected category
       const selectedOption = Array.from(categoryOptions).find(
-        (opt) => opt.getAttribute("data-value") === categoryParam,
+        (opt) => opt.getAttribute("data-value") === categoryParam
       );
 
       if (selectedOption) {
-        selectedCategoryText.textContent =
-          selectedOption.textContent?.trim() || "";
-        categoryOptions.forEach((opt) =>
-          opt.setAttribute("aria-selected", "false"),
-        );
+        selectedCategoryText.textContent = selectedOption.textContent?.trim() || "";
+        categoryOptions.forEach((opt) => opt.setAttribute("aria-selected", "false"));
         selectedOption.setAttribute("aria-selected", "true");
       }
     }

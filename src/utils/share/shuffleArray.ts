@@ -30,20 +30,22 @@
  * const fruits = ['apple', 'banana', 'cherry'];
  * const shuffled = shuffleArray(fruits);
  */
-export function shuffleArray<T>(array: T[]): T[] {
+export async function shuffleArray<T>(array: T[]): Promise<T[]> {
   // Early return for empty or single-element arrays
-  if (array.length <= 1) return [...array];
+  if (array.length <= 1) {
+    return [...array];
+  }
 
   // Create a copy to avoid modifying the original array
   const copy = [...array];
 
   // Determine which random number generator to use based on environment
-  const getRandomIndex = createRandomIndexGenerator(copy.length);
+  const getRandomIndex = createRandomIndexGenerator();
 
   // Fisher-Yates (Knuth) shuffle algorithm
   for (let i = copy.length - 1; i > 0; i--) {
     // Get a random index from 0 to i (inclusive)
-    const j = getRandomIndex(i);
+    const j = await Promise.resolve(getRandomIndex(i));
 
     // Swap elements using destructuring
     [copy[i], copy[j]] = [copy[j], copy[i]];
@@ -62,18 +64,12 @@ export function shuffleArray<T>(array: T[]): T[] {
  * 3. Falls back to Math.random() if secure methods are unavailable
  *
  * @param {number} arrayLength - The length of the array being shuffled
- * @returns {(max: number) => number} A function that generates random indices
+ * @returns {(max: number) => number | Promise<number>} A function that generates random indices
  * @private
  */
-function createRandomIndexGenerator(
-  arrayLength: number,
-): (max: number) => number {
+function createRandomIndexGenerator(): (max: number) => number | Promise<number> {
   // Check for Web Crypto API (browser environment)
-  if (
-    typeof window !== "undefined" &&
-    window.crypto &&
-    window.crypto.getRandomValues
-  ) {
+  if (typeof window !== "undefined" && window.crypto && window.crypto.getRandomValues) {
     return (max: number): number => {
       // Create a typed array for the random bytes
       const randomBuffer = new Uint32Array(1);
@@ -87,31 +83,21 @@ function createRandomIndexGenerator(
   }
 
   // Check for Node.js crypto module
-  if (
-    typeof process !== "undefined" &&
-    process.versions &&
-    process.versions.node
-  ) {
+  if (typeof process !== "undefined" && process.versions && process.versions.node) {
     try {
       // Dynamic import to avoid reference errors in browser environments
-      const crypto = require("crypto");
-
-      return (max: number): number => {
+      return async (max: number): Promise<number> => {
+        const crypto = await import("crypto");
         // Use Node's randomInt for a secure random integer in range
         return crypto.randomInt(0, max + 1);
       };
     } catch (error) {
-      console.warn(
-        "Node crypto module not available, falling back to Math.random()",
-      );
-      // Fall through to Math.random fallback
+      console.warn("Node crypto module not available, falling back to Math.random()", error);
     }
   }
 
   // Fallback to Math.random() with warning
-  console.warn(
-    "Secure random number generation not available, using Math.random() instead",
-  );
+  console.warn("Secure random number generation not available, using Math.random() instead");
   return (max: number): number => {
     // Convert to an index within the desired range (0 to max, inclusive)
     return Math.floor(Math.random() * (max + 1));

@@ -26,12 +26,7 @@ const { initialCount = 0 } = Astro.props;
 ---
 
 <div
-  class="coinsCount flex items-center justify-center min-w-[48px] max-w-[120px] px-4 py-2
-          bg-zinc-800 rounded-lg shadow-md text-zinc-50
-          transition-transform duration-300 will-change-transform
-          hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none
-          focus-within:ring focus-within:ring-sky-300 focus-within:ring-opacity-75
-          motion-safe:hover:shadow-lg"
+  class="coinsCount focus-within:ring-opacity-75 flex max-w-[120px] min-w-[48px] items-center justify-center rounded-lg bg-zinc-800 px-4 py-2 text-zinc-50 shadow-md transition-transform duration-300 will-change-transform focus-within:ring focus-within:ring-sky-300 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none motion-safe:hover:shadow-lg"
   role="status"
   aria-label={t("coins.collected")}
   aria-live="polite"
@@ -39,7 +34,7 @@ const { initialCount = 0 } = Astro.props;
 >
   <div class="flex items-center gap-2 p-0.5">
     <Icon
-      class="text-amber-400 w-6 h-6 drop-shadow motion-safe:animate-bounce-subtle motion-reduce:transform-none"
+      class="motion-safe:animate-bounce-subtle h-6 w-6 text-amber-400 drop-shadow motion-reduce:transform-none"
       name="coin"
       width={24}
       height={24}
@@ -47,24 +42,16 @@ const { initialCount = 0 } = Astro.props;
     />
     <span
       id="coins-display"
-      class="font-bold font-sans tabular-nums leading-tight"
+      class="font-sans leading-tight font-bold tabular-nums"
       aria-atomic="true"
     >
       <span class="sr-only">{t("coins.collected")}:</span>
-      <span class="inline-block min-w-[2ch] text-right" data-coin-count
-        >{initialCount}</span
-      >
+      <span class="inline-block min-w-[2ch] text-right" data-coin-count>{initialCount}</span>
     </span>
   </div>
 
   <!-- Screen reader announcer for coin updates -->
-  <div
-    id="coins-announcer"
-    class="sr-only"
-    aria-live="assertive"
-    aria-atomic="true"
-  >
-  </div>
+  <div id="coins-announcer" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
 </div>
 
 <style>
@@ -220,18 +207,14 @@ const { initialCount = 0 } = Astro.props;
 
       // Extract initial count
       if (this.countElement) {
-        this.currentCount =
-          parseInt(this.countElement.textContent || "0", 10) || 0;
+        this.currentCount = parseInt(this.countElement.textContent || "0", 10) || 0;
       }
 
       // Set up observers for accessibility and updates
       this.setupObservers();
 
       // Listen for custom coin update events
-      document.addEventListener(
-        "melody-mind:update-coins",
-        this.handleCoinUpdate.bind(this),
-      );
+      document.addEventListener("melody-mind:update-coins", this.handleCoinUpdate.bind(this));
     }
 
     /**
@@ -239,17 +222,15 @@ const { initialCount = 0 } = Astro.props;
      * Ensures we catch both programmatic and direct DOM updates
      */
     private setupObservers(): void {
-      if (!this.countElement) return;
+      if (!this.countElement) {
+        return;
+      }
 
       // Create observer for attribute and text changes
       this.observer = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
-          if (
-            mutation.type === "childList" ||
-            mutation.type === "characterData"
-          ) {
-            const newValue =
-              parseInt(this.countElement?.textContent || "0", 10) || 0;
+          if (mutation.type === "childList" || mutation.type === "characterData") {
+            const newValue = parseInt(this.countElement?.textContent || "0", 10) || 0;
             if (newValue !== this.currentCount) {
               this.updateCoins(newValue);
             }
@@ -271,11 +252,7 @@ const { initialCount = 0 } = Astro.props;
      * @param {CustomEvent} event - The coin update event
      */
     private handleCoinUpdate(event: Event): void {
-      if (
-        event instanceof CustomEvent &&
-        event.detail &&
-        typeof event.detail.count === "number"
-      ) {
+      if (event instanceof CustomEvent && event.detail && typeof event.detail.count === "number") {
         this.updateCoins(event.detail.count);
       }
     }
@@ -286,7 +263,9 @@ const { initialCount = 0 } = Astro.props;
      * @param {number} newCount - The new coin count to display
      */
     public updateCoins(newCount: number): void {
-      if (!this.countElement || newCount === this.currentCount) return;
+      if (!this.countElement || newCount === this.currentCount) {
+        return;
+      }
 
       const oldCount = this.currentCount;
       this.currentCount = newCount;
@@ -308,7 +287,9 @@ const { initialCount = 0 } = Astro.props;
      * @param {number} newCount - New count
      */
     private announceCountChange(oldCount: number, newCount: number): void {
-      if (!this.announcer) return;
+      if (!this.announcer) {
+        return;
+      }
 
       const difference = newCount - oldCount;
       let message = "";
@@ -324,7 +305,9 @@ const { initialCount = 0 } = Astro.props;
       if (message) {
         this.announcer.textContent = message;
         setTimeout(() => {
-          if (this.announcer) this.announcer.textContent = "";
+          if (this.announcer) {
+            this.announcer.textContent = "";
+          }
         }, 3000);
       }
     }
@@ -334,7 +317,9 @@ const { initialCount = 0 } = Astro.props;
      * Only runs if Web Animation API is supported and reduced motion is not preferred
      */
     private animateCountChange(): void {
-      if (!this.countElement) return;
+      if (!this.countElement) {
+        return;
+      }
 
       // Check if animation is supported and not using reduced motion
       if (
@@ -358,7 +343,7 @@ const { initialCount = 0 } = Astro.props;
           {
             duration: 600,
             easing: "ease-out",
-          },
+          }
         );
       }
     }
@@ -381,10 +366,7 @@ const { initialCount = 0 } = Astro.props;
       }
 
       // Remove event listeners
-      document.removeEventListener(
-        "melody-mind:update-coins",
-        this.handleCoinUpdate.bind(this),
-      );
+      document.removeEventListener("melody-mind:update-coins", this.handleCoinUpdate.bind(this));
     }
   }
 
@@ -423,7 +405,7 @@ const { initialCount = 0 } = Astro.props;
     document.dispatchEvent(
       new CustomEvent("melody-mind:update-coins", {
         detail: { count },
-      }),
+      })
     );
   };
 </script>

@@ -21,6 +21,7 @@
  * - 500: Server error during data retrieval
  */
 import type { APIRoute } from "astro";
+
 import { turso } from "../../../../turso.ts";
 import { useTranslations } from "../../../../utils/i18n.ts";
 
@@ -67,8 +68,7 @@ export const GET: APIRoute = async ({ request, params }) => {
     const limitParam = url.searchParams.get("limit");
 
     // Default limit to 10 if not specified or invalid
-    const limit =
-      limitParam && !isNaN(parseInt(limitParam)) ? parseInt(limitParam) : 10;
+    const limit = limitParam && !isNaN(parseInt(limitParam)) ? parseInt(limitParam) : 10;
 
     // Build the SQL query based on filters
     let sql = `
@@ -98,7 +98,7 @@ export const GET: APIRoute = async ({ request, params }) => {
     }
 
     if (whereConditions.length > 0) {
-      sql += " WHERE " + whereConditions.join(" AND ");
+      sql += ` WHERE ${whereConditions.join(" AND ")}`;
     }
 
     // Add ORDER BY and LIMIT clauses
@@ -134,7 +134,7 @@ export const GET: APIRoute = async ({ request, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   } catch (error) {
     // Log error for debugging and return 500 response
@@ -150,7 +150,7 @@ export const GET: APIRoute = async ({ request, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   }
 };

@@ -55,12 +55,7 @@ interface QuestionElements {
  */
 interface QuestionHandlers {
   /** Callback function invoked when a user selects an answer */
-  handleAnswer: (
-    option: string,
-    correctAnswer: string,
-    question: Question,
-    album: Album,
-  ) => void;
+  handleAnswer: (option: string, correctAnswer: string, question: Question, album: Album) => void;
 }
 
 /**
@@ -110,8 +105,7 @@ export function loadQuestion({
   handlers,
   jokerState,
 }: LoadQuestionParams): void {
-  const { questionContainer, spinner, questionElement, optionsContainer } =
-    elements;
+  const { questionContainer, spinner, questionElement, optionsContainer } = elements;
 
   // Set loading state
   questionContainer.setAttribute("aria-busy", "true");
@@ -153,16 +147,11 @@ export function loadQuestion({
         optionsContainer,
         handlers.handleAnswer,
         question,
-        album,
+        album
       );
 
       // Setup keyboard navigation for accessibility
-      setupKeyboardNavigation(
-        optionsContainer,
-        question,
-        album,
-        handlers.handleAnswer,
-      );
+      setupKeyboardNavigation(optionsContainer, question, album, handlers.handleAnswer);
 
       // Show question and hide spinner
       spinner.classList.add("hidden");
@@ -210,14 +199,9 @@ export function loadQuestion({
 function createOptionButtons(
   options: string[],
   container: HTMLElement,
-  handleAnswer: (
-    option: string,
-    correctAnswer: string,
-    question: Question,
-    album: Album,
-  ) => void,
+  handleAnswer: (option: string, correctAnswer: string, question: Question, album: Album) => void,
   question: Question,
-  album: Album,
+  album: Album
 ): void {
   options.forEach((option: string, index: number) => {
     const button = document.createElement("button");
@@ -276,30 +260,14 @@ function setupKeyboardNavigation(
   optionsContainer: HTMLElement,
   question: Question,
   album: Album,
-  handleAnswer: (
-    option: string,
-    correctAnswer: string,
-    question: Question,
-    album: Album,
-  ) => void,
+  handleAnswer: (option: string, correctAnswer: string, question: Question, album: Album) => void
 ): void {
-  const options = Array.from(
-    optionsContainer.querySelectorAll<HTMLElement>("button"),
-  );
+  const options = Array.from(optionsContainer.querySelectorAll<HTMLElement>("button"));
 
   options.forEach((button, index) => {
     button.addEventListener("keydown", (e: KeyboardEvent) => {
       // Only process if it's a navigation or selection key
-      if (
-        ![
-          "ArrowUp",
-          "ArrowDown",
-          "ArrowLeft",
-          "ArrowRight",
-          "Enter",
-          " ",
-        ].includes(e.key)
-      ) {
+      if (!["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter", " "].includes(e.key)) {
         return;
       }
 

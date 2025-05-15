@@ -34,16 +34,10 @@ interface Props {
   lang?: string;
 }
 
-const {
-  headings = [],
-  title = "Inhaltsverzeichnis",
-  lang = "de",
-} = Astro.props;
+const { headings = [], title = "Inhaltsverzeichnis", lang = "de" } = Astro.props;
 
 // Filter to only include h2 and h3 headings
-const filteredHeadings = headings.filter(
-  (heading) => heading.depth === 2 || heading.depth === 3,
-);
+const filteredHeadings = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
 
 // Check if there are any headings to display
 const hasHeadings = filteredHeadings.length > 0;
@@ -135,7 +129,7 @@ const t = translations[lang as keyof typeof translations] || translations.de;
           aria-expanded="false"
           aria-controls="toc-content"
           aria-label={t.toggleLabel}
-          class="flex w-full items-center justify-between rounded-xl bg-zinc-800 px-6 py-4 text-left text-lg font-medium text-white shadow-md transition-colors hover:bg-zinc-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 border border-zinc-700/30"
+          class="flex w-full items-center justify-between rounded-xl border border-zinc-700/30 bg-zinc-800 px-6 py-4 text-left text-lg font-medium text-white shadow-md transition-colors hover:bg-zinc-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
         >
           <span class="flex items-center gap-3">
             <svg
@@ -172,7 +166,7 @@ const t = translations[lang as keyof typeof translations] || translations.de;
         <div
           id="toc-content"
           aria-labelledby="toc-toggle"
-          class="toc-content mt-2 hidden overflow-hidden rounded-xl bg-zinc-800/80 shadow-lg backdrop-blur-sm border border-zinc-700/30"
+          class="toc-content mt-2 hidden overflow-hidden rounded-xl border border-zinc-700/30 bg-zinc-800/80 shadow-lg backdrop-blur-sm"
         >
           <nav aria-label={t.tocLabel} class="p-4">
             <a
@@ -181,7 +175,7 @@ const t = translations[lang as keyof typeof translations] || translations.de;
             >
               {t.skipLink}
             </a>
-            <ul class="space-y-2 max-h-[60vh] overflow-y-auto pr-2">
+            <ul class="max-h-[60vh] space-y-2 overflow-y-auto pr-2">
               {filteredHeadings.map((heading) => (
                 <li class={`${heading.depth === 3 ? "ml-4" : ""}`}>
                   <a
@@ -214,7 +208,9 @@ const t = translations[lang as keyof typeof translations] || translations.de;
     const tocIcon = document.querySelector(".toc-icon");
     const tocState = document.querySelector(".toc-state");
 
-    if (!tocToggle || !tocContent || !tocIcon || !tocState) return;
+    if (!tocToggle || !tocContent || !tocIcon || !tocState) {
+      return;
+    }
 
     /**
      * Toggles the table of contents dropdown visibility
@@ -223,7 +219,9 @@ const t = translations[lang as keyof typeof translations] || translations.de;
      * - Handles screen reader announcements
      */
     function toggleToc() {
-      if (!tocToggle || !tocContent || !tocIcon || !tocState) return;
+      if (!tocToggle || !tocContent || !tocIcon || !tocState) {
+        return;
+      }
 
       const isExpanded = tocToggle.getAttribute("aria-expanded") === "true";
       const newState = !isExpanded;
@@ -235,13 +233,11 @@ const t = translations[lang as keyof typeof translations] || translations.de;
       if (newState) {
         tocContent.classList.remove("hidden");
         tocIcon.classList.add("rotate-180");
-        tocState.textContent =
-          tocState.getAttribute("data-expanded") || "Erweitert";
+        tocState.textContent = tocState.getAttribute("data-expanded") || "Erweitert";
       } else {
         tocContent.classList.add("hidden");
         tocIcon.classList.remove("rotate-180");
-        tocState.textContent =
-          tocState.getAttribute("data-collapsed") || "Eingeklappt";
+        tocState.textContent = tocState.getAttribute("data-collapsed") || "Eingeklappt";
       }
     }
 
@@ -278,7 +274,7 @@ const t = translations[lang as keyof typeof translations] || translations.de;
                 () => {
                   targetElement.removeAttribute("tabindex");
                 },
-                { once: true },
+                { once: true }
               );
             }
           }

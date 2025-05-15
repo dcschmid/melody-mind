@@ -37,8 +37,8 @@ const {
 ---
 
 <div
-  id={id}
-  class="popup hidden fixed inset-0 z-50 flex items-center justify-center p-6 bg-zinc-900/95 backdrop-blur-md"
+  {id}
+  class="popup fixed inset-0 z-50 flex hidden items-center justify-center bg-zinc-900/95 p-6 backdrop-blur-md"
   role="dialog"
   aria-labelledby="popup-title"
   aria-describedby="popup-description"
@@ -51,20 +51,20 @@ const {
   <div id="overlay-backdrop" class="absolute inset-0" aria-hidden="true"></div>
 
   <div
-    class="popupContent w-full max-w-lg max-h-[80vh] bg-gradient-to-b from-zinc-800 to-zinc-900 border border-zinc-700 rounded-2xl shadow-2xl p-8 md:p-10 text-center overflow-y-auto overscroll-contain scrollbar-gutter-stable"
+    class="popupContent scrollbar-gutter-stable max-h-[80vh] w-full max-w-lg overflow-y-auto overscroll-contain rounded-2xl border border-zinc-700 bg-gradient-to-b from-zinc-800 to-zinc-900 p-8 text-center shadow-2xl md:p-10"
     tabindex="-1"
     role="document"
   >
     <!-- Achievement badge with trophy icon -->
     <div
-      class="achievement-badge mb-6 mx-auto w-20 h-20 flex items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-zinc-900"
+      class="achievement-badge mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-zinc-900"
     >
       <Icon name="trophy" width={42} height={42} aria-hidden="true" />
     </div>
 
     <h2
       id="popup-title"
-      class="title text-3xl font-bold text-gradient bg-gradient-to-r from-sky-300 to-indigo-400 mb-6"
+      class="title text-gradient mb-6 bg-gradient-to-r from-sky-300 to-indigo-400 text-3xl font-bold"
     >
       {title}
     </h2>
@@ -78,17 +78,11 @@ const {
     </p>
 
     <!-- Status announcer for screen readers -->
-    <div
-      id="achievement-announcement"
-      aria-live="polite"
-      aria-atomic="true"
-      class="sr-only"
-    >
-    </div>
+    <div id="achievement-announcement" aria-live="polite" aria-atomic="true" class="sr-only"></div>
 
     <!-- Progress Visualization with improved ARIA -->
     <div
-      class="achievement-progress relative h-3 bg-zinc-700 rounded-full mb-8 overflow-hidden"
+      class="achievement-progress relative mb-8 h-3 overflow-hidden rounded-full bg-zinc-700"
       role="progressbar"
       aria-valuemin="0"
       aria-valuemax="100"
@@ -97,7 +91,7 @@ const {
     >
       <div
         id="score-bar"
-        class="absolute left-0 top-0 h-full bg-gradient-to-r from-sky-500 to-indigo-500 transform-gpu will-change-transform transition-all duration-1000 ease-out"
+        class="absolute top-0 left-0 h-full transform-gpu bg-gradient-to-r from-sky-500 to-indigo-500 transition-all duration-1000 ease-out will-change-transform"
         style="width: 0%"
       >
       </div>
@@ -106,47 +100,34 @@ const {
     <!-- Dynamic motivation text -->
     <p
       id="motivation-text"
-      class="motivationText text-zinc-100 text-lg mb-8 leading-relaxed"
+      class="motivationText mb-8 text-lg leading-relaxed text-zinc-100"
       aria-live="polite"
     >
     </p>
 
     <div
-      class="scoreSection flex justify-center items-center p-4 rounded-xl bg-zinc-800/50 border border-zinc-700 mb-8"
+      class="scoreSection mb-8 flex items-center justify-center rounded-xl border border-zinc-700 bg-zinc-800/50 p-4"
     >
       <div class="score-container text-center">
-        <span class="scoreLabel text-zinc-300 text-lg block mb-1"
-          >{t("game.end.score")}</span
-        >
-        <span id="popup-score" class="scoreValue text-3xl font-bold text-white"
-          >0</span
-        >
+        <span class="scoreLabel mb-1 block text-lg text-zinc-300">{t("game.end.score")}</span>
+        <span id="popup-score" class="scoreValue text-3xl font-bold text-white">0</span>
       </div>
     </div>
 
     <!-- Difficulty Badge -->
     <div
-      class="difficulty-badge mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-800 border border-zinc-700"
+      class="difficulty-badge mb-8 inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-800 px-4 py-2"
     >
-      <Icon
-        name="difficulty"
-        width={20}
-        height={20}
-        class="text-amber-400"
-        aria-hidden="true"
-      />
+      <Icon name="difficulty" width={20} height={20} class="text-amber-400" aria-hidden="true" />
       <span id="difficulty-display" class="text-zinc-200">{difficulty}</span>
     </div>
 
     <!-- Achievement Section -->
     <div id="achievements-section" class="achievements-section mb-8">
-      <h3 class="text-xl font-semibold text-zinc-100 mb-4">
+      <h3 class="mb-4 text-xl font-semibold text-zinc-100">
         {t("achievements.unlocked") || "Achievements Unlocked"}
       </h3>
-      <div
-        id="unlocked-achievements"
-        class="flex flex-wrap justify-center gap-4"
-      >
+      <div id="unlocked-achievements" class="flex flex-wrap justify-center gap-4">
         <!-- Achievements will be populated by JavaScript -->
       </div>
     </div>
@@ -159,7 +140,7 @@ const {
     <div class="buttonWrapper flex flex-wrap justify-center gap-4">
       <a
         href="/"
-        class="homeButton min-w-[48px] min-h-[48px] py-3 px-6 bg-zinc-700 hover:bg-zinc-600 focus:bg-zinc-600 text-white font-medium rounded-xl transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+        class="homeButton min-h-[48px] min-w-[48px] rounded-xl bg-zinc-700 px-6 py-3 font-medium text-white transition-colors hover:bg-zinc-600 focus:bg-zinc-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
         aria-label={t("game.end.home")}
       >
         <span class="flex items-center gap-2">
@@ -170,7 +151,7 @@ const {
 
       <button
         id="restart-button"
-        class="restartButton min-w-[48px] min-h-[48px] py-3 px-6 bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 focus:from-sky-500 focus:to-indigo-500 text-white font-medium rounded-xl transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+        class="restartButton min-h-[48px] min-w-[48px] rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 px-6 py-3 font-medium text-white transition-colors hover:from-sky-500 hover:to-indigo-500 focus:from-sky-500 focus:to-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
         aria-label={t("game.end.newgame")}
       >
         <span class="flex items-center gap-2">
@@ -338,12 +319,7 @@ const {
   }
 
   .popupContent::-webkit-scrollbar-thumb {
-    background: rgba(
-      113,
-      113,
-      122,
-      0.9
-    ); /* zinc-500 with higher opacity for better contrast */
+    background: rgba(113, 113, 122, 0.9); /* zinc-500 with higher opacity for better contrast */
     border-radius: 10px;
   }
 
@@ -406,9 +382,9 @@ const {
    * This component follows WCAG AAA accessibility standards and implements optimized
    * performance practices for smooth animations and minimal resource usage.
    */
-  import { shareScore } from "../../utils/share/shareUtils.js";
-  import { subscribeToAchievementEvents } from "../../utils/achievements/achievementEvents.js";
   import type { AchievementEvent } from "../../types/achievement.js";
+  import { subscribeToAchievementEvents } from "../../utils/achievements/achievementEvents.js";
+  import { shareScore } from "../../utils/share/shareUtils.js";
 
   /**
    * Achievement thresholds for different score levels
@@ -570,10 +546,7 @@ const {
   document.addEventListener("astro:before-swap", () => {
     // Remove share button event listeners
     document.querySelectorAll("[data-share]").forEach((button) => {
-      (button as HTMLElement).removeEventListener(
-        "click",
-        handleShareButtonClick,
-      );
+      (button as HTMLElement).removeEventListener("click", handleShareButtonClick);
     });
 
     // Remove any ARIA live regions we created
@@ -581,7 +554,7 @@ const {
 
     // Cancel any ongoing animations
     window.cancelAnimationFrame(
-      Number(document.documentElement.dataset.endOverlayAnimationId || 0),
+      Number(document.documentElement.dataset.endOverlayAnimationId || 0)
     );
 
     // Clear achievement storage when navigating away
@@ -613,31 +586,29 @@ const {
     }
 
     // Subscribe to achievement events
-    const unsubscribe = subscribeToAchievementEvents(
-      (event: AchievementEvent) => {
-        console.log("Achievement event received:", event);
+    const unsubscribe = subscribeToAchievementEvents((event: AchievementEvent) => {
+      console.log("Achievement event received:", event);
 
-        if (event.type === "achievement_unlocked") {
-          // Store the unlocked achievement
-          globalUnlockedAchievements.push(event.achievement);
+      if (event.type === "achievement_unlocked") {
+        // Store the unlocked achievement
+        globalUnlockedAchievements.push(event.achievement);
 
-          // Store in sessionStorage for persistence
-          try {
-            sessionStorage.setItem(
-              "unlockedAchievements",
-              JSON.stringify(globalUnlockedAchievements),
-            );
-          } catch (e) {
-            console.error("Error storing achievements:", e);
-          }
-
-          // If the popup is already visible, update the achievements section
-          if (!popup.classList.contains("hidden")) {
-            updateAchievementsSection(globalUnlockedAchievements);
-          }
+        // Store in sessionStorage for persistence
+        try {
+          sessionStorage.setItem(
+            "unlockedAchievements",
+            JSON.stringify(globalUnlockedAchievements)
+          );
+        } catch (e) {
+          console.error("Error storing achievements:", e);
         }
-      },
-    );
+
+        // If the popup is already visible, update the achievements section
+        if (!popup.classList.contains("hidden")) {
+          updateAchievementsSection(globalUnlockedAchievements);
+        }
+      }
+    });
 
     // Store reference to last focused element before opening
     let lastFocusedElement: HTMLElement | null = null;
@@ -645,10 +616,7 @@ const {
     // Set up an observer to update motivation text when the popup becomes visible
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
-        if (
-          mutation.type === "attributes" &&
-          mutation.attributeName === "class"
-        ) {
+        if (mutation.type === "attributes" && mutation.attributeName === "class") {
           const isVisible = !popup.classList.contains("hidden");
 
           // Manage focus when popup visibility changes
@@ -663,10 +631,7 @@ const {
             animateScoreBarWithRAF(popup);
 
             // Update achievements section
-            console.log(
-              "Checking for achievements to display:",
-              globalUnlockedAchievements,
-            );
+            console.log("Checking for achievements to display:", globalUnlockedAchievements);
             updateAchievementsSection(globalUnlockedAchievements);
 
             // Announce achievement for screen readers
@@ -714,10 +679,7 @@ const {
    * @param {HTMLElement} popup - The popup element
    * @param {HTMLElement|null} lastFocusedElement - Reference to the element that had focus before opening
    */
-  function setupClickHandlers(
-    popup: HTMLElement,
-    lastFocusedElement: HTMLElement | null,
-  ): void {
+  function setupClickHandlers(popup: HTMLElement, lastFocusedElement: HTMLElement | null): void {
     // Handle backdrop clicks to close modal
     const backdrop = document.getElementById("overlay-backdrop");
     if (backdrop) {
@@ -741,10 +703,7 @@ const {
    * @param {HTMLElement} popup - The popup element
    * @param {HTMLElement|null} elementToFocus - The element to focus after closing
    */
-  function hidePopup(
-    popup: HTMLElement,
-    elementToFocus: HTMLElement | null,
-  ): void {
+  function hidePopup(popup: HTMLElement, elementToFocus: HTMLElement | null): void {
     popup.classList.add("hidden");
 
     // Re-enable scrolling
@@ -766,7 +725,9 @@ const {
     // Trap focus within the modal
     popup.addEventListener("keydown", (e) => {
       // Skip if the popup is hidden
-      if (popup.classList.contains("hidden")) return;
+      if (popup.classList.contains("hidden")) {
+        return;
+      }
 
       if (e.key === "Escape") {
         // Close modal on Escape
@@ -774,12 +735,16 @@ const {
         return;
       }
 
-      if (e.key !== "Tab") return;
+      if (e.key !== "Tab") {
+        return;
+      }
 
       // Find all focusable elements
       const focusableElements = getFocusableElements(popup);
 
-      if (focusableElements.length === 0) return;
+      if (focusableElements.length === 0) {
+        return;
+      }
 
       const firstElement = focusableElements[0];
       const lastElement = focusableElements[focusableElements.length - 1];
@@ -807,9 +772,7 @@ const {
       "button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), " +
       'textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-    const elements = Array.from(
-      container.querySelectorAll<HTMLElement>(selector),
-    );
+    const elements = Array.from(container.querySelectorAll<HTMLElement>(selector));
 
     // Filter out hidden elements
     return elements.filter((el) => {
@@ -859,13 +822,12 @@ const {
     const scoreBar = document.getElementById("score-bar");
     const progressContainer = document.querySelector(".achievement-progress");
 
-    if (!scoreBar || !progressContainer) return;
+    if (!scoreBar || !progressContainer) {
+      return;
+    }
 
     // Update ARIA properties for accessibility
-    progressContainer.setAttribute(
-      "aria-valuenow",
-      targetPercentage.toString(),
-    );
+    progressContainer.setAttribute("aria-valuenow", targetPercentage.toString());
 
     // Start at 0%
     let currentPercentage = 0;
@@ -887,8 +849,7 @@ const {
       if (currentPercentage < targetPercentage) {
         const animationId = requestAnimationFrame(animateProgressBar);
         // Store animation ID for potential cleanup
-        document.documentElement.dataset.endOverlayAnimationId =
-          animationId.toString();
+        document.documentElement.dataset.endOverlayAnimationId = animationId.toString();
       }
     };
 
@@ -916,7 +877,9 @@ const {
    */
   function animateScoreCounter(targetScore: number): void {
     const scoreElement = document.getElementById("popup-score");
-    if (!scoreElement) return;
+    if (!scoreElement) {
+      return;
+    }
 
     let currentScore = 0;
     const duration = 1500; // ms
@@ -983,18 +946,25 @@ const {
     const score = scoreAttr ? parseInt(scoreAttr) : 0;
 
     // Use existing announcement element
-    let ariaLive = document.getElementById("achievement-announcement");
+    const ariaLive = document.getElementById("achievement-announcement");
 
-    if (!ariaLive) return;
+    if (!ariaLive) {
+      return;
+    }
 
     // Get achievement level based on score
     let achievementLevel = "";
-    if (score >= ACHIEVEMENT_THRESHOLDS.GENIUS) achievementLevel = "genius";
-    else if (score >= ACHIEVEMENT_THRESHOLDS.PRO) achievementLevel = "pro";
-    else if (score >= ACHIEVEMENT_THRESHOLDS.ENTHUSIAST)
+    if (score >= ACHIEVEMENT_THRESHOLDS.GENIUS) {
+      achievementLevel = "genius";
+    } else if (score >= ACHIEVEMENT_THRESHOLDS.PRO) {
+      achievementLevel = "pro";
+    } else if (score >= ACHIEVEMENT_THRESHOLDS.ENTHUSIAST) {
       achievementLevel = "enthusiast";
-    else if (score >= ACHIEVEMENT_THRESHOLDS.LOVER) achievementLevel = "lover";
-    else achievementLevel = "explorer";
+    } else if (score >= ACHIEVEMENT_THRESHOLDS.LOVER) {
+      achievementLevel = "lover";
+    } else {
+      achievementLevel = "explorer";
+    }
 
     // Get language and create announcement
     const lang = document.documentElement.lang || "en";
@@ -1039,14 +1009,21 @@ const {
   function getMotivationText(score: number, language: string): string {
     // Get texts for the current language or fallback to English
     const texts =
-      MOTIVATION_TEXTS[language as keyof typeof MOTIVATION_TEXTS] ||
-      MOTIVATION_TEXTS.en;
+      MOTIVATION_TEXTS[language as keyof typeof MOTIVATION_TEXTS] || MOTIVATION_TEXTS.en;
 
     // Select text based on score threshold
-    if (score >= ACHIEVEMENT_THRESHOLDS.GENIUS) return texts.GENIUS;
-    if (score >= ACHIEVEMENT_THRESHOLDS.PRO) return texts.PRO;
-    if (score >= ACHIEVEMENT_THRESHOLDS.ENTHUSIAST) return texts.ENTHUSIAST;
-    if (score >= ACHIEVEMENT_THRESHOLDS.LOVER) return texts.LOVER;
+    if (score >= ACHIEVEMENT_THRESHOLDS.GENIUS) {
+      return texts.GENIUS;
+    }
+    if (score >= ACHIEVEMENT_THRESHOLDS.PRO) {
+      return texts.PRO;
+    }
+    if (score >= ACHIEVEMENT_THRESHOLDS.ENTHUSIAST) {
+      return texts.ENTHUSIAST;
+    }
+    if (score >= ACHIEVEMENT_THRESHOLDS.LOVER) {
+      return texts.LOVER;
+    }
     return texts.EXPLORER;
   }
 
@@ -1086,7 +1063,9 @@ const {
 
     // Get the game data from the popup element
     const shareData = getGameDataFromPopup();
-    if (!shareData) return;
+    if (!shareData) {
+      return;
+    }
 
     // Call the sharing function with the collected data
     try {
@@ -1101,9 +1080,7 @@ const {
    *
    * @returns {import("../../utils/share/shareUtils").ShareData|null} The extracted game data
    */
-  function getGameDataFromPopup():
-    | import("../../utils/share/shareUtils.js").ShareData
-    | null {
+  function getGameDataFromPopup(): import("../../utils/share/shareUtils.js").ShareData | null {
     const popup = document.querySelector(".popup") as HTMLElement;
 
     if (!popup) {
@@ -1128,9 +1105,7 @@ const {
     console.log("Updating achievements section with:", achievements);
 
     const achievementsSection = document.getElementById("achievements-section");
-    const unlockedAchievementsContainer = document.getElementById(
-      "unlocked-achievements",
-    );
+    const unlockedAchievementsContainer = document.getElementById("unlocked-achievements");
 
     if (!achievementsSection || !unlockedAchievementsContainer) {
       console.error("Achievement section elements not found");
@@ -1153,9 +1128,7 @@ const {
     // Add each achievement
     achievements.forEach((achievement) => {
       // Get category class based on achievement
-      const categoryCode = achievement.category
-        ? achievement.category.code
-        : "bronze";
+      const categoryCode = achievement.category ? achievement.category.code : "bronze";
 
       // Determine the background color class based on category
       let bgColorClass = "bg-[#cd7f32]"; // Default bronze
@@ -1212,8 +1185,7 @@ const {
 
       // Create achievement name
       const nameElement = document.createElement("h4");
-      nameElement.className =
-        "text-sm font-semibold text-zinc-100 text-center mb-1";
+      nameElement.className = "text-sm font-semibold text-zinc-100 text-center mb-1";
       nameElement.textContent = achievement.name || "Achievement";
 
       // Create achievement description
@@ -1231,10 +1203,6 @@ const {
     });
 
     // Log for debugging
-    console.log(
-      "Achievement section updated with",
-      achievements.length,
-      "achievements",
-    );
+    console.log("Achievement section updated with", achievements.length, "achievements");
   }
 </script>

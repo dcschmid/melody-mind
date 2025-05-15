@@ -1,0 +1,66 @@
+
+===============================
+PRETTIER ASTRO PLUGIN TEST
+===============================
+Datum: 14.5.2025, 21:41:06
+
+AUSGABE:
+Checking formatting...
+
+
+FEHLER:
+[warn] src/components/Achievements/AchievementBadge.astro
+[warn] src/components/Achievements/AchievementCard.astro
+[warn] src/components/Achievements/AchievementFilter.astro
+[warn] src/components/Achievements/AchievementNotification.astro
+[warn] src/components/AudioPlayer.astro
+[warn] src/components/auth/AuthForm.astro
+[warn] src/components/auth/EmailVerification.astro
+[warn] src/components/auth/PasswordResetForm.astro
+[warn] src/components/ButtonLink.astro
+[warn] src/components/Footer.astro
+[warn] src/components/Game/GameHeadline.astro
+[warn] src/components/Game/Joker.astro
+[warn] src/components/Game/LoadingSpinner.astro
+[warn] src/components/Header/Navigation.astro
+[warn] src/components/Headline.astro
+[warn] src/components/KnowledgeCard.astro
+[warn] src/components/LanguagePicker.astro
+[warn] src/components/MusicButtons.astro
+[warn] src/components/Overlays/ChronologyFeedbackOverlay.astro
+[warn] src/components/Overlays/EndOverlay.astro
+[warn] src/components/Overlays/FeedbackOverlay.astro
+[warn] src/components/Overlays/ShareOverlay.astro
+[warn] src/components/Paragraph.astro
+[warn] src/components/PlaylistCard.astro
+[warn] src/components/PlaylistItem.astro
+[warn] src/components/SEO.astro
+[warn] src/components/Shared/ErrorMessage.astro
+[warn] src/components/Shared/ShowCoins.astro
+[warn] src/components/TableOfContents.astro
+[warn] src/components/TestLint.astro
+[warn] src/layouts/Layout.astro
+[warn] src/pages/[lang]/[category].astro
+[warn] src/pages/[lang]/achievements.astro
+[warn] src/pages/[lang]/auth/reset-password.astro
+[warn] src/pages/[lang]/auth/verify-email.astro
+[warn] src/pages/[lang]/chronology-[category]/[difficulty].astro
+[warn] src/pages/[lang]/game-[category]/[difficulty].astro
+[warn] src/pages/[lang]/gamehome.astro
+[warn] src/pages/[lang]/highscores.astro
+[warn] src/pages/[lang]/index.astro
+[warn] src/pages/[lang]/knowledge/[...slug].astro
+[error] src/pages/[lang]/knowledge/index.astro: SyntaxError: Unexpected token, expected "," (2:10)
+[error]   1 |
+[error] > 2 |     {JSON.stringify({
+[error]     |          ^
+[error]   3 |       "@context": "https://schema.org",
+[error]   4 |       "@type": "BreadcrumbList",
+[error]   5 |       "itemListElement": [
+[warn] src/pages/[lang]/playlists.astro
+[warn] src/pages/[lang]/profile.astro
+[warn] Code style issues found in 43 files. Run Prettier with --write to fix.
+
+
+EXIT CODE: 2
+===============================

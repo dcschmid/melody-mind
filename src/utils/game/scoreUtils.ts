@@ -14,10 +14,7 @@
  * updateScoreDisplay(100, scoreElement);
  * ```
  */
-export function updateScoreDisplay(
-  score: number,
-  scoreElement: HTMLElement | null,
-): void {
+export function updateScoreDisplay(score: number, scoreElement: HTMLElement | null): void {
   if (!scoreElement) {
     return;
   }

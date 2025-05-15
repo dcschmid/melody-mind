@@ -1,3 +1,4 @@
+import { generateCsrfToken, type CsrfToken } from "./csrf.js";
 import {
   createUser,
   getUserByEmail,
@@ -10,22 +11,9 @@ import {
   type User,
   type NewUser,
 } from "./db.js";
-import {
-  generateTokenPair,
-  verifyAccessToken,
-  verifyRefreshToken,
-  type TokenPair,
-} from "./jwt.js";
-import {
-  validatePassword,
-  type ValidationResult,
-} from "./password-validation.js";
-import {
-  recordFailedLoginAttempt,
-  resetRateLimit,
-  isRateLimited,
-} from "./rate-limit.js";
-import { generateCsrfToken, type CsrfToken } from "./csrf.js";
+import { generateTokenPair, verifyAccessToken, verifyRefreshToken, type TokenPair } from "./jwt.js";
+import { validatePassword, type ValidationResult } from "./password-validation.js";
+import { recordFailedLoginAttempt, resetRateLimit, isRateLimited } from "./rate-limit.js";
 
 // Type for login results
 export type LoginResult = {
@@ -60,11 +48,7 @@ export class AuthService {
   /**
    * Logs in a user
    */
-  async login(
-    email: string,
-    password: string,
-    ip: string,
-  ): Promise<LoginResult> {
+  async login(email: string, password: string, ip: string): Promise<LoginResult> {
     // Check rate limiting
     if (isRateLimited(ip)) {
       return {
@@ -155,14 +139,10 @@ export class AuthService {
       const newUser = await createUser(userData);
 
       // Generate email verification token
-      const verificationToken = await generateEmailVerificationToken(
-        newUser.id,
-      );
+      const verificationToken = await generateEmailVerificationToken(newUser.id);
 
       // In a real application, an email with the verification link would be sent here
-      console.log(
-        `Verification link: https://example.com/verify-email?token=${verificationToken}`,
-      );
+      console.log(`Verification link: https://example.com/verify-email?token=${verificationToken}`);
 
       return {
         success: true,
@@ -200,9 +180,7 @@ export class AuthService {
       }
 
       // In a real application, an email with the reset link would be sent here
-      console.log(
-        `Password reset link: https://example.com/reset-password?token=${resetToken}`,
-      );
+      console.log(`Password reset link: https://example.com/reset-password?token=${resetToken}`);
 
       return true;
     } catch (error) {
@@ -214,10 +192,7 @@ export class AuthService {
   /**
    * Resets the password using a reset token
    */
-  async resetUserPassword(
-    token: string,
-    newPassword: string,
-  ): Promise<PasswordResetResult> {
+  async resetUserPassword(token: string, newPassword: string): Promise<PasswordResetResult> {
     try {
       // Validate password
       const passwordValidation = validatePassword(newPassword);
@@ -255,7 +230,7 @@ export class AuthService {
   async changePassword(
     userId: string,
     currentPassword: string,
-    newPassword: string,
+    newPassword: string
   ): Promise<PasswordResetResult> {
     try {
       // Validate password
@@ -317,7 +292,7 @@ export class AuthService {
    * Refreshes an access token using a refresh token
    */
   async refreshToken(
-    refreshToken: string,
+    refreshToken: string
   ): Promise<{ success: boolean; accessToken?: string; error?: string }> {
     try {
       const payload = verifyRefreshToken(refreshToken);

@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+
 import type { User } from "./db.js";
 
 // Constants for JWT settings
@@ -48,7 +49,7 @@ export function generateRefreshToken(user: User): string {
     email: user.email,
   };
 
-  return jwt.sign(payload, JWT_SECRET + "-refresh", {
+  return jwt.sign(payload, `${JWT_SECRET}-refresh`, {
     expiresIn: JWT_REFRESH_EXPIRES_IN,
   });
 }
@@ -89,7 +90,7 @@ export function verifyAccessToken(token: string): JwtPayload | null {
  */
 export function verifyRefreshToken(token: string): JwtPayload | null {
   try {
-    const decoded = jwt.verify(token, JWT_SECRET + "-refresh") as JwtPayload;
+    const decoded = jwt.verify(token, `${JWT_SECRET}-refresh`) as JwtPayload;
     return decoded;
   } catch (error) {
     return null;
@@ -102,9 +103,7 @@ export function verifyRefreshToken(token: string): JwtPayload | null {
  * @param refreshToken - The refresh token to use for renewal
  * @returns A new access token if successful, null otherwise
  */
-export async function refreshAccessToken(
-  refreshToken: string,
-): Promise<string | null> {
+export async function refreshAccessToken(refreshToken: string): Promise<string | null> {
   const payload = verifyRefreshToken(refreshToken);
   if (!payload || !payload.userId) {
     return null;

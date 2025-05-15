@@ -1,8 +1,7 @@
 export default {
   // Godkendelseskomponenter
   "auth.required.title": "Login påkrævet",
-  "auth.required.description":
-    "Log venligst ind for at få adgang til dette område",
+  "auth.required.description": "Log venligst ind for at få adgang til dette område",
   "auth.login.title": "Login",
   "auth.register.title": "Registrer",
   "auth.login.email": "E-mailadresse",
@@ -30,13 +29,11 @@ export default {
   "auth.form.send_reset_link": "Send nulstillingslink",
   "auth.form.password_required": "Adgangskode er påkrævet",
   "auth.form.password_requirements": "Adgangskoden opfylder ikke alle krav",
-  "auth.form.password_confirm_required":
-    "Bekræftelse af adgangskode er påkrævet",
+  "auth.form.password_confirm_required": "Bekræftelse af adgangskode er påkrævet",
   "auth.form.passwords_not_match": "Adgangskoderne stemmer ikke overens",
   "auth.password_reset.success_message":
     "Hvis der findes en konto med denne e-mailadresse, er der sendt en e-mail med instruktioner til nulstilling af adgangskode.",
-  "auth.password_reset.error_message":
-    "Der opstod en fejl. Prøv venligst igen senere.",
+  "auth.password_reset.error_message": "Der opstod en fejl. Prøv venligst igen senere.",
   "auth.password_reset.complete_success":
     "Adgangskode nulstillet succesfuldt. Du kan nu logge ind med din nye adgangskode.",
   "auth.password_reset.complete_error":
@@ -68,8 +65,7 @@ export default {
   "auth.password_reset.change_submit": "Skift adgangskode",
 
   "auth.email_verification.title": "E-mailbekræftelse",
-  "auth.email_verification.message":
-    "Vi har sendt et bekræftelseslink til din e-mailadresse",
+  "auth.email_verification.message": "Vi har sendt et bekræftelseslink til din e-mailadresse",
   "auth.email_verification.check_inbox": "Tjek venligst din indbakke",
   "auth.email_verification.resend": "Send bekræftelseslink igen",
   "auth.email_verification.success": "E-mail bekræftet succesfuldt",
@@ -78,17 +74,13 @@ export default {
   // Adgangskodevalidering
   "auth.password.requirements": "Adgangskodekrav:",
   "auth.password.min_length": "Adgangskoden skal være mindst 8 tegn lang",
-  "auth.password.uppercase":
-    "Adgangskoden skal indeholde mindst ét stort bogstav",
-  "auth.password.lowercase":
-    "Adgangskoden skal indeholde mindst ét lille bogstav",
+  "auth.password.uppercase": "Adgangskoden skal indeholde mindst ét stort bogstav",
+  "auth.password.lowercase": "Adgangskoden skal indeholde mindst ét lille bogstav",
   "auth.password.number": "Adgangskoden skal indeholde mindst ét tal",
   "auth.password.special": "Adgangskoden skal indeholde mindst ét specialtegn",
-  "auth.password.no_common":
-    "Adgangskoden må ikke være en almindelig adgangskode",
+  "auth.password.no_common": "Adgangskoden må ikke være en almindelig adgangskode",
   "auth.password.no_repeats": "Adgangskoden må ikke indeholde gentagne tegn",
-  "auth.password.no_sequences":
-    "Adgangskoden må ikke indeholde simple sekvenser",
+  "auth.password.no_sequences": "Adgangskoden må ikke indeholde simple sekvenser",
   "auth.password.match": "Adgangskoderne skal stemme overens",
   "auth.password.strength": "Adgangskodestyrke",
   "auth.password.strength.weak": "Svag",
@@ -121,16 +113,13 @@ export default {
   "auth.api.too_many_requests": "For mange forsøg. Prøv venligst igen senere",
 
   // Servicefejlmeddelelser
-  "auth.service.session_expired":
-    "Din session er udløbet. Log venligst ind igen",
+  "auth.service.session_expired": "Din session er udløbet. Log venligst ind igen",
   "auth.service.unauthorized": "Uautoriseret. Log venligst ind",
-  "auth.service.account_locked":
-    "Din konto er blevet låst. Kontakt venligst support",
+  "auth.service.account_locked": "Din konto er blevet låst. Kontakt venligst support",
   "auth.service.permission_denied": "Tilladelse nægtet til denne handling",
   "auth.service.invalid_credentials":
     "Ugyldige legitimationsoplysninger. Tjek venligst din e-mail og adgangskode.",
-  "auth.service.too_many_attempts":
-    "For mange loginforsøg. Vent et øjeblik og prøv igen.",
+  "auth.service.too_many_attempts": "For mange loginforsøg. Vent et øjeblik og prøv igen.",
 
   "nav.home": "Hjemmeside",
   "nav.rules": "Spilleregler",
@@ -182,8 +171,7 @@ export default {
   "game.feedback.media.section": "Mediesektion",
   "game.feedback.audio.preview": "Musikforhåndsvisning",
   "game.feedback.subtitles": "Undertekster",
-  "game.feedback.audio.unsupported":
-    "Din browser understøtter ikke lydafspilning.",
+  "game.feedback.audio.unsupported": "Din browser understøtter ikke lydafspilning.",
   "game.feedback.streaming.links": "Musikstreaminglinks",
   "game.feedback.listen.spotify": "Lyt på Spotify",
   "game.feedback.listen.deezer": "Lyt på Deezer",
@@ -239,8 +227,7 @@ export default {
   "game.options.label": "Svarmuligheder",
   "game.answer.correct": "Korrekt! {points} point + {bonus} bonuspoint",
   "game.answer.wrong": "Forkert! Det rigtige svar var: {answer}",
-  "error.invalid.question":
-    "Ugyldigt spørgsmål eller ingen muligheder tilgængelige",
+  "error.invalid.question": "Ugyldigt spørgsmål eller ingen muligheder tilgængelige",
   "error.no.initial.question": "Intet gyldigt startspørgsmål fundet",
   "error.no.albums.found": "Ingen album fundet for kategorien {category}",
   "meta.keywords":
@@ -273,8 +260,7 @@ export default {
   "knowledge.back.to.list": "Tilbage til oversigt",
   "knowledge.interact.heading": "Lyt & Spil",
   "knowledge.play.heading": "Spil denne genre",
-  "knowledge.play.description":
-    "Test din viden om denne musikgenre i vores interaktive quiz!",
+  "knowledge.play.description": "Test din viden om denne musikgenre i vores interaktive quiz!",
   "knowledge.play.category": "Start Musikquiz",
   "category.play": "Spil",
   "play.cover.puzzle": "Spil Coverpuslespil",
@@ -289,19 +275,16 @@ export default {
   "podcast.search.status.all": "Viser alle podcasts",
   "podcast.search.status.one": "1 podcast fundet",
   "podcast.search.status.multiple": "{count} podcasts fundet",
-  "podcast.no.results":
-    "Ingen matchende podcasts fundet. Prøv et andet søgeord.",
+  "podcast.no.results": "Ingen matchende podcasts fundet. Prøv et andet søgeord.",
   "podcast.duration.error": "Varighed ikke tilgængelig",
   "podcast.play": "Afspil",
   "podcast.intro.title": "Introduktion til Astropod",
   "podcast.intro.description":
     "Astropod er en gratis og open source-løsning til serverløse podcasts.",
   "podcast.deploy.title": "Implementer Serverløs Podcast på 2 Minutter",
-  "podcast.deploy.description":
-    "Lær, hvordan du hurtigt implementerer din podcast.",
+  "podcast.deploy.description": "Lær, hvordan du hurtigt implementerer din podcast.",
   "podcast.auth.title": "Brugergodkendelse og Adgang til Dashboard",
-  "podcast.auth.description":
-    "Aktiver godkendelse og få adgang til dashboardet.",
+  "podcast.auth.description": "Aktiver godkendelse og få adgang til dashboardet.",
   "podcast.config.title": "Konfigurer Astropod Podcast",
   "podcast.config.description": "Lær, hvordan du konfigurerer din podcast.",
   "podcast.publish.title": "Udgiv Din Første Episode",
@@ -309,18 +292,15 @@ export default {
   "podcast.conclusion.title": "Konklusion",
   "podcast.conclusion.description": "Resumé og næste skridt.",
   "podcast.listen.on": "Lyt på",
-  "podcast.language.availability":
-    "Vores podcasts er udelukkende tilgængelige på tysk og engelsk.",
+  "podcast.language.availability": "Vores podcasts er udelukkende tilgængelige på tysk og engelsk.",
   "podcast.listen.heading": "Lyt til Vores Podcasts",
   "login.welcome": "Velkommen til Melody Mind!",
   "login.description":
     "Tag på en musikalsk opdagelsesrejse gennem tiderne! Test din viden i spændende quizzer, udforsk fascinerende musikgenrer og dyk ned i vores medrivende podcasts. Vis dine evner, saml point og bliv en sand musiklegende!",
   "index.continue": "Lad os komme i gang!",
   "index.start.game.label": "Start din musikalske rejse",
-  "index.welcome.footnote":
-    "Forberedt af musikelskere for musikelskere. God fornøjelse!",
-  "accessibility.wcag":
-    "Denne applikation sigter mod WCAG AAA-overensstemmelse.",
+  "index.welcome.footnote": "Forberedt af musikelskere for musikelskere. God fornøjelse!",
+  "accessibility.wcag": "Denne applikation sigter mod WCAG AAA-overensstemmelse.",
   "game.instructions.title": "Spilinstruktioner",
   "game.instructions.puzzle":
     "Prøv at gætte albummet, mens coveret gradvist afsløres. Jo hurtigere du gætter rigtigt, jo flere point får du.",
@@ -351,8 +331,7 @@ export default {
   "playlist.search.label": "Søg i Playlister",
   "playlist.search.placeholder": "Søg efter kunstner eller stil...",
   "playlist.filter.all": "Alle Epoker",
-  "playlist.no.results":
-    "Ingen matchende playlister fundet. Prøv et andet søgeord.",
+  "playlist.no.results": "Ingen matchende playlister fundet. Prøv et andet søgeord.",
   "playlist.listen.on": "Lyt på",
   "playlist.listen.spotify": "Lyt på Spotify",
   "playlist.listen.deezer": "Lyt på Deezer",
@@ -361,8 +340,7 @@ export default {
   "footer.rights": "Alle rettigheder forbeholdes",
   "footer.donate": "Doner",
   "game.chronology.title": "Musikkronologi",
-  "game.chronology.description":
-    "Arranger disse album efter deres udgivelsesår (ældste først)",
+  "game.chronology.description": "Arranger disse album efter deres udgivelsesår (ældste først)",
   "game.chronology.area.label": "Kronologispilområde",
   "game.chronology.result": "Resultat",
   "game.chronology.correct": "Korrekt",
@@ -370,8 +348,7 @@ export default {
   "game.chronology.score": "Score: {score} point",
   "game.chronology.details": "{correct} ud af {total} album placeret korrekt",
   "game.chronology.year": "År: {year}",
-  "game.chronology.drag.help":
-    "Brug piletasterne ↑/↓ eller træk og slip for at sortere",
+  "game.chronology.drag.help": "Brug piletasterne ↑/↓ eller træk og slip for at sortere",
   "game.submit.answer": "Tjek Svar",
   "game.chronology.up": "Op",
   "game.chronology.down": "Ned",
@@ -381,20 +358,17 @@ export default {
   "common.back.to.top": "Tilbage til toppen",
   "knowledge.articles.heading": "Vidensartikler",
   "knowledge.search.heading": "Søg i Artikler",
-  "knowledge.search.description":
-    "Artikler filtreres automatisk, mens du skriver",
+  "knowledge.search.description": "Artikler filtreres automatisk, mens du skriver",
   "knowledge.search.reset": "Nulstil Søgning",
   "knowledge.search.reset.text": "Nulstil",
-  "knowledge.no.results.help":
-    "Prøv forskellige søgetermer eller nulstil søgningen",
+  "knowledge.no.results.help": "Prøv forskellige søgetermer eller nulstil søgningen",
   "knowledge.keyboard.instructions":
     "Brug piletasterne til at navigere mellem artikler. Tryk på Enter for at åbne en artikel.",
   "difficulty.level": "Sværhedsgrad",
 
   // Profilside
   "profile.title": "Min Profil",
-  "profile.description":
-    "Administrer dine personlige oplysninger og se dine spilstatistikker",
+  "profile.description": "Administrer dine personlige oplysninger og se dine spilstatistikker",
   "profile.loading": "Indlæser profildata...",
   "profile.error": "Fejl ved indlæsning af profildata",
   "profile.auth.required": "Du skal være logget ind for at se din profil",
@@ -419,8 +393,7 @@ export default {
 
   // Highscores-side
   "highscores.title": "Highscores",
-  "highscores.description":
-    "Se de bedste scores i forskellige spiltilstande og kategorier",
+  "highscores.description": "Se de bedste scores i forskellige spiltilstande og kategorier",
   "highscores.loading": "Indlæser highscores...",
   "highscores.error": "Fejl ved indlæsning af highscores",
   "highscores.empty": "Ingen poster fundet i highscores",
@@ -440,8 +413,7 @@ export default {
 
   // Præstationssystem
   "achievements.title": "Præstationer",
-  "achievements.description":
-    "Opdag og lås op for præstationer for at spore dine fremskridt",
+  "achievements.description": "Opdag og lås op for præstationer for at spore dine fremskridt",
   "achievements.loading": "Indlæser præstationer...",
   "achievements.error": "Fejl ved indlæsning af præstationer",
   "achievements.empty": "Ingen præstationer fundet",

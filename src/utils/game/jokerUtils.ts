@@ -54,7 +54,7 @@ export function use5050Joker(
   question: Question,
   jokerState: JokerState,
   maxJokers: number,
-  updateUI: UpdateUI = {},
+  updateUI: UpdateUI = {}
 ): JokerState {
   const { jokerUsed, jokerUsedCount } = jokerState;
 
@@ -67,9 +67,7 @@ export function use5050Joker(
     return jokerState;
   }
 
-  const options = Array.from(
-    document.querySelectorAll<HTMLButtonElement>("#options button"),
-  );
+  const options = Array.from(document.querySelectorAll<HTMLButtonElement>("#options button"));
 
   if (options.length === 0) {
     console.warn("Keine Antwortoptionen gefunden");
@@ -78,12 +76,10 @@ export function use5050Joker(
 
   try {
     const incorrectOptions = options.filter(
-      (option) => option.textContent !== question.correctAnswer,
+      (option) => option.textContent !== question.correctAnswer
     );
 
-    const optionsToRemove = incorrectOptions
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 2);
+    const optionsToRemove = incorrectOptions.sort(() => Math.random() - 0.5).slice(0, 2);
 
     optionsToRemove.forEach((option) => {
       option.classList.add("hidden");
@@ -119,12 +115,7 @@ export function createInitialJokerState(difficulty: Difficulty): {
   maxJokers: number;
   jokerState: JokerState;
 } {
-  const maxJokers =
-    difficulty === Difficulty.EASY
-      ? 3
-      : difficulty === Difficulty.MEDIUM
-        ? 5
-        : 7;
+  const maxJokers = difficulty === Difficulty.EASY ? 3 : difficulty === Difficulty.MEDIUM ? 5 : 7;
 
   return {
     maxJokers,

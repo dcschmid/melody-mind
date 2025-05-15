@@ -1,8 +1,7 @@
 export default {
   // Composants d'authentification
   "auth.required.title": "Connexion requise",
-  "auth.required.description":
-    "Veuillez vous connecter pour accéder à cette zone",
+  "auth.required.description": "Veuillez vous connecter pour accéder à cette zone",
   "auth.login.title": "Connexion",
   "auth.register.title": "S'inscrire",
   "auth.login.email": "Adresse e-mail",
@@ -29,15 +28,12 @@ export default {
   "auth.form.loading_text": "Chargement...",
   "auth.form.send_reset_link": "Envoyer le lien de réinitialisation",
   "auth.form.password_required": "Le mot de passe est requis",
-  "auth.form.password_requirements":
-    "Le mot de passe ne respecte pas toutes les exigences",
-  "auth.form.password_confirm_required":
-    "La confirmation du mot de passe est requise",
+  "auth.form.password_requirements": "Le mot de passe ne respecte pas toutes les exigences",
+  "auth.form.password_confirm_required": "La confirmation du mot de passe est requise",
   "auth.form.passwords_not_match": "Les mots de passe ne correspondent pas",
   "auth.password_reset.success_message":
     "Si un compte existe avec cette adresse e-mail, un e-mail contenant les instructions de réinitialisation du mot de passe a été envoyé.",
-  "auth.password_reset.error_message":
-    "Une erreur s'est produite. Veuillez réessayer plus tard.",
+  "auth.password_reset.error_message": "Une erreur s'est produite. Veuillez réessayer plus tard.",
   "auth.password_reset.complete_success":
     "Mot de passe réinitialisé avec succès. Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.",
   "auth.password_reset.complete_error":
@@ -62,10 +58,8 @@ export default {
   "auth.password_reset.email.placeholder": "Votre adresse e-mail enregistrée",
   "auth.password_reset.back_to_login": "Retour à la connexion",
   "auth.password_reset.login": "Connexion",
-  "auth.password_reset.success":
-    "Un lien de réinitialisation a été envoyé à votre adresse e-mail",
-  "auth.password_reset.error":
-    "Erreur lors de l'envoi du lien de réinitialisation",
+  "auth.password_reset.success": "Un lien de réinitialisation a été envoyé à votre adresse e-mail",
+  "auth.password_reset.error": "Erreur lors de l'envoi du lien de réinitialisation",
   "auth.password_reset.new_password": "Nouveau mot de passe",
   "auth.password_reset.confirm_password": "Confirmer le nouveau mot de passe",
   "auth.password_reset.change_submit": "Changer le mot de passe",
@@ -73,29 +67,21 @@ export default {
   "auth.email_verification.title": "Vérification de l'e-mail",
   "auth.email_verification.message":
     "Nous avons envoyé un lien de vérification à votre adresse e-mail",
-  "auth.email_verification.check_inbox":
-    "Veuillez vérifier votre boîte de réception",
+  "auth.email_verification.check_inbox": "Veuillez vérifier votre boîte de réception",
   "auth.email_verification.resend": "Renvoyer le lien de vérification",
   "auth.email_verification.success": "E-mail vérifié avec succès",
   "auth.email_verification.error": "Échec de la vérification de l'e-mail",
 
   // Validation du mot de passe
   "auth.password.requirements": "Exigences du mot de passe :",
-  "auth.password.min_length":
-    "Le mot de passe doit comporter au moins 8 caractères",
-  "auth.password.uppercase":
-    "Le mot de passe doit contenir au moins une lettre majuscule",
-  "auth.password.lowercase":
-    "Le mot de passe doit contenir au moins une lettre minuscule",
+  "auth.password.min_length": "Le mot de passe doit comporter au moins 8 caractères",
+  "auth.password.uppercase": "Le mot de passe doit contenir au moins une lettre majuscule",
+  "auth.password.lowercase": "Le mot de passe doit contenir au moins une lettre minuscule",
   "auth.password.number": "Le mot de passe doit contenir au moins un chiffre",
-  "auth.password.special":
-    "Le mot de passe doit contenir au moins un caractère spécial",
-  "auth.password.no_common":
-    "Le mot de passe ne doit pas être un mot de passe courant",
-  "auth.password.no_repeats":
-    "Le mot de passe ne doit pas contenir de caractères répétés",
-  "auth.password.no_sequences":
-    "Le mot de passe ne doit pas contenir de séquences simples",
+  "auth.password.special": "Le mot de passe doit contenir au moins un caractère spécial",
+  "auth.password.no_common": "Le mot de passe ne doit pas être un mot de passe courant",
+  "auth.password.no_repeats": "Le mot de passe ne doit pas contenir de caractères répétés",
+  "auth.password.no_sequences": "Le mot de passe ne doit pas contenir de séquences simples",
   "auth.password.match": "Les mots de passe doivent correspondre",
   "auth.password.strength": "Force du mot de passe",
   "auth.password.strength.weak": "Faible",
@@ -106,8 +92,7 @@ export default {
   // Validation du formulaire
   "auth.form.required": "Ce champ est requis",
   "auth.form.email_invalid": "Veuillez entrer une adresse e-mail valide",
-  "auth.form.min_length":
-    "Ce champ doit comporter au moins {length} caractères",
+  "auth.form.min_length": "Ce champ doit comporter au moins {length} caractères",
   "auth.form.max_length": "Ce champ ne doit pas dépasser {length} caractères",
   "auth.form.invalid": "Ce champ est invalide",
 
@@ -116,8 +101,7 @@ export default {
   "auth.accessibility.error": "Erreur : {message}",
   "auth.accessibility.required_field": "Champ obligatoire",
   "auth.accessibility.password_toggle": "Afficher/masquer le mot de passe",
-  "auth.accessibility.password_requirements":
-    "Afficher/masquer les exigences du mot de passe",
+  "auth.accessibility.password_requirements": "Afficher/masquer les exigences du mot de passe",
   "auth.accessibility.form": "Formulaire de connexion",
   "auth.accessibility.close_modal": "Fermer la fenêtre",
 
@@ -127,15 +111,12 @@ export default {
   "auth.api.invalid_credentials": "Identifiants invalides",
   "auth.api.account_exists": "Un compte avec cet e-mail existe déjà",
   "auth.api.email_not_found": "Aucun compte trouvé avec cet e-mail",
-  "auth.api.too_many_requests":
-    "Trop de tentatives. Veuillez réessayer plus tard",
+  "auth.api.too_many_requests": "Trop de tentatives. Veuillez réessayer plus tard",
 
   // Messages d'erreur du service
-  "auth.service.session_expired":
-    "Votre session a expiré. Veuillez vous reconnecter",
+  "auth.service.session_expired": "Votre session a expiré. Veuillez vous reconnecter",
   "auth.service.unauthorized": "Non autorisé. Veuillez vous connecter",
-  "auth.service.account_locked":
-    "Votre compte a été verrouillé. Veuillez contacter le support",
+  "auth.service.account_locked": "Votre compte a été verrouillé. Veuillez contacter le support",
   "auth.service.permission_denied": "Autorisation refusée pour cette action",
   "auth.service.invalid_credentials":
     "Identifiants invalides. Veuillez vérifier votre e-mail et votre mot de passe.",
@@ -156,8 +137,7 @@ export default {
   "game.welcome": "Bienvenue sur Melody Mind",
   "game.genre.list": "Sélection de genre",
   "game.search.label": "Rechercher un genre",
-  "game.search.description":
-    "La liste se filtre automatiquement au fur et à mesure de la saisie",
+  "game.search.description": "La liste se filtre automatiquement au fur et à mesure de la saisie",
   "game.genre.play.label": "jouer",
   "game.genre.image": "Image de couverture pour",
   "game.no.results": "Aucun résultat trouvé",
@@ -193,8 +173,7 @@ export default {
   "game.feedback.media.section": "Section Média",
   "game.feedback.audio.preview": "Aperçu musical",
   "game.feedback.subtitles": "Sous-titres",
-  "game.feedback.audio.unsupported":
-    "Votre navigateur ne prend pas en charge la lecture audio.",
+  "game.feedback.audio.unsupported": "Votre navigateur ne prend pas en charge la lecture audio.",
   "game.feedback.streaming.links": "Liens de streaming musical",
   "game.feedback.listen.spotify": "Écouter sur Spotify",
   "game.feedback.listen.deezer": "Écouter sur Deezer",
@@ -261,8 +240,7 @@ export default {
   "knowledge.search.label": "Rechercher des articles",
   "knowledge.search.placeholder": "Rechercher...",
   "knowledge.filter.all": "Tous les mots-clés",
-  "knowledge.no.results":
-    "Aucun article trouvé. Essayez d'autres termes de recherche.",
+  "knowledge.no.results": "Aucun article trouvé. Essayez d'autres termes de recherche.",
   "game.remaining": "restant",
   "game.default.headline": "Jeu",
   "popup.score": "Score : {score}",
@@ -296,13 +274,11 @@ export default {
   "podcast.page.description":
     "Plongez dans le monde de la musique avec nos podcasts captivants. Découvrez des histoires passionnantes, des contextes fascinants et des moments marquants de diverses époques musicales - parfait pour tous ceux qui veulent non seulement écouter de la musique, mais aussi la comprendre. Nos podcasts sont publiés toutes les 2 semaines et sont exclusivement disponibles en allemand et en anglais.",
   "podcast.search.label": "Rechercher des Podcasts",
-  "podcast.search.placeholder":
-    "Rechercher des histoires musicales fascinantes...",
+  "podcast.search.placeholder": "Rechercher des histoires musicales fascinantes...",
   "podcast.search.status.all": "Affichage de tous les podcasts",
   "podcast.search.status.one": "1 podcast trouvé",
   "podcast.search.status.multiple": "{count} podcasts trouvés",
-  "podcast.no.results":
-    "Aucun podcast correspondant trouvé. Essayez un autre terme de recherche.",
+  "podcast.no.results": "Aucun podcast correspondant trouvé. Essayez un autre terme de recherche.",
   "podcast.duration.error": "Durée non disponible",
   "podcast.play": "Lire",
   "podcast.intro.title": "Introduction à Astropod",
@@ -310,10 +286,8 @@ export default {
     "Astropod est une solution gratuite et open-source pour les podcasts sans serveur.",
   "podcast.deploy.title": "Déployer un Podcast sans Serveur en 2 Minutes",
   "podcast.deploy.description": "Apprenez à déployer rapidement votre podcast.",
-  "podcast.auth.title":
-    "Authentification des Utilisateurs et Accès au Tableau de Bord",
-  "podcast.auth.description":
-    "Activez l'authentification et accédez au tableau de bord.",
+  "podcast.auth.title": "Authentification des Utilisateurs et Accès au Tableau de Bord",
+  "podcast.auth.description": "Activez l'authentification et accédez au tableau de bord.",
   "podcast.config.title": "Configurer le Podcast Astropod",
   "podcast.config.description": "Apprenez à configurer votre podcast.",
   "podcast.publish.title": "Publier Votre Premier Épisode",
@@ -329,8 +303,7 @@ export default {
     "Embarquez pour un voyage musical de découverte à travers les âges ! Testez vos connaissances dans des quiz passionnants, explorez des genres musicaux fascinants et plongez dans nos podcasts captivants. Montrez vos compétences, collectez des points et devenez une véritable légende de la musique !",
   "index.continue": "C'est parti !",
   "index.start.game.label": "Commencez votre voyage musical",
-  "index.welcome.footnote":
-    "Préparé par des mélomanes pour des mélomanes. Profitez-en !",
+  "index.welcome.footnote": "Préparé par des mélomanes pour des mélomanes. Profitez-en !",
   "accessibility.wcag": "Cette application vise la conformité WCAG AAA.",
   "game.instructions.title": "Instructions du Jeu",
   "game.instructions.puzzle":
@@ -342,8 +315,7 @@ export default {
   "game.next.round": "Commencer la Prochaine Manche",
   "game.puzzle.revealed": "{percent}% de la pochette de l'album a été révélée",
   "game.option.choose": "Choisir",
-  "game.options.available":
-    "Les options de réponse sont maintenant disponibles",
+  "game.options.available": "Les options de réponse sont maintenant disponibles",
   "game.time.remaining.seconds": "{seconds} secondes restantes",
   "game.time.up": "Temps écoulé ! Le bon album était :",
   "game.correct.answer": "Bonne Réponse",
@@ -382,8 +354,7 @@ export default {
   "game.chronology.score": "Score : {score} points",
   "game.chronology.details": "{correct} sur {total} albums placés correctement",
   "game.chronology.year": "Année : {year}",
-  "game.chronology.drag.help":
-    "Utilisez les touches fléchées ↑/↓ ou le glisser-déposer pour trier",
+  "game.chronology.drag.help": "Utilisez les touches fléchées ↑/↓ ou le glisser-déposer pour trier",
   "game.submit.answer": "Vérifier la Réponse",
   "game.chronology.up": "Haut",
   "game.chronology.down": "Bas",
@@ -405,8 +376,7 @@ export default {
 
   // Page de Profil
   "profile.title": "Mon Profil",
-  "profile.description":
-    "Gérez vos informations personnelles et consultez vos statistiques de jeu",
+  "profile.description": "Gérez vos informations personnelles et consultez vos statistiques de jeu",
   "profile.loading": "Chargement des données du profil...",
   "profile.error": "Erreur lors du chargement des données du profil",
   "profile.auth.required": "Vous devez être connecté pour voir votre profil",
@@ -452,8 +422,7 @@ export default {
 
   // Système de Succès
   "achievements.title": "Succès",
-  "achievements.description":
-    "Découvrez et débloquez des succès pour suivre votre progression",
+  "achievements.description": "Découvrez et débloquez des succès pour suivre votre progression",
   "achievements.loading": "Chargement des succès...",
   "achievements.error": "Erreur lors du chargement des succès",
   "achievements.empty": "Aucun succès trouvé",
@@ -484,10 +453,8 @@ export default {
   "achievements.sort.name_desc": "Nom (Z-A)",
   "achievements.sort.progress_asc": "Progression (croissante)",
   "achievements.sort.progress_desc": "Progression (décroissante)",
-  "achievements.sort.unlocked_at_asc":
-    "Date de Déverrouillage (plus anciens d'abord)",
-  "achievements.sort.unlocked_at_desc":
-    "Date de Déverrouillage (plus récents d'abord)",
+  "achievements.sort.unlocked_at_asc": "Date de Déverrouillage (plus anciens d'abord)",
+  "achievements.sort.unlocked_at_desc": "Date de Déverrouillage (plus récents d'abord)",
   "achievements.sort.points_asc": "Points (croissants)",
   "achievements.sort.points_desc": "Points (décroissants)",
   "achievements.sort.rarity_asc": "Rareté (plus communs d'abord)",

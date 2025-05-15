@@ -25,10 +25,7 @@ export function isRateLimited(ip: string): boolean {
 
   // If the reset time is in the future and the maximum number of attempts has been reached,
   // the IP is limited
-  return (
-    loginAttempts[ip].resetTime > now &&
-    loginAttempts[ip].count >= MAX_LOGIN_ATTEMPTS
-  );
+  return loginAttempts[ip].resetTime > now && loginAttempts[ip].count >= MAX_LOGIN_ATTEMPTS;
 }
 
 /**
@@ -119,9 +116,7 @@ export function rateLimitMiddleware(request: Request): {
 } {
   // In a real application, the IP address would be extracted from the request
   // Here we use the IP from the X-Forwarded-For header or the remote address
-  const ip =
-    request.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
-    "unknown-ip";
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0].trim() || "unknown-ip";
 
   if (isRateLimited(ip)) {
     return {

@@ -34,9 +34,7 @@ const status = achievement.status;
   data-testid="achievement-card"
   data-category={achievement.category?.code}
 >
-  <div
-    class="bg-gray-700 p-6 flex justify-center items-center h-[100px] relative"
-  >
+  <div class="relative flex h-[100px] items-center justify-center bg-gray-700 p-6">
     {
       achievement.iconPath ? (
         <img
@@ -47,7 +45,7 @@ const status = achievement.status;
           loading="lazy"
         />
       ) : (
-        <div class="w-16 h-16 bg-gray-600 rounded-full flex justify-center items-center">
+        <div class="flex h-16 w-16 items-center justify-center rounded-full bg-gray-600">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -68,7 +66,7 @@ const status = achievement.status;
     {
       status === "unlocked" && (
         <div
-          class="absolute top-2 right-2 bg-green-500 text-white rounded-full w-6 h-6 flex justify-center items-center"
+          class="absolute top-2 right-2 flex h-6 w-6 items-center justify-center rounded-full bg-green-500 text-white"
           aria-hidden="true"
         >
           <svg
@@ -89,13 +87,13 @@ const status = achievement.status;
       )
     }
   </div>
-  <div class="p-6 flex-grow flex flex-col">
-    <h3 class="text-xl mb-2">{achievement.name}</h3>
-    <p class="text-gray-300 mb-4 text-sm flex-grow">
+  <div class="flex flex-grow flex-col p-6">
+    <h3 class="mb-2 text-xl">{achievement.name}</h3>
+    <p class="mb-4 flex-grow text-sm text-gray-300">
       {achievement.description}
     </p>
-    <div class="flex justify-between mb-4 text-sm">
-      <span class="text-yellow-400 font-semibold">
+    <div class="mb-4 flex justify-between text-sm">
+      <span class="font-semibold text-yellow-400">
         {
           t("achievements.points", {
             points: achievement.category?.points ?? 0,
@@ -112,7 +110,7 @@ const status = achievement.status;
     </div>
     <div class="mt-auto">
       <div
-        class="h-2 bg-gray-600 rounded overflow-hidden mb-2"
+        class="mb-2 h-2 overflow-hidden rounded bg-gray-600"
         role="progressbar"
         aria-valuenow={progressPercentage}
         aria-valuemin="0"
@@ -124,21 +122,18 @@ const status = achievement.status;
         >
         </div>
       </div>
-      <div class="flex justify-between items-center flex-wrap gap-1">
-        <span class="text-gray-400 text-sm">
+      <div class="flex flex-wrap items-center justify-between gap-1">
+        <span class="text-sm text-gray-400">
           {t("achievements.progress", { progress: progressPercentage })}
         </span>
         {
-          achievement.status === "unlocked" &&
-            achievement.userProgress?.unlockedAt && (
-              <span class="text-green-500 text-sm">
-                {t("achievements.unlocked_at", {
-                  date: new Date(
-                    achievement.userProgress.unlockedAt,
-                  ).toLocaleDateString(lang),
-                })}
-              </span>
-            )
+          achievement.status === "unlocked" && achievement.userProgress?.unlockedAt && (
+            <span class="text-sm text-green-500">
+              {t("achievements.unlocked_at", {
+                date: new Date(achievement.userProgress.unlockedAt).toLocaleDateString(lang),
+              })}
+            </span>
+          )
         }
       </div>
     </div>

@@ -21,9 +21,7 @@ export default {
         return {
           JSXOpeningElement(node) {
             if (node.name.name === "img") {
-              const altAttr = node.attributes.find(
-                (attr) => attr.name && attr.name.name === "alt",
-              );
+              const altAttr = node.attributes.find((attr) => attr.name && attr.name.name === "alt");
 
               if (altAttr && altAttr.value && altAttr.value.value) {
                 const altText = altAttr.value.value;
@@ -63,10 +61,7 @@ export default {
         return {
           JSXAttribute(node) {
             if (node.name.name === "className" || node.name.name === "class") {
-              if (
-                typeof node.value.value === "string" &&
-                hasWeakContrastColor(node.value.value)
-              ) {
+              if (typeof node.value.value === "string" && hasWeakContrastColor(node.value.value)) {
                 context.report({
                   node,
                   message:
@@ -87,23 +82,18 @@ export default {
             if (
               node.name.name === "div" &&
               node.attributes.some(
-                (attr) =>
-                  attr.name &&
-                  attr.name.name === "role" &&
-                  attr.value.value === "button",
+                (attr) => attr.name && attr.name.name === "role" && attr.value.value === "button"
               )
             ) {
               // Prüfe, ob tabindex gesetzt ist
               const hasTabIndex = node.attributes.some(
-                (attr) => attr.name && attr.name.name === "tabIndex",
+                (attr) => attr.name && attr.name.name === "tabIndex"
               );
 
               // Prüfe, ob keydown/keyup Listener vorhanden sind
               const hasKeyHandlers = node.attributes.some(
                 (attr) =>
-                  attr.name &&
-                  (attr.name.name === "onKeyDown" ||
-                    attr.name.name === "onKeyUp"),
+                  attr.name && (attr.name.name === "onKeyDown" || attr.name.name === "onKeyUp")
               );
 
               if (!hasTabIndex) {
@@ -132,10 +122,7 @@ export default {
       create: function (context) {
         return {
           CallExpression(node) {
-            if (
-              node.callee.type === "MemberExpression" &&
-              node.callee.property.name === "focus"
-            ) {
+            if (node.callee.type === "MemberExpression" && node.callee.property.name === "focus") {
               // Suche nach focus() Aufrufen ohne Kontext-Analyse
               context.report({
                 node,
@@ -147,7 +134,7 @@ export default {
                     fix: function (fixer) {
                       return fixer.insertTextBefore(
                         node,
-                        'announceToScreenReader("Fokus wurde verschoben"); ',
+                        'announceToScreenReader("Fokus wurde verschoben"); '
                       );
                     },
                   },
@@ -179,10 +166,7 @@ export default {
               const previous = headings[i - 1];
 
               // Es sollte keine Lücken in der Überschriftenhierarchie geben
-              if (
-                current.level > previous.level &&
-                current.level - previous.level > 1
-              ) {
+              if (current.level > previous.level && current.level - previous.level > 1) {
                 context.report({
                   node: current.node,
                   message: `Überschriftenhierarchie überspringt Level (von h${previous.level} zu h${current.level}). Dies erschwert die Navigation für Screenreader-Nutzer (WCAG AAA)`,

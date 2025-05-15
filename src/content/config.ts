@@ -49,7 +49,4 @@ export type CollectionKey = keyof typeof collections;
 export type Difficulty = (typeof difficultyEnum)[number];
 
 // Helper type for knowledge-specific collection keys
-export type KnowledgeCollectionKey = Extract<
-  CollectionKey,
-  `knowledge-${string}`
->;
+export type KnowledgeCollectionKey = Extract<CollectionKey, `knowledge-${string}`>;

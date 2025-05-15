@@ -3,12 +3,14 @@
  */
 
 import { stopAudio } from "@utils/audio/audioControls";
-import { updateScoreDisplay } from "./scoreUtils";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+
+import type { Album, Question } from "../../types/game";
+
 import { getRandomQuestion } from "./getRandomQuestion";
 import type { MediaElements } from "./mediaUtils";
 import { updateMedia } from "./mediaUtils";
-import { getLangFromUrl, useTranslations } from "@utils/i18n";
-import type { Album, Question } from "../../types/game";
+import { updateScoreDisplay } from "./scoreUtils";
 
 /**
  * Configuration interface for the answer handler
@@ -66,9 +68,7 @@ const FEEDBACK_TIMEOUT = 5000;
  * @returns A function that handles answer submission and scoring
  */
 export function createHandleAnswer(config: HandleAnswerConfig) {
-  const lang = getLangFromUrl(
-    new URL(window.location.pathname, window.location.origin),
-  );
+  const lang = getLangFromUrl(new URL(window.location.pathname, window.location.origin));
   const t = useTranslations(lang);
 
   /**
@@ -82,7 +82,7 @@ export function createHandleAnswer(config: HandleAnswerConfig) {
     option: string,
     correctAnswer: string,
     currentQuestion: { trivia: string },
-    album: { coverSrc: string; artist: string; album: string; year: string },
+    album: { coverSrc: string; artist: string; album: string; year: string }
   ) {
     // Calculate time taken to answer
     const timeTaken = (Date.now() - Date.now()) / 1000;
@@ -93,16 +93,18 @@ export function createHandleAnswer(config: HandleAnswerConfig) {
      * @returns Number of bonus points awarded
      */
     const calculateBonus = (time: number): number => {
-      if (time <= 10) return BONUS_POINTS.FAST;
-      if (time <= 15) return BONUS_POINTS.MEDIUM;
+      if (time <= 10) {
+        return BONUS_POINTS.FAST;
+      }
+      if (time <= 15) {
+        return BONUS_POINTS.MEDIUM;
+      }
       return BONUS_POINTS.NONE;
     };
 
     // Calculate points
-    const bonusPoints =
-      option === correctAnswer ? calculateBonus(timeTaken) : 0;
-    const totalPoints =
-      option === correctAnswer ? BASE_POINTS + bonusPoints : 0;
+    const bonusPoints = option === correctAnswer ? calculateBonus(timeTaken) : 0;
+    const totalPoints = option === correctAnswer ? BASE_POINTS + bonusPoints : 0;
 
     // Update feedback display
     const feedbackClass = option === correctAnswer ? "correct" : "incorrect";
@@ -127,8 +129,7 @@ export function createHandleAnswer(config: HandleAnswerConfig) {
     config.overlayCover.src = album.coverSrc || "";
     document.getElementById("overlay-artist")!.textContent = album.artist || "";
     document.getElementById("overlay-album")!.textContent = album.album || "";
-    document.getElementById("overlay-funfact")!.textContent =
-      currentQuestion.trivia || "";
+    document.getElementById("overlay-funfact")!.textContent = currentQuestion.trivia || "";
     document.getElementById("overlay-year")!.textContent = album.year || "";
 
     // Update media if available
@@ -141,9 +142,7 @@ export function createHandleAnswer(config: HandleAnswerConfig) {
     overlay.classList.remove("hidden");
 
     // Setup next round button
-    const nextRoundButton = document.getElementById(
-      "next-round-button",
-    ) as HTMLButtonElement;
+    const nextRoundButton = document.getElementById("next-round-button") as HTMLButtonElement;
 
     nextRoundButton.onclick = function () {
       stopAudio();
@@ -156,7 +155,7 @@ export function createHandleAnswer(config: HandleAnswerConfig) {
         const newQuestion = getRandomQuestion(
           config.albums,
           config.difficulty || "easy",
-          config.totalRounds,
+          config.totalRounds
         );
         if (newQuestion) {
           config.currentQuestion = {

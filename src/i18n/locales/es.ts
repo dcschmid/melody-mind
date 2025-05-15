@@ -1,8 +1,7 @@
 export default {
   // Componentes de autenticación
   "auth.required.title": "Se requiere iniciar sesión",
-  "auth.required.description":
-    "Por favor, inicia sesión para acceder a esta área",
+  "auth.required.description": "Por favor, inicia sesión para acceder a esta área",
   "auth.login.title": "Iniciar sesión",
   "auth.register.title": "Registrarse",
   "auth.login.email": "Dirección de correo electrónico",
@@ -24,21 +23,17 @@ export default {
   "auth.validation.processing": "Validando entradas...",
   "auth.form.error.general": "Ocurrió un error",
   "auth.form.success": "¡Éxito!",
-  "auth.form.email_required":
-    "La dirección de correo electrónico es obligatoria",
+  "auth.form.email_required": "La dirección de correo electrónico es obligatoria",
   "auth.form.email_invalid_short": "Dirección de correo electrónico no válida",
   "auth.form.loading_text": "Cargando...",
   "auth.form.send_reset_link": "Enviar enlace de restablecimiento",
   "auth.form.password_required": "La contraseña es obligatoria",
-  "auth.form.password_requirements":
-    "La contraseña no cumple todos los requisitos",
-  "auth.form.password_confirm_required":
-    "La confirmación de la contraseña es obligatoria",
+  "auth.form.password_requirements": "La contraseña no cumple todos los requisitos",
+  "auth.form.password_confirm_required": "La confirmación de la contraseña es obligatoria",
   "auth.form.passwords_not_match": "Las contraseñas no coinciden",
   "auth.password_reset.success_message":
     "Si existe una cuenta con esta dirección de correo electrónico, se ha enviado un correo electrónico con instrucciones para restablecer la contraseña.",
-  "auth.password_reset.error_message":
-    "Ocurrió un error. Por favor, inténtalo de nuevo más tarde.",
+  "auth.password_reset.error_message": "Ocurrió un error. Por favor, inténtalo de nuevo más tarde.",
   "auth.password_reset.complete_success":
     "Contraseña restablecida con éxito. Ahora puedes iniciar sesión con tu nueva contraseña.",
   "auth.password_reset.complete_error":
@@ -52,8 +47,7 @@ export default {
   "auth.register.password": "Contraseña",
   "auth.register.password.placeholder": "Crea una contraseña segura",
   "auth.register.password_confirm": "Confirmar contraseña",
-  "auth.register.password_confirm.placeholder":
-    "Vuelve a introducir la contraseña",
+  "auth.register.password_confirm.placeholder": "Vuelve a introducir la contraseña",
   "auth.register.terms": "Acepto los términos de servicio",
   "auth.register.success": "Registro exitoso",
   "auth.register.error": "Error en el registro",
@@ -61,8 +55,7 @@ export default {
   "auth.password_reset.title": "Restablecer contraseña",
   "auth.password_reset.submit": "Enviar enlace de restablecimiento",
   "auth.password_reset.email": "Dirección de correo electrónico",
-  "auth.password_reset.email.placeholder":
-    "Tu dirección de correo electrónico registrada",
+  "auth.password_reset.email.placeholder": "Tu dirección de correo electrónico registrada",
   "auth.password_reset.back_to_login": "Volver a Iniciar sesión",
   "auth.password_reset.login": "Iniciar sesión",
   "auth.password_reset.success":
@@ -75,28 +68,21 @@ export default {
   "auth.email_verification.title": "Verificación de correo electrónico",
   "auth.email_verification.message":
     "Hemos enviado un enlace de verificación a tu dirección de correo electrónico",
-  "auth.email_verification.check_inbox":
-    "Por favor, revisa tu bandeja de entrada",
+  "auth.email_verification.check_inbox": "Por favor, revisa tu bandeja de entrada",
   "auth.email_verification.resend": "Reenviar enlace de verificación",
   "auth.email_verification.success": "Correo electrónico verificado con éxito",
-  "auth.email_verification.error":
-    "Error en la verificación del correo electrónico",
+  "auth.email_verification.error": "Error en la verificación del correo electrónico",
 
   // Validación de contraseña
   "auth.password.requirements": "Requisitos de la contraseña:",
   "auth.password.min_length": "La contraseña debe tener al menos 8 caracteres",
-  "auth.password.uppercase":
-    "La contraseña debe contener al menos una letra mayúscula",
-  "auth.password.lowercase":
-    "La contraseña debe contener al menos una letra minúscula",
+  "auth.password.uppercase": "La contraseña debe contener al menos una letra mayúscula",
+  "auth.password.lowercase": "La contraseña debe contener al menos una letra minúscula",
   "auth.password.number": "La contraseña debe contener al menos un número",
-  "auth.password.special":
-    "La contraseña debe contener al menos un carácter especial",
+  "auth.password.special": "La contraseña debe contener al menos un carácter especial",
   "auth.password.no_common": "La contraseña no debe ser una contraseña común",
-  "auth.password.no_repeats":
-    "La contraseña no debe contener caracteres repetidos",
-  "auth.password.no_sequences":
-    "La contraseña no debe contener secuencias simples",
+  "auth.password.no_repeats": "La contraseña no debe contener caracteres repetidos",
+  "auth.password.no_sequences": "La contraseña no debe contener secuencias simples",
   "auth.password.match": "Las contraseñas deben coincidir",
   "auth.password.strength": "Fortaleza de la contraseña",
   "auth.password.strength.weak": "Débil",
@@ -106,8 +92,7 @@ export default {
 
   // Validación de formularios
   "auth.form.required": "Este campo es obligatorio",
-  "auth.form.email_invalid":
-    "Por favor, introduce una dirección de correo electrónico válida",
+  "auth.form.email_invalid": "Por favor, introduce una dirección de correo electrónico válida",
   "auth.form.min_length": "Este campo debe tener al menos {length} caracteres",
   "auth.form.max_length": "Este campo no debe exceder los {length} caracteres",
   "auth.form.invalid": "Este campo no es válido",
@@ -117,28 +102,22 @@ export default {
   "auth.accessibility.error": "Error: {message}",
   "auth.accessibility.required_field": "Campo obligatorio",
   "auth.accessibility.password_toggle": "Mostrar/ocultar contraseña",
-  "auth.accessibility.password_requirements":
-    "Mostrar/ocultar requisitos de contraseña",
+  "auth.accessibility.password_requirements": "Mostrar/ocultar requisitos de contraseña",
   "auth.accessibility.form": "Formulario de inicio de sesión",
   "auth.accessibility.close_modal": "Cerrar ventana",
 
   // Mensajes de error de la API
   "auth.api.network_error": "Error de red. Por favor, comprueba tu conexión",
-  "auth.api.server_error":
-    "Error del servidor. Por favor, inténtalo de nuevo más tarde",
+  "auth.api.server_error": "Error del servidor. Por favor, inténtalo de nuevo más tarde",
   "auth.api.invalid_credentials": "Credenciales no válidas",
   "auth.api.account_exists": "Ya existe una cuenta con este correo electrónico",
-  "auth.api.email_not_found":
-    "No se encontró ninguna cuenta con este correo electrónico",
-  "auth.api.too_many_requests":
-    "Demasiados intentos. Por favor, inténtalo de nuevo más tarde",
+  "auth.api.email_not_found": "No se encontró ninguna cuenta con este correo electrónico",
+  "auth.api.too_many_requests": "Demasiados intentos. Por favor, inténtalo de nuevo más tarde",
 
   // Mensajes de error del servicio
-  "auth.service.session_expired":
-    "Tu sesión ha caducado. Por favor, inicia sesión de nuevo",
+  "auth.service.session_expired": "Tu sesión ha caducado. Por favor, inicia sesión de nuevo",
   "auth.service.unauthorized": "No autorizado. Por favor, inicia sesión",
-  "auth.service.account_locked":
-    "Tu cuenta ha sido bloqueada. Por favor, contacta con el soporte",
+  "auth.service.account_locked": "Tu cuenta ha sido bloqueada. Por favor, contacta con el soporte",
   "auth.service.permission_denied": "Permiso denegado para esta acción",
   "auth.service.invalid_credentials":
     "Credenciales inválidas. Por favor, verifica tu correo electrónico y contraseña.",
@@ -159,8 +138,7 @@ export default {
   "game.welcome": "Bienvenido a Melody Mind",
   "game.genre.list": "Selección de género",
   "game.search.label": "Buscar un género",
-  "game.search.description":
-    "La lista se filtra automáticamente a medida que escribes",
+  "game.search.description": "La lista se filtra automáticamente a medida que escribes",
   "game.genre.play.label": "jugar",
   "game.genre.image": "Imagen de portada para",
   "game.no.results": "No se encontraron resultados",
@@ -196,8 +174,7 @@ export default {
   "game.feedback.media.section": "Sección de medios",
   "game.feedback.audio.preview": "Vista previa de la música",
   "game.feedback.subtitles": "Subtítulos",
-  "game.feedback.audio.unsupported":
-    "Tu navegador no admite la reproducción de audio.",
+  "game.feedback.audio.unsupported": "Tu navegador no admite la reproducción de audio.",
   "game.feedback.streaming.links": "Enlaces de transmisión de música",
   "game.feedback.listen.spotify": "Escuchar en Spotify",
   "game.feedback.listen.deezer": "Escuchar en Deezer",
@@ -251,13 +228,11 @@ export default {
   "playlist.item.coming.soon": "Próximamente",
   "game.area.label": "Área de juego",
   "game.options.label": "Opciones de respuesta",
-  "game.answer.correct":
-    "¡Correcto! {points} puntos + {bonus} puntos de bonificación",
+  "game.answer.correct": "¡Correcto! {points} puntos + {bonus} puntos de bonificación",
   "game.answer.wrong": "¡Incorrecto! La respuesta correcta era: {answer}",
   "error.invalid.question": "Pregunta no válida o no hay opciones disponibles",
   "error.no.initial.question": "No se encontró ninguna pregunta inicial válida",
-  "error.no.albums.found":
-    "No se encontraron álbumes para la categoría {category}",
+  "error.no.albums.found": "No se encontraron álbumes para la categoría {category}",
   "meta.keywords":
     "Quiz de música, Juego de música, Quiz de canciones, Quiz de artistas, Quiz de música online, Trivia de música, Melody Mind, Juego de adivinar música",
   "knowledge.title": "Base de conocimientos musicales",
@@ -266,8 +241,7 @@ export default {
   "knowledge.search.label": "Buscar artículos",
   "knowledge.search.placeholder": "Buscar...",
   "knowledge.filter.all": "Todas las palabras clave",
-  "knowledge.no.results":
-    "No se encontraron artículos. Intenta con otros términos de búsqueda.",
+  "knowledge.no.results": "No se encontraron artículos. Intenta con otros términos de búsqueda.",
   "game.remaining": "restante",
   "game.default.headline": "Juego",
   "popup.score": "Puntuación: {score}",
@@ -313,12 +287,9 @@ export default {
   "podcast.intro.description":
     "Astropod es una solución gratuita y de código abierto para podcasts sin servidor.",
   "podcast.deploy.title": "Implementar Podcast sin Servidor en 2 Minutos",
-  "podcast.deploy.description":
-    "Aprende cómo implementar rápidamente tu podcast.",
-  "podcast.auth.title":
-    "Autenticación de Usuarios y Acceso al Panel de Control",
-  "podcast.auth.description":
-    "Habilita la autenticación y accede al panel de control.",
+  "podcast.deploy.description": "Aprende cómo implementar rápidamente tu podcast.",
+  "podcast.auth.title": "Autenticación de Usuarios y Acceso al Panel de Control",
+  "podcast.auth.description": "Habilita la autenticación y accede al panel de control.",
   "podcast.config.title": "Configurar Podcast de Astropod",
   "podcast.config.description": "Aprende cómo configurar tu podcast.",
   "podcast.publish.title": "Publicar Tu Primer Episodio",
@@ -345,8 +316,7 @@ export default {
   "game.puzzle.loading": "Cargando rompecabezas...",
   "game.options.legend": "Selecciona el álbum correcto",
   "game.next.round": "Comenzar Siguiente Ronda",
-  "game.puzzle.revealed":
-    "Se ha revelado el {percent}% de la portada del álbum",
+  "game.puzzle.revealed": "Se ha revelado el {percent}% de la portada del álbum",
   "game.option.choose": "Elegir",
   "game.options.available": "Las opciones de respuesta ya están disponibles",
   "game.time.remaining.seconds": "{seconds} segundos restantes",
@@ -385,11 +355,9 @@ export default {
   "game.chronology.correct": "Correcto",
   "game.chronology.wrong": "Debería estar en la posición {position}",
   "game.chronology.score": "Puntuación: {score} puntos",
-  "game.chronology.details":
-    "{correct} de {total} álbumes colocados correctamente",
+  "game.chronology.details": "{correct} de {total} álbumes colocados correctamente",
   "game.chronology.year": "Año: {year}",
-  "game.chronology.drag.help":
-    "Usa las teclas de flecha ↑/↓ o arrastra y suelta para ordenar",
+  "game.chronology.drag.help": "Usa las teclas de flecha ↑/↓ o arrastra y suelta para ordenar",
   "game.submit.answer": "Comprobar Respuesta",
   "game.chronology.up": "Arriba",
   "game.chronology.down": "Abajo",
@@ -399,8 +367,7 @@ export default {
   "common.back.to.top": "Volver arriba",
   "knowledge.articles.heading": "Artículos de Conocimiento",
   "knowledge.search.heading": "Buscar Artículos",
-  "knowledge.search.description":
-    "Los artículos se filtran automáticamente a medida que escribes",
+  "knowledge.search.description": "Los artículos se filtran automáticamente a medida que escribes",
   "knowledge.search.reset": "Restablecer Búsqueda",
   "knowledge.search.reset.text": "Restablecer",
   "knowledge.no.results.help":
@@ -411,8 +378,7 @@ export default {
 
   // Página de Perfil
   "profile.title": "Mi Perfil",
-  "profile.description":
-    "Gestiona tu información personal y consulta tus estadísticas de juego",
+  "profile.description": "Gestiona tu información personal y consulta tus estadísticas de juego",
   "profile.loading": "Cargando datos del perfil...",
   "profile.error": "Error al cargar los datos del perfil",
   "profile.auth.required": "Debes iniciar sesión para ver tu perfil",
@@ -441,8 +407,7 @@ export default {
     "Consulta las puntuaciones más altas en diferentes modos de juego y categorías",
   "highscores.loading": "Cargando puntuaciones más altas...",
   "highscores.error": "Error al cargar las puntuaciones más altas",
-  "highscores.empty":
-    "No se encontraron entradas en las puntuaciones más altas",
+  "highscores.empty": "No se encontraron entradas en las puntuaciones más altas",
   "highscores.filter.title": "Filtrar Puntuaciones Más Altas",
   "highscores.filter.game.mode": "Modo de Juego",
   "highscores.filter.category": "Categoría",
@@ -459,8 +424,7 @@ export default {
 
   // Sistema de Logros
   "achievements.title": "Logros",
-  "achievements.description":
-    "Descubre y desbloquea logros para seguir tu progreso",
+  "achievements.description": "Descubre y desbloquea logros para seguir tu progreso",
   "achievements.loading": "Cargando logros...",
   "achievements.error": "Error al cargar los logros",
   "achievements.empty": "No se encontraron logros",
@@ -491,10 +455,8 @@ export default {
   "achievements.sort.name_desc": "Nombre (Z-A)",
   "achievements.sort.progress_asc": "Progreso (ascendente)",
   "achievements.sort.progress_desc": "Progreso (descendente)",
-  "achievements.sort.unlocked_at_asc":
-    "Fecha de Desbloqueo (más antiguos primero)",
-  "achievements.sort.unlocked_at_desc":
-    "Fecha de Desbloqueo (más recientes primero)",
+  "achievements.sort.unlocked_at_asc": "Fecha de Desbloqueo (más antiguos primero)",
+  "achievements.sort.unlocked_at_desc": "Fecha de Desbloqueo (más recientes primero)",
   "achievements.sort.points_asc": "Puntos (ascendente)",
   "achievements.sort.points_desc": "Puntos (descendente)",
   "achievements.sort.rarity_asc": "Rareza (más comunes primero)",

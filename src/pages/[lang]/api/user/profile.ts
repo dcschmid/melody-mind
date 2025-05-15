@@ -24,6 +24,7 @@
  * - 500: Server error during data retrieval
  */
 import type { APIRoute } from "astro";
+
 import { turso } from "../../../../turso.ts";
 import { useTranslations } from "../../../../utils/i18n.ts";
 
@@ -123,7 +124,7 @@ export const GET: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
@@ -149,7 +150,7 @@ export const GET: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
@@ -247,7 +248,7 @@ export const GET: APIRoute = async ({ request, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   } catch (error) {
     // Log error for debugging and return 500 response
@@ -263,7 +264,7 @@ export const GET: APIRoute = async ({ request, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   }
 };

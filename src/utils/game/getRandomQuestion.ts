@@ -92,7 +92,7 @@ interface RandomQuestionResult {
 export function getRandomQuestion(
   albums: Album[],
   difficulty: Difficulty,
-  totalRounds: number,
+  totalRounds: number
 ): RandomQuestionResult | null {
   // Validate input parameters
   if (!albums || !Array.isArray(albums) || albums.length === 0) {
@@ -101,9 +101,7 @@ export function getRandomQuestion(
   }
 
   if (!difficulty || !["easy", "medium", "hard"].includes(difficulty)) {
-    console.warn(
-      `Invalid difficulty level: ${difficulty}, defaulting to 'easy'`,
-    );
+    console.warn(`Invalid difficulty level: ${difficulty}, defaulting to 'easy'`);
     difficulty = "easy";
   }
 

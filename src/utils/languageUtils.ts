@@ -2,6 +2,9 @@ import { languages } from "../i18n/ui.js";
 
 const LANGUAGE_STORAGE_KEY = "preferred-language";
 
+/**
+ *
+ */
 export function determineUserLanguage(): string {
   // 1. Prüfe zuerst den LocalStorage
   if (typeof window !== "undefined") {
@@ -24,16 +27,25 @@ export function determineUserLanguage(): string {
   return "de";
 }
 
+/**
+ *
+ */
 export function saveLanguagePreference(language: string): void {
   if (typeof window !== "undefined") {
     localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
   }
 }
 
+/**
+ *
+ */
 export function getAvailableLanguages(): string[] {
   return Object.keys(languages);
 }
 
+/**
+ *
+ */
 export function getCurrentLanguage(): string {
   if (typeof window !== "undefined") {
     const storedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);

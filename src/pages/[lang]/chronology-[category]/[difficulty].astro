@@ -34,9 +34,7 @@ try {
 const user = { id: authResult.user?.id || "guest" };
 
 // Find current category data to use in page metadata and title
-const currentCategoryData = categories.default.find(
-  (cat: any) => cat.slug === category,
-);
+const currentCategoryData = categories.default.find((cat: any) => cat.slug === category);
 
 // Get custom player title based on difficulty for personalized experience
 const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
@@ -45,7 +43,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 const metaDescription = `${t("game.chronology.meta.description") || "Musik-Chronologie Spiel:"} ${currentCategoryData?.headline || ""} ${t("game.meta.difficulty") || "im Schwierigkeitsgrad"} ${t(`difficulty.${difficulty}`) || difficulty}`;
 
 console.log(
-  `User ${user.id} is playing Chronology in category ${category} with difficulty ${difficulty}`,
+  `User ${user.id} is playing Chronology in category ${category} with difficulty ${difficulty}`
 );
 ---
 
@@ -67,31 +65,20 @@ console.log(
     <GameHeadline headline={currentCategoryData?.headline} />
 
     <!-- Game info badges -->
-    <div
-      class="flex flex-wrap justify-center items-center gap-3 mt-4"
-      aria-live="polite"
-    >
+    <div class="mt-4 flex flex-wrap items-center justify-center gap-3" aria-live="polite">
       <div
-        class="inline-flex items-center px-3 py-1 rounded-xl bg-gradient-to-r from-zinc-800 to-zinc-900 shadow-sm border border-zinc-700"
+        class="inline-flex items-center rounded-xl border border-zinc-700 bg-gradient-to-r from-zinc-800 to-zinc-900 px-3 py-1 shadow-sm"
       >
-        <Icon
-          name="difficulty"
-          class="h-4 w-4 mr-2 text-yellow-400"
-          aria-hidden="true"
-        />
+        <Icon name="difficulty" class="mr-2 h-4 w-4 text-yellow-400" aria-hidden="true" />
         <span class="text-base font-medium text-zinc-100">
           {t(`difficulty.${difficulty}`)}
         </span>
       </div>
 
       <div
-        class="inline-flex items-center px-3 py-1 rounded-xl bg-gradient-to-r from-zinc-800 to-zinc-900 shadow-sm border border-zinc-700"
+        class="inline-flex items-center rounded-xl border border-zinc-700 bg-gradient-to-r from-zinc-800 to-zinc-900 px-3 py-1 shadow-sm"
       >
-        <Icon
-          name="coins"
-          class="h-4 w-4 mr-2 text-amber-400"
-          aria-hidden="true"
-        />
+        <Icon name="coins" class="mr-2 h-4 w-4 text-amber-400" aria-hidden="true" />
         <span class="text-base font-medium text-zinc-100">
           <span id="coins-display" class="coinsCount">0</span>
         </span>
@@ -105,7 +92,7 @@ console.log(
 
   <div
     id="chronology-container"
-    class="w-full max-w-3xl mx-auto p-6 md:p-8 rounded-xl bg-gradient-to-b from-zinc-800 to-zinc-900 shadow-xl border border-zinc-700 text-center transition-all duration-500 opacity-100 data-[hidden=true]:opacity-0"
+    class="mx-auto w-full max-w-3xl rounded-xl border border-zinc-700 bg-gradient-to-b from-zinc-800 to-zinc-900 p-6 text-center opacity-100 shadow-xl transition-all duration-500 data-[hidden=true]:opacity-0 md:p-8"
     role="main"
     aria-label={t("game.chronology.area.label") || "Chronologie-Spielbereich"}
     data-categoryName={currentCategoryData?.headline}
@@ -116,26 +103,19 @@ console.log(
     {
       playerTitle && (
         <div class="mb-4 text-center">
-          <span class="inline-flex items-center text-sm px-3 py-1 rounded-xl bg-gradient-to-r from-zinc-800 to-zinc-900 shadow-sm border border-zinc-700">
-            <Icon
-              name="trophy"
-              class="h-4 w-4 mr-2 text-yellow-400"
-              aria-hidden="true"
-            />
+          <span class="inline-flex items-center rounded-xl border border-zinc-700 bg-gradient-to-r from-zinc-800 to-zinc-900 px-3 py-1 text-sm shadow-sm">
+            <Icon name="trophy" class="mr-2 h-4 w-4 text-yellow-400" aria-hidden="true" />
             <span class="text-zinc-300">{playerTitle}</span>
           </span>
         </div>
       )
     }
 
-    <h2
-      class="mb-6 text-xl md:text-2xl font-bold text-white leading-relaxed"
-      id="chronology-title"
-    >
+    <h2 class="mb-6 text-xl leading-relaxed font-bold text-white md:text-2xl" id="chronology-title">
       {t("game.chronology.title") || "Musik-Chronologie"}
     </h2>
 
-    <p class="text-center text-zinc-300 mb-6" id="chronology-description">
+    <p class="mb-6 text-center text-zinc-300" id="chronology-description">
       {
         t("game.chronology.description") ||
           "Ordne diese Alben nach ihrem Erscheinungsjahr (ältestes zuerst)"
@@ -143,13 +123,13 @@ console.log(
     </p>
 
     <div
-      class="chronology-items space-y-3 mb-8 min-h-[300px]"
+      class="chronology-items mb-8 min-h-[300px] space-y-3"
       id="chronology-items-container"
       aria-live="polite"
     >
       <!-- Items werden per JavaScript hinzugefügt -->
       <div class="chronology-placeholder text-center text-zinc-400">
-        <Icon name="loader" class="w-8 h-8 mx-auto animate-spin" />
+        <Icon name="loader" class="mx-auto h-8 w-8 animate-spin" />
         <p class="mt-2">{t("loading.content")}</p>
       </div>
     </div>
@@ -157,7 +137,7 @@ console.log(
     <div class="flex justify-center">
       <button
         id="chronology-submit"
-        class="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-full font-bold transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+        class="rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-3 font-bold text-white transition-all hover:scale-105 disabled:cursor-not-allowed disabled:opacity-50"
         disabled
       >
         {t("game.submit.answer") || "Antwort überprüfen"}
@@ -174,23 +154,21 @@ console.log(
    * Players receive points based on accuracy of their ordering and are rewarded for perfectly ordered sequences.
    */
   import { ErrorHandler } from "@utils/error/errorHandler";
-  import { handleEndGame, restartGame } from "@utils/game/endGameUtils";
-  import { QueueManager } from "@utils/queue/queueManager";
-  import { Difficulty } from "@utils/game/jokerUtils";
-  import type { Album } from "@utils/game/getRandomQuestion";
-  import { getLangFromUrl, useTranslations } from "@utils/i18n";
-  import Sortable from "sortablejs";
   import {
     generateChronologyQuestion,
     evaluateChronologyAnswer,
   } from "@utils/game/chronologyGameMode";
+  import { handleEndGame, restartGame } from "@utils/game/endGameUtils";
+  import type { Album } from "@utils/game/getRandomQuestion";
+  import { Difficulty } from "@utils/game/jokerUtils";
+  import { getLangFromUrl, useTranslations } from "@utils/i18n";
+  import { QueueManager } from "@utils/queue/queueManager";
+  import Sortable from "sortablejs";
 
   /**
    * Get current language from URL and initialize translations
    */
-  const lang = getLangFromUrl(
-    new URL(window.location.pathname, window.location.origin),
-  ) as string;
+  const lang = getLangFromUrl(new URL(window.location.pathname, window.location.origin)) as string;
   const t = useTranslations(lang);
 
   /**
@@ -209,9 +187,15 @@ console.log(
    * @returns {Difficulty} Normalized difficulty enum value
    */
   const validateDifficulty = (diff: string | null): Difficulty => {
-    if (diff === "easy") return Difficulty.EASY;
-    if (diff === "medium") return Difficulty.MEDIUM;
-    if (diff === "hard") return Difficulty.HARD;
+    if (diff === "easy") {
+      return Difficulty.EASY;
+    }
+    if (diff === "medium") {
+      return Difficulty.MEDIUM;
+    }
+    if (diff === "hard") {
+      return Difficulty.HARD;
+    }
     return Difficulty.EASY;
   };
 
@@ -245,17 +229,11 @@ console.log(
    */
   function cacheElements(): ChronologyGameElements {
     return {
-      itemsContainer: document.getElementById(
-        "chronology-items-container",
-      ) as HTMLElement,
-      submitButton: document.getElementById(
-        "chronology-submit",
-      ) as HTMLButtonElement,
+      itemsContainer: document.getElementById("chronology-items-container") as HTMLElement,
+      submitButton: document.getElementById("chronology-submit") as HTMLButtonElement,
       coinsDisplay: document.querySelector(".coinsCount") as HTMLElement,
       loadingSpinner: document.getElementById("loading-spinner") as HTMLElement,
-      chronologyContainer: document.getElementById(
-        "chronology-container",
-      ) as HTMLElement,
+      chronologyContainer: document.getElementById("chronology-container") as HTMLElement,
       endGamePopup: document.getElementById("endgame-popup") as HTMLElement,
       roundElement: document.querySelector(".round") as HTMLElement,
     };
@@ -291,12 +269,9 @@ console.log(
       this.category = container.getAttribute("data-genre") || "";
       this.userId = container.getAttribute("data-userID") || "guest";
       this.categoryName = container.getAttribute("data-categoryName") || "";
-      this.difficulty = validateDifficulty(
-        container.getAttribute("date-difficulty"),
-      );
+      this.difficulty = validateDifficulty(container.getAttribute("date-difficulty"));
 
-      this.totalRounds =
-        ROUNDS_PER_DIFFICULTY[this.difficulty] || ROUNDS_PER_DIFFICULTY.EASY;
+      this.totalRounds = ROUNDS_PER_DIFFICULTY[this.difficulty] || ROUNDS_PER_DIFFICULTY.EASY;
 
       // Initialize round display
       this.updateRoundDisplay();
@@ -330,9 +305,7 @@ console.log(
      */
     private initEventListeners() {
       // Submit button
-      this.elements.submitButton.addEventListener("click", () =>
-        this.handleSubmit(),
-      );
+      this.elements.submitButton.addEventListener("click", () => this.handleSubmit());
 
       // Restart button in endgame popup
       const restartButton = document.getElementById("restart-button");
@@ -352,9 +325,7 @@ console.log(
 
         try {
           // Versuche zuerst, Alben für die aktuelle Sprache zu laden
-          const response = await fetch(
-            `/json/genres/${String(lang)}/${this.category}.json`,
-          );
+          const response = await fetch(`/json/genres/${String(lang)}/${this.category}.json`);
 
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -363,18 +334,12 @@ console.log(
           albumsData = await response.json();
         } catch (langError) {
           // Fallback auf Deutsch, wenn die spezifische Sprachdatei nicht existiert
-          console.log(
-            `No albums found for ${lang}/${this.category}, falling back to German`,
-          );
+          console.log(`No albums found for ${lang}/${this.category}, falling back to German`);
 
-          const fallbackResponse = await fetch(
-            `/json/genres/de/${this.category}.json`,
-          );
+          const fallbackResponse = await fetch(`/json/genres/de/${this.category}.json`);
 
           if (!fallbackResponse.ok) {
-            throw new Error(
-              `HTTP error for fallback! Status: ${fallbackResponse.status}`,
-            );
+            throw new Error(`HTTP error for fallback! Status: ${fallbackResponse.status}`);
           }
 
           albumsData = await fallbackResponse.json();
@@ -389,9 +354,7 @@ console.log(
         return true;
       } catch (error) {
         console.error("Error loading albums:", error);
-        ErrorHandler.handleApiError(
-          error instanceof Error ? error : new Error(String(error)),
-        );
+        ErrorHandler.handleApiError(error instanceof Error ? error : new Error(String(error)));
         return false;
       }
     }
@@ -450,14 +413,11 @@ console.log(
       this.questionStartTime = Date.now();
 
       // Frage für aktuellen Schwierigkeitsgrad generieren
-      this.currentQuestion = generateChronologyQuestion(
-        this.albums,
-        this.difficulty,
-      );
+      this.currentQuestion = generateChronologyQuestion(this.albums, this.difficulty);
 
       if (!this.currentQuestion) {
         ErrorHandler.handleApiError(
-          new Error("Keine gültige Chronologie-Frage konnte generiert werden"),
+          new Error("Keine gültige Chronologie-Frage konnte generiert werden")
         );
         return;
       }
@@ -479,7 +439,9 @@ console.log(
      * Creates sortable list items representing albums to be ordered
      */
     private renderQuestion() {
-      if (!this.elements.itemsContainer || !this.currentQuestion) return;
+      if (!this.elements.itemsContainer || !this.currentQuestion) {
+        return;
+      }
 
       const container = this.elements.itemsContainer;
       container.innerHTML = "";
@@ -521,8 +483,7 @@ console.log(
 
         // Position number (for accessibility)
         const position = document.createElement("div");
-        position.className =
-          "chronology-position ml-auto text-xl font-bold text-zinc-500";
+        position.className = "chronology-position ml-auto text-xl font-bold text-zinc-500";
         position.textContent = (index + 1).toString();
         position.setAttribute("aria-hidden", "true");
 
@@ -579,10 +540,11 @@ console.log(
      * Called after drag operations to maintain visual position indicators
      */
     private updatePositionNumbers() {
-      if (!this.elements.itemsContainer) return;
+      if (!this.elements.itemsContainer) {
+        return;
+      }
 
-      const items =
-        this.elements.itemsContainer.querySelectorAll(".chronology-item");
+      const items = this.elements.itemsContainer.querySelectorAll(".chronology-item");
       items.forEach((item, index) => {
         const position = item.querySelector(".chronology-position");
         if (position) {
@@ -601,8 +563,7 @@ console.log(
 
       // Hilfsinstruktionen für Tastaturnutzer hinzufügen
       const keyboardInstructions = document.createElement("div");
-      keyboardInstructions.className =
-        "keyboard-instructions text-sm text-zinc-400 mt-2 mb-4";
+      keyboardInstructions.className = "keyboard-instructions text-sm text-zinc-400 mt-2 mb-4";
       keyboardInstructions.innerHTML = `
         <span class="sr-only">${t("game.chronology.drag.help") || "Nutze die Pfeiltasten ↑/↓ oder Drag & Drop zum Sortieren"}</span>
         <div class="flex flex-wrap justify-center gap-2 text-xs">
@@ -634,7 +595,7 @@ console.log(
         item.setAttribute("role", "listitem");
         item.setAttribute(
           "aria-label",
-          `Element ${item.querySelector(".font-bold")?.textContent} - ${item.querySelector(".text-zinc-300")?.textContent}. Nutze Pfeiltasten zum Umordnen.`,
+          `Element ${item.querySelector(".font-bold")?.textContent} - ${item.querySelector(".text-zinc-300")?.textContent}. Nutze Pfeiltasten zum Umordnen.`
         );
 
         item.addEventListener("keydown", (e) => {
@@ -649,10 +610,8 @@ console.log(
           let moved = false;
 
           // ARIA-Announcement vorbereiten
-          const artistName =
-            item.querySelector(".font-bold")?.textContent || "";
-          const albumTitle =
-            item.querySelector(".text-zinc-300")?.textContent || "";
+          const artistName = item.querySelector(".font-bold")?.textContent || "";
+          const albumTitle = item.querySelector(".text-zinc-300")?.textContent || "";
           const itemDescription = `${artistName} - ${albumTitle}`;
 
           // Verhindere Scrollen mit Pfeiltasten
@@ -663,10 +622,16 @@ console.log(
           // Funktion, um ein Element an einer bestimmten Position einzufügen
           const moveToPosition = (targetIndex: number) => {
             // Sicherheitscheck für Index-Grenzen
-            if (targetIndex < 0) targetIndex = 0;
-            if (targetIndex >= items.length) targetIndex = items.length - 1;
+            if (targetIndex < 0) {
+              targetIndex = 0;
+            }
+            if (targetIndex >= items.length) {
+              targetIndex = items.length - 1;
+            }
 
-            if (targetIndex === currentIndex) return false; // Keine Änderung nötig
+            if (targetIndex === currentIndex) {
+              return false;
+            } // Keine Änderung nötig
 
             // DOM-Element für die Zielposition
             const targetElement = items[targetIndex] as HTMLElement;
@@ -747,12 +712,7 @@ console.log(
 
         item.addEventListener("blur", () => {
           item.setAttribute("aria-grabbed", "false");
-          item.classList.remove(
-            "ring-2",
-            "ring-purple-500",
-            "ring-offset-1",
-            "bg-purple-900/20",
-          );
+          item.classList.remove("ring-2", "ring-purple-500", "ring-offset-1", "bg-purple-900/20");
         });
       });
     }
@@ -764,37 +724,21 @@ console.log(
      */
     private highlightElement(element: HTMLElement) {
       // Entferne Hervorhebung von allen Elementen
-      const allItems =
-        this.elements.itemsContainer?.querySelectorAll(".chronology-item") ||
-        [];
+      const allItems = this.elements.itemsContainer?.querySelectorAll(".chronology-item") || [];
       allItems.forEach((item) => {
-        item.classList.remove(
-          "ring-2",
-          "ring-purple-500",
-          "ring-offset-1",
-          "bg-purple-900/20",
-        );
+        item.classList.remove("ring-2", "ring-purple-500", "ring-offset-1", "bg-purple-900/20");
       });
 
       // Hervorhebung für das fokussierte Element
-      element.classList.add(
-        "ring-2",
-        "ring-purple-500",
-        "ring-offset-1",
-        "bg-purple-900/20",
-      );
+      element.classList.add("ring-2", "ring-purple-500", "ring-offset-1", "bg-purple-900/20");
 
       // Pulse-Animation für besseres visuelles Feedback
       element.animate(
-        [
-          { transform: "scale(1)" },
-          { transform: "scale(1.02)" },
-          { transform: "scale(1)" },
-        ],
+        [{ transform: "scale(1)" }, { transform: "scale(1.02)" }, { transform: "scale(1)" }],
         {
           duration: 300,
           easing: "ease-in-out",
-        },
+        }
       );
     }
 
@@ -803,22 +747,20 @@ console.log(
      * Evaluates answer, updates score, and handles game progression
      */
     private handleSubmit() {
-      if (!this.elements.itemsContainer || !this.currentQuestion) return;
+      if (!this.elements.itemsContainer || !this.currentQuestion) {
+        return;
+      }
 
       // Antwortzeit für Achievement-Tracking speichern
       const answerTime = Date.now() - this.questionStartTime;
       this.lastAnswerTime = answerTime;
 
-      const items =
-        this.elements.itemsContainer.querySelectorAll(".chronology-item");
+      const items = this.elements.itemsContainer.querySelectorAll(".chronology-item");
       const userOrder = Array.from(items).map((item) =>
-        parseInt(item.getAttribute("data-id") || "0"),
+        parseInt(item.getAttribute("data-id") || "0")
       );
 
-      const result = evaluateChronologyAnswer(
-        userOrder,
-        this.currentQuestion.correctOrder,
-      );
+      const result = evaluateChronologyAnswer(userOrder, this.currentQuestion.correctOrder);
 
       // Punktestand aktualisieren
       this.score += result.score;
@@ -901,11 +843,12 @@ console.log(
      * @param {number[]} userOrder - The order submitted by the user
      */
     private showResults(result: any, userOrder: number[]) {
-      if (!this.elements.itemsContainer || !this.currentQuestion) return;
+      if (!this.elements.itemsContainer || !this.currentQuestion) {
+        return;
+      }
 
       // Korrekte/falsche Items markieren
-      const items =
-        this.elements.itemsContainer.querySelectorAll(".chronology-item");
+      const items = this.elements.itemsContainer.querySelectorAll(".chronology-item");
 
       items.forEach((item, index) => {
         const id = parseInt(item.getAttribute("data-id") || "0");
@@ -913,8 +856,7 @@ console.log(
 
         // Status-Badge hinzufügen
         const badge = document.createElement("div");
-        badge.className =
-          "absolute top-2 right-2 text-xs px-2 py-1 rounded-full";
+        badge.className = "absolute top-2 right-2 text-xs px-2 py-1 rounded-full";
 
         if (correctIndex === index) {
           // Korrekte Position
@@ -929,12 +871,8 @@ console.log(
         }
 
         // Jahr anzeigen
-        const matchingItem = this.currentQuestion.items.find(
-          (i: any) => i.id === id,
-        );
-        const content = item.querySelector(
-          ".chronology-item > div:nth-child(2)",
-        );
+        const matchingItem = this.currentQuestion.items.find((i: any) => i.id === id);
+        const content = item.querySelector(".chronology-item > div:nth-child(2)");
         if (content && matchingItem) {
           const yearElement = document.createElement("div");
           yearElement.className = "mt-1 text-sm font-bold";
@@ -949,8 +887,7 @@ console.log(
 
       // Ergebnis-Box anzeigen
       const resultBox = document.createElement("div");
-      resultBox.className =
-        "mt-6 p-4 rounded-lg bg-zinc-900 border border-zinc-700 text-center";
+      resultBox.className = "mt-6 p-4 rounded-lg bg-zinc-900 border border-zinc-700 text-center";
 
       const scoreHeading = document.createElement("h3");
       scoreHeading.className = "text-lg font-bold";
@@ -999,15 +936,11 @@ console.log(
       const ui = {
         showEndgamePopup: (score: number) => {
           if (this.elements.endGamePopup) {
-            const scoreElement =
-              this.elements.endGamePopup.querySelector("#popup-score");
+            const scoreElement = this.elements.endGamePopup.querySelector("#popup-score");
 
             if (scoreElement) {
               scoreElement.textContent = score.toString();
-              this.elements.endGamePopup.setAttribute(
-                "data-score",
-                score.toString(),
-              );
+              this.elements.endGamePopup.setAttribute("data-score", score.toString());
               this.elements.endGamePopup.classList.remove("hidden");
             }
           }
@@ -1033,11 +966,7 @@ console.log(
     const elements = cacheElements();
 
     // Check if all required elements are present
-    if (
-      !elements.itemsContainer ||
-      !elements.submitButton ||
-      !elements.chronologyContainer
-    ) {
+    if (!elements.itemsContainer || !elements.submitButton || !elements.chronologyContainer) {
       console.error("Required DOM elements not found");
       return;
     }
@@ -1045,9 +974,7 @@ console.log(
     // Initialize achievement event system
     try {
       // Dynamic import for the achievement system
-      const achievementModule = await import(
-        "../../../utils/achievements/achievementEvents.js"
-      );
+      const achievementModule = await import("../../../utils/achievements/achievementEvents.js");
       achievementModule.initAchievementEventSystem();
       console.log("Achievement event system initialized for game mode");
     } catch (error) {
@@ -1108,7 +1035,7 @@ console.log(
 
   /* Disabled button styling */
   button[disabled] {
-    @apply opacity-50 cursor-not-allowed;
+    @apply cursor-not-allowed opacity-50;
   }
 
   /* High Contrast Mode Support */
