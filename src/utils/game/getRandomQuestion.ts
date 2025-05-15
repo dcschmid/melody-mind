@@ -7,8 +7,6 @@
  * @module getRandomQuestion
  */
 
-import { shuffleArray } from "../share/shuffleArray";
-
 /**
  * Set to track questions that have already been used during the current game session
  * to prevent duplicates and ensure a varied experience
@@ -107,17 +105,24 @@ export function getRandomQuestion(
 
   // First check if we need to reset the used questions set
   if (usedQuestions.size >= totalRounds) {
-    console.info("All rounds completed, resetting used questions tracking");
+    console.warn("All rounds completed, resetting used questions tracking");
     usedQuestions.clear();
   }
 
   try {
-    // Shuffle the albums to randomize selection across different albums
-    const shuffledAlbums = shuffleArray([...albums]);
+    // Create a copy of the albums array to avoid mutation
+    const albumsCopy = [...albums];
+
+    // Manual shuffle since we can't use the async shuffleArray function directly
+    // Simple Fisher-Yates shuffle algorithm implementation
+    for (let i = albumsCopy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [albumsCopy[i], albumsCopy[j]] = [albumsCopy[j], albumsCopy[i]];
+    }
 
     // Create a flat list of all valid questions with their corresponding albums
     // that haven't been used yet in this game session
-    const availableQuestions = shuffledAlbums.flatMap((album: Album) => {
+    const availableQuestions = albumsCopy.flatMap((album: Album) => {
       // Safely access questions for the current difficulty
       const questionsForDifficulty = album.questions[difficulty] || [];
 

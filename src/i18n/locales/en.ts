@@ -470,4 +470,20 @@ export default {
   // Password reset confirmation
   "auth.password_reset_confirm.success":
     "Password successfully reset. You can now log in with your new password",
+
+  // Game result validation and errors
+  "errors.gameResult.validation.invalidData": "Invalid data format",
+  "errors.gameResult.validation.missingUserId": "User ID is required",
+  "errors.gameResult.validation.missingCategory": "Category name is required",
+  "errors.gameResult.validation.missingDifficulty": "Difficulty level is required",
+  "errors.gameResult.validation.invalidDifficulty": "Invalid difficulty level",
+  "errors.gameResult.validation.invalidScore": "Score must be a number",
+  "errors.gameResult.validation.invalidCorrectAnswers": "Correct answers must be a number",
+  "errors.gameResult.validation.invalidTotalRounds": "Total rounds must be a number",
+  "errors.gameResult.database.saveFailed": "Failed to save game result",
+  "errors.gameResult.log.database": "Database error:",
+  "errors.gameResult.log.dailyActivity": "Error updating daily activity:",
+  "errors.gameResult.log.achievements": "Error processing achievements:",
+  "errors.gameResult.log.api": "API Error:",
+  "errors.gameResult.log.unknown": "Unknown error",
 };

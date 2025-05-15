@@ -479,4 +479,21 @@ export default {
   // Conferma di reimpostazione della password
   "auth.password_reset_confirm.success":
     "Password reimpostata con successo. Ora puoi accedere con la tua nuova password",
+
+  // Validazione e errori dei risultati di gioco
+  "errors.gameResult.validation.invalidData": "Formato dati non valido",
+  "errors.gameResult.validation.missingUserId": "ID utente richiesto",
+  "errors.gameResult.validation.missingCategory": "Nome categoria richiesto",
+  "errors.gameResult.validation.missingDifficulty": "Livello di difficoltà richiesto",
+  "errors.gameResult.validation.invalidDifficulty": "Livello di difficoltà non valido",
+  "errors.gameResult.validation.invalidScore": "Il punteggio deve essere un numero",
+  "errors.gameResult.validation.invalidCorrectAnswers":
+    "Le risposte corrette devono essere un numero",
+  "errors.gameResult.validation.invalidTotalRounds": "Il totale dei round deve essere un numero",
+  "errors.gameResult.database.saveFailed": "Impossibile salvare il risultato del gioco",
+  "errors.gameResult.log.database": "Errore del database:",
+  "errors.gameResult.log.dailyActivity": "Errore nell'aggiornamento dell'attività giornaliera:",
+  "errors.gameResult.log.achievements": "Errore nell'elaborazione dei traguardi:",
+  "errors.gameResult.log.api": "Errore API:",
+  "errors.gameResult.log.unknown": "Errore sconosciuto",
 };

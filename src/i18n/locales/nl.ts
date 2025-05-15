@@ -476,4 +476,20 @@ export default {
   // Bevestiging van wachtwoord reset
   "auth.password_reset_confirm.success":
     "Wachtwoord succesvol gereset. Je kunt nu inloggen met je nieuwe wachtwoord",
+
+  // Validatie en fouten voor spelresultaten
+  "errors.gameResult.validation.invalidData": "Ongeldig gegevensformaat",
+  "errors.gameResult.validation.missingUserId": "Gebruikers-ID is vereist",
+  "errors.gameResult.validation.missingCategory": "Categorienaam is vereist",
+  "errors.gameResult.validation.missingDifficulty": "Moeilijkheidsgraad is vereist",
+  "errors.gameResult.validation.invalidDifficulty": "Ongeldige moeilijkheidsgraad",
+  "errors.gameResult.validation.invalidScore": "Score moet een getal zijn",
+  "errors.gameResult.validation.invalidCorrectAnswers": "Correcte antwoorden moeten een getal zijn",
+  "errors.gameResult.validation.invalidTotalRounds": "Totaal aantal rondes moet een getal zijn",
+  "errors.gameResult.database.saveFailed": "Kon spelresultaat niet opslaan",
+  "errors.gameResult.log.database": "Databasefout:",
+  "errors.gameResult.log.dailyActivity": "Fout bij het bijwerken van dagelijkse activiteit:",
+  "errors.gameResult.log.achievements": "Fout bij het verwerken van prestaties:",
+  "errors.gameResult.log.api": "API-fout:",
+  "errors.gameResult.log.unknown": "Onbekende fout",
 };

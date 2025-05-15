@@ -472,4 +472,20 @@ export default {
   // Bekræftelse af nulstilling af adgangskode
   "auth.password_reset_confirm.success":
     "Adgangskode nulstillet med succes. Du kan nu logge ind med din nye adgangskode",
+
+  // Validering og fejl for spilresultater
+  "errors.gameResult.validation.invalidData": "Ugyldigt dataformat",
+  "errors.gameResult.validation.missingUserId": "Bruger-ID er påkrævet",
+  "errors.gameResult.validation.missingCategory": "Kategorinavn er påkrævet",
+  "errors.gameResult.validation.missingDifficulty": "Sværhedsgrad er påkrævet",
+  "errors.gameResult.validation.invalidDifficulty": "Ugyldig sværhedsgrad",
+  "errors.gameResult.validation.invalidScore": "Score skal være et tal",
+  "errors.gameResult.validation.invalidCorrectAnswers": "Korrekte svar skal være et tal",
+  "errors.gameResult.validation.invalidTotalRounds": "Samlet antal runder skal være et tal",
+  "errors.gameResult.database.saveFailed": "Kunne ikke gemme spilresultatet",
+  "errors.gameResult.log.database": "Databasefejl:",
+  "errors.gameResult.log.dailyActivity": "Fejl ved opdatering af daglig aktivitet:",
+  "errors.gameResult.log.achievements": "Fejl ved behandling af præstationer:",
+  "errors.gameResult.log.api": "API-fejl:",
+  "errors.gameResult.log.unknown": "Ukendt fejl",
 };

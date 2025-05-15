@@ -334,6 +334,18 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
         albumsData = await fallbackResponse.json();
       }
 
+      // Ensure albumsData is an array
+      if (!Array.isArray(albumsData)) {
+        console.error("Loaded albums data is not an array:", albumsData);
+        // If it's an object with an albums property that is an array, use that
+        if (albumsData && typeof albumsData === "object" && Array.isArray(albumsData.albums)) {
+          albumsData = albumsData.albums;
+        } else {
+          // Otherwise, initialize with an empty array
+          albumsData = [];
+        }
+      }
+
       albums = albumsData;
 
       if (!albums?.length) {
@@ -433,8 +445,11 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
             elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
           }
 
+          // Ensure albums is an array before calling getRandomQuestion
+          const safeAlbums = Array.isArray(albums) ? albums : [];
+
           const newQuestion = getRandomQuestion(
-            albums ?? [],
+            safeAlbums,
             validateDifficulty(difficulty),
             totalRounds
           );
@@ -573,7 +588,14 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
      * Load the first question to start the game
      * Initializes the game with the first random question
      */
-    const initialQuestion = getRandomQuestion(albums, validateDifficulty(difficulty), totalRounds);
+    // Ensure albums is an array before calling getRandomQuestion
+    const safeAlbums = Array.isArray(albums) ? albums : [];
+
+    const initialQuestion = getRandomQuestion(
+      safeAlbums,
+      validateDifficulty(difficulty),
+      totalRounds
+    );
 
     if (initialQuestion?.randomQuestion && initialQuestion?.randomAlbum) {
       loadNewQuestion(initialQuestion.randomQuestion, initialQuestion.randomAlbum);

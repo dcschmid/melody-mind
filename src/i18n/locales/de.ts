@@ -487,4 +487,20 @@ export default {
   // Passwort-Zurücksetzen-Bestätigung
   "auth.password_reset_confirm.success":
     "Passwort erfolgreich zurückgesetzt. Du kannst dich jetzt mit deinem neuen Passwort anmelden",
+
+  // Spielergebnis-Validierung und Fehler
+  "errors.gameResult.validation.invalidData": "Ungültiges Datenformat",
+  "errors.gameResult.validation.missingUserId": "Benutzer-ID ist erforderlich",
+  "errors.gameResult.validation.missingCategory": "Kategoriename ist erforderlich",
+  "errors.gameResult.validation.missingDifficulty": "Schwierigkeitsgrad ist erforderlich",
+  "errors.gameResult.validation.invalidDifficulty": "Ungültiger Schwierigkeitsgrad",
+  "errors.gameResult.validation.invalidScore": "Punktzahl muss eine Zahl sein",
+  "errors.gameResult.validation.invalidCorrectAnswers": "Korrekte Antworten müssen eine Zahl sein",
+  "errors.gameResult.validation.invalidTotalRounds": "Gesamtanzahl der Runden muss eine Zahl sein",
+  "errors.gameResult.database.saveFailed": "Fehler beim Speichern des Spielergebnisses",
+  "errors.gameResult.log.database": "Datenbankfehler:",
+  "errors.gameResult.log.dailyActivity": "Fehler beim Aktualisieren der täglichen Aktivität:",
+  "errors.gameResult.log.achievements": "Fehler bei der Verarbeitung der Achievements:",
+  "errors.gameResult.log.api": "API-Fehler:",
+  "errors.gameResult.log.unknown": "Unbekannter Fehler",
 };
