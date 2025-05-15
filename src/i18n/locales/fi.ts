@@ -453,4 +453,14 @@ export default {
   "achievements.sort.points_desc": "Pisteet (laskeva)",
   "achievements.sort.rarity_asc": "Harvinaisuus (yleisimmät ensin)",
   "achievements.sort.rarity_desc": "Harvinaisuus (harvinaisimmat ensin)",
+
+  // API-virheilmoitukset
+  "errors.auth.unauthorized": "Sinun on kirjauduttava sisään käyttääksesi tätä toimintoa",
+  "errors.invalidRequest": "Virheellinen pyyntö: {error}",
+  "errors.invalidParameters": "Virheelliset parametrit",
+  "errors.achievements.check": "Virhe tarkistettaessa saavutuksia. Yritä myöhemmin uudelleen",
+  "errors.achievements.log": "Virhe saavutusten tarkistuksessa:",
+  "errors.achievements.fetch": "Virhe noudettaessa saavutuksia. Yritä myöhemmin uudelleen",
+  "errors.achievements.update": "Virhe päivitettäessä saavutuksia. Yritä myöhemmin uudelleen",
+  "errors.achievements.unlock": "Virhe avattaessa saavutusta. Yritä myöhemmin uudelleen",
 };

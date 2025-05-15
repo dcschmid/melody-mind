@@ -453,4 +453,15 @@ export default {
   "achievements.sort.points_desc": "Punten (aflopend)",
   "achievements.sort.rarity_asc": "Zeldzaamheid (meest voorkomend eerst)",
   "achievements.sort.rarity_desc": "Zeldzaamheid (zeldzaamste eerst)",
+
+  // API foutmeldingen
+  "errors.auth.unauthorized": "Je moet ingelogd zijn om toegang te krijgen tot deze functie",
+  "errors.invalidRequest": "Ongeldige aanvraag: {error}",
+  "errors.invalidParameters": "Ongeldige parameters opgegeven",
+  "errors.achievements.check": "Fout bij het controleren van prestaties. Probeer het later opnieuw",
+  "errors.achievements.log": "Fout bij het controleren van prestaties:",
+  "errors.achievements.fetch": "Fout bij het ophalen van prestaties. Probeer het later opnieuw",
+  "errors.achievements.update": "Fout bij het bijwerken van prestaties. Probeer het later opnieuw",
+  "errors.achievements.unlock":
+    "Fout bij het ontgrendelen van prestatie. Probeer het later opnieuw",
 };

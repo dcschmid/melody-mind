@@ -448,4 +448,14 @@ export default {
   "achievements.sort.points_desc": "Points (descending)",
   "achievements.sort.rarity_asc": "Rarity (commonest first)",
   "achievements.sort.rarity_desc": "Rarity (rarest first)",
+
+  // API Error Messages
+  "errors.auth.unauthorized": "You must be logged in to access this feature",
+  "errors.invalidRequest": "Invalid request: {error}",
+  "errors.invalidParameters": "Invalid parameters provided",
+  "errors.achievements.check": "Error checking achievements. Please try again later",
+  "errors.achievements.log": "Error checking achievements:",
+  "errors.achievements.fetch": "Error fetching achievements. Please try again later",
+  "errors.achievements.update": "Error updating achievements. Please try again later",
+  "errors.achievements.unlock": "Error unlocking achievement. Please try again later",
 };

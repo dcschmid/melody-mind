@@ -461,4 +461,18 @@ export default {
   "achievements.sort.points_desc": "Punkte (absteigend)",
   "achievements.sort.rarity_asc": "Seltenheit (häufigste zuerst)",
   "achievements.sort.rarity_desc": "Seltenheit (seltenste zuerst)",
+
+  // API-Fehlermeldungen
+  "errors.auth.unauthorized": "Du musst angemeldet sein, um auf diese Funktion zuzugreifen",
+  "errors.invalidRequest": "Ungültige Anfrage: {error}",
+  "errors.invalidParameters": "Ungültige Parameter angegeben",
+  "errors.achievements.check":
+    "Fehler beim Überprüfen der Achievements. Bitte versuche es später erneut",
+  "errors.achievements.log": "Fehler beim Überprüfen der Achievements:",
+  "errors.achievements.fetch":
+    "Fehler beim Abrufen der Achievements. Bitte versuche es später erneut",
+  "errors.achievements.update":
+    "Fehler beim Aktualisieren der Achievements. Bitte versuche es später erneut",
+  "errors.achievements.unlock":
+    "Fehler beim Freischalten des Achievements. Bitte versuche es später erneut",
 };

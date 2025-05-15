@@ -457,4 +457,17 @@ export default {
   "achievements.sort.points_desc": "Pontos (descendente)",
   "achievements.sort.rarity_asc": "Raridade (mais comuns primeiro)",
   "achievements.sort.rarity_desc": "Raridade (mais raros primeiro)",
+
+  // Mensagens de erro da API
+  "errors.auth.unauthorized": "Você precisa estar logado para acessar este recurso",
+  "errors.invalidRequest": "Solicitação inválida: {error}",
+  "errors.invalidParameters": "Parâmetros inválidos fornecidos",
+  "errors.achievements.check":
+    "Erro ao verificar conquistas. Por favor, tente novamente mais tarde",
+  "errors.achievements.log": "Erro ao verificar conquistas:",
+  "errors.achievements.fetch": "Erro ao buscar conquistas. Por favor, tente novamente mais tarde",
+  "errors.achievements.update":
+    "Erro ao atualizar conquistas. Por favor, tente novamente mais tarde",
+  "errors.achievements.unlock":
+    "Erro ao desbloquear conquista. Por favor, tente novamente mais tarde",
 };

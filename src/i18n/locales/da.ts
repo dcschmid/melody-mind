@@ -450,4 +450,14 @@ export default {
   "achievements.sort.points_desc": "Point (faldende)",
   "achievements.sort.rarity_asc": "Sjældenhed (mest almindelige først)",
   "achievements.sort.rarity_desc": "Sjældenhed (sjældneste først)",
+
+  // API fejlmeddelelser
+  "errors.auth.unauthorized": "Du skal være logget ind for at få adgang til denne funktion",
+  "errors.invalidRequest": "Ugyldig anmodning: {error}",
+  "errors.invalidParameters": "Ugyldige parametre angivet",
+  "errors.achievements.check": "Fejl ved kontrol af præstationer. Prøv venligst igen senere",
+  "errors.achievements.log": "Fejl ved kontrol af præstationer:",
+  "errors.achievements.fetch": "Fejl ved hentning af præstationer. Prøv venligst igen senere",
+  "errors.achievements.update": "Fejl ved opdatering af præstationer. Prøv venligst igen senere",
+  "errors.achievements.unlock": "Fejl ved oplåsning af præstation. Prøv venligst igen senere",
 };
