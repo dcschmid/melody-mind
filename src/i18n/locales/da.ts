@@ -373,6 +373,8 @@ export default {
   "profile.loading": "Indlæser profildata...",
   "profile.error": "Fejl ved indlæsning af profildata",
   "profile.auth.required": "Du skal være logget ind for at se din profil",
+  "errors.profile.notFound": "Brugerprofil ikke fundet",
+  "errors.profile.retrievalError": "Fejl ved hentning af brugerprofil",
   "profile.user.info": "Brugeroplysninger",
   "profile.user.since": "Medlem siden",
   "profile.stats.title": "Spilstatistikker",

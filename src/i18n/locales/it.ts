@@ -378,6 +378,8 @@ export default {
   "profile.loading": "Caricamento dati profilo...",
   "profile.error": "Errore durante il caricamento dei dati del profilo",
   "profile.auth.required": "Devi aver effettuato l'accesso per visualizzare il tuo profilo",
+  "errors.profile.notFound": "Profilo utente non trovato",
+  "errors.profile.retrievalError": "Errore durante il recupero del profilo utente",
   "profile.user.info": "Informazioni Utente",
   "profile.user.since": "Membro dal",
   "profile.stats.title": "Statistiche di Gioco",

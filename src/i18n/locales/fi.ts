@@ -376,6 +376,8 @@ export default {
   "profile.loading": "Ladataan profiilitietoja...",
   "profile.error": "Virhe profiilitietojen lataamisessa",
   "profile.auth.required": "Sinun on oltava kirjautuneena sisään nähdäksesi profiilisi",
+  "errors.profile.notFound": "Käyttäjäprofiilia ei löydy",
+  "errors.profile.retrievalError": "Virhe haettaessa käyttäjäprofiilia",
   "profile.user.info": "Käyttäjätiedot",
   "profile.user.since": "Jäsen siitä lähtien",
   "profile.stats.title": "Pelitilastot",

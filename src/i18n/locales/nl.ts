@@ -376,6 +376,8 @@ export default {
   "profile.loading": "Profielgegevens laden...",
   "profile.error": "Fout bij het laden van profielgegevens",
   "profile.auth.required": "U moet ingelogd zijn om uw profiel te bekijken",
+  "errors.profile.notFound": "Gebruikersprofiel niet gevonden",
+  "errors.profile.retrievalError": "Fout bij het ophalen van het gebruikersprofiel",
   "profile.user.info": "Gebruikersinformatie",
   "profile.user.since": "Lid sinds",
   "profile.stats.title": "Spelstatistieken",
