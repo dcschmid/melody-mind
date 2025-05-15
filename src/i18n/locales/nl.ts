@@ -458,6 +458,7 @@ export default {
   "errors.auth.unauthorized": "Je moet ingelogd zijn om toegang te krijgen tot deze functie",
   "errors.invalidRequest": "Ongeldige aanvraag: {error}",
   "errors.invalidParameters": "Ongeldige parameters opgegeven",
+  "errors.api.invalidLanguage": "Ongeldige taalparameter",
   "errors.achievements.check": "Fout bij het controleren van prestaties. Probeer het later opnieuw",
   "errors.achievements.log": "Fout bij het controleren van prestaties:",
   "errors.achievements.fetch": "Fout bij het ophalen van prestaties. Probeer het later opnieuw",

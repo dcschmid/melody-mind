@@ -466,6 +466,7 @@ export default {
   "errors.auth.unauthorized": "Du musst angemeldet sein, um auf diese Funktion zuzugreifen",
   "errors.invalidRequest": "Ungültige Anfrage: {error}",
   "errors.invalidParameters": "Ungültige Parameter angegeben",
+  "errors.api.invalidLanguage": "Ungültiger Sprachparameter",
   "errors.achievements.check":
     "Fehler beim Überprüfen der Achievements. Bitte versuche es später erneut",
   "errors.achievements.log": "Fehler beim Überprüfen der Achievements:",

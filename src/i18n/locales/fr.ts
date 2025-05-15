@@ -464,6 +464,7 @@ export default {
   "errors.auth.unauthorized": "Vous devez être connecté pour accéder à cette fonctionnalité",
   "errors.invalidRequest": "Requête invalide: {error}",
   "errors.invalidParameters": "Paramètres invalides fournis",
+  "errors.api.invalidLanguage": "Paramètre de langue invalide",
   "errors.achievements.check":
     "Erreur lors de la vérification des succès. Veuillez réessayer plus tard",
   "errors.achievements.log": "Erreur lors de la vérification des succès:",

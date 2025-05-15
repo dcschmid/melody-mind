@@ -458,6 +458,7 @@ export default {
   "errors.auth.unauthorized": "Sinun on kirjauduttava sisään käyttääksesi tätä toimintoa",
   "errors.invalidRequest": "Virheellinen pyyntö: {error}",
   "errors.invalidParameters": "Virheelliset parametrit",
+  "errors.api.invalidLanguage": "Virheellinen kieliparametri",
   "errors.achievements.check": "Virhe tarkistettaessa saavutuksia. Yritä myöhemmin uudelleen",
   "errors.achievements.log": "Virhe saavutusten tarkistuksessa:",
   "errors.achievements.fetch": "Virhe noudettaessa saavutuksia. Yritä myöhemmin uudelleen",

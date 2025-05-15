@@ -455,6 +455,7 @@ export default {
   "errors.auth.unauthorized": "Du skal være logget ind for at få adgang til denne funktion",
   "errors.invalidRequest": "Ugyldig anmodning: {error}",
   "errors.invalidParameters": "Ugyldige parametre angivet",
+  "errors.api.invalidLanguage": "Ugyldig sprogparameter",
   "errors.achievements.check": "Fejl ved kontrol af præstationer. Prøv venligst igen senere",
   "errors.achievements.log": "Fejl ved kontrol af præstationer:",
   "errors.achievements.fetch": "Fejl ved hentning af præstationer. Prøv venligst igen senere",

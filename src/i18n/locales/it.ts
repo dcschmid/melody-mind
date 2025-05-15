@@ -461,6 +461,7 @@ export default {
   "errors.auth.unauthorized": "Devi essere loggato per accedere a questa funzionalità",
   "errors.invalidRequest": "Richiesta non valida: {error}",
   "errors.invalidParameters": "Parametri non validi forniti",
+  "errors.api.invalidLanguage": "Parametro di lingua non valido",
   "errors.achievements.check":
     "Errore durante il controllo dei risultati. Si prega di riprovare più tardi",
   "errors.achievements.log": "Errore durante il controllo dei risultati:",
