@@ -487,4 +487,10 @@ export default {
   "errors.gameResult.log.achievements": "Fel vid bearbetning av prestationer:",
   "errors.gameResult.log.api": "API-fel:",
   "errors.gameResult.log.unknown": "Okänt fel",
+
+  // API-fel för toppresultat
+  "api.errors.database_error": "Databasfel i toppresultat-API: {message}",
+  "api.errors.highscores_retrieval": "Fel vid hämtning av toppresultat: {message}",
+  "api.errors.unknown_error": "Okänt fel i toppresultat-API",
+  "api.errors.highscores_retrieval_message": "Fel vid hämtning av toppresultat",
 };

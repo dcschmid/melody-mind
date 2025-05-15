@@ -492,4 +492,10 @@ export default {
   "errors.gameResult.log.achievements": "Fout bij het verwerken van prestaties:",
   "errors.gameResult.log.api": "API-fout:",
   "errors.gameResult.log.unknown": "Onbekende fout",
+
+  // API-fouten voor topscores
+  "api.errors.database_error": "Databasefout in topscores API: {message}",
+  "api.errors.highscores_retrieval": "Fout bij het ophalen van topscores: {message}",
+  "api.errors.unknown_error": "Onbekende fout in topscores API",
+  "api.errors.highscores_retrieval_message": "Fout bij het ophalen van topscores",
 };

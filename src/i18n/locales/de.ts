@@ -503,4 +503,10 @@ export default {
   "errors.gameResult.log.achievements": "Fehler bei der Verarbeitung der Achievements:",
   "errors.gameResult.log.api": "API-Fehler:",
   "errors.gameResult.log.unknown": "Unbekannter Fehler",
+
+  // API Highscores Fehler
+  "api.errors.database_error": "Datenbankfehler in der Highscores-API: {message}",
+  "api.errors.highscores_retrieval": "Fehler beim Abrufen der Highscores: {message}",
+  "api.errors.unknown_error": "Unbekannter Fehler in der Highscores-API",
+  "api.errors.highscores_retrieval_message": "Fehler beim Abrufen der Highscores",
 };

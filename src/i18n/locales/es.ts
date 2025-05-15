@@ -505,4 +505,10 @@ export default {
   "errors.gameResult.log.achievements": "Error al procesar los logros:",
   "errors.gameResult.log.api": "Error de API:",
   "errors.gameResult.log.unknown": "Error desconocido",
+
+  // Errores de API de puntuaciones altas
+  "api.errors.database_error": "Error de base de datos en la API de puntuaciones altas: {message}",
+  "api.errors.highscores_retrieval": "Error al recuperar las puntuaciones altas: {message}",
+  "api.errors.unknown_error": "Error desconocido en la API de puntuaciones altas",
+  "api.errors.highscores_retrieval_message": "Error al recuperar las puntuaciones altas",
 };

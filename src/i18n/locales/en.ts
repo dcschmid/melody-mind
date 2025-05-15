@@ -486,4 +486,10 @@ export default {
   "errors.gameResult.log.achievements": "Error processing achievements:",
   "errors.gameResult.log.api": "API Error:",
   "errors.gameResult.log.unknown": "Unknown error",
+
+  // API Highscores Errors
+  "api.errors.database_error": "Database error in highscores API: {message}",
+  "api.errors.highscores_retrieval": "Error retrieving highscores: {message}",
+  "api.errors.unknown_error": "Unknown error in highscores API",
+  "api.errors.highscores_retrieval_message": "Error retrieving highscores",
 };

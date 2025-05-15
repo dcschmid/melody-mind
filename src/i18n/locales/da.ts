@@ -488,4 +488,10 @@ export default {
   "errors.gameResult.log.achievements": "Fejl ved behandling af præstationer:",
   "errors.gameResult.log.api": "API-fejl:",
   "errors.gameResult.log.unknown": "Ukendt fejl",
+
+  // API-fejl for topscorer
+  "api.errors.database_error": "Databasefejl i topscorer-API: {message}",
+  "api.errors.highscores_retrieval": "Fejl ved hentning af topscorer: {message}",
+  "api.errors.unknown_error": "Ukendt fejl i topscorer-API",
+  "api.errors.highscores_retrieval_message": "Fejl ved hentning af topscorer",
 };

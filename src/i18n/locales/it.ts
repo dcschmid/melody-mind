@@ -496,4 +496,10 @@ export default {
   "errors.gameResult.log.achievements": "Errore nell'elaborazione dei traguardi:",
   "errors.gameResult.log.api": "Errore API:",
   "errors.gameResult.log.unknown": "Errore sconosciuto",
+
+  // Errori API dei punteggi migliori
+  "api.errors.database_error": "Errore del database nell'API dei punteggi migliori: {message}",
+  "api.errors.highscores_retrieval": "Errore nel recupero dei punteggi migliori: {message}",
+  "api.errors.unknown_error": "Errore sconosciuto nell'API dei punteggi migliori",
+  "api.errors.highscores_retrieval_message": "Errore nel recupero dei punteggi migliori",
 };
