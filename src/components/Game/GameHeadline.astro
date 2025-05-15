@@ -56,35 +56,29 @@ const remainingAriaLabel = showRemaining
 ---
 
 <div
-  class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8 px-4 mx-auto w-full"
+  class="mx-auto mb-8 flex w-full flex-col items-center justify-between gap-4 px-4 sm:flex-row"
   data-testid="game-headline"
 >
-  <h1
-    class={`text-2xl sm:text-3xl font-bold text-sky-500 text-center sm:text-left ${className}`}
-  >
+  <h1 class={`text-2xl sm:text-3xl font-bold text-sky-500 text-center sm:text-left ${className}`}>
     {headline}
   </h1>
 
   <div class="flex items-center gap-4 text-zinc-300">
     <div
-      class="flex gap-2 items-center justify-center"
+      class="flex items-center justify-center gap-2"
       role="status"
       aria-label={roundAriaLabel}
       aria-live="polite"
     >
-      <span class="text-zinc-400 text-sm uppercase tracking-wide font-medium">
+      <span class="text-sm font-medium tracking-wide text-zinc-400 uppercase">
         {t("game.current.round")}:
       </span>
-      <span
-        class="round tabular-nums text-lg font-bold text-zinc-50"
-        aria-atomic="true">{roundDisplay}</span
+      <span class="round text-lg font-bold text-zinc-50 tabular-nums" aria-atomic="true"
+        >{roundDisplay}</span
       >
     </div>
 
-    <div
-      class="hidden sm:block w-px h-6 bg-zinc-700 motion-safe:animate-pulse"
-      aria-hidden="true"
-    >
+    <div class="hidden h-6 w-px bg-zinc-700 motion-safe:animate-pulse sm:block" aria-hidden="true">
     </div>
 
     <div
@@ -108,17 +102,7 @@ const remainingAriaLabel = showRemaining
    * This type ensures that we only work with languages we have translations for.
    * When adding a new language, update this type.
    */
-  type SupportedLanguages =
-    | "de"
-    | "en"
-    | "es"
-    | "fr"
-    | "it"
-    | "pt"
-    | "da"
-    | "nl"
-    | "sv"
-    | "fi";
+  type SupportedLanguages = "de" | "en" | "es" | "fr" | "it" | "pt" | "da" | "nl" | "sv" | "fi";
 
   /**
    * Updates the round number displayed in the game interface and sets appropriate accessibility attributes.
@@ -152,7 +136,9 @@ const remainingAriaLabel = showRemaining
 
       // Get parent element to update its aria-label
       const statusElement = roundElement.closest('[role="status"]');
-      if (!statusElement) return;
+      if (!statusElement) {
+        return;
+      }
 
       // Set appropriate aria-label based on the current language
       const lang = document.documentElement.lang as SupportedLanguages;
@@ -173,10 +159,7 @@ const remainingAriaLabel = showRemaining
       };
 
       // Set the label with fallback to English if the language is not supported
-      statusElement.setAttribute(
-        "aria-label",
-        ariaLabels[lang] || ariaLabels.en,
-      );
+      statusElement.setAttribute("aria-label", ariaLabels[lang] || ariaLabels.en);
     });
   }
 
@@ -189,10 +172,8 @@ const remainingAriaLabel = showRemaining
    */
   export function updateRemainingCount(count: number): void {
     requestAnimationFrame(() => {
-      const remainingElement =
-        document.querySelector<HTMLElement>("[data-remaining]");
-      const countElement =
-        document.querySelector<HTMLElement>(".remaining-count");
+      const remainingElement = document.querySelector<HTMLElement>("[data-remaining]");
+      const countElement = document.querySelector<HTMLElement>(".remaining-count");
 
       if (remainingElement && countElement) {
         countElement.textContent = count.toString();
@@ -205,8 +186,7 @@ const remainingAriaLabel = showRemaining
 
           // Update aria-label for screen readers
           const lang = document.documentElement.lang as SupportedLanguages;
-          const remainingText =
-            document.documentElement.dataset.remainingText || "remaining";
+          const remainingText = document.documentElement.dataset.remainingText || "remaining";
 
           const ariaLabels: Record<SupportedLanguages, string> = {
             de: `${count} verbleibend`,
@@ -221,10 +201,7 @@ const remainingAriaLabel = showRemaining
             fi: `${count} jäljellä`,
           };
 
-          remainingElement.setAttribute(
-            "aria-label",
-            ariaLabels[lang] || ariaLabels.en,
-          );
+          remainingElement.setAttribute("aria-label", ariaLabels[lang] || ariaLabels.en);
         } else {
           // Hide element when count is zero
           remainingElement.classList.add("hidden");
@@ -246,6 +223,8 @@ const remainingAriaLabel = showRemaining
     });
 
     const container = document.querySelector('[data-testid="game-headline"]');
-    if (container) observer.observe(container);
+    if (container) {
+      observer.observe(container);
+    }
   }
 </script>

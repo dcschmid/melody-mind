@@ -4,10 +4,8 @@
  * for server-side database operations.
  */
 import { createClient } from "@libsql/client";
-import {
-  getDatabaseConfig,
-  validateDatabaseConfig,
-} from "./config/database.js";
+
+import { getDatabaseConfig, validateDatabaseConfig } from "./config/database.js";
 
 // This file is only used server-side
 // Uses the unified database configuration that works in both Node.js and Astro
@@ -15,9 +13,7 @@ const dbConfig = getDatabaseConfig();
 
 // Validate the configuration
 if (!validateDatabaseConfig(dbConfig)) {
-  console.error(
-    "Invalid database configuration. Please check your environment variables.",
-  );
+  console.error("Invalid database configuration. Please check your environment variables.");
 }
 
 /**

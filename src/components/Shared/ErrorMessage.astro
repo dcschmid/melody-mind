@@ -30,7 +30,7 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
 ---
 
 <div
-  class="errorMessage fixed top-6 left-1/2 -translate-x-1/2 z-50 p-4 rounded-lg bg-red-700 text-white shadow-lg pointer-events-auto hidden"
+  class="errorMessage pointer-events-auto fixed top-6 left-1/2 z-50 hidden -translate-x-1/2 rounded-lg bg-red-700 p-4 text-white shadow-lg"
   role="alert"
   aria-live="assertive"
   aria-atomic="true"
@@ -40,7 +40,7 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
     <span class="errorIcon text-xl" aria-hidden="true">⚠️</span>
     <p class="errorText m-0 font-medium">{message}</p>
     <button
-      class="closeButton ml-3 p-2 min-w-[44px] min-h-[44px] opacity-90 hover:opacity-100 focus:opacity-100 bg-transparent border-none text-white text-xl transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80 rounded-full flex items-center justify-center"
+      class="closeButton ml-3 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full border-none bg-transparent p-2 text-xl text-white opacity-90 transition-opacity hover:opacity-100 focus:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80"
       aria-label={t("error.close")}
       type="button"
     >
@@ -192,9 +192,7 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
       }
 
       // Set up auto-hide functionality if specified
-      const autoHideAfter = this.dataset.autoHide
-        ? parseInt(this.dataset.autoHide, 10)
-        : 0;
+      const autoHideAfter = this.dataset.autoHide ? parseInt(this.dataset.autoHide, 10) : 0;
 
       if (autoHideAfter > 0 && !isNaN(autoHideAfter)) {
         // Use requestAnimationFrame for better timer performance
@@ -242,7 +240,9 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
      */
     public hide(): void {
       // Prevent multiple hide calls during animation
-      if (this.isAnimating || this.classList.contains("hidden")) return;
+      if (this.isAnimating || this.classList.contains("hidden")) {
+        return;
+      }
       this.isAnimating = true;
 
       // Add hidden class to trigger CSS transition
@@ -274,7 +274,9 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
      */
     public show(): void {
       // Prevent showing during hide animation
-      if (this.isAnimating) return;
+      if (this.isAnimating) {
+        return;
+      }
 
       // Remove hidden class to make the message visible
       this.classList.remove("hidden");
@@ -283,9 +285,7 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
       this.announceToScreenReaders();
 
       // Set up auto-hide if configured
-      const autoHideAfter = this.dataset.autoHide
-        ? parseInt(this.dataset.autoHide, 10)
-        : 0;
+      const autoHideAfter = this.dataset.autoHide ? parseInt(this.dataset.autoHide, 10) : 0;
 
       if (autoHideAfter > 0 && !isNaN(autoHideAfter)) {
         // Cancel any existing timeout
@@ -307,10 +307,7 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
      * @param {string} message - The new error message text
      * @param {boolean} [announceChange=true] - Whether to announce the change to screen readers
      */
-    public updateMessage(
-      message: string,
-      announceChange: boolean = true,
-    ): void {
+    public updateMessage(message: string, announceChange: boolean = true): void {
       const messageElement = this.querySelector(".errorText");
       if (messageElement) {
         messageElement.textContent = message;
@@ -330,7 +327,7 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
      */
     private notifyScreenReaders(
       message: string,
-      priority: "assertive" | "polite" = "assertive",
+      priority: "assertive" | "polite" = "assertive"
     ): void {
       // Create a visually hidden live region
       const announcer = document.createElement("div");
@@ -393,7 +390,7 @@ const { message = t("error.default"), autoHideAfter = 5000 } = Astro.props;
   // Export utility function to create and show error messages programmatically
   (window as any).showError = function (
     message: string,
-    autoHideAfter: number = 5000,
+    autoHideAfter: number = 5000
   ): ErrorMessage {
     // Check if we already have an error message component
     let errorMessage = document.querySelector("error-message") as ErrorMessage;

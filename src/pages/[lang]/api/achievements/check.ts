@@ -19,10 +19,11 @@
  * - 500: Server error during achievement check
  */
 import type { APIRoute } from "astro";
-import { checkAchievementsAfterGame } from "../../../../services/achievementService.ts";
-import { useTranslations } from "../../../../utils/i18n.ts";
+
 import { requireAuth } from "../../../../middleware/auth.ts";
+import { checkAchievementsAfterGame } from "../../../../services/achievementService.ts";
 import type { GameState } from "../../../../types/game.ts";
+import { useTranslations } from "../../../../utils/i18n.ts";
 
 export const POST: APIRoute = async ({ request, params }) => {
   // Extract language from URL parameters for localized messages
@@ -49,7 +50,7 @@ export const POST: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
@@ -68,18 +69,14 @@ export const POST: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
     // Validate parameters
     const { gameState, isPerfectGame } = body;
 
-    if (
-      !gameState ||
-      typeof gameState !== "object" ||
-      typeof isPerfectGame !== "boolean"
-    ) {
+    if (!gameState || typeof gameState !== "object" || typeof isPerfectGame !== "boolean") {
       return new Response(
         JSON.stringify({
           success: false,
@@ -90,16 +87,12 @@ export const POST: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
     // Check achievements
-    const result = await checkAchievementsAfterGame(
-      user.id,
-      gameState as GameState,
-      isPerfectGame,
-    );
+    const result = await checkAchievementsAfterGame(user.id, gameState as GameState, isPerfectGame);
 
     // Return successful response
     return new Response(
@@ -113,7 +106,7 @@ export const POST: APIRoute = async ({ request, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   } catch (error) {
     // Log error for debugging and return 500 response
@@ -129,7 +122,7 @@ export const POST: APIRoute = async ({ request, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   }
 };

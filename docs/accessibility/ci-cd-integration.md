@@ -1,6 +1,7 @@
 # CI/CD Integration for WCAG AAA Tests
 
-This documentation explains how to integrate automated WCAG AAA accessibility tests with axe-core into CI/CD pipelines.
+This documentation explains how to integrate automated WCAG AAA accessibility tests with axe-core
+into CI/CD pipelines.
 
 ## GitHub Actions Integration
 
@@ -102,7 +103,8 @@ accessibility:
     - yarn dev &
     - sleep 10 # Wait for server to start
     - axe http://localhost:3000 --tags wcag2aaa --save accessibility-report.json
-    - if grep -q '"violations":\s*\[\s*{' accessibility-report.json; then echo "WCAG AAA violations found" && exit 1; fi
+    - if grep -q '"violations":\s*\[\s*{' accessibility-report.json; then echo "WCAG AAA violations
+      found" && exit 1; fi
   artifacts:
     paths:
       - accessibility-report.json
@@ -177,7 +179,9 @@ These tests can be integrated into the CI/CD pipelines accordingly.
 
 ## Adjusting Thresholds
 
-In some projects, it may be useful to tolerate a certain number of warnings while a refactoring is in progress. For this, you can create a script that analyzes the reports and only fails on critical or excessive errors:
+In some projects, it may be useful to tolerate a certain number of warnings while a refactoring is
+in progress. For this, you can create a script that analyzes the reports and only fails on critical
+or excessive errors:
 
 ```javascript
 // scripts/analyze-a11y-results.js
@@ -202,9 +206,7 @@ report.violations.forEach((violation) => {
   }
 });
 
-console.log(
-  `Total violations: ${totalViolations}, Critical: ${criticalViolations}`,
-);
+console.log(`Total violations: ${totalViolations}, Critical: ${criticalViolations}`);
 
 // Only fail CI on critical issues or excessive total violations
 if (criticalViolations > 0 || totalViolations > MAX_ALLOWED_WARNINGS) {
@@ -223,7 +225,8 @@ Then you can use the script in your CI/CD pipeline:
 
 ## Complete Integration with Test Environments
 
-For a more robust test environment, we recommend integrating with Cypress or Playwright to test dynamic interactions:
+For a more robust test environment, we recommend integrating with Cypress or Playwright to test
+dynamic interactions:
 
 ```javascript
 // cypress/integration/accessibility.spec.js
@@ -283,4 +286,6 @@ Add these specific tests to your CI/CD pipeline:
 
 ## Summary
 
-With these configurations, you automate WCAG AAA accessibility testing in your CI/CD workflow. Accessibility issues are detected early in pull requests, and reports are automatically generated and stored as artifacts.
+With these configurations, you automate WCAG AAA accessibility testing in your CI/CD workflow.
+Accessibility issues are detected early in pull requests, and reports are automatically generated
+and stored as artifacts.

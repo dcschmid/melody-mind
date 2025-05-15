@@ -86,10 +86,7 @@ export function testFocusManagement(elementId: string): boolean {
  * @param announcement - Die Ankündigung für Screenreader
  * @returns {boolean} - true, wenn der Fokus erfolgreich gesetzt wurde
  */
-export function correctFocusManagement(
-  elementId: string,
-  announcement: string,
-): boolean {
+export function correctFocusManagement(elementId: string, announcement: string): boolean {
   const element = document.getElementById(elementId);
   if (element) {
     // Korrekte Implementierung mit Ankündigung für Screenreader

@@ -138,18 +138,10 @@ export function generateSecurePassword(length = 16): string {
 
   // Ensure the password contains at least one character from each category
   let password = "";
-  password += uppercaseChars.charAt(
-    Math.floor(Math.random() * uppercaseChars.length),
-  );
-  password += lowercaseChars.charAt(
-    Math.floor(Math.random() * lowercaseChars.length),
-  );
-  password += numberChars.charAt(
-    Math.floor(Math.random() * numberChars.length),
-  );
-  password += specialChars.charAt(
-    Math.floor(Math.random() * specialChars.length),
-  );
+  password += uppercaseChars.charAt(Math.floor(Math.random() * uppercaseChars.length));
+  password += lowercaseChars.charAt(Math.floor(Math.random() * lowercaseChars.length));
+  password += numberChars.charAt(Math.floor(Math.random() * numberChars.length));
+  password += specialChars.charAt(Math.floor(Math.random() * specialChars.length));
 
   // Fill the rest of the password with random characters
   for (let i = password.length; i < length; i++) {
@@ -185,16 +177,28 @@ export function calculatePasswordStrength(password: string): number {
   strength += Math.min(password.length * 4, 40);
 
   // Complexity contribution (max 40 points)
-  if (/[A-Z]/.test(password)) strength += 10;
-  if (/[a-z]/.test(password)) strength += 10;
-  if (/[0-9]/.test(password)) strength += 10;
-  if (/[^A-Za-z0-9]/.test(password)) strength += 10;
+  if (/[A-Z]/.test(password)) {
+    strength += 10;
+  }
+  if (/[a-z]/.test(password)) {
+    strength += 10;
+  }
+  if (/[0-9]/.test(password)) {
+    strength += 10;
+  }
+  if (/[^A-Za-z0-9]/.test(password)) {
+    strength += 10;
+  }
 
   // Deductions for common passwords
-  if (COMMON_PASSWORDS.includes(password.toLowerCase())) strength -= 30;
+  if (COMMON_PASSWORDS.includes(password.toLowerCase())) {
+    strength -= 30;
+  }
 
   // Deductions for character repetitions
-  if (/(.)\1{2,}/.test(password)) strength -= 10;
+  if (/(.)\1{2,}/.test(password)) {
+    strength -= 10;
+  }
 
   // Deductions for sequential patterns
   const sequences = ["123456", "abcdef", "qwerty", "asdfgh"];

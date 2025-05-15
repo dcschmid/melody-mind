@@ -75,7 +75,7 @@ const alternateLanguages = Object.keys(languages).map((langCode) => {
     path = path.replace(langPathRegex, `/${langCode}/`);
   } else {
     // Fallback for different URL structures
-    path = `/${langCode}${path.startsWith("/") ? path : "/" + path}`;
+    path = `/${langCode}${path.startsWith("/") ? path : `/${path}`}`;
   }
 
   const url = new URL(path, Astro.site || siteUrl);
@@ -112,16 +112,8 @@ let structuredData: StructuredData = {
     "@type": "Organization",
     name: "Melody Mind Team",
   },
-  accessibilityControl: [
-    "fullKeyboardControl",
-    "fullMouseControl",
-    "fullTouchControl",
-  ],
-  accessibilityFeature: [
-    "alternativeText",
-    "highContrast",
-    "structuralNavigation",
-  ],
+  accessibilityControl: ["fullKeyboardControl", "fullMouseControl", "fullTouchControl"],
+  accessibilityFeature: ["alternativeText", "highContrast", "structuralNavigation"],
 };
 
 // Enhanced structured data based on page type
@@ -132,12 +124,8 @@ if (type === "article") {
     headline: title, // Use headline for Article schema (not name)
     description: description,
     image: imageURL.toString(),
-    datePublished: publishDate
-      ? publishDate.toISOString()
-      : new Date().toISOString(),
-    dateModified: modifiedDate
-      ? modifiedDate.toISOString()
-      : new Date().toISOString(),
+    datePublished: publishDate ? publishDate.toISOString() : new Date().toISOString(),
+    dateModified: modifiedDate ? modifiedDate.toISOString() : new Date().toISOString(),
     author: {
       "@type": "Organization",
       name: "Melody Mind Team",
@@ -158,16 +146,8 @@ if (type === "article") {
     },
     inLanguage: String(lang),
     articleSection: section,
-    accessibilityControl: [
-      "fullKeyboardControl",
-      "fullMouseControl",
-      "fullTouchControl",
-    ],
-    accessibilityFeature: [
-      "alternativeText",
-      "highContrast",
-      "structuralNavigation",
-    ],
+    accessibilityControl: ["fullKeyboardControl", "fullMouseControl", "fullTouchControl"],
+    accessibilityFeature: ["alternativeText", "highContrast", "structuralNavigation"],
   };
 } else if (type === "music") {
   structuredData = {
@@ -177,20 +157,10 @@ if (type === "article") {
     description: description,
     image: imageURL.toString(),
     url: canonicalURL.toString(),
-    audio: audioSrc
-      ? new URL(audioSrc, Astro.site || siteUrl).toString()
-      : null,
+    audio: audioSrc ? new URL(audioSrc, Astro.site || siteUrl).toString() : null,
     inLanguage: String(lang),
-    accessibilityControl: [
-      "fullKeyboardControl",
-      "fullMouseControl",
-      "fullTouchControl",
-    ],
-    accessibilityFeature: [
-      "alternativeText",
-      "highContrast",
-      "structuralNavigation",
-    ],
+    accessibilityControl: ["fullKeyboardControl", "fullMouseControl", "fullTouchControl"],
+    accessibilityFeature: ["alternativeText", "highContrast", "structuralNavigation"],
   };
 } else if (type === "game") {
   structuredData = {
@@ -204,16 +174,8 @@ if (type === "article") {
       audienceType: "Music lovers",
     },
     inLanguage: String(lang),
-    accessibilityControl: [
-      "fullKeyboardControl",
-      "fullMouseControl",
-      "fullTouchControl",
-    ],
-    accessibilityFeature: [
-      "alternativeText",
-      "highContrast",
-      "structuralNavigation",
-    ],
+    accessibilityControl: ["fullKeyboardControl", "fullMouseControl", "fullTouchControl"],
+    accessibilityFeature: ["alternativeText", "highContrast", "structuralNavigation"],
   };
 }
 
@@ -261,36 +223,14 @@ const criticalResources = [
 <meta property="og:image:alt" content={`Melody Mind - ${title}`} />
 <meta property="og:locale" content={String(lang).replace("-", "_")} />
 <meta property="og:site_name" content="Melody Mind" />
-{
-  publishDate && (
-    <meta
-      property="article:published_time"
-      content={publishDate.toISOString()}
-    />
-  )
-}
-{
-  modifiedDate && (
-    <meta
-      property="article:modified_time"
-      content={modifiedDate.toISOString()}
-    />
-  )
-}
+{publishDate && <meta property="article:published_time" content={publishDate.toISOString()} />}
+{modifiedDate && <meta property="article:modified_time" content={modifiedDate.toISOString()} />}
 {section && <meta property="article:section" content={section} />}
 
 <!-- Music-specific OpenGraph tags -->
-{
-  ogMusic?.creator && (
-    <meta property="og:music:creator" content={ogMusic.creator} />
-  )
-}
+{ogMusic?.creator && <meta property="og:music:creator" content={ogMusic.creator} />}
 {ogMusic?.album && <meta property="og:music:album" content={ogMusic.album} />}
-{
-  ogMusic?.musician && (
-    <meta property="og:music:musician" content={ogMusic.musician} />
-  )
-}
+{ogMusic?.musician && <meta property="og:music:musician" content={ogMusic.musician} />}
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
@@ -322,10 +262,7 @@ const criticalResources = [
 
 <!-- Mobile App Integration -->
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<meta
-  name="apple-mobile-web-app-status-bar-style"
-  content="black-translucent"
-/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="application-name" content="Melody Mind" />
 <meta name="theme-color" content="#18181b" />
 

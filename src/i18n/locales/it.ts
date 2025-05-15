@@ -28,15 +28,12 @@ export default {
   "auth.form.loading_text": "Caricamento...",
   "auth.form.send_reset_link": "Invia link di reimpostazione",
   "auth.form.password_required": "La password è obbligatoria",
-  "auth.form.password_requirements":
-    "La password non soddisfa tutti i requisiti",
-  "auth.form.password_confirm_required":
-    "La conferma della password è obbligatoria",
+  "auth.form.password_requirements": "La password non soddisfa tutti i requisiti",
+  "auth.form.password_confirm_required": "La conferma della password è obbligatoria",
   "auth.form.passwords_not_match": "Le password non corrispondono",
   "auth.password_reset.success_message":
     "Se esiste un account con questo indirizzo email, è stata inviata un'email con le istruzioni per reimpostare la password.",
-  "auth.password_reset.error_message":
-    "Si è verificato un errore. Riprova più tardi.",
+  "auth.password_reset.error_message": "Si è verificato un errore. Riprova più tardi.",
   "auth.password_reset.complete_success":
     "Password reimpostata con successo. Ora puoi accedere con la tua nuova password.",
   "auth.password_reset.complete_error":
@@ -61,17 +58,14 @@ export default {
   "auth.password_reset.email.placeholder": "Il tuo indirizzo email registrato",
   "auth.password_reset.back_to_login": "Torna ad Accedi",
   "auth.password_reset.login": "Accedi",
-  "auth.password_reset.success":
-    "Un link di reimpostazione è stato inviato alla tua email",
-  "auth.password_reset.error":
-    "Errore durante l'invio del link di reimpostazione",
+  "auth.password_reset.success": "Un link di reimpostazione è stato inviato alla tua email",
+  "auth.password_reset.error": "Errore durante l'invio del link di reimpostazione",
   "auth.password_reset.new_password": "Nuova password",
   "auth.password_reset.confirm_password": "Conferma nuova password",
   "auth.password_reset.change_submit": "Cambia password",
 
   "auth.email_verification.title": "Verifica email",
-  "auth.email_verification.message":
-    "Abbiamo inviato un link di verifica al tuo indirizzo email",
+  "auth.email_verification.message": "Abbiamo inviato un link di verifica al tuo indirizzo email",
   "auth.email_verification.check_inbox": "Controlla la tua casella di posta",
   "auth.email_verification.resend": "Reinvia link di verifica",
   "auth.email_verification.success": "Email verificata con successo",
@@ -79,20 +73,14 @@ export default {
 
   // Validazione password
   "auth.password.requirements": "Requisiti password:",
-  "auth.password.min_length":
-    "La password deve essere lunga almeno 8 caratteri",
-  "auth.password.uppercase":
-    "La password deve contenere almeno una lettera maiuscola",
-  "auth.password.lowercase":
-    "La password deve contenere almeno una lettera minuscola",
+  "auth.password.min_length": "La password deve essere lunga almeno 8 caratteri",
+  "auth.password.uppercase": "La password deve contenere almeno una lettera maiuscola",
+  "auth.password.lowercase": "La password deve contenere almeno una lettera minuscola",
   "auth.password.number": "La password deve contenere almeno un numero",
-  "auth.password.special":
-    "La password deve contenere almeno un carattere speciale",
+  "auth.password.special": "La password deve contenere almeno un carattere speciale",
   "auth.password.no_common": "La password non deve essere una password comune",
-  "auth.password.no_repeats":
-    "La password non deve contenere caratteri ripetuti",
-  "auth.password.no_sequences":
-    "La password non deve contenere sequenze semplici",
+  "auth.password.no_repeats": "La password non deve contenere caratteri ripetuti",
+  "auth.password.no_sequences": "La password non deve contenere sequenze semplici",
   "auth.password.match": "Le password devono corrispondere",
   "auth.password.strength": "Robustezza password",
   "auth.password.strength.weak": "Debole",
@@ -103,8 +91,7 @@ export default {
   // Validazione modulo
   "auth.form.required": "Questo campo è obbligatorio",
   "auth.form.email_invalid": "Inserisci un indirizzo email valido",
-  "auth.form.min_length":
-    "Questo campo deve essere lungo almeno {length} caratteri",
+  "auth.form.min_length": "Questo campo deve essere lungo almeno {length} caratteri",
   "auth.form.max_length": "Questo campo non deve superare i {length} caratteri",
   "auth.form.invalid": "Questo campo non è valido",
 
@@ -113,8 +100,7 @@ export default {
   "auth.accessibility.error": "Errore: {message}",
   "auth.accessibility.required_field": "Campo obbligatorio",
   "auth.accessibility.password_toggle": "Mostra/nascondi password",
-  "auth.accessibility.password_requirements":
-    "Mostra/nascondi requisiti password",
+  "auth.accessibility.password_requirements": "Mostra/nascondi requisiti password",
   "auth.accessibility.form": "Modulo di accesso",
   "auth.accessibility.close_modal": "Chiudi finestra",
 
@@ -127,16 +113,12 @@ export default {
   "auth.api.too_many_requests": "Troppi tentativi. Riprova più tardi",
 
   // Messaggi di errore del servizio
-  "auth.service.session_expired":
-    "La tua sessione è scaduta. Effettua nuovamente l'accesso",
+  "auth.service.session_expired": "La tua sessione è scaduta. Effettua nuovamente l'accesso",
   "auth.service.unauthorized": "Non autorizzato. Effettua l'accesso",
-  "auth.service.account_locked":
-    "Il tuo account è stato bloccato. Contatta l'assistenza",
+  "auth.service.account_locked": "Il tuo account è stato bloccato. Contatta l'assistenza",
   "auth.service.permission_denied": "Permesso negato per questa azione",
-  "auth.service.invalid_credentials":
-    "Credenziali non valide. Controlla la tua email e password.",
-  "auth.service.too_many_attempts":
-    "Troppi tentativi di accesso. Attendi un momento e riprova.",
+  "auth.service.invalid_credentials": "Credenziali non valide. Controlla la tua email e password.",
+  "auth.service.too_many_attempts": "Troppi tentativi di accesso. Attendi un momento e riprova.",
 
   "nav.home": "Homepage",
   "nav.rules": "Regole del gioco",
@@ -152,8 +134,7 @@ export default {
   "game.welcome": "Benvenuto su Melody Mind",
   "game.genre.list": "Selezione genere",
   "game.search.label": "Cerca un genere",
-  "game.search.description":
-    "L'elenco si filtra automaticamente durante la digitazione",
+  "game.search.description": "L'elenco si filtra automaticamente durante la digitazione",
   "game.genre.play.label": "gioca",
   "game.genre.image": "Immagine di copertina per",
   "game.no.results": "Nessun risultato trovato",
@@ -189,8 +170,7 @@ export default {
   "game.feedback.media.section": "Sezione media",
   "game.feedback.audio.preview": "Anteprima musicale",
   "game.feedback.subtitles": "Sottotitoli",
-  "game.feedback.audio.unsupported":
-    "Il tuo browser non supporta la riproduzione audio.",
+  "game.feedback.audio.unsupported": "Il tuo browser non supporta la riproduzione audio.",
   "game.feedback.streaming.links": "Link streaming musicale",
   "game.feedback.listen.spotify": "Ascolta su Spotify",
   "game.feedback.listen.deezer": "Ascolta su Deezer",
@@ -257,8 +237,7 @@ export default {
   "knowledge.search.label": "Cerca articoli",
   "knowledge.search.placeholder": "Cerca...",
   "knowledge.filter.all": "Tutte le parole chiave",
-  "knowledge.no.results":
-    "Nessun articolo trovato. Prova con termini di ricerca diversi.",
+  "knowledge.no.results": "Nessun articolo trovato. Prova con termini di ricerca diversi.",
   "game.remaining": "rimanente",
   "game.default.headline": "Gioco",
   "popup.score": "Punteggio: {score}",
@@ -269,8 +248,7 @@ export default {
   "nav.title": "Navigazione",
   "nav.menu.text": "Menu",
   "game.categories.empty.headline": "Nessun genere trovato",
-  "game.categories.empty.text":
-    "Purtroppo non sono state trovate categorie. Riprova più tardi.",
+  "game.categories.empty.text": "Purtroppo non sono state trovate categorie. Riprova più tardi.",
   "game.categories.no.playable.headline": "Nessun genere giocabile",
   "game.categories.no.playable.text":
     "Al momento non ci sono categorie giocabili. Riprova più tardi.",
@@ -304,11 +282,9 @@ export default {
   "podcast.intro.description":
     "Astropod è una soluzione gratuita e open-source per podcast serverless.",
   "podcast.deploy.title": "Distribuisci Podcast Serverless in 2 Minuti",
-  "podcast.deploy.description":
-    "Scopri come distribuire rapidamente il tuo podcast.",
+  "podcast.deploy.description": "Scopri come distribuire rapidamente il tuo podcast.",
   "podcast.auth.title": "Autenticazione Utente e Accesso alla Dashboard",
-  "podcast.auth.description":
-    "Abilita l'autenticazione e accedi alla dashboard.",
+  "podcast.auth.description": "Abilita l'autenticazione e accedi alla dashboard.",
   "podcast.config.title": "Configura Podcast Astropod",
   "podcast.config.description": "Scopri come configurare il tuo podcast.",
   "podcast.publish.title": "Pubblica il Tuo Primo Episodio",
@@ -324,8 +300,7 @@ export default {
     "Intraprendi un viaggio musicale di scoperta attraverso i secoli! Metti alla prova le tue conoscenze in quiz entusiasmanti, esplora affascinanti generi musicali e immergiti nei nostri podcast coinvolgenti. Mostra le tue abilità, raccogli punti e diventa una vera leggenda della musica!",
   "index.continue": "Andiamo!",
   "index.start.game.label": "Inizia il tuo viaggio musicale",
-  "index.welcome.footnote":
-    "Preparato da amanti della musica per amanti della musica. Divertiti!",
+  "index.welcome.footnote": "Preparato da amanti della musica per amanti della musica. Divertiti!",
   "accessibility.wcag": "Questa applicazione mira alla conformità WCAG AAA.",
   "game.instructions.title": "Istruzioni del Gioco",
   "game.instructions.puzzle":
@@ -335,8 +310,7 @@ export default {
   "game.puzzle.loading": "Caricamento puzzle...",
   "game.options.legend": "Seleziona l'album corretto",
   "game.next.round": "Inizia Prossimo Round",
-  "game.puzzle.revealed":
-    "È stato rivelato il {percent}% della copertina dell'album",
+  "game.puzzle.revealed": "È stato rivelato il {percent}% della copertina dell'album",
   "game.option.choose": "Scegli",
   "game.options.available": "Le opzioni di risposta sono ora disponibili",
   "game.time.remaining.seconds": "{seconds} secondi rimanenti",
@@ -375,11 +349,9 @@ export default {
   "game.chronology.correct": "Corretto",
   "game.chronology.wrong": "Dovrebbe essere alla posizione {position}",
   "game.chronology.score": "Punteggio: {score} punti",
-  "game.chronology.details":
-    "{correct} su {total} album posizionati correttamente",
+  "game.chronology.details": "{correct} su {total} album posizionati correttamente",
   "game.chronology.year": "Anno: {year}",
-  "game.chronology.drag.help":
-    "Usa i tasti freccia ↑/↓ o trascina e rilascia per ordinare",
+  "game.chronology.drag.help": "Usa i tasti freccia ↑/↓ o trascina e rilascia per ordinare",
   "game.submit.answer": "Controlla Risposta",
   "game.chronology.up": "Su",
   "game.chronology.down": "Giù",
@@ -393,8 +365,7 @@ export default {
     "Gli articoli vengono filtrati automaticamente durante la digitazione",
   "knowledge.search.reset": "Reimposta Ricerca",
   "knowledge.search.reset.text": "Reimposta",
-  "knowledge.no.results.help":
-    "Prova termini di ricerca diversi o reimposta la ricerca",
+  "knowledge.no.results.help": "Prova termini di ricerca diversi o reimposta la ricerca",
   "knowledge.keyboard.instructions":
     "Usa i tasti freccia per navigare tra gli articoli. Premi Invio per aprire un articolo.",
   "difficulty.level": "Livello di Difficoltà",
@@ -405,8 +376,7 @@ export default {
     "Gestisci le tue informazioni personali e visualizza le tue statistiche di gioco",
   "profile.loading": "Caricamento dati profilo...",
   "profile.error": "Errore durante il caricamento dei dati del profilo",
-  "profile.auth.required":
-    "Devi aver effettuato l'accesso per visualizzare il tuo profilo",
+  "profile.auth.required": "Devi aver effettuato l'accesso per visualizzare il tuo profilo",
   "profile.user.info": "Informazioni Utente",
   "profile.user.since": "Membro dal",
   "profile.stats.title": "Statistiche di Gioco",
@@ -449,8 +419,7 @@ export default {
 
   // Sistema di Achievement
   "achievements.title": "Achievement",
-  "achievements.description":
-    "Scopri e sblocca achievement per monitorare i tuoi progressi",
+  "achievements.description": "Scopri e sblocca achievement per monitorare i tuoi progressi",
   "achievements.loading": "Caricamento achievement...",
   "achievements.error": "Errore durante il caricamento degli achievement",
   "achievements.empty": "Nessun achievement trovato",

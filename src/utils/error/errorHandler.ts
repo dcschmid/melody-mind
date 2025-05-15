@@ -92,14 +92,14 @@ export class ErrorHandler {
    */
   static initialize(): boolean {
     // Prevent multiple initializations
-    if (this.isInitialized) return true;
+    if (this.isInitialized) {
+      return true;
+    }
 
     this.errorElement = document.querySelector(".errorMessage");
 
     if (!this.errorElement) {
-      console.warn(
-        "Error message element not found. Error displays may not work correctly.",
-      );
+      console.warn("Error message element not found. Error displays may not work correctly.");
       return false;
     }
 
@@ -177,7 +177,9 @@ export class ErrorHandler {
    * @returns {void}
    */
   static hideError(): void {
-    if (!this.errorElement) return;
+    if (!this.errorElement) {
+      return;
+    }
 
     this.errorElement.classList.add("hidden");
 
@@ -188,9 +190,7 @@ export class ErrorHandler {
     }
 
     // Return focus to the previously focused element if appropriate
-    const previouslyFocused = document.querySelector(
-      '[data-previously-focused="true"]',
-    );
+    const previouslyFocused = document.querySelector('[data-previously-focused="true"]');
     if (previouslyFocused instanceof HTMLElement) {
       previouslyFocused.removeAttribute("data-previously-focused");
       previouslyFocused.focus();
@@ -226,11 +226,7 @@ export class ErrorHandler {
         break;
       default:
         // Use the error message directly if it seems user-friendly
-        if (
-          error.message &&
-          error.message.length < 100 &&
-          !error.message.includes("Error:")
-        ) {
+        if (error.message && error.message.length < 100 && !error.message.includes("Error:")) {
           message = error.message;
         }
     }
@@ -246,11 +242,7 @@ export class ErrorHandler {
    * @param {any} data - The data that failed to save
    * @returns {Promise<void>} Promise resolving when the operation completes
    */
-  static async handleSaveError(
-    error: Error,
-    type: "score" | "goldenLP",
-    data: any,
-  ): Promise<void> {
+  static async handleSaveError(error: Error, type: "score" | "goldenLP", data: any): Promise<void> {
     // Add the operation to the queue for later processing
     await QueueManager.addToQueue(type, data);
 
@@ -295,11 +287,7 @@ export class ErrorHandler {
       return ErrorType.SAVE;
     }
 
-    if (
-      message.includes("api") ||
-      message.includes("fetch") ||
-      message.includes("request")
-    ) {
+    if (message.includes("api") || message.includes("fetch") || message.includes("request")) {
       return ErrorType.API;
     }
 

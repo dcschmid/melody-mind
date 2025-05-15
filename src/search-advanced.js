@@ -19,15 +19,23 @@ const FUZZY_MATCH_THRESHOLD = 0.6; // Threshold for fuzzy matching (0-1)
  * @returns {number} - The calculated Levenshtein distance
  */
 function levenshteinDistance(a, b) {
-  if (a.length === 0) return b.length;
-  if (b.length === 0) return a.length;
+  if (a.length === 0) {
+    return b.length;
+  }
+  if (b.length === 0) {
+    return a.length;
+  }
 
   const matrix = Array(a.length + 1)
     .fill(null)
     .map(() => Array(b.length + 1).fill(null));
 
-  for (let i = 0; i <= a.length; i++) matrix[i][0] = i;
-  for (let j = 0; j <= b.length; j++) matrix[0][j] = j;
+  for (let i = 0; i <= a.length; i++) {
+    matrix[i][0] = i;
+  }
+  for (let j = 0; j <= b.length; j++) {
+    matrix[0][j] = j;
+  }
 
   for (let i = 1; i <= a.length; i++) {
     for (let j = 1; j <= b.length; j++) {
@@ -35,7 +43,7 @@ function levenshteinDistance(a, b) {
       matrix[i][j] = Math.min(
         matrix[i - 1][j] + 1, // Delete
         matrix[i][j - 1] + 1, // Insert
-        matrix[i - 1][j - 1] + cost, // Replace
+        matrix[i - 1][j - 1] + cost // Replace
       );
     }
   }
@@ -51,9 +59,13 @@ function levenshteinDistance(a, b) {
  * @returns {number} - Similarity score between 0 (no similarity) and 1 (identical)
  */
 function stringSimilarity(a, b) {
-  if (!a || !b) return 0;
+  if (!a || !b) {
+    return 0;
+  }
   const maxLength = Math.max(a.length, b.length);
-  if (maxLength === 0) return 1;
+  if (maxLength === 0) {
+    return 1;
+  }
   const distance = levenshteinDistance(a, b);
   return 1 - distance / maxLength;
 }
@@ -67,11 +79,17 @@ function stringSimilarity(a, b) {
  * @returns {boolean} - True if the text contains the query according to fuzzy matching
  */
 function fuzzyIncludes(text, query, threshold = FUZZY_MATCH_THRESHOLD) {
-  if (!query) return true;
-  if (!text) return false;
+  if (!query) {
+    return true;
+  }
+  if (!text) {
+    return false;
+  }
 
   // Exact match takes priority
-  if (text.includes(query)) return true;
+  if (text.includes(query)) {
+    return true;
+  }
 
   // For short queries, we check token by token
   if (query.length <= 3) {
@@ -98,20 +116,20 @@ function fuzzyIncludes(text, query, threshold = FUZZY_MATCH_THRESHOLD) {
  * @returns {number} - Relevance score (0-2), where higher values indicate better matches
  */
 function calculateRelevance(item, searchTerm) {
-  if (!searchTerm) return 1;
+  if (!searchTerm) {
+    return 1;
+  }
 
   // Exact match has highest priority
-  if (item.searchable.includes(searchTerm)) return 2;
+  if (item.searchable.includes(searchTerm)) {
+    return 2;
+  }
 
   // Tokenize the search text for better matching
-  const tokens = item.searchable
-    .split(/\s+/)
-    .filter((token) => token.length > 1);
+  const tokens = item.searchable.split(/\s+/).filter((token) => token.length > 1);
 
   // Check token matches
-  const tokenMatches = tokens.filter((token) =>
-    fuzzyIncludes(token, searchTerm),
-  ).length;
+  const tokenMatches = tokens.filter((token) => fuzzyIncludes(token, searchTerm)).length;
 
   if (tokenMatches > 0) {
     return 1 + tokenMatches / tokens.length;

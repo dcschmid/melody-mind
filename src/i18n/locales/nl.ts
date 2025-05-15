@@ -28,14 +28,12 @@ export default {
   "auth.form.loading_text": "Laden...",
   "auth.form.send_reset_link": "Resetlink verzenden",
   "auth.form.password_required": "Wachtwoord is vereist",
-  "auth.form.password_requirements":
-    "Wachtwoord voldoet niet aan alle vereisten",
+  "auth.form.password_requirements": "Wachtwoord voldoet niet aan alle vereisten",
   "auth.form.password_confirm_required": "Wachtwoordbevestiging is vereist",
   "auth.form.passwords_not_match": "Wachtwoorden komen niet overeen",
   "auth.password_reset.success_message":
     "Als er een account bestaat met dit e-mailadres, is er een e-mail met instructies voor het opnieuw instellen van het wachtwoord verzonden.",
-  "auth.password_reset.error_message":
-    "Er is een fout opgetreden. Probeer het later opnieuw.",
+  "auth.password_reset.error_message": "Er is een fout opgetreden. Probeer het later opnieuw.",
   "auth.password_reset.complete_success":
     "Wachtwoord succesvol opnieuw ingesteld. U kunt nu inloggen met uw nieuwe wachtwoord.",
   "auth.password_reset.complete_error":
@@ -49,8 +47,7 @@ export default {
   "auth.register.password": "Wachtwoord",
   "auth.register.password.placeholder": "Maak een veilig wachtwoord",
   "auth.register.password_confirm": "Bevestig wachtwoord",
-  "auth.register.password_confirm.placeholder":
-    "Voer het wachtwoord opnieuw in",
+  "auth.register.password_confirm.placeholder": "Voer het wachtwoord opnieuw in",
   "auth.register.terms": "Ik accepteer de servicevoorwaarden",
   "auth.register.success": "Registratie succesvol",
   "auth.register.error": "Registratie mislukt",
@@ -61,16 +58,14 @@ export default {
   "auth.password_reset.email.placeholder": "Uw geregistreerde e-mailadres",
   "auth.password_reset.back_to_login": "Terug naar Inloggen",
   "auth.password_reset.login": "Inloggen",
-  "auth.password_reset.success":
-    "Er is een resetlink naar uw e-mailadres verzonden",
+  "auth.password_reset.success": "Er is een resetlink naar uw e-mailadres verzonden",
   "auth.password_reset.error": "Fout bij het verzenden van de resetlink",
   "auth.password_reset.new_password": "Nieuw wachtwoord",
   "auth.password_reset.confirm_password": "Bevestig nieuw wachtwoord",
   "auth.password_reset.change_submit": "Wachtwoord wijzigen",
 
   "auth.email_verification.title": "E-mailverificatie",
-  "auth.email_verification.message":
-    "We hebben een verificatielink naar uw e-mailadres gestuurd",
+  "auth.email_verification.message": "We hebben een verificatielink naar uw e-mailadres gestuurd",
   "auth.email_verification.check_inbox": "Controleer uw inbox",
   "auth.email_verification.resend": "Verificatielink opnieuw verzenden",
   "auth.email_verification.success": "E-mail succesvol geverifieerd",
@@ -79,18 +74,13 @@ export default {
   // Wachtwoordvalidatie
   "auth.password.requirements": "Wachtwoordvereisten:",
   "auth.password.min_length": "Wachtwoord moet minimaal 8 tekens lang zijn",
-  "auth.password.uppercase":
-    "Wachtwoord moet minimaal één hoofdletter bevatten",
-  "auth.password.lowercase":
-    "Wachtwoord moet minimaal één kleine letter bevatten",
+  "auth.password.uppercase": "Wachtwoord moet minimaal één hoofdletter bevatten",
+  "auth.password.lowercase": "Wachtwoord moet minimaal één kleine letter bevatten",
   "auth.password.number": "Wachtwoord moet minimaal één cijfer bevatten",
-  "auth.password.special":
-    "Wachtwoord moet minimaal één speciaal teken bevatten",
-  "auth.password.no_common":
-    "Wachtwoord mag geen algemeen gebruikt wachtwoord zijn",
+  "auth.password.special": "Wachtwoord moet minimaal één speciaal teken bevatten",
+  "auth.password.no_common": "Wachtwoord mag geen algemeen gebruikt wachtwoord zijn",
   "auth.password.no_repeats": "Wachtwoord mag geen herhaalde tekens bevatten",
-  "auth.password.no_sequences":
-    "Wachtwoord mag geen eenvoudige reeksen bevatten",
+  "auth.password.no_sequences": "Wachtwoord mag geen eenvoudige reeksen bevatten",
   "auth.password.match": "Wachtwoorden moeten overeenkomen",
   "auth.password.strength": "Wachtwoordsterkte",
   "auth.password.strength.weak": "Zwak",
@@ -110,8 +100,7 @@ export default {
   "auth.accessibility.error": "Fout: {message}",
   "auth.accessibility.required_field": "Verplicht veld",
   "auth.accessibility.password_toggle": "Wachtwoord weergeven/verbergen",
-  "auth.accessibility.password_requirements":
-    "Wachtwoordvereisten weergeven/verbergen",
+  "auth.accessibility.password_requirements": "Wachtwoordvereisten weergeven/verbergen",
   "auth.accessibility.form": "Inlogformulier",
   "auth.accessibility.close_modal": "Venster sluiten",
 
@@ -126,13 +115,11 @@ export default {
   // Servicefoutmeldingen
   "auth.service.session_expired": "Uw sessie is verlopen. Log opnieuw in",
   "auth.service.unauthorized": "Niet geautoriseerd. Log in",
-  "auth.service.account_locked":
-    "Uw account is vergrendeld. Neem contact op met de ondersteuning",
+  "auth.service.account_locked": "Uw account is vergrendeld. Neem contact op met de ondersteuning",
   "auth.service.permission_denied": "Toestemming geweigerd voor deze actie",
   "auth.service.invalid_credentials":
     "Ongeldige inloggegevens. Controleer uw e-mailadres en wachtwoord.",
-  "auth.service.too_many_attempts":
-    "Te veel inlogpogingen. Wacht even en probeer het opnieuw.",
+  "auth.service.too_many_attempts": "Te veel inlogpogingen. Wacht even en probeer het opnieuw.",
 
   "nav.home": "Startpagina",
   "nav.rules": "Spelregels",
@@ -148,8 +135,7 @@ export default {
   "game.welcome": "Welkom bij Melody Mind",
   "game.genre.list": "Genreselectie",
   "game.search.label": "Zoek naar een genre",
-  "game.search.description":
-    "De lijst wordt automatisch gefilterd terwijl u typt",
+  "game.search.description": "De lijst wordt automatisch gefilterd terwijl u typt",
   "game.genre.play.label": "spelen",
   "game.genre.image": "Coverafbeelding voor",
   "game.no.results": "Geen resultaten gevonden",
@@ -185,8 +171,7 @@ export default {
   "game.feedback.media.section": "Mediagedeelte",
   "game.feedback.audio.preview": "Muziekvoorbeeld",
   "game.feedback.subtitles": "Ondertitels",
-  "game.feedback.audio.unsupported":
-    "Uw browser ondersteunt geen audioweergave.",
+  "game.feedback.audio.unsupported": "Uw browser ondersteunt geen audioweergave.",
   "game.feedback.streaming.links": "Muziekstreaminglinks",
   "game.feedback.listen.spotify": "Luister op Spotify",
   "game.feedback.listen.deezer": "Luister op Deezer",
@@ -275,8 +260,7 @@ export default {
   "knowledge.back.to.list": "Terug naar overzicht",
   "knowledge.interact.heading": "Luisteren & Spelen",
   "knowledge.play.heading": "Speel dit genre",
-  "knowledge.play.description":
-    "Test je kennis van dit muziekgenre in onze interactieve quiz!",
+  "knowledge.play.description": "Test je kennis van dit muziekgenre in onze interactieve quiz!",
   "knowledge.play.category": "Start Muziekquiz",
   "category.play": "Spelen",
   "play.cover.puzzle": "Speel Coverpuzzel",
@@ -291,19 +275,16 @@ export default {
   "podcast.search.status.all": "Alle podcasts worden weergegeven",
   "podcast.search.status.one": "1 podcast gevonden",
   "podcast.search.status.multiple": "{count} podcasts gevonden",
-  "podcast.no.results":
-    "Geen overeenkomende podcasts gevonden. Probeer een andere zoekterm.",
+  "podcast.no.results": "Geen overeenkomende podcasts gevonden. Probeer een andere zoekterm.",
   "podcast.duration.error": "Duur niet beschikbaar",
   "podcast.play": "Afspelen",
   "podcast.intro.title": "Introductie tot Astropod",
   "podcast.intro.description":
     "Astropod is een gratis en open-source oplossing voor serverloze podcasts.",
   "podcast.deploy.title": "Implementeer Serverloze Podcast in 2 Minuten",
-  "podcast.deploy.description":
-    "Leer hoe u snel uw podcast kunt implementeren.",
+  "podcast.deploy.description": "Leer hoe u snel uw podcast kunt implementeren.",
   "podcast.auth.title": "Gebruikersauthenticatie en Dashboardtoegang",
-  "podcast.auth.description":
-    "Schakel authenticatie in en krijg toegang tot het dashboard.",
+  "podcast.auth.description": "Schakel authenticatie in en krijg toegang tot het dashboard.",
   "podcast.config.title": "Configureer Astropod Podcast",
   "podcast.config.description": "Leer hoe u uw podcast configureert.",
   "podcast.publish.title": "Publiceer Uw Eerste Aflevering",
@@ -362,18 +343,15 @@ export default {
   "footer.rights": "Alle rechten voorbehouden",
   "footer.donate": "Doneren",
   "game.chronology.title": "Muziekchronologie",
-  "game.chronology.description":
-    "Rangschik deze albums op hun releasejaar (oudste eerst)",
+  "game.chronology.description": "Rangschik deze albums op hun releasejaar (oudste eerst)",
   "game.chronology.area.label": "Chronologiespelgebied",
   "game.chronology.result": "Resultaat",
   "game.chronology.correct": "Correct",
   "game.chronology.wrong": "Moet op positie {position} zijn",
   "game.chronology.score": "Score: {score} punten",
-  "game.chronology.details":
-    "{correct} van de {total} albums correct geplaatst",
+  "game.chronology.details": "{correct} van de {total} albums correct geplaatst",
   "game.chronology.year": "Jaar: {year}",
-  "game.chronology.drag.help":
-    "Gebruik de pijltoetsen ↑/↓ of slepen en neerzetten om te sorteren",
+  "game.chronology.drag.help": "Gebruik de pijltoetsen ↑/↓ of slepen en neerzetten om te sorteren",
   "game.submit.answer": "Antwoord Controleren",
   "game.chronology.up": "Omhoog",
   "game.chronology.down": "Omlaag",
@@ -383,20 +361,17 @@ export default {
   "common.back.to.top": "Terug naar boven",
   "knowledge.articles.heading": "Kennisartikelen",
   "knowledge.search.heading": "Artikelen Doorzoeken",
-  "knowledge.search.description":
-    "Artikelen worden automatisch gefilterd terwijl u typt",
+  "knowledge.search.description": "Artikelen worden automatisch gefilterd terwijl u typt",
   "knowledge.search.reset": "Zoekopdracht Resetten",
   "knowledge.search.reset.text": "Resetten",
-  "knowledge.no.results.help":
-    "Probeer verschillende zoektermen of reset de zoekopdracht",
+  "knowledge.no.results.help": "Probeer verschillende zoektermen of reset de zoekopdracht",
   "knowledge.keyboard.instructions":
     "Gebruik de pijltoetsen om tussen artikelen te navigeren. Druk op Enter om een artikel te openen.",
   "difficulty.level": "Moeilijkheidsgraad",
 
   // Profielpagina
   "profile.title": "Mijn Profiel",
-  "profile.description":
-    "Beheer uw persoonlijke informatie en bekijk uw spelstatistieken",
+  "profile.description": "Beheer uw persoonlijke informatie en bekijk uw spelstatistieken",
   "profile.loading": "Profielgegevens laden...",
   "profile.error": "Fout bij het laden van profielgegevens",
   "profile.auth.required": "U moet ingelogd zijn om uw profiel te bekijken",
@@ -421,8 +396,7 @@ export default {
 
   // Highscorespagina
   "highscores.title": "Highscores",
-  "highscores.description":
-    "Bekijk de beste scores in verschillende spelmodi en categorieën",
+  "highscores.description": "Bekijk de beste scores in verschillende spelmodi en categorieën",
   "highscores.loading": "Highscores laden...",
   "highscores.error": "Fout bij het laden van highscores",
   "highscores.empty": "Geen vermeldingen gevonden in de highscores",
@@ -442,8 +416,7 @@ export default {
 
   // Prestatiesysteem
   "achievements.title": "Prestaties",
-  "achievements.description":
-    "Ontdek en ontgrendel prestaties om uw voortgang bij te houden",
+  "achievements.description": "Ontdek en ontgrendel prestaties om uw voortgang bij te houden",
   "achievements.loading": "Prestaties laden...",
   "achievements.error": "Fout bij het laden van prestaties",
   "achievements.empty": "Geen prestaties gevonden",

@@ -34,13 +34,8 @@ const t = useTranslations(lang);
 ---
 
 <a
-  href={"#" + targetId}
-  class="skipLink absolute z-50 -top-20 left-1/2 -translate-x-1/2 px-6 py-2
-         rounded-b-lg text-white bg-[--highlight-color]
-         font-bold no-underline shadow-md will-change-transform
-         focus-visible:top-0 focus-visible:outline focus-visible:outline-[--focus-outline-color]
-         focus-visible:outline-offset-2 hover:bg-[--button-hover-color]
-         min-w-[200px] text-center text-base"
+  href={`#${targetId}`}
+  class="skipLink absolute -top-20 left-1/2 z-50 min-w-[200px] -translate-x-1/2 rounded-b-lg bg-[--highlight-color] px-6 py-2 text-center text-base font-bold text-white no-underline shadow-md will-change-transform hover:bg-[--button-hover-color] focus-visible:top-0 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-[--focus-outline-color]"
   data-skip-link
   aria-label={t("nav.skip.main")}
 >
@@ -124,14 +119,18 @@ const t = useTranslations(lang);
      * Set up event listeners for the skip link
      */
     private setupEventListeners(): void {
-      if (!this.skipLink) return;
+      if (!this.skipLink) {
+        return;
+      }
 
       // Add click handler with proper focus management
       this.skipLink.addEventListener("click", (e) => {
         e.preventDefault();
 
         const targetId = this.skipLink?.getAttribute("href")?.substring(1);
-        if (!targetId) return;
+        if (!targetId) {
+          return;
+        }
 
         const targetElement = document.getElementById(targetId);
 

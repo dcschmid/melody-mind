@@ -32,18 +32,14 @@ interface Category {
  * First attempts to load using the alias path, then tries relative path if that fails
  * @returns {Promise<Category[]>} Array of category objects
  */
-async function loadCategoriesForLanguage(
-  language: string,
-): Promise<Category[]> {
+async function loadCategoriesForLanguage(language: string): Promise<Category[]> {
   try {
     // First try using the alias path
     return await import(`@json/${language}_categories.json`)
       .then((module) => module.default)
       .catch(async () => {
         // Fallback to relative path if alias fails
-        console.info(
-          `Attempting to load ${language}_categories.json using relative path`,
-        );
+        console.info(`Attempting to load ${language}_categories.json using relative path`);
         return await import(`../../json/${language}_categories.json`)
           .then((module) => module.default)
           .catch((err) => {
@@ -66,9 +62,7 @@ const categories = Array.isArray(categoriesList) ? categoriesList : [];
  * @param item - The item to check
  * @returns Boolean indicating if item is a valid playable category
  */
-function isPlayableCategory(
-  item: any,
-): item is Category & { categoryUrl: string } {
+function isPlayableCategory(item: any): item is Category & { categoryUrl: string } {
   return (
     item &&
     typeof item === "object" &&
@@ -85,9 +79,7 @@ function isPlayableCategory(
 
 // Filter categories by playability status
 const playableCategories = categories.filter(isPlayableCategory);
-const nonPlayableCategories = categories.filter(
-  (item) => item && !item.isPlayable,
-);
+const nonPlayableCategories = categories.filter((item) => item && !item.isPlayable);
 
 // Combined categories with playable ones first
 const sortedCategories = [...playableCategories, ...nonPlayableCategories];
@@ -109,8 +101,7 @@ const publishDate = new Date("2024-01-01");
 const modifiedDate = new Date();
 
 // Prepare fallback text for empty states
-const emptyCategoriesHeadline =
-  t("game.categories.empty.headline") || "No genres found";
+const emptyCategoriesHeadline = t("game.categories.empty.headline") || "No genres found";
 const emptyCategoriesText =
   t("game.categories.empty.text") ||
   "Unfortunately, no categories were found. Please try again later.";
@@ -122,47 +113,35 @@ const noPlayableCategoriesText =
 ---
 
 <Layout
-  title={title}
+  {title}
   description={optimizedDescription}
-  keywords={keywords}
+  {keywords}
   image={`/og-images/social-share-gamehome-${String(lang)}.jpg`}
   type={pageType}
-  publishDate={publishDate}
-  modifiedDate={modifiedDate}
+  {publishDate}
+  {modifiedDate}
 >
-  <div class="w-full max-w-6xl mx-auto px-4 py-8" id="main-content">
+  <div class="mx-auto w-full max-w-6xl px-4 py-8" id="main-content">
     <!-- Hero section with improved contrast and accessibility -->
     <section
-      class="relative rounded-2xl mb-12 p-8 bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 shadow-xl overflow-hidden"
+      class="relative mb-12 overflow-hidden rounded-2xl bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 p-8 shadow-xl"
       aria-labelledby="welcome-heading"
     >
       <!-- Decorative background elements with aria-hidden -->
       <div class="absolute inset-0 opacity-10" aria-hidden="true">
-        <div
-          class="absolute -right-20 -top-24 w-64 h-64 rounded-full bg-indigo-500"
-        >
-        </div>
-        <div
-          class="absolute left-10 bottom-10 w-40 h-40 rounded-full bg-purple-500"
-        >
-        </div>
-        <div
-          class="absolute right-1/4 top-1/2 w-32 h-32 rounded-full bg-blue-500"
-        >
-        </div>
+        <div class="absolute -top-24 -right-20 h-64 w-64 rounded-full bg-indigo-500"></div>
+        <div class="absolute bottom-10 left-10 h-40 w-40 rounded-full bg-purple-500"></div>
+        <div class="absolute top-1/2 right-1/4 h-32 w-32 rounded-full bg-blue-500"></div>
       </div>
 
       <div class="relative z-10 text-center">
         <Headline
           title={`${t("game.welcome")}`}
           level="h1"
-          className="text-3xl md:text-4xl text-white font-bold mb-4"
+          className="mb-4 text-3xl font-bold text-white md:text-4xl"
         />
-        <div class="h-1 w-24 bg-purple-400 rounded-full mx-auto mt-2 mb-6">
-        </div>
-        <Paragraph
-          className="max-w-2xl mx-auto text-zinc-100 text-lg leading-relaxed"
-        >
+        <div class="mx-auto mt-2 mb-6 h-1 w-24 rounded-full bg-purple-400"></div>
+        <Paragraph className="mx-auto max-w-2xl text-lg leading-relaxed text-zinc-100">
           {t("game.select")}
         </Paragraph>
       </div>
@@ -172,13 +151,13 @@ const noPlayableCategoriesText =
       <Headline
         level="h2"
         title={t("game.genre.list")}
-        className="text-2xl text-center font-bold mb-4"
+        className="mb-4 text-center text-2xl font-bold"
       />
 
       <!-- Search input with improved accessibility and styling -->
-      <div class="my-8 w-full max-w-2xl mx-auto relative">
+      <div class="relative mx-auto my-8 w-full max-w-2xl">
         <div
-          class="absolute inset-y-0 left-4 flex items-center pointer-events-none"
+          class="pointer-events-none absolute inset-y-0 left-4 flex items-center"
           aria-hidden="true"
         >
           <!-- Ersetze inline SVG mit Icon-Komponente -->
@@ -188,7 +167,7 @@ const noPlayableCategoriesText =
           {t("game.search.label")}
         </label>
         <input
-          class="w-full py-4 pl-12 pr-5 border-2 border-zinc-500 rounded-xl bg-zinc-800 text-zinc-50 text-base leading-relaxed placeholder-zinc-300 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400/50 focus:ring-opacity-50 shadow-lg transition-all duration-300"
+          class="focus:ring-opacity-50 w-full rounded-xl border-2 border-zinc-500 bg-zinc-800 py-4 pr-5 pl-12 text-base leading-relaxed text-zinc-50 placeholder-zinc-300 shadow-lg transition-all duration-300 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/50 focus:outline-none"
           type="search"
           id="filter-input"
           placeholder={t("game.search.label")}
@@ -206,7 +185,7 @@ const noPlayableCategoriesText =
       <!-- Genre grid with improved card styling and animations -->
       <div
         id="playlist-grid"
-        class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 md:gap-8 w-full max-w-5xl mx-auto my-8 min-h-[200px]"
+        class="xs:grid-cols-2 mx-auto my-8 grid min-h-[200px] w-full max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 md:gap-8 lg:grid-cols-3"
         role="list"
         aria-label={t("game.genre.list")}
         aria-live="polite"
@@ -218,42 +197,36 @@ const noPlayableCategoriesText =
                 (item, index) =>
                   item.isPlayable && (
                     <li
-                      class="h-full list-none animate-fadeIn"
+                      class="animate-fadeIn h-full list-none"
                       style={{ animationDelay: `${index * 0.05}s` }}
                     >
                       <PlaylistItem
                         headline={item.headline}
                         subheadline={item.introSubline}
                         image={item.imageUrl}
-                        imageAlt={t("game.genre.image") + " " + item.headline}
+                        imageAlt={`${t("game.genre.image")} ${item.headline}`}
                         href={`/${String(lang)}${item.categoryUrl}`}
                         isDisabled={!item.isPlayable}
-                        aria-label={
-                          item.headline + " " + t("game.genre.play.label")
-                        }
+                        aria-label={`${item.headline} ${t("game.genre.play.label")}`}
                       />
                       <div
-                        class="p-2 flex justify-center items-center bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium text-sm rounded-b-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                        class="flex items-center justify-center rounded-b-lg bg-gradient-to-r from-purple-600 to-indigo-600 p-2 text-sm font-medium text-white opacity-0 transition-opacity group-hover:opacity-100"
                         aria-hidden="true"
                       >
                         {t("category.play")} →
                       </div>
                     </li>
-                  ),
+                  )
               )
             ) : (
-              <div class="col-span-full py-12 px-6 bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-xl text-center shadow-md border border-zinc-700">
-                <h3 class="text-xl font-bold text-zinc-50 mb-3">
-                  {noPlayableCategoriesHeadline}
-                </h3>
+              <div class="col-span-full rounded-xl border border-zinc-700 bg-gradient-to-br from-zinc-800 to-zinc-900 px-6 py-12 text-center shadow-md">
+                <h3 class="mb-3 text-xl font-bold text-zinc-50">{noPlayableCategoriesHeadline}</h3>
                 <p class="text-zinc-200">{noPlayableCategoriesText}</p>
               </div>
             )
           ) : (
-            <div class="col-span-full py-12 px-6 bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-xl text-center shadow-md border border-zinc-700">
-              <h3 class="text-xl font-bold text-zinc-50 mb-3">
-                {emptyCategoriesHeadline}
-              </h3>
+            <div class="col-span-full rounded-xl border border-zinc-700 bg-gradient-to-br from-zinc-800 to-zinc-900 px-6 py-12 text-center shadow-md">
+              <h3 class="mb-3 text-xl font-bold text-zinc-50">{emptyCategoriesHeadline}</h3>
               <p class="text-zinc-200">{emptyCategoriesText}</p>
             </div>
           )
@@ -274,8 +247,9 @@ const noPlayableCategoriesText =
    *
    */
 
-  import { ui } from "../../i18n/ui";
   import { getLangFromUrl } from "@utils/i18n";
+
+  import { ui } from "../../i18n/ui";
 
   // =========================================================================
   // CONFIGURATION AND SETUP
@@ -311,17 +285,13 @@ const noPlayableCategoriesText =
   const currentLang = getLangFromUrl(new URL(window.location.href));
   const translations = {
     noResults:
-      (ui[currentLang] as Record<string, string>)?.["game.no.results"] ||
-      "No results found",
+      (ui[currentLang] as Record<string, string>)?.["game.no.results"] || "No results found",
     notAvailable:
-      (ui[currentLang] as Record<string, string>)?.["game.not.available"] ||
-      "Not available",
+      (ui[currentLang] as Record<string, string>)?.["game.not.available"] || "Not available",
     resultsCount:
-      (ui[currentLang] as Record<string, string>)?.["game.results.count"] ||
-      "{count} genres found",
+      (ui[currentLang] as Record<string, string>)?.["game.results.count"] || "{count} genres found",
     clearSearch:
-      (ui[currentLang] as Record<string, string>)?.["game.search.clear"] ||
-      "Clear search",
+      (ui[currentLang] as Record<string, string>)?.["game.search.clear"] || "Clear search",
   };
 
   /**
@@ -332,9 +302,7 @@ const noPlayableCategoriesText =
     filterInput: document.querySelector(CONFIG.SELECTOR.FILTER_INPUT),
     grid: document.querySelector(CONFIG.SELECTOR.GRID),
     get items() {
-      return (
-        elements.grid?.querySelectorAll(`${CONFIG.SELECTOR.LIST_ITEM}`) || []
-      );
+      return elements.grid?.querySelectorAll(`${CONFIG.SELECTOR.LIST_ITEM}`) || [];
     },
   };
 
@@ -411,17 +379,13 @@ const noPlayableCategoriesText =
     addClearButton();
 
     // Set up disabled items with proper attributes
-    document
-      .querySelectorAll(`[${CONFIG.ATTRIBUTE.DISABLED}="true"]`)
-      .forEach((item) => {
-        item.setAttribute("data-unavailable-text", translations.notAvailable);
-      });
+    document.querySelectorAll(`[${CONFIG.ATTRIBUTE.DISABLED}="true"]`).forEach((item) => {
+      item.setAttribute("data-unavailable-text", translations.notAvailable);
+    });
 
     // Add initial ARIA status for screen readers
     const initialCount = elements.items.length;
-    announceToScreenReader(
-      translations.resultsCount.replace("{count}", initialCount.toString()),
-    );
+    announceToScreenReader(translations.resultsCount.replace("{count}", initialCount.toString()));
   }
 
   /**
@@ -429,7 +393,9 @@ const noPlayableCategoriesText =
    */
   function addClearButton() {
     const inputWrapper = elements.filterInput?.parentElement;
-    if (!inputWrapper || !elements.filterInput) return;
+    if (!inputWrapper || !elements.filterInput) {
+      return;
+    }
 
     const clearButton = document.createElement("button");
     clearButton.className =
@@ -455,8 +421,7 @@ const noPlayableCategoriesText =
 
     // Show/hide clear button based on input content
     elements.filterInput.addEventListener("input", () => {
-      const hasValue =
-        (elements.filterInput as HTMLInputElement).value.length > 0;
+      const hasValue = (elements.filterInput as HTMLInputElement).value.length > 0;
       clearButton.style.display = hasValue ? "block" : "none";
     });
 
@@ -475,14 +440,16 @@ const noPlayableCategoriesText =
 
       // Also hide clear button if it exists
       const clearButton = document.querySelector(".clear-input");
-      if (clearButton) (clearButton as HTMLElement).style.display = "none";
+      if (clearButton) {
+        (clearButton as HTMLElement).style.display = "none";
+      }
 
       // Prevent default behavior (like closing dialogs)
       event.preventDefault();
     } else if (event.key === CONFIG.KEY_CODES.ENTER) {
       // On Enter, move focus to first visible result if available
       const firstVisibleItem = Array.from(elements.items).find(
-        (item) => (item as HTMLElement).style.display !== "none",
+        (item) => (item as HTMLElement).style.display !== "none"
       );
 
       if (firstVisibleItem) {
@@ -500,11 +467,11 @@ const noPlayableCategoriesText =
    * Shows/hides items according to the match and updates the UI accordingly
    */
   function filterGenres() {
-    if (!elements.filterInput || !elements.grid) return;
+    if (!elements.filterInput || !elements.grid) {
+      return;
+    }
 
-    const query = (elements.filterInput as HTMLInputElement).value
-      .toLowerCase()
-      .trim();
+    const query = (elements.filterInput as HTMLInputElement).value.toLowerCase().trim();
     let visibleCount = 0;
     let firstVisibleItem: Element | null = null;
 
@@ -513,10 +480,7 @@ const noPlayableCategoriesText =
       // Use cached text content or retrieve and cache it
       let itemText = textContentCache.get(item);
       if (!itemText) {
-        itemText =
-          item
-            .querySelector(CONFIG.SELECTOR.HEADLINE)
-            ?.textContent?.toLowerCase() || "";
+        itemText = item.querySelector(CONFIG.SELECTOR.HEADLINE)?.textContent?.toLowerCase() || "";
         textContentCache.set(item, itemText);
       }
 
@@ -542,9 +506,7 @@ const noPlayableCategoriesText =
     updateNoResultsMessage(visibleCount > 0);
 
     // Announce results to screen readers
-    announceToScreenReader(
-      translations.resultsCount.replace("{count}", visibleCount.toString()),
-    );
+    announceToScreenReader(translations.resultsCount.replace("{count}", visibleCount.toString()));
   }
 
   /**
@@ -554,11 +516,11 @@ const noPlayableCategoriesText =
    * @param {boolean} hasResults - Whether any genres match the current query
    */
   function updateNoResultsMessage(hasResults: boolean) {
-    if (!elements.grid) return;
+    if (!elements.grid) {
+      return;
+    }
 
-    let noResultsMessage = elements.grid.querySelector(
-      CONFIG.SELECTOR.NO_RESULTS,
-    );
+    let noResultsMessage = elements.grid.querySelector(CONFIG.SELECTOR.NO_RESULTS);
 
     if (!hasResults) {
       // Create and display "no results" message if it doesn't exist

@@ -45,7 +45,7 @@ const translations = {
   <!-- Error message display area -->
   <div
     id="formError"
-    class="hidden mb-4 p-3 bg-red-900/50 border border-red-700 text-white rounded-md"
+    class="mb-4 hidden rounded-md border border-red-700 bg-red-900/50 p-3 text-white"
     role="alert"
     aria-live="assertive"
   >
@@ -53,7 +53,7 @@ const translations = {
   <!-- Success message display area -->
   <div
     id="formSuccess"
-    class="hidden mb-4 p-3 bg-green-900/50 border border-green-700 text-white rounded-md"
+    class="mb-4 hidden rounded-md border border-green-700 bg-green-900/50 p-3 text-white"
     role="alert"
     aria-live="assertive"
   >
@@ -95,7 +95,7 @@ const translations = {
 
       <!-- Email field for login -->
       <div class="mb-4">
-        <label for="loginEmail" class="block text-sm font-medium mb-2">
+        <label for="loginEmail" class="mb-2 block text-sm font-medium">
           {t("auth.login.email")}
           <span class="text-red-400" aria-hidden="true">*</span>
           <span class="sr-only">{t("auth.form.required")}</span>
@@ -107,18 +107,17 @@ const translations = {
             name="email"
             autocomplete="email"
             required
-            class="w-full px-4 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+            class="w-full rounded-md border border-zinc-700 bg-zinc-800 px-4 py-2 text-white focus:border-transparent focus:ring-2 focus:ring-purple-400 focus:outline-none"
             placeholder={t("auth.login.email.placeholder")}
             aria-required="true"
           />
-          <div id="loginEmailError" class="text-red-400 text-sm mt-1 hidden">
-          </div>
+          <div id="loginEmailError" class="mt-1 hidden text-sm text-red-400"></div>
         </div>
       </div>
 
       <!-- Password field for login with reset link -->
       <div class="mb-4">
-        <div class="flex items-center justify-between mb-2">
+        <div class="mb-2 flex items-center justify-between">
           <label for="loginPassword" class="block text-sm font-medium">
             {t("auth.login.password")}
             <span class="text-red-400" aria-hidden="true">*</span>
@@ -126,7 +125,7 @@ const translations = {
           </label>
           <a
             href={`/${String(lang)}/auth/reset-password`}
-            class="text-sm text-purple-300 hover:text-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 rounded-md px-2 py-1"
+            class="rounded-md px-2 py-1 text-sm text-purple-300 hover:text-purple-200 focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
           >
             {t("auth.login.forgot_password")}
           </a>
@@ -138,7 +137,7 @@ const translations = {
             name="password"
             autocomplete="current-password"
             required
-            class="w-full px-4 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+            class="w-full rounded-md border border-zinc-700 bg-zinc-800 px-4 py-2 text-white focus:border-transparent focus:ring-2 focus:ring-purple-400 focus:outline-none"
             placeholder={t("auth.login.password.placeholder")}
             aria-required="true"
           />
@@ -146,7 +145,7 @@ const translations = {
           <button
             type="button"
             id="toggleLoginPassword"
-            class="absolute inset-y-0 right-0 flex items-center px-3 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 rounded-md"
+            class="absolute inset-y-0 right-0 flex items-center rounded-md px-3 text-gray-400 hover:text-white focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
             aria-label={t("auth.accessibility.password_toggle")}
           >
             <span class="show-password">
@@ -156,7 +155,7 @@ const translations = {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-5 h-5"
+                class="h-5 w-5"
               >
                 <path
                   stroke-linecap="round"
@@ -176,7 +175,7 @@ const translations = {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-5 h-5"
+                class="h-5 w-5"
               >
                 <path
                   stroke-linecap="round"
@@ -186,8 +185,7 @@ const translations = {
               </svg>
             </span>
           </button>
-          <div id="loginPasswordError" class="text-red-400 text-sm mt-1 hidden">
-          </div>
+          <div id="loginPasswordError" class="mt-1 hidden text-sm text-red-400"></div>
         </div>
       </div>
 
@@ -195,12 +193,12 @@ const translations = {
       <div>
         <button
           type="submit"
-          class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 focus:ring-offset-zinc-900 transition-colors"
+          class="flex w-full justify-center rounded-md border border-transparent bg-purple-600 px-4 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-purple-700 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
         >
           <span id="loginSubmitText">{t("auth.login.submit")}</span>
           <span id="loginLoadingSpinner" class="hidden">
             <svg
-              class="animate-spin ml-2 h-4 w-4 text-white"
+              class="ml-2 h-4 w-4 animate-spin text-white"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -238,7 +236,7 @@ const translations = {
 
       <!-- Email field for registration -->
       <div class="mb-4">
-        <label for="registerEmail" class="block text-sm font-medium mb-2">
+        <label for="registerEmail" class="mb-2 block text-sm font-medium">
           {t("auth.register.email")}
           <span class="text-red-400" aria-hidden="true">*</span>
           <span class="sr-only">{t("auth.form.required")}</span>
@@ -250,18 +248,17 @@ const translations = {
             name="email"
             autocomplete="email"
             required
-            class="w-full px-4 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+            class="w-full rounded-md border border-zinc-700 bg-zinc-800 px-4 py-2 text-white focus:border-transparent focus:ring-2 focus:ring-purple-400 focus:outline-none"
             placeholder={t("auth.register.email.placeholder")}
             aria-required="true"
           />
-          <div id="registerEmailError" class="text-red-400 text-sm mt-1 hidden">
-          </div>
+          <div id="registerEmailError" class="mt-1 hidden text-sm text-red-400"></div>
         </div>
       </div>
 
       <!-- Username field (optional) -->
       <div class="mb-4">
-        <label for="registerUsername" class="block text-sm font-medium mb-2">
+        <label for="registerUsername" class="mb-2 block text-sm font-medium">
           {t("auth.register.username")}
         </label>
         <div class="relative">
@@ -270,7 +267,7 @@ const translations = {
             id="registerUsername"
             name="username"
             autocomplete="username"
-            class="w-full px-4 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+            class="w-full rounded-md border border-zinc-700 bg-zinc-800 px-4 py-2 text-white focus:border-transparent focus:ring-2 focus:ring-purple-400 focus:outline-none"
             placeholder={t("auth.register.username.placeholder")}
           />
         </div>
@@ -278,7 +275,7 @@ const translations = {
 
       <!-- Password field for registration -->
       <div class="mb-4">
-        <label for="registerPassword" class="block text-sm font-medium mb-2">
+        <label for="registerPassword" class="mb-2 block text-sm font-medium">
           {t("auth.register.password")}
           <span class="text-red-400" aria-hidden="true">*</span>
           <span class="sr-only">{t("auth.form.required")}</span>
@@ -290,7 +287,7 @@ const translations = {
             name="password"
             autocomplete="new-password"
             required
-            class="w-full px-4 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+            class="w-full rounded-md border border-zinc-700 bg-zinc-800 px-4 py-2 text-white focus:border-transparent focus:ring-2 focus:ring-purple-400 focus:outline-none"
             placeholder={t("auth.register.password.placeholder")}
             aria-required="true"
           />
@@ -298,7 +295,7 @@ const translations = {
           <button
             type="button"
             id="toggleRegisterPassword"
-            class="absolute inset-y-0 right-0 flex items-center px-3 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 rounded-md"
+            class="absolute inset-y-0 right-0 flex items-center rounded-md px-3 text-gray-400 hover:text-white focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
             aria-label={t("auth.accessibility.password_toggle")}
           >
             <span class="show-password">
@@ -308,7 +305,7 @@ const translations = {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-5 h-5"
+                class="h-5 w-5"
               >
                 <path
                   stroke-linecap="round"
@@ -328,7 +325,7 @@ const translations = {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-5 h-5"
+                class="h-5 w-5"
               >
                 <path
                   stroke-linecap="round"
@@ -338,20 +335,13 @@ const translations = {
               </svg>
             </span>
           </button>
-          <div
-            id="registerPasswordError"
-            class="text-red-400 text-sm mt-1 hidden"
-          >
-          </div>
+          <div id="registerPasswordError" class="mt-1 hidden text-sm text-red-400"></div>
         </div>
       </div>
 
       <!-- Password confirmation field -->
       <div class="mb-4">
-        <label
-          for="registerPasswordConfirm"
-          class="block text-sm font-medium mb-2"
-        >
+        <label for="registerPasswordConfirm" class="mb-2 block text-sm font-medium">
           {t("auth.register.password_confirm")}
           <span class="text-red-400" aria-hidden="true">*</span>
           <span class="sr-only">{t("auth.form.required")}</span>
@@ -363,7 +353,7 @@ const translations = {
             name="passwordConfirm"
             autocomplete="new-password"
             required
-            class="w-full px-4 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+            class="w-full rounded-md border border-zinc-700 bg-zinc-800 px-4 py-2 text-white focus:border-transparent focus:ring-2 focus:ring-purple-400 focus:outline-none"
             placeholder={t("auth.register.password_confirm.placeholder")}
             aria-required="true"
           />
@@ -371,7 +361,7 @@ const translations = {
           <button
             type="button"
             id="toggleRegisterPasswordConfirm"
-            class="absolute inset-y-0 right-0 flex items-center px-3 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 rounded-md"
+            class="absolute inset-y-0 right-0 flex items-center rounded-md px-3 text-gray-400 hover:text-white focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
             aria-label={t("auth.accessibility.password_toggle")}
           >
             <span class="show-password">
@@ -381,7 +371,7 @@ const translations = {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-5 h-5"
+                class="h-5 w-5"
               >
                 <path
                   stroke-linecap="round"
@@ -401,7 +391,7 @@ const translations = {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-5 h-5"
+                class="h-5 w-5"
               >
                 <path
                   stroke-linecap="round"
@@ -411,11 +401,7 @@ const translations = {
               </svg>
             </span>
           </button>
-          <div
-            id="registerPasswordConfirmError"
-            class="text-red-400 text-sm mt-1 hidden"
-          >
-          </div>
+          <div id="registerPasswordConfirmError" class="mt-1 hidden text-sm text-red-400"></div>
         </div>
       </div>
 
@@ -424,7 +410,7 @@ const translations = {
         <button
           type="button"
           id="toggleRequirements"
-          class="text-sm text-purple-300 hover:text-purple-200 flex items-center focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 rounded-md px-2 py-1"
+          class="flex items-center rounded-md px-2 py-1 text-sm text-purple-300 hover:text-purple-200 focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
           aria-expanded="false"
           aria-controls="passwordRequirements"
           aria-label={t("auth.accessibility.password_requirements")}
@@ -435,7 +421,7 @@ const translations = {
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="w-4 h-4 mr-1"
+            class="mr-1 h-4 w-4"
           >
             <path
               stroke-linecap="round"
@@ -448,14 +434,14 @@ const translations = {
 
         <div
           id="passwordRequirements"
-          class="mt-3 p-3 bg-zinc-800 rounded-md border border-zinc-700 hidden"
+          class="mt-3 hidden rounded-md border border-zinc-700 bg-zinc-800 p-3"
           aria-hidden="true"
         >
-          <h3 class="text-sm font-medium mb-2">
+          <h3 class="mb-2 text-sm font-medium">
             {t("auth.password.requirements")}
           </h3>
           <!-- Password requirement checklist -->
-          <ul class="text-sm space-y-1 ml-5 list-disc">
+          <ul class="ml-5 list-disc space-y-1 text-sm">
             <li id="req-length" class="text-red-400">
               {t("auth.password.min_length")}
             </li>
@@ -487,16 +473,12 @@ const translations = {
 
           <!-- Password strength meter -->
           <div class="mt-3">
-            <p class="text-sm mb-1">{t("auth.password.strength")}</p>
-            <div class="w-full bg-zinc-700 rounded-full h-2.5">
-              <div
-                id="passwordStrength"
-                class="bg-red-500 h-2.5 rounded-full"
-                style="width: 0%"
-              >
+            <p class="mb-1 text-sm">{t("auth.password.strength")}</p>
+            <div class="h-2.5 w-full rounded-full bg-zinc-700">
+              <div id="passwordStrength" class="h-2.5 rounded-full bg-red-500" style="width: 0%">
               </div>
             </div>
-            <p id="strengthText" class="text-xs mt-1 text-red-400">
+            <p id="strengthText" class="mt-1 text-xs text-red-400">
               {t("auth.password.strength.weak")}
             </p>
           </div>
@@ -507,12 +489,12 @@ const translations = {
       <div>
         <button
           type="submit"
-          class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 focus:ring-offset-zinc-900 transition-colors"
+          class="flex w-full justify-center rounded-md border border-transparent bg-purple-600 px-4 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-purple-700 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
         >
           <span id="registerSubmitText">{t("auth.register.submit")}</span>
           <span id="registerLoadingSpinner" class="hidden">
             <svg
-              class="animate-spin ml-2 h-4 w-4 text-white"
+              class="ml-2 h-4 w-4 animate-spin text-white"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -582,38 +564,25 @@ const translations = {
   const loginPasswordError = document.getElementById("loginPasswordError");
   const loginSubmitText = document.getElementById("loginSubmitText");
   const loginLoadingSpinner = document.getElementById("loginLoadingSpinner");
-  const toggleLoginPasswordButton = document.getElementById(
-    "toggleLoginPassword",
-  );
+  const toggleLoginPasswordButton = document.getElementById("toggleLoginPassword");
 
   // Registration Form Elements
   const registerEmailInput = document.getElementById("registerEmail");
   const registerUsernameInput = document.getElementById("registerUsername");
   const registerPasswordInput = document.getElementById("registerPassword");
-  const registerPasswordConfirmInput = document.getElementById(
-    "registerPasswordConfirm",
-  );
+  const registerPasswordConfirmInput = document.getElementById("registerPasswordConfirm");
   const registerEmailError = document.getElementById("registerEmailError");
-  const registerPasswordError = document.getElementById(
-    "registerPasswordError",
-  );
-  const registerPasswordConfirmError = document.getElementById(
-    "registerPasswordConfirmError",
-  );
+  const registerPasswordError = document.getElementById("registerPasswordError");
+  const registerPasswordConfirmError = document.getElementById("registerPasswordConfirmError");
   const registerSubmitText = document.getElementById("registerSubmitText");
-  const registerLoadingSpinner = document.getElementById(
-    "registerLoadingSpinner",
-  );
-  const toggleRegisterPasswordButton = document.getElementById(
-    "toggleRegisterPassword",
-  );
+  const registerLoadingSpinner = document.getElementById("registerLoadingSpinner");
+  const toggleRegisterPasswordButton = document.getElementById("toggleRegisterPassword");
   const toggleRegisterPasswordConfirmButton = document.getElementById(
-    "toggleRegisterPasswordConfirm",
+    "toggleRegisterPasswordConfirm"
   );
 
   // Password Requirements Elements
-  const toggleRequirementsButton =
-    document.getElementById("toggleRequirements");
+  const toggleRequirementsButton = document.getElementById("toggleRequirements");
   const passwordRequirements = document.getElementById("passwordRequirements");
   const passwordStrength = document.getElementById("passwordStrength");
   const strengthText = document.getElementById("strengthText");
@@ -780,16 +749,28 @@ const translations = {
     strength += Math.min(password.length * 4, 40);
 
     // Complexity - up to 40 points for different character types
-    if (/[A-Z]/.test(password)) strength += 10;
-    if (/[a-z]/.test(password)) strength += 10;
-    if (/[0-9]/.test(password)) strength += 10;
-    if (/[^A-Za-z0-9]/.test(password)) strength += 10;
+    if (/[A-Z]/.test(password)) {
+      strength += 10;
+    }
+    if (/[a-z]/.test(password)) {
+      strength += 10;
+    }
+    if (/[0-9]/.test(password)) {
+      strength += 10;
+    }
+    if (/[^A-Za-z0-9]/.test(password)) {
+      strength += 10;
+    }
 
     // Penalties for common passwords
-    if (COMMON_PASSWORDS.includes(password.toLowerCase())) strength -= 30;
+    if (COMMON_PASSWORDS.includes(password.toLowerCase())) {
+      strength -= 30;
+    }
 
     // Penalties for repeating characters
-    if (/(.)\1{2,}/.test(password)) strength -= 10;
+    if (/(.)\1{2,}/.test(password)) {
+      strength -= 10;
+    }
 
     // Penalties for common sequences
     const sequences = ["123456", "abcdef", "qwerty", "asdfgh"];
@@ -819,35 +800,18 @@ const translations = {
     const { errors } = validatePassword(password);
 
     // Update requirements in the UI
-    reqLength.className = errors.includes("min_length")
-      ? "text-red-400"
-      : "text-green-400";
-    reqUppercase.className = errors.includes("uppercase")
-      ? "text-red-400"
-      : "text-green-400";
-    reqLowercase.className = errors.includes("lowercase")
-      ? "text-red-400"
-      : "text-green-400";
-    reqNumber.className = errors.includes("number")
-      ? "text-red-400"
-      : "text-green-400";
-    reqSpecial.className = errors.includes("special")
-      ? "text-red-400"
-      : "text-green-400";
-    reqCommon.className = errors.includes("common")
-      ? "text-red-400"
-      : "text-green-400";
-    reqRepeats.className = errors.includes("repeats")
-      ? "text-red-400"
-      : "text-green-400";
-    reqSequences.className = errors.includes("sequences")
-      ? "text-red-400"
-      : "text-green-400";
+    reqLength.className = errors.includes("min_length") ? "text-red-400" : "text-green-400";
+    reqUppercase.className = errors.includes("uppercase") ? "text-red-400" : "text-green-400";
+    reqLowercase.className = errors.includes("lowercase") ? "text-red-400" : "text-green-400";
+    reqNumber.className = errors.includes("number") ? "text-red-400" : "text-green-400";
+    reqSpecial.className = errors.includes("special") ? "text-red-400" : "text-green-400";
+    reqCommon.className = errors.includes("common") ? "text-red-400" : "text-green-400";
+    reqRepeats.className = errors.includes("repeats") ? "text-red-400" : "text-green-400";
+    reqSequences.className = errors.includes("sequences") ? "text-red-400" : "text-green-400";
 
     // Check if passwords match
     if (password && passwordConfirm) {
-      reqMatch.className =
-        password === passwordConfirm ? "text-green-400" : "text-red-400";
+      reqMatch.className = password === passwordConfirm ? "text-green-400" : "text-red-400";
     } else {
       reqMatch.className = "text-red-400";
     }
@@ -860,18 +824,15 @@ const translations = {
     if (strength < 30) {
       passwordStrength.className = "bg-red-500 h-2.5 rounded-full";
       strengthText.className = "text-xs mt-1 text-red-400";
-      strengthText.textContent =
-        document.documentElement.lang === "de" ? "Schwach" : "Weak";
+      strengthText.textContent = document.documentElement.lang === "de" ? "Schwach" : "Weak";
     } else if (strength < 60) {
       passwordStrength.className = "bg-yellow-500 h-2.5 rounded-full";
       strengthText.className = "text-xs mt-1 text-yellow-400";
-      strengthText.textContent =
-        document.documentElement.lang === "de" ? "Mittel" : "Medium";
+      strengthText.textContent = document.documentElement.lang === "de" ? "Mittel" : "Medium";
     } else if (strength < 80) {
       passwordStrength.className = "bg-green-500 h-2.5 rounded-full";
       strengthText.className = "text-xs mt-1 text-green-400";
-      strengthText.textContent =
-        document.documentElement.lang === "de" ? "Stark" : "Strong";
+      strengthText.textContent = document.documentElement.lang === "de" ? "Stark" : "Strong";
     } else {
       passwordStrength.className = "bg-blue-500 h-2.5 rounded-full";
       strengthText.className = "text-xs mt-1 text-blue-400";
@@ -881,33 +842,20 @@ const translations = {
 
     // Update ARIA attributes for screen readers
     const strengthLabel =
-      document.documentElement.lang === "de"
-        ? "Passwortstärke: "
-        : "Password strength: ";
-    strengthText.setAttribute(
-      "aria-label",
-      strengthLabel + strengthText.textContent,
-    );
+      document.documentElement.lang === "de" ? "Passwortstärke: " : "Password strength: ";
+    strengthText.setAttribute("aria-label", strengthLabel + strengthText.textContent);
   }
 
   // Password visibility toggle for login
   toggleLoginPasswordButton.addEventListener("click", () => {
     if (loginPasswordInput.type === "password") {
       loginPasswordInput.type = "text";
-      toggleLoginPasswordButton
-        .querySelector(".show-password")
-        ?.classList.add("hidden");
-      toggleLoginPasswordButton
-        .querySelector(".hide-password")
-        ?.classList.remove("hidden");
+      toggleLoginPasswordButton.querySelector(".show-password")?.classList.add("hidden");
+      toggleLoginPasswordButton.querySelector(".hide-password")?.classList.remove("hidden");
     } else {
       loginPasswordInput.type = "password";
-      toggleLoginPasswordButton
-        .querySelector(".show-password")
-        ?.classList.remove("hidden");
-      toggleLoginPasswordButton
-        .querySelector(".hide-password")
-        ?.classList.add("hidden");
+      toggleLoginPasswordButton.querySelector(".show-password")?.classList.remove("hidden");
+      toggleLoginPasswordButton.querySelector(".hide-password")?.classList.add("hidden");
     }
     loginPasswordInput.focus();
   });
@@ -916,20 +864,12 @@ const translations = {
   toggleRegisterPasswordButton.addEventListener("click", () => {
     if (registerPasswordInput.type === "password") {
       registerPasswordInput.type = "text";
-      toggleRegisterPasswordButton
-        .querySelector(".show-password")
-        ?.classList.add("hidden");
-      toggleRegisterPasswordButton
-        .querySelector(".hide-password")
-        ?.classList.remove("hidden");
+      toggleRegisterPasswordButton.querySelector(".show-password")?.classList.add("hidden");
+      toggleRegisterPasswordButton.querySelector(".hide-password")?.classList.remove("hidden");
     } else {
       registerPasswordInput.type = "password";
-      toggleRegisterPasswordButton
-        .querySelector(".show-password")
-        ?.classList.remove("hidden");
-      toggleRegisterPasswordButton
-        .querySelector(".hide-password")
-        ?.classList.add("hidden");
+      toggleRegisterPasswordButton.querySelector(".show-password")?.classList.remove("hidden");
+      toggleRegisterPasswordButton.querySelector(".hide-password")?.classList.add("hidden");
     }
     registerPasswordInput.focus();
   });
@@ -937,9 +877,7 @@ const translations = {
   toggleRegisterPasswordConfirmButton.addEventListener("click", () => {
     if (registerPasswordConfirmInput.type === "password") {
       registerPasswordConfirmInput.type = "text";
-      toggleRegisterPasswordConfirmButton
-        .querySelector(".show-password")
-        ?.classList.add("hidden");
+      toggleRegisterPasswordConfirmButton.querySelector(".show-password")?.classList.add("hidden");
       toggleRegisterPasswordConfirmButton
         .querySelector(".hide-password")
         ?.classList.remove("hidden");
@@ -948,9 +886,7 @@ const translations = {
       toggleRegisterPasswordConfirmButton
         .querySelector(".show-password")
         ?.classList.remove("hidden");
-      toggleRegisterPasswordConfirmButton
-        .querySelector(".hide-password")
-        ?.classList.add("hidden");
+      toggleRegisterPasswordConfirmButton.querySelector(".hide-password")?.classList.add("hidden");
     }
     registerPasswordConfirmInput.focus();
   });
@@ -959,17 +895,10 @@ const translations = {
    * Toggle password requirements visibility
    */
   toggleRequirementsButton.addEventListener("click", () => {
-    const isExpanded =
-      toggleRequirementsButton.getAttribute("aria-expanded") === "true";
-    toggleRequirementsButton.setAttribute(
-      "aria-expanded",
-      isExpanded ? "false" : "true",
-    );
+    const isExpanded = toggleRequirementsButton.getAttribute("aria-expanded") === "true";
+    toggleRequirementsButton.setAttribute("aria-expanded", isExpanded ? "false" : "true");
     passwordRequirements.classList.toggle("hidden");
-    passwordRequirements.setAttribute(
-      "aria-hidden",
-      isExpanded ? "true" : "false",
-    );
+    passwordRequirements.setAttribute("aria-hidden", isExpanded ? "true" : "false");
 
     if (!isExpanded) {
       updatePasswordRequirements();
@@ -978,10 +907,7 @@ const translations = {
 
   // Update password requirements on input
   registerPasswordInput.addEventListener("input", updatePasswordRequirements);
-  registerPasswordConfirmInput.addEventListener(
-    "input",
-    updatePasswordRequirements,
-  );
+  registerPasswordConfirmInput.addEventListener("input", updatePasswordRequirements);
 
   /**
    * Login form submission handler with validation
@@ -1040,8 +966,7 @@ const translations = {
 
       // Get redirect URL from current page if available
       const redirectUrl =
-        new URLSearchParams(window.location.search).get("redirect") ||
-        window.location.pathname;
+        new URLSearchParams(window.location.search).get("redirect") || window.location.pathname;
 
       const response = await fetch(`/${currentLang}/api/auth/login`, {
         method: "POST",
@@ -1060,9 +985,7 @@ const translations = {
       if (response.ok) {
         // Successful login - update UI state first
         formSuccess.textContent =
-          document.documentElement.lang === "de"
-            ? "Anmeldung erfolgreich!"
-            : "Login successful!";
+          document.documentElement.lang === "de" ? "Anmeldung erfolgreich!" : "Login successful!";
         formSuccess.classList.remove("hidden");
 
         // Set cookies and update UI state
@@ -1083,10 +1006,7 @@ const translations = {
         document.dispatchEvent(authEvent);
 
         // Get redirect destination
-        const redirectTo =
-          data.redirectUrl ||
-          redirectUrl ||
-          `/${document.documentElement.lang}`;
+        const redirectTo = data.redirectUrl || redirectUrl || `/${document.documentElement.lang}`;
 
         // Add small delay to ensure event is processed before redirect
         setTimeout(() => {
@@ -1132,8 +1052,7 @@ const translations = {
       formError.classList.remove("hidden");
     } finally {
       // Reset loading state
-      loginSubmitText.textContent =
-        document.documentElement.lang === "de" ? "Anmelden" : "Log In";
+      loginSubmitText.textContent = document.documentElement.lang === "de" ? "Anmelden" : "Log In";
       loginLoadingSpinner.classList.add("hidden");
     }
   });
@@ -1202,9 +1121,7 @@ const translations = {
           : "Password confirmation is required";
       registerPasswordConfirmError.classList.remove("hidden");
       isValid = false;
-    } else if (
-      registerPasswordInput.value !== registerPasswordConfirmInput.value
-    ) {
+    } else if (registerPasswordInput.value !== registerPasswordConfirmInput.value) {
       registerPasswordConfirmError.textContent =
         document.documentElement.lang === "de"
           ? "Die Passwörter stimmen nicht überein"
@@ -1228,8 +1145,7 @@ const translations = {
 
       // Get redirect URL from current page if available
       const redirectUrl =
-        new URLSearchParams(window.location.search).get("redirect") ||
-        window.location.pathname;
+        new URLSearchParams(window.location.search).get("redirect") || window.location.pathname;
 
       const response = await fetch(`/${currentLang}/api/auth/register`, {
         method: "POST",
@@ -1325,9 +1241,7 @@ const translations = {
    * Reduced motion detection for accessibility
    * Applies reduced-motion class to document when user has this preference enabled
    */
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches;
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (prefersReducedMotion) {
     document.documentElement.classList.add("reduced-motion");
   }

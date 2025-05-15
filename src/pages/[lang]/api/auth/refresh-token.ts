@@ -7,6 +7,7 @@
  * @module auth/refresh-token
  */
 import type { APIRoute } from "astro";
+
 import { authService } from "../../../../lib/auth/auth-service.js";
 import { useTranslations } from "../../../../utils/i18n.js";
 
@@ -42,7 +43,7 @@ export const POST: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
@@ -63,7 +64,7 @@ export const POST: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
@@ -82,7 +83,7 @@ export const POST: APIRoute = async ({ request, params }) => {
           "Content-Type": "application/json",
           "Set-Cookie": `access_token=${result.accessToken}; HttpOnly; Secure; SameSite=Strict; Path=/; Expires=${accessTokenExpiry.toUTCString()}`,
         },
-      },
+      }
     );
   } catch (error) {
     // Handle unexpected errors with 500 response
@@ -98,7 +99,7 @@ export const POST: APIRoute = async ({ request, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   }
 };

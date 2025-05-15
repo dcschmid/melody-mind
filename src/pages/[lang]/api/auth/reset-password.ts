@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+
 import { authService } from "../../../../lib/auth/auth-service.js";
 import { useTranslations } from "../../../../utils/i18n.js";
 
@@ -50,7 +51,7 @@ export const POST: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
@@ -69,7 +70,7 @@ export const POST: APIRoute = async ({ request, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   } catch (error) {
     console.error("Password reset request error:", error);
@@ -84,7 +85,7 @@ export const POST: APIRoute = async ({ request, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   }
 };
@@ -122,7 +123,7 @@ export const PUT: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
@@ -142,7 +143,7 @@ export const PUT: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
@@ -157,7 +158,7 @@ export const PUT: APIRoute = async ({ request, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   } catch (error) {
     console.error("Password reset execution error:", error);
@@ -172,7 +173,7 @@ export const PUT: APIRoute = async ({ request, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   }
 };

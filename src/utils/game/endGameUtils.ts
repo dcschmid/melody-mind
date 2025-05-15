@@ -120,13 +120,11 @@ async function saveGameResult(config: EndGameConfig): Promise<string> {
       // Verbesserte Fehlerbehandlung
       try {
         const errorData = await response.json();
-        throw new Error(
-          errorData.message || "Fehler beim Speichern des Spielergebnisses",
-        );
+        throw new Error(errorData.message || "Fehler beim Speichern des Spielergebnisses");
       } catch (jsonError) {
         // Falls die Antwort kein gültiges JSON ist
         throw new Error(
-          `Fehler beim Speichern des Spielergebnisses: ${response.status} ${response.statusText}`,
+          `Fehler beim Speichern des Spielergebnisses: ${response.status} ${response.statusText}`
         );
       }
     }
@@ -147,16 +145,17 @@ async function saveGameResult(config: EndGameConfig): Promise<string> {
   }
 }
 
+/**
+ *
+ */
 export async function handleEndGame(
   config: EndGameConfig,
   ui: EndGameUI,
-  callbacks?: EndGameCallbacks,
+  callbacks?: EndGameCallbacks
 ): Promise<void> {
   try {
     // Calculate achievement rate as a percentage
-    const achievementRate = Math.round(
-      (config.correctAnswers / config.totalRounds) * 100,
-    );
+    const achievementRate = Math.round((config.correctAnswers / config.totalRounds) * 100);
 
     // Log game results for analytics/debugging
     console.info("Game completed:", {
@@ -182,9 +181,7 @@ export async function handleEndGame(
     console.error("Error ending the game:", error);
 
     // Call error callback if provided
-    callbacks?.onError?.(
-      error instanceof Error ? error : new Error(String(error)),
-    );
+    callbacks?.onError?.(error instanceof Error ? error : new Error(String(error)));
   }
 }
 
@@ -236,9 +233,7 @@ export function showEndgamePopup(score: number): void {
  */
 export function restartGame(): void {
   // Get the current language to maintain language settings during navigation
-  const currentLanguage = getLangFromUrl(
-    new URL(window.location.pathname, window.location.origin),
-  );
+  const currentLanguage = getLangFromUrl(new URL(window.location.pathname, window.location.origin));
 
   // Redirect to game home page
   window.location.href = `/${String(currentLanguage)}/gamehome`;
@@ -252,11 +247,7 @@ export function restartGame(): void {
  * @param {string} difficulty - The difficulty level played
  * @returns {string} Formatted text for sharing
  */
-export function formatScoreForSharing(
-  score: number,
-  category: string,
-  difficulty: string,
-): string {
+export function formatScoreForSharing(score: number, category: string, difficulty: string): string {
   const url = new URL(window.location.pathname, window.location.origin);
   const lang = getLangFromUrl(url);
   // Explicitly cast lang to string to satisfy TypeScript

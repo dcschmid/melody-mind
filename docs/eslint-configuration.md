@@ -1,10 +1,12 @@
 # ESLint Configuration for MelodyMind
 
-This document describes the ESLint configuration for the MelodyMind project and provides instructions for using and customizing the linting rules.
+This document describes the ESLint configuration for the MelodyMind project and provides
+instructions for using and customizing the linting rules.
 
 ## Overview
 
-The MelodyMind project uses ESLint with the new Flat Config structure (eslint.config.js), which makes the configuration clearer and more modular. The configuration includes special rules for:
+The MelodyMind project uses ESLint with the new Flat Config structure (eslint.config.js), which
+makes the configuration clearer and more modular. The configuration includes special rules for:
 
 - TypeScript files (_.ts, _.tsx)
 - JavaScript files (_.js, _.jsx)
@@ -99,17 +101,12 @@ The most important accessibility rules include:
 
 ## VS Code Integration
 
-The ESLint configuration is integrated with Visual Studio Code. Make sure the ESLint extension is installed and the following settings are present in your `.vscode/settings.json`:
+The ESLint configuration is integrated with Visual Studio Code. Make sure the ESLint extension is
+installed and the following settings are present in your `.vscode/settings.json`:
 
 ```json
 {
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "astro",
-    "typescript",
-    "typescriptreact"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "astro", "typescript", "typescriptreact"],
   "eslint.useFlatConfig": true,
   "eslint.options": {
     "overrideConfigFile": "eslint.config.js"
@@ -122,20 +119,24 @@ The ESLint configuration is integrated with Visual Studio Code. Make sure the ES
 
 ## Known Issues and Solutions
 
-1. **Astro Linting**: If you encounter problems with linting Astro files, you can alternatively use the `astro check` command.
+1. **Astro Linting**: If you encounter problems with linting Astro files, you can alternatively use
+   the `astro check` command.
 
-2. **WCAG AAA Standards**: The WCAG AAA standards are very strict. If certain rules are too restrictive, they can be disabled in special cases:
+2. **WCAG AAA Standards**: The WCAG AAA standards are very strict. If certain rules are too
+   restrictive, they can be disabled in special cases:
 
    ```js
    // eslint-disable-next-line jsx-a11y/no-autofocus
    <input type="text" autoFocus />
    ```
 
-3. **Accessibility Checks**: For more comprehensive accessibility checks according to WCAG AAA standards, we use axe-core in addition to ESLint (see `docs/automated-wcag-aaa-testing.md`).
+3. **Accessibility Checks**: For more comprehensive accessibility checks according to WCAG AAA
+   standards, we use axe-core in addition to ESLint (see `docs/automated-wcag-aaa-testing.md`).
 
 ## Customizing Rules
 
-To customize the ESLint rules, edit the `eslint.config.js` file. The configuration is divided into logical sections:
+To customize the ESLint rules, edit the `eslint.config.js` file. The configuration is divided into
+logical sections:
 
 - General rules for all files
 - TypeScript-specific rules
@@ -146,16 +147,21 @@ To customize the ESLint rules, edit the `eslint.config.js` file. The configurati
 
 The most common issues in the codebase and how to fix them:
 
-1. **Missing JSDoc Comments**: Add detailed JSDoc comments with type information to all public functions and methods.
+1. **Missing JSDoc Comments**: Add detailed JSDoc comments with type information to all public
+   functions and methods.
 
 2. **any Type Usage**: Replace all `any` types with more specific types or `unknown`.
 
 3. **Import Order**: Organize imports so that they come after types and are sorted alphabetically.
 
-4. **String Concatenation**: Use template strings (`${variable} text`) instead of string concatenation (`variable + " text"`).
+4. **String Concatenation**: Use template strings (`${variable} text`) instead of string
+   concatenation (`variable + " text"`).
 
-5. **Unused Variables**: Remove unused variables or rename them with an underscore prefix if they are intentionally unused.
+5. **Unused Variables**: Remove unused variables or rename them with an underscore prefix if they
+   are intentionally unused.
 
-6. **Missing Curly Braces**: Add curly braces to all if/else statements, even if they only encompass one line.
+6. **Missing Curly Braces**: Add curly braces to all if/else statements, even if they only encompass
+   one line.
 
-7. **Too Long Functions**: Split functions with more than 100 lines into smaller, better-named subfunctions.
+7. **Too Long Functions**: Split functions with more than 100 lines into smaller, better-named
+   subfunctions.

@@ -34,9 +34,7 @@ export function getLangFromUrl(url: URL): LanguageCode {
  * @param lang - String to check
  * @returns Boolean indicating if the string is a valid language code
  */
-function isValidLanguage(
-  lang: string | undefined,
-): lang is keyof typeof languages {
+function isValidLanguage(lang: string | undefined): lang is keyof typeof languages {
   return Boolean(lang && Object.prototype.hasOwnProperty.call(languages, lang));
 }
 
@@ -77,13 +75,9 @@ export function determineUserLanguage(): LanguageCode {
  * @returns A function that returns translated strings
  */
 export function useTranslations(lang: string) {
-  return function t(
-    key: TranslationKey,
-    vars?: Record<string, string | number>,
-  ): string {
+  return function t(key: TranslationKey, vars?: Record<string, string | number>): string {
     // Safe type checking for translation access
-    const langTranslations = (ui[lang as LanguageCode] ??
-      {}) as TranslationsForLanguage;
+    const langTranslations = (ui[lang as LanguageCode] ?? {}) as TranslationsForLanguage;
     const defaultTranslations = ui[defaultLang] as TranslationsForLanguage;
 
     // Get translation with fallback chain: specified language → default language → key itself
@@ -109,7 +103,7 @@ export function useTranslations(lang: string) {
  */
 export function getLocalizedURL(lang: string, path: string): string {
   const safeLang = isValidLanguage(lang) ? lang : defaultLang;
-  return `/${safeLang}${path.startsWith("/") ? path : "/" + path}`;
+  return `/${safeLang}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
 /**
@@ -133,16 +127,12 @@ export function getRelativeLocaleUrl(locale: string, path: string): string {
  * @param key - The translation key to look up
  * @returns An object mapping language codes to their translations
  */
-export function getAllTranslations(
-  key: TranslationKey,
-): Record<string, string> {
+export function getAllTranslations(key: TranslationKey): Record<string, string> {
   const translations: Record<string, string> = {};
 
-  Object.entries(ui as TranslationsObject).forEach(
-    ([lang, langTranslations]) => {
-      translations[lang] = langTranslations[key] ?? key;
-    },
-  );
+  Object.entries(ui as TranslationsObject).forEach(([lang, langTranslations]) => {
+    translations[lang] = langTranslations[key] ?? key;
+  });
 
   return translations;
 }

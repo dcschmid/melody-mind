@@ -33,8 +33,7 @@ export default {
   "auth.form.passwords_not_match": "As senhas não coincidem",
   "auth.password_reset.success_message":
     "Se existir uma conta com este endereço de email, um email com instruções de redefinição de senha foi enviado.",
-  "auth.password_reset.error_message":
-    "Ocorreu um erro. Por favor, tente novamente mais tarde.",
+  "auth.password_reset.error_message": "Ocorreu um erro. Por favor, tente novamente mais tarde.",
   "auth.password_reset.complete_success":
     "Senha redefinida com sucesso. Agora você pode fazer login com sua nova senha.",
   "auth.password_reset.complete_error":
@@ -59,18 +58,15 @@ export default {
   "auth.password_reset.email.placeholder": "Seu endereço de email registrado",
   "auth.password_reset.back_to_login": "Voltar para o Login",
   "auth.password_reset.login": "Login",
-  "auth.password_reset.success":
-    "Um link de redefinição foi enviado para o seu email",
+  "auth.password_reset.success": "Um link de redefinição foi enviado para o seu email",
   "auth.password_reset.error": "Erro ao enviar link de redefinição",
   "auth.password_reset.new_password": "Nova Senha",
   "auth.password_reset.confirm_password": "Confirmar Nova Senha",
   "auth.password_reset.change_submit": "Mudar Senha",
 
   "auth.email_verification.title": "Verificação de Email",
-  "auth.email_verification.message":
-    "Enviamos um link de verificação para o seu endereço de email",
-  "auth.email_verification.check_inbox":
-    "Por favor, verifique sua caixa de entrada",
+  "auth.email_verification.message": "Enviamos um link de verificação para o seu endereço de email",
+  "auth.email_verification.check_inbox": "Por favor, verifique sua caixa de entrada",
   "auth.email_verification.resend": "Reenviar link de verificação",
   "auth.email_verification.success": "Email verificado com sucesso",
   "auth.email_verification.error": "Falha na verificação do email",
@@ -78,13 +74,10 @@ export default {
   // Validação de Senha
   "auth.password.requirements": "Requisitos da senha:",
   "auth.password.min_length": "A senha deve ter pelo menos 8 caracteres",
-  "auth.password.uppercase":
-    "A senha deve conter pelo menos uma letra maiúscula",
-  "auth.password.lowercase":
-    "A senha deve conter pelo menos uma letra minúscula",
+  "auth.password.uppercase": "A senha deve conter pelo menos uma letra maiúscula",
+  "auth.password.lowercase": "A senha deve conter pelo menos uma letra minúscula",
   "auth.password.number": "A senha deve conter pelo menos um número",
-  "auth.password.special":
-    "A senha deve conter pelo menos um caractere especial",
+  "auth.password.special": "A senha deve conter pelo menos um caractere especial",
   "auth.password.no_common": "A senha não deve ser uma senha comum",
   "auth.password.no_repeats": "A senha não deve conter caracteres repetidos",
   "auth.password.no_sequences": "A senha não deve conter sequências simples",
@@ -107,30 +100,25 @@ export default {
   "auth.accessibility.error": "Erro: {message}",
   "auth.accessibility.required_field": "Campo obrigatório",
   "auth.accessibility.password_toggle": "Mostrar/ocultar senha",
-  "auth.accessibility.password_requirements":
-    "Mostrar/ocultar requisitos da senha",
+  "auth.accessibility.password_requirements": "Mostrar/ocultar requisitos da senha",
   "auth.accessibility.form": "Formulário de login",
   "auth.accessibility.close_modal": "Fechar janela",
 
   // Mensagens de Erro da API
   "auth.api.network_error": "Erro de rede. Por favor, verifique sua conexão",
-  "auth.api.server_error":
-    "Erro no servidor. Por favor, tente novamente mais tarde",
+  "auth.api.server_error": "Erro no servidor. Por favor, tente novamente mais tarde",
   "auth.api.invalid_credentials": "Credenciais inválidas",
   "auth.api.account_exists": "Já existe uma conta com este email",
   "auth.api.email_not_found": "Nenhuma conta encontrada com este email",
-  "auth.api.too_many_requests":
-    "Muitas tentativas. Por favor, tente novamente mais tarde",
+  "auth.api.too_many_requests": "Muitas tentativas. Por favor, tente novamente mais tarde",
 
   // Mensagens de Erro do Serviço
-  "auth.service.session_expired":
-    "Sua sessão expirou. Por favor, faça login novamente",
+  "auth.service.session_expired": "Sua sessão expirou. Por favor, faça login novamente",
   "auth.service.unauthorized": "Não autorizado. Por favor, faça login",
   "auth.service.account_locked":
     "Sua conta foi bloqueada. Por favor, entre em contato com o suporte",
   "auth.service.permission_denied": "Permissão negada para esta ação",
-  "auth.service.invalid_credentials":
-    "Credenciais inválidas. Verifique seu e-mail e senha.",
+  "auth.service.invalid_credentials": "Credenciais inválidas. Verifique seu e-mail e senha.",
   "auth.service.too_many_attempts":
     "Muitas tentativas de login. Aguarde um momento e tente novamente.",
 
@@ -148,8 +136,7 @@ export default {
   "game.welcome": "Bem-vindo ao Melody Mind",
   "game.genre.list": "Seleção de Gênero",
   "game.search.label": "Procurar por um gênero",
-  "game.search.description":
-    "A lista é filtrada automaticamente conforme você digita",
+  "game.search.description": "A lista é filtrada automaticamente conforme você digita",
   "game.genre.play.label": "jogar",
   "game.genre.image": "Imagem da capa para",
   "game.no.results": "Nenhum resultado encontrado",
@@ -185,8 +172,7 @@ export default {
   "game.feedback.media.section": "Seção de Mídia",
   "game.feedback.audio.preview": "Prévia da Música",
   "game.feedback.subtitles": "Legendas",
-  "game.feedback.audio.unsupported":
-    "Seu navegador não suporta reprodução de áudio.",
+  "game.feedback.audio.unsupported": "Seu navegador não suporta reprodução de áudio.",
   "game.feedback.streaming.links": "Links de Streaming de Música",
   "game.feedback.listen.spotify": "Ouvir no Spotify",
   "game.feedback.listen.deezer": "Ouvir no Deezer",
@@ -244,8 +230,7 @@ export default {
   "game.answer.wrong": "Errado! A resposta correta era: {answer}",
   "error.invalid.question": "Pergunta inválida ou nenhuma opção disponível",
   "error.no.initial.question": "Nenhuma pergunta inicial válida encontrada",
-  "error.no.albums.found":
-    "Nenhum álbum encontrado para a categoria {category}",
+  "error.no.albums.found": "Nenhum álbum encontrado para a categoria {category}",
   "meta.keywords":
     "Quiz de Música, Jogo de Música, Quiz de Canções, Quiz de Artistas, Quiz de Música Online, Trivia de Música, Melody Mind, Jogo de Adivinhar Música",
   "knowledge.title": "Base de Conhecimento Musical",
@@ -254,8 +239,7 @@ export default {
   "knowledge.search.label": "Pesquisar artigos",
   "knowledge.search.placeholder": "Pesquisar...",
   "knowledge.filter.all": "Todas as Palavras-chave",
-  "knowledge.no.results":
-    "Nenhum artigo encontrado. Tente termos de pesquisa diferentes.",
+  "knowledge.no.results": "Nenhum artigo encontrado. Tente termos de pesquisa diferentes.",
   "game.remaining": "restante",
   "game.default.headline": "Jogo",
   "popup.score": "Pontuação: {score}",
@@ -289,8 +273,7 @@ export default {
   "podcast.page.description":
     "Mergulhe no mundo da música com nossos podcasts cativantes. Descubra histórias emocionantes, bastidores fascinantes e momentos marcantes de várias eras musicais - perfeito para quem não quer apenas ouvir música, mas também entendê-la. Nossos podcasts são lançados a cada 2 semanas e estão disponíveis exclusivamente em alemão e inglês.",
   "podcast.search.label": "Pesquisar Podcasts",
-  "podcast.search.placeholder":
-    "Pesquisar por histórias musicais fascinantes...",
+  "podcast.search.placeholder": "Pesquisar por histórias musicais fascinantes...",
   "podcast.search.status.all": "Mostrando todos os podcasts",
   "podcast.search.status.one": "1 podcast encontrado",
   "podcast.search.status.multiple": "{count} podcasts encontrados",
@@ -302,17 +285,13 @@ export default {
   "podcast.intro.description":
     "Astropod é uma solução gratuita e de código aberto para podcasts sem servidor.",
   "podcast.deploy.title": "Implantar Podcast Sem Servidor em 2 Minutos",
-  "podcast.deploy.description":
-    "Aprenda como implantar rapidamente seu podcast.",
-  "podcast.auth.title":
-    "Autenticação de Usuário e Acesso ao Painel de Controle",
-  "podcast.auth.description":
-    "Habilite a autenticação e acesse o painel de controle.",
+  "podcast.deploy.description": "Aprenda como implantar rapidamente seu podcast.",
+  "podcast.auth.title": "Autenticação de Usuário e Acesso ao Painel de Controle",
+  "podcast.auth.description": "Habilite a autenticação e acesse o painel de controle.",
   "podcast.config.title": "Configurar Podcast Astropod",
   "podcast.config.description": "Aprenda como configurar seu podcast.",
   "podcast.publish.title": "Publicar Seu Primeiro Episódio",
-  "podcast.publish.description":
-    "Publique seu primeiro episódio com facilidade.",
+  "podcast.publish.description": "Publique seu primeiro episódio com facilidade.",
   "podcast.conclusion.title": "Conclusão",
   "podcast.conclusion.description": "Resumo e próximos passos.",
   "podcast.listen.on": "Ouvir em",
@@ -324,8 +303,7 @@ export default {
     "Embarque em uma jornada musical de descoberta através dos tempos! Teste seus conhecimentos em quizzes emocionantes, explore gêneros musicais fascinantes e mergulhe em nossos podcasts cativantes. Mostre suas habilidades, colete pontos e torne-se uma verdadeira lenda da música!",
   "index.continue": "Vamos lá!",
   "index.start.game.label": "Comece sua jornada musical",
-  "index.welcome.footnote":
-    "Preparado por amantes da música para amantes da música. Aproveite!",
+  "index.welcome.footnote": "Preparado por amantes da música para amantes da música. Aproveite!",
   "accessibility.wcag": "Esta aplicação visa a conformidade WCAG AAA.",
   "game.instructions.title": "Instruções do Jogo",
   "game.instructions.puzzle":
@@ -374,11 +352,9 @@ export default {
   "game.chronology.correct": "Correto",
   "game.chronology.wrong": "Deveria estar na posição {position}",
   "game.chronology.score": "Pontuação: {score} pontos",
-  "game.chronology.details":
-    "{correct} de {total} álbuns colocados corretamente",
+  "game.chronology.details": "{correct} de {total} álbuns colocados corretamente",
   "game.chronology.year": "Ano: {year}",
-  "game.chronology.drag.help":
-    "Use as teclas de seta ↑/↓ ou arraste e solte para ordenar",
+  "game.chronology.drag.help": "Use as teclas de seta ↑/↓ ou arraste e solte para ordenar",
   "game.submit.answer": "Verificar Resposta",
   "game.chronology.up": "Cima",
   "game.chronology.down": "Baixo",
@@ -388,20 +364,17 @@ export default {
   "common.back.to.top": "Voltar ao topo",
   "knowledge.articles.heading": "Artigos de Conhecimento",
   "knowledge.search.heading": "Pesquisar Artigos",
-  "knowledge.search.description":
-    "Os artigos são filtrados automaticamente conforme você digita",
+  "knowledge.search.description": "Os artigos são filtrados automaticamente conforme você digita",
   "knowledge.search.reset": "Redefinir Pesquisa",
   "knowledge.search.reset.text": "Redefinir",
-  "knowledge.no.results.help":
-    "Tente termos de pesquisa diferentes ou redefina a pesquisa",
+  "knowledge.no.results.help": "Tente termos de pesquisa diferentes ou redefina a pesquisa",
   "knowledge.keyboard.instructions":
     "Use as teclas de seta para navegar entre os artigos. Pressione Enter para abrir um artigo.",
   "difficulty.level": "Nível de Dificuldade",
 
   // Página de Perfil
   "profile.title": "Meu Perfil",
-  "profile.description":
-    "Gerencie suas informações pessoais e veja suas estatísticas de jogo",
+  "profile.description": "Gerencie suas informações pessoais e veja suas estatísticas de jogo",
   "profile.loading": "Carregando dados do perfil...",
   "profile.error": "Erro ao carregar dados do perfil",
   "profile.auth.required": "Você deve estar logado para ver seu perfil",
@@ -447,8 +420,7 @@ export default {
 
   // Sistema de Conquistas
   "achievements.title": "Conquistas",
-  "achievements.description":
-    "Descubra e desbloqueie conquistas para acompanhar seu progresso",
+  "achievements.description": "Descubra e desbloqueie conquistas para acompanhar seu progresso",
   "achievements.loading": "Carregando conquistas...",
   "achievements.error": "Erro ao carregar conquistas",
   "achievements.empty": "Nenhuma conquista encontrada",
@@ -479,10 +451,8 @@ export default {
   "achievements.sort.name_desc": "Nome (Z-A)",
   "achievements.sort.progress_asc": "Progresso (ascendente)",
   "achievements.sort.progress_desc": "Progresso (descendente)",
-  "achievements.sort.unlocked_at_asc":
-    "Data de Desbloqueio (mais antigos primeiro)",
-  "achievements.sort.unlocked_at_desc":
-    "Data de Desbloqueio (mais recentes primeiro)",
+  "achievements.sort.unlocked_at_asc": "Data de Desbloqueio (mais antigos primeiro)",
+  "achievements.sort.unlocked_at_desc": "Data de Desbloqueio (mais recentes primeiro)",
   "achievements.sort.points_asc": "Pontos (ascendente)",
   "achievements.sort.points_desc": "Pontos (descendente)",
   "achievements.sort.rarity_asc": "Raridade (mais comuns primeiro)",

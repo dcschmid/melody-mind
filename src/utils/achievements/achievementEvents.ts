@@ -5,10 +5,7 @@
  * It enables subscribing to achievement events and triggering events.
  */
 
-import type {
-  AchievementEvent,
-  LocalizedAchievement,
-} from "../../types/achievement.ts";
+import type { AchievementEvent, LocalizedAchievement } from "../../types/achievement.ts";
 
 // Event listener type
 type AchievementEventListener = (event: AchievementEvent) => void;
@@ -22,9 +19,7 @@ const listeners: AchievementEventListener[] = [];
  * @param listener - The event listener function
  * @returns A function to remove the listener
  */
-export function subscribeToAchievementEvents(
-  listener: AchievementEventListener,
-): () => void {
+export function subscribeToAchievementEvents(listener: AchievementEventListener): () => void {
   listeners.push(listener);
 
   // Return function to remove the listener
@@ -41,9 +36,7 @@ export function subscribeToAchievementEvents(
  *
  * @param achievement - The unlocked achievement
  */
-export function triggerAchievementUnlocked(
-  achievement: LocalizedAchievement,
-): void {
+export function triggerAchievementUnlocked(achievement: LocalizedAchievement): void {
   const event: AchievementEvent = {
     type: "achievement_unlocked",
     achievement,

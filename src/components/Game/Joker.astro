@@ -42,30 +42,30 @@ const dataAttributes = {
 ---
 
 <div
-  class="jokerContainer relative flex flex-col items-center gap-3 my-6 p-4 bg-gradient-to-b from-zinc-800/70 to-zinc-900/70 rounded-xl border border-zinc-700 shadow-md"
+  class="jokerContainer relative my-6 flex flex-col items-center gap-3 rounded-xl border border-zinc-700 bg-gradient-to-b from-zinc-800/70 to-zinc-900/70 p-4 shadow-md"
   role="group"
   aria-labelledby="joker-title"
   data-testid="joker-container"
   {...dataAttributes}
 >
-  <h2 id="joker-title" class="text-lg font-semibold text-sky-300 mb-1">
+  <h2 id="joker-title" class="mb-1 text-lg font-semibold text-sky-300">
     {jokerTitle}
   </h2>
 
   <div class="relative" data-joker-button-wrapper>
     <button
       id="joker-button"
-      class="jokerButton group relative cursor-pointer flex items-center justify-center gap-2 min-w-[48px] min-h-[48px] py-3 px-6 bg-gradient-to-r from-sky-600 to-indigo-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 transform disabled:from-zinc-600 disabled:to-zinc-700 disabled:text-zinc-400 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:shadow-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+      class="jokerButton group relative flex min-h-[48px] min-w-[48px] transform cursor-pointer items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-sky-600 to-indigo-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 disabled:cursor-not-allowed disabled:from-zinc-600 disabled:to-zinc-700 disabled:text-zinc-400 disabled:shadow-none disabled:hover:translate-y-0"
       aria-label={jokerButtonAriaLabel}
       aria-describedby="joker-description joker-count"
       data-joker-type="fifty-fifty"
-      disabled={disabled}
+      {disabled}
     >
       <span class="flex items-center">
         <!-- Use preloaded icon for better performance -->
         <Icon
           name="lifeline"
-          class="w-5 h-5 mr-2 transition-transform duration-300 group-hover:scale-110"
+          class="mr-2 h-5 w-5 transition-transform duration-300 group-hover:scale-110"
           aria-hidden="true"
           width="20"
           height="20"
@@ -75,24 +75,21 @@ const dataAttributes = {
 
       <!-- Visual effect for button when pressed (GPU accelerated) -->
       <span
-        class="absolute inset-0 rounded-lg hover:shadow-inner-lg transform ease-out scale-95 hover:scale-100 transition duration-300 opacity-0 bg-white/10 group-hover:opacity-100 disabled:opacity-0 pointer-events-none will-change-transform"
+        class="hover:shadow-inner-lg pointer-events-none absolute inset-0 scale-95 transform rounded-lg bg-white/10 opacity-0 transition duration-300 ease-out will-change-transform group-hover:opacity-100 hover:scale-100 disabled:opacity-0"
         aria-hidden="true"></span>
     </button>
 
     <!-- Ripple animation for active feedback (GPU accelerated) -->
     <span
       id="joker-ripple"
-      class="joker-ripple absolute inset-0 rounded-lg pointer-events-none opacity-0 bg-sky-400/20 will-change-transform will-change-opacity"
+      class="joker-ripple will-change-opacity pointer-events-none absolute inset-0 rounded-lg bg-sky-400/20 opacity-0 will-change-transform"
       aria-hidden="true"></span>
   </div>
 
-  <div
-    id="joker-count-container"
-    class="jokerCountContainer flex items-center gap-2"
-  >
+  <div id="joker-count-container" class="jokerCountContainer flex items-center gap-2">
     <span
       id="joker-count"
-      class="jokerCount text-lg text-white font-medium bg-zinc-800 px-3 py-1 rounded-full border border-zinc-700 min-w-[36px] text-center tabular-nums"
+      class="jokerCount min-w-[36px] rounded-full border border-zinc-700 bg-zinc-800 px-3 py-1 text-center text-lg font-medium text-white tabular-nums"
       aria-live="polite"
       aria-atomic="true"
     >
@@ -103,21 +100,12 @@ const dataAttributes = {
     </span>
   </div>
 
-  <div
-    id="joker-description"
-    class="mt-1 text-zinc-400 text-base max-w-[20rem] text-center"
-  >
+  <div id="joker-description" class="mt-1 max-w-[20rem] text-center text-base text-zinc-400">
     {jokerDescription}
   </div>
 
   <!-- Hidden element for screen reader announcements -->
-  <div
-    id="joker-announcement"
-    class="sr-only"
-    aria-live="assertive"
-    aria-atomic="true"
-  >
-  </div>
+  <div id="joker-announcement" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
 </div>
 
 <style>
@@ -256,17 +244,7 @@ const dataAttributes = {
    * Defines all supported languages in the application
    * This helps TypeScript verify our translations
    */
-  type SupportedLanguage =
-    | "de"
-    | "en"
-    | "es"
-    | "fr"
-    | "it"
-    | "pt"
-    | "da"
-    | "nl"
-    | "sv"
-    | "fi";
+  type SupportedLanguage = "de" | "en" | "es" | "fr" | "it" | "pt" | "da" | "nl" | "sv" | "fi";
 
   interface JokerElements {
     button: HTMLButtonElement | null;
@@ -283,20 +261,15 @@ const dataAttributes = {
   const initJoker = () => {
     requestAnimationFrame(() => {
       // Get component container and read initial data attributes
-      const container = document.querySelector(
-        '[data-testid="joker-container"]',
-      );
-      if (!container) return;
+      const container = document.querySelector('[data-testid="joker-container"]');
+      if (!container) {
+        return;
+      }
 
       // Get initial values from data attributes
-      const initialCount = parseInt(
-        container.getAttribute("data-initial-count") || "0",
-        10,
-      );
-      const initialDisabled =
-        container.getAttribute("data-initial-disabled") === "true";
-      const lang =
-        (container.getAttribute("data-lang-code") as SupportedLanguage) || "en";
+      const initialCount = parseInt(container.getAttribute("data-initial-count") || "0", 10);
+      const initialDisabled = container.getAttribute("data-initial-disabled") === "true";
+      const lang = (container.getAttribute("data-lang-code") as SupportedLanguage) || "en";
 
       const elements: JokerElements = {
         button: document.getElementById("joker-button") as HTMLButtonElement,
@@ -339,7 +312,9 @@ const dataAttributes = {
    * @param {SupportedLanguage} lang - Current language
    */
   function setupButtonEvents(elements: JokerElements, lang: SupportedLanguage) {
-    if (!elements.button) return;
+    if (!elements.button) {
+      return;
+    }
 
     // Prevent multiple rapid clicks with debouncing
     let clickTimeout: ReturnType<typeof setTimeout> | null = null;
@@ -360,7 +335,9 @@ const dataAttributes = {
 
     function handleJokerClick(e: Event) {
       // Skip if button is disabled, animation in progress, or debounce active
-      if (elements.button?.disabled || !canTrigger || clickTimeout) return;
+      if (elements.button?.disabled || !canTrigger || clickTimeout) {
+        return;
+      }
 
       canTrigger = false;
 
@@ -371,14 +348,13 @@ const dataAttributes = {
         dispatchJokerEvent(elements, lang);
 
         // Temporarily disable button to prevent double clicks
-        if (elements.button) elements.button.disabled = true;
+        if (elements.button) {
+          elements.button.disabled = true;
+        }
 
         // Re-enable after timeout
         clickTimeout = setTimeout(() => {
-          if (
-            elements.button &&
-            !elements.button.hasAttribute("data-permanently-disabled")
-          ) {
+          if (elements.button && !elements.button.hasAttribute("data-permanently-disabled")) {
             elements.button.disabled = false;
           }
           clickTimeout = null;
@@ -396,7 +372,9 @@ const dataAttributes = {
    */
   function applyRippleEffect(elements: JokerElements) {
     const { ripple } = elements;
-    if (!ripple) return;
+    if (!ripple) {
+      return;
+    }
 
     // Optimized animation trigger using classList operations
     ripple.classList.remove("animate");
@@ -415,12 +393,11 @@ const dataAttributes = {
    * @param {JokerElements} elements - Component elements
    * @param {SupportedLanguage} lang - Current language
    */
-  function dispatchJokerEvent(
-    elements: JokerElements,
-    lang: SupportedLanguage,
-  ) {
+  function dispatchJokerEvent(elements: JokerElements, lang: SupportedLanguage) {
     const { button } = elements;
-    if (!button) return;
+    if (!button) {
+      return;
+    }
 
     try {
       // Create and dispatch the event
@@ -449,7 +426,9 @@ const dataAttributes = {
    */
   function setupCounterObserver(elements: JokerElements) {
     const { counter } = elements;
-    if (!counter) return;
+    if (!counter) {
+      return;
+    }
 
     // Using Intersection Observer to update counter only when visible
     const observer = new IntersectionObserver(
@@ -458,7 +437,7 @@ const dataAttributes = {
           setupMutation();
         }
       },
-      { threshold: 0.1 },
+      { threshold: 0.1 }
     );
 
     observer.observe(counter);
@@ -491,10 +470,7 @@ const dataAttributes = {
    * @param {JokerElements} elements - Component elements
    * @param {SupportedLanguage} lang - Current language
    */
-  function announceJokerUsage(
-    elements: JokerElements,
-    lang: SupportedLanguage,
-  ) {
+  function announceJokerUsage(elements: JokerElements, lang: SupportedLanguage) {
     const { counter, announcement } = elements;
 
     // Get or create announcement element
@@ -546,9 +522,7 @@ const dataAttributes = {
   function updateJokerCount(count: number, disable: boolean = false) {
     requestAnimationFrame(() => {
       const counter = document.getElementById("joker-count");
-      const button = document.getElementById(
-        "joker-button",
-      ) as HTMLButtonElement | null;
+      const button = document.getElementById("joker-button") as HTMLButtonElement | null;
 
       if (counter) {
         counter.textContent = count.toString();
@@ -577,7 +551,9 @@ const dataAttributes = {
     const { announcement, button } = elements;
 
     // Remove announcement element
-    if (announcement) announcement.remove();
+    if (announcement) {
+      announcement.remove();
+    }
 
     // Remove event listeners
     if (button) {

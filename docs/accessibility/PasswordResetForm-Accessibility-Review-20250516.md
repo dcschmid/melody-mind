@@ -2,7 +2,11 @@
 
 ## Executive Summary
 
-Diese Zugänglichkeitsprüfung bewertet die PasswordResetForm-Komponente anhand der WCAG 2.2 AAA-Standards. Die Komponente wurde erheblich verbessert, um zuvor identifizierte Zugänglichkeitsprobleme zu beheben, und implementiert nun die meisten Best Practices, einschließlich einer angemessenen semantischen Struktur, umfassender ARIA-Attribute, Formularvalidierung und einem responsiven Design.
+Diese Zugänglichkeitsprüfung bewertet die PasswordResetForm-Komponente anhand der WCAG 2.2
+AAA-Standards. Die Komponente wurde erheblich verbessert, um zuvor identifizierte
+Zugänglichkeitsprobleme zu beheben, und implementiert nun die meisten Best Practices, einschließlich
+einer angemessenen semantischen Struktur, umfassender ARIA-Attribute, Formularvalidierung und einem
+responsiven Design.
 
 **Konformitätsniveau**: 95% WCAG 2.2 AAA-konform
 
@@ -94,7 +98,7 @@ Diese Zugänglichkeitsprüfung bewertet die PasswordResetForm-Komponente anhand 
 <!-- Füge dies in der Nähe der Passwortanforderungen hinzu -->
 <button
   type="button"
-  class="text-xs text-purple-400 hover:text-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-zinc-900 rounded p-1"
+  class="rounded p-1 text-xs text-purple-400 hover:text-purple-300 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
   aria-describedby="passwordHelpText"
   onClick="document.getElementById('passwordHelpDialog').classList.remove('hidden')"
 >
@@ -104,18 +108,18 @@ Diese Zugänglichkeitsprüfung bewertet die PasswordResetForm-Komponente anhand 
 <!-- Füge dies am Ende des Formulars, aber vor dem schließenden Tag hinzu -->
 <div
   id="passwordHelpDialog"
-  class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+  class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/70"
   role="dialog"
   aria-labelledby="passwordHelpTitle"
   aria-modal="true"
 >
-  <div class="bg-zinc-800 p-6 rounded-lg max-w-md w-full mx-4">
-    <h4 id="passwordHelpTitle" class="text-xl font-bold mb-4">
+  <div class="mx-4 w-full max-w-md rounded-lg bg-zinc-800 p-6">
+    <h4 id="passwordHelpTitle" class="mb-4 text-xl font-bold">
       {t("auth.form.password_help_title")}
     </h4>
-    <div id="passwordHelpText" class="text-sm space-y-2">
+    <div id="passwordHelpText" class="space-y-2 text-sm">
       <p>{t("auth.form.password_help_text_1")}</p>
-      <ul class="list-disc pl-5 space-y-1">
+      <ul class="list-disc space-y-1 pl-5">
         <li>{t("auth.form.password_help_length")}</li>
         <li>{t("auth.form.password_help_variety")}</li>
         <li>{t("auth.form.password_help_special")}</li>
@@ -126,7 +130,7 @@ Diese Zugänglichkeitsprüfung bewertet die PasswordResetForm-Komponente anhand 
     <div class="mt-4 flex justify-end">
       <button
         type="button"
-        class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-zinc-900"
+        class="rounded-md bg-purple-600 px-4 py-2 text-white hover:bg-purple-700 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
         onClick="document.getElementById('passwordHelpDialog').classList.add('hidden')"
       >
         {t("auth.form.close")}
@@ -208,7 +212,10 @@ function geplantesZugänglichkeitstesten() {
 
 ## Implementierungszeitplan
 
-- **Abgeschlossen**: Zugänglichkeit der Passwort-Umschalttaste, Token-Ablaufwarnungen, Überprüfungsmechanismus vor dem Absenden, Unterstützung für 400% Text-Zoom, Zugänglichkeit des Stärkemessers, Formularvalidierung mit klaren Fehlermeldungen, Tastaturnavigation, ARIA-Attribute für dynamische Inhalte, Reduktion der Bewegung
+- **Abgeschlossen**: Zugänglichkeit der Passwort-Umschalttaste, Token-Ablaufwarnungen,
+  Überprüfungsmechanismus vor dem Absenden, Unterstützung für 400% Text-Zoom, Zugänglichkeit des
+  Stärkemessers, Formularvalidierung mit klaren Fehlermeldungen, Tastaturnavigation, ARIA-Attribute
+  für dynamische Inhalte, Reduktion der Bewegung
 - **Kurzfristig (1-2 Wochen)**: Kontextsensitive Hilfe für Passwortanforderungen hinzufügen
 - **Mittelfristig (2-4 Wochen)**: Steuerelemente zur Anpassung der Schriftgröße implementieren
 - **Langfristig (fortlaufend)**: Umfassende Tests mit verschiedenen Hilfstechnologien etablieren

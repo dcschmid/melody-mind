@@ -8,26 +8,21 @@
 import { getCollection } from "astro:content";
 
 // Define supported languages for type safety
-const supportedLanguages = [
-  "de",
-  "en",
-  "es",
-  "fr",
-  "it",
-  "pt",
-  "da",
-  "nl",
-  "sv",
-  "fi",
-];
+const supportedLanguages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"];
 
 // Generate static paths for all supported languages
+/**
+ *
+ */
 export async function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
     params: { lang },
   }));
 }
 
+/**
+ *
+ */
 export async function get({ params }) {
   const { lang } = params;
 
@@ -76,9 +71,7 @@ export async function get({ params }) {
 
     articles.forEach((article) => {
       const lastmod =
-        article.data.updatedAt instanceof Date
-          ? article.data.updatedAt.toISOString()
-          : today;
+        article.data.updatedAt instanceof Date ? article.data.updatedAt.toISOString() : today;
 
       urls.push({
         url: `${siteUrl}/${lang}/knowledge/${article.slug}`,
@@ -103,7 +96,7 @@ export async function get({ params }) {
     <lastmod>${entry.lastmod}</lastmod>
     <changefreq>${entry.changefreq}</changefreq>
     <priority>${entry.priority}</priority>
-  </url>`,
+  </url>`
     )
     .join("")}
 </urlset>`;

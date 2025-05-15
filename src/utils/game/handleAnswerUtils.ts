@@ -1,6 +1,7 @@
-import { updateScoreDisplay } from "./scoreUtils";
-import { updateMedia, type MediaElements } from "./mediaUtils";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
+
+import { updateMedia, type MediaElements } from "./mediaUtils";
+import { updateScoreDisplay } from "./scoreUtils";
 
 /**
  * Interface representing media-related elements of an album
@@ -68,9 +69,7 @@ interface HandleAnswerConfig {
  * - Updates media elements if provided
  */
 export function handleAnswer(config: HandleAnswerConfig) {
-  const lang = getLangFromUrl(
-    new URL(window.location.pathname, window.location.origin),
-  );
+  const lang = getLangFromUrl(new URL(window.location.pathname, window.location.origin));
   const t = useTranslations(lang);
 
   const startTime = Date.now();
@@ -79,15 +78,8 @@ export function handleAnswer(config: HandleAnswerConfig) {
   let totalPoints = 0;
   let bonusPoints = 0;
 
-  const { option, correctAnswer, currentQuestion, album, elements, state } =
-    config;
-  const {
-    feedbackElement,
-    scoreElement,
-    overlayCover,
-    overlay,
-    mediaElements,
-  } = elements;
+  const { option, correctAnswer, currentQuestion, album, elements, state } = config;
+  const { feedbackElement, scoreElement, overlayCover, overlay, mediaElements } = elements;
 
   if (option === correctAnswer) {
     bonusPoints = timeTaken <= 10 ? 50 : timeTaken <= 15 ? 25 : 0;
@@ -112,8 +104,7 @@ export function handleAnswer(config: HandleAnswerConfig) {
   overlayCover.src = album.coverSrc || "";
   document.getElementById("overlay-artist")!.textContent = album.artist || "";
   document.getElementById("overlay-album")!.textContent = album.album || "";
-  document.getElementById("overlay-funfact")!.textContent =
-    currentQuestion.trivia || "";
+  document.getElementById("overlay-funfact")!.textContent = currentQuestion.trivia || "";
   document.getElementById("overlay-year")!.textContent = album.year || "";
 
   if (mediaElements) {

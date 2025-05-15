@@ -1,4 +1,5 @@
 import { defineMiddleware } from "astro:middleware";
+
 import { languages, defaultLang } from "./i18n/ui";
 
 export const onRequest = defineMiddleware(async (context, next) => {

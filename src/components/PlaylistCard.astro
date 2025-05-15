@@ -54,7 +54,7 @@ const t = useTranslations(lang);
 
 // Extract decade for filtering
 const decadeMatch = headline.match(/\d{4}/);
-const decade = decadeMatch ? decadeMatch[0].substring(0, 3) + "0s" : "Other";
+const decade = decadeMatch ? `${decadeMatch[0].substring(0, 3)}0s` : "Other";
 
 // Generate unique ID for each playlist item for better accessibility
 const playlistId = `playlist-${index}`;
@@ -65,32 +65,24 @@ const loadingStrategy = isPriority ? "eager" : "lazy";
 const fetchPriority = isPriority ? "high" : "auto";
 
 // Determine if the card has any streaming service links
-const hasStreamingLinks =
-  spotifyPlaylist || deezerPlaylist || appleMusicPlaylist;
+const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylist;
 ---
 
 <article
-  class="h-full bg-zinc-800 rounded-xl overflow-hidden border border-zinc-700 shadow-lg transition-transform transition-shadow duration-300 ease-out will-change-transform hover:shadow-xl hover:translate-y-[-5px] focus-within:ring-4 focus-within:ring-purple-500/70"
+  class="h-full overflow-hidden rounded-xl border border-zinc-700 bg-zinc-800 shadow-lg transition-shadow transition-transform duration-300 ease-out will-change-transform focus-within:ring-4 focus-within:ring-purple-500/70 hover:translate-y-[-5px] hover:shadow-xl"
   itemscope
   itemtype="https://schema.org/MusicPlaylist"
   aria-labelledby={`playlist-title-${index}`}
   aria-describedby={`playlist-desc-${index}`}
   style="contain: content; transform: translateZ(0);"
 >
-  <div
-    class="p-0.5 bg-gradient-to-r from-purple-500 to-indigo-500"
-    aria-hidden="true"
-  >
-  </div>
+  <div class="bg-gradient-to-r from-purple-500 to-indigo-500 p-0.5" aria-hidden="true"></div>
 
-  <div
-    class="relative aspect-video overflow-hidden rounded-t-lg"
-    style="contain: layout size;"
-  >
+  <div class="relative aspect-video overflow-hidden rounded-t-lg" style="contain: layout size;">
     <Picture
       src={imageUrl || "/default-cover.jpg"}
       alt={`Playlist-Cover für "${headline}" - ${introSubline}`}
-      class="w-full h-full object-cover"
+      class="h-full w-full object-cover"
       loading={loadingStrategy}
       widths={[320, 480, 640, 768, 1024, 1280]}
       sizes="(max-width: 480px) calc(100vw - 2rem), (max-width: 640px) calc(100vw - 2.5rem), (max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) calc(50vw - 3rem), (max-width: 1280px) calc(33vw - 3rem), calc(33vw - 4rem)"
@@ -111,23 +103,21 @@ const hasStreamingLinks =
     </div>
   </div>
 
-  <div
-    class="p-5 md:p-6 space-y-4 md:space-y-5 bg-gradient-to-b from-zinc-900 to-zinc-900/95"
-  >
+  <div class="space-y-4 bg-gradient-to-b from-zinc-900 to-zinc-900/95 p-5 md:space-y-5 md:p-6">
     <h2
-      class="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 md:mb-3 leading-tight"
+      class="mb-2 text-xl leading-tight font-bold text-white md:mb-3 md:text-2xl lg:text-3xl"
       id={`playlist-title-${index}`}
       itemprop="name"
     >
       {headline}
     </h2>
     <div
-      class="h-1 w-16 md:w-20 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full mb-3 md:mb-4"
+      class="mb-3 h-1 w-16 rounded-full bg-gradient-to-r from-purple-400 to-indigo-400 md:mb-4 md:w-20"
       aria-hidden="true"
     >
     </div>
     <p
-      class="text-white text-base md:text-lg lg:text-xl leading-relaxed md:leading-relaxed"
+      class="text-base leading-relaxed text-white md:text-lg md:leading-relaxed lg:text-xl"
       id={`playlist-desc-${index}`}
       itemprop="description"
     >
@@ -135,7 +125,7 @@ const hasStreamingLinks =
     </p>
 
     <div
-      class="flex flex-wrap gap-3 md:gap-4 mt-4 md:mt-5"
+      class="mt-4 flex flex-wrap gap-3 md:mt-5 md:gap-4"
       role="group"
       aria-label={t("playlist.streaming.options")}
       itemprop="potentialAction"
@@ -148,15 +138,7 @@ const hasStreamingLinks =
             href={spotifyPlaylist}
             target="_blank"
             rel="noopener noreferrer prefetch"
-            class="inline-flex items-center justify-center gap-2 md:gap-3 px-4 md:px-5 py-3 md:py-4
-                 bg-[#0A5D2C] hover:bg-[#084823] active:bg-[#063619]
-                 rounded-full text-white font-bold
-                 min-h-[56px] md:min-h-[60px] min-w-[130px] md:min-w-[150px]
-                 text-base md:text-lg lg:text-xl
-                 focus:outline-none focus:ring-4 focus:ring-[#0A5D2C]/70
-                 focus:ring-offset-4 focus:ring-offset-zinc-900
-                 transition-colors transition-transform duration-200 ease-out
-                 touch-manipulation active:scale-95 active:translate-y-[1px]"
+            class="inline-flex min-h-[56px] min-w-[130px] touch-manipulation items-center justify-center gap-2 rounded-full bg-[#0A5D2C] px-4 py-3 text-base font-bold text-white transition-colors transition-transform duration-200 ease-out hover:bg-[#084823] focus:ring-4 focus:ring-[#0A5D2C]/70 focus:ring-offset-4 focus:ring-offset-zinc-900 focus:outline-none active:translate-y-[1px] active:scale-95 active:bg-[#063619] md:min-h-[60px] md:min-w-[150px] md:gap-3 md:px-5 md:py-4 md:text-lg lg:text-xl"
             aria-label={`${t("playlist.listen.spotify")} - ${headline}`}
             data-prefetch={isPriority ? "viewport" : "hover"}
             itemprop="target"
@@ -164,11 +146,7 @@ const hasStreamingLinks =
             itemtype="https://schema.org/EntryPoint"
             role="button"
           >
-            <Icon
-              name="spotify"
-              class="h-5 w-5 md:h-6 md:w-6"
-              aria-hidden="true"
-            />
+            <Icon name="spotify" class="h-5 w-5 md:h-6 md:w-6" aria-hidden="true" />
             <span itemprop="name" class="font-bold">
               Spotify
             </span>
@@ -183,15 +161,7 @@ const hasStreamingLinks =
             href={deezerPlaylist}
             target="_blank"
             rel="noopener noreferrer prefetch"
-            class="inline-flex items-center justify-center gap-2 md:gap-3 px-4 md:px-5 py-3 md:py-4
-                 bg-[#9A0058] hover:bg-[#7D0047] active:bg-[#6B003D]
-                 rounded-full text-white font-bold
-                 min-h-[56px] md:min-h-[60px] min-w-[130px] md:min-w-[150px]
-                 text-base md:text-lg lg:text-xl
-                 focus:outline-none focus:ring-4 focus:ring-[#9A0058]/70
-                 focus:ring-offset-4 focus:ring-offset-zinc-900
-                 transition-colors transition-transform duration-200 ease-out
-                 touch-manipulation active:scale-95 active:translate-y-[1px]"
+            class="inline-flex min-h-[56px] min-w-[130px] touch-manipulation items-center justify-center gap-2 rounded-full bg-[#9A0058] px-4 py-3 text-base font-bold text-white transition-colors transition-transform duration-200 ease-out hover:bg-[#7D0047] focus:ring-4 focus:ring-[#9A0058]/70 focus:ring-offset-4 focus:ring-offset-zinc-900 focus:outline-none active:translate-y-[1px] active:scale-95 active:bg-[#6B003D] md:min-h-[60px] md:min-w-[150px] md:gap-3 md:px-5 md:py-4 md:text-lg lg:text-xl"
             aria-label={`${t("playlist.listen.deezer")} - ${headline}`}
             data-prefetch={isPriority ? "viewport" : "hover"}
             itemprop="target"
@@ -199,11 +169,7 @@ const hasStreamingLinks =
             itemtype="https://schema.org/EntryPoint"
             role="button"
           >
-            <Icon
-              name="deezer"
-              class="h-5 w-5 md:h-6 md:w-6"
-              aria-hidden="true"
-            />
+            <Icon name="deezer" class="h-5 w-5 md:h-6 md:w-6" aria-hidden="true" />
             <span itemprop="name" class="font-bold">
               Deezer
             </span>
@@ -218,15 +184,7 @@ const hasStreamingLinks =
             href={appleMusicPlaylist}
             target="_blank"
             rel="noopener noreferrer prefetch"
-            class="inline-flex items-center justify-center gap-2 md:gap-3 px-4 md:px-5 py-3 md:py-4
-                 bg-[#9E1625] hover:bg-[#7D111D] active:bg-[#6B0F19]
-                 rounded-full text-white font-bold
-                 min-h-[56px] md:min-h-[60px] min-w-[130px] md:min-w-[150px]
-                 text-base md:text-lg lg:text-xl
-                 focus:outline-none focus:ring-4 focus:ring-[#9E1625]/70
-                 focus:ring-offset-4 focus:ring-offset-zinc-900
-                 transition-colors transition-transform duration-200 ease-out
-                 touch-manipulation active:scale-95 active:translate-y-[1px]"
+            class="inline-flex min-h-[56px] min-w-[130px] touch-manipulation items-center justify-center gap-2 rounded-full bg-[#9E1625] px-4 py-3 text-base font-bold text-white transition-colors transition-transform duration-200 ease-out hover:bg-[#7D111D] focus:ring-4 focus:ring-[#9E1625]/70 focus:ring-offset-4 focus:ring-offset-zinc-900 focus:outline-none active:translate-y-[1px] active:scale-95 active:bg-[#6B0F19] md:min-h-[60px] md:min-w-[150px] md:gap-3 md:px-5 md:py-4 md:text-lg lg:text-xl"
             aria-label={`${t("playlist.listen.apple")} - ${headline}`}
             data-prefetch={isPriority ? "viewport" : "hover"}
             itemprop="target"
@@ -234,11 +192,7 @@ const hasStreamingLinks =
             itemtype="https://schema.org/EntryPoint"
             role="button"
           >
-            <Icon
-              name="apple"
-              class="h-5 w-5 md:h-6 md:w-6"
-              aria-hidden="true"
-            />
+            <Icon name="apple" class="h-5 w-5 md:h-6 md:w-6" aria-hidden="true" />
             <span itemprop="name" class="font-bold">
               Apple Music
             </span>
@@ -254,10 +208,7 @@ const hasStreamingLinks =
       <div class="hidden" aria-hidden="true">
         <meta itemprop="numTracks" content="10+" />
         <meta itemprop="genre" content={decade} />
-        <meta
-          itemprop="datePublished"
-          content={new Date().toISOString().split("T")[0]}
-        />
+        <meta itemprop="datePublished" content={new Date().toISOString().split("T")[0]} />
         <meta itemprop="author" content="Melody Mind" />
       </div>
     )
@@ -318,7 +269,7 @@ const hasStreamingLinks =
       {
         rootMargin: VIEWPORT_MARGIN,
         threshold: 0.1,
-      },
+      }
     );
 
     // Füge Hover-Listener und Observer für alle Prefetch-Links hinzu
@@ -349,10 +300,14 @@ const hasStreamingLinks =
      */
     function prefetchLink(url: string): void {
       // Überspringe, wenn bereits prefetched oder langsame Verbindung
-      if (prefetchedUrls.has(url) || !shouldPrefetch) return;
+      if (prefetchedUrls.has(url) || !shouldPrefetch) {
+        return;
+      }
 
       // Überprüfe Netzwerkstatus
-      if ("onLine" in navigator && !navigator.onLine) return;
+      if ("onLine" in navigator && !navigator.onLine) {
+        return;
+      }
 
       // Markiere als prefetched
       prefetchedUrls.add(url);
@@ -398,9 +353,12 @@ const hasStreamingLinks =
     // Optimiere Bilder basierend auf Verbindungsqualität
     if (isSlowConnection) {
       document.querySelectorAll("img").forEach((img) => {
-        if (!img.getAttribute("loading")) img.setAttribute("loading", "lazy");
-        if (img.getAttribute("fetchpriority") !== "high")
+        if (!img.getAttribute("loading")) {
+          img.setAttribute("loading", "lazy");
+        }
+        if (img.getAttribute("fetchpriority") !== "high") {
           img.setAttribute("fetchpriority", "low");
+        }
       });
     }
 
@@ -412,7 +370,7 @@ const hasStreamingLinks =
           () => {
             (button as HTMLElement).style.transform = "scale(0.97)";
           },
-          { passive: true },
+          { passive: true }
         );
 
         button.addEventListener(
@@ -422,7 +380,7 @@ const hasStreamingLinks =
               (button as HTMLElement).style.transform = "";
             }, 100);
           },
-          { passive: true },
+          { passive: true }
         );
       });
     }
@@ -439,12 +397,7 @@ const hasStreamingLinks =
   /* Verbesserte Hintergrundkontraste für WCAG AAA */
   article {
     --bg-card: #18181b; /* Dunklerer Hintergrund für besseren Kontrast */
-    --border-color: rgba(
-      255,
-      255,
-      255,
-      0.2
-    ); /* Hellerer Rand für besseren Kontrast */
+    --border-color: rgba(255, 255, 255, 0.2); /* Hellerer Rand für besseren Kontrast */
     background-color: var(--bg-card);
     border-color: var(--border-color);
   }

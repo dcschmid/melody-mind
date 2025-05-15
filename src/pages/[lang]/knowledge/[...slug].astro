@@ -29,7 +29,7 @@ export async function getStaticPaths() {
           props: { entry },
         };
       });
-    }),
+    })
   );
   return allEntries.flat();
 }
@@ -66,8 +66,7 @@ const formattedDate = entry.data.createdAt
 
 // Default image if none provided - use optimized path
 const defaultImage = "/melody-mind.jpg";
-const imageSource =
-  typeof entry.data.image === "string" ? entry.data.image : defaultImage;
+const imageSource = typeof entry.data.image === "string" ? entry.data.image : defaultImage;
 
 // Reading time text with proper localization and fallback
 const readingTimeText = entry.body
@@ -82,12 +81,9 @@ const description = entry.data.description;
 const pageContent = `${title} ${description} ${entry.body || ""}`;
 
 // Generate optimized meta description and keywords
-const optimizedDescription =
-  generateMetaDescription(description) || description;
+const optimizedDescription = generateMetaDescription(description) || description;
 const keywords =
-  extractKeywords(pageContent) ||
-  entry.data.keywords?.join(", ") ||
-  t["meta.keywords"];
+  extractKeywords(pageContent) || entry.data.keywords?.join(", ") || t["meta.keywords"];
 
 // Additional structured data parameters for SEO
 const pageType = "article"; // Artikel sollten den Typ 'article' anstelle von 'website' haben
@@ -99,18 +95,13 @@ const isPlayable = entry.data.isPlayable === true;
 
 // Prepare game category link
 const gameCategorySlug = entry.slug.split("/").pop();
-const gameCategoryUrl = isPlayable
-  ? `/${String(lang)}/${gameCategorySlug}`
-  : null;
+const gameCategoryUrl = isPlayable ? `/${String(lang)}/${gameCategorySlug}` : null;
 
 // Get translation for play button
-const playButtonText =
-  t["knowledge.play.category"] || "Diese Musikkategorie spielen";
+const playButtonText = t["knowledge.play.category"] || "Diese Musikkategorie spielen";
 
 // Wortanzahl berechnen
-const wordCount = entry.body
-  ? entry.body.split(/\s+/).filter(Boolean).length
-  : 0;
+const wordCount = entry.body ? entry.body.split(/\s+/).filter(Boolean).length : 0;
 
 // Lesezeit in ISO 8601 Duration Format (PT{X}M für X Minuten)
 const readingTimeMinutes = entry.body ? calculateReadingTime(entry.body) : 0;
@@ -118,7 +109,9 @@ const timeRequiredISO = `PT${readingTimeMinutes}M`;
 
 // Schwierigkeitsgrad in educationalLevel umwandeln
 const getEducationalLevel = (difficulty?: string): string => {
-  if (!difficulty) return "beginner";
+  if (!difficulty) {
+    return "beginner";
+  }
 
   const difficultyMap: Record<string, string> = {
     easy: "beginner",
@@ -136,8 +129,7 @@ const articleSchemaData = {
   headline: entry.data.title,
   description: optimizedDescription,
   datePublished: entry.data.createdAt?.toISOString(),
-  dateModified:
-    entry.data.updatedAt?.toISOString() || entry.data.createdAt?.toISOString(),
+  dateModified: entry.data.updatedAt?.toISOString() || entry.data.createdAt?.toISOString(),
   image: {
     "@type": "ImageObject",
     url: imageSource,
@@ -241,8 +233,7 @@ const articleSchemaData = {
             encodingFormat: "audio/mpeg",
             name: `${entry.data.title} - Spotify Playlist`,
             description: `Spotify Playlist für ${entry.data.title}`,
-            uploadDate:
-              entry.data.createdAt?.toISOString() || new Date().toISOString(),
+            uploadDate: entry.data.createdAt?.toISOString() || new Date().toISOString(),
             duration: "PT0H0M0S", // Platzhalter, da die genaue Dauer nicht bekannt ist
             potentialAction: {
               "@type": "ListenAction",
@@ -259,8 +250,7 @@ const articleSchemaData = {
             encodingFormat: "audio/mpeg",
             name: `${entry.data.title} - Deezer Playlist`,
             description: `Deezer Playlist für ${entry.data.title}`,
-            uploadDate:
-              entry.data.createdAt?.toISOString() || new Date().toISOString(),
+            uploadDate: entry.data.createdAt?.toISOString() || new Date().toISOString(),
             duration: "PT0H0M0S", // Platzhalter, da die genaue Dauer nicht bekannt ist
             potentialAction: {
               "@type": "ListenAction",
@@ -277,8 +267,7 @@ const articleSchemaData = {
             encodingFormat: "audio/mpeg",
             name: `${entry.data.title} - Apple Music Playlist`,
             description: `Apple Music Playlist für ${entry.data.title}`,
-            uploadDate:
-              entry.data.createdAt?.toISOString() || new Date().toISOString(),
+            uploadDate: entry.data.createdAt?.toISOString() || new Date().toISOString(),
             duration: "PT0H0M0S", // Platzhalter, da die genaue Dauer nicht bekannt ist
             potentialAction: {
               "@type": "ListenAction",
@@ -329,38 +318,29 @@ const articleSchemaData = {
 ---
 
 <Layout
-  title={title}
+  {title}
   description={optimizedDescription}
-  keywords={keywords}
+  {keywords}
   image={imageSource}
   type={pageType}
-  publishDate={publishDate}
-  modifiedDate={modifiedDate}
+  {publishDate}
+  {modifiedDate}
   ogMusic={{
     creator: "Melody Mind",
     album: entry.data.title,
     musician: "Melody Mind",
   }}
 >
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify(articleSchemaData)}
-  />
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchemaData)} />
 
-  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-    <article
-      class="prose prose-lg dark:prose-invert max-w-none"
-      aria-labelledby="article-title"
-    >
-      <nav
-        class="mb-8 print:hidden"
-        aria-label={t["knowledge.breadcrumb.label"] || "Breadcrumb"}
-      >
-        <ol class="flex flex-wrap items-center gap-2 text-md">
+  <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+    <article class="prose prose-lg dark:prose-invert max-w-none" aria-labelledby="article-title">
+      <nav class="mb-8 print:hidden" aria-label={t["knowledge.breadcrumb.label"] || "Breadcrumb"}>
+        <ol class="text-md flex flex-wrap items-center gap-2">
           <li class="flex items-center">
             <a
               href={`/${lang}`}
-              class="flex items-center gap-1 text-zinc-400 hover:text-sky-400 transition-colors rounded-lg px-2 py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+              class="flex items-center gap-1 rounded-lg px-2 py-1 text-zinc-400 transition-colors hover:text-sky-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
               aria-label={t?.["nav.home"] || "Startseite"}
             >
               <Icon name="home" class="h-4 w-4" aria-hidden="true" />
@@ -368,21 +348,21 @@ const articleSchemaData = {
             </a>
           </li>
           <li class="flex items-center" aria-hidden="true">
-            <Icon name="chevron-right" class="h-4 w-4 mx-1 text-zinc-500" />
+            <Icon name="chevron-right" class="mx-1 h-4 w-4 text-zinc-500" />
           </li>
           <li>
             <a
               href={`/${String(lang)}/knowledge`}
-              class="flex items-center gap-1 text-zinc-400 hover:text-sky-400 transition-colors rounded-lg px-2 py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+              class="flex items-center gap-1 rounded-lg px-2 py-1 text-zinc-400 transition-colors hover:text-sky-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
             >
               {t?.["knowledge.title"] || "Wissen"}
             </a>
           </li>
           <li class="flex items-center" aria-hidden="true">
-            <Icon name="chevron-right" class="h-4 w-4 mx-1 text-zinc-500" />
+            <Icon name="chevron-right" class="mx-1 h-4 w-4 text-zinc-500" />
           </li>
           <li
-            class="text-zinc-50 truncate max-w-[150px] sm:max-w-xs px-2 py-1 rounded-lg bg-zinc-800/30"
+            class="max-w-[150px] truncate rounded-lg bg-zinc-800/30 px-2 py-1 text-zinc-50 sm:max-w-xs"
             aria-current="page"
           >
             {entry.data.title}
@@ -393,14 +373,14 @@ const articleSchemaData = {
       <header class="relative mb-12">
         <!-- Hero Image Container -->
         <div
-          class="relative mb-8 rounded-2xl overflow-hidden aspect-video shadow-xl ring-1 ring-zinc-700/50"
+          class="relative mb-8 aspect-video overflow-hidden rounded-2xl shadow-xl ring-1 ring-zinc-700/50"
         >
           <Picture
             src={imageSource}
             width={1200}
             height={675}
             formats={["avif", "webp"]}
-            class="w-full h-full object-cover"
+            class="h-full w-full object-cover"
             loading="eager"
             fetchpriority="high"
             alt={`Titelbild zum Artikel "${entry.data.title}" - Musikwissen auf Melody Mind - ${entry.data.description?.substring(0, 50)}...`}
@@ -415,7 +395,7 @@ const articleSchemaData = {
             level="h1"
             title={entry.data.title}
             id="article-title"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white"
+            className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
           />
 
           <!-- Meta Information -->
@@ -424,13 +404,9 @@ const articleSchemaData = {
               formattedDate && (
                 <time
                   datetime={entry.data.createdAt?.toISOString()}
-                  class="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-800 text-zinc-200"
+                  class="flex items-center gap-2 rounded-xl bg-zinc-800 px-4 py-2 text-zinc-200"
                 >
-                  <Icon
-                    name="calendar"
-                    class="h-5 w-5 text-sky-400"
-                    aria-hidden="true"
-                  />
+                  <Icon name="calendar" class="h-5 w-5 text-sky-400" aria-hidden="true" />
                   <span>{formattedDate}</span>
                 </time>
               )
@@ -438,12 +414,8 @@ const articleSchemaData = {
 
             {
               readingTimeText && (
-                <span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-800 text-zinc-200">
-                  <Icon
-                    name="clock"
-                    class="h-5 w-5 text-sky-400"
-                    aria-hidden="true"
-                  />
+                <span class="flex items-center gap-2 rounded-xl bg-zinc-800 px-4 py-2 text-zinc-200">
+                  <Icon name="clock" class="h-5 w-5 text-sky-400" aria-hidden="true" />
                   <span>{readingTimeText}</span>
                 </span>
               )
@@ -454,10 +426,7 @@ const articleSchemaData = {
           <div class="flex flex-wrap items-center gap-4">
             {
               entry.data.category && (
-                <MusicButtons
-                  category={entry.data.category}
-                  title={entry.data.title}
-                />
+                <MusicButtons category={entry.data.category} title={entry.data.title} />
               )
             }
 
@@ -469,11 +438,7 @@ const articleSchemaData = {
                   aria-label={`${playButtonText}: ${entry.data.title}`}
                 >
                   <span class="flex items-center gap-2">
-                    <Icon
-                      name="game-controller"
-                      class="h-5 w-5"
-                      aria-hidden="true"
-                    />
+                    <Icon name="game-controller" class="h-5 w-5" aria-hidden="true" />
                     <span class="font-medium">{playButtonText}</span>
                   </span>
                 </ButtonLink>
@@ -486,9 +451,9 @@ const articleSchemaData = {
       <!-- Inhaltsverzeichnis als Dropdown -->
       <div class="toc-wrapper relative z-10 mb-8">
         <TableOfContents
-          headings={headings}
+          {headings}
           title={lang === "de" ? "Inhaltsverzeichnis" : "Table of Contents"}
-          lang={lang}
+          {lang}
         />
       </div>
 
@@ -496,7 +461,7 @@ const articleSchemaData = {
         <div
           role="region"
           aria-label={"Hauptinhalt"}
-          class="prose prose-lg dark:prose-invert max-w-none prose-headings:scroll-mt-20"
+          class="prose prose-lg dark:prose-invert prose-headings:scroll-mt-20 max-w-none"
         >
           <div>
             <Content />
@@ -505,21 +470,18 @@ const articleSchemaData = {
       </div>
 
       <!-- Back navigation with improved accessibility -->
-      <div
-        class="mt-12 flex justify-between border-t border-zinc-700 pt-8 print:hidden"
-      >
+      <div class="mt-12 flex justify-between border-t border-zinc-700 pt-8 print:hidden">
         <ButtonLink
           href={`/${String(lang)}/knowledge`}
-          className="group flex items-center min-h-[44px] rounded-lg hover:bg-zinc-800/30 px-3 py-2"
+          className="group flex min-h-[44px] items-center rounded-lg px-3 py-2 hover:bg-zinc-800/30"
           aria-label={t["knowledge.back.to.list"] || "Zurück zur Wissensliste"}
         >
           <Icon
             name="arrow-left"
-            class="h-4 w-4 mr-2 group-hover:translate-x-[-2px] transition-transform"
+            class="mr-2 h-4 w-4 transition-transform group-hover:translate-x-[-2px]"
             aria-hidden="true"
           />
-          <span>{t["knowledge.back.to.list"] || "Zurück zur Wissensliste"}</span
-          >
+          <span>{t["knowledge.back.to.list"] || "Zurück zur Wissensliste"}</span>
         </ButtonLink>
       </div>
     </article>

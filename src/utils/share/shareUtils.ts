@@ -71,8 +71,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicEnthusiast: "🎸 Music Enthusiast! 🎸",
     musicLover: "🎹 Music Lover! 🎹",
     musicExplorer: "🎼 Music Explorer! 🎼",
-    scoreText:
-      "I scored {score} points in Melody Mind's {category} quiz ({difficulty})!",
+    scoreText: "I scored {score} points in Melody Mind's {category} quiz ({difficulty})!",
     challenge: "Think you can beat me? Play now at:",
   },
   es: {
@@ -91,8 +90,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicEnthusiast: "🎸 Passionné de musique ! 🎸",
     musicLover: "🎹 Amateur de musique ! 🎹",
     musicExplorer: "🎼 Explorateur musical ! 🎼",
-    scoreText:
-      "J'ai obtenu {score} points dans le quiz {category} de Melody Mind ({difficulty}) !",
+    scoreText: "J'ai obtenu {score} points dans le quiz {category} de Melody Mind ({difficulty}) !",
     challenge: "Tu penses pouvoir me battre ? Joue maintenant sur :",
   },
   it: {
@@ -101,8 +99,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicEnthusiast: "🎸 Appassionato di musica! 🎸",
     musicLover: "🎹 Amante della musica! 🎹",
     musicExplorer: "🎼 Esploratore musicale! 🎼",
-    scoreText:
-      "Ho ottenuto {score} punti nel quiz {category} di Melody Mind ({difficulty})!",
+    scoreText: "Ho ottenuto {score} punti nel quiz {category} di Melody Mind ({difficulty})!",
     challenge: "Pensi di potermi battere? Gioca ora su:",
   },
   pt: {
@@ -111,8 +108,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicEnthusiast: "🎸 Entusiasta da música! 🎸",
     musicLover: "🎹 Amante da música! 🎹",
     musicExplorer: "🎼 Explorador musical! 🎼",
-    scoreText:
-      "Consegui {score} pontos no quiz de {category} do Melody Mind ({difficulty})!",
+    scoreText: "Consegui {score} pontos no quiz de {category} do Melody Mind ({difficulty})!",
     challenge: "Acha que consegue me superar? Jogue agora em:",
   },
   da: {
@@ -121,8 +117,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicEnthusiast: "🎸 Musikentusiast! 🎸",
     musicLover: "🎹 Musikelsker! 🎹",
     musicExplorer: "🎼 Musikopdager! 🎼",
-    scoreText:
-      "Jeg opnåede {score} point i Melody Mind's {category} quiz ({difficulty})!",
+    scoreText: "Jeg opnåede {score} point i Melody Mind's {category} quiz ({difficulty})!",
     challenge: "Tror du, du kan slå mig? Spil nu på:",
   },
   nl: {
@@ -131,8 +126,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicEnthusiast: "🎸 Muziekliefhebber! 🎸",
     musicLover: "🎹 Muziekminnaar! 🎹",
     musicExplorer: "🎼 Muziekontdekker! 🎼",
-    scoreText:
-      "Ik heb {score} punten gescoord in de Melody Mind {category} quiz ({difficulty})!",
+    scoreText: "Ik heb {score} punten gescoord in de Melody Mind {category} quiz ({difficulty})!",
     challenge: "Denk je dat je me kunt verslaan? Speel nu op:",
   },
   sv: {
@@ -141,8 +135,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicEnthusiast: "🎸 Musikentusiast! 🎸",
     musicLover: "🎹 Musikälskare! 🎹",
     musicExplorer: "🎼 Musikupptäckare! 🎼",
-    scoreText:
-      "Jag fick {score} poäng i Melody Minds {category} quiz ({difficulty})!",
+    scoreText: "Jag fick {score} poäng i Melody Minds {category} quiz ({difficulty})!",
     challenge: "Tror du att du kan slå mig? Spela nu på:",
   },
   fi: {
@@ -151,8 +144,7 @@ const shareTextTranslations: Record<string, ShareTextTranslations> = {
     musicEnthusiast: "🎸 Musiikkientusiasti! 🎸",
     musicLover: "🎹 Musiikinrakastaja! 🎹",
     musicExplorer: "🎼 Musiikintukija! 🎼",
-    scoreText:
-      "Sain {score} pistettä Melody Mindin {category} -visailussa ({difficulty})!",
+    scoreText: "Sain {score} pistettä Melody Mindin {category} -visailussa ({difficulty})!",
     challenge: "Luuletko voittavasi minut? Pelaa nyt osoitteessa:",
   },
 };
@@ -207,7 +199,7 @@ function isLanguageSupported(language: string): boolean {
 function formatText(template: string, values: Record<string, string>): string {
   return Object.entries(values).reduce(
     (text, [key, value]) => text.replace(`{${key}}`, value),
-    template,
+    template
   );
 }
 
@@ -218,15 +210,19 @@ function formatText(template: string, values: Record<string, string>): string {
  * @param {ShareTextTranslations} translations - Text translations to use
  * @returns {string} Achievement text
  */
-function getAchievementText(
-  score: number,
-  translations: ShareTextTranslations,
-): string {
-  if (score >= ACHIEVEMENT_THRESHOLDS.GENIUS) return translations.musicGenius;
-  if (score >= ACHIEVEMENT_THRESHOLDS.PRO) return translations.musicPro;
-  if (score >= ACHIEVEMENT_THRESHOLDS.ENTHUSIAST)
+function getAchievementText(score: number, translations: ShareTextTranslations): string {
+  if (score >= ACHIEVEMENT_THRESHOLDS.GENIUS) {
+    return translations.musicGenius;
+  }
+  if (score >= ACHIEVEMENT_THRESHOLDS.PRO) {
+    return translations.musicPro;
+  }
+  if (score >= ACHIEVEMENT_THRESHOLDS.ENTHUSIAST) {
     return translations.musicEnthusiast;
-  if (score >= ACHIEVEMENT_THRESHOLDS.LOVER) return translations.musicLover;
+  }
+  if (score >= ACHIEVEMENT_THRESHOLDS.LOVER) {
+    return translations.musicLover;
+  }
   return translations.musicExplorer;
 }
 
@@ -237,9 +233,7 @@ function getAchievementText(
  * @returns {string} Emoji representing the difficulty
  */
 function getDifficultyEmoji(difficulty: GameDifficulty): string {
-  return (
-    DIFFICULTY_EMOJIS[difficulty.toLowerCase()] || DIFFICULTY_EMOJIS.default
-  );
+  return DIFFICULTY_EMOJIS[difficulty.toLowerCase()] || DIFFICULTY_EMOJIS.default;
 }
 
 /**
@@ -270,7 +264,7 @@ function generateShareText(data: ShareData): string {
  */
 function generateShareTextWithTranslations(
   data: ShareData,
-  translations: ShareTextTranslations,
+  translations: ShareTextTranslations
 ): string {
   // Get achievement text based on score
   const achievement = getAchievementText(data.score, translations);
@@ -298,10 +292,7 @@ function generateShareTextWithTranslations(
  * @throws {Error} Throws if platform is unsupported or sharing fails
  * @returns {Promise<boolean>} Promise resolving to true if sharing was successful
  */
-export async function shareScore(
-  platform: SharingPlatform,
-  data: ShareData,
-): Promise<boolean> {
+export async function shareScore(platform: SharingPlatform, data: ShareData): Promise<boolean> {
   try {
     const shareText = generateShareText(data);
     const shareUrl = window.location.href;
@@ -309,18 +300,18 @@ export async function shareScore(
     switch (platform) {
       case "twitter":
         return openShareWindow(
-          `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`,
+          `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`
         );
 
       case "whatsapp":
         return openShareWindow(
-          `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + "\n\n" + shareUrl)}`,
+          `https://api.whatsapp.com/send?text=${encodeURIComponent(`${shareText}\n\n${shareUrl}`)}`
         );
 
       case "email": {
         const subject = encodeURIComponent("Melody Mind Score!");
         return openShareWindow(
-          `mailto:?subject=${subject}&body=${encodeURIComponent(shareText + "\n\n" + shareUrl)}`,
+          `mailto:?subject=${subject}&body=${encodeURIComponent(`${shareText}\n\n${shareUrl}`)}`
         );
       }
 

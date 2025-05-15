@@ -72,11 +72,10 @@ const LANGUAGE_MULTIPLIERS: Record<string, number> = {
  * @param options - Optional configuration parameters
  * @returns The estimated reading time in minutes (rounded up)
  */
-export function calculateReadingTime(
-  text: string,
-  options: ReadingTimeOptions = {},
-): number {
-  if (!text) return options.minTime || DEFAULTS.MIN_TIME;
+export function calculateReadingTime(text: string, options: ReadingTimeOptions = {}): number {
+  if (!text) {
+    return options.minTime || DEFAULTS.MIN_TIME;
+  }
 
   const {
     wordsPerMinute = DEFAULTS.WORDS_PER_MINUTE,
@@ -116,10 +115,7 @@ export function calculateReadingTime(
  * @param options - Optional configuration parameters
  * @returns A ReadingTimeResult object with minutes, formatted text, and word count
  */
-export function getReadingTime(
-  text: string,
-  options: ReadingTimeOptions = {},
-): ReadingTimeResult {
+export function getReadingTime(text: string, options: ReadingTimeOptions = {}): ReadingTimeResult {
   if (!text) {
     return {
       minutes: options.minTime || DEFAULTS.MIN_TIME,

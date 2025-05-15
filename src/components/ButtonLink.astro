@@ -58,8 +58,7 @@ const finalRel = isExternal ? `noopener noreferrer ${rel || ""}`.trim() : rel;
  */
 const variantClasses = {
   primary: "bg-sky-700 text-white hover:bg-sky-600 focus-visible:ring-sky-300",
-  secondary:
-    "bg-purple-700 text-white hover:bg-purple-600 focus-visible:ring-purple-300",
+  secondary: "bg-purple-700 text-white hover:bg-purple-600 focus-visible:ring-purple-300",
   outline:
     "bg-transparent text-sky-400 border-2 border-sky-700 hover:bg-sky-900/20 focus-visible:ring-sky-300",
   text: "bg-transparent text-sky-400 hover:text-sky-300 hover:bg-transparent hover:shadow-none focus-visible:ring-sky-300 px-2",
@@ -102,11 +101,7 @@ const finalClasses =
     <a
       href={href}
       class={finalClasses}
-      aria-label={
-        ariaLabel
-          ? `${ariaLabel}${isExternal ? " (opens in new tab)" : ""}`
-          : undefined
-      }
+      aria-label={ariaLabel ? `${ariaLabel}${isExternal ? " (opens in new tab)" : ""}` : undefined}
       target={target}
       rel={finalRel}
       style={style}

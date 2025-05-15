@@ -11,6 +11,6 @@ export const get: APIRoute = async () => {
       headers: {
         "Content-Type": "application/json",
       },
-    },
+    }
   );
 };

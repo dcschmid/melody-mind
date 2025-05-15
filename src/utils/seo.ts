@@ -44,10 +44,7 @@ export function createSlug(text: string): string {
  * // returns 2 minutes for a 400-word article
  * calculateReadingTime("400 words of content...");
  */
-export function calculateReadingTime(
-  content: string,
-  wordsPerMinute = 225,
-): number {
+export function calculateReadingTime(content: string, wordsPerMinute = 225): number {
   const words = content.trim().split(/\s+/).length;
   const minutes = Math.ceil(words / wordsPerMinute);
   return minutes;
@@ -310,11 +307,7 @@ const stopWordsByLanguage: Record<string, string[]> = {
  * // might return "music quiz, melody mind, interactive game, music history"
  * extractKeywords("Melody Mind is a music quiz game with interactive music history categories...", 5, 'en');
  */
-export function extractKeywords(
-  content: string,
-  maxKeywords = 10,
-  language = "en",
-): string {
+export function extractKeywords(content: string, maxKeywords = 10, language = "en"): string {
   // Get language-specific stop words or fall back to English
   const stopWords = stopWordsByLanguage[language] || stopWordsByLanguage.en;
 
@@ -341,11 +334,7 @@ export function extractKeywords(
   // Extract trigrams (three-word phrases)
   const trigrams: string[] = [];
   for (let i = 0; i < words.length - 2; i++) {
-    if (
-      words[i].length > 2 &&
-      words[i + 1].length > 2 &&
-      words[i + 2].length > 2
-    ) {
+    if (words[i].length > 2 && words[i + 1].length > 2 && words[i + 2].length > 2) {
       trigrams.push(`${words[i]} ${words[i + 1]} ${words[i + 2]}`);
     }
   }
@@ -416,37 +405,34 @@ export function extractKeywords(
  * // returns "Learn about music history through our interactive quizzes. Test your knowledge with challenging questions."
  * generateMetaDescription("<p>Learn about music history through our interactive quizzes. Test your knowledge with challenging questions. Earn points and compete with friends.</p>");
  */
-export function generateMetaDescription(
-  content: string,
-  maxLength = 160,
-): string {
+export function generateMetaDescription(content: string, maxLength = 160): string {
   // Remove HTML tags and excess whitespace
-  let text = content
+  const text = content
     .replace(/<[^>]*>/g, " ")
     .replace(/\s+/g, " ")
     .trim();
 
   // Return the text if it's already shorter than the maximum length
-  if (text.length <= maxLength) return text;
+  if (text.length <= maxLength) {
+    return text;
+  }
 
   // Split into sentences
   const sentenceRegex = /([.!?])\s+/g;
-  const sentences = text
-    .split(sentenceRegex)
-    .reduce((result: string[], item, index, array) => {
-      if (index % 2 === 0) {
-        // Even indices contain the text before the delimiter
-        const nextIndex = index + 1;
-        if (nextIndex < array.length) {
-          // Add the delimiter back to the sentence
-          result.push(item + array[nextIndex]);
-        } else {
-          // Last item might not have a delimiter
-          result.push(item);
-        }
+  const sentences = text.split(sentenceRegex).reduce((result: string[], item, index, array) => {
+    if (index % 2 === 0) {
+      // Even indices contain the text before the delimiter
+      const nextIndex = index + 1;
+      if (nextIndex < array.length) {
+        // Add the delimiter back to the sentence
+        result.push(item + array[nextIndex]);
+      } else {
+        // Last item might not have a delimiter
+        result.push(item);
       }
-      return result;
-    }, []);
+    }
+    return result;
+  }, []);
 
   // Score sentences based on position and keyword density
   const scoredSentences = sentences.map((sentence, index) => {
@@ -468,9 +454,7 @@ export function generateMetaDescription(
       "playlist",
       "album",
     ];
-    const keywordScore = importantTerms.some((term) =>
-      sentence.toLowerCase().includes(term),
-    )
+    const keywordScore = importantTerms.some((term) => sentence.toLowerCase().includes(term))
       ? 2
       : 1;
 
@@ -489,7 +473,7 @@ export function generateMetaDescription(
 
   for (const { sentence } of scoredSentences) {
     if (currentLength + sentence.length <= maxLength) {
-      description += sentence + " ";
+      description += `${sentence} `;
       currentLength += sentence.length + 1;
     } else {
       break;
@@ -511,9 +495,7 @@ export function generateMetaDescription(
 
     // Otherwise truncate at the last word
     const lastSpace = truncated.lastIndexOf(" ");
-    return lastSpace > 0
-      ? truncated.substring(0, lastSpace) + "..."
-      : truncated + "...";
+    return lastSpace > 0 ? `${truncated.substring(0, lastSpace)}...` : `${truncated}...`;
   }
 
   return description;

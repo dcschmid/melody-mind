@@ -5,32 +5,24 @@ const hasError = false;
 const score = 500;
 ---
 
-<div class="p-4 bg-purple-100 rounded-lg shadow-md max-w-md mx-auto">
-  <h1 class="text-2xl font-bold mb-4 text-purple-900">WCAG AAA Test</h1>
+<div class="mx-auto max-w-md rounded-lg bg-purple-100 p-4 shadow-md">
+  <h1 class="mb-4 text-2xl font-bold text-purple-900">WCAG AAA Test</h1>
 
   <!-- Test für informative-alt-text Regel - sollte zu kurz sein -->
-  <img
-    src="/images/test.jpg"
-    alt="Testbild"
-    class="w-full h-auto rounded mb-4"
-  />
+  <img src="/images/test.jpg" alt="Testbild" class="mb-4 h-auto w-full rounded" />
 
   <!-- Korrektes Beispiel für informative-alt-text -->
   <img
     src="/images/musician.jpg"
     alt="Ein Gitarrist spielt während eines Rockkonzerts auf einer hell beleuchteten Bühne"
-    class="w-full h-auto rounded mb-4"
+    class="mb-4 h-auto w-full rounded"
   />
 
   <!-- Test für color-contrast Regel - sollte zu schwachen Kontrast haben -->
-  <p class="text-gray-400 bg-white mb-2">
-    Dieser Text hat einen sehr schwachen Kontrast.
-  </p>
+  <p class="mb-2 bg-white text-gray-400">Dieser Text hat einen sehr schwachen Kontrast.</p>
 
   <!-- Korrektes Beispiel für color-contrast -->
-  <p class="text-gray-900 bg-white mb-2">
-    Dieser Text hat ausreichenden Kontrast für WCAG AAA.
-  </p>
+  <p class="mb-2 bg-white text-gray-900">Dieser Text hat ausreichenden Kontrast für WCAG AAA.</p>
 
   {hasError && <p class="text-red-700">Es ist ein Fehler aufgetreten.</p>}
 
@@ -39,7 +31,7 @@ const score = 500;
     <button
       type="button"
       aria-label="Weiter zum nächsten Level"
-      class="bg-purple-800 hover:bg-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 text-white px-4 py-2 rounded transition-colors"
+      class="rounded bg-purple-800 px-4 py-2 text-white transition-colors hover:bg-purple-900 focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 focus:outline-none"
     >
       Weiter
     </button>
@@ -49,7 +41,7 @@ const score = 500;
   <div
     role="button"
     aria-label="Problematischer Button"
-    class="bg-blue-700 text-white p-2 mt-4 rounded"
+    class="mt-4 rounded bg-blue-700 p-2 text-white"
   >
     Unvollständiger Button
   </div>
@@ -61,14 +53,14 @@ const score = 500;
     aria-label="Korrekter Button mit Tastaturfunktionalität"
     onClick={() => console.log("Clicked")}
     onKeyDown={(e) => e.key === "Enter" && console.log("Enter pressed")}
-    class="bg-blue-700 text-white p-2 mt-4 rounded cursor-pointer"
+    class="mt-4 cursor-pointer rounded bg-blue-700 p-2 text-white"
   >
     Korrekter Button
   </div>
 
   <!-- Test für heading-structure Regel - überspringt h2 -->
-  <h1 class="text-xl font-bold mt-4">Hauptüberschrift</h1>
-  <h3 class="text-lg font-medium mt-2">Unterabschnitt (h2 fehlt)</h3>
+  <h1 class="mt-4 text-xl font-bold">Hauptüberschrift</h1>
+  <h3 class="mt-2 text-lg font-medium">Unterabschnitt (h2 fehlt)</h3>
 </div>
 
 <style>

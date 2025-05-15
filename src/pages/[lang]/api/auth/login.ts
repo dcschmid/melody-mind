@@ -11,6 +11,7 @@
  */
 
 import type { APIRoute } from "astro";
+
 import { authService } from "../../../../lib/auth/auth-service.js";
 import { getClientIp } from "../../../../lib/auth/middleware.js";
 import { useTranslations } from "../../../../utils/i18n.js";
@@ -47,7 +48,7 @@ export const POST: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
@@ -82,11 +83,9 @@ export const POST: APIRoute = async ({ request, params }) => {
             status: 429,
             headers: {
               "Content-Type": "application/json",
-              "Retry-After": Math.ceil(
-                (result.resetTime || 0) / 1000,
-              ).toString(),
+              "Retry-After": Math.ceil((result.resetTime || 0) / 1000).toString(),
             },
-          },
+          }
         );
       }
 
@@ -101,7 +100,7 @@ export const POST: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
@@ -122,7 +121,7 @@ export const POST: APIRoute = async ({ request, params }) => {
           "Content-Type": "application/json",
           "Set-Cookie": `access_token=${result.tokens?.accessToken}; HttpOnly; Secure; SameSite=Strict; Path=/; Expires=${accessTokenExpiry.toUTCString()}`,
         },
-      },
+      }
     );
   } catch (error) {
     console.error("Login error:", error);
@@ -138,7 +137,7 @@ export const POST: APIRoute = async ({ request, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   }
 };

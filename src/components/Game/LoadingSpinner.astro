@@ -55,8 +55,8 @@ const secondaryColor = "border-zinc-800"; // Darker gray for background
   - Optimized for performance with GPU acceleration
 -->
 <div
-  class="items-center justify-center min-h-12 p-4 spinnerContainer hidden"
-  id={id}
+  class="spinnerContainer hidden min-h-12 items-center justify-center p-4"
+  {id}
   role="status"
   aria-live="polite"
   aria-busy="false"
@@ -158,18 +158,14 @@ const secondaryColor = "border-zinc-800"; // Darker gray for background
       this.announcement = document.getElementById(`${id}-announcement`);
 
       // Load announcement texts from data attributes
-      this.loadingStartText =
-        this.spinner?.dataset.loadingStart || "Loading started";
-      this.loadingEndText =
-        this.spinner?.dataset.loadingEnd || "Loading completed";
+      this.loadingStartText = this.spinner?.dataset.loadingStart || "Loading started";
+      this.loadingEndText = this.spinner?.dataset.loadingEnd || "Loading completed";
 
       // Register this instance
       LoadingSpinner.instances.set(id, this);
 
       if (!this.spinner) {
-        console.warn(
-          `LoadingSpinner: Element with ID "${id}" not found in the DOM`,
-        );
+        console.warn(`LoadingSpinner: Element with ID "${id}" not found in the DOM`);
       }
     }
 
@@ -189,7 +185,9 @@ const secondaryColor = "border-zinc-800"; // Darker gray for background
      * @returns {boolean} True on success, false if spinner element not found
      */
     show(): boolean {
-      if (!this.spinner) return false;
+      if (!this.spinner) {
+        return false;
+      }
 
       // Make visible and update accessibility
       this.spinner.classList.remove("hidden");
@@ -209,7 +207,9 @@ const secondaryColor = "border-zinc-800"; // Darker gray for background
      * @returns {boolean} True on success, false if spinner element not found
      */
     hide(): boolean {
-      if (!this.spinner) return false;
+      if (!this.spinner) {
+        return false;
+      }
 
       // Hide and update accessibility
       this.spinner.classList.add("hidden");
@@ -229,7 +229,9 @@ const secondaryColor = "border-zinc-800"; // Darker gray for background
      * @returns {boolean} New visibility state (true = visible, false = hidden)
      */
     toggle(): boolean {
-      if (!this.spinner) return false;
+      if (!this.spinner) {
+        return false;
+      }
 
       const isCurrentlyHidden = this.spinner.classList.contains("hidden");
       return isCurrentlyHidden ? this.show() : this.hide();
@@ -274,13 +276,11 @@ const secondaryColor = "border-zinc-800"; // Darker gray for background
   // Handle page transitions
   document.addEventListener("astro:page-load", () => {
     // Hide any visible spinners on page change
-    document
-      .querySelectorAll('[role="status"][aria-busy="true"]')
-      .forEach((el) => {
-        const id = el.id;
-        if (id) {
-          LoadingSpinner.getInstance(id).hide();
-        }
-      });
+    document.querySelectorAll('[role="status"][aria-busy="true"]').forEach((el) => {
+      const id = el.id;
+      if (id) {
+        LoadingSpinner.getInstance(id).hide();
+      }
+    });
   });
 </script>

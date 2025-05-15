@@ -1,10 +1,14 @@
 # WCAG AAA Optimierung für MelodyMind
 
-Dieses Dokument beschreibt die Implementierung der WCAG AAA-Standards für maximale Barrierefreiheit im MelodyMind-Projekt.
+Dieses Dokument beschreibt die Implementierung der WCAG AAA-Standards für maximale Barrierefreiheit
+im MelodyMind-Projekt.
 
 ## Überblick
 
-MelodyMind strebt eine vollständige Konformität mit den WCAG AAA-Standards an - dem höchsten Level der Web Content Accessibility Guidelines. Dies geht deutlich über die üblichen WCAG AA-Standards hinaus und stellt sicher, dass die Anwendung für alle Nutzer, unabhängig von ihren Fähigkeiten oder Einschränkungen, optimal zugänglich ist.
+MelodyMind strebt eine vollständige Konformität mit den WCAG AAA-Standards an - dem höchsten Level
+der Web Content Accessibility Guidelines. Dies geht deutlich über die üblichen WCAG AA-Standards
+hinaus und stellt sicher, dass die Anwendung für alle Nutzer, unabhängig von ihren Fähigkeiten oder
+Einschränkungen, optimal zugänglich ist.
 
 ## Überblick der bisherigen Änderungen
 
@@ -18,8 +22,10 @@ Die folgenden Bereiche wurden bereits optimiert:
 
 Zur Einhaltung der WCAG AAA-Standards wurden umfangreiche ESLint-Regeln implementiert:
 
-1. **Standard jsx-a11y-Regeln**: Über 30 Regeln aus dem eslint-plugin-jsx-a11y, die auf "error" gesetzt sind
-2. **Benutzerdefinierte WCAG AAA-Regeln**: Fünf spezialisierte Regeln, die spezifisch für die strengeren AAA-Anforderungen entwickelt wurden
+1. **Standard jsx-a11y-Regeln**: Über 30 Regeln aus dem eslint-plugin-jsx-a11y, die auf "error"
+   gesetzt sind
+2. **Benutzerdefinierte WCAG AAA-Regeln**: Fünf spezialisierte Regeln, die spezifisch für die
+   strengeren AAA-Anforderungen entwickelt wurden
 
 ### Benutzerdefinierte WCAG AAA-Regeln
 
@@ -55,13 +61,13 @@ Diese Regel überprüft Tailwind-CSS-Klassen auf potenziell unzureichenden Kontr
 **Korrekte Implementierung:**
 
 ```jsx
-<p className="text-gray-900 bg-white">Hochkontrast-Text</p>
+<p className="bg-white text-gray-900">Hochkontrast-Text</p>
 ```
 
 **Inkorrekte Implementierung:**
 
 ```jsx
-<p className="text-gray-400 bg-white">Niedriger Kontrast</p>
+<p className="bg-white text-gray-400">Niedriger Kontrast</p>
 ```
 
 #### 3. Erweiterte ARIA-Attribute (`wcag-aaa/aria-enhanced`)
@@ -69,7 +75,8 @@ Diese Regel überprüft Tailwind-CSS-Klassen auf potenziell unzureichenden Kontr
 Diese Regel stellt sicher, dass ARIA-Attribute vollständig und korrekt implementiert sind:
 
 - Prüft, ob Elemente mit `role="button"` auch tabIndex und Tastatur-Handler haben
-- Stellt sicher, dass benutzerdefinierte interaktive Elemente alle notwendigen Eigenschaften besitzen
+- Stellt sicher, dass benutzerdefinierte interaktive Elemente alle notwendigen Eigenschaften
+  besitzen
 
 **Korrekte Implementierung:**
 
@@ -141,27 +148,35 @@ Diese Regel prüft auf eine logische und lückenlose Überschriftenhierarchie:
 
 ## Manuelle Prüfungen
 
-Nicht alle WCAG AAA-Anforderungen können automatisch geprüft werden. Folgende manuelle Tests sollten regelmäßig durchgeführt werden:
+Nicht alle WCAG AAA-Anforderungen können automatisch geprüft werden. Folgende manuelle Tests sollten
+regelmäßig durchgeführt werden:
 
 1. **Tastaturnavigation**: Testen Sie die gesamte Anwendung ausschließlich mit der Tastatur
 2. **Screenreader-Test**: Überprüfen Sie die Anwendung mit NVDA, JAWS oder VoiceOver
 3. **Vergrößerungstest**: Testen Sie die Anwendung bei 200% Zoom
 4. **Kontrastüberprüfung**: Nutzen Sie Werkzeuge wie das WCAG Color Contrast Analyzer-Tool
-5. **Kognitive Tests**: Bewerten Sie die Verständlichkeit und Vorhersehbarkeit der Benutzeroberfläche
+5. **Kognitive Tests**: Bewerten Sie die Verständlichkeit und Vorhersehbarkeit der
+   Benutzeroberfläche
 
 ## Bekannte Herausforderungen
 
-Die WCAG AAA-Standards sind sehr streng und können in bestimmten Designsituationen Kompromisse erfordern:
+Die WCAG AAA-Standards sind sehr streng und können in bestimmten Designsituationen Kompromisse
+erfordern:
 
-1. **Farbkontrast vs. Design**: Das 7:1-Kontrastverhältnis kann kreative Designentscheidungen einschränken
+1. **Farbkontrast vs. Design**: Das 7:1-Kontrastverhältnis kann kreative Designentscheidungen
+   einschränken
 2. **Ausführliche Alt-Texte**: Lange Alt-Texte können den CMS-Workflow verkomplizieren
-3. **Zeitbasierte Interaktionen**: Die Spielmechanik mit Zeitbonussen kann für manche Nutzer herausfordernd sein
+3. **Zeitbasierte Interaktionen**: Die Spielmechanik mit Zeitbonussen kann für manche Nutzer
+   herausfordernd sein
 
 ## Best Practices für WCAG AAA-Konformität
 
-1. **Früh implementieren**: Barrierefreiheit sollte von Anfang an berücksichtigt werden, nicht nachträglich
-2. **Regelmäßig testen**: Mit verschiedenen Assistenztechnologien und von Nutzern mit verschiedenen Fähigkeiten
-3. **Progressive Enhancement**: Funktionalität schichtweise aufbauen, damit die Grundfunktionen immer zugänglich sind
+1. **Früh implementieren**: Barrierefreiheit sollte von Anfang an berücksichtigt werden, nicht
+   nachträglich
+2. **Regelmäßig testen**: Mit verschiedenen Assistenztechnologien und von Nutzern mit verschiedenen
+   Fähigkeiten
+3. **Progressive Enhancement**: Funktionalität schichtweise aufbauen, damit die Grundfunktionen
+   immer zugänglich sind
 4. **Dokumentieren**: Alle Barrierefreiheitsfunktionen und -überlegungen dokumentieren
 5. **Schulung**: Das Team in WCAG AAA-Standards schulen
 
@@ -179,18 +194,21 @@ Die WCAG AAA-Standards sind sehr streng und können in bestimmten Designsituatio
 
 ## 1. Kontrastverhältnisse
 
-Alle Text-Farben wurden angepasst, um ein Kontrastverhältnis von mindestens 7:1 zum Hintergrund zu gewährleisten:
+Alle Text-Farben wurden angepasst, um ein Kontrastverhältnis von mindestens 7:1 zum Hintergrund zu
+gewährleisten:
 
 - Primärer Text: `#ffffff` auf dunklem Hintergrund
 - Sekundärer Text: `#f0f0f0` für besseren Kontrast
 - Akzentfarben: `#c084fc` und `#d8b4fe` für Links und Hervorhebungen
 - Fokus-Indikatoren: `#f0abfc` für bessere Sichtbarkeit
 
-Diese Änderungen wurden in der neuen CSS-Datei `src/styles/wcag-aaa.css` implementiert und überschreiben die bestehenden Stile.
+Diese Änderungen wurden in der neuen CSS-Datei `src/styles/wcag-aaa.css` implementiert und
+überschreiben die bestehenden Stile.
 
 ## 2. Typografie und Lesbarkeit
 
-Die Basis-Schriftgröße wurde auf 18px erhöht und die Zeilenabstände wurden für bessere Lesbarkeit optimiert:
+Die Basis-Schriftgröße wurde auf 18px erhöht und die Zeilenabstände wurden für bessere Lesbarkeit
+optimiert:
 
 ```css
 :root {
@@ -296,7 +314,8 @@ Alle Icons und Bilder wurden mit ausreichenden Beschreibungen versehen:
 
 1. **src/styles/wcag-aaa.css**: Enthält alle CSS-Anpassungen für WCAG AAA-Konformität
 2. **public/scripts/wcag-aaa-enhancements.js**: Implementiert erweiterte Zugänglichkeitsfunktionen
-3. **src/components/Shared/KnowledgeSkipLinks.astro**: Implementiert erweiterte Skip-Links für die Knowledge-Seite
+3. **src/components/Shared/KnowledgeSkipLinks.astro**: Implementiert erweiterte Skip-Links für die
+   Knowledge-Seite
 
 ## Testen der Zugänglichkeit
 
@@ -318,7 +337,8 @@ Für zukünftige Verbesserungen könnten folgende Punkte berücksichtigt werden:
 3. Automatisierte Zugänglichkeitstests in der CI/CD-Pipeline
 4. Regelmäßige Audits durch Experten für Barrierefreiheit
 5. Benutzertests mit Menschen mit Behinderungen
-6. Wiedereinführung von verbesserten Text-Spacing- und Zoom-Kontrollen mit optimierter Implementierung
+6. Wiedereinführung von verbesserten Text-Spacing- und Zoom-Kontrollen mit optimierter
+   Implementierung
 
 ## Ressourcen
 

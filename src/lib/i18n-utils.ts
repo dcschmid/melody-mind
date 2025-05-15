@@ -13,7 +13,7 @@ type Translations = Record<string, string>;
 export function getTranslation(
   key: string,
   lang: string = defaultLang,
-  params: Record<string, string | number> = {},
+  params: Record<string, string | number> = {}
 ): string {
   // Use the specified language or the default language
   const translations = ui[lang as keyof typeof ui] || ui[defaultLang];
@@ -23,10 +23,7 @@ export function getTranslation(
 
   // Replace parameters in the translation
   Object.entries(params).forEach(([paramKey, paramValue]) => {
-    translation = translation.replace(
-      new RegExp(`{${paramKey}}`, "g"),
-      String(paramValue),
-    );
+    translation = translation.replace(new RegExp(`{${paramKey}}`, "g"), String(paramValue));
   });
 
   return translation;
@@ -47,9 +44,7 @@ export function getPreferredLanguage(request: Request): string {
 
   // Find the first supported language
   const supportedLanguages = Object.keys(ui);
-  const preferredLanguage = languages.find((lang) =>
-    supportedLanguages.includes(lang),
-  );
+  const preferredLanguage = languages.find((lang) => supportedLanguages.includes(lang));
 
   return preferredLanguage || defaultLang;
 }
@@ -64,7 +59,7 @@ export function getPreferredLanguage(request: Request): string {
 export function t(
   request: Request,
   key: string,
-  params: Record<string, string | number> = {},
+  params: Record<string, string | number> = {}
 ): string {
   const lang = getPreferredLanguage(request);
   return getTranslation(key, lang, params);

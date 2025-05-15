@@ -7,9 +7,10 @@
  * The module uses bcrypt for secure password hashing and UUID for generating unique tokens.
  * All database operations are performed using the Turso database client.
  */
-import { turso } from "../../turso.js";
-import { v4 as uuidv4 } from "uuid";
 import bcrypt from "bcryptjs";
+import { v4 as uuidv4 } from "uuid";
+
+import { turso } from "../../turso.js";
 
 /**
  * Represents a user in the system
@@ -75,7 +76,7 @@ export async function createUser(user: NewUser): Promise<User> {
   const verificationToken = uuidv4();
   const now = new Date();
   const verificationExpires = new Date(
-    now.getTime() + VERIFICATION_TOKEN_EXPIRES_HOURS * 60 * 60 * 1000,
+    now.getTime() + VERIFICATION_TOKEN_EXPIRES_HOURS * 60 * 60 * 1000
   );
 
   const query = `
@@ -127,9 +128,7 @@ export async function createUser(user: NewUser): Promise<User> {
  * @param {string} email - The email address to search for (case-insensitive)
  * @returns {Promise<UserWithPassword|null>} The user with password hash if found, null otherwise
  */
-export async function getUserByEmail(
-  email: string,
-): Promise<UserWithPassword | null> {
+export async function getUserByEmail(email: string): Promise<UserWithPassword | null> {
   const query = `
     SELECT 
       id, 
@@ -171,9 +170,7 @@ export async function getUserByEmail(
  * @param {string} username - The username to search for
  * @returns {Promise<UserWithPassword|null>} The user with password hash if found, null otherwise
  */
-export async function getUserByUsername(
-  username: string,
-): Promise<UserWithPassword | null> {
+export async function getUserByUsername(username: string): Promise<UserWithPassword | null> {
   const query = `
     SELECT 
       id, 
@@ -216,10 +213,7 @@ export async function getUserByUsername(
  * @param {string} password - The plain text password to verify
  * @returns {Promise<boolean>} True if the password matches, false otherwise
  */
-export async function verifyPassword(
-  user: UserWithPassword,
-  password: string,
-): Promise<boolean> {
+export async function verifyPassword(user: UserWithPassword, password: string): Promise<boolean> {
   return bcrypt.compare(password, user.passwordHash);
 }
 
@@ -232,13 +226,11 @@ export async function verifyPassword(
  * @param {string} userId - The ID of the user to generate a token for
  * @returns {Promise<string>} The generated verification token
  */
-export async function generateEmailVerificationToken(
-  userId: string,
-): Promise<string> {
+export async function generateEmailVerificationToken(userId: string): Promise<string> {
   const verificationToken = uuidv4();
   const now = new Date();
   const verificationExpires = new Date(
-    now.getTime() + VERIFICATION_TOKEN_EXPIRES_HOURS * 60 * 60 * 1000,
+    now.getTime() + VERIFICATION_TOKEN_EXPIRES_HOURS * 60 * 60 * 1000
   );
 
   const query = `
@@ -296,9 +288,7 @@ export async function verifyEmail(token: string): Promise<boolean> {
  * @param {string} email - The email address of the user requesting a password reset
  * @returns {Promise<string|null>} The generated reset token, or null if user not found
  */
-export async function generatePasswordResetToken(
-  email: string,
-): Promise<string | null> {
+export async function generatePasswordResetToken(email: string): Promise<string | null> {
   const user = await getUserByEmail(email);
 
   if (!user) {
@@ -307,9 +297,7 @@ export async function generatePasswordResetToken(
 
   const resetToken = uuidv4();
   const now = new Date();
-  const resetExpires = new Date(
-    now.getTime() + RESET_TOKEN_EXPIRES_HOURS * 60 * 60 * 1000,
-  );
+  const resetExpires = new Date(now.getTime() + RESET_TOKEN_EXPIRES_HOURS * 60 * 60 * 1000);
 
   const query = `
     UPDATE users 
@@ -339,10 +327,7 @@ export async function generatePasswordResetToken(
  * @param {string} newPassword - The new password to set
  * @returns {Promise<boolean>} True if password reset was successful, false otherwise
  */
-export async function resetPassword(
-  token: string,
-  newPassword: string,
-): Promise<boolean> {
+export async function resetPassword(token: string, newPassword: string): Promise<boolean> {
   const passwordHash = await bcrypt.hash(newPassword, BCRYPT_SALT_ROUNDS);
 
   const query = `
@@ -375,10 +360,7 @@ export async function resetPassword(
  * @param {string} newPassword - The new password to set
  * @returns {Promise<boolean>} True if password update was successful, false otherwise
  */
-export async function updatePassword(
-  userId: string,
-  newPassword: string,
-): Promise<boolean> {
+export async function updatePassword(userId: string, newPassword: string): Promise<boolean> {
   const passwordHash = await bcrypt.hash(newPassword, BCRYPT_SALT_ROUNDS);
 
   const query = `

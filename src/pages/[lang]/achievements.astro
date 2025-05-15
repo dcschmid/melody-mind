@@ -17,9 +17,7 @@ const langString = lang as string;
 const t = useTranslations(langString);
 
 // Check authentication
-const { authenticated, user, redirectToLogin } = await requireAuth(
-  Astro.request,
-);
+const { authenticated, user, redirectToLogin } = await requireAuth(Astro.request);
 
 // If not authenticated, redirect to login page
 if (!authenticated || !user) {
@@ -46,16 +44,17 @@ if (authenticated && user) {
 }
 
 // Group achievements by category
-const achievementsByCategory = achievements.reduce<
-  Record<string, LocalizedAchievement[]>
->((acc, achievement) => {
-  const categoryId = achievement.categoryId;
-  if (!acc[categoryId]) {
-    acc[categoryId] = [];
-  }
-  acc[categoryId].push(achievement);
-  return acc;
-}, {});
+const achievementsByCategory = achievements.reduce<Record<string, LocalizedAchievement[]>>(
+  (acc, achievement) => {
+    const categoryId = achievement.categoryId;
+    if (!acc[categoryId]) {
+      acc[categoryId] = [];
+    }
+    acc[categoryId].push(achievement);
+    return acc;
+  },
+  {}
+);
 
 // Sort categories
 const sortedCategories = Object.entries(achievementsByCategory).sort(
@@ -63,23 +62,20 @@ const sortedCategories = Object.entries(achievementsByCategory).sort(
     const sortOrderA = (achievementsA[0]?.category?.sortOrder as number) || 0;
     const sortOrderB = (achievementsB[0]?.category?.sortOrder as number) || 0;
     return sortOrderA - sortOrderB;
-  },
+  }
 );
 ---
 
-<Layout
-  title={t("achievements.title")}
-  description={t("achievements.description")}
->
-  <main class="max-w-7xl mx-auto px-4 py-8">
-    <h1 class="text-4xl mb-4 text-center">{t("achievements.title")}</h1>
-    <p class="text-center max-w-3xl mx-auto mb-12 text-gray-400">
+<Layout title={t("achievements.title")} description={t("achievements.description")}>
+  <main class="mx-auto max-w-7xl px-4 py-8">
+    <h1 class="mb-4 text-center text-4xl">{t("achievements.title")}</h1>
+    <p class="mx-auto mb-12 max-w-3xl text-center text-gray-400">
       {t("achievements.description")}
     </p>
 
     {
       error && (
-        <div class="bg-red-500 text-white p-4 rounded-lg mb-8 text-center">
+        <div class="mb-8 rounded-lg bg-red-500 p-4 text-center text-white">
           <p>{t("achievements.error")}</p>
         </div>
       )
@@ -87,12 +83,12 @@ const sortedCategories = Object.entries(achievementsByCategory).sort(
 
     {
       !authenticated && (
-        <div class="bg-zinc-800 p-8 rounded-lg text-center mb-8">
+        <div class="mb-8 rounded-lg bg-zinc-800 p-8 text-center">
           <h2 class="mt-0">{t("auth.required.title")}</h2>
           <p>{t("auth.required.description")}</p>
           <a
             href={`/${langString}/auth/login`}
-            class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded font-semibold mt-4 transition-colors duration-200"
+            class="mt-4 inline-block rounded bg-blue-500 px-6 py-3 font-semibold text-white transition-colors duration-200 hover:bg-blue-600"
           >
             {t("auth.login.submit")}
           </a>
@@ -102,7 +98,7 @@ const sortedCategories = Object.entries(achievementsByCategory).sort(
 
     {
       authenticated && achievements.length === 0 && !error && (
-        <div class="bg-zinc-800 p-8 rounded-lg text-center mb-8">
+        <div class="mb-8 rounded-lg bg-zinc-800 p-8 text-center">
           <p>{t("achievements.empty")}</p>
         </div>
       )
@@ -117,73 +113,56 @@ const sortedCategories = Object.entries(achievementsByCategory).sort(
             {sortedCategories.map(([categoryId, categoryAchievements]) => (
               <section class="mb-4" data-category-id={categoryId}>
                 <h2
-                  class={`text-2xl mb-6 pb-2 border-b-2 border-zinc-600 
-                    ${
-                      (categoryAchievements as LocalizedAchievement[])[0]
-                        ?.category?.code === "bronze"
-                        ? "text-amber-600"
-                        : (categoryAchievements as LocalizedAchievement[])[0]
-                              ?.category?.code === "silver"
-                          ? "text-gray-300"
-                          : (categoryAchievements as LocalizedAchievement[])[0]
-                                ?.category?.code === "gold"
-                            ? "text-yellow-400"
-                            : (
-                                  categoryAchievements as LocalizedAchievement[]
-                                )[0]?.category?.code === "platinum"
-                              ? "text-gray-200"
-                              : "text-amber-600"
-                    }`}
+                  class={`mb-6 border-b-2 border-zinc-600 pb-2 text-2xl ${
+                    (categoryAchievements as LocalizedAchievement[])[0]?.category?.code === "bronze"
+                      ? "text-amber-600"
+                      : (categoryAchievements as LocalizedAchievement[])[0]?.category?.code ===
+                          "silver"
+                        ? "text-gray-300"
+                        : (categoryAchievements as LocalizedAchievement[])[0]?.category?.code ===
+                            "gold"
+                          ? "text-yellow-400"
+                          : (categoryAchievements as LocalizedAchievement[])[0]?.category?.code ===
+                              "platinum"
+                            ? "text-gray-200"
+                            : "text-amber-600"
+                  }`}
                 >
                   {t(
-                    `achievements.category.${(categoryAchievements as LocalizedAchievement[])[0]?.category?.code ?? "bronze"}`,
+                    `achievements.category.${(categoryAchievements as LocalizedAchievement[])[0]?.category?.code ?? "bronze"}`
                   )}
                 </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {(categoryAchievements as LocalizedAchievement[]).map(
                     (achievement: LocalizedAchievement) => (
-                      <AchievementCard
-                        achievement={achievement}
-                        lang={langString}
-                      />
-                    ),
+                      <AchievementCard achievement={achievement} lang={langString} />
+                    )
                   )}
                 </div>
               </section>
             ))}
           </div>
 
-          <div class="mt-12 bg-zinc-800 rounded-lg p-6">
-            <h2 class="text-2xl mt-0 mb-4 text-center">
-              {t("achievements.summary.title")}
-            </h2>
+          <div class="mt-12 rounded-lg bg-zinc-800 p-6">
+            <h2 class="mt-0 mb-4 text-center text-2xl">{t("achievements.summary.title")}</h2>
             <div class="flex flex-wrap justify-around gap-4">
-              <div class="flex flex-col items-center p-4 min-w-[120px] md:min-w-[150px]">
-                <span class="text-sm text-gray-400 mb-2">
-                  {t("achievements.summary.total")}
-                </span>
-                <span class="text-2xl font-semibold text-yellow-400">
-                  {achievements.length}
-                </span>
+              <div class="flex min-w-[120px] flex-col items-center p-4 md:min-w-[150px]">
+                <span class="mb-2 text-sm text-gray-400">{t("achievements.summary.total")}</span>
+                <span class="text-2xl font-semibold text-yellow-400">{achievements.length}</span>
               </div>
-              <div class="flex flex-col items-center p-4 min-w-[120px] md:min-w-[150px]">
-                <span class="text-sm text-gray-400 mb-2">
-                  {t("achievements.summary.unlocked")}
-                </span>
+              <div class="flex min-w-[120px] flex-col items-center p-4 md:min-w-[150px]">
+                <span class="mb-2 text-sm text-gray-400">{t("achievements.summary.unlocked")}</span>
                 <span class="text-2xl font-semibold text-yellow-400">
                   {achievements.filter((a) => a.status === "unlocked").length}
                 </span>
               </div>
-              <div class="flex flex-col items-center p-4 min-w-[120px] md:min-w-[150px]">
-                <span class="text-sm text-gray-400 mb-2">
-                  {t("achievements.summary.progress")}
-                </span>
+              <div class="flex min-w-[120px] flex-col items-center p-4 md:min-w-[150px]">
+                <span class="mb-2 text-sm text-gray-400">{t("achievements.summary.progress")}</span>
                 <span class="text-2xl font-semibold text-yellow-400">
                   {Math.round(
-                    (achievements.filter((a) => a.status === "unlocked")
-                      .length /
+                    (achievements.filter((a) => a.status === "unlocked").length /
                       achievements.length) *
-                      100,
+                      100
                   )}
                   %
                 </span>

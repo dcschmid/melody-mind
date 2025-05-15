@@ -76,15 +76,13 @@ export interface AudioControl {
  * @param {HTMLAudioElement | null} [audioElement] - Target audio element
  * @returns {Promise<void>} Promise resolving when operation completes
  */
-export async function stopAudio(
-  audioElement?: HTMLAudioElement | null,
-): Promise<void> {
+export async function stopAudio(audioElement?: HTMLAudioElement | null): Promise<void> {
   try {
-    const audio =
-      audioElement ||
-      (document.getElementById("audio-preview") as HTMLAudioElement);
+    const audio = audioElement || (document.getElementById("audio-preview") as HTMLAudioElement);
 
-    if (!audio) return;
+    if (!audio) {
+      return;
+    }
 
     // Check if the audio element is actually playing before attempting to pause
     if (!audio.paused) {
@@ -126,18 +124,14 @@ export class AudioController implements AudioControl {
    * @param {string} audioElementId - ID of the HTML audio element to control (defaults to 'audio-preview')
    */
   constructor(audioElementId: string = "audio-preview") {
-    this.audioElement = document.getElementById(
-      audioElementId,
-    ) as HTMLAudioElement;
+    this.audioElement = document.getElementById(audioElementId) as HTMLAudioElement;
 
     // Initialize audio element if found
     if (this.audioElement) {
       this.audioElement.volume = this.defaultVolume;
       this.registerEventListeners();
     } else {
-      console.warn(
-        "Audio element not found. Some audio functions may not work.",
-      );
+      console.warn("Audio element not found. Some audio functions may not work.");
     }
   }
 
@@ -146,14 +140,13 @@ export class AudioController implements AudioControl {
    * @private
    */
   private registerEventListeners(): void {
-    if (!this.audioElement) return;
+    if (!this.audioElement) {
+      return;
+    }
 
     // Handle errors during playback
     const errorHandler = (e: Event) => {
-      console.error(
-        "Audio playback error:",
-        (e as ErrorEvent).message || "Unknown error",
-      );
+      console.error("Audio playback error:", (e as ErrorEvent).message || "Unknown error");
     };
 
     this.audioElement.addEventListener("error", errorHandler);
@@ -175,7 +168,9 @@ export class AudioController implements AudioControl {
    * @returns {boolean} True if audio is playing, false otherwise
    */
   isPlaying(): boolean {
-    if (!this.audioElement) return false;
+    if (!this.audioElement) {
+      return false;
+    }
     return !this.audioElement.paused;
   }
 
@@ -209,26 +204,18 @@ export class AudioController implements AudioControl {
           // HAVE_CURRENT_DATA
           await new Promise<void>((resolve, reject) => {
             const onLoadedMetadata = () => {
-              this.audioElement?.removeEventListener(
-                "loadedmetadata",
-                onLoadedMetadata,
-              );
+              this.audioElement?.removeEventListener("loadedmetadata", onLoadedMetadata);
               resolve();
             };
 
             const onError = (e: Event) => {
               this.audioElement?.removeEventListener("error", onError);
               reject(
-                new Error(
-                  `Failed to load audio: ${(e as ErrorEvent).message || "Unknown error"}`,
-                ),
+                new Error(`Failed to load audio: ${(e as ErrorEvent).message || "Unknown error"}`)
               );
             };
 
-            this.audioElement?.addEventListener(
-              "loadedmetadata",
-              onLoadedMetadata,
-            );
+            this.audioElement?.addEventListener("loadedmetadata", onLoadedMetadata);
             this.audioElement?.addEventListener("error", onError);
           });
         }
@@ -239,7 +226,7 @@ export class AudioController implements AudioControl {
     } catch (error) {
       console.error("Failed to play audio:", error);
       throw new Error(
-        `Audio playback failed: ${error instanceof Error ? error.message : "Unknown error"}`,
+        `Audio playback failed: ${error instanceof Error ? error.message : "Unknown error"}`
       );
     }
   }

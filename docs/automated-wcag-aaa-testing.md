@@ -1,10 +1,12 @@
 # Automated WCAG AAA Testing with axe-core
 
-This documentation describes how we conduct automated accessibility testing according to WCAG AAA standards with axe-core in the MelodyMind project.
+This documentation describes how we conduct automated accessibility testing according to WCAG AAA
+standards with axe-core in the MelodyMind project.
 
 ## Overview
 
-Instead of custom ESLint rules, we use axe-core, a powerful tool for automated accessibility testing. Axe-core offers:
+Instead of custom ESLint rules, we use axe-core, a powerful tool for automated accessibility
+testing. Axe-core offers:
 
 - Comprehensive checks for all WCAG 2.1 levels (A, AA, AAA)
 - Browser-based testing for dynamic components
@@ -65,7 +67,8 @@ Axe-core supports numerous WCAG AAA-specific checks, including:
 1. **Contrast Checks (1.4.6)** - Contrast ratio of at least 7:1 for normal text
 2. **Audio Descriptions (1.2.7)** - Extended audio descriptions for videos
 3. **Sign Language (1.2.6)** - Sign language for audio content
-4. **Keyboard Control (2.1.3)** - All functions must be accessible via keyboard without time constraints
+4. **Keyboard Control (2.1.3)** - All functions must be accessible via keyboard without time
+   constraints
 5. **Error Suggestions (3.3.3)** - Suggestions for error correction when input errors occur
 6. **Context-Sensitive Help (3.3.5)** - Context-sensitive help for form elements
 
@@ -94,8 +97,12 @@ In addition to automated tests, the following manual tests should be performed:
 
 ## Best Practices for WCAG AAA
 
-1. **Strict Contrast Requirements**: Use features like Tailwind's `text-gray-900` on `bg-white` for high-contrast text
-2. **Detailed Alternative Texts**: Alt texts should include at least 20 characters and describe the content in detail
-3. **Redundant Navigation Mechanisms**: Provide multiple ways to access content (navigation, search, sitemap)
+1. **Strict Contrast Requirements**: Use features like Tailwind's `text-gray-900` on `bg-white` for
+   high-contrast text
+2. **Detailed Alternative Texts**: Alt texts should include at least 20 characters and describe the
+   content in detail
+3. **Redundant Navigation Mechanisms**: Provide multiple ways to access content (navigation, search,
+   sitemap)
 4. **Advanced ARIA Attributes**: e.g., `aria-describedby` for additional contextual information
-5. **Keyboard-Optimized Interactions**: All interactive elements should be operable with Tab, Enter, and arrow keys
+5. **Keyboard-Optimized Interactions**: All interactive elements should be operable with Tab, Enter,
+   and arrow keys

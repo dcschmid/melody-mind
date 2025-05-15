@@ -32,60 +32,41 @@ const isAuthenticated = false; // Will be overwritten client-side
 ---
 
 <!-- Main header with navigation and language picker -->
-<header role="banner" class="flex flex-row justify-between md-6 rounded-lg">
+<header role="banner" class="md-6 flex flex-row justify-between rounded-lg">
   <LanguagePicker />
   <nav
     aria-label={t("nav.ariaLabel") || "Main navigation"}
-    class="flex flex-wrap gap-3 items-center justify-between"
+    class="flex flex-wrap items-center justify-between gap-3"
   >
-    <div class="slot left flex gap-3 items-center flex-1 justify-center">
+    <div class="slot left flex flex-1 items-center justify-center gap-3">
       <button
-        class="hamburger relative flex items-center justify-center gap-2 min-h-12 min-w-12
-               py-2 px-4 rounded-lg bg-sky-500 text-zinc-900 font-medium
-               shadow-md transition-all duration-300
-               border-2 border-sky-400
-               hover:bg-sky-400 hover:shadow-lg
-               focus-visible:outline focus-visible:outline-sky-300 focus-visible:outline-offset-2"
+        class="hamburger relative flex min-h-12 min-w-12 items-center justify-center gap-2 rounded-lg border-2 border-sky-400 bg-sky-500 px-4 py-2 font-medium text-zinc-900 shadow-md transition-all duration-300 hover:bg-sky-400 hover:shadow-lg focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-300"
         aria-label={t("nav.menu.open")}
         aria-expanded="false"
         aria-controls="main-menu"
         id="menu-toggle"
       >
-        <Icon
-          name="menu"
-          width={28}
-          height={28}
-          aria-hidden="true"
-          class="w-7 h-7"
-        />
+        <Icon name="menu" width={28} height={28} aria-hidden="true" class="h-7 w-7" />
 
-        <span class="font-medium sr-only sm:not-sr-only"
-          >{t("nav.menu.text")}</span
-        >
+        <span class="sr-only font-medium sm:not-sr-only">{t("nav.menu.text")}</span>
       </button>
 
       <div
         id="menu-backdrop"
-        class="fixed inset-0 z-30 bg-black/70 backdrop-blur-sm invisible opacity-0 transition-opacity duration-300
-               data-[state=open]:visible data-[state=open]:opacity-100"
+        class="invisible fixed inset-0 z-30 bg-black/70 opacity-0 backdrop-blur-sm transition-opacity duration-300 data-[state=open]:visible data-[state=open]:opacity-100"
         aria-hidden="true"
       >
       </div>
 
       <div
         id="main-menu"
-        class="fixed inset-y-0 left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-md bg-zinc-800 rounded-xl
-               shadow-2xl -translate-y-[100%] my-4 transition-transform duration-300 ease-out pt-16 pb-8
-               overflow-y-auto invisible opacity-0 data-[state=open]:translate-y-0
-               data-[state=open]:visible data-[state=open]:opacity-100"
+        class="invisible fixed inset-y-0 left-1/2 z-40 my-4 w-[90%] max-w-md -translate-x-1/2 -translate-y-[100%] overflow-y-auto rounded-xl bg-zinc-800 pt-16 pb-8 opacity-0 shadow-2xl transition-transform duration-300 ease-out data-[state=open]:visible data-[state=open]:translate-y-0 data-[state=open]:opacity-100"
         role="dialog"
         aria-modal="true"
         aria-labelledby="menu-title"
       >
         <button
-          class="close-menu absolute top-4 right-4 flex items-center justify-center w-12 h-12
-                 rounded-full bg-zinc-700 text-zinc-100 hover:bg-zinc-600
-                 transition-colors duration-200 focus-visible:outline focus-visible:outline-sky-300 focus-visible:outline-offset-2"
+          class="close-menu absolute top-4 right-4 flex h-12 w-12 items-center justify-center rounded-full bg-zinc-700 text-zinc-100 transition-colors duration-200 hover:bg-zinc-600 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-300"
           aria-label={t("nav.menu.close")}
         >
           <Icon
@@ -93,28 +74,19 @@ const isAuthenticated = false; // Will be overwritten client-side
             width={28}
             height={28}
             aria-hidden="true"
-            class="w-7 h-7 text-zinc-50 fill-inherit stroke-zinc-100"
+            class="h-7 w-7 fill-inherit stroke-zinc-100 text-zinc-50"
           />
         </button>
 
         <!-- Menu title -->
-        <div class="text-center mb-6">
-          <h2
-            id="menu-title"
-            class="text-xl font-bold text-balance text-zinc-50"
-          >
+        <div class="mb-6 text-center">
+          <h2 id="menu-title" class="text-xl font-bold text-balance text-zinc-50">
             {t("nav.title")}
           </h2>
         </div>
 
         <!-- Status announcer for screen readers - updates when menu opens/closes -->
-        <div
-          aria-live="polite"
-          aria-atomic="true"
-          class="sr-only"
-          id="menu-status-announcer"
-        >
-        </div>
+        <div aria-live="polite" aria-atomic="true" class="sr-only" id="menu-status-announcer"></div>
 
         <!-- Navigation menu items -->
         <ul class="flex flex-col space-y-4 px-4" role="menu">
@@ -122,21 +94,10 @@ const isAuthenticated = false; // Will be overwritten client-side
           <li role="none">
             <a
               href={getRelativeLocaleUrl(lang, "gamehome")}
-              class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
-                    font-medium no-underline transition-all
-                    duration-200 hover:bg-zinc-700 hover:translate-x-1
-                    focus-visible:bg-zinc-700 focus-visible:outline
-                    focus-visible:outline-sky-300 focus-visible:outline-offset-2
-                    text-zinc-100"
+              class="flex w-full items-center gap-4 rounded-lg px-5 py-4 font-medium text-zinc-100 no-underline transition-all duration-200 hover:translate-x-1 hover:bg-zinc-700 focus-visible:bg-zinc-700 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-300"
               role="menuitem"
             >
-              <Icon
-                name="home"
-                width={28}
-                height={28}
-                aria-hidden="true"
-                class="w-7 h-7"
-              />
+              <Icon name="home" width={28} height={28} aria-hidden="true" class="h-7 w-7" />
               <span>{t("nav.menu.home")}</span>
             </a>
           </li>
@@ -147,21 +108,10 @@ const isAuthenticated = false; // Will be overwritten client-side
             <li role="none">
               <a
                 href={getRelativeLocaleUrl(lang, "knowledge")}
-                class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
-                      font-medium no-underline transition-all
-                      duration-200 hover:bg-zinc-700 hover:translate-x-1
-                      focus-visible:bg-zinc-700 focus-visible:outline
-                      focus-visible:outline-sky-300 focus-visible:outline-offset-2
-                      text-zinc-100"
+                class="flex w-full items-center gap-4 rounded-lg px-5 py-4 font-medium text-zinc-100 no-underline transition-all duration-200 hover:translate-x-1 hover:bg-zinc-700 focus-visible:bg-zinc-700 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-300"
                 role="menuitem"
               >
-                <Icon
-                  name="book"
-                  width={28}
-                  height={28}
-                  aria-hidden="true"
-                  class="w-7 h-7"
-                />
+                <Icon name="book" width={28} height={28} aria-hidden="true" class="h-7 w-7" />
                 <span>{t("knowledge.title")}</span>
               </a>
             </li>
@@ -170,21 +120,10 @@ const isAuthenticated = false; // Will be overwritten client-side
             <li role="none">
               <a
                 href={getRelativeLocaleUrl(lang, "playlists")}
-                class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
-                      font-medium no-underline transition-all
-                      duration-200 hover:bg-zinc-700 hover:translate-x-1
-                      focus-visible:bg-zinc-700 focus-visible:outline
-                      focus-visible:outline-sky-300 focus-visible:outline-offset-2
-                      text-zinc-100"
+                class="flex w-full items-center gap-4 rounded-lg px-5 py-4 font-medium text-zinc-100 no-underline transition-all duration-200 hover:translate-x-1 hover:bg-zinc-700 focus-visible:bg-zinc-700 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-300"
                 role="menuitem"
               >
-                <Icon
-                  name="music-note"
-                  width={28}
-                  height={28}
-                  aria-hidden="true"
-                  class="w-7 h-7"
-                />
+                <Icon name="music-note" width={28} height={28} aria-hidden="true" class="h-7 w-7" />
                 <span>{t("playlist.page.heading")}</span>
               </a>
             </li>
@@ -193,21 +132,10 @@ const isAuthenticated = false; // Will be overwritten client-side
             <li role="none">
               <a
                 href={getRelativeLocaleUrl(lang, "rules")}
-                class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
-                      font-medium no-underline transition-all
-                      duration-200 hover:bg-zinc-700 hover:translate-x-1
-                      focus-visible:bg-zinc-700 focus-visible:outline
-                      focus-visible:outline-sky-300 focus-visible:outline-offset-2
-                      text-zinc-100"
+                class="flex w-full items-center gap-4 rounded-lg px-5 py-4 font-medium text-zinc-100 no-underline transition-all duration-200 hover:translate-x-1 hover:bg-zinc-700 focus-visible:bg-zinc-700 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-300"
                 role="menuitem"
               >
-                <Icon
-                  name="question"
-                  width={28}
-                  height={28}
-                  aria-hidden="true"
-                  class="w-7 h-7"
-                />
+                <Icon name="question" width={28} height={28} aria-hidden="true" class="h-7 w-7" />
                 <span>{t("nav.menu.rules")}</span>
               </a>
             </li>
@@ -216,21 +144,10 @@ const isAuthenticated = false; // Will be overwritten client-side
             <li role="none">
               <a
                 href={getRelativeLocaleUrl(lang, "highscores")}
-                class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
-                      font-medium no-underline transition-all
-                      duration-200 hover:bg-zinc-700 hover:translate-x-1
-                      focus-visible:bg-zinc-700 focus-visible:outline
-                      focus-visible:outline-sky-300 focus-visible:outline-offset-2
-                      text-zinc-100"
+                class="flex w-full items-center gap-4 rounded-lg px-5 py-4 font-medium text-zinc-100 no-underline transition-all duration-200 hover:translate-x-1 hover:bg-zinc-700 focus-visible:bg-zinc-700 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-300"
                 role="menuitem"
               >
-                <Icon
-                  name="trophy"
-                  width={28}
-                  height={28}
-                  aria-hidden="true"
-                  class="w-7 h-7"
-                />
+                <Icon name="trophy" width={28} height={28} aria-hidden="true" class="h-7 w-7" />
                 <span>{t("nav.menu.highscores")}</span>
               </a>
             </li>
@@ -239,24 +156,13 @@ const isAuthenticated = false; // Will be overwritten client-side
             <li role="none">
               <a
                 href={getRelativeLocaleUrl(lang, "achievements")}
-                class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
-                      font-medium no-underline transition-all
-                      duration-200 hover:bg-zinc-700 hover:translate-x-1
-                      focus-visible:bg-zinc-700 focus-visible:outline
-                      focus-visible:outline-sky-300 focus-visible:outline-offset-2
-                      text-zinc-100"
+                class="flex w-full items-center gap-4 rounded-lg px-5 py-4 font-medium text-zinc-100 no-underline transition-all duration-200 hover:translate-x-1 hover:bg-zinc-700 focus-visible:bg-zinc-700 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-300"
                 role="menuitem"
                 aria-label={t("achievements.nav.aria")}
               >
                 <div class="relative">
-                  <Icon
-                    name="award"
-                    width={28}
-                    height={28}
-                    aria-hidden="true"
-                    class="w-7 h-7"
-                  />
-                  <AchievementBadge lang={lang} />
+                  <Icon name="award" width={28} height={28} aria-hidden="true" class="h-7 w-7" />
+                  <AchievementBadge {lang} />
                 </div>
                 <span>{t("achievements.nav.link")}</span>
               </a>
@@ -264,28 +170,17 @@ const isAuthenticated = false; // Will be overwritten client-side
           </When>
 
           <!-- Divider -->
-          <div class="w-full h-px bg-zinc-700 my-4"></div>
+          <div class="my-4 h-px w-full bg-zinc-700"></div>
 
           <!-- Profile link - only shown when authenticated -->
           <li role="none" id="profile-container" class="hidden">
             <a
               href={getRelativeLocaleUrl(lang, "profile")}
-              class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
-                    font-medium no-underline transition-all
-                    duration-200 hover:bg-zinc-700 hover:translate-x-1
-                    focus-visible:bg-zinc-700 focus-visible:outline
-                    focus-visible:outline-sky-300 focus-visible:outline-offset-2
-                    text-zinc-100"
+              class="flex w-full items-center gap-4 rounded-lg px-5 py-4 font-medium text-zinc-100 no-underline transition-all duration-200 hover:translate-x-1 hover:bg-zinc-700 focus-visible:bg-zinc-700 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-300"
               role="menuitem"
               aria-label={t("profile.nav.aria")}
             >
-              <Icon
-                name="user"
-                width={28}
-                height={28}
-                aria-hidden="true"
-                class="w-7 h-7"
-              />
+              <Icon name="user" width={28} height={28} aria-hidden="true" class="h-7 w-7" />
               <span>{t("profile.nav.link")}</span>
             </a>
           </li>
@@ -294,29 +189,18 @@ const isAuthenticated = false; // Will be overwritten client-side
           <li role="none" id="logout-container" class="hidden">
             <button
               id="logout-button"
-              class="flex items-center gap-4 w-full py-4 px-5 rounded-lg
-                    font-medium no-underline transition-all
-                    duration-200 hover:bg-zinc-700 hover:translate-x-1
-                    focus-visible:bg-zinc-700 focus-visible:outline
-                    focus-visible:outline-sky-300 focus-visible:outline-offset-2
-                    text-zinc-100"
+              class="flex w-full items-center gap-4 rounded-lg px-5 py-4 font-medium text-zinc-100 no-underline transition-all duration-200 hover:translate-x-1 hover:bg-zinc-700 focus-visible:bg-zinc-700 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-300"
               role="menuitem"
               aria-label={t("nav.logout.label")}
             >
-              <Icon
-                name="logout"
-                width={28}
-                height={28}
-                aria-hidden="true"
-                class="w-7 h-7"
-              />
+              <Icon name="logout" width={28} height={28} aria-hidden="true" class="h-7 w-7" />
               <span>{t("nav.menu.logout")}</span>
             </button>
           </li>
 
           <!-- Donation section -->
           <div class="px-5">
-            <h3 class="text-lg font-bold mb-4 text-zinc-50">
+            <h3 class="mb-4 text-lg font-bold text-zinc-50">
               {t("nav.donate.heading")}
             </h3>
             <div class="flex flex-col gap-3">
@@ -325,18 +209,10 @@ const isAuthenticated = false; // Will be overwritten client-side
                 href="https://www.paypal.me/dcschmid"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center justify-center gap-2 py-3 px-4 bg-blue-600 hover:bg-blue-700
-                       text-white rounded-lg transition-colors duration-200 font-medium
-                       focus-visible:outline focus-visible:outline-sky-300 focus-visible:outline-offset-2"
+                class="flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-3 font-medium text-white transition-colors duration-200 hover:bg-blue-700 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-300"
                 aria-label={`${t("nav.donate.paypal")} (${t("nav.openNewWindow")})`}
               >
-                <Icon
-                  name="paypal"
-                  width={24}
-                  height={24}
-                  aria-hidden="true"
-                  class="w-6 h-6"
-                />
+                <Icon name="paypal" width={24} height={24} aria-hidden="true" class="h-6 w-6" />
                 <span>{t("nav.donate.paypal")}</span>
               </a>
               <!-- Buy Me a Coffee donation link -->
@@ -344,18 +220,10 @@ const isAuthenticated = false; // Will be overwritten client-side
                 href="https://www.buymeacoffee.com/dcschmid"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center justify-center gap-2 py-3 px-4 bg-amber-400 hover:bg-amber-500
-                       text-zinc-900 rounded-lg transition-colors duration-200 font-medium
-                       focus-visible:outline focus-visible:outline-sky-300 focus-visible:outline-offset-2"
+                class="flex items-center justify-center gap-2 rounded-lg bg-amber-400 px-4 py-3 font-medium text-zinc-900 transition-colors duration-200 hover:bg-amber-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-300"
                 aria-label={`${t("nav.donate.coffee")} (${t("nav.openNewWindow")})`}
               >
-                <Icon
-                  name="coffee-cup"
-                  width={24}
-                  height={24}
-                  aria-hidden="true"
-                  class="w-6 h-6"
-                />
+                <Icon name="coffee-cup" width={24} height={24} aria-hidden="true" class="h-6 w-6" />
                 <span>{t("nav.donate.coffee")}</span>
               </a>
             </div>
@@ -388,27 +256,17 @@ const isAuthenticated = false; // Will be overwritten client-side
    */
   function initNavigationMenu(): void {
     // Get all required DOM elements
-    const menuToggle = document.getElementById(
-      "menu-toggle",
-    ) as HTMLButtonElement | null;
-    const mainMenu = document.getElementById(
-      "main-menu",
-    ) as HTMLDivElement | null;
-    const menuBackdrop = document.getElementById(
-      "menu-backdrop",
-    ) as HTMLDivElement | null;
-    const closeButton = mainMenu?.querySelector(
-      ".close-menu",
-    ) as HTMLButtonElement | null;
+    const menuToggle = document.getElementById("menu-toggle") as HTMLButtonElement | null;
+    const mainMenu = document.getElementById("main-menu") as HTMLDivElement | null;
+    const menuBackdrop = document.getElementById("menu-backdrop") as HTMLDivElement | null;
+    const closeButton = mainMenu?.querySelector(".close-menu") as HTMLButtonElement | null;
     const statusAnnouncer = document.getElementById(
-      "menu-status-announcer",
+      "menu-status-announcer"
     ) as HTMLDivElement | null;
 
     // Ensure all required elements exist before proceeding
     if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
-      console.warn(
-        "Navigation menu elements not found, menu functionality disabled",
-      );
+      console.warn("Navigation menu elements not found, menu functionality disabled");
       return;
     }
 
@@ -417,21 +275,18 @@ const isAuthenticated = false; // Will be overwritten client-side
 
     // Set up event listeners
     menuToggle.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer),
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
     );
     closeButton.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer),
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
     );
     menuBackdrop.addEventListener("click", () =>
-      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer),
+      toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer)
     );
 
     // Close menu with Escape key
     document.addEventListener("keydown", (e) => {
-      if (
-        e.key === "Escape" &&
-        mainMenu.getAttribute("data-state") === "open"
-      ) {
+      if (e.key === "Escape" && mainMenu.getAttribute("data-state") === "open") {
         toggleMenu(menuToggle, mainMenu, menuBackdrop, statusAnnouncer);
       }
     });
@@ -453,7 +308,7 @@ const isAuthenticated = false; // Will be overwritten client-side
     menuToggle: HTMLButtonElement,
     mainMenu: HTMLElement,
     menuBackdrop: HTMLElement,
-    statusAnnouncer?: HTMLElement | null,
+    statusAnnouncer?: HTMLElement | null
   ): void {
     // Get current state and determine new state
     const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
@@ -471,11 +326,8 @@ const isAuthenticated = false; // Will be overwritten client-side
 
     // Announce state change to screen readers
     if (statusAnnouncer) {
-      const menuTitle =
-        document.getElementById("menu-title")?.textContent || "Menu";
-      statusAnnouncer.textContent = newState
-        ? `${menuTitle} opened`
-        : `${menuTitle} closed`;
+      const menuTitle = document.getElementById("menu-title")?.textContent || "Menu";
+      statusAnnouncer.textContent = newState ? `${menuTitle} opened` : `${menuTitle} closed`;
     }
 
     // Implement proper focus management
@@ -501,15 +353,14 @@ const isAuthenticated = false; // Will be overwritten client-side
    */
   function setupFocusTrap(menuElement: HTMLElement): void {
     menuElement.addEventListener("keydown", (e: KeyboardEvent) => {
-      if (
-        e.key !== "Tab" ||
-        menuElement.getAttribute("data-state") !== "open"
-      ) {
+      if (e.key !== "Tab" || menuElement.getAttribute("data-state") !== "open") {
         return;
       }
 
       const focusableElements = getFocusableElements(menuElement);
-      if (focusableElements.length === 0) return;
+      if (focusableElements.length === 0) {
+        return;
+      }
 
       const firstElement = focusableElements[0];
       const lastElement = focusableElements[focusableElements.length - 1];
@@ -537,9 +388,7 @@ const isAuthenticated = false; // Will be overwritten client-side
   function getFocusableElements(container: HTMLElement): Array<HTMLElement> {
     const selector =
       'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
-    const elements = Array.from(
-      container.querySelectorAll<HTMLElement>(selector),
-    );
+    const elements = Array.from(container.querySelectorAll<HTMLElement>(selector));
     return elements.filter((el) => el.offsetParent !== null); // Filter out hidden elements
   }
 
@@ -549,9 +398,7 @@ const isAuthenticated = false; // Will be overwritten client-side
    * @param {HTMLElement} container - The container to search within
    * @returns {HTMLElement | null} The first focusable element or null if none found
    */
-  function getFirstFocusableElement(
-    container: HTMLElement,
-  ): HTMLElement | null {
+  function getFirstFocusableElement(container: HTMLElement): HTMLElement | null {
     const focusableElements = getFocusableElements(container);
     return focusableElements.length > 0 ? focusableElements[0] : null;
   }
@@ -592,8 +439,7 @@ const isAuthenticated = false; // Will be overwritten client-side
    */
   function isUserAuthenticated(): boolean {
     return (
-      checkLocalStorage("auth_status") &&
-      localStorage.getItem("auth_status") === "authenticated"
+      checkLocalStorage("auth_status") && localStorage.getItem("auth_status") === "authenticated"
     );
   }
 
@@ -604,7 +450,9 @@ const isAuthenticated = false; // Will be overwritten client-side
   function updateLogoutButtonVisibility(): void {
     const logoutContainer = document.getElementById("logout-container");
     const profileContainer = document.getElementById("profile-container");
-    if (!logoutContainer || !profileContainer) return;
+    if (!logoutContainer || !profileContainer) {
+      return;
+    }
 
     const isAuthenticated = isUserAuthenticated();
     console.log("Auth Status in Navigation:", isAuthenticated);
@@ -626,7 +474,9 @@ const isAuthenticated = false; // Will be overwritten client-side
   function initLogoutButton(): void {
     const logoutButton = document.getElementById("logout-button");
     const logoutContainer = document.getElementById("logout-container");
-    if (!logoutButton || !logoutContainer) return;
+    if (!logoutButton || !logoutContainer) {
+      return;
+    }
 
     // Check authentication status and update visibility
     updateLogoutButtonVisibility();

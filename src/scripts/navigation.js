@@ -40,7 +40,9 @@ async function handleLogout() {
 
     // Update text display
     const textSpan = button.querySelector("span");
-    if (textSpan) textSpan.textContent += "...";
+    if (textSpan) {
+      textSpan.textContent += "...";
+    }
   });
 
   try {

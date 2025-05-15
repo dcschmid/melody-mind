@@ -20,88 +20,58 @@ const t = useTranslations(lang);
 ---
 
 <div class="mt-6 text-center">
-  <h3 class="text-xl font-semibold text-zinc-50 mb-4">{t("share.title")}</h3>
+  <h3 class="mb-4 text-xl font-semibold text-zinc-50">{t("share.title")}</h3>
 
   <!-- Status announcer for screen readers -->
-  <div
-    id="share-status-announcer"
-    aria-live="polite"
-    aria-atomic="true"
-    class="sr-only"
-  >
-  </div>
+  <div id="share-status-announcer" aria-live="polite" aria-atomic="true" class="sr-only"></div>
 
   <div
     id="share-buttons-container"
-    class="flex flex-wrap justify-center items-center gap-3 mt-4"
+    class="mt-4 flex flex-wrap items-center justify-center gap-3"
     role="group"
     aria-label={t("share.buttons.group.label")}
   >
     <!-- Native Web Share API Button (hidden by default, shown when supported) -->
     <button
       id="native-share-button"
-      class="shareButton-native hidden min-w-[48px] min-h-[48px] flex items-center justify-center gap-2 px-4 py-3 bg-indigo-700 hover:bg-indigo-800 active:bg-indigo-900 text-white font-medium rounded-lg transform-gpu transition-transform duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+      class="shareButton-native flex hidden min-h-[48px] min-w-[48px] transform-gpu items-center justify-center gap-2 rounded-lg bg-indigo-700 px-4 py-3 font-medium text-white transition-transform duration-200 hover:bg-indigo-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400 active:bg-indigo-900"
       aria-label={t("share.native")}
       type="button"
     >
-      <Icon
-        name="share"
-        width={24}
-        height={24}
-        class="w-6 h-6"
-        aria-hidden="true"
-      />
+      <Icon name="share" width={24} height={24} class="h-6 w-6" aria-hidden="true" />
       <span class="text-base">{t("share.native.label")}</span>
     </button>
 
     <!-- Twitter/X Share -->
     <button
-      class="shareButton-twitter min-w-[48px] min-h-[48px] flex items-center justify-center gap-2 px-4 py-3 bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-900 text-white font-medium rounded-lg transform-gpu transition-transform duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400"
+      class="shareButton-twitter flex min-h-[48px] min-w-[48px] transform-gpu items-center justify-center gap-2 rounded-lg bg-zinc-800 px-4 py-3 font-medium text-white transition-transform duration-200 hover:bg-zinc-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 active:bg-zinc-900"
       data-share="twitter"
       aria-label={t("share.twitter")}
       type="button"
     >
-      <Icon
-        name="twitter"
-        width={24}
-        height={24}
-        class="w-6 h-6"
-        aria-hidden="true"
-      />
+      <Icon name="twitter" width={24} height={24} class="h-6 w-6" aria-hidden="true" />
       <span class="text-base">X</span>
     </button>
 
     <!-- WhatsApp Share -->
     <button
-      class="shareButton-whatsapp min-w-[48px] min-h-[48px] flex items-center justify-center gap-2 px-4 py-3 bg-green-700 hover:bg-green-800 active:bg-green-900 text-white font-medium rounded-lg transform-gpu transition-transform duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400"
+      class="shareButton-whatsapp flex min-h-[48px] min-w-[48px] transform-gpu items-center justify-center gap-2 rounded-lg bg-green-700 px-4 py-3 font-medium text-white transition-transform duration-200 hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400 active:bg-green-900"
       data-share="whatsapp"
       aria-label={t("share.whatsapp")}
       type="button"
     >
-      <Icon
-        name="whatsapp"
-        width={24}
-        height={24}
-        class="w-6 h-6"
-        aria-hidden="true"
-      />
+      <Icon name="whatsapp" width={24} height={24} class="h-6 w-6" aria-hidden="true" />
       <span class="text-base">WhatsApp</span>
     </button>
 
     <!-- Email Share -->
     <button
-      class="shareButton-email min-w-[48px] min-h-[48px] flex items-center justify-center gap-2 px-4 py-3 bg-amber-700 hover:bg-amber-800 active:bg-amber-900 text-white font-medium rounded-lg transform-gpu transition-transform duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
+      class="shareButton-email flex min-h-[48px] min-w-[48px] transform-gpu items-center justify-center gap-2 rounded-lg bg-amber-700 px-4 py-3 font-medium text-white transition-transform duration-200 hover:bg-amber-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400 active:bg-amber-900"
       data-share="email"
       aria-label={t("share.email")}
       type="button"
     >
-      <Icon
-        name="mail"
-        width={24}
-        height={24}
-        class="w-6 h-6"
-        aria-hidden="true"
-      />
+      <Icon name="mail" width={24} height={24} class="h-6 w-6" aria-hidden="true" />
       <span class="text-base">{t("share.email.label")}</span>
     </button>
   </div>
@@ -110,20 +80,12 @@ const t = useTranslations(lang);
   <div class="mt-4">
     <button
       id="copy-share-button"
-      class="shareButton-copy inline-flex items-center justify-center gap-2 px-4 py-2 border-2 border-sky-500 hover:border-sky-400 text-sky-400 hover:text-sky-300 font-medium rounded-lg transform-gpu transition-transform duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 min-w-[48px] min-h-[44px]"
+      class="shareButton-copy inline-flex min-h-[44px] min-w-[48px] transform-gpu items-center justify-center gap-2 rounded-lg border-2 border-sky-500 px-4 py-2 font-medium text-sky-400 transition-transform duration-200 hover:border-sky-400 hover:text-sky-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
       aria-label={t("share.copy")}
       type="button"
     >
-      <Icon
-        name="clipboard"
-        width={20}
-        height={20}
-        class="w-5 h-5"
-        aria-hidden="true"
-      />
-      <span class="text-base" id="copy-button-text"
-        >{t("share.copy.label")}</span
-      >
+      <Icon name="clipboard" width={20} height={20} class="h-5 w-5" aria-hidden="true" />
+      <span class="text-base" id="copy-button-text">{t("share.copy.label")}</span>
     </button>
   </div>
 </div>
@@ -243,8 +205,7 @@ const t = useTranslations(lang);
     }
 
     // Store original copy button text
-    UI_CONSTANTS.COPY_ORIGINAL_TEXT =
-      elements.copyButtonText?.textContent || "";
+    UI_CONSTANTS.COPY_ORIGINAL_TEXT = elements.copyButtonText?.textContent || "";
 
     // Set up individual sharing methods
     initializeNativeSharing();
@@ -260,17 +221,12 @@ const t = useTranslations(lang);
    */
   function cacheElements(): void {
     elements.nativeShareButton = document.getElementById(
-      "native-share-button",
+      "native-share-button"
     ) as HTMLButtonElement;
-    elements.copyButton = document.getElementById(
-      "copy-share-button",
-    ) as HTMLButtonElement;
+    elements.copyButton = document.getElementById("copy-share-button") as HTMLButtonElement;
     elements.copyButtonText = document.getElementById("copy-button-text");
-    elements.statusAnnouncer = document.getElementById(
-      "share-status-announcer",
-    );
-    elements.shareButtons =
-      document.querySelectorAll<HTMLButtonElement>("[data-share]");
+    elements.statusAnnouncer = document.getElementById("share-status-announcer");
+    elements.shareButtons = document.querySelectorAll<HTMLButtonElement>("[data-share]");
   }
 
   /**
@@ -293,7 +249,9 @@ const t = useTranslations(lang);
       const button = event.currentTarget as HTMLButtonElement;
 
       // Prevent multiple clicks
-      if (button.hasAttribute("disabled")) return;
+      if (button.hasAttribute("disabled")) {
+        return;
+      }
 
       // Disable during operation to prevent multiple shares
       button.setAttribute("disabled", "disabled");
@@ -339,14 +297,18 @@ const t = useTranslations(lang);
       const target = event.target as HTMLElement;
       const button = target.closest("[data-share]") as HTMLButtonElement;
 
-      if (!button) return;
+      if (!button) {
+        return;
+      }
 
       // Prevent default to avoid any potential form submissions
       event.preventDefault();
 
       // Get platform from data attribute
       const platform = button.getAttribute("data-share");
-      if (!platform) return;
+      if (!platform) {
+        return;
+      }
 
       // Get game data and share
       const gameData = getGameDataFromPopup();
@@ -375,13 +337,17 @@ const t = useTranslations(lang);
     }
 
     const originalCopyText = UI_CONSTANTS.COPY_ORIGINAL_TEXT;
-    if (!originalCopyText) return;
+    if (!originalCopyText) {
+      return;
+    }
 
     elements.copyButton.addEventListener("click", async (event) => {
       const button = event.currentTarget as HTMLButtonElement;
 
       // Prevent multiple clicks
-      if (button.hasAttribute("disabled")) return;
+      if (button.hasAttribute("disabled")) {
+        return;
+      }
 
       // Disable during operation
       button.setAttribute("disabled", "disabled");
@@ -404,11 +370,7 @@ const t = useTranslations(lang);
         if (elements.copyButtonText) {
           elements.copyButtonText.textContent = "✓ Copied!";
         }
-        button.classList.add(
-          "bg-emerald-100",
-          "text-emerald-800",
-          "border-emerald-300",
-        );
+        button.classList.add("bg-emerald-100", "text-emerald-800", "border-emerald-300");
 
         // Announce success to screen readers
         announceToScreenReader("Score copied to clipboard successfully!");
@@ -418,11 +380,7 @@ const t = useTranslations(lang);
           if (elements.copyButtonText) {
             elements.copyButtonText.textContent = originalCopyText;
           }
-          button.classList.remove(
-            "bg-emerald-100",
-            "text-emerald-800",
-            "border-emerald-300",
-          );
+          button.classList.remove("bg-emerald-100", "text-emerald-800", "border-emerald-300");
           // Re-enable button after reset
           button.removeAttribute("disabled");
         }, UI_CONSTANTS.COPY_SUCCESS_DURATION);
@@ -454,7 +412,9 @@ const t = useTranslations(lang);
    * @param {string} message - The message to announce
    */
   function announceToScreenReader(message: string): void {
-    if (!elements.statusAnnouncer) return;
+    if (!elements.statusAnnouncer) {
+      return;
+    }
 
     // Set the message
     elements.statusAnnouncer.textContent = message;
@@ -474,7 +434,9 @@ const t = useTranslations(lang);
    */
   function getGameDataFromPopup(): ShareData | null {
     const popup = document.querySelector("#endgame-popup");
-    if (!popup) return null;
+    if (!popup) {
+      return null;
+    }
 
     return {
       score: parseInt(popup.getAttribute("data-score") || "0"),
@@ -498,10 +460,10 @@ const t = useTranslations(lang);
     // Temporarily override window.open to capture the share text
     const originalWindowOpen = window.open;
     window.open = function (url) {
-      if (!url) return null as any;
-      const textMatch = decodeURIComponent(url.toString()).match(
-        /text=([^&]+)/,
-      );
+      if (!url) {
+        return null as any;
+      }
+      const textMatch = decodeURIComponent(url.toString()).match(/text=([^&]+)/);
       if (textMatch && textMatch[1]) {
         shareText = textMatch[1].replace(/\+/g, " ");
       }

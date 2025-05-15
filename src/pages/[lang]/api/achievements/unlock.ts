@@ -18,9 +18,10 @@
  * - 500: Server error during unlocking
  */
 import type { APIRoute } from "astro";
+
+import { requireAuth } from "../../../../middleware/auth.ts";
 import { unlockAchievement } from "../../../../services/achievementService.ts";
 import { useTranslations } from "../../../../utils/i18n.ts";
-import { requireAuth } from "../../../../middleware/auth.ts";
 
 export const POST: APIRoute = async ({ request, params }) => {
   // Extract language from URL parameters for localized messages
@@ -47,7 +48,7 @@ export const POST: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
@@ -66,7 +67,7 @@ export const POST: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
@@ -84,7 +85,7 @@ export const POST: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
@@ -102,7 +103,7 @@ export const POST: APIRoute = async ({ request, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   } catch (error) {
     // Log error for debugging and return 500 response
@@ -118,7 +119,7 @@ export const POST: APIRoute = async ({ request, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   }
 };

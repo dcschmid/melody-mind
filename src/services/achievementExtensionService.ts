@@ -5,11 +5,8 @@
  */
 
 import { turso } from "../turso.ts";
-import type {
-  Achievement,
-  UserAchievement,
-  AchievementCheckResult,
-} from "../types/achievement.ts";
+import type { Achievement, UserAchievement, AchievementCheckResult } from "../types/achievement.ts";
+
 import { updateAchievementProgress } from "./achievementService.ts";
 
 /**
@@ -19,10 +16,7 @@ import { updateAchievementProgress } from "./achievementService.ts";
  * @param genreId - ID of the genre that was just played
  * @returns Promise with the updated progress
  */
-export async function trackGenreExplorer(
-  userId: string,
-  genreId: string,
-): Promise<number> {
+export async function trackGenreExplorer(userId: string, genreId: string): Promise<number> {
   // Check if genre has already been played
   const checkSql = `
     SELECT COUNT(*) as count FROM user_played_genres 
@@ -34,8 +28,7 @@ export async function trackGenreExplorer(
     args: [userId, genreId],
   });
 
-  const alreadyPlayed =
-    checkResult.rows && Number(checkResult.rows[0].count) > 0;
+  const alreadyPlayed = checkResult.rows && Number(checkResult.rows[0].count) > 0;
 
   // If not played yet, add to the list of played genres
   if (!alreadyPlayed) {
@@ -74,7 +67,7 @@ export async function trackGenreExplorer(
  */
 export async function trackGameSeries(
   userId: string,
-  resetSeries: boolean = false,
+  resetSeries: boolean = false
 ): Promise<number> {
   // Retrieve current series
   const getSql = `
@@ -119,13 +112,7 @@ export async function trackGameSeries(
 
     await turso.execute({
       sql: updateSql,
-      args: [
-        currentSeries,
-        currentSeries,
-        currentSeries,
-        new Date().toISOString(),
-        userId,
-      ],
+      args: [currentSeries, currentSeries, currentSeries, new Date().toISOString(), userId],
     });
   }
 
@@ -143,7 +130,7 @@ export async function trackGameSeries(
 export async function trackQuickAnswer(
   userId: string,
   answerTimeMs: number,
-  isCorrect: boolean,
+  isCorrect: boolean
 ): Promise<number> {
   // Only count correct answers under 3 seconds
   if (!isCorrect || answerTimeMs >= 3000) {
@@ -203,10 +190,7 @@ export async function trackQuickAnswer(
  * @param eventId - ID of the seasonal event
  * @returns Promise with the updated progress
  */
-export async function trackSeasonalEvent(
-  userId: string,
-  eventId: string,
-): Promise<number> {
+export async function trackSeasonalEvent(userId: string, eventId: string): Promise<number> {
   // Check if already participated in the event
   const checkSql = `
     SELECT COUNT(*) as count FROM user_seasonal_events 
@@ -218,8 +202,7 @@ export async function trackSeasonalEvent(
     args: [userId, eventId],
   });
 
-  const alreadyParticipated =
-    checkResult.rows && Number(checkResult.rows[0].count) > 0;
+  const alreadyParticipated = checkResult.rows && Number(checkResult.rows[0].count) > 0;
 
   // If not participated yet, add to the list of events
   if (!alreadyParticipated) {
@@ -269,7 +252,7 @@ export async function checkExtendedAchievements(
     isCorrectAnswer?: boolean;
     eventId?: string;
     resetGameSeries?: boolean;
-  } = {},
+  } = {}
 ): Promise<AchievementCheckResult> {
   const unlockedAchievements: Achievement[] = [];
   const updatedAchievements: Achievement[] = [];
@@ -313,14 +296,11 @@ export async function checkExtendedAchievements(
   gameSeriesProgress = await trackGameSeries(userId, options.resetGameSeries);
 
   // Quick Answer
-  if (
-    options.answerTimeMs !== undefined &&
-    options.isCorrectAnswer !== undefined
-  ) {
+  if (options.answerTimeMs !== undefined && options.isCorrectAnswer !== undefined) {
     quickAnswerProgress = await trackQuickAnswer(
       userId,
       options.answerTimeMs,
-      options.isCorrectAnswer,
+      options.isCorrectAnswer
     );
   }
 
@@ -340,9 +320,7 @@ export async function checkExtendedAchievements(
       rarityPercentage: 0,
     };
 
-    const currentProgress = row.currentProgress
-      ? Number(row.currentProgress)
-      : 0;
+    const currentProgress = row.currentProgress ? Number(row.currentProgress) : 0;
     const unlockedAt = row.unlockedAt as string | null;
 
     // Skip if already unlocked
@@ -370,11 +348,7 @@ export async function checkExtendedAchievements(
 
     // If progress has changed, update
     if (newProgress !== currentProgress && newProgress > 0) {
-      const userAchievement = await updateAchievementProgress(
-        userId,
-        achievement.id,
-        newProgress,
-      );
+      const userAchievement = await updateAchievementProgress(userId, achievement.id, newProgress);
 
       achievement.userProgress = userAchievement;
       updatedAchievements.push(achievement);

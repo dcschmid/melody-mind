@@ -6,16 +6,16 @@
  */
 
 // Import all language locale files
+import da from "./locales/da"; // Danish
 import de from "./locales/de"; // German
 import en from "./locales/en"; // English
 import es from "./locales/es"; // Spanish
+import fi from "./locales/fi"; // Finnish
 import fr from "./locales/fr"; // French
 import it from "./locales/it"; // Italian
-import pt from "./locales/pt"; // Portuguese
-import da from "./locales/da"; // Danish
 import nl from "./locales/nl"; // Dutch
+import pt from "./locales/pt"; // Portuguese
 import sv from "./locales/sv"; // Swedish
-import fi from "./locales/fi"; // Finnish
 
 /**
  * @constant languages

@@ -3,7 +3,8 @@
 ![WCAG AAA Compatibility](https://img.shields.io/badge/WCAG-AAA-41A029)
 ![MelodyMind Accessibility](https://img.shields.io/badge/Accessibility-Enhanced-7D4CDB)
 
-This document describes the implementation of WCAG AAA standards for maximum accessibility in the MelodyMind project.
+This document describes the implementation of WCAG AAA standards for maximum accessibility in the
+MelodyMind project.
 
 ---
 
@@ -20,7 +21,10 @@ This document describes the implementation of WCAG AAA standards for maximum acc
 
 ## Introduction
 
-MelodyMind aims for complete conformance with WCAG AAA standards - the highest level of Web Content Accessibility Guidelines. This goes significantly beyond the usual WCAG AA standards and ensures that the application is optimally accessible to all users, regardless of their abilities or limitations.
+MelodyMind aims for complete conformance with WCAG AAA standards - the highest level of Web Content
+Accessibility Guidelines. This goes significantly beyond the usual WCAG AA standards and ensures
+that the application is optimally accessible to all users, regardless of their abilities or
+limitations.
 
 ## Executive Summary
 
@@ -83,13 +87,13 @@ This rule checks Tailwind CSS classes for potentially insufficient contrast:
 **✅ Correct Implementation:**
 
 ```html
-<p class="text-gray-900 bg-white">High contrast text</p>
+<p class="bg-white text-gray-900">High contrast text</p>
 ```
 
 **❌ Incorrect Implementation:**
 
 ```html
-<p class="text-gray-400 bg-white">Low contrast</p>
+<p class="bg-white text-gray-400">Low contrast</p>
 ```
 
 #### 1.2.3 Enhanced ARIA Attributes
@@ -198,11 +202,13 @@ This rule checks for a logical and gap-free heading hierarchy:
 | Accent Colors    | `#c084fc`, `#d8b4fe` | Links and highlights    |
 | Focus Indicators | `#f0abfc`            | Better visibility       |
 
-These changes were implemented in the new CSS file `src/styles/wcag-aaa.css` and override the existing styles.
+These changes were implemented in the new CSS file `src/styles/wcag-aaa.css` and override the
+existing styles.
 
 #### 2.1.2 Typography and Readability
 
-The base font size has been increased to 18px and line heights have been optimized for better readability:
+The base font size has been increased to 18px and line heights have been optimized for better
+readability:
 
 ```css
 :root {

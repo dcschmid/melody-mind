@@ -58,16 +58,14 @@ export default {
   "auth.password_reset.email.placeholder": "Din registrerade e-postadress",
   "auth.password_reset.back_to_login": "Tillbaka till Logga in",
   "auth.password_reset.login": "Logga in",
-  "auth.password_reset.success":
-    "En återställningslänk har skickats till din e-post",
+  "auth.password_reset.success": "En återställningslänk har skickats till din e-post",
   "auth.password_reset.error": "Fel vid sändning av återställningslänk",
   "auth.password_reset.new_password": "Nytt lösenord",
   "auth.password_reset.confirm_password": "Bekräfta nytt lösenord",
   "auth.password_reset.change_submit": "Ändra lösenord",
 
   "auth.email_verification.title": "E-postverifiering",
-  "auth.email_verification.message":
-    "Vi har skickat en verifieringslänk till din e-postadress",
+  "auth.email_verification.message": "Vi har skickat en verifieringslänk till din e-postadress",
   "auth.email_verification.check_inbox": "Kontrollera din inkorg",
   "auth.email_verification.resend": "Skicka verifieringslänk igen",
   "auth.email_verification.success": "E-post verifierad",
@@ -77,8 +75,7 @@ export default {
   "auth.password.requirements": "Lösenordskrav:",
   "auth.password.min_length": "Lösenordet måste vara minst 8 tecken långt",
   "auth.password.uppercase": "Lösenordet måste innehålla minst en stor bokstav",
-  "auth.password.lowercase":
-    "Lösenordet måste innehålla minst en liten bokstav",
+  "auth.password.lowercase": "Lösenordet måste innehålla minst en liten bokstav",
   "auth.password.number": "Lösenordet måste innehålla minst en siffta",
   "auth.password.special": "Lösenordet måste innehålla minst ett specialtecken",
   "auth.password.no_common": "Lösenordet får inte vara ett vanligt lösenord",
@@ -122,8 +119,7 @@ export default {
   "auth.service.permission_denied": "Åtkomst nekad för denna åtgärd",
   "auth.service.invalid_credentials":
     "Ogiltiga inloggningsuppgifter. Kontrollera din e-postadress och ditt lösenord.",
-  "auth.service.too_many_attempts":
-    "För många inloggningsförsök. Vänta en stund och försök igen.",
+  "auth.service.too_many_attempts": "För många inloggningsförsök. Vänta en stund och försök igen.",
 
   "nav.home": "Hemsida",
   "nav.rules": "Spelregler",
@@ -175,8 +171,7 @@ export default {
   "game.feedback.media.section": "Mediaavsnitt",
   "game.feedback.audio.preview": "Musikförhandsvisning",
   "game.feedback.subtitles": "Undertexter",
-  "game.feedback.audio.unsupported":
-    "Din webbläsare stöder inte ljuduppspelning.",
+  "game.feedback.audio.unsupported": "Din webbläsare stöder inte ljuduppspelning.",
   "game.feedback.streaming.links": "Musikströmningslänkar",
   "game.feedback.listen.spotify": "Lyssna på Spotify",
   "game.feedback.listen.deezer": "Lyssna på Deezer",
@@ -254,8 +249,7 @@ export default {
   "nav.title": "Navigering",
   "nav.menu.text": "Meny",
   "game.categories.empty.headline": "Inga genrer hittades",
-  "game.categories.empty.text":
-    "Tyvärr hittades inga kategorier. Försök igen senare.",
+  "game.categories.empty.text": "Tyvärr hittades inga kategorier. Försök igen senare.",
   "game.categories.no.playable.headline": "Inga spelbara genrer",
   "game.categories.no.playable.text":
     "Det finns för närvarande inga spelbara kategorier. Kom tillbaka senare.",
@@ -265,8 +259,7 @@ export default {
   "knowledge.back.to.list": "Tillbaka till översikt",
   "knowledge.interact.heading": "Lyssna & Spela",
   "knowledge.play.heading": "Spela denna genre",
-  "knowledge.play.description":
-    "Testa dina kunskaper om denna musikgenre i vårt interaktiva quiz!",
+  "knowledge.play.description": "Testa dina kunskaper om denna musikgenre i vårt interaktiva quiz!",
   "knowledge.play.category": "Starta Musikquiz",
   "category.play": "Spela",
   "play.cover.puzzle": "Spela Omslagspussel",
@@ -281,8 +274,7 @@ export default {
   "podcast.search.status.all": "Visar alla poddar",
   "podcast.search.status.one": "1 podd hittad",
   "podcast.search.status.multiple": "{count} poddar hittade",
-  "podcast.no.results":
-    "Inga matchande poddar hittades. Prova en annan sökterm.",
+  "podcast.no.results": "Inga matchande poddar hittades. Prova en annan sökterm.",
   "podcast.duration.error": "Varaktighet inte tillgänglig",
   "podcast.play": "Spela",
   "podcast.intro.title": "Introduktion till Astropod",
@@ -290,10 +282,8 @@ export default {
     "Astropod är en gratis och öppen källkodslösning för serverlösa poddar.",
   "podcast.deploy.title": "Distribuera Serverlös Podd på 2 Minuter",
   "podcast.deploy.description": "Lär dig hur du snabbt distribuerar din podd.",
-  "podcast.auth.title":
-    "Användarautentisering och Åtkomst till Instrumentpanelen",
-  "podcast.auth.description":
-    "Aktivera autentisering och få åtkomst till instrumentpanelen.",
+  "podcast.auth.title": "Användarautentisering och Åtkomst till Instrumentpanelen",
+  "podcast.auth.description": "Aktivera autentisering och få åtkomst till instrumentpanelen.",
   "podcast.config.title": "Konfigurera Astropod Podd",
   "podcast.config.description": "Lär dig hur du konfigurerar din podd.",
   "podcast.publish.title": "Publicera Ditt Första Avsnitt",
@@ -301,18 +291,15 @@ export default {
   "podcast.conclusion.title": "Slutsats",
   "podcast.conclusion.description": "Sammanfattning och nästa steg.",
   "podcast.listen.on": "Lyssna på",
-  "podcast.language.availability":
-    "Våra poddar är exklusivt tillgängliga på tyska och engelska.",
+  "podcast.language.availability": "Våra poddar är exklusivt tillgängliga på tyska och engelska.",
   "podcast.listen.heading": "Lyssna på Våra Poddar",
   "login.welcome": "Välkommen till Melody Mind!",
   "login.description":
     "Ge dig ut på en musikalisk upptäcktsresa genom tiderna! Testa dina kunskaper i spännande quiz, utforska fascinerande musikgenrer och dyk in i våra medryckande poddar. Visa dina färdigheter, samla poäng och bli en sann musiklegend!",
   "index.continue": "Nu kör vi!",
   "index.start.game.label": "Starta din musikaliska resa",
-  "index.welcome.footnote":
-    "Förberett av musikälskare för musikälskare. Ha så kul!",
-  "accessibility.wcag":
-    "Denna applikation strävar efter WCAG AAA-överensstämmelse.",
+  "index.welcome.footnote": "Förberett av musikälskare för musikälskare. Ha så kul!",
+  "accessibility.wcag": "Denna applikation strävar efter WCAG AAA-överensstämmelse.",
   "game.instructions.title": "Spelinstruktioner",
   "game.instructions.puzzle":
     "Försök gissa albumet medan omslaget gradvis avslöjas. Ju snabbare du gissar rätt, desto fler poäng får du.",
@@ -343,8 +330,7 @@ export default {
   "playlist.search.label": "Sök Spellistor",
   "playlist.search.placeholder": "Sök efter artist eller stil...",
   "playlist.filter.all": "Alla Epoker",
-  "playlist.no.results":
-    "Inga matchande spellistor hittades. Prova en annan sökterm.",
+  "playlist.no.results": "Inga matchande spellistor hittades. Prova en annan sökterm.",
   "playlist.listen.on": "Lyssna på",
   "playlist.listen.spotify": "Lyssna på Spotify",
   "playlist.listen.deezer": "Lyssna på Deezer",
@@ -353,8 +339,7 @@ export default {
   "footer.rights": "Alla rättigheter förbehållna",
   "footer.donate": "Donera",
   "game.chronology.title": "Musikkronologi",
-  "game.chronology.description":
-    "Ordna dessa album efter deras utgivningsår (äldsta först)",
+  "game.chronology.description": "Ordna dessa album efter deras utgivningsår (äldsta först)",
   "game.chronology.area.label": "Kronologispelområde",
   "game.chronology.result": "Resultat",
   "game.chronology.correct": "Korrekt",
@@ -362,8 +347,7 @@ export default {
   "game.chronology.score": "Poäng: {score} poäng",
   "game.chronology.details": "{correct} av {total} album placerade korrekt",
   "game.chronology.year": "År: {year}",
-  "game.chronology.drag.help":
-    "Använd piltangenterna ↑/↓ eller dra och släpp för att sortera",
+  "game.chronology.drag.help": "Använd piltangenterna ↑/↓ eller dra och släpp för att sortera",
   "game.submit.answer": "Kontrollera Svar",
   "game.chronology.up": "Upp",
   "game.chronology.down": "Ner",
@@ -373,20 +357,17 @@ export default {
   "common.back.to.top": "Tillbaka till toppen",
   "knowledge.articles.heading": "Kunskapsartiklar",
   "knowledge.search.heading": "Sök Artiklar",
-  "knowledge.search.description":
-    "Artiklar filtreras automatiskt när du skriver",
+  "knowledge.search.description": "Artiklar filtreras automatiskt när du skriver",
   "knowledge.search.reset": "Återställ Sökning",
   "knowledge.search.reset.text": "Återställ",
-  "knowledge.no.results.help":
-    "Prova olika söktermer eller återställ sökningen",
+  "knowledge.no.results.help": "Prova olika söktermer eller återställ sökningen",
   "knowledge.keyboard.instructions":
     "Använd piltangenterna för att navigera mellan artiklar. Tryck på Enter för att öppna en artikel.",
   "difficulty.level": "Svårighetsgrad",
 
   // Profilsida
   "profile.title": "Min Profil",
-  "profile.description":
-    "Hantera din personliga information och se din spelstatistik",
+  "profile.description": "Hantera din personliga information och se din spelstatistik",
   "profile.loading": "Laddar profildata...",
   "profile.error": "Fel vid laddning av profildata",
   "profile.auth.required": "Du måste vara inloggad för att se din profil",
@@ -411,8 +392,7 @@ export default {
 
   // Topplistesida
   "highscores.title": "Topplistor",
-  "highscores.description":
-    "Se de bästa poängen i olika spellägen och kategorier",
+  "highscores.description": "Se de bästa poängen i olika spellägen och kategorier",
   "highscores.loading": "Laddar topplistor...",
   "highscores.error": "Fel vid laddning av topplistor",
   "highscores.empty": "Inga poster hittades i topplistorna",
@@ -432,8 +412,7 @@ export default {
 
   // Prestationssystem
   "achievements.title": "Prestationer",
-  "achievements.description":
-    "Upptäck och lås upp prestationer för att följa dina framsteg",
+  "achievements.description": "Upptäck och lås upp prestationer för att följa dina framsteg",
   "achievements.loading": "Laddar prestationer...",
   "achievements.error": "Fel vid laddning av prestationer",
   "achievements.empty": "Inga prestationer hittades",

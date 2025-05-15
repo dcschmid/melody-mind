@@ -53,6 +53,6 @@ const focusableAttrs = focusable
   : { class: headlineClasses };
 ---
 
-<Tag id={id} aria-label={ariaLabel} {...focusableAttrs}>
+<Tag {id} aria-label={ariaLabel} {...focusableAttrs}>
   {title || <slot />}
 </Tag>

@@ -19,9 +19,10 @@
  * - 500: Server error during update
  */
 import type { APIRoute } from "astro";
+
+import { requireAuth } from "../../../../middleware/auth.ts";
 import { updateAchievementProgress } from "../../../../services/achievementService.ts";
 import { useTranslations } from "../../../../utils/i18n.ts";
-import { requireAuth } from "../../../../middleware/auth.ts";
 
 export const POST: APIRoute = async ({ request, params }) => {
   // Extract language from URL parameters for localized messages
@@ -48,7 +49,7 @@ export const POST: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
@@ -67,7 +68,7 @@ export const POST: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
@@ -85,16 +86,12 @@ export const POST: APIRoute = async ({ request, params }) => {
           headers: {
             "Content-Type": "application/json",
           },
-        },
+        }
       );
     }
 
     // Update progress
-    const userAchievement = await updateAchievementProgress(
-      user.id,
-      achievementId,
-      progress,
-    );
+    const userAchievement = await updateAchievementProgress(user.id, achievementId, progress);
 
     // Return successful response
     return new Response(
@@ -107,7 +104,7 @@ export const POST: APIRoute = async ({ request, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   } catch (error) {
     // Log error for debugging and return 500 response
@@ -123,7 +120,7 @@ export const POST: APIRoute = async ({ request, params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   }
 };

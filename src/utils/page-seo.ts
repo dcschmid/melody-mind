@@ -31,7 +31,7 @@ export interface SEOMetadata {
 export function getHomePageSEO(
   title: string,
   description: string,
-  fallbackKeywords: string,
+  fallbackKeywords: string
 ): SEOMetadata {
   // Combine content for SEO analysis
   const pageContent = `${title} ${description} 
@@ -61,7 +61,7 @@ export function getHomePageSEO(
 export function getCategorySEO(
   categoryName: string,
   description: string,
-  fallbackKeywords: string,
+  fallbackKeywords: string
 ): SEOMetadata {
   // Combine content for SEO analysis
   const pageContent = `${categoryName} Music Quiz | Melody Mind
@@ -89,7 +89,7 @@ export function getCategorySEO(
 export function getArticleSEO(
   articleTitle: string,
   articleContent: string,
-  fallbackKeywords: string,
+  fallbackKeywords: string
 ): SEOMetadata {
   return {
     title: articleTitle,

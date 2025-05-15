@@ -21,7 +21,7 @@ const t = useTranslations(lang);
 
 <div
   id="overlay"
-  class="overlay hidden fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/95 backdrop-blur-md"
+  class="overlay fixed inset-0 z-50 flex hidden items-center justify-center bg-black/95 p-6 backdrop-blur-md"
   role="dialog"
   aria-labelledby="overlay-title"
   aria-describedby="feedback"
@@ -32,14 +32,14 @@ const t = useTranslations(lang);
   <div id="overlay-backdrop" class="absolute inset-0" aria-hidden="true"></div>
 
   <div
-    class="overlayContent w-full max-w-[768px] max-h-[90vh] p-6 md:p-8 bg-zinc-800 border border-zinc-700 rounded-xl shadow-xl overflow-y-auto overscroll-contain scrollbar-gutter-stable"
+    class="overlayContent scrollbar-gutter-stable max-h-[90vh] w-full max-w-[768px] overflow-y-auto overscroll-contain rounded-xl border border-zinc-700 bg-zinc-800 p-6 shadow-xl md:p-8"
     role="document"
     tabindex="-1"
   >
-    <div class="flex justify-between items-center mb-6">
+    <div class="mb-6 flex items-center justify-between">
       <h2
         id="overlay-title"
-        class="title text-2xl md:text-3xl font-bold text-zinc-50 tracking-tight"
+        class="title text-2xl font-bold tracking-tight text-zinc-50 md:text-3xl"
       >
         {t("game.feedback.resolution")}
       </h2>
@@ -47,7 +47,7 @@ const t = useTranslations(lang);
       <!-- Close button for enhanced accessibility -->
       <button
         id="close-overlay-button"
-        class="close-button flex items-center justify-center w-10 h-10 min-w-[44px] min-h-[44px] rounded-full bg-zinc-700 text-zinc-200 hover:bg-zinc-600 focus:bg-zinc-600 transition-colors"
+        class="close-button flex h-10 min-h-[44px] w-10 min-w-[44px] items-center justify-center rounded-full bg-zinc-700 text-zinc-200 transition-colors hover:bg-zinc-600 focus:bg-zinc-600"
         aria-label={t("general.close") || "Close"}
       >
         <Icon name="close" width={24} height={24} aria-hidden="true" />
@@ -55,29 +55,24 @@ const t = useTranslations(lang);
     </div>
 
     <!-- Status announcer for screen readers -->
-    <div
-      id="feedback-status-announcer"
-      aria-live="assertive"
-      aria-atomic="true"
-      class="sr-only"
-    >
+    <div id="feedback-status-announcer" aria-live="assertive" aria-atomic="true" class="sr-only">
     </div>
 
     <p
       id="feedback"
-      class="feedback my-6 p-5 rounded-lg text-xl font-semibold text-center leading-relaxed"
+      class="feedback my-6 rounded-lg p-5 text-center text-xl leading-relaxed font-semibold"
       role="status"
     >
     </p>
 
     <div
-      class="mediaSection grid md:grid-cols-2 gap-6 mb-8 items-start"
+      class="mediaSection mb-8 grid items-start gap-6 md:grid-cols-2"
       aria-label={t("game.feedback.media.section")}
     >
       <div class="imageContainer flex justify-center">
         <img
           id="overlay-cover"
-          class="albumCover aspect-square w-full max-w-[300px] h-auto rounded-lg object-cover shadow-lg transform-gpu will-change-transform transition-transform duration-300"
+          class="albumCover aspect-square h-auto w-full max-w-[300px] transform-gpu rounded-lg object-cover shadow-lg transition-transform duration-300 will-change-transform"
           src=""
           alt=""
           loading="eager"
@@ -85,117 +80,80 @@ const t = useTranslations(lang);
         />
       </div>
 
-      <div
-        class="infoSection text-left space-y-3 flex flex-col justify-between"
-        role="contentinfo"
-      >
+      <div class="infoSection flex flex-col justify-between space-y-3 text-left" role="contentinfo">
         <div>
-          <p
-            id="overlay-artist"
-            class="artist text-2xl font-bold text-sky-400 mb-2"
-          >
-          </p>
-          <p id="overlay-album" class="album text-xl text-zinc-50 mb-1"></p>
+          <p id="overlay-artist" class="artist mb-2 text-2xl font-bold text-sky-400"></p>
+          <p id="overlay-album" class="album mb-1 text-xl text-zinc-50"></p>
           <p id="overlay-year" class="year text-lg text-zinc-300"></p>
-          <p
-            id="overlay-funfact"
-            class="funFact text-lg text-zinc-300 mt-4 leading-relaxed"
-          >
-          </p>
+          <p id="overlay-funfact" class="funFact mt-4 text-lg leading-relaxed text-zinc-300"></p>
         </div>
 
         <div class="audio-container">
-          <label
-            id="audio-label"
-            for="audio-preview"
-            class="text-sm text-zinc-400 block mb-1"
-          >
+          <label id="audio-label" for="audio-preview" class="mb-1 block text-sm text-zinc-400">
             {t("game.feedback.audio.preview")}
           </label>
           <audio
             id="audio-preview"
-            class="audioPlayer w-full mt-2"
+            class="audioPlayer mt-2 w-full"
             controls
             preload="metadata"
             aria-labelledby="audio-label"
           >
             <source id="audio-preview-source" src="" type="audio/mpeg" />
             <source id="audio-preview-source-ogg" src="" type="audio/ogg" />
-            <track
-              kind="captions"
-              src=""
-              label={t("game.feedback.subtitles")}
-            />
+            <track kind="captions" src="" label={t("game.feedback.subtitles")} />
             <p>{t("game.feedback.audio.unsupported")}</p>
           </audio>
         </div>
       </div>
     </div>
 
-    <h3 class="text-xl font-semibold text-zinc-50 mb-4 text-center">
+    <h3 class="mb-4 text-center text-xl font-semibold text-zinc-50">
       {t("game.feedback.streaming.links")}
     </h3>
 
     <div
-      class="musicLinks flex flex-wrap justify-center gap-4 my-6"
+      class="musicLinks my-6 flex flex-wrap justify-center gap-4"
       role="group"
       aria-label={t("game.feedback.streaming.links")}
     >
       <a
         id="spotify-link"
-        class="musicButton inline-flex items-center justify-center p-5 min-w-[160px] min-h-[44px] bg-sky-600 hover:bg-sky-500 focus:bg-sky-500 text-white font-semibold rounded-lg transition-colors"
+        class="musicButton inline-flex min-h-[44px] min-w-[160px] items-center justify-center rounded-lg bg-sky-600 p-5 font-semibold text-white transition-colors hover:bg-sky-500 focus:bg-sky-500"
         href="#"
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t("game.feedback.listen.spotify")}
       >
-        <Icon
-          name="spotify"
-          class="mr-4"
-          width={24}
-          height={24}
-          aria-hidden="true"
-        />
+        <Icon name="spotify" class="mr-4" width={24} height={24} aria-hidden="true" />
         <span>Spotify</span>
       </a>
       <a
         id="deezer-link"
-        class="musicButton inline-flex items-center justify-center p-5 min-w-[160px] min-h-[44px] bg-sky-600 hover:bg-sky-500 focus:bg-sky-500 text-white font-semibold rounded-lg transition-colors"
+        class="musicButton inline-flex min-h-[44px] min-w-[160px] items-center justify-center rounded-lg bg-sky-600 p-5 font-semibold text-white transition-colors hover:bg-sky-500 focus:bg-sky-500"
         href="#"
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t("game.feedback.listen.deezer")}
       >
-        <Icon
-          name="deezer"
-          class="mr-4"
-          width={24}
-          height={24}
-          aria-hidden="true"
-        />
+        <Icon name="deezer" class="mr-4" width={24} height={24} aria-hidden="true" />
         <span>Deezer</span>
       </a>
       <a
         id="apple-link"
-        class="musicButton inline-flex items-center justify-center p-5 min-w-[160px] min-h-[44px] bg-sky-600 hover:bg-sky-500 focus:bg-sky-500 text-white font-semibold rounded-lg transition-colors"
+        class="musicButton inline-flex min-h-[44px] min-w-[160px] items-center justify-center rounded-lg bg-sky-600 p-5 font-semibold text-white transition-colors hover:bg-sky-500 focus:bg-sky-500"
         href="#"
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t("game.feedback.listen.apple")}
       >
-        <Icon
-          name="apple-music"
-          class="mr-4"
-          width={24}
-          height={24}
-          aria-hidden="true"
-        />
+        <Icon name="apple-music" class="mr-4" width={24} height={24} aria-hidden="true" />
         <span>Apple Music</span>
       </a>
     </div>
     <button
       id="next-round-button"
-      class="nextButton block m-auto min-w-[200px] min-h-[48px] py-3 px-6 bg-sky-600 hover:bg-sky-500 focus:bg-sky-500 text-white font-semibold rounded-lg transition-colors"
+      class="nextButton m-auto block min-h-[48px] min-w-[200px] rounded-lg bg-sky-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-sky-500 focus:bg-sky-500"
       aria-label={t("game.feedback.next.round")}
     >
       <span class="flex items-center justify-center gap-2">
@@ -217,20 +175,12 @@ const t = useTranslations(lang);
   /* Feedback styles with improved contrast for accessibility */
   .feedback.correct {
     color: #fff;
-    background-color: rgb(
-      4,
-      120,
-      87
-    ); /* emerald-700 for better contrast (7:1 ratio) */
+    background-color: rgb(4, 120, 87); /* emerald-700 for better contrast (7:1 ratio) */
   }
 
   .feedback.incorrect {
     color: #fff;
-    background-color: rgb(
-      185,
-      28,
-      28
-    ); /* red-700 for better contrast (7:1 ratio) */
+    background-color: rgb(185, 28, 28); /* red-700 for better contrast (7:1 ratio) */
   }
 
   /* Enhanced focus styles for keyboard users - WCAG AAA compliant */
@@ -378,12 +328,7 @@ const t = useTranslations(lang);
   }
 
   .overlayContent::-webkit-scrollbar-thumb {
-    background: rgba(
-      161,
-      161,
-      170,
-      0.8
-    ); /* zinc-400 with better opacity for contrast */
+    background: rgba(161, 161, 170, 0.8); /* zinc-400 with better opacity for contrast */
     border-radius: 10px;
   }
 
@@ -416,9 +361,7 @@ const t = useTranslations(lang);
    */
   function initializeFeedbackOverlay(): void {
     const overlay = document.getElementById("overlay") as HTMLElement;
-    const overlayContent = overlay?.querySelector(
-      ".overlayContent",
-    ) as HTMLElement;
+    const overlayContent = overlay?.querySelector(".overlayContent") as HTMLElement;
     const overlayBackdrop = document.getElementById("overlay-backdrop");
     const closeButton = document.getElementById("close-overlay-button");
     const nextButton = document.getElementById("next-round-button");
@@ -432,9 +375,15 @@ const t = useTranslations(lang);
     setupOverlayVisibilityHandling(overlay, overlayContent);
 
     // Set up event listeners for various close actions
-    if (closeButton) closeButton.addEventListener("click", hideOverlay);
-    if (overlayBackdrop) overlayBackdrop.addEventListener("click", hideOverlay);
-    if (nextButton) nextButton.addEventListener("click", hideOverlay);
+    if (closeButton) {
+      closeButton.addEventListener("click", hideOverlay);
+    }
+    if (overlayBackdrop) {
+      overlayBackdrop.addEventListener("click", hideOverlay);
+    }
+    if (nextButton) {
+      nextButton.addEventListener("click", hideOverlay);
+    }
 
     // Setup keyboard navigation and focus trap
     setupKeyboardNavigation(overlay);
@@ -455,17 +404,11 @@ const t = useTranslations(lang);
    * @param {HTMLElement} overlay - The overlay container
    * @param {HTMLElement} overlayContent - The content container
    */
-  function setupOverlayVisibilityHandling(
-    overlay: HTMLElement,
-    overlayContent: HTMLElement,
-  ): void {
+  function setupOverlayVisibilityHandling(overlay: HTMLElement, overlayContent: HTMLElement): void {
     // Create an observer to monitor class changes on the overlay
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
-        if (
-          mutation.type === "attributes" &&
-          mutation.attributeName === "class"
-        ) {
+        if (mutation.type === "attributes" && mutation.attributeName === "class") {
           const isVisible = !overlay.classList.contains("hidden");
 
           if (isVisible) {
@@ -480,10 +423,10 @@ const t = useTranslations(lang);
 
             // Set initial focus to the close button for accessibility
             setTimeout(() => {
-              const closeButton = document.getElementById(
-                "close-overlay-button",
-              );
-              if (closeButton) closeButton.focus();
+              const closeButton = document.getElementById("close-overlay-button");
+              if (closeButton) {
+                closeButton.focus();
+              }
             }, 100);
           }
         }
@@ -513,17 +456,12 @@ const t = useTranslations(lang);
    * @param {HTMLElement} overlay - The overlay container
    * @param {HTMLElement} overlayContent - The content container
    */
-  function showOverlayWithAnimation(
-    overlay: HTMLElement,
-    overlayContent: HTMLElement,
-  ): void {
+  function showOverlayWithAnimation(overlay: HTMLElement, overlayContent: HTMLElement): void {
     // Reset scroll position
     overlayContent.scrollTop = 0;
 
     // Check if user prefers reduced motion
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (prefersReducedMotion) {
       // Skip animation for users who prefer reduced motion
@@ -549,7 +487,9 @@ const t = useTranslations(lang);
    */
   function hideOverlay(): void {
     const overlay = document.getElementById("overlay");
-    if (!overlay) return;
+    if (!overlay) {
+      return;
+    }
 
     // Hide the overlay
     overlay.classList.add("hidden");
@@ -571,11 +511,11 @@ const t = useTranslations(lang);
   function setupAccessibilityAnnouncements(): void {
     const overlay = document.getElementById("overlay");
     const feedbackElement = document.getElementById("feedback");
-    const statusAnnouncer = document.getElementById(
-      "feedback-status-announcer",
-    );
+    const statusAnnouncer = document.getElementById("feedback-status-announcer");
 
-    if (!overlay || !feedbackElement || !statusAnnouncer) return;
+    if (!overlay || !feedbackElement || !statusAnnouncer) {
+      return;
+    }
 
     // Monitor changes to the feedback content for screen reader announcements
     const observer = new MutationObserver((mutations) => {
@@ -629,7 +569,9 @@ const t = useTranslations(lang);
   function setupKeyboardNavigation(overlay: HTMLElement): void {
     document.addEventListener("keydown", (event) => {
       // Only handle keyboard events when overlay is visible
-      if (overlay.classList.contains("hidden")) return;
+      if (overlay.classList.contains("hidden")) {
+        return;
+      }
 
       switch (event.key) {
         case "Escape":
@@ -656,7 +598,9 @@ const t = useTranslations(lang);
     const focusableElements = getFocusableElements(overlay);
 
     // No focusable elements, nothing to do
-    if (focusableElements.length === 0) return;
+    if (focusableElements.length === 0) {
+      return;
+    }
 
     const firstFocusable = focusableElements[0];
     const lastFocusable = focusableElements[focusableElements.length - 1];
@@ -692,9 +636,7 @@ const t = useTranslations(lang);
     ].join(", ");
 
     // Get all potentially focusable elements
-    const elements = Array.from(
-      container.querySelectorAll<HTMLElement>(focusableSelector),
-    );
+    const elements = Array.from(container.querySelectorAll<HTMLElement>(focusableSelector));
 
     // Filter out hidden elements
     return elements.filter((el) => {
@@ -716,9 +658,7 @@ const t = useTranslations(lang);
    * @returns {MutationObserver} The observer handling album cover display
    */
   function handleAlbumCoverDisplay(overlay: HTMLElement): MutationObserver {
-    const albumCover = document.getElementById(
-      "overlay-cover",
-    ) as HTMLImageElement;
+    const albumCover = document.getElementById("overlay-cover") as HTMLImageElement;
 
     if (!albumCover) {
       console.debug("FeedbackOverlay: Album cover element not found");
@@ -804,14 +744,14 @@ const t = useTranslations(lang);
    */
   function setupCleanupHandlers(coverObserver: MutationObserver): void {
     // Get references to elements and observers that need cleanup
-    const audioPlayer = document.getElementById(
-      "audio-preview",
-    ) as HTMLAudioElement;
+    const audioPlayer = document.getElementById("audio-preview") as HTMLAudioElement;
 
     const observers: MutationObserver[] = [];
 
     // Add all observers that need to be disconnected
-    if (coverObserver) observers.push(coverObserver);
+    if (coverObserver) {
+      observers.push(coverObserver);
+    }
 
     // Create a function to perform all cleanup
     function cleanup() {
@@ -826,15 +766,9 @@ const t = useTranslations(lang);
       }
 
       // Remove event listeners
-      document
-        .getElementById("close-overlay-button")
-        ?.removeEventListener("click", hideOverlay);
-      document
-        .getElementById("overlay-backdrop")
-        ?.removeEventListener("click", hideOverlay);
-      document
-        .getElementById("next-round-button")
-        ?.removeEventListener("click", hideOverlay);
+      document.getElementById("close-overlay-button")?.removeEventListener("click", hideOverlay);
+      document.getElementById("overlay-backdrop")?.removeEventListener("click", hideOverlay);
+      document.getElementById("next-round-button")?.removeEventListener("click", hideOverlay);
     }
 
     // Handle cleanup before page navigation

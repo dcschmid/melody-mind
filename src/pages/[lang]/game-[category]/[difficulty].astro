@@ -35,9 +35,7 @@ try {
 const user = { id: authResult.user?.id || "guest" };
 
 // Find current category data for display and metadata
-const currentCategoryData = categories.default.find(
-  (cat: any) => cat.slug === category,
-);
+const currentCategoryData = categories.default.find((cat: any) => cat.slug === category);
 
 const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 
@@ -45,11 +43,7 @@ const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${currentCategoryData?.headline || ""} ${t("game.meta.description.suffix") || "im Schwierigkeitsgrad"} ${t(`difficulty.${String(difficulty)}`) || String(difficulty)}`;
 ---
 
-<Layout
-  title={`${currentCategoryData?.headline}`}
-  showHeader={false}
-  showCoins={false}
->
+<Layout title={`${currentCategoryData?.headline}`} showHeader={false} showCoins={false}>
   <FeedbackOverlay />
 
   <EndOverlay
@@ -64,31 +58,20 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
     <GameHeadline headline={currentCategoryData?.headline} />
 
     <!-- Game info badges -->
-    <div
-      class="flex flex-wrap justify-center items-center gap-3 mt-4"
-      aria-live="polite"
-    >
+    <div class="mt-4 flex flex-wrap items-center justify-center gap-3" aria-live="polite">
       <div
-        class="inline-flex items-center px-3 py-1 rounded-xl bg-gradient-to-r from-zinc-800 to-zinc-900 shadow-sm border border-zinc-700"
+        class="inline-flex items-center rounded-xl border border-zinc-700 bg-gradient-to-r from-zinc-800 to-zinc-900 px-3 py-1 shadow-sm"
       >
-        <Icon
-          name="difficulty"
-          class="h-4 w-4 mr-2 text-yellow-400"
-          aria-hidden="true"
-        />
+        <Icon name="difficulty" class="mr-2 h-4 w-4 text-yellow-400" aria-hidden="true" />
         <span class="text-base font-medium text-zinc-100">
           {t(`difficulty.${String(difficulty)}`)}
         </span>
       </div>
 
       <div
-        class="inline-flex items-center px-3 py-1 rounded-xl bg-gradient-to-r from-zinc-800 to-zinc-900 shadow-sm border border-zinc-700"
+        class="inline-flex items-center rounded-xl border border-zinc-700 bg-gradient-to-r from-zinc-800 to-zinc-900 px-3 py-1 shadow-sm"
       >
-        <Icon
-          name="coins"
-          class="h-4 w-4 mr-2 text-amber-400"
-          aria-hidden="true"
-        />
+        <Icon name="coins" class="mr-2 h-4 w-4 text-amber-400" aria-hidden="true" />
         <span class="text-base font-medium text-zinc-100">
           <span id="coins-display" class="coinsCount">0</span>
         </span>
@@ -103,7 +86,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
   <!-- Main game container with improved styling and accessibility -->
   <div
     id="question-container"
-    class="w-full max-w-3xl mx-auto p-6 md:p-8 rounded-xl bg-gradient-to-b from-zinc-800 to-zinc-900 shadow-xl border border-zinc-700 text-center transition-all duration-500 opacity-100 data-[hidden=true]:opacity-0"
+    class="mx-auto w-full max-w-3xl rounded-xl border border-zinc-700 bg-gradient-to-b from-zinc-800 to-zinc-900 p-6 text-center opacity-100 shadow-xl transition-all duration-500 data-[hidden=true]:opacity-0 md:p-8"
     role="main"
     aria-label={t("game.area.label")}
     data-categoryName={currentCategoryData?.headline}
@@ -113,7 +96,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
   >
     <div
       id="question"
-      class="mb-8 text-xl md:text-2xl font-bold text-white leading-relaxed"
+      class="mb-8 text-xl leading-relaxed font-bold text-white md:text-2xl"
       role="heading"
       aria-level="2"
     >
@@ -136,10 +119,8 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
 
   <!-- WCAG information -->
   <div class="mt-16 text-center" aria-live="polite">
-    <p class="text-sm text-zinc-400 flex items-center justify-center">
-      <span class="inline-block mr-2" role="img" aria-label="Barrierefreiheit"
-        >♿</span
-      >
+    <p class="flex items-center justify-center text-sm text-zinc-400">
+      <span class="mr-2 inline-block" role="img" aria-label="Barrierefreiheit">♿</span>
       <span>{t("accessibility.wcag")}</span>
     </p>
   </div>
@@ -162,24 +143,23 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
   import { stopAudio } from "@utils/audio/audioControls";
   import { ErrorHandler } from "@utils/error/errorHandler";
   import { handleEndGame, restartGame } from "@utils/game/endGameUtils";
-  import { initAchievementEventSystem } from "../../../utils/achievements/achievementEvents.js";
   import { getRandomQuestion } from "@utils/game/getRandomQuestion";
-  import { initializeMediaElements } from "@utils/game/mediaUtils";
-  import { QueueManager } from "@utils/queue/queueManager";
-  import { loadQuestion } from "@utils/game/loadQuestionUtils";
+  import type { Album } from "@utils/game/getRandomQuestion";
   import { handleAnswer } from "@utils/game/handleAnswerUtils";
   import { JokerManager } from "@utils/game/jokerManager";
   import { Difficulty } from "@utils/game/jokerUtils";
-  import type { Album } from "@utils/game/getRandomQuestion";
+  import { loadQuestion } from "@utils/game/loadQuestionUtils";
+  import { initializeMediaElements } from "@utils/game/mediaUtils";
   import { getLangFromUrl, useTranslations } from "@utils/i18n";
+  import { QueueManager } from "@utils/queue/queueManager";
+
+  import { initAchievementEventSystem } from "../../../utils/achievements/achievementEvents.js";
 
   /**
    * Retrieves current language based on URL and initializes translations
    * @constant {string} lang - Two-letter language code extracted from URL
    */
-  const lang = getLangFromUrl(
-    new URL(window.location.pathname, window.location.origin),
-  );
+  const lang = getLangFromUrl(new URL(window.location.pathname, window.location.origin));
   const t = useTranslations(lang);
 
   /**
@@ -200,9 +180,15 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
    * @returns {Difficulty} A validated difficulty level (defaulting to EASY if invalid)
    */
   const validateDifficulty = (diff: string | null): Difficulty => {
-    if (diff === "easy") return Difficulty.EASY;
-    if (diff === "medium") return Difficulty.MEDIUM;
-    if (diff === "hard") return Difficulty.HARD;
+    if (diff === "easy") {
+      return Difficulty.EASY;
+    }
+    if (diff === "medium") {
+      return Difficulty.MEDIUM;
+    }
+    if (diff === "hard") {
+      return Difficulty.HARD;
+    }
     return Difficulty.EASY;
   };
 
@@ -241,21 +227,13 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
       feedback: document.getElementById("feedback") as HTMLParagraphElement,
       question: document.getElementById("question") as HTMLParagraphElement,
       options: document.getElementById("options") as HTMLDivElement,
-      container: document.getElementById(
-        "question-container",
-      ) as HTMLDivElement,
-      overlayCover: document.getElementById(
-        "overlay-cover",
-      ) as HTMLImageElement,
+      container: document.getElementById("question-container") as HTMLDivElement,
+      overlayCover: document.getElementById("overlay-cover") as HTMLImageElement,
       overlay: document.getElementById("overlay") as HTMLDivElement,
       jokerButton: document.getElementById("joker-button") as HTMLButtonElement,
       jokerCounter: document.getElementById("joker-count") as HTMLElement,
-      nextRoundButton: document.getElementById(
-        "next-round-button",
-      ) as HTMLButtonElement,
-      restartButton: document.getElementById(
-        "restart-button",
-      ) as HTMLButtonElement,
+      nextRoundButton: document.getElementById("next-round-button") as HTMLButtonElement,
+      restartButton: document.getElementById("restart-button") as HTMLButtonElement,
       loadingSpinner: document.getElementById("loading-spinner") as HTMLElement,
     };
 
@@ -317,8 +295,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
     let correctAnswers = 0;
     let roundIndex = 0;
     const totalRounds =
-      ROUNDS_PER_DIFFICULTY[validateDifficulty(difficulty)] ??
-      ROUNDS_PER_DIFFICULTY.easy;
+      ROUNDS_PER_DIFFICULTY[validateDifficulty(difficulty)] ?? ROUNDS_PER_DIFFICULTY.easy;
 
     // Update UI with initial round
     if (elements.round) {
@@ -337,9 +314,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
 
       try {
         // Try to load albums for the current language first
-        const response = await fetch(
-          `/json/genres/${String(lang)}/${String(category)}.json`,
-        );
+        const response = await fetch(`/json/genres/${String(lang)}/${String(category)}.json`);
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -348,18 +323,12 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
         albumsData = await response.json();
       } catch (langError) {
         // Fallback to German if the specific language file doesn't exist
-        console.log(
-          `No albums found for ${lang}/${category}, falling back to German`,
-        );
+        console.log(`No albums found for ${lang}/${category}, falling back to German`);
 
-        const fallbackResponse = await fetch(
-          `/json/genres/de/${category}.json`,
-        );
+        const fallbackResponse = await fetch(`/json/genres/de/${category}.json`);
 
         if (!fallbackResponse.ok) {
-          throw new Error(
-            `HTTP error for fallback! Status: ${fallbackResponse.status}`,
-          );
+          throw new Error(`HTTP error for fallback! Status: ${fallbackResponse.status}`);
         }
 
         albumsData = await fallbackResponse.json();
@@ -372,9 +341,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
       }
     } catch (error) {
       console.error("Error loading albums:", error);
-      ErrorHandler.handleApiError(
-        error instanceof Error ? error : new Error(String(error)),
-      );
+      ErrorHandler.handleApiError(error instanceof Error ? error : new Error(String(error)));
       return;
     }
 
@@ -415,7 +382,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
       option: any,
       correctAnswer: any,
       currentQuestion: { trivia: string },
-      album: { coverSrc: string; artist: string; album: string; year: string },
+      album: { coverSrc: string; artist: string; album: string; year: string }
     ) {
       // Save answer time for achievement tracking and validate
       const answerTime = Date.now() - (window.questionStartTime || Date.now());
@@ -469,14 +436,11 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
           const newQuestion = getRandomQuestion(
             albums ?? [],
             validateDifficulty(difficulty),
-            totalRounds,
+            totalRounds
           );
 
           if (newQuestion) {
-            loadNewQuestion(
-              newQuestion.randomQuestion,
-              newQuestion.randomAlbum,
-            );
+            loadNewQuestion(newQuestion.randomQuestion, newQuestion.randomAlbum);
 
             if (elements.feedback) {
               elements.feedback.textContent = "";
@@ -534,13 +498,9 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
         // Extended properties for achievement tracking
         genreId: category || "", // Category/genre ID for genre_explorer
         lastAnswerTime:
-          typeof window.lastAnswerTime === "number"
-            ? window.lastAnswerTime
-            : undefined, // Last answer time for quick_answer
+          typeof window.lastAnswerTime === "number" ? window.lastAnswerTime : undefined, // Last answer time for quick_answer
         lastAnswerCorrect:
-          typeof window.lastAnswerCorrect === "boolean"
-            ? window.lastAnswerCorrect
-            : undefined, // Whether the last answer was correct
+          typeof window.lastAnswerCorrect === "boolean" ? window.lastAnswerCorrect : undefined, // Whether the last answer was correct
         eventId: window.currentEventId || undefined, // Event ID for seasonal_event
 
         // Debug flag for achievement tests
@@ -613,17 +573,10 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
      * Load the first question to start the game
      * Initializes the game with the first random question
      */
-    const initialQuestion = getRandomQuestion(
-      albums,
-      validateDifficulty(difficulty),
-      totalRounds,
-    );
+    const initialQuestion = getRandomQuestion(albums, validateDifficulty(difficulty), totalRounds);
 
     if (initialQuestion?.randomQuestion && initialQuestion?.randomAlbum) {
-      loadNewQuestion(
-        initialQuestion.randomQuestion,
-        initialQuestion.randomAlbum,
-      );
+      loadNewQuestion(initialQuestion.randomQuestion, initialQuestion.randomAlbum);
     } else {
       console.error(t("error.no.initial.question"));
     }
@@ -661,12 +614,11 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
     // Add descriptive labels to option buttons when they receive focus
     document.addEventListener("focusin", (e) => {
       const target = e.target as HTMLElement;
-      if (!target || !(target instanceof HTMLElement)) return;
+      if (!target || !(target instanceof HTMLElement)) {
+        return;
+      }
 
-      if (
-        target.matches("#options button") &&
-        !target.getAttribute("aria-label")
-      ) {
+      if (target.matches("#options button") && !target.getAttribute("aria-label")) {
         const buttonText = target.textContent?.trim() || "";
         target.setAttribute("aria-label", `Option: ${buttonText}`);
       }
@@ -684,9 +636,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
           (target.id === "question" || target.id === "options")
         ) {
           // Update ARIA attributes when content changes
-          document
-            .getElementById("question-container")
-            ?.setAttribute("aria-busy", "false");
+          document.getElementById("question-container")?.setAttribute("aria-busy", "false");
         }
       });
     });
@@ -708,9 +658,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
   function validateElements(elements: GameElements): boolean {
     const requiredElements = ["score", "question", "options", "container"];
 
-    return requiredElements.every(
-      (key) => elements[key as keyof GameElements] !== null,
-    );
+    return requiredElements.every((key) => elements[key as keyof GameElements] !== null);
   }
 
   /**
@@ -746,7 +694,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
 
   /* Disabled joker styling */
   button[disabled] {
-    @apply opacity-50 cursor-not-allowed;
+    @apply cursor-not-allowed opacity-50;
   }
 
   /* High Contrast Mode Support */

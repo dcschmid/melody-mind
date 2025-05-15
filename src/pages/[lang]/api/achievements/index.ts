@@ -13,6 +13,7 @@
  * - 500: Server error while fetching data
  */
 import type { APIRoute } from "astro";
+
 import { getAllAchievements } from "../../../../services/achievementService.ts";
 import { useTranslations } from "../../../../utils/i18n.ts";
 
@@ -36,7 +37,7 @@ export const GET: APIRoute = async ({ params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   } catch (error) {
     // Log error for debugging and return 500 response
@@ -52,7 +53,7 @@ export const GET: APIRoute = async ({ params }) => {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
   }
 };
