@@ -462,6 +462,7 @@ export default {
   "errors.auth.unauthorized": "Você precisa estar logado para acessar este recurso",
   "errors.invalidRequest": "Solicitação inválida: {error}",
   "errors.invalidParameters": "Parâmetros inválidos fornecidos",
+  "errors.api.invalidLanguage": "Parâmetro de idioma inválido",
   "errors.achievements.check":
     "Erro ao verificar conquistas. Por favor, tente novamente mais tarde",
   "errors.achievements.log": "Erro ao verificar conquistas:",

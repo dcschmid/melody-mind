@@ -453,6 +453,7 @@ export default {
   "errors.auth.unauthorized": "You must be logged in to access this feature",
   "errors.invalidRequest": "Invalid request: {error}",
   "errors.invalidParameters": "Invalid parameters provided",
+  "errors.api.invalidLanguage": "Invalid language parameter",
   "errors.achievements.check": "Error checking achievements. Please try again later",
   "errors.achievements.log": "Error checking achievements:",
   "errors.achievements.fetch": "Error fetching achievements. Please try again later",

@@ -467,6 +467,7 @@ export default {
   "errors.auth.unauthorized": "Debes iniciar sesión para acceder a esta función",
   "errors.invalidRequest": "Solicitud inválida: {error}",
   "errors.invalidParameters": "Parámetros inválidos proporcionados",
+  "errors.api.invalidLanguage": "Parámetro de idioma inválido",
   "errors.achievements.check":
     "Error al verificar los logros. Por favor, inténtalo de nuevo más tarde",
   "errors.achievements.log": "Error al verificar los logros:",
