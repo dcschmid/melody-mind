@@ -464,4 +464,6 @@ export default {
   "errors.achievements.fetch": "Virhe noudettaessa saavutuksia. Yritä myöhemmin uudelleen",
   "errors.achievements.update": "Virhe päivitettäessä saavutuksia. Yritä myöhemmin uudelleen",
   "errors.achievements.unlock": "Virhe avattaessa saavutusta. Yritä myöhemmin uudelleen",
+  "errors.achievements.invalidId": "Virheellinen saavutustunnus: Tyhjä tai puuttuva tunnus",
+  "errors.achievements.unknownError": "Tuntematon virhe avaamisen aikana",
 };

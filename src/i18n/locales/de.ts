@@ -476,4 +476,6 @@ export default {
     "Fehler beim Aktualisieren der Achievements. Bitte versuche es später erneut",
   "errors.achievements.unlock":
     "Fehler beim Freischalten des Achievements. Bitte versuche es später erneut",
+  "errors.achievements.invalidId": "Ungültige Achievement-ID: Leere oder fehlende ID",
+  "errors.achievements.unknownError": "Unbekannter Fehler beim Freischalten",
 };

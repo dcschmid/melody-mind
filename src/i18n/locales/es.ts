@@ -477,4 +477,6 @@ export default {
     "Error al actualizar los logros. Por favor, inténtalo de nuevo más tarde",
   "errors.achievements.unlock":
     "Error al desbloquear el logro. Por favor, inténtalo de nuevo más tarde",
+  "errors.achievements.invalidId": "ID de logro no válido: ID vacío o faltante",
+  "errors.achievements.unknownError": "Error desconocido durante el desbloqueo",
 };

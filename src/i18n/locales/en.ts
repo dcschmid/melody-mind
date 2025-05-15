@@ -459,4 +459,6 @@ export default {
   "errors.achievements.fetch": "Error fetching achievements. Please try again later",
   "errors.achievements.update": "Error updating achievements. Please try again later",
   "errors.achievements.unlock": "Error unlocking achievement. Please try again later",
+  "errors.achievements.invalidId": "Invalid achievement ID: empty or missing ID",
+  "errors.achievements.unknownError": "Unknown error during unlock",
 };

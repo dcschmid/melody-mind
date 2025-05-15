@@ -471,4 +471,6 @@ export default {
     "Erro ao atualizar conquistas. Por favor, tente novamente mais tarde",
   "errors.achievements.unlock":
     "Erro ao desbloquear conquista. Por favor, tente novamente mais tarde",
+  "errors.achievements.invalidId": "ID de conquista inválido: ID vazio ou ausente",
+  "errors.achievements.unknownError": "Erro desconhecido durante o desbloqueio",
 };

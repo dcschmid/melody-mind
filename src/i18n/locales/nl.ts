@@ -465,4 +465,6 @@ export default {
   "errors.achievements.update": "Fout bij het bijwerken van prestaties. Probeer het later opnieuw",
   "errors.achievements.unlock":
     "Fout bij het ontgrendelen van prestatie. Probeer het later opnieuw",
+  "errors.achievements.invalidId": "Ongeldige prestatie-ID: Lege of ontbrekende ID",
+  "errors.achievements.unknownError": "Onbekende fout tijdens het ontgrendelen",
 };
