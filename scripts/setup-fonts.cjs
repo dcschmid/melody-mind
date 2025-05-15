@@ -14,15 +14,13 @@ const FONTS = [
   {
     name: "Inter-Bold.ttf",
     url: "https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.ttf",
-    fallbackUrl:
-      "https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap",
+    fallbackUrl: "https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap",
     isGoogleFontsCSS: true,
   },
   {
     name: "Inter-Regular.ttf",
     url: "https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.ttf",
-    fallbackUrl:
-      "https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap",
+    fallbackUrl: "https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap",
     isGoogleFontsCSS: true,
   },
 ];
@@ -43,9 +41,7 @@ async function extractFontUrlFromCSS(cssUrl) {
       .get(cssUrl, (response) => {
         if (response.statusCode !== 200) {
           reject(
-            new Error(
-              `Failed to download CSS from ${cssUrl}, status: ${response.statusCode}`,
-            ),
+            new Error(`Failed to download CSS from ${cssUrl}, status: ${response.statusCode}`)
           );
           return;
         }
@@ -88,8 +84,7 @@ async function createDefaultFont(outputPath) {
   // Create a very small placeholder TTF file
   // This is just basic file data that node-canvas can use as a fallback
   const fallbackFontData = Buffer.from([
-    0x00, 0x01, 0x00, 0x00, 0x00, 0x10, 0x00, 0x80, 0x00, 0x03, 0x00, 0x10,
-    0x00, 0x00, 0x00, 0x00,
+    0x00, 0x01, 0x00, 0x00, 0x00, 0x10, 0x00, 0x80, 0x00, 0x03, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00,
   ]);
 
   fs.writeFileSync(outputPath, fallbackFontData);
@@ -130,11 +125,7 @@ async function downloadFile(font, outputPath) {
         https
           .get(url, (response) => {
             if (response.statusCode !== 200) {
-              reject(
-                new Error(
-                  `Failed to download ${url}, status: ${response.statusCode}`,
-                ),
-              );
+              reject(new Error(`Failed to download ${url}, status: ${response.statusCode}`));
               return;
             }
 

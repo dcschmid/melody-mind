@@ -21,9 +21,7 @@ try {
 // Read all image files from category directory
 try {
   const files = fs.readdirSync(categoryDir);
-  const imageFiles = files.filter((file) =>
-    /\.(jpg|jpeg|png|gif)$/i.test(file),
-  );
+  const imageFiles = files.filter((file) => /\.(jpg|jpeg|png|gif)$/i.test(file));
 
   console.log(`Found ${imageFiles.length} image files`);
 
@@ -46,7 +44,7 @@ try {
   // This approach adds new entries without duplicating existing image references
   const existingImageUrls = playlistData.map((entry) => entry.imageUrl);
   const uniqueNewEntries = newEntries.filter(
-    (entry) => !existingImageUrls.includes(entry.imageUrl),
+    (entry) => !existingImageUrls.includes(entry.imageUrl)
   );
 
   const updatedPlaylist = [...playlistData, ...uniqueNewEntries];

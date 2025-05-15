@@ -31,10 +31,7 @@ export default [
       // TypeScript-spezifische Regeln
       "@typescript-eslint/explicit-function-return-type": "warn",
       "@typescript-eslint/no-explicit-any": "error",
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        { argsIgnorePattern: "^_" },
-      ],
+      "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
       "@typescript-eslint/naming-convention": [
         "error",
         {
@@ -55,14 +52,7 @@ export default [
       "import/order": [
         "warn",
         {
-          groups: [
-            "builtin",
-            "external",
-            "internal",
-            "parent",
-            "sibling",
-            "index",
-          ],
+          groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
           "newlines-between": "always",
           alphabetize: { order: "asc", caseInsensitive: true },
         },
@@ -110,15 +100,7 @@ export default [
       "jsx-a11y/interactive-supports-focus": [
         "error",
         {
-          tabbable: [
-            "button",
-            "link",
-            "checkbox",
-            "switch",
-            "menuitem",
-            "textbox",
-            "combobox",
-          ],
+          tabbable: ["button", "link", "checkbox", "switch", "menuitem", "textbox", "combobox"],
         },
       ],
       "jsx-a11y/label-has-associated-control": "error",
@@ -132,14 +114,7 @@ export default [
       "jsx-a11y/no-noninteractive-element-interactions": [
         "error",
         {
-          handlers: [
-            "onClick",
-            "onMouseDown",
-            "onMouseUp",
-            "onKeyPress",
-            "onKeyDown",
-            "onKeyUp",
-          ],
+          handlers: ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"],
         },
       ],
       "jsx-a11y/no-noninteractive-element-to-interactive-role": "error",
@@ -148,14 +123,7 @@ export default [
       "jsx-a11y/no-static-element-interactions": [
         "error",
         {
-          handlers: [
-            "onClick",
-            "onMouseDown",
-            "onMouseUp",
-            "onKeyPress",
-            "onKeyDown",
-            "onKeyUp",
-          ],
+          handlers: ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"],
         },
       ],
       "jsx-a11y/role-has-required-aria-props": "error",
@@ -185,14 +153,7 @@ export default [
       "import/order": [
         "warn",
         {
-          groups: [
-            "builtin",
-            "external",
-            "internal",
-            "parent",
-            "sibling",
-            "index",
-          ],
+          groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
           "newlines-between": "always",
           alphabetize: { order: "asc", caseInsensitive: true },
         },
@@ -261,10 +222,7 @@ export default [
       "prefer-template": "warn",
 
       // Formatierung und Stilregeln
-      "max-lines-per-function": [
-        "warn",
-        { max: 100, skipBlankLines: true, skipComments: true },
-      ],
+      "max-lines-per-function": ["warn", { max: 100, skipBlankLines: true, skipComments: true }],
       "max-depth": ["warn", 4],
       complexity: ["warn", 15],
     },

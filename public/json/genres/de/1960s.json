@@ -140,12 +140,7 @@
         },
         {
           "question": "Welcher bekannte Musiker spielte bei der Produktion von Bob Dylans Album 'Highway 61 Revisited' aus dem Jahr 1965 die elektrische Gitarre?",
-          "options": [
-            "Michael Bloomfield",
-            "Eric Clapton",
-            "Jimmy Page",
-            "Pete Townshend"
-          ],
+          "options": ["Michael Bloomfield", "Eric Clapton", "Jimmy Page", "Pete Townshend"],
           "correctAnswer": "Michael Bloomfield",
           "trivia": "Michael Bloomfield war ein zentraler Musiker bei den Aufnahmen zu Bob Dylans 'Highway 61 Revisited', das 1965 veröffentlicht wurde. Er spielte die elektrische Gitarre auf mehreren Titeln des Albums, darunter der ikonische Song 'Like a Rolling Stone', der oft als einer der besten Songs aller Zeiten angesehen wird. Bloomfield war bekannt für seinen virtuosen Stil und trug maßgeblich zum einzigartigen Klang des Albums bei. Zudem war 'Highway 61 Revisited' ein entscheidender Moment in Dylans Karriere, da es den Übergang von akustischen zu elektrischen Klängen markierte und die Folk-Rock-Bewegung maßgeblich beeinflusste."
         },
@@ -181,12 +176,7 @@
         },
         {
           "question": "In welcher bekannten TV-Serie wurde der Song 'Like a Rolling Stone' aus dem Album 'Highway 61 Revisited' von Bob Dylan verwendet, um eine entscheidende Szene zu untermalen?",
-          "options": [
-            "The Sopranos",
-            "Mad Men",
-            "Breaking Bad",
-            "Stranger Things"
-          ],
+          "options": ["The Sopranos", "Mad Men", "Breaking Bad", "Stranger Things"],
           "correctAnswer": "Mad Men",
           "trivia": "'Like a Rolling Stone' von Bob Dylan, der auf dem Album 'Highway 61 Revisited' von 1965 zu finden ist, wurde in der populären TV-Serie 'Mad Men' verwendet. Diese Serie, die in den 1960er Jahren spielt, nutzt Dylans ikonischen Song, um den kulturellen Wandel und die gesellschaftlichen Umbrüche der Zeit zu reflektieren. 'Highway 61 Revisited' gilt als eines der einflussreichsten Alben der Rockmusik, das Dylans Übergang von Folk zu Rock markiert. Der Song selbst wird oft als einer der besten aller Zeiten bezeichnet und ist für seine innovativen Texte und seinen kraftvollen Sound bekannt. 'Mad Men' hat durch die Verwendung solcher Musik dazu beigetragen, das nostalgische Gefühl der Epoche authentisch darzustellen."
         }
@@ -364,12 +354,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'Pet Sounds' von The Beach Boys, das 1966 veröffentlicht wurde, gilt oft als eines der bedeutendsten Werke der Popmusik?",
-          "options": [
-            "Good Vibrations",
-            "Sloop John B",
-            "Wouldn't It Be Nice",
-            "I Get Around"
-          ],
+          "options": ["Good Vibrations", "Sloop John B", "Wouldn't It Be Nice", "I Get Around"],
           "correctAnswer": "Wouldn't It Be Nice",
           "trivia": "'Wouldn't It Be Nice' ist der Eröffnungstrack des Albums 'Pet Sounds', das von Brian Wilson produziert wurde und als eines der einflussreichsten Alben der Musikgeschichte gilt. Der Song thematisiert den Wunsch nach einer idealen Beziehung und setzt sich mit der Sehnsucht nach Unbeschwertheit auseinander. 'Pet Sounds' wurde oft für seine innovative Produktion und die Verwendung komplexer Harmonien gelobt. Zudem beeinflusste es zahlreiche Musiker und Bands, darunter die Beatles, die daraufhin ihr eigenes Album 'Sgt. Pepper's Lonely Hearts Club Band' produzierten."
         },
@@ -470,12 +455,7 @@
       "easy": [
         {
           "question": "Welcher bekannte Song von The Beatles, der auf dem Album 'Revolver' aus dem Jahr 1966 zu finden ist, wurde ein großer Hit und wird oft als einer der ersten Psychedelic-Rock-Songs angesehen?",
-          "options": [
-            "Eleanor Rigby",
-            "Help!",
-            "Yesterday",
-            "Can't Buy Me Love"
-          ],
+          "options": ["Eleanor Rigby", "Help!", "Yesterday", "Can't Buy Me Love"],
           "correctAnswer": "Eleanor Rigby",
           "trivia": "Der Song 'Eleanor Rigby' wurde von Paul McCartney geschrieben und gilt als einer der herausragendsten Tracks auf dem Album 'Revolver'. Er erzählt die melancholische Geschichte einer einsamen Frau und ist bekannt für seine eindringliche Streichquartett-Arrangierung, die zu einem Markenzeichen der Beatles wurde. 'Eleanor Rigby' erreichte in vielen Ländern hohe Chartplatzierungen und wird oft als ein frühes Beispiel für den Psychedelic-Rock angesehen, der in den 1960er Jahren populär wurde. Das Album selbst gilt als wegweisend in der Musikgeschichte und zeigt die experimentelle Herangehensweise der Beatles an Songwriting und Produktion."
         },
@@ -974,12 +954,7 @@
         },
         {
           "question": "Mit welchem prominenten Künstler arbeiteten The Doors während der Aufnahmen zu ihrem Debütalbum 'The Doors' im Jahr 1967 zusammen, um ihre musikalische Vision zu schärfen?",
-          "options": [
-            "Frank Zappa",
-            "Leonard Cohen",
-            "David Bowie",
-            "Paul McCartney"
-          ],
+          "options": ["Frank Zappa", "Leonard Cohen", "David Bowie", "Paul McCartney"],
           "correctAnswer": "Frank Zappa",
           "trivia": "The Doors arbeiteten während der Produktion ihres Debütalbums 'The Doors' 1967 teilweise mit Frank Zappa zusammen, der als einflussreicher Musiker und Produzent bekannt ist. Zappa hatte zu dieser Zeit bereits einen starken Einfluss auf die Rockmusik und die experimentelle Musikszene. Seine innovative Herangehensweise an Musik und sein Verständnis für komplexe Arrangements haben sicherlich die kreativen Prozesse der Band bereichert. Darüber hinaus war das Album geprägt von der einzigartigen Mischung aus Rock, Blues und psychedelischen Elementen, die The Doors etablierten und die auch Zappas Stil beeinflussten."
         },
@@ -1290,23 +1265,13 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Tommy' von The Who wurde erstmals live während des 'Woodstock'-Festivals im Jahr 1969 aufgeführt?",
-          "options": [
-            "Pinball Wizard",
-            "See Me, Feel Me",
-            "I'm Free",
-            "The Acid Queen"
-          ],
+          "options": ["Pinball Wizard", "See Me, Feel Me", "I'm Free", "The Acid Queen"],
           "correctAnswer": "Pinball Wizard",
           "trivia": "Der Song 'Pinball Wizard' wurde von The Who erstmals live beim legendären Woodstock-Festival im August 1969 aufgeführt, nur wenige Monate nach der Veröffentlichung des Albums 'Tommy'. Dieser Song gilt als einer der bekanntesten Tracks des Albums und erzählt die Geschichte eines blinden Jungen, der ein Meister im Flipper-Spiel ist. 'Tommy' selbst war das erste Rock-Opern-Album der Band und kombinierte verschiedene musikalische Stile, was zu seinem einzigartigen Sound beitrug. Die Performance auf Woodstock trug dazu bei, den Song und das Album weltweit populär zu machen, und festigte The Whos Ruf als eine der führenden Rockbands der Zeit."
         },
         {
           "question": "Welcher Song aus dem Album 'Tommy' von The Who wurde häufig in Live-Performances als Eröffnungsnummer genutzt?",
-          "options": [
-            "Pinball Wizard",
-            "See Me, Feel Me",
-            "I'm Free",
-            "Sparks"
-          ],
+          "options": ["Pinball Wizard", "See Me, Feel Me", "I'm Free", "Sparks"],
           "correctAnswer": "Pinball Wizard",
           "trivia": "Der Song 'Pinball Wizard' ist eines der bekanntesten Lieder aus dem Konzeptalbum 'Tommy' von The Who, das 1969 veröffentlicht wurde. In zahlreichen Live-Auftritten, insbesondere bei der Tournee nach der Veröffentlichung, wurde dieser Song oft als Eröffnungsnummer gewählt, um das Publikum sofort zu fesseln. 'Pinball Wizard' erreichte 1973 in der US-Hitparade einen hohen Platz und ist bis heute ein Klassiker. Die energiegeladene Darbietung und das ikonische Gitarrenspiel von Pete Townshend machten diesen Song zu einem Markenzeichen der Band. 'Tommy' selbst gilt als eines der ersten Rockoper-Alben und hat die Musikwelt nachhaltig geprägt."
         }
@@ -1320,12 +1285,7 @@
         },
         {
           "question": "In welcher bedeutenden Filmadaption wurde das Konzeptalbum 'Tommy' von The Who aus dem Jahr 1969 als Hauptbestandteil der Handlung verwendet?",
-          "options": [
-            "The Wall",
-            "Quadrophenia",
-            "Tommy",
-            "Sgt. Pepper's Lonely Hearts Club Band"
-          ],
+          "options": ["The Wall", "Quadrophenia", "Tommy", "Sgt. Pepper's Lonely Hearts Club Band"],
           "correctAnswer": "Tommy",
           "trivia": "Die richtige Antwort ist 'Tommy', eine Verfilmung des gleichnamigen Konzeptalbums von The Who, die 1975 von Ken Russell inszeniert wurde. Der Film kombiniert Musik und visuelle Kunst und erzählt die Geschichte eines taubstummen Jungen, der durch verschiedene Erfahrungen zum Superstar wird. Die bekanntesten Songs aus dem Album, wie 'Pinball Wizard', wurden in den Film integriert und tragen entscheidend zur Erzählweise bei. 'Tommy' wurde für seine innovative Herangehensweise an das Musikfilm-Genre und die eindrucksvolle visuelle Umsetzung gefeiert und gilt bis heute als Kultklassiker."
         },
@@ -1413,12 +1373,7 @@
         },
         {
           "question": "In welcher berühmten TV-Serie wurde der Song 'Village Green' aus dem Album 'The Kinks Are the Village Green Preservation Society' von The Kinks verwendet?",
-          "options": [
-            "Die Sopranos",
-            "Gilmore Girls",
-            "The Office",
-            "Stranger Things"
-          ],
+          "options": ["Die Sopranos", "Gilmore Girls", "The Office", "Stranger Things"],
           "correctAnswer": "Gilmore Girls",
           "trivia": "Der Song 'Village Green' aus dem Album 'The Kinks Are the Village Green Preservation Society' von The Kinks fand Verwendung in der beliebten TV-Serie 'Gilmore Girls'. Diese Serie, die von 2000 bis 2007 ausgestrahlt wurde, ist bekannt für ihren großartigen Soundtrack, der oft nostalgische und kultige Lieder umfasst. Das Album selbst, das 1968 veröffentlicht wurde, gilt als eine der besten Arbeiten der Band und thematisiert das britische Leben und die Veränderungen in der Gesellschaft. 'The Kinks' waren für ihren einzigartigen Sound und ihre lyrischen Fähigkeiten bekannt, was ihnen viele Film- und TV-Integrationen einbrachte. 'Gilmore Girls' ist ein Beispiel dafür, wie die Musik von The Kinks zur Atmosphäre und den Themen der Serie beiträgt."
         }
@@ -1483,12 +1438,7 @@
         },
         {
           "question": "Mit welchem anderen Künstler arbeitete The Kinks während der Entstehung von 'The Kinks Are the Village Green Preservation Society' zusammen, um die harmonischen Gesänge auf dem Album zu bereichern?",
-          "options": [
-            "David Bowie",
-            "Ray Charles",
-            "John Lennon",
-            "The Beach Boys"
-          ],
+          "options": ["David Bowie", "Ray Charles", "John Lennon", "The Beach Boys"],
           "correctAnswer": "The Beach Boys",
           "trivia": "Die richtige Antwort ist 'The Beach Boys', da The Kinks während der Aufnahmen zu 'The Kinks Are the Village Green Preservation Society' von deren harmonischen Gesangsstilen inspiriert waren. Das Album, das 1968 veröffentlicht wurde, reflektiert die kulturellen Veränderungen der damaligen Zeit und zeigt Einflüsse der kalifornischen Rockmusik, besonders in den mehrstimmigen Gesängen. The Kinks, unter der Leitung von Ray Davies, experimentierten mit verschiedenen Klangtexturen und harmonischen Arrangements, was zu einem einzigartigen Sound führte. Die Verbindung zur Musik von The Beach Boys ist besonders bemerkenswert, da die Bands zur gleichen Zeit an ähnlichen Themen arbeiteten, was die musikalische Landschaft der 60er Jahre prägte."
         }
@@ -1508,23 +1458,13 @@
       "easy": [
         {
           "question": "Welches Musikvideo, das Aretha Franklin für das Album 'I Never Loved a Man the Way I Love You' aus dem Jahr 1967 drehte, gilt als eines ihrer bekanntesten und zeigt eindrucksvoll ihre Bühnenpräsenz?",
-          "options": [
-            "Respect",
-            "Chain of Fools",
-            "Natural Woman",
-            "I Never Loved a Man"
-          ],
+          "options": ["Respect", "Chain of Fools", "Natural Woman", "I Never Loved a Man"],
           "correctAnswer": "Respect",
           "trivia": "Das Musikvideo zu 'Respect' ist eines der bekanntesten Werke von Aretha Franklin und wurde 1967 veröffentlicht, zur gleichen Zeit wie ihr Album 'I Never Loved a Man the Way I Love You'. Der Song selbst, ursprünglich von Otis Redding geschrieben, wurde von Franklin zum Symbol der feministischen und Bürgerrechtsbewegung. Aretha Franklin's kraftvolle Darbietung und die emotionale Intensität in diesem Musikvideo haben dazu beigetragen, ihre Karriere zu festigen und ihr einen Platz als 'Queen of Soul' zu sichern. Zudem erreichte 'Respect' hohe Chartplatzierungen und gewann mehrere Auszeichnungen, darunter zwei Grammy Awards."
         },
         {
           "question": "Welche berühmte Künstlerin inspirierte Aretha Franklin bei der Entstehung ihres Albums 'I Never Loved a Man the Way I Love You' aus dem Jahr 1967?",
-          "options": [
-            "Ella Fitzgerald",
-            "Billie Holiday",
-            "Mahalia Jackson",
-            "Nina Simone"
-          ],
+          "options": ["Ella Fitzgerald", "Billie Holiday", "Mahalia Jackson", "Nina Simone"],
           "correctAnswer": "Mahalia Jackson",
           "trivia": "Aretha Franklin wurde stark von Mahalia Jackson, einer der bekanntesten Gospel-Sängerinnen, inspiriert. Jacksons kraftvolle Stimme und ihre Fähigkeit, Emotionen durch Musik zu transportieren, hatten einen tiefgreifenden Einfluss auf Franklins Gesangsstil. 'I Never Loved a Man the Way I Love You' gilt als eines der bedeutendsten Alben von Aretha Franklin und zeigte ihre Wurzeln im Gospel, die sie von Jackson übernommen hatte. Das Album enthält auch einige ihrer berühmtesten Songs, wie den Titeltrack, der ein Meilenstein in der Musikgeschichte ist. Franklin wurde für ihren einzigartigen Stil und ihre Fähigkeit, verschiedene Genres zu vereinen, gefeiert."
         },
@@ -1600,12 +1540,7 @@
         },
         {
           "question": "Welcher prominente Produzent war maßgeblich an der Entstehung des Albums 'I Never Loved a Man the Way I Love You' von Aretha Franklin beteiligt und gilt als einer der wichtigsten Köpfe hinter dem Sound der Soul-Musik in den 1960er Jahren?",
-          "options": [
-            "Berry Gordy",
-            "Jerry Wexler",
-            "Phil Spector",
-            "Don Covay"
-          ],
+          "options": ["Berry Gordy", "Jerry Wexler", "Phil Spector", "Don Covay"],
           "correctAnswer": "Jerry Wexler",
           "trivia": "Die richtige Antwort ist Jerry Wexler, der als Produzent für das Label Atlantic Records arbeitete und einen entscheidenden Einfluss auf den Sound von Aretha Franklins Album 'I Never Loved a Man the Way I Love You' hatte. Wexler war bekannt für seine Fähigkeit, die kraftvolle Stimme von Franklin mit innovativen Arrangements zu kombinieren, was zu ihrem Durchbruch im Soul-Genre führte. Das Album wurde 1967 veröffentlicht und enthält einige ihrer bekanntesten Hits wie 'Respect' und 'I Never Loved a Man (The Way I Love You)'. Wexlers Zusammenarbeit mit Franklin wird oft als ein Meilenstein in der Musikgeschichte angesehen, der die Entwicklung der Soul-Musik maßgeblich beeinflusste."
         }
@@ -1655,12 +1590,7 @@
       "medium": [
         {
           "question": "Welcher Musiker, bekannt für seine Beitrag zur Folk- und Rockmusik, hatte einen überraschenden Gastauftritt beim Album 'Mr. Tambourine Man' von The Byrds im Jahr 1965?",
-          "options": [
-            "Bob Dylan",
-            "Neil Young",
-            "Roger McGuinn",
-            "David Crosby"
-          ],
+          "options": ["Bob Dylan", "Neil Young", "Roger McGuinn", "David Crosby"],
           "correctAnswer": "Bob Dylan",
           "trivia": "Obwohl Bob Dylan nicht direkt an den Aufnahmen zu 'Mr. Tambourine Man' beteiligt war, ist seine Präsenz im Album unüberhörbar. The Byrds coverten Dylans gleichnamigen Song, der als Titelsong des Albums diente und den Sound der Band entscheidend prägte. Dieses Cover war nicht nur ein großer kommerzieller Erfolg, sondern trug auch zur Popularisierung des Folkrock-Genres bei. Die Kombination aus Dylans poetischen Texten und The Byrds' charakteristischem Klang führte zu einem ikonischen Werk der 1960er Jahre, das die Musikkultur nachhaltig beeinflusste. Zudem war es Dylans Einfluss, der The Byrds in ihrer musikalischen Ausrichtung und ihrer künstlerischen Vision inspirierte."
         },
@@ -1759,12 +1689,7 @@
         },
         {
           "question": "Welcher bekannte Song aus dem Album 'Disraeli Gears' von Cream wurde 1967 als Single veröffentlicht und erreichte hohe Chartplatzierungen?",
-          "options": [
-            "Sunshine of Your Love",
-            "White Room",
-            "Strange Brew",
-            "We're Going Wrong"
-          ],
+          "options": ["Sunshine of Your Love", "White Room", "Strange Brew", "We're Going Wrong"],
           "correctAnswer": "Sunshine of Your Love",
           "trivia": "Der Song 'Sunshine of Your Love' wurde 1967 als Single aus dem Album 'Disraeli Gears' von Cream veröffentlicht und erreichte in den USA Platz 5 der Billboard Hot 100. Dieser Titel gilt als einer der bekanntesten und erfolgreichsten Songs der Band und ist ein hervorragendes Beispiel für ihren charakteristischen Blues-Rock-Stil. Cream, bestehend aus Eric Clapton, Jack Bruce und Ginger Baker, nutzte in diesem Song innovative Gitarrentechniken und komplexe Harmonien. 'Disraeli Gears' selbst wurde für seine psychedelischen Elemente und seine kreative Produktion gelobt und ist bis heute ein einflussreiches Werk der Rockgeschichte."
         }
@@ -1906,12 +1831,7 @@
         },
         {
           "question": "In welchem Musikvideo zu einem Song aus dem Album 'Bridge Over Troubled Water' von Simon & Garfunkel wurde eine eindrucksvolle Bildsprache eingesetzt, um die emotionale Tiefe des Liedes zu unterstreichen?",
-          "options": [
-            "The Boxer",
-            "Bridge Over Troubled Water",
-            "Cecilia",
-            "El Condor Pasa"
-          ],
+          "options": ["The Boxer", "Bridge Over Troubled Water", "Cecilia", "El Condor Pasa"],
           "correctAnswer": "Bridge Over Troubled Water",
           "trivia": "Das Musikvideo zu 'Bridge Over Troubled Water' von Simon & Garfunkel zeigt eine eindrucksvolle visuelle Darbietung, die die emotionale Tiefe des Songs unterstreicht. Die Bilder kombinieren Naturaufnahmen mit emotionalen Szenen, um die Botschaft des Liedes zu verstärken. Simon & Garfunkel haben in diesem Video auch mit Symbolik gearbeitet, um die Themen Trost und Unterstützung zu verdeutlichen. Das Album 'Bridge Over Troubled Water', veröffentlicht im Jahr 1970, gilt als eines der erfolgreichsten Alben der beiden Künstler und enthält zahlreiche Hits, darunter auch den gleichnamigen Titel. Die Kombination aus Musik und visueller Darstellung hat dazu beigetragen, dass der Song und das Album zeitlos bleiben."
         }
@@ -2083,12 +2003,7 @@
       "easy": [
         {
           "question": "Welcher bekannte Songwriter und Produzent hat an der Entstehung des Albums 'Otis Blue: Otis Redding Sings Soul' von Otis Redding mitgewirkt?",
-          "options": [
-            "Isaac Hayes",
-            "Jerry Wexler",
-            "Al Green",
-            "David Porter"
-          ],
+          "options": ["Isaac Hayes", "Jerry Wexler", "Al Green", "David Porter"],
           "correctAnswer": "David Porter",
           "trivia": "David Porter war ein entscheidender Mitwirkender bei der Produktion von 'Otis Blue: Otis Redding Sings Soul' und hat zahlreiche Songs für das Album geschrieben. Zusammen mit Isaac Hayes war Porter für viele der ikonischen Soul-Hits der 1960er Jahre verantwortlich. Das Album, das 1965 veröffentlicht wurde, enthält Klassiker wie 'Respect' und 'I've Been Loving You Too Long', die Reddings kraftvollen Gesang und emotionale Tiefe präsentieren. 'Otis Blue' gilt als eines der besten Soul-Alben aller Zeiten und zeigt die Zusammenarbeit zwischen Redding und talentierten Songwritern und Produzenten, die maßgeblich zu seinem Erfolg beitrugen."
         },
@@ -2148,12 +2063,7 @@
       "hard": [
         {
           "question": "Welche unveröffentlichte Aufnahme von Otis Redding, die ursprünglich für das Album 'Otis Blue: Otis Redding Sings Soul' geplant war, wurde erst Jahre später entdeckt und veröffentlicht?",
-          "options": [
-            "Stange Fruit",
-            "I'm a Changed Man",
-            "Home in Your Heart",
-            "Love Man"
-          ],
+          "options": ["Stange Fruit", "I'm a Changed Man", "Home in Your Heart", "Love Man"],
           "correctAnswer": "I'm a Changed Man",
           "trivia": "Die richtige Antwort ist 'I'm a Changed Man', ein Song, der ursprünglich während der Sessions für 'Otis Blue: Otis Redding Sings Soul' im Jahr 1965 aufgenommen wurde, jedoch erst posthum im Jahr 1987 auf dem Album 'The Definitive Otis Redding' veröffentlicht wurde. Otis Redding war für seine soulige Stimme und emotionalen Performances bekannt und hat mit 'Otis Blue' einen bedeutenden Einfluss auf die Musikgeschichte ausgeübt. Das Album umfasst Klassiker wie 'Respect' und 'I've Been Loving You Too Long', die den Grundstein für seine Legende legten. Die Entdeckung und Veröffentlichung von 'I'm a Changed Man' zeigt, wie viel unveröffentlichtes Material von Redding noch Jahre nach seinem Tod ans Licht kam."
         },
@@ -2170,12 +2080,7 @@
         },
         {
           "question": "Welche bekannte Soul-Ballade wurde von Otis Redding auf seinem Album 'Otis Blue: Otis Redding Sings Soul' im Jahr 1965 neu interpretiert und stammt ursprünglich von einem berühmten Songwriter-Duo?",
-          "options": [
-            "I've Been Loving You Too Long",
-            "My Girl",
-            "Respect",
-            "You Send Me"
-          ],
+          "options": ["I've Been Loving You Too Long", "My Girl", "Respect", "You Send Me"],
           "correctAnswer": "Respect",
           "trivia": "Otis Redding coverte die ikonische Ballade 'Respect', die ursprünglich von Otis Redding und Aretha Franklin berühmt gemacht wurde, auf seinem Album 'Otis Blue: Otis Redding Sings Soul' im Jahr 1965. Die Neuinterpretation von Redding verlieh dem Song eine kraftvolle, männliche Perspektive und trug dazu bei, ihn zu einem zeitlosen Klassiker zu machen. Die ursprüngliche Version von 'Respect' wurde 1965 von Aretha Franklin veröffentlicht und gilt als Hymne der Bürgerrechtsbewegung. Redding's Version erlangte ebenfalls große Popularität und beeinflusste zahlreiche Künstler in den folgenden Jahrzehnten."
         }
@@ -2231,12 +2136,7 @@
         },
         {
           "question": "Mit welchem bekannten Musiker arbeitete John Coltrane während der Aufnahmen zu seinem Album 'A Love Supreme' aus dem Jahr 1965 zusammen?",
-          "options": [
-            "McCoy Tyner",
-            "Herbie Hancock",
-            "Miles Davis",
-            "Chick Corea"
-          ],
+          "options": ["McCoy Tyner", "Herbie Hancock", "Miles Davis", "Chick Corea"],
           "correctAnswer": "McCoy Tyner",
           "trivia": "Die richtige Antwort ist McCoy Tyner, der als Pianist eine wesentliche Rolle bei den Aufnahmen von 'A Love Supreme' spielte. Tyner war nicht nur ein enger Collaborateur von John Coltrane, sondern auch ein wichtiger Bestandteil seines klassischen Quartetts. Seine einzigartigen harmonischen Ideen und sein kraftvolles Spiel trugen erheblich zur innovativen Klanglandschaft des Albums bei. 'A Love Supreme' gilt als eines der bedeutendsten Werke im Jazz und reflektiert Coltranes spirituelle Suche, die durch Tyner's musikalische Unterstützung verstärkt wurde."
         },
@@ -2430,12 +2330,7 @@
         },
         {
           "question": "Welcher der Bandmitglieder von The Band war zuvor als Musiker bei Bob Dylan aktiv, bevor sie 1968 das Album 'Music from Big Pink' veröffentlichten?",
-          "options": [
-            "Rick Danko",
-            "Garth Hudson",
-            "Levon Helm",
-            "Richard Manuel"
-          ],
+          "options": ["Rick Danko", "Garth Hudson", "Levon Helm", "Richard Manuel"],
           "correctAnswer": "Levon Helm",
           "trivia": "Levon Helm war der Schlagzeuger und Sänger von The Band und spielte eine entscheidende Rolle in der musikalischen Entwicklung der Gruppe. Bevor sie 1968 ihr ikonisches Album 'Music from Big Pink' veröffentlichten, war Helm Teil von Bob Dylans Begleitband, die ihm half, seinen charakteristischen Sound zu entwickeln. Dylans Einfluss ist auf dem Album deutlich zu hören, insbesondere in der Mischung aus Folk, Rock und Americana. Neben Helm haben auch andere Mitglieder von The Band, wie Rick Danko und Garth Hudson, mit Dylan zusammengearbeitet, was die kreative Verbindung zwischen diesen beiden wichtigen Akteuren der Musikgeschichte verdeutlicht."
         },
@@ -2454,12 +2349,7 @@
       "medium": [
         {
           "question": "Welcher bekannte Künstler oder welche bekannte Band hat das Lied 'I Shall Be Released', das auf dem Album 'Music from Big Pink' von The Band zu finden ist, später gecovert?",
-          "options": [
-            "Bob Dylan",
-            "Eric Clapton",
-            "The Byrds",
-            "The Rolling Stones"
-          ],
+          "options": ["Bob Dylan", "Eric Clapton", "The Byrds", "The Rolling Stones"],
           "correctAnswer": "Bob Dylan",
           "trivia": "Das Lied 'I Shall Be Released' wurde ursprünglich von Bob Dylan geschrieben, und The Band nahm eine ihrer bekanntesten Versionen für ihr Debütalbum 'Music from Big Pink' auf, das 1968 veröffentlicht wurde. Dylan und The Band hatten eine enge musikalische Beziehung, die sich auch in zahlreichen gemeinsamen Auftritten und Produktionen widerspiegelte. Interessanterweise wurde das Lied von vielen Künstlern gecovert, aber Dylans eigene Version, die später veröffentlicht wurde, bleibt besonders hervorzuheben. 'Music from Big Pink' gilt als Meilenstein der Rockgeschichte und hat erheblichen Einfluss auf das Genre des Americana und der Roots-Musik ausgeübt."
         },
@@ -2653,12 +2543,7 @@
       "easy": [
         {
           "question": "Mit welchem bekannten Musiker hatte James Brown während der Aufnahmen für sein Album 'Live at the Apollo' aus dem Jahr 1963 eine besondere Zusammenarbeit?",
-          "options": [
-            "B.B. King",
-            "Ray Charles",
-            "Aretha Franklin",
-            "Otis Redding"
-          ],
+          "options": ["B.B. King", "Ray Charles", "Aretha Franklin", "Otis Redding"],
           "correctAnswer": "Ray Charles",
           "trivia": "James Brown arbeitete während seiner Karriere häufig mit anderen Künstlern zusammen, und einer der bemerkenswertesten Kollaborationen war mit Ray Charles. Während der 1960er Jahre, als 'Live at the Apollo' veröffentlicht wurde, waren beide Künstler prägend für die Entwicklung der Soul- und Rhythm-and-Blues-Musik. 'Live at the Apollo' gilt als eines der besten Live-Alben aller Zeiten und zeigt Browns außergewöhnliche Bühnenpräsenz sowie seine Fähigkeit, das Publikum zu fesseln. Zudem war das Album ein großer kommerzieller Erfolg und trug zur Popularität von Live-Aufnahmen im Musikgeschäft bei."
         },
@@ -2909,12 +2794,7 @@
         },
         {
           "question": "Welche bedeutende musikalische Richtung wird häufig mit dem Album 'Sweetheart of the Rodeo' von The Byrds aus dem Jahr 1968 in Verbindung gebracht?",
-          "options": [
-            "Psychedelic Rock",
-            "Country Rock",
-            "Progressive Rock",
-            "Folk Rock"
-          ],
+          "options": ["Psychedelic Rock", "Country Rock", "Progressive Rock", "Folk Rock"],
           "correctAnswer": "Country Rock",
           "trivia": "Das Album 'Sweetheart of the Rodeo' gilt als eines der ersten Werke, das den Country-Rock-Stil populär machte. The Byrds integrierten traditionelle Country-Elemente mit ihrem charakteristischen Folk-Rock-Sound und trugen damit maßgeblich zur Entstehung dieses Genres bei. Neben der Verwendung von Pedal Steel Guitar und harmonischem Gesang enthält das Album auch Coverversionen von Songs prominenter Country-Künstler, was die Verbindung zur Country-Musik verstärkt. Die Veröffentlichung des Albums war 1968, eine Zeit, in der sich viele Rockmusiker für Country und Folk interessierten, was zu einem kreativen Austausch führte."
         }
@@ -3039,12 +2919,7 @@
       "medium": [
         {
           "question": "Welches Label veröffentlichte das Album 'Odessey and Oracle' von The Zombies im Jahr 1968?",
-          "options": [
-            "Decca Records",
-            "CBS Records",
-            "Parlophone",
-            "Epic Records"
-          ],
+          "options": ["Decca Records", "CBS Records", "Parlophone", "Epic Records"],
           "correctAnswer": "Decca Records",
           "trivia": "Das Album 'Odessey and Oracle' von The Zombies wurde 1968 von Decca Records veröffentlicht, was eine wichtige Rolle in der Karriere der Band spielte. Obwohl das Album heute als klassisches Werk des Psychedelic Rock gilt, war es bei der ursprünglichen Veröffentlichung nicht sehr erfolgreich und erreichte in den UK-Charts nur Platz 39. Viele der Songs wurden erst Jahre später als Singles veröffentlicht, wobei 'Time of the Season' der größte Hit wurde. Diese späte Anerkennung zeigt, wie der Markt für Musik sich im Laufe der Zeit ändern kann und wie erstklassige Werke oft zu Unrecht übersehen werden."
         },
@@ -3111,23 +2986,13 @@
       "easy": [
         {
           "question": "Welcher bekannte Musiker hatte einen Gastauftritt auf dem Album 'Aftermath' von The Rolling Stones aus dem Jahr 1966?",
-          "options": [
-            "Eric Clapton",
-            "John Lennon",
-            "Mick Jagger",
-            "Billy Wyman"
-          ],
+          "options": ["Eric Clapton", "John Lennon", "Mick Jagger", "Billy Wyman"],
           "correctAnswer": "Eric Clapton",
           "trivia": "Auf dem Album 'Aftermath' von The Rolling Stones, das 1966 veröffentlicht wurde, ist der legendäre Gitarrist Eric Clapton auf dem Song 'Under My Thumb' zu hören. Clapton, der für seine Arbeit mit The Yardbirds und Cream bekannt ist, war ein enger Freund der Band und wurde häufig in den sozialen und musikalischen Kreisen der Zeit gesehen. 'Aftermath' gilt als eines der einflussreichsten Alben der Stones, da es die erste Sammlung von ausschließlich eigenen Kompositionen der Band war. Die Zusammenarbeit mit Clapton trägt zur besonderen musikalischen Tiefe des Albums bei, das sowohl Blues- als auch Rock-Elemente miteinander verbindet."
         },
         {
           "question": "Welcher bekannte Produzent war an der Entstehung des Albums 'Aftermath' von The Rolling Stones im Jahr 1966 beteiligt?",
-          "options": [
-            "George Martin",
-            "Andrew Oldham",
-            "Phil Spector",
-            "Brian Eno"
-          ],
+          "options": ["George Martin", "Andrew Oldham", "Phil Spector", "Brian Eno"],
           "correctAnswer": "Andrew Oldham",
           "trivia": "Andrew Oldham war der erste Manager und Produzent der Rolling Stones und spielte eine entscheidende Rolle bei der Produktion des Albums 'Aftermath'. Dieses Album, das als eines der ersten vollständig selbstkomponierten Werke der Band gilt, markierte einen wichtigen Schritt in der künstlerischen Entwicklung der Rolling Stones. 'Aftermath' enthielt Hits wie 'Paint It Black' und 'Under My Thumb', die beide von Mick Jagger und Keith Richards geschrieben wurden. Die Zusammenarbeit mit Oldham half nicht nur, den charakteristischen Klang der Band zu formen, sondern auch, sie im wettbewerbsintensiven Musikmarkt der 1960er Jahre zu positionieren."
         },
@@ -3250,12 +3115,7 @@
         },
         {
           "question": "Mit welchem Produzenten arbeitete Van Morrison an seinem legendären Album 'Astral Weeks' aus dem Jahr 1968 zusammen?",
-          "options": [
-            "Bert Berns",
-            "Phil Spector",
-            "Brian Wilson",
-            "George Martin"
-          ],
+          "options": ["Bert Berns", "Phil Spector", "Brian Wilson", "George Martin"],
           "correctAnswer": "Bert Berns",
           "trivia": "Die richtige Antwort ist Bert Berns, der als Produzent für 'Astral Weeks' verantwortlich war. Berns, ein einflussreicher Musikproduzent und Songwriter, spielte eine entscheidende Rolle bei der Entstehung des Albums, das oft als eines der bedeutendsten Werke der Rockmusik angesehen wird. 'Astral Weeks' verbindet Folk, Jazz und klassisches Songwriting und wurde in den Century Sound Studios in New York aufgenommen. Das Album war ein kommerzieller Misserfolg bei seiner Veröffentlichung, erlangte jedoch im Laufe der Jahre Kultstatus und beeinflusste zahlreiche Künstler. Van Morrison und Bert Berns arbeiteten auch an anderen Projekten zusammen, was die kreative Beziehung zwischen den beiden Künstlern weiter festigte."
         }
@@ -3340,12 +3200,7 @@
       "easy": [
         {
           "question": "Welcher bekannte Hit der Band Jefferson Airplane stammt von ihrem 1967 veröffentlichten Album 'Surrealistic Pillow' und wurde zu einem Anthem der Gegenkultur der 1960er Jahre?",
-          "options": [
-            "Somebody to Love",
-            "White Rabbit",
-            "Volunteers",
-            "Miracles"
-          ],
+          "options": ["Somebody to Love", "White Rabbit", "Volunteers", "Miracles"],
           "correctAnswer": "White Rabbit",
           "trivia": "Der Song 'White Rabbit' von Jefferson Airplane, der auf dem Album 'Surrealistic Pillow' zu finden ist, wurde 1967 veröffentlicht und gilt als eines der bekanntesten Lieder der Psychedelic-Rock-Ära. Der Song thematisiert den Einfluss von Drogen und die Erkundung des Bewusstseins, was ihn zu einem zentralen Bestandteil der Gegenkultur der 1960er Jahre machte. 'White Rabbit' erreichte hohe Chartplatzierungen und ist bis heute ein Symbol für die Hippie-Bewegung. Die Kombination aus eindringlichem Text und hypnotisierenden Melodien machte den Song zu einem Klassiker, der auch in vielen Filmen und Medien verwendet wurde."
         },
@@ -3386,12 +3241,7 @@
         },
         {
           "question": "Welcher Produzent war maßgeblich an der Entstehung des Albums 'Surrealistic Pillow' von Jefferson Airplane im Jahr 1967 beteiligt?",
-          "options": [
-            "David Crosby",
-            "Paul McCartney",
-            "Grace Slick",
-            "Rick Jarrard"
-          ],
+          "options": ["David Crosby", "Paul McCartney", "Grace Slick", "Rick Jarrard"],
           "correctAnswer": "Rick Jarrard",
           "trivia": "Rick Jarrard spielte eine entscheidende Rolle in der Produktion von 'Surrealistic Pillow', dem bahnbrechenden Album von Jefferson Airplane, das 1967 veröffentlicht wurde. Jarrard, der zuvor mit Künstlern wie The Lovin' Spoonful gearbeitet hatte, half dabei, den charakteristischen Sound des Albums zu gestalten, der psychedelische Elemente mit Folk- und Rockeinflüssen kombinierte. Die Aufnahmen fanden in den RCA Studios in Los Angeles statt, wo Jarrard innovative Techniken einsetzte, um die Atmosphäre des Albums zu verstärken. 'Surrealistic Pillow' gilt als eines der wichtigsten Alben der Gegenkultur der 1960er Jahre und enthält legendäre Songs wie \"Somebody to Love\" und \"White Rabbit\"."
         },
@@ -3574,12 +3424,7 @@
       "easy": [
         {
           "question": "Welcher bekannte Künstler oder welche bekannte Künstlerin wurde stark von Nina Simone und ihrem Album 'Nina Simone Sings the Blues' aus dem Jahr 1967 beeinflusst?",
-          "options": [
-            "Amy Winehouse",
-            "Taylor Swift",
-            "Justin Bieber",
-            "Ed Sheeran"
-          ],
+          "options": ["Amy Winehouse", "Taylor Swift", "Justin Bieber", "Ed Sheeran"],
           "correctAnswer": "Amy Winehouse",
           "trivia": "Amy Winehouse nannte Nina Simone oft als einen ihrer größten Einflüsse, besonders bezüglich ihres Gesangs und ihrer emotionalen Ausdrucksweise. Das Album 'Nina Simone Sings the Blues' aus dem Jahr 1967 zeigt Simones meisterhafte Fähigkeit, Blues und Jazz zu kombinieren, was viele Künstlerinnen und Künstler inspiriert hat. Simone war bekannt dafür, ihre Lieder mit einer tiefen emotionalen Intensität zu interpretieren, was auch in Winehouses Musik deutlich zu hören ist. Weitere Künstler, die von Simone beeinflusst wurden, sind beispielsweise Lauryn Hill und Alicia Keys, die ebenfalls ihren einzigartigen Stil und ihre emotionale Tiefe in der Musik schätzen."
         },
@@ -3620,12 +3465,7 @@
         },
         {
           "question": "Welche bekannte Jazzmusikerin spielte während der Aufnahmen zu 'Nina Simone Sings the Blues' im Jahr 1967 als Pianistin und Arrangeurin mit Nina Simone zusammen?",
-          "options": [
-            "Betty Carter",
-            "Mary Lou Williams",
-            "Miriam Makeba",
-            "Cecil Taylor"
-          ],
+          "options": ["Betty Carter", "Mary Lou Williams", "Miriam Makeba", "Cecil Taylor"],
           "correctAnswer": "Mary Lou Williams",
           "trivia": "Mary Lou Williams war eine einflussreiche Jazzpianistin und Komponistin, die während der Aufnahmesessions für 'Nina Simone Sings the Blues' im Jahr 1967 mit Nina Simone zusammenarbeitete. Williams, bekannt für ihre innovative Herangehensweise an Jazz und ihre Fähigkeit, verschiedene Stile zu kombinieren, brachte ihren einzigartigen Einfluss in die Produktion des Albums ein. 'Nina Simone Sings the Blues' gilt als eines der bedeutendsten Werke von Nina Simone, in dem sie ihre emotionale Tiefe und musikalische Vielseitigkeit zeigt. Das Album enthält Klassiker wie 'Backlash Blues' und 'Blues for Mama', die beide die Themen von Rassismus und sozialer Ungerechtigkeit behandeln, die zu dieser Zeit von großer Bedeutung waren."
         },
@@ -3905,12 +3745,7 @@
       "easy": [
         {
           "question": "Welcher bekannte Songwriter war maßgeblich an der Produktion des Albums 'Where Did Our Love Go' von The Supremes aus dem Jahr 1964 beteiligt?",
-          "options": [
-            "Holland-Dozier-Holland",
-            "Smokey Robinson",
-            "Barry Manilow",
-            "Carole King"
-          ],
+          "options": ["Holland-Dozier-Holland", "Smokey Robinson", "Barry Manilow", "Carole King"],
           "correctAnswer": "Holland-Dozier-Holland",
           "trivia": "Der Songwriter- und Produzenten-Triumvirat Holland-Dozier-Holland war entscheidend für den Erfolg des Albums 'Where Did Our Love Go' von The Supremes. Diese drei talentierten Musiker, Lamont Dozier sowie die Brüder Brian und Edward Holland, schrieben mehrere der bekanntesten Hits der Gruppe, einschließlich des Titeltracks. Das Album erreichte 1964 immense Popularität und machte The Supremes zu einem der führenden Acts der Motown-Ära. 'Where Did Our Love Go' wurde ein Meilenstein in der Musikgeschichte und zeigt das unverwechselbare Songwriting und die eingängigen Melodien, für die Holland-Dozier-Holland berühmt war."
         },
@@ -3951,12 +3786,7 @@
         },
         {
           "question": "In welchem Film wurde der Song 'Where Did Our Love Go' von The Supremes, einem Titel des gleichnamigen Albums von 1964, prominent verwendet?",
-          "options": [
-            "The Big Chill",
-            "Grease",
-            "A Hard Day's Night",
-            "The Wedding Singer"
-          ],
+          "options": ["The Big Chill", "Grease", "A Hard Day's Night", "The Wedding Singer"],
           "correctAnswer": "The Big Chill",
           "trivia": "Der Song 'Where Did Our Love Go' von The Supremes fand Verwendung im Film 'The Big Chill', der 1983 veröffentlicht wurde. Dieser Film, der sich um eine Gruppe von Freunden dreht, die sich nach vielen Jahren wieder treffen, nutzt Musik der 1960er Jahre, um nostalgische Gefühle zu erzeugen. Das Album 'Where Did Our Love Go', das 1964 erschienen ist, war ein Meilenstein in der Motown-Geschichte und brachte mehrere Hits hervor, darunter auch den gleichnamigen Song. The Supremes, bestehend aus Diana Ross, Mary Wilson und Florence Ballard, prägten mit ihrem einzigartigen Sound und Stil die Musikszene und sind bis heute eine der erfolgreichsten Girlgroups aller Zeiten."
         },
@@ -4044,12 +3874,7 @@
         },
         {
           "question": "Welcher bekannte Song aus dem Album 'Crosby, Stills & Nash' von 1969 wurde zu einem der größten Hits des Trios und ist oft mit ihrer Identität als Band verbunden?",
-          "options": [
-            "Marrakesh Express",
-            "Wasted on the Way",
-            "Teach Your Children",
-            "Woodstock"
-          ],
+          "options": ["Marrakesh Express", "Wasted on the Way", "Teach Your Children", "Woodstock"],
           "correctAnswer": "Marrakesh Express",
           "trivia": "Der Song 'Marrakesh Express' ist einer der bekanntesten Titel von Crosby, Stills & Nash aus ihrem Debütalbum 'Crosby, Stills & Nash', das 1969 veröffentlicht wurde. Dieser Song wurde nicht nur ein Hit, sondern verkörpert auch den typischen Folk-Rock-Sound der Band, der sie in der Musikszene der späten 1960er Jahre etablierte. Die eingängige Melodie und die eindringlichen Texte über eine Zugfahrt nach Marrakesch machen ihn zu einem zeitlosen Klassiker. Darüber hinaus war das Album selbst ein kommerzieller Erfolg und erreichte hohe Chartplatzierungen, einschließlich Platz 6 der Billboard 200. 'Marrakesh Express' ist bis heute ein fester Bestandteil ihres Live-Repertoires und ein beliebtes Lied bei ihren Fans."
         }
@@ -4114,12 +3939,7 @@
         },
         {
           "question": "Welches Musikvideo, das zur Promotion des Albums 'Crosby, Stills & Nash' von Crosby, Stills & Nash im Jahr 1969 erstellt wurde, gilt als eines der ersten seiner Art und zeigt die Band bei einem Live-Auftritt?",
-          "options": [
-            "Woodstock 1969",
-            "Live in the Studio",
-            "You Don't Have to Cry",
-            "Marrakech"
-          ],
+          "options": ["Woodstock 1969", "Live in the Studio", "You Don't Have to Cry", "Marrakech"],
           "correctAnswer": "You Don't Have to Cry",
           "trivia": "Das Musikvideo zu 'You Don't Have to Cry' wurde als eines der ersten Musikvideos angesehen, das zur Promotion des gleichnamigen Albums 'Crosby, Stills & Nash' aus dem Jahr 1969 erstellt wurde. In diesem Video sind die Mitglieder David Crosby, Stephen Stills und Graham Nash während eines Live-Auftritts zu sehen, was zur damaligen Zeit eine innovative Form der visuellen Präsentation für Musik war. Das Debütalbum der Band war in den späten 1960er Jahren ein kulturelles Phänomen und wird oft für seine harmonischen Gesangselemente sowie die Mischung aus Folk- und Rockmusik gelobt. Die Band trug mit ihrem einzigartigen Stil zur Entwicklung des Genres bei und beeinflusste zahlreiche Musiker der kommenden Generationen."
         }
@@ -4150,12 +3970,7 @@
         },
         {
           "question": "Welcher bekannte Song auf dem Album 'Their Satanic Majesties Request' von The Rolling Stones wird oft als Beispiel für den Einfluss des psychedelischen Rock der 1960er Jahre angesehen?",
-          "options": [
-            "She's a Rainbow",
-            "Paint It Black",
-            "Ruby Tuesday",
-            "Honky Tonk Women"
-          ],
+          "options": ["She's a Rainbow", "Paint It Black", "Ruby Tuesday", "Honky Tonk Women"],
           "correctAnswer": "She's a Rainbow",
           "trivia": "Der Song 'She's a Rainbow' ist einer der bekanntesten Tracks auf dem Album 'Their Satanic Majesties Request', das 1967 veröffentlicht wurde. Dieser Song verkörpert den psychedelischen Stil, der in dieser Ära populär war, und zeigt die Verwendung von bunten Klanglandschaften und harmonischen Melodien. Das Album selbst gilt als eine Antwort der Rolling Stones auf die experimentellen Klänge der Beatles und anderen Bands der Zeit. Es enthält auch Elemente des Barock-Pop und innovative Studioeffekte, die zu seinem einzigartigen Klang beitragen. 'She's a Rainbow' wird oft als eines der besten Beispiele für den musikalischen Rückblick dieser Zeit betrachtet."
         },
@@ -4267,12 +4082,7 @@
         },
         {
           "question": "Welcher berühmte Musiker, der von Bob Dylans Album 'Bringing It All Back Home' inspiriert wurde, gilt als einer der wichtigsten Vertreter des Folk-Rock-Genres?",
-          "options": [
-            "Neil Young",
-            "Bruce Springsteen",
-            "Simon & Garfunkel",
-            "David Bowie"
-          ],
+          "options": ["Neil Young", "Bruce Springsteen", "Simon & Garfunkel", "David Bowie"],
           "correctAnswer": "Simon & Garfunkel",
           "trivia": "Simon & Garfunkel, das ikonische Folk-Duo, wurde stark von Bob Dylans Album 'Bringing It All Back Home' beeinflusst. Das Album, das 1965 veröffentlicht wurde, markierte den Übergang von Dylans traditionellem Folk zu einem elektrifizierten Sound und setzte neue Maßstäbe für Songwriting und Lyrik. Insbesondere der Song 'The Sound of Silence' von Simon & Garfunkel zeigt Dylans Einfluss in Bezug auf tiefgründige Texte und melancholische Melodien. Darüber hinaus gilt das Album als Wegbereiter für viele Künstler der 1960er Jahre, die Dylans innovative Ansätze im Folk-Rock-Genre aufgriffen und weiterentwickelten."
         },
@@ -4390,12 +4200,7 @@
         },
         {
           "question": "Welcher bekannte Künstler hatte einen Gastauftritt auf Marvin Gayes Album 'Moods of Marvin Gaye' aus dem Jahr 1966?",
-          "options": [
-            "Stevie Wonder",
-            "Diana Ross",
-            "Tammi Terrell",
-            "Smokey Robinson"
-          ],
+          "options": ["Stevie Wonder", "Diana Ross", "Tammi Terrell", "Smokey Robinson"],
           "correctAnswer": "Tammi Terrell",
           "trivia": "Auf dem Album 'Moods of Marvin Gaye' von 1966 ist die berühmte Sängerin Tammi Terrell als Duettpartnerin von Marvin Gaye zu hören. Ihre Zusammenarbeit führte zu einigen der bekanntesten Duette der Motown-Ära, und ihre Stimmen harmonieren perfekt. 'Ain't No Mountain High Enough' ist eines ihrer erfolgreichsten Duette, das später veröffentlicht wurde. Tammi Terrells Einfluss auf Gaye und die Motown-Musik kann nicht hoch genug eingeschätzt werden, da sie entscheidend zur Entstehung des klassischen Soul-Sounds beitrugen."
         }
@@ -4624,12 +4429,7 @@
         },
         {
           "question": "In welchem bekannten Film wurde der Song 'Son of a Preacher Man' aus dem Album 'Dusty in Memphis' von Dusty Springfield verwendet?",
-          "options": [
-            "The Help",
-            "Pulp Fiction",
-            "Pretty Woman",
-            "Forrest Gump"
-          ],
+          "options": ["The Help", "Pulp Fiction", "Pretty Woman", "Forrest Gump"],
           "correctAnswer": "The Help",
           "trivia": "Der Song 'Son of a Preacher Man' von Dusty Springfield, der auf ihrem legendären Album 'Dusty in Memphis' von 1969 zu finden ist, erlangte durch seine Verwendung im Film 'The Help' (2011) wieder große Popularität. 'Dusty in Memphis' gilt als eines von Springfields besten Werken und zeigt eine Mischung aus Soul und Pop, die zu ihrem unverwechselbaren Stil beiträgt. Das Album enthält auch andere bemerkenswerte Tracks, die zu einem Teil von Dusty Springfields Erbe wurden. 'Son of a Preacher Man' ist besonders bekannt für seine eingängige Melodie und den emotionalen Text, der von der jungen Liebe und den Herausforderungen des Lebens handelt."
         }
@@ -4858,12 +4658,7 @@
         },
         {
           "question": "Mit welchem renommierten Produzenten arbeiteten Simon & Garfunkel bei der Aufnahme des Albums 'Sounds of Silence' im Jahr 1966 zusammen?",
-          "options": [
-            "Phil Spector",
-            "Bob Dylan",
-            "Tom Wilson",
-            "George Martin"
-          ],
+          "options": ["Phil Spector", "Bob Dylan", "Tom Wilson", "George Martin"],
           "correctAnswer": "Tom Wilson",
           "trivia": "Simon & Garfunkel arbeiteten bei ihrem ikonischen Album 'Sounds of Silence' mit dem Produzenten Tom Wilson zusammen, der eine entscheidende Rolle in der Entwicklung ihres Sounds spielte. Wilson war bekannt für seine innovative Herangehensweise an die Produktion und sein Gespür für die Kombination von Folk- und Rock-Elementen. Unter seiner Leitung wurde der Titeltrack 'The Sound of Silence' zu einem weltweiten Hit und erreichte die Spitze der Billboard-Charts. Darüber hinaus war er auch an der Produktion anderer bedeutender Künstler der 1960er Jahre beteiligt, was seinen Einfluss auf die Musikszene dieser Zeit unterstreicht."
         }
@@ -4948,12 +4743,7 @@
       "easy": [
         {
           "question": "Welcher Hit von The Temptations aus dem Album 'Cloud Nine' erreichte 1969 die Spitze der Billboard Hot 100 Charts?",
-          "options": [
-            "My Girl",
-            "Cloud Nine",
-            "Just My Imagination",
-            "Papa Was a Rollin' Stone"
-          ],
+          "options": ["My Girl", "Cloud Nine", "Just My Imagination", "Papa Was a Rollin' Stone"],
           "correctAnswer": "Cloud Nine",
           "trivia": "Der Titeltrack 'Cloud Nine' von The Temptations erreichte 1969 die Nummer eins der Billboard Hot 100 Charts und markierte einen Wendepunkt in der Musikgeschichte. Dieses Album war das erste, das den Psychedelic Soul effektiv kombinierte und zeigte eine neue musikalische Richtung für die Gruppe. Der Song 'Cloud Nine' selbst thematisiert die Flucht aus der harten Realität durch Träume und Hoffnung, was in der damaligen Zeit viele Menschen ansprach. Darüber hinaus wurde der Song für seine innovativen Klänge und den Einsatz von elektronischen Instrumenten gelobt, was damals für Motown untypisch war."
         },
@@ -4994,12 +4784,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'Cloud Nine' von The Temptations gilt als Meilenstein für den Crossover-Erfolg zwischen Soul und Popmusik?",
-          "options": [
-            "My Girl",
-            "Cloud Nine",
-            "Just My Imagination",
-            "Papa Was a Rolling Stone"
-          ],
+          "options": ["My Girl", "Cloud Nine", "Just My Imagination", "Papa Was a Rolling Stone"],
           "correctAnswer": "Cloud Nine",
           "trivia": "Der Titelsong 'Cloud Nine' auf dem gleichnamigen Album von The Temptations, veröffentlicht 1969, markierte einen entscheidenden Moment in der Fusion von Soul- und Popmusik. Der Song war nicht nur ein kommerzieller Erfolg und erreichte Platz 6 der Billboard Hot 100, sondern auch Platz 1 der R&B-Charts. Er wurde als einer der ersten Songs des Motown-Labels anerkannt, der psychedelische Elemente in die Soulmusik einbrachte. 'Cloud Nine' trug dazu bei, das Image der Temptations als innovative Künstler zu festigen und beeinflusste zahlreiche nachfolgende Musiker in den 1970er Jahren."
         },
@@ -5135,12 +4920,7 @@
       "hard": [
         {
           "question": "Welcher prominente Musiker hatte einen Gastauftritt auf dem Album 'Help!' von The Beatles aus dem Jahr 1965 und war bekannt für seine einzigartigen musikalischen Fähigkeiten?",
-          "options": [
-            "Eric Clapton",
-            "Billy Preston",
-            "Mick Jagger",
-            "George Martin"
-          ],
+          "options": ["Eric Clapton", "Billy Preston", "Mick Jagger", "George Martin"],
           "correctAnswer": "Billy Preston",
           "trivia": "Billy Preston, ein talentierter Keyboarder und Pianist, war der einzige Musiker, der als Gast auf einem Beatles-Album offiziell aufgeführt wurde. Er spielte das elektrische Klavier auf dem Song 'Get Back', der allerdings erst 1969 auf dem Album 'Let It Be' veröffentlicht wurde. Dennoch ist sein Einfluss auf die Beatles und ihre Musik unbestritten, da er bereits vorher in der Musikszene aktiv war und mit vielen Künstlern, darunter auch Ray Charles, zusammenarbeitete. Sein stilistisches Können und seine Innovationsfreude trugen maßgeblich zur Entwicklung des Sounds der Beatles in dieser Zeit bei. Die Zusammenarbeit mit Gästen war zu dieser Zeit noch nicht sehr verbreitet, was den Auftritt von Preston besonders hervorhebt."
         },
@@ -5264,12 +5044,7 @@
         },
         {
           "question": "Welcher Produzent war maßgeblich an der Entstehung des Albums 'From Elvis in Memphis' von Elvis Presley im Jahr 1969 beteiligt und gilt als einer der wichtigsten Köpfe hinter dem Sound des Albums?",
-          "options": [
-            "Felton Jarvis",
-            "Steve Binder",
-            "Sam Phillips",
-            "Joe South"
-          ],
+          "options": ["Felton Jarvis", "Steve Binder", "Sam Phillips", "Joe South"],
           "correctAnswer": "Felton Jarvis",
           "trivia": "Felton Jarvis spielte eine zentrale Rolle in der Produktion von 'From Elvis in Memphis', das als eines der besten Alben von Elvis Presley gilt. Jarvis war bekannt für seine Fähigkeit, den einzigartigen Sound von Elvis zu erfassen und zu verfeinern. Unter seiner Regie wurden mehrere Hits wie 'In the Ghetto' und 'Suspicious Minds' aufgenommen, die beide auf diesem Album zu finden sind. Seine Zusammenarbeit mit Elvis brachte eine neue musikalische Tiefe und einen zeitgemäßen Sound, der das Album in der Musikwelt hervorhebt. Jarvis' Einfluss auf die Aufnahmen trug dazu bei, dass 'From Elvis in Memphis' als Meilenstein in der Karriere von Elvis Presley anerkannt wird."
         }
@@ -5483,12 +5258,7 @@
         },
         {
           "question": "Mit welchem renommierten Produzenten arbeitete Stevie Wonder bei der Erstellung des Albums 'For Once in My Life' im Jahr 1968 zusammen?",
-          "options": [
-            "Berry Gordy",
-            "Frank Wilson",
-            "David Foster",
-            "Norman Whitfield"
-          ],
+          "options": ["Berry Gordy", "Frank Wilson", "David Foster", "Norman Whitfield"],
           "correctAnswer": "Frank Wilson",
           "trivia": "Frank Wilson war der Produzent, der maßgeblich an der Entstehung von Stevie Wonders Album 'For Once in My Life' beteiligt war. Wilson, bekannt für seine Arbeit mit Motown-Künstlern, brachte einen kreativen und frischen Ansatz in die Produktion ein, der zum charakteristischen Sound des Albums beitrug. Das Album, das Hits wie den Titeltrack 'For Once in My Life' enthält, gilt als eines von Wonders bedeutendsten Werken. Während dieser Zeit experimentierte Wonder mit verschiedenen musikalischen Stilen und Instrumentierungen, was sich in den vielfältigen Klängen des Albums widerspiegelt. Die Zusammenarbeit mit Wilson half, Wonders künstlerische Vision in eine kommerziell erfolgreiche Form zu bringen."
         }
@@ -5584,12 +5354,7 @@
         },
         {
           "question": "Wie viele Plattenverkäufe erzielte das Album 'If You Can Believe Your Eyes and Ears' von The Mamas & the Papas bis 1967, was es zu einem der erfolgreichsten Debütalben des Jahres machte?",
-          "options": [
-            "Über 1 Million",
-            "Über 3 Millionen",
-            "Über 500.000",
-            "Über 2 Millionen"
-          ],
+          "options": ["Über 1 Million", "Über 3 Millionen", "Über 500.000", "Über 2 Millionen"],
           "correctAnswer": "Über 3 Millionen",
           "trivia": "Das Album 'If You Can Believe Your Eyes and Ears' von The Mamas & the Papas verkaufte sich bis 1967 über 3 Millionen Mal und wurde damit eines der erfolgreichsten Debütalben des Jahres. Die Single 'California Dreamin'' trug maßgeblich zu diesem Erfolg bei, da sie in den Billboard Hot 100 auf Platz 1 landete. Die Kombination aus eingängigen Melodien, harmonischen Gesang und zeitgenössischen Themen machte das Album nicht nur kommerziell erfolgreich, sondern auch kulturell einflussreich in der Musikszene der 1960er Jahre."
         },
@@ -5631,12 +5396,7 @@
         },
         {
           "question": "Welche berühmte Band beeinflusste stark den Sound und die musikalischen Themen von Buffalo Springfield auf ihrem Album 'Buffalo Springfield Again' aus dem Jahr 1967?",
-          "options": [
-            "The Byrds",
-            "The Rolling Stones",
-            "The Beach Boys",
-            "The Doors"
-          ],
+          "options": ["The Byrds", "The Rolling Stones", "The Beach Boys", "The Doors"],
           "correctAnswer": "The Byrds",
           "trivia": "Buffalo Springfield wurde stark von der Musik der Byrds beeinflusst, die für ihren harmonischen Folk-Rock-Stil bekannt waren. Diese Inspiration spiegelt sich deutlich in vielen Songs auf dem Album 'Buffalo Springfield Again' wider, insbesondere in der Verwendung von mehrstimmigem Gesang und akustischen Gitarren. Zudem war die Band um David Crosby und Roger McGuinn eine der ersten, die Folk-Elemente mit Rock kombinierte, was auch Buffalo Springfield in ihren eigenen Kompositionen aufnahm. Das Album enthält ikonische Lieder wie 'Rock & Roll Woman', die den Einfluss dieser musikalischen Strömung verdeutlichen."
         },
@@ -5677,12 +5437,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Buffalo Springfield Again' von Buffalo Springfield erreichte einen bemerkenswerten Crossover-Erfolg, indem er sowohl in den Rock- als auch in den Popcharts hohe Platzierungen erzielte?",
-          "options": [
-            "Mr. Soul",
-            "Bluebird",
-            "Rock and Roll Woman",
-            "Hung Up On My Baby"
-          ],
+          "options": ["Mr. Soul", "Bluebird", "Rock and Roll Woman", "Hung Up On My Baby"],
           "correctAnswer": "Mr. Soul",
           "trivia": "Der Song 'Mr. Soul' aus dem Album 'Buffalo Springfield Again' war einer der ersten Hits, der die Grenzen zwischen Rock und Pop erfolgreich überwand. Er erreichte in den Billboard Hot 100 Charts eine Top-Position und wurde zu einem Markenzeichen für Buffalo Springfield. Geschrieben von Neil Young, reflektiert der Song die zunehmende Experimentierfreude der Band mit verschiedenen musikalischen Stilen. Das Album selbst wurde 1967 veröffentlicht und gilt als ein wichtiger Beitrag zur Entwicklung des Folk-Rock und Psychedelic Rock. Buffalo Springfield, insbesondere mit Songs wie 'Mr. Soul', trugen zur kulturellen Revolution der 1960er Jahre bei und beeinflussten zahlreiche Künstler nach ihnen."
         }
@@ -5701,12 +5456,7 @@
         },
         {
           "question": "Mit welchem prominenten Musiker arbeiteten Buffalo Springfield während der Aufnahmen zu ihrem Album 'Buffalo Springfield Again' im Jahr 1967 zusammen, um innovative Harmonien und Arrangements zu entwickeln?",
-          "options": [
-            "Neil Young",
-            "David Crosby",
-            "Jimi Hendrix",
-            "Jim Morrison"
-          ],
+          "options": ["Neil Young", "David Crosby", "Jimi Hendrix", "Jim Morrison"],
           "correctAnswer": "David Crosby",
           "trivia": "David Crosby, bekannt als Mitglied der Byrds und später von Crosby, Stills, Nash & Young, war während der Aufnahmen zu 'Buffalo Springfield Again' 1967 eng mit Buffalo Springfield verbunden. Er half nicht nur bei den Harmonien, sondern beeinflusste auch den kreativen Prozess der Band. Die Zusammenarbeit mit Crosby trug zur musikalischen Tiefe und zum harmonischen Reichtum des Albums bei, das als eines der bedeutendsten Werke der Folk-Rock-Bewegung gilt. Darüber hinaus ist es bemerkenswert, dass die Band in einer Zeit arbeitete, in der viele Musiker experimentelle Ansätze verfolgten, was das Album besonders innovativ machte."
         },
@@ -5737,12 +5487,7 @@
       "easy": [
         {
           "question": "Welcher berühmte Musiker hat die ikonische Titelmelodie 'Green Onions' von Booker T. & the M.G.’s in den 1970er Jahren gecovert?",
-          "options": [
-            "Eric Clapton",
-            "The Rolling Stones",
-            "The Doors",
-            "Johnny Winter"
-          ],
+          "options": ["Eric Clapton", "The Rolling Stones", "The Doors", "Johnny Winter"],
           "correctAnswer": "Eric Clapton",
           "trivia": "'Green Onions', das Titelstück des gleichnamigen Albums von Booker T. & the M.G.’s aus dem Jahr 1962, wurde von vielen Künstlern gecovert, unter anderem von Eric Clapton. Diese Instrumentalnummer, die sich im Rhythm and Blues und Soul verankert, wurde schnell zu einem Klassiker und ist bis heute ein fester Bestandteil von Coverversionen. Clapton, bekannt für seine Virtuosität an der Gitarre, nahm 'Green Onions' während seiner Solokarriere auf, was die zeitlose Anziehungskraft des Songs unterstreicht. Das Album selbst war ein Meilenstein in der Musikgeschichte und brachte den charakteristischen Sound des Stax-Labels zur Welt, der von vielschichtigen Melodien und eingängigen Rhythmen geprägt ist."
         },
@@ -5854,12 +5599,7 @@
       "easy": [
         {
           "question": "Welcher bekannte Song wurde von Ray Charles auf seinem Album 'Modern Sounds in Country and Western Music' aus dem Jahr 1962 neu interpretiert?",
-          "options": [
-            "I Can't Stop Loving You",
-            "Jolene",
-            "Ring of Fire",
-            "Folsom Prison Blues"
-          ],
+          "options": ["I Can't Stop Loving You", "Jolene", "Ring of Fire", "Folsom Prison Blues"],
           "correctAnswer": "I Can't Stop Loving You",
           "trivia": "Der Song 'I Can't Stop Loving You' wurde von Ray Charles auf seinem Album 'Modern Sounds in Country and Western Music' neu interpretiert und wurde zu einem seiner größten Hits. Ursprünglich wurde der Song von Don Gibson geschrieben und 1958 veröffentlicht. Charles' Version erreichte 1962 die Spitze der Charts und trug dazu bei, Country-Musik einem breiteren Publikum zugänglich zu machen. Das Album selbst vereinte Elemente von Rhythm and Blues und Country und gilt als wegweisend für die Cross-Genre-Musik der damaligen Zeit. Ray Charles' einzigartige Stimme und sein emotionaler Ausdruck verliehen dem Song eine neue Dimension, die bis heute geschätzt wird."
         },
@@ -5871,12 +5611,7 @@
         },
         {
           "question": "Welcher bekannte Country-Künstler hat auf dem Album 'Modern Sounds in Country and Western Music' von Ray Charles aus dem Jahr 1962 mitgewirkt?",
-          "options": [
-            "Johnny Cash",
-            "Willie Nelson",
-            "Buck Owens",
-            "Chet Atkins"
-          ],
+          "options": ["Johnny Cash", "Willie Nelson", "Buck Owens", "Chet Atkins"],
           "correctAnswer": "Buck Owens",
           "trivia": "Auf dem Album 'Modern Sounds in Country and Western Music' von Ray Charles, das 1962 veröffentlicht wurde, gibt es eine bemerkenswerte Zusammenarbeit mit Buck Owens. Owens, ein prominenter Vertreter der Bakersfield-Country-Musik, ist bekannt für seinen charakteristischen Sound und seine innovative Herangehensweise an das Genre. Ray Charles kombinierte seine einzigartigen Rhythm-and-Blues-Einflüsse mit traditionellen Country-Elementen, was zu einer neuen musikalischen Synthese führte. Das Album war ein Meilenstein, der nicht nur Charts erklomm, sondern auch die Grenzen zwischen verschiedenen Musikstilen neu definierte. In der Folge beeinflusste es zahlreiche Künstler und sorgte für eine breitere Akzeptanz von Country-Musik in der populären Musikszene."
         }
@@ -5884,12 +5619,7 @@
       "medium": [
         {
           "question": "Mit welchem renommierten Produzenten arbeitete Ray Charles an dem Album 'Modern Sounds in Country and Western Music' aus dem Jahr 1962, das als Meilenstein in der Fusion von R&B und Country gilt?",
-          "options": [
-            "Jerry Wexler",
-            "Phil Spector",
-            "Quincy Jones",
-            "George Martin"
-          ],
+          "options": ["Jerry Wexler", "Phil Spector", "Quincy Jones", "George Martin"],
           "correctAnswer": "Jerry Wexler",
           "trivia": "Ray Charles kooperierte bei seinem bahnbrechenden Album 'Modern Sounds in Country and Western Music' mit dem Produzenten Jerry Wexler, der für seine Innovationskraft im Bereich Rhythm and Blues bekannt ist. Wexler, der zu dieser Zeit bei Atlantic Records tätig war, spielte eine entscheidende Rolle bei der Entwicklung des einzigartigen Sounds des Albums, das 1962 veröffentlicht wurde. Dieses Werk gilt als eines der ersten Alben, das Country-Musik mit R&B-Elementen vereinte und damit eine neue musikalische Richtung prägte. Neben Wexler waren auch einige der besten Studiomusiker der Zeit an den Aufnahmen beteiligt, was zur hohen Qualität der Produktion beitrug. Das Album enthält Hits wie 'I Can't Stop Loving You', die heute als Klassiker gelten."
         },
@@ -5977,12 +5707,7 @@
         },
         {
           "question": "Welche bekannte Musikproduktionsfigur war an der Produktion des Albums 'The Stooges' von The Stooges aus dem Jahr 1969 beteiligt?",
-          "options": [
-            "Brian Eno",
-            "John Cale",
-            "George Martin",
-            "Phil Spector"
-          ],
+          "options": ["Brian Eno", "John Cale", "George Martin", "Phil Spector"],
           "correctAnswer": "John Cale",
           "trivia": "Das Album 'The Stooges', das 1969 veröffentlicht wurde, wurde von John Cale produziert, der zuvor als Mitglied der Band Velvet Underground bekannt geworden war. Cales Einfluss auf das Album war entscheidend, da er den Stooges half, ihren rauen und energetischen Sound zu formen, der später als einer der Grundpfeiler des Punkrock gilt. Die Aufnahmesessions fanden in den RCA-Studios in New York statt, wo Cale seine Erfahrungen und innovativen Ansätze einbrachte. Das Debütalbum der Stooges enthält Klassiker wie 'I Wanna Be Your Dog' und '1969', die bis heute als wegweisend gelten."
         },
@@ -6001,23 +5726,13 @@
       "medium": [
         {
           "question": "Welcher Song aus dem Album 'The Stooges' von The Stooges von 1969 gilt als ein Vorreiter für den Crossover-Erfolg zwischen Punk und Rockmusik?",
-          "options": [
-            "I Wanna Be Your Dog",
-            "No Fun",
-            "1969",
-            "Real Cool Time"
-          ],
+          "options": ["I Wanna Be Your Dog", "No Fun", "1969", "Real Cool Time"],
           "correctAnswer": "I Wanna Be Your Dog",
           "trivia": "Der Song 'I Wanna Be Your Dog' ist einer der bekanntesten Titel auf dem selbstbetitelten Debütalbum 'The Stooges' von 1969 und gilt als entscheidend für den Crossover-Erfolg zwischen Punk- und Rockmusik. Mit seinem eingängigen Refrain und der rauen Instrumentierung trug der Song dazu bei, den Sound des Punkrock zu definieren, der in den folgenden Jahrzehnten populär wurde. 'I Wanna Be Your Dog' hat zahlreiche Coverversionen inspiriert und wird oft als einer der einflussreichsten Songs des Genres angesehen. The Stooges, angeführt von dem charismatischen Frontmann Iggy Pop, schufen mit diesem Album einen neuen Musikstil, der die Entwicklung der Rockmusik nachhaltig beeinflusste."
         },
         {
           "question": "Welcher Song aus dem Album 'The Stooges' von The Stooges hatte seine erste öffentliche Aufführung im Jahr 1968 während eines Konzerts in der Detroiter Venue Grande Ballroom?",
-          "options": [
-            "I Wanna Be Your Dog",
-            "1969",
-            "No Fun",
-            "Real Cool Time"
-          ],
+          "options": ["I Wanna Be Your Dog", "1969", "No Fun", "Real Cool Time"],
           "correctAnswer": "I Wanna Be Your Dog",
           "trivia": "Der Song 'I Wanna Be Your Dog' wurde erstmals 1968 während eines Konzerts der Stooges im Grande Ballroom in Detroit aufgeführt, bevor er auf ihrem Debütalbum 'The Stooges' im Jahr 1969 veröffentlicht wurde. Diese Aufführung war prägend für den Sound der Band, der als einflussreich für die Entwicklung des Punk-Rock gilt. Die Kombination aus rauem Gitarrenspiel und Iggy Pops provokantem Gesang machte den Song zu einem Klassiker. Das Grande Ballroom war bekannt für seine Unterstützung lokaler Rockbands und half, die Stooges in der Musikszene bekannt zu machen."
         },
@@ -6235,12 +5950,7 @@
       "medium": [
         {
           "question": "In welchem Film wurde der Song 'Turn! Turn! Turn!' von The Byrds aus dem Jahr 1965 verwendet?",
-          "options": [
-            "The Trip",
-            "Easy Rider",
-            "Forrest Gump",
-            "The Big Lebowski"
-          ],
+          "options": ["The Trip", "Easy Rider", "Forrest Gump", "The Big Lebowski"],
           "correctAnswer": "Forrest Gump",
           "trivia": "Der Song 'Turn! Turn! Turn!' von The Byrds wurde in dem ikonischen Film 'Forrest Gump' verwendet, der 1994 erschienen ist. Dieser Film, der auf dem gleichnamigen Roman von Winston Groom basiert, behandelt die Lebensgeschichte des titelgebenden Charakters, der durch bedeutende Ereignisse der amerikanischen Geschichte navigiert. Das Album 'Turn! Turn! Turn!' wurde 1965 veröffentlicht und enthält eine der bekanntesten Versionen des gleichnamigen Songs, der ursprünglich von Pete Seeger geschrieben wurde. Die Musik der Byrds, insbesondere der harmonische Gesang und der Folk-Rock-Stil, hat entscheidend zur Popularität des Albums beigetragen und bleibt bis heute ein bedeutender Teil der Musikgeschichte."
         },
@@ -6292,12 +6002,7 @@
         },
         {
           "question": "Mit welchem bekannten Künstler arbeiteten The Byrds während der Entstehung ihres Albums 'Turn! Turn! Turn!' von 1965 zusammen, um eine Neuinterpretation eines Folk-Klassikers zu schaffen?",
-          "options": [
-            "Woody Guthrie",
-            "Bob Dylan",
-            "Simon & Garfunkel",
-            "Pete Seeger"
-          ],
+          "options": ["Woody Guthrie", "Bob Dylan", "Simon & Garfunkel", "Pete Seeger"],
           "correctAnswer": "Bob Dylan",
           "trivia": "Die richtige Antwort ist Bob Dylan. The Byrds nahmen für ihr Album 'Turn! Turn! Turn!' den Song 'Mr. Tambourine Man' auf, der ursprünglich von Dylan geschrieben wurde. Diese Zusammenarbeit war entscheidend für den Folk-Rock-Sound der Band und trug maßgeblich zu ihrem kommerziellen Erfolg bei. Das Album, das 1965 veröffentlicht wurde, enthält auch eine Vielzahl von anderen Coverversionen und Originalkompositionen, die den Einfluss von Dylans Songwriting auf die Musik dieser Zeit widerspiegeln. Die Verbindung zwischen The Byrds und Dylan verdeutlicht die kulturellen Strömungen und den kreativen Austausch innerhalb der Musikszene der 1960er Jahre."
         }
@@ -6480,12 +6185,7 @@
         },
         {
           "question": "Mit welchem renommierten Produzenten arbeiteten The Rolling Stones während der Aufnahmen für ihr Album 'Out of Our Heads' im Jahr 1965 zusammen?",
-          "options": [
-            "George Martin",
-            "Glyn Johns",
-            "Andrew Oldham",
-            "Phil Spector"
-          ],
+          "options": ["George Martin", "Glyn Johns", "Andrew Oldham", "Phil Spector"],
           "correctAnswer": "Andrew Oldham",
           "trivia": "Die Zusammenarbeit mit Andrew Oldham war entscheidend für den Erfolg von The Rolling Stones und insbesondere für das Album 'Out of Our Heads'. Oldham, der auch als Manager der Band fungierte, brachte einen frischen und innovativen Ansatz in die Produktion ein, der den charakteristischen Sound der Stones prägte. Das Album enthält einige ihrer bekanntesten Tracks, darunter 'Satisfaction', welches Oldham als Produzent maßgeblich formte. Darüber hinaus war Oldham bekannt für seine Fähigkeit, die Dynamik zwischen den Bandmitgliedern zu nutzen und ihnen eine unverwechselbare Stimme im Rock 'n' Roll zu verleihen."
         },
@@ -6892,12 +6592,7 @@
       "easy": [
         {
           "question": "Welche bekannte Produzentenpersönlichkeit war maßgeblich an der Produktion des Albums 'White Light/White Heat' von The Velvet Underground im Jahr 1968 beteiligt?",
-          "options": [
-            "Phil Spector",
-            "Brian Eno",
-            "Andy Warhol",
-            "George Martin"
-          ],
+          "options": ["Phil Spector", "Brian Eno", "Andy Warhol", "George Martin"],
           "correctAnswer": "Andy Warhol",
           "trivia": "Andy Warhol war nicht nur ein einflussreicher Künstler, sondern auch der Produzent von 'White Light/White Heat', dem zweiten Album von The Velvet Underground. Unter seiner Aufsicht und mit seiner künstlerischen Vision wurde das Album geprägt von experimentellen Klängen und innovativen Techniken. Warhol hatte zuvor die Band entdeckt und förderte sie durch seine berühmte 'Exploding Plastic Inevitable'-Show. Diese Verbindung zwischen Warhol und der Band führte dazu, dass das Album in der Kunst- und Musikszene der 1960er Jahre als wegweisend galt."
         },
@@ -6914,12 +6609,7 @@
         },
         {
           "question": "In welchem berühmten Film wurde das Lied 'Sister Ray' aus dem Album 'White Light/White Heat' von The Velvet Underground verwendet?",
-          "options": [
-            "Trainspotting",
-            "The Royal Tenenbaums",
-            "Velvet Goldmine",
-            "Her"
-          ],
+          "options": ["Trainspotting", "The Royal Tenenbaums", "Velvet Goldmine", "Her"],
           "correctAnswer": "Velvet Goldmine",
           "trivia": "Das Lied 'Sister Ray' von The Velvet Underground, das auf dem Album 'White Light/White Heat' aus dem Jahr 1968 zu finden ist, wurde in dem Film 'Velvet Goldmine' verwendet. Dieser Film, der von Todd Haynes inszeniert wurde, thematisiert die Glam-Rock-Ära der 1970er Jahre und ist stark von der Musik und der Ästhetik von The Velvet Underground inspiriert. 'Sister Ray' gilt als eines der einflussreichsten Stücke der Band und spiegelt deren experimentellen Ansatz wider. Das Album selbst ist bekannt für seine avantgardistischen Klänge und seine Rolle in der Entwicklung des Rockgenres. 'Velvet Goldmine' nutzt die Musik der Band, um die kulturellen und musikalischen Strömungen dieser Zeit zu verdeutlichen."
         }
@@ -7137,23 +6827,13 @@
         },
         {
           "question": "Welcher berühmte Künstler oder welche Band gab an, von Laura Nyros Album 'Eli and the Thirteenth Confession' aus dem Jahr 1968 stark inspiriert worden zu sein?",
-          "options": [
-            "Billy Joel",
-            "Elton John",
-            "Joni Mitchell",
-            "Carole King"
-          ],
+          "options": ["Billy Joel", "Elton John", "Joni Mitchell", "Carole King"],
           "correctAnswer": "Joni Mitchell",
           "trivia": "Joni Mitchell hat mehrfach betont, wie sehr sie von Laura Nyro und ihrem Album 'Eli and the Thirteenth Confession' beeinflusst wurde. Nyros einzigartige Mischung aus Soul, Pop und Jazz sowie ihre poetischen Texte haben viele Singer-Songwriter inspiriert. Insbesondere die emotionale Tiefe und die musikalischen Strukturen auf diesem Album sind für viele Künstlerinnen und Künstler, die nach ihr kamen, ein Referenzpunkt geworden. Zudem brachte 'Eli and the Thirteenth Confession' Hits wie 'Stoney End' hervor, die später von anderen Künstlern gecovert wurden, was die anhaltende Relevanz von Nyros Werk unterstreicht."
         },
         {
           "question": "Mit welchem bekannten Künstler arbeitete Laura Nyro an ihrem Album 'Eli and the Thirteenth Confession' aus dem Jahr 1968 zusammen?",
-          "options": [
-            "David Bowie",
-            "Herbie Hancock",
-            "Carole King",
-            "James Taylor"
-          ],
+          "options": ["David Bowie", "Herbie Hancock", "Carole King", "James Taylor"],
           "correctAnswer": "Carole King",
           "trivia": "Laura Nyro arbeitete eng mit Carole King zusammen, die für ihre Gesangskompositionen und ihr Klavierspiel bekannt ist. Beide Künstlerinnen waren Teil der aufregenden Musikszene der späten 1960er Jahre und beeinflussten sich gegenseitig. 'Eli and the Thirteenth Confession' enthält einige von Nyros bekanntesten Songs, darunter 'Eli's Comin'' und 'Stoney End', die durch Kings harmonische Melodien und Arrangements bereichert wurden. Laura Nyro war bekannt für ihre einzigartige Mischung aus Pop, Jazz und Soul, die sie in diesem Album meisterhaft umsetzte. Ihre Zusammenarbeit mit anderen Künstlern trug dazu bei, ihren unverwechselbaren Stil weiterzuentwickeln und in der Musikszene der Zeit Fuß zu fassen."
         }
@@ -7355,12 +7035,7 @@
       "easy": [
         {
           "question": "Welche erfolgreiche Single aus dem Album 'Aerial Ballet' von Harry Nilsson erreichte in den US Billboard Hot 100 eine hohe Chartplatzierung?",
-          "options": [
-            "One",
-            "Everybody's Talkin'",
-            "Jump into the Fire",
-            "Coconut"
-          ],
+          "options": ["One", "Everybody's Talkin'", "Jump into the Fire", "Coconut"],
           "correctAnswer": "Everybody's Talkin'",
           "trivia": "Die richtige Antwort ist 'Everybody's Talkin'', die eine der bekanntesten Singles aus Harry Nilssons Album 'Aerial Ballet' von 1968 ist. Der Song erreichte im Jahr 1969 Platz 6 der US Billboard Hot 100 und wurde durch den Film 'Midnight Cowboy' noch populärer. Harry Nilsson, ein talentierter Singer-Songwriter, kombinierte in diesem Lied eindrucksvoll Folk-Elemente mit einer eingängigen Melodie. Das Album selbst gilt als wegweisend für Nilssons Karriere und zeigt seine Vielseitigkeit als Künstler. 'Aerial Ballet' wurde von der Kritik hoch gelobt und stellte Nilsson als einen der innovativsten Musiker seiner Zeit vor."
         },
@@ -7467,12 +7142,7 @@
       "easy": [
         {
           "question": "Welcher bekannte Musiker spielte das Saxophon auf dem Album 'Hot Rats' von Frank Zappa, das 1969 veröffentlicht wurde?",
-          "options": [
-            "John Coltrane",
-            "Ian Underwood",
-            "Mick Jagger",
-            "George Benson"
-          ],
+          "options": ["John Coltrane", "Ian Underwood", "Mick Jagger", "George Benson"],
           "correctAnswer": "Ian Underwood",
           "trivia": "Ian Underwood war ein zentraler Musiker an 'Hot Rats' und spielte nicht nur Saxophon, sondern auch Klavier und andere Instrumente. Das Album gilt als eines der ersten, das Jazz-Elemente mit Rockmusik kombinierte und wurde von Frank Zappa selbst produziert. Unterwoods Beitrag war entscheidend für den einzigartigen Sound des Albums, das 1969 veröffentlicht wurde und als Meilenstein in der Musikwelt gilt. Die Mischung aus Improvisation und komplexen Arrangements zeigt Zappas innovative Herangehensweise an die Musikproduktion."
         },
@@ -7590,12 +7260,7 @@
         },
         {
           "question": "Welcher berühmte Produzent war maßgeblich an der Entstehung des Hits 'You’ve Lost That Lovin’ Feelin’' von The Righteous Brothers beteiligt?",
-          "options": [
-            "Phil Spector",
-            "Berry Gordy",
-            "Brian Wilson",
-            "George Martin"
-          ],
+          "options": ["Phil Spector", "Berry Gordy", "Brian Wilson", "George Martin"],
           "correctAnswer": "Phil Spector",
           "trivia": "Der richtige Antwort ist Phil Spector, der als einer der einflussreichsten Produzenten der 1960er Jahre gilt. Spector war bekannt für seinen 'Wall of Sound'-Produktionstil, der auch in 'You’ve Lost That Lovin’ Feelin’' zur Anwendung kam. Dieser Song gilt als einer der erfolgreichsten Hits von The Righteous Brothers und erreichte 1965 die Spitze der Billboard Hot 100 Charts. Die Zusammenarbeit zwischen The Righteous Brothers und Phil Spector wurde als wegweisend für die Popmusik angesehen und zeigte, wie emotionale Gesangsdarbietungen mit innovativer Produktion kombiniert werden können."
         },
@@ -7696,12 +7361,7 @@
       "easy": [
         {
           "question": "Welcher berühmte Gitarrist spielte auf dem Album 'Blues Breakers with Eric Clapton' von John Mayall & the Bluesbreakers, das 1966 veröffentlicht wurde?",
-          "options": [
-            "Jimi Hendrix",
-            "Eric Clapton",
-            "Jeff Beck",
-            "Jimmy Page"
-          ],
+          "options": ["Jimi Hendrix", "Eric Clapton", "Jeff Beck", "Jimmy Page"],
           "correctAnswer": "Eric Clapton",
           "trivia": "Das Album 'Blues Breakers with Eric Clapton' ist ein Meilenstein in der Blues- und Rockmusik und wurde 1966 veröffentlicht. Eric Clapton, der zu diesem Zeitpunkt bereits als Mitglied der Yardbirds bekannt war, spielte die Gitarre auf diesem Album und stellte damit seinen einzigartigen Stil unter Beweis. Das Album gilt als eines der einflussreichsten Werke im Blues-Rock-Genre und half, Claptons Ruf als einer der besten Gitarristen seiner Generation zu festigen. Darüber hinaus wurde die Zusammenarbeit zwischen John Mayall und Clapton von der Kritik hoch gelobt, was zu einem langfristigen Einfluss auf die britische Musikszene führte."
         },
@@ -7718,12 +7378,7 @@
         },
         {
           "question": "In welchem Film wurde ein Song aus dem Album 'Blues Breakers with Eric Clapton' von John Mayall & the Bluesbreakers verwendet?",
-          "options": [
-            "The Blues Brothers",
-            "A Clockwork Orange",
-            "Goodfellas",
-            "The Commitments"
-          ],
+          "options": ["The Blues Brothers", "A Clockwork Orange", "Goodfellas", "The Commitments"],
           "correctAnswer": "The Commitments",
           "trivia": "Der Song 'Have You Heard' aus dem Album 'Blues Breakers with Eric Clapton' von John Mayall & the Bluesbreakers wurde in dem Film 'The Commitments' verwendet, der 1991 veröffentlicht wurde. Dieses Album, das als eines der einflussreichsten Blues-Alben gilt, half nicht nur Eric Clapton zu internationalem Ruhm, sondern trug auch zur Popularität des Blues in der Rockmusik bei. 'Blues Breakers with Eric Clapton' wurde 1966 veröffentlicht und ist bekannt für seine herausragenden Gitarrenriffs und Claptons virtuoses Spiel. Der Film 'The Commitments' thematisiert eine Band, die versucht, im Dublin der 1980er Jahre im Musikgeschäft Fuß zu fassen und zeigt somit den anhaltenden Einfluss des Blues auf die Musikszene."
         }
@@ -8200,12 +7855,7 @@
         },
         {
           "question": "Mit welchem prominenten Musiker arbeitete Joni Mitchell während der Aufnahmen zu ihrem Album 'Clouds' aus dem Jahr 1969 zusammen?",
-          "options": [
-            "David Crosby",
-            "James Taylor",
-            "Leonard Cohen",
-            "Neil Young"
-          ],
+          "options": ["David Crosby", "James Taylor", "Leonard Cohen", "Neil Young"],
           "correctAnswer": "David Crosby",
           "trivia": "David Crosby, Mitglied der berühmten Folk-Rock-Band Crosby, Stills, Nash & Young, war einer der Künstler, die während der Aufnahmen zu Joni Mitchells Album 'Clouds' im Jahr 1969 mitwirkte. Er spielte nicht nur Gitarre, sondern trug auch harmonische Vocals bei, was dem Sound des Albums eine besondere Dimension verlieh. 'Clouds' gilt als eines von Mitchells Schlüsseldokumenten, das ihren Einfluss auf die Musikszene der späten 60er Jahre festigte. Darüber hinaus ist die Zusammenarbeit zwischen Mitchell und Crosby ein Beispiel für die enge Verbindung von Künstlern dieser Ära, die oft in kreativen Gemeinschaften zusammenarbeiteten. Ihre Interaktion hatte auch Einfluss auf die Entwicklung von Mitchells musikalischem Stil in den folgenden Jahren."
         },
@@ -8277,12 +7927,7 @@
         },
         {
           "question": "Welche unveröffentlichte Aufnahme aus den Sessions für 'The Exciting Wilson Pickett' ist bis heute nicht offiziell auf einem Album erschienen?",
-          "options": [
-            "I Can't Stop",
-            "You're So Fine",
-            "It's Too Late",
-            "I Found a Love"
-          ],
+          "options": ["I Can't Stop", "You're So Fine", "It's Too Late", "I Found a Love"],
           "correctAnswer": "I Can't Stop",
           "trivia": "Die unveröffentlichte Aufnahme 'I Can't Stop' wurde während der Sessions für 'The Exciting Wilson Pickett' im Jahr 1966 aufgenommen, ist jedoch nie auf einem offiziellen Album erschienen. Wilson Pickett, bekannt für seine kraftvolle Stimme und seinen Einfluss auf die Soulmusik, erlangte große Popularität in den 1960er Jahren. Das Album selbst enthält Hits wie 'You're So Fine' und 'In the Midnight Hour', die beide zur Soul-Ära maßgeblich beitrugen. 'I Can't Stop' bleibt ein faszinierendes Beispiel für die vielen musikalischen Schätze, die während dieser produktiven Zeit entstanden, aber nie das Licht der Welt erblickten."
         },
@@ -8475,12 +8120,7 @@
         },
         {
           "question": "Welche prominente Folk-Musikerin war maßgeblich an den Aufnahmen für Bob Dylans Album 'The Freewheelin’ Bob Dylan' beteiligt und brachte ihren Einfluss in die Harmonien ein?",
-          "options": [
-            "Joan Baez",
-            "Joni Mitchell",
-            "Peter, Paul and Mary",
-            "Odetta"
-          ],
+          "options": ["Joan Baez", "Joni Mitchell", "Peter, Paul and Mary", "Odetta"],
           "correctAnswer": "Joan Baez",
           "trivia": "Joan Baez, eine herausragende Figur der amerikanischen Folk-Musikszene, war nicht nur eine enge Freundin von Bob Dylan, sondern auch eine bedeutende Kollaborateurin während der Aufnahmen zu 'The Freewheelin’ Bob Dylan' im Jahr 1963. Ihre starken harmonischen Stimmen und politischen Überzeugungen beeinflussten die Texte und den Stil des Albums maßgeblich. Baez trat in dieser Zeit an Dylans Seite auf und half, seine Musik einem breiteren Publikum zugänglich zu machen, was zu einem wichtigen Teil seiner Karriere wurde. Darüber hinaus war Baez bereits eine bekannte Künstlerin, die Dylans Song 'With God on Our Side' populär machte, was die Verbindung zwischen beiden Künstlern weiter festigte."
         }
@@ -8740,12 +8380,7 @@
         },
         {
           "question": "In welcher literarischen Strömung lässt sich der Einfluss für den Song 'My Girl' auf dem Album 'Going to a Go-Go' von Smokey Robinson & The Miracles aus dem Jahr 1965 erkennen?",
-          "options": [
-            "Romantik",
-            "Surrealismus",
-            "Beat-Generation",
-            "Realismus"
-          ],
+          "options": ["Romantik", "Surrealismus", "Beat-Generation", "Realismus"],
           "correctAnswer": "Romantik",
           "trivia": "Der Song 'My Girl' von Smokey Robinson & The Miracles, der auf dem Album 'Going to a Go-Go' veröffentlicht wurde, zeigt klare Einflüsse der Romantik, insbesondere in der Art und Weise, wie er Liebe und Emotionen thematisiert. Die Romantik, eine literarische Bewegung des 18. und 19. Jahrhunderts, legte großen Wert auf individuelle Gefühle und die Schönheit der Natur, was sich auch in der leidenschaftlichen Ausdrucksweise des Songs widerspiegelt. 'My Girl' wurde 1964 veröffentlicht und wurde zu einem der größten Hits des Motown-Labels. Mit seiner eingängigen Melodie und den gefühlvollen Texten hat der Song bis heute Bestand, was die zeitlose Anziehungskraft der romantischen Themen unterstreicht."
         },
@@ -9070,12 +8705,7 @@
       "easy": [
         {
           "question": "Mit welchem bekannten Künstler arbeiteten The Rolling Stones während der Aufnahmen für ihr Album 'Between the Buttons' aus dem Jahr 1967 zusammen?",
-          "options": [
-            "Eric Clapton",
-            "Nicky Hopkins",
-            "Jimmy Page",
-            "David Bowie"
-          ],
+          "options": ["Eric Clapton", "Nicky Hopkins", "Jimmy Page", "David Bowie"],
           "correctAnswer": "Nicky Hopkins",
           "trivia": "Die richtige Antwort ist Nicky Hopkins, der als Pianist und Keyboarder auf 'Between the Buttons' mitwirkte. Hopkins war ein gefragter Sessionmusiker, der mit vielen namhaften Künstlern der 60er Jahre zusammenarbeitete. Das Album, das 1967 veröffentlicht wurde, enthält einige der bekanntesten Songs der Band, darunter 'Ruby Tuesday'. Neben Hopkins spielten auch andere prominente Musiker in verschiedenen Tracks des Albums, was die Kollaboration und den kreativen Austausch innerhalb der Rockmusik dieser Zeit unterstreicht."
         },
@@ -9279,12 +8909,7 @@
         },
         {
           "question": "Mit welchem berühmten Musiker arbeitete Frank Zappa während der Aufnahmen zu 'We’re Only in It for the Money' von The Mothers of Invention, der dabei half, den experimentellen Klang des Albums zu formen?",
-          "options": [
-            "Brian Wilson",
-            "John Lennon",
-            "Jimi Hendrix",
-            "George Harrison"
-          ],
+          "options": ["Brian Wilson", "John Lennon", "Jimi Hendrix", "George Harrison"],
           "correctAnswer": "Brian Wilson",
           "trivia": "Frank Zappa und The Mothers of Invention hatten eine besondere Verbindung zu Brian Wilson, dem kreativen Kopf der Beach Boys. Während der Aufnahmen zu 'We’re Only in It for the Money' im Jahr 1968, war Wilson eine wichtige Inspirationsquelle für Zappas experimentellen Ansatz in der Musikproduktion. Zappa selbst äußerte sich in mehreren Interviews über den Einfluss von Wilsons harmonischen Experimenten und dem innovativen Sound der Beach Boys. Diese Zusammenarbeit und der Austausch von Ideen führten zu einem Album, das sowohl musikalisch als auch kulturell eine bedeutende Stellung in der Rockgeschichte einnimmt."
         }
@@ -9374,12 +8999,7 @@
       "hard": [
         {
           "question": "In welcher bekannten Fernsehserie aus den 1990er Jahren wurde der Song 'Sittin' on the Dock of the Bay' von Otis Redding, dem legendären Album 'The Dock of the Bay' aus 1968, prominent verwendet?",
-          "options": [
-            "Friends",
-            "The Fresh Prince of Bel-Air",
-            "The X-Files",
-            "ER"
-          ],
+          "options": ["Friends", "The Fresh Prince of Bel-Air", "The X-Files", "ER"],
           "correctAnswer": "The Fresh Prince of Bel-Air",
           "trivia": "Der Song 'Sittin' on the Dock of the Bay' von Otis Redding, der auf dem Album 'The Dock of the Bay' veröffentlicht wurde, ist in der Episode 'The Fresh Prince Project' der Serie 'The Fresh Prince of Bel-Air' zu hören. Diese ikonische Sitcom, die von 1990 bis 1996 ausgestrahlt wurde, nutzt den Song, um eine nostalgische Stimmung zu erzeugen und die emotionale Tiefe der Charaktere zu unterstreichen. Redding's zeitloser Hit, der oft mit Themen von Sehnsucht und Reflexion assoziiert wird, trägt zur Atmosphäre der Episode bei. 'The Dock of the Bay', das posthum veröffentlicht wurde, gilt heute als eines der bedeutendsten Alben der Soul-Musik und erreichte hohe Chartplatzierungen in den USA und weltweit."
         },
@@ -9533,12 +9153,7 @@
       "easy": [
         {
           "question": "Welcher Song auf Sam Cookes Album 'Ain’t That Good News' von 1964 thematisiert die Freude und Hoffnung nach schwierigen Zeiten?",
-          "options": [
-            "Change Is Gonna Come",
-            "Wonderful World",
-            "Good Times",
-            "Having a Party"
-          ],
+          "options": ["Change Is Gonna Come", "Wonderful World", "Good Times", "Having a Party"],
           "correctAnswer": "Having a Party",
           "trivia": "Der Song 'Having a Party' ist ein Highlight auf Sam Cookes Album 'Ain’t That Good News' und vermittelt eine Botschaft des Optimismus und der Zusammenkunft. Cooke beschreibt in diesem Stück, wie wichtig es ist, das Leben zu feiern, selbst nach schweren Zeiten. Das Album, das 1964 veröffentlicht wurde, enthält mehrere Songs, die sich mit Themen wie Hoffnung und Zusammenhalt auseinandersetzen. 'Ain’t That Good News' war Cookes letztes Studioalbum, bevor er tragisch verstarb, und es gilt als eines seiner bedeutendsten Werke."
         },
@@ -9614,12 +9229,7 @@
         },
         {
           "question": "Welche spezifische musikalische Technik, die in der Soul- und R&B-Musik weit verbreitet ist, verwendete Sam Cooke auf seinem Album 'Ain’t That Good News' aus dem Jahr 1964, um die emotionale Intensität seiner Gesangsdarbietungen zu steigern?",
-          "options": [
-            "Call and Response",
-            "Polyrhythmik",
-            "Syncopation",
-            "Modalität"
-          ],
+          "options": ["Call and Response", "Polyrhythmik", "Syncopation", "Modalität"],
           "correctAnswer": "Call and Response",
           "trivia": "Sam Cooke nutzte die 'Call and Response'-Technik in mehreren Stücken seines Albums 'Ain’t That Good News', um den Dialog zwischen dem Gesang und den instrumentalen Begleitungen zu betonen. Diese Technik hat Wurzeln in der afroamerikanischen Musiktradition und wird oft verwendet, um eine interaktive Beziehung zwischen dem Sänger und dem Publikum zu schaffen. Cooke, der als einer der Väter des Soul gilt, verband diese Technik mit einprägsamen Melodien und emotionalen Texten, was zur kulturellen Bedeutung des Albums beitrug. 'Ain’t That Good News' enthält auch Elemente des Gospel, was Cookes musikalische Herkunft widerspiegelt und ihm half, eine Brücke zwischen verschiedenen Musikgenres zu schlagen."
         },
@@ -9885,12 +9495,7 @@
         },
         {
           "question": "Welche Künstler beeinflussten den einzigartigen Sound von The Ronettes auf ihrem Album 'Presenting the Fabulous Ronettes' aus dem Jahr 1964?",
-          "options": [
-            "Die Beach Boys",
-            "Die Supremes",
-            "The Shirelles",
-            "The Crystals"
-          ],
+          "options": ["Die Beach Boys", "Die Supremes", "The Shirelles", "The Crystals"],
           "correctAnswer": "The Crystals",
           "trivia": "The Ronettes wurden stark von verschiedenen Künstlern der 1960er Jahre inspiriert, insbesondere von The Crystals. Diese Girlgroup war bekannt für ihren eindrucksvollen Harmoniegesang und ihren Einfluss auf die Popmusik jener Zeit. Das Album 'Presenting the Fabulous Ronettes' enthält Elemente, die an den Sound von The Crystals erinnern, insbesondere durch die Produktion von Phil Spector, der auch mit ihnen arbeitete. The Ronettes und The Crystals teilten sich nicht nur den Produktionsstil, sondern auch die Fähigkeit, emotionale und eingängige Melodien zu kreieren, die bis heute Klassiker sind."
         },
@@ -9920,23 +9525,13 @@
         },
         {
           "question": "Welche berühmte Musikikone hatte großen Einfluss auf den Sound und die künstlerische Ausrichtung von The Ronettes auf ihrem Album 'Presenting the Fabulous Ronettes' aus dem Jahr 1964?",
-          "options": [
-            "Phil Spector",
-            "Brian Wilson",
-            "Berry Gordy",
-            "George Martin"
-          ],
+          "options": ["Phil Spector", "Brian Wilson", "Berry Gordy", "George Martin"],
           "correctAnswer": "Phil Spector",
           "trivia": "Der Einfluss von Phil Spector auf das Album 'Presenting the Fabulous Ronettes' ist unbestreitbar, da er nicht nur als Produzent fungierte, sondern auch die 'Wall of Sound'-Technik entwickelte, die den charakteristischen Klang der Ronettes prägte. Spector arbeitete eng mit den Ronettes zusammen, um ihren einzigartigen Stil zu formen, der eine Mischung aus Pop und Rock'n'Roll darstellt. Die Kombination von mehrstimmigem Gesang und orchestralen Arrangements verhalf dem Album zu großem Erfolg und half, die Ronettes zu einer der führenden Girl Groups der 1960er Jahre zu machen. Die Zusammenarbeit mit Spector führte zu Hits wie 'Be My Baby', die bis heute als Klassiker gelten."
         },
         {
           "question": "In welchem bekannten Film taucht ein Song aus dem Album 'Presenting the Fabulous Ronettes' von The Ronettes auf und trägt zur Atmosphäre der Handlung bei?",
-          "options": [
-            "Dirty Dancing",
-            "Goodfellas",
-            "Mean Streets",
-            "Girls Just Want to Have Fun"
-          ],
+          "options": ["Dirty Dancing", "Goodfellas", "Mean Streets", "Girls Just Want to Have Fun"],
           "correctAnswer": "Mean Streets",
           "trivia": "Der Song 'Be My Baby' von The Ronettes, der auf dem Album 'Presenting the Fabulous Ronettes' aus dem Jahr 1964 zu finden ist, wird in Martin Scorseses Film 'Mean Streets' von 1973 verwendet. Dieser Klassiker gilt als einer der ersten Filme, der den Soundtrack von Rock 'n' Roll und Popmusik effektiv in die Erzählung integriert. 'Be My Baby' war nicht nur ein großer Hit für die Ronettes, sondern wurde auch zum Markenzeichen des Phil Spector Wall of Sound-Produkts. Die Verwendung des Songs im Film verstärkt die emotionale Tiefe und das zeitgenössische Flair der Handlung, wodurch die Musik und die filmische Erzählung eng miteinander verbunden werden."
         }
@@ -9944,12 +9539,7 @@
       "hard": [
         {
           "question": "Welche berühmte Künstlerin, die für ihren Einfluss auf die Girlgroup-Musik bekannt ist, diente als künstlerische Inspiration für The Ronettes bei der Entstehung des Albums 'Presenting the Fabulous Ronettes' aus dem Jahr 1964?",
-          "options": [
-            "Darlene Love",
-            "Shangri-Las",
-            "The Supremes",
-            "Lesley Gore"
-          ],
+          "options": ["Darlene Love", "Shangri-Las", "The Supremes", "Lesley Gore"],
           "correctAnswer": "Darlene Love",
           "trivia": "Darlene Love war eine bedeutende Inspirationsquelle für The Ronettes, insbesondere bei der Entwicklung ihres charakteristischen Sounds und ihrer Bühnenpräsenz. Ihr Einfluss zeigt sich in der kraftvollen Gesangstechnik, die auch auf 'Presenting the Fabulous Ronettes' zu hören ist, und in der Art und Weise, wie The Ronettes ihre Harmonien gestalteten. Das Album, das 1964 veröffentlicht wurde, festigte den Einfluss von Phil Spector und seiner 'Wall of Sound'-Produktion, die stark von Darlene Loves Arbeiten geprägt war. Außerdem war Love Mitglied der berühmten Gruppe The Blossoms, die häufig mit Spector zusammenarbeitete, was die Verbindung zwischen diesen Künstlerinnen weiter verstärkt."
         },
@@ -10317,12 +9907,7 @@
         },
         {
           "question": "Welche prominente Musikerpersönlichkeit war an den Aufnahmen für das Album 'Cold Sweat' von James Brown im Jahr 1967 maßgeblich beteiligt und trug zur Entwicklung des Funk-Genres bei?",
-          "options": [
-            "George Clinton",
-            "Sly Stone",
-            "Bootsy Collins",
-            "Bobby Byrd"
-          ],
+          "options": ["George Clinton", "Sly Stone", "Bootsy Collins", "Bobby Byrd"],
           "correctAnswer": "Bobby Byrd",
           "trivia": "Bobby Byrd war ein zentraler Bestandteil der James Brown Band und spielte eine entscheidende Rolle bei der Entstehung des Albums 'Cold Sweat'. Er war nicht nur ein langjähriger musikalischer Partner von James Brown, sondern auch ein talentierter Songwriter und Produzent. 'Cold Sweat' gilt als eines der ersten Funk-Alben und stellte eine Abkehr von den vorherigen Soul-Klängen dar, was maßgeblich durch Byrds Einfluss und die innovative Herangehensweise an Rhythmus und Groove geprägt wurde. Zudem war Byrd an den meisten der frühen Hits von James Brown beteiligt und half, den charakteristischen Sound zu entwickeln, der die Funk-Musik der 1970er Jahre prägte."
         }
@@ -10353,23 +9938,13 @@
         },
         {
           "question": "Welcher bekannte Song von The Yardbirds ist auf dem Album 'Having a Rave Up with The Yardbirds' aus dem Jahr 1965 enthalten?",
-          "options": [
-            "For Your Love",
-            "Sunshine of Your Love",
-            "I'm a Man",
-            "Heart Full of Soul"
-          ],
+          "options": ["For Your Love", "Sunshine of Your Love", "I'm a Man", "Heart Full of Soul"],
           "correctAnswer": "Heart Full of Soul",
           "trivia": "Der Song 'Heart Full of Soul' ist einer der bekanntesten Titel von The Yardbirds und wurde auf ihrem Album 'Having a Rave Up with The Yardbirds' veröffentlicht. Der Track wurde 1965 ein Hit und erreichte hohe Chartplatzierungen, darunter den 1. Platz in den britischen Charts. Der Song ist besonders für seinen charakteristischen Einsatz von E-Gitarre und die markante Stimme von Sänger Keith Relf bekannt. 'Heart Full of Soul' gilt als ein frühes Beispiel für den Übergang von Rhythm and Blues zu Psychedelic Rock, was die musikalische Entwicklung der Band widerspiegelt."
         },
         {
           "question": "Mit welchem renommierten Produzenten arbeiteten The Yardbirds für die Aufnahme ihres Albums 'Having a Rave Up with The Yardbirds' im Jahr 1965 zusammen?",
-          "options": [
-            "Mick Jagger",
-            "Glynn Johns",
-            "George Martin",
-            "Jimmy Page"
-          ],
+          "options": ["Mick Jagger", "Glynn Johns", "George Martin", "Jimmy Page"],
           "correctAnswer": "Glynn Johns",
           "trivia": "Die Yardbirds arbeiteten bei ihrem Album 'Having a Rave Up with The Yardbirds' mit dem Produzenten Glynn Johns zusammen, der bekannt dafür ist, viele ikonische Bands der 60er Jahre zu produzieren. Glynn Johns spielte eine entscheidende Rolle in der Entwicklung des Sounds der Yardbirds und half, ihre Energie und Kreativität im Studio einzufangen. Er war auch an der Produktion von Alben für andere berühmte Acts wie die Rolling Stones und The Who beteiligt. Das Album enthält einige der bekanntesten Songs der Band und zeigt die innovative Gitarrenarbeit, die die Yardbirds berühmt gemacht hat."
         }
@@ -10546,12 +10121,7 @@
         },
         {
           "question": "Welche literarische Figur diente als Inspiration für den Song 'Do You Believe in Magic' auf dem gleichnamigen Album von The Lovin’ Spoonful aus dem Jahr 1965?",
-          "options": [
-            "Peter Pan",
-            "Alice aus dem Wunderland",
-            "Der kleine Prinz",
-            "Huck Finn"
-          ],
+          "options": ["Peter Pan", "Alice aus dem Wunderland", "Der kleine Prinz", "Huck Finn"],
           "correctAnswer": "Peter Pan",
           "trivia": "Der Song 'Do You Believe in Magic' von The Lovin’ Spoonful ist stark von der Figur Peter Pan inspiriert, die für ihre Unbeschwertheit und ihren Glauben an Magie und Fantasie bekannt ist. Diese Verbindung wird durch die thematische Erkundung von kindlicher Unschuld und der Verzauberung durch Musik und Träume verstärkt. Die Band, die 1965 mit diesem Album ihren Durchbruch feierte, wollte mit ihrer Musik ein Gefühl der Freiheit und des Staunens vermitteln, ähnlich wie es die Geschichte von Peter Pan tut. Der Einfluss von Literatur auf die Musik der 1960er Jahre ist ein Beispiel für die kulturellen Strömungen dieser Zeit, die oft eine harmonische Verbindung zwischen verschiedenen Kunstformen suchten."
         }
@@ -10719,12 +10289,7 @@
         },
         {
           "question": "In welchem berühmten Film wurde der Song 'Folsom Prison Blues' aus dem Album 'At San Quentin' von Johnny Cash verwendet, was zur Wiederbelebung seines musikalischen Erbes beitrug?",
-          "options": [
-            "Die Verurteilten",
-            "Walk the Line",
-            "The Green Mile",
-            "A Star is Born"
-          ],
+          "options": ["Die Verurteilten", "Walk the Line", "The Green Mile", "A Star is Born"],
           "correctAnswer": "Walk the Line",
           "trivia": "Der Song 'Folsom Prison Blues', der ursprünglich 1955 veröffentlicht wurde, fand eine bemerkenswerte Verwendung im Film 'Walk the Line' aus dem Jahr 2005, der das Leben von Johnny Cash beleuchtet. In dieser Biografie wird die Verbindung zwischen Cash und dem Gefängnisleben thematisiert, was auch die Bedeutung seines Live-Albums 'At San Quentin' verstärkt. In 'At San Quentin' aus dem Jahr 1969 performte Cash vor einem Gefängnispublikum, was seine Relevanz in der Musik- und Gefängniskultur unterstreicht. Die Verwendung seiner Musik in 'Walk the Line' trug dazu bei, eine neue Generation für seine Musik zu begeistern und sein Vermächtnis weiterzuführen."
         },
@@ -10801,12 +10366,7 @@
         },
         {
           "question": "In welcher bekannten TV-Show wurde der Song 'Piece of My Heart' aus dem Album 'Cheap Thrills' von Big Brother and the Holding Company prominent verwendet?",
-          "options": [
-            "Friends",
-            "The Simpsons",
-            "The Sopranos",
-            "Stranger Things"
-          ],
+          "options": ["Friends", "The Simpsons", "The Sopranos", "Stranger Things"],
           "correctAnswer": "The Sopranos",
           "trivia": "'Piece of My Heart' von Big Brother and the Holding Company, das auf dem Album 'Cheap Thrills' von 1968 zu finden ist, wurde in der erfolgreichen TV-Serie 'The Sopranos' verwendet. Diese Serie, die von 1999 bis 2007 ausgestrahlt wurde, ist bekannt für ihre sorgfältige Auswahl an Musik, die oft zur Stimmung und Handlung beiträgt. 'Cheap Thrills' selbst gilt als eines der einflussreichsten Alben der Psychedelic-Rock-Ära und enthält einige der bekanntesten Songs von Janis Joplin, die in der Band sang. Das Album erreichte hohe Chartplatzierungen und hat bis heute einen nachhaltigen Einfluss auf die Rockmusik."
         },
@@ -11259,12 +10819,7 @@
         },
         {
           "question": "Welches bekannte Coverstück ist auf dem Debütalbum 'Vanilla Fudge' von Vanilla Fudge aus dem Jahr 1967 zu finden?",
-          "options": [
-            "You Keep Me Hangin' On",
-            "White Rabbit",
-            "Born to Be Wild",
-            "Light My Fire"
-          ],
+          "options": ["You Keep Me Hangin' On", "White Rabbit", "Born to Be Wild", "Light My Fire"],
           "correctAnswer": "You Keep Me Hangin' On",
           "trivia": "Das Debütalbum 'Vanilla Fudge' von Vanilla Fudge, das 1967 veröffentlicht wurde, enthält eine markante Coverversion des Hits 'You Keep Me Hangin' On', ursprünglich von The Supremes. Diese Interpretation war ein wesentlicher Bestandteil des Albums und trug zur Popularität der Band bei, indem sie einen einzigartigen, psychedelischen Sound mit schweren, verzerrten Gitarren und dramatischen Arrangements kombinierte. Das Album selbst erreichte hohe Chartplatzierungen und gilt als eines der ersten Alben, das Rockmusik mit Elementen des Psychedelic Rock verband. Vanilla Fudge wurde bekannt für ihre Fähigkeit, Songs in lange, epische Versionen umzuwandeln, was auch in diesem Fall deutlich wird."
         },
@@ -11411,12 +10966,7 @@
         },
         {
           "question": "Mit welchem renommierten Produzenten arbeitete John Coltrane während der Aufnahmen zu seinem bahnbrechenden Album 'Giant Steps' im Jahr 1960 zusammen?",
-          "options": [
-            "Teo Macero",
-            "Bob Thiele",
-            "George Avakian",
-            "Kenny Gamble"
-          ],
+          "options": ["Teo Macero", "Bob Thiele", "George Avakian", "Kenny Gamble"],
           "correctAnswer": "Bob Thiele",
           "trivia": "John Coltrane arbeitete während der Aufnahme von 'Giant Steps' im Jahr 1960 mit dem Produzenten Bob Thiele zusammen. Thiele war bekannt für seine Fähigkeit, innovative Jazz-Alben zu fördern und hatte zuvor mit bedeutenden Künstlern wie Louis Armstrong und Ornette Coleman gearbeitet. 'Giant Steps' gilt als eines der einflussreichsten Alben in der Jazzgeschichte, insbesondere wegen seiner komplexen Harmonien und der einzigartigen Kompositionen von Coltrane. Es wurde in den Van Gelder Studios aufgenommen, die für ihre exzellente Klangqualität berühmt sind. Die Zusammenarbeit mit Thiele trug maßgeblich dazu bei, Coltranes visionäre Ideen einer breiteren Öffentlichkeit zugänglich zu machen."
         },
@@ -11528,12 +11078,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Maiden Voyage' von Herbie Hancock wurde erstmals im Jahr 1965 während eines Live-Auftritts im Village Vanguard in New York City gespielt?",
-          "options": [
-            "Dolphin Dance",
-            "Eye of the Hurricane",
-            "The Sorcerer",
-            "Cantaloupe Island"
-          ],
+          "options": ["Dolphin Dance", "Eye of the Hurricane", "The Sorcerer", "Cantaloupe Island"],
           "correctAnswer": "Dolphin Dance",
           "trivia": "Die erste Performance von 'Dolphin Dance', einem der bekanntesten Stücke von Herbie Hancock, fand 1965 im legendären Village Vanguard in New York City statt. Dieses Stück, das auf dem Album 'Maiden Voyage' zu finden ist, zeichnet sich durch seine komplexen Harmonien und den charakteristischen Groove aus. Hancock, der als Pionier des Jazz-Fusion gilt, arbeitete bei der Aufnahme mit talentierten Musikern wie Freddie Hubbard, Wayne Shorter und Tony Williams zusammen. 'Dolphin Dance' gilt heute als ein Klassiker und wird oft in Jazz-Kreisen als Meisterwerk angesehen, das Hancocks innovative Kompositionsfähigkeiten unter Beweis stellt."
         },
@@ -11651,12 +11196,7 @@
         },
         {
           "question": "Welche unveröffentlichte Aufnahme, die ursprünglich für das Album 'Unhalfbricking' von Fairport Convention im Jahr 1969 geplant war, blieb im Archiv und wurde erst viele Jahre später veröffentlicht?",
-          "options": [
-            "A Sailor's Life",
-            "The Deserter",
-            "Reynardine",
-            "Tam Lin"
-          ],
+          "options": ["A Sailor's Life", "The Deserter", "Reynardine", "Tam Lin"],
           "correctAnswer": "A Sailor's Life",
           "trivia": "'A Sailor's Life' ist ein bemerkenswerter Track, der zwar nicht auf dem ursprünglichen Album 'Unhalfbricking' erschien, aber während der Sessions aufgenommen wurde. Diese Aufnahme wurde später auf dem Compilation-Album 'Fairport Convention' veröffentlicht und gilt als ein Meilenstein im Folk-Rock-Genre. Fairport Convention, bekannt für ihre innovative Fusion von traditioneller Folk-Musik und Rock, experimentierte während der 'Unhalfbricking'-Aufnahmen intensiv mit verschiedenen musikalischen Stilen. Das Album selbst wurde 1969 veröffentlicht und enthält einige der bekanntesten Stücke der Band, darunter 'Who Knows Where the Time Goes?' und 'Si Tu Dois Partir'."
         }
@@ -11711,12 +11251,7 @@
       "easy": [
         {
           "question": "Welches war die erste Single, die aus dem Album 'Abbey Road' von The Beatles im Jahr 1969 veröffentlicht wurde?",
-          "options": [
-            "Come Together",
-            "Something",
-            "Here Comes the Sun",
-            "Octopus's Garden"
-          ],
+          "options": ["Come Together", "Something", "Here Comes the Sun", "Octopus's Garden"],
           "correctAnswer": "Come Together",
           "trivia": "Die erste Single, die aus dem Album 'Abbey Road' veröffentlicht wurde, war 'Come Together'. Diese Single kam am 6. Oktober 1969 in die Läden und erreichte in den USA den ersten Platz der Billboard Hot 100. 'Abbey Road' selbst wurde am 26. September 1969 veröffentlicht und gilt als eines der bedeutendsten Alben in der Musikgeschichte. Die Kombination aus innovativen Klängen und tiefgründigen Texten trug dazu bei, dass das Album eine bleibende kulturelle Bedeutung erlangte. 'Come Together' wurde nicht nur für seine eingängige Melodie, sondern auch für seine mysteriösen und surrealen Texte bekannt."
         },
@@ -11757,12 +11292,7 @@
         },
         {
           "question": "Welcher ungewöhnliche Gastmusiker spielte auf dem Album 'Abbey Road' von The Beatles aus dem Jahr 1969 das Saxophon?",
-          "options": [
-            "Eric Clapton",
-            "John Lennon",
-            "Klaus Voormann",
-            "The Rolling Stones"
-          ],
+          "options": ["Eric Clapton", "John Lennon", "Klaus Voormann", "The Rolling Stones"],
           "correctAnswer": "Klaus Voormann",
           "trivia": "Klaus Voormann, ein enger Freund der Beatles und ein bemerkenswerter Musiker, spielte auf der berühmten Platte 'Abbey Road' das Saxophon in dem Stück 'You Never Give Me Your Money'. Voormann war nicht nur für seine musikalischen Fähigkeiten bekannt, sondern auch für seine künstlerische Gestaltung des Covers für das Album 'Revolver'. Zudem war er ein wichtiger Teil der Musikszene in den 1960er Jahren in London und hatte auch mit anderen Künstlern, wie John Lennon und George Harrison, zusammengearbeitet."
         },
@@ -11798,12 +11328,7 @@
         },
         {
           "question": "Welche literarische Figur inspirierte den Song 'Come Together' auf dem Album 'Abbey Road' von The Beatles aus dem Jahr 1969?",
-          "options": [
-            "Sherlock Holmes",
-            "Peter Pan",
-            "Dr. Jekyll",
-            "The Walrus"
-          ],
+          "options": ["Sherlock Holmes", "Peter Pan", "Dr. Jekyll", "The Walrus"],
           "correctAnswer": "The Walrus",
           "trivia": "Der Song 'Come Together' auf dem Album 'Abbey Road' von The Beatles wurde in Teilen von der Figur 'The Walrus' aus Lewis Carrolls Gedichten inspiriert. John Lennon, der den Song schrieb, bezog sich dabei auf eine Figur, die bereits in dem Beatles-Song 'I Am the Walrus' vorkam. Diese Verbindung ist ein Beispiel für den kreativen Umgang der Beatles mit literarischen Themen und der surrealen Bildsprache, die in ihren Texten häufig zu finden ist. Das Album 'Abbey Road' gilt als eines der besten Alben der Musikgeschichte, und die Vielschichtigkeit der Texte zeigt den künstlerischen Reifeprozess der Band in den späten 1960er Jahren."
         }
@@ -11834,23 +11359,13 @@
         },
         {
           "question": "Welcher Hit-Song von Led Zeppelin, der auf dem Album 'Led Zeppelin II' von 1969 zu finden ist, wurde besonders häufig im Radio gespielt und gilt als einer der bekanntesten Songs der Band?",
-          "options": [
-            "Whole Lotta Love",
-            "Stairway to Heaven",
-            "Black Dog",
-            "Kashmir"
-          ],
+          "options": ["Whole Lotta Love", "Stairway to Heaven", "Black Dog", "Kashmir"],
           "correctAnswer": "Whole Lotta Love",
           "trivia": "Die richtige Antwort ist 'Whole Lotta Love', der erste Track auf 'Led Zeppelin II', der weithin als einer der größten Rock-Songs aller Zeiten angesehen wird. Er zeichnet sich durch seinen markanten Gitarrenriff aus und wurde zur Visitenkarte von Led Zeppelin. Der Song erreichte in den USA Platz 4 der Billboard Hot 100 und wurde zu einem bedeutenden Hit in den späten 1960er Jahren. 'Led Zeppelin II' festigte den Status der Band als eine der führenden Rockgruppen der Ära und trug dazu bei, den Hard-Rock-Sound nachhaltig zu prägen."
         },
         {
           "question": "In welchem Song des Albums 'Led Zeppelin II' von Led Zeppelin sind versteckte Hinweise auf die mythologische Figur des Phoenix enthalten?",
-          "options": [
-            "Whole Lotta Love",
-            "Ramble On",
-            "Heartbreaker",
-            "Moby Dick"
-          ],
+          "options": ["Whole Lotta Love", "Ramble On", "Heartbreaker", "Moby Dick"],
           "correctAnswer": "Ramble On",
           "trivia": "Im Song 'Ramble On' von Led Zeppelin II sind subtile Anspielungen auf die legendäre Figur des Phoenix zu finden, die für Wiedergeburt und Auferstehung steht. Die Texte reflektieren das Streben nach Freiheit und die Suche nach einem neuen Anfang, was eng mit der Symbolik des Phoenix verbunden ist. Zudem werden in diesem Lied Elemente aus J.R.R. Tolkiens 'Der Herr der Ringe' aufgegriffen, was die fantasievolle und mystische Atmosphäre von Led Zeppelin II unterstreicht. Das Album selbst wurde 1969 veröffentlicht und gilt als eines der einflussreichsten Rockalben der Geschichte. 'Ramble On' ist nicht nur musikalisch bemerkenswert, sondern auch lyrisch tiefgründig und offenbart die literarischen Einflüsse von Robert Plant."
         }
@@ -11869,12 +11384,7 @@
         },
         {
           "question": "In welchem Film wurde der Song 'Whole Lotta Love' aus dem Album 'Led Zeppelin II' von Led Zeppelin prominent verwendet?",
-          "options": [
-            "Dazed and Confused",
-            "The Departed",
-            "Wayne's World",
-            "Almost Famous"
-          ],
+          "options": ["Dazed and Confused", "The Departed", "Wayne's World", "Almost Famous"],
           "correctAnswer": "Almost Famous",
           "trivia": "'Whole Lotta Love', ein ikonischer Track von Led Zeppelin aus dem Jahr 1969, wurde in dem Film 'Almost Famous' verwendet, der die Geschichte eines jungen Journalisten erzählt, der eine Rockband auf Tour begleitet. Der Song ist nicht nur für seine kraftvollen Gitarrenriffs bekannt, sondern auch für seine kulturelle Relevanz in der Rockmusik. 'Led Zeppelin II' gilt als eines der bedeutendsten Alben der Band und ist ein Meilenstein im Hard Rock-Genre. Der Einsatz des Songs in 'Almost Famous' unterstreicht die anhaltende Wirkung der Musik von Led Zeppelin auf die Popkultur und das Kino."
         },
@@ -12079,12 +11589,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Five Leaves Left' von Nick Drake wurde später von anderen Künstlern in ihren eigenen Werken sampelt oder referenziert?",
-          "options": [
-            "River Man",
-            "One of These Things First",
-            "Northern Sky",
-            "Cello Song"
-          ],
+          "options": ["River Man", "One of These Things First", "Northern Sky", "Cello Song"],
           "correctAnswer": "Cello Song",
           "trivia": "Der Song 'Cello Song' von Nick Drake, der auf seinem Debütalbum 'Five Leaves Left' von 1969 zu finden ist, wurde mehrfach von verschiedenen Künstlern referenziert und sampelt. Besonders bekannt ist die Verwendung des Stücks in der Musik von Künstlern wie der britischen Band 'The 1975'. Drake, der oft als einer der einflussreichsten Singer-Songwriter seiner Zeit gilt, kombinierte in diesem Song melancholische Melodien mit eindringlichen Texten, was zu seinem bleibenden Einfluss auf die Musikszene beiträgt. 'Five Leaves Left' gilt zudem als eines von Drakes besten Arbeiten und enthält auch bemerkenswerte Arrangements, die seine einzigartige musikalische Handschrift unterstreichen."
         }
@@ -12234,12 +11739,7 @@
       "hard": [
         {
           "question": "Welche musikalische Technik, die für ihre komplexen Harmonien bekannt ist, wurde auf dem Album 'Blind Faith' von Blind Faith aus dem Jahr 1969 besonders häufig eingesetzt?",
-          "options": [
-            "Polyrhythmik",
-            "Counterpoint",
-            "Modalwechsel",
-            "Obertonharmonien"
-          ],
+          "options": ["Polyrhythmik", "Counterpoint", "Modalwechsel", "Obertonharmonien"],
           "correctAnswer": "Counterpoint",
           "trivia": "Die Verwendung von Counterpoint, also der Kunst, mehrere unabhängige Melodien harmonisch zusammenzuführen, ist ein markantes Merkmal des Albums 'Blind Faith'. Diese Technik zeigt sich besonders in Stücken wie 'Do What You Like', wo die komplexen Melodien und Harmonien eine bedeutende Rolle spielen. Blind Faith, bestehend aus Mitgliedern der Bands Cream und Traffic, experimentierte in diesem Album mit verschiedenen musikalischen Stilen und Einflüssen, was zu einem einzigartigen Klangerlebnis führte. Das Album wird oft als eine Brücke zwischen Rock und Jazz beschrieben, wobei der Einsatz von Counterpoint zur kulturellen Bedeutung des Werkes beiträgt."
         },
@@ -12292,12 +11792,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Déjà Vu' von Crosby, Stills, Nash & Young behandelt die Themen der sozialen Ungerechtigkeit und des persönlichen Kampfes?",
-          "options": [
-            "Our House",
-            "Teach Your Children",
-            "Woodstock",
-            "Wasted on the Way"
-          ],
+          "options": ["Our House", "Teach Your Children", "Woodstock", "Wasted on the Way"],
           "correctAnswer": "Woodstock",
           "trivia": "Der Song 'Woodstock' auf dem Album 'Déjà Vu' von Crosby, Stills, Nash & Young thematisiert die Erlebnisse und den Geist des legendären Musikfestivals von 1969. Geschrieben von Joni Mitchell, reflektiert der Text die Ideale der Hippiebewegung und die Sehnsucht nach Frieden und Gemeinschaft. Das Album 'Déjà Vu', das 1970 veröffentlicht wurde, gilt als eine der einflussreichsten Arbeiten des Folk-Rock und hat zahlreiche Generationen inspiriert. 'Woodstock' wurde zu einer Hymne der 1960er Jahre und unterstreicht die kulturelle Relevanz des Festivals sowie die sozialen Bewegungen der damaligen Zeit."
         },
@@ -12455,12 +11950,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'In a Silent Way' von Miles Davis hatte seine erste Live-Performance während eines Konzerts im Jahr 1970?",
-          "options": [
-            "Shhh/Peaceful",
-            "In a Silent Way",
-            "It's About That Time",
-            "The Way Ahead"
-          ],
+          "options": ["Shhh/Peaceful", "In a Silent Way", "It's About That Time", "The Way Ahead"],
           "correctAnswer": "It's About That Time",
           "trivia": "Der Song 'It's About That Time' wurde erstmals während eines Auftritts von Miles Davis im Jahr 1970 live gespielt, obwohl er auf dem Album 'In a Silent Way' von 1969 nicht als eigenständiger Titel erscheint. Diese Live-Performance markierte einen Übergang in Davis' musikalischen Stil, hin zu einer fusionierten Jazzform, die Elemente des Rock und der elektronischen Musik vereinte. Das Album selbst gilt als wegweisend für das Genre und zeigt eine Zusammenarbeit mit bedeutenden Musikern wie Wayne Shorter und Chick Corea. 'In a Silent Way' war ein Schlüsselwerk, das den kreativen Prozess und die innovative Herangehensweise von Miles Davis während dieser Ära widerspiegelt."
         }

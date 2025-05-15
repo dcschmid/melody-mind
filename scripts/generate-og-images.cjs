@@ -419,16 +419,12 @@ function addNoisyTexture(ctx) {
 
 // Fügt dekorative Kreise als Design-Element hinzu
 function addDecorativeElements(ctx, pageType) {
-  const colors = PAGE_TYPES[pageType].background.colorStops.map(
-    (stop) => stop.split(" ")[0],
-  );
+  const colors = PAGE_TYPES[pageType].background.colorStops.map((stop) => stop.split(" ")[0]);
 
   // Zeichne mehrere Kreise mit verschiedenen Größen und Positionen
   for (let i = 0; i < VISUAL_CONFIG.decorations.circleCount; i++) {
     const radius =
-      Math.random() *
-        (VISUAL_CONFIG.decorations.maxRadius -
-          VISUAL_CONFIG.decorations.minRadius) +
+      Math.random() * (VISUAL_CONFIG.decorations.maxRadius - VISUAL_CONFIG.decorations.minRadius) +
       VISUAL_CONFIG.decorations.minRadius;
 
     // Positioniere je nach Index
@@ -525,21 +521,8 @@ function addSubtleBorder(ctx) {
 /**
  * Verbesserte Text-Rendering-Funktion mit Textschatten
  */
-function renderTextWithEffects(
-  ctx,
-  text,
-  x,
-  y,
-  maxWidth,
-  lineHeight,
-  options = {},
-) {
-  const {
-    fontSize = 48,
-    fontWeight = "normal",
-    color = "#ffffff",
-    shadow = true,
-  } = options;
+function renderTextWithEffects(ctx, text, x, y, maxWidth, lineHeight, options = {}) {
+  const { fontSize = 48, fontWeight = "normal", color = "#ffffff", shadow = true } = options;
 
   // Setze Schriftart und Stil
   ctx.font = `${fontWeight} ${fontSize}px Inter, sans-serif`;
@@ -612,7 +595,7 @@ async function generateOgImage(title, description, type) {
             WIDTH / 2 - logoSize / 2,
             VISUAL_CONFIG.logo.marginTop,
             logoSize,
-            logoSize,
+            logoSize
           );
         }
       } catch (err) {
@@ -633,7 +616,7 @@ async function generateOgImage(title, description, type) {
           fontWeight: "bold",
           color: VISUAL_CONFIG.colors.light,
           shadow: true,
-        },
+        }
       );
 
       const descriptionY = HEIGHT * 0.65;
@@ -649,7 +632,7 @@ async function generateOgImage(title, description, type) {
           fontWeight: "normal",
           color: "#e2e2e7",
           shadow: true,
-        },
+        }
       );
 
       // Add a subtle signature
@@ -662,7 +645,7 @@ async function generateOgImage(title, description, type) {
       return canvas.toBuffer("image/jpeg", { quality: 0.92 });
     },
     2,
-    null,
+    null
   );
 }
 
@@ -739,10 +722,7 @@ async function generateAllOgImages() {
       });
       console.log("✅ Fonts registered successfully");
     } catch (error) {
-      console.warn(
-        "Could not register fonts. Using system fonts instead:",
-        error.message,
-      );
+      console.warn("Could not register fonts. Using system fonts instead:", error.message);
     }
 
     // Track failures for summary
@@ -792,11 +772,7 @@ async function generateAllOgImages() {
         console.log(`  • Generating ${outputFilename}...`);
 
         try {
-          const imageBuffer = await generateOgImage(
-            page.title,
-            page.description,
-            page.type,
-          );
+          const imageBuffer = await generateOgImage(page.title, page.description, page.type);
 
           if (!imageBuffer) {
             throw new Error("Failed to generate image buffer");
@@ -823,17 +799,13 @@ async function generateAllOgImages() {
 
     // Summary
     console.log("\n✨ OG Image Generation Summary:");
-    console.log(
-      `📊 Generated ${successfulImages} of ${totalImages} images successfully`,
-    );
+    console.log(`📊 Generated ${successfulImages} of ${totalImages} images successfully`);
 
     if (successfulImages === totalImages) {
       console.log("✅ All OG images have been generated!");
       return true;
     } else {
-      console.warn(
-        `⚠️ ${totalImages - successfulImages} images could not be generated`,
-      );
+      console.warn(`⚠️ ${totalImages - successfulImages} images could not be generated`);
       return successfulImages > 0;
     }
   } catch (err) {

@@ -46,5 +46,5 @@ ${error ? `EXIT CODE: ${error.code}` : "EXIT CODE: 0 (Erfolg)"}
     } else {
       console.log("Test erfolgreich abgeschlossen!");
     }
-  },
+  }
 );

@@ -1,6 +1,8 @@
 # 🎵 MelodyMind - The Ultimate Music Trivia Challenge 🎶
 
-MelodyMind is an engaging and competitive music trivia game where players can test their knowledge across various music genres. Whether you're a rock enthusiast, pop aficionado, or jazz expert, this game offers a thrilling experience with multiple categories and rounds.
+MelodyMind is an engaging and competitive music trivia game where players can test their knowledge
+across various music genres. Whether you're a rock enthusiast, pop aficionado, or jazz expert, this
+game offers a thrilling experience with multiple categories and rounds.
 
 ## 🚀 Key Features:
 
@@ -12,7 +14,8 @@ MelodyMind is an engaging and competitive music trivia game where players can te
   - Easy: Maximum 500 points
   - Medium: Maximum 750 points
   - Hard: Maximum 1000 points
-- Speed Bonus: Answer quickly to earn extra points! The faster you answer, the more bonus points you receive:
+- Speed Bonus: Answer quickly to earn extra points! The faster you answer, the more bonus points you
+  receive:
   - Answer within 10 seconds: +50 bonus points
   - Answer within 15 seconds: +25 bonus points
 - 50:50 Joker: Limited use based on difficulty:
@@ -24,15 +27,18 @@ MelodyMind is an engaging and competitive music trivia game where players can te
   - Musik-Novice: For completing all questions in Easy mode
   - Musik-Master: For completing all questions in Medium mode
   - Musik-Legend: For completing all questions in Hard mode
-- Rankings: Compete against others and climb the Top 10 Leaderboards based on your scores. Check out your position in genre-specific and overall rankings.
+- Rankings: Compete against others and climb the Top 10 Leaderboards based on your scores. Check out
+  your position in genre-specific and overall rankings.
 - Music Genres: Select from a variety of music genres and prove your expertise in each category.
 
 ## 💡 How to Play:
 
 1. Select your favorite music genre.
 2. Choose a difficulty level and start answering trivia questions.
-3. For every correct answer, you’ll earn points. The harder the difficulty, the more questions you face!
-4. At the end of each round, you’ll see your score and have the chance to unlock special Golden LPs if you answer all questions correctly.
+3. For every correct answer, you’ll earn points. The harder the difficulty, the more questions you
+   face!
+4. At the end of each round, you’ll see your score and have the chance to unlock special Golden LPs
+   if you answer all questions correctly.
 5. Track your position on the leaderboards and aim to become a Music Legend.
 
 ## 🔧 Technologies Used:

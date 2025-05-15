@@ -124,12 +124,7 @@
       "easy": [
         {
           "question": "¿Qué famosa canción de Led Zeppelin, incluida en el álbum 'Led Zeppelin IV', es conocida por su icónico riff de guitarra?",
-          "options": [
-            "Stairway to Heaven",
-            "Black Dog",
-            "Rock and Roll",
-            "Going to California"
-          ],
+          "options": ["Stairway to Heaven", "Black Dog", "Rock and Roll", "Going to California"],
           "correctAnswer": "Stairway to Heaven",
           "trivia": "La respuesta correcta es 'Stairway to Heaven', una de las canciones más emblemáticas de Led Zeppelin. Este tema, que cierra el álbum 'Led Zeppelin IV', fue lanzado en 1971 y se ha convertido en un himno del rock. El riff de guitarra, creado por Jimmy Page, es considerado uno de los más reconocibles en la historia de la música. 'Stairway to Heaven' combina elementos de folk y rock, y su estructura musical evoluciona desde una suave introducción acústica hasta un poderoso final eléctrico. A lo largo de los años, ha sido interpretada y homenajeada por innumerables artistas, consolidando su lugar en la cultura musical."
         },
@@ -146,12 +141,7 @@
         },
         {
           "question": "¿Qué famoso artista de rock, conocido por su estilo de guitarra innovador, ha citado a Led Zeppelin y su álbum 'Led Zeppelin IV' como una gran influencia en su música?",
-          "options": [
-            "Joe Satriani",
-            "Kurt Cobain",
-            "Slash",
-            "Eddie Van Halen"
-          ],
+          "options": ["Joe Satriani", "Kurt Cobain", "Slash", "Eddie Van Halen"],
           "correctAnswer": "Eddie Van Halen",
           "trivia": "Eddie Van Halen, el legendario guitarrista de la banda Van Halen, ha mencionado en diversas entrevistas que Led Zeppelin y su álbum 'Led Zeppelin IV' fueron una gran influencia en su estilo musical y en su técnica de guitarra. Este álbum, lanzado en 1971, es famoso por sus innovaciones en el rock y por su icónica canción 'Stairway to Heaven', que ha sido considerada un hito en la historia de la música. A lo largo de los años, muchos guitarristas han citado a Led Zeppelin como una inspiración debido a su fusión de rock, blues y folk. Además, el álbum logró un éxito comercial masivo, alcanzando el estatus de disco de diamante en los Estados Unidos, lo que refleja su impacto duradero en la música. La influencia de Led Zeppelin se puede ver en el trabajo de muchos artistas posteriores, quienes han tomado prestados elementos de su sonido y estilo."
         }
@@ -241,23 +231,13 @@
       "easy": [
         {
           "question": "¿Qué productor trabajó con Fleetwood Mac en el álbum 'Rumours', ayudando a dar forma a su sonido distintivo?",
-          "options": [
-            "Richard Perry",
-            "Ken Caillat",
-            "Glyn Johns",
-            "T-Bone Burnett"
-          ],
+          "options": ["Richard Perry", "Ken Caillat", "Glyn Johns", "T-Bone Burnett"],
           "correctAnswer": "Ken Caillat",
           "trivia": "Ken Caillat fue el productor que colaboró con Fleetwood Mac en la creación de su icónico álbum 'Rumours' lanzado en 1977. Caillat, junto con el ingeniero de sonido, ayudó a capturar el sonido característico y la atmósfera emocional que definieron el álbum, que se convirtió en uno de los más vendidos de todos los tiempos. 'Rumours' no solo incluye clásicos como 'Go Your Own Way' y 'Dreams', sino que también es conocido por su producción meticulosa, que utilizó técnicas como la sobregrabación para lograr su profundidad sonora. Además, el álbum ganó el Grammy al Álbum del Año en 1978, solidificando la fama de Fleetwood Mac en la industria musical. La colaboración entre Caillat y la banda fue crucial para el éxito del álbum, que refleja las tensiones y relaciones personales dentro del grupo."
         },
         {
           "question": "¿En qué mes y año fue lanzado el álbum 'Rumours' de Fleetwood Mac, que se convirtió en uno de los discos más vendidos de todos los tiempos?",
-          "options": [
-            "Febrero de 1977",
-            "Mayo de 1977",
-            "Enero de 1977",
-            "Marzo de 1977"
-          ],
+          "options": ["Febrero de 1977", "Mayo de 1977", "Enero de 1977", "Marzo de 1977"],
           "correctAnswer": "Febrero de 1977",
           "trivia": "El álbum 'Rumours' de Fleetwood Mac fue lanzado en febrero de 1977 y rápidamente se convirtió en un éxito mundial. Este disco es famoso no solo por su música, sino también por el contexto tumultuoso en el que fue creado, ya que muchos de los miembros de la banda estaban pasando por rupturas personales. 'Rumours' alcanzó el primer lugar en la lista Billboard 200 y se mantuvo en esa posición durante 31 semanas, convirtiéndose en uno de los álbumes más vendidos en la historia de la música. Además, el álbum ganó el Grammy al Álbum del Año en 1978, consolidando aún más su lugar en la historia de la música rock."
         },
@@ -472,12 +452,7 @@
         },
         {
           "question": "¿Quién fue el productor que colaboró con The Rolling Stones en la creación del álbum 'Exile on Main St.' en 1972?",
-          "options": [
-            "Jimmy Miller",
-            "George Martin",
-            "Brian Eno",
-            "Phil Spector"
-          ],
+          "options": ["Jimmy Miller", "George Martin", "Brian Eno", "Phil Spector"],
           "correctAnswer": "Jimmy Miller",
           "trivia": "El productor que trabajó con The Rolling Stones en 'Exile on Main St.' fue Jimmy Miller. Este álbum, lanzado en 1972, es considerado uno de los mejores de la banda y es notable por su mezcla de rock, blues y country. Jimmy Miller ya había colaborado con la banda en álbumes anteriores como 'Beggars Banquet' y 'Let It Bleed', lo que solidificó su relación creativa. Además, el álbum fue grabado en parte en Villa Nellcôte, una mansión en el sur de Francia, donde las sesiones de grabación fueron informales y caóticas, lo que contribuyó al sonido distintivo del álbum. 'Exile on Main St.' ha sido aclamado no solo por su música, sino también por su producción única que captura la esencia del rock de los años 70."
         }
@@ -496,12 +471,7 @@
         },
         {
           "question": "Durante las grabaciones del álbum 'Exile on Main St.' de The Rolling Stones en 1972, ¿qué famoso músico colaboró en la interpretación de la canción 'Tumbling Dice'?",
-          "options": [
-            "Leonard Cohen",
-            "Billy Preston",
-            "Eric Clapton",
-            "Paul McCartney"
-          ],
+          "options": ["Leonard Cohen", "Billy Preston", "Eric Clapton", "Paul McCartney"],
           "correctAnswer": "Billy Preston",
           "trivia": "La respuesta correcta es Billy Preston, quien aportó su talento al teclado en la grabación de 'Tumbling Dice'. Este álbum, lanzado en 1972, se considera uno de los más emblemáticos de The Rolling Stones y fue grabado en una serie de sesiones en su villa en Francia, así como en Los Ángeles. 'Exile on Main St.' es conocido por su fusión de rock, blues y country, y presenta una variedad de músicos invitados, siendo Preston uno de los más destacados. Además, este álbum fue un reflejo del estilo de vida de la banda en ese momento, en medio de la controversia y el exceso de la vida rockera. La colaboración de Preston no solo realzó la canción, sino que también solidificó su relación con la banda, ya que había trabajado con ellos en proyectos anteriores."
         },
@@ -684,12 +654,7 @@
       "easy": [
         {
           "question": "¿Qué miembro de la banda de Bruce Springsteen, que contribuyó al álbum 'Born to Run' en 1975, tenía una relación cercana con él desde sus inicios en la música?",
-          "options": [
-            "Max Weinberg",
-            "Garry Tallent",
-            "Clarence Clemons",
-            "Danny Federici"
-          ],
+          "options": ["Max Weinberg", "Garry Tallent", "Clarence Clemons", "Danny Federici"],
           "correctAnswer": "Clarence Clemons",
           "trivia": "La respuesta correcta es Clarence Clemons, quien fue el saxofonista y un pilar fundamental en la E Street Band. Clemons y Bruce Springsteen formaron una profunda amistad que se reflejó en su colaboración musical, especialmente en el álbum 'Born to Run', donde su icónico solo de saxofón en la canción 'Jungleland' se convirtió en un sello distintivo del sonido de Springsteen. Desde el inicio de su carrera, Clemons aportó no solo su talento musical, sino también una presencia escénica que ayudó a definir la imagen de la banda. Además, el álbum 'Born to Run' es considerado un hito en la historia del rock, consolidando a Springsteen como una voz representativa de la clase trabajadora en Estados Unidos."
         },
@@ -847,12 +812,7 @@
         },
         {
           "question": "En el álbum 'London Calling' de The Clash, ¿qué canción incluye una notable referencia a la obra de la banda británica The Kinks?",
-          "options": [
-            "Clampdown",
-            "The Guns of Brixton",
-            "Rudie Can't Fail",
-            "Spanish Bombs"
-          ],
+          "options": ["Clampdown", "The Guns of Brixton", "Rudie Can't Fail", "Spanish Bombs"],
           "correctAnswer": "Spanish Bombs",
           "trivia": "La canción 'Spanish Bombs' de The Clash, incluida en el álbum 'London Calling', hace referencia a la Guerra Civil Española y a la obra de The Kinks, específicamente a su canción 'The Village Green Preservation Society'. Esta conexión refleja la influencia que The Kinks tuvo en el punk británico, así como el interés de The Clash por temas sociales y políticos. 'London Calling' es considerado un álbum fundamental que combina diversos estilos musicales, desde el punk hasta el reggae y el rockabilly, lo que demuestra la versatilidad de la banda. Además, el álbum es conocido por su crítica a la sociedad británica de finales de los años 70, abordando temas como el desempleo y la violencia. La mezcla de referencias culturales en las letras de The Clash contribuyó a su estatus como una de las bandas más influyentes de su tiempo."
         },
@@ -871,12 +831,7 @@
       "hard": [
         {
           "question": "¿Qué miembro de The Clash, que ya no formaba parte de la banda durante la grabación de 'London Calling', había sido un integrante clave en sus primeros álbumes?",
-          "options": [
-            "Mick Jones",
-            "Topper Headon",
-            "Paul Simonon",
-            "Joe Strummer"
-          ],
+          "options": ["Mick Jones", "Topper Headon", "Paul Simonon", "Joe Strummer"],
           "correctAnswer": "Mick Jones",
           "trivia": "Mick Jones fue el guitarrista principal y uno de los compositores más influyentes de The Clash, pero durante la grabación de 'London Calling', había tensiones creativas que llevaron a una reestructuración en la banda. Aunque Jones no dejó The Clash hasta 1983, su influencia en los primeros álbumes, incluyendo 'Give 'Em Enough Rope', fue fundamental. 'London Calling', lanzado en 1979, marcó un cambio significativo en su sonido, incorporando elementos de reggae, ska y rockabilly. Este álbum es considerado un hito en la historia del punk, reflejando tanto la evolución musical de la banda como el contexto socio-político de la época."
         },
@@ -893,12 +848,7 @@
         },
         {
           "question": "¿Qué destacado músico colaboró con The Clash en el álbum 'London Calling' en 1979, aportando su talento en la trompeta para una de las canciones icónicas del disco?",
-          "options": [
-            "David Bowie",
-            "Mick Jones",
-            "Graham Parker",
-            "Trombone Shorty"
-          ],
+          "options": ["David Bowie", "Mick Jones", "Graham Parker", "Trombone Shorty"],
           "correctAnswer": "Graham Parker",
           "trivia": "La respuesta correcta es Graham Parker, quien colaboró con The Clash en el álbum 'London Calling' al aportar su habilidad en la trompeta para la pista 'Revolution Rock'. Esta colaboración fue significativa, ya que Parker era un contemporáneo dentro de la escena del rock británico y su estilo complementaba la fusión de géneros que caracterizaba al álbum. 'London Calling' no solo es considerado un hito del punk, sino que también incorpora elementos de reggae, ska y rockabilly, lo que refleja la amplia influencia musical de la banda. La producción del álbum estuvo marcada por un enfoque experimental, con la participación de diferentes músicos, lo que ayudó a consolidar el legado de The Clash en la música. Además, el disco aborda temas sociales y políticos relevantes de la época, convirtiéndose en un referente cultural de finales de los años 70."
         }
@@ -1147,12 +1097,7 @@
       "easy": [
         {
           "question": "¿Qué miembro de la banda de Stevie Wonder tuvo un papel destacado en la creación de los arreglos orquestales para el álbum 'Songs in the Key of Life'?",
-          "options": [
-            "Jeffrey Cohen",
-            "David T. Walker",
-            "George Benson",
-            "Paul Riser"
-          ],
+          "options": ["Jeffrey Cohen", "David T. Walker", "George Benson", "Paul Riser"],
           "correctAnswer": "Paul Riser",
           "trivia": "Paul Riser fue un arreglista y compositor que colaboró estrechamente con Stevie Wonder en el álbum 'Songs in the Key of Life'. Su contribución a los arreglos orquestales fue esencial para crear el sonido rico y diverso que caracteriza al álbum. 'Songs in the Key of Life' se considera uno de los mejores trabajos de Wonder, y recibió numerosos premios, incluyendo un Grammy al Álbum del Año. Publicado en 1976, este álbum icónico incluye clásicos como 'Isn't She Lovely' y 'Sir Duke'. Riser, además de su trabajo con Wonder, también ha colaborado con otros artistas destacados, lo que lo convierte en una figura importante en la música de la época."
         },
@@ -1264,12 +1209,7 @@
       "easy": [
         {
           "question": "¿Cuál de las siguientes canciones del álbum 'Hotel California' de Eagles alcanzó un gran éxito crossover, llegando a las listas de música pop y rock en 1976?",
-          "options": [
-            "New Kid in Town",
-            "Witchy Woman",
-            "Take It to the Limit",
-            "Desperado"
-          ],
+          "options": ["New Kid in Town", "Witchy Woman", "Take It to the Limit", "Desperado"],
           "correctAnswer": "New Kid in Town",
           "trivia": "La canción 'New Kid in Town', incluida en el álbum 'Hotel California' de Eagles, fue un gran éxito crossover en 1976, logrando alcanzar el número uno en la lista Billboard Hot 100. Este álbum, que es considerado uno de los más icónicos de la historia del rock, se caracteriza por su mezcla de estilos, incluyendo rock, country y folk. 'Hotel California' también fue un gran éxito comercial, vendiendo más de 32 millones de copias en todo el mundo y ganando dos premios Grammy. Además, el álbum es conocido por su emblemática portada y su compleja producción, que ha sido objeto de análisis y admiración a lo largo de los años."
         },
@@ -1299,12 +1239,7 @@
       "medium": [
         {
           "question": "¿En qué popular serie de televisión se utilizó la icónica canción 'Hotel California' de Eagles, lanzada en 1976, como parte de su banda sonora?",
-          "options": [
-            "Los Sopranos",
-            "Stranger Things",
-            "El Gran Showman",
-            "The Big Bang Theory"
-          ],
+          "options": ["Los Sopranos", "Stranger Things", "El Gran Showman", "The Big Bang Theory"],
           "correctAnswer": "Los Sopranos",
           "trivia": "La canción 'Hotel California' de Eagles fue utilizada en un episodio de la aclamada serie 'Los Sopranos', específicamente en la segunda temporada. Este álbum, lanzado en 1976, se ha convertido en un clásico del rock, conocido por su mezcla de rock y country, así como por sus letras enigmáticas. 'Hotel California' ha sido interpretada como una crítica a la vida en la costa oeste y la industria de la música. Además, el álbum ganó dos premios Grammy y ha vendido más de 32 millones de copias en todo el mundo, consolidando a Eagles como uno de los grupos más influyentes de su época."
         },
@@ -1334,12 +1269,7 @@
       "hard": [
         {
           "question": "En el álbum 'Hotel California' de Eagles, ¿qué famoso guitarrista hizo una aparición especial en el solo de guitarra de la canción titular?",
-          "options": [
-            "Eric Clapton",
-            "Joe Walsh",
-            "Don Felder",
-            "Carlos Santana"
-          ],
+          "options": ["Eric Clapton", "Joe Walsh", "Don Felder", "Carlos Santana"],
           "correctAnswer": "Don Felder",
           "trivia": "El solo de guitarra en la icónica canción 'Hotel California' fue interpretado por Don Felder, quien era miembro de Eagles. Felder, junto con Joe Walsh, creó uno de los solos más memorables de la historia del rock, que se ha convertido en un símbolo del álbum lanzado en 1976. La canción no solo alcanzó el número uno en la lista Billboard Hot 100, sino que también recibió dos premios Grammy. 'Hotel California' ha sido interpretada por numerosos artistas y ha influido en muchos guitarristas a lo largo de los años, consolidando su estatus en la cultura musical. Además, el álbum fue un gran éxito comercial, vendiendo más de 32 millones de copias solo en Estados Unidos."
         },
@@ -1392,12 +1322,7 @@
         },
         {
           "question": "¿Cuál de las siguientes canciones, que aparece en el álbum 'Paranoid' de Black Sabbath, es conocida por su característico riff de guitarra que se ha convertido en un himno del heavy metal?",
-          "options": [
-            "Iron Man",
-            "War Pigs",
-            "Fairies Wear Boots",
-            "Hand of Doom"
-          ],
+          "options": ["Iron Man", "War Pigs", "Fairies Wear Boots", "Hand of Doom"],
           "correctAnswer": "Iron Man",
           "trivia": "La canción 'Iron Man', que forma parte del álbum 'Paranoid' de Black Sabbath lanzado en 1970, es famosa por su poderoso riff de guitarra, que ha sido imitado y homenajeado en innumerables ocasiones dentro del género del heavy metal. Este tema se ha convertido en un clásico y es uno de los más reconocidos de la banda, junto a 'Paranoid' y 'War Pigs'. A menudo se considera que el álbum 'Paranoid' ayudó a definir el sonido del heavy metal moderno, destacando la influencia de la guitarra eléctrica y la voz distintiva de Ozzy Osbourne. Además, el álbum alcanzó el puesto número 1 en las listas de álbumes del Reino Unido, reafirmando el impacto de la banda en la música de la época. 'Iron Man' sigue siendo un pilar en los conciertos de Black Sabbath y es ampliamente reconocido en la cultura popular."
         },
@@ -1438,12 +1363,7 @@
         },
         {
           "question": "¿Qué famosa banda de rock alternativo hizo una versión del icónico tema 'Fairies Wear Boots', que aparece en el álbum 'Paranoid' de Black Sabbath, en la década de los 90?",
-          "options": [
-            "Nirvana",
-            "Alice in Chains",
-            "Metallica",
-            "Faith No More"
-          ],
+          "options": ["Nirvana", "Alice in Chains", "Metallica", "Faith No More"],
           "correctAnswer": "Faith No More",
           "trivia": "La banda Faith No More realizó una versión de 'Fairies Wear Boots' en su álbum de 1990 titulado 'Introduce Yourself'. Este tema, que forma parte del influyente álbum 'Paranoid' de Black Sabbath lanzado en 1970, ha sido reinterpretado por varios artistas a lo largo de los años. 'Fairies Wear Boots' es notable por su mezcla de estilos, combinando elementos de rock psicodélico y heavy metal. Black Sabbath, considerada una de las bandas pioneras del heavy metal, ha influido en innumerables grupos a lo largo de las décadas, y su música sigue siendo relevante en la cultura rock actual. La versión de Faith No More destacó en su época, mostrando cómo el legado de Black Sabbath continúa inspirando a nuevas generaciones de músicos."
         }
@@ -1473,12 +1393,7 @@
         },
         {
           "question": "Durante la producción del álbum 'Paranoid' de Black Sabbath en 1970, ¿qué ingeniero de sonido fue fundamental en la creación del distintivo sonido pesado y atmosférico del disco?",
-          "options": [
-            "Roger Bain",
-            "Eddie Kramer",
-            "Glynn Johns",
-            "Bill Price"
-          ],
+          "options": ["Roger Bain", "Eddie Kramer", "Glynn Johns", "Bill Price"],
           "correctAnswer": "Roger Bain",
           "trivia": "El ingeniero de sonido que desempeñó un papel crucial en la producción de 'Paranoid' fue Roger Bain. Su enfoque en el uso de técnicas de grabación innovadoras y su habilidad para capturar la energía en vivo de la banda contribuyeron significativamente al sonido característico del álbum. 'Paranoid', lanzado en 1970, se considera uno de los discos fundamentales del heavy metal y ayudó a definir el género. Bain también trabajó con Black Sabbath en su álbum debut, lo que le permitió entender a fondo el estilo y la dinámica de la banda. Además, el álbum 'Paranoid' incluye clásicos como 'Iron Man' y 'War Pigs', que se han vuelto icónicos en la historia del rock."
         }
@@ -1539,23 +1454,13 @@
         },
         {
           "question": "Durante la creación del álbum 'Blue' de Joni Mitchell en 1971, ¿qué miembro de la banda tuvo una relación romántica con ella y su historia personal influyó en las letras del disco?",
-          "options": [
-            "Graham Nash",
-            "James Taylor",
-            "David Crosby",
-            "Leonard Cohen"
-          ],
+          "options": ["Graham Nash", "James Taylor", "David Crosby", "Leonard Cohen"],
           "correctAnswer": "Graham Nash",
           "trivia": "La respuesta correcta es Graham Nash, quien tuvo una relación romántica con Joni Mitchell mientras se grababa 'Blue'. Esta conexión personal se refleja en varias canciones del álbum, especialmente en temas de amor y desamor. Joni y Graham se conocieron a finales de la década de 1960 y su relación fue un tema recurrente en la música de ambos. En 'Blue', las letras profundamente emotivas abordan sus experiencias personales, lo que contribuye a la autenticidad del álbum. Además, 'Blue' es considerado uno de los discos más influyentes en la música folk y rock, marcando un hito en la carrera de Joni Mitchell y en la historia de la música en general."
         },
         {
           "question": "¿Quién fue el productor principal del álbum 'Blue' de Joni Mitchell, lanzado en 1971?",
-          "options": [
-            "David Crosby",
-            "Graham Nash",
-            "Henry Lewy",
-            "James Taylor"
-          ],
+          "options": ["David Crosby", "Graham Nash", "Henry Lewy", "James Taylor"],
           "correctAnswer": "Henry Lewy",
           "trivia": "Henry Lewy fue el productor principal del aclamado álbum 'Blue' de Joni Mitchell, lanzado en 1971. Este álbum es considerado uno de los más influyentes en la historia de la música folk y rock. Lewy, quien también trabajó con otros artistas como Leonard Cohen, aportó su experiencia en la producción para crear un sonido íntimo y emocional que complementa las letras profundas de Mitchell. Además, 'Blue' incluye colaboraciones con músicos destacados, como el legendario James Taylor en la guitarra. Este álbum no solo consolidó la carrera de Joni Mitchell, sino que también sentó las bases para el desarrollo de la música contemporánea en las décadas siguientes."
         }
@@ -1563,12 +1468,7 @@
       "hard": [
         {
           "question": "¿Qué destacado músico acompañó a Joni Mitchell en la grabación de 'Blue' en 1971, aportando su talento en la guitarra y en los coros?",
-          "options": [
-            "David Crosby",
-            "James Taylor",
-            "Graham Nash",
-            "Neil Young"
-          ],
+          "options": ["David Crosby", "James Taylor", "Graham Nash", "Neil Young"],
           "correctAnswer": "James Taylor",
           "trivia": "Joni Mitchell colaboró con James Taylor en la grabación de su aclamado álbum 'Blue' en 1971, donde él contribuyó en la guitarra y los coros. Esta colaboración fue significativa, ya que ambos compartían una relación personal y profesional que influyó en el sonido del álbum. 'Blue' es conocido por su introspección lírica y su estilo folk, y la participación de Taylor ayudó a realzar la producción. Además, la canción 'A Case of You' presenta la voz de Taylor, evidenciando su influencia. Tanto Mitchell como Taylor son figuras emblemáticas del movimiento folk de los años 70, y su trabajo conjunto en este álbum es considerado un hito en la música de esa época."
         },
@@ -1632,12 +1532,7 @@
         },
         {
           "question": "¿Qué canción del álbum 'Exodus' de Bob Marley and The Wailers recibió elogios por su mensaje de esperanza y resistencia social tras su lanzamiento en 1977?",
-          "options": [
-            "One Love",
-            "Jamming",
-            "Three Little Birds",
-            "Natural Mystic"
-          ],
+          "options": ["One Love", "Jamming", "Three Little Birds", "Natural Mystic"],
           "correctAnswer": "Jamming",
           "trivia": "La canción 'Jamming' del álbum 'Exodus' de Bob Marley and The Wailers fue muy bien recibida por la crítica, destacándose por su mensaje positivo y su ritmo contagioso. Los críticos elogiaron la forma en que la canción encapsula un espíritu de unidad y celebración, lo que resonó profundamente con los oyentes en un contexto social y político turbulento. El álbum fue lanzado en un periodo clave para Marley, marcando su exilio en Londres tras el intento de asesinato en Jamaica. 'Exodus' se considera uno de los álbumes más influyentes de la música reggae, y 'Jamming' ha perdurado como un himno de resistencia y esperanza. En las listas de éxitos, 'Exodus' alcanzó el puesto número 20 en la lista Billboard 200."
         }
@@ -1702,12 +1597,7 @@
         },
         {
           "question": "¿Cuál de las siguientes canciones del álbum 'Exodus' de Bob Marley and The Wailers se considera un hito en el éxito crossover, destacándose por su fusión de reggae y ritmos dance que contribuyó a su popularidad internacional?",
-          "options": [
-            "Jamming",
-            "Waiting in Vain",
-            "One Love",
-            "Three Little Birds"
-          ],
+          "options": ["Jamming", "Waiting in Vain", "One Love", "Three Little Birds"],
           "correctAnswer": "Jamming",
           "trivia": "La canción 'Jamming', incluida en el álbum 'Exodus' de Bob Marley and The Wailers, es reconocida como un hito en el éxito crossover, ya que logró fusionar el reggae con ritmos dance, lo que ayudó a expandir la audiencia del género a nivel mundial. Lanzado en 1977, 'Exodus' se convirtió en un álbum emblemático que catapultó a Marley a la fama internacional, vendiendo millones de copias y recibiendo elogios de la crítica. 'Jamming' no solo se destacó en las listas de popularidad, sino que también se convirtió en un símbolo de unidad y resistencia, especialmente en el contexto de la lucha por los derechos civiles en varias partes del mundo. Además, el álbum fue producido en un periodo de gran agitación política y social en Jamaica, lo que agregó una capa de significado a sus letras y melodías. Este contexto histórico, combinado con la innovadora producción musical de Marley, hizo que 'Jamming' se consolidara como un clásico atemporal."
         }
@@ -1727,12 +1617,7 @@
       "easy": [
         {
           "question": "¿Cuál de los miembros de Led Zeppelin fue el principal compositor de la canción 'The Rain Song' del álbum 'Houses of the Holy'?",
-          "options": [
-            "Robert Plant",
-            "John Bonham",
-            "Jimmy Page",
-            "John Paul Jones"
-          ],
+          "options": ["Robert Plant", "John Bonham", "Jimmy Page", "John Paul Jones"],
           "correctAnswer": "Jimmy Page",
           "trivia": "La canción 'The Rain Song', que forma parte del álbum 'Houses of the Holy' de Led Zeppelin, fue compuesta principalmente por Jimmy Page. Este tema es conocido por su emotiva melodía y su estructura inusual, que combina elementos de rock y música orquestal. Page utilizó un afinado especial para crear el sonido distintivo de la canción, y su habilidad para fusionar diferentes estilos se hizo evidente en este trabajo. Además, 'Houses of the Holy' fue un álbum en el que la banda experimentó con una variedad de géneros, lo que ayudó a consolidar su estatus en la historia del rock. El álbum fue lanzado en 1973 y se convirtió en un gran éxito, destacándose por su portada icónica y su innovadora producción."
         },
@@ -1762,12 +1647,7 @@
       "medium": [
         {
           "question": "En el álbum 'Houses of the Holy' de Led Zeppelin, ¿qué canción aborda temas de amor y pérdida a través de metáforas relacionadas con la naturaleza?",
-          "options": [
-            "The Rain Song",
-            "Dancing Days",
-            "Over the Hills and Far Away",
-            "No Quarter"
-          ],
+          "options": ["The Rain Song", "Dancing Days", "Over the Hills and Far Away", "No Quarter"],
           "correctAnswer": "The Rain Song",
           "trivia": "La canción 'The Rain Song' es una de las piezas más destacadas del álbum 'Houses of the Holy' de Led Zeppelin, lanzado en 1973. Es conocida por su profunda lírica que utiliza la metáfora de la lluvia para explorar los temas del amor y la pérdida. Este tema emocional se intensifica con la musicalidad melódica y el uso de acordes de guitarra inusuales, que contrasta con el sonido más pesado de otras pistas del álbum. 'The Rain Song' también es notable por ser una de las primeras baladas de Led Zeppelin que incorporó arreglos orquestales, lo que la diferencia de su estilo más rockero. Además, la canción fue escrita por Robert Plant y Jimmy Page, y se considera un clásico del rock progresivo."
         },
@@ -1891,12 +1771,7 @@
         },
         {
           "question": "Durante la producción del álbum 'Wish You Were Here' de Pink Floyd en 1975, ¿quién fue el ingeniero de sonido que colaboró en la grabación, ayudando a lograr el distintivo sonido atmosférico del disco?",
-          "options": [
-            "Alan Parsons",
-            "Roger Waters",
-            "David Gilmour",
-            "Nick Mason"
-          ],
+          "options": ["Alan Parsons", "Roger Waters", "David Gilmour", "Nick Mason"],
           "correctAnswer": "Alan Parsons",
           "trivia": "El ingeniero de sonido Alan Parsons desempeñó un papel crucial en la producción de 'Wish You Were Here'. Su trabajo en el estudio permitió a Pink Floyd experimentar con técnicas de grabación innovadoras, como el uso de la cinta de múltiples pistas y efectos de sonido envolventes. Además, Parsons ya había colaborado con la banda en su álbum anterior, 'The Dark Side of the Moon', lo que fortaleció su relación. 'Wish You Were Here' es conocido por su exploración temática de la ausencia y la desconexión, influenciada por la lucha de Syd Barrett con la salud mental, un tema recurrente en la obra de la banda. La producción cuidadosa y la atención al detalle por parte de Parsons fueron fundamentales para el éxito crítico y comercial del álbum."
         }
@@ -1986,12 +1861,7 @@
       "medium": [
         {
           "question": "¿Cuál de los siguientes músicos destacados colaboró con Neil Young en el álbum 'Harvest' de 1972, influyendo en su impacto en la escena musical de la época?",
-          "options": [
-            "David Crosby",
-            "James Taylor",
-            "Linda Ronstadt",
-            "Joni Mitchell"
-          ],
+          "options": ["David Crosby", "James Taylor", "Linda Ronstadt", "Joni Mitchell"],
           "correctAnswer": "David Crosby",
           "trivia": "Neil Young colaboró con David Crosby en el álbum 'Harvest', lo que añadió una dimensión vocal y melódica que resonó profundamente en la escena musical de los años 70. Esta colaboración no solo ayudó a solidificar la reputación de Young como un cantautor influyente, sino que también destacó la conexión entre el folk rock y el rock de la costa oeste. 'Harvest' se convirtió en un gran éxito, alcanzando el número uno en la lista Billboard 200 y vendiendo más de un millón de copias en Estados Unidos. Además, la canción 'Heart of Gold', uno de los sencillos más reconocidos del álbum, se convirtió en un himno de la época, contribuyendo al legado perdurable de Young en la música popular."
         },
@@ -2043,12 +1913,7 @@
         },
         {
           "question": "¿Qué miembro de la banda que acompañó a Neil Young en el álbum 'Harvest' tuvo una relación personal y profesional significativa con él, marcada por su influencia en el sonido de la música folk-rock de los años 70?",
-          "options": [
-            "Stephen Stills",
-            "David Crosby",
-            "Graham Nash",
-            "Ben Keith"
-          ],
+          "options": ["Stephen Stills", "David Crosby", "Graham Nash", "Ben Keith"],
           "correctAnswer": "Ben Keith",
           "trivia": "Ben Keith fue un destacado músico de sesión y multiinstrumentista que contribuyó significativamente al álbum 'Harvest' de Neil Young, lanzado en 1972. Keith no solo tocó el pedal steel guitar, sino que también aportó su visión creativa a la producción del álbum, ayudando a definir su sonido característico. A lo largo de los años, Neil Young y Ben Keith desarrollaron una sólida relación de colaboración, que se extendió más allá de 'Harvest', ya que Keith se convirtió en un colaborador habitual en muchos de los trabajos posteriores de Young. Además, 'Harvest' incluye la famosa canción 'Heart of Gold', que se benefició enormemente del estilo único de Keith. Este álbum no solo fue un éxito comercial, sino que también consolidó la influencia de Young en la música folk-rock de la época."
         }
@@ -2103,12 +1968,7 @@
       "medium": [
         {
           "question": "En el álbum 'Goodbye Yellow Brick Road' de Elton John, ¿qué famoso músico colaboró en la composición de varias canciones, incluyendo el icónico sencillo 'Candle in the Wind'?",
-          "options": [
-            "Bernie Taupin",
-            "David Bowie",
-            "Paul McCartney",
-            "John Lennon"
-          ],
+          "options": ["Bernie Taupin", "David Bowie", "Paul McCartney", "John Lennon"],
           "correctAnswer": "Bernie Taupin",
           "trivia": "Bernie Taupin es el letrista habitual de Elton John y colaboró estrechamente con él en el álbum 'Goodbye Yellow Brick Road', lanzado en 1973. Juntos, crearon algunas de las canciones más memorables de la música pop, incluyendo 'Candle in the Wind', que se convirtió en un himno emocional y un éxito mundial. Este álbum es conocido por su mezcla de estilos musicales y su producción elaborada, lo que ayudó a consolidar la fama de Elton John en la industria musical. Además, 'Goodbye Yellow Brick Road' es considerado uno de los mejores álbumes de todos los tiempos, destacando la química creativa entre Taupin y John, quienes han trabajado juntos durante más de cinco décadas."
         },
@@ -2215,12 +2075,7 @@
       "medium": [
         {
           "question": "Durante las grabaciones del álbum 'Sticky Fingers' de The Rolling Stones en 1971, ¿qué miembro de la banda dejó temporalmente su puesto como bajista, lo que llevó a la inclusión de otros músicos en algunas pistas?",
-          "options": [
-            "Bill Wyman",
-            "Mick Jagger",
-            "Keith Richards",
-            "Charlie Watts"
-          ],
+          "options": ["Bill Wyman", "Mick Jagger", "Keith Richards", "Charlie Watts"],
           "correctAnswer": "Bill Wyman",
           "trivia": "Bill Wyman, el bajista original de The Rolling Stones, dejó temporalmente la banda durante las sesiones de grabación de 'Sticky Fingers', lo que permitió que otros músicos, como el bajista de sesión Jack Bruce, colaboraran en el álbum. Este álbum, lanzado en 1971, es conocido por su innovadora producción y su icónica portada diseñada por Andy Warhol. A pesar de la ausencia temporal de Wyman, su estilo característico de tocar el bajo sigue presente en la mayoría de las pistas. 'Sticky Fingers' también marcó el debut del famoso logotipo de los labios y la lengua de la banda, que se ha convertido en un símbolo perdurable del rock. Además, este fue el primer álbum de estudio de The Rolling Stones lanzado bajo su propio sello, Rolling Stones Records."
         },
@@ -2237,12 +2092,7 @@
         },
         {
           "question": "Durante la grabación del álbum 'Sticky Fingers' de The Rolling Stones en 1971, ¿qué destacado músico colaboró en la composición de la famosa canción 'Wild Horses'?",
-          "options": [
-            "Leonard Cohen",
-            "John Lennon",
-            "Mick Jagger",
-            "Gram Parsons"
-          ],
+          "options": ["Leonard Cohen", "John Lennon", "Mick Jagger", "Gram Parsons"],
           "correctAnswer": "Gram Parsons",
           "trivia": "La respuesta correcta es Gram Parsons, quien coescribió 'Wild Horses' con Mick Jagger. Esta colaboración se considera un hito en la fusión del rock y el country, un estilo que fue explorado por The Rolling Stones en el álbum 'Sticky Fingers'. Grabado en Muscle Shoals, Alabama, este álbum también incluye clásicos como 'Brown Sugar' y 'Bitch'. 'Sticky Fingers' fue el primer álbum de The Rolling Stones lanzado bajo su propio sello, Rolling Stones Records, y se destacó por su portada icónica diseñada por Andy Warhol, que presentaba una cremallera funcional. Este contexto refleja cómo el álbum marcó un punto de inflexión en la evolución musical de la banda."
         }
@@ -2309,12 +2159,7 @@
         },
         {
           "question": "¿Qué famosa canción fue reinterpretada por Paul McCartney & Wings en su álbum 'Band on the Run' de 1973?",
-          "options": [
-            "Yesterday",
-            "Lady Madonna",
-            "My Love",
-            "You Gave Me Wings"
-          ],
+          "options": ["Yesterday", "Lady Madonna", "My Love", "You Gave Me Wings"],
           "correctAnswer": "You Gave Me Wings",
           "trivia": "La canción 'You Gave Me Wings' es una de las composiciones originales de Paul McCartney & Wings que se incluye en el álbum 'Band on the Run'. Aunque no fue una versión de otra canción, este álbum ha sido reinterpretado por varios artistas a lo largo de los años. 'Band on the Run' ha sido reconocido como una obra maestra y ha influido en numerosas reinterpretaciones. En su lanzamiento, el álbum alcanzó el número uno en las listas de varios países y se considera un hito en la carrera de McCartney post-Beatles. Además, la producción del álbum se llevó a cabo en Nigeria, lo que le aportó un sonido distintivo y multicultural."
         }
@@ -2416,12 +2261,7 @@
         },
         {
           "question": "¿Qué calificación recibió el álbum 'Aja' de Steely Dan en la revista Rolling Stone tras su lanzamiento en 1977?",
-          "options": [
-            "5 estrellas",
-            "4 estrellas",
-            "3 estrellas",
-            "4.5 estrellas"
-          ],
+          "options": ["5 estrellas", "4 estrellas", "3 estrellas", "4.5 estrellas"],
           "correctAnswer": "5 estrellas",
           "trivia": "El álbum 'Aja' de Steely Dan fue aclamado por la crítica y recibió una calificación de 5 estrellas en la revista Rolling Stone, destacándose por su sofisticación musical y producción innovadora. Lanzado en 1977, 'Aja' es considerado un hito en el rock y el jazz fusion, logrando un gran éxito tanto comercial como crítico. Además, el álbum incluye canciones icónicas como 'Peg' y 'Deacon Blues', que han perdurado en la cultura popular. 'Aja' también es notable por su meticulosa producción, que fue realizada por Walter Becker y Donald Fagen, los miembros fundadores de Steely Dan. Esta obra maestra no solo consolidó la reputación de Steely Dan, sino que también dejó una huella indeleble en la música de finales de los años 70."
         }
@@ -2440,23 +2280,13 @@
         },
         {
           "question": "¿Qué artista de rock alternativo ha citado a Steely Dan y su álbum 'Aja' como una influencia clave en su estilo musical?",
-          "options": [
-            "Radiohead",
-            "The Smashing Pumpkins",
-            "R.E.M.",
-            "Foo Fighters"
-          ],
+          "options": ["Radiohead", "The Smashing Pumpkins", "R.E.M.", "Foo Fighters"],
           "correctAnswer": "Radiohead",
           "trivia": "Radiohead ha mencionado en diversas ocasiones la influencia que ha tenido Steely Dan, especialmente el álbum 'Aja', en su música. Este álbum, lanzado en 1977, es conocido por su complejidad armónica y su fusión de géneros, lo que ha resonado con muchas bandas posteriores. Además, el uso innovador de la producción y la instrumentación en 'Aja' ha dejado una huella en la música alternativa y rock contemporáneo. Temas como la introspección y la sofisticación lírica presentes en 'Aja' han sido emulados por artistas como Thom Yorke y compañía. 'Aja' no solo alcanzó un gran éxito comercial, sino que también se ha convertido en un referente dentro del rock que continúa influyendo en nuevas generaciones de músicos."
         },
         {
           "question": "¿Qué músico contribuyó con un solo de saxofón notable en la canción 'Deacon Blues', del álbum 'Aja' de Steely Dan, lanzado en 1977?",
-          "options": [
-            "Wayne Shorter",
-            "David Sanborn",
-            "Michael Brecker",
-            "Chuck Mangione"
-          ],
+          "options": ["Wayne Shorter", "David Sanborn", "Michael Brecker", "Chuck Mangione"],
           "correctAnswer": "David Sanborn",
           "trivia": "En 'Aja', Steely Dan destaca la colaboración del saxofonista David Sanborn, quien aporta un solo de saxofón icónico en la canción 'Deacon Blues'. Este álbum es conocido por su complejidad musical y arreglos sofisticados, y la contribución de Sanborn se considera un elemento clave que realza la atmósfera del tema. 'Aja' fue lanzado en 1977 y se convirtió en un referente del jazz-rock. Además, es notable mencionar que el álbum recibió elogios tanto de la crítica como del público, logrando múltiples premios Grammy. La fusión de géneros y la meticulosa producción son características que han mantenido a 'Aja' como un clásico atemporal en la música popular."
         }
@@ -2563,12 +2393,7 @@
         },
         {
           "question": "¿Cuál fue el primer sencillo lanzado de 'All Things Must Pass', el álbum de George Harrison, que alcanzó el éxito comercial en 1970?",
-          "options": [
-            "My Sweet Lord",
-            "Isn't It a Pity",
-            "What Is Life",
-            "All Things Must Pass"
-          ],
+          "options": ["My Sweet Lord", "Isn't It a Pity", "What Is Life", "All Things Must Pass"],
           "correctAnswer": "My Sweet Lord",
           "trivia": "El primer sencillo lanzado de 'All Things Must Pass' fue 'My Sweet Lord', que se convirtió en un gran éxito comercial en 1970. Esta canción no solo alcanzó el número uno en las listas de Billboard, sino que también fue un hito histórico al convertirse en el primer sencillo de un exmiembro de The Beatles en lograr tal éxito. 'My Sweet Lord' se destacó por su innovador uso de armonías vocales y una producción rica, características que marcaron la pauta del álbum. Además, el álbum 'All Things Must Pass' en su conjunto es considerado uno de los mejores álbumes de la historia del rock, vendiendo más de 6 millones de copias en todo el mundo. Este álbum también fue el primero de Harrison como solista, reflejando su crecimiento musical y espiritual tras la separación de The Beatles."
         }
@@ -2623,12 +2448,7 @@
       "easy": [
         {
           "question": "¿Qué productor colaboró con David Bowie en la creación de su álbum 'Hunky Dory' lanzado en 1971?",
-          "options": [
-            "Tony Visconti",
-            "Brian Eno",
-            "Mick Ronson",
-            "George Martin"
-          ],
+          "options": ["Tony Visconti", "Brian Eno", "Mick Ronson", "George Martin"],
           "correctAnswer": "Tony Visconti",
           "trivia": "Tony Visconti fue el productor que trabajó junto a David Bowie en la realización de 'Hunky Dory'. Este álbum, considerado uno de los más influyentes de Bowie, fue grabado en los estudios Trident en Londres. Visconti también colaboró en otros álbumes de Bowie, como 'The Man Who Sold the World' y 'Young Americans'. 'Hunky Dory' incluye clásicos como 'Changes' y 'Life on Mars?', y marcó el inicio de una nueva era en la música rock, fusionando elementos de glam y pop. Además, la contribución de Mick Ronson como guitarrista y arreglista fue crucial para el sonido distintivo del álbum."
         },
@@ -2693,12 +2513,7 @@
       "hard": [
         {
           "question": "¿Qué canción del álbum 'Hunky Dory' de David Bowie ha sido utilizada en campañas políticas, destacándose su uso en la campaña presidencial de Barack Obama en 2008?",
-          "options": [
-            "Changes",
-            "Life on Mars?",
-            "Oh! You Pretty Things",
-            "Kooks"
-          ],
+          "options": ["Changes", "Life on Mars?", "Oh! You Pretty Things", "Kooks"],
           "correctAnswer": "Changes",
           "trivia": "La canción 'Changes' de David Bowie, parte del álbum 'Hunky Dory' lanzado en 1971, fue utilizada en la campaña presidencial de Barack Obama en 2008, simbolizando la transformación y renovación que el candidato prometía. Esta canción, que aborda temas de cambio y autoaceptación, resonó profundamente con los votantes que buscaban un nuevo rumbo para el país. 'Changes' ha sido un himno recurrente en diversas manifestaciones culturales y políticas, subrayando su relevancia más allá del ámbito musical. Además, se ha convertido en un clásico que ha sido versionado y utilizado en numerosos eventos deportivos, lo que demuestra su impacto perdurable. Bowie, con su estilo innovador y su enfoque en la identidad, ha dejado una huella indeleble en la cultura popular, convirtiendo 'Hunky Dory' en un álbum fundamental de su carrera."
         },
@@ -2786,12 +2601,7 @@
         },
         {
           "question": "¿Qué productor fue fundamental en la creación del álbum 'Never Mind the Bollocks, Here’s the Sex Pistols' de Sex Pistols, y es conocido por su enfoque provocador en la producción musical?",
-          "options": [
-            "Steve Albini",
-            "Glyn Johns",
-            "Chris Thomas",
-            "Phil Spector"
-          ],
+          "options": ["Steve Albini", "Glyn Johns", "Chris Thomas", "Phil Spector"],
           "correctAnswer": "Chris Thomas",
           "trivia": "Chris Thomas fue el productor del álbum 'Never Mind the Bollocks, Here’s the Sex Pistols', lanzado en 1977, y su enfoque audaz y experimental ayudó a definir el sonido del punk rock. Thomas había trabajado previamente con bandas como Procol Harum y se unió a los Sex Pistols en un momento crítico de su carrera. La producción de Thomas se destacó por su uso de técnicas de grabación innovadoras y su habilidad para capturar la energía cruda de la banda. Además, el álbum es conocido por ser uno de los primeros en presentar una imagen provocativa y transgresora, reflejando la filosofía punk de desafiar las normas establecidas. 'Never Mind the Bollocks' es considerado un hito en la historia de la música y sigue influyendo en los artistas hasta la fecha."
         },
@@ -2832,12 +2642,7 @@
         },
         {
           "question": "Durante su gira de 1977 para promover 'Never Mind the Bollocks, Here’s the Sex Pistols', ¿en qué famoso local de Londres realizaron una actuación que terminó en un tumulto y fue cerrada por la policía?",
-          "options": [
-            "The Roundhouse",
-            "The 100 Club",
-            "The Marquee Club",
-            "The Rainbow Theatre"
-          ],
+          "options": ["The Roundhouse", "The 100 Club", "The Marquee Club", "The Rainbow Theatre"],
           "correctAnswer": "The 100 Club",
           "trivia": "La respuesta correcta es 'The 100 Club', donde los Sex Pistols ofrecieron un memorable concierto en septiembre de 1976 que se convirtió en un hito dentro del punk rock. Este espectáculo, que fue parte de la gira para promocionar su álbum 'Never Mind the Bollocks, Here’s the Sex Pistols', se vio interrumpido por disturbios que llevaron a la intervención policial. La actuación en este emblemático club marcó un punto culminante en la carrera de la banda, consolidando su reputación por su actitud desafiante y su energía cruda. Además, el 100 Club es conocido por haber sido un lugar clave en la escena musical de Londres, albergando a numerosas bandas influyentes a lo largo de los años. En total, los Sex Pistols realizaron apenas 7 conciertos en 1976, lo que hizo que cada actuación fuera aún más significativa."
         }
@@ -2857,23 +2662,13 @@
       "easy": [
         {
           "question": "¿Qué canción de Aerosmith, incluida en su álbum 'Toys in the Attic' de 1975, ha sido versionada por varios artistas, incluyendo a la banda de rock británica 'The New York Dolls'?",
-          "options": [
-            "Dream On",
-            "Sweet Emotion",
-            "Back in the Saddle",
-            "Walk This Way"
-          ],
+          "options": ["Dream On", "Sweet Emotion", "Back in the Saddle", "Walk This Way"],
           "correctAnswer": "Walk This Way",
           "trivia": "La canción 'Walk This Way' de Aerosmith, que aparece en el álbum 'Toys in the Attic', ha tenido un impacto significativo en la música rock y ha sido objeto de numerosas versiones. Entre las más notables se encuentra la interpretación de 'The New York Dolls', que ayudó a popularizar la canción en la escena del glam rock. Además, en 1986, 'Run-D.M.C.' hizo una famosa versión de la canción que fusionó hip hop y rock, lo que contribuyó a revitalizar la carrera de Aerosmith. 'Toys in the Attic' es considerado uno de los álbumes más emblemáticos de la banda, con 'Walk This Way' como uno de sus sencillos más representativos. La canción alcanzó el puesto 10 en la lista Billboard Hot 100 y ha perdurado como un clásico en la cultura musical."
         },
         {
           "question": "¿Cuánto costó aproximadamente la producción del álbum 'Toys in the Attic' de Aerosmith en 1975?",
-          "options": [
-            "50,000 dólares",
-            "100,000 dólares",
-            "200,000 dólares",
-            "300,000 dólares"
-          ],
+          "options": ["50,000 dólares", "100,000 dólares", "200,000 dólares", "300,000 dólares"],
           "correctAnswer": "100,000 dólares",
           "trivia": "La producción del álbum 'Toys in the Attic' de Aerosmith en 1975 tuvo un costo aproximado de 100,000 dólares. Este álbum se convirtió en un hito en la carrera de la banda, consolidando su popularidad gracias a éxitos como 'Sweet Emotion' y 'Walk This Way'. La inversión en la producción fue significativa para la época, reflejando la ambición de Aerosmith de alcanzar un sonido más pulido y potente. 'Toys in the Attic' fue grabado en los estudios Record Plant en Nueva York, un lugar conocido por su alta calidad de producción musical. Además, el álbum es considerado uno de los mejores de Aerosmith y ha vendido millones de copias en todo el mundo, lo que justifica la inversión inicial."
         },
@@ -2914,12 +2709,7 @@
         },
         {
           "question": "En el álbum 'Toys in the Attic' de Aerosmith, ¿cuál de las siguientes canciones presenta un uso destacado de arreglos musicales que incorporan elementos de blues y rock, fusionando ambos géneros de manera notable?",
-          "options": [
-            "Walk This Way",
-            "Sweet Emotion",
-            "Toys in the Attic",
-            "No More No More"
-          ],
+          "options": ["Walk This Way", "Sweet Emotion", "Toys in the Attic", "No More No More"],
           "correctAnswer": "Sweet Emotion",
           "trivia": "La canción 'Sweet Emotion' es conocida por su distintivo arreglo musical que combina elementos de rock y blues, una característica que se convirtió en sello de Aerosmith en sus primeras producciones. Esta pista, que también sirvió como el sencillo principal del álbum 'Toys in the Attic', incluye un memorable riff de bajo creado por Tom Hamilton, el cual se complementa con la voz rasposa de Steven Tyler. Además, la producción de Jack Douglas permitió que la canción destacara por su atmósfera única, contribuyendo a su éxito en las listas de popularidad. 'Sweet Emotion' alcanzó el puesto 36 en la lista Billboard Hot 100 y se considera una de las mejores canciones de la banda, consolidando la fusión del rock con otros géneros que los caracterizó en los años 70."
         }
@@ -3086,12 +2876,7 @@
       "easy": [
         {
           "question": "¿Cuál es una de las canciones incluidas en las versiones deluxe del álbum 'Innervisions' de Stevie Wonder, lanzado en 1973?",
-          "options": [
-            "Too High",
-            "Superstition",
-            "Isn't She Lovely",
-            "Master Blaster"
-          ],
+          "options": ["Too High", "Superstition", "Isn't She Lovely", "Master Blaster"],
           "correctAnswer": "Too High",
           "trivia": "En las versiones deluxe del álbum 'Innervisions', lanzado en 1973, se incluye la canción 'Too High'. Este álbum es conocido por su mezcla de soul, funk y elementos de música pop, y es considerado uno de los trabajos más destacados de Stevie Wonder. 'Innervisions' fue aclamado por la crítica y contiene otros éxitos como 'Higher Ground' y 'Living for the City'. Además, el álbum ganó el Grammy por Álbum del Año en 1974, consolidando la influencia de Wonder en la música de la época. A lo largo de su carrera, Stevie Wonder ha sido un innovador en el uso de tecnología de grabación, lo que se refleja en la producción de este álbum emblemático."
         },
@@ -3143,12 +2928,7 @@
         },
         {
           "question": "En el álbum 'Innervisions' de Stevie Wonder, ¿qué instrumento de teclado fue fundamental para la creación del sonido característico de algunas de sus canciones?",
-          "options": [
-            "Piano acústico",
-            "Órgano Hammond",
-            "Sintetizador Moog",
-            "Clavinet"
-          ],
+          "options": ["Piano acústico", "Órgano Hammond", "Sintetizador Moog", "Clavinet"],
           "correctAnswer": "Clavinet",
           "trivia": "El Clavinet es el instrumento que se destaca en varias canciones del álbum 'Innervisions' de Stevie Wonder, lanzado en 1973. Este teclado eléctrico, conocido por su sonido distintivo y percutido, se utiliza en temas como 'Higher Ground', donde contribuye a la energía funk de la pista. Además, 'Innervisions' es considerado un hito en la música soul y R&B, combinando elementos de funk, jazz y pop. Durante la grabación, Stevie Wonder experimentó con diferentes tecnologías de grabación, lo que le permitió crear texturas sonoras innovadoras. Este álbum fue aclamado no solo por su música, sino también por sus letras que abordan temas sociales y políticos, reflejando la época en la que fue producido."
         }
@@ -3214,12 +2994,7 @@
         },
         {
           "question": "¿Quién fue el destacado productor que colaboró con John Lennon en el álbum 'Imagine' de 1971 y que también trabajó con otros artistas icónicos de la música?",
-          "options": [
-            "George Martin",
-            "Phil Spector",
-            "David Bowie",
-            "Brian Wilson"
-          ],
+          "options": ["George Martin", "Phil Spector", "David Bowie", "Brian Wilson"],
           "correctAnswer": "Phil Spector",
           "trivia": "Phil Spector fue el productor que colaboró con John Lennon en el álbum 'Imagine', lanzado en 1971. Spector es conocido por su innovador 'Wall of Sound', una técnica de producción que revolucionó el sonido de la música pop en los años 60 y 70. Además de trabajar con Lennon, Spector también produjo álbumes para artistas como The Ronettes y The Beatles, siendo crucial en la creación de su famoso 'Let It Be'. La influencia de Spector en el sonido de 'Imagine' es evidente, ya que aportó su distintivo enfoque a las capas de instrumentos y voces. Este álbum, considerado una obra maestra, refleja el deseo de Lennon por la paz y la unidad mundial."
         },
@@ -3331,12 +3106,7 @@
         },
         {
           "question": "¿En qué popular serie de televisión se incluyó la canción 'Highway to Hell' de AC/DC, lanzada en 1979, durante uno de sus episodios?",
-          "options": [
-            "Stranger Things",
-            "Supernatural",
-            "The Simpsons",
-            "Breaking Bad"
-          ],
+          "options": ["Stranger Things", "Supernatural", "The Simpsons", "Breaking Bad"],
           "correctAnswer": "Supernatural",
           "trivia": "La canción 'Highway to Hell' de AC/DC fue utilizada en la serie 'Supernatural', que se estrenó en 2005. Este tema, que proviene del álbum del mismo nombre lanzado en 1979, se ha vuelto icónico y representa de manera perfecta el espíritu de la serie, que trata sobre cazadores de demonios y criaturas sobrenaturales. 'Highway to Hell' es una de las canciones más reconocibles de AC/DC y ha sido parte de numerosas bandas sonoras en películas y programas de televisión. Además, el álbum 'Highway to Hell' fue el primero de la banda en ser producido por Robert John 'Mutt' Lange, lo que ayudó a definir su sonido en los años posteriores. Esta conexión entre la música de AC/DC y la cultura pop demuestra la relevancia perdurable de la banda en la industria del entretenimiento."
         },
@@ -3412,12 +3182,7 @@
         },
         {
           "question": "¿Cuál de los íconos del rock británico tuvo una influencia significativa en el estilo musical y lírico del álbum 'Highway to Hell' de AC/DC, lanzado en 1979?",
-          "options": [
-            "Led Zeppelin",
-            "The Rolling Stones",
-            "Black Sabbath",
-            "Deep Purple"
-          ],
+          "options": ["Led Zeppelin", "The Rolling Stones", "Black Sabbath", "Deep Purple"],
           "correctAnswer": "The Rolling Stones",
           "trivia": "La respuesta correcta es 'The Rolling Stones', quienes influyeron notablemente en el sonido y la estética de AC/DC, especialmente en el álbum 'Highway to Hell'. Los hermanos Young, fundadores de la banda, reconocieron que el estilo de rock and roll crudo y provocador de los Stones fue crucial para dar forma a su propia música. En particular, la actitud desafiante y los riffs de guitarra pesados presentes en este álbum reflejan la esencia del rock clásico de los años 70, donde grupos como los Stones se destacaron. 'Highway to Hell' se convirtió en el primer álbum de AC/DC que alcanzó el estatus de platino en los Estados Unidos, consolidando su legado en la historia del rock."
         }
@@ -3437,12 +3202,7 @@
       "easy": [
         {
           "question": "¿Qué instrumento destacado utilizó The Doors en la canción 'Riders on the Storm' del álbum 'L.A. Woman' en 1971?",
-          "options": [
-            "Guitarra eléctrica",
-            "Piano de cola",
-            "Sintetizador Moog",
-            "Armónica"
-          ],
+          "options": ["Guitarra eléctrica", "Piano de cola", "Sintetizador Moog", "Armónica"],
           "correctAnswer": "Piano de cola",
           "trivia": "En 'Riders on the Storm', The Doors utilizaron un piano de cola que contribuyó a la atmósfera melancólica y envolvente de la canción. Este instrumento, tocado por Ray Manzarek, crea una base armónica rica que se complementa con la inconfundible voz de Jim Morrison. Además, la producción de 'L.A. Woman' fue notable porque fue una de las primeras grabaciones en las que se utilizaron técnicas de grabación en vivo en el estudio, lo que le dio un sonido más auténtico y crudo. El álbum fue un éxito comercial y crítico, consolidando a The Doors como una de las bandas más influyentes de su época."
         },
@@ -3529,12 +3289,7 @@
         },
         {
           "question": "¿Qué productor colaboró con The Doors en el álbum 'L.A. Woman' de 1971, aportando su experiencia previa en la industria musical?",
-          "options": [
-            "Paul McCartney",
-            "Terry Melcher",
-            "Bruce Botnick",
-            "George Martin"
-          ],
+          "options": ["Paul McCartney", "Terry Melcher", "Bruce Botnick", "George Martin"],
           "correctAnswer": "Bruce Botnick",
           "trivia": "La respuesta correcta es Bruce Botnick, quien fue el productor del álbum 'L.A. Woman' de The Doors. Botnick ya había trabajado con la banda en álbumes anteriores, como 'Strange Days' y 'Waiting for the Sun', lo que le permitió tener una comprensión profunda de su sonido y estilo. Durante la grabación de 'L.A. Woman', se utilizó un enfoque más directo y enérgico, capturando la esencia del rock en vivo. Además, Botnick fue responsable de la mezcla de muchas de las pistas icónicas del álbum, que incluye la famosa canción 'Riders on the Storm'. Este trabajo consolidó aún más la colaboración fructífera entre The Doors y Botnick, convirtiéndose en una parte integral de su legado musical."
         }
@@ -3589,12 +3344,7 @@
       "medium": [
         {
           "question": "¿En qué película se utilizó la famosa canción 'Bridge Over Troubled Water' de Simon & Garfunkel, lanzada en 1970, como parte de su banda sonora?",
-          "options": [
-            "El Graduado",
-            "Cazadores de Fantasmas",
-            "El Padrino",
-            "Una Mente Brillante"
-          ],
+          "options": ["El Graduado", "Cazadores de Fantasmas", "El Padrino", "Una Mente Brillante"],
           "correctAnswer": "El Graduado",
           "trivia": "La canción 'Bridge Over Troubled Water' de Simon & Garfunkel fue utilizada en la icónica película 'El Graduado', estrenada en 1967, antes de su lanzamiento como parte del álbum del mismo nombre en 1970. Esta canción se convirtió en un símbolo de la época y ayudó a consolidar a Simon & Garfunkel como uno de los dúos más influyentes de la música folk rock. Además, el álbum 'Bridge Over Troubled Water' ganó el Grammy al Álbum del Año en 1971, destacando su impacto cultural. La fusión de la emotiva letra y la poderosa producción orquestal de la canción la hizo perfecta para la atmósfera de la película, lo que a su vez contribuyó a su popularidad duradera."
         },
@@ -3635,12 +3385,7 @@
         },
         {
           "question": "¿Qué famoso músico de rock colaboró con Simon & Garfunkel en la canción 'Bridge Over Troubled Water', aportando su distintiva guitarra eléctrica durante las sesiones de grabación de 1970?",
-          "options": [
-            "David Bowie",
-            "Jimmy Page",
-            "Eric Clapton",
-            "Neil Young"
-          ],
+          "options": ["David Bowie", "Jimmy Page", "Eric Clapton", "Neil Young"],
           "correctAnswer": "Eric Clapton",
           "trivia": "La colaboración de Eric Clapton en 'Bridge Over Troubled Water' es un aspecto menos conocido del álbum, el cual fue lanzado en 1970 y se convirtió en un gran éxito. Clapton, reconocido por su virtuosismo en la guitarra, aportó su estilo característico a la canción, aunque su participación no fue acreditada en un principio. 'Bridge Over Troubled Water' se destacó no solo por su emotiva letra y melodía, sino también por la producción innovadora de Paul Simon y Art Garfunkel, quienes trabajaron con el productor Roy Halee. El álbum alcanzó el número uno en las listas de Billboard y ha vendido más de 25 millones de copias en todo el mundo, consolidando a Simon & Garfunkel como un dúo icónico de la música folk y rock."
         },
@@ -3682,23 +3427,13 @@
         },
         {
           "question": "¿Cuánto costó aproximadamente la producción del álbum 'Ramones' de Ramones, lanzado en 1976?",
-          "options": [
-            "6,000 dólares",
-            "10,000 dólares",
-            "15,000 dólares",
-            "20,000 dólares"
-          ],
+          "options": ["6,000 dólares", "10,000 dólares", "15,000 dólares", "20,000 dólares"],
           "correctAnswer": "6,000 dólares",
           "trivia": "La producción del álbum 'Ramones' de Ramones en 1976 tuvo un costo aproximado de solo 6,000 dólares. Este bajo presupuesto es notable, considerando que el álbum ha sido considerado uno de los pilares del punk rock. A pesar de sus limitaciones financieras, la banda logró grabar un trabajo que ha influido en generaciones de músicos. El álbum fue grabado en los Estudios Plaza Sound en Nueva York y se lanzó el 23 de abril de 1976. Además, la economía de la producción permitió que los Ramones continuaran su carrera sin una gran inversión inicial."
         },
         {
           "question": "¿Qué miembro de la banda Ramones fue parte de la formación original durante la grabación del álbum 'Ramones' en 1976?",
-          "options": [
-            "Johnny Ramone",
-            "Marky Ramone",
-            "CJ Ramone",
-            "Richie Ramone"
-          ],
+          "options": ["Johnny Ramone", "Marky Ramone", "CJ Ramone", "Richie Ramone"],
           "correctAnswer": "Johnny Ramone",
           "trivia": "Johnny Ramone fue uno de los miembros fundadores de los Ramones y estuvo presente en la formación original durante la grabación de su álbum debut 'Ramones' en 1976. Este álbum es considerado uno de los pilares del punk rock y ayudó a definir el sonido característico de la banda. Además de Johnny, la alineación original incluía a Joey Ramone, Dee Dee Ramone y Tommy Ramone. Con su sonido crudo y directo, el álbum 'Ramones' sentó las bases para el desarrollo de muchas bandas de punk posteriores y dejó una huella indeleble en la historia de la música."
         }
@@ -3728,12 +3463,7 @@
         },
         {
           "question": "Durante su gira de 1976, ¿en qué famoso club de Nueva York realizó Ramones una serie de actuaciones que se consideran fundamentales para su carrera y para la escena punk de la época?",
-          "options": [
-            "CBGB",
-            "Max's Kansas City",
-            "The Palladium",
-            "The Bowery Ballroom"
-          ],
+          "options": ["CBGB", "Max's Kansas City", "The Palladium", "The Bowery Ballroom"],
           "correctAnswer": "CBGB",
           "trivia": "La respuesta correcta es CBGB, un icónico club de Nueva York donde Ramones realizó numerosas presentaciones en 1976, ayudando a establecer su reputación en la escena musical. Este local se convirtió en un punto de encuentro para bandas punk y nuevas oleadas de rock, siendo un lugar clave para el desarrollo del punk en Estados Unidos. Ramones, con su álbum debut titulado 'Ramones', lanzó un sonido crudo y rápido que resonó con el público, y sus actuaciones en CBGB atrajeron la atención de críticos y fanáticos por igual. La banda fue parte esencial del movimiento que definió esta época, y su influencia se siente todavía hoy en la música moderna."
         }
@@ -3875,12 +3605,7 @@
         },
         {
           "question": "En el álbum 'Blood on the Tracks' de Bob Dylan, ¿qué músico que formó parte de las sesiones de grabación fue un antiguo colaborador de Dylan en álbumes previos, pero no formó parte de la banda de gira en ese momento?",
-          "options": [
-            "Ramblin' Jack Elliott",
-            "David Bromberg",
-            "Al Kooper",
-            "Graham Nash"
-          ],
+          "options": ["Ramblin' Jack Elliott", "David Bromberg", "Al Kooper", "Graham Nash"],
           "correctAnswer": "David Bromberg",
           "trivia": "David Bromberg, quien es un talentoso multiinstrumentista y productor, colaboró con Bob Dylan en 'Blood on the Tracks' como guitarrista y arreglista, aunque no formó parte de la banda de gira que siguió al lanzamiento del álbum. Este álbum, lanzado en 1975, es conocido por su introspección lírica y su exploración de temas personales, en parte inspirados por la separación de Dylan y su entonces esposa, Sara Lownds. Bromberg había trabajado con Dylan anteriormente, pero su participación en este álbum fue particularmente notable debido a la calidad de las composiciones y la producción. 'Blood on the Tracks' es considerado uno de los mejores álbumes de Dylan, y su contexto histórico refleja una época de gran cambio en la música de los años 70."
         }
@@ -4017,12 +3742,7 @@
       "easy": [
         {
           "question": "¿Qué miembro de la banda que acompañó a Van Morrison en el álbum 'Moondance' también es conocido por su carrera como solista?",
-          "options": [
-            "David Hayes",
-            "John Platania",
-            "Jackie DeShannon",
-            "Cynthia Lennon"
-          ],
+          "options": ["David Hayes", "John Platania", "Jackie DeShannon", "Cynthia Lennon"],
           "correctAnswer": "John Platania",
           "trivia": "John Platania, quien tocó la guitarra en el álbum 'Moondance' de Van Morrison, es también un reconocido músico solista. A lo largo de su carrera, Platania ha colaborado con varios artistas y ha lanzado su propio material, destacándose por su estilo distintivo y versatilidad. 'Moondance', lanzado en 1970, es uno de los álbumes más icónicos de Morrison, y ha sido aclamado tanto por la crítica como por el público. Además de Platania, el álbum cuenta con músicos talentosos como el bajista David Hayes y el tecladista Jeff Labes, quienes también contribuyeron a su éxito. Este álbum es fundamental en la historia del rock y el jazz, y ha influido en numerosos artistas desde su lanzamiento."
         },
@@ -4052,12 +3772,7 @@
       "medium": [
         {
           "question": "¿Qué canción del álbum 'Moondance' de Van Morrison fue incluida en versiones deluxe posteriores y ha sido reinterpretada en múltiples ocasiones por otros artistas?",
-          "options": [
-            "Into the Mystic",
-            "Come Running",
-            "Brand New Day",
-            "Crazy Love"
-          ],
+          "options": ["Into the Mystic", "Come Running", "Brand New Day", "Crazy Love"],
           "correctAnswer": "Crazy Love",
           "trivia": "La canción 'Crazy Love' de Van Morrison, que forma parte del álbum 'Moondance' lanzado en 1970, ha sido un clásico desde su publicación. Esta balada se ha incluido en varias versiones deluxe del álbum, lo que demuestra su perdurable popularidad. Artistas como Michael Bublé y Norah Jones han realizado versiones de esta icónica canción, ampliando su legado a través de diferentes géneros. 'Moondance' en sí es conocido por su fusión de jazz, pop y rock, y ha sido aclamado como uno de los mejores álbumes de la década de 1970. La producción del álbum también destacó por el uso de arreglos orquestales, que se pueden escuchar claramente en esta pista."
         },
@@ -4246,12 +3961,7 @@
       "easy": [
         {
           "question": "¿Cuál de los siguientes videos musicales está asociado con el álbum 'Machine Head' de Deep Purple, lanzado en 1972?",
-          "options": [
-            "Smoke on the Water",
-            "Highway Star",
-            "Child in Time",
-            "Space Truckin'"
-          ],
+          "options": ["Smoke on the Water", "Highway Star", "Child in Time", "Space Truckin'"],
           "correctAnswer": "Smoke on the Water",
           "trivia": "El video musical de 'Smoke on the Water' se ha convertido en una de las representaciones más icónicas de Deep Purple y está asociado directamente con su álbum 'Machine Head', lanzado en 1972. Esta canción narra un evento real que ocurrió en 1971, cuando el grupo presenció un incendio en el casino de Montreux, Suiza, durante una actuación de Frank Zappa. 'Machine Head' fue un álbum crucial para la banda, ya que consolidó su sonido y les ayudó a alcanzar gran popularidad. Además, el álbum incluye otros clásicos como 'Highway Star' y 'Lazy', pero 'Smoke on the Water' es la que ha tenido mayor impacto visual y cultural, siendo frecuentemente utilizada en medios y eventos relacionados con la música. Este tema sigue siendo un favorito en conciertos y ha dejado una huella indeleble en la historia del rock."
         },
@@ -4268,12 +3978,7 @@
         },
         {
           "question": "¿Cuál fue la primera canción que Deep Purple interpretó en vivo del álbum 'Machine Head' durante sus conciertos en 1972?",
-          "options": [
-            "Smoke on the Water",
-            "Highway Star",
-            "Space Truckin'",
-            "Maybe I'm a Leo"
-          ],
+          "options": ["Smoke on the Water", "Highway Star", "Space Truckin'", "Maybe I'm a Leo"],
           "correctAnswer": "Highway Star",
           "trivia": "La primera canción que Deep Purple interpretó en vivo del álbum 'Machine Head' fue 'Highway Star'. Este tema se convirtió en uno de los clásicos más emblemáticos de la banda y se destacó por su potente riff de guitarra y la impresionante sección de teclado. 'Machine Head' fue lanzado en 1972 y rápidamente alcanzó gran popularidad, en parte gracias a su exitoso sencillo 'Smoke on the Water'. Además, la canción 'Highway Star' fue una de las primeras en presentar un solo de guitarra junto a una sección de órgano, lo que ayudó a definir el sonido característico del hard rock de la época. Este álbum, grabado en Montreux, Suiza, se considera uno de los pilares del rock clásico."
         }
@@ -4281,12 +3986,7 @@
       "medium": [
         {
           "question": "Durante la grabación del álbum 'Machine Head' de Deep Purple en 1972, ¿cuál fue una de las principales influencias musicales que el grupo buscaba reflejar en su sonido?",
-          "options": [
-            "El jazz fusión",
-            "El rock progresivo",
-            "El blues rock",
-            "La música clásica"
-          ],
+          "options": ["El jazz fusión", "El rock progresivo", "El blues rock", "La música clásica"],
           "correctAnswer": "El blues rock",
           "trivia": "La respuesta correcta es 'El blues rock'. Durante la grabación de 'Machine Head', Deep Purple se inspiró en el blues rock, un género que influyó significativamente en su estilo musical. Este álbum, que incluye clásicos como 'Smoke on the Water' y 'Highway Star', es considerado una obra maestra del hard rock y ha sido fundamental en la evolución del género. Además, 'Machine Head' fue grabado en un periodo donde las influencias del blues eran prominentes en el rock, lo que ayudó a definir el sonido característico de la banda. En particular, la canción 'Smoke on the Water' narra un evento real relacionado con la escena musical de la época, destacando la conexión entre la banda y su entorno."
         },
@@ -4385,12 +4085,7 @@
         },
         {
           "question": "¿Qué famoso músico, conocido por su trabajo con la banda The Byrds, hizo una aparición especial en el álbum 'Loaded' de The Velvet Underground en 1970?",
-          "options": [
-            "David Crosby",
-            "Roger McGuinn",
-            "Chris Hillman",
-            "Gene Clark"
-          ],
+          "options": ["David Crosby", "Roger McGuinn", "Chris Hillman", "Gene Clark"],
           "correctAnswer": "David Crosby",
           "trivia": "David Crosby, conocido por ser uno de los miembros fundadores de The Byrds, hizo una aparición especial en el álbum 'Loaded' de The Velvet Underground, lanzado en 1970. Su colaboración se destacó en la canción 'Cool It Down', donde contribuyó con sus habilidades vocales. Este álbum es famoso por su sonido más accesible y comercial en comparación con los trabajos anteriores de la banda, y se considera un hito en la historia del rock. 'Loaded' incluye clásicos como 'Sweet Jane' y 'Rock and Roll', que han dejado una huella perdurable en la música. Además, el álbum fue producido por el famoso ingeniero de sonido, Adrian Barber, lo que le dio un enfoque fresco y pulido."
         }
@@ -4409,12 +4104,7 @@
         },
         {
           "question": "¿Cuál de las siguientes canciones del álbum 'Loaded' de The Velvet Underground se considera un éxito crossover, logrando popularidad en la radio a pesar de su origen en el rock alternativo?",
-          "options": [
-            "Sweet Jane",
-            "Rock and Roll",
-            "New Age",
-            "Oh! Sweet Nuthin'"
-          ],
+          "options": ["Sweet Jane", "Rock and Roll", "New Age", "Oh! Sweet Nuthin'"],
           "correctAnswer": "Rock and Roll",
           "trivia": "La canción 'Rock and Roll' del álbum 'Loaded' de The Velvet Underground se convirtió en un éxito crossover, alcanzando popularidad en las listas de rock y pop. Lanzado en 1970, 'Loaded' fue el último álbum de estudio de la banda con Lou Reed, y se destaca por su enfoque más accesible y comercial en comparación con sus trabajos anteriores. 'Rock and Roll' se caracteriza por su energía contagiosa y su letra que refleja la cultura del rock de la época. Además, este álbum incluye otros temas notables como 'Sweet Jane', que también recibió atención en la radio, aunque 'Rock and Roll' es la que más resonó con el público en general. Esto marcó un punto de inflexión en la carrera de la banda, acercándola a una mayor audiencia."
         },
@@ -4455,12 +4145,7 @@
         },
         {
           "question": "¿Cuál de las siguientes canciones del álbum 'Loaded' de The Velvet Underground se considera un gran éxito crossover y ha sido versionada por numerosos artistas a lo largo de los años?",
-          "options": [
-            "Sweet Jane",
-            "Rock and Roll",
-            "New Age",
-            "Oh! Sweet Nuthin'"
-          ],
+          "options": ["Sweet Jane", "Rock and Roll", "New Age", "Oh! Sweet Nuthin'"],
           "correctAnswer": "Sweet Jane",
           "trivia": "La canción 'Sweet Jane' de The Velvet Underground, del álbum 'Loaded', es considerada uno de los grandes éxitos crossover de la banda, destacando por su melodía pegajosa y letras evocadoras. Aunque fue lanzada originalmente en 1970, ha sido versionada por varios artistas, incluyendo a Cowboy Junkies y David Bowie, lo que ha contribuido a su longevidad en la cultura musical. Además, 'Loaded' fue el último álbum de estudio de la banda, y marcó un cambio hacia un sonido más accesible y comercial. A diferencia de sus trabajos anteriores, este álbum fue producido con la intención de alcanzar un público más amplio, lo que se refleja en el éxito de 'Sweet Jane'. En 2021, la canción fue incluida en el Grammy Hall of Fame, consolidando su estatus como un clásico del rock."
         }
@@ -4515,12 +4200,7 @@
       "medium": [
         {
           "question": "¿Qué notable músico colaboró con Rush en la producción de su álbum '2112' en 1976, aportando su experiencia en el ámbito del rock progresivo?",
-          "options": [
-            "David Gilmour",
-            "Eddie Van Halen",
-            "Terry Brown",
-            "Brian Eno"
-          ],
+          "options": ["David Gilmour", "Eddie Van Halen", "Terry Brown", "Brian Eno"],
           "correctAnswer": "Terry Brown",
           "trivia": "La respuesta correcta es Terry Brown, quien fue el productor del álbum '2112' de Rush. Brown trabajó con la banda en varios de sus álbumes y fue fundamental para dar forma a su sonido distintivo. '2112' es considerado uno de los trabajos más influyentes del rock progresivo, y su lanzamiento en 1976 ayudó a establecer a Rush como una de las principales bandas del género. Durante la grabación, la banda exploró temas conceptuales y complejas estructuras musicales, lo que se refleja en la famosa suite de la primera mitad del álbum. Además, el álbum alcanzó el estatus de disco de platino en los Estados Unidos, consolidando aún más la reputación de Rush en la escena musical."
         },
@@ -4638,12 +4318,7 @@
         },
         {
           "question": "¿Qué famoso saxofonista colaboró con Santana en la canción 'Samba Pa Ti' del álbum 'Abraxas' de 1970?",
-          "options": [
-            "Wayne Shorter",
-            "John Coltrane",
-            "David Sanborn",
-            "Tom Scott"
-          ],
+          "options": ["Wayne Shorter", "John Coltrane", "David Sanborn", "Tom Scott"],
           "correctAnswer": "Tom Scott",
           "trivia": "La colaboración de Santana en el álbum 'Abraxas' incluye la participación del destacado saxofonista Tom Scott en la icónica canción 'Samba Pa Ti'. Tom Scott, conocido por su trabajo en jazz y rock, aportó un solo de saxofón que complementa perfectamente la fusión de sonidos latinos y rock que define el estilo de Santana. 'Abraxas' fue un álbum fundamental en la carrera de Santana, lanzado en 1970, y se considera uno de los discos más influyentes de la época. Además, el álbum incluye otros éxitos como 'Black Magic Woman' y 'Oye Como Va', que también muestran la habilidad de Santana para mezclar géneros musicales. Este álbum ayudó a consolidar a Santana como uno de los grandes innovadores de la música en la década de los 70."
         },
@@ -4679,12 +4354,7 @@
         },
         {
           "question": "Durante la producción del álbum 'Abraxas' de Santana en 1970, ¿cuál fue el costo estimado total de grabación y producción del álbum, que se considera uno de los más influyentes de la época?",
-          "options": [
-            "30,000 dólares",
-            "50,000 dólares",
-            "100,000 dólares",
-            "150,000 dólares"
-          ],
+          "options": ["30,000 dólares", "50,000 dólares", "100,000 dólares", "150,000 dólares"],
           "correctAnswer": "50,000 dólares",
           "trivia": "El costo total de grabación y producción del álbum 'Abraxas' de Santana fue de aproximadamente 50,000 dólares, una cifra significativa para la época. Este álbum, lanzado en 1970, es conocido por su fusión de rock latino y jazz, y contiene éxitos como 'Black Magic Woman'. La producción fue realizada en los estudios Pacific Recording en San Mateo, California, donde Santana logró experimentar con sonidos innovadores que marcarían su estilo distintivo. 'Abraxas' se convirtió en un pilar de la música rock y latina, reflejando el auge de la música multicultural en la década de 1970. Además, el álbum alcanzó el número uno en la lista Billboard 200, consolidando a Santana como uno de los artistas más relevantes de su tiempo."
         }
@@ -4704,12 +4374,7 @@
       "easy": [
         {
           "question": "¿Cuál de los miembros de Electric Light Orchestra tuvo una influencia significativa en la composición de las canciones del álbum 'Out of the Blue' de 1977?",
-          "options": [
-            "Jeff Lynne",
-            "Richard Tandy",
-            "Bev Bevan",
-            "Mik Kaminski"
-          ],
+          "options": ["Jeff Lynne", "Richard Tandy", "Bev Bevan", "Mik Kaminski"],
           "correctAnswer": "Jeff Lynne",
           "trivia": "Jeff Lynne fue el principal compositor y productor de Electric Light Orchestra durante la creación de 'Out of the Blue'. Este álbum, lanzado en 1977, es famoso por su innovador uso de la orquestación y los arreglos de cuerdas. Lynne, quien también era el vocalista principal, escribió la mayoría de las canciones, aportando su estilo distintivo que combina rock y música clásica. 'Out of the Blue' incluye éxitos como 'Mr. Blue Sky' y 'Sweet Talkin' Woman', que reflejan su habilidad para fusionar géneros. Este álbum ayudó a consolidar la reputación de la banda como pioneros en la música rock sinfónica."
         },
@@ -4821,23 +4486,13 @@
       "easy": [
         {
           "question": "¿Cuánto costó aproximadamente la producción del álbum 'The Stranger' de Billy Joel en 1977?",
-          "options": [
-            "200,000 dólares",
-            "75,000 dólares",
-            "150,000 dólares",
-            "300,000 dólares"
-          ],
+          "options": ["200,000 dólares", "75,000 dólares", "150,000 dólares", "300,000 dólares"],
           "correctAnswer": "150,000 dólares",
           "trivia": "La producción del álbum 'The Stranger' de Billy Joel en 1977 tuvo un costo aproximado de 150,000 dólares. Este álbum, que se considera uno de los más emblemáticos en la carrera de Joel, fue grabado en los estudios de A&R en Nueva York y marcó un punto de inflexión en su carrera, ayudando a establecerlo como un artista de renombre. 'The Stranger' incluye éxitos como 'Just the Way You Are' y 'Only the Good Die Young', que contribuyeron a su gran éxito comercial. Además, este álbum fue el primero en contar con la producción de Phil Ramone, lo que elevó la calidad de la producción musical y la sonoridad de las grabaciones de Joel. En total, 'The Stranger' ha vendido más de 10 millones de copias en todo el mundo, lo que refleja su impacto duradero en la música popular."
         },
         {
           "question": "¿Qué famoso músico británico ha mencionado a Billy Joel y su álbum 'The Stranger' como una influencia en su propio trabajo?",
-          "options": [
-            "Elton John",
-            "David Bowie",
-            "Paul McCartney",
-            "Eric Clapton"
-          ],
+          "options": ["Elton John", "David Bowie", "Paul McCartney", "Eric Clapton"],
           "correctAnswer": "Elton John",
           "trivia": "Elton John ha elogiado a Billy Joel y ha reconocido la influencia de su álbum 'The Stranger' en su carrera musical. Este álbum, lanzado en 1977, catapultó a Joel a la fama mundial, destacando su habilidad para combinar géneros como el rock, el pop y el jazz. Canciones como 'Just the Way You Are' y 'Scenes from an Italian Restaurant' se convirtieron en clásicos atemporales. Tanto Billy Joel como Elton John son conocidos por sus impresionantes habilidades como pianistas y compositores, lo que ha llevado a comparaciones entre ambos artistas a lo largo de los años. Además, 'The Stranger' fue un gran éxito comercial, alcanzando el número 2 en la lista Billboard 200, lo que cimentó aún más la reputación de Joel en la música popular."
         },
@@ -5178,12 +4833,7 @@
         },
         {
           "question": "¿Qué famosa canción de 1955 fue versionada por Queen en su álbum 'Sheer Heart Attack' de 1974?",
-          "options": [
-            "Jailhouse Rock",
-            "Rock and Roll",
-            "The Great Pretender",
-            "Hound Dog"
-          ],
+          "options": ["Jailhouse Rock", "Rock and Roll", "The Great Pretender", "Hound Dog"],
           "correctAnswer": "The Great Pretender",
           "trivia": "Queen incluyó una versión de 'The Great Pretender' en su álbum 'Sheer Heart Attack' lanzado en 1974. Originalmente escrita e interpretada por The Platters, esta canción se convirtió en un gran éxito en la década de los 50. La interpretación de Queen fue bien recibida y mostró la versatilidad vocal de Freddie Mercury, quien se destacó por su habilidad para reinterpretar clásicos. Además, el álbum 'Sheer Heart Attack' es conocido por su mezcla de estilos musicales, lo que refleja la ecléctica influencia que Queen quería presentar en su música. La canción también se ha convertido en un referente dentro del repertorio de la banda, destacando su capacidad para rendir homenaje a las influencias del pasado."
         },
@@ -5202,12 +4852,7 @@
       "medium": [
         {
           "question": "¿Qué canción del álbum 'Sheer Heart Attack' de Queen ha sido utilizada en múltiples eventos deportivos y es conocida por su energía contagiosa y potente ritmo?",
-          "options": [
-            "Killer Queen",
-            "Stone Cold Crazy",
-            "Now I'm Here",
-            "Brighton Rock"
-          ],
+          "options": ["Killer Queen", "Stone Cold Crazy", "Now I'm Here", "Brighton Rock"],
           "correctAnswer": "Stone Cold Crazy",
           "trivia": "La canción 'Stone Cold Crazy' del álbum 'Sheer Heart Attack' de Queen ha sido utilizada en diversos eventos deportivos, especialmente en competiciones de hockey sobre hielo y fútbol americano. Esta pista, compuesta por Freddie Mercury, Brian May, Roger Taylor y John Deacon, es reconocida por su rapidez y agresividad, cualidades que resuenan bien en el ambiente de los eventos deportivos. Además, ha sido versionada por otras bandas, lo que demuestra su influencia en la cultura musical. En 1991, 'Stone Cold Crazy' fue reconocida por su estilo precursor del thrash metal, un hecho que resalta la versatilidad del sonido de Queen. El álbum 'Sheer Heart Attack' fue lanzado en 1974 y marcó un importante paso en la evolución musical de la banda, consolidando su reputación en la industria."
         },
@@ -5306,12 +4951,7 @@
         },
         {
           "question": "¿Con qué productor colaboró Carole King en la creación de su emblemático álbum 'Tapestry' en 1971?",
-          "options": [
-            "Phil Spector",
-            "Garry Katz",
-            "Lou Adler",
-            "Quincy Jones"
-          ],
+          "options": ["Phil Spector", "Garry Katz", "Lou Adler", "Quincy Jones"],
           "correctAnswer": "Lou Adler",
           "trivia": "Carole King colaboró con el productor Lou Adler en el álbum 'Tapestry', lanzado en 1971. Adler es conocido por su trabajo con varios artistas de la época y fue instrumental en darle a 'Tapestry' su sonido característico. Este álbum no solo fue un gran éxito comercial, alcanzando el número uno en la lista Billboard 200, sino que también ganó varios premios Grammy, incluyendo Álbum del Año. 'Tapestry' ha vendido más de 25 millones de copias en todo el mundo, convirtiéndose en uno de los álbumes más vendidos de todos los tiempos. La colaboración entre King y Adler marcó un hito en la producción musical de los años 70."
         }
@@ -5360,12 +5000,7 @@
         },
         {
           "question": "¿Qué destacado productor musical colaboró con Carole King en la creación del álbum 'Tapestry', lanzado en 1971?",
-          "options": [
-            "Gerry Goffin",
-            "Lou Adler",
-            "Phil Spector",
-            "David Foster"
-          ],
+          "options": ["Gerry Goffin", "Lou Adler", "Phil Spector", "David Foster"],
           "correctAnswer": "Lou Adler",
           "trivia": "Lou Adler fue el productor del icónico álbum 'Tapestry' de Carole King, que se lanzó en 1971 y se convirtió en un hito en la música popular. Adler, conocido por su trabajo con otros artistas destacados, ayudó a moldear el sonido distintivo del álbum, que combina elementos de pop, rock y folk. 'Tapestry' no solo fue un éxito comercial, alcanzando el número uno en la lista Billboard 200, sino que también ganó varios premios Grammy, consolidando la reputación de Carole King como una de las compositoras más influyentes de su tiempo. Además, el álbum incluye clásicos como 'It's Too Late' y 'I Feel the Earth Move', que se convirtieron en éxitos atemporales. Este trabajo marcó un momento crucial en la historia de la música, siendo un reflejo de la transformación cultural de la década de 1970."
         },
@@ -5407,12 +5042,7 @@
         },
         {
           "question": "¿Cuál de las siguientes canciones del álbum 'Close to the Edge' de Yes, lanzado en 1972, se considera un éxito crossover, alcanzando popularidad tanto en el ámbito del rock progresivo como en las listas de éxitos más generales?",
-          "options": [
-            "And You And I",
-            "Heart of the Sunrise",
-            "Roundabout",
-            "Close to the Edge"
-          ],
+          "options": ["And You And I", "Heart of the Sunrise", "Roundabout", "Close to the Edge"],
           "correctAnswer": "And You And I",
           "trivia": "La respuesta correcta es 'And You And I', una de las canciones más emblemáticas del álbum 'Close to the Edge' de Yes. Este álbum es aclamado no solo por su complejidad musical, sino también por su capacidad para atraer a una audiencia más amplia, lo que lo convierte en un éxito crossover. 'And You And I' destaca por su estructura épica y su fusión de elementos acústicos y eléctricos. Además, el álbum 'Close to the Edge' alcanzó el puesto número 3 en la lista de álbumes de Billboard en los Estados Unidos, lo que evidencia su impacto en la música de la época. En conjunto, Yes ayudó a popularizar el rock progresivo, llevando sus obras a un público más amplio durante los años 70."
         },
@@ -5442,12 +5072,7 @@
         },
         {
           "question": "¿Qué famoso músico colaboró en los arreglos orquestales de algunas canciones del álbum 'Close to the Edge' de Yes en 1972?",
-          "options": [
-            "David Palmer",
-            "George Martin",
-            "Eddie Jobson",
-            "Rick Wakeman"
-          ],
+          "options": ["David Palmer", "George Martin", "Eddie Jobson", "Rick Wakeman"],
           "correctAnswer": "David Palmer",
           "trivia": "David Palmer, conocido por su trabajo con varias bandas de rock progresivo, colaboró en los arreglos orquestales del álbum 'Close to the Edge' de Yes. Este álbum, lanzado en 1972, es considerado uno de los pilares del rock progresivo y presenta una fusión de rock y elementos orquestales. Palmer aportó su experiencia en arreglos que ayudaron a enriquecer la sonoridad de la banda en este proyecto. Además, el álbum incluye la famosa suite de 18 minutos 'Close to the Edge', que muestra la complejidad y la ambición musical de Yes. Este tipo de colaboración con arreglistas orquestales se volvió más común en el rock progresivo, ayudando a expandir los límites del género."
         },
@@ -5573,23 +5198,13 @@
       "hard": [
         {
           "question": "¿Cuál de los siguientes miembros de la banda de Elton John tuvo una relación cercana con el álbum 'Tumbleweed Connection' en 1970, aunque no fue parte de su formación original?",
-          "options": [
-            "Nigel Olsson",
-            "Davey Johnstone",
-            "John J. J. Cale",
-            "Roger Pope"
-          ],
+          "options": ["Nigel Olsson", "Davey Johnstone", "John J. J. Cale", "Roger Pope"],
           "correctAnswer": "Roger Pope",
           "trivia": "Roger Pope fue el baterista que se unió a Elton John y su banda durante la grabación de 'Tumbleweed Connection' en 1970, aunque ya había trabajado con él anteriormente. Este álbum, que se inspira en el Viejo Oeste estadounidense y la cultura rural, marcó un punto de inflexión en la carrera de Elton John, consolidando su estilo característico. Además, la colaboración de Pope con Elton se extendió a otros proyectos, y su contribución en las grabaciones de este álbum fue fundamental para su sonido distintivo. 'Tumbleweed Connection' es conocido por su mezcla de rock y country, y es considerado uno de los álbumes conceptuales más importantes de la década de 1970. Roger Pope, junto con otros músicos, ayudó a dar vida a la visión de Elton John en este trabajo innovador."
         },
         {
           "question": "¿Qué productor colaboró con Elton John en la creación de su álbum 'Tumbleweed Connection' en 1970, aportando su experiencia en el sonido característico de la obra?",
-          "options": [
-            "Gus Dudgeon",
-            "Phil Ramone",
-            "George Martin",
-            "David Bowie"
-          ],
+          "options": ["Gus Dudgeon", "Phil Ramone", "George Martin", "David Bowie"],
           "correctAnswer": "Gus Dudgeon",
           "trivia": "La respuesta correcta es Gus Dudgeon, quien fue el productor principal de 'Tumbleweed Connection'. Este álbum se caracteriza por su estilo influenciado por la música country y folk, y Dudgeon desempeñó un papel fundamental al capturar la esencia sonora del mismo. Además de trabajar con Elton John, Dudgeon también colaboró con otros artistas destacados de la época, como David Bowie y Cat Stevens. 'Tumbleweed Connection' fue un álbum conceptual que refleja la visión de Elton John y su compañero de composición Bernie Taupin sobre la vida rural americana. Este trabajo es considerado una pieza clave en la carrera de Elton John, ayudando a establecer su identidad musical en los años 70."
         },
@@ -5631,12 +5246,7 @@
         },
         {
           "question": "¿Cuál de las siguientes canciones de Crosby, Stills, Nash & Young, del álbum 'Déjà Vu' de 1970, se convirtió en un gran éxito crossover en las listas de Billboard?",
-          "options": [
-            "Woodstock",
-            "Our House",
-            "Carry On",
-            "Wasted on the Way"
-          ],
+          "options": ["Woodstock", "Our House", "Carry On", "Wasted on the Way"],
           "correctAnswer": "Our House",
           "trivia": "La canción 'Our House' de Crosby, Stills, Nash & Young, del álbum 'Déjà Vu', se destacó como un gran éxito crossover, alcanzando el puesto 30 en la lista Billboard Hot 100 en 1970. Esta canción, escrita por Graham Nash, es recordada por su melodía pegajosa y su temática nostálgica, que evoca la calidez del hogar y los momentos compartidos. Además, el álbum 'Déjà Vu' fue un hito en la música de los años 70, vendiendo más de 8 millones de copias en los Estados Unidos. Es interesante notar que, además de 'Our House', el álbum incluye otros temas icónicos como 'Woodstock' y 'Carry On', que también lograron reconocimiento en las listas de éxitos. 'Déjà Vu' consolidó aún más la relevancia de esta agrupación en la escena musical de la época."
         },
@@ -5672,12 +5282,7 @@
         },
         {
           "question": "¿Cuál de las siguientes canciones del álbum 'Déjà Vu' de Crosby, Stills, Nash & Young alcanzó el puesto más alto en la lista Billboard Hot 100 en 1970?",
-          "options": [
-            "Our House",
-            "Woodstock",
-            "Carry On",
-            "Teach Your Children"
-          ],
+          "options": ["Our House", "Woodstock", "Carry On", "Teach Your Children"],
           "correctAnswer": "Our House",
           "trivia": "La canción 'Our House' se destacó como el sencillo más exitoso del álbum 'Déjà Vu' de Crosby, Stills, Nash & Young, alcanzando el puesto número 30 en la lista Billboard Hot 100 en 1970. Este álbum, que fue un hito en la música folk rock, logró vender más de dos millones de copias en Estados Unidos, consolidando a la banda como un ícono de la época. 'Déjà Vu' también es notable por su fusión de armonías vocales y letras profundas, características del estilo de la banda. Además, el álbum incluye otros éxitos como 'Woodstock' y 'Teach Your Children', que también tuvieron un impacto significativo en las listas. La producción del álbum, realizada por Graham Nash y David Crosby, fue crucial para su éxito comercial, mostrando la evolución musical de la banda en ese período."
         }
@@ -5707,12 +5312,7 @@
         },
         {
           "question": "¿Qué miembro de Crosby, Stills, Nash & Young se unió a la banda durante la grabación del álbum 'Déjà Vu' en 1970, aportando su talento en la guitarra y las armonías vocales?",
-          "options": [
-            "Neil Young",
-            "David Crosby",
-            "Stephen Stills",
-            "Graham Nash"
-          ],
+          "options": ["Neil Young", "David Crosby", "Stephen Stills", "Graham Nash"],
           "correctAnswer": "Neil Young",
           "trivia": "Neil Young se unió a Crosby, Stills & Nash, formando así Crosby, Stills, Nash & Young, justo antes de la grabación de 'Déjà Vu'. Este álbum, lanzado en 1970, marcó la primera vez que la banda trabajó junta con Young, quien había sido un exitoso solista y miembro de Buffalo Springfield. Su incorporación trajo un sonido más eléctrico y un enfoque lírico que abordaba temas sociales y políticos de la época. 'Déjà Vu' es considerado un hito en la música de los años 70, en parte debido a la mezcla de estilos que Young aportó. Además, el álbum alcanzó el número 1 en la lista Billboard 200, consolidando su impacto en la historia del rock."
         }
@@ -5814,12 +5414,7 @@
         },
         {
           "question": "En 'Late for the Sky', Jackson Browne explora una narrativa centrada en la desilusión y la búsqueda de significado en las relaciones. ¿Cuál de las siguientes canciones del álbum se considera un reflejo más directo de este tema existencial?",
-          "options": [
-            "The Late Show",
-            "For a Dancer",
-            "Fountain of Sorrow",
-            "Walking Slow"
-          ],
+          "options": ["The Late Show", "For a Dancer", "Fountain of Sorrow", "Walking Slow"],
           "correctAnswer": "Fountain of Sorrow",
           "trivia": "'Fountain of Sorrow' es una de las composiciones más emblemáticas del álbum 'Late for the Sky' de Jackson Browne lanzado en 1974. La canción captura la esencia de la melancolía y la introspección, utilizando imágenes poéticas para expresar la pérdida y la búsqueda de conexión emocional. Browne escribió la letra inspirado por experiencias personales y la complejidad de las relaciones humanas, lo que convierte a esta pista en un pilar del tema existencial presente en el álbum. Además, 'Late for the Sky' es conocido por su producción innovadora y su enfoque lírico, lo que ayudó a consolidar a Jackson Browne como un referente en el rock de los años 70. Este álbum también se caracteriza por su sonido introspectivo, complementado por la instrumentación que realza su profunda narrativa."
         }
@@ -5885,12 +5480,7 @@
         },
         {
           "question": "¿Qué productor estuvo a cargo de la grabación del álbum 'Quadrophenia' de The Who, lanzado en 1973?",
-          "options": [
-            "Glyn Johns",
-            "Bob Ezrin",
-            "Kit Lambert",
-            "George Martin"
-          ],
+          "options": ["Glyn Johns", "Bob Ezrin", "Kit Lambert", "George Martin"],
           "correctAnswer": "Kit Lambert",
           "trivia": "El productor a cargo de 'Quadrophenia' fue Kit Lambert, quien había trabajado previamente con The Who en varios de sus álbumes anteriores. Lambert, conocido por su enfoque innovador y su colaboración creativa con la banda, jugó un papel crucial en dar forma al sonido distintivo de este álbum conceptual. 'Quadrophenia' se caracteriza por su narrativa compleja y su rica producción, elementos que Lambert ayudó a desarrollar. Cabe destacar que este álbum es considerado uno de los mejores trabajos de The Who y refleja una época de transición en la música rock de los años 70, con influencias de la cultura mod y un fuerte sentido de identidad juvenil."
         },
@@ -5991,12 +5581,7 @@
       "medium": [
         {
           "question": "¿Cuál de los miembros de Roxy Music tuvo una relación romántica con la famosa modelo y actriz Jerry Hall durante la época del álbum 'For Your Pleasure'?",
-          "options": [
-            "Bryan Ferry",
-            "Phil Manzanera",
-            "Andy Mackay",
-            "Brian Eno"
-          ],
+          "options": ["Bryan Ferry", "Phil Manzanera", "Andy Mackay", "Brian Eno"],
           "correctAnswer": "Bryan Ferry",
           "trivia": "Bryan Ferry, el vocalista y principal compositor de Roxy Music, mantuvo una relación con Jerry Hall durante los años 70. Esta relación se produjo en un momento en que Ferry ya era conocido por su estilo sofisticado y su aura de seductor, cualidades que también se reflejaron en el arte y la estética del álbum 'For Your Pleasure', lanzado en 1973. Además, Ferry tenía una fuerte influencia en el estilo visual del grupo, que incluía a menudo colaboraciones con modelos y artistas de la época. Jerry Hall, quien más tarde se casó con Mick Jagger, se convirtió en un ícono de la moda y fue parte del entorno glamouroso que rodeaba a Roxy Music. Este tipo de conexiones personales también ayudaron a definir la imagen del grupo en la escena musical de la época."
         },
@@ -6095,12 +5680,7 @@
         },
         {
           "question": "¿Qué miembro de Black Sabbath estuvo profundamente influenciado por su infancia en Birmingham, lo que inspiró las letras oscuras de su álbum debut 'Black Sabbath' lanzado en 1970?",
-          "options": [
-            "Tony Iommi",
-            "Geezer Butler",
-            "Bill Ward",
-            "Ozzy Osbourne"
-          ],
+          "options": ["Tony Iommi", "Geezer Butler", "Bill Ward", "Ozzy Osbourne"],
           "correctAnswer": "Geezer Butler",
           "trivia": "Geezer Butler, el bajista de Black Sabbath, fue quien escribió la mayoría de las letras del álbum 'Black Sabbath'. Su infancia en Birmingham, una ciudad con un fuerte trasfondo industrial y a menudo sombrío, influyó en su visión artística y en el contenido lírico de la banda. Butler estaba fascinado por temas oscuros y ocultos, lo que se refleja en canciones como 'Black Sabbath' y 'N.I.B.'. Además, fue él quien introdujo el uso de la estética del horror en la música de la banda, creando un sonido distintivo que ayudó a definir el género del heavy metal. El álbum debut se lanzó en febrero de 1970 y es considerado un hito en la historia de la música rock."
         }
@@ -6165,12 +5745,7 @@
         },
         {
           "question": "¿Qué canción del álbum 'Black Sabbath' de Black Sabbath, lanzado en 1970, se considera un pionero en el éxito crossover dentro del género del heavy metal y alcanzó popularidad en diversas listas de música?",
-          "options": [
-            "Fairies Wear Boots",
-            "N.I.B.",
-            "Behind the Wall of Sleep",
-            "The Wizard"
-          ],
+          "options": ["Fairies Wear Boots", "N.I.B.", "Behind the Wall of Sleep", "The Wizard"],
           "correctAnswer": "N.I.B.",
           "trivia": "La canción 'N.I.B.' del álbum 'Black Sabbath' de Black Sabbath, lanzado en 1970, es reconocida como un pionero en el éxito crossover dentro del heavy metal, logrando un notable impacto en listas de rock y pop. Su mezcla de riffs pesados y letras intrigantes ayudó a establecer a Black Sabbath como una de las bandas más influyentes del género. Curiosamente, la canción fue interpretada por el bajista Geezer Butler como una referencia a la atracción y el deseo, lo que le dio un matiz único. Además, 'N.I.B.' ha sido versionada por múltiples artistas a lo largo de los años, lo que demuestra su perdurable popularidad. El álbum 'Black Sabbath' no solo marcó el comienzo de la carrera de la banda, sino que también estableció las bases para el desarrollo del metal en las décadas siguientes."
         }
@@ -6207,12 +5782,7 @@
         },
         {
           "question": "¿Qué famoso artista colaboró con Al Green en el álbum 'Let’s Stay Together' lanzado en 1972?",
-          "options": [
-            "Willie Mitchell",
-            "Rufus Thomas",
-            "Otis Redding",
-            "Isaac Hayes"
-          ],
+          "options": ["Willie Mitchell", "Rufus Thomas", "Otis Redding", "Isaac Hayes"],
           "correctAnswer": "Willie Mitchell",
           "trivia": "La respuesta correcta es Willie Mitchell, quien fue un influyente productor y arreglista que trabajó estrechamente con Al Green en 'Let’s Stay Together'. Este álbum, que se considera un clásico del soul, fue impulsado por la visión creativa de Mitchell, quien ayudó a definir el sonido distintivo de Green. Además, la colaboración entre ambos artistas resultó en grandes éxitos como la canción titular 'Let’s Stay Together', que alcanzó el número uno en la lista Billboard Hot 100. Willie Mitchell también fue responsable de la creación de la famosa atmósfera suave y melódica que caracteriza muchas de las grabaciones de Al Green. Su relación profesional fue clave para el éxito de Green durante la década de 1970."
         }
@@ -6277,12 +5847,7 @@
         },
         {
           "question": "¿Qué famoso músico colaboró con Al Green en el álbum 'Let’s Stay Together' de 1972, aportando su talento en el saxofón y dejando una huella en el sonido soul de la época?",
-          "options": [
-            "Bobby Womack",
-            "David Sanborn",
-            "Maceo Parker",
-            "Eddie Harris"
-          ],
+          "options": ["Bobby Womack", "David Sanborn", "Maceo Parker", "Eddie Harris"],
           "correctAnswer": "Maceo Parker",
           "trivia": "Maceo Parker, conocido por su trabajo con James Brown, hizo una aparición especial en el álbum 'Let’s Stay Together' de Al Green, aportando su distintivo saxofón en algunas de las pistas. Parker es reconocido como uno de los saxofonistas más influyentes en la música funk y soul, y su colaboración en este álbum ayudó a elevar el sonido de Al Green a nuevas alturas. 'Let’s Stay Together' no solo es famoso por su producción innovadora, sino también por las influencias de músicos destacados, como Parker, que contribuyeron a la esencia melódica y rítmica del disco. El álbum, que se lanzó en 1972, se convirtió en un clásico del soul, y la participación de Parker fue fundamental para su éxito. Además, este disco es considerado uno de los mejores de Al Green y ha dejado un legado perdurable en la música."
         }
@@ -6441,12 +6006,7 @@
         },
         {
           "question": "¿Qué posición alcanzó el álbum 'Maggot Brain' de Funkadelic en la lista Billboard 200 tras su lanzamiento en 1971?",
-          "options": [
-            "Posición 14",
-            "Posición 60",
-            "Posición 31",
-            "Posición 83"
-          ],
+          "options": ["Posición 14", "Posición 60", "Posición 31", "Posición 83"],
           "correctAnswer": "Posición 60",
           "trivia": "El álbum 'Maggot Brain' de Funkadelic logró alcanzar la posición 60 en la lista Billboard 200 después de su lanzamiento en 1971. Este álbum es considerado un hito en la música funk y rock psicodélico, destacándose por su innovador uso de la guitarra y la producción experimental. La icónica pista titular, 'Maggot Brain', presenta un solo de guitarra apasionado de Eddie Hazel, que ha sido aclamado como uno de los mejores solos en la historia del rock. A pesar de no haber alcanzado las posiciones más altas en las listas, 'Maggot Brain' ha influido profundamente en numerosos géneros musicales y ha sido un referente para muchos artistas posteriores. El álbum ha sido reeditado y reconocido con el paso de los años, consolidando su estatus como un clásico atemporal."
         }
@@ -6489,12 +6049,7 @@
       "hard": [
         {
           "question": "¿Qué artista colaboró con Funkadelic en el álbum 'Maggot Brain' de 1971, aportando su distintivo estilo de guitarra en la canción 'Maggot Brain'?",
-          "options": [
-            "Eric Clapton",
-            "Jimi Hendrix",
-            "Eddie Hazel",
-            "Carlos Santana"
-          ],
+          "options": ["Eric Clapton", "Jimi Hendrix", "Eddie Hazel", "Carlos Santana"],
           "correctAnswer": "Eddie Hazel",
           "trivia": "Eddie Hazel, conocido por su virtuosismo en la guitarra, fue el principal guitarrista de Funkadelic y es célebre por su solo en la icónica pista 'Maggot Brain'. La canción, que se caracteriza por su emotivo y extenso solo de guitarra, se ha convertido en un hito dentro del rock psicodélico y funk. Hazel, que también contribuyó en otras canciones del álbum, fue fundamental en la creación del sonido distintivo de Funkadelic, fusionando elementos del rock con el funk. Su participación en este álbum no solo destacó su talento, sino que también marcó un punto de inflexión en la música de los años 70, influyendo a numerosos guitarristas en las décadas siguientes. 'Maggot Brain' ha sido aclamado como un clásico y sigue siendo estudiado por su innovación musical."
         },
@@ -6542,12 +6097,7 @@
         },
         {
           "question": "¿Qué destacado artista colaboró con Patti Smith en el álbum 'Horses', lanzado en 1975?",
-          "options": [
-            "David Bowie",
-            "Bruce Springsteen",
-            "Robert Mapplethorpe",
-            "Jimi Hendrix"
-          ],
+          "options": ["David Bowie", "Bruce Springsteen", "Robert Mapplethorpe", "Jimi Hendrix"],
           "correctAnswer": "Robert Mapplethorpe",
           "trivia": "Robert Mapplethorpe, reconocido fotógrafo y amigo cercano de Patti Smith, tuvo una influencia significativa en su obra y su vida. Aunque no contribuyó directamente en los instrumentos del álbum 'Horses', su trabajo visual y su relación personal con Patti fueron esenciales para la estética del proyecto. Además, Mapplethorpe proporcionó la icónica portada del álbum, que se ha convertido en una imagen emblemática del punk y del arte en los años 70. 'Horses', considerado un hito en la música rock, fusiona poesía y rock de una manera innovadora, y la relación entre Patti y Mapplethorpe resalta la conexión entre la música y las artes visuales de esa época."
         },
@@ -6596,12 +6146,7 @@
       "hard": [
         {
           "question": "¿En qué posición alcanzó el álbum 'Horses' de Patti Smith en la lista Billboard 200 tras su lanzamiento en 1975?",
-          "options": [
-            "Posición 47",
-            "Posición 28",
-            "Posición 23",
-            "Posición 40"
-          ],
+          "options": ["Posición 47", "Posición 28", "Posición 23", "Posición 40"],
           "correctAnswer": "Posición 47",
           "trivia": "El álbum 'Horses' de Patti Smith, lanzado en 1975, logró alcanzar la posición 47 en la lista Billboard 200. Este debut marcó un hito en la música rock y se considera uno de los álbumes más influyentes de la década de los 70. Patti Smith combinó poesía con rock, lo que la diferenció de otros artistas de la época y le otorgó un lugar especial en la historia del punk y el rock alternativo. 'Horses' fue aclamado por su innovador enfoque lírico y musical, y su impacto aún se siente en la música contemporánea. El álbum ayudó a establecer a Patti Smith como una figura central en la contracultura y el movimiento punk."
         },
@@ -6643,12 +6188,7 @@
       "easy": [
         {
           "question": "¿Cuántas copias vendió el álbum 'Transformer' de Lou Reed en su primer año de lanzamiento en 1972?",
-          "options": [
-            "500,000 copias",
-            "1 millón de copias",
-            "750,000 copias",
-            "250,000 copias"
-          ],
+          "options": ["500,000 copias", "1 millón de copias", "750,000 copias", "250,000 copias"],
           "correctAnswer": "500,000 copias",
           "trivia": "El álbum 'Transformer' de Lou Reed, lanzado en 1972, vendió aproximadamente 500,000 copias en su primer año. Este éxito comercial ayudó a consolidar a Lou Reed como un artista en solitario después de su tiempo con The Velvet Underground. Producido por David Bowie y Mick Ronson, 'Transformer' se caracteriza por su estilo glam rock y es famoso por canciones icónicas como 'Walk on the Wild Side'. El álbum ha sido aclamado por la crítica y sigue siendo un hito en la música rock, influyendo en generaciones de músicos. Su impacto se refleja no solo en las ventas, sino también en la cultura popular de la época."
         },
@@ -6782,12 +6322,7 @@
         },
         {
           "question": "¿Qué famoso músico hizo una aparición especial en el álbum 'Fleetwood Mac' de Fleetwood Mac en 1975?",
-          "options": [
-            "David Bowie",
-            "Stevie Wonder",
-            "Lindsey Buckingham",
-            "Elton John"
-          ],
+          "options": ["David Bowie", "Stevie Wonder", "Lindsey Buckingham", "Elton John"],
           "correctAnswer": "Lindsey Buckingham",
           "trivia": "En el álbum 'Fleetwood Mac' de Fleetwood Mac, lanzado en 1975, Lindsey Buckingham, quien ya era parte de la banda, también colaboró en la producción y creación de varias de las canciones. Su estilo de guitarra y su voz distintiva se convirtieron en elementos clave del sonido del álbum, que fue un éxito comercial y crítico. Además, las habilidades de Buckingham como compositor ayudaron a definir la dirección musical de la banda en esta época. 'Fleetwood Mac' no solo marcó el inicio de una nueva era para el grupo, sino que también presentó su mezcla única de rock, pop y armonías vocales que los llevó a la fama mundial."
         }
@@ -6817,12 +6352,7 @@
         },
         {
           "question": "¿Cuál de las siguientes canciones de Fleetwood Mac, del álbum 'Fleetwood Mac' lanzado en 1975, se convirtió en un gran éxito crossover en las listas de Billboard, alcanzando el top 10 tanto en la lista de Hot 100 como en la de Adult Contemporary?",
-          "options": [
-            "Rhiannon",
-            "Landslide",
-            "Say You Love Me",
-            "Over My Head"
-          ],
+          "options": ["Rhiannon", "Landslide", "Say You Love Me", "Over My Head"],
           "correctAnswer": "Say You Love Me",
           "trivia": "La canción 'Say You Love Me' es el gran éxito crossover de Fleetwood Mac del álbum 'Fleetwood Mac' lanzado en 1975, alcanzando el puesto número 11 en la lista Hot 100 y el número 2 en la lista de Adult Contemporary. Este tema marcó un punto clave en la carrera de la banda, presentando la voz de Christine McVie, quien se convirtió en una de las compositores más prominentes del grupo. Además, el álbum en sí fue un hito en la historia del rock, destacando por su mezcla de estilos y su producción pulida, lo que le permitió atraer a una amplia audiencia. 'Fleetwood Mac' fue un éxito comercial, vendiendo más de 7 millones de copias solo en Estados Unidos y consolidando el estatus de la banda en la industria musical."
         }
@@ -6830,12 +6360,7 @@
       "hard": [
         {
           "question": "Durante la actuación en vivo de Fleetwood Mac en el famoso programa de televisión 'The Midnight Special' en 1975, ¿qué canción del álbum 'Fleetwood Mac' fue interpretada como parte de su setlist?",
-          "options": [
-            "Rhiannon",
-            "Landslide",
-            "Say You Love Me",
-            "Over My Head"
-          ],
+          "options": ["Rhiannon", "Landslide", "Say You Love Me", "Over My Head"],
           "correctAnswer": "Rhiannon",
           "trivia": "Fleetwood Mac interpretó 'Rhiannon' durante su actuación en 'The Midnight Special' en 1975, lo que ayudó a consolidar su popularidad en Estados Unidos. La canción, escrita por Stevie Nicks, se convirtió en un clásico y es emblemática del sonido característico del álbum 'Fleetwood Mac'. Este álbum marcó un punto de inflexión en la carrera de la banda, ya que fue el primero en presentar a Nicks y a Lindsey Buckingham como miembros permanentes. 'Rhiannon' es también conocida por sus letras inspiradas en la mitología galesa, lo que añade un nivel de profundidad a su interpretación. La actuación en este programa de televisión fue crucial para presentar al público el estilo distintivo de la banda en el escenario."
         },
@@ -6923,12 +6448,7 @@
         },
         {
           "question": "En el álbum 'The Last Waltz' de The Band, ¿qué famoso músico colaboró en la interpretación de la canción 'I Shall Be Released'?",
-          "options": [
-            "Eric Clapton",
-            "Joni Mitchell",
-            "Bob Dylan",
-            "Neil Young"
-          ],
+          "options": ["Eric Clapton", "Joni Mitchell", "Bob Dylan", "Neil Young"],
           "correctAnswer": "Bob Dylan",
           "trivia": "La colaboración de Bob Dylan en 'I Shall Be Released' es uno de los momentos más destacados del álbum 'The Last Waltz' de The Band. Este álbum, lanzado en 1978, documenta el concierto de despedida del grupo, donde participaron numerosos artistas icónicos. Bob Dylan, quien fue una influencia significativa para The Band, compartió el escenario con ellos durante esta memorable actuación. Además, 'The Last Waltz' incluye otras colaboraciones notables, como la de Joni Mitchell y Neil Young, pero la presencia de Dylan es especialmente significativa debido a su impacto en la música de la época. Este álbum no solo celebra la carrera de The Band, sino que también sirve como un testimonio del espíritu colaborativo del rock de los años 70."
         },
@@ -6947,23 +6467,13 @@
       "hard": [
         {
           "question": "¿Qué productor colaboró con The Band en la creación del álbum en vivo 'The Last Waltz' lanzado en 1978?",
-          "options": [
-            "Glyn Johns",
-            "Daniel Lanois",
-            "John Simon",
-            "Phil Spector"
-          ],
+          "options": ["Glyn Johns", "Daniel Lanois", "John Simon", "Phil Spector"],
           "correctAnswer": "John Simon",
           "trivia": "La respuesta correcta es John Simon, quien fue el productor de 'The Last Waltz'. Este álbum es considerado uno de los mejores discos en vivo de la historia del rock y fue grabado durante un concierto de despedida de The Band en el Winterland Ballroom de San Francisco. Simon ya había trabajado previamente con The Band en sus álbumes anteriores, lo que contribuyó a la cohesión del sonido en este proyecto monumental. Además de su trabajo en 'The Last Waltz', Simon es conocido por su colaboración con varios artistas de la época, incluyendo a Simon & Garfunkel. La producción del álbum combinó actuaciones en vivo con elementos orquestales, lo que subraya la ambición artística de The Band en este último gran espectáculo."
         },
         {
           "question": "Durante la histórica actuación en el concierto de despedida de The Band, conocido como 'The Last Waltz' en 1978, ¿qué destacado músico invitado se destacó en la interpretación de la canción 'The Weight'?",
-          "options": [
-            "Eric Clapton",
-            "Bob Dylan",
-            "Neil Young",
-            "Joni Mitchell"
-          ],
+          "options": ["Eric Clapton", "Bob Dylan", "Neil Young", "Joni Mitchell"],
           "correctAnswer": "Bob Dylan",
           "trivia": "Bob Dylan fue el artista invitado que interpretó 'The Weight' durante 'The Last Waltz', un evento que no solo marcó el final de la carrera de The Band como grupo, sino que también se convirtió en un hito en la historia del rock. Este concierto se llevó a cabo el 25 de noviembre de 1976 en el Winterland Ballroom de San Francisco, y fue filmado por Martin Scorsese. Además de Dylan, el evento contó con la participación de otros músicos legendarios como Eric Clapton y Neil Young, lo que subrayó la importancia cultural de The Band en la música estadounidense. 'The Last Waltz' se lanzó como un álbum en 1978 y ha sido aclamado tanto por su calidad musical como por su importancia histórica."
         },
@@ -6994,23 +6504,13 @@
       "easy": [
         {
           "question": "¿Quién fue el productor del álbum 'Marquee Moon' de Television, lanzado en 1977?",
-          "options": [
-            "Brian Eno",
-            "Steve Lillywhite",
-            "Todd Rundgren",
-            "Andy Partridge"
-          ],
+          "options": ["Brian Eno", "Steve Lillywhite", "Todd Rundgren", "Andy Partridge"],
           "correctAnswer": "Todd Rundgren",
           "trivia": "El álbum 'Marquee Moon' de Television fue producido por Todd Rundgren, un reconocido productor y músico que ha trabajado con varios artistas influyentes. Rundgren aportó su experiencia en el estudio, ayudando a dar forma al sonido distintivo del álbum que combina rock, punk y elementos de arte. 'Marquee Moon' es considerado uno de los discos más importantes de la década de 1970 y ha influido en numerosas bandas posteriores. Además, el disco recibió elogios por su complejidad musical y las letras poéticas de Tom Verlaine. La colaboración con Rundgren fue fundamental para capturar la esencia de la banda durante un periodo de transición en la música rock."
         },
         {
           "question": "¿Qué canción, que no forma parte del álbum 'Marquee Moon' de Television, fue grabada durante las sesiones de 1977 y es conocida por su estilo distintivo?",
-          "options": [
-            "Marquee Moon",
-            "Little Johnny Jewel",
-            "Prove It",
-            "Friction"
-          ],
+          "options": ["Marquee Moon", "Little Johnny Jewel", "Prove It", "Friction"],
           "correctAnswer": "Little Johnny Jewel",
           "trivia": "Durante las sesiones de grabación de 'Marquee Moon' en 1977, Television también grabó la canción 'Little Johnny Jewel', que no fue incluida en el álbum. Esta canción se lanzó como un sencillo en 1975 y es considerada un hito en el desarrollo del rock alternativo. 'Little Johnny Jewel' destaca por su estructura inusual y su sonido innovador, características que también se encuentran en el álbum 'Marquee Moon'. En 2003, la canción fue incluida en una recopilación de las grabaciones de Television, lo que permitió a nuevas generaciones redescubrir su música. A lo largo de su carrera, Television ha sido reconocida por su influencia en el género del punk y el rock alternativo."
         },
@@ -7357,12 +6857,7 @@
         },
         {
           "question": "¿Cuál fue uno de los sencillos más exitosos de David Bowie del álbum 'Aladdin Sane' lanzado en 1973?",
-          "options": [
-            "The Jean Genie",
-            "Suffragette City",
-            "Space Oddity",
-            "Changes"
-          ],
+          "options": ["The Jean Genie", "Suffragette City", "Space Oddity", "Changes"],
           "correctAnswer": "The Jean Genie",
           "trivia": "El sencillo 'The Jean Genie' fue uno de los mayores éxitos comerciales de David Bowie del álbum 'Aladdin Sane'. Lanzado en 1973, esta canción alcanzó el puesto número 2 en las listas del Reino Unido, convirtiéndose en un clásico instantáneo. Es conocida por su mezcla de rock y blues, así como por la letra que se inspira en la cultura urbana de la época. 'Aladdin Sane' en su conjunto fue un álbum innovador que ayudó a consolidar la posición de Bowie como una de las figuras más influyentes del glam rock. Además, el álbum fue un éxito comercial, llegando al puesto número 1 en las listas del Reino Unido."
         }
@@ -7493,12 +6988,7 @@
         },
         {
           "question": "En el álbum 'Chicago II' de Chicago, ¿qué famoso músico colaboró con la banda aportando su talento en la producción de una de las canciones más emblemáticas del disco?",
-          "options": [
-            "Robert Lamm",
-            "Jimmy Pankow",
-            "David Foster",
-            "James William Guercio"
-          ],
+          "options": ["Robert Lamm", "Jimmy Pankow", "David Foster", "James William Guercio"],
           "correctAnswer": "James William Guercio",
           "trivia": "James William Guercio fue el productor del álbum 'Chicago II', lanzado en 1970. Su colaboración con Chicago fue fundamental para dar forma al sonido característico de la banda, que fusionaba rock con elementos de jazz y música clásica. Guercio también fue un importante compositor y arreglista, contribuyendo a la dirección musical del grupo en sus primeras etapas. 'Chicago II' incluye éxitos como '25 or 6 to 4', y es considerado un hito en la historia del rock. Además, Guercio trabajó con Chicago en varios de sus álbumes posteriores, consolidando su influencia en su carrera."
         },
@@ -7517,12 +7007,7 @@
       "hard": [
         {
           "question": "¿Qué miembro de Chicago dejó la banda poco después de la grabación del álbum 'Chicago II' en 1970, marcando un cambio significativo en su formación?",
-          "options": [
-            "Terry Kath",
-            "Robert Lamm",
-            "Peter Cetera",
-            "Danny Seraphine"
-          ],
+          "options": ["Terry Kath", "Robert Lamm", "Peter Cetera", "Danny Seraphine"],
           "correctAnswer": "Terry Kath",
           "trivia": "Terry Kath, el talentoso guitarrista y vocalista de Chicago, dejó la banda en 1978, aunque su influencia en el álbum 'Chicago II' de 1970 fue fundamental. Este álbum, que es considerado uno de los mejores trabajos de la banda, mostró la fusión del rock con elementos de jazz y pop, un estilo que Kath ayudó a definir. A pesar de su salida, Kath dejó un legado imborrable en la música de Chicago, siendo reconocido por su virtuosismo en la guitarra y su distintiva voz. Además, su trágica muerte en 1978 tuvo un impacto profundo en la banda y en sus seguidores, lo que hizo que su contribución fuera aún más valorada con el tiempo. 'Chicago II' también es notable por incluir grandes éxitos como '25 or 6 to 4', que sigue siendo un clásico en la historia del rock."
         },
@@ -7575,23 +7060,13 @@
         },
         {
           "question": "¿Qué posición alcanzó el álbum 'The Payback' de James Brown en la lista Billboard 200 tras su lanzamiento en 1973?",
-          "options": [
-            "Posición 15",
-            "Posición 26",
-            "Posición 5",
-            "Posición 10"
-          ],
+          "options": ["Posición 15", "Posición 26", "Posición 5", "Posición 10"],
           "correctAnswer": "Posición 10",
           "trivia": "El álbum 'The Payback' de James Brown logró alcanzar la posición 10 en la lista Billboard 200 tras su lanzamiento en 1973. Este álbum es considerado uno de los trabajos más emblemáticos de Brown, destacándose por su mezcla de funk y soul. 'The Payback' también incluye el famoso sencillo del mismo nombre, que se convirtió en un gran éxito en las listas de R&B. La influencia de James Brown en la música es inmensa, y este álbum cimentó su estatus como 'El Padrino del Soul'. Además, 'The Payback' es notable por su producción innovadora y la habilidad de Brown para fusionar ritmos pegajosos con letras cargadas de mensaje."
         },
         {
           "question": "¿Cuál fue la primera canción que James Brown lanzó en su álbum 'The Payback' de 1973?",
-          "options": [
-            "The Payback",
-            "Doing It to Death",
-            "Take Some... Leave Some",
-            "Hell"
-          ],
+          "options": ["The Payback", "Doing It to Death", "Take Some... Leave Some", "Hell"],
           "correctAnswer": "The Payback",
           "trivia": "La primera canción que James Brown lanzó como sencillo de su álbum 'The Payback' en 1973 fue la misma que da título al álbum, 'The Payback'. Este tema se convirtió rápidamente en un clásico y es conocido por su contundente ritmo y letras que expresan venganza y determinación. El álbum fue un éxito comercial y crítico, consolidando a James Brown como uno de los pioneros del funk. Además, 'The Payback' ha sido sampleada y versionada por muchos artistas a lo largo de los años, demostrando su influencia perdurable en la música. En el contexto de la década de 1970, este álbum también reflejó las tensiones sociales y políticas de la época."
         }
@@ -7937,12 +7412,7 @@
         },
         {
           "question": "¿En qué prestigioso premio musical fue nominado el álbum 'The Lamb Lies Down on Broadway' de Genesis en 1975?",
-          "options": [
-            "Premios Grammy",
-            "Premios Brit",
-            "Premios Billboard",
-            "Premios MTV"
-          ],
+          "options": ["Premios Grammy", "Premios Brit", "Premios Billboard", "Premios MTV"],
           "correctAnswer": "Premios Grammy",
           "trivia": "El álbum 'The Lamb Lies Down on Broadway' de Genesis fue nominado a un Grammy en 1975, destacándose en la categoría de Mejor Presentación de Rock Progresivo. Este álbum, lanzado en 1974, es considerado uno de los trabajos más ambiciosos de la banda y marcó el final de la era de Peter Gabriel como vocalista. Con su enfoque conceptual y su mezcla de rock progresivo y narración, el álbum ha dejado una huella perdurable en la música. Además, es notable que Genesis ha sido reconocido en varias ocasiones en los Grammy a lo largo de su carrera, lo que resalta su influencia y éxito en la industria musical."
         }
@@ -8174,12 +7644,7 @@
       "medium": [
         {
           "question": "¿Quién fue el productor que trabajó con Nick Drake en el álbum 'Pink Moon' lanzado en 1972?",
-          "options": [
-            "John Wood",
-            "Tony Visconti",
-            "Glyn Johns",
-            "George Martin"
-          ],
+          "options": ["John Wood", "Tony Visconti", "Glyn Johns", "George Martin"],
           "correctAnswer": "John Wood",
           "trivia": "John Wood fue el productor del álbum 'Pink Moon' de Nick Drake, lanzado en 1972. Este álbum, aclamado por la crítica, fue grabado en un ambiente muy íntimo, lo que permitió a Drake expresar sus emociones de manera profunda y personal. A diferencia de sus trabajos anteriores, 'Pink Moon' presenta una producción minimalista, con solo la voz y la guitarra de Drake, lo que resalta su talento como compositor. John Wood también trabajó en otros álbumes destacados de la época, como 'Five Leaves Left' y 'Bryter Layter', contribuyendo al sonido distintivo de la música folk británica de los años 70. La simplicidad de la producción en 'Pink Moon' ha hecho que este álbum sea considerado un clásico atemporal."
         },
@@ -8379,12 +7844,7 @@
         },
         {
           "question": "¿Cuál de las siguientes canciones del álbum '(Pronounced ’Lĕh-’nérd ’Skin-’nérd)' de Lynyrd Skynyrd se convirtió en un gran éxito en las listas de música rock en 1973?",
-          "options": [
-            "Simple Man",
-            "Sweet Home Alabama",
-            "Gimme Three Steps",
-            "Free Bird"
-          ],
+          "options": ["Simple Man", "Sweet Home Alabama", "Gimme Three Steps", "Free Bird"],
           "correctAnswer": "Free Bird",
           "trivia": "La canción 'Free Bird' de Lynyrd Skynyrd, incluida en su álbum debut '(Pronounced ’Lĕh-’nérd ’Skin-’nérd)', es una de las más emblemáticas de la banda y se lanzó en 1973. Este tema, conocido por su icónico solo de guitarra, alcanzó gran popularidad y ha perdurado como un clásico del rock. 'Free Bird' se hizo especialmente famosa por sus actuaciones en vivo, donde a menudo se extendía por varios minutos. Además, el álbum en su conjunto ayudó a definir el sonido del rock sureño y consolidó a Lynyrd Skynyrd como una de las bandas más importantes de la época."
         },
@@ -8515,12 +7975,7 @@
       "medium": [
         {
           "question": "En el álbum 'Fragile' de Yes, lanzado en 1971, ¿qué destacado músico colaboró con la banda para contribuir en la composición y el arreglo de la canción 'Cans and Brahms'?",
-          "options": [
-            "Robert Fripp",
-            "Rick Wakeman",
-            "David Crosby",
-            "Chris Squire"
-          ],
+          "options": ["Robert Fripp", "Rick Wakeman", "David Crosby", "Chris Squire"],
           "correctAnswer": "Rick Wakeman",
           "trivia": "La canción 'Cans and Brahms' del álbum 'Fragile' incluye la colaboración de Rick Wakeman, quien se unió a Yes poco antes de la grabación de este disco. Wakeman aportó su talento en los teclados y su enfoque innovador a la música clásica, lo que se refleja en esta pieza que utiliza fragmentos de la 'Sinfonía nº 1' de Johannes Brahms. Además, 'Fragile' es reconocido por su fusión de rock progresivo y elementos clásicos, consolidando a Yes como una banda pionera en el género. El álbum también es notable por su primera pista 'Roundabout', que se convirtió en un gran éxito y es uno de los himnos de la banda. La contribución de Wakeman fue fundamental para darle a 'Fragile' su distintivo sonido orquestal."
         },
@@ -8537,12 +7992,7 @@
         },
         {
           "question": "¿Qué miembro de Yes hizo su primera aparición oficial en el álbum 'Fragile' de 1971, contribuyendo significativamente al sonido progresivo de la banda?",
-          "options": [
-            "Rick Wakeman",
-            "Steve Howe",
-            "Alan White",
-            "Geoff Downes"
-          ],
+          "options": ["Rick Wakeman", "Steve Howe", "Alan White", "Geoff Downes"],
           "correctAnswer": "Steve Howe",
           "trivia": "Steve Howe hizo su debut en Yes con el álbum 'Fragile', lanzado en 1971, y su estilo de guitarra innovador ayudó a definir el sonido progresivo de la banda. Howe, conocido por su habilidad tanto en la guitarra acústica como en la eléctrica, aportó una nueva dimensión a las composiciones de Yes. Además de su trabajo en 'Fragile', Howe es reconocido por su participación en álbumes posteriores, solidificando su lugar como uno de los guitarristas más influyentes del rock progresivo. El álbum 'Fragile' también marcó la inclusión de otras composiciones destacadas como 'Roundabout', que se convirtió en un clásico de la banda. Este álbum es considerado un hito en la historia del rock progresivo, en parte gracias a las innovaciones musicales de Howe."
         }
@@ -8561,12 +8011,7 @@
         },
         {
           "question": "En el álbum 'Fragile' de Yes, ¿qué famoso ingeniero de sonido colaboró en la producción y aportó su experiencia en el uso de técnicas de grabación innovadoras?",
-          "options": [
-            "Alan Parsons",
-            "Glyn Johns",
-            "Phil Spector",
-            "George Martin"
-          ],
+          "options": ["Alan Parsons", "Glyn Johns", "Phil Spector", "George Martin"],
           "correctAnswer": "Alan Parsons",
           "trivia": "La respuesta correcta es Alan Parsons, quien fue el ingeniero de sonido principal en las sesiones de 'Fragile', lanzado en 1971. Parsons ya había trabajado en proyectos destacados, incluidas producciones para The Alan Parsons Project. Su enfoque innovador en la grabación y mezcla ayudó a dar forma al sonido progresivo distintivo de Yes, utilizando técnicas como la sobregrabación y la manipulación del sonido en estudios. 'Fragile' es conocido no solo por las composiciones complejas, sino también por su producción de vanguardia, que contribuyó a establecer a Yes como pioneros en el rock progresivo."
         },
@@ -8667,12 +8112,7 @@
       "hard": [
         {
           "question": "¿Cuál fue la posición más alta alcanzada por el álbum 'Catch a Fire' de Bob Marley and The Wailers en la lista Billboard 200 tras su lanzamiento en 1973?",
-          "options": [
-            "Posición 21",
-            "Posición 29",
-            "Posición 44",
-            "Posición 32"
-          ],
+          "options": ["Posición 21", "Posición 29", "Posición 44", "Posición 32"],
           "correctAnswer": "Posición 29",
           "trivia": "El álbum 'Catch a Fire' de Bob Marley and The Wailers, lanzado en 1973, alcanzó la posición 29 en la lista Billboard 200, lo que marcó un hito significativo en la popularización del reggae en el mercado estadounidense. Este álbum es considerado uno de los primeros trabajos de reggae en recibir atención masiva en los Estados Unidos, ayudando a establecer a Bob Marley como un ícono global. 'Catch a Fire' incluye clásicos como 'Stir It Up' y 'Concrete Jungle', los cuales fueron fundamentales para la reputación del grupo. Además, el álbum fue pionero en la producción de reggae, incorporando técnicas de estudio innovadoras que impactaron en el género. A nivel cultural, el éxito de este álbum contribuyó a la difusión del mensaje de resistencia y unidad presente en las letras de Marley."
         },
@@ -8866,12 +8306,7 @@
       "medium": [
         {
           "question": "En el álbum 'Aqualung' de Jethro Tull, ¿qué instrumento de cuerda desempeña un papel destacado en la canción que da título al álbum?",
-          "options": [
-            "Guitarra eléctrica",
-            "Bajo acústico",
-            "Mandolina",
-            "Guitarra acústica"
-          ],
+          "options": ["Guitarra eléctrica", "Bajo acústico", "Mandolina", "Guitarra acústica"],
           "correctAnswer": "Guitarra acústica",
           "trivia": "La canción 'Aqualung', que da título al álbum de Jethro Tull lanzado en 1971, presenta un distintivo uso de la guitarra acústica. Esta elección instrumental contribuye a la atmósfera melancólica y reflexiva de la pieza, que aborda temas de alienación y vulnerabilidad. Ian Anderson, el líder de la banda, es conocido por su estilo único de tocar la guitarra acústica, que se complementa con su distintiva voz y flauta en otras canciones del álbum. 'Aqualung' es considerado un clásico del rock progresivo y ha sido influyente en la música desde su lanzamiento, con la guitarra acústica siendo un elemento clave en su sonido. Además, el álbum incluye otras instrumentaciones variadas que muestran la versatilidad musical de Jethro Tull."
         },
@@ -8907,12 +8342,7 @@
         },
         {
           "question": "¿Qué productor musical trabajó con Jethro Tull en la grabación de 'Aqualung', aportando su experiencia en la creación de un sonido distintivo para el álbum?",
-          "options": [
-            "Martin Barre",
-            "Glyn Johns",
-            "Eddie Offord",
-            "Chris Thomas"
-          ],
+          "options": ["Martin Barre", "Glyn Johns", "Eddie Offord", "Chris Thomas"],
           "correctAnswer": "Eddie Offord",
           "trivia": "Eddie Offord fue el productor musical que colaboró con Jethro Tull en la creación de 'Aqualung', lanzado en 1971. Offord, conocido por su trabajo con otras bandas progresivas, ayudó a dar forma al sonido distintivo del álbum, que combina rock, folk y elementos de música clásica. 'Aqualung' es considerado un hito en la historia del rock progresivo, y la producción de Offord fue fundamental para lograr la atmósfera única de las canciones. Además, el álbum incluye temas icónicos como 'Aqualung' y 'Locomotive Breath', que muestran la habilidad de la banda para mezclar letras poéticas con complejas estructuras musicales. Este trabajo también marcó un punto de inflexión en la carrera de Jethro Tull, solidificando su lugar en la escena musical de los años 70."
         },
@@ -9072,12 +8502,7 @@
         },
         {
           "question": "¿Qué canción del álbum 'Unknown Pleasures' de Joy Division es considerada la más emblemática y frecuentemente escuchada por los fanáticos?",
-          "options": [
-            "Disorder",
-            "Shadowplay",
-            "Love Will Tear Us Apart",
-            "New Dawn Fades"
-          ],
+          "options": ["Disorder", "Shadowplay", "Love Will Tear Us Apart", "New Dawn Fades"],
           "correctAnswer": "Disorder",
           "trivia": "La canción 'Disorder' es reconocida como la pista de apertura del álbum 'Unknown Pleasures' de Joy Division, lanzado en 1979. Este tema se ha vuelto un himno dentro de la comunidad musical y es frecuentemente utilizada en conciertos y remixes, lo que la convierte en una de las más escuchadas del álbum. 'Unknown Pleasures', el primer trabajo de la banda, fue producido por Stephen Hague y se caracteriza por su sonido innovador que fusiona el post-punk con elementos de rock alternativo. Además, el álbum ha sido influyente en numerosas bandas posteriores, consolidando la reputación de Joy Division en la historia de la música. La icónica portada del álbum, diseñada por Peter Saville, también ha contribuido a su legado cultural."
         }
@@ -9131,12 +8556,7 @@
         },
         {
           "question": "¿Qué artista colaboró con Joy Division en la producción del álbum 'Unknown Pleasures' lanzado en 1979?",
-          "options": [
-            "Stephen Hague",
-            "Martin Hannett",
-            "Brian Eno",
-            "John Cale"
-          ],
+          "options": ["Stephen Hague", "Martin Hannett", "Brian Eno", "John Cale"],
           "correctAnswer": "Martin Hannett",
           "trivia": "La respuesta correcta es Martin Hannett, quien fue el productor de 'Unknown Pleasures'. Hannett es conocido por su enfoque innovador en la producción musical, utilizando técnicas de grabación que ayudaron a definir el sonido distintivo de Joy Division. Este álbum, lanzado en 1979, se caracteriza por su atmósfera oscura y su uso de efectos de estudio que Hannett implementó, como la reverberación y la manipulación de la dinámica. Además, su trabajo en la producción sentó las bases para el post-punk, influyendo en numerosas bandas que siguieron. 'Unknown Pleasures' ha sido aclamado como una obra maestra y ha dejado un impacto duradero en la música contemporánea."
         },
@@ -9314,12 +8734,7 @@
       "medium": [
         {
           "question": "En el álbum 'The Pretender' de 1976, ¿qué instrumento de cuerda destaca notablemente en la canción que da título al disco, interpretada por Jackson Browne?",
-          "options": [
-            "Guitarra acústica",
-            "Bajo eléctrico",
-            "Violín",
-            "Mandolina"
-          ],
+          "options": ["Guitarra acústica", "Bajo eléctrico", "Violín", "Mandolina"],
           "correctAnswer": "Guitarra acústica",
           "trivia": "En 'The Pretender', Jackson Browne utiliza la guitarra acústica como el instrumento principal, lo que contribuye a la atmósfera íntima y reflexiva de la canción. Este álbum, lanzado en 1976, es conocido por su fusión de rock y folk, y la guitarra acústica juega un papel fundamental en la mayoría de las pistas. Además, en la grabación participaron destacados músicos como David Lindley, quien aportó su talento en el slide guitar y otros instrumentos. 'The Pretender' aborda temas de búsqueda personal y desilusión, resonando con la audiencia en un período de cambios sociales en Estados Unidos."
         },
@@ -9360,12 +8775,7 @@
         },
         {
           "question": "¿Quién fue el productor principal que colaboró con Jackson Browne en la creación del álbum 'The Pretender' lanzado en 1976?",
-          "options": [
-            "David Foster",
-            "Glyn Johns",
-            "Jon Landau",
-            "Larry Klein"
-          ],
+          "options": ["David Foster", "Glyn Johns", "Jon Landau", "Larry Klein"],
           "correctAnswer": "Jon Landau",
           "trivia": "El productor principal que trabajó con Jackson Browne en 'The Pretender' fue Jon Landau, conocido por su trabajo con artistas emblemáticos de la época. Landau había ganado reconocimiento previamente por su colaboración con Bruce Springsteen, lo que le otorgó una reputación considerable en la industria musical. 'The Pretender' es un álbum que explora temas de desilusión y esperanza, y la producción de Landau ayudó a resaltar la profundidad emocional de las canciones. Este álbum, que incluye clásicos como 'The Pretender' y 'Here Come Those Tears Again', se lanzó en un periodo en que Browne estaba consolidando su carrera como cantautor. Además, la fusión de rock y elementos de folk en este trabajo marcó una evolución en su sonido, en gran parte gracias a la dirección de Landau."
         },
@@ -9407,12 +8817,7 @@
         },
         {
           "question": "¿Qué miembro de Blue Öyster Cult contribuyó notablemente a la composición de la famosa canción '(Don't Fear) The Reaper' en el álbum 'Agents of Fortune' de 1976?",
-          "options": [
-            "Eric Bloom",
-            "Buck Dharma",
-            "Albert Bouchard",
-            "Joe Bouchard"
-          ],
+          "options": ["Eric Bloom", "Buck Dharma", "Albert Bouchard", "Joe Bouchard"],
           "correctAnswer": "Buck Dharma",
           "trivia": "Buck Dharma fue el principal compositor de la icónica canción 'Don't Fear) The Reaper', que se incluyó en el álbum 'Agents of Fortune' de Blue Öyster Cult, lanzado en 1976. Este tema se convirtió en uno de los más reconocibles de la banda y es famoso por su melodía pegajosa y su temática lírica, que aborda la muerte y el amor eterno. Además de su trabajo en esta canción, Buck Dharma es conocido por su distintivo estilo de guitarra y ha sido una fuerza creativa en la banda desde su formación. 'Agents of Fortune' fue un álbum clave en la carrera de Blue Öyster Cult, ya que les permitió alcanzar una mayor popularidad, en parte gracias al éxito de 'Don't Fear) The Reaper'."
         },
@@ -9513,12 +8918,7 @@
       "easy": [
         {
           "question": "¿Qué famoso video musical de Tom Petty and the Heartbreakers, incluido en el álbum 'Damn the Torpedoes' de 1979, presenta a la banda actuando en un entorno urbano mientras se intercalan imágenes de una historia de amor?",
-          "options": [
-            "Don't Do Me Like That",
-            "Here Comes My Girl",
-            "Refugee",
-            "Even the Losers"
-          ],
+          "options": ["Don't Do Me Like That", "Here Comes My Girl", "Refugee", "Even the Losers"],
           "correctAnswer": "Don't Do Me Like That",
           "trivia": "El video musical de 'Don't Do Me Like That' es uno de los más icónicos de Tom Petty and the Heartbreakers y destaca por su estilo visual que captura la energía de la banda en un entorno urbano. Este sencillo, que se lanzó en 1979 como parte del álbum 'Damn the Torpedoes', ayudó a consolidar la popularidad de la banda durante la década de 1970. Además, el álbum 'Damn the Torpedoes' fue un gran éxito comercial, alcanzando el estatus de platino en Estados Unidos. Tom Petty y su banda, que se formaron en 1976, se convirtieron en pioneros del rock estadounidense, fusionando elementos de rock clásico y new wave de manera innovadora."
         },
@@ -9548,12 +8948,7 @@
       "medium": [
         {
           "question": "¿Cuánto costó aproximadamente la producción del álbum 'Damn the Torpedoes' de Tom Petty and the Heartbreakers en 1979?",
-          "options": [
-            "150,000 dólares",
-            "250,000 dólares",
-            "350,000 dólares",
-            "450,000 dólares"
-          ],
+          "options": ["150,000 dólares", "250,000 dólares", "350,000 dólares", "450,000 dólares"],
           "correctAnswer": "250,000 dólares",
           "trivia": "La producción del álbum 'Damn the Torpedoes' de Tom Petty and the Heartbreakers tuvo un costo aproximado de 250,000 dólares. Este álbum, lanzado en 1979, fue un punto de inflexión en la carrera de Petty, consolidándolo como una fuerza importante en el rock estadounidense. La inversión significativa en la producción se debió a la complejidad de las sesiones de grabación, que incluyeron la incorporación de múltiples capas de instrumentación y la búsqueda de un sonido robusto. 'Damn the Torpedoes' fue grabado en los estudios Sound City en California, famosos por su calidad de sonido, lo que también contribuyó al aumento de los costos. Además, el álbum se convirtió en un éxito comercial, vendiendo más de 3 millones de copias solo en Estados Unidos."
         },
@@ -9583,23 +8978,13 @@
       "hard": [
         {
           "question": "En el contexto del álbum 'Damn the Torpedoes' de Tom Petty and the Heartbreakers, ¿cuál de las siguientes canciones fue escrita como una respuesta a la presión de las compañías discográficas durante su producción en 1979?",
-          "options": [
-            "Refugee",
-            "Here Comes My Girl",
-            "Don't Do Me Like That",
-            "Even the Losers"
-          ],
+          "options": ["Refugee", "Here Comes My Girl", "Don't Do Me Like That", "Even the Losers"],
           "correctAnswer": "Refugee",
           "trivia": "La canción 'Refugee' es considerada una de las obras maestras de Tom Petty and the Heartbreakers y fue escrita como una respuesta a la presión que sentía el grupo por parte de su discográfica en un momento crítico de su carrera. Durante la grabación de 'Damn the Torpedoes', que salió al mercado en 1979, Petty y su banda enfrentaron diversas dificultades, incluyendo tensiones financieras y creativas. 'Refugee' se convirtió en un himno de resistencia y autenticidad, reflejando la lucha del artista contra las expectativas comerciales. Este álbum fue el primero en alcanzar el éxito comercial, logrando ventas importantes y consolidando a Petty como una figura central en el rock de los años 70 y 80. Además, 'Damn the Torpedoes' fue el primer álbum de la banda en recibir una certificación de oro por parte de la RIAA."
         },
         {
           "question": "En la versión deluxe del álbum 'Damn the Torpedoes' de Tom Petty and the Heartbreakers, ¿qué tema inédito fue incluido como parte de los contenidos adicionales?",
-          "options": [
-            "Surrender",
-            "Nowhere",
-            "It's Good to Be King",
-            "The Waiting"
-          ],
+          "options": ["Surrender", "Nowhere", "It's Good to Be King", "The Waiting"],
           "correctAnswer": "Nowhere",
           "trivia": "La respuesta correcta es 'Nowhere', un tema que fue grabado durante las sesiones del álbum 'Damn the Torpedoes' en 1979, pero que nunca se incluyó en la versión original. Este álbum es uno de los más aclamados de Tom Petty and the Heartbreakers, lanzado en un momento crucial de su carrera que ayudó a consolidar su fama en la música rock. La versión deluxe, lanzada años después, ofrece una visión más profunda de las grabaciones de la época, incluyendo demos y temas inéditos que reflejan el proceso creativo del grupo. 'Damn the Torpedoes' tuvo un impacto duradero en la música estadounidense, siendo considerado un hito que capturó la esencia del rock de finales de los 70."
         },
@@ -9641,12 +9026,7 @@
         },
         {
           "question": "¿Cuál de los integrantes de Aerosmith fue fundamental en la composición de varias canciones del álbum 'Rocks' lanzado en 1976?",
-          "options": [
-            "Steven Tyler",
-            "Joe Perry",
-            "Brad Whitford",
-            "Tom Hamilton"
-          ],
+          "options": ["Steven Tyler", "Joe Perry", "Brad Whitford", "Tom Hamilton"],
           "correctAnswer": "Joe Perry",
           "trivia": "Joe Perry, guitarrista de Aerosmith, fue una figura clave en la composición de muchas de las canciones del álbum 'Rocks'. Este álbum, que incluye clásicos como 'Back in the Saddle' y 'Last Child', es considerado uno de los mejores de la banda. Perry, junto con el vocalista Steven Tyler, trabajaron en equipo para crear el sonido distintivo que caracteriza a Aerosmith. Además, 'Rocks' es conocido por su estilo más pesado y duro en comparación con sus trabajos anteriores, reflejando la influencia del rock de los años 70. Este álbum consolidó a Aerosmith como una de las bandas más importantes de la época."
         },
@@ -9682,12 +9062,7 @@
         },
         {
           "question": "En el álbum 'Rocks' de Aerosmith, ¿cuál de las siguientes canciones tiene una versión alternativa que se incluyó en el álbum recopilatorio 'Greatest Hits' lanzado en 1980?",
-          "options": [
-            "Last Child",
-            "Back in the Saddle",
-            "Home Tonight",
-            "Get the Lead Out"
-          ],
+          "options": ["Last Child", "Back in the Saddle", "Home Tonight", "Get the Lead Out"],
           "correctAnswer": "Last Child",
           "trivia": "La canción 'Last Child' de Aerosmith, que forma parte del álbum 'Rocks' lanzado en 1976, cuenta con una versión alternativa que fue incluida en el álbum 'Greatest Hits' de 1980. Esta canción es notable por su estilo distintivo que mezcla rock con elementos de funk y se convirtió en uno de los clásicos de la banda. Aerosmith, conocida por su capacidad de fusionar géneros, tuvo un gran impacto en la música rock de los años 70, y 'Rocks' fue fundamental en consolidar su éxito. Además, el álbum 'Rocks' es considerado uno de los álbumes más emblemáticos de Aerosmith, presentando otros sencillos como 'Back in the Saddle' y 'Sweet Emotion'. La producción de este álbum fue llevada a cabo por Jack Douglas, quien también trabajó en otros proyectos icónicos de la época."
         }
@@ -9742,23 +9117,13 @@
       "easy": [
         {
           "question": "¿Cuál de las siguientes canciones de Curtis Mayfield, del álbum 'Super Fly' lanzado en 1972, se convirtió en un gran éxito crossover, alcanzando posiciones altas en las listas de R&B y pop?",
-          "options": [
-            "Freddie's Dead",
-            "Pusherman",
-            "Superfly",
-            "Give Me Your Love"
-          ],
+          "options": ["Freddie's Dead", "Pusherman", "Superfly", "Give Me Your Love"],
           "correctAnswer": "Freddie's Dead",
           "trivia": "La canción 'Freddie's Dead' de Curtis Mayfield, que forma parte del álbum 'Super Fly' lanzado en 1972, se convirtió en un gran éxito crossover, alcanzando el puesto número 4 en la lista Billboard Hot 100 y el número 1 en la lista de R&B. Este álbum es conocido por su fusión de soul, funk y rock, además de su potente mensaje social. 'Super Fly' fue la banda sonora de la película del mismo nombre, que trató temas relacionados con la vida y la cultura afroamericana de la época. Curtis Mayfield no solo fue un innovador musical, sino también un importante comentarista social, lo que se refleja en sus letras de este álbum. 'Freddie's Dead' destaca por su narrativa sobre la vida en las calles y las consecuencias del uso de drogas."
         },
         {
           "question": "¿Qué miembro de la banda que acompañó a Curtis Mayfield en el álbum 'Super Fly' tenía una relación previa con el famoso grupo The Impressions?",
-          "options": [
-            "Fred Cash",
-            "Richard Tufo",
-            "Curtis Mayfield",
-            "Joseph 'Joe' C. Smith"
-          ],
+          "options": ["Fred Cash", "Richard Tufo", "Curtis Mayfield", "Joseph 'Joe' C. Smith"],
           "correctAnswer": "Fred Cash",
           "trivia": "Fred Cash, quien formó parte de la banda que acompañó a Curtis Mayfield en 'Super Fly', fue uno de los miembros fundadores de The Impressions, el famoso grupo de soul de los años 60. The Impressions, conocido por su influencia en el desarrollo del sonido soul, también incluyó a Curtis Mayfield como uno de sus principales compositores e intérpretes. 'Super Fly', lanzado en 1972, es un álbum conceptual que destaca por su mezcla de música funk y letras que abordan temas sociales, reflejando la realidad de la comunidad afroamericana de la época. Además de su éxito comercial, el álbum es considerado un clásico y ha influido en numerosos artistas a lo largo de las décadas."
         },
@@ -10047,12 +9412,7 @@
         },
         {
           "question": "¿Qué canción del álbum 'Parallel Lines' de Blondie se convirtió en un himno no oficial en eventos deportivos, especialmente en partidos de hockey sobre hielo durante la década de 1980?",
-          "options": [
-            "Heart of Glass",
-            "One Way or Another",
-            "Picture This",
-            "Sunday Girl"
-          ],
+          "options": ["Heart of Glass", "One Way or Another", "Picture This", "Sunday Girl"],
           "correctAnswer": "One Way or Another",
           "trivia": "La canción 'One Way or Another' de Blondie, lanzada en el álbum 'Parallel Lines' en 1978, se ha convertido en un himno no oficial en numerosos eventos deportivos, especialmente en partidos de hockey sobre hielo durante la década de 1980. Su ritmo pegajoso y su letra decidida la hicieron popular entre los aficionados, quienes la utilizaban para animar a sus equipos. Además, la canción ha sido reinterpretada y utilizada en campañas políticas, reflejando su amplia influencia cultural. 'Parallel Lines' fue un álbum crucial en la carrera de Blondie, consolidando su fusión de punk y disco, y alcanzó el estatus de disco de platino en varios países. Este álbum también incluyó otros grandes éxitos como 'Heart of Glass', pero 'One Way or Another' destaca por su conexión con el deporte y la cultura popular."
         },
@@ -10084,12 +9444,7 @@
         },
         {
           "question": "¿Qué éxito de Bob Dylan del álbum 'Desire' alcanzó el puesto número 16 en la lista Billboard Hot 100 en 1976?",
-          "options": [
-            "Hurricane",
-            "Isis",
-            "One More Cup of Coffee",
-            "Romance in Durango"
-          ],
+          "options": ["Hurricane", "Isis", "One More Cup of Coffee", "Romance in Durango"],
           "correctAnswer": "Hurricane",
           "trivia": "La canción 'Hurricane', que es parte del álbum 'Desire' de Bob Dylan, logró alcanzar el puesto número 16 en la lista Billboard Hot 100 en 1976. Esta canción, que narra la historia del boxeador Rubin 'Hurricane' Carter, fue un gran éxito y se destacó por su fuerte contenido social y político. 'Desire' se convirtió en uno de los álbumes más reconocidos de Dylan, alcanzando el puesto número 1 en la lista Billboard 200. Además, el álbum fue certificado como disco de oro por la RIAA, consolidando aún más la influencia de Bob Dylan en la música de la época."
         },
@@ -10212,12 +9567,7 @@
         },
         {
           "question": "¿Quién fue el productor que colaboró con Peter Frampton en el álbum 'Frampton Comes Alive!' lanzado en 1976?",
-          "options": [
-            "Glyn Johns",
-            "Eddie Kramer",
-            "George Martin",
-            "Quincy Jones"
-          ],
+          "options": ["Glyn Johns", "Eddie Kramer", "George Martin", "Quincy Jones"],
           "correctAnswer": "Eddie Kramer",
           "trivia": "Eddie Kramer fue el productor que trabajó con Peter Frampton en 'Frampton Comes Alive!', el álbum en vivo que catapultó a Frampton a la fama mundial en 1976. Kramer es conocido por su trabajo con otras leyendas del rock, como Jimi Hendrix y Led Zeppelin. 'Frampton Comes Alive!' se convirtió en uno de los álbumes en vivo más vendidos de todos los tiempos, destacando por su sonido envolvente y la innovadora utilización del talk box. La producción de Kramer jugó un papel crucial en la captura de la energía de las presentaciones en vivo de Frampton, lo que le permitió conectar con su audiencia de manera excepcional. Este álbum incluye clásicos como 'Show Me the Way' y 'Baby, I Love Your Way', que se convirtieron en éxitos radiales."
         }
@@ -10282,12 +9632,7 @@
         },
         {
           "question": "En el álbum 'Frampton Comes Alive!' de 1976, ¿qué famoso músico colaboró en la interpretación de la canción 'Do You Feel Like We Do', aportando un solo de guitarra memorable que se convirtió en un sello distintivo del álbum?",
-          "options": [
-            "Eric Clapton",
-            "David Bowie",
-            "Stevie Wonder",
-            "Billy Gibbons"
-          ],
+          "options": ["Eric Clapton", "David Bowie", "Stevie Wonder", "Billy Gibbons"],
           "correctAnswer": "Billy Gibbons",
           "trivia": "En 'Frampton Comes Alive!', Peter Frampton incluye la colaboración de Billy Gibbons, el icónico guitarrista de ZZ Top, quien aporta su distintivo estilo en la famosa canción 'Do You Feel Like We Do'. Este álbum en vivo, lanzado en 1976, se convirtió en uno de los discos más vendidos de todos los tiempos, catapultando a Frampton a la fama. 'Do You Feel Like We Do' es conocida no solo por su energía y virtuosismo, sino también por el uso innovador del talk box, que se volvió emblemático en la carrera de Frampton. Además, el álbum incluye una mezcla de rock, blues y elementos de funk, lo que lo hace trascendental en su época. La colaboración de Gibbons no solo añade una capa extra de complejidad musical, sino que también resalta la interconexión entre artistas de la época."
         }
@@ -10449,12 +9794,7 @@
       "medium": [
         {
           "question": "¿Quién fue el productor principal del álbum 'Rocket to Russia' de Ramones, lanzado en 1977?",
-          "options": [
-            "Tony Visconti",
-            "Glyn Johns",
-            "Phil Spector",
-            "Ed Stasium"
-          ],
+          "options": ["Tony Visconti", "Glyn Johns", "Phil Spector", "Ed Stasium"],
           "correctAnswer": "Ed Stasium",
           "trivia": "El productor principal de 'Rocket to Russia' de Ramones fue Ed Stasium, quien también trabajó en otros álbumes de la banda. Stasium fue fundamental para capturar el sonido crudo y enérgico característico de los Ramones, lo que ayudó a definir el punk rock de finales de los años 70. Este álbum, lanzado el 4 de noviembre de 1977, incluye clásicos como 'Sheena Is a Punk Rocker' y 'Rockaway Beach'. Ed Stasium había trabajado previamente con la banda en su segundo álbum, 'Leave Home', lo que le permitió entender su estilo y energía. Su colaboración fue clave para la evolución del sonido de los Ramones durante este período crucial en su carrera."
         },
@@ -10471,12 +9811,7 @@
         },
         {
           "question": "¿En qué famoso estudio de grabación de Nueva York realizaron los Ramones la grabación de su álbum 'Rocket to Russia' en 1977?",
-          "options": [
-            "Electric Lady Studios",
-            "Record Plant",
-            "Media Sound",
-            "The Hit Factory"
-          ],
+          "options": ["Electric Lady Studios", "Record Plant", "Media Sound", "The Hit Factory"],
           "correctAnswer": "Media Sound",
           "trivia": "Los Ramones grabaron 'Rocket to Russia' en 1977 en Media Sound, un estudio ubicado en Manhattan, Nueva York. Este álbum, considerado uno de los pilares del punk rock, fue producido por el reconocido productor Phil Spector, aunque se utilizó un enfoque más directo y crudo en comparación con los trabajos anteriores de Spector. Durante estas sesiones, la banda buscó capturar la energía de sus presentaciones en vivo, lo que se tradujo en un sonido explosivo y fresco. 'Rocket to Russia' incluye clásicos como 'Sheena Is a Punk Rocker' y 'Rockaway Beach', que han perdurado en la cultura popular. La grabación en Media Sound permitió a los Ramones experimentar con su sonido, lo que contribuyó a su icónica identidad musical."
         }
@@ -10607,23 +9942,13 @@
         },
         {
           "question": "En el contexto del álbum 'My Aim Is True' de Elvis Costello, ¿cuál de las siguientes canciones se considera un exitoso crossover que ayudó a consolidar su popularidad en la radio de Estados Unidos en 1977?",
-          "options": [
-            "Alison",
-            "Less Than Zero",
-            "Watching the Detectives",
-            "Pump It Up"
-          ],
+          "options": ["Alison", "Less Than Zero", "Watching the Detectives", "Pump It Up"],
           "correctAnswer": "Alison",
           "trivia": "La canción 'Alison' de Elvis Costello, incluida en su álbum debut 'My Aim Is True', se destaca como un éxito crossover que contribuyó significativamente a su reconocimiento en la escena musical de 1977. Aunque 'Less Than Zero' fue el primer sencillo lanzado, fue 'Alison' la que resonó profundamente en las listas de Billboard, ayudando a Costello a ganar una base de fans en Estados Unidos. Este álbum fue producido por Nick Lowe, quien también fue un importante promotor del sonido punk y new wave en esa época. Además, 'Alison' ha sido versionada por múltiples artistas, lo que refleja su impacto duradero en la cultura musical. La fusión de rock, pop y elementos de letras narrativas en este tema es un testimonio del estilo innovador de Costello en sus inicios."
         },
         {
           "question": "¿Quién fue el productor principal del álbum 'My Aim Is True' de Elvis Costello, lanzado en 1977?",
-          "options": [
-            "Nick Lowe",
-            "Elvis Presley",
-            "Glyn Johns",
-            "Steve Lillywhite"
-          ],
+          "options": ["Nick Lowe", "Elvis Presley", "Glyn Johns", "Steve Lillywhite"],
           "correctAnswer": "Nick Lowe",
           "trivia": "El álbum 'My Aim Is True', debut de Elvis Costello, fue producido por Nick Lowe, un conocido músico y productor británico. Lowe, que también era parte de la escena del pub rock, ayudó a definir el sonido distintivo del álbum, que fusiona influencias del rock, el punk y el pop. 'My Aim Is True' se grabó en los estudios Pathé Marconi en Francia y fue lanzado en 1977, recibiendo críticas muy positivas y consolidando a Costello como una figura prominente en la música de la época. Además, Nick Lowe es conocido por su trabajo con bandas como Brinsley Schwarz y su carrera en solitario, lo que aportó una rica experiencia a la producción de este álbum icónico."
         }
@@ -10654,12 +9979,7 @@
         },
         {
           "question": "¿Cuál de las siguientes canciones del álbum 'Desperado' de Eagles, lanzado en 1973, se convirtió en un gran éxito y ayudó a consolidar su popularidad en la escena musical?",
-          "options": [
-            "Tequila Sunrise",
-            "Hotel California",
-            "Take It Easy",
-            "Witchy Woman"
-          ],
+          "options": ["Tequila Sunrise", "Hotel California", "Take It Easy", "Witchy Woman"],
           "correctAnswer": "Tequila Sunrise",
           "trivia": "La canción 'Tequila Sunrise' del álbum 'Desperado' se convirtió en uno de los sencillos más reconocidos de Eagles, ayudando a la banda a alcanzar un lugar destacado en la escena musical de los años 70. Este álbum, que exploró temas del Viejo Oeste y la vida de forajidos, es considerado un hito en el desarrollo del country rock. 'Tequila Sunrise' fue lanzada como sencillo en 1973 y alcanzó el puesto 32 en la lista Billboard Hot 100, lo que marcó un punto crucial en su carrera. Además, el álbum 'Desperado' es el segundo de Eagles y su estilo melódico y lírico innovador atrajo tanto a críticos como a oyentes, estableciendo a la banda como una de las más influyentes de la época."
         },
@@ -10713,12 +10033,7 @@
       "hard": [
         {
           "question": "¿Qué famosa canción, incluida en el álbum 'Desperado' de Eagles de 1973, ha sido versionada por otros artistas, convirtiéndose en un estándar del country rock?",
-          "options": [
-            "Hotel California",
-            "Desperado",
-            "Tequila Sunrise",
-            "Outlaw Man"
-          ],
+          "options": ["Hotel California", "Desperado", "Tequila Sunrise", "Outlaw Man"],
           "correctAnswer": "Desperado",
           "trivia": "La canción 'Desperado', que da título al álbum de Eagles lanzado en 1973, ha sido versionada por varios artistas a lo largo de los años, incluyendo a Linda Ronstadt, quien la interpretó en su álbum 'Heart Like a Wheel' en 1974. Esta balada melancólica se ha convertido en un emblema del género country rock y es ampliamente reconocida por su emotiva letra y su conmovedora melodía. Además, 'Desperado' fue escrita por Glenn Frey y Don Henley, quienes también fueron miembros fundadores de Eagles. La canción ha sido interpretada en diversas ocasiones en conciertos, consolidando su estatus como uno de los clásicos de la banda. La influencia de 'Desperado' se extiende más allá de la música, resonando en la cultura popular y siendo utilizada en múltiples películas y series de televisión."
         },
@@ -10771,23 +10086,13 @@
         },
         {
           "question": "¿Qué posición alcanzó el álbum 'Give ’Em Enough Rope' de The Clash en la lista de álbumes del Reino Unido en 1978?",
-          "options": [
-            "Primera posición",
-            "Quinta posición",
-            "Décima posición",
-            "Tercera posición"
-          ],
+          "options": ["Primera posición", "Quinta posición", "Décima posición", "Tercera posición"],
           "correctAnswer": "Tercera posición",
           "trivia": "El álbum 'Give ’Em Enough Rope' de The Clash logró alcanzar la tercera posición en la lista de álbumes del Reino Unido tras su lanzamiento en 1978. Este álbum fue muy esperado después del éxito de su primer trabajo, 'The Clash', y consolidó a la banda como uno de los grupos más prominentes del movimiento punk. El álbum incluye sencillos destacados como 'Tommy Gun' y 'Safe European Home', que ayudaron a aumentar su popularidad. Además, 'Give ’Em Enough Rope' marcó un cambio en la producción, ya que fue producido por Sandy Pearlman, conocido por su trabajo con Blue Öyster Cult, lo que le dio un sonido más pulido. Este éxito comercial fue crucial para establecer a The Clash en la escena musical internacional."
         },
         {
           "question": "¿Cuánto costó aproximadamente la producción del álbum 'Give ’Em Enough Rope' de The Clash en 1978?",
-          "options": [
-            "30,000 dólares",
-            "50,000 dólares",
-            "100,000 dólares",
-            "75,000 dólares"
-          ],
+          "options": ["30,000 dólares", "50,000 dólares", "100,000 dólares", "75,000 dólares"],
           "correctAnswer": "50,000 dólares",
           "trivia": "La producción del álbum 'Give ’Em Enough Rope' de The Clash en 1978 tuvo un costo aproximado de 50,000 dólares. Este álbum, que fue el segundo de la banda británica, fue grabado en los estudios de CBS en Londres y marcó un cambio significativo en su sonido, incorporando influencias del punk y el reggae. La inversión en la producción fue considerable para la época, reflejando las altas expectativas de la banda y de su sello discográfico tras el éxito de su álbum debut. Además, la producción estuvo a cargo de Sandy Pearlman, quien había trabajado anteriormente con la banda Blue Öyster Cult, lo que también implicó un enfoque más profesional en el sonido. 'Give ’Em Enough Rope' se convirtió en un hito en la carrera de The Clash, ayudando a establecer su reputación internacional."
         }
@@ -11112,12 +10417,7 @@
         },
         {
           "question": "¿Qué productor trabajó junto a Boston en la creación de su álbum debut 'Boston' lanzado en 1976?",
-          "options": [
-            "Mutt Lange",
-            "Tom Scholz",
-            "Eddie Kramer",
-            "Geoff Emerick"
-          ],
+          "options": ["Mutt Lange", "Tom Scholz", "Eddie Kramer", "Geoff Emerick"],
           "correctAnswer": "Tom Scholz",
           "trivia": "El álbum 'Boston', lanzado en 1976, fue producido en gran parte por Tom Scholz, quien también es el fundador y principal compositor de la banda. Scholz utilizó su ingeniero de audio, John Boylan, para ayudar a dar forma al sonido distintivo del álbum, que combina rock melódico con elementos progresivos. 'Boston' fue un gran éxito, alcanzando el número 3 en la lista Billboard 200 y vendiendo más de 17 millones de copias en los Estados Unidos. Además, el álbum incluye clásicos como 'More Than a Feeling' y 'Peace of Mind', que aún son populares en la radio. La meticulosa atención de Scholz a la producción y su uso de tecnología innovadora fueron fundamentales para el éxito del disco."
         },
@@ -11158,12 +10458,7 @@
         },
         {
           "question": "¿Cuál de las canciones del álbum 'Boston' de Boston alcanzó el puesto número 1 en la lista Billboard Hot 100 en 1976?",
-          "options": [
-            "More Than a Feeling",
-            "Peace of Mind",
-            "Foreplay/Long Time",
-            "Smokin'"
-          ],
+          "options": ["More Than a Feeling", "Peace of Mind", "Foreplay/Long Time", "Smokin'"],
           "correctAnswer": "More Than a Feeling",
           "trivia": "La canción 'More Than a Feeling' del álbum 'Boston' de Boston fue un gran éxito en 1976, alcanzando el puesto número 1 en la lista Billboard Hot 100. Este álbum debut, lanzado en agosto de 1976, se convirtió en uno de los discos más vendidos de todos los tiempos, gracias a su innovador sonido de rock y a la producción de Tom Scholz. Además de 'More Than a Feeling', el álbum también incluyó otros sencillos exitosos como 'Peace of Mind' y 'Foreplay/Long Time'. 'Boston' fue pionero en el uso de tecnología de grabación, lo que ayudó a definir el sonido del rock de los años 70. La combinación de melodías pegajosas y guitarras eléctricas potentes hicieron del álbum un referente en la música rock."
         }
@@ -11275,12 +10570,7 @@
         },
         {
           "question": "Durante la gira de apoyo al álbum 'On the Beach' de Neil Young en 1974, ¿qué otro artista famoso se unió a él en algunas de las presentaciones en vivo?",
-          "options": [
-            "David Crosby",
-            "Joni Mitchell",
-            "James Taylor",
-            "Graham Nash"
-          ],
+          "options": ["David Crosby", "Joni Mitchell", "James Taylor", "Graham Nash"],
           "correctAnswer": "David Crosby",
           "trivia": "Neil Young realizó una gira en 1974 para promocionar su álbum 'On the Beach', durante la cual tuvo la oportunidad de compartir el escenario con David Crosby, quien fue parte de su círculo musical desde los inicios de la carrera de Young. Esta colaboración se destacó no solo por la conexión personal entre ambos artistas, sino también por la relevancia de Crosby como miembro de grupos icónicos como The Byrds y Crosby, Stills, Nash & Young. Además, esta gira se caracterizó por la interpretación de canciones que reflejaban el estado emocional de Young en esa época, y el álbum 'On the Beach' en particular aborda temas de aislamiento y desilusión. En total, la gira incluyó presentaciones en varias ciudades, y la energía en el escenario fue palpable, mostrando la química musical entre Young y Crosby, lo que enriqueció la experiencia para los fans."
         }
@@ -11400,12 +10690,7 @@
       "hard": [
         {
           "question": "¿Qué famoso artista de jazz fue una de las principales influencias en la composición de la canción 'Any Major Dude Will Tell You' del álbum 'Pretzel Logic' de Steely Dan?",
-          "options": [
-            "Chick Corea",
-            "Miles Davis",
-            "Bill Evans",
-            "Herbie Hancock"
-          ],
+          "options": ["Chick Corea", "Miles Davis", "Bill Evans", "Herbie Hancock"],
           "correctAnswer": "Bill Evans",
           "trivia": "La canción 'Any Major Dude Will Tell You' de Steely Dan, incluida en su álbum 'Pretzel Logic' de 1974, muestra una clara influencia del estilo de Bill Evans, un destacado pianista de jazz. Evans es conocido por su enfoque innovador en la armonía y su habilidad para crear atmósferas melódicas complejas, características que se reflejan en la música de Steely Dan. Además, el uso de acordes sofisticados y líneas melódicas fluidas en esta canción refleja el estilo del jazz moderno que Evans ayudó a popularizar. 'Pretzel Logic' es reconocido por su fusión de rock y jazz, y el impacto de artistas como Evans fue crucial para la evolución del sonido del álbum."
         },
@@ -11499,12 +10784,7 @@
         },
         {
           "question": "¿Qué famoso productor musical trabajó con David Bowie en la grabación del álbum 'Station to Station' en 1976, aportando su estilo distintivo al proceso creativo?",
-          "options": [
-            "Brian Eno",
-            "Tony Visconti",
-            "Nile Rodgers",
-            "Jack Douglas"
-          ],
+          "options": ["Brian Eno", "Tony Visconti", "Nile Rodgers", "Jack Douglas"],
           "correctAnswer": "Tony Visconti",
           "trivia": "David Bowie colaboró con el productor Tony Visconti en la creación del álbum 'Station to Station', lanzado en 1976. Visconti, conocido por su trabajo con Bowie en varios álbumes anteriores, fue fundamental en el desarrollo del sonido de este proyecto, que fusionó rock, funk y elementos de música espiritual. Durante las sesiones de grabación, Bowie experimentó con una variedad de estilos y técnicas, lo que resultó en un álbum que se considera un hito en su carrera. Además, el álbum fue grabado en Los Ángeles, en un periodo en que Bowie estaba influenciado por la cultura y el ambiente de la ciudad. 'Station to Station' también destaca por su complejidad lírica y musical, reflejando una época de intensa exploración personal y artística para Bowie."
         }
@@ -11576,12 +10856,7 @@
         },
         {
           "question": "¿Qué famosa canción, que fue reinterpretada por Bob Seger & the Silver Bullet Band en su álbum 'Night Moves' de 1976, originalmente fue un éxito de la banda de rock 'The Velvet Underground'?",
-          "options": [
-            "Sweet Jane",
-            "Rock and Roll",
-            "Heroin",
-            "I'm Waiting for the Man"
-          ],
+          "options": ["Sweet Jane", "Rock and Roll", "Heroin", "I'm Waiting for the Man"],
           "correctAnswer": "Sweet Jane",
           "trivia": "Bob Seger & the Silver Bullet Band reinterpretaron la famosa canción 'Sweet Jane', que originalmente fue escrita y grabada por 'The Velvet Underground' en 1970. La versión de Seger es conocida por su estilo más accesible y melódico, lo que ayudó a presentar la canción a una audiencia más amplia. 'Night Moves' incluye esta interpretación que se ha vuelto popular entre los fans del rock. Además, el álbum 'Night Moves', lanzado en 1976, es considerado uno de los trabajos más emblemáticos de Bob Seger, consolidando su estatus en la escena musical de la época. La canción 'Sweet Jane' también ha sido versionada por numerosos artistas a lo largo de los años, lo que demuestra su perdurable atractivo."
         }
@@ -11671,23 +10946,13 @@
       "easy": [
         {
           "question": "¿Cuál de las siguientes canciones de Blondie del álbum 'Plastic Letters' logró convertirse en un gran éxito comercial en 1978?",
-          "options": [
-            "Heart of Glass",
-            "One Way or Another",
-            "Denis",
-            "Rapture"
-          ],
+          "options": ["Heart of Glass", "One Way or Another", "Denis", "Rapture"],
           "correctAnswer": "Denis",
           "trivia": "La canción 'Denis' de Blondie, del álbum 'Plastic Letters', fue un gran éxito comercial en 1978, alcanzando el puesto número 2 en la lista Billboard Hot 100 en los Estados Unidos. Este álbum marcó un punto de inflexión en la carrera de Blondie, ya que ayudó a establecer el sonido del nuevo wave en la música popular. 'Plastic Letters' fue también el primer álbum de la banda en incluir el tema 'Denis', que es una adaptación de una canción francesa. Además, Blondie se convirtió en uno de los grupos más influyentes de la década de 1970 gracias a su habilidad para mezclar diferentes géneros musicales, desde el punk hasta el pop. La combinación de letras ingeniosas y melodías pegajosas contribuyó al éxito comercial del álbum y a la popularidad continua de la banda."
         },
         {
           "question": "¿Qué famoso sencillo de Blondie, incluido en el álbum 'Plastic Letters', se convirtió en un gran éxito internacional en 1978?",
-          "options": [
-            "Heart of Glass",
-            "One Way or Another",
-            "Call Me",
-            "Rapture"
-          ],
+          "options": ["Heart of Glass", "One Way or Another", "Call Me", "Rapture"],
           "correctAnswer": "Heart of Glass",
           "trivia": "El sencillo 'Heart of Glass' de Blondie, que aparece en el álbum 'Plastic Letters', fue lanzado en 1979 y se convirtió en un gran éxito internacional. Esta canción fusionó elementos de disco y punk, lo que ayudó a definir el sonido único de Blondie en esa época. 'Heart of Glass' alcanzó el número uno en la lista Billboard Hot 100 en Estados Unidos y ocupó posiciones destacadas en otras listas internacionales. Además, el álbum 'Plastic Letters' fue el primer trabajo de Blondie que logró reconocimiento internacional, ayudando a establecer a la banda como un referente del nuevo wave. Este contexto histórico marcó un importante punto de inflexión en la carrera de Blondie, consolidando su influencia en la música de finales de los 70 y principios de los 80."
         },
@@ -11965,12 +11230,7 @@
       "hard": [
         {
           "question": "¿Qué influyente artista de blues y rock fue una de las principales fuentes de inspiración para Eric Clapton al crear su álbum '461 Ocean Boulevard' en 1974?",
-          "options": [
-            "B.B. King",
-            "Robert Johnson",
-            "Muddy Waters",
-            "Jimi Hendrix"
-          ],
+          "options": ["B.B. King", "Robert Johnson", "Muddy Waters", "Jimi Hendrix"],
           "correctAnswer": "Robert Johnson",
           "trivia": "Eric Clapton ha mencionado en diversas entrevistas que Robert Johnson, el legendario bluesman, fue una de sus principales influencias al momento de desarrollar su estilo musical. En '461 Ocean Boulevard', Clapton rinde homenaje a esta influencia a través de su interpretación de 'Steppin' Out', una de las canciones que refleja el estilo de Johnson. Este álbum marcó un punto de inflexión en la carrera de Clapton, donde comenzó a fusionar su amor por el blues con elementos de rock y reggae. Además, '461 Ocean Boulevard' fue su primer gran trabajo después de su recuperación de la adicción, lo que le permitió explorar nuevas direcciones musicales. Johnson, aclamado por su habilidad en la guitarra y su estilo vocal, dejó una huella indeleble en muchos músicos, incluyendo a Clapton, quien ha declarado que su música sigue siendo una fuente de inspiración constante."
         },

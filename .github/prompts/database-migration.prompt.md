@@ -6,7 +6,8 @@ description: "Create database migration for MelodyMind"
 
 # Create Database Migration
 
-The goal is to create a new database migration for the MelodyMind project following project standards.
+The goal is to create a new database migration for the MelodyMind project following project
+standards.
 
 ## Analyzing the Current Database
 

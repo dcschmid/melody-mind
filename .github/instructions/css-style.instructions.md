@@ -4,7 +4,8 @@ applyTo: "**/*.{css,scss,astro}"
 
 # Styling Standards for MelodyMind
 
-These instructions apply to all CSS and SCSS files in the MelodyMind project, incorporating Context7 optimizations and the latest standards.
+These instructions apply to all CSS and SCSS files in the MelodyMind project, incorporating Context7
+optimizations and the latest standards.
 
 ## General Guidelines
 
@@ -71,11 +72,9 @@ These instructions apply to all CSS and SCSS files in the MelodyMind project, in
 ```html
 <!-- Preferred: Tailwind utility classes -->
 <div
-  class="p-4 mb-6 rounded-lg bg-purple-100 dark:bg-purple-900 shadow-md hover:shadow-lg transition-shadow"
+  class="mb-6 rounded-lg bg-purple-100 p-4 shadow-md transition-shadow hover:shadow-lg dark:bg-purple-900"
 >
-  <h2 class="text-xl font-bold text-purple-800 dark:text-purple-200 mb-2">
-    Component Title
-  </h2>
+  <h2 class="mb-2 text-xl font-bold text-purple-800 dark:text-purple-200">Component Title</h2>
   <p class="text-gray-700 dark:text-gray-300">
     Component text with <span class="font-semibold">highlighted</span> part.
   </p>
@@ -84,9 +83,7 @@ These instructions apply to all CSS and SCSS files in the MelodyMind project, in
 <!-- Avoid: Custom CSS classes -->
 <div class="custom-component">
   <h2 class="component-title">Component Title</h2>
-  <p class="component-text">
-    Component text with <span class="highlight">highlighted</span> part.
-  </p>
+  <p class="component-text">Component text with <span class="highlight">highlighted</span> part.</p>
 </div>
 ```
 
@@ -95,13 +92,11 @@ These instructions apply to all CSS and SCSS files in the MelodyMind project, in
 ### Responsive Grid with Tailwind
 
 ```html
-<div
-  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
->
-  <div class="bg-purple-100 dark:bg-purple-900 p-4 rounded-lg">Card 1</div>
-  <div class="bg-purple-100 dark:bg-purple-900 p-4 rounded-lg">Card 2</div>
-  <div class="bg-purple-100 dark:bg-purple-900 p-4 rounded-lg">Card 3</div>
-  <div class="bg-purple-100 dark:bg-purple-900 p-4 rounded-lg">Card 4</div>
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+  <div class="rounded-lg bg-purple-100 p-4 dark:bg-purple-900">Card 1</div>
+  <div class="rounded-lg bg-purple-100 p-4 dark:bg-purple-900">Card 2</div>
+  <div class="rounded-lg bg-purple-100 p-4 dark:bg-purple-900">Card 3</div>
+  <div class="rounded-lg bg-purple-100 p-4 dark:bg-purple-900">Card 4</div>
 </div>
 ```
 
@@ -109,10 +104,7 @@ These instructions apply to all CSS and SCSS files in the MelodyMind project, in
 
 ```html
 <div class="mb-4">
-  <label
-    for="email"
-    class="block text-lg font-medium text-gray-900 dark:text-gray-100 mb-2"
-  >
+  <label for="email" class="mb-2 block text-lg font-medium text-gray-900 dark:text-gray-100">
     Email Address
   </label>
   <input
@@ -120,10 +112,7 @@ These instructions apply to all CSS and SCSS files in the MelodyMind project, in
     type="email"
     autocomplete="email"
     required
-    class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 
-           bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 
-           focus:outline-none focus:ring-3 focus:ring-purple-500 focus:border-purple-500
-           placeholder-gray-400 dark:placeholder-gray-500"
+    class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-purple-500 focus:ring-3 focus:ring-purple-500 focus:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-500"
     placeholder="your.email@example.com"
     aria-describedby="email-hint"
   />

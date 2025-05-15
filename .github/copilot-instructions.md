@@ -4,7 +4,9 @@ This file provides general instructions for GitHub Copilot when working with the
 
 ## Project Overview
 
-MelodyMind is an engaging and competitive music trivia game where players can test their knowledge across various music genres. Whether you're a rock enthusiast, pop aficionado, or jazz expert, this game offers a thrilling experience with multiple categories and rounds.
+MelodyMind is an engaging and competitive music trivia game where players can test their knowledge
+across various music genres. Whether you're a rock enthusiast, pop aficionado, or jazz expert, this
+game offers a thrilling experience with multiple categories and rounds.
 
 ## Key Features
 
@@ -140,7 +142,8 @@ interface UserScore {
 
 ## Testing Strategy
 
-**Note: Please do not write any tests at this time. Test implementation will be handled separately at a later stage.**
+**Note: Please do not write any tests at this time. Test implementation will be handled separately
+at a later stage.**
 
 - ~~Write unit tests for game logic~~
 - ~~Create component tests for UI elements~~
