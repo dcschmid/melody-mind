@@ -504,4 +504,12 @@ export default {
   "errors.gameResult.log.achievements": "Erreur lors du traitement des succès :",
   "errors.gameResult.log.api": "Erreur d'API :",
   "errors.gameResult.log.unknown": "Erreur inconnue",
+
+  // Erreurs de l'API des meilleurs scores
+  "api.errors.database_error":
+    "Erreur de base de données dans l'API des meilleurs scores : {message}",
+  "api.errors.highscores_retrieval":
+    "Erreur lors de la récupération des meilleurs scores : {message}",
+  "api.errors.unknown_error": "Erreur inconnue dans l'API des meilleurs scores",
+  "api.errors.highscores_retrieval_message": "Erreur lors de la récupération des meilleurs scores",
 };

@@ -491,4 +491,10 @@ export default {
   "errors.gameResult.log.achievements": "Virhe saavutusten käsittelyssä:",
   "errors.gameResult.log.api": "API-virhe:",
   "errors.gameResult.log.unknown": "Tuntematon virhe",
+
+  // Huipputulokset API -virheet
+  "api.errors.database_error": "Tietokantavirhe huipputulosten API:ssa: {message}",
+  "api.errors.highscores_retrieval": "Virhe huipputulosten hakemisessa: {message}",
+  "api.errors.unknown_error": "Tuntematon virhe huipputulosten API:ssa",
+  "api.errors.highscores_retrieval_message": "Virhe huipputulosten hakemisessa",
 };
