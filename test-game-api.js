@@ -14,9 +14,7 @@ const testData = {
 console.log("📤 Testdaten:", JSON.stringify(testData, null, 2));
 
 // API-Anfrage senden
-console.log(
-  "\n🚀 Sende POST-Anfrage an http://localhost:4321/api/game/save-result...",
-);
+console.log("\n🚀 Sende POST-Anfrage an http://localhost:4321/api/game/save-result...");
 
 fetch("http://localhost:4321/api/game/save-result", {
   method: "POST",

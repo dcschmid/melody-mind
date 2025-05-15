@@ -1,8 +1,11 @@
 # Comprehensive Accessibility Review Guide (WCAG 2.2 AAA)
 
-Your goal is to perform a thorough accessibility review of MelodyMind code to ensure compliance with the latest WCAG 2.2 AAA standards, which represent the highest level of accessibility. This guide focuses specifically on Astro.js components and implementation.
+Your goal is to perform a thorough accessibility review of MelodyMind code to ensure compliance with
+the latest WCAG 2.2 AAA standards, which represent the highest level of accessibility. This guide
+focuses specifically on Astro.js components and implementation.
 
-**Important**: All documentation must be written in English, regardless of the user interface language. This includes code comments, JSDoc, Markdown files, and any other form of documentation.
+**Important**: All documentation must be written in English, regardless of the user interface
+language. This includes code comments, JSDoc, Markdown files, and any other form of documentation.
 
 ## Review Focus Areas
 
@@ -111,11 +114,14 @@ If a specific file isn't provided, ask for:
 
 ## Documentation Requirements
 
-After completing the accessibility review, you MUST create a Markdown documentation file with the following characteristics:
+After completing the accessibility review, you MUST create a Markdown documentation file with the
+following characteristics:
 
 1. **File Location**: Always save the report in the `docs/accessibility/` directory
-2. **File Naming**: Use the format `ComponentName-Accessibility-Review-YYYYMMDD.md` (e.g., `QuestionCard-Accessibility-Review-20250512.md`)
-3. **Language**: The documentation MUST be written in English, regardless of the user interface language
+2. **File Naming**: Use the format `ComponentName-Accessibility-Review-YYYYMMDD.md` (e.g.,
+   `QuestionCard-Accessibility-Review-20250512.md`)
+3. **Language**: The documentation MUST be written in English, regardless of the user interface
+   language
 4. **Content Structure**: The Markdown file should include:
    - Title with component name and review date
    - Executive summary with key findings
@@ -132,7 +138,8 @@ After completing the accessibility review, you MUST create a Markdown documentat
 
 ## Executive Summary
 
-This accessibility review evaluates the [Component Name] component against WCAG 2.2 AAA standards. The component [brief assessment of compliance level and major issues/strengths].
+This accessibility review evaluates the [Component Name] component against WCAG 2.2 AAA standards.
+The component [brief assessment of compliance level and major issues/strengths].
 
 **Compliance Level**: [X]% WCAG 2.2 AAA compliant
 
@@ -228,10 +235,9 @@ After completing your review, you MUST create this Markdown documentation file i
    - Example usage:
 ```
 
-create_file({
-filePath: "/path/to/docs/accessibility/ComponentName-Accessibility-Review-YYYYMMDD.md",
-content: "# Accessibility Review: ComponentName - YYYY-MM-DD\n\n..."
-})
+create_file({ filePath:
+"/path/to/docs/accessibility/ComponentName-Accessibility-Review-YYYYMMDD.md", content: "#
+Accessibility Review: ComponentName - YYYY-MM-DD\n\n..." })
 
 ```
 
@@ -249,49 +255,40 @@ This documentation process must be followed for every accessibility review to ma
 
 ### Content Structure Analysis
 
-✅ Uses proper semantic elements with h2 for questions and ul/li for options
-✅ Maintains logical reading order matching visual presentation
-❌ Missing document landmark (should be wrapped in <main> or <section> with appropriate role)
-✅ Proper heading hierarchy with no skipped levels
-❌ Missing page title update to reflect current question number
+✅ Uses proper semantic elements with h2 for questions and ul/li for options ✅ Maintains logical
+reading order matching visual presentation ❌ Missing document landmark (should be wrapped in <main>
+or <section> with appropriate role) ✅ Proper heading hierarchy with no skipped levels ❌ Missing
+page title update to reflect current question number
 
 ### Interface Interaction Assessment
 
-✅ All interactive elements accessible via keyboard with tab order matching visual flow
-✅ Focus is visibly indicated with high contrast outline (3px solid #f0abfc)
-❌ Timer lacks ability to be paused or extended when needed
-❌ Answer selection can't be activated with both Space and Enter keys
-❌ No way to operate via single-key shortcuts with ability to remap/disable
-✅ Touch target size adequate at 48x48px minimum
-❌ Client-side hydration lacks a fallback for non-JavaScript environments
+✅ All interactive elements accessible via keyboard with tab order matching visual flow ✅ Focus is
+visibly indicated with high contrast outline (3px solid #f0abfc) ❌ Timer lacks ability to be paused
+or extended when needed ❌ Answer selection can't be activated with both Space and Enter keys ❌ No
+way to operate via single-key shortcuts with ability to remap/disable ✅ Touch target size adequate
+at 48x48px minimum ❌ Client-side hydration lacks a fallback for non-JavaScript environments
 
 ### Information Conveyance Review
 
-✅ Uses aria-current="true" for selected answer
-❌ Missing aria-live regions for timer and score updates
-❌ Missing aria-describedby to link error messages with inputs
-❌ Input error suggestions not programmatically associated
-❌ Status changes not properly announced to screen readers
-✅ All text has sufficient color contrast (12:1 for question text)
-❌ Astro island script not communicating state changes to assistive technologies
+✅ Uses aria-current="true" for selected answer ❌ Missing aria-live regions for timer and score
+updates ❌ Missing aria-describedby to link error messages with inputs ❌ Input error suggestions
+not programmatically associated ❌ Status changes not properly announced to screen readers ✅ All
+text has sufficient color contrast (12:1 for question text) ❌ Astro island script not communicating
+state changes to assistive technologies
 
 ### Sensory Adaptability Check
 
-❌ Option hover state has insufficient contrast (3.8:1, needs 7:1)
-❌ No support for 400% text zoom without horizontal scrolling
-❌ Animation of timer lacks reduced motion alternative
-✅ Color not used as the only means of conveying information
-✅ Audio feedback has visual alternative
-❌ Missing prefers-reduced-data media query support
+❌ Option hover state has insufficient contrast (3.8:1, needs 7:1) ❌ No support for 400% text zoom
+without horizontal scrolling ❌ Animation of timer lacks reduced motion alternative ✅ Color not
+used as the only means of conveying information ✅ Audio feedback has visual alternative ❌ Missing
+prefers-reduced-data media query support
 
 ### Technical Robustness Verification
 
-❌ Uses div for clickable elements instead of semantic buttons
-❌ Missing role="timer" for countdown element
-❌ Focus not properly managed when modal dialogs appear/close
-✅ HTML structure validates without errors
-✅ Works across different device sizes
-❌ Client-side interactive elements not fully accessible when partially hydrated
+❌ Uses div for clickable elements instead of semantic buttons ❌ Missing role="timer" for countdown
+element ❌ Focus not properly managed when modal dialogs appear/close ✅ HTML structure validates
+without errors ✅ Works across different device sizes ❌ Client-side interactive elements not fully
+accessible when partially hydrated
 
 ### Detailed Recommendations
 
@@ -413,10 +410,7 @@ const { dialogId, initialFocusId } = Astro.props;
         // Watch for dialog open/close
         const observer = new MutationObserver((mutations) => {
           mutations.forEach((mutation) => {
-            if (
-              mutation.attributeName === "open" ||
-              mutation.attributeName === "aria-hidden"
-            ) {
+            if (mutation.attributeName === "open" || mutation.attributeName === "aria-hidden") {
               const isVisible =
                 this.dialogEl.hasAttribute("open") ||
                 this.dialogEl.getAttribute("aria-hidden") === "false";
@@ -442,8 +436,8 @@ const { dialogId, initialFocusId } = Astro.props;
     setupTrapFocus() {
       this.focusableElements = Array.from(
         this.dialogEl.querySelectorAll(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
-        ),
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )
       );
     }
 
@@ -451,8 +445,7 @@ const { dialogId, initialFocusId } = Astro.props;
       if (this.focusableElements.length === 0) return;
 
       const firstElement = this.focusableElements[0];
-      const lastElement =
-        this.focusableElements[this.focusableElements.length - 1];
+      const lastElement = this.focusableElements[this.focusableElements.length - 1];
 
       // Focus on specified element or first focusable element
       const initialElement = initialFocusId
@@ -552,7 +545,7 @@ const timerId = `timer-${Math.random().toString(36).substring(2, 8)}`;
       timerEl.textContent = `${timeRemaining}s${isPaused ? " (Paused)" : ""}`;
       timerEl.setAttribute(
         "aria-label",
-        `Time remaining: ${timeRemaining} seconds${isPaused ? ", paused" : ""}`,
+        `Time remaining: ${timeRemaining} seconds${isPaused ? ", paused" : ""}`
       );
     }
 
@@ -689,9 +682,7 @@ const timerId = `timer-${Math.random().toString(36).substring(2, 8)}`;
   }
 
   /* Make sure controls stay usable at any zoom level */
-  @media screen and (max-width: 400px),
-    (forced-colors: active),
-    (min-resolution: 3dppx) {
+  @media screen and (max-width: 400px), (forced-colors: active), (min-resolution: 3dppx) {
     .question-controls {
       display: flex;
       flex-direction: column;
@@ -776,9 +767,7 @@ const { contentId } = Astro.props;
   // Add unique permanent ID anchors to all sections
   document.addEventListener("DOMContentLoaded", () => {
     document
-      .querySelectorAll(
-        ".stable-content h2, .stable-content h3, .stable-content h4",
-      )
+      .querySelectorAll(".stable-content h2, .stable-content h3, .stable-content h4")
       .forEach((heading) => {
         if (!heading.id) {
           // Create stable hash from heading text
@@ -797,12 +786,8 @@ const { contentId } = Astro.props;
           const permalink = document.createElement("a");
           permalink.className = "permalink";
           permalink.href = `#${heading.id}`;
-          permalink.setAttribute(
-            "aria-label",
-            `Permalink to "${heading.textContent}"`,
-          );
-          permalink.innerHTML =
-            '<span class="permalink-icon" aria-hidden="true">#</span>';
+          permalink.setAttribute("aria-label", `Permalink to "${heading.textContent}"`);
+          permalink.innerHTML = '<span class="permalink-icon" aria-hidden="true">#</span>';
           heading.appendChild(permalink);
         }
       });
@@ -893,9 +878,7 @@ const itemId = `draggable-${id}`;
     </button>
 
     {/* Direct position selector as another alternative */}
-    <label class="visually-hidden" for={`${itemId}-position`}>
-      Move to position
-    </label>
+    <label class="visually-hidden" for={`${itemId}-position`}> Move to position </label>
     <select
       id={`${itemId}-position`}
       aria-label={`Move ${title} to position`}
@@ -988,9 +971,7 @@ const itemId = `draggable-${id}`;
       if (newPosition === currentPosition) return;
 
       // Find target item to insert before or after
-      const targetItem = items.find(
-        (item) => parseInt(item.dataset.position) === newPosition,
-      );
+      const targetItem = items.find((item) => parseInt(item.dataset.position) === newPosition);
 
       if (targetItem) {
         if (newPosition < currentPosition) {
@@ -1116,12 +1097,7 @@ interface Props {
 const { mode, redirectUrl = "/" } = Astro.props;
 ---
 
-<form
-  class="auth-form"
-  method="post"
-  action={`/api/auth/${mode}`}
-  aria-labelledby="auth-heading"
->
+<form class="auth-form" method="post" action={`/api/auth/${mode}`} aria-labelledby="auth-heading">
   <h2 id="auth-heading">{mode === "login" ? "Sign In" : "Create Account"}</h2>
 
   <div class="form-group">
@@ -1135,9 +1111,7 @@ const { mode, redirectUrl = "/" } = Astro.props;
       required
       aria-required="true"
     />
-    <p class="form-hint" id="username-hint">
-      Choose a username with letters and numbers only
-    </p>
+    <p class="form-hint" id="username-hint">Choose a username with letters and numbers only</p>
   </div>
 
   <div class="form-group">
@@ -1172,12 +1146,7 @@ const { mode, redirectUrl = "/" } = Astro.props;
     mode === "login" && (
       <div class="form-group">
         <div class="checkbox-container">
-          <input
-            type="checkbox"
-            id="remember"
-            name="remember"
-            class="form-checkbox"
-          />
+          <input type="checkbox" id="remember" name="remember" class="form-checkbox" />
           <label for="remember" class="checkbox-label">
             Remember me
           </label>
@@ -1211,14 +1180,10 @@ const { mode, redirectUrl = "/" } = Astro.props;
 
     <div class="accessibility-options">
       <p>
-        <a href="/webauthn" class="alt-auth-link">
-          Sign in with passkey/biometrics
-        </a>
+        <a href="/webauthn" class="alt-auth-link"> Sign in with passkey/biometrics </a>
       </p>
       <p>
-        <a href="/auth/magic-link" class="alt-auth-link">
-          Sign in with email link
-        </a>
+        <a href="/auth/magic-link" class="alt-auth-link"> Sign in with email link </a>
       </p>
     </div>
   </div>
@@ -1287,10 +1252,7 @@ const { mode, redirectUrl = "/" } = Astro.props;
 
           // Re-add the visual meter
           if (strengthBar && strengthBar.parentElement) {
-            strengthMeter.insertBefore(
-              strengthBar.parentElement,
-              strengthMeter.firstChild,
-            );
+            strengthMeter.insertBefore(strengthBar.parentElement, strengthMeter.firstChild);
           }
         }
       }
@@ -1327,8 +1289,7 @@ const { mode, redirectUrl = "/" } = Astro.props;
         const liveRegion = document.createElement("div");
         liveRegion.setAttribute("aria-live", "assertive");
         liveRegion.className = "visually-hidden";
-        liveRegion.textContent =
-          "Form validation failed. Please check the highlighted fields.";
+        liveRegion.textContent = "Form validation failed. Please check the highlighted fields.";
         form.appendChild(liveRegion);
 
         // Remove after announcement
@@ -1343,7 +1304,7 @@ const { mode, redirectUrl = "/" } = Astro.props;
       const errorId = `${inputEl.id}-error`;
       inputEl.setAttribute(
         "aria-describedby",
-        `${inputEl.getAttribute("aria-describedby") || ""} ${errorId}`.trim(),
+        `${inputEl.getAttribute("aria-describedby") || ""} ${errorId}`.trim()
       );
 
       const errorMsg = document.createElement("p");
@@ -1530,7 +1491,10 @@ const { mode, redirectUrl = "/" } = Astro.props;
 </style>
 ```
 
-Remember that while the MelodyMind user interface supports multiple languages, **all documentation including this accessibility review must be written in English**. This ensures consistency across all technical documentation and allows all team members to understand accessibility issues and implementations regardless of their language preferences.
+Remember that while the MelodyMind user interface supports multiple languages, **all documentation
+including this accessibility review must be written in English**. This ensures consistency across
+all technical documentation and allows all team members to understand accessibility issues and
+implementations regardless of their language preferences.
 
 ## Example Review for an Astro Component
 

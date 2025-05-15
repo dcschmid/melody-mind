@@ -211,9 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (visibleCards.length === 0) return;
 
       // Find the current focus index
-      currentFocusIndex = visibleCards.findIndex((card) =>
-        card.contains(document.activeElement),
-      );
+      currentFocusIndex = visibleCards.findIndex((card) => card.contains(document.activeElement));
 
       switch (event.key) {
         case "ArrowRight":
@@ -227,26 +225,20 @@ document.addEventListener("DOMContentLoaded", function () {
         case "ArrowDown":
           event.preventDefault();
           // Determine number of cards per row (based on CSS Grid)
-          const cardsPerRow =
-            getComputedStyle(articlesGrid).gridTemplateColumns.split(
-              " ",
-            ).length;
+          const cardsPerRow = getComputedStyle(articlesGrid).gridTemplateColumns.split(" ").length;
           navigateCards(cardsPerRow, visibleCards);
           break;
         case "ArrowUp":
           event.preventDefault();
           // Determine number of cards per row (based on CSS Grid)
           const cardsPerRowUp =
-            getComputedStyle(articlesGrid).gridTemplateColumns.split(
-              " ",
-            ).length;
+            getComputedStyle(articlesGrid).gridTemplateColumns.split(" ").length;
           navigateCards(-cardsPerRowUp, visibleCards);
           break;
         case "Home":
           event.preventDefault();
           if (visibleCards.length > 0) {
-            const firstCard =
-              visibleCards[0].querySelector("a") || visibleCards[0];
+            const firstCard = visibleCards[0].querySelector("a") || visibleCards[0];
             firstCard.focus();
             currentFocusIndex = 0;
             announceChange(`Card 1 of ${visibleCards.length} focused`);
@@ -260,9 +252,7 @@ document.addEventListener("DOMContentLoaded", function () {
               visibleCards[visibleCards.length - 1];
             lastCard.focus();
             currentFocusIndex = visibleCards.length - 1;
-            announceChange(
-              `Card ${visibleCards.length} of ${visibleCards.length} focused`,
-            );
+            announceChange(`Card ${visibleCards.length} of ${visibleCards.length} focused`);
           }
           break;
       }
@@ -293,8 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Focus the new card
-    const cardToFocus =
-      visibleCards[newIndex].querySelector("a") || visibleCards[newIndex];
+    const cardToFocus = visibleCards[newIndex].querySelector("a") || visibleCards[newIndex];
     cardToFocus.focus();
     currentFocusIndex = newIndex;
 

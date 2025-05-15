@@ -16,14 +16,8 @@ const fs = require("fs");
 // Script paths relative to this file
 const SETUP_FONTS_SCRIPT = path.join(__dirname, "setup-fonts.cjs");
 const COPY_LOCAL_FONTS_SCRIPT = path.join(__dirname, "copy-local-fonts.cjs");
-const EXTRACT_TRANSLATIONS_SCRIPT = path.join(
-  __dirname,
-  "extract-translations.cjs",
-);
-const GENERATE_OG_IMAGES_SCRIPT = path.join(
-  __dirname,
-  "generate-og-images.cjs",
-);
+const EXTRACT_TRANSLATIONS_SCRIPT = path.join(__dirname, "extract-translations.cjs");
+const GENERATE_OG_IMAGES_SCRIPT = path.join(__dirname, "generate-og-images.cjs");
 
 // Assets directory paths
 const PROJECT_ROOT = path.resolve(__dirname, "..");
@@ -61,11 +55,7 @@ function runScript(scriptPath, description) {
  * Create necessary directories if they don't exist
  */
 function ensureDirectories() {
-  const directories = [
-    path.join(PROJECT_ROOT, "public"),
-    PUBLIC_FONTS_DIR,
-    OG_IMAGES_DIR,
-  ];
+  const directories = [path.join(PROJECT_ROOT, "public"), PUBLIC_FONTS_DIR, OG_IMAGES_DIR];
 
   directories.forEach((dir) => {
     if (!fs.existsSync(dir)) {
@@ -89,10 +79,7 @@ async function setup() {
   let fontSetupSuccess = false;
 
   if (fs.existsSync(ASSETS_FONTS_DIR)) {
-    fontSetupSuccess = await runScript(
-      COPY_LOCAL_FONTS_SCRIPT,
-      "Copying local fonts",
-    );
+    fontSetupSuccess = await runScript(COPY_LOCAL_FONTS_SCRIPT, "Copying local fonts");
   }
 
   // If local fonts failed or weren't available, try downloading
@@ -102,27 +89,22 @@ async function setup() {
 
   if (!fontSetupSuccess) {
     console.warn(
-      "⚠️ Font setup was not completely successful. Some features may not work as expected.",
+      "⚠️ Font setup was not completely successful. Some features may not work as expected."
     );
   }
 
   // Step 2: Extract translations
   const translationsSuccess = await runScript(
     EXTRACT_TRANSLATIONS_SCRIPT,
-    "Extracting translations",
+    "Extracting translations"
   );
 
   if (!translationsSuccess) {
-    console.warn(
-      "⚠️ Translation extraction failed. OG images may use fallback text.",
-    );
+    console.warn("⚠️ Translation extraction failed. OG images may use fallback text.");
   }
 
   // Step 3: Generate OG images
-  const ogImagesSuccess = await runScript(
-    GENERATE_OG_IMAGES_SCRIPT,
-    "Generating OG images",
-  );
+  const ogImagesSuccess = await runScript(GENERATE_OG_IMAGES_SCRIPT, "Generating OG images");
 
   if (!ogImagesSuccess) {
     console.error("❌ OG image generation failed.");
@@ -131,20 +113,14 @@ async function setup() {
   // Summarize results
   console.log("\n🏁 Setup Process Summary:");
   console.log(`📂 Fonts: ${fontSetupSuccess ? "✅ Success" : "⚠️ Warning"}`);
-  console.log(
-    `🌐 Translations: ${translationsSuccess ? "✅ Success" : "⚠️ Warning"}`,
-  );
+  console.log(`🌐 Translations: ${translationsSuccess ? "✅ Success" : "⚠️ Warning"}`);
   console.log(`🖼️ OG Images: ${ogImagesSuccess ? "✅ Success" : "⚠️ Warning"}`);
 
   if (fontSetupSuccess && translationsSuccess && ogImagesSuccess) {
-    console.log(
-      "\n✨ Setup completed successfully! The project is ready to use.",
-    );
+    console.log("\n✨ Setup completed successfully! The project is ready to use.");
     return true;
   } else {
-    console.warn(
-      "\n⚠️ Setup completed with warnings. Some features may not work correctly.",
-    );
+    console.warn("\n⚠️ Setup completed with warnings. Some features may not work correctly.");
     return false;
   }
 }

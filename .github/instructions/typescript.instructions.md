@@ -29,7 +29,7 @@ These instructions apply to all TypeScript and JavaScript files in the MelodyMin
 export const calculateScore = (
   correctAnswers: number,
   timeInSeconds: number,
-  difficulty: Difficulty,
+  difficulty: Difficulty
 ): number => {
   const baseScore = correctAnswers * 50;
   const timeBonus = timeInSeconds < 10 ? 50 : timeInSeconds < 15 ? 25 : 0;
@@ -102,10 +102,7 @@ const getUserName = (user?: User): string => {
 };
 
 // Immutable data manipulation with spread operator
-const addAchievement = (
-  userScore: UserScore,
-  achievement: string,
-): UserScore => {
+const addAchievement = (userScore: UserScore, achievement: string): UserScore => {
   return {
     ...userScore,
     achievements: [...userScore.achievements, achievement],
@@ -131,7 +128,7 @@ class GameApiError extends Error {
   constructor(
     message: string,
     public readonly statusCode?: number,
-    public readonly endpoint?: string,
+    public readonly endpoint?: string
   ) {
     super(message);
     this.name = "GameApiError";
@@ -139,10 +136,7 @@ class GameApiError extends Error {
 }
 
 // Async function with proper error handling
-async function fetchQuestions(
-  genre: string,
-  difficulty: Difficulty,
-): Promise<Question[]> {
+async function fetchQuestions(genre: string, difficulty: Difficulty): Promise<Question[]> {
   try {
     const endpoint = `/api/questions?genre=${encodeURIComponent(genre)}&difficulty=${difficulty}`;
     const response = await fetch(endpoint);
@@ -151,7 +145,7 @@ async function fetchQuestions(
       throw new GameApiError(
         `Failed to fetch questions: ${response.statusText}`,
         response.status,
-        endpoint,
+        endpoint
       );
     }
 
@@ -166,7 +160,7 @@ async function fetchQuestions(
     throw new GameApiError(
       error instanceof Error ? error.message : "Unknown error occurred",
       undefined,
-      `questions/${genre}/${difficulty}`,
+      `questions/${genre}/${difficulty}`
     );
   }
 }
@@ -188,17 +182,15 @@ async function fetchQuestions(
 import { memoize } from "lodash-es";
 
 // Memoize expensive calculation
-export const calculateLeaderboardRanking = memoize(
-  (scores: UserScore[]): RankedScore[] => {
-    // Complex ranking algorithm...
-    return scores
-      .sort((a, b) => b.score - a.score)
-      .map((score, index) => ({
-        ...score,
-        rank: index + 1,
-      }));
-  },
-);
+export const calculateLeaderboardRanking = memoize((scores: UserScore[]): RankedScore[] => {
+  // Complex ranking algorithm...
+  return scores
+    .sort((a, b) => b.score - a.score)
+    .map((score, index) => ({
+      ...score,
+      rank: index + 1,
+    }));
+});
 
 // Optimize multiple async requests
 export async function loadGameAssets(genre: string): Promise<GameAssets> {

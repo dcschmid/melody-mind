@@ -81,21 +81,15 @@ async function executeSqlStatements(sql: string): Promise<void> {
 
   // Group statements by type for ordered execution
   const drops = statements.filter((s) => s.toUpperCase().startsWith("DROP"));
-  const tables = statements.filter((s) =>
-    s.toUpperCase().startsWith("CREATE TABLE"),
-  );
-  const indexes = statements.filter((s) =>
-    s.toUpperCase().startsWith("CREATE INDEX"),
-  );
-  const triggers = statements.filter((s) =>
-    s.toUpperCase().startsWith("CREATE TRIGGER"),
-  );
+  const tables = statements.filter((s) => s.toUpperCase().startsWith("CREATE TABLE"));
+  const indexes = statements.filter((s) => s.toUpperCase().startsWith("CREATE INDEX"));
+  const triggers = statements.filter((s) => s.toUpperCase().startsWith("CREATE TRIGGER"));
   const others = statements.filter(
     (s) =>
       !s.toUpperCase().startsWith("DROP") &&
       !s.toUpperCase().startsWith("CREATE TABLE") &&
       !s.toUpperCase().startsWith("CREATE INDEX") &&
-      !s.toUpperCase().startsWith("CREATE TRIGGER"),
+      !s.toUpperCase().startsWith("CREATE TRIGGER")
   );
 
   // Execute statements in proper order
@@ -106,10 +100,7 @@ async function executeSqlStatements(sql: string): Promise<void> {
     } catch (error: any) {
       // Ignore errors when dropping non-existent objects
       const errorMsg = error?.message || String(error);
-      if (
-        !errorMsg.includes("no such table") &&
-        !errorMsg.includes("no such index")
-      ) {
+      if (!errorMsg.includes("no such table") && !errorMsg.includes("no such index")) {
         console.error(`Error executing: ${stmt}`);
         console.error("Error details:", errorMsg);
         throw error;
@@ -136,9 +127,7 @@ async function executeSqlStatements(sql: string): Promise<void> {
       const errorMsg = error?.message || String(error);
       // Ignore errors when index already exists
       if (errorMsg.includes("already exists")) {
-        console.log(
-          `Info: Index in statement "${stmt}" already exists, skipping.`,
-        );
+        console.log(`Info: Index in statement "${stmt}" already exists, skipping.`);
       } else {
         console.error(`Error executing: ${stmt}`);
         console.error("Error details:", errorMsg);

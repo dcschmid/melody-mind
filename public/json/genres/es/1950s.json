@@ -58,12 +58,7 @@
         },
         {
           "question": "¿Qué famoso pianista, conocido por su estilo innovador, colaboró con Miles Davis en el álbum 'Kind of Blue' lanzado en 1959?",
-          "options": [
-            "Chick Corea",
-            "Bill Evans",
-            "Thelonious Monk",
-            "Herbie Hancock"
-          ],
+          "options": ["Chick Corea", "Bill Evans", "Thelonious Monk", "Herbie Hancock"],
           "correctAnswer": "Bill Evans",
           "trivia": "Bill Evans fue el pianista que colaboró con Miles Davis en el icónico álbum 'Kind of Blue'. La influencia de Evans en el jazz es notable, y su estilo de armonía y su enfoque lírico al piano aportaron una dimensión única a las composiciones del álbum. 'Kind of Blue' es conocido por ser uno de los álbumes más vendidos de la historia del jazz y un hito en el desarrollo del jazz modal. En este trabajo, Evans contribuyó significativamente a la creación del ambiente y la atmósfera que caracterizan las piezas, como 'So What' y 'Blue in Green'. Además, el álbum fue grabado en un solo día en marzo de 1959, lo que demuestra la química excepcional entre los músicos involucrados."
         },
@@ -93,12 +88,7 @@
         },
         {
           "question": "¿Cuál de las siguientes composiciones perdidas se ha mencionado como un posible tema inédito de las sesiones de grabación de 'Kind of Blue' de Miles Davis en 1959?",
-          "options": [
-            "Blue in Green",
-            "Sacha's Song",
-            "Flamenco Sketches",
-            "So What"
-          ],
+          "options": ["Blue in Green", "Sacha's Song", "Flamenco Sketches", "So What"],
           "correctAnswer": "Sacha's Song",
           "trivia": "La composición 'Sacha's Song' es un tema que ha sido objeto de especulación como una obra inédita de las sesiones que dieron lugar al icónico álbum 'Kind of Blue' de Miles Davis. Aunque no se incluyó en el álbum, algunos músicos que participaron en las sesiones, como Bill Evans, han mencionado su existencia en conversaciones posteriores. 'Kind of Blue' es famoso no solo por su innovador enfoque modal, sino también por la atmósfera única que logró capturar en el estudio. Este álbum, lanzado en 1959, es considerado uno de los más influyentes en la historia del jazz, y continúa inspirando a artistas de diversos géneros. Además, la idea de composiciones perdidas en su legado resalta la riqueza del trabajo creativo de Davis y su banda."
         },
@@ -151,12 +141,7 @@
         },
         {
           "question": "¿Qué canción del álbum 'Elvis Presley' de 1956 fue utilizada en la banda sonora de la película 'Loving You'?",
-          "options": [
-            "Heartbreak Hotel",
-            "Blue Suede Shoes",
-            "Tutti Frutti",
-            "Hound Dog"
-          ],
+          "options": ["Heartbreak Hotel", "Blue Suede Shoes", "Tutti Frutti", "Hound Dog"],
           "correctAnswer": "Heartbreak Hotel",
           "trivia": "La canción 'Heartbreak Hotel', incluida en el álbum 'Elvis Presley' de 1956, fue una de las piezas clave que ayudó a establecer a Elvis Presley como un ícono del rock and roll. Esta canción no solo se convirtió en un gran éxito, sino que también fue parte de la banda sonora de su primera película, 'Loving You', lanzada en 1957. 'Heartbreak Hotel' alcanzó el número uno en la lista Billboard Hot 100 y marcó el inicio de la carrera cinematográfica de Elvis. El álbum 'Elvis Presley' también fue notable por su mezcla de estilos, que incluían rock, country y blues, reflejando la versatilidad musical de Presley. En total, el álbum presenta varios temas que se convirtieron en clásicos atemporales."
         }
@@ -316,12 +301,7 @@
       "hard": [
         {
           "question": "¿Qué orquestador fue fundamental en la creación de los arreglos musicales del álbum 'In the Wee Small Hours' de Frank Sinatra, lanzado en 1955?",
-          "options": [
-            "Nelson Riddle",
-            "Gordon Jenkins",
-            "Billy May",
-            "Don Costa"
-          ],
+          "options": ["Nelson Riddle", "Gordon Jenkins", "Billy May", "Don Costa"],
           "correctAnswer": "Nelson Riddle",
           "trivia": "La respuesta correcta es Nelson Riddle, quien fue el principal arreglista de 'In the Wee Small Hours'. Este álbum es considerado una obra maestra del jazz vocal y del pop, y Riddle utilizó una orquestación innovadora que complementaba la voz de Sinatra, creando un ambiente melancólico y nostálgico. Riddle también trabajó en otros álbumes icónicos de Sinatra, como 'Songs for Young Lovers' y 'Come Fly with Me'. 'In the Wee Small Hours' se destaca no solo por sus letras introspectivas, sino también por los sofisticados arreglos que ayudaron a definir el sonido del crooner durante la década de 1950. La combinación de su estilo y la producción minuciosa sentó las bases para la música popular moderna."
         },
@@ -480,12 +460,7 @@
       "easy": [
         {
           "question": "¿Qué importante productor musical colaboró con Ray Charles en el álbum 'Ray Charles' lanzado en 1957?",
-          "options": [
-            "Phil Spector",
-            "Jerry Wexler",
-            "Berry Gordy",
-            "Quincy Jones"
-          ],
+          "options": ["Phil Spector", "Jerry Wexler", "Berry Gordy", "Quincy Jones"],
           "correctAnswer": "Jerry Wexler",
           "trivia": "La respuesta correcta es Jerry Wexler, quien fue un destacado productor musical en la carrera de Ray Charles. Wexler trabajó con Charles en varias grabaciones, incluyendo el álbum 'Ray Charles', ayudando a dar forma a su sonido característico que fusiona el rhythm and blues con el gospel y el jazz. Este álbum es considerado uno de los pilares de la música soul y fue fundamental en la carrera de Charles, quien se convirtió en un ícono de la música estadounidense. Jerry Wexler también es conocido por su trabajo con otros artistas legendarios, como Aretha Franklin y Otis Redding, contribuyendo significativamente al desarrollo de la música soul en la década de 1960."
         },
@@ -515,12 +490,7 @@
       "medium": [
         {
           "question": "¿Qué notable colaboración tuvo Ray Charles en el álbum 'Ray Charles', lanzado en 1957, que involucró a un famoso trompetista de jazz?",
-          "options": [
-            "Dizzy Gillespie",
-            "Miles Davis",
-            "Chet Baker",
-            "Louis Armstrong"
-          ],
+          "options": ["Dizzy Gillespie", "Miles Davis", "Chet Baker", "Louis Armstrong"],
           "correctAnswer": "Chet Baker",
           "trivia": "En el álbum 'Ray Charles', lanzado en 1957, Ray Charles colaboró con el famoso trompetista de jazz Chet Baker en la canción 'My Baby'. Esta colaboración es especialmente significativa porque une el estilo innovador de Charles con la suavidad melódica de Baker, creando una fusión única de R&B y jazz. Ray Charles, conocido por su capacidad de cruzar géneros, también fue pionero en la incorporación de elementos de jazz en su música, lo que ayudó a popularizar el soul. Además, este álbum fue fundamental en el desarrollo de su carrera, consolidando su estatus como una de las figuras más influyentes de la música estadounidense. Charles y Baker compartieron el estudio en un momento en que ambos artistas estaban en la cúspide de su creatividad, lo que hizo de esta colaboración un hito memorable."
         },
@@ -619,12 +589,7 @@
         },
         {
           "question": "¿Cuánto costó aproximadamente la producción del álbum 'Blue Train' de John Coltrane en 1957?",
-          "options": [
-            "2,500 dólares",
-            "10,000 dólares",
-            "5,000 dólares",
-            "1,500 dólares"
-          ],
+          "options": ["2,500 dólares", "10,000 dólares", "5,000 dólares", "1,500 dólares"],
           "correctAnswer": "5,000 dólares",
           "trivia": "El costo aproximado de producción del álbum 'Blue Train' de John Coltrane en 1957 fue de 5,000 dólares. Este álbum, lanzado por Blue Note Records, se considera uno de los discos más importantes en la historia del jazz. Además de Coltrane, el álbum contó con la participación de destacados músicos como McCoy Tyner y Elvin Jones, quienes contribuyeron a su sonido distintivo. 'Blue Train' fue grabado en una sola sesión, lo que refleja la eficiencia y el talento del grupo. Este álbum no solo marcó un hito en la carrera de Coltrane, sino que también se convirtió en un estándar en el repertorio del jazz."
         }
@@ -654,12 +619,7 @@
         },
         {
           "question": "¿Qué destacado saxofonista, además de John Coltrane, participó en la grabación del álbum 'Blue Train' en 1957?",
-          "options": [
-            "Wayne Shorter",
-            "Sonny Rollins",
-            "Cannonball Adderley",
-            "Lee Konitz"
-          ],
+          "options": ["Wayne Shorter", "Sonny Rollins", "Cannonball Adderley", "Lee Konitz"],
           "correctAnswer": "Cannonball Adderley",
           "trivia": "Cannonball Adderley, un reconocido saxofonista alto, fue uno de los músicos que acompañó a John Coltrane en la grabación del icónico álbum 'Blue Train' en 1957. Este disco es considerado un hito en el jazz y presenta una combinación única de composiciones originales y arreglos impresionantes. Además de Coltrane y Adderley, el álbum incluye a otros grandes músicos como McCoy Tyner y Elvin Jones, quienes más tarde se convertirían en colaboradores frecuentes de Coltrane. 'Blue Train' es famoso por su mezcla de hard bop y elementos melódicos que reflejan la evolución del jazz en esa época. La influencia de este álbum se puede sentir en numerosas grabaciones posteriores y sigue siendo un referente para los músicos de jazz contemporáneos."
         }
@@ -856,12 +816,7 @@
       "medium": [
         {
           "question": "¿Qué destacado músico de jazz colaboró con Billie Holiday en el álbum 'Lady in Satin' de 1958, aportando su talento en la dirección orquestal?",
-          "options": [
-            "Arthur Prysock",
-            "Ray Charles",
-            "Duke Ellington",
-            "Mal Waldron"
-          ],
+          "options": ["Arthur Prysock", "Ray Charles", "Duke Ellington", "Mal Waldron"],
           "correctAnswer": "Mal Waldron",
           "trivia": "En el álbum 'Lady in Satin', Billie Holiday trabajó con el pianista y compositor Mal Waldron, quien no solo fue el director musical, sino que también contribuyó con arreglos que realzaron la emotividad de las interpretaciones de Holiday. Este álbum se considera uno de los trabajos más introspectivos y melancólicos de la cantante, lanzado en una etapa tardía de su carrera. Mal Waldron, conocido por su estilo único y su capacidad para fusionar el jazz con la emoción, aportó una profunda sensibilidad a la producción. Además, este álbum incluye arreglos orquestales que contrastan con el estilo más minimalista de sus trabajos anteriores. 'Lady in Satin' es recordado por su producción rica y orquestal, que se aleja del enfoque más simple de los álbumes anteriores de Billie Holiday."
         },
@@ -938,12 +893,7 @@
       "easy": [
         {
           "question": "¿Qué influencia musical fue fundamental para Little Richard al crear el álbum 'Here’s Little Richard' en 1957?",
-          "options": [
-            "El gospel",
-            "La música electrónica",
-            "El reggae",
-            "El jazz contemporáneo"
-          ],
+          "options": ["El gospel", "La música electrónica", "El reggae", "El jazz contemporáneo"],
           "correctAnswer": "El gospel",
           "trivia": "Little Richard se inspiró en el gospel al crear su álbum 'Here’s Little Richard', lanzado en 1957. Esta influencia se puede escuchar en su estilo vocal emotivo y en la energía de sus canciones, que reflejan claramente sus raíces en la música religiosa. Little Richard, conocido por su habilidad para fusionar ritmos frenéticos con letras pegajosas, ayudó a establecer el rock and roll como un género dominante. Además, su interpretación de canciones como 'Tutti Frutti' muestra cómo el gospel influyó en su forma de expresar la alegría y la libertad a través de la música. En resumen, el gospel fue una fuerza motriz en la carrera de Little Richard y en el desarrollo del rock and roll."
         },
@@ -1030,12 +980,7 @@
         },
         {
           "question": "¿Qué productor influyó significativamente en el sonido del álbum 'Here’s Little Richard' de 1957, ayudando a definir el estilo del rock and roll que caracterizó a Little Richard?",
-          "options": [
-            "Jerry Wexler",
-            "Sam Phillips",
-            "Richard Perry",
-            "Robert 'Bumps' Blackwell"
-          ],
+          "options": ["Jerry Wexler", "Sam Phillips", "Richard Perry", "Robert 'Bumps' Blackwell"],
           "correctAnswer": "Robert 'Bumps' Blackwell",
           "trivia": "Robert 'Bumps' Blackwell fue el productor que tuvo un papel crucial en la creación del álbum 'Here’s Little Richard' en 1957. Blackwell no solo produjo varias de las canciones más icónicas de Little Richard, sino que también contribuyó a moldear su estilo distintivo, que combinaba elementos de gospel, blues y rock and roll. Su colaboración resultó en éxitos como 'Tutti Frutti' y 'Long Tall Sally', que se convirtieron en clásicos del género. Little Richard, conocido por su energía en el escenario y su poderosa voz, logró un gran impacto cultural en la música popular gracias a este trabajo conjunto. El álbum ha sido fundamental en la historia del rock, influyendo en muchos artistas posteriores."
         }
@@ -1131,12 +1076,7 @@
         },
         {
           "question": "En el álbum 'With His Hot and Blue Guitar' de Johnny Cash, ¿cuál fue la primera canción escrita por el propio Cash que se incluyó y se convirtió en un éxito a nivel nacional?",
-          "options": [
-            "I Walk the Line",
-            "Folsom Prison Blues",
-            "Get Rhythm",
-            "Cry! Cry! Cry!"
-          ],
+          "options": ["I Walk the Line", "Folsom Prison Blues", "Get Rhythm", "Cry! Cry! Cry!"],
           "correctAnswer": "Cry! Cry! Cry!",
           "trivia": "La canción 'Cry! Cry! Cry!' es reconocida como la primera composición original de Johnny Cash que se incluyó en su álbum 'With His Hot and Blue Guitar' de 1957, y se convirtió en un gran éxito, alcanzando el puesto número 14 en la lista Billboard Hot Country Songs. Este álbum fue el debut de Cash con Sun Records y marcó el inicio de su carrera como uno de los íconos de la música country. 'Cry! Cry! Cry!' se caracteriza por su emotiva letra y el estilo distintivo de Cash, que fusiona elementos de folk y country. A lo largo de su carrera, Cash continuó escribiendo muchas de sus propias canciones, lo que lo diferenció de otros artistas de su época. Además, el álbum ayudó a establecer a Cash como un innovador en el género, influyendo en futuras generaciones de músicos."
         },
@@ -1167,12 +1107,7 @@
       "easy": [
         {
           "question": "¿Qué famosa versión de una canción de Thelonious Monk se popularizó tras el lanzamiento de su álbum 'Brilliant Corners' en 1957?",
-          "options": [
-            "Round Midnight",
-            "Straight, No Chaser",
-            "Blue Monk",
-            "Epistrophy"
-          ],
+          "options": ["Round Midnight", "Straight, No Chaser", "Blue Monk", "Epistrophy"],
           "correctAnswer": "Round Midnight",
           "trivia": "La canción 'Round Midnight' es una de las composiciones más emblemáticas de Thelonious Monk y ganó gran popularidad después del lanzamiento de su álbum 'Brilliant Corners' en 1957. Esta pieza ha sido versionada por numerosos artistas de jazz, convirtiéndose en uno de los estándares más reconocidos en el género. De hecho, Monk escribió esta melodía en 1944, pero su interpretación en 'Brilliant Corners' ayudó a cimentar su estatus. Además, 'Round Midnight' ha sido grabada por leyendas del jazz como Miles Davis y John Coltrane, lo que demuestra su influencia perdurable en la música. Monk, conocido por su estilo único y su enfoque innovador, continúa siendo una figura central en la historia del jazz."
         },
@@ -1189,12 +1124,7 @@
         },
         {
           "question": "¿Qué famoso pianista y compositor se ha citado frecuentemente como influenciado por el estilo innovador de Thelonious Monk en su álbum 'Brilliant Corners'?",
-          "options": [
-            "Herbie Hancock",
-            "Bill Evans",
-            "Chick Corea",
-            "Oscar Peterson"
-          ],
+          "options": ["Herbie Hancock", "Bill Evans", "Chick Corea", "Oscar Peterson"],
           "correctAnswer": "Herbie Hancock",
           "trivia": "Herbie Hancock es uno de los pianistas que ha reconocido la influencia de Thelonious Monk en su propio estilo, especialmente por el innovador uso del ritmo y la armonía que se escucha en 'Brilliant Corners'. Este álbum, lanzado en 1957, es considerado una obra maestra del jazz y ha sido vital en la formación de generaciones de músicos. Monk es conocido por su enfoque único en la interpretación y la composición, lo que ha dejado una huella indeleble en artistas posteriores. Además, Hancock ha mencionado a Monk como una de sus principales inspiraciones, subrayando cómo su trabajo ha impactado el desarrollo del jazz moderno. La conexión entre estos dos pianistas resalta la importancia de 'Brilliant Corners' en la historia del jazz."
         }
@@ -1213,12 +1143,7 @@
         },
         {
           "question": "En el proceso de grabación del álbum 'Brilliant Corners' de Thelonious Monk, ¿qué músico colaboró con Monk en la interpretación de piezas clave como 'Epistrophy' y 'Pannonica'?",
-          "options": [
-            "Charlie Rouse",
-            "John Coltrane",
-            "Max Roach",
-            "Milt Jackson"
-          ],
+          "options": ["Charlie Rouse", "John Coltrane", "Max Roach", "Milt Jackson"],
           "correctAnswer": "Charlie Rouse",
           "trivia": "Charlie Rouse fue el saxofonista que colaboró con Thelonious Monk durante las sesiones de grabación de 'Brilliant Corners' en 1957. Rouse se convirtió en un miembro clave de la banda de Monk, aportando su distintivo sonido al álbum y ayudando a definir su estilo durante esa época. Este álbum es notable por su complejidad y sus innovadoras composiciones, y es considerado uno de los mejores trabajos de Monk. Además, 'Brilliant Corners' incluye otros músicos destacados, como el contrabajista Oscar Pettiford y el baterista Elvin Jones. La interacción musical entre Monk y Rouse fue fundamental para el desarrollo del jazz moderno en la década de 1950."
         },
@@ -1237,12 +1162,7 @@
       "hard": [
         {
           "question": "En el álbum 'Brilliant Corners' de 1957, ¿qué destacado saxofonista colaboró con Thelonious Monk, aportando su distintivo estilo en varias composiciones?",
-          "options": [
-            "Sonny Rollins",
-            "John Coltrane",
-            "Charlie Parker",
-            "Ornette Coleman"
-          ],
+          "options": ["Sonny Rollins", "John Coltrane", "Charlie Parker", "Ornette Coleman"],
           "correctAnswer": "Sonny Rollins",
           "trivia": "La respuesta correcta es Sonny Rollins, quien colaboró con Thelonious Monk en 'Brilliant Corners', aportando su virtuoso estilo al saxofón tenor. Este álbum es considerado una de las obras maestras de Monk, y Rollins contribuyó notablemente en temas como 'Well, You Needn't'. 'Brilliant Corners' fue grabado en 1957 y se caracteriza por su complejidad armónica y su innovador uso de la forma musical. Asimismo, este trabajo se destaca por la inclusión de otros grandes músicos como el trompetista Clark Terry y el bajista Ahmed Abdul-Malik, quienes también enriquecieron el sonido del álbum. La obra es un punto de referencia en la historia del jazz, marcando un hito en la colaboración entre estos icónicos artistas."
         },
@@ -1284,12 +1204,7 @@
       "easy": [
         {
           "question": "¿Cuál de las siguientes canciones, incluida en el álbum 'The “Chirping” Crickets' de Buddy Holly, se convirtió en un gran éxito y es considerada un clásico del rock?",
-          "options": [
-            "That'll Be the Day",
-            "Peggy Sue",
-            "Everyday",
-            "Rock Around the Clock"
-          ],
+          "options": ["That'll Be the Day", "Peggy Sue", "Everyday", "Rock Around the Clock"],
           "correctAnswer": "That'll Be the Day",
           "trivia": "La respuesta correcta es 'That'll Be the Day', una de las canciones más icónicas de Buddy Holly, que se lanzó como sencillo en 1957 y fue parte de su álbum 'The “Chirping” Crickets'. Esta canción alcanzó el número uno en la lista Billboard Hot 100, ayudando a establecer a Holly como una figura clave en el desarrollo del rock and roll. Además, 'That'll Be the Day' fue escrita por Buddy Holly y Jerry Allison, y se caracteriza por su innovador uso de armonías vocales y guitarras eléctricas. El álbum en su conjunto es considerado uno de los primeros en integrar el sonido del rock con influencias del country y el pop, lo que ayudaría a definir el estilo musical de la época."
         },
@@ -1320,12 +1235,7 @@
         },
         {
           "question": "¿Qué famosa canción de Buddy Holly incluida en el álbum 'The “Chirping” Crickets' ha sido versionada por múltiples artistas, destacando las interpretaciones de The Crickets y Waylon Jennings?",
-          "options": [
-            "That'll Be the Day",
-            "Peggy Sue",
-            "Oh Boy!",
-            "Maybe Baby"
-          ],
+          "options": ["That'll Be the Day", "Peggy Sue", "Oh Boy!", "Maybe Baby"],
           "correctAnswer": "That'll Be the Day",
           "trivia": "La canción 'That'll Be the Day', presente en el álbum 'The “Chirping” Crickets' de Buddy Holly, es notable por ser una de las composiciones más versionadas de su repertorio. Lanzada en 1957, esta pieza alcanzó gran popularidad y fue un gran éxito que ayudó a establecer la carrera de Holly. Artistas como The Crickets, que originalmente acompañaron a Holly, y Waylon Jennings han realizado versiones que rinden homenaje a la influencia perdurable de la canción. Además, 'That'll Be the Day' se considera un hito en la historia del rock and roll, marcando el inicio de una nueva era musical. Buddy Holly, conocido por su estilo innovador, también fue pionero en el uso de la guitarra eléctrica en sus composiciones."
         },
@@ -1344,12 +1254,7 @@
       "hard": [
         {
           "question": "¿Cuál de las siguientes canciones del álbum 'The “Chirping” Crickets' de Buddy Holly es considerada una de las primeras interpretaciones que fusionó el rock and roll con elementos de música country?",
-          "options": [
-            "That'll Be the Day",
-            "Everyday",
-            "Peggy Sue",
-            "Not Fade Away"
-          ],
+          "options": ["That'll Be the Day", "Everyday", "Peggy Sue", "Not Fade Away"],
           "correctAnswer": "That'll Be the Day",
           "trivia": "La respuesta correcta es 'That'll Be the Day', que se lanzó como el primer sencillo de Buddy Holly y se incluyó en su álbum 'The “Chirping” Crickets' en 1957. Esta canción, coescrita por Buddy Holly y Jerry Allison, marcó un hito al fusionar el rock and roll con influencias de la música country, ayudando a definir el sonido de una era. 'That'll Be the Day' se convirtió en un gran éxito, alcanzando el número uno en la lista Billboard Hot 100. Además, este álbum es notable por ser uno de los primeros discos en presentar la voz distintiva de Holly, así como su estilo innovador de composición. A lo largo de su carrera, Buddy Holly sentó las bases para futuras generaciones de músicos, influyendo en el desarrollo del rock moderno."
         },
@@ -1426,12 +1331,7 @@
       "medium": [
         {
           "question": "Durante la grabación del álbum 'Songs for Swingin’ Lovers!' de Frank Sinatra en 1956, ¿qué miembro de la orquesta de Sinatra fue conocido por su habilidad para arreglar las secciones de cuerdas y bronces?",
-          "options": [
-            "Nelson Riddle",
-            "Don Costa",
-            "Billy May",
-            "Teddy Wilson"
-          ],
+          "options": ["Nelson Riddle", "Don Costa", "Billy May", "Teddy Wilson"],
           "correctAnswer": "Nelson Riddle",
           "trivia": "Nelson Riddle fue el arreglista principal del álbum 'Songs for Swingin’ Lovers!' de Frank Sinatra, lanzado en 1956. Riddle era conocido por su estilo innovador, que combinaba elementos de jazz y orquestación tradicional, lo que contribuyó significativamente al sonido distintivo del álbum. Este trabajo marcó una colaboración exitosa entre Sinatra y Riddle, que se extendió a lo largo de varios álbumes y ayudó a definir la era del 'pop vocal'. Además, Riddle recibió elogios por sus arreglos de canciones icónicas como 'I've Got You Under My Skin', que forma parte de este álbum. En total, Riddle arregló más de una docena de álbumes para Sinatra, solidificando su lugar en la historia de la música."
         },
@@ -1625,12 +1525,7 @@
       "easy": [
         {
           "question": "¿Qué destacado productor estuvo a cargo de las sesiones de grabación del álbum 'Rock and Rollin’ with Fats Domino' de Fats Domino en 1956?",
-          "options": [
-            "Dave Bartholomew",
-            "Quincy Jones",
-            "Phil Spector",
-            "Jerry Wexler"
-          ],
+          "options": ["Dave Bartholomew", "Quincy Jones", "Phil Spector", "Jerry Wexler"],
           "correctAnswer": "Dave Bartholomew",
           "trivia": "La respuesta correcta es Dave Bartholomew, quien fue un colaborador clave de Fats Domino en muchas de sus grabaciones. Bartholomew no solo produjo el álbum 'Rock and Rollin’ with Fats Domino', sino que también fue un influyente arreglista y compositor que ayudó a definir el sonido de Domino. Este álbum, lanzado en 1956, incluye éxitos como 'I'm Walkin'' y 'Blueberry Hill', los cuales son clásicos del rock and roll. Además, Bartholomew fue instrumental en la carrera de otros artistas de la era, contribuyendo significativamente al desarrollo del rhythm and blues y el rock and roll. Su colaboración con Fats Domino es un ejemplo notable de cómo la producción musical puede elevar la obra de un artista."
         },
@@ -1849,12 +1744,7 @@
       "easy": [
         {
           "question": "¿Cuál de los siguientes estilos musicales comenzó a fusionar Chuck Berry en su álbum 'After School Session' de 1957?",
-          "options": [
-            "Blues y Country",
-            "Rock and Roll y R&B",
-            "Jazz y Folk",
-            "Reggae y Soul"
-          ],
+          "options": ["Blues y Country", "Rock and Roll y R&B", "Jazz y Folk", "Reggae y Soul"],
           "correctAnswer": "Rock and Roll y R&B",
           "trivia": "El álbum 'After School Session' de Chuck Berry, lanzado en 1957, marcó un momento crucial en la evolución del rock and roll, ya que fusionó elementos del R&B, que era predominante en la música afroamericana de la época, con un estilo más enérgico y juvenil. Chuck Berry se convirtió en uno de los pioneros de este género, utilizando guitarras eléctricas y ritmos pegajosos que definieron la música rock. Entre las canciones más destacadas de este álbum se encuentran 'School Days' y 'Too Much Monkey Business', que reflejan su distintivo estilo. Berry no solo popularizó el rock and roll, sino que también sentó las bases para el desarrollo de la cultura juvenil de la década de 1950 y 1960."
         },
@@ -1871,12 +1761,7 @@
         },
         {
           "question": "¿Qué famoso músico, influenciado por Chuck Berry y su álbum 'After School Session', es conocido por su estilo de guitarra y su contribución al rock and roll?",
-          "options": [
-            "Elvis Presley",
-            "Little Richard",
-            "Buddy Holly",
-            "Jimi Hendrix"
-          ],
+          "options": ["Elvis Presley", "Little Richard", "Buddy Holly", "Jimi Hendrix"],
           "correctAnswer": "Buddy Holly",
           "trivia": "Buddy Holly, quien emergió como una figura clave en el rock and roll a finales de los años 50, fue fuertemente influenciado por Chuck Berry y su álbum 'After School Session'. Berry es reconocido por su estilo distintivo de guitarra y su habilidad para combinar ritmos de R&B con melodías pegajosas, lo que dejó una huella indeleble en músicos como Holly. Además, la canción 'Not Fade Away', que se convirtió en un gran éxito para Holly, muestra la influencia del estilo de Berry. Chuck Berry es a menudo considerado uno de los pioneros del rock and roll, y su trabajo ha servido de inspiración para innumerables artistas a lo largo de las décadas."
         }
@@ -1884,12 +1769,7 @@
       "medium": [
         {
           "question": "¿Cuánto se estima que costó la producción del álbum 'After School Session' de Chuck Berry en 1957?",
-          "options": [
-            "5,000 dólares",
-            "10,000 dólares",
-            "15,000 dólares",
-            "20,000 dólares"
-          ],
+          "options": ["5,000 dólares", "10,000 dólares", "15,000 dólares", "20,000 dólares"],
           "correctAnswer": "5,000 dólares",
           "trivia": "La producción de 'After School Session' de Chuck Berry se estima que costó alrededor de 5,000 dólares en 1957. Este álbum, que incluye clásicos como 'School Days' y 'Too Much Monkey Business', fue uno de los primeros LPs de rock and roll en ser lanzados y ayudó a establecer a Chuck Berry como un ícono del género. En esa época, los costos de grabación eran significativamente más bajos en comparación con los estándares actuales, lo que permitía a los artistas independientes grabar y lanzar su música con presupuestos relativamente modestos. Además, el álbum fue grabado en el estudio de Chess Records en Chicago, conocido por ser uno de los lugares clave en el desarrollo del sonido del rock y el blues. 'After School Session' no solo fue importante por su contenido, sino también por su impacto en la industria musical de la época."
         },
@@ -1941,12 +1821,7 @@
         },
         {
           "question": "¿Quién fue el productor detrás del álbum 'After School Session' de Chuck Berry, lanzado en 1957, conocido por su influencia en la música rock y el desarrollo de nuevos talentos?",
-          "options": [
-            "Leonard Chess",
-            "Phil Spector",
-            "Jerry Wexler",
-            "George Martin"
-          ],
+          "options": ["Leonard Chess", "Phil Spector", "Jerry Wexler", "George Martin"],
           "correctAnswer": "Leonard Chess",
           "trivia": "La respuesta correcta es Leonard Chess, quien fue el cofundador del sello discográfico Chess Records. Durante la producción de 'After School Session', Chuck Berry trabajó bajo la dirección de Chess, quien jugó un papel crucial en el desarrollo de su sonido característico y en la promoción de su carrera. Este álbum es significativo porque incluye algunos de los primeros grandes éxitos de Berry, como 'School Days' y 'Johnny B. Goode', que se convirtieron en clásicos del rock and roll. Leonard Chess también fue conocido por su enfoque de producción innovador que ayudó a dar forma al sonido de la música blues y rock en los años 50. Además, Chess Records fue fundamental en la integración racial en la música popular, al presentar a artistas afroamericanos en un período en el que la industria estaba dominada por músicos blancos."
         }
@@ -2058,12 +1933,7 @@
         },
         {
           "question": "¿Qué destacado músico de sesión colaboró con Hank Williams en la producción del álbum 'Moanin’ the Blues' en 1952, aportando su habilidad con el piano y arreglos que marcaron el sonido del disco?",
-          "options": [
-            "Floyd Cramer",
-            "Minnie Pearl",
-            "Chet Atkins",
-            "The Jordanaires"
-          ],
+          "options": ["Floyd Cramer", "Minnie Pearl", "Chet Atkins", "The Jordanaires"],
           "correctAnswer": "Floyd Cramer",
           "trivia": "Floyd Cramer fue el pianista que colaboró con Hank Williams en la producción de 'Moanin’ the Blues', un álbum que se considera un hito en la música country. Cramer, conocido por su estilo innovador en el piano, aportó un sonido distintivo al álbum, ayudando a definir el sonido de la era. Además de trabajar con Williams, Cramer también fue un músico de sesión prolífico y contribuyó a numerosas grabaciones de otros artistas destacados. La producción de 'Moanin’ the Blues' se llevó a cabo en un contexto donde el country y el rock and roll comenzaban a entrelazarse, lo que permitió que el álbum resonara con una amplia audiencia en su tiempo."
         }
@@ -2113,12 +1983,7 @@
       "medium": [
         {
           "question": "En el álbum 'The Best of Muddy Waters' de 1958, ¿qué canción representa un cambio significativo en el estilo musical de Muddy Waters, marcando una transición hacia un sonido más eléctrico?",
-          "options": [
-            "Hoochie Coochie Man",
-            "Mannish Boy",
-            "Rollin' Stone",
-            "Got My Mojo Working"
-          ],
+          "options": ["Hoochie Coochie Man", "Mannish Boy", "Rollin' Stone", "Got My Mojo Working"],
           "correctAnswer": "Mannish Boy",
           "trivia": "La canción 'Mannish Boy' es un hito en el álbum 'The Best of Muddy Waters', ya que representa un cambio hacia un sonido eléctrico más potente. Esta pista, lanzada originalmente en 1955, se incluyó en el álbum para mostrar la evolución de Muddy Waters desde el blues acústico hacia un estilo más moderno y electrificado. La canción se basa en el riff de 'Hoochie Coochie Man', pero con una energía y una producción más robustas, reflejando la transición del blues de Chicago. Además, 'Mannish Boy' se considera una de las canciones más emblemáticas de Waters, siendo un referente en la historia del blues. Este álbum, que recopiló sus mejores trabajos, ayudó a cimentar su legado en la música y a influir en generaciones de músicos posteriores."
         },
@@ -2159,12 +2024,7 @@
         },
         {
           "question": "¿En qué famosa película de 1980 se incluyó la canción 'Mannish Boy', que forma parte del álbum 'The Best of Muddy Waters' de Muddy Waters, contribuyendo a la revitalización del interés en el blues?",
-          "options": [
-            "The Blues Brothers",
-            "Stand by Me",
-            "Goodfellas",
-            "The Color Purple"
-          ],
+          "options": ["The Blues Brothers", "Stand by Me", "Goodfellas", "The Color Purple"],
           "correctAnswer": "The Blues Brothers",
           "trivia": "La respuesta correcta es 'The Blues Brothers'. Esta película, que se estrenó en 1980, es conocida por su banda sonora que incluye varios clásicos del blues y rock, y 'Mannish Boy' de Muddy Waters es uno de los temas que aparece en ella. Muddy Waters, considerado uno de los padres del blues moderno, tuvo un impacto significativo en la música estadounidense, y su álbum 'The Best of Muddy Waters' ayudó a consolidar su legado. La inclusión de sus canciones en películas como 'The Blues Brothers' ha contribuido a la popularidad y apreciación del blues en la cultura contemporánea. Además, 'Mannish Boy' es una de las canciones más emblemáticas de su carrera, conocida por su poderoso riff de guitarra y su impresionante vocalización, lo que la hace un clásico atemporal."
         },
@@ -2323,12 +2183,7 @@
         },
         {
           "question": "¿Qué destacado productor trabajó con Nina Simone en la creación de su álbum 'Little Girl Blue', lanzado en 1958?",
-          "options": [
-            "Phil Spector",
-            "Rudy Van Gelder",
-            "Cannonball Adderley",
-            "George Martin"
-          ],
+          "options": ["Phil Spector", "Rudy Van Gelder", "Cannonball Adderley", "George Martin"],
           "correctAnswer": "Rudy Van Gelder",
           "trivia": "Rudy Van Gelder, un ingeniero de sonido famoso por su trabajo en el jazz, fue el productor detrás del álbum 'Little Girl Blue' de Nina Simone, lanzado en 1958. Este álbum es conocido por su mezcla de jazz, blues y pop, y contiene algunas de las interpretaciones más memorables de Simone, incluyendo 'Feeling Good' y 'I Loves You, Porgy'. Van Gelder fue instrumental en el desarrollo del sonido distintivo de la grabación, ayudando a capturar la poderosa voz de Simone y su emotiva interpretación. Además, el álbum marcó el debut de Nina Simone en el mundo de la música popular, estableciendo su carrera y su influencia en generaciones futuras de artistas. La colaboración entre Simone y Van Gelder es un ejemplo de cómo la producción puede realzar la expresión artística en la música."
         },
@@ -2419,12 +2274,7 @@
       "easy": [
         {
           "question": "¿Cuál famosa canción, que fue reinterpretada por Sam Cooke en su álbum 'Sam Cooke' de 1958, originalmente fue popularizada por otro artista en 1956?",
-          "options": [
-            "You Send Me",
-            "Summertime",
-            "A Change Is Gonna Come",
-            "Only Sixteen"
-          ],
+          "options": ["You Send Me", "Summertime", "A Change Is Gonna Come", "Only Sixteen"],
           "correctAnswer": "Only Sixteen",
           "trivia": "La canción 'Only Sixteen' es una de las reinterpretaciones más notables de Sam Cooke en su álbum 'Sam Cooke' de 1958. Originalmente, fue grabada por el cantante de R&B y soul, Craig Douglas, en 1956, y alcanzó gran popularidad en las listas de éxitos. Sam Cooke, conocido por su estilo distintivo y su poderosa voz, aportó una nueva interpretación a esta canción, que se convirtió en un clásico. Este álbum es considerado uno de los primeros trabajos que consolidó a Cooke como un ícono de la música, especialmente en el género del soul. Además, 'Only Sixteen' es un ejemplo del talento de Cooke para transformar canciones existentes y hacerlas suyas."
         },
@@ -2484,12 +2334,7 @@
       "hard": [
         {
           "question": "¿Qué influyente artista de gospel, conocido por su poderosa voz y estilo emotivo, ejerció una notable influencia en el desarrollo musical de Sam Cooke y su álbum 'Sam Cooke' lanzado en 1958?",
-          "options": [
-            "Mahalia Jackson",
-            "Aretha Franklin",
-            "Ray Charles",
-            "James Cleveland"
-          ],
+          "options": ["Mahalia Jackson", "Aretha Franklin", "Ray Charles", "James Cleveland"],
           "correctAnswer": "Mahalia Jackson",
           "trivia": "Sam Cooke, aclamado por su interpretación vocal y su capacidad para fusionar gospel con pop y soul, fue fuertemente influenciado por Mahalia Jackson, la reina del gospel. Su estilo emotivo y su técnica vocal ayudaron a moldear la carrera de Cooke, quien comenzó su trayectoria musical en la música gospel antes de hacer la transición al pop. El álbum 'Sam Cooke' incluye temas que reflejan esta influencia, fusionando ritmos de gospel con letras románticas y melódicas. En 1958, Cooke ya había comenzado a alcanzar un amplio reconocimiento, en parte gracias a su herencia gospel. Además, Mahalia Jackson fue una pionera en llevar el gospel a audiencias más amplias, inspirando a muchos artistas, incluido Cooke, a explorar la intersección entre estos géneros musicales."
         },
@@ -2537,12 +2382,7 @@
         },
         {
           "question": "¿Qué sencillo del álbum 'Bo Diddley' de Bo Diddley, lanzado en 1958, alcanzó gran popularidad y ayudó a cimentar la carrera del artista?",
-          "options": [
-            "I'm a Man",
-            "Who Do You Love",
-            "Mona",
-            "Diddy Wah Diddy"
-          ],
+          "options": ["I'm a Man", "Who Do You Love", "Mona", "Diddy Wah Diddy"],
           "correctAnswer": "I'm a Man",
           "trivia": "El sencillo 'I'm a Man' fue uno de los temas más exitosos del álbum 'Bo Diddley', lanzado en 1958. Esta canción no solo ayudó a establecer a Bo Diddley como un innovador en la música rock y rhythm and blues, sino que también se convirtió en un clásico que ha influenciado a numerosos artistas a lo largo de las décadas. Con su distintivo ritmo y el uso innovador de la guitarra, Bo Diddley logró destacar en las listas de popularidad de la época. Además, el álbum 'Bo Diddley' fue uno de los primeros en ser grabado con un enfoque en la identidad del artista, sentando las bases para el marketing musical contemporáneo. Este álbum y sus sencillos son fundamentales para entender la evolución del rock and roll en los años 50."
         },
@@ -2607,12 +2447,7 @@
         },
         {
           "question": "En el contexto del álbum 'Bo Diddley' de 1958, ¿cuál de las siguientes canciones fue grabada pero nunca incluida en la versión final del disco, representando una de las piezas perdidas de Bo Diddley?",
-          "options": [
-            "I'm a Man",
-            "Diddley Daddy",
-            "You Don't Love Me",
-            "Before You Accuse Me"
-          ],
+          "options": ["I'm a Man", "Diddley Daddy", "You Don't Love Me", "Before You Accuse Me"],
           "correctAnswer": "Diddley Daddy",
           "trivia": "La canción 'Diddley Daddy' fue grabada durante las sesiones del álbum 'Bo Diddley' en 1958, pero no llegó a formar parte de la versión final del disco. Este tema, que refleja el estilo característico de Bo Diddley, se considera una de las canciones perdidas del artista. Además, Bo Diddley fue pionero en el uso de ritmos afroamericanos en el rock and roll, lo que influenció a muchos músicos posteriores. El álbum 'Bo Diddley' también es notable por introducir el 'beat de Diddley', un patrón rítmico que se convirtió en su sello distintivo. La música de Diddley no solo desafió las convenciones de su tiempo, sino que también ayudó a establecer las bases para el rock moderno."
         },
@@ -2750,12 +2585,7 @@
       "easy": [
         {
           "question": "¿Cuál de las canciones del álbum 'Sarah Vaughan' de 1954 recibió elogios por la interpretación vocal apasionada de Sarah Vaughan, destacando su habilidad para transmitir emociones profundas?",
-          "options": [
-            "Misty",
-            "My Funny Valentine",
-            "Summertime",
-            "The Nearness of You"
-          ],
+          "options": ["Misty", "My Funny Valentine", "Summertime", "The Nearness of You"],
           "correctAnswer": "My Funny Valentine",
           "trivia": "La canción 'My Funny Valentine' del álbum 'Sarah Vaughan' fue especialmente aclamada por la crítica debido a la emotiva interpretación de Sarah Vaughan. Este álbum, que marcó un hito en la carrera de Vaughan, fue lanzado en un momento en que el jazz vocal estaba en plena evolución. 'My Funny Valentine', un clásico del musical 'Babes in Arms', ha sido interpretado por muchos artistas, pero la versión de Vaughan se destaca por su rica tonalidad y expresividad. En 1954, Vaughan ya era reconocida como una de las principales voces del jazz, y este álbum consolidó aún más su reputación. Además, la producción contó con arreglos sofisticados que complementaron su estilo vocal único."
         },
@@ -2796,12 +2626,7 @@
         },
         {
           "question": "En el álbum 'Sarah Vaughan' de 1954, ¿qué versión de una famosa canción de jazz fue incluida como contenido adicional en las ediciones deluxe posteriores?",
-          "options": [
-            "Take the 'A' Train",
-            "Summertime",
-            "Misty",
-            "My Funny Valentine"
-          ],
+          "options": ["Take the 'A' Train", "Summertime", "Misty", "My Funny Valentine"],
           "correctAnswer": "Summertime",
           "trivia": "La respuesta correcta es 'Summertime', una de las canciones más icónicas del repertorio de jazz. En el álbum 'Sarah Vaughan', Sarah Vaughan ofrece una interpretación magistral de esta pieza, que ha sido versionada por numerosos artistas a lo largo de los años. 'Summertime' fue compuesta por George Gershwin en 1934 y ha sido un estándar del jazz. Las ediciones deluxe del álbum lanzadas posteriormente incluyeron tomas alternativas y grabaciones en vivo que permiten apreciar la evolución de su interpretación. Vaughan es conocida por su capacidad única para infundir emoción en cada interpretación, lo que la convierte en una de las voces más reverenciadas del jazz."
         },
@@ -3060,12 +2885,7 @@
         },
         {
           "question": "En el álbum 'The Genius of Ray Charles' de 1959, ¿qué colaborador destacado en la producción y arreglos aportó su talento junto a Ray Charles, contribuyendo a la fusión de géneros que caracteriza la obra?",
-          "options": [
-            "Quincy Jones",
-            "Teo Macero",
-            "Gil Evans",
-            "Cannonball Adderley"
-          ],
+          "options": ["Quincy Jones", "Teo Macero", "Gil Evans", "Cannonball Adderley"],
           "correctAnswer": "Quincy Jones",
           "trivia": "La respuesta correcta es Quincy Jones, quien fue una figura clave en la producción del álbum 'The Genius of Ray Charles'. Este álbum es famoso por su innovadora mezcla de jazz, blues y gospel, que refleja el estilo único de Ray Charles. Quincy Jones, reconocido productor y arreglista, trabajó con Charles en varias ocasiones, ayudando a dar forma a su sonido distintivo. 'The Genius of Ray Charles' incluye arreglos sofisticados que han influido en la música popular, y ha sido aclamado como uno de los mejores álbumes de Ray. En 1961, el álbum también ganó un Grammy, consolidando la importancia de esta colaboración en la historia de la música."
         },
@@ -3131,12 +2951,7 @@
       "medium": [
         {
           "question": "¿En qué película de 1988 se incluye la famosa interpretación de Chet Baker de 'My Funny Valentine', extraída del álbum 'Chet Baker Sings'?",
-          "options": [
-            "Bird",
-            "La La Land",
-            "Goodfellas",
-            "The Talented Mr. Ripley"
-          ],
+          "options": ["Bird", "La La Land", "Goodfellas", "The Talented Mr. Ripley"],
           "correctAnswer": "The Talented Mr. Ripley",
           "trivia": "La interpretación de 'My Funny Valentine' por Chet Baker, perteneciente a su álbum 'Chet Baker Sings' de 1954, se incluye en la banda sonora de 'The Talented Mr. Ripley' (1999). Esta película, dirigida por Anthony Minghella, se basa en la novela homónima de Patricia Highsmith y explora temas de identidad y obsesión. Chet Baker, conocido por su voz suave y su interpretación íntima, ha sido un referente en el jazz, y su música ha sido utilizada en numerosas producciones cinematográficas y televisivas. Además, 'Chet Baker Sings' es considerado un clásico del jazz vocal, lo que resalta la relevancia de su obra en la cultura popular. Este álbum ha influido en múltiples generaciones de músicos y cineastas, convirtiendo a Baker en un ícono del jazz."
         },
@@ -3166,12 +2981,7 @@
       "hard": [
         {
           "question": "En el álbum 'Chet Baker Sings' lanzado en 1954, ¿qué destacado arreglista y compositor colaboró con Chet Baker en la producción de varias de las canciones?",
-          "options": [
-            "Gil Evans",
-            "Nelson Riddle",
-            "Johnny Mercer",
-            "Tadd Dameron"
-          ],
+          "options": ["Gil Evans", "Nelson Riddle", "Johnny Mercer", "Tadd Dameron"],
           "correctAnswer": "Nelson Riddle",
           "trivia": "La respuesta correcta es Nelson Riddle, quien fue un influyente arreglista y compositor de la época. En 'Chet Baker Sings', Riddle contribuyó con su talento para la orquestación, ayudando a crear un sonido sofisticado que complementaba la voz y la trompeta de Baker. Este álbum, considerado un hito en la música jazz, combina elementos de jazz y pop, y Riddle fue clave en la adaptación de las composiciones para que se ajustaran al estilo melódico de Baker. Además, Riddle trabajó con muchos otros artistas prominentes, incluyendo a Frank Sinatra y Ella Fitzgerald, lo que demuestra su versatilidad y maestría en la producción musical. Esta colaboración en 'Chet Baker Sings' ayudó a cimentar el legado de Baker como uno de los grandes de la música jazz vocal."
         },
@@ -3224,12 +3034,7 @@
         },
         {
           "question": "¿Quién fue el productor del álbum 'Saxophone Colossus' de Sonny Rollins, lanzado en 1956?",
-          "options": [
-            "Orrin Keepnews",
-            "George Avakian",
-            "Rudy Van Gelder",
-            "Teo Macero"
-          ],
+          "options": ["Orrin Keepnews", "George Avakian", "Rudy Van Gelder", "Teo Macero"],
           "correctAnswer": "Orrin Keepnews",
           "trivia": "El productor de 'Saxophone Colossus', el emblemático álbum de Sonny Rollins, fue Orrin Keepnews. Este álbum, grabado en 1956, se considera uno de los clásicos del jazz y destaca por su innovador uso del saxo tenor. Keepnews fue conocido por su enfoque cuidadoso en la producción y su capacidad para captar la esencia de los artistas con los que trabajaba. Además de Rollins, también produjo álbumes para otros grandes del jazz como Thelonious Monk y Bill Evans. 'Saxophone Colossus' incluye composiciones memorables como 'St. Thomas' y es un testamento del talento de Rollins, así como de la habilidad de Keepnews en la producción musical."
         },
@@ -3320,12 +3125,7 @@
       "easy": [
         {
           "question": "¿Qué influencia de otros géneros musicales se puede notar en el álbum 'Lady Sings the Blues' de Billie Holiday, lanzado en 1956?",
-          "options": [
-            "El jazz tradicional",
-            "El rock and roll",
-            "La música clásica",
-            "El reggae"
-          ],
+          "options": ["El jazz tradicional", "El rock and roll", "La música clásica", "El reggae"],
           "correctAnswer": "El jazz tradicional",
           "trivia": "El álbum 'Lady Sings the Blues' de Billie Holiday refleja claramente la influencia del jazz tradicional, que fue fundamental en el desarrollo del estilo de Holiday. Este trabajo se basa en la interpretación emocional y las improvisaciones que caracterizan al jazz, géneros que Billie dominó a lo largo de su carrera. A lo largo de las canciones, la manera en que Holiday utiliza su voz y su fraseo rítmico se relaciona profundamente con el estilo de otros grandes jazzistas de su época. Además, el álbum incluye arreglos que evocan el sonido distintivo de la orquesta de jazz, lo que resalta su conexión con este género. Billie Holiday, una de las voces más icónicas del jazz, logró fusionar diferentes influencias a lo largo de su carrera, pero el jazz tradicional siempre fue su base."
         },
@@ -3342,12 +3142,7 @@
         },
         {
           "question": "¿Qué sello discográfico lanzó el álbum 'Lady Sings the Blues' de Billie Holiday en 1956?",
-          "options": [
-            "Columbia Records",
-            "Verve Records",
-            "Decca Records",
-            "RCA Victor"
-          ],
+          "options": ["Columbia Records", "Verve Records", "Decca Records", "RCA Victor"],
           "correctAnswer": "Verve Records",
           "trivia": "El álbum 'Lady Sings the Blues' de Billie Holiday fue lanzado en 1956 por Verve Records, un sello que se convirtió en sinónimo del jazz y la música popular de la época. Este álbum es considerado una de las obras maestras de Holiday y destaca por su interpretación emotiva de temas clásicos. Verve Records, fundado por Norman Granz, fue conocido por su enfoque en la producción de discos de alta calidad y por dar visibilidad a artistas de jazz. Billie Holiday, una de las voces más influyentes del jazz, logró un gran éxito comercial y crítico con este álbum, que incluye canciones icónicas como 'God Bless the Child'. La combinación de su talento vocal y la producción de Verve ayudó a consolidar su legado en la música."
         }
@@ -3579,12 +3374,7 @@
       "medium": [
         {
           "question": "¿Cuál de las siguientes canciones, reinterpretadas por Louis Armstrong en el álbum 'Louis Armstrong Plays W.C. Handy' de 1954, es considerada una de las obras más emblemáticas de W.C. Handy?",
-          "options": [
-            "St. Louis Blues",
-            "Ain't Misbehavin'",
-            "Dixie",
-            "Maple Leaf Rag"
-          ],
+          "options": ["St. Louis Blues", "Ain't Misbehavin'", "Dixie", "Maple Leaf Rag"],
           "correctAnswer": "St. Louis Blues",
           "trivia": "La canción 'St. Louis Blues', reinterpretada por Louis Armstrong en su álbum 'Louis Armstrong Plays W.C. Handy', es una de las composiciones más emblemáticas de W.C. Handy, apodado 'el padre del blues'. Esta obra fue compuesta en 1914 y ha sido versionada por numerosos artistas a lo largo de los años, pero la interpretación de Armstrong es particularmente notable por su fusión de jazz y blues. En este álbum, grabado en 1954, Armstrong rinde homenaje a Handy, destacando su influencia en la música estadounidense. Además, 'St. Louis Blues' se caracteriza por su estructura de 12 compases y su mezcla de ritmos, que sirvió como base para muchas futuras composiciones de jazz. La interpretación de Armstrong se distingue por su emotividad y virtuosismo, lo que la convierte en una de las versiones más recordadas de esta canción clásica."
         },
@@ -3625,12 +3415,7 @@
         },
         {
           "question": "¿Qué destacado músico de jazz, conocido por su estilo innovador en la trompeta, colaboró con Louis Armstrong en el álbum 'Louis Armstrong Plays W.C. Handy' de 1954?",
-          "options": [
-            "Dizzy Gillespie",
-            "Clark Terry",
-            "Miles Davis",
-            "Cootie Williams"
-          ],
+          "options": ["Dizzy Gillespie", "Clark Terry", "Miles Davis", "Cootie Williams"],
           "correctAnswer": "Clark Terry",
           "trivia": "El álbum 'Louis Armstrong Plays W.C. Handy' cuenta con la participación del trompetista Clark Terry, quien es reconocido por su habilidad técnica y su influencia en el jazz moderno. Terry, que había trabajado previamente con Duke Ellington y Count Basie, aportó su estilo distintivo al proyecto. En este disco, Armstrong interpreta obras clásicas de W.C. Handy, conocido como el 'Padre del Blues'. Además de su trabajo en el álbum, Terry también fue pionero en la técnica de tocar en armonía, lo que enriqueció aún más el sonido de la grabación. Esta colaboración se enmarca en un contexto donde el jazz estaba evolucionando rápidamente, y la fusión de estilos era cada vez más común entre los músicos de la época."
         },
@@ -3702,12 +3487,7 @@
         },
         {
           "question": "¿Qué famoso músico de blues colaboró con Jimmy Reed en el álbum 'I’m Jimmy Reed' lanzado en 1958?",
-          "options": [
-            "B.B. King",
-            "Muddy Waters",
-            "Willie Dixon",
-            "John Lee Hooker"
-          ],
+          "options": ["B.B. King", "Muddy Waters", "Willie Dixon", "John Lee Hooker"],
           "correctAnswer": "Willie Dixon",
           "trivia": "En el álbum 'I’m Jimmy Reed', lanzado en 1958, Jimmy Reed colaboró con Willie Dixon, un destacado compositor y bajista del blues. Willie Dixon es conocido por haber escrito muchas de las canciones más emblemáticas del género, y su influencia se siente fuertemente en este trabajo. Reed, famoso por su estilo único de guitarra y su voz suave, se benefició enormemente de la creatividad de Dixon, quien aportó su talento para la composición y arreglos musicales. Además, este álbum incluye algunas de las grabaciones más memorables de Reed, como 'Baby What You Want Me to Do', que se convirtió en un clásico del blues. Esta colaboración es un ejemplo perfecto de cómo los artistas de blues de la época se unieron para crear música que resonaría a través de las décadas."
         },
@@ -3768,23 +3548,13 @@
       "easy": [
         {
           "question": "¿Qué famoso artista de rock and roll mencionó a Elvis Presley como una de sus mayores influencias en su carrera musical, especialmente tras la publicación del álbum 'Elvis' en 1956?",
-          "options": [
-            "Chuck Berry",
-            "Little Richard",
-            "Buddy Holly",
-            "Johnny Cash"
-          ],
+          "options": ["Chuck Berry", "Little Richard", "Buddy Holly", "Johnny Cash"],
           "correctAnswer": "Little Richard",
           "trivia": "Little Richard, conocido por su estilo enérgico y su voz poderosa, ha citado a Elvis Presley como una de sus principales influencias. Tras la salida del álbum 'Elvis' en 1956, que incluyó éxitos como 'Heartbreak Hotel', muchos artistas jóvenes se sintieron inspirados por la mezcla de rockabilly y rhythm and blues que Presley popularizó. Elvis no solo ayudó a abrir las puertas del rock and roll, sino que también contribuyó a la aceptación de artistas afroamericanos en la música popular. En este contexto, otros artistas como Chuck Berry y Johnny Cash también fueron influenciados por él, pero es Little Richard quien destaca por su reconocimiento explícito de la influencia de Presley en su estilo musical. Elvis, a su vez, fue una figura clave en la revolución cultural de los años 50, marcando el camino para futuras generaciones de músicos."
         },
         {
           "question": "¿Qué canción del álbum 'Elvis' de Elvis Presley, lanzado en 1956, ha tenido múltiples versiones y remixes a lo largo de los años?",
-          "options": [
-            "Blue Suede Shoes",
-            "Heartbreak Hotel",
-            "I Got a Woman",
-            "Tutti Frutti"
-          ],
+          "options": ["Blue Suede Shoes", "Heartbreak Hotel", "I Got a Woman", "Tutti Frutti"],
           "correctAnswer": "Blue Suede Shoes",
           "trivia": "La canción 'Blue Suede Shoes' es una de las pistas más emblemáticas del álbum 'Elvis' de Elvis Presley, lanzado en 1956. Esta canción, escrita originalmente por Carl Perkins, ha sido reinterpretada y remixada en numerosas ocasiones por varios artistas a lo largo de las décadas. Elvis Presley popularizó la canción con su versión, que se convirtió en un gran éxito y ayudó a definir el sonido del rock and roll de la época. Además, se ha utilizado en diversas películas y programas de televisión, lo que ha mantenido su relevancia cultural. A lo largo de los años, artistas contemporáneos también han realizado sus propias versiones, mostrando el impacto duradero de esta canción clásica."
         },
@@ -3803,12 +3573,7 @@
       "medium": [
         {
           "question": "¿Cuál de las siguientes canciones, que no fue incluida en el álbum 'Elvis' de Elvis Presley de 1956, fue grabada durante las mismas sesiones de estudio?",
-          "options": [
-            "Love Me Tender",
-            "I Got Stung",
-            "Don't Be Cruel",
-            "Too Much"
-          ],
+          "options": ["Love Me Tender", "I Got Stung", "Don't Be Cruel", "Too Much"],
           "correctAnswer": "I Got Stung",
           "trivia": "Durante las sesiones de grabación para el álbum 'Elvis' en 1956, Elvis Presley grabó varias canciones que no fueron incluidas en el álbum final. Una de ellas es 'I Got Stung', que fue lanzada como sencillo en 1958 y se convirtió en un éxito, pero no formó parte del álbum 'Elvis'. Este álbum marcó el inicio de la carrera discográfica de Elvis y fue un hito en el rock and roll, con temas que ayudaron a definir su sonido. Otras canciones notables de este álbum incluyen 'Heartbreak Hotel' y 'Blue Suede Shoes', que también tuvieron un gran impacto en la cultura musical de la época. Elvis, conocido como el 'Rey del Rock', se consolidó como una figura central en la música popular durante los años 50."
         },
@@ -3910,12 +3675,7 @@
       "medium": [
         {
           "question": "¿Qué figura influyó notablemente en la composición y el enfoque musical de Charles Mingus en su álbum 'Pithecanthropus Erectus' de 1956?",
-          "options": [
-            "Duke Ellington",
-            "Thelonious Monk",
-            "Charlie Parker",
-            "Miles Davis"
-          ],
+          "options": ["Duke Ellington", "Thelonious Monk", "Charlie Parker", "Miles Davis"],
           "correctAnswer": "Duke Ellington",
           "trivia": "La respuesta correcta es Duke Ellington, quien tuvo una fuerte influencia en Charles Mingus, especialmente en su enfoque orquestal y en la complejidad de las composiciones. 'Pithecanthropus Erectus' es un ejemplo del deseo de Mingus de fusionar el jazz con la música clásica, un concepto que Ellington exploró a fondo. Este álbum no solo muestra la destreza técnica de Mingus como contrabajista, sino también su habilidad como compositor y arreglista. Además, el álbum aborda temas sociales y de identidad, reflejando la lucha de la comunidad afroamericana en la década de 1950. Mingus fue un pionero en el uso del jazz como un medio para expresar sus preocupaciones políticas y personales."
         },
@@ -4303,12 +4063,7 @@
         },
         {
           "question": "¿Qué famosa composición de jazz, versionada por Miles Davis en su álbum 'Milestones', fue originalmente escrita por el saxofonista alto Charlie Parker?",
-          "options": [
-            "Ornithology",
-            "Koko",
-            "Now's the Time",
-            "Billie's Bounce"
-          ],
+          "options": ["Ornithology", "Koko", "Now's the Time", "Billie's Bounce"],
           "correctAnswer": "Ornithology",
           "trivia": "La respuesta correcta es 'Ornithology', una de las composiciones más emblemáticas de Charlie Parker que Miles Davis reinterpretó en su álbum 'Milestones' de 1958. Este álbum es conocido por su innovador enfoque del bebop y el hard bop, y 'Ornithology' destaca por su complejidad melódica y rítmica. La versión de Davis se distingue por su sofisticación armónica y la interacción dinámica entre los músicos, que incluye a leyendas como John Coltrane y Cannonball Adderley. 'Milestones' marcó un punto de inflexión en la carrera de Davis, ya que introdujo un sonido más moderno que influyó en generaciones futuras. Además, el álbum fue uno de los primeros en explorar el concepto de álbum como una obra cohesiva, en lugar de una simple colección de grabaciones."
         }
@@ -4380,12 +4135,7 @@
         },
         {
           "question": "¿Qué miembro del Bill Evans Trio, en el álbum 'Portrait in Jazz' de 1959, había trabajado previamente con el famoso saxofonista Charlie Parker?",
-          "options": [
-            "Scott LaFaro",
-            "Paul Motian",
-            "Bill Evans",
-            "Larry Bunker"
-          ],
+          "options": ["Scott LaFaro", "Paul Motian", "Bill Evans", "Larry Bunker"],
           "correctAnswer": "Scott LaFaro",
           "trivia": "La respuesta correcta es Scott LaFaro, quien fue el contrabajista del Bill Evans Trio en 'Portrait in Jazz'. Antes de unirse al trío, LaFaro había colaborado con el legendario saxofonista Charlie Parker, lo que influyó en su estilo innovador y su técnica de interpretación. 'Portrait in Jazz' es un álbum fundamental en el jazz, destacándose por su enfoque en la improvisación y el diálogo musical entre los miembros del trío. LaFaro, junto con Bill Evans y el baterista Paul Motian, creó un sonido que redefinió la forma en que se percibía la música de trío en el jazz. Además, su trágica muerte en 1961 a los 25 años dejó un impacto duradero en la comunidad jazzística."
         }
@@ -4527,12 +4277,7 @@
         },
         {
           "question": "¿Cuál de los siguientes miembros de la banda de Count Basie, que contribuyó significativamente al álbum 'The Atomic Mr. Basie' en 1957, tenía una carrera previa en la orquesta de Duke Ellington?",
-          "options": [
-            "Freddie Green",
-            "Eddie Jones",
-            "Sonny Cohn",
-            "Thad Jones"
-          ],
+          "options": ["Freddie Green", "Eddie Jones", "Sonny Cohn", "Thad Jones"],
           "correctAnswer": "Sonny Cohn",
           "trivia": "Sonny Cohn fue un trompetista destacado en la banda de Count Basie y tuvo una notable carrera en la orquesta de Duke Ellington antes de unirse a Basie. Su participación en 'The Atomic Mr. Basie' incluyó contribuciones a la sección de metales, lo que ayudó a definir el sonido del álbum, que es considerado un hito en el jazz. Este álbum, lanzado en 1957, fue una de las primeras grabaciones que incorporaron arreglos más sofisticados y una mezcla más rica en comparación con sus predecesores. Además, Cohn era conocido por su estilo de interpretación único, que influyó en otros trompetistas de la época. La combinación de su experiencia y el ambiente innovador de la banda de Basie contribuyó al éxito y la influencia duradera de este álbum en el mundo del jazz."
         }
@@ -4574,12 +4319,7 @@
         },
         {
           "question": "¿Qué famosa canción, que fue un gran éxito en su versión original, interpreta Ray Charles en su álbum 'The Great Ray Charles' de 1957?",
-          "options": [
-            "I Got a Woman",
-            "Georgia on My Mind",
-            "Hit the Road Jack",
-            "What'd I Say"
-          ],
+          "options": ["I Got a Woman", "Georgia on My Mind", "Hit the Road Jack", "What'd I Say"],
           "correctAnswer": "I Got a Woman",
           "trivia": "En su álbum 'The Great Ray Charles', Ray Charles presenta una interpretación memorable de 'I Got a Woman', una canción que se convirtió en uno de sus mayores éxitos. Esta pista, escrita por Charles y el compositor Renald Richard, fusiona elementos de gospel y rhythm and blues, estableciendo el estilo característico de Ray. 'I Got a Woman' no solo fue un hit en su lanzamiento, sino que también influyó en la música popular, siendo reconocida como un precursor del rock and roll. Además, el álbum en su conjunto ayudó a consolidar la reputación de Ray Charles como un innovador en la música, abriendo el camino para futuras reinterpretaciones de clásicos en su carrera."
         }
@@ -4664,12 +4404,7 @@
       "easy": [
         {
           "question": "¿Qué éxito de Ricky Nelson, incluido en su álbum 'Ricky' de 1957, alcanzó el puesto número 1 en la lista Billboard Hot 100?",
-          "options": [
-            "It's All in the Game",
-            "Travelin' Man",
-            "I'm Walkin'",
-            "Hello Mary Lou"
-          ],
+          "options": ["It's All in the Game", "Travelin' Man", "I'm Walkin'", "Hello Mary Lou"],
           "correctAnswer": "Travelin' Man",
           "trivia": "La canción 'Travelin' Man' fue un gran éxito de Ricky Nelson y se incluyó en su álbum 'Ricky' lanzado en 1957. Esta canción alcanzó el puesto número 1 en la lista Billboard Hot 100, consolidando a Nelson como una de las estrellas más destacadas de la música pop de la época. 'Travelin' Man' se caracteriza por su melodía pegajosa y letras nostálgicas, lo que resonó con muchos oyentes jóvenes. Además, el álbum 'Ricky' ayudó a establecer la carrera de Nelson en un momento en que los jóvenes artistas estaban comenzando a dominar la industria musical. En total, el álbum contiene varias canciones que se convirtieron en clásicos, pero 'Travelin' Man' es indiscutiblemente uno de los más memorables."
         },
@@ -4721,12 +4456,7 @@
         },
         {
           "question": "¿Qué canción fue uno de los primeros éxitos de Ricky Nelson en su álbum 'Ricky' lanzado en 1957, y que ayudó a cimentar su carrera como ídolo juvenil?",
-          "options": [
-            "Lonesome Town",
-            "It's Late",
-            "Hello Mary Lou",
-            "Travelin' Man"
-          ],
+          "options": ["Lonesome Town", "It's Late", "Hello Mary Lou", "Travelin' Man"],
           "correctAnswer": "Hello Mary Lou",
           "trivia": "La canción 'Hello Mary Lou' fue uno de los primeros grandes éxitos de Ricky Nelson en su álbum 'Ricky', lanzado en 1957. Escrita por Gene Pitney, esta melodía se convirtió en un clásico instantáneo y ayudó a consolidar la imagen de Nelson como un ícono de la música juvenil de la época. Además, 'Hello Mary Lou' alcanzó el puesto número 9 en la lista Billboard Hot 100, lo que marcó un hito en su carrera. Este álbum también fue notable por su producción, que incorporó influencias de rockabilly y pop, lo cual resonó con la juventud de la década de 1950. Ricky Nelson, conocido por su estilo atractivo y carisma, se convirtió rápidamente en uno de los artistas más influyentes de su generación."
         }
@@ -5035,12 +4765,7 @@
       "medium": [
         {
           "question": "En el álbum 'Buddy Holly' de 1958, ¿qué famoso productor y músico fue colaborador clave en la creación de varias pistas del álbum junto a Buddy Holly?",
-          "options": [
-            "Norman Petty",
-            "Phil Spector",
-            "Gerry Goffin",
-            "Carole King"
-          ],
+          "options": ["Norman Petty", "Phil Spector", "Gerry Goffin", "Carole King"],
           "correctAnswer": "Norman Petty",
           "trivia": "La respuesta correcta es Norman Petty, quien fue un colaborador esencial en la producción del álbum 'Buddy Holly'. Petty no solo ayudó a grabar las canciones, sino que también contribuyó a la creación del sonido distintivo que caracteriza las grabaciones de Holly. Además de su trabajo en este álbum, Norman Petty fue conocido por su influencia en la música rock de los años 50 y 60, trabajando con otros artistas importantes de la época. Buddy Holly y Petty establecieron una relación profesional que resultó en algunos de los trabajos más memorables de Holly, incluyendo éxitos como 'Peggy Sue' y 'Everyday'. Este álbum, lanzado en 1958, es considerado un hito en la historia del rock and roll y ayudó a sentar las bases para futuras generaciones de músicos."
         },
@@ -5081,12 +4806,7 @@
         },
         {
           "question": "¿Cuál de los miembros de la banda de Buddy Holly, que contribuyó significativamente al álbum 'Buddy Holly' de 1958, era conocido por su habilidad como compositor y también por su carrera posterior como productor musical?",
-          "options": [
-            "Niki Sullivan",
-            "Jerry Allison",
-            "Don Guess",
-            "Waylon Jennings"
-          ],
+          "options": ["Niki Sullivan", "Jerry Allison", "Don Guess", "Waylon Jennings"],
           "correctAnswer": "Jerry Allison",
           "trivia": "Jerry Allison fue el baterista de la banda de Buddy Holly y jugó un papel crucial en la creación del sonido distintivo del álbum 'Buddy Holly'. Además de su habilidad como músico, Allison también se destacó como compositor, coescribiendo algunas de las canciones más icónicas de la banda. Nacido el 31 de agosto de 1939, su contribución fue fundamental no solo en las grabaciones, sino también en el estilo de interpretación en vivo. Posteriormente, Allison continuó su carrera en la música, trabajando con varios artistas y produciendo discos. Su influencia se extiende más allá de su tiempo con Buddy Holly, consolidándose como una figura importante en la historia del rock and roll."
         },
@@ -5152,12 +4872,7 @@
       "medium": [
         {
           "question": "En el álbum 'Thelonious Monk Trio' de 1954, ¿qué colaborador de renombre acompañó a Thelonious Monk en el contrabajo durante las grabaciones?",
-          "options": [
-            "Charles Mingus",
-            "Oscar Pettiford",
-            "Larry Gales",
-            "Art Davis"
-          ],
+          "options": ["Charles Mingus", "Oscar Pettiford", "Larry Gales", "Art Davis"],
           "correctAnswer": "Oscar Pettiford",
           "trivia": "En 'Thelonious Monk Trio', el contrabajista Oscar Pettiford fue un colaborador clave, aportando su distintivo estilo al álbum. Pettiford era conocido por su virtuosismo, que influyó en el desarrollo del jazz moderno, y trabajó con Monk en varias ocasiones. Además de Pettiford, el álbum contó con la participación del baterista Elvin Jones, quien también se convertiría en una figura icónica en la historia del jazz. Este álbum fue grabado en una época en la que Monk empezaba a ganar reconocimiento, y sus colaboraciones con músicos destacados como Pettiford ayudaron a solidificar su lugar en el mundo del jazz. Es importante notar que 'Thelonious Monk Trio' incluye algunas de las composiciones más emblemáticas de Monk, que aún resuenan en el repertorio jazzístico actual."
         },
@@ -5256,12 +4971,7 @@
         },
         {
           "question": "¿Cuánto se estima que costó la producción del álbum 'The Fabulous Johnny Cash' de Johnny Cash en 1958?",
-          "options": [
-            "5,000 dólares",
-            "10,000 dólares",
-            "15,000 dólares",
-            "20,000 dólares"
-          ],
+          "options": ["5,000 dólares", "10,000 dólares", "15,000 dólares", "20,000 dólares"],
           "correctAnswer": "10,000 dólares",
           "trivia": "El costo de producción del álbum 'The Fabulous Johnny Cash' se estima en aproximadamente 10,000 dólares. Este álbum, lanzado en 1958, fue una de las primeras grandes producciones de Johnny Cash y ayudó a cimentar su carrera en la música country. Durante este período, los costos de grabación eran significativamente más bajos en comparación con la actualidad, pero todavía representaban una inversión considerable para los artistas. 'The Fabulous Johnny Cash' incluye canciones icónicas como 'Ballad of a Teenage Queen', que contribuyeron a su éxito comercial. Además, el álbum fue grabado en los estudios de Columbia Records, donde Cash comenzó a desarrollar su distintivo estilo musical."
         }
@@ -5326,12 +5036,7 @@
         },
         {
           "question": "¿Qué canción del álbum 'The Fabulous Johnny Cash' de 1958 ha sido utilizada en múltiples bandas sonoras de películas, destacando su relevancia en la cultura popular?",
-          "options": [
-            "I Walk the Line",
-            "Folsom Prison Blues",
-            "Get Rhythm",
-            "Big River"
-          ],
+          "options": ["I Walk the Line", "Folsom Prison Blues", "Get Rhythm", "Big River"],
           "correctAnswer": "I Walk the Line",
           "trivia": "La canción 'I Walk the Line', incluida en el álbum 'The Fabulous Johnny Cash', ha sido una de las más utilizadas en bandas sonoras de películas y programas de televisión, lo que refleja su impacto cultural. Esta canción, lanzada por Johnny Cash en 1956, se caracteriza por su distintivo patrón de acordes y su letra que habla de la fidelidad y el compromiso. Ha aparecido en películas como 'Walk the Line', que narra la vida del propio Cash, y en otras producciones que evocan la era del country. Además, 'I Walk the Line' se considera una de las canciones más emblemáticas de Johnny Cash, consolidando su legado en la música estadounidense. Su estilo único ha influenciado a numerosos artistas a lo largo de las décadas."
         }
@@ -5490,12 +5195,7 @@
         },
         {
           "question": "¿Qué versión alternativa de una de las composiciones de 'Sketches of Spain' de Miles Davis fue remezclada por el productor de música electrónica Brian Eno en la década de 1980?",
-          "options": [
-            "Saeta",
-            "Concierto de Aranjuez",
-            "The Pan Piper",
-            "Will O' The Wisp"
-          ],
+          "options": ["Saeta", "Concierto de Aranjuez", "The Pan Piper", "Will O' The Wisp"],
           "correctAnswer": "Concierto de Aranjuez",
           "trivia": "La respuesta correcta es 'Concierto de Aranjuez', una de las piezas más emblemáticas del álbum 'Sketches of Spain' de Miles Davis. Esta composición, que originalmente fue escrita por Joaquín Rodrigo, ha sido objeto de múltiples remezclas y adaptaciones a lo largo de los años. En la década de 1980, Brian Eno, conocido por su trabajo innovador en la música ambiental y electrónica, realizó una remezcla de esta obra, fusionando el jazz con influencias contemporáneas. 'Sketches of Spain' no solo es importante por su fusión de jazz y música clásica española, sino que también marcó un hito en la carrera de Miles Davis al explorar nuevas sonoridades y estilos. Este álbum, lanzado en 1960, fue, en su mayor parte, grabado en 1959 y sigue siendo una obra maestra influyente en la historia de la música."
         }
@@ -5656,12 +5356,7 @@
         },
         {
           "question": "¿Qué versión alternativa de una de las pistas del álbum 'Art Pepper Meets The Rhythm Section' fue lanzada en un recopilatorio de 1980, destacando diferencias en la interpretación de la melodía por parte de Art Pepper?",
-          "options": [
-            "Alegre",
-            "Daisy",
-            "You'd Be So Nice to Come Home To",
-            "Pepper's Pals"
-          ],
+          "options": ["Alegre", "Daisy", "You'd Be So Nice to Come Home To", "Pepper's Pals"],
           "correctAnswer": "You'd Be So Nice to Come Home To",
           "trivia": "La versión alternativa de 'You'd Be So Nice to Come Home To' fue lanzada en el recopilatorio 'Art Pepper: The Complete Village Vanguard Recordings' en 1980. Esta interpretación destaca por su enfoque más relajado y un solo de saxofón que difiere del original de 1957 en el álbum 'Art Pepper Meets The Rhythm Section'. Art Pepper, un destacado saxofonista alto, se unió a la renombrada Rhythm Section de Studio para crear un álbum que es considerado un clásico del jazz. La influencia de Pepper en el jazz de la costa oeste y su estilo único son evidentes en ambas versiones. Además, esta grabación ayudó a cementar su reputación como uno de los grandes del jazz a pesar de sus luchas personales."
         },
@@ -5703,12 +5398,7 @@
         },
         {
           "question": "¿Qué famoso estándar de jazz interpretó Sarah Vaughan en su álbum 'At Mister Kelly’s' lanzado en 1958, que ha sido versionado por numerosos artistas a lo largo de los años?",
-          "options": [
-            "Misty",
-            "Summertime",
-            "My Funny Valentine",
-            "Take the 'A' Train"
-          ],
+          "options": ["Misty", "Summertime", "My Funny Valentine", "Take the 'A' Train"],
           "correctAnswer": "Misty",
           "trivia": "En su álbum 'At Mister Kelly’s', Sarah Vaughan interpreta 'Misty', un clásico del jazz escrito por Erroll Garner en 1954. Esta canción se ha convertido en uno de los estándares más populares en el género, siendo versionada por numerosos artistas, incluyendo a Johnny Mathis y Ella Fitzgerald. La interpretación de Vaughan es destacada por su emotividad y su técnica vocal excepcional, lo que le ha permitido mantener la relevancia de esta pieza a lo largo de las décadas. Además, 'At Mister Kelly's' es un álbum en vivo que captura la energía de las presentaciones de Vaughan en el famoso club de jazz en Chicago, donde se presentó regularmente. Este álbum es considerado uno de los mejores trabajos en la carrera de Sarah Vaughan, consolidando su estatus como una de las grandes voces del jazz."
         },
@@ -5809,12 +5499,7 @@
       "easy": [
         {
           "question": "¿Cuál de las siguientes canciones incluidas en el álbum 'Ellington Indigos' de Duke Ellington, lanzado en 1958, se convirtió en un éxito comercial que ayudó a revitalizar su carrera en la década de 1960?",
-          "options": [
-            "Mood Indigo",
-            "Satin Doll",
-            "Take the 'A' Train",
-            "Caravan"
-          ],
+          "options": ["Mood Indigo", "Satin Doll", "Take the 'A' Train", "Caravan"],
           "correctAnswer": "Mood Indigo",
           "trivia": "La canción 'Mood Indigo' es una de las piezas más emblemáticas del álbum 'Ellington Indigos' de Duke Ellington, que se lanzó en 1958. Este álbum fue crucial para la carrera de Ellington, ya que revitalizó su popularidad en un tiempo en que el jazz estaba cambiando y enfrentando nuevos géneros musicales. 'Mood Indigo' no solo es famosa por su melancólica melodía, sino que también fue un gran éxito comercial, ayudando a Ellington a alcanzar nuevas audiencias. Además, el álbum presenta a grandes músicos de jazz que contribuyeron a la rica sonoridad de la obra. En la historia del jazz, 'Ellington Indigos' se considera un testimonio del talento duradero de Duke Ellington y su habilidad para innovar dentro del género."
         },
@@ -5855,12 +5540,7 @@
         },
         {
           "question": "¿Qué destacado músico colaboró con Duke Ellington en el álbum 'Ellington Indigos' de 1958, aportando su talento en el saxofón?",
-          "options": [
-            "John Coltrane",
-            "Sonny Rollins",
-            "Paul Gonsalves",
-            "Stan Getz"
-          ],
+          "options": ["John Coltrane", "Sonny Rollins", "Paul Gonsalves", "Stan Getz"],
           "correctAnswer": "Paul Gonsalves",
           "trivia": "El álbum 'Ellington Indigos' de Duke Ellington presenta la colaboración notable de Paul Gonsalves, quien es uno de los saxofonistas más reconocidos en la historia del jazz. Gonsalves ya había trabajado con Ellington en varias ocasiones, y su estilo de interpretación aportó una profundidad única a las composiciones del álbum. Este disco se caracteriza por su fusión de jazz con influencias de blues y gospel, y es considerado un ejemplo clave del trabajo de Ellington en la década de 1950. Además de Gonsalves, el álbum incluye a otros músicos destacados como el trompetista Cootie Williams y el bajista Jimmy Woode, lo que resalta la rica herencia colaborativa de Ellington en el mundo del jazz. 'Ellington Indigos' es un testimonio de la habilidad de Ellington para reunir talentosos músicos para crear obras memorables."
         },
@@ -5926,12 +5606,7 @@
       "easy": [
         {
           "question": "¿Qué canción famosa interpretó Billie Holiday en vivo y que está incluida en el álbum 'Songs for Distingué Lovers' de 1957?",
-          "options": [
-            "Strange Fruit",
-            "God Bless the Child",
-            "Summertime",
-            "All of Me"
-          ],
+          "options": ["Strange Fruit", "God Bless the Child", "Summertime", "All of Me"],
           "correctAnswer": "God Bless the Child",
           "trivia": "En el álbum 'Songs for Distingué Lovers', Billie Holiday incluyó la icónica canción 'God Bless the Child', que es una de sus interpretaciones más reconocidas. Esta canción fue coescrita por Holiday y Arthur Herzog Jr. en 1941, y aborda temas de desigualdad y la lucha por la supervivencia. La interpretación de Holiday de esta canción en vivo es particularmente conmovedora y muestra su distintiva habilidad para transmitir emoción a través de su voz. Además, 'God Bless the Child' se ha convertido en un estándar de jazz, siendo versionada por numerosos artistas a lo largo de los años. El álbum, lanzado en una época de gran relevancia cultural para el jazz, destaca la capacidad de Holiday para conectar con su audiencia de manera íntima y profunda."
         },
@@ -5972,12 +5647,7 @@
         },
         {
           "question": "Durante su gira de 1957, ¿en qué famoso club de jazz se presentó Billie Holiday, donde también se grabó parte del álbum 'Songs for Distingué Lovers'?",
-          "options": [
-            "The Blue Note",
-            "Café Society",
-            "The Apollo Theater",
-            "Birdland"
-          ],
+          "options": ["The Blue Note", "Café Society", "The Apollo Theater", "Birdland"],
           "correctAnswer": "Café Society",
           "trivia": "Billie Holiday se presentó en el icónico Café Society durante su gira de 1957, un lugar fundamental en la historia del jazz y donde se midió su popularidad en la escena musical. 'Songs for Distingué Lovers', lanzado en 1957, es uno de sus álbumes más destacados, y aunque no fue grabado en vivo en el Café Society, su estilo y las influencias del ambiente de este club son palpables en la grabación. Este álbum incluye arreglos orquestales elaborados y es notable por su interpretación emocional y el uso de la dinámica vocal de Holiday. Además, el Café Society fue conocido por ser un espacio que promovió la integración racial, lo que también refleja el contexto cultural en el que Billie Holiday desarrolló su carrera."
         },
@@ -6155,12 +5825,7 @@
       "easy": [
         {
           "question": "¿Qué artista famoso sampleó la canción 'What’d I Say' de Ray Charles en su éxito 'I Got a Woman'?",
-          "options": [
-            "Elvis Presley",
-            "Kanye West",
-            "Stevie Wonder",
-            "Madonna"
-          ],
+          "options": ["Elvis Presley", "Kanye West", "Stevie Wonder", "Madonna"],
           "correctAnswer": "Kanye West",
           "trivia": "La canción 'What’d I Say' de Ray Charles ha dejado una huella indeleble en la música, siendo sampleada por muchos artistas a lo largo de los años. Kanye West utilizó un fragmento de esta icónica canción en su exitoso tema 'I Got a Woman'. Este álbum, lanzado en 1959, es considerado uno de los trabajos más influyentes de Charles y ayudó a establecer el sonido del R&B moderno. Además, 'What’d I Say' fue pionero en la fusión de gospel y rhythm and blues, lo que lo convierte en un referente cultural. La influencia de Ray Charles en la música contemporánea es innegable, y su estilo ha sido imitado y homenajeado por numerosos artistas desde entonces."
         },
@@ -6190,12 +5855,7 @@
       "medium": [
         {
           "question": "En el álbum 'What’d I Say' de Ray Charles, ¿qué instrumento de percusión se destaca por su uso innovador en la producción musical?",
-          "options": [
-            "Batería electrónica",
-            "Conga",
-            "Cajón",
-            "Batería de jazz"
-          ],
+          "options": ["Batería electrónica", "Conga", "Cajón", "Batería de jazz"],
           "correctAnswer": "Conga",
           "trivia": "En 'What’d I Say', Ray Charles incorporó el uso de congas, lo que le dio un ritmo distintivo a su música. Este álbum, lanzado en 1959, es reconocido por su fusión de gospel, R&B y rock and roll, y la inclusión de congas fue un elemento innovador que ayudó a definir el sonido del álbum. Además, la producción del disco fue notable por su estilo improvisado, donde Charles y su banda a menudo ejecutaban las canciones de manera espontánea en el estudio. La combinación de ritmos latinos con el soul de Charles no solo atrajo a un público diverso, sino que también sentó las bases para futuras exploraciones en la música popular. En este contexto, la instrumentación y las técnicas de producción de 'What’d I Say' han influido en numerosos artistas y géneros a lo largo de los años."
         },
@@ -6272,12 +5932,7 @@
       "easy": [
         {
           "question": "¿Qué canción inédita de Cannonball Adderley fue grabada durante las sesiones de 'Somethin’ Else' en 1958 pero nunca se incluyó en el álbum?",
-          "options": [
-            "A Night in Tunisia",
-            "The Song is You",
-            "A Little Taste",
-            "Autumn Leaves"
-          ],
+          "options": ["A Night in Tunisia", "The Song is You", "A Little Taste", "Autumn Leaves"],
           "correctAnswer": "A Little Taste",
           "trivia": "Durante las sesiones de grabación del álbum 'Somethin’ Else' en 1958, Cannonball Adderley grabó una canción titulada 'A Little Taste', la cual, a pesar de su calidad, no fue incluida en la versión final del álbum. Este álbum es conocido por su mezcla de jazz modal y hard bop, y presenta a destacados músicos como Miles Davis y Art Farmer. 'Somethin’ Else' se ha convertido en un clásico del jazz, y aunque muchas de sus pistas son ampliamente reconocidas, 'A Little Taste' ha permanecido como una joya perdida. Las sesiones de este álbum tuvieron lugar en los estudios de Rudy Van Gelder, conocido por su sonido excepcional en grabaciones de jazz."
         },
@@ -6302,12 +5957,7 @@
       "medium": [
         {
           "question": "En una de las interpretaciones en vivo más memorables del álbum 'Somethin’ Else' de 1958, ¿qué famosa canción de jazz, escrita por Miles Davis, interpretó Cannonball Adderley?",
-          "options": [
-            "So What",
-            "Freddie Freeloader",
-            "All Blues",
-            "Blue in Green"
-          ],
+          "options": ["So What", "Freddie Freeloader", "All Blues", "Blue in Green"],
           "correctAnswer": "So What",
           "trivia": "Cannonball Adderley incluyó la famosa composición 'So What' en su álbum 'Somethin’ Else', el cual es considerado un clásico del jazz. Esta canción fue escrita por Miles Davis y se destaca por su innovador uso del modo dórico y su interpretación distintiva. La versión de Adderley se caracteriza por su energía y la interacción dinámica entre los músicos, lo que la convierte en una de las interpretaciones más recordadas de la época. Además, este álbum fue grabado con un elenco impresionante de músicos, incluyendo a Art Blakey en la batería y a Sam Jones en el contrabajo, lo que contribuyó a su éxito y relevancia en el mundo del jazz. 'Somethin’ Else' se ha mantenido como una referencia esencial en la historia del género."
         },
@@ -6512,12 +6162,7 @@
         },
         {
           "question": "¿Qué productor estuvo a cargo de las sesiones de grabación del álbum 'Rock & Roll' de Big Joe Turner en 1957?",
-          "options": [
-            "Jerry Wexler",
-            "Phil Spector",
-            "Berry Gordy",
-            "George Martin"
-          ],
+          "options": ["Jerry Wexler", "Phil Spector", "Berry Gordy", "George Martin"],
           "correctAnswer": "Jerry Wexler",
           "trivia": "El productor que estuvo a cargo de las sesiones de grabación del álbum 'Rock & Roll' de Big Joe Turner en 1957 fue Jerry Wexler. Wexler era conocido por su trabajo en Atlantic Records, donde ayudó a definir el sonido del rhythm and blues y el rock and roll en la década de 1950. Además de Big Joe Turner, Wexler trabajó con artistas icónicos como Ray Charles y Aretha Franklin, contribuyendo significativamente a su éxito. Durante la grabación de 'Rock & Roll', Turner combinó elementos de jazz y blues, lo que ayudó a establecer las bases del rock and roll. Este álbum es un ejemplo claro de la transición musical que se estaba produciendo en esa época."
         },
@@ -6547,12 +6192,7 @@
         },
         {
           "question": "¿Qué artista famoso del rock and roll citó la influencia de Big Joe Turner y su álbum 'Rock & Roll' como inspiración para su propio estilo musical?",
-          "options": [
-            "Elvis Presley",
-            "Little Richard",
-            "Chuck Berry",
-            "Fats Domino"
-          ],
+          "options": ["Elvis Presley", "Little Richard", "Chuck Berry", "Fats Domino"],
           "correctAnswer": "Little Richard",
           "trivia": "Little Richard, conocido por su estilo explosivo y su energía en el escenario, reconoció a Big Joe Turner y su álbum 'Rock & Roll' de 1957 como una de sus principales influencias. Turner fue uno de los pioneros del rock and roll, mezclando elementos de rhythm and blues y boogie-woogie, lo que sentó las bases para muchos artistas que vinieron después. Su capacidad para fusionar géneros y su potente voz resonaron en toda la música de la época, inspirando a figuras icónicas como Little Richard. Además, el álbum 'Rock & Roll' contiene temas que celebran el ritmo y la vida nocturna, características que también se encuentran en las obras de otros artistas de rock y pop que siguieron su legado."
         },
@@ -6571,12 +6211,7 @@
       "hard": [
         {
           "question": "En el álbum 'Rock & Roll' de 1957, ¿qué destacado artista de jazz colaboró con Big Joe Turner en una de las pistas, sorprendiendo a los fanáticos del género por su fusión de estilos?",
-          "options": [
-            "Dizzy Gillespie",
-            "Count Basie",
-            "Ella Fitzgerald",
-            "Miles Davis"
-          ],
+          "options": ["Dizzy Gillespie", "Count Basie", "Ella Fitzgerald", "Miles Davis"],
           "correctAnswer": "Count Basie",
           "trivia": "La colaboración más notable en el álbum 'Rock & Roll' de Big Joe Turner fue con Count Basie, quien aportó su inconfundible estilo de jazz al proyecto. Este álbum es considerado un hito en la fusión de jazz y rock and roll, reflejando la transición musical de la época. Big Joe Turner, conocido como el 'Rey del Blues', fue fundamental en el desarrollo del rhythm and blues, y su trabajo con Basie ayudó a atraer a una audiencia más amplia hacia el rock. Además, el álbum se grabó en un periodo en que la música popular estaba experimentando cambios significativos, y la combinación de estos dos gigantes musicales subraya la influencia del jazz en el rock. Este tipo de colaboraciones inusuales fueron cruciales para la evolución de ambos géneros en la década de 1950."
         },
@@ -6653,12 +6288,7 @@
       "medium": [
         {
           "question": "¿Quién fue el productor principal detrás del álbum 'Love Is the Thing' de Nat King Cole, lanzado en 1957?",
-          "options": [
-            "Capitol Records",
-            "Nelson Riddle",
-            "Frank Sinatra",
-            "George Martin"
-          ],
+          "options": ["Capitol Records", "Nelson Riddle", "Frank Sinatra", "George Martin"],
           "correctAnswer": "Nelson Riddle",
           "trivia": "El productor principal del álbum 'Love Is the Thing' de Nat King Cole fue Nelson Riddle, un destacado arreglista y director de orquesta de la época. Riddle es conocido por su trabajo con varios artistas icónicos y por su habilidad para combinar elementos de jazz y pop. El álbum incluye algunas de las interpretaciones más memorables de Nat King Cole, como 'When I Fall in Love', que se convirtió en un clásico. Además, el trabajo de Riddle en este álbum ayudó a definir el sonido del jazz vocal en los años 50, estableciendo un alto estándar para futuras colaboraciones. 'Love Is the Thing' fue un gran éxito comercial, consolidando aún más la fama de Nat King Cole en la industria musical."
         },
@@ -6760,12 +6390,7 @@
       "medium": [
         {
           "question": "¿Cuál de los siguientes músicos fue parte de la innovadora sesión de grabación de 'The Shape of Jazz to Come' de Ornette Coleman en 1959?",
-          "options": [
-            "Don Cherry",
-            "John Coltrane",
-            "Charlie Parker",
-            "Cecil Taylor"
-          ],
+          "options": ["Don Cherry", "John Coltrane", "Charlie Parker", "Cecil Taylor"],
           "correctAnswer": "Don Cherry",
           "trivia": "La respuesta correcta es Don Cherry, quien fue un colaborador clave en 'The Shape of Jazz to Come'. Este álbum, que marcó un hito en el desarrollo del jazz libre, fue grabado en 1959 y presentó a Coleman junto a Cherry en la trompeta, además de a Charlie Haden en el contrabajo y Billy Higgins en la batería. Ornette Coleman y Don Cherry compartieron una conexión musical profunda, la cual fue evidente en su estilo improvisacional y la forma en que desafiaron las convenciones del jazz de la época. 'The Shape of Jazz to Come' no solo fue innovador en su sonido, sino que también ayudó a establecer las bases para el movimiento del jazz avant-garde. Este álbum se considera fundamental en la historia del jazz moderno y ha influido en innumerables músicos desde su lanzamiento."
         },
@@ -6806,12 +6431,7 @@
         },
         {
           "question": "¿Cuál de los músicos que acompañaron a Ornette Coleman en 'The Shape of Jazz to Come' tuvo una formación previa como violinista antes de dedicarse al saxofón?",
-          "options": [
-            "Don Cherry",
-            "Charlie Haden",
-            "Billy Higgins",
-            "Ed Blackwell"
-          ],
+          "options": ["Don Cherry", "Charlie Haden", "Billy Higgins", "Ed Blackwell"],
           "correctAnswer": "Don Cherry",
           "trivia": "Don Cherry, quien tocó la trompeta en 'The Shape of Jazz to Come', tenía una formación musical inusual, ya que comenzó su carrera como violinista. Esto le permitió desarrollar un enfoque único y experimental en su interpretación de la trompeta, contribuyendo significativamente al sonido innovador del álbum lanzado en 1959. 'The Shape of Jazz to Come' es considerado un hito en el jazz avant-garde, y la colaboración entre Coleman y Cherry fue crucial para establecer nuevas direcciones en el género. Además, Cherry fue conocido por su capacidad para mezclar diferentes estilos musicales, lo que enriqueció el repertorio del álbum y su legado en la música jazz."
         },
@@ -6864,12 +6484,7 @@
         },
         {
           "question": "¿Qué arreglista famoso trabajó con Frank Sinatra en el álbum 'Only the Lonely' lanzado en 1958?",
-          "options": [
-            "Nelson Riddle",
-            "Gordon Jenkins",
-            "Billy May",
-            "Don Costa"
-          ],
+          "options": ["Nelson Riddle", "Gordon Jenkins", "Billy May", "Don Costa"],
           "correctAnswer": "Nelson Riddle",
           "trivia": "El álbum 'Only the Lonely' de Frank Sinatra, lanzado en 1958, presenta los magistrales arreglos de Nelson Riddle, quien fue uno de los colaboradores más importantes de Sinatra. Riddle es conocido por su capacidad para combinar la orquesta con la voz de Sinatra, creando un sonido único y emocionalmente resonante. Este álbum incluye clásicos como 'Angel Eyes' y 'In the Wee Small Hours of the Morning', los cuales se benefician de los sofisticados arreglos orquestales de Riddle. Además, 'Only the Lonely' es considerado un hito en la música pop y jazz, marcando un cambio en la producción de álbumes de estudio. El trabajo de Riddle en este proyecto ayudó a establecer un nuevo estándar para los arreglos orquestales en la música popular."
         }
@@ -6954,12 +6569,7 @@
       "easy": [
         {
           "question": "¿Quién fue el productor de Muddy Waters en el álbum 'At Newport 1960'?",
-          "options": [
-            "Johnny Cash",
-            "Willie Dixon",
-            "Leonard Chess",
-            "B.B. King"
-          ],
+          "options": ["Johnny Cash", "Willie Dixon", "Leonard Chess", "B.B. King"],
           "correctAnswer": "Leonard Chess",
           "trivia": "El productor de Muddy Waters en el álbum 'At Newport 1960' fue Leonard Chess, cofundador del sello discográfico Chess Records. Este álbum, grabado en el famoso Newport Jazz Festival de 1958, destaca la influencia de Waters en el desarrollo del blues y su fusión con el jazz. Leonard Chess fue fundamental en la carrera de Waters, ayudando a lanzar varios de sus éxitos en la década de 1950 y 1960. Además, Waters es conocido por su poderosa voz y su estilo distintivo de guitarra, que se convirtieron en una parte esencial del sonido del blues moderno. La colaboración entre Waters y Chess fue clave para popularizar el blues en un público más amplio durante esa época."
         },
@@ -7035,12 +6645,7 @@
         },
         {
           "question": "En el álbum 'At Newport 1960' de Muddy Waters, ¿qué notable músico de jazz se unió a él en el escenario durante su actuación en el Newport Jazz Festival de 1958, creando una colaboración inusual que sorprendió a muchos críticos y fans?",
-          "options": [
-            "John Coltrane",
-            "Dizzy Gillespie",
-            "Sonny Rollins",
-            "Thelonious Monk"
-          ],
+          "options": ["John Coltrane", "Dizzy Gillespie", "Sonny Rollins", "Thelonious Monk"],
           "correctAnswer": "John Coltrane",
           "trivia": "La respuesta correcta es John Coltrane, quien se unió a Muddy Waters en el escenario durante su actuación en el Newport Jazz Festival de 1958, que fue grabada para el álbum 'At Newport 1960'. Esta colaboración es considerada histórica, ya que unió dos géneros musicales distintos: el blues y el jazz, mostrando la versatilidad y el talento de ambos artistas. Waters, conocido como el 'padre del blues moderno', ya había influenciado a muchos músicos de jazz, y su interacción con Coltrane cimentó su legado en el mundo de la música. El Newport Jazz Festival de 1958 fue un evento clave que ayudó a revitalizar el interés en el blues, y la actuación de Waters es recordada como un hito importante. Este álbum no solo captura la energía de ese momento, sino que también refleja el cruce cultural de la música estadounidense en esa época."
         },
@@ -7093,12 +6698,7 @@
         },
         {
           "question": "¿Quién fue el productor responsable de las sesiones de grabación del álbum 'Round About Midnight' de Miles Davis en 1957?",
-          "options": [
-            "Teo Macero",
-            "George Avakian",
-            "Quincy Jones",
-            "Cecil Taylor"
-          ],
+          "options": ["Teo Macero", "George Avakian", "Quincy Jones", "Cecil Taylor"],
           "correctAnswer": "George Avakian",
           "trivia": "El productor responsable de las sesiones de grabación del álbum 'Round About Midnight' de Miles Davis en 1957 fue George Avakian. Avakian fue un influyente productor de jazz que jugó un papel crucial en el desarrollo de la carrera de Davis. Este álbum, que se considera uno de los más importantes en la historia del jazz, ayudó a establecer a Davis como un innovador dentro del género. 'Round About Midnight' incluye colaboraciones de destacados músicos como John Coltrane y Red Garland. Además, el álbum es famoso por su enfoque en la armonía y el uso de la atmósfera en la interpretación, marcando un hito en el estilo modal de Davis."
         }
@@ -7106,12 +6706,7 @@
       "medium": [
         {
           "question": "En el álbum 'Round About Midnight' de 1957, ¿qué destacado músico de jazz colaboró con Miles Davis tocando el saxofón en varias pistas?",
-          "options": [
-            "John Coltrane",
-            "Sonny Rollins",
-            "Wayne Shorter",
-            "Ornette Coleman"
-          ],
+          "options": ["John Coltrane", "Sonny Rollins", "Wayne Shorter", "Ornette Coleman"],
           "correctAnswer": "John Coltrane",
           "trivia": "La respuesta correcta es John Coltrane, quien fue un colaborador clave en el álbum 'Round About Midnight'. Coltrane, uno de los saxofonistas más influyentes en la historia del jazz, aportó su distintivo estilo y técnica a las grabaciones de este álbum, lo que ayudó a definir el sonido del jazz modal en la década de 1950. Además de su contribución en el saxofón tenor, Coltrane también participó en la famosa interpretación de 'Flamenco Sketches', una de las piezas más memorables de la grabación. 'Round About Midnight' es considerado un álbum esencial en la discografía de Miles Davis, ya que marcó un punto de inflexión en su carrera y en el desarrollo del jazz moderno."
         },
@@ -7128,12 +6723,7 @@
         },
         {
           "question": "En qué película se utilizó una interpretación de la canción 'Round Midnight', del álbum homónimo de Miles Davis, que refleja la atmósfera del jazz y la vida nocturna de Nueva York?",
-          "options": [
-            "Un hombre soltero",
-            "Cielo de octubre",
-            "El talento de Mr. Ripley",
-            "Bird"
-          ],
+          "options": ["Un hombre soltero", "Cielo de octubre", "El talento de Mr. Ripley", "Bird"],
           "correctAnswer": "Bird",
           "trivia": "La respuesta correcta es 'Bird', una película biográfica sobre el famoso saxofonista de jazz Charlie Parker. En esta película, la música de Miles Davis, incluyendo la interpretación de 'Round Midnight', captura perfectamente la esencia de la era del jazz y el turbulento viaje de Parker. 'Round Midnight' es una de las composiciones más icónicas de Thelonious Monk, y su inclusión en la banda sonora de 'Bird' destaca la influencia del jazz en la cultura cinematográfica. Además, el álbum 'Round About Midnight' de Miles Davis, lanzado en 1957, es considerado una obra maestra del jazz modal y presenta a músicos destacados como John Coltrane y Red Garland. Esta conexión entre la música de Miles Davis y su uso en el cine muestra cómo el jazz ha dejado una huella indeleble en las artes visuales."
         }
@@ -7269,12 +6859,7 @@
         },
         {
           "question": "¿En qué famoso club de jazz de Nueva York se llevó a cabo la grabación en vivo del álbum 'Waltz for Debby' por el Bill Evans Trio en 1959?",
-          "options": [
-            "Blue Note",
-            "Village Vanguard",
-            "Birdland",
-            "Thelonious Monk's Club"
-          ],
+          "options": ["Blue Note", "Village Vanguard", "Birdland", "Thelonious Monk's Club"],
           "correctAnswer": "Village Vanguard",
           "trivia": "La grabación en vivo del álbum 'Waltz for Debby' del Bill Evans Trio tuvo lugar en el icónico Village Vanguard en Nueva York, un club que ha sido fundamental en la historia del jazz desde su apertura en 1935. Este álbum, lanzado en 1961, es considerado una de las obras maestras de Evans y presenta una interpretación íntima y emotiva de temas clásicos. Entre los músicos que acompañan a Evans en esta grabación están el bajista Scott LaFaro y el baterista Paul Motian, quienes aportaron un enfoque innovador al trío de jazz. La actuación en el Village Vanguard no solo capturó la esencia del estilo de Evans, sino que también marcó un momento significativo en su carrera, especialmente tras la trágica muerte de LaFaro poco después de estas presentaciones."
         },
@@ -7351,12 +6936,7 @@
         },
         {
           "question": "¿Con qué reconocido músico colaboró B.B. King en su álbum 'Singin’ the Blues' de 1957, quien aportó sus habilidades al piano y coros?",
-          "options": [
-            "Ray Charles",
-            "Duke Ellington",
-            "Johnny Ace",
-            "Joe Turner"
-          ],
+          "options": ["Ray Charles", "Duke Ellington", "Johnny Ace", "Joe Turner"],
           "correctAnswer": "Johnny Ace",
           "trivia": "B.B. King colaboró con Johnny Ace, un destacado pianista y compositor de R&B, en su álbum 'Singin’ the Blues' lanzado en 1957. Esta colaboración es notable, ya que Ace era conocido por su estilo emotivo y su capacidad de improvisación, lo que complementó perfectamente el sonido distintivo de King. Además, Johnny Ace fue una figura influyente en la música blues y R&B hasta su trágica muerte en 1954, lo que añade un contexto histórico significativo a su participación en el álbum. 'Singin’ the Blues' es considerado uno de los trabajos más importantes de B.B. King, consolidando su estatus como uno de los grandes del género. El álbum incluye temas icónicos que reflejan la fusión de estilos que caracterizó el blues de la época."
         },
@@ -7375,12 +6955,7 @@
       "hard": [
         {
           "question": "Durante la grabación de 'Singin’ the Blues' en 1957, ¿qué miembro de la banda de B.B. King tuvo una influencia significativa en el estilo de interpretación de la guitarra del artista?",
-          "options": [
-            "Ike Turner",
-            "Freddie King",
-            "T-Bone Walker",
-            "Muddy Waters"
-          ],
+          "options": ["Ike Turner", "Freddie King", "T-Bone Walker", "Muddy Waters"],
           "correctAnswer": "T-Bone Walker",
           "trivia": "T-Bone Walker, famoso por su estilo innovador de guitarra eléctrica, tuvo un impacto considerable en la forma en que B.B. King desarrolló su propio sonido en el álbum 'Singin’ the Blues'. Walker fue uno de los pioneros del blues eléctrico y su técnica de tocar la guitarra influyó en muchos músicos de su época, incluyendo a King. Este álbum, que incluye clásicos como 'The Thrill Is Gone', ayudó a definir el estilo del blues moderno y a establecer a B.B. King como uno de los grandes del género. En el contexto del blues, T-Bone Walker es conocido por su habilidad para combinar el jazz y el blues, algo que resonó en la música de King. Además, el álbum 'Singin’ the Blues' fue un punto de inflexión en la carrera de B.B. King, consolidando su reputación en la escena musical de los años 50."
         },
@@ -7551,12 +7126,7 @@
         },
         {
           "question": "¿Qué famoso estándar de jazz, que Dinah Washington interpretó en su álbum 'What a Diff’rence a Day Makes!' de 1959, se considera una de sus primeras grabaciones más reconocidas?",
-          "options": [
-            "Misty",
-            "Summertime",
-            "What a Diff’rence a Day Makes",
-            "Cry Me a River"
-          ],
+          "options": ["Misty", "Summertime", "What a Diff’rence a Day Makes", "Cry Me a River"],
           "correctAnswer": "What a Diff’rence a Day Makes",
           "trivia": "La respuesta correcta es 'What a Diff’rence a Day Makes', una de las interpretaciones más emblemáticas de Dinah Washington. Este tema, originalmente escrito por Vicente Gómez en 1934, fue revivido por Washington en su álbum de 1959, convirtiéndose en un gran éxito y consolidando su estatus como una de las voces más influyentes del jazz y el R&B de la época. Además, este álbum le valió a Washington un Grammy en 1960, lo que demuestra su impacto en la música. La habilidad de Dinah para fusionar diferentes géneros musicales hizo que esta canción resonara con una amplia audiencia, destacando su talento excepcional en la interpretación emocional. A lo largo de su carrera, Washington grabó muchos otros estándares, pero esta canción sigue siendo un hito en su legado musical."
         }
@@ -7575,12 +7145,7 @@
         },
         {
           "question": "En el álbum 'What a Diff’rence a Day Makes!' de 1959, ¿qué notable colaborador se unió a Dinah Washington en una de las pistas, aportando su distintivo estilo de jazz?",
-          "options": [
-            "Miles Davis",
-            "Count Basie",
-            "Max Roach",
-            "Quincy Jones"
-          ],
+          "options": ["Miles Davis", "Count Basie", "Max Roach", "Quincy Jones"],
           "correctAnswer": "Count Basie",
           "trivia": "En 'What a Diff’rence a Day Makes!', Dinah Washington tuvo la colaboración especial del legendario pianista y director de orquesta Count Basie, quien aportó su inconfundible estilo de jazz a la producción. Este álbum, que se considera uno de los más emblemáticos de Washington, incluye una mezcla de jazz, blues y pop, y fue grabado en un periodo en el que Dinah ya era una estrella consolidada. Además, el álbum presenta arreglos elaborados que complementan la poderosa voz de Washington. 'What a Diff’rence a Day Makes!' no solo se convirtió en un gran éxito comercial, sino que también ayudó a definir el sonido de la música vocal de jazz en la década de 1950."
         },
@@ -7599,12 +7164,7 @@
       "hard": [
         {
           "question": "¿Qué miembro de la banda que acompañó a Dinah Washington en el álbum 'What a Diff’rence a Day Makes!' de 1959 era conocido por su habilidad en el trombón y tuvo una notable carrera como arreglista?",
-          "options": [
-            "Jimmy Cleveland",
-            "Benny Golson",
-            "Frank Rosolino",
-            "Teddy Charles"
-          ],
+          "options": ["Jimmy Cleveland", "Benny Golson", "Frank Rosolino", "Teddy Charles"],
           "correctAnswer": "Jimmy Cleveland",
           "trivia": "La respuesta correcta es Jimmy Cleveland, un destacado trombonista que formó parte de la banda que acompañó a Dinah Washington en 'What a Diff’rence a Day Makes!'. Cleveland no solo era conocido por su virtuosismo en el trombón, sino que también fue un reconocido arreglista y compositor, colaborando con muchos artistas de jazz a lo largo de su carrera. En este álbum, Washington fusiona géneros como el jazz y el R&B, lo que fue emblemático del sonido de la época. Además, el álbum incluye la famosa canción que da título al disco, la cual se ha convertido en un clásico interpretado por numerosos artistas. La grabación de este álbum se realizó en un período en el que Dinah Washington estaba en la cima de su carrera, destacándose por su potente voz y su emotiva interpretación."
         },
@@ -7703,12 +7263,7 @@
         },
         {
           "question": "¿Qué destacado músico de jazz colaboró con John Coltrane en el álbum 'Giant Steps', aportando su virtuosismo en el piano?",
-          "options": [
-            "McCoy Tyner",
-            "Bill Evans",
-            "Herbie Hancock",
-            "Chick Corea"
-          ],
+          "options": ["McCoy Tyner", "Bill Evans", "Herbie Hancock", "Chick Corea"],
           "correctAnswer": "McCoy Tyner",
           "trivia": "McCoy Tyner, conocido por su innovador estilo de piano, fue el músico que colaboró con John Coltrane en el álbum 'Giant Steps'. Tyner se unió a Coltrane en este álbum crucial de 1959, que fue lanzado oficialmente en 1960. Este álbum no solo marcó un hito en la carrera de Coltrane, sino que también es famoso por su complejidad armónica y sus innovaciones en la composición. Tyner, con su enfoque distintivo, utilizó acordes de cuartas y un estilo percutivo que influenció enormemente el sonido del jazz moderno. Además, 'Giant Steps' es considerado uno de los álbumes más importantes en la historia del jazz, y la interacción entre Coltrane y Tyner es fundamental para entender su legado."
         }
@@ -7727,12 +7282,7 @@
         },
         {
           "question": "¿Qué famoso músico de jazz realizó una versión cover de la icónica composición 'Giant Steps' de John Coltrane, lanzada en el álbum del mismo nombre en 1959?",
-          "options": [
-            "Chick Corea",
-            "McCoy Tyner",
-            "Michael Brecker",
-            "Pat Metheny"
-          ],
+          "options": ["Chick Corea", "McCoy Tyner", "Michael Brecker", "Pat Metheny"],
           "correctAnswer": "Michael Brecker",
           "trivia": "La versión de 'Giant Steps' por Michael Brecker, lanzada en su álbum 'Michael Brecker' en 1987, es una reinterpretación notable que muestra la influencia duradera de John Coltrane. Brecker, un destacado saxofonista de jazz, tomó la complejidad armónica y melódica de la obra original y la adaptó a su estilo contemporáneo, incorporando elementos de fusión y una técnica virtuosa. 'Giant Steps' fue innovador por su estructura armónica, que desafía las convenciones del jazz de su tiempo, y ha sido un punto de referencia para muchos músicos desde su lanzamiento. Además, el álbum 'Giant Steps' fue un hito en la carrera de Coltrane, consolidando su reputación como uno de los grandes innovadores del jazz moderno."
         },
@@ -7921,12 +7471,7 @@
         },
         {
           "question": "¿Quién fue el productor principal del álbum 'Bluejean Bop!' de Gene Vincent, lanzado en 1956?",
-          "options": [
-            "Sam Phillips",
-            "Nashville Sound",
-            "Lee Hazlewood",
-            "Bob Johnston"
-          ],
+          "options": ["Sam Phillips", "Nashville Sound", "Lee Hazlewood", "Bob Johnston"],
           "correctAnswer": "Sam Phillips",
           "trivia": "El productor principal de 'Bluejean Bop!' fue Sam Phillips, conocido por su trabajo en Sun Records y por haber descubierto a varios artistas icónicos del rock and roll. Este álbum, lanzado en 1956, es considerado uno de los primeros discos de rockabilly y ayudó a establecer a Gene Vincent como una figura prominente en la música de esa época. Sam Phillips no solo fue un productor innovador, sino que también fue fundamental en el desarrollo del sonido característico del rock and roll al mezclar elementos de country y rhythm and blues. 'Bluejean Bop!' incluye temas que se convirtieron en clásicos, como \"Be-Bop-A-Lula\", lo que cimentó la reputación de Vincent en la escena musical. El enfoque de Phillips en la producción y el sonido crudo de las grabaciones contribuyó significativamente al impacto duradero de este álbum."
         },
@@ -8131,12 +7676,7 @@
         },
         {
           "question": "¿Cuál fue uno de los sencillos más exitosos que se incluyó en el álbum 'The Platters' de The Platters, lanzado en 1956?",
-          "options": [
-            "Only You",
-            "Smoke Gets in Your Eyes",
-            "The Great Pretender",
-            "My Prayer"
-          ],
+          "options": ["Only You", "Smoke Gets in Your Eyes", "The Great Pretender", "My Prayer"],
           "correctAnswer": "Smoke Gets in Your Eyes",
           "trivia": "El sencillo 'Smoke Gets in Your Eyes' fue uno de los temas más destacados del álbum 'The Platters' de The Platters, lanzado en 1956. Esta canción, escrita por Jerome Kern y Otto Harbach, se convirtió en un gran éxito, alcanzando el primer puesto en la lista de Billboard. 'The Platters' es conocido por mezclar el estilo doo-wop con influencias de rhythm and blues, lo que les permitió destacar en la escena musical de la época. Además, el álbum incluyó otros éxitos como 'Only You' y 'My Prayer', consolidando a The Platters como uno de los grupos vocales más importantes de los años 50. Su sonido distintivo y su capacidad para interpretar baladas románticas les aseguraron un lugar en la historia de la música."
         }
@@ -8179,12 +7719,7 @@
       "hard": [
         {
           "question": "¿Cuánto se estima que costaron las sesiones de producción del álbum 'The Platters' de The Platters en 1956, teniendo en cuenta los gastos de estudio y arreglos orquestales?",
-          "options": [
-            "15,000 dólares",
-            "25,000 dólares",
-            "35,000 dólares",
-            "50,000 dólares"
-          ],
+          "options": ["15,000 dólares", "25,000 dólares", "35,000 dólares", "50,000 dólares"],
           "correctAnswer": "25,000 dólares",
           "trivia": "El costo de producción del álbum 'The Platters' de The Platters en 1956 se estimó en alrededor de 25,000 dólares, una cifra considerable para la época. Este presupuesto incluía gastos de estudio, así como arreglos orquestales que enriquecieron el sonido característico del grupo. The Platters, conocido por su estilo vocal distintivo y su fusión de R&B y pop, se benefició de estas inversiones, lo que les permitió alcanzar un gran éxito comercial. Además, el álbum incluye hits como 'Only You' y 'The Great Pretender', que fueron fundamentales para su popularidad. La producción de este álbum marcó un hito en la historia de la música, consolidando a The Platters como pioneros en el género."
         },
@@ -8226,12 +7761,7 @@
       "easy": [
         {
           "question": "¿Qué canción inédita fue grabada durante las sesiones del álbum 'Tenor Madness' de Sonny Rollins en 1956 pero no fue incluida en la versión original del álbum?",
-          "options": [
-            "Blue 7",
-            "Airegin",
-            "The Way You Look Tonight",
-            "St. Thomas"
-          ],
+          "options": ["Blue 7", "Airegin", "The Way You Look Tonight", "St. Thomas"],
           "correctAnswer": "Blue 7",
           "trivia": "La canción 'Blue 7' es una de las composiciones que fue grabada durante las sesiones de 'Tenor Madness' en 1956, aunque no se incluyó en la versión original del álbum. Este tema es notable por ser una de las composiciones más representativas de Sonny Rollins y ha sido objeto de análisis por su estructura y melodía. 'Tenor Madness' es un álbum emblemático en la historia del jazz, ya que presenta la colaboración entre Rollins y el saxofonista John Coltrane. Aparte de 'Blue 7', el álbum incluye otros temas icónicos como 'St. Thomas' y 'Airegin', que han dejado una huella significativa en el repertorio del jazz. La grabación se realizó en un período de intensa creatividad para Rollins, quien es conocido por su innovador estilo en el saxofón tenor."
         },
@@ -8261,12 +7791,7 @@
       "medium": [
         {
           "question": "¿Qué famoso saxofonista, que también participó en la grabación de 'Tenor Madness' de Sonny Rollins en 1956, es conocido por su estilo único y su influencia en el jazz moderno?",
-          "options": [
-            "John Coltrane",
-            "Cannonball Adderley",
-            "Ornette Coleman",
-            "Wayne Shorter"
-          ],
+          "options": ["John Coltrane", "Cannonball Adderley", "Ornette Coleman", "Wayne Shorter"],
           "correctAnswer": "John Coltrane",
           "trivia": "John Coltrane es el saxofonista que participó en la grabación de 'Tenor Madness' junto a Sonny Rollins en 1956. Este álbum es notable no solo por el virtuosismo de Rollins, sino también por la contribución de Coltrane, quien en ese momento estaba emergiendo como una figura central en el jazz. 'Tenor Madness' incluye una famosa interpretación de la composición 'Tenor Madness', donde ambos saxofonistas intercambian solos. La colaboración entre Rollins y Coltrane es considerada un hito en la historia del jazz, marcando el inicio de una época donde los saxofonistas se influenciaban mutuamente. Además, el álbum ha sido aclamado por su innovación y el alto nivel de improvisación que presentaba."
         },
@@ -8283,12 +7808,7 @@
         },
         {
           "question": "En el álbum 'Tenor Madness' de Sonny Rollins, ¿qué famoso tema fue reinterpretado en varias versiones alternativas por diferentes artistas de jazz a lo largo de los años?",
-          "options": [
-            "St. Thomas",
-            "Blue Seven",
-            "The Way You Look Tonight",
-            "Misty"
-          ],
+          "options": ["St. Thomas", "Blue Seven", "The Way You Look Tonight", "Misty"],
           "correctAnswer": "St. Thomas",
           "trivia": "La respuesta correcta es 'St. Thomas', un tema icónico que Sonny Rollins incluyó en su álbum 'Tenor Madness' lanzado en 1956. Este tema, que fue inspirado por la cultura y música caribeña, ha sido versionado por numerosos artistas de jazz a lo largo del tiempo, destacando su popularidad y la influencia que ha tenido en el género. Rollins, conocido por su estilo innovador y su habilidad para mezclar diferentes influencias, creó una interpretación única de 'St. Thomas' que resuena hasta hoy. Además, el álbum 'Tenor Madness' es notable por ser una de las primeras grabaciones en las que Rollins se presenta junto a otro gran tenor, John Coltrane, lo que añade un contexto histórico significativo a esta obra. En total, 'St. Thomas' ha sido grabado por artistas como McCoy Tyner y Michael Brecker, consolidando su estatus como un estándar del jazz."
         }
@@ -8373,12 +7893,7 @@
       "medium": [
         {
           "question": "¿Cuál de las siguientes canciones, que aparece en el álbum 'Little Richard' de 1958, es considerada una de las influencias más significativas del rock and roll y se caracteriza por su energía explosiva y estilo vocal distintivo de Little Richard?",
-          "options": [
-            "Long Tall Sally",
-            "Tutti Frutti",
-            "Good Golly, Miss Molly",
-            "Rip It Up"
-          ],
+          "options": ["Long Tall Sally", "Tutti Frutti", "Good Golly, Miss Molly", "Rip It Up"],
           "correctAnswer": "Tutti Frutti",
           "trivia": "La canción 'Tutti Frutti' es la pista más emblemática del álbum 'Little Richard' lanzado en 1958 y es reconocida como un hito en la historia del rock and roll. Esta canción no solo catapultó a Little Richard a la fama, sino que también estableció un nuevo estándar para la música popular de la época, combinando ritmos enérgicos con letras pegajosas. Su estilo vocal único y su interpretación apasionada influyeron en numerosos artistas posteriores, incluidos Elvis Presley y The Beatles. Además, 'Tutti Frutti' fue una de las primeras grabaciones en incluir una fusión de rock and roll con elementos de música gospel, reflejando la rica herencia musical de Little Richard. En 2010, la canción fue incluida en el Registro Nacional de Grabaciones de la Biblioteca del Congreso de los Estados Unidos, destacando su importancia cultural y histórica."
         },
@@ -8419,12 +7934,7 @@
         },
         {
           "question": "¿Qué influyente artista de gospel tuvo un impacto significativo en el estilo musical de Little Richard, especialmente en su álbum 'Little Richard' de 1958?",
-          "options": [
-            "Sister Rosetta Tharpe",
-            "Mahalia Jackson",
-            "Sam Cooke",
-            "Aretha Franklin"
-          ],
+          "options": ["Sister Rosetta Tharpe", "Mahalia Jackson", "Sam Cooke", "Aretha Franklin"],
           "correctAnswer": "Sister Rosetta Tharpe",
           "trivia": "Sister Rosetta Tharpe es reconocida como una de las principales influencias en el estilo de música rock and roll de Little Richard. Su fusión de gospel y rhythm and blues sentó las bases para muchos artistas posteriores, incluyendo a Little Richard, quien incorporó elementos del gospel en su música, especialmente en su álbum 'Little Richard' de 1958. Tharpe fue pionera en la forma de tocar la guitarra eléctrica en el gospel, lo que también resonó en la energía de las presentaciones en vivo de Little Richard. Este álbum no solo destacó su talento vocal, sino también su capacidad para conectar con el espíritu del gospel, lo que lo llevó a convertirse en una figura icónica de la música rock. Además, la influencia de Tharpe se puede apreciar en la manera en que Richard infundió emoción y fervor religioso en sus actuaciones."
         },
@@ -8536,12 +8046,7 @@
         },
         {
           "question": "¿Qué importante colaborador de Lightnin’ Hopkins fue responsable de la producción del álbum 'Lightnin’ Hopkins' lanzado en 1959?",
-          "options": [
-            "Sam Phillips",
-            "Clyde Otis",
-            "Lamar Fike",
-            "Jerry Wexler"
-          ],
+          "options": ["Sam Phillips", "Clyde Otis", "Lamar Fike", "Jerry Wexler"],
           "correctAnswer": "Clyde Otis",
           "trivia": "Clyde Otis fue el productor del álbum 'Lightnin’ Hopkins', que se lanzó en 1959. Este álbum es un testimonio del estilo distintivo de Hopkins, conocido por su habilidad en la guitarra y su potente voz. Otis, un reconocido productor y arreglista, desempeñó un papel crucial en la producción de música de R&B y blues durante las décadas de 1950 y 1960, trabajando con artistas como Dinah Washington y Brook Benton. Además, el álbum 'Lightnin’ Hopkins' ayudó a consolidar la reputación de Hopkins como uno de los grandes exponentes del blues, con temas que reflejan su experiencia de vida y la cultura afroamericana de su tiempo. Es interesante notar que el álbum fue grabado en un período en que el blues comenzaba a ganar popularidad en el mercado musical mainstream."
         },
@@ -8618,23 +8123,13 @@
         },
         {
           "question": "Durante las grabaciones del álbum 'Miss Rhythm' de Ruth Brown en 1959, ¿qué destacado músico de sesión contribuyó con su talento en la guitarra eléctrica?",
-          "options": [
-            "Muddy Waters",
-            "B.B. King",
-            "Johnny Smith",
-            "Eric Clapton"
-          ],
+          "options": ["Muddy Waters", "B.B. King", "Johnny Smith", "Eric Clapton"],
           "correctAnswer": "Johnny Smith",
           "trivia": "La respuesta correcta es Johnny Smith, quien fue un renombrado guitarrista de jazz y pop que aportó su estilo distintivo a las grabaciones de 'Miss Rhythm'. Este álbum, lanzado en 1959, es considerado un hito en la carrera de Ruth Brown, consolidándola como la 'Reina del R&B'. Además de Smith, la producción de este álbum estuvo marcada por la participación de otros músicos destacados de la época, lo que contribuyó a su sonido innovador. Ruth Brown fue fundamental en la popularización del R&B en los años 50, y su trabajo en 'Miss Rhythm' ayudó a sentar las bases para futuras generaciones de artistas. Con temas que mezclan blues, jazz y gospel, este álbum se convirtió en un referente cultural de su tiempo."
         },
         {
           "question": "¿Cuánto se estima que costó la producción del álbum 'Miss Rhythm' de Ruth Brown en 1959?",
-          "options": [
-            "15,000 dólares",
-            "30,000 dólares",
-            "50,000 dólares",
-            "20,000 dólares"
-          ],
+          "options": ["15,000 dólares", "30,000 dólares", "50,000 dólares", "20,000 dólares"],
           "correctAnswer": "15,000 dólares",
           "trivia": "La producción del álbum 'Miss Rhythm' de Ruth Brown en 1959 tuvo un costo estimado de aproximadamente 15,000 dólares. Este monto es significativo, considerando los estándares de la época y el impacto que el álbum tuvo en la carrera de Ruth Brown, ayudando a definir el sonido del Rhythm and Blues. Ruth Brown es conocida como la 'Madre del Rhythm and Blues', y 'Miss Rhythm' no solo logró un gran éxito comercial, sino que también fue crucial para la evolución del género. Además, el álbum incluye clásicos que fueron fundamentales en la música popular de los años 50. Durante ese tiempo, los costos de producción podían variar considerablemente, pero un presupuesto de 15,000 dólares era bastante razonable para un álbum de esta magnitud."
         }
@@ -8781,12 +8276,7 @@
         },
         {
           "question": "¿Qué productor estuvo a cargo de las sesiones de grabación del álbum 'Study in Brown' de Clifford Brown & Max Roach en 1955?",
-          "options": [
-            "Alfred Lion",
-            "Cecil Taylor",
-            "Blue Note Records",
-            "Max Roach"
-          ],
+          "options": ["Alfred Lion", "Cecil Taylor", "Blue Note Records", "Max Roach"],
           "correctAnswer": "Alfred Lion",
           "trivia": "El álbum 'Study in Brown', lanzado en 1955, fue producido por Alfred Lion, cofundador de Blue Note Records, una de las discográficas más importantes en la historia del jazz. Lion fue conocido por su enfoque en la calidad de sonido y su capacidad para captar el talento de los músicos de jazz de la época. Además de 'Study in Brown', también produjo otros álbumes clave en la carrera de Clifford Brown y Max Roach, contribuyendo a su legado musical. La colaboración de Lion con estos artistas ayudó a definir el sonido del hard bop y a establecer a Blue Note como un sello de referencia en el género. En 1955, el jazz estaba en plena evolución, y las producciones de Lion jugaron un papel crucial en la difusión de este estilo innovador."
         }
@@ -8828,12 +8318,7 @@
         },
         {
           "question": "¿Con qué destacado músico de jazz colaboró Billie Holiday en el álbum 'Velvet Moods' lanzado en 1956?",
-          "options": [
-            "Duke Ellington",
-            "Count Basie",
-            "Ray Charles",
-            "Mal Waldron"
-          ],
+          "options": ["Duke Ellington", "Count Basie", "Ray Charles", "Mal Waldron"],
           "correctAnswer": "Mal Waldron",
           "trivia": "En el álbum 'Velvet Moods', Billie Holiday trabajó en estrecha colaboración con el pianista y compositor Mal Waldron. Este álbum es conocido por su atmósfera melancólica y la profunda interpretación vocal de Holiday, que se complementa con el estilo único de Waldron al piano. Mal Waldron no solo contribuyó como músico, sino que también fue responsable de arreglar varias de las piezas del álbum. 'Velvet Moods' se considera un testimonio del talento de Holiday en el contexto del jazz de la década de 1950, una época en la que su carrera estaba en un punto culminante a pesar de sus luchas personales. Este trabajo resalta la esencia de la colaboración entre vocalistas y pianistas en el jazz, una tradición que ha perdurado a lo largo de los años."
         }
@@ -8923,12 +8408,7 @@
       "easy": [
         {
           "question": "¿Cuál fue el costo aproximado de producción del álbum 'Go Bo Diddley' de Bo Diddley en 1959?",
-          "options": [
-            "1,200 dólares",
-            "5,000 dólares",
-            "2,500 dólares",
-            "3,000 dólares"
-          ],
+          "options": ["1,200 dólares", "5,000 dólares", "2,500 dólares", "3,000 dólares"],
           "correctAnswer": "1,200 dólares",
           "trivia": "El costo aproximado de producción del álbum 'Go Bo Diddley' de Bo Diddley en 1959 fue de 1,200 dólares. Este álbum, que fue el primero de Bo Diddley para el sello Chess Records, es considerado un hito en el desarrollo del rock y el rhythm and blues. En ese periodo, la producción musical era generalmente mucho menos costosa que en la actualidad, lo que permitió a muchos artistas emergentes grabar y lanzar sus trabajos. Además, el álbum incluye el famoso tema 'Bo Diddley', que se convirtió en un clásico y ayudó a establecer la identidad musical del artista. Es relevante mencionar que Bo Diddley, con su estilo único y su innovador uso de ritmos, tuvo un impacto duradero en la música popular."
         },
@@ -9015,12 +8495,7 @@
         },
         {
           "question": "¿Qué canción del álbum 'Go Bo Diddley' de Bo Diddley se convirtió en un himno no oficial en eventos deportivos, especialmente en competiciones de fútbol americano durante la década de 1960?",
-          "options": [
-            "Hey Bo Diddley",
-            "I’m a Man",
-            "Diddley Daddy",
-            "Before You Accuse Me"
-          ],
+          "options": ["Hey Bo Diddley", "I’m a Man", "Diddley Daddy", "Before You Accuse Me"],
           "correctAnswer": "Hey Bo Diddley",
           "trivia": "La canción 'Hey Bo Diddley', del álbum 'Go Bo Diddley' lanzado en 1959, ha sido utilizada en múltiples eventos deportivos, especialmente en la cultura del fútbol americano, como un himno no oficial. Su ritmo distintivo y energía vibrante la han hecho popular en estadios, donde los fanáticos la corean y la utilizan para animar a sus equipos. Además, Bo Diddley es conocido por su estilo innovador que fusiona el rock con elementos del blues, lo que ha influenciado a muchos artistas posteriores. El álbum 'Go Bo Diddley' fue crucial en el desarrollo del rock and roll, y su legado sigue vivo en la música contemporánea y en eventos deportivos que buscan conectar con la energía del público."
         }
@@ -9086,12 +8561,7 @@
         },
         {
           "question": "¿Con qué productor colaboró Louis Prima en la creación del álbum 'The Wildest!' en 1956, quien también era conocido por su trabajo con otros artistas de jazz y pop de la época?",
-          "options": [
-            "George Avakian",
-            "Milt Gabler",
-            "Jerry Wexler",
-            "Joe Meek"
-          ],
+          "options": ["George Avakian", "Milt Gabler", "Jerry Wexler", "Joe Meek"],
           "correctAnswer": "Milt Gabler",
           "trivia": "La colaboración de Louis Prima con el productor Milt Gabler fue fundamental para el éxito del álbum 'The Wildest!'. Gabler, reconocido por su trabajo con artistas icónicos como Billie Holiday y Big Joe Williams, aportó una visión innovadora a las sesiones de grabación. Este álbum es famoso por fusionar jazz, swing y rock and roll, lo que reflejó las tendencias musicales de los años 50. Además, la energía vibrante de las actuaciones en vivo de Prima se capturó de manera excepcional bajo la dirección de Gabler, lo que ayudó a definir su estilo único. 'The Wildest!' se considera un hito en la carrera de Prima y sigue siendo influyente en el género."
         },
@@ -9296,12 +8766,7 @@
         },
         {
           "question": "¿Cuánto costó aproximadamente la producción del álbum 'The Sermon!' de Jimmy Smith, lanzado en 1959?",
-          "options": [
-            "5,000 dólares",
-            "10,000 dólares",
-            "15,000 dólares",
-            "20,000 dólares"
-          ],
+          "options": ["5,000 dólares", "10,000 dólares", "15,000 dólares", "20,000 dólares"],
           "correctAnswer": "5,000 dólares",
           "trivia": "La producción del álbum 'The Sermon!' de Jimmy Smith en 1959 tuvo un costo aproximado de 5,000 dólares. Este álbum, que es considerado uno de los más emblemáticos del jazz organístico, fue grabado en un momento en que la música jazz estaba en plena evolución. Jimmy Smith, un pionero en el uso del órgano Hammond, logró fusionar el jazz con elementos del blues y el gospel, lo que lo llevó a la popularidad. 'The Sermon!' incluye temas como 'The Sermon' y 'A Place for Friends', y es conocido por su rica sonoridad y la habilidad improvisacional de Smith. Este álbum no solo tuvo un impacto en el mundo del jazz, sino que también ayudó a establecer el órgano Hammond como un instrumento clave en varios géneros musicales."
         }
@@ -9366,12 +8831,7 @@
         },
         {
           "question": "En cuanto al contenido adicional y las versiones deluxe del álbum 'The Sermon!' de Jimmy Smith, ¿qué tema inédito fue incluido en la edición remasterizada de 1998?",
-          "options": [
-            "Airegin",
-            "The Sermon",
-            "The Cat",
-            "Back at the Chicken Shack"
-          ],
+          "options": ["Airegin", "The Sermon", "The Cat", "Back at the Chicken Shack"],
           "correctAnswer": "The Cat",
           "trivia": "La versión remasterizada de 1998 del álbum 'The Sermon!' de Jimmy Smith incluye el tema inédito 'The Cat', una pista que no estaba presente en la edición original de 1959. Este álbum es considerado un hito en el género del jazz, especialmente en el uso del órgano Hammond por parte de Smith, quien se convirtió en un pionero en este estilo musical. 'The Sermon!' no solo fue un éxito comercial, sino que también fue influenciado por el contexto del jazz en la década de 1950, donde la fusión de blues y jazz se volvía cada vez más popular. Además, la sesión de grabación tuvo lugar en el famoso estudio Van Gelder en Nueva Jersey, conocido por producir algunos de los mejores álbumes de jazz de la época."
         }
@@ -9493,12 +8953,7 @@
       "easy": [
         {
           "question": "¿Qué famosa canción de Irving Berlin interpretó Ella Fitzgerald en su álbum 'Ella Fitzgerald Sings the Irving Berlin Song Book' lanzado en 1958?",
-          "options": [
-            "Puttin' on the Ritz",
-            "Blue Skies",
-            "God Bless America",
-            "White Christmas"
-          ],
+          "options": ["Puttin' on the Ritz", "Blue Skies", "God Bless America", "White Christmas"],
           "correctAnswer": "Blue Skies",
           "trivia": "Ella Fitzgerald incluyó 'Blue Skies' en su álbum 'Ella Fitzgerald Sings the Irving Berlin Song Book', lanzado en 1958. Esta canción es una de las composiciones más emblemáticas de Irving Berlin y ha sido interpretada por varios artistas a lo largo de los años. Fitzgerald es conocida por su habilidad para reinterpretar clásicos, y su versión de 'Blue Skies' destaca por su estilo vocal distintivo y su capacidad para transmitir emociones a través de la música. Además, el álbum en su conjunto es un tributo a la obra de Berlin, quien fue uno de los más grandes compositores estadounidenses del siglo XX. La obra de Fitzgerald en este álbum le valió reconocimiento y reafirmó su estatus como una de las mejores voces del jazz."
         },
@@ -9515,12 +8970,7 @@
         },
         {
           "question": "¿Cuál de las canciones interpretadas por Ella Fitzgerald en el álbum 'Ella Fitzgerald Sings the Irving Berlin Song Book' de 1958 se convirtió en un gran éxito crossover, alcanzando popularidad tanto en la música jazz como en la música pop?",
-          "options": [
-            "Blue Skies",
-            "Cheek to Cheek",
-            "God Bless America",
-            "Puttin' On the Ritz"
-          ],
+          "options": ["Blue Skies", "Cheek to Cheek", "God Bless America", "Puttin' On the Ritz"],
           "correctAnswer": "Blue Skies",
           "trivia": "La canción 'Blue Skies' es una de las interpretaciones destacadas de Ella Fitzgerald en el álbum 'Ella Fitzgerald Sings the Irving Berlin Song Book' y se convirtió en un éxito crossover al ser popular tanto en el ámbito del jazz como en el pop. Compuesta originalmente por Irving Berlin, esta canción ha sido versionada por numerosos artistas a lo largo de los años, pero la interpretación de Fitzgerald es especialmente reconocida por su emotividad y técnica vocal. El álbum, lanzado en 1958, es un tributo a las obras de Berlin y destaca por su producción de alta calidad y la excepcional habilidad interpretativa de Fitzgerald. Además, este trabajo es considerado uno de los mejores álbumes de jazz vocal de todos los tiempos, lo que contribuyó a reforzar la reputación de Ella Fitzgerald como la 'Primera Dama del Jazz'."
         }
@@ -9856,12 +9306,7 @@
         },
         {
           "question": "¿Qué película utilizó una de las composiciones del álbum 'Back to Back: Duke Ellington and Johnny Hodges Play the Blues' de Duke Ellington & Johnny Hodges en su banda sonora?",
-          "options": [
-            "El Padrino",
-            "Café Society",
-            "Dulce hogar, a veces",
-            "La La Land"
-          ],
+          "options": ["El Padrino", "Café Society", "Dulce hogar, a veces", "La La Land"],
           "correctAnswer": "Café Society",
           "trivia": "Una de las piezas de 'Back to Back: Duke Ellington and Johnny Hodges Play the Blues' fue utilizada en la banda sonora de la película 'Café Society', dirigida por Woody Allen y estrenada en 2016. Este álbum, lanzado en 1959, es un excelente ejemplo de la fusión del jazz de Duke Ellington con el estilo de saxofón de Johnny Hodges, quien fue uno de los músicos más destacados de la era del jazz. La música de Ellington y Hodges ha influido en numerosas producciones cinematográficas debido a su rica sonoridad y su capacidad para evocar emociones. En el contexto del jazz, Ellington es reconocido por sus innovaciones orquestales y Hodges por su distintivo tono de saxofón alto. Esta colaboración entre ambos artistas continúa siendo celebrada y escuchada, manteniendo viva su legado en la cultura popular."
         }
@@ -9962,12 +9407,7 @@
         },
         {
           "question": "¿Qué artista famoso fue influenciado por Big Bill Broonzy y su álbum 'Big Bill Broonzy Sings Folk Songs' de 1956 en su estilo musical?",
-          "options": [
-            "Bob Dylan",
-            "Muddy Waters",
-            "Elvis Presley",
-            "Johnny Cash"
-          ],
+          "options": ["Bob Dylan", "Muddy Waters", "Elvis Presley", "Johnny Cash"],
           "correctAnswer": "Bob Dylan",
           "trivia": "Bob Dylan, uno de los cantautores más influyentes del siglo XX, reconoció la importancia de Big Bill Broonzy en su desarrollo musical. El álbum 'Big Bill Broonzy Sings Folk Songs' de 1956, que presenta una mezcla de blues y folk, ayudó a inspirar a Dylan en su fusión de géneros. Broonzy fue un pionero en la música folk y su estilo de interpretación tuvo un impacto significativo en la escena musical de la época. Además, Broonzy influyó en muchos músicos que vinieron después de él, incluyendo a figuras clave del folk y el rock. Su habilidad para contar historias a través de la música ha dejado una huella perdurable en artistas como Dylan, quien ha mencionado a Broonzy como una de sus influencias."
         },
@@ -10093,12 +9533,7 @@
       "medium": [
         {
           "question": "En el álbum 'Cool Struttin’' de Sonny Clark, ¿qué famoso tema fue reinterpretado y se ha convertido en un estándar de jazz, siendo versionado por varios artistas a lo largo de los años?",
-          "options": [
-            "Blue Monk",
-            "Round Midnight",
-            "Autumn Leaves",
-            "My Favorite Things"
-          ],
+          "options": ["Blue Monk", "Round Midnight", "Autumn Leaves", "My Favorite Things"],
           "correctAnswer": "Blue Monk",
           "trivia": "La respuesta correcta es 'Blue Monk', un célebre tema compuesto por Thelonious Monk que ha sido reinterpretado en numerosas ocasiones, incluyendo la versión de Sonny Clark en su álbum 'Cool Struttin’' lanzado en 1958. Esta obra es un ejemplo clásico de blues en 12 compases y ha influido en muchos músicos de jazz, convirtiéndose en un estándar en este género. Además, 'Cool Struttin’' se destaca por su sofisticación melódica y armonía rica, y cuenta con la participación de otros talentosos músicos como Art Davis y Elvin Jones. La combinación de la interpretación de Clark y la influencia de Monk han dejado una huella perdurable en la historia del jazz."
         },
@@ -10227,12 +9662,7 @@
         },
         {
           "question": "¿Cuál de los siguientes artistas colaboró con The Louvin Brothers en el álbum 'Tragic Songs of Life' lanzado en 1956?",
-          "options": [
-            "Johnny Cash",
-            "Carl Perkins",
-            "The Everly Brothers",
-            "Marty Robbins"
-          ],
+          "options": ["Johnny Cash", "Carl Perkins", "The Everly Brothers", "Marty Robbins"],
           "correctAnswer": "The Everly Brothers",
           "trivia": "En el álbum 'Tragic Songs of Life', The Louvin Brothers contaron con la colaboración de The Everly Brothers en algunas de las pistas, lo que trajo un sonido armonioso característico de ambos grupos. Este álbum, lanzado en 1956, es conocido por su enfoque melódico y lírico en temas de desamor y tragedia, y ayudó a establecer a The Louvin Brothers como pioneros en la música country. Además, el álbum incluye canciones que se convirtieron en clásicos, como 'When I Stop Dreaming'. La fusión de sus estilos vocales no solo enriqueció el álbum, sino que también sentó las bases para futuras colaboraciones en el género. The Everly Brothers, que debutaron en la misma época, aportaron su distintivo estilo de armonía que complementó a The Louvin Brothers."
         }
@@ -10251,12 +9681,7 @@
         },
         {
           "question": "¿Cuál fue el costo aproximado de producción del álbum 'Tragic Songs of Life' de The Louvin Brothers en 1956, considerando los estándares de la industria musical de la época?",
-          "options": [
-            "1,000 dólares",
-            "3,000 dólares",
-            "5,000 dólares",
-            "7,500 dólares"
-          ],
+          "options": ["1,000 dólares", "3,000 dólares", "5,000 dólares", "7,500 dólares"],
           "correctAnswer": "3,000 dólares",
           "trivia": "El costo de producción del álbum 'Tragic Songs of Life' de The Louvin Brothers en 1956 fue de aproximadamente 3,000 dólares. Este monto, aunque significativo para la época, era relativamente bajo en comparación con los costos de producción de álbumes contemporáneos de artistas más establecidos. La grabación del álbum se realizó en un estudio de Nashville, que en ese momento estaba emergiendo como un centro musical clave. The Louvin Brothers, conocidos por su armonía vocal, lograron un sonido distintivo que se consolidó en este trabajo, el cual refleja temas de dolor y pérdida. Este álbum es considerado un clásico del country y ha influido en numerosos artistas a lo largo de los años."
         },
@@ -10298,12 +9723,7 @@
         },
         {
           "question": "¿Qué famosa canción de jazz, reinterpretada por Miles Davis en el álbum 'Relaxin’ with the Miles Davis Quintet' de 1958, es conocida por su melodía memorable y ha sido versionada por numerosos artistas a lo largo de los años?",
-          "options": [
-            "All Blues",
-            "So What",
-            "My Funny Valentine",
-            "Round Midnight"
-          ],
+          "options": ["All Blues", "So What", "My Funny Valentine", "Round Midnight"],
           "correctAnswer": "My Funny Valentine",
           "trivia": "La canción 'My Funny Valentine' es una de las interpretaciones más destacadas de Miles Davis en el álbum 'Relaxin’ with the Miles Davis Quintet'. Originalmente compuesta por Richard Rodgers y Lorenz Hart en 1937, esta balada ha sido reinterpretada por numerosos artistas, convirtiéndose en un estándar del jazz. La versión de Davis es conocida por su emotividad y el uso de la trompeta, que resalta la esencia melancólica de la canción. Además, el álbum fue grabado en una época dorada del jazz, donde la improvisación y la expresión personal eran clave. 'My Funny Valentine' sigue siendo un referente en la música, destacando la habilidad de Miles Davis para transformar y dar nueva vida a composiciones clásicas."
         },
@@ -10339,12 +9759,7 @@
         },
         {
           "question": "¿Qué destacado pianista colaboró con Miles Davis en la producción del álbum 'Relaxin’ with the Miles Davis Quintet' de 1958?",
-          "options": [
-            "Bill Evans",
-            "Cecil Taylor",
-            "Chick Corea",
-            "Herbie Hancock"
-          ],
+          "options": ["Bill Evans", "Cecil Taylor", "Chick Corea", "Herbie Hancock"],
           "correctAnswer": "Bill Evans",
           "trivia": "Bill Evans fue el pianista que colaboró con Miles Davis en la producción del álbum 'Relaxin’ with the Miles Davis Quintet' de 1958. Este álbum es conocido por su fusión de jazz y bebop, y la contribución de Evans fue fundamental en la creación de un sonido cohesivo y melódico. Además de su trabajo en este álbum, Evans es reconocido por su enfoque innovador en el piano jazz y su influencia en muchos músicos posteriores. El grupo también incluía a otros célebres músicos como el saxofonista John Coltrane y el baterista Elvin Jones, lo que lo convierte en un trabajo destacado en la historia del jazz."
         }
@@ -10486,12 +9901,7 @@
         },
         {
           "question": "En el álbum 'Ella Fitzgerald Sings the George and Ira Gershwin Song Book', ¿qué composición de George Gershwin, famosa por su fusión de jazz y música clásica, se considera un hito en la carrera de Ella Fitzgerald y fue interpretada con gran virtuosismo?",
-          "options": [
-            "Summertime",
-            "Rhapsody in Blue",
-            "I Got Rhythm",
-            "Someone to Watch Over Me"
-          ],
+          "options": ["Summertime", "Rhapsody in Blue", "I Got Rhythm", "Someone to Watch Over Me"],
           "correctAnswer": "Summertime",
           "trivia": "La respuesta correcta es 'Summertime', una de las composiciones más emblemáticas de George Gershwin, que se encuentra en el álbum 'Ella Fitzgerald Sings the George and Ira Gershwin Song Book'. Esta canción, originalmente escrita para la ópera 'Porgy and Bess', ha sido interpretada por numerosos artistas a lo largo de los años, pero la versión de Ella Fitzgerald es particularmente aclamada por su emotividad y técnica vocal. Ella Fitzgerald, con su impresionante rango vocal y habilidad para improvisar, logró convertir 'Summertime' en un estándar del jazz. Este álbum, lanzado en 1959, es considerado un punto culminante en la carrera de Fitzgerald y un testimonio de su maestría en la interpretación de las obras de los Gershwin. La producción del álbum también incluyó la participación de destacados músicos de jazz, lo que contribuyó a su éxito crítico y comercial."
         }
@@ -10511,12 +9921,7 @@
       "easy": [
         {
           "question": "¿Qué canción de The Kingston Trio, del álbum 'The Kingston Trio' lanzado en 1958, se utilizó con frecuencia como himno en eventos deportivos y campañas políticas durante los años 60?",
-          "options": [
-            "Where Have All the Flowers Gone",
-            "Tom Dooley",
-            "MTA",
-            "Scotch and Soda"
-          ],
+          "options": ["Where Have All the Flowers Gone", "Tom Dooley", "MTA", "Scotch and Soda"],
           "correctAnswer": "Where Have All the Flowers Gone",
           "trivia": "La canción 'Where Have All the Flowers Gone', incluida en el álbum 'The Kingston Trio' de 1958, se convirtió en un himno popular en la época de los movimientos de derechos civiles y protestas contra la guerra de Vietnam. Escrita por Pete Seeger, esta canción resonó en los corazones de muchos, y su mensaje sobre la paz y la pérdida se utilizó en diversas campañas políticas y eventos deportivos. Además, la interpretación de The Kingston Trio ayudó a popularizar la canción, que ha sido versionada por numerosos artistas a lo largo de los años. En 1960, fue uno de los temas que simbolizaban el espíritu de la época, y su uso en contextos de protesta fue un testimonio de su impacto cultural."
         },
@@ -10663,12 +10068,7 @@
       "medium": [
         {
           "question": "¿Qué productor fue clave en la creación del álbum 'Concert by the Sea' de Erroll Garner, lanzado en 1955?",
-          "options": [
-            "Rudy Van Gelder",
-            "Milt Gabler",
-            "George Avakian",
-            "Orrin Keepnews"
-          ],
+          "options": ["Rudy Van Gelder", "Milt Gabler", "George Avakian", "Orrin Keepnews"],
           "correctAnswer": "Orrin Keepnews",
           "trivia": "Orrin Keepnews fue el productor clave detrás del álbum 'Concert by the Sea' de Erroll Garner. Este álbum, grabado en vivo en el Civic Auditorium de San Francisco, se considera uno de los grandes clásicos del jazz. Keepnews, conocido por su trabajo con otros artistas de jazz como Thelonious Monk y Bill Evans, ayudó a capturar la energía y la espontaneidad de las presentaciones en vivo. 'Concert by the Sea' se destacó no solo por la interpretación magistral de Garner, sino también por la calidad de la producción que logró Keepnews, quien utilizó técnicas de grabación innovadoras para la época. El álbum ha sido aclamado por su influencia duradera en el mundo del jazz y sigue siendo un favorito entre los aficionados al género."
         },
@@ -10745,12 +10145,7 @@
       "easy": [
         {
           "question": "¿Qué canción famosa del álbum 'Fever' de Little Willie John fue también una de las primeras interpretaciones de R&B en alcanzar popularidad en las listas de Billboard?",
-          "options": [
-            "Fever",
-            "Suffering with the Blues",
-            "Talk to Me, Talk to Me",
-            "Heartbreak"
-          ],
+          "options": ["Fever", "Suffering with the Blues", "Talk to Me, Talk to Me", "Heartbreak"],
           "correctAnswer": "Fever",
           "trivia": "La canción 'Fever', interpretada por Little Willie John en su álbum de 1956, se convirtió en un gran éxito y es considerada una de sus interpretaciones más emblemáticas. Esta canción no solo destacó en el contexto del R&B, sino que también logró alcanzar el puesto número 24 en la lista Billboard Hot 100, lo que la convirtió en una de las primeras grabaciones de R&B en lograr tal éxito en las listas pop. 'Fever' ha sido versionada por varios artistas, incluyendo a Peggy Lee, quien también tuvo un gran éxito con su interpretación. Little Willie John es recordado por su influencia en el desarrollo del soul y R&B, y su estilo vocal distintivo ayudó a sentar las bases para futuras generaciones de músicos."
         },
@@ -10767,12 +10162,7 @@
         },
         {
           "question": "¿Cuál de las siguientes canciones de Little Willie John se incluyó en su álbum 'Fever' lanzado en 1956?",
-          "options": [
-            "All Around the World",
-            "Fever",
-            "I'm So Glad",
-            "Money (That's What I Want)"
-          ],
+          "options": ["All Around the World", "Fever", "I'm So Glad", "Money (That's What I Want)"],
           "correctAnswer": "Fever",
           "trivia": "La canción 'Fever' es el tema principal del álbum 'Fever' de Little Willie John, lanzado en 1956. Este álbum incluye varias interpretaciones magistrales que ayudaron a establecer a John como una figura prominente en el género del R&B. 'Fever' se convirtió en un gran éxito y es considerada una de las canciones más emblemáticas de su carrera. Little Willie John logró un gran reconocimiento en la industria musical, y su estilo vocal distintivo ha influido en numerosos artistas posteriores. Este álbum es fundamental en la historia del soul y R&B, mostrando la capacidad de John para transmitir emociones intensas a través de su música."
         }
@@ -10802,12 +10192,7 @@
         },
         {
           "question": "¿Qué famoso artista de rock y soul, conocido por su estilo vocal emotivo, ha citado a Little Willie John y su álbum 'Fever' como una influencia significativa en su carrera musical?",
-          "options": [
-            "James Brown",
-            "Ray Charles",
-            "Otis Redding",
-            "Sam Cooke"
-          ],
+          "options": ["James Brown", "Ray Charles", "Otis Redding", "Sam Cooke"],
           "correctAnswer": "Ray Charles",
           "trivia": "Ray Charles ha reconocido la influencia de Little Willie John en su música, especialmente destacando el álbum 'Fever', lanzado en 1956. John es conocido por su potente voz y su capacidad para transmitir emoción, características que también se encuentran en la obra de Charles. 'Fever' es considerado un clásico del R&B y ha sido versionado por numerosos artistas, lo que subraya su impacto en el género. Además, la interpretación de Little Willie John de 'Fever' fue pionera en la fusión de estilos, lo que sentó las bases para que artistas como Ray Charles experimentaran con el soul y el rhythm and blues. La habilidad de John para conectar con su audiencia a través de su música ha dejado una huella perdurable en generaciones de músicos."
         }
@@ -11092,12 +10477,7 @@
         },
         {
           "question": "¿Cuánto se estima que costó la producción del álbum 'He’s So Fine' de Jackie Wilson en 1958?",
-          "options": [
-            "15,000 dólares",
-            "25,000 dólares",
-            "30,000 dólares",
-            "10,000 dólares"
-          ],
+          "options": ["15,000 dólares", "25,000 dólares", "30,000 dólares", "10,000 dólares"],
           "correctAnswer": "15,000 dólares",
           "trivia": "La producción del álbum 'He’s So Fine' de Jackie Wilson tuvo un costo estimado de 15,000 dólares en 1958. Durante esta época, los costos de producción de álbumes podían variar significativamente dependiendo de la calidad de los músicos, el estudio de grabación y la duración del proyecto. Jackie Wilson, conocido por su potente voz y su estilo carismático, trabajó con la productora Brunswick Records, que invirtió en su talento, ayudando a establecer su carrera en la música. Este álbum incluye el exitoso sencillo 'Lonely Teardrops', que contribuyó a su popularidad. En el contexto de la música de los años 50, el costo de producción era considerado elevado y reflejaba la inversión en artistas prometedores como Wilson."
         },

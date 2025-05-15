@@ -58,7 +58,7 @@ const formattedTitle = title.toUpperCase();
 <!-- 6. Component styles with Tailwind -->
 <style>
   .component-container {
-    @apply p-4 rounded-lg bg-gray-100 dark:bg-gray-800;
+    @apply rounded-lg bg-gray-100 p-4 dark:bg-gray-800;
   }
 </style>
 ```
@@ -109,13 +109,13 @@ Example:
 
 ```astro
 <nav aria-label="Main navigation">
-  <ul class="flex gap-4 p-4 bg-purple-900">
+  <ul class="flex gap-4 bg-purple-900 p-4">
     {
       navigationItems.map((item) => (
         <li>
           <a
             href={item.url}
-            class="text-white hover:text-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-300 px-3 py-2 rounded-md"
+            class="rounded-md px-3 py-2 text-white hover:text-purple-200 focus:ring-2 focus:ring-purple-300 focus:outline-none"
             aria-current={item.isCurrent ? "page" : undefined}
           >
             {item.label}
@@ -134,7 +134,8 @@ Example:
 - Use dynamic imports for large components
 - Minimize JavaScript usage with preference for HTML and CSS
 - Implement responsive images with `<Image>` and `<Picture>` components
-- Use the `layout` attribute for optimized images (`layout="constrained"`, `layout="full-width"`, `layout="none"`)
+- Use the `layout` attribute for optimized images (`layout="constrained"`, `layout="full-width"`,
+  `layout="none"`)
 - Use modern image formats (WebP, AVIF) with the `formats` attribute
 - Implement state sharing between islands with Nano Stores or Context API
 - Optimize performance for page transitions with `<ViewTransitions />`
@@ -154,15 +155,15 @@ import albumCover from "../assets/images/album-cover.jpg";
     alt="Album cover for Dark Side of the Moon"
     width={800}
     height={800}
-    class="rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+    class="rounded-lg shadow-lg transition-shadow hover:shadow-xl"
     layout="constrained"
     formats={["avif", "webp"]}
   />
 
   <!-- Minimal JavaScript usage -->
-  <div class="album-info mt-4 p-4 bg-gray-800 rounded-md text-white">
+  <div class="album-info mt-4 rounded-md bg-gray-800 p-4 text-white">
     <h2 class="text-xl font-bold tracking-tight">Dark Side of the Moon</h2>
-    <p class="text-gray-300 text-sm">Pink Floyd • 1973</p>
+    <p class="text-sm text-gray-300">Pink Floyd • 1973</p>
   </div>
 </div>
 ```
@@ -200,10 +201,8 @@ const { difficulty, questionCount, genre, isActive = false } = Astro.props;
 const apiEndpoint = import.meta.env.PUBLIC_API_ENDPOINT;
 ---
 
-<div
-  class={`game-card p-6 rounded-xl shadow-md ${isActive ? "border-2 border-purple-500" : ""}`}
->
-  <div class="flex justify-between items-center mb-4">
+<div class={`game-card p-6 rounded-xl shadow-md ${isActive ? "border-2 border-purple-500" : ""}`}>
+  <div class="mb-4 flex items-center justify-between">
     <h3 class="text-xl font-bold text-purple-900">{genre}</h3>
     <span
       class={`px-3 py-1 rounded-full text-sm font-medium
@@ -219,14 +218,14 @@ const apiEndpoint = import.meta.env.PUBLIC_API_ENDPOINT;
     </span>
   </div>
 
-  <p class="text-gray-700 mb-4">Contains {questionCount} questions</p>
+  <p class="mb-4 text-gray-700">Contains {questionCount} questions</p>
 
   <div class="mt-4 flex justify-end">
     <slot name="actions" />
   </div>
 
   <!-- Named slot with fallback content -->
-  <div class="text-sm text-gray-500 mt-4">
+  <div class="mt-4 text-sm text-gray-500">
     <slot name="footer">
       <p>Play and earn points!</p>
     </slot>
@@ -267,20 +266,20 @@ interface Props {
 const { question, timeLimit } = Astro.props;
 ---
 
-<div class="quiz-question p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg">
-  <div class="flex justify-between items-center mb-6">
+<div class="quiz-question rounded-2xl bg-white p-6 shadow-lg dark:bg-gray-800">
+  <div class="mb-6 flex items-center justify-between">
     <h2 class="text-2xl font-bold text-purple-800 dark:text-purple-300">
       {question.text}
     </h2>
 
     <Timer
-      class="text-lg font-mono bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-4 py-2 rounded-lg"
+      class="rounded-lg bg-purple-100 px-4 py-2 font-mono text-lg text-purple-800 dark:bg-purple-900 dark:text-purple-200"
       seconds={timeLimit}
       client:visible
     />
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+  <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
     {
       question.options.map((option, index) => (
         <AnswerOption
@@ -297,7 +296,7 @@ const { question, timeLimit } = Astro.props;
   <div class="mt-8 flex justify-end">
     <button
       id="joker-button"
-      class="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-yellow-300 transition-colors"
+      class="rounded-lg bg-yellow-500 px-4 py-2 font-medium text-white transition-colors hover:bg-yellow-600 focus:ring-2 focus:ring-yellow-300 focus:outline-none"
       client:load
     >
       Use 50:50 Joker
@@ -345,14 +344,10 @@ const isHighScore = percentage > 80;
 ---
 
 <div
-  class="score-display
-  flex flex-col items-center p-6
-  bg-gradient-to-br from-purple-50 to-pink-50
-  dark:from-purple-900 dark:to-pink-900
-  rounded-xl shadow-md"
+  class="score-display flex flex-col items-center rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 p-6 shadow-md dark:from-purple-900 dark:to-pink-900"
 >
   <!-- Sized container with responsive adjustments -->
-  <div class="w-full sm:w-3/4 md:w-1/2 max-w-md mx-auto">
+  <div class="mx-auto w-full max-w-md sm:w-3/4 md:w-1/2">
     <!-- Score display with conditional styling -->
     <div
       class={`
@@ -364,15 +359,15 @@ const isHighScore = percentage > 80;
       }
     `}
     >
-      <h3 class="text-xl font-bold mb-2">Your Score</h3>
+      <h3 class="mb-2 text-xl font-bold">Your Score</h3>
       <div class="text-4xl font-extrabold">{score}/{maxScore}</div>
-      <div class="text-sm mt-1 opacity-75">Level: {level}</div>
+      <div class="mt-1 text-sm opacity-75">Level: {level}</div>
     </div>
 
     <!-- Progress bar with dynamic width -->
-    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 mb-6">
+    <div class="mb-6 h-4 w-full rounded-full bg-gray-200 dark:bg-gray-700">
       <div
-        class="h-full rounded-full bg-purple-600 dark:bg-purple-400 transition-all duration-1000 ease-out"
+        class="h-full rounded-full bg-purple-600 transition-all duration-1000 ease-out dark:bg-purple-400"
         style={`width: ${percentage}%`}
         aria-valuenow={percentage}
         aria-valuemin="0"
@@ -383,25 +378,15 @@ const isHighScore = percentage > 80;
     </div>
 
     <!-- Responsive button layout -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+    <div class="mt-6 flex flex-col justify-center gap-4 sm:flex-row">
       <button
-        class="px-6 py-3 rounded-lg
-        bg-purple-600 hover:bg-purple-700 active:bg-purple-800
-        focus:outline-none focus:ring-2 focus:ring-purple-300
-        text-white font-medium
-        transition-colors duration-200"
+        class="rounded-lg bg-purple-600 px-6 py-3 font-medium text-white transition-colors duration-200 hover:bg-purple-700 focus:ring-2 focus:ring-purple-300 focus:outline-none active:bg-purple-800"
       >
         Play Again
       </button>
 
       <button
-        class="px-6 py-3 rounded-lg
-        bg-transparent hover:bg-purple-100 active:bg-purple-200
-        dark:hover:bg-purple-800 dark:active:bg-purple-700
-        border-2 border-purple-600
-        text-purple-600 dark:text-purple-300 font-medium
-        focus:outline-none focus:ring-2 focus:ring-purple-300
-        transition-colors duration-200"
+        class="rounded-lg border-2 border-purple-600 bg-transparent px-6 py-3 font-medium text-purple-600 transition-colors duration-200 hover:bg-purple-100 focus:ring-2 focus:ring-purple-300 focus:outline-none active:bg-purple-200 dark:text-purple-300 dark:hover:bg-purple-800 dark:active:bg-purple-700"
       >
         Share Results
       </button>
@@ -434,27 +419,24 @@ import { Icon } from "astro-icon/components";
 ---
 
 <!-- Basic icon usage -->
-<Icon name="music-note" class="w-6 h-6 text-purple-600" />
+<Icon name="music-note" class="h-6 w-6 text-purple-600" />
 
 <!-- Icon with accessibility improvements -->
 <button aria-label="Play music">
-  <Icon name="play" class="w-5 h-5 text-white" aria-hidden="true" />
+  <Icon name="play" class="h-5 w-5 text-white" aria-hidden="true" />
 </button>
 
 <!-- Responsive icon sizing -->
 <Icon
   name="share"
-  class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-blue-500 hover:text-blue-700 transition-colors"
+  class="h-4 w-4 text-blue-500 transition-colors hover:text-blue-700 sm:h-5 sm:w-5 md:h-6 md:w-6"
 />
 
 <!-- Animated icon -->
-<Icon name="loader" class="w-8 h-8 text-purple-600 animate-spin" />
+<Icon name="loader" class="h-8 w-8 animate-spin text-purple-600" />
 
 <!-- Icon with conditional styling -->
-<Icon
-  name="star"
-  class={`w-6 h-6 ${isActive ? "text-yellow-500" : "text-gray-400"}`}
-/>
+<Icon name="star" class={`w-6 h-6 ${isActive ? "text-yellow-500" : "text-gray-400"}`} />
 ```
 
 ### Best Practices:

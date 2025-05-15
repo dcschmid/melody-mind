@@ -4,7 +4,9 @@ applyTo: "**/*.test.{ts,js}"
 
 # Testing Standards for MelodyMind
 
-These instructions apply to all test files in the MelodyMind project. They incorporate modern testing best practices and ensure a comprehensive testing strategy across all components of the application.
+These instructions apply to all test files in the MelodyMind project. They incorporate modern
+testing best practices and ensure a comprehensive testing strategy across all components of the
+application.
 
 ## Testing Philosophy
 
@@ -224,7 +226,7 @@ describe("questionService", () => {
     // Verify fetch was called with correct parameters
     expect(global.fetch).toHaveBeenCalledWith(
       expect.stringContaining("/api/questions?genre=rock&difficulty=medium"),
-      expect.any(Object),
+      expect.any(Object)
     );
 
     // Verify response handling
@@ -241,9 +243,7 @@ describe("questionService", () => {
     });
 
     // Verify error handling
-    await expect(fetchQuestions("rock", "medium")).rejects.toThrow(
-      "Failed to fetch questions",
-    );
+    await expect(fetchQuestions("rock", "medium")).rejects.toThrow("Failed to fetch questions");
   });
 });
 ```
@@ -332,12 +332,7 @@ test("complete game flow works correctly", async ({ page }) => {
 
 ```typescript
 import { describe, it, expect, beforeEach } from "vitest";
-import {
-  gameStore,
-  setDifficulty,
-  setGenre,
-  incrementScore,
-} from "../stores/gameStore";
+import { gameStore, setDifficulty, setGenre, incrementScore } from "../stores/gameStore";
 
 describe("gameStore", () => {
   beforeEach(() => {
@@ -394,7 +389,8 @@ describe("gameStore", () => {
 - **State Management**: >90% coverage (critical to application state)
 - **API Services**: >85% coverage (including error handling)
 
-Use Vitest's built-in coverage reports and configure thresholds in the CI pipeline to enforce these standards.
+Use Vitest's built-in coverage reports and configure thresholds in the CI pipeline to enforce these
+standards.
 
 ## Mocking Best Practices
 
@@ -448,4 +444,5 @@ const customQuestion = createMockQuestion({
 - Verify correct handling of network issues during API calls
 - Test responsive design using Playwright's device emulation
 
-These testing standards help ensure MelodyMind delivers a high-quality, reliable gaming experience across all devices and scenarios.
+These testing standards help ensure MelodyMind delivers a high-quality, reliable gaming experience
+across all devices and scenarios.

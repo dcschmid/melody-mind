@@ -15,8 +15,7 @@ const ui = {
     "game.welcome": "Willkommen bei Melody Mind",
     "game.genre.list": "Genre Auswahl",
     "game.search.label": "Suche nach einem Genre",
-    "game.search.description":
-      "Die Liste wird während der Eingabe automatisch gefiltert",
+    "game.search.description": "Die Liste wird während der Eingabe automatisch gefiltert",
     "game.genre.play.label": "spielen",
     "game.genre.image": "Cover-Bild für",
     "game.no.results": "Keine Ergebnisse gefunden",
@@ -50,8 +49,7 @@ const ui = {
     "game.feedback.media.section": "Medien-Bereich",
     "game.feedback.audio.preview": "Musik-Vorschau",
     "game.feedback.subtitles": "Untertitel",
-    "game.feedback.audio.unsupported":
-      "Dein Browser unterstützt keine Audio-Wiedergabe.",
+    "game.feedback.audio.unsupported": "Dein Browser unterstützt keine Audio-Wiedergabe.",
     "game.feedback.streaming.links": "Musik-Streaming Links",
     "game.feedback.listen.spotify": "Auf Spotify anhören",
     "game.feedback.listen.deezer": "Auf Deezer anhören",
@@ -118,8 +116,7 @@ const ui = {
     "knowledge.search.label": "Artikel durchsuchen",
     "knowledge.search.placeholder": "Suchen...",
     "knowledge.filter.all": "Alle Keywords",
-    "knowledge.no.results":
-      "Keine Artikel gefunden. Versuche es mit anderen Suchbegriffen.",
+    "knowledge.no.results": "Keine Artikel gefunden. Versuche es mit anderen Suchbegriffen.",
     "game.remaining": "verbleibend",
     "game.default.headline": "Spiel",
     "popup.score": "Punkte: {score}",
@@ -153,8 +150,7 @@ const ui = {
     "podcast.page.description":
       "Tauche ein in die Welt der Musik mit unseren fesselnden Podcasts. Entdecke spannende Geschichten, faszinierende Hintergründe und prägende Momente verschiedener Musikepochen - perfekt für alle, die Musik nicht nur hören, sondern auch verstehen wollen.",
     "podcast.search.label": "Podcasts durchsuchen",
-    "podcast.search.placeholder":
-      "Nach faszinierenden Musikgeschichten suchen...",
+    "podcast.search.placeholder": "Nach faszinierenden Musikgeschichten suchen...",
     "podcast.search.status.all": "Alle Podcasts werden angezeigt",
     "podcast.search.status.one": "1 Podcast gefunden",
     "podcast.search.status.multiple": "{count} Podcasts gefunden",
@@ -172,11 +168,9 @@ const ui = {
     "podcast.auth.description":
       "Aktivieren Sie die Authentifizierung und greifen Sie auf das Dashboard zu.",
     "podcast.config.title": "Astropod Podcast konfigurieren",
-    "podcast.config.description":
-      "Lernen Sie, wie Sie Ihren Podcast konfigurieren.",
+    "podcast.config.description": "Lernen Sie, wie Sie Ihren Podcast konfigurieren.",
     "podcast.publish.title": "Ihre erste Episode veröffentlichen",
-    "podcast.publish.description":
-      "Veröffentlichen Sie Ihre erste Episode mit Leichtigkeit.",
+    "podcast.publish.description": "Veröffentlichen Sie Ihre erste Episode mit Leichtigkeit.",
     "podcast.conclusion.title": "Fazit",
     "podcast.conclusion.description": "Zusammenfassung und nächste Schritte.",
     "login.welcome": "Willkommen bei Melody Mind!",
@@ -184,8 +178,7 @@ const ui = {
       "Begib dich auf eine musikalische Entdeckungsreise durch die Zeiten! Teste dein Wissen in spannenden Quizzen, erkunde faszinierende Musikgenres und tauche ein in unsere mitreißenden Podcasts. Zeige dein Können, sammle Punkte und werde zur wahren Musiklegende!",
     "index.continue": "Los geht's!",
     "index.start.game.label": "Starte deine musikalische Reise",
-    "index.welcome.footnote":
-      "Vorbereitet von Musikliebhabern für Musikliebhaber. Viel Spaß!",
+    "index.welcome.footnote": "Vorbereitet von Musikliebhabern für Musikliebhaber. Viel Spaß!",
     "accessibility.wcag": "Diese Anwendung strebt WCAG AAA Konformität an.",
     "game.instructions.title": "Spielanleitung",
     "game.instructions.puzzle":
@@ -242,8 +235,7 @@ const ui = {
     "game.welcome": "Welcome to Melody Mind",
     "game.genre.list": "Genre Selection",
     "game.search.label": "Search for a genre",
-    "game.search.description":
-      "The list is filtered automatically while typing",
+    "game.search.description": "The list is filtered automatically while typing",
     "game.genre.play.label": "Play",
     "game.genre.image": "Cover image for",
     "game.no.results": "No results found",
@@ -277,8 +269,7 @@ const ui = {
     "game.feedback.media.section": "Media Section",
     "game.feedback.audio.preview": "Music Preview",
     "game.feedback.subtitles": "Subtitles",
-    "game.feedback.audio.unsupported":
-      "Your browser does not support audio playback.",
+    "game.feedback.audio.unsupported": "Your browser does not support audio playback.",
     "game.feedback.streaming.links": "Music Streaming Links",
     "game.feedback.listen.spotify": "Listen on Spotify",
     "game.feedback.listen.deezer": "Listen on Deezer",
@@ -383,19 +374,15 @@ const ui = {
     "podcast.search.status.all": "All podcasts are displayed",
     "podcast.search.status.one": "1 podcast found",
     "podcast.search.status.multiple": "{count} podcasts found",
-    "podcast.no.results":
-      "No matching podcasts found. Try a different search term.",
+    "podcast.no.results": "No matching podcasts found. Try a different search term.",
     "podcast.duration.error": "Duration unavailable",
     "podcast.play": "Play",
     "podcast.intro.title": "Introducing Astropod",
-    "podcast.intro.description":
-      "Astropod is a free and open-source serverless podcast solution.",
+    "podcast.intro.description": "Astropod is a free and open-source serverless podcast solution.",
     "podcast.deploy.title": "Deploying your serverless podcast in 2 minutes",
     "podcast.deploy.description": "Learn how to quickly deploy your podcast.",
-    "podcast.auth.title":
-      "Setting user authentication and accessing the dashboard",
-    "podcast.auth.description":
-      "Enable authentication and access the dashboard.",
+    "podcast.auth.title": "Setting user authentication and accessing the dashboard",
+    "podcast.auth.description": "Enable authentication and access the dashboard.",
     "podcast.config.title": "Configuring your Astropod Podcast",
     "podcast.config.description": "Learn how to configure your podcast.",
     "podcast.publish.title": "Publishing your first episode",
@@ -407,8 +394,7 @@ const ui = {
       "Embark on a musical journey through time! Test your knowledge in exciting quizzes, explore fascinating music genres, and dive into our captivating podcasts. Show your skills, collect points, and become a true music legend!",
     "index.continue": "Let's Go!",
     "index.start.game.label": "Start your musical journey",
-    "index.welcome.footnote":
-      "Crafted by music lovers for music lovers. Enjoy!",
+    "index.welcome.footnote": "Crafted by music lovers for music lovers. Enjoy!",
     "accessibility.wcag": "This application aims for WCAG AAA compliance.",
     "game.instructions.title": "Game Instructions",
     "game.instructions.puzzle":
@@ -442,8 +428,7 @@ const ui = {
     "playlist.search.label": "Search playlists",
     "playlist.search.placeholder": "Search by musical era or style...",
     "playlist.filter.all": "All Eras",
-    "playlist.no.results":
-      "No matching playlists found. Try a different search term.",
+    "playlist.no.results": "No matching playlists found. Try a different search term.",
     "playlist.listen.on": "Listen on",
     "playlist.listen.spotify": "Listen on Spotify",
     "playlist.listen.deezer": "Listen on Deezer",
@@ -465,8 +450,7 @@ const ui = {
     "game.welcome": "Bienvenido a Melody Mind",
     "game.genre.list": "Selección de género",
     "game.search.label": "Buscar un género",
-    "game.search.description":
-      "La lista se filtra automáticamente mientras escribes",
+    "game.search.description": "La lista se filtra automáticamente mientras escribes",
     "game.genre.play.label": "Jugar",
     "game.genre.image": "Imagen de portada para",
     "game.no.results": "No se encontraron resultados",
@@ -497,8 +481,7 @@ const ui = {
     "game.feedback.media.section": "Sección de Medios",
     "game.feedback.audio.preview": "Vista previa de música",
     "game.feedback.subtitles": "Subtítulos",
-    "game.feedback.audio.unsupported":
-      "Tu navegador no soporta la reproducción de audio.",
+    "game.feedback.audio.unsupported": "Tu navegador no soporta la reproducción de audio.",
     "game.feedback.streaming.links": "Enlaces de Streaming de Música",
     "game.feedback.listen.spotify": "Escuchar en Spotify",
     "game.feedback.listen.deezer": "Escuchar en Deezer",
@@ -556,8 +539,7 @@ const ui = {
     "game.answer.wrong": "¡Incorrecto! La respuesta correcta era: {answer}",
     "error.invalid.question": "Pregunta inválida o sin opciones disponibles",
     "error.no.initial.question": "No se encontró una pregunta inicial válida",
-    "error.no.albums.found":
-      "No se encontraron álbumes para la categoría {category}",
+    "error.no.albums.found": "No se encontraron álbumes para la categoría {category}",
     "meta.keywords":
       "Quiz Musical, Juego de Música, Quiz de Canciones, Quiz de Artistas, Quiz Musical Online, Trivia Musical, Melody Mind, Juego de Adivinanzas Musicales",
     "knowledge.title": "Base de Conocimientos Musicales",
@@ -566,8 +548,7 @@ const ui = {
     "knowledge.search.label": "Buscar artículos",
     "knowledge.search.placeholder": "Buscar...",
     "knowledge.filter.all": "Todas las Palabras Clave",
-    "knowledge.no.results":
-      "No se encontraron artículos. Intenta con otros términos de búsqueda.",
+    "knowledge.no.results": "No se encontraron artículos. Intenta con otros términos de búsqueda.",
     "game.remaining": "restante",
     "game.default.headline": "Juego",
     "popup.score": "Puntuación: {score}",
@@ -612,14 +593,10 @@ const ui = {
     "podcast.intro.title": "Presentando Astropod",
     "podcast.intro.description":
       "Astropod es una solución de podcast sin servidor gratuita y de código abierto.",
-    "podcast.deploy.title":
-      "Despliegue de tu podcast sin servidor en 2 minutos",
-    "podcast.deploy.description":
-      "Aprende cómo desplegar rápidamente tu podcast.",
-    "podcast.auth.title":
-      "Configuración de autenticación de usuarios y acceso al panel de control",
-    "podcast.auth.description":
-      "Habilita la autenticación y accede al panel de control.",
+    "podcast.deploy.title": "Despliegue de tu podcast sin servidor en 2 minutos",
+    "podcast.deploy.description": "Aprende cómo desplegar rápidamente tu podcast.",
+    "podcast.auth.title": "Configuración de autenticación de usuarios y acceso al panel de control",
+    "podcast.auth.description": "Habilita la autenticación y accede al panel de control.",
     "podcast.config.title": "Configurando tu Podcast Astropod",
     "podcast.config.description": "Aprende a configurar tu podcast.",
     "podcast.publish.title": "Publicando tu primer episodio",
@@ -642,8 +619,7 @@ const ui = {
     "game.puzzle.loading": "Cargando puzzle...",
     "game.options.legend": "Elige el álbum correcto",
     "game.next.round": "Iniciar siguiente ronda",
-    "game.puzzle.revealed":
-      "Se ha revelado el {percent}% de la portada del álbum",
+    "game.puzzle.revealed": "Se ha revelado el {percent}% de la portada del álbum",
     "game.option.choose": "Elige",
     "game.options.available": "Las opciones de respuesta ya están disponibles",
     "game.time.remaining.seconds": "Quedan {seconds} segundos",
@@ -710,8 +686,7 @@ const ui = {
     "game.welcome": "Bienvenue à Melody Mind",
     "game.genre.list": "Sélection du genre",
     "game.search.label": "Rechercher un genre",
-    "game.search.description":
-      "La liste est filtrée automatiquement pendant la saisie",
+    "game.search.description": "La liste est filtrée automatiquement pendant la saisie",
     "game.genre.play.label": "Jouer",
     "game.genre.image": "Image de couverture pour",
     "game.no.results": "Aucun résultat trouvé",
@@ -742,8 +717,7 @@ const ui = {
     "game.feedback.media.section": "Section Médias",
     "game.feedback.audio.preview": "Aperçu musical",
     "game.feedback.subtitles": "Sous-titres",
-    "game.feedback.audio.unsupported":
-      "Votre navigateur ne prend pas en charge la lecture audio.",
+    "game.feedback.audio.unsupported": "Votre navigateur ne prend pas en charge la lecture audio.",
     "game.feedback.streaming.links": "Liens de Streaming Musical",
     "game.feedback.listen.spotify": "Écouter sur Spotify",
     "game.feedback.listen.deezer": "Écouter sur Deezer",
@@ -810,8 +784,7 @@ const ui = {
     "knowledge.search.label": "Rechercher des articles",
     "knowledge.search.placeholder": "Rechercher...",
     "knowledge.filter.all": "Tous les Mots-clés",
-    "knowledge.no.results":
-      "Aucun article trouvé. Essayez d'autres termes de recherche.",
+    "knowledge.no.results": "Aucun article trouvé. Essayez d'autres termes de recherche.",
     "game.remaining": "restant",
     "game.default.headline": "Jeu",
     "popup.score": "Score : {score}",
@@ -845,8 +818,7 @@ const ui = {
     "podcast.page.description":
       "Plongez dans le monde de la musique avec nos podcasts captivants. Découvrez des histoires passionnantes, des contextes fascinants et des moments déterminants de différentes époques musicales - parfait pour tous ceux qui veulent non seulement écouter de la musique, mais aussi la comprendre.",
     "podcast.search.label": "Rechercher des podcasts",
-    "podcast.search.placeholder":
-      "Rechercher des histoires fascinantes de musique...",
+    "podcast.search.placeholder": "Rechercher des histoires fascinantes de musique...",
     "podcast.search.status.all": "Tous les podcasts sont affichés",
     "podcast.search.status.one": "1 podcast trouvé",
     "podcast.search.status.multiple": "{count} podcasts trouvés",
@@ -858,17 +830,14 @@ const ui = {
     "podcast.intro.description":
       "Astropod est une solution de podcast sans serveur gratuite et open-source.",
     "podcast.deploy.title": "Déployer votre podcast sans serveur en 2 minutes",
-    "podcast.deploy.description":
-      "Apprenez à déployer rapidement votre podcast.",
+    "podcast.deploy.description": "Apprenez à déployer rapidement votre podcast.",
     "podcast.auth.title":
       "Configurer l'authentification des utilisateurs et accéder au tableau de bord",
-    "podcast.auth.description":
-      "Activez l'authentification et accédez au tableau de bord.",
+    "podcast.auth.description": "Activez l'authentification et accédez au tableau de bord.",
     "podcast.config.title": "Configurer votre podcast Astropod",
     "podcast.config.description": "Apprenez à configurer votre podcast.",
     "podcast.publish.title": "Publier votre premier épisode",
-    "podcast.publish.description":
-      "Publiez votre premier épisode en toute simplicité.",
+    "podcast.publish.description": "Publiez votre premier épisode en toute simplicité.",
     "podcast.conclusion.title": "Conclusion",
     "podcast.conclusion.description": "Résumé et prochaines étapes.",
     "login.welcome": "Bienvenue à Melody Mind !",
@@ -876,8 +845,7 @@ const ui = {
       "Embarquez pour un voyage musical à travers le temps ! Testez vos connaissances dans des quiz passionnants, explorez des genres musicaux fascinants et plongez dans nos podcasts captivants. Montrez vos compétences, collectez des points et devenez une véritable légende de la musique !",
     "index.continue": "Allons-y !",
     "index.start.game.label": "Commencez votre voyage musical",
-    "index.welcome.footnote":
-      "Conçu par des mélomanes pour des mélomanes. Profitez-en !",
+    "index.welcome.footnote": "Conçu par des mélomanes pour des mélomanes. Profitez-en !",
     "accessibility.wcag": "Cette application vise la conformité WCAG AAA.",
     "game.instructions.title": "Instructions du Jeu",
     "game.instructions.puzzle":
@@ -889,8 +857,7 @@ const ui = {
     "game.next.round": "Commencer le tour suivant",
     "game.puzzle.revealed": "{percent}% de la pochette d'album a été révélé",
     "game.option.choose": "Choisir",
-    "game.options.available":
-      "Les options de réponse sont maintenant disponibles",
+    "game.options.available": "Les options de réponse sont maintenant disponibles",
     "game.time.remaining.seconds": "Il reste {seconds} secondes",
     "game.time.up": "Temps écoulé ! L'album correct était :",
     "game.correct.answer": "Réponse correcte",
@@ -955,8 +922,7 @@ const ui = {
     "game.welcome": "Benvenuti a Melody Mind",
     "game.genre.list": "Selezione del genere",
     "game.search.label": "Cerca un genere",
-    "game.search.description":
-      "La lista viene filtrata automaticamente durante la digitazione",
+    "game.search.description": "La lista viene filtrata automaticamente durante la digitazione",
     "game.genre.play.label": "Gioca",
     "game.genre.image": "Immagine di copertina per",
     "game.no.results": "Nessun risultato trovato",
@@ -987,8 +953,7 @@ const ui = {
     "game.feedback.media.section": "Sezione Media",
     "game.feedback.audio.preview": "Anteprima musicale",
     "game.feedback.subtitles": "Sottotitoli",
-    "game.feedback.audio.unsupported":
-      "Il tuo browser non supporta la riproduzione audio.",
+    "game.feedback.audio.unsupported": "Il tuo browser non supporta la riproduzione audio.",
     "game.feedback.streaming.links": "Link per lo Streaming Musicale",
     "game.feedback.listen.spotify": "Ascolta su Spotify",
     "game.feedback.listen.deezer": "Ascolta su Deezer",
@@ -1044,8 +1009,7 @@ const ui = {
     "game.options.label": "Opzioni di risposta",
     "game.answer.correct": "Corretto! {points} punti + {bonus} punti bonus",
     "game.answer.wrong": "Sbagliato! La risposta corretta era: {answer}",
-    "error.invalid.question":
-      "Domanda non valida o nessuna opzione disponibile",
+    "error.invalid.question": "Domanda non valida o nessuna opzione disponibile",
     "error.no.initial.question": "Nessuna domanda iniziale valida trovata",
     "error.no.albums.found": "Nessun album trovato per la categoria {category}",
     "meta.keywords":
@@ -1056,8 +1020,7 @@ const ui = {
     "knowledge.search.label": "Cerca articoli",
     "knowledge.search.placeholder": "Cerca...",
     "knowledge.filter.all": "Tutte le Parole Chiave",
-    "knowledge.no.results":
-      "Nessun articolo trovato. Prova con altri termini di ricerca.",
+    "knowledge.no.results": "Nessun articolo trovato. Prova con altri termini di ricerca.",
     "game.remaining": "rimanente",
     "game.default.headline": "Gioco",
     "popup.score": "Punteggio: {score}",
@@ -1103,17 +1066,13 @@ const ui = {
     "podcast.intro.description":
       "Astropod è una soluzione di podcast serverless gratuita e open-source.",
     "podcast.deploy.title": "Distribuire il tuo podcast serverless in 2 minuti",
-    "podcast.deploy.description":
-      "Scopri come distribuire rapidamente il tuo podcast.",
-    "podcast.auth.title":
-      "Impostare l'autenticazione degli utenti e accedere al dashboard",
-    "podcast.auth.description":
-      "Abilita l'autenticazione e accedi al dashboard.",
+    "podcast.deploy.description": "Scopri come distribuire rapidamente il tuo podcast.",
+    "podcast.auth.title": "Impostare l'autenticazione degli utenti e accedere al dashboard",
+    "podcast.auth.description": "Abilita l'autenticazione e accedi al dashboard.",
     "podcast.config.title": "Configurare il tuo Podcast Astropod",
     "podcast.config.description": "Scopri come configurare il tuo podcast.",
     "podcast.publish.title": "Pubblicare il tuo primo episodio",
-    "podcast.publish.description":
-      "Pubblica il tuo primo episodio con facilità.",
+    "podcast.publish.description": "Pubblica il tuo primo episodio con facilità.",
     "podcast.conclusion.title": "Conclusione",
     "podcast.conclusion.description": "Riepilogo e prossimi passi.",
     "login.welcome": "Benvenuto a Melody Mind!",
@@ -1132,8 +1091,7 @@ const ui = {
     "game.puzzle.loading": "Caricamento puzzle...",
     "game.options.legend": "Scegli l'album corretto",
     "game.next.round": "Inizia prossimo round",
-    "game.puzzle.revealed":
-      "È stato rivelato il {percent}% della copertina dell'album",
+    "game.puzzle.revealed": "È stato rivelato il {percent}% della copertina dell'album",
     "game.option.choose": "Scegli",
     "game.options.available": "Le opzioni di risposta sono ora disponibili",
     "game.time.remaining.seconds": "Rimangono {seconds} secondi",
@@ -1200,8 +1158,7 @@ const ui = {
     "game.welcome": "Bem-vindo ao Melody Mind",
     "game.genre.list": "Seleção de Gênero",
     "game.search.label": "Buscar um gênero",
-    "game.search.description":
-      "A lista é filtrada automaticamente durante a digitação",
+    "game.search.description": "A lista é filtrada automaticamente durante a digitação",
     "game.genre.play.label": "Jogar",
     "game.genre.image": "Imagem de capa para",
     "game.no.results": "Nenhum resultado encontrado",
@@ -1232,8 +1189,7 @@ const ui = {
     "game.feedback.media.section": "Seção de Mídia",
     "game.feedback.audio.preview": "Prévia da Música",
     "game.feedback.subtitles": "Legendas",
-    "game.feedback.audio.unsupported":
-      "Seu navegador não suporta reprodução de áudio.",
+    "game.feedback.audio.unsupported": "Seu navegador não suporta reprodução de áudio.",
     "game.feedback.streaming.links": "Links de Streaming de Música",
     "game.feedback.listen.spotify": "Ouvir no Spotify",
     "game.feedback.listen.deezer": "Ouvir no Deezer",
@@ -1254,8 +1210,7 @@ const ui = {
     "share.twitter": "Compartilhar no X/Twitter",
     "share.email": "Compartilhar por Email",
     "share.email.label": "Email",
-    "share.copy":
-      "Copiar texto de compartilhamento para a área de transferência",
+    "share.copy": "Copiar texto de compartilhamento para a área de transferência",
     "share.copy.label": "Copiar texto",
     "error.default": "Ocorreu um erro",
     "error.close": "Fechar mensagem de erro",
@@ -1292,8 +1247,7 @@ const ui = {
     "game.answer.wrong": "Errado! A resposta correta era: {answer}",
     "error.invalid.question": "Questão inválida ou sem opções disponíveis",
     "error.no.initial.question": "Nenhuma questão inicial válida encontrada",
-    "error.no.albums.found":
-      "Nenhum álbum encontrado para a categoria {category}",
+    "error.no.albums.found": "Nenhum álbum encontrado para a categoria {category}",
     "meta.keywords":
       "Quiz Musical, Jogo de Música, Quiz de Músicas, Quiz de Artistas, Quiz Musical Online, Trivia Musical, Melody Mind, Jogo de Adivinhação Musical",
     "knowledge.title": "Base de Conhecimento Musical",
@@ -1302,8 +1256,7 @@ const ui = {
     "knowledge.search.label": "Pesquisar artigos",
     "knowledge.search.placeholder": "Pesquisar...",
     "knowledge.filter.all": "Todas as Palavras-chave",
-    "knowledge.no.results":
-      "Nenhum artigo encontrado. Tente termos de pesquisa diferentes.",
+    "knowledge.no.results": "Nenhum artigo encontrado. Tente termos de pesquisa diferentes.",
     "game.remaining": "restante",
     "game.default.headline": "Jogo",
     "popup.score": "Puntuación: {score}",
@@ -1349,16 +1302,13 @@ const ui = {
     "podcast.intro.description":
       "Astropod é uma solução de podcast sem servidor gratuita e de código aberto.",
     "podcast.deploy.title": "Implantando seu podcast sem servidor em 2 minutos",
-    "podcast.deploy.description":
-      "Aprenda a implantar rapidamente seu podcast.",
-    "podcast.auth.title":
-      "Configurando autenticação de usuário e acessando o painel",
+    "podcast.deploy.description": "Aprenda a implantar rapidamente seu podcast.",
+    "podcast.auth.title": "Configurando autenticação de usuário e acessando o painel",
     "podcast.auth.description": "Habilite a autenticação e acesse o painel.",
     "podcast.config.title": "Configurando seu Podcast Astropod",
     "podcast.config.description": "Aprenda a configurar seu podcast.",
     "podcast.publish.title": "Publicando seu primeiro episódio",
-    "podcast.publish.description":
-      "Publique seu primeiro episódio com facilidade.",
+    "podcast.publish.description": "Publique seu primeiro episódio com facilidade.",
     "podcast.conclusion.title": "Conclusão",
     "podcast.conclusion.description": "Resumo e próximos passos.",
     "login.welcome": "Bem-vindo ao Melody Mind!",
@@ -1366,8 +1316,7 @@ const ui = {
       "Embarque em uma jornada musical através do tempo! Teste seus conhecimentos em quizzes emocionantes, explore gêneros musicais fascinantes e mergulhe em nossos podcasts cativantes. Mostre suas habilidades, colete pontos e torne-se uma verdadeira lenda da música!",
     "index.continue": "Vamos lá!",
     "index.start.game.label": "Inicie sua jornada musical",
-    "index.welcome.footnote":
-      "Feito por amantes da música para amantes da música. Aproveite!",
+    "index.welcome.footnote": "Feito por amantes da música para amantes da música. Aproveite!",
     "accessibility.wcag": "Esta aplicação visa a conformidade WCAG AAA.",
     "game.instructions.title": "Instruções do Jogo",
     "game.instructions.puzzle":
@@ -1475,8 +1424,7 @@ const ui = {
     "game.feedback.media.section": "Mediesektion",
     "game.feedback.audio.preview": "Musikforhåndsvisning",
     "game.feedback.subtitles": "Undertekster",
-    "game.feedback.audio.unsupported":
-      "Din browser understøtter ikke lydafspilning.",
+    "game.feedback.audio.unsupported": "Din browser understøtter ikke lydafspilning.",
     "game.feedback.streaming.links": "Musik Streaming Links",
     "game.feedback.listen.spotify": "Lyt på Spotify",
     "game.feedback.listen.deezer": "Lyt på Deezer",
@@ -1532,8 +1480,7 @@ const ui = {
     "game.options.label": "Svarmuligheder",
     "game.answer.correct": "Korrekt! {points} point + {bonus} bonuspoint",
     "game.answer.wrong": "Forkert! Det rigtige svar var: {answer}",
-    "error.invalid.question":
-      "Ugyldigt spørgsmål eller ingen tilgængelige muligheder",
+    "error.invalid.question": "Ugyldigt spørgsmål eller ingen tilgængelige muligheder",
     "error.no.initial.question": "Intet gyldigt startspørgsmål fundet",
     "error.no.albums.found": "Ingen albums fundet for kategorien {category}",
     "meta.keywords":
@@ -1562,8 +1509,7 @@ const ui = {
     "knowledge.back.to.list": "Tilbage til Artikler",
     "knowledge.interact.heading": "Lyt & Spil",
     "knowledge.play.heading": "Spil denne Genre",
-    "knowledge.play.description":
-      "Test din viden om denne musikgenre i vores interaktive quiz!",
+    "knowledge.play.description": "Test din viden om denne musikgenre i vores interaktive quiz!",
     "knowledge.play.category": "Start Musikquiz",
     "category.play": "Spil",
     "play.cover.puzzle": "Spil Cover Puzzle",
@@ -1578,20 +1524,15 @@ const ui = {
     "podcast.search.status.all": "Alle podcasts vises",
     "podcast.search.status.one": "1 podcast fundet",
     "podcast.search.status.multiple": "{count} podcasts fundet",
-    "podcast.no.results":
-      "Ingen matchende podcasts fundet. Prøv et andet søgeord.",
+    "podcast.no.results": "Ingen matchende podcasts fundet. Prøv et andet søgeord.",
     "podcast.duration.error": "Varighed ikke tilgængelig",
     "podcast.play": "Afspil",
     "podcast.intro.title": "Introduktion til Astropod",
-    "podcast.intro.description":
-      "Astropod er en gratis og open-source serverløs podcastløsning.",
+    "podcast.intro.description": "Astropod er en gratis og open-source serverløs podcastløsning.",
     "podcast.deploy.title": "Udrulning af din serverløse podcast på 2 minutter",
-    "podcast.deploy.description":
-      "Lær hvordan du hurtigt udruller din podcast.",
-    "podcast.auth.title":
-      "Opsætning af brugergodkendelse og adgang til dashboardet",
-    "podcast.auth.description":
-      "Aktivér godkendelse og få adgang til dashboardet.",
+    "podcast.deploy.description": "Lær hvordan du hurtigt udruller din podcast.",
+    "podcast.auth.title": "Opsætning af brugergodkendelse og adgang til dashboardet",
+    "podcast.auth.description": "Aktivér godkendelse og få adgang til dashboardet.",
     "podcast.config.title": "Konfigurering af din Astropod Podcast",
     "podcast.config.description": "Lær hvordan du konfigurerer din podcast.",
     "podcast.publish.title": "Udgivelse af din første episode",
@@ -1603,10 +1544,8 @@ const ui = {
       "Begiv dig ud på en musikalsk rejse gennem tiden! Test din viden i spændende quizzer, udforsk fascinerende musikgenrer og dyk ned i vores fængslende podcasts. Vis dine evner, saml point og bliv en sand musiklegende!",
     "index.continue": "Lad os gå!",
     "index.start.game.label": "Start din musikalske rejse",
-    "index.welcome.footnote":
-      "Skabt af musikelskere til musikelskere. God fornøjelse!",
-    "accessibility.wcag":
-      "Denne applikation stræber efter WCAG AAA-overensstemmelse.",
+    "index.welcome.footnote": "Skabt af musikelskere til musikelskere. God fornøjelse!",
+    "accessibility.wcag": "Denne applikation stræber efter WCAG AAA-overensstemmelse.",
     "game.instructions.title": "Spilvejledning",
     "game.instructions.puzzle":
       "Prøv at gætte albummet, mens coveret afsløres gradvist. Jo hurtigere du gætter rigtigt, jo flere point får du.",
@@ -1659,8 +1598,7 @@ const ui = {
     "playlist.search.label": "Søg i playlister",
     "playlist.search.placeholder": "Søg efter musikæra eller stil...",
     "playlist.filter.all": "Alle Epoker",
-    "playlist.no.results":
-      "Ingen matchende playlister fundet. Prøv et andet søgeord.",
+    "playlist.no.results": "Ingen matchende playlister fundet. Prøv et andet søgeord.",
     "playlist.listen.on": "Lyt på",
     "playlist.listen.spotify": "Lyt på Spotify",
     "playlist.listen.deezer": "Lyt på Deezer",
@@ -1682,8 +1620,7 @@ const ui = {
     "game.welcome": "Welkom bij Melody Mind",
     "game.genre.list": "Genre Selectie",
     "game.search.label": "Zoek een genre",
-    "game.search.description":
-      "De lijst wordt automatisch gefilterd tijdens het typen",
+    "game.search.description": "De lijst wordt automatisch gefilterd tijdens het typen",
     "game.genre.play.label": "Spelen",
     "game.genre.image": "Coverafbeelding voor",
     "game.no.results": "Geen resultaten gevonden",
@@ -1714,8 +1651,7 @@ const ui = {
     "game.feedback.media.section": "Media Sectie",
     "game.feedback.audio.preview": "Muziekvoorbeeld",
     "game.feedback.subtitles": "Ondertitels",
-    "game.feedback.audio.unsupported":
-      "Je browser ondersteunt geen audioweergave.",
+    "game.feedback.audio.unsupported": "Je browser ondersteunt geen audioweergave.",
     "game.feedback.streaming.links": "Muziek Streaming Links",
     "game.feedback.listen.spotify": "Luister op Spotify",
     "game.feedback.listen.deezer": "Luister op Deezer",
@@ -1782,8 +1718,7 @@ const ui = {
     "knowledge.search.label": "Artikelen zoeken",
     "knowledge.search.placeholder": "Zoeken...",
     "knowledge.filter.all": "Alle Trefwoorden",
-    "knowledge.no.results":
-      "Geen artikelen gevonden. Probeer andere zoektermen.",
+    "knowledge.no.results": "Geen artikelen gevonden. Probeer andere zoektermen.",
     "nav.donate.heading": "Steun ons",
     "nav.donate.paypal": "Doneer via PayPal",
     "nav.donate.coffee": "Trakteer me op koffie",
@@ -1801,8 +1736,7 @@ const ui = {
     "knowledge.back.to.list": "Terug naar Artikelen",
     "knowledge.interact.heading": "Luisteren & Spelen",
     "knowledge.play.heading": "Speel dit Genre",
-    "knowledge.play.description":
-      "Test je kennis over dit muziekgenre in onze interactieve quiz!",
+    "knowledge.play.description": "Test je kennis over dit muziekgenre in onze interactieve quiz!",
     "knowledge.play.category": "Start Muziekquiz",
     "category.play": "Spelen",
     "play.cover.puzzle": "Speel Cover Puzzle",
@@ -1817,20 +1751,16 @@ const ui = {
     "podcast.search.status.all": "Alle podcasts worden weergegeven",
     "podcast.search.status.one": "1 podcast gevonden",
     "podcast.search.status.multiple": "{count} podcasts gevonden",
-    "podcast.no.results":
-      "Geen overeenkomende podcasts gevonden. Probeer een andere zoekterm.",
+    "podcast.no.results": "Geen overeenkomende podcasts gevonden. Probeer een andere zoekterm.",
     "podcast.duration.error": "Duur niet beschikbaar",
     "podcast.play": "Afspelen",
     "podcast.intro.title": "Introductie van Astropod",
     "podcast.intro.description":
       "Astropod is een gratis en open-source serverloze podcastoplossing.",
     "podcast.deploy.title": "Je serverloze podcast in 2 minuten implementeren",
-    "podcast.deploy.description":
-      "Leer hoe je je podcast snel kunt implementeren.",
-    "podcast.auth.title":
-      "Gebruikersauthenticatie instellen en toegang krijgen tot het dashboard",
-    "podcast.auth.description":
-      "Schakel authenticatie in en krijg toegang tot het dashboard.",
+    "podcast.deploy.description": "Leer hoe je je podcast snel kunt implementeren.",
+    "podcast.auth.title": "Gebruikersauthenticatie instellen en toegang krijgen tot het dashboard",
+    "podcast.auth.description": "Schakel authenticatie in en krijg toegang tot het dashboard.",
     "podcast.config.title": "Je Astropod Podcast configureren",
     "podcast.config.description": "Leer hoe je je podcast configureert.",
     "podcast.publish.title": "Je eerste aflevering publiceren",
@@ -1951,8 +1881,7 @@ const ui = {
     "game.feedback.media.section": "Media Sektion",
     "game.feedback.audio.preview": "Musikförhandsvisning",
     "game.feedback.subtitles": "Undertexter",
-    "game.feedback.audio.unsupported":
-      "Din webbläsare stöder inte ljuduppspelning.",
+    "game.feedback.audio.unsupported": "Din webbläsare stöder inte ljuduppspelning.",
     "game.feedback.streaming.links": "Musik Streaming Länkar",
     "game.feedback.listen.spotify": "Lyssna på Spotify",
     "game.feedback.listen.deezer": "Lyssna på Deezer",
@@ -2008,8 +1937,7 @@ const ui = {
     "game.options.label": "Svarsalternativ",
     "game.answer.correct": "Korrekt! {points} poäng + {bonus} bonuspoäng",
     "game.answer.wrong": "Fel! Rätt svar var: {answer}",
-    "error.invalid.question":
-      "Ogiltig fråga eller inga alternativ tillgängliga",
+    "error.invalid.question": "Ogiltig fråga eller inga alternativ tillgängliga",
     "error.no.initial.question": "Ingen giltig startfråga hittades",
     "error.no.albums.found": "Inga album hittades för kategorin {category}",
     "meta.keywords":
@@ -2020,8 +1948,7 @@ const ui = {
     "knowledge.search.label": "Sök artiklar",
     "knowledge.search.placeholder": "Sök...",
     "knowledge.filter.all": "Alla Nyckelord",
-    "knowledge.no.results":
-      "Inga artiklar hittades. Försök med andra söktermer.",
+    "knowledge.no.results": "Inga artiklar hittades. Försök med andra söktermer.",
     "nav.donate.heading": "Stöd oss",
     "nav.donate.paypal": "Donera via PayPal",
     "nav.donate.coffee": "Bjud mig på kaffe",
@@ -2055,20 +1982,16 @@ const ui = {
     "podcast.search.status.all": "Alla podcasts visas",
     "podcast.search.status.one": "1 podcast hittades",
     "podcast.search.status.multiple": "{count} podcasts hittades",
-    "podcast.no.results":
-      "Inga matchande podcasts hittades. Prova en annan sökterm.",
+    "podcast.no.results": "Inga matchande podcasts hittades. Prova en annan sökterm.",
     "podcast.duration.error": "Varaktighet inte tillgänglig",
     "podcast.play": "Spela",
     "podcast.intro.title": "Introduktion av Astropod",
     "podcast.intro.description":
       "Astropod är en gratis och öppen källkodslösning för serverlösa podcasts.",
     "podcast.deploy.title": "Distribuera din serverlösa podcast på 2 minuter",
-    "podcast.deploy.description":
-      "Lär dig hur du snabbt distribuerar din podcast.",
-    "podcast.auth.title":
-      "Ställa in användarautentisering och komma åt instrumentpanelen",
-    "podcast.auth.description":
-      "Aktivera autentisering och få tillgång till instrumentpanelen.",
+    "podcast.deploy.description": "Lär dig hur du snabbt distribuerar din podcast.",
+    "podcast.auth.title": "Ställa in användarautentisering och komma åt instrumentpanelen",
+    "podcast.auth.description": "Aktivera autentisering och få tillgång till instrumentpanelen.",
     "podcast.config.title": "Konfigurera din Astropod Podcast",
     "podcast.config.description": "Lär dig hur du konfigurerar din podcast.",
     "podcast.publish.title": "Publicera ditt första avsnitt",
@@ -2081,8 +2004,7 @@ const ui = {
     "index.continue": "Låt oss börja!",
     "index.start.game.label": "Påbörja din musikaliska resa",
     "index.welcome.footnote": "Skapat av musikälskare för musikälskare. Njut!",
-    "accessibility.wcag":
-      "Denna applikation strävar efter WCAG AAA-efterlevnad.",
+    "accessibility.wcag": "Denna applikation strävar efter WCAG AAA-efterlevnad.",
     "game.instructions.title": "Spelinstruktioner",
     "game.instructions.puzzle":
       "Försök att gissa albumet medan omslaget gradvis avslöjas. Ju snabbare du gissar rätt, desto fler poäng får du.",
@@ -2135,8 +2057,7 @@ const ui = {
     "playlist.search.label": "Sök spellistor",
     "playlist.search.placeholder": "Sök efter musikepok eller stil...",
     "playlist.filter.all": "Alla Epoker",
-    "playlist.no.results":
-      "Inga matchande spellistor hittades. Prova en annan sökterm.",
+    "playlist.no.results": "Inga matchande spellistor hittades. Prova en annan sökterm.",
     "playlist.listen.on": "Lyssna på",
     "playlist.listen.spotify": "Lyssna på Spotify",
     "playlist.listen.deezer": "Lyssna på Deezer",
@@ -2158,8 +2079,7 @@ const ui = {
     "game.welcome": "Tervetuloa Melody Mindiin",
     "game.genre.list": "Genren valinta",
     "game.search.label": "Etsi genreä",
-    "game.search.description":
-      "Lista suodattuu automaattisesti kirjoittaessasi",
+    "game.search.description": "Lista suodattuu automaattisesti kirjoittaessasi",
     "game.genre.play.label": "Pelaa",
     "game.genre.image": "Kansikuva genrelle",
     "game.no.results": "Ei tuloksia",
@@ -2246,8 +2166,7 @@ const ui = {
     "game.options.label": "Vastausvaihtoehdot",
     "game.answer.correct": "Oikein! {points} pistettä + {bonus} bonuspistettä",
     "game.answer.wrong": "Väärin! Oikea vastaus oli: {answer}",
-    "error.invalid.question":
-      "Virheellinen kysymys tai ei vaihtoehtoja saatavilla",
+    "error.invalid.question": "Virheellinen kysymys tai ei vaihtoehtoja saatavilla",
     "error.no.initial.question": "Kelvollista aloituskysymystä ei löytynyt",
     "error.no.albums.found": "Albumeita ei löytynyt kategorialle {category}",
     "meta.keywords":
@@ -2292,8 +2211,7 @@ const ui = {
     "podcast.search.status.all": "Kaikki podcastit näytetään",
     "podcast.search.status.one": "1 podcast löytyi",
     "podcast.search.status.multiple": "{count} podcastia löytyi",
-    "podcast.no.results":
-      "Ei vastaavia podcasteja löytynyt. Kokeile toista hakutermiä.",
+    "podcast.no.results": "Ei vastaavia podcasteja löytynyt. Kokeile toista hakutermiä.",
     "podcast.duration.error": "Kesto ei saatavilla",
     "podcast.play": "Toista",
     "podcast.intro.title": "Esittelyssä Astropod",
@@ -2301,10 +2219,8 @@ const ui = {
       "Astropod on ilmainen ja avoimen lähdekoodin serveritön podcast-ratkaisu.",
     "podcast.deploy.title": "Serverittömän podcastin käyttöönotto 2 minuutissa",
     "podcast.deploy.description": "Opi ottamaan podcastisi nopeasti käyttöön.",
-    "podcast.auth.title":
-      "Käyttäjäntodennuksen asettaminen ja hallintapaneelin käyttö",
-    "podcast.auth.description":
-      "Ota todennus käyttöön ja käytä hallintapaneelia.",
+    "podcast.auth.title": "Käyttäjäntodennuksen asettaminen ja hallintapaneelin käyttö",
+    "podcast.auth.description": "Ota todennus käyttöön ja käytä hallintapaneelia.",
     "podcast.config.title": "Astropod Podcastin konfigurointi",
     "podcast.config.description": "Opi konfiguroimaan podcastisi.",
     "podcast.publish.title": "Ensimmäisen jakson julkaiseminen",
@@ -2316,8 +2232,7 @@ const ui = {
       "Lähde musiikilliselle matkalle ajan halki! Testaa tietojasi jännittävissä tietovisoissa, tutki kiehtovia musiikkigenrejä ja sukella mukaansatempaaviin podcasteihimme. Näytä taitosi, kerää pisteitä ja tule todelliseksi musiikkilegendaksi!",
     "index.continue": "Aloitetaan!",
     "index.start.game.label": "Aloita musiikillinen matkasi",
-    "index.welcome.footnote":
-      "Musiikin rakastajien tekemä musiikin rakastajille. Nauti!",
+    "index.welcome.footnote": "Musiikin rakastajien tekemä musiikin rakastajille. Nauti!",
     "accessibility.wcag": "Tämä sovellus pyrkii WCAG AAA -yhteensopivuuteen.",
     "game.instructions.title": "Peliohjeet",
     "game.instructions.puzzle":
@@ -2369,11 +2284,9 @@ const ui = {
     "playlist.page.description":
       "Sukella huolellisesti kuratoituihin soittolistoihin eri aikakausilta ja genreistä. Täydellinen uuden musiikin löytämiseen tai suosikkiklassikoiden uudelleenkokemiseen.",
     "playlist.search.label": "Etsi soittolistoja",
-    "playlist.search.placeholder":
-      "Hae musiikkiaikakauden tai tyylin mukaan...",
+    "playlist.search.placeholder": "Hae musiikkiaikakauden tai tyylin mukaan...",
     "playlist.filter.all": "Kaikki Aikakaudet",
-    "playlist.no.results":
-      "Ei löytynyt sopivia soittolistoja. Kokeile toista hakutermiä.",
+    "playlist.no.results": "Ei löytynyt sopivia soittolistoja. Kokeile toista hakutermiä.",
     "playlist.listen.on": "Kuuntele palvelussa",
     "playlist.listen.spotify": "Kuuntele Spotifyssa",
     "playlist.listen.deezer": "Kuuntele Deezerissä",
@@ -2384,5 +2297,5 @@ const ui = {
 const fs = require("fs");
 fs.writeFileSync(
   "/home/daniel/projects/melody-mind/scripts/temp-translations.json",
-  JSON.stringify(ui, null, 2),
+  JSON.stringify(ui, null, 2)
 );

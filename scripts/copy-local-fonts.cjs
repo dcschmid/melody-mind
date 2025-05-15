@@ -31,9 +31,7 @@ function copyLocalFonts() {
 
   if (!fs.existsSync(LOCAL_FONTS_DIR)) {
     fs.mkdirSync(LOCAL_FONTS_DIR, { recursive: true });
-    console.log(
-      `Created ${LOCAL_FONTS_DIR} - please place your font files in this directory`,
-    );
+    console.log(`Created ${LOCAL_FONTS_DIR} - please place your font files in this directory`);
     return 0;
   }
 
@@ -45,13 +43,11 @@ function copyLocalFonts() {
         file.endsWith(".ttf") ||
         file.endsWith(".otf") ||
         file.endsWith(".woff") ||
-        file.endsWith(".woff2"),
+        file.endsWith(".woff2")
     );
 
   if (fontFiles.length === 0) {
-    console.log(
-      "No font files found in assets/fonts directory. Please add your font files there.",
-    );
+    console.log("No font files found in assets/fonts directory. Please add your font files there.");
     return 0;
   }
 

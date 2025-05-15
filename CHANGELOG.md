@@ -12,7 +12,8 @@ All notable changes to this project will be documented in this file.
 
 ### 🚀 Features
 
-- _(knowledge-de)_ Add comprehensive articles for the 1950s and 1960s music eras to enhance cultural content and user engagement
+- _(knowledge-de)_ Add comprehensive articles for the 1950s and 1960s music eras to enhance cultural
+  content and user engagement
 - Add danish articles
 - Add english articles
 - Add english articles
@@ -29,7 +30,8 @@ All notable changes to this project will be documented in this file.
 
 - Fixes
 - Prettier fixes
-- _(astro)_ Update image paths to include language-specific variations for social sharing images in knowledge, playlists, and podcasts pages to enhance localization support
+- _(astro)_ Update image paths to include language-specific variations for social sharing images in
+  knowledge, playlists, and podcasts pages to enhance localization support
 - Category json handling fixes
 
 ### 💼 Other
@@ -39,14 +41,18 @@ All notable changes to this project will be documented in this file.
 ### 🎨 Styling
 
 - _(global.css)_ Add margin-bottom to paragraph elements for improved spacing in the layout
-- _(Joker.astro)_ Clean up whitespace and formatting for improved readability and consistency in the code structure
-- _(knowledge/index.astro, podcasts.astro)_ Format comments and code for improved readability and consistency
+- _(Joker.astro)_ Clean up whitespace and formatting for improved readability and consistency in the
+  code structure
+- _(knowledge/index.astro, podcasts.astro)_ Format comments and code for improved readability and
+  consistency
 - _(knowledge)_ Format code for better readability and consistency in spacing and line breaks
 
 ### ⚙️ Miscellaneous Tasks
 
-- _(EndOverlay.astro)_ Remove unused removeEventListener function to clean up code and improve maintainability
-- Clean up whitespace and improve code formatting across multiple files for better readability and maintainability
+- _(EndOverlay.astro)_ Remove unused removeEventListener function to clean up code and improve
+  maintainability
+- Clean up whitespace and improve code formatting across multiple files for better readability and
+  maintainability
 
 ## [3.0.0] - 2025-03-19
 

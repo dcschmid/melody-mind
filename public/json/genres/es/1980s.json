@@ -23,12 +23,7 @@
         },
         {
           "question": "¿Qué famoso estilo musical revivió Michael Jackson en su icónico álbum 'Thriller' lanzado en 1982, que también se había popularizado en la escena musical hispana de la época?",
-          "options": [
-            "El rock and roll",
-            "El funk",
-            "La música disco",
-            "El reggae"
-          ],
+          "options": ["El rock and roll", "El funk", "La música disco", "El reggae"],
           "correctAnswer": "La música disco",
           "trivia": "Michael Jackson, en su álbum 'Thriller', no solo consolidó su estatus como el Rey del Pop, sino que también revivió el espíritu vibrante de la música disco, un género que había arrasado en los años 70 y que seguía siendo popular en la cultura musical de 1982. Este estilo, con sus ritmos pegajosos y su energía contagiosa, se refleja en canciones como 'Billie Jean' y 'Thriller', las cuales se convirtieron en himnos de baile en todo el mundo. La música disco, con su fusión de ritmos funk y soul, resonaba incluso en las pistas de baile de América Latina, donde artistas como Gloria Gaynor y Village People también dejaron su huella. En una época en la que la moda y la música estaban interconectadas, el álbum 'Thriller' capturó la esencia de una generación que buscaba diversión y celebración. Así, Michael Jackson no solo hizo historia con sus movimientos de baile, sino que también revitalizó una era musical que sigue viva en el corazón de muchos."
         },
@@ -104,12 +99,7 @@
         },
         {
           "question": "¿Qué legendario artista colaboró con Michael Jackson en la icónica canción 'The Girl Is Mine' del álbum 'Thriller' en 1982, creando un dueto que capturó la atención de la industria musical y los fans de todo el mundo?",
-          "options": [
-            "Stevie Wonder",
-            "Paul McCartney",
-            "Lionel Richie",
-            "David Bowie"
-          ],
+          "options": ["Stevie Wonder", "Paul McCartney", "Lionel Richie", "David Bowie"],
           "correctAnswer": "Paul McCartney",
           "trivia": "El dueto entre Michael Jackson y Paul McCartney en 'The Girl Is Mine' marcó un hito en la música pop de los años 80. Esta colaboración no solo fue un éxito comercial, alcanzando el número 2 en la lista Billboard Hot 100, sino que también simbolizó la unión de dos de las figuras más icónicas de la música. En el contexto de 1982, cuando el álbum 'Thriller' se lanzaba y revolucionaba la industria, la combinación de las voces de Jackson y McCartney resonó en un mundo que empezaba a ver la fusión de estilos y géneros. Además, esta canción fue una de las primeras muestras de la influencia del pop británico en el pop estadounidense, un fenómeno que comenzó a tomar fuerza en esa época. En un momento donde canciones como 'La bilirrubina' de Juan Luis Guerra también estaban en auge, el impacto de 'Thriller' y su colaboración con McCartney dejó una huella imborrable en la cultura musical de todo el mundo, especialmente en el ámbito hispano."
         }
@@ -151,12 +141,7 @@
         },
         {
           "question": "¿Qué canción del álbum 'Purple Rain' de Prince fue aclamada por la crítica y se considera un himno de amor en la cultura pop de los años 80?",
-          "options": [
-            "When Doves Cry",
-            "Let's Go Crazy",
-            "I Would Die 4 U",
-            "Purple Rain"
-          ],
+          "options": ["When Doves Cry", "Let's Go Crazy", "I Would Die 4 U", "Purple Rain"],
           "correctAnswer": "Purple Rain",
           "trivia": "La canción 'Purple Rain' se ha convertido en un símbolo perdurable no solo del álbum homónimo de Prince, lanzado en 1984, sino también de una época en la que la música pop y rock estaban en plena efervescencia. Aclamada por su emotiva letra y su poderosa interpretación vocal, esta balada ha resonado en generaciones, siendo considerada un himno de amor y un clásico atemporal. La crítica destacó la habilidad de Prince para fusionar géneros como el rock, el pop y el gospel, creando un sonido único que capturó la esencia de los años 80. En el contexto de la cultura hispana de la época, el impacto de 'Purple Rain' fue igualmente notable, siendo frecuentemente interpretada en conciertos y eventos, y creando una conexión emocional con el público latino. Este álbum no solo lanzó a Prince a la fama internacional, sino que también dejó una huella indeleble en la música, influyendo en numerosos artistas que vinieron después."
         }
@@ -252,12 +237,7 @@
         },
         {
           "question": "¿Cuál de los sencillos de Bruce Springsteen del álbum 'Born in the U.S.A.' alcanzó el número uno en la lista Billboard Hot 100 en 1984?",
-          "options": [
-            "Dancing in the Dark",
-            "Glory Days",
-            "I'm on Fire",
-            "Born in the U.S.A."
-          ],
+          "options": ["Dancing in the Dark", "Glory Days", "I'm on Fire", "Born in the U.S.A."],
           "correctAnswer": "Dancing in the Dark",
           "trivia": "En 1984, 'Dancing in the Dark' se convirtió en uno de los sencillos más emblemáticos de Bruce Springsteen, alcanzando el número uno en la lista Billboard Hot 100. Este éxito marcó un hito en la carrera del artista, ya que fue uno de los temas que ayudó a catapultar el álbum 'Born in the U.S.A.' a un estrellato sin precedentes. La canción no solo capturó la esencia del rock estadounidense de la época, sino que también resonó con un público que buscaba una voz auténtica en tiempos de incertidumbre social y económica. En el contexto de la música hispana de los años 80, artistas como Juan Gabriel y Ana Belén también estaban cosechando éxitos, creando un crisol musical que compartía temas de amor, lucha y esperanza. 'Born in the U.S.A.' vendió más de 15 millones de copias solo en Estados Unidos, consolidando a Springsteen como un ícono de la música rock y un referente cultural que sigue influyendo en generaciones actuales."
         },
@@ -287,12 +267,7 @@
         },
         {
           "question": "En el álbum 'Born in the U.S.A.' de Bruce Springsteen, ¿cuál fue la canción que se convirtió en un gran éxito crossover, alcanzando el número uno en la lista Billboard Hot 100 en 1984, y que a menudo se malinterpreta como un himno patriótico?",
-          "options": [
-            "Dancing in the Dark",
-            "Glory Days",
-            "I'm on Fire",
-            "Born in the U.S.A."
-          ],
+          "options": ["Dancing in the Dark", "Glory Days", "I'm on Fire", "Born in the U.S.A."],
           "correctAnswer": "Born in the U.S.A.",
           "trivia": "La canción 'Born in the U.S.A.' se lanzó como el sencillo principal del álbum homónimo en 1984 y se convirtió en un fenómeno cultural. A menudo confundida como un himno de celebración, la letra en realidad aborda la desilusión y el sufrimiento de los veteranos de guerra en Estados Unidos. Este contraste entre el sonido festivo y el mensaje sombrío resonó profundamente en una época marcada por tensiones sociales y políticas, lo que la convirtió en un clásico atemporal. En ese mismo año, la canción alcanzó el número uno en la lista Billboard Hot 100, consolidando a Bruce Springsteen como una figura emblemática de la música rock. Además, el álbum 'Born in the U.S.A.' se convirtió en uno de los más vendidos de todos los tiempos, reflejando el espíritu de lucha y esperanza de una generación que buscaba identidad en medio de la adversidad."
         },
@@ -322,12 +297,7 @@
         },
         {
           "question": "¿Qué destacado productor fue clave en la creación del álbum 'Born in the U.S.A.' de Bruce Springsteen, colaborando estrechamente en su sonido característico de los años 80?",
-          "options": [
-            "Jimmy Iovine",
-            "T Bone Burnett",
-            "Daniel Lanois",
-            "George Martin"
-          ],
+          "options": ["Jimmy Iovine", "T Bone Burnett", "Daniel Lanois", "George Martin"],
           "correctAnswer": "Jimmy Iovine",
           "trivia": "La respuesta correcta es Jimmy Iovine, quien fue el productor del emblemático álbum 'Born in the U.S.A.' lanzado en 1984. Iovine, conocido por su capacidad para fusionar rock con elementos pop, logró crear un sonido robusto y accesible que resonó en la cultura musical de la época. Además, es interesante destacar que el álbum no solo catapultó a Springsteen a la fama mundial, sino que también reflejó las tensiones sociales y económicas de Estados Unidos durante los años 80, un periodo marcado por crisis laborales y descontento social. En este contexto, las letras de Springsteen capturaron la lucha del ciudadano promedio, creando una conexión emocional profunda con su audiencia. Iovine, con su enfoque innovador, ayudó a dar forma a este álbum, que se convirtió en un referente no solo en el rock estadounidense, sino también en la historia de la música a nivel global."
         },
@@ -369,12 +339,7 @@
         },
         {
           "question": "¿Qué famoso músico hizo una aparición especial en el álbum 'Synchronicity' de The Police en 1983, aportando su talento al tema 'King of Pain'?",
-          "options": [
-            "David Bowie",
-            "Stevie Wonder",
-            "Eric Clapton",
-            "Elton John"
-          ],
+          "options": ["David Bowie", "Stevie Wonder", "Eric Clapton", "Elton John"],
           "correctAnswer": "Stevie Wonder",
           "trivia": "En el emblemático álbum 'Synchronicity' de The Police, lanzado en 1983, se puede escuchar la distintiva armonía de Stevie Wonder en el tema 'King of Pain'. Esta colaboración fue un gran atractivo, dado que Wonder era uno de los artistas más influyentes de la época, conocido por su fusión de soul y pop. En medio de una era musical vibrante, donde la música latina también estaba ganando terreno en las listas de éxitos, la unión de estos dos gigantes del rock y el soul marcó un hito en la historia de la música. El álbum, que incluye éxitos como 'Every Breath You Take', se convirtió en uno de los más vendidos de la década, y esta colaboración fue un ejemplo perfecto de cómo las distintas corrientes musicales podían entrelazarse. Además, 'Synchronicity' refleja el espíritu de innovación y mezcla de géneros que caracterizaba a la música de los años 80, resonando aún hoy en día en el corazón de los amantes de la música."
         },
@@ -450,12 +415,7 @@
         },
         {
           "question": "Durante la producción del álbum 'Synchronicity' de The Police en 1983, ¿quién fue el ingeniero de sonido que desempeñó un papel crucial en la creación del distintivo sonido del disco?",
-          "options": [
-            "Hugh Padgham",
-            "Andy Summers",
-            "Nigel Gray",
-            "Stewart Copeland"
-          ],
+          "options": ["Hugh Padgham", "Andy Summers", "Nigel Gray", "Stewart Copeland"],
           "correctAnswer": "Hugh Padgham",
           "trivia": "La respuesta correcta es Hugh Padgham, quien fue el ingeniero de sonido responsable de la grabación del álbum 'Synchronicity'. Este trabajo no solo le dio a The Police un sonido característico, sino que también marcó un hito en la producción musical de la época. Padgham es conocido por su uso innovador de la técnica de grabación en capas y la creación del famoso 'eco' en la voz de Sting, que se convirtió en un sello distintivo del álbum. 'Synchronicity', lanzado en un contexto donde la música new wave y el rock alternativo estaban en auge, logró un gran impacto tanto en el público anglosajón como en la escena musical hispana, donde bandas como Hombres G y Mecano comenzaban a ganar terreno. La fusión de ritmos reggae, rock y pop que caracteriza este disco no hubiera sido posible sin la visión creativa de Padgham, quien posteriormente colaboraría con otros grandes artistas de la época."
         }
@@ -475,12 +435,7 @@
       "easy": [
         {
           "question": "Durante la gira 'Blond Ambition' de 1990, ¿cuál de las siguientes canciones del álbum 'Like a Prayer' de Madonna fue interpretada con una poderosa coreografía que incluía elementos de teatro musical?",
-          "options": [
-            "Like a Prayer",
-            "Express Yourself",
-            "Cherish",
-            "Dear Jessie"
-          ],
+          "options": ["Like a Prayer", "Express Yourself", "Cherish", "Dear Jessie"],
           "correctAnswer": "Like a Prayer",
           "trivia": "La respuesta correcta es 'Like a Prayer', una de las canciones más emblemáticas de Madonna. Esta interpretación en vivo se destacó por su potente mensaje espiritual y su electrizante puesta en escena, que capturó la atención del público y la crítica por igual. La gira 'Blond Ambition', que tuvo lugar en 1990, fue un hito en la historia del pop, combinando música, danza y teatro de una forma nunca antes vista. En un contexto donde la cultura pop estaba en plena efervescencia, Madonna no solo revolucionó la música, sino que también abordó temas como la identidad y la espiritualidad, resonando profundamente con sus seguidores. Además, 'Like a Prayer' se convirtió en un símbolo de empoderamiento en una época en que las voces femeninas comenzaban a tomar protagonismo en la escena musical."
         },
@@ -497,12 +452,7 @@
         },
         {
           "question": "¿Quién fue el productor principal que colaboró con Madonna en el icónico álbum 'Like a Prayer' de 1989?",
-          "options": [
-            "Quincy Jones",
-            "Nile Rodgers",
-            "Stephen Bray",
-            "Patrick Leonard"
-          ],
+          "options": ["Quincy Jones", "Nile Rodgers", "Stephen Bray", "Patrick Leonard"],
           "correctAnswer": "Patrick Leonard",
           "trivia": "Patrick Leonard fue el productor principal que colaboró con Madonna en su emblemático álbum 'Like a Prayer' lanzado en 1989. Esta obra marcó un momento decisivo en la carrera de la reina del pop, fusionando géneros como el pop, el rock y el gospel. Leonard había trabajado previamente con Madonna en varios de sus éxitos, incluyendo 'True Blue', y su asociación se consolidó con este álbum, que se considera uno de los mejores de la década. Además, 'Like a Prayer' incluyó coros gospel y letras que abordaban temas controversiales, lo que resonó profundamente en la cultura musical de la época, tanto en Estados Unidos como en el mundo hispanohablante. La producción de Leonard aportó un matiz emotivo y espiritual que capturó la atención de millones de fans y críticos, convirtiendo a este álbum en un hito cultural."
         }
@@ -532,12 +482,7 @@
         },
         {
           "question": "En el contexto de las sesiones de grabación de 'Like a Prayer' de Madonna en 1989, ¿qué canción inédita, que nunca llegó a ser lanzada oficialmente, fue coescrita por la artista y que muchos fans consideran un tesoro perdido del álbum?",
-          "options": [
-            "Devil Pray",
-            "Like a Prayer (Demo)",
-            "Love Song",
-            "Waiting"
-          ],
+          "options": ["Devil Pray", "Like a Prayer (Demo)", "Love Song", "Waiting"],
           "correctAnswer": "Love Song",
           "trivia": "La canción 'Love Song', que Madonna coescribió junto a Prince durante las sesiones de 'Like a Prayer', es considerada una de las joyas ocultas de este álbum icónico. A pesar de que la colaboración entre ambos artistas generó gran expectativa, la canción no fue incluida en la versión final del álbum, lo que la convierte en una de las piezas más intrigantes para los fanáticos. Esta época, marcada por la efervescencia del pop y la música dance, vio a Madonna consolidarse como una figura clave en la cultura musical de finales de los 80, donde su audacia y capacidad de reinvención la hicieron brillar. Con la influencia de ritmos latinos y la creciente popularidad de la música pop en español, 'Like a Prayer' resonó profundamente en el corazón de los aficionados hispanohablantes, quienes aún recuerdan con nostalgia la música de esos años. La historia de 'Love Song' es un testimonio de la creatividad ilimitada de Madonna y su colaboración con otros gigantes de la música."
         }
@@ -614,12 +559,7 @@
         },
         {
           "question": "¿Qué canción del álbum 'Appetite for Destruction' de Guns N’ Roses, lanzado en 1987, se convirtió en un himno del rock y fue reinterpretada por diversas bandas en años posteriores?",
-          "options": [
-            "Welcome to the Jungle",
-            "Sweet Child o' Mine",
-            "Paradise City",
-            "Nightrain"
-          ],
+          "options": ["Welcome to the Jungle", "Sweet Child o' Mine", "Paradise City", "Nightrain"],
           "correctAnswer": "Sweet Child o' Mine",
           "trivia": "La canción 'Sweet Child o' Mine' de Guns N’ Roses, lanzada en 1987 como parte de su álbum debut 'Appetite for Destruction', se transformó en un auténtico clásico del rock. Su inolvidable riff de guitarra y la emotiva letra, inspirada en la novia del vocalista Axl Rose, resonaron profundamente en la juventud de la época, capturando la esencia de un mundo lleno de sueños y desilusiones. A lo largo de los años, esta potente balada ha sido reinterpretada por numerosas bandas, mostrando su influencia perdurable en la música rock. En 1988, 'Sweet Child o' Mine' alcanzó el puesto número uno en la lista Billboard Hot 100, convirtiéndose en la primera canción de la banda en lograr esta hazaña. Este fenómeno musical no solo marcó la carrera de Guns N’ Roses, sino que también dejó una huella imborrable en la cultura rockera, inspirando a generaciones de músicos y fanáticos en todo el mundo."
         }
@@ -662,12 +602,7 @@
       "hard": [
         {
           "question": "En 'Appetite for Destruction', Guns N’ Roses explora temas oscuros y controversiales que ya habían sido abordados en trabajos previos de la banda. ¿Cuál de las siguientes canciones refleja esta continuidad temática, específicamente en relación con la vida urbana y la decadencia social?",
-          "options": [
-            "Nightrain",
-            "Sweet Child O' Mine",
-            "Paradise City",
-            "Rocket Queen"
-          ],
+          "options": ["Nightrain", "Sweet Child O' Mine", "Paradise City", "Rocket Queen"],
           "correctAnswer": "Rocket Queen",
           "trivia": "La canción 'Rocket Queen', presente en el álbum 'Appetite for Destruction' de Guns N’ Roses, destaca por su cruda representación de la vida en la calle y la lucha interna de los jóvenes en una era marcada por el exceso y la desesperación. A menudo se considera un reflejo de la angustia y las experiencias vividas por los miembros de la banda en sus años formativos, en un contexto donde el glam metal y el hard rock dominaban la escena musical de finales de los 80. En este sentido, la letra de 'Rocket Queen' se conecta con la realidad de la juventud de esa época, que buscaba un escape en medio de la violencia y la desilusión, resonando con otros himnos de la época como 'La puerta de Alcalá' de Ana Belén, que también trataba sobre la pérdida y la identidad. Además, esta canción incluye un importante solo de guitarra que, por su complejidad, ha sido objeto de análisis por parte de guitarristas y críticos musicales. La atmósfera ruda y visceral de 'Rocket Queen' captura la esencia de un momento cultural en el que las bandas de rock estaban desafiando las normas sociales, dejando una huella indeleble en el panorama musical."
         },
@@ -684,12 +619,7 @@
         },
         {
           "question": "¿Qué influyente banda de rock británica fue una de las principales inspiraciones artísticas para el sonido crudo y potente de Guns N’ Roses en su álbum 'Appetite for Destruction' de 1987?",
-          "options": [
-            "The Rolling Stones",
-            "Led Zeppelin",
-            "Black Sabbath",
-            "The Who"
-          ],
+          "options": ["The Rolling Stones", "Led Zeppelin", "Black Sabbath", "The Who"],
           "correctAnswer": "The Rolling Stones",
           "trivia": "La respuesta correcta es The Rolling Stones, una banda que dejó una profunda huella en el sonido y la actitud de Guns N’ Roses, especialmente en su emblemático álbum 'Appetite for Destruction'. A finales de los años 80, el rock estaba en una encrucijada, y la influencia de bandas como los Stones se reflejaba en la forma en que Axl Rose y Slash fusionaban el rock clásico con una energía cruda y rebelde. Además, la estética de la banda, con sus letras provocadoras y su estilo desenfadado, resonaba con la juventud de la época, que también vivía un despertar cultural y social. Durante esos años, el rock en español comenzaba a tomar fuerza con bandas como Soda Stereo y Héroes del Silencio, que se inspiraban en el rock anglosajón, creando un puente entre culturas y estilos. Así, el legado de The Rolling Stones se siente no solo en la música de Guns N’ Roses, sino en todo un movimiento musical que marcó una generación."
         }
@@ -848,12 +778,7 @@
         },
         {
           "question": "¿Con qué famoso productor trabajó Whitney Houston en su álbum debut 'Whitney Houston', lanzado en 1985, quien también había colaborado con artistas icónicos de la música pop y R&B?",
-          "options": [
-            "Quincy Jones",
-            "David Foster",
-            "Jimmy Jam",
-            "Narada Michael Walden"
-          ],
+          "options": ["Quincy Jones", "David Foster", "Jimmy Jam", "Narada Michael Walden"],
           "correctAnswer": "Narada Michael Walden",
           "trivia": "La respuesta correcta es Narada Michael Walden, un productor y compositor que desempeñó un papel crucial en el éxito del álbum 'Whitney Houston'. En 1985, Walden ya había dejado su huella en la industria musical, colaborando con artistas como Aretha Franklin y Mariah Carey. Su enfoque innovador y su habilidad para mezclar géneros ayudaron a dar forma a la voz poderosa de Whitney, quien se convertiría en un ícono de la música. Durante esa época, la escena musical estaba dominada por sonidos pop y R&B, y Whitney Houston emergió como una de las voces más destacadas, resonando en las listas de éxitos no solo en Estados Unidos, sino también en el mundo hispanohablante, donde su música se convirtió en parte de la banda sonora de muchas vidas."
         }
@@ -965,12 +890,7 @@
         },
         {
           "question": "¿Cuál de las siguientes canciones, que se convirtió en un gran éxito y es parte del álbum 'Songs from the Big Chair' de Tears for Fears, destaca por su uso innovador de sintetizadores?",
-          "options": [
-            "Everybody Wants to Rule the World",
-            "Shout",
-            "Mad World",
-            "Head Over Heels"
-          ],
+          "options": ["Everybody Wants to Rule the World", "Shout", "Mad World", "Head Over Heels"],
           "correctAnswer": "Everybody Wants to Rule the World",
           "trivia": "La canción 'Everybody Wants to Rule the World' es uno de los sencillos más emblemáticos del álbum 'Songs from the Big Chair' de Tears for Fears, lanzado en 1985. Este tema, que combina una melodía pegajosa con un mensaje profundo sobre el poder y la ambición, se convirtió en un himno generacional. La banda utilizó sintetizadores de manera magistral, creando un sonido distintivo que resonaba con la cultura pop de la época, marcada por el auge de la música nueva ola y el uso de tecnología en la producción musical. En el contexto de los años 80, mientras en América Latina emergían géneros como el rock en español y la balada romántica, Tears for Fears logró captar la atención de un público diverso, convirtiendo sus canciones en clásicos que aún perduran. Este álbum, que también incluye otros grandes éxitos como 'Shout', es considerado un referente del rock alternativo de esa década."
         }
@@ -1013,23 +933,13 @@
       "hard": [
         {
           "question": "En el contexto de 'Songs from the Big Chair' de Tears for Fears, ¿qué canción inédita, que no llegó a formar parte del álbum, se considera un testimonio de su evolución musical en 1985?",
-          "options": [
-            "The Working Hour",
-            "Empire Building",
-            "I Believe",
-            "The Marauders"
-          ],
+          "options": ["The Working Hour", "Empire Building", "I Believe", "The Marauders"],
           "correctAnswer": "Empire Building",
           "trivia": "La canción 'Empire Building' es una de las composiciones perdidas de Tears for Fears que, aunque nunca se incluyó en 'Songs from the Big Chair', refleja el estilo audaz y experimental de la banda en su periodo más creativo. Esta época fue testigo de la explosión del synth-pop, donde grupos como Hombres G y Mecano en la escena hispana también buscaban experimentar con sonidos electrónicos y letras profundas. 'Empire Building' se presenta como un ejemplo de cómo la banda exploraba temáticas complejas, un rasgo distintivo de su música. A lo largo de 1985, Tears for Fears consolidó su lugar en la música mundial con éxitos como 'Shout' y 'Everybody Wants to Rule the World', pero esta pista no publicada resalta su dedicación a la innovación musical. Así, el álbum no solo capturó la esencia de una época, sino que también dejó huellas de canciones que, aunque perdidas, continuaron influyendo en su legado."
         },
         {
           "question": "¿Qué figura influyente de la música y la literatura fue una de las principales inspiraciones para Tears for Fears al crear su emblemático álbum 'Songs from the Big Chair' en 1985?",
-          "options": [
-            "George Orwell",
-            "David Bowie",
-            "Friedrich Nietzsche",
-            "The Beatles"
-          ],
+          "options": ["George Orwell", "David Bowie", "Friedrich Nietzsche", "The Beatles"],
           "correctAnswer": "George Orwell",
           "trivia": "La respuesta correcta es George Orwell, cuya obra '1984' influyó profundamente en la temática del álbum 'Songs from the Big Chair'. En los años 80, el clima sociopolítico en el mundo, marcado por tensiones de la Guerra Fría, resonaba con los temas de control y opresión presentes en la música de Tears for Fears. La banda, formada por Roland Orzabal y Curt Smith, utilizó elementos de la literatura distópica para dar forma a sus letras, que a menudo exploraban la angustia y la alienación. Por otro lado, la escena musical hispana de esa época también se debatía en un contexto de reivindicación social, con artistas como Mecano y Hombres G comenzando a ganar popularidad. Este cruce de influencias y el trasfondo cultural de los 80 enriquecieron la experiencia de escuchar 'Songs from the Big Chair', convirtiéndolo en un hito no solo en el rock anglosajón, sino también en el ámbito de la música en español."
         },
@@ -1194,12 +1104,7 @@
         },
         {
           "question": "¿En qué famosa película de los años 80 se incluyó la canción 'Ashes to Ashes', de David Bowie, que forma parte de su álbum 'Scary Monsters (and Super Creeps)'?",
-          "options": [
-            "El Resplandor",
-            "La Cosa",
-            "El Club de la Lucha",
-            "Los Goonies"
-          ],
+          "options": ["El Resplandor", "La Cosa", "El Club de la Lucha", "Los Goonies"],
           "correctAnswer": "El Club de la Lucha",
           "trivia": "La canción 'Ashes to Ashes' de David Bowie, que aparece en su icónico álbum 'Scary Monsters (and Super Creeps)' de 1980, fue utilizada en la película 'El Club de la Lucha' (1999). Este filme, dirigido por David Fincher, se ha convertido en un clásico de culto y refleja la desesperación y el desasosiego de la generación de los 90, muy en línea con las temáticas que Bowie exploró en su música. 'Scary Monsters (and Super Creeps)' marcó un regreso triunfal de Bowie, quien había experimentado con el rock alternativo y el nuevo romanticismo, influencias que resonaron en la cultura pop de ese tiempo. La canción, además, destaca la lucha interna del artista, un reflejo de los conflictos sociales y personales de la época. En los años 80, Bowie no solo era un ícono musical, sino también un referente cultural que inspiró a muchos artistas en el mundo hispano, creando un puente entre diversas corrientes artísticas."
         }
@@ -1242,12 +1147,7 @@
       "hard": [
         {
           "question": "¿Qué productor, conocido por su trabajo con artistas de rock y pop en la década de 1980, colaboró con David Bowie en la creación del álbum 'Scary Monsters (and Super Creeps)'?",
-          "options": [
-            "Tony Visconti",
-            "Brian Eno",
-            "Nile Rodgers",
-            "David Foster"
-          ],
+          "options": ["Tony Visconti", "Brian Eno", "Nile Rodgers", "David Foster"],
           "correctAnswer": "Tony Visconti",
           "trivia": "La colaboración de David Bowie con Tony Visconti en 'Scary Monsters (and Super Creeps)' es un hito en la carrera del artista británico. Visconti, un productor de renombre que había trabajado previamente con Bowie en álbumes icónicos como 'The Man Who Sold the World', aportó su experiencia y visión al proyecto, ayudando a dar forma a un sonido que fusionaba el rock con elementos de la nueva ola. Este álbum, lanzado en 1980, es recordado no solo por su música innovadora, sino también por su reflexión sobre la cultura y la ansiedad de la era post-punk. En medio de una explosión de creatividad en la escena musical de los años 80, 'Scary Monsters' se convirtió en un espejo de la sociedad, resonando con temas de alienación y transformación. La producción magistral de Visconti no solo enriqueció las melodías de Bowie, sino que también lo ayudó a mantenerse relevante en un mundo musical en constante cambio."
         },
@@ -1324,12 +1224,7 @@
       "medium": [
         {
           "question": "¿Qué canción del álbum 'No Jacket Required' de Phil Collins recibió críticas especialmente positivas por su innovador uso de sintetizadores y se convirtió en un himno de los 80?",
-          "options": [
-            "I Don't Care Anymore",
-            "Sussudio",
-            "One More Night",
-            "Don't Lose My Number"
-          ],
+          "options": ["I Don't Care Anymore", "Sussudio", "One More Night", "Don't Lose My Number"],
           "correctAnswer": "Sussudio",
           "trivia": "La canción 'Sussudio' fue un auténtico fenómeno en 1985 y recibió elogios de la crítica por su pegajoso uso de sintetizadores y su ritmo contagioso, convirtiéndose en un símbolo de la música pop de los años 80. Phil Collins, quien ya era conocido por su trabajo con Genesis, logró con esta canción una explosión de popularidad en su carrera como solista. En su momento, 'Sussudio' alcanzó el puesto número uno en la lista Billboard Hot 100, consolidando su estatus en la escena musical. Además, la canción es un reflejo de la era, donde la fusión de rock y pop con tecnología electrónica estaba en pleno apogeo, algo que resonaba también en la música hispana de la época, con artistas como Mecano y Hombres G explorando sonidos similares. La energía vibrante y la letra pegajosa de 'Sussudio' hicieron que muchos la consideraran un himno de una generación, capturando la esencia de una década llena de optimismo y ritmo."
         },
@@ -1417,12 +1312,7 @@
         },
         {
           "question": "¿Cuál de las siguientes canciones del álbum 'Rio' de Duran Duran se convirtió en un gran éxito crossover en las listas de música pop en 1982?",
-          "options": [
-            "Hungry Like the Wolf",
-            "Girls on Film",
-            "The Reflex",
-            "Save a Prayer"
-          ],
+          "options": ["Hungry Like the Wolf", "Girls on Film", "The Reflex", "Save a Prayer"],
           "correctAnswer": "Hungry Like the Wolf",
           "trivia": "La canción 'Hungry Like the Wolf' fue uno de los sencillos más emblemáticos del álbum 'Rio' de Duran Duran, lanzado en 1982. Este tema no solo conquistó las listas británicas, sino que también logró un notable éxito en Estados Unidos, donde ayudó a definir el sonido del nuevo pop de los años 80. En un período donde la música británica estaba en auge, Duran Duran se destacó con su estilo visual y sonoro, fusionando el rock con influencias de la música disco y electrónica. Además, su innovador videoclip, que se filmó en Sri Lanka, capturó la atención del público y se convirtió en un referente de la cultura pop de la época. Sin duda, 'Hungry Like the Wolf' se ha mantenido como un clásico atemporal, resonando con nuevas generaciones y evocando la energía vibrante de los años 80."
         },
@@ -1458,12 +1348,7 @@
         },
         {
           "question": "¿Cuál de estas bandas latinoamericanas hizo una versión de una de las canciones del álbum 'Rio' de Duran Duran, lanzado en 1982?",
-          "options": [
-            "Los Abuelos de la Nada",
-            "Soda Stereo",
-            "Caifanes",
-            "Hombres G"
-          ],
+          "options": ["Los Abuelos de la Nada", "Soda Stereo", "Caifanes", "Hombres G"],
           "correctAnswer": "Soda Stereo",
           "trivia": "Soda Stereo, una de las bandas más emblemáticas del rock en español, rindió homenaje a Duran Duran al versionar el icónico tema 'Girls on Film' en su álbum 'Soda Stereo' de 1984. Esta reinterpretación no solo refleja la influencia del sonido new wave de los años 80, presente en el álbum 'Rio', sino que también muestra cómo la música de Duran Duran caló hondo en la juventud latinoamericana de la época. En un contexto donde la cultura pop internacional empezaba a mezclarse con los ritmos locales, la versión de Soda Stereo se convirtió en un símbolo de la conexión musical entre el rock anglosajón y el rock en español. En aquellos años, en medio de la explosión del rock en español, la música de Duran Duran resonaba en las radios, y su estilo visual era un referente para muchas bandas que surgían en América Latina."
         }
@@ -1482,12 +1367,7 @@
         },
         {
           "question": "En el álbum 'Rio' de Duran Duran, ¿qué destacado músico colaboró en la producción de la emblemática pista 'Hungry Like the Wolf'?",
-          "options": [
-            "David Bowie",
-            "Robert Palmer",
-            "Bernard Edwards",
-            "Stevie Wonder"
-          ],
+          "options": ["David Bowie", "Robert Palmer", "Bernard Edwards", "Stevie Wonder"],
           "correctAnswer": "Bernard Edwards",
           "trivia": "La colaboración con Bernard Edwards, el bajista de Chic, fue crucial para el sonido distintivo de 'Hungry Like the Wolf', que se convirtió en uno de los mayores éxitos de Duran Duran en 1982. Edwards aportó su experiencia en el funk y la disco, lo que ayudó a fusionar el rock con ritmos bailables que resonaban en las pistas de baile de la época. Esta fusión no solo consolidó a Duran Duran como pioneros del sonido New Romantic, sino que también reflejó el ambiente vibrante de la escena musical de los años 80, donde la influencia de la música disco aún era palpable. 'Rio', lanzado en un contexto social de cambio y efervescencia cultural, capturó la atención mundial y se convirtió en un símbolo de la estética y la moda de su tiempo. La colaboración con Edwards es un recordatorio de cómo las interacciones entre artistas pueden dar lugar a obras memorables que trascienden generaciones."
         },
@@ -1518,23 +1398,13 @@
       "easy": [
         {
           "question": "Durante la gira de 'Master of Puppets' en 1986, ¿en qué famoso festival europeo se presentó Metallica, marcando un hito en su carrera?",
-          "options": [
-            "Festival de Reading",
-            "Monsters of Rock",
-            "Rock in Rio",
-            "Live Aid"
-          ],
+          "options": ["Festival de Reading", "Monsters of Rock", "Rock in Rio", "Live Aid"],
           "correctAnswer": "Monsters of Rock",
           "trivia": "Metallica se presentó en el icónico festival Monsters of Rock en 1986, un evento que consolidó su estatus en la escena del heavy metal. Este festival, celebrado en el Reino Unido, fue una plataforma crucial para que la banda mostrara su poderoso álbum 'Master of Puppets' a una audiencia masiva. En ese tiempo, la banda estaba en la cúspide de su carrera, y su actuación fue aclamada por la crítica y los fans, destacando el impacto de temas como 'Battery' y 'Master of Puppets' en su setlist. La mezcla de energía, riffs contundentes y la conexión con el público reflejaban el espíritu de una época dorada para el metal, donde bandas como Iron Maiden y AC/DC también eran protagonistas. Este evento no solo catapultó a Metallica a la fama internacional, sino que también dejó una huella imborrable en la historia del rock, resonando aún en la memoria de los amantes del género."
         },
         {
           "question": "¿Qué influyente banda de thrash metal, originaria de México, ha citado a Metallica y su álbum 'Master of Puppets' como una de sus principales inspiraciones en su carrera musical?",
-          "options": [
-            "Cruz de Navajas",
-            "Cenizas del Edén",
-            "Malón",
-            "Héroes del Silencio"
-          ],
+          "options": ["Cruz de Navajas", "Cenizas del Edén", "Malón", "Héroes del Silencio"],
           "correctAnswer": "Malón",
           "trivia": "La respuesta correcta es Malón, una banda de thrash metal formada en 1995 en Argentina, que ha reconocido abiertamente la influencia de Metallica y su icónico álbum 'Master of Puppets' en su sonido. Este álbum, lanzado en 1986, no solo cimentó la reputación de Metallica como una de las bandas más grandes del metal, sino que también inspiró a numerosos artistas en América Latina, donde el metal estaba en pleno auge. En la época, grupos como Malón comenzaron a fusionar el thrash metal con letras en español, creando un estilo único que resonaba con la juventud de la región. Además, 'Master of Puppets' es conocido por sus complejas estructuras musicales y letras profundas, lo que inspiró a muchas bandas a explorar temas más oscuros y técnicos en su música. La conexión emocional que esta obra maestra de Metallica ha tenido en la cultura del metal hispano es innegable, solidificando su legado en la historia musical."
         },
@@ -1594,12 +1464,7 @@
         },
         {
           "question": "En el contexto de las presentaciones en vivo de Metallica, ¿cuál de las siguientes canciones del álbum 'Master of Puppets' ha sido interpretada de manera más frecuente en sus giras desde 1986?",
-          "options": [
-            "Battery",
-            "Disposable Heroes",
-            "The Thing That Should Not Be",
-            "Orion"
-          ],
+          "options": ["Battery", "Disposable Heroes", "The Thing That Should Not Be", "Orion"],
           "correctAnswer": "Battery",
           "trivia": "La canción 'Battery', del icónico álbum 'Master of Puppets' de Metallica, ha sido una de las interpretaciones más recurrentes en los conciertos de la banda desde su lanzamiento en 1986. Este tema, que abre el álbum, se caracteriza por su potente riff de guitarra y su energía frenética, capturando la esencia del thrash metal que dominaba la escena musical de la época. En los años 80, Metallica se consolidaba como una de las bandas más influyentes del metal, y 'Battery' se convirtió en un himno que resonaba en los recintos llenos de fans apasionados. Durante sus giras, la banda ha interpretado esta canción en miles de ocasiones, y su potente mensaje sobre la brutalidad y la lucha ha dejado una huella imborrable en la cultura musical de la época. Además, la interpretación en vivo de 'Battery' ha evolucionado, con la inclusión de solos más elaborados y momentos de improvisación que conectan profundamente con el público hispanohablante, creando una experiencia inolvidable cada vez que suena."
         },
@@ -1630,12 +1495,7 @@
       "easy": [
         {
           "question": "¿Cuál fue la primera canción que The Cure interpretó en vivo del álbum 'Disintegration' en su gira de 1989?",
-          "options": [
-            "Lovesong",
-            "Pictures of You",
-            "A Night Like This",
-            "Fascination Street"
-          ],
+          "options": ["Lovesong", "Pictures of You", "A Night Like This", "Fascination Street"],
           "correctAnswer": "Fascination Street",
           "trivia": "La primera canción que The Cure presentó en vivo del emblemático álbum 'Disintegration' fue 'Fascination Street', interpretada durante la gira que comenzó en 1989. Este tema, con su distintivo sonido melancólico y una producción envolvente, capturó de inmediato la atención del público, convirtiéndose en un clásico instantáneo. 'Disintegration', lanzado en mayo de ese año, marcó un hito en la carrera de la banda y en la escena musical de la época, influyendo en numerosas bandas de rock alternativo en todo el mundo. Además, las letras de Robert Smith reflejaban un profundo sentido de nostalgia y desamor, resonando con una generación que vivía intensos cambios sociales y políticos. En el contexto hispano, artistas de la época como Héroes del Silencio también se sintieron inspirados por el sonido atmosférico de The Cure, forjando una conexión emocional que perdura hasta hoy."
         },
@@ -1652,12 +1512,7 @@
         },
         {
           "question": "¿Cuál de las siguientes canciones de The Cure, del álbum 'Disintegration' lanzado en 1989, alcanzó el puesto número 3 en la lista de sencillos del Reino Unido?",
-          "options": [
-            "Lovesong",
-            "Pictures of You",
-            "Fascination Street",
-            "A Night Like This"
-          ],
+          "options": ["Lovesong", "Pictures of You", "Fascination Street", "A Night Like This"],
           "correctAnswer": "Lovesong",
           "trivia": "La canción 'Lovesong' de The Cure, lanzada en 1989 como parte del álbum 'Disintegration', se convirtió en uno de los mayores éxitos de la banda, alcanzando el puesto número 3 en la lista de sencillos del Reino Unido. Este tema, que captura la esencia del amor y la melancolía, resonó profundamente en una época marcada por la búsqueda de la autenticidad emocional, especialmente en una juventud que encontraba refugio en la música alternativa. 'Disintegration' se considera un hito del rock gótico, reflejando una atmósfera oscura y profunda que conectó con muchos oyentes, tanto en Europa como en América Latina. En ese año, la escena musical hispana también comenzaba a ver la influencia de bandas internacionales, y 'Lovesong' se convirtió en un himno que traspasó fronteras, siendo versionado y recordado en múltiples contextos culturales. La producción del álbum, rica en texturas sonoras, ayudó a cimentar la reputación de The Cure como una de las bandas más influyentes de finales de los 80."
         }
@@ -1711,12 +1566,7 @@
         },
         {
           "question": "En el álbum 'Disintegration' de The Cure, lanzado en 1989, ¿cuál de sus temas se convirtió en un éxito crossover, resonando en las listas de popularidad de diversos países y capturando la esencia de la melancolía de la época?",
-          "options": [
-            "Lovesong",
-            "Pictures of You",
-            "Fascination Street",
-            "A Night Like This"
-          ],
+          "options": ["Lovesong", "Pictures of You", "Fascination Street", "A Night Like This"],
           "correctAnswer": "Lovesong",
           "trivia": "El tema 'Lovesong' de The Cure, incluido en el icónico álbum 'Disintegration', se erigió como un verdadero éxito crossover en 1989, logrando un impacto significativo en las listas de popularidad tanto en los Estados Unidos como en Europa. Este tema, que habla de la devoción romántica, se convirtió en un himno generacional, resonando en una época marcada por la efervescencia del rock alternativo y la llegada de nuevas sonoridades en la música pop. 'Lovesong' llegó al puesto 2 en la lista Billboard Hot 100 en los EE. UU., lo que fue un hito para la banda, que había estado relacionada principalmente con la escena gótica y underground. Durante estos años, en Hispanoamérica, grupos como Héroes del Silencio y La Unión también exploraban sonidos melancólicos, creando un ambiente musical donde la conexión emocional con las letras era primordial. Esta canción, junto a otras del álbum, contribuyó a que 'Disintegration' se consolidara como un referente de la década de 1980, capturando la melancolía y la intensidad emocional que caracterizaban el espíritu de la época."
         },
@@ -1921,12 +1771,7 @@
         },
         {
           "question": "En la producción del álbum 'The Game' de Queen, ¿quién fue el colaborador principal que trabajó junto a la banda para dar forma a su sonido característico en 1980?",
-          "options": [
-            "David Bowie",
-            "Eddie Van Halen",
-            "Roy Thomas Baker",
-            "Mutt Lange"
-          ],
+          "options": ["David Bowie", "Eddie Van Halen", "Roy Thomas Baker", "Mutt Lange"],
           "correctAnswer": "Mutt Lange",
           "trivia": "La respuesta correcta es Mutt Lange, quien se unió a Queen para producir 'The Game', un álbum que marcó un hito en la historia del rock. Lange, conocido por su trabajo con bandas como Def Leppard, aportó su visión innovadora y su experiencia en la producción, ayudando a la banda a explorar nuevos sonidos, incluyendo la incorporación de ritmos más electrónicos y un enfoque más comercial. Este álbum, lanzado en 1980, no solo presentó éxitos como 'Another One Bites the Dust', sino que también reflejó el contexto cultural de la época, donde el rock se fusionaba con elementos de disco y pop, resonando en la juventud hispana que disfrutaba de ritmos vibrantes y bailables. 'The Game' fue un parteaguas que consolidó a Queen como íconos de la música y dejó una huella imborrable en la escena musical mundial."
         }
@@ -2251,12 +2096,7 @@
         },
         {
           "question": "En 1986, una de las canciones más emblemáticas del álbum 'So' de Peter Gabriel fue utilizada en la campaña de promoción de un evento deportivo muy famoso. ¿Qué canción fue la elegida para acompañar a este evento, convirtiéndose en un himno para los aficionados?",
-          "options": [
-            "Sledgehammer",
-            "Big Time",
-            "In Your Eyes",
-            "Don't Give Up"
-          ],
+          "options": ["Sledgehammer", "Big Time", "In Your Eyes", "Don't Give Up"],
           "correctAnswer": "Sledgehammer",
           "trivia": "La canción 'Sledgehammer', lanzada en 1986 como parte del álbum 'So' de Peter Gabriel, se convirtió en un verdadero fenómeno cultural, no solo por su innovador videoclip animado, sino también porque se utilizó como banda sonora en diversas campañas, incluyendo eventos deportivos. Esta canción capturó la esencia de una década vibrante y llena de cambios, resonando especialmente en el ambiente festivo de los años 80. 'Sledgehammer' fue un gran éxito en las listas de Billboard y se asoció con el espíritu de celebración que rodeaba eventos deportivos como el Mundial de Fútbol de 1986. En un contexto donde la música y el deporte se fusionaban, Peter Gabriel logró que su obra trascendiera el ámbito musical, convirtiéndose en un himno que unió a los aficionados. Además, el álbum 'So' es reconocido por su fusión de géneros y su enfoque innovador, que reflejaban una época de creatividad y libertad artística."
         },
@@ -2317,34 +2157,19 @@
       "easy": [
         {
           "question": "¿Cuál de los siguientes sencillos de INXS, lanzado en 1987 como parte de su álbum 'Kick', se convirtió en un gran éxito mundial y ayudó a definir la música de esa época?",
-          "options": [
-            "Need You Tonight",
-            "New Sensation",
-            "Never Tear Us Apart",
-            "Devil Inside"
-          ],
+          "options": ["Need You Tonight", "New Sensation", "Never Tear Us Apart", "Devil Inside"],
           "correctAnswer": "Need You Tonight",
           "trivia": "El sencillo 'Need You Tonight' de INXS, lanzado en 1987 como parte de su emblemático álbum 'Kick', alcanzó el primer puesto en la lista Billboard Hot 100, convirtiéndose en uno de los grandes himnos de la década de los 80. Esta canción, con su mezcla de rock y elementos de funk, capturó el espíritu de una época marcada por la exuberancia y la búsqueda de nuevas sonoridades. En un contexto musical donde bandas como Soda Stereo y Hombres G también estaban dejando su huella en la escena hispana, 'Need You Tonight' resonó fuertemente entre jóvenes de habla hispana, creando una conexión emocional que perdura hasta hoy. Además, el álbum 'Kick' fue un punto de inflexión para INXS, consolidándolos como una de las bandas más influyentes de la era, gracias a su estilo audaz y sofisticado. En total, 'Kick' produjo cuatro sencillos que se convirtieron en clásicos, pero 'Need You Tonight' destaca por su inolvidable riff de guitarra y su atmósfera seductora."
         },
         {
           "question": "En el famoso álbum 'Kick' de INXS lanzado en 1987, ¿cuál de sus temas aborda de manera directa las luchas sociales y la búsqueda de la identidad personal?",
-          "options": [
-            "New Sensation",
-            "Need You Tonight",
-            "Devil Inside",
-            "Mystify"
-          ],
+          "options": ["New Sensation", "Need You Tonight", "Devil Inside", "Mystify"],
           "correctAnswer": "Devil Inside",
           "trivia": "La canción 'Devil Inside' de INXS, presente en su icónico álbum 'Kick', es una poderosa reflexión sobre los conflictos internos y las luchas que enfrentamos en nuestra vida diaria. Lanzada en 1987, esta melodía resonó profundamente en una época marcada por la búsqueda de identidad en un mundo en transformación, donde muchos jóvenes latinos también se sentían atrapados entre tradiciones y modernidad. 'Devil Inside' llegó a ser un himno que capturó la esencia de las tensiones sociales de la época, haciendo eco de las inquietudes de una generación. Con su ritmo contagioso y letras potentes, la canción se convirtió en un éxito internacional, ayudando a consolidar a INXS como una banda de renombre global. Además, el álbum 'Kick' se destacó por su fusión de rock, pop y elementos de música dance, conectando con audiencias de diversas culturas, incluyendo la rica escena musical hispana."
         },
         {
           "question": "¿Qué famoso sencillo de INXS, lanzado en 1987 como parte de su álbum 'Kick', se convirtió en un himno de la época y resonó fuertemente en las listas de popularidad en América Latina?",
-          "options": [
-            "New Sensation",
-            "Need You Tonight",
-            "Devil Inside",
-            "Never Tear Us Apart"
-          ],
+          "options": ["New Sensation", "Need You Tonight", "Devil Inside", "Never Tear Us Apart"],
           "correctAnswer": "Need You Tonight",
           "trivia": "El sencillo 'Need You Tonight' de INXS, incluido en el álbum 'Kick', se convirtió en un verdadero fenómeno en 1987, alcanzando el número uno en la lista Billboard Hot 100. La canción es recordada no solo por su ritmo contagioso, sino también por su innovador video musical que capturó la esencia de la revolución visual que vivía la música de los 80. Durante esta época, la escena musical en América Latina estaba en plena ebullición, con artistas como Soda Stereo y Héroes del Silencio comenzando a ganar popularidad, lo que hizo que el sonido fresco de INXS resonara aún más entre los jóvenes de la región. 'Kick' se convirtió en un hito no solo en la carrera de INXS, sino también en el panorama musical global, consolidando a la banda como una de las más importantes de la década. Con su mezcla de rock, funk y pop, 'Kick' refleja la energía vibrante de los 80, un tiempo en el que la música se vivía con pasión y desbordante emoción."
         }
@@ -2363,12 +2188,7 @@
         },
         {
           "question": "¿Cuál de las siguientes canciones incluidas en el álbum 'Kick' de INXS es una versión cover que homenajea a un clásico de la música?",
-          "options": [
-            "New Sensation",
-            "Devil Inside",
-            "Need You Tonight",
-            "Guns in the Sky"
-          ],
+          "options": ["New Sensation", "Devil Inside", "Need You Tonight", "Guns in the Sky"],
           "correctAnswer": "Guns in the Sky",
           "trivia": "La canción 'Guns in the Sky' de INXS, aunque no es una versión cover en el sentido tradicional, se inspira fuertemente en el estilo de algunas canciones de rock de la época, incluyendo elementos de la música punk. El álbum 'Kick', lanzado en 1987, fue un hito en la carrera de INXS y se convirtió en un referente del rock alternativo y el new wave, resonando con la juventud de aquellos años. Durante ese tiempo, en la escena musical hispana, bandas como Héroes del Silencio comenzaban a ganar notoriedad, reflejando un cambio en la música en español que también buscaba su propio lugar en el panorama internacional. 'Kick' no solo consolidó a INXS como una banda de renombre mundial, sino que también influyó en futuras generaciones de artistas que exploraron el rock en su forma más auténtica y emocional. La atmósfera de la época, marcada por un deseo de libertad y expresión, se siente en cada acorde de este álbum icónico."
         },
@@ -2409,12 +2229,7 @@
         },
         {
           "question": "¿Con qué famoso cantante y compositor colaboró INXS en la canción 'New Sensation' de su icónico álbum 'Kick' lanzado en 1987?",
-          "options": [
-            "Peter Gabriel",
-            "George Michael",
-            "Jon Bon Jovi",
-            "Mickey Avalon"
-          ],
+          "options": ["Peter Gabriel", "George Michael", "Jon Bon Jovi", "Mickey Avalon"],
           "correctAnswer": "George Michael",
           "trivia": "La colaboración de INXS con George Michael en 'New Sensation' es un dato fascinante que refleja la sinergia de la música pop de los años 80. Aunque no aparece como artista en la grabación, Michael fue una gran influencia durante la época, y su estilo vocal resonaba con la energía que INXS emanaba en 'Kick'. Este álbum, que se lanzó en 1987, marcó un hito en la historia del rock australiano y la música pop internacional, catapultando a la banda a la fama mundial. 'Kick' cuenta con éxitos como 'Need You Tonight' y 'Devil Inside', que se convirtieron en himnos de una generación. La música de INXS capturó el espíritu festivo y la rebeldía de la década, resonando en el corazón de una juventud que buscaba su identidad en un mundo en constante cambio."
         }
@@ -2491,12 +2306,7 @@
         },
         {
           "question": "¿Qué famoso músico sudafricano colaboró con Paul Simon en el álbum 'Graceland', aportando su distintivo sonido vocal y rítmico?",
-          "options": [
-            "Hugh Masekela",
-            "Ladysmith Black Mambazo",
-            "Johnny Clegg",
-            "Miriam Makeba"
-          ],
+          "options": ["Hugh Masekela", "Ladysmith Black Mambazo", "Johnny Clegg", "Miriam Makeba"],
           "correctAnswer": "Ladysmith Black Mambazo",
           "trivia": "La colaboración de Paul Simon con Ladysmith Black Mambazo en el álbum 'Graceland' es uno de los aspectos más memorables de este trabajo. Este grupo vocal sudafricano, conocido por su estilo a cappella y sus armonías únicas, aportó una riqueza cultural que resonó profundamente en el álbum. En 1986, cuando 'Graceland' fue lanzado, el mundo estaba descubriendo la música africana, y esta colaboración simbolizó un puente entre diferentes culturas. Además, el uso de ritmos africanos en las composiciones de Simon ayudó a popularizar la música del continente, mientras que la canción 'Homeless', interpretada por Ladysmith Black Mambazo, se convirtió en un himno de esperanza. Este álbum no solo marcó un hito en la carrera de Simon, sino que también contribuyó a dar visibilidad a artistas africanos en la escena musical global, reflejando el espíritu de una época marcada por la búsqueda de la identidad y el entendimiento cultural."
         }
@@ -2551,12 +2361,7 @@
       "easy": [
         {
           "question": "¿Quién fue el productor del icónico álbum 'Back in Black' de AC/DC, lanzado en 1980, que marcó un hito en el rock y el metal de la época?",
-          "options": [
-            "Robert John 'Mutt' Lange",
-            "George Martin",
-            "Rick Rubin",
-            "Brian Eno"
-          ],
+          "options": ["Robert John 'Mutt' Lange", "George Martin", "Rick Rubin", "Brian Eno"],
           "correctAnswer": "Robert John 'Mutt' Lange",
           "trivia": "La respuesta correcta es Robert John 'Mutt' Lange, quien se encargó de la producción de 'Back in Black'. Este álbum, lanzado en 1980, es uno de los más vendidos de todos los tiempos y marcó un resurgimiento impresionante para AC/DC tras la trágica muerte de su vocalista Bon Scott. Lange, conocido por su trabajo con bandas como Def Leppard y Foreigner, aportó un sonido pulido y potente que ayudó a definir el estilo del hard rock de la década de 1980. La combinación de riffs inolvidables y la voz de Brian Johnson, quien se unió a la banda en este álbum, resonó fuertemente en una generación que buscaba autenticidad y energía en la música. En un contexto donde el rock estaba lleno de experimentaciones, 'Back in Black' se mantuvo fiel a sus raíces, convirtiéndose en un símbolo de la resistencia y la celebración en tiempos difíciles."
         },
@@ -2586,12 +2391,7 @@
       "medium": [
         {
           "question": "¿Qué miembro de AC/DC fue reemplazado por Brian Johnson en la grabación del icónico álbum 'Back in Black' en 1980?",
-          "options": [
-            "Bon Scott",
-            "Malcolm Young",
-            "Phil Rudd",
-            "Cliff Williams"
-          ],
+          "options": ["Bon Scott", "Malcolm Young", "Phil Rudd", "Cliff Williams"],
           "correctAnswer": "Bon Scott",
           "trivia": "La llegada de Brian Johnson a AC/DC marcó un hito en la historia del rock. Bon Scott, el carismático vocalista y alma de la banda, falleció trágicamente en 1980, lo que dejó un vacío difícil de llenar. Sin embargo, con 'Back in Black', AC/DC no solo homenajeó a su antiguo cantante, sino que también logró un éxito monumental que resonó en todo el mundo. Este álbum, que se lanzó en julio de 1980, se convirtió en uno de los más vendidos de la historia, vendiendo más de 50 millones de copias. En la escena musical hispana de los años 80, el impacto de 'Back in Black' fue enorme, inspirando a numerosas bandas de rock en español y solidificando el legado de AC/DC como un pilar del rock internacional."
         },
@@ -2845,23 +2645,13 @@
       "hard": [
         {
           "question": "En el emblemático álbum '1999' de Prince, ¿qué famoso músico colaboró en la composición de la canción 'Delirious', aportando su estilo único al sonido de la época?",
-          "options": [
-            "Stevie Wonder",
-            "Sheila E.",
-            "Sly Stone",
-            "George Clinton"
-          ],
+          "options": ["Stevie Wonder", "Sheila E.", "Sly Stone", "George Clinton"],
           "correctAnswer": "Sheila E.",
           "trivia": "La respuesta correcta es Sheila E., quien no solo colaboró en la composición de 'Delirious', sino que también se convirtió en una de las figuras más icónicas del funk y la música pop de los años 80. Sheila E. era conocida por su virtuosismo en la percusión y se destacó en el álbum '1999', aportando su energía y talento que resonaban en la escena musical de la época. Este álbum marcó un hito en la carrera de Prince, combinando ritmos electrizantes y letras provocativas que capturaron la esencia de una época de cambios culturales. En 1982, la música funk y el pop estaban en plena evolución, y colaboraciones como la de Sheila E. ayudaron a definir un sonido que todavía resuena hoy. Así, '1999' no solo es recordado por sus éxitos como 'Little Red Corvette', sino también por la rica mezcla de influencias que Prince y sus colaboradores, como Sheila E., lograron crear."
         },
         {
           "question": "¿Qué influyente artista de la música pop y rock, que emergió en los años 80, citó a Prince y su álbum '1999' como una de sus principales inspiraciones para la creación de su sonido innovador?",
-          "options": [
-            "Madonna",
-            "Michael Jackson",
-            "David Bowie",
-            "Duran Duran"
-          ],
+          "options": ["Madonna", "Michael Jackson", "David Bowie", "Duran Duran"],
           "correctAnswer": "Madonna",
           "trivia": "Madonna, la reina del pop, reconoció abiertamente la influencia de Prince y su álbum '1999', lanzado en 1982, en su propia música. En una época en la que la fusión de géneros como el funk, el rock y la música electrónica comenzaba a tomar forma, '1999' se convirtió en un hito que no solo definió el sonido de Prince, sino que también abrió caminos para otros artistas de su generación. La producción innovadora y las letras provocativas de Prince resonaron profundamente en la escena musical. Además, el uso de sintetizadores y ritmos bailables en '1999' inspiró a numerosos artistas, entre ellos a Madonna, quien buscaba romper barreras y explorar nuevos territorios sonoros. Este álbum también contribuyó a la liberación sexual y cultural de la época, reflejando un espíritu de rebeldía y autoconfianza que caracterizó a la música de los años 80."
         },
@@ -2944,12 +2734,7 @@
         },
         {
           "question": "Durante la creación del icónico álbum 'Brothers in Arms' de Dire Straits en 1985, se menciona que algunas canciones quedaron fuera del lanzamiento final. ¿Cuál de las siguientes canciones perdidas se dice que fue grabada durante esas sesiones, pero no se incluyó en el álbum?",
-          "options": [
-            "The Man's Too Strong",
-            "One World",
-            "So Far Away",
-            "Why Worry"
-          ],
+          "options": ["The Man's Too Strong", "One World", "So Far Away", "Why Worry"],
           "correctAnswer": "The Man's Too Strong",
           "trivia": "La canción 'The Man's Too Strong' es una de las composiciones que se grabaron durante las sesiones de 'Brothers in Arms', pero que no encontraron un lugar en el álbum final. Este tema, aunque no fue lanzado como parte del disco, refleja el estilo distintivo de Dire Straits, con su mezcla de rock y narrativa poética. El álbum, lanzado en un momento en que la música rock estaba evolucionando y fusionándose con otros géneros, como el pop y el folk, se convirtió en un hito de la década. 'Brothers in Arms', con su sonido innovador, no solo capturó la atención del público en el Reino Unido, sino que también resonó en el ámbito hispano, donde artistas de la época estaban explorando nuevas sonoridades y temáticas profundas. La atmósfera de los años 80, marcada por la búsqueda de identidad y la reflexión social, se encuentra presente en la obra de Dire Straits, lo que hace que temas como 'The Man's Too Strong' sean recordados con nostalgia por los fanáticos de la música."
         }
@@ -3015,12 +2800,7 @@
         },
         {
           "question": "¿Cuál fue uno de los sencillos más exitosos de Cyndi Lauper en su álbum 'She’s So Unusual', lanzado en 1983?",
-          "options": [
-            "Time After Time",
-            "Girls Just Want to Have Fun",
-            "True Colors",
-            "She Bop"
-          ],
+          "options": ["Time After Time", "Girls Just Want to Have Fun", "True Colors", "She Bop"],
           "correctAnswer": "Girls Just Want to Have Fun",
           "trivia": "El sencillo 'Girls Just Want to Have Fun' se convirtió en un himno de empoderamiento femenino y fue uno de los mayores éxitos de Cyndi Lauper en 1983, alcanzando el número uno en la lista Billboard Hot 100. Este álbum, 'She’s So Unusual', no solo catapultó a Lauper a la fama internacional, sino que también marcó un hito en la música pop de los años 80, al romper estereotipos y dar voz a una nueva generación de mujeres. La canción es famosa por su vibrante energía y su mensaje de libertad, resonando profundamente en una época donde las mujeres comenzaban a exigir más derechos y reconocimiento. Además, el videoclip, con su estética colorida y divertida, se convirtió en un referente visual, influyendo en la cultura pop y la moda de la época. No es de extrañar que este tema siga siendo un clásico en fiestas y celebraciones, evocando el espíritu alegre y rebelde de los años 80."
         },
@@ -3279,12 +3059,7 @@
         },
         {
           "question": "¿En qué popular serie de televisión de los años 80 se utilizó la icónica canción 'Once in a Lifetime' de Talking Heads, extraída de su álbum 'Remain in Light', que capturó la esencia de una generación en plena transformación cultural?",
-          "options": [
-            "Miami Vice",
-            "The A-Team",
-            "Murder, She Wrote",
-            "Knight Rider"
-          ],
+          "options": ["Miami Vice", "The A-Team", "Murder, She Wrote", "Knight Rider"],
           "correctAnswer": "Miami Vice",
           "trivia": "La canción 'Once in a Lifetime', que forma parte del revolucionario álbum 'Remain in Light' de Talking Heads, fue utilizada en la serie 'Miami Vice', un verdadero fenómeno de los años 80 que redefinió el concepto de la televisión con su estética visual y su banda sonora. La serie no solo se caracterizaba por su estilo innovador y su representación del crimen en la vibrante Miami, sino también por su capacidad para fusionar música y narrativa, llevando temas musicales contemporáneos a la pantalla. 'Remain in Light', lanzado en 1980, es considerado uno de los discos más influyentes de la era, explorando ritmos afrobeat y nuevas técnicas de producción que desafiaron las normas del rock. La inclusión de 'Once in a Lifetime' en 'Miami Vice' ayudó a presentar a Talking Heads a una audiencia más amplia, resonando profundamente con el espíritu de cambio social y cultural de la época. Esta conexión entre la música y la televisión en los 80 no solo marcó una era dorada del entretenimiento, sino que también dejó una huella imborrable en la cultura popular, especialmente entre los jóvenes hispanohablantes que buscaban nuevas formas de expresión artística."
         },
@@ -3350,12 +3125,7 @@
       "easy": [
         {
           "question": "¿Qué miembro de la banda que acompañó a Michael Jackson en su álbum 'Bad' en 1987 tuvo una destacada carrera como solista en la música pop?",
-          "options": [
-            "Quincy Jones",
-            "Steve Porcaro",
-            "Tito Jackson",
-            "David Williams"
-          ],
+          "options": ["Quincy Jones", "Steve Porcaro", "Tito Jackson", "David Williams"],
           "correctAnswer": "David Williams",
           "trivia": "David Williams, quien tocó la guitarra en el icónico álbum 'Bad' de Michael Jackson, no solo se destacó en su papel en la banda, sino que también forjó su propio camino en la música como solista. Durante la década de 1980, esta época vibrante y llena de cambios culturales, Williams se unió a otros talentosos músicos que acompañaban a Michael en sus presentaciones, creando un sonido que dejó huella en el pop. Además de su trabajo en 'Bad', Williams había colaborado previamente con artistas de renombre, lo que subraya su importancia en la escena musical. En este contexto, el álbum 'Bad' se convirtió en un fenómeno global, ayudando a definir el sonido de una generación. La mezcla de ritmos contagiosos y letras poderosas resonó especialmente en el público hispano, que se sumó a la fiebre del Rey del Pop."
         },
@@ -3372,12 +3142,7 @@
         },
         {
           "question": "Durante la gira de 'Bad', ¿qué canción emblemática de Michael Jackson fue interpretada en un famoso concierto en Wembley, donde mostró su icónico estilo de baile?",
-          "options": [
-            "Smooth Criminal",
-            "Billie Jean",
-            "The Way You Make Me Feel",
-            "Dirty Diana"
-          ],
+          "options": ["Smooth Criminal", "Billie Jean", "The Way You Make Me Feel", "Dirty Diana"],
           "correctAnswer": "Smooth Criminal",
           "trivia": "En 1988, Michael Jackson ofreció un inolvidable concierto en Wembley como parte de su gira mundial para promocionar el álbum 'Bad'. Durante este espectáculo, la interpretación de 'Smooth Criminal' se volvió legendaria, destacando su asombroso talento para el baile y la coreografía. Esta actuación fue una de las más memorables de su carrera, capturando la atención de millones de fans en todo el mundo. Además, la gira 'Bad' fue un hito en la historia de la música pop, con un enfoque en la producción visual y la innovación en el escenario, que resonó profundamente en la cultura de los años 80. La mezcla de su estilo musical con la energía de la época lo consagró como el 'Rey del Pop', dejando una huella indeleble en la escena musical global."
         }
@@ -3385,12 +3150,7 @@
       "medium": [
         {
           "question": "¿Qué influyente artista del rock británico sirvió de inspiración para el estilo visual y la estética del álbum 'Bad' de Michael Jackson en 1987?",
-          "options": [
-            "David Bowie",
-            "Freddie Mercury",
-            "Elton John",
-            "Robert Plant"
-          ],
+          "options": ["David Bowie", "Freddie Mercury", "Elton John", "Robert Plant"],
           "correctAnswer": "David Bowie",
           "trivia": "Michael Jackson se inspiró en David Bowie no solo por su música, sino también por su innovador estilo visual y su capacidad para reinventarse. En 1987, al lanzar 'Bad', Jackson buscaba un enfoque audaz y provocador que resonara con la estética de la época, muy marcada por la moda y el arte del rock. Bowie, con su particular forma de fusionar diferentes géneros y su impactante presencia escénica, influyó profundamente en la forma en que Jackson abordó su imagen y su narrativa musical. En un momento cultural donde la música pop y el rock coexistían y se entrelazaban, esta inspiración se tradujo en un álbum que no solo rompió récords de ventas, sino que también dejó una huella imborrable en la historia del pop. 'Bad' se convirtió en un símbolo de la audacia artística de finales de los 80, un tiempo donde las estrellas no solo eran escuchadas, sino también vistas y sentidas en cada rincón del mundo."
         },
@@ -3502,23 +3262,13 @@
       "medium": [
         {
           "question": "¿Cuál de las siguientes canciones, interpretada por Pixies en su álbum 'Doolittle' de 1989, es una versión cover de un tema original de otro artista?",
-          "options": [
-            "Tame",
-            "Here Comes Your Man",
-            "Debaser",
-            "Isla de Encanta"
-          ],
+          "options": ["Tame", "Here Comes Your Man", "Debaser", "Isla de Encanta"],
           "correctAnswer": "Here Comes Your Man",
           "trivia": "La canción 'Here Comes Your Man' de Pixies es una reinterpretación que destaca dentro del álbum 'Doolittle', lanzado en 1989. Aunque no es una versión de un tema preexistente, el propio Black Francis, líder de la banda, ha mencionado que se inspiró en su amor por el pop y el rock clásico. Este tema encapsula el espíritu de la época, cuando la música alternativa comenzaba a fusionarse con influencias más comerciales, dando lugar a un sonido distintivo que resonaba entre los jóvenes de la época. En ese contexto, Pixies se convirtió en un referente del rock alternativo, influyendo en bandas de habla hispana como Héroes del Silencio y La Polla Records, que también exploraban nuevas formas de expresión musical. Este álbum no solo marcó el camino para el grunge y el indie rock, sino que también dejó una huella imborrable en la cultura musical de finales de los 80."
         },
         {
           "question": "¿Cuál fue el productor principal que trabajó con Pixies en la creación de su influyente álbum 'Doolittle' en 1989?",
-          "options": [
-            "Gil Norton",
-            "Steve Albini",
-            "Butch Vig",
-            "Daniel Lanois"
-          ],
+          "options": ["Gil Norton", "Steve Albini", "Butch Vig", "Daniel Lanois"],
           "correctAnswer": "Gil Norton",
           "trivia": "El productor Gil Norton fue la mente maestra detrás del sonido distintivo del álbum 'Doolittle' de Pixies, lanzado en 1989. Su enfoque meticuloso y su habilidad para capturar la energía cruda de la banda ayudaron a dar forma a una obra que se considera un hito en la música alternativa. Durante las sesiones de grabación, Norton implementó técnicas innovadoras, como la mezcla de sonidos de guitarra distorsionados con melodías pegajosas, lo que contribuyó a crear el carácter único del álbum. Además, 'Doolittle' no solo consolidó a Pixies como pioneros del rock alternativo, sino que también influyó en una generación de bandas en la escena musical hispana y mundial. La mezcla de estilos y la lírica surrealista resonaron en una época en que el rock en español comenzaba a tomar fuerza, dejando una huella indeleble en la cultura musical del momento."
         },
@@ -3630,12 +3380,7 @@
         },
         {
           "question": "En 1985, una de las canciones del álbum 'Hounds of Love' de Kate Bush fue utilizada en una película que capturó el espíritu de la época. ¿Cuál de estas canciones fue incluida en la banda sonora de la película 'El sentido de la vida' de los Monty Python?",
-          "options": [
-            "Running Up That Hill",
-            "Cloudbusting",
-            "The Big Sky",
-            "Hounds of Love"
-          ],
+          "options": ["Running Up That Hill", "Cloudbusting", "The Big Sky", "Hounds of Love"],
           "correctAnswer": "Running Up That Hill",
           "trivia": "La canción 'Running Up That Hill' es una de las piezas más icónicas de Kate Bush, lanzada en su álbum 'Hounds of Love' en 1985. Esta poderosa balada, que explora los temas del amor y la empatía, fue elegida para formar parte de la banda sonora de la película 'El sentido de la vida' de los Monty Python, un filme que se caracteriza por su humor absurdo y su crítica social. Durante los años 80, Kate Bush se convirtió en un símbolo de la música alternativa, y su estilo único resonaba con la juventud que buscaba una voz auténtica y poética en un mundo lleno de cambios. 'Running Up That Hill' no solo alcanzó gran popularidad, sino que también ha sido reinterpretada y celebrada en diversas ocasiones, convirtiéndose en un himno que sigue siendo relevante en la cultura popular. La conexión de su música con el cine refleja cómo la creatividad de ese tiempo cruzaba fronteras, uniendo diferentes formas de arte y expresión."
         },
@@ -3813,12 +3558,7 @@
       "easy": [
         {
           "question": "¿Quién fue el productor principal que trabajó con Billy Joel en la creación de su famoso álbum 'An Innocent Man' lanzado en 1983?",
-          "options": [
-            "Phil Ramone",
-            "Quincy Jones",
-            "George Martin",
-            "David Foster"
-          ],
+          "options": ["Phil Ramone", "Quincy Jones", "George Martin", "David Foster"],
           "correctAnswer": "Phil Ramone",
           "trivia": "La respuesta correcta es Phil Ramone, quien fue el productor principal del álbum 'An Innocent Man'. Este disco, lanzado en un año vibrante para la música, se caracteriza por su fusión de ritmos pop y soul, elementos que Ramone supo resaltar con su destreza única en el estudio. En 1983, la escena musical estadounidense estaba llena de innovaciones y el sonido de Joel, influenciado por el doo-wop y el rock de los años 50, resonó con fuerza en las listas de popularidad. Además, 'An Innocent Man' incluye clásicos como 'Uptown Girl' y 'Tell Her About It', que se convirtieron en himnos de la época. Phil Ramone, reconocido por su trabajo con artistas como Frank Sinatra y Paul Simon, dejó una huella imborrable en la producción de este álbum, aportando su toque distintivo que ayudó a capturar la esencia de la década de los 80, una época marcada por la búsqueda de nuevas sonoridades y emociones en la música."
         },
@@ -4118,23 +3858,13 @@
         },
         {
           "question": "¿Cuál de las siguientes canciones de 'Paid in Full' de Eric B. & Rakim se considera un hito en la revitalización del hip hop a finales de los años 80, influyendo en la fusión de ritmos funk y samples?",
-          "options": [
-            "Eric B. Is President",
-            "I Ain't No Joke",
-            "Paid in Full",
-            "Move the Crowd"
-          ],
+          "options": ["Eric B. Is President", "I Ain't No Joke", "Paid in Full", "Move the Crowd"],
           "correctAnswer": "Paid in Full",
           "trivia": "La canción 'Paid in Full' es un verdadero ícono del hip hop que, lanzada en 1987, no solo catapultó a Eric B. & Rakim a la fama, sino que también marcó una nueva era en la producción musical al integrar samples de soul y funk de manera magistral. Este tema, con su ritmo hipnótico y la lírica poética de Rakim, se convirtió en un símbolo de la cultura urbana de la época, resonando en las calles de Nueva York y más allá, justo cuando el hip hop comenzaba a consolidarse como un movimiento cultural. La producción de Eric B. fue innovadora, utilizando técnicas de sampling que influenciaron a una generación de artistas, creando un sonido que aún perdura. A nivel global, el álbum ayudó a establecer el hip hop como un género musical legítimo, resonando incluso en la escena musical hispana, donde los ritmos urbanos empezaban a tomar fuerza. 'Paid in Full' sigue siendo un referente ineludible, no solo por su calidad musical, sino por su impacto cultural, definiendo el estilo y la estética del hip hop que emergía en aquellos vibrantes años 80."
         },
         {
           "question": "En el álbum 'Paid in Full' de Eric B. & Rakim, lanzado en 1987, ¿qué destacado artista colaboró en la producción de la canción 'Eric B. Is President'?",
-          "options": [
-            "Kool G Rap",
-            "DJ Premier",
-            "Big Daddy Kane",
-            "Marley Marl"
-          ],
+          "options": ["Kool G Rap", "DJ Premier", "Big Daddy Kane", "Marley Marl"],
           "correctAnswer": "Marley Marl",
           "trivia": "La respuesta correcta es Marley Marl, un pionero del hip hop que tuvo una influencia significativa en la producción musical de la época. En 'Paid in Full', Eric B. & Rakim no solo redefinieron el rap con sus letras ingeniosas y el flow sofisticado de Rakim, sino que también se beneficiaron de la experiencia de Marley Marl, quien es conocido por su innovador uso de samples y su destreza en la producción. El hip hop de 1987 estaba en plena efervescencia, y colaboraciones como esta contribuyeron a crear un sonido distintivo que resonaría a través de las generaciones. Marley Marl, famoso por su trabajo con artistas como Roxanne Shanté, ayudó a establecer la base del rap que fusionaba ritmos de funk con letras cargadas de mensaje, lo que fue vital en el desarrollo de la cultura hip hop. Esta mezcla de talentos y estilos hizo que 'Paid in Full' se convirtiera en un pilar del género y un disco de culto."
         }
@@ -4189,12 +3919,7 @@
       "medium": [
         {
           "question": "En el álbum 'Diamond Life' de Sade, lanzado en 1984, ¿qué productor británico, conocido por su trabajo con varios artistas de soul y pop, colaboró estrechamente con la banda durante la grabación?",
-          "options": [
-            "Nile Rodgers",
-            "Richard Branson",
-            "Mike Peden",
-            "Tony Visconti"
-          ],
+          "options": ["Nile Rodgers", "Richard Branson", "Mike Peden", "Tony Visconti"],
           "correctAnswer": "Mike Peden",
           "trivia": "La respuesta correcta es Mike Peden, quien fue el productor principal de 'Diamond Life'. Este álbum debut no solo catapultó a Sade al estrellato internacional, sino que también marcó un hito en la música de los años 80 con su mezcla de soul, jazz y pop. Peden, con su experiencia en el estudio, ayudó a crear el sonido suave y envolvente que caracteriza a este disco. Durante ese tiempo, el ambiente musical en el mundo era vibrante, con artistas como Juanes y Ana Belén comenzando a dejar su huella en la escena hispana. 'Diamond Life' se convirtió en un clásico, resonando no solo en el Reino Unido, sino también en América Latina, donde la voz cautivadora de Sade y su estilo elegante encontraron un eco profundo en el corazón del público hispanohablante."
         },
@@ -4328,12 +4053,7 @@
         },
         {
           "question": "En el icónico video musical de 'Fight the Power', incluido en el álbum 'It Takes a Nation of Millions to Hold Us Back' de Public Enemy, ¿qué notable figura cultural aparece en la película que se proyecta en el fondo durante las actuaciones de la banda?",
-          "options": [
-            "Malcolm X",
-            "Martin Luther King Jr.",
-            "James Brown",
-            "Bobby Seale"
-          ],
+          "options": ["Malcolm X", "Martin Luther King Jr.", "James Brown", "Bobby Seale"],
           "correctAnswer": "Malcolm X",
           "trivia": "En el video de 'Fight the Power', Public Enemy rinde homenaje a Malcolm X, una figura clave en la lucha por los derechos civiles en Estados Unidos. Esta elección no fue casual, ya que el álbum de 1988 se enmarca en un contexto de fuerte activismo social y político, resonando profundamente con las tensiones raciales de la época. La imagen de Malcolm X simboliza la resistencia y la lucha por la igualdad, temas centrales en la música de Public Enemy. El video se convirtió en un símbolo del poder del hip-hop como medio de expresión política, inspirando a toda una generación a cuestionar el statu quo. En los años 80, el hip-hop ya empezaba a ganar reconocimiento internacional, y esta obra maestra de Public Enemy no solo destacó por su sonido innovador, sino también por su audaz mensaje visual que impactó la cultura popular de forma duradera."
         }
@@ -4388,12 +4108,7 @@
       "easy": [
         {
           "question": "¿Cuál de las siguientes canciones, que se convirtió en un himno de la década de los 80, forma parte del álbum 'Toto IV' de Toto lanzado en 1982?",
-          "options": [
-            "Africa",
-            "Rosanna",
-            "Hold the Line",
-            "I Won't Hold You Back"
-          ],
+          "options": ["Africa", "Rosanna", "Hold the Line", "I Won't Hold You Back"],
           "correctAnswer": "Africa",
           "trivia": "La canción 'Africa' de Toto, lanzada en 1982 como parte de su emblemático álbum 'Toto IV', se ha convertido en un clásico atemporal y un verdadero himno de la cultura pop. Con su icónica melodía y letras evocadoras, 'Africa' captura la esencia de la búsqueda de un lugar especial y ha resonado en generaciones de oyentes en todo el mundo. Durante los años 80, la música rock y pop estaba en su apogeo, y Toto se destacó con su habilidad para fusionar rock, jazz y pop, lo que les permitió alcanzar un éxito internacional. 'Toto IV' no solo ganó varios premios Grammy, sino que también consolidó a la banda como una de las más influyentes de la época, dejando una huella imborrable en la escena musical. La canción sigue siendo tan popular que ha sido reinterpretada en numerosas ocasiones, reflejando su impacto duradero en la cultura musical global."
         },
@@ -4410,12 +4125,7 @@
         },
         {
           "question": "¿En qué famosa película de 1984 se utilizó la icónica canción 'Africa' de Toto, extraída de su álbum 'Toto IV' lanzado en 1982?",
-          "options": [
-            "Los Goonies",
-            "Cazafantasmas",
-            "Footloose",
-            "Blade Runner"
-          ],
+          "options": ["Los Goonies", "Cazafantasmas", "Footloose", "Blade Runner"],
           "correctAnswer": "Cazafantasmas",
           "trivia": "La canción 'Africa', del emblemático álbum 'Toto IV' de Toto, fue utilizada en la película 'Cazafantasmas' de 1984, que se convirtió en un clásico del cine de comedia y fantasía. En una época donde la música pop y los soundtracks de películas estaban en auge, 'Africa' resonó en los corazones de muchos, gracias a su melodía pegajosa y su mezcla de géneros. Este álbum no solo catapultó a Toto al estrellato, sino que también dejó una huella imborrable en la cultura musical de los años 80. 'Toto IV' ganó varios premios Grammy, incluyendo Álbum del Año, y temas como 'Rosanna' y 'Africa' se volvieron himnos atemporales. En un contexto social en el que las películas definían una generación, la inclusión de 'Africa' en 'Cazafantasmas' ayudó a consolidar su estatus como un clásico que sigue siendo disfrutado y recordado por el público hispanohablante."
         }
@@ -4423,12 +4133,7 @@
       "medium": [
         {
           "question": "En sus interpretaciones en vivo, ¿cuál de las canciones del álbum 'Toto IV' ha sido la más emblemática para Toto, destacándose en su repertorio durante giras de los años 80?",
-          "options": [
-            "Africa",
-            "Rosanna",
-            "I Won't Hold You Back",
-            "Make Believe"
-          ],
+          "options": ["Africa", "Rosanna", "I Won't Hold You Back", "Make Believe"],
           "correctAnswer": "Africa",
           "trivia": "La canción 'Africa' se convirtió en un himno no solo para Toto, sino para toda una generación. Desde su lanzamiento en 1982 en el álbum 'Toto IV', esta pieza ha sido interpretada en innumerables conciertos, resonando especialmente en la cultura pop de los años 80. La fusión de ritmos africanos con la poderosa voz de David Paich y la armonía de la banda capturó la atención del público, convirtiéndola en una de sus actuaciones más memorables. De hecho, 'Africa' no solo logró posicionarse en las listas de éxitos, sino que ha mantenido su popularidad a lo largo de las décadas, resonando tanto en la escena musical hispana como en la anglosajona. En el contexto de la época, donde el rock y el pop eran protagonistas, Toto logró conectar emocionalmente con sus oyentes, creando un legado que perdura hasta hoy."
         },
@@ -4505,12 +4210,7 @@
       "easy": [
         {
           "question": "¿Quién fue el productor que colaboró con John Mellencamp en la creación del emblemático álbum 'Scarecrow' en 1985?",
-          "options": [
-            "Don Gehman",
-            "Rick Rubin",
-            "David Foster",
-            "George Martin"
-          ],
+          "options": ["Don Gehman", "Rick Rubin", "David Foster", "George Martin"],
           "correctAnswer": "Don Gehman",
           "trivia": "La respuesta correcta es Don Gehman, quien fue el productor detrás del álbum 'Scarecrow'. Este trabajo se distinguió por su enfoque en las raíces del rock americano y una producción que capturaba la esencia rural de la vida en EE.UU. En 1985, Mellencamp buscaba no solo crear música pegajosa, sino también contar historias que resonaran con la realidad social de la época, específicamente sobre la lucha de los agricultores y la clase trabajadora. Gehman, conocido previamente por su trabajo con artistas como The Hooters, aportó un sonido fresco y auténtico que ayudó a definir el estilo característico de Mellencamp. 'Scarecrow' se convirtió en un hito no solo en la carrera de Mellencamp, sino en la música de los años 80, reflejando la influencia del rock en la cultura popular y resonando con la juventud de habla hispana que buscaba identidad a través de la música."
         },
@@ -4540,12 +4240,7 @@
       "medium": [
         {
           "question": "En el álbum 'Scarecrow' de John Mellencamp, ¿qué destacado músico colaboró en la producción y aportó su talento con el saxofón en varias pistas?",
-          "options": [
-            "Bruce Springsteen",
-            "Kenny Aronoff",
-            "David Bowie",
-            "Tina Turner"
-          ],
+          "options": ["Bruce Springsteen", "Kenny Aronoff", "David Bowie", "Tina Turner"],
           "correctAnswer": "Kenny Aronoff",
           "trivia": "Kenny Aronoff, conocido por su virtuosismo en la batería, fue un colaborador clave en el álbum 'Scarecrow' de John Mellencamp, lanzado en 1985. Aunque su especialidad es la percusión, su participación no solo se limitó a la batería; también aportó su energía y ritmo característicos a las composiciones del álbum, ayudando a definir el sonido de Mellencamp en esa época. 'Scarecrow' se lanzó en un contexto musical donde el rock estadounidense estaba en pleno apogeo, y su fusión con elementos de folk y country resonaba con el público. La década de los 80 fue un tiempo de cambios significativos en la música, y Mellencamp supo aprovechar su influencia en la cultura pop, similar a lo que hacían artistas de habla hispana como Juanes o Maná. La colaboración de Aronoff se suma a una lista de músicos que hicieron de este álbum una obra memorable, reflejando la diversidad y la riqueza del rock de los 80."
         },
@@ -4622,23 +4317,13 @@
       "easy": [
         {
           "question": "¿Quién fue el productor principal que trabajó con Bruce Springsteen en el álbum 'The River' lanzado en 1980?",
-          "options": [
-            "Jon Landau",
-            "Rick Rubin",
-            "Glynn Johns",
-            "T-Bone Burnett"
-          ],
+          "options": ["Jon Landau", "Rick Rubin", "Glynn Johns", "T-Bone Burnett"],
           "correctAnswer": "Jon Landau",
           "trivia": "El productor principal de 'The River' fue Jon Landau, quien también había trabajado anteriormente en el icónico álbum 'Born to Run'. Landau, reconocido por su visión artística y su capacidad para capturar la esencia del rock estadounidense, aportó su talento para dar forma a este doble álbum que se convirtió en un clásico. 'The River' refleja las luchas y esperanzas de la clase trabajadora de los años 80 en EE.UU., un tema que resonaba con la realidad de muchos en esa época. Con canciones como 'Hungry Heart' y el tema titular 'The River', Springsteen no solo narró historias personales, sino que también abordó cuestiones sociales y económicas que afectaban a la sociedad. La colaboración entre Springsteen y Landau fue fundamental, no solo por su relación profesional, sino también por la amistad que forjaron en el camino, ayudando a dar vida a una obra que se ha mantenido vigente y relevante a lo largo de las décadas."
         },
         {
           "question": "¿En qué tema de 'The River' de Bruce Springsteen se pueden notar claramente las continuidades temáticas con sus trabajos anteriores, especialmente con el álbum 'Born to Run'?",
-          "options": [
-            "Drive All Night",
-            "The River",
-            "Hungry Heart",
-            "Independence Day"
-          ],
+          "options": ["Drive All Night", "The River", "Hungry Heart", "Independence Day"],
           "correctAnswer": "The River",
           "trivia": "La canción que da título al álbum, 'The River', es un claro reflejo de las continuidades temáticas que Bruce Springsteen había explorado previamente, especialmente en 'Born to Run'. En ambas obras, Springsteen se centra en la lucha de la clase trabajadora y en las desilusiones que surgen de los sueños no cumplidos, un tema omnipresente en su música. En 'The River', se narra la historia de una pareja que, a pesar de sus esperanzas y sueños, se enfrenta a la dura realidad de la vida. Esta conexión emocional resonaba profundamente en la década de 1980, cuando la crisis económica y el desencanto social marcaban la pauta. La atmósfera de desesperanza y nostalgia en 'The River' capturó el espíritu de una generación que buscaba respuestas y consuelo en la música, haciendo eco de la misma lucha que experimentaban muchos en la escena musical hispana de la época."
         },
@@ -4652,23 +4337,13 @@
       "medium": [
         {
           "question": "En sus interpretaciones en vivo, ¿qué canción del álbum 'The River' de Bruce Springsteen ha sido conocida por su emotiva conexión con el público, especialmente en los conciertos de los años 80?",
-          "options": [
-            "Sherry Darling",
-            "The River",
-            "Out in the Street",
-            "I Wanna Be With You"
-          ],
+          "options": ["Sherry Darling", "The River", "Out in the Street", "I Wanna Be With You"],
           "correctAnswer": "The River",
           "trivia": "La canción 'The River' ha sido una de las piezas centrales en el repertorio en vivo de Bruce Springsteen desde su lanzamiento en 1980. Esta balada, que refleja la lucha y la desilusión de la clase trabajadora, tocó las fibras más sensibles de su audiencia, especialmente en un contexto social marcado por las crisis económicas de la época. En sus conciertos, Springsteen ha interpretado 'The River' con un profundo sentimiento, a menudo acompañándose de su inseparable guitarra y de la energía contagiosa de su banda, la E Street Band. Este tema no solo se convirtió en un himno de resiliencia, sino que también resonó en la escena musical hispana, donde artistas como Juanes y Alejandro Sanz han reconocido la influencia de Springsteen en sus carreras. A lo largo de los años, 'The River' ha mantenido su relevancia, convirtiéndose en un símbolo de esperanza y lucha en tiempos difíciles, lo que ha hecho que cada interpretación en vivo sea un momento inolvidable y cargado de emociones para sus fans."
         },
         {
           "question": "¿Qué canción de Bruce Springsteen en el álbum 'The River' recibió elogios por su representación honesta de las luchas de la clase trabajadora, convirtiéndose en un himno de la época?",
-          "options": [
-            "Point Blank",
-            "The River",
-            "Hungry Heart",
-            "Out in the Street"
-          ],
+          "options": ["Point Blank", "The River", "Hungry Heart", "Out in the Street"],
           "correctAnswer": "The River",
           "trivia": "La canción 'The River' es, sin lugar a dudas, una de las composiciones más significativas de Bruce Springsteen, lanzada en su álbum homónimo en 1980. Los críticos elogiaron su narrativa sincera, que aborda las dificultades económicas y emocionales de la clase trabajadora en Estados Unidos, resonando profundamente con la realidad de muchas familias en una época marcada por la crisis económica. A través de su letra introspectiva, Springsteen pinta un cuadro vívido de la juventud perdida y las promesas incumplidas, convirtiendo esta balada en un himno de resiliencia. En el contexto de los años 80, donde la música rock y los movimientos sociales estaban en pleno apogeo, 'The River' se destacó como un faro de esperanza y desilusión. Este álbum no solo consolidó el estatus de Springsteen como el 'chamán' de la clase trabajadora, sino que también influyó en artistas de habla hispana que buscaban contar sus propias historias de lucha y aspiraciones."
         },
@@ -4745,12 +4420,7 @@
         },
         {
           "question": "¿Cuánto se invirtió en la producción del icónico álbum 'Like a Virgin' de Madonna, lanzado en 1984?",
-          "options": [
-            "500,000 dólares",
-            "1,000,000 dólares",
-            "300,000 dólares",
-            "750,000 dólares"
-          ],
+          "options": ["500,000 dólares", "1,000,000 dólares", "300,000 dólares", "750,000 dólares"],
           "correctAnswer": "500,000 dólares",
           "trivia": "La producción del álbum 'Like a Virgin' de Madonna tuvo un costo aproximado de 500,000 dólares, una cifra considerable para la época, que reflejaba la inversión en talento y producción musical. Este álbum, lanzado en el contexto de la explosión de la música pop de los años 80, se convirtió en un fenómeno cultural, catapultando a Madonna a la fama internacional. En esos años, la música en español también estaba en auge, con artistas como Juan Gabriel y Rocío Dúrcal dominando las listas en el ámbito hispano. 'Like a Virgin' no solo presentó éxitos como el título homónimo, sino que también marcó una era de innovación en la producción musical, combinando sonidos synth-pop con letras provocativas. La producción, liderada por Nile Rodgers, fue clave para crear un sonido fresco que resonó fuertemente en una sociedad en busca de nuevas expresiones artísticas."
         },
@@ -4851,12 +4521,7 @@
       "easy": [
         {
           "question": "¿Quién fue el reconocido productor que colaboró con The Cars en la creación de su icónico álbum 'Heartbeat City' en 1984?",
-          "options": [
-            "Giorgio Moroder",
-            "Mutt Lange",
-            "Robert John 'Mutt' Lange",
-            "Jimmy Iovine"
-          ],
+          "options": ["Giorgio Moroder", "Mutt Lange", "Robert John 'Mutt' Lange", "Jimmy Iovine"],
           "correctAnswer": "Robert John 'Mutt' Lange",
           "trivia": "El productor Robert John 'Mutt' Lange fue el encargado de dar forma al sonido pulido y vanguardista de 'Heartbeat City', el álbum que lanzó a The Cars a nuevas alturas en 1984. Lange, conocido por su trabajo con artistas como Def Leppard y AC/DC, aportó su habilidad para crear melodías pegajosas y arreglos sofisticados, que se tradujeron en hits como 'Drive' y 'You Might Think'. Durante esa época, la escena musical estaba marcada por el auge del synth-pop y el rock nuevo, y 'Heartbeat City' reflejó perfectamente esas tendencias con su mezcla de rock y melodías electrónicas. El álbum no solo alcanzó el éxito comercial, sino que también se convirtió en un referente de la década de los 80, resonando con una generación que buscaba nuevas formas de expresión musical. La colaboración con Lange permitió a The Cars experimentar con sonidos que estaban en la cúspide de la cultura pop, dejando una huella imborrable en la historia de la música."
         },
@@ -4978,12 +4643,7 @@
       "medium": [
         {
           "question": "¿En qué película de 1984 se utilizó la icónica canción 'Eyes Without a Face' de Billy Idol, perteneciente a su álbum 'Rebel Yell'?",
-          "options": [
-            "The Terminator",
-            "La chica de rosa",
-            "Footloose",
-            "Cazadores de fantasmas"
-          ],
+          "options": ["The Terminator", "La chica de rosa", "Footloose", "Cazadores de fantasmas"],
           "correctAnswer": "La chica de rosa",
           "trivia": "La canción 'Eyes Without a Face', una de las joyas del álbum 'Rebel Yell' de Billy Idol, se convirtió en un éxito atemporal y formó parte de la banda sonora de la película 'La chica de rosa' (1986). Esta película, protagonizada por Molly Ringwald, resonó con la juventud de la época, capturando las angustias y esperanzas de una generación. La influencia de Billy Idol se sentía en el aire, en un contexto donde la música new wave y el rock alternativo estaban redefiniendo el panorama sonoro. 'Rebel Yell', lanzado en 1983, fue un hito en su carrera, consolidando su estatus como ícono del rock; no solo por su música, sino por su estética y actitud. La canción, con su mezcla de melodía pegajosa y lírica introspectiva, logró conectar emocionalmente con el público, reflejando las inquietudes de un mundo en transformación."
         },
@@ -5218,12 +4878,7 @@
         },
         {
           "question": "¿Qué famosa película de los años 80 utilizó la canción 'Don't You Want Me' de The Human League, del álbum 'Dare', en su banda sonora?",
-          "options": [
-            "Los Goonies",
-            "El club de los cinco",
-            "Flashdance",
-            "La chica de rojo"
-          ],
+          "options": ["Los Goonies", "El club de los cinco", "Flashdance", "La chica de rojo"],
           "correctAnswer": "El club de los cinco",
           "trivia": "La canción 'Don't You Want Me', del icónico álbum 'Dare' de The Human League, se convirtió en un himno de la década de los 80, capturando la esencia de una era marcada por el synth-pop y la cultura juvenil. Este tema fue incluido en la banda sonora de 'El club de los cinco', una película de John Hughes que exploró las complejidades de la vida adolescente en un instituto estadounidense. En 1985, cuando la película se estrenó, el estilo musical de The Human League resonaba profundamente con la juventud hispana y global, simbolizando el deseo de libertad y expresión propia. Además, 'Don't You Want Me' alcanzó el número uno en las listas de éxitos en varios países, convirtiéndose en un referente de la música de esa época. Sin duda, la fusión de la estética visual de los 80 con la música de The Human League dejó una marca perdurable en la cultura pop, evocando memorias nostálgicas entre quienes vivieron esos tiempos."
         },
@@ -5324,12 +4979,7 @@
       "medium": [
         {
           "question": "¿En qué famosa serie de televisión de los años 80 se utilizó la emblemática canción 'Little Lies' de Fleetwood Mac, del álbum 'Tango in the Night', como parte de su banda sonora?",
-          "options": [
-            "Miami Vice",
-            "Los problemas crecen",
-            "Cuentos de la cripta",
-            "El equipo A"
-          ],
+          "options": ["Miami Vice", "Los problemas crecen", "Cuentos de la cripta", "El equipo A"],
           "correctAnswer": "Los problemas crecen",
           "trivia": "La canción 'Little Lies' de Fleetwood Mac, del álbum 'Tango in the Night', se convirtió en un clásico atemporal que resonó no solo en las listas de éxitos, sino también en la cultura popular de los años 80. Esta emblemática melodía se utilizó en un episodio de 'Los problemas crecen', una serie que capturó la esencia de la familia estadounidense y las dinámicas sociales de la época. 'Tango in the Night' fue un álbum que reflejó el sonido característico de Fleetwood Mac en una era marcada por la fusión de géneros y la exploración de nuevas sonoridades. Además, el álbum incluyó otros éxitos como 'Big Love' y 'Everywhere', que solidificaron la reputación de la banda en el panorama musical. En el contexto hispano, el auge de la música pop y rock en los 80 también alentó a artistas locales a experimentar con sus propios sonidos, creando una conexión vibrante entre culturas. Sin duda, la influencia de Fleetwood Mac perdura y su música sigue siendo un referente emocional para generaciones enteras."
         },
@@ -5354,12 +5004,7 @@
       "hard": [
         {
           "question": "¿Cuál de las siguientes canciones del álbum 'Tango in the Night' de Fleetwood Mac refleja la evolución de las relaciones personales en el contexto de la cultura pop de finales de los años 80, especialmente en relación a las tensiones de la era post-disco?",
-          "options": [
-            "Big Love",
-            "Everywhere",
-            "Little Lies",
-            "Tango in the Night"
-          ],
+          "options": ["Big Love", "Everywhere", "Little Lies", "Tango in the Night"],
           "correctAnswer": "Little Lies",
           "trivia": "La canción 'Little Lies' es un claro reflejo de las complejidades y contradicciones de las relaciones amorosas, encapsulando la angustia emocional que se sentía en la sociedad de finales de los años 80. En un momento en que la música pop estaba atravesando cambios significativos, fusionando estilos y explorando nuevas temáticas, Fleetwood Mac logró capturar la esencia de esas luchas personales con su característico sonido melódico. 'Little Lies', coescrita por Christine McVie y Eddy Quintela, se convirtió en un himno que resonó no solo en los corazones de los fans de la banda, sino también en la cultura musical hispana que comenzaba a experimentar una transformación similar con la llegada del pop latino. El álbum 'Tango in the Night' no solo consolidó el estatus de Fleetwood Mac en la historia del rock, sino que también sirvió de espejo para una generación que lidiaba con las realidades de la vida moderna, la verdad y las mentiras. En este contexto, la canción se alza como un poderoso testimonio de la vulnerabilidad humana en un mundo que parecía girar a una velocidad vertiginosa."
         },
@@ -5376,12 +5021,7 @@
         },
         {
           "question": "¿Qué artista colaboró con Fleetwood Mac en el álbum 'Tango in the Night' de 1987, aportando su distintiva voz en la canción 'Mystified'?",
-          "options": [
-            "Bonnie Tyler",
-            "Sheryl Crow",
-            "Stevie Nicks",
-            "Christine McVie"
-          ],
+          "options": ["Bonnie Tyler", "Sheryl Crow", "Stevie Nicks", "Christine McVie"],
           "correctAnswer": "Christine McVie",
           "trivia": "En 'Tango in the Night', uno de los álbumes más emblemáticos de Fleetwood Mac, la colaboración de Christine McVie es fundamental, especialmente en la canción 'Mystified'. En este álbum, McVie no solo contribuyó con su voz cautivadora, sino que también escribió y co-escribió varias pistas, aportando un toque personal que caracteriza su estilo melódico. En 1987, la banda estaba en medio de un renacer musical y cultural, marcando un contraste con la fuerte presencia de rock y pop en la escena musical de la época. Además, el álbum fue un gran éxito comercial, consolidándose en las listas de popularidad y resonando en la cultura pop de finales de los 80. La música de Fleetwood Mac, con su mezcla de rock, pop y toques de música folk, se convirtió en un referente no solo en el mundo anglosajón, sino que también influyó en artistas de habla hispana que buscaban ese sonido sofisticado y emocional."
         }
@@ -5436,12 +5076,7 @@
       "medium": [
         {
           "question": "En 1981, Stevie Nicks presentó su álbum 'Bella Donna', pero durante una actuación significativa, una de sus canciones se convirtió en un himno para la comunidad femenina. ¿Cuál de las siguientes canciones fue interpretada en esa actuación y resonó especialmente con el público de la época?",
-          "options": [
-            "Edge of Seventeen",
-            "Leather and Lace",
-            "Stand Back",
-            "Nightbird"
-          ],
+          "options": ["Edge of Seventeen", "Leather and Lace", "Stand Back", "Nightbird"],
           "correctAnswer": "Edge of Seventeen",
           "trivia": "La canción 'Edge of Seventeen' no solo se convirtió en uno de los temas más emblemáticos de Stevie Nicks, sino que durante sus presentaciones en vivo en 1981, su interpretación capturó la esencia del empoderamiento femenino de la época. En un contexto donde las mujeres comenzaban a reclamar su lugar en la música rock, esta canción resonó profundamente en el corazón de muchas oyentes. Además, 'Bella Donna' fue un álbum pionero que alcanzó el número uno en la lista Billboard 200, convirtiendo a Nicks en la primera mujer en alcanzar este hito como solista, después de su éxito con Fleetwood Mac. Este álbum, lleno de melodías cautivadoras y letras emotivas, se lanzó en una época dorada para la música, donde artistas como Ana Belén y Mecano comenzaban a brillar en la escena hispana, reflejando un cambio cultural significativo que aún perdura."
         },
@@ -5564,12 +5199,7 @@
         },
         {
           "question": "¿En qué famosa serie de televisión de los años 80 se incluyó la canción 'What Have I Done to Deserve This?' de Pet Shop Boys, del álbum 'Actually', lo que ayudó a popularizar aún más la música electrónica en esa época?",
-          "options": [
-            "Alf",
-            "Miami Vice",
-            "Los problemas crecen",
-            "Cuentos de la cripta"
-          ],
+          "options": ["Alf", "Miami Vice", "Los problemas crecen", "Cuentos de la cripta"],
           "correctAnswer": "Miami Vice",
           "trivia": "La canción 'What Have I Done to Deserve This?' de Pet Shop Boys, que cuenta con la colaboración de Dusty Springfield, fue utilizada en la icónica serie 'Miami Vice'. Este programa, que se emitió entre 1984 y 1990, no solo fue conocido por su estilo visual innovador, sino también por su valiosa banda sonora, donde la música desempeñaba un papel crucial en la creación de atmósferas. 'Actually', lanzado en 1987, fue un álbum que marcó una época y ayudó a definir el sonido de los años 80, fusionando pop con elementos electrónicos y ritmos dance. La inclusión de la canción en 'Miami Vice' representó un momento clave en la popularización de la música electrónica en la cultura pop, resonando especialmente en el público hispano que disfrutaba de la mezcla de géneros. Este álbum, además, se convirtió en un referente para muchos artistas latinos que empezaron a experimentar con sonidos electrónicos en sus propias producciones."
         },
@@ -5747,12 +5377,7 @@
       "easy": [
         {
           "question": "¿Qué canción del álbum 'Sign o’ the Times' de Prince, lanzado en 1987, ha sido reinterpretada por diversos artistas en los años posteriores, destacando su influencia en la música pop y R&B?",
-          "options": [
-            "Kiss",
-            "Purple Rain",
-            "Little Red Corvette",
-            "When Doves Cry"
-          ],
+          "options": ["Kiss", "Purple Rain", "Little Red Corvette", "When Doves Cry"],
           "correctAnswer": "Kiss",
           "trivia": "La respuesta correcta es 'Kiss', una de las canciones más icónicas de Prince, que se incluyó en el álbum 'Sign o’ the Times'. Esta canción no solo se convirtió en un gran éxito en su lanzamiento, alcanzando el número uno en la lista Billboard Hot 100, sino que también ha sido reinterpretada por varios artistas a lo largo de los años, incluyendo versiones destacadas de artistas como Tom Jones y The Art of Noise. En 1987, la escena musical estaba en plena efervescencia, con la fusión de géneros como el funk, el rock y el pop, y 'Kiss' capturó la esencia de esa época con su ritmo contagioso y su lírica provocativa. La influencia de Prince en la música contemporánea se siente todavía hoy, y su capacidad para reinventar y revitalizar el sonido popular sigue siendo admirada por generaciones de músicos. Sin duda, 'Kiss' es un testimonio del impacto duradero de Prince en la música a nivel global."
         },
@@ -5799,12 +5424,7 @@
         },
         {
           "question": "En 1987, Prince lanzó una versión remix de una de las canciones más emblemáticas de su álbum 'Sign o’ the Times'. ¿Cuál de estas canciones recibió un tratamiento especial en forma de remix por parte de Prince?",
-          "options": [
-            "Housequake",
-            "If I Was Your Girlfriend",
-            "U Got the Look",
-            "The Cross"
-          ],
+          "options": ["Housequake", "If I Was Your Girlfriend", "U Got the Look", "The Cross"],
           "correctAnswer": "U Got the Look",
           "trivia": "La canción 'U Got the Look' fue uno de los sencillos destacados de 'Sign o’ the Times', y Prince lanzó una versión remix que capturó la energía vibrante de la época. Este remix presentó un enfoque más bailable, alineándose con la creciente popularidad de la música dance en los años 80 y resonando en pistas de baile de todo el mundo. En esos años, la revolución del pop y el funk estaban en pleno apogeo, y Prince, con su estilo único, se posicionó como un ícono de la música. Además, su colaboración con Sheila E. y el uso de sintetizadores innovadores en la producción de la canción reflejaron una fusión de géneros que definió la escena musical de la época. Este álbum, considerado uno de los mejores de su carrera, no solo consolidó su lugar en la historia de la música pop, sino que también capturó la esencia de una década marcada por la experimentación y la diversidad sonora."
         }
@@ -6017,12 +5637,7 @@
         },
         {
           "question": "¿Qué productor influyó notablemente en el sonido del álbum 'Private Dancer' de Tina Turner, lanzado en 1984, y que ayudó a revitalizar su carrera musical?",
-          "options": [
-            "David Foster",
-            "Jimmy Jam",
-            "Mark Knopfler",
-            "John Cougar Mellencamp"
-          ],
+          "options": ["David Foster", "Jimmy Jam", "Mark Knopfler", "John Cougar Mellencamp"],
           "correctAnswer": "David Foster",
           "trivia": "David Foster fue el productor que tuvo un papel fundamental en la creación del icónico sonido del álbum 'Private Dancer' de Tina Turner en 1984. Este álbum marcó un renacimiento en la carrera de Tina, quien había enfrentado varios altibajos en su trayectoria musical. Foster, conocido por su trabajo con artistas de la talla de Chicago y Celine Dion, aportó su maestría en arreglos y producción, lo que hizo que el disco resonara no solo en el ámbito anglosajón, sino también en la escena musical hispana, donde artistas como Ana Belén y Mecano comenzaban a destacar. 'Private Dancer' incluía éxitos como la canción titular y 'What's Love Got to Do With It', que se convirtieron en himnos de la década. La combinación del talento vocal de Tina y la producción refinada de Foster hizo que el álbum no solo alcanzara el éxito comercial, sino que también se ganara un lugar en la historia de la música, resonando con el público en un momento en que el rock y el pop estaban en plena ebullición."
         },
@@ -6099,12 +5714,7 @@
         },
         {
           "question": "¿Qué famosa banda de rock realizó una versión del exitoso tema 'Invisible Touch' de Genesis en 1986, adaptándolo a su propio estilo?",
-          "options": [
-            "Los Secretos",
-            "Héroes del Silencio",
-            "Mecano",
-            "La Oreja de Van Gogh"
-          ],
+          "options": ["Los Secretos", "Héroes del Silencio", "Mecano", "La Oreja de Van Gogh"],
           "correctAnswer": "Los Secretos",
           "trivia": "La banda española Los Secretos, conocida por su estilo pop-rock melódico, hizo su propia versión del icónico tema 'Invisible Touch' de Genesis en 1986, capturando la esencia de la canción original mientras la adaptaban a su sonido característico. En esa época, Genesis se encontraba en la cúspide de su carrera, y su álbum 'Invisible Touch' había logrado un gran impacto en la escena musical, alcanzando el número uno en las listas de varios países. La influencia de la banda británica se sentía en todo el mundo, y grupos como Los Secretos se inspiraban en su trabajo, fusionando ritmos y melodías que resonaban con los jóvenes de la época. Este tipo de reinterpretaciones era común en los años 80, donde la música pop en español comenzaba a tomar fuerza, y los grupos buscaban conectar con el público a través de versiones que les eran familiares. Así, la versión de Los Secretos se convirtió en un tributo a la creatividad de Genesis y a la rica tradición musical que se vivía en España."
         },
@@ -6322,12 +5932,7 @@
       "easy": [
         {
           "question": "En uno de sus conciertos emblemáticos, ¿qué canción del álbum 'Power, Corruption & Lies' de New Order fue interpretada con un estilo especialmente energético que emocionó al público en 1983?",
-          "options": [
-            "Blue Monday",
-            "Age of Consent",
-            "The Village",
-            "Your Silent Face"
-          ],
+          "options": ["Blue Monday", "Age of Consent", "The Village", "Your Silent Face"],
           "correctAnswer": "Age of Consent",
           "trivia": "La canción 'Age of Consent' de New Order, del álbum 'Power, Corruption & Lies', fue interpretada en vivo durante varios conciertos en 1983, destacándose por su energía contagiosa y su capacidad de conectar con el público. En un momento en que la música electrónica y el post-punk estaban en auge, esta canción se convirtió en un himno para los jóvenes de la época, resonando tanto en las pistas de baile de los clubes como en la radio. La interpretación de 'Age of Consent' en aquellos conciertos no solo capturó la esencia de la escena musical británica, sino que también influyó en la cultura pop en países hispanohablantes, donde el rock y la música electrónica empezaban a fusionarse. A lo largo de los años, este tema ha mantenido su relevancia y ha sido versionado por varios artistas, lo que demuestra el impacto perdurable de New Order en la música. En 1983, la banda logró capturar la esencia de una era, convirtiéndose en pioneros de la mezcla de géneros que todavía hoy se celebra."
         },
@@ -6344,12 +5949,7 @@
         },
         {
           "question": "¿Qué sencillo de New Order, incluido en su álbum 'Power, Corruption & Lies' de 1983, se convirtió en un gran éxito en las listas de música y es considerado un clásico del synth-pop?",
-          "options": [
-            "Blue Monday",
-            "Bizarre Love Triangle",
-            "True Faith",
-            "Temptation"
-          ],
+          "options": ["Blue Monday", "Bizarre Love Triangle", "True Faith", "Temptation"],
           "correctAnswer": "Blue Monday",
           "trivia": "El sencillo que alcanzó gran popularidad y se convirtió en un himno del synth-pop es 'Blue Monday', lanzado por New Order en 1983, como parte de su revolucionario álbum 'Power, Corruption & Lies'. Este tema no solo se destacó por su innovadora mezcla de rock y música electrónica, sino que también se convirtió en el sencillo más vendido de la historia de la música electrónica. En una época donde la música en español dominaba las listas en países hispanohablantes, 'Blue Monday' resonó fuerte, capturando la atención de muchos jóvenes que buscaban nuevas sonoridades. Además, el álbum marcó un hito por su enfoque vanguardista, influyendo en bandas de habla hispana que empezaban a explorar el uso de sintetizadores y ritmos electrónicos. La atmósfera de la época, cargada de cambios sociales y culturales, se reflejó en la música, y New Order se posicionó como pionero de este movimiento."
         }
@@ -6439,23 +6039,13 @@
       "easy": [
         {
           "question": "¿Qué canción, que no fue incluida en el álbum 'Colour by Numbers' de Culture Club en 1983, se ha mencionado como una de las perdidas más interesantes de la banda?",
-          "options": [
-            "I'm Afraid of Me",
-            "Love is Cold",
-            "God Thank You Woman",
-            "The War Song"
-          ],
+          "options": ["I'm Afraid of Me", "Love is Cold", "God Thank You Woman", "The War Song"],
           "correctAnswer": "God Thank You Woman",
           "trivia": "La canción 'God Thank You Woman' es una de las pistas que se menciona entre las canciones perdidas de Culture Club, ya que no logró encontrar su lugar en el exitoso álbum 'Colour by Numbers'. Este disco, lanzado en 1983, se convirtió en un fenómeno cultural que definió la época, con éxitos como 'Karma Chameleon' y 'Church of the Poison Mind'. A pesar de su popularidad, algunas composiciones, como esta, quedaron fuera del lanzamiento, lo que ha llevado a los fans a especular sobre su contenido. En el contexto de la movida de los 80, donde la música pop y la diversidad de estilos florecían, la ausencia de esta canción ha suscitado un aire de misterio. La influencia de Culture Club en la escena musical hispana también fue notable, resonando con el espíritu de libertad y expresión que marcó a toda una generación."
         },
         {
           "question": "¿Qué influyente artista pop de la década de los 80 citó a Culture Club y su álbum 'Colour by Numbers' como una de sus principales inspiraciones para su estilo musical?",
-          "options": [
-            "Madonna",
-            "Michael Jackson",
-            "Cyndi Lauper",
-            "George Michael"
-          ],
+          "options": ["Madonna", "Michael Jackson", "Cyndi Lauper", "George Michael"],
           "correctAnswer": "George Michael",
           "trivia": "George Michael, el icónico cantante de Wham!, ha reconocido en múltiples entrevistas que el estilo visual y musical de Culture Club, especialmente su álbum 'Colour by Numbers', tuvo un impacto significativo en su carrera. En 1983, el álbum no solo arrasó en las listas de popularidad, sino que también rompió moldes en cuanto a la mezcla de géneros como el pop, el reggae y el soul. Esta fusión fue muy inspiradora para otros artistas de la época, incluyendo a Michael, quien adoptó un enfoque similar en su propia música. Además, la audaz estética del grupo y la voz emotiva de Boy George resonaron profundamente en una generación que empezaba a cuestionar las normas de género y expresión personal, reflejando el ambiente vibrante y liberador de los años 80. Así, 'Colour by Numbers' se convirtió en un referente cultural que sigue inspirando a muchos artistas hasta el día de hoy."
         },
@@ -6684,12 +6274,7 @@
         },
         {
           "question": "En el emblemático álbum 'Music for the Masses' de Depeche Mode, ¿quién escribió la letra de la famosa canción 'Strangelove'?",
-          "options": [
-            "Dave Gahan",
-            "Martin Gore",
-            "Andrew Fletcher",
-            "Alan Wilder"
-          ],
+          "options": ["Dave Gahan", "Martin Gore", "Andrew Fletcher", "Alan Wilder"],
           "correctAnswer": "Martin Gore",
           "trivia": "La canción 'Strangelove', incluida en 'Music for the Masses' lanzado en 1987, fue escrita por Martin Gore, el principal compositor del grupo. Este álbum se lanzó en un momento crucial para la música electrónica, cuando bandas como Depeche Mode estaban comenzando a ganar popularidad en todo el mundo, y 'Strangelove' se convirtió en un himno que exploraba temas de amor y deseo con un tono oscuro y seductor. En ese año, la escena musical hispanoamericana también vibraba con ritmos nuevos, y bandas como Mecano en España comenzaban a abrirse camino en la industria. La atmósfera de los 80, marcada por la búsqueda de libertad y la expresión personal, se refleja en las letras de Gore, que capturan la esencia de una juventud inquieta y ansiosa por nuevos sonidos y experiencias. Así, 'Strangelove' no solo es un testimonio del talento de Gore, sino un eco de una época llena de cambios en la música y la cultura."
         },
@@ -6765,12 +6350,7 @@
         },
         {
           "question": "Durante la gira mundial de 1988 en apoyo al álbum 'Music for the Masses', ¿qué canción de Depeche Mode se destacó por su interpretación en vivo, convirtiéndose en un himno para los fans en América Latina?",
-          "options": [
-            "Strangelove",
-            "Behind the Wheel",
-            "Never Let Me Down Again",
-            "I Feel You"
-          ],
+          "options": ["Strangelove", "Behind the Wheel", "Never Let Me Down Again", "I Feel You"],
           "correctAnswer": "Never Let Me Down Again",
           "trivia": "La canción 'Never Let Me Down Again' se convirtió en un momento culminante de las presentaciones en vivo de Depeche Mode durante su gira mundial de 1988, que siguió al lanzamiento del álbum 'Music for the Masses' en 1987. Esta poderosa balada electrónica resonó profundamente entre los fans, especialmente en América Latina, donde el grupo había comenzado a ganar un seguimiento leal. En conciertos como el de México, la interpretación de esta canción era recibida con una euforia palpable, creando un ambiente casi religioso entre los asistentes. Depeche Mode utilizó innovaciones tecnológicas en sus shows, como sintetizadores y efectos de luz, que complementaban la intensidad emocional de su música. Además, este álbum marcó un hito en la evolución del synth-pop y dejó una huella indeleble en la cultura musical de finales de los 80, en un momento en que el rock en español empezaba a cobrar fuerza en la escena musical hispana."
         }
@@ -6801,12 +6381,7 @@
         },
         {
           "question": "¿En qué famoso programa de televisión estadounidense The Go-Go’s interpretaron en vivo su exitoso sencillo 'Our Lips Are Sealed', perteneciente al álbum 'Beauty and the Beat' en 1981?",
-          "options": [
-            "American Bandstand",
-            "Top of the Pops",
-            "Soul Train",
-            "Saturday Night Live"
-          ],
+          "options": ["American Bandstand", "Top of the Pops", "Soul Train", "Saturday Night Live"],
           "correctAnswer": "American Bandstand",
           "trivia": "The Go-Go’s, una de las bandas más icónicas de la nueva ola de los años 80, brillaron en el famoso programa 'American Bandstand' donde interpretaron 'Our Lips Are Sealed', un sencillo que se convirtió en un himno de la época. Este álbum, 'Beauty and the Beat', no solo marcó un hito en la música pop, sino que también fue uno de los primeros álbumes de una banda femenina que logró un gran éxito comercial. En su lanzamiento, el álbum alcanzó el número uno en la lista Billboard 200 y se mantuvo en esa posición durante seis semanas. En una época donde la música rock y pop estaba dominada por hombres, las Go-Go’s rompieron estereotipos y se convirtieron en una voz poderosa para muchas mujeres jóvenes. Su estilo fresco y su energía vibrante resonaron con el público, capturando la esencia del espíritu juvenil de principios de los 80."
         },
@@ -6825,12 +6400,7 @@
       "medium": [
         {
           "question": "En el álbum 'Beauty and the Beat' de The Go-Go’s lanzado en 1981, ¿qué famoso productor colaboró con la banda para darle un giro fresco y vibrante a su sonido, ayudando a definir la escena del nuevo pop en esa época?",
-          "options": [
-            "Giorgio Moroder",
-            "Richard Gottehrer",
-            "Brian Eno",
-            "Toto"
-          ],
+          "options": ["Giorgio Moroder", "Richard Gottehrer", "Brian Eno", "Toto"],
           "correctAnswer": "Richard Gottehrer",
           "trivia": "La respuesta correcta es Richard Gottehrer, quien fue el productor de 'Beauty and the Beat'. Este álbum, lanzado en 1981, se convirtió en un hito del pop y la música new wave, y Gottehrer desempeñó un papel fundamental en la creación de su sonido distintivo. Conocido por su trabajo con otras bandas icónicas como Blondie, Gottehrer aportó su experiencia y su visión creativa, lo que permitió a The Go-Go’s alcanzar una nueva dimensión en su música. En un contexto donde el punk y el rock estaban en auge, la fusión de melodías pegajosas y ritmos contagiosos de 'Beauty and the Beat' resonó no solo en Estados Unidos, sino también en el mundo hispanohablante, donde el pop comenzaba a tomar fuerza. Este álbum, que incluye clásicos como 'Our Lips Are Sealed' y 'We Got the Beat', marcó un antes y un después en la escena musical de los años 80, y su legado perdura hasta hoy."
         },
@@ -7060,12 +6630,7 @@
         },
         {
           "question": "En el álbum 'Make It Big' de Wham! lanzado en 1984, ¿qué destacado artista británico colaboró en la producción de una de las pistas del álbum, otorgándole un toque distintivo y fresco?",
-          "options": [
-            "Elton John",
-            "David Bowie",
-            "George Michael",
-            "Phil Collins"
-          ],
+          "options": ["Elton John", "David Bowie", "George Michael", "Phil Collins"],
           "correctAnswer": "George Michael",
           "trivia": "La colaboración de George Michael en el álbum 'Make It Big' de Wham! no solo fue fundamental en la composición de las canciones, sino que también marcó un hito en su carrera, ya que el álbum alcanzó un éxito rotundo en todo el mundo. En 1984, el pop estaba en pleno apogeo y George, como vocalista principal, aportó su inconfundible voz y su carisma a las tracks, lo que ayudó a catapultar el álbum a la cima de las listas. 'Wake Me Up Before You Go-Go', uno de los sencillos más icónicos del álbum, es testimonio del talento de Michael, que no solo brilló en su faceta como cantante, sino que también mostró su habilidad como compositor. Este álbum, que consolidó a Wham! como un fenómeno global, resonó profundamente en la juventud de la época, evocando un sentimiento de optimismo y diversión que caracterizó a los años 80. La unión de ritmos pegajosos y letras memorables hizo que las canciones de Wham! fueran muy queridas en la cultura pop de todo el mundo, incluyendo en el mundo hispano."
         },
@@ -7243,12 +6808,7 @@
       "easy": [
         {
           "question": "En el álbum 'Tug of War' de Paul McCartney, ¿qué canción abre el disco y establece el tono emocional de la obra?",
-          "options": [
-            "Take It Away",
-            "Here Today",
-            "Ballroom Dancing",
-            "Wanderlust"
-          ],
+          "options": ["Take It Away", "Here Today", "Ballroom Dancing", "Wanderlust"],
           "correctAnswer": "Take It Away",
           "trivia": "La canción que da inicio al álbum 'Tug of War' de Paul McCartney, lanzado en 1982, es 'Take It Away'. Esta pista no solo establece el tono optimista y melódico del álbum, sino que también refleja el deseo de McCartney de explorar nuevas sonoridades tras la separación de The Beatles. En 'Tug of War', McCartney se aventuró en un sonido más sofisticado, incorporando elementos de rock y pop con letras que evocan emociones profundas. Además, el álbum fue un gran éxito, alcanzando el número uno en varias listas, reflejando la conexión de McCartney con el público en una época donde la música en español comenzaba a florecer con artistas como Juanes y Ana Belén. Así, 'Take It Away' se convierte en un símbolo de renacimiento y esperanza, resonando con las vivencias de muchos en el contexto social y cultural de los años 80."
         },
@@ -7335,12 +6895,7 @@
         },
         {
           "question": "En el álbum 'Tug of War' de Paul McCartney, ¿quién fue el artista que colaboró en la memorable canción 'Ebony and Ivory', marcando un hito en las colaboraciones musicales de los años 80?",
-          "options": [
-            "Stevie Wonder",
-            "David Bowie",
-            "Carlos Santana",
-            "Juanes"
-          ],
+          "options": ["Stevie Wonder", "David Bowie", "Carlos Santana", "Juanes"],
           "correctAnswer": "Stevie Wonder",
           "trivia": "La colaboración entre Paul McCartney y Stevie Wonder en 'Ebony and Ivory' es uno de los momentos más emblemáticos del álbum 'Tug of War', lanzado en 1982. Esta canción no solo alcanzó el número uno en las listas de éxitos, sino que también se convirtió en un símbolo de unidad racial y armonía en un mundo dividido. En una época donde la música disco y el rock alternativo dominaban la escena, el dúo trajo un aire fresco que resonó profundamente en el público hispanohablante, similar al impacto que artistas como Juanes tendrían en décadas posteriores. Además, 'Tug of War' fue el primer álbum de McCartney después de la muerte de John Lennon, lo que añadió un peso emocional a su trabajo en ese momento. La fusión de estilos de ambos artistas no solo demostró la versatilidad de McCartney, sino que también dejó una huella perdurable en la música pop de los años 80."
         }
@@ -7360,12 +6915,7 @@
       "easy": [
         {
           "question": "En el álbum 'Permanent Vacation' de Aerosmith, ¿qué tema se encuentra al inicio del disco y qué significado tiene en el contexto de los años 80?",
-          "options": [
-            "Dude (Looks Like a Lady)",
-            "Angel",
-            "Rag Doll",
-            "Heart's Done Time"
-          ],
+          "options": ["Dude (Looks Like a Lady)", "Angel", "Rag Doll", "Heart's Done Time"],
           "correctAnswer": "Dude (Looks Like a Lady)",
           "trivia": "El álbum 'Permanent Vacation', lanzado en 1987, comienza con la emblemática canción 'Dude (Looks Like a Lady)'. Este tema no solo marcó el regreso de Aerosmith a la cima de las listas, sino que también simboliza la liberación y la diversidad de la cultura pop de finales de los 80, en un periodo donde la música glam y el rock estaban en su apogeo. 'Dude (Looks Like a Lady)' se inspiró, según Steven Tyler, en la apariencia de la famosa actriz y modelo, quien le recordó a un amigo del pasado. Además, el álbum fue un punto de inflexión para la banda, ya que les permitió reconquistar a sus fans tras una década de altibajos. Con su estilo fresco, Aerosmith capturó la esencia de una época llena de colores vibrantes y expresiones audaces, resonando profundamente en la juventud de América Latina que se identificaba con la búsqueda de la autenticidad y la libertad."
         },
@@ -7484,12 +7034,7 @@
         },
         {
           "question": "¿Qué famosa película de los años 80 utilizó la icónica canción 'Summer of '69' de Bryan Adams, del álbum 'Reckless', como parte de su banda sonora?",
-          "options": [
-            "Los Goonies",
-            "Duro de matar",
-            "Cazafantasmas",
-            "La historia interminable"
-          ],
+          "options": ["Los Goonies", "Duro de matar", "Cazafantasmas", "La historia interminable"],
           "correctAnswer": "Los Goonies",
           "trivia": "La canción 'Summer of '69', de Bryan Adams, se convirtió en un himno generacional tras su lanzamiento en 1984 en el álbum 'Reckless'. Esta emblemática melodía captura la esencia de la juventud y la nostalgia, resonando profundamente con los sentimientos de libertad y aventura de esa época. Aunque no fue parte de la banda sonora oficial, su inclusión en el clásico film 'Los Goonies' de 1985 ayudó a consolidar su popularidad. A lo largo de los años, 'Summer of '69' ha sido interpretada en innumerables conciertos y ha mantenido su lugar en el corazón de los fans. En el contexto de los años 80, los jóvenes buscaban reflejar sus vivencias y sueños a través de la música, y Bryan Adams se convirtió en uno de los grandes referentes de ese movimiento."
         }
@@ -7519,12 +7064,7 @@
         },
         {
           "question": "En el álbum 'Reckless' de Bryan Adams, lanzado en 1984, ¿qué destacado músico colaboró en la canción 'It's Only Love', aportando su inconfundible voz y un toque especial a esta balada?",
-          "options": [
-            "Eric Clapton",
-            "Rod Stewart",
-            "David Bowie",
-            "Billy Idol"
-          ],
+          "options": ["Eric Clapton", "Rod Stewart", "David Bowie", "Billy Idol"],
           "correctAnswer": "Rod Stewart",
           "trivia": "La colaboración de Bryan Adams con Rod Stewart en 'It's Only Love' es una de las joyas del álbum 'Reckless', lanzado en 1984, que capturó la esencia de una época donde el rock y el pop se entrelazaban con la pasión y el romance. Esta canción se convirtió en un gran éxito, alcanzando el puesto número 15 en la lista Billboard Hot 100. Además, la poderosa interpretación vocal de Stewart complementa a la perfección la emotiva voz de Adams, creando una sinergia única que resonó en el corazón de muchos oyentes. En el contexto musical de los años 80, donde artistas como Juanes y Ana Belén también dejaban huella, la influencia de este tipo de colaboraciones fue fundamental para dar forma a la escena musical internacional. La fusión de estilos y voces en 'It's Only Love' simboliza el espíritu de una generación que buscaba conexión y autenticidad en la música."
         }
@@ -7579,12 +7119,7 @@
       "easy": [
         {
           "question": "¿Qué famoso productor musical trabajó con Elton John en el álbum 'Too Low for Zero' de 1983, ayudando a dar forma a su sonido característico?",
-          "options": [
-            "David Foster",
-            "Gus Dudgeon",
-            "Phil Ramone",
-            "Jimmy Iovine"
-          ],
+          "options": ["David Foster", "Gus Dudgeon", "Phil Ramone", "Jimmy Iovine"],
           "correctAnswer": "Gus Dudgeon",
           "trivia": "Elton John colaboró con el productor Gus Dudgeon en 'Too Low for Zero', un álbum que marcó su regreso a la escena musical tras algunos años de altibajos. Dudgeon, conocido por su habilidad para capturar la esencia del rock y el pop, ya había trabajado con Elton en varios de sus álbumes anteriores, creando un vínculo creativo que se reflejó en la frescura del sonido de 1983. Durante esta época, la música en España y Latinoamérica estaba experimentando una explosión de creatividad, con artistas como Mecano y Soda Stereo comenzando a ganar popularidad. La producción de Dudgeon fue clave para integrar elementos contemporáneos en las composiciones de Elton, como en el icónico sencillo 'I’m Still Standing', que resuena con un mensaje de resiliencia y esperanza. Su trabajo no solo ayudó a revitalizar la carrera de Elton, sino que también dejó una huella indeleble en la música de los años 80."
         },
@@ -7636,12 +7171,7 @@
         },
         {
           "question": "¿Cuál de las canciones de Elton John del álbum 'Too Low for Zero' fue utilizada en la banda sonora de la película 'El secreto de la esfinge' en 1984?",
-          "options": [
-            "I'm Still Standing",
-            "Cold as Christmas",
-            "Kiss the Bride",
-            "Dreamboat"
-          ],
+          "options": ["I'm Still Standing", "Cold as Christmas", "Kiss the Bride", "Dreamboat"],
           "correctAnswer": "I'm Still Standing",
           "trivia": "La canción 'I'm Still Standing', del álbum 'Too Low for Zero' lanzado en 1983, se convirtió en un himno de resiliencia y superación. Fue utilizada en la banda sonora de la película 'El secreto de la esfinge' en 1984, lo que ayudó a consolidar el impacto cultural de la canción durante los años ochenta. Esta época fue testigo de un renacer musical en el ámbito hispano, donde artistas como Mecano y Héroes del Silencio empezaban a dejar su huella, conectando con un público ávido de nuevas melodías. La energía vibrante y la letra optimista de 'I'm Still Standing' resonaron en un momento en que muchos buscaban esperanza y alegría en medio de la incertidumbre política y social. Además, la canción se convirtió en un clásico que aún se escucha en fiestas y eventos, manteniendo vivo el legado de Elton John y su influencia en la música pop internacional."
         }
@@ -7742,12 +7272,7 @@
         },
         {
           "question": "¿En qué popular serie de televisión británica de los años 80 se utilizó la canción 'That’s Entertainment' de The Jam, del álbum 'Sound Affects', como parte de su banda sonora, capturando la esencia de la juventud y la rebelión de la época?",
-          "options": [
-            "Skins",
-            "The Inbetweeners",
-            "The Office",
-            "The Young Ones"
-          ],
+          "options": ["Skins", "The Inbetweeners", "The Office", "The Young Ones"],
           "correctAnswer": "The Young Ones",
           "trivia": "La canción 'That’s Entertainment' de The Jam, que aparece en el álbum 'Sound Affects' lanzado en 1980, se utilizó en la icónica serie británica 'The Young Ones'. Esta serie, que se emitió entre 1982 y 1984, se convirtió en un símbolo de la contracultura juvenil de los años 80, reflejando el espíritu rebelde y la búsqueda de identidad de una generación. 'The Young Ones' combinaba humor absurdo con críticas sociales, lo que resonaba profundamente con la juventud de la época, similar al mensaje de muchas canciones de The Jam. La banda, que fusionaba el punk y el mod revival, capturó la esencia de una era marcada por la lucha social y la búsqueda de nuevas voces en la música. Además, 'That’s Entertainment' trata sobre la frustración y la rutina de la vida cotidiana, temas que también se exploraban en la narrativa de la serie."
         },
@@ -7788,12 +7313,7 @@
         },
         {
           "question": "En el álbum 'Sound Affects' de The Jam, ¿qué canción provocó una crítica particularmente polarizada entre los aficionados y los críticos, destacando su experimentación sonora respecto a las influencias del punk y el pop de los años 80?",
-          "options": [
-            "That's Entertainment",
-            "Start!",
-            "Man in the Corner Shop",
-            "Pretty Green"
-          ],
+          "options": ["That's Entertainment", "Start!", "Man in the Corner Shop", "Pretty Green"],
           "correctAnswer": "That's Entertainment",
           "trivia": "La canción 'That's Entertainment' de The Jam generó una controversia notable por su enfoque lírico y musical, convirtiéndose en un himno para una generación desencantada. Publicada en 1980 como parte del álbum 'Sound Affects', fue recibida con críticas divididas; algunos la elogiaron por su aguda crítica social y su fusión de estilos, mientras que otros la consideraron demasiado experimental. Este tema refleja un contexto cultural en el que la música británica se encontraba en una encrucijada, con influencias del punk y el nuevo pop, resonando con la juventud que buscaba autenticidad en un mundo cambiante. Además, la canción se ha convertido en un clásico que invita a la reflexión sobre la vida urbana, algo que también conectó con la escena musical hispana de la época, donde bandas como Los Secretos y Hombres G comenzaban a tomar protagonismo. La habilidad de Paul Weller para capturar la esencia de la vida cotidiana en sus letras sigue siendo un sello distintivo del legado de The Jam."
         }
@@ -7905,12 +7425,7 @@
         },
         {
           "question": "¿Con qué famoso artista colaboró Olivia Newton-John en el icónico sencillo 'Physical', lanzado en 1981, que se convirtió en un himno de la cultura pop de los años 80?",
-          "options": [
-            "John Travolta",
-            "Kenny Loggins",
-            "David Foster",
-            "Barry Gibb"
-          ],
+          "options": ["John Travolta", "Kenny Loggins", "David Foster", "Barry Gibb"],
           "correctAnswer": "David Foster",
           "trivia": "Olivia Newton-John colaboró con el renombrado productor y músico David Foster en el exitoso sencillo 'Physical', que fue lanzado como parte de su álbum del mismo nombre en 1981. Este tema, conocido por su ritmo contagioso y letras sugestivas, capturó la atención de una generación y se convirtió en un símbolo de la era del fitness y la liberación sexual de los años 80. David Foster, un talentoso compositor y productor, también trabajó con otros grandes artistas de la época, como Céline Dion y Chicago, y su influencia se nota en el sonido pulido y vibrante de 'Physical'. Este sencillo logró alcanzar el número uno en la lista Billboard Hot 100, donde permaneció durante 10 semanas, convirtiéndolo en uno de los mayores éxitos de Newton-John. En el contexto cultural de la época, la canción resonó con el auge de la cultura del ejercicio y los gimnasios, un fenómeno que también tuvo eco en la música hispana, donde artistas como Ana Belén y Mecano comenzaban a emerger como voces relevantes en la escena musical."
         }
@@ -7971,12 +7486,7 @@
         },
         {
           "question": "¿Quién fue el productor principal que dio forma al sonido distintivo del álbum 'Eliminator' de ZZ Top en 1983, fusionando rock con elementos de música electrónica?",
-          "options": [
-            "Glynn Johns",
-            "Terry Manning",
-            "Quincy Jones",
-            "David Bowie"
-          ],
+          "options": ["Glynn Johns", "Terry Manning", "Quincy Jones", "David Bowie"],
           "correctAnswer": "Terry Manning",
           "trivia": "El productor Terry Manning fue fundamental en la creación del icónico sonido de 'Eliminator', donde ZZ Top exploró una innovadora fusión de rock y música electrónica. Durante las sesiones de grabación, Manning aplicó técnicas de producción avanzadas que incluían el uso de sintetizadores y efectos de sonido, lo que ayudó a definir el estilo distintivo de la banda en esta época. 'Eliminator' no solo se convirtió en un éxito comercial, vendiendo más de 10 millones de copias, sino que también marcó un hito en la historia del rock a principios de los años 80, capturando la esencia de una generación que buscaba nuevos sonidos. En un contexto cultural donde bandas como Los Abuelos de la Nada y Soda Stereo estaban surgiendo en la escena hispana, ZZ Top logró resonar con un público más amplio, cruzando fronteras musicales y lingüísticas. La producción de Manning jugaría un papel crucial en el legado duradero de la banda, haciendo de 'Eliminator' un álbum imprescindible en la colección de cualquier amante del rock."
         },
@@ -8165,23 +7675,13 @@
         },
         {
           "question": "¿Qué canción inédita de ABC, relacionada con el álbum 'The Lexicon of Love', fue grabada en 1982 pero no se incluyó en la versión final del disco?",
-          "options": [
-            "Love Is Strong",
-            "The Look of Love",
-            "Poison Arrow",
-            "S.O.S."
-          ],
+          "options": ["Love Is Strong", "The Look of Love", "Poison Arrow", "S.O.S."],
           "correctAnswer": "Love Is Strong",
           "trivia": "La canción 'Love Is Strong' fue grabada por ABC durante las sesiones de 'The Lexicon of Love' en 1982, pero no llegó a formar parte del álbum final. Este trabajo, considerado un hito del synth-pop, capturó la esencia de una época vibrante y llena de cambios en la música. En el contexto de la escena musical hispana de esos años, el sonido de ABC resonaba con la búsqueda de nuevas expresiones, con un enfoque en la melodía y el estilo sofisticado. 'The Lexicon of Love', con sus letras emotivas y producción brillante, se convirtió en un referente para muchas bandas que emergieron en la década de los 80. A pesar de que 'Love Is Strong' no fue lanzada oficialmente, su existencia añade una capa de misterio y fascinación a la historia de este icónico álbum."
         },
         {
           "question": "¿Quién fue el productor que colaboró estrechamente con ABC en la creación de 'The Lexicon of Love' en 1982, aportando su visión innovadora y su estilo único?",
-          "options": [
-            "Trevor Horn",
-            "Stephen Hague",
-            "Phil Collins",
-            "Mark Ronson"
-          ],
+          "options": ["Trevor Horn", "Stephen Hague", "Phil Collins", "Mark Ronson"],
           "correctAnswer": "Trevor Horn",
           "trivia": "La respuesta correcta es Trevor Horn, un productor icónico que dejó su huella en 'The Lexicon of Love'. En este álbum, Horn utilizó técnicas de producción vanguardistas que ayudaron a definir el sonido de la banda, combinando elementos del synth-pop y la música orquestal. Además, su trabajo en este proyecto se considera fundamental para el éxito comercial del álbum, que incluye éxitos como 'Poison Arrow' y 'The Look of Love'. En 1982, la música pop británica estaba en plena ebullición, y ABC se destacó entre otras bandas de la época, capturando la atención del público con su estilo sofisticado y letras evocadoras. La colaboración con Horn no solo elevó la calidad del álbum, sino que también marcó un hito en la producción musical de los años 80."
         }
@@ -8293,12 +7793,7 @@
         },
         {
           "question": "¿Qué influyente banda británica mencionó a The Psychedelic Furs y su álbum 'Talk Talk Talk' como una de sus principales inspiraciones a la hora de definir su sonido en los años 80?",
-          "options": [
-            "The Cure",
-            "Depeche Mode",
-            "Echo & The Bunnymen",
-            "Duran Duran"
-          ],
+          "options": ["The Cure", "Depeche Mode", "Echo & The Bunnymen", "Duran Duran"],
           "correctAnswer": "The Cure",
           "trivia": "La respuesta correcta es The Cure, quienes tomaron el sonido atmosférico y emocional de 'Talk Talk Talk' como referencia clave para su propio estilo. En 1981, la escena musical estaba en plena efervescencia, con bandas como The Psychedelic Furs marcando el ritmo del post-punk y la nueva ola. Los ecos de la guitarra y las letras poéticas de los Furs resonaron profundamente en grupos que buscaban explorar nuevas dimensiones sonoras. Además, el álbum 'Talk Talk Talk' no solo tuvo un impacto en el Reino Unido, sino que también se extendió a América Latina, donde músicos de la época comenzaron a experimentar con la fusión de estilos en sus propias producciones. Así, la influencia de The Psychedelic Furs se convirtió en un pilar para toda una generación de artistas que buscaban un sonido auténtico y emocional."
         }
@@ -8399,23 +7894,13 @@
         },
         {
           "question": "¿Qué famosa serie de televisión de los años 80 utilizó la canción 'The Boys of Summer' de Don Henley, del álbum 'Building the Perfect Beast', en uno de sus episodios?",
-          "options": [
-            "Miami Vice",
-            "Los Dukes de Hazzard",
-            "Cheers",
-            "Magnum P.I."
-          ],
+          "options": ["Miami Vice", "Los Dukes de Hazzard", "Cheers", "Magnum P.I."],
           "correctAnswer": "Miami Vice",
           "trivia": "La respuesta correcta es 'Miami Vice', una serie icónica de los años 80 que capturó la esencia de la cultura pop de la época. La canción 'The Boys of Summer', incluida en el álbum 'Building the Perfect Beast' de Don Henley, se convirtió en un himno de la nostalgia y el amor perdido, resonando con el público. Este álbum, lanzado en 1984, no solo consolidó a Henley como un artista solista después de su éxito con The Eagles, sino que también reflejó la transición musical de la década, mezclando rock con elementos de pop y new wave. 'Miami Vice' era conocida por su estilo innovador y su enfoque en la música contemporánea, lo que hizo que la combinación con la emotiva letra de Henley fuera perfecta para el ambiente de la serie. La serie y la canción evocan sentimientos profundos de la época, conectando con una audiencia que anhelaba tanto el ritmo vibrante de la ciudad como las baladas que hablaban del amor y la pérdida."
         },
         {
           "question": "¿Cuál de las siguientes canciones del álbum 'Building the Perfect Beast' de Don Henley se convirtió en un gran éxito y tuvo un impacto significativo en la escena musical de 1984?",
-          "options": [
-            "Boys of Summer",
-            "Hotel California",
-            "Desperado",
-            "Take It Easy"
-          ],
+          "options": ["Boys of Summer", "Hotel California", "Desperado", "Take It Easy"],
           "correctAnswer": "Boys of Summer",
           "trivia": "La canción 'Boys of Summer' de Don Henley, lanzada en 1984 como parte de su álbum 'Building the Perfect Beast', rápidamente se transformó en un himno generacional que resonó profundamente en el público. Con su mezcla de rock y elementos pop, la canción no solo alcanzó el número uno en la lista Billboard Hot 100, sino que también consolidó a Henley como un artista en solitario tras su éxito con los Eagles. Este sencillo se destacó por su letra nostálgica y su sonido innovador, marcando un antes y un después en la música de los años 80. En una época donde bandas como Mecano y Hombres G comenzaban a dominar la escena hispana, Henley se mantenía relevante al atraer tanto a oyentes angloparlantes como a aquellos que comenzaban a explorar la música en inglés. Su influencia perdura, y 'Boys of Summer' sigue siendo un clásico que evoca recuerdos de una era vibrante y llena de cambios musicales."
         }
@@ -8739,12 +8224,7 @@
       "easy": [
         {
           "question": "¿Qué miembro de Bananarama tuvo que lidiar con la presión de la fama tras el lanzamiento de 'Deep Sea Skiving' en 1983, lo que también afectó su vida personal?",
-          "options": [
-            "Siobhan Fahey",
-            "Keren Woodward",
-            "Sara Dallin",
-            "Jane Wiedlin"
-          ],
+          "options": ["Siobhan Fahey", "Keren Woodward", "Sara Dallin", "Jane Wiedlin"],
           "correctAnswer": "Siobhan Fahey",
           "trivia": "Siobhan Fahey, uno de los miembros de Bananarama, experimentó un intenso enfoque mediático tras el éxito de su álbum 'Deep Sea Skiving' en 1983. La banda, que se formó en un contexto de efervescencia musical en el Reino Unido, rápidamente alcanzó la fama con su estilo fresco y alegre. Durante este tiempo, Fahey enfrentó las presiones de la fama, lo que tuvo un impacto en su vida personal, incluyendo sus relaciones. Además, el sencillo 'Cruel Summer' se convirtió en un himno para muchos jóvenes de la época, resonando también en la cultura hispana, donde el pop británico empezaba a tener un fuerte impacto. Este álbum no solo consolidó su carrera, sino que también las llevó a ser un referente en la música pop de los 80, conectando emocionalmente con una generación que buscaba nuevas formas de expresión."
         },
@@ -8878,12 +8358,7 @@
         },
         {
           "question": "¿En qué famoso videoclip del álbum 'Celebrate!' de Kool & the Gang se pueden ver imágenes vibrantes de fiestas y celebraciones típicas de la cultura afroamericana de los años 80?",
-          "options": [
-            "Celebration",
-            "Get Down On It",
-            "Joanna",
-            "Take My Heart"
-          ],
+          "options": ["Celebration", "Get Down On It", "Joanna", "Take My Heart"],
           "correctAnswer": "Celebration",
           "trivia": "El videoclip de 'Celebration', el icónico sencillo del álbum 'Celebrate!' de Kool & the Gang, captura la esencia de la alegría y la unidad que caracterizaban a la música de los años 80. Lanzado en 1980, este video muestra a la banda rodeada de gente disfrutando de fiestas, simbolizando el espíritu de celebración que la canción transmite. 'Celebration' se convirtió en un himno no solo en Estados Unidos, sino también en diversas culturas alrededor del mundo, resonando especialmente en las celebraciones de fin de año y eventos comunitarios. La producción del video fue innovadora para su época, utilizando colores brillantes y coreografías enérgicas que reflejaban el optimismo y la diversión de la era disco. Este tema consolidó a Kool & the Gang como uno de los grupos más influyentes de su tiempo, dejando una huella duradera en la música y la cultura popular."
         }
@@ -9008,12 +8483,7 @@
       "medium": [
         {
           "question": "¿Quién fue el productor que colaboró con Rick Springfield en la creación de su exitoso álbum 'Working Class Dog' en 1981, ayudando a definir su sonido característico?",
-          "options": [
-            "David Foster",
-            "Jimmy Iovine",
-            "Mutt Lange",
-            "Bruce Fairbairn"
-          ],
+          "options": ["David Foster", "Jimmy Iovine", "Mutt Lange", "Bruce Fairbairn"],
           "correctAnswer": "David Foster",
           "trivia": "Rick Springfield, conocido por su carismática presencia y su habilidad para fusionar rock con pop, contó con la colaboración del aclamado productor David Foster en su álbum 'Working Class Dog'. Esta asociación fue fundamental, ya que Foster, famoso por su trabajo con artistas como Chicago y Earth, Wind & Fire, aportó su toque distintivo en la producción, ayudando a crear éxitos como 'Jessie's Girl'. En la época de 1981, el rock y el pop estaban en pleno auge, y el trabajo de Springfield resonó tanto en el público angloparlante como en la comunidad hispana, donde canciones pegajosas y emotivas eran el pan de cada día en las radios. 'Working Class Dog' no solo consolidó a Springfield como una estrella, sino que también marcó una época en la que la música de los 80 comenzaba a revelarse como un fenómeno cultural global. Este álbum es recordado no solo por sus melodías memorables, sino también por los relatos de una juventud en busca de identidad, algo que conectaba profundamente con los jóvenes de América Latina en aquellos años."
         },
@@ -9294,12 +8764,7 @@
         },
         {
           "question": "En el contexto de los eventos deportivos de los años 80, ¿qué canción del álbum 'Let It Be' de The Replacements se utilizó en varias campañas políticas y se convirtió en un himno no oficial para la comunidad de aficionados del béisbol en Estados Unidos?",
-          "options": [
-            "I Will Dare",
-            "Unsatisfied",
-            "We're Coming Out",
-            "Answering Machine"
-          ],
+          "options": ["I Will Dare", "Unsatisfied", "We're Coming Out", "Answering Machine"],
           "correctAnswer": "I Will Dare",
           "trivia": "La canción 'I Will Dare' de The Replacements, incluida en su álbum 'Let It Be' de 1984, se convirtió en un símbolo de rebeldía y juventud que resonó profundamente en la cultura pop y también fue adoptada en eventos deportivos. Durante los años 80, muchas campañas políticas y eventos deportivos utilizaron su energía vibrante para conectar con el público joven, especialmente en el ámbito del béisbol, donde aficionados la adoptaron como un himno no oficial. Este álbum marcó un antes y un después en la escena musical estadounidense, reflejando la angustia y el anhelo de una generación que buscaba su voz. En una época donde el punk y el rock alternativo empezaban a fusionarse, The Replacements capturaron la esencia de una juventud que se sentía insatisfecha pero decidida a luchar por sus ideales. 'I Will Dare', con su melodía contagiosa y letras introspectivas, logró conectar emocionalmente con muchos, convirtiéndose en un clásico que aún resuena en la memoria colectiva de los aficionados al deporte y la música."
         }
@@ -9354,12 +8819,7 @@
       "medium": [
         {
           "question": "En el álbum 'Juju' de Siouxsie and the Banshees, ¿qué reconocido músico colaboró como productor y contribuyó al sonido distintivo de la banda en 1981?",
-          "options": [
-            "Tony Visconti",
-            "Steve Lillywhite",
-            "John Cale",
-            "David Bowie"
-          ],
+          "options": ["Tony Visconti", "Steve Lillywhite", "John Cale", "David Bowie"],
           "correctAnswer": "Steve Lillywhite",
           "trivia": "La respuesta correcta es Steve Lillywhite, quien tuvo un papel fundamental como productor en 'Juju', el álbum que consolidó a Siouxsie and the Banshees como una de las bandas más influyentes de la escena post-punk. Lillywhite, conocido por su trabajo con grupos como The Psychedelic Furs y U2, logró capturar la energía cruda y la atmósfera gótica que caracterizan este disco. 'Juju' no solo se destacó por su sonido innovador, sino también por su arte visual, que reflejaba la estética oscura y vanguardista de principios de los 80. En un contexto cultural donde la música rock y las subculturas estaban en pleno auge, este álbum se convirtió en un referente que resonó en muchas partes del mundo, incluyendo el ámbito hispano, donde bandas emergentes empezaban a experimentar con sonidos similares. Así, Siouxsie and the Banshees y Lillywhite crearon un legado musical que aún hoy se siente en la escena alternativa."
         },
@@ -9431,12 +8891,7 @@
       "easy": [
         {
           "question": "¿Cuál de las siguientes canciones de Blondie, incluida en su álbum 'Autoamerican' de 1980, se convirtió en un gran éxito crossover en las listas de Billboard?",
-          "options": [
-            "Call Me",
-            "Heart of Glass",
-            "Rapture",
-            "The Tide Is High"
-          ],
+          "options": ["Call Me", "Heart of Glass", "Rapture", "The Tide Is High"],
           "correctAnswer": "Call Me",
           "trivia": "La canción 'Call Me', escrita por Debbie Harry y Giorgio Moroder, se convirtió en un fenómeno en 1980, alcanzando el número uno en la lista Billboard Hot 100. Este tema fue parte fundamental del álbum 'Autoamerican', el cual marcó un giro en el sonido de Blondie al incorporar elementos del rock, el pop y el disco, reflejando la explosión creativa de la década de los 80. En esa época, Blondie se posicionó como una de las bandas más innovadoras, fusionando géneros y conquistando tanto el mercado estadounidense como internacional. 'Call Me' no solo resonó en las pistas de baile, sino que también se escuchaba en radios de todo el mundo, convirtiéndose en un himno de la era. A través de su estilo audaz y letras pegajosas, Blondie capturó la esencia de una generación, dejando una huella imborrable en la cultura musical de su tiempo."
         },
@@ -9461,12 +8916,7 @@
       "medium": [
         {
           "question": "En el álbum 'Autoamerican' de Blondie, ¿qué canción se convirtió en un famoso remix en la escena disco de los años 80, popularizando aún más el sonido innovador de la banda?",
-          "options": [
-            "Heart of Glass",
-            "Rapture",
-            "The Tide Is High",
-            "Union City Blue"
-          ],
+          "options": ["Heart of Glass", "Rapture", "The Tide Is High", "Union City Blue"],
           "correctAnswer": "Rapture",
           "trivia": "El remix de 'Rapture' fue crucial para solidificar la posición de Blondie en la música disco y new wave de los años 80. La canción, que fusiona rock con ritmos de hip-hop, llegó a ser un fenómeno cultural, destacándose por su innovador uso de rap, algo poco común en la época. Este éxito no solo hizo que 'Rapture' alcanzara las listas de popularidad, sino que también abrió las puertas a otros artistas de la escena hispana y anglosajona para experimentar con la fusión de géneros. En 1980, Blondie se encontraba en la cúspide de su carrera, y 'Autoamerican' reflejaba la diversidad musical de la época, un periodo donde el pop y el rock se entrelazaban con influencias de la música disco, marcando un hito en la historia de la música. La influencia de este remix aún se siente en la música contemporánea, mostrando cómo Blondie supo capturar el espíritu audaz y experimental de su tiempo."
         },
@@ -9554,12 +9004,7 @@
         },
         {
           "question": "¿En qué popular serie de televisión de los años 80 se utilizó la famosa canción 'Upside Down' de Diana Ross, del álbum 'Diana'?",
-          "options": [
-            "Miami Vice",
-            "La familia Brady",
-            "Dallas",
-            "Los Jeffersons"
-          ],
+          "options": ["Miami Vice", "La familia Brady", "Dallas", "Los Jeffersons"],
           "correctAnswer": "Miami Vice",
           "trivia": "La canción 'Upside Down', un gran éxito de Diana Ross del álbum 'Diana' lanzado en 1980, resonó fuertemente en la cultura pop de su tiempo. Esta vibrante melodía se convirtió en un tema icónico de la serie 'Miami Vice', que capturó la esencia de la vida nocturna y el glamour de la década de los 80. La combinación de la música de Ross y la narrativa visual de la serie no solo consolidó su legado, sino que también mostró cómo la música puede entrelazarse con la televisión para crear momentos memorables. 'Diana' fue un álbum innovador que incluyó producción de Nile Rodgers y Bernard Edwards, miembros de Chic, lo que aportó un sonido fresco y bailable, que se ajustaba como anillo al dedo al estilo de la época. Así, Diana Ross no solo brilló en la música, sino que también dejó su huella en la pantalla, convirtiéndose en un símbolo de una era llena de ritmo, color y emoción."
         },
@@ -9578,12 +9023,7 @@
       "medium": [
         {
           "question": "¿En qué famosa película de 1980 se incluyó la canción 'Upside Down' de Diana Ross, que forma parte de su aclamado álbum 'Diana'?",
-          "options": [
-            "Grease",
-            "Los cazafantasmas",
-            "Fiebre del sábado noche",
-            "Flashdance"
-          ],
+          "options": ["Grease", "Los cazafantasmas", "Fiebre del sábado noche", "Flashdance"],
           "correctAnswer": "Los cazafantasmas",
           "trivia": "La canción 'Upside Down', un himno disco que captura la esencia vibrante de los años 80, fue incluida en la popular película 'Los cazafantasmas', estrenada en 1984. Este tema, parte del álbum 'Diana', lanzado en 1980, se convirtió en uno de los mayores éxitos de Diana Ross, alcanzando el número uno en la lista Billboard Hot 100. En un período donde la música disco dominaba las pistas de baile, la voz poderosa y emotiva de Diana Ross resonaba profundamente en la cultura pop. Además, el álbum 'Diana' fue un producto innovador de la colaboración con Nile Rodgers y Bernard Edwards de Chic, quienes aportaron su estilo característico al sonido de la época. Esta conexión entre la música de Ross y el cine refleja cómo la cultura musical de los 80 entrelazó sus melodías con el séptimo arte, creando recuerdos imborrables para generaciones de hispanohablantes."
         },
@@ -9701,12 +9141,7 @@
         },
         {
           "question": "¿Qué crítico musical destacó la fusión de rock y melodías pop en la recepción del álbum 'East Side Story' de Squeeze en 1981?",
-          "options": [
-            "Robert Christgau",
-            "NME",
-            "Rolling Stone",
-            "Melody Maker"
-          ],
+          "options": ["Robert Christgau", "NME", "Rolling Stone", "Melody Maker"],
           "correctAnswer": "NME",
           "trivia": "El álbum 'East Side Story', lanzado en 1981 por Squeeze, fue recibido con gran entusiasmo por la crítica, especialmente por su innovadora fusión de rock y melodías pop. La revista británica NME fue una de las más influyentes en su evaluación, elogiando la habilidad del grupo para combinar letras ingeniosas con una instrumentación rica y melódica. Esto se producían en un contexto musical donde la Nueva Ola estaba en pleno apogeo, marcando una época de experimentación y creatividad. Además, el álbum incluye clásicos como 'Tempted', que se convirtió en un himno de la época. La música de Squeeze resonaba con el espíritu de los años 80, capturando la esencia de una generación que buscaba nuevas formas de expresión en medio de cambios sociales y políticos."
         },
@@ -9772,12 +9207,7 @@
       "easy": [
         {
           "question": "¿Qué sencillo lanzado en 1987 de 'Kiss Me, Kiss Me, Kiss Me' se convirtió en uno de los mayores éxitos de The Cure y resonó fuertemente en las radios hispanas de la época?",
-          "options": [
-            "Just Like Heaven",
-            "Why Can't I Be You?",
-            "Lullaby",
-            "Hot Hot Hot!!!"
-          ],
+          "options": ["Just Like Heaven", "Why Can't I Be You?", "Lullaby", "Hot Hot Hot!!!"],
           "correctAnswer": "Just Like Heaven",
           "trivia": "El sencillo 'Just Like Heaven' fue lanzado en 1987 y se convirtió en un himno del amor y la melancolía, capturando la esencia del sonido gótico-pop que caracterizaba a The Cure. Esta canción no solo dominó las listas de música en el Reino Unido, sino que también resonó profundamente en la comunidad hispana, convirtiéndose en un favorito en las emisoras de radio de América Latina y España. En el contexto de la música hispana de la época, donde el rock en español comenzaba a tomar fuerza con bandas como Soda Stereo y Héroes del Silencio, 'Just Like Heaven' ofrecía un contraste perfecto, lleno de romanticismo y un aire nostálgico que tocaba el corazón de muchos. La melodía pegajosa y la emotiva letra de Robert Smith hicieron que este tema perdurara a lo largo de los años, manteniéndose relevante hasta el día de hoy. Además, es importante recordar que 'Kiss Me, Kiss Me, Kiss Me' fue un álbum clave en la evolución de The Cure, marcando una transición hacia un sonido más diverso y experimental."
         },
@@ -9818,23 +9248,13 @@
         },
         {
           "question": "En el álbum 'Kiss Me, Kiss Me, Kiss Me' de The Cure, ¿qué instrumento de cuerda fue incorporado para enriquecer los arreglos musicales de varias canciones, aportando un aire melancólico característico de la época?",
-          "options": [
-            "Un violonchelo",
-            "Una guitarra acústica",
-            "Un sitar",
-            "Un saxofón"
-          ],
+          "options": ["Un violonchelo", "Una guitarra acústica", "Un sitar", "Un saxofón"],
           "correctAnswer": "Un violonchelo",
           "trivia": "El violonchelo fue un instrumento clave en la creación de los arreglos musicales del álbum 'Kiss Me, Kiss Me, Kiss Me' de The Cure, lanzado en 1987. Este elegante instrumento de cuerda aportó un matiz melancólico y profundo a temas como 'A Night Like This', resaltando la atmósfera introspectiva que caracteriza la obra. En un contexto musical donde el post-punk y el new wave dominaban la escena, el uso del violonchelo reflejó la experimentación que The Cure buscaba en su sonido, fusionando elementos de rock alternativo con influencias clásicas. Esta mezcla de estilos resonaba con el público de la época, que también estaba influenciado por movimientos musicales en Hispanoamérica, como el rock en español y la Nueva Canción, lo que generó un ambiente enriquecido por la diversidad sonora. La decisión de incluir el violonchelo no solo mostró la versatilidad de la banda, sino que también ayudó a cimentar su legado como pioneros en la creación de paisajes sonoros emotivos."
         },
         {
           "question": "En el álbum 'Kiss Me, Kiss Me, Kiss Me' de The Cure, ¿qué instrumento se destaca por su uso innovador en la canción 'Just Like Heaven' creando una atmósfera etérea y envolvente?",
-          "options": [
-            "Un sitar",
-            "Un xilófono",
-            "Un sintetizador",
-            "Una guitarra acústica"
-          ],
+          "options": ["Un sitar", "Un xilófono", "Un sintetizador", "Una guitarra acústica"],
           "correctAnswer": "Un sintetizador",
           "trivia": "En 'Kiss Me, Kiss Me, Kiss Me', The Cure experimenta con el uso del sintetizador, particularmente en la inolvidable 'Just Like Heaven', donde su sonido se convierte en un sello distintivo que añade una capa de profundidad y emoción a la canción. Esta pieza, lanzada en 1987, capturó la esencia del post-punk y del rock alternativo de la época, resonando fuertemente en una generación que buscaba nuevas formas de expresión musical. Además, el álbum se grabó en un momento en que la escena musical hispana estaba floreciendo, con bandas como Mecano y Héroes del Silencio comenzando a ganar notoriedad en España y América Latina. La atmósfera mágica creada por los sintetizadores de The Cure es un testimonio de su habilidad para fusionar letras poéticas con paisajes sonoros innovadores, lo que les permitió conectar emocionalmente con su audiencia, tanto en el mundo anglosajón como en el hispano."
         }
@@ -9889,12 +9309,7 @@
       "easy": [
         {
           "question": "¿Cuál conocida canción de otro artista fue reinterpretada por George Benson en su álbum 'Give Me the Night' de 1980?",
-          "options": [
-            "On Broadway",
-            "Superstition",
-            "Kiss of Life",
-            "Play That Funky Music"
-          ],
+          "options": ["On Broadway", "Superstition", "Kiss of Life", "Play That Funky Music"],
           "correctAnswer": "On Broadway",
           "trivia": "George Benson sorprendió al mundo musical en 1980 con su interpretación de 'On Broadway', una canción originalmente popularizada por The Drifters. Este tema, que captura la esencia vibrante de Nueva York y los sueños de quienes buscan el éxito en el escenario, se convirtió en un sello distintivo del álbum 'Give Me the Night'. La producción de Quincy Jones aportó un toque moderno y sofisticado, reflejando el sonido característico de los años 80, donde el funk y el jazz se entrelazaban con la música pop. En este contexto, Benson no solo rindió homenaje a un clásico, sino que también conectó con una nueva generación de oyentes que vibraban con el ritmo de la ciudad. Este álbum, además, marcó un hito en la carrera de Benson, consolidándolo como un referente en la fusión de géneros y un ícono que sigue siendo recordado en la escena musical internacional."
         },
@@ -10028,12 +9443,7 @@
         },
         {
           "question": "¿En qué tema de 'Tattoo You' de The Rolling Stones se puede percibir una clara continuidad temática con su álbum anterior, 'Some Girls', lanzado en 1978?",
-          "options": [
-            "Start Me Up",
-            "Waiting on a Friend",
-            "Hang Fire",
-            "Little T&A"
-          ],
+          "options": ["Start Me Up", "Waiting on a Friend", "Hang Fire", "Little T&A"],
           "correctAnswer": "Start Me Up",
           "trivia": "La canción 'Start Me Up' es un claro ejemplo de continuidad temática entre 'Tattoo You' y el álbum anterior 'Some Girls'. En ambos trabajos, The Rolling Stones exploran la energía del rock y la vida urbana, reflejando en sus letras la cultura de los años 70 y 80. 'Start Me Up' se convirtió en uno de los grandes clásicos de la banda, con su inconfundible riff de guitarra, que resonó con fuerza en las radios de todo el mundo. En 1981, el rock estaba en pleno auge y los Stones supieron conectar con esa vorágine, lo que les permitió mantenerse relevantes en una escena musical en constante evolución. Además, la canción se asoció con la campaña publicitaria de Microsoft para Windows 95, lo que la hizo aún más icónica en la cultura popular. Sin duda, 'Start Me Up' es un himno que captura la esencia de una época vibrante y llena de cambios."
         }
@@ -10041,12 +9451,7 @@
       "medium": [
         {
           "question": "En el álbum 'Tattoo You' de The Rolling Stones, lanzado en 1981, hay una canción que evoca el espíritu de su trabajo anterior, explorando temas de amor y desilusión. ¿Cuál de las siguientes canciones es reconocida por esta continuidad temática?",
-          "options": [
-            "Start Me Up",
-            "Waiting on a Friend",
-            "Heaven",
-            "No Use in Crying"
-          ],
+          "options": ["Start Me Up", "Waiting on a Friend", "Heaven", "No Use in Crying"],
           "correctAnswer": "Waiting on a Friend",
           "trivia": "La canción 'Waiting on a Friend' es una de las pistas más emblemáticas del álbum 'Tattoo You' y refleja la continuidad temática de The Rolling Stones en sus trabajos anteriores, especialmente en su exploración de las relaciones humanas. A diferencia de otras canciones del álbum que tienen un ritmo más enérgico, esta pieza se caracteriza por su suavidad y melancolía, recordando la esencia de baladas como 'Angie'. La producción de 'Tattoo You' se inició en 1972, utilizando grabaciones de sesiones anteriores, lo que demuestra cómo el legado musical de la banda se entrelaza a lo largo del tiempo. En 1981, la banda estaba en un contexto cultural donde el rock y el punk se mezclaban, resonando con el público hispano que vivía la efervescencia de la nueva ola musical. Así, 'Waiting on a Friend' no solo se convierte en un himno de nostalgia, sino también en una representación de la madurez artística de The Rolling Stones."
         },
@@ -10098,12 +9503,7 @@
         },
         {
           "question": "En el álbum 'Tattoo You' de The Rolling Stones, lanzado en 1981, ¿cuál de sus sencillos se convirtió en un éxito crossover que resonó tanto en las listas de rock como en las de pop, capturando la esencia de una época marcada por la explosión de nuevas tendencias musicales?",
-          "options": [
-            "Start Me Up",
-            "Waiting on a Friend",
-            "Hang Fire",
-            "Little T&A"
-          ],
+          "options": ["Start Me Up", "Waiting on a Friend", "Hang Fire", "Little T&A"],
           "correctAnswer": "Start Me Up",
           "trivia": "El sencillo 'Start Me Up' se destacó como un auténtico fenómeno crossover tras su lanzamiento en 1981, convirtiéndose en uno de los mayores éxitos de The Rolling Stones. Esta canción no solo alcanzó el número 2 en la lista Billboard Hot 100, sino que también es recordada como un hito en la cultura musical de la época. 'Tattoo You', el álbum del cual proviene, fue un testimonio del renacer creativo de la banda, ya que las grabaciones se realizaron en un contexto de transición entre el rock clásico y el auge de la música pop y el new wave. La atmósfera de inicios de los años 80, con su fusión de géneros y la búsqueda de nuevas identidades musicales, permitió que 'Start Me Up' resonara en los corazones de los fans en América Latina y España, donde la influencia de The Rolling Stones seguía siendo fuerte. Este sencillo, además, ha perdurado en el tiempo, siendo utilizado en eventos deportivos y anuncios, lo que refuerza su estatus icónico en la historia del rock."
         }
@@ -10275,12 +9675,7 @@
       "medium": [
         {
           "question": "¿En qué exitosa película de 1984 se utilizó la emblemática balada 'True' de Spandau Ballet, que pertenece a su álbum del mismo nombre lanzado en 1983?",
-          "options": [
-            "Un hombre y una mujer",
-            "Los Goonies",
-            "Pretty in Pink",
-            "Cazafantasmas"
-          ],
+          "options": ["Un hombre y una mujer", "Los Goonies", "Pretty in Pink", "Cazafantasmas"],
           "correctAnswer": "Pretty in Pink",
           "trivia": "La canción 'True' de Spandau Ballet se convirtió en un clásico atemporal y fue incluida en la banda sonora de la famosa película 'Pretty in Pink', estrenada en 1986, aunque su lanzamiento original fue en 1983. Este tema, con su melodía suave y letras románticas, captura la esencia de la cultura juvenil de la década de los 80, un tiempo marcado por la moda vibrante y los dramas adolescentes en el cine. En sus letras, la banda británica explora temas de amor y anhelo, resonando con una generación que buscaba su identidad en un mundo en constante cambio. La influencia de Spandau Ballet en el panorama musical de la época fue notable, ya que ayudaron a definir el sonido del New Romantic, un movimiento que se adentró en el corazón de la escena musical hispana y europea. 'True' sigue siendo un himno potente, evocando nostalgia y emociones profundas entre quienes crecieron en esos años dorados."
         },
@@ -10387,12 +9782,7 @@
       "medium": [
         {
           "question": "Durante una de sus actuaciones en vivo, ¿qué canción del álbum 'Welcome to the Pleasuredome' de Frankie Goes to Hollywood se convirtió en un himno de la comunidad LGBTQ+ en 1984, resonando con el espíritu de liberación y celebración de la época?",
-          "options": [
-            "Relax",
-            "Two Tribes",
-            "The Power of Love",
-            "Welcome to the Pleasuredome"
-          ],
+          "options": ["Relax", "Two Tribes", "The Power of Love", "Welcome to the Pleasuredome"],
           "correctAnswer": "The Power of Love",
           "trivia": "La canción 'The Power of Love' de Frankie Goes to Hollywood se presentó en múltiples conciertos en 1984 y se convirtió en un símbolo de esperanza y resistencia para la comunidad LGBTQ+. Este tema, con su potente mensaje de amor y redención, resonó en un momento de gran turbulencia social y cultural. 'The Power of Love' es también conocido por sus emotivas interpretaciones en vivo, donde la banda capturaba la esencia de la época, al igual que otros íconos de la música hispana que luchaban por la libertad de expresión. En el contexto de la década de los 80, marcada por la lucha contra el SIDA y la búsqueda de derechos civiles, la música de Frankie Goes to Hollywood ofrecía un refugio emocional y una plataforma de visibilidad. La mezcla de su sonido innovador con letras profundas ha dejado una huella imborrable, convirtiéndola en un clásico atemporal que sigue resonando en las generaciones actuales."
         },
@@ -10651,12 +10041,7 @@
       "hard": [
         {
           "question": "Durante la gira mundial de 'Hysteria', Def Leppard realizó un famoso concierto en 1988 en el que compartió escenario con otra icónica banda. ¿Cuál fue esta banda legendaria que acompañó a Def Leppard en una de las fechas más memorables de la gira?",
-          "options": [
-            "Bon Jovi",
-            "Guns N' Roses",
-            "Iron Maiden",
-            "Motley Crue"
-          ],
+          "options": ["Bon Jovi", "Guns N' Roses", "Iron Maiden", "Motley Crue"],
           "correctAnswer": "Guns N' Roses",
           "trivia": "En 1988, Def Leppard se embarcó en una gira monumental para promocionar su álbum 'Hysteria', el cual había catapultado a la banda a la fama mundial. Uno de los momentos más destacados de esta gira fue el concierto en el estadio de River Plate en Buenos Aires, donde compartieron escenario con Guns N' Roses, que en ese momento también estaba en la cúspide de su carrera. Este evento no solo simbolizó la explosión del rock en los años 80, sino que también unió a dos de las bandas más emblemáticas de la época, creando una atmósfera electrizante que resonó en el corazón de miles de fanáticos. La gira de 'Hysteria' fue un rotundo éxito, vendiendo más de 10 millones de copias en Estados Unidos y dejando una huella imborrable en la historia del rock. En medio de la efervescencia cultural de la música rock de finales de los 80, este concierto se convirtió en una celebración del espíritu del rock and roll, donde las guitarras eléctricas y los gritos de la multitud se entrelazaron en una experiencia inolvidable."
         },
@@ -10821,23 +10206,13 @@
         },
         {
           "question": "En 1985, ¿cuál de las siguientes canciones del álbum 'Steve McQueen' de Prefab Sprout se convirtió en un himno para muchos jóvenes que buscaban un sonido fresco y diferente en la escena musical europea?",
-          "options": [
-            "Cars",
-            "When Love Breaks Down",
-            "Take On Me",
-            "Don't You (Forget About Me)"
-          ],
+          "options": ["Cars", "When Love Breaks Down", "Take On Me", "Don't You (Forget About Me)"],
           "correctAnswer": "When Love Breaks Down",
           "trivia": "La canción 'When Love Breaks Down' es uno de los temas más emblemáticos de Prefab Sprout y pertenece a su álbum 'Steve McQueen', lanzado en 1985. Este álbum, que se destaca por su producción elegante y letras poéticas, capturó la esencia de una época en la que la música pop británica comenzaba a experimentar con nuevos sonidos y estilos. En un mundo donde artistas como Mecano y Héroes del Silencio comenzaban a ganar popularidad en el ámbito hispano, 'Steve McQueen' ofrecía una alternativa fresca y sofisticada. La canción, con su melodía envolvente y su lírica introspectiva, resonó profundamente con una generación que buscaba autenticidad en la música. Además, el álbum fue aclamado por la crítica y se considera un clásico de los años 80, consolidando a Prefab Sprout como uno de los grupos más innovadores de su tiempo."
         },
         {
           "question": "¿Qué canción abre el álbum 'Steve McQueen' de Prefab Sprout y cómo se relaciona con el significado del orden de las pistas?",
-          "options": [
-            "Faron Young",
-            "Appetite",
-            "Don't Sing",
-            "The Golden Calf"
-          ],
+          "options": ["Faron Young", "Appetite", "Don't Sing", "The Golden Calf"],
           "correctAnswer": "Faron Young",
           "trivia": "El álbum 'Steve McQueen' de Prefab Sprout comienza con la enigmática 'Faron Young', una melodía que establece el tono sofisticado y poético del disco. Esta elección de apertura no es casual, ya que la canción presenta una mezcla de introspección y referencias culturales que resuena con el espíritu de la década de los 80, donde la música pop británica comenzaba a experimentar con letras más narrativas. 'Faron Young' hace alusión al famoso cantante country, lo que refleja la influencia de diferentes géneros en el trabajo de la banda. Este álbum, lanzado en 1985, fue un claro ejemplo de cómo la música de aquel entonces, tanto en el Reino Unido como en Hispanoamérica, buscaba explorar nuevas sonoridades y temáticas. En un contexto donde la música hispana también se transformaba, con un auge de la Nueva Ola, Prefab Sprout logró captar la atención con su sonido único y letras evocadoras, dejando una huella significativa en la historia del pop."
         }
@@ -10845,12 +10220,7 @@
       "medium": [
         {
           "question": "¿Qué influyente escritor británico, conocido por su estilo poético y melancólico, fue una de las principales inspiraciones artísticas para el álbum 'Steve McQueen' de Prefab Sprout, lanzado en 1985?",
-          "options": [
-            "George Orwell",
-            "William Wordsworth",
-            "Philip Larkin",
-            "D.H. Lawrence"
-          ],
+          "options": ["George Orwell", "William Wordsworth", "Philip Larkin", "D.H. Lawrence"],
           "correctAnswer": "Philip Larkin",
           "trivia": "La respuesta correcta es Philip Larkin, un poeta británico cuya obra, marcada por su observación aguda de la vida cotidiana y su melancolía, resonó profundamente en la lírica de 'Steve McQueen'. Este álbum se caracteriza por una sensibilidad lírica que refleja el estilo introspectivo de Larkin, quien se convirtió en una figura central en la poesía británica de la posguerra. En 1985, el mundo musical vivía una efervescencia creativa, y Prefab Sprout, con su enfoque sofisticado y melódico, se alineó con la búsqueda de profundidad emocional que también se veía en la escena musical hispana de la época, donde artistas como Ana Belén y Víctor Manuel exploraban temas similares. 'Steve McQueen' no solo marcó un hito en la carrera de la banda, sino que también se convirtió en un referente de la cultura pop que sigue inspirando a músicos y poetas por igual. La conexión entre la poesía de Larkin y las letras de Prefab Sprout resalta cómo las influencias literarias pueden traspasar fronteras y enriquecer la música."
         },
@@ -11014,12 +10384,7 @@
         },
         {
           "question": "¿Qué influyente banda de rock alternativo debe gran parte de su sonido a la innovadora producción de 'Psychocandy' de The Jesus and Mary Chain, lanzado en 1985?",
-          "options": [
-            "Nirvana",
-            "My Bloody Valentine",
-            "Radiohead",
-            "The Cure"
-          ],
+          "options": ["Nirvana", "My Bloody Valentine", "Radiohead", "The Cure"],
           "correctAnswer": "My Bloody Valentine",
           "trivia": "My Bloody Valentine, uno de los pilares del shoegaze, se vio profundamente influenciada por el sonido crudo y experimental de 'Psychocandy' de The Jesus and Mary Chain. Este álbum, que fusionó melodías pop con una atmósfera densa de ruido, abrió nuevas puertas en la música alternativa de los años 80 y sentó las bases para el desarrollo del género. Además, el uso de capas de guitarras distorsionadas y una producción lo-fi se convirtió en un distintivo de su estilo, algo que se reflejó en su obra maestra 'Loveless' en 1991. En una época en la que la cultura musical hispana estaba en plena efervescencia, con bandas como Héroes del Silencio comenzando a emerger, el impacto de The Jesus and Mary Chain resonaba más allá del Atlántico, inspirando a generaciones de músicos en todo el mundo. Así, el legado de 'Psychocandy' perdura, convirtiéndose en una fuente de inspiración para el sonido de muchas bandas contemporáneas."
         }
@@ -11390,12 +10755,7 @@
       "easy": [
         {
           "question": "¿Cuál de las siguientes canciones de INXS, lanzada en el álbum 'Listen Like Thieves' de 1985, se convirtió en un gran éxito crossover que resonó profundamente en las listas de popularidad de varios países?",
-          "options": [
-            "Need You Tonight",
-            "What You Need",
-            "Never Tear Us Apart",
-            "New Sensation"
-          ],
+          "options": ["Need You Tonight", "What You Need", "Never Tear Us Apart", "New Sensation"],
           "correctAnswer": "What You Need",
           "trivia": "La respuesta correcta es 'What You Need', una de las canciones más emblemáticas de INXS que se lanzó en el álbum 'Listen Like Thieves'. Este tema no solo alcanzó el éxito en las listas de rock, sino que también se coló en las listas pop, convirtiéndose en un verdadero fenómeno crossover. En 1986, 'What You Need' llegó al número 1 en la lista de éxitos de Billboard en Estados Unidos, consolidando a INXS como una banda internacionalmente reconocida. En los años 80, la música rock australiana estaba en auge, y el estilo distintivo de INXS, que combinaba rock con elementos de funk y new wave, capturó la atención de los oyentes de habla hispana, resonando en países como México y Argentina. La energía vibrante de la canción sigue siendo recordada y celebrada en conciertos y festivales de música hasta el día de hoy, creando una conexión emocional con el público que creció en esos años dorados del rock."
         },
@@ -11524,12 +10884,7 @@
         },
         {
           "question": "¿Cuál fue el costo aproximado de producción del álbum 'The Raw & the Cooked' de Fine Young Cannibals en 1989?",
-          "options": [
-            "200,000 dólares",
-            "300,000 dólares",
-            "400,000 dólares",
-            "500,000 dólares"
-          ],
+          "options": ["200,000 dólares", "300,000 dólares", "400,000 dólares", "500,000 dólares"],
           "correctAnswer": "300,000 dólares",
           "trivia": "El álbum 'The Raw & the Cooked' de Fine Young Cannibals, lanzado en 1989, tuvo un costo aproximado de producción de 300,000 dólares. Este gasto no solo refleja la calidad de la producción, sino también el ambiente competitivo de la escena musical de finales de los 80, donde las bandas luchaban por destacar en un mercado lleno de talento. En ese momento, el grupo, que ya había ganado popularidad con su primer álbum, buscaba consolidar su sonido distintivo que fusionaba el pop y el rock con toques de soul. Además, este álbum incluye éxitos como \"She Drives Me Crazy\", que no solo resonaron en las listas de éxitos, sino que también se volvieron clásicos atemporales, marcando un hito en la cultura musical de la época. La inversión realizada en la producción ayudó a Fine Young Cannibals a establecerse como una de las bandas más memorables de su tiempo, capturando la esencia de una década vibrante y llena de cambios."
         }
@@ -11859,12 +11214,7 @@
         },
         {
           "question": "Durante la gira de 'The Works' en 1984, ¿en qué ciudad se llevó a cabo uno de los conciertos más memorables de Queen, donde tocaron su icónico tema 'Radio Ga Ga'?",
-          "options": [
-            "Madrid, España",
-            "Lima, Perú",
-            "Buenos Aires, Argentina",
-            "Santiago, Chile"
-          ],
+          "options": ["Madrid, España", "Lima, Perú", "Buenos Aires, Argentina", "Santiago, Chile"],
           "correctAnswer": "Santiago, Chile",
           "trivia": "El concierto de Queen en Santiago, Chile, el 19 de marzo de 1981, se convirtió en una de las actuaciones más legendarias del grupo en América Latina, aunque la gira de 'The Works' se realizó en 1984. Durante esta gira, Queen presentó temas de su álbum 'The Works', incluyendo 'Radio Ga Ga', que resonó profundamente con el público. En esos años, la música rock estaba en pleno apogeo en muchos países de habla hispana, y Queen se consolidó como una de las bandas más influyentes del momento. La energía y la pasión de sus actuaciones en vivo crearon un vínculo inquebrantable con sus fans, quienes aún recuerdan la experiencia. De hecho, esta gira fue un hito cultural, marcando un antes y un después en la manera en que las bandas internacionales eran recibidas en la región."
         },
@@ -11935,12 +11285,7 @@
         },
         {
           "question": "En el álbum 'The Works' de Queen, lanzado en 1984, una de las canciones más emblemáticas presenta un estilo musical que fusiona rock con elementos de ópera. ¿Cuál de las siguientes canciones es la que utiliza esta mezcla distintiva?",
-          "options": [
-            "Tear It Up",
-            "Radio Ga Ga",
-            "I Want to Break Free",
-            "Hammer to Fall"
-          ],
+          "options": ["Tear It Up", "Radio Ga Ga", "I Want to Break Free", "Hammer to Fall"],
           "correctAnswer": "Radio Ga Ga",
           "trivia": "La canción 'Radio Ga Ga' es una de las joyas del álbum 'The Works' de Queen, lanzado en 1984. Con su pegajoso coro y su evocativa letra, se ha convertido en un himno para los amantes de la radio y la música en general. Además, es famoso por su innovador videoclip que combina imágenes de la banda con fragmentos de películas clásicas, capturando la esencia de una época en la que la música y la televisión comenzaban a converger. 'Radio Ga Ga' no solo fue un éxito comercial, alcanzando altas posiciones en las listas de varios países, sino que también simbolizó la lucha por la supervivencia de la radio frente a la emergente popularidad de los videos musicales. En un contexto musical hispano marcado por el auge de géneros como la salsa y el rock en español, el impacto de Queen seguía resonando, inspirando a bandas y artistas que buscaban romper moldes y explorar nuevas sonoridades."
         }
@@ -11971,12 +11316,7 @@
         },
         {
           "question": "¿Qué famosa colaboración vocal se destaca en el álbum 'The Seeds of Love' de Tears for Fears, lanzado en 1989?",
-          "options": [
-            "Omar Souleyman",
-            "Nina Persson",
-            "Jonny Greenwood",
-            "Oleta Adams"
-          ],
+          "options": ["Omar Souleyman", "Nina Persson", "Jonny Greenwood", "Oleta Adams"],
           "correctAnswer": "Oleta Adams",
           "trivia": "En 'The Seeds of Love', Tears for Fears incluyó a Oleta Adams como vocalista en la emblemática canción 'Woman in Chains'. Esta colaboración no solo potenció la fuerza emocional de la canción, sino que también ayudó a catapultar a Adams a la fama, convirtiéndola en una figura reconocida en la música pop de finales de los 80. 'The Seeds of Love' se caracteriza por su fusión de estilos, que va desde el rock alternativo hasta toques soul, reflejando la diversidad musical de la época. En un contexto cultural donde artistas hispanohablantes como Ana Belén y Alejandro Sanz comenzaban a emerger, la unión de voces de Tears for Fears y Oleta Adams resonó con un público global. Este álbum, que fue un éxito tanto en listas como en críticas, sigue siendo un hito en la trayectoria de la banda, gracias a su innovadora producción y colaboraciones memorables."
         },
@@ -12077,12 +11417,7 @@
       "easy": [
         {
           "question": "¿Qué canción inédita de Aerosmith, relacionada con el álbum 'Pump' de 1989, fue grabada durante esas sesiones pero nunca se incluyó en el disco?",
-          "options": [
-            "The Other Side",
-            "F.I.N.E.",
-            "Bump and Grind",
-            "Dude (Looks Like a Lady)"
-          ],
+          "options": ["The Other Side", "F.I.N.E.", "Bump and Grind", "Dude (Looks Like a Lady)"],
           "correctAnswer": "Bump and Grind",
           "trivia": "Durante la grabación del álbum 'Pump', Aerosmith compuso varias canciones que no llegaron a la versión final del disco. Una de ellas es 'Bump and Grind', que refleja la energía y el espíritu de la época, tanto en su sonido como en su letra. Este álbum marcó un renacer para la banda en 1989, consolidándose en la escena rockera mundial después de varios altibajos. 'Pump' tuvo un impacto significativo en la cultura musical, no solo en Estados Unidos, sino también en el mundo hispanohablante, donde el rock en inglés empezaba a ganar adeptos. La inclusión de temas como 'Janie's Got a Gun' y 'Love in an Elevator' ayudó a que el álbum fuera un éxito rotundo, vendiendo más de siete millones de copias solo en Estados Unidos. Sin embargo, la historia de las canciones perdidas, como 'Bump and Grind', nos recuerda que el proceso creativo siempre está lleno de sorpresas y tesoros ocultos."
         },
@@ -12099,12 +11434,7 @@
         },
         {
           "question": "¿Quién fue el bajista que se unió a Aerosmith durante la grabación del álbum 'Pump' en 1989, marcando un cambio significativo en la banda?",
-          "options": [
-            "Tom Hamilton",
-            "Joe Perry",
-            "Brad Whitford",
-            "David Hull"
-          ],
+          "options": ["Tom Hamilton", "Joe Perry", "Brad Whitford", "David Hull"],
           "correctAnswer": "David Hull",
           "trivia": "En 1989, Aerosmith, una de las bandas de rock más emblemáticas de la época, incorporó a David Hull como bajista durante las sesiones de su exitoso álbum 'Pump'. Este cambio en la formación fue crucial, ya que Hull aportó un nuevo enfoque y estilo a la música de la banda, justo cuando se encontraban en una etapa de renacimiento tras su lucha con las adicciones. 'Pump' se convirtió en un gran éxito, produciendo hits como 'Janie's Got a Gun' y 'Love in an Elevator', que resonaron profundamente en la juventud de finales de los 80. En ese contexto, la música rock también comenzaba a fusionarse con elementos de otros géneros, y Aerosmith supo capitalizar esa tendencia. Además, la influencia de bandas de rock en español como Los Héroes del Silencio y La Polla Records reflejaba el auge del rock en la escena musical hispana, creando un ambiente vibrante que rodeaba a grupos como Aerosmith."
         }
@@ -12147,12 +11477,7 @@
       "hard": [
         {
           "question": "En el contexto de los cambios en la formación de la banda, ¿qué miembro de Aerosmith tuvo un papel crucial en la composición del álbum 'Pump' en 1989, tras haber enfrentado problemas personales que casi lo llevan a dejar la banda?",
-          "options": [
-            "Joe Perry",
-            "Brad Whitford",
-            "Steven Tyler",
-            "Tom Hamilton"
-          ],
+          "options": ["Joe Perry", "Brad Whitford", "Steven Tyler", "Tom Hamilton"],
           "correctAnswer": "Steven Tyler",
           "trivia": "La respuesta correcta es Steven Tyler, quien a finales de los 80 lidiaba con problemas de adicción que amenazaban su continuidad en Aerosmith. Sin embargo, su regreso a la música, junto con la influencia de su compañero Joe Perry, resultó en la creación de 'Pump', un álbum fundamental que revitalizó la carrera de la banda. Lanzado en 1989, 'Pump' fue un triunfo comercial y crítico, con éxitos como 'Love in an Elevator' y 'Janie's Got a Gun'. Este álbum marcó un retorno triunfal a la escena rockera, en una época en que el rock alternativo y el glam metal dominaban las listas. Además, la conexión emocional de Tyler con las letras resonó con un público que atravesaba cambios sociales y culturales, haciendo de 'Pump' un hito en la historia de Aerosmith y del rock en general."
         },

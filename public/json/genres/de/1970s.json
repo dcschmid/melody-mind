@@ -47,12 +47,7 @@
       "medium": [
         {
           "question": "Welcher Produzent war maßgeblich an der Erstellung des ikonischen Albums 'The Dark Side of the Moon' von Pink Floyd beteiligt und prägte den charakteristischen Sound des Werkes?",
-          "options": [
-            "George Martin",
-            "Alan Parsons",
-            "Phil Spector",
-            "Brian Eno"
-          ],
+          "options": ["George Martin", "Alan Parsons", "Phil Spector", "Brian Eno"],
           "correctAnswer": "Alan Parsons",
           "trivia": "Alan Parsons war der Tontechniker und Produzent, der eine zentrale Rolle bei den Aufnahmen zu 'The Dark Side of the Moon' spielte. Er war bekannt für seine innovativen Techniken im Bereich der Audioproduktion und trug maßgeblich zur Klangästhetik des Albums bei, das 1973 veröffentlicht wurde. Parsons war auch für die Verwendung von Mehrspuraufnahmen und experimentellen Effekten verantwortlich, die das Album zu einem der bestverkauften in der Geschichte machten. Die Kombination aus musikalischer Kreativität und technischer Raffinesse hat 'The Dark Side of the Moon' zu einem zeitlosen Klassiker gemacht, und Alan Parsons' Einfluss ist in vielen der Songs unverkennbar."
         },
@@ -104,12 +99,7 @@
         },
         {
           "question": "Mit welchem berühmten Künstler arbeiteten Pink Floyd während der Produktion ihres ikonischen Albums 'The Dark Side of the Moon' im Jahr 1973 zusammen, um die charakteristischen Soundeffekte zu kreieren?",
-          "options": [
-            "Robert Fripp",
-            "Alan Parsons",
-            "Brian Eno",
-            "Peter Gabriel"
-          ],
+          "options": ["Robert Fripp", "Alan Parsons", "Brian Eno", "Peter Gabriel"],
           "correctAnswer": "Alan Parsons",
           "trivia": "Die richtige Antwort ist Alan Parsons, der als Toningenieur und Co-Produzent an 'The Dark Side of the Moon' beteiligt war. Parsons spielte eine entscheidende Rolle beim Einsatz innovativer Techniken und Soundeffekte, die das Album zu einem der einflussreichsten der Rockgeschichte machten. Zudem war er maßgeblich an der Entwicklung des charakteristischen Sounddesigns beteiligt, welches das Hörerlebnis von 'The Dark Side of the Moon' prägte. Das Album wurde im März 1973 veröffentlicht und erreichte schnell weltweiten Ruhm, nicht zuletzt dank der außergewöhnlichen Klangqualität, die durch Parsons' Expertise ermöglicht wurde."
         }
@@ -164,12 +154,7 @@
       "medium": [
         {
           "question": "Welcher Song aus dem Album 'Led Zeppelin IV' von Led Zeppelin erreichte in den USA 1971 hohe Chartplatzierungen und gilt als einer der bekanntesten Crossover-Erfolge der Band?",
-          "options": [
-            "Black Dog",
-            "Stairway to Heaven",
-            "Rock and Roll",
-            "Going to California"
-          ],
+          "options": ["Black Dog", "Stairway to Heaven", "Rock and Roll", "Going to California"],
           "correctAnswer": "Stairway to Heaven",
           "trivia": "Der ikonische Song 'Stairway to Heaven' gilt als einer der größten Crossover-Erfolge von Led Zeppelin und wurde 1971 auf dem Album 'Led Zeppelin IV' veröffentlicht. Obwohl er nie offiziell als Single ausgekoppelt wurde, erreichte er in den Billboard Hot 100 Charts Platz 31. Der Song kombiniert Elemente aus Folk, Rock und Hard Rock, was ihn zu einem zeitlosen Klassiker machte. 'Stairway to Heaven' ist oft für seine komplexe Struktur und tiefgründigen Texte gelobt worden und hat Generationen von Zuhörern beeinflusst. Zudem wird er häufig als einer der besten Rock-Songs aller Zeiten angesehen."
         },
@@ -410,12 +395,7 @@
         },
         {
           "question": "Welcher bekannte Künstler oder welche Band ließ sich maßgeblich von David Bowies Album 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars' inspirieren, um ihren eigenen Glam-Rock-Sound zu entwickeln?",
-          "options": [
-            "Queen",
-            "The Rolling Stones",
-            "Led Zeppelin",
-            "The Eagles"
-          ],
+          "options": ["Queen", "The Rolling Stones", "Led Zeppelin", "The Eagles"],
           "correctAnswer": "Queen",
           "trivia": "Die richtige Antwort ist Queen, die stark von David Bowies Album 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars' beeinflusst wurde. Diese Inspiration zeigt sich besonders in der Personifizierung und dem extravaganten Stil, der sowohl in Bowies als auch in Queens Musik präsent ist. Freddie Mercury, der Leadsänger von Queen, bewunderte Bowies Fähigkeit, Charaktere wie Ziggy Stardust zu kreieren und diese in seine Musik zu integrieren. Das Album gilt als ein Meilenstein des Glam-Rock-Genres und hat zahlreiche Künstler inspiriert, die ähnliche theatrale Elemente in ihre Performances einbrachten. Zu den bekanntesten Songs von Queen, die diesen Einfluss widerspiegeln, gehört 'Killer Queen', das 1974 veröffentlicht wurde."
         }
@@ -501,23 +481,13 @@
         },
         {
           "question": "Welche unveröffentlichte Aufnahme aus den Sessions für 'Exile on Main St.' von The Rolling Stones bleibt bis heute ein Rätsel für Fans und Historiker?",
-          "options": [
-            "Sweet Black Angel",
-            "Dancing with Mr. D",
-            "Plundered My Soul",
-            "Venus"
-          ],
+          "options": ["Sweet Black Angel", "Dancing with Mr. D", "Plundered My Soul", "Venus"],
           "correctAnswer": "Plundered My Soul",
           "trivia": "Die unveröffentlichte Aufnahme 'Plundered My Soul' wurde ursprünglich während der Sessions für das Album 'Exile on Main St.' im Jahr 1972 aufgenommen, wurde aber erst 2010 auf dem Reissue des Albums veröffentlicht. Diese Track wurde von Mick Jagger und Keith Richards geschrieben und bietet einen faszinierenden Einblick in den kreativen Prozess der Band in einer Zeit, in der sie mit vielen persönlichen und künstlerischen Herausforderungen konfrontiert war. 'Exile on Main St.' gilt als eines der Meisterwerke von The Rolling Stones, das eine Mischung aus Rock, Blues und Country präsentiert, und die Aufnahmen wurden oft in einem chaotischen Umfeld in einer Villa in Frankreich gemacht. Historisch gesehen spiegelt das Album auch die turbulente Atmosphäre der frühen 70er Jahre wider, sowohl in der Musikszene als auch im Leben der Bandmitglieder."
         },
         {
           "question": "Mit welchem renommierten Produzenten arbeiteten The Rolling Stones während der Aufnahmen für ihr Album 'Exile on Main St.' von 1972 zusammen?",
-          "options": [
-            "Jimmy Miller",
-            "Phil Spector",
-            "Glyn Johns",
-            "Geoff Emerick"
-          ],
+          "options": ["Jimmy Miller", "Phil Spector", "Glyn Johns", "Geoff Emerick"],
           "correctAnswer": "Jimmy Miller",
           "trivia": "The Rolling Stones arbeiteten bei 'Exile on Main St.' eng mit dem Produzenten Jimmy Miller zusammen, der bereits an vorherigen Alben der Band beteiligt war. Miller war bekannt für seinen Einfluss auf den charakteristischen Sound der Stones in den späten 1960er und frühen 1970er Jahren. Unter seiner Regie entstanden Klassiker wie 'Brown Sugar' und 'Tumbling Dice', die auf diesem Album zu finden sind. Seine Fähigkeit, die Band während chaotischer Aufnahmesessions zu leiten, trug entscheidend zur Entstehung des legendären und rauen Sounds von 'Exile on Main St.' bei. Das Album gilt bis heute als eines der besten Werke der Rockgeschichte."
         }
@@ -583,12 +553,7 @@
         },
         {
           "question": "Welcher bekannte Künstler hat eine Coverversion des Songs 'What's Going On' von Marvin Gaye aus dem Jahr 1971 veröffentlicht?",
-          "options": [
-            "Boys II Men",
-            "John Legend",
-            "Luther Vandross",
-            "Michael Bublé"
-          ],
+          "options": ["Boys II Men", "John Legend", "Luther Vandross", "Michael Bublé"],
           "correctAnswer": "John Legend",
           "trivia": "John Legend veröffentlichte 2015 eine moderne Interpretation des ikonischen Songs 'What's Going On' von Marvin Gaye, der auf dem gleichnamigen Album aus dem Jahr 1971 zu finden ist. Der Song gilt als eines der bedeutendsten Werke der Soulmusik und spricht soziale und politische Themen an, die bis heute relevant sind. Marvin Gaye's Original wurde für seine innovative Produktion und tiefgreifenden Texte gefeiert, die auf den Herausforderungen der damaligen Zeit basierten. Legend's Coverversion wurde als Hommage an die Botschaft des Originals angesehen und brachte die Thematik in die heutige Zeit. Gut recherchierbare Fakten zeigen, dass 'What's Going On' nicht nur ein kommerzieller Erfolg war, sondern auch als kulturelles Manifest gilt."
         },
@@ -618,12 +583,7 @@
         },
         {
           "question": "Wie viele Millionen Exemplare verkaufte sich das Album 'What’s Going On' von Marvin Gaye bis zum Jahr 2021 weltweit?",
-          "options": [
-            "3 Millionen",
-            "5 Millionen",
-            "10 Millionen",
-            "12 Millionen"
-          ],
+          "options": ["3 Millionen", "5 Millionen", "10 Millionen", "12 Millionen"],
           "correctAnswer": "10 Millionen",
           "trivia": "Das Album 'What’s Going On' von Marvin Gaye, das 1971 veröffentlicht wurde, ist eines der meistverkauften Alben seiner Zeit und erreichte weltweit über 10 Millionen verkaufte Exemplare. Es gilt als wegweisend für die Motown-Ära und beschäftigte sich mit sozialen Themen wie Krieg, Umwelt und Bürgerrechten. Das Album war nicht nur ein kommerzieller Erfolg, sondern wurde auch von Kritikern hoch gelobt und gilt heute als eines der besten Alben aller Zeiten. 'What’s Going On' war ein bedeutender Wendepunkt in der Musikgeschichte, da es die Grenzen von R&B erweiterte und die gesellschaftlichen Probleme jener Zeit ansprach."
         },
@@ -706,12 +666,7 @@
         },
         {
           "question": "In welchem Musikvideo zu einem Song von Bruce Springsteen aus dem Album 'Born to Run' von 1975 sieht man die legendäre Szenerie von New Jersey?",
-          "options": [
-            "Thunder Road",
-            "Born to Run",
-            "Jungleland",
-            "Tenth Avenue Freeze-Out"
-          ],
+          "options": ["Thunder Road", "Born to Run", "Jungleland", "Tenth Avenue Freeze-Out"],
           "correctAnswer": "Born to Run",
           "trivia": "Das Musikvideo zu 'Born to Run' zeigt eindrucksvoll die Atmosphäre und den Geist von New Jersey in den 1970er Jahren. Bruce Springsteen und seine Band, die E Street Band, fangen die Sehnsucht nach Freiheit und das Streben nach einem besseren Leben ein. 'Born to Run' gilt als einer der bekanntesten Songs des Albums, das als Wendepunkt in Springsteens Karriere angesehen wird. Das Album selbst erreichte hohe Chartplatzierungen und gilt als eines der besten Rock-Alben aller Zeiten. Es spiegelte die soziale Realität und die Träume der damaligen Generation wider."
         }
@@ -771,12 +726,7 @@
         },
         {
           "question": "In welchem Musikvideo des Albums 'Born to Run' von Bruce Springsteen spielt die visuelle Darstellung eines nächtlichen Stadtlebens eine zentrale Rolle?",
-          "options": [
-            "Thunder Road",
-            "Jungleland",
-            "Tenth Avenue Freeze-Out",
-            "Backstreets"
-          ],
+          "options": ["Thunder Road", "Jungleland", "Tenth Avenue Freeze-Out", "Backstreets"],
           "correctAnswer": "Jungleland",
           "trivia": "Das Musikvideo zu 'Jungleland' von Bruce Springsteen, das 1975 im Rahmen des Albums 'Born to Run' veröffentlicht wurde, ist bekannt für seine eindringliche Darstellung des nächtlichen Stadtlebens. Die visuelle Komposition spiegelt die Themen von Sehnsucht und Hoffnung wider, die in den Texten des Songs prominent sind. 'Jungleland' gilt als eines der epischsten Stücke des Albums und zeigt Springsteens Fähigkeit, Geschichten durch Musik und Bild zu erzählen. Zudem ist das Lied für sein ausgedehntes Instrumentalspiel und die emotionale Intensität bekannt, die eine zentrale Rolle in der Rockmusik der 1970er Jahre spielte. Die Kombination aus musikalischer Komplexität und visueller Erzählung macht dieses Musikvideo zu einem bedeutenden Element in der Karriere von Bruce Springsteen."
         }
@@ -924,12 +874,7 @@
         },
         {
           "question": "Mit welchem bekannten Künstler arbeitete The Who an dem Album 'Who’s Next' von 1971 zusammen, um den Song 'Behind Blue Eyes' zu produzieren?",
-          "options": [
-            "Eric Clapton",
-            "David Bowie",
-            "George Harrison",
-            "Pete Townshend"
-          ],
+          "options": ["Eric Clapton", "David Bowie", "George Harrison", "Pete Townshend"],
           "correctAnswer": "Pete Townshend",
           "trivia": "Der Song 'Behind Blue Eyes' auf dem Album 'Who’s Next' wurde von Pete Townshend, dem Gitarristen und Hauptsongwriter von The Who, geschrieben und produziert. Townshend hat nicht nur als Mitglied der Band maßgeblich zur Entstehung des Albums beigetragen, sondern war auch für den charakteristischen Klang und die musikalische Tiefe der Stücke verantwortlich. 'Who’s Next' gilt als eines der besten Alben der Rockgeschichte und enthält weitere bekannte Songs wie 'Baba O'Riley' und 'Won't Get Fooled Again'. Das Album wurde 1971 veröffentlicht und zeigt den Einfluss von Townshends kreativen Ideen und seiner Zusammenarbeit mit den anderen Bandmitgliedern."
         },
@@ -994,12 +939,7 @@
         },
         {
           "question": "Welcher renommierte Produzent war maßgeblich an der Entstehung des Albums 'Who’s Next' von The Who im Jahr 1971 beteiligt und prägte den charakteristischen Klang des Werkes?",
-          "options": [
-            "Eddie Kramer",
-            "George Martin",
-            "Glyn Johns",
-            "Phil Spector"
-          ],
+          "options": ["Eddie Kramer", "George Martin", "Glyn Johns", "Phil Spector"],
           "correctAnswer": "Glyn Johns",
           "trivia": "Glyn Johns war der Produzent, der 'Who’s Next' von The Who im Jahr 1971 leitete und dabei einen entscheidenden Einfluss auf den Sound des Albums hatte. Johns, der auch mit anderen berühmten Bands wie den Rolling Stones und Led Zeppelin zusammenarbeitete, verwendete bei den Aufnahmen innovative Techniken, um die Energie und Dynamik der Band einzufangen. Die Sessions fanden größtenteils im Olympic Studios in London statt, wo Johns eine Live-Atmosphäre schuf, die das eindringliche Gefühl der Musik unterstrich. 'Who’s Next' gilt nicht nur als eines der besten Alben der Band, sondern auch als eines der einflussreichsten Rockalben der 1970er Jahre."
         },
@@ -1052,12 +992,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'A Night at the Opera' von Queen aus dem Jahr 1975 gilt als einflussreich für die LGBTQ+-Bewegung?",
-          "options": [
-            "Bohemian Rhapsody",
-            "You're My Best Friend",
-            "Love of My Life",
-            "39"
-          ],
+          "options": ["Bohemian Rhapsody", "You're My Best Friend", "Love of My Life", "39"],
           "correctAnswer": "Bohemian Rhapsody",
           "trivia": "Der Song 'Bohemian Rhapsody' von Queen, der 1975 auf dem Album 'A Night at the Opera' veröffentlicht wurde, gilt als einflussreich für die LGBTQ+-Bewegung. Der innovative Mix aus verschiedenen Musikstilen und die tiefgründigen, emotionalen Texte haben viele Menschen angesprochen und inspiriert. Die Band, insbesondere Freddie Mercury, wurde zu einem Symbol für Selbstakzeptanz und Ausdruck von Individualität. Zudem förderte der Song eine kulturelle Diskussion über Geschlechteridentität und sexuelle Orientierung, die in den nachfolgenden Jahrzehnten an Bedeutung gewann. 'Bohemian Rhapsody' erreichte nicht nur kommerziellen Erfolg, sondern trug auch zur Sichtbarkeit und Akzeptanz der LGBTQ+-Community bei."
         }
@@ -1158,12 +1093,7 @@
         },
         {
           "question": "Welcher Hit von Stevie Wonder, der auf dem Album 'Songs in the Key of Life' aus dem Jahr 1976 enthalten ist, erreichte in den Billboard Hot 100 Charts Platz 1?",
-          "options": [
-            "Isn't She Lovely",
-            "I Wish",
-            "Sir Duke",
-            "Pastime Paradise"
-          ],
+          "options": ["Isn't She Lovely", "I Wish", "Sir Duke", "Pastime Paradise"],
           "correctAnswer": "Sir Duke",
           "trivia": "Der Song 'Sir Duke' ist einer der bekanntesten Hits von Stevie Wonder und wurde 1977 veröffentlicht. Er erreichte in den Billboard Hot 100 Charts den ersten Platz und ist eine Hommage an den Jazzmusiker Duke Ellington. 'Songs in the Key of Life' gilt als eines der besten Alben der Musikgeschichte und gewann mehrere Grammy Awards. Das Album selbst war ein kommerzieller Erfolg und hat sich weltweit millionenfach verkauft, was Stevie Wonders Status als einer der bedeutendsten Musiker des 20. Jahrhunderts festigte."
         },
@@ -1534,12 +1464,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Blue' von Joni Mitchell erreichte in den USA die höchsten Chartplatzierungen und gilt als Crossover-Erfolg zwischen Folk und Pop?",
-          "options": [
-            "A Case of You",
-            "River",
-            "Both Sides, Now",
-            "My Old Man"
-          ],
+          "options": ["A Case of You", "River", "Both Sides, Now", "My Old Man"],
           "correctAnswer": "A Case of You",
           "trivia": "Der Song 'A Case of You' von Joni Mitchell, der auf ihrem ikonischen Album 'Blue' von 1971 zu finden ist, gilt als einer der größten Crossover-Erfolge der Künstlerin. Während er in den Charts nicht die Spitzenplätze erreichte, wurde er von zahlreichen Künstlern gecovert, was seine weitreichende Beliebtheit und seinen Einfluss belegt. Joni Mitchell kombinierte in diesem Stück Folk-Elemente mit einer melancholischen, poppigen Melodie, die viele Hörer ansprach. Das Album selbst wurde für seinen tiefgründigen Text und die emotionale Tiefe gelobt und gilt als eines der besten Alben der Musikgeschichte. 'Blue' hat nicht nur Joni Mitchells Karriere geprägt, sondern auch das Genre des Singer-Songwriter maßgeblich beeinflusst."
         },
@@ -1662,12 +1587,7 @@
         },
         {
           "question": "Welcher Song von Bob Marley and The Wailers aus dem Album 'Exodus' gilt als einer der ersten Reggae-Hits, der in den US-amerikanischen Charts hohe Platzierungen erreichte und somit den Crossover-Erfolg des Genres einleitete?",
-          "options": [
-            "Jamming",
-            "One Love",
-            "Waiting in Vain",
-            "Three Little Birds"
-          ],
+          "options": ["Jamming", "One Love", "Waiting in Vain", "Three Little Birds"],
           "correctAnswer": "Jamming",
           "trivia": "Der Song 'Jamming' von Bob Marley and The Wailers, der auf dem Album 'Exodus' von 1977 zu finden ist, war ein bedeutender Crossover-Erfolg und erreichte in den US-amerikanischen Charts hohe Platzierungen. 'Exodus' selbst gilt als eines der wichtigsten Alben im Reggae und hat maßgeblich zur Popularität des Genres in den USA beigetragen. Der Track wurde nicht nur für seine eingängige Melodie geschätzt, sondern auch für seine politisch aufgeladene Botschaft, die in der Zeit nach Marleys Exil im Jahr 1976 entstand. Darüber hinaus ist 'Jamming' ein Paradebeispiel für die Verschmelzung von Reggae mit verschiedenen Musikstilen, was zur breiten Akzeptanz des Genres in der westlichen Musikszene führte."
         }
@@ -1686,12 +1606,7 @@
         },
         {
           "question": "Wie viele Millionen Exemplare wurden von dem Album 'Exodus' von Bob Marley and The Wailers weltweit verkauft, was es zu einem der meistverkauften Alben der Reggae-Geschichte macht?",
-          "options": [
-            "2 Millionen",
-            "5 Millionen",
-            "10 Millionen",
-            "15 Millionen"
-          ],
+          "options": ["2 Millionen", "5 Millionen", "10 Millionen", "15 Millionen"],
           "correctAnswer": "10 Millionen",
           "trivia": "Das Album 'Exodus', das 1977 veröffentlicht wurde, gilt als eines der bedeutendsten Werke von Bob Marley and The Wailers und hat weltweit über 10 Millionen Exemplare verkauft. Diese Verkaufszahlen machen 'Exodus' zu einem der meistverkauften Reggae-Alben aller Zeiten und festigen Marleys Einfluss auf die Musikgeschichte. Die Mischung aus eingängigen Melodien, sozialkritischen Texten und der charakteristischen Reggae-Rhythmik trugen dazu bei, das Genre international populär zu machen. 'Exodus' umfasst auch einige der bekanntesten Songs von Marley, wie 'One Love' und 'Jamming', die bis heute in der Musikszene relevant sind."
         },
@@ -1722,34 +1637,19 @@
       "easy": [
         {
           "question": "Welcher Song aus dem Album 'Houses of the Holy' von Led Zeppelin erreichte 1973 hohe Chartplatzierungen und gilt als einer ihrer bekanntesten Crossover-Erfolge?",
-          "options": [
-            "Dancing Days",
-            "Over the Hills and Far Away",
-            "The Rain Song",
-            "No Quarter"
-          ],
+          "options": ["Dancing Days", "Over the Hills and Far Away", "The Rain Song", "No Quarter"],
           "correctAnswer": "Dancing Days",
           "trivia": "Der Song 'Dancing Days' aus dem Album 'Houses of the Holy' wurde 1973 zu einem der bekanntesten Crossover-Erfolge von Led Zeppelin. Er erreichte in den USA hohe Chartplatzierungen und wurde häufig im Radio gespielt. Das Album selbst war ein großer Erfolg und erreichte Platz 1 der Billboard 200. Mit seiner Mischung aus Rock- und Reggae-Elementen zeigt 'Dancing Days' die musikalische Vielfalt der Band und hebt sich durch seinen eingängigen Refrain ab. Led Zeppelin experimentierte in dieser Zeit intensiv mit verschiedenen Musikstilen, was sich in der gesamten Albumgestaltung widerspiegelt."
         },
         {
           "question": "Welches Lied aus dem Album 'Houses of the Holy' spielte Led Zeppelin regelmäßig bei ihren Live-Performances während der Tourneen in den 1970er Jahren?",
-          "options": [
-            "Dancing Days",
-            "The Rain Song",
-            "Over the Hills and Far Away",
-            "No Quarter"
-          ],
+          "options": ["Dancing Days", "The Rain Song", "Over the Hills and Far Away", "No Quarter"],
           "correctAnswer": "The Rain Song",
           "trivia": "Led Zeppelin führte 'The Rain Song' häufig während ihrer Live-Auftritte in den 1970er Jahren auf, was die emotionale Tiefe und musikalische Vielseitigkeit des Songs unterstreicht. Das Stück, das auf dem Album 'Houses of the Holy' von 1973 zu finden ist, wurde für seine melancholische Melodie und die komplexe Harmonien gelobt. Während der Konzerte verwendete die Band oft verschiedene Arrangements, um der Live-Atmosphäre gerecht zu werden. 'The Rain Song' gilt als eines der besten Beispiele für die Kunstfertigkeit von Robert Plant und Jimmy Page, die in der Lage waren, intime Momente auf der Bühne zu schaffen. Diese Live-Performances trugen dazu bei, das Album zu einem zeitlosen Klassiker zu machen."
         },
         {
           "question": "Welcher bekannte Song von Led Zeppelin ist auf dem Album 'Houses of the Holy' von 1973 enthalten und wurde zu einem der größten Hits der Band?",
-          "options": [
-            "Stairway to Heaven",
-            "Dancing Days",
-            "Whole Lotta Love",
-            "Black Dog"
-          ],
+          "options": ["Stairway to Heaven", "Dancing Days", "Whole Lotta Love", "Black Dog"],
           "correctAnswer": "Dancing Days",
           "trivia": "'Dancing Days' ist einer der bekanntesten Songs auf dem Album 'Houses of the Holy', das 1973 veröffentlicht wurde. Die Band, bestehend aus Robert Plant, Jimmy Page, John Paul Jones und John Bonham, experimentierte in diesem Album mit verschiedenen musikalischen Stilen, was zu seinem unverwechselbaren Sound beiträgt. Das Album war ein großer kommerzieller Erfolg und erreichte in vielen Ländern hohe Chartplatzierungen, einschließlich der USA, wo es auf Platz 1 der Billboard 200 landete. Zudem enthält das Album auch andere beliebte Tracks wie 'The Song Remains the Same' und 'Over the Hills and Far Away'."
         }
@@ -1757,12 +1657,7 @@
       "medium": [
         {
           "question": "Mit welchem renommierten Produzenten arbeiteten Led Zeppelin während der Aufnahmen für ihr Album 'Houses of the Holy' im Jahr 1973 zusammen?",
-          "options": [
-            "George Martin",
-            "Jimmy Miller",
-            "Glyn Johns",
-            "Eddie Kramer"
-          ],
+          "options": ["George Martin", "Jimmy Miller", "Glyn Johns", "Eddie Kramer"],
           "correctAnswer": "Glyn Johns",
           "trivia": "Led Zeppelin arbeiteten während der Aufnahmen für 'Houses of the Holy' mit dem Produzenten Glyn Johns zusammen, der zuvor für seine Arbeit mit Bands wie The Rolling Stones und The Who bekannt war. Das Album wurde in den Stargroves Studios in England und in den Hedley Grange Studios aufgenommen, wobei Johns einen bedeutenden Einfluss auf den Klang und die Arrangements hatte. 'Houses of the Holy' gilt als eines der vielschichtigsten Alben der Band und zeigt eine experimentelle Herangehensweise in der Produktion, die in Songs wie 'The Rain Song' und 'Dancing Days' deutlich wird. Johns' Fähigkeit, die vielseitigen Stile der Band einzufangen, trug dazu bei, das Erbe dieses wegweisenden Albums zu festigen."
         },
@@ -1967,12 +1862,7 @@
         },
         {
           "question": "Welcher bekannte Song von Neil Young, der auf dem Album 'Harvest' aus dem Jahr 1972 zu finden ist, gilt als einer der größten Hits des Künstlers und wurde später auch von vielen anderen Künstlern gecovert?",
-          "options": [
-            "Heart of Gold",
-            "Old Man",
-            "Cinnamon Girl",
-            "Southern Man"
-          ],
+          "options": ["Heart of Gold", "Old Man", "Cinnamon Girl", "Southern Man"],
           "correctAnswer": "Heart of Gold",
           "trivia": "Der Song 'Heart of Gold' ist der bekannteste Hit von Neil Young und wurde auf seinem Album 'Harvest' veröffentlicht, das 1972 erschien. Das Lied erreichte Platz 1 der Billboard Hot 100 Charts und wurde zu einem Markenzeichen von Young. 'Harvest' selbst gilt als eines der einflussreichsten Alben der 1970er Jahre und vereint Elemente von Folk, Country und Rockmusik. Die Kombination aus persönlichem Text und melodischem Aufbau machte 'Heart of Gold' besonders populär und es wurde von zahlreichen Künstlern gecovert, darunter Johnny Cash und Adele."
         },
@@ -2207,12 +2097,7 @@
         },
         {
           "question": "Welcher Künstler hatte einen bemerkenswerten Gastauftritt auf dem Album 'Sticky Fingers' von The Rolling Stones aus dem Jahr 1971?",
-          "options": [
-            "Eric Clapton",
-            "Jim Morrison",
-            "Billy Preston",
-            "David Bowie"
-          ],
+          "options": ["Eric Clapton", "Jim Morrison", "Billy Preston", "David Bowie"],
           "correctAnswer": "Billy Preston",
           "trivia": "Auf dem Album 'Sticky Fingers' von The Rolling Stones, das 1971 veröffentlicht wurde, trat der amerikanische Musiker Billy Preston als Gast auf. Er spielte das Keyboard auf dem ikonischen Song 'Brown Sugar', der zu einem der bekanntesten Lieder der Band wurde. Billy Preston war zu dieser Zeit bereits für seine Zusammenarbeit mit verschiedenen Künstlern berühmt und hatte auch Hits wie 'Will It Go Round in Circles'. Seine Mitwirkung auf 'Sticky Fingers' zeigt, wie The Rolling Stones oft mit anderen talentierten Musikern zusammenarbeiteten, um ihren einzigartigen Sound zu kreieren."
         }
@@ -2374,12 +2259,7 @@
         },
         {
           "question": "In welchem Land fanden die meisten Aufnahmen für das Album 'Band on the Run' von Paul McCartney & Wings im Jahr 1973 statt?",
-          "options": [
-            "Vereinigte Staaten",
-            "Australien",
-            "Nigeria",
-            "Vereinigtes Königreich"
-          ],
+          "options": ["Vereinigte Staaten", "Australien", "Nigeria", "Vereinigtes Königreich"],
           "correctAnswer": "Nigeria",
           "trivia": "Die Aufnahmen für das Album 'Band on the Run' von Paul McCartney & Wings fanden hauptsächlich in Nigeria statt, was zu einem einzigartigen Klang des Albums beitrug. McCartney und seine Band reisten nach Lagos, um die dortige Musikszene zu erkunden und um mit einheimischen Musikern zu arbeiten. Diese Umgebung beeinflusste nicht nur die musikalischen Arrangements, sondern auch die Themen und den künstlerischen Ausdruck des Albums. Es war eine Zeit, in der McCartney mit der kulturellen Vielfalt und den Herausforderungen des Aufnahmewesens im Ausland konfrontiert wurde, was die Entstehung des Werkes unvergesslich machte."
         }
@@ -2410,12 +2290,7 @@
         },
         {
           "question": "Mit welchem bekannten Musiker arbeitete Steely Dan für das Album 'Aja' aus dem Jahr 1977 zusammen, um die charakteristischen Bläsersätze zu gestalten?",
-          "options": [
-            "Michael McDonald",
-            "David Sanborn",
-            "Chuck Rainey",
-            "Jeff Baxter"
-          ],
+          "options": ["Michael McDonald", "David Sanborn", "Chuck Rainey", "Jeff Baxter"],
           "correctAnswer": "David Sanborn",
           "trivia": "Für ihr Album 'Aja' aus dem Jahr 1977 holte sich Steely Dan den berühmten Saxophonisten David Sanborn ins Studio. Sanborn spielte das eindrucksvolle Saxophonsolo auf dem Song 'Aja', das zu einem der bekanntesten Elemente des Tracks wurde. Steely Dan, bekannt für ihre stilistische Raffinesse und die Integration von Jazz-Elementen in den Rock, nutzte Sanborns Fähigkeiten, um die komplexen Arrangements des Albums zu bereichern. Das Album selbst gilt als Meisterwerk und erreichte hohe Chartplatzierungen, darunter den ersten Platz in den Billboard 200. 'Aja' wurde zudem für seine Produktionsqualität und die vielfältigen musikalischen Einflüsse gelobt."
         },
@@ -2456,12 +2331,7 @@
         },
         {
           "question": "Welcher bedeutende Musikproduzent war maßgeblich an der Entstehung des Albums 'Aja' von Steely Dan im Jahr 1977 beteiligt?",
-          "options": [
-            "Roger Waters",
-            "Eddie Kramer",
-            "Gary Katz",
-            "Phil Ramone"
-          ],
+          "options": ["Roger Waters", "Eddie Kramer", "Gary Katz", "Phil Ramone"],
           "correctAnswer": "Gary Katz",
           "trivia": "Gary Katz war der Produzent des Albums 'Aja' von Steely Dan und spielte eine entscheidende Rolle im kreativen Prozess der Band. Unter seiner Anleitung entstand ein Album, das für seine komplexen Arrangements und den hohen Produktionsstandard bekannt ist. Katz arbeitete auch an den vorherigen Alben von Steely Dan und half, deren charakteristischen Sound zu formen. 'Aja' wurde für seine Fusion aus Rock, Jazz und Pop mit detaillierter Instrumentierung gelobt und gilt als eines der Meisterwerke der 1970er Jahre."
         }
@@ -2516,12 +2386,7 @@
       "easy": [
         {
           "question": "Welcher Song aus dem Album 'All Things Must Pass' von George Harrison wurde in den 1990er Jahren von mehreren Künstlern gecovert und zeigt somit die anhaltende Relevanz des Stücks?",
-          "options": [
-            "My Sweet Lord",
-            "Isn't It a Pity",
-            "All Things Must Pass",
-            "What Is Life"
-          ],
+          "options": ["My Sweet Lord", "Isn't It a Pity", "All Things Must Pass", "What Is Life"],
           "correctAnswer": "My Sweet Lord",
           "trivia": "Der Song 'My Sweet Lord' von George Harrison, der auf dem Album 'All Things Must Pass' aus dem Jahr 1970 enthalten ist, wurde in den 1990er Jahren von mehreren Künstlern gecovert, darunter das berühmte Cover von der Band 'The Black Crowes'. Dieser Hit gilt als einer der bekanntesten Songs von Harrison und ist auch für seine spirituellen Themen und die Verwendung von Chorgesang bekannt. 'My Sweet Lord' erreichte in mehreren Ländern hohe Chartplatzierungen und wurde zu einem Klassiker der Rockmusik. Die Popularität des Songs zeigt, wie Harrison's Musik auch Jahrzehnte später noch Einfluss auf andere Künstler hat."
         },
@@ -2628,23 +2493,13 @@
       "easy": [
         {
           "question": "Welcher Song aus dem Album 'Hunky Dory' von David Bowie erreichte 1972 die Top 5 der britischen Singlecharts?",
-          "options": [
-            "Changes",
-            "Life on Mars?",
-            "Suffragette City",
-            "Starman"
-          ],
+          "options": ["Changes", "Life on Mars?", "Suffragette City", "Starman"],
           "correctAnswer": "Changes",
           "trivia": "Der Song 'Changes' aus dem Album 'Hunky Dory' wurde 1972 zu einem der größten Erfolge von David Bowie und erreichte die Top 5 der britischen Singlecharts. 'Hunky Dory', das 1971 veröffentlicht wurde, markierte einen Wendepunkt in Bowies Karriere und stellte seinen ikonischen Glam-Rock-Stil vor. Neben 'Changes' umfasst das Album auch den berühmten Track 'Life on Mars?', der ebenfalls hohe Chartplatzierungen erzielte. Die Kombination aus introspektiven Texten und innovativer Musik machte 'Hunky Dory' zu einem zeitlosen Klassiker, der bis heute Einfluss auf die Pop- und Rockmusik hat."
         },
         {
           "question": "In welcher bekannten TV-Serie wurden Songs aus dem Album 'Hunky Dory' von David Bowie prominent verwendet?",
-          "options": [
-            "The Simpsons",
-            "Stranger Things",
-            "Friends",
-            "Game of Thrones"
-          ],
+          "options": ["The Simpsons", "Stranger Things", "Friends", "Game of Thrones"],
           "correctAnswer": "The Simpsons",
           "trivia": "Einige Songs aus David Bowies Album 'Hunky Dory' wurden in der berühmten Zeichentrickserie 'The Simpsons' verwendet. Insbesondere der Song 'Changes' ist in mehreren Episoden zu hören und unterstreicht die kulturelle Bedeutung von Bowie in der Popkultur. 'Hunky Dory', veröffentlicht im Jahr 1971, gilt als eines von Bowies einflussreichsten Alben und enthält Klassiker wie 'Life on Mars?' und 'Changes'. Diese Lieder spiegeln nicht nur die musikalische Vielfalt der 70er Jahre wider, sondern haben auch bis heute in verschiedenen Medien einen bleibenden Eindruck hinterlassen."
         },
@@ -2693,23 +2548,13 @@
       "hard": [
         {
           "question": "Welcher bedeutende Produzent, der auch für seine Arbeit mit anderen Rock-Ikonen bekannt ist, spielte eine entscheidende Rolle bei der Produktion von David Bowies Album 'Hunky Dory' aus dem Jahr 1971?",
-          "options": [
-            "Tony Visconti",
-            "Brian Eno",
-            "Mick Ronson",
-            "George Martin"
-          ],
+          "options": ["Tony Visconti", "Brian Eno", "Mick Ronson", "George Martin"],
           "correctAnswer": "Tony Visconti",
           "trivia": "Tony Visconti war der Produzent von David Bowies Album 'Hunky Dory' und trug maßgeblich zu dessen charakteristischem Sound bei. Visconti arbeitete in den 70er Jahren mit zahlreichen Künstlern zusammen und ist bekannt für seine innovativen Produktionstechniken, die oft den Einsatz von Mehrspuraufnahmen und ungewöhnlichen Klangeffekten beinhalteten. 'Hunky Dory' war ein Wendepunkt in Bowies Karriere und markierte den Beginn seiner Zusammenarbeit mit Visconti, die sich über mehrere Alben erstreckte. Zudem war Mick Ronson, der Gitarrist des Albums, ein wichtiger kreativer Partner, der den Sound von 'Hunky Dory' nachhaltig prägte."
         },
         {
           "question": "Welcher Song aus David Bowies Album 'Hunky Dory' gilt als einer der ersten Crossover-Erfolge zwischen Rock und Pop und wurde besonders durch seine Wiederveröffentlichung in den 1980er Jahren bekannt?",
-          "options": [
-            "Changes",
-            "Life on Mars?",
-            "Kooks",
-            "Oh! You Pretty Things"
-          ],
+          "options": ["Changes", "Life on Mars?", "Kooks", "Oh! You Pretty Things"],
           "correctAnswer": "Changes",
           "trivia": "Der Song 'Changes' aus David Bowies Album 'Hunky Dory' wurde 1971 veröffentlicht und entwickelte sich schnell zu einem Crossover-Erfolg, der sowohl Rock- als auch Pop-Hörer ansprach. Besonders bemerkenswert ist, dass 'Changes' in den 1980er Jahren durch Coverversionen und Radioairplay ein Comeback erlebte, was seine Popularität zusätzlich steigerte. Die eingängige Melodie und der lyrische Inhalt, der den Wandel im Leben thematisiert, trugen zur zeitlosen Anziehungskraft des Songs bei. 'Hunky Dory' selbst war ein Meilenstein in Bowies Karriere und legte den Grundstein für seinen späteren Erfolg in der Glam-Rock-Ära. Das Album wird oft als eines der besten Werke in der Rockgeschichte bezeichnet und beeinflusste zahlreiche Künstler."
         },
@@ -2832,12 +2677,7 @@
         },
         {
           "question": "Welcher bekannte Musiker war an den Aufnahmen zu 'Never Mind the Bollocks, Here’s the Sex Pistols' von Sex Pistols im Jahr 1977 als Gastmusiker beteiligt?",
-          "options": [
-            "David Bowie",
-            "Jimmy Page",
-            "Elvis Costello",
-            "John Lydon"
-          ],
+          "options": ["David Bowie", "Jimmy Page", "Elvis Costello", "John Lydon"],
           "correctAnswer": "Jimmy Page",
           "trivia": "Jimmy Page, der legendäre Gitarrist von Led Zeppelin, war nicht direkt an den Aufnahmen zu 'Never Mind the Bollocks, Here’s the Sex Pistols' beteiligt, jedoch gab es während der Entstehungszeit des Albums zahlreiche Gerüchte über seine mögliche Kollaboration mit den Sex Pistols. Die Verbindung zwischen Punk und Rock wurde stark von den Einflüssen der 60er und 70er Jahre geprägt, und Page war ein Symbol für die Rockmusik dieser Ära. Das Album selbst gilt als wegweisend für die Punkbewegung und wurde in den Abbey Road Studios aufgenommen, wo auch viele ikonische Rockplatten produziert wurden. Diese Mischung aus verschiedenen musikalischen Einflüssen zeigt die Dynamik und den kulturellen Kontext, in dem die Sex Pistols agierten."
         }
@@ -2879,12 +2719,7 @@
         },
         {
           "question": "In welchem Film wurde der Aerosmith-Song 'Sweet Emotion' aus dem Album 'Toys in the Attic' von 1975 prominent verwendet?",
-          "options": [
-            "Dazed and Confused",
-            "Boogie Nights",
-            "Wayne's World",
-            "The Breakfast Club"
-          ],
+          "options": ["Dazed and Confused", "Boogie Nights", "Wayne's World", "The Breakfast Club"],
           "correctAnswer": "Dazed and Confused",
           "trivia": "'Sweet Emotion' von Aerosmith, einem der bekanntesten Songs des Albums 'Toys in the Attic', wurde in dem Kultfilm 'Dazed and Confused' von 1993 verwendet. Dieser Film, der in den 1970er Jahren spielt, fängt die Jugendkultur dieser Zeit perfekt ein und nutzt die Musik, um die Atmosphäre zu verstärken. 'Toys in the Attic' selbst wurde 1975 veröffentlicht und gilt als eines der besten Alben von Aerosmith, das ihnen zum internationalen Durchbruch verhalf. Neben 'Sweet Emotion' enthält das Album auch andere berühmte Songs wie 'Walk This Way', die ebenfalls zu ihrem Markenzeichen wurden."
         }
@@ -3204,12 +3039,7 @@
         },
         {
           "question": "In welcher bekannten TV-Serie aus den 1990er Jahren wurde das Lied 'Imagine' von John Lennon verwendet, um eine emotionale Szene zu untermalen?",
-          "options": [
-            "Friends",
-            "Die Simpsons",
-            "X-Files",
-            "Buffy – Die Vampirjägerin"
-          ],
+          "options": ["Friends", "Die Simpsons", "X-Files", "Buffy – Die Vampirjägerin"],
           "correctAnswer": "Die Simpsons",
           "trivia": "'Imagine' von John Lennon wurde in der beliebten TV-Serie 'Die Simpsons' verwendet, um eine berührende und nachdenkliche Atmosphäre zu schaffen. Die Episode, in der das Lied auftaucht, behandelt oft gesellschaftskritische Themen, die mit Lennons Botschaft der Hoffnung und des Friedens in Einklang stehen. Das Album 'Imagine', das 1971 veröffentlicht wurde, enthält einige der bekanntesten und einflussreichsten Songs der Musikgeschichte. John Lennon selbst beschrieb das Lied als eine Vision von einer Welt ohne Grenzen und Konflikte, die in vielen Medien, einschließlich Film und Fernsehen, fortdauernd thematisiert wird. Diese Verwendung in 'Die Simpsons' ist nur ein Beispiel dafür, wie Lennons Musik weiterhin in der Popkultur resoniert."
         },
@@ -3417,12 +3247,7 @@
       "easy": [
         {
           "question": "Welches Musikvideo von The Doors, das aus dem Album 'L.A. Woman' stammt, zeigt eine Aufnahme von Jim Morrison, die während eines Live-Auftritts gefilmt wurde?",
-          "options": [
-            "Riders on the Storm",
-            "Love Her Madly",
-            "L.A. Woman",
-            "The Changeling"
-          ],
+          "options": ["Riders on the Storm", "Love Her Madly", "L.A. Woman", "The Changeling"],
           "correctAnswer": "Riders on the Storm",
           "trivia": "'Riders on the Storm' ist das bekannteste Musikvideo von The Doors, das aus ihrem Album 'L.A. Woman', veröffentlicht im Jahr 1971, stammt. In diesem Video sind Aufnahmen von Jim Morrison während eines Live-Auftritts zu sehen, was die Energie und den Spirit der Band zu dieser Zeit einfängt. Interessanterweise war das Album das letzte, das mit Morrison vor seinem Tod aufgenommen wurde, und der Song selbst wird oft für seine melancholische Stimmung und den ikonischen Klang gelobt. 'L.A. Woman' war ein kommerzieller Erfolg und erreichte hohe Chartplatzierungen, was die Bedeutung der Band in der Rockmusikgeschichte unterstreicht."
         },
@@ -3452,23 +3277,13 @@
       "medium": [
         {
           "question": "Mit welchem renommierten Produzenten arbeiteten The Doors während der Aufnahmen für ihr Album 'L.A. Woman' im Jahr 1971 zusammen?",
-          "options": [
-            "Bruce Botnick",
-            "Phil Spector",
-            "George Martin",
-            "Glyn Johns"
-          ],
+          "options": ["Bruce Botnick", "Phil Spector", "George Martin", "Glyn Johns"],
           "correctAnswer": "Bruce Botnick",
           "trivia": "The Doors arbeiteten bei den Aufnahmen für 'L.A. Woman' mit Bruce Botnick zusammen, der auch als Toningenieur für die Band fungierte. Botnick war bereits an früheren Projekten der Gruppe beteiligt und spielte eine entscheidende Rolle bei der Entwicklung des charakteristischen Sounds der Doors. Das Album, das 1971 veröffentlicht wurde, enthält ikonische Songs wie 'Riders on the Storm' und 'Love Her Madly'. Unter Botnicks Anleitung wurde auch der experimentelle Einsatz von Instrumenten und Effekten weiterverfolgt, was das Album zu einem Highlight in der Diskografie der Band macht."
         },
         {
           "question": "Welcher Künstler hat eine bekannte Coverversion des Songs 'L.A. Woman' von The Doors aufgenommen?",
-          "options": [
-            "David Bowie",
-            "Joe Cocker",
-            "The Smashing Pumpkins",
-            "Iggy Pop"
-          ],
+          "options": ["David Bowie", "Joe Cocker", "The Smashing Pumpkins", "Iggy Pop"],
           "correctAnswer": "The Smashing Pumpkins",
           "trivia": "Die alternative Rockband The Smashing Pumpkins coverte den Song 'L.A. Woman' von The Doors im Jahr 1998 für ihre Live-Alben und Konzerte. Dieses Cover zeigt den Einfluss, den die Musik von The Doors auf viele Künstler der 90er Jahre hatte. 'L.A. Woman' selbst wurde 1971 auf dem gleichnamigen Album veröffentlicht, das als eines der letzten Werke mit Jim Morrison gilt. Das Album ist bekannt für seinen rauen Sound und die Verschmelzung von Rock und Blues, was es zu einem wichtigen Bestandteil der Rockgeschichte macht. Die Coverversion von The Smashing Pumpkins bringt eine moderne Interpretation des Klassikers und zeigt die zeitlose Anziehungskraft des Originals."
         },
@@ -3534,12 +3349,7 @@
       "easy": [
         {
           "question": "In welchem Film wurde der Hit 'Bridge Over Troubled Water' von Simon & Garfunkel, dem Titeltrack ihres gleichnamigen Albums aus dem Jahr 1970, prominent verwendet?",
-          "options": [
-            "The Graduate",
-            "Forrest Gump",
-            "The Sound of Music",
-            "Almost Famous"
-          ],
+          "options": ["The Graduate", "Forrest Gump", "The Sound of Music", "Almost Famous"],
           "correctAnswer": "The Graduate",
           "trivia": "Der Song 'Bridge Over Troubled Water' von Simon & Garfunkel wurde im Jahr 1967 in dem Film 'The Graduate' verwendet, der ein großer Erfolg wurde und die kulturelle Landschaft der Zeit prägte. Das Album 'Bridge Over Troubled Water', das 1970 veröffentlicht wurde, enthält viele weitere bekannte Stücke und wurde ein Meilenstein in der Musikgeschichte. Der Titeltrack erreichte hohe Chartplatzierungen und blieb ein zeitloser Klassiker. Simon & Garfunkel erforschten in ihren Liedern oft Themen wie Liebe und Verlust, was auch in 'The Graduate' eindrucksvoll zur Geltung kam."
         },
@@ -3732,23 +3542,13 @@
         },
         {
           "question": "Welcher Song auf dem Album 'Ramones' von Ramones aus dem Jahr 1976 gilt als einer der ersten Crossover-Erfolge, der Punkrock mit dem Mainstream-Rock verband?",
-          "options": [
-            "Blitzkrieg Bop",
-            "Judy Is a Punk",
-            "Let's Go",
-            "I Wanna Be Your Boyfriend"
-          ],
+          "options": ["Blitzkrieg Bop", "Judy Is a Punk", "Let's Go", "I Wanna Be Your Boyfriend"],
           "correctAnswer": "Blitzkrieg Bop",
           "trivia": "Der Song 'Blitzkrieg Bop' von Ramones, der auf dem gleichnamigen Debütalbum von 1976 zu finden ist, wird oft als einer der ersten Crossover-Erfolge des Punkrock betrachtet. Mit seinem eingängigen Refrain und dem markanten 'Hey! Ho! Let's go!' wurde der Song nicht nur im Punk-Genre populär, sondern fand auch Anklang im Mainstream-Rock und in der Popkultur. Tatsächlich half 'Blitzkrieg Bop', die Ramones als zentrale Figuren der Punkbewegung zu etablieren und trug zur breiteren Akzeptanz von Punkmusik in den späten 1970er Jahren bei. Der Einfluss des Songs ist bis heute spürbar, er wird häufig bei Sportveranstaltungen und in Filmen verwendet."
         },
         {
           "question": "Welcher Produzent, bekannt für seinen Einfluss auf die Punk-Rock-Szene, war maßgeblich an der Produktion des selbstbetitelten Albums 'Ramones' von Ramones im Jahr 1976 beteiligt?",
-          "options": [
-            "Eddie Kramer",
-            "Phil Spector",
-            "Tony Visconti",
-            "Craig Leon"
-          ],
+          "options": ["Eddie Kramer", "Phil Spector", "Tony Visconti", "Craig Leon"],
           "correctAnswer": "Craig Leon",
           "trivia": "Craig Leon war der Produzent des ersten Albums 'Ramones', das 1976 veröffentlicht wurde. Er spielte eine entscheidende Rolle bei der Schaffung des charakteristischen Sound der Band, der sich durch schnelle, eingängige Melodien und eine rohe Energie auszeichnete. Leon hatte zuvor mit anderen Bands gearbeitet und brachte seine Erfahrung in die Produktion ein, was zur Entwicklung des Punk-Rock-Genres beitrug. Das Album wurde in den Plaza Sound Studios in New York aufgenommen und gilt heute als eines der bedeutendsten Alben in der Geschichte des Punk. 'Ramones' setzte neue Maßstäbe für die Musikproduktion und beeinflusste zahlreiche Künstler in den folgenden Jahrzehnten."
         }
@@ -3779,12 +3579,7 @@
         },
         {
           "question": "Mit welchem Künstler arbeitete Bob Dylan während der Aufnahmen für sein Album 'Blood on the Tracks' im Jahr 1975 zusammen, um den Song 'Tangled Up in Blue' zu entwickeln?",
-          "options": [
-            "Joni Mitchell",
-            "David Bowie",
-            "Ramblin' Jack Elliott",
-            "Paul Simon"
-          ],
+          "options": ["Joni Mitchell", "David Bowie", "Ramblin' Jack Elliott", "Paul Simon"],
           "correctAnswer": "Ramblin' Jack Elliott",
           "trivia": "Bob Dylan arbeitete während der Entstehung von 'Blood on the Tracks' eng mit Ramblin' Jack Elliott zusammen, einem Folk-Sänger und Gitarristen, der als einer der Haupteinflüsse auf Dylans frühe Karriere gilt. Elliott hatte großen Einfluss auf Dylans Stil und Songwriting-Techniken, was sich in der Erzählweise von 'Tangled Up in Blue' widerspiegelt. 'Blood on the Tracks' gilt als eines von Dylans Meisterwerken und wurde 1975 veröffentlicht, nachdem er eine schwierige Phase in seinem persönlichen Leben durchlebt hatte. Das Album enthält einige der bekanntesten Songs Dylans und wird oft als seine Rückkehr zu den Wurzeln der Folk- und Bluesmusik angesehen."
         },
@@ -4019,12 +3814,7 @@
         },
         {
           "question": "Welcher bekannte Künstler nannte Van Morrisons Album 'Moondance' als eine seiner größten Inspirationen für sein eigenes Schaffen?",
-          "options": [
-            "Eric Clapton",
-            "Bruce Springsteen",
-            "Elton John",
-            "David Bowie"
-          ],
+          "options": ["Eric Clapton", "Bruce Springsteen", "Elton John", "David Bowie"],
           "correctAnswer": "Elton John",
           "trivia": "Elton John hat in mehreren Interviews betont, wie sehr ihn Van Morrisons Album 'Moondance' aus dem Jahr 1970 beeinflusst hat. Besonders die Mischung aus Jazz, Pop und Soul auf diesem Album hat John inspiriert, der selbst für seine melodischen Kompositionen bekannt ist. 'Moondance' enthält einige der bekanntesten Songs von Morrison, darunter den Titeltrack und 'Crazy Love', die beide Maßstäbe für viele Künstler setzten. Das Album wurde ein Kritikerliebling und half, Morrison als bedeutenden Künstler seiner Zeit zu etablieren, was wiederum die Musikszene nachhaltig prägte."
         }
@@ -4062,12 +3852,7 @@
       "hard": [
         {
           "question": "In welcher bedeutenden TV-Serie wurde der Song 'Into the Mystic' aus dem Album 'Moondance' von Van Morrison verwendet, wodurch dessen Popularität in den 2000er Jahren einen neuen Schub erhielt?",
-          "options": [
-            "The Sopranos",
-            "Grey's Anatomy",
-            "The West Wing",
-            "Mad Men"
-          ],
+          "options": ["The Sopranos", "Grey's Anatomy", "The West Wing", "Mad Men"],
           "correctAnswer": "The Sopranos",
           "trivia": "Der Song 'Into the Mystic' von Van Morrison, der auf dem ikonischen Album 'Moondance' von 1970 zu finden ist, wurde in der zweiten Staffel der beliebten Serie 'The Sopranos' verwendet. Diese Platzierung trug erheblich zur Wiederentdeckung des Liedes in den 2000er Jahren bei. 'Moondance' gilt als eines der besten Alben von Van Morrison und vereint Elemente von Jazz, Folk und Pop. Der Song selbst wird oft für seine poetischen Texte und die entspannende Melodie geschätzt, die perfekt zu der Atmosphäre der Serie passt. 'The Sopranos' ist bekannt dafür, eine Vielzahl von Songs aus verschiedenen Epochen zu integrieren, wodurch viele Lieder neue Bekanntheit erlangten."
         },
@@ -4196,12 +3981,7 @@
         },
         {
           "question": "In welchem Song von Iggy Pops Album 'Lust for Life' aus dem Jahr 1977 sind Anklänge an das Lied 'The Passenger' zu hören, das später zu einem seiner bekanntesten Stücke wurde?",
-          "options": [
-            "Lust for Life",
-            "Success",
-            "Some Weird Sin",
-            "Fall in Love with Me"
-          ],
+          "options": ["Lust for Life", "Success", "Some Weird Sin", "Fall in Love with Me"],
           "correctAnswer": "Lust for Life",
           "trivia": "Der Song 'Lust for Life' enthält bemerkenswerte musikalische Elemente, die später auch in Iggy Pops legendärem Stück 'The Passenger' wieder aufgegriffen wurden. Diese Verbindung zeigt, wie sich Iggy Pop in den späten 1970er Jahren als Künstler weiterentwickelte und seine charakteristische Mischung aus Rock und Punk etablierte. 'Lust for Life' wurde von David Bowie und Iggy Pop gemeinsam geschrieben und reflektiert den Einfluss der Berliner Schule auf Pops Schaffen. Zudem wurde der Song durch seinen eingängigen Refrain und die kraftvollen Beats zu einem wichtigen Bestandteil der Popkultur und fand Verwendung in zahlreichen Filmen und Werbungen."
         }
@@ -4338,12 +4118,7 @@
       "easy": [
         {
           "question": "Welches Lied von The Velvet Underground auf dem Album 'Loaded' aus dem Jahr 1970 gilt als einer der ersten Songs, der das Genre des Power Pop maßgeblich beeinflusste?",
-          "options": [
-            "Sweet Jane",
-            "Rock and Roll",
-            "Oh! Sweet Nuthin'",
-            "Who Loves The Sun"
-          ],
+          "options": ["Sweet Jane", "Rock and Roll", "Oh! Sweet Nuthin'", "Who Loves The Sun"],
           "correctAnswer": "Rock and Roll",
           "trivia": "Der Song 'Rock and Roll' von The Velvet Underground, der auf dem Album 'Loaded' veröffentlicht wurde, wird häufig als einer der ersten Vertreter des Power Pop angesehen. Dieser Einfluss ist besonders bemerkenswert, da das Lied sowohl eingängige Melodien als auch kraftvolle Gitarrenriffs kombiniert, was später viele Bands der 1970er Jahre inspirierte. 'Loaded' wurde 1970 veröffentlicht und ist bekannt für seine kommerziell orientierten Ansätze, die sich von den experimentelleren Arbeiten der Band in früheren Alben unterscheiden. Darüber hinaus erreichte das Lied eine bedeutende Popularität und wird bis heute oft in verschiedenen Medien verwendet, was seinen anhaltenden Einfluss auf die Rockmusik unterstreicht."
         },
@@ -4403,12 +4178,7 @@
       "hard": [
         {
           "question": "Welcher Song aus dem Album 'Loaded' von The Velvet Underground erreichte in den Billboard Hot 100 Charts eine Höchstplatzierung und gilt als einer der bekanntesten Hits der Band?",
-          "options": [
-            "Sweet Jane",
-            "Rock and Roll",
-            "Who Loves the Sun",
-            "New Age"
-          ],
+          "options": ["Sweet Jane", "Rock and Roll", "Who Loves the Sun", "New Age"],
           "correctAnswer": "Sweet Jane",
           "trivia": "Der Song 'Sweet Jane' aus dem Album 'Loaded' von The Velvet Underground erreichte 1970 in den Billboard Hot 100 Charts die Platzierung 88. Das Stück ist nicht nur eines der bekanntesten Lieder der Band, sondern wurde auch von zahlreichen Künstlern gecovert, darunter die Gruppe Cowboy Junkies. 'Loaded' selbst wurde von vielen Kritikern als eine der besten Arbeiten der Band angesehen und ist bekannt für seinen catchy Pop-Sound, der sich deutlich von den experimentellen Klängen ihrer früheren Alben unterscheidet. Die Veröffentlichung des Albums markierte einen Wendepunkt in der Karriere von The Velvet Underground und brachte ihnen breitere Anerkennung ein, auch wenn die kommerziellen Erfolge nicht die Höhen erreichten, die man erwarten könnte."
         },
@@ -4467,12 +4237,7 @@
         },
         {
           "question": "Mit welchem berühmten Künstler arbeitete Rush für das Album '2112' im Jahr 1976 zusammen, um die visuellen Aspekte des Covers zu gestalten?",
-          "options": [
-            "H.R. Giger",
-            "Roger Dean",
-            "Storm Thorgerson",
-            "Peter Saville"
-          ],
+          "options": ["H.R. Giger", "Roger Dean", "Storm Thorgerson", "Peter Saville"],
           "correctAnswer": "Roger Dean",
           "trivia": "Für das Album '2112' von Rush, das 1976 veröffentlicht wurde, entwarf der bekannte Künstler Roger Dean das ikonische Cover. Dean ist berühmt für seine fantastischen und surrealen Landschaften, die oft in der Coverkunst von Progressive-Rock-Bands zu finden sind. Sein charakteristischer Stil hat nicht nur Rushs visuelle Identität geprägt, sondern auch zur Popularität des Albums beigetragen, das als eines der bedeutendsten Werke der Band gilt. '2112' thematisiert eine dystopische Zukunft und wird häufig für seine musikalische Komplexität und seine tiefgründigen Texte gelobt."
         }
@@ -4521,12 +4286,7 @@
         },
         {
           "question": "Welche stilistische Richtung, die im Kontext des musikalischen Revivals der 1970er Jahre eine zentrale Rolle spielte, wird in Rushs Album '2112' besonders deutlich?",
-          "options": [
-            "Psychedelic Rock",
-            "Progressive Rock",
-            "New Wave",
-            "Blues Rock"
-          ],
+          "options": ["Psychedelic Rock", "Progressive Rock", "New Wave", "Blues Rock"],
           "correctAnswer": "Progressive Rock",
           "trivia": "Das Album '2112' von Rush, veröffentlicht im Jahr 1976, gilt als eines der wegweisenden Werke des Progressive Rock. In der Zeit des musikalischen Revivals erlebte dieses Genre einen Höhepunkt, indem es komplexe Songstrukturen und thematische Konzepte in den Vordergrund stellte. '2112' thematisiert den Konflikt zwischen individueller Freiheit und autoritärer Kontrolle, was auch in der gesellschaftlichen Stimmung der 1970er Jahre widergespiegelt wurde. Die Kombination aus virtuoser Instrumentierung und tiefgründigen Texten trug dazu bei, dass Rush zu einer der prägenden Bands des Genres wurde. Darüber hinaus ist das Titelstück, das über 20 Minuten lang ist, ein Paradebeispiel für die experimentelle Herangehensweise, die den Progressive Rock charakterisiert."
         },
@@ -4802,23 +4562,13 @@
         },
         {
           "question": "Welcher bekannte Musiker hatte einen Gastauftritt auf Billy Joels Album 'The Stranger' aus dem Jahr 1977?",
-          "options": [
-            "Elton John",
-            "Billy Gibbons",
-            "Stevie Wonder",
-            "Paul Simon"
-          ],
+          "options": ["Elton John", "Billy Gibbons", "Stevie Wonder", "Paul Simon"],
           "correctAnswer": "Paul Simon",
           "trivia": "Paul Simon, der berühmte amerikanische Singer-Songwriter, trat als Backgroundsänger auf dem Song 'The Stranger' auf, was eine überraschende Zusammenarbeit für das Album darstellt. 'The Stranger' wurde 1977 veröffentlicht und gilt als eines von Billy Joels wichtigsten Werken, mit Hits wie 'Just the Way You Are' und 'Only the Good Die Young'. Neben Simon waren auch andere namhafte Musiker an den Aufnahmen beteiligt, was die Vielfalt und die musikalische Tiefe des Albums unterstreicht. Das Album erreichte große kommerzielle Erfolge und wurde in den USA mit mehrfach Platin ausgezeichnet. Die Verbindung zwischen Joel und Simon zeigt, wie verschiedene musikalische Stile zu einem einzigartigen Klangerlebnis verschmelzen können."
         },
         {
           "question": "Welcher bekannte Song aus dem Album 'The Stranger' von Billy Joel trug erheblich zu seinem langfristigen Einfluss auf das Musikgeschäft bei und wurde ein Hit in den Charts?",
-          "options": [
-            "Just the Way You Are",
-            "Piano Man",
-            "Uptown Girl",
-            "New York State of Mind"
-          ],
+          "options": ["Just the Way You Are", "Piano Man", "Uptown Girl", "New York State of Mind"],
           "correctAnswer": "Just the Way You Are",
           "trivia": "Der Song 'Just the Way You Are' aus Billy Joels Album 'The Stranger' von 1977 wurde zu einem seiner bekanntesten Hits und erhielt 1978 den Grammy Award für die 'Song des Jahres'. Diese Ballade, die für ihre eingängige Melodie und emotionale Tiefe bekannt ist, half Billy Joel, sich als einer der führenden Künstler der 1970er Jahre zu etablieren. 'The Stranger' selbst erreichte mehrere Top-Positionen in den Billboard-Charts und verkaufte sich millionenfach. Der Erfolg dieses Albums und insbesondere von 'Just the Way You Are' trug dazu bei, dass Joel einen unverwechselbaren Platz in der Geschichte der populären Musik einnahm und viele nachfolgende Künstler inspirierte."
         }
@@ -4960,12 +4710,7 @@
         },
         {
           "question": "In welcher bekannten TV-Serie wurde der Song 'Firth of Fifth' aus dem Album 'Selling England by the Pound' von Genesis verwendet?",
-          "options": [
-            "Die Sopranos",
-            "Stranger Things",
-            "Breaking Bad",
-            "The Crown"
-          ],
+          "options": ["Die Sopranos", "Stranger Things", "Breaking Bad", "The Crown"],
           "correctAnswer": "Die Sopranos",
           "trivia": "Der Song 'Firth of Fifth' von Genesis fand Verwendung in der beliebten TV-Serie 'Die Sopranos'. Diese Serie, die von 1999 bis 2007 ausgestrahlt wurde, ist bekannt für ihre sorgfältige Auswahl von Musik, die den emotionalen Gehalt der Szenen verstärkt. 'Selling England by the Pound' gilt als eines der Meisterwerke der Progressive-Rock-Musik und zeigt die musikalische Vielseitigkeit von Genesis, insbesondere in der Kombination von komplexen Melodien und tiefgründigen Texten. Das Album wurde 1973 veröffentlicht und enthält auch andere bekannte Stücke wie 'Dancing with the Moonlit Knight' und 'I Know What I Like (In Your Wardrobe)'."
         }
@@ -5154,12 +4899,7 @@
         },
         {
           "question": "Welche berühmte Band war eine der Inspirationsquellen für den ikonischen Sound von Queen auf dem Album 'Sheer Heart Attack'?",
-          "options": [
-            "Led Zeppelin",
-            "The Beatles",
-            "David Bowie",
-            "The Rolling Stones"
-          ],
+          "options": ["Led Zeppelin", "The Beatles", "David Bowie", "The Rolling Stones"],
           "correctAnswer": "The Beatles",
           "trivia": "Queen ließ sich beim Album 'Sheer Heart Attack' stark von The Beatles inspirieren, insbesondere durch deren innovative Ansätze im Songwriting und der Produktion. Freddie Mercury und Brian May bewunderten die Harmonien und die Vielseitigkeit der Beatles, was sich in den komplexen Arrangements und der musikalischen Vielfalt von 'Sheer Heart Attack' widerspiegelt. Diese Einflüsse führten zu Hits wie 'Killer Queen', der eine Mischung aus Rock und Pop darstellt. Darüber hinaus experimentierte die Band mit verschiedenen Stilen, was auch die Zusammenarbeit mit verschiedenen Produzenten und die Nutzung von Studio-Techniken beinhaltete, die für die Beatles charakteristisch waren. Das Album gilt als ein Wendepunkt in der Karriere von Queen und festigte ihren Platz in der Rockgeschichte."
         }
@@ -5167,12 +4907,7 @@
       "medium": [
         {
           "question": "Welche berühmte Single, die auf dem Album 'Sheer Heart Attack' von Queen aus dem Jahr 1974 enthalten ist, wurde zu einem der größten Hits der Band und ist bekannt für ihren charakteristischen Harmonien und dem Einsatz von Multitracking?",
-          "options": [
-            "Killer Queen",
-            "Now I'm Here",
-            "Stone Cold Crazy",
-            "In the Lap of the Gods"
-          ],
+          "options": ["Killer Queen", "Now I'm Here", "Stone Cold Crazy", "In the Lap of the Gods"],
           "correctAnswer": "Killer Queen",
           "trivia": "Die richtige Antwort ist 'Killer Queen', die als erste Single des Albums veröffentlicht wurde und sich schnell zu einem der bekanntesten Songs von Queen entwickelte. Der Song zeichnet sich durch seine komplexen Harmonien und den geschickten Einsatz von Multitracking aus, was zu seinem unverwechselbaren Klang beiträgt. 'Killer Queen' erreichte in mehreren Ländern hohe Chartplatzierungen und festigte Queens Ruf als innovative Rockband in den 1970er Jahren. Zudem ist der Song bemerkenswert für seinen lyrischen Inhalt, der von einer glamourösen, aber tödlichen Femme Fatale handelt. 'Sheer Heart Attack' selbst gilt als eines der entscheidenden Alben für den internationalen Durchbruch der Band."
         },
@@ -5202,12 +4937,7 @@
       "hard": [
         {
           "question": "Welche der folgenden Songs auf dem Album 'Sheer Heart Attack' von Queen wurde in den 1970er Jahren aufgrund seines revolutionären Einsatzes von Harmonien und mehrstimmigem Gesang besonders für seine Wirkung auf das Live-Publikum bekannt?",
-          "options": [
-            "Killer Queen",
-            "Stone Cold Crazy",
-            "Brighton Rock",
-            "Now I'm Here"
-          ],
+          "options": ["Killer Queen", "Stone Cold Crazy", "Brighton Rock", "Now I'm Here"],
           "correctAnswer": "Killer Queen",
           "trivia": "Der Song 'Killer Queen' wurde 1974 auf dem Album 'Sheer Heart Attack' veröffentlicht und gilt als einer der bekanntesten Hits von Queen. Die Kombination aus komplexen Harmonien und einem eingängigen Refrain machte den Song zu einem Favoriten bei Live-Auftritten und half, die Band international bekannt zu machen. 'Killer Queen' erreichte hohe Chartplatzierungen, darunter Platz 2 in den UK Singles Charts, und wurde oft für seine stilistische Raffinesse und den innovativen Einsatz von mehrstimmigem Gesang gelobt. Der Song ist nicht nur ein Beispiel für die musikalische Vielfalt von Queen, sondern auch für den Einfluss, den sie auf die Rockmusik der 70er Jahre hatten."
         },
@@ -5266,12 +4996,7 @@
         },
         {
           "question": "Mit welchem berühmten Künstler arbeitete Carole King an der Komposition des Songs 'Will You Love Me Tomorrow', der auch auf dem Album 'Tapestry' von 1971 zu finden ist?",
-          "options": [
-            "James Taylor",
-            "Gerry Goffin",
-            "Billy Joel",
-            "Paul Simon"
-          ],
+          "options": ["James Taylor", "Gerry Goffin", "Billy Joel", "Paul Simon"],
           "correctAnswer": "Gerry Goffin",
           "trivia": "Der Song 'Will You Love Me Tomorrow' wurde ursprünglich von Carole King und ihrem damaligen Ehemann Gerry Goffin geschrieben und erschien erstmals 1960 in der Version der Shirelles. Dieser Song ist nicht nur einer der bekanntesten Hits von Carole King, sondern war auch einer der ersten Nummer-eins-Hits von einer weiblichen Songwriterin. Auf dem Album 'Tapestry' aus dem Jahr 1971 hat King ihre ikonische Version des Stücks aufgenommen, das ihre Fähigkeiten als Sängerin und Songwriterin unter Beweis stellt. 'Tapestry' wurde ein Meilenstein in der Musikgeschichte und gilt als eines der besten Alben aller Zeiten."
         }
@@ -5325,12 +5050,7 @@
         },
         {
           "question": "Welcher berühmte Künstler oder welche Band gab an, dass das Album 'Tapestry' von Carole King aus dem Jahr 1971 einen entscheidenden Einfluss auf ihre eigene Musik hatte?",
-          "options": [
-            "James Taylor",
-            "The Eagles",
-            "Taylor Swift",
-            "Fleetwood Mac"
-          ],
+          "options": ["James Taylor", "The Eagles", "Taylor Swift", "Fleetwood Mac"],
           "correctAnswer": "James Taylor",
           "trivia": "James Taylor, ein enger Freund und musikalischer Kollege von Carole King, nannte 'Tapestry' als eines der Alben, das seine musikalische Entwicklung maßgeblich beeinflusste. Taylor, der auf 'Tapestry' mitwirkte, fand in den ehrlichen Texten und der emotionalen Tiefe der Songs Inspiration für seine eigene Songwriting-Karriere. Das Album erreichte immense Popularität und gilt als eines der bedeutendsten Werke der Singer-Songwriter-Bewegung der 1970er Jahre. 'Tapestry' gewann mehrere Grammys, darunter das Album des Jahres, und setzte neue Maßstäbe für die Authentizität in der Popmusik, was viele Künstler dazu ermutigte, ihre eigenen, persönlichen Geschichten zu erzählen."
         },
@@ -5508,23 +5228,13 @@
       "medium": [
         {
           "question": "Welche musikalische Strömung, die Einflüsse aus Folk und Country vereint, spiegelt sich besonders stark in Elton Johns Album 'Tumbleweed Connection' von 1970 wider?",
-          "options": [
-            "Psychedelic Rock",
-            "Folk-Rock",
-            "Progressive Rock",
-            "Disco"
-          ],
+          "options": ["Psychedelic Rock", "Folk-Rock", "Progressive Rock", "Disco"],
           "correctAnswer": "Folk-Rock",
           "trivia": "Das Album 'Tumbleweed Connection' von Elton John ist stark vom Folk-Rock beeinflusst, einer musikalischen Strömung, die in den 1960er Jahren populär wurde und Elemente der Folk- und Rockmusik vereint. Die Texte des Albums, die häufig Geschichten erzählen und von der amerikanischen Kultur inspiriert sind, zeigen eine Rückbesinnung auf traditionelle Werte und Klänge. Besonders hervorzuheben ist die Zusammenarbeit mit dem Texter Bernie Taupin, dessen lyrische Visionen das Album prägen. Mit Songs wie 'Country Comfort' und 'Burn Down the Mission' wird der Folk-Rock-Stil deutlich, der Elton Johns musikalische Entwicklung maßgeblich beeinflusste."
         },
         {
           "question": "Welches spezielle Instrument wurde während der Aufnahmen zu Elton Johns 'Tumbleweed Connection' im Jahr 1970 häufig verwendet, um den charakteristischen Klang des Albums zu erzeugen?",
-          "options": [
-            "Pedal Steel Guitar",
-            "Harmonium",
-            "Synthesizer",
-            "Ukulele"
-          ],
+          "options": ["Pedal Steel Guitar", "Harmonium", "Synthesizer", "Ukulele"],
           "correctAnswer": "Pedal Steel Guitar",
           "trivia": "Die Pedal Steel Guitar spielt eine wesentliche Rolle im Klang von 'Tumbleweed Connection', da sie zur Schaffung des Country- und Folk-inspirierten Sounds beiträgt, der das gesamte Album prägt. Elton John arbeitete eng mit dem Musiker und Produzenten Gus Dudgeon zusammen, um eine einzigartige Atmosphäre zu schaffen. Die Sessions fanden in den Trident Studios in London statt, wo auch andere prominente Künstler wie David Bowie aufnahmen. Diese Kombination aus klassischen Rockelementen und traditionellen Country-Instrumenten hebt das Album von Elton Johns früheren Arbeiten ab und zeigt seine Vielseitigkeit als Künstler."
         },
@@ -5601,12 +5311,7 @@
         },
         {
           "question": "Mit welchem bekannten Produzenten arbeiteten Crosby, Stills, Nash & Young für ihr Album 'Déjà Vu' aus dem Jahr 1970 zusammen?",
-          "options": [
-            "Glynn Johns",
-            "David Foster",
-            "George Martin",
-            "Quincy Jones"
-          ],
+          "options": ["Glynn Johns", "David Foster", "George Martin", "Quincy Jones"],
           "correctAnswer": "Glynn Johns",
           "trivia": "Crosby, Stills, Nash & Young arbeiteten für ihr zweites Album 'Déjà Vu' mit dem renommierten Produzenten Glynn Johns zusammen. Johns war bekannt für seine Arbeit mit zahlreichen Künstlern der Rock- und Folk-Szene in den späten 1960er und frühen 1970er Jahren, darunter The Who und The Rolling Stones. Seine Produktionsweise trug zur charakteristischen Klangqualität des Albums bei, das Hits wie 'Teach Your Children' und 'Our House' enthielt. 'Déjà Vu' erreichte hohe Chartplatzierungen und gilt als eines der besten Alben dieser Ära, was auch Johns' Einfluss auf den Sound widerspiegelt."
         },
@@ -5671,12 +5376,7 @@
         },
         {
           "question": "Welche bekannte Neuinterpretation eines Songs ist auf dem Album 'Déjà Vu' von Crosby, Stills, Nash & Young aus dem Jahr 1970 zu finden?",
-          "options": [
-            "A. Woodstock",
-            "B. Carry On",
-            "C. Almost Cut My Hair",
-            "D. The Lee Shore"
-          ],
+          "options": ["A. Woodstock", "B. Carry On", "C. Almost Cut My Hair", "D. The Lee Shore"],
           "correctAnswer": "A. Woodstock",
           "trivia": "Der Song 'Woodstock', der auf dem Album 'Déjà Vu' von Crosby, Stills, Nash & Young enthalten ist, wurde ursprünglich von Joni Mitchell geschrieben und 1970 veröffentlicht. Die Version der Band erlangte große Popularität und wurde zu einem der ikonischsten Lieder der Ära, das den Geist des Festivals und der Gegenkultur verkörperte. Die Aufführung in dieser Neuinterpretation zeichnet sich durch harmonische Gesangseinlagen und eine markante Instrumentierung aus, die den politischen und sozialen Kontext der damaligen Zeit reflektiert. 'Déjà Vu' gilt als eines der bedeutendsten Alben der 1970er Jahre und zeigt die Fähigkeit der Künstler, bestehende Werke neu zu interpretieren und ihnen einen eigenen Stempel aufzudrücken."
         },
@@ -5983,12 +5683,7 @@
         },
         {
           "question": "In welchem Film wurde der Song 'Love is the Drug' von Roxy Music, der auf dem Album 'For Your Pleasure' von 1973 zu finden ist, prominent verwendet?",
-          "options": [
-            "Die Ungeheuerlichkeit",
-            "American Hustle",
-            "The Hunger",
-            "Zoolander"
-          ],
+          "options": ["Die Ungeheuerlichkeit", "American Hustle", "The Hunger", "Zoolander"],
           "correctAnswer": "The Hunger",
           "trivia": "Der Song 'Love is the Drug' von Roxy Music, der auf ihrem zweiten Studioalbum 'For Your Pleasure' veröffentlicht wurde, fand seinen Weg in den Kultfilm 'The Hunger' aus dem Jahr 1983. Dieser Film, der von Tony Scott inszeniert wurde, ist bekannt für seine Mischung aus Horror und Erotik und zeigt eine beeindruckende Besetzung mit David Bowie und Catherine Deneuve. Roxy Music, gegründet in den frühen 1970er Jahren, war bekannt für ihren avantgardistischen Sound und ihren Einfluss auf die Glam-Rock-Bewegung. 'For Your Pleasure' gilt als eines ihrer einflussreichsten Alben und enthält neben 'Love is the Drug' weitere bemerkenswerte Tracks, die den experimentellen Stil der Band unterstreichen."
         }
@@ -6130,12 +5825,7 @@
         },
         {
           "question": "Mit welchem renommierten Produzenten arbeiteten Black Sabbath während der Aufnahmen zu ihrem selbstbetitelten Debütalbum 'Black Sabbath' im Jahr 1970 zusammen, der zuvor mit anderen bekannten Rockbands an bedeutenden Projekten gearbeitet hatte?",
-          "options": [
-            "Glynn Johns",
-            "Roger Bain",
-            "Eddie Kramer",
-            "Martin Birch"
-          ],
+          "options": ["Glynn Johns", "Roger Bain", "Eddie Kramer", "Martin Birch"],
           "correctAnswer": "Roger Bain",
           "trivia": "Black Sabbath arbeiteten bei ihrem Debütalbum 'Black Sabbath' von 1970 mit dem Produzenten Roger Bain zusammen, der eine entscheidende Rolle bei der Entwicklung des charakteristischen Sounds der Band spielte. Bain hatte zuvor auch mit anderen Künstlern wie Budgie und The Pretty Things gearbeitet und trug maßgeblich zur Schaffung des Heavy-Metal-Sounds bei, der das Genre definieren sollte. Die Zusammenarbeit mit Bain half der Band, die düstere Atmosphäre und die kraftvollen Riffs, die das Album prägten, perfekt einzufangen. Interessanterweise war das Album nicht nur kommerziell erfolgreich, sondern beeinflusste auch zahlreiche nachfolgende Rock- und Metal-Acts nachhaltig."
         }
@@ -6395,23 +6085,13 @@
         },
         {
           "question": "Welcher prominente Musiker hatte einen überraschenden Gastauftritt auf dem Album 'Maggot Brain' von Funkadelic aus dem Jahr 1971?",
-          "options": [
-            "Eric Clapton",
-            "George Clinton",
-            "Jimi Hendrix",
-            "Sly Stone"
-          ],
+          "options": ["Eric Clapton", "George Clinton", "Jimi Hendrix", "Sly Stone"],
           "correctAnswer": "George Clinton",
           "trivia": "Auf dem Album 'Maggot Brain' von Funkadelic, das 1971 veröffentlicht wurde, ist George Clinton nicht nur als Produzent, sondern auch als kreativer Kopf des Projekts entscheidend beteiligt. Er war der Frontmann des Kollektivs und trug maßgeblich zur einzigartigen Mischung aus Funk, Rock und Psychedelia bei, die das Album prägte. 'Maggot Brain' ist besonders bekannt für das epische Gitarrensolo von Eddie Hazel, das oft als eines der besten in der Rockgeschichte angesehen wird. Das Album gilt als Meilenstein in der Funkmusik und wurde in vielen Bestenlisten erwähnt. Die Verbindung zwischen Funkadelic und George Clinton ist ein Beispiel für ungewöhnliche Kollaborationen, die zur Schaffung eines ikonischen Sounds führten."
         },
         {
           "question": "Welches berühmte Stück auf Funkadelics Album 'Maggot Brain' von 1971 wurde von Eddie Hazel mit einem emotionalen Gitarrensolo geprägt?",
-          "options": [
-            "Maggot Brain",
-            "Can You Get to That",
-            "Hit It and Quit It",
-            "Super Stupid"
-          ],
+          "options": ["Maggot Brain", "Can You Get to That", "Hit It and Quit It", "Super Stupid"],
           "correctAnswer": "Maggot Brain",
           "trivia": "'Maggot Brain' ist der Titeltrack des gleichnamigen Albums von Funkadelic, das 1971 veröffentlicht wurde. Das herausragende Gitarrensolo von Eddie Hazel gilt als eines der besten in der Rockgeschichte und wird oft als Ausdruck von Schmerz und Verlust interpretiert. Hazel improvisierte das Solo, während George Clinton ihm sagte, sich vorzustellen, dass seine Mutter gestorben sei. Das Album wurde für seine innovative Mischung aus Funk, Rock und Psychedelia gefeiert und gilt als Meilenstein in der Musikgeschichte."
         }
@@ -6476,12 +6156,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Maggot Brain' von Funkadelic gilt als einer der ersten Crossover-Erfolge, der Elemente aus Funk, Rock und Psychedelic vereint und maßgeblich zur Popularität der Band beitrug?",
-          "options": [
-            "Can You Get to That",
-            "Maggot Brain",
-            "Hit It and Quit It",
-            "Super Stupid"
-          ],
+          "options": ["Can You Get to That", "Maggot Brain", "Hit It and Quit It", "Super Stupid"],
           "correctAnswer": "Maggot Brain",
           "trivia": "Der Titeltrack 'Maggot Brain' ist nicht nur ein herausragendes Beispiel für die innovative Klangästhetik von Funkadelic, sondern auch ein zentraler Crossover-Erfolg, der die Grenzen zwischen Funk und Rock aufbrach. Der ikonische Gitarrensolo von Eddie Hazel, das über zehn Minuten dauert, wird oft als eines der besten Gitarrensoli in der Musikgeschichte bezeichnet. Das Album selbst wurde 1971 veröffentlicht und gilt als Meilenstein im Funk-Genre, wobei es Einflüsse aus Psychedelic Rock und Soul integriert. 'Maggot Brain' fand auch in späteren Jahrzehnten breite Anerkennung und wurde von zahlreichen Künstlern gecovert, was seine anhaltende kulturelle Bedeutung unterstreicht."
         }
@@ -6501,23 +6176,13 @@
       "easy": [
         {
           "question": "Welcher berühmte Song von Patti Smith ist auf ihrem Debütalbum 'Horses' aus dem Jahr 1975 enthalten und gilt als einer der frühesten Hits des Punk-Rock-Genres?",
-          "options": [
-            "Because the Night",
-            "Gloria",
-            "Dancing Barefoot",
-            "People Have the Power"
-          ],
+          "options": ["Because the Night", "Gloria", "Dancing Barefoot", "People Have the Power"],
           "correctAnswer": "Gloria",
           "trivia": "Der Song 'Gloria' ist einer der bekanntesten Titel auf Patti Smiths Debütalbum 'Horses', das 1975 veröffentlicht wurde. Dieser kraftvolle Track, der ursprünglich von Van Morrison geschrieben wurde, wird oft als Meilenstein des Punk-Rock angesehen und hat Smiths Einfluss auf die Musikszene der 1970er Jahre maßgeblich geprägt. 'Horses' wurde als ein wegweisendes Werk gefeiert, das Elemente von Rock, Poesie und Performancekunst miteinander verbindet. Das Album hat nicht nur Patti Smiths Karriere gestartet, sondern auch die Rolle von Frauen in der Rockmusik neu definiert. Smiths einzigartige Stimme und ihr eindringlicher Stil machten 'Gloria' zu einem zeitlosen Klassiker."
         },
         {
           "question": "Welcher Song aus dem Album 'Horses' von Patti Smith erreichte in den USA eine bemerkenswerte Chartplatzierung und wurde zu einem ihrer bekanntesten Stücke?",
-          "options": [
-            "Gloria",
-            "Because the Night",
-            "Dancing Barefoot",
-            "Pissing in a River"
-          ],
+          "options": ["Gloria", "Because the Night", "Dancing Barefoot", "Pissing in a River"],
           "correctAnswer": "Gloria",
           "trivia": "Der Song 'Gloria' aus Patti Smiths Debütalbum 'Horses', das 1975 veröffentlicht wurde, erreichte in den USA große Bekanntheit und gilt als eines der ikonischsten Werke der Künstlerin. 'Horses' selbst wurde in der Rockgeschichte als eines der einflussreichsten Alben angesehen und kombinierte Elemente von Punk, Rock und Poesie. Patti Smith, oft als 'Godmother of Punk' bezeichnet, brachte mit ihrem einzigartigen Stil frischen Wind in die Musikszene der 70er Jahre. Der Song 'Gloria' ist besonders bemerkenswert, da er eine kraftvolle Aussage über weibliche Identität und Selbstbestimmung verkörpert, die in der damaligen Zeit revolutionär war."
         },
@@ -6531,12 +6196,7 @@
       "medium": [
         {
           "question": "In welchem Film wurde der Song 'Gloria' aus dem Album 'Horses' von Patti Smith prominent verwendet?",
-          "options": [
-            "The Hunger",
-            "Thelma & Louise",
-            "Trainspotting",
-            "Natural Born Killers"
-          ],
+          "options": ["The Hunger", "Thelma & Louise", "Trainspotting", "Natural Born Killers"],
           "correctAnswer": "The Hunger",
           "trivia": "'Gloria', einer der bekanntesten Songs von Patti Smith aus ihrem Debütalbum 'Horses' von 1975, fand seinen Weg in den Kultfilm 'The Hunger' aus dem Jahr 1983, in dem die Hauptrollen von David Bowie und Catherine Deneuve gespielt werden. Das Album 'Horses' wird oft für seinen Einfluss auf die Punk- und Rockmusik gefeiert, und 'Gloria' ist ein Paradebeispiel für Smiths kraftvolle Mischung aus Poesie und Rock. Die Verwendung des Songs in 'The Hunger' unterstreicht die zeitlose Qualität und die kulturelle Relevanz ihrer Musik, die auch Jahrzehnte nach der Veröffentlichung des Albums in der Popkultur präsent ist. Patti Smiths innovative Herangehensweise an Texte und Musik hat Generationen von Künstlern inspiriert und bleibt ein wesentlicher Bestandteil der Rockgeschichte."
         },
@@ -6720,12 +6380,7 @@
       "easy": [
         {
           "question": "Welcher bekannte Produzent war maßgeblich an der Entstehung des Albums 'Fleetwood Mac' von Fleetwood Mac im Jahr 1975 beteiligt?",
-          "options": [
-            "Richard Dashut",
-            "George Martin",
-            "Brian Eno",
-            "Quincy Jones"
-          ],
+          "options": ["Richard Dashut", "George Martin", "Brian Eno", "Quincy Jones"],
           "correctAnswer": "Richard Dashut",
           "trivia": "Richard Dashut war der Produzent des selbstbetitelten Albums 'Fleetwood Mac' von 1975 und spielte eine entscheidende Rolle im Aufnahmeprozess. Das Album, das sowohl in den USA als auch im internationalen Raum große Erfolge feierte, war der erste gemeinsame Longplayer von Lindsey Buckingham und Stevie Nicks mit der Band. Unter Dashuts Leitung wurde das charakteristische Klangbild der Gruppe weiterentwickelt, was zu Hits wie 'Rhiannon' und 'Landslide' führte. Zudem arbeitet Dashut in den folgenden Jahren weiterhin eng mit Fleetwood Mac zusammen und prägte so ihren Sound und Stil nachhaltig."
         },
@@ -6742,12 +6397,7 @@
         },
         {
           "question": "In welcher bekannten TV-Serie wurde der Song 'Rhiannon' von Fleetwood Mac aus dem Album 'Fleetwood Mac' von 1975 prominent verwendet?",
-          "options": [
-            "The Sopranos",
-            "Stranger Things",
-            "The Office",
-            "Friends"
-          ],
+          "options": ["The Sopranos", "Stranger Things", "The Office", "Friends"],
           "correctAnswer": "The Sopranos",
           "trivia": "Der Song 'Rhiannon' von Fleetwood Mac, der auf dem gleichnamigen Album von 1975 zu finden ist, wurde in der beliebten TV-Serie 'The Sopranos' verwendet. Diese Serie, die von 1999 bis 2007 ausgestrahlt wurde, ist bekannt für ihren sorgfältigen Einsatz von Musik, um Emotionen und Atmosphären zu schaffen. 'Rhiannon' gilt als einer der bekanntesten Songs der Band und reflektiert die mystische Thematik, die in der Serie oft aufgegriffen wird. Fleetwood Mac hat mit diesem Album einen entscheidenden Einfluss auf die Rockmusik der 1970er Jahre ausgeübt, und der Einsatz ihrer Musik in modernen Medien zeigt weiterhin die zeitlose Relevanz ihrer Werke."
         }
@@ -6766,12 +6416,7 @@
         },
         {
           "question": "Mit welchem renommierten Produzenten arbeitete Fleetwood Mac bei der Aufnahme ihres selbstbetitelten Albums 'Fleetwood Mac' im Jahr 1975 zusammen?",
-          "options": [
-            "Richard Dashut",
-            "David Foster",
-            "Quincy Jones",
-            "Glyn Johns"
-          ],
+          "options": ["Richard Dashut", "David Foster", "Quincy Jones", "Glyn Johns"],
           "correctAnswer": "Richard Dashut",
           "trivia": "Richard Dashut war der Produzent, der entscheidend zur Entstehung des Albums 'Fleetwood Mac' im Jahr 1975 beitrug. Er arbeitete eng mit der Band zusammen und half, ihren charakteristischen Klang zu formen, der Elemente aus Rock, Pop und Country vereint. Dashut war bekannt für seine innovative Herangehensweise an die Produktion, was sich in der Verwendung von mehrschichtigen Harmonien und komplexen Arrangements widerspiegelte. Das Album wurde ein großer Erfolg und trug dazu bei, Fleetwood Mac als eine der führenden Bands der 1970er Jahre zu etablieren. Nach diesem Album arbeitete Dashut weiterhin mit der Band an weiteren Projekten, was ihre kreative Zusammenarbeit verstärkte."
         },
@@ -6908,12 +6553,7 @@
         },
         {
           "question": "Welcher bekannte Musikproduzent war maßgeblich an der Produktion des Albums 'The Last Waltz' von The Band im Jahr 1978 beteiligt?",
-          "options": [
-            "Daniel Lanois",
-            "Glyn Johns",
-            "Rick Rubin",
-            "George Martin"
-          ],
+          "options": ["Daniel Lanois", "Glyn Johns", "Rick Rubin", "George Martin"],
           "correctAnswer": "Glyn Johns",
           "trivia": "Glyn Johns, ein renommierter Musikproduzent, war entscheidend an der Produktion von 'The Last Waltz' beteiligt. Er hatte zuvor mit Bands wie den Rolling Stones und The Who gearbeitet und brachte seine umfangreiche Erfahrung in die Sessions ein. Johns war bekannt für seinen einzigartigen Ansatz, der es ermöglichte, den Live-Charakter der Auftritte von The Band einzufangen, was für das Album von zentraler Bedeutung war. 'The Last Waltz' wird oft als eines der besten Live-Alben der Musikgeschichte angesehen und zeigt die Fusion von Rock, Folk und Blues, die The Band prägte. Die Zusammenarbeit mit Johns trug dazu bei, die musikalische Vision dieser legendären Gruppe zu verwirklichen."
         },
@@ -7083,12 +6723,7 @@
         },
         {
           "question": "Welche bekannte Band inspirierte Earth, Wind & Fire bei der musikalischen Gestaltung ihres Albums 'That’s the Way of the World' aus dem Jahr 1975?",
-          "options": [
-            "The Temptations",
-            "The Beatles",
-            "The Rolling Stones",
-            "Led Zeppelin"
-          ],
+          "options": ["The Temptations", "The Beatles", "The Rolling Stones", "Led Zeppelin"],
           "correctAnswer": "The Temptations",
           "trivia": "Earth, Wind & Fire ließ sich bei der Entstehung des Albums 'That’s the Way of the World' stark von der Motown-Musik beeinflussen, insbesondere von Bands wie The Temptations. Diese Gruppe war bekannt für ihren harmonischen Gesang und ihre innovativen Arrangements, die Earth, Wind & Fire als Vorbild dienten. Das Album, das 1975 veröffentlicht wurde, enthält einige ihrer bekanntesten Hits, darunter 'Shining Star' und 'That’s the Way of the World', und erreichte große Erfolge in den Charts. Zudem trugen die komplexen Harmonien und die Mischung aus verschiedenen Musikstilen, die für Motown typisch sind, zur einzigartigen Klangfarbe des Albums bei."
         }
@@ -7142,12 +6777,7 @@
         },
         {
           "question": "Welcher prominente Gastmusiker, der bereits für seine Zusammenarbeit mit anderen großen Künstlern bekannt war, trat auf dem Album 'That’s the Way of the World' von Earth, Wind & Fire aus dem Jahr 1975 auf?",
-          "options": [
-            "Chaka Khan",
-            "Stevie Wonder",
-            "David Bowie",
-            "Herbie Hancock"
-          ],
+          "options": ["Chaka Khan", "Stevie Wonder", "David Bowie", "Herbie Hancock"],
           "correctAnswer": "Chaka Khan",
           "trivia": "Chaka Khan, die legendäre Sängerin und Frontfrau der Band Rufus, hatte einen bemerkenswerten Gastauftritt auf dem Album 'That’s the Way of the World' von Earth, Wind & Fire. Ihre kraftvolle Stimme trug zu dem Hit 'Shining Star' bei, der später zum Markenzeichen der Band wurde. Earth, Wind & Fire, bekannt für ihre Fusion von R&B, Funk und Rock, schuf mit diesem Album einen wichtigen Meilenstein in der Musikgeschichte der 1970er Jahre. Das Album erreichte große kommerzielle Erfolge und wird oft als eines der besten Alben der Band angesehen. Chaka Khans Einfluss auf die Musikszene half, das Album noch weiter in die Herzen der Fans zu bringen."
         },
@@ -7341,23 +6971,13 @@
         },
         {
           "question": "Welcher Künstler hat eine bekannte Coverversion des Songs 'The Jean Genie' aus David Bowies Album 'Aladdin Sane' veröffentlicht?",
-          "options": [
-            "Roxy Music",
-            "The Smashing Pumpkins",
-            "Morrissey",
-            "Placebo"
-          ],
+          "options": ["Roxy Music", "The Smashing Pumpkins", "Morrissey", "Placebo"],
           "correctAnswer": "Placebo",
           "trivia": "Die britische Band Placebo hat 2003 eine Coverversion des Songs 'The Jean Genie', der ursprünglich auf David Bowies Album 'Aladdin Sane' von 1973 veröffentlicht wurde, aufgenommen. Dieser Song gilt als einer von Bowies größten Hits und zeigt seine charakteristische Mischung aus Glam-Rock und experimenteller Musik. 'Aladdin Sane' war das erste David Bowie-Album, das in den USA veröffentlicht wurde, und es enthält einige seiner bekanntesten Songs, die bis heute Kultstatus genießen. Die Coverversion von Placebo wurde von vielen Fans und Kritikern als Hommage an Bowies Einfluss auf die Rockmusik angesehen."
         },
         {
           "question": "Welcher unveröffentlichte Song, der während der Sessions für David Bowies Album 'Aladdin Sane' im Jahr 1973 aufgenommen wurde, blieb bis heute in den Archiven und ist nicht auf offiziellen Alben erschienen?",
-          "options": [
-            "I Can't Help Thinking About Me",
-            "All the Madmen",
-            "Candidate",
-            "Liza Jane"
-          ],
+          "options": ["I Can't Help Thinking About Me", "All the Madmen", "Candidate", "Liza Jane"],
           "correctAnswer": "Candidate",
           "trivia": "Der Song 'Candidate' wurde während der Aufnahmen zu 'Aladdin Sane' im Jahr 1973 aufgenommen, fand jedoch keinen Platz auf dem endgültigen Album und blieb lange Zeit unveröffentlicht. Die Aufnahmen zu 'Aladdin Sane' fanden in den Trident Studios in London statt, wo Bowie mit seiner Band und dem Produzenten Ken Scott zusammenarbeitete. 'Candidate' zeigt den typischen Glam-Rock-Stil dieser Zeit und spiegelt die experimentelle Herangehensweise von Bowie wider, die auch in anderen Songs des Albums zu hören ist. Erst Jahre später wurde der Track auf Compilation-Alben und Bootlegs zugänglich gemacht, bevor er offiziell in den Archiven veröffentlicht wurde."
         }
@@ -7376,12 +6996,7 @@
         },
         {
           "question": "Mit welchem renommierten Produzenten arbeitete David Bowie während der Aufnahmen zu seinem Album 'Aladdin Sane' im Jahr 1973, der auch für seinen Einfluss auf den Glam-Rock bekannt war?",
-          "options": [
-            "Tony Visconti",
-            "Brian Eno",
-            "Mick Ronson",
-            "Glynn Johns"
-          ],
+          "options": ["Tony Visconti", "Brian Eno", "Mick Ronson", "Glynn Johns"],
           "correctAnswer": "Tony Visconti",
           "trivia": "David Bowie arbeitete während der Aufnahmen zu 'Aladdin Sane' eng mit dem Produzenten Tony Visconti zusammen, der für seinen innovativen Ansatz in der Musikproduktion bekannt ist. Visconti hatte bereits an Bowies früheren Alben mitgewirkt und brachte einen einzigartigen Klang in die Sessions ein, der den Glam-Rock-Sound prägte. Die Zusammenarbeit führte zu bemerkenswerten Songs wie 'The Jean Genie' und 'Drive-In Saturday', die beide auf dem Album zu finden sind. Viscontis Einfluss reicht weit über dieses Album hinaus und erstreckt sich über viele von Bowies späteren Werken, was ihre kreative Beziehung von großer Bedeutung macht."
         },
@@ -7423,12 +7038,7 @@
         },
         {
           "question": "In welchem beliebten Film aus den 1970er Jahren wurde der Song '25 or 6 to 4' aus dem Album 'Chicago II' von Chicago prominent verwendet?",
-          "options": [
-            "Der Pate",
-            "Die Ungeheuer",
-            "Die Verurteilten",
-            "American Graffiti"
-          ],
+          "options": ["Der Pate", "Die Ungeheuer", "Die Verurteilten", "American Graffiti"],
           "correctAnswer": "American Graffiti",
           "trivia": "'25 or 6 to 4' ist einer der bekanntesten Songs von Chicago aus dem Album 'Chicago II', das 1970 veröffentlicht wurde. Der Song handelt von einem nächtlichen Streifzug auf der Suche nach Inspiration für das Schreiben. In dem Film 'American Graffiti', der 1973 erschienen ist, wird der Song verwendet, um die Atmosphäre der 1960er Jahre einzufangen und die jugendliche Sehnsucht nach Freiheit und Abenteuer zu verdeutlichen. Chicago war in den 1970ern eine der erfolgreichsten Rockbands und trug mit ihren eingängigen Melodien und dem charakteristischen Horn-Sound zur Musikkultur dieser Zeit bei. 'Chicago II' war zudem ein Wendepunkt in ihrer Karriere und festigte ihren Platz in der Rockgeschichte."
         },
@@ -7469,12 +7079,7 @@
         },
         {
           "question": "Mit welchem renommierten Produzenten arbeitete Chicago bei den Aufnahmen ihres Albums 'Chicago II', das 1970 veröffentlicht wurde?",
-          "options": [
-            "James William Guercio",
-            "Quincy Jones",
-            "George Martin",
-            "David Foster"
-          ],
+          "options": ["James William Guercio", "Quincy Jones", "George Martin", "David Foster"],
           "correctAnswer": "James William Guercio",
           "trivia": "James William Guercio war der Produzent, der für das Album 'Chicago II' verantwortlich war. Er spielte eine entscheidende Rolle bei der Entwicklung des charakteristischen Sounds der Band, indem er Elemente des Rock, Jazz und der klassischen Musik miteinander kombinierte. Guercio hatte bereits bei Chicos erstem Album 'Chicago Transit Authority' mitgearbeitet und half der Band, ihren kreativen und musikalischen Stil weiterzuentwickeln. Unter seiner Leitung erreichte 'Chicago II' große Erfolge, darunter Hits wie '25 or 6 to 4' und 'Make Me Smile', die beide zu Klassikern der Rockmusik wurden."
         }
@@ -7540,12 +7145,7 @@
         },
         {
           "question": "In welcher bekannten TV-Serie aus den 2010er Jahren wurde der Song 'The Payback' von James Brown prominent verwendet?",
-          "options": [
-            "The Get Down",
-            "Breaking Bad",
-            "Stranger Things",
-            "Narcos"
-          ],
+          "options": ["The Get Down", "Breaking Bad", "Stranger Things", "Narcos"],
           "correctAnswer": "The Get Down",
           "trivia": "Der Song 'The Payback' von James Brown wurde in der Netflix-Serie 'The Get Down' verwendet, die die kulturelle Entwicklung der Hip-Hop-Musik in den 1970er Jahren thematisiert. Das Album 'The Payback', das 1973 veröffentlicht wurde, gilt als eines der bedeutendsten Werke von James Brown und zeigt seinen einzigartigen Stil, der Funk, Soul und Rhythm and Blues vereint. Die Titeltrack des Albums, 'The Payback', ist besonders bekannt für seinen kraftvollen Beat und die markanten Bläsersätze. James Brown, oft als 'Godfather of Soul' bezeichnet, hatte großen Einfluss auf die Musikszene und ist auch heute noch eine Inspirationsquelle für viele Künstler."
         },
@@ -7646,23 +7246,13 @@
       "easy": [
         {
           "question": "Welcher Song auf dem Album 'Surf’s Up' von The Beach Boys thematisiert die Vergänglichkeit des Lebens und die Sehnsucht nach einer besseren Welt?",
-          "options": [
-            "Feel Flows",
-            "Surf's Up",
-            "Long Promised Road",
-            "Take a Load Off Your Feet"
-          ],
+          "options": ["Feel Flows", "Surf's Up", "Long Promised Road", "Take a Load Off Your Feet"],
           "correctAnswer": "Surf's Up",
           "trivia": "Der Titeltrack 'Surf's Up' von The Beach Boys, der auf dem gleichnamigen Album von 1971 zu finden ist, behandelt tiefgründige Themen wie die Vergänglichkeit des Lebens und die Hoffnung auf eine bessere Zukunft. Der Song wurde maßgeblich von Brian Wilson und Van Dyke Parks geschrieben und gilt als eines der emotionalsten Stücke des Albums. In den Texten wird eine poetische Bildsprache verwendet, die eine melancholische, aber gleichzeitig hoffnungsvolle Stimmung vermittelt. 'Surf’s Up' gilt als Meilenstein in der Geschichte der Rockmusik und zeigt den Übergang von den lässigen Surf-Songs der Band zu komplexeren und introspektiven Themen."
         },
         {
           "question": "Welcher Song auf dem Album 'Surf’s Up' von The Beach Boys gilt als eine der bekanntesten Kompositionen von Brian Wilson?",
-          "options": [
-            "Don’t Worry Baby",
-            "Surf's Up",
-            "Good Vibrations",
-            "California Girls"
-          ],
+          "options": ["Don’t Worry Baby", "Surf's Up", "Good Vibrations", "California Girls"],
           "correctAnswer": "Surf's Up",
           "trivia": "Der Titeltrack 'Surf's Up' ist eine der bekanntesten Kompositionen von Brian Wilson und wurde erstmals auf dem gleichnamigen Album 'Surf’s Up' im Jahr 1971 veröffentlicht. Der Song wird oft für seine komplexe Struktur und tiefgründigen Texte gelobt, die in starkem Kontrast zu den typischen Surf-Themen der Band stehen. 'Surf's Up' behandelt philosophische und emotionale Themen und zeigt Wilsons künstlerische Entwicklung in dieser Zeit. Das Stück wurde auch in einer früheren Version bereits 1966 aufgenommen, blieb aber bis zur Veröffentlichung des Albums unvollendet. 'Surf’s Up' wird häufig als eines der besten Werke der Beach Boys angesehen und gilt als Highlight ihrer Diskografie."
         },
@@ -7998,12 +7588,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Talking Book' von Stevie Wonder, das 1972 veröffentlicht wurde, gilt als einer der ersten Hits, der Synthesizer in der Popmusik populär machte?",
-          "options": [
-            "Superstition",
-            "You Are the Sunshine of My Life",
-            "Higher Ground",
-            "I Wish"
-          ],
+          "options": ["Superstition", "You Are the Sunshine of My Life", "Higher Ground", "I Wish"],
           "correctAnswer": "Superstition",
           "trivia": "Der Song 'Superstition' aus dem Album 'Talking Book' wird oft als einer der ersten großen Hits betrachtet, der Synthesizer in der Popmusik effektiv einsetzte. Die Verwendung des Moog-Synthesizers schuf einen charakteristischen Klang, der den Funk- und Soul-Stil der 1970er Jahre maßgeblich beeinflusste. 'Talking Book' selbst wurde für seine innovative Produktion und den Mix aus verschiedenen Musikstilen gelobt, was Stevie Wonder als wegweisenden Künstler im Musikgeschäft etablierte. 'Superstition' erreichte 1973 die Spitze der Billboard Hot 100 Charts und bleibt bis heute ein Klassiker. Der Erfolg dieses Songs trug dazu bei, den Einsatz von elektronischen Instrumenten in der Musik weiter zu fördern."
         },
@@ -8156,12 +7741,7 @@
         },
         {
           "question": "Welcher Song aus Nick Drakes Album 'Pink Moon' wurde posthum in einer Werbung verwendet und trug dazu bei, den Künstler einem breiteren Publikum bekannt zu machen?",
-          "options": [
-            "Things Behind the Sun",
-            "Pink Moon",
-            "Place to Be",
-            "Which Will"
-          ],
+          "options": ["Things Behind the Sun", "Pink Moon", "Place to Be", "Which Will"],
           "correctAnswer": "Pink Moon",
           "trivia": "Der Titeltrack 'Pink Moon' wurde 1999 in einer Werbung für den Volkswagen Golf verwendet, was zu einem signifikanten Anstieg des Interesses an Nick Drake und seinem Werk führte. Obwohl 'Pink Moon' bei seiner Veröffentlichung 1972 kommerziell nicht erfolgreich war, erlangte das Album im Laufe der Jahre Kultstatus und wird heute oft als eines der besten britischen Alben angesehen. Nick Drake, der für seinen melancholischen Gesang und seine komplexen Gitarrenarrangements bekannt ist, hatte zu Lebzeiten nur begrenzten Erfolg, aber sein Einfluss auf die Musikszene ist unbestreitbar. Die Verwendung des Songs in der Werbung half, eine neue Generation von Fans zu erreichen und seine Musik in neue Kontexte zu bringen."
         }
@@ -8246,12 +7826,7 @@
       "medium": [
         {
           "question": "Welches bekannte Lied von The Kinks, das auf dem Album 'Lola Versus Powerman and the Moneygoround, Part One' enthalten ist, wurde häufig in verschiedenen Medien verwendet und hat zahlreiche Coverversionen inspiriert?",
-          "options": [
-            "Lola",
-            "Sunny Afternoon",
-            "Waterloo Sunset",
-            "You Really Got Me"
-          ],
+          "options": ["Lola", "Sunny Afternoon", "Waterloo Sunset", "You Really Got Me"],
           "correctAnswer": "Lola",
           "trivia": "Das Lied 'Lola' von The Kinks, das auf dem Album 'Lola Versus Powerman and the Moneygoround, Part One' von 1970 zu finden ist, wurde nicht nur ein Hit, sondern auch ein kulturelles Phänomen. Es erzählt die Geschichte einer Begegnung zwischen einem jungen Mann und einer Transgender-Figur, was zu seiner Zeit für Aufsehen sorgte. 'Lola' wurde in zahlreichen Filmen, TV-Shows und von verschiedenen Künstlern gecovert, darunter auch von der Band The Raincoats und dem britischen Musiker The Black Keys. Darüber hinaus erreichte das Lied hohe Chartplatzierungen und trug zur Popularität des Albums bei, das oft als eine der besten Arbeiten der Band angesehen wird."
         },
@@ -8303,12 +7878,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Lola Versus Powerman and the Moneygoround, Part One' von The Kinks gilt als einer der ersten Crossover-Hits, der sowohl die Rock- als auch die Pop-Charts erreichte?",
-          "options": [
-            "Lola",
-            "Powerman",
-            "Denmark Street",
-            "This Time Tomorrow"
-          ],
+          "options": ["Lola", "Powerman", "Denmark Street", "This Time Tomorrow"],
           "correctAnswer": "Lola",
           "trivia": "Der Song 'Lola' aus dem Album 'Lola Versus Powerman and the Moneygoround, Part One' von The Kinks, veröffentlicht im Jahr 1970, wird oft als einer der ersten Crossover-Hits angesehen, der sowohl die Rock- als auch die Pop-Charts in Großbritannien und den USA erreichte. 'Lola' erreichte in den USA Platz 9 der Billboard Hot 100 und wurde ein internationaler Hit. Der Song erzählt die Geschichte einer Begegnung mit einer Transgender-Person und spiegelt die soziale und kulturelle Veränderung der damaligen Zeit wider. The Kinks, bekannt für ihren Einfluss auf den Brit-Pop, schufen mit diesem Lied nicht nur ein musikalisches, sondern auch ein gesellschaftliches Statement."
         }
@@ -8574,12 +8144,7 @@
         },
         {
           "question": "Welcher berühmte Produzent arbeitete an dem Album 'Catch a Fire' von Bob Marley and The Wailers, das 1973 veröffentlicht wurde?",
-          "options": [
-            "Lee Perry",
-            "George Martin",
-            "Phil Spector",
-            "Brian Eno"
-          ],
+          "options": ["Lee Perry", "George Martin", "Phil Spector", "Brian Eno"],
           "correctAnswer": "Lee Perry",
           "trivia": "Lee Perry war der Produzent, der maßgeblich an der Entstehung des Albums 'Catch a Fire' von Bob Marley and The Wailers beteiligt war. Perry, ein einflussreicher jamaikanischer Musikproduzent, half dabei, den charakteristischen Sound des Reggae zu formen, der auf diesem Album zu hören ist. 'Catch a Fire' gilt als eines der ersten Reggae-Alben, das international Anerkennung fand und half, Bob Marley in der Musikszene zu etablieren. Die Zusammenarbeit zwischen Marley und Perry führte zu innovativen Aufnahmetechniken, die das Album zu einem Meilenstein der Musikgeschichte machten."
         }
@@ -8699,12 +8264,7 @@
       "medium": [
         {
           "question": "Welcher Song aus dem Album 'Tres Hombres' von ZZ Top erreichte 1973 die höchsten Chartplatzierungen in den USA?",
-          "options": [
-            "La Grange",
-            "Tush",
-            "Beer Drinkers & Hell Raisers",
-            "Master of Sparks"
-          ],
+          "options": ["La Grange", "Tush", "Beer Drinkers & Hell Raisers", "Master of Sparks"],
           "correctAnswer": "La Grange",
           "trivia": "Der Song 'La Grange' war der erfolgreichste Titel aus dem Album 'Tres Hombres', das 1973 veröffentlicht wurde. Diese Single erreichte in den USA Platz 41 der Billboard Hot 100 und wurde eines der bekanntesten Lieder der Band. 'Tres Hombres' selbst war das dritte Studioalbum von ZZ Top und brachte ihnen nicht nur kommerziellen Erfolg, sondern auch zunehmende Anerkennung in der Rockmusikszene. Die Kombination aus Blues-Rock-Elementen und markanten Gitarrenriffs machte das Album zu einem Meilenstein, der bis heute Einfluss hat."
         },
@@ -8792,12 +8352,7 @@
         },
         {
           "question": "Mit welchem bekannten Künstler arbeitete Jethro Tull während der Aufnahmen ihres Albums 'Aqualung', das 1971 veröffentlicht wurde?",
-          "options": [
-            "David Bowie",
-            "Robert Fripp",
-            "Elton John",
-            "Paul McCartney"
-          ],
+          "options": ["David Bowie", "Robert Fripp", "Elton John", "Paul McCartney"],
           "correctAnswer": "Robert Fripp",
           "trivia": "Jethro Tull arbeitete während der Aufnahmen zu 'Aqualung' mit Robert Fripp, dem Gitarristen der Band King Crimson, zusammen. Fripp steuerte seine charakteristischen Gitarrenklänge zu dem Titeltrack 'Aqualung' bei, was dem Song eine besondere Note verlieh. 'Aqualung' gilt als eines der einflussreichsten Alben der 1970er Jahre und enthält ikonische Songs, die bis heute populär sind. Das Album befasste sich mit Themen wie Obdachlosigkeit und sozialer Ungerechtigkeit, was in der Musik und den Texten eindrucksvoll zum Ausdruck kommt. Diese Kollaboration trug dazu bei, den progressiven Rock-Sound der Band weiterzuentwickeln."
         },
@@ -8838,12 +8393,7 @@
         },
         {
           "question": "In welcher bekannten TV-Serie wurde der Song 'Aqualung' von Jethro Tull verwendet, um eine tiefere emotionale Verbindung zur Charakterentwicklung zu schaffen?",
-          "options": [
-            "The Simpsons",
-            "Stranger Things",
-            "The Sopranos",
-            "Freaks and Geeks"
-          ],
+          "options": ["The Simpsons", "Stranger Things", "The Sopranos", "Freaks and Geeks"],
           "correctAnswer": "The Sopranos",
           "trivia": "Der Song 'Aqualung' von Jethro Tull wurde in der dritten Staffel der Kultserie 'The Sopranos' verwendet, was die Bedeutung der Musik in der Charakterentwicklung und der Atmosphäre der Serie unterstreicht. 'Aqualung', das Titelstück des gleichnamigen Albums von 1971, thematisiert soziale Isolation und menschliches Leid, was perfekt mit den komplexen Themen der Serie harmoniert. Jethro Tulls 'Aqualung' ist bekannt für seinen eindrucksvollen Mix aus Rock und Folk, der in den 70er Jahren innovative Maßstäbe setzte. Das Album gilt als eines der einflussreichsten der Band und erreichte hohe Chartplatzierungen in mehreren Ländern."
         }
@@ -8862,12 +8412,7 @@
         },
         {
           "question": "In welchem bedeutenden Film aus den 1970er Jahren wurde das Stück 'Aqualung' von Jethro Tull verwendet, das dem gleichnamigen Album von 1971 entstammt?",
-          "options": [
-            "Die Reifeprüfung",
-            "Woodstock",
-            "Easy Rider",
-            "Der Unbeugsame"
-          ],
+          "options": ["Die Reifeprüfung", "Woodstock", "Easy Rider", "Der Unbeugsame"],
           "correctAnswer": "Die Reifeprüfung",
           "trivia": "Das Stück 'Aqualung' von Jethro Tull wurde prominent in dem Film 'Die Reifeprüfung' (1967) verwendet, was zur Popularität des Songs beitrug. Obwohl das Album 'Aqualung' erst 1971 veröffentlicht wurde, zeigt die Verwendung des Songs, wie zeitlos und einflussreich die Musik von Jethro Tull war. Das Album selbst wird oft als Konzeptalbum betrachtet, das sich mit Themen der sozialen Isolation und des Glaubens auseinandersetzt. Jethro Tull, angeführt von Ian Anderson, experimentierte mit einer Mischung aus Rock, Folk und klassischer Musik, was das Album zu einem Meilenstein in der Musikgeschichte machte."
         },
@@ -9075,12 +8620,7 @@
       "hard": [
         {
           "question": "Mit welchem Produzenten arbeitete Joy Division bei der Aufnahme ihres wegweisenden Albums 'Unknown Pleasures' im Jahr 1979 zusammen?",
-          "options": [
-            "Stephen Hague",
-            "Martin Hannett",
-            "Brian Eno",
-            "Giorgio Moroder"
-          ],
+          "options": ["Stephen Hague", "Martin Hannett", "Brian Eno", "Giorgio Moroder"],
           "correctAnswer": "Martin Hannett",
           "trivia": "Joy Division arbeitete bei der Produktion ihres Debütalbums 'Unknown Pleasures' mit Martin Hannett zusammen, einem bedeutenden Produzenten der Post-Punk-Ära. Hannett war bekannt für seinen innovativen Umgang mit Klang und seinen Einsatz von Studioeffekten, was dem Album seinen einzigartigen Sound verlieh. Die Sessions fanden in Strawberry Studios in Stockport statt, wo Hannett die Band ermutigte, experimentelle Ansätze in ihre Musik zu integrieren. Das Album gilt nicht nur als Meilenstein in der Musikgeschichte, sondern auch als eine der ersten Veröffentlichungen, die den charakteristischen Klang der 80er Jahre prägten. Die Zusammenarbeit zwischen Joy Division und Martin Hannett war entscheidend für die Entwicklung des Post-Punk-Genres."
         },
@@ -9097,12 +8637,7 @@
         },
         {
           "question": "In welchem Film wurde der Song 'She's Lost Control' von Joy Division aus dem Album 'Unknown Pleasures' verwendet, was die Bedeutung der Band in der Popkultur unterstreicht?",
-          "options": [
-            "The Hunger",
-            "Trainspotting",
-            "Donnie Darko",
-            "A Clockwork Orange"
-          ],
+          "options": ["The Hunger", "Trainspotting", "Donnie Darko", "A Clockwork Orange"],
           "correctAnswer": "The Hunger",
           "trivia": "Der Song 'She's Lost Control' von Joy Division findet Verwendung im Film 'The Hunger' aus dem Jahr 1983, was die kulturelle Relevanz der Band und ihres Debütalbums 'Unknown Pleasures' unterstreicht. Dieses Album, das 1979 veröffentlicht wurde, gilt als eines der einflussreichsten Werke der Post-Punk-Bewegung und hat zahlreiche Künstler inspiriert. Joy Division, gegründet in Manchester, prägte mit ihrem einzigartigen Sound und der tiefgründigen Lyrik die Musikszene der späten 70er und frühen 80er Jahre. 'The Hunger', ein Film über Vampirismus, nutzt die melancholische Atmosphäre des Songs, um die düstere Stimmung der Handlung zu verstärken und den Einfluss der Band auf die visuelle Kultur zu verdeutlichen."
         }
@@ -9192,12 +8727,7 @@
       "hard": [
         {
           "question": "Welche unveröffentlichte Komposition, die während der Aufnahmen zu 'The Cars' von The Cars im Jahr 1978 entstanden ist, blieb bis heute in den Archiven und wurde nie auf einem offiziellen Album veröffentlicht?",
-          "options": [
-            "Don't Cha Stop",
-            "Night Drive",
-            "It's All I Can Do",
-            "All Mixed Up"
-          ],
+          "options": ["Don't Cha Stop", "Night Drive", "It's All I Can Do", "All Mixed Up"],
           "correctAnswer": "Don't Cha Stop",
           "trivia": "'Don't Cha Stop' ist ein unveröffentlichter Track, der während der Sessions für das Debütalbum 'The Cars' im Jahr 1978 aufgenommen wurde. Obwohl dieser Song nie offiziell veröffentlicht wurde, ist er in den Archiven der Band dokumentiert und wird von Fans als ein Beispiel für den charakteristischen Sound von The Cars angesehen. Das Album selbst wurde ein großer kommerzieller Erfolg und prägte den New-Wave-Sound der späten 1970er Jahre. Zu den bekanntesten Songs des Albums gehören Hits wie 'Just What I Needed' und 'My Best Friend's Girl', die beide die musikalische Identität der Band festigten."
         },
@@ -9245,12 +8775,7 @@
         },
         {
           "question": "Welche bekannte Musikerin hatte einen großen Einfluss auf Jackson Browne und seine Musik, die auch in seinem Album 'The Pretender' von 1976 spürbar ist?",
-          "options": [
-            "Joni Mitchell",
-            "Carole King",
-            "Linda Ronstadt",
-            "Carly Simon"
-          ],
+          "options": ["Joni Mitchell", "Carole King", "Linda Ronstadt", "Carly Simon"],
           "correctAnswer": "Joni Mitchell",
           "trivia": "Jackson Browne hat offen über den Einfluss von Joni Mitchell auf seine Musik gesprochen, insbesondere während der 1970er Jahre, als er 'The Pretender' aufnahm. Mitchell, die für ihre tiefgründigen Texte und Melodien bekannt ist, inspirierte viele Singer-Songwriter dieser Zeit, einschließlich Browne. Ihr Album 'Blue' (1971) gilt als eines der besten Werke der Folk-Ära und hat Browne dazu angeregt, seine eigene Schreibweise zu verfeinern. In 'The Pretender' sind die emotionalen und introspektiven Texte, die in Brownes Musik zu finden sind, stark von den Themen beeinflusst, die auch Mitchell in ihren Songs behandelt."
         },
@@ -9607,12 +9132,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Rocks' von Aerosmith, das 1976 veröffentlicht wurde, wurde besonders häufig bei Live-Performances gespielt und gilt als eines der Markenzeichen der Band?",
-          "options": [
-            "Back in the Saddle",
-            "Dream On",
-            "Sweet Emotion",
-            "Walk This Way"
-          ],
+          "options": ["Back in the Saddle", "Dream On", "Sweet Emotion", "Walk This Way"],
           "correctAnswer": "Back in the Saddle",
           "trivia": "Der Song 'Back in the Saddle' ist ein Highlight auf dem Album 'Rocks', das 1976 von Aerosmith veröffentlicht wurde. Bei Live-Performances wird dieser kraftvolle Track häufig gespielt und zeigt den charakteristischen Stil der Band. Aerosmith ist bekannt für ihre energiegeladenen Auftritte, und 'Back in the Saddle' hat sich als fester Bestandteil ihrer Setlists etabliert. Das Album selbst erreichte hohe Chartplatzierungen und wurde von Kritikern als eines der besten Rock-Alben der 1970er Jahre gefeiert. In den Jahren nach der Veröffentlichung trugen zahlreiche Live-Darbietungen dazu bei, die Popularität des Songs weiter zu steigern."
         }
@@ -9631,12 +9151,7 @@
         },
         {
           "question": "Welche prominente Person war als Produzent für das Album 'Rocks' von Aerosmith im Jahr 1976 verantwortlich?",
-          "options": [
-            "Jack Douglas",
-            "Mutt Lange",
-            "Jimmy Iovine",
-            "Bob Ezrin"
-          ],
+          "options": ["Jack Douglas", "Mutt Lange", "Jimmy Iovine", "Bob Ezrin"],
           "correctAnswer": "Jack Douglas",
           "trivia": "Das Album 'Rocks' wurde von Jack Douglas produziert, der eine bedeutende Rolle in der Entwicklung des Sounds von Aerosmith spielte. Douglas hatte zuvor bereits mit der Band an ihrem erfolgreichen Album 'Toys in the Attic' gearbeitet und brachte viel Erfahrung im Rock-Genre mit. Er war bekannt für seine Fähigkeit, die rohe Energie der Live-Auftritte von Aerosmith im Studio einzufangen, was zu dem charakteristischen Klang von 'Rocks' beitrug. Zusätzlich zu seiner Arbeit mit Aerosmith produzierte Douglas auch Alben für andere berühmte Künstler, darunter Cheap Trick. 'Rocks' gilt heute als eines der besten Alben von Aerosmith und wird oft für seinen kraftvollen Sound und die eingängigen Melodien gelobt."
         },
@@ -9931,23 +9446,13 @@
       "easy": [
         {
           "question": "Welcher bekannte Song von Blondie auf dem Album 'Parallel Lines' wurde in den 1990er Jahren von mehreren Künstlern gesampelt und gilt als einer ihrer größten Hits?",
-          "options": [
-            "Heart of Glass",
-            "One Way or Another",
-            "Rapture",
-            "Call Me"
-          ],
+          "options": ["Heart of Glass", "One Way or Another", "Rapture", "Call Me"],
           "correctAnswer": "Heart of Glass",
           "trivia": "Der Song 'Heart of Glass' von Blondie, der auf dem Album 'Parallel Lines' im Jahr 1978 veröffentlicht wurde, hat sich als äußerst einflussreich erwiesen und wurde in den 1990er Jahren von mehreren Künstlern gesampelt, unter anderem von der Gruppe 'The Chemical Brothers'. Er kombiniert Elemente von Disco und Punk und war ein wesentlicher Bestandteil des Erfolgs von Blondie in den späten 70er Jahren. Der Song erreichte Platz 1 der Billboard Hot 100 und bleibt bis heute eines der bekanntesten Lieder der Band. 'Parallel Lines' selbst gilt als eines der besten Alben der Rockgeschichte und hat die Musiklandschaft bedeutend geprägt."
         },
         {
           "question": "In welchem berühmten Film aus dem Jahr 1998 wird der Song 'One Way or Another' von Blondie, einem Hit des Albums 'Parallel Lines', prominent verwendet?",
-          "options": [
-            "Titanic",
-            "The Wedding Singer",
-            "Clueless",
-            "10 Things I Hate About You"
-          ],
+          "options": ["Titanic", "The Wedding Singer", "Clueless", "10 Things I Hate About You"],
           "correctAnswer": "The Wedding Singer",
           "trivia": "Der Song 'One Way or Another' von Blondie, der auf dem Album 'Parallel Lines' von 1978 zu finden ist, wird im Film 'The Wedding Singer' (1998) verwendet. Dieses Album gilt als eines der einflussreichsten Werke der New-Wave-Ära und enthält auch den Hit 'Heart of Glass', der die Charts weltweit eroberte. 'The Wedding Singer' ist eine romantische Komödie, die in den 1980er Jahren spielt und zahlreiche Hits aus dieser Zeit enthält, was die Verwendung von Blondies Musik besonders passend macht. Darüber hinaus brachte 'Parallel Lines' Blondie internationale Anerkennung und festigte ihren Status als Pionier der Punk- und New-Wave-Bewegung."
         },
@@ -10231,12 +9736,7 @@
         },
         {
           "question": "Welche Band sammelte Inspiration aus dem Live-Album 'Frampton Comes Alive!' von Peter Frampton und integrierte Elemente daraus in ihr eigenes Werk?",
-          "options": [
-            "The Eagles",
-            "Led Zeppelin",
-            "Aerosmith",
-            "The Rolling Stones"
-          ],
+          "options": ["The Eagles", "Led Zeppelin", "Aerosmith", "The Rolling Stones"],
           "correctAnswer": "Aerosmith",
           "trivia": "Aerosmith wurde durch das Live-Album 'Frampton Comes Alive!' von Peter Frampton inspiriert, insbesondere durch dessen erfolgreiche Nutzung von Live-Dynamik und Publikumseinbindung. Das Album, das 1976 veröffentlicht wurde, gilt als eines der meistverkauften Live-Alben aller Zeiten und half, das Konzept von Live-Aufnahmen als eigenständige Kunstform zu etablieren. Frampton's Einsatz von Talkbox und die energiegeladene Performance wurden von vielen Künstlern, darunter Aerosmith, als Maßstab angesehen. Zudem beeinflusste die gelungene Kombination aus Rock und Melodien die Entwicklung des Hard Rock in den späten 1970er Jahren nachhaltig."
         },
@@ -10313,12 +9813,7 @@
         },
         {
           "question": "Mit welchem prominenten Produzenten arbeitete Barry White bei den Aufnahmen zu seinem Album 'Can’t Get Enough' aus dem Jahr 1974 zusammen?",
-          "options": [
-            "James Jamerson",
-            "Gene Page",
-            "Quincy Jones",
-            "Phil Spector"
-          ],
+          "options": ["James Jamerson", "Gene Page", "Quincy Jones", "Phil Spector"],
           "correctAnswer": "Gene Page",
           "trivia": "Barry White arbeitete bei seinem erfolgreichen Album 'Can’t Get Enough' im Jahr 1974 eng mit dem renommierten Arranger und Produzenten Gene Page zusammen. Gene Page war bekannt für seine Fähigkeit, orchestrale Arrangements zu kreieren, die dem souligen Stil von Barry White eine zusätzliche Dimension verliehen. Das Album enthält einige der bekanntesten Hits von White, darunter 'Can't Get Enough of Your Love, Babe', das durch Pages geschickte orchestrale Arrangements noch eindringlicher wurde. Diese Zusammenarbeit trug maßgeblich zum charakteristischen Sound des Albums bei und half, Barry Whites Karriere als einer der führenden Soul-Künstler der 1970er Jahre zu festigen."
         },
@@ -10441,12 +9936,7 @@
         },
         {
           "question": "Welche Band hatte einen signifikanten Einfluss auf den Sound und die Songwriting-Techniken der Ramones während der Entstehung ihres Albums 'Rocket to Russia' im Jahr 1977?",
-          "options": [
-            "Die Beach Boys",
-            "The Velvet Underground",
-            "The Beatles",
-            "The Stooges"
-          ],
+          "options": ["Die Beach Boys", "The Velvet Underground", "The Beatles", "The Stooges"],
           "correctAnswer": "The Stooges",
           "trivia": "Die Ramones zogen viele ihrer Inspirationen aus der Punk- und Garage-Rock-Szene, wobei insbesondere die Band The Stooges als eine ihrer größten Einflüsse gilt. Iggy Pop und seine Band waren bekannt für ihren rohen und energiegeladenen Sound, der auch die Ramones prägte. Das Album 'Rocket to Russia' zeichnet sich durch schnelle, eingängige Melodien und verzerrte Gitarrenriffs aus, die stark an den Stil von The Stooges erinnern. Außerdem wurde das Album von Tony Bongiovi und Gene Freeman produziert, die beide ein Gespür für die brutale Einfachheit und die Energie des Punkrocks hatten, ähnlich wie bei den früheren Arbeiten von Iggy und seinen Mitstreitern. Diese musikalischen Einflüsse halfen den Ramones, ihren charakteristischen Sound zu entwickeln, der sie zu Ikonen des Punkrock machte."
         }
@@ -10523,12 +10013,7 @@
         },
         {
           "question": "Welche bekannte Band, die Elvis Costello künstlerisch beeinflusste, ist für ihren charakteristischen Punk- und New-Wave-Sound in den 1970er Jahren bekannt?",
-          "options": [
-            "The Clash",
-            "The Beatles",
-            "The Rolling Stones",
-            "The Beach Boys"
-          ],
+          "options": ["The Clash", "The Beatles", "The Rolling Stones", "The Beach Boys"],
           "correctAnswer": "The Clash",
           "trivia": "Elvis Costello, der mit seinem Debütalbum 'My Aim Is True' 1977 die Musikszene prägte, wurde stark von der Punk- und New-Wave-Bewegung beeinflusst, zu der auch die Band The Clash gehörte. Diese Band war bekannt für ihren aggressiven Sound und ihre politischen Texte, die ein Teil des kulturellen Wandels in dieser Zeit waren. Costello selbst kombinierte Elemente des Punk mit verschiedenen Musikstilen, was sein einzigartiges Klangbild prägte. Neben The Clash zogen viele Künstler der damaligen Zeit Inspiration aus der britischen Punkbewegung, die in den späten 1970er Jahren aufkam. 'My Aim Is True' gilt als wegweisendes Album, das die Grenzen zwischen Genres verwischte und Elvis Costello zu einem der einflussreichsten Künstler seiner Generation machte."
         }
@@ -10582,12 +10067,7 @@
         },
         {
           "question": "Welcher Song auf dem Album 'My Aim Is True' von Elvis Costello wurde erstmals im Jahr 1977 live während eines Konzerts im Londoner 'Bitter End' aufgeführt?",
-          "options": [
-            "Miracle Man",
-            "Less Than Zero",
-            "Alison",
-            "Watching the Detectives"
-          ],
+          "options": ["Miracle Man", "Less Than Zero", "Alison", "Watching the Detectives"],
           "correctAnswer": "Less Than Zero",
           "trivia": "Der Song 'Less Than Zero' wurde bei der ersten Live-Performance von Elvis Costello im Jahr 1977 im Londoner 'Bitter End' vorgestellt. Diese Aufführung fand im Kontext der Veröffentlichung seines Debütalbums 'My Aim Is True' statt und markierte den Beginn seiner Karriere als einflussreicher Künstler im Punk- und New Wave-Genre. 'Less Than Zero' thematisiert die oberflächlichen Aspekte der sozialen Elite und spiegelt Costellos scharfen lyrischen Stil wider. Das Album selbst wurde in den RAK Studios in London aufgenommen und gilt als eines der besten Debüts der Rockgeschichte. In der Folge entwickelte sich der Song zu einem Klassiker in Costellos Repertoire und wurde in zahlreichen Live-Performances gespielt."
         },
@@ -10746,12 +10226,7 @@
         },
         {
           "question": "Welches Musikvideo von The Clash, das zum Album 'Give ’Em Enough Rope' aus dem Jahr 1978 gehört, zeigt eine eindringliche visuelle Darstellung von sozialer Ungerechtigkeit?",
-          "options": [
-            "The Guns of Brixton",
-            "Tommy Gun",
-            "Stay Free",
-            "Safe European Home"
-          ],
+          "options": ["The Guns of Brixton", "Tommy Gun", "Stay Free", "Safe European Home"],
           "correctAnswer": "Tommy Gun",
           "trivia": "Das Musikvideo zu 'Tommy Gun' von The Clash, das auf dem Album 'Give ’Em Enough Rope' veröffentlicht wurde, ist bekannt für seine kraftvolle Darstellung von gesellschaftlichen Themen und politischen Konflikten. Das Video illustriert die Themen des Songs, der den Krieg und seine Auswirkungen thematisiert. 'Give ’Em Enough Rope' war das zweite Studioalbum der Band und erreichte hohe Chartplatzierungen in Großbritannien. Die Kombination aus eindringlichen Texten und visuellen Elementen in den Musikvideos dieser Zeit half, die Botschaften der Punkbewegung zu verbreiten."
         },
@@ -10827,12 +10302,7 @@
         },
         {
           "question": "Mit welchem bekannten Künstler arbeiteten The Clash während der Produktion ihres Albums 'Give ’Em Enough Rope' aus dem Jahr 1978 zusammen, um den Sound und die musikalische Ausrichtung des Werks zu beeinflussen?",
-          "options": [
-            "Elvis Costello",
-            "Mick Jones",
-            "Mick Fleetwood",
-            "Bobby Womack"
-          ],
+          "options": ["Elvis Costello", "Mick Jones", "Mick Fleetwood", "Bobby Womack"],
           "correctAnswer": "Mick Jones",
           "trivia": "Mick Jones war nicht nur ein Gründungsmitglied von The Clash, sondern spielte auch eine entscheidende Rolle bei der Produktion des Albums 'Give ’Em Enough Rope'. Er war für viele der musikalischen Arrangements und die Songwriting-Prozesse verantwortlich. Das Album, das 1978 veröffentlicht wurde, markiert eine Phase, in der The Clash versuchten, ihren punkigen Sound mit Elemente aus Rock und Reggae zu kombinieren. Jones' Einfluss half dabei, die Band in eine neue Richtung zu lenken, was sich in den komplexeren Strukturen und dem politischen Inhalt der Lieder widerspiegelt."
         }
@@ -10980,23 +10450,13 @@
         },
         {
           "question": "Welcher bekannte Hip-Hop-Künstler hat das ikonische Stück 'Chameleon' von Herbie Hancock aus dem Album 'Head Hunters' sampled?",
-          "options": [
-            "Kendrick Lamar",
-            "Dr. Dre",
-            "JAY-Z",
-            "A Tribe Called Quest"
-          ],
+          "options": ["Kendrick Lamar", "Dr. Dre", "JAY-Z", "A Tribe Called Quest"],
           "correctAnswer": "A Tribe Called Quest",
           "trivia": "Das Stück 'Chameleon' von Herbie Hancock, das auf dem Album 'Head Hunters' von 1973 zu finden ist, wurde von der Hip-Hop-Gruppe A Tribe Called Quest in ihrem Song 'Can I Kick It?' aus dem Jahr 1990 gesampelt. 'Head Hunters' gilt als eines der einflussreichsten Alben im Jazz-Fusion-Genre und hat zahlreiche Künstler inspiriert. Das Album erreichte hohe Chartplatzierungen und wird oft für seine innovative Mischung aus Jazz, Funk und Rock gelobt. Hancock selbst ist bekannt für seinen kreativen Einsatz von Elektronik und Synthesizern, was 'Head Hunters' zu einem wegweisenden Werk machte."
         },
         {
           "question": "Welcher bekannte Hit aus dem Album 'Head Hunters' von Herbie Hancock gilt als ein Meilenstein des Jazz-Funk und wurde in den 1970er Jahren zu einem beliebten Klassiker?",
-          "options": [
-            "Chameleon",
-            "Watermelon Man",
-            "Cantaloupe Island",
-            "Maiden Voyage"
-          ],
+          "options": ["Chameleon", "Watermelon Man", "Cantaloupe Island", "Maiden Voyage"],
           "correctAnswer": "Chameleon",
           "trivia": "Der Song 'Chameleon' aus dem Album 'Head Hunters' von Herbie Hancock, das 1973 veröffentlicht wurde, ist ein herausragendes Beispiel für den Jazz-Funk-Stil, der in dieser Zeit populär wurde. Mit seinem charakteristischen Bassriff und den eingängigen Melodien wurde 'Chameleon' schnell zu einem Klassiker und gilt als einer der größten Hits von Hancock. Das Album 'Head Hunters' war das erste Jazz-Album, das in den Billboard 200 Charts hohe Platzierungen erreichte und trug dazu bei, die Grenzen des Jazz zu erweitern. Hancock experimentierte auf diesem Album mit verschiedenen musikalischen Einflüssen, einschließlich Funk, Rock und afrikanischer Musik, was zu einem neuartigen Sound führte."
         }
@@ -11015,12 +10475,7 @@
         },
         {
           "question": "Welche musikalische Technik, die im Jazz oft verwendet wird, ist ein zentrales Element auf Herbie Hancocks Album 'Head Hunters' aus dem Jahr 1973?",
-          "options": [
-            "Polyrhythmik",
-            "Akkordfortschreitungen",
-            "Gegentakt",
-            "Taktwechsel"
-          ],
+          "options": ["Polyrhythmik", "Akkordfortschreitungen", "Gegentakt", "Taktwechsel"],
           "correctAnswer": "Polyrhythmik",
           "trivia": "Auf 'Head Hunters' setzt Herbie Hancock stark auf Polyrhythmik, eine Technik, die mehrere rhythmische Muster gleichzeitig verwendet. Diese musikalische Herangehensweise trägt zur einzigartigen Klangdynamik des Albums bei, insbesondere in Tracks wie 'Chameleon'. Hancock, der zuvor für seine Arbeit bei Miles Davis bekannt war, integrierte auch Elemente aus Funk und Rock, um einen neuen Sound zu kreieren, der die Grenzen des Jazz erweiterte. Das Album gilt als eines der einflussreichsten Werke im Jazz-Funk-Genre und beeinflusste zahlreiche Musiker und Genres. Zudem ist 'Head Hunters' eines der ersten Jazz-Alben, das große kommerzielle Erfolge feierte."
         },
@@ -11121,12 +10576,7 @@
       "medium": [
         {
           "question": "Welcher Song auf dem Album 'Boston' von Boston aus dem Jahr 1976 wurde in den 1990er Jahren von einer bekannten Rockband gecovert?",
-          "options": [
-            "More Than a Feeling",
-            "Peace of Mind",
-            "Foreplay/Long Time",
-            "Smokin'"
-          ],
+          "options": ["More Than a Feeling", "Peace of Mind", "Foreplay/Long Time", "Smokin'"],
           "correctAnswer": "More Than a Feeling",
           "trivia": "Der Song 'More Than a Feeling' von Boston, der 1976 auf dem selbstbetitelten Debütalbum erschien, wurde in den 1990er Jahren von der Rockband 'The Smashing Pumpkins' gecovert. Diese Version wurde während ihrer Live-Auftritte populär und trug dazu bei, das Interesse an dem Original-Song wiederzubeleben. 'More Than a Feeling' ist einer der bekanntesten Hits von Boston und gilt als ein Klassiker des Rock. Das Album 'Boston' selbst erreichte hohe Chartplatzierungen und ist bis heute eines der meistverkauften Debütalben aller Zeiten. Die Kombination aus harmonischem Gesang und innovativer Produktion machte den Song und das gesamte Album zu einem Meilenstein in der Musikgeschichte."
         },
@@ -11438,12 +10888,7 @@
         },
         {
           "question": "Mit welchem bekannten Produzenten arbeitete David Bowie an seinem Album 'Station to Station' aus dem Jahr 1976 zusammen?",
-          "options": [
-            "Tony Visconti",
-            "Brian Eno",
-            "George Martin",
-            "David Foster"
-          ],
+          "options": ["Tony Visconti", "Brian Eno", "George Martin", "David Foster"],
           "correctAnswer": "Tony Visconti",
           "trivia": "David Bowie arbeitete an seinem Album 'Station to Station' mit dem renommierten Produzenten Tony Visconti zusammen, der bereits an früheren Projekten von Bowie beteiligt war. Visconti war entscheidend für den Klang des Albums, das eine Mischung aus Rock, Funk und experimentellen Elementen bietet. Ein weiteres bemerkenswertes Album, an dem Visconti mit Bowie arbeitete, ist 'Young Americans' aus dem Jahr 1975. 'Station to Station' gilt als Wendepunkt in Bowies Karriere und markiert den Übergang zu seiner 'Berlin Trilogy', die er später mit Brian Eno entwickelte."
         },
@@ -11545,12 +10990,7 @@
         },
         {
           "question": "Welcher Song aus dem Album 'Night Moves' von Bob Seger & the Silver Bullet Band wird häufig bei Sportveranstaltungen als Hymne gespielt?",
-          "options": [
-            "Come to Poppa",
-            "Night Moves",
-            "Rock and Roll Never Forgets",
-            "Mainstreet"
-          ],
+          "options": ["Come to Poppa", "Night Moves", "Rock and Roll Never Forgets", "Mainstreet"],
           "correctAnswer": "Night Moves",
           "trivia": "'Night Moves', der Titeltrack des gleichnamigen Albums von Bob Seger & the Silver Bullet Band aus dem Jahr 1976, hat sich als beliebte Wahl bei Sportveranstaltungen etabliert. Der Song, der von nostalgischen Erinnerungen und jugendlicher Sehnsucht handelt, wird oft in Stadien gespielt, um die Atmosphäre bei Spielen zu heben. Bob Seger selbst hat eine große Fangemeinde, die seine Musik mit positiven Erlebnissen verbindet. Darüber hinaus erreichte das Album 'Night Moves' hohe Chartplatzierungen, darunter Platz 4 der Billboard 200. Der Song ist bis heute eines der bekanntesten Werke von Seger und wird oft als Teil der amerikanischen Rockkultur betrachtet."
         },
@@ -11662,12 +11102,7 @@
         },
         {
           "question": "Welcher Hit von Blondie stammt von dem Album 'Plastic Letters', das 1978 veröffentlicht wurde und international große Erfolge feierte?",
-          "options": [
-            "Heart of Glass",
-            "One Way or Another",
-            "Sunday Girl",
-            "Rapture"
-          ],
+          "options": ["Heart of Glass", "One Way or Another", "Sunday Girl", "Rapture"],
           "correctAnswer": "Heart of Glass",
           "trivia": "Der Song 'Heart of Glass' wurde 1979 als Single veröffentlicht und erreichte internationale Chartplatzierungen, darunter Platz 1 in den USA und Platz 1 in mehreren europäischen Ländern. 'Plastic Letters' war das zweite Studioalbum von Blondie und markierte einen bedeutenden Schritt in ihrer Karriere, da es ihre Mischung aus Punk, Pop und Disco zu einem breiteren Publikum brachte. Das Album ist bekannt für seine innovative Herangehensweise an verschiedene Musikstile und trug zur Etablierung von Blondie als eine der prägendsten Bands der New-Wave-Bewegung bei. Durch den Erfolg von 'Heart of Glass' wurde Blondie zu einer der ersten Bands, die die Grenzen zwischen Rock und Disco überschritten."
         },
@@ -11697,12 +11132,7 @@
         },
         {
           "question": "In welchem Song auf dem Album 'Plastic Letters' von Blondie wird die Sehnsucht nach einer besseren Zukunft thematisiert?",
-          "options": [
-            "Denise",
-            "I Didn't Have the Heart",
-            "Fan Mail",
-            "One Way or Another"
-          ],
+          "options": ["Denise", "I Didn't Have the Heart", "Fan Mail", "One Way or Another"],
           "correctAnswer": "One Way or Another",
           "trivia": "Der Song 'One Way or Another' auf dem Album 'Plastic Letters' thematisiert die Sehnsucht nach einer besseren Zukunft und den unaufhörlichen Drang, das Gewohnte zu hinterfragen. Debbie Harry, die Frontfrau von Blondie, schrieb den Text, während sie auf einer Reise in England war und von den Herausforderungen des Lebens inspiriert wurde. Die Verbindung zwischen der persönlichen Erfahrung und der universellen Suche nach Hoffnung ist ein zentrales Element des Songs. 'Plastic Letters' wurde 1978 veröffentlicht und war das zweite Studioalbum der Band, das ihren einzigartigen Stil zwischen Punk, New Wave und Pop weiter definierte. Das Album trug maßgeblich zur Popularität von Blondie bei und half, den Grundstein für ihren internationalen Erfolg zu legen."
         },
@@ -11721,12 +11151,7 @@
       "hard": [
         {
           "question": "Welche alternative Version eines Songs von Blondie auf dem Album 'Plastic Letters' aus dem Jahr 1978 wurde in den folgenden Jahren mehrfach remixt und neu interpretiert?",
-          "options": [
-            "Denis",
-            "I Didn't Have the Heart",
-            "Heart of Glass",
-            "X-Offender"
-          ],
+          "options": ["Denis", "I Didn't Have the Heart", "Heart of Glass", "X-Offender"],
           "correctAnswer": "Denis",
           "trivia": "Die richtige Antwort ist 'Denis', ein Song, der ursprünglich auf dem Album 'Plastic Letters' erschien. Dieser Track wurde in den 1980er Jahren von mehreren DJs und Musikern neu gemixt, was seine anhaltende Popularität und Relevanz in der Musikszene verdeutlicht. 'Denis' basiert auf dem französischen Song 'Denise' von Randy & The Rainbows und zeigt den typischen Blondie-Stil, der Punk, New Wave und Pop miteinander verbindet. Die Band experimentierte in den 70ern und 80ern häufig mit Remixes, was ihnen half, neue Hörergruppen zu erschließen und ihren einzigartigen Sound weiterzuentwickeln. So wurde 'Denis' nicht nur ein Hit, sondern auch ein Beispiel für die kreative Flexibilität, die Blondie in ihrer Musik verkörperte."
         },
@@ -11907,12 +11332,7 @@
         },
         {
           "question": "Welcher Hit aus dem Album '461 Ocean Boulevard' von Eric Clapton erreichte 1974 hohe Chartplatzierungen in mehreren Ländern?",
-          "options": [
-            "I Shot the Sheriff",
-            "Layla",
-            "Tears in Heaven",
-            "Wonderful Tonight"
-          ],
+          "options": ["I Shot the Sheriff", "Layla", "Tears in Heaven", "Wonderful Tonight"],
           "correctAnswer": "I Shot the Sheriff",
           "trivia": "Der Song 'I Shot the Sheriff' ist eine der bekanntesten Singles aus Eric Claptons Album '461 Ocean Boulevard', das 1974 veröffentlicht wurde. Dieser Titel, ein Cover des Originals von Bob Marley, wurde ein großer Erfolg und erreichte hohe Platzierungen in den internationalen Charts, unter anderem die Spitze der Billboard Hot 100 in den USA. Claptons Version brachte Reggae-Elemente in den Rockkontext und trug zur Popularität des Genres in den 1970er Jahren bei. Das Album festigte Claptons Status als Solokünstler nach seiner Zeit mit Cream und anderen Bands und stellte seine Fähigkeit unter Beweis, verschiedene Musikstile zu kombinieren."
         }

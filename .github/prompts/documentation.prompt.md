@@ -6,7 +6,8 @@ description: "Creates comprehensive documentation for code areas following Melod
 
 # Create Code Documentation
 
-Your goal is to create comprehensive, type-safe documentation for a part of the MelodyMind project that follows the latest project standards.
+Your goal is to create comprehensive, type-safe documentation for a part of the MelodyMind project
+that follows the latest project standards.
 
 ## Documentation Process
 
@@ -75,7 +76,8 @@ The documentation will be created according to these standards:
 
 ## Overview
 
-The QuestionCard component displays a single trivia question with multiple-choice answers and handles user interactions during gameplay.
+The QuestionCard component displays a single trivia question with multiple-choice answers and
+handles user interactions during gameplay.
 
 ![Question Card Screenshot](../public/docs/question-card.png)
 
@@ -187,9 +189,7 @@ https://api.melodymind.com/v2/game
 
 Creates a new game session with selected parameters.
 
-**URL**: `/sessions`
-**Method**: `POST`
-**Version**: 2.0+
+**URL**: `/sessions` **Method**: `POST` **Version**: 2.0+
 
 **Request Body**:
 
@@ -380,4 +380,6 @@ For complex systems, include architecture diagrams showing how components intera
                         └─────────────────┘
 ```
 
-I'll adapt the documentation style to your needs and ensure it meets the project standards. My goal is to create documentation that is comprehensive, maintainable, and provides clear value to developers working on the MelodyMind project.
+I'll adapt the documentation style to your needs and ensure it meets the project standards. My goal
+is to create documentation that is comprehensive, maintainable, and provides clear value to
+developers working on the MelodyMind project.
