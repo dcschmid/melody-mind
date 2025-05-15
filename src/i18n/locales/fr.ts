@@ -474,4 +474,6 @@ export default {
     "Erreur lors de la mise à jour des succès. Veuillez réessayer plus tard",
   "errors.achievements.unlock":
     "Erreur lors du déverrouillage du succès. Veuillez réessayer plus tard",
+  "errors.achievements.invalidId": "ID de succès invalide : ID vide ou manquant",
+  "errors.achievements.unknownError": "Erreur inconnue lors du déverrouillage",
 };

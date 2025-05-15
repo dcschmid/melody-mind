@@ -461,4 +461,6 @@ export default {
   "errors.achievements.fetch": "Fejl ved hentning af præstationer. Prøv venligst igen senere",
   "errors.achievements.update": "Fejl ved opdatering af præstationer. Prøv venligst igen senere",
   "errors.achievements.unlock": "Fejl ved oplåsning af præstation. Prøv venligst igen senere",
+  "errors.achievements.invalidId": "Ugyldigt præstations-ID: Tomt eller manglende ID",
+  "errors.achievements.unknownError": "Ukendt fejl under oplåsning",
 };

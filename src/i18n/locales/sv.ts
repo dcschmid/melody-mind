@@ -460,4 +460,6 @@ export default {
   "errors.achievements.fetch": "Fel vid hämtning av prestationer. Försök igen senare",
   "errors.achievements.update": "Fel vid uppdatering av prestationer. Försök igen senare",
   "errors.achievements.unlock": "Fel vid upplåsning av prestation. Försök igen senare",
+  "errors.achievements.invalidId": "Ogiltigt prestations-ID: Tomt eller saknat ID",
+  "errors.achievements.unknownError": "Okänt fel vid upplåsning",
 };

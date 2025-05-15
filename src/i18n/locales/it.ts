@@ -468,4 +468,6 @@ export default {
   "errors.achievements.fetch": "Errore durante il recupero dei risultati. Riprova più tardi",
   "errors.achievements.update": "Errore durante l'aggiornamento dei risultati. Riprova più tardi",
   "errors.achievements.unlock": "Errore durante lo sblocco del risultato. Riprova più tardi",
+  "errors.achievements.invalidId": "ID risultato non valido: ID vuoto o mancante",
+  "errors.achievements.unknownError": "Errore sconosciuto durante lo sblocco",
 };
