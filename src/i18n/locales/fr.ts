@@ -11,6 +11,7 @@ export default {
   "auth.login.remember": "Rester connecté",
   "auth.login.forgot_password": "Mot de passe oublié ?",
   "auth.login.success": "Connexion réussie",
+  "auth.logout.success": "Déconnexion réussie",
   "auth.login.error": "Échec de la connexion",
   "auth.toggle.login": "Passer à la connexion",
   "auth.toggle.register": "Passer à l'inscription",
@@ -476,4 +477,13 @@ export default {
     "Erreur lors du déverrouillage du succès. Veuillez réessayer plus tard",
   "errors.achievements.invalidId": "ID de succès invalide : ID vide ou manquant",
   "errors.achievements.unknownError": "Erreur inconnue lors du déverrouillage",
+
+  // Messages de journalisation
+  "auth.log.reset_request_error": "Erreur lors de la demande de réinitialisation du mot de passe :",
+  "auth.log.reset_execution_error":
+    "Erreur lors de l'exécution de la réinitialisation du mot de passe :",
+
+  // Confirmation de réinitialisation du mot de passe
+  "auth.password_reset_confirm.success":
+    "Mot de passe réinitialisé avec succès. Vous pouvez maintenant vous connecter avec votre nouveau mot de passe",
 };

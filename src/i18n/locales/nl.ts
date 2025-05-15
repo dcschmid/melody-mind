@@ -11,6 +11,7 @@ export default {
   "auth.login.remember": "Ingelogd blijven",
   "auth.login.forgot_password": "Wachtwoord vergeten?",
   "auth.login.success": "Succesvol ingelogd",
+  "auth.logout.success": "Succesvol uitgelogd",
   "auth.login.error": "Inloggen mislukt",
   "auth.toggle.login": "Overschakelen naar Inloggen",
   "auth.toggle.register": "Overschakelen naar Registreren",
@@ -467,4 +468,12 @@ export default {
     "Fout bij het ontgrendelen van prestatie. Probeer het later opnieuw",
   "errors.achievements.invalidId": "Ongeldige prestatie-ID: Lege of ontbrekende ID",
   "errors.achievements.unknownError": "Onbekende fout tijdens het ontgrendelen",
+
+  // Logberichten
+  "auth.log.reset_request_error": "Fout bij aanvraag voor wachtwoord reset:",
+  "auth.log.reset_execution_error": "Fout bij uitvoeren van wachtwoord reset:",
+
+  // Bevestiging van wachtwoord reset
+  "auth.password_reset_confirm.success":
+    "Wachtwoord succesvol gereset. Je kunt nu inloggen met je nieuwe wachtwoord",
 };

@@ -11,6 +11,7 @@ export default {
   "auth.login.remember": "Förbli inloggad",
   "auth.login.forgot_password": "Glömt lösenord?",
   "auth.login.success": "Inloggning lyckades",
+  "auth.logout.success": "Utloggning lyckades",
   "auth.login.error": "Inloggning misslyckades",
   "auth.toggle.login": "Byt till Logga in",
   "auth.toggle.register": "Byt till Registrera",
@@ -462,4 +463,12 @@ export default {
   "errors.achievements.unlock": "Fel vid upplåsning av prestation. Försök igen senare",
   "errors.achievements.invalidId": "Ogiltigt prestations-ID: Tomt eller saknat ID",
   "errors.achievements.unknownError": "Okänt fel vid upplåsning",
+
+  // Loggmeddelanden
+  "auth.log.reset_request_error": "Fel vid begäran om återställning av lösenord:",
+  "auth.log.reset_execution_error": "Fel vid utförande av lösenordsåterställning:",
+
+  // Bekräftelse på lösenordsåterställning
+  "auth.password_reset_confirm.success":
+    "Lösenordet har återställts. Du kan nu logga in med ditt nya lösenord",
 };

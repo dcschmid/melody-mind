@@ -11,6 +11,7 @@ export default {
   "auth.login.remember": "Rimani connesso",
   "auth.login.forgot_password": "Password dimenticata?",
   "auth.login.success": "Accesso riuscito",
+  "auth.logout.success": "Disconnessione riuscita",
   "auth.login.error": "Accesso fallito",
   "auth.toggle.login": "Passa ad Accedi",
   "auth.toggle.register": "Passa a Registrati",
@@ -470,4 +471,12 @@ export default {
   "errors.achievements.unlock": "Errore durante lo sblocco del risultato. Riprova più tardi",
   "errors.achievements.invalidId": "ID risultato non valido: ID vuoto o mancante",
   "errors.achievements.unknownError": "Errore sconosciuto durante lo sblocco",
+
+  // Messaggi di log
+  "auth.log.reset_request_error": "Errore nella richiesta di reimpostazione della password:",
+  "auth.log.reset_execution_error": "Errore nell'esecuzione della reimpostazione della password:",
+
+  // Conferma di reimpostazione della password
+  "auth.password_reset_confirm.success":
+    "Password reimpostata con successo. Ora puoi accedere con la tua nuova password",
 };

@@ -11,6 +11,7 @@ export default {
   "auth.login.remember": "Forbliv logget ind",
   "auth.login.forgot_password": "Glemt adgangskode?",
   "auth.login.success": "Login succesfuldt",
+  "auth.logout.success": "Logget ud med succes",
   "auth.login.error": "Login mislykkedes",
   "auth.toggle.login": "Skift til Login",
   "auth.toggle.register": "Skift til Registrering",
@@ -463,4 +464,12 @@ export default {
   "errors.achievements.unlock": "Fejl ved oplåsning af præstation. Prøv venligst igen senere",
   "errors.achievements.invalidId": "Ugyldigt præstations-ID: Tomt eller manglende ID",
   "errors.achievements.unknownError": "Ukendt fejl under oplåsning",
+
+  // Log-beskeder
+  "auth.log.reset_request_error": "Fejl ved anmodning om nulstilling af adgangskode:",
+  "auth.log.reset_execution_error": "Fejl ved udførelse af nulstilling af adgangskode:",
+
+  // Bekræftelse af nulstilling af adgangskode
+  "auth.password_reset_confirm.success":
+    "Adgangskode nulstillet med succes. Du kan nu logge ind med din nye adgangskode",
 };

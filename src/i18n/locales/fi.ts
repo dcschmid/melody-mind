@@ -11,6 +11,7 @@ export default {
   "auth.login.remember": "Pysy kirjautuneena",
   "auth.login.forgot_password": "Unohditko salasanan?",
   "auth.login.success": "Kirjautuminen onnistui",
+  "auth.logout.success": "Uloskirjautuminen onnistui",
   "auth.login.error": "Kirjautuminen epäonnistui",
   "auth.toggle.login": "Vaihda Kirjaudu sisään -näkymään",
   "auth.toggle.register": "Vaihda Rekisteröidy-näkymään",
@@ -466,4 +467,12 @@ export default {
   "errors.achievements.unlock": "Virhe avattaessa saavutusta. Yritä myöhemmin uudelleen",
   "errors.achievements.invalidId": "Virheellinen saavutustunnus: Tyhjä tai puuttuva tunnus",
   "errors.achievements.unknownError": "Tuntematon virhe avaamisen aikana",
+
+  // Lokiviestit
+  "auth.log.reset_request_error": "Virhe salasanan nollauspyynnössä:",
+  "auth.log.reset_execution_error": "Virhe salasanan nollauksen suorittamisessa:",
+
+  // Salasanan nollauksen vahvistus
+  "auth.password_reset_confirm.success":
+    "Salasana nollattu onnistuneesti. Voit nyt kirjautua sisään uudella salasanallasi",
 };

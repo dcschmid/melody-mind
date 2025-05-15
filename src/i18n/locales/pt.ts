@@ -11,6 +11,7 @@ export default {
   "auth.login.remember": "Permanecer conectado",
   "auth.login.forgot_password": "Esqueceu a senha?",
   "auth.login.success": "Login bem-sucedido",
+  "auth.logout.success": "Desconectado com sucesso",
   "auth.login.error": "Falha no login",
   "auth.toggle.login": "Mudar para Login",
   "auth.toggle.register": "Mudar para Registro",
@@ -473,4 +474,12 @@ export default {
     "Erro ao desbloquear conquista. Por favor, tente novamente mais tarde",
   "errors.achievements.invalidId": "ID de conquista inválido: ID vazio ou ausente",
   "errors.achievements.unknownError": "Erro desconhecido durante o desbloqueio",
+
+  // Mensagens de log
+  "auth.log.reset_request_error": "Erro na solicitação de redefinição de senha:",
+  "auth.log.reset_execution_error": "Erro na execução da redefinição de senha:",
+
+  // Confirmação de redefinição de senha
+  "auth.password_reset_confirm.success":
+    "Senha redefinida com sucesso. Agora você pode fazer login com sua nova senha",
 };

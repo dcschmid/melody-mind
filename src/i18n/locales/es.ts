@@ -12,6 +12,7 @@ export default {
   "auth.login.remember": "Permanecer conectado",
   "auth.login.forgot_password": "¿Olvidaste tu contraseña?",
   "auth.login.success": "Inicio de sesión exitoso",
+  "auth.logout.success": "Sesión cerrada exitosamente",
   "auth.login.error": "Error al iniciar sesión",
   "auth.toggle.login": "Cambiar a Iniciar sesión",
   "auth.toggle.register": "Cambiar a Registro",
@@ -479,4 +480,12 @@ export default {
     "Error al desbloquear el logro. Por favor, inténtalo de nuevo más tarde",
   "errors.achievements.invalidId": "ID de logro no válido: ID vacío o faltante",
   "errors.achievements.unknownError": "Error desconocido durante el desbloqueo",
+
+  // Mensajes de registro
+  "auth.log.reset_request_error": "Error en la solicitud de restablecimiento de contraseña:",
+  "auth.log.reset_execution_error": "Error en la ejecución del restablecimiento de contraseña:",
+
+  // Confirmación de restablecimiento de contraseña
+  "auth.password_reset_confirm.success":
+    "Contraseña restablecida con éxito. Ahora puedes iniciar sesión con tu nueva contraseña",
 };

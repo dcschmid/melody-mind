@@ -11,6 +11,7 @@ export default {
   "auth.login.remember": "Stay logged in",
   "auth.login.forgot_password": "Forgot password?",
   "auth.login.success": "Login successful",
+  "auth.logout.success": "Successfully logged out",
   "auth.login.error": "Login failed",
   "auth.toggle.login": "Switch to Login",
   "auth.toggle.register": "Switch to Registration",
@@ -461,4 +462,12 @@ export default {
   "errors.achievements.unlock": "Error unlocking achievement. Please try again later",
   "errors.achievements.invalidId": "Invalid achievement ID: empty or missing ID",
   "errors.achievements.unknownError": "Unknown error during unlock",
+
+  // Logging messages
+  "auth.log.reset_request_error": "Password reset request error:",
+  "auth.log.reset_execution_error": "Password reset execution error:",
+
+  // Password reset confirmation
+  "auth.password_reset_confirm.success":
+    "Password successfully reset. You can now log in with your new password",
 };
