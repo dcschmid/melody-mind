@@ -24,42 +24,36 @@ const t = useTranslations(lang.toString());
     "Sign in to Melody Mind to continue your musical journey."}
 >
   <!-- Login container with responsive layout and improved accessibility -->
-  <main
-    class="mx-auto w-full max-w-md px-4 py-8 sm:px-0"
-    role="main"
-    aria-labelledby="login-heading"
-    aria-label={t("common.accessibility.main_content") || "Main content area"}
+
+  <!-- Back to home link for improved navigation -->
+  <div class="mb-4 text-left">
+    <a
+      href={`/${String(lang)}/`}
+      class="inline-flex items-center rounded-md px-2 py-1 text-sm text-purple-300 transition-colors duration-200 hover:text-purple-200 focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
+      aria-label={t("auth.login.back_to_home") || "Back to home page"}
+    >
+      <Icon name="arrow-left" class="mr-1 h-4 w-4 text-current" aria-hidden="true" />
+      {t("auth.login.back_to_home") || "Back to home"}
+    </a>
+  </div>
+
+  <h1
+    id="login-heading"
+    class="mb-6 text-center text-2xl leading-relaxed font-bold tracking-wide text-purple-900 md:text-3xl lg:text-4xl dark:text-purple-100"
   >
-    <!-- Back to home link for improved navigation -->
-    <div class="mb-4 text-left">
-      <a
-        href={`/${String(lang)}/`}
-        class="inline-flex items-center rounded-md px-2 py-1 text-sm text-purple-300 transition-colors duration-200 hover:text-purple-200 focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
-        aria-label={t("auth.login.back_to_home") || "Back to home page"}
-      >
-        <Icon name="arrow-left" class="mr-1 h-4 w-4 text-current" aria-hidden="true" />
-        {t("auth.login.back_to_home") || "Back to home"}
-      </a>
-    </div>
+    {t("auth.login.heading") || "Log In to MelodyMind"}
+  </h1>
 
-    <h1
-      id="login-heading"
-      class="mb-6 text-center text-2xl leading-relaxed font-bold tracking-wide text-purple-900 md:text-3xl lg:text-4xl dark:text-purple-100"
-    >
-      {t("auth.login.heading") || "Log In to MelodyMind"}
-    </h1>
+  <!-- Auth form with login mode and enhanced contrast for accessibility -->
+  <div
+    class="rounded-lg bg-white p-6 shadow-lg transition-all duration-300 focus-within:ring-3 focus-within:ring-purple-500 focus-within:ring-offset-2 hover:shadow-xl sm:p-8 md:p-10 dark:bg-gray-800"
+    aria-live="polite"
+  >
+    <AuthForm initialMode="login" />
+  </div>
 
-    <!-- Auth form with login mode and enhanced contrast for accessibility -->
-    <div
-      class="rounded-lg bg-white p-6 shadow-lg transition-all duration-300 focus-within:ring-3 focus-within:ring-purple-500 focus-within:ring-offset-2 hover:shadow-xl sm:p-8 md:p-10 dark:bg-gray-800"
-      aria-live="polite"
-    >
-      <AuthForm initialMode="login" />
-    </div>
-
-    <!-- Additional help text with improved visibility for accessibility -->
-    <p class="mt-6 text-center text-sm text-gray-600 md:text-base dark:text-gray-400">
-      {t("auth.login.help_text") || "Need help? Contact our support team."}
-    </p>
-  </main>
+  <!-- Additional help text with improved visibility for accessibility -->
+  <p class="mt-6 text-center text-sm text-gray-600 md:text-base dark:text-gray-400">
+    {t("auth.login.help_text") || "Need help? Contact our support team."}
+  </p>
 </Layout>

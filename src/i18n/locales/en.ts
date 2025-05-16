@@ -57,6 +57,7 @@ export default {
   "auth.register.error": "Registration failed",
 
   "auth.password_reset.title": "Reset Password",
+  "auth.password_reset.description": "Enter your email to receive a password reset link",
   "auth.password_reset.submit": "Send Reset Link",
   "auth.password_reset.email": "Email Address",
   "auth.password_reset.email.placeholder": "Your registered email address",
@@ -67,8 +68,11 @@ export default {
   "auth.password_reset.new_password": "New Password",
   "auth.password_reset.confirm_password": "Confirm New Password",
   "auth.password_reset.change_submit": "Change Password",
+  "auth.password_reset_confirm.title": "Set New Password",
+  "auth.password_reset_confirm.description": "Create a new password for your account",
 
   "auth.email_verification.title": "Email Verification",
+  "auth.email_verification.description": "Verify your email address for your Melody Mind account.",
   "auth.email_verification.message": "We have sent a verification link to your email address",
   "auth.email_verification.check_inbox": "Please check your inbox",
   "auth.email_verification.resend": "Resend verification link",
