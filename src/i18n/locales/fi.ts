@@ -57,6 +57,8 @@ export default {
   "auth.register.error": "Rekisteröinti epäonnistui",
 
   "auth.password_reset.title": "Nollaa salasana",
+  "auth.password_reset.description":
+    "Syötä sähköpostiosoitteesi saadaksesi salasanan nollauslinkin",
   "auth.password_reset.submit": "Lähetä nollauslinkki",
   "auth.password_reset.email": "Sähköpostiosoite",
   "auth.password_reset.email.placeholder": "Rekisteröity sähköpostiosoitteesi",
@@ -67,8 +69,12 @@ export default {
   "auth.password_reset.new_password": "Uusi salasana",
   "auth.password_reset.confirm_password": "Vahvista uusi salasana",
   "auth.password_reset.change_submit": "Vaihda salasana",
+  "auth.password_reset_confirm.title": "Aseta uusi salasana",
+  "auth.password_reset_confirm.description": "Luo uusi salasana tilillesi",
 
   "auth.email_verification.title": "Sähköpostin vahvistus",
+  "auth.email_verification.description":
+    "Vahvista sähköpostiosoitteesi Melody Mind -tiliäsi varten.",
   "auth.email_verification.message": "Olemme lähettäneet vahvistuslinkin sähköpostiosoitteeseesi",
   "auth.email_verification.check_inbox": "Tarkista sähköpostisi",
   "auth.email_verification.resend": "Lähetä vahvistuslinkki uudelleen",

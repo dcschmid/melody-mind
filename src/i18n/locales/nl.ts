@@ -57,6 +57,8 @@ export default {
   "auth.register.error": "Registratie mislukt",
 
   "auth.password_reset.title": "Wachtwoord opnieuw instellen",
+  "auth.password_reset.description":
+    "Voer uw e-mailadres in om een link voor het opnieuw instellen van uw wachtwoord te ontvangen",
   "auth.password_reset.submit": "Resetlink verzenden",
   "auth.password_reset.email": "E-mailadres",
   "auth.password_reset.email.placeholder": "Uw geregistreerde e-mailadres",
@@ -67,8 +69,11 @@ export default {
   "auth.password_reset.new_password": "Nieuw wachtwoord",
   "auth.password_reset.confirm_password": "Bevestig nieuw wachtwoord",
   "auth.password_reset.change_submit": "Wachtwoord wijzigen",
+  "auth.password_reset_confirm.title": "Nieuw wachtwoord instellen",
+  "auth.password_reset_confirm.description": "Maak een nieuw wachtwoord aan voor uw account",
 
   "auth.email_verification.title": "E-mailverificatie",
+  "auth.email_verification.description": "Verifieer uw e-mailadres voor uw Melody Mind-account.",
   "auth.email_verification.message": "We hebben een verificatielink naar uw e-mailadres gestuurd",
   "auth.email_verification.check_inbox": "Controleer uw inbox",
   "auth.email_verification.resend": "Verificatielink opnieuw verzenden",

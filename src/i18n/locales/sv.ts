@@ -57,6 +57,8 @@ export default {
   "auth.register.error": "Registrering misslyckades",
 
   "auth.password_reset.title": "Återställ lösenord",
+  "auth.password_reset.description":
+    "Ange din e-postadress för att få en länk för återställning av lösenord",
   "auth.password_reset.submit": "Skicka återställningslänk",
   "auth.password_reset.email": "E-postadress",
   "auth.password_reset.email.placeholder": "Din registrerade e-postadress",
@@ -67,8 +69,11 @@ export default {
   "auth.password_reset.new_password": "Nytt lösenord",
   "auth.password_reset.confirm_password": "Bekräfta nytt lösenord",
   "auth.password_reset.change_submit": "Ändra lösenord",
+  "auth.password_reset_confirm.title": "Ange nytt lösenord",
+  "auth.password_reset_confirm.description": "Skapa ett nytt lösenord för ditt konto",
 
   "auth.email_verification.title": "E-postverifiering",
+  "auth.email_verification.description": "Verifiera din e-postadress för ditt Melody Mind-konto.",
   "auth.email_verification.message": "Vi har skickat en verifieringslänk till din e-postadress",
   "auth.email_verification.check_inbox": "Kontrollera din inkorg",
   "auth.email_verification.resend": "Skicka verifieringslänk igen",

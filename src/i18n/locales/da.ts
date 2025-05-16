@@ -57,6 +57,8 @@ export default {
   "auth.register.error": "Registrering mislykkedes",
 
   "auth.password_reset.title": "Nulstil adgangskode",
+  "auth.password_reset.description":
+    "Indtast din e-mail for at modtage et link til nulstilling af adgangskoden",
   "auth.password_reset.submit": "Send nulstillingslink",
   "auth.password_reset.email": "E-mailadresse",
   "auth.password_reset.email.placeholder": "Din registrerede e-mailadresse",
@@ -67,8 +69,11 @@ export default {
   "auth.password_reset.new_password": "Ny adgangskode",
   "auth.password_reset.confirm_password": "Bekræft ny adgangskode",
   "auth.password_reset.change_submit": "Skift adgangskode",
+  "auth.password_reset_confirm.title": "Indstil ny adgangskode",
+  "auth.password_reset_confirm.description": "Opret en ny adgangskode til din konto",
 
   "auth.email_verification.title": "E-mailbekræftelse",
+  "auth.email_verification.description": "Bekræft din e-mailadresse til din Melody Mind-konto.",
   "auth.email_verification.message": "Vi har sendt et bekræftelseslink til din e-mailadresse",
   "auth.email_verification.check_inbox": "Tjek venligst din indbakke",
   "auth.email_verification.resend": "Send bekræftelseslink igen",

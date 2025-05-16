@@ -15,21 +15,32 @@
  * @see EmailVerification.astro - Component that handles the verification logic
  * @see Layout.astro - Main layout component used for consistent page structure
  */
+
+// 1. Imports
 import EmailVerification from "@components/auth/EmailVerification.astro";
 import Layout from "@layouts/Layout.astro";
-import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { getLangFromUrl, useTranslations, getRelativeLocaleUrl } from "@utils/i18n";
 
+/**
+ * Type-safe language codes using template literal types
+ */
+type SupportedLanguage = "de" | "en" | "fr" | "es" | "it" | "pt" | "da" | "nl" | "sv" | "fi";
+
+// 2. Data processing and prop preparation
 // Extract language from URL for internationalization
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang as string);
+const lang = getLangFromUrl(Astro.url) as SupportedLanguage;
+const t = useTranslations(lang);
 
 // Extract verification token from URL query parameters
 const url = new URL(Astro.request.url);
 const token = url.searchParams.get("token");
 
+// Generate login URL for redirection
+const loginUrl = getRelativeLocaleUrl(lang, "auth/login");
+
 // Redirect to login page if no token is provided
 if (!token) {
-  return Astro.redirect("/auth/login");
+  return Astro.redirect(loginUrl);
 }
 ---
 
@@ -38,5 +49,5 @@ if (!token) {
   description={t("auth.email_verification.description") ||
     "Verify your email address for your Melody Mind account."}
 >
-  <EmailVerification {token} />
+  <EmailVerification {token} client:visible />
 </Layout>
