@@ -9,19 +9,43 @@ import {
   resetPassword,
   updatePassword,
   type User,
+  type UserWithPassword,
   type NewUser,
 } from "./db.js";
 import { generateTokenPair, verifyAccessToken, verifyRefreshToken, type TokenPair } from "./jwt.js";
-import { validatePassword, type ValidationResult } from "./password-validation.js";
+import { validatePassword } from "./password-validation.js";
 import { recordFailedLoginAttempt, resetRateLimit, isRateLimited } from "./rate-limit.js";
+
+/**
+ * Branded type for user IDs to improve type safety and prevent accidental usage
+ * of regular strings where user IDs are expected
+ *
+ * @since 3.0.0
+ * @category Types
+ */
+export type UserId = string & { readonly __brand: unique symbol };
+
+// Type for standard error codes used in authentication responses
+type AuthErrorCode =
+  | "auth.service.too_many_attempts"
+  | "auth.service.invalid_credentials"
+  | "auth.service.password_requirements"
+  | "auth.service.email_exists"
+  | "auth.service.user_not_found"
+  | "auth.service.current_password_incorrect"
+  | "auth.service.password_change_error"
+  | "auth.service.invalid_refresh_token"
+  | "auth.service.new_password_requirements"
+  | "auth.api.invalid_token"
+  | "auth.api.general_error";
 
 // Type for login results
 export type LoginResult = {
   success: boolean;
-  user?: User;
+  user?: Omit<User, "passwordHash">;
   tokens?: TokenPair;
   csrfToken?: CsrfToken;
-  error?: string;
+  error?: AuthErrorCode;
   rateLimited?: boolean;
   resetTime?: number;
 };
@@ -30,23 +54,125 @@ export type LoginResult = {
 export type RegisterResult = {
   success: boolean;
   user?: User;
-  error?: string;
+  error?: AuthErrorCode;
   validationErrors?: string[];
 };
 
 // Type for password reset results
 export type PasswordResetResult = {
   success: boolean;
-  error?: string;
+  error?: AuthErrorCode | string; // String for backward compatibility
   validationErrors?: string[];
 };
 
 /**
+ * Type for token refresh results
+ *
+ * @since 3.0.0
+ * @category Authentication
+ */
+export type TokenRefreshResult = {
+  /** Whether the token refresh was successful */
+  success: boolean;
+  /** New access token if refresh was successful */
+  accessToken?: string;
+  /** Error code if token refresh failed */
+  error?: AuthErrorCode;
+};
+
+/**
+ * Custom error class for authentication errors
+ *
+ * @since 3.0.0
+ * @category Errors
+ */
+export class AuthError extends Error {
+  /**
+   * Creates a new authentication error
+   *
+   * @param message - Human-readable error message
+   * @param code - Error code for translation and identification
+   */
+  constructor(
+    message: string,
+    public readonly code: AuthErrorCode
+  ) {
+    super(message);
+    this.name = "AuthError";
+    // Ensures proper prototype chain for instanceof checks
+    Object.setPrototypeOf(this, AuthError.prototype);
+  }
+}
+
+/**
+ * Type guard for checking if an error is an AuthError
+ *
+ * @param error - The error to check
+ * @returns True if the error is an AuthError
+ */
+export function isAuthError(error: unknown): error is AuthError {
+  return error instanceof AuthError;
+}
+
+/**
  * AuthService class that encapsulates all authentication functions
+ *
+ * @since 3.0.0
+ * @category Authentication
  */
 export class AuthService {
+  // Cache for user lookup to improve performance (memoization)
+  private readonly userCache = new Map<string, UserWithPassword>();
+
+  // Constants
+  private readonly RATE_LIMIT_RESET_TIME = 15 * 60 * 1000; // 15 minutes in milliseconds
+
   /**
-   * Logs in a user
+   * Retrieves a user by email from cache or database
+   *
+   * @private
+   * @param email - The email address to look up
+   * @returns The user object if found, null otherwise
+   */
+  private async getUserByEmailWithCache(email: string): Promise<UserWithPassword | null> {
+    const normalizedEmail = email.toLowerCase();
+
+    // Check cache first
+    if (this.userCache.has(normalizedEmail)) {
+      return this.userCache.get(normalizedEmail) || null;
+    }
+
+    // Get from database
+    const user = await getUserByEmail(normalizedEmail);
+
+    // Cache the result (even if null, to prevent repeated DB lookups for non-existent users)
+    if (user) {
+      this.userCache.set(normalizedEmail, user);
+    }
+
+    return user;
+  }
+
+  /**
+   * Logs in a user with email and password
+   *
+   * @since 3.0.0
+   * @category Authentication
+   *
+   * @param email - The user's email address
+   * @param password - The user's password
+   * @param ip - The IP address of the request for rate limiting
+   *
+   * @returns A promise resolving to a LoginResult object with the login status
+   *
+   * @example
+   * // Attempt to log in a user
+   * const result = await authService.login("user@example.com", "SecureP@ssw0rd", "127.0.0.1");
+   * if (result.success) {
+   *   console.log("Login successful:", result.user);
+   * } else {
+   *   console.error("Login failed:", result.error);
+   * }
    */
   async login(email: string, password: string, ip: string): Promise<LoginResult> {
     // Check rate limiting
@@ -55,13 +181,13 @@ export class AuthService {
         success: false,
         error: "auth.service.too_many_attempts",
         rateLimited: true,
-        resetTime: 15 * 60 * 1000, // 15 minutes in milliseconds
+        resetTime: this.RATE_LIMIT_RESET_TIME,
       };
     }
 
     try {
       // Find user by email address
-      const user = await getUserByEmail(email);
+      const user = await this.getUserByEmailWithCache(email);
       if (!user) {
         // Register failed login attempt
         recordFailedLoginAttempt(ip);
@@ -94,7 +220,8 @@ export class AuthService {
       const csrfToken = generateCsrfToken();
 
       // Return user without password hash
-      const { passwordHash, ...userWithoutPassword } = user;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { passwordHash: _, ...userWithoutPassword } = user;
 
       return {
         success: true,
@@ -112,7 +239,33 @@ export class AuthService {
   }
 
   /**
-   * Registers a new user
+   * Registers a new user in the system
+   *
+   * @since 3.0.0
+   * @category Authentication
+   *
+   * @param userData - The new user's data including email and password
+   *
+   * @returns A promise resolving to a RegisterResult object with the registration status
+   *
+   * @throws {AuthError} If an authentication error occurs
+   *
+   * @example
+   * // Register a new user
+   * try {
+   *   const result = await authService.register({
+   *     email: "newuser@example.com",
+   *     password: "SecureP@ssw0rd",
+   *     displayName: "New User"
+   *   });
+   *   if (result.success) {
+   *     console.log("Registration successful:", result.user);
+   *   } else {
+   *     console.error("Registration failed:", result.error);
+   *   }
+   * } catch (error) {
+   *   console.error("Registration error:", error);
+   * }
    */
   async register(userData: NewUser): Promise<RegisterResult> {
     try {
@@ -127,7 +280,7 @@ export class AuthService {
       }
 
       // Check if user already exists
-      const existingUser = await getUserByEmail(userData.email);
+      const existingUser = await this.getUserByEmailWithCache(userData.email);
       if (existingUser) {
         return {
           success: false,
@@ -138,31 +291,60 @@ export class AuthService {
       // Create new user
       const newUser = await createUser(userData);
 
+      // Add to cache with type assertion since we know createUser returns a user with password
+      this.userCache.set(userData.email, newUser as UserWithPassword);
+
       // Generate email verification token
-      const verificationToken = await generateEmailVerificationToken(newUser.id);
+      const verificationToken = await generateEmailVerificationToken(newUser.id as UserId);
 
       // In a real application, an email with the verification link would be sent here
       console.log(`Verification link: https://example.com/verify-email?token=${verificationToken}`);
 
+      // Return user without password hash
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { passwordHash, ...userWithoutPassword } = newUser as UserWithPassword;
+
       return {
         success: true,
-        user: newUser,
+        user: userWithoutPassword,
       };
     } catch (error) {
       console.error("Error during user registration:", error);
-      return {
-        success: false,
-        error: "auth.api.general_error",
-      };
+      throw new AuthError("An error occurred during registration", "auth.api.general_error");
     }
   }
 
   /**
-   * Verifies a user's email address
+   * Verifies a user's email address using a verification token
+   *
+   * @since 3.0.0
+   * @category Authentication
+   *
+   * @param {string} token - The email verification token sent to the user's email
+   * @returns {Promise<boolean>} True if email verification was successful, false otherwise
+   *
+   * @example
+   * // Verify a user's email address
+   * const success = await authService.verifyUserEmail("verification-token-from-email");
+   * if (success) {
+   *   console.log("Email verified successfully");
+   * } else {
+   *   console.error("Email verification failed");
+   * }
    */
   async verifyUserEmail(token: string): Promise<boolean> {
     try {
-      return await verifyEmail(token);
+      const verified = await verifyEmail(token);
+
+      // If verification was successful, clear any cached user data
+      // to ensure fresh data will be loaded with updated verification status
+      if (verified) {
+        // Since we don't know which user this is for without querying DB,
+        // we'll just invalidate the entire cache in this rare operation
+        this.userCache.clear();
+      }
+
+      return verified;
     } catch (error) {
       console.error("Error during email verification:", error);
       return false;
@@ -170,17 +352,37 @@ export class AuthService {
   }
 
   /**
-   * Requests a password reset
+   * Requests a password reset for a user
+   *
+   * @since 3.0.0
+   * @category Authentication
+   *
+   * @param {string} email - The email address of the user requesting password reset
+   * @returns {Promise<boolean>} True if reset token was generated successfully, false otherwise
+   *
+   * @example
+   * // Request a password reset
+   * const success = await authService.requestPasswordReset("user@example.com");
+   * if (success) {
+   *   console.log("Password reset requested successfully");
+   * } else {
+   *   console.error("Failed to request password reset");
+   * }
    */
   async requestPasswordReset(email: string): Promise<boolean> {
     try {
+      // Clear user from cache if present, as they may reset their password
+      this.userCache.delete(email.toLowerCase());
+
       const resetToken = await generatePasswordResetToken(email);
       if (!resetToken) {
         return false;
       }
 
       // In a real application, an email with the reset link would be sent here
-      console.log(`Password reset link: https://example.com/reset-password?token=${resetToken}`);
+      console.warn(
+        `Password reset link (development only): https://example.com/reset-password?token=${resetToken}`
+      );
 
       return true;
     } catch (error) {
@@ -191,6 +393,25 @@ export class AuthService {
 
   /**
    * Resets the password using a reset token
+   *
+   * @since 3.0.0
+   * @category Authentication
+   *
+   * @param {string} token - The password reset token sent to the user's email
+   * @param {string} newPassword - The new password to set
+   * @returns {Promise<PasswordResetResult>} Result indicating success or specific error information
+   *
+   * @example
+   * // Reset a user's password with a token
+   * const result = await authService.resetUserPassword(
+   *   "reset-token-from-email",
+   *   "NewSecureP@ssw0rd"
+   * );
+   * if (result.success) {
+   *   console.log("Password reset successfully");
+   * } else {
+   *   console.error("Password reset failed:", result.error);
+   * }
    */
   async resetUserPassword(token: string, newPassword: string): Promise<PasswordResetResult> {
     try {
@@ -226,6 +447,27 @@ export class AuthService {
 
   /**
    * Changes the password of a logged-in user
+   *
+   * @since 3.0.0
+   * @category Authentication
+   *
+   * @param {string} userId - The ID of the user whose password should be changed
+   * @param {string} currentPassword - The user's current password (for verification)
+   * @param {string} newPassword - The new password to set
+   * @returns {Promise<PasswordResetResult>} Result indicating success or specific error information
+   *
+   * @example
+   * // Change a user's password
+   * const result = await authService.changePassword(
+   *   "user123",
+   *   "CurrentP@ssw0rd",
+   *   "NewSecureP@ssw0rd"
+   * );
+   * if (result.success) {
+   *   console.log("Password changed successfully");
+   * } else {
+   *   console.error("Password change failed:", result.error);
+   * }
    */
   async changePassword(
     userId: string,
@@ -238,7 +480,7 @@ export class AuthService {
       if (!passwordValidation.valid) {
         return {
           success: false,
-          error: "The new password does not meet the security requirements.",
+          error: "auth.service.new_password_requirements",
           validationErrors: passwordValidation.errors,
         };
       }
@@ -269,6 +511,12 @@ export class AuthService {
         };
       }
 
+      // Invalidate cache for this user if it exists in the cache
+      // This forces a fresh fetch next time the user is requested
+      if (user && user.email) {
+        this.userCache.delete(user.email.toLowerCase());
+      }
+
       return {
         success: true,
       };
@@ -282,7 +530,17 @@ export class AuthService {
   }
 
   /**
-   * Verifies an access token
+   * Verifies an access token and checks if it's valid
+   *
+   * @since 3.0.0
+   * @category Authentication
+   *
+   * @param {string} token - The access token to verify
+   * @returns {boolean} True if the token is valid, false otherwise
+   *
+   * @example
+   * // Check if a token is valid
+   * const isValid = authService.verifyToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...");
    */
   verifyToken(token: string): boolean {
     return verifyAccessToken(token) !== null;
@@ -290,10 +548,23 @@ export class AuthService {
 
   /**
    * Refreshes an access token using a refresh token
+   *
+   * @since 3.0.0
+   * @category Authentication
+   *
+   * @param {string} refreshToken - The refresh token to use for generating a new access token
+   * @returns {Promise<TokenRefreshResult>} A result object with the new access token or error information
+   *
+   * @example
+   * // Refresh an access token
+   * const result = await authService.refreshToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...");
+   * if (result.success) {
+   *   console.log("New access token:", result.accessToken);
+   * } else {
+   *   console.error("Token refresh failed:", result.error);
+   * }
    */
-  async refreshToken(
-    refreshToken: string
-  ): Promise<{ success: boolean; accessToken?: string; error?: string }> {
+  async refreshToken(refreshToken: string): Promise<TokenRefreshResult> {
     try {
       const payload = verifyRefreshToken(refreshToken);
       if (!payload) {
