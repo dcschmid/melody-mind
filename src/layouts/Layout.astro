@@ -7,14 +7,16 @@
  * and mobile-friendly viewport configurations.
  *
  * Features:
- * - Complete semantic document structure
- * - Optimized font loading strategy
- * - Proper page landmark regions
- * - Adherence to WCAG AAA accessibility standards
- * - Performance-optimized resource loading
- * - High contrast mode compatibility
- * - Reduced motion support
- * - View transition support for smoother page navigation
+ * - Complete semantic document structure with proper landmarks
+ * - Optimized font loading strategy with preload directives
+ * - High contrast mode compatibility for better visual accessibility
+ * - Reduced motion support for vestibular disorders
+ * - Screen reader announcements for preference changes
+ * - Proper focus indicators for keyboard navigation
+ * - Print-specific styles for better document printing
+ * - Touch-friendly targets (minimum 44x44px)
+ *
+ * @implements {WCAG AAA compliance}
  *
  * @prop {string} title - Page title
  * @prop {string} [description] - Page meta description
@@ -135,7 +137,29 @@ const {
 const lang = getLangFromUrl(Astro.url);
 
 // Preloaded critical resources for performance
-const preloadedResources = [{ href: "https://cdn.usefathom.com", crossorigin: "", as: "script" }];
+const preloadedResources = [
+  { href: "https://cdn.usefathom.com", crossorigin: "", as: "script" },
+  { href: "/styles/global.css", as: "style" },
+];
+
+// Font preloading for critical fonts
+const fontPreloads = [
+  {
+    href: "/fonts/source-sans-pro-latin-400-normal.woff2",
+    as: "font",
+    type: "font/woff2",
+    crossorigin: "anonymous",
+  },
+  {
+    href: "/fonts/source-sans-pro-latin-700-normal.woff2",
+    as: "font",
+    type: "font/woff2",
+    crossorigin: "anonymous",
+  },
+];
+
+// DNS prefetch for external domains
+const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 ---
 
 <!doctype html>
@@ -144,18 +168,35 @@ const preloadedResources = [{ href: "https://cdn.usefathom.com", crossorigin: ""
     <!-- Character set and viewport configuration for mobile optimization -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
 
     <!-- Color scheme and theme color for browser UI -->
     <meta name="color-scheme" content="dark light" />
-    <meta name="theme-color" content="#18181b" />
-    <!-- zinc-900 -->
+    <meta name="theme-color" content="#18181b" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f4f4f5" media="(prefers-color-scheme: light)" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
     <!-- Resource hints for performance -->
+    {dnsPrefetch.map((resource) => <link rel="dns-prefetch" href={resource.href} />)}
+
     {
       preloadedResources.map((resource) => (
         <link rel="preconnect" href={resource.href} crossorigin={resource.crossorigin} />
+      ))
+    }
+
+    <!-- Font preloading for critical fonts -->
+    {
+      fontPreloads.map((font) => (
+        <link
+          rel="preload"
+          href={font.href}
+          as={font.as}
+          type={font.type}
+          crossorigin={font.crossorigin}
+        />
       ))
     }
 
@@ -163,6 +204,38 @@ const preloadedResources = [{ href: "https://cdn.usefathom.com", crossorigin: ""
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="google-site-verification" content="ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M" />
     <SEO {title} {description} {keywords} {image} {type} {publishDate} {modifiedDate} {ogMusic} />
+
+    <!-- Critical CSS inline for performance -->
+    <style is:inline>
+      /* Improved focus styles for keyboard navigation - WCAG AAA */
+      :focus-visible {
+        outline: 3px solid #9333ea; /* Purple 600 */
+        outline-offset: 3px;
+      }
+
+      /* Print styles for better document printing */
+      @media print {
+        body {
+          background-color: white;
+          color: black;
+        }
+
+        .no-print {
+          display: none !important;
+        }
+
+        main {
+          width: 100%;
+          padding: 0;
+          margin: 0;
+        }
+
+        a::after {
+          content: " (" attr(href) ")";
+          font-size: 0.9em;
+        }
+      }
+    </style>
 
     <!-- Analytics with performance and privacy optimizations -->
     <script
@@ -172,12 +245,9 @@ const preloadedResources = [{ href: "https://cdn.usefathom.com", crossorigin: ""
       data-auto="false"
       defer
       is:inline></script>
-
-    <!-- View Transitions API for smooth page transitions -->
-    <meta name="view-transition" content="same-origin" />
   </head>
   <body
-    class="mx-auto flex min-h-screen w-full max-w-6xl flex-col bg-zinc-900 p-3 text-base leading-7 tracking-wide text-wrap text-zinc-50 antialiased motion-safe:scroll-smooth md:p-6"
+    class="mx-auto flex min-h-screen w-full max-w-6xl flex-col bg-zinc-900 p-3 text-lg leading-8 tracking-wide text-wrap text-zinc-50 antialiased motion-safe:scroll-smooth md:p-6"
     data-theme="dark"
   >
     <!-- Skip link for keyboard navigation -->
@@ -185,13 +255,13 @@ const preloadedResources = [{ href: "https://cdn.usefathom.com", crossorigin: ""
 
     <!-- Conditional header/navigation based on page type -->
     <When test={showHeader && !showCoins}>
-      <header role="banner">
+      <header role="banner" class="w-full">
         <Navigation {showHeaderIcons} />
       </header>
     </When>
 
     <When test={showCoins}>
-      <div class="absolute top-4 right-4 z-40">
+      <div class="absolute top-4 right-4 z-40 min-h-[44px] min-w-[44px] sm:top-6 sm:right-6">
         <ShowCoins />
       </div>
     </When>
@@ -199,8 +269,9 @@ const preloadedResources = [{ href: "https://cdn.usefathom.com", crossorigin: ""
     <!-- Main content area -->
     <main
       id="main-content"
-      class="mx-auto max-w-full flex-grow px-0 py-6 text-base leading-relaxed text-pretty"
+      class="mx-auto max-w-full flex-grow px-0 py-6 text-lg leading-8 text-pretty"
       tabindex="-1"
+      role="main"
     >
       <slot />
     </main>
@@ -216,7 +287,7 @@ const preloadedResources = [{ href: "https://cdn.usefathom.com", crossorigin: ""
       declare global {
         interface Window {
           fathom?: {
-            trackPageview: () => void;
+            trackPageview: (opts?: object) => void;
             [key: string]: unknown;
           };
         }
@@ -225,40 +296,62 @@ const preloadedResources = [{ href: "https://cdn.usefathom.com", crossorigin: ""
       /**
        * Check if reduced motion is preferred and add appropriate class
        */
-      document.addEventListener("DOMContentLoaded", function () {
-        // Apply reduced motion preference if set
+      const setReducedMotionClass = (): void => {
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
           document.documentElement.classList.add("motion-reduce");
+          // Announce to screen readers that reduced motion is active
+          const statusElement =
+            document.getElementById("a11y-status") || document.createElement("div");
+          if (!document.getElementById("a11y-status")) {
+            statusElement.id = "a11y-status";
+            statusElement.setAttribute("aria-live", "polite");
+            statusElement.className = "sr-only";
+            document.body.appendChild(statusElement);
+          }
+          statusElement.textContent = "Reduced motion mode enabled";
+        } else {
+          document.documentElement.classList.remove("motion-reduce");
         }
-
-        // Initialize Fathom analytics after page is interactive
-        if (typeof window.fathom === "object") {
-          window.addEventListener("load", function () {
-            if (window.fathom && "trackPageview" in window.fathom) {
-              window.fathom.trackPageview();
-            }
-          });
-        }
-      });
+      };
 
       /**
        * Handle theme switching between light/dark modes
        */
-      function updateThemePreference() {
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        document.body.dataset.theme = prefersDark ? "dark" : "light";
-      }
+      const updateThemePreference = (): void => {
+        // Wir setzen immer das dunkle Theme, unabhängig von den Systemeinstellungen
+        document.body.dataset.theme = "dark";
+        document.documentElement.classList.add("dark");
+        document.documentElement.classList.remove("light");
+      };
 
-      // Initial theme setting
-      updateThemePreference();
+      // Register document-level events
+      document.addEventListener("DOMContentLoaded", () => {
+        // Initial setup when DOM is loaded
+        setReducedMotionClass();
+        updateThemePreference();
 
-      // Listen for theme changes
+        // Initialize analytics
+        if (typeof window.fathom === "object" && window.fathom?.trackPageview) {
+          window.fathom.trackPageview({
+            url: window.location.href,
+          });
+        }
+      });
+
+      // Listen for reduced motion preference changes
       window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .addEventListener("change", updateThemePreference);
+        .matchMedia("(prefers-reduced-motion: reduce)")
+        .addEventListener("change", setReducedMotionClass);
+
+      // Handle page visibility for better performance
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible") {
+          // Re-render animations or update time-sensitive UI
+        }
+      });
     </script>
 
-    <!-- WCAG AAA Enhancements Script -->
+    <!-- WCAG AAA Enhancements Script with efficient loading -->
     <script src="/scripts/wcag-aaa-enhancements.js" defer></script>
   </body>
 </html>
