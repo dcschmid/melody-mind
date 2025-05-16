@@ -3,6 +3,9 @@ export default {
   "auth.required.title": "Accesso richiesto",
   "auth.required.description": "Effettua l'accesso per accedere a quest'area",
   "auth.login.title": "Accedi",
+  "auth.login.heading": "Accedi a MelodyMind",
+  "auth.login.back_to_home": "Torna alla home",
+  "auth.login.help_text": "Hai bisogno di aiuto? Contatta il nostro team di supporto.",
   "auth.register.title": "Registrati",
   "auth.login.email": "Indirizzo email",
   "auth.login.email.placeholder": "Il tuo indirizzo email",
@@ -360,6 +363,7 @@ export default {
   "game.chronology.start": "Inizio",
   "game.chronology.end": "Fine",
   "common.back.to.top": "Torna su",
+  "common.accessibility.main_content": "Area contenuto principale",
   "knowledge.articles.heading": "Articoli di Conoscenza",
   "knowledge.search.heading": "Cerca Articoli",
   "knowledge.search.description":
