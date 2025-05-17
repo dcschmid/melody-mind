@@ -3,6 +3,7 @@ export default {
   "auth.required.title": "Login påkrævet",
   "auth.required.description": "Log venligst ind for at få adgang til dette område",
   "auth.login.title": "Login",
+  "auth.login.description": "Log ind på Melody Mind for at fortsætte din musikalske rejse.",
   "auth.login.heading": "Log ind på MelodyMind",
   "auth.login.back_to_home": "Tilbage til forsiden",
   "auth.login.help_text": "Har du brug for hjælp? Kontakt vores supportteam.",

@@ -3,6 +3,7 @@ export default {
   "auth.required.title": "Connexion requise",
   "auth.required.description": "Veuillez vous connecter pour accéder à cette zone",
   "auth.login.title": "Connexion",
+  "auth.login.description": "Connectez-vous à Melody Mind pour continuer votre voyage musical.",
   "auth.login.heading": "Connectez-vous à MelodyMind",
   "auth.login.back_to_home": "Retour à l'accueil",
   "auth.login.help_text": "Besoin d'aide ? Contactez notre équipe d'assistance.",

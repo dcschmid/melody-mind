@@ -4,6 +4,7 @@ export default {
   "auth.required.title": "Se requiere iniciar sesión",
   "auth.required.description": "Por favor, inicia sesión para acceder a esta área",
   "auth.login.title": "Iniciar sesión",
+  "auth.login.description": "Inicia sesión en Melody Mind para continuar tu viaje musical.",
   "auth.login.heading": "Inicie sesión en MelodyMind",
   "auth.login.back_to_home": "Volver al inicio",
   "auth.login.help_text": "¿Necesita ayuda? Contacte con nuestro equipo de soporte.",
