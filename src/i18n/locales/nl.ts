@@ -3,6 +3,7 @@ export default {
   "auth.required.title": "Inloggen vereist",
   "auth.required.description": "Log in om toegang te krijgen tot dit gedeelte",
   "auth.login.title": "Inloggen",
+  "auth.login.description": "Log in bij Melody Mind om je muzikale reis voort te zetten.",
   "auth.login.heading": "Inloggen bij MelodyMind",
   "auth.login.back_to_home": "Terug naar home",
   "auth.login.help_text": "Hulp nodig? Neem contact op met ons ondersteuningsteam.",

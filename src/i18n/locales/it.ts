@@ -3,6 +3,7 @@ export default {
   "auth.required.title": "Accesso richiesto",
   "auth.required.description": "Effettua l'accesso per accedere a quest'area",
   "auth.login.title": "Accedi",
+  "auth.login.description": "Accedi a Melody Mind per continuare il tuo viaggio musicale.",
   "auth.login.heading": "Accedi a MelodyMind",
   "auth.login.back_to_home": "Torna alla home",
   "auth.login.help_text": "Hai bisogno di aiuto? Contatta il nostro team di supporto.",

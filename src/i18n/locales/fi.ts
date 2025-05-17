@@ -3,6 +3,7 @@ export default {
   "auth.required.title": "Kirjautuminen vaaditaan",
   "auth.required.description": "Kirjaudu sisään päästäksesi tälle alueelle",
   "auth.login.title": "Kirjaudu sisään",
+  "auth.login.description": "Kirjaudu Melody Mindiin jatkaaksesi musiikillista matkaasi.",
   "auth.login.heading": "Kirjaudu MelodyMindiin",
   "auth.login.back_to_home": "Takaisin etusivulle",
   "auth.login.help_text": "Tarvitsetko apua? Ota yhteyttä tukitiimiimme.",

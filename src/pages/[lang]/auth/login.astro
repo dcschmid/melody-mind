@@ -5,55 +5,77 @@
  * The page is optimized according to WCAG AAA standards for maximum accessibility
  * and provides a seamless login experience with form validation and error handling.
  *
+ * Features:
+ * - High contrast text with 7:1 ratio for WCAG AAA compliance
+ * - Proper focus indicators for keyboard navigation
+ * - Screen reader announcements for form errors
+ * - Responsive design for all device sizes
+ * - Seamless page transitions with View Transitions API
  */
 
+// 1. Imports
 import AuthForm from "@components/auth/AuthForm.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import Layout from "@layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 
+// 2. Data processing
 // Extract language code from the current URL for internationalization
 const lang = getLangFromUrl(Astro.url);
 // Initialize translation function with the extracted language - ensure lang is a string
 const t = useTranslations(lang.toString());
+
+// 3. Reactive variables and derived state
+const pageTitle = t("auth.login.title");
+const pageDescription = t("auth.login.description");
+const backToHomeLabel = t("auth.login.back_to_home");
+const headingText = t("auth.login.heading");
+const helpText = t("auth.login.help_text");
 ---
 
-<Layout
-  title={t("auth.login.title")}
-  description={t("auth.login.description") ||
-    "Sign in to Melody Mind to continue your musical journey."}
->
+<Layout title={pageTitle} description={pageDescription}>
   <!-- Login container with responsive layout and improved accessibility -->
+  <main
+    class="mx-auto w-full max-w-md px-4 pt-4 pb-6 sm:px-6 md:pt-8 lg:pt-12"
+    transition:animate="slide"
+  >
+    <!-- Back to home link for improved navigation -->
+    <div class="mb-4 text-left">
+      <a
+        href={`/${String(lang)}/`}
+        class="inline-flex min-h-[44px] min-w-[44px] items-center rounded-md px-3 py-2 text-sm text-purple-300 transition-colors duration-200 hover:bg-purple-900/50 hover:text-purple-200 focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
+        aria-label={backToHomeLabel}
+      >
+        <Icon name="arrow-left" class="mr-1 h-5 w-5 text-current" aria-hidden="true" />
+        <span>{t("auth.login.back_to_home") || "Back to home"}</span>
+      </a>
+    </div>
 
-  <!-- Back to home link for improved navigation -->
-  <div class="mb-4 text-left">
-    <a
-      href={`/${String(lang)}/`}
-      class="inline-flex items-center rounded-md px-2 py-1 text-sm text-purple-300 transition-colors duration-200 hover:text-purple-200 focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
-      aria-label={t("auth.login.back_to_home") || "Back to home page"}
+    <h1
+      id="login-heading"
+      class="mb-6 text-center text-2xl leading-relaxed font-bold tracking-wide text-white md:text-3xl lg:text-4xl"
+      aria-level="1"
     >
-      <Icon name="arrow-left" class="mr-1 h-4 w-4 text-current" aria-hidden="true" />
-      {t("auth.login.back_to_home") || "Back to home"}
-    </a>
-  </div>
+      {headingText}
+    </h1>
 
-  <h1
-    id="login-heading"
-    class="mb-6 text-center text-2xl leading-relaxed font-bold tracking-wide text-purple-900 md:text-3xl lg:text-4xl dark:text-purple-100"
-  >
-    {t("auth.login.heading") || "Log In to MelodyMind"}
-  </h1>
+    <!-- Auth form with login mode and enhanced contrast for accessibility -->
+    <div
+      class="motion-safe:animate-fadeIn rounded-lg shadow-lg transition-all duration-300"
+      aria-live="polite"
+      aria-labelledby="login-heading"
+      role="region"
+      aria-describedby="login-help-text"
+    >
+      <AuthForm initialMode="login" />
+    </div>
 
-  <!-- Auth form with login mode and enhanced contrast for accessibility -->
-  <div
-    class="rounded-lg bg-white p-6 shadow-lg transition-all duration-300 focus-within:ring-3 focus-within:ring-purple-500 focus-within:ring-offset-2 hover:shadow-xl sm:p-8 md:p-10 dark:bg-gray-800"
-    aria-live="polite"
-  >
-    <AuthForm initialMode="login" />
-  </div>
-
-  <!-- Additional help text with improved visibility for accessibility -->
-  <p class="mt-6 text-center text-sm text-gray-600 md:text-base dark:text-gray-400">
-    {t("auth.login.help_text") || "Need help? Contact our support team."}
-  </p>
+    <!-- Additional help text with improved visibility for accessibility -->
+    <p
+      id="login-help-text"
+      class="mt-6 text-center text-sm text-purple-200 md:text-base lg:text-lg"
+    >
+      {helpText}
+    </p>
+  </main>
 </Layout>
