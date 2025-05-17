@@ -68,7 +68,13 @@ export default defineConfig({
     resolve: {
       alias: {
         "@json": path.resolve("./src/json"),
-        "@i18n": "/src/i18n",
+        "@i18n": path.resolve("./src/i18n"),
+        "@components": path.resolve("./src/components"),
+        "@layouts": path.resolve("./src/layouts"),
+        "@utils": path.resolve("./src/utils"),
+        "@data": path.resolve("./src/data"),
+        "@types": path.resolve("./src/types"),
+        "@lib": path.resolve("./src/lib"),
       },
     },
 

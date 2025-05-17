@@ -32,8 +32,8 @@
  */
 import type { APIRoute } from "astro";
 
-import { authService } from "../../../../lib/auth/auth-service.js";
-import { useTranslations } from "../../../../utils/i18n.js";
+import { authService } from "@lib/auth/auth-service";
+import { useTranslations } from "@utils/i18n";
 
 /**
  * Type-safe language codes using template literal types

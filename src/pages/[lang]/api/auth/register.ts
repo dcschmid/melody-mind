@@ -10,11 +10,8 @@
  */
 import type { APIRoute } from "astro";
 
-import {
-  authService,
-  type NewUser,
-  type RegisterResult,
-} from "../../../../lib/auth/auth-service.js";
+import { authService, type RegisterResult } from "../../../../lib/auth/auth-service.js";
+import type { NewUser } from "../../../../lib/auth/db.js";
 import { useTranslations } from "../../../../utils/i18n.js";
 
 /**

@@ -11,19 +11,13 @@ import {
   type User,
   type UserWithPassword,
   type NewUser,
+  type UserId,
+  type VerificationToken,
+  type ResetToken
 } from "./db.js";
 import { generateTokenPair, verifyAccessToken, verifyRefreshToken, type TokenPair } from "./jwt.js";
 import { validatePassword } from "./password-validation.js";
 import { recordFailedLoginAttempt, resetRateLimit, isRateLimited } from "./rate-limit.js";
-
-/**
- * Branded type for user IDs to improve type safety and prevent accidental usage
- * of regular strings where user IDs are expected
- *
- * @since 3.0.0
- * @category Types
- */
-export type UserId = string & { readonly __brand: unique symbol };
 
 // Type for standard error codes used in authentication responses
 type AuthErrorCode =
@@ -295,7 +289,9 @@ export class AuthService {
       this.userCache.set(userData.email, newUser as UserWithPassword);
 
       // Generate email verification token
-      const verificationToken = await generateEmailVerificationToken(newUser.id as UserId);
+      // Import and use the same branded type from db.ts
+      const userId = newUser.id as unknown as UserId;
+      const verificationToken = await generateEmailVerificationToken(userId);
 
       // In a real application, an email with the verification link would be sent here
       console.log(`Verification link: https://example.com/verify-email?token=${verificationToken}`);
@@ -334,7 +330,9 @@ export class AuthService {
    */
   async verifyUserEmail(token: string): Promise<boolean> {
     try {
-      const verified = await verifyEmail(token);
+      // Cast the string token to branded VerificationToken type
+      const verificationToken = token as VerificationToken;
+      const verified = await verifyEmail(verificationToken);
 
       // If verification was successful, clear any cached user data
       // to ensure fresh data will be loaded with updated verification status
@@ -344,7 +342,7 @@ export class AuthService {
         this.userCache.clear();
       }
 
-      return verified;
+      return !!verified;
     } catch (error) {
       console.error("Error during email verification:", error);
       return false;
@@ -425,7 +423,9 @@ export class AuthService {
         };
       }
 
-      const success = await resetPassword(token, newPassword);
+      // Cast the string token to branded ResetToken type
+      const resetToken = token as ResetToken;
+      const success = await resetPassword(resetToken, newPassword);
       if (!success) {
         return {
           success: false,
@@ -503,7 +503,9 @@ export class AuthService {
       }
 
       // Change password
-      const success = await updatePassword(userId, newPassword);
+      // Cast the string userId to branded UserId type
+      const userIdBranded = userId as UserId;
+      const success = await updatePassword(userIdBranded, newPassword);
       if (!success) {
         return {
           success: false,

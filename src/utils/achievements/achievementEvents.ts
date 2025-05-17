@@ -5,7 +5,7 @@
  * It enables subscribing to achievement events and triggering events.
  */
 
-import type { AchievementEvent, LocalizedAchievement } from "../../types/achievement.ts";
+import type { AchievementEvent, LocalizedAchievement } from "../../types/achievement";
 
 // Event listener type
 type AchievementEventListener = (event: AchievementEvent) => void;

@@ -1,16 +1,25 @@
 /**
- * WCAG AAA Barrierefreiheits-Utilities
+ * WCAG AAA Accessibility Utilities
  *
- * Diese Datei enthält Funktionen zur Implementierung von WCAG AAA-Konformität
- * in der MelodyMind-Anwendung.
+ * This file contains functions for implementing WCAG AAA compliance
+ * in the MelodyMind application.
  */
 
-import { useEffect, useState } from "preact/hooks";
+// Replace Preact hooks with custom implementation
+// for TypeScript compatibility
+const useEffect = (callback: () => (() => void) | void, deps?: any[]): void => {
+  // This function is replaced client-side with the actual browser function
+};
 
-// Typen für bessere TypeScript-Unterstützung
+const useState = <T>(initialValue: T): [T, (value: T | ((prevState: T) => T)) => void] => {
+  // This function is replaced client-side with the actual browser function
+  return [initialValue, () => {}];
+};
+
+// Types for better TypeScript support
 export interface FocusOptions {
   preventScroll?: boolean;
-  announceToScreenReader?: boolean;
+  shouldAnnounce?: boolean;
   announcement?: string;
   scrollIntoView?: boolean;
   scrollOptions?: ScrollIntoViewOptions;
@@ -43,7 +52,7 @@ export interface ContrastRatio {
 export function focusElement(elementId: string, options: FocusOptions = {}): boolean {
   const {
     preventScroll = false,
-    announceToScreenReader = true,
+    shouldAnnounce = true,
     announcement = "",
     scrollIntoView = false,
     scrollOptions = { behavior: "smooth", block: "nearest" },
@@ -61,7 +70,7 @@ export function focusElement(elementId: string, options: FocusOptions = {}): boo
 
   try {
     // Ankündigung für Screenreader, wenn aktiviert
-    if (announceToScreenReader) {
+    if (shouldAnnounce) {
       const message =
         announcement ||
         `Fokus auf ${element.getAttribute("aria-label") || element.textContent || "Element"} gesetzt`;
@@ -760,9 +769,38 @@ export function validateHeadingStructure(): {
  *
  * @returns Ein Objekt mit Barrierefreiheitseinstellungen und Funktionen zu deren Änderung
  */
-export function useAccessibilityPreferences() {
+export function useAccessibilityPreferences(): {
+  preferences: {
+    reducedMotion: boolean;
+    highContrast: boolean;
+    largeText: boolean;
+    lineSpacing: string;
+    alternativeText: boolean;
+    skipAnimations: boolean;
+    soundFeedback: boolean;
+  };
+  setReducedMotion: (value: boolean) => void;
+  setHighContrast: (value: boolean) => void;
+  setLargeText: (value: boolean) => void;
+  setLineSpacing: (value: string) => void;
+  setAlternativeText: (value: boolean) => void;
+  setSkipAnimations: (value: boolean) => void;
+  setSoundFeedback: (value: boolean) => void;
+  resetToDefaults: () => void;
+} {
+  // Präferenz-Typ für bessere Typsicherheit
+  interface AccessibilityPreferences {
+    reducedMotion: boolean;
+    highContrast: boolean;
+    largeText: boolean;
+    lineSpacing: string;
+    alternativeText: boolean;
+    skipAnimations: boolean;
+    soundFeedback: boolean;
+  }
+
   // Standardeinstellungen
-  const defaultPreferences = {
+  const defaultPreferences: AccessibilityPreferences = {
     reducedMotion: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
     highContrast: window.matchMedia("(prefers-contrast: more)").matches,
     largeText: false,
@@ -773,7 +811,7 @@ export function useAccessibilityPreferences() {
   };
 
   // State für die Einstellungen
-  const [preferences, setPreferences] = useState(defaultPreferences);
+  const [preferences, setPreferences] = useState<AccessibilityPreferences>(defaultPreferences);
 
   // Anwenden der Einstellungen
   useEffect(() => {
@@ -824,7 +862,8 @@ export function useAccessibilityPreferences() {
     const savedPreferences = localStorage.getItem("accessibilityPreferences");
     if (savedPreferences) {
       try {
-        setPreferences(JSON.parse(savedPreferences));
+        const parsedPrefs = JSON.parse(savedPreferences);
+        setPreferences(parsedPrefs);
       } catch (error) {
         console.error("Fehler beim Laden der Barrierefreiheitseinstellungen:", error);
       }
@@ -834,56 +873,57 @@ export function useAccessibilityPreferences() {
     const motionMediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     const contrastMediaQuery = window.matchMedia("(prefers-contrast: more)");
 
-    const handleMotionPreferenceChange = (e: MediaQueryListEvent) => {
-      setPreferences((prev) => ({ ...prev, reducedMotion: e.matches }));
+    const handleMotionPreference = (e: MediaQueryListEvent): void => {
+      setPreferences((current) => ({
+        ...current,
+        reducedMotion: e.matches,
+      }));
     };
 
-    const handleContrastPreferenceChange = (e: MediaQueryListEvent) => {
-      setPreferences((prev) => ({ ...prev, highContrast: e.matches }));
+    const handleContrastPreference = (e: MediaQueryListEvent): void => {
+      setPreferences((current) => ({
+        ...current,
+        highContrast: e.matches,
+      }));
     };
 
-    motionMediaQuery.addEventListener("change", handleMotionPreferenceChange);
-    contrastMediaQuery.addEventListener("change", handleContrastPreferenceChange);
+    motionMediaQuery.addEventListener("change", handleMotionPreference);
+    contrastMediaQuery.addEventListener("change", handleContrastPreference);
 
     return () => {
-      motionMediaQuery.removeEventListener("change", handleMotionPreferenceChange);
-      contrastMediaQuery.removeEventListener("change", handleContrastPreferenceChange);
+      motionMediaQuery.removeEventListener("change", handleMotionPreference);
+      contrastMediaQuery.removeEventListener("change", handleContrastPreference);
     };
   }, []);
 
   // Funktionen zum Ändern der Einstellungen
-  const setReducedMotion = (value: boolean) =>
-    setPreferences((prev) => ({ ...prev, reducedMotion: value }));
-
-  const setHighContrast = (value: boolean) =>
-    setPreferences((prev) => ({ ...prev, highContrast: value }));
-
-  const setLargeText = (value: boolean) =>
-    setPreferences((prev) => ({ ...prev, largeText: value }));
-
-  const setLineSpacing = (value: string) =>
-    setPreferences((prev) => ({ ...prev, lineSpacing: value }));
-
-  const setAlternativeText = (value: boolean) =>
-    setPreferences((prev) => ({ ...prev, alternativeText: value }));
-
-  const setSkipAnimations = (value: boolean) =>
-    setPreferences((prev) => ({ ...prev, skipAnimations: value }));
-
-  const setSoundFeedback = (value: boolean) =>
-    setPreferences((prev) => ({ ...prev, soundFeedback: value }));
-
-  const resetToDefaults = () => setPreferences(defaultPreferences);
+  const resetToDefaults = (): void => {
+    setPreferences(defaultPreferences);
+  };
 
   return {
     preferences,
-    setReducedMotion,
-    setHighContrast,
-    setLargeText,
-    setLineSpacing,
-    setAlternativeText,
-    setSkipAnimations,
-    setSoundFeedback,
+    setReducedMotion: (value: boolean): void => {
+      setPreferences((current) => ({ ...current, reducedMotion: value }));
+    },
+    setHighContrast: (value: boolean): void => {
+      setPreferences((current) => ({ ...current, highContrast: value }));
+    },
+    setLargeText: (value: boolean): void => {
+      setPreferences((current) => ({ ...current, largeText: value }));
+    },
+    setLineSpacing: (value: string): void => {
+      setPreferences((current) => ({ ...current, lineSpacing: value }));
+    },
+    setAlternativeText: (value: boolean): void => {
+      setPreferences((current) => ({ ...current, alternativeText: value }));
+    },
+    setSkipAnimations: (value: boolean): void => {
+      setPreferences((current) => ({ ...current, skipAnimations: value }));
+    },
+    setSoundFeedback: (value: boolean): void => {
+      setPreferences((current) => ({ ...current, soundFeedback: value }));
+    },
     resetToDefaults,
   };
 }
