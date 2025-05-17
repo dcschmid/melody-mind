@@ -5,18 +5,8 @@
  * It verifies authentication, validates the request data, and unlocks
  * the achievement in the database.
  *
- * @sinc    // Validate parameters with strong type checking
-    if (!isValidUnlockRequest(body)) {
-      const errorResponse: UnlockResponse = {
-        success: false,
-        error: t("errors.invalidParameters"),
-      };
-
-      return createJsonResponse(errorResponse, HTTP_STATUS.BAD_REQUEST);
-    }
-
-    // Use the validation function to create a typed achievement ID
-    const typedAchievementId = validateAchievementId(body.achievementId);category API
+ * @since 3.1.0
+ * @category API
  *
  * Route: POST /[lang]/api/achievements/unlock
  *
@@ -61,9 +51,15 @@ const HTTP_STATUS = {
 
 /**
  * Achievement ID type with branded type pattern for better type safety
+ * This implementation uses a symbol-based branded type for strict nominal typing
+ *
  * @since 3.1.0
+ * @category Types
  */
-type AchievementId = string & { readonly __brand: unique symbol };
+type AchievementId = string & {
+  readonly __brand: unique symbol;
+  readonly __achievementIdBrand: "AchievementId";
+};
 
 /**
  * Type definitions for translation keys used in this API endpoint
@@ -122,11 +118,16 @@ interface UnlockResponse {
   userAchievement?: UserAchievement;
   /** Error message if unsuccessful */
   error?: string;
+  /** Unique error identifier for log correlation */
+  errorId?: string;
 }
 
 /**
  * Achievement unlock error class for specialized error handling
+ * Provides additional context and information for error responses
+ *
  * @since 3.1.0
+ * @category Errors
  */
 class AchievementUnlockError extends Error {
   /**
@@ -135,22 +136,59 @@ class AchievementUnlockError extends Error {
    * @param {string} message - Error message
    * @param {number} status - HTTP status code
    * @param {unknown} [cause] - The underlying error that caused this error
+   * @param {Record<string, unknown>} [metadata] - Additional contextual information about the error
    */
   constructor(
     message: string,
     public readonly status: number = HTTP_STATUS.INTERNAL_SERVER_ERROR,
-    public readonly cause?: unknown
+    public readonly cause?: unknown,
+    public readonly metadata?: Record<string, unknown>
   ) {
     super(message);
     this.name = "AchievementUnlockError";
+
+    // Capture stack trace (works better with modern Error subclassing)
+    if (Error.captureStackTrace) {
+      Error.captureStackTrace(this, this.constructor);
+    }
+  }
+
+  /**
+   * Serializes the error for logging and debugging purposes
+   *
+   * @returns {Record<string, unknown>} Serialized representation of the error
+   */
+  toJSON(): Record<string, unknown> {
+    return {
+      name: this.name,
+      message: this.message,
+      status: this.status,
+      stack: this.stack,
+      cause:
+        this.cause instanceof Error
+          ? { name: this.cause.name, message: this.cause.message }
+          : this.cause,
+      metadata: this.metadata,
+    };
   }
 }
 
 /**
  * Type guard to check if an error is an AchievementUnlockError
+ * Uses instanceof pattern for reliable type narrowing
  *
  * @param {unknown} error - The error to check
- * @returns {boolean} True if the error is an AchievementUnlockError
+ * @returns {error is AchievementUnlockError} Type predicate indicating the error type
+ *
+ * @example
+ * try {
+ *   // Some operation that might throw
+ * } catch (err) {
+ *   if (isAchievementUnlockError(err)) {
+ *     // Can safely access err.status and other AchievementUnlockError properties
+ *     console.error(`Error status: ${err.status}`);
+ *   }
+ * }
  */
 function isAchievementUnlockError(error: unknown): error is AchievementUnlockError {
   return error instanceof AchievementUnlockError;
@@ -164,27 +202,52 @@ export const POST: APIRoute = async ({ request, params }) => {
   // JSON response headers constant to avoid duplication
   const JSON_HEADERS = {
     "Content-Type": "application/json",
-  };
+    "Cache-Control": "no-store, no-cache, must-revalidate",
+  } as const;
 
   /**
    * Creates a JSON response with appropriate headers
+   * Uses memoization pattern to cache common responses
    *
    * @param {UnlockResponse} data - Response data
    * @param {number} status - HTTP status code
    * @returns {Response} HTTP response
    */
-  function createJsonResponse(data: UnlockResponse, status: number): Response {
-    return new Response(JSON.stringify(data), {
-      status,
-      headers: JSON_HEADERS,
-    });
-  }
+  const createJsonResponse = (() => {
+    const cache = new Map<string, Response>();
+
+    return function (data: UnlockResponse, status: number): Response {
+      // Only cache error responses without dynamic data
+      if (status !== HTTP_STATUS.OK && data.error && !data.userAchievement) {
+        const cacheKey = `${status}-${data.error}`;
+
+        if (cache.has(cacheKey)) {
+          return cache.get(cacheKey)!;
+        }
+
+        const response = new Response(JSON.stringify(data), {
+          status,
+          headers: JSON_HEADERS,
+        });
+
+        cache.set(cacheKey, response);
+        return response;
+      }
+
+      // Don't cache successful responses or those with dynamic data
+      return new Response(JSON.stringify(data), {
+        status,
+        headers: JSON_HEADERS,
+      });
+    };
+  })();
 
   /**
    * Validates if a request payload has the correct structure for achievement unlock
+   * Uses TypeScript type narrowing for robust type validation
    *
    * @param {unknown} data - The data to validate
-   * @returns {boolean} True if the data is a valid unlock request
+   * @returns {data is AchievementUnlockPayload} Type predicate indicating if data is a valid unlock request
    */
   function isValidUnlockRequest(data: unknown): data is AchievementUnlockPayload {
     if (!data || typeof data !== "object") {
@@ -198,8 +261,16 @@ export const POST: APIRoute = async ({ request, params }) => {
       return false;
     }
 
-    // Ensure achievementId is not empty
-    return candidate.achievementId.trim().length > 0;
+    // Ensure achievementId is not empty and has proper format
+    const achievementId = candidate.achievementId.trim();
+    if (achievementId.length === 0) {
+      return false;
+    }
+
+    // Additional validation - could check format requirements here
+    // For example, ensuring it follows a specific pattern
+    const achievementIdPattern = /^achievement-\d+$/;
+    return achievementIdPattern.test(achievementId);
   }
 
   /**
@@ -209,12 +280,19 @@ export const POST: APIRoute = async ({ request, params }) => {
    * @param {string} id - The achievement ID to validate and cast
    * @returns {AchievementId} The typed achievement ID
    * @throws {AchievementUnlockError} If the ID is invalid
-   */ function validateAchievementId(id: string): AchievementId {
+   */
+  function validateAchievementId(id: string): AchievementId {
     if (!id || id.trim().length === 0) {
       throw new AchievementUnlockError(t("errors.achievements.invalidId"), HTTP_STATUS.BAD_REQUEST);
     }
 
     // Additional validation could be added here (format checks, etc.)
+
+    // Perform format validation for achievements (should follow achievement-{number} pattern)
+    const achievementIdPattern = /^achievement-\d+$/;
+    if (!achievementIdPattern.test(id)) {
+      throw new AchievementUnlockError(t("errors.achievements.invalidId"), HTTP_STATUS.BAD_REQUEST);
+    }
 
     return id as AchievementId;
   }
@@ -269,7 +347,7 @@ export const POST: APIRoute = async ({ request, params }) => {
     try {
       const userAchievement = await unlockAchievement(user.id, typedAchievementId);
 
-      // Return successful response
+      // Return successful response with performance cache headers
       const successResponse: UnlockResponse = {
         success: true,
         userAchievement,
@@ -277,10 +355,12 @@ export const POST: APIRoute = async ({ request, params }) => {
 
       return createJsonResponse(successResponse, HTTP_STATUS.OK);
     } catch (unlockError) {
-      // Enhanced structured error logging for achievement unlock errors
+      // Enhanced structured error logging with more detailed context
       console.error("Achievement unlock operation failed:", {
         userId: user.id,
         achievementId: typedAchievementId,
+        timestamp: new Date().toISOString(),
+        requestId: crypto.randomUUID(), // Generate a unique ID for tracing this error
         error:
           unlockError instanceof Error
             ? {
@@ -291,19 +371,51 @@ export const POST: APIRoute = async ({ request, params }) => {
             : String(unlockError),
       });
 
-      // Handle specific achievement unlock errors
+      // Handle different types of errors with specific status codes
+      if (unlockError instanceof Error) {
+        // Check for specific error conditions and map to appropriate status codes
+        if (/not found/i.test(unlockError.message)) {
+          throw new AchievementUnlockError(
+            unlockError.message,
+            HTTP_STATUS.BAD_REQUEST,
+            unlockError,
+            { userId: user.id, achievementId: typedAchievementId }
+          );
+        }
+
+        if (/already unlocked/i.test(unlockError.message)) {
+          // This is not actually an error, just return a successful response
+          // with information that it was already unlocked
+          return createJsonResponse(
+            {
+              success: true,
+              error: unlockError.message, // Include as an informational message
+            },
+            HTTP_STATUS.OK
+          );
+        }
+      }
+
+      // Default case for unrecognized errors
       throw new AchievementUnlockError(
         unlockError instanceof Error ? unlockError.message : t("errors.achievements.unknownError"),
         HTTP_STATUS.INTERNAL_SERVER_ERROR,
-        unlockError
+        unlockError,
+        { userId: user.id, achievementId: typedAchievementId }
       );
     }
   } catch (error) {
-    // Enhanced error logging with structured information
-    console.error("Error unlocking achievement:", {
+    // Generate a unique error ID for tracking in logs
+    const errorId = crypto.randomUUID();
+
+    // Enhanced error logging with structured information and correlation ID
+    console.error(`Error unlocking achievement [ErrorID: ${errorId}]:`, {
+      errorId,
+      timestamp: new Date().toISOString(),
       name: error instanceof Error ? error.name : "Unknown Error",
       message: error instanceof Error ? error.message : String(error),
       stack: error instanceof Error ? error.stack : undefined,
+      metadata: error instanceof AchievementUnlockError ? error.metadata : undefined,
     });
 
     // Use specific error handling if it's our custom error type
@@ -312,6 +424,7 @@ export const POST: APIRoute = async ({ request, params }) => {
         {
           success: false,
           error: error.message || t("errors.achievements.unlock"),
+          errorId, // Include the error ID in the response for correlation
         },
         error.status
       );
@@ -322,6 +435,7 @@ export const POST: APIRoute = async ({ request, params }) => {
       {
         success: false,
         error: t("errors.achievements.unlock"),
+        errorId, // Include the error ID in the response for correlation
       },
       HTTP_STATUS.INTERNAL_SERVER_ERROR
     );
