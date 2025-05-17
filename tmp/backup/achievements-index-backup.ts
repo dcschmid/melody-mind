@@ -1,10 +1,19 @@
-// filepath: /home/daniel/projects/melody-mind/src/pages/[lang]/api/achievements/index.ts
 /**
  * API Route: Achievements Endpoint
  *
  * This endpoint retrieves all available achievements.
  *
- * @route GET /[lang]/api/achievements
+ * @route GET /[la/**
+ * API error response type
+ *
+ * @category API
+ */
+type ApiErrorResponse = {
+  status: "error";
+  message: string;
+  code: ErrorCode;
+  details?: Record<string, unknown>;
+};hievements
  * @category API
  * @since 3.0.0
  *
@@ -36,13 +45,13 @@ import type { UiLanguages } from "../../../../utils/i18n.ts";
 import { useTranslations, languages } from "../../../../utils/i18n.ts";
 
 // HTTP status codes as named constants to improve readability
-const HTTP_STATUS = {
+const HTTP_STATUS: Record<string, number> = {
   OK: 200,
   BAD_REQUEST: 400,
   INTERNAL_SERVER_ERROR: 500,
 } as const;
 
-// Error code using Template Literal Types for better type safety
+// Error code literal type for better type checking
 type ErrorCode = `ACHIEVEMENT_${string}` | "INVALID_LANGUAGE";
 
 /**
@@ -72,25 +81,6 @@ class AchievementFetchError extends Error {
     // Maintain proper prototype chain for instanceof checks
     Object.setPrototypeOf(this, AchievementFetchError.prototype);
   }
-
-  /**
-   * Format the error for logging purposes
-   *
-   * @returns {Record<string, unknown>} Structured error data
-   */
-  toLogFormat(): Record<string, unknown> {
-    return {
-      name: this.name,
-      message: this.message,
-      language: this.languageCode,
-      code: this.errorCode,
-      cause:
-        this.cause instanceof Error
-          ? { message: this.cause.message, name: this.cause.name }
-          : this.cause,
-      timestamp: new Date().toISOString(),
-    };
-  }
 }
 
 /**
@@ -98,10 +88,33 @@ class AchievementFetchError extends Error {
  *
  * @param {unknown} error - The error to check
  * @returns {boolean} Whether the error is an AchievementFetchError
+ * @internal This is currently unused but kept for future error handling improvements
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function isAchievementFetchError(error: unknown): error is AchievementFetchError {
   return error instanceof AchievementFetchError;
 }
+
+/**
+ * API response status brand for type safety
+ * 
+ * @category API
+ */
+type StatusBrand = { readonly __statusBrand: unique symbol };
+
+/**
+ * Success status with branded type
+ * 
+ * @category API
+ */
+type SuccessStatus = "success" & StatusBrand;
+
+/**
+ * Error status with branded type
+ * 
+ * @category API
+ */
+type ErrorStatus = "error" & StatusBrand;
 
 /**
  * API success response type
@@ -110,7 +123,7 @@ function isAchievementFetchError(error: unknown): error is AchievementFetchError
  * @category API
  */
 type ApiSuccessResponse<T> = {
-  status: "success";
+  status: SuccessStatus;
   data: T;
 };
 
@@ -120,10 +133,9 @@ type ApiSuccessResponse<T> = {
  * @category API
  */
 type ApiErrorResponse = {
-  status: "error";
+  status: ErrorStatus;
   message: string;
   code: ErrorCode;
-  details?: Record<string, unknown>;
 };
 
 /**
@@ -185,8 +197,8 @@ function isValidLang(lang: string | undefined): lang is UiLanguages {
  * );
  */
 function createErrorResponse(
-  message: string,
-  code: ErrorCode,
+  message: string, 
+  code: ErrorCode, 
   details?: Record<string, unknown>
 ): ApiErrorResponse {
   return {
@@ -195,35 +207,6 @@ function createErrorResponse(
     code,
     ...(details && { details }),
   };
-}
-
-// Using a memoization helper to cache expensive operations
-type AchievementCacheKey = `${UiLanguages}`;
-const achievementCache = new Map<AchievementCacheKey, Promise<Achievement[]>>();
-
-/**
- * Retrieves achievements from cache or network with memoization
- *
- * @param {UiLanguages} lang - The language to retrieve achievements for
- * @returns {Promise<Achievement[]>} The achievements in the specified language
- */
-async function getMemoizedAchievements(lang: UiLanguages): Promise<Achievement[]> {
-  const cacheKey: AchievementCacheKey = `${lang}`;
-
-  if (!achievementCache.has(cacheKey)) {
-    // Store the promise in the cache to avoid multiple requests for the same data
-    achievementCache.set(cacheKey, getAllAchievements(lang));
-
-    // Set cache expiry (invalidate after 5 minutes)
-    setTimeout(
-      () => {
-        achievementCache.delete(cacheKey);
-      },
-      5 * 60 * 1000
-    );
-  }
-
-  return achievementCache.get(cacheKey)!;
 }
 
 export const GET: APIRoute = async ({ params }) => {
@@ -237,11 +220,7 @@ export const GET: APIRoute = async ({ params }) => {
     const t = useTranslations(fallbackLang);
 
     return new Response(
-      JSON.stringify(
-        createErrorResponse(t("errors.api.invalidLanguage"), "INVALID_LANGUAGE", {
-          providedLang: langParam,
-        })
-      ),
+      JSON.stringify(createErrorResponse(t("errors.api.invalidLanguage"), "INVALID_LANGUAGE")),
       {
         status: HTTP_STATUS.BAD_REQUEST,
         headers: JSON_HEADERS,
@@ -254,8 +233,8 @@ export const GET: APIRoute = async ({ params }) => {
   const t = useTranslations(lang);
 
   try {
-    // Retrieve all achievements using memoized function for performance
-    const achievements = await getMemoizedAchievements(lang);
+    // Retrieve all achievements
+    const achievements = await getAllAchievements(lang);
 
     // Return achievements with 200 status
     const response: AchievementsResponse = {
@@ -269,21 +248,26 @@ export const GET: APIRoute = async ({ params }) => {
     });
   } catch (error: unknown) {
     // Create typed error for better handling
-    const typedError = isAchievementFetchError(error)
-      ? error // Already the right type
-      : error instanceof Error
+    const typedError =
+      error instanceof Error
         ? new AchievementFetchError(`Error retrieving achievements: ${error.message}`, lang, error)
         : new AchievementFetchError("Unknown error retrieving achievements", lang, error);
 
     // Log error for debugging with proper error information including structured data
-    console.error(typedError.toLogFormat());
+    console.error({
+      name: typedError.name,
+      message: typedError.message,
+      language: typedError.languageCode,
+      code: typedError.errorCode,
+      cause:
+        typedError.cause instanceof Error
+          ? { message: typedError.cause.message, name: typedError.cause.name }
+          : typedError.cause,
+      timestamp: new Date().toISOString(),
+    });
 
     // Return error response with 500 status
-    const errorResponse = createErrorResponse(
-      t("errors.achievements.fetch"),
-      typedError.errorCode,
-      { timestamp: new Date().toISOString() }
-    );
+    const errorResponse = createErrorResponse(t("errors.achievements.fetch"), typedError.errorCode);
 
     return new Response(JSON.stringify(errorResponse), {
       status: HTTP_STATUS.INTERNAL_SERVER_ERROR,
