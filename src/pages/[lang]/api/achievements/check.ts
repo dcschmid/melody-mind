@@ -10,18 +10,16 @@
  *
  * Route: POST /[lang]/api/achievements/check
  *
- * URL Parameters:
- * - lang: The language code for i18n translations (e.g., 'en', 'de')
+ * @param {Object} context - Astro API route context
+ * @param {Request} context.request - Incoming HTTP request
+ * @param {Object} context.params - URL parameters
+ * @param {SupportedLanguage} context.params.lang - Language code for i18n
  *
- * Request Body:
- * - gameState: Game status after completion
- * - isPerfectGame: Whether it was a perfect game (all answers correct)
+ * @returns {Promise<Response>} HTTP response with achievement check results or error
  *
- * Response:
- * - 200: Achievements successfully checked (returns unlocked/updated achievements)
- * - 400: Invalid request (missing or malformed parameters)
- * - 401: Not authenticated (user not logged in)
- * - 500: Server error during achievement check
+ * @throws {AuthenticationError} When user is not authenticated
+ * @throws {ValidationError} When request data is invalid
+ * @throws {ServerError} When an unexpected server error occurs
  *
  * @example
  * // Example request:
@@ -29,10 +27,26 @@
  *   method: 'POST',
  *   headers: { 'Content-Type': 'application/json' },
  *   body: JSON.stringify({
- *     gameState: { score: 450, correctAnswers: 9, totalRounds: 10 },
+ *     gameState: {
+ *       score: 450,
+ *       correctAnswers: 9,
+ *       totalQuestions: 10,
+ *       roundIndex: 9,
+ *       currentQuestion: null
+ *     },
  *     isPerfectGame: false
  *   })
  * });
+ *
+ * // Example success response:
+ * {
+ *   "success": true,
+ *   "timestamp": "2025-05-17T14:32:45.123Z",
+ *   "data": {
+ *     "unlockedAchievements": [...],
+ *     "updatedAchievements": [...]
+ *   }
+ * }
  */
 import type { APIRoute } from "astro";
 
@@ -51,6 +65,63 @@ import {
 } from "../../../../types/api.ts";
 import type { GameState } from "../../../../types/game.ts";
 import { useTranslations } from "../../../../utils/i18n.ts";
+
+/**
+ * Creates a strongly typed user ID from a string
+ * Helps ensure type safety by validating the input format
+ *
+ * @param {string} id - The raw user ID string
+ * @returns {UserId} Properly typed user ID
+ * @throws {ValidationError} If the ID format is invalid
+ */
+function createUserId(id: string): UserId {
+  // Umfassendere ID-Validierung mit Musterprüfung
+  if (!id || typeof id !== "string") {
+    throw new ValidationError("User ID must be a non-empty string");
+  }
+
+  // Mindestlänge und Formatvalidierung (einfaches Beispiel - anpassbar an tatsächliche ID-Format)
+  if (id.length < 5 || !/^[a-zA-Z0-9_-]+$/.test(id)) {
+    throw new ValidationError("Invalid user ID format");
+  }
+
+  // Cast to branded type with confidence after validation
+  return id as UserId;
+}
+
+/**
+ * Enhanced type guard for validating GameState objects
+ *
+ * @param {unknown} value - The value to check
+ * @returns {value is GameState} True if value is a valid GameState
+ */
+function isValidGameState(value: unknown): value is GameState {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+
+  // Überprüfe, ob die erforderlichen Eigenschaften vorhanden sind
+  if (
+    !(
+      "score" in value &&
+      "correctAnswers" in value &&
+      "roundIndex" in value &&
+      "currentQuestion" in value
+    )
+  ) {
+    return false;
+  }
+
+  const state = value as Partial<GameState>;
+
+  return (
+    typeof state.score === "number" &&
+    typeof state.correctAnswers === "number" &&
+    typeof state.roundIndex === "number" &&
+    (state.currentQuestion === null ||
+      (typeof state.currentQuestion === "object" && state.currentQuestion !== null))
+  );
+}
 
 export const POST: APIRoute = async ({ request, params }) => {
   // Extract language from URL parameters for localized messages
@@ -80,18 +151,18 @@ export const POST: APIRoute = async ({ request, params }) => {
       throw new ValidationError(t("errors.invalidRequest", { error: errorMessage }));
     }
 
-    // Validate parameters with strong type checking
+    // Validate parameters with strong type checking using custom type guard
     const { gameState, isPerfectGame } = body;
 
-    if (!gameState || typeof gameState !== "object" || typeof isPerfectGame !== "boolean") {
+    if (!isValidGameState(gameState) || typeof isPerfectGame !== "boolean") {
       throw new ValidationError(t("errors.invalidParameters"));
     }
 
-    // Cast the user ID to our branded type for type safety
-    const userId = user.id as unknown as UserId;
+    // Create properly typed UserId instead of unsafe casting
+    const userId = createUserId(user.id);
 
-    // Check achievements with strong typing
-    const result = await checkAchievementsAfterGame(userId, gameState as GameState, isPerfectGame);
+    // Check achievements with strong typing - no need for casting now
+    const result = await checkAchievementsAfterGame(userId, gameState, isPerfectGame);
 
     // Return successful response with typed response format
     const successResponse: AchievementCheckSuccessResponse = {
@@ -117,8 +188,16 @@ export const POST: APIRoute = async ({ request, params }) => {
       return error.toResponse();
     }
 
-    // Log error for debugging
-    console.error(t("errors.achievements.log"), error);
+    // More detailed error handling with structured logging
+    const errorDetails = {
+      timestamp: new Date().toISOString(),
+      type: error instanceof Error ? error.constructor.name : typeof error,
+      message: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+    };
+
+    // Log error for debugging with structured information
+    console.error(t("errors.achievements.log"), errorDetails);
 
     // For unknown errors, create a generic server error
     const serverError = new ServerError(t("errors.achievements.check"));

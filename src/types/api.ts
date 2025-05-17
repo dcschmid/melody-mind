@@ -5,6 +5,9 @@
  * Includes branded types, response interfaces, and error types.
  */
 
+import type { Achievement } from "./achievement.ts";
+import type { GameState } from "./game.ts";
+
 /**
  * Branded type for User ID to prevent type confusion with regular strings
  * This improves type safety by making user IDs distinct from other string values
@@ -59,23 +62,29 @@ export interface ApiErrorResponse extends ApiResponse {
 
 /**
  * Achievement check request body interface
+ *
+ * @since 3.1.0
+ * @category API
  */
 export interface AchievementCheckRequest {
   /** Game state containing player performance data */
-  gameState: unknown;
+  gameState: GameState;
   /** Whether the player achieved a perfect score */
   isPerfectGame: boolean;
 }
 
 /**
  * Achievement check success response
+ *
+ * @since 3.1.0
+ * @category API
  */
 export interface AchievementCheckSuccessResponse
   extends ApiSuccessResponse<{
     /** List of newly unlocked achievements */
-    unlockedAchievements: unknown[];
+    unlockedAchievements: Achievement[];
     /** List of achievements with updated progress */
-    updatedAchievements: unknown[];
+    updatedAchievements: Achievement[];
   }> {
   /** Timestamp when achievements were checked */
   timestamp: Date;
