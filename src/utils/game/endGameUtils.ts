@@ -98,7 +98,7 @@ export interface EndGameUI {
 async function saveGameResult(config: EndGameConfig): Promise<string> {
   try {
     // Erstelle das Datenpaket für die API
-    const gameData: GameResultData = {
+    const gameData: any = {
       userId: config.userId,
       categoryName: config.categoryName,
       difficulty: config.difficulty,

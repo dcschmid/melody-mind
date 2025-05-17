@@ -21,7 +21,7 @@ type Difficulty = "easy" | "medium" | "hard";
 /**
  * Interface for a question object with required properties
  */
-interface Question {
+export interface Question {
   /** The question text that will be displayed to the user */
   question: string;
   /** Array of possible answer options */

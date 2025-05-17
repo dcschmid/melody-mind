@@ -27,7 +27,12 @@ const lang = String(getLangFromUrl(Astro.url));
 const t = useTranslations(String(lang));
 ---
 
-<div class="auth-form-container" aria-live="polite">
+<div
+  class="auth-form-container"
+  aria-live="polite"
+  id="verification-container"
+  data-verification-token={token}
+>
   <!-- Loading state -->
   <div id="loadingState" class="py-8 text-center" role="status">
     <div
@@ -96,7 +101,7 @@ const t = useTranslations(String(lang));
   </div>
 </div>
 
-<script define:vars={{ token }}>
+<script is:inline>
   /**
    * Display the appropriate state for email verification
    *
@@ -118,12 +123,20 @@ const t = useTranslations(String(lang));
    */
   async function verifyEmail() {
     try {
+      // Get token from a data attribute with more specific selector
+      const container = document.getElementById("verification-container");
+      const token = container?.getAttribute("data-verification-token");
+
+      if (!token) {
+        showState("error");
+        return;
+      }
+
       // API call to verify email with multilingual route
       const currentLang = document.documentElement.lang || "de";
       const response = await fetch(
         `/${currentLang}/api/auth/verify-email?token=${encodeURIComponent(token)}`
       );
-      const data = await response.json();
 
       if (response.ok) {
         // Successful verification
@@ -132,7 +145,7 @@ const t = useTranslations(String(lang));
         // Error during verification
         showState("error");
       }
-    } catch (error) {
+    } catch {
       // Network error or other issues
       showState("error");
     }
