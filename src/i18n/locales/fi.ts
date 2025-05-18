@@ -81,6 +81,7 @@ export default {
   "auth.email_verification.resend": "Lähetä vahvistuslinkki uudelleen",
   "auth.email_verification.success": "Sähköposti vahvistettu onnistuneesti",
   "auth.email_verification.error": "Sähköpostin vahvistus epäonnistui",
+  "auth.email_verification.login": "Takaisin Kirjaudu sisään -näkymään",
 
   // Salasanan validointi
   "auth.password.requirements": "Salasanavaatimukset:",

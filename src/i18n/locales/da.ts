@@ -80,6 +80,7 @@ export default {
   "auth.email_verification.resend": "Send bekræftelseslink igen",
   "auth.email_verification.success": "E-mail bekræftet succesfuldt",
   "auth.email_verification.error": "E-mailbekræftelse mislykkedes",
+  "auth.email_verification.login": "Tilbage til Login",
 
   // Adgangskodevalidering
   "auth.password.requirements": "Adgangskodekrav:",
