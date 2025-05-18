@@ -80,6 +80,7 @@ export default {
   "auth.email_verification.resend": "Skicka verifieringslänk igen",
   "auth.email_verification.success": "E-post verifierad",
   "auth.email_verification.error": "E-postverifiering misslyckades",
+  "auth.email_verification.login": "Tillbaka till Logga in",
 
   // Lösenordsvalidering
   "auth.password.requirements": "Lösenordskrav:",

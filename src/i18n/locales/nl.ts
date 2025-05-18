@@ -80,6 +80,7 @@ export default {
   "auth.email_verification.resend": "Verificatielink opnieuw verzenden",
   "auth.email_verification.success": "E-mail succesvol geverifieerd",
   "auth.email_verification.error": "E-mailverificatie mislukt",
+  "auth.email_verification.login": "Terug naar Inloggen",
 
   // Wachtwoordvalidatie
   "auth.password.requirements": "Wachtwoordvereisten:",

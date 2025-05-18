@@ -79,6 +79,7 @@ export default {
   "auth.email_verification.resend": "Resend verification link",
   "auth.email_verification.success": "Email verified successfully",
   "auth.email_verification.error": "Email verification failed",
+  "auth.email_verification.login": "Back to Login",
 
   // Password Validation
   "auth.password.requirements": "Password requirements:",
