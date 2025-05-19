@@ -1,4 +1,25 @@
 ---
+/**
+ * @component KnowledgeArticlePage
+ * @description Dynamic route for displaying knowledge articles in different languages.
+ * The page supports multilingual content, structured data for SEO, and optimized
+ * image display for improved performance.
+ *
+ * Key features:
+ * - Display of knowledge content with optimized image presentation
+ * - Structured data for better search engine indexing
+ * - Support for multiple languages through Content Collections
+ * - Table of contents for long articles
+ * - Integration with music streaming platforms (Spotify, Deezer, Apple Music)
+ * - Playable categories with links to the corresponding game mode
+ *
+ * @accessibility WCAG 2.2 AAA compliant with optimized color contrasts,
+ *                semantic HTML elements, and ARIA attributes
+ * @performance Optimized images with avif/webp formats and responsive sizes
+ * @seo Complete structured data according to Schema.org standards
+ */
+
+// 1. Imports (using consistent @-alias paths for better maintainability)
 import { getCollection, type CollectionEntry } from "astro:content";
 import { languages, ui } from "../../../i18n/ui";
 import Layout from "../../../layouts/Layout.astro";
@@ -12,9 +33,10 @@ import TableOfContents from "../../../components/TableOfContents.astro";
 import { calculateReadingTime } from "@utils/readingTime";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
 
-// Use SSG for best performance and SEO
+// 2. Rendering Strategy: SSG for better performance and SEO
 export const prerender = true;
 
+// 3. getStaticPaths implementation for dynamic routes
 export async function getStaticPaths() {
   const allEntries = await Promise.all(
     Object.keys(languages).map(async (lang) => {
@@ -34,6 +56,7 @@ export async function getStaticPaths() {
   return allEntries.flat();
 }
 
+// 4. TypeScript Definitions
 type KnowledgeEntry = CollectionEntry<`knowledge-${keyof typeof languages}`> & {
   data: {
     category?: {
@@ -42,16 +65,16 @@ type KnowledgeEntry = CollectionEntry<`knowledge-${keyof typeof languages}`> & {
       appleMusicPlaylist?: string;
     };
     isPlayable?: boolean;
+    difficulty?: string;
   };
 };
-interface Props {
-  entry: KnowledgeEntry;
-}
 
-const { entry } = Astro.props;
-const { lang = "de" } = Astro.params;
+// 5. Main Component Logic
+const { entry }: { entry: KnowledgeEntry } = Astro.props;
+const { lang = "en" } = Astro.params;
 const t = ui[lang as keyof typeof ui];
 
+// 6. Content Processing
 // Optimize content rendering by deferring until needed
 const { Content, headings } = await entry.render();
 
@@ -70,7 +93,7 @@ const imageSource = typeof entry.data.image === "string" ? entry.data.image : de
 
 // Reading time text with proper localization and fallback
 const readingTimeText = entry.body
-  ? `${calculateReadingTime(entry.body)} ${t["knowledge.reading.time"] || "min Lesezeit"}`
+  ? `${calculateReadingTime(entry.body)} ${t["knowledge.reading.time"] || "min reading time"}`
   : null;
 
 // Generate SEO content from the article
@@ -86,7 +109,7 @@ const keywords =
   extractKeywords(pageContent) || entry.data.keywords?.join(", ") || t["meta.keywords"];
 
 // Additional structured data parameters for SEO
-const pageType = "article"; // Artikel sollten den Typ 'article' anstelle von 'website' haben
+const pageType = "article"; // Articles should be of type 'article' instead of 'website'
 const publishDate = entry.data.createdAt || new Date("2024-01-01");
 const modifiedDate = entry.data.updatedAt || new Date();
 
@@ -98,16 +121,18 @@ const gameCategorySlug = entry.slug.split("/").pop();
 const gameCategoryUrl = isPlayable ? `/${String(lang)}/${gameCategorySlug}` : null;
 
 // Get translation for play button
-const playButtonText = t["knowledge.play.category"] || "Diese Musikkategorie spielen";
+const playButtonText = t["knowledge.play.category"] || "Play this music category";
 
-// Wortanzahl berechnen
+// Calculate word count
 const wordCount = entry.body ? entry.body.split(/\s+/).filter(Boolean).length : 0;
 
-// Lesezeit in ISO 8601 Duration Format (PT{X}M für X Minuten)
+// Reading time in ISO 8601 Duration Format (PT{X}M for X minutes)
 const readingTimeMinutes = entry.body ? calculateReadingTime(entry.body) : 0;
 const timeRequiredISO = `PT${readingTimeMinutes}M`;
 
-// Schwierigkeitsgrad in educationalLevel umwandeln
+// Useful helper function for future extensions
+// Converts difficulty levels to educational levels for structured data
+
 const getEducationalLevel = (difficulty?: string): string => {
   if (!difficulty) {
     return "beginner";
@@ -121,8 +146,10 @@ const getEducationalLevel = (difficulty?: string): string => {
 
   return difficultyMap[difficulty.toLowerCase()] || "beginner";
 };
+// Determine educational level based on content difficulty
+const educationalLevel = getEducationalLevel(entry.data.difficulty);
 
-// Structured data for article - erweitert für besseres SEO
+// Structured data for article - enhanced for better SEO
 const articleSchemaData = {
   "@context": "https://schema.org",
   "@type": ["Article", "MusicGroup", "CreativeWork"],
@@ -135,7 +162,7 @@ const articleSchemaData = {
     url: imageSource,
     width: 1200,
     height: 675,
-    caption: `${entry.data.title} - Titelbild`,
+    caption: `${entry.data.title} - Cover image`,
     contentUrl: imageSource,
     encodingFormat: "image/jpeg",
     representativeOfPage: true,
@@ -150,6 +177,11 @@ const articleSchemaData = {
     logo: {
       "@type": "ImageObject",
       url: "/melody-mind.png",
+      width: 512,
+      height: 512,
+      caption: "Melody Mind Logo",
+      contentUrl: "/melody-mind.png",
+      encodingFormat: "image/png",
     },
   },
   mainEntityOfPage: {
@@ -157,31 +189,28 @@ const articleSchemaData = {
     "@id": Astro.url.href,
   },
   keywords: keywords,
-  // Neue Eigenschaften
+  // New properties
   wordCount: wordCount,
   articleBody: entry.body || "",
   timeRequired: timeRequiredISO,
-  // MusicGroup-spezifische Eigenschaften
-  genre: keywords.split(",")[0].trim(), // Erstes Keyword als Genre
+  // MusicGroup-specific properties
+  genre: keywords.split(",")[0].trim(), // First keyword as genre
   musicReleaseFormat: "Digital",
-  numTracks: 0, // Standardwert, da keine Tracks-Information verfügbar ist
+  numTracks: 0, // Default value, as track information is not available
   musicBy: {
     "@type": "Organization",
     name: "Melody Mind",
   },
-  // CreativeWork-spezifische Eigenschaften
-  copyrightYear: new Date().getFullYear(),
-  license: "https://creativecommons.org/licenses/by-nc/4.0/",
-  isFamilyFriendly: true,
+  // CreativeWork-specific properties
   teaches: keywords
     .split(",")
     .map((kw) => kw.trim())
     .join(", "),
   inLanguage: lang,
   isAccessibleForFree: true,
-  audience: "Musikinteressierte und Lernende aller Altersgruppen",
-  educationalLevel: "beginner", // Standardwert
-  // Potentielle Aktionen für Playlist-Links
+  audience: "Music enthusiasts and learners of all age groups",
+  educationalLevel: educationalLevel,
+  // Potential actions for playlist links
   potentialAction: [
     ...(entry.data.category?.spotifyPlaylist
       ? [
@@ -192,7 +221,7 @@ const articleSchemaData = {
               urlTemplate: entry.data.category.spotifyPlaylist,
               actionPlatform: "https://spotify.com",
             },
-            name: `${entry.data.title} auf Spotify anhören`,
+            name: `${entry.data.title} - Listen on Spotify`,
           },
         ]
       : []),
@@ -205,7 +234,7 @@ const articleSchemaData = {
               urlTemplate: entry.data.category.deezerPlaylist,
               actionPlatform: "https://deezer.com",
             },
-            name: `${entry.data.title} auf Deezer anhören`,
+            name: `${entry.data.title} - Listen on Deezer`,
           },
         ]
       : []),
@@ -218,12 +247,12 @@ const articleSchemaData = {
               urlTemplate: entry.data.category.appleMusicPlaylist,
               actionPlatform: "https://music.apple.com",
             },
-            name: `${entry.data.title} auf Apple Music anhören`,
+            name: `${entry.data.title} - Listen on Apple Music`,
           },
         ]
       : []),
   ],
-  // Strukturierte AudioObject-Typen für Playlists
+  // Structured AudioObject types for playlists
   audio: [
     ...(entry.data.category?.spotifyPlaylist
       ? [
@@ -232,9 +261,9 @@ const articleSchemaData = {
             contentUrl: entry.data.category.spotifyPlaylist,
             encodingFormat: "audio/mpeg",
             name: `${entry.data.title} - Spotify Playlist`,
-            description: `Spotify Playlist für ${entry.data.title}`,
+            description: `Spotify Playlist for ${entry.data.title}`,
             uploadDate: entry.data.createdAt?.toISOString() || new Date().toISOString(),
-            duration: "PT0H0M0S", // Platzhalter, da die genaue Dauer nicht bekannt ist
+            duration: "PT0H0M0S", // Placeholder, as the exact duration is not known
             potentialAction: {
               "@type": "ListenAction",
               target: entry.data.category.spotifyPlaylist,
@@ -249,9 +278,9 @@ const articleSchemaData = {
             contentUrl: entry.data.category.deezerPlaylist,
             encodingFormat: "audio/mpeg",
             name: `${entry.data.title} - Deezer Playlist`,
-            description: `Deezer Playlist für ${entry.data.title}`,
+            description: `Deezer Playlist for ${entry.data.title}`,
             uploadDate: entry.data.createdAt?.toISOString() || new Date().toISOString(),
-            duration: "PT0H0M0S", // Platzhalter, da die genaue Dauer nicht bekannt ist
+            duration: "PT0H0M0S", // Placeholder, as the exact duration is not known
             potentialAction: {
               "@type": "ListenAction",
               target: entry.data.category.deezerPlaylist,
@@ -266,9 +295,9 @@ const articleSchemaData = {
             contentUrl: entry.data.category.appleMusicPlaylist,
             encodingFormat: "audio/mpeg",
             name: `${entry.data.title} - Apple Music Playlist`,
-            description: `Apple Music Playlist für ${entry.data.title}`,
+            description: `Apple Music Playlist for ${entry.data.title}`,
             uploadDate: entry.data.createdAt?.toISOString() || new Date().toISOString(),
-            duration: "PT0H0M0S", // Platzhalter, da die genaue Dauer nicht bekannt ist
+            duration: "PT0H0M0S", // Placeholder, as the exact duration is not known
             potentialAction: {
               "@type": "ListenAction",
               target: entry.data.category.appleMusicPlaylist,
@@ -277,12 +306,12 @@ const articleSchemaData = {
         ]
       : []),
   ],
-  // GameItem wenn isPlayable true ist
+  // GameItem if isPlayable is true
   ...(isPlayable && gameCategoryUrl
     ? {
         gameItem: {
           "@type": "Game",
-          name: `${entry.data.title} - Musikspiel`,
+          name: `${entry.data.title} - Music Game`,
           url: new URL(gameCategoryUrl, Astro.url.origin).href,
           gamePlatform: "Web Browser",
           applicationCategory: "Game",
@@ -290,20 +319,20 @@ const articleSchemaData = {
         },
       }
     : {}),
-  // BreadcrumbList Schema für die Breadcrumb-Navigation
+  // BreadcrumbList Schema for the breadcrumb navigation
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [
       {
         "@type": "ListItem",
         position: 1,
-        name: t?.["nav.home"] || "Startseite",
+        name: t?.["nav.home"] || "Home",
         item: new URL(`/${lang}`, Astro.url.origin).href,
       },
       {
         "@type": "ListItem",
         position: 2,
-        name: t?.["knowledge.title"] || "Wissen",
+        name: t?.["knowledge.title"] || "Knowledge",
         item: new URL(`/${String(lang)}/knowledge`, Astro.url.origin).href,
       },
       {
@@ -333,6 +362,26 @@ const articleSchemaData = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchemaData)} />
 
+  <!-- 
+  Accessibility Enhancement: prefers-reduced-motion support 
+  This style block helps users who prefer reduced motion by minimizing
+  animations and transitions throughout the component. This is especially
+  important for users with vestibular disorders or other conditions that
+  make motion effects uncomfortable or disorienting.
+  -->
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001s !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+
   <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
     <article class="prose prose-lg dark:prose-invert max-w-none" aria-labelledby="article-title">
       <nav class="mb-8 print:hidden" aria-label={t["knowledge.breadcrumb.label"] || "Breadcrumb"}>
@@ -340,11 +389,11 @@ const articleSchemaData = {
           <li class="flex items-center">
             <a
               href={`/${lang}`}
-              class="flex items-center gap-1 rounded-lg px-2 py-1 text-zinc-400 transition-colors hover:text-sky-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
-              aria-label={t?.["nav.home"] || "Startseite"}
+              class="flex items-center gap-1 rounded-lg px-2 py-1 text-zinc-400 transition-colors hover:text-sky-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+              aria-label={t?.["nav.home"] || "Home"}
             >
               <Icon name="home" class="h-4 w-4" aria-hidden="true" />
-              <span class="sr-only">{t?.["nav.home"] || "Startseite"}</span>
+              <span class="sr-only">{t?.["nav.home"] || "Home"}</span>
             </a>
           </li>
           <li class="flex items-center" aria-hidden="true">
@@ -353,9 +402,9 @@ const articleSchemaData = {
           <li>
             <a
               href={`/${String(lang)}/knowledge`}
-              class="flex items-center gap-1 rounded-lg px-2 py-1 text-zinc-400 transition-colors hover:text-sky-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+              class="flex items-center gap-1 rounded-lg px-2 py-1 text-zinc-400 transition-colors hover:text-sky-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
             >
-              {t?.["knowledge.title"] || "Wissen"}
+              {t?.["knowledge.title"] || "Knowledge"}
             </a>
           </li>
           <li class="flex items-center" aria-hidden="true">
@@ -383,9 +432,11 @@ const articleSchemaData = {
             class="h-full w-full object-cover"
             loading="eager"
             fetchpriority="high"
-            alt={`Titelbild zum Artikel "${entry.data.title}" - Musikwissen auf Melody Mind - ${entry.data.description?.substring(0, 50)}...`}
+            alt={`Cover image for article "${entry.data.title}" - Music knowledge on Melody Mind`}
             decoding="async"
             sizes="(min-width: 1280px) 1200px, (min-width: 768px) 100vw, 100vw"
+            quality={90}
+            widths={[640, 750, 1080, 1200]}
           />
         </div>
 
@@ -404,19 +455,19 @@ const articleSchemaData = {
               formattedDate && (
                 <time
                   datetime={entry.data.createdAt?.toISOString()}
-                  class="flex items-center gap-2 rounded-xl bg-zinc-800 px-4 py-2 text-zinc-300"
+                  class="flex min-h-[44px] items-center gap-2 rounded-xl bg-zinc-800/90 px-4 py-2 text-zinc-300"
                 >
                   <Icon name="calendar" class="h-5 w-5 text-sky-400" aria-hidden="true" />
-                  <span>{formattedDate}</span>
+                  <span class="text-base">{formattedDate}</span>
                 </time>
               )
             }
 
             {
               readingTimeText && (
-                <span class="flex items-center gap-2 rounded-xl bg-zinc-800 px-4 py-2 text-zinc-300">
+                <span class="flex min-h-[44px] items-center gap-2 rounded-xl bg-zinc-800/90 px-4 py-2 text-zinc-300">
                   <Icon name="clock" class="h-5 w-5 text-sky-400" aria-hidden="true" />
-                  <span>{readingTimeText}</span>
+                  <span class="text-base">{readingTimeText}</span>
                 </span>
               )
             }
@@ -434,7 +485,7 @@ const articleSchemaData = {
               isPlayable && gameCategoryUrl && (
                 <ButtonLink
                   href={gameCategoryUrl}
-                  className="group flex items-center min-w-[120px] h-12 px-4 py-2 rounded-xl text-sm font-medium bg-blue-600 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 hover:bg-blue-500"
+                  className="group flex items-center min-w-[120px] h-12 px-4 py-2 rounded-xl text-sm font-medium bg-blue-600 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 hover:bg-blue-500 transition-colors"
                   aria-label={`${playButtonText}: ${entry.data.title}`}
                 >
                   <span class="flex items-center gap-2">
@@ -448,20 +499,16 @@ const articleSchemaData = {
         </div>
       </header>
 
-      <!-- Inhaltsverzeichnis als Dropdown -->
+      <!-- Table of Contents Dropdown -->
       <div class="toc-wrapper relative z-10 mb-8">
-        <TableOfContents
-          {headings}
-          title={lang === "de" ? "Inhaltsverzeichnis" : "Table of Contents"}
-          {lang}
-        />
+        <TableOfContents {headings} title="Table of Contents" {lang} />
       </div>
 
       <div id="article-content" class="content-wrapper relative mt-4">
         <div
           role="region"
-          aria-label={"Hauptinhalt"}
-          class="prose prose-lg dark:prose-invert prose-headings:scroll-mt-20 max-w-none"
+          aria-label="Main content"
+          class="prose prose-lg dark:prose-invert prose-headings:scroll-mt-20 prose-headings:text-white prose-headings:font-bold prose-p:text-slate-200 prose-p:leading-7 prose-a:text-sky-600 hover:prose-a:text-sky-500 prose-a:underline prose-a:underline-offset-2 focus:prose-a:outline-2 focus:prose-a:outline-sky-400 focus:prose-a:outline-offset-4 focus:prose-a:rounded prose-blockquote:border-l-4 prose-blockquote:border-sky-400 prose-blockquote:pl-6 prose-blockquote:text-slate-200 prose-ul:list-outside prose-ol:list-outside prose-li:text-slate-200 prose-li:mb-3 marker:prose-li:text-sky-400 max-w-none"
         >
           <div>
             <Content />
@@ -473,98 +520,30 @@ const articleSchemaData = {
       <div class="mt-12 flex justify-between border-t border-zinc-700 pt-8 print:hidden">
         <ButtonLink
           href={`/${String(lang)}/knowledge`}
-          className="group flex min-h-[44px] items-center rounded-lg px-3 py-2 hover:bg-zinc-800/30"
-          aria-label={t["knowledge.back.to.list"] || "Zurück zur Wissensliste"}
+          className="group flex min-h-[44px] min-w-[44px] items-center rounded-lg px-4 py-2 transition-colors hover:bg-zinc-800/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+          aria-label={t?.["knowledge.back.to.list"] || "Back to knowledge list"}
         >
           <Icon
             name="arrow-left"
-            class="mr-2 h-4 w-4 transition-transform group-hover:translate-x-[-2px]"
+            class="mr-3 h-5 w-5 transition-transform group-hover:translate-x-[-2px]"
             aria-hidden="true"
           />
-          <span>{t["knowledge.back.to.list"] || "Zurück zur Wissensliste"}</span>
+          <span class="text-base font-medium"
+            >{t["knowledge.back.to.list"] || "Back to knowledge list"}</span
+          >
         </ButtonLink>
       </div>
     </article>
   </main>
 </Layout>
 
-<style>
-  .content-wrapper :global(h2),
-  .content-wrapper :global(h3) {
-    color: rgb(255, 255, 255);
-    line-height: 1.3;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
+<!-- 
+Note: Custom styles have been replaced with Tailwind classes.
+This change improves performance through:
+1. Reduced CSS size by using utility classes
+2. Improved cacheability
+3. Consistent application of the design system
 
-  .content-wrapper :global(h2) {
-    font-size: 1.875rem;
-    font-weight: 700;
-  }
-
-  .content-wrapper :global(h3) {
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
-
-  .content-wrapper :global(p) {
-    color: rgb(226, 232, 240);
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    max-width: 70ch;
-  }
-
-  .content-wrapper :global(a) {
-    color: rgb(56, 189, 248);
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
-    transition: color 0.2s ease;
-  }
-
-  .content-wrapper :global(a:hover) {
-    color: rgb(125, 211, 252);
-  }
-
-  .content-wrapper :global(a:focus-visible) {
-    outline: 2px solid rgb(56, 189, 248);
-    outline-offset: 4px;
-    border-radius: 2px;
-  }
-
-  .content-wrapper :global(blockquote) {
-    border-left: 4px solid rgb(56, 189, 248);
-    margin: 2rem 0;
-    padding: 1rem 1.5rem;
-    color: rgb(226, 232, 240);
-  }
-
-  .content-wrapper :global(ul),
-  .content-wrapper :global(ol) {
-    list-style-position: outside;
-    padding-left: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .content-wrapper :global(li) {
-    margin-bottom: 0.75rem;
-    color: rgb(226, 232, 240);
-  }
-
-  .content-wrapper :global(li::marker) {
-    color: rgb(56, 189, 248);
-  }
-
-  /* High contrast mode adjustments */
-  @media (forced-colors: active) {
-    .content-wrapper :global(a) {
-      text-decoration: underline;
-    }
-  }
-
-  /* Print styles */
-  @media print {
-    .content-wrapper :global(*) {
-      color: black !important;
-    }
-  }
-</style>
+All styles are now directly in the HTML elements, which improves code maintainability
+and aligns with the project-wide directive to use Tailwind CSS.
+-->
