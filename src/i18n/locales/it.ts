@@ -519,6 +519,8 @@ export default {
 
   // Chiavi aggiuntive del gioco di cronologia
   "game.chronology.meta.description": "Gioco di Cronologia Musicale:",
+  "game.meta.description.prefix": "Gioca",
+  "game.meta.description.suffix": "in livello di difficoltà",
   "game.meta.difficulty": "in livello di difficoltà",
   "accessibility.skip.to.game": "Passa al gioco",
   "game.info.badges": "Informazioni sul gioco",

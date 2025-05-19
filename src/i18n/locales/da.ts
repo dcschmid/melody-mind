@@ -510,6 +510,8 @@ export default {
 
   // Yderligere nøgler til kronologispil
   "game.chronology.meta.description": "Musik Kronologi Spil:",
+  "game.meta.description.prefix": "Spil",
+  "game.meta.description.suffix": "i sværhedsgrad",
   "game.meta.difficulty": "i sværhedsgrad",
   "accessibility.skip.to.game": "Spring til spil",
   "game.info.badges": "Spilinformation",

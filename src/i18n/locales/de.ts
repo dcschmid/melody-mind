@@ -527,6 +527,8 @@ export default {
 
   // Zusätzliche Chronologie-Spiel-Schlüssel
   "game.chronology.meta.description": "Musik-Chronologie Spiel:",
+  "game.meta.description.prefix": "Spiele",
+  "game.meta.description.suffix": "im Schwierigkeitsgrad",
   "game.meta.difficulty": "im Schwierigkeitsgrad",
   "accessibility.skip.to.game": "Zum Spiel springen",
   "game.info.badges": "Spielinformationen",
