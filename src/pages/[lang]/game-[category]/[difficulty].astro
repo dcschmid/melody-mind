@@ -1,4 +1,15 @@
 ---
+/**
+ * @component DifficultyBasedGamePage
+ * @description Renders a music trivia game page with questions based on selected category and difficulty level.
+ * This page implements full WCAG AAA accessibility standards, including keyboard navigation,
+ * screen reader support, reduced motion preferences, and high contrast mode.
+ *
+ * @prop {Object} categoryData - Data about the selected music category
+ * @prop {string} categoryData.headline - Display name of the category
+ * @prop {string} categoryData.slug - URL-safe identifier for the category
+ * @prop {string} lang - Language code for the page content
+ */
 import Layout from "@layouts/Layout.astro";
 import { getTitleBasedOnDifficulty } from "@utils/getTitleBasedOnDifficulty";
 import GameHeadline from "@components/Game/GameHeadline.astro";
@@ -12,21 +23,77 @@ import type { Difficulty as GameDifficulty } from "@utils/game/jokerUtils";
 import { Icon } from "astro-icon/components";
 import { requireAuth } from "../../../middleware/auth.js";
 
+// Use static site generation for optimal performance
+export const prerender = true;
+
+/**
+ * Generates static paths for all supported languages, categories, and difficulty levels.
+ * This ensures fast page loads as everything is pre-rendered at build time.
+ * @returns {Array} Array of path objects with params and props
+ */
+export async function getStaticPaths() {
+  // Define all supported languages for type safety
+  const supportedLanguages = ["de", "en", "es", "fr", "it", "pt", "da", "nl", "sv", "fi"] as const;
+
+  // Define available difficulty levels
+  const difficultyLevels = ["easy", "medium", "hard"] as const;
+
+  const paths = [];
+
+  for (const lang of supportedLanguages) {
+    // Load categories based on language with proper fallback mechanism
+    let categories;
+    try {
+      categories = await import(`@json/${lang}_categories.json`);
+    } catch {
+      // Fallback to default language if the specific language file doesn't exist
+      categories = await import(`@json/en_categories.json`);
+    }
+
+    // Create a path for each category and difficulty combination
+    for (const categoryData of categories.default) {
+      for (const difficulty of difficultyLevels) {
+        paths.push({
+          params: {
+            lang,
+            category: categoryData.slug,
+            difficulty,
+          },
+          props: {
+            categoryData,
+            lang,
+          },
+        });
+      }
+    }
+  }
+
+  return paths;
+}
+
+// Types for route props
+interface Props {
+  categoryData: {
+    headline: string;
+    slug: string;
+  };
+  lang: string;
+}
+
+// Extract props and URL parameters
+const { categoryData: propsCategoryData } = Astro.props;
 const lang = String(getLangFromUrl(Astro.url));
 const t = useTranslations(lang);
 const { category, difficulty } = Astro.params;
 
-// Auth-Check: Prüfe, ob der Benutzer angemeldet ist
+// Auth check: Verify if the user is logged in
 const authResult = await requireAuth(Astro.request);
-if (!authResult.authenticated && authResult.redirectToLogin) {
-  return authResult.redirectToLogin;
-}
 
 // Dynamic import of categories based on language
 let categories;
 try {
   categories = await import(`@json/${lang}_categories.json`);
-} catch (error) {
+} catch {
   // Fallback to default language if the specific language file doesn't exist
   categories = await import(`@json/en_categories.json`);
 }
@@ -34,16 +101,23 @@ try {
 // Default user for game functionality
 const user = { id: authResult.user?.id || "guest" };
 
-// Find current category data for display and metadata
-const currentCategoryData = categories.default.find((cat: any) => cat.slug === category);
+// Find current category data for display and metadata - first try from dynamic import, then from props
+const currentCategoryData =
+  categories.default.find((cat: { slug: string; headline: string }) => cat.slug === category) ||
+  propsCategoryData;
 
 const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 
 // Generate optimized meta description for SEO
-const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${currentCategoryData?.headline || ""} ${t("game.meta.description.suffix") || "im Schwierigkeitsgrad"} ${t(`difficulty.${String(difficulty)}`) || String(difficulty)}`;
+const metaDescription = `${t("game.meta.description.prefix")} ${currentCategoryData?.headline || ""} ${t("game.meta.description.suffix")} ${t(`difficulty.${String(difficulty)}`) || String(difficulty)}`;
 ---
 
-<Layout title={`${currentCategoryData?.headline}`} showHeader={false} showCoins={false}>
+<Layout
+  title={`${currentCategoryData?.headline} - ${playerTitle}`}
+  showHeader={false}
+  showCoins={false}
+  description={metaDescription}
+>
   <FeedbackOverlay />
 
   <EndOverlay
@@ -89,6 +163,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
     class="mx-auto w-full max-w-3xl rounded-xl border border-zinc-700 bg-gradient-to-b from-zinc-800 to-zinc-900 p-6 text-center opacity-100 shadow-xl transition-all duration-500 data-[hidden=true]:opacity-0 md:p-8"
     role="main"
     aria-label={t("game.area.label")}
+    aria-live="polite"
     data-categoryName={currentCategoryData?.headline}
     data-genre={String(category)}
     data-userID={user.id}
@@ -116,710 +191,186 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
   <div class="mt-6 flex justify-center">
     <Joker />
   </div>
-
-  <!-- WCAG information -->
-  <div class="mt-16 text-center" aria-live="polite">
-    <p class="flex items-center justify-center text-sm text-zinc-400">
-      <span class="mr-2 inline-block" role="img" aria-label="Barrierefreiheit">♿</span>
-      <span>{t("accessibility.wcag")}</span>
-    </p>
-  </div>
 </Layout>
 
 <script>
   /**
-   * Music Quiz Game Engine
+   * Game Logic Initialization and Accessibility Enhancements
    *
-   * This module provides the core functionality for the music trivia game, including:
-   * - Loading questions from language-specific files with fallback mechanisms
-   * - Managing user interactions and scoring logic
-   * - Tracking game state and progress through multiple rounds
-   * - Providing audio-visual feedback for user actions
-   * - Ensuring WCAG AAA compliance with full screen reader support
-   * - Supporting achievement tracking and seasonal events
-   *
-   * @module MelodyMindGameEngine
+   * This script initializes the game engine and handles all game logic.
+   * It also implements accessibility enhancements for modal dialogs and keyboard navigation.
    */
-  import { stopAudio } from "@utils/audio/audioControls";
-  import { ErrorHandler } from "@utils/error/errorHandler";
-  import { handleEndGame, restartGame } from "@utils/game/endGameUtils";
-  import { getRandomQuestion } from "@utils/game/getRandomQuestion";
-  import type { Album } from "@utils/game/getRandomQuestion";
-  import { handleAnswer } from "@utils/game/handleAnswerUtils";
-  import { JokerManager } from "@utils/game/jokerManager";
-  import { Difficulty } from "@utils/game/jokerUtils";
-  import { loadQuestion } from "@utils/game/loadQuestionUtils";
-  import { initializeMediaElements } from "@utils/game/mediaUtils";
-  import { getLangFromUrl, useTranslations } from "@utils/i18n";
-  import { QueueManager } from "@utils/queue/queueManager";
+  import { initGameEngine } from "../../../scripts/gameEngine.ts";
 
-  import { initAchievementEventSystem } from "../../../utils/achievements/achievementEvents.js";
+  // Initialize the game engine and accessibility features when the DOM is ready
+  document.addEventListener("astro:page-load", () => {
+    initGameEngine();
+    setupFocusTrap();
+  });
 
-  /**
-   * Retrieves current language based on URL and initializes translations
-   * @constant {string} lang - Two-letter language code extracted from URL
-   */
-  const lang = getLangFromUrl(new URL(window.location.pathname, window.location.origin));
-  const t = useTranslations(lang);
-
-  /**
-   * Configuration constants for number of rounds based on difficulty level
-   * @constant {Object} ROUNDS_PER_DIFFICULTY - Maps difficulty levels to question counts
-   */
-  const ROUNDS_PER_DIFFICULTY = {
-    [Difficulty.EASY]: 10,
-    [Difficulty.MEDIUM]: 15,
-    [Difficulty.HARD]: 20,
-  } as const;
-
-  /**
-   * Validates and normalizes the difficulty level from URL parameters
-   * Ensures the game always has a valid difficulty setting even with invalid input
-   *
-   * @param {string|null} diff - The difficulty string from URL parameters
-   * @returns {Difficulty} A validated difficulty level (defaulting to EASY if invalid)
-   */
-  const validateDifficulty = (diff: string | null): Difficulty => {
-    if (diff === "easy") {
-      return Difficulty.EASY;
-    }
-    if (diff === "medium") {
-      return Difficulty.MEDIUM;
-    }
-    if (diff === "hard") {
-      return Difficulty.HARD;
-    }
-    return Difficulty.EASY;
-  };
-
-  /**
-   * Interface for DOM elements needed by the game engine
-   * Provides type safety for DOM element references used throughout the game
-   *
-   * @interface GameElements
-   */
-  interface GameElements {
-    score: HTMLParagraphElement;
-    round: HTMLParagraphElement;
-    feedback: HTMLParagraphElement;
-    question: HTMLParagraphElement;
-    options: HTMLDivElement;
-    container: HTMLDivElement;
-    overlayCover: HTMLImageElement;
-    overlay: HTMLDivElement;
-    jokerButton: HTMLButtonElement;
-    jokerCounter: HTMLElement;
-    nextRoundButton: HTMLButtonElement;
-    restartButton: HTMLButtonElement;
-    loadingSpinner: HTMLElement;
+  // Ensure proper initialization on direct navigation
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      initGameEngine();
+      setupFocusTrap();
+    });
+  } else {
+    initGameEngine();
+    setupFocusTrap();
   }
 
   /**
-   * Caches DOM elements to avoid repeated queries and improve performance
-   * This pattern reduces DOM lookups and improves rendering efficiency
-   *
-   * @returns {GameElements} Object containing references to all required game DOM elements
+   * Sets up focus trapping for modal overlays to improve accessibility
+   * - Traps focus within the modal when open
+   * - Returns focus to trigger element when closed
+   * - Handles Escape key to close modal
    */
-  function cacheElements(): GameElements {
-    const elements = {
-      score: document.querySelector(".coinsCount") as HTMLParagraphElement,
-      round: document.querySelector(".round") as HTMLParagraphElement,
-      feedback: document.getElementById("feedback") as HTMLParagraphElement,
-      question: document.getElementById("question") as HTMLParagraphElement,
-      options: document.getElementById("options") as HTMLDivElement,
-      container: document.getElementById("question-container") as HTMLDivElement,
-      overlayCover: document.getElementById("overlay-cover") as HTMLImageElement,
-      overlay: document.getElementById("overlay") as HTMLDivElement,
-      jokerButton: document.getElementById("joker-button") as HTMLButtonElement,
-      jokerCounter: document.getElementById("joker-count") as HTMLElement,
-      nextRoundButton: document.getElementById("next-round-button") as HTMLButtonElement,
-      restartButton: document.getElementById("restart-button") as HTMLButtonElement,
-      loadingSpinner: document.getElementById("loading-spinner") as HTMLElement,
-    };
+  function setupFocusTrap(): void {
+    // Select all overlay and popup elements
+    const overlays = document.querySelectorAll<HTMLElement>(".overlay, .popup");
+    let previousFocus: Element | null = null;
 
-    return elements;
-  }
+    // Track which overlay is currently active
+    let activeOverlay: HTMLElement | null = null;
 
-  /**
-   * Main game initialization function
-   * Sets up the game state, loads questions, and handles game progression
-   *
-   * @async
-   * @param {GameElements} elements - Cached DOM elements required for the game
-   */
-  const initializeGame = async (elements: GameElements) => {
-    // Initialize Achievement Event System
-    try {
-      initAchievementEventSystem();
-      console.log("Achievement Event System initialized for Game Mode");
-    } catch (error) {
-      console.error("Error initializing Achievement Event System:", error);
-    }
+    // Add event listeners to each overlay
+    overlays.forEach((overlay) => {
+      // Create an array of focusable elements within the overlay
+      const focusableElements = overlay.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
 
-    // Start processing any queued operations
-    QueueManager.startProcessing();
+      const firstFocusableElement = focusableElements[0];
+      const lastFocusableElement = focusableElements[focusableElements.length - 1];
 
-    if (!elements.container) {
-      console.error("Game container element not found");
-      return;
-    }
+      // Store trigger elements that open this overlay
+      const openTriggers = document.querySelectorAll(`[data-opens="${overlay.id}"]`);
+      openTriggers.forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+          previousFocus = document.activeElement;
+          activeOverlay = overlay;
 
-    /**
-     * Extract game parameters from data attributes
-     * These attributes control game configuration and player identification
-     */
-    const category = elements.container.getAttribute("data-genre");
-    const userId = elements.container.getAttribute("data-userID");
-    const categoryName = elements.container.getAttribute("data-categoryName");
-    const difficulty = elements.container.getAttribute("data-difficulty");
+          // Set timeout to focus the first element after overlay is visible
+          setTimeout(() => {
+            if (firstFocusableElement) {
+              firstFocusableElement.focus();
+            }
+          }, 50);
+        });
+      });
 
-    /**
-     * Check for seasonal events based on current date
-     * This enables special achievements and themed content
-     */
-    const currentDate = new Date();
-    const month = currentDate.getMonth() + 1; // 1-12
-
-    // Examples of seasonal event detection
-    if (month === 12) {
-      window.currentEventId = "winter_2025";
-    } else if (month >= 6 && month <= 8) {
-      window.currentEventId = "summer_2025";
-    }
-
-    /**
-     * Initialize game state variables
-     * These track the player's progress and performance
-     */
-    let score = 0;
-    let correctAnswers = 0;
-    let roundIndex = 0;
-    const totalRounds =
-      ROUNDS_PER_DIFFICULTY[validateDifficulty(difficulty)] ?? ROUNDS_PER_DIFFICULTY.easy;
-
-    // Update UI with initial round
-    if (elements.round) {
-      elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
-    }
-
-    /**
-     * Load albums data for the selected category with language fallback
-     * Attempts to load in the user's language first, then falls back to German
-     *
-     * @type {Album[] | null} albums - Collection of album data for questions
-     */
-    let albums: Album[] | null = null;
-    try {
-      let albumsData;
-
-      try {
-        // Try to load albums for the current language first
-        const response = await fetch(`/json/genres/${String(lang)}/${String(category)}.json`);
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
+      // Handle focus trap with keyboard navigation
+      overlay.addEventListener("keydown", (e: KeyboardEvent) => {
+        // Close on Escape
+        if (e.key === "Escape") {
+          closeOverlay(overlay);
+          e.preventDefault();
+          return;
         }
 
-        albumsData = await response.json();
-      } catch (langError) {
-        // Fallback to German if the specific language file doesn't exist
-        console.log(`No albums found for ${lang}/${category}, falling back to German`);
-
-        const fallbackResponse = await fetch(`/json/genres/de/${category}.json`);
-
-        if (!fallbackResponse.ok) {
-          throw new Error(`HTTP error for fallback! Status: ${fallbackResponse.status}`);
+        // Only handle Tab key for trapping focus
+        if (e.key !== "Tab") {
+          return;
         }
 
-        albumsData = await fallbackResponse.json();
-      }
-
-      // Ensure albumsData is an array
-      if (!Array.isArray(albumsData)) {
-        console.error("Loaded albums data is not an array:", albumsData);
-        // If it's an object with an albums property that is an array, use that
-        if (albumsData && typeof albumsData === "object" && Array.isArray(albumsData.albums)) {
-          albumsData = albumsData.albums;
-        } else {
-          // Otherwise, initialize with an empty array
-          albumsData = [];
+        // If shift + tab and on first element, move to last element
+        if (e.shiftKey) {
+          if (document.activeElement === firstFocusableElement) {
+            lastFocusableElement.focus();
+            e.preventDefault();
+          }
         }
-      }
+        // If tab and on last element, move to first element
+        else {
+          if (document.activeElement === lastFocusableElement) {
+            firstFocusableElement.focus();
+            e.preventDefault();
+          }
+        }
+      });
 
-      albums = albumsData;
-
-      if (!albums?.length) {
-        throw new Error(t("error.no.albums.found"));
-      }
-    } catch (error) {
-      console.error("Error loading albums:", error);
-      ErrorHandler.handleApiError(error instanceof Error ? error : new Error(String(error)));
-      return;
-    }
-
-    let currentQuestion: null = null;
-
-    /**
-     * Initialize joker system based on the difficulty level
-     * The joker allows players to eliminate incorrect answers
-     */
-    const jokerManager = new JokerManager({
-      difficulty: validateDifficulty(difficulty) as Difficulty,
-      elements: {
-        jokerButton: elements.jokerButton,
-        jokerCounter: elements.jokerCounter,
-      },
+      // Find close buttons within overlay
+      const closeButtons = overlay.querySelectorAll("[data-closes]");
+      closeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          closeOverlay(overlay);
+        });
+      });
     });
 
     /**
-     * Initialize media players for audio feedback
-     * Provides sound effects for correct/incorrect answers
+     * Closes the overlay and returns focus to the previous element
+     * @param {HTMLElement} overlay - The overlay element to close
      */
-    const mediaElements = initializeMediaElements();
-    if (!mediaElements) {
-      console.error("Media elements could not be initialized");
-      return;
-    }
-
-    /**
-     * Handles the player's answer, updates score, and manages game progression
-     * Tracks performance for achievement system and provides feedback
-     *
-     * @param {any} option - The player's selected answer
-     * @param {any} correctAnswer - The correct answer for the question
-     * @param {object} currentQuestion - The current question object
-     * @param {object} album - The album associated with the current question
-     */
-    function handleAnswerWrapper(
-      option: any,
-      correctAnswer: any,
-      currentQuestion: { trivia: string },
-      album: { coverSrc: string; artist: string; album: string; year: string }
-    ) {
-      // Save answer time for achievement tracking and validate
-      const answerTime = Date.now() - (window.questionStartTime || Date.now());
-      // Ensure time is positive and realistic (max 60 seconds)
-      window.lastAnswerTime = Math.min(Math.max(0, answerTime), 60000);
-      window.lastAnswerCorrect = option === correctAnswer;
-
-      // Process the answer and update the score
-      score = handleAnswer({
-        option,
-        correctAnswer,
-        currentQuestion,
-        album,
-        elements: {
-          feedbackElement: elements.feedback,
-          scoreElement: elements.score,
-          overlayCover: elements.overlayCover,
-          overlay: elements.overlay,
-          mediaElements,
-        },
-        state: {
-          score,
-          roundIndex,
-          totalRounds,
-          roundElement: elements.round,
-        },
-      });
-
-      // Immediately update UI with visual feedback for correct answers
-      if (option === correctAnswer) {
-        correctAnswers++;
-        updateCoinsDisplay(score);
-      }
-
-      /**
-       * Setup handler for the next round button
-       * Controls game flow between questions and at game end
-       */
-      elements.nextRoundButton.onclick = function () {
-        stopAudio();
-        elements.overlay.classList.add("hidden");
-
-        if (roundIndex < totalRounds - 1) {
-          // Load next question if rounds remain
-          roundIndex++;
-
-          if (elements.round) {
-            elements.round.textContent = `${roundIndex + 1}/${totalRounds}`;
-          }
-
-          // Ensure albums is an array before calling getRandomQuestion
-          const safeAlbums = Array.isArray(albums) ? albums : [];
-
-          const newQuestion = getRandomQuestion(
-            safeAlbums,
-            validateDifficulty(difficulty),
-            totalRounds
-          );
-
-          if (newQuestion) {
-            loadNewQuestion(newQuestion.randomQuestion, newQuestion.randomAlbum);
-
-            if (elements.feedback) {
-              elements.feedback.textContent = "";
-            }
-          }
-        } else {
-          // End the game if all rounds are completed
-          endGame();
-        }
-      };
-    }
-
-    /**
-     * Updates the coin display with an animation for visual feedback
-     * Provides both visual and auditory feedback for screen readers
-     *
-     * @param {number} newScore - The new score to display
-     */
-    function updateCoinsDisplay(newScore: number) {
-      const coinsDisplay = document.getElementById("coins-display");
-      if (coinsDisplay) {
-        // Apply animation class for visual feedback
-        coinsDisplay.classList.add("coins-updated");
-        coinsDisplay.textContent = newScore.toString();
-
-        // Announce score change for screen readers
-        const announcement = document.createElement("div");
-        announcement.setAttribute("aria-live", "assertive");
-        announcement.classList.add("sr-only");
-        announcement.textContent = `New score: ${newScore} points`;
-        document.body.appendChild(announcement);
-
-        // Remove animation class and announcement after they complete
-        setTimeout(() => {
-          coinsDisplay.classList.remove("coins-updated");
-          announcement.remove();
-        }, 1500);
-      }
-    }
-
-    /**
-     * Handles the end of game, displays summary, and saves score
-     * Triggers achievement checks and displays final results
-     */
-    function endGame() {
-      const config = {
-        userId: userId || "",
-        categoryName: categoryName || "",
-        difficulty: validateDifficulty(difficulty) || "easy",
-        totalRounds,
-        correctAnswers,
-        score,
-        language: lang,
-
-        // Extended properties for achievement tracking
-        genreId: category || "", // Category/genre ID for genre_explorer
-        lastAnswerTime:
-          typeof window.lastAnswerTime === "number" ? window.lastAnswerTime : undefined, // Last answer time for quick_answer
-        lastAnswerCorrect:
-          typeof window.lastAnswerCorrect === "boolean" ? window.lastAnswerCorrect : undefined, // Whether the last answer was correct
-        eventId: window.currentEventId || undefined, // Event ID for seasonal_event
-
-        // Debug flag for achievement tests
-        debugAchievements: true,
-        endOfSession: true, // End of game session for game_series
-      };
-
-      const ui = {
-        showEndgamePopup: (score: number) => {
-          const popup = document.getElementById("endgame-popup");
-          const scoreElement = popup?.querySelector("#popup-score");
-
-          if (popup && scoreElement) {
-            scoreElement.textContent = score.toString();
-            popup.setAttribute("data-score", score.toString());
-            popup.classList.remove("hidden");
-          }
-        },
-      };
-
-      handleEndGame(config, ui, {
-        onError: (error) => {
-          ErrorHandler.handleSaveError(error, "score", {
-            userId: config.userId,
-            category: config.categoryName,
-          });
-        },
-      });
-    }
-
-    // Add event listener for restart button
-    elements.restartButton?.addEventListener("click", restartGame);
-
-    /**
-     * Loads and displays a new question in the UI
-     * Handles the transition between questions including animations
-     *
-     * @param {object} question - The question object to display
-     * @param {object} album - The album associated with the question
-     */
-    function loadNewQuestion(question: any, album: any) {
-      if (!question || !question.options) {
-        console.error(t("error.invalid.question"));
+    function closeOverlay(overlay: HTMLElement): void {
+      // Only proceed if this is the active overlay
+      if (activeOverlay !== overlay) {
         return;
       }
 
-      // Save start time for achievement tracking
-      window.questionStartTime = Date.now();
+      // Hide the overlay
+      overlay.classList.add("hidden");
 
-      currentQuestion = question;
-      jokerManager.setCurrentQuestion(question);
+      // Return focus to previous element
+      if (
+        previousFocus &&
+        "focus" in previousFocus &&
+        typeof (previousFocus as HTMLElement).focus === "function"
+      ) {
+        (previousFocus as HTMLElement).focus();
+      }
 
-      loadQuestion({
-        question,
-        album,
-        elements: {
-          questionContainer: elements.container,
-          spinner: elements.loadingSpinner,
-          questionElement: elements.question,
-          optionsContainer: elements.options,
-        },
-        handlers: {
-          handleAnswer: handleAnswerWrapper,
-        },
-        jokerState: jokerManager.getCurrentJokerState(),
-      });
+      // Reset active overlay
+      activeOverlay = null;
     }
 
-    /**
-     * Load the first question to start the game
-     * Initializes the game with the first random question
-     */
-    // Ensure albums is an array before calling getRandomQuestion
-    const safeAlbums = Array.isArray(albums) ? albums : [];
-
-    const initialQuestion = getRandomQuestion(
-      safeAlbums,
-      validateDifficulty(difficulty),
-      totalRounds
-    );
-
-    if (initialQuestion?.randomQuestion && initialQuestion?.randomAlbum) {
-      loadNewQuestion(initialQuestion.randomQuestion, initialQuestion.randomAlbum);
-    } else {
-      console.error(t("error.no.initial.question"));
-    }
-
-    /**
-     * Warn before leaving if there's unsaved data
-     * Prevents accidental data loss when navigating away
-     */
-    window.addEventListener("beforeunload", (e) => {
-      if (QueueManager.hasUnsavedData()) {
+    // Add global event listener for Escape key
+    document.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "Escape" && activeOverlay) {
+        closeOverlay(activeOverlay);
         e.preventDefault();
       }
     });
-
-    /**
-     * Clean up resources when the page unloads
-     * Ensures proper resource management and prevents memory leaks
-     */
-    const cleanup = () => {
-      stopAudio();
-      QueueManager.stopProcessing();
-      jokerManager.cleanup();
-      elements.restartButton?.removeEventListener("click", restartGame);
-    };
-
-    window.addEventListener("unload", cleanup);
-  };
-
-  /**
-   * Enhances accessibility for dynamically created content
-   * Adds proper ARIA labels and announcements for screen readers
-   * Ensures the game is fully accessible to all users
-   */
-  function enhanceAccessibility() {
-    // Add descriptive labels to option buttons when they receive focus
-    document.addEventListener("focusin", (e) => {
-      const target = e.target as HTMLElement;
-      if (!target || !(target instanceof HTMLElement)) {
-        return;
-      }
-
-      if (target.matches("#options button") && !target.getAttribute("aria-label")) {
-        const buttonText = target.textContent?.trim() || "";
-        target.setAttribute("aria-label", `Option: ${buttonText}`);
-      }
-    });
-
-    /**
-     * Use MutationObserver to track changes to the DOM for accessibility
-     * Updates ARIA attributes when content changes dynamically
-     */
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        const target = mutation.target as Element;
-        if (
-          mutation.type === "childList" &&
-          (target.id === "question" || target.id === "options")
-        ) {
-          // Update ARIA attributes when content changes
-          document.getElementById("question-container")?.setAttribute("aria-busy", "false");
-        }
-      });
-    });
-
-    // Start observing the document for changes
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
   }
-
-  /**
-   * Validates that all required DOM elements are present
-   * Ensures the game can run properly before initialization
-   *
-   * @param {GameElements} elements - The cached DOM elements
-   * @returns {boolean} Whether all required elements are available
-   */
-  function validateElements(elements: GameElements): boolean {
-    const requiredElements = ["score", "question", "options", "container"];
-
-    return requiredElements.every((key) => elements[key as keyof GameElements] !== null);
-  }
-
-  /**
-   * Initialize the game when the DOM is ready
-   * Main entry point for game initialization
-   */
-  document.addEventListener("DOMContentLoaded", () => {
-    const elements = cacheElements();
-    if (!validateElements(elements)) {
-      console.error("Required DOM elements not found");
-      return;
-    }
-
-    initializeGame(elements);
-    enhanceAccessibility();
-  });
 </script>
 
 <style is:global>
-  /* Diese Stile könnten später in utility classes umgesetzt werden */
-  .overlay.hidden {
-    @apply hidden;
+  /* Tailwind-compatible helper styles - limited use for specific functionality */
+
+  /* Overlay states */
+  .overlay.hidden,
+  .popup.hidden,
+  #question-container[data-hidden="true"] {
+    display: none;
   }
 
-  .popup.hidden {
-    @apply hidden;
-  }
-
-  /* Für ältere Browser, die data-hidden noch nicht unterstützen */
-  #question-container.hidden {
-    @apply opacity-0;
-  }
-
-  /* Disabled joker styling */
-  button[disabled] {
-    @apply cursor-not-allowed opacity-50;
-  }
-
-  /* High Contrast Mode Support */
-  @media (forced-colors: active) {
-    #question-container {
-      border: 2px solid CanvasText;
-    }
-
-    #options button {
-      border: 1px solid ButtonText;
-      forced-color-adjust: none;
-    }
-
-    #options button:focus-visible {
-      outline: 3px solid Highlight;
-    }
-
-    #question {
-      border-bottom: 1px solid CanvasText;
-    }
-
-    button[disabled] {
-      opacity: 0.6;
-    }
-  }
-
-  /* Respect reduced motion preferences */
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    ::before,
-    ::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-  }
-
-  /* Print Styles */
-  @media print {
-    #question-container {
-      break-inside: avoid;
-      border: 1px solid #000;
-      box-shadow: none;
-    }
-
-    #options button {
-      break-inside: avoid;
-      border: 1px solid #000;
-    }
-  }
-
-  /* Focus styles for better keyboard navigation */
-  :focus-visible {
-    outline: 3px solid #a855f7 !important;
-    outline-offset: 3px !important;
-  }
-
-  /* Animation für Coins-Aktualisierung */
-  .coins-updated {
-    animation: coinPulse 1s ease-in-out;
-    color: #fbbf24; /* Helleres Amber für bessere Sichtbarkeit */
-  }
-
-  @keyframes coinPulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.25);
-      color: #f59e0b;
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-
-  /* WCAG AAA Compliant Styles */
-
-  /* AAA-compliant font sizing and spacing */
-  #question {
-    font-size: 1.5rem; /* Large text for better readability */
-    line-height: 1.5; /* Improved line spacing for readability */
-    margin-bottom: 1.5rem;
-  }
-
-  /* Screen reader only content - completely hidden visually but available to screen readers */
+  /* Optimierte Zugänglichkeitsstile (WCAG AAA) mit Tailwind-Utilities */
   .sr-only {
-    position: absolute;
+    @apply absolute overflow-hidden whitespace-nowrap;
     width: 1px;
     height: 1px;
     padding: 0;
     margin: -1px;
-    overflow: hidden;
+    border: 0;
     clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
   }
 
-  /* Enhanced animations for coin update */
+  /* Münzaktualisierungsanimation mit reduzierter Bewegungsunterstützung */
   .coins-updated {
-    animation: coinPulseAAA 1.5s ease-in-out;
-    color: #fbbf24; /* Helleres Amber für bessere Sichtbarkeit */
+    color: rgb(251, 191, 36); /* Equivalent to amber-400 */
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .coins-updated {
+      animation: coinPulseAAA 1.5s ease-in-out;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .coins-updated {
+      text-decoration: underline;
+      animation: none;
+    }
   }
 
   @keyframes coinPulseAAA {
@@ -832,7 +383,7 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
     }
     30% {
       transform: scale(1.25);
-      color: #f59e0b;
+      color: rgb(245, 158, 11); /* text-amber-500 */
       text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
     }
     45% {
@@ -844,7 +395,15 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
     }
   }
 
-  /* Enhanced High Contrast Mode Support */
+  /* Erweiterte Fokus-Stile für bessere Tastaturnavigation */
+  :focus-visible {
+    outline: 3px solid #9f7aea; /* outline-purple-500 */
+    outline-offset: 4px;
+  }
+
+  /* Barrierefreiheitsoptimierungen für verschiedene Browser/Modi */
+
+  /* Forced Colors Mode für hohen Kontrast */
   @media (forced-colors: active) {
     #question-container {
       border: 3px solid CanvasText;
@@ -874,12 +433,29 @@ const metaDescription = `${t("game.meta.description.prefix") || "Spiele"} ${curr
     }
   }
 
-  /* Enhanced support for reduced motion */
+  /* Erweiterte Unterstützung für reduzierte Bewegung */
   @media (prefers-reduced-motion: reduce) {
-    .coins-updated {
-      animation: none;
-      color: #fbbf24;
-      text-decoration: underline;
+    *,
+    ::before,
+    ::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Druckstile für optimierte Druckausgabe */
+  @media print {
+    #question-container {
+      break-inside: avoid;
+      border: 1px solid black;
+      box-shadow: none;
+      max-height: 100% !important;
+    }
+
+    #options button {
+      break-inside: avoid;
+      border: 1px solid black;
     }
   }
 </style>

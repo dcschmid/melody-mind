@@ -507,6 +507,8 @@ export default {
 
   // Additional Chronology Game Keys
   "game.chronology.meta.description": "Music Chronology Game:",
+  "game.meta.description.prefix": "Play",
+  "game.meta.description.suffix": "in difficulty level",
   "game.meta.difficulty": "in difficulty level",
   "accessibility.skip.to.game": "Skip to game",
   "game.info.badges": "Game information",

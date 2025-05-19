@@ -513,6 +513,8 @@ export default {
 
   // Kronologiapelin lisäavaimet
   "game.chronology.meta.description": "Musiikkikronologiapeli:",
+  "game.meta.description.prefix": "Pelaa",
+  "game.meta.description.suffix": "vaikeustasolla",
   "game.meta.difficulty": "vaikeustasolla",
   "accessibility.skip.to.game": "Siirry peliin",
   "game.info.badges": "Pelitiedot",

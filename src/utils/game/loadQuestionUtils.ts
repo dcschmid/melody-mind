@@ -113,8 +113,8 @@ export function loadQuestion({
   // Reset joker state for the new question
   jokerState.jokerUsed = false;
 
-  // Short delay for better UX and to ensure DOM is ready
-  setTimeout(() => {
+  // Use requestAnimationFrame for better performance
+  requestAnimationFrame(() => {
     try {
       // Ensure question data is valid
       if (!question || typeof question !== "object") {
@@ -126,82 +126,98 @@ export function loadQuestion({
 
       // Update question display
       questionElement.textContent = questionText;
-      optionsContainer.innerHTML = "";
 
-      // Create shuffled options array using a synchronous Fisher-Yates shuffle algorithm
-      // instead of the asynchronous shuffleArray function
+      // Clear options container with performance optimization
+      while (optionsContainer.firstChild) {
+        optionsContainer.removeChild(optionsContainer.firstChild);
+      }
+
+      // Create shuffled options array using a more efficient Fisher-Yates shuffle
       const shuffledOptions = [...options];
       for (let i = shuffledOptions.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
       }
 
-      // Set accessibility attributes
-      questionContainer.setAttribute("role", "main");
-      questionContainer.setAttribute("aria-label", "Current game question");
-      questionElement.setAttribute("role", "heading");
-      questionElement.setAttribute("aria-level", "2");
-      optionsContainer.setAttribute("role", "radiogroup");
-      optionsContainer.setAttribute("aria-label", "Answer options");
+      // Set accessibility attributes - only set if they've changed
+      if (questionContainer.getAttribute("role") !== "main") {
+        questionContainer.setAttribute("role", "main");
+      }
 
-      // Create and append option buttons
-      createOptionButtons(
-        shuffledOptions,
-        optionsContainer,
-        handlers.handleAnswer,
-        question,
-        album
-      );
+      questionContainer.setAttribute("aria-label", "Current game question");
+
+      if (questionElement.getAttribute("role") !== "heading") {
+        questionElement.setAttribute("role", "heading");
+        questionElement.setAttribute("aria-level", "2");
+      }
+
+      if (optionsContainer.getAttribute("role") !== "radiogroup") {
+        optionsContainer.setAttribute("role", "radiogroup");
+        optionsContainer.setAttribute("aria-label", "Answer options");
+      }
+
+      // Create option buttons with DocumentFragment for better performance
+      const fragment = document.createDocumentFragment();
+      createOptionButtons(shuffledOptions, fragment, handlers.handleAnswer, question, album);
+
+      // Single DOM update for better performance
+      optionsContainer.appendChild(fragment);
 
       // Setup keyboard navigation for accessibility
       setupKeyboardNavigation(optionsContainer, question, album, handlers.handleAnswer);
 
-      // Show question and hide spinner
-      spinner.classList.add("hidden");
-      questionContainer.classList.remove("hidden");
-      questionContainer.setAttribute("aria-busy", "false");
+      // Show question and hide spinner using RAF for smooth transition
+      requestAnimationFrame(() => {
+        spinner.classList.add("hidden");
+        questionContainer.classList.remove("hidden");
+        questionContainer.setAttribute("aria-busy", "false");
 
-      // Announce question for screen readers
-      const srAnnouncement = document.createElement("div");
-      srAnnouncement.setAttribute("aria-live", "polite");
-      srAnnouncement.classList.add("sr-only");
-      srAnnouncement.textContent = `Neue Frage: ${questionText}`;
-      questionContainer.appendChild(srAnnouncement);
+        // Announce question for screen readers
+        const srAnnouncement = document.createElement("div");
+        srAnnouncement.setAttribute("aria-live", "polite");
+        srAnnouncement.classList.add("sr-only");
+        srAnnouncement.textContent = `Neue Frage: ${questionText}`;
+        questionContainer.appendChild(srAnnouncement);
 
-      // Remove announcement after it's been read to prevent cluttering the DOM
-      setTimeout(() => srAnnouncement.remove(), 1000);
+        // Remove announcement after it's been read to prevent cluttering the DOM
+        setTimeout(() => srAnnouncement.remove(), 1000);
 
-      // Focus first option for keyboard users (with small delay for animation)
-      setTimeout(() => {
-        const firstOption = optionsContainer.querySelector("button");
-        if (firstOption) {
-          firstOption.focus();
-        }
-      }, 100);
+        // Focus first option for keyboard users using requestAnimationFrame for reliable timing
+        requestAnimationFrame(() => {
+          const firstOption = optionsContainer.querySelector("button");
+          if (firstOption) {
+            firstOption.focus();
+          }
+        });
+      });
     } catch (error) {
       console.error("Error displaying question:", error);
       // Display an error message to the user
       questionElement.textContent =
         "Sorry, there was a problem loading the question. Please try again.";
-      spinner.classList.add("hidden");
-      questionContainer.classList.remove("hidden");
-      questionContainer.setAttribute("aria-busy", "false");
+
+      requestAnimationFrame(() => {
+        spinner.classList.add("hidden");
+        questionContainer.classList.remove("hidden");
+        questionContainer.setAttribute("aria-busy", "false");
+      });
     }
-  }, 500);
+  });
 }
 
 /**
  * Creates and appends option buttons to the options container.
  *
  * @param {string[]} options - Array of answer options
- * @param {HTMLElement} container - Container element for the buttons
+ * @param {HTMLElement|DocumentFragment} container - Container element for the buttons
  * @param {Function} handleAnswer - Callback for answer selection
  * @param {Question} question - Current question object
  * @param {Album} album - Current album object
+ * @returns {void}
  */
 function createOptionButtons(
   options: string[],
-  container: HTMLElement,
+  container: HTMLElement | DocumentFragment,
   handleAnswer: (option: string, correctAnswer: string, question: Question, album: Album) => void,
   question: Question,
   album: Album
@@ -227,10 +243,11 @@ function createOptionButtons(
     button.prepend(optionNumber);
 
     // Attach click handler
-    button.onclick = () => {
+    button.onclick = (): void => {
       // Disable all buttons to prevent double clicks
-      const allButtons = container.querySelectorAll("button");
-      allButtons.forEach((btn) => (btn.disabled = true));
+      document.querySelectorAll("#options button").forEach((btn) => {
+        (btn as HTMLButtonElement).disabled = true;
+      });
 
       // Mark this option as selected for screen readers
       button.setAttribute("aria-checked", "true");
@@ -258,6 +275,7 @@ function createOptionButtons(
  * @param {Question} question - Current question object
  * @param {Album} album - Current album object
  * @param {Function} handleAnswer - Callback for answer selection
+ * @returns {void}
  */
 function setupKeyboardNavigation(
   optionsContainer: HTMLElement,
@@ -278,26 +296,29 @@ function setupKeyboardNavigation(
 
       switch (e.key) {
         case "ArrowDown":
-        case "ArrowRight":
+        case "ArrowRight": {
           // Navigate to next option in a circular manner
           const nextIndex = (index + 1) % options.length;
           options[nextIndex].focus();
           break;
+        }
 
         case "ArrowUp":
-        case "ArrowLeft":
+        case "ArrowLeft": {
           // Navigate to previous option in a circular manner
           const prevIndex = (index - 1 + options.length) % options.length;
           options[prevIndex].focus();
           break;
+        }
 
         case "Enter":
-        case " ": // Space key
+        case " ": {
           // Select the current option
           const optionText = button.textContent || "";
           button.setAttribute("aria-checked", "true");
           handleAnswer(optionText, question.correctAnswer, question, album);
           break;
+        }
       }
     });
   });

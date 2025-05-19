@@ -508,6 +508,8 @@ export default {
 
   // Ytterligare nycklar för Kronologispelet
   "game.chronology.meta.description": "Musikkronologispel:",
+  "game.meta.description.prefix": "Spela",
+  "game.meta.description.suffix": "i svårighetsgrad",
   "game.meta.difficulty": "i svårighetsgrad",
   "accessibility.skip.to.game": "Hoppa till spel",
   "game.info.badges": "Spelinformation",

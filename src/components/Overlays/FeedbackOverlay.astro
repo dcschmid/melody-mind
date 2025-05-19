@@ -357,6 +357,33 @@ const t = useTranslations(lang);
   let lastFocusedElement: HTMLElement | null = null;
 
   /**
+   * Close the overlay and advance to the next round
+   * This function centralizes the logic for both the close button click and Escape key press
+   */
+  function closeAndAdvance(): void {
+    const overlay = document.getElementById("overlay");
+    if (!overlay) {
+      return;
+    }
+
+    const nextRoundBtn = document.getElementById("next-round-button") as HTMLButtonElement;
+    if (nextRoundBtn) {
+      // Hide the overlay first
+      overlay.classList.add("hidden");
+      document.body.style.overflow = "";
+
+      // Then directly click the next round button
+      setTimeout(() => {
+        console.error("Triggering next button click");
+        nextRoundBtn.click();
+      }, 50);
+    } else {
+      // Just hide if next button not found
+      hideOverlay();
+    }
+  }
+
+  /**
    * Initialize the FeedbackOverlay component when DOM is ready
    */
   function initializeFeedbackOverlay(): void {
@@ -367,26 +394,40 @@ const t = useTranslations(lang);
     const nextButton = document.getElementById("next-round-button");
 
     if (!overlay || !overlayContent) {
-      console.debug("FeedbackOverlay: Required elements not found");
+      console.error("FeedbackOverlay: Required elements not found");
       return;
     }
 
     // Set up visibility handling with optimized focus management
     setupOverlayVisibilityHandling(overlay, overlayContent);
 
-    // Set up event listeners for various close actions
+    // Set up event listeners for close actions
     if (closeButton) {
-      closeButton.addEventListener("click", hideOverlay);
+      closeButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        console.error("Close button clicked"); // Debug message
+        closeAndAdvance();
+      });
     }
+
     if (overlayBackdrop) {
-      overlayBackdrop.addEventListener("click", hideOverlay);
+      overlayBackdrop.addEventListener("click", function (e) {
+        e.preventDefault();
+        hideOverlay();
+      });
     }
+
     if (nextButton) {
-      nextButton.addEventListener("click", hideOverlay);
+      nextButton.addEventListener("click", function (_e) {
+        hideOverlay();
+      });
     }
 
     // Setup keyboard navigation and focus trap
     setupKeyboardNavigation(overlay);
+
+    // Set up the Next Round button's functionality
+    setupNextRoundFunctionality(nextButton);
 
     // Handle album cover display and errors
     const coverObserver = handleAlbumCoverDisplay(overlay);
@@ -484,6 +525,7 @@ const t = useTranslations(lang);
 
   /**
    * Hides the overlay and restores focus to the previous element
+   * Used for backdrop clicks or the Next Round button's own handling
    */
   function hideOverlay(): void {
     const overlay = document.getElementById("overlay");
@@ -502,6 +544,24 @@ const t = useTranslations(lang);
       setTimeout(() => {
         lastFocusedElement?.focus();
       }, 100);
+    }
+  }
+
+  /**
+   * Sets up the close button's aria-label to indicate it also advances to next round
+   *
+   * @param {HTMLElement|null} nextButton - The next round button element
+   */
+  function setupNextRoundFunctionality(nextButton: HTMLElement | null): void {
+    if (!nextButton) {
+      return;
+    }
+
+    // Update the close button's aria-label to indicate it also advances to next round
+    const closeButton = document.getElementById("close-overlay-button");
+    if (closeButton) {
+      const currentLabel = closeButton.getAttribute("aria-label") || "Close";
+      closeButton.setAttribute("aria-label", `${currentLabel} and advance to next round`);
     }
   }
 
@@ -575,8 +635,8 @@ const t = useTranslations(lang);
 
       switch (event.key) {
         case "Escape":
-          // Close the overlay when Escape is pressed
-          hideOverlay();
+          // Close the overlay and advance to next round when Escape is pressed
+          closeAndAdvance();
           break;
 
         case "Tab":
@@ -766,9 +826,29 @@ const t = useTranslations(lang);
       }
 
       // Remove event listeners
-      document.getElementById("close-overlay-button")?.removeEventListener("click", hideOverlay);
-      document.getElementById("overlay-backdrop")?.removeEventListener("click", hideOverlay);
-      document.getElementById("next-round-button")?.removeEventListener("click", hideOverlay);
+      const closeButton = document.getElementById("close-overlay-button");
+      const overlayBackdrop = document.getElementById("overlay-backdrop");
+      const nextButton = document.getElementById("next-round-button");
+
+      if (closeButton) {
+        // Remove all event listeners
+        const newCloseButton = closeButton.cloneNode(true);
+        if (closeButton.parentNode) {
+          closeButton.parentNode.replaceChild(newCloseButton, closeButton);
+        }
+      }
+
+      if (overlayBackdrop) {
+        // Remove all event listeners
+        const newBackdrop = overlayBackdrop.cloneNode(true);
+        if (overlayBackdrop.parentNode) {
+          overlayBackdrop.parentNode.replaceChild(newBackdrop, overlayBackdrop);
+        }
+      }
+
+      if (nextButton) {
+        // Don't remove the next button's event handlers as they are managed by gameEngine
+      }
     }
 
     // Handle cleanup before page navigation

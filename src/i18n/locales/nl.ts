@@ -513,6 +513,8 @@ export default {
 
   // Extra sleutels voor chronologiespel
   "game.chronology.meta.description": "Muziek Chronologie Spel:",
+  "game.meta.description.prefix": "Speel",
+  "game.meta.description.suffix": "op moeilijkheidsgraad",
   "game.meta.difficulty": "op moeilijkheidsgraad",
   "accessibility.skip.to.game": "Ga naar het spel",
   "game.info.badges": "Spelinformatie",
