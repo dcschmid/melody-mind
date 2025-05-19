@@ -507,4 +507,17 @@ export default {
   "api.errors.highscores_retrieval": "Fejl ved hentning af topscorer: {message}",
   "api.errors.unknown_error": "Ukendt fejl i topscorer-API",
   "api.errors.highscores_retrieval_message": "Fejl ved hentning af topscorer",
+
+  // Yderligere nøgler til kronologispil
+  "game.chronology.meta.description": "Musik Kronologi Spil:",
+  "game.meta.difficulty": "i sværhedsgrad",
+  "accessibility.skip.to.game": "Spring til spil",
+  "game.info.badges": "Spilinformation",
+  "game.difficulty.label": "Sværhedsgrad",
+  "game.coins.label": "Indsamlede mønter",
+  "game.player.title": "Spillertitel",
+  "game.chronology.touch.navigation": "Touchskærm-navigation",
+  "game.chronology.navigation.description": "Brug disse knapper til at flytte det valgte element",
+  "game.chronology.move.up": "Flyt op",
+  "game.chronology.move.down": "Flyt ned",
 };

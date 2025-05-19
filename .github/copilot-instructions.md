@@ -2,11 +2,22 @@
 
 This file provides general instructions for GitHub Copilot when working with the MelodyMind project.
 
-## Project Overview
+## Project Overvie## Documentation Guidelines
 
-MelodyMind is an engaging and competitive music trivia game where players can test their knowledge
-across various music genres. Whether you're a rock enthusiast, pop aficionado, or jazz expert, this
-game offers a thrilling experience with multiple categories and rounds.
+- All documentation must be written in English, regardless of the user interface language
+- Use clear and concise language
+- Add comprehensive JSDoc comments to all functions and components
+- Document parameters, return values, and potential errors
+- Provide usage examples for complex functionality
+- Keep documentation up-to-date when code changes
+- Include type information in all documentation
+- Document accessibility considerations for UI components
+- Create Markdown files for major features and components
+- Maintain consistent terminology throughout the codebase
+- Use descriptive variable and function names that clearly indicate purposend is an engaging and
+  competitive music trivia game where players can test their knowledge across various music genres.
+  Whether you're a rock enthusiast, pop aficionado, or jazz expert, this game offers a thrilling
+  experience with multiple categories and rounds.
 
 ## Key Features
 
@@ -39,6 +50,9 @@ game offers a thrilling experience with multiple categories and rounds.
 - Implement proper error handling
 - Use meaningful variable and function names
 - **All documentation must be written in English**, regardless of the user interface language
+- When creating dynamic routes in Astro, always export a `getStaticPaths()` function
+- Extract scripts to external `.ts` files only when they are complex or reused
+- Always use English language versions as templates for translations and documentation
 
 ## Architectural Guidelines
 
@@ -106,6 +120,8 @@ interface UserScore {
 
 - Use Tailwind CSS for all styling needs - prioritize Tailwind utility classes over custom CSS
 - Follow the Tailwind utility-first workflow and avoid custom CSS when possible
+- Keep styles inline whenever possible, preferring Tailwind 4 (when available)
+- When inline styles become too complex, use Astro's style tag feature
 - Use a consistent color scheme through Tailwind's configuration (purple, pink, dark background)
 - Implement responsive design using Tailwind's responsive modifiers (sm:, md:, lg:, xl:)
 - Leverage Tailwind's design system for spacing, typography, and colors
@@ -125,6 +141,31 @@ interface UserScore {
 - Cache static assets appropriately
 - Optimize database queries
 - Use Tailwind's JIT mode for development
+
+## Astro Specific Guidelines
+
+- **Dynamic Routes**: Always export a `getStaticPaths()` function from dynamic route components:
+  ```typescript
+  export async function getStaticPaths() {
+    // Return an array of objects with params property
+    return [
+      { params: { param: "value1" } },
+      { params: { param: "value2" } },
+      // Include all possible path values
+    ];
+  }
+  ```
+  **IMPORTANT**: The `getStaticPaths()` function is REQUIRED for all dynamic routes. Make sure that
+  you always `export` a `getStaticPaths` function from your dynamic route components.
+- **Script Management**:
+  - Use inline scripts for simple functionality
+  - Extract complex logic to external `.ts` files
+  - Always use `type="module"` for all script tags
+- **Style Management**:
+  - Prefer inline Tailwind classes for most styling needs
+  - Keep styles inline whenever possible, preferring Tailwind 4 (when available)
+  - When inline styles become too complex, use Astro's `<style>` tag feature
+  - Only extract styles to external files when absolutely necessary
 
 ## Accessibility Guidelines
 

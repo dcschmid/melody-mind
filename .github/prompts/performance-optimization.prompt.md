@@ -143,8 +143,8 @@ import rockBackground from '../assets/rock-background.png';
     cancelAnimationFrame(animationId);
   });
   
-  // Cleanup when component unmounts
-  document.addEventListener("astro:before-swap", () => {
+  // Alternative cleanup method
+  window.addEventListener("beforeunload", () => {
     cancelAnimationFrame(animationId);
   });
 
@@ -319,7 +319,7 @@ export default {
 #### 6. Astro-Specific Optimizations
 
 - Use appropriate rendering strategies (SSG for static content)
-- Implement View Transitions API for smooth page transitions
+- Use traditional page navigation (WICHTIG: KEINE View Transitions API verwenden)
 - Use script type="module" for better code optimizations
 - Add preload hints for critical assets
 
@@ -357,8 +357,8 @@ const criticalAssets = [
     <script type="module" src="/scripts/critical.js"></script>
   </head>
   <body>
-    <!-- View transitions for smooth page transitions -->
-    <main transition:animate="slide">
+    <!-- Standard page content without View Transitions -->
+    <main>
       <!-- Page content -->
     </main>
     
@@ -410,8 +410,8 @@ const criticalAssets = [
     observer.observe(item);
   });
 
-  // Cleanup
-  document.addEventListener('astro:before-swap', () => {
+  // Cleanup when navigating away
+  window.addEventListener("beforeunload", () => {
     observer.disconnect();
   });
 

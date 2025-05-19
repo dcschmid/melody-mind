@@ -404,7 +404,7 @@ const articleSchemaData = {
               formattedDate && (
                 <time
                   datetime={entry.data.createdAt?.toISOString()}
-                  class="flex items-center gap-2 rounded-xl bg-zinc-800 px-4 py-2 text-zinc-200"
+                  class="flex items-center gap-2 rounded-xl bg-zinc-800 px-4 py-2 text-zinc-300"
                 >
                   <Icon name="calendar" class="h-5 w-5 text-sky-400" aria-hidden="true" />
                   <span>{formattedDate}</span>
@@ -414,7 +414,7 @@ const articleSchemaData = {
 
             {
               readingTimeText && (
-                <span class="flex items-center gap-2 rounded-xl bg-zinc-800 px-4 py-2 text-zinc-200">
+                <span class="flex items-center gap-2 rounded-xl bg-zinc-800 px-4 py-2 text-zinc-300">
                   <Icon name="clock" class="h-5 w-5 text-sky-400" aria-hidden="true" />
                   <span>{readingTimeText}</span>
                 </span>

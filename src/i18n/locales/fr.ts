@@ -526,4 +526,18 @@ export default {
     "Erreur lors de la récupération des meilleurs scores : {message}",
   "api.errors.unknown_error": "Erreur inconnue dans l'API des meilleurs scores",
   "api.errors.highscores_retrieval_message": "Erreur lors de la récupération des meilleurs scores",
+
+  // Clés supplémentaires du jeu de chronologie
+  "game.chronology.meta.description": "Jeu de Chronologie Musicale :",
+  "game.meta.difficulty": "en niveau de difficulté",
+  "accessibility.skip.to.game": "Passer au jeu",
+  "game.info.badges": "Informations du jeu",
+  "game.difficulty.label": "Niveau de difficulté",
+  "game.coins.label": "Pièces collectées",
+  "game.player.title": "Titre du joueur",
+  "game.chronology.touch.navigation": "Navigation tactile",
+  "game.chronology.navigation.description":
+    "Utilisez ces boutons pour déplacer l'élément sélectionné",
+  "game.chronology.move.up": "Déplacer vers le haut",
+  "game.chronology.move.down": "Déplacer vers le bas",
 };
