@@ -504,4 +504,17 @@ export default {
   "api.errors.highscores_retrieval": "Error retrieving highscores: {message}",
   "api.errors.unknown_error": "Unknown error in highscores API",
   "api.errors.highscores_retrieval_message": "Error retrieving highscores",
+
+  // Additional Chronology Game Keys
+  "game.chronology.meta.description": "Music Chronology Game:",
+  "game.meta.difficulty": "in difficulty level",
+  "accessibility.skip.to.game": "Skip to game",
+  "game.info.badges": "Game information",
+  "game.difficulty.label": "Difficulty level",
+  "game.coins.label": "Collected coins",
+  "game.player.title": "Player title",
+  "game.chronology.touch.navigation": "Touchscreen navigation",
+  "game.chronology.navigation.description": "Use these buttons to move the selected element",
+  "game.chronology.move.up": "Move up",
+  "game.chronology.move.down": "Move down",
 };

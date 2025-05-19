@@ -9,21 +9,10 @@
  */
 
 /**
- * Creates a branded IP address from a string
- *
- * @since 1.0.0
- * @category Utility
- *
- * @param {string} ip - The IP address string to convert
- * @returns {IPAddress} Branded IP address for type safety
- *
- * @example
- * // Create a type-safe IP address
- * const clientIp = createIPAddress('192.168.1.1');
+ * Branded type for IP addresses
+ * Used for type safety in rate limiting functions
  */
-function createIPAddress(ip: string): IPAddress {
-  return ip as IPAddress;
-}
+type IPAddress = string & { readonly __brand: unique symbol };
 
 /**
  * Creates a branded IP address from a string
@@ -38,7 +27,7 @@ function createIPAddress(ip: string): IPAddress {
  * // Create a type-safe IP address
  * const clientIp = createIPAddress('192.168.1.1');
  */
-function createIPAddress(ip: string): IPAddress {
+export function createIPAddress(ip: string): IPAddress {
   return ip as IPAddress;
 }
 

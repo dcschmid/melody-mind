@@ -41,7 +41,6 @@
  * </Layout>
  */
 import { When } from "@astropub/flow";
-import { ViewTransitions } from "astro:transitions";
 
 // Import fonts with display=swap for better performance
 import "@fontsource/source-sans-pro/400.css";
@@ -172,9 +171,6 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
-
-    <!-- View Transitions API for smooth page navigation -->
-    <ViewTransitions fallback="swap" />
 
     <!-- Color scheme and theme color for browser UI -->
     <meta name="color-scheme" content="dark light" />
@@ -355,8 +351,5 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
         }
       });
     </script>
-
-    <!-- WCAG AAA Enhancements Script with efficient loading -->
-    <script src="/scripts/wcag-aaa-enhancements.js" defer></script>
   </body>
 </html>

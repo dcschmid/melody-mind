@@ -524,4 +524,18 @@ export default {
   "api.errors.highscores_retrieval": "Fehler beim Abrufen der Highscores: {message}",
   "api.errors.unknown_error": "Unbekannter Fehler in der Highscores-API",
   "api.errors.highscores_retrieval_message": "Fehler beim Abrufen der Highscores",
+
+  // Zusätzliche Chronologie-Spiel-Schlüssel
+  "game.chronology.meta.description": "Musik-Chronologie Spiel:",
+  "game.meta.difficulty": "im Schwierigkeitsgrad",
+  "accessibility.skip.to.game": "Zum Spiel springen",
+  "game.info.badges": "Spielinformationen",
+  "game.difficulty.label": "Schwierigkeitsgrad",
+  "game.coins.label": "Gesammelte Münzen",
+  "game.player.title": "Spielertitel",
+  "game.chronology.touch.navigation": "Touchscreen-Navigation",
+  "game.chronology.navigation.description":
+    "Verwende diese Buttons, um das ausgewählte Element zu verschieben",
+  "game.chronology.move.up": "Nach oben verschieben",
+  "game.chronology.move.down": "Nach unten verschieben",
 };

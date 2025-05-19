@@ -505,4 +505,18 @@ export default {
   "api.errors.highscores_retrieval": "Fel vid hämtning av toppresultat: {message}",
   "api.errors.unknown_error": "Okänt fel i toppresultat-API",
   "api.errors.highscores_retrieval_message": "Fel vid hämtning av toppresultat",
+
+  // Ytterligare nycklar för Kronologispelet
+  "game.chronology.meta.description": "Musikkronologispel:",
+  "game.meta.difficulty": "i svårighetsgrad",
+  "accessibility.skip.to.game": "Hoppa till spel",
+  "game.info.badges": "Spelinformation",
+  "game.difficulty.label": "Svårighetsgrad",
+  "game.coins.label": "Insamlade mynt",
+  "game.player.title": "Spelartitel",
+  "game.chronology.touch.navigation": "Pekskärmsnavigering",
+  "game.chronology.navigation.description":
+    "Använd dessa knappar för att flytta det valda elementet",
+  "game.chronology.move.up": "Flytta upp",
+  "game.chronology.move.down": "Flytta ner",
 };

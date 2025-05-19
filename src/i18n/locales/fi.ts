@@ -510,4 +510,18 @@ export default {
   "api.errors.highscores_retrieval": "Virhe huipputulosten hakemisessa: {message}",
   "api.errors.unknown_error": "Tuntematon virhe huipputulosten API:ssa",
   "api.errors.highscores_retrieval_message": "Virhe huipputulosten hakemisessa",
+
+  // Kronologiapelin lisäavaimet
+  "game.chronology.meta.description": "Musiikkikronologiapeli:",
+  "game.meta.difficulty": "vaikeustasolla",
+  "accessibility.skip.to.game": "Siirry peliin",
+  "game.info.badges": "Pelitiedot",
+  "game.difficulty.label": "Vaikeustaso",
+  "game.coins.label": "Kerätyt kolikot",
+  "game.player.title": "Pelaajatitteli",
+  "game.chronology.touch.navigation": "Kosketusnäytön navigointi",
+  "game.chronology.navigation.description":
+    "Käytä näitä painikkeita valitun elementin siirtämiseen",
+  "game.chronology.move.up": "Siirrä ylös",
+  "game.chronology.move.down": "Siirrä alas",
 };

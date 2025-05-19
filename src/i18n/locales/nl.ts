@@ -510,4 +510,18 @@ export default {
   "api.errors.highscores_retrieval": "Fout bij het ophalen van topscores: {message}",
   "api.errors.unknown_error": "Onbekende fout in topscores API",
   "api.errors.highscores_retrieval_message": "Fout bij het ophalen van topscores",
+
+  // Extra sleutels voor chronologiespel
+  "game.chronology.meta.description": "Muziek Chronologie Spel:",
+  "game.meta.difficulty": "op moeilijkheidsgraad",
+  "accessibility.skip.to.game": "Ga naar het spel",
+  "game.info.badges": "Spelinformatie",
+  "game.difficulty.label": "Moeilijkheidsgraad",
+  "game.coins.label": "Verzamelde munten",
+  "game.player.title": "Spelertitel",
+  "game.chronology.touch.navigation": "Touchscreen-navigatie",
+  "game.chronology.navigation.description":
+    "Gebruik deze knoppen om het geselecteerde element te verplaatsen",
+  "game.chronology.move.up": "Omhoog verplaatsen",
+  "game.chronology.move.down": "Omlaag verplaatsen",
 };
