@@ -381,10 +381,28 @@ export default {
     "Les articles sont automatiquement filtrés au fur et à mesure de la saisie",
   "knowledge.search.reset": "Réinitialiser la Recherche",
   "knowledge.search.reset.text": "Réinitialiser",
+  "knowledge.search.initial": "Tous les articles sont affichés. Tapez pour filtrer.",
   "knowledge.no.results.help":
     "Essayez différents termes de recherche ou réinitialisez la recherche",
+  "knowledge.search.no.articles": "Aucun article trouvé",
+  "knowledge.search.one.article": "1 article trouvé",
+  "knowledge.search.all.articles": "Tous les {count} articles affichés",
+  "knowledge.search.count.articles": "{count} sur {total} articles trouvés",
+  "knowledge.search.results.format":
+    'Résultats de recherche pour "{term}": {count} sur {total} articles correspondent à votre recherche.',
+  "knowledge.search.no.results.format":
+    'Aucun article ne correspond à votre recherche pour "{term}". Essayez d\'autres mots-clés.',
+  "knowledge.search.showing.all": "Affichage de tous les {total} articles.",
+  "knowledge.reset.search.button": "Réinitialiser la Recherche",
   "knowledge.keyboard.instructions":
     "Utilisez les touches fléchées pour naviguer entre les articles. Appuyez sur Entrée pour ouvrir un article.",
+  "knowledge.animations.on": "Animations: Activées",
+  "knowledge.animations.off": "Animations: Désactivées",
+  "knowledge.animations.enabled": "Animations activées",
+  "knowledge.animations.disabled": "Animations désactivées pour une meilleure accessibilité",
+  "knowledge.animations.auto.disabled":
+    "Animations automatiquement désactivées selon les préférences système",
+  "knowledge.animations.toggle": "Activer/désactiver les animations",
   "difficulty.level": "Niveau de Difficulté",
 
   // Page de Profil

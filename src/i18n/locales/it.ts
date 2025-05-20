@@ -378,9 +378,27 @@ export default {
     "Gli articoli vengono filtrati automaticamente durante la digitazione",
   "knowledge.search.reset": "Reimposta Ricerca",
   "knowledge.search.reset.text": "Reimposta",
+  "knowledge.search.initial": "Visualizzazione di tutti gli articoli. Digita per filtrare.",
   "knowledge.no.results.help": "Prova termini di ricerca diversi o reimposta la ricerca",
+  "knowledge.search.no.articles": "Nessun articolo trovato",
+  "knowledge.search.one.article": "1 articolo trovato",
+  "knowledge.search.all.articles": "Tutti i {count} articoli visualizzati",
+  "knowledge.search.count.articles": "{count} di {total} articoli trovati",
+  "knowledge.search.results.format":
+    'Risultati di ricerca per "{term}": {count} di {total} articoli corrispondono alla tua ricerca.',
+  "knowledge.search.no.results.format":
+    'Nessun articolo corrisponde alla tua ricerca per "{term}". Prova parole chiave diverse.',
+  "knowledge.search.showing.all": "Visualizzazione di tutti i {total} articoli.",
+  "knowledge.reset.search.button": "Reimposta Ricerca",
   "knowledge.keyboard.instructions":
     "Usa i tasti freccia per navigare tra gli articoli. Premi Invio per aprire un articolo.",
+  "knowledge.animations.on": "Animazioni: Attive",
+  "knowledge.animations.off": "Animazioni: Disattivate",
+  "knowledge.animations.enabled": "Animazioni attivate",
+  "knowledge.animations.disabled": "Animazioni disattivate per una migliore accessibilità",
+  "knowledge.animations.auto.disabled":
+    "Animazioni disattivate automaticamente in base alle preferenze di sistema",
+  "knowledge.animations.toggle": "Attiva/disattiva animazioni",
   "difficulty.level": "Livello di Difficoltà",
 
   // Pagina Profilo

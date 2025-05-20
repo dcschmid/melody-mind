@@ -375,9 +375,27 @@ export default {
   "knowledge.search.description": "Artikelen worden automatisch gefilterd terwijl u typt",
   "knowledge.search.reset": "Zoekopdracht Resetten",
   "knowledge.search.reset.text": "Resetten",
+  "knowledge.search.initial": "Alle artikelen worden weergegeven. Typ om te filteren.",
   "knowledge.no.results.help": "Probeer verschillende zoektermen of reset de zoekopdracht",
+  "knowledge.search.no.articles": "Geen artikelen gevonden",
+  "knowledge.search.one.article": "1 artikel gevonden",
+  "knowledge.search.all.articles": "Alle {count} artikelen weergegeven",
+  "knowledge.search.count.articles": "{count} van {total} artikelen gevonden",
+  "knowledge.search.results.format":
+    'Zoekresultaten voor "{term}": {count} van {total} artikelen komen overeen met uw zoekopdracht.',
+  "knowledge.search.no.results.format":
+    'Geen artikelen komen overeen met uw zoekopdracht naar "{term}". Probeer andere zoektermen.',
+  "knowledge.search.showing.all": "Alle {total} artikelen worden weergegeven.",
+  "knowledge.reset.search.button": "Zoekopdracht Resetten",
   "knowledge.keyboard.instructions":
     "Gebruik de pijltoetsen om tussen artikelen te navigeren. Druk op Enter om een artikel te openen.",
+  "knowledge.animations.on": "Animaties: Aan",
+  "knowledge.animations.off": "Animaties: Uit",
+  "knowledge.animations.enabled": "Animaties ingeschakeld",
+  "knowledge.animations.disabled": "Animaties uitgeschakeld voor verbeterde toegankelijkheid",
+  "knowledge.animations.auto.disabled":
+    "Animaties automatisch uitgeschakeld op basis van systeemvoorkeuren",
+  "knowledge.animations.toggle": "Animaties in-/uitschakelen",
   "difficulty.level": "Moeilijkheidsgraad",
 
   // Profielpagina

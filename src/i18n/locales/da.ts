@@ -373,9 +373,27 @@ export default {
   "knowledge.search.description": "Artikler filtreres automatisk, mens du skriver",
   "knowledge.search.reset": "Nulstil Søgning",
   "knowledge.search.reset.text": "Nulstil",
+  "knowledge.search.initial": "Viser alle artikler. Skriv for at filtrere.",
   "knowledge.no.results.help": "Prøv forskellige søgetermer eller nulstil søgningen",
+  "knowledge.search.no.articles": "Ingen artikler fundet",
+  "knowledge.search.one.article": "1 artikel fundet",
+  "knowledge.search.all.articles": "Alle {count} artikler vises",
+  "knowledge.search.count.articles": "{count} af {total} artikler fundet",
+  "knowledge.search.results.format":
+    'Søgeresultater for "{term}": {count} af {total} artikler matcher din søgning.',
+  "knowledge.search.no.results.format":
+    'Ingen artikler matcher din søgning efter "{term}". Prøv andre søgeord.',
+  "knowledge.search.showing.all": "Viser alle {total} artikler.",
+  "knowledge.reset.search.button": "Nulstil Søgning",
   "knowledge.keyboard.instructions":
     "Brug piletasterne til at navigere mellem artikler. Tryk på Enter for at åbne en artikel.",
+  "knowledge.animations.on": "Animationer: Tændt",
+  "knowledge.animations.off": "Animationer: Slukket",
+  "knowledge.animations.enabled": "Animationer aktiveret",
+  "knowledge.animations.disabled": "Animationer deaktiveret for forbedret tilgængelighed",
+  "knowledge.animations.auto.disabled":
+    "Animationer automatisk deaktiveret baseret på systemindstillinger",
+  "knowledge.animations.toggle": "Skift animationer",
   "difficulty.level": "Sværhedsgrad",
 
   // Profilside

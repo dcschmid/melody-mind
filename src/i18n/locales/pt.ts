@@ -380,9 +380,27 @@ export default {
   "knowledge.search.description": "Os artigos são filtrados automaticamente conforme você digita",
   "knowledge.search.reset": "Redefinir Pesquisa",
   "knowledge.search.reset.text": "Redefinir",
+  "knowledge.search.initial": "Mostrando todos os artigos. Digite para filtrar.",
   "knowledge.no.results.help": "Tente termos de pesquisa diferentes ou redefina a pesquisa",
+  "knowledge.search.no.articles": "Nenhum artigo encontrado",
+  "knowledge.search.one.article": "1 artigo encontrado",
+  "knowledge.search.all.articles": "Todos os {count} artigos exibidos",
+  "knowledge.search.count.articles": "{count} de {total} artigos encontrados",
+  "knowledge.search.results.format":
+    'Resultados da pesquisa para "{term}": {count} de {total} artigos correspondem à sua pesquisa.',
+  "knowledge.search.no.results.format":
+    'Nenhum artigo corresponde à sua pesquisa por "{term}". Tente palavras-chave diferentes.',
+  "knowledge.search.showing.all": "Mostrando todos os {total} artigos.",
+  "knowledge.reset.search.button": "Redefinir Pesquisa",
   "knowledge.keyboard.instructions":
     "Use as teclas de seta para navegar entre os artigos. Pressione Enter para abrir um artigo.",
+  "knowledge.animations.on": "Animações: Ativadas",
+  "knowledge.animations.off": "Animações: Desativadas",
+  "knowledge.animations.enabled": "Animações ativadas",
+  "knowledge.animations.disabled": "Animações desativadas para melhor acessibilidade",
+  "knowledge.animations.auto.disabled":
+    "Animações desativadas automaticamente com base nas preferências do sistema",
+  "knowledge.animations.toggle": "Alternar animações",
   "difficulty.level": "Nível de Dificuldade",
 
   // Página de Perfil

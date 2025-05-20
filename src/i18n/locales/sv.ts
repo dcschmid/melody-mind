@@ -371,9 +371,17 @@ export default {
   "knowledge.search.description": "Artiklar filtreras automatiskt när du skriver",
   "knowledge.search.reset": "Återställ Sökning",
   "knowledge.search.reset.text": "Återställ",
+  "knowledge.search.initial": "Visar alla artiklar. Skriv för att filtrera.",
   "knowledge.no.results.help": "Prova olika söktermer eller återställ sökningen",
   "knowledge.keyboard.instructions":
     "Använd piltangenterna för att navigera mellan artiklar. Tryck på Enter för att öppna en artikel.",
+  "knowledge.animations.on": "Animationer: På",
+  "knowledge.animations.off": "Animationer: Av",
+  "knowledge.animations.enabled": "Animationer aktiverade",
+  "knowledge.animations.disabled": "Animationer inaktiverade för förbättrad tillgänglighet",
+  "knowledge.animations.auto.disabled":
+    "Animationer automatiskt inaktiverade baserat på systeminställningar",
+  "knowledge.animations.toggle": "Växla animationer",
   "difficulty.level": "Svårighetsgrad",
 
   // Profilsida

@@ -376,9 +376,27 @@ export default {
   "knowledge.search.description": "Artikkelit suodatetaan automaattisesti kirjoittaessasi",
   "knowledge.search.reset": "Nollaa Haku",
   "knowledge.search.reset.text": "Nollaa",
+  "knowledge.search.initial": "Näytetään kaikki artikkelit. Kirjoita suodattaaksesi.",
   "knowledge.no.results.help": "Kokeile eri hakusanoja tai nollaa haku",
+  "knowledge.search.no.articles": "Artikkeleita ei löytynyt",
+  "knowledge.search.one.article": "1 artikkeli löytyi",
+  "knowledge.search.all.articles": "Kaikki {count} artikkelia näytetään",
+  "knowledge.search.count.articles": "{count} / {total} artikkelia löytyi",
+  "knowledge.search.results.format":
+    'Hakutulokset hakusanalle "{term}": {count} / {total} artikkelia vastaa hakuasi.',
+  "knowledge.search.no.results.format":
+    'Yksikään artikkeli ei vastaa hakuasi "{term}". Kokeile eri hakusanoja.',
+  "knowledge.search.showing.all": "Näytetään kaikki {total} artikkelia.",
+  "knowledge.reset.search.button": "Nollaa Haku",
   "knowledge.keyboard.instructions":
     "Käytä nuolinäppäimiä navigoidaksesi artikkeleiden välillä. Paina Enter avataksesi artikkelin.",
+  "knowledge.animations.on": "Animaatiot: Päällä",
+  "knowledge.animations.off": "Animaatiot: Pois",
+  "knowledge.animations.enabled": "Animaatiot käytössä",
+  "knowledge.animations.disabled": "Animaatiot poistettu käytöstä esteettömyyden parantamiseksi",
+  "knowledge.animations.auto.disabled":
+    "Animaatiot automaattisesti poistettu käytöstä järjestelmäasetusten perusteella",
+  "knowledge.animations.toggle": "Vaihda animaatioita",
   "difficulty.level": "Vaikeustaso",
 
   // Profiilisivu
