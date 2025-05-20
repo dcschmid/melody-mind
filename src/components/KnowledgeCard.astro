@@ -13,9 +13,10 @@
  * @component
  * @implements {WCAG AAA compliance}
  */
-import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { useTranslations } from "@utils/i18n";
 import { format } from "date-fns";
 import { de, enUS as en } from "date-fns/locale";
+import { Image } from "astro:assets";
 
 export const prerender = true;
 
@@ -73,7 +74,7 @@ const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}
 ---
 
 <article
-  class="knowledge-card flex h-full flex-col overflow-hidden rounded-xl border-2 border-purple-700/60 bg-zinc-900 shadow-lg shadow-purple-900/20 transition-all duration-300 hover:border-purple-500 hover:shadow-xl hover:shadow-purple-900/30"
+  class="knowledge-card will-change-shadow print:page-break-inside-avoid forced-colors:border-CanvasText relative isolate flex h-full flex-col overflow-hidden rounded-xl border-2 border-purple-700/60 bg-zinc-900 shadow-lg shadow-purple-900/20 transition-all duration-300 will-change-transform hover:border-purple-500 hover:shadow-[0_0_20px_rgba(168,85,247,0.2)] hover:shadow-xl hover:shadow-purple-900/30 motion-reduce:transform-none motion-reduce:transition-none print:break-inside-avoid print:border print:border-black print:bg-white print:text-black forced-colors:border-[3px]"
   data-testid="knowledge-card"
   data-title={title}
   data-description={description}
@@ -84,7 +85,7 @@ const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}
     hasOwnLink ? (
       <a
         href={articleUrl}
-        class="group flex h-full flex-col overflow-hidden rounded-xl focus-visible:ring-3 focus-visible:ring-purple-400 focus-visible:ring-offset-3 focus-visible:ring-offset-zinc-900 focus-visible:outline-none"
+        class="group forced-colors:focus-visible:outline-CanvasText flex h-full flex-col overflow-hidden rounded-xl focus-visible:shadow-[0_0_0_4px_rgba(240,171,252,0.5)] focus-visible:ring-3 focus-visible:ring-purple-400 focus-visible:ring-offset-3 focus-visible:ring-offset-zinc-900 focus-visible:outline-[4px] focus-visible:outline-offset-4 focus-visible:outline-pink-300 focus-visible:outline-none motion-safe:transition-all print:text-black forced-colors:focus-visible:outline-[4px]"
         aria-labelledby={cardId}
         aria-describedby={`${cardId}-desc`}
       >
@@ -95,30 +96,34 @@ const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}
           />
 
           <div class="relative aspect-[16/9] overflow-hidden">
-            <img
+            <Image
               src={image}
               alt=""
               loading="lazy"
-              decoding="async"
-              class="lazy-image h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 group-focus-visible:scale-105"
-              width="640"
-              height="360"
-              fetchpriority="low"
+              width={640}
+              height={360}
+              class="h-full w-full object-cover motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-105 motion-safe:group-focus-visible:scale-105 motion-reduce:transform-none motion-reduce:transition-none print:max-h-[3in]"
             />
           </div>
 
           <div class="flex flex-grow flex-col justify-start px-5 pt-4 pb-3">
-            <h3 id={cardId} class="mb-3 text-2xl font-bold tracking-wide text-white">
+            <h3
+              id={cardId}
+              class="mb-3 text-2xl font-bold tracking-wide text-white max-sm:text-[1.5rem] max-sm:leading-[1.4] print:text-black"
+            >
               {title}
             </h3>
 
-            <p id={`${cardId}-desc`} class="mb-4 text-base leading-relaxed text-zinc-100">
+            <p
+              id={`${cardId}-desc`}
+              class="mb-4 text-base leading-relaxed text-zinc-100 max-sm:text-[1.125rem] max-sm:leading-[1.6] print:text-black"
+            >
               {description}
             </p>
 
             <div class="mt-4 flex items-center justify-between border-t border-zinc-700/50 pt-3">
               <span
-                class="flex items-center text-base text-zinc-300"
+                class="flex items-center text-base text-zinc-300 max-sm:text-[1.125rem] max-sm:leading-[1.6]"
                 aria-label={formattedReadingTime}
               >
                 <svg
@@ -144,7 +149,7 @@ const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}
 
               <time
                 datetime={createdAt.toISOString()}
-                class="flex items-center text-base text-zinc-300"
+                class="flex items-center text-base text-zinc-300 max-sm:text-[1.125rem] max-sm:leading-[1.6]"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -177,17 +182,14 @@ const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}
         />
 
         <div class="relative aspect-[16/9] overflow-hidden">
-          <img
+          <Image
             src={image}
             alt=""
             loading="lazy"
-            decoding="async"
-            class="lazy-image h-full w-full object-cover"
-            width="640"
-            height="360"
-            fetchpriority="low"
+            width={640}
+            height={360}
+            class="h-full w-full object-cover"
           />
-          s{" "}
           <div
             class="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-900/75 to-transparent opacity-90"
             aria-hidden="true"
@@ -195,20 +197,24 @@ const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}
         </div>
 
         <div class="flex flex-grow flex-col justify-start px-5 pt-4 pb-3">
-          <h3 id={cardId} class="mb-3 line-clamp-2 text-2xl font-bold tracking-wide text-white">
+          <h3
+            id={cardId}
+            class="mb-3 line-clamp-2 text-2xl font-bold tracking-wide text-white max-sm:text-[1.5rem] max-sm:leading-[1.4]"
+          >
             {title}
           </h3>
 
           <p
             id={`${cardId}-desc`}
-            class="mb-4 line-clamp-3 text-base leading-relaxed text-zinc-100"
+            class="mb-4 line-clamp-3 text-base leading-relaxed text-zinc-100 max-sm:text-[1.125rem] max-sm:leading-[1.6]"
           >
             {description}
           </p>
 
           <div class="mt-4 flex items-center justify-between border-t border-zinc-700/50 pt-3">
+            {" "}
             <span
-              class="flex items-center text-base text-zinc-300"
+              class="flex items-center text-base text-zinc-300 max-sm:text-[1.125rem] max-sm:leading-[1.6]"
               aria-label={formattedReadingTime}
             >
               <svg
@@ -231,10 +237,9 @@ const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}
                 {readingTime} {lang_t("knowledge.reading.time")}
               </span>
             </span>
-
             <time
               datetime={createdAt.toISOString()}
-              class="flex items-center text-base text-zinc-300"
+              class="flex items-center text-base text-zinc-300 max-sm:text-[1.125rem] max-sm:leading-[1.6]"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -260,93 +265,3 @@ const formattedReadingTime = `${readingTime} ${lang_t("knowledge.reading.time")}
     )
   }
 </article>
-
-<style>
-  /* Base styles with improved aesthetics */
-  article {
-    color: inherit;
-    display: block;
-    transform: translateZ(0); /* Hardware acceleration */
-    will-change: transform, box-shadow; /* Optimize animations */
-    isolation: isolate; /* Create stacking context */
-    position: relative;
-  }
-
-  /* Add a glowing effect on hover for enhanced visibility */
-  article:hover {
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
-  }
-
-  /* Optimized image loading with blur-up technique */
-  .lazy-image {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    background-color: rgba(161, 161, 170, 0.1); /* Light placeholder */
-  }
-
-  /* Improved focus styles for keyboard navigation */
-  a:focus-visible {
-    outline: 4px solid #f0abfc !important;
-    outline-offset: 4px !important;
-    box-shadow: 0 0 0 4px rgba(240, 171, 252, 0.5) !important;
-  }
-
-  /* High Contrast Mode Support with better visibility */
-  @media (forced-colors: active) {
-    article {
-      border: 3px solid CanvasText;
-      forced-color-adjust: none;
-      outline: 1px solid transparent; /* Creates a gap between borders in high contrast mode */
-    }
-
-    a:focus-visible {
-      outline: 4px solid CanvasText !important;
-    }
-  }
-
-  /* Print styles */
-  @media print {
-    article {
-      break-inside: avoid;
-      page-break-inside: avoid;
-      color: black;
-      background: white;
-      border: 1px solid #000;
-    }
-
-    .knowledge-card-content img {
-      max-height: 3in;
-    }
-
-    .knowledge-card-content p {
-      color: black;
-    }
-  }
-
-  /* Support for reduced motion preferences */
-  @media (prefers-reduced-motion: reduce) {
-    article,
-    article *,
-    .group-hover\:scale-105,
-    .group-focus-visible\:scale-105 {
-      transition-duration: 0.001ms !important;
-      animation-duration: 0.001ms !important;
-      transform: none !important;
-    }
-  }
-
-  /* Font size adjustment for better readability */
-  @media (max-width: 640px) {
-    h3 {
-      font-size: 1.5rem !important;
-      line-height: 1.4 !important;
-    }
-
-    p,
-    time,
-    span {
-      font-size: 1.125rem !important;
-      line-height: 1.6 !important;
-    }
-  }
-</style>

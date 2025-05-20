@@ -69,12 +69,11 @@ export async function getStaticPaths() {
  */
 interface Props {
   articles: AnyCollectionEntry[];
-  allKeywords: string[];
 }
 
 // Get language from URL params and props from getStaticPaths
 const { lang } = Astro.params as { lang: KnowledgeLanguage };
-const { articles, allKeywords } = Astro.props;
+const { articles } = Astro.props;
 
 /**
  * Type guard to check if language is a valid UI language
@@ -407,9 +406,6 @@ const articlesStructuredData = sortedArticles.map((article) => {
           {
             sortedArticles.length > 0 ? (
               sortedArticles.map((article, index) => {
-                // Handle image path
-                const imagePath = article.data.image || "/default-cover.jpg";
-
                 // Handle date - ensure it's a valid Date object
                 const createdAt =
                   article.data.createdAt instanceof Date
@@ -420,7 +416,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
 
                 return (
                   <li
-                    class="animate-fadeIn list-none"
+                    class="translate-y-2 transform list-none opacity-0 motion-safe:animate-[fadeIn_0.5s_ease-out_forwards]"
                     style={`animation-delay: ${Math.min(index * 50, 500)}ms`}
                   >
                     <KnowledgeCard
@@ -456,7 +452,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
     <!-- "Back to top" button with enhanced accessibility -->
     <button
       id="back-to-top"
-      class="invisible fixed right-8 bottom-8 z-10 rounded-full bg-purple-600 p-4 text-white opacity-0 shadow-lg transition-all duration-300 hover:bg-purple-500 focus:bg-purple-500 focus:ring-4 focus:ring-purple-500/50 focus:ring-offset-3 focus:ring-offset-zinc-800 focus:outline-none"
+      class="invisible fixed right-8 bottom-8 z-10 rounded-full bg-purple-600 p-4 text-white opacity-0 shadow-lg transition-all duration-300 peer-data-[visible]:visible peer-data-[visible]:opacity-100 hover:bg-purple-500 focus:bg-purple-500 focus:ring-4 focus:ring-purple-500/50 focus:ring-offset-3 focus:ring-offset-zinc-800 focus:outline-none"
       aria-label={ui[uiLang]["common.back.to.top"] || "Back to top"}
       type="button"
       aria-controls="page-heading"
@@ -500,65 +496,387 @@ const articlesStructuredData = sortedArticles.map((article) => {
     })}
   />
 
-  <!-- Optimized Image Loading Script -->
-  <script>
-    // Use Intersection Observer for lazy loading images
-    document.addEventListener("DOMContentLoaded", () => {
-      const lazyImages = document.querySelectorAll(".lazy-image");
-
-      if ("IntersectionObserver" in window) {
-        const imageObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const img = entry.target as HTMLImageElement;
-                img.style.opacity = "1";
-                imageObserver.unobserve(img); // Stop observing once loaded
-              }
-            });
-          },
-          {
-            rootMargin: "50px 0px", // Load images a bit before they enter viewport
-            threshold: 0.01,
-          }
-        );
-
-        lazyImages.forEach((img) => imageObserver.observe(img));
-      } else {
-        // Fallback for browsers that don't support Intersection Observer
-        lazyImages.forEach((img) => {
-          (img as HTMLImageElement).style.opacity = "1";
-        });
-      }
-    });
-  </script>
-
   <!-- Optimized Search Function -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Cache DOM elements to avoid repeated queries
-      const searchInput = document.getElementById("searchInput") as HTMLInputElement;
-      const articlesGrid = document.getElementById("articlesGrid");
-      const noResults = document.getElementById("no-results");
-      const searchStatus = document.getElementById("search-status");
-      const resetButtons = document.querySelectorAll("#reset-search, #reset-search-inline");
+    /**
+     * Knowledge Page Search & Interaction Module
+     *
+     * Features:
+     * - High-performance search with debouncing and batch DOM updates
+     * - Optimized keyboard navigation for WCAG AAA compliance
+     * - Responsive touch interactions for mobile devices
+     * - Screen reader announcements for search results
+     * - ESC key to reset search
+     * - Back-to-top functionality with proper focus management
+     *
+     * Performance Optimizations:
+     * - Request Animation Frame for smooth UI updates
+     * - Efficient DOM querying with cached selectors
+     * - Batched processing for large article collections
+     */
 
-      if (!searchInput || !articlesGrid || !noResults || !searchStatus) {
+    /**
+     * Generic debounce function to limit function call frequency
+     * @param {Function} func - The function to debounce
+     * @param {number} [wait=300] - The debounce wait time in milliseconds
+     * @returns {Function} A debounced version of the input function
+     */
+    function debounce<T extends unknown[]>(
+      func: (...args: T) => unknown,
+      wait = 300
+    ): (...args: T) => void {
+      let timeout: ReturnType<typeof setTimeout> | undefined;
+      return function executedFunction(...args: T): void {
+        const later = (): void => {
+          if (timeout) {
+            clearTimeout(timeout);
+          }
+          func(...args);
+        };
+        if (timeout) {
+          clearTimeout(timeout);
+        }
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    /**
+     * Updates the screen reader status with search results count
+     * @param {HTMLElement} statusElement - The status element to update
+     * @param {number} count - Number of items found
+     * @param {number} total - Total number of items
+     * @returns {void}
+     */
+    function updateSearchStatus(
+      statusElement: HTMLElement,
+      count: number,
+      total: number = 0
+    ): void {
+      let message = "";
+
+      if (count === 0) {
+        message = "No articles found";
+      } else if (count === 1) {
+        message = "1 article found";
+      } else if (count === total) {
+        message = `All ${count} articles displayed`;
+      } else {
+        message = `${count} of ${total} articles found`;
+      }
+
+      statusElement.textContent = message;
+    }
+
+    /**
+     * Processes a batch of search results for smoother UI updates
+     * @param {Object} params - Parameters for batch processing
+     * @returns {void}
+     */
+    function processBatch(params: {
+      batchIndex: number;
+      batches: number;
+      term: string;
+      articleDataMap: Map<HTMLElement, { element: HTMLElement; searchText: string }>;
+      batchSize: number;
+      noResultsElement: HTMLElement;
+      statusElement: HTMLElement;
+      visibleCount: number;
+      firstVisible: HTMLElement | null;
+      totalArticles: number;
+    }): void {
+      const {
+        batchIndex,
+        batches,
+        term,
+        articleDataMap,
+        batchSize,
+        noResultsElement,
+        statusElement,
+        totalArticles,
+      } = params;
+
+      let visibleCount = params.visibleCount;
+      let firstVisible = params.firstVisible;
+
+      if (batchIndex >= batches) {
+        // All batches processed, update UI
+        if (noResultsElement) {
+          if (visibleCount === 0) {
+            noResultsElement.classList.remove("hidden");
+            noResultsElement.classList.add("flex");
+          } else {
+            noResultsElement.classList.add("hidden");
+            noResultsElement.classList.remove("flex");
+          }
+        }
+
+        updateSearchStatus(statusElement, visibleCount, totalArticles);
         return;
       }
 
-      // Cache all article elements for faster access
-      const allArticles = Array.from(articlesGrid.querySelectorAll("li"));
-      const totalArticles = allArticles.length;
+      const start = batchIndex * batchSize;
+      const end = Math.min(start + batchSize, articleDataMap.size);
 
-      // Define types for article data
-      type ArticleData = {
-        element: HTMLElement;
-        searchText: string;
+      // Process current batch
+      Array.from(articleDataMap.entries())
+        .slice(start, end)
+        .forEach(([_article, item]) => {
+          const matches = item.searchText.includes(term);
+          item.element.style.display = matches ? "" : "none";
+          if (matches && !firstVisible) {
+            firstVisible = item.element;
+          }
+          if (matches) {
+            visibleCount++;
+          }
+        });
+
+      // Schedule next batch with updated counts
+      requestAnimationFrame(() => {
+        processBatch({
+          ...params,
+          batchIndex: batchIndex + 1,
+          visibleCount: visibleCount,
+          firstVisible: firstVisible,
+        });
+      });
+    }
+
+    /**
+     * Creates a search function that processes results in batches
+     * @param {Object} params - Parameters for the search function
+     * @returns {Function} A debounced search function
+     */
+    function createSearchFunction(params: {
+      allArticles: HTMLElement[];
+      totalArticles: number;
+      articleDataMap: Map<HTMLElement, { element: HTMLElement; searchText: string }>;
+      elements: {
+        noResults: HTMLElement;
+        searchStatus: HTMLElement;
+      };
+      config: {
+        batchSize: number;
+        debounceWait: number;
+      };
+    }): (searchTerm: string) => void {
+      const { allArticles, totalArticles, articleDataMap, elements, config } = params;
+
+      return debounce((searchTerm: string): void => {
+        // Use requestAnimationFrame for smoother UI updates
+        requestAnimationFrame(() => {
+          const term = searchTerm.toLowerCase().trim();
+
+          // Skip processing if search term is empty
+          if (!term) {
+            allArticles.forEach((article) => {
+              article.style.display = "";
+            });
+            elements.noResults.classList.add("hidden");
+            elements.noResults.classList.remove("flex");
+            updateSearchStatus(elements.searchStatus, totalArticles, totalArticles);
+            return;
+          }
+
+          // Start batch processing with initial values
+          processBatch({
+            batchIndex: 0,
+            batches: Math.ceil(articleDataMap.size / config.batchSize),
+            term,
+            articleDataMap,
+            batchSize: config.batchSize,
+            noResultsElement: elements.noResults,
+            statusElement: elements.searchStatus,
+            visibleCount: 0,
+            firstVisible: null,
+            totalArticles,
+          });
+        });
+      }, config.debounceWait);
+    }
+
+    /**
+     * Handles keyboard navigation between articles
+     * @param {KeyboardEvent} e - Keyboard event
+     * @param {HTMLElement} articlesGrid - The articles grid element
+     * @param {HTMLElement[]} allArticles - Array of all article elements
+     * @returns {void}
+     */
+    function handleKeyboardNavigation(
+      e: KeyboardEvent,
+      articlesGrid: HTMLElement,
+      allArticles: HTMLElement[]
+    ): void {
+      // Only handle arrow keys when focus is within the articles grid
+      if (!articlesGrid.contains(document.activeElement)) {
+        return;
+      }
+
+      const visibleArticles = allArticles.filter((article) => article.style.display !== "none");
+
+      if (visibleArticles.length === 0) {
+        return;
+      }
+
+      const currentIndex = visibleArticles.findIndex((article) =>
+        article.contains(document.activeElement as Node)
+      );
+
+      if (currentIndex === -1) {
+        return;
+      }
+
+      let nextIndex: number;
+
+      // Determine number of columns based on viewport width for better navigation
+      const columns = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+
+      switch (e.key) {
+        case "ArrowRight":
+          nextIndex = (currentIndex + 1) % visibleArticles.length;
+          e.preventDefault();
+          break;
+        case "ArrowLeft":
+          nextIndex = (currentIndex - 1 + visibleArticles.length) % visibleArticles.length;
+          e.preventDefault();
+          break;
+        case "ArrowDown":
+          // Move to the article below (using responsive column count)
+          nextIndex =
+            currentIndex + columns < visibleArticles.length ? currentIndex + columns : currentIndex;
+          e.preventDefault();
+          break;
+        case "ArrowUp":
+          // Move to the article above (using responsive column count)
+          nextIndex = currentIndex - columns >= 0 ? currentIndex - columns : currentIndex;
+          e.preventDefault();
+          break;
+        default:
+          return;
+      }
+
+      // Focus the link in the next article
+      const nextArticle = visibleArticles[nextIndex];
+      const focusableElement = nextArticle.querySelector("a") || nextArticle;
+      if (focusableElement && "focus" in focusableElement) {
+        (focusableElement as HTMLElement).focus();
+      }
+    }
+
+    // Main initialization function when DOM is ready
+    document.addEventListener("DOMContentLoaded", () => {
+      // DOM elements and global state
+      const elements = {
+        searchInput: document.getElementById("searchInput") as HTMLInputElement,
+        articlesGrid: document.getElementById("articlesGrid") as HTMLElement,
+        noResults: document.getElementById("no-results") as HTMLElement,
+        searchStatus: document.getElementById("search-status") as HTMLElement,
+        resetButtons: document.querySelectorAll("#reset-search, #reset-search-inline"),
+        backToTopButton: document.getElementById("back-to-top") as HTMLElement,
       };
 
+      // Config
+      const config = {
+        batchSize: 10,
+        debounceWait: 150, // Reduced for more responsive feel
+        topButtonThreshold: 400,
+      };
+
+      // Exit if essential elements are missing
+      if (
+        !elements.searchInput ||
+        !elements.articlesGrid ||
+        !elements.noResults ||
+        !elements.searchStatus
+      ) {
+        return;
+      }
+
+      // Initialize the knowledge page functionality
+      initKnowledgePage(elements, config);
+    });
+
+    /**
+     * Main function to initialize the knowledge page functionality
+     * @param {Object} elements - DOM elements used by the page
+     * @param {Object} config - Configuration options
+     * @returns {void}
+     */
+    function initKnowledgePage(
+      elements: {
+        searchInput: HTMLInputElement;
+        articlesGrid: HTMLElement;
+        noResults: HTMLElement;
+        searchStatus: HTMLElement;
+        resetButtons: NodeListOf<Element>;
+        backToTopButton: HTMLElement;
+      },
+      config: {
+        batchSize: number;
+        debounceWait: number;
+        topButtonThreshold: number;
+      }
+    ): void {
+      // Initialize article data for search
+      const { allArticles, totalArticles, articleDataMap } = initializeArticleData(
+        elements.articlesGrid
+      );
+
+      // Initialize all functionality
+      initSearchFunctionality(elements, config, allArticles, totalArticles, articleDataMap);
+      initKeyboardNavigation(elements.articlesGrid, allArticles);
+      initBackToTopButton(elements.backToTopButton, config.topButtonThreshold);
+
+      // Declare the custom property type before using it
+      interface KnowledgeCenter {
+        filterByQuery: (query: string) => void;
+        reset: () => void;
+      }
+
+      // Expose public API (useful for testing and potential external integrations)
+      (
+        window as Window & typeof globalThis & { knowledgeCenter?: KnowledgeCenter }
+      ).knowledgeCenter = {
+        filterByQuery: (query: string): void => {
+          if (elements.searchInput) {
+            elements.searchInput.value = query;
+            const event = new Event("input", { bubbles: true });
+            elements.searchInput.dispatchEvent(event);
+          }
+        },
+        reset: (): void => {
+          if (elements.searchInput) {
+            elements.searchInput.value = "";
+            const event = new Event("input", { bubbles: true });
+            elements.searchInput.dispatchEvent(event);
+            elements.searchInput.focus();
+          }
+        },
+      };
+    }
+
+    /**
+     * Initializes article data for search functionality
+     * @param {HTMLElement} articlesGrid - The grid element containing all articles
+     * @returns {Object} Object containing articles and article data map
+     */
+    function initializeArticleData(articlesGrid: HTMLElement): {
+      allArticles: HTMLElement[];
+      totalArticles: number;
+      articleDataMap: Map<HTMLElement, { element: HTMLElement; searchText: string }>;
+    } {
+      // Cache all article elements for faster access
+      const allArticles = Array.from(articlesGrid.querySelectorAll("li")) as HTMLElement[];
+      const totalArticles = allArticles.length;
+
       // Create a Map for faster lookups during search
-      const articleDataMap = new Map<HTMLElement, ArticleData>();
+      const articleDataMap = new Map<
+        HTMLElement,
+        {
+          element: HTMLElement;
+          searchText: string;
+        }
+      >();
 
       // Pre-process article data once
       allArticles.forEach((article) => {
@@ -569,820 +887,136 @@ const articlesStructuredData = sortedArticles.map((article) => {
           const keywords = card.getAttribute("data-keywords") || "";
 
           // Store pre-processed lowercase text for faster comparison
-          articleDataMap.set(article as HTMLElement, {
-            element: article as HTMLElement,
+          articleDataMap.set(article, {
+            element: article,
             searchText: `${title} ${description} ${keywords}`.toLowerCase(),
           });
         }
       });
 
-      // Debounce function to limit search frequency
-      function debounce<F extends (...args: any[]) => any>(func: F, wait = 300) {
-        let timeout: ReturnType<typeof setTimeout> | undefined;
-        return function executedFunction(...args: Parameters<F>) {
-          const later = () => {
-            if (timeout) {
-              clearTimeout(timeout);
-            }
-            func(...args);
-          };
-          if (timeout) {
-            clearTimeout(timeout);
-          }
-          timeout = setTimeout(later, wait);
-        };
-      }
+      return { allArticles, totalArticles, articleDataMap };
+    }
 
-      // Optimized search function with batch processing
-      const performSearch = debounce((searchTerm: string) => {
-        // Use requestAnimationFrame for smoother UI updates
-        requestAnimationFrame(() => {
-          const term = searchTerm.toLowerCase().trim();
-
-          // Skip processing if search term is empty
-          if (!term) {
-            allArticles.forEach((article) => {
-              (article as HTMLElement).style.display = "";
-            });
-            noResults.classList.add("hidden");
-            updateSearchStatus(totalArticles);
-            return;
-          }
-
-          let visibleCount = 0;
-
-          // Process in smaller batches for better responsiveness
-          const batchSize = 10;
-          const batches = Math.ceil(articleDataMap.size / batchSize);
-
-          function processBatch(batchIndex: number) {
-            if (batchIndex >= batches) {
-              // All batches processed, update UI
-              if (noResults) {
-                if (visibleCount === 0) {
-                  noResults.classList.remove("hidden");
-                } else {
-                  noResults.classList.add("hidden");
-                }
-              }
-
-              updateSearchStatus(visibleCount);
-              return;
-            }
-
-            const start = batchIndex * batchSize;
-            const end = Math.min(start + batchSize, articleDataMap.size);
-
-            // Process current batch
-            Array.from(articleDataMap.entries())
-              .slice(start, end)
-              .forEach(([article, data]) => {
-                const isMatch = data.searchText.includes(term);
-                article.style.display = isMatch ? "" : "none";
-                if (isMatch) {
-                  visibleCount++;
-                }
-              });
-
-            // Schedule next batch
-            requestAnimationFrame(() => {
-              processBatch(batchIndex + 1);
-            });
-          }
-
-          // Start batch processing
-          processBatch(0);
-        });
-      }, 250);
-
-      // Update screen reader status
-      function updateSearchStatus(count: number) {
-        const message = count === 1 ? "1 article found" : `${count} articles found`;
-
-        if (searchStatus) {
-          searchStatus.textContent = message;
-        }
-      }
+    /**
+     * Initializes the search functionality with debouncing and batch processing
+     * @param {Object} elements - DOM elements used by the search functionality
+     * @param {Object} config - Configuration options
+     * @param {HTMLElement[]} allArticles - Array of all article elements
+     * @param {number} totalArticles - Total number of articles
+     * @param {Map} articleDataMap - Map of article elements to their search data
+     * @returns {void}
+     */
+    function initSearchFunctionality(
+      elements: {
+        searchInput: HTMLInputElement;
+        noResults: HTMLElement;
+        searchStatus: HTMLElement;
+        resetButtons: NodeListOf<Element>;
+      },
+      config: {
+        batchSize: number;
+        debounceWait: number;
+      },
+      allArticles: HTMLElement[],
+      totalArticles: number,
+      articleDataMap: Map<HTMLElement, { element: HTMLElement; searchText: string }>
+    ): void {
+      // Create the optimized search function
+      const performSearch = createSearchFunction({
+        allArticles,
+        totalArticles,
+        articleDataMap,
+        elements: {
+          noResults: elements.noResults,
+          searchStatus: elements.searchStatus,
+        },
+        config,
+      });
 
       // Event listeners
-      searchInput.addEventListener("input", (e) => {
+      elements.searchInput.addEventListener("input", (e) => {
         const target = e.target as HTMLInputElement;
         if (target) {
           performSearch(target.value);
         }
       });
 
-      resetButtons.forEach((button) => {
+      elements.resetButtons.forEach((button) => {
         button.addEventListener("click", () => {
-          searchInput.value = "";
+          elements.searchInput.value = "";
           performSearch("");
-          searchInput.focus();
+          elements.searchInput.focus();
         });
+      });
+
+      // Add ESC key handler to reset search
+      document.addEventListener("keydown", (event: KeyboardEvent) => {
+        if (event.key === "Escape" && elements.searchInput?.value) {
+          elements.searchInput.value = "";
+          performSearch("");
+          elements.searchInput.focus();
+          event.preventDefault();
+        }
       });
 
       // Initialize with empty search to ensure proper state
       performSearch("");
+    }
 
-      // Keyboard navigation for articles
+    /**
+     * Sets up keyboard navigation for articles with arrow keys
+     * @param {HTMLElement} articlesGrid - The articles grid element
+     * @param {HTMLElement[]} allArticles - Array of all article elements
+     * @returns {void}
+     */
+    function initKeyboardNavigation(articlesGrid: HTMLElement, allArticles: HTMLElement[]): void {
       document.addEventListener("keydown", (e) => {
-        // Only handle arrow keys when focus is within the articles grid
-        if (!articlesGrid.contains(document.activeElement)) {
-          return;
-        }
-
-        const visibleArticles = allArticles.filter(
-          (article) => (article as HTMLElement).style.display !== "none"
-        );
-
-        if (visibleArticles.length === 0) {
-          return;
-        }
-
-        const currentIndex = visibleArticles.findIndex((article) =>
-          article.contains(document.activeElement as Node)
-        );
-
-        if (currentIndex === -1) {
-          return;
-        }
-
-        let nextIndex: number;
-
-        switch (e.key) {
-          case "ArrowRight":
-            nextIndex = (currentIndex + 1) % visibleArticles.length;
-            e.preventDefault();
-            break;
-          case "ArrowLeft":
-            nextIndex = (currentIndex - 1 + visibleArticles.length) % visibleArticles.length;
-            e.preventDefault();
-            break;
-          case "ArrowDown":
-            // Move to the article below (assuming 3 columns)
-            nextIndex = currentIndex + 3 < visibleArticles.length ? currentIndex + 3 : currentIndex;
-            e.preventDefault();
-            break;
-          case "ArrowUp":
-            // Move to the article above (assuming 3 columns)
-            nextIndex = currentIndex - 3 >= 0 ? currentIndex - 3 : currentIndex;
-            e.preventDefault();
-            break;
-          default:
-            return;
-        }
-
-        // Focus the link in the next article
-        const nextArticle = visibleArticles[nextIndex];
-        const focusableElement = nextArticle.querySelector("a") || nextArticle;
-        if (focusableElement && "focus" in focusableElement) {
-          (focusableElement as HTMLElement).focus();
-        }
+        handleKeyboardNavigation(e, articlesGrid, allArticles);
       });
+    }
 
-      // Back to top button functionality
-      const backToTopButton = document.getElementById("back-to-top");
-      if (backToTopButton) {
-        // Show/hide button based on scroll position
-        window.addEventListener("scroll", () => {
-          if (window.scrollY > 300) {
-            backToTopButton.classList.remove("opacity-0", "invisible");
-          } else {
-            backToTopButton.classList.add("opacity-0", "invisible");
+    /**
+     * Initializes the back to top button functionality
+     * @param {HTMLElement} backToTopButton - The back to top button element
+     * @param {number} threshold - Scroll threshold to show the button
+     * @returns {void}
+     */
+    function initBackToTopButton(backToTopButton: HTMLElement, threshold: number): void {
+      if (!backToTopButton) {
+        return;
+      }
+
+      // Performance optimization for scroll events
+      let isScrolling = false;
+
+      // Show/hide button based on scroll position
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (!isScrolling) {
+            isScrolling = true;
+
+            requestAnimationFrame(() => {
+              if (window.scrollY > threshold) {
+                backToTopButton.setAttribute("data-visible", "true");
+              } else {
+                backToTopButton.removeAttribute("data-visible");
+              }
+              isScrolling = false;
+            });
           }
-        });
+        },
+        { passive: true }
+      );
 
-        // Scroll to top when clicked
-        backToTopButton.addEventListener("click", () => {
+      // Scroll to top when clicked
+      backToTopButton.addEventListener("click", () => {
+        // Use native smooth scroll if supported
+        if ("scrollBehavior" in document.documentElement.style) {
           window.scrollTo({
             top: 0,
             behavior: "smooth",
           });
-        });
-      }
-    });
-  </script>
-</Layout>
-
-<style>
-  /* Improved color contrast for WCAG AAA (7:1) */
-  :root {
-    --text-primary: #ffffff; /* Maximum contrast */
-    --text-secondary: #e2e2e7; /* Higher contrast than standard zinc-300 */
-    --bg-card: #27272a; /* zinc-800 */
-    --border-card: rgba(161, 161, 170, 0.3); /* zinc-400 with transparency */
-    --accent-primary: #a855f7; /* purple-500 */
-    --accent-secondary: #c084fc; /* purple-400 */
-  }
-
-  /* Animations for cards */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fadeIn {
-    animation: fadeIn 0.5s ease-out forwards;
-    opacity: 0;
-  }
-
-  /* Enhanced keyboard focus styles for WCAG AAA */
-  :focus-visible {
-    outline: 3px solid var(--accent-primary) !important;
-    outline-offset: 3px !important;
-    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.4) !important;
-  }
-
-  /* Verbesserter Hover-Effekt */
-  .knowledge-card-container:hover {
-    transform: translateY(-4px);
-    transition:
-      transform 0.3s ease-out,
-      box-shadow 0.3s ease-out;
-  }
-
-  /* Verbesserte Back-to-Top Button Animation */
-  #back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  /* Verbesserte Touch-Interaktion für mobile Geräte */
-  .knowledge-card-container {
-    position: relative;
-    cursor: pointer;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-    transform: translateZ(0); /* Aktiviert Hardware-Beschleunigung */
-    will-change: transform; /* Optimiert für Animation */
-  }
-
-  /* Verbesserte Touch-Interaktion - Entferne Konflikte mit KnowledgeCard */
-  .knowledge-card-container a.card-link {
-    position: relative;
-    z-index: 5;
-    display: block;
-  }
-
-  /* Entferne das after-Element, das Konflikte verursachen kann */
-  .knowledge-card-container a.card-link::after {
-    content: none;
-  }
-
-  /* Optimierte Touch-Feedback-Stile */
-  @media (hover: none) {
-    .knowledge-card-container:hover {
-      transform: none; /* Verhindert Hover-Effekte auf Touch-Geräten */
-    }
-
-    /* Verwende Touch-spezifisches Styling */
-    .knowledge-card-container {
-      touch-action: manipulation; /* Optimiert für Touch-Interaktionen */
-    }
-
-    /* Leichteres Touch-Feedback */
-    .touching {
-      opacity: 0.8;
-    }
-  }
-
-  /* Verbesserte Touch-Interaktion für mobile Geräte */
-  .knowledge-card-container {
-    position: relative;
-    cursor: pointer;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .knowledge-card-container:active {
-    transform: scale(0.98);
-  }
-
-  /* Vergrößerter klickbarer Bereich und verbesserte mobile Zugänglichkeit */
-  .knowledge-card-container a.card-link {
-    position: static;
-  }
-
-  .knowledge-card-container a.card-link::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 10; /* Stellt sicher, dass der klickbare Bereich über anderen Elementen liegt */
-  }
-
-  /* Reduzierte Hover-Effekte für Touch-Geräte */
-  @media (hover: none) {
-    .knowledge-card-container:hover {
-      transform: none;
-    }
-
-    /* Visuelles Feedback bei Berührung */
-    .knowledge-card-container:active {
-      background-color: rgba(168, 85, 247, 0.1);
-    }
-
-    /* Improved scroll vs. tap handling */
-    .knowledge-card-container {
-      touch-action: pan-y; /* Allow vertical scrolling */
-    }
-  }
-
-  /* Disable animations if user prefers reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    ::before,
-    ::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-
-    .animate-fadeIn {
-      opacity: 1;
-      animation: none;
-      transform: translateY(0);
-    }
-
-    .knowledge-card-container:hover {
-      transform: none;
-    }
-  }
-
-  /* Improved touch interaction with better scroll handling */
-  @media (hover: none) {
-    .knowledge-card-container:hover {
-      transform: none; /* Prevents hover effects on touch devices */
-    }
-
-    /* Enable vertical scrolling */
-    .knowledge-card-container {
-      touch-action: pan-y;
-    }
-
-    /* Simple active state feedback */
-    .knowledge-card-container:active {
-      opacity: 0.9;
-    }
-  }
-
-  /* Remove potentially problematic styles that intercept scrolling */
-  .knowledge-card-container a.card-link::after {
-    content: none;
-  }
-
-  /* Basic styles and animations */
-  /* Simple hover effects - copied from gamehome approach */
-  @media (hover: hover) {
-    a:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      border-color: #6d28d9;
-    }
-  }
-
-  /* Touch-specific styles */
-  @media (hover: none) {
-    a:active {
-      opacity: 0.9;
-      background-color: rgba(168, 85, 247, 0.05);
-    }
-  }
-
-  /* Remove conflicting styles */
-  .knowledge-card-container a.card-link::after {
-    content: none;
-  }
-
-  /* Simple hover effects matching gamehome approach */
-  @media (hover: hover) {
-    #articlesGrid li a:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      border-color: #6d28d9;
-    }
-  }
-
-  /* Touch-specific styles */
-  @media (hover: none) {
-    #articlesGrid li a:active {
-      opacity: 0.8;
-      background-color: rgba(168, 85, 247, 0.05);
-    }
-  }
-
-  /* Remove all the old conflicting styles */
-  .knowledge-card-container,
-  .knowledge-card-container a.card-link,
-  .knowledge-card-container a.card-link::after {
-    /* Reset any potentially conflicting styles */
-    all: unset;
-  }
-
-  /* Disable animations if user prefers reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    ::before,
-    ::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-
-    .animate-fadeIn {
-      opacity: 1;
-      animation: none;
-      transform: translateY(0);
-    }
-  }
-</style>
-
-<script>
-  /**
-   * Knowledge Articles Search & Filtering System
-   *
-   * Features:
-   * - High-performance search with debouncing and batch DOM updates
-   * - Optimized keyboard navigation for WCAG AAA compliance
-   * - Responsive touch interactions for mobile devices
-   * - Screen reader announcements for search results
-   * - Back-to-top functionality with proper focus management
-   *
-   * Performance Optimizations:
-   * - Request Animation Frame for smooth UI updates
-   * - Efficient DOM querying with cached selectors
-   * - Batched processing for large article collections
-   * - Hardware-accelerated animations
-   * - Event delegation where appropriate
-   */
-
-  // Wait for DOM to be fully loaded
-  document.addEventListener("DOMContentLoaded", initializeKnowledgeCenter);
-
-  /**
-   * Central configuration for easy maintenance
-   */
-  const CONFIG = {
-    selectors: {
-      searchInput: "#searchInput",
-      articleGrid: "#articlesGrid",
-      articleItems: "#articlesGrid li",
-      noResults: "#no-results",
-      searchStatus: "#search-status",
-      resetSearch: "#reset-search",
-      backToTop: "#back-to-top",
-      articleLinks: "a.card-link",
-      resetSearchInline: "#reset-search-inline",
-    },
-    timing: {
-      debounceMs: 150, // Reduced for more responsive feel
-      scrollDuration: 300,
-    },
-    performance: {
-      batchSize: 10,
-      frameThreshold: 16, // Target ~60fps (16ms per frame)
-    },
-    scroll: {
-      topButtonThreshold: 400,
-    },
-    aria: {
-      allResults: "All articles are displayed",
-      filteredResults: "{count} of {total} articles found",
-      noResults: "No articles match your search",
-    },
-  };
-
-  // Type definitions for better TypeScript support
-  interface KnowledgeCard {
-    element: HTMLElement;
-    title: string;
-    description: string;
-    keywords: string;
-  }
-
-  interface DOMElements {
-    searchInput: HTMLInputElement | null;
-    articleGrid: HTMLElement | null;
-    noResults: HTMLElement | null;
-    searchStatus: HTMLElement | null;
-    resetButton: HTMLElement | null;
-    resetButtonInline: HTMLElement | null;
-    backToTopButton: HTMLElement | null;
-    articles: HTMLElement[];
-  }
-
-  /**
-   * Initialize the knowledge center functionality
-   */
-  function initializeKnowledgeCenter() {
-    // Cache DOM elements for better performance
-    const elements: DOMElements = {
-      searchInput: document.querySelector(CONFIG.selectors.searchInput) as HTMLInputElement,
-      articleGrid: document.querySelector(CONFIG.selectors.articleGrid) as HTMLElement,
-      noResults: document.querySelector(CONFIG.selectors.noResults) as HTMLElement,
-      searchStatus: document.querySelector(CONFIG.selectors.searchStatus) as HTMLElement,
-      resetButton: document.querySelector(CONFIG.selectors.resetSearch) as HTMLElement,
-      resetButtonInline: document.querySelector(CONFIG.selectors.resetSearchInline) as HTMLElement,
-      backToTopButton: document.querySelector(CONFIG.selectors.backToTop) as HTMLElement,
-      articles: Array.from(
-        document.querySelectorAll(CONFIG.selectors.articleItems)
-      ) as HTMLElement[],
-    };
-
-    // Skip initialization if required elements are missing
-    if (!elements.searchInput || !elements.articleGrid) {
-      console.warn("Required elements not found. Knowledge center features disabled.");
-      return;
-    }
-
-    // Initialize state variables
-    let isProcessing = false;
-    let debounceTimer: number | null = null;
-    const totalArticles = elements.articles.length;
-
-    // Store indexable content for faster searching
-    const searchableContent: KnowledgeCard[] = elements.articles.map((article) => {
-      const card = article.querySelector('[data-testid="knowledge-card"]') as HTMLElement;
-      return {
-        element: article,
-        title: (card?.dataset?.title || "").toLowerCase(),
-        description: (card?.dataset?.description || "").toLowerCase(),
-        keywords: (card?.dataset?.keywords || "").toLowerCase(),
-      };
-    });
-
-    // Set up event listeners
-    initEventListeners();
-    initBackToTopButton();
-    initKeyboardNavigation();
-
-    // Expose public API (useful for testing and potential external integrations)
-    (window as any).knowledgeCenter = {
-      filterByQuery: (query: string) => {
-        if (elements.searchInput) {
-          elements.searchInput.value = query;
-          filterArticles();
-        }
-      },
-      reset: resetSearch,
-    };
-
-    /**
-     * Initialize all event listeners
-     */
-    function initEventListeners() {
-      // Search input with efficient debounce
-      elements.searchInput?.addEventListener("input", () => {
-        if (debounceTimer) {
-          window.cancelAnimationFrame(debounceTimer);
-        }
-
-        debounceTimer = window.requestAnimationFrame(() => {
-          debounceTimer = window.requestAnimationFrame(() => {
-            filterArticles();
-            debounceTimer = null;
-          });
-        });
-      });
-
-      // Reset search button
-      elements.resetButton?.addEventListener("click", resetSearch);
-      elements.resetButtonInline?.addEventListener("click", resetSearch);
-
-      // Make ESC key reset search
-      document.addEventListener("keydown", (event: KeyboardEvent) => {
-        if (event.key === "Escape" && elements.searchInput?.value) {
-          resetSearch();
-          event.preventDefault();
-        }
-      });
-    }
-
-    /**
-     * Reset search and filters to default state
-     */
-    function resetSearch() {
-      if (elements.searchInput) {
-        elements.searchInput.value = "";
-        filterArticles();
-        elements.searchInput.focus();
-      }
-    }
-
-    /**
-     * Main filtering function for articles with performance optimizations
-     */
-    function filterArticles() {
-      if (isProcessing) {
-        return;
-      }
-      isProcessing = true;
-
-      const query = elements.searchInput?.value.toLowerCase().trim() || "";
-
-      // Fast path for empty queries - show everything
-      if (!query) {
-        showAllArticles();
-        isProcessing = false;
-        return;
-      }
-
-      // Use either batch or immediate processing based on collection size
-      if (totalArticles > CONFIG.performance.batchSize) {
-        processBatchedSearch(query);
-      } else {
-        processImmediateSearch(query);
-      }
-    }
-
-    /**
-     * Quickly show all articles (optimization for empty search)
-     */
-    function showAllArticles() {
-      searchableContent.forEach((item) => {
-        (item.element as HTMLElement).style.display = "";
-      });
-
-      updateResultsStatus(totalArticles);
-
-      if (elements.noResults) {
-        elements.noResults.classList.add("hidden");
-        elements.noResults.classList.remove("flex");
-      }
-    }
-
-    /**
-     * Process search immediately for small collections
-     */
-    function processImmediateSearch(query: string) {
-      let visibleCount = 0;
-
-      // Filter articles based on query
-      searchableContent.forEach((item) => {
-        // Search in title, description and keywords
-        const matches =
-          item.title.includes(query) ||
-          item.description.includes(query) ||
-          item.keywords.includes(query);
-
-        (item.element as HTMLElement).style.display = matches ? "" : "none";
-        if (matches) {
-          visibleCount++;
-        }
-      });
-
-      // Update UI and announcements
-      updateResultsStatus(visibleCount);
-      isProcessing = false;
-    }
-
-    /**
-     * Process articles in batches for smoother UI with large collections
-     */
-    function processBatchedSearch(query: string) {
-      let index = 0;
-      let visibleCount = 0;
-      const startTime = performance.now();
-
-      const processNextBatch = () => {
-        const batchStartTime = performance.now();
-        let batchCount = 0;
-
-        // Process as many items as possible within our frame budget
-        while (
-          index < totalArticles &&
-          performance.now() - batchStartTime < CONFIG.performance.frameThreshold &&
-          batchCount < CONFIG.performance.batchSize
-        ) {
-          const item = searchableContent[index];
-
-          // Search in title, description and keywords
-          const matches =
-            item.title.includes(query) ||
-            item.description.includes(query) ||
-            item.keywords.includes(query);
-
-          (item.element as HTMLElement).style.display = matches ? "" : "none";
-          if (matches) {
-            visibleCount++;
-          }
-
-          index++;
-          batchCount++;
-        }
-
-        // If there are more items to process, schedule next batch
-        if (index < totalArticles) {
-          window.requestAnimationFrame(processNextBatch);
-        } else {
-          // All batches processed
-          updateResultsStatus(visibleCount);
-          isProcessing = false;
-
-          // Performance logging in development
-          if (import.meta.env?.DEV) {
-            console.log(`Search completed in ${performance.now() - startTime}ms`);
-          }
-        }
-      };
-
-      // Start batch processing
-      window.requestAnimationFrame(processNextBatch);
-    }
-
-    /**
-     * Update UI and screen reader announcements based on filter results
-     */
-    function updateResultsStatus(visibleCount: number) {
-      // Update screen reader announcements
-      if (elements.searchStatus) {
-        const statusMessage =
-          visibleCount === 0
-            ? CONFIG.aria.noResults
-            : visibleCount === totalArticles
-              ? CONFIG.aria.allResults
-              : CONFIG.aria.filteredResults
-                  .replace("{count}", String(visibleCount))
-                  .replace("{total}", String(totalArticles));
-
-        elements.searchStatus.textContent = statusMessage;
-      }
-
-      // Show/hide no results message
-      if (elements.noResults) {
-        if (visibleCount === 0) {
-          elements.noResults.classList.remove("hidden");
-          elements.noResults.classList.add("flex");
-        } else {
-          elements.noResults.classList.add("hidden");
-          elements.noResults.classList.remove("flex");
-        }
-      }
-
-      // Focus handling for accessibility
-      if (elements.searchInput?.value) {
-        if (visibleCount === 0) {
-          // When no results, focus the no results message
-          if (elements.noResults) {
-            setTimeout(() => elements.noResults?.setAttribute("tabindex", "-1"), 100);
-            setTimeout(() => {
-              if (elements.noResults instanceof HTMLElement) {
-                elements.noResults.focus();
-              }
-            }, 150);
-          }
-        } else if (visibleCount < totalArticles) {
-          // When filtered, announce result count for screen readers
-          const firstVisible = elements.articles.find(
-            (a) => (a as HTMLElement).style.display !== "none"
-          );
-          // Don't auto-focus, just announce for screen readers
-          // Let users navigate naturally
-        }
-      }
-    }
-
-    /**
-     * Set up the back to top button with performance optimizations
-     */
-    function initBackToTopButton() {
-      if (!elements.backToTopButton) {
-        return;
-      }
-
-      let isScrolling = false;
-      const scrollHandler = () => {
-        if (isScrolling) {
-          return;
-        }
-        isScrolling = true;
-
-        window.requestAnimationFrame(() => {
-          const showButton = window.scrollY > CONFIG.scroll.topButtonThreshold;
-          elements.backToTopButton?.classList.toggle("visible", showButton);
-          isScrolling = false;
-        });
-      };
-
-      // Throttled scroll event
-      window.addEventListener("scroll", scrollHandler, { passive: true });
-
-      // Handle click with smooth scroll
-      elements.backToTopButton.addEventListener("click", () => {
-        // Use native smooth scroll or fallback
-        if ("scrollBehavior" in document.documentElement.style) {
-          window.scrollTo({ top: 0, behavior: "smooth" });
         } else {
           // Fallback for browsers without smooth scroll
           window.scrollTo(0, 0);
@@ -1390,62 +1024,33 @@ const articlesStructuredData = sortedArticles.map((article) => {
 
         // Focus management after scroll
         setTimeout(() => {
-          elements.searchInput?.focus();
-        }, CONFIG.timing.scrollDuration);
+          document.getElementById("searchInput")?.focus();
+        }, 300);
       });
     }
+  </script>
 
-    /**
-     * Set up keyboard navigation for articles with arrow keys
-     */
-    function initKeyboardNavigation() {
-      elements.articleGrid?.addEventListener("keydown", (event: KeyboardEvent) => {
-        // Only handle arrow keys
-        if (!["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp"].includes(event.key)) {
-          return;
-        }
-
-        // Focus handling
-        const visibleLinks = [
-          ...document.querySelectorAll(
-            `${CONFIG.selectors.articleItems}:not([style*="display: none"]) a`
-          ),
-        ] as HTMLElement[];
-        if (!visibleLinks.length) {
-          return;
-        }
-
-        const currentIndex = visibleLinks.findIndex((link) => link === document.activeElement);
-        if (currentIndex === -1) {
-          return;
-        }
-
-        // Determine number of columns based on viewport width
-        const columns = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
-        let targetIndex = currentIndex;
-
-        // Calculate new target based on arrow key
-        switch (event.key) {
-          case "ArrowRight":
-            targetIndex = Math.min(currentIndex + 1, visibleLinks.length - 1);
-            break;
-          case "ArrowLeft":
-            targetIndex = Math.max(currentIndex - 1, 0);
-            break;
-          case "ArrowDown":
-            targetIndex = Math.min(currentIndex + columns, visibleLinks.length - 1);
-            break;
-          case "ArrowUp":
-            targetIndex = Math.max(currentIndex - columns, 0);
-            break;
-        }
-
-        // Move focus if changed
-        if (targetIndex !== currentIndex && visibleLinks[targetIndex]) {
-          event.preventDefault();
-          visibleLinks[targetIndex].focus();
-        }
-      });
+  <style>
+    /* Improved color contrast for WCAG AAA (7:1) */
+    :root {
+      --text-primary: #ffffff; /* Maximum contrast */
+      --text-secondary: #e2e2e7; /* Higher contrast than standard zinc-300 */
+      --bg-card: #27272a; /* zinc-800 */
+      --border-card: rgba(161, 161, 170, 0.3); /* zinc-400 with transparency */
+      --accent-primary: #a855f7; /* purple-500 */
+      --accent-secondary: #c084fc; /* purple-400 */
     }
-  }
-</script>
+
+    /* Animations for cards */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</Layout>
