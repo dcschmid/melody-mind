@@ -243,6 +243,9 @@ const articlesStructuredData = sortedArticles.map((article) => {
   {publishDate}
   {modifiedDate}
 >
+  <!-- Screen reader announcements for dynamic content changes -->
+  <div id="sr-announce" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
   <main class="mx-auto max-w-6xl px-4 py-8" id="main-content">
     <!-- Breadcrumbs navigation with structured data -->
     <nav aria-label="Breadcrumb" class="mb-6">
@@ -290,7 +293,6 @@ const articlesStructuredData = sortedArticles.map((article) => {
         <h2 class="mb-6 text-2xl font-medium text-white" id="search-heading">
           {ui[uiLang]["knowledge.search.heading"] || "Search Articles"}
         </h2>
-
         <div class="mb-4 flex flex-col gap-4 md:flex-row">
           <div class="relative flex-grow">
             <label for="searchInput" class="sr-only">
@@ -308,14 +310,17 @@ const articlesStructuredData = sortedArticles.map((article) => {
                 id="searchInput"
                 placeholder={ui[uiLang]["knowledge.search.placeholder"] || "Search articles..."}
                 class="w-full rounded-xl border-2 border-zinc-600 bg-zinc-800 py-4 pr-4 pl-12 text-lg text-zinc-50 placeholder-zinc-400 transition-all duration-300 focus:border-purple-500 focus:ring-4 focus:ring-purple-500/50 focus:outline-none"
-                aria-controls="articlesGrid"
-                aria-describedby="search-description"
-                role="searchbox"
+                aria-controls="articlesGrid search-results-region"
+                aria-describedby="search-description search-status"
+                autocomplete="off"
+                aria-autocomplete="list"
+                aria-required="false"
+                data-search-input
               />
               <div id="search-description" class="sr-only">
                 {
                   ui[uiLang]["knowledge.search.description"] ||
-                    "Articles will filter automatically as you type"
+                    "Articles will filter automatically as you type. Use arrow keys to navigate between results."
                 }
               </div>
             </div>
@@ -335,7 +340,26 @@ const articlesStructuredData = sortedArticles.map((article) => {
         </div>
 
         <!-- Search status information for screen readers - Enhanced -->
-        <div id="search-status" class="sr-only" aria-live="polite" aria-atomic="true" role="status">
+        <div
+          id="search-status"
+          class="sr-only"
+          aria-live="polite"
+          aria-atomic="true"
+          role="status"
+          data-search-status
+        >
+          {ui[uiLang]["knowledge.search.initial"] || "Showing all articles. Type to filter."}
+        </div>
+
+        <!-- Additional detailed search status for screen readers -->
+        <div
+          id="search-details"
+          class="sr-only"
+          aria-live="polite"
+          aria-atomic="true"
+          role="status"
+        >
+          <!-- Will be populated via JavaScript -->
         </div>
       </section>
 
@@ -366,12 +390,12 @@ const articlesStructuredData = sortedArticles.map((article) => {
           <button
             id="reset-search"
             class="mt-3 flex items-center gap-3 rounded-lg bg-purple-600 px-8 py-4 text-lg font-medium text-white transition-all duration-300 hover:bg-purple-500 focus:bg-purple-500 focus:ring-4 focus:ring-purple-500/50 focus:ring-offset-3 focus:ring-offset-zinc-800 focus:outline-none"
-            aria-label="Reset search"
+            aria-label={ui[uiLang]["knowledge.search.reset"] || "Reset search"}
             type="button"
             aria-controls="articlesGrid"
           >
             <Icon name="refresh" class="h-6 w-6" aria-hidden="true" />
-            <span>Reset Search</span>
+            <span>{ui[uiLang]["knowledge.search.reset"] || "Reset Search"}</span>
           </button>
         </div>
       </div>
@@ -393,7 +417,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
       </div>
 
       <!-- Articles grid with improved accessibility -->
-      <section aria-labelledby="articles-heading" class="mb-12">
+      <section aria-labelledby="articles-heading" class="mb-12" id="search-results-region">
         <h2 id="articles-heading" class="sr-only">
           {ui[uiLang]["knowledge.articles.heading"] || "Knowledge Articles"}
         </h2>
@@ -554,17 +578,61 @@ const articlesStructuredData = sortedArticles.map((article) => {
     ): void {
       let message = "";
 
+      // Static translations for client-side script
+      const translations = {
+        noArticles: "No articles found",
+        oneArticle: "1 article found",
+        allArticles: "All {count} articles displayed",
+        countArticles: "{count} of {total} articles found",
+        resultsFormat:
+          'Search results for "{term}": {count} of {total} articles match your search.',
+        noResultsFormat: 'No articles match your search for "{term}". Try different keywords.',
+        showingAll: "Showing all {total} articles.",
+      };
+
       if (count === 0) {
-        message = "No articles found";
+        message = translations.noArticles;
       } else if (count === 1) {
-        message = "1 article found";
+        message = translations.oneArticle;
       } else if (count === total) {
-        message = `All ${count} articles displayed`;
+        message = translations.allArticles.replace("{count}", count.toString());
       } else {
-        message = `${count} of ${total} articles found`;
+        message = translations.countArticles
+          .replace("{count}", count.toString())
+          .replace("{total}", total.toString());
       }
 
       statusElement.textContent = message;
+
+      // Update detailed search information for screen readers
+      const searchDetailsElement = document.getElementById("search-details");
+      if (searchDetailsElement) {
+        const searchInput = document.getElementById("searchInput") as HTMLInputElement;
+        const searchTerm = searchInput?.value || "";
+
+        if (searchTerm) {
+          const detailedMessage =
+            count > 0
+              ? translations.resultsFormat
+                  .replace("{term}", searchTerm)
+                  .replace("{count}", count.toString())
+                  .replace("{total}", total.toString())
+              : translations.noResultsFormat.replace("{term}", searchTerm);
+
+          searchDetailsElement.textContent = detailedMessage;
+        } else {
+          searchDetailsElement.textContent = translations.showingAll.replace(
+            "{total}",
+            total.toString()
+          );
+        }
+      }
+
+      // Update aria-expanded state based on whether we're filtering
+      const searchInput = document.getElementById("searchInput") as HTMLInputElement;
+      if (searchInput) {
+        searchInput.setAttribute("aria-expanded", searchInput.value.length > 0 ? "true" : "false");
+      }
     }
 
     /**
@@ -771,6 +839,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
         articlesGrid: document.getElementById("articlesGrid") as HTMLElement,
         noResults: document.getElementById("no-results") as HTMLElement,
         searchStatus: document.getElementById("search-status") as HTMLElement,
+        searchDetails: document.getElementById("search-details") as HTMLElement,
         resetButtons: document.querySelectorAll("#reset-search, #reset-search-inline"),
         backToTopButton: document.getElementById("back-to-top") as HTMLElement,
       };
@@ -1011,21 +1080,46 @@ const articlesStructuredData = sortedArticles.map((article) => {
 
       // Scroll to top when clicked
       backToTopButton.addEventListener("click", () => {
-        // Use native smooth scroll if supported
-        if ("scrollBehavior" in document.documentElement.style) {
+        // Announce to screen readers
+        const srAnnounce = document.getElementById("sr-announce");
+        if (srAnnounce) {
+          srAnnounce.textContent = "Scrolling to top of page";
+        }
+
+        // Get motion preferences (single declaration for the entire function)
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const shouldUseSmooth = !prefersReducedMotion;
+
+        // Use native smooth scroll if supported and not disabled
+        if (shouldUseSmooth && "scrollBehavior" in document.documentElement.style) {
           window.scrollTo({
             top: 0,
             behavior: "smooth",
           });
         } else {
-          // Fallback for browsers without smooth scroll
+          // Immediate scroll for reduced motion or fallback
           window.scrollTo(0, 0);
+
+          // Provide immediate feedback for screen readers when using instant scroll
+          if (srAnnounce) {
+            srAnnounce.textContent = "Scrolled to top of page";
+          }
         }
 
-        // Focus management after scroll
-        setTimeout(() => {
-          document.getElementById("searchInput")?.focus();
-        }, 300);
+        // Return focus to the search input after scrolling for better keyboard navigation
+        setTimeout(
+          () => {
+            const searchInput = document.getElementById("searchInput");
+            if (searchInput) {
+              searchInput.focus();
+              // Announce focus to screen readers
+              if (srAnnounce) {
+                srAnnounce.textContent = "Search input is now focused";
+              }
+            }
+          },
+          shouldUseSmooth ? 300 : 0
+        );
       });
     }
   </script>
@@ -1039,6 +1133,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
       --border-card: rgba(161, 161, 170, 0.3); /* zinc-400 with transparency */
       --accent-primary: #a855f7; /* purple-500 */
       --accent-secondary: #c084fc; /* purple-400 */
+      --focus-outline: 3px solid #c084fc; /* Strong focus indicator for AAA compliance */
     }
 
     /* Animations for cards */
@@ -1051,6 +1146,75 @@ const articlesStructuredData = sortedArticles.map((article) => {
         opacity: 1;
         transform: translateY(0);
       }
+    }
+
+    /* Respect user preference for reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001s !important;
+        scroll-behavior: auto !important;
+      }
+
+      .translate-y-2.transform.motion-safe\:animate-\[fadeIn_0\.5s_ease-out_forwards\] {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    /* Support for text spacing preferences */
+    @media (prefers-increased-text-spacing) {
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      li,
+      input,
+      button {
+        letter-spacing: 0.12em !important;
+        word-spacing: 0.16em !important;
+        line-height: 1.8 !important;
+      }
+
+      .card-description {
+        margin-top: 1.5em !important;
+        margin-bottom: 1.5em !important;
+      }
+    }
+
+    /* Focus styles for better keyboard navigation - WCAG AAA compliance */
+    :focus {
+      outline: var(--focus-outline);
+      outline-offset: 2px;
+    }
+
+    /* Ensure interactive elements have adequate touch target size (44x44px) */
+    button,
+    a[href],
+    input,
+    select,
+    textarea,
+    [role="button"] {
+      min-height: 44px;
+      min-width: 44px;
     }
   </style>
 </Layout>

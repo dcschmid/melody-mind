@@ -370,9 +370,27 @@ export default {
   "knowledge.search.description": "Articles are automatically filtered as you type",
   "knowledge.search.reset": "Reset Search",
   "knowledge.search.reset.text": "Reset",
+  "knowledge.search.initial": "Showing all articles. Type to filter.",
   "knowledge.no.results.help": "Try different search terms or reset the search",
+  "knowledge.search.no.articles": "No articles found",
+  "knowledge.search.one.article": "1 article found",
+  "knowledge.search.all.articles": "All {count} articles displayed",
+  "knowledge.search.count.articles": "{count} of {total} articles found",
+  "knowledge.search.results.format":
+    'Search results for "{term}": {count} of {total} articles match your search.',
+  "knowledge.search.no.results.format":
+    'No articles match your search for "{term}". Try different keywords.',
+  "knowledge.search.showing.all": "Showing all {total} articles.",
+  "knowledge.reset.search.button": "Reset Search",
   "knowledge.keyboard.instructions":
     "Use arrow keys to navigate between articles. Press Enter to open an article.",
+  "knowledge.animations.on": "Animations: On",
+  "knowledge.animations.off": "Animations: Off",
+  "knowledge.animations.enabled": "Animations enabled",
+  "knowledge.animations.disabled": "Animations disabled for improved accessibility",
+  "knowledge.animations.auto.disabled":
+    "Animations automatically disabled based on system preference",
+  "knowledge.animations.toggle": "Toggle animations",
   "difficulty.level": "Difficulty Level",
 
   // Profile Page

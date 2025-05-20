@@ -384,10 +384,28 @@ export default {
   "knowledge.search.description": "Los artículos se filtran automáticamente a medida que escribes",
   "knowledge.search.reset": "Restablecer Búsqueda",
   "knowledge.search.reset.text": "Restablecer",
+  "knowledge.search.initial": "Mostrando todos los artículos. Escribe para filtrar.",
   "knowledge.no.results.help":
     "Intenta con diferentes términos de búsqueda o restablece la búsqueda",
+  "knowledge.search.no.articles": "No se encontraron artículos",
+  "knowledge.search.one.article": "1 artículo encontrado",
+  "knowledge.search.all.articles": "Todos los {count} artículos mostrados",
+  "knowledge.search.count.articles": "{count} de {total} artículos encontrados",
+  "knowledge.search.results.format":
+    'Resultados de búsqueda para "{term}": {count} de {total} artículos coinciden con tu búsqueda.',
+  "knowledge.search.no.results.format":
+    'Ningún artículo coincide con tu búsqueda para "{term}". Prueba con palabras clave diferentes.',
+  "knowledge.search.showing.all": "Mostrando todos los {total} artículos.",
+  "knowledge.reset.search.button": "Restablecer Búsqueda",
   "knowledge.keyboard.instructions":
     "Usa las teclas de flecha para navegar entre artículos. Presiona Enter para abrir un artículo.",
+  "knowledge.animations.on": "Animaciones: Activadas",
+  "knowledge.animations.off": "Animaciones: Desactivadas",
+  "knowledge.animations.enabled": "Animaciones activadas",
+  "knowledge.animations.disabled": "Animaciones desactivadas para mejor accesibilidad",
+  "knowledge.animations.auto.disabled":
+    "Animaciones desactivadas automáticamente según preferencias del sistema",
+  "knowledge.animations.toggle": "Alternar animaciones",
   "difficulty.level": "Nivel de Dificultad",
 
   // Página de Perfil

@@ -383,9 +383,27 @@ export default {
   "knowledge.search.description": "Artikel werden automatisch während der Eingabe gefiltert",
   "knowledge.search.reset": "Suche zurücksetzen",
   "knowledge.search.reset.text": "Zurücksetzen",
+  "knowledge.search.initial": "Alle Artikel werden angezeigt. Tippen Sie, um zu filtern.",
   "knowledge.no.results.help": "Versuche andere Suchbegriffe oder setze die Suche zurück",
+  "knowledge.search.no.articles": "Keine Artikel gefunden",
+  "knowledge.search.one.article": "1 Artikel gefunden",
+  "knowledge.search.all.articles": "Alle {count} Artikel angezeigt",
+  "knowledge.search.count.articles": "{count} von {total} Artikeln gefunden",
+  "knowledge.search.results.format":
+    'Suchergebnisse für "{term}": {count} von {total} Artikeln entsprechen deiner Suche.',
+  "knowledge.search.no.results.format":
+    'Keine Artikel entsprechen deiner Suche nach "{term}". Versuche andere Suchbegriffe.',
+  "knowledge.search.showing.all": "Alle {total} Artikel werden angezeigt.",
+  "knowledge.reset.search.button": "Suche zurücksetzen",
   "knowledge.keyboard.instructions":
     "Verwende die Pfeiltasten zur Navigation zwischen Artikeln. Drücke Enter, um einen Artikel zu öffnen.",
+  "knowledge.animations.on": "Animationen: An",
+  "knowledge.animations.off": "Animationen: Aus",
+  "knowledge.animations.enabled": "Animationen aktiviert",
+  "knowledge.animations.disabled": "Animationen für verbesserte Barrierefreiheit deaktiviert",
+  "knowledge.animations.auto.disabled":
+    "Animationen automatisch deaktiviert basierend auf Systemeinstellungen",
+  "knowledge.animations.toggle": "Animationen umschalten",
   "difficulty.level": "Schwierigkeitsgrad",
 
   // Profilseite
