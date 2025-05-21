@@ -529,4 +529,8 @@ export default {
     "Använd dessa knappar för att flytta det valda elementet",
   "game.chronology.move.up": "Flytta upp",
   "game.chronology.move.down": "Flytta ner",
+  "game.time.extend": "Förläng tid",
+  "game.time.extend.again": "Förläng igen",
+  "game.time.extended": "Tid förlängd med 5 sekunder",
+  "game.time.before.end": "Förläng före spelets slut",
 };

@@ -558,4 +558,8 @@ export default {
     "Verwende diese Buttons, um das ausgewählte Element zu verschieben",
   "game.chronology.move.up": "Nach oben verschieben",
   "game.chronology.move.down": "Nach unten verschieben",
+  "game.time.extend": "Zeit verlängern",
+  "game.time.extend.again": "Erneut verlängern",
+  "game.time.extended": "Zeit um 5 Sekunden verlängert",
+  "game.time.before.end": "Vor Spielende verlängern",
 };

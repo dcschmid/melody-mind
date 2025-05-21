@@ -544,4 +544,8 @@ export default {
     "Käytä näitä painikkeita valitun elementin siirtämiseen",
   "game.chronology.move.up": "Siirrä ylös",
   "game.chronology.move.down": "Siirrä alas",
+  "game.time.extend": "Pidennä aikaa",
+  "game.time.extend.again": "Pidennä uudelleen",
+  "game.time.extended": "Aikaa pidennetty 5 sekunnilla",
+  "game.time.before.end": "Pidennä ennen pelin loppua",
 };

@@ -537,4 +537,8 @@ export default {
   "game.chronology.navigation.description": "Use these buttons to move the selected element",
   "game.chronology.move.up": "Move up",
   "game.chronology.move.down": "Move down",
+  "game.time.extend": "Extend time",
+  "game.time.extend.again": "Extend again",
+  "game.time.extended": "Time extended by 5 seconds",
+  "game.time.before.end": "Extend before game end",
 };

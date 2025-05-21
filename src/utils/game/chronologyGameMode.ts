@@ -2,7 +2,7 @@ import type { Album } from "./getRandomQuestion";
 import { Difficulty } from "./jokerUtils";
 
 /**
- * Chronology Game Mode: Benutzt für zeitlich korrekte Einordnung von Musik-Items
+ * Chronology Game Mode: Used for arranging music items in correct chronological order
  */
 export interface ChronologyQuestion {
   type: "chronology";
@@ -15,15 +15,15 @@ export interface ChronologyItem {
   artist: string;
   title: string;
   year: number;
-  displayText?: string; // Optionaler angezeigter Text (falls wir den echten Wert verstecken wollen)
+  displayText?: string; // Optional displayed text (if we want to hide the real value)
 }
 
 /**
- * Generiert eine Chronologie-Frage aus einer Liste von Alben
+ * Generates a chronology question from a list of albums
  *
- * @param albums - Liste von Alben aus der aktuellen Kategorie
- * @param difficulty - Schwierigkeitsgrad
- * @returns ChronologyQuestion mit zufälligen Alben in zufälliger Reihenfolge
+ * @param {Album[]} albums - List of albums from the current category
+ * @param {Difficulty} difficulty - Difficulty level
+ * @returns {ChronologyQuestion|null} ChronologyQuestion with random albums in random order
  */
 export function generateChronologyQuestion(
   albums: Album[],
@@ -34,10 +34,10 @@ export function generateChronologyQuestion(
     return null;
   }
 
-  // Anzahl der zu sortierenden Elemente je nach Schwierigkeitsgrad - jetzt fix auf 4
+  // Number of elements to sort based on difficulty - now fixed at 4
   const itemCount = 4;
 
-  // Alben mit gültigem Jahr filtern
+  // Filter albums with valid year
   const validAlbums = albums.filter((album) => album.year && !isNaN(parseInt(album.year)));
 
   if (validAlbums.length < itemCount) {
@@ -45,10 +45,10 @@ export function generateChronologyQuestion(
     return null;
   }
 
-  // Zufällige Auswahl von Alben
+  // Random selection of albums
   const selectedAlbums = [...validAlbums].sort(() => 0.5 - Math.random()).slice(0, itemCount);
 
-  // Items erstellen und echte Reihenfolge merken
+  // Create items and remember the correct order
   const items: ChronologyItem[] = selectedAlbums.map((album, index) => ({
     id: index,
     artist: album.artist,
@@ -57,10 +57,10 @@ export function generateChronologyQuestion(
     displayText: `${album.artist} - ${album.album}`,
   }));
 
-  // Korrekte Reihenfolge (aufsteigend nach Jahr)
+  // Correct order (ascending by year)
   const correctOrder = [...items].sort((a, b) => a.year - b.year).map((item) => item.id);
 
-  // Items in zufälliger Reihenfolge zurückgeben
+  // Return items in random order
   return {
     type: "chronology",
     items: items.sort(() => 0.5 - Math.random()),
@@ -69,11 +69,11 @@ export function generateChronologyQuestion(
 }
 
 /**
- * Bewertet die vom Benutzer angegebene Reihenfolge
+ * Evaluates the user-specified order
  *
- * @param userOrder - Vom Benutzer gewählte Reihenfolge (Array von IDs)
- * @param correctOrder - Korrekte Reihenfolge (Array von IDs)
- * @returns Punkte basierend auf der Genauigkeit
+ * @param {number[]} userOrder - User-selected order (array of IDs)
+ * @param {number[]} correctOrder - Correct order (array of IDs)
+ * @returns {Object} Points based on accuracy
  */
 export function evaluateChronologyAnswer(
   userOrder: number[],
@@ -85,15 +85,15 @@ export function evaluateChronologyAnswer(
 
   let correctItems = 0;
 
-  // Zählen korrekt platzierter Items
+  // Count correctly placed items
   for (let i = 0; i < correctOrder.length; i++) {
     if (userOrder[i] === correctOrder[i]) {
       correctItems++;
     }
   }
 
-  // Punkteberechnung
-  // Bei perfekter Antwort volle 100 Punkte, sonst anteilig
+  // Score calculation
+  // Perfect answer: full 100 points, otherwise proportional
   const score = Math.floor((correctItems / correctOrder.length) * 100);
 
   return {

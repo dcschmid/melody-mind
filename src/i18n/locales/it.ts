@@ -550,4 +550,8 @@ export default {
     "Usa questi pulsanti per spostare l'elemento selezionato",
   "game.chronology.move.up": "Sposta su",
   "game.chronology.move.down": "Sposta giù",
+  "game.time.extend": "Estendi tempo",
+  "game.time.extend.again": "Estendi di nuovo",
+  "game.time.extended": "Tempo esteso di 5 secondi",
+  "game.time.before.end": "Estendi prima della fine del gioco",
 };

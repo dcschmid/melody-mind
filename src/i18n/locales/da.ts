@@ -540,4 +540,8 @@ export default {
   "game.chronology.navigation.description": "Brug disse knapper til at flytte det valgte element",
   "game.chronology.move.up": "Flyt op",
   "game.chronology.move.down": "Flyt ned",
+  "game.time.extend": "Forlæng tid",
+  "game.time.extend.again": "Forlæng igen",
+  "game.time.extended": "Tid forlænget med 5 sekunder",
+  "game.time.before.end": "Forlæng før spilslut",
 };
