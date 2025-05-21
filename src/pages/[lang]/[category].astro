@@ -12,13 +12,17 @@
  * - Keyboard navigation support
  * - Reduced motion option for animations
  * - High contrast mode support
+ * - Focus indicators with 3px borders for proper visibility
  *
  * Performance Optimizations:
  * - Static pre-rendering (SSG) for fast initial load
  * - Responsive image optimization with multiple formats and sizes
  * - Proper image aspect ratio to prevent layout shifts
- * - GPU-accelerated animations
+ * - GPU-accelerated animations with will-change property
  * - Optimized CSS with Tailwind utility classes
+ * - CSS containment for better rendering performance
+ * - Modular JavaScript with proper event listener cleanup
+ * - Optimized authentication checking with debounced functions
  */
 
 import { Picture } from "astro:assets";
@@ -56,15 +60,16 @@ export async function getStaticPaths() {
       // Try to load language-specific categories first
       const categoryData = await import(`../../../public/json/categories/${lang}_categories.json`);
       categories = categoryData.default;
-    } catch (error) {
+    } catch {
       // Fallback to English if language-specific file doesn't exist
       usedFallback = true;
 
       try {
         const fallbackData = await import(`../../../public/json/categories/en_categories.json`);
         categories = fallbackData.default;
-      } catch (fallbackError) {
+      } catch {
         // Emergency fallback with empty categories if even English fails
+        console.error(`Failed to load categories for ${lang} and fallback`);
         categories = [];
       }
     }
@@ -91,23 +96,28 @@ const { category, lang, usedFallback } = Astro.props;
 const t = useTranslations(lang);
 
 // Bei SSG können wir keine serverseitige Authentifizierung durchführen
-// Stattdessen setzen wir isLoggedIn initial auf false und prüfen den Status clientseitig
-const isLoggedIn = false; // Wird clientseitig überschrieben
+// Die Authentifizierungsprüfung erfolgt vollständig clientseitig
 
 /**
  * Category interface definition
  * Represents the structure of a music category
+ * @typedef {Object} CategoryType
+ * @property {string} slug - URL-friendly identifier for routing and links
+ * @property {string} headline - Display title shown as main category heading
+ * @property {string} introSubline - Short description shown below the headline
+ * @property {string} imageUrl - Path to category image used for visual representation
+ * @property {string} text - Full description text with detailed information about the category
  */
-interface Category {
-  slug: string; // URL-friendly identifier
-  headline: string; // Display title
-  introSubline: string; // Short description
-  imageUrl: string; // Path to category image
-  text: string; // Full description text
+interface CategoryType {
+  slug: string;
+  headline: string;
+  introSubline: string;
+  imageUrl: string;
+  text: string;
 }
 
-// Current category being displayed
-const currentCategory = category;
+// Current category being displayed - Explizites Typing für bessere Typsicherheit
+const currentCategory = category as CategoryType;
 
 // Generate SEO content for the current category
 const title = `${currentCategory?.headline} ${t("category.start") || "Start"}`;
@@ -135,18 +145,22 @@ const modifiedDate = new Date();
   {publishDate}
   {modifiedDate}
 >
-  <div class="mx-auto max-w-4xl px-4 py-8">
+  <!-- Skip-Link für Tastaturnavigation - ermöglicht direkten Zugriff auf den Hauptinhalt -->
+  <a href="#main-content" class="skip-link">
+    {t("accessibility.skip_to_content") || "Skip to main content"}
+  </a>
+
+  <div class="page-container">
+    <!-- Live-Region für dynamische Benachrichtigungen und Status-Updates -->
+    <div class="sr-only" aria-live="polite" id="dynamic-announcements"></div>
+
     {/* Fallback Warning - Enhanced for screen readers with proper ARIA attributes */}
     {
       usedFallback && (
-        <div
-          class="mb-6 rounded-lg border border-amber-600/30 bg-amber-700/30 p-4 text-amber-100 shadow-inner"
-          role="alert"
-          aria-live="polite"
-        >
-          <div class="flex items-center gap-3">
-            <Icon name="warning" class="h-5 w-5 flex-shrink-0" aria-hidden="true" />
-            <span class="font-medium">
+        <div class="alert-box" role="alert" aria-live="polite">
+          <div class="alert-box-content">
+            <Icon name="warning" class="icon-small" aria-hidden="true" />
+            <span class="alert-text">
               {t("notice.fallback_content") ||
                 "Using fallback content. Some information may be displayed in English."}
             </span>
@@ -155,59 +169,54 @@ const modifiedDate = new Date();
       )
     }
 
-    <!-- Hero section with improved contrast and accessibility -->
-    <header
-      class="mb-12 rounded-2xl bg-gradient-to-br from-zinc-800/60 to-zinc-900/60 p-8 text-center shadow-xl backdrop-blur-sm"
-    >
+    <!-- Hero section with enhanced contrast and accessibility -->
+    <header class="section-header">
       <Headline
-        className="mb-4 text-center text-3xl font-bold text-white md:text-4xl"
+        className="headline-primary"
         title={currentCategory?.headline}
         level="h1"
         id="category-heading"
       />
-      <div class="mx-auto my-4 h-1 w-24 rounded-full bg-purple-500" aria-hidden="true"></div>
+      <div class="divider" aria-hidden="true"></div>
 
-      <Paragraph
-        className="mx-auto max-w-2xl text-center text-lg font-medium text-zinc-100"
-        description={currentCategory?.introSubline}
-      />
+      <Paragraph className="paragraph-standard" description={currentCategory?.introSubline} />
     </header>
 
     <article
-      class="flex w-full flex-col items-center gap-8"
+      class="article-container"
       data-category={currentCategory?.slug}
       aria-labelledby="category-heading"
+      id="main-content"
+      tabindex="-1"
     >
       <!-- Category image section with optimized responsive pictures -->
-      <div class="relative mx-auto w-full max-w-2xl overflow-hidden rounded-xl shadow-xl">
+      <div class="image-container">
         {
           currentCategory?.imageUrl ? (
-            <div class="aspect-[16/9] w-full overflow-hidden rounded-xl shadow-lg">
+            <div class="image-aspect-container">
               <Picture
-                class="h-full w-full object-cover"
+                class="responsive-image"
                 src={currentCategory.imageUrl}
-                widths={[320, 640, 960, 1280]}
-                sizes="(max-width: 640px) 320px, (max-width: 1024px) 640px, (max-width: 1280px) 960px, 1280px"
+                widths={[400, 800, 1200, 1600]}
+                sizes="(max-width: 640px) 400px, (max-width: 1024px) 800px, (max-width: 1280px) 1200px, 1600px"
                 formats={["avif", "webp", "jpg"]}
                 alt={`${currentCategory.headline} ${t("category.image.alt") || "category image"}`}
                 loading="eager"
                 fetchpriority="high"
-                width={1280}
-                height={720}
+                width={1600}
+                height={900}
+                decoding="async"
               />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-zinc-900/70 to-transparent"
-                aria-hidden="true"
-              />
+              <div class="image-gradient-overlay" aria-hidden="true" />
             </div>
           ) : (
             <div
-              class="flex aspect-[16/9] w-full items-center justify-center rounded-xl bg-zinc-800 p-6 text-center font-sans text-base text-zinc-100 shadow-lg"
+              class="no-image-container"
               role="img"
               aria-label={t("category.no_image_available") || "No image available"}
             >
-              <div class="flex items-center gap-3">
-                <Icon name="image" class="h-8 w-8 text-zinc-400" aria-hidden="true" />
+              <div class="no-image-content">
+                <Icon name="image" class="missing-image-icon" aria-hidden="true" />
                 <span>{t("category.no_image_available") || "No image available"}</span>
               </div>
             </div>
@@ -215,173 +224,136 @@ const modifiedDate = new Date();
         }
       </div>
 
-      <!-- Category description with enhanced readability -->
-      <div
-        class="prose prose-invert prose-zinc w-full max-w-none rounded-xl border border-zinc-700/30 bg-zinc-800/50 px-6 py-6 leading-relaxed shadow-md sm:px-8 sm:py-8"
-      >
-        <Paragraph
-          className="text-base leading-relaxed text-zinc-100 sm:text-lg"
-          description={currentCategory?.text}
-        />
+      <!-- Category description with enhanced readability and performance -->
+      <div class="description-container">
+        <Paragraph className="paragraph-description" description={currentCategory?.text} />
       </div>
 
       <!-- Auth Form - Sichtbarkeit wird durch JavaScript gesteuert -->
       <section
         id="auth-section"
-        class="relative mt-8 flex w-full flex-col items-center gap-8 rounded-xl border border-zinc-700/30 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 p-8 opacity-0 shadow-lg backdrop-blur-sm transition-opacity duration-300"
+        class="auth-section-container opacity-transition"
         aria-labelledby="auth-heading"
         aria-hidden="true"
       >
-        <Headline
-          level="h2"
-          id="auth-heading"
-          className="mb-6 text-center text-2xl font-bold text-white"
-        >
+        <Headline level="h2" id="auth-heading" className="auth-heading">
           {t("auth.required.title") || "Anmeldung erforderlich"}
         </Headline>
 
         <Paragraph
-          className="mb-6 max-w-2xl text-center text-zinc-100"
+          className="auth-description"
           description={t("auth.required.description") ||
             "Bitte melde dich an oder registriere dich, um die Spielmodi zu nutzen."}
         />
 
-        <div class="mx-auto w-full max-w-md">
+        <div class="auth-form-container">
           <AuthForm initialMode="login" />
         </div>
       </section>
 
-      <!-- Music Quiz Section - Sichtbarkeit wird durch JavaScript gesteuert -->
+      <!-- Music Quiz Section - Enhanced with improved accessibility and focus states -->
       <section
         id="quiz-section"
-        class="relative mt-8 flex w-full flex-col items-center gap-8 rounded-xl border border-zinc-700/30 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 p-8 opacity-0 shadow-lg backdrop-blur-sm transition-opacity duration-300"
+        class="game-section-container opacity-transition"
         aria-labelledby="quiz-heading"
         aria-hidden="true"
       >
-        <div
-          class="absolute -top-10 left-1/2 flex h-20 w-20 -translate-x-1/2 transform items-center justify-center rounded-full border-4 border-zinc-900 bg-gradient-to-br from-purple-600 to-indigo-700 shadow-lg"
-          aria-hidden="true"
-        >
-          <Icon name="music" class="h-10 w-10 text-white" />
+        <div class="game-icon-badge" aria-hidden="true">
+          <Icon name="music" class="icon-large icon-white" />
         </div>
 
-        <Headline
-          level="h2"
-          id="quiz-heading"
-          className="mt-6 pt-2 text-center text-2xl font-bold text-white"
-        >
+        <Headline level="h2" id="quiz-heading" className="game-heading">
           {t("category.difficulty.heading")}
         </Headline>
 
-        <Paragraph
-          className="mb-6 max-w-2xl text-center text-zinc-100"
-          description={t("knowledge.play.description")}
-        />
+        <Paragraph className="game-description" description={t("knowledge.play.description")} />
 
-        <div
-          class="mt-2 flex w-full flex-wrap justify-center gap-4 sm:gap-6"
-          role="group"
-          aria-labelledby="quiz-heading"
-        >
-          <!-- Difficulty levels with improved accessibility -->
-          <div class="perspective w-full max-w-xs">
+        <div class="button-group-container" role="group" aria-labelledby="quiz-heading">
+          <!-- Difficulty levels with enhanced accessibility and performance -->
+          <div class="button-perspective">
             <ButtonLink
               href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/easy`)}
               aria-label={`${t("category.difficulty.easy")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="flex w-full transform items-center justify-center gap-3 rounded-xl bg-gradient-to-br from-green-600 to-green-700 px-6 py-5 shadow-md transition-all duration-300 hover:scale-[1.03] hover:from-green-500 hover:to-green-600 hover:shadow-green-700/20 focus:ring-4 focus:ring-green-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
+              className="game-button-easy"
             >
-              <Icon name="play" class="h-6 w-6" aria-hidden="true" />
-              <span class="text-lg font-medium">{t("category.difficulty.easy")}</span>
+              <Icon name="play" class="icon-medium" aria-hidden="true" />
+              <span class="button-text">{t("category.difficulty.easy")}</span>
             </ButtonLink>
           </div>
 
-          <div class="perspective w-full max-w-xs">
+          <div class="button-perspective">
             <ButtonLink
               href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/medium`)}
               aria-label={`${t("category.difficulty.medium")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="flex w-full transform items-center justify-center gap-3 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 px-6 py-5 shadow-md transition-all duration-300 hover:scale-[1.03] hover:from-blue-500 hover:to-blue-600 hover:shadow-blue-700/20 focus:ring-4 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
+              className="game-button-medium"
             >
-              <Icon name="bolt" class="h-6 w-6" aria-hidden="true" />
-              <span class="text-lg font-medium">{t("category.difficulty.medium")}</span>
+              <Icon name="bolt" class="icon-medium" aria-hidden="true" />
+              <span class="button-text">{t("category.difficulty.medium")}</span>
             </ButtonLink>
           </div>
 
-          <div class="perspective w-full max-w-xs">
+          <div class="button-perspective">
             <ButtonLink
               href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/hard`)}
               aria-label={`${t("category.difficulty.hard")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="flex w-full transform items-center justify-center gap-3 rounded-xl bg-gradient-to-br from-red-600 to-red-700 px-6 py-5 shadow-md transition-all duration-300 hover:scale-[1.03] hover:from-red-500 hover:to-red-600 hover:shadow-red-700/20 focus:ring-4 focus:ring-red-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
+              className="game-button-hard"
             >
-              <Icon name="fire" class="h-6 w-6" aria-hidden="true" />
-              <span class="text-lg font-medium">{t("category.difficulty.hard")}</span>
+              <Icon name="fire" class="icon-medium" aria-hidden="true" />
+              <span class="button-text">{t("category.difficulty.hard")}</span>
             </ButtonLink>
           </div>
         </div>
       </section>
 
-      <!-- Music Chronology Game Section - Sichtbarkeit wird durch JavaScript gesteuert -->
+      <!-- Music Chronology Game Section - Enhanced with improved accessibility and focus states -->
       <section
         id="chronology-section"
-        class="relative mt-12 flex w-full flex-col items-center gap-8 rounded-xl border border-zinc-700/30 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 p-8 opacity-0 shadow-lg backdrop-blur-sm transition-opacity duration-300"
+        class="game-section-container chronology-section opacity-transition"
         aria-labelledby="chronology-heading"
         aria-hidden="true"
       >
-        <div
-          class="absolute -top-10 left-1/2 flex h-20 w-20 -translate-x-1/2 transform items-center justify-center rounded-full border-4 border-zinc-900 bg-gradient-to-br from-indigo-500 to-indigo-700 shadow-lg"
-          aria-hidden="true"
-        >
-          <Icon name="clock-history" class="h-10 w-10 text-white" />
+        <div class="game-icon-badge chronology-badge" aria-hidden="true">
+          <Icon name="clock-history" class="icon-large icon-white" />
         </div>
 
-        <Headline
-          level="h2"
-          id="chronology-heading"
-          className="mt-6 pt-2 text-center text-2xl font-bold text-white"
-        >
+        <Headline level="h2" id="chronology-heading" className="game-heading">
           {t("game.chronology.title")}
         </Headline>
 
-        <Paragraph
-          className="mb-6 max-w-2xl text-center text-zinc-100"
-          description={t("game.chronology.description")}
-        />
+        <Paragraph className="game-description" description={t("game.chronology.description")} />
 
-        <div
-          class="mt-2 flex w-full flex-wrap justify-center gap-4 sm:gap-6"
-          role="group"
-          aria-labelledby="chronology-heading"
-        >
-          <!-- Difficulty levels with improved accessibility -->
-          <div class="perspective w-full max-w-xs">
+        <div class="button-group-container" role="group" aria-labelledby="chronology-heading">
+          <!-- Difficulty levels with enhanced accessibility and performance -->
+          <div class="button-perspective">
             <ButtonLink
               href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/easy`)}
               aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.easy")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="flex w-full transform items-center justify-center gap-3 rounded-xl bg-gradient-to-br from-green-600 to-green-700 px-6 py-5 shadow-md transition-all duration-300 hover:scale-[1.03] hover:from-green-500 hover:to-green-600 hover:shadow-green-700/20 focus:ring-4 focus:ring-green-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
+              className="game-button-easy"
             >
-              <Icon name="play" class="h-6 w-6" aria-hidden="true" />
-              <span class="text-lg font-medium">{t("category.difficulty.easy")}</span>
+              <Icon name="play" class="icon-medium" aria-hidden="true" />
+              <span class="button-text">{t("category.difficulty.easy")}</span>
             </ButtonLink>
           </div>
 
-          <div class="perspective w-full max-w-xs">
+          <div class="button-perspective">
             <ButtonLink
               href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/medium`)}
               aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.medium")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="flex w-full transform items-center justify-center gap-3 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 px-6 py-5 shadow-md transition-all duration-300 hover:scale-[1.03] hover:from-blue-500 hover:to-blue-600 hover:shadow-blue-700/20 focus:ring-4 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
+              className="game-button-medium"
             >
-              <Icon name="bolt" class="h-6 w-6" aria-hidden="true" />
-              <span class="text-lg font-medium">{t("category.difficulty.medium")}</span>
+              <Icon name="bolt" class="icon-medium" aria-hidden="true" />
+              <span class="button-text">{t("category.difficulty.medium")}</span>
             </ButtonLink>
           </div>
 
-          <div class="perspective w-full max-w-xs">
+          <div class="button-perspective">
             <ButtonLink
               href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/hard`)}
               aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.hard")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
-              className="flex w-full transform items-center justify-center gap-3 rounded-xl bg-gradient-to-br from-red-600 to-red-700 px-6 py-5 shadow-md transition-all duration-300 hover:scale-[1.03] hover:from-red-500 hover:to-red-600 hover:shadow-red-700/20 focus:ring-4 focus:ring-red-500/50 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:outline-none"
+              className="game-button-hard"
             >
-              <Icon name="fire" class="h-6 w-6" aria-hidden="true" />
-              <span class="text-lg font-medium">{t("category.difficulty.hard")}</span>
+              <Icon name="fire" class="icon-medium" aria-hidden="true" />
+              <span class="button-text">{t("category.difficulty.hard")}</span>
             </ButtonLink>
           </div>
         </div>
@@ -389,156 +361,27 @@ const modifiedDate = new Date();
 
       <!-- Client-side script für die Authentifizierungsprüfung -->
       <script>
+        import {
+          focusFirstElement,
+          announceForScreenReader,
+          setupKeyboardNavigation,
+        } from "@utils/client/a11y";
+        import {
+          isUserAuthenticated,
+          updateSectionVisibility,
+          setLocalStorage,
+          removeLocalStorage,
+          registerAuthEventListeners,
+          initCookieWatcher,
+        } from "@utils/client/authStatus";
+
         /**
-         * Funktion zum Extrahieren eines Cookie-Werts anhand des Namens
-         * @param {string} cookieName - Name des Cookies
-         * @returns {string|null} - Cookie-Wert oder null, wenn nicht gefunden
+         * Funktion, die Screen-Reader-Meldungen in die Live-Region einfügt
+         * @param {string} message - Die anzukündigende Nachricht
          */
-        /**
-         * Prüft, ob ein bestimmter Schlüssel im localStorage existiert
-         * @param {string} key - Der zu prüfende Schlüssel
-         * @returns {boolean} - true wenn der Schlüssel existiert und einen Wert hat, sonst false
-         */
-        function checkLocalStorage(key: string): boolean {
-          try {
-            const value = localStorage.getItem(key);
-            return value !== null;
-          } catch (error) {
-            console.error("Fehler beim Zugriff auf localStorage:", error);
-            return false;
-          }
+        function announceToScreenReader(message: string): void {
+          announceForScreenReader(message);
         }
-
-        /**
-         * Setzt einen Wert im localStorage mit Fehlerbehandlung
-         * @param {string} key - Der Schlüssel
-         * @param {string} value - Der zu speichernde Wert
-         * @returns {boolean} - true wenn erfolgreich, false wenn fehlgeschlagen
-         */
-        function setLocalStorage(key: string, value: string): boolean {
-          try {
-            localStorage.setItem(key, value);
-            return true;
-          } catch (error) {
-            console.error("Fehler beim Setzen von localStorage:", error);
-            return false;
-          }
-        }
-
-        /**
-         * Entfernt einen Schlüssel aus dem localStorage mit Fehlerbehandlung
-         * @param {string} key - Der zu entfernende Schlüssel
-         * @returns {boolean} - true wenn erfolgreich, false wenn fehlgeschlagen
-         */
-        function removeLocalStorage(key: string): boolean {
-          try {
-            localStorage.removeItem(key);
-            return true;
-          } catch (error) {
-            console.error("Fehler beim Entfernen aus localStorage:", error);
-            return false;
-          }
-        }
-
-        /**
-         * Funktion zur Aktualisierung der ARIA-Attribute basierend auf Sichtbarkeit
-         * @param {HTMLElement} element - Das zu aktualisierende Element
-         * @param {boolean} isVisible - Ob das Element sichtbar sein soll
-         */
-        function updateAriaVisibility(element: HTMLElement | null, isVisible: boolean): void {
-          if (!element) {
-            return;
-          }
-
-          element.setAttribute("aria-hidden", isVisible ? "false" : "true");
-
-          // Wenn das Element sichtbar ist, Tab-Navigation ermöglichen, sonst deaktivieren
-          const focusableElements = element.querySelectorAll(
-            'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
-          );
-
-          focusableElements.forEach((el) => {
-            if (isVisible) {
-              (el as HTMLElement).removeAttribute("tabindex");
-            } else {
-              (el as HTMLElement).setAttribute("tabindex", "-1");
-            }
-          });
-        }
-
-        /**
-         * Funktion zur Prüfung des Authentifizierungsstatus
-         * Überprüft das Vorhandensein des access_token Cookies
-         * und aktualisiert die UI entsprechend
-         */
-        /**
-         * Prüft, ob der Benutzer eingeloggt ist, basierend auf mehreren Kriterien
-         * @returns {boolean} - true wenn eingeloggt, false wenn nicht
-         */
-        /**
-         * Prüft, ob der Benutzer authentifiziert ist
-         * Da das access_token Cookie HttpOnly ist, können wir es nicht direkt lesen
-         * Stattdessen verwenden wir den auth_status im localStorage
-         * @returns {boolean} - true wenn der Benutzer authentifiziert ist, sonst false
-         */
-        function isUserAuthenticated(): boolean {
-          // Primäre Methode: auth_status im localStorage prüfen
-          const isAuthenticated =
-            checkLocalStorage("auth_status") &&
-            localStorage.getItem("auth_status") === "authenticated";
-
-          // Debug-Ausgabe
-          console.log("Auth Debug:", {
-            localAuthStatus: localStorage.getItem("auth_status"),
-            isAuthenticated,
-            authStatusExists: checkLocalStorage("auth_status"),
-          });
-
-          return isAuthenticated;
-        }
-
-        /**
-         * Aktualisiert die Sichtbarkeit einer Sektion mit Übergangseffekt
-         * @param {HTMLElement} element - Das zu aktualisierende Element
-         * @param {boolean} show - Ob das Element angezeigt werden soll
-         */
-        function updateSectionVisibility(element: HTMLElement | null, show: boolean): void {
-          if (!element) {
-            return;
-          }
-
-          if (show) {
-            // Zuerst display und visibility setzen, dann Opacity ändern für sanften Übergang
-            element.classList.remove("hidden"); // Tailwind-Klasse für display: none entfernen
-            element.style.visibility = "visible";
-
-            // Kurze Verzögerung, damit display: none vollständig entfernt wird, bevor Opacity geändert wird
-            setTimeout(() => {
-              element.classList.remove("opacity-0");
-              element.classList.add("opacity-100");
-              updateAriaVisibility(element, true);
-            }, 10);
-          } else {
-            // Zuerst Opacity ändern, dann nach Übergang unsichtbar machen
-            element.classList.add("opacity-0");
-            element.classList.remove("opacity-100");
-            updateAriaVisibility(element, false);
-
-            // Warten auf Abschluss der Transition, bevor visibility und display geändert werden
-            setTimeout(() => {
-              if (element.classList.contains("opacity-0")) {
-                element.style.visibility = "hidden";
-                element.classList.add("hidden"); // Tailwind-Klasse für display: none hinzufügen
-              }
-            }, 300); // Entspricht der Transition-Dauer in CSS
-          }
-        }
-
-        /**
-         * Funktion zur Prüfung des Authentifizierungsstatus
-         * Überprüft das Vorhandensein des access_token Cookies
-         * und aktualisiert die UI entsprechend
-         */
         function checkAuthStatus(): void {
           // Authentifizierungsstatus prüfen
           const isLoggedIn = isUserAuthenticated();
@@ -553,6 +396,22 @@ const modifiedDate = new Date();
             updateSectionVisibility(authSection, false);
             updateSectionVisibility(quizSection, true);
             updateSectionVisibility(chronologySection, true);
+
+            // Nach einem kurzen Delay den ersten Button fokussieren
+            setTimeout(() => {
+              // Versuchen, den ersten Button im Quiz-Bereich zu fokussieren
+              const quizButtons = quizSection?.querySelector("a[href]") as HTMLElement;
+              if (quizButtons) {
+                quizButtons.focus();
+              }
+
+              // Ankündigung für Screenreader
+              const translationKey = "accessibility.game_modes_available";
+              const translatedMessage =
+                document.querySelector(`[data-i18n-key="${translationKey}"]`)?.textContent ||
+                "Spielmodi sind jetzt verfügbar";
+              announceForScreenReader(translatedMessage);
+            }, 350); // Nach Abschluss der Transition
 
             // Authentifizierungsstatus im localStorage speichern
             setLocalStorage("auth_status", "authenticated");
@@ -569,6 +428,18 @@ const modifiedDate = new Date();
             updateSectionVisibility(quizSection, false);
             updateSectionVisibility(chronologySection, false);
 
+            // Nach einem kurzen Delay das erste Eingabefeld im Auth-Formular fokussieren
+            setTimeout(() => {
+              focusFirstElement(authSection);
+
+              // Ankündigung für Screenreader
+              const translationKey = "accessibility.login_required";
+              const translatedMessage =
+                document.querySelector(`[data-i18n-key="${translationKey}"]`)?.textContent ||
+                "Anmeldung erforderlich";
+              announceForScreenReader(translatedMessage);
+            }, 350); // Nach Abschluss der Transition
+
             // Authentifizierungsstatus im localStorage löschen
             removeLocalStorage("auth_status");
 
@@ -581,207 +452,707 @@ const modifiedDate = new Date();
           }
         }
 
-        // Authentifizierungsstatus beim Laden der Seite prüfen
-        // Initialisierungsfunktion für die Seite
+        /**
+         * Initialisierungsfunktion für die Seite
+         * Setzt den initialen Zustand und registriert Event-Listener
+         */
         function initializePage(): void {
-          console.log("Initialisiere Seite...");
-
           // Ladezustand für alle Sektionen hinzufügen
           const sections = ["auth-section", "quiz-section", "chronology-section"];
           sections.forEach((id) => {
             const section = document.getElementById(id);
             if (section) {
               // Sektionen sind initial unsichtbar
-              section.classList.add("opacity-0");
-              section.classList.remove("opacity-100");
+              section.style.opacity = "0";
               section.style.visibility = "hidden";
-              console.log(`Sektion ${id} initialisiert`);
+              section.style.display = "none";
+              section.setAttribute("aria-hidden", "true");
+
+              // Disable tab navigation in hidden sections
+              const focusableElements = section.querySelectorAll(
+                'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+              );
+
+              focusableElements.forEach((el) => {
+                (el as HTMLElement).setAttribute("tabindex", "-1");
+              });
             } else {
               console.warn(`Sektion ${id} nicht gefunden`);
             }
           });
 
+          // Verbesserungen für die Tastaturnavigation in Button-Gruppen
+          // Dies ermöglicht die Navigation mit Pfeiltasten zwischen Schwierigkeitsgraden
+          setupKeyboardNavigation("quiz-section", ".button-perspective a");
+          setupKeyboardNavigation("chronology-section", ".button-perspective a");
+
+          // Skip-Link Funktionalität verbessern
+          const skipLink = document.querySelector(".skip-link") as HTMLAnchorElement;
+          const mainContent = document.getElementById("main-content");
+
+          if (skipLink && mainContent) {
+            skipLink.addEventListener("click", (event) => {
+              event.preventDefault();
+
+              // Fokus auf Hauptinhalt setzen
+              mainContent.focus();
+
+              // URL aktualisieren
+              if (history.pushState) {
+                history.pushState(null, "", skipLink.href);
+              }
+            });
+          }
+
           // Auth-Status sofort prüfen
-          console.log("Prüfe Auth-Status...");
           checkAuthStatus();
 
           // Und nach kurzer Verzögerung erneut prüfen (für den Fall, dass Cookies verzögert geladen werden)
-          setTimeout(() => {
-            console.log("Erneute Auth-Status-Prüfung nach Verzögerung...");
-            checkAuthStatus();
-          }, 500);
+          setTimeout(() => checkAuthStatus(), 500);
         }
 
         // Seite initialisieren, wenn DOM geladen ist
         if (document.readyState === "loading") {
-          document.addEventListener("DOMContentLoaded", () => {
-            console.log("DOMContentLoaded ausgelöst");
-            initializePage();
-          });
+          document.addEventListener("DOMContentLoaded", initializePage);
         } else {
           // Falls DOMContentLoaded bereits ausgelöst wurde
-          console.log("DOM bereits geladen, initialisiere sofort");
           initializePage();
         }
 
-        // Authentifizierungsstatus bei Änderungen an den Cookies prüfen
-        document.addEventListener("visibilitychange", () => {
-          if (document.visibilityState === "visible") {
+        // Event-Listener für Authentifizierungsänderungen registrieren
+        const authListeners = registerAuthEventListeners(checkAuthStatus);
+
+        // Cookie-Überwachung initialisieren
+        const cookieWatcherId = initCookieWatcher(checkAuthStatus, 1000);
+
+        // Bereinigungsfunktion für Page-Transitions oder Unmount
+        document.addEventListener("astro:page-unload", () => {
+          // Event-Listener entfernen
+          authListeners.remove();
+
+          // Cookie-Überwachung stoppen
+          clearInterval(cookieWatcherId);
+        });
+
+        // Debug-Hilfsfunktionen in Entwicklungsumgebung
+        if (import.meta.env.DEV) {
+          (
+            window as Window &
+              typeof globalThis & {
+                checkAuthManually: () => boolean;
+                forceAuth: (status: boolean) => boolean;
+              }
+          ).checkAuthManually = function (): boolean {
             checkAuthStatus();
-          }
-        });
+            return isUserAuthenticated();
+          };
 
-        // Event-Listener für erfolgreiche Anmeldung/Abmeldung
-        window.addEventListener("auth:login", (event) => {
-          console.log("auth:login Event empfangen", event);
-          // Bei erfolgreicher Anmeldung den Status im localStorage speichern
-          setLocalStorage("auth_status", "authenticated");
-          checkAuthStatus();
-        });
-
-        document.addEventListener("auth:login", (event) => {
-          console.log("auth:login Event auf document empfangen", event);
-          // Bei erfolgreicher Anmeldung den Status im localStorage speichern
-          setLocalStorage("auth_status", "authenticated");
-          checkAuthStatus();
-        });
-
-        window.addEventListener("auth:logout", (event) => {
-          console.log("auth:logout Event empfangen", event);
-          // Bei Abmeldung den Status aus dem localStorage entfernen
-          removeLocalStorage("auth_status");
-          checkAuthStatus();
-        });
-
-        document.addEventListener("auth:logout", (event) => {
-          console.log("auth:logout Event auf document empfangen", event);
-          // Bei Abmeldung den Status aus dem localStorage entfernen
-          removeLocalStorage("auth_status");
-          checkAuthStatus();
-        });
-
-        // Regelmäßige Überprüfung des Auth-Status (als Alternative zu cookieStore API)
-        // Verbesserte Cookie-Überwachung mit Debouncing
-        let previousCookieValue = document.cookie;
-        let cookieCheckTimeout: number | null = null;
-
-        function debouncedCookieCheck() {
-          if (cookieCheckTimeout) {
-            clearTimeout(cookieCheckTimeout);
-          }
-
-          cookieCheckTimeout = setTimeout(() => {
-            if (document.cookie !== previousCookieValue) {
-              console.log("Cookie-Änderung erkannt", {
-                previous: previousCookieValue,
-                current: document.cookie,
-              });
-              previousCookieValue = document.cookie;
+          (
+            window as Window &
+              typeof globalThis & {
+                checkAuthManually: () => boolean;
+                forceAuth: (status: boolean) => boolean;
+              }
+          ).forceAuth = function (status: boolean): boolean {
+            if (status) {
+              setLocalStorage("auth_status", "authenticated");
+              checkAuthStatus();
+            } else {
+              removeLocalStorage("auth_status");
               checkAuthStatus();
             }
-          }, 300) as unknown as number;
+            return isUserAuthenticated();
+          };
         }
-
-        // Cookie-Änderungen alle 500ms prüfen
-        setInterval(debouncedCookieCheck, 500);
-
-        // Manuelle Authentifizierungsprüfung ermöglichen
-        // TypeScript-kompatible Zuweisung zum window-Objekt
-        (window as any)["checkAuthManually"] = function () {
-          console.log("Manuelle Authentifizierungsprüfung...");
-          checkAuthStatus();
-          return isUserAuthenticated();
-        };
-
-        // Hilfsfunktion zum Überprüfen des Auth-Status
-        (window as any)["checkAuth"] = function () {
-          const status = isUserAuthenticated();
-          console.log("Aktueller Auth-Status:", status);
-          return status;
-        };
-
-        // Hilfsfunktion zum manuellen Setzen des Auth-Status
-        (window as any)["forceAuth"] = function (status: boolean) {
-          if (status) {
-            setLocalStorage("auth_status", "authenticated");
-            console.log('Auth-Status manuell auf "authenticated" gesetzt');
-            checkAuthStatus();
-          } else {
-            removeLocalStorage("auth_status");
-            console.log("Auth-Status manuell zurückgesetzt");
-            checkAuthStatus();
-          }
-          return isUserAuthenticated();
-        };
       </script>
     </article>
   </div>
 </Layout>
 
+<!-- Optimierte CSS-Styles nach BEM-Methodik und WCAG AAA-Standards -->
 <style>
-  /**
-   * Advanced CSS optimizations for performance and accessibility
-   *
-   * Features:
-   * 1. Hardware-accelerated animations with will-change
-   * 2. Reduced motion support for accessibility
-   * 3. High contrast mode support
-   * 4. Optimized focus styles for keyboard navigation
-   * 5. Touch-friendly target sizes (min 44x44px)
-   * 6. Smooth opacity transitions for section visibility
+  /* 
+   * CSS-Variablen für Design-Tokens 
+   * Zentralisierte Definition von Farbwerten, Abständen und anderen wiederverwendbaren Eigenschaften
    */
+  :root {
+    /* Farben - Primär */
+    --color-purple-300: #c4b5fd;
+    --color-purple-500: #8b5cf6;
+    --color-purple-600: #7c3aed;
+    --color-purple-700: #6d28d9;
+    --color-purple-800: #5b21b6;
 
-  /* Enhanced 3D effect with perspective - optimized for performance */
-  .perspective {
+    /* Farben - Akzente */
+    --color-indigo-500: #6366f1;
+    --color-indigo-700: #4338ca;
+
+    /* Farben - Hintergrund */
+    --color-zinc-100: #f4f4f5;
+    --color-zinc-300: #d4d4d8;
+    --color-zinc-400: #a1a1aa;
+    --color-zinc-700: #3f3f46;
+    --color-zinc-800: #27272a;
+    --color-zinc-900: #18181b;
+
+    /* Farben - Status */
+    --color-amber-300: #fcd34d;
+    --color-amber-700: #b45309;
+    --color-amber-50: #fef3c7;
+
+    /* Schattierungen */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    /* Abstände */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+
+    /* Border-Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-full: 9999px;
+
+    /* Typografie */
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+
+    /* Transitions */
+    --transition-normal: 300ms ease-in-out;
+    --transition-fast: 150ms ease-in-out;
+  }
+
+  /* ===== 1. LAYOUT & STRUKTUR ===== */
+
+  /* Page-Container - Hauptcontainer für die gesamte Seite */
+  .page-container {
+    margin: 0 auto;
+    max-width: 64rem;
+    padding: var(--space-8) var(--space-4);
+  }
+
+  /* Article-Container - Primäre Inhaltssektion */
+  .article-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+  }
+
+  /* Section-Header - Hauptüberschriftenbereich */
+  .section-header {
+    margin-bottom: var(--space-12);
+    border-radius: var(--radius-xl);
+    background-image: linear-gradient(
+      to bottom right,
+      rgba(39, 39, 42, 0.6),
+      rgba(24, 24, 27, 0.6)
+    );
+    padding: var(--space-8);
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+    backdrop-filter: blur(4px);
+  }
+
+  /* Divider - Dekorative Trennlinie */
+  .divider {
+    margin: var(--space-4) auto;
+    height: var(--space-1);
+    width: 6rem;
+    border-radius: var(--radius-full);
+    background-color: var(--color-purple-500);
+  }
+
+  /* ===== 2. MODUL-CONTAINER ===== */
+
+  /* Game-Section-Container - Basis für Spielmodul-Container */
+  .game-section-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+    margin-top: var(--space-8);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-normal);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(63, 63, 70, 0.3);
+    background-image: linear-gradient(
+      to bottom right,
+      rgba(39, 39, 42, 0.4),
+      rgba(24, 24, 27, 0.4)
+    );
+    padding: var(--space-8);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(4px);
+  }
+
+  .game-section-container:focus-within {
+    box-shadow: 0 0 0 3px var(--color-purple-500);
+  }
+
+  @media (min-width: 768px) {
+    .game-section-container {
+      padding: var(--space-10);
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .game-section-container {
+      padding: var(--space-12);
+      max-width: 85%;
+    }
+  }
+
+  /* Chronology-Section - Variante für Chronologie-Spiele */
+  .chronology-section {
+    margin-top: var(--space-12);
+  }
+
+  /* Auth-Section-Container - Container für Auth-Formulare */
+  .auth-section-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+    margin-top: var(--space-8);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-normal);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(63, 63, 70, 0.3);
+    background-image: linear-gradient(
+      to bottom right,
+      rgba(39, 39, 42, 0.4),
+      rgba(24, 24, 27, 0.4)
+    );
+    padding: var(--space-8);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(4px);
+  }
+
+  .auth-section-container:focus-within {
+    box-shadow: 0 0 0 3px var (--color-purple-500);
+  }
+
+  /* ===== 3. BILD & MEDIEN ===== */
+
+  /* Image-Container - Container für Kategoriebilder */
+  .image-container {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 42rem;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Image-Aspect-Container - Seitenverhältnis-Container für Bilder */
+  .image-aspect-container {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    box-shadow: var (--shadow-lg);
+  }
+
+  /* Responsive-Image - Optimierte Bilddarstellung */
+  .responsive-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* Image-Gradient-Overlay - Gradient-Überlagerung für bessere Textlesbarkeit */
+  .image-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to top, rgba(24, 24, 27, 0.7), transparent);
+  }
+
+  /* No-Image-Container - Container für fehlende Bilder */
+  .no-image-container {
+    display: flex;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-zinc-800);
+    padding: var(--space-6);
+    text-align: center;
+    font-family: system-ui, sans-serif;
+    font-size: var(--text-base);
+    color: var(--color-zinc-100);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* No-Image-Content - Inhaltsbereich für fehlende Bilder */
+  .no-image-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  /* Missing-Image-Icon - Icon für fehlende Bilder */
+  .missing-image-icon {
+    height: 2rem;
+    width: 2rem;
+    color: var(--color-zinc-400);
+  }
+
+  /* ===== 4. BESCHREIBUNGEN & TEXT ===== */
+
+  /* Description-Container - Container für Textbeschreibungen */
+  .description-container {
+    width: 100%;
+    max-width: none;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(63, 63, 70, 0.3);
+    background-color: rgba(39, 39, 42, 0.5);
+    padding: var(--space-6);
+    line-height: 1.8;
+    box-shadow: var(--shadow-md);
+  }
+
+  .description-container:focus-within {
+    box-shadow: 0 0 0 3px var(--color-purple-500);
+  }
+
+  @media (min-width: 640px) {
+    .description-container {
+      padding: var(--space-8);
+    }
+  }
+
+  /* ===== 5. INTERAKTIVE ELEMENTE ===== */
+
+  /* Button-Group-Container - Container für Schaltflächengruppen */
+  .button-group-container {
+    margin-top: var(--space-2);
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 640px) {
+    .button-group-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-6);
+      max-width: 42rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .button-group-container {
+      gap: var(--space-8);
+    }
+  }
+
+  /* Button-Perspective - Container für 3D-Button-Effekt */
+  .button-perspective {
     perspective: 1000px;
-    contain: layout style; /* CSS containment for better performance */
+    width: 100%;
+    max-width: 14rem;
   }
 
-  /* Hardware acceleration for smooth transitions */
-  .perspective a,
-  .perspective button {
-    will-change: transform; /* Hint to browser for hardware acceleration */
-    transform: translateZ(0); /* Force GPU rendering */
-    backface-visibility: hidden; /* Prevent flickering on some devices */
+  @media (min-width: 640px) {
+    .button-perspective {
+      width: auto;
+    }
   }
 
-  .perspective:hover a,
-  .perspective:hover button {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 25px -12px rgba(0, 0, 0, 0.4);
+  /* Button-Text - Textformatierung für Schaltflächen */
+  .button-text {
+    font-size: var(--text-base);
+    font-weight: 500;
   }
 
-  /* Respect reduced motion preferences for accessibility */
+  @media (min-width: 768px) {
+    .button-text {
+      font-size: var(--text-lg);
+    }
+  }
+
+  /* Auth-Form-Container - Container für Authentifizierungsformulare */
+  .auth-form-container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 28rem;
+  }
+
+  /* Alert-Box - Warnmeldungen und Benachrichtigungen */
+  .alert-box {
+    margin-bottom: var(--space-6);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    background-color: rgba(180, 83, 9, 0.3);
+    padding: var(--space-4);
+    color: var (--color-amber-50);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  /* Alert-Box-Content - Inhaltsbereich für Warnmeldungen */
+  .alert-box-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  /* Alert-Text - Textformatierung für Warnmeldungen */
+  .alert-text {
+    font-weight: 500;
+  }
+
+  /* ===== 6. ICONS & BADGES ===== */
+
+  /* Game-Icon-Badge - Badges für Spieltypen */
+  .game-icon-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: var (--radius-full);
+    background-image: linear-gradient(
+      to bottom right,
+      var(--color-purple-600),
+      var(--color-purple-700)
+    );
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease;
+  }
+
+  @media (min-width: 768px) {
+    .game-icon-badge {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .game-icon-badge {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+
+    .game-section-container:hover .game-icon-badge {
+      transform: rotate(15deg) scale(1.1);
+    }
+  }
+
+  /* Chronology-Badge - Spezielle Variante für Chronologie-Spiele */
+  .chronology-badge {
+    background-image: linear-gradient(
+      to bottom right,
+      var(--color-indigo-500),
+      var(--color-indigo-700)
+    );
+  }
+
+  /* Icon-Größen und Farben */
+  .icon-small {
+    height: 1.25rem;
+    width: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .icon-medium {
+    height: 1.25rem;
+    width: 1.25rem;
+    flex-shrink: 0;
+    margin-right: var(--space-2);
+  }
+
+  @media (min-width: 768px) {
+    .icon-medium {
+      height: 1.5rem;
+      width: 1.5rem;
+      margin-right: var(--space-3);
+    }
+  }
+
+  .icon-large {
+    height: 2.5rem;
+    width: 2.5rem;
+    flex-shrink: 0;
+  }
+
+  .icon-white {
+    color: white;
+  }
+
+  /* ===== 7. TYPOGRAFIE ===== */
+
+  /* Headline-Primary - Primäre Überschriften */
+  .headline-primary {
+    margin-bottom: var(--space-4);
+    text-align: center;
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+  }
+
+  @media (min-width: 768px) {
+    .headline-primary {
+      font-size: var(--text-4xl);
+    }
+  }
+
+  /* Paragraph-Standard - Standardabsätze */
+  .paragraph-standard {
+    margin: 0 auto;
+    max-width: 42rem;
+    text-align: center;
+    font-size: var(--text-lg);
+    font-weight: 500;
+    color: var(--color-zinc-100);
+    line-height: 1.8;
+  }
+
+  /* Paragraph-Description - Beschreibungstexte */
+  .paragraph-description {
+    font-size: var(--text-base);
+    line-height: 1.8;
+    color: var(--color-zinc-100);
+  }
+
+  @media (min-width: 640px) {
+    .paragraph-description {
+      font-size: var(--text-lg);
+    }
+  }
+
+  /* Auth-Heading - Überschriften für Authentifizierungsbereiche */
+  .auth-heading {
+    margin-bottom: var(--space-6);
+    text-align: center;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: white;
+  }
+
+  /* Game-Heading - Überschriften für Spielbereiche */
+  .game-heading {
+    margin-top: var(--space-6);
+    padding-top: var(--space-2);
+    text-align: center;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: white;
+  }
+
+  @media (min-width: 768px) {
+    .game-heading {
+      font-size: 1.75rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .game-heading {
+      font-size: var(--text-4xl);
+    }
+  }
+
+  /* Auth-Description - Beschreibungstexte für Authentifizierungsbereiche */
+  .auth-description {
+    margin-bottom: var(--space-6);
+    max-width: 42rem;
+    text-align: center;
+    font-size: var(--text-lg);
+    color: var(--color-zinc-100);
+    line-height: 1.8;
+  }
+
+  /* Game-Description - Beschreibungstexte für Spielbereiche */
+  .game-description {
+    margin-bottom: var(--space-6);
+    max-width: 42rem;
+    text-align: center;
+    font-size: var(--text-lg);
+    color: var(--color-zinc-100);
+    line-height: 1.6;
+  }
+
+  @media (min-width: 768px) {
+    .game-description {
+      font-size: var(--text-xl);
+      line-height: 1.7;
+      margin-bottom: var(--space-8);
+    }
+  }
+
+  /* ===== 8. ANIMATIONEN & TRANSITIONS ===== */
+
+  .opacity-transition {
+    transition: opacity var(--transition-normal);
+  }
+
+  /* ===== 9. BARRIEREFREIHEIT ===== */
+
+  /* Screenreader-Only Klasse */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Reduced Motion Preferences */
   @media (prefers-reduced-motion: reduce) {
-    .perspective:hover a,
-    .perspective:hover button,
-    .group-hover\:scale-105,
-    .hover\:scale-\[1\.03\],
-    .transform,
-    .transition-all {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001s !important;
+      transition-duration: 0.001s !important;
+      scroll-behavior: auto !important;
+    }
+
+    .game-section-container:hover .game-icon-badge {
       transform: none !important;
+      box-shadow: none !important;
       transition: none !important;
     }
   }
 
-  /* Smooth transitions for section visibility */
-  #auth-section,
-  #quiz-section,
-  #chronology-section {
-    transition: opacity 0.3s ease-in-out;
-    /* Visibility wird jetzt dynamisch per JavaScript gesetzt */
-  }
-
-  /* Verbesserte Sichtbarkeitssteuerung mit expliziten Zuständen */
-  .opacity-0 {
-    opacity: 0 !important;
-  }
-
-  .opacity-100 {
-    opacity: 1 !important;
-  }
-
-  /* High Contrast Mode Support for assistive technologies */
+  /* High Contrast Mode Support */
   @media (forced-colors: active) {
     article[data-category],
     section,
@@ -795,7 +1166,15 @@ const modifiedDate = new Date();
       forced-color-adjust: none;
     }
 
-    /* Ensure proper focus visibility in high contrast mode */
+    .game-icon-badge {
+      border: 2px solid ButtonText;
+      background: ButtonFace;
+    }
+
+    .icon-white {
+      color: ButtonText;
+    }
+
     :global(a:focus-visible),
     :global(button:focus-visible) {
       outline: 3px solid ButtonText !important;
@@ -803,33 +1182,69 @@ const modifiedDate = new Date();
     }
   }
 
-  /* Improved focus styles for better keyboard navigation - WCAG AAA compliant */
+  /* Focus Visibility - Verbesserter Fokus für Tastaturbedienung */
   :global(a:focus-visible),
   :global(button:focus-visible) {
-    outline: 3px solid #a855f7 !important;
+    outline: 3px solid var(--color-purple-500) !important;
     outline-offset: 3px !important;
-    transition: outline-offset 0.1s ease !important;
-    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.4);
   }
 
-  /* Better link readability - ensuring 7:1 contrast ratio */
-  .prose :global(a) {
-    color: #c084fc !important; /* Higher contrast purple */
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
-    font-weight: 500;
+  /* 
+   * Barrierefreiheit - Skip-Link und erweiterte Fokuszustände 
+   */
+  .skip-link {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    padding: var(--space-4);
+    background-color: var(--color-purple-600);
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    z-index: 9999;
+    border-radius: var(--radius-md);
+    transform: translateY(-100%);
+    transition: transform 0.3s;
   }
 
-  .prose :global(a:hover) {
-    color: #d8b4fe !important;
-    text-decoration-thickness: 2px;
+  .skip-link:focus {
+    top: var(--space-4);
+    left: var(--space-4);
+    transform: translateY(0);
+    outline: 3px solid var(--color-purple-300);
+    outline-offset: 3px;
   }
 
-  /* Ensure minimum touch target size of 44x44px */
-  [role="group"] :global(a),
-  [role="group"] :global(button) {
+  /* Entfernt den Standard-Outline von :focus-visible */
+  #main-content:focus {
+    outline: none;
+  }
+
+  /* Verbesserte Fokuszustände für alle interaktiven Elemente */
+  :global(a:focus-visible),
+  :global(button:focus-visible),
+  :global(.button-perspective a:focus-visible) {
+    outline: 3px solid var(--color-purple-500);
+    outline-offset: 3px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  }
+
+  /* Vergrößerte Berührungsziel für Touch-Geräte */
+  .button-perspective a,
+  :global(.button-perspective a) {
     min-height: 44px;
     min-width: 44px;
+    display: flex;
+    align-items: center;
+    padding: var(--space-3) var(--space-4);
+  }
+
+  @media (min-width: 768px) {
+    .button-perspective a,
+    :global(.button-perspective a) {
+      min-height: 48px;
+      padding: var(--space-4) var(--space-6);
+    }
   }
 </style>

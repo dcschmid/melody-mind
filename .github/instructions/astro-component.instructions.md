@@ -55,10 +55,21 @@ const formattedTitle = title.toUpperCase();
   <OtherComponent />
 </section>
 
-<!-- 6. Component styles with Tailwind -->
+<!-- 6. Component styles with CSS -->
 <style>
   .component-container {
-    @apply rounded-lg bg-gray-100 p-4 dark:bg-gray-800;
+    border-radius: 0.5rem;
+    background-color: #f3f4f6;
+    padding: 1rem;
+  }
+
+  :global(.dark) .component-container {
+    background-color: #1f2937;
+  }
+
+  .active {
+    font-weight: bold;
+    color: #8b5cf6;
   }
 </style>
 ```
@@ -92,6 +103,15 @@ Example:
   <!-- Maintains state during navigation -->
   <SoundSettings client:load transition:persist />
 </div>
+
+<style>
+  .game-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+</style>
 ```
 
 ## Accessibility
@@ -109,15 +129,11 @@ Example:
 
 ```astro
 <nav aria-label="Main navigation">
-  <ul class="flex gap-4 bg-purple-900 p-4">
+  <ul>
     {
       navigationItems.map((item) => (
         <li>
-          <a
-            href={item.url}
-            class="rounded-md px-3 py-2 text-white hover:text-purple-200 focus:ring-2 focus:ring-purple-300 focus:outline-none"
-            aria-current={item.isCurrent ? "page" : undefined}
-          >
+          <a href={item.url} class="nav-link" aria-current={item.isCurrent ? "page" : undefined}>
             {item.label}
           </a>
         </li>
@@ -125,6 +141,38 @@ Example:
     }
   </ul>
 </nav>
+
+<style>
+  nav {
+    background-color: #581c87; /* purple-900 */
+    padding: 1rem;
+  }
+
+  ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    border-radius: 0.375rem;
+    color: white;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+  }
+
+  .nav-link:hover {
+    color: #e9d5ff; /* purple-200 */
+  }
+
+  .nav-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #c4b5fd; /* purple-300 */
+  }
+</style>
 ```
 
 ## Performance
@@ -155,17 +203,54 @@ import albumCover from "../assets/images/album-cover.jpg";
     alt="Album cover for Dark Side of the Moon"
     width={800}
     height={800}
-    class="rounded-lg shadow-lg transition-shadow hover:shadow-xl"
+    class="album-cover"
     layout="constrained"
     formats={["avif", "webp"]}
   />
 
   <!-- Minimal JavaScript usage -->
-  <div class="album-info mt-4 rounded-md bg-gray-800 p-4 text-white">
-    <h2 class="text-xl font-bold tracking-tight">Dark Side of the Moon</h2>
-    <p class="text-sm text-gray-300">Pink Floyd • 1973</p>
+  <div class="album-info">
+    <h2>Dark Side of the Moon</h2>
+    <p class="album-meta">Pink Floyd • 1973</p>
   </div>
 </div>
+
+<style>
+  .album-display {
+    margin-bottom: 2rem;
+  }
+
+  .album-cover {
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .album-cover:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .album-info {
+    background-color: #1f2937; /* gray-800 */
+    border-radius: 0.375rem;
+    color: white;
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+
+  .album-info h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: -0.025em;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .album-meta {
+    color: #d1d5db; /* gray-300 */
+    font-size: 0.875rem;
+    margin: 0;
+  }
+</style>
 ```
 
 ## Advanced Component Patterns
@@ -201,36 +286,93 @@ const { difficulty, questionCount, genre, isActive = false } = Astro.props;
 const apiEndpoint = import.meta.env.PUBLIC_API_ENDPOINT;
 ---
 
-<div class={`game-card p-6 rounded-xl shadow-md ${isActive ? "border-2 border-purple-500" : ""}`}>
-  <div class="mb-4 flex items-center justify-between">
-    <h3 class="text-xl font-bold text-purple-900">{genre}</h3>
-    <span
-      class={`px-3 py-1 rounded-full text-sm font-medium
-      ${
-        difficulty === "easy"
-          ? "bg-green-100 text-green-800"
-          : difficulty === "medium"
-            ? "bg-yellow-100 text-yellow-800"
-            : "bg-red-100 text-red-800"
-      }`}
-    >
+<div class={`game-card ${isActive ? "active" : ""}`}>
+  <div class="card-header">
+    <h3>{genre}</h3>
+    <span class={`difficulty-badge difficulty-${difficulty}`}>
       {difficulty}
     </span>
   </div>
 
-  <p class="mb-4 text-gray-700">Contains {questionCount} questions</p>
+  <p class="question-count">Contains {questionCount} questions</p>
 
-  <div class="mt-4 flex justify-end">
+  <div class="actions-container">
     <slot name="actions" />
   </div>
 
   <!-- Named slot with fallback content -->
-  <div class="mt-4 text-sm text-gray-500">
+  <div class="footer">
     <slot name="footer">
       <p>Play and earn points!</p>
     </slot>
   </div>
 </div>
+
+<style>
+  .game-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+
+  .game-card.active {
+    border: 2px solid #8b5cf6; /* purple-500 */
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .card-header h3 {
+    color: #581c87; /* purple-900 */
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .difficulty-badge {
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+  }
+
+  .difficulty-easy {
+    background-color: #dcfce7; /* green-100 */
+    color: #166534; /* green-800 */
+  }
+
+  .difficulty-medium {
+    background-color: #fef9c3; /* yellow-100 */
+    color: #854d0e; /* yellow-800 */
+  }
+
+  .difficulty-hard {
+    background-color: #fee2e2; /* red-100 */
+    color: #991b1b; /* red-800 */
+  }
+
+  .question-count {
+    color: #374151; /* gray-700 */
+    margin-bottom: 1rem;
+  }
+
+  .actions-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+  }
+
+  .footer {
+    color: #6b7280; /* gray-500 */
+    font-size: 0.875rem;
+    margin-top: 1rem;
+  }
+</style>
 ```
 
 ## Modern Astro Practices
@@ -266,20 +408,14 @@ interface Props {
 const { question, timeLimit } = Astro.props;
 ---
 
-<div class="quiz-question rounded-2xl bg-white p-6 shadow-lg dark:bg-gray-800">
-  <div class="mb-6 flex items-center justify-between">
-    <h2 class="text-2xl font-bold text-purple-800 dark:text-purple-300">
-      {question.text}
-    </h2>
+<div class="quiz-question">
+  <div class="question-header">
+    <h2>{question.text}</h2>
 
-    <Timer
-      class="rounded-lg bg-purple-100 px-4 py-2 font-mono text-lg text-purple-800 dark:bg-purple-900 dark:text-purple-200"
-      seconds={timeLimit}
-      client:visible
-    />
+    <Timer class="timer" seconds={timeLimit} client:visible />
   </div>
 
-  <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+  <div class="options-grid">
     {
       question.options.map((option, index) => (
         <AnswerOption
@@ -293,16 +429,94 @@ const { question, timeLimit } = Astro.props;
     }
   </div>
 
-  <div class="mt-8 flex justify-end">
-    <button
-      id="joker-button"
-      class="rounded-lg bg-yellow-500 px-4 py-2 font-medium text-white transition-colors hover:bg-yellow-600 focus:ring-2 focus:ring-yellow-300 focus:outline-none"
-      client:load
-    >
-      Use 50:50 Joker
-    </button>
+  <div class="joker-container">
+    <button id="joker-button" class="joker-button" client:load> Use 50:50 Joker </button>
   </div>
 </div>
+
+<style>
+  .quiz-question {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+
+  :global(.dark) .quiz-question {
+    background-color: #1f2937; /* gray-800 */
+  }
+
+  .question-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    color: #5b21b6; /* purple-800 */
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  :global(.dark) h2 {
+    color: #c4b5fd; /* purple-300 */
+  }
+
+  .timer {
+    background-color: #f3e8ff; /* purple-100 */
+    border-radius: 0.5rem;
+    color: #5b21b6; /* purple-800 */
+    font-family: monospace;
+    font-size: 1.125rem;
+    padding: 0.5rem 1rem;
+  }
+
+  :global(.dark) .timer {
+    background-color: #581c87; /* purple-900 */
+    color: #e9d5ff; /* purple-200 */
+  }
+
+  .options-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .options-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .joker-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+  }
+
+  .joker-button {
+    background-color: #eab308; /* yellow-500 */
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    cursor: pointer;
+    font-medium: medium;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.2s;
+  }
+
+  .joker-button:hover {
+    background-color: #ca8a04; /* yellow-600 */
+  }
+
+  .joker-button:focus {
+    box-shadow: 0 0 0 2px #fef08a; /* yellow-300 */
+    outline: none;
+  }
+</style>
 
 <script>
   // Progressive enhancement - joker functionality only works when JS is enabled
@@ -321,18 +535,18 @@ const { question, timeLimit } = Astro.props;
 </script>
 ```
 
-## Tailwind Usage Best Practices
+## CSS Styling Best Practices
 
-- Use Tailwind utility classes directly in HTML elements
-- Apply component-specific styles through Tailwind class composition
-- Leverage Tailwind's responsive prefixes (sm:, md:, lg:, xl:, 2xl:)
-- Use dark mode variants with dark: prefix for theme support
-- Utilize state variants (hover:, focus:, active:, etc.) for interactive elements
-- Group related utilities with appropriate spacing and line breaks
-- Create logical class groupings: layout → spacing → sizing → typography → visual
-- Use class:list directive for conditional classes
-- Avoid @apply in <style> tags when possible
-- Extract reusable patterns to components rather than custom CSS
+- Use component-scoped CSS with the `<style>` tag in Astro components
+- Create clear, semantic class names that describe the purpose of the element
+- Use CSS variables for theming and consistent values across components
+- Implement responsive design with media queries
+- Use the `:global()` selector for styling elements that are passed via slots
+- Create a consistent design system with reusable CSS properties
+- Implement dark mode with a global `.dark` class and appropriate selectors
+- Use CSS Grid and Flexbox for layout rather than complex positioning
+- Implement CSS transitions for smooth state changes
+- Follow a consistent naming convention for CSS classes
 
 Example:
 
@@ -343,31 +557,20 @@ const percentage = Math.round((score / maxScore) * 100);
 const isHighScore = percentage > 80;
 ---
 
-<div
-  class="score-display flex flex-col items-center rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 p-6 shadow-md dark:from-purple-900 dark:to-pink-900"
->
+<div class="score-display">
   <!-- Sized container with responsive adjustments -->
-  <div class="mx-auto w-full max-w-md sm:w-3/4 md:w-1/2">
+  <div class="container">
     <!-- Score display with conditional styling -->
-    <div
-      class={`
-      text-center p-4 mb-6 rounded-lg
-      ${
-        isHighScore
-          ? "bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-100"
-          : "bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-100"
-      }
-    `}
-    >
-      <h3 class="mb-2 text-xl font-bold">Your Score</h3>
-      <div class="text-4xl font-extrabold">{score}/{maxScore}</div>
-      <div class="mt-1 text-sm opacity-75">Level: {level}</div>
+    <div class={`score-card ${isHighScore ? "high-score" : "normal-score"}`}>
+      <h3>Your Score</h3>
+      <div class="score-value">{score}/{maxScore}</div>
+      <div class="level-indicator">Level: {level}</div>
     </div>
 
     <!-- Progress bar with dynamic width -->
-    <div class="mb-6 h-4 w-full rounded-full bg-gray-200 dark:bg-gray-700">
+    <div class="progress-container">
       <div
-        class="h-full rounded-full bg-purple-600 transition-all duration-1000 ease-out dark:bg-purple-400"
+        class="progress-bar"
         style={`width: ${percentage}%`}
         aria-valuenow={percentage}
         aria-valuemin="0"
@@ -378,21 +581,193 @@ const isHighScore = percentage > 80;
     </div>
 
     <!-- Responsive button layout -->
-    <div class="mt-6 flex flex-col justify-center gap-4 sm:flex-row">
-      <button
-        class="rounded-lg bg-purple-600 px-6 py-3 font-medium text-white transition-colors duration-200 hover:bg-purple-700 focus:ring-2 focus:ring-purple-300 focus:outline-none active:bg-purple-800"
-      >
-        Play Again
-      </button>
+    <div class="button-container">
+      <button class="primary-button"> Play Again </button>
 
-      <button
-        class="rounded-lg border-2 border-purple-600 bg-transparent px-6 py-3 font-medium text-purple-600 transition-colors duration-200 hover:bg-purple-100 focus:ring-2 focus:ring-purple-300 focus:outline-none active:bg-purple-200 dark:text-purple-300 dark:hover:bg-purple-800 dark:active:bg-purple-700"
-      >
-        Share Results
-      </button>
+      <button class="secondary-button"> Share Results </button>
     </div>
   </div>
 </div>
+
+<style>
+  /* Component container */
+  .score-display {
+    background: linear-gradient(to bottom right, #f5f3ff, #fce7f3);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+  }
+
+  :global(.dark) .score-display {
+    background: linear-gradient(to bottom right, #581c87, #831843);
+  }
+
+  /* Responsive container */
+  .container {
+    margin: 0 auto;
+    max-width: 28rem;
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      width: 75%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      width: 50%;
+    }
+  }
+
+  /* Score card styling */
+  .score-card {
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .high-score {
+    background-color: #dcfce7;
+    color: #166534;
+  }
+
+  :global(.dark) .high-score {
+    background-color: #14532d;
+    color: #86efac;
+  }
+
+  .normal-score {
+    background-color: #dbeafe;
+    color: #1e40af;
+  }
+
+  :global(.dark) .normal-score {
+    background-color: #1e3a8a;
+    color: #93c5fd;
+  }
+
+  .score-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .score-value {
+    font-size: 2.25rem;
+    font-weight: 800;
+  }
+
+  .level-indicator {
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    opacity: 0.75;
+  }
+
+  /* Progress bar */
+  .progress-container {
+    background-color: #e5e7eb;
+    border-radius: 9999px;
+    height: 1rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+
+  :global(.dark) .progress-container {
+    background-color: #374151;
+  }
+
+  .progress-bar {
+    background-color: #8b5cf6;
+    border-radius: 9999px;
+    height: 100%;
+    transition: width 1s ease-out;
+  }
+
+  :global(.dark) .progress-bar {
+    background-color: #a78bfa;
+  }
+
+  /* Button layout */
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .button-container {
+      flex-direction: row;
+    }
+  }
+
+  /* Button styles */
+  .primary-button,
+  .secondary-button {
+    border-radius: 0.5rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.2s;
+  }
+
+  .primary-button {
+    background-color: #8b5cf6;
+    border: none;
+    color: white;
+  }
+
+  .primary-button:hover {
+    background-color: #7c3aed;
+  }
+
+  .primary-button:focus {
+    box-shadow: 0 0 0 2px #c4b5fd;
+    outline: none;
+  }
+
+  .primary-button:active {
+    background-color: #6d28d9;
+  }
+
+  .secondary-button {
+    background-color: transparent;
+    border: 2px solid #8b5cf6;
+    color: #8b5cf6;
+  }
+
+  .secondary-button:hover {
+    background-color: #f5f3ff;
+  }
+
+  :global(.dark) .secondary-button {
+    color: #c4b5fd;
+    border-color: #c4b5fd;
+  }
+
+  :global(.dark) .secondary-button:hover {
+    background-color: #4c1d95;
+  }
+
+  .secondary-button:focus {
+    box-shadow: 0 0 0 2px #c4b5fd;
+    outline: none;
+  }
+
+  .secondary-button:active {
+    background-color: #f5f3ff;
+  }
+
+  :global(.dark) .secondary-button:active {
+    background-color: #5b21b6;
+  }
+</style>
 ```
 
 ## Icon Usage with astro-icon
@@ -419,24 +794,89 @@ import { Icon } from "astro-icon/components";
 ---
 
 <!-- Basic icon usage -->
-<Icon name="music-note" class="h-6 w-6 text-purple-600" />
+<Icon name="music-note" class="icon" />
 
 <!-- Icon with accessibility improvements -->
 <button aria-label="Play music">
-  <Icon name="play" class="h-5 w-5 text-white" aria-hidden="true" />
+  <Icon name="play" class="icon-small" aria-hidden="true" />
 </button>
 
 <!-- Responsive icon sizing -->
-<Icon
-  name="share"
-  class="h-4 w-4 text-blue-500 transition-colors hover:text-blue-700 sm:h-5 sm:w-5 md:h-6 md:w-6"
-/>
+<Icon name="share" class="icon-responsive" />
 
 <!-- Animated icon -->
-<Icon name="loader" class="h-8 w-8 animate-spin text-purple-600" />
+<Icon name="loader" class="icon-loader" />
 
 <!-- Icon with conditional styling -->
-<Icon name="star" class={`w-6 h-6 ${isActive ? "text-yellow-500" : "text-gray-400"}`} />
+<Icon name="star" class={`icon-medium ${isActive ? "icon-active" : "icon-inactive"}`} />
+
+<style>
+  .icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    color: #8b5cf6; /* purple-600 */
+  }
+
+  .icon-small {
+    height: 1.25rem;
+    width: 1.25rem;
+    color: white;
+  }
+
+  .icon-medium {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  .icon-responsive {
+    color: #3b82f6; /* blue-500 */
+    height: 1rem;
+    width: 1rem;
+    transition: color 0.2s;
+  }
+
+  .icon-responsive:hover {
+    color: #1d4ed8; /* blue-700 */
+  }
+
+  @media (min-width: 640px) {
+    .icon-responsive {
+      height: 1.25rem;
+      width: 1.25rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .icon-responsive {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+
+  .icon-loader {
+    animation: spin 1s linear infinite;
+    color: #8b5cf6; /* purple-600 */
+    height: 2rem;
+    width: 2rem;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .icon-active {
+    color: #eab308; /* yellow-500 */
+  }
+
+  .icon-inactive {
+    color: #9ca3af; /* gray-400 */
+  }
+</style>
 ```
 
 ### Best Practices:
@@ -466,7 +906,7 @@ import { Icon } from "astro-icon/components";
    - Consider lazy-loading icons below the fold
 
 5. **Styling**:
-   - Use Tailwind classes for size, color, and other properties
+   - Create reusable classes for common icon sizes and colors
    - Maintain consistent sizing within similar UI components
    - Apply transitions for hover/active states when appropriate
 

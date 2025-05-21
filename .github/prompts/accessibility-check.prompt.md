@@ -356,14 +356,14 @@ const t = useTranslations(lang);
   /* After */
   .answer-option:hover {
     background-color: #4c1d95; /* 8.1:1 contrast ratio */
-    box-shadow: 0 0 0 2px #8b5cf6; /* Additional visual indicator */
+    box-shadow: 0 0 0 2px var(--color-purple-400); /* Additional visual indicator */
   }
 
   /* Focus state */
   .answer-option:focus-visible {
-    outline: 3px solid #f0abfc;
+    outline: 3px solid var(--color-purple-300);
     outline-offset: 2px;
-    box-shadow: 0 0 0 2px rgba(240, 171, 252, 0.5);
+    box-shadow: 0 0 0 2px rgba(var(--color-purple-300-rgb), 0.5);
   }
 
   /* High Contrast Mode Support */
@@ -622,17 +622,17 @@ const timerId = `timer-${Math.random().toString(36).substring(2, 8)}`;
     min-height: 44px;
     min-width: 44px;
     border-radius: 0.25rem;
-    background-color: #cbd5e1;
-    color: #1e293b;
+    background-color: var(--color-gray-200);
+    color: var(--color-gray-900);
     font-weight: 500;
   }
 
   .timer-control:hover {
-    background-color: #94a3b8;
+    background-color: var(--color-gray-300);
   }
 
   .timer-control:focus-visible {
-    outline: 3px solid #f0abfc;
+    outline: 3px solid var(--color-purple-300);
     outline-offset: 2px;
   }
 
@@ -718,22 +718,24 @@ const timerId = `timer-${Math.random().toString(36).substring(2, 8)}`;
 <style>
   /* WCAG 2.2 AAA compliant focus styles */
   :global(:focus-visible) {
-    outline: 3px solid #f0abfc; /* High visibility color */
+    outline: 3px solid var(--color-purple-300); /* High visibility color */
     outline-offset: 3px; /* Creates larger effective focus area */
     /* For Windows High Contrast Mode & additional visual indicator */
-    box-shadow: 0 0 0 3px rgba(240, 171, 252, 0.5);
+    box-shadow: 0 0 0 3px rgba(var(--color-purple-300-rgb), 0.5);
   }
 
   /* Ensuring contrast between focused and unfocused states */
   .btn {
-    background-color: #4c1d95; /* Purple base color */
-    color: white;
+    background-color: var(--color-purple-800); /* Purple base color */
+    color: var(--color-white);
     transition: background-color 0.2s;
   }
 
   .btn:focus-visible {
-    background-color: #7e22ce; /* Lighter purple for 4.5:1 contrast ratio with base */
-    outline: 3px solid #f0abfc;
+    background-color: var(
+      --color-purple-600
+    ); /* Lighter purple for 4.5:1 contrast ratio with base */
+    outline: 3px solid var(--color-purple-300);
     outline-offset: 3px;
   }
 
@@ -851,16 +853,16 @@ const itemId = `draggable-${id}`;
   data-draggable
 >
   {/* Draggable content */}
-  <div class="item-content">
+  <div class="draggable-item__content">
     <h3>{title}</h3>
     <slot />
   </div>
 
   {/* Non-dragging alternative */}
-  <div class="item-controls" aria-label="Position controls">
+  <div class="draggable-item__controls" aria-label="Position controls">
     {/* Up/down buttons as alternative to drag */}
     <button
-      class="move-btn move-up-btn"
+      class="draggable-item__btn draggable-item__btn--up"
       aria-label={`Move ${title} up`}
       data-move="up"
       disabled={defaultPosition <= 0}
@@ -869,7 +871,7 @@ const itemId = `draggable-${id}`;
     </button>
 
     <button
-      class="move-btn move-down-btn"
+      class="draggable-item__btn draggable-item__btn--down"
       aria-label={`Move ${title} down`}
       data-move="down"
       disabled={defaultPosition >= totalItems - 1}
@@ -882,7 +884,7 @@ const itemId = `draggable-${id}`;
     <select
       id={`${itemId}-position`}
       aria-label={`Move ${title} to position`}
-      class="position-select"
+      class="draggable-item__select"
       data-position-select
     >
       {
@@ -905,7 +907,7 @@ const itemId = `draggable-${id}`;
     itemEl.addEventListener("dragstart", (e) => {
       e.dataTransfer.setData("text/plain", itemId);
       itemEl.setAttribute("aria-grabbed", "true");
-      itemEl.classList.add("dragging");
+      itemEl.classList.add("draggable-item--dragging");
 
       // Announce to screen readers
       const liveRegion = document.querySelector('[aria-live="assertive"]');
@@ -916,7 +918,7 @@ const itemId = `draggable-${id}`;
 
     itemEl.addEventListener("dragend", () => {
       itemEl.setAttribute("aria-grabbed", "false");
-      itemEl.classList.remove("dragging");
+      itemEl.classList.remove("draggable-item--dragging");
 
       // Clear announcement
       const liveRegion = document.querySelector('[aria-live="assertive"]');
@@ -1021,49 +1023,49 @@ const itemId = `draggable-${id}`;
     align-items: center;
     padding: 1rem;
     margin: 0.5rem 0;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--color-gray-200);
     border-radius: 0.5rem;
-    background: white;
+    background: var(--color-white);
     cursor: grab;
   }
 
-  .draggable-item.dragging {
+  .draggable-item--dragging {
     opacity: 0.6;
     cursor: grabbing;
   }
 
-  .item-content {
+  .draggable-item__content {
     flex: 1;
   }
 
-  .item-controls {
+  .draggable-item__controls {
     display: flex;
     gap: 0.5rem;
     align-items: center;
   }
 
-  .move-btn {
+  .draggable-item__btn {
     min-width: 44px;
     min-height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f1f5f9;
+    background: var(--color-gray-100);
     border: none;
     border-radius: 0.25rem;
     cursor: pointer;
   }
 
-  .move-btn:hover:not(:disabled) {
-    background: #e2e8f0;
+  .draggable-item__btn:hover:not(:disabled) {
+    background: var(--color-gray-200);
   }
 
-  .move-btn:disabled {
+  .draggable-item__btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
 
-  .position-select {
+  .draggable-item__select {
     min-height: 44px;
     padding: 0.5rem;
     border-radius: 0.25rem;
@@ -1101,26 +1103,28 @@ const { mode, redirectUrl = "/" } = Astro.props;
   <h2 id="auth-heading">{mode === "login" ? "Sign In" : "Create Account"}</h2>
 
   <div class="form-group">
-    <label for="username" class="form-label">Username</label>
+    <label for="username" class="form-group__label">Username</label>
     <input
       type="text"
       id="username"
       name="username"
-      class="form-input"
+      class="form-group__input"
       autocomplete={mode === "login" ? "username" : "new-username"}
       required
       aria-required="true"
     />
-    <p class="form-hint" id="username-hint">Choose a username with letters and numbers only</p>
+    <p class="form-group__hint" id="username-hint">
+      Choose a username with letters and numbers only
+    </p>
   </div>
 
   <div class="form-group">
-    <label for="password" class="form-label">Password</label>
+    <label for="password" class="form-group__label">Password</label>
     <input
       type="password"
       id="password"
       name="password"
-      class="form-input"
+      class="form-group__input"
       autocomplete={mode === "login" ? "current-password" : "new-password"}
       aria-describedby="password-hint password-meter"
       required
@@ -1129,10 +1133,10 @@ const { mode, redirectUrl = "/" } = Astro.props;
     />
 
     <div class="password-strength" id="password-meter" aria-live="polite">
-      <div class="strength-meter" aria-hidden="true">
-        <div class="strength-bar"></div>
+      <div class="password-strength__meter" aria-hidden="true">
+        <div class="password-strength__bar"></div>
       </div>
-      <p class="form-hint" id="password-hint">
+      <p class="form-group__hint" id="password-hint">
         {
           mode === "login"
             ? "Enter your password to sign in"
@@ -1195,7 +1199,7 @@ const { mode, redirectUrl = "/" } = Astro.props;
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".auth-form");
     const passwordInput = document.getElementById("password");
-    const strengthBar = document.querySelector(".strength-bar");
+    const strengthBar = document.querySelector(".password-strength__bar");
     const strengthMeter = document.getElementById("password-meter");
 
     // Only add password strength for registration
@@ -1218,10 +1222,10 @@ const { mode, redirectUrl = "/" } = Astro.props;
           strengthBar.style.width = `${strength * 25}%`;
 
           // Update classes for color
-          strengthBar.className = "strength-bar";
-          if (strength < 2) strengthBar.classList.add("weak");
-          else if (strength < 4) strengthBar.classList.add("medium");
-          else strengthBar.classList.add("strong");
+          strengthBar.className = "password-strength__bar";
+          if (strength < 2) strengthBar.classList.add("password-strength__bar--weak");
+          else if (strength < 4) strengthBar.classList.add("password-strength__bar--medium");
+          else strengthBar.classList.add("password-strength__bar--strong");
         }
 
         // Update feedback text
@@ -1283,7 +1287,7 @@ const { mode, redirectUrl = "/" } = Astro.props;
         e.preventDefault();
 
         // Focus the first invalid field
-        form.querySelector(".form-input.error")?.focus();
+        form.querySelector(".form-group__input.error")?.focus();
 
         // Announce validation errors
         const liveRegion = document.createElement("div");
@@ -1322,7 +1326,7 @@ const { mode, redirectUrl = "/" } = Astro.props;
     max-width: 400px;
     margin: 0 auto;
     padding: 2rem;
-    background: white;
+    background: var(--color-white);
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
@@ -1331,49 +1335,49 @@ const { mode, redirectUrl = "/" } = Astro.props;
     margin-bottom: 1.5rem;
   }
 
-  .form-label {
+  .form-group__label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
   }
 
-  .form-input {
+  .form-group__input {
     width: 100%;
     padding: 0.75rem;
-    border: 2px solid #cbd5e1;
+    border: 2px solid var(--color-gray-200);
     border-radius: 0.25rem;
     font-size: 1rem;
     transition: border-color 0.2s;
   }
 
-  .form-input:focus {
+  .form-group__input:focus {
     outline: none;
-    border-color: #8b5cf6;
-    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
+    border-color: var(--color-purple-500);
+    box-shadow: 0 0 0 3px rgba(var(--color-purple-500-rgb), 0.25);
   }
 
-  .form-input.error {
-    border-color: #dc2626;
+  .form-group__input.error {
+    border-color: var(--color-red-600);
   }
 
-  .form-hint {
+  .form-group__hint {
     margin-top: 0.25rem;
     font-size: 0.875rem;
-    color: #64748b;
+    color: var(--color-gray-500);
   }
 
   .error-message {
     margin-top: 0.25rem;
     font-size: 0.875rem;
-    color: #dc2626;
+    color: var(--color-red-600);
     font-weight: 500;
   }
 
   .submit-btn {
     width: 100%;
     padding: 0.75rem 1rem;
-    background: #8b5cf6;
-    color: white;
+    background: var(--color-purple-500);
+    color: var(--color-white);
     font-weight: 500;
     border: none;
     border-radius: 0.25rem;
@@ -1383,11 +1387,11 @@ const { mode, redirectUrl = "/" } = Astro.props;
   }
 
   .submit-btn:hover {
-    background: #7c3aed;
+    background: var(--color-purple-600);
   }
 
   .submit-btn:focus-visible {
-    outline: 3px solid #c4b5fd;
+    outline: 3px solid var(--color-purple-300);
     outline-offset: 2px;
   }
 
@@ -1400,7 +1404,7 @@ const { mode, redirectUrl = "/" } = Astro.props;
     margin-top: 1.5rem;
     text-align: center;
     padding-top: 1rem;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid var(--color-gray-200);
   }
 
   .checkbox-container {
@@ -1418,31 +1422,31 @@ const { mode, redirectUrl = "/" } = Astro.props;
     margin-bottom: 0;
   }
 
-  .strength-meter {
+  .password-strength__meter {
     height: 8px;
-    background: #e2e8f0;
+    background: var(--color-gray-200);
     border-radius: 4px;
     margin-top: 0.5rem;
     overflow: hidden;
   }
 
-  .strength-bar {
+  .password-strength__bar {
     height: 100%;
     width: 0;
-    background: #ef4444;
+    background: var(--color-red-500);
     transition: width 0.3s;
   }
 
-  .strength-bar.weak {
-    background: #ef4444;
+  .password-strength__bar--weak {
+    background: var(--color-red-500);
   }
 
-  .strength-bar.medium {
-    background: #f59e0b;
+  .password-strength__bar--medium {
+    background: var(--color-yellow-500);
   }
 
-  .strength-bar.strong {
-    background: #10b981;
+  .password-strength__bar--strong {
+    background: var(--color-green-500);
   }
 
   .password-feedback {
@@ -1454,7 +1458,7 @@ const { mode, redirectUrl = "/" } = Astro.props;
   .alt-auth-link {
     display: inline-block;
     padding: 0.5rem 0;
-    color: #6b7280;
+    color: var(--color-gray-500);
     font-size: 0.875rem;
     text-decoration: underline;
   }
@@ -1463,7 +1467,7 @@ const { mode, redirectUrl = "/" } = Astro.props;
     display: block;
     margin-top: 0.5rem;
     font-size: 0.875rem;
-    color: #6b7280;
+    color: var(--color-gray-500);
     text-decoration: underline;
   }
 
@@ -1482,9 +1486,9 @@ const { mode, redirectUrl = "/" } = Astro.props;
 
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
-    .form-input,
+    .form-group__input,
     .submit-btn,
-    .strength-bar {
+    .password-strength__bar {
       transition: none;
     }
   }
