@@ -19,7 +19,7 @@ If not specified, ask for:
 - **Network Performance**: API calls, data loading, caching, HTTP/2, preloading
 - **Animation Performance**: Frame rates, GPU acceleration, CSS optimizations
 - **Resource Usage**: Memory management, CPU usage, event listeners
-- **Tailwind Optimization**: Utility class usage, PurgeCSS configuration
+- **CSS Optimization**: Modular organization, CSS variables, specificity management, minification
 - **Web Vitals**: LCP, FID, CLS, INP optimization strategies
 
 ## Analysis Structure
@@ -50,7 +50,7 @@ If not specified, ask for:
 1. Large uncompressed images for genre backgrounds
 2. Inefficient timer implementation using setInterval
 3. All questions loaded at once rather than progressively
-4. Unused Tailwind utilities increasing CSS bundle size
+4. Suboptimal CSS organization and unnecessary style rules
 5. Unoptimized animations causing jank on mobile devices
 6. Blocking script execution affecting initial page load
 
@@ -239,36 +239,57 @@ export async function loadQuestions(genre, difficulty) {
 }
 ```
 
-#### 4. Tailwind Optimization
+#### 4. CSS Optimization
 
-- Configure PurgeCSS content paths correctly in tailwind.config.mjs
-- Use modern plugins for responsive typography 
-- Extract common utility patterns into CSS variables for consistency
+- Organize CSS files using a modular component-based approach
+- Use CSS variables for design tokens and consistent theming
+- Optimize CSS specificity to prevent performance issues
+- Implement critical CSS for above-the-fold content
+- Leverage modular component-specific stylesheets
 
-```js
-// tailwind.config.mjs - optimized configuration
-export default {
-  content: ["./src/**/*.{astro,html,js,ts}"],
-  theme: {
-    extend: {
-      // Use modern color science
-      colors: {
-        // Using modern oklch color space for better visuals across displays
-        'brand': {
-          DEFAULT: 'oklch(65% 0.2 250)',
-          'light': 'oklch(85% 0.2 250)',
-          'dark': 'oklch(45% 0.2 250)',
-        }
-      },
-    }
-  },
-  future: {
-    hoverOnlyWhenSupported: true, // Better touch device support
-  },
-  plugins: [
-    // Add only plugins you actually use
-  ],
-};
+```css
+/* Before - Global CSS with excessive nesting and specificity */
+.app .card .card-header h2 {
+  color: #7b2cbf;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.app .card .card-body p {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+/* After - Component-based CSS with variables and flat selectors */
+/* In /src/styles/variables.css */
+:root {
+  --color-brand: oklch(65% 0.2 250);
+  --color-brand-light: oklch(85% 0.2 250);
+  --color-brand-dark: oklch(45% 0.2 250);
+  --color-text: oklch(25% 0.03 250);
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --font-heading: 1.5rem;
+  --font-body: 1rem;
+  --line-height: 1.6;
+}
+
+/* In component CSS file */
+.card-header {
+  color: var(--color-brand);
+  font-size: var(--font-heading);
+  font-weight: bold;
+  margin-bottom: var(--spacing-md);
+}
+
+.card-body {
+  color: var(--color-text);
+  line-height: var(--line-height);
+  margin-bottom: var(--spacing-sm);
+}
 ```
 
 #### 5. Animation Optimization

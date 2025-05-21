@@ -118,29 +118,32 @@ interface UserScore {
 
 ## Styling Guidelines
 
-- Use Tailwind CSS for all styling needs - prioritize Tailwind utility classes over custom CSS
-- Follow the Tailwind utility-first workflow and avoid custom CSS when possible
-- Keep styles inline whenever possible, preferring Tailwind 4 (when available)
-- When inline styles become too complex, use Astro's style tag feature
-- Use a consistent color scheme through Tailwind's configuration (purple, pink, dark background)
-- Implement responsive design using Tailwind's responsive modifiers (sm:, md:, lg:, xl:)
-- Leverage Tailwind's design system for spacing, typography, and colors
-- Use Tailwind's dark mode utilities for theme switching
-- For complex components, use Tailwind's @apply directive only when necessary
+- Use vanilla CSS for all styling needs - prioritize clean, maintainable CSS over inline styles
+- Implement a CSS methodology like BEM (Block Element Modifier) for consistent class naming
+- Use CSS custom properties (variables) for theme colors, spacing, and other repeated values
+- Maintain styles in dedicated `.css` files organized by component or functionality
+- Implement a design system with consistent spacing, typography, and color schemes
+- Use a consistent color scheme (purple, pink, dark background) defined with CSS variables
+- Create responsive designs using CSS Grid, Flexbox, and media queries
+- Implement proper CSS architecture with base styles, components, and utilities
+- Keep selectors simple and avoid deep nesting for better performance
+- Use CSS modules or scoped styles with Astro's built-in support to prevent style conflicts
 - Follow accessibility guidelines for contrast and readability
-- Implement transitions using Tailwind's transition utilities
-- Extend the Tailwind theme in tailwind.config.js rather than using custom values
+- Implement transitions and animations with CSS properties for smooth user experiences
+- Minimize the use of !important declarations
 
 ## Performance Considerations
 
-- Optimize Tailwind's output with proper PurgeCSS configuration
+- Optimize CSS delivery with critical path rendering
+- Minify CSS files for production
 - Optimize image assets
 - Minimize JavaScript bundle size
 - Implement code splitting
 - Use efficient rendering strategies
 - Cache static assets appropriately
 - Optimize database queries
-- Use Tailwind's JIT mode for development
+- Use HTTP/2 or HTTP/3 for resource delivery
+- Apply browser hints like preload and prefetch for critical resources
 
 ## Astro Specific Guidelines
 
@@ -162,10 +165,12 @@ interface UserScore {
   - Extract complex logic to external `.ts` files
   - Always use `type="module"` for all script tags
 - **Style Management**:
-  - Prefer inline Tailwind classes for most styling needs
-  - Keep styles inline whenever possible, preferring Tailwind 4 (when available)
-  - When inline styles become too complex, use Astro's `<style>` tag feature
-  - Only extract styles to external files when absolutely necessary
+  - Use scoped component styles with Astro's built-in `<style>` tag
+  - Maintain global styles in dedicated CSS files in the `src/styles/` directory
+  - Use CSS modules for component-specific styles
+  - Follow the project's CSS naming conventions
+  - Keep selectors simple and specific to components
+  - Extract common styles to shared utility classes
 
 ## Accessibility Guidelines
 
