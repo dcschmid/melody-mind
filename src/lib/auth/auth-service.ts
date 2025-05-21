@@ -13,7 +13,7 @@ import {
   type NewUser,
   type UserId,
   type VerificationToken,
-  type ResetToken
+  type ResetToken,
 } from "./db.js";
 import { generateTokenPair, verifyAccessToken, verifyRefreshToken, type TokenPair } from "./jwt.js";
 import { validatePassword } from "./password-validation.js";
@@ -84,8 +84,8 @@ export class AuthError extends Error {
   /**
    * Creates a new authentication error
    *
-   * @param message - Human-readable error message
-   * @param code - Error code for translation and identification
+   * @param {string} message - Human-readable error message
+   * @param {AuthErrorCode} code - Error code for translation and identification
    */
   constructor(
     message: string,
@@ -101,8 +101,8 @@ export class AuthError extends Error {
 /**
  * Type guard for checking if an error is an AuthError
  *
- * @param error - The error to check
- * @returns True if the error is an AuthError
+ * @param {unknown} error - The error to check
+ * @returns {boolean} True if the error is an AuthError
  */
 export function isAuthError(error: unknown): error is AuthError {
   return error instanceof AuthError;
@@ -125,8 +125,8 @@ export class AuthService {
    * Retrieves a user by email from cache or database
    *
    * @private
-   * @param email - The email address to look up
-   * @returns The user object if found, null otherwise
+   * @param {string} email - The email address to look up
+   * @returns {Promise<UserWithPassword | null>} The user object if found, null otherwise
    */
   private async getUserByEmailWithCache(email: string): Promise<UserWithPassword | null> {
     const normalizedEmail = email.toLowerCase();
@@ -153,11 +153,11 @@ export class AuthService {
    * @since 3.0.0
    * @category Authentication
    *
-   * @param email - The user's email address
-   * @param password - The user's password
-   * @param ip - The IP address of the request for rate limiting
+   * @param {string} email - The user's email address
+   * @param {string} password - The user's password
+   * @param {string} ip - The IP address of the request for rate limiting
    *
-   * @returns A promise resolving to a LoginResult object with the login status
+   * @returns {Promise<LoginResult>} A promise resolving to a LoginResult object with the login status
    *
    * @example
    * // Attempt to log in a user
@@ -238,9 +238,9 @@ export class AuthService {
    * @since 3.0.0
    * @category Authentication
    *
-   * @param userData - The new user's data including email and password
+   * @param {NewUser} userData - The new user's data including email and password
    *
-   * @returns A promise resolving to a RegisterResult object with the registration status
+   * @returns {Promise<RegisterResult>} A promise resolving to a RegisterResult object with the registration status
    *
    * @throws {AuthError} If an authentication error occurs
    *
@@ -294,7 +294,9 @@ export class AuthService {
       const verificationToken = await generateEmailVerificationToken(userId);
 
       // In a real application, an email with the verification link would be sent here
-      console.log(`Verification link: https://example.com/verify-email?token=${verificationToken}`);
+      console.warn(
+        `Verification link: https://example.com/verify-email?token=${verificationToken}`
+      );
 
       // Return user without password hash
       // eslint-disable-next-line @typescript-eslint/no-unused-vars

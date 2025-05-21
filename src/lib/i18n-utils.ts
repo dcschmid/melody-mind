@@ -13,12 +13,14 @@ import type { TranslationKey, TranslationParams } from "../utils/typed-i18n";
 /**
  * Brand for language codes to distinguish them from regular strings
  */
-declare const LANGUAGE_CODE_BRAND: unique symbol;
+declare const enum LanguageCodeBrand {
+  Brand = 'LANGUAGE_CODE_BRAND'
+}
 
 /**
  * Branded type for language codes to prevent mixing with regular strings
  */
-export type LanguageCode = string & { readonly __brand: typeof LANGUAGE_CODE_BRAND };
+export type LanguageCode = string & { readonly __brand: LanguageCodeBrand };
 
 /**
  * Type for translations dictionary for a specific language

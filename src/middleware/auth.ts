@@ -4,9 +4,8 @@ import { verifyAccessToken } from "../lib/auth/jwt.js";
  * Checks if a valid JWT token is present in the cookies
  * and redirects to the login page if no token is found
  *
- * @param request - The Astro request
- * @param redirectUrl - The URL to redirect to after successful login
- * @returns An object with the authentication status and possibly the user information
+ * @param {Request} request - The Astro request
+ * @returns {Promise<{authenticated: boolean, user?: {id: string, email: string}, redirectToLogin?: Response}>} An object with the authentication status and possibly the user information
  */
 export async function requireAuth(request: Request): Promise<{
   authenticated: boolean;

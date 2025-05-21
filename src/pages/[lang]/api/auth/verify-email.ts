@@ -30,10 +30,9 @@
  * @returns {Promise<Response>} API response with verification result
  * @throws {EmailVerificationError} When verification process fails
  */
-import type { APIRoute } from "astro";
-
 import { authService } from "@lib/auth/auth-service";
 import { useTranslations } from "@utils/i18n";
+import type { APIRoute } from "astro";
 
 /**
  * Type-safe language codes using template literal types
