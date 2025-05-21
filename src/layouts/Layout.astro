@@ -54,8 +54,8 @@ import SkipLink from "@components/Shared/SkipLink.astro";
 import Footer from "@components/Footer.astro";
 import { getLangFromUrl } from "@utils/i18n";
 import "../styles/global.css";
-import "../styles/wcag-aaa.css";
-import "../styles/keyboard-shortcuts.css";
+//import "../styles/wcag-aaa.css";
+//import "../styles/keyboard-shortcuts.css";
 
 interface Props {
   /**
@@ -165,7 +165,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 ---
 
 <!doctype html>
-<html lang={String(lang)} class="m-0 box-border h-full scroll-smooth" dir="ltr">
+<html lang={String(lang)} class="layout-html" dir="ltr">
   <head>
     <!-- Character set and viewport configuration for mobile optimization -->
     <meta charset="UTF-8" />
@@ -209,12 +209,6 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 
     <!-- Critical CSS inline for performance -->
     <style is:inline>
-      /* Improved focus styles for keyboard navigation - WCAG AAA */
-      :focus-visible {
-        outline: 3px solid #9333ea; /* Purple 600 */
-        outline-offset: 3px;
-      }
-
       /* Print styles for better document printing */
       @media print {
         body {
@@ -239,6 +233,102 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       }
     </style>
 
+    <!-- Layout-specific CSS -->
+    <style>
+      /**
+       * Layout-spezifische CSS-Definitionen
+       * Diese Styles gelten nur für das Layout-Grundgerüst und definieren 
+       * keine Komponenten, die in anderen Dateien wiederverwendet werden.
+       */
+
+      /* Verwenden der globalen Variablen direkt */
+      :root {
+        /* Nur wirklich layoutspezifische Variablen hier definieren */
+        --layout-padding-small: var(--spacing-md, 0.75rem);
+        --layout-padding-large: var(--spacing-lg, 1.5rem);
+      }
+
+      /* HTML-Basis-Styling */
+      .layout-html {
+        margin: 0;
+        box-sizing: border-box;
+        height: 100%;
+        scroll-behavior: smooth;
+      }
+
+      /* Body-Styling mit flexiblem Layout */
+      .layout-body {
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        min-height: 100vh;
+        width: 100%;
+        max-width: var(--layout-max-width, 72rem);
+        flex-direction: column;
+        background-color: var(--color-background, #18181b);
+        padding: var(--layout-padding-small);
+        font-size: var(--font-size-lg, 1.125rem);
+        line-height: var(--line-height-relaxed, 2rem);
+        letter-spacing: var(--letter-spacing, 0.025em);
+        text-wrap: wrap;
+        color: var(--color-text-primary, #fafafa);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Unterstützung für reduzierte Animationen */
+      @media (prefers-reduced-motion: no-preference) {
+        .layout-body {
+          scroll-behavior: smooth;
+        }
+      }
+
+      /* Responsive Design mit Breakpoint-Variablen */
+      @media (min-width: var(--breakpoint-md, 768px)) {
+        .layout-body {
+          padding: var(--layout-padding-large);
+        }
+      }
+
+      /* Header-Bereich */
+      .layout-header {
+        width: 100%;
+      }
+
+      /* Münzen-Anzeige mit Touch-Target-Mindestgröße */
+      .layout-coins {
+        position: absolute;
+        top: var(--layout-padding-small);
+        right: var(--layout-padding-small);
+        z-index: var(--z-index-overlay, 40);
+        min-height: var(--touch-target-min-size, 44px);
+        min-width: var(--touch-target-min-size, 44px);
+      }
+
+      /* Responsive Anpassung für Tablet und Desktop */
+      @media (min-width: var(--breakpoint-sm, 640px)) {
+        .layout-coins {
+          top: var(--layout-padding-large);
+          right: var(--layout-padding-large);
+        }
+      }
+
+      /* Hauptinhalt-Bereich */
+      .layout-main {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        flex-grow: 1;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: var(--layout-padding-large);
+        padding-bottom: var(--layout-padding-large);
+        font-size: var(--font-size-lg, 1.125rem);
+        line-height: var(--line-height-relaxed, 2rem);
+        text-wrap: pretty;
+      }
+    </style>
+
     <!-- Analytics with performance and privacy optimizations -->
     <script
       src="https://cdn.usefathom.com/script.js"
@@ -248,33 +338,25 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       defer
       is:inline></script>
   </head>
-  <body
-    class="mx-auto flex min-h-screen w-full max-w-6xl flex-col bg-zinc-900 p-3 text-lg leading-8 tracking-wide text-wrap text-zinc-50 antialiased motion-safe:scroll-smooth md:p-6"
-    data-theme="dark"
-  >
+  <body class="layout-body" data-theme="dark">
     <!-- Skip link for keyboard navigation -->
     <SkipLink />
 
     <!-- Conditional header/navigation based on page type -->
     <When test={showHeader && !showCoins}>
-      <header role="banner" class="w-full">
+      <header role="banner" class="layout-header">
         <Navigation {showHeaderIcons} />
       </header>
     </When>
 
     <When test={showCoins}>
-      <div class="absolute top-4 right-4 z-40 min-h-[44px] min-w-[44px] sm:top-6 sm:right-6">
+      <div class="layout-coins">
         <ShowCoins />
       </div>
     </When>
 
     <!-- Main content area -->
-    <main
-      id="main-content"
-      class="mx-auto max-w-full flex-grow px-0 py-6 text-lg leading-8 text-pretty"
-      tabindex="-1"
-      role="main"
-    >
+    <main id="main-content" class="layout-main" tabindex="-1" role="main">
       <slot />
     </main>
 
