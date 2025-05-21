@@ -544,4 +544,8 @@ export default {
     "Gebruik deze knoppen om het geselecteerde element te verplaatsen",
   "game.chronology.move.up": "Omhoog verplaatsen",
   "game.chronology.move.down": "Omlaag verplaatsen",
+  "game.time.extend": "Tijd verlengen",
+  "game.time.extend.again": "Opnieuw verlengen",
+  "game.time.extended": "Tijd verlengd met 5 seconden",
+  "game.time.before.end": "Verlengen voor einde spel",
 };

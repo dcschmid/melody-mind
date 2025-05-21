@@ -560,4 +560,8 @@ export default {
     "Utilisez ces boutons pour déplacer l'élément sélectionné",
   "game.chronology.move.up": "Déplacer vers le haut",
   "game.chronology.move.down": "Déplacer vers le bas",
+  "game.time.extend": "Prolonger le temps",
+  "game.time.extend.again": "Prolonger à nouveau",
+  "game.time.extended": "Temps prolongé de 5 secondes",
+  "game.time.before.end": "Prolonger avant la fin du jeu",
 };

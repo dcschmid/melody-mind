@@ -35,6 +35,7 @@ import ChronologyFeedbackOverlay from "@components/Overlays/ChronologyFeedbackOv
 import { requireAuth } from "../../../middleware/auth.js";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
+import ButtonLink from "@components/ButtonLink.astro";
 
 // Use static site generation for optimal performance
 export const prerender = true;
@@ -132,7 +133,7 @@ console.warn(
 >
   <!-- Skip link for better keyboard navigation -->
   <a href="#chronology-container" class="skip-link">
-    {t("accessibility.skip.to.game") || "Skip to game"}
+    {t("accessibility.skip.to.game")}
   </a>
 
   <ChronologyFeedbackOverlay />
@@ -148,12 +149,8 @@ console.warn(
     <GameHeadline headline={currentCategoryData?.headline} />
 
     <!-- Game info badges -->
-    <div
-      class="game-info-badges"
-      aria-live="polite"
-      aria-label={t("game.info.badges") || "Game information"}
-    >
-      <div class="game-badge" aria-label={t("game.difficulty.label") || "Difficulty level"}>
+    <div class="game-info-badges" aria-live="polite" aria-label={t("game.info.badges")}>
+      <div class="game-badge" aria-label={t("game.difficulty.label")}>
         <Icon
           name="difficulty"
           class="game-badge__icon game-badge__icon--difficulty"
@@ -164,7 +161,7 @@ console.warn(
         </span>
       </div>
 
-      <div class="game-badge" aria-label={t("game.coins.label") || "Collected coins"}>
+      <div class="game-badge" aria-label={t("game.coins.label")}>
         <Icon name="coins" class="game-badge__icon game-badge__icon--coins" aria-hidden="true" />
         <span class="game-badge__text">
           <span id="coins-display" class="coinsCount">0</span>
@@ -182,7 +179,7 @@ console.warn(
     class="chronology-container"
     role="region"
     aria-labelledby="chronology-title"
-    aria-label={t("game.chronology.area.label") || "Chronology game area"}
+    aria-label={t("game.chronology.area.label")}
     data-categoryName={currentCategoryData?.headline}
     data-genre={category}
     data-userID={user.id}
@@ -191,7 +188,7 @@ console.warn(
     {
       playerTitle && (
         <div class="player-title-container">
-          <span class="player-title-badge" aria-label={t("game.player.title") || "Player title"}>
+          <span class="player-title-badge" aria-label={t("game.player.title")}>
             <Icon name="user" class="player-title-badge__icon" aria-hidden="true" />
             <span class="player-title-badge__text">{playerTitle}</span>
           </span>
@@ -204,14 +201,11 @@ console.warn(
       id="chronology-title"
       className="mb-6 text-xl leading-relaxed font-bold text-white md:text-2xl"
     >
-      {t("game.chronology.title") || "Music Chronology"}
+      {t("game.chronology.title")}
     </Headline>
 
     <Paragraph id="chronology-description" align="center" textSize="text-base" className="mb-6">
-      {
-        t("game.chronology.description") ||
-          "Arrange the music elements by their release year - from oldest to newest."
-      }
+      {t("game.chronology.description")}
     </Paragraph>
 
     <div
@@ -232,48 +226,52 @@ console.warn(
     <nav
       id="chronology-navigation"
       class="chronology-navigation"
-      aria-label={t("game.chronology.touch.navigation") || "Touchscreen navigation"}
+      aria-label={t("game.chronology.touch.navigation")}
     >
       <div class="sr-only" id="nav-description">
-        {
-          t("game.chronology.navigation.description") ||
-            "Use these buttons to move the selected element"
-        }
+        {t("game.chronology.navigation.description")}
       </div>
-      <button
-        id="chronology-move-up"
-        class="chronology-button chronology-button--up"
-        aria-label={t("game.chronology.move.up") || "Move up"}
-        aria-describedby="nav-description"
-        disabled
-        type="button"
-      >
-        <Icon name="chevron-up" class="chronology-button__icon" aria-hidden="true" />
-        <span>{t("game.chronology.up") || "Move up"}</span>
-      </button>
-      <button
-        id="chronology-move-down"
-        class="chronology-button chronology-button--down"
-        aria-label={t("game.chronology.move.down") || "Move down"}
-        aria-describedby="nav-description"
-        disabled
-        type="button"
-      >
-        <Icon name="chevron-down" class="chronology-button__icon" aria-hidden="true" />
-        <span>{t("game.chronology.down") || "Move down"}</span>
-      </button>
+      <div id="chronology-move-up">
+        <ButtonLink
+          className="chronology-button chronology-button--up"
+          aria-label={t("game.chronology.move.up")}
+          aria-describedby="nav-description"
+          disabled
+          type="button"
+          variant="secondary"
+        >
+          <Icon name="chevron-up" class="chronology-button__icon" aria-hidden="true" />
+          <span>{t("game.chronology.up")}</span>
+        </ButtonLink>
+      </div>
+      <div id="chronology-move-down">
+        <ButtonLink
+          className="chronology-button chronology-button--down"
+          aria-label={t("game.chronology.move.down")}
+          aria-describedby="nav-description"
+          disabled
+          type="button"
+          variant="secondary"
+        >
+          <Icon name="chevron-down" class="chronology-button__icon" aria-hidden="true" />
+          <span>{t("game.chronology.down")}</span>
+        </ButtonLink>
+      </div>
     </nav>
 
     <div class="chronology-submit-container">
-      <button
-        id="chronology-submit"
-        class="chronology-submit-button"
-        type="button"
-        aria-label={t("game.submit.answer") || "Check answer"}
-        disabled
-      >
-        {t("game.submit.answer") || "Check answer"}
-      </button>
+      <div id="chronology-submit">
+        <ButtonLink
+          className="chronology-submit-button"
+          type="button"
+          aria-label={t("game.submit.answer")}
+          disabled
+          variant="primary"
+          size="lg"
+        >
+          {t("game.submit.answer")}
+        </ButtonLink>
+      </div>
     </div>
   </main>
 </Layout>
@@ -376,14 +374,20 @@ console.warn(
   function cacheElements(): ChronologyGameElements {
     return {
       itemsContainer: document.getElementById("chronology-items-container") as HTMLElement,
-      submitButton: document.getElementById("chronology-submit") as HTMLButtonElement,
+      submitButton: document
+        .getElementById("chronology-submit")
+        ?.querySelector("button") as HTMLButtonElement,
       coinsDisplay: document.querySelector(".coinsCount") as HTMLElement,
       loadingSpinner: document.getElementById("loading-spinner") as HTMLElement,
       chronologyContainer: document.getElementById("chronology-container") as HTMLElement,
       endGamePopup: document.getElementById("endgame-popup") as HTMLElement,
       roundElement: document.querySelector(".round") as HTMLElement,
-      moveUpButton: document.getElementById("chronology-move-up") as HTMLButtonElement,
-      moveDownButton: document.getElementById("chronology-move-down") as HTMLButtonElement,
+      moveUpButton: document
+        .getElementById("chronology-move-up")
+        ?.querySelector("button") as HTMLButtonElement,
+      moveDownButton: document
+        .getElementById("chronology-move-down")
+        ?.querySelector("button") as HTMLButtonElement,
     };
   }
 
@@ -415,6 +419,69 @@ console.warn(
       previousItem: null,
       isMoving: false,
     };
+
+    /**
+     * Helper function to create buttons in the ButtonLink style
+     * @param {string} id - Button ID
+     * @param {string} ariaLabel - Accessibility label
+     * @param {string} content - Button content (HTML)
+     * @param {string} variant - Button variant ('primary', 'secondary', etc.)
+     * @param {string} size - Button size ('sm', 'md', 'lg')
+     * @param {string} extraClasses - Additional CSS classes
+     * @returns {string} HTML string for the button
+     */
+    private createButtonLink(
+      id: string,
+      ariaLabel: string,
+      content: string,
+      variant: string = "secondary",
+      size: string = "sm",
+      extraClasses: string = ""
+    ): string {
+      // Base classes - copied from ButtonLink component
+      const baseClasses = `
+        inline-flex items-center justify-center rounded-lg font-bold
+        transition-all duration-300
+        hover:shadow-lg hover:shadow-sky-500/20
+        focus-visible:outline-none focus-visible:ring-2
+        focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900
+        active:scale-[0.98]
+        disabled:pointer-events-none disabled:opacity-50
+        min-w-[48px]
+      `
+        .replace(/\s+/g, " ")
+        .trim();
+
+      // Variant classes - copied from ButtonLink component
+      const variantClasses: Record<string, string> = {
+        primary: "bg-sky-700 text-white hover:bg-sky-600 focus-visible:ring-sky-300",
+        secondary: "bg-purple-700 text-white hover:bg-purple-600 focus-visible:ring-purple-300",
+        outline:
+          "bg-transparent text-sky-400 border-2 border-sky-700 hover:bg-sky-900/20 focus-visible:ring-sky-300",
+        text: "bg-transparent text-sky-400 hover:text-sky-300 hover:bg-transparent hover:shadow-none focus-visible:ring-sky-300 px-2",
+      };
+
+      // Size classes - copied from ButtonLink component
+      const sizeClasses: Record<string, string> = {
+        sm: "text-sm px-4 py-2 min-h-[40px]",
+        md: "px-6 py-3 min-h-[48px]",
+        lg: "text-lg px-8 py-4 min-h-[56px]",
+      };
+
+      // Combine classes
+      const btnClasses =
+        `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${extraClasses}`.trim();
+
+      return `
+        <button 
+          type="button"
+          id="${id}"
+          class="${btnClasses}"
+          aria-label="${ariaLabel}">
+          ${content}
+        </button>
+      `;
+    }
 
     /**
      * Constructor initializes the game controller with required DOM elements
@@ -746,16 +813,16 @@ console.warn(
       const container = this.elements.itemsContainer;
       container.innerHTML = "";
 
-      // ARIA-Beschreibung für die Sortierung hinzufügen
+      // Add ARIA description for sorting
       const instructions = document.createElement("p");
       instructions.id = "chronology-instruction";
       instructions.className = "sr-only";
       instructions.innerText =
         t("game.chronology.aria.instructions") ||
-        "Wähle ein Element durch Klicken aus und benutze dann die Nach-oben- und Nach-unten-Buttons, um es zu verschieben. Bringe die Elemente in chronologische Reihenfolge - vom ältesten bis zum neuesten.";
+        "Select an element by clicking and then use the up and down buttons to move it. Arrange the elements in chronological order - from oldest to newest.";
       container.appendChild(instructions);
 
-      // Erstelle Liste
+      // Create list
       const list = document.createElement("ul");
       list.className = "chronology-list space-y-3";
       list.setAttribute("aria-label", t("game.chronology.sortable.list") || "Liste von Alben");
@@ -814,7 +881,7 @@ console.warn(
       const announcement = document.createElement("div");
       announcement.className = "sr-only";
       announcement.setAttribute("aria-live", "polite");
-      announcement.textContent = `${t("game.chronology.new.task") || "Neue Aufgabe geladen:"} ${this.currentQuestion.items.length} ${t("game.chronology.albums.order") || "Alben in chronologische Reihenfolge bringen."}`;
+      announcement.textContent = `${t("game.chronology.new.task") || "New task loaded:"} ${this.currentQuestion.items.length} ${t("game.chronology.albums.order") || "albums to arrange in chronological order."}`;
       container.appendChild(announcement);
 
       // Remove announcement after it's been read
@@ -850,7 +917,7 @@ console.warn(
           }
         });
       } catch (error) {
-        console.error("Fehler beim Aktualisieren der Positionsnummern:", error);
+        console.error("Error updating position numbers:", error);
       }
     }
 
@@ -910,7 +977,7 @@ console.warn(
 
           return true;
         } catch (error) {
-          console.error("Fehler beim Verschieben des Elements:", error);
+          console.error("Error moving element:", error);
           return false;
         }
       };
@@ -1103,7 +1170,7 @@ console.warn(
           this.announceElementSelection(element);
         }
       } catch (error) {
-        console.error("Fehler beim Hervorheben des Elements:", error);
+        console.error("Error highlighting element:", error);
         this.resetSelectionOnError();
       }
     }
@@ -1238,12 +1305,34 @@ console.warn(
       const answerTime = Date.now() - this.questionStartTime;
       this.lastAnswerTime = answerTime;
 
-      const items = this.elements.itemsContainer.querySelectorAll(".chronology-item");
+      // Auswertung der Benutzerantwort
+      const result = this.evaluateUserAnswer();
+
+      // Ergebnis anzeigen und UI aktualisieren
+      this.showResultAndUpdateUI(result);
+
+      // Submit-Button deaktivieren
+      if (this.elements.submitButton) {
+        this.elements.submitButton.disabled = true;
+      }
+
+      // Nächste Runde oder Spiel beenden
+      this.handleGameProgress();
+    }
+
+    /**
+     * Evaluates the user's answer by comparing their order with the correct order
+     * Updates the score and tracking variables based on the result
+     *
+     * @returns {ChronologyResult} The evaluation result with score and correctness information
+     */
+    private evaluateUserAnswer(): ChronologyResult {
+      const items = this.elements.itemsContainer!.querySelectorAll(".chronology-item");
       const userOrder = Array.from(items).map((item) =>
         parseInt(item.getAttribute("data-id") || "0")
       );
 
-      const result = evaluateChronologyAnswer(userOrder, this.currentQuestion.correctOrder);
+      const result = evaluateChronologyAnswer(userOrder, this.currentQuestion!.correctOrder);
 
       // Punktestand aktualisieren
       this.score += result.score;
@@ -1257,120 +1346,261 @@ console.warn(
         this.lastAnswerCorrect = false;
       }
 
-      // Ergebnis anzeigen
-      this.showResults(result, userOrder);
+      return result;
+    }
 
-      // Submit-Button deaktivieren
-      if (this.elements.submitButton) {
-        this.elements.submitButton.disabled = true;
-      }
+    /**
+     * Displays the results of the chronology evaluation to the user
+     * Highlights correct/incorrect items and shows detailed score information
+     *
+     * @param {ChronologyResult} result - The evaluation result to display
+     */
+    private showResultAndUpdateUI(result: ChronologyResult): void {
+      this.showResults(result, []);
+    }
 
-      // Nächste Runde oder Spiel beenden
+    /**
+     * Handles the game progression after an answer is submitted
+     * Decides whether to set up the next round or end the game
+     */
+    private handleGameProgress(): void {
       if (this.roundIndex < this.totalRounds - 1) {
-        // Allow user to pause or extend automatic transition
-        const nextRoundDelay = 3000;
-        const nextRoundTimer = setTimeout(() => {
-          this.roundIndex++;
-          // Rundenanzeige wird in loadNextQuestion aktualisiert
-          this.loadNextQuestion();
-        }, nextRoundDelay);
-
-        // Create time control HTML element
-        const timeControl = document.createElement("div");
-        timeControl.className = "mt-4 flex justify-center gap-4";
-        timeControl.innerHTML = `
-          <button 
-            class="min-h-[48px] min-w-[48px] px-3 py-1 text-sm bg-zinc-800 rounded-full border border-zinc-700 text-white focus:ring-2 focus:ring-purple-400 focus:outline-none transition-colors hover:bg-zinc-700"
-            id="extend-time-btn"
-            aria-label="${t("game.time.extend") || "Zeit verlängern"}">
-            <span class="flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
-              </svg>
-              ${t("game.time.extend") || "Zeit verlängern"} (+5s)
-            </span>
-          </button>
-        `;
-
-        // Event listener for time extension
-        const extendBtn = timeControl.querySelector("#extend-time-btn");
-        if (extendBtn) {
-          extendBtn.addEventListener("click", () => {
-            clearTimeout(nextRoundTimer);
-
-            // Extend by 5 seconds
-            const extendedTimer = setTimeout(() => {
-              this.roundIndex++;
-              this.loadNextQuestion();
-            }, 5000);
-
-            // Update the button to allow multiple extensions
-            extendBtn.textContent = `${t("game.time.extend.again") || "Erneut verlängern"} (+5s)`;
-
-            // Store the new timer to allow further extensions
-            (extendBtn as HTMLElement).dataset.timerId = String(extendedTimer);
-
-            // Announce to screen readers
-            this.announceToScreenReader(
-              t("game.time.extended") || "Zeit um 5 Sekunden verlängert",
-              "assertive"
-            );
-          });
-        }
-
-        this.elements.itemsContainer?.appendChild(timeControl);
+        // Set up transition to next round
+        this.setupRoundTransition();
       } else {
-        // Allow user to pause or extend automatic transition before game end
-        const endGameDelay = 3000;
-        const endGameTimer = setTimeout(() => {
-          this.endGame();
-        }, endGameDelay);
-
-        // Create time control HTML element for end game
-        const timeControl = document.createElement("div");
-        timeControl.className = "mt-4 flex justify-center gap-4";
-        timeControl.innerHTML = `
-          <button 
-            class="min-h-[48px] min-w-[48px] px-3 py-1 text-sm bg-zinc-800 rounded-full border border-zinc-700 text-white focus:ring-2 focus:ring-purple-400 focus:outline-none transition-colors hover:bg-zinc-700"
-            id="extend-end-time-btn"
-            aria-label="${t("game.time.extend") || "Zeit verlängern"}">
-            <span class="flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
-              </svg>
-              ${t("game.time.before.end") || "Vor Spielende verlängern"} (+5s)
-            </span>
-          </button>
-        `;
-
-        // Event listener for time extension
-        const extendBtn = timeControl.querySelector("#extend-end-time-btn");
-        if (extendBtn) {
-          extendBtn.addEventListener("click", () => {
-            clearTimeout(endGameTimer);
-
-            // Extend by 5 seconds
-            const extendedTimer = setTimeout(() => {
-              this.endGame();
-            }, 5000);
-
-            // Update the button to allow multiple extensions
-            extendBtn.textContent = `${t("game.time.extend.again") || "Erneut verlängern"} (+5s)`;
-
-            // Store the new timer to allow further extensions
-            (extendBtn as HTMLElement).dataset.timerId = String(extendedTimer);
-
-            // Announce to screen readers
-            this.announceToScreenReader(
-              t("game.time.extended") || "Zeit um 5 Sekunden verlängert",
-              "assertive"
-            );
-          });
-        }
-
-        this.elements.itemsContainer?.appendChild(timeControl);
+        // Set up transition to end game
+        this.setupEndGameTransition();
       }
-    } /**
+    }
+
+    /**
+     * Sets up the transition to the next round
+     * Creates a timer with optional time extension feature
+     */
+    private setupRoundTransition(): void {
+      // Allow user to pause or extend automatic transition
+      const nextRoundDelay = 3000;
+      const nextRoundTimer = setTimeout(() => {
+        this.roundIndex++;
+        // Rundenanzeige wird in loadNextQuestion aktualisiert
+        this.loadNextQuestion();
+      }, nextRoundDelay);
+
+      // Create time extension control
+      const timeControl = this.createTimeExtensionControl();
+
+      // Set up time extension functionality
+      this.setupTimeExtensionForRound(timeControl, nextRoundTimer);
+
+      this.elements.itemsContainer?.appendChild(timeControl);
+    }
+
+    /**
+     * Sets up the transition to the end game
+     * Creates a timer with optional time extension feature
+     */
+    private setupEndGameTransition(): void {
+      // Allow user to pause or extend automatic transition before game end
+      const endGameDelay = 5000;
+      const endGameTimer = setTimeout(() => {
+        this.endGame();
+      }, endGameDelay);
+
+      // Create time extension control
+      const timeControl = this.createTimeExtensionControl();
+
+      // Set up time extension functionality
+      this.setupTimeExtensionForEndGame(timeControl, endGameTimer);
+
+      this.elements.itemsContainer?.appendChild(timeControl);
+    }
+
+    /**
+     * Creates a time extension control element
+     * Used to allow players to extend the automatic transition time
+     *
+     * @returns {HTMLDivElement} The created time extension control
+     */
+    private createTimeExtensionControl(): HTMLDivElement {
+      const timeControl = document.createElement("div");
+      timeControl.className = "time-extension";
+      return timeControl;
+    }
+
+    /**
+     * Sets up the time extension functionality for round transitions
+     * Creates a visually appealing button for extending the transition time to the next round
+     *
+     * @param {HTMLDivElement} timeControl - The container for the time extension control
+     * @param {ReturnType<typeof setTimeout>} nextRoundTimer - The timer ID for the next round transition
+     */
+    private setupTimeExtensionForRound(
+      timeControl: HTMLDivElement,
+      nextRoundTimer: ReturnType<typeof setTimeout>
+    ): void {
+      // Erstelle den Button mit ausschließlich der chronology-button Klasse für konsistentes Styling
+      const button = document.createElement("button");
+      button.id = "extend-time-btn";
+      button.className = "chronology-button";
+      button.setAttribute("aria-label", t("game.time.extend"));
+      button.style.display = "flex";
+      button.style.alignItems = "center";
+      button.style.justifyContent = "center";
+
+      // Erstelle ein Container-Element für den Inhalt (Icon + Text)
+      const contentSpan = document.createElement("span");
+      contentSpan.style.display = "flex";
+      contentSpan.style.alignItems = "center";
+      contentSpan.style.justifyContent = "center";
+      contentSpan.style.fontWeight = "500";
+
+      // Erstelle das Uhr-Icon als SVG und verwende nur die chronology-button__icon Klasse
+      const iconSvg = this.createClockIcon();
+      iconSvg.classList.add("chronology-button__icon");
+
+      // Füge Icon und Text zum Content-Container hinzu
+      contentSpan.appendChild(iconSvg);
+      contentSpan.appendChild(document.createTextNode(` ${t("game.time.extend")} (+5s)`));
+
+      // Füge den Content-Container zum Button hinzu
+      button.appendChild(contentSpan);
+
+      // Füge den Button zum Container hinzu
+      timeControl.appendChild(button);
+
+      // Event-Listener für die Zeitverlängerung
+      button.addEventListener("click", () => {
+        // Ursprünglichen Timer löschen
+        clearTimeout(nextRoundTimer);
+
+        // Um 5 Sekunden verlängern
+        const extendedTimer = setTimeout(() => {
+          this.roundIndex++;
+          this.loadNextQuestion();
+        }, 5000);
+
+        // Button-Inhalt aktualisieren, um mehrfache Verlängerungen zu ermöglichen
+        this.updateExtendButton(button, extendedTimer);
+
+        // Für Screenreader ankündigen
+        this.announceToScreenReader(t("game.time.extended"), "assertive");
+      });
+    }
+
+    /**
+     * Sets up the time extension functionality for end game transitions
+     * Creates a visually appealing button for extending the transition time to the end game
+     *
+     * @param {HTMLDivElement} timeControl - The container for the time extension control
+     * @param {ReturnType<typeof setTimeout>} endGameTimer - The timer ID for the end game transition
+     */
+    private setupTimeExtensionForEndGame(
+      timeControl: HTMLDivElement,
+      endGameTimer: ReturnType<typeof setTimeout>
+    ): void {
+      // Erstelle den Button mit ausschließlich der chronology-button Klasse für konsistentes Styling
+      const button = document.createElement("button");
+      button.id = "extend-end-time-btn";
+      button.className = "chronology-button";
+      button.setAttribute("aria-label", t("game.time.extend"));
+      button.style.display = "flex";
+      button.style.alignItems = "center";
+      button.style.justifyContent = "center";
+
+      // Erstelle ein Container-Element für den Inhalt (Icon + Text)
+      const contentSpan = document.createElement("span");
+      contentSpan.style.display = "flex";
+      contentSpan.style.alignItems = "center";
+      contentSpan.style.justifyContent = "center";
+      contentSpan.style.fontWeight = "500";
+
+      // Erstelle das Uhr-Icon als SVG und verwende nur die chronology-button__icon Klasse
+      const iconSvg = this.createClockIcon();
+      iconSvg.classList.add("chronology-button__icon");
+
+      // Füge Icon und Text zum Content-Container hinzu
+      contentSpan.appendChild(iconSvg);
+      contentSpan.appendChild(document.createTextNode(` ${t("game.time.before.end")} (+5s)`));
+
+      // Füge den Content-Container zum Button hinzu
+      button.appendChild(contentSpan);
+
+      // Füge den Button zum Container hinzu
+      timeControl.appendChild(button);
+
+      // Event-Listener für die Zeitverlängerung
+      button.addEventListener("click", () => {
+        // Ursprünglichen Timer löschen
+        clearTimeout(endGameTimer);
+
+        // Um 5 Sekunden verlängern
+        const extendedTimer = setTimeout(() => {
+          this.endGame();
+        }, 5000);
+
+        // Button-Inhalt aktualisieren, um mehrfache Verlängerungen zu ermöglichen
+        this.updateExtendButton(button, extendedTimer);
+
+        // Für Screenreader ankündigen
+        this.announceToScreenReader(t("game.time.extended"), "assertive");
+      });
+    }
+
+    /**
+     * Updates the extend button after a time extension is applied
+     * Changes the text to allow for additional extensions with a smooth transition
+     *
+     * @param {HTMLElement} extendBtn - The button element to update
+     * @param {ReturnType<typeof setTimeout>} extendedTimer - The new timer ID to store
+     */
+    private updateExtendButton(
+      extendBtn: HTMLElement,
+      extendedTimer: ReturnType<typeof setTimeout>
+    ): void {
+      // Erstelle den neuen Content-Container mit "Extend Again"-Text
+      const newContentSpan = document.createElement("span");
+      newContentSpan.style.display = "flex";
+      newContentSpan.style.alignItems = "center";
+      newContentSpan.style.justifyContent = "center";
+      newContentSpan.style.fontWeight = "500";
+
+      // Erstelle das Clock-Icon wieder
+      const iconSvg = this.createClockIcon();
+      iconSvg.classList.add("chronology-button__icon");
+
+      // Füge Icon und neuen Text zum Content-Container hinzu
+      newContentSpan.appendChild(iconSvg);
+      newContentSpan.appendChild(document.createTextNode(` ${t("game.time.extend.again")} (+5s)`));
+
+      // Optional: Animation zum Button hinzufügen (falls Animation unterstützt wird)
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        // Hier verwenden wir die native Animation-API statt CSS-Klassen
+        try {
+          extendBtn.animate(
+            [
+              { transform: "scale(1)", boxShadow: "0 0 0 0 rgba(147, 51, 234, 0.7)" },
+              { transform: "scale(1.05)", boxShadow: "0 0 10px 0 rgba(147, 51, 234, 0.3)" },
+              { transform: "scale(1)", boxShadow: "0 0 0 0 rgba(147, 51, 234, 0)" },
+            ],
+            {
+              duration: 1000,
+              easing: "ease",
+            }
+          );
+        } catch (e) {
+          console.warn("Animation nicht unterstützt:", e);
+        }
+      }
+
+      // Ersetze den alten Inhalt
+      extendBtn.innerHTML = "";
+      extendBtn.appendChild(newContentSpan);
+
+      // Speichere die neue Timer-ID für weitere Verlängerungen
+      extendBtn.dataset.timerId = String(extendedTimer);
+    }
+
+    /**
      * Updates the coin display with animation for visual feedback
      * Provides both visual and auditory feedback for score changes
      *
@@ -1689,10 +1919,10 @@ console.warn(
         // Navigation-Buttons aktualisieren
         this.updateNavigationButtonState();
       } catch (error) {
-        console.error("Fehler beim Verschieben des ausgewählten Elements:", error);
-        // Fehler für Bildschirmleser ankündigen
+        console.error("Error moving selected element:", error);
+        // Announce error for screen readers
         this.announceToScreenReader(
-          t("error.moving.element") || "Fehler beim Verschieben des Elements",
+          t("error.moving.element") || "Error moving element",
           "assertive"
         );
       }
@@ -1773,9 +2003,9 @@ console.warn(
     }
 
     /**
-     * Kündigt die Bewegung eines Elements für Bildschirmleser an
-     * @param {number} totalItems - Gesamtanzahl der Elemente
-     * @param {number} targetIndex - Der neue Index des Elements
+     * Announces element movement for screen readers
+     * @param {number} totalItems - Total number of elements
+     * @param {number} targetIndex - The new index of the element
      */
     private announceElementMovement(totalItems: number, targetIndex: number): void {
       if (!this.currentlySelectedItem) {
@@ -1789,7 +2019,7 @@ console.warn(
       const itemDescription = `${artistName} - ${albumTitle}`;
 
       this.announceToScreenReader(
-        `${itemDescription} ${t("game.chronology.moved.position") || "wurde auf Position"} ${targetIndex + 1} ${t("game.chronology.of") || "von"} ${totalItems} ${t("game.chronology.moved") || "verschoben"}.`,
+        `${itemDescription} ${t("game.chronology.moved.position") || "moved to position"} ${targetIndex + 1} ${t("game.chronology.of") || "of"} ${totalItems} ${t("game.chronology.moved") || "moved"}.`,
         "assertive"
       );
     }
@@ -1806,13 +2036,13 @@ console.warn(
       const container = this.elements.itemsContainer;
       container.innerHTML = "";
 
-      // ARIA-Beschreibung für die Sortierung hinzufügen
+      // Add ARIA description for sorting
       const instructions = document.createElement("p");
       instructions.id = "chronology-instruction";
       instructions.className = "sr-only";
       instructions.innerText =
         t("game.chronology.aria.instructions") ||
-        "Wähle ein Element durch Klicken aus und benutze dann die Nach-oben- und Nach-unten-Buttons, um es zu verschieben. Bringe die Elemente in chronologische Reihenfolge - vom ältesten bis zum neuesten.";
+        "Select an element by clicking and then use the up and down buttons to move it. Arrange the elements in chronological order - from oldest to newest.";
       container.appendChild(instructions);
 
       const list = document.createElement("ul");
@@ -1821,7 +2051,7 @@ console.warn(
       list.setAttribute("role", "list");
       list.setAttribute("aria-labelledby", "chronology-title");
       list.setAttribute("aria-describedby", "chronology-instruction");
-      list.setAttribute("aria-label", t("game.chronology.sortable.list") || "Liste von Alben");
+      list.setAttribute("aria-label", t("game.chronology.sortable.list") || "List of albums");
 
       this.currentQuestion.items.forEach((item, index) => {
         // Chronologie-Element erstellen
@@ -1894,26 +2124,26 @@ console.warn(
     }
 
     /**
-     * Zentrales Status-Management für Elementauswahl
-     * Implementiert ein klares Status-Pattern für bessere Wartbarkeit
+     * Central state management for element selection
+     * Implements a clear state pattern for better maintainability
      *
-     * @param {HTMLElement|null} element - Das auszuwählende Element oder null, um die Auswahl aufzuheben
-     * @param {boolean} shouldFocus - Ob der Fokus auf das Element gesetzt werden soll
+     * @param {HTMLElement|null} element - The element to select or null to clear selection
+     * @param {boolean} shouldFocus - Whether to set focus on the element
      */
     private updateSelectionState(element: HTMLElement | null, shouldFocus: boolean = true): void {
-      // Vorherigen Zustand speichern
+      // Save previous state
       this.selectionState.previousItem = this.selectionState.currentItem;
 
-      // Aktualisiere aktuelles Element
+      // Update current element
       this.selectionState.currentItem = element;
-      this.currentlySelectedItem = element; // Für Abwärtskompatibilität
+      this.currentlySelectedItem = element; // For backward compatibility
 
-      // Aktionen auf dem Element ausführen
+      // Actions on the element
       if (element) {
-        // Visuelles Feedback
+        // Visual feedback
         this.highlightElement(element);
 
-        // Fokus setzen wenn gewünscht
+        // Set focus if desired
         if (shouldFocus) {
           requestAnimationFrame(() => {
             if (element && document.body.contains(element)) {
@@ -1923,18 +2153,18 @@ console.warn(
         }
       }
 
-      // UI-Zustand aktualisieren
+      // Update UI state
       this.updateNavigationButtonState();
     }
 
     /**
-     * Erstellt Hilfsanweisungen für Tastaturnutzer
-     * Extrahiert die Erstellung von Hilfselementen in eine separate Methode
+     * Creates keyboard instructions for keyboard users
+     * Extracts the creation of helper elements into a separate method
      *
-     * @param {HTMLElement} parentElement - Das Elternelement, in das die Anweisungen eingefügt werden sollen
-     * @param {HTMLElement} listElement - Die Liste mit den sortierbaren Elementen
-     * @param {number} itemCount - Die Anzahl der sortierbaren Elemente
-     * @returns {HTMLElement} Das erstellte Instruktionselement
+     * @param {HTMLElement} parentElement - The parent element where the instructions should be inserted
+     * @param {HTMLElement} listElement - The list with sortable elements
+     * @param {number} itemCount - The number of sortable elements
+     * @returns {HTMLElement} The created instruction element
      */
     private createKeyboardInstructions(
       parentElement: HTMLElement,
@@ -1944,13 +2174,13 @@ console.warn(
       const keyboardInstructions = document.createElement("div");
       keyboardInstructions.className = "keyboard-instructions text-sm text-zinc-400 mt-2 mb-4";
       keyboardInstructions.innerHTML = `
-        <span class="sr-only">${t("game.chronology.keyboard.help") || "Nutze die Pfeiltasten oder die Nach-oben/Nach-unten-Buttons zum Sortieren"}</span>
+        <span class="sr-only">${t("game.chronology.keyboard.help") || "Use the arrow keys or the up/down buttons to sort"}</span>
         <div class="flex flex-wrap justify-center gap-2 text-xs" aria-hidden="true">
           <span class="inline-flex items-center px-2 py-1 bg-zinc-800 rounded">
-            <kbd class="px-1 py-0.5 mr-1 bg-zinc-700 rounded text-zinc-300">↑</kbd><span>${t("game.chronology.up") || "Nach oben"}</span>
+            <kbd class="px-1 py-0.5 mr-1 bg-zinc-700 rounded text-zinc-300">↑</kbd><span>${t("game.chronology.up") || "Move up"}</span>
           </span>
           <span class="inline-flex items-center px-2 py-1 bg-zinc-800 rounded">
-            <kbd class="px-1 py-0.5 mr-1 bg-zinc-700 rounded text-zinc-300">↓</kbd><span>${t("game.chronology.down") || "Nach unten"}</span>
+            <kbd class="px-1 py-0.5 mr-1 bg-zinc-700 rounded text-zinc-300">↓</kbd><span>${t("game.chronology.down") || "Move down"}</span>
           </span>
           <span class="inline-flex items-center px-2 py-1 bg-zinc-800 rounded">
             <kbd class="px-1 py-0.5 mr-1 bg-zinc-700 rounded text-zinc-300">1-${itemCount}</kbd><span>${t("game.chronology.position") || "Position"}</span>
@@ -1994,15 +2224,15 @@ console.warn(
         `${t("game.chronology.element") || "Element"} ${artistText} - ${albumText}. ${t("game.chronology.keyboard.instruction") || "Nutze Pfeiltasten zum Umordnen."}`
       );
 
-      // Tastatur-Events
+      // Keyboard events
       item.addEventListener("keydown", (e) => keyDownHandler(e, item as HTMLElement));
 
-      // Klick-Event für Touch-Geräte und Maus mit verbessertem Status-Management
+      // Click event for touch devices and mouse with improved state management
       item.addEventListener("click", () => {
         this.updateSelectionState(item as HTMLElement);
       });
 
-      // Visuelles Feedback für Tastatur-Fokus
+      // Visual feedback for keyboard focus
       item.addEventListener("focus", () => {
         // Setze ARIA-Attribute für bessere Screenreader-Unterstützung
         item.setAttribute("aria-grabbed", "true");
@@ -2012,7 +2242,7 @@ console.warn(
       item.addEventListener("blur", () => {
         item.setAttribute("aria-grabbed", "false");
 
-        // Nur Styling entfernen, wenn es nicht das ausgewählte Element ist
+        // Only remove styling if it's not the currently selected element
         if (this.selectionState.currentItem !== item) {
           (item as HTMLElement).classList.remove(
             "ring-2",
@@ -2025,40 +2255,40 @@ console.warn(
     }
 
     /**
-     * Hilfsmethode zur Fokusankündigung für Bildschirmleser
-     * Verbessert die Zugänglichkeit für komplexe UI-Updates
+     * Helper method for focus announcement for screen readers
+     * Improves accessibility for complex UI updates
      *
-     * @param {HTMLElement} element - Das Element, das fokussiert wird
-     * @param {string} context - Zusätzlicher Kontext für die Ankündigung
+     * @param {HTMLElement} element - The element to be focused
+     * @param {string} context - Additional context for the announcement
      */
     private announceFocus(element: HTMLElement, context: string = ""): void {
-      // Prüfen, ob das Element existiert
+      // Check if element exists
       if (!element || !document.body.contains(element)) {
         this.announceToScreenReader(
-          t("accessibility.focus.not.available") || "Element ist nicht verfügbar",
+          t("accessibility.focus.not.available") || "Element is not available",
           "assertive"
         );
         return;
       }
 
       try {
-        // Elementinformationen extrahieren
+        // Extract element information
         const artistName = element.querySelector(".font-bold")?.textContent || "";
         const albumTitle = element.querySelector(".text-zinc-300")?.textContent || "";
         const position = element.querySelector(".chronology-position")?.textContent || "";
         const itemDescription = `${artistName} - ${albumTitle}`;
 
-        // Kontextspezifische Ankündigung erstellen
+        // Create context-specific announcement
         let announcement = `${itemDescription}, ${t("game.chronology.position") || "Position"} ${position}`;
 
         if (context) {
           announcement += `, ${context}`;
         }
 
-        // Ankündigung für Bildschirmleser
+        // Announcement for screen readers
         this.announceToScreenReader(announcement, "assertive");
 
-        // Sicherstellen, dass das Element sichtbar ist
+        // Ensure element is visible
         element.scrollIntoView({
           behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
             ? "auto"
@@ -2066,8 +2296,58 @@ console.warn(
           block: "nearest",
         });
       } catch (error) {
-        console.error("Fehler bei der Fokusankündigung:", error);
+        console.error("Error with focus announcement:", error);
       }
+    }
+
+    /**
+     * Creates an SVG clock icon for the time extension buttons
+     * @returns {SVGElement} The SVG element representing a clock
+     */
+    /**
+     * Creates an SVG clock icon for the time extension buttons
+     * Enhanced to match the project's icon style
+     * @returns {SVGElement} The SVG element representing a clock
+     */
+    private createClockIcon(): SVGElement {
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("width", "20");
+      svg.setAttribute("height", "20");
+      svg.setAttribute("viewBox", "0 0 24 24");
+      svg.setAttribute("fill", "none");
+      svg.setAttribute("stroke", "currentColor");
+      svg.setAttribute("stroke-width", "2");
+      svg.setAttribute("stroke-linecap", "round");
+      svg.setAttribute("stroke-linejoin", "round");
+      svg.setAttribute("aria-hidden", "true");
+      svg.style.display = "inline-block";
+      svg.style.verticalAlign = "middle";
+
+      // Circle for clock face
+      const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      circle.setAttribute("cx", "12");
+      circle.setAttribute("cy", "12");
+      circle.setAttribute("r", "10");
+
+      // Hour hand
+      const hourHand = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      hourHand.setAttribute("x1", "12");
+      hourHand.setAttribute("y1", "12");
+      hourHand.setAttribute("x2", "12");
+      hourHand.setAttribute("y2", "8");
+
+      // Minute hand
+      const minuteHand = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      minuteHand.setAttribute("x1", "12");
+      minuteHand.setAttribute("y1", "12");
+      minuteHand.setAttribute("x2", "16");
+      minuteHand.setAttribute("y2", "12");
+
+      svg.appendChild(circle);
+      svg.appendChild(hourHand);
+      svg.appendChild(minuteHand);
+
+      return svg;
     }
   }
 
@@ -2464,6 +2744,43 @@ console.warn(
 
     button[disabled] {
       opacity: 0.6;
+    }
+  }
+
+  /* Time extension container */
+  .time-extension {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  /* Alte time-extension Stile werden durch chronology-button ersetzt */
+  .time-extension__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    letter-spacing: 0.025em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chronology-button,
+    .chronology-submit-button {
+      animation: none;
+      transition: none;
+    }
+    .chronology-button:hover:not([disabled]),
+    .chronology-submit-button:hover:not([disabled]) {
+      transform: none;
+      box-shadow: 0 0 10px var(--color-purple-300);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .time-extension .chronology-button {
+      width: 100%;
+      padding: 0.625rem 1rem;
     }
   }
 </style>
