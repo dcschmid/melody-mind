@@ -27,6 +27,13 @@
   /* Text-Spacing für bessere Lesbarkeit */
   --letter-spacing: 0.03em;
   --word-spacing: 0.05em;
+
+  /* WCAG AAA Touch-Zielgrößen */
+  --touch-target-min-size: 44px; /* Mindestgröße für Touch-Ziele nach WCAG AAA */
+
+  /* Layout-Struktur-Variablen */
+  --layout-max-width: 72rem; /* Maximale Breite für Content-Container (6xl) */
+  --z-index-overlay: 40; /* Z-Index für Overlay-Elemente */
 }
 
 /* Basis-Schriftgröße und Zeilenabstand erhöhen */

@@ -145,11 +145,6 @@ const modifiedDate = new Date();
   {publishDate}
   {modifiedDate}
 >
-  <!-- Skip-Link für Tastaturnavigation - ermöglicht direkten Zugriff auf den Hauptinhalt -->
-  <a href="#main-content" class="skip-link">
-    {t("accessibility.skip_to_content") || "Skip to main content"}
-  </a>
-
   <div class="page-container">
     <!-- Live-Region für dynamische Benachrichtigungen und Status-Updates -->
     <div class="sr-only" aria-live="polite" id="dynamic-announcements"></div>
@@ -365,7 +360,7 @@ const modifiedDate = new Date();
           focusFirstElement,
           announceForScreenReader,
           setupKeyboardNavigation,
-        } from "@utils/client/a11y";
+        } from "../../utils/client/a11y";
         import {
           isUserAuthenticated,
           updateSectionVisibility,
@@ -373,15 +368,8 @@ const modifiedDate = new Date();
           removeLocalStorage,
           registerAuthEventListeners,
           initCookieWatcher,
-        } from "@utils/client/authStatus";
+        } from "../../utils/client/authStatus";
 
-        /**
-         * Funktion, die Screen-Reader-Meldungen in die Live-Region einfügt
-         * @param {string} message - Die anzukündigende Nachricht
-         */
-        function announceToScreenReader(message: string): void {
-          announceForScreenReader(message);
-        }
         function checkAuthStatus(): void {
           // Authentifizierungsstatus prüfen
           const isLoggedIn = isUserAuthenticated();
@@ -430,7 +418,10 @@ const modifiedDate = new Date();
 
             // Nach einem kurzen Delay das erste Eingabefeld im Auth-Formular fokussieren
             setTimeout(() => {
-              focusFirstElement(authSection);
+              // Sicherstellen, dass authSection nicht null ist, bevor focusFirstElement aufgerufen wird
+              if (authSection) {
+                focusFirstElement(authSection);
+              }
 
               // Ankündigung für Screenreader
               const translationKey = "accessibility.login_required";
