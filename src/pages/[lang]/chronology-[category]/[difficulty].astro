@@ -131,10 +131,7 @@ console.warn(
   showCoins={false}
 >
   <!-- Skip link for better keyboard navigation -->
-  <a
-    href="#chronology-container"
-    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-purple-800 focus:px-4 focus:py-2 focus:text-white"
-  >
+  <a href="#chronology-container" class="skip-link">
     {t("accessibility.skip.to.game") || "Skip to game"}
   </a>
 
@@ -152,26 +149,24 @@ console.warn(
 
     <!-- Game info badges -->
     <div
-      class="mt-4 flex flex-wrap items-center justify-center gap-3"
+      class="game-info-badges"
       aria-live="polite"
       aria-label={t("game.info.badges") || "Game information"}
     >
-      <div
-        class="inline-flex items-center rounded-xl border border-zinc-700 bg-gradient-to-r from-zinc-800 to-zinc-900 px-3 py-1 shadow-sm"
-        aria-label={t("game.difficulty.label") || "Difficulty level"}
-      >
-        <Icon name="difficulty" class="mr-2 h-4 w-4 text-yellow-400" aria-hidden="true" />
-        <span class="text-base font-medium text-zinc-100">
+      <div class="game-badge" aria-label={t("game.difficulty.label") || "Difficulty level"}>
+        <Icon
+          name="difficulty"
+          class="game-badge__icon game-badge__icon--difficulty"
+          aria-hidden="true"
+        />
+        <span class="game-badge__text">
           {t(`difficulty.${difficulty}`)}
         </span>
       </div>
 
-      <div
-        class="inline-flex items-center rounded-xl border border-zinc-700 bg-gradient-to-r from-zinc-800 to-zinc-900 px-3 py-1 shadow-sm"
-        aria-label={t("game.coins.label") || "Collected coins"}
-      >
-        <Icon name="coins" class="mr-2 h-4 w-4 text-amber-400" aria-hidden="true" />
-        <span class="text-base font-medium text-zinc-100">
+      <div class="game-badge" aria-label={t("game.coins.label") || "Collected coins"}>
+        <Icon name="coins" class="game-badge__icon game-badge__icon--coins" aria-hidden="true" />
+        <span class="game-badge__text">
           <span id="coins-display" class="coinsCount">0</span>
         </span>
       </div>
@@ -184,7 +179,7 @@ console.warn(
 
   <main
     id="chronology-container"
-    class="mx-auto w-full max-w-3xl rounded-xl border border-zinc-700 bg-gradient-to-b from-zinc-800 to-zinc-900 p-6 text-center opacity-100 shadow-xl transition-all duration-500 data-[hidden=true]:opacity-0 md:p-8"
+    class="chronology-container"
     role="region"
     aria-labelledby="chronology-title"
     aria-label={t("game.chronology.area.label") || "Chronology game area"}
@@ -195,13 +190,10 @@ console.warn(
   >
     {
       playerTitle && (
-        <div class="mb-4 text-center">
-          <span
-            class="inline-flex items-center rounded-xl border border-zinc-700 bg-gradient-to-r from-zinc-800 to-zinc-900 px-3 py-1 text-sm shadow-sm"
-            aria-label={t("game.player.title") || "Player title"}
-          >
-            <Icon name="user" class="mr-2 h-4 w-4 text-purple-400" aria-hidden="true" />
-            <span class="font-medium text-zinc-100">{playerTitle}</span>
+        <div class="player-title-container">
+          <span class="player-title-badge" aria-label={t("game.player.title") || "Player title"}>
+            <Icon name="user" class="player-title-badge__icon" aria-hidden="true" />
+            <span class="player-title-badge__text">{playerTitle}</span>
           </span>
         </div>
       )
@@ -223,27 +215,23 @@ console.warn(
     </Paragraph>
 
     <div
-      class="chronology-items mb-8 min-h-[300px] space-y-3"
+      class="chronology-items-container"
       id="chronology-items-container"
       aria-live="polite"
       role="region"
       aria-labelledby="chronology-title"
     >
       <!-- Items added via JavaScript -->
-      <div
-        class="chronology-placeholder text-center"
-        style="color: var(--color-text-primary);"
-        role="status"
-      >
-        <Icon name="loader" class="mx-auto h-8 w-8 animate-spin" aria-hidden="true" />
-        <p class="mt-2" id="loading-status">{t("loading.content")}</p>
+      <div class="chronology-placeholder" role="status">
+        <Icon name="loader" class="chronology-placeholder__icon" aria-hidden="true" />
+        <p class="chronology-placeholder__text" id="loading-status">{t("loading.content")}</p>
       </div>
     </div>
 
     <!-- Navigation buttons for touchscreen users -->
     <nav
       id="chronology-navigation"
-      class="mb-6 flex justify-center gap-4"
+      class="chronology-navigation"
       aria-label={t("game.chronology.touch.navigation") || "Touchscreen navigation"}
     >
       <div class="sr-only" id="nav-description">
@@ -254,32 +242,35 @@ console.warn(
       </div>
       <button
         id="chronology-move-up"
-        class="flex min-h-[48px] min-w-[48px] items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 font-medium text-white transition-all hover:scale-105 focus:ring-3 focus:ring-purple-400 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+        class="chronology-button chronology-button--up"
         aria-label={t("game.chronology.move.up") || "Move up"}
         aria-describedby="nav-description"
         disabled
+        type="button"
       >
-        <Icon name="chevron-up" class="mr-2 h-5 w-5" aria-hidden="true" />
+        <Icon name="chevron-up" class="chronology-button__icon" aria-hidden="true" />
         <span>{t("game.chronology.up") || "Move up"}</span>
       </button>
       <button
         id="chronology-move-down"
-        class="flex min-h-[48px] min-w-[48px] items-center justify-center rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 font-medium text-white transition-all hover:scale-105 focus:ring-3 focus:ring-purple-400 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+        class="chronology-button chronology-button--down"
         aria-label={t("game.chronology.move.down") || "Move down"}
         aria-describedby="nav-description"
         disabled
+        type="button"
       >
-        <Icon name="chevron-down" class="mr-2 h-5 w-5" aria-hidden="true" />
+        <Icon name="chevron-down" class="chronology-button__icon" aria-hidden="true" />
         <span>{t("game.chronology.down") || "Move down"}</span>
       </button>
     </nav>
 
-    <div class="flex justify-center">
+    <div class="chronology-submit-container">
       <button
         id="chronology-submit"
-        class="rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-3 font-bold text-white transition-all hover:scale-105 focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
-        disabled
+        class="chronology-submit-button"
+        type="button"
         aria-label={t("game.submit.answer") || "Check answer"}
+        disabled
       >
         {t("game.submit.answer") || "Check answer"}
       </button>
@@ -2116,40 +2107,291 @@ console.warn(
   });
 </script>
 
-<style is:global>
-  /* Chronology Item Styling */
+<style>
+  /**
+   * Chronology Game Component Styling
+   * BEM-based CSS classes for better organization and maintainability
+   */
+
+  /* Skip-Link for keyboard navigation */
+  .skip-link {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .skip-link:focus {
+    position: absolute;
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    z-index: 50;
+    width: auto;
+    height: auto;
+    padding: var(--spacing-sm) var(--spacing-md);
+    clip: auto;
+    background-color: var(--color-purple-800);
+    color: var(--color-white);
+    border-radius: var(--border-radius-md);
+  }
+
+  /* Game info badges */
+  .game-info-badges {
+    margin-top: var(--spacing-md);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+  }
+
+  .game-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-gray-700);
+    background: linear-gradient(to right, var(--color-gray-800), var(--color-gray-900));
+    padding: var(--spacing-xs) var(--spacing-sm);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .game-badge__icon {
+    margin-right: var(--spacing-sm);
+    height: 1rem;
+    width: 1rem;
+  }
+
+  .game-badge__icon--difficulty {
+    color: #fbbf24; /* gelb-400 */
+  }
+
+  .game-badge__icon--coins {
+    color: #f59e0b; /* amber-400 */
+  }
+
+  .game-badge__text {
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    color: var(--color-text-primary);
+  }
+
+  /* Main container for chronology game */
+  .chronology-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 48rem; /* 3xl */
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-gray-700);
+    background: linear-gradient(to bottom, var(--color-gray-800), var(--color-gray-900));
+    padding: var(--spacing-lg);
+    text-align: center;
+    opacity: 1;
+    box-shadow: var(--shadow-lg);
+    transition: opacity 0.5s;
+  }
+
+  .chronology-container[data-hidden="true"] {
+    opacity: 0;
+  }
+
+  @media (min-width: var(--breakpoint-md)) {
+    .chronology-container {
+      padding: var(--spacing-xl);
+    }
+  }
+
+  /* Player title badge */
+  .player-title-container {
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+  }
+
+  .player-title-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-gray-700);
+    background: linear-gradient(to right, var(--color-gray-800), var(--color-gray-900));
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .player-title-badge__icon {
+    margin-right: var(--spacing-sm);
+    height: 1rem;
+    width: 1rem;
+    color: var(--color-purple-400);
+  }
+
+  .player-title-badge__text {
+    font-weight: 500;
+    color: var(--color-text-primary);
+  }
+
+  /* Container for chronological elements */
+  .chronology-items-container {
+    margin-bottom: var(--spacing-xl);
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  /* Loading placeholder */
+  .chronology-placeholder {
+    text-align: center;
+    color: var(--color-text-primary);
+  }
+
+  .chronology-placeholder__icon {
+    margin-left: auto;
+    margin-right: auto;
+    height: 2rem;
+    width: 2rem;
+    animation: spin 1s linear infinite;
+  }
+
+  .chronology-placeholder__text {
+    margin-top: var(--spacing-sm);
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Navigation for touch users */
+  .chronology-navigation {
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+  }
+
+  /* Navigation buttons */
+  .chronology-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--touch-target-min-size, 48px);
+    min-width: var(--touch-target-min-size, 48px);
+    border-radius: 9999px;
+    background: linear-gradient(to right, var(--color-purple-600), var(--color-purple-700));
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-weight: 500;
+    color: var(--color-white);
+    transition: transform 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .chronology-button:hover:not([disabled]) {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px var(--color-purple-300);
+  }
+
+  .chronology-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-purple-400);
+    outline-offset: 2px;
+  }
+
+  .chronology-button:focus-visible {
+    outline: 3px solid var(--color-purple-300);
+    outline-offset: 2px;
+  }
+
+  .chronology-button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .chronology-button__icon {
+    margin-right: var(--spacing-sm);
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+
+  /* Container for submit button */
+  .chronology-submit-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Submit Button */
+  .chronology-submit-button {
+    border-radius: 9999px;
+    background: linear-gradient(to right, var(--color-purple-600), var(--color-purple-700));
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-weight: 700;
+    color: var(--color-white);
+    transition: all 0.2s;
+    min-width: 200px;
+    border: none;
+    cursor: pointer;
+    min-height: var(--touch-target-min-size, 48px);
+  }
+
+  .chronology-submit-button:hover:not([disabled]) {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px var(--color-purple-300);
+  }
+
+  .chronology-submit-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-purple-400);
+    outline-offset: 2px;
+  }
+
+  .chronology-submit-button:focus-visible {
+    outline: 3px solid var(--color-purple-300);
+    outline-offset: 2px;
+  }
+
+  .chronology-submit-button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  /* Chronology elements */
   .chronology-item {
     position: relative;
     transition:
       background-color 0.2s,
       border-color 0.2s;
+    line-height: var(--line-height-base, 1.8);
+    hyphens: auto;
+    break-inside: avoid;
   }
 
-  /* Verbesserte Farbkontraste für bessere Zugänglichkeit (WCAG AAA 7:1 Kontrastverhältnis) */
-  .text-zinc-300 {
-    color: var(--color-text-primary);
+  .chronology-item:focus {
+    outline: 3px solid var(--color-purple-500);
+    outline-offset: 2px;
   }
 
-  .text-zinc-400 {
-    color: var(--color-text-secondary);
+  .chronology-item.selected {
+    background-color: rgba(139, 92, 246, 0.2);
+    border-color: var(--color-purple-500);
   }
 
-  .text-zinc-500 {
-    color: var(--color-text-tertiary);
-  }
-
-  /* Verbesserte Lesbarkeit und Zeilenabstand (WCAG AAA) */
-  .chronology-item {
-    @apply break-normal hyphens-auto;
-    line-height: 1.8; /* Mindestens 1.8 für WCAG AAA */
-  }
-
-  /* Text skalierbar bis 400% ohne horizontales Scrollen */
   .chronology-item-content {
-    @apply max-w-full break-words;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
-  /* Unterstützung für Text-Skalierung bei verschiedenen Viewports */
+  /* Responsive design for text */
   @media (max-width: 640px) {
     .chronology-item-content p,
     .chronology-description,
@@ -2163,84 +2405,10 @@ console.warn(
     }
   }
 
-  .chronology-item:focus {
-    outline: 3px solid #a855f7; /* 3px für bessere Sichtbarkeit */
-    outline-offset: 2px;
-  }
-
-  .chronology-item.selected {
-    background-color: rgba(139, 92, 246, 0.2);
-    border-color: #a855f7;
-  }
-
-  /* Reduzierte Bewegung bevorzugt */
-  @media (prefers-reduced-motion: reduce) {
-    .chronology-item {
-      transition: none !important;
-    }
-  }
-
-  /* Siehe auch die anderen Stile aus der Hauptspieldatei, die wiederverwendet werden können */
-  .overlay.hidden {
-    @apply hidden;
-  }
-
-  .popup.hidden {
-    @apply hidden;
-  }
-
-  /* Für ältere Browser, die data-hidden noch nicht unterstützen */
-  #chronology-container.hidden {
-    @apply hidden;
-  }
-
-  /* Disabled button styling */
-  button[disabled] {
-    @apply cursor-not-allowed opacity-50;
-  }
-
-  /* High Contrast Mode Support */
-  @media (forced-colors: active) {
-    #chronology-container {
-      border: 2px solid CanvasText;
-    }
-
-    .chronology-item {
-      border: 1px solid ButtonText;
-      forced-color-adjust: none;
-    }
-
-    .chronology-item:focus-visible {
-      outline: 3px solid Highlight;
-    }
-
-    button[disabled] {
-      opacity: 0.6;
-    }
-  }
-
-  /* Respect reduced motion preferences */
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    ::before,
-    ::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-  }
-
-  /* Focus styles for better keyboard navigation */
-  :focus-visible {
-    outline: 3px solid #a855f7 !important;
-    outline-offset: 3px !important;
-  }
-
-  /* Animation für Coins-Aktualisierung */
+  /* Animations for coin updates */
   .coins-updated {
     animation: coinPulse 1s ease-in-out;
-    color: #fbbf24; /* Helleres Amber für bessere Sichtbarkeit */
+    color: #fbbf24;
   }
 
   @keyframes coinPulse {
@@ -2253,6 +2421,49 @@ console.warn(
     }
     100% {
       transform: scale(1);
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .chronology-item {
+      transition: none !important;
+    }
+
+    .chronology-button:hover:not([disabled]),
+    .chronology-submit-button:hover:not([disabled]) {
+      transform: none;
+    }
+
+    .coins-updated {
+      animation: none;
+    }
+  }
+
+  /* High Contrast Mode Support */
+  @media (forced-colors: active) {
+    .chronology-container {
+      border: 2px solid CanvasText;
+    }
+
+    .chronology-item {
+      border: 1px solid ButtonText;
+      forced-color-adjust: none;
+    }
+
+    .chronology-item:focus-visible,
+    .chronology-button:focus-visible,
+    .chronology-submit-button:focus-visible {
+      outline: 3px solid Highlight !important;
+    }
+
+    .game-badge,
+    .player-title-badge {
+      border: 1px solid ButtonText;
+    }
+
+    button[disabled] {
+      opacity: 0.6;
     }
   }
 </style>
