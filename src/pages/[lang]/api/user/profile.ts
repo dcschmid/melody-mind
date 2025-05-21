@@ -197,7 +197,7 @@ function isProfileError(error: unknown): error is ProfileError {
  * @returns {Promise<Record<string, unknown>>} User information row
  * @throws {ProfileError} If user not found
  */
-async function fetchUserInfo(userId: UserId, t: Function): Promise<Record<string, unknown>> {
+async function fetchUserInfo(userId: UserId, t: (key: string) => string): Promise<Record<string, unknown>> {
   const userResult = await turso.execute({
     sql: `
       SELECT username, email, created_at
