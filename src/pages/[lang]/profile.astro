@@ -117,21 +117,15 @@ const difficultyNames = {
 ---
 
 <Layout title={t("profile.title")} description={t("profile.description")} type="website">
-  <div class="mx-auto max-w-4xl">
-    <h1 class="mb-8 text-center text-3xl font-bold text-white">
-      {t("profile.title")}
-    </h1>
+  <div class="profile">
+    <h1 class="profile__title">{t("profile.title")}</h1>
 
     {
       isLoading && (
-        <div class="flex min-h-[300px] items-center justify-center" aria-live="polite">
-          <div class="text-center">
-            <Icon
-              name="loader"
-              class="mx-auto h-10 w-10 animate-spin text-purple-400"
-              aria-hidden="true"
-            />
-            <p class="mt-4 text-lg text-zinc-300">{t("profile.loading")}</p>
+        <div class="profile__loading" aria-live="polite">
+          <div class="profile__loading-content">
+            <Icon name="loader" class="profile__loading-icon" aria-hidden="true" />
+            <p class="profile__loading-text">{t("profile.loading")}</p>
           </div>
         </div>
       )
@@ -139,47 +133,41 @@ const difficultyNames = {
 
     {
       error && (
-        <div
-          class="mb-8 rounded-lg border border-red-700 bg-red-900/30 p-4 text-white"
-          role="alert"
-        >
-          <p class="font-medium">{error}</p>
-          <p class="mt-2">{t("profile.auth.required")}</p>
+        <div class="profile__error" role="alert">
+          <p class="profile__error-message">{error}</p>
+          <p class="profile__error-help">{t("profile.auth.required")}</p>
         </div>
       )
     }
 
     {
       profileData && (
-        <div class="space-y-10">
-          <section
-            class="rounded-xl border border-zinc-700 bg-gradient-to-b from-zinc-800 to-zinc-900 p-6 shadow-lg"
-            aria-labelledby="user-info-heading"
-          >
-            <h2 id="user-info-heading" class="mb-4 text-2xl font-bold text-white">
+        <div class="profile__content">
+          <section class="profile-card" aria-labelledby="user-info-heading">
+            <h2 id="user-info-heading" class="profile-card__title">
               {t("profile.user.info")}
             </h2>
 
-            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <div class="space-y-2">
-                <div class="flex items-center">
-                  <Icon name="user" class="mr-2 h-5 w-5 text-purple-400" aria-hidden="true" />
-                  <span class="mr-2 text-zinc-400">{t("auth.register.username")}:</span>
-                  <span class="font-medium text-white">{profileData.user.username}</span>
+            <div class="profile-card__user-info">
+              <div class="profile-card__user-details">
+                <div class="profile-card__user-detail">
+                  <Icon name="user" class="profile-card__detail-icon" aria-hidden="true" />
+                  <span class="profile-card__detail-label">{t("auth.register.username")}:</span>
+                  <span class="profile-card__detail-value">{profileData.user.username}</span>
                 </div>
 
-                <div class="flex items-center">
-                  <Icon name="mail" class="mr-2 h-5 w-5 text-purple-400" aria-hidden="true" />
-                  <span class="mr-2 text-zinc-400">{t("auth.login.email")}:</span>
-                  <span class="font-medium text-white">{profileData.user.email}</span>
+                <div class="profile-card__user-detail">
+                  <Icon name="mail" class="profile-card__detail-icon" aria-hidden="true" />
+                  <span class="profile-card__detail-label">{t("auth.login.email")}:</span>
+                  <span class="profile-card__detail-value">{profileData.user.email}</span>
                 </div>
               </div>
 
-              <div>
-                <div class="flex items-center">
-                  <Icon name="calendar" class="mr-2 h-5 w-5 text-purple-400" aria-hidden="true" />
-                  <span class="mr-2 text-zinc-400">{t("profile.user.since")}:</span>
-                  <span class="font-medium text-white">
+              <div class="profile-card__user-meta">
+                <div class="profile-card__user-detail">
+                  <Icon name="calendar" class="profile-card__detail-icon" aria-hidden="true" />
+                  <span class="profile-card__detail-label">{t("profile.user.since")}:</span>
+                  <span class="profile-card__detail-value">
                     {formatUserDate(profileData.user.createdAt)}
                   </span>
                 </div>
@@ -187,69 +175,64 @@ const difficultyNames = {
             </div>
           </section>
 
-          <section
-            class="rounded-xl border border-zinc-700 bg-gradient-to-b from-zinc-800 to-zinc-900 p-6 shadow-lg"
-            aria-labelledby="stats-heading"
-          >
-            <h2 id="stats-heading" class="mb-6 text-2xl font-bold text-white">
+          <section class="profile-card" aria-labelledby="stats-heading">
+            <h2 id="stats-heading" class="profile-card__title">
               {t("profile.stats.title")}
             </h2>
 
-            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <div class="rounded-lg border border-zinc-700 bg-zinc-900/50 p-5">
-                <h3 class="mb-4 flex items-center text-xl font-bold text-white">
-                  <Icon name="quiz" class="mr-2 h-6 w-6 text-yellow-400" aria-hidden="true" />
+            <div class="stats-grid">
+              <div class="stats-box stats-box--quiz">
+                <h3 class="stats-box__title">
+                  <Icon
+                    name="quiz"
+                    class="stats-box__icon stats-box__icon--quiz"
+                    aria-hidden="true"
+                  />
                   {t("profile.stats.quiz")}
                 </h3>
 
-                <div class="space-y-3">
-                  <div class="flex items-center justify-between">
-                    <span class="text-zinc-300">{t("profile.stats.total.score")}</span>
-                    <span class="text-lg font-bold text-white">
-                      {profileData.stats.quiz.totalScore}
-                    </span>
+                <div class="stats-box__items">
+                  <div class="stats-box__item">
+                    <span class="stats-box__label">{t("profile.stats.total.score")}</span>
+                    <span class="stats-box__value">{profileData.stats.quiz.totalScore}</span>
                   </div>
 
-                  <div class="flex items-center justify-between">
-                    <span class="text-zinc-300">{t("profile.stats.games.played")}</span>
-                    <span class="text-lg font-bold text-white">
-                      {profileData.stats.quiz.gamesPlayed}
-                    </span>
+                  <div class="stats-box__item">
+                    <span class="stats-box__label">{t("profile.stats.games.played")}</span>
+                    <span class="stats-box__value">{profileData.stats.quiz.gamesPlayed}</span>
                   </div>
 
-                  <div class="flex items-center justify-between">
-                    <span class="text-zinc-300">{t("profile.stats.highest.score")}</span>
-                    <span class="text-lg font-bold text-white">
-                      {profileData.stats.quiz.highestScore}
-                    </span>
+                  <div class="stats-box__item">
+                    <span class="stats-box__label">{t("profile.stats.highest.score")}</span>
+                    <span class="stats-box__value">{profileData.stats.quiz.highestScore}</span>
                   </div>
                 </div>
               </div>
 
-              <div class="rounded-lg border border-zinc-700 bg-zinc-900/50 p-5">
-                <h3 class="mb-4 flex items-center text-xl font-bold text-white">
-                  <Icon name="chronology" class="mr-2 h-6 w-6 text-blue-400" aria-hidden="true" />
+              <div class="stats-box stats-box--chronology">
+                <h3 class="stats-box__title">
+                  <Icon
+                    name="chronology"
+                    class="stats-box__icon stats-box__icon--chronology"
+                    aria-hidden="true"
+                  />
                   {t("profile.stats.chronology")}
                 </h3>
 
-                <div class="space-y-3">
-                  <div class="flex items-center justify-between">
-                    <span class="text-zinc-300">{t("profile.stats.total.score")}</span>
-                    <span class="text-lg font-bold text-white">
-                      {profileData.stats.chronology.totalScore}
-                    </span>
+                <div class="stats-box__items">
+                  <div class="stats-box__item">
+                    <span class="stats-box__label">{t("profile.stats.total.score")}</span>
+                    <span class="stats-box__value">{profileData.stats.chronology.totalScore}</span>
                   </div>
 
-                  <div class="flex items-center justify-between">
-                    <span class="text-zinc-300">{t("profile.stats.games.played")}</span>
-                    <span class="text-lg font-bold text-white">
-                      {profileData.stats.chronology.gamesPlayed}
-                    </span>
+                  <div class="stats-box__item">
+                    <span class="stats-box__label">{t("profile.stats.games.played")}</span>
+                    <span class="stats-box__value">{profileData.stats.chronology.gamesPlayed}</span>
                   </div>
 
-                  <div class="flex items-center justify-between">
-                    <span class="text-zinc-300">{t("profile.stats.highest.score")}</span>
-                    <span class="text-lg font-bold text-white">
+                  <div class="stats-box__item">
+                    <span class="stats-box__label">{t("profile.stats.highest.score")}</span>
+                    <span class="stats-box__value">
                       {profileData.stats.chronology.highestScore}
                     </span>
                   </div>
@@ -258,34 +241,31 @@ const difficultyNames = {
             </div>
           </section>
 
-          <section
-            class="rounded-xl border border-zinc-700 bg-gradient-to-b from-zinc-800 to-zinc-900 p-6 shadow-lg"
-            aria-labelledby="recent-games-heading"
-          >
-            <h2 id="recent-games-heading" class="mb-6 text-2xl font-bold text-white">
+          <section class="profile-card" aria-labelledby="recent-games-heading">
+            <h2 id="recent-games-heading" class="profile-card__title">
               {t("profile.recent.games")}
             </h2>
 
             {profileData.recentGames.length === 0 ? (
-              <p class="py-8 text-center text-zinc-400">{t("profile.recent.games.empty")}</p>
+              <p class="profile-card__empty">{t("profile.recent.games.empty")}</p>
             ) : (
-              <div class="overflow-x-auto">
-                <table class="w-full border-collapse" aria-describedby="recent-games-heading">
+              <div class="games-table-container">
+                <table class="games-table" aria-describedby="recent-games-heading">
                   <thead>
-                    <tr class="border-b border-zinc-700">
-                      <th scope="col" class="px-4 py-3 text-left font-medium text-zinc-300">
+                    <tr>
+                      <th scope="col" class="games-table__header">
                         {t("profile.recent.game.mode")}
                       </th>
-                      <th scope="col" class="px-4 py-3 text-left font-medium text-zinc-300">
+                      <th scope="col" class="games-table__header">
                         {t("profile.recent.game.category")}
                       </th>
-                      <th scope="col" class="px-4 py-3 text-left font-medium text-zinc-300">
+                      <th scope="col" class="games-table__header">
                         {t("profile.recent.game.difficulty")}
                       </th>
-                      <th scope="col" class="px-4 py-3 text-right font-medium text-zinc-300">
+                      <th scope="col" class="games-table__header games-table__header--right">
                         {t("profile.recent.game.score")}
                       </th>
-                      <th scope="col" class="px-4 py-3 text-right font-medium text-zinc-300">
+                      <th scope="col" class="games-table__header games-table__header--right">
                         {t("profile.recent.game.date")}
                       </th>
                     </tr>
@@ -299,32 +279,24 @@ const difficultyNames = {
                         difficulty: "easy" | "medium" | "hard";
                         createdAt: string;
                       }) => (
-                        <tr class="border-b border-zinc-800 transition-colors hover:bg-zinc-800/50">
-                          <td class="px-4 py-3">
-                            <span
-                              class={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${game.gameMode === "quiz" ? "bg-yellow-900/30 text-yellow-300" : "bg-blue-900/30 text-blue-300"}`}
-                            >
+                        <tr class="games-table__row">
+                          <td class="games-table__cell">
+                            <span class={`game-mode-badge game-mode-badge--${game.gameMode}`}>
                               {gameModeNames[game.gameMode as keyof typeof gameModeNames] ||
                                 game.gameMode}
                             </span>
                           </td>
-                          <td class="px-4 py-3 text-white">{game.category}</td>
-                          <td class="px-4 py-3">
-                            <span
-                              class={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
-                                game.difficulty === "easy"
-                                  ? "bg-green-900/30 text-green-300"
-                                  : game.difficulty === "medium"
-                                    ? "bg-orange-900/30 text-orange-300"
-                                    : "bg-red-900/30 text-red-300"
-                              }`}
-                            >
+                          <td class="games-table__cell">{game.category}</td>
+                          <td class="games-table__cell">
+                            <span class={`difficulty-badge difficulty-badge--${game.difficulty}`}>
                               {difficultyNames[game.difficulty as keyof typeof difficultyNames] ||
                                 game.difficulty}
                             </span>
                           </td>
-                          <td class="px-4 py-3 text-right font-bold text-white">{game.score}</td>
-                          <td class="px-4 py-3 text-right text-zinc-300">
+                          <td class="games-table__cell games-table__cell--right games-table__cell--score">
+                            {game.score}
+                          </td>
+                          <td class="games-table__cell games-table__cell--right games-table__cell--date">
                             {formatUserDate(game.createdAt)}
                           </td>
                         </tr>
@@ -340,6 +312,303 @@ const difficultyNames = {
     }
   </div>
 </Layout>
+
+<style>
+  /* Profile Page Styles */
+  .profile {
+    max-width: 64rem; /* 1024px */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .profile__title {
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+    font-weight: 700;
+    color: var(--color-white);
+  }
+
+  /* Loading State */
+  .profile__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 18.75rem; /* 300px */
+  }
+
+  .profile__loading-content {
+    text-align: center;
+  }
+
+  .profile__loading-icon {
+    height: 2.5rem; /* 40px */
+    width: 2.5rem; /* 40px */
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-purple-400);
+    animation: spin 1s linear infinite;
+  }
+
+  .profile__loading-text {
+    margin-top: var(--spacing-md);
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-300);
+  }
+
+  /* Error Message */
+  .profile__error {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid #7f1d1d; /* red-700 */
+    background-color: rgba(127, 29, 29, 0.3); /* red-900/30 */
+    color: var(--color-white);
+  }
+
+  .profile__error-message {
+    font-weight: 500;
+  }
+
+  .profile__error-help {
+    margin-top: var(--spacing-sm);
+  }
+
+  /* Profile Content */
+  .profile__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+  }
+
+  /* Profile Cards */
+  .profile-card {
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-gray-700);
+    background: linear-gradient(to bottom, var(--color-gray-800), var(--color-gray-900));
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .profile-card__title {
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-white);
+  }
+
+  /* User Info Section */
+  .profile-card__user-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .profile-card__user-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .profile-card__user-detail {
+    display: flex;
+    align-items: center;
+  }
+
+  .profile-card__detail-icon {
+    margin-right: var(--spacing-sm);
+    height: 1.25rem; /* 20px */
+    width: 1.25rem; /* 20px */
+    color: var(--color-purple-400);
+  }
+
+  .profile-card__detail-label {
+    margin-right: var(--spacing-sm);
+    color: var(--color-gray-400);
+  }
+
+  .profile-card__detail-value {
+    font-weight: 500;
+    color: var(--color-white);
+  }
+
+  /* Stats Section */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .stats-box {
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-gray-700);
+    background-color: rgba(24, 24, 27, 0.5); /* zinc-900/50 */
+    padding: var(--spacing-lg);
+  }
+
+  .stats-box__title {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-white);
+  }
+
+  .stats-box__icon {
+    margin-right: var(--spacing-sm);
+    height: 1.5rem; /* 24px */
+    width: 1.5rem; /* 24px */
+  }
+
+  .stats-box__icon--quiz {
+    color: #facc15; /* yellow-400 */
+  }
+
+  .stats-box__icon--chronology {
+    color: #60a5fa; /* blue-400 */
+  }
+
+  .stats-box__items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .stats-box__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .stats-box__label {
+    color: var(--color-gray-300);
+  }
+
+  .stats-box__value {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-white);
+  }
+
+  /* Recent Games Table */
+  .profile-card__empty {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    color: var(--color-gray-400);
+  }
+
+  .games-table-container {
+    overflow-x: auto;
+  }
+
+  .games-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .games-table__header {
+    padding: var(--spacing-md) var(--spacing-md);
+    text-align: left;
+    font-weight: 500;
+    color: var(--color-gray-300);
+    border-bottom: 1px solid var(--color-gray-700);
+  }
+
+  .games-table__header--right {
+    text-align: right;
+  }
+
+  .games-table__row {
+    border-bottom: 1px solid var(--color-gray-800);
+    transition: background-color 0.2s;
+  }
+
+  .games-table__row:hover {
+    background-color: rgba(39, 39, 42, 0.5); /* zinc-800/50 */
+  }
+
+  .games-table__cell {
+    padding: var(--spacing-md) var(--spacing-md);
+    color: var(--color-white);
+  }
+
+  .games-table__cell--right {
+    text-align: right;
+  }
+
+  .games-table__cell--score {
+    font-weight: 700;
+  }
+
+  .games-table__cell--date {
+    color: var(--color-gray-300);
+  }
+
+  /* Badges for Game Mode and Difficulty */
+  .game-mode-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.125rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .game-mode-badge--quiz {
+    background-color: rgba(113, 63, 18, 0.3); /* yellow-900/30 */
+    color: #fde047; /* yellow-300 */
+  }
+
+  .game-mode-badge--chronology {
+    background-color: rgba(30, 58, 138, 0.3); /* blue-900/30 */
+    color: #93c5fd; /* blue-300 */
+  }
+
+  .difficulty-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.125rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .difficulty-badge--easy {
+    background-color: rgba(20, 83, 45, 0.3); /* green-900/30 */
+    color: #86efac; /* green-300 */
+  }
+
+  .difficulty-badge--medium {
+    background-color: rgba(154, 52, 18, 0.3); /* orange-900/30 */
+    color: #fdba74; /* orange-300 */
+  }
+
+  .difficulty-badge--hard {
+    background-color: rgba(127, 29, 29, 0.3); /* red-900/30 */
+    color: #fca5a5; /* red-300 */
+  }
+
+  /* Keyframes */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Media Queries for Responsive Design */
+  @media (min-width: 768px) {
+    .profile-card__user-info {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
 
 <script>
   // Helper function for formatting dates
