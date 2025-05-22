@@ -131,11 +131,6 @@ console.warn(
   showHeader={false}
   showCoins={false}
 >
-  <!-- Skip link for better keyboard navigation -->
-  <a href="#chronology-container" class="skip-link">
-    {t("accessibility.skip.to.game")}
-  </a>
-
   <ChronologyFeedbackOverlay />
 
   <EndOverlay
@@ -2392,33 +2387,6 @@ console.warn(
    * Chronology Game Component Styling
    * BEM-based CSS classes for better organization and maintainability
    */
-
-  /* Skip-Link for keyboard navigation */
-  .skip-link {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-  }
-
-  .skip-link:focus {
-    position: absolute;
-    top: var(--spacing-md);
-    left: var(--spacing-md);
-    z-index: 50;
-    width: auto;
-    height: auto;
-    padding: var(--spacing-sm) var(--spacing-md);
-    clip: auto;
-    background-color: var(--color-purple-800);
-    color: var(--color-white);
-    border-radius: var(--border-radius-md);
-  }
 
   /* Game info badges */
   .game-info-badges {

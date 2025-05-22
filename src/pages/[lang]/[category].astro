@@ -562,111 +562,52 @@ const modifiedDate = new Date();
 
 <!-- Optimierte CSS-Styles nach BEM-Methodik und WCAG AAA-Standards -->
 <style>
-  /* 
-   * CSS-Variablen für Design-Tokens 
-   * Zentralisierte Definition von Farbwerten, Abständen und anderen wiederverwendbaren Eigenschaften
-   */
-  :root {
-    /* Farben - Primär */
-    --color-purple-300: #c4b5fd;
-    --color-purple-500: #8b5cf6;
-    --color-purple-600: #7c3aed;
-    --color-purple-700: #6d28d9;
-    --color-purple-800: #5b21b6;
-
-    /* Farben - Akzente */
-    --color-indigo-500: #6366f1;
-    --color-indigo-700: #4338ca;
-
-    /* Farben - Hintergrund */
-    --color-zinc-100: #f4f4f5;
-    --color-zinc-300: #d4d4d8;
-    --color-zinc-400: #a1a1aa;
-    --color-zinc-700: #3f3f46;
-    --color-zinc-800: #27272a;
-    --color-zinc-900: #18181b;
-
-    /* Farben - Status */
-    --color-amber-300: #fcd34d;
-    --color-amber-700: #b45309;
-    --color-amber-50: #fef3c7;
-
-    /* Schattierungen */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-
-    /* Abstände */
-    --space-1: 0.25rem;
-    --space-2: 0.5rem;
-    --space-3: 0.75rem;
-    --space-4: 1rem;
-    --space-6: 1.5rem;
-    --space-8: 2rem;
-    --space-10: 2.5rem;
-    --space-12: 3rem;
-
-    /* Border-Radius */
-    --radius-sm: 0.25rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
-    --radius-2xl: 1.5rem;
-    --radius-full: 9999px;
-
-    /* Typografie */
-    --text-base: 1rem;
-    --text-lg: 1.125rem;
-    --text-xl: 1.25rem;
-    --text-2xl: 1.5rem;
-    --text-3xl: 1.875rem;
-    --text-4xl: 2.25rem;
-
-    /* Transitions */
-    --transition-normal: 300ms ease-in-out;
-    --transition-fast: 150ms ease-in-out;
-  }
+  /* ======================================
+   * KATEGORIE-SEITE STILVARIABLEN
+   * - Nutzt globale CSS-Variablen aus global.css
+   * - Verwendet BEM-Methodologie für Klassenbenennungen
+   * - Optimiert für WCAG AAA-Konformität (7:1 Kontrast)
+   * ====================================== */
 
   /* ===== 1. LAYOUT & STRUKTUR ===== */
 
-  /* Page-Container - Hauptcontainer für die gesamte Seite */
+  /* category-page - Hauptcontainer für die gesamte Seite */
   .page-container {
     margin: 0 auto;
-    max-width: 64rem;
-    padding: var(--space-8) var(--space-4);
+    max-width: var(--breakpoint-lg);
+    padding: var(--spacing-2xl) var(--spacing-md);
   }
 
-  /* Article-Container - Primäre Inhaltssektion */
+  /* category-article - Primäre Inhaltssektion */
   .article-container {
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-8);
+    gap: var(--spacing-2xl);
   }
 
-  /* Section-Header - Hauptüberschriftenbereich */
+  /* category-header - Hauptüberschriftenbereich */
   .section-header {
-    margin-bottom: var(--space-12);
-    border-radius: var(--radius-xl);
+    margin-bottom: var(--spacing-3xl);
+    border-radius: var(--border-radius-lg);
     background-image: linear-gradient(
       to bottom right,
-      rgba(39, 39, 42, 0.6),
-      rgba(24, 24, 27, 0.6)
+      rgba(31, 41, 55, 0.6),
+      rgba(17, 24, 39, 0.6)
     );
-    padding: var(--space-8);
+    padding: var(--spacing-2xl);
     text-align: center;
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-lg);
     backdrop-filter: blur(4px);
   }
 
-  /* Divider - Dekorative Trennlinie */
+  /* category-divider - Dekorative Trennlinie */
   .divider {
-    margin: var(--space-4) auto;
-    height: var(--space-1);
+    margin: var(--spacing-md) auto;
+    height: var(--spacing-xs);
     width: 6rem;
-    border-radius: var(--radius-full);
+    border-radius: var(--border-radius-full);
     background-color: var(--color-purple-500);
   }
 
@@ -679,19 +620,19 @@ const modifiedDate = new Date();
     width: 100%;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-8);
-    margin-top: var(--space-8);
+    gap: var(--spacing-2xl);
+    margin-top: var(--spacing-2xl);
     opacity: 0;
     visibility: hidden;
-    transition: opacity var(--transition-normal);
-    border-radius: var(--radius-lg);
+    transition: opacity 300ms ease-in-out;
+    border-radius: var(--border-radius-lg);
     border: 1px solid rgba(63, 63, 70, 0.3);
     background-image: linear-gradient(
       to bottom right,
-      rgba(39, 39, 42, 0.4),
-      rgba(24, 24, 27, 0.4)
+      rgba(31, 41, 55, 0.4),
+      rgba(17, 24, 39, 0.4)
     );
-    padding: var(--space-8);
+    padding: var(--spacing-2xl);
     box-shadow: var(--shadow-lg);
     backdrop-filter: blur(4px);
   }
@@ -702,7 +643,7 @@ const modifiedDate = new Date();
 
   @media (min-width: 768px) {
     .game-section-container {
-      padding: var(--space-10);
+      padding: var(--spacing-2xl);
       max-width: 90%;
       margin-left: auto;
       margin-right: auto;
@@ -711,14 +652,14 @@ const modifiedDate = new Date();
 
   @media (min-width: 1024px) {
     .game-section-container {
-      padding: var(--space-12);
+      padding: var(--spacing-3xl);
       max-width: 85%;
     }
   }
 
   /* Chronology-Section - Variante für Chronologie-Spiele */
   .chronology-section {
-    margin-top: var(--space-12);
+    margin-top: var(--spacing-3xl);
   }
 
   /* Auth-Section-Container - Container für Auth-Formulare */
@@ -728,25 +669,25 @@ const modifiedDate = new Date();
     width: 100%;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-8);
-    margin-top: var(--space-8);
+    gap: var(--spacing-2xl);
+    margin-top: var (--spacing-2xl);
     opacity: 0;
     visibility: hidden;
-    transition: opacity var(--transition-normal);
-    border-radius: var(--radius-lg);
+    transition: opacity 300ms ease-in-out;
+    border-radius: var(--border-radius-lg);
     border: 1px solid rgba(63, 63, 70, 0.3);
     background-image: linear-gradient(
       to bottom right,
-      rgba(39, 39, 42, 0.4),
-      rgba(24, 24, 27, 0.4)
+      rgba(31, 41, 55, 0.4),
+      rgba(17, 24, 39, 0.4)
     );
-    padding: var(--space-8);
+    padding: var(--spacing-2xl);
     box-shadow: var(--shadow-lg);
     backdrop-filter: blur(4px);
   }
 
   .auth-section-container:focus-within {
-    box-shadow: 0 0 0 3px var (--color-purple-500);
+    box-shadow: 0 0 0 3px var(--color-purple-500);
   }
 
   /* ===== 3. BILD & MEDIEN ===== */
@@ -758,8 +699,8 @@ const modifiedDate = new Date();
     width: 100%;
     max-width: 42rem;
     overflow: hidden;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
   }
 
   /* Image-Aspect-Container - Seitenverhältnis-Container für Bilder */
@@ -767,8 +708,8 @@ const modifiedDate = new Date();
     aspect-ratio: 16 / 9;
     width: 100%;
     overflow: hidden;
-    border-radius: var(--radius-lg);
-    box-shadow: var (--shadow-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
   }
 
   /* Responsive-Image - Optimierte Bilddarstellung */
@@ -782,7 +723,7 @@ const modifiedDate = new Date();
   .image-gradient-overlay {
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(to top, rgba(24, 24, 27, 0.7), transparent);
+    background-image: linear-gradient(to top, rgba(17, 24, 39, 0.7), transparent);
   }
 
   /* No-Image-Container - Container für fehlende Bilder */
@@ -792,13 +733,13 @@ const modifiedDate = new Date();
     width: 100%;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-lg);
-    background-color: var(--color-zinc-800);
-    padding: var(--space-6);
+    border-radius: var(--border-radius-lg);
+    background-color: var(--color-gray-800);
+    padding: var(--spacing-lg);
     text-align: center;
     font-family: system-ui, sans-serif;
-    font-size: var(--text-base);
-    color: var(--color-zinc-100);
+    font-size: var(--font-size-md);
+    color: var(--color-gray-100);
     box-shadow: var(--shadow-lg);
   }
 
@@ -806,14 +747,14 @@ const modifiedDate = new Date();
   .no-image-content {
     display: flex;
     align-items: center;
-    gap: var(--space-3);
+    gap: var(--spacing-sm);
   }
 
   /* Missing-Image-Icon - Icon für fehlende Bilder */
   .missing-image-icon {
     height: 2rem;
     width: 2rem;
-    color: var(--color-zinc-400);
+    color: var(--color-gray-400);
   }
 
   /* ===== 4. BESCHREIBUNGEN & TEXT ===== */
@@ -822,11 +763,11 @@ const modifiedDate = new Date();
   .description-container {
     width: 100%;
     max-width: none;
-    border-radius: var(--radius-lg);
+    border-radius: var(--border-radius-lg);
     border: 1px solid rgba(63, 63, 70, 0.3);
-    background-color: rgba(39, 39, 42, 0.5);
-    padding: var(--space-6);
-    line-height: 1.8;
+    background-color: rgba(31, 41, 55, 0.5);
+    padding: var(--spacing-lg);
+    line-height: var(--line-height-relaxed);
     box-shadow: var(--shadow-md);
   }
 
@@ -836,7 +777,7 @@ const modifiedDate = new Date();
 
   @media (min-width: 640px) {
     .description-container {
-      padding: var(--space-8);
+      padding: var(--spacing-2xl);
     }
   }
 
@@ -844,12 +785,12 @@ const modifiedDate = new Date();
 
   /* Button-Group-Container - Container für Schaltflächengruppen */
   .button-group-container {
-    margin-top: var(--space-2);
+    margin-top: var(--spacing-sm);
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-4);
+    gap: var(--spacing-md);
   }
 
   @media (min-width: 640px) {
@@ -857,7 +798,7 @@ const modifiedDate = new Date();
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
-      gap: var(--space-6);
+      gap: var(--spacing-lg);
       max-width: 42rem;
       margin-left: auto;
       margin-right: auto;
@@ -866,7 +807,7 @@ const modifiedDate = new Date();
 
   @media (min-width: 1024px) {
     .button-group-container {
-      gap: var(--space-8);
+      gap: var(--spacing-2xl);
     }
   }
 
@@ -885,13 +826,13 @@ const modifiedDate = new Date();
 
   /* Button-Text - Textformatierung für Schaltflächen */
   .button-text {
-    font-size: var(--text-base);
+    font-size: var(--font-size-md);
     font-weight: 500;
   }
 
   @media (min-width: 768px) {
     .button-text {
-      font-size: var(--text-lg);
+      font-size: var(--font-size-lg);
     }
   }
 
@@ -904,12 +845,12 @@ const modifiedDate = new Date();
 
   /* Alert-Box - Warnmeldungen und Benachrichtigungen */
   .alert-box {
-    margin-bottom: var(--space-6);
-    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
     border: 1px solid rgba(217, 119, 6, 0.3);
     background-color: rgba(180, 83, 9, 0.3);
-    padding: var(--space-4);
-    color: var (--color-amber-50);
+    padding: var(--spacing-md);
+    color: var(--color-gray-100);
     box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
   }
 
@@ -917,7 +858,7 @@ const modifiedDate = new Date();
   .alert-box-content {
     display: flex;
     align-items: center;
-    gap: var(--space-3);
+    gap: var(--spacing-sm);
   }
 
   /* Alert-Text - Textformatierung für Warnmeldungen */
@@ -934,7 +875,7 @@ const modifiedDate = new Date();
     justify-content: center;
     width: 3.5rem;
     height: 3.5rem;
-    border-radius: var (--radius-full);
+    border-radius: var(--border-radius-full);
     background-image: linear-gradient(
       to bottom right,
       var(--color-purple-600),
@@ -967,8 +908,8 @@ const modifiedDate = new Date();
   .chronology-badge {
     background-image: linear-gradient(
       to bottom right,
-      var(--color-indigo-500),
-      var(--color-indigo-700)
+      var(--color-purple-400),
+      var(--color-purple-600)
     );
   }
 
@@ -983,14 +924,14 @@ const modifiedDate = new Date();
     height: 1.25rem;
     width: 1.25rem;
     flex-shrink: 0;
-    margin-right: var(--space-2);
+    margin-right: var(--spacing-sm);
   }
 
   @media (min-width: 768px) {
     .icon-medium {
       height: 1.5rem;
       width: 1.5rem;
-      margin-right: var(--space-3);
+      margin-right: var(--spacing-sm);
     }
   }
 
@@ -1008,17 +949,17 @@ const modifiedDate = new Date();
 
   /* Headline-Primary - Primäre Überschriften */
   .headline-primary {
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--spacing-md);
     text-align: center;
-    font-size: var(--text-3xl);
+    font-size: var(--font-size-3xl);
     font-weight: 700;
     color: white;
-    line-height: 1.2;
+    line-height: var(--line-height-tight);
   }
 
   @media (min-width: 768px) {
     .headline-primary {
-      font-size: var(--text-4xl);
+      font-size: var(--font-size-4xl);
     }
   }
 
@@ -1027,40 +968,40 @@ const modifiedDate = new Date();
     margin: 0 auto;
     max-width: 42rem;
     text-align: center;
-    font-size: var(--text-lg);
+    font-size: var(--font-size-lg);
     font-weight: 500;
-    color: var(--color-zinc-100);
-    line-height: 1.8;
+    color: var(--color-gray-100);
+    line-height: var(--line-height-relaxed);
   }
 
   /* Paragraph-Description - Beschreibungstexte */
   .paragraph-description {
-    font-size: var(--text-base);
-    line-height: 1.8;
-    color: var(--color-zinc-100);
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-gray-100);
   }
 
   @media (min-width: 640px) {
     .paragraph-description {
-      font-size: var(--text-lg);
+      font-size: var(--font-size-lg);
     }
   }
 
   /* Auth-Heading - Überschriften für Authentifizierungsbereiche */
   .auth-heading {
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--spacing-lg);
     text-align: center;
-    font-size: var(--text-2xl);
+    font-size: var(--font-size-2xl);
     font-weight: 700;
     color: white;
   }
 
   /* Game-Heading - Überschriften für Spielbereiche */
   .game-heading {
-    margin-top: var(--space-6);
-    padding-top: var(--space-2);
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-sm);
     text-align: center;
-    font-size: var(--text-2xl);
+    font-size: var(--font-size-2xl);
     font-weight: 700;
     color: white;
   }
@@ -1073,47 +1014,47 @@ const modifiedDate = new Date();
 
   @media (min-width: 1024px) {
     .game-heading {
-      font-size: var(--text-4xl);
+      font-size: var(--font-size-4xl);
     }
   }
 
   /* Auth-Description - Beschreibungstexte für Authentifizierungsbereiche */
   .auth-description {
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--spacing-lg);
     max-width: 42rem;
     text-align: center;
-    font-size: var(--text-lg);
-    color: var(--color-zinc-100);
-    line-height: 1.8;
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-100);
+    line-height: var(--line-height-relaxed);
   }
 
   /* Game-Description - Beschreibungstexte für Spielbereiche */
   .game-description {
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--spacing-lg);
     max-width: 42rem;
     text-align: center;
-    font-size: var(--text-lg);
-    color: var(--color-zinc-100);
-    line-height: 1.6;
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-100);
+    line-height: var(--line-height-normal);
   }
 
   @media (min-width: 768px) {
     .game-description {
-      font-size: var(--text-xl);
-      line-height: 1.7;
-      margin-bottom: var(--space-8);
+      font-size: var(--font-size-xl);
+      line-height: var(--line-height-normal);
+      margin-bottom: var(--spacing-2xl);
     }
   }
 
   /* ===== 8. ANIMATIONEN & TRANSITIONS ===== */
 
   .opacity-transition {
-    transition: opacity var(--transition-normal);
+    transition: opacity 300ms ease-in-out;
   }
 
   /* ===== 9. BARRIEREFREIHEIT ===== */
 
-  /* Screenreader-Only Klasse */
+  /* Screenreader-Only Klasse - Verwende die globale .sr-only Klasse */
   .sr-only {
     position: absolute;
     width: 1px;
@@ -1126,16 +1067,8 @@ const modifiedDate = new Date();
     border-width: 0;
   }
 
-  /* Reduced Motion Preferences */
+  /* Reduced Motion Preferences - Ergänzt die globalen Einstellungen */
   @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.001s !important;
-      transition-duration: 0.001s !important;
-      scroll-behavior: auto !important;
-    }
-
     .game-section-container:hover .game-icon-badge {
       transform: none !important;
       box-shadow: none !important;
@@ -1180,27 +1113,25 @@ const modifiedDate = new Date();
     outline-offset: 3px !important;
   }
 
-  /* 
-   * Barrierefreiheit - Skip-Link und erweiterte Fokuszustände 
-   */
+  /* Skip-Link-Funktionalität für bessere Barrierefreiheit */
   .skip-link {
     position: absolute;
     top: -9999px;
     left: -9999px;
-    padding: var(--space-4);
+    padding: var(--spacing-md);
     background-color: var(--color-purple-600);
     color: white;
     font-weight: 700;
     text-decoration: none;
     z-index: 9999;
-    border-radius: var(--radius-md);
+    border-radius: var(--border-radius-md);
     transform: translateY(-100%);
     transition: transform 0.3s;
   }
 
   .skip-link:focus {
-    top: var(--space-4);
-    left: var(--space-4);
+    top: var(--spacing-md);
+    left: var(--spacing-md);
     transform: translateY(0);
     outline: 3px solid var(--color-purple-300);
     outline-offset: 3px;
@@ -1217,7 +1148,7 @@ const modifiedDate = new Date();
   :global(.button-perspective a:focus-visible) {
     outline: 3px solid var(--color-purple-500);
     outline-offset: 3px;
-    border-radius: var(--radius-md);
+    border-radius: var(--border-radius-md);
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
   }
 
@@ -1228,14 +1159,14 @@ const modifiedDate = new Date();
     min-width: 44px;
     display: flex;
     align-items: center;
-    padding: var(--space-3) var(--space-4);
+    padding: var(--spacing-sm) var(--spacing-md);
   }
 
   @media (min-width: 768px) {
     .button-perspective a,
     :global(.button-perspective a) {
       min-height: 48px;
-      padding: var(--space-4) var(--space-6);
+      padding: var(--spacing-md) var(--spacing-lg);
     }
   }
 </style>

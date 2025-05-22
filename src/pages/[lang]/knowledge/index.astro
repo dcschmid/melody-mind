@@ -246,70 +246,60 @@ const articlesStructuredData = sortedArticles.map((article) => {
   <!-- Screen reader announcements for dynamic content changes -->
   <div id="sr-announce" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
-  <main class="mx-auto max-w-6xl px-4 py-8" id="main-content">
+  <main class="knowledge-page" id="main-content">
     <!-- Breadcrumbs navigation with structured data -->
-    <nav aria-label="Breadcrumb" class="mb-6">
-      <ol class="flex flex-wrap items-center space-x-2 text-base text-zinc-300">
-        <li class="flex items-center">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol class="breadcrumb__list">
+        <li class="breadcrumb__item">
           <a
             href={`/${String(lang)}/`}
-            class="rounded px-2 py-1 transition-colors hover:text-purple-400 focus:text-purple-400 focus:outline-none focus-visible:ring-3 focus-visible:ring-purple-500 focus-visible:ring-offset-3 focus-visible:ring-offset-zinc-900"
+            class="breadcrumb__link"
             aria-label={ui[uiLang]["nav.home"] || "Home"}
           >
-            <Icon name="home" class="h-5 w-5" aria-hidden="true" />
+            <Icon name="home" class="breadcrumb__icon" aria-hidden="true" />
             <span class="sr-only">{ui[uiLang]["nav.home"] || "Home"}</span>
           </a>
-          <span class="mx-2" aria-hidden="true">/</span>
+          <span class="breadcrumb__separator" aria-hidden="true">/</span>
         </li>
-        <li class="font-medium text-purple-400" aria-current="page">
+        <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">
           {ui[uiLang]["knowledge.title"] || "Knowledge"}
         </li>
       </ol>
     </nav>
 
     <!-- Page header with improved semantic structure -->
-    <header class="mb-12 text-center">
+    <header class="knowledge-page__header">
       <Headline
         title={ui[uiLang]["knowledge.title"]}
         level="h1"
-        className="mb-4 text-3xl font-bold tracking-wide text-white md:text-4xl"
+        className="knowledge-page__title"
         id="page-heading"
       />
-      <div class="mx-auto mt-2 mb-6 h-1 w-24 rounded-full bg-purple-500" aria-hidden="true"></div>
+      <div class="knowledge-page__divider" aria-hidden="true"></div>
 
-      <Paragraph
-        description={ui[uiLang]["knowledge.intro"]}
-        className="mx-auto max-w-2xl text-xl leading-relaxed text-zinc-100"
-      />
+      <Paragraph description={ui[uiLang]["knowledge.intro"]} className="knowledge-page__intro" />
     </header>
 
-    <div class="mb-8 w-full">
+    <div class="knowledge-page__content">
       <!-- Improved search and filtering with enhanced ARIA support -->
-      <section
-        class="search-filter-container mb-10 rounded-xl border-2 border-zinc-600 bg-zinc-800/90 p-8 shadow-lg"
-        role="search"
-        aria-labelledby="search-heading"
-      >
-        <h2 class="mb-6 text-2xl font-medium text-white" id="search-heading">
+      <section class="search-container" role="search" aria-labelledby="search-heading">
+        <h2 class="search-container__heading" id="search-heading">
           {ui[uiLang]["knowledge.search.heading"] || "Search Articles"}
         </h2>
-        <div class="mb-4 flex flex-col gap-4 md:flex-row">
-          <div class="relative flex-grow">
+        <div class="search-container__form">
+          <div class="search-container__input-wrapper">
             <label for="searchInput" class="sr-only">
               {ui[uiLang]["knowledge.search.label"] || "Search by title, description or keywords"}
             </label>
-            <div class="relative">
-              <div
-                class="pointer-events-none absolute inset-y-0 left-3 flex items-center"
-                aria-hidden="true"
-              >
-                <Icon name="search" class="h-6 w-6 text-purple-400" />
+            <div class="search-container__input-group">
+              <div class="search-container__icon-wrapper" aria-hidden="true">
+                <Icon name="search" class="search-container__icon" />
               </div>
               <input
                 type="search"
                 id="searchInput"
                 placeholder={ui[uiLang]["knowledge.search.placeholder"] || "Search articles..."}
-                class="w-full rounded-xl border-2 border-zinc-600 bg-zinc-800 py-4 pr-4 pl-12 text-lg text-zinc-50 placeholder-zinc-400 transition-all duration-300 focus:border-purple-500 focus:ring-4 focus:ring-purple-500/50 focus:outline-none"
+                class="search-container__input"
                 aria-controls="articlesGrid search-results-region"
                 aria-describedby="search-description search-status"
                 autocomplete="off"
@@ -329,12 +319,12 @@ const articlesStructuredData = sortedArticles.map((article) => {
           <!-- Reset button for search field - Enhanced accessibility -->
           <button
             id="reset-search-inline"
-            class="flex items-center justify-center gap-3 rounded-xl bg-zinc-700 px-8 py-4 text-lg font-medium text-zinc-100 transition-all duration-300 hover:bg-zinc-600 focus:bg-zinc-600 focus:ring-4 focus:ring-purple-500/50 focus:outline-none"
+            class="search-container__reset-button"
             aria-label={ui[uiLang]["knowledge.search.reset"] || "Reset search"}
             type="button"
             aria-controls="articlesGrid"
           >
-            <Icon name="close" class="h-6 w-6" aria-hidden="true" />
+            <Icon name="close" class="search-container__reset-icon" aria-hidden="true" />
             <span>{ui[uiLang]["knowledge.search.reset.text"] || "Reset"}</span>
           </button>
         </div>
@@ -366,22 +356,22 @@ const articlesStructuredData = sortedArticles.map((article) => {
       <!-- No results message (initially hidden) - Improved for accessibility -->
       <div
         id="no-results"
-        class="mb-10 hidden transform-gpu rounded-xl border border-zinc-600 bg-gradient-to-br from-zinc-700 to-zinc-800 text-center shadow-md"
+        class="no-results"
         role="status"
         aria-live="assertive"
         aria-atomic="true"
       >
-        <div class="flex flex-col items-center justify-center p-12">
+        <div class="no-results__content">
           <Icon
             name="search-no-results"
-            class="mb-6 h-20 w-20 text-zinc-300"
+            class="no-results__icon"
             aria-hidden="true"
             role="presentation"
           />
-          <h2 class="text-2xl font-medium text-zinc-100">
+          <h2 class="no-results__title">
             {ui[uiLang]["knowledge.no.results"] || "No articles found"}
           </h2>
-          <p class="mt-3 mb-6 text-xl text-zinc-300">
+          <p class="no-results__description">
             {
               ui[uiLang]["knowledge.no.results.help"] ||
                 "Try different search terms or reset your search"
@@ -389,12 +379,12 @@ const articlesStructuredData = sortedArticles.map((article) => {
           </p>
           <button
             id="reset-search"
-            class="mt-3 flex items-center gap-3 rounded-lg bg-purple-600 px-8 py-4 text-lg font-medium text-white transition-all duration-300 hover:bg-purple-500 focus:bg-purple-500 focus:ring-4 focus:ring-purple-500/50 focus:ring-offset-3 focus:ring-offset-zinc-800 focus:outline-none"
+            class="no-results__button"
             aria-label={ui[uiLang]["knowledge.search.reset"] || "Reset search"}
             type="button"
             aria-controls="articlesGrid"
           >
-            <Icon name="refresh" class="h-6 w-6" aria-hidden="true" />
+            <Icon name="refresh" class="no-results__button-icon" aria-hidden="true" />
             <span>{ui[uiLang]["knowledge.search.reset"] || "Reset Search"}</span>
           </button>
         </div>
@@ -417,16 +407,16 @@ const articlesStructuredData = sortedArticles.map((article) => {
       </div>
 
       <!-- Articles grid with improved accessibility -->
-      <section aria-labelledby="articles-heading" class="mb-12" id="search-results-region">
+      <section
+        aria-labelledby="articles-heading"
+        class="articles-section"
+        id="search-results-region"
+      >
         <h2 id="articles-heading" class="sr-only">
           {ui[uiLang]["knowledge.articles.heading"] || "Knowledge Articles"}
         </h2>
 
-        <ul
-          id="articlesGrid"
-          class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-10 lg:grid-cols-3"
-          aria-labelledby="articles-heading"
-        >
+        <ul id="articlesGrid" class="articles-grid" aria-labelledby="articles-heading">
           {
             sortedArticles.length > 0 ? (
               sortedArticles.map((article, index) => {
@@ -440,7 +430,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
 
                 return (
                   <li
-                    class="translate-y-2 transform list-none opacity-0 motion-safe:animate-[fadeIn_0.5s_ease-out_forwards]"
+                    class="articles-grid__item"
                     style={`animation-delay: ${Math.min(index * 50, 500)}ms`}
                   >
                     <KnowledgeCard
@@ -459,10 +449,10 @@ const articlesStructuredData = sortedArticles.map((article) => {
                 );
               })
             ) : (
-              <li class="col-span-full">
-                <div class="flex flex-col items-center justify-center rounded-xl border border-zinc-600 bg-gradient-to-br from-zinc-700 to-zinc-800 p-12 text-center shadow-md">
-                  <Icon name="info" class="mb-6 h-20 w-20 text-zinc-300" aria-hidden="true" />
-                  <p class="text-2xl font-medium text-zinc-100">
+              <li class="articles-grid__empty">
+                <div class="articles-grid__empty-content">
+                  <Icon name="info" class="articles-grid__empty-icon" aria-hidden="true" />
+                  <p class="articles-grid__empty-text">
                     {ui[uiLang]["knowledge.empty"] || "No articles found for this language"}
                   </p>
                 </div>
@@ -476,13 +466,13 @@ const articlesStructuredData = sortedArticles.map((article) => {
     <!-- "Back to top" button with enhanced accessibility -->
     <button
       id="back-to-top"
-      class="invisible fixed right-8 bottom-8 z-10 rounded-full bg-purple-600 p-4 text-white opacity-0 shadow-lg transition-all duration-300 peer-data-[visible]:visible peer-data-[visible]:opacity-100 hover:bg-purple-500 focus:bg-purple-500 focus:ring-4 focus:ring-purple-500/50 focus:ring-offset-3 focus:ring-offset-zinc-800 focus:outline-none"
+      class="back-to-top"
       aria-label={ui[uiLang]["common.back.to.top"] || "Back to top"}
       type="button"
       aria-controls="page-heading"
       aria-hidden="true"
     >
-      <Icon name="arrow-up" class="h-8 w-8" aria-hidden="true" />
+      <Icon name="arrow-up" class="back-to-top__icon" aria-hidden="true" />
       <span class="sr-only">{ui[uiLang]["common.back.to.top"] || "Back to top"}</span>
     </button>
   </main>
@@ -1125,26 +1115,402 @@ const articlesStructuredData = sortedArticles.map((article) => {
   </script>
 
   <style>
-    /* Improved color contrast for WCAG AAA (7:1) */
-    :root {
-      --text-primary: #ffffff; /* Maximum contrast */
-      --text-secondary: #e2e2e7; /* Higher contrast than standard zinc-300 */
-      --bg-card: #27272a; /* zinc-800 */
-      --border-card: rgba(161, 161, 170, 0.3); /* zinc-400 with transparency */
-      --accent-primary: #a855f7; /* purple-500 */
-      --accent-secondary: #c084fc; /* purple-400 */
-      --focus-outline: 3px solid #c084fc; /* Strong focus indicator for AAA compliance */
+    /* Knowledge Page - Main Layout */
+    .knowledge-page {
+      max-width: var(--breakpoint-xl);
+      margin-left: auto;
+      margin-right: auto;
+      padding: var(--spacing-xl) var(--spacing-md);
     }
 
-    /* Animations for cards */
+    /* Breadcrumb Navigation */
+    .breadcrumb {
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .breadcrumb__list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--spacing-sm);
+      font-size: var(--font-size-md);
+      color: var(--color-gray-300);
+    }
+
+    .breadcrumb__item {
+      display: flex;
+      align-items: center;
+    }
+
+    .breadcrumb__item--current {
+      font-weight: 500;
+      color: var(--color-purple-400);
+    }
+
+    .breadcrumb__link {
+      display: flex;
+      align-items: center;
+      padding: var(--spacing-xs) var(--spacing-sm);
+      border-radius: var(--border-radius-md);
+      transition: color 0.2s ease;
+    }
+
+    .breadcrumb__link:hover,
+    .breadcrumb__link:focus {
+      color: var(--color-purple-400);
+      outline: none;
+    }
+
+    .breadcrumb__link:focus-visible {
+      outline: 3px solid var(--color-purple-500);
+      outline-offset: 3px;
+    }
+
+    .breadcrumb__icon {
+      height: 1.25rem;
+      width: 1.25rem;
+    }
+
+    .breadcrumb__separator {
+      margin: 0 var(--spacing-sm);
+    }
+
+    /* Page Header */
+    .knowledge-page__header {
+      margin-bottom: var(--spacing-2xl);
+      text-align: center;
+    }
+
+    .knowledge-page__title {
+      margin-bottom: var(--spacing-md);
+      font-size: var(--font-size-3xl);
+      font-weight: 700;
+      letter-spacing: 0.025em;
+      color: var(--color-white);
+    }
+
+    .knowledge-page__divider {
+      margin: var(--spacing-sm) auto var(--spacing-xl);
+      height: 0.25rem;
+      width: 6rem;
+      background-color: var(--color-purple-500);
+      border-radius: var(--border-radius-full);
+    }
+
+    .knowledge-page__intro {
+      max-width: 42rem;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: var(--font-size-xl);
+      line-height: var(--line-height-relaxed);
+      color: var(--color-gray-100);
+    }
+
+    /* Page Content */
+    .knowledge-page__content {
+      margin-bottom: var(--spacing-xl);
+      width: 100%;
+    }
+
+    /* Search Container */
+    .search-container {
+      margin-bottom: var(--spacing-2xl);
+      padding: var(--spacing-xl);
+      background-color: var(--color-gray-800);
+      background-color: rgba(39, 39, 42, 0.9);
+      border: 2px solid var(--color-gray-600);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .search-container__heading {
+      margin-bottom: var(--spacing-xl);
+      font-size: var(--font-size-2xl);
+      font-weight: 500;
+      color: var(--color-white);
+    }
+
+    .search-container__form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .search-container__input-wrapper {
+      position: relative;
+      flex-grow: 1;
+    }
+
+    .search-container__input-group {
+      position: relative;
+    }
+
+    .search-container__icon-wrapper {
+      position: absolute;
+      pointer-events: none;
+      top: 0;
+      bottom: 0;
+      left: var(--spacing-md);
+      display: flex;
+      align-items: center;
+    }
+
+    .search-container__icon {
+      height: 1.5rem;
+      width: 1.5rem;
+      color: var(--color-purple-400);
+    }
+
+    .search-container__input {
+      width: 100%;
+      padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) calc(var(--spacing-md) * 3);
+      background-color: var(--color-gray-800);
+      border: 2px solid var(--color-gray-600);
+      border-radius: var(--border-radius-lg);
+      color: var(--color-gray-50);
+      font-size: var(--font-size-lg);
+      transition: all 0.3s;
+    }
+
+    .search-container__input::placeholder {
+      color: var(--color-gray-400);
+    }
+
+    .search-container__input:focus {
+      border-color: var(--color-purple-500);
+      box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.5);
+      outline: none;
+    }
+
+    .search-container__reset-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-md);
+      padding: var(--spacing-md) var(--spacing-xl);
+      background-color: var(--color-gray-700);
+      border-radius: var(--border-radius-lg);
+      color: var(--color-gray-100);
+      font-size: var(--font-size-lg);
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .search-container__reset-button:hover,
+    .search-container__reset-button:focus {
+      background-color: var(--color-gray-600);
+      outline: none;
+    }
+
+    .search-container__reset-button:focus-visible {
+      box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.5);
+    }
+
+    .search-container__reset-icon {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+
+    /* No Results */
+    .no-results {
+      margin-bottom: var(--spacing-2xl);
+      display: none;
+      background: linear-gradient(to bottom right, var(--color-gray-700), var(--color-gray-800));
+      border: 1px solid var(--color-gray-600);
+      border-radius: var(--border-radius-lg);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .no-results.flex {
+      display: block;
+    }
+
+    .no-results__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-2xl);
+    }
+
+    .no-results__icon {
+      margin-bottom: var(--spacing-xl);
+      height: 5rem;
+      width: 5rem;
+      color: var(--color-gray-300);
+    }
+
+    .no-results__title {
+      font-size: var(--font-size-2xl);
+      font-weight: 500;
+      color: var(--color-gray-100);
+    }
+
+    .no-results__description {
+      margin-top: var(--spacing-md);
+      margin-bottom: var(--spacing-xl);
+      font-size: var(--font-size-xl);
+      color: var(--color-gray-300);
+    }
+
+    .no-results__button {
+      margin-top: var(--spacing-md);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      padding: var(--spacing-md) var(--spacing-xl);
+      background-color: var(--color-purple-600);
+      border-radius: var(--border-radius-md);
+      color: var(--color-white);
+      font-size: var(--font-size-lg);
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .no-results__button:hover,
+    .no-results__button:focus {
+      background-color: var(--color-purple-500);
+      outline: none;
+    }
+
+    .no-results__button:focus-visible {
+      box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.5);
+      outline-offset: 3px;
+    }
+
+    .no-results__button-icon {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+
+    /* Articles Section */
+    .articles-section {
+      margin-bottom: var(--spacing-2xl);
+    }
+
+    /* Articles Grid */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xl);
+    }
+
+    .articles-grid__item {
+      list-style: none;
+      transform: translateY(0.5rem);
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    .articles-grid__empty {
+      grid-column: 1 / -1;
+    }
+
+    .articles-grid__empty-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-2xl);
+      background: linear-gradient(to bottom right, var(--color-gray-700), var(--color-gray-800));
+      border: 1px solid var(--color-gray-600);
+      border-radius: var(--border-radius-lg);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .articles-grid__empty-icon {
+      margin-bottom: var(--spacing-xl);
+      height: 5rem;
+      width: 5rem;
+      color: var(--color-gray-300);
+    }
+
+    .articles-grid__empty-text {
+      font-size: var(--font-size-2xl);
+      font-weight: 500;
+      color: var(--color-gray-100);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      right: var(--spacing-xl);
+      bottom: var(--spacing-xl);
+      z-index: 10;
+      padding: var(--spacing-md);
+      background-color: var(--color-purple-600);
+      color: var(--color-white);
+      border-radius: var(--border-radius-full);
+      box-shadow: var(--shadow-lg);
+      transition: all 0.3s;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .back-to-top[data-visible="true"] {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .back-to-top:hover,
+    .back-to-top:focus {
+      background-color: var(--color-purple-500);
+      outline: none;
+    }
+
+    .back-to-top:focus-visible {
+      box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.5);
+      outline-offset: 3px;
+    }
+
+    .back-to-top__icon {
+      height: 2rem;
+      width: 2rem;
+    }
+
+    /* Animations */
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(0.5rem);
       }
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (min-width: 640px) {
+      .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .knowledge-page {
+        padding: var(--spacing-xl) var(--spacing-xl);
+      }
+
+      .knowledge-page__title {
+        font-size: var(--font-size-4xl);
+      }
+
+      .search-container__form {
+        flex-direction: row;
+      }
+
+      .articles-grid {
+        gap: var(--spacing-2xl);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .articles-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
@@ -1159,7 +1525,7 @@ const articlesStructuredData = sortedArticles.map((article) => {
         scroll-behavior: auto !important;
       }
 
-      .translate-y-2.transform.motion-safe\:animate-\[fadeIn_0\.5s_ease-out_forwards\] {
+      .articles-grid__item {
         opacity: 1 !important;
         transform: none !important;
         animation: none !important;
@@ -1193,28 +1559,6 @@ const articlesStructuredData = sortedArticles.map((article) => {
         word-spacing: 0.16em !important;
         line-height: 1.8 !important;
       }
-
-      .card-description {
-        margin-top: 1.5em !important;
-        margin-bottom: 1.5em !important;
-      }
-    }
-
-    /* Focus styles for better keyboard navigation - WCAG AAA compliance */
-    :focus {
-      outline: var(--focus-outline);
-      outline-offset: 2px;
-    }
-
-    /* Ensure interactive elements have adequate touch target size (44x44px) */
-    button,
-    a[href],
-    input,
-    select,
-    textarea,
-    [role="button"] {
-      min-height: 44px;
-      min-width: 44px;
     }
   </style>
 </Layout>
