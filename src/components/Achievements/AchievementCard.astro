@@ -1,12 +1,20 @@
 ---
 /**
- * Achievement Card Component
- *
+ * Achievement Card Comp// Create status text for screen readers
+const statusText =
+  status === "unlocked"
+    ? t("achievements.status.unlocked")
+    : status === "in-progress"
+      ? `${t("achievements.status.in_progress")} - ${t("achievements.progress", { progress: progressPercentage })}`
+      : t("achievements.status.locked");*
  * This component displays a single achievement with all its details.
+ * It is optimized for performance and accessibility, following WCAG AAA standards.
  */
 
-import { useTranslations } from "../../utils/i18n.ts";
-import type { LocalizedAchievement } from "../../types/achievement.ts";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import { useTranslations } from "@utils/i18n";
+import type { LocalizedAchievement } from "../../types/achievement";
 
 interface Props {
   /** The achievement to be displayed */
@@ -23,84 +31,72 @@ const progressPercentage = achievement.progressPercentage;
 
 // Determine the achievement status
 const status = achievement.status;
+
+// Create class name based on status
+const statusClass = `achievement-card--${status}`;
+
+// Create status text for screen readers
+const statusText =
+  status === "unlocked"
+    ? t("achievements.status.unlocked")
+    : status === "in-progress"
+      ? t("achievements.status.in_progress", { percent: progressPercentage })
+      : t("achievements.status.locked");
 ---
 
 <div
-  class={`bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-transform transition-shadow flex flex-col h-full ${
-    status === "locked" ? "opacity-70 grayscale-[80%]" : ""
-  } ${status === "in-progress" ? "border-2 border-blue-500" : ""} ${
-    status === "unlocked" ? "border-2 border-green-500" : ""
-  }`}
+  class={`achievement-card ${statusClass}`}
   data-testid="achievement-card"
   data-category={achievement.category?.code}
+  data-status={status}
+  role="button"
+  tabindex="0"
+  aria-label={`${achievement.name}: ${statusText}`}
 >
-  <div class="relative flex h-[100px] items-center justify-center bg-gray-700 p-6">
+  <div class="achievement-card__header">
     {
       achievement.iconPath ? (
-        <img
+        <Image
           src={achievement.iconPath}
-          alt={achievement.name}
-          width="64"
-          height="64"
+          alt=""
+          width={64}
+          height={64}
           loading="lazy"
+          class="achievement-card__icon"
+          format="webp"
+          aria-hidden="true"
         />
       ) : (
-        <div class="flex h-16 w-16 items-center justify-center rounded-full bg-gray-600">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="12" cy="8" r="7" />
-            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
-          </svg>
+        <div class="achievement-card__icon-placeholder">
+          <Icon name="trophy" width="32" height="32" aria-hidden="true" />
         </div>
       )
     }
     {
       status === "unlocked" && (
-        <div
-          class="absolute top-2 right-2 flex h-6 w-6 items-center justify-center rounded-full bg-green-500 text-white"
-          aria-hidden="true"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-            <polyline points="22 4 12 14.01 9 11.01" />
-          </svg>
+        <div class="achievement-card__badge" aria-hidden="true">
+          <Icon name="check-circle" width="16" height="16" />
         </div>
       )
     }
   </div>
-  <div class="flex flex-grow flex-col p-6">
-    <h3 class="mb-2 text-xl">{achievement.name}</h3>
-    <p class="mb-4 flex-grow text-sm text-gray-300">
+  <div class="achievement-card__content">
+    <h3 class="achievement-card__title">
+      {achievement.name}
+      <span class="achievement-card__status sr-only">{statusText}</span>
+    </h3>
+    <p class="achievement-card__description">
       {achievement.description}
     </p>
-    <div class="mb-4 flex justify-between text-sm">
-      <span class="font-semibold text-yellow-400">
+    <div class="achievement-card__meta">
+      <span class="achievement-card__points">
         {
           t("achievements.points", {
             points: achievement.category?.points ?? 0,
           })
         }
       </span>
-      <span class="text-gray-400" title={t("achievements.rarity.tooltip")}>
+      <span class="achievement-card__rarity" title={t("achievements.rarity.tooltip")}>
         {
           t("achievements.rarity", {
             percentage: achievement.rarityPercentage.toFixed(2),
@@ -108,43 +104,285 @@ const status = achievement.status;
         }
       </span>
     </div>
-    <div class="mt-auto">
+    <div
+      class="achievement-card__progress-container"
+      aria-label={t("achievements.progress", { progress: progressPercentage })}
+    >
       <div
-        class="mb-2 h-2 overflow-hidden rounded bg-gray-600"
+        class="achievement-card__progress-bar"
         role="progressbar"
         aria-valuenow={progressPercentage}
         aria-valuemin="0"
         aria-valuemax="100"
+        style={`width: ${progressPercentage}%`}
       >
-        <div
-          class={`h-full ${status === "unlocked" ? "bg-green-500" : "bg-blue-500"}`}
-          style={`width: ${progressPercentage}%`}
-        >
-        </div>
-      </div>
-      <div class="flex flex-wrap items-center justify-between gap-1">
-        <span class="text-sm text-gray-400">
-          {t("achievements.progress", { progress: progressPercentage })}
-        </span>
-        {
-          achievement.status === "unlocked" && achievement.userProgress?.unlockedAt && (
-            <span class="text-sm text-green-500">
-              {t("achievements.unlocked_at", {
-                date: new Date(achievement.userProgress.unlockedAt).toLocaleDateString(lang),
-              })}
-            </span>
-          )
-        }
       </div>
     </div>
   </div>
 </div>
 
+<script>
+  // Add keyboard event handling for the achievement card
+  document.querySelectorAll<HTMLElement>('.achievement-card[role="button"]').forEach((card) => {
+    card.addEventListener("keydown", (event: KeyboardEvent) => {
+      // Handle both Enter and Space key to activate the card
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        card.click();
+      }
+    });
+
+    // Ensure the card has an explicit click handler even if none is provided
+    if (!card.onclick) {
+      card.addEventListener("click", () => {
+        // Emit a custom event that can be listened to by parent components
+        card.dispatchEvent(
+          new CustomEvent("achievement:select", {
+            bubbles: true,
+            detail: {
+              category: card.dataset.category,
+              status: card.dataset.status,
+            },
+          })
+        );
+      });
+    }
+  });
+</script>
+
 <style>
+  /* Achievement Card Component */
+  .achievement-card {
+    background-color: var(--color-gray-800);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    position: relative;
+    /* Ensure minimum touch target size for accessibility */
+    min-height: 12rem;
+    min-width: 16rem;
+  }
+
+  /* Improve focus state for keyboard navigation */
+  .achievement-card:focus {
+    outline: 3px solid var(--color-purple-500);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.4);
+  }
+
+  .achievement-card:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: var(--shadow-md);
+  }
+
+  .achievement-card:focus-visible {
+    outline: 3px solid var(--color-purple-500);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.4);
+  }
+
+  .achievement-card:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Status variants - use both color and patterns for status indication */
+  .achievement-card--locked {
+    opacity: 0.85; /* Improved from 0.7 for better contrast */
+    filter: grayscale(70%); /* Reduced from 80% for better visibility */
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 255, 255, 0.05) 10px,
+      rgba(255, 255, 255, 0.05) 20px
+    );
+  }
+
+  .achievement-card--in-progress {
+    border: 2px solid var(--color-purple-500);
+    background-image: linear-gradient(
+      135deg,
+      rgba(168, 85, 247, 0.1) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(168, 85, 247, 0.1) 50%,
+      rgba(168, 85, 247, 0.1) 75%,
+      transparent 75%
+    );
+    background-size: 20px 20px;
+  }
+
+  .achievement-card--unlocked {
+    border: 2px solid var(--color-green-500, #22c55e);
+    background-image: radial-gradient(circle at top right, rgba(34, 197, 94, 0.1), transparent 70%);
+  }
+
+  /* Card header */
+  .achievement-card__header {
+    position: relative;
+    display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-gray-700);
+    padding: var(--spacing-md);
+  }
+
+  .achievement-card__icon {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+  }
+
+  .achievement-card__icon-placeholder {
+    display: flex;
+    width: 4rem;
+    height: 4rem;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-gray-600);
+    border-radius: var(--border-radius-full);
+    color: var(--color-gray-300);
+  }
+
+  .achievement-card__badge {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-green-500, #22c55e);
+    color: var(--color-white);
+    border-radius: var(--border-radius-full);
+  }
+
+  /* Card content */
+  .achievement-card__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: var(--spacing-lg);
+  }
+
+  .achievement-card__title {
+    margin-bottom: 0.5rem;
+    font-size: var(--font-size-xl);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .achievement-card__description {
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-300);
+    line-height: 1.8; /* Improve readability per WCAG AAA */
+  }
+
+  .achievement-card__meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+
+  .achievement-card__points {
+    font-weight: 600;
+    color: var(--color-yellow-400, #facc15);
+  }
+
+  .achievement-card__rarity {
+    color: var(--color-gray-400);
+  }
+
+  .achievement-card__progress-container {
+    margin-top: auto;
+    height: 0.5rem;
+    background-color: var(--color-gray-600);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+  }
+
+  .achievement-card__progress-bar {
+    height: 100%;
+    background-color: var(--color-purple-500);
+    border-radius: var(--border-radius-sm);
+    /* Use will-change judiciously for smoother progress animations */
+    will-change: width;
+  }
+
+  /* Screen-reader only class */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Media queries for responsive design */
+  @media (min-width: 768px) {
+    .achievement-card__title {
+      font-size: var(--font-size-2xl);
+    }
+
+    .achievement-card__description {
+      font-size: var(--font-size-md);
+    }
+  }
+
+  /* Support for larger text spacing */
+  @media (forced-colors: active) {
+    .achievement-card {
+      border: 2px solid CanvasText;
+    }
+
+    .achievement-card--locked {
+      border-style: dashed;
+    }
+
+    .achievement-card--in-progress {
+      border-style: solid;
+    }
+
+    .achievement-card--unlocked {
+      border-style: double;
+    }
+
+    .achievement-card__progress-bar {
+      background-color: Highlight;
+    }
+  }
+
+  /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
-    .transition-transform,
-    .transition-shadow {
-      transition: none !important;
+    .achievement-card {
+      transition: none;
+    }
+
+    .achievement-card:hover {
+      transform: none;
+    }
+
+    .achievement-card--in-progress,
+    .achievement-card--unlocked {
+      background-image: none;
     }
   }
 </style>

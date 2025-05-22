@@ -461,6 +461,7 @@ export default {
   "achievements.rarity": "Rarity: {percentage}%",
   "achievements.notification.unlocked": "Achievement unlocked!",
   "achievements.notification.progress": "Achievement progress updated!",
+  "achievements.notification.close": "Close achievement notification",
   "achievements.filter.title": "Filter Achievements",
   "achievements.filter.status": "Status",
   "achievements.filter.category": "Category",
