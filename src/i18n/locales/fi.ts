@@ -486,6 +486,11 @@ export default {
   "achievements.sort.rarity_asc": "Harvinaisuus (yleisimmät ensin)",
   "achievements.sort.rarity_desc": "Harvinaisuus (harvinaisimmat ensin)",
 
+  // Saavutusilmoitukset
+  "achievements.badge.new": "Uusi saavutus avattu",
+  "achievements.badge.new_with_count": "{count} uutta saavutusta avattu",
+  "achievements.badge.fallback_text": "Saavutusilmoitus",
+
   // API-virheilmoitukset
   "errors.auth.unauthorized": "Sinun on kirjauduttava sisään käyttääksesi tätä toimintoa",
   "errors.invalidRequest": "Virheellinen pyyntö: {error}",

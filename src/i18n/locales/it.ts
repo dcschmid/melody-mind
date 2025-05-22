@@ -490,6 +490,11 @@ export default {
   "achievements.sort.rarity_asc": "Rarità (più comuni prima)",
   "achievements.sort.rarity_desc": "Rarità (più rari prima)",
 
+  // Notifiche achievement
+  "achievements.badge.new": "Nuovo achievement sbloccato",
+  "achievements.badge.new_with_count": "{count} nuovi achievement sbloccati",
+  "achievements.badge.fallback_text": "Notifica achievement",
+
   // Messaggi di errore API
   "errors.auth.unauthorized": "Devi essere loggato per accedere a questa funzionalità",
   "errors.invalidRequest": "Richiesta non valida: {error}",

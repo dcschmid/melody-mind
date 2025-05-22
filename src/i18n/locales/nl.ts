@@ -485,6 +485,11 @@ export default {
   "achievements.sort.rarity_asc": "Zeldzaamheid (meest voorkomend eerst)",
   "achievements.sort.rarity_desc": "Zeldzaamheid (zeldzaamste eerst)",
 
+  // Prestatie notificaties
+  "achievements.badge.new": "Nieuwe prestatie ontgrendeld",
+  "achievements.badge.new_with_count": "{count} nieuwe prestaties ontgrendeld",
+  "achievements.badge.fallback_text": "Prestatie melding",
+
   // API foutmeldingen
   "errors.auth.unauthorized": "Je moet ingelogd zijn om toegang te krijgen tot deze functie",
   "errors.invalidRequest": "Ongeldige aanvraag: {error}",

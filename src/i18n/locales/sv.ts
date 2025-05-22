@@ -471,6 +471,11 @@ export default {
   "achievements.sort.rarity_asc": "Sällsynthet (vanligaste först)",
   "achievements.sort.rarity_desc": "Sällsynthet (sällsyntaste först)",
 
+  // Prestationsaviseringar
+  "achievements.badge.new": "Ny prestation upplåst",
+  "achievements.badge.new_with_count": "{count} nya prestationer upplåsta",
+  "achievements.badge.fallback_text": "Prestationsavisering",
+
   // API felmeddelanden
   "errors.auth.unauthorized": "Du måste vara inloggad för att få tillgång till denna funktion",
   "errors.invalidRequest": "Ogiltig begäran: {error}",

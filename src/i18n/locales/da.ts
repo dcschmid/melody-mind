@@ -483,6 +483,11 @@ export default {
   "achievements.sort.rarity_asc": "Sjældenhed (mest almindelige først)",
   "achievements.sort.rarity_desc": "Sjældenhed (sjældneste først)",
 
+  // Præstationsmeddelelser
+  "achievements.badge.new": "Ny præstation låst op",
+  "achievements.badge.new_with_count": "{count} nye præstationer låst op",
+  "achievements.badge.fallback_text": "Præstationsmeddelelse",
+
   // API fejlmeddelelser
   "errors.auth.unauthorized": "Du skal være logget ind for at få adgang til denne funktion",
   "errors.invalidRequest": "Ugyldig anmodning: {error}",

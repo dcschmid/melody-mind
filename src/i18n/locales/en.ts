@@ -480,6 +480,11 @@ export default {
   "achievements.sort.rarity_asc": "Rarity (commonest first)",
   "achievements.sort.rarity_desc": "Rarity (rarest first)",
 
+  // Achievement badge notifications
+  "achievements.badge.new": "New achievement unlocked",
+  "achievements.badge.new_with_count": "{count} new achievements unlocked",
+  "achievements.badge.fallback_text": "Achievement notification",
+
   // API Error Messages
   "errors.auth.unauthorized": "You must be logged in to access this feature",
   "errors.invalidRequest": "Invalid request: {error}",
