@@ -496,6 +496,11 @@ export default {
   "achievements.sort.rarity_asc": "Seltenheit (häufigste zuerst)",
   "achievements.sort.rarity_desc": "Seltenheit (seltenste zuerst)",
 
+  // Achievement-Badge Benachrichtigungen
+  "achievements.badge.new": "Neue Errungenschaft freigeschaltet",
+  "achievements.badge.new_with_count": "{count} neue Errungenschaften freigeschaltet",
+  "achievements.badge.fallback_text": "Achievement-Benachrichtigung",
+
   // API-Fehlermeldungen
   "errors.auth.unauthorized": "Du musst angemeldet sein, um auf diese Funktion zuzugreifen",
   "errors.invalidRequest": "Ungültige Anfrage: {error}",

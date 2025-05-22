@@ -496,6 +496,11 @@ export default {
   "achievements.sort.rarity_asc": "Rareza (más comunes primero)",
   "achievements.sort.rarity_desc": "Rareza (más raros primero)",
 
+  // Notificaciones de logros
+  "achievements.badge.new": "¡Nuevo logro desbloqueado!",
+  "achievements.badge.new_with_count": "{count} nuevos logros desbloqueados",
+  "achievements.badge.fallback_text": "Notificación de logro",
+
   // Mensajes de error de API
   "errors.auth.unauthorized": "Debes iniciar sesión para acceder a esta función",
   "errors.invalidRequest": "Solicitud inválida: {error}",

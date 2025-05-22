@@ -491,6 +491,11 @@ export default {
   "achievements.sort.rarity_asc": "Raridade (mais comuns primeiro)",
   "achievements.sort.rarity_desc": "Raridade (mais raros primeiro)",
 
+  // Notificações de conquistas
+  "achievements.badge.new": "Nova conquista desbloqueada",
+  "achievements.badge.new_with_count": "{count} novas conquistas desbloqueadas",
+  "achievements.badge.fallback_text": "Notificação de conquista",
+
   // Mensagens de erro da API
   "errors.auth.unauthorized": "Você precisa estar logado para acessar este recurso",
   "errors.invalidRequest": "Solicitação inválida: {error}",

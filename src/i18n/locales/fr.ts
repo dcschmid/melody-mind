@@ -493,6 +493,11 @@ export default {
   "achievements.sort.rarity_asc": "Rareté (plus communs d'abord)",
   "achievements.sort.rarity_desc": "Rareté (plus rares d'abord)",
 
+  // Notifications de succès
+  "achievements.badge.new": "Nouveau succès déverrouillé",
+  "achievements.badge.new_with_count": "{count} nouveaux succès déverrouillés",
+  "achievements.badge.fallback_text": "Notification de succès",
+
   // Messages d'erreur API
   "errors.auth.unauthorized": "Vous devez être connecté pour accéder à cette fonctionnalité",
   "errors.invalidRequest": "Requête invalide: {error}",
