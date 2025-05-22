@@ -128,25 +128,25 @@ const metaDescription = `${t("game.meta.description.prefix")} ${currentCategoryD
   />
 
   <!-- Improved game header section with better visual distinction -->
-  <div class="mb-6 md:mb-8">
+  <div class="game-header">
     <GameHeadline headline={currentCategoryData?.headline} />
 
     <!-- Game info badges -->
-    <div class="mt-4 flex flex-wrap items-center justify-center gap-3" aria-live="polite">
-      <div
-        class="inline-flex items-center rounded-xl border border-zinc-700 bg-gradient-to-r from-zinc-800 to-zinc-900 px-3 py-1 shadow-sm"
-      >
-        <Icon name="difficulty" class="mr-2 h-4 w-4 text-yellow-400" aria-hidden="true" />
-        <span class="text-base font-medium text-zinc-100">
+    <div class="game-header__badges" aria-live="polite">
+      <div class="game-badge">
+        <Icon
+          name="difficulty"
+          class="game-badge__icon game-badge__icon--difficulty"
+          aria-hidden="true"
+        />
+        <span class="game-badge__text">
           {t(`difficulty.${String(difficulty)}`)}
         </span>
       </div>
 
-      <div
-        class="inline-flex items-center rounded-xl border border-zinc-700 bg-gradient-to-r from-zinc-800 to-zinc-900 px-3 py-1 shadow-sm"
-      >
-        <Icon name="coins" class="mr-2 h-4 w-4 text-amber-400" aria-hidden="true" />
-        <span class="text-base font-medium text-zinc-100">
+      <div class="game-badge">
+        <Icon name="coins" class="game-badge__icon game-badge__icon--coins" aria-hidden="true" />
+        <span class="game-badge__text">
           <span id="coins-display" class="coinsCount">0</span>
         </span>
       </div>
@@ -160,7 +160,7 @@ const metaDescription = `${t("game.meta.description.prefix")} ${currentCategoryD
   <!-- Main game container with improved styling and accessibility -->
   <div
     id="question-container"
-    class="mx-auto w-full max-w-3xl rounded-xl border border-zinc-700 bg-gradient-to-b from-zinc-800 to-zinc-900 p-6 text-center opacity-100 shadow-xl transition-all duration-500 data-[hidden=true]:opacity-0 md:p-8"
+    class="game-container"
     role="main"
     aria-label={t("game.area.label")}
     aria-live="polite"
@@ -169,17 +169,11 @@ const metaDescription = `${t("game.meta.description.prefix")} ${currentCategoryD
     data-userID={user.id}
     data-difficulty={String(difficulty)}
   >
-    <div
-      id="question"
-      class="mb-8 text-xl leading-relaxed font-bold text-white md:text-2xl"
-      role="heading"
-      aria-level="2"
-    >
-    </div>
+    <div id="question" class="game-container__question" role="heading" aria-level="2"></div>
 
     <div
       id="options"
-      class="flex flex-col gap-4"
+      class="game-container__options"
       role="radiogroup"
       aria-label={t("game.options.label")}
     >
@@ -188,7 +182,7 @@ const metaDescription = `${t("game.meta.description.prefix")} ${currentCategoryD
   </div>
 
   <!-- Joker and game controls with improved accessibility -->
-  <div class="mt-6 flex justify-center">
+  <div class="game-controls">
     <Joker />
   </div>
 </Layout>
@@ -344,17 +338,6 @@ const metaDescription = `${t("game.meta.description.prefix")} ${currentCategoryD
     display: none;
   }
 
-  /* Optimierte Zugänglichkeitsstile (WCAG AAA) mit Tailwind-Utilities */
-  .sr-only {
-    @apply absolute overflow-hidden whitespace-nowrap;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    border: 0;
-    clip: rect(0, 0, 0, 0);
-  }
-
   /* Münzaktualisierungsanimation mit reduzierter Bewegungsunterstützung */
   .coins-updated {
     color: rgb(251, 191, 36); /* Equivalent to amber-400 */
@@ -456,6 +439,173 @@ const metaDescription = `${t("game.meta.description.prefix")} ${currentCategoryD
     #options button {
       break-inside: avoid;
       border: 1px solid black;
+    }
+  }
+</style>
+
+<style>
+  /* ======================================
+   * Game Header
+   * ====================================== */
+  .game-header {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  /* Game info badges container */
+  .game-header__badges {
+    margin-top: var(--spacing-md);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  /* Individual game badge */
+  .game-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-gray-700);
+    background: linear-gradient(to right, var(--color-gray-800), var(--color-gray-900));
+    padding: 0.25rem 0.75rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Badge icon styling */
+  .game-badge__icon {
+    margin-right: 0.5rem;
+    height: 1rem;
+    width: 1rem;
+  }
+
+  .game-badge__icon--difficulty {
+    color: #facc15; /* yellow-400 */
+  }
+
+  .game-badge__icon--coins {
+    color: #fbbf24; /* amber-400 */
+  }
+
+  /* Badge text styling */
+  .game-badge__text {
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    color: var(--color-gray-100);
+  }
+
+  /* ======================================
+   * Game Container
+   * ====================================== */
+  .game-container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 48rem; /* max-w-3xl */
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-gray-700);
+    background: linear-gradient(to bottom, var(--color-gray-800), var(--color-gray-900));
+    padding: 1.5rem;
+    text-align: center;
+    opacity: 1;
+    box-shadow: var(--shadow-lg);
+    transition: opacity 0.5s;
+  }
+
+  .game-container[data-hidden="true"] {
+    opacity: 0;
+  }
+
+  /* Question text */
+  .game-container__question {
+    margin-bottom: var(--spacing-xl);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    line-height: var(--line-height-relaxed);
+    color: var(--color-white);
+  }
+
+  /* Options container */
+  .game-container__options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  /* Game controls area */
+  .game-controls {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    justify-content: center;
+  }
+
+  /* ======================================
+   * Responsive Adjustments
+   * ====================================== */
+  @media (min-width: 768px) {
+    .game-header {
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .game-container {
+      padding: var(--spacing-xl);
+    }
+
+    .game-container__question {
+      font-size: var(--font-size-2xl);
+    }
+  }
+
+  /* ======================================
+   * Light Mode Support
+   * ====================================== */
+  @media (prefers-color-scheme: light) {
+    .game-badge {
+      border-color: var(--color-gray-400);
+      background: linear-gradient(to right, var(--color-gray-200), var(--color-gray-300));
+    }
+
+    .game-badge__text {
+      color: var(--color-gray-900);
+    }
+  }
+
+  /* ======================================
+   * Accessibility Enhancements
+   * ====================================== */
+  /* High contrast mode support */
+  @media (forced-colors: active) {
+    .game-badge {
+      border: 2px solid ButtonText;
+      background: ButtonFace;
+    }
+
+    .game-badge__icon {
+      forced-color-adjust: none;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .game-container {
+      transition: none;
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .game-header {
+      break-inside: avoid;
+    }
+
+    .game-badge {
+      border: 1px solid black;
+      background: none !important;
+    }
+
+    .game-container {
+      border: 1px solid black;
+      background: none !important;
+      box-shadow: none;
     }
   }
 </style>

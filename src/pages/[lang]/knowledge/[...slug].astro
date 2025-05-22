@@ -362,74 +362,45 @@ const articleSchemaData = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchemaData)} />
 
-  <!-- 
-  Accessibility Enhancement: prefers-reduced-motion support 
-  This style block helps users who prefer reduced motion by minimizing
-  animations and transitions throughout the component. This is especially
-  important for users with vestibular disorders or other conditions that
-  make motion effects uncomfortable or disorienting.
-  -->
-  <style>
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.001s !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001s !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
-
-  <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-    <article class="prose prose-lg dark:prose-invert max-w-none" aria-labelledby="article-title">
-      <nav class="mb-8 print:hidden" aria-label={t["knowledge.breadcrumb.label"] || "Breadcrumb"}>
-        <ol class="text-md flex flex-wrap items-center gap-2">
-          <li class="flex items-center">
-            <a
-              href={`/${lang}`}
-              class="flex items-center gap-1 rounded-lg px-2 py-1 text-zinc-400 transition-colors hover:text-sky-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
-              aria-label={t?.["nav.home"] || "Home"}
-            >
-              <Icon name="home" class="h-4 w-4" aria-hidden="true" />
+  <main class="article-page">
+    <article class="article" aria-labelledby="article-title">
+      <nav
+        class="breadcrumb print:hidden"
+        aria-label={t["knowledge.breadcrumb.label"] || "Breadcrumb"}
+      >
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__item">
+            <a href={`/${lang}`} class="breadcrumb__link" aria-label={t?.["nav.home"] || "Home"}>
+              <Icon name="home" class="breadcrumb__icon" aria-hidden="true" />
               <span class="sr-only">{t?.["nav.home"] || "Home"}</span>
             </a>
           </li>
-          <li class="flex items-center" aria-hidden="true">
-            <Icon name="chevron-right" class="mx-1 h-4 w-4 text-zinc-500" />
+          <li class="breadcrumb__item" aria-hidden="true">
+            <Icon name="chevron-right" class="breadcrumb__separator" />
           </li>
-          <li>
-            <a
-              href={`/${String(lang)}/knowledge`}
-              class="flex items-center gap-1 rounded-lg px-2 py-1 text-zinc-400 transition-colors hover:text-sky-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
-            >
+          <li class="breadcrumb__item">
+            <a href={`/${String(lang)}/knowledge`} class="breadcrumb__link">
               {t?.["knowledge.title"] || "Knowledge"}
             </a>
           </li>
-          <li class="flex items-center" aria-hidden="true">
-            <Icon name="chevron-right" class="mx-1 h-4 w-4 text-zinc-500" />
+          <li class="breadcrumb__item" aria-hidden="true">
+            <Icon name="chevron-right" class="breadcrumb__separator" />
           </li>
-          <li
-            class="max-w-[150px] truncate rounded-lg bg-zinc-800/30 px-2 py-1 text-zinc-50 sm:max-w-xs"
-            aria-current="page"
-          >
+          <li class="breadcrumb__current" aria-current="page">
             {entry.data.title}
           </li>
         </ol>
       </nav>
 
-      <header class="relative mb-12">
+      <header class="article__header">
         <!-- Hero Image Container -->
-        <div
-          class="relative mb-8 aspect-video overflow-hidden rounded-2xl shadow-xl ring-1 ring-zinc-700/50"
-        >
+        <div class="article__image-container">
           <Picture
             src={imageSource}
             width={1200}
             height={675}
             formats={["avif", "webp"]}
-            class="h-full w-full object-cover"
+            class="article__image"
             loading="eager"
             fetchpriority="high"
             alt={`Cover image for article "${entry.data.title}" - Music knowledge on Melody Mind`}
@@ -441,40 +412,37 @@ const articleSchemaData = {
         </div>
 
         <!-- Title and Meta Container -->
-        <div class="relative space-y-6">
+        <div class="article__meta-container">
           <Headline
             level="h1"
             title={entry.data.title}
             id="article-title"
-            className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
+            className="article__title"
           />
 
           <!-- Meta Information -->
-          <div class="flex flex-wrap items-center gap-4">
+          <div class="meta-info">
             {
               formattedDate && (
-                <time
-                  datetime={entry.data.createdAt?.toISOString()}
-                  class="flex min-h-[44px] items-center gap-2 rounded-xl bg-zinc-800/90 px-4 py-2 text-zinc-300"
-                >
-                  <Icon name="calendar" class="h-5 w-5 text-sky-400" aria-hidden="true" />
-                  <span class="text-base">{formattedDate}</span>
+                <time datetime={entry.data.createdAt?.toISOString()} class="meta-info__item">
+                  <Icon name="calendar" class="meta-info__icon" aria-hidden="true" />
+                  <span class="meta-info__text">{formattedDate}</span>
                 </time>
               )
             }
 
             {
               readingTimeText && (
-                <span class="flex min-h-[44px] items-center gap-2 rounded-xl bg-zinc-800/90 px-4 py-2 text-zinc-300">
-                  <Icon name="clock" class="h-5 w-5 text-sky-400" aria-hidden="true" />
-                  <span class="text-base">{readingTimeText}</span>
+                <span class="meta-info__item">
+                  <Icon name="clock" class="meta-info__icon" aria-hidden="true" />
+                  <span class="meta-info__text">{readingTimeText}</span>
                 </span>
               )
             }
           </div>
 
           <!-- Music & Game Buttons -->
-          <div class="flex flex-wrap items-center gap-4">
+          <div class="action-buttons">
             {
               entry.data.category && (
                 <MusicButtons category={entry.data.category} title={entry.data.title} />
@@ -485,12 +453,12 @@ const articleSchemaData = {
               isPlayable && gameCategoryUrl && (
                 <ButtonLink
                   href={gameCategoryUrl}
-                  className="group flex items-center min-w-[120px] h-12 px-4 py-2 rounded-xl text-sm font-medium bg-blue-600 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 hover:bg-blue-500 transition-colors"
+                  className="play-button"
                   aria-label={`${playButtonText}: ${entry.data.title}`}
                 >
-                  <span class="flex items-center gap-2">
-                    <Icon name="game-controller" class="h-5 w-5" aria-hidden="true" />
-                    <span class="font-medium">{playButtonText}</span>
+                  <span class="play-button__content">
+                    <Icon name="game-controller" class="play-button__icon" aria-hidden="true" />
+                    <span class="play-button__text">{playButtonText}</span>
                   </span>
                 </ButtonLink>
               )
@@ -500,16 +468,12 @@ const articleSchemaData = {
       </header>
 
       <!-- Table of Contents Dropdown -->
-      <div class="toc-wrapper relative z-10 mb-8">
+      <div class="toc-wrapper">
         <TableOfContents {headings} title="Table of Contents" {lang} />
       </div>
 
-      <div id="article-content" class="content-wrapper relative mt-4">
-        <div
-          role="region"
-          aria-label="Main content"
-          class="prose prose-lg dark:prose-invert prose-headings:scroll-mt-20 prose-headings:text-white prose-headings:font-bold prose-p:text-slate-200 prose-p:leading-7 prose-a:text-sky-600 hover:prose-a:text-sky-500 prose-a:underline prose-a:underline-offset-2 focus:prose-a:outline-2 focus:prose-a:outline-sky-400 focus:prose-a:outline-offset-4 focus:prose-a:rounded prose-blockquote:border-l-4 prose-blockquote:border-sky-400 prose-blockquote:pl-6 prose-blockquote:text-slate-200 prose-ul:list-outside prose-ol:list-outside prose-li:text-slate-200 prose-li:mb-3 marker:prose-li:text-sky-400 max-w-none"
-        >
+      <div id="article-content" class="content-wrapper">
+        <div role="region" aria-label="Main content" class="article-content">
           <div>
             <Content />
           </div>
@@ -517,18 +481,14 @@ const articleSchemaData = {
       </div>
 
       <!-- Back navigation with improved accessibility -->
-      <div class="mt-12 flex justify-between border-t border-zinc-700 pt-8 print:hidden">
+      <div class="back-navigation print:hidden">
         <ButtonLink
           href={`/${String(lang)}/knowledge`}
-          className="group flex min-h-[44px] min-w-[44px] items-center rounded-lg px-4 py-2 transition-colors hover:bg-zinc-800/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+          className="back-link"
           aria-label={t?.["knowledge.back.to.list"] || "Back to knowledge list"}
         >
-          <Icon
-            name="arrow-left"
-            class="mr-3 h-5 w-5 transition-transform group-hover:translate-x-[-2px]"
-            aria-hidden="true"
-          />
-          <span class="text-base font-medium"
+          <Icon name="arrow-left" class="back-link__icon" aria-hidden="true" />
+          <span class="back-link__text"
             >{t["knowledge.back.to.list"] || "Back to knowledge list"}</span
           >
         </ButtonLink>
@@ -537,13 +497,337 @@ const articleSchemaData = {
   </main>
 </Layout>
 
-<!-- 
-Note: Custom styles have been replaced with Tailwind classes.
-This change improves performance through:
-1. Reduced CSS size by using utility classes
-2. Improved cacheability
-3. Consistent application of the design system
+<style>
+  /* Main layout styles */
+  .article-page {
+    margin: 0 auto;
+    max-width: 60rem;
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
 
-All styles are now directly in the HTML elements, which improves code maintainability
-and aligns with the project-wide directive to use Tailwind CSS.
--->
+  /* Article container */
+  .article {
+    width: 100%;
+  }
+
+  /* Breadcrumb navigation */
+  .breadcrumb {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .breadcrumb__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-sm);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: var(--font-size-md);
+  }
+
+  .breadcrumb__item {
+    display: flex;
+    align-items: center;
+  }
+
+  .breadcrumb__link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    color: var(--color-gray-400);
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    transition: color 0.3s;
+  }
+
+  .breadcrumb__link:hover {
+    color: var(--color-purple-500);
+  }
+
+  .breadcrumb__link:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-purple-500);
+  }
+
+  .breadcrumb__icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .breadcrumb__separator {
+    color: var(--color-gray-500);
+    margin: 0 var(--spacing-xs);
+  }
+
+  .breadcrumb__current {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: rgba(31, 41, 55, 0.3);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    color: var(--color-white);
+  }
+
+  /* Article header */
+  .article__header {
+    position: relative;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  /* Cover image */
+  .article__image-container {
+    position: relative;
+    margin-bottom: var(--spacing-xl);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .article__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Article meta section */
+  .article__meta-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  /* Meta information */
+  .meta-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-lg);
+  }
+
+  .meta-info__item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background-color: rgba(31, 41, 55, 0.9);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    color: var(--color-gray-300);
+    min-height: 44px;
+  }
+
+  .meta-info__icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--color-purple-400);
+  }
+
+  .meta-info__text {
+    font-size: var(--font-size-md);
+  }
+
+  /* Action buttons */
+  .action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-lg);
+  }
+
+  /* Table of contents */
+  .toc-wrapper {
+    position: relative;
+    z-index: 10;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  /* Article content */
+  .content-wrapper {
+    position: relative;
+    margin-top: var(--spacing-lg);
+  }
+
+  .article-content {
+    color: var(--color-gray-200);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .article-content h2,
+  .article-content h3,
+  .article-content h4,
+  .article-content h5,
+  .article-content h6 {
+    color: var(--color-white);
+    font-weight: bold;
+    scroll-margin-top: 5rem;
+  }
+
+  .article-content p {
+    color: var(--color-gray-200);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .article-content a {
+    color: var(--color-purple-400);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .article-content a:hover {
+    color: var(--color-purple-300);
+  }
+
+  .article-content a:focus-visible {
+    outline: 2px solid var(--color-purple-400);
+    outline-offset: 4px;
+    border-radius: var(--border-radius-sm);
+  }
+
+  .article-content blockquote {
+    border-left: 4px solid var(--color-purple-400);
+    padding-left: var(--spacing-md);
+    color: var(--color-gray-200);
+  }
+
+  .article-content ul,
+  .article-content ol {
+    list-style-position: outside;
+  }
+
+  .article-content li {
+    color: var(--color-gray-200);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .article-content li::marker {
+    color: var(--color-purple-400);
+  }
+
+  /* Back navigation */
+  .back-navigation {
+    margin-top: var(--spacing-2xl);
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--color-gray-700);
+    padding-top: var(--spacing-xl);
+  }
+
+  .back-link {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    min-width: 44px;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    color: var(--color-gray-300);
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+
+  .back-link:hover {
+    background-color: rgba(31, 41, 55, 0.8);
+  }
+
+  .back-link:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--color-purple-500),
+      0 0 0 4px var(--color-gray-900);
+  }
+
+  .back-link__icon {
+    margin-right: var(--spacing-sm);
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.3s;
+  }
+
+  .back-link:hover .back-link__icon {
+    transform: translateX(-2px);
+  }
+
+  .back-link__text {
+    font-size: var(--font-size-md);
+    font-weight: 500;
+  }
+
+  /* Play button styles */
+  .play-button {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    min-width: 120px;
+    height: 48px;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    background-color: var(--color-purple-600);
+    color: var(--color-white);
+    border: none;
+    transition: background-color 0.3s;
+  }
+
+  .play-button:hover {
+    background-color: var(--color-purple-500);
+  }
+
+  .play-button:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--color-purple-400),
+      0 0 0 4px var(--color-gray-900);
+  }
+
+  .play-button__icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  /* Print styles */
+  @media print {
+    .breadcrumb,
+    .back-navigation {
+      display: none;
+    }
+  }
+
+  /* Media queries */
+  @media (min-width: 640px) {
+    .article-page {
+      padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .breadcrumb__current {
+      max-width: unset;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .article__header {
+      margin-bottom: var(--spacing-3xl);
+    }
+
+    .article-page {
+      padding: var(--spacing-xl) var(--spacing-lg);
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001s !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001s !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
