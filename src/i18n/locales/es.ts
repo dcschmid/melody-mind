@@ -477,6 +477,7 @@ export default {
   "achievements.rarity": "Rareza: {percentage}%",
   "achievements.notification.unlocked": "¡Logro desbloqueado!",
   "achievements.notification.progress": "¡Progreso del logro actualizado!",
+  "achievements.notification.close": "Cerrar notificación de logro",
   "achievements.filter.title": "Filtrar Logros",
   "achievements.filter.status": "Estado",
   "achievements.filter.category": "Categoría",

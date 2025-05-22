@@ -464,6 +464,7 @@ export default {
   "achievements.rarity": "Sjældenhed: {percentage}%",
   "achievements.notification.unlocked": "Præstation låst op!",
   "achievements.notification.progress": "Præstationsfremskridt opdateret!",
+  "achievements.notification.close": "Luk præstationsmeddelelse",
   "achievements.filter.title": "Filtrer Præstationer",
   "achievements.filter.status": "Status",
   "achievements.filter.category": "Kategori",

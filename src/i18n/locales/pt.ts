@@ -472,6 +472,7 @@ export default {
   "achievements.rarity": "Raridade: {percentage}%",
   "achievements.notification.unlocked": "Conquista desbloqueada!",
   "achievements.notification.progress": "Progresso da conquista atualizado!",
+  "achievements.notification.close": "Fechar notificação de conquista",
   "achievements.filter.title": "Filtrar Conquistas",
   "achievements.filter.status": "Status",
   "achievements.filter.category": "Categoria",

@@ -452,6 +452,7 @@ export default {
   "achievements.rarity": "Sällsynthet: {percentage}%",
   "achievements.notification.unlocked": "Prestation upplåst!",
   "achievements.notification.progress": "Prestationsframsteg uppdaterat!",
+  "achievements.notification.close": "Stäng prestationsavisering",
   "achievements.filter.title": "Filtrera Prestationer",
   "achievements.filter.status": "Status",
   "achievements.filter.category": "Kategori",

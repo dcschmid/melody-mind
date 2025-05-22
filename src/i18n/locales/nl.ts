@@ -466,6 +466,7 @@ export default {
   "achievements.rarity": "Zeldzaamheid: {percentage}%",
   "achievements.notification.unlocked": "Prestatie ontgrendeld!",
   "achievements.notification.progress": "Prestatievoortgang bijgewerkt!",
+  "achievements.notification.close": "Sluit prestatie melding",
   "achievements.filter.title": "Filter Prestaties",
   "achievements.filter.status": "Status",
   "achievements.filter.category": "Categorie",

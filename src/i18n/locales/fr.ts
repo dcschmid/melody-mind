@@ -474,6 +474,7 @@ export default {
   "achievements.rarity": "Rareté : {percentage}%",
   "achievements.notification.unlocked": "Succès déverrouillé !",
   "achievements.notification.progress": "Progression du succès mise à jour !",
+  "achievements.notification.close": "Fermer la notification de succès",
   "achievements.filter.title": "Filtrer les Succès",
   "achievements.filter.status": "Statut",
   "achievements.filter.category": "Catégorie",
