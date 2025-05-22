@@ -8,7 +8,7 @@
  * Features:
  * - Display of top scores for quiz and chronology game modes
  * - Filtering by game mode and category
- * - Responsive design with Tailwind CSS
+ * - Responsive design with CSS
  * - WCAG AAA compliant
  *
  * URL: /[lang]/highscores
@@ -85,7 +85,7 @@ try {
 const formatHighscoreDate = (dateString: string): string => {
   try {
     return formatDate(dateString, String(lang));
-  } catch (err) {
+  } catch {
     return dateString;
   }
 };
@@ -106,23 +106,17 @@ const gameModeNames = {
     "View the top scores across different game modes and categories"}
   type="website"
 >
-  <div class="mx-auto max-w-4xl">
-    <h1 class="mb-8 text-center text-3xl font-bold text-white">
+  <div class="highscores">
+    <h1 class="highscores__title">
       {t("highscores.title") || "Highscores"}
     </h1>
 
     {
       isLoading && (
-        <div class="flex min-h-[300px] items-center justify-center" aria-live="polite">
-          <div class="text-center">
-            <Icon
-              name="loader"
-              class="mx-auto h-10 w-10 animate-spin text-purple-400"
-              aria-hidden="true"
-            />
-            <p class="mt-4 text-lg text-zinc-300">
-              {t("highscores.loading") || "Loading highscores..."}
-            </p>
+        <div class="highscores__loading" aria-live="polite">
+          <div class="highscores__loading-content">
+            <Icon name="loading" class="highscores__loading-icon" aria-hidden="true" />
+            <span class="sr-only">{t("common.loading")}</span>
           </div>
         </div>
       )
@@ -130,35 +124,26 @@ const gameModeNames = {
 
     {
       error && (
-        <div
-          class="mb-8 rounded-lg border border-red-700 bg-red-900/30 p-4 text-white"
-          role="alert"
-        >
-          <p class="font-medium">{error}</p>
+        <div class="highscores__error" role="alert">
+          <p>{error}</p>
         </div>
       )
     }
 
     {
       !isLoading && !error && (
-        <div class="space-y-10">
-          <section
-            class="rounded-xl border border-zinc-700 bg-gradient-to-b from-zinc-800 to-zinc-900 p-6 shadow-lg"
-            aria-labelledby="filter-heading"
-          >
-            <h2 id="filter-heading" class="mb-4 text-2xl font-bold text-white">
-              {t("highscores.filter.title") || "Filter Highscores"}
+        <div class="highscores__content">
+          <section class="highscores__filters" aria-labelledby="filter-heading">
+            <h2 id="filter-heading" class="highscores__filter-title">
+              {t("highscores.filters") || "Filter Results"}
             </h2>
 
-            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <div>
-                <label for="game-mode-filter" class="mb-2 block text-zinc-300">
+            <div class="highscores__filter-grid">
+              <div class="highscores__filter-item">
+                <label for="game-mode-filter" class="highscores__filter-label">
                   {t("highscores.filter.game.mode") || "Game Mode"}
                 </label>
-                <select
-                  id="game-mode-filter"
-                  class="w-full rounded-lg border border-zinc-600 bg-zinc-900 p-3 text-white focus:ring-2 focus:ring-purple-400 focus:outline-none"
-                >
+                <select id="game-mode-filter" class="highscores__filter-select">
                   <option value="" selected={!selectedGameMode}>
                     {t("highscores.filter.all") || "All Game Modes"}
                   </option>
@@ -171,15 +156,15 @@ const gameModeNames = {
                 </select>
               </div>
 
-              <div>
-                <label for="category-search" class="mb-2 block text-zinc-300">
+              <div class="highscores__filter-item">
+                <label for="category-filter" class="highscores__filter-label">
                   {t("highscores.filter.category") || "Category"}
                 </label>
-                <div class="relative">
+                <div class="highscores__filter-dropdown">
                   <button
                     type="button"
                     id="category-dropdown-button"
-                    class="flex w-full items-center justify-between rounded-lg border border-zinc-600 bg-zinc-900 p-3 text-white focus:ring-2 focus:ring-purple-400 focus:outline-none"
+                    class="highscores__filter-dropdown-button"
                     aria-haspopup="listbox"
                     aria-expanded="false"
                     aria-controls="category-dropdown-options"
@@ -191,7 +176,7 @@ const gameModeNames = {
                     </span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 text-zinc-400"
+                      class="highscores__filter-dropdown-icon"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                       aria-hidden="true"
@@ -217,15 +202,14 @@ const gameModeNames = {
 
                   <div
                     id="category-dropdown-options"
-                    class="absolute z-10 mt-1 hidden w-full rounded-lg border border-zinc-600 bg-zinc-800 shadow-lg"
-                    role="listbox"
+                    class="highscores__filter-dropdown-options hidden"
                     aria-labelledby="category-dropdown-button"
                   >
-                    <div class="border-b border-zinc-700 p-2">
-                      <div class="relative">
+                    <div class="highscores__filter-dropdown-search">
+                      <div class="highscores__filter-dropdown-search-wrapper">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          class="absolute top-1/2 left-3 h-5 w-5 -translate-y-1/2 transform text-zinc-400"
+                          class="highscores__filter-dropdown-search-icon"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                           aria-hidden="true"
@@ -239,39 +223,33 @@ const gameModeNames = {
                         <input
                           type="text"
                           id="category-search"
-                          class="w-full rounded-md border border-zinc-700 bg-zinc-900 py-2 pr-3 pl-10 text-white placeholder-zinc-400 focus:border-transparent focus:ring-2 focus:ring-purple-400 focus:outline-none"
+                          class="highscores__filter-dropdown-search-input"
                           placeholder={t("highscores.filter.search") || "Search categories..."}
                           aria-label={t("highscores.filter.search") || "Search categories"}
                         />
                       </div>
                     </div>
 
-                    <ul
-                      class="max-h-60 overflow-y-auto py-1"
-                      role="listbox"
-                      aria-labelledby="category-dropdown-button"
-                    >
-                      <li
-                        class="flex cursor-pointer items-center px-3 py-2 text-white hover:bg-zinc-700"
-                        role="option"
-                        data-value=""
-                        aria-selected={!selectedCategory ? "true" : "false"}
-                      >
-                        <span class="ml-2">{t("highscores.filter.all") || "All Categories"}</span>
-                      </li>
-                      {categories.map((category) => (
-                        <li
-                          class="flex cursor-pointer items-center px-3 py-2 text-white hover:bg-zinc-700"
+                    <div class="highscores__filter-dropdown-list" role="listbox">
+                      {[
+                        { value: "", label: t("highscores.filter.all") || "All Categories" },
+                        ...categories.map((cat) => ({ value: cat, label: cat })),
+                      ].map((option) => (
+                        <button
+                          class="highscores__filter-dropdown-option"
                           role="option"
-                          data-value={category}
-                          aria-selected={selectedCategory === category ? "true" : "false"}
+                          data-value={option.value}
+                          aria-selected={option.value === selectedCategory ? "true" : "false"}
                         >
-                          <span class="ml-2">{category}</span>
-                        </li>
+                          {option.label}
+                        </button>
                       ))}
-                    </ul>
+                    </div>
 
-                    <div id="no-categories-found" class="hidden px-3 py-2 text-zinc-400">
+                    <div
+                      id="no-categories-found"
+                      class="highscores__filter-dropdown-no-results hidden"
+                    >
                       {t("highscores.filter.no.results") || "No categories found"}
                     </div>
                   </div>
@@ -280,59 +258,66 @@ const gameModeNames = {
             </div>
           </section>
 
-          <section
-            class="rounded-xl border border-zinc-700 bg-gradient-to-b from-zinc-800 to-zinc-900 p-6 shadow-lg"
-            aria-labelledby="highscores-heading"
-          >
-            <h2 id="highscores-heading" class="mb-6 text-2xl font-bold text-white">
+          <section class="highscores__table-section" aria-labelledby="highscores-heading">
+            <h2 id="highscores-heading" class="highscores__table-title">
               {t("highscores.table.title") || "Top Scores"}
             </h2>
 
             {highscores.length === 0 ? (
-              <p class="py-8 text-center text-zinc-400">
+              <p class="highscores__table-empty">
                 {t("highscores.empty") || "No highscores found"}
               </p>
             ) : (
-              <div class="overflow-x-auto">
-                <table class="w-full border-collapse" aria-describedby="highscores-heading">
+              <div class="highscores__table-wrapper">
+                <table class="highscores__table" aria-describedby="highscores-heading">
                   <thead>
-                    <tr class="border-b border-zinc-700">
-                      <th scope="col" class="px-4 py-3 text-left font-medium text-zinc-300">
+                    <tr class="highscores__table-header-row">
+                      <th scope="col" class="highscores__table-header-cell">
                         {t("highscores.table.rank") || "Rank"}
                       </th>
-                      <th scope="col" class="px-4 py-3 text-left font-medium text-zinc-300">
+                      <th scope="col" class="highscores__table-header-cell">
                         {t("highscores.table.player") || "Player"}
                       </th>
-                      <th scope="col" class="px-4 py-3 text-left font-medium text-zinc-300">
+                      <th scope="col" class="highscores__table-header-cell">
                         {t("highscores.table.game.mode") || "Game Mode"}
                       </th>
-                      <th scope="col" class="px-4 py-3 text-left font-medium text-zinc-300">
+                      <th scope="col" class="highscores__table-header-cell">
                         {t("highscores.table.category") || "Category"}
                       </th>
-                      <th scope="col" class="px-4 py-3 text-right font-medium text-zinc-300">
+                      <th
+                        scope="col"
+                        class="highscores__table-header-cell highscores__table-header-cell--right"
+                      >
                         {t("highscores.table.score") || "Score"}
                       </th>
-                      <th scope="col" class="px-4 py-3 text-right font-medium text-zinc-300">
+                      <th
+                        scope="col"
+                        class="highscores__table-header-cell highscores__table-header-cell--right"
+                      >
                         {t("highscores.table.date") || "Date"}
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     {highscores.map((score, index) => (
-                      <tr class="border-b border-zinc-800 transition-colors hover:bg-zinc-800/50">
-                        <td class="px-4 py-3 font-bold">{index + 1}</td>
-                        <td class="px-4 py-3 text-white">{score.username}</td>
-                        <td class="px-4 py-3">
+                      <tr class="highscores__table-row">
+                        <td class="highscores__table-cell highscores__table-cell--bold">
+                          {index + 1}
+                        </td>
+                        <td class="highscores__table-cell">{score.username}</td>
+                        <td class="highscores__table-cell">
                           <span
-                            class={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${score.gameMode === "quiz" ? "bg-yellow-900/30 text-yellow-300" : "bg-blue-900/30 text-blue-300"}`}
+                            class={`highscores__table-badge highscores__table-badge--${score.gameMode}`}
                           >
                             {gameModeNames[score.gameMode as keyof typeof gameModeNames] ||
                               score.gameMode}
                           </span>
                         </td>
-                        <td class="px-4 py-3 text-white">{score.category}</td>
-                        <td class="px-4 py-3 text-right font-bold text-white">{score.score}</td>
-                        <td class="px-4 py-3 text-right text-zinc-300">
+                        <td class="highscores__table-cell">{score.category}</td>
+                        <td class="highscores__table-cell highscores__table-cell--right highscores__table-cell--bold">
+                          {score.score}
+                        </td>
+                        <td class="highscores__table-cell highscores__table-cell--right">
                           {formatHighscoreDate(score.createdAt)}
                         </td>
                       </tr>
@@ -397,7 +382,9 @@ const gameModeNames = {
     });
 
     // Handle category option selection
-    const categoryOptions = categoryDropdownOptions.querySelectorAll('li[role="option"]');
+    const categoryOptions = categoryDropdownOptions.querySelectorAll(
+      ".highscores__filter-dropdown-option"
+    );
     categoryOptions.forEach((option) => {
       option.addEventListener("click", () => {
         const value = option.getAttribute("data-value") || "";
@@ -479,7 +466,7 @@ const gameModeNames = {
     });
 
     // Function to update highscores based on filters
-    const updateHighscores = async () => {
+    const updateHighscores = async (): Promise<void> => {
       const gameMode = gameModeFilter.value;
       const category = categoryFilter.value;
 
@@ -500,16 +487,16 @@ const gameModeNames = {
         const tableSection = document.querySelector('[aria-labelledby="highscores-heading"]');
         if (tableSection) {
           tableSection.innerHTML = `
-            <h2 id="highscores-heading" class="text-2xl font-bold text-white mb-6">
+            <h2 id="highscores-heading" class="highscores__table-title">
               ${document.getElementById("highscores-heading")?.textContent || "Top Scores"}
             </h2>
-            <div class="flex justify-center items-center min-h-[200px]">
-              <div class="text-center">
-                <svg class="w-10 h-10 mx-auto animate-spin text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <div class="highscores__loading">
+              <div class="highscores__loading-content">
+                <svg class="highscores__loading-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                   <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                <p class="mt-4 text-lg text-zinc-300">Loading highscores...</p>
+                <p class="highscores__loading-text">Loading highscores...</p>
               </div>
             </div>
           `;
@@ -531,11 +518,11 @@ const gameModeNames = {
         const tableSection = document.querySelector('[aria-labelledby="highscores-heading"]');
         if (tableSection) {
           tableSection.innerHTML = `
-            <h2 id="highscores-heading" class="text-2xl font-bold text-white mb-6">
+            <h2 id="highscores-heading" class="highscores__table-title">
               ${document.getElementById("highscores-heading")?.textContent || "Top Scores"}
             </h2>
-            <div class="bg-red-900/30 border border-red-700 text-white p-4 rounded-lg">
-              <p class="font-medium">Error loading highscores</p>
+            <div class="highscores__error">
+              <p>Error loading highscores</p>
             </div>
           `;
         }
@@ -570,3 +557,426 @@ const gameModeNames = {
     }
   });
 </script>
+
+<style>
+  /* Highscores container */
+  .highscores {
+    max-width: var(--breakpoint-lg);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--spacing-md);
+  }
+
+  /* Highscores title */
+  .highscores__title {
+    margin-bottom: var(--spacing-xl);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-white);
+  }
+
+  /* Loading state */
+  .highscores__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+  }
+
+  .highscores__loading-content {
+    text-align: center;
+  }
+
+  .highscores__loading-icon {
+    width: 3rem;
+    height: 3rem;
+    color: var(--color-purple-400);
+    animation: spin 1.5s linear infinite;
+  }
+
+  .highscores__loading-text {
+    margin-top: var(--spacing-md);
+    color: var(--color-text-body);
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Error message */
+  .highscores__error {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-pink-700);
+    background-color: rgba(131, 24, 67, 0.3); /* --color-pink-900 with 30% opacity */
+    color: var(--color-white);
+  }
+
+  .highscores__error p {
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+
+  /* Content container */
+  .highscores__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+  }
+
+  /* Filters section */
+  .highscores__filters {
+    padding: var(--spacing-lg);
+    background-color: var(--color-background-card);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+  }
+
+  .highscores__filter-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+  }
+
+  .highscores__filter-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .highscores__filter-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .highscores__filter-label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-md);
+    color: var(--color-gray-300);
+  }
+
+  .highscores__filter-select {
+    width: 100%;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-gray-700);
+    background-color: var(--color-gray-800);
+    color: var(--color-white);
+    font-size: var(--font-size-md);
+  }
+
+  .highscores__filter-select:focus {
+    outline: none;
+    border-color: var(--color-purple-500);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+  }
+
+  .highscores__filter-dropdown {
+    position: relative;
+  }
+
+  .highscores__filter-dropdown-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-gray-700);
+    background-color: var(--color-gray-800);
+    color: var(--color-white);
+    font-size: var(--font-size-md);
+    cursor: pointer;
+  }
+
+  .highscores__filter-dropdown-button:hover {
+    background-color: var(--color-gray-700);
+  }
+
+  .highscores__filter-dropdown-button:focus {
+    outline: none;
+    border-color: var(--color-purple-500);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+  }
+
+  .highscores__filter-dropdown-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--color-gray-400);
+  }
+
+  .highscores__filter-dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    margin-top: var(--spacing-xs);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-gray-700);
+    background-color: var(--color-gray-800);
+    box-shadow: var(--shadow-md);
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .highscores__filter-dropdown-search {
+    padding: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-gray-700);
+  }
+
+  .highscores__filter-dropdown-search-wrapper {
+    position: relative;
+  }
+
+  .highscores__filter-dropdown-search-icon {
+    position: absolute;
+    top: 50%;
+    left: var(--spacing-sm);
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--color-gray-400);
+    transform: translateY(-50%);
+  }
+
+  .highscores__filter-dropdown-search-input {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md) var(--spacing-sm) calc(var(--spacing-md) + 1.25rem);
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--color-gray-700);
+    background-color: var(--color-gray-900);
+    color: var(--color-white);
+    font-size: var(--font-size-md);
+  }
+
+  .highscores__filter-dropdown-search-input:focus {
+    outline: none;
+    border-color: var(--color-purple-500);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+  }
+
+  .highscores__filter-dropdown-list {
+    max-height: 15rem;
+    overflow-y: auto;
+    padding: var(--spacing-xs) 0;
+    margin: 0;
+  }
+
+  .highscores__filter-dropdown-option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: var(--font-size-md);
+    cursor: pointer;
+  }
+
+  .highscores__filter-dropdown-option:hover {
+    background-color: var(--color-gray-700);
+  }
+
+  .highscores__filter-dropdown-option:focus {
+    outline: none;
+    background-color: var(--color-gray-700);
+    box-shadow: 0 0 0 2px var(--color-purple-500) inset;
+  }
+
+  .highscores__filter-dropdown-option[aria-selected="true"] {
+    background-color: var(--color-purple-900);
+    color: var(--color-white);
+    font-weight: 500;
+  }
+
+  .highscores__filter-dropdown-no-results {
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--color-gray-400);
+    text-align: center;
+  }
+
+  /* Table section */
+  .highscores__table-section {
+    padding: var(--spacing-lg);
+    background-color: var(--color-background-card);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+  }
+
+  .highscores__table-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+  }
+
+  .highscores__table-empty {
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+    color: var(--color-gray-400);
+  }
+
+  .highscores__table-wrapper {
+    overflow-x: auto;
+  }
+
+  .highscores__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .highscores__table-header-row {
+    border-bottom: 1px solid var(--color-gray-700);
+  }
+
+  .highscores__table-header-cell {
+    padding: var(--spacing-md);
+    text-align: left;
+    font-weight: 500;
+    color: var(--color-gray-300);
+  }
+
+  .highscores__table-header-cell--right {
+    text-align: right;
+  }
+
+  .highscores__table-row {
+    border-bottom: 1px solid var(--color-gray-700);
+    transition: background-color 0.2s;
+  }
+
+  .highscores__table-row:hover {
+    background-color: var(--color-gray-700);
+  }
+
+  .highscores__table-cell {
+    padding: var(--spacing-md);
+    color: var(--color-white);
+  }
+
+  .highscores__table-cell--bold {
+    font-weight: 700;
+  }
+
+  .highscores__table-cell--right {
+    text-align: right;
+  }
+
+  .highscores__table-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+  }
+
+  .highscores__table-badge--quiz {
+    background-color: rgba(234, 179, 8, 0.3);
+    color: #fcd34d; /* light yellow */
+  }
+
+  .highscores__table-badge--chronology {
+    background-color: rgba(59, 130, 246, 0.3);
+    color: #93c5fd; /* light blue */
+  }
+
+  /* Media queries for responsive design */
+  @media (min-width: 768px) {
+    .highscores {
+      padding: 0 var(--spacing-lg);
+    }
+
+    .highscores__title {
+      font-size: var(--font-size-4xl);
+    }
+
+    .highscores__filter-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* Light mode overrides */
+  @media (prefers-color-scheme: light) {
+    .highscores__title {
+      color: var(--color-gray-900);
+    }
+
+    .highscores__filter-label {
+      color: var(--color-gray-700);
+    }
+
+    .highscores__filter-select,
+    .highscores__filter-dropdown-button,
+    .highscores__filter-dropdown-search-input {
+      border-color: var(--color-gray-300);
+      background-color: var(--color-white);
+      color: var(--color-gray-900);
+    }
+
+    .highscores__filter-dropdown-button:hover {
+      background-color: var(--color-gray-100);
+    }
+
+    .highscores__filter-dropdown-options {
+      border-color: var(--color-gray-300);
+      background-color: var(--color-white);
+    }
+
+    .highscores__filter-dropdown-option {
+      color: var(--color-gray-900);
+    }
+
+    .highscores__filter-dropdown-option:hover,
+    .highscores__filter-dropdown-option:focus {
+      background-color: var(--color-gray-100);
+    }
+
+    .highscores__filter-dropdown-search {
+      border-color: var(--color-gray-300);
+    }
+
+    .highscores__filter-dropdown-icon,
+    .highscores__filter-dropdown-search-icon {
+      color: var(--color-gray-600);
+    }
+
+    .highscores__table-header-cell {
+      color: var(--color-gray-700);
+    }
+
+    .highscores__table-row {
+      border-color: var(--color-gray-300);
+    }
+
+    .highscores__table-row:hover {
+      background-color: var(--color-gray-100);
+    }
+
+    .highscores__table-cell {
+      color: var(--color-gray-900);
+    }
+
+    .highscores__filter-dropdown-no-results,
+    .highscores__table-empty {
+      color: var(--color-gray-500);
+    }
+  }
+
+  /* Reduced motion support (inherited from global.css) */
+  @media (prefers-reduced-motion: reduce) {
+    .highscores__loading-icon {
+      animation: none;
+    }
+  }
+</style>
