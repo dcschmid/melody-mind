@@ -6,7 +6,6 @@ import Paragraph from "@components/Paragraph.astro";
 import PlaylistCard from "@components/PlaylistCard.astro";
 import { Icon } from "astro-icon/components";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
-import { Picture } from "astro:assets";
 
 /**
  * Enable static site generation for all supported languages.
@@ -32,10 +31,10 @@ export async function getStaticPaths() {
       // Dynamischer Import mit Promise.all für parallele Verarbeitung
       const playlistData = await import(`../../../public/json/playlist/${lang}_playlist.json`);
       return { lang, playlists: playlistData.default };
-    } catch (error) {
+    } catch {
       // Fallback zu Englisch, wenn die Sprachdatei nicht existiert
       try {
-        console.info(`No playlist data found for ${lang}, falling back to English`);
+        console.warn(`No playlist data found for ${lang}, falling back to English`);
         const fallbackData = await import(`../../../public/json/playlist/en_playlist.json`);
         return { lang, playlists: fallbackData.default };
       } catch (fallbackError) {
@@ -232,59 +231,40 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       },
     ])}
   />
-  <main
-    class="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14"
-    style="contain: content;"
-    id="main-content"
-  >
+  <main class="playlist-main" style="contain: content;" id="main-content">
     <!-- Skip-Link-Ziel für Tastaturnavigation -->
     <div id="skip-link-target" tabindex="-1" class="sr-only">Hauptinhalt beginnt hier</div>
     <!-- Page heading and description -->
-    <div class="mb-10 text-center sm:mb-12 lg:mb-14">
-      <Headline
-        title={t("playlist.page.heading")}
-        level="h1"
-        className="mb-5 text-3xl leading-tight font-bold tracking-wide text-white sm:text-4xl lg:text-5xl"
-      />
-      <div
-        class="mx-auto mt-3 mb-5 h-1.5 w-20 rounded-full bg-purple-400 sm:mb-7 sm:w-28"
-        aria-hidden="true"
-      >
-      </div>
+    <div class="playlist-header">
+      <Headline title={t("playlist.page.heading")} level="h1" className="playlist-header__title" />
+      <div class="playlist-header__divider" aria-hidden="true"></div>
       <Paragraph
         description={t("playlist.page.description")}
-        className="mx-auto max-w-xl text-lg leading-relaxed tracking-wide text-white sm:max-w-2xl sm:text-xl lg:text-2xl"
+        className="playlist-header__description"
       />
     </div>
 
     <!-- Search and filter section -->
-    <div
-      class="search-filter-container mb-10 rounded-xl border border-zinc-600 bg-zinc-900 p-5 shadow-lg sm:mb-12 sm:p-7 lg:p-9"
-      role="search"
-      aria-labelledby="search-heading"
-    >
-      <h2 id="search-heading" class="sr-only mb-4 text-xl font-bold">
+    <div class="search-filter-container" role="search" aria-labelledby="search-heading">
+      <h2 id="search-heading" class="sr-only">
         {t("playlist.search.label")}
       </h2>
 
-      <div class="mb-5 flex flex-col gap-4 sm:mb-7 sm:flex-row sm:gap-5">
+      <div class="search-filter-container__form">
         <!-- Search field -->
-        <div class="relative flex-grow">
+        <div class="search-field">
           <label for="playlist-search" class="sr-only">
             {t("playlist.search.placeholder")}
           </label>
-          <div class="relative">
-            <div
-              class="pointer-events-none absolute inset-y-0 left-4 flex items-center"
-              aria-hidden="true"
-            >
-              <Icon name="search" class="h-6 w-6 text-purple-300" />
+          <div class="search-field__input-wrapper">
+            <div class="search-field__icon" aria-hidden="true">
+              <Icon name="search" class="search-field__icon-svg" />
             </div>
             <input
               type="search"
               id="playlist-search"
               placeholder={t("playlist.search.placeholder")}
-              class="min-h-[60px] w-full touch-manipulation rounded-xl border-3 border-zinc-500 bg-zinc-800 py-4 pr-5 pl-12 text-lg text-white placeholder-zinc-300 transition-all duration-200 ease-out hover:border-zinc-400 focus:border-purple-400 focus:ring-4 focus:ring-purple-400/70 focus:outline-none active:border-purple-400 sm:text-xl"
+              class="search-field__input touch-manipulation"
               aria-controls="playlist-grid"
               aria-describedby="search-playlist-description"
               aria-label={t("playlist.search.label") || "Playlists durchsuchen"}
@@ -312,26 +292,17 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       </div>
 
       <!-- No results message (initially hidden) -->
-      <div
-        id="no-results"
-        class="mb-8 flex hidden flex-col items-center justify-center rounded-xl border border-zinc-500 bg-gradient-to-br from-zinc-800 to-zinc-900 p-8 text-center shadow-md sm:mb-10 sm:p-10 lg:p-12"
-        aria-live="polite"
-        role="status"
-      >
-        <Icon
-          name="search-no-results"
-          class="mb-4 h-14 w-14 text-zinc-300 sm:mb-5 sm:h-18 sm:w-18"
-          aria-hidden="true"
-        />
-        <h2 class="mb-3 text-xl font-bold tracking-wide text-white sm:text-2xl">
+      <div id="no-results" class="no-results" aria-live="polite" role="status">
+        <Icon name="search-no-results" class="no-results__icon" aria-hidden="true" />
+        <h2 class="no-results__heading">
           {t("playlist.no.results.heading") || "No playlists found"}
         </h2>
-        <p class="mb-4 text-lg leading-relaxed text-white sm:mb-5 sm:text-xl">
+        <p class="no-results__text">
           {t("playlist.no.results")}
         </p>
         <button
           id="reset-search"
-          class="mt-3 min-h-[60px] min-w-[170px] touch-manipulation rounded-lg bg-purple-700 px-6 py-4 text-lg font-bold text-white transition-colors transition-transform duration-200 ease-out hover:bg-purple-600 focus:ring-4 focus:ring-purple-400/70 focus:ring-offset-4 focus:ring-offset-zinc-900 focus:outline-none active:translate-y-[1px] active:scale-95 active:bg-purple-800 sm:px-7 sm:text-xl"
+          class="no-results__button touch-manipulation"
           aria-label={t("playlist.reset.search.button") || "Suchfilter zurücksetzen"}
         >
           {t("playlist.reset.search") || "Reset search"}
@@ -341,14 +312,13 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       <!-- Playlist Grid -->
       <ul
         id="playlist-grid"
-        class="grid grid-cols-1 gap-6 will-change-contents contain-layout sm:gap-8 md:grid-cols-2 lg:gap-10"
+        class="playlist-grid"
         aria-label={t("playlist.page.heading")}
         aria-live="polite"
         aria-relevant="additions removals"
         aria-atomic="false"
         itemscope
         itemtype="https://schema.org/ItemList"
-        style="content-visibility: auto; contain-intrinsic-size: auto 500px; transform: translateZ(0);"
       >
         {
           sortedPlaylists.map((playlist, index) => (
@@ -363,11 +333,6 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
               id={`playlist-${index}`}
               aria-posinset={index + 1}
               aria-setsize={sortedPlaylists.length}
-              style={{
-                animationDelay: `${index * 0.05}s`,
-                contain: "content",
-                transform: "translateZ(0)",
-              }}
             >
               <meta itemprop="position" content={`${index + 1}`} />
               <PlaylistCard
@@ -388,35 +353,505 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       <!-- Back to top button -->
       <button
         id="back-to-top"
-        class="invisible fixed right-6 bottom-6 z-50 flex min-h-[64px] min-w-[64px] touch-manipulation items-center justify-center rounded-full bg-purple-700 p-4 text-white opacity-0 shadow-lg transition-all duration-200 ease-out hover:bg-purple-600 focus:ring-4 focus:ring-purple-400/70 focus:ring-offset-4 focus:ring-offset-zinc-900 focus:outline-none active:translate-y-[1px] active:scale-95 active:bg-purple-800 sm:right-8 sm:bottom-8 sm:min-h-[72px] sm:min-w-[72px] sm:p-5 lg:right-10 lg:bottom-10"
+        class="back-to-top touch-manipulation"
         aria-label={t("back.to.top") || "Zurück zum Seitenanfang"}
-        style="transform: translateZ(0);"
       >
-        <Icon name="arrow-up" class="h-6 w-6 sm:h-7 sm:w-7" aria-hidden="true" />
+        <Icon name="arrow-up" class="back-to-top__icon" aria-hidden="true" />
       </button>
     </div>
   </main>
-
   <style>
-    /* Improved color contrast for WCAG AAA (7:1) */
+    /* ===== WCAG AAA - Komponentenspezifische Variablen ===== */
     :root {
-      --text-primary: #ffffff; /* Maximum contrast */
-      --text-secondary: #f8f8ff; /* Higher contrast than standard zinc-300 */
-      --bg-card: #18181b; /* zinc-900 - darker for better contrast */
-      --border-card: rgba(212, 212, 216, 0.4); /* zinc-300 with transparency */
-      --accent-primary: #8b5cf6; /* purple-500 - optimized for contrast */
-      --accent-secondary: #a78bfa; /* purple-400 */
-      --touch-target-size: 48px; /* Increased minimum touch target size */
-      --focus-ring-width: 4px; /* Increased focus ring width */
-      --focus-ring-offset: 4px; /* Increased focus ring offset */
+      /**
+       * Komponentenspezifische CSS-Variablen, die nicht in global.css verfügbar sind
+       * 
+       * Diese Deklaration beschränkt sich nur auf Variablen, die nicht in global.css
+       * definiert sind, um Redundanz zu vermeiden und die Wartbarkeit zu verbessern.
+       */
+
+      /* Komponentenspezifische Werte, die nicht in global.css definiert sind */
+      --font-size-jumbo: 3rem;
+
+      /* Grid-spezifische Werte */
+      --grid-column-count-sm: 1;
+      --grid-column-count-md: 2;
+      --grid-column-count-lg: 2;
+      --grid-column-count-xl: 2;
+
+      /* UI-Elemente - Spezifische Komponenten-Werte */
+      --border-width-thin: 1px;
+      --border-width-regular: 2px;
+      --border-width-thick: 3px;
+
+      /* Interaktion und Zugänglichkeit - WCAG AAA spezifische Werte */
+      --touch-target-size: 48px;
+      --focus-ring-width: 4px;
+      --focus-ring-offset: 4px;
+      --transition-fast: 0.2s ease-out;
+      --transition-medium: 0.3s ease-out;
+      --transition-slow: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+      /* Zeilenhöhen - Wiederverwendung aus global.css */
+      --line-height-tight: var(--line-height-tight, 1.2);
+      --line-height-normal: var(--line-height-normal, 1.5);
+      --line-height-relaxed: var(--line-height-relaxed, 1.8);
+
+      /* Container-Größen - Basierend auf Breakpoints aus global.css */
+      --container-sm: var(--breakpoint-sm, 640px);
+      --container-md: var(--breakpoint-md, 768px);
+      --container-lg: var(--breakpoint-lg, 1024px);
+      --container-xl: var(--breakpoint-xl, 1280px);
+
+      /* Komponenten-Größen - Playlist-spezifisch */
+      --card-min-width: 280px;
+      --card-ideal-width: 340px;
+      --card-max-width: 400px;
+
+      /* Grid-Eigenschaften - Playlist-spezifisch */
+      --grid-gap-sm: var(--spacing-md, 1rem);
+      --grid-gap-md: var(--spacing-lg, 1.5rem);
+      --grid-gap-lg: var(--spacing-xl, 2rem);
+      --grid-gap-xl: var(--spacing-2xl, 2.5rem);
     }
 
-    /* Verbesserte Unterstützung für hohen Kontrast (WCAG AAA) */
+    /* ===== Hilfsklassen ===== */
+    .hidden {
+      display: none !important;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    .touch-manipulation {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* ===== Barrierefreiheit und Fokus-Stile ===== */
+    :focus {
+      outline: var(--focus-ring-width) solid var(--color-purple-500);
+      outline-offset: var(--focus-ring-offset);
+    }
+
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    :focus-visible {
+      outline: var(--focus-ring-width) solid var(--color-purple-500);
+      outline-offset: var(--focus-ring-offset);
+    }
+
+    /* ===== Layout-Komponenten ===== */
+    /* Main Layout */
+    .playlist-main {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: var(--container-xl);
+      padding: var(--spacing-xl) var(--spacing-sm);
+      contain: content;
+    }
+
+    @media (min-width: var(--breakpoint-sm, 640px)) {
+      .playlist-main {
+        padding: var(--spacing-2xl) var(--spacing-lg);
+      }
+    }
+
+    @media (min-width: var(--breakpoint-lg, 1024px)) {
+      .playlist-main {
+        padding: var(--spacing-3xl) var(--spacing-xl);
+      }
+    }
+
+    /* Header Section */
+    .playlist-header {
+      margin-bottom: var(--spacing-xl);
+      text-align: center;
+    }
+
+    @media (min-width: var(--breakpoint-sm, 640px)) {
+      .playlist-header {
+        margin-bottom: var(--spacing-2xl);
+      }
+    }
+
+    @media (min-width: var(--breakpoint-lg, 1024px)) {
+      .playlist-header {
+        margin-bottom: var(--spacing-3xl);
+      }
+    }
+
+    .playlist-header__title {
+      margin-bottom: var(--spacing-md);
+      font-size: var(--font-size-3xl);
+      line-height: 1.25;
+      font-weight: 700;
+      letter-spacing: 0.025em;
+      color: var(--color-text-primary);
+    }
+
+    @media (min-width: var(--breakpoint-sm, 640px)) {
+      .playlist-header__title {
+        font-size: var(--font-size-4xl);
+      }
+    }
+
+    @media (min-width: var(--breakpoint-lg, 1024px)) {
+      .playlist-header__title {
+        font-size: var(--playlist-font-size-jumbo);
+      }
+    }
+
+    .playlist-header__divider {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: var(--spacing-xs);
+      margin-bottom: var(--spacing-md);
+      height: 0.375rem;
+      width: 5rem;
+      border-radius: var(--playlist-border-radius-full);
+      background-color: var(--playlist-accent-secondary);
+    }
+
+    @media (min-width: var(--breakpoint-sm, 640px)) {
+      .playlist-header__divider {
+        margin-bottom: var(--spacing-lg);
+        width: 7rem;
+      }
+    }
+
+    .playlist-header__description {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 36rem;
+      font-size: var(--playlist-font-size-md);
+      line-height: 1.8;
+      letter-spacing: 0.025em;
+      color: var(--playlist-text-primary);
+    }
+
+    @media (min-width: var(--breakpoint-sm, 640px)) {
+      .playlist-header__description {
+        max-width: 42rem;
+        font-size: var(--playlist-font-size-lg);
+      }
+    }
+
+    @media (min-width: var(--breakpoint-lg, 1024px)) {
+      .playlist-header__description {
+        font-size: var(--playlist-font-size-xl);
+      }
+    }
+
+    /* Search and Filter Section */
+    .search-filter-container {
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: var(--spacing-xl);
+      text-align: center;
+    }
+
+    .search-filter-container__form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--spacing-md);
+      padding: var(--spacing-md);
+    }
+
+    @media (min-width: var(--breakpoint-sm, 640px)) {
+      .search-filter-container__form {
+        flex-direction: row;
+        padding: var(--spacing-lg);
+      }
+    }
+
+    /* Search Field Styling */
+    .search-field {
+      flex-grow: 1;
+      max-width: 500px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .search-field__input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      border-radius: var(--border-radius-full);
+      background-color: var(--color-gray-800);
+      box-shadow: var(--shadow-md);
+    }
+
+    .search-field__input-wrapper:focus-within {
+      box-shadow: var(--shadow-lg);
+    }
+
+    .search-field__icon {
+      position: absolute;
+      left: var(--spacing-md);
+      color: var(--color-gray-400);
+      transition: color var(--transition-fast);
+    }
+
+    .search-field__icon-svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .search-field__input {
+      width: 100%;
+      color: var(--color-white);
+      background-color: transparent;
+      border: none;
+      padding: var(--spacing-md) var(--spacing-lg) var(--spacing-md) calc(var(--spacing-lg) * 2);
+      border-radius: var(--border-radius-full);
+      font-size: var(--font-size-lg);
+      caret-color: var(--color-purple-500);
+      line-height: 1.5;
+    }
+
+    .search-field__input:focus {
+      outline: none;
+    }
+
+    .search-field__input::placeholder {
+      color: var(--color-gray-500);
+      opacity: 0.8;
+    }
+
+    .search-field__input:focus + .search-field__icon {
+      color: var(--color-purple-500);
+    }
+
+    /* No Results Message */
+    .no-results {
+      display: none;
+      margin: var(--spacing-xl) auto;
+      max-width: 500px;
+      text-align: center;
+      background-color: var(--color-background-card);
+      padding: var(--spacing-lg);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+
+    .no-results__icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto var(--spacing-md);
+      color: var(--color-gray-400);
+    }
+
+    .no-results__heading {
+      font-size: var(--font-size-xl);
+      margin-bottom: var(--spacing-md);
+      color: var(--color-text-primary);
+    }
+
+    .no-results__text {
+      font-size: var(--font-size-md);
+      color: var(--color-text-body);
+    }
+
+    .no-results__button {
+      margin-top: var(--spacing-md);
+      min-height: 48px;
+      min-width: 160px;
+      border-radius: var(--border-radius-md);
+      background-color: var(--color-purple-600);
+      padding: var(--spacing-sm) var(--spacing-lg);
+      font-size: var(--font-size-md);
+      font-weight: 600;
+      color: var(--color-white);
+      border: none;
+      cursor: pointer;
+    }
+
+    .no-results__button:hover {
+      background-color: var(--color-purple-700);
+    }
+
+    .no-results__button:focus {
+      outline: var(--focus-ring-width) solid var(--color-purple-500);
+      outline-offset: var(--focus-ring-offset);
+    }
+
+    /* ===== Playlist Grid ===== */
+    .playlist-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--grid-gap-sm);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    @media (min-width: var(--breakpoint-sm, 640px)) {
+      .playlist-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--grid-gap-md);
+      }
+    }
+
+    @media (min-width: var(--breakpoint-lg, 1024px)) {
+      .playlist-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--grid-gap-lg);
+      }
+    }
+
+    @media (min-width: var(--breakpoint-xl, 1280px)) {
+      .playlist-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--grid-gap-xl);
+      }
+    }
+
+    /* Playlist Card Element */
+    .playlist-card {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--color-background-card);
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      min-width: var(--card-min-width);
+      max-width: 100%;
+      height: 100%;
+    }
+
+    .playlist-card:hover,
+    .playlist-card:focus-within {
+      box-shadow: var(--shadow-lg);
+    }
+
+    .playlist-card__image {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-bottom: var(--border-width-thin) solid var(--color-gray-700);
+    }
+
+    .playlist-card__content {
+      display: flex;
+      flex-direction: column;
+      padding: var(--spacing-md);
+      flex-grow: 1;
+    }
+
+    @media (min-width: var(--breakpoint-sm, 640px)) {
+      .playlist-card__content {
+        padding: var(--spacing-lg);
+      }
+    }
+
+    .playlist-card__title {
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-text-primary);
+      letter-spacing: 0.015em;
+      line-height: 1.3;
+    }
+
+    @media (min-width: var(--breakpoint-sm, 640px)) {
+      .playlist-card__title {
+        font-size: var(--font-size-xl);
+      }
+    }
+
+    .playlist-card__description {
+      font-size: var(--font-size-md);
+      margin-bottom: var(--spacing-md);
+      color: var(--color-text-body);
+      line-height: var(--line-height-relaxed);
+      flex-grow: 1;
+    }
+
+    @media (min-width: var(--breakpoint-sm, 640px)) {
+      .playlist-card__description {
+        font-size: var(--font-size-lg);
+      }
+    }
+
+    /* Playlist Service Links */
+    .playlist-service-link {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-radius: var(--border-radius-md);
+      background-color: var(--color-gray-700);
+      color: var(--color-white);
+      text-decoration: none;
+      font-size: var(--font-size-md);
+      font-weight: 500;
+    }
+
+    .playlist-service-link:hover,
+    .playlist-service-link:focus {
+      background-color: var(--color-purple-600);
+    }
+
+    .playlist-service-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: var(--spacing-md);
+      right: var(--spacing-md);
+      width: 48px;
+      height: 48px;
+      border-radius: var(--border-radius-full);
+      background-color: var(--color-purple-600);
+      color: var(--color-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .back-to-top.visible {
+      opacity: 0.9;
+      visibility: visible;
+    }
+
+    .back-to-top:hover,
+    .back-to-top:focus {
+      background-color: var(--color-purple-700);
+      opacity: 1;
+    }
+
+    .back-to-top__icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ===== Barrierefreiheit und Kontrast ===== */
     @media (forced-colors: active), (prefers-contrast: more) {
       :root {
-        --accent-primary: SelectedItem;
-        --accent-secondary: SelectedItemText;
-        --border-card: ButtonBorder;
+        --playlist-accent-primary: SelectedItem;
+        --playlist-accent-secondary: SelectedItemText;
+        --playlist-border-primary: ButtonBorder;
       }
 
       /* Verbesserte Sichtbarkeit für Elemente im hohen Kontrast-Modus */
@@ -446,84 +881,58 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       }
     }
 
-    /* Improved focus states for keyboard navigation */
-    :focus-visible {
-      outline: var(--focus-ring-width) solid var(--accent-primary);
-      outline-offset: var(--focus-ring-offset);
-    }
-
-    /* Animations for cards */
+    /* Animations and Effects */
     @keyframes fadeIn {
       0% {
         opacity: 0;
-        transform: translateY(10px);
-      }
-      60% {
-        opacity: 0.8;
       }
       100% {
         opacity: 1;
-        transform: translateY(0);
       }
     }
 
-    @keyframes shimmer {
-      0% {
-        background-position: -200% 0;
-      }
-      100% {
-        background-position: 200% 0;
-      }
-    }
-
+    /* Simple fade in effect for cards */
     .animate-fadeIn {
-      animation: fadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-      opacity: 0;
-      will-change: opacity, transform;
+      animation: fadeIn 0.3s ease forwards;
     }
 
-    /* Progressive Loading Animation */
-    .loading-shimmer {
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.05) 0%,
-        rgba(255, 255, 255, 0.1) 50%,
-        rgba(255, 255, 255, 0.05) 100%
-      );
-      background-size: 200% 100%;
-      animation: shimmer 1.5s infinite;
-      will-change: background-position;
+    .loading-shimmer::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: "";
     }
 
-    /* Improved back-to-top button animation */
-    #back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
+    /* Reduced Motion Support */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      ::before,
+      ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .animate-fadeIn {
+        opacity: 1;
+        animation: none !important;
+      }
+
+      html {
+        scroll-behavior: auto !important;
+      }
+
+      /* Improved static focus indicators */
+      :focus {
+        outline: 4px solid var(--color-purple-500) !important;
+        outline-offset: 4px !important;
+      }
     }
 
-    #back-to-top {
-      transform: translateY(10px);
-    }
-
-    /* Optimized loading for better performance */
-    .touch-manipulation {
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    /* Optimized scrolling performance */
-    .will-change-contents {
-      will-change: contents;
-      transform: translateZ(0);
-      backface-visibility: hidden;
-    }
-
-    .contain-layout {
-      contain: layout style;
-    }
-
-    /* Responsive adjustments */
+    /* ===== Responsive Anpassungen ===== */
     @media (max-width: 640px) {
       .playlist-card {
         contain: content;
@@ -533,13 +942,8 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       button,
       input[type="search"],
       a[role="button"] {
-        min-height: var(--touch-target-size);
-        min-width: var(--touch-target-size);
-      }
-
-      /* Optimierte Abstände für Touch-Geräte */
-      .gap-2 {
-        gap: 0.625rem !important; /* 10px */
+        min-height: var(--playlist-touch-target-size);
+        min-width: var(--playlist-touch-target-size);
       }
     }
 
@@ -556,37 +960,27 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
     @media screen and (max-width: 640px),
       (min-width: 641px) and (max-width: 1024px) and (min-resolution: 1dppx) {
       /* Verbesserte Lesbarkeit bei vergrößertem Text */
-      .text-base {
-        font-size: max(1rem, 16px);
+      .search-field__input {
+        font-size: max(var(--playlist-font-size-md), 18px);
         line-height: 1.8;
       }
 
-      .text-lg {
-        font-size: max(1.125rem, 18px);
-        line-height: 1.8;
-      }
-
-      .text-xl {
-        font-size: max(1.25rem, 20px);
+      .no-results__text,
+      .no-results__button {
+        font-size: max(var(--playlist-font-size-md), 18px);
         line-height: 1.8;
       }
 
       /* Verbesserte Abstände für vergrößerten Text */
-      .p-5,
-      .p-6 {
-        padding: max(1.25rem, 20px);
-      }
-
-      /* Flexiblere Layouts für vergrößerten Text */
-      .grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      .search-filter-container {
+        padding: max(var(--playlist-space-md), 20px);
       }
 
       /* Verbesserte Button-Größen für vergrößerten Text */
       button,
       a[role="button"] {
-        padding-left: max(1rem, 16px);
-        padding-right: max(1rem, 16px);
+        padding-left: max(var(--playlist-space-sm), 16px);
+        padding-right: max(var(--playlist-space-sm), 16px);
       }
     }
 
@@ -608,6 +1002,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+        transform: none !important;
       }
 
       .animate-fadeIn {
@@ -639,14 +1034,14 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
 
       /* Verbesserte statische Fokus-Indikatoren für reduzierte Bewegung */
       :focus {
-        outline: 4px solid var(--accent-primary) !important;
+        outline: 4px solid var(--playlist-accent-primary) !important;
         outline-offset: 4px !important;
       }
 
       /* Statische Alternativen für Hover-Effekte */
       .playlist-card:focus-within {
-        border-color: var(--accent-primary) !important;
-        box-shadow: 0 0 0 2px var(--accent-primary) !important;
+        border-color: var(--playlist-accent-primary) !important;
+        box-shadow: 0 0 0 2px var(--playlist-accent-primary) !important;
       }
 
       /* Verbesserte Kontraste für Benutzer mit reduzierter Bewegung */
@@ -663,6 +1058,14 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
   </style>
 
   <style is:global>
+    /* Globale CSS-Variablen - Diese sind für andere Komponenten verfügbar */
+    :root {
+      /* Diese Variablen werden nur genutzt, wenn sie nicht bereits in global.css definiert sind */
+      --global-focus-ring-width: 4px;
+      --global-focus-ring-offset: 4px;
+      --global-accent-primary: #8b5cf6;
+    }
+
     /* Verbesserte Fokus-Stile für Tastaturbenutzer */
     .user-is-tabbing :focus:not(:focus-visible) {
       outline: none;
@@ -670,12 +1073,14 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
     }
 
     .user-is-tabbing :focus-visible {
-      outline: var(--focus-ring-width) solid var(--accent-primary);
-      outline-offset: var(--focus-ring-offset);
-      box-shadow: 0 0 0 var(--focus-ring-width) rgba(139, 92, 246, 0.5);
+      outline: var(--playlist-focus-ring-width, var(--global-focus-ring-width)) solid
+        var(--playlist-accent-primary, var(--global-accent-primary));
+      outline-offset: var(--playlist-focus-ring-offset, var(--global-focus-ring-offset));
+      box-shadow: 0 0 0 var(--playlist-focus-ring-width, var(--global-focus-ring-width))
+        rgba(139, 92, 246, 0.5);
     }
 
-    /* Verbesserte Screenreader-Unterstützung */
+    /* Screenreader-Unterstützung */
     .sr-only {
       position: absolute;
       width: 1px;
@@ -688,7 +1093,12 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       border-width: 0;
     }
 
-    /* Verbesserte Skip-Links für Tastaturbenutzer */
+    /* Hilfklasse für versteckte Elemente */
+    .hidden {
+      display: none !important;
+    }
+
+    /* Skip-Links für Tastaturbenutzer */
     .sr-only.focus:not-sr-only,
     .sr-only:focus-visible {
       position: fixed;
@@ -697,7 +1107,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       width: auto;
       height: auto;
       padding: 1rem 1.5rem;
-      background-color: var(--accent-primary);
+      background-color: var(--playlist-accent-primary, var(--global-accent-primary));
       color: white;
       font-weight: bold;
       font-size: 1.125rem;
@@ -720,7 +1130,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       backface-visibility: hidden;
     }
 
-    /* Verbesserte Touch-Feedback */
+    /* Touch-Feedback */
     @media (hover: none) {
       button:active,
       a:active {
@@ -732,17 +1142,23 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
 
   <script>
     /**
-     * Hochoptimierter Playlist-Manager
+     * Highly optimized playlist manager for interactive playlist page functionality
      *
-     * Diese Skript verwaltet die interaktive Funktionalität der Playlist-Seite mit
-     * verbesserten Algorithmen für Suche, DOM-Manipulation und Zugänglichkeit:
-     * - Erweiterte Suchlogik mit Fuzzy-Matching und Relevanz-Scoring
-     * - Optimiertes Debouncing mit cancelierbaren Promises
-     * - Effiziente DOM-Updates mit DocumentFragment und virtuelles Scrolling
-     * - Verbesserte Zugänglichkeit mit präzisen ARIA-Ankündigungen und Keyboard-Shortcuts
+     * This script manages the interactive functionality of the playlist page with
+     * enhanced algorithms for search, DOM manipulation, and accessibility:
+     *
+     * Features:
+     * - Advanced search logic with fuzzy matching and relevance scoring
+     * - Optimized debouncing with cancelable promises
+     * - Efficient DOM updates with DocumentFragment and virtual scrolling
+     * - Enhanced accessibility with precise ARIA announcements and keyboard shortcuts
+     * - Responsive fluid grid layout for optimal display on all devices
+     *
+     * @author MelodyMind Team
+     * @version 1.2.0
      */
-    document.addEventListener("DOMContentLoaded", function () {
-      // DOM-Elemente cachen für bessere Performance
+    document.addEventListener("DOMContentLoaded", function (): void {
+      // Cache DOM elements for better performance
       const searchInput = document.getElementById("playlist-search") as HTMLInputElement;
       const playlistGrid = document.getElementById("playlist-grid");
       const playlistCards = document.querySelectorAll(".playlist-card");
@@ -751,16 +1167,15 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       const resetSearchButton = document.getElementById("reset-search");
       const backToTopButton = document.getElementById("back-to-top");
 
-      // Konfigurationswerte
+      // Configuration values
       const DEBOUNCE_DELAY = 250; // ms
-      const MIN_SEARCH_LENGTH = 2; // Mindestzeichenanzahl für Suche
-      const VIRTUAL_SCROLL_THRESHOLD = 50; // Ab dieser Anzahl von Elementen virtuelles Scrolling aktivieren
-      const FUZZY_MATCH_THRESHOLD = 0.6; // Schwellenwert für Fuzzy-Matching (0-1)
-      const TOUCH_FEEDBACK_DURATION = 300; // ms
+      const MIN_SEARCH_LENGTH = 2; // Minimum character count for search
+      const VIRTUAL_SCROLL_THRESHOLD = 50; // Enable virtual scrolling above this number of elements
+      const FUZZY_MATCH_THRESHOLD = 0.6; // Threshold for fuzzy matching (0-1)
       const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const IS_TOUCH_DEVICE = window.matchMedia("(hover: none)").matches;
 
-      // Optimierungsvariablen
+      // Optimization variables
       let currentSearchOperation: { cancel: () => void } | null = null;
       let isSearching = false;
       let lastSearchTerm = "";
@@ -773,46 +1188,43 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         tokens: string[];
       }> = [];
 
-      // Erstelle optimierten Suchindex
-      function buildSearchIndex() {
+      /**
+       * Creates an optimized search index from playlist cards
+       *
+       * This builds a performant data structure that allows for quick searching
+       * by pre-processing the card data.
+       */
+      function buildSearchIndex(): void {
         searchIndex = Array.from(playlistCards).map((card) => {
           const searchable = (card.getAttribute("data-searchable") || "").toLowerCase();
           const decade = card.getAttribute("data-decade") || "";
           const index = parseInt(card.getAttribute("data-index") || "0", 10);
-          // Tokenisiere den Suchtext für bessere Suche
+          // Tokenize search text for better search performance
           const tokens = searchable.split(/\s+/).filter((token) => token.length > 1);
 
           return { element: card, searchable, decade, index, tokens };
         });
       }
 
-      // Initialisiere den Suchindex
+      // Initialize the search index
       buildSearchIndex();
 
       /**
-       * Fügt Progressive Loading-Animationen zu Playlist-Karten hinzu
+       * Adds progressive loading animations to playlist cards
+       *
+       * Uses Intersection Observer to efficiently load card content only
+       * when it enters the viewport.
        */
-      function initProgressiveLoading() {
-        // Erstelle einen Intersection Observer für Progressive Loading
+      function initProgressiveLoading(): void {
+        // Create an Intersection Observer for progressive loading
         const cardObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
                 const card = entry.target as HTMLElement;
 
-                // Verzögere die Animation leicht für einen Kaskaden-Effekt
-                setTimeout(
-                  () => {
-                    card.classList.add("animate-fadeIn");
-
-                    // Entferne Loading-Shimmer, wenn vorhanden
-                    const shimmerElements = card.querySelectorAll(".loading-shimmer");
-                    shimmerElements.forEach((el) => {
-                      (el as HTMLElement).classList.remove("loading-shimmer");
-                    });
-                  },
-                  parseInt(card.dataset.index || "0") * 50
-                );
+                // Einfaches Einblenden ohne komplexe Animationen
+                card.classList.add("animate-fadeIn");
 
                 cardObserver.unobserve(card);
               }
@@ -824,58 +1236,40 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
           }
         );
 
-        // Füge Loading-Shimmer zu Bildern hinzu und beobachte Karten
+        // Observe cards for lazy loading
         playlistCards.forEach((card) => {
-          // Füge initial Loading-Shimmer hinzu
-          const imageContainer = card.querySelector(".aspect-video");
-          if (imageContainer && !REDUCED_MOTION) {
-            imageContainer.classList.add("loading-shimmer");
-          }
-
-          // Beobachte für Intersection
           cardObserver.observe(card);
         });
 
-        // Cleanup beim Verlassen der Seite
+        // Cleanup when leaving the page
         document.addEventListener("astro:before-swap", () => {
           cardObserver.disconnect();
         });
       }
 
-      // Initialisiere Progressive Loading
+      // Initialize progressive loading
       initProgressiveLoading();
 
       /**
-       * Fügt Touch-spezifische Feedback-Effekte hinzu
+       * Adds touch-specific feedback effects for interactive elements
+       *
+       * Improves the tactile experience on touch devices by providing
+       * visual and haptic feedback.
        */
-      function initTouchFeedback() {
-        if (!IS_TOUCH_DEVICE) {
+      function initTouchFeedback(): void {
+        if (!IS_TOUCH_DEVICE || REDUCED_MOTION) {
           return;
         }
 
-        // Füge Touch-Feedback für alle interaktiven Elemente hinzu
-        const interactiveElements = document.querySelectorAll('button, a, input[type="search"]');
+        // Vereinfachtes Touch-Feedback nur für wesentliche interaktive Elemente
+        const interactiveElements = document.querySelectorAll('button, a[role="button"]');
 
         interactiveElements.forEach((el) => {
           el.addEventListener(
             "touchstart",
             () => {
-              if (REDUCED_MOTION) {
-                return;
-              }
-
-              (el as HTMLElement).style.transition =
-                `transform ${TOUCH_FEEDBACK_DURATION}ms cubic-bezier(0.19, 1, 0.22, 1)`;
-              (el as HTMLElement).style.transform = "scale(0.97)";
-
-              // Haptisches Feedback, wenn verfügbar
-              if ("vibrate" in navigator) {
-                try {
-                  navigator.vibrate(10);
-                } catch (e) {
-                  // Ignoriere Fehler, falls Vibration nicht unterstützt wird
-                }
-              }
+              // Minimales visuelles Feedback ohne komplexe Animationen
+              (el as HTMLElement).style.opacity = "0.8";
             },
             { passive: true }
           );
@@ -883,10 +1277,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
           el.addEventListener(
             "touchend",
             () => {
-              if (REDUCED_MOTION) {
-                return;
-              }
-              (el as HTMLElement).style.transform = "";
+              (el as HTMLElement).style.opacity = "";
             },
             { passive: true }
           );
@@ -894,31 +1285,40 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
           el.addEventListener(
             "touchcancel",
             () => {
-              if (REDUCED_MOTION) {
-                return;
-              }
-              (el as HTMLElement).style.transform = "";
+              (el as HTMLElement).style.opacity = "";
             },
             { passive: true }
           );
         });
       }
 
-      // Initialisiere Touch-Feedback
+      // Initialize touch feedback
       initTouchFeedback();
 
       /**
-       * Verbesserte Debounce-Funktion mit Promise und Abbruchmöglichkeit
-       * @param {Function} func - Zu debouncende Funktion
-       * @param {number} delay - Verzögerung in Millisekunden
-       * @returns {Function} Debounced Funktion mit Abbruchmöglichkeit
+       * Interface for a debounced promise with cancellation capability
        */
-      function debouncedPromise<T>(func: (...args: any[]) => Promise<T>, delay: number) {
+      interface DebouncedPromise<T> {
+        execute: (...args: unknown[]) => Promise<T>;
+        cancel: () => void;
+      }
+
+      /**
+       * Enhanced debounce function with Promise support and cancellation capability
+       *
+       * @param {Function} func - Function to debounce
+       * @param {number} delay - Delay in milliseconds
+       * @returns {DebouncedPromise<T>} Debounced function with cancellation capability
+       */
+      function debouncedPromise<T>(
+        func: (...args: unknown[]) => Promise<T>,
+        delay: number
+      ): DebouncedPromise<T> {
         let timeoutId: number | null = null;
         let isCanceled = false;
 
         return {
-          execute: (...args: any[]): Promise<T> => {
+          execute: (...args: unknown[]): Promise<T> => {
             return new Promise((resolve, reject) => {
               if (timeoutId) {
                 clearTimeout(timeoutId);
@@ -932,16 +1332,20 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
                   return;
                 }
 
-                func(...args)
-                  .then(resolve)
-                  .catch(reject)
-                  .finally(() => {
-                    timeoutId = null;
-                  });
+                try {
+                  func(...args)
+                    .then(resolve)
+                    .catch(reject)
+                    .finally(() => {
+                      timeoutId = null;
+                    });
+                } catch (error) {
+                  reject(error);
+                }
               }, delay);
             });
           },
-          cancel: () => {
+          cancel: (): void => {
             if (timeoutId) {
               clearTimeout(timeoutId);
               timeoutId = null;
@@ -952,8 +1356,12 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       }
 
       /**
-       * Berechnet die Levenshtein-Distanz zwischen zwei Strings
-       * für Fuzzy-Matching
+       * Calculates the Levenshtein distance between two strings
+       * Used for fuzzy matching
+       *
+       * @param {string} a - First string
+       * @param {string} b - Second string
+       * @returns {number} Levenshtein distance
        */
       function levenshteinDistance(a: string, b: string): number {
         if (a.length === 0) {
@@ -978,9 +1386,9 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
           for (let j = 1; j <= b.length; j++) {
             const cost = a[i - 1] === b[j - 1] ? 0 : 1;
             matrix[i][j] = Math.min(
-              matrix[i - 1][j] + 1, // Löschen
-              matrix[i][j - 1] + 1, // Einfügen
-              matrix[i - 1][j - 1] + cost // Ersetzen
+              matrix[i - 1][j] + 1, // Delete
+              matrix[i][j - 1] + 1, // Insert
+              matrix[i - 1][j - 1] + cost // Replace
             );
           }
         }
@@ -989,7 +1397,11 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       }
 
       /**
-       * Berechnet die Ähnlichkeit zwischen zwei Strings (0-1)
+       * Calculates similarity between two strings (0-1)
+       *
+       * @param {string} a - First string
+       * @param {string} b - Second string
+       * @returns {number} Similarity score between 0 and 1
        */
       function stringSimilarity(a: string, b: string): number {
         if (!a || !b) {
@@ -1004,7 +1416,12 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       }
 
       /**
-       * Prüft, ob ein String einen anderen mit Fuzzy-Matching enthält
+       * Checks if a string contains another string using fuzzy matching
+       *
+       * @param {string} text - Text to search in
+       * @param {string} query - Query string to search for
+       * @param {number} threshold - Minimum similarity threshold (0-1)
+       * @returns {boolean} True if the text contains the query
        */
       function fuzzyIncludes(
         text: string,
@@ -1018,20 +1435,20 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
           return false;
         }
 
-        // Exakte Übereinstimmung hat Priorität
+        // Exact match has priority
         if (text.includes(query)) {
           return true;
         }
 
-        // Für kurze Queries prüfen wir Token für Token
+        // For short queries, check token by token
         if (query.length <= 3) {
           const tokens = text.split(/\s+/);
           return tokens.some((token) => stringSimilarity(token, query) >= threshold);
         }
 
-        // Für längere Queries prüfen wir Teilstrings
+        // For longer queries, check substrings
         for (let i = 0; i <= text.length - query.length; i++) {
-          const substring = text.substr(i, query.length + 2); // Etwas mehr für Fuzzy-Matching
+          const substring = text.substr(i, query.length + 2); // A bit more for fuzzy matching
           if (stringSimilarity(substring, query) >= threshold) {
             return true;
           }
@@ -1041,32 +1458,38 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       }
 
       /**
-       * Berechnet einen Relevanz-Score für Suchergebnisse
+       * Calculates a relevance score for search results
+       *
+       * @param {Object} item - Search index item to evaluate
+       * @param {string} searchTerm - Search term
+       * @returns {number} Relevance score (higher is more relevant)
        */
       function calculateRelevance(item: (typeof searchIndex)[0], searchTerm: string): number {
         if (!searchTerm) {
           return 1;
         }
 
-        // Exakte Übereinstimmung hat höchste Priorität
+        // Exact match has highest priority
         if (item.searchable.includes(searchTerm)) {
           return 2;
         }
 
-        // Prüfe Token-Übereinstimmungen
+        // Check token matches
         const tokenMatches = item.tokens.filter((token) => fuzzyIncludes(token, searchTerm)).length;
 
         if (tokenMatches > 0) {
           return 1 + tokenMatches / item.tokens.length;
         }
 
-        // Fuzzy-Matching als Fallback
+        // Fuzzy matching as fallback
         return fuzzyIncludes(item.searchable, searchTerm) ? 0.7 : 0;
       }
 
       /**
-       * Filtert Playlists basierend auf Sucheingabe mit optimierter Performance
-       * Verwendet DocumentFragment für Batch-DOM-Updates
+       * Filters playlists based on search input with optimized performance
+       * Uses DocumentFragment for batch DOM updates
+       *
+       * @returns {Promise<number>} Number of visible items after filtering
        */
       async function filterPlaylists(): Promise<number> {
         if (!searchInput || isSearching) {
@@ -1076,13 +1499,13 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         isSearching = true;
         const searchTerm = searchInput.value.toLowerCase().trim();
 
-        // Überspringe Suche bei zu kurzen Suchbegriffen
+        // Skip search for too short search terms
         if (searchTerm.length > 0 && searchTerm.length < MIN_SEARCH_LENGTH) {
           isSearching = false;
           return lastVisibleCount;
         }
 
-        // Überspringe, wenn sich nichts geändert hat
+        // Skip if nothing changed
         if (searchTerm === lastSearchTerm) {
           isSearching = false;
           return lastVisibleCount;
@@ -1090,73 +1513,12 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
 
         lastSearchTerm = searchTerm;
 
-        // Verwende DocumentFragment für Batch-DOM-Updates
+        // Use DocumentFragment for batch DOM updates
         return new Promise((resolve) => {
-          // Verwende requestAnimationFrame für flüssige UI-Updates
+          // Use requestAnimationFrame for smooth UI updates
           requestAnimationFrame(() => {
-            let visibleCount = 0;
             const totalCount = searchIndex.length;
-
-            // Für große Listen: Virtuelles Rendering vorbereiten
-            const useVirtualScroll = totalCount > VIRTUAL_SCROLL_THRESHOLD;
-            const fragment = useVirtualScroll ? document.createDocumentFragment() : null;
-
-            // Filtere und sortiere nach Relevanz
-            const filteredItems = searchIndex
-              .map((item) => {
-                const relevance = calculateRelevance(item, searchTerm);
-                return { item, relevance };
-              })
-              .filter(({ relevance }) => relevance > 0)
-              .sort((a, b) => b.relevance - a.relevance);
-
-            // Verstecke alle Elemente zuerst (verhindert Layout-Thrashing)
-            if (!useVirtualScroll) {
-              searchIndex.forEach(({ element }) => {
-                (element as HTMLElement).classList.add("hidden");
-              });
-            }
-
-            // Zeige relevante Elemente
-            filteredItems.forEach(({ item }) => {
-              if (useVirtualScroll && fragment) {
-                // Bei virtuellem Scrolling: Füge zum Fragment hinzu
-                fragment.appendChild(item.element.cloneNode(true));
-              } else {
-                // Normaler Modus: Zeige Element
-                (item.element as HTMLElement).classList.remove("hidden");
-              }
-              visibleCount++;
-            });
-
-            // Bei virtuellem Scrolling: Ersetze Grid-Inhalt mit Fragment
-            if (useVirtualScroll && fragment && playlistGrid) {
-              // Speichere Scroll-Position
-              const scrollTop = window.scrollY;
-
-              // Leere Grid und füge Fragment hinzu
-              playlistGrid.innerHTML = "";
-              playlistGrid.appendChild(fragment);
-
-              // Stelle Scroll-Position wieder her
-              window.scrollTo(0, scrollTop);
-            }
-
-            // Zeige/verstecke "Keine Ergebnisse"-Nachricht
-            if (noResultsElement) {
-              noResultsElement.classList.toggle("hidden", visibleCount > 0);
-            }
-
-            // Aktualisiere ARIA-Live-Region mit präzisen Informationen
-            if (searchStatusElement) {
-              if (searchTerm && visibleCount > 0) {
-                searchStatusElement.textContent = `${visibleCount} von ${totalCount} Playlists gefunden für "${searchTerm}"`;
-              } else if (searchTerm && visibleCount === 0) {
-                searchStatusElement.textContent = `Keine Playlists gefunden für "${searchTerm}". Versuchen Sie einen anderen Suchbegriff.`;
-              } else {
-                searchStatusElement.textContent = `Alle ${totalCount} Playlists werden angezeigt`;
-              }
-            }
+            const visibleCount = performSearch(searchTerm, totalCount);
 
             lastVisibleCount = visibleCount;
             isSearching = false;
@@ -1165,27 +1527,192 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         });
       }
 
-      // Erstelle debounced Suchfunktion mit Abbruchmöglichkeit
+      /**
+       * Performs the search and updates the DOM accordingly
+       *
+       * @param {string} searchTerm - The search term
+       * @param {number} totalCount - Total number of searchable elements
+       * @returns {number} Number of elements found
+       */
+      function performSearch(searchTerm: string, totalCount: number): number {
+        let visibleCount = 0;
+
+        // For large lists: Prepare virtual rendering
+        const useVirtualScroll = totalCount > VIRTUAL_SCROLL_THRESHOLD;
+        const fragment = useVirtualScroll ? document.createDocumentFragment() : null;
+
+        // Filter and sort based on relevance
+        const filteredItems = getFilteredItems(searchTerm);
+
+        // Hide all elements first (prevents layout thrashing)
+        if (!useVirtualScroll) {
+          hideAllItems();
+        }
+
+        // Show relevant elements
+        visibleCount = displayRelevantItems(filteredItems, useVirtualScroll, fragment);
+
+        // Update UI components
+        updateSearchResultsUI(searchTerm, visibleCount, totalCount);
+
+        return visibleCount;
+      }
+
+      /**
+       * Hides all elements in the search index
+       */
+      function hideAllItems(): void {
+        searchIndex.forEach(({ element }) => {
+          (element as HTMLElement).classList.add("hidden");
+        });
+      }
+
+      /**
+       * Displays the filtered elements and returns the count
+       *
+       * @param {Array} filteredItems - Array of filtered elements with relevance
+       * @param {boolean} useVirtualScroll - Whether to use virtual scrolling
+       * @param {DocumentFragment|null} fragment - The DocumentFragment for batch updates
+       * @returns {number} Number of displayed elements
+       */
+      function displayRelevantItems(
+        filteredItems: Array<{ item: (typeof searchIndex)[0]; relevance: number }>,
+        useVirtualScroll: boolean,
+        fragment: DocumentFragment | null
+      ): number {
+        let visibleCount = 0;
+
+        filteredItems.forEach(({ item }) => {
+          if (useVirtualScroll && fragment) {
+            // With virtual scrolling: Add to fragment
+            fragment.appendChild(item.element.cloneNode(true));
+          } else {
+            // Normal mode: Show element
+            (item.element as HTMLElement).classList.remove("hidden");
+          }
+          visibleCount++;
+        });
+
+        // With virtual scrolling: Replace grid content with fragment
+        if (useVirtualScroll && fragment && playlistGrid) {
+          updateVirtualScrollContent(fragment);
+        }
+
+        return visibleCount;
+      }
+
+      /**
+       * Updates the grid with virtual scroll contents
+       *
+       * @param {DocumentFragment} fragment - The DocumentFragment with new contents
+       */
+      function updateVirtualScrollContent(fragment: DocumentFragment): void {
+        if (!playlistGrid) {
+          return;
+        }
+
+        // Save scroll position
+        const scrollTop = window.scrollY;
+
+        // Empty grid and add fragment
+        playlistGrid.innerHTML = "";
+        playlistGrid.appendChild(fragment);
+
+        // Restore scroll position
+        window.scrollTo(0, scrollTop);
+      }
+
+      /**
+       * Filters and sorts items based on search term and relevance
+       *
+       * @param {string} searchTerm - The search term
+       * @returns {Array} Sorted list of items with relevance score
+       */
+      function getFilteredItems(
+        searchTerm: string
+      ): Array<{ item: (typeof searchIndex)[0]; relevance: number }> {
+        return searchIndex
+          .map((item) => {
+            const relevance = calculateRelevance(item, searchTerm);
+            return { item, relevance };
+          })
+          .filter(({ relevance }) => relevance > 0)
+          .sort((a, b) => b.relevance - a.relevance);
+      }
+
+      /**
+       * Updates the UI components based on search results
+       *
+       * @param {string} searchTerm - The search term
+       * @param {number} visibleCount - Number of visible elements
+       * @param {number} totalCount - Total number of all elements
+       */
+      function updateSearchResultsUI(
+        searchTerm: string,
+        visibleCount: number,
+        totalCount: number
+      ): void {
+        // Show/hide "No results" message
+        if (noResultsElement) {
+          if (searchTerm && visibleCount === 0) {
+            noResultsElement.style.display = "flex";
+          } else {
+            noResultsElement.style.display = "none";
+          }
+        }
+
+        // Update ARIA live region with precise information
+        if (searchStatusElement) {
+          updateSearchStatusMessage(searchTerm, visibleCount, totalCount);
+        }
+      }
+
+      /**
+       * Updates the status message for screen readers
+       *
+       * @param {string} searchTerm - The search term
+       * @param {number} visibleCount - Number of visible elements
+       * @param {number} totalCount - Total number of all elements
+       */
+      function updateSearchStatusMessage(
+        searchTerm: string,
+        visibleCount: number,
+        totalCount: number
+      ): void {
+        if (!searchStatusElement) {
+          return;
+        }
+
+        if (searchTerm && visibleCount > 0) {
+          searchStatusElement.textContent = `${visibleCount} von ${totalCount} Playlists gefunden für "${searchTerm}"`;
+        } else if (searchTerm && visibleCount === 0) {
+          searchStatusElement.textContent = `Keine Playlists gefunden für "${searchTerm}". Versuchen Sie einen anderen Suchbegriff.`;
+        } else {
+          searchStatusElement.textContent = `Alle ${totalCount} Playlists werden angezeigt`;
+        }
+      }
+
+      // Create debounced search function with cancellation
       const debouncedSearch = debouncedPromise(filterPlaylists, DEBOUNCE_DELAY);
 
-      // Event-Listener für Suche mit optimiertem Debouncing
+      // Event listener for search with optimized debouncing
       if (searchInput) {
         searchInput.addEventListener("input", function () {
-          // Breche vorherige Suche ab, wenn eine neue beginnt
+          // Cancel previous search when a new one begins
           if (currentSearchOperation) {
             currentSearchOperation.cancel();
           }
 
-          // Starte neue Suche
+          // Start new search
           currentSearchOperation = debouncedSearch;
           debouncedSearch.execute().catch((err) => {
-            if (err.message !== "Operation cancelled") {
-              console.error("Fehler bei der Suche:", err);
+            if (err instanceof Error && err.message !== "Operation cancelled") {
+              console.warn("Error during search operation:", err);
             }
           });
         });
 
-        // Keyboard-Events für Zugänglichkeit
+        // Keyboard events for accessibility
         searchInput.addEventListener("keydown", function (e) {
           if (e.key === "Escape") {
             searchInput.value = "";
@@ -1193,11 +1720,11 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
           }
         });
 
-        // Touch-spezifische Optimierungen
+        // Touch-specific optimizations
         if (IS_TOUCH_DEVICE) {
-          // Optimiere für mobile Keyboards
+          // Optimize for mobile keyboards
           searchInput.addEventListener("focus", function () {
-            // Scrolle zum Suchfeld, wenn es fokussiert wird
+            // Scroll to search field when it gets focus
             setTimeout(() => {
               searchInput.scrollIntoView({
                 behavior: REDUCED_MOTION ? "auto" : "smooth",
@@ -1208,7 +1735,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         }
       }
 
-      // Zurücksetzen der Suche und Filter
+      // Resetting search and filters
       if (resetSearchButton) {
         resetSearchButton.addEventListener("click", function () {
           if (searchInput) {
@@ -1216,63 +1743,65 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
           }
           filterPlaylists();
 
-          // Ankündigung für Screen-Reader
+          // Announcement for screen readers
           if (searchStatusElement) {
             searchStatusElement.textContent = "Suchfilter wurden zurückgesetzt";
           }
 
-          // Fokus zurück zum Sucheingabefeld für bessere Keyboard-UX
+          // Return focus to search input field for better keyboard UX
           searchInput?.focus();
 
-          // Haptisches Feedback, wenn verfügbar
+          // Haptic feedback, if available
           if (IS_TOUCH_DEVICE && "vibrate" in navigator) {
             try {
               navigator.vibrate(15);
-            } catch (e) {
-              // Ignoriere Fehler, falls Vibration nicht unterstützt wird
+            } catch {
+              // Ignore errors if vibration is not supported
             }
           }
         });
       }
 
-      // "Zurück nach oben"-Button mit IntersectionObserver für Performance
+      // "Back to top" button with IntersectionObserver for performance
       if (backToTopButton) {
         const observer = new IntersectionObserver(
           ([entry]) => {
-            backToTopButton.classList.toggle("visible", !entry.isIntersecting);
+            if (backToTopButton) {
+              backToTopButton.classList.toggle("visible", !entry.isIntersecting);
+            }
           },
           { threshold: 0, rootMargin: "-200px 0px 0px 0px" }
         );
 
-        // Beobachte den Seitenkopf, um Button ein-/auszublenden
+        // Observe the page header to show/hide button
         const pageHeader = document.querySelector("h1");
         if (pageHeader) {
           observer.observe(pageHeader);
         }
 
         backToTopButton.addEventListener("click", function () {
-          // Verwende scrollIntoView mit behavior: smooth für bessere Performance als scrollTo
+          // Use scrollIntoView with behavior: smooth for better performance than scrollTo
           document.body.scrollIntoView({
             behavior: REDUCED_MOTION ? "auto" : "smooth",
             block: "start",
           });
 
-          // Ankündigung für Screen-Reader
+          // Announcement for screen readers
           if (searchStatusElement) {
             searchStatusElement.textContent = "Zum Seitenanfang gescrollt";
           }
 
-          // Haptisches Feedback, wenn verfügbar
+          // Haptic feedback, if available
           if (IS_TOUCH_DEVICE && "vibrate" in navigator) {
             try {
               navigator.vibrate(15);
-            } catch (e) {
-              // Ignoriere Fehler, falls Vibration nicht unterstützt wird
+            } catch {
+              // Ignore errors if vibration is not supported
             }
           }
         });
 
-        // Stelle sicher, dass Tastaturbenutzer nach "Zurück nach oben" zum Hauptinhalt gelangen können
+        // Ensure keyboard users can navigate to main content after "Back to top"
         backToTopButton.addEventListener("keydown", function (e) {
           if (e.key === "Tab" && !e.shiftKey) {
             searchInput?.focus();
@@ -1282,20 +1811,21 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
       }
 
       /**
-       * Optimiert Scrolling-Performance durch passive Event-Listener
-       * und content-visibility
+       * Optimizes scrolling performance through passive event listeners
+       * and content-visibility
        */
-      function optimizeScrollingPerformance() {
-        // Verwende passive Event-Listener für Touch-Events
+      function optimizeScrollingPerformance(): void {
+        // Use passive event listeners for touch events
         const scrollOptions = { passive: true };
+        // Timer variable for various timeout functions
+        let scrollTimeout: number | undefined;
 
         document.addEventListener("touchstart", () => {}, scrollOptions);
         document.addEventListener("touchmove", () => {}, scrollOptions);
         document.addEventListener("touchend", () => {}, scrollOptions);
 
-        // Optimiere content-visibility beim Scrollen
+        // Optimize content-visibility during scrolling
         if ("contentVisibility" in document.documentElement.style) {
-          let scrollTimeout: number;
           let lastScrollY = window.scrollY;
           let ticking = false;
 
@@ -1306,11 +1836,11 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
 
               if (!ticking) {
                 window.requestAnimationFrame(() => {
-                  // Optimiere nur, wenn wir schnell scrollen
+                  // Optimize only during rapid scrolling
                   const isRapidScrolling = Math.abs(lastScrollY - window.scrollY) > 50;
 
                   if (isRapidScrolling && playlistGrid) {
-                    // Während schnellem Scrollen: Reduziere Rendering-Last
+                    // During fast scrolling: Reduce rendering load
                     playlistGrid.style.contentVisibility = "auto";
 
                     if (scrollTimeout) {
@@ -1318,7 +1848,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
                     }
 
                     scrollTimeout = window.setTimeout(() => {
-                      // Stelle content-visibility nach dem Scrollen wieder her
+                      // Restore content-visibility after scrolling
                       if (playlistGrid) {
                         playlistGrid.style.contentVisibility = "";
                       }
@@ -1335,17 +1865,26 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
           );
         }
 
-        // Optimiere Bilder basierend auf Verbindungsqualität
-        const connection = (navigator as any).connection;
+        // Optimize images based on connection quality
+        const connection = (
+          navigator as {
+            connection?: {
+              saveData?: boolean;
+              effectiveType?: string;
+              downlink?: number;
+            };
+          }
+        ).connection;
+
         const isSlowConnection =
           connection &&
           (connection.saveData ||
             connection.effectiveType === "slow-2g" ||
             connection.effectiveType === "2g" ||
-            connection.downlink < 0.5);
+            (connection.downlink !== undefined && connection.downlink < 0.5));
 
         if (isSlowConnection) {
-          // Reduziere Bildqualität bei langsamen Verbindungen
+          // Reduce image quality for slow connections
           document.querySelectorAll("img").forEach((img) => {
             if (!img.getAttribute("loading")) {
               img.setAttribute("loading", "lazy");
@@ -1357,20 +1896,80 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         }
       }
 
-      // Initialisiere Scrolling-Optimierungen
+      /**
+       * Optimizes the grid layout for smoother, responsive display
+       */
+      function optimizeGridLayout(): void {
+        if (!playlistGrid) {
+          return;
+        }
+
+        // Determine available width in container
+        const containerWidth = playlistGrid.clientWidth;
+
+        // Calculate optimal card width based on container width and number of possible items per row
+        let optimalCardCount = 2; // Default: 2 cards per row
+
+        if (containerWidth < 640) {
+          optimalCardCount = 1; // Small screens: 1 card per row
+        }
+
+        // Calculate optimal minimum width and maximum width for cards
+        const minWidth = Math.max(280, Math.floor(containerWidth / optimalCardCount - 40));
+        const maxWidth = containerWidth < 640 ? "100%" : `${Math.min(400, containerWidth / 2)}px`;
+
+        // Set values as CSS variables for the grid
+        document.documentElement.style.setProperty("--playlist-card-min-width", `${minWidth}px`);
+        document.documentElement.style.setProperty("--playlist-card-max-width", maxWidth);
+
+        // Set optimal spacing based on screen size
+        let gap = "var(--grid-gap-md)";
+        if (containerWidth >= 1024) {
+          gap = "var(--grid-gap-xl)";
+        } else if (containerWidth >= 640) {
+          gap = "var(--grid-gap-lg)";
+        } else {
+          gap = "var(--grid-gap-sm)";
+        }
+
+        document.documentElement.style.setProperty("--grid-gap-current", gap);
+        playlistGrid.style.gap = `var(--grid-gap-current)`;
+
+        // Apply fluid grid properties
+        // Use repeat(auto-fill) with minmax for optimal distribution
+        playlistGrid.style.gridTemplateColumns = `repeat(auto-fill, minmax(min(var(--playlist-card-min-width), 100%), 1fr))`;
+      }
+
+      // Initialize the grid layout on load and on resize
+      optimizeGridLayout();
+
+      // Apply scrolling performance optimizations
       optimizeScrollingPerformance();
 
+      // Debounced resize handler for smooth responsive behavior
+      let resizeTimeout: number;
+      window.addEventListener(
+        "resize",
+        () => {
+          if (resizeTimeout) {
+            clearTimeout(resizeTimeout);
+          }
+          resizeTimeout = window.setTimeout(optimizeGridLayout, 150) as unknown as number;
+        },
+        { passive: true }
+      );
+
       /**
-       * Verbessert die Accessibility durch erweiterte ARIA-Unterstützung
+       * Enhances accessibility through extended ARIA support
        */
-      function enhanceAccessibility() {
-        // Verbessere ARIA-Labels für Screen Reader
+      function enhanceAccessibility(): void {
+        // Improve ARIA labels for screen readers
         playlistCards.forEach((card, index) => {
           const cardElement = card as HTMLElement;
           const headline = cardElement.querySelector("h2")?.textContent || `Playlist ${index + 1}`;
           const streamingLinks = cardElement.querySelectorAll("a[href]");
 
-          // Füge zusätzliche ARIA-Beschreibungen hinzu
+          // Add additional ARIA descriptions
           streamingLinks.forEach((link) => {
             const serviceName = link.querySelector("span")?.textContent || "Streaming-Dienst";
             (link as HTMLElement).setAttribute(
@@ -1380,14 +1979,14 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
           });
         });
 
-        // Verbessere Statusmeldungen für Screen Reader
+        // Improve status messages for screen readers
         if (searchStatusElement) {
-          // Stelle sicher, dass Statusmeldungen korrekt angekündigt werden
+          // Ensure status messages are properly announced
           searchStatusElement.setAttribute("aria-live", "polite");
           searchStatusElement.setAttribute("aria-atomic", "true");
         }
 
-        // Füge verbesserte Skip-Links für Tastaturbenutzer hinzu
+        // Add enhanced skip links for keyboard users
         const skipLink = document.createElement("a");
         skipLink.href = "#skip-link-target";
         skipLink.className =
@@ -1397,7 +1996,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         skipLink.setAttribute("aria-label", "Zum Hauptinhalt springen, Umgeht die Navigation");
         document.body.insertBefore(skipLink, document.body.firstChild);
 
-        // Füge zusätzlichen Skip-Link für Suche hinzu
+        // Add additional skip link for search
         const searchSkipLink = document.createElement("a");
         searchSkipLink.href = "#playlist-search";
         searchSkipLink.className =
@@ -1407,34 +2006,34 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         searchSkipLink.setAttribute("aria-label", "Direkt zur Playlist-Suche springen");
         document.body.insertBefore(searchSkipLink, skipLink.nextSibling);
 
-        // Verbessere Fokus-Management
+        // Improve focus management
         document.addEventListener("keydown", (e) => {
-          // Verbessere Tab-Navigation
+          // Improve tab navigation
           if (e.key === "Tab") {
             document.body.classList.add("user-is-tabbing");
           }
         });
 
-        // Entferne Klasse, wenn Maus verwendet wird
+        // Remove class when mouse is used
         document.addEventListener("mousedown", () => {
           document.body.classList.remove("user-is-tabbing");
         });
       }
 
-      // Initialisiere erweiterte Accessibility
+      // Initialize enhanced accessibility
       enhanceAccessibility();
 
-      // Initialisiere den Filter beim Laden der Seite
+      // Initialize filter on page load
       filterPlaylists();
 
       /**
-       * Erweiterte Keyboard-Navigation mit WCAG AAA Konformität
-       * - Verbesserte Tastaturkürzel für Screenreader-Kompatibilität
-       * - Zusätzliche Shortcuts für verbesserte Zugänglichkeit
-       * - Dokumentierte Tastaturkürzel für Benutzer
+       * Enhanced keyboard navigation with WCAG AAA compliance
+       * - Improved keyboard shortcuts for screen reader compatibility
+       * - Additional shortcuts for improved accessibility
+       * - Documented keyboard shortcuts for users
        */
-      function enhanceKeyboardNavigation() {
-        // Erstelle ein verstecktes Element für Screenreader, das Tastaturkürzel erklärt
+      function enhanceKeyboardNavigation(): void {
+        // Create a hidden element for screen readers that explains keyboard shortcuts
         const keyboardHelpElement = document.createElement("div");
         keyboardHelpElement.id = "keyboard-shortcuts-help";
         keyboardHelpElement.className = "sr-only";
@@ -1451,21 +2050,21 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         `;
         document.body.appendChild(keyboardHelpElement);
 
-        // Füge Tastaturkürzel-Listener hinzu
+        // Add keyboard shortcut listener
         document.addEventListener("keydown", function (e) {
-          // '/' drücken, um Suche zu fokussieren
+          // Press '/' to focus search
           if (e.key === "/" && document.activeElement?.tagName !== "INPUT") {
             e.preventDefault();
             searchInput?.focus();
 
-            // Ankündigung für Screenreader
+            // Announcement for screen readers
             if (searchStatusElement) {
               searchStatusElement.textContent =
                 "Suchfeld fokussiert. Geben Sie Ihren Suchbegriff ein.";
             }
           }
 
-          // 'Alt+R' drücken, um Suche zurückzusetzen
+          // Press 'Alt+R' to reset search
           if (e.key === "r" && e.altKey) {
             e.preventDefault();
             if (searchInput) {
@@ -1474,13 +2073,13 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
             filterPlaylists();
             searchInput?.focus();
 
-            // Ankündigung für Screenreader
+            // Announcement for screen readers
             if (searchStatusElement) {
               searchStatusElement.textContent = "Suchfilter wurden zurückgesetzt.";
             }
           }
 
-          // 'Alt+T' drücken, um zum Seitenanfang zu scrollen
+          // Press 'Alt+T' to scroll to top
           if (e.key === "t" && e.altKey) {
             e.preventDefault();
             document.body.scrollIntoView({
@@ -1488,20 +2087,20 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
               block: "start",
             });
 
-            // Ankündigung für Screenreader
+            // Announcement for screen readers
             if (searchStatusElement) {
               searchStatusElement.textContent = "Zum Seitenanfang gescrollt.";
             }
           }
 
-          // 'Alt+P' drücken, um erste Playlist zu fokussieren
+          // Press 'Alt+P' to focus first playlist
           if (e.key === "p" && e.altKey) {
             e.preventDefault();
             const firstPlaylistLink = document.querySelector(".playlist-card a");
             if (firstPlaylistLink) {
               (firstPlaylistLink as HTMLElement).focus();
 
-              // Ankündigung für Screenreader
+              // Announcement for screen readers
               if (searchStatusElement) {
                 searchStatusElement.textContent =
                   "Erste Playlist fokussiert. Verwenden Sie Tab, um durch die Playlists zu navigieren.";
@@ -1509,11 +2108,11 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
             }
           }
 
-          // 'Alt+H' drücken, um Tastaturkürzel anzuzeigen/anzukündigen
+          // Press 'Alt+H' to show/announce keyboard shortcuts
           if (e.key === "h" && e.altKey) {
             e.preventDefault();
 
-            // Ankündigung für Screenreader
+            // Announcement for screen readers
             if (searchStatusElement) {
               searchStatusElement.textContent =
                 "Tastaturkürzel: / für Suche, Alt+R zum Zurücksetzen, Alt+T für Seitenanfang, Alt+P für erste Playlist, Escape zum Leeren des Suchfelds.";
@@ -1522,7 +2121,7 @@ const sortedPlaylists = [...playlists].sort((a, b) => {
         });
       }
 
-      // Initialisiere erweiterte Tastaturnavigation
+      // Initialize enhanced keyboard navigation
       enhanceKeyboardNavigation();
     });
   </script>
