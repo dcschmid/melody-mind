@@ -1,8 +1,8 @@
 ---
 /**
- * Achievement Filter Component
- *
- * This component enables filtering achievements by status and category.
+ * @component AchievementFilter
+ * @description Enables filtering of achievements by status and category with optimized performance
+ * and WCAG AAA compliance.
  */
 
 import { useTranslations } from "../../utils/i18n.ts";
@@ -34,113 +34,761 @@ const categoryOptions = [
 ];
 ---
 
-<div class="mb-8 rounded-lg bg-gray-800 p-6" data-testid="achievement-filter">
-  <h2 class="mt-0 mb-4 text-xl">{t("achievements.filter.title")}</h2>
+<div
+  class="achievement-filter"
+  data-testid="achievement-filter"
+  role="region"
+  aria-labelledby="filter-heading"
+>
+  <h2 class="achievement-filter__title" id="filter-heading">{t("achievements.filter.title")}</h2>
 
-  <div class="flex flex-wrap gap-6 md:flex-row">
-    <div class="min-w-[200px] flex-1">
-      <label for="status-filter" class="mb-2 block font-medium"
+  <div class="achievement-filter__container">
+    <div class="achievement-filter__field">
+      <label for="status-filter" class="achievement-filter__label" id="status-filter-label"
         >{t("achievements.filter.status")}</label
       >
       <select
         id="status-filter"
-        class="w-full appearance-none rounded border border-gray-600 bg-gray-700 bg-no-repeat px-3 py-3 pr-10 text-base text-white focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-none"
-        style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpolyline points=%226 9 12 15 18 9%22%3E%3C/polyline%3E%3C/svg%3E'); background-position: right 0.75rem center; background-size: 1rem;"
-        aria-label={t("achievements.filter.status.aria")}
+        class="achievement-filter__select"
+        aria-labelledby="filter-heading status-filter-label"
+        aria-controls="achievement-list"
       >
         {statusOptions.map((option) => <option value={option.value}>{option.label}</option>)}
       </select>
+      <span class="achievement-filter__count" id="status-count" aria-live="polite"></span>
     </div>
 
-    <div class="min-w-[200px] flex-1">
-      <label for="category-filter" class="mb-2 block font-medium"
+    <div class="achievement-filter__field">
+      <label for="category-filter" class="achievement-filter__label" id="category-filter-label"
         >{t("achievements.filter.category")}</label
       >
       <select
         id="category-filter"
-        class="w-full appearance-none rounded border border-gray-600 bg-gray-700 bg-no-repeat px-3 py-3 pr-10 text-base text-white focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-none"
-        style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpolyline points=%226 9 12 15 18 9%22%3E%3C/polyline%3E%3C/svg%3E'); background-position: right 0.75rem center; background-size: 1rem;"
-        aria-label={t("achievements.filter.category.aria")}
+        class="achievement-filter__select"
+        aria-labelledby="filter-heading category-filter-label"
+        aria-controls="achievement-list"
       >
         {categoryOptions.map((option) => <option value={option.value}>{option.label}</option>)}
       </select>
+      <span class="achievement-filter__count" id="category-count" aria-live="polite"></span>
     </div>
   </div>
+
+  <div class="achievement-filter__actions">
+    <button
+      type="button"
+      class="achievement-filter__reset"
+      id="reset-filters"
+      aria-label={t("achievements.filter.reset_aria")}
+    >
+      {t("achievements.filter.reset")}
+    </button>
+
+    <button
+      type="button"
+      class="achievement-filter__help-button"
+      id="keyboard-help-toggle"
+      aria-expanded="false"
+      aria-controls="keyboard-shortcuts-panel"
+    >
+      {t("achievements.filter.keyboard_shortcuts")}
+    </button>
+  </div>
+
+  <div
+    class="achievement-filter__keyboard-shortcuts"
+    id="keyboard-shortcuts-panel"
+    aria-labelledby="keyboard-help-toggle"
+    hidden
+  >
+    <h3 class="achievement-filter__shortcuts-title">
+      {t("achievements.filter.available_shortcuts")}
+    </h3>
+    <dl class="achievement-filter__shortcuts-list">
+      <div class="achievement-filter__shortcut-item">
+        <dt class="achievement-filter__shortcut-key"><kbd>Alt</kbd> + <kbd>R</kbd></dt>
+        <dd class="achievement-filter__shortcut-description">
+          {t("achievements.filter.reset_filters")}
+        </dd>
+      </div>
+      <div class="achievement-filter__shortcut-item">
+        <dt class="achievement-filter__shortcut-key"><kbd>Alt</kbd> + <kbd>S</kbd></dt>
+        <dd class="achievement-filter__shortcut-description">
+          {t("achievements.filter.focus_status")}
+        </dd>
+      </div>
+      <div class="achievement-filter__shortcut-item">
+        <dt class="achievement-filter__shortcut-key"><kbd>Alt</kbd> + <kbd>C</kbd></dt>
+        <dd class="achievement-filter__shortcut-description">
+          {t("achievements.filter.focus_category")}
+        </dd>
+      </div>
+      <div class="achievement-filter__shortcut-item">
+        <dt class="achievement-filter__shortcut-key"><kbd>Alt</kbd> + <kbd>K</kbd></dt>
+        <dd class="achievement-filter__shortcut-description">
+          {t("achievements.filter.toggle_keyboard_help")}
+        </dd>
+      </div>
+    </dl>
+  </div>
+
+  <!-- ARIA live region for announcing filter changes -->
+  <div aria-live="polite" class="sr-only" id="filter-announcement" aria-atomic="true"></div>
 </div>
 
 <script>
-  // Filter functionality
-  document.addEventListener("DOMContentLoaded", () => {
-    const statusFilter = document.getElementById("status-filter") as HTMLSelectElement;
-    const categoryFilter = document.getElementById("category-filter") as HTMLSelectElement;
-    const achievementCards = document.querySelectorAll(".achievement-card");
+  /**
+   * Handles all filter-related interactions for achievement list
+   * - Implements filter functionality for status and category
+   * - Manages keyboard shortcuts
+   * - Adds accessibility features
+   */
 
-    // Function to filter achievements
-    function filterAchievements() {
+  /**
+   * Updates the count display for a filter
+   * @param {HTMLElement} countElement - The element to update with count
+   * @param {number} count - Total count
+   * @param {number} totalCount - Total items
+   * @returns {void}
+   */
+  function updateCountDisplay(countElement: HTMLElement, count: number, totalCount: number): void {
+    countElement.textContent = `(${count}/${totalCount})`;
+  }
+
+  /**
+   * Announces filter changes to screen readers
+   * @param {HTMLElement} announcementElement - The element to update with announcement
+   * @param {string} filterType - Type of filter (status/category)
+   * @param {string} value - Selected filter value
+   * @param {number} count - Number of items displayed
+   * @returns {void}
+   */
+  function announceFilterChange(
+    announcementElement: HTMLElement,
+    filterType: string,
+    value: string,
+    count: number
+  ): void {
+    const announcement = `${filterType} Filter auf ${value} gesetzt. ${count} Erfolge werden angezeigt.`;
+    announcementElement.textContent = announcement;
+
+    // Clear the announcement after 5 seconds to prevent cluttering the SR buffer
+    setTimeout(() => {
+      announcementElement.textContent = "";
+    }, 5000);
+  }
+
+  /**
+   * Handles keyboard shortcuts for accessibility
+   * @param {KeyboardEvent} event - Keyboard event
+   * @param {Object} elements - DOM elements needed for shortcut functionality
+   * @param {Function} resetFn - Reset filter function reference
+   * @param {Function} toggleHelpFn - Toggle help panel function reference
+   * @returns {void}
+   */
+  function handleKeyboardShortcuts(
+    event: KeyboardEvent,
+    elements: {
+      statusFilter: HTMLSelectElement;
+      categoryFilter: HTMLSelectElement;
+    },
+    resetFn: () => void,
+    toggleHelpFn: () => void
+  ): void {
+    // Only process if Alt key is pressed
+    if (!event.altKey) {
+      return;
+    }
+
+    switch (event.key.toLowerCase()) {
+      case "r":
+        event.preventDefault();
+        resetFn();
+        break;
+      case "s":
+        event.preventDefault();
+        elements.statusFilter.focus();
+        break;
+      case "c":
+        event.preventDefault();
+        elements.categoryFilter.focus();
+        break;
+      case "k":
+        event.preventDefault();
+        toggleHelpFn();
+        break;
+    }
+  }
+
+  /**
+   * Get required DOM elements for filter functionality
+   * @returns {Object|null} Object containing DOM elements or null if required elements are missing
+   */
+  function getFilterElements(): {
+    statusFilter: HTMLSelectElement;
+    categoryFilter: HTMLSelectElement;
+    resetButton: HTMLButtonElement;
+    keyboardHelpToggle: HTMLButtonElement;
+    keyboardShortcutsPanel: HTMLDivElement;
+    filterAnnouncement: HTMLDivElement;
+    statusCount: HTMLSpanElement;
+    categoryCount: HTMLSpanElement;
+    achievementList: HTMLElement;
+  } | null {
+    const elements = {
+      statusFilter: document.getElementById("status-filter") as HTMLSelectElement,
+      categoryFilter: document.getElementById("category-filter") as HTMLSelectElement,
+      resetButton: document.getElementById("reset-filters") as HTMLButtonElement,
+      keyboardHelpToggle: document.getElementById("keyboard-help-toggle") as HTMLButtonElement,
+      keyboardShortcutsPanel: document.getElementById("keyboard-shortcuts-panel") as HTMLDivElement,
+      filterAnnouncement: document.getElementById("filter-announcement") as HTMLDivElement,
+      statusCount: document.getElementById("status-count") as HTMLSpanElement,
+      categoryCount: document.getElementById("category-count") as HTMLSpanElement,
+      achievementList: document.getElementById("achievement-list") as HTMLElement,
+    };
+
+    const requiredElements = [
+      "statusFilter",
+      "categoryFilter",
+      "resetButton",
+      "keyboardHelpToggle",
+      "keyboardShortcutsPanel",
+      "filterAnnouncement",
+    ];
+
+    for (const key of requiredElements) {
+      if (!elements[key as keyof typeof elements]) {
+        console.error(`Required element not found: ${key}`);
+        return null;
+      }
+    }
+
+    return elements;
+  }
+
+  /**
+   * Initialize achievement filtering functionality
+   */
+  document.addEventListener("DOMContentLoaded", () => {
+    // Get all required DOM elements
+    const elements = getFilterElements();
+    if (!elements) {
+      return;
+    }
+
+    const {
+      statusFilter,
+      categoryFilter,
+      resetButton,
+      keyboardHelpToggle,
+      keyboardShortcutsPanel,
+      filterAnnouncement,
+      statusCount,
+      categoryCount,
+      achievementList,
+    } = elements;
+
+    const achievements = achievementList
+      ? Array.from(achievementList.querySelectorAll("[data-achievement]"))
+      : [];
+
+    /**
+     * Applies the current filters and updates the UI
+     * @returns {void}
+     */
+    function applyFilters(): void {
+      if (!achievements.length) {
+        return;
+      }
+
       const statusValue = statusFilter.value;
       const categoryValue = categoryFilter.value;
 
-      achievementCards.forEach((card) => {
-        const cardElement = card as HTMLElement;
-        let showCard = true;
+      const displayedCount = filterAchievements(statusValue, categoryValue);
 
-        // Apply status filter
-        if (statusValue !== "all") {
-          const cardStatus = cardElement.classList.contains(`achievement-${statusValue}`);
-          if (!cardStatus) {
-            showCard = false;
-          }
+      // Update count displays
+      updateCountDisplay(statusCount, displayedCount, achievements.length);
+      updateCountDisplay(categoryCount, displayedCount, achievements.length);
+
+      // Announce for screen readers
+      announceFilterChange(
+        filterAnnouncement,
+        "Status und Kategorie",
+        `${statusFilter.options[statusFilter.selectedIndex].text} / ${categoryFilter.options[categoryFilter.selectedIndex].text}`,
+        displayedCount
+      );
+    }
+
+    /**
+     * Filter achievements based on status and category
+     * @param {string} statusValue - Selected status filter
+     * @param {string} categoryValue - Selected category filter
+     * @returns {number} - Count of displayed achievements
+     */
+    function filterAchievements(statusValue: string, categoryValue: string): number {
+      let displayedCount = 0;
+
+      achievements.forEach((achievement): void => {
+        const statusMatch =
+          statusValue === "all" || achievement.getAttribute("data-status") === statusValue;
+        const categoryMatch =
+          categoryValue === "all" || achievement.getAttribute("data-category") === categoryValue;
+
+        if (statusMatch && categoryMatch) {
+          (achievement as HTMLElement).style.display = "flex";
+          displayedCount++;
+        } else {
+          (achievement as HTMLElement).style.display = "none";
         }
-
-        // Apply category filter
-        if (categoryValue !== "all" && showCard) {
-          const cardCategory = cardElement.getAttribute("data-category");
-          if (cardCategory !== categoryValue) {
-            showCard = false;
-          }
-        }
-
-        // Show or hide card
-        cardElement.style.display = showCard ? "" : "none";
       });
 
-      // Hide empty categories
-      document.querySelectorAll(".achievement-category").forEach((category) => {
-        const categoryElement = category as HTMLElement;
-        const visibleCards = categoryElement.querySelectorAll('.achievement-card[style=""]').length;
-        categoryElement.style.display = visibleCards > 0 ? "" : "none";
-      });
-
-      // Dispatch event to inform other components
-      const event = new CustomEvent("achievements-filtered", {
-        detail: {
-          status: statusValue,
-          category: categoryValue,
-        },
-      });
-      document.dispatchEvent(event);
+      return displayedCount;
     }
 
-    // Event listeners for filter changes
-    statusFilter.addEventListener("change", filterAchievements);
-    categoryFilter.addEventListener("change", filterAchievements);
+    /**
+     * Resets all filters to their default values
+     */
+    function resetFilters(): void {
+      statusFilter.value = "all";
+      categoryFilter.value = "all";
+      applyFilters();
 
-    // Set URL parameters for filters
-    const urlParams = new URLSearchParams(window.location.search);
-    const statusParam = urlParams.get("status");
-    const categoryParam = urlParams.get("category");
+      filterAnnouncement.textContent =
+        "Filter wurden zurückgesetzt. Alle Erfolge werden angezeigt.";
 
-    if (statusParam && statusFilter.querySelector(`option[value="${statusParam}"]`)) {
-      statusFilter.value = statusParam;
+      // Return focus to the reset button
+      resetButton.focus();
     }
 
-    if (categoryParam && categoryFilter.querySelector(`option[value="${categoryParam}"]`)) {
-      categoryFilter.value = categoryParam;
+    /**
+     * Toggles the keyboard shortcuts panel
+     */
+    function toggleKeyboardHelp(): void {
+      const isExpanded = keyboardHelpToggle.getAttribute("aria-expanded") === "true";
+      keyboardHelpToggle.setAttribute("aria-expanded", isExpanded ? "false" : "true");
+      keyboardShortcutsPanel.hidden = isExpanded;
     }
 
-    // Initial filtering if URL parameters exist
-    if (statusParam || categoryParam) {
-      filterAchievements();
-    }
+    // Set up event listeners
+    statusFilter.addEventListener("change", applyFilters);
+    categoryFilter.addEventListener("change", applyFilters);
+    resetButton.addEventListener("click", resetFilters);
+    keyboardHelpToggle.addEventListener("click", toggleKeyboardHelp);
+    document.addEventListener("keydown", (event) => {
+      handleKeyboardShortcuts(
+        event,
+        { statusFilter, categoryFilter },
+        resetFilters,
+        toggleKeyboardHelp
+      );
+    });
+
+    // Initialize filters and counts
+    applyFilters();
   });
 </script>
+
+<style>
+  /* Achievement Filter Component Styles */
+  .achievement-filter {
+    margin-bottom: var(--spacing-2xl);
+    padding: var(--spacing-xl);
+    background-color: var(--color-gray-800);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .achievement-filter__title {
+    margin-top: 0;
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-xl);
+    color: var(--color-text-primary);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .achievement-filter__container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+
+  .achievement-filter__field {
+    min-width: 200px;
+    flex: 1;
+  }
+
+  .achievement-filter__label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    color: var(--color-text-body);
+    font-size: var(--font-size-md);
+  }
+
+  .achievement-filter__select {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    padding-right: 2.5rem;
+    background-color: var(--color-gray-700);
+    border: 2px solid var(--color-gray-600);
+    border-radius: var(--border-radius-md);
+    color: var(--color-white);
+    font-size: var(--font-size-md);
+    line-height: 1.5;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpolyline points=%226 9 12 15 18 9%22%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+    cursor: pointer;
+    min-height: 44px; /* Minimum touch target size for WCAG AAA */
+  }
+
+  .achievement-filter__select:hover {
+    border-color: var(--color-purple-400);
+    background-color: var(--color-gray-650);
+  }
+
+  .achievement-filter__select:focus {
+    outline: 3px solid var(--color-purple-300);
+    border-color: var(--color-purple-400);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.25);
+  }
+
+  .achievement-filter__select option {
+    background-color: var(--color-gray-700);
+    color: var (--color-white);
+    padding: var(--spacing-md);
+  }
+
+  .achievement-filter__select:focus {
+    outline: none;
+    border-color: var(--color-purple-500);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.6); /* Higher contrast ratio for WCAG AAA */
+  }
+
+  /* Ensure keyboard focus is easily visible */
+  .achievement-filter__select:focus-visible {
+    outline: 3px solid var(--color-purple-500);
+    outline-offset: 2px;
+  }
+
+  /* Media query for responsive layout */
+  @media (min-width: 768px) {
+    .achievement-filter__container {
+      flex-direction: row;
+    }
+  }
+
+  /* Support for dark and light mode with high contrast ratios */
+  @media (prefers-color-scheme: light) {
+    .achievement-filter {
+      background-color: var(--color-gray-100);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .achievement-filter__select {
+      background-color: var(--color-white);
+      border-color: var(--color-gray-400); /* Improved contrast */
+      color: var(--color-gray-900);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22374151%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpolyline points=%226 9 12 15 18 9%22%3E%3C/polyline%3E%3C/svg%3E");
+    }
+
+    .achievement-filter__select:focus {
+      border-color: var(--color-purple-700); /* Improved contrast */
+      box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.4); /* Improved contrast */
+    }
+
+    .achievement-filter__select:focus-visible {
+      outline: 3px solid var(--color-purple-700);
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .achievement-filter__select {
+      transition: none;
+    }
+  }
+
+  /* Contrast mode support */
+  @media (prefers-contrast: more) {
+    .achievement-filter__select {
+      border-width: 3px;
+    }
+
+    .achievement-filter__select:focus {
+      outline: 4px solid var(--color-purple-700);
+      outline-offset: 2px;
+    }
+  }
+
+  /* Screen-reader only class */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Achievement filter actions and keyboard shortcuts */
+  .achievement-filter__actions {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    flex-wrap: wrap;
+  }
+
+  .achievement-filter__reset,
+  .achievement-filter__help-button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-gray-700);
+    border: 2px solid var(--color-gray-600);
+    border-radius: var(--border-radius-md);
+    color: var(--color-white);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    min-height: 44px; /* Minimum touch target size for WCAG AAA */
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .achievement-filter__reset:hover,
+  .achievement-filter__help-button:hover {
+    background-color: var(--color-gray-650);
+    border-color: var(--color-purple-400);
+  }
+
+  .achievement-filter__reset:focus,
+  .achievement-filter__help-button:focus {
+    outline: 3px solid var(--color-purple-300);
+    border-color: var(--color-purple-400);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.25);
+  }
+
+  .achievement-filter__reset:focus,
+  .achievement-filter__help-button:focus {
+    outline: none;
+    border-color: var(--color-purple-500);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.6);
+  }
+
+  .achievement-filter__reset:focus-visible,
+  .achievement-filter__help-button:focus-visible {
+    outline: 3px solid var(--color-purple-500);
+    outline-offset: 2px;
+  }
+
+  /* Keyboard shortcuts panel */
+  .achievement-filter__keyboard-shortcuts {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: var(--color-gray-700);
+    border-radius: var(--border-radius-md);
+    border-left: 4px solid var(--color-purple-500);
+  }
+
+  .achievement-filter__keyboard-shortcuts {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background-color: var(--color-gray-750);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-gray-600);
+  }
+
+  .achievement-filter__shortcuts-title {
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-md);
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  .achievement-filter__shortcuts-title {
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-lg);
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  .achievement-filter__shortcuts-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+    margin: 0;
+  }
+
+  .achievement-filter__shortcuts-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+    margin: 0;
+  }
+
+  .achievement-filter__shortcut-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  .achievement-filter__shortcut-item {
+    display: grid;
+    grid-template-columns: minmax(120px, auto) 1fr;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-gray-700);
+  }
+
+  .achievement-filter__shortcut-item:last-child {
+    border-bottom: none;
+  }
+
+  .achievement-filter__shortcut-key {
+    font-weight: 600;
+    color: var(--color-purple-300);
+  }
+
+  .achievement-filter__shortcut-key {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-200);
+  }
+
+  .achievement-filter__shortcut-key kbd {
+    display: inline-block;
+    padding: 0.2em 0.5em;
+    background-color: var(--color-gray-800);
+    border: 1px solid var(--color-gray-600);
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 2px 0 var(--color-gray-600);
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .achievement-filter__shortcut-key kbd {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--color-gray-700);
+    border: 1px solid var(--color-gray-600);
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 2px 0 var(--color-gray-800);
+    color: var(--color-gray-200);
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    line-height: 1;
+    min-width: 1.5em;
+    text-align: center;
+  }
+
+  .achievement-filter__shortcut-description {
+    margin: 0;
+    color: var(--color-text-body);
+  }
+
+  .achievement-filter__shortcut-description {
+    margin: 0;
+    color: var(--color-text-body);
+    font-size: var(--font-size-sm);
+  }
+
+  /* Filter counts */
+  .achievement-filter__count {
+    display: inline-block;
+    margin-left: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-400);
+  }
+
+  .achievement-filter__count {
+    display: inline-block;
+    margin-left: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-300);
+  }
+
+  @media (min-width: 768px) {
+    .achievement-filter__shortcuts-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .achievement-filter__container {
+      flex-direction: row;
+      gap: var(--spacing-xl);
+    }
+
+    .achievement-filter__shortcuts-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    .achievement-filter__reset,
+    .achievement-filter__help-button {
+      background-color: var(--color-white);
+      border-color: var(--color-gray-400);
+      color: var(--color-gray-900);
+    }
+
+    .achievement-filter__reset:hover,
+    .achievement-filter__help-button:hover {
+      background-color: var(--color-gray-100);
+    }
+
+    .achievement-filter__keyboard-shortcuts {
+      background-color: var (--color-gray-100);
+    }
+
+    .achievement-filter__shortcut-key kbd {
+      background-color: var(--color-white);
+      border-color: var(--color-gray-300);
+      box-shadow: 0 2px 0 var(--color-gray-300);
+    }
+
+    .achievement-filter__count {
+      color: var(--color-gray-600);
+    }
+  }
+
+  /* Ensure high contrast mode support */
+  @media (forced-colors: active) {
+    .achievement-filter__select,
+    .achievement-filter__reset,
+    .achievement-filter__help-button {
+      border: 2px solid CanvasText;
+    }
+
+    .achievement-filter__select:focus,
+    .achievement-filter__reset:focus,
+    .achievement-filter__help-button:focus {
+      outline: 3px solid Highlight;
+    }
+  }
+
+  /* Support for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .achievement-filter__select,
+    .achievement-filter__reset,
+    .achievement-filter__help-button {
+      transition: none;
+    }
+  }
+</style>

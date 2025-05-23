@@ -550,6 +550,14 @@ export default {
   "api.errors.unknown_error": "Error desconocido en la API de puntuaciones altas",
   "api.errors.highscores_retrieval_message": "Error al recuperar las puntuaciones altas",
 
+  "achievements.filter.reset_aria": "Restablecer filtros",
+  "achievements.filter.keyboard_shortcuts": "Atajos de teclado",
+  "achievements.filter.available_shortcuts": "Atajos disponibles",
+  "achievements.filter.reset_filters": "Restablecer filtros",
+  "achievements.filter.focus_status": "Enfocar filtro de estado",
+  "achievements.filter.focus_category": "Enfocar filtro de categoría",
+  "achievements.filter.toggle_keyboard_help": "Mostrar/ocultar ayuda de teclado",
+
   // Claves adicionales del juego de cronología
   "game.chronology.meta.description": "Juego de Cronología Musical:",
   "game.meta.description.prefix": "Juega",

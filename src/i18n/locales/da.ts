@@ -548,6 +548,14 @@ export default {
   "game.chronology.move.down": "Flyt ned",
   "game.time.extend": "Forlæng tid",
   "game.time.extend.again": "Forlæng igen",
+  "achievements.filter.reset_aria": "Nulstil filtre",
+  "achievements.filter.keyboard_shortcuts": "Tastaturgenveje",
+  "achievements.filter.available_shortcuts": "Tilgængelige genveje",
+  "achievements.filter.reset_filters": "Nulstil filtre",
+  "achievements.filter.focus_status": "Fokuser på statusfilter",
+  "achievements.filter.focus_category": "Fokuser på kategorifilter",
+  "achievements.filter.toggle_keyboard_help": "Vis/skjul tastaturhjælp",
+
   "game.time.extended": "Tid forlænget med 5 sekunder",
   "game.time.before.end": "Forlæng før spilslut",
 };

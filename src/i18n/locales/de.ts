@@ -549,6 +549,16 @@ export default {
   "api.errors.unknown_error": "Unbekannter Fehler in der Highscores-API",
   "api.errors.highscores_retrieval_message": "Fehler beim Abrufen der Highscores",
 
+  // Achievements Filter
+  "achievements.filter.reset": "Zurücksetzen",
+  "achievements.filter.reset_aria": "Filter zurücksetzen",
+  "achievements.filter.keyboard_shortcuts": "Tastenkürzel",
+  "achievements.filter.available_shortcuts": "Verfügbare Tastenkürzel",
+  "achievements.filter.reset_filters": "Filter zurücksetzen",
+  "achievements.filter.focus_status": "Status-Filter fokussieren",
+  "achievements.filter.focus_category": "Kategorie-Filter fokussieren",
+  "achievements.filter.toggle_keyboard_help": "Tastenkürzel-Hilfe ein-/ausblenden",
+
   // Zusätzliche Chronologie-Spiel-Schlüssel
   "game.chronology.meta.description": "Musik-Chronologie Spiel:",
   "game.meta.description.prefix": "Spiele",

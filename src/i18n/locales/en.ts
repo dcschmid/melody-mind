@@ -529,6 +529,16 @@ export default {
   "api.errors.unknown_error": "Unknown error in highscores API",
   "api.errors.highscores_retrieval_message": "Error retrieving highscores",
 
+  // Achievements Filter
+  "achievements.filter.reset": "Reset",
+  "achievements.filter.reset_aria": "Reset filters",
+  "achievements.filter.keyboard_shortcuts": "Keyboard shortcuts",
+  "achievements.filter.available_shortcuts": "Available shortcuts",
+  "achievements.filter.reset_filters": "Reset filters",
+  "achievements.filter.focus_status": "Focus status filter",
+  "achievements.filter.focus_category": "Focus category filter",
+  "achievements.filter.toggle_keyboard_help": "Toggle keyboard help",
+
   // Additional Chronology Game Keys
   "game.chronology.meta.description": "Music Chronology Game:",
   "game.meta.description.prefix": "Play",
